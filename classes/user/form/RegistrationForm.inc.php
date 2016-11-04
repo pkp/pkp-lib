@@ -32,8 +32,8 @@ class RegistrationForm extends Form {
 	/**
 	 * Constructor.
 	 */
-	function RegistrationForm($site) {
-		parent::Form('frontend/pages/userRegister.tpl');
+	function __construct($site) {
+		parent::__construct('frontend/pages/userRegister.tpl');
 
 		// Validation checks for this form
 		$this->addCheck(new FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', array(DAORegistry::getDAO('UserDAO'), 'userExistsByUsername'), array(), true));

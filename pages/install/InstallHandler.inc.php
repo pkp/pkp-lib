@@ -21,8 +21,8 @@ class InstallHandler extends Handler {
 	/**
 	 * Constructor
 	 */
-	function InstallHandler() {
-		parent::Handler();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

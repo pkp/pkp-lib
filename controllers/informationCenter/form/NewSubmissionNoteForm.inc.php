@@ -23,8 +23,8 @@ class NewSubmissionNoteForm extends NewNoteForm {
 	/**
 	 * Constructor.
 	 */
-	function NewSubmissionNoteForm($submissionId) {
-		parent::NewNoteForm();
+	function __construct($submissionId) {
+		parent::__construct();
 
 		$this->submissionId = $submissionId;
 	}

@@ -35,8 +35,8 @@ class QueryNoteForm extends Form {
 	 * @param $user User The current user ID
 	 * @param $noteId int The note ID to edit, or null for new.
 	 */
-	function QueryNoteForm($actionArgs, $query, $user, $noteId = null) {
-		parent::Form('controllers/grid/queries/form/queryNoteForm.tpl');
+	function __construct($actionArgs, $query, $user, $noteId = null) {
+		parent::__construct('controllers/grid/queries/form/queryNoteForm.tpl');
 		$this->_actionArgs = $actionArgs;
 		$this->setQuery($query);
 

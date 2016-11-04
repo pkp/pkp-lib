@@ -24,8 +24,8 @@ class SubmissionArtworkFileDAODelegate extends SubmissionFileDAODelegate {
 	/**
 	 * Constructor
 	 */
-	function SubmissionArtworkFileDAODelegate() {
-		parent::SubmissionFileDAODelegate();
+	function __construct() {
+		parent::__construct();
 	}
 
 

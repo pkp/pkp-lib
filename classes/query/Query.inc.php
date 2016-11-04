@@ -20,8 +20,8 @@ class Query extends DataObject {
 	/**
 	 * Constructor.
 	 */
-	function Query() {
-		parent::DataObject();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

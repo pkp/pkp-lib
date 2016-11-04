@@ -30,8 +30,8 @@ class EventAction extends LinkActionRequest {
 	 * @param $targetSelector string Selector for target to receive event.
 	 * @param $eventName string Name of Javascript event to trigger.
 	 */
-	function EventAction($targetSelector, $eventName, $options = array()) {
-		parent::LinkActionRequest();
+	function __construct($targetSelector, $eventName, $options = array()) {
+		parent::__construct();
 		$this->targetSelector = $targetSelector;
 		$this->eventName = $eventName;
 		$this->options = $options;

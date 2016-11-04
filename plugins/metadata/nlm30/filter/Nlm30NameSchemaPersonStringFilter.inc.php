@@ -30,7 +30,7 @@ class Nlm30NameSchemaPersonStringFilter extends Nlm30PersonStringFilter {
 	 * @param $template string default: DRIVER guidelines 2.0 name template
 	 *  Possible template variables are %surname%, %suffix%, %prefix%, %initials%, %firstname%
 	 */
-	function Nlm30NameSchemaPersonStringFilter($filterMode = PERSON_STRING_FILTER_SINGLE, $template = '%surname%%suffix%,%initials% (%firstname%)%prefix%', $delimiter = '; ') {
+	function __construct($filterMode = PERSON_STRING_FILTER_SINGLE, $template = '%surname%%suffix%,%initials% (%firstname%)%prefix%', $delimiter = '; ') {
 		$this->setDisplayName('NLM Name Schema to string conversion');
 
 		assert(!empty($template) && is_string($template));
@@ -42,7 +42,7 @@ class Nlm30NameSchemaPersonStringFilter extends Nlm30PersonStringFilter {
 		$outputType = 'primitive::string';
 		if ($filterMode == PERSON_STRING_FILTER_MULTIPLE) $inputType .= '[]';
 
-		parent::Nlm30PersonStringFilter($inputType, $outputType, $filterMode);
+		parent::__construct($inputType, $outputType, $filterMode);
 	}
 
 	//

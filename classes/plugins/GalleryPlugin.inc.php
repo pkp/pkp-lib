@@ -23,8 +23,8 @@ class GalleryPlugin extends DataObject {
 	/**
 	 * Constructor
 	 */
-	function GalleryPlugin() {
-		parent::DataObject();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

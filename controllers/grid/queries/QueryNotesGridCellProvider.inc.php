@@ -23,8 +23,8 @@ class QueryNotesGridCellProvider extends DataObjectGridCellProvider {
 	 * Constructor
 	 * @param $submission Submission
 	 */
-	function QueryNotesGridCellProvider($submission) {
-		parent::DataObjectGridCellProvider();
+	function __construct($submission) {
+		parent::__construct();
 		$this->_submission = $submission;
 	}
 

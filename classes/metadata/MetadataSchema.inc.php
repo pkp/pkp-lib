@@ -97,7 +97,7 @@ class MetadataSchema {
 	 *  this schema. A single association type can be given as
 	 *  a scalar.
 	 */
-	function MetadataSchema($name, $namespace, $classname, $assocTypes) {
+	function __construct($name, $namespace, $classname, $assocTypes) {
 		assert(is_string($name) && is_string($namespace) && is_string($classname));
 		assert(is_array($assocTypes) || is_integer($assocTypes));
 

@@ -19,8 +19,8 @@ abstract class GatewayPlugin extends Plugin {
 	/**
 	 * Constructor
 	 */
-	function GatewayPlugin() {
-		parent::Plugin();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

@@ -19,8 +19,8 @@ class HelpHandler extends Handler {
 	/**
 	 * Constructor
 	 */
-	function HelpHandler() {
-		parent::Handler();
+	function __construct() {
+		parent::__construct();
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
 	}
 

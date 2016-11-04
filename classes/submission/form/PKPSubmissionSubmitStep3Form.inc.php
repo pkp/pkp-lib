@@ -29,8 +29,8 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 	 * @param $submission Submission
 	 * @param $metadataFormImplementation MetadataFormImplementation
 	 */
-	function PKPSubmissionSubmitStep3Form($context, $submission, $metadataFormImplementation) {
-		parent::SubmissionSubmitForm($context, $submission, 3);
+	function __construct($context, $submission, $metadataFormImplementation) {
+		parent::__construct($context, $submission, 3);
 
 		$this->_metadataFormImplem = $metadataFormImplementation;
 		$this->_metadataFormImplem->addChecks($submission);

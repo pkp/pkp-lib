@@ -19,8 +19,8 @@ class SubmissionDocumentsFilesGridDataProvider extends CategoryGridDataProvider 
 	/**
 	 * Constructor
 	 */
-	function SubmissionDocumentsFilesGridDataProvider() {
-		parent::CategoryGridDataProvider();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

@@ -27,7 +27,7 @@ class XSLTransformationFilter extends PersistableFilter {
 	 * be an XML format. See the XMLTypeDescription class for
 	 * more details how to enable XML validation.
 	 */
-	function XSLTransformationFilter($filterGroup, $displayName = 'XSL Transformation') {
+	function __construct($filterGroup, $displayName = 'XSL Transformation') {
 		// Check that we only get xml input, the output type is arbitrary.
 		if (!substr($filterGroup->getInputType(), 0, 5) == 'xml::') fatalError('XSL filters need XML as input.');
 
@@ -39,7 +39,7 @@ class XSLTransformationFilter extends PersistableFilter {
 
 		$this->setDisplayName($displayName);
 
-		parent::PersistableFilter($filterGroup);
+		parent::__construct($filterGroup);
 	}
 
 

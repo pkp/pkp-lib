@@ -181,7 +181,7 @@ class LocaleEmailTemplate extends BaseEmailTemplate {
 	 * Constructor.
 	 */
 	function LocaleEmailTemplate() {
-		parent::BaseEmailTemplate();
+		parent::__construct();
 		$this->localeData = array();
 	}
 
@@ -285,8 +285,8 @@ class EmailTemplate extends BaseEmailTemplate {
 	/**
 	 * Constructor.
 	 */
-	function EmailTemplate() {
-		parent::BaseEmailTemplate();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

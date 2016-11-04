@@ -23,8 +23,8 @@ class ReviewAssignmentDAO extends DAO {
 	/**
 	 * Constructor.
 	 */
-	function ReviewAssignmentDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 		$this->userDao = DAORegistry::getDAO('UserDAO');
 	}
 

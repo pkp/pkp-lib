@@ -20,9 +20,9 @@ class FinalDraftFilesGridHandler extends FileListGridHandler {
 	 * Constructor
 	 *  FILE_GRID_* capabilities set.
 	 */
-	function FinalDraftFilesGridHandler() {
+	function __construct() {
 		import('lib.pkp.controllers.grid.files.final.FinalDraftFilesGridDataProvider');
-		parent::FileListGridHandler(
+		parent::__construct(
 			new FinalDraftFilesGridDataProvider(),
 			null,
 			FILE_GRID_DELETE|FILE_GRID_EDIT|FILE_GRID_MANAGE|FILE_GRID_VIEW_NOTES

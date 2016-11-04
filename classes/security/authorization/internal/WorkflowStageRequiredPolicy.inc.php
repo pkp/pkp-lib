@@ -23,8 +23,8 @@ class WorkflowStageRequiredPolicy extends AuthorizationPolicy {
 	 * Constructor
 	 * @param $stageId integer One of the WORKFLOW_STAGE_ID_* constants.
 	 */
-	function WorkflowStageRequiredPolicy($stageId) {
-		parent::AuthorizationPolicy('user.authorization.workflowStageRequired');
+	function __construct($stageId) {
+		parent::__construct('user.authorization.workflowStageRequired');
 		$this->_stageId = $stageId;
 	}
 

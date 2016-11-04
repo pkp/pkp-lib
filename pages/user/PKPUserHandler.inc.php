@@ -19,8 +19,8 @@ class PKPUserHandler extends Handler {
 	/**
 	 * Constructor
 	 */
-	function PKPUserHandler() {
-		parent::Handler();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

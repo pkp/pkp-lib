@@ -20,7 +20,7 @@ class AnnouncementSettingsForm extends ContextSettingsForm {
 	/**
 	 * Constructor.
 	 */
-	function AnnouncementSettingsForm($wizardMode = false) {
+	function __construct($wizardMode = false) {
 		$settings = array(
 			'enableAnnouncements' => 'bool',
 			'enableAnnouncementsHomepage' => 'bool',
@@ -28,7 +28,7 @@ class AnnouncementSettingsForm extends ContextSettingsForm {
 			'announcementsIntroduction' => 'string',
 		);
 
-		parent::ContextSettingsForm($settings, 'controllers/tab/settings/announcements/form/announcementSettingsForm.tpl', $wizardMode);
+		parent::__construct($settings, 'controllers/tab/settings/announcements/form/announcementSettingsForm.tpl', $wizardMode);
 	}
 
 

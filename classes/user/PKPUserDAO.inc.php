@@ -32,8 +32,8 @@ class PKPUserDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function PKPUserDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

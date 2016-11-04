@@ -25,10 +25,10 @@ class AuthorGridRow extends GridRow {
 	/**
 	 * Constructor
 	 */
-	function AuthorGridRow($submission, $readOnly = false) {
+	function __construct($submission, $readOnly = false) {
 		$this->_submission = $submission;
 		$this->_readOnly = $readOnly;
-		parent::GridRow();
+		parent::__construct();
 	}
 
 	//

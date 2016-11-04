@@ -20,8 +20,8 @@ class ExportableSubmissionsGridRow extends GridRow {
 	/**
 	 * Constructor
 	 */
-	function ExportableSubmissionsGridRow() {
-		parent::GridRow();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

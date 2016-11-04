@@ -21,8 +21,8 @@ class QueuedPayment extends Payment {
 	/**
 	 * @copydoc Payment::Payment
 	 */
-	function QueuedPayment($amount, $currencyCode, $userId = null, $assocId = null) {
-		parent::Payment($amount, $currencyCode, $userId, $assocId);
+	function __construct($amount, $currencyCode, $userId = null, $assocId = null) {
+		parent::__construct($amount, $currencyCode, $userId, $assocId);
 	}
 }
 

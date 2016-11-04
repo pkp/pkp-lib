@@ -21,7 +21,7 @@ class CountryDAO extends DAO {
 	/**
 	 * Constructor.
 	 */
-	function CountryDAO() {
+	function __construct() {
 		// Parent constructor intentionally not called
 	}
 

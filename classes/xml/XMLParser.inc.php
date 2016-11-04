@@ -40,7 +40,7 @@ class XMLParser {
 	 * Constructor.
 	 * Initialize parser and set parser options.
 	 */
-	function XMLParser() {
+	function __construct() {
 		// magic_quotes_runtime must be disabled for XML parsing
 		$this->magicQuotes = get_magic_quotes_runtime();
 		if ($this->magicQuotes) set_magic_quotes_runtime(0);

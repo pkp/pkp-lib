@@ -45,7 +45,7 @@ class FormValidator {
 	 * @param $message string the error message for validation failures (i18n key)
 	 * @param $validator Validator the validator used to validate this form field (optional)
 	 */
-	function FormValidator(&$form, $field, $type, $message, $validator = null) {
+	function __construct(&$form, $field, $type, $message, $validator = null) {
 		$this->_form =& $form;
 		$this->_field = $field;
 		$this->_type = $type;

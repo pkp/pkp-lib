@@ -20,8 +20,8 @@ class NotificationHandler extends Handler {
 	/**
 	 * Constructor
 	 */
-	function NotificationHandler() {
-		parent::Handler();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

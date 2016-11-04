@@ -20,12 +20,12 @@ class QueryNoteFilesGridHandler extends FileListGridHandler {
 	/**
 	 * Constructor
 	 */
-	function QueryNoteFilesGridHandler() {
+	function __construct() {
 		// import app-specific grid data provider for access policies.
 		$request = Application::getRequest();
 		$stageId = $request->getUservar('stageId'); // authorized in authorize() method.
 		import('lib.pkp.controllers.grid.files.query.QueryNoteFilesGridDataProvider');
-		parent::FileListGridHandler(
+		parent::__construct(
 			new QueryNoteFilesGridDataProvider($request->getUserVar('noteId')),
 			$stageId,
 			FILE_GRID_ADD|FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES|FILE_GRID_EDIT

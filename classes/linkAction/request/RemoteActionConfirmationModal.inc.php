@@ -39,8 +39,8 @@ class RemoteActionConfirmationModal extends ConfirmationModal {
 	 * @param $canClose boolean (optional) Whether the modal will
 	 *  have a close button.
 	 */
-	function RemoteActionConfirmationModal($session, $dialogText, $title = null, $remoteAction = null, $titleIcon = null, $okButton = null, $cancelButton = null, $canClose = true) {
-		parent::ConfirmationModal($dialogText, $title, $titleIcon, $okButton, $cancelButton, $canClose);
+	function __construct($session, $dialogText, $title = null, $remoteAction = null, $titleIcon = null, $okButton = null, $cancelButton = null, $canClose = true) {
+		parent::__construct($dialogText, $title, $titleIcon, $okButton, $cancelButton, $canClose);
 
 		$this->_remoteAction = $remoteAction;
 		$this->_csrfToken = $session->getCSRFToken();

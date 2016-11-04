@@ -34,8 +34,8 @@ class ReviewerForm extends Form {
 	 * @param $submission Submission
 	 * @param $reviewRound ReviewRound
 	 */
-	function ReviewerForm($submission, $reviewRound) {
-		parent::Form('controllers/grid/users/reviewer/form/defaultReviewerForm.tpl');
+	function __construct($submission, $reviewRound) {
+		parent::__construct('controllers/grid/users/reviewer/form/defaultReviewerForm.tpl');
 		$this->setSubmission($submission);
 		$this->setReviewRound($reviewRound);
 

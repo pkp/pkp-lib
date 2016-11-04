@@ -21,8 +21,8 @@ class ReviewRevisionsGridDataProvider extends ReviewGridDataProvider {
 	/**
 	 * Constructor
 	 */
-	function ReviewRevisionsGridDataProvider() {
-		parent::ReviewGridDataProvider(SUBMISSION_FILE_REVIEW_REVISION);
+	function __construct() {
+		parent::__construct(SUBMISSION_FILE_REVIEW_REVISION);
 	}
 
 

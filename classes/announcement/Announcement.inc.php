@@ -23,8 +23,8 @@ class Announcement extends DataObject {
 	/**
 	 * Constructor
 	 */
-	function Announcement() {
-		parent::DataObject();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

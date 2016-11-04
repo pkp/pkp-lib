@@ -22,8 +22,8 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate {
 	 * Constructor.
 	 * @param $notificationType int NOTIFICATION_TYPE_...
 	 */
-	function PendingRevisionsNotificationManager($notificationType) {
-		parent::NotificationManagerDelegate($notificationType);
+	function __construct($notificationType) {
+		parent::__construct($notificationType);
 	}
 
 	/**

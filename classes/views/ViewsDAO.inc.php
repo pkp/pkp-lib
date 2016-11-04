@@ -21,8 +21,8 @@ class ViewsDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function ViewsDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

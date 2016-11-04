@@ -21,8 +21,8 @@ class PKPReviewerHandler extends Handler {
 	/**
 	 * Constructor
 	 */
-	function PKPReviewerHandler() {
-		parent::Handler();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

@@ -19,8 +19,8 @@ class PreparedEmailsGridRow extends GridRow {
 	/**
 	 * Constructor
 	 */
-	function PreparedEmailsGridRow() {
-		parent::GridRow();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

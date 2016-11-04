@@ -23,13 +23,13 @@ class PlainTextReferencesListFilter extends TemplateBasedReferencesListFilter {
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function PlainTextReferencesListFilter($filterGroup) {
+	function __construct($filterGroup) {
 		// Add the persistable filter settings.
 		import('lib.pkp.classes.filter.SetFilterSetting');
 		$this->addSetting(new SetFilterSetting('ordering', null, null,
 				array(REFERENCES_LIST_ORDERING_ALPHABETICAL, REFERENCES_LIST_ORDERING_NUMERICAL)));
 
-		parent::TemplateBasedReferencesListFilter($filterGroup);
+		parent::__construct($filterGroup);
 	}
 
 

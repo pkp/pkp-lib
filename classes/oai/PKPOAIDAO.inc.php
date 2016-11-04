@@ -24,8 +24,8 @@ abstract class PKPOAIDAO extends DAO {
  	/**
 	 * Constructor.
 	 */
-	function PKPOAIDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

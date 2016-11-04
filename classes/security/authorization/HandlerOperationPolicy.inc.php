@@ -29,8 +29,8 @@ class HandlerOperationPolicy extends AuthorizationPolicy {
 	 *  this policy is targeting.
 	 * @param $message string a message to be displayed if the authorization fails
 	 */
-	function HandlerOperationPolicy($request, $operations, $message = null) {
-		parent::AuthorizationPolicy($message);
+	function __construct($request, $operations, $message = null) {
+		parent::__construct($message);
 		$this->_request =& $request;
 
 		// Make sure a single operation doesn't have to

@@ -15,7 +15,7 @@
 
 class FileArchive {
 
-	function FileArchive() {
+	function __construct() {
 	}
 
 	/**

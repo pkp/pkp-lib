@@ -21,8 +21,8 @@ class SessionDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function SessionDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

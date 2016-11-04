@@ -41,9 +41,9 @@ class Nlm30CitationSchema extends MetadataSchema {
 	/**
 	 * Constructor
 	 */
-	function Nlm30CitationSchema() {
+	function __construct() {
 		// Configure the meta-data schema.
-		parent::MetadataSchema(
+		parent::__construct(
 			'nlm-3.0-element-citation',
 			'nlm30',
 			'lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema',

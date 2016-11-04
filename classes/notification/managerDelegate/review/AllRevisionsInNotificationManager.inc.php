@@ -21,8 +21,8 @@ class AllRevisionsInNotificationManager extends ReviewRoundNotificationManager {
 	 * Constructor.
 	 * @param $notificationType int NOTIFICATION_TYPE_...
 	 */
-	function AllRevisionsInNotificationManager($notificationType) {
-		parent::ReviewRoundNotificationManager($notificationType);
+	function __construct($notificationType) {
+		parent::__construct($notificationType);
 	}
 
 	/**

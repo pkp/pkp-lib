@@ -18,8 +18,8 @@ class Note extends DataObject {
 	/**
 	 * Constructor.
 	 */
-	function Note() {
-		parent::DataObject();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

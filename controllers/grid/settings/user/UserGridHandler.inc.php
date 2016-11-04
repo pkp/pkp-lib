@@ -26,8 +26,8 @@ class UserGridHandler extends GridHandler {
 	/**
 	 * Constructor
 	 */
-	function UserGridHandler() {
-		parent::GridHandler();
+	function __construct() {
+		parent::__construct();
 		$this->addRoleAssignment(array(
 			ROLE_ID_MANAGER),
 			array('fetchGrid', 'fetchRow', 'editUser', 'updateUser', 'updateUserRoles',

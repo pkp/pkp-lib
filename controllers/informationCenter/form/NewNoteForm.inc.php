@@ -20,8 +20,8 @@ class NewNoteForm extends Form {
 	/**
 	 * Constructor.
 	 */
-	function NewNoteForm() {
-		parent::Form('controllers/informationCenter/notes.tpl');
+	function __construct() {
+		parent::__construct('controllers/informationCenter/notes.tpl');
 
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));

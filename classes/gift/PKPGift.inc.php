@@ -29,8 +29,8 @@ class PKPGift extends DataObject {
 	/**
 	 * Constructor
 	 */
-	function PKPGift() {
-		parent::DataObject();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

@@ -23,8 +23,8 @@ class PKPMlaCitationOutputPlugin extends Plugin {
 	/**
 	 * Constructor
 	 */
-	function PKPMlaCitationOutputPlugin() {
-		parent::Plugin();
+	function __construct() {
+		parent::__construct();
 	}
 
 

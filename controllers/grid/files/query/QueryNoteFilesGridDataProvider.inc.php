@@ -24,8 +24,8 @@ class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 	 * Constructor
 	 * @param $noteId int Note ID
 	 */
-	function QueryNoteFilesGridDataProvider($noteId) {
-		parent::SubmissionFilesGridDataProvider(SUBMISSION_FILE_QUERY);
+	function __construct($noteId) {
+		parent::__construct(SUBMISSION_FILE_QUERY);
 		$this->_noteId = $noteId;
 	}
 

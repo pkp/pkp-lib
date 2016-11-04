@@ -27,7 +27,7 @@ class DBDataXMLParser {
 	/**
 	 * Constructor.
 	 */
-	function DBDataXMLParser() {
+	function __construct() {
 		$this->sql = array();
 	}
 

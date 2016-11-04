@@ -22,8 +22,8 @@ class AuthorDashboardAccessPolicy extends ContextPolicy {
 	 * @param $args array request arguments
 	 * @param $roleAssignments array
 	 */
-	function AuthorDashboardAccessPolicy($request, &$args, $roleAssignments) {
-		parent::ContextPolicy($request);
+	function __construct($request, &$args, $roleAssignments) {
+		parent::__construct($request);
 
 		$authorDashboardPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
 

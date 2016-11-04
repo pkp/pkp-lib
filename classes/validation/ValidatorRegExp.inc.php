@@ -27,8 +27,8 @@ class ValidatorRegExp extends Validator {
 	 * Constructor.
 	 * @param $regExp string the regular expression (PCRE form)
 	 */
-	function ValidatorRegExp($regExp) {
-		parent::Validator();
+	function __construct($regExp) {
+		parent::__construct();
 		$this->_regExp = $regExp;
 	}
 

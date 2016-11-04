@@ -25,8 +25,8 @@ class ContextFileManager extends PrivateFileManager {
 	 * Create a manager for handling context file uploads.
 	 * @param $context Context
 	 */
-	function ContextFileManager($contextId) {
-		parent::PrivateFileManager();
+	function __construct($contextId) {
+		parent::__construct();
 		$this->contextId = (int) $contextId;
 	}
 

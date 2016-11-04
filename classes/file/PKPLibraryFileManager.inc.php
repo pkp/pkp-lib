@@ -25,8 +25,8 @@ class PKPLibraryFileManager extends PrivateFileManager {
 	 * Constructor
 	 * @param $contextId int
 	 */
-	function PKPLibraryFileManager($contextId) {
-		parent::PrivateFileManager();
+	function __construct($contextId) {
+		parent::__construct();
 		$this->contextId = $contextId;
 	}
 

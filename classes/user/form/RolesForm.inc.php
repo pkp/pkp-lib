@@ -22,8 +22,8 @@ class RolesForm extends BaseProfileForm {
 	 * @param $template string
 	 * @param $user PKPUser
 	 */
-	function RolesForm($user) {
-		parent::BaseProfileForm('user/rolesForm.tpl', $user);
+	function __construct($user) {
+		parent::__construct('user/rolesForm.tpl', $user);
 
 		// Validation checks for this form
 	}

@@ -25,7 +25,7 @@ class DBResultRange {
 	 * Constructor.
 	 * Initialize the DBResultRange.
 	 */
-	function DBResultRange($count, $page = 1) {
+	function __construct($count, $page = 1) {
 		$this->count = $count;
 		$this->page = $page;
 	}

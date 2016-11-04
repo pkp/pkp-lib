@@ -22,8 +22,8 @@ class PKPReviewerSubmissionMetadataHandler extends SubmissionMetadataHandler {
 	/**
 	 * Constructor.
 	 */
-	function PKPReviewerSubmissionMetadataHandler() {
-		parent::SubmissionMetadataHandler();
+	function __construct() {
+		parent::__construct();
 		$this->addRoleAssignment(array(ROLE_ID_REVIEWER), array('fetch'));
 	}
 

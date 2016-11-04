@@ -24,8 +24,8 @@ class PKPUser extends Identity {
 	/**
 	 * Constructor
 	 */
-	function PKPUser() {
-		parent::Identity();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

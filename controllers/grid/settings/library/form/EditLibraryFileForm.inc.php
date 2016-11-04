@@ -28,8 +28,8 @@ class EditLibraryFileForm extends LibraryFileForm {
 	 * @param $fileType int LIBRARY_FILE_TYPE_...
 	 * @param $fileId int optional
 	 */
-	function EditLibraryFileForm($contextId, $fileId) {
-		parent::LibraryFileForm('controllers/grid/settings/library/form/editFileForm.tpl', $contextId);
+	function __construct($contextId, $fileId) {
+		parent::__construct('controllers/grid/settings/library/form/editFileForm.tpl', $contextId);
 		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO');
 		$this->libraryFile = $libraryFileDao->getById($fileId);
 

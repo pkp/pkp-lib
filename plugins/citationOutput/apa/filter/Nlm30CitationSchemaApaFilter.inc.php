@@ -24,10 +24,10 @@ class Nlm30CitationSchemaApaFilter extends Nlm30CitationSchemaCitationOutputForm
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function Nlm30CitationSchemaApaFilter($filterGroup) {
+	function __construct($filterGroup) {
 		$this->setDisplayName('APA Citation Output');
 
-		parent::Nlm30CitationSchemaCitationOutputFormatFilter($filterGroup);
+		parent::__construct($filterGroup);
 	}
 
 	//

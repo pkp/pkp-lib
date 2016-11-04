@@ -66,8 +66,8 @@ class ProcessDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function ProcessDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

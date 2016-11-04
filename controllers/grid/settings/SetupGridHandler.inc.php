@@ -19,8 +19,8 @@ class SetupGridHandler extends GridHandler {
 	/**
 	 * Constructor
 	 */
-	function SetupGridHandler() {
-		parent::GridHandler();
+	function __construct() {
+		parent::__construct();
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER),
 			array('uploadImage')

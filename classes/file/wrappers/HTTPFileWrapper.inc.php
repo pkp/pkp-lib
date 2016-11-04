@@ -27,8 +27,8 @@ class HTTPFileWrapper extends FileWrapper {
 	var $proxyUsername;
 	var $proxyPassword;
 
-	function HTTPFileWrapper($url, &$info, $redirects = 5) {
-		parent::FileWrapper($url, $info);
+	function __construct($url, &$info, $redirects = 5) {
+		parent::__construct($url, $info);
 		$this->setDefaultPort(80);
 		$this->setDefaultHost('localhost');
 		$this->setDefaultPath('/');

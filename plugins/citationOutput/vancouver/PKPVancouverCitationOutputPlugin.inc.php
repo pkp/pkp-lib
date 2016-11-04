@@ -23,8 +23,8 @@ class PKPVancouverCitationOutputPlugin extends Plugin {
 	/**
 	 * Constructor
 	 */
-	function PKPVancouverCitationOutputPlugin() {
-		parent::Plugin();
+	function __construct() {
+		parent::__construct();
 	}
 
 

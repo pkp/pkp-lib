@@ -26,8 +26,8 @@ class UserUserGroupListbuilderHandler extends ListbuilderHandler {
 	/**
 	 * Constructor
 	 */
-	function UserUserGroupListbuilderHandler() {
-		parent::ListbuilderHandler();
+	function __construct() {
+		parent::__construct();
 		$this->addRoleAssignment(
 			ROLE_ID_MANAGER,
 			array('fetch', 'fetchRow', 'fetchOptions', 'save')

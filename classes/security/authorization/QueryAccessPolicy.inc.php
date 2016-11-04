@@ -23,8 +23,8 @@ class QueryAccessPolicy extends ContextPolicy {
 	 * @param $roleAssignments array
 	 * @param $stageId int
 	 */
-	function QueryAccessPolicy($request, $args, $roleAssignments, $stageId) {
-		parent::ContextPolicy($request);
+	function __construct($request, $args, $roleAssignments, $stageId) {
+		parent::__construct($request);
 
 		// We need a valid workflow stage.
 		import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');

@@ -29,8 +29,8 @@ class UploadPluginForm extends Form {
 	 * Constructor.
 	 * @param $function string PLUGIN_ACTION_...
 	 */
-	function UploadPluginForm($function) {
-		parent::Form('controllers/grid/plugins/form/uploadPluginForm.tpl');
+	function __construct($function) {
+		parent::__construct('controllers/grid/plugins/form/uploadPluginForm.tpl');
 
 		$this->_function = $function;
 

@@ -19,8 +19,8 @@ abstract class UsersListbuilderHandler extends ListbuilderHandler {
 	/**
 	 * Constructor
 	 */
-	function UsersListbuilderHandler() {
-		parent::ListbuilderHandler();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

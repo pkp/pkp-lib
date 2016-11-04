@@ -22,8 +22,8 @@ class ReviewFormElementResponseItemListbuilderHandler extends SetupListbuilderHa
 	/**
 	 * Constructor
 	 */
-	function ReviewFormElementResponseItemListbuilderHandler() {
-		parent::SetupListbuilderHandler();
+	function __construct() {
+		parent::__construct();
 	}
 
 

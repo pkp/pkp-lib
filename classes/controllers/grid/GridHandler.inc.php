@@ -102,9 +102,9 @@ class GridHandler extends PKPHandler {
 	 *  assumes that child classes will override default method
 	 *  implementations.
 	 */
-	function GridHandler($dataProvider = null) {
+	function __construct($dataProvider = null) {
 		$this->_dataProvider = $dataProvider;
-		parent::PKPHandler();
+		parent::__construct();
 	}
 
 

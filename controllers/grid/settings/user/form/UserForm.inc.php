@@ -26,8 +26,8 @@ class UserForm extends Form {
 	 * @param $userId int optional
 	 * @param $author Author optional
 	 */
-	function UserForm($template, $userId = null) {
-		parent::Form($template);
+	function __construct($template, $userId = null) {
+		parent::__construct($template);
 
 		$this->userId = isset($userId) ? (int) $userId : null;
 

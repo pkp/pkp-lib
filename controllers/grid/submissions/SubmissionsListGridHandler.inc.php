@@ -29,8 +29,8 @@ class SubmissionsListGridHandler extends GridHandler {
 	/**
 	 * Constructor
 	 */
-	function SubmissionsListGridHandler() {
-		parent::GridHandler();
+	function __construct() {
+		parent::__construct();
 	}
 
 

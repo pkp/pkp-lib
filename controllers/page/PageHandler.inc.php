@@ -20,8 +20,8 @@ class PageHandler extends Handler {
 	/**
 	 * Constructor
 	 */
-	function PageHandler() {
-		parent::Handler();
+	function __construct() {
+		parent::__construct();
 	}
 
 

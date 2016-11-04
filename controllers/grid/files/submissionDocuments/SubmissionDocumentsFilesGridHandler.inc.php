@@ -20,9 +20,9 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler {
 	/**
 	 * Constructor
 	 */
-	function SubmissionDocumentsFilesGridHandler() {
+	function __construct() {
 
-		parent::LibraryFileGridHandler(new SubmissionDocumentsFilesGridDataProvider());
+		parent::__construct(new SubmissionDocumentsFilesGridDataProvider());
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR),
 			array(

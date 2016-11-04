@@ -18,8 +18,8 @@ class SubmissionSearchDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function SubmissionSearchDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

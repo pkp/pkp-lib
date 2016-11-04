@@ -37,8 +37,8 @@ class SubmissionFile extends PKPFile {
 	/**
 	 * Constructor.
 	 */
-	function SubmissionFile() {
-		parent::PKPFile();
+	function __construct() {
+		parent::__construct();
 	}
 
 

@@ -41,8 +41,8 @@ class MetadataTypeDescription extends ClassTypeDescription {
 	 *
 	 * @param $typeName string a fully qualified class name.
 	 */
-	function MetadataTypeDescription($typeName) {
-		parent::ClassTypeDescription($typeName);
+	function __construct($typeName) {
+		parent::__construct($typeName);
 	}
 
 	//

@@ -21,8 +21,8 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 * @param $context Context
 	 * @param $submission Submission (optional)
 	 */
-	function PKPSubmissionSubmitStep1Form($context, $submission = null) {
-		parent::SubmissionSubmitForm($context, $submission, 1);
+	function __construct($context, $submission = null) {
+		parent::__construct($context, $submission, 1);
 
 		// Validation checks for this form
 		$supportedSubmissionLocales = $context->getSupportedSubmissionLocales();

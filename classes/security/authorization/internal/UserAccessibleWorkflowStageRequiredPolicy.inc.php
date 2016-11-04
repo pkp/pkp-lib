@@ -24,8 +24,8 @@ class UserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy {
 	 * Constructor
 	 * @param $request PKPRequest
 	 */
-	function UserAccessibleWorkflowStageRequiredPolicy($request) {
-		parent::AuthorizationPolicy('user.authorization.accessibleWorkflowStage');
+	function __construct($request) {
+		parent::__construct('user.authorization.accessibleWorkflowStage');
 		$this->_request = $request;
 	}
 

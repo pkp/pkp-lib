@@ -31,9 +31,9 @@ class PKPStageParticipantNotifyForm extends Form {
 	/**
 	 * Constructor.
 	 */
-	function PKPStageParticipantNotifyForm($itemId, $itemType, $stageId, $template = null) {
+	function __construct($itemId, $itemType, $stageId, $template = null) {
 		$template = ($template != null) ? $template : 'controllers/grid/users/stageParticipant/form/notify.tpl';
-		parent::Form($template);
+		parent::__construct($template);
 		$this->_itemId = $itemId;
 		$this->_itemType = $itemType;
 		$this->_stageId = $stageId;

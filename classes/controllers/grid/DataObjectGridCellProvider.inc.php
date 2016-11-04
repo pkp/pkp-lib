@@ -26,8 +26,8 @@ class DataObjectGridCellProvider extends GridCellProvider {
 	/**
 	 * Constructor
 	 */
-	function DataObjectGridCellProvider() {
-		parent::GridCellProvider();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

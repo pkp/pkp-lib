@@ -35,10 +35,10 @@ class Nlm30CitationDemultiplexerFilter extends Filter {
 	/**
 	 * Constructor
 	 */
-	function Nlm30CitationDemultiplexerFilter() {
+	function __construct() {
 		$this->setDisplayName('Join several NLM Citation descriptions into a single citation'); // Only for internal debugging.
 
-		parent::Filter('metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)[]',
+		parent::__construct('metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)[]',
 			'class::lib.pkp.classes.citation.Citation');
 	}
 

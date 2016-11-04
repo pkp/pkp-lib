@@ -19,9 +19,9 @@ class ProductionReadyFilesGridHandler extends FileListGridHandler {
 	/**
 	 * Constructor
 	 */
-	function ProductionReadyFilesGridHandler() {
+	function __construct() {
 		import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
-		parent::FileListGridHandler(
+		parent::__construct(
 			new SubmissionFilesGridDataProvider(SUBMISSION_FILE_PRODUCTION_READY),
 			WORKFLOW_STAGE_ID_PRODUCTION,
 			FILE_GRID_ADD|FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES|FILE_GRID_EDIT

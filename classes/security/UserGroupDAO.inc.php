@@ -28,8 +28,8 @@ class UserGroupDAO extends DAO {
 	/**
 	 * Constructor.
 	 */
-	function UserGroupDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 		$this->userDao = DAORegistry::getDAO('UserDAO');
 		$this->userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO');
 	}

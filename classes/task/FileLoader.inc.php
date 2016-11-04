@@ -59,8 +59,8 @@ abstract class FileLoader extends ScheduledTask {
 	 * Constructor.
 	 * @param $args array script arguments
 	 */
-	function FileLoader($args) {
-		parent::ScheduledTask($args);
+	function __construct($args) {
+		parent::__construct($args);
 
 		// Set an initial process id and load translations (required
 		// for email notifications).

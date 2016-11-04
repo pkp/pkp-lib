@@ -20,7 +20,7 @@ class ContactForm extends ContextSettingsForm {
 	/**
 	 * Constructor.
 	 */
-	function ContactForm($wizardMode = false) {
+	function __construct($wizardMode = false) {
 		$settings = array(
 			'mailingAddress' => 'string',
 			'contactName' => 'string',
@@ -33,7 +33,7 @@ class ContactForm extends ContextSettingsForm {
 			'supportPhone' => 'string'
 		);
 
-		parent::ContextSettingsForm($settings, 'controllers/tab/settings/contact/form/contactForm.tpl', $wizardMode);
+		parent::__construct($settings, 'controllers/tab/settings/contact/form/contactForm.tpl', $wizardMode);
 
 		$this->addCheck(new FormValidator($this, 'contactName', 'required', 'manager.setup.form.contactNameRequired'));
 		$this->addCheck(new FormValidatorEmail($this, 'contactEmail', 'required', 'manager.setup.form.contactEmailRequired'));

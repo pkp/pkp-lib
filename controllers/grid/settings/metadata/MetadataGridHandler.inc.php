@@ -20,8 +20,8 @@ class MetadataGridHandler extends GridHandler {
 	/**
 	 * Constructor
 	 */
-	function MetadataGridHandler() {
-		parent::GridHandler();
+	function __construct() {
+		parent::__construct();
 	}
 
 

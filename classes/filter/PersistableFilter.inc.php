@@ -65,7 +65,7 @@ class PersistableFilter extends Filter {
 	 *
 	 * @param $filterGroup FilterGroup
 	 */
-	function PersistableFilter($filterGroup) {
+	function __construct($filterGroup) {
 		// Check and set the filter group.
 		assert(is_a($filterGroup, 'FilterGroup'));
 		$this->_filterGroup =& $filterGroup;
@@ -73,7 +73,7 @@ class PersistableFilter extends Filter {
 		// Initialize the filter.
 		$this->setParentFilterId(0);
 		$this->setIsTemplate(false);
-		parent::Filter($filterGroup->getInputType(), $filterGroup->getOutputType());
+		parent::__construct($filterGroup->getInputType(), $filterGroup->getOutputType());
 	}
 
 

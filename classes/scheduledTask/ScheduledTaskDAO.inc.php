@@ -27,8 +27,8 @@ class ScheduledTaskDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function ScheduledTaskDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

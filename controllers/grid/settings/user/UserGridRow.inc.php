@@ -25,9 +25,9 @@ class UserGridRow extends GridRow {
 	/**
 	 * Constructor
 	 */
-	function UserGridRow($oldUserId = null) {
+	function __construct($oldUserId = null) {
 		$this->_oldUserId = $oldUserId;
-		parent::GridRow();
+		parent::__construct();
 	}
 
 

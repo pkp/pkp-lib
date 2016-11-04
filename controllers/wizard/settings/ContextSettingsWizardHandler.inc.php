@@ -25,8 +25,8 @@ class ContextSettingsWizardHandler extends Handler {
 	/**
 	 * Constructor
 	 */
-	function ContextSettingsWizardHandler() {
-		parent::Handler();
+	function __construct() {
+		parent::__construct();
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER),
 			array('startWizard')

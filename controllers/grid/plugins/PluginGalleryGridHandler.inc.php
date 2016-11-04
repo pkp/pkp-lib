@@ -19,8 +19,8 @@ class PluginGalleryGridHandler extends GridHandler {
 	/**
 	 * Constructor
 	 */
-	function PluginGalleryGridHandler() {
-		parent::GridHandler();
+	function __construct() {
+		parent::__construct();
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN),
 			array('fetchGrid', 'fetchRow', 'viewPlugin')

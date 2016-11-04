@@ -65,7 +65,7 @@ class FormBuilderVocabulary {
 	 * Constructor.
 	 * @param $form object Form associated with this object
 	 */
-	function FormBuilderVocabulary($form = null) {
+	function __construct($form = null) {
 		$this->_fbvStyles = array(
 			'size' => array('SMALL' => 'SMALL', 'MEDIUM' => 'MEDIUM', 'LARGE' => 'LARGE'),
 			'height' => array('SHORT' => 'SHORT', 'MEDIUM' => 'MEDIUM', 'TALL' => 'TALL')

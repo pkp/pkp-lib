@@ -23,8 +23,8 @@ class UserSelectGridHandler extends GridHandler {
 	/**
 	 * Constructor
 	 */
-	function UserSelectGridHandler() {
-		parent::GridHandler();
+	function __construct() {
+		parent::__construct();
 		$this->addRoleAssignment(
 			array(ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER, ROLE_ID_ASSISTANT),
 			array('fetchGrid', 'fetchRows')

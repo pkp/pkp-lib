@@ -20,9 +20,9 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter {
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function NativeXmlPKPAuthorFilter($filterGroup) {
+	function __construct($filterGroup) {
 		$this->setDisplayName('Native XML author import');
-		parent::NativeImportFilter($filterGroup);
+		parent::__construct($filterGroup);
 	}
 
 	//

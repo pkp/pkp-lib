@@ -23,8 +23,8 @@ class SubmissionArtworkFile extends SubmissionFile {
 	/**
 	 * Constructor
 	 */
-	function SubmissionArtworkFile() {
-		parent::SubmissionFile();
+	function __construct() {
+		parent::__construct();
 	}
 
 

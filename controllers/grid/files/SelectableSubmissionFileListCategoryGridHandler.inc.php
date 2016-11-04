@@ -42,7 +42,7 @@ class SelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandle
 	 * @param $capabilities integer A bit map with zero or more
 	 *  FILE_GRID_* capabilities set.
 	 */
-	function SelectableSubmissionFileListCategoryGridHandler($dataProvider, $stageId, $capabilities = 0) {
+	function __construct($dataProvider, $stageId, $capabilities = 0) {
 		// the StageId can be set later if necessary.
 		if ($stageId) {
 			$this->_stageId = (int)$stageId;
@@ -50,7 +50,7 @@ class SelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandle
 
 		$this->_capabilities = new FilesGridCapabilities($capabilities);
 
-		parent::CategoryGridHandler($dataProvider);
+		parent::__construct($dataProvider);
 	}
 
 

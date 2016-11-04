@@ -21,8 +21,8 @@ class SubmissionFileAssignedReviewerAccessPolicy extends SubmissionFileBaseAcces
 	 * Constructor
 	 * @param $request PKPRequest
 	 */
-	function SubmissionFileAssignedReviewerAccessPolicy($request, $fileIdAndRevision = null) {
-		parent::SubmissionFileBaseAccessPolicy($request, $fileIdAndRevision);
+	function __construct($request, $fileIdAndRevision = null) {
+		parent::__construct($request, $fileIdAndRevision);
 	}
 
 

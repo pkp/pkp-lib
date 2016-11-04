@@ -21,8 +21,8 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 	 * @param $reviewerSubmission ReviewerSubmission
 	 * @param $reviewAssignment ReviewAssignment
 	 */
-	function ReviewerReviewStep3Form($request, $reviewerSubmission, $reviewAssignment) {
-		parent::ReviewerReviewForm($request, $reviewerSubmission, $reviewAssignment, 3);
+	function __construct($request, $reviewerSubmission, $reviewAssignment) {
+		parent::__construct($request, $reviewerSubmission, $reviewAssignment, 3);
 
 		// Validation checks for this form
 		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');

@@ -45,7 +45,7 @@ class DBConnection {
 	 * otherwise calls initCustomDBConnection with custom connection
 	 * parameters.
 	 */
-	function DBConnection() {
+	function __construct() {
 		$this->connected = false;
 
 		if (func_num_args() == 0) {

@@ -36,7 +36,7 @@ class WorldcatNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function WorldcatNlm30CitationSchemaFilter($filterGroup) {
+	function __construct($filterGroup) {
 		$this->setDisplayName('WorldCat');
 
 		// Instantiate the settings of this filter
@@ -46,7 +46,7 @@ class WorldcatNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 				FORM_VALIDATOR_OPTIONAL_VALUE);
 		$this->addSetting($apiKeySetting);
 
-		parent::Nlm30CitationSchemaFilter($filterGroup, array(NLM30_PUBLICATION_TYPE_BOOK));
+		parent::__construct($filterGroup, array(NLM30_PUBLICATION_TYPE_BOOK));
 	}
 
 	//

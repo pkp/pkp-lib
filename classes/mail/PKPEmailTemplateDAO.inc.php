@@ -19,8 +19,8 @@ class PKPEmailTemplateDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function PKPEmailTemplateDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

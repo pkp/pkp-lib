@@ -25,8 +25,8 @@ class ManagerRequiredPolicy extends AuthorizationPolicy {
 	 * Constructor
 	 * @param $request PKPRequest
 	 */
-	function ManagerRequiredPolicy($request) {
-		parent::AuthorizationPolicy('user.authorization.managerRequired');
+	function __construct($request) {
+		parent::__construct('user.authorization.managerRequired');
 		$this->_request = $request;
 	}
 

@@ -38,7 +38,7 @@ class BaseAddFileLinkAction extends LinkAction {
 	 *  upload wizard.
 	 * @param $buttonLabel string The link action's button label.
 	 */
-	function BaseAddFileLinkAction($request, $submissionId, $stageId,
+	function __construct($request, $submissionId, $stageId,
 			$uploaderRoles, $uploaderGroupIds, $actionArgs, $wizardTitle, $buttonLabel) {
 
 		// Augment the action arguments array.
@@ -61,7 +61,7 @@ class BaseAddFileLinkAction extends LinkAction {
 		);
 
 		// Configure the link action.
-		parent::LinkAction('addFile', $modal, $buttonLabel, 'add');
+		parent::__construct('addFile', $modal, $buttonLabel, 'add');
 	}
 }
 

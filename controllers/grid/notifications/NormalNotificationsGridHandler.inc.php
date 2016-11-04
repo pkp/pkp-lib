@@ -21,8 +21,8 @@ class NormalNotificationsGridHandler extends NotificationsGridHandler {
 	/**
 	 * Constructor
 	 */
-	function NormalNotificationsGridHandler() {
-		parent::NotificationsGridHandler();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

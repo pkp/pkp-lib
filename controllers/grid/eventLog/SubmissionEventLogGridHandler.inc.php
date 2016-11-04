@@ -31,8 +31,8 @@ class SubmissionEventLogGridHandler extends GridHandler {
 	/**
 	 * Constructor
 	 */
-	function SubmissionEventLogGridHandler() {
-		parent::GridHandler();
+	function __construct() {
+		parent::__construct();
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR),
 			array('fetchGrid', 'fetchRow', 'viewEmail')

@@ -26,8 +26,8 @@ class PKPGiftDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function PKPGiftDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

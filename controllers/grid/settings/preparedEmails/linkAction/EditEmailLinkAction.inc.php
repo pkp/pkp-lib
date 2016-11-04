@@ -21,7 +21,7 @@ class EditEmailLinkAction extends LinkAction {
 	 * @param $request Request
 	 * @param $emailKey string
 	 */
-	function EditEmailLinkAction($request, $emailKey = null) {
+	function __construct($request, $emailKey = null) {
 		// Create the action arguments array.
 		$actionArgs = array();
 		if($emailKey) $actionArgs['emailKey'] = $emailKey;
@@ -43,7 +43,7 @@ class EditEmailLinkAction extends LinkAction {
 			__($title), $icon);
 
 		// Configure the link action.
-		parent::LinkAction($action, $modal, __($title), $linkIcon);
+		parent::__construct($action, $modal, __($title), $linkIcon);
 	}
 }
 

@@ -60,7 +60,7 @@ define('STATISTICS_CURRENT_MONTH', 'currentMonth');
 
 abstract class PKPStatisticsHelper {
 
-	function PKPStatisticsHelper() {
+	function __construct() {
 	}
 
 	/**

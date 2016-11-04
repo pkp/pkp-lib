@@ -20,8 +20,8 @@ class DataObjectTombstoneDAO extends DAO {
 	/**
 	 * Constructor.
 	 */
-	function DataObjectTombstoneDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

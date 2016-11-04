@@ -19,7 +19,7 @@ class ItemIterator {
 	/**
 	 * Constructor
 	 */
-	function ItemIterator() {
+	function __construct() {
 	}
 
 	/**

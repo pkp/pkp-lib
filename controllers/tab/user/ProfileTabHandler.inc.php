@@ -25,8 +25,8 @@ class ProfileTabHandler extends Handler {
 	/**
 	 * Constructor
 	 */
-	function ProfileTabHandler() {
-		parent::Handler();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

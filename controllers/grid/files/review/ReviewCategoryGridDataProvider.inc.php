@@ -23,8 +23,8 @@ class ReviewCategoryGridDataProvider extends SubmissionFilesCategoryGridDataProv
 	 * @param $viewableOnly int Will be passed to the review grid data provider.
 	 * See parameter description there.
 	 */
-	function ReviewCategoryGridDataProvider($fileStage, $viewableOnly = false) {
-		parent::SubmissionFilesCategoryGridDataProvider($fileStage, array('viewableOnly' => $viewableOnly));
+	function __construct($fileStage, $viewableOnly = false) {
+		parent::__construct($fileStage, array('viewableOnly' => $viewableOnly));
 	}
 
 

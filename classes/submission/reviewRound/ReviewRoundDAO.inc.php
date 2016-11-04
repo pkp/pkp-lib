@@ -20,8 +20,8 @@ class ReviewRoundDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function ReviewRoundDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

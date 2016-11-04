@@ -25,8 +25,8 @@ abstract class PKPWorkflowHandler extends Handler {
 	/**
 	 * Constructor
 	 */
-	function PKPWorkflowHandler() {
-		parent::Handler();
+	function __construct() {
+		parent::__construct();
 	}
 
 

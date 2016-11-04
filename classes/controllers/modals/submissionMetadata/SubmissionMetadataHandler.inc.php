@@ -22,8 +22,8 @@ class SubmissionMetadataHandler extends Handler {
 	/**
 	 * Constructor.
 	 */
-	function SubmissionMetadataHandler() {
-		parent::Handler();
+	function __construct() {
+		parent::__construct();
 	}
 
 

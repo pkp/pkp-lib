@@ -30,7 +30,7 @@ class ViewReviewGuidelinesLinkAction extends LinkAction {
 	 * @param $request Request
 	 * @param $stageId int Stage ID of review assignment
 	 */
-	function ViewReviewGuidelinesLinkAction($request, $stageId) {
+	function __construct($request, $stageId) {
 		$this->_context = $request->getContext();
 		$this->_stageId = $stageId;
 
@@ -43,7 +43,7 @@ class ViewReviewGuidelinesLinkAction extends LinkAction {
 		);
 
 		// Configure the link action.
-		parent::LinkAction('viewReviewGuidelines', $viewGuidelinesModal, __('reviewer.submission.guidelines'));
+		parent::__construct('viewReviewGuidelines', $viewGuidelinesModal, __('reviewer.submission.guidelines'));
 	}
 
 	/**

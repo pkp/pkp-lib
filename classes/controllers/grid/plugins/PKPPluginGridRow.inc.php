@@ -28,11 +28,11 @@ abstract class PKPPluginGridRow extends GridRow {
 	 * @param $userRoles array
 	 * @param $contextLevel int CONTEXT_...
 	 */
-	function PKPPluginGridRow($userRoles, $contextLevel) {
+	function __construct($userRoles, $contextLevel) {
 		$this->_userRoles = $userRoles;
 		$this->_contextLevel = $contextLevel;
 
-		parent::GridRow();
+		parent::__construct();
 	}
 
 

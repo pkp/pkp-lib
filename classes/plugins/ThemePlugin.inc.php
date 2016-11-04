@@ -62,8 +62,8 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	/**
 	 * Constructor
 	 */
-	function ThemePlugin() {
-		parent::LazyLoadPlugin();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

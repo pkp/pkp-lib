@@ -21,8 +21,8 @@ abstract class PKPAuthorDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function PKPAuthorDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

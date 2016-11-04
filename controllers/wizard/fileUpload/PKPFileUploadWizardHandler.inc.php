@@ -54,8 +54,8 @@ class PKPFileUploadWizardHandler extends Handler {
 	/**
 	 * Constructor
 	 */
-	function PKPFileUploadWizardHandler() {
-		parent::Handler();
+	function __construct() {
+		parent::__construct();
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_AUTHOR, ROLE_ID_REVIEWER, ROLE_ID_ASSISTANT),
 			array(

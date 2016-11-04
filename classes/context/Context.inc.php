@@ -17,8 +17,8 @@ class Context extends DataObject {
 	/**
 	 * Constructor
 	 */
-	function Context() {
-		parent::DataObject();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

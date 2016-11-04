@@ -21,8 +21,8 @@ class ReviewFormElementDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function ReviewFormElementDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

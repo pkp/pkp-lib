@@ -25,8 +25,8 @@ class SubmissionAuthorPolicy extends AuthorizationPolicy {
 	 * Constructor
 	 * @param $request PKPRequest
 	 */
-	function SubmissionAuthorPolicy($request) {
-		parent::AuthorizationPolicy('user.authorization.submissionAuthor');
+	function __construct($request) {
+		parent::__construct('user.authorization.submissionAuthor');
 		$this->_request = $request;
 	}
 

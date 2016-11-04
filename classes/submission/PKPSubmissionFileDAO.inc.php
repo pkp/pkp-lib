@@ -44,7 +44,7 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO implements PKPPubIdPlugin
 	/**
 	 * Constructor
 	 */
-	function PKPSubmissionFileDAO() {
+	function __construct() {
 		parent::DAO();
 	}
 

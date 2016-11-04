@@ -20,9 +20,9 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function UserXmlPKPUserFilter($filterGroup) {
+	function __construct($filterGroup) {
 		$this->setDisplayName('User XML user import');
-		parent::NativeImportFilter($filterGroup);
+		parent::__construct($filterGroup);
 	}
 
 	//

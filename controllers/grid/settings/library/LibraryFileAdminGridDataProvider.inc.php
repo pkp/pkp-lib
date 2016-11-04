@@ -27,9 +27,9 @@ class LibraryFileAdminGridDataProvider extends CategoryGridDataProvider {
 	/**
 	 * Constructor
 	 */
-	function LibraryFileAdminGridDataProvider($canEdit) {
+	function __construct($canEdit) {
 		$this->_canEdit = $canEdit;
-		parent::CategoryGridDataProvider();
+		parent::__construct();
 	}
 
 

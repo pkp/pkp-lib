@@ -28,8 +28,8 @@ class Role extends DataObject {
 	 * @param $roleId for this role.  Default to null for backwards
 	 * 	compatibility
 	 */
-	function Role($roleId = null) {
-		parent::DataObject();
+	function __construct($roleId = null) {
+		parent::__construct();
 		$this->setId($roleId);
 	}
 

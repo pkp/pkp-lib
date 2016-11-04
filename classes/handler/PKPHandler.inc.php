@@ -43,7 +43,7 @@ class PKPHandler {
 	/**
 	 * Constructor
 	 */
-	function PKPHandler() {
+	function __construct() {
 	}
 
 	//

@@ -23,8 +23,8 @@ class QueryAssignedToUserAccessPolicy extends AuthorizationPolicy {
 	 * Constructor
 	 * @param $request PKPRequest
 	 */
-	function QueryAssignedToUserAccessPolicy($request) {
-		parent::AuthorizationPolicy('user.authorization.submissionQuery');
+	function __construct($request) {
+		parent::__construct('user.authorization.submissionQuery');
 		$this->_request = $request;
 	}
 

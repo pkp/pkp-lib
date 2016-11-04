@@ -25,8 +25,8 @@ class UserAccessibleWorkflowStagePolicy extends AuthorizationPolicy {
 	 * @param $stageId The one that will be checked against accessible
 	 * user workflow stages.
 	 */
-	function UserAccessibleWorkflowStagePolicy($stageId) {
-		parent::AuthorizationPolicy('user.authorization.accessibleWorkflowStage');
+	function __construct($stageId) {
+		parent::__construct('user.authorization.accessibleWorkflowStage');
 		$this->_stageId = $stageId;
 	}
 

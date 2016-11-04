@@ -25,8 +25,8 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 	/**
 	 * Constructor
 	 */
-	function StageParticipantGridHandler() {
-		parent::CategoryGridHandler();
+	function __construct() {
+		parent::__construct();
 
 		// Assistants get read-only access
 		$this->addRoleAssignment(

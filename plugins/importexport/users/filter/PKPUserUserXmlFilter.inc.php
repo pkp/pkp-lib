@@ -20,9 +20,9 @@ class PKPUserUserXmlFilter extends NativeExportFilter {
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function PKPUserUserXmlFilter($filterGroup) {
+	function __construct($filterGroup) {
 		$this->setDisplayName('User XML user export');
-		parent::NativeExportFilter($filterGroup);
+		parent::__construct($filterGroup);
 	}
 
 

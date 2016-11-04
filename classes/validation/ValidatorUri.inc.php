@@ -21,8 +21,8 @@ class ValidatorUri extends ValidatorRegExp {
 	 * Constructor.
 	 * @param $allowedSchemes array
 	 */
-	function ValidatorUri($allowedSchemes = null) {
-		parent::ValidatorRegExp(ValidatorUri::getRegexp($allowedSchemes));
+	function __construct($allowedSchemes = null) {
+		parent::__construct(ValidatorUri::getRegexp($allowedSchemes));
 	}
 
 	//

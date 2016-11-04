@@ -38,7 +38,7 @@ class Nlm30CitationSchemaFilter extends PersistableFilter {
 	 * @param $filterGroup FilterGroup
 	 * @param $supportedPublicationTypes array
 	 */
-	function Nlm30CitationSchemaFilter(&$filterGroup, $supportedPublicationTypes = array()) {
+	function __construct(&$filterGroup, $supportedPublicationTypes = array()) {
 		// All NLM citation filters require XSL functionality
 		// that is only present in PHP5.
 		$this->setData('phpVersionMin', '5.0.0');
@@ -57,7 +57,7 @@ class Nlm30CitationSchemaFilter extends PersistableFilter {
 				'metadata.filters.settings.isOptional.validationMessage');
 		$this->addSetting($isOptional);
 
-		parent::PersistableFilter($filterGroup);
+		parent::__construct($filterGroup);
 	}
 
 	//

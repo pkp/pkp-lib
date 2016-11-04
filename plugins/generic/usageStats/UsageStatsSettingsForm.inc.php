@@ -24,10 +24,10 @@ class UsageStatsSettingsForm extends Form {
 	 * Constructor
 	 * @param $plugin object
 	 */
-	function UsageStatsSettingsForm($plugin) {
+	function __construct($plugin) {
 		$this->plugin = $plugin;
 
-		parent::Form($plugin->getTemplatePath(true) . 'usageStatsSettingsForm.tpl');
+		parent::__construct($plugin->getTemplatePath(true) . 'usageStatsSettingsForm.tpl');
 		$this->addCheck(new FormValidatorCustom($this, 'dataPrivacyOption', FORM_VALIDATOR_OPTIONAL_VALUE, 'plugins.generic.usageStats.settings.dataPrivacyOption.requiresSalt', array(&$this, '_dependentFormFieldIsSet'), array(&$this, 'saltFilepath')));
 		$this->addCheck(new FormValidatorCustom($this, 'dataPrivacyOption', FORM_VALIDATOR_OPTIONAL_VALUE, 'plugins.generic.usageStats.settings.dataPrivacyOption.excludesRegion', array(&$this, '_dependentFormFieldIsSet'), array(&$this, 'selectedOptionalColumns', STATISTICS_DIMENSION_REGION), true));
 		$this->addCheck(new FormValidatorCustom($this, 'dataPrivacyOption', FORM_VALIDATOR_OPTIONAL_VALUE, 'plugins.generic.usageStats.settings.dataPrivacyOption.excludesCity', array(&$this, '_dependentFormFieldIsSet'), array(&$this, 'selectedOptionalColumns', STATISTICS_DIMENSION_CITY), true));

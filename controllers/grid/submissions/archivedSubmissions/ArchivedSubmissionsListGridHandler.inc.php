@@ -25,8 +25,8 @@ class ArchivedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 	/**
 	 * Constructor
 	 */
-	function ArchivedSubmissionsListGridHandler() {
-		parent::SubmissionsListGridHandler();
+	function __construct() {
+		parent::__construct();
 		$this->addRoleAssignment(
 			array(ROLE_ID_REVIEWER, ROLE_ID_ASSISTANT, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR),
 			array('fetchGrid', 'fetchRows', 'fetchRow')

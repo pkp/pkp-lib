@@ -22,7 +22,7 @@ class OrderGridItemsFeature extends OrderItemsFeature{
 	 * Constructor.
 	 * @copydoc OrderItemsFeature::OrderItemsFeature()
 	 */
-	function OrderGridItemsFeature($overrideRowTemplate = true, $nonOrderableItemsMessage = null) {
+	function __construct($overrideRowTemplate = true, $nonOrderableItemsMessage = null) {
 		parent::OrderItemsFeature($overrideRowTemplate, $nonOrderableItemsMessage);
 	}
 

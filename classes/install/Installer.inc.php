@@ -91,7 +91,7 @@ class Installer {
 	 * @param $params array installer parameters
 	 * @param $isPlugin boolean true iff a plugin is being installed
 	 */
-	function Installer($descriptor, $params = array(), $isPlugin = false) {
+	function __construct($descriptor, $params = array(), $isPlugin = false) {
 		// Load all plugins. If any of them use installer hooks,
 		// they'll need to be loaded here.
 		PluginRegistry::loadAllPlugins();

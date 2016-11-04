@@ -28,8 +28,8 @@ class SubmissionFileBaseAccessPolicy extends AuthorizationPolicy {
 	 * @param $fileIdAndRevision string If passed, this policy will try to
 	 * get the submission file from this data.
 	 */
-	function SubmissionFileBaseAccessPolicy($request, $fileIdAndRevision = null) {
-		parent::AuthorizationPolicy('user.authorization.submissionFile');
+	function __construct($request, $fileIdAndRevision = null) {
+		parent::__construct('user.authorization.submissionFile');
 		$this->_request = $request;
 		$this->_fileIdAndRevision = $fileIdAndRevision;
 	}

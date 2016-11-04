@@ -47,8 +47,8 @@ class FormValidatorArrayCustom extends FormValidator {
 	 * @param $fields array all subfields for each item in the array, i.e. name[][foo]. If empty it is assumed that name[] is a data field
 	 * @param $isLocaleField boolean
 	 */
-	function FormValidatorArrayCustom(&$form, $field, $type, $message, $userFunction, $additionalArguments = array(), $complementReturn = false, $fields = array(), $isLocaleField = false) {
-		parent::FormValidator($form, $field, $type, $message);
+	function __construct(&$form, $field, $type, $message, $userFunction, $additionalArguments = array(), $complementReturn = false, $fields = array(), $isLocaleField = false) {
+		parent::__construct($form, $field, $type, $message);
 		$this->_fields = $fields;
 		$this->_errorFields = array();
 		$this->_isLocaleField = $isLocaleField;

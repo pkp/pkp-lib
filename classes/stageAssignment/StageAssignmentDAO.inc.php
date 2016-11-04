@@ -20,8 +20,8 @@ class StageAssignmentDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function StageAssignmentDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

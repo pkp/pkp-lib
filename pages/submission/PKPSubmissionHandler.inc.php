@@ -20,8 +20,8 @@ abstract class PKPSubmissionHandler extends Handler {
 	/**
 	 * Constructor
 	 */
-	function PKPSubmissionHandler() {
-		parent::Handler();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

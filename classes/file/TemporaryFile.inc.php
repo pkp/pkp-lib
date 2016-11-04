@@ -21,8 +21,8 @@ class TemporaryFile extends PKPFile {
 	/**
 	 * Constructor.
 	 */
-	function TemporaryFile() {
-		parent::PKPFile();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

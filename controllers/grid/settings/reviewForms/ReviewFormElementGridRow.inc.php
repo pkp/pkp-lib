@@ -19,8 +19,8 @@ class ReviewFormElementGridRow extends GridRow {
 	/**
 	 * Constructor
 	 */
-	function ReviewFormElementGridRow() {
-		parent::GridRow();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

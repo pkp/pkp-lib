@@ -34,7 +34,7 @@ class QueriesAccessHelper {
 	 * @param $authorizedContext array
 	 * @param $user User
 	 */
-	function QueriesAccessHelper($authorizedContext, $user) {
+	function __construct($authorizedContext, $user) {
 		$this->_authorizedContext = $authorizedContext;
 		$this->_user = $user;
 	}

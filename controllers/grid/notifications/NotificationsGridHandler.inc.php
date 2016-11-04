@@ -26,8 +26,8 @@ class NotificationsGridHandler extends GridHandler {
 	/**
 	 * Constructor
 	 */
-	function NotificationsGridHandler() {
-		parent::GridHandler();
+	function __construct() {
+		parent::__construct();
 	}
 
 

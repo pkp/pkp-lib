@@ -19,8 +19,8 @@ class SubmissionChecklistGridRow extends GridRow {
 	/**
 	 * Constructor
 	 */
-	function SubmissionChecklistGridRow() {
-		parent::GridRow();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

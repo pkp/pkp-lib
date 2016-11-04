@@ -23,8 +23,8 @@ class MaintenanceForm extends Form {
 	/**
 	 * Constructor.
 	 */
-	function MaintenanceForm($request, $template) {
-		parent::Form($template);
+	function __construct($request, $template) {
+		parent::__construct($template);
 		$this->_request = $request;
 		$this->addCheck(new FormValidatorPost($this));
 	}

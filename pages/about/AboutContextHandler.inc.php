@@ -19,8 +19,8 @@ class AboutContextHandler extends Handler {
 	/**
 	 * Constructor
 	 */
-	function AboutContextHandler() {
-		parent::Handler();
+	function __construct() {
+		parent::__construct();
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
 	}
 

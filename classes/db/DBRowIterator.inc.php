@@ -43,8 +43,8 @@ class DBRowIterator extends ItemIterator {
 	 * @param $dao object DAO class for factory
 	 * @param $functionName The function to call on $dao to create an object
 	 */
-	function DBRowIterator(&$records, $idFields = array()) {
-		parent::ItemIterator();
+	function __construct(&$records, $idFields = array()) {
+		parent::__construct();
 		$this->idFields = $idFields;
 
 		if (!$records || $records->EOF) {

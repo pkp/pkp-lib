@@ -32,8 +32,8 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 	/**
 	 * Constructor.
 	 */
-	function PKPUsageStatsPlugin() {
-		parent::GenericPlugin();
+	function __construct() {
+		parent::__construct();
 
 		// The upgrade and install processes will need access
 		// to constants defined in that report plugin.

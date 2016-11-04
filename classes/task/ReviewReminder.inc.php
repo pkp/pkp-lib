@@ -23,8 +23,8 @@ class ReviewReminder extends ScheduledTask {
 	/**
 	 * Constructor.
 	 */
-	function ReviewReminder() {
-		parent::ScheduledTask();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

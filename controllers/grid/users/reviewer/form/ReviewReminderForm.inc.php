@@ -22,8 +22,8 @@ class ReviewReminderForm extends Form {
 	/**
 	 * Constructor.
 	 */
-	function ReviewReminderForm($reviewAssignment) {
-		parent::Form('controllers/grid/users/reviewer/form/reviewReminderForm.tpl');
+	function __construct($reviewAssignment) {
+		parent::__construct('controllers/grid/users/reviewer/form/reviewReminderForm.tpl');
 		$this->_reviewAssignment = $reviewAssignment;
 
 		// Validation checks for this form

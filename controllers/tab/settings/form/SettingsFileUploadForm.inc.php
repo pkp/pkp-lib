@@ -24,12 +24,12 @@ class SettingsFileUploadForm extends Form {
 	 * Constructor.
 	 * @param $template string
 	 */
-	function SettingsFileUploadForm($template = null) {
+	function __construct($template = null) {
 		if ($template == null) {
 			$template = 'controllers/tab/settings/form/newFileUploadForm.tpl';
 		}
 
-		parent::Form($template);
+		parent::__construct($template);
 		$this->addCheck(new FormValidator($this, 'temporaryFileId', 'required', 'manager.website.imageFileRequired'));
 	}
 

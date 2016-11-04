@@ -21,8 +21,8 @@ class LanguageGridHandler extends GridHandler {
 	/**
 	 * Constructor
 	 */
-	function LanguageGridHandler() {
-		parent::GridHandler();
+	function __construct() {
+		parent::__construct();
 		$this->addRoleAssignment(
 			ROLE_ID_MANAGER,
 			array('saveLanguageSetting', 'setContextPrimaryLocale')

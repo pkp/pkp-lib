@@ -22,8 +22,8 @@ abstract class BlockPlugin extends LazyLoadPlugin {
 	/**
 	 * Constructor
 	 */
-	function BlockPlugin() {
-		parent::LazyLoadPlugin();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/*

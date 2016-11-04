@@ -23,7 +23,7 @@ class PKPSubmissionMetadataFormImplementation {
 	 * Constructor.
 	 * @param $parentForm Form A form that can use this form.
 	 */
-	function PKPSubmissionMetadataFormImplementation($parentForm = null) {
+	function __construct($parentForm = null) {
 		assert(is_a($parentForm, 'Form'));
 		$this->_parentForm = $parentForm;
 	}

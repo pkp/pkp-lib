@@ -18,8 +18,8 @@ abstract class ContextDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function ContextDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

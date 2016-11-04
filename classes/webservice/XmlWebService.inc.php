@@ -24,8 +24,8 @@ class XmlWebService extends WebService {
 	/**
 	 * Constructor
 	 */
-	function XmlWebService() {
-		parent::WebService();
+	function __construct() {
+		parent::__construct();
 		if (extension_loaded('dom')) {
 			$this->_returnType = XSL_TRANSFORMER_DOCTYPE_DOM;
 		} else {

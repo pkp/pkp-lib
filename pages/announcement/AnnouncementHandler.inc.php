@@ -19,8 +19,8 @@ class AnnouncementHandler extends Handler {
 	/**
 	 * Constructor
 	 */
-	function AnnouncementHandler() {
-		parent::Handler();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

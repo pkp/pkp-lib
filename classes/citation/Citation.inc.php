@@ -52,11 +52,11 @@ class Citation extends DataObject {
 	 * Constructor.
 	 * @param $rawCitation string an unparsed citation string
 	 */
-	function Citation($rawCitation = null) {
+	function __construct($rawCitation = null) {
 		// Switch on meta-data adapter support.
 		$this->setHasLoadableAdapters(true);
 
-		parent::DataObject();
+		parent::__construct();
 
 		$this->setRawCitation($rawCitation); // this will set state to CITATION_RAW
 	}

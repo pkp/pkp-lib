@@ -24,8 +24,8 @@ class FilesListbuilderHandler extends ListbuilderHandler {
 	 * Constructor
 	 * @param $fileStage int File stage (or null for any)
 	 */
-	function FilesListbuilderHandler($fileStage = null) {
-		parent::ListbuilderHandler();
+	function __construct($fileStage = null) {
+		parent::__construct();
 
 		$this->_fileStage = $fileStage;
 

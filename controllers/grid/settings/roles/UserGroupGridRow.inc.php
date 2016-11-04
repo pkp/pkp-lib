@@ -20,8 +20,8 @@ class UserGroupGridRow extends GridRow {
 	/**
 	 * Constructor
 	 */
-	function UserGroupGridRow() {
-		parent::GridRow();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

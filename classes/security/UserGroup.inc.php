@@ -21,8 +21,8 @@ class UserGroup extends DataObject {
 	/**
 	 * Constructor.
 	 */
-	function UserGroup() {
-		parent::DataObject();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

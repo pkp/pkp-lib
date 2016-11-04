@@ -20,8 +20,8 @@ class NativeImportFilter extends NativeImportExportFilter {
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function NativeImportFilter($filterGroup) {
-		parent::NativeImportExportFilter($filterGroup);
+	function __construct($filterGroup) {
+		parent::__construct($filterGroup);
 	}
 
 

@@ -33,7 +33,7 @@ class OrderItemsFeature extends GridFeature{
 	 * @param $nonOrderableItemMessage string optional A translated message to be used
 	 * when user tries to move a non orderable grid item.
 	 */
-	function OrderItemsFeature($overrideRowTemplate, $nonOrderableItemMessage = null) {
+	function __construct($overrideRowTemplate, $nonOrderableItemMessage = null) {
 		parent::GridFeature('orderItems');
 
 		$this->setOverrideRowTemplate($overrideRowTemplate);

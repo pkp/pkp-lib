@@ -23,8 +23,8 @@ class PrivateFileManager extends FileManager {
 	/**
 	 * Constructor
 	 */
-	function PrivateFileManager() {
-		parent::FileManager();
+	function __construct() {
+		parent::__construct();
 		$this->filesDir = $this->getBasePath();
 	}
 

@@ -19,8 +19,8 @@ class ContextGridCellProvider extends GridCellProvider {
 	/**
 	 * Constructor
 	 */
-	function ContextGridCellProvider() {
-		parent::GridCellProvider();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

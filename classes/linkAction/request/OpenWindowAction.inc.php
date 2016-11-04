@@ -23,8 +23,8 @@ class OpenWindowAction extends LinkActionRequest {
 	 * Constructor
 	 * @param $url string Target URL
 	 */
-	function OpenWindowAction($url) {
-		parent::LinkActionRequest();
+	function __construct($url) {
+		parent::__construct();
 		$this->_url = $url;
 	}
 

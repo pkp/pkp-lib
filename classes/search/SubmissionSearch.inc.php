@@ -36,7 +36,7 @@ class SubmissionSearch {
 	/**
 	 * Constructor
 	 */
-	function SubmissionSearch() {
+	function __construct() {
 	}
 
 	/**

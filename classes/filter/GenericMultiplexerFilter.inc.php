@@ -32,8 +32,8 @@ class GenericMultiplexerFilter extends CompositeFilter {
 	 * @param $filterGroup FilterGroup
 	 * @param $displayName string
 	 */
-	function GenericMultiplexerFilter(&$filterGroup, $displayName = null) {
-		parent::CompositeFilter($filterGroup, $displayName);
+	function __construct(&$filterGroup, $displayName = null) {
+		parent::__construct($filterGroup, $displayName);
 	}
 
 

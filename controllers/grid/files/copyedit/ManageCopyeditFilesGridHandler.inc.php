@@ -19,9 +19,9 @@ class ManageCopyeditFilesGridHandler extends SelectableSubmissionFileListCategor
 	/**
 	 * Constructor
 	 */
-	function ManageCopyeditFilesGridHandler() {
+	function __construct() {
 		import('lib.pkp.controllers.grid.files.SubmissionFilesCategoryGridDataProvider');
-		parent::SelectableSubmissionFileListCategoryGridHandler(
+		parent::__construct(
 			new SubmissionFilesCategoryGridDataProvider(SUBMISSION_FILE_COPYEDIT),
 			WORKFLOW_STAGE_ID_EDITING,
 			FILE_GRID_ADD|FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES|FILE_GRID_EDIT

@@ -39,7 +39,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 	 * @param $reviewRound ReviewRound
 	 * @param $revisedFileId integer
 	 */
-	function PKPSubmissionFilesUploadBaseForm($request, $template, $submissionId, $stageId, $fileStage,
+	function __construct($request, $template, $submissionId, $stageId, $fileStage,
 			$revisionOnly = false, $reviewRound = null, $revisedFileId = null, $assocType = null, $assocId = null) {
 
 		// Check the incoming parameters.
@@ -51,7 +51,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 		}
 
 		// Initialize class.
-		parent::Form($template);
+		parent::__construct($template);
 		$this->_stageId = $stageId;
 
 		if ($reviewRound) {

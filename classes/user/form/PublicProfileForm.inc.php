@@ -26,8 +26,8 @@ class PublicProfileForm extends BaseProfileForm {
 	 * @param $template string
 	 * @param $user PKPUser
 	 */
-	function PublicProfileForm($user) {
-		parent::BaseProfileForm('user/publicProfileForm.tpl', $user);
+	function __construct($user) {
+		parent::__construct('user/publicProfileForm.tpl', $user);
 
 		// Validation checks for this form
 		$this->addCheck(new FormValidatorORCID($this, 'orcid', 'optional', 'user.orcid.orcidInvalid'));

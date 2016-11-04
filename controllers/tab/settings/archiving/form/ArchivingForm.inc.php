@@ -20,13 +20,13 @@ class ArchivingForm extends ContextSettingsForm {
 	/**
 	 * Constructor.
 	 */
-	function ArchivingForm($wizardMode = false) {
+	function __construct($wizardMode = false) {
 		$settings = array(
 			'enableLockss' => 'bool',
 			'enableClockss' => 'bool',
 		);
 
-		parent::ContextSettingsForm($settings, 'controllers/tab/settings/archiving/form/archivingForm.tpl', $wizardMode);
+		parent::__construct($settings, 'controllers/tab/settings/archiving/form/archivingForm.tpl', $wizardMode);
 	}
 
 

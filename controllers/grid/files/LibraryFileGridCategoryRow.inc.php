@@ -23,9 +23,9 @@ class LibraryFileGridCategoryRow extends GridCategoryRow {
 	/**
 	 * Constructor
 	 */
-	function LibraryFileGridCategoryRow($context) {
+	function __construct($context) {
 		$this->_context =& $context;
-		parent::GridCategoryRow();
+		parent::__construct();
 	}
 
 	//

@@ -19,10 +19,10 @@ class Version extends DataObject {
 	/**
 	 * Constructor.
 	 */
-	function Version($major, $minor, $revision, $build, $dateInstalled, $current,
+	function __construct($major, $minor, $revision, $build, $dateInstalled, $current,
 			$productType, $product, $productClassName, $lazyLoad, $sitewide) {
 
-		parent::DataObject();
+		parent::__construct();
 
 		// Initialize object
 		$this->setMajor($major);

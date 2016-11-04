@@ -33,7 +33,7 @@ class ScheduledTaskHelper {
 	 * @param $email string (optional)
 	 * @param $contactName string (optional)
 	 */
-	function ScheduledTaskHelper($email = '', $contactName = '') {
+	function __construct($email = '', $contactName = '') {
 		if (!$email || !$contactName) {
 			$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
 			$site = $siteDao->getSite(); /* @var $site Site */

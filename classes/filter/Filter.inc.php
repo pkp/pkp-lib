@@ -106,9 +106,9 @@ class Filter extends DataObject {
 	 * @param $inputType string a string representation of a TypeDescription
 	 * @param $outputType string a string representation of a TypeDescription
 	 */
-	function Filter($inputType, $outputType) {
+	function __construct($inputType, $outputType) {
 		// Initialize the filter.
-		parent::DataObject();
+		parent::__construct();
 		$this->setTransformationType($inputType, $outputType);
 	}
 

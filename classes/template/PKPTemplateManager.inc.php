@@ -67,11 +67,11 @@ class PKPTemplateManager extends Smarty {
 	 * Initialize template engine and assign basic template variables.
 	 * @param $request PKPRequest
 	 */
-	function PKPTemplateManager($request) {
+	function __construct($request) {
 		assert(is_a($request, 'PKPRequest'));
 		$this->_request = $request;
 
-		parent::Smarty();
+		parent::__construct();
 
 		// Set up Smarty configuration
 		$baseDir = Core::getBaseDir();

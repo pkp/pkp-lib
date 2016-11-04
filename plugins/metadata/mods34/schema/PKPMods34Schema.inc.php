@@ -49,11 +49,11 @@ class PKPMods34Schema extends MetadataSchema {
 	 * @param $useAuthoritiesForSubject boolean whether the subject is
 	 *  free text or controlled by vocabularies.
 	 */
-	function PKPMods34Schema($appSpecificAssocType = null, $useAuthoritiesForSubject = false) {
+	function __construct($appSpecificAssocType = null, $useAuthoritiesForSubject = false) {
 		// Configure the meta-data schema.
 		$assocTypes = array(ASSOC_TYPE_CITATION);
 		if (!is_null($appSpecificAssocType)) array_push($assocTypes, $appSpecificAssocType);
-		parent::MetadataSchema(
+		parent::__construct(
 			'mods-3.4',
 			'mods34',
 			'plugins.metadata.mods34.schema.Mods34Schema',

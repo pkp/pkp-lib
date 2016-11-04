@@ -60,7 +60,7 @@ abstract class Plugin {
 	/**
 	 * Constructor
 	 */
-	function Plugin() {
+	function __construct() {
 	}
 
 	/*

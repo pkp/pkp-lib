@@ -20,8 +20,8 @@ class QueuedPaymentDAO extends DAO {
 	/**
 	 * Constructor.
 	 */
-	function QueuedPaymentDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

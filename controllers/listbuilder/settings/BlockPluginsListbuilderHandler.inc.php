@@ -19,8 +19,8 @@ class BlockPluginsListbuilderHandler extends MultipleListsListbuilderHandler {
 	/**
 	 * Constructor
 	 */
-	function BlockPluginsListbuilderHandler() {
-		parent::MultipleListsListbuilderHandler();
+	function __construct() {
+		parent::__construct();
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN),
 			array('fetch')

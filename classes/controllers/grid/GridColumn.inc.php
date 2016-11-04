@@ -43,13 +43,13 @@ class GridColumn extends GridBodyElement {
 	 * @param $cellProvider GridCellProvider Optional grid cell provider for this column
 	 * @param $flags array Optional set of flags for this grid column
 	 */
-	function GridColumn($id = '', $title = null, $titleTranslated = null,
+	function __construct($id = '', $title = null, $titleTranslated = null,
 			$template = null, $cellProvider = null, $flags = array()) {
 
 		// Use default template if none specified
 		if ($template === null) $template = 'controllers/grid/gridCell.tpl';
 
-		parent::GridBodyElement($id, $cellProvider, $flags);
+		parent::__construct($id, $cellProvider, $flags);
 
 		$this->_title = $title;
 		$this->_titleTranslated = $titleTranslated;

@@ -24,7 +24,7 @@ class Validator {
 	/**
 	 * Constructor.
 	 */
-	function Validator() {
+	function __construct() {
 	}
 
 	/**

@@ -23,7 +23,7 @@ class PreparedEmailsGridHandler extends GridHandler {
 	/**
 	 * Constructor
 	 */
-	function PreparedEmailsGridHandler() {
+	function __construct() {
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER),
 			array(
@@ -32,7 +32,7 @@ class PreparedEmailsGridHandler extends GridHandler {
 				'disableEmail', 'enableEmail', 'deleteCustomEmail'
 			)
 		);
-		parent::GridHandler();
+		parent::__construct();
 	}
 
 	/**

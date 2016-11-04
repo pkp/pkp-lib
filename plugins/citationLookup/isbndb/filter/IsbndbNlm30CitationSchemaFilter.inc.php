@@ -28,14 +28,14 @@ class IsbndbNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function IsbndbNlm30CitationSchemaFilter($filterGroup) {
+	function __construct($filterGroup) {
 		// Instantiate the settings of this filter
 		$apiKeySetting = new FilterSetting('apiKey',
 				'metadata.filters.isbndb.settings.apiKey.displayName',
 				'metadata.filters.isbndb.settings.apiKey.validationMessage');
 		$this->addSetting($apiKeySetting);
 
-		parent::Nlm30CitationSchemaFilter($filterGroup, array(NLM30_PUBLICATION_TYPE_BOOK));
+		parent::__construct($filterGroup, array(NLM30_PUBLICATION_TYPE_BOOK));
 	}
 
 	//

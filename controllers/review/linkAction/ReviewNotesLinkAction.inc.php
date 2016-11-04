@@ -26,7 +26,7 @@ class ReviewNotesLinkAction extends LinkAction {
 	 * @param $user User The user.
 	 * @param $isUnread bool Has a review been read
 	 */
-	function ReviewNotesLinkAction($request, $reviewAssignment, $submission, $user, $isUnread = null) {
+	function __construct($request, $reviewAssignment, $submission, $user, $isUnread = null) {
 		// Instantiate the information center modal.
 		$router = $request->getRouter();
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
@@ -52,7 +52,7 @@ class ReviewNotesLinkAction extends LinkAction {
 		$icon = !$lastViewDate || $isUnread ? 'read_new_review' : null;
 
 		// Configure the link action.
-		parent::LinkAction( 'readReview', $ajaxModal, __('editor.review.readReview'), $icon );
+		parent::__construct( 'readReview', $ajaxModal, __('editor.review.readReview'), $icon );
 	}
 }
 

@@ -19,8 +19,8 @@ class LiteralGridCellProvider extends GridCellProvider {
 	/**
 	 * Constructor
 	 */
-	function LiteralGridCellProvider() {
-		parent::GridCellProvider();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

@@ -24,10 +24,10 @@ class ManageReviewFilesGridHandler extends SelectableSubmissionFileListCategoryG
 	/**
 	 * Constructor
 	 */
-	function ManageReviewFilesGridHandler() {
+	function __construct() {
 		import('lib.pkp.controllers.grid.files.review.ReviewCategoryGridDataProvider');
 		// Pass in null stageId to be set in initialize from request var.
-		parent::SelectableSubmissionFileListCategoryGridHandler(
+		parent::__construct(
 			new ReviewCategoryGridDataProvider(SUBMISSION_FILE_REVIEW_FILE),
 			null,
 			FILE_GRID_ADD|FILE_GRID_VIEW_NOTES

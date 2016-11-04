@@ -20,8 +20,8 @@ abstract class LazyLoadPlugin extends Plugin {
 	/**
 	 * Constructor
 	 */
-	function LazyLoadPlugin() {
-		parent::Plugin();
+	function __construct() {
+		parent::__construct();
 	}
 
 

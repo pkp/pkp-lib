@@ -20,8 +20,8 @@ class ManagementHandler extends Handler {
 	/**
 	 * Constructor.
 	 */
-	function ManagementHandler() {
-		parent::Handler();
+	function __construct() {
+		parent::__construct();
 	}
 
 

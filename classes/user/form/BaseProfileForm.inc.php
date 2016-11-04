@@ -25,8 +25,8 @@ abstract class BaseProfileForm extends Form {
 	 * @param $template string
 	 * @param $user PKPUser
 	 */
-	function BaseProfileForm($template, $user) {
-		parent::Form($template);
+	function __construct($template, $user) {
+		parent::__construct($template);
 
 		$this->_user = $user;
 		assert($user);

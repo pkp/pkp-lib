@@ -24,8 +24,8 @@ abstract class ReviewRoundNotificationManager extends NotificationManagerDelegat
 	 * Constructor.
 	 * @param $notificationType int NOTIFICATION_TYPE_...
 	 */
-	function ReviewRoundNotificationManager($notificationType) {
-		parent::NotificationManagerDelegate($notificationType);
+	function __construct($notificationType) {
+		parent::__construct($notificationType);
 	}
 
 	/**

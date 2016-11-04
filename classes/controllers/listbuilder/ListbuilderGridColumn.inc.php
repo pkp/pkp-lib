@@ -27,7 +27,7 @@ class ListbuilderGridColumn extends GridColumn {
 	 * @param $cellProvider ListbuilderGridCellProvider The optional overridden grid cell provider.
 	 * @param $flags array Optional set of flags for this column's display.
 	 */
-	function ListbuilderGridColumn($listbuilder, $id = '', $title = null, $titleTranslated = null,
+	function __construct($listbuilder, $id = '', $title = null, $titleTranslated = null,
 			$template = null, $cellProvider = null, $flags = array()) {
 
 		// Set this here so that callers using later optional parameters don't need to
@@ -36,7 +36,7 @@ class ListbuilderGridColumn extends GridColumn {
 
 		// Make the listbuilder's source type available to the cell template as a flag
 		$flags['sourceType'] = $listbuilder->getSourceType();
-		parent::GridColumn($id, $title, $titleTranslated, $template, $cellProvider, $flags);
+		parent::__construct($id, $title, $titleTranslated, $template, $cellProvider, $flags);
 	}
 }
 

@@ -22,7 +22,7 @@ class AdminSettingsTabHandler extends SettingsTabHandler {
 	 * Constructor
 	 * @param $additionalTabs array Optional additional ('tabname' => 'class/template name') mappings
 	 */
-	function AdminSettingsTabHandler($additionalTabs = array()) {
+	function __construct($additionalTabs = array()) {
 		$role = array(ROLE_ID_SITE_ADMIN);
 
 		$this->addRoleAssignment(ROLE_ID_MANAGER,
@@ -35,7 +35,7 @@ class AdminSettingsTabHandler extends SettingsTabHandler {
 			)
 		);
 
-		parent::SettingsTabHandler($role);
+		parent::__construct($role);
 		$this->setPageTabs(array_merge($additionalTabs, array(
 			'siteSetup' => 'lib.pkp.controllers.tab.settings.siteSetup.form.SiteSetupForm',
 			'languages' => 'controllers/tab/admin/languages/languages.tpl',

@@ -30,7 +30,7 @@ class CrossrefNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function CrossrefNlm30CitationSchemaFilter($filterGroup) {
+	function __construct($filterGroup) {
 		$this->setDisplayName('CrossRef');
 
 		// Instantiate the settings of this filter
@@ -39,7 +39,7 @@ class CrossrefNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 				'metadata.filters.crossref.settings.email.validationMessage');
 		$this->addSetting($emailSetting);
 
-		parent::Nlm30CitationSchemaFilter(
+		parent::__construct(
 			$filterGroup,
 			array(
 				NLM30_PUBLICATION_TYPE_JOURNAL,

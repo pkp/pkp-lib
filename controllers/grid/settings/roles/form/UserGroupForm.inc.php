@@ -30,8 +30,8 @@ class UserGroupForm extends Form {
 	 * @param $contextId Context id.
 	 * @param $userGroupId User group id.
 	 */
-	function UserGroupForm($contextId, $userGroupId = null) {
-		parent::Form('controllers/grid/settings/roles/form/userGroupForm.tpl');
+	function __construct($contextId, $userGroupId = null) {
+		parent::__construct('controllers/grid/settings/roles/form/userGroupForm.tpl');
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION);
 		$this->_contextId = $contextId;
 		$this->_userGroupId = $userGroupId;

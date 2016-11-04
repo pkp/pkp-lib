@@ -25,7 +25,7 @@ class EditableFile {
 	 * Constructor
 	 * @param $filename string Filename
 	 */
-	function EditableFile($filename) {
+	function __construct($filename) {
 		import('lib.pkp.classes.file.FileWrapper');
 		$this->filename = $filename;
 		$wrapper = FileWrapper::wrapper($this->filename);

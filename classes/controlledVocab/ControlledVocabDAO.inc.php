@@ -20,8 +20,8 @@ class ControlledVocabDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function ControlledVocabDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

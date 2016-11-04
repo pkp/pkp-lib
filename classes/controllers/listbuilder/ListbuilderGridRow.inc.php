@@ -24,8 +24,8 @@ class ListbuilderGridRow extends GridRow {
 	 * Constructor
 	 * @param $hasDeleteItemLink boolean
 	 */
-	function ListbuilderGridRow($hasDeleteItemLink = true) {
-		parent::GridRow();
+	function __construct($hasDeleteItemLink = true) {
+		parent::__construct();
 
 		$this->setHasDeleteItemLink($hasDeleteItemLink);
 	}

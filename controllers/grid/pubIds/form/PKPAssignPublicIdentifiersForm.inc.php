@@ -42,8 +42,8 @@ class PKPAssignPublicIdentifiersForm extends Form {
 	 * @param $approval boolean
 	 * @param $confirmationText string
 	 */
-	function PKPAssignPublicIdentifiersForm($template, $pubObject, $approval, $confirmationText) {
-		parent::Form($template);
+	function __construct($template, $pubObject, $approval, $confirmationText) {
+		parent::__construct($template);
 
 		$this->_pubObject = $pubObject;
 		$this->_approval = $approval;

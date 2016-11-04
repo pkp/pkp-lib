@@ -27,14 +27,14 @@ class SendReviewsForm extends EditorDecisionWithEmailForm {
 	 * @param $stageId int
 	 * @param $reviewRound ReviewRound
 	 */
-	function SendReviewsForm($submission, $decision, $stageId, $reviewRound = null) {
+	function __construct($submission, $decision, $stageId, $reviewRound = null) {
 		if (!in_array($decision, $this->_getDecisions())) {
 			fatalError('Invalid decision!');
 		}
 
 		$this->setSaveFormOperation('saveSendReviews');
 
-		parent::EditorDecisionWithEmailForm(
+		parent::__construct(
 			$submission, $decision, $stageId,
 			'controllers/modals/editorDecision/form/sendReviewsForm.tpl', $reviewRound
 		);

@@ -23,7 +23,7 @@ class PaymentManager {
 	 * Constructor
 	 * @param $request PKPRequest
 	 */
-	function PaymentManager($request) {
+	function __construct($request) {
 		$this->request = $request;
 	}
 

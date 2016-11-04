@@ -26,8 +26,8 @@ class SubmissionAccessPolicy extends ContextPolicy {
 	 * @param $submissionParameterName string the request parameter we
 	 *  expect the submission id in.
 	 */
-	function SubmissionAccessPolicy($request, $args, $roleAssignments, $submissionParameterName = 'submissionId') {
-		parent::ContextPolicy($request);
+	function __construct($request, $args, $roleAssignments, $submissionParameterName = 'submissionId') {
+		parent::__construct($request);
 
 		// We need a submission in the request.
 		import('lib.pkp.classes.security.authorization.internal.SubmissionRequiredPolicy');

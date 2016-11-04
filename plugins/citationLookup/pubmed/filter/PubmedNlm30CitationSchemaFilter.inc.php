@@ -32,7 +32,7 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function PubmedNlm30CitationSchemaFilter($filterGroup) {
+	function __construct($filterGroup) {
 		$this->setDisplayName('PubMed');
 
 		// Instantiate the settings of this filter
@@ -42,7 +42,7 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 				FORM_VALIDATOR_OPTIONAL_VALUE);
 		$this->addSetting($emailSetting);
 
-		parent::Nlm30CitationSchemaFilter(
+		parent::__construct(
 			$filterGroup,
 			array(
 				NLM30_PUBLICATION_TYPE_JOURNAL,

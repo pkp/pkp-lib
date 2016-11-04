@@ -21,8 +21,8 @@ class MetadataDescriptionDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function MetadataDescriptionDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

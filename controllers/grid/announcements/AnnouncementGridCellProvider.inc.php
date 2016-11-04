@@ -20,8 +20,8 @@ class AnnouncementGridCellProvider extends GridCellProvider {
 	/**
 	 * Constructor
 	 */
-	function AnnouncementGridCellProvider() {
-		parent::GridCellProvider();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

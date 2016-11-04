@@ -22,8 +22,8 @@ class NotificationMailingListForm extends Form {
 	/**
 	 * Constructor.
 	 */
-	function NotificationMailingListForm() {
-		parent::Form('notification/maillist.tpl');
+	function __construct() {
+		parent::__construct('notification/maillist.tpl');
 
 		// Validation checks for this form
 		$this->addCheck(new FormValidatorPost($this));

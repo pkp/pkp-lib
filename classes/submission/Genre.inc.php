@@ -24,8 +24,8 @@ class Genre extends DataObject {
 	/**
 	 * Constructor
 	 */
-	function Genre() {
-		parent::DataObject();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

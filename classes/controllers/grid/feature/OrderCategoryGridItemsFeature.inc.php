@@ -31,7 +31,7 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature{
 	 * If you want to use a different grid row template file, set this flag to
 	 * false and make sure to use a template file that adds row actions.
 	 */
-	function OrderCategoryGridItemsFeature($typeOption = ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS, $overrideRowTemplate = true) {
+	function __construct($typeOption = ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS, $overrideRowTemplate = true) {
 		parent::OrderItemsFeature($overrideRowTemplate);
 
 		$this->addOptions(array('type' => $typeOption));

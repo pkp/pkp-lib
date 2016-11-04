@@ -81,8 +81,8 @@ class PKPComponentRouter extends PKPRouter {
 	/**
 	 * Constructor
 	 */
-	function PKPComponentRouter() {
-		parent::PKPRouter();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

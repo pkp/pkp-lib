@@ -19,8 +19,8 @@ class WorkflowStageDAO extends DAO {
 	/**
 	 * Constructor.
 	 */
-	function WorkflowStageDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

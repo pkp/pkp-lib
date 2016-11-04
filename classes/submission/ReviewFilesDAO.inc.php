@@ -18,8 +18,8 @@ class ReviewFilesDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function ReviewFilesDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

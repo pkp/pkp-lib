@@ -20,8 +20,8 @@ class PluginGridCellProvider extends GridCellProvider {
 	/**
 	 * Constructor
 	 */
-	function PluginGridCellProvider() {
-		parent::GridCellProvider();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

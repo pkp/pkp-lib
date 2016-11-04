@@ -31,7 +31,7 @@ class PluginHelper {
 	 * Constructor.
 	 * @param $function string PLUGIN_ACTION_...
 	 */
-	function PluginHelper() {
+	function __construct() {
 	}
 
 	/**

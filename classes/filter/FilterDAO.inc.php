@@ -51,8 +51,8 @@ class FilterDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function FilterDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

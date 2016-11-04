@@ -17,8 +17,8 @@ class PKPFile extends DataObject {
 	/**
 	 * Constructor.
 	 */
-	function PKPFile() {
-		parent::DataObject();
+	function __construct() {
+		parent::__construct();
 	}
 
 

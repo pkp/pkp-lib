@@ -20,8 +20,8 @@ class ContextAccessPolicy extends ContextPolicy {
 	 * @param $request PKPRequest
 	 * @param $roleAssignments array
 	 */
-	function ContextAccessPolicy($request, $roleAssignments) {
-		parent::ContextPolicy($request);
+	function __construct($request, $roleAssignments) {
+		parent::__construct($request);
 
 		// On context level we don't have role-specific conditions
 		// so we can simply add all role assignments. It's ok if

@@ -20,8 +20,8 @@ class AnnouncementTypeGridRow extends GridRow {
 	/**
 	 * Constructor
 	 */
-	function AnnouncementTypeGridRow() {
-		parent::GridRow();
+	function __construct() {
+		parent::__construct();
 	}
 
 

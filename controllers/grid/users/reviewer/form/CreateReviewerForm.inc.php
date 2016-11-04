@@ -21,8 +21,8 @@ class CreateReviewerForm extends ReviewerForm {
 	 * @param $submission Submission
 	 * @param $reviewRound ReviewRound
 	 */
-	function CreateReviewerForm($submission, $reviewRound) {
-		parent::ReviewerForm($submission, $reviewRound);
+	function __construct($submission, $reviewRound) {
+		parent::__construct($submission, $reviewRound);
 		$this->setTemplate('controllers/grid/users/reviewer/form/createReviewerForm.tpl');
 
 		$this->addCheck(new FormValidator($this, 'firstName', 'required', 'user.profile.form.firstNameRequired'));

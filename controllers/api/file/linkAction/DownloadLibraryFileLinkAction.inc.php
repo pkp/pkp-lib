@@ -22,7 +22,7 @@ class DownloadLibraryFileLinkAction extends LinkAction {
 	 * @param $libraryFile LibraryFile the library file to
 	 *  link to.
 	 */
-	function DownloadLibraryFileLinkAction($request, $libraryFile) {
+	function __construct($request, $libraryFile) {
 		// Instantiate the redirect action request.
 		$router = $request->getRouter();
 		import('lib.pkp.classes.linkAction.request.PostAndRedirectAction');
@@ -36,7 +36,7 @@ class DownloadLibraryFileLinkAction extends LinkAction {
 		);
 
 		// Configure the file link action.
-		parent::LinkAction(
+		parent::__construct(
 			'downloadFile', $redirectRequest, $libraryFile->getLocalizedName(),
 			$libraryFile->getDocumentType()
 		);

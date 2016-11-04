@@ -20,9 +20,9 @@ class NativeXmlRepresentationFilter extends NativeImportFilter {
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function NativeXmlRepresentationFilter($filterGroup) {
+	function __construct($filterGroup) {
 		$this->setDisplayName('Native XML representation import');
-		parent::NativeImportFilter($filterGroup);
+		parent::__construct($filterGroup);
 	}
 
 	//

@@ -22,8 +22,8 @@ class SelectableItemsFeature extends GridFeature {
 	/**
 	 * Constructor.
 	 */
-	function SelectableItemsFeature() {
-		parent::GridFeature('selectableItems');
+	function __construct() {
+		parent::__construct('selectableItems');
 	}
 
 

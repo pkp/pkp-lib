@@ -21,12 +21,12 @@ class DependentFilesGridHandler extends FileListGridHandler {
 	/**
 	 * Constructor
 	 */
-	function DependentFilesGridHandler() {
+	function __construct() {
 		// import app-specific grid data provider for access policies.
 		$request = Application::getRequest();
 		$fileId = $request->getUserVar('fileId'); // authorized in authorize() method.
 		import('lib.pkp.controllers.grid.files.dependent.DependentFilesGridDataProvider');
-		parent::FileListGridHandler(
+		parent::__construct(
 			new DependentFilesGridDataProvider($fileId),
 			WORKFLOW_STAGE_ID_PRODUCTION,
 			FILE_GRID_ADD|FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES|FILE_GRID_EDIT

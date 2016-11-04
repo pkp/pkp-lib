@@ -19,8 +19,8 @@ class ReviewFormResponse extends DataObject {
 	/**
 	 * Constructor.
 	 */
-	function ReviewFormResponse() {
-		parent::DataObject();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

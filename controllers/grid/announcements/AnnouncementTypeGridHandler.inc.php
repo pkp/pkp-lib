@@ -20,8 +20,8 @@ class AnnouncementTypeGridHandler extends GridHandler {
 	/**
 	 * Constructor
 	 */
-	function AnnouncementTypeGridHandler() {
-		parent::GridHandler();
+	function __construct() {
+		parent::__construct();
 		$this->addRoleAssignment(
 			ROLE_ID_MANAGER,
 			array(

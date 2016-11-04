@@ -19,8 +19,8 @@ class PKPOAIMetadataFormatPlugin_DC extends OAIMetadataFormatPlugin {
 	/**
 	 * Constructor
 	 */
-	function PKPOAIMetadataFormatPlugin_DC() {
-		parent::OAIMetadataFormatPlugin();
+	function __construct() {
+		parent::__construct();
 	}
 	/**
 	 * Get the name of this plugin. The name must be unique within

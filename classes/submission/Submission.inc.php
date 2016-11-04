@@ -36,11 +36,11 @@ abstract class Submission extends DataObject {
 	/**
 	 * Constructor.
 	 */
-	function Submission() {
+	function __construct() {
 		// Switch on meta-data adapter support.
 		$this->setHasLoadableAdapters(true);
 
-		parent::DataObject();
+		parent::__construct();
 	}
 
 	/**

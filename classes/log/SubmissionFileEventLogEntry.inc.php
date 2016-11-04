@@ -33,8 +33,8 @@ class SubmissionFileEventLogEntry extends EventLogEntry {
 	/**
 	 * Constructor.
 	 */
-	function SubmissionFileEventLogEntry() {
-		parent::EventLogEntry();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

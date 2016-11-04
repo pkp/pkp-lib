@@ -21,8 +21,8 @@ class FormValidatorCSRF extends FormValidator {
 	 * @param $form Form
 	 * @param $message string the locale key to use (optional)
 	 */
-	function FormValidatorCSRF(&$form, $message = 'form.csrfInvalid') {
-		parent::FormValidator($form, 'dummy', FORM_VALIDATOR_REQUIRED_VALUE, $message);
+	function __construct(&$form, $message = 'form.csrfInvalid') {
+		parent::__construct($form, 'dummy', FORM_VALIDATOR_REQUIRED_VALUE, $message);
 	}
 
 

@@ -25,13 +25,13 @@ class ItemSelectionGridColumn extends GridColumn {
 	 * @param $selectName string The name of the form parameter
 	 *  to which the selected files will be posted.
 	 */
-	function ItemSelectionGridColumn($selectName) {
+	function __construct($selectName) {
 		assert(is_string($selectName) && !empty($selectName));
 		$this->_selectName = $selectName;
 
 		import('lib.pkp.classes.controllers.grid.ColumnBasedGridCellProvider');
 		$cellProvider = new ColumnBasedGridCellProvider();
-		parent::GridColumn('select', 'common.select', null, 'controllers/grid/gridRowSelectInput.tpl', $cellProvider,
+		parent::__construct('select', 'common.select', null, 'controllers/grid/gridRowSelectInput.tpl', $cellProvider,
 				array('width' => 1));
 	}
 

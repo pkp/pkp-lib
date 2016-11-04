@@ -19,8 +19,8 @@ class AdminContextHandler extends AdminHandler {
 	/**
 	 * Constructor
 	 */
-	function AdminContextHandler() {
-		parent::AdminHandler();
+	function __construct() {
+		parent::__construct();
 
 		$this->addRoleAssignment(
 			array(ROLE_ID_SITE_ADMIN),

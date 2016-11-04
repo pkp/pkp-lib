@@ -28,10 +28,10 @@ class StageParticipantGridCategoryRow extends GridCategoryRow {
 	/**
 	 * Constructor
 	 */
-	function StageParticipantGridCategoryRow($submission, $stageId) {
+	function __construct($submission, $stageId) {
 		$this->_submission = $submission;
 		$this->_stageId = $stageId;
-		parent::GridCategoryRow();
+		parent::__construct();
 	}
 
 	//

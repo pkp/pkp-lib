@@ -22,8 +22,8 @@ class PKPReviewRoundTabHandler extends Handler {
 	/**
 	 * Constructor
 	 */
-	function PKPReviewRoundTabHandler() {
-		parent::Handler();
+	function __construct() {
+		parent::__construct();
 	}
 
 

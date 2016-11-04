@@ -37,8 +37,8 @@ class PKPReviewerGridHandler extends GridHandler {
 	/**
 	 * Constructor
 	 */
-	function PKPReviewerGridHandler() {
-		parent::GridHandler();
+	function __construct() {
+		parent::__construct();
 
 		$allOperations = array_merge($this->_getReviewAssignmentOps(), $this->_getReviewRoundOps());
 

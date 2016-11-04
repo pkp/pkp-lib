@@ -22,8 +22,8 @@ abstract class ImportExportPlugin extends Plugin {
 	/**
 	 * Constructor
 	 */
-	function ImportExportPlugin() {
-		parent::Plugin();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

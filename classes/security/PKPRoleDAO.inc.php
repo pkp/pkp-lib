@@ -24,8 +24,8 @@ class PKPRoleDAO extends DAO {
 	/**
 	 * Constructor.
 	 */
-	function PKPRoleDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 		$this->userDao = DAORegistry::getDAO('UserDAO');
 	}
 

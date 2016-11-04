@@ -21,8 +21,8 @@ class SiteDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function SiteDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

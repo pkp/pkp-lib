@@ -26,10 +26,10 @@ class FormValidatorUri extends FormValidator {
 	 * @param $message string the error message for validation failures (i18n key)
 	 * @param $allowedSchemes array the allowed URI schemes
 	 */
-	function FormValidatorUri(&$form, $field, $type, $message, $allowedSchemes = null) {
+	function __construct(&$form, $field, $type, $message, $allowedSchemes = null) {
 		import('lib.pkp.classes.validation.ValidatorUri');
 		$validator = new ValidatorUri($allowedSchemes);
-		parent::FormValidator($form, $field, $type, $message, $validator);
+		parent::__construct($form, $field, $type, $message, $validator);
 	}
 }
 ?>

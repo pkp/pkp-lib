@@ -22,8 +22,8 @@ class SubmissionFileDAODelegate extends DAO {
 	/**
 	 * Constructor
 	 */
-	function SubmissionFileDAODelegate() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 

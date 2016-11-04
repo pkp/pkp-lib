@@ -25,8 +25,8 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 	/**
 	 * Constructor
 	 */
-	function PKPUsageEventPlugin() {
-		parent::GenericPlugin();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

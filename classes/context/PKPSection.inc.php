@@ -18,8 +18,8 @@ class PKPSection extends DataObject {
 	/**
 	 * Constructor.
 	 */
-	function PKPSection() {
-		parent::DataObject();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

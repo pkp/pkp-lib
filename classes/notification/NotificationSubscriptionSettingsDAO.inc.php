@@ -21,8 +21,8 @@ class NotificationSubscriptionSettingsDAO extends DAO {
 	/**
 	 * Constructor.
 	 */
-	function NotificationSubscriptionSettingsDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

@@ -24,8 +24,8 @@ class PKPWorldcatCitationLookupPlugin extends Plugin {
 	/**
 	 * Constructor
 	 */
-	function PKPWorldcatCitationLookupPlugin() {
-		parent::Plugin();
+	function __construct() {
+		parent::__construct();
 	}
 
 

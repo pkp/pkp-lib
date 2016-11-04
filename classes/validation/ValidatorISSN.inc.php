@@ -20,8 +20,8 @@ class ValidatorISSN extends ValidatorRegExp {
 	/**
 	 * Constructor.
 	 */
-	function ValidatorISSN() {
-		parent::ValidatorRegExp(self::getRegexp());
+	function __construct() {
+		parent::__construct(self::getRegexp());
 	}
 
 

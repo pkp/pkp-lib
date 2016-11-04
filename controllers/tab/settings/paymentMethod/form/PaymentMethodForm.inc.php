@@ -23,13 +23,13 @@ class PaymentMethodForm extends ContextSettingsForm {
 	 * Constructor.
 	 * @param $wizardMode boolean Whether to open the form in wizard mode
 	 */
-	function PaymentMethodForm($wizardMode = false) {
+	function __construct($wizardMode = false) {
 		$settings = array(
 			'paymentPluginName' => 'string',
 			'currency' => 'string',
 		);
 
-		parent::ContextSettingsForm($settings, 'controllers/tab/settings/paymentMethod/form/paymentMethodForm.tpl', $wizardMode);
+		parent::__construct($settings, 'controllers/tab/settings/paymentMethod/form/paymentMethodForm.tpl', $wizardMode);
 		$this->paymentPlugins = PluginRegistry::loadCategory('paymethod');
 	}
 

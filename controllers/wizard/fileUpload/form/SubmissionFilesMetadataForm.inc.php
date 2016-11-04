@@ -33,9 +33,9 @@ class SubmissionFilesMetadataForm extends Form {
 	 * @param $reviewRound ReviewRound (optional) Current review round, if any.
 	 * @param $template string Path and filename to template file (optional).
 	 */
-	function SubmissionFilesMetadataForm($submissionFile, $stageId, $reviewRound = null, $template = null) {
+	function __construct($submissionFile, $stageId, $reviewRound = null, $template = null) {
 		if ($template === null) $template = 'controllers/wizard/fileUpload/form/submissionFileMetadataForm.tpl';
-		parent::Form($template);
+		parent::__construct($template);
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
 
 		// Initialize the object.

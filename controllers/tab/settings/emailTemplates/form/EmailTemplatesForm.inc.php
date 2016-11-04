@@ -20,7 +20,7 @@ class EmailTemplatesForm extends ContextSettingsForm {
 	/**
 	 * Constructor.
 	 */
-	function EmailTemplatesForm($wizardMode = false) {
+	function __construct($wizardMode = false) {
 		$settings = array(
 			'emailSignature' => 'string',
 			'envelopeSender' => 'string'
@@ -28,7 +28,7 @@ class EmailTemplatesForm extends ContextSettingsForm {
 
 		$this->addCheck(new FormValidatorEmail($this, 'envelopeSender', 'optional', 'user.profile.form.emailRequired'));
 
-		parent::ContextSettingsForm($settings, 'controllers/tab/settings/emailTemplates/form/emailTemplatesForm.tpl', $wizardMode);
+		parent::__construct($settings, 'controllers/tab/settings/emailTemplates/form/emailTemplatesForm.tpl', $wizardMode);
 	}
 
 

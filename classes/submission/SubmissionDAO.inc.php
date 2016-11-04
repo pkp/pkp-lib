@@ -24,8 +24,8 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	/**
 	 * Constructor.
 	 */
-	function SubmissionDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 		$this->authorDao = DAORegistry::getDAO('AuthorDAO');
 	}
 

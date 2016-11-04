@@ -20,8 +20,8 @@ class ValidatorEmail extends ValidatorRegExp {
 	/**
 	 * Constructor.
 	 */
-	function ValidatorEmail() {
-		parent::ValidatorRegExp(ValidatorEmail::getRegexp());
+	function __construct() {
+		parent::__construct(ValidatorEmail::getRegexp());
 	}
 
 

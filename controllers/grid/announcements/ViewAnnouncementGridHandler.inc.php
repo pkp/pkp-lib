@@ -19,8 +19,8 @@ class ViewAnnouncementGridHandler extends AnnouncementGridHandler {
 	/**
 	 * Constructor
 	 */
-	function ViewAnnouncementGridHandler() {
-		parent::AnnouncementGridHandler();
+	function __construct() {
+		parent::__construct();
 	}
 
 

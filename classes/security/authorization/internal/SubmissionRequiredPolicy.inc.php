@@ -22,8 +22,8 @@ class SubmissionRequiredPolicy extends DataObjectRequiredPolicy {
 	 * @param $submissionParameterName string the request parameter we expect
 	 *  the submission id in.
 	 */
-	function SubmissionRequiredPolicy($request, &$args, $submissionParameterName = 'submissionId', $operations = null) {
-		parent::DataObjectRequiredPolicy($request, $args, $submissionParameterName, 'user.authorization.invalidSubmission', $operations);
+	function __construct($request, &$args, $submissionParameterName = 'submissionId', $operations = null) {
+		parent::__construct($request, $args, $submissionParameterName, 'user.authorization.invalidSubmission', $operations);
 	}
 
 	//

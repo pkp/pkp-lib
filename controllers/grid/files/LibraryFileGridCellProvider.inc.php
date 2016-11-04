@@ -19,8 +19,8 @@ class LibraryFileGridCellProvider extends GridCellProvider {
 	/**
 	 * Constructor
 	 */
-	function LibraryFileGridCellProvider() {
-		parent::GridCellProvider();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

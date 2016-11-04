@@ -83,7 +83,7 @@ class Form {
 	 * Constructor.
 	 * @param $template string the path to the form template file
 	 */
-	function Form($template = null, $callHooks = true, $requiredLocale = null, $supportedLocales = null) {
+	function __construct($template = null, $callHooks = true, $requiredLocale = null, $supportedLocales = null) {
 
 		if ($requiredLocale === null) $requiredLocale = AppLocale::getPrimaryLocale();
 		$this->requiredLocale = $requiredLocale;

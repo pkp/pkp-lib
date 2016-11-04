@@ -21,8 +21,8 @@ class AnnouncementTypeDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function AnnouncementTypeDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

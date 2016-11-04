@@ -41,8 +41,8 @@ class InstallForm extends MaintenanceForm {
 	 * Constructor.
 	 * @param $request PKPRequest
 	 */
-	function InstallForm($request) {
-		parent::MaintenanceForm($request, 'install/install.tpl');
+	function __construct($request) {
+		parent::__construct($request, 'install/install.tpl');
 
 		// FIXME Move the below options to an external configuration file?
 		$this->supportedLocales = AppLocale::getAllLocales();

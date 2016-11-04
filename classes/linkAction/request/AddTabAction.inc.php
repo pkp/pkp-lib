@@ -19,8 +19,8 @@ class AddTabAction extends EventAction {
 	 * Constructor
 	 * @param $targetSelector string Selector for target to receive event.
 	 */
-	function AddTabAction($targetSelector, $url, $title) {
-		parent::EventAction($targetSelector, 'addTab', array(
+	function __construct($targetSelector, $url, $title) {
+		parent::__construct($targetSelector, 'addTab', array(
 			'url' => $url,
 			'title' => $title,
 		));

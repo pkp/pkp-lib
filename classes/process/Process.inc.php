@@ -29,8 +29,8 @@ class Process extends DataObject {
 	/**
 	 * Constructor
 	 */
-	function Process() {
-		parent::DataObject();
+	function __construct() {
+		parent::__construct();
 	}
 
 

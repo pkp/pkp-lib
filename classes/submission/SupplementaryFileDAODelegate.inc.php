@@ -24,8 +24,8 @@ class SupplementaryFileDAODelegate extends SubmissionFileDAODelegate {
 	/**
 	 * Constructor
 	 */
-	function SupplementaryFileDAODelegate() {
-		parent::SubmissionFileDAODelegate();
+	function __construct() {
+		parent::__construct();
 	}
 
 

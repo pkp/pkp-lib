@@ -19,8 +19,8 @@ class PKPUserSettingsDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function PKPUserSettingsDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

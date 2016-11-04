@@ -40,8 +40,8 @@ class QueryForm extends Form {
 	 * @param $queryId int Optional query ID to edit. If none provided, a
 	 *  (potentially temporary) query will be created.
 	 */
-	function QueryForm($request, $assocType, $assocId, $stageId, $queryId = null) {
-		parent::Form('controllers/grid/queries/form/queryForm.tpl');
+	function __construct($request, $assocType, $assocId, $stageId, $queryId = null) {
+		parent::__construct('controllers/grid/queries/form/queryForm.tpl');
 		$this->setStageId($stageId);
 
 		$queryDao = DAORegistry::getDAO('QueryDAO');

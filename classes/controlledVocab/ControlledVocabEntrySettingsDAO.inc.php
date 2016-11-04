@@ -19,8 +19,8 @@ class ControlledVocabEntrySettingsDAO extends SettingsDAO {
 	/**
 	 * Constructor
 	 */
-	function ControlledVocabEntrySettingsDAO() {
-		parent::SettingsDAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

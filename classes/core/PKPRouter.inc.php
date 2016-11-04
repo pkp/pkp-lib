@@ -78,7 +78,7 @@ class PKPRouter {
 	/**
 	 * Constructor
 	 */
-	function PKPRouter() {
+	function __construct() {
 	}
 
 	/**

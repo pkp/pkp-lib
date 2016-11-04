@@ -22,8 +22,8 @@ class EventLogEntry extends DataObject {
 	/**
 	 * Constructor.
 	 */
-	function EventLogEntry() {
-		parent::DataObject();
+	function __construct() {
+		parent::__construct();
 	}
 
 

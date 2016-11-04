@@ -18,8 +18,8 @@ class PluginSettingsDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function PluginSettingsDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

@@ -24,8 +24,8 @@ class FileLinkAction extends LinkAction {
 	 * @param $image string optional
 	 * @param $tooltip string optional
 	 */
-	function FileLinkAction($id, &$actionRequest, $title = null, $image = null, $tooltip = null) {
-		parent::LinkAction($id, $actionRequest, $title, $image, $tooltip);
+	function __construct($id, &$actionRequest, $title = null, $image = null, $tooltip = null) {
+		parent::__construct($id, $actionRequest, $title, $image, $tooltip);
 	}
 
 

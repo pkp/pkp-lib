@@ -23,10 +23,10 @@ class UploaderUserGroupGridColumn extends GridColumn {
 	/**
 	 * Constructor
 	 */
-	function UploaderUserGroupGridColumn($userGroup, $flags = array()) {
+	function __construct($userGroup, $flags = array()) {
 		$this->_userGroup = $userGroup;
 		$cellProvider = new ColumnBasedGridCellProvider();
-		parent::GridColumn(
+		parent::__construct(
 			'userGroup-' . $userGroup->getId(),
 			null, $userGroup->getLocalizedName(),
 			'controllers/grid/common/cell/statusCell.tpl',

@@ -21,8 +21,8 @@ class NewSiteImageFileForm extends SettingsFileUploadForm {
 	 * Constructor.
 	 * @param $imageSettingName string
 	 */
-	function NewSiteImageFileForm($imageSettingName) {
-		parent::SettingsFileUploadForm('controllers/tab/settings/form/newImageFileUploadForm.tpl');
+	function __construct($imageSettingName) {
+		parent::__construct('controllers/tab/settings/form/newImageFileUploadForm.tpl');
 		$this->setFileSettingName($imageSettingName);
 	}
 

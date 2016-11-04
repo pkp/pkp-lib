@@ -27,8 +27,8 @@ class ManageReviewFilesForm extends ManageSubmissionFilesForm {
 	/**
 	 * Constructor.
 	 */
-	function ManageReviewFilesForm($submissionId, $stageId, $reviewRoundId) {
-		parent::ManageSubmissionFilesForm($submissionId, 'controllers/grid/files/review/manageReviewFiles.tpl');
+	function __construct($submissionId, $stageId, $reviewRoundId) {
+		parent::__construct($submissionId, 'controllers/grid/files/review/manageReviewFiles.tpl');
 		$this->_stageId = (int)$stageId;
 		$this->_reviewRoundId = (int)$reviewRoundId;
 	}

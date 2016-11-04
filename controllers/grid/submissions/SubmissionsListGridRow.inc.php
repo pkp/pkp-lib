@@ -23,8 +23,8 @@ class SubmissionsListGridRow extends GridRow {
 	/**
 	 * Constructor
 	 */
-	function SubmissionsListGridRow($isManager) {
-		parent::GridRow();
+	function __construct($isManager) {
+		parent::__construct();
 		$this->_isManager = $isManager;
 	}
 

@@ -30,9 +30,9 @@ class SetFilterSetting extends FilterSetting {
 	 * @param $acceptedValues array
 	 * @param $required boolean
 	 */
-	function SetFilterSetting($name, $displayName, $validationMessage, $acceptedValues, $required = FORM_VALIDATOR_REQUIRED_VALUE) {
+	function __construct($name, $displayName, $validationMessage, $acceptedValues, $required = FORM_VALIDATOR_REQUIRED_VALUE) {
 		$this->_acceptedValues = $acceptedValues;
-		parent::FilterSetting($name, $displayName, $validationMessage, $required);
+		parent::__construct($name, $displayName, $validationMessage, $required);
 	}
 
 	//

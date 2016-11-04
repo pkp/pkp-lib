@@ -20,10 +20,10 @@ class PersistableTestFilter extends PersistableFilter {
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function PersistableTestFilter($filterGroup) {
+	function __construct($filterGroup) {
 		import('lib.pkp.classes.filter.FilterSetting');
 		$this->addSetting(new FilterSetting('some-key', null, null));
-		parent::PersistableFilter($filterGroup);
+		parent::__construct($filterGroup);
 	}
 
 	//

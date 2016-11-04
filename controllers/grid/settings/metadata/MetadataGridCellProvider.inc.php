@@ -24,9 +24,9 @@ class MetadataGridCellProvider extends GridCellProvider {
 	 * Constructor
 	 * @param $context Context
 	 */
-	function MetadataGridCellProvider($context) {
+	function __construct($context) {
 		$this->_context = $context;
-		parent::GridCellProvider();
+		parent::__construct();
 	}
 
 	/**

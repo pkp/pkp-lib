@@ -20,8 +20,8 @@ class PKPAuthor extends Identity {
 	/**
 	 * Constructor.
 	 */
-	function PKPAuthor() {
-		parent::Identity();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

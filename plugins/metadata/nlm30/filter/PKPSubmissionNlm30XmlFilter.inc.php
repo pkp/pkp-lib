@@ -26,10 +26,10 @@ class PKPSubmissionNlm30XmlFilter extends TemplateBasedReferencesListFilter {
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function PKPSubmissionNlm30XmlFilter($filterGroup) {
+	function __construct($filterGroup) {
 		$this->setDisplayName('NLM Journal Publishing V3.0 ref-list');
 
-		parent::TemplateBasedReferencesListFilter($filterGroup);
+		parent::__construct($filterGroup);
 
 		// Set the output filter.
 		$this->setData('citationOutputFilterName', 'lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaNlm30XmlFilter');

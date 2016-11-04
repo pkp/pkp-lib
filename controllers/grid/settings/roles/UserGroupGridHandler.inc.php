@@ -33,8 +33,8 @@ class UserGroupGridHandler extends GridHandler {
 	/**
 	 * Constructor
 	 */
-	function UserGroupGridHandler() {
-		parent::GridHandler();
+	function __construct() {
+		parent::__construct();
 
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER),

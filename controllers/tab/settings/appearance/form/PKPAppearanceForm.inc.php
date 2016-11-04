@@ -25,7 +25,7 @@ class PKPAppearanceForm extends ContextSettingsForm {
 	 * @param $wizardMode bool True IFF this form is to be opened in wizard mode
 	 * @param $additionalSettings array Additional settings to add, if any
 	 */
-	function PKPAppearanceForm($wizardMode = false, $additionalSettings = array()) {
+	function __construct($wizardMode = false, $additionalSettings = array()) {
 
 		$settings = array_merge($additionalSettings, array(
 			'additionalHomeContent' => 'string',
@@ -44,7 +44,7 @@ class PKPAppearanceForm extends ContextSettingsForm {
 			PluginRegistry::loadCategory('themes', true);
 		}
 
-		parent::ContextSettingsForm($settings, 'controllers/tab/settings/appearance/form/appearanceForm.tpl', $wizardMode);
+		parent::__construct($settings, 'controllers/tab/settings/appearance/form/appearanceForm.tpl', $wizardMode);
 	}
 
 

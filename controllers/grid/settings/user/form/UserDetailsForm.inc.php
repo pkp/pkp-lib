@@ -26,8 +26,8 @@ class UserDetailsForm extends UserForm {
 	 * @param $userId int optional
 	 * @param $author Author optional
 	 */
-	function UserDetailsForm($request, $userId = null, $author = null) {
-		parent::UserForm('controllers/grid/settings/user/form/userDetailsForm.tpl', $userId);
+	function __construct($request, $userId = null, $author = null) {
+		parent::__construct('controllers/grid/settings/user/form/userDetailsForm.tpl', $userId);
 
 		if (isset($author)) {
 			$this->author =& $author;

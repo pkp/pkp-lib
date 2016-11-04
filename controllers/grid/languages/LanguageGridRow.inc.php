@@ -20,8 +20,8 @@ class LanguageGridRow extends GridRow {
 	/**
 	 * Constructor
 	 */
-	function LanguageGridRow() {
-		parent::GridRow();
+	function __construct() {
+		parent::__construct();
 	}
 
 

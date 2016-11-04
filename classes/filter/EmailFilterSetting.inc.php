@@ -26,8 +26,8 @@ class EmailFilterSetting extends FilterSetting {
 	 * @param $validationMessage string
 	 * @param $required boolean
 	 */
-	function EmailFilterSetting($name, $displayName, $validationMessage, $required = FORM_VALIDATOR_REQUIRED_VALUE) {
-		parent::FilterSetting($name, $displayName, $validationMessage, $required);
+	function __construct($name, $displayName, $validationMessage, $required = FORM_VALIDATOR_REQUIRED_VALUE) {
+		parent::__construct($name, $displayName, $validationMessage, $required);
 	}
 
 	//

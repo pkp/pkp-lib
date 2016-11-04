@@ -21,8 +21,8 @@ class VersionInfoGridHandler extends GridHandler {
 	/**
 	 * Constructor
 	 */
-	function VersionInfoGridHandler() {
-		parent::GridHandler();
+	function __construct() {
+		parent::__construct();
 		$this->addRoleAssignment(array(
 			ROLE_ID_SITE_ADMIN),
 			array('fetchGrid', 'fetchRow')

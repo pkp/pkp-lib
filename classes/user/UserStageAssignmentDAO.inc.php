@@ -20,8 +20,8 @@ class UserStageAssignmentDAO extends UserDAO {
 	/**
 	 * Constructor
 	 */
-	function UserStageAssignmentDAO() {
-		parent::UserDAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

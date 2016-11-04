@@ -26,8 +26,8 @@ class APCCache extends GenericCache {
 	 * @param $cacheId mixed
 	 * @param $fallback array PKP-style callback
 	 */
-	function APCCache($context, $cacheId, $fallback) {
-		parent::GenericCache($context, $cacheId, $fallback);
+	function __construct($context, $cacheId, $fallback) {
+		parent::__construct($context, $cacheId, $fallback);
 	}
 
 	/**

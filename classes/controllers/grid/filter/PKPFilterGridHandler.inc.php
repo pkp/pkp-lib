@@ -37,13 +37,13 @@ class PKPFilterGridHandler extends GridHandler {
 	/**
 	 * Constructor
 	 */
-	function PKPFilterGridHandler() {
+	function __construct() {
 		// Instantiate the citation DAO which will implicitly
 		// define the filter groups for parsers and lookup
 		// database connectors.
 		DAORegistry::getDAO('CitationDAO');
 
-		parent::GridHandler();
+		parent::__construct();
 	}
 
 	//

@@ -21,8 +21,8 @@ class VersionDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function VersionDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

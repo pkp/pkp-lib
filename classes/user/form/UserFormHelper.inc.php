@@ -17,7 +17,7 @@ class UserFormHelper {
 	/**
 	 * Constructor
 	 */
-	function UserFormHelper() {
+	function __construct() {
 	}
 
 	/**

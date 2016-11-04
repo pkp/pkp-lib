@@ -20,8 +20,8 @@ class RegistrationHandler extends UserHandler {
 	/**
 	 * Constructor
 	 */
-	function RegistrationHandler() {
-		parent::UserHandler();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

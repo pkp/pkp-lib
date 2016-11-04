@@ -27,8 +27,8 @@ class PKPFileDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function PKPFileDAO() {
-		return parent::DAO();
+	function __construct() {
+		return parent::__construct();
 	}
 
 

@@ -21,8 +21,8 @@ class ReportGeneratorHandler extends Handler {
 	/**
 	 * Constructor
 	 **/
-	function ReportGeneratorHandler() {
-		parent::Handler();
+	function __construct() {
+		parent::__construct();
 		$this->addRoleAssignment(
 			ROLE_ID_MANAGER,
 			array('fetchReportGenerator', 'saveReportGenerator', 'fetchArticlesInfo', 'fetchRegions'));

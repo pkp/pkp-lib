@@ -36,7 +36,7 @@ class XMLNode {
 	 * Constructor.
 	 * @param $name element/tag name
 	 */
-	function XMLNode($name = null) {
+	function __construct($name = null) {
 		$this->name = $name;
 		$this->parent = null;
 		$this->attributes = array();

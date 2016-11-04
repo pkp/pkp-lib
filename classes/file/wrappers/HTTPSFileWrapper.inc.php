@@ -19,8 +19,8 @@
 import('lib.pkp.classes.file.wrappers.HTTPFileWrapper');
 
 class HTTPSFileWrapper extends HTTPFileWrapper {
-	function HTTPSFileWrapper($url, &$info) {
-		parent::HTTPFileWrapper($url, $info);
+	function __construct($url, &$info) {
+		parent::__construct($url, $info);
 		$this->setDefaultPort(443);
 		$this->setDefaultHost('ssl://localhost');
 		if (isset($this->info['host'])) {

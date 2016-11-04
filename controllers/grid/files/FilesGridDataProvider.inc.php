@@ -30,8 +30,8 @@ class FilesGridDataProvider extends GridDataProvider {
 	/**
 	 * Constructor
 	 */
-	function FilesGridDataProvider() {
-		parent::GridDataProvider();
+	function __construct() {
+		parent::__construct();
 	}
 
 

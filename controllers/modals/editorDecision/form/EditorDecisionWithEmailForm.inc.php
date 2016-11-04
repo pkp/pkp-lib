@@ -28,8 +28,8 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 	 * @param $template string The template to display
 	 * @param $reviewRound ReviewRound
 	 */
-	function EditorDecisionWithEmailForm($submission, $decision, $stageId, $template, $reviewRound = null) {
-		parent::EditorDecisionForm($submission, $decision, $stageId, $template, $reviewRound);
+	function __construct($submission, $decision, $stageId, $template, $reviewRound = null) {
+		parent::__construct($submission, $decision, $stageId, $template, $reviewRound);
 	}
 
 	//

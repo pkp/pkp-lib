@@ -21,8 +21,8 @@ class OrderMultipleListsItemsFeature extends OrderItemsFeature {
 	/**
 	 * Constructor.
 	 */
-	function OrderMultipleListsItemsFeature() {
-		parent::OrderItemsFeature(false);
+	function __construct() {
+		parent::__construct(false);
 	}
 
 

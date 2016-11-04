@@ -20,8 +20,8 @@ class ValidatorISNI extends ValidatorRegExp {
 	/**
 	 * Constructor.
 	 */
-	function ValidatorISNI() {
-		parent::ValidatorRegExp(self::getRegexp());
+	function __construct() {
+		parent::__construct(self::getRegexp());
 	}
 
 

@@ -52,9 +52,9 @@ class MetadataDataObjectAdapter extends PersistableFilter {
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function MetadataDataObjectAdapter($filterGroup, $mode = null) {
+	function __construct($filterGroup, $mode = null) {
 		// Initialize the adapter.
-		parent::PersistableFilter($filterGroup);
+		parent::__construct($filterGroup);
 
 		// Extract information from the input/output types.
 

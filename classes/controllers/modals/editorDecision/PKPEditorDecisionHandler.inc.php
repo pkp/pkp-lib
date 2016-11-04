@@ -22,8 +22,8 @@ class PKPEditorDecisionHandler extends Handler {
 	/**
 	 * Constructor.
 	 */
-	function PKPEditorDecisionHandler() {
-		parent::Handler();
+	function __construct() {
+		parent::__construct();
 	}
 
 

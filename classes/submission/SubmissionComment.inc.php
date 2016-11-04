@@ -25,8 +25,8 @@ class SubmissionComment extends DataObject {
 	/**
 	 * Constructor.
 	 */
-	function SubmissionComment() {
-		parent::DataObject();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

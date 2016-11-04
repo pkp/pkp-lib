@@ -27,8 +27,8 @@ class CitationDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function CitationDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

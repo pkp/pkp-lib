@@ -23,8 +23,8 @@ class PKPCrossrefCitationLookupPlugin extends Plugin {
 	/**
 	 * Constructor
 	 */
-	function PKPCrossrefCitationLookupPlugin() {
-		parent::Plugin();
+	function __construct() {
+		parent::__construct();
 	}
 
 

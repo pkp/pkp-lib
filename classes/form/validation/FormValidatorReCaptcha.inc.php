@@ -27,8 +27,8 @@ class FormValidatorReCaptcha extends FormValidator {
 	 * @param $userIp string IP address of user request
 	 * @param $message string Key of message to display on mismatch
 	 */
-	function FormValidatorReCaptcha(&$form, $userIp, $message) {
-		parent::FormValidator($form, RECAPTCHA_RESPONSE_FIELD, FORM_VALIDATOR_REQUIRED_VALUE, $message);
+	function __construct(&$form, $userIp, $message) {
+		parent::__construct($form, RECAPTCHA_RESPONSE_FIELD, FORM_VALIDATOR_REQUIRED_VALUE, $message);
 		$this->_userIp = $userIp;
 	}
 

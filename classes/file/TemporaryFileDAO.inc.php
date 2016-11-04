@@ -21,8 +21,8 @@ class TemporaryFileDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function TemporaryFileDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

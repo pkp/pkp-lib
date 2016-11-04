@@ -34,8 +34,8 @@ class AdvancedSearchReviewerFilterForm extends Form {
 	 * @param $stageId int
 	 * @param $reviewRoundId int
 	 */
-	function AdvancedSearchReviewerFilterForm($submission, $stageId, $reviewRoundId, $reviewRound) {
-		parent::Form();
+	function __construct($submission, $stageId, $reviewRoundId, $reviewRound) {
+		parent::__construct();
 		$this->_submission = $submission;
 		$this->_stageId = $stageId;
 		$this->_reviewRoundId = $reviewRoundId;

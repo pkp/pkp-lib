@@ -22,7 +22,7 @@ class GridCategoryAccordionFeature extends GridFeature{
 	/**
 	 * Constructor.
 	 */
-	function GridCategoryAccordionFeature() {
+	function __construct() {
 		parent::GridFeature('categoryAccordion');
 	}
 

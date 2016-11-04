@@ -22,8 +22,8 @@ class IdentityForm extends BaseProfileForm {
 	 * @param $template string
 	 * @param $user PKPUser
 	 */
-	function IdentityForm($user) {
-		parent::BaseProfileForm('user/identityForm.tpl', $user);
+	function __construct($user) {
+		parent::__construct('user/identityForm.tpl', $user);
 
 		// Validation checks for this form
 		$this->addCheck(new FormValidator($this, 'firstName', 'required', 'user.profile.form.firstNameRequired'));

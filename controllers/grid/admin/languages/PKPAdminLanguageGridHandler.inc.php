@@ -23,8 +23,8 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	/**
 	 * Constructor
 	 */
-	function PKPAdminLanguageGridHandler() {
-		parent::LanguageGridHandler();
+	function __construct() {
+		parent::__construct();
 		$this->addRoleAssignment(
 			array(ROLE_ID_SITE_ADMIN),
 			array(

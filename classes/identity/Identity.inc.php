@@ -22,8 +22,8 @@ class Identity extends DataObject {
 	/**
 	 * Constructor
 	 */
-	function Identity() {
-		parent::DataObject();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

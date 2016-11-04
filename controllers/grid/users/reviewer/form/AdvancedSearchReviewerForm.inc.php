@@ -21,8 +21,8 @@ class AdvancedSearchReviewerForm extends ReviewerForm {
 	 * @param $submission Submission
 	 * @param $reviewRound ReviewRound
 	 */
-	function AdvancedSearchReviewerForm($submission, $reviewRound) {
-		parent::ReviewerForm($submission, $reviewRound);
+	function __construct($submission, $reviewRound) {
+		parent::__construct($submission, $reviewRound);
 		$this->setTemplate('controllers/grid/users/reviewer/form/advancedSearchReviewerForm.tpl');
 
 		$this->addCheck(new FormValidator($this, 'reviewerId', 'required', 'editor.review.mustSelect'));

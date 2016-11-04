@@ -21,8 +21,8 @@ class EventLogDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function EventLogDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

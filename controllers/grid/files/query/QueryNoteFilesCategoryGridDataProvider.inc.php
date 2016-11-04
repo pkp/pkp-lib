@@ -18,8 +18,8 @@ class QueryNoteFilesCategoryGridDataProvider extends SubmissionFilesCategoryGrid
 	/**
 	 * Constructor
 	 */
-	function QueryNoteFilesCategoryGridDataProvider() {
-		parent::SubmissionFilesCategoryGridDataProvider(SUBMISSION_FILE_QUERY);
+	function __construct() {
+		parent::__construct(SUBMISSION_FILE_QUERY);
 	}
 
 

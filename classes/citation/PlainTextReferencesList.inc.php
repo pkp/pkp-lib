@@ -29,7 +29,7 @@ class PlainTextReferencesList {
 	 * @param $listContent string
 	 * @param $ordering integer one of the REFERENCES_LIST_ORDERING_* constants
 	 */
-	function PlainTextReferencesList($listContent, $ordering) {
+	function __construct($listContent, $ordering) {
 		$this->_listContent = $listContent;
 		$this->_ordering = $ordering;
 	}

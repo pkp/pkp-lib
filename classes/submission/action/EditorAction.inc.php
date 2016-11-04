@@ -20,7 +20,7 @@ class EditorAction {
 	/**
 	 * Constructor.
 	 */
-	function EditorAction() {
+	function __construct() {
 	}
 
 	//

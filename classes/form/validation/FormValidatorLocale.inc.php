@@ -27,19 +27,9 @@ class FormValidatorLocale extends FormValidator {
 	 * @param $requiredLocale The name of the required locale, i.e. en_US
 	 */
 	function FormValidatorLocale(&$form, $field, $type, $message, $requiredLocale = null, $validator = null) {
-		$this->_form =& $form;
-		$this->_field = $field;
-		$this->_type = $type;
-		$this->_message = $message;
-		$this->_validator =& $validator;
-
+		parent::FormValidator($form, $field, $type, $message, $validator);
 		if ($requiredLocale === null) $requiredLocale = AppLocale::getPrimaryLocale();
 		$this->_requiredLocale = $requiredLocale;
-
-		$form->cssValidation[$field] = array();
-		if ($type == FORM_VALIDATOR_REQUIRED_VALUE) {
-			array_push($form->cssValidation[$field], 'required');
-		}
 	}
 
 	//

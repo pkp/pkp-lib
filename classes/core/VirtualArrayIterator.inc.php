@@ -41,6 +41,7 @@ class VirtualArrayIterator extends ItemIterator {
 	 * @param $itemsPerPage int Number of items to display per page
 	 */
 	function VirtualArrayIterator(&$theArray, $totalItems, $page=-1, $itemsPerPage=-1) {
+		parent::ItemIterator();
 		if ($page>=1 && $itemsPerPage>=1) {
 			$this->page = $page;
 		} else {

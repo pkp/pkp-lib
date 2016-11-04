@@ -21,7 +21,7 @@ class TemporaryFileManager extends PrivateFileManager {
 	 * Constructor
 	 */
 	function TemporaryFileManager() {
-		parent::FileManager();
+		parent::PrivateFileManager();
 
 		$this->_performPeriodicCleanup();
 	}

@@ -53,6 +53,7 @@ class DAOResultFactory extends ItemIterator {
 	 *  Should be data object _data array key, not database column name
 	 */
 	function DAOResultFactory(&$records, &$dao, $functionName, $idFields = array()) {
+		parent::ItemIterator();
 		$this->functionName = $functionName;
 		$this->dao =& $dao;
 		$this->idFields = $idFields;

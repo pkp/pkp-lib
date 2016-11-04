@@ -23,7 +23,7 @@ class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler {
 	 * Constructor
 	 */
 	function AuthorDashboardReviewRoundTabHandler() {
-		parent::Handler();
+		parent::AuthorDashboardHandler();
 		$this->addRoleAssignment(array(ROLE_ID_AUTHOR), array('fetchReviewRoundInfo'));
 	}
 

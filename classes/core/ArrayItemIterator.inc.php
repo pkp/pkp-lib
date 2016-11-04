@@ -39,6 +39,7 @@ class ArrayItemIterator extends ItemIterator {
 	 * @param $itemsPerPage int Number of items to display per page
 	 */
 	function ArrayItemIterator(&$theArray, $page=-1, $itemsPerPage=-1) {
+		parent::ItemIterator();
 		if ($page>=1 && $itemsPerPage>=1) {
 			$this->theArray = $this->array_slice_key($theArray, ($page-1) * $itemsPerPage, $itemsPerPage);
 			$this->page = $page;

@@ -17,6 +17,12 @@
 
 class ItemIterator {
 	/**
+	 * Constructor
+	 */
+	function ItemIterator() {
+	}
+
+	/**
 	 * Return the next item in the iterator.
 	 * @return object
 	 */

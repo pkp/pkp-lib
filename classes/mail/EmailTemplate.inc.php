@@ -356,7 +356,6 @@ class EmailTemplate extends BaseEmailTemplate {
 	function setBody($body) {
 		$this->setData('body', $body);
 	}
-
 }
 
 ?>

@@ -15,7 +15,7 @@
 
 import('lib.pkp.classes.notification.managerDelegate.review.ReviewRoundNotificationManager');
 
-class AllRevisionsInNotificationManager extends ReviewRoundNotificationManager{
+class AllRevisionsInNotificationManager extends ReviewRoundNotificationManager {
 
 	/**
 	 * Constructor.

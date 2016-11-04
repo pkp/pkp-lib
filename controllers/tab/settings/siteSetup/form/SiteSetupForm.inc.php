@@ -22,6 +22,7 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 	 * Constructor.
 	 */
 	function SiteSetupForm() {
+		// Parent constructor intentionally not called
 		parent::Form('controllers/tab/settings/siteSetup/form/siteSetupForm.tpl');
 		$this->siteSettingsDao = DAORegistry::getDAO('SiteSettingsDAO');
 

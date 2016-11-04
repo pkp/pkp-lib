@@ -38,7 +38,7 @@ class FileWrapper {
 	 * @param $url string
 	 * @param $info array
 	 */
-	function FileWrapper($url, &$info) {
+	function FileWrapper($url, $info) {
 		$this->url = $url;
 		$this->info = $info;
 	}

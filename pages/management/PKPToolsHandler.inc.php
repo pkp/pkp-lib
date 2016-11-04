@@ -23,7 +23,7 @@ class PKPToolsHandler extends ManagementHandler {
 	 * Constructor.
 	 */
 	function PKPToolsHandler() {
-		parent::Handler();
+		parent::ManagementHandler();
 		$this->addRoleAssignment(
 			ROLE_ID_MANAGER,
 			array('tools', 'statistics', 'importexport')

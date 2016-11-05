@@ -23,9 +23,9 @@
 import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
 import('lib.pkp.classes.filter.EmailFilterSetting');
 
-define('PUBMED_WEBSERVICE_ESEARCH', 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi');
-define('PUBMED_WEBSERVICE_EFETCH', 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi');
-define('PUBMED_WEBSERVICE_ELINK', 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi');
+define('PUBMED_WEBSERVICE_ESEARCH', 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi');
+define('PUBMED_WEBSERVICE_EFETCH', 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi');
+define('PUBMED_WEBSERVICE_ELINK', 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi');
 
 class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 	/**

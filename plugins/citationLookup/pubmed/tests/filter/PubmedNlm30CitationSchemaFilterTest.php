@@ -26,6 +26,8 @@ class PubmedNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTestC
 	 * @covers PubmedNlm30CitationSchemaFilter
 	 */
 	public function testExecuteWithPmid() {
+		$this->markTestSkipped('Web API authentication problem with older CURL/OpenSSL');
+
 		// Test article Pubmed lookup
 		$citationFilterTests = array(
 			array(
@@ -48,6 +50,8 @@ class PubmedNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTestC
 	 * @covers PubmedNlm30CitationSchemaFilter
 	 */
 	public function testExecuteWithSearch() {
+		$this->markTestSkipped('Web API authentication problem with older CURL/OpenSSL');
+
 		// Build the test citations array
 		$citationFilterTests = array(
 			// strict search

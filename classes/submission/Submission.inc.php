@@ -392,19 +392,29 @@ abstract class Submission extends DataObject {
 	/**
 	 * Get "localized" submission title (if applicable).
 	 * @param $preferredLocale string
+	 * @param $includePrefix bool
 	 * @return string
 	 */
-	function getLocalizedTitle($preferredLocale = null) {
-		return $this->getLocalizedData('title', $preferredLocale);
+	function getLocalizedTitle($preferredLocale = null, $includePrefix = true) {
+		$title = $this->getLocalizedData('title', $preferredLocale);
+		if ($includePrefix) {
+			$title = $this->getLocalizedPrefix() . ' ' . $title;
+		}
+		return $title;
 	}
 
 	/**
 	 * Get title.
 	 * @param $locale
+	 * @param $includePrefix bool
 	 * @return string
 	 */
-	function getTitle($locale) {
-		return $this->getData('title', $locale);
+	function getTitle($locale, $includePrefix = true) {
+		$title = $this->getData('title', $locale);
+		if ($includePrefix) {
+			$title = $this->getPrefix($locale) . ' ' . $title;
+		}
+		return $title;
 	}
 
 	/**
@@ -460,12 +470,7 @@ abstract class Submission extends DataObject {
 	 * @return string
 	 */
 	function getLocalizedFullTitle() {
-		$fullTitle = null;
-		if ($prefix = $this->getLocalizedPrefix()) {
-			$fullTitle = $prefix . ' ';
-		}
-
-		$fullTitle .= $this->getLocalizedTitle();
+		$fullTitle = $this->getLocalizedTitle();
 
 		if ($subtitle = $this->getLocalizedSubtitle()) {
 			$fullTitle = PKPString::concatTitleFields(array($fullTitle, $subtitle));
@@ -481,12 +486,7 @@ abstract class Submission extends DataObject {
 	 * @return string
 	 */
 	function getFullTitle($locale) {
-		$fullTitle = null;
-		if ($prefix = $this->getPrefix($locale)) {
-			$fullTitle = $prefix . ' ';
-		}
-
-		$fullTitle .= $this->getTitle($locale);
+		$fullTitle = $this->getTitle($locale);
 
 		if ($subtitle = $this->getSubtitle($locale)) {
 			$fullTitle = PKPString::concatTitleFields(array($fullTitle, $subtitle));

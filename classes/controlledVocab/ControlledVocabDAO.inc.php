@@ -160,7 +160,7 @@ class ControlledVocabDAO extends DAO {
 	function deleteObjectById($controlledVocabId) {
 		$params = array((int) $controlledVocabId);
 		$controlledVocabEntryDao = DAORegistry::getDAO('ControlledVocabEntryDAO');
-		$controlledVocabEntries =& $this->enumerate($controlledVocabId);
+		$controlledVocabEntries = $this->enumerate($controlledVocabId);
 		foreach ($controlledVocabEntries as $controlledVocabEntryId => $controlledVocabEntryName) {
 			$controlledVocabEntryDao->deleteObjectById($controlledVocabEntryId);
 		}

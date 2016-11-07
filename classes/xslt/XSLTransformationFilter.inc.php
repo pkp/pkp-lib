@@ -140,7 +140,7 @@ class XSLTransformationFilter extends PersistableFilter {
 
 		// Transform the input
 		$xslTransformer = new XSLTransformer();
-		$result =& $xslTransformer->transform($xml, $xmlType, $this->getXsl(), $this->getXslType(), $this->getResultType());
+		$result = $xslTransformer->transform($xml, $xmlType, $this->getXsl(), $this->getXslType(), $this->getResultType());
 		return $result;
 	}
 }

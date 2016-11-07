@@ -68,7 +68,7 @@ class PersistableFilter extends Filter {
 	function __construct($filterGroup) {
 		// Check and set the filter group.
 		assert(is_a($filterGroup, 'FilterGroup'));
-		$this->_filterGroup =& $filterGroup;
+		$this->_filterGroup = $filterGroup;
 
 		// Initialize the filter.
 		$this->setParentFilterId(0);
@@ -84,7 +84,7 @@ class PersistableFilter extends Filter {
 	 * Get the filter group
 	 * @return FilterGroup
 	 */
-	function &getFilterGroup() {
+	function getFilterGroup() {
 		return $this->_filterGroup;
 	}
 
@@ -136,7 +136,7 @@ class PersistableFilter extends Filter {
 	 * Add a filter setting
 	 * @param $setting FilterSetting
 	 */
-	function addSetting(&$setting) {
+	function addSetting($setting) {
 		assert(is_a($setting, 'FilterSetting'));
 		$settingName = $setting->getName();
 
@@ -145,7 +145,7 @@ class PersistableFilter extends Filter {
 		if (in_array($settingName, $this->getInternalSettings())) fatalError('Trying to override an internal filter setting!');
 
 		assert(!isset($this->_settings[$settingName]));
-		$this->_settings[$settingName] =& $setting;
+		$this->_settings[$settingName] = $setting;
 	}
 
 	/**
@@ -153,7 +153,7 @@ class PersistableFilter extends Filter {
 	 * @param $settingName string
 	 * @return FilterSetting
 	 */
-	function &getSetting($settingName) {
+	function getSetting($settingName) {
 		assert(isset($this->_settings[$settingName]));
 		return $this->_settings[$settingName];
 	}

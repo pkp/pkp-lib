@@ -294,7 +294,7 @@ class Nlm30CitationSchemaFilter extends PersistableFilter {
 					$persons =& $personStringFilter->execute($personStrings);
 				} else {
 					$personStringFilter = new PersonStringNlm30NameSchemaFilter($personAssocType, PERSON_STRING_FILTER_SINGLE);
-					$persons =& array_map(array($personStringFilter, 'execute'), $personStrings);
+					$persons = array_map(array($personStringFilter, 'execute'), $personStrings);
 				}
 
 				$preliminaryNlm30Array['person-group[@person-group-type="'.$personType.'"]'] = $persons;

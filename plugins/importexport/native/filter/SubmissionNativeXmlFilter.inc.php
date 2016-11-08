@@ -163,7 +163,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 	 * @param $submission Submission
 	 */
 	function addMetadata($doc, $submissionNode, $submission) {
-		$this->createLocalizedNodes($doc, $submissionNode, 'title', $submission->getTitle(null));
+		$this->createLocalizedNodes($doc, $submissionNode, 'title', $submission->getTitle(null, false));
 		$this->createLocalizedNodes($doc, $submissionNode, 'prefix', $submission->getPrefix(null));
 		$this->createLocalizedNodes($doc, $submissionNode, 'subtitle', $submission->getSubtitle(null));
 		$this->createLocalizedNodes($doc, $submissionNode, 'abstract', $submission->getAbstract(null));

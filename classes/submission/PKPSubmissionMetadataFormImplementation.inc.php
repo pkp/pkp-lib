@@ -68,7 +68,7 @@ class PKPSubmissionMetadataFormImplementation {
 	function initData($submission) {
 		if (isset($submission)) {
 			$formData = array(
-				'title' => $submission->getTitle(null), // Localized
+				'title' => $submission->getTitle(null, false), // Localized
 				'prefix' => $submission->getPrefix(null), // Localized
 				'subtitle' => $submission->getSubtitle(null), // Localized
 				'abstract' => $submission->getAbstract(null), // Localized

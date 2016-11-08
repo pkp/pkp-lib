@@ -412,7 +412,13 @@ abstract class Submission extends DataObject {
 	function getTitle($locale, $includePrefix = true) {
 		$title = $this->getData('title', $locale);
 		if ($includePrefix) {
-			$title = $this->getPrefix($locale) . ' ' . $title;
+			if (is_array($title)) {
+				foreach($title as $locale => $currentTitle) {
+					$title[$locale] = $this->getPrefix($locale) . ' ' . $currentTitle;
+				}
+			} else {
+				$title = $this->getPrefix($locale) . ' ' . $title;
+			}
 		}
 		return $title;
 	}

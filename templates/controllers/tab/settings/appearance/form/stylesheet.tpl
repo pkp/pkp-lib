@@ -13,7 +13,7 @@
 	<div id="styleSheet">
 		{$styleSheetView}
 	</div>
-	<div id={$stylesheetFieldId} class="pkp_linkActions">
+	<div id="{$stylesheetFieldId}" class="pkp_linkActions">
 		{include file="linkAction/linkAction.tpl" action=$uploadCssLinkAction contextId="appearanceForm"}
 	</div>
 {/fbvFormSection}

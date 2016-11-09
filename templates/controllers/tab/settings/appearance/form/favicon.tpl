@@ -13,7 +13,7 @@
 	<div id="favicon">
 		{$imagesViews.favicon}
 	</div>
-	<div id="$uploadImageFieldId" class="pkp_linkActions">
+	<div id="{$uploadImageFieldId}" class="pkp_linkActions">
 		{include file="linkAction/linkAction.tpl" action=$uploadImageLinkActions.favicon contextId="appearanceForm"}
 	</div>
 {/fbvFormSection}

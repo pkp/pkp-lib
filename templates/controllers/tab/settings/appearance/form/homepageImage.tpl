@@ -13,7 +13,7 @@
 	<div id="homepageImage">
 		{$imagesViews.homepageImage}
 	</div>
-	<div id="$uploadImageFieldId" class="pkp_linkActions">
+	<div id="{$uploadImageFieldId}" class="pkp_linkActions">
 		{include file="linkAction/linkAction.tpl" action=$uploadImageLinkActions.homepageImage contextId="appearanceForm"}
 	</div>
 {/fbvFormSection}

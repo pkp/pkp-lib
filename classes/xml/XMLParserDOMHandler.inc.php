@@ -33,9 +33,10 @@ class XMLParserDOMHandler extends XMLParserHandler {
 	/**
 	 * Constructor.
 	 */
-	function XMLParserHandler() {
+	function __construct() {
 		$this->rootNodes = array();
 		$this->currentNode = null;
+		parent::__construct();
 	}
 
 	function destroy() {

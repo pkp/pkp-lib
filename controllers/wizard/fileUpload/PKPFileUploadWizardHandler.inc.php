@@ -20,11 +20,6 @@ import('classes.handler.Handler');
 // Import JSON class for use with all AJAX requests.
 import('lib.pkp.classes.core.JSONMessage');
 
-// The percentage of characters that the name of a file
-// has to share with an existing file for it to be
-// considered as a revision of that file.
-define('SUBMISSION_MIN_SIMILARITY_OF_REVISION', 70);
-
 class PKPFileUploadWizardHandler extends Handler {
 	/** @var integer */
 	var $_fileStage;
@@ -477,7 +472,7 @@ class PKPFileUploadWizardHandler extends Handler {
 		$uploadedFileName = $uploadedFile->getOriginalFileName();
 
 		// Start with the minimal required similarity.
-		$minPercentage = SUBMISSION_MIN_SIMILARITY_OF_REVISION;
+		$minPercentage = Config::getVar('files' 'filename_revision_match', 70);
 
 		// Find out whether one of the files belonging to the current
 		// file stage matches the given file name.

@@ -472,7 +472,7 @@ class PKPFileUploadWizardHandler extends Handler {
 		$uploadedFileName = $uploadedFile->getOriginalFileName();
 
 		// Start with the minimal required similarity.
-		$minPercentage = Config::getVar('files' 'filename_revision_match', 70);
+		$minPercentage = Config::getVar('files', 'filename_revision_match', 70);
 
 		// Find out whether one of the files belonging to the current
 		// file stage matches the given file name.

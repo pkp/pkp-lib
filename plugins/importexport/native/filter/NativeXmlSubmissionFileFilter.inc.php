@@ -154,10 +154,16 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		// Determine the user group based on the user_group_ref element.
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroups = $userGroupDao->getByContextId($context->getId());
+		$unknownUserGroup = true;
 		while ($userGroup = $userGroups->next()) {
 			if (in_array($uploaderUserGroup, $userGroup->getName(null))) {
 				$submissionFile->setUserGroupId($userGroup->getId());
+				$unknownUserGroup = false;
+				break;
 			}
+		}
+		if ($unknownUserGroup) {
+			fatalError('Unknown user group "' . $uploaderUserGroup . '"!');
 		}
 
 		// Do the same for the user.
@@ -165,6 +171,8 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		$user = $userDao->getByUsername($uploaderUsername);
 		if ($user) {
 			$submissionFile->setUploaderUserId($user->getId());
+		} else {
+			fatalError('Unknown uploader "' . $uploaderUsername . '"!');
 		}
 
 		$fileSize = $node->getAttribute('filesize');

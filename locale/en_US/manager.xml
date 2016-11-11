@@ -520,4 +520,10 @@
 	<message key="manager.setup.metadata.submission">Submission Form</message>
 	<!--  common importexport keys -->
 	<message key="plugins.importexport.common.validationErrors">Validation errors:</message>
+	<message key="plugins.importexport.common.errorsOccured">Errors occured:</message>
+	<message key="plugins.importexport.common.error.unknownElement">Unknown element {$param}</message>
+	<message key="plugins.importexport.common.error.unknownGenre">Unknown genre {$param}</message>
+	<message key="plugins.importexport.common.error.unknownEncoding">Unknown encoding {$param}</message>
+	<message key="plugins.importexport.common.error.unknownUserGroup">Unknown user group {$param}</message>
+	<message key="plugins.importexport.common.error.unknownUploader">Unknown uploader {$param}</message>
 </locale>

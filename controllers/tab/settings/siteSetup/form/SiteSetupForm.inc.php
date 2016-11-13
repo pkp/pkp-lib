@@ -20,19 +20,10 @@ import('lib.pkp.classes.admin.form.PKPSiteSettingsForm');
 class SiteSetupForm extends PKPSiteSettingsForm {
 	/**
 	 * Constructor.
+	 * @param $template string? Optional name of template file to use for form presentation
 	 */
-	function __construct() {
-		// Parent constructor intentionally not called
-		parent::Form('controllers/tab/settings/siteSetup/form/siteSetupForm.tpl');
-		$this->siteSettingsDao = DAORegistry::getDAO('SiteSettingsDAO');
-
-		// Validation checks for this form
-		$this->addCheck(new FormValidatorLocale($this, 'title', 'required', 'admin.settings.form.titleRequired'));
-		$this->addCheck(new FormValidatorLocale($this, 'contactName', 'required', 'admin.settings.form.contactNameRequired'));
-		$this->addCheck(new FormValidatorLocaleEmail($this, 'contactEmail', 'required', 'admin.settings.form.contactEmailRequired'));
-		$this->addCheck(new FormValidatorCustom($this, 'minPasswordLength', 'required', 'admin.settings.form.minPasswordLengthRequired', create_function('$l', sprintf('return $l >= %d;', SITE_MIN_PASSWORD_LENGTH))));
-		$this->addCheck(new FormValidatorPost($this));
-		$this->addCheck(new FormValidatorCSRF($this));
+	function __construct($template = null) {
+		parent::__construct($template?$template:'controllers/tab/settings/siteSetup/form/siteSetupForm.tpl');
 
 		$themes = PluginRegistry::getPlugins('themes');
 		if (is_null($themes)) {

@@ -26,9 +26,10 @@ class PKPSiteSettingsForm extends Form {
 
 	/**
 	 * Constructor.
+	 * @param $template string? Optional name of template file to use for form presentation
 	 */
-	function __construct() {
-		parent::__construct('admin/settings.tpl');
+	function __construct($template = null) {
+		parent::__construct($template?$template:'admin/settings.tpl');
 		$this->siteSettingsDao = DAORegistry::getDAO('SiteSettingsDAO');
 
 		// Validation checks for this form

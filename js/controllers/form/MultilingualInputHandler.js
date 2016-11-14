@@ -45,6 +45,8 @@
 		this.publishEvent('tinyMCEInitialized');
 
 		this.tinyMCEInitHandler_();
+
+		setTimeout(this.callbackWrapper(this.isIncomplete_), 500);
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.form.MultilingualInputHandler,
@@ -102,6 +104,7 @@
 		var $popover = this.getHtmlElement();
 		$popover.removeClass('localization_popover_container_focus');
 		$popover.find('.localization_popover').hide();
+		this.isIncomplete_();
 	};
 
 
@@ -138,6 +141,55 @@
 			return true;
 		} else {
 			return false;
+		}
+	};
+
+	/**
+	 * Check if the field is missing a localization
+	 *
+	 * Fields are not considered to be missing a localization unless at least
+	 * one of the localizations has an entry.
+	 *
+	 * @private
+	 */
+	$.pkp.controllers.form.MultilingualInputHandler.prototype.isIncomplete_ =
+			function() {
+
+		var $popover = this.getHtmlElement(),
+			$inputs = [],
+			valuesCount = 0;
+
+		// Track current values in the tinyMCE control
+		if (this.getHtmlElement().find('.richContent').length) {
+			$popover.find('textarea').each(function() {
+				var id = $(this).attr('id'),
+					tinymce;
+
+				$inputs.push($(this));
+				tinymce = tinyMCE.EditorManager.get(/** @type {string} */(
+						$(this).attr('id')));
+				if (tinymce.getContent()) {
+					valuesCount++;
+				}
+			});
+
+		} else {
+			$inputs = $popover.find(':input');
+			$inputs.each(function() {
+				if ($(this).val()) {
+					valuesCount++;
+				}
+			});
+		}
+
+		if (valuesCount > 0 && valuesCount < $inputs.length) {
+			$popover.removeClass('localizationComplete')
+				.addClass('localizationIncomplete');
+		} else if (valuesCount === $inputs.length) {
+			$popover.removeClass('localizationIncomplete')
+				.addClass('localizationComplete');
+		} else {
+			$popover.removeClass('localizationIncomplete localizationComplete');
 		}
 	};
 

@@ -26,12 +26,13 @@ class UpgradeTool extends CommandLineTool {
 
 	/** @var string command to execute (check|upgrade|download) */
 	var $command;
+
 	/**
 	 * Constructor.
 	 * @param $argv array command-line arguments
 	 */
-	function upgradeTool($argv = array()) {
-		parent::CommandLineTool($argv);
+	function __construct($argv = array()) {
+		parent::__construct($argv);
 
 		if (!isset($this->argv[0]) || !in_array($this->argv[0], array('check', 'latest', 'upgrade', 'download'))) {
 			$this->usage();

@@ -214,7 +214,10 @@ class OAIIdentifier {
 	/** @var string if this record is deleted */
 	var $status;
 
-	function OAIIdentifier() {
+	/**
+	 * Constructor
+	 */
+	function __construct() {
 	}
 }
 
@@ -226,8 +229,11 @@ class OAIIdentifier {
 class OAIRecord extends OAIIdentifier {
 	var $data;
 
-	function OAIRecord() {
-		parent::OAIIdentifier();
+	/**
+	 * Constructor
+	 */
+	function __construct() {
+		parent::__construct();
 		$this->data = array();
 	}
 

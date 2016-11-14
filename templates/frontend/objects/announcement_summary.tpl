@@ -21,7 +21,7 @@
 		</a>
 	</{$heading}>
 	<div class="date">
-		{$announcement->getDatePosted()}
+		{$announcement->getDatePosted()|date_format:$dateFormatShort}
 	</div>
 	<div class="summary">
 		{$announcement->getLocalizedDescriptionShort()|strip_unsafe_html}

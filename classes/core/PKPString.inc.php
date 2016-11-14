@@ -1008,46 +1008,64 @@ class PKPString {
 	}
 
 	/**
-	 * Matches each symbol of PHP date format string
-	 * to jQuery Datepicker widget date format.
+	 * Matches each symbol of PHP strftime format string
+	 * to jQuery Datepicker widget date format. 
 	 * @param $phpFormat string
 	 * @return string
 	 */
 	function dateformatPHP2JQueryDatepicker($phpFormat) {
 		$symbols = array(
 			// Day
-			'd' => 'dd',
-			'D' => 'D',
-			'j' => 'd',
-			'l' => 'DD',
-			'N' => '',
-			'S' => '',
-			'w' => '',
-			'z' => 'o',
+			'a' => 'D',	// date() format 'D'
+			'A' => 'DD',	// date() format 'DD'
+			'd' => 'dd',	// date() format 'd'
+			'e' => 'd',	// date() format 'j'
+			'j' => 'oo',	// date() format none
+			'u' => '',		// date() format 'N'
+			'w' => '',		// date() format 'w'
+
 			// Week
-			'W' => '',
+			'U' => '',		// date() format none
+			'V' => '',		// date() format none
+			'W' => '',		// date() format 'W'
+
 			// Month
-			'F' => 'MM',
-			'm' => 'mm',
-			'M' => 'M',
-			'n' => 'm',
-			't' => '',
+			'b' => 'M',	// date() format 'M'
+			'h' => 'M',	// date() format 'M'
+			'B' => 'MM',	// date() format 'F'
+			'm' => 'mm',	// date() format 'm'
+
 			// Year
-			'L' => '',
-			'o' => '',
-			'Y' => 'yy',
-			'y' => 'y',
+			'C' => '',		// date() format none
+			'g' => 'y',	// date() format none
+			'G' => 'yy',	// date() format 'o'
+			'y' => 'y',	// date() format 'y'
+			'Y' => 'yy',	// date() format 'Y'
+
 			// Time
-			'a' => '',
-			'A' => '',
-			'B' => '',
-			'g' => '',
-			'G' => '',
-			'h' => '',
-			'H' => '',
-			'i' => '',
-			's' => '',
-			'u' => '',
+			'H' => '',		// date() format 'H'
+			'k' => '',		// date() format none
+			'I' => '',		// date() format 'h'
+			'l' => '',		// date() format 'g'
+			'P' => '',		// date() format 'a'
+			'p' => '',		// date() format 'A'
+			'M' => '',		// date() format 'i'
+			'S' => '',		// date() format 's'
+			's' => '',		// date() format 'u'
+
+			// Timezone
+			'z' => '',		// date() format 'O'
+			'Z' => '',		// date() format 'T'
+
+			// Full Date/Time
+			'r' => '',		// date() format none
+			'R' => '',		// date() format none
+			'X' => '',		// date() format none
+			'D' => '',		// date() format none
+			'F' => '',		// date() format none
+			'x' => '',		// date() format none
+			'c' => '',		// date() format none
+
 			// Other
 			'%' => ''
 		);
@@ -1069,7 +1087,7 @@ class PKPString {
 				}
 
 				$datepickerFormat .= isset($symbols[$char]) ? $symbols[$char] : $char;
-				
+
 			}
 		}
 

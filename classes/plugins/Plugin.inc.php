@@ -166,17 +166,6 @@ abstract class Plugin {
 	}
 
 	/**
-	 * Get a list of management actions in the form of a page => value pair.
-	 * The management actions from this list are passed to the manage() function
-	 * when called.
-	 *
-	 * @return array
-	 */
-	function getManagementVerbs() {
-		return array();
-	}
-
-	/**
 	 * Perform a management function.
 	 * @param $args array
 	 * @param $request PKPRequest

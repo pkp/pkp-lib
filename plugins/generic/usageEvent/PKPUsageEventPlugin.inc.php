@@ -90,13 +90,6 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 		return true;
 	}
 
-	/**
-	 * @copydoc GenericPlugin::getManagementVerbs()
-	 */
-	function getManagementVerbs() {
-		return array();
-	}
-
 
 	//
 	// Public methods.

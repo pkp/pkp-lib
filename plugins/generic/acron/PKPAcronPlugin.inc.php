@@ -111,15 +111,15 @@ class PKPAcronPlugin extends GenericPlugin {
 			// Save the current working directory, so we can fix
 			// it inside the shutdown function.
 			$this->_workingDir = getcwd();
-			
+
 			// Save the tasks to be executed.
 			$this->_tasksToRun = $tasksToRun;
-			
+
 			// Need output buffering to send a finish message
 			// to browser inside the shutdown function. Couldn't
 			// do without the buffer.
 			ob_start();
-			
+
 			// This callback will be used as soon as the main script
 			// is finished. It will not stop running, even if the user cancels
 			// the request or the time limit is reach.
@@ -139,20 +139,20 @@ class PKPAcronPlugin extends GenericPlugin {
 	function callbackManage($hookName, $args) {
 		$verb = $args[0];
 		$plugin = $args[4]; /* @var $plugin LazyLoadPlugin */
-		
+
 		// Only interested in plugins that can be enabled/disabled.
 		if (!is_a($plugin, 'LazyLoadPlugin')) return false;
-	
+
 		// Only interested in enable/disable actions.
 		if ($verb !== 'enable' && $verb !== 'disable') return false;
-	
+
 		// Check if the plugin wants to add its own
 		// scheduled task into the cron tab.
 		$hooks = HookRegistry::getHooks();
 		$hookName = 'AcronPlugin::parseCronTab';
 
 		if (!isset($hooks[$hookName])) return false;
-	
+
 		foreach ($hooks[$hookName] as $callback) {
 			if ($callback[0] == $plugin) {
 				$this->_parseCrontab();
@@ -206,8 +206,12 @@ class PKPAcronPlugin extends GenericPlugin {
 			// can happily go ahead and do it before the "last run" time is updated.
 			// By updating the last run time as soon as feasible, we can minimize
 			// the race window. See bug #8737.
-			$updateResult = $taskDao->updateLastRunTime($className, time());
-		
+			$tasksToRun = $this->_getTasksToRun();
+			$updateResult = 0;
+			if (in_array($task, $tasksToRun, true)) {
+				$updateResult = $taskDao->updateLastRunTime($className, time());
+			}
+
 			switch ($updateResult) {
 				case false: // DB doesn't support the get affected rows used inside update method.
 				case 1: // Introduced a new last run time.
@@ -220,7 +224,7 @@ class PKPAcronPlugin extends GenericPlugin {
 					default:
 					break;
 			}
-		}		
+		}
 	}
 
 
@@ -238,7 +242,7 @@ class PKPAcronPlugin extends GenericPlugin {
 
 		// Load all plugins so any plugin can register a crontab.
 		PluginRegistry::loadAllPlugins();
-		
+
 		// Let plugins register their scheduled tasks too.
 		HookRegistry::call('AcronPlugin::parseCronTab', array(&$taskFilesPath)); // Reference needed.
 
@@ -266,7 +270,7 @@ class PKPAcronPlugin extends GenericPlugin {
 				// setup a default period of time.
 				$setDefaultFrequency = true;
 				$minHoursRunPeriod = 24;
-				if ($frequency) { 
+				if ($frequency) {
 					$frequencyAttributes = $frequency->getAttributes();
 					if (is_array($frequencyAttributes)) {
 						foreach($frequencyAttributes as $key => $value) {

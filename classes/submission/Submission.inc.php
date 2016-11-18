@@ -921,6 +921,31 @@ class Submission extends DataObject {
 	}
 
 	/**
+	 * get pages as a nested array of page ranges
+	 * for example, pages of "pp. ii-ix, 9,15-18,a2,b2-b6" will return array( array(0 => 'ii', 1, => 'ix'), array(0 => '9'), array(0 => '15', 1 => '18'), array(0 => 'a2'), array(0 => 'b2', 1 => 'b6') )
+	 * @return array
+	 */
+	function getPageArray() {
+		$pages = $this->getData('pages');
+		// Strip any leading word
+		if (preg_match('/^[[:alpha:]]+\W/', $pages)) {
+			// but don't strip a leading roman numeral
+			if (!preg_match('/^[MDCLXVUI]+\W/i', $pages)) {
+				// strip the word or abbreviation, including the period or colon
+				$pages = preg_replace('/^[[:alpha:]]+[:.]?/', '', $pages);
+			}
+		}
+		// commas indicate distinct ranges
+		$ranges = explode(',', $pages);
+		$pageArray = array();
+		foreach ($ranges as $range) {
+			// hyphens (or double-hyphens) indicate range spans
+			$pageArray[] = array_map('trim', explode('-', str_replace('--', '-', $range), 2));
+		}
+		return $pageArray;
+	}
+
+	/**
 	 * set pages
 	 * @param $pages string
 	 */

@@ -51,7 +51,7 @@ abstract class GatewayPlugin extends Plugin {
 	 * @return boolean
 	 */
 	function getEnabled() {
-		return $this->getContextSpecificSetting($this->getSettingMainContext(), 'enabled');
+		return $this->getSetting($this->getCurrentContextId(), 'enabled');
 	}
 
 	/**
@@ -59,7 +59,7 @@ abstract class GatewayPlugin extends Plugin {
 	 * @param $enabled boolean
 	 */
 	function setEnabled($enabled) {
-		$this->updateContextSpecificSetting($this->getSettingMainContext(), 'enabled', $enabled, 'bool');
+		$this->updateSetting($this->getCurrentContextId(), 'enabled', $enabled, 'bool');
 	}
 }
 

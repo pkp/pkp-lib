@@ -36,7 +36,7 @@ class FileManager {
 	/**
 	 * Constructor
 	 */
-	function __construct() {
+	function FileManager() {
 	}
 
 	/**
@@ -92,10 +92,10 @@ class FileManager {
 	 */
 	function getUploadedFileType($fileName) {
 		if (isset($_FILES[$fileName])) {
-			$type = PKPString::mime_content_type(
-				$_FILES[$fileName]['tmp_name'], // Location on server
-				array_pop(explode('.',$_FILES[$fileName]['name'])) // Extension on client machine
-			);
+			$type = PKPString::mime_content_type($_FILES[$fileName]['tmp_name']);
+
+			// pkp/pkp-lib#1893 Force text/css for .css files
+			if (in_array($type, array('text/plain', 'text/x-c')) && preg_match('/\.css$/i', $_FILES[$fileName]['name'])) return 'text/css';
 
 			if (!empty($type)) return $type;
 			return $_FILES[$fileName]['type'];

@@ -19,8 +19,8 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 	/**
 	 * Constructor
 	 */
-	function __construct() {
-		parent::__construct();
+	function PKPUserImportExportPlugin() {
+		parent::ImportExportPlugin();
 	}
 
 	/**

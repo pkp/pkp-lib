@@ -151,7 +151,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 				$submission->setCommentsToEditor($n->textContent);
 				break;
 			default:
-				fatalError('Unknown element ' . $n->tagName);
+				$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownElement', array('param' => $n->tagName)));
 		}
 	}
 

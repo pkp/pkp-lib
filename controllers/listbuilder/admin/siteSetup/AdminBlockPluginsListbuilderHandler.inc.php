@@ -43,7 +43,7 @@ class AdminBlockPluginsListbuilderHandler extends BlockPluginsListbuilderHandler
 	 * @copydoc MultipleListsListbuilderHandler::setListsData()
 	 */
 	function setListsData($request, $filter) {
-		$leftBlockPlugins = $disabledBlockPlugins = array();
+		$sidebarBlockPlugins = $disabledBlockPlugins = array();
 		$plugins = PluginRegistry::loadCategory('blocks');
 		foreach ($plugins as $key => $junk) {
 			if (!$plugins[$key]->getEnabled(0) || $plugins[$key]->getBlockContext(0) == '') {
@@ -51,14 +51,14 @@ class AdminBlockPluginsListbuilderHandler extends BlockPluginsListbuilderHandler
 			} else {
 				switch ($plugins[$key]->getBlockContext(0)) {
 					case BLOCK_CONTEXT_SIDEBAR:
-						$leftBlockPlugins[$key] = $plugins[$key];
+						$sidebarBlockPlugins[$key] = $plugins[$key];
 						break;
 				}
 			}
 		}
 
 		$lists = $this->getLists();
-		$lists['sidebarContext']->setData($leftBlockPlugins);
+		$lists['sidebarContext']->setData($sidebarBlockPlugins);
 		$lists['unselected']->setData($disabledBlockPlugins);
 	}
 }

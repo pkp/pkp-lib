@@ -35,6 +35,11 @@
 				' to a div!'].join(''));
 		}
 
+		var uploaderOptions,
+			pluploaderId,
+			$browseButton,
+			self;
+
 		// Set up options to pass to plupload
 		var uploaderOptions = {
 			url: options.uploadUrl,
@@ -81,7 +86,7 @@
 				this.callbackWrapper(this.refreshUploader));
 
 		// Ensure clicks on the visual button don't attempt to submit the form
-		var $browseButton = $('#' + uploaderOptions.browse_button, this.getHtmlElement());
+		$browseButton = $('#' + uploaderOptions.browse_button, this.getHtmlElement());
 		$browseButton.click(function(e) {
 			return false;
 		});
@@ -90,7 +95,7 @@
 
 		// Fake a focus effect on the visual button when plupload's hidden
 		// button is focused
-		var self = this;
+		self = this;
 		setTimeout( function() {
 			self.getHtmlElement().find('.moxie-shim input')
 			.focus(function(e) {

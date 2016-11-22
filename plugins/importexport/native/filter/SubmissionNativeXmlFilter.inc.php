@@ -171,7 +171,43 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$this->createLocalizedNodes($doc, $submissionNode, 'type', $submission->getType(null));
 		$this->createLocalizedNodes($doc, $submissionNode, 'source', $submission->getSource(null));
 		$this->createLocalizedNodes($doc, $submissionNode, 'rights', $submission->getRights(null));
+
+		// add controlled vocabularies
+		// get the supported locale keys
+		$supportedLocales = array_keys(AppLocale::getSupportedFormLocales());
+		$controlledVocabulariesMapping = $this->_getControlledVocabulariesMappings();
+		foreach ($controlledVocabulariesMapping as $controlledVocabulariesNodeName => $mappings) {
+			$dao = DAORegistry::getDAO($mappings[0]);
+			$getFunction = $mappings[1];
+			$controlledVocabularyNodeName = $mappings[2];
+			$controlledVocabulary = $dao->$getFunction($submission->getId(), $supportedLocales);
+			$this->addControlledVocabulary($doc, $submissionNode, $controlledVocabulariesNodeName, $controlledVocabularyNodeName, $controlledVocabulary);
+		}
+
 		$this->createOptionalNode($doc, $submissionNode, 'comments_to_editor', $submission->getCommentsToEditor());
+	}
+
+	/**
+	 * Add submission controlled vocabulary to its DOM element.
+	 * @param $doc DOMDocument
+	 * @param $submissionNode DOMElement
+	 * @param $controlledVocabulariesNodeName string Parent node name
+	 * @param $controlledVocabularyNodeName string Item node name
+	 * @param $controlledVocabulary array Associative array (locale => array of items)
+	 */
+	function addControlledVocabulary($doc, $submissionNode, $controlledVocabulariesNodeName, $controlledVocabularyNodeName, $controlledVocabulary) {
+		$deployment = $this->getDeployment();
+		$locales = array_keys($controlledVocabulary);
+		foreach ($locales as $locale) {
+			if (!empty($controlledVocabulary[$locale])) {
+				$controlledVocabulariesNode = $doc->createElementNS($deployment->getNamespace(), $controlledVocabulariesNodeName);
+				$controlledVocabulariesNode->setAttribute('locale', $locale);
+				foreach ($controlledVocabulary[$locale] as $controlledVocabularyItem) {
+					$controlledVocabulariesNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), $controlledVocabularyNodeName, $controlledVocabularyItem));
+				}
+				$submissionNode->appendChild($controlledVocabulariesNode);
+			}
+		}
 	}
 
 	/**
@@ -293,6 +329,19 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 	 */
 	function getIncludeSubmissionsNode() {
 		return $this->_includeSubmissionsNode;
+	}
+
+	/**
+	 * Get controlled vocabularies parent node name to DAO, get function and item node name mapping.
+	 * @return array
+	 */
+	function _getControlledVocabulariesMappings() {
+		return array(
+				'keywords' => array('SubmissionKeywordDAO', 'getKeywords', 'keyword'),
+				'agencies' => array('SubmissionAgencyDAO', 'getAgencies', 'agency'),
+				'disciplines' => array('SubmissionDisciplineDAO', 'getDisciplines', 'disciplin'),
+				'subjects' => array('SubmissionSubjectDAO', 'getSubjects', 'subject'),
+		);
 	}
 }
 

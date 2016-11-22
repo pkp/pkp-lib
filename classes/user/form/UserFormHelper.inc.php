@@ -31,7 +31,6 @@ class UserFormHelper {
 		$contextDao = Application::getContextDAO();
 		$contexts = $contextDao->getAll(true)->toArray();
 		$templateMgr->assign(array(
-			'contexts' => $contexts,
 			'showOtherContexts' => !$request->getContext() || count($contexts)>1,
 		));
 

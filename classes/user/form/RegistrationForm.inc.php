@@ -129,14 +129,9 @@ class RegistrationForm extends Form {
 			}
 		}
 
-		// Return a list of all contexts available in the site
-		$contextDao = Application::getContextDAO();
-		$contexts = $contextDao->getAll(true)->toArray();
-
 		$this->_data = array(
 			'userLocales' => array(),
 			'userGroupIds' => $userGroupIds,
-			'contexts' => $contexts,
 		);
 	}
 

@@ -161,18 +161,32 @@ class RegistrationHandler extends UserHandler {
 	 */
 	function validate($request) {
 		$context = $request->getContext();
-		if ($context) {
-			if ($context->getSetting('disableUserReg')) {
-				// Users cannot register themselves for this context
-				$this->setupTemplate($request);
-				$templateMgr = TemplateManager::getManager($request);
-				$templateMgr->assign('pageTitle', 'user.register');
-				$templateMgr->assign('errorMsg', 'user.register.registrationDisabled');
-				$templateMgr->assign('backLink', $request->url(null, 'login'));
-				$templateMgr->assign('backLinkLabel', 'user.login');
-				$templateMgr->display('frontend/pages/error.tpl');
-				exit;
+		$disableUserReg = false;
+		if(!$context) {
+			$contextDao = Application::getContextDAO();
+			$contexts = $contextDao->getAll(true)->toArray();
+			$contextsForRegistration = array();
+			foreach($contexts as $context) {
+				if (!$context->getSetting('disableUserReg')) {
+					$contextsForRegistration[] = $context;
+				}
 			}
+			if (empty($contextsForRegistration)) {
+				$disableUserReg = true;
+			}
+		} elseif($context->getSetting('disableUserReg')) {
+			$disableUserReg = true;
+		}
+
+		if ($disableUserReg) {
+			$this->setupTemplate($request);
+			$templateMgr = TemplateManager::getManager($request);
+			$templateMgr->assign('pageTitle', 'user.register');
+			$templateMgr->assign('errorMsg', 'user.register.registrationDisabled');
+			$templateMgr->assign('backLink', $request->url(null, 'login'));
+			$templateMgr->assign('backLinkLabel', 'user.login');
+			$templateMgr->display('frontend/pages/error.tpl');
+			exit;
 		}
 	}
 }

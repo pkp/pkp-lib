@@ -110,9 +110,9 @@ class ServerInfoGridHandler extends GridHandler {
 		$dbServerInfo = $dbconn->ServerInfo();
 
 		$serverInfo = array(
-			'admin.server.platform' => Core::serverPHPOS(),
-			'admin.server.phpVersion' => Core::serverPHPVersion(),
-			'admin.server.apacheVersion' => (function_exists('apache_get_version') ? apache_get_version() : __('common.notAvailable')),
+			'admin.server.platform' => PHP_OS,
+			'admin.server.phpVersion' => phpversion(),
+			'admin.server.apacheVersion' => $_SERVER['SERVER_SOFTWARE'],
 			'admin.server.dbDriver' => Config::getVar('database', 'driver'),
 			'admin.server.dbVersion' => (empty($dbServerInfo['description']) ? $dbServerInfo['version'] : $dbServerInfo['description'])
 		);

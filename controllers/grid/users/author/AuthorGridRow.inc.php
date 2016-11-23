@@ -20,7 +20,7 @@ class AuthorGridRow extends GridRow {
 	var $_submission;
 
 	/** @var boolean */
-	var $_reaadOnly;
+	var $_readOnly;
 
 	/**
 	 * Constructor

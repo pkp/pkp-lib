@@ -16,7 +16,7 @@
 		{$announcement->getLocalizedTitle()}
 	</h1>
 	<div class="date">
-		{$announcement->getDatePosted()}
+		{$announcement->getDatePosted()|date_format:$dateFormatShort}
 	</div>
 	<div class="description">
 		{if $announcement->getLocalizedDescription()}

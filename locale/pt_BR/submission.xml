@@ -608,4 +608,13 @@
 	<message key="submission.changeFile">Mudar Arquivo</message>
 	<message key="submission.identifiers">Identificadores</message>
 	<message key="submission.publisherId">URL de Identificação Pública</message>
+	<message key="author.submission.roundStatus.reviewsReady">Novas avaliações foram enviados e estão sendo considerados pelo editor.</message>
+	<message key="submission.submit.copyrightNoticeAgreementLabel">Aceitar a declaração de direitos autorais</message>
+	<message key="submission.event.participantAdded">{$name} foi atribuído a este envio como {$userGroupName}.</message>
+	<message key="submission.howToCite">Como Citar</message>
+	<message key="submission.howToCite.citationFormats">Fomatos de Citação</message>
+	<message key="submission.upload.proof">Fazer upload de um arquivo pronto para publicação</message>
+	<message key="notification.type.copyeditorRequest">Você foi convidado a avaliar a versão de texto revisado para "{$title}".</message>
+	<message key="notification.type.layouteditorRequest">Você foi solicitado a avaliar o layout para "{$title}".</message>
+	<message key="notification.type.indexRequest">Você foi solicitado a catalogar o documento "{$ title}".</message>
 </locale>

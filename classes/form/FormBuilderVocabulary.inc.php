@@ -435,11 +435,10 @@ class FormBuilderVocabulary {
 				case 'uniqId':
 					$smarty->assign('FBV_' . $key, $value); break;
 					break;
-				case 'required': if ($value != 'true') $textInputParams .= 'required="' + htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) +'"'; break;
+				case 'required': if ($value) $textInputParams .= $key . ' '; break;
 				default: $textInputParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING). '" ';
 			}
 		}
-
 		$smarty->assign('FBV_textInputParams', $textInputParams);
 
 		return $smarty->fetch('form/textInput.tpl');
@@ -495,6 +494,7 @@ class FormBuilderVocabulary {
 					}
 					break;
 				case 'id': break; // if we don't do this, the textarea ends up with two id attributes because FBV_id is also set.
+				case 'required': if ($value) $textAreaParams .= $key . ' '; break;
 				default: $textAreaParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
 			}
 		}

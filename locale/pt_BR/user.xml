@@ -7,7 +7,7 @@
   * Copyright (c) 2014-2016 Simon Fraser University Library
   * Copyright (c) 2000-2016 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  * Locale information: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Portuguese_(pt_BR)
+  * Locale information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Portuguese_(pt_BR)
   * Localization strings.
   -->
 
@@ -60,12 +60,12 @@
 	<message key="user.login.lostPassword.invalidUser">Nenhum usuário cadastrado com o e-mail especificado.</message>
 	<message key="user.login.lostPassword.passwordSent">Uma nova senha foi enviada. Acesse o sistema com a nova senha.</message>
 	<message key="user.login.registeredEmail">E-mail do usuário cadastrado</message>
-
-
-
-
-
-
+	<message key="user.login.registrationComplete">Registro completo</message>
+	<message key="user.login.registrationComplete.instructions">Obrigado por se registrar! O que você gostaria de fazer agora?</message>
+	<message key="user.login.registrationComplete.manageSubmissions">Ver Envios</message>
+	<message key="user.login.registrationComplete.newSubmission">Fazer uma Novo Envio</message>
+	<message key="user.login.registrationComplete.continueBrowsing">Continuar Navegação</message>
+	<message key="user.login.registrationPendingValidation">Registro aguardando verificação</message>
 	<message key="user.login.rememberUsernameAndPassword">Lembrete com login e senha</message>
 	<message key="user.login.resetPassword">Nova senha</message>
 	<message key="user.logOut">Sair do sistema</message>
@@ -111,7 +111,7 @@
 	<message key="user.register.form.emailExists">O endereço de e-mail digitado já está cadastrado.</message>
 	<message key="user.register.form.passwordsDoNotMatch">As senhas não combinam.</message>
 	<message key="user.register.form.emailsDoNotMatch">O e-mail informado nos campos não correspondem.</message>
-
+	<message key="user.register.form.usernameAlphaNumeric">O nome de usuário pode conter somente caracteres alfanuméricos, sublinhados e hifens, e deve começar e terminar com um caractere alfanumérico (letra ou número).</message>
 	<message key="user.register.form.userGroupRequired">Ao menos um papel deve ser selecionado.</message>
 	<message key="user.register.form.usernameExists">O login digitado já está cadastrado.</message>
 	<message key="user.register.form.passwordLengthRestriction">A senha deve ter no mínimo {$length} caracteres.</message>

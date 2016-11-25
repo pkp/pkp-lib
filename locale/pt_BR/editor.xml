@@ -119,4 +119,6 @@
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">Revogar a aprovação desta versão para indicar que a leitura de prova não está mais completa e que o arquivo não está pronto para ser publicado.</message>
 	<message key="editor.publicIdentificationExistsForTheSameType">O identificador público '{$publicIdentifier}' já existe para outro objeto do mesmo tipo. Por favor, escolha identificadores únicos para os objetos do mesmo tipo dentro de sua revista.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">O identificador público '{$publicIdentifier}' não pode ser um número.</message>
+	<message key="editor.submission.findAndSelectUser">Localizar Usuário</message>
+	<message key="editor.publicIdentificationPatternNotAllowed">O padrão {$pattern} não é permitido para o identificador público.</message>
 </locale>

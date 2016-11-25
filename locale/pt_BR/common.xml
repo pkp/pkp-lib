@@ -543,4 +543,6 @@
 	<message key="common.reminded.date">Lembrado: {$dateReminded}</message>
 	<message key="common.component">Componente</message>
 	<message key="search.SearchFor">Buscar por</message>
+	<message key="notification.type.assignCopyeditors">Atribua um editor de texto usando o link "Adicionar" na lista Participantes.</message>
+	<message key="notification.type.awaitingCopyedits">Aguardando Textos Revisados</message>
 </locale>

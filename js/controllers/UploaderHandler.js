@@ -36,9 +36,9 @@
 		}
 
 		var uploaderOptions,
-			pluploaderId,
-			$browseButton,
-			self;
+				pluploaderId,
+				$browseButton,
+				self;
 
 		// Set up options to pass to plupload
 		uploaderOptions = {
@@ -102,14 +102,14 @@
 		// Fake a focus effect on the visual button when plupload's hidden
 		// button is focused
 		self = this;
-		setTimeout( function() {
+		setTimeout(function() {
 			self.getHtmlElement().find('.moxie-shim input')
 			.focus(function(e) {
-				$browseButton.addClass('in_focus');
-			})
+						$browseButton.addClass('in_focus');
+					})
 			.blur(function(e) {
-				$browseButton.removeClass('in_focus');
-			});
+						$browseButton.removeClass('in_focus');
+					});
 		}, 100);
 	};
 	$.pkp.classes.Helper.inherits(

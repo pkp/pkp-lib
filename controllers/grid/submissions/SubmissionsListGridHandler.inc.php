@@ -118,18 +118,28 @@ class SubmissionsListGridHandler extends GridHandler {
 	 * @copyDoc GridHandler::renderFilter()
 	 */
 	function renderFilter($request, $filterData = array()) {
+		// Build a list of workflow stages
 		$workflowStages = WorkflowStageDAO::getWorkflowStageTranslationKeys();
 		$workflowStages[0] = 'workflow.stage.any';
 		ksort($workflowStages);
-		$filterColumns = $this->getFilterColumns();
 
-		$filterData = array(
-			'columns' => $filterColumns,
-			'workflowStages' => $workflowStages,
-			'gridId' => $this->getId()
+		// Build a list of sections
+		$sectionDao = Application::getSectionDAO();
+		$sectionsIterator = $sectionDao->getByContextId($request->getContext()->getId());
+		$sections = array(0 => __('section.any'));
+		while ($section = $sectionsIterator->next()) {
+			$sections[$section->getId()] = $section->getLocalizedTitle();
+		}
+
+		return parent::renderFilter(
+			$request,
+			array_merge($filterData, array(
+				'columns' => $this->getFilterColumns(),
+				'workflowStages' => $workflowStages,
+				'sections' => $sections,
+				'gridId' => $this->getId()
+			))
 		);
-
-		return parent::renderFilter($request, $filterData);
 	}
 
 	/**
@@ -139,11 +149,13 @@ class SubmissionsListGridHandler extends GridHandler {
 		$search = (string) $request->getUserVar('search');
 		$column = (string) $request->getUserVar('column');
 		$stageId = (int) $request->getUserVar('stageId');
+		$sectionId = (int) $request->getUserVar('sectionId');
 
 		return array(
 			'search' => $search,
 			'column' => $column,
-			'stageId' => $stageId
+			'stageId' => $stageId,
+			'sectionId' => $sectionId,
 		);
 	}
 
@@ -202,7 +214,8 @@ class SubmissionsListGridHandler extends GridHandler {
 	protected function getFilterColumns() {
 		return array(
 			'title' => __('submission.title'),
-			'author' => __('submission.authors'));
+			'author' => __('submission.authors'),
+		);
 	}
 
 	/**
@@ -211,25 +224,25 @@ class SubmissionsListGridHandler extends GridHandler {
 	 * @return Array
 	 */
 	protected function getFilterValues($filter) {
+		$search = $column = $stageId = $sectionId = null;
+
 		if (isset($filter['search']) && $filter['search']) {
 			$search = $filter['search'];
-		} else {
-			$search = null;
 		}
 
 		if (isset($filter['column']) && $filter['column']) {
 			$column = $filter['column'];
-		} else {
-			$column = null;
 		}
 
 		if (isset($filter['stageId']) && $filter['stageId']) {
 			$stageId = $filter['stageId'];
-		} else {
-			$stageId = null;
 		}
 
-		return array($search, $column, $stageId);
+		if (isset($filter['sectionId']) && $filter['sectionId']) {
+			$sectionId = $filter['sectionId'];
+		}
+
+		return array($search, $column, $stageId, $sectionId);
 	}
 
 	/**

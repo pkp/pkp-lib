@@ -338,7 +338,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 *
 	 * @param $name string Unique name for this setting
 	 * @param $type string A pre-registered type of setting. Supported values:
-	 *   text|colour|select. Default: `text`
+	 *   text|colour|radio. Default: `text`
 	 * @param $args array Optional parameters defining this setting. Some setting
 	 *   types may accept or require additional arguments.
 	 *  `label` string Locale key for a label for this field.

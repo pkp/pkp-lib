@@ -244,6 +244,8 @@ class PKPEditorDecisionHandler extends Handler {
 						$body .= __('submission.comments.importPeerReviews.reviewerLetter', array('reviewerLetter' => PKPString::enumerateAlphabetically($reviewIndexes[$reviewAssignment->getId()]))) . '<br><br>';
 					}
 					while ($reviewFormElement = $reviewFormElements->next()) {
+						if (!$reviewFormElement->getIncluded()) continue;
+
 						$body .= PKPString::stripUnsafeHtml($reviewFormElement->getLocalizedQuestion());
 						$reviewFormResponse = $reviewFormResponseDao->getReviewFormResponse($reviewId, $reviewFormElement->getId());
 

@@ -94,9 +94,10 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	/**
 	 * Internal function to return a Submission object from a row.
 	 * @param $row array
+	 * @param $submissionRevision int optional
 	 * @return Submission
 	 */
-	function _fromRow($row) {
+	function _fromRow($row, $submissionRevision = null) {
 		$submission = $this->newDataObject();
 
 		$submission->setId($row['submission_id']);
@@ -112,10 +113,118 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		$submission->setLanguage($row['language']);
 		$submission->setCitations($row['citations']);
 
-		$this->getDataObjectSettings('submission_settings', 'submission_id', $submission->getId(), $submission);
+		$this->getDataObjectSettings('submission_settings', 'submission_id', $submission->getId(), $submission, $submissionRevision, 'submission_revision');
 
 		return $submission;
 	}
+
+	/**
+	 * Get all revisions for a submission; default settings:
+	 * 1) Retrieve only the previous revisions, not the current one
+	 * 2) Get only the id's; optionally the title can be retrieved, too
+	 * 3) Default sorting order is ASC
+	 * @param $submissionId int
+	 * @param $contextId int
+	 * @param $showAll boolean false to exclude current revision; true to fetch all revisions including current
+	 * @param $withTitle boolean false to fetch only the IDs of the revisions; true to fetch additionally the title of the submission
+	 * $param $order string
+	 * @return array
+	 */
+	function getSubmissionRevisions($submissionId, $contextId = null, $showAll = false, $withTitle = false, $order = SORT_DIRECTION_ASC) {
+
+		if (!ctype_digit("$submissionId")) {
+			$publishedArticleDao = DAORegistry::getDAO('PublishedArticleDAO');
+			$publishedArticle = $publishedArticleDao->getPublishedArticleByPubId('publisher-id', $submissionId, $contextId);
+			$submissionId = $publishedArticle->getId();
+		}
+
+		$params = array((int) $submissionId);
+		if ($contextId) {
+			$params[] = (int) $contextId;
+		}
+
+		$sql = 'SELECT DISTINCT submission_revision FROM submission_settings ' .
+			   'INNER JOIN submissions ON submission_settings.submission_id = submissions.submission_id' .
+			   ' WHERE submission_settings.submission_id = ?'  .
+			   ($contextId ? ' AND submissions.context_id = ?' : '') .
+			   ' ORDER BY submission_revision ' . $this->getDirectionMapping($order);
+
+		$result = $this->retrieve($sql, $params);
+		$submissionRevisions = array();
+
+		foreach($result->getArray() as $submission) {
+			$revision = $submission['submission_revision'];
+
+			if ($withTitle == false) {
+				$submissionRevisions[] = $revision;
+			} else {
+				$title = $this->getLocalizedTitleByVersion($submissionId, $revision);
+				$submissionRevisions[$revision] = $title . ' (' . $revision . ')';
+			}
+		}
+
+		if ($showAll == false) {
+			if ($order == SORT_DIRECTION_ASC) {
+				array_pop($submissionRevisions);
+			} else {
+				array_shift($submissionRevisions);
+			}
+		}
+
+		return $submissionRevisions;
+	}
+
+
+	/**
+	 * Get the localized title of a submission for a specific version
+	 * @param $submissionId int
+	 * @param $revisionId int
+	 * @return string
+	 */
+	function getLocalizedTitleByVersion($submissionId, $revisionId) {
+		$localePrecedence = array_map(function($v) { return '"'.$v.'"'; }, AppLocale::getLocalePrecedence());
+		$strLocalePrecedence = implode(', ', $localePrecedence);
+
+		$params = array((int) $submissionId, 'title', (int) $revisionId);
+
+		$sql = "SELECT locale, setting_value FROM submission_settings WHERE submission_id = ? AND setting_name = ? AND submission_revision = ? AND locale IN ($strLocalePrecedence)";
+		$result = $this->retrieve($sql, $params);
+		$resultArray = $result->getArray();
+
+		foreach(AppLocale::getLocalePrecedence() as $preferredLocale) {
+			foreach($resultArray as $data) {
+				if (in_array($preferredLocale, $data) && !empty($data['setting_value'])) {
+					return $data['setting_value'];
+				}
+			}
+		}
+
+		return '';
+	}
+
+	/**
+	 * Get the current revision id for a submission
+	 * @param $submissionId int
+	 * @param $contextId int
+	 * @return int
+	 */
+	function getLatestRevisionId($submissionId, $contextId = null) {
+		$submissionRevisions = $this->getSubmissionRevisions($submissionId, $contextId, true);
+		return array_pop($submissionRevisions);
+	}
+
+	/**
+	 * Checks whether a revision ID exists for a submission
+	 * @param $submissionId int
+	 * @param $revisionId int
+	 * @param $contextId int
+	 * @return boolean
+	 */
+	function revisionIdExists($submissionId, $revisionId, $contextId = null) {
+		$submissionRevisions = $this->getSubmissionRevisions($submissionId, $contextId, true);
+		return in_array($revisionId, $submissionRevisions);
+	}
+
 
 	/**
 	 * Delete a submission.
@@ -296,7 +405,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 */
 	function updateLocaleFields($submission) {
 		$this->updateDataObjectSettings('submission_settings', $submission, array(
-			'submission_id' => $submission->getId()
+			'submission_id' => $submission->getId(), 'submission_revision' => ($submission->getData('submissionRevision') ? $submission->getData('submissionRevision') : 1)
 		));
 	}
 
@@ -323,9 +432,10 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @param $submissionId int
 	 * @param $contextId int optional
 	 * @param $useCache boolean optional
+	 * @param $submissionRevision int optional
 	 * @return Submission
 	 */
-	function getById($submissionId, $contextId = null, $useCache = false) {
+	function getById($submissionId, $contextId = null, $useCache = false, $submissionRevision = null) {
 		if ($useCache) {
 			$cache = $this->_getCache();
 			$submission = $cache->get($submissionId);
@@ -352,12 +462,13 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 
 		$returner = null;
 		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
+			$returner = $this->_fromRow($result->GetRowAssoc(false), $submissionRevision);
 		}
 
 		$result->Close();
 		return $returner;
 	}
+
 
 	/**
 	 * Retrieve a submission by ID only if the submission is not published, has been submitted, and does not

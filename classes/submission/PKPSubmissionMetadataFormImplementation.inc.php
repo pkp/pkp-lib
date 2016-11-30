@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/submission/SubmissionMetadataFormImplementation.inc.php
+ * @file classes/submission/PKPSubmissionMetadataFormImplementation.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2003-2017 John Willinsky
@@ -64,8 +64,9 @@ class PKPSubmissionMetadataFormImplementation {
 	/**
 	 * Initialize form data from current submission.
 	 * @param $submission Submission
+	 * @param $revision int
 	 */
-	function initData($submission) {
+	function initData($submission, $revision = null) {
 		if (isset($submission)) {
 			$formData = array(
 				'title' => $submission->getTitle(null, false), // Localized
@@ -94,12 +95,18 @@ class PKPSubmissionMetadataFormImplementation {
 			$submissionAgencyDao = DAORegistry::getDAO('SubmissionAgencyDAO');
 			$submissionLanguageDao = DAORegistry::getDAO('SubmissionLanguageDAO');
 
+			// versioning
+			$contextId = Request::getContext()->getId();
+			$latestRevisionId = $submission->getCurrentVersionId($contextId);
+			if (!$revision) $revision = $latestRevisionId;
+
 			$this->_parentForm->setData('subjects', $submissionSubjectDao->getSubjects($submission->getId(), $locales));
 			$this->_parentForm->setData('keywords', $submissionKeywordDao->getKeywords($submission->getId(), $locales));
 			$this->_parentForm->setData('disciplines', $submissionDisciplineDao->getDisciplines($submission->getId(), $locales));
 			$this->_parentForm->setData('agencies', $submissionAgencyDao->getAgencies($submission->getId(), $locales));
 			$this->_parentForm->setData('languages', $submissionLanguageDao->getLanguages($submission->getId(), $locales));
 			$this->_parentForm->setData('abstractsRequired', $this->_getAbstractsRequired($submission));
+			$this->_parentForm->setData('latestRevisionId', $latestRevisionId);
 		}
 	}
 
@@ -146,6 +153,38 @@ class PKPSubmissionMetadataFormImplementation {
 		$supportedSubmissionLocales = $context->getSetting('supportedSubmissionLocales');
 		if (empty($supportedSubmissionLocales)) $supportedSubmissionLocales = array($context->getPrimaryLocale());
 		if (in_array($newLocale, $supportedSubmissionLocales)) $submission->setLocale($newLocale);
+
+		// Versioning
+		if ($request->getUserVar('submissionRevision')) {
+			$revision = (int)$request->getUserVar('submissionRevision');
+		} else {
+			$context = $request->getContext();
+			$contextId = $context->getId();
+			$revision = $submission->getCurrentVersionId($contextId);
+		}
+
+		// new version
+		if ($request->getUserVar('saveAsRevision')) {
+
+			// get all authors of this submission
+			$authorDao = DAORegistry::getDAO('AuthorDAO');
+			$authors = $authorDao->getBySubmissionId($submission->getId(), true, false, $revision);
+
+			// copy the authors from the old version into the new version
+			// (the author_id is retained unchanged as the primary key for the authors table is [author_id, version])
+			$revision++;
+			foreach($authors as $author) {
+				$authorId = (int)$author->getId();
+				$author->setVersion($revision);
+				$authorDao->insertObject($author, true);
+				$newAuthorId = (int)$authorDao->getInsertId();
+				$authorDao->update('UPDATE authors SET author_id = ? WHERE author_id = ?', array($authorId, $newAuthorId));
+			}
+
+		}
+
+		// save submission revision
+		$submission->setData('submissionRevision', $revision);
 
 		// Save the submission
 		$submissionDao->updateObject($submission);

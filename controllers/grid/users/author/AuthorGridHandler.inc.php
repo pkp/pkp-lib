@@ -25,6 +25,9 @@ class AuthorGridHandler extends GridHandler {
 	/** @var boolean */
 	var $_readOnly;
 
+	/** @var int */
+	var $_version;
+
 	/**
 	 * Constructor
 	 */
@@ -66,6 +69,57 @@ class AuthorGridHandler extends GridHandler {
 		$this->_readOnly = $readOnly;
 	}
 
+	/**
+	 * Get the selected version
+	 * @param $request PKPRequest
+	 * @return int
+	 * FIXME solution without cookie
+	 */
+	function getCurrentVersion($request) {
+		if (null !== $request->getCookieVar('version') && $request->getCookieVar('version') >= 0 ) {
+			$currentVersion = $request->getCookieVar('version');
+		} else {
+			$currentVersion = $this->getNewestVersion($request);
+		}
+
+		return $currentVersion;
+	}
+
+	/**
+	 * Checks whether the 'saveAsNewVersion' checkbox is activated
+	 * @param $request PKPRequest
+	 * @return boolean
+	 * FIXME solution without cookie
+	 */
+	function getSaveAsNewVersion($request) {
+		return $request->getCookieVar('version') == 0;
+	}
+
+	/**
+	 * Get the newest version
+	 * @param $request PKPRequest
+	 * @return int
+	 */
+	function getNewestVersion($request) {
+		$submission = $this->getSubmission();
+		$context = $request->getContext();
+		$contextId = $context->getId();
+		$submissionVersion = $submission->getCurrentVersionId($contextId);
+		// new submission do not have a version
+		if($submissionVersion==''){
+			$submissionVersion = 1;
+		}
+		return $submissionVersion;
+	}
+
+	/**
+	 * Check if the current version is the newest one
+	 * @param $request PKPRequest
+	 * @return boolean
+	 */
+	function isNewestVersion($request) {
+		return $this->getCurrentVersion($request) == $this->getNewestVersion($request);
+	}
 
 	//
 	// Overridden methods from PKPHandler.
@@ -101,18 +155,23 @@ class AuthorGridHandler extends GridHandler {
 			// Grid actions
 			$router = $request->getRouter();
 			$actionArgs = $this->getRequestArgs();
-			$this->addAction(
-				new LinkAction(
-					'addAuthor',
-					new AjaxModal(
-						$router->url($request, null, null, 'addAuthor', null, $actionArgs),
+
+			if ($this->isNewestVersion($request) || $this->getSaveAsNewVersion($request)) {
+				$this->addAction(
+					new LinkAction(
+						'addAuthor',
+						new AjaxModal(
+							$router->url($request, null, null, 'addAuthor', null, $actionArgs),
+							__('grid.action.addContributor'),
+							'modal_add_user'
+						),
 						__('grid.action.addContributor'),
-						'modal_add_user'
-					),
-					__('grid.action.addContributor'),
-					'add_user'
-				)
-			);
+						'add_user'
+					)
+				);
+			} else {
+				$this->setReadOnly(true);
+			}
 		} else {
 			$this->setReadOnly(true);
 		}
@@ -178,7 +237,9 @@ class AuthorGridHandler extends GridHandler {
 		$features = parent::initFeatures($request, $args);
 		if ($this->canAdminister($request->getUser())) {
 			import('lib.pkp.classes.controllers.grid.feature.OrderGridItemsFeature');
-			$features[] = new OrderGridItemsFeature();
+			if ($this->isNewestVersion($request) && (!$this->getSaveAsNewVersion($request))) {
+				$features[] = new OrderGridItemsFeature();
+			}
 		}
 		return $features;
 	}
@@ -196,8 +257,9 @@ class AuthorGridHandler extends GridHandler {
 	function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence) {
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
 		$submission = $this->getSubmission();
-		$author = $authorDao->getById($rowId, $submission->getId());
+		$author = $authorDao->getById($rowId, $submission->getId(), $this->_version);
 		$author->setSequence($newSequence);
+		$author->setVersion($this->_version);
 		$authorDao->updateObject($author);
 	}
 
@@ -206,7 +268,7 @@ class AuthorGridHandler extends GridHandler {
 	 * @return AuthorGridRow
 	 */
 	protected function getRowInstance() {
-		return new AuthorGridRow($this->getSubmission(), $this->getReadOnly());
+		return new AuthorGridRow($this->getSubmission(), $this->getReadOnly(), $this->_version);
 	}
 
 	/**
@@ -250,12 +312,24 @@ class AuthorGridHandler extends GridHandler {
 	}
 
 	/**
+	 * Fetches the application-specific submission id from the request object.
+	 * Should be overridden by subclasses.
+	 * @param PKPRequest $request
+	 * @return int
+	 */
+	function getRequestedSubmissionId($request) {
+		return $request->getUserVar('submissionId');
+	}
+
+	/**
 	 * @copydoc GridHandler::loadData()
 	 */
 	protected function loadData($request, $filter = null) {
 		$submission = $this->getSubmission();
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
-		return $authorDao->getBySubmissionId($submission->getId(), true);
+
+		$this->_version = ($this->getCurrentVersion($request) > 0) ? $this->getCurrentVersion($request) : $this->getNewestVersion($request);
+		return $authorDao->getBySubmissionId($submission->getId(), true, false, $this->_version);
 	}
 
 	//
@@ -280,11 +354,12 @@ class AuthorGridHandler extends GridHandler {
 	 */
 	function editAuthor($args, $request) {
 		// Identify the author to be updated
-		$authorId = (int) $request->getUserVar('authorId');
+		$authorId = $request->getUserVar('authorId');
+		$version = $request->getUserVar('version');
 		$submission = $this->getSubmission();
 
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
-		$author = $authorDao->getById($authorId, $submission->getId());
+		$author = $authorDao->getById($authorId, $submission->getId(), $version);
 
 		// Form handling
 		import('lib.pkp.controllers.grid.users.author.form.AuthorForm');
@@ -302,7 +377,7 @@ class AuthorGridHandler extends GridHandler {
 	 */
 	function updateAuthor($args, $request) {
 		// Identify the author to be updated
-		$authorId = (int) $request->getUserVar('authorId');
+		$authorId = $request->getUserVar('authorId');
 		$submission = $this->getSubmission();
 
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
@@ -357,12 +432,15 @@ class AuthorGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function deleteAuthor($args, $request) {
-		if (!$request->checkCSRF()) return new JSONMessage(false);
+		// Identify the submission Id
+		$submissionId = $this->getRequestedSubmissionId($request);
+		// Identify the author to be deleted
+		$authorId = $request->getUserVar('authorId');
+		// Identify the version
+		$version = $request->getUserVar('version');
 
-		$submission = $this->getSubmission();
-		$authorId = (int) $request->getUserVar('authorId');
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
-		$authorDao->deleteById($authorId, $submission->getId());
+		$authorDao->deleteById($authorId, $submissionId, $version);
 		return DAO::getDataChangedEvent($authorId);
 	}
 
@@ -374,7 +452,7 @@ class AuthorGridHandler extends GridHandler {
 	 */
 	function addUser($args, $request) {
 		// Identify the author Id.
-		$authorId = (int) $request->getUserVar('authorId');
+		$authorId = $request->getUserVar('authorId');
 
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
 		$userDao = DAORegistry::getDAO('UserDAO');

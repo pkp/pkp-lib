@@ -53,7 +53,7 @@ class Mods34SchemaSubmissionAdapterTest extends Mods34DescriptionTestCase {
 		$submissionDescription->removeStatement('abstract');
 
 		// Test metadata injection (no replace).
-		$resultSubmission =& $adapter->injectMetadataIntoDataObject($submissionDescription, $submission, 'lib.pkp.tests.plugins.metadata.mods34.filter.Author');
+		$resultSubmission =& $adapter->injectMetadataIntoDataObject($submissionDescription, $submission);
 		$expectedResult = array(
 			'cleanTitle' => array('en_US' => 'new submission title', 'de_DE' => 'neuer Titel'),
 			'title' => array('en_US' => 'new submission title', 'de_DE' => 'neuer Titel'),

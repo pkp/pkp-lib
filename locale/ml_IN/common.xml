@@ -107,6 +107,8 @@
 	<message key="common.fileName">രേഖാസമാഹാരത്തിന്റെ പേര്</message>
 	<message key="common.fileSize">രേഖാസമാഹാരത്തിന്റെ വലിപ്പം</message>
 	<message key="common.fileType">രേഖാസമാഹാരത്തിന്റെ ഇനം</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">പൊക്കം</message>
 	<message key="common.homePageHeaderLogo.altText">പ്രധാനതാള്‍ ഹെഡെര്‍ ലോഗോ</message>
 	<message key="common.hour">മണിക്കൂര്‍</message>
@@ -304,7 +306,7 @@
 	<message key="notification.unsubscribeError">അണ്‍-സബ്സ്ക്രൈബ് ചെയ്യുന്നത്തില്‍ പിശക് സംഭവിച്ചിരിക്കുന്നു.  ദയവായി താങ്കള്‍ നല്‍ക്കിയ ഇ-മെയില്‍ വിലാസവും രഹസ്യവാക്കും ശരിയാണെന്ന് ഉറപ്പ് വരുത്തുക.</message>
 	<message key="notification.unsubscribeSuccess">താങ്കള്‍ വിജയകരമായി അണ്‍-സബ്സ്ക്രൈബ് ചെയ്തിരിക്കുന്നു.</message>
 	<message key="search.abstract">അബ്സ്ട്രാക്ട്</message>
-	<message key="search.allFields">എല്ലാം</message>
+	<message key="search.author">ഗ്രന്ഥകര്‍ത്താകള്‍</message>
 	<message key="search.coverage">കവറേജ്</message>
 	<message key="search.date">തീയതി</message>
 	<message key="search.dateFrom">ഇല്‍ നിന്ന്</message>

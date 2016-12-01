@@ -70,7 +70,7 @@ class TypeDescription {
 	 *  If you do not know the exact count of an array then you can leave the
 	 *  parentheses empty ([]).
 	 */
-	function TypeDescription($typeName) {
+	function __construct($typeName) {
 		$this->_typeName = $typeName;
 		if (!$this->_parseTypeNameInternally($typeName)) {
 			// Invalid type

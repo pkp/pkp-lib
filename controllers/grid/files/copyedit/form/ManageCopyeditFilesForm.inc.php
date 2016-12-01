@@ -21,8 +21,8 @@ class ManageCopyeditFilesForm extends ManageSubmissionFilesForm {
 	 * Constructor.
 	 * @param $submissionId int Submission ID.
 	 */
-	function ManageCopyeditFilesForm($submissionId) {
-		parent::ManageSubmissionFilesForm($submissionId, 'controllers/grid/files/copyedit/manageCopyeditFiles.tpl');
+	function __construct($submissionId) {
+		parent::__construct($submissionId, 'controllers/grid/files/copyedit/manageCopyeditFiles.tpl');
 	}
 
 	/**

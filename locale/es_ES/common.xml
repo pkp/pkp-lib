@@ -409,10 +409,10 @@
 	<message key="notification.unsubscribeSuccess">Ha sido correctamente des-suscrito.</message>
 	<message key="notification.savedSubmissionMetadata">Metadatos de envíos guardados.</message>
 	<message key="search.abstract">Resumen</message>
-	<message key="search.activeFilters">Filtros avanzados</message>
+	<message key="search.author">Autores/as</message>
+	<message key="search.advancedFilters">Filtros avanzados</message>
 	<message key="search.advancedSearchMore">Opciones de búsqueda adicionales (haga clic para mostrar)</message>
 	<message key="search.advancedSearchLess">Opciones de búsqueda adicionales (haga clic para esconder)</message>
-	<message key="search.allFields">Todos</message>
 	<message key="search.cli.rebuildIndex.clearingIndex">Restablecer índice</message>
 	<message key="search.cli.rebuildIndex.done">hecho</message>
 	<message key="search.cli.rebuildIndex.error">error</message>
@@ -471,6 +471,7 @@
 	<message key="notification.type.allRevisionsIn">Se ha subido un archivo revisado a fin de considerarse para su publicación en {$stage}.</message>
 	<message key="notification.type.pendingRevisions">Tiene revisiones que requieren su atención en {$stage}.</message>
 	<message key="notification.type.pendingRevisions.title">Revisiones enviadas a {$stage}.</message>
+	<message key="notification.type.roundStatusTitle">Estado de ronda {$round}</message>
 	<message key="notification.signedFile">Archivo examinado.</message>
 	<message key="user.authorization.submissionFile">El usuario/a actual no tiene autorización para acceder al archivo de envío especificado.</message>
 	<message key="user.authorization.invalidSubmission">Envío no válido.</message>
@@ -527,6 +528,7 @@
 	<message key="common.navigation.siteContext">Navegación contextual del sitio</message>
 	<message key="common.allDownloads">Todas las descargas</message>
 	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.reminded.date">Recordado: {$dateReminded}</message>
 	<message key="common.component">Componente</message>
 	<message key="navigation.dashboard">Panel de control</message>

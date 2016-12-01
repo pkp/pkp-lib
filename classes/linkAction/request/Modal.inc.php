@@ -40,8 +40,8 @@ class Modal extends LinkActionRequest {
 	 *  for confirmation modals.  Useful for modals that display
 	 *  large blocks of text.
 	 */
-	function Modal($title = null, $titleIcon = null, $canClose = true, $width = MODAL_WIDTH_DEFAULT) {
-		parent::LinkActionRequest();
+	function __construct($title = null, $titleIcon = null, $canClose = true, $width = MODAL_WIDTH_DEFAULT) {
+		parent::__construct();
 		$this->_title = $title;
 		$this->_titleIcon = $titleIcon;
 		$this->_canClose = $canClose;

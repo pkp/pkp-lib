@@ -89,7 +89,6 @@
 	<message key="user.register.form.emailExists">Seçmiş olduğunuz e-posta adresi halihazırda başka bir kullanıcı tarafından kullanılmaktadır.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Şifreler uyumlu değildir.</message>
 	<message key="user.register.form.emailsDoNotMatch">E-posta adresi alanları eşleşmedi.</message>
-	<message key="user.register.form.usernameAlphaNumeric">Kullanıcı adı alfa numerik karakter, altı çizi ve tire işareti içerebilir ve alfa numerik karakterler ile başlayıp bitmelidir.</message>
 	<message key="user.register.form.usernameExists">Seçmiş olduğunuz kullanıcı adı halihazırda başka biri  tarafından kullanılmaktadır.</message>
 	<message key="user.register.passwordLengthRestriction">Şifre en az {$length} karakter olmalıdır.</message>
 	<message key="user.register.registerAs">Şeklinde kaydol</message>

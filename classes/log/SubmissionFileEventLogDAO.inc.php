@@ -21,8 +21,8 @@ class SubmissionFileEventLogDAO extends EventLogDAO {
 	/**
 	 * Constructor
 	 */
-	function SubmissionFileEventLogDAO() {
-		parent::EventLogDAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

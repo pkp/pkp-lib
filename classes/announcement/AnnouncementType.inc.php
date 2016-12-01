@@ -18,8 +18,8 @@ class AnnouncementType extends DataObject {
 	/**
 	 * Constructor
 	 */
-	function AnnouncementType() {
-		parent::DataObject();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

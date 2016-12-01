@@ -21,8 +21,8 @@ class MySubmissionsListGridHandler extends SubmissionsListGridHandler {
 	/**
 	 * Constructor
 	 */
-	function MySubmissionsListGridHandler() {
-		parent::SubmissionsListGridHandler();
+	function __construct() {
+		parent::__construct();
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR),
 			array('fetchGrid', 'fetchRows', 'fetchRow', 'deleteSubmission')

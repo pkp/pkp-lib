@@ -19,8 +19,8 @@ class UserSelectGridCellProvider extends DataObjectGridCellProvider {
 	/**
 	 * Constructor
 	 */
-	function UserSelectGridCellProvider() {
-		parent::DataObjectGridCellProvider();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

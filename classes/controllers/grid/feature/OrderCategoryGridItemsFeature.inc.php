@@ -20,7 +20,7 @@ define_exposed('ORDER_CATEGORY_GRID_CATEGORIES_ONLY', 0x01);
 define_exposed('ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY', 0x02);
 define_exposed('ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS', 0x03);
 
-class OrderCategoryGridItemsFeature extends OrderItemsFeature{
+class OrderCategoryGridItemsFeature extends OrderItemsFeature {
 
 	/**
 	 * Constructor.
@@ -31,8 +31,8 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature{
 	 * If you want to use a different grid row template file, set this flag to
 	 * false and make sure to use a template file that adds row actions.
 	 */
-	function OrderCategoryGridItemsFeature($typeOption = ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS, $overrideRowTemplate = true) {
-		parent::OrderItemsFeature($overrideRowTemplate);
+	function __construct($typeOption = ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS, $overrideRowTemplate = true) {
+		parent::__construct($overrideRowTemplate);
 
 		$this->addOptions(array('type' => $typeOption));
 	}
@@ -142,10 +142,10 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature{
 					}
 				}
 
+				unset($rowsData[0]); // remove the first element, it is always the parent category ID
 				$firstSeqValue = $grid->getDataElementInCategorySequence($categoryId, reset($gridRowElements));
 				foreach ($gridRowElements as $rowId => $element) {
-					$rowPosition = array_search($rowId, $rowsData);
-					$newSequence = $firstSeqValue + $rowPosition;
+					$newSequence = array_search($rowId, $rowsData);
 					$currentSequence = $grid->getDataElementInCategorySequence($categoryId, $element);
 					if ($newSequence != $currentSequence) {
 						$grid->setDataElementInCategorySequence($categoryId, $element, $newSequence);

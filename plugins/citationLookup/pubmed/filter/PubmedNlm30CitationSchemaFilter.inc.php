@@ -23,16 +23,16 @@
 import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
 import('lib.pkp.classes.filter.EmailFilterSetting');
 
-define('PUBMED_WEBSERVICE_ESEARCH', 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi');
-define('PUBMED_WEBSERVICE_EFETCH', 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi');
-define('PUBMED_WEBSERVICE_ELINK', 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi');
+define('PUBMED_WEBSERVICE_ESEARCH', 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi');
+define('PUBMED_WEBSERVICE_EFETCH', 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi');
+define('PUBMED_WEBSERVICE_ELINK', 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi');
 
 class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 	/**
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function PubmedNlm30CitationSchemaFilter($filterGroup) {
+	function __construct($filterGroup) {
 		$this->setDisplayName('PubMed');
 
 		// Instantiate the settings of this filter
@@ -42,7 +42,7 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 				FORM_VALIDATOR_OPTIONAL_VALUE);
 		$this->addSetting($emailSetting);
 
-		parent::Nlm30CitationSchemaFilter(
+		parent::__construct(
 			$filterGroup,
 			array(
 				NLM30_PUBLICATION_TYPE_JOURNAL,

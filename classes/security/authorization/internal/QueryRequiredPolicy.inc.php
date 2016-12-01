@@ -22,8 +22,8 @@ class QueryRequiredPolicy extends DataObjectRequiredPolicy {
 	 * @param $submissionParameterName string the request parameter we expect
 	 *  the submission id in.
 	 */
-	function QueryRequiredPolicy($request, &$args, $parameterName = 'queryId', $operations = null) {
-		parent::DataObjectRequiredPolicy($request, $args, $parameterName, 'user.authorization.invalidQuery', $operations);
+	function __construct($request, &$args, $parameterName = 'queryId', $operations = null) {
+		parent::__construct($request, $args, $parameterName, 'user.authorization.invalidQuery', $operations);
 	}
 
 	//

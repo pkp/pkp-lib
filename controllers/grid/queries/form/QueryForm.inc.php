@@ -40,8 +40,8 @@ class QueryForm extends Form {
 	 * @param $queryId int Optional query ID to edit. If none provided, a
 	 *  (potentially temporary) query will be created.
 	 */
-	function QueryForm($request, $assocType, $assocId, $stageId, $queryId = null) {
-		parent::Form('controllers/grid/queries/form/queryForm.tpl');
+	function __construct($request, $assocType, $assocId, $stageId, $queryId = null) {
+		parent::__construct('controllers/grid/queries/form/queryForm.tpl');
 		$this->setStageId($stageId);
 
 		$queryDao = DAORegistry::getDAO('QueryDAO');
@@ -226,7 +226,7 @@ class QueryForm extends Form {
 		$noteDao->updateObject($headNote);
 
 		import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
-		ListbuilderHandler::unpack($request, $this->getData('users'));
+		ListbuilderHandler::unpack($request, $this->getData('users'), array($this, 'deleteEntry'), array($this, 'insertEntry'), array($this, 'updateEntry'));
 
 		$queryDao->updateObject($query);
 

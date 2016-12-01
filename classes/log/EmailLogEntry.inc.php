@@ -19,8 +19,8 @@ class EmailLogEntry extends DataObject {
 	/**
 	 * Constructor.
 	 */
-	function EmailLogEntry() {
-		parent::DataObject();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

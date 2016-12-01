@@ -89,6 +89,8 @@
 	<message key="common.fileName">نام فایل</message>
 	<message key="common.fileSize">اندازه فایل</message>
 	<message key="common.fileType">نوع فایل</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">ارتفاع</message>
 	<message key="common.homePageHeaderLogo.altText">لوگوی هدر صفحه خانگی</message>
 	<message key="common.hour">ساعت</message>
@@ -245,7 +247,7 @@
 	<message key="navigation.userHome">آغازه کاربر</message>
 	<message key="navigation.user">کاربر</message>
 	<message key="search.abstract">چکیده</message>
-	<message key="search.allFields">تمام</message>
+	<message key="search.author">نویسندگان</message>
 	<message key="search.coverage">پوشش</message>
 	<message key="search.date">تاریخ</message>
 	<message key="search.dateFrom">از</message>

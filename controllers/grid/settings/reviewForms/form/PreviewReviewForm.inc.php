@@ -25,8 +25,8 @@ class PreviewReviewForm extends Form {
 	 * @param $template string
 	 * @param $reviewFormId omit for a new review form
 	 */
-	function PreviewReviewForm($reviewFormId = null) {
-		parent::Form('manager/reviewForms/previewReviewForm.tpl');
+	function __construct($reviewFormId = null) {
+		parent::__construct('manager/reviewForms/previewReviewForm.tpl');
 
 		$this->reviewFormId = (int) $reviewFormId;
 

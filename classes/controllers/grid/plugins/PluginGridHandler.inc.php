@@ -21,14 +21,14 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	 * Constructor
 	 * @param $roles array
 	 */
-	function PluginGridHandler($roles) {
+	function __construct($roles) {
 		$this->addRoleAssignment($roles,
 			array('enable', 'disable', 'manage', 'fetchGrid, fetchCategory', 'fetchRow'));
 
 		$this->addRoleAssignment(ROLE_ID_SITE_ADMIN,
-			array('uploadPlugin', 'upgradePlugin', 'deletePlugin'));
+			array('uploadPlugin', 'upgradePlugin', 'deletePlugin', 'saveUploadPlugin'));
 
-		parent::CategoryGridHandler();
+		parent::__construct();
 	}
 
 

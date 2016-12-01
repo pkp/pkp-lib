@@ -93,6 +93,8 @@
 	<message key="common.fileName">Nom de fichier</message>
 	<message key="common.fileSize">Taille de fichier</message>
 	<message key="common.fileType">Type de fichier</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">Hauteur</message>
 	<message key="common.homePageHeaderLogo.altText">Logo de l'en-tête de la page d'accueil</message>
 	<message key="common.hour">Heure</message>
@@ -249,7 +251,7 @@
 	<message key="navigation.userHome">Accueil de l'utilisateur</message>
 	<message key="navigation.user">Utilisateur</message>
 	<message key="search.abstract">Résumé</message>
-	<message key="search.allFields">Tous</message>
+	<message key="search.author">Auteurs</message>
 	<message key="search.coverage">Couverture</message>
 	<message key="search.date">Date</message>
 	<message key="search.dateFrom">De</message>
@@ -368,6 +370,7 @@
 	<message key="notification.type.allRevisionsIn">Un fichier révisé a été téléchargé dans {$stage} afin que vous puissiez l'évaluer.</message>
 	<message key="notification.type.pendingRevisions">Vous devez tenir compte des révisions à cette étape: {$stage}.</message>
 	<message key="notification.type.pendingRevisions.title">Révisions soumises à {$stage}.</message>
+	<message key="notification.type.roundStatusTitle">Statut de la série {$round} </message>
 	<message key="notification.signedFile">Fichier considéré.</message>
 	<message key="user.authorization.authorRoleMissing">Vos privilèges actuels ne vous permettent pas de visionner cette soumission. Veuillez modifier votre profil pour vous assurer que l'on vous a assigné les rôles appropriés dans la section "S'inscrire comme".</message>
 	<message key="common.publicKnowledgeProject">Projet de connaissances publiques (Public Knowledge Project)</message>
@@ -462,7 +465,7 @@
 	<message key="notification.removedNote">Note supprimée.</message>
 	<message key="notification.removedFile">Fichier supprimé.</message>
 	<message key="notification.sentNotification">Avis envoyé.</message>
-	<message key="search.activeFilters">Filtres avancés</message>
+	<message key="search.advancedFilters">Filtres avancés</message>
 	<message key="search.advancedSearchLess">Options de recherche supplémentaires (cliquer pour cacher)</message>
 	<message key="search.cli.rebuildIndex.clearingIndex">Elimination de l'index</message>
 	<message key="search.cli.rebuildIndex.done">Terminé</message>

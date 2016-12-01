@@ -152,7 +152,7 @@
 	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>To find and check citations in citation databases they first have to be split into machine readable metadata: title, publisher, publication date, etc. must all be extracted from the original citation text provided by the author. Connectors to external web services can assist in this process. One or several connectors can be added by clicking on the "Add Item" button below. Some of these connectors may need to be configured; you will be prompted if this is the case.</p>
 		<p>You can edit or delete an existing Connector by clicking the gear icon next to it.</p>]]></message>
 	<message key="manager.setup.citationFilterLookup">Atıf Kontrolü</message>
-	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>You must also enable and configure connections to external citation databases. This helps you to find errors in authors' citations or add additional information (e.g. DOIs or PubMed IDs) required for electronic publishing or deposit.</p> 
+	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>You must also enable and configure connections to external citation databases. This helps you to find errors in authors' citations or add additional information (e.g. DOIs or PubMed IDs) required for electronic publishing or deposit.</p>
 		<p>We provide connectors to several external databases in which you can search for citations. Some of these databases require registration or configuration information to be entered. Please refer to the public websites of the databases for further information on how to register. You can add one or several databases by clicking on the "Add Item" button below.</p>
 		<p>You can edit or delete an existing external database connection by clicking the gear icon next to it.</p>
 		<p><strong>Note:</strong> In order for the citation checking process to complete in a timely manner, the <tt>citation_checking_max_processes</tt> directive in your configuration file must be set to a reasonable value. See the General Settings section in <tt>config.inc.php</tt> for more information.</p>]]></message>
@@ -163,14 +163,14 @@
 	<message key="manager.setup.filter.grid.filterDisplayName">Bağlayıcı</message>
 	<message key="manager.setup.filter.grid.filterSettings">Kayıt Bilgisi ve Bağlayıcı Ayarları</message>
 	<message key="manager.setup.filter.grid.filterTemplateRequired">Lütfen açılır menüden dönüşümlerden birini seçiniz.</message>
-	<message key="manager.setup.filter.grid.confirmDelete">{$filterName} adlı filitreyi silmek istediğinizden emin misiniz?</message>	
+	<message key="manager.setup.filter.grid.confirmDelete">{$filterName} adlı filitreyi silmek istediğinizden emin misiniz?</message>
 	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Seçiminiz {$filterDisplayName} adlı veri tabanına eklendi. Lütfen onaylamak için "TAMAM"ı tıklayınız.</message>
 	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Arama için bir veri tabanı seçiniz.</message>
 	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> adlı bu filitre bağlantısı kitap ve ISBN veri tabanı içindir.
 	<p>ISBNdb API anahtarı zorunludur. Bir anahtar oluşturmak için <a href="http://isbndb.com/api/v1/docs/keys" target="_blank">çevrimiçi dokümana</a> bakınız.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Bu filtre CrossRef'i kullanarak <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL Sorgu Arayüzü</ a> CrossRef atıf veri tabanına bağlanır.</p>
 	</p>Bu filtreyi kullanmak için, CrossRef sistem hesabını kullanabilir veya CrossRef'e  geçerli bir e-posta adresi ile <a href="http://www.crossref.org/requestaccount/" target="_blank">buraya tıklayarak</ a> kayıt olabilirsiniz.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Bu filitre çapraz veritabanı arama motoru ile PubMed'e <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank"> Giriş</ a> yapar.</ p> 
+	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Bu filitre çapraz veritabanı arama motoru ile PubMed'e <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank"> Giriş</ a> yapar.</ p>
 </ p>Kayıt için e-posta adresi zorunlu değildir, ancak bağlantı sorunlarının giderilmesinde gerekli olabilir. Daha fazla bilgi için giriş dokümanında <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Kullanım Yönergeleri ve Gereksinimler</ a> bölümüne  bakınız. </ p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Bu filitre  <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> ve <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> seçenekleriyle OCLC servisine bağlanır.</ p>
 	</ p>Eğer bir Worldcad <a href="http://oclc.org/developer/develop/web-services.html" target="_blank">API anahtarı</a>nız varsa, bu anahtarla Wolrdcat'e aşağıdaki girişten bağlantı kurabilirsiniz.</ p>]]></message>
@@ -190,8 +190,6 @@
 	<message key="manager.setup.homeHeaderImageInvalid">Giriş sayfası başlık logosu için geçersiz dosya biçimi. Desteklenen dosya biçimleri .gif, .jpg, veya .png biçimleridir.</message>
 	<message key="manager.setup.homepageImageInvalid">Giriş sayfası şekli için geçersiz dosya biçimi. Desteklenen dosya biçimleri .gif, .jpg, veya .png biçimleridir.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Giriş sayfası şekli için geçersiz dosya biçimi. Desteklenen dosya biçimleri .gif, .jpg, veya .png biçimleridir.</message>
-	<message key="manager.setup.layout.leftSidebar">Sol Kenar Çubuğu</message>
-	<message key="manager.setup.layout.rightSidebar">Sağ Kenar Çubuğu</message>
 	<message key="manager.setup.layout.unselected">Seçilmemiş</message>
 	<message key="manager.setup.loggingAndAuditing">Giriş ve Denetim</message>
 	<message key="manager.setup.homeHeaderImageInvalid">Giriş sayfası başlık logosu için geçersiz dosya biçimi. Desteklenen dosya biçimleri .gif, .jpg, veya .png biçimleridir.</message>

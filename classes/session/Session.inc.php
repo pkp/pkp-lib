@@ -27,8 +27,8 @@ class Session extends DataObject {
 	/**
 	 * Constructor.
 	 */
-	function Session() {
-		parent::DataObject();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

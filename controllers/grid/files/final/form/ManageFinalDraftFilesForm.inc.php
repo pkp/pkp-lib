@@ -21,8 +21,8 @@ class ManageFinalDraftFilesForm extends ManageSubmissionFilesForm {
 	 * Constructor.
 	 * @param $submissionId int Submission ID.
 	 */
-	function ManageFinalDraftFilesForm($submissionId) {
-		parent::ManageSubmissionFilesForm($submissionId, 'controllers/grid/files/final/manageFinalDraftFiles.tpl');
+	function __construct($submissionId) {
+		parent::__construct($submissionId, 'controllers/grid/files/final/manageFinalDraftFiles.tpl');
 	}
 
 

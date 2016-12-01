@@ -114,7 +114,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	/**
 	 * Constructor
 	 */
-	function PKPApplication() {
+	function __construct() {
 		// Seed random number generator
 		mt_srand(((double) microtime()) * 1000000);
 

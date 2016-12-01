@@ -20,8 +20,8 @@ class ProfileHandler extends UserHandler {
 	/**
 	 * Constructor
 	 */
-	function ProfileHandler() {
-		parent::UserHandler();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

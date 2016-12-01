@@ -26,9 +26,9 @@ class FormValidatorLocaleEmail extends FormValidatorLocale {
 	 * @param $message string the error message for validation failures (i18n key)
 	 * @param $requiredLocale string The symbolic name of the required locale
 	 */
-	function FormValidatorLocaleEmail(&$form, $field, $type, $message, $requiredLocale = null) {
+	function __construct(&$form, $field, $type, $message, $requiredLocale = null) {
 		$validator = new ValidatorEmail();
-		parent::FormValidatorLocale($form, $field, $type, $message, $requiredLocale, $validator);
+		parent::__construct($form, $field, $type, $message, $requiredLocale, $validator);
 	}
 }
 

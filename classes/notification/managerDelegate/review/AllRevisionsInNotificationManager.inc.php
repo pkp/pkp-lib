@@ -15,14 +15,14 @@
 
 import('lib.pkp.classes.notification.managerDelegate.review.ReviewRoundNotificationManager');
 
-class AllRevisionsInNotificationManager extends ReviewRoundNotificationManager{
+class AllRevisionsInNotificationManager extends ReviewRoundNotificationManager {
 
 	/**
 	 * Constructor.
 	 * @param $notificationType int NOTIFICATION_TYPE_...
 	 */
-	function AllRevisionsInNotificationManager($notificationType) {
-		parent::ReviewRoundNotificationManager($notificationType);
+	function __construct($notificationType) {
+		parent::__construct($notificationType);
 	}
 
 	/**

@@ -77,7 +77,6 @@
 	<message key="user.register.completeForm">Aldizkari honetan erregistratzeko, inprimaki hau bete behar duzu.</message>
 	<message key="user.register.form.emailExists">Hautatutako helbide elektronikoa beste erabiltzaile batena da.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Pasahitzak ez datoz bat.</message>
-	<message key="user.register.form.usernameAlphaNumeric">Erabiltzaile-izenean alfazenbakizko karaktereak, azpimarra eta marratxoak bakarrik onartzen dira, eta lehen karakterea eta azkena alfazenbakizkoak izan behar dira.</message>
 	<message key="user.register.form.usernameExists">Hautatutako erabiltzaile-izena beste erabiltzaile batena da.</message>
 	<message key="user.register.passwordLengthRestriction">Pasahitzak {$length} karaktere izan behar ditu gutxienez.</message>
 	<message key="user.register.registerAs">Erregistratu honela:</message>

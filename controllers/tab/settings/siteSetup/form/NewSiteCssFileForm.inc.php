@@ -21,8 +21,8 @@ class NewSiteCssFileForm extends SettingsFileUploadForm {
 	 * Constructor.
 	 * @param $imageSettingName string
 	 */
-	function NewSiteCssFileForm($cssSettingName) {
-		parent::SettingsFileUploadForm();
+	function __construct($cssSettingName) {
+		parent::__construct();
 		$this->setFileSettingName($cssSettingName);
 	}
 

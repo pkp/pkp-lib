@@ -35,8 +35,8 @@ class FileCache extends GenericCache {
 	/**
 	 * Instantiate a cache.
 	 */
-	function FileCache($context, $cacheId, $fallback, $path) {
-		parent::GenericCache($context, $cacheId, $fallback);
+	function __construct($context, $cacheId, $fallback, $path) {
+		parent::__construct($context, $cacheId, $fallback);
 
 		$this->filename = $path . DIRECTORY_SEPARATOR . "fc-$context-" . str_replace('/', '.', $cacheId) . '.php';
 

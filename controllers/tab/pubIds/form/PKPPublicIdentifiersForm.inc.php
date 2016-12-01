@@ -41,8 +41,8 @@ class PKPPublicIdentifiersForm extends Form {
 	 * @param $stageId integer
 	 * @param $formParams array
 	 */
-	function PKPPublicIdentifiersForm($pubObject, $stageId = null, $formParams = null) {
-		parent::Form('controllers/tab/pubIds/form/publicIdentifiersForm.tpl');
+	function __construct($pubObject, $stageId = null, $formParams = null) {
+		parent::__construct('controllers/tab/pubIds/form/publicIdentifiersForm.tpl');
 
 		$this->_pubObject = $pubObject;
 		$this->_stageId = $stageId;

@@ -28,8 +28,8 @@ class CategoryGridDataProvider extends GridDataProvider {
 	/**
 	 * Constructor
 	 */
-	function CategoryGridDataProvider() {
-		parent::GridDataProvider();
+	function __construct() {
+		parent::__construct();
 	}
 
 

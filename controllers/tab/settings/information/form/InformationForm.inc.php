@@ -20,14 +20,14 @@ class InformationForm extends ContextSettingsForm {
 	/**
 	 * Constructor.
 	 */
-	function InformationForm($wizardMode = false) {
+	function __construct($wizardMode = false) {
 		$settings = array(
 			'readerInformation' => 'string',
 			'authorInformation' => 'string',
 			'librarianInformation' => 'string'
 		);
 
-		parent::ContextSettingsForm($settings, 'controllers/tab/settings/information/form/informationForm.tpl', $wizardMode);
+		parent::__construct($settings, 'controllers/tab/settings/information/form/informationForm.tpl', $wizardMode);
 	}
 
 

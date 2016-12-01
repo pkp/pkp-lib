@@ -90,6 +90,8 @@
 	<message key="common.fileName">Bestandsnaam</message>
 	<message key="common.fileSize">Bestandsgrootte</message>
 	<message key="common.fileType">Bestandstype</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">Hoogte</message>
 	<message key="common.homePageHeaderLogo.altText">Home-pagina logo</message>
 	<message key="common.hour">Uur</message>
@@ -245,7 +247,7 @@
 	<message key="navigation.userHome">Gebruiker</message>
 	<message key="navigation.user">Gebruiker</message>
 	<message key="search.abstract">Samenvatting</message>
-	<message key="search.allFields">Alle</message>
+	<message key="search.author">Auteurs</message>
 	<message key="search.coverage">Dekking</message>
 	<message key="search.date">Datum</message>
 	<message key="search.dateFrom">Van</message>

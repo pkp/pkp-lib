@@ -33,8 +33,8 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 	 * @param $contextId int
 	 * @param $submissionId int
 	 */
-	function SubmissionFileManager($contextId, $submissionId) {
-		parent::BaseSubmissionFileManager($contextId, $submissionId);
+	function __construct($contextId, $submissionId) {
+		parent::__construct($contextId, $submissionId);
 	}
 
 

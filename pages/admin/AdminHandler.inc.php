@@ -19,8 +19,8 @@ class AdminHandler extends Handler {
 	/**
 	 * Constructor
 	 */
-	function AdminHandler() {
-		parent::Handler();
+	function __construct() {
+		parent::__construct();
 
 		$this->addRoleAssignment(
 			array(ROLE_ID_SITE_ADMIN),
@@ -31,10 +31,10 @@ class AdminHandler extends Handler {
 	/**
 	 * @copydoc PKPHandler::authorize()
 	 */
-	function authorize($request, &$args, $roleAssignments) {
+	function authorize($request, &$args, $roleAssignments, $enforceRestrictedSite = true) {
 		import('lib.pkp.classes.security.authorization.PKPSiteAccessPolicy');
 		$this->addPolicy(new PKPSiteAccessPolicy($request, null, $roleAssignments));
-		$returner = parent::authorize($request, $args, $roleAssignments);
+		$returner = parent::authorize($request, $args, $roleAssignments, $enforceRestrictedSite);
 
 		// Make sure user is in a context. Otherwise, redirect.
 		$context = $request->getContext();

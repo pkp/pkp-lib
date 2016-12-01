@@ -43,7 +43,7 @@ class AuthorizationPolicy {
 	 * Constructor
 	 * @param $message string
 	 */
-	function AuthorizationPolicy($message = null) {
+	function __construct($message = null) {
 		if (!is_null($message)) $this->setAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE, $message);
 	}
 

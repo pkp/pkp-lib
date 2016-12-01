@@ -20,7 +20,7 @@ class MultilingualListbuilderGridColumn extends ListbuilderGridColumn {
 	/**
 	 * Constructor
 	 */
-	function MultilingualListbuilderGridColumn($listbuilder, $id = '', $title = null,
+	function __construct($listbuilder, $id = '', $title = null,
 			$titleTranslated = null, $template = null, $cellProvider = null,
 			$availableLocales = null, $flags = array()) {
 
@@ -34,7 +34,7 @@ class MultilingualListbuilderGridColumn extends ListbuilderGridColumn {
 		$flags['multilingual'] = true; // This is a multilingual column.
 		$flags['availableLocales'] = $availableLocales; // Provide available locales
 
-		parent::ListbuilderGridColumn($listbuilder, $id, $title, $titleTranslated, $template, $cellProvider, $flags);
+		parent::__construct($listbuilder, $id, $title, $titleTranslated, $template, $cellProvider, $flags);
 	}
 }
 

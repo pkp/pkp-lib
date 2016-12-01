@@ -77,7 +77,6 @@
 	<message key="user.register.completeForm">Συμπληρώστε την φόρμα για να εγγραφείτε στο περιοδικό.</message>
 	<message key="user.register.form.emailExists">Η επιλεγμένη διεύθυνση ηλεκτρονικού ταχυδρομείου χρησιμοποιείται ήδη από άλλο χρήστη.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Οι κωδικοί πρόσβασης (passwords) δεν ταιριάζουν.</message>
-	<message key="user.register.form.usernameAlphaNumeric">Το όνομα χρήστη (username)μπορεί να περιέχει μόνο αλφαρηθμιτικούς χαρακτήρες, υπογραμμίσεις και παύλες και πρέπει να αρχίζει και να  τελειώνει με ένα αλφαριθμητικό χαρακτήρα.</message>
 	<message key="user.register.form.usernameExists">Το επιλεγμένο όνομα χρήστη (username) χρησιμοποιείται ήδη από άλλον χρήστη.</message>
 	<message key="user.register.passwordLengthRestriction">Ο κωδικός  πρόσβασης πρέπει να περιέχει  τουλάχιστον {$length} χαρακτήρες.</message>
 	<message key="user.register.registerAs">Εγγραφείτε ως</message>

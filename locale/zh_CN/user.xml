@@ -77,7 +77,6 @@
 	<message key="user.profile.repeatNewPassword">重复新密码</message>
 	<message key="user.register.form.emailExists">选择的电子邮件地址已经被其他用户使用.</message>
 	<message key="user.register.form.passwordsDoNotMatch">密码不相符.</message>
-	<message key="user.register.form.usernameAlphaNumeric">用户名只能包含字母数字字符，下划线和连字符，而且必须开始和结束的时候为字母数字字符.</message>
 	<message key="user.register.form.usernameExists">选择的用户名已经被其他用户使用.</message>
 	<message key="user.register.passwordLengthRestriction">密码必须至少含有 {$length} 个字符.</message>
 	<message key="user.register.registerAs">注册为</message>

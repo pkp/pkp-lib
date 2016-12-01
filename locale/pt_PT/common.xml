@@ -90,6 +90,8 @@
 	<message key="common.fileName">Nome do documento</message>
 	<message key="common.fileSize">Tamanho do documento</message>
 	<message key="common.fileType">Tipo do Documento</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">Altura</message>
 	<message key="common.homePageHeaderLogo.altText">Logótipo do cabeçalho da página inicial</message>
 	<message key="common.hour">Hora</message>
@@ -245,7 +247,7 @@
 	<message key="navigation.userHome">Página do utilizador</message>
 	<message key="navigation.user">Utilizador</message>
 	<message key="search.abstract">Resumo</message>
-	<message key="search.allFields">Todos</message>
+	<message key="search.author">Autor</message>
 	<message key="search.coverage">Cobertura</message>
 	<message key="search.date">Data</message>
 	<message key="search.dateFrom">De</message>

@@ -70,8 +70,11 @@
 	<message key="common.warning">Warning</message>
 	<message key="common.error">Error</message>
 	<message key="common.notice">Notice</message>
-	<message key="common.captchaField.altText">Validation image</message>
-	<message key="common.captchaField.badCaptcha">The characters you entered did not match the characters in the image. Please check the characters and try again.</message>
+	<!-- Captcha error messages. See: https://developers.google.com/recaptcha/docs/verify -->
+	<message key="common.captcha.error.missing-input-secret">The captcha validation for this website is not configured correctly. The secret key is missing.</message>
+	<message key="common.captcha.error.invalid-input-secret">The captcha validation for this website is not configured correctly. The secret key is invalid.</message>
+	<message key="common.captcha.error.missing-input-response">You must complete the validation check used to prevent spam submissions.</message>
+	<message key="common.captcha.error.invalid-input-response">You did not pass the validation check used to prevent spam submissions.</message>
 	<message key="common.captchaField.description">Please enter the letters as they appear in the image above.</message>
 	<message key="common.captchaField">Validation</message>
 	<message key="common.ccLicense"><![CDATA[
@@ -128,6 +131,7 @@
 	<message key="common.discipline">Discipline</message>
 	<message key="common.done">Done</message>
 	<message key="common.download">Download</message>
+	<message key="common.downloadPdf">Download PDF</message>
 	<message key="common.edit">Edit</message>
 	<message key="common.enable">Enable</message>
 	<message key="common.enabled">Enabled</message>
@@ -142,6 +146,7 @@
 	<message key="common.false">False</message>
 	<message key="common.file">File</message>
 	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.fileName">File Name</message>
 	<message key="common.fileSize">File Size</message>
 	<message key="common.fileType">File Type</message>
@@ -252,7 +257,6 @@
 	<message key="common.uploadedFile">Uploaded file</message>
 	<message key="common.upload">Upload</message>
 	<message key="common.uploadFailed">The file could not be uploaded or revised.</message>
-	<message key="common.fileUpload.maxFileSizeStatus"><![CDATA[This server allows a file size upload maximum of {$fileSize}.  If required, please contact <a href="mailto:{$supportEmail}">{$supportName}</a> for assistance.]]></message>
 	<message key="common.invalidFileType">No file uploaded or invalid file type!</message>
 	<message key="common.homepageImage.altText">Homepage Image</message>
 	<message key="common.up">Up</message>
@@ -400,6 +404,9 @@
 	<message key="navigation.settings">Settings</message>
 	<message key="navigation.setup">Setup</message>
 	<message key="navigation.sitemap">Site Map</message>
+	<message key="navigation.skip.main">Skip to main content</message>
+	<message key="navigation.skip.nav">Skip to main navigation menu</message>
+	<message key="navigation.skip.footer">Skip to site footer</message>
 	<message key="navigation.stepNumber">Step {$step}</message>
 	<message key="navigation.submissions">Submissions</message>
 	<message key="navigation.system">System</message>
@@ -453,11 +460,11 @@
 	<message key="notification.unsubscribeError">There was an error unsubscribing you.  Please ensure that you are using the correct URL as included in your notification email.</message>
 	<message key="notification.unsubscribeSuccess">You were successfully unsubscribed.</message>
 	<message key="notification.savedSubmissionMetadata">Submission metadata saved.</message>
+	<message key="search.author">By Author</message>
 	<message key="search.abstract">Abstract</message>
-	<message key="search.activeFilters">Advanced filters</message>
+	<message key="search.advancedFilters">Advanced filters</message>
 	<message key="search.advancedSearchMore">More search options</message>
 	<message key="search.advancedSearchLess">Hide more search options</message>
-	<message key="search.allFields">All</message>
 	<message key="search.searchAgain">Search again</message>
 	<message key="search.cli.rebuildIndex.clearingIndex">Clearing index</message>
 	<message key="search.cli.rebuildIndex.done">done</message>
@@ -465,8 +472,8 @@
 	<message key="search.cli.rebuildIndex.result">{$numIndexed} articles indexed</message>
 	<message key="search.coverage">Coverage</message>
 	<message key="search.date">Publication Date</message>
-	<message key="search.dateFrom">From</message>
-	<message key="search.dateTo">Until</message>
+	<message key="search.dateFrom">Published After</message>
+	<message key="search.dateTo">Published Before</message>
 	<message key="search.deleteFilter">Delete</message>
 	<message key="search.discipline">Discipline(s)</message>
 	<message key="search.fullText">Full Text</message>
@@ -533,4 +540,7 @@
 	<message key="user.authorization.submissionAuthor">The current user is not the author of the requested submission. Please verify that you are logged in with the correct user account.</message>
 	<message key="notification.type.queryActivity">Discussion activity.</message>
 	<message key="notification.type.queryAdded">Discussion added.</message>
+	<message key="notification.type.assignCopyeditors">Assign a copyeditor using the Add link in the Participants list.</message>
+	<message key="notification.type.awaitingCopyedits">Awaiting Copyedits.</message>
+	<message key="notification.type.roundStatusTitle">Round {$round} Status</message>
 </locale>

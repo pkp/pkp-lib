@@ -44,7 +44,7 @@ class WebServiceRequest {
 	 * @param $method string GET or POST
 	 * @param $useProxy boolean Whether the proxy settings from config.inc.php should be considered
 	 */
-	function WebServiceRequest($url, $params, $method = 'GET', $useProxy = true) {
+	function __construct($url, $params, $method = 'GET', $useProxy = true) {
 		$this->_url = $url;
 		$this->_params = $params;
 		$this->_method = $method;

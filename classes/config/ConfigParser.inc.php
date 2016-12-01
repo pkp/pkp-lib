@@ -22,7 +22,7 @@ class ConfigParser {
 	/**
 	 * Constructor.
 	 */
-	function ConfigParser() {
+	function __construct() {
 	}
 
 	/**

@@ -103,6 +103,8 @@
 	<message key="common.fileName">Jméno souboru</message>
 	<message key="common.fileSize">Velikost souboru</message>
 	<message key="common.fileType">Typ souboru</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">Výška</message>
 	<message key="common.homePageHeaderLogo.altText">Logo záhlaví domácí stránky</message>
 	<message key="common.hour">Hodina</message>
@@ -294,7 +296,7 @@
 	<message key="notification.unsubscribeError">Při odhlašování se vyskytla chyba. Ujistěte se prosím, že Vaše emailová adresa a heslo jsou správné.</message>
 	<message key="notification.unsubscribeSuccess">Byl jste úspěšně odhlášen.</message>
 	<message key="search.abstract">Abstrakt</message>
-	<message key="search.allFields">Vše</message>
+	<message key="search.author">Autoři</message>
 	<message key="search.coverage">Pokrytí</message>
 	<message key="search.date">Datum</message>
 	<message key="search.dateFrom">Od</message>

@@ -21,7 +21,8 @@ class TimeZoneDAO extends DAO {
 	/**
 	 * Constructor.
 	 */
-	function TimeZoneDAO() {
+	function __construct() {
+		// Parent constructor intentionally not called
 	}
 
 	/**

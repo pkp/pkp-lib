@@ -25,8 +25,8 @@ class ReviewFormElements extends Form {
 	 * @param $template string
 	 * @param $reviewFormId 
 	 */
-	function ReviewFormElements($reviewFormId) {
-		parent::Form('manager/reviewForms/reviewFormElements.tpl');
+	function __construct($reviewFormId) {
+		parent::__construct('manager/reviewForms/reviewFormElements.tpl');
 
 		$this->reviewFormId = (int) $reviewFormId;
 

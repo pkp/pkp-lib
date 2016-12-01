@@ -17,8 +17,8 @@ class SettingsDAO extends DAO {
 	/**
 	 * Constructor.
 	 */
-	function SettingsDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

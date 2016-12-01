@@ -24,7 +24,7 @@ class NotifyLinkAction extends LinkAction {
 	 * @param $userId optional
 	 *  to show information about.
 	 */
-	function NotifyLinkAction($request, &$submission, $stageId, $userId = null) {
+	function __construct($request, &$submission, $stageId, $userId = null) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION);
 		// Prepare request arguments
 		$requestArgs['submissionId'] = $submission->getId();
@@ -44,7 +44,7 @@ class NotifyLinkAction extends LinkAction {
 		);
 
 		// Configure the file link action.
-		parent::LinkAction(
+		parent::__construct(
 			'notify', $ajaxModal,
 			__('submission.stageParticipants.notify'), 'notify'
 		);

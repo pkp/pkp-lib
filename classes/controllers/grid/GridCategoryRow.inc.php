@@ -23,8 +23,8 @@ class GridCategoryRow extends GridRow {
 	/**
 	 * Constructor.
 	 */
-	function GridCategoryRow() {
-		parent::GridRow();
+	function __construct() {
+		parent::__construct();
 
 		// Set a default cell provider that will get the cell template
 		// variables from the category grid row.

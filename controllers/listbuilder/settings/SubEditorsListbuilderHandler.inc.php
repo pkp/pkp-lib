@@ -22,8 +22,8 @@ class SubEditorsListbuilderHandler extends SetupListbuilderHandler {
 	/**
 	 * Constructor
 	 */
-	function SubEditorsListbuilderHandler() {
-		parent::SetupListbuilderHandler();
+	function __construct() {
+		parent::__construct();
 		$this->addRoleAssignment(
 			ROLE_ID_MANAGER,
 			array('fetch', 'fetchRow', 'fetchOptions')

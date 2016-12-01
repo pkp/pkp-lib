@@ -91,6 +91,8 @@
 	<message key="common.fileName">Όνομα αρχείου</message>
 	<message key="common.fileSize">Μέγεθος αρχείου</message>
 	<message key="common.fileType">Τύπος αρχείου</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">Ύψος</message>
 	<message key="common.homePageHeaderLogo.altText">Logo Επικεφαλίδας Αρχικής Σελίδας</message>
 	<message key="common.hour">Ώρα</message>
@@ -247,7 +249,7 @@
 	<message key="navigation.userHome">Αρχική Σελίδα Χρήστη</message>
 	<message key="navigation.user">Χρήστης</message>
 	<message key="search.abstract">Περίληψη</message>
-	<message key="search.allFields">Όλα</message>
+	<message key="search.author">Συγγραφείς</message>
 	<message key="search.coverage">Κάλυψη</message>
 	<message key="search.date">Ημερομηνία</message>
 	<message key="search.dateFrom">Από</message>
@@ -359,5 +361,6 @@
 	<message key="notification.type.pendingRevisions.title">Ανθεωρήσεις έχουν υποβληθεί στο {$stage}.</message>
 	<message key="notification.signedFile">Το αρχείο έχει θεωρηθεί.</message>
 	<message key="notification.type.auditorRequest">Έχετε κληθεί για τον έλεγχο του αρχείου "{$file}"</message>
+	<message key="notification.type.roundStatusTitle">Κατάσταση γύρου {$round}.</message>
 	<message key="user.authorization.authorRoleMissing">Δεν σας έχουν δωθεί πρόσφατα τα ανάλογα δικαιώματα για να δείτε την υποβολή. Παρακαλούμε επεξεργαστείτε το προφίλ σας για να βεβαιωθείτε ότι σας έχουν εκχωρηθεί οι κατάλληλοι ρόλοι μέσω του "Σύνδεση Ως".</message>
 </locale>

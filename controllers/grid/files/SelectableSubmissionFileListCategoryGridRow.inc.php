@@ -19,8 +19,8 @@ class SelectableSubmissionFileListCategoryGridRow extends GridCategoryRow {
 	/**
 	 * Constructor
 	 */
-	function SelectableSubmissionFileListCategoryGridRow() {
-		parent::GridCategoryRow();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

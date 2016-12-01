@@ -24,8 +24,8 @@ class SupplementaryFile extends SubmissionFile {
 	/**
 	 * Constructor
 	 */
-	function SupplementaryFile() {
-		parent::SubmissionFile();
+	function __construct() {
+		parent::__construct();
 	}
 
 

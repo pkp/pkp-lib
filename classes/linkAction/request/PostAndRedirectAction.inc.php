@@ -26,8 +26,8 @@ class PostAndRedirectAction extends RedirectAction {
 	 * @param $postUrl string The target URL to post data.
 	 * @param $redirectUrl string The target URL to redirect.
 	 */
-	function PostAndRedirectAction($postUrl, $redirectUrl) {
-		parent::RedirectAction($redirectUrl);
+	function __construct($postUrl, $redirectUrl) {
+		parent::__construct($redirectUrl);
 		$this->_postUrl = $postUrl;
 	}
 

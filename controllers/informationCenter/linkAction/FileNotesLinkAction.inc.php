@@ -26,12 +26,12 @@ class FileNotesLinkAction extends FileLinkAction {
 	 * @param $removeHistoryTab boolean (optional) Open the information center
 	 * without the history tab.
 	 */
-	function FileNotesLinkAction($request, $submissionFile, $user, $stageId = null, $removeHistoryTab = false) {
+	function __construct($request, $submissionFile, $user, $stageId = null, $removeHistoryTab = false) {
 		// Instantiate the information center modal.
 		$ajaxModal = $this->getModal($request, $submissionFile, $stageId, $removeHistoryTab);
 
 		// Configure the file link action.
-		parent::FileLinkAction(
+		parent::__construct(
 			'moreInformation', $ajaxModal,
 			'', $this->getNotesState($submissionFile, $user),
 			__('common.notes.tooltip')

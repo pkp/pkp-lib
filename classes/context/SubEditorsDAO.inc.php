@@ -17,8 +17,8 @@ class SubEditorsDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function SubEditorsDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

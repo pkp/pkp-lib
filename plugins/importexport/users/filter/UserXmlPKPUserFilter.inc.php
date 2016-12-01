@@ -20,9 +20,9 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function UserXmlPKPUserFilter($filterGroup) {
+	function __construct($filterGroup) {
 		$this->setDisplayName('User XML user import');
-		parent::NativeImportFilter($filterGroup);
+		parent::__construct($filterGroup);
 	}
 
 	//
@@ -123,8 +123,12 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 				break;
 		}
 
-		// ensure that this username and email address are not already in use.
-		if (!$userDao->getByUsername($user->getUsername(), false) && !$userDao->getUserByEmail($user->getEmail(), false)) {
+		$userByUsername = $userDao->getByUsername($user->getUsername(), false);
+		$userByEmail = $userDao->getUserByEmail($user->getEmail(), false);
+		if ($userByUsername && $userByEmail && $userByUsername->getId() == $userByEmail->getId()) {
+			$user = $userByUsername;
+			$userId = $user->getId();
+		} elseif (!$userByUsername && !$userByEmail) {
 			$userId = $userDao->insertObject($user);
 
 			// Insert reviewing interests, now that there is a userId.
@@ -138,28 +142,28 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 					$interestManager->setInterestsForUser($user, $interests);
 				}
 			}
+		}
 
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-			$userGroups = $userGroupDao->getByContextId($context->getId());
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupsFactory = $userGroupDao->getByContextId($context->getId());
+		$userGroups = $userGroupsFactory->toArray();
 
-			// Extract user groups from the User XML and assign the user to those (existing) groups.
-			// Note:  It is possible for a user to exist with no user group assignments so there is
-			// no fatalError() as is the case with PKPAuthor import.
-			$userGroupNodeList = $node->getElementsByTagNameNS($deployment->getNamespace(), 'user_group_ref');
-			if ($userGroupNodeList->length > 0) {
-				for ($i = 0 ; $i < $userGroupNodeList->length ; $i++) {
-					$n = $userGroupNodeList->item($i);
-					while ($userGroup = $userGroups->next()) {
-						if (in_array($n->textContent, $userGroup->getName(null))) {
-							// Found a candidate; assign user to it.
-							$userGroupDao->assignUserToGroup($userId, $userGroup->getId());
-						}
+		// Extract user groups from the User XML and assign the user to those (existing) groups.
+		// Note:  It is possible for a user to exist with no user group assignments so there is
+		// no fatalError() as is the case with PKPAuthor import.
+		$userGroupNodeList = $node->getElementsByTagNameNS($deployment->getNamespace(), 'user_group_ref');
+		if ($userGroupNodeList->length > 0) {
+			for ($i = 0 ; $i < $userGroupNodeList->length ; $i++) {
+				$n = $userGroupNodeList->item($i);
+				foreach ($userGroups as $userGroup) {
+					if (in_array($n->textContent, $userGroup->getName(null))) {
+						// Found a candidate; assign user to it.
+						$userGroupDao->assignUserToGroup($userId, $userGroup->getId());
 					}
 				}
 			}
-
-			return $user;
 		}
+		return $user;
 	}
 
 	/**

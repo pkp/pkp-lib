@@ -66,8 +66,8 @@ class ProcessDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function ProcessDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**
@@ -298,7 +298,7 @@ class ProcessDAO extends DAO {
 	 * @return boolean
 	 */
 	function authorizeProcess($processId) {
-		$process =& $this->getObjectById($processId);
+		$process = $this->getObjectById($processId);
 		if (is_a($process, 'Process') && $process->getObliterated() === false) {
 			// The one time key has not been used yet.
 			// Mark it as used.

@@ -20,8 +20,8 @@ class PKPLoginHandler extends Handler {
 	/**
 	 * Constructor
 	 */
-	function PKPLoginHandler() {
-		parent::Handler();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

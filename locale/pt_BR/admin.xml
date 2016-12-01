@@ -129,4 +129,6 @@ Uso (processando todos os arquivos dentro de um diretório): {$scriptName} camin
 	<message key="admin.copyAccessLogFileTool.success">Sucesso: {$filePath} para {$destinationPath}</message>
 	<message key="admin.error.utilExecutionProblem">"{$utilPath}" retornou o seguinte erro após executado: {$output}</message>
 	<message key="admin.error.executingUtil">Erro: não foi possível executar "{$utilPath}".  Cheque a configuração de {$utilVar} em config.inc.php.</message>
+	<message key="admin.settings.siteLogo">Logotipo do Site</message>
+	<message key="admin.languages.noLocalesToDownload">Sem idiomas disponíveis para download.</message>
 </locale>

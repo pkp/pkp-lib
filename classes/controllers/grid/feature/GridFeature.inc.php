@@ -29,7 +29,7 @@ class GridFeature {
 	 * Constructor.
 	 * @param $id string Feature id.
 	 */
-	function GridFeature($id) {
+	function __construct($id) {
 		$this->setId($id);
 	}
 

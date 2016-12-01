@@ -26,7 +26,7 @@ class ReviewerViewMetadataLinkAction extends LinkAction {
 	 * @param $submissionId integer
 	 * @param $reviewAssignmentId integer
 	 */
-	function ReviewerViewMetadataLinkAction($request, $submissionId, $reviewAssignmentId) {
+	function __construct($request, $submissionId, $reviewAssignmentId) {
 		// Instantiate the meta-data modal.
 		$dispatcher = $request->getDispatcher();
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
@@ -37,7 +37,7 @@ class ReviewerViewMetadataLinkAction extends LinkAction {
 				__('reviewer.step1.viewAllDetails'), 'modal_information');
 
 		// Configure the link action.
-		parent::LinkAction('viewMetadata', $modal, __('reviewer.step1.viewAllDetails'));
+		parent::__construct('viewMetadata', $modal, __('reviewer.step1.viewAllDetails'));
 	}
 }
 

@@ -32,10 +32,10 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy {
 	 * @param $allRoles boolean whether all roles must match ("all of") or whether it is
 	 *  enough for only one role to match ("any of").
 	 */
-	function RoleBasedHandlerOperationPolicy($request, $roles, $operations,
+	function __construct($request, $roles, $operations,
 			$message = 'user.authorization.roleBasedAccessDenied',
 			$allRoles = false) {
-		parent::HandlerOperationPolicy($request, $operations, $message);
+		parent::__construct($request, $operations, $message);
 
 		// Make sure a single role doesn't have to be
 		// passed in as an array.

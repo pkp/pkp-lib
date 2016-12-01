@@ -30,8 +30,8 @@ class Nlm30Openurl10CrosswalkFilter extends CrosswalkFilter {
 	 * @param $fromSchema string fully qualified class name of supported input meta-data schema
 	 * @param $toSchema string fully qualified class name of supported output meta-data schema
 	 */
-	function Nlm30Openurl10CrosswalkFilter($fromSchema, $toSchema) {
-		parent::CrosswalkFilter($fromSchema, $toSchema);
+	function __construct($fromSchema, $toSchema) {
+		parent::__construct($fromSchema, $toSchema);
 	}
 
 	//

@@ -27,7 +27,7 @@ class EditReviewForm extends Form {
 	 * Constructor.
 	 * @param $reviewAssignment ReviewAssignment
 	 */
-	function EditReviewForm($reviewAssignment) {
+	function __construct($reviewAssignment) {
 		$this->_reviewAssignment = $reviewAssignment;
 		assert(is_a($this->_reviewAssignment, 'ReviewAssignment'));
 
@@ -35,7 +35,7 @@ class EditReviewForm extends Form {
 		$this->_reviewRound = $reviewRoundDao->getById($reviewAssignment->getReviewRoundId());
 		assert(is_a($this->_reviewRound, 'ReviewRound'));
 
-		parent::Form('controllers/grid/users/reviewer/form/editReviewForm.tpl');
+		parent::__construct('controllers/grid/users/reviewer/form/editReviewForm.tpl');
 
 		// Validation checks for this form
 		$this->addCheck(new FormValidator($this, 'responseDueDate', 'required', 'editor.review.errorAddingReviewer'));

@@ -26,8 +26,8 @@ class UserDisableForm extends Form {
 	/**
 	 * Constructor.
 	 */
-	function UserDisableForm($userId, $enable = false) {
-		parent::Form('controllers/grid/settings/user/form/userDisableForm.tpl');
+	function __construct($userId, $enable = false) {
+		parent::__construct('controllers/grid/settings/user/form/userDisableForm.tpl');
 
 		$this->_userId = (int) $userId;
 		$this->_enable = (bool) $enable;

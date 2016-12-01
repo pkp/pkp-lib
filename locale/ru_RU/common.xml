@@ -103,6 +103,8 @@
 	<message key="common.fileName">Название файла</message>
 	<message key="common.fileSize">Объем файла</message>
 	<message key="common.fileType">Тип файла</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">Высота</message>
 	<message key="common.homePageHeaderLogo.altText">Логотип Заголовка Домашней Страницы</message>
 	<message key="common.hour">Час</message>
@@ -288,7 +290,7 @@
 	<message key="notification.unsubscribeError">При отмене Вашей подписки произошла ошибка. Пожалуйста убедитесь, что почтовый адрес и пароль введены правильно.</message>
 	<message key="notification.unsubscribeSuccess">Ваша подписка успешно прекращена.</message>
 	<message key="search.abstract">Аннотации</message>
-	<message key="search.allFields">Все</message>
+	<message key="search.author">Авторы</message>
 	<message key="search.coverage">Где-когда</message>
 	<message key="search.date">Дата</message>
 	<message key="search.dateFrom">с</message>

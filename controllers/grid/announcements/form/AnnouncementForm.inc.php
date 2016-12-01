@@ -32,12 +32,12 @@ class AnnouncementForm extends Form {
 	 * @param announcementId int leave as default for new announcement
 	 * @param $readOnly boolean
 	 */
-	function AnnouncementForm($contextId, $announcementId = null, $readOnly = false) {
+	function __construct($contextId, $announcementId = null, $readOnly = false) {
 
 		$this->_readOnly = $readOnly;
 		$this->_contextId = $contextId;
 		$this->announcementId = $announcementId?(int)$announcementId:null;
-		parent::Form('manager/announcement/announcementForm.tpl');
+		parent::__construct('manager/announcement/announcementForm.tpl');
 
 		// Title is provided
 		$this->addCheck(new FormValidatorLocale($this, 'title', 'required', 'manager.announcements.form.titleRequired'));

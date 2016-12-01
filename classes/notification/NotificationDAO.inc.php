@@ -21,8 +21,8 @@ class NotificationDAO extends DAO {
 	/**
 	 * Constructor.
 	 */
-	function NotificationDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

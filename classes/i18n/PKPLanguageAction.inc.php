@@ -17,7 +17,7 @@ class PKPLanguageAction {
 	/**
 	 * Constructor
 	 */
-	function PKPLanguageAction() {
+	function __construct() {
 	}
 
 	/**

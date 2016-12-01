@@ -40,7 +40,7 @@ class AuthorizationDecisionManager {
 	/**
 	 * Constructor
 	 */
-	function AuthorizationDecisionManager() {
+	function __construct() {
 		// Instantiate the main policy set we'll add root policies to.
 		$this->_rootPolicySet = new PolicySet(COMBINING_DENY_OVERRIDES);
 	}

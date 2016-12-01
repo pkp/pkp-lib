@@ -31,8 +31,8 @@ class ReviewFormElementForm extends Form {
 	 * @param $reviewFormId int
 	 * @param $reviewFormElementId int
 	 */
-	function ReviewFormElementForm($reviewFormId, $reviewFormElementId = null) {
-		parent::Form('manager/reviewForms/reviewFormElementForm.tpl');
+	function __construct($reviewFormId, $reviewFormElementId = null) {
+		parent::__construct('manager/reviewForms/reviewFormElementForm.tpl');
 
 		$this->reviewFormId = $reviewFormId;
 		$this->reviewFormElementId = $reviewFormElementId;
@@ -129,7 +129,7 @@ class ReviewFormElementForm extends Form {
 
 		if (in_array($this->getData('elementType'), ReviewFormElement::getMultipleResponsesElementTypes())) {
 			$this->setData('possibleResponsesProcessed', $reviewFormElement->getPossibleResponses(null));
-			ListbuilderHandler::unpack($request, $this->getData('possibleResponses'));
+			ListbuilderHandler::unpack($request, $this->getData('possibleResponses'), array($this, 'deleteEntry'), array($this, 'insertEntry'), array($this, 'updateEntry'));
 			$reviewFormElement->setPossibleResponses($this->getData('possibleResponsesProcessed'), null);
 		} else {
 			$reviewFormElement->setPossibleResponses(null, null);

@@ -19,11 +19,11 @@ class Representation extends DataObject {
 	/**
 	 * Constructor.
 	 */
-	function Representation() {
+	function __construct() {
 		// Switch on meta-data adapter support.
 		$this->setHasLoadableAdapters(true);
 
-		parent::DataObject();
+		parent::__construct();
 	}
 
 	/**

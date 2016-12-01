@@ -26,8 +26,8 @@ class AjaxModal extends Modal {
 	 * @param $titleIcon string (optional) The icon to be used in the modal title bar.
 	 * @param $canClose boolean (optional) Whether the modal will have a close button.
 	 */
-	function AjaxModal($url, $title = null, $titleIcon = null, $canClose = true) {
-		parent::Modal($title, $titleIcon, $canClose);
+	function __construct($url, $title = null, $titleIcon = null, $canClose = true) {
+		parent::__construct($title, $titleIcon, $canClose);
 
 		$this->_url = $url;
 	}

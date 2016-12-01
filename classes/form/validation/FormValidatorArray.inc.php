@@ -31,8 +31,8 @@ class FormValidatorArray extends FormValidator {
 	 * @param $message string the error message for validation failures (i18n key)
 	 * @param $fields array all subfields for each item in the array, i.e. name[][foo]. If empty it is assumed that name[] is a data field
 	 */
-	function FormValidatorArray(&$form, $field, $type, $message, $fields = array()) {
-		parent::FormValidator($form, $field, $type, $message);
+	function __construct(&$form, $field, $type, $message, $fields = array()) {
+		parent::__construct($form, $field, $type, $message);
 		$this->_fields = $fields;
 		$this->_errorFields = array();
 	}

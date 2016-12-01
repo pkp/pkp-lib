@@ -22,13 +22,13 @@ class TemplateBasedReferencesListFilter extends TemplateBasedFilter {
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function TemplateBasedReferencesListFilter($filterGroup) {
+	function __construct($filterGroup) {
 		// Add the persistable filter settings.
 		import('lib.pkp.classes.filter.FilterSetting');
 		$this->addSetting(new FilterSetting('citationOutputFilterName', null, null));
 		$this->addSetting(new FilterSetting('metadataSchemaName', null, null));
 
-		parent::TemplateBasedFilter($filterGroup);
+		parent::__construct($filterGroup);
 	}
 
 

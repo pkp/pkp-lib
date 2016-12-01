@@ -26,8 +26,8 @@ class LibraryFile extends DataObject {
 	/**
 	 * Constructor.
 	 */
-	function LibraryFile() {
-		parent::DataObject();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

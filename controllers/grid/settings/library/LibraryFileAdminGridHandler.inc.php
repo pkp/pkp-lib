@@ -21,9 +21,9 @@ class LibraryFileAdminGridHandler extends LibraryFileGridHandler {
 	/**
 	 * Constructor
 	 */
-	function LibraryFileAdminGridHandler() {
+	function __construct() {
 
-		parent::LibraryFileGridHandler(new LibraryFileAdminGridDataProvider(true));
+		parent::__construct(new LibraryFileAdminGridDataProvider(true));
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER),
 			array(

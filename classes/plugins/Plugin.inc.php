@@ -60,7 +60,7 @@ abstract class Plugin {
 	/**
 	 * Constructor
 	 */
-	function Plugin() {
+	function __construct() {
 	}
 
 	/*
@@ -163,17 +163,6 @@ abstract class Plugin {
 	 */
 	function isSitePlugin() {
 		return false;
-	}
-
-	/**
-	 * Get a list of management actions in the form of a page => value pair.
-	 * The management actions from this list are passed to the manage() function
-	 * when called.
-	 *
-	 * @return array
-	 */
-	function getManagementVerbs() {
-		return array();
 	}
 
 	/**

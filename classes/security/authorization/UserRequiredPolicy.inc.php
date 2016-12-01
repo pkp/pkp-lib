@@ -23,8 +23,8 @@ class UserRequiredPolicy extends AuthorizationPolicy {
 	 *
 	 * @param $request PKPRequest
 	 */
-	function UserRequiredPolicy($request, $message = 'user.authorization.userRequired') {
-		parent::AuthorizationPolicy($message);
+	function __construct($request, $message = 'user.authorization.userRequired') {
+		parent::__construct($message);
 		$this->_request = $request;
 	}
 

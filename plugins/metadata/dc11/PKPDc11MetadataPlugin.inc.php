@@ -23,8 +23,8 @@ class PKPDc11MetadataPlugin extends MetadataPlugin {
 	/**
 	 * Constructor
 	 */
-	function PKPDc11MetadataPlugin() {
-		parent::MetadataPlugin();
+	function __construct() {
+		parent::__construct();
 	}
 
 

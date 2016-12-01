@@ -25,8 +25,8 @@ class Openurl10DissertationSchema extends Openurl10BaseSchema {
 	/**
 	 * Constructor
 	 */
-	function Openurl10DissertationSchema() {
-		parent::Openurl10BaseSchema(
+	function __construct() {
+		parent::__construct(
 			'openurl-1.0-dissertation',
 			'lib.pkp.plugins.metadata.openurl10.schema.Openurl10DissertationSchema'
 		);

@@ -22,8 +22,8 @@ class ReviewRoundRequiredPolicy extends DataObjectRequiredPolicy {
 	 * @param $submissionParameterName string the request parameter we expect
 	 *  the submission id in.
 	 */
-	function ReviewRoundRequiredPolicy($request, &$args, $parameterName = 'reviewRoundId', $operations = null) {
-		parent::DataObjectRequiredPolicy($request, $args, $parameterName, 'user.authorization.invalidReviewRound', $operations);
+	function __construct($request, &$args, $parameterName = 'reviewRoundId', $operations = null) {
+		parent::__construct($request, $args, $parameterName, 'user.authorization.invalidReviewRound', $operations);
 	}
 
 	//

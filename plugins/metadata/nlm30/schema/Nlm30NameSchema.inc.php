@@ -30,9 +30,9 @@ class Nlm30NameSchema extends MetadataSchema {
 	/**
 	 * Constructor
 	 */
-	function Nlm30NameSchema() {
+	function __construct() {
 		// Configure the meta-data schema.
-		parent::MetadataSchema(
+		parent::__construct(
 			'nlm-3.0-name',
 			'nlm30',
 			'lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema',

@@ -23,10 +23,10 @@ class FormValidatorORCID extends FormValidator {
 	 * @param $type string the type of check, either "required" or "optional"
 	 * @param $message string the error message for validation failures (i18n key)
 	 */
-	function FormValidatorORCID($form, $field, $type, $message) {
+	function __construct($form, $field, $type, $message) {
 		import('lib.pkp.classes.validation.ValidatorORCID');
 		$validator = new ValidatorORCID();
-		parent::FormValidator($form, $field, $type, $message, $validator);
+		parent::__construct($form, $field, $type, $message, $validator);
 	}
 }
 

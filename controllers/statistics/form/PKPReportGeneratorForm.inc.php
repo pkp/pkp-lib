@@ -58,8 +58,8 @@ abstract class PKPReportGeneratorForm extends Form {
 	 * @param $reportTemplateIndex int (optional) Current report template index
 	 * from the passed default report templates array.
 	 */
-	function PKPReportGeneratorForm($columns, $optionalColumns, $objects, $fileTypes, $metricType, $defaultReportTemplates, $reportTemplateIndex = null) {
-		parent::Form('controllers/statistics/form/reportGeneratorForm.tpl');
+	function __construct($columns, $optionalColumns, $objects, $fileTypes, $metricType, $defaultReportTemplates, $reportTemplateIndex = null) {
+		parent::__construct('controllers/statistics/form/reportGeneratorForm.tpl');
 
 		$this->_columns = $columns;
 		$this->_optionalColumns = $optionalColumns;

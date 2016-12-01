@@ -40,7 +40,7 @@ class FilterSetting {
 	 * @param $required string
 	 * @param $isLocalized boolean
 	 */
-	function FilterSetting($name, $displayName, $validationMessage, $required = FORM_VALIDATOR_REQUIRED_VALUE, $isLocalized = false) {
+	function __construct($name, $displayName, $validationMessage, $required = FORM_VALIDATOR_REQUIRED_VALUE, $isLocalized = false) {
 		$this->setName($name);
 		$this->setDisplayName($displayName);
 		$this->setValidationMessage($validationMessage);

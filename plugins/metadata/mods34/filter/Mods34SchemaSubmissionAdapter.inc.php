@@ -25,8 +25,8 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function Mods34SchemaSubmissionAdapter($filterGroup) {
-		parent::MetadataDataObjectAdapter($filterGroup);
+	function __construct($filterGroup) {
+		parent::__construct($filterGroup);
 	}
 
 
@@ -35,30 +35,29 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 	//
 	/**
 	 * @see MetadataDataObjectAdapter::injectMetadataIntoDataObject()
-	 * @param $mods34Description MetadataDescription
-	 * @param $submission Submission
-	 * @param $authorClassName string the application specific author class name
+	 * @param $metadataDescription MetadataDescription
+	 * @param $targetDataObject Submission
 	 */
-	function &injectMetadataIntoDataObject(&$mods34Description, &$submission, $authorClassName) {
-		assert(is_a($submission, 'Submission'));
-		assert($mods34Description->getMetadataSchemaName() == 'plugins.metadata.mods34.schema.Mods34Schema');
+	function &injectMetadataIntoDataObject(&$metadataDescription, &$targetDataObject) {
+		assert(is_a($targetDataObject, 'Submission'));
+		assert($metadataDescription->getMetadataSchemaName() == 'plugins.metadata.mods34.schema.Mods34Schema');
 
 		// Get the cataloging language.
-		$catalogingLanguage = $mods34Description->getStatement('recordInfo/languageOfCataloging/languageTerm[@authority="iso639-2b"]');
+		$catalogingLanguage = $metadataDescription->getStatement('recordInfo/languageOfCataloging/languageTerm[@authority="iso639-2b"]');
 		$catalogingLocale = AppLocale::getLocaleFrom3LetterIso($catalogingLanguage);
 		assert(!is_null($catalogingLocale));
 
 		// Title
-		$localizedTitles = $mods34Description->getStatementTranslations('titleInfo/title');
+		$localizedTitles = $metadataDescription->getStatementTranslations('titleInfo/title');
 		if (is_array($localizedTitles)) {
 			foreach($localizedTitles as $locale => $title) {
-				$submission->setTitle($title, $locale);
+				$targetDataObject->setTitle($title, $locale);
 			}
 		}
 
 		// Names: authors and sponsor
 		$foundSponsor = false;
-		$nameDescriptions =& $mods34Description->getStatement('name');
+		$nameDescriptions =& $metadataDescription->getStatement('name');
 		if (is_array($nameDescriptions)) {
 			foreach($nameDescriptions as $nameDescription) { /* @var $nameDescription MetadataDescription */
 				// Check that we find the expected name schema.
@@ -78,8 +77,8 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 							// Only authors go into the submission.
 							if (in_array('aut', $nameRoles)) {
 								// Instantiate a new author object.
-								import($authorClassName);
-								$author = new Author();
+								$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
+								$author = $authorDao->newDataObject();
 
 								// Family Name
 								$author->setLastName($nameDescription->getStatement('namePart[@type="family"]'));
@@ -114,7 +113,6 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 								}
 
 								// Add the author to the submission.
-								$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
 								$authorDao->insertObject($author);
 								unset($author);
 							}
@@ -128,7 +126,7 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 							// Only the first sponsor goes into the submission.
 							if (!$foundSponsor && in_array('spn', $nameRoles)) {
 								$foundSponsor = true;
-								$submission->setSponsor($nameDescription->getStatement('namePart'), $catalogingLocale);
+								$targetDataObject->setSponsor($nameDescription->getStatement('namePart'), $catalogingLocale);
 							}
 							break;
 					}
@@ -139,25 +137,25 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 		}
 
 		// Creation date
-		$dateSubmitted = $mods34Description->getStatement('originInfo/dateCreated[@encoding="w3cdtf"]');
-		if ($dateSubmitted) $submission->setDateSubmitted($dateSubmitted);
+		$dateSubmitted = $metadataDescription->getStatement('originInfo/dateCreated[@encoding="w3cdtf"]');
+		if ($dateSubmitted) $targetDataObject->setDateSubmitted($dateSubmitted);
 
 		// Submission language
-		$submissionLanguage = $mods34Description->getStatement('language/languageTerm[@type="code" @authority="iso639-2b"]');
+		$submissionLanguage = $metadataDescription->getStatement('language/languageTerm[@type="code" @authority="iso639-2b"]');
 		$submissionLocale = AppLocale::get2LetterFrom3LetterIsoLanguage($submissionLanguage);
 		if ($submissionLocale) {
-			$submission->setLanguage($submissionLocale);
+			$targetDataObject->setLanguage($submissionLocale);
 		}
 
 		// Pages (extent)
-		$pages = $mods34Description->getStatement('physicalDescription/extent');
-		if ($pages) $submission->setPages($pages);
+		$pages = $metadataDescription->getStatement('physicalDescription/extent');
+		if ($pages) $targetDataObject->setPages($pages);
 
 		// Abstract
-		$localizedAbstracts = $mods34Description->getStatementTranslations('abstract');
+		$localizedAbstracts = $metadataDescription->getStatementTranslations('abstract');
 		if (is_array($localizedAbstracts)) {
 			foreach($localizedAbstracts as $locale => $abstract) {
-				$submission->setAbstract($abstract, $locale);
+				$targetDataObject->setAbstract($abstract, $locale);
 			}
 		}
 
@@ -173,19 +171,17 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 		// to make sure that MODS records can be transported between different installations.
 
 		// Handle unmapped fields.
-		$this->injectUnmappedDataObjectMetadataFields($mods34Description, $submission);
+		$this->injectUnmappedDataObjectMetadataFields($metadataDescription, $targetDataObject);
 
-		return $submission;
+		return $targetDataObject;
 	}
 
 	/**
 	 * @see MetadataDataObjectAdapter::extractMetadataFromDataObject()
 	 * @param $submission Submission
-	 * @param $authorMarcrelatorRole string the marcrelator role to be used
-	 *  for submission authors.
 	 * @return MetadataDescription
 	 */
-	function extractMetadataFromDataObject(&$submission, $authorMarcrelatorRole = 'aut') {
+	function extractMetadataFromDataObject(&$submission) {
 		assert(is_a($submission, 'Submission'));
 		$mods34Description = $this->instantiateMetadataDescription();
 
@@ -245,7 +241,7 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 			}
 
 			// Role
-			$authorDescription->addStatement('role/roleTerm[@type="code" @authority="marcrelator"]', $authorMarcrelatorRole);
+			$authorDescription->addStatement('role/roleTerm[@type="code" @authority="marcrelator"]', 'aut');
 
 			// Add the author to the MODS schema.
 			$mods34Description->addStatement('name', $authorDescription);
@@ -279,7 +275,9 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 		}
 
 		// Submission language
-		$submissionLanguage = AppLocale::get3LetterFrom2LetterIsoLanguage($submission->getLanguage());
+		$language = $submission->getLanguage();
+		if ($language) $submissionLanguage = AppLocale::get3LetterFrom2LetterIsoLanguage($submission->getLanguage());
+		else $submissionLanguage = null;
 		if (!$submissionLanguage) {
 			// Assume the cataloging language by default.
 			$submissionLanguage = $catalogingLanguage;

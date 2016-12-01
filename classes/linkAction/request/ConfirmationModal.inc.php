@@ -51,10 +51,10 @@ class ConfirmationModal extends Modal {
 	 *  for confirmation modals.  Useful for modals that display
 	 *  large blocks of text.
 	 */
-	function ConfirmationModal($dialogText, $title = null, $titleIcon = 'modal_confirm', $okButton = null, $cancelButton = null, $canClose = true, $width = MODAL_WIDTH_AUTO) {
+	function __construct($dialogText, $title = null, $titleIcon = 'modal_confirm', $okButton = null, $cancelButton = null, $canClose = true, $width = MODAL_WIDTH_AUTO) {
 
 		$title = (is_null($title) ? __('common.confirm') : $title);
-		parent::Modal($title, $titleIcon, $canClose, $width);
+		parent::__construct($title, $titleIcon, $canClose, $width);
 
 		$this->_okButton = (is_null($okButton) ? __('common.ok') : $okButton);
 		$this->_cancelButton = (is_null($cancelButton) ? __('common.cancel') : $cancelButton);

@@ -93,7 +93,6 @@
 	<message key="user.profile.publicProfile">Perfil del Usuario</message>
 	<message key="user.register.form.emailExists">La dirección de correo seleccionada ya está en uso por otro usuario</message>
 	<message key="user.register.form.passwordsDoNotMatch">Las contraseñas no coinciden</message>
-	<message key="user.register.form.usernameAlphaNumeric">El nombre de usuario puede contener solo caracteres alfanuméricos, guiones bajos y guiones comunes, y debe comenzar y terminar con un caracter alfanumérico.</message>
 	<message key="user.register.form.usernameExists">El nombre de usuario seleccionar ya está en uso</message>
 	<message key="user.register.passwordLengthRestriction">La contraseña debe contenar como mínimo {$length} caracteres.</message>
 	<message key="user.register.registerAs">Registrarse como</message>

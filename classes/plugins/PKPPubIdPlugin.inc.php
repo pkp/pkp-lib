@@ -20,8 +20,8 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 	/**
 	 * Constructor
 	 */
-	function PKPPubIdPlugin() {
-		parent::LazyLoadPlugin();
+	function __construct() {
+		parent::__construct();
 	}
 
 

@@ -27,10 +27,10 @@ abstract class NotificationManagerDelegate extends PKPNotificationOperationManag
 	 * Constructor.
 	 * @param $notificationType int NOTIFICATION_TYPE_...
 	 */
-	function NotificationManagerDelegate($notificationType) {
+	function __construct($notificationType) {
 		$this->_notificationType = $notificationType;
 
-		parent::PKPNotificationOperationManager();
+		parent::__construct();
 	}
 
 	/**

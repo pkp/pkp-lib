@@ -23,8 +23,8 @@ class SystemInfoGridHandler extends CategoryGridHandler {
 	/**
 	 * Constructor
 	 */
-	function SystemInfoGridHandler() {
-		parent::CategoryGridHandler();
+	function __construct() {
+		parent::__construct();
 		$this->addRoleAssignment(array(
 			ROLE_ID_SITE_ADMIN),
 			array('fetchGrid', 'fetchCategory', 'fetchRow')

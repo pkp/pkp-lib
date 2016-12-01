@@ -31,8 +31,8 @@ class RedirectAction extends LinkActionRequest {
 	 * @param $name string Name of window to direct (defaults to current window)
 	 * @param $specs string Optional set of window specs (see window.open JS reference)
 	 */
-	function RedirectAction($url, $name = '_self', $specs = '') {
-		parent::LinkActionRequest();
+	function __construct($url, $name = '_self', $specs = '') {
+		parent::__construct();
 		$this->_url = $url;
 		$this->_name = $name;
 		$this->_specs = $specs;

@@ -21,8 +21,8 @@ class GenreDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function GenreDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

@@ -40,7 +40,6 @@
 	<message key="common.tasks">Aufgaben</message>
 	<message key="common.list">Liste</message>
 	<message key="common.grid">Grid</message>
-	<message key="common.takeMeThere">Bring mich dahin</message>
 	<message key="common.confirmDelete">Sind Sie sicher, dass Sie diesen Eintrag löschen wollen? Der Vorgang kann nicht rückgängig gemacht werden.</message>
 	<message key="common.abstract">Zusammenfassung</message>
 	<message key="common.accepted">Akzeptiert</message>
@@ -324,9 +323,6 @@
 	<!-- Information Center -->
 	<message key="informationCenter.informationCenter">Information Center</message>
 	<message key="informationCenter.editorialHistory">Redaktionsverlauf</message>
-	<message key="informationCenter.composeNote">Anmerkung verfassen</message>
-	<message key="informationCenter.addFileNote">Der Datei hinzufügen</message>
-	<message key="informationCenter.addSubmissionNote">Der Einreichung hinzufügen</message>
 	<message key="informationCenter.noNotes">Es gibt keine anzuzeigenden Anmerkungen.</message>
 	<message key="informationCenter.currentNotes">Aktuelle Anmerkungen</message>
 	<message key="informationCenter.pastNotes">Frühere Anmerkungen</message>
@@ -406,6 +402,7 @@
 	<message key="notification.addedNote">Anmerkung veröffentlicht.</message>
 	<message key="notification.removedNote">Anmerkung gelöscht.</message>
 	<message key="notification.removedFile">Datei entfernt.</message>
+	<message key="notification.removedSubmission">Einreichung entfernt.</message>
 	<message key="notification.notification">Benachrichtigung</message>
 	<message key="notification.notifications">Benachrichtigungen</message>
 	<message key="notification.notificationsNew">({$numNew} neu)</message>
@@ -423,10 +420,10 @@
 	<message key="notification.unsubscribeSuccess">Sie wurden erfolgreich ausgetragen.</message>
 	<message key="notification.savedSubmissionMetadata">Metadaten gespeichert.</message>
 	<message key="search.abstract">Abstract</message>
-	<message key="search.activeFilters">Erweiterte Filter</message>
+	<message key="search.author">Autor/in</message>
+	<message key="search.advancedFilters">Erweiterte Filter</message>
 	<message key="search.advancedSearchMore">Zusätzliche Suchoptionen (klicken zum Einblenden)</message>
 	<message key="search.advancedSearchLess">Zusätzliche Suchoptionen (klicken zum Verbergen)</message>
-	<message key="search.allFields">Alle</message>
 	<message key="search.cli.rebuildIndex.clearingIndex">Index löschen</message>
 	<message key="search.cli.rebuildIndex.done">erledigt</message>
 	<message key="search.cli.rebuildIndex.error">Fehler</message>
@@ -484,6 +481,7 @@
 	<message key="notification.type.allRevisionsIn">Eine überarbeitete Datei ist hochgeladen worden und muss von Ihnen in Phase {$stage} akzeptiert werden.</message>
 	<message key="notification.type.pendingRevisions">Sie sollen Überarbeitungen in Phase {$stage} akzeptieren.</message>
 	<message key="notification.type.pendingRevisions.title">Überarbeitungen zu Phase {$stage} hinzugefügt.</message>
+	<message key="notification.type.roundStatusTitle">Durchgang {$round} Status</message>
 	<message key="notification.signedFile">Datei akzeptiert.</message>
 	<message key="user.authorization.submissionFile">Der/die aktuelle Nutzer/in ist nicht berechtigt, auf die angegebene eingereichte Datei zuzugreifen.</message>
 	<message key="user.authorization.invalidSubmission">Ungültige Einreichung.</message>
@@ -523,7 +521,6 @@
 	<message key="grid.action.deleteNotification">Aufgabe löschen</message>
 	<message key="grid.action.markNew">Neu markieren</message>
 	<message key="grid.action.markRead">Gelesen markieren</message>
-	<message key="common.tasks.titleAndTask">{$acronym}: "{$title}": {$task}</message>
 	<message key="dashboard.myQueue">Meine Warteschlange</message>
 	<message key="notification.type.newAnnouncement">Neue Ankündigung.</message>
 	<message key="notification.type.metadataModified">Metadaten von "{$title}" wurden verändert.</message>
@@ -533,6 +530,9 @@
 	<message key="notification.type.queryAdded">Gespräch ergänzt.</message>
 	<message key="common.allDownloads">Alle Downloads</message>
 	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.component">Komponente</message>
 	<message key="search.SearchFor">Suchen nach</message>
+	<message key="form.csrfInvalid">Das Formular wurde nicht ordnungsgemäß übermittelt.</message>
+	<message key="informationCenter.addNote">Notiz hinzufügen</message>
 </locale>

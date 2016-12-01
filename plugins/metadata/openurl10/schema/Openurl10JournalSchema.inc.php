@@ -27,8 +27,8 @@ class Openurl10JournalSchema extends Openurl10JournalBookBaseSchema {
 	/**
 	 * Constructor
 	 */
-	function Openurl10JournalSchema() {
-		parent::Openurl10JournalBookBaseSchema(
+	function __construct() {
+		parent::__construct(
 			'openurl-1.0-journal',
 			'lib.pkp.plugins.metadata.openurl10.schema.Openurl10JournalSchema'
 		);

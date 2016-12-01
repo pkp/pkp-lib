@@ -23,9 +23,9 @@ class SubmissionChecklistForm extends Form {
 	/**
 	 * Constructor.
 	 */
-	function SubmissionChecklistForm($submissionChecklistId = null) {
+	function __construct($submissionChecklistId = null) {
 		$this->submissionChecklistId = $submissionChecklistId;
-		parent::Form('controllers/grid/settings/submissionChecklist/form/submissionChecklistForm.tpl');
+		parent::__construct('controllers/grid/settings/submissionChecklist/form/submissionChecklistForm.tpl');
 
 		// Validation checks for this form
 		$this->addCheck(new FormValidatorLocale($this, 'checklistItem', 'required', 'maganer.setup.submissionChecklistItemRequired'));

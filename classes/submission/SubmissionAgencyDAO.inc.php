@@ -22,8 +22,8 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 	/**
 	 * Constructor
 	 */
-	function submissionAgencyDAO() {
-		parent::ControlledVocabDAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

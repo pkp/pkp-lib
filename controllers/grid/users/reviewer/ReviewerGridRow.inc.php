@@ -19,8 +19,8 @@ class ReviewerGridRow extends GridRow {
 	/**
 	 * Constructor
 	 */
-	function ReviewerGridRow() {
-		parent::GridRow();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

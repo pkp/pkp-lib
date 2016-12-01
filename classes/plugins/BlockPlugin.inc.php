@@ -13,7 +13,7 @@
  * @brief Abstract class for block plugins
  */
 
-define('BLOCK_CONTEXT_LEFT_SIDEBAR',		0x00000001);
+define('BLOCK_CONTEXT_SIDEBAR',		0x00000001);
 define('BLOCK_CONTEXT_HOMEPAGE',		0x00000003);
 
 import('lib.pkp.classes.plugins.LazyLoadPlugin');
@@ -22,8 +22,8 @@ abstract class BlockPlugin extends LazyLoadPlugin {
 	/**
 	 * Constructor
 	 */
-	function BlockPlugin() {
-		parent::LazyLoadPlugin();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/*
@@ -100,7 +100,7 @@ abstract class BlockPlugin extends LazyLoadPlugin {
 	function getSupportedContexts() {
 		// Will return left and right process as this is the
 		// most frequent use case.
-		return array(BLOCK_CONTEXT_LEFT_SIDEBAR);
+		return array(BLOCK_CONTEXT_SIDEBAR);
 	}
 
 	/**
@@ -110,7 +110,7 @@ abstract class BlockPlugin extends LazyLoadPlugin {
 	 */
 	function &getContextMap() {
 		static $contextMap = array(
-			BLOCK_CONTEXT_LEFT_SIDEBAR => 'Templates::Common::LeftSidebar',
+			BLOCK_CONTEXT_SIDEBAR => 'Templates::Common::Sidebar',
 		);
 
 		$homepageHook = $this->_getContextSpecificHomepageHook();

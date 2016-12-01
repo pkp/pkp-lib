@@ -16,14 +16,14 @@
 
 import('lib.pkp.classes.controllers.grid.feature.OrderItemsFeature');
 
-class OrderGridItemsFeature extends OrderItemsFeature{
+class OrderGridItemsFeature extends OrderItemsFeature {
 
 	/**
 	 * Constructor.
 	 * @copydoc OrderItemsFeature::OrderItemsFeature()
 	 */
-	function OrderGridItemsFeature($overrideRowTemplate = true, $nonOrderableItemsMessage = null) {
-		parent::OrderItemsFeature($overrideRowTemplate, $nonOrderableItemsMessage);
+	function __construct($overrideRowTemplate = true, $nonOrderableItemsMessage = null) {
+		parent::__construct($overrideRowTemplate, $nonOrderableItemsMessage);
 	}
 
 

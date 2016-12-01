@@ -32,12 +32,12 @@ class ContextSettingsForm extends Form {
 	 * @param $settings array An associative array with the setting names as keys and associated types as values.
 	 * @param $wizardMode boolean Whether or not to display in wizard mode
 	 */
-	function ContextSettingsForm($settings, $template, $wizardMode) {
+	function __construct($settings, $template, $wizardMode) {
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
 		$this->setSettings($settings);
 		$this->setWizardMode($wizardMode);
-		parent::Form($template);
+		parent::__construct($template);
 	}
 
 
@@ -121,6 +121,7 @@ class ContextSettingsForm extends Form {
 	 * @param $request PKPRequest
 	 */
 	function execute($request) {
+		parent::execute($request);
 		$context = $request->getContext();
 		$settingsDao = $context->getSettingsDao();
 		$settings = $this->getSettings();

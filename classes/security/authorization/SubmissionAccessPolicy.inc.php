@@ -26,8 +26,8 @@ class SubmissionAccessPolicy extends ContextPolicy {
 	 * @param $submissionParameterName string the request parameter we
 	 *  expect the submission id in.
 	 */
-	function SubmissionAccessPolicy($request, $args, $roleAssignments, $submissionParameterName = 'submissionId') {
-		parent::ContextPolicy($request);
+	function __construct($request, $args, $roleAssignments, $submissionParameterName = 'submissionId') {
+		parent::__construct($request);
 
 		// We need a submission in the request.
 		import('lib.pkp.classes.security.authorization.internal.SubmissionRequiredPolicy');
@@ -110,7 +110,7 @@ class SubmissionAccessPolicy extends ContextPolicy {
 			// but only if ...
 			$subEditorAssignmentOrSectionPolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
 
-			// 2a) ... the requested submission is part of their series/sectoin...
+			// 2a) ... the requested submission is part of their series/section...
 			import('lib.pkp.classes.security.authorization.internal.SectionAssignmentPolicy');
 			$subEditorAssignmentOrSectionPolicy->addPolicy(new SectionAssignmentPolicy($request));
 

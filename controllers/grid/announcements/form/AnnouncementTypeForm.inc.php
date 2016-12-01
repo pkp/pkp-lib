@@ -29,11 +29,11 @@ class AnnouncementTypeForm extends Form {
 	 * @param $contextId int Context ID
 	 * @param $typeId int leave as default for new announcement type
 	 */
-	function AnnouncementTypeForm($contextId, $typeId = null) {
+	function __construct($contextId, $typeId = null) {
 		$this->typeId = isset($typeId) ? (int) $typeId : null;
 		$this->contextId = $contextId;
 
-		parent::Form('manager/announcement/announcementTypeForm.tpl');
+		parent::__construct('manager/announcement/announcementTypeForm.tpl');
 
 		// Type name is provided
 		$this->addCheck(new FormValidatorLocale($this, 'name', 'required', 'manager.announcementTypes.form.typeNameRequired'));

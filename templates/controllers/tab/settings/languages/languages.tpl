@@ -11,7 +11,7 @@
 {* Help Link *}
 {help file="settings.md" section="website" class="pkp_help_tab"}
 
-{if in_array(ROLE_ID_SITE_ADMIN, $userRoles) && !$multipleContexts}
+{if in_array(ROLE_ID_SITE_ADMIN, (array)$userRoles) && !$multipleContexts}
 	{url|assign:languagesUrl router=$smarty.const.ROUTE_COMPONENT component="grid.admin.languages.AdminLanguageGridHandler" op="fetchGrid" escape=false}
 	{load_url_in_div id="languageGridContainer" url=$languagesUrl}
 {else}

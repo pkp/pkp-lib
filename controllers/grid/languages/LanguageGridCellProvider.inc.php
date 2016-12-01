@@ -19,8 +19,8 @@ class LanguageGridCellProvider extends GridCellProvider {
 	/**
 	 * Constructor
 	 */
-	function LanguageGridCellProvider() {
-		parent::GridCellProvider();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

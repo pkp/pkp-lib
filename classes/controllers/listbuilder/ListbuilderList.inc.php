@@ -30,7 +30,7 @@ class ListbuilderList {
 	 * @param $id mixed
 	 * @param $title string optional Locale key.
 	 */
-	function ListbuilderList($id, $title = null) {
+	function __construct($id, $title = null) {
 		$this->setId($id);
 		$this->setTitle($title);
 	}

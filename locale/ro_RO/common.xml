@@ -105,6 +105,8 @@
 	<message key="common.fileName">Nume fișier</message>
 	<message key="common.fileSize">Dimensiune fișier</message>
 	<message key="common.fileType">Tip de fișier</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">Înălțime</message>
 	<message key="common.homePageHeaderLogo.altText">Logo pentru colontitlul (header) paginii de start</message>
 	<message key="common.hour">Oră</message>
@@ -295,7 +297,7 @@
 	<message key="notification.unsubscribeError">S-a înregistrat o eraoare la dezabonare. Asigură-te că adresa și parola sunt corecte.</message>
 	<message key="notification.unsubscribeSuccess">Te-ai dezabonat cu succes.</message>
 	<message key="search.abstract">Abstract</message>
-	<message key="search.allFields">Toate</message>
+	<message key="search.author">Autori</message>
 	<message key="search.coverage">Subiect</message>
 	<message key="search.date">Data</message>
 	<message key="search.dateFrom">De la</message>

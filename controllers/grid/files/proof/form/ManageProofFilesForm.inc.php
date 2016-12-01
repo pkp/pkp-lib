@@ -25,8 +25,8 @@ class ManageProofFilesForm extends ManageSubmissionFilesForm {
 	 * @param $submissionId int Submission ID.
 	 * @param $representationId int Representation ID.
 	 */
-	function ManageProofFilesForm($submissionId, $representationId) {
-		parent::ManageSubmissionFilesForm($submissionId, 'controllers/grid/files/proof/manageProofFiles.tpl');
+	function __construct($submissionId, $representationId) {
+		parent::__construct($submissionId, 'controllers/grid/files/proof/manageProofFiles.tpl');
 		$this->_representationId = $representationId;
 	}
 

@@ -38,7 +38,7 @@ class JSONMessage {
 	 * @param $elementId string The DOM element to be replaced.
 	 * @param $additionalAttributes array Additional data to be returned.
 	 */
-	function JSONMessage($status = true, $content = '', $elementId = '0', $additionalAttributes = null) {
+	function __construct($status = true, $content = '', $elementId = '0', $additionalAttributes = null) {
 		// Set internal state.
 		$this->setStatus($status);
 		$this->setContent($content);

@@ -21,8 +21,8 @@ class SubmissionFileAssignedQueryAccessPolicy extends SubmissionFileBaseAccessPo
 	 * Constructor
 	 * @param $request PKPRequest
 	 */
-	function SubmissionFileAssignedQueryAccessPolicy($request, $fileIdAndRevision = null) {
-		parent::SubmissionFileBaseAccessPolicy($request, $fileIdAndRevision);
+	function __construct($request, $fileIdAndRevision = null) {
+		parent::__construct($request, $fileIdAndRevision);
 	}
 
 

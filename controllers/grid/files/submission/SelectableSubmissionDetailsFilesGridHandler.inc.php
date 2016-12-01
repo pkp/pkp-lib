@@ -19,10 +19,10 @@ class SelectableSubmissionDetailsFilesGridHandler extends SelectableFileListGrid
 	/**
 	 * Constructor
 	 */
-	function SelectableSubmissionDetailsFilesGridHandler() {
+	function __construct() {
 		import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
 		// Pass in null stageId to be set in initialize from request var.
-		parent::SelectableFileListGridHandler(
+		parent::__construct(
 			new SubmissionFilesGridDataProvider(SUBMISSION_FILE_SUBMISSION),
 			null,
 			FILE_GRID_ADD|FILE_GRID_VIEW_NOTES

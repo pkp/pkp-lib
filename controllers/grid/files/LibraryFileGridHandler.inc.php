@@ -32,8 +32,8 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 	/**
 	 * Constructor
 	 */
-	function LibraryFileGridHandler($dataProvider) {
-		parent::CategoryGridHandler($dataProvider);
+	function __construct($dataProvider) {
+		parent::__construct($dataProvider);
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR),
 			array(

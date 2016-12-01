@@ -22,8 +22,8 @@ class LanguageDAO extends DAO {
 	/**
 	 * Constructor.
 	 */
-	function LanguageDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

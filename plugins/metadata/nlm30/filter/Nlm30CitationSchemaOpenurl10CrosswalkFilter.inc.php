@@ -24,9 +24,9 @@ class Nlm30CitationSchemaOpenurl10CrosswalkFilter extends Nlm30Openurl10Crosswal
 	/**
 	 * Constructor
 	 */
-	function Nlm30CitationSchemaOpenurl10CrosswalkFilter() {
+	function __construct() {
 		$this->setDisplayName('Crosswalk from NLM Citation to Open URL');
-		parent::Nlm30Openurl10CrosswalkFilter('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema',
+		parent::__construct('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema',
 				'lib.pkp.plugins.metadata.openurl10.schema.Openurl10BaseSchema');
 	}
 

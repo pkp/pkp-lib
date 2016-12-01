@@ -20,8 +20,8 @@ abstract class OAIMetadataFormatPlugin extends Plugin {
 	/**
 	 * Constructor
 	 */
-	function OAIMetadataFormatPlugin() {
-		parent::Plugin();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

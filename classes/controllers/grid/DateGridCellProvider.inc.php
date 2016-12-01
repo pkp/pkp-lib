@@ -27,8 +27,8 @@ class DateGridCellProvider extends GridCellProvider {
 	 * @param $dataProvider DataProvider The object to wrap
 	 * @param $format string See strftime
 	 */
-	function DateGridCellProvider($dataProvider, $format) {
-		parent::GridCellProvider();
+	function __construct($dataProvider, $format) {
+		parent::__construct();
 		$this->_dataProvider = $dataProvider;
 		$this->_format = $format;
 	}

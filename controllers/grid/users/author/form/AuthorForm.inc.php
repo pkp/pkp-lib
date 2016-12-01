@@ -28,8 +28,8 @@ class AuthorForm extends Form {
 	/**
 	 * Constructor.
 	 */
-	function AuthorForm($submission, $author, $submissionIdFieldName) {
-		parent::Form('controllers/grid/users/author/form/authorForm.tpl');
+	function __construct($submission, $author, $submissionIdFieldName) {
+		parent::__construct('controllers/grid/users/author/form/authorForm.tpl');
 		$this->setSubmission($submission);
 		$this->setAuthor($author);
 		$this->setSubmissionIdFieldName($submissionIdFieldName);

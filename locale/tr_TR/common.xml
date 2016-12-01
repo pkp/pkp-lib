@@ -64,7 +64,7 @@
 		<br />
 		Bu çalışma  <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0</a>.
 	</div>
-	 ile lisanslanmıştır.]]></message>	
+	 ile lisanslanmıştır.]]></message>
 	<message key="common.changesSaved">Değişiklikleriniz kaydedildi.</message>
 	<message key="common.chooseOne">Birini Seçiniz</message>
 	<message key="common.close">Kapat</message>
@@ -107,6 +107,8 @@
 	<message key="common.fileName">Dosya Adı</message>
 	<message key="common.fileSize">Dosya Boyutu</message>
 	<message key="common.fileType">Dosya Türü</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">Boyut</message>
 	<message key="common.homePageHeaderLogo.altText">Ana Sayfa Başlık Logosu</message>
 	<message key="common.hour">Saat</message>
@@ -302,7 +304,7 @@
 	<message key="notification.unsubscribeError">Aboneliğiniz sonlandırılırken bir hata oluştu. Lütfen e-posta adresinizin ve parolanızın doğru olduğundan emin olunuz.</message>
 	<message key="notification.unsubscribeSuccess">Aboneliğiniz başarılı bir şekilde sonlandırıldı.</message>
 	<message key="search.abstract">Öz</message>
-	<message key="search.allFields">Tümü</message>
+	<message key="search.author">Yazarlar</message>
 	<message key="search.coverage">Kapsam</message>
 	<message key="search.date">Tarih</message>
 	<message key="search.dateFrom">den</message>

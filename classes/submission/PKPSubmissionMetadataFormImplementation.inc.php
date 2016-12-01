@@ -23,7 +23,7 @@ class PKPSubmissionMetadataFormImplementation {
 	 * Constructor.
 	 * @param $parentForm Form A form that can use this form.
 	 */
-	function PKPSubmissionMetadataFormImplementation($parentForm = null) {
+	function __construct($parentForm = null) {
 		assert(is_a($parentForm, 'Form'));
 		$this->_parentForm = $parentForm;
 	}
@@ -68,7 +68,7 @@ class PKPSubmissionMetadataFormImplementation {
 	function initData($submission) {
 		if (isset($submission)) {
 			$formData = array(
-				'title' => $submission->getTitle(null), // Localized
+				'title' => $submission->getTitle(null, false), // Localized
 				'prefix' => $submission->getPrefix(null), // Localized
 				'subtitle' => $submission->getSubtitle(null), // Localized
 				'abstract' => $submission->getAbstract(null), // Localized
@@ -162,7 +162,7 @@ class PKPSubmissionMetadataFormImplementation {
 
 		if (is_array($tagitKeywords)) {
 			foreach ($locales as $locale) {
-				$keywords[$locale] = array_key_exists($locale . '-keyword', $tagitKeywords) ? $tagitKeywords[$locale . '-keyword'] : array();
+				$keywords[$locale] = array_key_exists($locale . '-keywords', $tagitKeywords) ? $tagitKeywords[$locale . '-keywords'] : array();
 				$agencies[$locale] = array_key_exists($locale . '-agencies', $tagitKeywords) ? $tagitKeywords[$locale . '-agencies'] : array();
 				$disciplines[$locale] = array_key_exists($locale . '-disciplines', $tagitKeywords) ? $tagitKeywords[$locale . '-disciplines'] : array();
 				$languages[$locale] = array_key_exists($locale . '-languages', $tagitKeywords) ? $tagitKeywords[$locale . '-languages'] : array();

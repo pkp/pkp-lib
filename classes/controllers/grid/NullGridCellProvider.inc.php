@@ -21,8 +21,8 @@ class NullGridCellProvider extends GridCellProvider {
 	/**
 	 * Constructor
 	 */
-	function NullGridCellProvider() {
-		parent::GridCellProvider();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

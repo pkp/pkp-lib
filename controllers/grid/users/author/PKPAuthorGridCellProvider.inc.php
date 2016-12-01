@@ -19,8 +19,8 @@ class PKPAuthorGridCellProvider extends DataObjectGridCellProvider {
 	/**
 	 * Constructor
 	 */
-	function PKPAuthorGridCellProvider() {
-		parent::DataObjectGridCellProvider();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

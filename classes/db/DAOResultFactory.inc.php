@@ -52,7 +52,8 @@ class DAOResultFactory extends ItemIterator {
 	 *  identify a result row in the record set.
 	 *  Should be data object _data array key, not database column name
 	 */
-	function DAOResultFactory(&$records, &$dao, $functionName, $idFields = array()) {
+	function __construct(&$records, &$dao, $functionName, $idFields = array()) {
+		parent::__construct();
 		$this->functionName = $functionName;
 		$this->dao =& $dao;
 		$this->idFields = $idFields;

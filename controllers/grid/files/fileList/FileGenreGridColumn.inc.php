@@ -19,10 +19,10 @@ class FileGenreGridColumn extends GridColumn {
 	/**
 	 * Constructor
 	 */
-	function FileGenreGridColumn() {
+	function __construct() {
 		import('lib.pkp.classes.controllers.grid.ColumnBasedGridCellProvider');
 		$cellProvider = new ColumnBasedGridCellProvider();
-		parent::GridColumn('type', 'common.component', null, null, $cellProvider);
+		parent::__construct('type', 'common.component', null, null, $cellProvider);
 	}
 
 

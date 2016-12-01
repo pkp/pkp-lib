@@ -91,7 +91,6 @@
 	<message key="user.register.form.emailExists">തിരഞ്ഞെടുത്ത ഇ-മെയില്‍ അഡ്രസ്സ് മുന്‍പേതന്നെ മറ്റൊരു യൂസര്‍ ഉപയോഗിക്കുന്നതാണ്.</message>
 	<message key="user.register.form.passwordsDoNotMatch">പാസ് വേഡുകള്‍ തമ്മില്‍ ചേരുന്നില്ല.</message>
 	<message key="user.register.form.emailsDoNotMatch">ഇ-മെയില്‍ അഡ്രസ്സ് ഫീല്‍ഡുകള്‍ തമ്മില്‍ ചേരുന്നില്ല</message>
-	<message key="user.register.form.usernameAlphaNumeric">യൂസര്‍ നാമത്തില്‍ ആല്ഫാനൂമറിക് കാരക്ടറുകള്‍,അണ്ടര്‍സ്കോറുകള്‍,ഹൈഫനുകള്‍ എന്നിവ മാത്രമെ പാടുള്ളു.തുടങ്ങുന്നതും അവസാനിക്കുന്നതും ആല്ഫാനൂമറിക് കാരക്ടറിലായിരിക്കണം.</message>
 	<message key="user.register.form.usernameExists">തിരഞ്ഞെടുത്ത യൂസര്‍ നാമം മുന്‍പേതന്നെ മറ്റൊരു യൂസര്‍ ഉപയോഗിക്കുന്നതാണ്.</message>
 	<message key="user.register.passwordLengthRestriction">പാസ് വേഡിന് കുറഞ്ഞത്  {$length} കാരക്ടറുകള്‍ ഉണ്ടായിരിക്കണം</message>
 	<message key="user.register.registerAs">രജിസ്റ്റര്‍ ചെയ്യേണ്ടത്</message>

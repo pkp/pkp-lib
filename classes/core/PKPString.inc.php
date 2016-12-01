@@ -347,7 +347,7 @@ class PKPString {
 	 * @param $pattern string Regular expression
 	 * @param $subject string String to apply regular expression to
 	 * @param $matches array Reference to receive matches
-	 * @return int|boolean Returns 1 if the pattern matches given subject, 0 if it does not, or FALSE if an error occurred. 
+	 * @return int|boolean Returns 1 if the pattern matches given subject, 0 if it does not, or FALSE if an error occurred.
 	 */
 	static function regexp_match_get($pattern, $subject, &$matches) {
 		// NOTE: This function was created since PHP < 5.x does not support optional reference parameters
@@ -360,7 +360,7 @@ class PKPString {
 	 * @param $pattern string Regular expression
 	 * @param $subject string String to apply regular expression to
 	 * @param $matches array Reference to receive matches
-	 * @return int|boolean Returns number of full matches of given subject, or FALSE if an error occurred. 
+	 * @return int|boolean Returns number of full matches of given subject, or FALSE if an error occurred.
 	 */
 	static function regexp_match_all($pattern, $subject, &$matches) {
 		if (PCRE_UTF8 && !self::utf8_compliant($subject)) $subject = self::utf8_bad_strip($subject);
@@ -413,22 +413,34 @@ class PKPString {
 	 */
 	static function mime_content_type($filename, $suggestedExtension = '') {
 		$result = null;
+
 		if (function_exists('finfo_open')) {
 			$fi =& Registry::get('fileInfo', true, null);
 			if ($fi === null) {
 				$fi = finfo_open(FILEINFO_MIME, Config::getVar('finfo', 'mime_database_path'));
 			}
 			if ($fi !== false) {
-				return strtok(finfo_file($fi, $filename), ' ;');
+				$result = strtok(finfo_file($fi, $filename), ' ;');
 			}
 		}
 
-		// Fall back on an external "file" tool
-		$f = escapeshellarg($filename);
-		$result = trim(`file --brief --mime $f`);
-		// Make sure we just return the mime type.
-		if (($i = strpos($result, ';')) !== false) {
-			$result = trim(substr($result, 0, $i));
+		if (!$result && function_exists('mime_content_type')) {
+			$result = mime_content_type($filename);
+			// mime_content_type appears to return a charset
+			// (erroneously?) in recent versions of PHP5
+			if (($i = strpos($result, ';')) !== false) {
+				$result = trim(substr($result, 0, $i));
+			}
+		}
+
+		if (!$result) {
+			// Fall back on an external "file" tool
+			$f = escapeshellarg($filename);
+			$result = trim(`file --brief --mime $f`);
+			// Make sure we just return the mime type.
+			if (($i = strpos($result, ';')) !== false) {
+				$result = trim(substr($result, 0, $i));
+			}
 		}
 
 		// Check ambiguous mimetypes against extension
@@ -993,6 +1005,93 @@ class PKPString {
 				.strtoupper(dechex(hexdec(ord(substr($charid,16,1))) % 4 + 8)).substr($charid,17, 3).$hyphen
 				.substr($charid,20,12);
 		return $uuid;
+	}
+
+	/**
+	 * Matches each symbol of PHP strftime format string
+	 * to jQuery Datepicker widget date format. 
+	 * @param $phpFormat string
+	 * @return string
+	 */
+	function dateformatPHP2JQueryDatepicker($phpFormat) {
+		$symbols = array(
+			// Day
+			'a' => 'D',	// date() format 'D'
+			'A' => 'DD',	// date() format 'DD'
+			'd' => 'dd',	// date() format 'd'
+			'e' => 'd',	// date() format 'j'
+			'j' => 'oo',	// date() format none
+			'u' => '',		// date() format 'N'
+			'w' => '',		// date() format 'w'
+
+			// Week
+			'U' => '',		// date() format none
+			'V' => '',		// date() format none
+			'W' => '',		// date() format 'W'
+
+			// Month
+			'b' => 'M',	// date() format 'M'
+			'h' => 'M',	// date() format 'M'
+			'B' => 'MM',	// date() format 'F'
+			'm' => 'mm',	// date() format 'm'
+
+			// Year
+			'C' => '',		// date() format none
+			'g' => 'y',	// date() format none
+			'G' => 'yy',	// date() format 'o'
+			'y' => 'y',	// date() format 'y'
+			'Y' => 'yy',	// date() format 'Y'
+
+			// Time
+			'H' => '',		// date() format 'H'
+			'k' => '',		// date() format none
+			'I' => '',		// date() format 'h'
+			'l' => '',		// date() format 'g'
+			'P' => '',		// date() format 'a'
+			'p' => '',		// date() format 'A'
+			'M' => '',		// date() format 'i'
+			'S' => '',		// date() format 's'
+			's' => '',		// date() format 'u'
+
+			// Timezone
+			'z' => '',		// date() format 'O'
+			'Z' => '',		// date() format 'T'
+
+			// Full Date/Time
+			'r' => '',		// date() format none
+			'R' => '',		// date() format none
+			'X' => '',		// date() format none
+			'D' => '',		// date() format none
+			'F' => '',		// date() format none
+			'x' => '',		// date() format none
+			'c' => '',		// date() format none
+
+			// Other
+			'%' => ''
+		);
+
+		$datepickerFormat = "";
+		$escaping = false;
+
+		for ($i = 0; $i < strlen($phpFormat); $i++) {
+			$char = $phpFormat[$i];
+			if($char === '\\') {
+				$i++;
+				$datepickerFormat .= $escaping ? $phpFormat[$i] : '\'' . $phpFormat[$i];
+
+				$escaping = true;
+			} else {
+				if($escaping) {
+					$datepickerFormat .= "'";
+					$escaping = false;
+				}
+
+				$datepickerFormat .= isset($symbols[$char]) ? $symbols[$char] : $char;
+
+			}
+		}
+
+		return $datepickerFormat;
 	}
 }
 

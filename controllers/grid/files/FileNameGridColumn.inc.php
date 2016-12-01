@@ -32,7 +32,7 @@ class FileNameGridColumn extends GridColumn {
 	 * @param $removeHistoryTab boolean (optional) Open the information center
 	 * without the history tab.
 	 */
-	function FileNameGridColumn($includeNotes = true, $stageId = null, $removeHistoryTab = false) {
+	function __construct($includeNotes = true, $stageId = null, $removeHistoryTab = false) {
 		$this->_includeNotes = $includeNotes;
 		$this->_stageId = $stageId;
 		$this->_removeHistoryTab = $removeHistoryTab;
@@ -40,7 +40,7 @@ class FileNameGridColumn extends GridColumn {
 		import('lib.pkp.classes.controllers.grid.ColumnBasedGridCellProvider');
 		$cellProvider = new ColumnBasedGridCellProvider();
 
-		parent::GridColumn('name', 'common.name', null, null, $cellProvider,
+		parent::__construct('name', 'common.name', null, null, $cellProvider,
 			array('width' => 70, 'alignment' => COLUMN_ALIGNMENT_LEFT, 'anyhtml' => true));
 	}
 

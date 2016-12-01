@@ -39,9 +39,9 @@ class GenreForm extends Form {
 	/**
 	 * Constructor.
 	 */
-	function GenreForm($genreId = null) {
+	function __construct($genreId = null) {
 		$this->setGenreId($genreId);
-		parent::Form('controllers/grid/settings/genre/form/genreForm.tpl');
+		parent::__construct('controllers/grid/settings/genre/form/genreForm.tpl');
 
 		// Validation checks for this form
 		$this->addCheck(new FormValidatorLocale($this, 'name', 'required', 'manager.setup.form.genre.nameRequired'));

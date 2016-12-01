@@ -39,8 +39,8 @@ class PKPPageRouter extends PKPRouter {
 	/**
 	 * Constructor
 	 */
-	function PKPPageRouter() {
-		parent::PKPRouter();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**
@@ -173,6 +173,17 @@ class PKPPageRouter extends PKPRouter {
 
 				// Call request's redirect method
 				call_user_func_array($redirectMethod, $redirectArguments);
+			}
+		}
+
+		// Redirect requests from logged-out users to a context which is not
+		// publicly enabled
+		if (!defined('SESSION_DISABLE_INIT')) {
+			$user = $request->getUser();
+			$currentContext = $request->getContext();
+			if ($currentContext && !$currentContext->getEnabled() && !is_a($user, 'User')) {
+				$op = ROUTER_DEFAULT_OP;
+				$page = ROUTER_DEFAULT_PAGE;
 			}
 		}
 

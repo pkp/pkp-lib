@@ -19,8 +19,8 @@ class ReviewerReviewFilesGridDataProvider extends ReviewGridDataProvider {
 	/**
 	 * Constructor
 	 */
-	function ReviewerReviewFilesGridDataProvider() {
-		parent::ReviewGridDataProvider(SUBMISSION_FILE_REVIEW_FILE);
+	function __construct() {
+		parent::__construct(SUBMISSION_FILE_REVIEW_FILE);
 	}
 
 

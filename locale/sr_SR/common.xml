@@ -106,6 +106,8 @@
 	<message key="common.fileName">Ime fajla</message>
 	<message key="common.fileSize">Veličina fajla</message>
 	<message key="common.fileType">Tip fajla</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">Visina</message>
 	<message key="common.homePageHeaderLogo.altText">Logo zaglavlja naslovne strane</message>
 	<message key="common.hour">Sat</message>
@@ -301,7 +303,7 @@
 	<message key="notification.unsubscribeError">Došlo je do greške prilikom Vaše odjave. Molimo Vas da proverite da li su imejl adresa i lozinka ispravne.</message>
 	<message key="notification.unsubscribeSuccess">Uspešno ste odjavljeni.</message>
 	<message key="search.abstract">Apstrakt</message>
-	<message key="search.allFields">Sve</message>
+	<message key="search.author">Autori</message>
 	<message key="search.coverage">Pokrivenost</message>
 	<message key="search.date">Datum</message>
 	<message key="search.dateFrom">Od</message>

@@ -24,7 +24,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	/**
 	 * Constructor.
 	 */
-	function PKPNotificationOperationManager() {
+	function __construct() {
 	}
 
 

@@ -26,8 +26,8 @@ class ReviewFormGridHandler extends GridHandler {
 	/**
 	 * Constructor
 	 */
-	function ReviewFormGridHandler() {
-		parent::GridHandler();
+	function __construct() {
+		parent::__construct();
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER),
 			array('fetchGrid', 'fetchRow', 'createReviewForm', 'editReviewForm', 'updateReviewForm',
@@ -341,7 +341,7 @@ class ReviewFormGridHandler extends GridHandler {
 		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
 		$reviewForm = $reviewFormDao->getById($reviewFormId, Application::getContextAssocType(), $context->getId());
 
-		if ($request->checkCRSF() && isset($reviewForm)) {
+		if ($request->checkCSRF() && isset($reviewForm)) {
 			$reviewForm->setActive(0);
 			$reviewForm->setSequence(REALLY_BIG_NUMBER);
 			$newReviewFormId = $reviewFormDao->insertObject($reviewForm);

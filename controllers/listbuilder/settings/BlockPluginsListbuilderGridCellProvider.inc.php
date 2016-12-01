@@ -19,8 +19,8 @@ class BlockPluginsListbuilderGridCellProvider extends GridCellProvider {
 	/**
 	 * Constructor
 	 */
-	function BlockPluginsListbuilderGridCellProvider() {
-		parent::GridCellProvider();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

@@ -20,7 +20,7 @@ class LinkActionRequest {
 	/**
 	 * Constructor
 	 */
-	function LinkActionRequest() {
+	function __construct() {
 	}
 
 

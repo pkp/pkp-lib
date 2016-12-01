@@ -26,8 +26,8 @@ class MultipleListsListbuilderHandler extends ListbuilderHandler {
 	/**
 	 * Constructor.
 	 */
-	function MultipleListsListbuilderHandler() {
-		parent::ListbuilderHandler();
+	function __construct() {
+		parent::__construct();
 	}
 
 

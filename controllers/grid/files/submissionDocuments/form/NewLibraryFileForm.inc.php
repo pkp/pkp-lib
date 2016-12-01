@@ -24,8 +24,8 @@ class NewLibraryFileForm extends LibraryFileForm {
 	 * Constructor.
 	 * @param $contextId int
 	 */
-	function NewLibraryFileForm($contextId, $submissionId) {
-		parent::LibraryFileForm('controllers/grid/files/submissionDocuments/form/newFileForm.tpl', $contextId);
+	function __construct($contextId, $submissionId) {
+		parent::__construct('controllers/grid/files/submissionDocuments/form/newFileForm.tpl', $contextId);
 		$this->submissionId = $submissionId;
 		$this->addCheck(new FormValidator($this, 'temporaryFileId', 'required', 'settings.libraryFiles.fileRequired'));
 	}

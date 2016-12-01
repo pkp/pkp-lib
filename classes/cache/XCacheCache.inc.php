@@ -21,8 +21,8 @@ class XCacheCache extends GenericCache {
 	/**
 	 * Instantiate a cache.
 	 */
-	function XCacheCache($context, $cacheId, $fallback) {
-		parent::GenericCache($context, $cacheId, $fallback);
+	function __construct($context, $cacheId, $fallback) {
+		parent::__construct($context, $cacheId, $fallback);
 	}
 
 	/**

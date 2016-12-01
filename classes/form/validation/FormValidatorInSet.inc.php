@@ -28,8 +28,8 @@ class FormValidatorInSet extends FormValidator {
 	 * @param $message string the error message for validation failures (i18n key)
 	 * @param $acceptedValues array all possible accepted values
 	 */
-	function FormValidatorInSet(&$form, $field, $type, $message, $acceptedValues) {
-		parent::FormValidator($form, $field, $type, $message);
+	function __construct(&$form, $field, $type, $message, $acceptedValues) {
+		parent::__construct($form, $field, $type, $message);
 		$this->_acceptedValues = $acceptedValues;
 	}
 

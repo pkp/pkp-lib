@@ -20,18 +20,15 @@ import('lib.pkp.classes.admin.form.PKPSiteSettingsForm');
 class SiteSetupForm extends PKPSiteSettingsForm {
 	/**
 	 * Constructor.
+	 * @param $template string? Optional name of template file to use for form presentation
 	 */
-	function SiteSetupForm() {
-		parent::Form('controllers/tab/settings/siteSetup/form/siteSetupForm.tpl');
-		$this->siteSettingsDao = DAORegistry::getDAO('SiteSettingsDAO');
+	function __construct($template = null) {
+		parent::__construct($template?$template:'controllers/tab/settings/siteSetup/form/siteSetupForm.tpl');
 
-		// Validation checks for this form
-		$this->addCheck(new FormValidatorLocale($this, 'title', 'required', 'admin.settings.form.titleRequired'));
-		$this->addCheck(new FormValidatorLocale($this, 'contactName', 'required', 'admin.settings.form.contactNameRequired'));
-		$this->addCheck(new FormValidatorLocaleEmail($this, 'contactEmail', 'required', 'admin.settings.form.contactEmailRequired'));
-		$this->addCheck(new FormValidatorCustom($this, 'minPasswordLength', 'required', 'admin.settings.form.minPasswordLengthRequired', create_function('$l', sprintf('return $l >= %d;', SITE_MIN_PASSWORD_LENGTH))));
-		$this->addCheck(new FormValidatorPost($this));
-		$this->addCheck(new FormValidatorCSRF($this));
+		$themes = PluginRegistry::getPlugins('themes');
+		if (is_null($themes)) {
+			PluginRegistry::loadCategory('themes', true);
+		}
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
 	}
@@ -75,12 +72,23 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 		$application = Application::getApplication();
 		$templateMgr->assign('availableMetricTypes', $application->getMetricTypes(true));
 
-		$themePlugins = PluginRegistry::loadCategory('themes');
-		$themePluginOptions = array();
+		$themePlugins = PluginRegistry::getPlugins('themes');
+		$enabledThemes = array();
+		$activeThemeOptions = array();
 		foreach ($themePlugins as $themePlugin) {
-			$themePluginOptions[basename($themePlugin->getPluginPath())] = $themePlugin->getDisplayName();
+			$enabledThemes[basename($themePlugin->getPluginPath())] = $themePlugin->getDisplayName();
+			if ($themePlugin->isActive()) {
+				$activeThemeOptions = $themePlugin->getOptionsConfig();
+				$activeThemeOptionsValues = $themePlugin->getOptionValues();
+				foreach ($activeThemeOptions as $name => $option) {
+					$activeThemeOptions[$name]['value'] = isset($activeThemeOptionsValues[$name]) ? $activeThemeOptionsValues[$name] : '';
+				}
+			}
 		}
-		$templateMgr->assign('themePluginOptions', $themePluginOptions);
+		$templateMgr->assign(array(
+			'enabledThemes' => $enabledThemes,
+			'activeThemeOptions' => $activeThemeOptions,
+		));
 
 		return parent::fetch($request);
 	}
@@ -127,14 +135,15 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 	function readInputData() {
 		$this->readUserVars(
 			array('pageHeaderTitleType', 'title', 'about', 'redirect', 'contactName',
-				'contactEmail', 'minPasswordLength', 'themePluginPath', 'defaultMetricType',)
+				'contactEmail', 'minPasswordLength', 'themePluginPath', 'defaultMetricType','pageFooter',)
 		);
 	}
 
 	/**
 	 * Save site settings.
 	 */
-	function execute() {
+	function execute($request) {
+		parent::execute($request);
 		$siteDao = DAORegistry::getDAO('SiteDAO');
 		$site = $siteDao->getSite();
 
@@ -151,24 +160,13 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 		// Activate the selected theme plugin
 		$selectedThemePluginPath = $this->getData('themePluginPath');
 		$site->updateSetting('themePluginPath', $selectedThemePluginPath);
-		$themePlugins = PluginRegistry::loadCategory('themes');
-		$selectedThemePlugin = null;
-		foreach ($themePlugins as $themePlugin) {
-			if (basename($themePlugin->getPluginPath()) != $selectedThemePluginPath) {
-				// Flag other themes for deactivation to ensure
-				// they won't be included in a CSS recompile.
-				$themePlugin->setEnabled(false);
-			} else {
-				$selectedThemePlugin = $themePlugin;
-			}
-		}
-		if ($selectedThemePlugin) {
-			$themePlugin->setEnabled(true);
-		} else {
-			assert(false); // Couldn't identify the selected theme plugin
-		}
 
 		$siteDao->updateObject($site);
+
+		// Save block plugins context positions.
+		import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
+		ListbuilderHandler::unpack($request, $request->getUserVar('blocks'), array($this, 'deleteEntry'), array($this, 'insertEntry'), array($this, 'updateEntry'));
+
 		return true;
 	}
 
@@ -251,6 +249,43 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 		} else {
 			return false;
 		}
+	}
+
+	/**
+	 * Overriden method from ListbuilderHandler.
+	 * @param $request Request
+	 * @param $rowId mixed
+	 * @param $newRowId array
+	 */
+	function updateEntry($request, $rowId, $newRowId) {
+		$plugins =& PluginRegistry::loadCategory('blocks');
+		$plugin =& $plugins[$rowId]; // Ref hack
+		switch ($newRowId['listId']) {
+			case 'unselected':
+				$plugin->setEnabled(false);
+				break;
+			case 'sidebarContext':
+				$plugin->setEnabled(true);
+				$plugin->setBlockContext(BLOCK_CONTEXT_SIDEBAR);
+				$plugin->setSeq((int) $newRowId['sequence']);
+				break;
+			default:
+				assert(false);
+		}
+	}
+
+	/**
+	 * Avoid warnings when Listbuilder::unpack tries to call this method.
+	 */
+	function deleteEntry() {
+		return false;
+	}
+
+	/**
+	 * Avoid warnings when Listbuilder::unpack tries to call this method.
+	 */
+	function insertEntry() {
+		return false;
 	}
 
 

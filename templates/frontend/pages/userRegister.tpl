@@ -14,7 +14,7 @@
 <div class="page page_register">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.register"}
 
-	<form class="pkp_form register" id="register" method="post" action="{url op="registerUser"}">
+	<form class="cmp_form register" id="register" method="post" action="{url op="registerUser"}">
 		{csrf}
 
 		{if $source}
@@ -121,6 +121,17 @@
 								<li>{$interest|escape}</li>
 							{/foreach}
 						</ul>
+					</div>
+				</div>
+			</fieldset>
+		{/if}
+
+		{* recaptcha spam blocker *}
+		{if $reCaptchaHtml}
+			<fieldset class="recaptcha_wrapper">
+				<div class="fields">
+					<div class="recaptcha">
+						{$reCaptchaHtml}
 					</div>
 				</div>
 			</fieldset>

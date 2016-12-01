@@ -28,7 +28,7 @@ class SessionManager {
 	 * @param $sessionDao SessionDAO
 	 * @param $request PKPRequest
 	 */
-	function SessionManager($sessionDao, $request) {
+	function __construct($sessionDao, $request) {
 		$this->sessionDao = $sessionDao;
 
 		// Configure PHP session parameters

@@ -22,8 +22,8 @@ class AuthorDashboardTabHandler extends Handler {
 	/**
 	 * Constructor
 	 */
-	function AuthorDashboardTabHandler() {
-		parent::Handler();
+	function __construct() {
+		parent::__construct();
 		$this->addRoleAssignment(array(ROLE_ID_AUTHOR), array('fetchTab'));
 	}
 

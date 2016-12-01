@@ -20,9 +20,9 @@ class EditorReviewFilesGridHandler extends FileListGridHandler {
 	/**
 	 * Constructor
 	 */
-	function EditorReviewFilesGridHandler() {
+	function __construct() {
 		import('lib.pkp.controllers.grid.files.review.ReviewGridDataProvider');
-		parent::FileListGridHandler(
+		parent::__construct(
 			new ReviewGridDataProvider(SUBMISSION_FILE_REVIEW_FILE),
 			null,
 			FILE_GRID_MANAGE|FILE_GRID_VIEW_NOTES|FILE_GRID_DELETE

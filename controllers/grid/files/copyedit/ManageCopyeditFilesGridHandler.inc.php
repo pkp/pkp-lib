@@ -19,9 +19,9 @@ class ManageCopyeditFilesGridHandler extends SelectableSubmissionFileListCategor
 	/**
 	 * Constructor
 	 */
-	function ManageCopyeditFilesGridHandler() {
+	function __construct() {
 		import('lib.pkp.controllers.grid.files.SubmissionFilesCategoryGridDataProvider');
-		parent::SelectableSubmissionFileListCategoryGridHandler(
+		parent::__construct(
 			new SubmissionFilesCategoryGridDataProvider(SUBMISSION_FILE_COPYEDIT),
 			WORKFLOW_STAGE_ID_EDITING,
 			FILE_GRID_ADD|FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES|FILE_GRID_EDIT
@@ -67,6 +67,18 @@ class ManageCopyeditFilesGridHandler extends SelectableSubmissionFileListCategor
 			$manageCopyeditFilesForm->execute(
 				$args, $request,
 				$this->getGridCategoryDataElements($request, $this->getStageId())
+			);
+
+			$notificationMgr = new NotificationManager();
+			$notificationMgr->updateNotification(
+				$request,
+				array(
+					NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
+					NOTIFICATION_TYPE_AWAITING_COPYEDITS,
+				),
+				null,
+				ASSOC_TYPE_SUBMISSION,
+				$submission->getId()
 			);
 
 			// Let the calling grid reload itself

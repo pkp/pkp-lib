@@ -20,8 +20,8 @@ class ContextGridRow extends GridRow {
 	/**
 	 * Constructor
 	 */
-	function ContextGridRow() {
-		parent::GridRow();
+	function __construct() {
+		parent::__construct();
 	}
 
 

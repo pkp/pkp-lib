@@ -26,7 +26,7 @@ class DownloadAllLinkAction extends LinkAction {
 	 * @param $actionArgs array
 	 * @param $files array Files to be downloaded.
 	 */
-	function DownloadAllLinkAction($request, $actionArgs, $files) {
+	function __construct($request, $actionArgs, $files) {
 		// Instantiate the redirect action request.
 		$router = $request->getRouter();
 		$filesIdsAndRevisions = $this->_getFilesIdsAndRevisions($files);
@@ -36,7 +36,7 @@ class DownloadAllLinkAction extends LinkAction {
 			$router->url($request, null, 'api.file.FileApiHandler', 'downloadAllFiles', null, $actionArgs));
 
 		// Configure the link action.
-		parent::LinkAction('downloadAll', $redirectRequest, __('submission.files.downloadAll'), 'getPackage');
+		parent::__construct('downloadAll', $redirectRequest, __('submission.files.downloadAll'), 'getPackage');
 	}
 
 

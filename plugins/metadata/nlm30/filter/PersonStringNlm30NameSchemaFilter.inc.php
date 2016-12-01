@@ -30,7 +30,7 @@ class PersonStringNlm30NameSchemaFilter extends Nlm30PersonStringFilter {
 	/**
 	 * Constructor
 	 */
-	function PersonStringNlm30NameSchemaFilter($assocType, $filterMode = PERSON_STRING_FILTER_SINGLE, $filterTitle = false, $filterDegrees = false) {
+	function __construct($assocType, $filterMode = PERSON_STRING_FILTER_SINGLE, $filterTitle = false, $filterDegrees = false) {
 		$this->setDisplayName('String to NLM Name Schema conversion');
 
 		assert(in_array($assocType, array(ASSOC_TYPE_AUTHOR, ASSOC_TYPE_EDITOR)));
@@ -42,7 +42,7 @@ class PersonStringNlm30NameSchemaFilter extends Nlm30PersonStringFilter {
 		$outputType = 'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema(*)';
 		if ($filterMode == PERSON_STRING_FILTER_MULTIPLE) $outputType .= '[]';
 
-		parent::Nlm30PersonStringFilter($inputType, $outputType, $filterMode);
+		parent::__construct($inputType, $outputType, $filterMode);
 	}
 
 	//

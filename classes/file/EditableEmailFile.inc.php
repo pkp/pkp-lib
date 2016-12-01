@@ -25,7 +25,7 @@ class EditableEmailFile {
 	 * @param $locale string Locale code
 	 * @param $filename string Filename
 	 */
-	function EditableEmailFile($locale, $filename) {
+	function __construct($locale, $filename) {
 		$this->locale = $locale;
 		$this->editableFile = new EditableFile($filename);
 	}

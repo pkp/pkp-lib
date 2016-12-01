@@ -21,8 +21,8 @@ class SubmissionEmailLogDAO extends EmailLogDAO {
 	/**
 	 * Constructor
 	 */
-	function SubmissionEmailLogDAO() {
-		parent::EmailLogDAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

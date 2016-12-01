@@ -20,8 +20,8 @@ class PluginCategoryGridRow extends GridCategoryRow {
 	/**
 	 * Constructor
 	 */
-	function PluginCategoryGridRow() {
-		parent::GridCategoryRow();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

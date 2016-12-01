@@ -21,8 +21,8 @@ class UpgradeForm extends MaintenanceForm {
 	/**
 	 * Constructor.
 	 */
-	function UpgradeForm($request) {
-		parent::MaintenanceForm($request, 'install/upgrade.tpl');
+	function __construct($request) {
+		parent::__construct($request, 'install/upgrade.tpl');
 	}
 
 	/**

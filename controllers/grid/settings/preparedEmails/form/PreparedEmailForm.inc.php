@@ -29,8 +29,8 @@ class PreparedEmailForm extends Form {
 	 * @param $emailKey string
 	 * @param $context Context
 	 */
-	function PreparedEmailForm($emailKey = null, $context) {
-		parent::Form('controllers/grid/settings/preparedEmails/form/emailTemplateForm.tpl');
+	function __construct($emailKey = null, $context) {
+		parent::__construct('controllers/grid/settings/preparedEmails/form/emailTemplateForm.tpl');
 
 		$this->_context = $context;
 		$this->setEmailKey($emailKey);

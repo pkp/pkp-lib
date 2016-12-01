@@ -37,29 +37,32 @@
 	{/if}
 
 	{if $copyrightNoticeAgree}
-		{$copyrightNotice}
-		{fbvFormSection list="true"}
-			{fbvElement type="checkbox" id="copyrightNoticeAgree" required=true value=1 label="submission.submit.copyrightNoticeAgree" checked=$submissionId}
+		{fbvFormSection title="submission.submit.copyrightNoticeAgreementLabel"}
+			{$copyrightNotice}
+			{fbvFormSection list="true"}
+				{fbvElement type="checkbox" id="copyrightNoticeAgree" required=true value=1 label="submission.submit.copyrightNoticeAgree" checked=$submissionId}
+			{/fbvFormSection}
 		{/fbvFormSection}
 	{/if}
 
 	{$additionalFormContent1}
 
-	{if count($supportedSubmissionLocaleNames) == 1}
 	{* There is only one supported submission locale; choose it invisibly *}
+	{if count($supportedSubmissionLocaleNames) == 1}
 		{foreach from=$supportedSubmissionLocaleNames item=localeName key=locale}
 			{fbvElement type="hidden" id="locale" value=$locale}
 		{/foreach}
-		{else}
+
 	{* There are several submission locales available; allow choice *}
+	{else}
 		{fbvFormSection title="submission.submit.submissionLocale" size=$fbvStyles.size.MEDIUM for="locale"}
 			{fbvElement label="submission.submit.submissionLocaleDescription" required="true" type="select" id="locale" from=$supportedSubmissionLocaleNames selected=$locale translate=false}
 		{/fbvFormSection}
-	{/if}{* count($supportedSubmissionLocaleNames) == 1 *}
+	{/if}
 
 	{$additionalFormContent2}
 
-	<!-- Submission checklist -->
+	{* Submission checklist *}
 	{if $currentContext->getLocalizedSetting('submissionChecklist')}
 		{fbvFormSection list="true" label="submission.submit.submissionChecklist" description="submission.submit.submissionChecklistDescription" id="pkp_submissionChecklist"}
 			{foreach name=checklist from=$currentContext->getLocalizedSetting('submissionChecklist') key=checklistId item=checklistItem}
@@ -68,17 +71,17 @@
 		{/fbvFormSection}
 	{/if}
 
-	<!-- Cover Note To Editor-->
+	{* Cover Note To Editor*}
 	{fbvFormSection for="commentsToEditor" title="submission.submit.coverNote"}
 		{fbvElement type="textarea" name="commentsToEditor" id="commentsToEditor" value=$commentsToEditor rich=true}
 	{/fbvFormSection}
 
-	<!-- Privacy Statement -->
+	{* Privacy Statement *}
 	{fbvFormSection for="privacyStatement" title="submission.submit.privacyStatement"}
 		{fbvElement type="textarea" name="privacyStatement" id="privacyStatement" disabled=true value=$currentContext->getLocalizedSetting('privacyStatement') rich=true}
 	{/fbvFormSection}
 
-	<!-- Buttons -->
+	{* Buttons *}
 	{fbvFormButtons id="step1Buttons" submitText="common.saveAndContinue"}
 
 	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>

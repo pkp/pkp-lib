@@ -21,8 +21,8 @@ class PKPAuthorDashboardHandler extends Handler {
 	/**
 	 * Constructor
 	 */
-	function PKPAuthorDashboardHandler() {
-		parent::Handler();
+	function __construct() {
+		parent::__construct();
 		$this->addRoleAssignment(
 			array(ROLE_ID_AUTHOR),
 			array(

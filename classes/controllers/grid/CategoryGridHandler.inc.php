@@ -35,8 +35,8 @@ class CategoryGridHandler extends GridHandler {
 	/**
 	 * Constructor.
 	 */
-	function CategoryGridHandler($dataProvider = null) {
-		parent::GridHandler($dataProvider);
+	function __construct($dataProvider = null) {
+		parent::__construct($dataProvider);
 
 		import('lib.pkp.classes.controllers.grid.NullGridCellProvider');
 		$this->addColumn(new GridColumn('indent', null, null, null,

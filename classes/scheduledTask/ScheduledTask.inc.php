@@ -36,7 +36,7 @@ abstract class ScheduledTask {
 	 * Constructor.
 	 * @param $args array
 	 */
-	function ScheduledTask($args = array()) {
+	function __construct($args = array()) {
 		$this->_args = $args;
 		$this->_processId = uniqid();
 

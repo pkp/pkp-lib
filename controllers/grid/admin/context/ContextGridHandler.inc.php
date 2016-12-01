@@ -20,8 +20,8 @@ class ContextGridHandler extends GridHandler {
 	/**
 	 * Constructor
 	 */
-	function ContextGridHandler() {
-		parent::GridHandler();
+	function __construct() {
+		parent::__construct();
 		$this->addRoleAssignment(array(
 			ROLE_ID_SITE_ADMIN),
 			array('fetchGrid', 'fetchRow', 'createContext', 'editContext', 'updateContext',

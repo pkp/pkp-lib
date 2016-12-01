@@ -23,11 +23,11 @@ class SubmissionLibraryLinkAction extends LinkAction {
 	 * @param $submissionId int the ID of the submission to present link for
 	 * to show information about.
 	 */
-	function SubmissionLibraryLinkAction($request, $submissionId) {
+	function __construct($request, $submissionId) {
 		$dispatcher = $request->getDispatcher();
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_EDITOR);
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
-		parent::LinkAction(
+		parent::__construct(
 			'editorialHistory',
 			new AjaxModal(
 				$dispatcher->url(

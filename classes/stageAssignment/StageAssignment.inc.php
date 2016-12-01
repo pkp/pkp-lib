@@ -24,8 +24,8 @@ class StageAssignment extends DataObject {
 	/**
 	 * Constructor
 	 */
-	function StageAssignment() {
-		parent::DataObject();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

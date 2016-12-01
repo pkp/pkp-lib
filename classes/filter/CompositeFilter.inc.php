@@ -27,9 +27,9 @@ class CompositeFilter extends PersistableFilter {
 	 * @param $filterGroup FilterGroup
 	 * @param $displayName string
 	 */
-	function CompositeFilter(&$filterGroup, $displayName = null) {
+	function __construct(&$filterGroup, $displayName = null) {
 		$this->setDisplayName($displayName);
-		parent::PersistableFilter($filterGroup);
+		parent::__construct($filterGroup);
 	}
 
 	//

@@ -18,8 +18,8 @@ abstract class PKPSectionDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function PKPSectionDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

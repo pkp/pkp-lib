@@ -23,8 +23,8 @@ class CollapsibleGridFeature extends GridFeature {
 	 * @copydoc GridFeature::GridFeature()
 	 * Constructor.
 	 */
-	function CollapsibleGridFeature($id = 'collapsible') {
-		parent::GridFeature($id);
+	function __construct($id = 'collapsible') {
+		parent::__construct($id);
 	}
 
 	/**

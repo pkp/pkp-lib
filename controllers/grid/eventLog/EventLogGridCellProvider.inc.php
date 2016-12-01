@@ -19,8 +19,8 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider {
 	/**
 	 * Constructor
 	 */
-	function EventLogGridCellProvider() {
-		parent::DataObjectGridCellProvider();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

@@ -162,7 +162,7 @@
 	<message key="manager.setup.filter.grid.filterDisplayName">Konektor</message>
 	<message key="manager.setup.filter.grid.filterSettings">Informacije o registraciji i podešavanja konektora</message>
 	<message key="manager.setup.filter.grid.filterTemplateRequired">Molimo vas da odaberete jednu od transformacija iz padajućeg menija</message>
-	<message key="manager.setup.filter.grid.confirmDelete">Da li zaista želite da obrišete {$filterName} filter?</message>	
+	<message key="manager.setup.filter.grid.confirmDelete">Da li zaista želite da obrišete {$filterName} filter?</message>
 	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Izabrali ste da dodate {$filterDisplayName} bazu podataka. Kliknite na "OK" da biste potvrdili..</message>
 	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Izaberite bazu za pronalaženje podataka.</message>
 	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p> Ovaj filter se povezuje sa <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> bazom podataka knjiga i ISBN-ova.</p>
@@ -189,8 +189,6 @@
 	<message key="manager.setup.homeHeaderImageInvalid">Neispravan format logoa hedera početne strane ili slanje nije uspelo. Prihvatljivi formati su .gif, .jpg, ili .png.</message>
 	<message key="manager.setup.homepageImageInvalid">Neispravan format slike hedera početne strane ili slanje nije uspelo. Prihvatljivi formati su .gif, .jpg, ili .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Neispravan format slike naslova hedera početne strane ili slanje nije uspelo. Prihvatljivi formati su .gif, .jpg, ili .png.</message>
-	<message key="manager.setup.layout.leftSidebar">Levi sidebar</message>
-	<message key="manager.setup.layout.rightSidebar">Desni sidebar</message>
 	<message key="manager.setup.layout.unselected">Nije obeleženo</message>
 	<message key="manager.setup.loggingAndAuditing">Evidentiranje i revizija</message>
 	<message key="manager.setup.metaCitationsDescription">Aktivirajte sledeće polje za potvrdu da biste omogućili uređivanje citata i referenci. Ovo će omogućiti da autori uključuju sirove citate prilikom predaje radova. Urednici će takođe imati pristup pomoćniku citata koji može da proveri sirove citate preko spoljnih baza podataka kao što su WorldCat, ISBNdb, PubMed i druge, za tačnost. Odobreni citati se mogu izvoziti u finalizovane fajlove za prikaz.</message>

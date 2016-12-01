@@ -21,8 +21,8 @@ class EmailLogDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function EmailLogDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

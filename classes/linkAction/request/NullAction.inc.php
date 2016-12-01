@@ -19,8 +19,8 @@ class NullAction extends LinkActionRequest {
 	/**
 	 * Constructor
 	 */
-	function NullAction() {
-		parent::LinkActionRequest();
+	function __construct() {
+		parent::__construct();
 	}
 
 

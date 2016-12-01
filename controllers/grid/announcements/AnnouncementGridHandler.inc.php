@@ -21,8 +21,8 @@ class AnnouncementGridHandler extends GridHandler {
 	/**
 	 * Constructor
 	 */
-	function AnnouncementGridHandler() {
-		parent::GridHandler();
+	function __construct() {
+		parent::__construct();
 	}
 
 

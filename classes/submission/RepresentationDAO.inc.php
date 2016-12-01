@@ -17,8 +17,8 @@ abstract class RepresentationDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function RepresentationDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

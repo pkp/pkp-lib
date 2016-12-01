@@ -70,6 +70,14 @@
 			disabled: options.disabled,
 			active: options.selected
 		});
+
+		// Load tabs when focused. This ensures that links which use anchor
+		// elements (eg - #backIssues) will load the tab even if the current
+		// page is already visible.
+		// See: https://github.com/pkp/pkp-lib/issues/1787
+		$tabs.children('.ui-tabs-nav').find('li > a').focus(function(e) {
+			$(this).click();
+		});
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.TabHandler, $.pkp.classes.Handler);
@@ -291,15 +299,15 @@
 		var $element = this.getHtmlElement(),
 				numTabs = $element.children('ul').children('li').length + 1,
 				$anchorElement = $('<a/>')
-					.text(jsonContent.title)
-					.attr('href', jsonContent.url),
+						.text(jsonContent.title)
+						.attr('href', jsonContent.url),
 				$closeSpanElement = $('<a/>')
-					.addClass('close')
-					.text($.pkp.locale.common_close)
-					.attr('href', '#'),
+						.addClass('close')
+						.text($.pkp.locale.common_close)
+						.attr('href', '#'),
 				$liElement = $('<li/>')
-					.append($anchorElement)
-					.append($closeSpanElement);
+						.append($anchorElement)
+						.append($closeSpanElement);
 
 		// Get the "close" button working
 		$closeSpanElement.click(function() {

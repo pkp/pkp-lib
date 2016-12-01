@@ -38,7 +38,7 @@ class SubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 	 * @param $reviewRound ReviewRound
 	 * @param $revisedFileId integer
 	 */
-	function SubmissionFilesUploadForm($request, $submissionId, $stageId, $uploaderRoles, $uploaderGroupIds, $fileStage,
+	function __construct($request, $submissionId, $stageId, $uploaderRoles, $uploaderGroupIds, $fileStage,
 			$revisionOnly = false, $reviewRound = null, $revisedFileId = null, $assocType = null, $assocId = null) {
 
 		// Initialize class.
@@ -50,7 +50,7 @@ class SubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
 
-		parent::SubmissionFilesUploadBaseForm(
+		parent::__construct(
 			$request, 'controllers/wizard/fileUpload/form/fileUploadForm.tpl',
 			$submissionId, $stageId, $fileStage, $revisionOnly, $reviewRound, $revisedFileId, $assocType, $assocId
 		);

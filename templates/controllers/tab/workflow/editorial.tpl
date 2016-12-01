@@ -9,6 +9,8 @@
  *}
 <div id="editorial">
 
+	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="editingNotification_"|concat:$submission->getId() requestOptions=$editingNotificationRequestOptions}
+
 	{* Help Link *}
 	{help file="editorial-workflow/copyediting.md" class="pkp_help_tab"}
 

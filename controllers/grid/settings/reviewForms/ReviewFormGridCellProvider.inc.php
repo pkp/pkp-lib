@@ -18,8 +18,8 @@ class ReviewFormGridCellProvider extends GridCellProvider {
 	/**
 	 * Constructor
 	 */
-	function ReviewFormGridCellProvider() {
-		parent::GridCellProvider();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

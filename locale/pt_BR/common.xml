@@ -31,7 +31,7 @@
 	<message key="announcement.moreAnnouncements">Outras notícias...</message>
 	<message key="announcement.noneExist">Nenhuma notícia publicada.</message>
 	<message key="announcement.posted">Publicado</message>
-	<message key="announcement.postedOn">Postado em {$postDate}</message>	
+	<message key="announcement.postedOn">Postado em {$postDate}</message>
 	<message key="announcement.view">Ler notícia</message>
 	<message key="common.navigation.sidebar">Barra lateral</message>
 	<message key="common.navigation.site">Navegação no Site</message>
@@ -199,7 +199,7 @@
 	<message key="common.prefixAndTitle.tip">Se o título do livro começar com "Um" ou "O" (ou algo similar na ordem alfabética) coloque a palavra no prefixo.</message>
 	<message key="common.subtitle.tip">O subtítulo da submissão aparecerá depois de dois pontos (:), seguindo o título principal.</message>
 	<message key="common.preview">Visualizar</message>
-	<message key="common.publisher">Editora</message>	
+	<message key="common.publisher">Editora</message>
 	<message key="common.quality">Qualidade</message>
 	<message key="common.queue.long.active">Ativos</message>
 	<message key="common.range">{$min}-{$max}</message>
@@ -450,10 +450,10 @@
 	<message key="notification.unsubscribeSuccess">Cancelamento de assinatura de notificações realizado com sucesso.</message>
 	<message key="notification.savedSubmissionMetadata">Metadados da submissão salvos.</message>
 	<message key="search.abstract">Resumo</message>
-	<message key="search.activeFilters">Filtros avançados</message>
+	<message key="search.author">Autor</message>
+	<message key="search.advancedFilters">Filtros avançados</message>
 	<message key="search.advancedSearchMore">Opções adicionais de pesquisa (clique para exibir)</message>
 	<message key="search.advancedSearchLess">Opções adicionais de pesquisa (clique para ocultar)</message>
-	<message key="search.allFields">Todos</message>
 	<message key="search.searchAgain">Buscar novamente</message>
 	<message key="search.cli.rebuildIndex.clearingIndex">Índice de tiragem</message>
 	<message key="search.cli.rebuildIndex.done">feito</message>
@@ -518,6 +518,7 @@
 	<message key="notification.type.allRevisionsIn">Um arquivo revisado foi enviado para avaliação editorial no estágio {$stage}.</message>
 	<message key="notification.type.pendingRevisions">Revisões para consideração no estágio {$stage}.</message>
 	<message key="notification.type.pendingRevisions.title">Revisões enviadas ao estágio {$stage}.</message>
+	<message key="notification.type.roundStatusTitle">Situação da rodada {$round}</message>
 
 
 	<message key="notification.signedFile">Arquivo considerado.</message>
@@ -538,7 +539,10 @@
 	<message key="notification.type.queryAdded">Conversa adicionada.</message>
 	<message key="common.allDownloads">Todos os downloads</message>
 	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.reminded.date">Lembrado: {$dateReminded}</message>
 	<message key="common.component">Componente</message>
 	<message key="search.SearchFor">Buscar por</message>
+	<message key="notification.type.assignCopyeditors">Atribua um editor de texto usando o link "Adicionar" na lista Participantes.</message>
+	<message key="notification.type.awaitingCopyedits">Aguardando Textos Revisados</message>
 </locale>

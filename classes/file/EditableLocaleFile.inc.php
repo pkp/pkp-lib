@@ -24,8 +24,8 @@ class EditableLocaleFile extends LocaleFile {
 	 * @param $locale string Locale code
 	 * @param $filename string Filename
 	 */
-	function EditableLocaleFile($locale, $filename) {
-		parent::LocaleFile($locale, $filename);
+	function __construct($locale, $filename) {
+		parent::__construct($locale, $filename);
 		$this->editableFile = new EditableFile($this->filename);
 	}
 

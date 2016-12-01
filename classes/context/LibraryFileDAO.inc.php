@@ -20,8 +20,8 @@ class LibraryFileDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function LibraryFileDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

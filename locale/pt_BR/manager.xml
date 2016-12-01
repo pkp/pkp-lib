@@ -154,7 +154,7 @@
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Formato de imagem inválido ou falha no envio para logo no cabeçalho de páginas internas. Formatos aceitáveis são .gif, .jpg ou .png. Verifique as configurações de mime_type, permissão e dono de pasta, e tamanho de arquivo permitido.</message>
 	<message key="manager.statistics"><![CDATA[Estatísticas &amp; Relatórios]]></message>
 	<message key="manager.statistics.reports">Gerador de Relatórios</message>
-	<message key="manager.statistics.reports.description">O sistema gera relatórios que registram os detalhes associados com os procedimentos da submissão, da perspectiva de submissões, editores, avaliadores e seções, em um dado período. Relatórios são gerados no formato CSV, que exigem um aplicativo de planilha eletrônica para serem visualizados.</message>	
+	<message key="manager.statistics.reports.description">O sistema gera relatórios que registram os detalhes associados com os procedimentos da submissão, da perspectiva de submissões, editores, avaliadores e seções, em um dado período. Relatórios são gerados no formato CSV, que exigem um aplicativo de planilha eletrônica para serem visualizados.</message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
 	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} nova(s))</message>
 	<message key="manager.users">Usuários</message>
@@ -175,7 +175,7 @@
 	<message key="plugins.categories.themes">Plugins de Visual</message>
 	<message key="manager.emails.form.emailKeyRequired">É necessária uma chave única para o e-mail.</message>
 	<message key="manager.setup.errorDeletingItem">Ocorreu um erro ao tentar excluir o item.</message>
-	<message key="manager.reviewerSearch.searchByName">Buscar por nome do avaliador</message>
+	<message key="manager.reviewerSearch.searchByName">Buscar por Nome do Avaliador</message>
 	<message key="manager.reviewerSearch.doneAmount">Avaliações concluídas: {$current}</message>
 	<message key="manager.reviewerSearch.avgAmount">Média de dias para avaliar: {$current}</message>
 	<message key="manager.reviewerSearch.lastAmount">Dias desde a última avaliação: {$current}</message>
@@ -198,7 +198,7 @@
 	<message key="manager.setup.filter.pleaseSelect">Escolha ...</message>
 	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>Para encontrar e verificar citações em bases de dados especializadas, é necessário primeiro separá-las em metadados inteligíveis para máquinas: título, editora, data de publicação, entre outros, devem ser todos extraído do texto de citação original informado pelo autor. Conexões a serviços <i>Web</i> externos  podem auxiliar no processo. Uma ou mais conexões podem ser incluídas clicando no botão "Incluir item" a seguir. Algumas das conexões podem exigir configurações; uma notificação surgirá caso seja necessário.</p>
 <p>Edite ou exclua conexões existentes clicando no ícone de engrenagem respectivo.</p>]]></message>
-	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>Também é necessário habilitar e configurar as conexões a bases externas de citações. Isto ajuda na detecção de erros nas citações ou informações adicionais alimentadas pelo autor (por exemplo, DOIs ou IDs PubMed), exigidas para publicação ou depósito eletrônico.</p> 
+	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>Também é necessário habilitar e configurar as conexões a bases externas de citações. Isto ajuda na detecção de erros nas citações ou informações adicionais alimentadas pelo autor (por exemplo, DOIs ou IDs PubMed), exigidas para publicação ou depósito eletrônico.</p>
 <p>O sistema oferece várias conexões a bases externas, nas quais é possível pesquisar citações. Algumas bases exigem cadastro ou informações de configuração. Acesse o site da base de dados para maiores detalhes sobre como se cadastrar. Uma ou mais bases de dados podem ser incluídas clicando no botão "Incluir item" a seguir.</p>
 <p>Edite ou exclua conexões existentes clicando no ícone de engrenagem respectivo.</p>
 <p><strong>Aviso:</strong> Para que o processo de verificação de citações seja concluído em tempo hábil, a diretiva <tt>citation_checking_max_processes</tt> no arquivo de configuração deve ser alterada para um valor aceitável. Veja a seção General Settings no <tt>config.inc.php</tt> para maiores detalhes.</p>]]></message>
@@ -207,7 +207,7 @@
 	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">A base {$filterDisplayName} está sendo incluída. Clique em 'ok' para confirmar.</message>
 	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Este filtro se conecta à base de livros e ISBNs <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a>.</p>
 <p>Uma chave de API ISBNdb é obrigatória. Para mais informações sobre como gerar uma chave, acesse a <a href="http://isbndb.com/api/v1/docs/keys" target="_blank">documentação online</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Este filtro se conecta à base de citações CrossRef usando sua <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">Interface de Query OpenURL</a>.</p> 
+	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Este filtro se conecta à base de citações CrossRef usando sua <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">Interface de Query OpenURL</a>.</p>
 <p>Para usar este filtro, use seu cadastro no sistema CrossRef, ou cadastre um e-mail válido junto ao CrossRef <a href="http://www.crossref.org/requestaccount/" target="_blank">aqui</a>.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Este filtro se conecta ao <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a>, mecanismo de busca em bases cruzadas do PubMed.</p>
 <p>Um e-mail de cadastro não é obrigatório, mas pode ser necessário caso encontre problemas de conectividade. Veja mais informações sobre o Entrez na documentação disponível no <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Guia de Uso e Requisitos</a>.</p>]]></message>
@@ -230,7 +230,7 @@
 	<message key="manager.emails.resetAll.message">Caso restaure todos os modelos, todas as alterações aos modelos de mensagem serão perdidas. Deseja confirmar a operação?</message>
 	<message key="manager.emails.reset.message">Caso restaure este modelo, todos os dados da mensagem retornarão ao valor original, perdendo todas as alterações. Deseja confirmar esta operação?</message>
 	<message key="manager.masthead.title">Expediente</message>
-	<message key="manager.reviewerSearch.searchByName.short">Buscar por nome</message>
+	<message key="manager.reviewerSearch.searchByName.short">Buscar por Nome</message>
 	<message key="manager.reviewerSearch.form.instructions">Use o formulário a seguir para definir os valores máximos para os termos pelos quais deseja buscar. O formulário está preenchido previamente com médias calculadas dos campos.</message>
 	<message key="manager.reviewerSearch.form.interests.instructions">Informe as áreas de interesse para avaliação, separadas por vírgula...</message>
 	<message key="manager.setup.layout.blockManagement">Gerenciamento da barra lateral</message>
@@ -450,7 +450,7 @@ Há casos em que uma única estatística de uso devem ser utilizada, por exemplo
 	<message key="manager.setup.metadata.submission">Submission Form</message>
 	<message key="manager.setup.genres.sortable">Permitir que os arquivos deste tipo para ser classificados por componente (por exemplo, por capítulo)</message>
 	<message key="manager.setup.genres.dependent">Marque os arquivos deste tipo como arquivos dependentes (por exemplo, não submissões primárias)</message>
-	
+
 	<message key="manager.reviewerSearch.change">Mudar</message>
 	<message key="manager.reviewerSearch.doneAmountToggle">Habilitar/desabilitar o filtro para avaliações concluídas.</message>
 	<message key="manager.reviewerSearch.avgAmountToggle">Habilitar/desabilitar o filtro para média de dias para completar uma avaliação.</message>
@@ -506,4 +506,6 @@ Há casos em que uma única estatística de uso devem ser utilizada, por exemplo
 	<message key="manager.setup.principalContactDescription">Digite os detalhes de contato, normalmente para do editor principal, administrador editorial ou pessoal administrativo que pode ser exibido em seu site acessível ao público.</message>
 	<message key="manager.setup.privacyStatement">Declaração de Privacidade</message>
 	<message key="manager.setup.privacyStatement.description">Esta declaração aparecerá durante o envio do manuscrito pelo autor e na página "Sobre" disponível publicamente.</message>
+	<message key="plugins.importexport.common.validationErrors">Erros de validação:</message>
+	<message key="manager.userSearch.searchByName">Buscar Esuário por Nome</message>
 </locale>

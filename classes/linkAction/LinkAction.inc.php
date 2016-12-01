@@ -45,7 +45,7 @@ class LinkAction {
 	 * @param $toolTip string (optional) A localized tool tip to display when hovering over
 	 *  the link action.
 	 */
-	function LinkAction($id, &$actionRequest, $title = null, $image = null, $toolTip = null) {
+	function __construct($id, &$actionRequest, $title = null, $image = null, $toolTip = null) {
 		$this->_id = $id;
 		assert(is_a($actionRequest, 'LinkActionRequest'));
 		$this->_actionRequest =& $actionRequest;

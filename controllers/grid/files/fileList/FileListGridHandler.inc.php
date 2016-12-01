@@ -28,8 +28,8 @@ class FileListGridHandler extends SubmissionFilesGridHandler {
 	 * @param $capabilities integer A bit map with zero or more
 	 *  FILE_GRID_* capabilities set.
 	 */
-	function FileListGridHandler($dataProvider, $stageId, $capabilities = 0) {
-		parent::SubmissionFilesGridHandler($dataProvider, $stageId, $capabilities);
+	function __construct($dataProvider, $stageId, $capabilities = 0) {
+		parent::__construct($dataProvider, $stageId, $capabilities);
 	}
 
 

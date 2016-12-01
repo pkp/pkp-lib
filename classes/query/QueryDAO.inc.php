@@ -21,8 +21,8 @@ class QueryDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function QueryDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

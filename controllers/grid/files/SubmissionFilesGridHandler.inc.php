@@ -41,8 +41,8 @@ class SubmissionFilesGridHandler extends GridHandler {
 	 * @param $capabilities integer A bit map with zero or more
 	 *  FILE_GRID_* capabilities set.
 	 */
-	function SubmissionFilesGridHandler($dataProvider, $stageId, $capabilities = 0) {
-		parent::GridHandler($dataProvider);
+	function __construct($dataProvider, $stageId, $capabilities = 0) {
+		parent::__construct($dataProvider);
 
 		if ($stageId) {
 			$this->_stageId = (int)$stageId;

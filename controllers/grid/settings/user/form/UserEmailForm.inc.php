@@ -24,8 +24,8 @@ class UserEmailForm extends Form {
 	 * Constructor.
 	 * @param $userId int User ID to contact.
 	 */
-	function UserEmailForm($userId) {
-		parent::Form('controllers/grid/settings/user/form/userEmailForm.tpl');
+	function __construct($userId) {
+		parent::__construct('controllers/grid/settings/user/form/userEmailForm.tpl');
 
 		$this->userId = (int) $userId;
 

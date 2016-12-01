@@ -20,9 +20,9 @@ class CopyeditFilesGridHandler extends FileListGridHandler {
 	 * Constructor
 	 *  FILE_GRID_* capabilities set.
 	 */
-	function CopyeditFilesGridHandler() {
+	function __construct() {
 		import('lib.pkp.controllers.grid.files.copyedit.CopyeditFilesGridDataProvider');
-		parent::FileListGridHandler(
+		parent::__construct(
 			new CopyeditFilesGridDataProvider(),
 			null,
 			FILE_GRID_EDIT|FILE_GRID_MANAGE|FILE_GRID_VIEW_NOTES

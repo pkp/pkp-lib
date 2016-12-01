@@ -19,8 +19,8 @@ class GenreGridRow extends GridRow {
 	/**
 	 * Constructor
 	 */
-	function GenreGridRow() {
-		parent::GridRow();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

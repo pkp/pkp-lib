@@ -20,8 +20,8 @@ class SubmissionFileEventLogGridHandler extends SubmissionEventLogGridHandler {
 	/**
 	 * Constructor
 	 */
-	function SubmissionFileEventLogGridHandler() {
-		parent::SubmissionEventLogGridHandler();
+	function __construct() {
+		parent::__construct();
 	}
 
 

@@ -24,7 +24,7 @@ class GridDataProvider {
 	/**
 	 * Constructor
 	 */
-	function GridDataProvider() {
+	function __construct() {
 	}
 
 

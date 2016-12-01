@@ -23,7 +23,7 @@ class ListbuilderMap {
 	/**
 	 * Constructor
 	 */
-	function ListbuilderMap($key, $value) {
+	function __construct($key, $value) {
 		$this->key = $key;
 		$this->value = $value;
 	}

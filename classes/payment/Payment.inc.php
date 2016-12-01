@@ -43,7 +43,7 @@ class Payment {
 	 * @param $userId int
 	 * @param $assocId int optional
 	 */
-	function Payment($amount = null, $currencyCode = null, $userId = null, $assocId = null) {
+	function __construct($amount = null, $currencyCode = null, $userId = null, $assocId = null) {
 		$this->amount = $amount;
 		$this->currencyCode = $currencyCode;
 		$this->userId = $userId;

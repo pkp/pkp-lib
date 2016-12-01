@@ -90,6 +90,8 @@
 	<message key="common.fileName">ファイル名</message>
 	<message key="common.fileSize">ファイルサイズ</message>
 	<message key="common.fileType">ファイル種別</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">高さ</message>
 	<message key="common.homePageHeaderLogo.altText">ホームページヘッダーロゴ</message>
 	<message key="common.hour">時</message>
@@ -246,7 +248,7 @@
 	<message key="navigation.userHome">ユーザホーム</message>
 	<message key="navigation.user">ユーザ</message>
 	<message key="search.abstract">要旨</message>
-	<message key="search.allFields">すべて</message>
+	<message key="search.author">著者</message>
 	<message key="search.coverage">範囲</message>
 	<message key="search.date">日付</message>
 	<message key="search.dateFrom">処理対象開始日</message>

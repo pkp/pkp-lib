@@ -26,8 +26,8 @@ class UserForm extends Form {
 	 * @param $userId int optional
 	 * @param $author Author optional
 	 */
-	function UserForm($template, $userId = null) {
-		parent::Form($template);
+	function __construct($template, $userId = null) {
+		parent::__construct($template);
 
 		$this->userId = isset($userId) ? (int) $userId : null;
 
@@ -47,7 +47,7 @@ class UserForm extends Form {
 	 * @copydoc Form::execute()
 	 */
 	function execute($request) {
-		ListbuilderHandler::unpack($request, $this->getData('roles'));
+		ListbuilderHandler::unpack($request, $this->getData('roles'), array($this, 'deleteEntry'), array($this, 'insertEntry'), array($this, 'updateEntry'));
 	}
 
 	/**

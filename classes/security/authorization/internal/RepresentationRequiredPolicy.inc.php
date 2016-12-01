@@ -22,8 +22,8 @@ class RepresentationRequiredPolicy extends DataObjectRequiredPolicy {
 	 * @param $submissionParameterName string the request parameter we expect
 	 *  the submission id in.
 	 */
-	function RepresentationRequiredPolicy($request, &$args, $parameterName = 'representationId', $operations = null) {
-		parent::DataObjectRequiredPolicy($request, $args, $parameterName, 'user.authorization.invalidRepresentation', $operations);
+	function __construct($request, &$args, $parameterName = 'representationId', $operations = null) {
+		parent::__construct($request, $args, $parameterName, 'user.authorization.invalidRepresentation', $operations);
 	}
 
 	//

@@ -21,8 +21,8 @@ class ContactForm extends BaseProfileForm {
 	 * Constructor.
 	 * @param $user PKPUser
 	 */
-	function ContactForm($user) {
-		parent::BaseProfileForm('user/contactForm.tpl', $user);
+	function __construct($user) {
+		parent::__construct('user/contactForm.tpl', $user);
 
 		// Validation checks for this form
 		$this->addCheck(new FormValidator($this, 'country', 'required', 'user.profile.form.countryRequired'));

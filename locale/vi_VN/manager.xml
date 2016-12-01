@@ -142,8 +142,6 @@
 	<message key="manager.setup.homeHeaderImageInvalid">Định dạng ảnh logo trên trang chủ không phù hợp. Chỉ hỗ trợ các định dạng .gif, .jpg, or .png.</message>
 	<message key="manager.setup.homepageImageInvalid">Định dạng ảnh trên trang chủ không phù hợp. Chỉ hỗ trợ các định dạng .gif, .jpg, or .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Định dạng ảnh măng séc trên trang chủ không phù hợp. Chỉ hỗ trợ các định dạng .gif, .jpg, or .png.</message>
-	<message key="manager.setup.layout.leftSidebar">Thanh lề trái</message>
-	<message key="manager.setup.layout.rightSidebar">Thanh lề phải</message>
 	<message key="manager.setup.layout.unselected">Chưa chọn</message>
 	<message key="manager.setup.loggingAndAuditing">Lưu nhật ký và Kiểm tra</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Định dạng logo trên các trang trong không phù hợp. Chỉ hỗ trợ các định dạng .gif, .jpg, or .png.</message>

@@ -19,8 +19,8 @@ abstract class GenericPlugin extends LazyLoadPlugin {
 	/**
 	 * Constructor
 	 */
-	function GenericPlugin() {
-		parent::LazyLoadPlugin();
+	function __construct() {
+		parent::__construct();
 	}
 }
 

@@ -21,8 +21,8 @@ class SubmissionKeywordEntryDAO extends ControlledVocabEntryDAO {
 	/**
 	 * Constructor
 	 */
-	function SubmissionKeywordEntryDAO() {
-		parent::ControlledVocabEntryDAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

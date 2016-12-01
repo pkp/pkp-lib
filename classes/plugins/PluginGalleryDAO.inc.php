@@ -22,8 +22,8 @@ class PluginGalleryDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function PluginGalleryDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

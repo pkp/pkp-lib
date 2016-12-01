@@ -93,7 +93,6 @@
 	<message key="user.register.form.emailExists">Вказана адреса email вже використовується іншим користувачем.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Введені паролі не збігаються.</message>
 	<message key="user.register.form.emailsDoNotMatch">Поля адрес email не збігаються.</message>
-	<message key="user.register.form.usernameAlphaNumeric">Ім'я користувача може складатися лише з літер, цифр, символів підкреслення, тире, і обов'язково повинно починатись та закінчуватись літерою або цифрою.</message>
 	<message key="user.register.form.usernameExists">Вказане ім'я користувача вже використовується в іншому обліковому записі.</message>
 	<message key="user.register.passwordLengthRestriction">Пароль повинен бути не менше {$length} символів.</message>
 	<message key="user.register.registerAs">Зареєструватися як</message>

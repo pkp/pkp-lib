@@ -42,7 +42,7 @@ class ParaciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function ParaciteRawCitationNlm30CitationSchemaFilter($filterGroup) {
+	function __construct($filterGroup) {
 		$this->setDisplayName('ParaCite');
 
 		// Instantiate the settings of this filter
@@ -52,7 +52,7 @@ class ParaciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
 				ParaciteRawCitationNlm30CitationSchemaFilter::getSupportedCitationModules());
 		$this->addSetting($citationModuleSetting);
 
-		parent::Nlm30CitationSchemaFilter($filterGroup);
+		parent::__construct($filterGroup);
 	}
 
 	//

@@ -31,8 +31,8 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 	 * @param $stageId int
 	 * @param $queriesAccessHelper QueriesAccessHelper
 	 */
-	function QueriesGridCellProvider($submission, $stageId, $queriesAccessHelper) {
-		parent::DataObjectGridCellProvider();
+	function __construct($submission, $stageId, $queriesAccessHelper) {
+		parent::__construct();
 		$this->_submission = $submission;
 		$this->_stageId = $stageId;
 		$this->_queriesAccessHelper = $queriesAccessHelper;

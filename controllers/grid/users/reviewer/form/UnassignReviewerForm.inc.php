@@ -30,12 +30,12 @@ class UnassignReviewerForm extends Form {
 	 * @param mixed $reviewRound ReviewRound
 	 * @param mixed $submission Submission
 	 */
-	function UnassignReviewerForm($reviewAssignment, $reviewRound, $submission) {
+	function __construct($reviewAssignment, $reviewRound, $submission) {
 		$this->setReviewAssignment($reviewAssignment);
 		$this->setReviewRound($reviewRound);
 		$this->setSubmission($submission);
 
-		parent::Form('controllers/grid/users/reviewer/form/unassignReviewerForm.tpl');
+		parent::__construct('controllers/grid/users/reviewer/form/unassignReviewerForm.tpl');
 	}
 
 	//

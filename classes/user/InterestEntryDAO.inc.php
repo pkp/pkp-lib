@@ -22,8 +22,8 @@ class InterestEntryDAO extends ControlledVocabEntryDAO {
 	/**
 	 * Constructor
 	 */
-	function InterestEntryDAO() {
-		parent::ControlledVocabEntryDAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

@@ -26,9 +26,10 @@ class PKPSiteSettingsForm extends Form {
 
 	/**
 	 * Constructor.
+	 * @param $template string? Optional name of template file to use for form presentation
 	 */
-	function PKPSiteSettingsForm() {
-		parent::Form('admin/settings.tpl');
+	function __construct($template = null) {
+		parent::__construct($template?$template:'admin/settings.tpl');
 		$this->siteSettingsDao = DAORegistry::getDAO('SiteSettingsDAO');
 
 		// Validation checks for this form
@@ -75,11 +76,12 @@ class PKPSiteSettingsForm extends Form {
 			'showTitle' => $site->getSetting('showTitle'),
 			'showDescription' => $site->getSetting('showDescription'),
 			'about' => $site->getSetting('about'), // Localized
+			'pageFooter' => $site->getSetting('pageFooter'), // Localized
 			'contactName' => $site->getSetting('contactName'), // Localized
 			'contactEmail' => $site->getSetting('contactEmail'), // Localized
 			'minPasswordLength' => $site->getMinPasswordLength(),
 			'pageHeaderTitleType' => $site->getSetting('pageHeaderTitleType'), // Localized
-			'siteTheme' => $site->getSetting('siteTheme')
+			'themePluginPath' => $site->getSetting('themePluginPath')
 		);
 
 		foreach ($data as $key => $value) {
@@ -88,7 +90,7 @@ class PKPSiteSettingsForm extends Form {
 	}
 
 	function getLocaleFieldNames() {
-		return array('title', 'pageHeaderTitleType', 'intro', 'about', 'contactName', 'contactEmail');
+		return array('title', 'pageHeaderTitleType', 'intro', 'about', 'contactName', 'contactEmail', 'pageFooter');
 	}
 
 	/**
@@ -96,26 +98,32 @@ class PKPSiteSettingsForm extends Form {
 	 */
 	function readInputData() {
 		$this->readUserVars(
-			array('pageHeaderTitleType', 'title', 'intro', 'about', 'redirect', 'contactName', 'contactEmail', 'minPasswordLength', 'pageHeaderTitleImageAltText', 'showThumbnail', 'showTitle', 'showDescription', 'siteTheme')
+			array('pageHeaderTitleType', 'title', 'intro', 'about', 'redirect', 'contactName', 'contactEmail', 'minPasswordLength', 'pageHeaderTitleImageAltText', 'showThumbnail', 'showTitle', 'showDescription', 'themePluginPath', 'pageFooter')
 		);
 	}
 
 	/**
 	 * Save site settings.
 	 */
-	function execute() {
+	function execute($request) {
+		parent::execute();
 		$siteDao = DAORegistry::getDAO('SiteDAO');
 		$site = $siteDao->getSite();
 
 		$site->setRedirect($this->getData('redirect'));
 		$site->setMinPasswordLength($this->getData('minPasswordLength'));
 
+		// Clear the template cache if theme has changed
+		if ($this->getData('themePluginPath') != $site->getSetting('themePluginPath')) {
+			$templateMgr = TemplateManager::getManager($request);
+			$templateMgr->clearTemplateCache();
+			$templateMgr->clearCssCache();
+		}
+
 		$siteSettingsDao = $this->siteSettingsDao;
 		foreach ($this->getLocaleFieldNames() as $setting) {
 			$siteSettingsDao->updateSetting($setting, $this->getData($setting), null, true);
 		}
-
-		$site->updateSetting('siteTheme', $this->getData('siteTheme'), 'string', false);
 
 		$setting = $site->getSetting('pageHeaderTitleImage');
 		if (!empty($setting)) {
@@ -125,11 +133,12 @@ class PKPSiteSettingsForm extends Form {
 			$site->updateSetting('pageHeaderTitleImage', $setting, 'object', true);
 		}
 
-		$site->updateSetting('showThumbnail', $this->getData('showThumbnail'), bool);
-		$site->updateSetting('showTitle', $this->getData('showTitle'), bool);
-		$site->updateSetting('showDescription', $this->getData('showDescription'), bool);
+		$site->updateSetting('showThumbnail', $this->getData('showThumbnail'), 'bool');
+		$site->updateSetting('showTitle', $this->getData('showTitle'), 'bool');
+		$site->updateSetting('showDescription', $this->getData('showDescription'), 'bool');
 
 		$siteDao->updateObject($site);
+
 		return true;
 	}
 

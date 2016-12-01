@@ -24,8 +24,8 @@ class InformationCenterHandler extends Handler {
 	/**
 	 * Constructor
 	 */
-	function InformationCenterHandler() {
-		parent::Handler();
+	function __construct() {
+		parent::__construct();
 
 		// Author can do everything except delete notes.
 		// (Review-related log entries are hidden from the author, but

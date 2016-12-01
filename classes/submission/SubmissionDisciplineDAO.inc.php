@@ -23,8 +23,8 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO {
 	/**
 	 * Constructor
 	 */
-	function submissionDisciplineDAO() {
-		parent::ControlledVocabDAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

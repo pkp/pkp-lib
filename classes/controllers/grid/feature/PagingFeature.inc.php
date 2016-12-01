@@ -23,8 +23,8 @@ class PagingFeature extends GeneralPagingFeature {
 	 * Constructor.
 	 * @param $id string Feature identifier.
 	 */
-	function PagingFeature($id = 'paging') {
-		parent::GeneralPagingFeature($id);
+	function __construct($id = 'paging') {
+		parent::__construct($id);
 	}
 
 

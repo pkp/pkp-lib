@@ -27,10 +27,10 @@ class ParscitRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFil
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function ParscitRawCitationNlm30CitationSchemaFilter($filterGroup) {
+	function __construct($filterGroup) {
 		$this->setDisplayName('ParsCit');
 
-		parent::Nlm30CitationSchemaFilter($filterGroup);
+		parent::__construct($filterGroup);
 	}
 
 	//

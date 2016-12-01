@@ -23,8 +23,8 @@ class MassMail extends MailTemplate {
 	/**
 	 * Constructor
 	 */
-	function MassMail($emailKey = null, $locale = null) {
-		parent::MailTemplate($emailKey, $locale);
+	function __construct($emailKey = null, $locale = null) {
+		parent::__construct($emailKey, $locale);
 		$this->callback = null;
 		$this->frequency = 10;
 	}

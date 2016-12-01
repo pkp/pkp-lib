@@ -28,9 +28,9 @@ class EventLogGridRow extends GridRow {
 	/**
 	 * Constructor
 	 */
-	function EventLogGridRow($submission) {
+	function __construct($submission) {
 		$this->_submission = $submission;
-		parent::GridRow();
+		parent::__construct();
 	}
 
 	//

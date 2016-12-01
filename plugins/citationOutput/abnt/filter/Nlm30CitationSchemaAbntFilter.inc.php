@@ -25,7 +25,7 @@ class Nlm30CitationSchemaAbntFilter extends Nlm30CitationSchemaCitationOutputFor
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function Nlm30CitationSchemaAbntFilter($filterGroup) {
+	function __construct($filterGroup) {
 		$this->setDisplayName('ABNT Citation Output');
 
 		// FIXME: Implement conference proceedings support for ABNT.
@@ -33,7 +33,7 @@ class Nlm30CitationSchemaAbntFilter extends Nlm30CitationSchemaCitationOutputFor
 			NLM30_PUBLICATION_TYPE_BOOK, NLM30_PUBLICATION_TYPE_JOURNAL
 		));
 
-		parent::Nlm30CitationSchemaCitationOutputFormatFilter($filterGroup);
+		parent::__construct($filterGroup);
 	}
 
 

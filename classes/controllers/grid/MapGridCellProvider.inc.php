@@ -19,8 +19,8 @@ class MapGridCellProvider extends GridCellProvider {
 	/**
 	 * Constructor
 	 */
-	function MapGridCellProvider() {
-		parent::GridCellProvider();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

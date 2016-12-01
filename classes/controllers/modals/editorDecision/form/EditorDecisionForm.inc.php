@@ -39,8 +39,8 @@ class EditorDecisionForm extends Form {
 	 * @param $template string The template to display
 	 * @param $reviewRound ReviewRound
 	 */
-	function EditorDecisionForm($submission, $decision, $stageId, $template, $reviewRound = null) {
-		parent::Form($template);
+	function __construct($submission, $decision, $stageId, $template, $reviewRound = null) {
+		parent::__construct($template);
 		$this->_submission = $submission;
 		$this->_stageId = $stageId;
 		$this->_reviewRound = $reviewRound;

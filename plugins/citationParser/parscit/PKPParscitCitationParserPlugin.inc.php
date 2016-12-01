@@ -23,8 +23,8 @@ class PKPParscitCitationParserPlugin extends Plugin {
 	/**
 	 * Constructor
 	 */
-	function PKPParscitCitationParserPlugin() {
-		parent::Plugin();
+	function __construct() {
+		parent::__construct();
 	}
 
 

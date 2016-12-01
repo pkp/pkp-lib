@@ -25,10 +25,10 @@ class Nlm30CitationSchemaVancouverFilter extends Nlm30CitationSchemaCitationOutp
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function Nlm30CitationSchemaVancouverFilter($filterGroup) {
+	function __construct($filterGroup) {
 		$this->setDisplayName('Vancouver Citation Output');
 
-		parent::Nlm30CitationSchemaCitationOutputFormatFilter($filterGroup);
+		parent::__construct($filterGroup);
 	}
 
 

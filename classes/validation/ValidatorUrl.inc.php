@@ -20,8 +20,8 @@ class ValidatorUrl extends ValidatorUri {
 	/**
 	 * Constructor.
 	 */
-	function ValidatorUrl() {
-		parent::ValidatorUri(ValidatorUrl::_getAllowedSchemes());
+	function __construct() {
+		parent::__construct(ValidatorUrl::_getAllowedSchemes());
 	}
 
 	//

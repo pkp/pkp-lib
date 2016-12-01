@@ -36,8 +36,8 @@ class SubmissionSubmitForm extends Form {
 	 * @param $submission object
 	 * @param $step int
 	 */
-	function SubmissionSubmitForm($context, $submission, $step) {
-		parent::Form(sprintf('submission/form/step%d.tpl', $step));
+	function __construct($context, $submission, $step) {
+		parent::__construct(sprintf('submission/form/step%d.tpl', $step));
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
 		$this->step = (int) $step;

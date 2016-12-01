@@ -16,10 +16,10 @@
 class ResourceWrapper extends FileWrapper {
 	/**
 	 * Constructor.
-	 * @param $url string
-	 * @param $info array
+	 * @param $fp Resource
 	 */
-	function ResourceWrapper(&$fp) {
+	function __construct(&$fp) {
+		// Parent constructor intentionally not called
 		$this->fp =& $fp;
 	}
 

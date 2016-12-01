@@ -23,12 +23,12 @@ class FileInfoCenterLinkAction extends FileLinkAction {
 	 * to show information about.
 	 * @param $stageId int (optional) The stage id that user is looking at.
 	 */
-	function FileInfoCenterLinkAction($request, $submissionFile, $stageId = null) {
+	function __construct($request, $submissionFile, $stageId = null) {
 		// Instantiate the information center modal.
 		$ajaxModal = $this->getModal($request, $submissionFile, $stageId);
 
 		// Configure the file link action.
-		parent::FileLinkAction(
+		parent::__construct(
 			'moreInformation', $ajaxModal,
 			__('grid.action.moreInformation'), 'more_info'
 		);

@@ -110,6 +110,8 @@
 	<message key="common.fileName">Nama File</message>
 	<message key="common.fileSize">Ukuran File</message>
 	<message key="common.fileType">Tipe File</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">Tinggi</message>
 	<message key="common.homePageHeaderLogo.altText">Logo Header Beranda</message>
 	<message key="common.hour">Jam</message>
@@ -307,7 +309,7 @@
 	<message key="notification.unsubscribeError">Ada kesalahan saat proses tidak berlangganan. Pastikan alamat email dan kata sandi Anda benar.</message>
 	<message key="notification.unsubscribeSuccess">Anda telah sukses tidak berlangganan.</message>
 	<message key="search.abstract">Sari</message>
-	<message key="search.allFields">Semua</message>
+	<message key="search.author">Penulis</message>
 	<message key="search.coverage">Cakupan</message>
 	<message key="search.date">Tanggal</message>
 	<message key="search.dateFrom">Dari</message>

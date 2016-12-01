@@ -34,13 +34,13 @@ class PKPSectionForm extends Form {
 	 * @param $template string Template path
 	 * @param $sectionId int optional
 	 */
-	function PKPSectionForm($request, $template, $sectionId = null) {
+	function __construct($request, $template, $sectionId = null) {
 		$this->setSectionId($sectionId);
 
 		$user = $request->getUser();
 		$this->_userId = $user->getId();
 
-		parent::Form($template);
+		parent::__construct($template);
 
 		// Validation checks for this form
 		$this->addCheck(new FormValidatorPost($this));

@@ -24,13 +24,13 @@ class QueryTitleGridColumn extends GridColumn {
 	 * Constructor
 	 * @param $actionArgs array Action args for link actions
 	 */
-	function QueryTitleGridColumn($actionArgs) {
+	function __construct($actionArgs) {
 		$this->_actionArgs = $actionArgs;
 
 		import('lib.pkp.classes.controllers.grid.ColumnBasedGridCellProvider');
 		$cellProvider = new ColumnBasedGridCellProvider();
 
-		parent::GridColumn('name', 'common.name', null, null, $cellProvider,
+		parent::__construct('name', 'common.name', null, null, $cellProvider,
 			array('width' => 60, 'alignment' => COLUMN_ALIGNMENT_LEFT));
 	}
 

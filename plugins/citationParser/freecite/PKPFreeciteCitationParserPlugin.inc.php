@@ -23,8 +23,8 @@ class PKPFreeciteCitationParserPlugin extends Plugin {
 	/**
 	 * Constructor
 	 */
-	function PKPFreeciteCitationParserPlugin() {
-		parent::Plugin();
+	function __construct() {
+		parent::__construct();
 	}
 
 

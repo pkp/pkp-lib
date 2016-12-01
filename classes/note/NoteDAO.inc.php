@@ -23,8 +23,8 @@ class NoteDAO extends DAO {
 	/**
 	 * Constructor.
 	 */
-	function NoteDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

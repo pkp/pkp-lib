@@ -77,7 +77,6 @@
 	<message key="user.register.completeForm">Fyll ut dette skjemaet for å registrere deg hos tidsskriftet.</message>
 	<message key="user.register.form.emailExists">Den valgte e-postadressen er allerede i bruk av en annen bruker.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Passordene var ulike.</message>
-	<message key="user.register.form.usernameAlphaNumeric">Brukernavnet kan bare inneholde alfanumeriske tegn, understrek og bindestrek, og må begynne og slutte med et alfanumerisk tegn.</message>
 	<message key="user.register.form.usernameExists">Det valgte brukernavnet er allerede tatt i bruk av en annen bruker.</message>
 	<message key="user.register.passwordLengthRestriction">Passordet må være minst {$length} tegn.</message>
 	<message key="user.register.registerAs">Registrer som</message>

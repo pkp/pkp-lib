@@ -106,6 +106,8 @@
 	<message key="common.fileName">Ім'я файлу</message>
 	<message key="common.fileSize">Розмір файлу</message>
 	<message key="common.fileType">Тип файлу</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">Висота</message>
 	<message key="common.homePageHeaderLogo.altText">Логотип заголовку домашньої сторінки</message>
 	<message key="common.hour">Година</message>
@@ -301,7 +303,7 @@
 	<message key="notification.unsubscribeError">Під час відмови від передплати сталася помилка.  Будь ласка, перевірте коректність введеної Вами адреси email та пароля.</message>
 	<message key="notification.unsubscribeSuccess">Ваша передплата була успішно скасована.</message>
 	<message key="search.abstract">Анотація</message>
-	<message key="search.allFields">Всі поля</message>
+	<message key="search.author">Автори</message>
 	<message key="search.coverage">Тематичне покриття</message>
 	<message key="search.date">Дата</message>
 	<message key="search.dateFrom">З</message>

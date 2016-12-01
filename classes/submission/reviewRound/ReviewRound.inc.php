@@ -31,8 +31,8 @@ class ReviewRound extends DataObject {
 	/**
 	 * Constructor
 	 */
-	function ReviewRound() {
-		parent::DataObject();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

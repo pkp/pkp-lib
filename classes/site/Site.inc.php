@@ -24,8 +24,8 @@ class Site extends DataObject {
 	/**
 	 * Constructor.
 	 */
-	function Site() {
-		parent::DataObject();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

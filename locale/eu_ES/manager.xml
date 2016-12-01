@@ -141,8 +141,6 @@
 	<message key="manager.setup.homeHeaderImageInvalid">Hasierako orriaren goiburuko logoaren irudi-formatua ez da baliozkoa: .gif, .jpg, edo .png formatuak bakarrik onartzen dira.</message>
 	<message key="manager.setup.homepageImageInvalid">Hasierako orriaren goiburuko irudi-formatua ez da baliozkoa: .gif, .jpg, edo .png formatuak bakarrik onartzen dira.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Hasierako orriaren goiburuko tituluaren irudi-formatua ez da baliozkoa: .gif, .jpg, edo .png formatuak bakarrik onartzen dira.</message>
-	<message key="manager.setup.layout.leftSidebar">Ezkerreko barra</message>
-	<message key="manager.setup.layout.rightSidebar">Eskuineko barra</message>
 	<message key="manager.setup.layout.unselected">Hautatu gabe</message>
 	<message key="manager.setup.loggingAndAuditing">Log-erregistroa eta kontrola</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Orri-buruko logoaren irudi-formatua ez da baliozkoa: .gif, .jpg, edo .png formatuak bakarrik onartzen dira.</message>
@@ -179,7 +177,7 @@
 	<message key="manager.reviewerSearch.interests">Interesak ebaluatzen</message>
 	<message key="manager.setup.citationFilterParser">Aipuak erauztea</message>
 	<message key="manager.setup.citationFilterLookup">Aipuak egiaztatzen</message>
-	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p> Aipuen kanpoko datu-baseetarako konexioak ere gaitu eta konfiguratu behar dituzu. Horrek egilearen aipuetan akatsak aurkitzen edo informazioa gehitzen lagunduko dizu, eta beharrezkoa da elektronikoki argitaratzeko edo bertan uzteko (adib., DOI edo PubMed-en ID-ak). </p> 
+	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p> Aipuen kanpoko datu-baseetarako konexioak ere gaitu eta konfiguratu behar dituzu. Horrek egilearen aipuetan akatsak aurkitzen edo informazioa gehitzen lagunduko dizu, eta beharrezkoa da elektronikoki argitaratzeko edo bertan uzteko (adib., DOI edo PubMed-en ID-ak). </p>
 		<p>Kanpoko hainbat datu-baseetarako konektore ditugu, eta horietan aipuak bilatu ahal izango dituzu. Datu-base horietako zenbaitek erregistratzeko edo konfiguratzeko informazioa eskatzen dute. Mesedez, begiratu datu-baseen web orri publikoak, erregistratzeari buruzko informazio gehiago izateko. Datu-base bat edo gehiago gehitu ditzakezu azpian agertzen den “Gehitu elementua” botoia sakatuz gero. </p>
 		<p> Kanpoko datu-baseetako konexioak editatzeko edo ezabatzeko, egin klik haren ondoko engranaje-ikonoan. </p>
 		<p><strong>Oharra: </strong>Aipua egiaztatzeko prozesua modu egokian amaitzeko, zure konfigurazio-fitxategiko <tt>citation_checking_max_processes</tt> direktiba balio egokian ezarri behar da. Informazio gehiago izateko, begiratu “Ezarpen Orokorrak” atala helbide honetan: <tt>config.inc.php</tt>.</p>]]></message>
@@ -193,7 +191,7 @@
 	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">{$filterDisplayName} datu-basea gehitzea aukeratu duzu. Mesedez, egin klik “OK” botoian baieztatzeko.</message>
 	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Mesedez, hautatu bilaketa egiteko datu-basea.</message>
 	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p> Iragazki honek <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> liburuaren eta ISBN-aren datu-basearekin konektatzen du. <p>ISBNdb API gakoa nahitaezkoa da. Gakoa sortzeari buruzko informazioa eskuratzeko, begiratu <a href="http://isbndb.com/api/v1/docs/keys" target="_blank"> linean dagoen dokumentazioa </a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p> Iragazki honek CrossRef aipuaren datu-basera konektatzen du, CrossRef-en <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank"> OpenURL Query Interface interfazea erabiliz. </p> 
+	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p> Iragazki honek CrossRef aipuaren datu-basera konektatzen du, CrossRef-en <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank"> OpenURL Query Interface interfazea erabiliz. </p>
 	<p>Iragazki hori erabiltzeko, CrossRef sistemako zure kontua erabil dezakezu, edo baliozko helbide elektronikoa erregistra dezakezu CrossRef-en <a href="http://w ww.crossref.org/requestaccount/" target="_blank">, hemen</a>.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p> Iragazki honek PubMed-en  <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a> datu-baseen arteko bilatzailearekin konektatzen du. </p>
 	<p>Erregistratzeko helbide elektronikoa ez da guztiz nahitaezkoa, baina beharrezkoa izan daiteke konexio-arazoak izanez gero. Informazio gehiago izateko, begiratu <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank"> atala Entrez dokumentazioan.]]></message>

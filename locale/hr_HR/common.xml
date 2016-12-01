@@ -86,6 +86,8 @@
 	<message key="common.fileName">Naziv datoteke</message>
 	<message key="common.fileSize">Veličina datoteke</message>
 	<message key="common.fileType">Tip datoteke</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">Visina</message>
 	<message key="common.homePageHeaderLogo.altText">Logotip zaglavlja naslovne stranice</message>
 	<message key="common.hour">Sat</message>
@@ -236,7 +238,7 @@
 	<message key="navigation.userHome">Korisnička</message>
 	<message key="navigation.user">Korisnik</message>
 	<message key="search.abstract">Sažetak</message>
-	<message key="search.allFields">Sve</message>
+	<message key="search.author">Autori</message>
 	<message key="search.coverage">Opseg</message>
 	<message key="search.date">Datum</message>
 	<message key="search.dateFrom">Od</message>

@@ -23,8 +23,8 @@ abstract class MetadataPlugin extends Plugin {
 	/**
 	 * Constructor
 	 */
-	function MetadataPlugin() {
-		parent::Plugin();
+	function __construct() {
+		parent::__construct();
 	}
 
 

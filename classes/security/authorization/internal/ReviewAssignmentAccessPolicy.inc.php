@@ -25,8 +25,8 @@ class ReviewAssignmentAccessPolicy extends AuthorizationPolicy {
 	 * Constructor
 	 * @param $request PKPRequest
 	 */
-	function ReviewAssignmentAccessPolicy($request) {
-		parent::AuthorizationPolicy('user.authorization.submissionReviewer');
+	function __construct($request) {
+		parent::__construct('user.authorization.submissionReviewer');
 		$this->_request = $request;
 	}
 

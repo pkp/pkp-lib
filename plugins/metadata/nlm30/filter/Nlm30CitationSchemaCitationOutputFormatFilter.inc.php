@@ -29,8 +29,8 @@ class Nlm30CitationSchemaCitationOutputFormatFilter extends TemplateBasedFilter 
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function Nlm30CitationSchemaCitationOutputFormatFilter($filterGroup) {
-		parent::TemplateBasedFilter($filterGroup);
+	function __construct($filterGroup) {
+		parent::__construct($filterGroup);
 	}
 
 

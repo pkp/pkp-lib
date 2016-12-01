@@ -20,9 +20,9 @@ class NativeXmlUserGroupFilter extends NativeImportFilter {
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function NativeXmlUserGroupFilter($filterGroup) {
+	function __construct($filterGroup) {
 		$this->setDisplayName('Native XML user group import');
-		parent::NativeImportFilter($filterGroup);
+		parent::__construct($filterGroup);
 	}
 
 	//

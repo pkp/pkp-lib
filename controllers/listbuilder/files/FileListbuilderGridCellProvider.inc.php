@@ -19,8 +19,8 @@ class FileListbuilderGridCellProvider extends GridCellProvider {
 	/**
 	 * Constructor
 	 */
-	function FileListbuilderGridCellProvider() {
-		parent::GridCellProvider();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

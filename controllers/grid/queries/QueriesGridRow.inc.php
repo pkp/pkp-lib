@@ -30,12 +30,12 @@ class QueriesGridRow extends GridRow {
 	 * @param $stageId int
 	 * @param $queriesAccessHelper QueriesAccessHelper
 	 */
-	function QueriesGridRow($submission, $stageId, $queriesAccessHelper) {
+	function __construct($submission, $stageId, $queriesAccessHelper) {
 		$this->_submission = $submission;
 		$this->_stageId = $stageId;
 		$this->_queriesAccessHelper = $queriesAccessHelper;
 
-		parent::GridRow();
+		parent::__construct();
 	}
 
 	//

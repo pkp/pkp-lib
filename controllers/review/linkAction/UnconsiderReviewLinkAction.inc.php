@@ -27,10 +27,10 @@ class UnconsiderReviewLinkAction extends LinkAction {
 	 * to show information about.
 	 * @param $submission Submission The reviewed submission.
 	 */
-	function UnconsiderReviewLinkAction($request, $reviewAssignment, $submission) {
+	function __construct($request, $reviewAssignment, $submission) {
 		$router = $request->getRouter();
 		import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
-		parent::LinkAction(
+		parent::__construct(
 			'unconsiderReview',
 			new RemoteActionConfirmationModal(
 				$request->getSession(),

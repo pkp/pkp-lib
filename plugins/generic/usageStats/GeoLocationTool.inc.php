@@ -29,7 +29,7 @@ class GeoLocationTool {
 	 * If we cannot find the database file, an empty object will be constructed.
 	 * Use the method isPresent() to check if the database file is present before use.
 	 */
-	function GeoLocationTool() {
+	function __construct() {
 		$geoLocationDbFile = str_replace(PKP_LIB_PATH . DIRECTORY_SEPARATOR, '', dirname(__FILE__)) . DIRECTORY_SEPARATOR . "GeoLiteCity.dat";
 		if (file_exists($geoLocationDbFile)) {
 			$isDbFilePresent = true;

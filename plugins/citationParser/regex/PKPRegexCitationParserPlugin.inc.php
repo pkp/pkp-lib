@@ -23,8 +23,8 @@ class PKPRegexCitationParserPlugin extends Plugin {
 	/**
 	 * Constructor
 	 */
-	function PKPRegexCitationParserPlugin() {
-		parent::Plugin();
+	function __construct() {
+		parent::__construct();
 	}
 
 

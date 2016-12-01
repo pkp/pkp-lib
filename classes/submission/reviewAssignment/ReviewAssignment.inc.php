@@ -40,8 +40,8 @@ class ReviewAssignment extends DataObject {
 	/**
 	 * Constructor.
 	 */
-	function ReviewAssignment() {
-		parent::DataObject();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

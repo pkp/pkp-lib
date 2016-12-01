@@ -29,7 +29,7 @@ class LocaleFile {
 	 * @param $locale string Key for this locale file
 	 * @param $filename string Filename to this locale file
 	 */
-	function LocaleFile($locale, $filename) {
+	function __construct($locale, $filename) {
 		$this->locale = $locale;
 		$this->filename = $filename;
 	}

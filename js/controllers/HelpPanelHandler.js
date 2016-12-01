@@ -78,8 +78,8 @@
 
 		// Register listeners
 		$element.on('pkp.HelpPanel.Open', this.callbackWrapper(this.openPanel_))
-			.on('pkp.HelpPanel.Close', this.callbackWrapper(this.closePanel_))
-			.on('pkp.HelpPanel.Home', this.callbackWrapper(this.homePanel_));
+				.on('pkp.HelpPanel.Close', this.callbackWrapper(this.closePanel_))
+				.on('pkp.HelpPanel.Home', this.callbackWrapper(this.homePanel_));
 
 		this.helpUrl_ = options.helpUrl;
 		this.helpLocale_ = options.helpLocale;

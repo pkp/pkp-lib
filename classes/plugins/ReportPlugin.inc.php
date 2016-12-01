@@ -19,8 +19,8 @@ abstract class ReportPlugin extends Plugin {
 	/**
 	 * Constructor
 	 */
-	function ReportPlugin() {
-		parent::Plugin();
+	function __construct() {
+		parent::__construct();
 	}
 
 

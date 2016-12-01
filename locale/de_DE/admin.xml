@@ -81,7 +81,6 @@
 	<message key="admin.settings.introduction">Einführung</message>
 	<message key="admin.settings.minPasswordLength">Mindestlänge des Passworts</message>
 	<message key="admin.settings.oaiRegistration">Registrieren Sie die Website für die Indizierung (Metadaten-Harvesting).</message>
-	<message key="admin.settings.passwordCharacters">Zeichen</message>
 	<message key="admin.settings.siteLanguage">Sprache der Website</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Ungültiges Format für die Formatvorlage der Website. Gültiges Format ist .css.</message>
 	<message key="admin.settings.siteStyleSheet">Formatvorlage der Website</message>
@@ -129,4 +128,5 @@ Benutzung (verarbeite alle Dateien in einem Verzeichnis): {$scriptName} path/to/
 	<message key="admin.copyAccessLogFileTool.success">Erfolgreich kopiert: {$filePath} nach {$destinationPath}</message>
 	<message key="admin.error.utilExecutionProblem">Die Ausführung des Programms "{$utilPath}" hat den folgenden Fehler geliefert: {$output}</message>
 	<message key="admin.error.executingUtil">Fehler: Ausführung von "{$utilPath}" nicht möglich. Überprüfen Sie die {$utilVar}-Einstellung in config.inc.php.</message>
+	<message key="admin.settings.siteLogo">Logo der Website</message>
 </locale>

@@ -26,12 +26,12 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 	/**
 	 * Constructor
 	 */
-	function SubmissionsListGridCellProvider($user, $authorizedRoles = null) {
+	function __construct($user, $authorizedRoles = null) {
 		if ($authorizedRoles) {
 			$this->_authorizedRoles = $authorizedRoles;
 		}
 		$this->user = $user;
-		parent::DataObjectGridCellProvider();
+		parent::__construct();
 	}
 
 

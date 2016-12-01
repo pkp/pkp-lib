@@ -32,8 +32,8 @@ class AjaxAction extends LinkActionRequest {
 	 * @param $remoteAction string The target URL.
 	 * @param $requestType string One of the AJAX_REQUEST_TYPE_* constants.
 	 */
-	function AjaxAction($remoteAction, $requestType = AJAX_REQUEST_TYPE_POST) {
-		parent::LinkActionRequest();
+	function __construct($remoteAction, $requestType = AJAX_REQUEST_TYPE_POST) {
+		parent::__construct();
 		$this->_remoteAction = $remoteAction;
 		$this->_requestType = $requestType;
 	}

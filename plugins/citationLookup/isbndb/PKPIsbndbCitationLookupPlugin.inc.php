@@ -24,8 +24,8 @@ class PKPIsbndbCitationLookupPlugin extends Plugin {
 	/**
 	 * Constructor
 	 */
-	function PKPIsbndbCitationLookupPlugin() {
-		parent::Plugin();
+	function __construct() {
+		parent::__construct();
 	}
 
 

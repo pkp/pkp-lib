@@ -24,8 +24,8 @@ class EmailReviewerForm extends Form {
 	 * Constructor.
 	 * @param $reviewAssignment ReviewAssignment The review assignment to use for this contact.
 	 */
-	function EmailReviewerForm($reviewAssignment) {
-		parent::Form('controllers/grid/users/reviewer/form/emailReviewerForm.tpl');
+	function __construct($reviewAssignment) {
+		parent::__construct('controllers/grid/users/reviewer/form/emailReviewerForm.tpl');
 
 		$this->_reviewAssignment = $reviewAssignment;
 

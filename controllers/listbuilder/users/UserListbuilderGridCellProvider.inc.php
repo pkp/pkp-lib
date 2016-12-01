@@ -19,8 +19,8 @@ class UserListbuilderGridCellProvider extends GridCellProvider {
 	/**
 	 * Constructor
 	 */
-	function UserListbuilderGridCellProvider() {
-		parent::GridCellProvider();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

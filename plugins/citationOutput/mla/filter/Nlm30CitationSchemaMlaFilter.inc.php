@@ -25,10 +25,10 @@ class Nlm30CitationSchemaMlaFilter extends Nlm30CitationSchemaCitationOutputForm
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function Nlm30CitationSchemaMlaFilter($filterGroup) {
+	function __construct($filterGroup) {
 		$this->setDisplayName('MLA Citation Output');
 
-		parent::Nlm30CitationSchemaCitationOutputFormatFilter($filterGroup);
+		parent::__construct($filterGroup);
 	}
 
 

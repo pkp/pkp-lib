@@ -19,8 +19,8 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 	/**
 	 * Constructor
 	 */
-	function PKPUserImportExportPlugin() {
-		parent::ImportExportPlugin();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**
@@ -67,6 +67,13 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 	 */
 	function getDescription() {
 		return __('plugins.importexport.users.description');
+	}
+
+	/**
+	 * @copydoc ImportExportPlugin::getPluginSettingsPrefix()
+	 */
+	function getPluginSettingsPrefix() {
+		return 'users';
 	}
 
 	/**
@@ -133,16 +140,24 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 					$request->getContext(),
 					$request->getUser()
 				);
-				header('Content-type: application/xml');
-				echo $exportXml;
+				import('lib.pkp.classes.file.FileManager');
+				$fileManager = new FileManager();
+				$exportFileName = $this->getExportFileName($this->getExportPath(), 'users', $context, '.xml');
+				$fileManager->writeFile($exportFileName, $exportXml);
+				$fileManager->downloadFile($exportFileName);
+				$fileManager->deleteFile($exportFileName);
 				break;
 			case 'exportAllUsers':
 				$exportXml = $this->exportAllUsers(
 					$request->getContext(),
 					$request->getUser()
 				);
-				header('Content-type: application/xml');
-				echo $exportXml;
+				import('lib.pkp.classes.file.TemporaryFileManager');
+				$fileManager = new TemporaryFileManager();
+				$exportFileName = $this->getExportFileName($this->getExportPath(), 'users', $context, '.xml');
+				$fileManager->writeFile($exportFileName, $exportXml);
+				$fileManager->downloadFile($exportFileName);
+				$fileManager->deleteFile($exportFileName);
 				break;
 			default:
 				$dispatcher = $request->getDispatcher();

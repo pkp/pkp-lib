@@ -15,7 +15,7 @@
 
 import('lib.pkp.classes.form.Form');
 
-class PKPStageParticipantNotifyForm extends Form {
+abstract class PKPStageParticipantNotifyForm extends Form {
 	/** @var int The file/submission ID this form is for */
 	var $_itemId;
 
@@ -31,9 +31,9 @@ class PKPStageParticipantNotifyForm extends Form {
 	/**
 	 * Constructor.
 	 */
-	function PKPStageParticipantNotifyForm($itemId, $itemType, $stageId, $template = null) {
+	function __construct($itemId, $itemType, $stageId, $template = null) {
 		$template = ($template != null) ? $template : 'controllers/grid/users/stageParticipant/form/notify.tpl';
-		parent::Form($template);
+		parent::__construct($template);
 		$this->_itemId = $itemId;
 		$this->_itemType = $itemType;
 		$this->_stageId = $stageId;
@@ -115,7 +115,7 @@ class PKPStageParticipantNotifyForm extends Form {
 
 		$this->setData('userIds', array($request->getUserVar('userId')));
 		$userData = $this->getData('users');
-		ListbuilderHandler::unpack($request, $userData);
+		ListbuilderHandler::unpack($request, $userData, array($this, 'deleteEntry'), array($this, 'insertEntry'), array($this, 'updateEntry'));
 	}
 
 	/**
@@ -228,6 +228,21 @@ class PKPStageParticipantNotifyForm extends Form {
 			$headNote->setTitle($email->getSubject());
 			$headNote->setContents($email->getBody());
 			$noteDao->insertObject($headNote);
+
+			$notificationMgr = new NotificationManager();
+			$notificationMgr->updateNotification(
+				$request,
+				array(
+					NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
+					NOTIFICATION_TYPE_AWAITING_COPYEDITS,
+					NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
+					NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
+				),
+				null,
+				ASSOC_TYPE_SUBMISSION,
+				$submission->getId()
+			);
+
 		}
 	}
 
@@ -252,6 +267,7 @@ class PKPStageParticipantNotifyForm extends Form {
 			case 'EDITOR_ASSIGN': return array(
 				'editorUsername' => __('user.username'),
 				'editorialContactName' => __('user.role.editor'),
+				'submissionUrl' => __('common.url'),
 			);
 		}
 	}
@@ -307,9 +323,7 @@ class PKPStageParticipantNotifyForm extends Form {
 	 * return app-specific stage templates.
 	 * @return array
 	 */
-	protected function _getStageTemplates() {
-		assert(false); // Must be overridden in sub classs.
-	}
+	abstract protected function _getStageTemplates();
 
 	/**
 	 * Return app-specific mail template.
@@ -318,9 +332,7 @@ class PKPStageParticipantNotifyForm extends Form {
 	 * @param $includeSignature boolean
 	 * @return array
 	 */
-	protected function _getMailTemplate($submission, $templateKey, $includeSignature = true) {
-		assert(false); // Must be overridden in sub classs.
-	}
+	abstract protected function _getMailTemplate($submission, $templateKey, $includeSignature = true);
 }
 
 ?>

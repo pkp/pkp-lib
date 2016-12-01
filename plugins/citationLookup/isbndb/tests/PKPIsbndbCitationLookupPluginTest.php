@@ -31,7 +31,7 @@ class PKPIsbndbCitationLookupPluginTest extends PluginTestCase {
 
 		// Delete the ISBNdb generic sequencer filter.
 		$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
-		$filterFactory =& $filterDao->getObjectsByGroupAndClass('nlm30-element-citation=>nlm30-element-citation', 'lib.pkp.classes.filter.GenericSequencerFilter', 0, true);
+		$filterFactory = $filterDao->getObjectsByGroupAndClass('nlm30-element-citation=>nlm30-element-citation', 'lib.pkp.classes.filter.GenericSequencerFilter', 0, true);
 		foreach($filterFactory->toArray() as $filter) {
 			if ($filter->getDisplayName() == 'ISBNdb') $filterDao->deleteObject($filter);
 		}

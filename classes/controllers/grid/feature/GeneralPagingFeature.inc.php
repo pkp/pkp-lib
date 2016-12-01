@@ -32,9 +32,9 @@ class GeneralPagingFeature extends GridFeature {
 	 * the first time. 
 	 * Constructor.
 	 */
-	function GeneralPagingFeature($id, $itemsPerPage = null) {
+	function __construct($id, $itemsPerPage = null) {
 		$this->_itemsPerPage = $itemsPerPage;
-		parent::GridFeature($id);
+		parent::__construct($id);
 	}
 
 

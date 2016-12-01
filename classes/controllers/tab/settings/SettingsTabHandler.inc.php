@@ -30,8 +30,8 @@ class SettingsTabHandler extends Handler {
 	 * Constructor
 	 * @param $role string The role keys to be used in role assignment.
 	 */
-	function SettingsTabHandler($role) {
-		parent::Handler();
+	function __construct($role) {
+		parent::__construct();
 		$this->addRoleAssignment(
 			$role,
 			array('saveFormData', 'showTab')

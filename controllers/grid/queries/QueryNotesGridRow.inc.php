@@ -31,12 +31,12 @@ class QueryNotesGridRow extends GridRow {
 	 * @param $query Query
 	 * @param $queryNotesGrid The notes grid containing this row
 	 */
-	function QueryNotesGridRow($actionArgs, $query, $queryNotesGrid) {
+	function __construct($actionArgs, $query, $queryNotesGrid) {
 		$this->_actionArgs = $actionArgs;
 		$this->_query = $query;
 		$this->_queryNotesGrid = $queryNotesGrid;
 
-		parent::GridRow();
+		parent::__construct();
 	}
 
 	//

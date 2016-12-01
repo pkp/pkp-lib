@@ -20,8 +20,8 @@ class TemporaryFileManager extends PrivateFileManager {
 	/**
 	 * Constructor
 	 */
-	function TemporaryFileManager() {
-		parent::FileManager();
+	function __construct() {
+		parent::__construct();
 
 		$this->_performPeriodicCleanup();
 	}

@@ -24,8 +24,8 @@ class PKPPubmedCitationLookupPlugin extends Plugin {
 	/**
 	 * Constructor
 	 */
-	function PKPPubmedCitationLookupPlugin() {
-		parent::Plugin();
+	function __construct() {
+		parent::__construct();
 	}
 
 

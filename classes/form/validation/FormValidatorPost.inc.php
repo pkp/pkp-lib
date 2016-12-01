@@ -21,8 +21,8 @@ class FormValidatorPost extends FormValidator {
 	 * @param $form Form
 	 * @param $message string the locale key to use (optional)
 	 */
-	function FormValidatorPost(&$form, $message = 'form.postRequired') {
-		parent::FormValidator($form, 'dummy', FORM_VALIDATOR_REQUIRED_VALUE, $message);
+	function __construct(&$form, $message = 'form.postRequired') {
+		parent::__construct($form, 'dummy', FORM_VALIDATOR_REQUIRED_VALUE, $message);
 	}
 
 

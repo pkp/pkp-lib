@@ -21,7 +21,7 @@ class GridCellProvider {
 	/**
 	 * Constructor
 	 */
-	function GridCellProvider() {
+	function __construct() {
 	}
 
 	//

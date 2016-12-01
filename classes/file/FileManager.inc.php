@@ -36,7 +36,7 @@ class FileManager {
 	/**
 	 * Constructor
 	 */
-	function FileManager() {
+	function __construct() {
 	}
 
 	/**
@@ -92,7 +92,11 @@ class FileManager {
 	 */
 	function getUploadedFileType($fileName) {
 		if (isset($_FILES[$fileName])) {
-			$type = PKPString::mime_content_type($_FILES[$fileName]['tmp_name']);
+			$type = PKPString::mime_content_type(
+				$_FILES[$fileName]['tmp_name'], // Location on server
+				array_pop(explode('.',$_FILES[$fileName]['name'])) // Extension on client machine
+			);
+
 			if (!empty($type)) return $type;
 			return $_FILES[$fileName]['type'];
 		}

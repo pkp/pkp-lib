@@ -46,8 +46,8 @@ class FilterGroup extends DataObject {
 	/**
 	 * Constructor
 	 */
-	function FilterGroup() {
-		parent::DataObject();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

@@ -91,7 +91,6 @@
 	<message key="user.register.form.emailExists">Alamat email yang dipilih sudah digunakan oleh pengguna lain.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Kata Sandi tidak cocok.</message>
 	<message key="user.register.form.emailsDoNotMatch">Bidang alamat email tidak cocok.</message>
-	<message key="user.register.form.usernameAlphaNumeric">Nama pengguna bisa berisi hanya karakter alfanumerik, garis bawah, dan tanda penghubung, dan harus mulai dan berakhir dengan karakter alfanumerik.</message>
 	<message key="user.register.form.usernameExists">Nama pengguna yang dipilih sudah digunakan oleh pengguna lain.</message>
 	<message key="user.register.passwordLengthRestriction">Kata sandi minimal {$length} karakter.</message>
 	<message key="user.register.registerAs">Daftar sebagai</message>

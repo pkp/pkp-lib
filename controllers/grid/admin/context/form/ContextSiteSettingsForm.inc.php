@@ -25,15 +25,15 @@ class ContextSiteSettingsForm extends Form {
 	 * Constructor.
 	 * @param $contextId omit for a new context
 	 */
-	function ContextSiteSettingsForm($contextId = null) {
-		parent::Form('admin/contextSettings.tpl');
+	function __construct($contextId = null) {
+		parent::__construct('admin/contextSettings.tpl');
 
 		$this->contextId = isset($contextId) ? (int) $contextId : null;
 
 		// Validation checks for this form
 		$this->addCheck(new FormValidatorLocale($this, 'name', 'required', 'admin.contexts.form.titleRequired'));
 		$this->addCheck(new FormValidator($this, 'path', 'required', 'admin.contexts.form.pathRequired'));
-		$this->addCheck(new FormValidatorAlphaNum($this, 'path', 'required', 'admin.contexts.form.pathAlphaNumeric'));
+		$this->addCheck(new FormValidatorUsername($this, 'path', 'required', 'admin.contexts.form.pathAlphaNumeric'));
 		$this->addCheck(new FormValidatorCustom($this, 'path', 'required', 'admin.contexts.form.pathExists', create_function('$path,$form,$contextDao', 'return !$contextDao->existsByPath($path) || ($form->getData(\'oldPath\') != null && $form->getData(\'oldPath\') == $path);'), array(&$this, Application::getContextDAO())));
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));

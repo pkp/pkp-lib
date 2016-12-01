@@ -20,8 +20,8 @@ class FilterGroupDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function FilterGroupDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

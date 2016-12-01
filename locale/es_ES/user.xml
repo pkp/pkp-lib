@@ -103,7 +103,6 @@
 	<message key="user.register.form.emailExists">La dirección de correo electrónico seleccionada ya está siendo utilizada por otro usuario.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Las contraseñas no coinciden.</message>
 	<message key="user.register.form.emailsDoNotMatch">Los campos de correo electrónico no coinciden.</message>
-	<message key="user.register.form.usernameAlphaNumeric">El nombre de usuario sólo puede contener caracteres alfanuméricos, guiones bajos y guiones, y debe comenzar y finalizar con un carácter alfanumérico.</message>
 	<message key="user.register.form.usernameExists">El nombre de usuario seleccionado ya está siendo utilizado por otro usuario.</message>
 	<message key="user.register.passwordLengthRestriction">La contraseña debe tener al menos {$length} caracteres.</message>
 	<message key="user.register.registerAs">Registrarse en {$contextName} como...</message>

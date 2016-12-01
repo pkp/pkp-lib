@@ -35,9 +35,9 @@ class Nlm30PersonStringFilter extends Filter {
 	 * @param $outputType string
 	 * @param $filterMode integer one of the PERSON_STRING_FILTER_* constants
 	 */
-	function Nlm30PersonStringFilter($inputType, $outputType, $filterMode = PERSON_STRING_FILTER_SINGLE) {
+	function __construct($inputType, $outputType, $filterMode = PERSON_STRING_FILTER_SINGLE) {
 		$this->_filterMode = $filterMode;
-		parent::Filter($inputType, $outputType);
+		parent::__construct($inputType, $outputType);
 	}
 
 

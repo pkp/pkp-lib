@@ -23,8 +23,8 @@ class ContextRequiredPolicy extends AuthorizationPolicy {
 	 *
 	 * @param $request PKPRequest
 	 */
-	function ContextRequiredPolicy($request, $message = 'user.authorization.contextRequired') {
-		parent::AuthorizationPolicy($message);
+	function __construct($request, $message = 'user.authorization.contextRequired') {
+		parent::__construct($message);
 		$this->_request = $request;
 	}
 

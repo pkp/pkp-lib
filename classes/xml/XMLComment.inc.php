@@ -21,7 +21,8 @@ class XMLComment extends XMLNode {
 	 * Constructor.
 	 * @param $name element/tag name
 	 */
-	function XMLComment() {
+	function __construct() {
+		parent::__construct();
 		$this->name = '!--';
 		$this->parent = null;
 		$this->attributes = array();

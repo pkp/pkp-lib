@@ -23,7 +23,7 @@ class EmailLinkAction extends LinkAction {
 	 * @param $modalTitle string Title of the modal
 	 * @param $actionArgs array The action arguments.
 	 */
-	function EmailLinkAction($request, $modalTitle, $actionArgs) {
+	function __construct($request, $modalTitle, $actionArgs) {
 		$router = $request->getRouter();
 
 		// Instantiate the view email modal.
@@ -34,7 +34,7 @@ class EmailLinkAction extends LinkAction {
 		);
 
 		// Configure the link action.
-		parent::LinkAction(
+		parent::__construct(
 			'viewEmail',
 			$ajaxModal,
 			$modalTitle,

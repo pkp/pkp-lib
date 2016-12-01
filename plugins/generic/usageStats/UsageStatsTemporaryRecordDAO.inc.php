@@ -25,8 +25,8 @@ class UsageStatsTemporaryRecordDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function UsageStatsTemporaryRecordDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 
 		$this->_result = false;
 		$this->_loadId = null;

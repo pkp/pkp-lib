@@ -20,9 +20,9 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function NativeXmlSubmissionFilter($filterGroup) {
+	function __construct($filterGroup) {
 		$this->setDisplayName('Native XML submission import');
-		parent::NativeImportFilter($filterGroup);
+		parent::__construct($filterGroup);
 	}
 
 
@@ -72,7 +72,9 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 		$submission = $submissionDao->newDataObject();
 		$submission->setContextId($context->getId());
 		$submission->setStatus(STATUS_QUEUED);
-		$submission->setLocale($node->getAttribute('locale'));
+		$submissionLocale = $node->getAttribute('locale');
+		if (empty($submissionLocale)) $submissionLocale = $context->getPrimaryLocale();
+		$submission->setLocale($submissionLocale);
 		$submission->setSubmissionProgress(0);
 		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
 		$submission->setStageId(WorkflowStageDAO::getIdFromPath($node->getAttribute('stage')));
@@ -128,11 +130,27 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 	 */
 	function handleChildElement($n, $submission) {
 		$setterMappings = $this->_getLocalizedSubmissionSetterMappings();
+		$controlledVocabulariesMappings = $this->_getControlledVocabulariesMappings();
 		if (isset($setterMappings[$n->tagName])) {
 			// If applicable, call a setter for localized content
 			$setterFunction = $setterMappings[$n->tagName];
 			list($locale, $value) = $this->parseLocalizedContent($n);
+			if (empty($locale)) $locale = $submission->getLocale();
 			$submission->$setterFunction($value, $locale);
+		} elseif (isset($controlledVocabulariesMappings[$n->tagName])) {
+			$controlledVocabulariesDao = $submissionKeywordDao = DAORegistry::getDAO($controlledVocabulariesMappings[$n->tagName][0]);
+			$insertFunction = $controlledVocabulariesMappings[$n->tagName][1];
+			list($locale, $value) = $this->parseLocalizedContent($n);
+			if (empty($locale)) $locale = $submission->getLocale();
+			$controlledVocabulary = array();
+			for ($nc = $n->firstChild; $nc !== null; $nc=$nc->nextSibling) {
+				if (is_a($nc, 'DOMElement')) {
+					$controlledVocabulary[] = $nc->textContent;
+				}
+			}
+			$controlledVocabulariesValues = array();
+			$controlledVocabulariesValues[$locale] = $controlledVocabulary;
+			$controlledVocabulariesDao->$insertFunction($controlledVocabulariesValues, $submission->getId(), false);
 		} else switch ($n->tagName) {
 			// Otherwise, delegate to specific parsing code
 			case 'id':
@@ -148,7 +166,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 				$submission->setCommentsToEditor($n->textContent);
 				break;
 			default:
-				fatalError('Unknown element ' . $n->tagName);
+				$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownElement', array('param' => $n->tagName)));
 		}
 	}
 
@@ -243,6 +261,19 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 			'type' => 'setType',
 			'source' => 'setSource',
 			'rights' => 'setRights',
+		);
+	}
+
+	/**
+	 * Get node name to DAO and insert function mapping.
+	 * @return array
+	 */
+	function _getControlledVocabulariesMappings() {
+		return array(
+			'keywords' => array('SubmissionKeywordDAO', 'insertKeywords'),
+			'agencies' => array('SubmissionAgencyDAO', 'insertAgencies'),
+			'disciplines' => array('SubmissionDisciplineDAO', 'insertDisciplines'),
+			'subjects' => array('SubmissionSubjectDAO', 'insertSubjects'),
 		);
 	}
 

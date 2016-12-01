@@ -32,14 +32,14 @@ class RegistrationForm extends Form {
 	/**
 	 * Constructor.
 	 */
-	function RegistrationForm($site) {
-		parent::Form('frontend/pages/userRegister.tpl');
+	function __construct($site) {
+		parent::__construct('frontend/pages/userRegister.tpl');
 
 		// Validation checks for this form
 		$this->addCheck(new FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', array(DAORegistry::getDAO('UserDAO'), 'userExistsByUsername'), array(), true));
 		$this->addCheck(new FormValidator($this, 'username', 'required', 'user.profile.form.usernameRequired'));
 		$this->addCheck(new FormValidator($this, 'password', 'required', 'user.profile.form.passwordRequired'));
-		$this->addCheck(new FormValidatorAlphaNum($this, 'username', 'required', 'user.register.form.usernameAlphaNumeric'));
+		$this->addCheck(new FormValidatorUsername($this, 'username', 'required', 'user.register.form.usernameAlphaNumeric'));
 		$this->addCheck(new FormValidatorLength($this, 'password', 'required', 'user.register.form.passwordLengthRestriction', '>=', $site->getMinPasswordLength()));
 		$this->addCheck(new FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordsDoNotMatch', create_function('$password,$form', 'return $password == $form->getData(\'password2\');'), array(&$this)));
 
@@ -53,7 +53,7 @@ class RegistrationForm extends Form {
 
 		$this->captchaEnabled = Config::getVar('captcha', 'captcha_on_register') && Config::getVar('captcha', 'recaptcha');
 		if ($this->captchaEnabled) {
-			$this->addCheck(new FormValidatorReCaptcha($this, 'recaptcha_challenge_field', 'recaptcha_response_field', Request::getRemoteAddr(), 'common.captchaField.badCaptcha'));
+			$this->addCheck(new FormValidatorReCaptcha($this, Request::getRemoteAddr(), 'common.captcha.error.invalid-input-response'));
 		}
 
 		$authDao = DAORegistry::getDAO('AuthSourceDAO');
@@ -75,10 +75,8 @@ class RegistrationForm extends Form {
 		$context = $request->getContext();
 
 		if ($this->captchaEnabled) {
-			import('lib.pkp.lib.recaptcha.recaptchalib');
 			$publicKey = Config::getVar('captcha', 'recaptcha_public_key');
-			$useSSL = Config::getVar('security', 'force_ssl')?true:false;
-			$reCaptchaHtml = recaptcha_get_html($publicKey, null, $useSSL);
+			$reCaptchaHtml = '<div class="g-recaptcha" data-sitekey="' . $publicKey . '"></div>';
 			$templateMgr->assign(array(
 				'reCaptchaHtml' => $reCaptchaHtml,
 				'captchaEnabled' => true,
@@ -131,14 +129,9 @@ class RegistrationForm extends Form {
 			}
 		}
 
-		// Return a list of all contexts available in the site
-		$contextDao = Application::getContextDAO();
-		$contexts = $contextDao->getAll(true)->toArray();
-
 		$this->_data = array(
 			'userLocales' => array(),
 			'userGroupIds' => $userGroupIds,
-			'contexts' => $contexts,
 		);
 	}
 
@@ -166,14 +159,8 @@ class RegistrationForm extends Form {
 
 		if ($this->captchaEnabled) {
 			$this->readUserVars(array(
-				'recaptcha_challenge_field',
-				'recaptcha_response_field',
+				'g-recaptcha-response',
 			));
-		}
-
-		if ($this->getData('username') != null) {
-			// Usernames must be lowercase
-			$this->setData('username', strtolower($this->getData('username')));
 		}
 
 		// Collect the specified user group IDs into a single piece of data
@@ -280,9 +267,6 @@ class RegistrationForm extends Form {
 			$mail->addRecipient($user->getEmail(), $user->getFullName());
 			$mail->send();
 			unset($mail);
-		} else {
-			// Create a notification guiding the user to their profile.
-			NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('user.register.registrationCompleted', array('profileUrl' => $request->url(null, 'user', 'profile')))));
 		}
 		return $userId;
 	}

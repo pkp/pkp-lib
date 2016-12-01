@@ -32,7 +32,8 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 	 * data provider that this category grid data provider will use to implement
 	 * common behaviours and data.
 	 */
-	function SubmissionFilesCategoryGridDataProvider($fileStage, $dataProviderInitParams = null) {
+	function __construct($fileStage, $dataProviderInitParams = null) {
+		parent::__construct();
 		$this->setDataProvider($this->initGridDataProvider($fileStage, $dataProviderInitParams));
 	}
 

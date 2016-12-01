@@ -21,10 +21,10 @@ class DateStringNormalizerFilter extends Filter {
 	/**
 	 * Constructor
 	 */
-	function DateStringNormalizerFilter() {
+	function __construct() {
 		$this->setDisplayName('Date String Normalizer');
 
-		parent::Filter('primitive::string', 'validator::date('.DATE_FORMAT_ISO.')');
+		parent::__construct('primitive::string', 'validator::date('.DATE_FORMAT_ISO.')');
 	}
 
 

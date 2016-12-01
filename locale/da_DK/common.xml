@@ -90,6 +90,8 @@
 	<message key="common.fileName">Filnavn</message>
 	<message key="common.fileSize">Filstørrelse</message>
 	<message key="common.fileType">Filtype</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">Højde</message>
 	<message key="common.homePageHeaderLogo.altText">Hjemmesidehovede logo</message>
 	<message key="common.hour">Time</message>
@@ -244,7 +246,7 @@
 	<message key="navigation.userHome">Brugerstartside</message>
 	<message key="navigation.user">Bruger</message>
 	<message key="search.abstract">Resumé</message>
-	<message key="search.allFields">Alle</message>
+	<message key="search.author">Forfattere</message>
 	<message key="search.coverage">Dækning</message>
 	<message key="search.date">Dato</message>
 	<message key="search.dateFrom">Fra</message>

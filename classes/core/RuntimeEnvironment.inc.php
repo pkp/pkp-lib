@@ -26,7 +26,7 @@ class RuntimeEnvironment {
 	/** @var array */
 	var $_externalPrograms;
 
-	function RuntimeEnvironment($phpVersionMin = PHP_REQUIRED_VERSION, $phpVersionMax = null, $phpExtensions = array(), $externalPrograms = array()) {
+	function __construct($phpVersionMin = PHP_REQUIRED_VERSION, $phpVersionMax = null, $phpExtensions = array(), $externalPrograms = array()) {
 		$this->_phpVersionMin = $phpVersionMin;
 		$this->_phpVersionMax = $phpVersionMax;
 		$this->_phpExtensions = $phpExtensions;

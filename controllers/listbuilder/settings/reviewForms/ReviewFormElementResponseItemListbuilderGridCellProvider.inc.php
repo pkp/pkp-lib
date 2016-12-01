@@ -18,8 +18,8 @@ class ReviewFormElementResponseItemListbuilderGridCellProvider extends GridCellP
 	/**
 	 * Constructor
 	 */
-	function ReviewFormElementResponseItemListbuilderGridCellProvider () {
-		parent::GridCellProvider();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

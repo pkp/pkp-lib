@@ -18,10 +18,10 @@ class ReviewerReviewAttachmentsGridHandler extends FileListGridHandler {
 	/**
 	 * Constructor
 	 */
-	function ReviewerReviewAttachmentsGridHandler() {
+	function __construct() {
 		import('lib.pkp.controllers.grid.files.attachment.ReviewerReviewAttachmentGridDataProvider');
 		// Pass in null stageId to be set in initialize from request var.
-		parent::FileListGridHandler(
+		parent::__construct(
 			new ReviewerReviewAttachmentGridDataProvider(SUBMISSION_FILE_REVIEW_ATTACHMENT),
 			null,
 			FILE_GRID_ADD|FILE_GRID_DELETE|FILE_GRID_EDIT

@@ -25,9 +25,9 @@ class Mods34DescriptionXmlFilter extends PersistableFilter {
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function Mods34DescriptionXmlFilter($filterGroup) {
+	function __construct($filterGroup) {
 		$this->setDisplayName('MODS 3.4');
-		parent::PersistableFilter($filterGroup);
+		parent::__construct($filterGroup);
 	}
 
 

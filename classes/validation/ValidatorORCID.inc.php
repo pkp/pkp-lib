@@ -20,8 +20,8 @@ class ValidatorORCID extends ValidatorRegExp {
 	/**
 	 * Constructor.
 	 */
-	function ValidatorORCID() {
-		parent::ValidatorRegExp(self::getRegexp());
+	function __construct() {
+		parent::__construct(self::getRegexp());
 	}
 
 

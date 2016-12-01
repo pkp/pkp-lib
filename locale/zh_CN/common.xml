@@ -100,6 +100,8 @@
 	<message key="common.fileName">文件名</message>
 	<message key="common.fileSize">文件大小</message>
 	<message key="common.fileType">文件类型</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">高度</message>
 	<message key="common.homePageHeaderLogo.altText">首页头部Logo</message>
 	<message key="common.hour">小时</message>
@@ -289,7 +291,7 @@
 	<message key="notification.unsubscribeError">T有一个错误退订, 请确保您的电子邮件地址和密码是正确的.</message>
 	<message key="notification.unsubscribeSuccess">您已成功退订.</message>
 	<message key="search.abstract">摘要</message>
-	<message key="search.allFields">全部</message>
+	<message key="search.author">作者</message>
 	<message key="search.coverage">覆盖</message>
 	<message key="search.date">日期</message>
 	<message key="search.dateFrom">从</message>

@@ -21,8 +21,8 @@ class EditDecisionDAO extends DAO {
 	/**
 	 * Constructor.
 	 */
-	function EditDecisionDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

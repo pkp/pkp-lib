@@ -34,8 +34,8 @@ class ReviewerForm extends Form {
 	 * @param $submission Submission
 	 * @param $reviewRound ReviewRound
 	 */
-	function ReviewerForm($submission, $reviewRound) {
-		parent::Form('controllers/grid/users/reviewer/form/defaultReviewerForm.tpl');
+	function __construct($submission, $reviewRound) {
+		parent::__construct('controllers/grid/users/reviewer/form/defaultReviewerForm.tpl');
 		$this->setSubmission($submission);
 		$this->setReviewRound($reviewRound);
 
@@ -206,7 +206,9 @@ class ReviewerForm extends Form {
 				'contextUrl' => $dispatcher->url($request, ROUTE_PAGE, $context->getPath()),
 				'editorialContactSignature' => $user->getContactSignature(),
 				'signatureFullName' => $user->getFullname(),
+				'passwordResetUrl' => $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'login', 'lostPassword'),
 				'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
+				'abstractTermIfEnabled' => ($submission->getLocalizedAbstract() == '' ? '' : __('common.abstract')), // Deprecated; for OJS 2.x templates
 			));
 			$template->replaceParams();
 		}

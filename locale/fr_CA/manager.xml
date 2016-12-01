@@ -143,8 +143,6 @@
 	<message key="manager.setup.homeHeaderImageInvalid">Format d'image du logo de l'en-tête de la page d'accueil invalide. Les formats acceptés sont .gif, .jpg, ou .png.</message>
 	<message key="manager.setup.homepageImageInvalid">Format d'image de la page d'accueil invalide. Les formats acceptés sont .gif, .jpg, ou .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Format d'image de l'en-tête de la page d'accueil invalide. Les formats acceptés sont .gif, .jpg, ou .png.</message>
-	<message key="manager.setup.layout.leftSidebar">Encadré de gauche</message>
-	<message key="manager.setup.layout.rightSidebar">Encadré de droite</message>
 	<message key="manager.setup.layout.unselected">Non sélectionné</message>
 	<message key="manager.setup.loggingAndAuditing">Journalisation et audit</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Format d'image du logo de l'en-tête de la page invalide. Les formats acceptés sont .gif, .jpg, ou .png.</message>
@@ -199,7 +197,7 @@
 	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Veuillez sélectionner une base de données de recherche.</message>
 	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Ce filtre se connecte à la base de données livre et ISBN <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a>.</p>
 	<p>Une clé ISBNdb API est obligatoire. Pour plus d'information sur la génération de la clé, voir la <a href="http://isbndb.com/api/v1/docs/keys" target="_blank">documentation en ligne</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Ce filtre se connecte à la base de données de références CrossRef en utilisant l'<a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">interface de requête OpenURL</a> de CrossRef.</p> 
+	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Ce filtre se connecte à la base de données de références CrossRef en utilisant l'<a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">interface de requête OpenURL</a> de CrossRef.</p>
 	<p>Pour utiliser ce filtre, vous pouvez utiliser votre compte système CrossRef, ou s'inscrire à l'aide une adresse de courriel valide avec CrossRef <a href="http://www.crossref.org/requestaccount/" target="_blank">ici</a>.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Ce filtre se connecte au moteur de recherche de base de données croisée <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a> de PubMed.</p>
 	<p>Un courriel n'est pas obligatoire au sens strict du terme pour s'inscrire, mais peut être nécessaire si vous faites face à des problèmes de connection. Voir la section <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Usage Guidelines and Requirements</a> dans la documentation de Entrez pour plus d'information.</p>]]></message>
@@ -299,7 +297,7 @@
 	<message key="manager.setup.sponsors.note">Vous pouvez ajouter une note décrivant votre politique en matière de commandite; celle-ci apparaitra dans la liste des commanditaires sur votre page À propos de.</message>
 	<message key="manager.setup.contributors.note">Vous pouvez ajouter une note décrivant votre rapport et votre politique entre vous et vos bailleurs de fonds; celle-ci apparaitra dans la liste des bailleurs de fonds sur votre page À propos de.</message>
 	<message key="manager.plugins.fileSelectError">Veuillez sélectionner un fichier d'abord</message>
-	<message key="manager.statistics.defaultMetricDescription">Votre {$contextObjectName} a été configuré pour enregistrer plus d'une mesure d'utilisation. Les statistiques d'utilisation seront affichées dans plusieurs contextes. 
+	<message key="manager.statistics.defaultMetricDescription">Votre {$contextObjectName} a été configuré pour enregistrer plus d'une mesure d'utilisation. Les statistiques d'utilisation seront affichées dans plusieurs contextes.
 
 Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, par exemple pour afficher une liste ordonnée des soumissions les plus utilisées ou pour ordonner les résultats de la recherche. Veuillez choisir l'une des mesures configurées à titre de mesure par défaut.</message>
 	<message key="manager.statistics.reports.advancedOptions.label">Personnaliser les colonnes, le filtre et les options de classement. Les changements apportés à ces options pourraient modifier le résultat du modèle de rapport attendu.</message>

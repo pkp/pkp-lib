@@ -16,16 +16,16 @@
 
 	{* Sidebars *}
 	{if empty($isFullWidth)}
-		{call_hook|assign:"leftSidebarCode" name="Templates::Common::LeftSidebar"}
-		{if $leftSidebarCode}
+		{call_hook|assign:"sidebarCode" name="Templates::Common::Sidebar"}
+		{if $sidebarCode}
 			<div class="pkp_structure_sidebar left" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}">
-				{$leftSidebarCode}
+				{$sidebarCode}
 			</div><!-- pkp_sidebar.left -->
 		{/if}
 	{/if}
 </div><!-- pkp_structure_content -->
 
-<div class="pkp_structure_footer_wrapper" role="contentinfo">
+<div id="pkp_content_footer" class="pkp_structure_footer_wrapper" role="contentinfo">
 
 	<div class="pkp_structure_footer">
 

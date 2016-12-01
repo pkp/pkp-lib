@@ -20,11 +20,6 @@ import('classes.handler.Handler');
 // Import JSON class for use with all AJAX requests.
 import('lib.pkp.classes.core.JSONMessage');
 
-// The percentage of characters that the name of a file
-// has to share with an existing file for it to be
-// considered as a revision of that file.
-define('SUBMISSION_MIN_SIMILARITY_OF_REVISION', 70);
-
 class PKPFileUploadWizardHandler extends Handler {
 	/** @var integer */
 	var $_fileStage;
@@ -54,8 +49,8 @@ class PKPFileUploadWizardHandler extends Handler {
 	/**
 	 * Constructor
 	 */
-	function PKPFileUploadWizardHandler() {
-		parent::Handler();
+	function __construct() {
+		parent::__construct();
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_AUTHOR, ROLE_ID_REVIEWER, ROLE_ID_ASSISTANT),
 			array(
@@ -352,6 +347,33 @@ class PKPFileUploadWizardHandler extends Handler {
 				$reviewRound = $this->getReviewRound();
 				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 				$submissionFileDao->assignRevisionToReviewRound($submissionFile->getFileId(), $submissionFile->getRevision(), $reviewRound);
+
+				if ($submissionFile->getFileStage() == SUBMISSION_FILE_REVIEW_REVISION) {
+					// Get a list of author user IDs
+					$authorUserIds = array();
+					$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+					$submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($reviewRound->getSubmissionId(), ROLE_ID_AUTHOR);
+					while ($assignment = $submitterAssignments->next()) {
+						$authorUserIds[] = $assignment->getUserId();
+					}
+
+					// Update the notifications
+					$notificationMgr = new NotificationManager();
+					$notificationMgr->updateNotification(
+						PKPApplication::getRequest(),
+						array(NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS, NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS),
+						$authorUserIds,
+						ASSOC_TYPE_SUBMISSION,
+						$reviewRound->getSubmissionId()
+					);
+					$notificationMgr->updateNotification(
+						PKPApplication::getRequest(),
+						array(NOTIFICATION_TYPE_ALL_REVISIONS_IN),
+						null,
+						ASSOC_TYPE_REVIEW_ROUND,
+						$reviewRound->getId()
+					);
+				}
 				break;
 		}
 	}
@@ -450,7 +472,7 @@ class PKPFileUploadWizardHandler extends Handler {
 		$uploadedFileName = $uploadedFile->getOriginalFileName();
 
 		// Start with the minimal required similarity.
-		$minPercentage = SUBMISSION_MIN_SIMILARITY_OF_REVISION;
+		$minPercentage = Config::getVar('files', 'filename_revision_match', 70);
 
 		// Find out whether one of the files belonging to the current
 		// file stage matches the given file name.

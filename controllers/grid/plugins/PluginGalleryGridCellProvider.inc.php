@@ -19,8 +19,8 @@ class PluginGalleryGridCellProvider extends GridCellProvider {
 	/**
 	 * Constructor
 	 */
-	function PluginGalleryGridCellProvider() {
-		parent::GridCellProvider();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

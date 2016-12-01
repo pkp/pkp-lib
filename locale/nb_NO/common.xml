@@ -90,6 +90,8 @@
 	<message key="common.fileName">Filnavn</message>
 	<message key="common.fileSize">Filstørrelse</message>
 	<message key="common.fileType">Filtype</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">Høyde</message>
 	<message key="common.homePageHeaderLogo.altText">Tidsskriftets hjemmeside: topplogo</message>
 	<message key="common.hour">Klokkeslett</message>
@@ -245,7 +247,7 @@
 	<message key="navigation.userHome">Min side</message>
 	<message key="navigation.user">Bruker</message>
 	<message key="search.abstract">Sammendrag</message>
-	<message key="search.allFields">Alle</message>
+	<message key="search.author">Forfattere</message>
 	<message key="search.coverage">Dekning</message>
 	<message key="search.date">Dato</message>
 	<message key="search.dateFrom">Fra</message>

@@ -77,6 +77,8 @@
 	<message key="common.fileName">檔名</message>
 	<message key="common.fileSize">檔案大小</message>
 	<message key="common.fileType">檔案類別</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">高度</message>
 	<message key="common.hour">時</message>
 	<message key="common.id">識別碼</message>
@@ -221,7 +223,7 @@
 	<message key="navigation.userHome">使用者首頁</message>
 	<message key="navigation.user">使用者</message>
 	<message key="search.abstract">摘要</message>
-	<message key="search.allFields">全部</message>
+	<message key="search.author">作者</message>
 	<message key="search.coverage">涵蓋範圍</message>
 	<message key="search.date">日期</message>
 	<message key="search.dateFrom">從</message>

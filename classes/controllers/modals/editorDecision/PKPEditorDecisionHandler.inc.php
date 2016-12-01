@@ -22,8 +22,8 @@ class PKPEditorDecisionHandler extends Handler {
 	/**
 	 * Constructor.
 	 */
-	function PKPEditorDecisionHandler() {
-		parent::Handler();
+	function __construct() {
+		parent::__construct();
 	}
 
 
@@ -228,7 +228,7 @@ class PKPEditorDecisionHandler extends Handler {
 				while ($comment = $submissionComments->next()) {
 					// If the comment is viewable by the author, then add the comment.
 					if ($comment->getViewable()) {
-						$body .= PKPString::html2text($comment->getComments()) . "\n\n";
+						$body .= PKPString::stripUnsafeHtml($comment->getComments());
 					}
 				}
 				$body .= "<br>$textSeparator<br><br>";
@@ -239,32 +239,36 @@ class PKPEditorDecisionHandler extends Handler {
 
 					$reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewFormId);
 					if(!$submissionComments) {
-						$body .= "$textSeparator\n";
+						$body .= "$textSeparator<br>";
 
-						$body .= __('submission.comments.importPeerReviews.reviewerLetter', array('reviewerLetter' => PKPString::enumerateAlphabetically($reviewIndexes[$reviewAssignment->getId()]))) . "\n\n";
+						$body .= __('submission.comments.importPeerReviews.reviewerLetter', array('reviewerLetter' => PKPString::enumerateAlphabetically($reviewIndexes[$reviewAssignment->getId()]))) . '<br><br>';
 					}
 					while ($reviewFormElement = $reviewFormElements->next()) {
-						$body .= PKPString::html2text($reviewFormElement->getLocalizedQuestion()) . ": \n";
+						if (!$reviewFormElement->getIncluded()) continue;
+
+						$body .= PKPString::stripUnsafeHtml($reviewFormElement->getLocalizedQuestion());
 						$reviewFormResponse = $reviewFormResponseDao->getReviewFormResponse($reviewId, $reviewFormElement->getId());
 
 						if ($reviewFormResponse) {
 							$possibleResponses = $reviewFormElement->getLocalizedPossibleResponses();
 							if (in_array($reviewFormElement->getElementType(), $reviewFormElement->getMultipleResponsesElementTypes())) {
 								if ($reviewFormElement->getElementType() == REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES) {
+									$body .= '<ul>';
 									foreach ($reviewFormResponse->getValue() as $value) {
-										$body .= "\t" . PKPString::html2text($possibleResponses[$value]) . "\n";
+										$body .= '<li>' . PKPString::stripUnsafeHtml($possibleResponses[$value]) . '</li>';
 									}
+									$body .= '</ul>';
 								} else {
-									$body .= "\t" . PKPString::html2text($possibleResponses[$reviewFormResponse->getValue()]) . "\n";
+									$body .= '<blockquote>' . PKPString::stripUnsafeHtml($possibleResponses[$reviewFormResponse->getValue()]) . '</blockquote>';
 								}
-								$body .= "\n";
+								$body .= '<br>';
 							} else {
-								$body .= "\t" . PKPString::html2text($reviewFormResponse->getValue()) . "\n\n";
+								$body .= '<blockquote>' . htmlspecialchars($reviewFormResponse->getValue()) . '</blockquote>';
 							}
 						}
 
 					}
-					$body .= "$textSeparator\n\n";
+					$body .= "$textSeparator<br><br>";
 
 				}
 
@@ -396,8 +400,7 @@ class PKPEditorDecisionHandler extends Handler {
 			// Update editor decision and pending revisions notifications.
 			$notificationMgr = new NotificationManager();
 			$editorDecisionNotificationType = $this->_getNotificationTypeByEditorDecision($decision);
-			$notificationTypes = $this->_getReviewNotificationTypes();
-			$notificationTypes[] = $editorDecisionNotificationType;
+			$notificationTypes = array_merge(array($editorDecisionNotificationType), $this->_getReviewNotificationTypes());
 			$notificationMgr->updateNotification(
 				$request,
 				$notificationTypes,
@@ -406,22 +409,36 @@ class PKPEditorDecisionHandler extends Handler {
 				$submission->getId()
 			);
 
+			// Update review round notifications
 			$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
 			if ($reviewRound) {
 				$notificationMgr->updateNotification(
 					$request,
-					array(NOTIFICATION_TYPE_ALL_REVIEWS_IN),
+					array(NOTIFICATION_TYPE_ALL_REVIEWS_IN, NOTIFICATION_TYPE_ALL_REVISIONS_IN),
 					null,
 					ASSOC_TYPE_REVIEW_ROUND,
 					$reviewRound->getId()
 				);
+			}
 
+			// Update submission notifications
+			$submissionNotificationsToUpdate = array(
+				SUBMISSION_EDITOR_DECISION_ACCEPT => array(NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,	NOTIFICATION_TYPE_AWAITING_COPYEDITS),
+				SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION => array(
+					NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
+					NOTIFICATION_TYPE_AWAITING_COPYEDITS,
+					NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
+					NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
+				),
+			);
+			$notificationMgr = new NotificationManager();
+			if (array_key_exists($decision, $submissionNotificationsToUpdate)) {
 				$notificationMgr->updateNotification(
 					$request,
-					array(NOTIFICATION_TYPE_ALL_REVISIONS_IN),
+					$submissionNotificationsToUpdate[$decision],
 					null,
-					ASSOC_TYPE_REVIEW_ROUND,
-					$reviewRound->getId()
+					ASSOC_TYPE_SUBMISSION,
+					$submission->getId()
 				);
 			}
 

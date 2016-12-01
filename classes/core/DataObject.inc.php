@@ -37,7 +37,7 @@ class DataObject {
 	/**
 	 * Constructor.
 	 */
-	function DataObject() {
+	function __construct() {
 	}
 
 

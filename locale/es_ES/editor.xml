@@ -51,7 +51,7 @@
 	<message key="editor.review.thankReviewer">Dar las gracias al revisor</message>
 	<message key="editor.review.reminderError">Error al enviar recordatorio de revisión</message>
 	<message key="editor.review.thankReviewerError">Error al enviar las gracias al revisor</message>
-	<message key="editor.review.skipEmail">No enviar correo electróncio de revisor</message>
+	<message key="editor.review.skipEmail">No enviar correo electrónico de revisor</message>
 	<message key="editor.review.sendReminder">Enviar recordatorio</message>
 	<message key="editor.review.reviewDueDate">Fecha límite de la revisión</message>
 	<message key="editor.review.reviewCompleted">Revisión completa</message>

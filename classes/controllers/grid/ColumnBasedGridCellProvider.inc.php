@@ -25,8 +25,8 @@ class ColumnBasedGridCellProvider extends GridCellProvider {
 	/**
 	 * Constructor
 	 */
-	function ColumnBasedGridCellProvider() {
-		parent::GridCellProvider();
+	function __construct() {
+		parent::__construct();
 	}
 
 

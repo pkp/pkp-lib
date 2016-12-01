@@ -23,8 +23,8 @@ class WizardModal extends AjaxModal {
 	 * @param $titleIcon string (optional) The icon to be used in the modal title bar.
 	 * @param $canClose boolean (optional) Whether the modal will have a close button.
 	 */
-	function WizardModal($url, $title = null, $titleIcon = null, $canClose = true) {
-		parent::AjaxModal($url, $title, $titleIcon, $canClose);
+	function __construct($url, $title = null, $titleIcon = null, $canClose = true) {
+		parent::__construct($url, $title, $titleIcon, $canClose);
 	}
 
 

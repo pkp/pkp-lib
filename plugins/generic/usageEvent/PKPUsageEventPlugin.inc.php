@@ -25,8 +25,8 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 	/**
 	 * Constructor
 	 */
-	function PKPUsageEventPlugin() {
-		parent::GenericPlugin();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//
@@ -88,13 +88,6 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 	 */
 	function isSitePlugin() {
 		return true;
-	}
-
-	/**
-	 * @copydoc GenericPlugin::getManagementVerbs()
-	 */
-	function getManagementVerbs() {
-		return array();
 	}
 
 

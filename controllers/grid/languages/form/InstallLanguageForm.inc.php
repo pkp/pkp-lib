@@ -21,8 +21,8 @@ class InstallLanguageForm extends Form {
 	/**
 	 * Constructor.
 	 */
-	function InstallLanguageForm($wizardMode = false) {
-		parent::Form('controllers/grid/languages/installLanguageForm.tpl');
+	function __construct($wizardMode = false) {
+		parent::__construct('controllers/grid/languages/installLanguageForm.tpl');
 	}
 
 	//

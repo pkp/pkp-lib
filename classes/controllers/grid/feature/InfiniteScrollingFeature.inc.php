@@ -23,8 +23,8 @@ class InfiniteScrollingFeature extends GeneralPagingFeature {
 	 * @copydoc GeneralPagingFeature::GeneralPagingFeature()
 	 * Constructor.
 	 */
-	function InfiniteScrollingFeature($id = 'infiniteScrolling', $itemsPerPage = null) {
-		parent::GeneralPagingFeature($id, $itemsPerPage);
+	function __construct($id = 'infiniteScrolling', $itemsPerPage = null) {
+		parent::__construct($id, $itemsPerPage);
 	}
 
 

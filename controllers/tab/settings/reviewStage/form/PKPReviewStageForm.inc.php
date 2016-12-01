@@ -20,8 +20,8 @@ class PKPReviewStageForm extends ContextSettingsForm {
 	/**
 	 * Constructor.
 	 */
-	function PKPReviewStageForm($wizardMode = false, $settings = array(), $template = 'controllers/tab/settings/reviewStage/form/reviewStageForm.tpl') {
-		parent::ContextSettingsForm(
+	function __construct($wizardMode = false, $settings = array(), $template = 'controllers/tab/settings/reviewStage/form/reviewStageForm.tpl') {
+		parent::__construct(
 			array_merge(
 				$settings,
 				array(

@@ -32,10 +32,10 @@ class LibraryFileGridRow extends GridRow {
 	/**
 	 * Constructor
 	 */
-	function LibraryFileGridRow($canEdit = false, $submission = null) {
+	function __construct($canEdit = false, $submission = null) {
 		$this->_canEdit = $canEdit;
 		$this->_submission = $submission;
-		parent::GridRow();
+		parent::__construct();
 	}
 
 	//

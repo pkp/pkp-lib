@@ -44,7 +44,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 	 * Constructor.
 	 * @param $argv array task arguments
 	 */
-	function PKPUsageStatsLoader($args) {
+	function __construct($args) {
 		$plugin = PluginRegistry::getPlugin('generic', 'usagestatsplugin'); /* @var $plugin UsageStatsPlugin */
 		$this->_plugin = $plugin;
 
@@ -69,7 +69,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 		// Define the base filesystem path.
 		$args[0] = $plugin->getFilesPath();
 
-		parent::FileLoader($args);
+		parent::__construct($args);
 
 		if ($plugin->getEnabled()) {
 			// Load the metric type constant.

@@ -20,8 +20,8 @@ class LoginChangePasswordForm extends Form {
 	/**
 	 * Constructor.
 	 */
-	function LoginChangePasswordForm($site) {
-		parent::Form('user/loginChangePassword.tpl');
+	function __construct($site) {
+		parent::__construct('user/loginChangePassword.tpl');
 
 		// Validation checks for this form
 		$this->addCheck(new FormValidatorCustom($this, 'oldPassword', 'required', 'user.profile.form.oldPasswordInvalid', create_function('$password,$form', 'return Validation::checkCredentials($form->getData(\'username\'),$password);'), array($this)));

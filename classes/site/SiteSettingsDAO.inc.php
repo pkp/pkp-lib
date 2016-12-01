@@ -18,8 +18,8 @@ class SiteSettingsDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function SiteSettingsDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	function _getCache() {

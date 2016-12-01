@@ -25,11 +25,11 @@ class SelectReviewFilesLinkAction extends SelectFilesLinkAction {
 	 * @param $actionLabel string The localized label of the link action.
 	 * @param $modalTitle string the (optional) title to be used for the modal.
 	 */
-	function SelectReviewFilesLinkAction($request, $reviewRound, $actionLabel, $modalTitle = null) {
+	function __construct($request, $reviewRound, $actionLabel, $modalTitle = null) {
 		$actionArgs = array('submissionId' => $reviewRound->getSubmissionId(),
 				'stageId' => $reviewRound->getStageId(), 'reviewRoundId' => $reviewRound->getId());
 
-		parent::SelectFilesLinkAction($request, $actionArgs, $actionLabel, $modalTitle);
+		parent::__construct($request, $actionArgs, $actionLabel, $modalTitle);
 	}
 }
 

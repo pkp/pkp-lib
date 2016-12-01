@@ -51,7 +51,29 @@
 			this.callerSubmitHandler_ = options.submitHandler;
 		}
 
-		$('.datepicker').datepicker({dateFormat: 'yy-mm-dd'});
+		// Handle datepicker
+		// If we find a .datepicker in tpl the code adds (form/textInput.tpl) a new
+		// hidden field with the id = <original-element-id>-altField attr:
+		// data-date-format = date format from config.inc.php translated into JQuery
+		// Datepicker date format. The <original-element-name> if changed to
+		// <original-element-name>-removed in order for the hidden field value to
+		// send to post request altField and altFormat are used in order for the user
+		// to have its config.inc.php dateFormatShort parameter displayed but
+		// 'yy-mm-dd' to be send to post request.
+		// [http://api.jqueryui.com/datepicker/#option-altField]
+		$('.datepicker').each(function() {
+			$(this).datepicker({
+				altField: '#' + $(this).prop('id') + '-altField',
+				altFormat: 'yy-mm-dd',
+				dateFormat: $('#' + $(this).prop('id') + '-altField')
+						.attr('data-date-format')
+			});
+
+			if (!$(this).hasClass('hasDatepicker')) {
+				$(this).prop('name', $(this).prop('name') + '-removed');
+			}
+		});
+
 
 		// Set the redirect-to URL for the cancel button (if there is one).
 		if (options.cancelRedirectUrl) {
@@ -107,7 +129,7 @@
 
 		// Initialize editable toggles
 		$('.pkpEditableToggle', $form)
-			.click(this.callbackWrapper(this.toggleEditableControl));
+				.click(this.callbackWrapper(this.toggleEditableControl));
 
 		this.initializeTinyMCE();
 
@@ -635,6 +657,7 @@
 		this.getHtmlElement()
 				.find('.formButtons .pkp_spinner').addClass('is_visible');
 	};
+
 
 /** @param {jQuery} $ jQuery closure. */
 }(jQuery));

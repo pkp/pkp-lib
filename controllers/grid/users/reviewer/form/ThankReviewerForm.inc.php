@@ -22,8 +22,8 @@ class ThankReviewerForm extends Form {
 	/**
 	 * Constructor.
 	 */
-	function ThankReviewerForm($reviewAssignment) {
-		parent::Form('controllers/grid/users/reviewer/form/thankReviewerForm.tpl');
+	function __construct($reviewAssignment) {
+		parent::__construct('controllers/grid/users/reviewer/form/thankReviewerForm.tpl');
 		$this->_reviewAssignment = $reviewAssignment;
 
 		// Validation checks for this form

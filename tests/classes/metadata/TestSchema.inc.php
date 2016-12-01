@@ -22,9 +22,9 @@ class TestSchema extends MetadataSchema {
 	/**
 	 * Constructor
 	 */
-	function TestSchema() {
+	function __construct() {
 		// Configure the meta-data schema.
-		parent::MetadataSchema(
+		parent::__construct(
 			'test-schema',
 			'test',
 			'lib.pkp.tests.classes.metadata.TestSchema',

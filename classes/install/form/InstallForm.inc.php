@@ -41,8 +41,8 @@ class InstallForm extends MaintenanceForm {
 	 * Constructor.
 	 * @param $request PKPRequest
 	 */
-	function InstallForm($request) {
-		parent::MaintenanceForm($request, 'install/install.tpl');
+	function __construct($request) {
+		parent::__construct($request, 'install/install.tpl');
 
 		// FIXME Move the below options to an external configuration file?
 		$this->supportedLocales = AppLocale::getAllLocales();
@@ -87,7 +87,7 @@ class InstallForm extends MaintenanceForm {
 		$this->addCheck(new FormValidatorInSet($this, 'clientCharset', 'required', 'installer.form.clientCharsetRequired', array_keys($this->supportedClientCharsets)));
 		$this->addCheck(new FormValidator($this, 'filesDir', 'required', 'installer.form.filesDirRequired'));
 		$this->addCheck(new FormValidator($this, 'adminUsername', 'required', 'installer.form.usernameRequired'));
-		$this->addCheck(new FormValidatorAlphaNum($this, 'adminUsername', 'required', 'installer.form.usernameAlphaNumeric'));
+		$this->addCheck(new FormValidatorUsername($this, 'adminUsername', 'required', 'installer.form.usernameAlphaNumeric'));
 		$this->addCheck(new FormValidator($this, 'adminPassword', 'required', 'installer.form.passwordRequired'));
 		$this->addCheck(new FormValidatorCustom($this, 'adminPassword', 'required', 'installer.form.passwordsDoNotMatch', create_function('$password,$form', 'return $password == $form->getData(\'adminPassword2\');'), array($this)));
 		$this->addCheck(new FormValidatorEmail($this, 'adminEmail', 'required', 'installer.form.emailRequired'));

@@ -77,7 +77,6 @@
 	<message key="user.register.completeForm">Completa este formulario para rexistrarse na revista.</message>
 	<message key="user.register.form.emailExists">O enderezo de correo-e seleccionada xa está a ser usado por outra persoa.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Os contrasinais non coinciden.</message>
-	<message key="user.register.form.usernameAlphaNumeric">O nome de usuaria/o só puede ter caracteres alfanuméricos, guións baixos, e guións, tendo que comezar e rematar cun caracter alfanumérico.</message>
 	<message key="user.register.form.usernameExists">O nome de usuaria/o seleccionado xa está a ser usado por outra persoa.</message>
 	<message key="user.register.passwordLengthRestriction">O contrasinal debe conter, como mínimo, {$length} caracteres.</message>
 	<message key="user.register.registerAs">Rexistrarse como</message>

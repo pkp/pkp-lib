@@ -20,12 +20,12 @@ class GuidelinesForm extends ContextSettingsForm {
 	/**
 	 * Constructor.
 	 */
-	function GuidelinesForm($wizardMode = false) {
+	function __construct($wizardMode = false) {
 		$settings = array(
 			'authorGuidelines' => 'string'
 		);
 
-		parent::ContextSettingsForm($settings, 'controllers/tab/settings/guidelines/form/guidelinesForm.tpl', $wizardMode);
+		parent::__construct($settings, 'controllers/tab/settings/guidelines/form/guidelinesForm.tpl', $wizardMode);
 	}
 
 

@@ -54,8 +54,8 @@ class GridRow extends GridBodyElement {
 	/**
 	 * Constructor.
 	 */
-	function GridRow() {
-		parent::GridBodyElement();
+	function __construct() {
+		parent::__construct();
 
 		$this->_isModified = false;
 	}

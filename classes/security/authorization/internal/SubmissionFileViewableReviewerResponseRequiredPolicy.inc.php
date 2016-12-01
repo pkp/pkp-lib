@@ -21,8 +21,8 @@ class SubmissionFileViewableReviewerResponseRequiredPolicy extends SubmissionFil
 	 * Constructor
 	 * @param $request PKPRequest
 	 */
-	function SubmissionFileViewableReviewerResponseRequiredPolicy($request, $fileIdAndRevision = null) {
-		parent::SubmissionFileBaseAccessPolicy($request, $fileIdAndRevision);
+	function __construct($request, $fileIdAndRevision = null) {
+		parent::__construct($request, $fileIdAndRevision);
 	}
 
 

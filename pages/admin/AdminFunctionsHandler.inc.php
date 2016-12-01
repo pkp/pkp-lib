@@ -22,8 +22,8 @@ class AdminFunctionsHandler extends AdminHandler {
 	/**
 	 * Constructor
 	 */
-	function AdminFunctionsHandler() {
-		parent::AdminHandler();
+	function __construct() {
+		parent::__construct();
 
 		$this->addRoleAssignment(
 			array(ROLE_ID_SITE_ADMIN),

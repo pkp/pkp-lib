@@ -20,13 +20,13 @@ class ContextIndexingForm extends ContextSettingsForm {
 	/**
 	 * Constructor.
 	 */
-	function ContextIndexingForm($wizardMode = false) {
+	function __construct($wizardMode = false) {
 		$settings = array(
 			'searchDescription' => 'string',
 			'customHeaders' => 'string'
 		);
 
-		parent::ContextSettingsForm($settings, 'controllers/tab/settings/contextIndexing/form/contextIndexingForm.tpl', $wizardMode);
+		parent::__construct($settings, 'controllers/tab/settings/contextIndexing/form/contextIndexingForm.tpl', $wizardMode);
 	}
 
 

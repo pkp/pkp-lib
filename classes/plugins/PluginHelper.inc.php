@@ -31,7 +31,7 @@ class PluginHelper {
 	 * Constructor.
 	 * @param $function string PLUGIN_ACTION_...
 	 */
-	function PluginHelper() {
+	function __construct() {
 	}
 
 	/**
@@ -41,6 +41,7 @@ class PluginHelper {
 	 * @return string|null Extracted plugin path on success; null on error
 	 */
 	function extractPlugin($filePath, $originalFileName, &$errorMsg) {
+		$fileManager = new FileManager();
 		// tar archive basename (less potential version number) must
 		// equal plugin directory name and plugin files must be in a
 		// directory named after the plug-in (potentially with version)
@@ -49,6 +50,7 @@ class PluginHelper {
 		$pluginShortName = array_pop($matches);
 		if (!$pluginShortName) {
 			$errorMsg = __('manager.plugins.invalidPluginArchive');
+			$fileManager->deleteFile($filePath);
 			return null;
 		}
 
@@ -63,6 +65,7 @@ class PluginHelper {
 		} else {
 			$errorMsg = __('manager.plugins.tarCommandNotFound');
 		}
+		$fileManager->deleteFile($filePath);
 
 		if (empty($errorMsg)) {
 			// Look for a directory named after the plug-in's short
@@ -84,7 +87,7 @@ class PluginHelper {
 			}
 			$errorMsg = __('manager.plugins.invalidPluginArchive');
 		}
-
+		$fileManager->rmtree($pluginExtractDir);
 		return null;
 	}
 
@@ -103,32 +106,16 @@ class PluginHelper {
 		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 		$installedPlugin = $versionDao->getCurrentVersion($pluginVersion->getProductType(), $pluginVersion->getProduct(), true);
 
+		$fileManager = new FileManager();
 		if (!$installedPlugin) {
 			$pluginLibDest = Core::getBaseDir() . '/' . PKP_LIB_PATH . '/' . strtr($pluginVersion->getProductType(), '.', '/') . '/' . $pluginVersion->getProduct();
 			$pluginDest = Core::getBaseDir() . '/' . strtr($pluginVersion->getProductType(), '.', '/') . '/' . $pluginVersion->getProduct();
 
 			// Copy the plug-in from the temporary folder to the
 			// target folder.
-			// Start with the library part (if any).
-			$libPath = $path . '/lib';
-			$fileManager = new FileManager();
-			if (is_dir($libPath)) {
-				if(!$fileManager->copyDir($libPath, $pluginLibDest)) {
-					$errorMsg = __('manager.plugins.copyError');
-					return null;
-				}
-				// Remove the library part of the temporary folder.
-				$fileManager->rmtree($libPath);
-			}
-
-			// Continue with the application-specific part (mandatory).
-			if (!$fileManager->copyDir($path, $pluginDest)) {
-				$errorMsg = __('manager.plugins.copyError');
+			if (!$this->_cutAndPasteTemporaryFile($path, $pluginDest, $pluginLibDest, $errorMsg, $fileManager)) {
 				return null;
 			}
-
-			// Remove the temporary folder.
-			$fileManager->rmtree(dirname($path));
 
 			// Upgrade the database with the new plug-in.
 			$installFile = $pluginDest . '/' . PLUGIN_INSTALL_FILE;
@@ -153,6 +140,7 @@ class PluginHelper {
 			} else {
 				$errorMsg = __('manager.plugins.installedVersionOlder');
 			}
+			$fileManager->rmtree(dirname($path));
 		}
 		return null;
 	}
@@ -198,6 +186,8 @@ class PluginHelper {
 	 * @return Version|null The upgraded version, on success; null on fail
 	 */
 	function upgradePlugin($category, $plugin, $path, &$errorMsg) {
+		$fileManager = new FileManager();
+
 		$versionFile = $path . '/' . PLUGIN_VERSION_FILE;
 		$pluginVersion = VersionCheck::getValidPluginVersionInfo($versionFile, $errorMsg);
 		if (!$pluginVersion) return null;
@@ -205,11 +195,13 @@ class PluginHelper {
 		// Check whether the uploaded plug-in fits the original plug-in.
 		if ('plugins.'.$category != $pluginVersion->getProductType()) {
 			$errorMsg = __('manager.plugins.wrongCategory');
+			$fileManager->rmtree(dirname($path));
 			return null;
 		}
 
 		if ($plugin != $pluginVersion->getProduct()) {
 			$errorMsg = __('manager.plugins.wrongName');
+			$fileManager->rmtree(dirname($path));
 			return null;
 		}
 
@@ -217,48 +209,34 @@ class PluginHelper {
 		$installedPlugin = $versionDao->getCurrentVersion($pluginVersion->getProductType(), $pluginVersion->getProduct(), true);
 		if(!$installedPlugin) {
 			$errorMsg = __('manager.plugins.pleaseInstall');
+			$fileManager->rmtree(dirname($path));
 			return null;
 		}
 
 		if ($this->_checkIfNewer($pluginVersion->getProductType(), $pluginVersion->getProduct(), $pluginVersion)) {
 			$errorMsg = __('manager.plugins.installedVersionNewer');
+			$fileManager->rmtree(dirname($path));
 			return null;
 		} else {
 			$pluginDest = Core::getBaseDir() . '/plugins/' . $category . '/' . $plugin;
 			$pluginLibDest = Core::getBaseDir() . '/' . PKP_LIB_PATH . '/plugins/' . $category . '/' . $plugin;
 
 			// Delete existing files.
-			$fileManager = new FileManager();
 			if (is_dir($pluginDest)) $fileManager->rmtree($pluginDest);
 			if (is_dir($pluginLibDest)) $fileManager->rmtree($pluginLibDest);
 
 			// Check whether deleting has worked.
 			if(is_dir($pluginDest) || is_dir($pluginLibDest)) {
-				$errorMsg = __('message', 'manager.plugins.deleteError');
+				$errorMsg = __('manager.plugins.deleteError', array('pluginName' => $pluginVersion->getProduct()));
+				$fileManager->rmtree(dirname($path));
 				return null;
 			}
 
 			// Copy the plug-in from the temporary folder to the
 			// target folder.
-			// Start with the library part (if any).
-			$libPath = $path . '/lib';
-			if (is_dir($libPath)) {
-				if(!$fileManager->copyDir($libPath, $pluginLibDest)) {
-					$errorMsg = __('manager.plugins.copyError');
-					return null;
-				}
-				// Remove the library part of the temporary folder.
-				$fileManager->rmtree($libPath);
-			}
-
-			// Continue with the application-specific part (mandatory).
-			if(!$fileManager->copyDir($path, $pluginDest)) {
-				$errorMsg = __('manager.plugins.copyError');
+			if (!$this->_cutAndPasteTemporaryFile($path, $pluginDest, $pluginLibDest, $errorMsg, $fileManager)) {
 				return null;
 			}
-
-			// Remove the temporary folder.
-			$fileManager->rmtree(dirname($path));
 
 			$upgradeFile = $pluginDest . '/' . PLUGIN_UPGRADE_FILE;
 			if($fileManager->fileExists($upgradeFile)) {
@@ -276,6 +254,49 @@ class PluginHelper {
 			$versionDao->insertVersion($pluginVersion, true);
 			return $pluginVersion;
 		}
+	}
+
+	/**
+	 * Cut and paste plugin from temporary files to it's actual place.
+	 * @param $path string Path of temporary files
+	 * @param $pluginDest string Path of application-specific part (mandatory)
+	 * @param $pluginLibDest string path of library part (if any)
+	 * @param $errorMsg string Error message
+	 * @param $fileManager FileManager Manager to manage files. Will be created if not specified.
+	 * @return boolean Was it successful
+	 */
+	function _cutAndPasteTemporaryFile($path, $pluginDest, $pluginLibDest, &$errorMsg, $fileManager = null) {
+		if (!isset($fileManager)) {
+			$fileManager = new FileManager();
+		}
+		// Start with the library part (if any).
+		$libPath = $path . '/lib';
+		if (is_dir($libPath)) {
+			if (!$this->_cutAndPasteDir($fileManager, $libPath, $pluginLibDest)) {
+				$errorMsg = __('manager.plugins.copyError');
+				return false;
+			}
+		}
+
+		// Continue with the application-specific part (mandatory)
+		if (!$this->_cutAndPasteDir($fileManager, $path, $pluginDest)) {
+			$errorMsg = __('manager.plugins.copyError');
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Cuts and pastes source to target.
+	 * @param $manager FileManager The file manager to use
+	 * @param $src string The source directory
+	 * @param $trg string The target directory
+	 * @return boolean Was it successful
+	 */
+	function _cutAndPasteDir($manager, $src, $trg) {
+		$copySuccess = $manager->copyDir($src, $trg);
+		$manager->rmtree(dirname($src));
+		return $copySuccess;
 	}
 }
 

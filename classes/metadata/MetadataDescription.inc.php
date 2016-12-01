@@ -134,9 +134,9 @@ class MetadataDescription extends DataObject {
 	/**
 	 * Constructor
 	 */
-	function MetadataDescription($metadataSchemaName, $assocType) {
+	function __construct($metadataSchemaName, $assocType) {
 		assert(is_string($metadataSchemaName) && is_integer($assocType));
-		parent::DataObject();
+		parent::__construct();
 		$this->_metadataSchemaName = $metadataSchemaName;
 		$this->_assocType = $assocType;
 	}

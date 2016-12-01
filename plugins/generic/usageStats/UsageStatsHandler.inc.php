@@ -20,8 +20,8 @@ class UsageStatsHandler extends Handler {
 	/**
 	 * Constructor
 	 */
-	function UsageStatsHandler() {
-		parent::Handler();
+	function __construct() {
+		parent::__construct();
 	}
 
 

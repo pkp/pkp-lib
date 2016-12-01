@@ -128,6 +128,8 @@
 	<message key="common.fileSize">Mida del fitxer</message>
 	<message key="common.fileType">Tipus de fitxer</message>
 	<message key="common.fileUploaderError">El fitxer de sistema s'està carregant. Si no apareix, és possible que cap dels seus entorns d'execució sigui compatible amb aquest navegador. Contacteu amb l'administrador/a per obtenir ajuda.</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.go">Vés-hi</message>
 	<message key="common.height">Alçada</message>
 	<message key="common.homePageHeaderLogo.altText">Logotip per a la capçalera de la pàgina inicial</message>
@@ -424,10 +426,10 @@
 	<message key="notification.unsubscribeSuccess">S’ha cancel·lat la vostra subscripció.</message>
 	<message key="notification.savedSubmissionMetadata">S'han desat les metadades de la tramesa.</message>
 	<message key="search.abstract">Resum</message>
-	<message key="search.activeFilters">Filtres avançats</message>
+	<message key="search.author">Autors/ores</message>
+	<message key="search.advancedFilters">Filtres avançats</message>
 	<message key="search.advancedSearchMore">Opcions de cerca addicionals (feu clic per mostrar-les)</message>
 	<message key="search.advancedSearchLess">Opcions de cerca addicionals (feu clic per amagar-les)</message>
-	<message key="search.allFields">A tots els camps</message>
 	<message key="search.cli.rebuildIndex.clearingIndex">Neteja de l'índex</message>
 	<message key="search.cli.rebuildIndex.done">fet</message>
 	<message key="search.cli.rebuildIndex.error">error</message>
@@ -489,6 +491,7 @@
 	<message key="notification.type.allRevisionsIn">S'ha carregat un fitxer per a la vostra acceptació editorial a {$stage}.</message>
 	<message key="notification.type.pendingRevisions">Teniu revisions pendents d'acceptar a {$stage}.</message>
 	<message key="notification.type.pendingRevisions.title">Les revisions s'han enviat a {$stage}.</message>
+	<message key="notification.type.roundStatusTitle">Ronda {$round} Estat</message>
 	<message key="notification.signedFile">S'ha acceptat el fitxer.</message>
 	<message key="user.authorization.submissionFile">L'usuari/ària actual no està autoritzat per accedir al fitxer de tramesa especificat.</message>
 	<message key="user.authorization.invalidSubmission">La tramesa no és vàlida.</message>

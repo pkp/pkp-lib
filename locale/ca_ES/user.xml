@@ -102,7 +102,6 @@
 	<message key="user.register.form.emailExists">Ja hi ha un altre usuari/usuària que utilitza l’adreça electrònica seleccionada.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Les contrasenyes no coincideixen.</message>
 	<message key="user.register.form.emailsDoNotMatch">Els camps de correu electrònic no coincideixen.</message>
-	<message key="user.register.form.usernameAlphaNumeric">El nom d’usuari només pot contenir caràcters alfanumèrics, ratlles baixes i guionets, i ha de començar i acabar amb un caràcter alfanumèric.</message>
 	<message key="user.register.form.usernameExists">Ja hi ha un altre usuari/usuària que utilitza el nom d’usuari seleccionat.</message>
 	<message key="user.register.passwordLengthRestriction">La contrasenya ha de tenir {$length} caràcters com a mínim.</message>
 	<message key="user.register.registerAs">Registra’m com a</message>

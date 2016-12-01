@@ -23,8 +23,8 @@ class InfoGridCellProvider extends GridCellProvider {
 	/**
 	 * Constructor
 	 */
-	function InfoGridCellProvider($translate = false) {
-		parent::GridCellProvider();
+	function __construct($translate = false) {
+		parent::__construct();
 		$this->_translate = $translate;
 	}
 

@@ -21,8 +21,8 @@ class NotificationsGridCellProvider extends GridCellProvider {
 	/**
 	 * Constructor
 	 */
-	function NotificationsGridCellProvider() {
-		parent::GridCellProvider();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

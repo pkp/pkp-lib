@@ -20,8 +20,8 @@ class SubmissionCommentDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function SubmissionCommentDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

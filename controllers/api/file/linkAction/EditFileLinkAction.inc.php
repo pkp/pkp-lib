@@ -21,7 +21,7 @@ class EditFileLinkAction extends FileLinkAction {
 	 * @param $submissionFile SubmissionFile the submission file to edit.
 	 * @param $stageId int Stage ID
 	 */
-	function EditFileLinkAction($request, $submissionFile, $stageId) {
+	function __construct($request, $submissionFile, $stageId) {
 		// Instantiate the AJAX modal request.
 		$router = $request->getRouter();
 		$dispatcher = $router->getDispatcher();
@@ -38,7 +38,7 @@ class EditFileLinkAction extends FileLinkAction {
 		);
 
 		// Configure the file link action.
-		parent::FileLinkAction(
+		parent::__construct(
 			'editFile', $modal, __('common.edit'), 'edit'
 		);
 	}

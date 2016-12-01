@@ -178,7 +178,7 @@
 		Ihr {$contextObjectName} ist so eingestellt, dass sie mehr als eine Nutzungsstatistik aufzeichnet. Nutzungsstatistiken werden in verschiedenen Kontexten angezeigt.
 		Es gibt Fälle, in denen eine einzige Nutzungsstatistik benutzt werden muss, z.B. wenn eine sortierte Liste der am häufigsten genutzten Artikel angezeigt werden soll oder um Suchergebnisse zu gewichten. Bitte wählen Sie eine der Nutzungsmetriken als Standard aus.
 	</message>
-	<message key="manager.statistics.city">Stadt</message>	
+	<message key="manager.statistics.city">Stadt</message>
 	<message key="manager.statistics.region">Region</message>
 	<message key="manager.statistics.reports">Berichtserstellung</message>
 	<message key="manager.statistics.reports.description">Das System erstellt Berichte, die die Details der Verarbeitung von Beiträgen aus der Perspektive von Beiträgen, Redakteur/innen, Gutachter/innen sowie Rubriken über einen festgelegten Zeitraum nachzeichnen. Die Berichte werden im CSV-Format erstellt, die mit einer Tabellenkalkulation betrachtet werden können.</message>
@@ -202,7 +202,7 @@
 	<message key="manager.statistics.reports.cities.label">Ein oder mehrere Städtenamen, jeweils mit Komma getrennt (z.B. Stadt 1,Stadt 2)</message>
 	<message key="manager.statistics.reports.form.columnsRequired">Sie müssen mindestens eine Spalte auswählen, um den Bericht zu erzeugen.</message>
 	<message key="manager.statistics.reports.reportUrl">Bericht-URL</message>
-	<message key="manager.statistics.reports.reportUrl.label">Die folgende URL kann benutzt werden, um den Bericht mit diesen aktuellen Einstellungen zu erzeugen. Kopieren Sie ihn einfach und geben Sie ihn in Ihren Browser ein. Sie können die URL zur Berichterzeugung in Ihren Bookmarks speichern.</message>
+	<message key="manager.statistics.reports.reportUrl.label">Die folgende URL kann benutzt werden, um den Bericht mit den aktuellen Einstellungen zu erzeugen. Kopieren Sie ihn einfach und geben Sie ihn in Ihren Browser ein. Sie können die URL zur Berichterzeugung in Ihren Bookmarks speichern.</message>
 	<message key="manager.statistics.reports.filters.byContext">Nach Kontext</message>
 	<message key="manager.statistics.reports.filters.byObject">Nach Objekttyp oder Objekt-ID</message>
 	<message key="manager.statistics.reports.filters.byTime">Wähle Berichtszeitraum</message>
@@ -244,7 +244,7 @@
 	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Bitte wählen Sie eine Nachschlagedatenbank aus.</message>
 	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Dieser Filter ist mit der  <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> Buch-und-ISBN-Datenbank verknüpft.</p>
 	<p>Ein ISBNdb API key wird benötigt. Vgl. die <a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">Online-Dokumentation</a> für Informationen zum Erzeugen eines Schlüssels.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Dieser Filter ist mit der CrossRef-Zitationsdatenbenk über CrossRefs <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL Query Interface</a> verknüpft.</p> 
+	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Dieser Filter ist mit der CrossRef-Zitationsdatenbenk über CrossRefs <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL Query Interface</a> verknüpft.</p>
 	<p>Um diesen Filter zu benutzen, können Sie Ihren CrossRef-Account benutzen, oder Sie registrieren eine gültige E-Mail-Adresse bei CrossRef <a href="http://www.crossref.org/requestaccount/" target="_blank">hier</a>.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Dieser Filter ist mit PubMeds <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a> Metasuchmaschine verknüpft.</p>
 	<p>Eine Registrierungs-E-Mail ist nicht unbedingt erforderlich, könnte aber nötig werden, wenn Sie auf Verbindungsprobleme stoßen. Vgl. für weitere Informationen den Abschnitt <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Usage Guidelines and Requirements</a> in der Entrez-Dokumentation.</p>]]></message>
@@ -269,7 +269,6 @@
 	<message key="manager.setup.layout.theme">Grafisches Thema</message>
 	<message key="manager.setup.layout.themeDescription">Wählen Sie ein Grafikthema aus den verfügbaren Thema-Plugins aus.</message>
 	<message key="manager.setup.layout.blockManagement">Verwaltung der Sidebar</message>
-	<message key="manager.setup.layout.leftSidebar">Linke Seitenleiste</message>
 	<message key="manager.setup.layout.unselected">Nicht ausgewählt</message>
 	<message key="manager.setup.loggingAndAuditing">Protokollieren und prüfen</message>
 	<message key="manager.setup.metaCitationsDescription">Aktivieren Sie die folgende Auswahlbox, um Zitationsbearbeitung zu ermöglichen. Dies wird es Autor/innen ermöglichen, unbearbeitete Zitationen mit ihren Beiträgen einzureichen. Redakteur/innen werden ebenfalls Zugriff auf einen Zitationsauszeichnungsassistenten haben, der unbearbeitete Zitationen mit externen Datenbanken wie WorldCat, ISBNdb, PubMed u.a. abgleichen kann. Bestätigte Zitationen können in die endgültigen Fahnendateien exportiert werden.</message>
@@ -475,8 +474,6 @@
 	<message key="manager.reviewFormElements.included">In Nachricht an Autor/in aufgenommen</message>
 	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Erklärung von Gutachter/in zu möglicherweise bestehenden Interessenkonflikten</message>
 	<message key="manager.setup.competingInterests.required">Während der Begutachtung die Angabe einer Erklärung zu möglicherweise bestehenden Interessenkonflikten verlangen.</message>
-	<message key="manager.setup.includeCopyrightStatement">Den Copyright-Vermerk zusammen mit den Inhalten anzeigen (ratsam, um durch Autor/innen gehaltenes Copyright geltend zu machen).</message>
-	<message key="manager.setup.includeLicense">Die Lizenz zusammen mit dem veröffentlichten Werk anzeigen.</message>
 	<message key="manager.setup.licenseURLDescription">URL zum Lizenztext, sofern verfügbar.</message>
 	<message key="manager.setup.metadata.submission">Einreichungs-Formular</message>
 	<message key="manager.setup.principalContact">Hauptkontakt</message>
@@ -518,4 +515,7 @@
 	<message key="manager.plugins.noCompatibleVersion.short">Nicht verfügbar</message>
 	<message key="manager.setup.peerReview.description">Beschreiben Sie die Begutachtungsrichtlinien und die Abläufe für Leser/innen und Autor/innen. Diese Beschreibung enthält üblicherweise die Anzahl der Gutachter/innen, die typischerweise eine Einreichung begutachten, die Kriterien, anhand derer Gutachter/innen urteilen sollen, die erwartete Begutachtungsdauer und die Grundsätze der Gutachter/innenauswahl.</message>
 	<message key="manager.setup.principalContactDescription">Geben Sie Kontaktinformationen, üblicherweise für eine Hauptredaktion, Redaktionsleitung oder Redaktionsbüro, an, die auf Ihrer öffentlich zugänglichen Webseite angezeigt werden können.</message>
+	<message key="plugins.importexport.common.validationErrors">Validierungsfehler:</message>
+	<message key=""><![CDATA[]]></message>
+	<message key="manager.userSearch.searchByName">Nutzer/in per Name suchen</message>
 </locale>

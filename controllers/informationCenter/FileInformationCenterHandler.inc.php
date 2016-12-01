@@ -27,8 +27,8 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 	/**
 	 * Constructor
 	 */
-	function FileInformationCenterHandler() {
-		parent::InformationCenterHandler();
+	function __construct() {
+		parent::__construct();
 
 		$this->addRoleAssignment(
 			array(

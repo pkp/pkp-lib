@@ -46,8 +46,8 @@ class MemcacheCache extends GenericCache {
 	/**
 	 * Instantiate a cache.
 	 */
-	function MemcacheCache($context, $cacheId, $fallback, $hostname, $port) {
-		parent::GenericCache($context, $cacheId, $fallback);
+	function __construct($context, $cacheId, $fallback, $hostname, $port) {
+		parent::__construct($context, $cacheId, $fallback);
 		$this->connection = new Memcache;
 
 		if (!$this->connection->connect($hostname, $port)) {

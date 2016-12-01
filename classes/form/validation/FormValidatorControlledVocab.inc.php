@@ -26,10 +26,10 @@ class FormValidatorControlledVocab extends FormValidator {
 	 * @param $assocType int
 	 * @param $assocId int
 	 */
-	function FormValidatorControlledVocab(&$form, $field, $type, $message, $symbolic, $assocType, $assocId) {
+	function __construct(&$form, $field, $type, $message, $symbolic, $assocType, $assocId) {
 		import('lib.pkp.classes.validation.ValidatorControlledVocab');
 		$validator = new ValidatorControlledVocab($symbolic, $assocType, $assocId);
-		parent::FormValidator($form, $field, $type, $message, $validator);
+		parent::__construct($form, $field, $type, $message, $validator);
 	}
 }
 

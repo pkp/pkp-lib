@@ -89,6 +89,8 @@
 	<message key="common.fileName">Nome del file</message>
 	<message key="common.fileSize">Dimensione del file</message>
 	<message key="common.fileType">Tipo di file</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">Altezza</message>
 	<message key="common.homePageHeaderLogo.altText">Logo dell'intestazione dell'homepage</message>
 	<message key="common.hour">Ora</message>
@@ -244,7 +246,7 @@
 	<message key="navigation.userHome">Cruscotto</message>
 	<message key="navigation.user">Cruscotto</message>
 	<message key="search.abstract">Abstract</message>
-	<message key="search.allFields">Tutti i campi</message>
+	<message key="search.author">Autori</message>
 	<message key="search.coverage">Copertura</message>
 	<message key="search.date">Data</message>
 	<message key="search.dateFrom">Da</message>

@@ -39,7 +39,7 @@ class SQLParser {
 	 * @param $driver string the database driver (currently only "mysql" is supported)
 	 * @param $debug boolean echo each statement as it's executed
 	 */
-	function SQLParser($driver, &$dataSource, $debug = false) {
+	function __construct($driver, &$dataSource, $debug = false) {
 		$this->driver = $driver;
 		$this->dataSource =& $dataSource;
 		$this->debug = $debug;

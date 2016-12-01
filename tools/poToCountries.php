@@ -29,8 +29,8 @@ class poToCountries extends CommandLineTool {
 	/**
 	 * Constructor
 	 */
-	function poToCountries($argv = array()) {
-		parent::CommandLineTool($argv);
+	function __construct($argv = array()) {
+		parent::__construct($argv);
 
 		array_shift($argv); // Shift the tool name off the top
 

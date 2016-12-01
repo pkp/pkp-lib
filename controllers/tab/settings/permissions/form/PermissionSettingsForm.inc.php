@@ -20,8 +20,8 @@ class PermissionSettingsForm extends ContextSettingsForm {
 	/**
 	 * Constructor.
 	 */
-	function PermissionSettingsForm($settings = array(), $wizardMode = false) {
-		parent::ContextSettingsForm(
+	function __construct($settings = array(), $wizardMode = false) {
+		parent::__construct(
 			array_merge(
 				$settings,
 				array(

@@ -32,7 +32,7 @@ class GridBodyElement {
 	/**
 	 * Constructor
 	 */
-	function GridBodyElement($id = '', $cellProvider = null, $flags = array()) {
+	function __construct($id = '', $cellProvider = null, $flags = array()) {
 		$this->_id = $id;
 		$this->_cellProvider = $cellProvider;
 		$this->_flags = $flags;

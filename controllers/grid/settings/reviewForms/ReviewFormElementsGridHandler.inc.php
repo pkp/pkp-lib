@@ -24,8 +24,8 @@ class ReviewFormElementsGridHandler extends GridHandler {
 	/**
 	 * Constructor
 	 */
-	function ReviewFormElementsGridHandler() {
-		parent::GridHandler();
+	function __construct() {
+		parent::__construct();
 		$this->addRoleAssignment(array(
 			ROLE_ID_MANAGER),
 			array('fetchGrid', 'fetchRow', 'saveSequence',

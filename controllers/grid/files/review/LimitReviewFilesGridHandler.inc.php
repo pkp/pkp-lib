@@ -20,10 +20,10 @@ class LimitReviewFilesGridHandler extends SelectableFileListGridHandler {
 	/**
 	 * Constructor
 	 */
-	function LimitReviewFilesGridHandler() {
+	function __construct() {
 		import('lib.pkp.controllers.grid.files.review.ReviewGridDataProvider');
 		// Pass in null stageId to be set in initialize from request var.
-		parent::SelectableFileListGridHandler(
+		parent::__construct(
 			new ReviewGridDataProvider(SUBMISSION_FILE_REVIEW_FILE),
 			null,
 			FILE_GRID_VIEW_NOTES

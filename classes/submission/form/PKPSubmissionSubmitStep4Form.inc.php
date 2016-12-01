@@ -22,8 +22,8 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 	 * @param $context Context
 	 * @param $submission Submission
 	 */
-	function PKPSubmissionSubmitStep4Form($context, $submission) {
-		parent::SubmissionSubmitForm($context, $submission, 4);
+	function __construct($context, $submission) {
+		parent::__construct($context, $submission, 4);
 	}
 
 	/**

@@ -23,8 +23,8 @@ class NativeImportExportFilter extends PersistableFilter {
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function NativeImportExportFilter($filterGroup) {
-		parent::PersistableFilter($filterGroup);
+	function __construct($filterGroup) {
+		parent::__construct($filterGroup);
 	}
 
 

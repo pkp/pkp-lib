@@ -20,8 +20,8 @@ class GridCategoryRowCellProvider extends GridCellProvider {
 	/**
 	 * Constructor
 	 */
-	function GridCategoryRowCellProvider() {
-		parent::GridCellProvider();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

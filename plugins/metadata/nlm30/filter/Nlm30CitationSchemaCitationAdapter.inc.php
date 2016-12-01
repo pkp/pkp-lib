@@ -24,8 +24,8 @@ class Nlm30CitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function Nlm30CitationSchemaCitationAdapter($filterGroup) {
-		parent::MetadataDataObjectAdapter($filterGroup);
+	function __construct($filterGroup) {
+		parent::__construct($filterGroup);
 	}
 
 	//

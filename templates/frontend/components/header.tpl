@@ -23,6 +23,12 @@
 {if !$pageTitleTranslated}{translate|assign:"pageTitleTranslated" key=$pageTitle}{/if}
 {include file="frontend/components/headerHead.tpl"}
 <body class="pkp_page_{$requestedPage|escape|default:"index"} pkp_op_{$requestedOp|escape|default:"index"}{if $showingLogo} has_site_logo{/if}">
+
+	<div class="cmp_skip_to_content">
+		<a href="#pkp_content_main">{translate key="navigation.skip.main"}</a>
+		<a href="#pkp_content_nav">{translate key="navigation.skip.nav"}</a>
+		<a href="#pkp_content_footer">{translate key="navigation.skip.footer"}</a>
+	</div>
 	<div class="pkp_structure_page">
 
 		{* Header *}
@@ -66,7 +72,7 @@
 
 				{* Primary site navigation *}
 				{if $currentContext}
-					<nav class="pkp_navigation_primary_row navDropdownMenu" aria-label="{translate|escape key="common.navigation.site"}">
+					<nav id="pkp_content_nav" class="pkp_navigation_primary_row navDropdownMenu" aria-label="{translate|escape key="common.navigation.site"}">
 						<div class="pkp_navigation_primary_wrapper">
 
 							{* Primary navigation menu for current application *}
@@ -89,7 +95,7 @@
 									</span>
 								</a>
 								<ul>
-									{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR), $userRoles)}
+									{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR), (array)$userRoles)}
 										<li>
 											<a href="{url router=$smarty.const.ROUTE_PAGE page="submissions"}">
 												{translate key="navigation.dashboard"}
@@ -104,7 +110,7 @@
 											{translate key="common.viewProfile"}
 										</a>
 									</li>
-									{if array_intersect(array(ROLE_ID_SITE_ADMIN), $userRoles)}
+									{if array_intersect(array(ROLE_ID_SITE_ADMIN), (array)$userRoles)}
 									<li>
 										<a href="{if $multipleContexts}{url router=$smarty.const.ROUTE_PAGE context="index" page="admin" op="index"}{else}{url router=$smarty.const.ROUTE_PAGE page="admin" op="index"}{/if}">
 											{translate key="navigation.admin"}
@@ -139,7 +145,7 @@
 
 		{* Wrapper for page content and sidebars *}
 		{if $isFullWidth}
-			{assign var=hasLeftSidebar value=0}
+			{assign var=hasSidebar value=0}
 		{/if}
-		<div class="pkp_structure_content{if $hasLeftSidebar} has_left_sidebar{/if}">
-			<div class="pkp_structure_main" role="main">
+		<div class="pkp_structure_content{if $hasSidebar} has_sidebar{/if}">
+			<div id="pkp_content_main" class="pkp_structure_main" role="main">

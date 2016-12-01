@@ -20,10 +20,10 @@ class CitationListTokenizerFilter extends Filter {
 	/**
 	 * Constructor
 	 */
-	function CitationListTokenizerFilter() {
+	function __construct() {
 		$this->setDisplayName('Split a reference list into separate citations');
 
-		parent::Filter('primitive::string', 'primitive::string[]');
+		parent::__construct('primitive::string', 'primitive::string[]');
 	}
 
 	//

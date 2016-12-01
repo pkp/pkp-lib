@@ -19,8 +19,8 @@ class ReviewerSelectGridCellProvider extends DataObjectGridCellProvider {
 	/**
 	 * Constructor
 	 */
-	function ReviewerSelectGridCellProvider() {
-		parent::DataObjectGridCellProvider();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

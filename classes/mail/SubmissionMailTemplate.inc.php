@@ -37,8 +37,8 @@ class SubmissionMailTemplate extends MailTemplate {
 	 * @param $includeSignature boolean optional
 	 * @see MailTemplate::MailTemplate()
 	 */
-	function SubmissionMailTemplate($submission, $emailKey = null, $locale = null, $context = null, $includeSignature = true) {
-		parent::MailTemplate($emailKey, $locale, $context, $includeSignature);
+	function __construct($submission, $emailKey = null, $locale = null, $context = null, $includeSignature = true) {
+		parent::__construct($emailKey, $locale, $context, $includeSignature);
 		$this->submission = $submission;
 	}
 

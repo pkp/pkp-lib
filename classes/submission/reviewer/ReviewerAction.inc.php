@@ -22,7 +22,7 @@ class ReviewerAction {
 	/**
 	 * Constructor
 	 */
-	function ReviewerAction() {
+	function __construct() {
 	}
 
 	//

@@ -90,6 +90,8 @@
 	<message key="common.fileName">Tên file</message>
 	<message key="common.fileSize">Kích thước file</message>
 	<message key="common.fileType">Loại file</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">Cao</message>
 	<message key="common.homePageHeaderLogo.altText">Lô-gô trên măng-séc trang</message>
 	<message key="common.hour">Giờ</message>
@@ -245,7 +247,7 @@
 	<message key="navigation.userHome">Trang Người dùng</message>
 	<message key="navigation.user">Người dùng</message>
 	<message key="search.abstract">Tóm tắt</message>
-	<message key="search.allFields">Tất cả</message>
+	<message key="search.author">Tác giả</message>
 	<message key="search.coverage">Phạm vi</message>
 	<message key="search.date">Ngày tháng</message>
 	<message key="search.dateFrom">Từ</message>

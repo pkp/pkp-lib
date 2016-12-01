@@ -25,8 +25,8 @@ class BooleanFilterSetting extends FilterSetting {
 	 * @param $displayName string
 	 * @param $validationMessage string
 	 */
-	function BooleanFilterSetting($name, $displayName, $validationMessage) {
-		parent::FilterSetting($name, $displayName, $validationMessage, FORM_VALIDATOR_OPTIONAL_VALUE);
+	function __construct($name, $displayName, $validationMessage) {
+		parent::__construct($name, $displayName, $validationMessage, FORM_VALIDATOR_OPTIONAL_VALUE);
 	}
 
 

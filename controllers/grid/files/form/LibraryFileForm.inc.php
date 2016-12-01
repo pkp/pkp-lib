@@ -28,10 +28,10 @@ class LibraryFileForm extends Form {
 	 * @param $template string
 	 * @param $contextId int
 	 */
-	function LibraryFileForm($template, $contextId) {
+	function __construct($template, $contextId) {
 		$this->contextId = $contextId;
 
-		parent::Form($template);
+		parent::__construct($template);
 		$this->libraryFileManager = new LibraryFileManager($contextId);
 
 		$this->addCheck(new FormValidatorLocale($this, 'libraryFileName', 'required', 'settings.libraryFiles.nameRequired'));

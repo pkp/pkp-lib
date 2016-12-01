@@ -19,11 +19,11 @@
 
 	{fbvFormSection translate=false title=$reviewFormElement->getLocalizedQuestion() list=$list}
 		{if $reviewFormElement->getElementType() == REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD}
-			{fbvElement name="reviewFormResponses[$elementId]" type="text" translate=false required=$reviewFormElement->getRequired() id="reviewFormResponses-$elementId" value=$value maxlength="120" inline=true size=$fbvStyles.size.SMALL readonly=$disabled}
+			{fbvElement name="reviewFormResponses[$elementId]" type="text" translate=false required=$reviewFormElement->getRequired() id="reviewFormResponses-$elementId" value=$value inline=true size=$fbvStyles.size.SMALL readonly=$disabled}
 		{elseif $reviewFormElement->getElementType() == REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD}
-			{fbvElement name="reviewFormResponses[$elementId]" type="text" translate=false required=$reviewFormElement->getRequired() id="reviewFormResponses-$elementId" value=$value maxlength="120" readonly=$disabled}
+			{fbvElement name="reviewFormResponses[$elementId]" type="text" translate=false required=$reviewFormElement->getRequired() id="reviewFormResponses-$elementId" value=$value readonly=$disabled}
 		{elseif $reviewFormElement->getElementType() == REVIEW_FORM_ELEMENT_TYPE_TEXTAREA}
-			{fbvElement name="reviewFormResponses[$elementId]" type="textarea" required=$reviewFormElement->getRequired() id="reviewFormResponses-$elementId" value=$value maxlength="120" readonly=$disabled rows=4 cols=40}
+			{fbvElement name="reviewFormResponses[$elementId]" type="textarea" required=$reviewFormElement->getRequired() id="reviewFormResponses-$elementId" value=$value readonly=$disabled rows=4 cols=40}
 		{elseif $reviewFormElement->getElementType() == REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES}
 			{assign var=possibleResponses value=$reviewFormElement->getLocalizedPossibleResponses()}
 			{foreach name=responses from=$possibleResponses key=responseId item=responseItem}
@@ -48,7 +48,7 @@
 				{fbvElement type="radio" disabled=$disabled name="reviewFormResponses[$elementId]" id="reviewFormResponses-$elementId-$index" value=$index checked=$checked label=$responseItem translate=false}
 			{/foreach}
 		{elseif $reviewFormElement->getElementType() == REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX}
-			{fbvElement type="select" subLabelTranslate=false translate=false name="reviewFormResponses[$elementId]" id="reviewFormResponses-$elementId" required=$reviewFormElement->getRequired() readonly=$disabled defaultLabel="" defaultValue="" from=$possibleResponses selected=$reviewFormResponses.$elementId size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="select" subLabelTranslate=false translate=false name="reviewFormResponses[$elementId]" id="reviewFormResponses-$elementId" required=$reviewFormElement->getRequired() disabled=$disabled defaultLabel="" defaultValue="" from=$possibleResponses selected=$reviewFormResponses.$elementId size=$fbvStyles.size.MEDIUM}
 		{/if}
 	{/fbvFormSection}
 {/iterate}

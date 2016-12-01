@@ -21,8 +21,8 @@ class OrderListbuilderItemsFeature extends OrderItemsFeature {
 	/**
 	 * Constructor.
 	 */
-	function OrderListbuilderItemsFeature() {
-		parent::OrderItemsFeature(false);
+	function __construct() {
+		parent::__construct(false);
 	}
 
 

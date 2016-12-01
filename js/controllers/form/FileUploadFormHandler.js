@@ -39,7 +39,7 @@
 		// the preview container will be hidden when a new file is uploaded and
 		// when the `fileDeleted` event is fired.
 		if (options.$preview !== undefined && options.$preview.length) {
-			this.$preview_ = options.$preview;
+			this.$preview = options.$preview;
 			this.bind('fileDeleted', this.callbackWrapper(this.fileDeleted));
 		}
 
@@ -65,11 +65,11 @@
 
 	/**
 	 * The file preview DOM element. A jQuery object when available
-	 * @private
+	 * @protected
 	 * @type {boolean|jQueryObject}
 	 */
 	$.pkp.controllers.form.FileUploadFormHandler.prototype.
-			$preview_ = false;
+			$preview = false;
 
 
 	//
@@ -135,8 +135,8 @@
 			this.trigger('fileUploaded', [jsonData.uploadedFile]);
 
 			// Hide preview if one exists
-			if (this.$preview_) {
-				this.$preview_.hide();
+			if (this.$preview) {
+				this.$preview.hide();
 			}
 
 			if (jsonData.content === '') {
@@ -158,8 +158,8 @@
 	$.pkp.controllers.form.FileUploadFormHandler.prototype.
 			fileDeleted = function() {
 
-		if (this.$preview_) {
-			this.$preview_.hide();
+		if (this.$preview) {
+			this.$preview.hide();
 		}
 	};
 

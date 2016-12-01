@@ -20,7 +20,7 @@ class PKPTemplateResource {
 	 * Constructor
 	 * @param $templateDir Template directory
 	 */
-	function PKPTemplateResource($templateDir) {
+	function __construct($templateDir) {
 		$this->templateDir = $templateDir;
 	}
 

@@ -29,10 +29,10 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider {
 	 * @param $fileStage integer One of the SUBMISSION_FILE_* constants.
 	 * @param $viewableOnly boolean True iff only viewable files should be included.
 	 */
-	function SubmissionFilesGridDataProvider($fileStage, $viewableOnly = false) {
+	function __construct($fileStage, $viewableOnly = false) {
 		assert(is_numeric($fileStage) && $fileStage > 0);
 		$this->_fileStage = (int)$fileStage;
-		parent::FilesGridDataProvider();
+		parent::__construct();
 
 		$this->setViewableOnly($viewableOnly);
 	}

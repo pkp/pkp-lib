@@ -30,7 +30,7 @@ class FormValidatorTest extends PKPTestCase {
 	}
 
 	/**
-	 * @covers FormValidator::FormValidator
+	 * @covers FormValidator::__construct
 	 * @covers FormValidator::getField
 	 * @covers FormValidator::getForm
 	 * @covers FormValidator::getValidator

@@ -23,8 +23,8 @@ class NewFileNoteForm extends NewNoteForm {
 	/**
 	 * Constructor.
 	 */
-	function NewFileNoteForm($fileId) {
-		parent::NewNoteForm();
+	function __construct($fileId) {
+		parent::__construct();
 
 		$this->fileId = $fileId;
 	}

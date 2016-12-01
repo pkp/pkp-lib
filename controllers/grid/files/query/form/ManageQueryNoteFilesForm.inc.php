@@ -32,8 +32,8 @@ class ManageQueryNoteFilesForm extends ManageSubmissionFilesForm {
 	 * @param $noteId int Note ID.
 	 * @param $actionArgs array Optional list of extra request parameters.
 	 */
-	function ManageQueryNoteFilesForm($submissionId, $queryId, $noteId, $actionArgs = array()) {
-		parent::ManageSubmissionFilesForm($submissionId, 'controllers/grid/files/query/manageQueryNoteFiles.tpl');
+	function __construct($submissionId, $queryId, $noteId, $actionArgs = array()) {
+		parent::__construct($submissionId, 'controllers/grid/files/query/manageQueryNoteFiles.tpl');
 		$this->_queryId = $queryId;
 		$this->_noteId = $noteId;
 		$this->_actionArgs = $actionArgs;

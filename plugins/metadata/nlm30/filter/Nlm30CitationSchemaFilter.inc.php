@@ -38,7 +38,7 @@ class Nlm30CitationSchemaFilter extends PersistableFilter {
 	 * @param $filterGroup FilterGroup
 	 * @param $supportedPublicationTypes array
 	 */
-	function Nlm30CitationSchemaFilter(&$filterGroup, $supportedPublicationTypes = array()) {
+	function __construct(&$filterGroup, $supportedPublicationTypes = array()) {
 		// All NLM citation filters require XSL functionality
 		// that is only present in PHP5.
 		$this->setData('phpVersionMin', '5.0.0');
@@ -57,7 +57,7 @@ class Nlm30CitationSchemaFilter extends PersistableFilter {
 				'metadata.filters.settings.isOptional.validationMessage');
 		$this->addSetting($isOptional);
 
-		parent::PersistableFilter($filterGroup);
+		parent::__construct($filterGroup);
 	}
 
 	//
@@ -294,7 +294,7 @@ class Nlm30CitationSchemaFilter extends PersistableFilter {
 					$persons =& $personStringFilter->execute($personStrings);
 				} else {
 					$personStringFilter = new PersonStringNlm30NameSchemaFilter($personAssocType, PERSON_STRING_FILTER_SINGLE);
-					$persons =& array_map(array($personStringFilter, 'execute'), $personStrings);
+					$persons = array_map(array($personStringFilter, 'execute'), $personStrings);
 				}
 
 				$preliminaryNlm30Array['person-group[@person-group-type="'.$personType.'"]'] = $persons;

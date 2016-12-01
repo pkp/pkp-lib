@@ -18,8 +18,8 @@ class NotificationMailListDAO extends DAO {
 	/**
 	 * Constructor.
 	 */
-	function NotificationMailListDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

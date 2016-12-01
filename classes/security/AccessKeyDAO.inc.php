@@ -21,8 +21,8 @@ class AccessKeyDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function AccessKeyDAO() {
-		parent::DAO();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

@@ -21,8 +21,8 @@ class TaskNotificationsGridHandler extends NotificationsGridHandler {
 	/**
 	 * Constructor
 	 */
-	function TaskNotificationsGridHandler() {
-		parent::NotificationsGridHandler();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

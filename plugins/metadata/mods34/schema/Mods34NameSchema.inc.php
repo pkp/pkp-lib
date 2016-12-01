@@ -38,9 +38,9 @@ class Mods34NameSchema extends MetadataSchema {
 	/**
 	 * Constructor
 	 */
-	function Mods34NameSchema() {
+	function __construct() {
 		// Configure the meta-data schema.
-		parent::MetadataSchema(
+		parent::__construct(
 			'mods-3.4-name',
 			'mods34',
 			'lib.pkp.plugins.metadata.mods34.schema.Mods34NameSchema',

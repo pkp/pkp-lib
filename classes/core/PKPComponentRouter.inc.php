@@ -21,7 +21,7 @@
  *       .../index.php/context1/context2/$$$call$$$/path/to/handler-class/operation-name?arg1=...&arg2=...
  *
  *  where "$$$call$$$" is a non-mutable literal string and "path/to" is
- *  by convention the directory path below the components folder leading to the
+ *  by convention the directory path below the "controllers" folder leading to the
  *  component. The next element ("handler-class" in this example) will be mapped to a
  *  component class file by "camelizing" the string to "HandlerClassHandler" and adding
  *  ".inc.php" to the end. The "operation-name" is transformed to "operationName"
@@ -81,8 +81,8 @@ class PKPComponentRouter extends PKPRouter {
 	/**
 	 * Constructor
 	 */
-	function PKPComponentRouter() {
-		parent::PKPRouter();
+	function __construct() {
+		parent::__construct();
 	}
 
 	/**

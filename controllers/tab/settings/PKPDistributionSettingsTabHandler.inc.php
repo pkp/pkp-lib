@@ -20,8 +20,8 @@ class PKPDistributionSettingsTabHandler extends ManagerSettingsTabHandler {
 	/**
 	 * Constructor
 	 */
-	function PKPDistributionSettingsTabHandler() {
-		parent::ManagerSettingsTabHandler();
+	function __construct() {
+		parent::__construct();
 		// In addition to the operations permitted by the parent
 		// class, allow Payment AJAX extras.
 		$this->addRoleAssignment(

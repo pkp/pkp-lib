@@ -23,8 +23,8 @@ class CitationApiHandler extends PKPHandler {
 	/**
 	 * Constructor.
 	 */
-	function CitationApiHandler() {
-		parent::PKPHandler();
+	function __construct() {
+		parent::__construct();
 	}
 
 

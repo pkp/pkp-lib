@@ -55,8 +55,8 @@ class MailTemplate extends Mail {
 	 * @param $locale string locale of the template
 	 * @param $includeSignature boolean optional
 	 */
-	function MailTemplate($emailKey = null, $locale = null, $context = null, $includeSignature = true) {
-		parent::Mail();
+	function __construct($emailKey = null, $locale = null, $context = null, $includeSignature = true) {
+		parent::__construct();
 		$this->emailKey = isset($emailKey) ? $emailKey : null;
 
 		// If a context wasn't specified, use the current request.

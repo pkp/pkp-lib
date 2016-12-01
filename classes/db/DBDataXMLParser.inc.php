@@ -27,7 +27,7 @@ class DBDataXMLParser {
 	/**
 	 * Constructor.
 	 */
-	function DBDataXMLParser() {
+	function __construct() {
 		$this->sql = array();
 	}
 
@@ -51,7 +51,7 @@ class DBDataXMLParser {
 		$tree = $parser->parse($file);
 		if (!$tree) return array();
 
-		$allTables =& $this->dbconn->MetaTables();
+		$allTables = $this->dbconn->MetaTables();
 		foreach ($tree->getChildren() as $type) switch($type->getName()) {
 			case 'table':
 				$fieldDefaultValues = array();

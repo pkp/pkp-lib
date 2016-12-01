@@ -21,8 +21,8 @@ class ControlledVocab extends DataObject {
 	/**
 	 * Constructor
 	 */
-	function ControlledVocab() {
-		parent::DataObject();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//

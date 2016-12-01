@@ -24,8 +24,8 @@ class NewReviewRoundForm extends EditorDecisionForm {
 	 * @param $decision int
 	 * @param stageid int
 	 */
-	function NewReviewRoundForm($submission, $decision = SUBMISSION_EDITOR_DECISION_RESUBMIT, $stageId = null, $reviewRound) {
-		parent::EditorDecisionForm($submission, $decision, $stageId, 'controllers/modals/editorDecision/form/newReviewRoundForm.tpl', $reviewRound);
+	function __construct($submission, $decision = SUBMISSION_EDITOR_DECISION_RESUBMIT, $stageId = null, $reviewRound) {
+		parent::__construct($submission, $decision, $stageId, 'controllers/modals/editorDecision/form/newReviewRoundForm.tpl', $reviewRound);
 		// WARNING: this constructor may be invoked dynamically by
 		// EditorDecisionHandler::_instantiateEditorDecision.
 	}

@@ -24,7 +24,7 @@ class SubmissionStageForm extends ContextSettingsForm {
 	 * Constructor.
 	 * @param $wizardMode boolean True iff in wizard mode.
 	 */
-	function SubmissionStageForm($wizardMode = false) {
+	function __construct($wizardMode = false) {
 		$this->addCheck(new FormValidatorEmail($this, 'copySubmissionAckAddress'));
 
 		// Add the list of metadata field-related settings per the MetadataGridHandler
@@ -36,7 +36,7 @@ class SubmissionStageForm extends ContextSettingsForm {
 			array_map(function($n) {return $n.'Required';}, $metadataFieldNames)
 		);
 
-		parent::ContextSettingsForm(
+		parent::__construct(
 			array_merge(
 				array(
 					'copySubmissionAckPrimaryContact' => 'bool',

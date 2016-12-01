@@ -30,7 +30,7 @@ class Transcoder {
 	 * @param $toEncoding string Name of target encoding
 	 * @param $translit boolean Whether or not to transliterate while transcoding
 	 */
-	function Transcoder($fromEncoding, $toEncoding, $translit = false) {
+	function __construct($fromEncoding, $toEncoding, $translit = false) {
 		$this->fromEncoding = $fromEncoding;
 		$this->toEncoding = $toEncoding;
 		$this->translit = $translit;

@@ -26,7 +26,7 @@ class DownloadFileLinkAction extends FileLinkAction {
 	 * @param $stageId int (optional)
 	 * @param $label string (optional) Label to use instead of filename
 	 */
-	function DownloadFileLinkAction($request, $submissionFile, $stageId = null, $label = null) {
+	function __construct($request, $submissionFile, $stageId = null, $label = null) {
 		// Instantiate the redirect action request.
 		$router = $request->getRouter();
 		import('lib.pkp.classes.linkAction.request.PostAndRedirectAction');
@@ -41,7 +41,7 @@ class DownloadFileLinkAction extends FileLinkAction {
 		);
 
 		// Configure the file link action.
-		parent::FileLinkAction(
+		parent::__construct(
 			'downloadFile', $redirectRequest, $this->getLabel($submissionFile),
 			$submissionFile->getDocumentType(),
 			$submissionFile->getFileId() . '-' . $submissionFile->getRevision()

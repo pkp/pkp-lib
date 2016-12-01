@@ -39,6 +39,8 @@ define('STYLE_SEQUENCE_LAST', 20);
 define('CDN_JQUERY_VERSION', '1.11.0');
 define('CDN_JQUERY_UI_VERSION', '1.11.0');
 
+define('CSS_FILENAME_SUFFIX', 'css');
+
 import('lib.pkp.classes.template.PKPTemplateResource');
 
 class PKPTemplateManager extends Smarty {
@@ -65,11 +67,11 @@ class PKPTemplateManager extends Smarty {
 	 * Initialize template engine and assign basic template variables.
 	 * @param $request PKPRequest
 	 */
-	function PKPTemplateManager($request) {
+	function __construct($request) {
 		assert(is_a($request, 'PKPRequest'));
 		$this->_request = $request;
 
-		parent::Smarty();
+		parent::__construct();
 
 		// Set up Smarty configuration
 		$baseDir = Core::getBaseDir();
@@ -129,8 +131,8 @@ class PKPTemplateManager extends Smarty {
 				$jquery = '//ajax.googleapis.com/ajax/libs/jquery/' . CDN_JQUERY_VERSION . '/jquery' . $min . '.js';
 				$jqueryUI = '//ajax.googleapis.com/ajax/libs/jqueryui/' . CDN_JQUERY_UI_VERSION . '/jquery-ui' . $min . '.js';
 			} else {
-				$jquery = $this->_request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jquery/jquery' . $min . '.js';
-				$jqueryUI = $this->_request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jqueryui/jquery-ui' . $min . '.js';
+				$jquery = $this->_request->getBaseUrl() . '/lib/pkp/lib/components/jquery/jquery' . $min . '.js';
+				$jqueryUI = $this->_request->getBaseUrl() . '/lib/pkp/lib/components/jquery-ui/jquery-ui' . $min . '.js';
 			}
 			$this->addJavaScript(
 				'jquery',
@@ -185,7 +187,34 @@ class PKPTemplateManager extends Smarty {
 					'pkpLibLocale',
 					$this->_request->getBaseUrl() . '/' . $localeStyleSheet,
 					array(
-						'contexts' => 'backend',
+						'contexts' => array('frontend', 'backend'),
+					)
+				);
+			}
+
+			// Register colour picker assets on the appearance page
+			$this->addJavaScript(
+				'spectrum',
+				$this->_request->getBaseUrl() . '/lib/pkp/js/lib/jquery/plugins/spectrum/spectrum.js',
+				array(
+					'contexts' => array('backend-management-settings', 'backend-admin-settings', 'backend-admin-contexts'),
+				)
+			);
+			$this->addStyleSheet(
+				'spectrum',
+				$this->_request->getBaseUrl() . '/lib/pkp/js/lib/jquery/plugins/spectrum/spectrum.css',
+				array(
+					'contexts' => array('backend-management-settings', 'backend-admin-settings', 'backend-admin-contexts'),
+				)
+			);
+
+			// Register recaptcha on relevant pages
+			if (Config::getVar('captcha', 'recaptcha') && Config::getVar('captcha', 'captcha_on_register')) {
+				$this->addJavaScript(
+					'recaptcha',
+					'https://www.google.com/recaptcha/api.js',
+					array(
+						'contexts' => array('frontend-user-register', 'frontend-user-registerUser'),
 					)
 				);
 			}
@@ -227,6 +256,7 @@ class PKPTemplateManager extends Smarty {
 		$this->register_modifier('translate', array('AppLocale', 'translate'));
 		$this->register_modifier('strip_unsafe_html', array('PKPString', 'stripUnsafeHtml'));
 		$this->register_modifier('String_substr', array('PKPString', 'substr'));
+		$this->register_modifier('dateformatPHP2JQueryDatepicker', array('PKPString', 'dateformatPHP2JQueryDatepicker'));
 		$this->register_modifier('to_array', array($this, 'smartyToArray'));
 		$this->register_modifier('compare', array($this, 'smartyCompare'));
 		$this->register_modifier('concat', array($this, 'smartyConcat'));
@@ -314,9 +344,9 @@ class PKPTemplateManager extends Smarty {
 
 		// Load enabled block plugins and setup active sidebar variables
 		PluginRegistry::loadCategory('blocks', true);
-		$leftSidebarHooks = HookRegistry::getHooks('Templates::Common::LeftSidebar');
+		$sidebarHooks = HookRegistry::getHooks('Templates::Common::Sidebar');
 		$this->assign(array(
-			'hasLeftSidebar' => !empty($leftSidebarHooks),
+			'hasSidebar' => !empty($sidebarHooks),
 		));
 	}
 
@@ -373,6 +403,11 @@ class PKPTemplateManager extends Smarty {
 			}
 		}
 
+		// Add extra LESS variables before compiling
+		if (isset($args['addLessVariables'])) {
+			$less->parse($args['addLessVariables']);
+		}
+
 		// Set the @baseUrl variable
 		$baseUrl = !empty($args['baseUrl']) ? $args['baseUrl'] : $request->getBaseUrl(true);
 		$less->parse("@baseUrl: '$baseUrl';");
@@ -404,7 +439,9 @@ class PKPTemplateManager extends Smarty {
 	 */
 	public function getCachedLessFilePath($name) {
 		$cacheDirectory = CacheManager::getFileCachePath();
-		return $cacheDirectory . DIRECTORY_SEPARATOR . $name . '.css';
+		$context = $this->_request->getContext();
+		$contextId = is_a($context, 'Context') ? $context->getId() : 0;
+		return $cacheDirectory . DIRECTORY_SEPARATOR . $contextId . '-' . $name . '.css';
 	}
 
 	/**
@@ -570,16 +607,11 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		// Otherwise retrieve and register all script files
-		$minifiedScriptsTemplate = $this->fetch('common/minifiedScripts.tpl');
-		preg_match_all('/<script src=\"' . preg_quote($baseUrl, '/') . '([^"]*)\"><\/script>/', $minifiedScriptsTemplate, $scripts);
-		if (empty($scripts[1])) {
-			return;
-		}
-
-		$scripts = $scripts[1];
-
-		foreach ($scripts as $key => $script) {
-			$this->addJavaScript( 'pkpLib' . $key, $baseUrl . $script, $args );
+		$minifiedScripts = array_filter(array_map('trim', file('registry/minifiedScripts.txt')), function($s) {
+			return strlen($s) && $s[0] != '#'; // Exclude empty and commented (#) lines
+		});
+		foreach ($minifiedScripts as $key => $script) {
+			$this->addJavaScript( 'pkpLib' . $key, "$baseUrl/$script", $args);
 		}
 	}
 
@@ -700,6 +732,14 @@ class PKPTemplateManager extends Smarty {
 	 * @return string
 	 */
 	function getCompileId($resourceName) {
+
+		if ( Config::getVar('general', 'installed' ) ) {
+			$context = $this->_request->getContext();
+			if (is_a($context, 'Context')) {
+				$resourceName .= $context->getSetting('themePluginPath');
+			}
+		}
+
 		return sha1($resourceName);
 	}
 
@@ -766,6 +806,15 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
+	 * Clear all compiled CSS files
+	 */
+	public function clearCssCache() {
+		$cacheDirectory = CacheManager::getFileCachePath();
+		$files = scandir($cacheDirectory);
+		array_map('unlink', glob(CacheManager::getFileCachePath() . DIRECTORY_SEPARATOR . '*.' . CSS_FILENAME_SUFFIX));
+	}
+
+	/**
 	 * Return an instance of the template manager.
 	 * @param $request PKPRequest
 	 * @return TemplateManager the template manager object
@@ -781,7 +830,10 @@ class PKPTemplateManager extends Smarty {
 
 		if ($instance === null) {
 			$instance = new TemplateManager($request);
-			PluginRegistry::loadCategory('themes', true);
+			$themes = PluginRegistry::getPlugins('themes');
+			if (is_null($themes)) {
+				$themes = PluginRegistry::loadCategory('themes', true);
+			}
 			$instance->initialize();
 		}
 

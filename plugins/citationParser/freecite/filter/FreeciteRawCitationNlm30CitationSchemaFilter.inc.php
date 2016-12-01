@@ -27,10 +27,10 @@ class FreeciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function FreeciteRawCitationNlm30CitationSchemaFilter($filterGroup) {
+	function __construct($filterGroup) {
 		$this->setDisplayName('FreeCite');
 
-		parent::Nlm30CitationSchemaFilter($filterGroup);
+		parent::__construct($filterGroup);
 	}
 
 	//

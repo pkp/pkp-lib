@@ -25,8 +25,8 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 	/**
 	 * Constructor
 	 */
-	function StageParticipantGridHandler() {
-		parent::CategoryGridHandler();
+	function __construct() {
+		parent::__construct();
 
 		// Assistants get read-only access
 		$this->addRoleAssignment(
@@ -353,6 +353,20 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 			$submission->getId()
 		);
 
+		// Update submission notifications
+		$notificationMgr->updateNotification(
+			$request,
+			array(
+				NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
+				NOTIFICATION_TYPE_AWAITING_COPYEDITS,
+				NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
+				NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
+			),
+			null,
+			ASSOC_TYPE_SUBMISSION,
+			$submission->getId()
+		);
+
 		// Log removal.
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$assignedUser = $userDao->getById($stageAssignment->getUserId());
@@ -430,6 +444,22 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 			// Return a JSON string indicating success
 			// (will clear the form on return)
 			$this->_logEventAndCreateNotification($request);
+
+			// Update submission notifications
+			$notificationMgr = new NotificationManager();
+			$notificationMgr->updateNotification(
+				$request,
+				array(
+					NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
+					NOTIFICATION_TYPE_AWAITING_COPYEDITS,
+					NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
+					NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
+				),
+				null,
+				ASSOC_TYPE_SUBMISSION,
+				$this->getSubmission()->getId()
+			);
+
 			return new JSONMessage(true);
 		} else {
 			// Return a JSON string indicating failure

@@ -21,8 +21,8 @@ class GenreGridHandler extends SetupGridHandler {
 	/**
 	 * Constructor
 	 */
-	function GenreGridHandler() {
-		parent::GridHandler();
+	function __construct() {
+		parent::__construct();
 		$this->addRoleAssignment(array(ROLE_ID_MANAGER), array(
 			'fetchGrid', 'fetchRow',
 			'addGenre', 'editGenre', 'updateGenre',

@@ -35,8 +35,8 @@ class CopyAccessLogFileTool extends CommandLineTool {
 	 * Constructor.
 	 * @param $argv array command-line arguments
 	 */
-	function CopyAccessLogFileTool($argv = array()) {
-		parent::CommandLineTool($argv);
+	function __construct($argv = array()) {
+		parent::__construct($argv);
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN);
 

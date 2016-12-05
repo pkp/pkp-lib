@@ -79,6 +79,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				'pub-id::publisher-id', // FIXME: Move this to a PID plug-in.
 				'copyrightYear',
 				'licenseURL',
+				'datePublished',
 			)
 		);
 	}
@@ -108,7 +109,6 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		$submission->setSubmissionProgress($row['submission_progress']);
 		$submission->setDateSubmitted($this->datetimeFromDB($row['date_submitted']));
 		$submission->setDateStatusModified($this->datetimeFromDB($row['date_status_modified']));
-		$submission->setDatePublished($this->datetimeFromDB($row['date_published']));
 		$submission->setLastModified($this->datetimeFromDB($row['last_modified']));
 		$submission->setLanguage($row['language']);
 		$submission->setCitations($row['citations']);

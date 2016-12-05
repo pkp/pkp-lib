@@ -98,6 +98,7 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 			$submission->setSubmissionProgress($this->step + 1);
 			$submission->stampStatusModified();
 		}
+		$submission->setDatePublished(Core::getCurrentDate());
 
 		parent::execute($submission);
 

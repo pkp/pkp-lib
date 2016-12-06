@@ -30,13 +30,13 @@ class MaintenanceForm extends Form {
 	}
 
 	/**
-	 * Display the form.
+	 * @copydoc Form::display
 	 */
-	function display() {
-		$templateMgr = TemplateManager::getManager($this->_request);
+	function display($request = null, $template = null) {
+		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('version', VersionCheck::getCurrentCodeVersion());
 
-		parent::display($this->_request);
+		parent::display($request, $template);
 	}
 
 	/**
@@ -59,7 +59,6 @@ class MaintenanceForm extends Form {
 		error_log($errorMsg);
 		$this->display($this->_request);
 	}
-
 }
 
 ?>

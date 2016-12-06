@@ -38,10 +38,10 @@ abstract class PKPPaymethodPlugin extends Plugin {
 	}
 
 	/**
-	 * @see Plugin::getTemplatePath($inCore)
+	 * @copydoc Plugin::getTemplatePath($inCore)
 	 */
 	function getTemplatePath($inCore = false) {
-		return parent::getTemplatePath($inCore) . 'templates' . DIRECTORY_SEPARATOR ;
+		return parent::getTemplatePath($inCore) . 'templates/';
 	}
 
 	/**

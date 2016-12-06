@@ -142,7 +142,7 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 	 * @copydoc Plugin::getTemplatePath()
 	 */
 	function getTemplatePath($inCore = false) {
-		return parent::getTemplatePath($inCore) . 'templates' .  DIRECTORY_SEPARATOR;
+		return parent::getTemplatePath($inCore) . 'templates/';
 	}
 
 	/**

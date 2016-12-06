@@ -76,7 +76,8 @@ class PKPSubmissionMetadataFormImplementation {
 				'type' => $submission->getType(null), // Localized
 				'source' =>$submission->getSource(null), // Localized
 				'rights' => $submission->getRights(null), // Localized
-				'citations' => $submission->getCitations()
+				'citations' => $submission->getCitations(),
+				'locale' => $submission->getLocale(),
 			);
 
 			foreach ($formData as $key => $data) {
@@ -107,7 +108,7 @@ class PKPSubmissionMetadataFormImplementation {
 	 */
 	function readInputData() {
 		// 'keywords' is a tagit catchall that contains an array of values for each keyword/locale combination on the form.
-		$userVars = array('title', 'prefix', 'subtitle', 'abstract', 'coverage', 'type', 'source', 'rights', 'keywords', 'citations');
+		$userVars = array('title', 'prefix', 'subtitle', 'abstract', 'coverage', 'type', 'source', 'rights', 'keywords', 'citations', 'locale');
 		$this->_parentForm->readUserVars($userVars);
 	}
 
@@ -138,6 +139,9 @@ class PKPSubmissionMetadataFormImplementation {
 		$submission->setRights($this->_parentForm->getData('rights'), null); // Localized
 		$submission->setSource($this->_parentForm->getData('source'), null); // Localized
 		$submission->setCitations($this->_parentForm->getData('citations'));
+
+		// Update submission locale
+		$submission->setLocale($this->_parentForm->getData('locale'));
 
 		// Save the submission
 		$submissionDao->updateObject($submission);

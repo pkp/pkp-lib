@@ -406,7 +406,6 @@
 	<message key="submission.submit.metadataForm">Zusätzliche Verfeinerung</message>
 	<message key="submission.submit.metadataForm.tip">Fügen Sie zusätzliche Informationen für Ihre Einreichung hinzu. Drücken Sie 'Enter' nach jedem Begriff.</message>
 	<message key="submission.submit.submissionLocale">Beitragssprache</message>
-	<message key="submission.submit.submissionLocaleDescription">Dieser Verlag nimmt Beiträge in verschiedenen Sprachen entgegen. Wählen Sie die primäre Sprache des Beitrags aus dem Auswahlmenü unten.</message>
 	<message key="submission.submit.submissionFiles">Beitragssdateien</message>
 	<message key="submission.submit.dependentFiles">Abhängige Dateien</message>
 	<message key="submission.manageDependentFiles">Abhängige Dateien verwalten</message>

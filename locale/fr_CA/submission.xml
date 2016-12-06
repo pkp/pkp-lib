@@ -165,7 +165,6 @@
 	<message key="submission.submissionReview">Évaluation de la soumission</message>
 	<message key="submission.submit.submissionComplete">Soumission complète</message>
 	<message key="submission.submit.submissionLocale">Langue de la soumission</message>
-	<message key="submission.submit.submissionLocaleDescription">Cette presse accepte les soumissions dans plusieurs langues. Veuillez sélectionner la langue principale de cette soumission à partir du menu déroulant.</message>
 	<message key="submission.submitter">Soumissionnaire</message>
 	<message key="submission.summary">Résumé</message>
 	<message key="submission.supplementaryFiles">Fichiers supplémentaires</message>

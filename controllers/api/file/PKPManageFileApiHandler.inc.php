@@ -64,7 +64,7 @@ abstract class PKPManageFileApiHandler extends Handler {
 			$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $stageId, null, $user->getId());
 		}
 
-		assert($submissionFile && $submission); // Should have been validated already
+		assert(isset($submissionFile) && isset($submission)); // Should have been validated already
 
 		$noteDao = DAORegistry::getDAO('NoteDAO');
 		$noteDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getFileId());

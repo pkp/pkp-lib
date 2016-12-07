@@ -102,12 +102,12 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroup = $userGroupDao->getById($submissionFile->getUserGroupId());
-		assert($userGroup);
+		assert(isset($userGroup));
 		$revisionNode->setAttribute('user_group_ref', $userGroup->getName($context->getPrimaryLocale()));
 
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$uploaderUser = $userDao->getById($submissionFile->getUploaderUserId());
-		assert($uploaderUser);
+		assert(isset($uploaderUser));
 		$revisionNode->setAttribute('uploader', $uploaderUser->getUsername());
 		$this->addIdentifiers($doc, $revisionNode, $submissionFile);
 		$this->createLocalizedNodes($doc, $revisionNode, 'name', $submissionFile->getName(null));

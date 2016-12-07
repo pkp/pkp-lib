@@ -247,11 +247,11 @@ class ParaciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
 					if (is_array($paraciteValue)) {
 						foreach($paraciteValue as $singleValue) {
 							$success = $openurl10Description->addStatement($openurl10PropertyName, $singleValue);
-							assert($success);
+							assert((boolean) $success);
 						}
 					} else {
 						$success = $openurl10Description->addStatement($openurl10PropertyName, $paraciteValue);
-						assert($success);
+						assert((boolean) $success);
 					}
 				}
 			}

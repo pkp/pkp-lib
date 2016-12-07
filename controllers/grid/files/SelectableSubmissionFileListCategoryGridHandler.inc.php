@@ -182,7 +182,7 @@ class SelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandle
 		}
 
 		if($capabilities->canAdd()) {
-			assert($dataProvider);
+			assert(isset($dataProvider));
 			$this->addAction($dataProvider->getAddFileAction($request));
 		}
 

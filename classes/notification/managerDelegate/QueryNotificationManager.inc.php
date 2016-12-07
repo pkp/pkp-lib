@@ -49,7 +49,7 @@ class QueryNotificationManager extends NotificationManagerDelegate {
 		$query = $queryDao->getById($notification->getAssocId());
 
 		$headNote = $query->getHeadNote();
-		assert($headNote);
+		assert(isset($headNote));
 
 		switch($notification->getType()) {
 			case NOTIFICATION_TYPE_NEW_QUERY:

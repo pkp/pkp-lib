@@ -82,7 +82,7 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter {
 
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroup = $userGroupDao->getById($author->getUserGroupId());
-		assert($userGroup);
+		assert(isset($userGroup));
 		$authorNode->setAttribute('user_group_ref', $userGroup->getName($context->getPrimaryLocale()));
 
 		// Add metadata

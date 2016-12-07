@@ -64,7 +64,7 @@ class InterestEntryDAO extends ControlledVocabEntryDAO {
 				' . ($filter?'JOIN controlled_vocab_entry_settings cves ON (cves.controlled_vocab_entry_id = cve.controlled_vocab_entry_id)':'') . '
 			WHERE cve.controlled_vocab_id = ?
 			' . ($filter?'AND cves.setting_name=? AND cves.setting_value LIKE ?':'') . '
-			GROUP BY cves.controlled_vocab_entry_id ORDER BY seq',
+			' . ($filter?'GROUP BY cves.controlled_vocab_entry_id':'') . ' ORDER BY seq',
 			$params,
 			$rangeInfo
 		);

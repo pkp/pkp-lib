@@ -108,13 +108,13 @@ class RepresentationNativeXmlFilter extends NativeExportFilter {
 		$deployment = $this->getDeployment();
 
 		// Add internal ID
-		$representationNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', $representation->getId()));
+		$representationNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', htmlspecialchars($representation->getId(), ENT_COMPAT, 'UTF-8')));
 		$node->setAttribute('type', 'internal');
 		$node->setAttribute('advice', 'ignore');
 
 		// Add public ID
 		if ($pubId = $representation->getStoredPubId('publisher-id')) {
-			$representationNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', $pubId));
+			$representationNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', htmlspecialchars($pubId, ENT_COMPAT, 'UTF-8')));
 			$node->setAttribute('type', 'public');
 			$node->setAttribute('advice', 'update');
 		}
@@ -138,7 +138,7 @@ class RepresentationNativeXmlFilter extends NativeExportFilter {
 		$pubId = $representation->getStoredPubId($pubIdPlugin->getPubIdType());
 		if ($pubId) {
 			$deployment = $this->getDeployment();
-			$representationNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', $pubId));
+			$representationNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', htmlspecialchars($pubId, ENT_COMPAT, 'UTF-8')));
 			$node->setAttribute('type', $pubIdPlugin->getPubIdType());
 			$node->setAttribute('advice', 'update');
 			return $node;

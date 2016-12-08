@@ -41,7 +41,7 @@ class NativeExportFilter extends NativeImportExportFilter {
 		if (is_array($values)) {
 			foreach ($values as $locale => $value) {
 				if ($value === '') continue; // Skip empty values
-				$parentNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), $name, $value));
+				$parentNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), $name, htmlspecialchars($value, ENT_COMPAT, 'UTF-8')));
 				$node->setAttribute('locale', $locale);
 			}
 		}
@@ -59,7 +59,7 @@ class NativeExportFilter extends NativeImportExportFilter {
 		if ($value === '' || $value === null) return null;
 
 		$deployment = $this->getDeployment();
-		$parentNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), $name, $value));
+		$parentNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), $name, htmlspecialchars($value, ENT_COMPAT, 'UTF-8')));
 		return $node;
 	}
 }

@@ -181,4 +181,5 @@
 	<currency name="円" code_alpha="円" code_numeric="392" />
 	<currency name="人民元" code_alpha="CNY" code_numeric="156" />
 	<currency name="ジンバブエ・ドル" code_alpha="ZWD" code_numeric="716" />
+	<currency name="Bitcoin" code_alpha="XTC" code_numeric="000" />
 </currencies>

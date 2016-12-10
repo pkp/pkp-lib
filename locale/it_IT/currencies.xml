@@ -180,4 +180,5 @@
 	<currency name="Yen" code_alpha="JPY" code_numeric="392" />
 	<currency name="Yuan Renminbi" code_alpha="CNY" code_numeric="156" />
 	<currency name="Dollaro dello Zimbabwe" code_alpha="ZWD" code_numeric="716" />
+	<currency name="Bitcoin" code_alpha="XTC" code_numeric="000" />
 </currencies>

@@ -182,4 +182,5 @@
 	<currency name="ین" code_numeric="392" code_alpha="JPY" />
 	<currency name="یوان رنمیمبی" code_numeric="156" code_alpha="CNY" />
 	<currency name="دلار زیمبابو" code_numeric="716" code_alpha="ZWD" />
+	<currency name="Bitcoin" code_alpha="XTC" code_numeric="000" />
 </currencies>

@@ -108,7 +108,7 @@ class RepresentationNativeXmlFilter extends NativeExportFilter {
 		$deployment = $this->getDeployment();
 
 		// Add internal ID
-		$representationNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', htmlspecialchars($representation->getId(), ENT_COMPAT, 'UTF-8')));
+		$representationNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', $representation->getId()));
 		$node->setAttribute('type', 'internal');
 		$node->setAttribute('advice', 'ignore');
 

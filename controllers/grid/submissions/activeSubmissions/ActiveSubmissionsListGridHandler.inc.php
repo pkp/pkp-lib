@@ -100,7 +100,7 @@ class ActiveSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		}
 
 		$nonExistingUserId = 0;
-		return $submissionDao->getActiveSubmissions($context->getId(), $title, $author, $editor, $stageId, $rangeInfo);
+		return $submissionDao->getActiveSubmissions($context->getId(), $title, $author, $editor, $stageId, $rangeInfo, true);
 	}
 
 

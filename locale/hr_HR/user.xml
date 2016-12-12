@@ -43,7 +43,6 @@
 	<message key="user.login.lostPassword.invalidUser">Ne postoji korisnik s navedenom adresom e-pošte.</message>
 	<message key="user.login.lostPassword.passwordSent">Nova lozinka je poslana na vašu adresu e-pošte. Možete se sada prijaviti na stranici s vašom novom lozinkom.</message>
 	<message key="user.login.registeredEmail">Registrirana e-pošta korisnika</message>
-	<message key="user.login.rememberUsernameAndPassword">Zapamti moje korisničko ime i lozinku</message>
 	<message key="user.login.resetPassword">Izdaj novu lozinku</message>
 	<message key="user.logOut">Odjava</message>
 	<message key="user.mailingAddress">Adresa</message>

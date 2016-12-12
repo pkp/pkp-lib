@@ -46,7 +46,6 @@
 	<message key="user.login.lostPassword.invalidUser">Nu există niciun utilizator care să aibe această adresă de email.</message>
 	<message key="user.login.lostPassword.passwordSent">A fost trimisă o nouă parolă la adresa ta de email. Poţi să te autentifici acum pe site cu noua parolă.</message>
 	<message key="user.login.registeredEmail">Emailul înregistrat al utilizatorului</message>
-	<message key="user.login.rememberUsernameAndPassword">Ţine minte numele şi parola</message>
 	<message key="user.login.resetPassword">Resetează parola</message>
 	<message key="user.logOut">Ieşire</message>
 	<message key="user.mailingAddress">Adresa de email</message>

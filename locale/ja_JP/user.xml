@@ -43,7 +43,6 @@
 	<message key="user.login.lostPassword.invalidUser">指定されたメールアドレスにユーザが存在しません。</message>
 	<message key="user.login.lostPassword.passwordSent">新しいパスワードを指定のメールアドレスに送信しました。今後、新しいパスワードでこのサイトにログインすることができます。</message>
 	<message key="user.login.registeredEmail">登録ユーザのメールアドレス</message>
-	<message key="user.login.rememberUsernameAndPassword">ユーザ名とパスワードを記憶する</message>
 	<message key="user.login.resetPassword">パスワードのリセット</message>
 	<message key="user.logOut">ログアウト</message>
 	<message key="user.mailingAddress">その他のメールアドレス</message>

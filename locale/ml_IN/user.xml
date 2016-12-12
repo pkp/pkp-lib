@@ -56,7 +56,6 @@
 	<message key="user.login.lostPassword.invalidUser">ഈ ഇ-മെയില്‍ അഡ്രസ്സില്‍ ഒരു യൂസറും ഇപ്പോള്‍ നിലവിലില്ല.</message>
 	<message key="user.login.lostPassword.passwordSent">ഒരു പുതിയ പാസ് വേഡ് താങ്കളുടെ ഇ-മെയിലിലേക്ക് അയച്ചിരിക്കുന്നു.പുതിയ പാസ് വേഡ് ഉപയോഗിച്ച് താങ്കള്‍ക്ക് ഈ സൈറ്റില്‍ ലോഗിന്‍ ചെയ്യാവുന്നതാണ്.</message>
 	<message key="user.login.registeredEmail">രജിസ്റ്റര്‍ ചെയ്ത യൂസറിന്റെ ഇ-മെയില്‍</message>
-	<message key="user.login.rememberUsernameAndPassword">എന്റെ യൂസര്‍ നാമവും പാസ് വേഡും ഓര്‍മിക്കുക</message>
 	<message key="user.login.resetPassword">പാസ് വേഡ് പുന:ക്രമീകരിക്കുക</message>
 	<message key="user.logOut">ലോഗ് ഔട്ട്</message>
 	<message key="user.mailingAddress">മെയിലിങ്ങ് അഡ്രസ്സ്</message>

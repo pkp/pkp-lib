@@ -54,7 +54,6 @@
 	<message key="user.login.lostPassword.invalidUser">Belirtilen e-posta adresiyle kayıtlı bir kullanıcı bulunamamıştır.</message>
 	<message key="user.login.lostPassword.passwordSent">E-posta adresinize yeni şifreniz gönderilmiştir. Yeni şifrenizi kullanarak siteme bağlanabilirsiniz.</message>
 	<message key="user.login.registeredEmail">Kayıtlı kullanıcının e-posta adresi</message>
-	<message key="user.login.rememberUsernameAndPassword">Kullanıcı adı ve şifremi hatırla</message>
 	<message key="user.login.resetPassword">Şifreyi Sıfırla</message>
 	<message key="user.logOut">Çıkış</message>
 	<message key="user.mailingAddress">Posta Adresi</message>

@@ -124,7 +124,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 
 		// Add public ID
 		if ($pubId = $submission->getStoredPubId('publisher-id')) {
-			$submissionNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', $pubId));
+			$submissionNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', htmlspecialchars($pubId, ENT_COMPAT, 'UTF-8')));
 			$node->setAttribute('type', 'public');
 			$node->setAttribute('advice', 'update');
 		}
@@ -148,7 +148,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$pubId = $submission->getStoredPubId($pubIdPlugin->getPubIdType());
 		if ($pubId) {
 			$deployment = $this->getDeployment();
-			$submissionNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', $pubId));
+			$submissionNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', htmlspecialchars($pubId, ENT_COMPAT, 'UTF-8')));
 			$node->setAttribute('type', $pubIdPlugin->getPubIdType());
 			$node->setAttribute('advice', 'update');
 			return $node;
@@ -203,7 +203,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 				$controlledVocabulariesNode = $doc->createElementNS($deployment->getNamespace(), $controlledVocabulariesNodeName);
 				$controlledVocabulariesNode->setAttribute('locale', $locale);
 				foreach ($controlledVocabulary[$locale] as $controlledVocabularyItem) {
-					$controlledVocabulariesNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), $controlledVocabularyNodeName, $controlledVocabularyItem));
+					$controlledVocabulariesNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), $controlledVocabularyNodeName, htmlspecialchars($controlledVocabularyItem, ENT_COMPAT, 'UTF-8')));
 				}
 				$submissionNode->appendChild($controlledVocabulariesNode);
 			}

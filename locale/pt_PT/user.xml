@@ -44,7 +44,6 @@
 	<message key="user.login.lostPassword.invalidUser">Nenhum utilizador registado com o e-mail especificado.</message>
 	<message key="user.login.lostPassword.passwordSent">Foi enviada uma nova senha. Aceda ao sistema com a nova senha.</message>
 	<message key="user.login.registeredEmail">E-mail de utilizador registado</message>
-	<message key="user.login.rememberUsernameAndPassword">Lembrete com nome de utilizador e senha</message>
 	<message key="user.login.resetPassword">Nova Senha</message>
 	<message key="user.logOut">Sair do Sistema</message>
 	<message key="user.mailingAddress">Endereço Postal</message>

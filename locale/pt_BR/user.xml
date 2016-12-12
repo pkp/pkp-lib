@@ -66,7 +66,6 @@
 	<message key="user.login.registrationComplete.newSubmission">Fazer uma Novo Envio</message>
 	<message key="user.login.registrationComplete.continueBrowsing">Continuar Navegação</message>
 	<message key="user.login.registrationPendingValidation">Registro aguardando verificação</message>
-	<message key="user.login.rememberUsernameAndPassword">Lembrete com login e senha</message>
 	<message key="user.login.resetPassword">Nova senha</message>
 	<message key="user.logOut">Sair do sistema</message>
 	<message key="user.logOutAs">Sair como</message>

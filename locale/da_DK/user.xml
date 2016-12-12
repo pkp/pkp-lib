@@ -44,7 +44,6 @@
 	<message key="user.login.lostPassword.invalidUser">Der findes ingen brugere med den angivne e-mail-adresse.</message>
 	<message key="user.login.lostPassword.passwordSent">Der er sendt en ny adgangskode til din e-mail-adresse. Du kan nu logge på webstedet med din nye adgangskode.</message>
 	<message key="user.login.registeredEmail">E-mail-adresse på registreret bruger</message>
-	<message key="user.login.rememberUsernameAndPassword">Husk mit brugernavn og min adgangskode</message>
 	<message key="user.login.resetPassword">Nulstil adgangskode</message>
 	<message key="user.logOut">Log af</message>
 	<message key="user.mailingAddress">Postadresse</message>

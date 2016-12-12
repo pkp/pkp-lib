@@ -66,7 +66,6 @@
 	<message key="user.login.registrationComplete.newSubmission">إنشاء طلب نشر جديد</message>
 	<message key="user.login.registrationComplete.continueBrowsing">متابعة التصفح</message>
 	<message key="user.login.registrationPendingValidation">التسجيل ينتظر التحقق</message>
-	<message key="user.login.rememberUsernameAndPassword">تذكرني</message>
 	<message key="user.login.resetPassword">إعادة تعيين كلمة المرور</message>
     	<message key="user.logOut">الخروج</message>
 	<message key="user.logOutAs">الخروج كأنني</message>
@@ -107,7 +106,7 @@
 	<!-- Login -->
 	<message key="user.login.registerNewAccount">التسجيل</message>
 	<message key="user.login.resetPasswordInstructions">أدخل عنوان بريدك الالكتروني المتعلق بحسابك أدناه، وستتم مراسلتك برسالة تتضمن تعليمات توضح كيفية تصفير كلمة مرورك.</message>
-	
+
 	<message key="user.register.form.emailExists">عنوان البريد الالكتروني هذا مستعمل سلفاً من قبل مستخدم آخر.</message>
 	<message key="user.register.form.passwordsDoNotMatch">كلمتا المرور لا تتطابقان.</message>
 	<message key="user.register.form.emailsDoNotMatch">حقلا العنوان البريدي لا يتطابقان.</message>

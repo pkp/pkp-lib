@@ -44,7 +44,6 @@
 	<message key="user.login.lostPassword.invalidUser">Không có người dùng nào có địa chỉ email vừa nhập.</message>
 	<message key="user.login.lostPassword.passwordSent">Mật khẩu mới đã được gửi vào địa chỉ email của quý vị. Bây giờ, quý vị có thể đăng nhập vào website với mật khẩu mới này.</message>
 	<message key="user.login.registeredEmail">Địa chỉ email người dùng đăng ký</message>
-	<message key="user.login.rememberUsernameAndPassword">Ghi nhớ Bí danh và Mật khẩu</message>
 	<message key="user.login.resetPassword">Tạo mật khẩu mới</message>
 	<message key="user.logOut">Đăng xuất</message>
 	<message key="user.mailingAddress">Địa chỉ gửi thư</message>

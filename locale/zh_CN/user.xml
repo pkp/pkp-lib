@@ -45,7 +45,6 @@
 	<message key="user.login.lostPassword.invalidUser">指定的电子邮件相关用户不存在.</message>
 	<message key="user.login.lostPassword.passwordSent">一个新的密码已发送到您的电子邮件地址.您现在可以使用新的密码登录了.</message>
 	<message key="user.login.registeredEmail">注册的用户电子邮件</message>
-	<message key="user.login.rememberUsernameAndPassword">记住用户名与密码</message>
 	<message key="user.login.resetPassword">重置密码</message>
 	<message key="user.logOut">登出</message>
 	<message key="user.mailingAddress">通信地址</message>

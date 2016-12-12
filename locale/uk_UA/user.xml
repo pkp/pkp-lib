@@ -58,7 +58,6 @@
 	<message key="user.login.lostPassword.invalidUser">Не існує користувача зі вказаною адресою email.</message>
 	<message key="user.login.lostPassword.passwordSent">На вашу адресу email був надісланий новий пароль. Тепер ви можете увійти на сайт зі своїм новим паролем.</message>
 	<message key="user.login.registeredEmail">Адреса email користувача</message>
-	<message key="user.login.rememberUsernameAndPassword">Пам'ятати моє ім'я та пароль</message>
 	<message key="user.login.resetPassword">Скинути пароль</message>
 	<message key="user.logOut">Вийти</message>
 	<message key="user.mailingAddress">Поштова адреса</message>

@@ -39,7 +39,6 @@
 	<message key="user.login.lostPassword.invalidUser">不存在具有以下電子郵件地址的使用者。</message>
 	<message key="user.login.lostPassword.passwordSent">一個新的密碼已經寄發到您的電子郵件地址去了。您現在可以用您的新密碼登入這個網站。</message>
 	<message key="user.login.registeredEmail">已註冊使用者的電子郵件</message>
-	<message key="user.login.rememberUsernameAndPassword">記住我的使用者名稱和密碼</message>
 	<message key="user.login.resetPassword">重設密碼</message>
 	<message key="user.logOut">登出</message>
 	<message key="user.mailingAddress">郵寄地址</message>

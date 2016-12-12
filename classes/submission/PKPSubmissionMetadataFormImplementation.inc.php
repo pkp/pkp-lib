@@ -141,7 +141,11 @@ class PKPSubmissionMetadataFormImplementation {
 		$submission->setCitations($this->_parentForm->getData('citations'));
 
 		// Update submission locale
-		$submission->setLocale($this->_parentForm->getData('locale'));
+		$newLocale = $this->_parentForm->getData('locale');
+		$context = $request->getContext();
+		$supportedSubmissionLocales = $context->getSetting('supportedSubmissionLocales');
+		if (empty($supportedSubmissionLocales)) $supportedSubmissionLocales = array($context->getPrimaryLocale());
+		if (in_array($newLocale, $supportedSubmissionLocales)) $submission->setLocale($newLocale);
 
 		// Save the submission
 		$submissionDao->updateObject($submission);

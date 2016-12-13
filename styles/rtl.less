@@ -89,18 +89,9 @@ body[dir="rtl"] {
 
 		> [aria-expanded="true"] > ul,
 		> [aria-expanded="true"] > ul {
-			left: auto;
-			right: 0;
-		}
-
-		// Ensure a dropdown doesn't open beyond the edge of the screen by aligning
-		// such dropdowns to the right rather than the left.
-		li.align_right:hover > ul,
-		li.align_right.in_focus > ul {
 			right: auto;
 			left: 0;
 		}
-
 
 		.panel {
 			display: none;
@@ -135,6 +126,10 @@ body[dir="rtl"] {
 			left: 0;
 			right: auto;
 			.transform(translate3d(-100%,0,0));
+		}
+
+		&.is_visible .panel {
+			.transform(translate3d(0,0,0));
 		}
 
 		.header {

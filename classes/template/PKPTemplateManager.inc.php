@@ -181,6 +181,9 @@ class PKPTemplateManager extends Smarty {
 				);
 			}
 
+			// Add reading language flag based on locale
+			$this->assign('currentLocaleLangDir', AppLocale::getLocaleDirection($locale) );
+
 			// If there's a locale-specific stylesheet, add it.
 			if (($localeStyleSheet = AppLocale::getLocaleStyleSheet($locale)) != null) {
 				$this->addStyleSheet(

@@ -89,7 +89,7 @@ class ActiveSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		$context = $request->getContext();
 		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
 
-		list($search, $column, $stageId) = $this->getFilterValues($filter);
+		list($search, $column, $stageId, $sectionId) = $this->getFilterValues($filter);
 		$title = $author = $editor = null;
 		if ($column == 'title') {
 			$title = $search;
@@ -100,7 +100,7 @@ class ActiveSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		}
 
 		$nonExistingUserId = 0;
-		return $submissionDao->getActiveSubmissions($context->getId(), $title, $author, $editor, $stageId, $rangeInfo);
+		return $submissionDao->getActiveSubmissions($context->getId(), $title, $author, $editor, $stageId, $sectionId, $rangeInfo);
 	}
 
 

@@ -55,7 +55,7 @@ class ArchivedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		$user = $request->getUser();
 		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
 
-		list($search, $column, $stageId) = $this->getFilterValues($filter);
+		list($search, $column, $stageId, $sectionId) = $this->getFilterValues($filter);
 		$title = $author = null;
 		if ($column == 'title') {
 			$title = $search;
@@ -65,7 +65,7 @@ class ArchivedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 
 		if ($userRoles == array(ROLE_ID_REVIEWER)) {
 			// Just a reviewer, get the rejected reviews submissions only.
-			return $submissionDao->getReviewerArchived($user->getId(), $context->getId(), $title, $author, $stageId, $rangeInfo);
+			return $submissionDao->getReviewerArchived($user->getId(), $context->getId(), $title, $author, $stageId, $sectionId, $rangeInfo);
 		}
 
 		$canSeeAllSubmissions = in_array(ROLE_ID_MANAGER, $userRoles);
@@ -77,6 +77,7 @@ class ArchivedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 			$title,
 			$author,
 			$stageId,
+			$sectionId,
 			$rangeInfo
 		);
 	}

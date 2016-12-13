@@ -472,10 +472,11 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @param $title string|null optional Filter by title.
 	 * @param $author string|null optional Filter by author.
 	 * @param $stageId int|null optional Filter by stage id.
+	 * @param $sectionId int|null optional Filter by section id.
 	 * @param $rangeInfo DBRangeInfo
 	 * @return DAOResultFactory containing matching Submissions
 	 */
-	function getBySubEditorId($contextId, $subEditorId = null, $includeDeclined = true, $includePublished = true, $title = null, $author = null, $stageId = null, $rangeInfo = null) {
+	function getBySubEditorId($contextId, $subEditorId = null, $includeDeclined = true, $includePublished = true, $title = null, $author = null, $stageId = null, $sectionId = null, $rangeInfo = null) {
 		$params = $this->getFetchParameters();
 		if ($subEditorId) $params[] = (int) $subEditorId;
 		$params[] = (int) $contextId;
@@ -488,6 +489,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		}
 		if ($author) array_push($params, $authorQuery = '%' . $author . '%', $authorQuery, $authorQuery);
 		if ($stageId) $params[] = (int) $stageId;
+		if ($sectionId) $params[] = (int) $sectionId;
 
 		$result = $this->retrieveRange(
 			'SELECT	s.*, ps.date_published,
@@ -508,7 +510,8 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 			. ($contextId && is_array($contextId)?' AND s.context_id IN  (' . join(',', array_map(array($this,'_arrayWalkIntCast'), $contextId)) . ')':'')
 			. ($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'')
 			. ($author?' AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)':'')
-			. ($stageId?' AND s.stage_id = ?':'') .
+			. ($stageId?' AND s.stage_id = ?':'')
+			. ($sectionId?' AND s.section_id = ?':'') .
 			' GROUP BY ' . $this->getGroupByColumns(),
 			$params,
 			$rangeInfo
@@ -521,10 +524,13 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * Get all unpublished submissions for a user.
 	 * @param $userId int
 	 * @param $contextId int optional
+	 * @param $title string? Optional title search string to limit results
+	 * @param $stageId int? Optional stage ID to limit results
+	 * @param $sectionId int? Optional section ID to limit results
 	 * @param $rangeInfo DBResultRange optional
 	 * @return array Submissions
 	 */
-	function getUnpublishedByUserId($userId, $contextId = null, $title = null, $stageId = null, $rangeInfo = null) {
+	function getUnpublishedByUserId($userId, $contextId = null, $title = null, $stageId = null, $sectionId = null, $rangeInfo = null) {
 		$params = array_merge(
 			$this->getFetchParameters(),
 			array((int) ROLE_ID_AUTHOR, (int) $userId)
@@ -532,6 +538,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		if ($title) $params[] = '%' . $title . '%';
 		if ($stageId) $params[] = (int) $stageId;
 		if ($contextId) $params[] = (int) $contextId;
+		if ($sectionId) $params[] = (int) $sectionId;
 
 		$result = $this->retrieveRange(
 			'SELECT	s.*, ps.date_published,
@@ -543,9 +550,10 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				$this->getFetchJoins() .
 			'WHERE	s.submission_id IN (SELECT asa.submission_id FROM stage_assignments asa, user_groups aug WHERE asa.user_group_id = aug.user_group_id AND aug.role_id = ? AND asa.user_id = ?)' .
 				' AND ' . $this->getCompletionConditions(false) .
-				($contextId?' AND s.context_id = ?':'') .
 				($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'') .
 				($stageId?' AND s.stage_id = ?':'') .
+				($contextId?' AND s.context_id = ?':'') .
+				($sectionId?' AND s.section_id = ?':'') .
 				' GROUP BY ' . $this->getGroupByColumns(),
 			$params, $rangeInfo
 		);
@@ -557,15 +565,16 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * Get all submissions that a reviewer denied a review request.
 	 * It will list only the submissions that a review has denied
 	 * ALL review assignments.
-	 * @param $reviewerId int
+	 * @param $reviewerId int Reviewer ID to fetch archived submissions for
 	 * @param $contextId int optional
-	 * @param $title string optional
-	 * @param $author string optional
-	 * @param $stageId int optional
+	 * @param $title string|null optional submission title to filter results
+	 * @param $author string|null optional author name to filter results
+	 * @param $stageId int|null optional stage ID to filter results
+	 * @param $sectionId int|null optional section ID to filter results
 	 * @param $rangeInfo DBResultRange optional
 	 * @return DAOResultFactory
 	 */
-	function getReviewerArchived($reviewerId, $contextId = null, $title = null, $author = null, $stageId = null, $rangeInfo = null) {
+	function getReviewerArchived($reviewerId, $contextId = null, $title = null, $author = null, $stageId = null, $sectionId = null, $rangeInfo = null) {
 		$params = array($reviewerId, $reviewerId);
 		$params = array_merge($params, $this->getFetchParameters());
 		$params[] = $reviewerId;
@@ -575,6 +584,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		}
 		if ($author) array_push($params, $authorQuery = '%' . $author . '%', $authorQuery, $authorQuery);
 		if ($stageId) $params[] = (int) $stageId;
+		if ($sectionId) $params[] = (int) $sectionId;
 
 		$result = $this->retrieveRange(
 			'SELECT s.*, ps.date_published,
@@ -592,7 +602,8 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				' . ($contextId?' AND s.context_id IN  (' . join(',', array_map(array($this,'_arrayWalkIntCast'), (array) $contextId)) . ')':'')
 				. ($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'')
 				. ($author?' AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)':'')
-				. ($stageId?' AND s.stage_id = ?':''),
+				. ($stageId?' AND s.stage_id = ?':'')
+				. ($sectionId?' AND s.section_id = ?':''),
 			$params,
 			$rangeInfo
 		);
@@ -605,13 +616,14 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @param $status int Status to get submissions for
 	 * @param $userId int optional User to require an assignment for
 	 * @param $contextId mixed optional Context(s) to fetch submissions for
-	 * @param $title string optional
-	 * @param $author string optional
-	 * @param $stageId int optional
+	 * @param $title string optional submission title to restrict results to
+	 * @param $author string optional author name to restrict results to
+	 * @param $stageId int optional stage ID to restrict results to
+	 * @param $sectionId int optional section ID to restrict results to
 	 * @param $rangeInfo DBResultRange optional
 	 * @return DAOResultFactory
 	 */
-	function getByStatus($status, $userId = null, $contextId = null, $title = null, $author = null, $stageId = null, $rangeInfo = null) {
+	function getByStatus($status, $userId = null, $contextId = null, $title = null, $author = null, $stageId = null, $sectionId = null, $rangeInfo = null) {
 		$params = array();
 
 		if ($userId) $params = array_merge(
@@ -632,6 +644,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		}
 		if ($author) array_push($params, $authorQuery = '%' . $author . '%', $authorQuery, $authorQuery);
 		if ($stageId) $params[] = (int) $stageId;
+		if ($sectionId) $params[] = (int) $sectionId;
 
 		$result = $this->retrieveRange(
 			'SELECT	s.*, ps.date_published,
@@ -653,7 +666,8 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				. ($userId?' AND sa2.stage_assignment_id IS NULL AND ra2.review_id IS NULL AND (sa.stage_assignment_id IS NOT NULL OR ra.review_id IS NOT NULL)':'')
 				. ($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'')
 				. ($author?' AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)':'')
-				. ($stageId?' AND s.stage_id = ?':''),
+				. ($stageId?' AND s.stage_id = ?':'')
+				. ($sectionId?' AND s.section_id = ?':''),
 			$params,
 			$rangeInfo
 		);
@@ -668,10 +682,11 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @param $title string|null optional Filter by title.
 	 * @param $author string|null optional Filter by author.
 	 * @param $stageId int|null optional Filter by stage id.
+	 * @param $sectionId int|null optional Filter by section id.
 	 * @param $rangeInfo DBResultRange optional
 	 * @return DAOResultFactory
 	 */
-	function getAssignedToUser($userId, $contextId = null, $title = null, $author = null, $stageId = null, $rangeInfo = null) {
+	function getAssignedToUser($userId, $contextId = null, $title = null, $author = null, $stageId = null, $sectionId = null, $rangeInfo = null) {
 		$params = array_merge(
 			array(ROLE_ID_AUTHOR),
 			$this->getFetchParameters(),
@@ -689,6 +704,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		}
 		if ($author) array_push($params, $authorQuery = '%' . $author . '%', $authorQuery, $authorQuery);
 		if ($stageId) $params[] = (int) $stageId;
+		if ($sectionId) $params[] = (int) $sectionId;
 
 		$result = $this->retrieveRange($sql =
 			'SELECT s.*, ps.date_published,
@@ -711,64 +727,8 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				. ($contextId?' AND s.context_id = ?':'')
 				. ($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'')
 				. ($author?' AND (ra.submission_id IS NULL AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?))':'') // Don't permit reviewer searching on author name
-				. ($stageId?' AND s.stage_id = ?':'') .
-			' GROUP BY ' . $this->getGroupByColumns(),
-			$params,
-			$rangeInfo
-		);
-
-		return new DAOResultFactory($result, $this, '_fromRow');
-	}
-
-	/**
-	 * Get all submissions that are assigned to users other than the passed one.
-	 * @param $userId int
-	 * @param $contextId int optional
-	 * @param $title string|null optional Filter by title.
-	 * @param $author string|null optional Filter by author.
-	 * @param $editor int|null optional Filter by editor name.
-	 * @param $stageId int|null optional Filter by stage id.
-	 * @param $rangeInfo DBResultRange optional
-	 * @return DAOResultFactory
-	 */
-	function getAssignedToOthers($userId, $contextId = null, $title = null, $author = null, $editor = null, $stageId = null, $rangeInfo = null) {
-		$params = $this->getFetchParameters();
-		$userId = (int) $userId;
-		array_push($params, (int) STATUS_DECLINED, $userId, (int) ROLE_ID_MANAGER, (int) ROLE_ID_SUB_EDITOR);
-		if ($editor) array_push($params, $editorQuery = '%' . $editor . '%', $editorQuery);
-		if ($contextId) $params[] = (int) $contextId;
-
-		if ($title) {
-			$params[] = 'title';
-			$params[] = '%' . $title . '%';
-		}
-		if ($author) array_push($params, $authorQuery = '%' . $author . '%', $authorQuery, $authorQuery);
-		if ($stageId) $params[] = (int) $stageId;
-
-		$result = $this->retrieveRange($sql =
-			'SELECT s.*, ps.date_published,
-				' . $this->getFetchColumns() . '
-			FROM submissions s
-				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
-				' . $this->getCompletionJoins() . '
-				LEFT JOIN submission_files sf ON (s.submission_id = sf.submission_id)
-				LEFT JOIN review_assignments ra ON (s.submission_id = ra.submission_id)
-				' . ($title?' LEFT JOIN submission_settings ss ON (s.submission_id = ss.submission_id)':'') . '
-				' . ($author?' LEFT JOIN authors au ON (s.submission_id = au.submission_id)':'')
-				. $this->getFetchJoins() .
-			' WHERE s.date_submitted IS NOT NULL AND
-				' . $this->getCompletionConditions(false) . ' AND
-				AND s.status <> ?
-				AND (SELECT COUNT(sa.stage_assignment_id) FROM stage_assignments sa
-					WHERE sa.submission_id = s.submission_id AND sa.user_id = ?) = 0
-				AND (SELECT COUNT(sa.stage_assignment_id) FROM stage_assignments sa LEFT JOIN user_groups g ON sa.user_group_id = g.user_group_id'
-					. ($editor?' LEFT JOIN users u ON (sa.user_id = u.user_id)':'')
-					. ' WHERE sa.submission_id = s.submission_id AND (g.role_id = ? OR g.role_id = ?)'
-					. ($editor?' AND ' . $this->_getEditorSearchQuery():'') . ') > 0'
-				. ($contextId?' AND s.context_id = ?':'')
-				. ($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'')
-				. ($author?' AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)':'')
-				. ($stageId?' AND s.stage_id = ?':'') .
+				. ($stageId?' AND s.stage_id = ?':'')
+				. ($sectionId?' AND s.section_id = ?':'') .
 			' GROUP BY ' . $this->getGroupByColumns(),
 			$params,
 			$rangeInfo
@@ -784,10 +744,11 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @param $author string|null optional Filter by author.
 	 * @param $editor int|null optional Filter by editor name.
 	 * @param $stageId int|null optional Filter by stage id.
+	 * @param $sectionId int|null optional Filter by section id.
 	 * @param $rangeInfo DBResultRange optional
 	 * @return DAOResultFactory
 	 */
-	function getActiveSubmissions($contextId = null, $title = null, $author = null, $editor = null, $stageId = null, $rangeInfo = null) {
+	function getActiveSubmissions($contextId = null, $title = null, $author = null, $editor = null, $stageId = null, $sectionId = null, $rangeInfo = null) {
 		$params = $this->getFetchParameters();
 		$params[] = (int) STATUS_DECLINED;
 
@@ -799,6 +760,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		}
 		if ($author) array_push($params, $authorQuery = '%' . $author . '%', $authorQuery, $authorQuery);
 		if ($stageId) $params[] = (int) $stageId;
+		if ($sectionId) $params[] = (int) $sectionId;
 		if ($editor) array_push($params, (int) ROLE_ID_MANAGER, (int) ROLE_ID_SUB_EDITOR, $editorQuery = '%' . $editor . '%', $editorQuery);
 
 		$result = $this->retrieveRange(
@@ -820,6 +782,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				' . ($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'') . '
 				' . ($author?' AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)':'') . '
 				' . ($stageId?' AND s.stage_id = ?':'') . '
+				' . ($sectionId?' AND s.section_id = ?':'') . '
 				' . ($editor?' AND (g.role_id = ? OR g.role_id = ?) AND' . $this->_getEditorSearchQuery():'') .
 			' GROUP BY ' . $this->getGroupByColumns(),
 			$params,

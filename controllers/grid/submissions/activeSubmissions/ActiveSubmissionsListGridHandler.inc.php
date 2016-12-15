@@ -82,6 +82,26 @@ class ActiveSubmissionsListGridHandler extends SubmissionsListGridHandler {
 	}
 
 	/**
+	 * @copyDoc GridHandler::renderFilter()
+	 */
+	function renderFilter($request, $filterData = array()) {
+		$filterData = array('active' => true);
+		return parent::renderFilter($request, $filterData);
+	}
+
+	/**
+	 * @copyDoc GridHandler::getFilterSelectionData()
+	 */
+	function getFilterSelectionData($request) {
+		return array_merge(
+			parent::getFilterSelectionData($request),
+			array(
+				'orphaned' => $request->getUserVar('orphaned') ? (int) $request->getUserVar('orphaned') : null,
+			)
+		);
+	}
+
+	/**
 	 * @copydoc GridHandler::loadData()
 	 */
 	protected function loadData($request, $filter) {
@@ -100,7 +120,7 @@ class ActiveSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		}
 
 		$nonExistingUserId = 0;
-		return $submissionDao->getActiveSubmissions($context->getId(), $title, $author, $editor, $stageId, $rangeInfo);
+		return $submissionDao->getActiveSubmissions($context->getId(), $title, $author, $editor, $stageId, $rangeInfo, $filter['orphaned']);
 	}
 
 
@@ -123,6 +143,7 @@ class ActiveSubmissionsListGridHandler extends SubmissionsListGridHandler {
 
 		return $columns;
 	}
+
 }
 
 ?>

@@ -93,10 +93,12 @@ class ActiveSubmissionsListGridHandler extends SubmissionsListGridHandler {
 	 * @copyDoc GridHandler::getFilterSelectionData()
 	 */
 	function getFilterSelectionData($request) {
-		$filterSelectionData = parent::getFilterSelectionData($request);
-		$orphaned = $request->getUserVar('orphaned') ? (int) $request->getUserVar('orphaned') : null;
-		$filterSelectionData['orphaned'] = $orphaned;
-		return $filterSelectionData;
+		return array_merge(
+			parent::getFilterSelectionData($request),
+			array(
+				'orphaned' => $request->getUserVar('orphaned') ? (int) $request->getUserVar('orphaned') : null,
+			)
+		);
 	}
 
 	/**

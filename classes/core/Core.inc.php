@@ -446,7 +446,7 @@ class Core {
 	 */
 	private static function _getUserVar($url, $varName, $userVars = array()) {
 		$returner = null;
-		parse_str(parse_url($url, PHP_URL_QUERY), $userVarsFromUrl);
+		parse_str(parse_url(rawurldecode($url), PHP_URL_QUERY), $userVarsFromUrl);
 		if (isset($userVarsFromUrl[$varName])) $returner = $userVarsFromUrl[$varName];
 
 		if (is_null($returner)) {

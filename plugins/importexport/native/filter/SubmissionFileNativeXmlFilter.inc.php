@@ -102,12 +102,12 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroup = $userGroupDao->getById($submissionFile->getUserGroupId());
-		assert($userGroup);
+		assert(isset($userGroup));
 		$revisionNode->setAttribute('user_group_ref', $userGroup->getName($context->getPrimaryLocale()));
 
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$uploaderUser = $userDao->getById($submissionFile->getUploaderUserId());
-		assert($uploaderUser);
+		assert(isset($uploaderUser));
 		$revisionNode->setAttribute('uploader', $uploaderUser->getUsername());
 		$this->addIdentifiers($doc, $revisionNode, $submissionFile);
 		$this->createLocalizedNodes($doc, $revisionNode, 'name', $submissionFile->getName(null));
@@ -135,7 +135,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 
 		// Add public ID
 		if ($pubId = $submissionFile->getStoredPubId('publisher-id')) {
-			$revisionNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', $pubId));
+			$revisionNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', htmlspecialchars($pubId, ENT_COMPAT, 'UTF-8')));
 			$node->setAttribute('type', 'public');
 			$node->setAttribute('advice', 'update');
 		}
@@ -159,7 +159,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 		$pubId = $submissionFile->getStoredPubId($pubIdPlugin->getPubIdType());
 		if ($pubId) {
 			$deployment = $this->getDeployment();
-			$revisionNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', $pubId));
+			$revisionNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', htmlspecialchars($pubId, ENT_COMPAT, 'UTF-8')));
 			$node->setAttribute('type', $pubIdPlugin->getPubIdType());
 			$node->setAttribute('advice', 'update');
 			return $node;

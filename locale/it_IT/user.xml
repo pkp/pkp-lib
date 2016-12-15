@@ -43,7 +43,6 @@
 	<message key="user.login.lostPassword.invalidUser">Non esiste nessun utente con l'indirizzo email specificato.</message>
 	<message key="user.login.lostPassword.passwordSent">Una nuova password è stata inviata la tuo indirizzo email. Puoi fare il login con la tua nuova password.</message>
 	<message key="user.login.registeredEmail">Email dell'utente registrato</message>
-	<message key="user.login.rememberUsernameAndPassword">Ricordami</message>
 	<message key="user.login.resetPassword">Reimposta la password</message>
 	<message key="user.logOut">Esci</message>
 	<message key="user.mailingAddress">Indirizzo postale</message>

@@ -428,7 +428,7 @@
 	<message key="submission.submit.metadataForm">Additional Refinements</message>
 	<message key="submission.submit.metadataForm.tip">Add additional information for your submission.  Press 'enter' after each term.</message>
 	<message key="submission.submit.submissionLocale">Submission Language</message>
-	<message key="submission.submit.submissionLocaleDescription">This press accepts submissions in several languages. Choose the primary language of the submission from the pulldown below.</message>
+	<message key="submission.submit.submissionLocaleDescription">Submissions in several languages are accepted. Choose the primary language of the submission from the pulldown below.</message>
 	<message key="submission.submit.submissionFiles">Submission Files</message>
 	<message key="submission.submit.dependentFiles">Dependent Files</message>
 	<message key="submission.manageDependentFiles">Manage Dependent Files</message>

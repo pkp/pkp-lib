@@ -41,7 +41,6 @@
 	<message key="user.login.lostPassword.invalidUser">No existe un  usuario con ese email.</message>
 	<message key="user.login.lostPassword.passwordSent">Se ha enviado una nueva contraseña a su dirección de correo. Para acceder al sistema debe utilizar la nueva contraseña.</message>
 	<message key="user.login.registeredEmail">Email registrado</message>
-	<message key="user.login.rememberUsernameAndPassword">Recordar el nombre de usuario y contraseña</message>
 	<message key="user.login.resetPassword">Cambiar la contraseña</message>
 	<message key="user.logOut">Salir</message>
 	<message key="user.mailingAddress">Dirección de correo electrónico</message>

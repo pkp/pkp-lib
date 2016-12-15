@@ -50,7 +50,6 @@
 	<message key="user.login.lostPassword.invalidUser">Neexistuje žádný uživatel s uvedenou emailovou adresou.</message>
 	<message key="user.login.lostPassword.passwordSent">Nové heslo bylo odesláno na Vaši emailovou adresu. Nyní se můžete přihlásit pomocí nového hesla.</message>
 	<message key="user.login.registeredEmail">Email registrovaného uživatele</message>
-	<message key="user.login.rememberUsernameAndPassword">Zapamatovat moje uživatelské jméno a heslo</message>
 	<message key="user.login.resetPassword">Resetovat heslo</message>
 	<message key="user.logOut">Odhlásit</message>
 	<message key="user.mailingAddress">Poštovní adresa</message>

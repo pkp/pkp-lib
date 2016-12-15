@@ -29,7 +29,7 @@ abstract class BaseProfileForm extends Form {
 		parent::__construct($template);
 
 		$this->_user = $user;
-		assert($user);
+		assert(isset($user));
 
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));

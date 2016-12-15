@@ -70,7 +70,7 @@ class QueryForm extends Form {
 			$noteDao->insertObject($headNote);
 		} else {
 			$query = $queryDao->getById($queryId, $assocType, $assocId);
-			assert($query);
+			assert(isset($query));
 			// New queries will not have a head note.
 			$this->_isNew = !$query->getHeadNote();
 		}

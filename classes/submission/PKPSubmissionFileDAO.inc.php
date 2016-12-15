@@ -959,7 +959,7 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO implements PKPPubIdPlugin
 			$fileId, $revision, $assocType, $assocId, $stageId, $uploaderUserId, $uploaderUserGroupId, $reviewRoundId) {
 
 		// Make sure that at least one entity filter has been set.
-		assert((int)$submissionId || (int)$uploaderUserId || (int)$fileId || (int)$assocId);
+		assert($submissionId>0 || (int)$uploaderUserId || (int)$fileId || (int)$assocId);
 
 		// Both, assoc type and id, must be set (or unset) together.
 		assert(((int)$assocType && (int)$assocId) || !((int)$assocType || (int)$assocId));

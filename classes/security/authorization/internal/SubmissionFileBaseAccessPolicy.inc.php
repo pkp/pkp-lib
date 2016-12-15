@@ -70,7 +70,7 @@ class SubmissionFileBaseAccessPolicy extends AuthorizationPolicy {
 			// Get the identifying info from the request
 			$fileId = (int) $request->getUserVar('fileId');
 			$revision = (int) $request->getUserVar('revision');
-			assert($fileId);
+			assert($fileId>0);
 			$cacheId = "$fileId-$revision"; // -0 for most recent revision
 		}
 

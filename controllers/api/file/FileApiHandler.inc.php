@@ -83,7 +83,7 @@ class FileApiHandler extends Handler {
 	 */
 	function downloadFile($args, $request) {
 		$submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
-		assert($submissionFile); // Should have been validated already
+		assert(isset($submissionFile)); // Should have been validated already
 		$context = $request->getContext();
 		$fileManager = $this->_getFileManager($context->getId(), $submissionFile->getSubmissionId());
 		if (!$fileManager->downloadFile($submissionFile->getFileId(), $submissionFile->getRevision(), false, $submissionFile->getClientFileName())) {

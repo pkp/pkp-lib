@@ -45,7 +45,6 @@
 	<message key="user.login.lostPassword.invalidUser">Non existe nengún/a usuario/a co enderezo de correo-e especificado.</message>
 	<message key="user.login.lostPassword.passwordSent">Envióuseche por correu-e un novo contrasinal. Agora pódeste identificar no sitio co teu novo contrasinal.</message>
 	<message key="user.login.registeredEmail">Correo-e de usuarias/os rexistradas/os</message>
-	<message key="user.login.rememberUsernameAndPassword">Lembrar o meu nome de usuaria/o e contrasinal</message>
 	<message key="user.login.resetPassword">Cambiar contrasinal</message>
 	<message key="user.logOut">Sair</message>
 	<message key="user.mailingAddress">Enderezo postal</message>

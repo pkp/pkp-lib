@@ -58,7 +58,7 @@ class Openurl10Nlm30CitationSchemaCrosswalkFilter extends Nlm30Openurl10Crosswal
 			foreach ($authors as $author) {
 				$authorDescription =& $personStringFilter->execute($author);
 				$success = $output->addStatement('person-group[@person-group-type="author"]', $authorDescription);
-				assert($success);
+				assert((boolean) $success);
 				unset($authorDescription);
 			}
 		}
@@ -70,7 +70,7 @@ class Openurl10Nlm30CitationSchemaCrosswalkFilter extends Nlm30Openurl10Crosswal
 			$genreMap = $this->_getOpenurl10GenreTranslationMapping();
 			$publicationType = (isset($genreMap[$genre]) ? $genreMap[$genre] : $genre);
 			$success = $output->addStatement('[@publication-type]', $publicationType);
-			assert($success);
+			assert((boolean) $success);
 		}
 
 		// Get NLM => OpenURL property mapping.
@@ -80,7 +80,7 @@ class Openurl10Nlm30CitationSchemaCrosswalkFilter extends Nlm30Openurl10Crosswal
 		foreach ($propertyMap as $nlm30Property => $openurl10Property) {
 			if ($input->hasStatement($openurl10Property)) {
 				$success = $output->addStatement($nlm30Property, $input->getStatement($openurl10Property));
-				assert($success);
+				assert((boolean) $success);
 			}
 		}
 

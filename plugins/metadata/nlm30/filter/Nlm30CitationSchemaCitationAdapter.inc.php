@@ -157,7 +157,7 @@ class Nlm30CitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 
 		// Set the statements in the meta-data description
 		$success = $metadataDescription->setStatements($statements);
-		assert($success);
+		assert((boolean) $success);
 
 		return $metadataDescription;
 	}

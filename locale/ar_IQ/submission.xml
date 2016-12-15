@@ -428,7 +428,6 @@
 	<message key="submission.submit.metadataForm">تحسينات إضافية</message>
 	<message key="submission.submit.metadataForm.tip">أضف معلومات أخرى عن مؤلَّفِك. إضغط 'enter' بعد كل عبارة.</message>
 	<message key="submission.submit.submissionLocale">لغة المؤلَّف</message>
-	<message key="submission.submit.submissionLocaleDescription">هذه الدار تتقبل المؤلفات بعدة لغات. إختر اللغة الأساسية لهذا المؤلَّف من القائمة المنسدلة أدناه.</message>
 	<message key="submission.submit.submissionFiles">ملفات المؤلَّف</message>
 	<message key="submission.submit.dependentFiles">الملفات الملحقة</message>
 	<message key="submission.manageDependentFiles">إدارة الملفات الملحقة</message>

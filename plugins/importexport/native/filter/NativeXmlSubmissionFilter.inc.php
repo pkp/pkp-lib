@@ -236,7 +236,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 	 */
 	function parseSubmissionFile($n, $submission) {
 		$importFilter = $this->getImportFilter($n->tagName);
-		assert($importFilter); // There should be a filter
+		assert(isset($importFilter)); // There should be a filter
 
 		$importFilter->setDeployment($this->getDeployment());
 		$submissionFileDoc = new DOMDocument();

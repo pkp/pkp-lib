@@ -96,25 +96,27 @@ class InstallForm extends MaintenanceForm {
 	}
 
 	/**
-	 * Display the form.
+	 * @copydoc Form::display
 	 */
-	function display() {
-		$templateMgr = TemplateManager::getManager($this->_request);
-		$templateMgr->assign('localeOptions', $this->supportedLocales);
-		$templateMgr->assign('localesComplete', $this->localesComplete);
-		$templateMgr->assign('clientCharsetOptions', $this->supportedClientCharsets);
-		$templateMgr->assign('connectionCharsetOptions', $this->supportedConnectionCharsets);
-		$templateMgr->assign('databaseCharsetOptions', $this->supportedDatabaseCharsets);
-		$templateMgr->assign('allowFileUploads', get_cfg_var('file_uploads') ? __('common.yes') : __('common.no'));
-		$templateMgr->assign('maxFileUploadSize', get_cfg_var('upload_max_filesize'));
-		$templateMgr->assign('databaseDriverOptions', $this->checkDBDrivers());
-		$templateMgr->assign('supportsMBString', PKPString::hasMBString() ? __('common.yes') : __('common.no'));
-		$templateMgr->assign('phpIsSupportedVersion', version_compare(PHP_REQUIRED_VERSION, PHP_VERSION) != 1);
+	function display($request = null, $template = null) {
 		import('lib.pkp.classes.xslt.XSLTransformer');
-		$templateMgr->assign('xslEnabled', XSLTransformer::checkSupport());
-		$templateMgr->assign('xslRequired', REQUIRES_XSL);
-		$templateMgr->assign('phpRequiredVersion', PHP_REQUIRED_VERSION);
-		$templateMgr->assign('phpVersion', PHP_VERSION);
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign(array(
+			'localeOptions' => $this->supportedLocales,
+			'localesComplete' => $this->localesComplete,
+			'clientCharsetOptions' => $this->supportedClientCharsets,
+			'connectionCharsetOptions' => $this->supportedConnectionCharsets,
+			'databaseCharsetOptions' => $this->supportedDatabaseCharsets,
+			'allowFileUploads' => get_cfg_var('file_uploads') ? __('common.yes') : __('common.no'),
+			'maxFileUploadSize' => get_cfg_var('upload_max_filesize'),
+			'databaseDriverOptions' => $this->checkDBDrivers(),
+			'supportsMBString' => PKPString::hasMBString() ? __('common.yes') : __('common.no'),
+			'phpIsSupportedVersion' => version_compare(PHP_REQUIRED_VERSION, PHP_VERSION) != 1,
+			'xslEnabled' => XSLTransformer::checkSupport(),
+			'xslRequired' => REQUIRES_XSL,
+			'phpRequiredVersion' => PHP_REQUIRED_VERSION,
+			'phpVersion' => PHP_VERSION,
+		));
 
 		parent::display();
 	}

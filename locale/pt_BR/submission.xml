@@ -430,7 +430,6 @@
 	<message key="submission.submit.metadataForm">Refinamentos Adicionais</message>
 	<message key="submission.submit.metadataForm.tip">Adicione informações adicionais para sua submissão. Pressione 'Enter' depois de cada termo.</message>
 	<message key="submission.submit.submissionLocale">Idioma da Submissão</message>
-	<message key="submission.submit.submissionLocaleDescription">Esta editora aceita submissões em várias línguas. Selecione o idioma principal da apresentação no menu abaixo.</message>
 	<message key="submission.submit.submissionFiles">Arquivos da Submissão</message>
 	<message key="submission.submit.dependentFiles">Arquivos Dependentes</message>
 	<message key="submission.manageDependentFiles">Gerenciar Arquivos Dependentes</message>

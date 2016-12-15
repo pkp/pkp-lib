@@ -44,7 +44,6 @@
 	<message key="user.login.lostPassword.invalidUser">هیچ کاربری با این ایمیل وجود ندارد.</message>
 	<message key="user.login.lostPassword.passwordSent">یک رمز عبور جدید به آدرس ایمیل شما ارسال گردید. با این رمز عبور جدید هم اکنون میتوانید وارد شایت شوید.</message>
 	<message key="user.login.registeredEmail">ایمیل کاربر ثبت نام کرده</message>
-	<message key="user.login.rememberUsernameAndPassword">نام کاربری خود را فراموش کرده اید؟</message>
 	<message key="user.login.resetPassword">باز نشانی رمز عبور</message>
 	<message key="user.logOut">خروج</message>
 	<message key="user.mailingAddress">آدرس پستی</message>

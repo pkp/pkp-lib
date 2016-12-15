@@ -57,7 +57,6 @@
 	<message key="user.login.lostPassword.invalidUser">No existeix cap usuari/usuària amb l’adreça electrònica especificada.</message>
 	<message key="user.login.lostPassword.passwordSent">S'ha enviat una nova contrasenya a la vostra adreça electrònica. Ja podeu iniciar la sessió amb aquesta contrasenya.</message>
 	<message key="user.login.registeredEmail">Adreça electrònica de l’usuari/usuària registrat</message>
-	<message key="user.login.rememberUsernameAndPassword">Recorda el meu nom d’usuari i la contrasenya</message>
 	<message key="user.login.resetPassword">Reinicieu la contrasenya</message>
 	<message key="user.logOut">Surt de la sessió</message>
 	<message key="user.logOutAs">Surt de la sessió com a</message>

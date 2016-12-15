@@ -270,7 +270,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 		// revised file, otherwise we cannot identify the target file
 		// implementation.
 		if ($fileStage != SUBMISSION_FILE_REVIEW_ATTACHMENT) {
-			assert($genreId || $revisedFileId);
+			assert(isset($genreId) || isset($revisedFileId));
 			if (!$genreId || $revisedFileId) {
 				// Retrieve the revised file. (null $fileStage in case the revision is from a previous stage).
 				$revisedFile = $submissionFileDao->getLatestRevision($revisedFileId, null, $this->getSubmissionId());

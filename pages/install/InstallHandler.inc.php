@@ -44,7 +44,7 @@ class InstallHandler extends Handler {
 
 		$installForm = new InstallForm($request);
 		$installForm->initData();
-		$installForm->display();
+		$installForm->display($request);
 	}
 
 	/**
@@ -72,7 +72,7 @@ class InstallHandler extends Handler {
 		if ($installForm->validate()) {
 			$installForm->execute();
 		} else {
-			$installForm->display();
+			$installForm->display($request);
 		}
 	}
 
@@ -91,7 +91,7 @@ class InstallHandler extends Handler {
 
 		$installForm = new UpgradeForm($request);
 		$installForm->initData();
-		$installForm->display();
+		$installForm->display($request);
 	}
 
 	/**
@@ -109,7 +109,7 @@ class InstallHandler extends Handler {
 		if ($installForm->validate()) {
 			$installForm->execute();
 		} else {
-			$installForm->display();
+			$installForm->display($request);
 		}
 	}
 

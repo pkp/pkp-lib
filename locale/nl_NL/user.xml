@@ -44,7 +44,6 @@
 	<message key="user.login.lostPassword.invalidUser">Er is geen gebruiker met dit e-mail adres.</message>
 	<message key="user.login.lostPassword.passwordSent">Er is een nieuw wachtwoord verstuurd naar uw e-mail adres. U kunt nu inloggen met uw nieuwe wachtwoord.</message>
 	<message key="user.login.registeredEmail">E-mail van geregistreerde gebruiker</message>
-	<message key="user.login.rememberUsernameAndPassword">Onthou mijn gebruikersnaam en wachtwoord</message>
 	<message key="user.login.resetPassword">Wachtwoord terugzetten</message>
 	<message key="user.logOut">Uitloggen</message>
 	<message key="user.mailingAddress">Postadres</message>

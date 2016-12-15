@@ -108,7 +108,7 @@ class PKPLocale {
 		$notes =& Registry::get('system.debug.notes');
 		$notes[] = array('debug.notes.missingLocaleKey', array('key' => $key));
 
-		if (!HookRegistry::call('PKPLocale::translate', array(&$this, &$key, &$params, &$locale, &$localeFiles, &$value))) {
+		if (!HookRegistry::call('PKPLocale::translate', array(&$key, &$params, &$locale, &$localeFiles, &$value))) {
 			// Add some octothorpes to missing keys to make them more obvious
 			return '##' . htmlentities($key) . '##';
 		} else {

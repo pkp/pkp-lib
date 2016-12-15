@@ -90,7 +90,7 @@ class UserGroupNativeXmlFilter extends NativeExportFilter {
 
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$assignedStages = $userGroupDao->getAssignedStagesByUserGroupId($context->getId(), $userGroup->getId());
-		$userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'stage_assignments', join(':', array_keys($assignedStages))));
+		$userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'stage_assignments', htmlspecialchars(join(':', array_keys($assignedStages)), ENT_COMPAT, 'UTF-8')));
 		return $userGroupNode;
 	}
 }

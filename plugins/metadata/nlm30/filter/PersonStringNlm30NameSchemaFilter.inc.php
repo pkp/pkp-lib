@@ -180,7 +180,7 @@ class PersonStringNlm30NameSchemaFilter extends Nlm30PersonStringFilter {
 				if ($matched = PKPString::regexp_match($complexPersonsPattern[0], $personsString)) {
 					// Retrieve names.
 					$success = PKPString::regexp_match_all($complexPersonsPattern[1], $personsString, $personStrings);
-					assert($success && count($personStrings) == 1);
+					assert((boolean) $success && count($personStrings) == 1);
 					$personStrings = $personStrings[0];
 					break;
 				}

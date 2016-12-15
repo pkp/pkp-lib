@@ -65,7 +65,7 @@ class NewLibraryFileForm extends LibraryFileForm {
 
 		// Convert the temporary file to a library file and store
 		$libraryFile =& $libraryFileManager->copyFromTemporaryFile($temporaryFile, $this->getData('fileType'));
-		assert($libraryFile);
+		assert(isset($libraryFile));
 		$libraryFile->setContextId($this->contextId);
 		$libraryFile->setName($this->getData('libraryFileName'), null); // Localized
 		$libraryFile->setType($this->getData('fileType'));

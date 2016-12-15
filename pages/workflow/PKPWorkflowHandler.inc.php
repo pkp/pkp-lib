@@ -110,7 +110,7 @@ abstract class PKPWorkflowHandler extends Handler {
 			}
 		}
 
-		assert($workingStageId);
+		assert(isset($workingStageId));
 
 		$router = $request->getRouter();
 		$request->redirectUrl($router->url($request, null, 'workflow', 'index', array($submission->getId(), $workingStageId)));

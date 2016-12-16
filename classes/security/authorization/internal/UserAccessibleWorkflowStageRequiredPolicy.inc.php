@@ -97,18 +97,6 @@ class UserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy {
 					if(!$stageAssignments->wasEmpty()) {
 						$accessibleStageRoles[] = $roleId;
 					}
-
-					if ($roleId == ROLE_ID_SUB_EDITOR) {
-						// The requested submission must be part of their section/series...
-						// and the requested workflow stage must be assigned to
-						// them in the context settings.
-						import('lib.pkp.classes.security.authorization.internal.SectionAssignmentRule');
-						$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-						if (SectionAssignmentRule::effect($contextId, $submission->getSectionId(), $userId) &&
-						$userGroupDao->userAssignmentExists($contextId, $userId, $stageId)) {
-							$accessibleStageRoles[] = $roleId;
-						}
-					}
 					break;
 				default:
 					break;

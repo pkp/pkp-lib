@@ -66,13 +66,12 @@ class NewNoteForm extends Form {
 	 */
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
-
 		$noteDao = DAORegistry::getDAO('NoteDAO');
-		$notes = $noteDao->getByAssoc($this->getAssocType(), $this->getAssocId());
-		$templateMgr->assign('notes', $notes);
-		$templateMgr->assign('submitNoteText', $this->getSubmitNoteLocaleKey());
-		$templateMgr->assign('newNoteFormTemplate', $this->getNewNoteFormTemplate());
-
+		$templateMgr->assign(array(
+			'notes' => $noteDao->getByAssoc($this->getAssocType(), $this->getAssocId()),
+			'submitNoteText' => $this->getSubmitNoteLocaleKey(),
+			'newNoteFormTemplate' => $this->getNewNoteFormTemplate(),
+		));
 		return parent::fetch($request);
 	}
 

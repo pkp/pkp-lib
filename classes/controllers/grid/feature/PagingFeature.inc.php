@@ -43,14 +43,13 @@ class PagingFeature extends GeneralPagingFeature {
 	 * @copydoc GridFeature::fetchUIElements()
 	 */
 	function fetchUIElements($request, $grid) {
-		$iterator = $this->getItemIterator();
 		$options = $this->getOptions();
-
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('iterator', $iterator);
-		$templateMgr->assign('currentItemsPerPage', $options['currentItemsPerPage']);
-		$templateMgr->assign('grid', $grid);
-
+		$templateMgr->assign(array(
+			'iterator' => $this->getItemIterator(),
+			'currentItemsPerPage' => $options['currentItemsPerPage'],
+			'grid' => $grid,
+		));
 		return array('pagingMarkup' => $templateMgr->fetch('controllers/grid/feature/gridPaging.tpl'));
 	}
 

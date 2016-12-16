@@ -59,18 +59,19 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 		$cssView = $this->renderFileView($cssSettingName, $request);
 		$imageView = $this->renderFileView($imageSettingName, $request);
 
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('locale', AppLocale::getLocale());
-		$templateMgr->assign('siteStyleFileExists', file_exists($siteStyleFilename));
-		$templateMgr->assign('uploadCssLinkAction', $uploadCssLinkAction);
-		$templateMgr->assign('uploadImageLinkAction', $uploadImageLinkAction);
-		$templateMgr->assign('cssView', $cssView);
-		$templateMgr->assign('imageView', $imageView);
-		$templateMgr->assign('redirectOptions', $contexts);
-		$templateMgr->assign('pageHeaderTitleImage', $site->getSetting($imageSettingName));
-
 		$application = Application::getApplication();
-		$templateMgr->assign('availableMetricTypes', $application->getMetricTypes(true));
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign(array(
+			'locale' => AppLocale::getLocale(),
+			'siteStyleFileExists' => file_exists($siteStyleFilename),
+			'uploadCssLinkAction' => $uploadCssLinkAction,
+			'uploadImageLinkAction' => $uploadImageLinkAction,
+			'cssView' => $cssView,
+			'imageView' => $imageView,
+			'redirectOptions' => $contexts,
+			'pageHeaderTitleImage' => $site->getSetting($imageSettingName),
+			'availableMetricTypes' => $application->getMetricTypes(true),
+		));
 
 		$themePlugins = PluginRegistry::getPlugins('themes');
 		$enabledThemes = array();
@@ -208,12 +209,12 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 			}
 
 			$publicFileManager = $publicFileManager = new PublicFileManager();
-
-			$templateMgr->assign('publicFilesDir', $request->getBasePath() . '/' . $publicFileManager->getSiteFilesPath());
-			$templateMgr->assign('file', $file);
-			$templateMgr->assign('deleteLinkAction', $deleteLinkAction);
-			$templateMgr->assign('fileSettingName', $fileSettingName);
-
+			$templateMgr->assign(array(
+				'publicFilesDir' => $request->getBasePath() . '/' . $publicFileManager->getSiteFilesPath())			'file', $file,
+				'file' => $file,
+				'deleteLinkAction' => $deleteLinkAction,
+				'fileSettingName' => $fileSettingName,
+			));
 			return $templateMgr->fetch($template);
 		} else {
 			return null;

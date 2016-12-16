@@ -49,15 +49,17 @@ class PKPSiteSettingsForm extends Form {
 		$publicFileManager = new PublicFileManager();
 		$siteStyleFilename = $publicFileManager->getSiteFilesPath() . '/' . $site->getSiteStyleFilename();
 		$templateMgr = TemplateManager::getManager();
-		$templateMgr->assign('showThumbnail', $site->getSetting('showThumbnail'));
-		$templateMgr->assign('showTitle', $site->getSetting('showTitle'));
-		$templateMgr->assign('showDescription', $site->getSetting('showDescription'));
-		$templateMgr->assign('originalStyleFilename', $site->getOriginalStyleFilename());
-		$templateMgr->assign('pageHeaderTitleImage', $site->getSetting('pageHeaderTitleImage'));
-		$templateMgr->assign('styleFilename', $site->getSiteStyleFilename());
-		$templateMgr->assign('publicFilesDir', Request::getBasePath() . '/' . $publicFileManager->getSiteFilesPath());
-		$templateMgr->assign('dateStyleFileUploaded', file_exists($siteStyleFilename)?filemtime($siteStyleFilename):null);
-		$templateMgr->assign('siteStyleFileExists', file_exists($siteStyleFilename));
+		$templateMgr->assign(array(
+			'showThumbnail' => $site->getSetting('showThumbnail'),
+			'showTitle' => $site->getSetting('showTitle'),
+			'showDescription' => $site->getSetting('showDescription'),
+			'originalStyleFilename' => $site->getOriginalStyleFilename(),
+			'pageHeaderTitleImage' => $site->getSetting('pageHeaderTitleImage'),
+			'styleFilename' => $site->getSiteStyleFilename(),
+			'publicFilesDir' => Request::getBasePath() . '/' . $publicFileManager->getSiteFilesPath(),
+			'dateStyleFileUploaded' => file_exists($siteStyleFilename)?filemtime($siteStyleFilename):null,
+			'siteStyleFileExists' => file_exists($siteStyleFilename),
+		));
 		return parent::display();
 	}
 

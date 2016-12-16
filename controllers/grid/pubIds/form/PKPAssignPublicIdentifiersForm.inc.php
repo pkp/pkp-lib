@@ -63,10 +63,12 @@ class PKPAssignPublicIdentifiersForm extends Form {
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
 		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $this->getContextId());
-		$templateMgr->assign('pubIdPlugins', $pubIdPlugins);
-		$templateMgr->assign('pubObject', $this->getPubObject());
-		$templateMgr->assign('approval', $this->getApproval());
-		$templateMgr->assign('confirmationText', $this->getConfirmationText());
+		$templateMgr->assign(array(
+			'pubIdPlugins' => $pubIdPlugins,
+			'pubObject' => $this->getPubObject(),
+			'approval' => $this->getApproval(),
+			'confirmationText' => $this->getConfirmationText(),
+		));
 		return parent::fetch($request);
 	}
 

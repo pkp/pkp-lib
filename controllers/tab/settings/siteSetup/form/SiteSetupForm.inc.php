@@ -210,7 +210,7 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 
 			$publicFileManager = $publicFileManager = new PublicFileManager();
 			$templateMgr->assign(array(
-				'publicFilesDir' => $request->getBasePath() . '/' . $publicFileManager->getSiteFilesPath())			'file', $file,
+				'publicFilesDir' => $request->getBasePath() . '/' . $publicFileManager->getSiteFilesPath(),
 				'file' => $file,
 				'deleteLinkAction' => $deleteLinkAction,
 				'fileSettingName' => $fileSettingName,

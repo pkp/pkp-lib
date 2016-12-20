@@ -51,6 +51,8 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 	function &process(&$submissions) {
 		// Create the XML document
 		$doc = new DOMDocument('1.0');
+		$doc->preserveWhiteSpace = false;
+		$doc->formatOutput = true;
 		$deployment = $this->getDeployment();
 
 		if (count($submissions)==1 && !$this->getIncludeSubmissionsNode()) {
@@ -163,7 +165,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 	 * @param $submission Submission
 	 */
 	function addMetadata($doc, $submissionNode, $submission) {
-		$this->createLocalizedNodes($doc, $submissionNode, 'title', $submission->getTitle(null, false));
+		//$this->createLocalizedNodes($doc, $submissionNode, 'title', $submission->getTitle(null, false));
 		$this->createLocalizedNodes($doc, $submissionNode, 'prefix', $submission->getPrefix(null));
 		$this->createLocalizedNodes($doc, $submissionNode, 'subtitle', $submission->getSubtitle(null));
 		$this->createLocalizedNodes($doc, $submissionNode, 'abstract', $submission->getAbstract(null));

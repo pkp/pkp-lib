@@ -48,6 +48,8 @@ class RepresentationNativeXmlFilter extends NativeExportFilter {
 	function &process(&$representation) {
 		// Create the XML document
 		$doc = new DOMDocument('1.0');
+		$doc->preserveWhiteSpace = false;
+		$doc->formatOutput = true;
 		$deployment = $this->getDeployment();
 		$rootNode = $this->createRepresentationNode($doc, $representation);
 		$doc->appendChild($rootNode);

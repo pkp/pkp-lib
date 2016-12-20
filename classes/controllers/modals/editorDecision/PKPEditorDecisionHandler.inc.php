@@ -39,13 +39,6 @@ class PKPEditorDecisionHandler extends Handler {
 		import('lib.pkp.classes.security.authorization.internal.ReviewRoundRequiredPolicy');
 		$this->addPolicy(new ReviewRoundRequiredPolicy($request, $args, 'reviewRoundId', $reviewRoundOps));
 
-		// Approve proof need submission access policy.
-		$router = $request->getRouter();
-		if ($router->getRequestedOp($request) == 'saveApproveProof') {
-			import('lib.pkp.classes.security.authorization.SubmissionFileAccessPolicy');
-			$this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_MODIFY));
-		}
-
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 

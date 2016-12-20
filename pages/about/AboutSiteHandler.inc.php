@@ -22,6 +22,7 @@ class AboutSiteHandler extends Handler {
 	function __construct() {
 		parent::__construct();
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
 	}
 
 	/**

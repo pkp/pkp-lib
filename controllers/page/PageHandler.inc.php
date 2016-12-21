@@ -100,6 +100,7 @@ class PageHandler extends Handler {
 						die;
 					}
 				}
+				break;
 
 			default:
 
@@ -167,6 +168,7 @@ class PageHandler extends Handler {
 						}
 					}
 				}
+				break;
 		}
 
 		// Deliver the cached file

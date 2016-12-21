@@ -16,4 +16,5 @@
 		iso639-2b CDATA #REQUIRED
 		iso639-3 CDATA #REQUIRED
 		complete (true | false) #IMPLIED
-		stylesheet CDATA #IMPLIED>
+		stylesheet CDATA #IMPLIED
+		direction CDATA #IMPLIED>

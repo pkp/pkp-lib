@@ -28,6 +28,7 @@
 				{if $FBV_disabled} disabled="disabled"{/if}
 				{if $FBV_readonly} readonly="readonly"{/if}
 				{if $FBV_variables} data-variables="{$FBV_variables|@json_encode|escape:"url"}"{/if}
+				{if $FBV_required} required aria-required="true"{/if}
 				name="{$FBV_name|escape}[{$formLocale|escape}]">{$FBV_value[$formLocale]|escape}
 			</textarea>
 		{/strip}
@@ -43,6 +44,7 @@
 					{if $FBV_disabled} disabled="disabled"{/if}
 					{if $FBV_readonly} readonly="readonly"{/if}
 					{if $FBV_variables} data-variables="{$FBV_variables|@json_encode|escape:"url"}"{/if}
+					{if $FBV_required} required aria-required="true"{/if}
 					name="{$FBV_name|escape}[{$thisFormLocale|escape}]">{$FBV_value[$thisFormLocale]|escape}
 				</textarea>
 				{/strip}
@@ -60,6 +62,7 @@
 			{if $FBV_disabled} disabled="disabled"{/if}
 			{if $FBV_readonly} readonly="readonly"{/if}
 			{if $FBV_variables} data-variables="{$FBV_variables|@json_encode|escape:"url"}"{/if}
+			{if $FBV_required} required aria-required="true"{/if}
 			name="{$FBV_name|escape}{if $FBV_multilingual}[{$formLocale|escape}]{/if}"
 			rows="{$FBV_rows|escape}"
 			cols="{$FBV_cols|escape}"

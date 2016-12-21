@@ -19,7 +19,7 @@
 		</div>
 		<div class="input" data-pkp-editable-view="input">
 			{fbvFormSection title="submission.form.name" required=true}
-				{fbvElement type="text" id="name" value=$submissionFile->getName(null) multilingual=true maxlength="255"}
+				{fbvElement type="text" id="name" value=$submissionFile->getName(null) multilingual=true maxlength="255" required=true}
 			{/fbvFormSection}
 		</div>
 	</div>

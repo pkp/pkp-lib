@@ -43,10 +43,10 @@
 				{fbvElement type="select" id="typeId" from=$announcementTypes selected=$selectedTypeId label="manager.announcements.form.typeId" translate=false}
 			{/if}
 			{fbvFormSection title="manager.announcements.form.title" for="title" required="true"}
-				{fbvElement type="text" multilingual="true" id="title" value=$title maxlength="255"}
+				{fbvElement type="text" multilingual="true" id="title" value=$title maxlength="255" required="true"}
 			{/fbvFormSection}
 			{fbvFormSection title="manager.announcements.form.descriptionShort" for="descriptionShort" required="true"}
-				{fbvElement type="textarea" multilingual="true" id="descriptionShort" value=$descriptionShort label="manager.announcements.form.descriptionShortInstructions" rich=true height=$fbvStyles.height.SHORT}
+				{fbvElement type="textarea" multilingual="true" id="descriptionShort" value=$descriptionShort label="manager.announcements.form.descriptionShortInstructions" required="true" rich=true height=$fbvStyles.height.SHORT}
 			{/fbvFormSection}
 			{fbvFormSection title="manager.announcements.form.description" for="description"}
 				{fbvElement type="textarea" multilingual="true" id="description" value=$description label="manager.announcements.form.descriptionInstructions" rich=true}

@@ -21,14 +21,14 @@
 	{csrf}
 	{fbvFormArea id="name"}
 		{fbvFormSection title="common.name" required=true}
-			{fbvElement type="text" id="libraryFileName" value=$libraryFileName maxlength="255" multilingual=true}
+			{fbvElement type="text" id="libraryFileName" value=$libraryFileName maxlength="255" multilingual=true required=true}
 		{/fbvFormSection}
 	{/fbvFormArea}
 
 	{fbvFormArea id="type"}
 		{fbvFormSection title="common.type" required=true}
 			{translate|assign:"defaultLabel" key="common.chooseOne"}
-			{fbvElement type="select" from=$fileTypes id="fileType" selected=$libraryFile->getType() defaultValue="" defaultLabel=$defaultLabel}
+			{fbvElement type="select" from=$fileTypes id="fileType" selected=$libraryFile->getType() defaultValue="" defaultLabel=$defaultLabel required=true}
 		{/fbvFormSection}
 	{/fbvFormArea}
 

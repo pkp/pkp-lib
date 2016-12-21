@@ -27,7 +27,7 @@
 
 	{if !$wizardMode}
 		{fbvFormSection title="common.mailingAddress" required=true}
-			{fbvElement type="textarea" id="mailingAddress" value=$mailingAddress height=$fbvStyles.height.SHORT}
+			{fbvElement type="textarea" id="mailingAddress" value=$mailingAddress height=$fbvStyles.height.SHORT required=true}
 		{/fbvFormSection}
 	{/if}
 

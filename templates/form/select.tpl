@@ -9,7 +9,7 @@
  *}
 
 <div{if $FBV_layoutInfo} class="{$FBV_layoutInfo}"{/if}>
-<select {$FBV_selectParams}{if $FBV_class} class="{$FBV_class}"{/if}{if $FBV_disabled} disabled="disabled"{/if}{if $FBV_required} required="required"{/if}>
+<select {$FBV_selectParams}{if $FBV_class} class="{$FBV_class}"{/if}{if $FBV_disabled} disabled="disabled"{/if}{if $FBV_required} required aria-required="true"{/if}>
 	{if $FBV_defaultValue !== null}
 		<option value="{$FBV_defaultValue|escape}">{$FBV_defaultLabel|escape}</option>
 	{/if}

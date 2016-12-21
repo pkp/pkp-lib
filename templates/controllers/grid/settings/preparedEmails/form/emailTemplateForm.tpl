@@ -23,7 +23,7 @@
 		{fbvFormArea id="emailTemplateData"}
 			<h3>{translate key="manager.emails.data"}</h3>
 			{fbvFormSection title="common.name" required="true" for="emailKey"}
-				{fbvElement type="text" name="emailKey" id="emailKey" maxlength="120"}
+				{fbvElement type="text" name="emailKey" id="emailKey" maxlength="120" required="true"}
 			{/fbvFormSection}
 		{/fbvFormArea}
 	{else}
@@ -45,11 +45,11 @@
 	{fbvFormArea id="emailTemplateDetails"}
 		<h3>{translate key="manager.emails.details"}</h3>
 		{fbvFormSection title="email.subject" required="true" for="subject"}
-			{fbvElement type="text" multilingual="true" name="subject" id="subject" value=$subject maxlength="120"}
+			{fbvElement type="text" multilingual="true" name="subject" id="subject" value=$subject maxlength="120" required="true"}
 		{/fbvFormSection}
 
 		{fbvFormSection title="email.body" required="true" for="body"}
-			{fbvElement type="textarea" multilingual="true" name="body" id="body" value=$body rich=true}
+			{fbvElement type="textarea" multilingual="true" name="body" id="body" value=$body rich=true required="true"}
 		{/fbvFormSection}
 	{/fbvFormArea}
 

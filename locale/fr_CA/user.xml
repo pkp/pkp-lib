@@ -52,7 +52,7 @@
 	<message key="user.middleName">Second prénom</message>
 	<message key="user.myAccount">Mon compte</message>
 	<message key="user.name">Nom</message>
-	<message key="user.orcid">*Identifiant ORCID</message>
+	<message key="user.orcid">Identifiant ORCID</message>
 	<message key="user.password">Mot de passe</message>
 	<message key="user.repeatPassword">Répéter le mot de passe</message>
 	<message key="user.phone">Téléphone</message>
@@ -80,7 +80,7 @@
 	<message key="user.profile.repeatNewPassword">Saisir de nouveau le nouveau mot de passe</message>
 	<message key="user.register.completeForm">Compléter ce formulaire pour vous inscrire à cette revue.</message>
 	<message key="user.register.form.emailExists">L'adresse de courriel sélectionnée est déjà utilisée par un autre utilisateur.</message>
-	<message key="user.register.form.passwordLengthRestriction">*Le mot de passe doit contenir au moins {$length} caractères.</message>
+	<message key="user.register.form.passwordLengthRestriction">Le mot de passe doit contenir au moins {$length} caractères.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Les mots de passe ne correspondent pas.</message>
 	<message key="user.register.form.usernameAlphaNumeric">Le nom d'utilisateur peut contenir uniquement des caractères alphanumériques, traits de soulignement, et traits d'union, et doit commencer et se terminer par un caractère alphanumérique.</message>
 	<message key="user.register.form.usernameExists">Le nom d'utilisateur sélectionné est déjà utilisé par un autre utilisateur.</message>
@@ -143,16 +143,16 @@
 	<message key="user.role.proofreaders">Correcteurs d'épreuve</message>
 	<message key="user.role.layoutEditor">Éditeur de topologie</message>
 	<message key="user.role.layoutEditors">Éditeurs de topologie</message>
-	<message key="user.authorization.accessibleWorkflowStage">*Vous n'avez pas actuellement accès à cette étape du processus éditorial.</message>
-	<message key="user.authorization.workflowStageRequired">*Une étape du processus éditorial n'est pas spécifiée</message>
-	<message key="user.authorization.pluginRequired">*Un plugiciel requis n'a pas été sélectionné</message>
+	<message key="user.authorization.accessibleWorkflowStage">Vous n'avez pas actuellement accès à cette étape du processus éditorial.</message>
+	<message key="user.authorization.workflowStageRequired">Une étape du processus éditorial n'est pas spécifiée</message>
+	<message key="user.authorization.pluginRequired">Un plugiciel requis n'a pas été sélectionné</message>
 	<message key="user.login.registrationComplete">Inscription complétée</message>
 	<message key="user.login.registrationComplete.instructions">Merci de vous êtes inscrit(e)! Que voulez-vous faire ensuite?</message>
-	<message key="user.login.registrationComplete.manageSubmissions">*Voir les évaluations</message>
-	<message key="user.login.registrationComplete.newSubmission">*Faire une nouvelle soumission</message>
+	<message key="user.login.registrationComplete.manageSubmissions">Voir les évaluations</message>
+	<message key="user.login.registrationComplete.newSubmission">Faire une nouvelle soumission</message>
 	<message key="user.login.registrationComplete.continueBrowsing">Explorer le site de la revue</message>
-	<message key="user.register.form.userGroupRequired">*Au moins un rôle doit être sélectionné</message>
+	<message key="user.register.form.userGroupRequired">Au moins un rôle doit être sélectionné</message>
 	<message key="user.register.registrationCompleted"><![CDATA[*Vous vous êtes inscrit avec succès. <a href="{$profileUrl}"> Cliquez ici </a> pour compléter votre profil utilisateur.]]></message>
-	<message key="user.orcid.orcidInvalid">*Le numéro ORCID que vous avez spécifié n'est pas valide. Veuillez inclure l'URI complet (par exemple "http://orcid.org/0000-0002-1825-0097").</message>
-	<message key="user.login.registrationPendingValidation">*Inscription en attente de validation</message>
+	<message key="user.orcid.orcidInvalid">Le numéro ORCID que vous avez spécifié n'est pas valide. Veuillez inclure l'URI complet (par exemple "http://orcid.org/0000-0002-1825-0097").</message>
+	<message key="user.login.registrationPendingValidation">Inscription en attente de validation</message>
 </locale>

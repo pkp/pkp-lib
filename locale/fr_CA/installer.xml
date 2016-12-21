@@ -81,6 +81,6 @@
 		</ul>
 
 		<p>2. Vous devez créer un repertoire pour conserver les fichiers téléchargés et il doit être accessible en écriture (voir "Paramètres du fichier" ci-dessous).</p>]]></message>
-	<message key="installer.beacon">*Balise</message>
-	<message key="installer.beacon.enable">*Procure un identifiant unique de site et un URL pour le protocole OAI pour PKP. Ceux-ci utilisés seulement pour des fins de statistiques et de sécurité.</message>
+	<message key="installer.beacon">Balise</message>
+	<message key="installer.beacon.enable">Procure un identifiant unique de site et un URL pour le protocole OAI pour PKP. Ceux-ci utilisés seulement pour des fins de statistiques et de sécurité.</message>
 </locale>

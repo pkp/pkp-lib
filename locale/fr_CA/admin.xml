@@ -41,11 +41,11 @@
 	<message key="admin.languages.reload">Recharger la langue</message>
 	<message key="admin.languages.uninstall">Désinstaller la langue</message>
 	<message key="admin.phpInfo">Information détaillée concernant PHP</message>
-	<message key="admin.scheduledTask.startTime">*Début du processus.</message>
-	<message key="admin.scheduledTask.stopTime">*Arrêt du processus.</message>
-	<message key="admin.scheduledTask.noLog">*La tâche n'a produit aucun journal d'événement.</message>
-	<message key="admin.scheduledTask.reviewReminder">*Rappel d'examen</message>
-	<message key="admin.scheduledTask.subscriptionExpiryReminder">*Rappel d'expiration d'abonnement</message>
+	<message key="admin.scheduledTask.startTime">Début du processus.</message>
+	<message key="admin.scheduledTask.stopTime">Arrêt du processus.</message>
+	<message key="admin.scheduledTask.noLog">La tâche n'a produit aucun journal d'événement.</message>
+	<message key="admin.scheduledTask.reviewReminder">Rappel d'examen</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">Rappel d'expiration d'abonnement</message>
 	<message key="admin.server.apacheVersion">Version Apache</message>
 	<message key="admin.server.dbDriver">Pilote de base de données</message>
 	<message key="admin.server.dbVersion">Version du serveur de bases de données</message>
@@ -136,7 +136,7 @@ Vous devez parfois utiliser une seule statistique d'utilisation pour, par exempl
 	<message key="admin.fileLoader.wrongBasePathLocation">Le chemin d'accès de base {$path} doit se trouver à l'intérieur du répertoire des fichiers publics.</message>
 	<message key="admin.fileLoader.pathNotAccessible">Le dossier {$path} n'est pas un répertoire ou ne peut être lu.</message>
 	<message key="admin.fileLoader.moveFileFailed">Le fichier {$filename} ne peut être déplacé de {$currentFilePath} à {$destinationPath}</message>
-	<message key="admin.fileLoader.fileProcessed">*Le fichier {$filename} a été traité et archivé.</message>
+	<message key="admin.fileLoader.fileProcessed">Le fichier {$filename} a été traité et archivé.</message>
 	<message key="admin.fileLoader.emailSubject">Chargeur de fichier</message>
 	<message key="admin.scheduledTask.downloadLog">Votre installation de {$softwareName} a complété l'exécution de cette tâche. Vous pouvez télécharger le journal d'exécution ici: {$url}</message>
 	<message key="admin.scheduledTask.confirmClearLogs">Êtes-vous certain de vouloir supprimer le journal d'exécution des tâches planifiées ?</message>

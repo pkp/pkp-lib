@@ -336,43 +336,21 @@ abstract class Plugin {
 	}
 
 	/**
-	 * Convenience version of the generic getContextSpecificSetting() method.
-	 * @see Plugin::getContextSpecificSetting()
+	 * Retrieve a plugin setting within the given context
+	 *
 	 * @param $contextId int Context ID
 	 * @param $name string Setting name
 	 */
 	function getSetting($contextId, $name) {
-		return $this->getContextSpecificSetting(array($contextId), $name);
-	}
-
-	/**
-	 * Convenience version of the generic updateContextSpecificSetting() method.
-	 * @see Plugin::updateContextSpecificSetting()
-	 * @param $contextId int Context ID
-	 * @param $name string The name of the setting
-	 * @param $value mixed Setting value
-	 * @param $type string optional
-	 */
-	function updateSetting($contextId, $name, $value, $type = null) {
-		$this->updateContextSpecificSetting(array($contextId), $name, $value, $type);
-	}
-	/**
-	 * Retrieve a plugin setting within the given context
-	 *
-	 * @param $context array an array of context ids
-	 * @param $name the setting name
-	 */
-	function getContextSpecificSetting($context, $name) {
 		if (!defined('RUNNING_UPGRADE') && !Config::getVar('general', 'installed')) return null;
 
-		// Check that the context has the correct depth
-		$application = PKPApplication::getApplication();
-		assert(is_array($context) && $application->getContextDepth() == count($context));
-
 		// Construct the argument list and call the plug-in settings DAO
-		$arguments = $context;
-		$arguments[] = $this->getName();
-		$arguments[] = $name;
+		$arguments = array(
+			$contextId,
+			$this->getName(),
+			$name,
+		);
+
 		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
 		return call_user_func_array(array(&$pluginSettingsDao, 'getSetting'), $arguments);
 	}
@@ -380,22 +358,22 @@ abstract class Plugin {
 	/**
 	 * Update a plugin setting within the given context.
 	 *
-	 * @param $context array an array of context ids
-	 * @param $name the setting name
-	 * @param $value mixed
+	 * @param $contextId int Context ID
+	 * @param $name string The name of the setting
+	 * @param $value mixed Setting value
 	 * @param $type string optional
 	 */
-	function updateContextSpecificSetting($context, $name, $value, $type = null) {
-		// Check that the context has the correct depth
-		$application = PKPApplication::getApplication();
-		assert(is_array($context) && $application->getContextDepth() == count($context));
+	function updateSetting($contextId, $name, $value, $type = null) {
 
 		// Construct the argument list and call the plug-in settings DAO
-		$arguments = $context;
-		$arguments[] = $this->getName();
-		$arguments[] = $name;
-		$arguments[] = $value;
-		$arguments[] = $type;
+		$arguments = array(
+			$contextId,
+			$this->getName(),
+			$name,
+			$value,
+			$type,
+		);
+
 		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
 		call_user_func_array(array(&$pluginSettingsDao, 'updateSetting'), $arguments);
 	}
@@ -415,41 +393,6 @@ abstract class Plugin {
 	 *
 	 * NB: These methods may change without notice in the future!
 	 */
-	/**
-	 * Generate the context for this plug-in's generic
-	 * settings. This is an array with the id of the main context
-	 * (e.g. journal, conference or press) as the first entry
-	 * and all remaining entries set to 0. If the calling
-	 * application doesn't support context then the this will
-	 * return an empty array (e.g. harvester).
-	 *
-	 * For site-wide plug-ins the context will be set to 0.
-	 *
-	 * @return array
-	 */
-	function getSettingMainContext() {
-		$application = PKPApplication::getApplication();
-		$contextDepth = $application->getContextDepth();
-
-		$settingContext = array();
-		if ($contextDepth > 0) {
-			if ($this->isSitePlugin()) {
-				$mainContext = null;
-			} else {
-				$request = $application->getRequest();
-				$router = $request->getRouter();
-				// Try to identify the main context (e.g. journal, conference, press),
-				// will be null if none found.
-				$mainContext = $router->getContext($request, 1);
-			}
-
-			// Create the context for the setting if found
-			if ($mainContext) $settingContext[] = $mainContext->getId();
-			$settingContext = array_pad($settingContext, $contextDepth, CONTEXT_ID_NONE);
-		}
-		return $settingContext;
-	}
-
 	/**
 	 * Get the filename for the locale data for this plugin.
 	 *

@@ -53,9 +53,11 @@ abstract class BlockPlugin extends LazyLoadPlugin {
 	 *
 	 * NB: In the case of block plugins, higher numbers move
 	 * plugins down the page compared to other blocks.
+	 *
+	 * @param $contextId int Context ID (journal/press)
 	 */
-	function getSeq() {
-		return $this->getContextSpecificSetting($this->getSettingMainContext(), 'seq');
+	function getSeq($contextId = null) {
+		return $this->getSetting(is_null($contextId) ? $this->getCurrentContextId() : $contextId, 'seq');
 	}
 
 	/*
@@ -68,27 +70,50 @@ abstract class BlockPlugin extends LazyLoadPlugin {
 	 * plugins down the page compared to other blocks.
 	 *
 	 * @param $seq int
+	 * @param $contextId int Context ID (journal/press)
 	 */
-	function setSeq($seq) {
-		return $this->updateContextSpecificSetting($this->getSettingMainContext(), 'seq', $seq, 'int');
+	function setSeq($seq, $contextId = null) {
+		return $this->updateSetting(is_null($contextId) ? $this->getCurrentContextId() : $contextId, 'seq', $seq, 'int');
 	}
 
 	/**
 	 * Get the block context (e.g. BLOCK_CONTEXT_...) for this block.
 	 *
+	 * @param $contextId int Context ID (journal/press)
 	 * @return int
 	 */
-	function getBlockContext() {
-		return $this->getContextSpecificSetting($this->getSettingMainContext(), 'context');
+	function getBlockContext($contextId = null) {
+		return $this->getSetting(is_null($contextId) ? $this->getCurrentContextId() : $contextId, 'context');
 	}
 
 	/**
 	 * Set the block context (e.g. BLOCK_CONTEXT_...) for this block.
 	 *
-	 * @param $context int
+	 * @param $context int Sidebar context
+	 * @param $contextId int Context ID (journal/press)
 	 */
-	function setBlockContext($context) {
-		return $this->updateContextSpecificSetting($this->getSettingMainContext(), 'context', $context, 'int');
+	function setBlockContext($context, $contextId = null) {
+		return $this->updateSetting(is_null($contextId) ? $this->getCurrentContextId() : $contextId, 'context', $context, 'int');
+	}
+
+	/**
+	 * Determine whether or not this plugin is currently enabled.
+	 *
+	 * @param $contextId int Context ID (journal/press)
+	 * @return boolean
+	 */
+	function getEnabled($contextId = null) {
+		return $this->getSetting(is_null($contextId) ? $this->getCurrentContextId() : $contextId, 'enabled');
+	}
+
+	/**
+	 * Set whether or not this plugin is currently enabled.
+	 *
+	 * @param $enabled boolean
+	 * @param $contextId int Context ID (journal/press)
+	 */
+	function setEnabled($enabled, $contextId = null) {
+		$this->updateSetting(is_null($contextId) ? $this->getCurrentContextId() : $contextId, 'enabled', $enabled, 'bool');
 	}
 
 
@@ -98,8 +123,6 @@ abstract class BlockPlugin extends LazyLoadPlugin {
 	 * @return array
 	 */
 	function getSupportedContexts() {
-		// Will return left and right process as this is the
-		// most frequent use case.
 		return array(BLOCK_CONTEXT_SIDEBAR);
 	}
 

@@ -151,18 +151,18 @@ abstract class ImportExportPlugin extends Plugin {
 	 * @param $xml string
 	 */
 	function displayXMLValidationErrors($errors, $xml) {
-		echo '<h2>' . __('plugins.importexport.common.validationErrors') .'</h2>';
+		echo '<h2>' . __('plugins.importexport.common.validationErrors') . '</h2>';
 
 		foreach ($errors as $error) {
 			switch ($error->level) {
 				case LIBXML_ERR_ERROR:
 				case LIBXML_ERR_FATAL:
-					echo '<p>' .trim($error->message) .'</p>';
+					echo '<p>' . trim($error->message) . '</p>';
 			}
 		}
 		libxml_clear_errors();
-		echo '<h3>' . __('plugins.importexport.common.invalidXML') .'</h3>';
-		echo '<p><pre>' .htmlspecialchars($xml) .'</pre></p>';
+		echo '<h3>' . __('plugins.importexport.common.invalidXML') . '</h3>';
+		echo '<p><pre>' . htmlspecialchars($xml) . '</pre></p>';
 	}
 
 }

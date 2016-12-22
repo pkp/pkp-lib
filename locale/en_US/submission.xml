@@ -655,6 +655,10 @@
 	<message key="submission.versioning.currentVersion">Current version of this article</message>
 	<message key="submission.versioning.previousVersions">Previous versions of this article</message>
 
+	<message key="submission.production.version">Version {$submissionRevision}</message>
+	<message key="submission.production.newVersion">New Version</message>
+	<message key="submission.production.editMetadata">Edit metadata of this version</message>
+
 	<message key="issue.manage.entryDescription">Recent versions of this article</message>
 	<message key="submission.saveAsRevision">Save as new version</message>
 

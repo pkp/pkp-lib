@@ -107,6 +107,10 @@ class PublicationEntryTabHandler extends Handler {
 	 */
 	function submissionMetadata($args, $request) {
 		$revision = $request->getUserVar('revision') ? (int)$request->getUserVar('revision') : null;
+
+		if(isset($args['submissionRevision'])){
+			$revision = $args['submissionRevision'];
+		}
 		$saveAsRevision = $request->getUserVar('saveAsRevision') ? (int)$request->getUserVar('saveAsRevision') : null;
 
 		$publicationEntrySubmissionReviewForm = $this->_getPublicationEntrySubmissionReviewForm($revision, $saveAsRevision);

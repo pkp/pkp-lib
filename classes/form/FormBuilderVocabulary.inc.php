@@ -114,13 +114,14 @@ class FormBuilderVocabulary {
 	 */
 	function smartyFBVFormArea($params, $content, &$smarty, &$repeat) {
 		assert(isset($params['id']));
-
 		if (!$repeat) {
-			$smarty->assign('FBV_class', isset($params['class']) ? $params['class'] : null);
-			$smarty->assign('FBV_id', $params['id']);
-			$smarty->assign('FBV_content', isset($content) ? $content : null);
-			$smarty->assign('FBV_translate', isset($params['translate']) ? $params['translate'] : true);
-			$smarty->assign('FBV_title', isset($params['title']) ? $params['title'] : null);
+			$smarty->assign(array(
+				'FBV_class' => isset($params['class']) ? $params['class'] : null,
+				'FBV_id' => $params['id'],
+				'FBV_content' => isset($content) ? $content : null,
+				'FBV_translate' => isset($params['translate']) ? $params['translate'] : true,
+				'FBV_title' => isset($params['title']) ? $params['title'] : null,
+			));
 			return $smarty->fetch('form/formArea.tpl');
 		}
 		return '';
@@ -152,13 +153,14 @@ class FormBuilderVocabulary {
 			} else {
 				$smarty->assign('FBV_labelFor', null);
 			}
-			$smarty->assign('FBV_title', isset($params['title']) ? $params['title'] : null);
-			$smarty->assign('FBV_label', isset($params['label']) ? $params['label'] : null);
-			$smarty->assign('FBV_layoutInfo', $this->_getLayoutInfo($params));
-			$smarty->assign('FBV_description', isset($params['description']) ? $params['description'] : null);
-			$smarty->assign('FBV_content', isset($content) ? $content: null);
-			// default is to perform translation:
-			$smarty->assign('FBV_translate', isset($params['translate']) ? $params['translate'] : true);
+			$smarty->assign(array(
+				'FBV_title' => isset($params['title']) ? $params['title'] : null,
+				'FBV_label' => isset($params['label']) ? $params['label'] : null,
+				'FBV_layoutInfo' => $this->_getLayoutInfo($params),
+				'FBV_description' => isset($params['description']) ? $params['description'] : null,
+				'FBV_content' => isset($content) ? $content: null,
+				'FBV_translate' => isset($params['translate']) ? $params['translate'] : true,
+			));
 
 			$class = $params['class'];
 
@@ -202,20 +204,17 @@ class FormBuilderVocabulary {
 	 * @param $repeat
 	 */
 	function smartyFBVFormButtons($params, &$smarty) {
-		// Submit button options.
-		$smarty->assign('FBV_submitText', isset($params['submitText']) ? $params['submitText'] : 'common.ok');
-		$smarty->assign('FBV_submitDisabled', isset($params['submitDisabled']) ? (boolean)$params['submitDisabled'] : false);
-		$smarty->assign('FBV_confirmSubmit', isset($params['confirmSubmit']) ? $params['confirmSubmit'] : null);
-
-		// Cancel button options.
-		$smarty->assign('FBV_cancelText', isset($params['cancelText']) ? $params['cancelText'] : 'common.cancel');
-		$smarty->assign('FBV_hideCancel', isset($params['hideCancel']) ? (boolean)$params['hideCancel'] : false);
-		$smarty->assign('FBV_cancelAction', isset($params['cancelAction']) ? $params['cancelAction'] : null);
-		$smarty->assign('FBV_cancelUrl', isset($params['cancelUrl']) ? $params['cancelUrl'] : null);
-		$smarty->assign('FBV_cancelUrlTarget', isset($params['cancelUrlTarget']) ? $params['cancelUrlTarget'] : '');
-
-		$smarty->assign('FBV_translate', isset($params['translate']) ? $params['translate'] : true);
-
+		$smarty->assign(array(
+			'FBV_submitText' => isset($params['submitText']) ? $params['submitText'] : 'common.ok',
+			'FBV_submitDisabled' => isset($params['submitDisabled']) ? (boolean)$params['submitDisabled'] : false,
+			'FBV_confirmSubmit' => isset($params['confirmSubmit']) ? $params['confirmSubmit'] : null,
+			'FBV_cancelText' => isset($params['cancelText']) ? $params['cancelText'] : 'common.cancel',
+			'FBV_hideCancel' => isset($params['hideCancel']) ? (boolean)$params['hideCancel'] : false,
+			'FBV_cancelAction' => isset($params['cancelAction']) ? $params['cancelAction'] : null,
+			'FBV_cancelUrl' => isset($params['cancelUrl']) ? $params['cancelUrl'] : null,
+			'FBV_cancelUrlTarget' => isset($params['cancelUrlTarget']) ? $params['cancelUrlTarget'] : '',
+			'FBV_translate' => isset($params['translate']) ? $params['translate'] : true,
+		));
 		return $smarty->fetch('form/formButtons.tpl');
 	}
 
@@ -229,15 +228,17 @@ class FormBuilderVocabulary {
 		if (!isset($params['id'])) $smarty->trigger_error('FBV: Element ID not set');
 
 		// Set up the element template
-		$smarty->assign('FBV_id', $params['id']);
-		$smarty->assign('FBV_class', isset($params['class']) ? $params['class'] : null);
-		$smarty->assign('FBV_required', isset($params['required']) ? $params['required'] : false);
-		$smarty->assign('FBV_layoutInfo', $this->_getLayoutInfo($params));
-		$smarty->assign('FBV_label', isset($params['label']) ? $params['label'] : null);
-		$smarty->assign('FBV_for', isset($params['for']) ? $params['for'] : null);
-		$smarty->assign('FBV_tabIndex', isset($params['tabIndex']) ? $params['tabIndex'] : null);
-		$smarty->assign('FBV_translate', isset($params['translate']) ? $params['translate'] : true);
-		$smarty->assign('FBV_keepLabelHtml', isset($params['keepLabelHtml']) ? $params['keepLabelHtml'] : false);
+		$smarty->assign(array(
+			'FBV_id' => $params['id'],
+			'FBV_class' => isset($params['class']) ? $params['class'] : null,
+			'FBV_required' => isset($params['required']) ? $params['required'] : false,
+			'FBV_layoutInfo' => $this->_getLayoutInfo($params),
+			'FBV_label' => isset($params['label']) ? $params['label'] : null,
+			'FBV_for' => isset($params['for']) ? $params['for'] : null,
+			'FBV_tabIndex' => isset($params['tabIndex']) ? $params['tabIndex'] : null,
+			'FBV_translate' => isset($params['translate']) ? $params['translate'] : true,
+			'FBV_keepLabelHtml' => isset($params['keepLabelHtml']) ? $params['keepLabelHtml'] : false,
+		));
 
 		// Unset these parameters so they don't get assigned twice
 		unset($params['class']);
@@ -390,18 +391,15 @@ class FormBuilderVocabulary {
 	function _smartyFBVRangeSlider($params, &$smarty) {
 		// Make sure our required fields are included
 		assert(isset($params['min']) && isset($params['max']));
-
-		// Assign the min and max values to the handler
-		$smarty->assign('FBV_min', $params['min']);
-		$smarty->assign('FBV_max', $params['max']);
-
-		$smarty->assign('FBV_value_min', isset($params['valueMin']) ? $params['valueMin'] : $params['min']);
-		$smarty->assign('FBV_value_max', isset($params['valueMax']) ? $params['valueMax'] : $params['max']);
-
-		$smarty->assign('FBV_toggleable', isset($params['toggleable']) ? $params['toggleable'] : false);
-		$smarty->assign('FBV_toggleable_label', isset($params['toggleable_label']) ? $params['toggleable_label'] : '');
-		$smarty->assign('FBV_enabled', isset($params['enabled']) ? $params['enabled'] : false);
-
+		$smarty->assign(array(
+			'FBV_min' => $params['min'],
+			'FBV_max' => $params['max'],
+			'FBV_value_min' => isset($params['valueMin']) ? $params['valueMin'] : $params['min'],
+			'FBV_value_max' => isset($params['valueMax']) ? $params['valueMax'] : $params['max'],
+			'FBV_toggleable' => isset($params['toggleable']) ? $params['toggleable'] : false,
+			'FBV_toggleable_label' => isset($params['toggleable_label']) ? $params['toggleable_label'] : '',
+			'FBV_enabled' => isset($params['enabled']) ? $params['enabled'] : false,
+		));
 		return $smarty->fetch('form/rangeSlider.tpl');
 	}
 

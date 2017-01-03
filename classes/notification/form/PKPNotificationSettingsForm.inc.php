@@ -100,18 +100,15 @@ class PKPNotificationSettingsForm extends Form {
 	 */
 	function fetch($request) {
 		$context = $request->getContext();
-		$user = $request->getUser();
-		$userId = $user->getId();
-
+		$userId = $request->getUser()->getId();
 		$notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
-		$blockedNotifications = $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('blocked_notification', $userId, $context->getId());
-		$emailSettings = $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('blocked_emailed_notification', $userId, $context->getId());
-
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('blockedNotifications', $blockedNotifications);
-		$templateMgr->assign('emailSettings', $emailSettings);
-		$templateMgr->assign('notificationSettingCategories', $this->getNotificationSettingCategories());
-		$templateMgr->assign('notificationSettings',  $this->getNotificationSettingsMap());
+		$templateMgr->assign(array(
+			'blockedNotifications' => $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('blocked_notification', $userId, $context->getId()),
+			'emailSettings' => $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('blocked_emailed_notification', $userId, $context->getId()),
+			'notificationSettingCategories' => $this->getNotificationSettingCategories(),
+			'notificationSettings' => $this->getNotificationSettingsMap(),
+		));
 		return parent::fetch($request);
 	}
 

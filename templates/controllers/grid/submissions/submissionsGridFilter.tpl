@@ -24,6 +24,12 @@
 			{fbvElement type="select" name="stageId" id="stageId"|concat:$filterData.gridId from=$filterData.workflowStages selected=$filterSelectionData.stageId size=$fbvStyles.size.SMALL translate=true inline="true"}
 			{fbvElement type="text" name="search" id="search"|concat:$filterData.gridId value=$filterSelectionData.search size=$fbvStyles.size.MEDIUM inline="true"}
 		{/fbvFormSection}
+		{if $filterData.active}
+			{fbvFormSection list=true inline=true}
+				{if $filterSelectionData.orphaned}{assign var="checked" value="checked"}{/if}
+				{fbvElement type="checkbox" name="orphaned" id="orphaned" value="1" checked=$checked label="grid.submission.active.selectOrphaned" translate="true"}
+			{/fbvFormSection}
+		{/if}
 		{* Buttons generate their own section *}
 		{fbvFormButtons hideCancel=true submitText="common.search"}
 	{/fbvFormArea}

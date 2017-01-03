@@ -175,9 +175,10 @@ class SubmissionFileAccessPolicy extends ContextPolicy {
 			$subEditorFileAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
 			$subEditorFileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_SUB_EDITOR, $roleAssignments[ROLE_ID_SUB_EDITOR]));
 
-			// 2) ... but only if the requested submission is part of their section.
-			import('lib.pkp.classes.security.authorization.internal.SectionAssignmentPolicy');
-			$subEditorFileAccessPolicy->addPolicy(new SectionAssignmentPolicy($request));
+			// 2) ... but only if they have been assigned to the requested submission.
+			import('lib.pkp.classes.security.authorization.internal.UserAccessibleWorkflowStageRequiredPolicy');
+			$subEditorFileAccessPolicy->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request));
+
 			$fileAccessPolicy->addPolicy($subEditorFileAccessPolicy);
 		}
 

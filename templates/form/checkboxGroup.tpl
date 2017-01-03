@@ -19,7 +19,7 @@
 
 	<li{if $FBV_layoutInfo} class="{$FBV_layoutInfo}"{/if}>
 		{capture assign="FBV_inputMarkup"}
-			<input type="checkbox" id="{$FBV_id|escape}-{$smarty.foreach.checkbox.index}" name="{$FBV_id|escape}[]"{$FBV_checkboxParams} class="field checkbox{if $FBV_required} required{/if}"{if $FBV_checked} checked="checked"{/if}{if $FBV_validation}{/if} value="{$FBV_value|escape}"{if $FBV_disabled} disabled="disabled"{/if}/>
+			<input type="checkbox" id="{$FBV_id|escape}-{$smarty.foreach.checkbox.index}" name="{$FBV_id|escape}[]"{$FBV_checkboxParams} class="field checkbox{if $FBV_required} required{/if}"{if $FBV_checked} checked="checked"{/if}{if $FBV_validation}{/if} value="{$FBV_value|escape}"{if $FBV_disabled} disabled="disabled"{/if}{if $FBV_required} required aria-required="true"{/if}/>
 		{/capture}
 		{if $FBV_label}
 			<label for="{$FBV_id|escape}-{$smarty.foreach.checkbox.index}">

@@ -156,7 +156,7 @@
 		{/if}
 		{if count($uploaderUserGroupOptions) > 1}
 			{fbvFormSection label="submission.upload.userGroup" required=true}
-				{fbvElement type="select" name="uploaderUserGroupId" id="uploaderUserGroupId" from=$uploaderUserGroupOptions selected=$defaultUserGroupId translate=false}
+				{fbvElement type="select" name="uploaderUserGroupId" id="uploaderUserGroupId" from=$uploaderUserGroupOptions selected=$defaultUserGroupId translate=false required=true}
 			{/fbvFormSection}
 		{else}
 			<input type="hidden" id="uploaderUserGroupId" name="uploaderUserGroupId" value="{$uploaderUserGroupOptions|@key}" />
@@ -184,7 +184,7 @@
 		{if $showGenreSelector}
 			{fbvFormSection title="submission.upload.fileContents" required=true}
 				{translate|assign:"defaultLabel" key="submission.upload.selectComponent"}
-				{fbvElement type="select" name="genreId" id="genreId" from=$submissionFileGenres translate=false defaultLabel=$defaultLabel defaultValue="" required="true" selected=$genreId}
+				{fbvElement type="select" name="genreId" id="genreId" from=$submissionFileGenres translate=false defaultLabel=$defaultLabel defaultValue="" required="true" selected=$genreId required=true}
 			{/fbvFormSection}
 		{/if}
 

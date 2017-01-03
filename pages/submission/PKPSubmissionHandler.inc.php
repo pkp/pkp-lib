@@ -141,10 +141,12 @@ abstract class PKPSubmissionHandler extends Handler {
 			$router = $request->getRouter();
 			$dispatcher = $router->getDispatcher();
 
-			$templateMgr->assign('reviewSubmissionUrl', $reviewSubmissionUrl);
-			$templateMgr->assign('submissionId', $submission->getId());
-			$templateMgr->assign('submitStep', $step);
-			$templateMgr->assign('submissionProgress', $submission->getSubmissionProgress());
+			$templateMgr->assign(array(
+				'reviewSubmissionUrl' => $reviewSubmissionUrl,
+				'submissionId' => $submission->getId(),
+				'submitStep' => $step,
+				'submissionProgress' => $submission->getSubmissionProgress(),
+			));
 
 			return new JSONMessage(true, $templateMgr->fetch('submission/form/complete.tpl'));
 		}

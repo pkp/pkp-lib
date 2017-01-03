@@ -25,7 +25,7 @@
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="queryNoteFormNotification"}
 
 	{fbvFormSection title="stageParticipants.notify.message" for="comment" required="true"}
-		{fbvElement type="textarea" id="comment" rich=true value=$comment}
+		{fbvElement type="textarea" id="comment" rich=true value=$comment required="true"}
 	{/fbvFormSection}
 
 	{fbvFormArea id="queryNoteFilesArea"}

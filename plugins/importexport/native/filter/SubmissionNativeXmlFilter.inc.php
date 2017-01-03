@@ -51,6 +51,8 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 	function &process(&$submissions) {
 		// Create the XML document
 		$doc = new DOMDocument('1.0');
+		$doc->preserveWhiteSpace = false;
+		$doc->formatOutput = true;
 		$deployment = $this->getDeployment();
 
 		if (count($submissions)==1 && !$this->getIncludeSubmissionsNode()) {

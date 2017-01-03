@@ -1,5 +1,5 @@
 {**
- * submission/submissionMetadataFormTitleFields.tpl
+ * templates/submission/submissionMetadataFormTitleFields.tpl
  *
  * Copyright (c) 2014-2016 Simon Fraser University Library
  * Copyright (c) 2003-2016 John Willinsky
@@ -8,18 +8,6 @@
  * Submission's metadata form title fields. To be included in any form that wants to handle
  * submission metadata.
  *}
-{if count($supportedSubmissionLocaleNames) == 1}
-	{* There is only one supported submission locale; choose it invisibly *}
-	{foreach from=$supportedSubmissionLocaleNames item=localeName key=locale}
-		<input type="hidden" name="locale" value="{$locale|escape}" />
-	{/foreach}
-{else}
-	{* There are several submission locales available; allow choice *}
-	{fbvFormSection title="submission.submit.submissionLocale" for="locale"}
-		{fbvElement type="select" label="submission.submit.submissionLocaleDescription" id="locale" from=$supportedSubmissionLocaleNames selected=$locale translate=false readonly=$readOnly size=$fbvStyles.size.MEDIUM}
-	{/fbvFormSection}
-{/if}{* count($supportedSubmissionLocaleNames) == 1 *}
-
 <div class="pkp_helpers_clear">
 	{fbvFormSection for="title" title="common.prefix" inline="true" size=$fbvStyles.size.SMALL}
 		{fbvElement label="common.prefixAndTitle.tip" type="text" multilingual=true name="prefix" id="prefix" value=$prefix readonly=$readOnly maxlength="32"}

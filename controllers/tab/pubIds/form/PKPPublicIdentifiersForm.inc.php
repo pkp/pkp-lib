@@ -67,11 +67,12 @@ class PKPPublicIdentifiersForm extends Form {
 	 */
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
-		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $this->getContextId());
-		$templateMgr->assign('pubIdPlugins', $pubIdPlugins);
-		$templateMgr->assign('pubObject', $this->getPubObject());
-		$templateMgr->assign('stageId', $this->getStageId());
-		$templateMgr->assign('formParams', $this->getFormParams());
+		$templateMgr->assign(array(
+			'pubIdPlugins' => PluginRegistry::loadCategory('pubIds', true, $this->getContextId()),
+			'pubObject' => $this->getPubObject(),
+			'stageId' => $this->getStageId(),
+			'formParams' => $this->getFormParams(),
+		));
 		// consider JavaScripts
 		$pubIdPluginHelper = new PKPPubIdPluginHelper();
 		$pubIdPluginHelper->addJavaScripts($this->getContextId(), $request, $templateMgr);

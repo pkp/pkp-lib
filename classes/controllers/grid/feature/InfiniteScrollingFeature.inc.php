@@ -42,7 +42,6 @@ class InfiniteScrollingFeature extends GeneralPagingFeature {
 	 * @copydoc GridFeature::fetchUIElements()
 	 */
 	function fetchUIElements($request, $grid) {
-		$iterator = $this->getItemIterator();
 		$options = $this->getOptions();
 
 		$shown = $options['currentItemsPerPage'] * $options['currentPage'];
@@ -60,10 +59,12 @@ class InfiniteScrollingFeature extends GeneralPagingFeature {
 		}
 
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('iterator', $iterator);
-		$templateMgr->assign('shown', $shown);
-		$templateMgr->assign('grid', $grid);
-		$templateMgr->assign('moreItemsLinkAction', $moreItemsLinkAction);
+		$templateMgr->assign(array(
+			'iterator' => $this->getItemIterator(),
+			'shown' => $shown,
+			'grid' => $grid,
+			'moreItemsLinkAction' => $moreItemsLinkAction,
+		));
 
 		return array(
 			'pagingMarkup' => $templateMgr->fetch('controllers/grid/feature/infiniteScrolling.tpl'),

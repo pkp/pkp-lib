@@ -225,40 +225,21 @@ class PKPFileUploadWizardHandler extends Handler {
 	 */
 	function startWizard($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
-
-		// Assign the submission.
-		$submission = $this->getSubmission();
-		$templateMgr->assign('submissionId', $submission->getId());
-
-		// Assign the workflow stage.
-		$templateMgr->assign('stageId', $this->getStageId());
-
-		// Assign the roles allowed to upload in the given context.
-		$templateMgr->assign('uploaderRoles', implode('-', (array) $this->getUploaderRoles()));
-
-		// Assign the roles allowed to upload in the given context.
-		$templateMgr->assign('uploaderGroupIds', implode('-', (array) $this->getUploaderGroupIds()));
-
-		// Assign the file stage.
-		$templateMgr->assign('fileStage', $this->getFileStage());
-
-		// Preserve the isReviewer flag
-		$templateMgr->assign('isReviewer', $request->getUserVar('isReviewer'));
-
-		// Configure the "revision only" feature.
-		$templateMgr->assign('revisionOnly', $this->getRevisionOnly());
 		$reviewRound = $this->getReviewRound();
-		if (is_a($reviewRound, 'ReviewRound')) {
-			$templateMgr->assign('reviewRoundId', $reviewRound->getId());
-		}
-		$templateMgr->assign('revisedFileId', $this->getRevisedFileId());
-		$templateMgr->assign('assocType', $this->getAssocType());
-		$templateMgr->assign('assocId', $this->getAssocId());
-
-		// only dependent file types?
-		$templateMgr->assign('dependentFilesOnly', $request->getUserVar('dependentFilesOnly'));
-
-		// Render the file upload wizard.
+		$templateMgr->assign(array(
+			'submissionId' => $this->getSubmission()->getId(),
+			'stageId' => $this->getStageId(),
+			'uploaderRoles' => implode('-', (array) $this->getUploaderRoles()),
+			'uploaderGroupIds' => implode('-', (array) $this->getUploaderGroupIds()),
+			'fileStage' => $this->getFileStage(),
+			'isReviewer' => $request->getUserVar('isReviewer'),
+			'revisionOnly' => $this->getRevisionOnly(),
+			'reviewRoundId' => is_a($reviewRound, 'ReviewRound')?$reviewRound->getId():null,
+			'revisedFileId' => $this->getRevisedFileId(),
+			'assocType' => $this->getAssocType(),
+			'assocId' => $this->getAssocId(),
+			'dependentFilesOnly' => $request->getUserVar('dependentFilesOnly'),
+		));
 		return $templateMgr->fetchJson('controllers/wizard/fileUpload/fileUploadWizard.tpl');
 	}
 

@@ -55,19 +55,19 @@ class ReviewFormElementForm extends Form {
 
 	/**
 	 * Display the form.
+	 * @param $args array
+	 * @param $request PKPRequest
 	 */
 	function fetch($args, $request) {
-		$json = new JSONMessage();
-
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('reviewFormId', $this->reviewFormId);
-		$templateMgr->assign('reviewFormElementId', $this->reviewFormElementId);
 		import('lib.pkp.classes.reviewForm.ReviewFormElement');
-		$templateMgr->assign('multipleResponsesElementTypes', ReviewFormElement::getMultipleResponsesElementTypes());
-		// in order to be able to search for an element in the array in the javascript function 'togglePossibleResponses':
-		$templateMgr->assign('multipleResponsesElementTypesString', ';'.implode(';', ReviewFormElement::getMultipleResponsesElementTypes()).';');
-		$templateMgr->assign('reviewFormElementTypeOptions', ReviewFormElement::getReviewFormElementTypeOptions());
-
+		$templateMgr->assign(array(
+			'reviewFormId' => $this->reviewFormId,
+			'reviewFormElementId' => $this->reviewFormElementId,
+			'multipleResponsesElementTypes' => ReviewFormElement::getMultipleResponsesElementTypes(),
+			'multipleResponsesElementTypesString' => ';'.implode(';', ReviewFormElement::getMultipleResponsesElementTypes()).';',
+			'reviewFormElementTypeOptions' => ReviewFormElement::getReviewFormElementTypeOptions(),
+		));
 		return parent::fetch($request);
 	}
 

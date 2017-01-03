@@ -279,8 +279,6 @@ class PKPLocale {
 
 	/**
 	 * Get the stylesheet filename for a particular locale.
-	 * (These can be optionally specified to deal with things like
-	 * RTL directionality.)
 	 * @param $locale string
 	 * @return string or null if none configured.
 	 */
@@ -290,6 +288,25 @@ class PKPLocale {
 			return $contents[$locale]['stylesheet'];
 		}
 		return null;
+	}
+
+	/**
+	 * Get the reading direction for a particular locale.
+	 *
+	 * A locale can specify a reading direction with the `direction` attribute. If no
+	 * direction is specified, defaults to `ltr` (left-to-right). The only
+	 * other value that is expected is `rtl`. This value is used in HTML and
+	 * CSS markup to present a right-to-left layout.
+	 *
+	 * @param $locale string
+	 * @return string
+	 */
+	static function getLocaleDirection($locale) {
+		$contents =& AppLocale::_getAllLocalesCacheContent();
+		if (isset($contents[$locale]['direction'])) {
+			return $contents[$locale]['direction'];
+		}
+		return 'ltr';
 	}
 
 	/**

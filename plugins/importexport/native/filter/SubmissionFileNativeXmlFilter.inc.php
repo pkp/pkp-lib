@@ -94,8 +94,8 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 
 		$revisionNode->setAttribute('filename', $submissionFile->getOriginalFileName());
 		$revisionNode->setAttribute('viewable', $submissionFile->getViewable()?'true':'false');
-		$revisionNode->setAttribute('date_uploaded', strftime('%F', strtotime($submissionFile->getDateUploaded())));
-		$revisionNode->setAttribute('date_modified', strftime('%F', strtotime($submissionFile->getDateModified())));
+		$revisionNode->setAttribute('date_uploaded', strftime('%Y-%m-%d', strtotime($submissionFile->getDateUploaded())));
+		$revisionNode->setAttribute('date_modified', strftime('%Y-%m-%d', strtotime($submissionFile->getDateModified())));
 		if ($submissionFile->getDirectSalesPrice() !== null) {
 			$revisionNode->setAttribute('direct_sales_price', $submissionFile->getDirectSalesPrice());
 		}

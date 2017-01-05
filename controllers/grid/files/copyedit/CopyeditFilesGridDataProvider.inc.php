@@ -22,7 +22,6 @@ class CopyeditFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 	 */
 	function __construct() {
 		parent::__construct(SUBMISSION_FILE_COPYEDIT);
-		$this->setViewableOnly(true);
 	}
 
 	//

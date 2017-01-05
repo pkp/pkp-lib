@@ -22,7 +22,6 @@ class FinalDraftFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 	 */
 	function __construct() {
 		parent::__construct(SUBMISSION_FILE_FINAL);
-		$this->setViewableOnly(true);
 	}
 
 	//

@@ -41,7 +41,7 @@
 			self;
 
 		// Set up options to pass to plupload
-		var uploaderOptions = {
+		uploaderOptions = {
 			url: options.uploadUrl,
 			// Flash settings
 			flash_swf_url: options.baseUrl +

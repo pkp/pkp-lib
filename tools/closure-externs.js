@@ -235,6 +235,7 @@ var plupload = {};
  */
 plupload.Uploader = function (options) {};
 plupload.Uploader.prototype.init = function() {};
+plupload.Uploader.prototype.refresh = function() {};
 
 /**
  * @param {string|number} p

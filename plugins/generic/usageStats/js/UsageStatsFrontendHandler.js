@@ -123,9 +123,9 @@
 		graphData = pkpUsageStats.data[objectType][objectId];
 
 		// Turn the data set into an array
-		var dataArray = [];
-		for(month in graphData.data[2016]) {
-			dataArray.push(graphData.data[2016][month]);
+		var dataArray = [], currentYear = new Date().getFullYear();
+		for(month in graphData.data[currentYear]) {
+			dataArray.push(graphData.data[currentYear][month]);
 		}
 
 		pkpUsageStats.charts[objectType + '_' + objectId] = new Chart(graph, {

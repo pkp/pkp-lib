@@ -239,7 +239,7 @@ class RegistrationForm extends Form {
 			// The account should be created in a disabled
 			// state.
 			$user->setDisabled(true);
-			$user->setDisabledReason(__('user.login.accountNotValidated'));
+			$user->setDisabledReason(__('user.login.accountNotValidated', array('email' => $this->getData('email'))));
 		}
 
 		parent::execute($user);

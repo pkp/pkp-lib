@@ -129,7 +129,7 @@ class RegistrationHandler extends UserHandler {
 	function activateUser($args, $request) {
 		$username = array_shift($args);
 		$accessKeyCode = array_shift($args);
-
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $userDao->getByUsername($username);
 		if (!$user) $request->redirect(null, 'login');

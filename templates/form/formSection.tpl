@@ -13,7 +13,7 @@
 	{if $FBV_label}
 		{if $FBV_translate}{translate|assign:"FBV_labelTranslated" key=$FBV_label|escape}
 		{else}{assign var="FBV_labelTranslated" value=$FBV_Label}{/if}
-		{if $FBV_labelFor}<label for="{$FBV_labelFor|escape}">{$FBV_labelTranslated}</label>
+		{if $FBV_labelFor}<label for="{$FBV_labelFor|escape}">{$FBV_labelTranslated}{if $FBV_required}<span class="req">*</span>{/if}</label>
 		{else}<span class="label">{$FBV_labelTranslated}</span>{/if}
 	{/if}
 	{if $FBV_description}<label class="description">{if $FBV_translate}{translate key=$FBV_description}{else}{$FBV_description}{/if}</label>{/if}

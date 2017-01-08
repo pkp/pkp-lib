@@ -33,7 +33,7 @@
 							{translate key="common.required"}
 						</span>
 					</span>
-					<input type="text" name="email" id="email" value="{$email|escape}" maxlength="32" required>
+					<input type="text" name="email" id="email" value="{$email|escape}" required>
 				</label>
 			</div>
 			<div class="buttons">

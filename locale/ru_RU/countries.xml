@@ -9,7 +9,7 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localized list of countries. Based on ISO 3166-1.
-  * With updates from Pavel Pisklakov (revising translation). 
+  * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Russian_(ru_RU)
   -->
 <countries>
 	<country name="Афганистан" code="AF"/>

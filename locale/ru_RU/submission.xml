@@ -9,10 +9,10 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ru_RU (Русский) locale.
-  * With updates from Pavel Pisklakov (revising translation). 
+  * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Russian_(ru_RU)
   -->
 
-<locale name="ru_RU" full_name = "Russian">
+<locale name="ru_RU" full_name = "Русский">
 	<!-- Отправка материала автором --> 
 	<message key="author.submit.userGroupRequired">В настоящий момент у вашей учетной записи нет роли, которая позволяла бы отправлять новые материалы, например такой роли как Автор. Пожалуйста, внимательно проверьте свою учетную запись; возможно вы можете добавить подходящую роль самостоятельно, отредактировав свой профиль.</message>
 	<message key="author.submit.submissionCitations">Введите отформатированный список ссылок на работы, использованные при подготовке данного материала. Пожалуйста, отделяйте ссылки одну от другой с помощью пустой строки.</message>	

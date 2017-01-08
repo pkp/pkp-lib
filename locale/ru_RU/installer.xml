@@ -8,10 +8,10 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ru_RU (Русский) locale.
-  * With updates from Pavel Pisklakov (revising translation). 
+  * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Russian_(ru_RU)
   -->
 
-<locale name="ru_RU" full_name = "Russian">
+<locale name="ru_RU" full_name = "Русский">
 	<message key="installer.additionalLocales">Дополнительные языки</message>
 	<message key="installer.administratorAccount">Учетная запись администратора</message>
 	<message key="installer.administratorAccountInstructions">Этот пользователь станет администратором сайта и получит полный доступ к системе. Дополнительные учетные записи пользователей можно будет создать после завершения установки.</message>

@@ -8,7 +8,7 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localized list of common languages. Based on ISO 639-1.
-  * With updates from Pavel Pisklakov (revising translation). 
+  * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Russian_(ru_RU)
   -->
 <languages>
 	<language code="ab" name="Абхазский"/>

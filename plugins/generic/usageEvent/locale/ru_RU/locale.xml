@@ -4,7 +4,7 @@
 <!--
   * plugins/generic/usageEvent/locale/ru_RU/locale.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
+  * Copyright (c) 2013-2016 Simon Fraser University Library
   * Copyright (c) 2003-2016 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
@@ -13,6 +13,6 @@
   -->
  
 <locale name="ru_RU" full_name="Русский">
-	<message key="plugins.generic.usageEvent.displayName">Плагин «Событие использования»</message>
-	<message key="plugins.generic.usageEvent.description">Это плагин создает обработчик, который выдает событие использования сайта в определенном формате.</message>
+	<message key="plugins.generic.usageEvent.displayName">Модуль «Событие использования»</message>
+	<message key="plugins.generic.usageEvent.description">Создает обработчик, который выдает событие использования сайта в определенном формате.</message>
 </locale>

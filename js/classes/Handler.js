@@ -332,15 +332,16 @@
 		}
 
 		if (jsonData.status === true) {
-			// Did the server respond with an event to be triggered?
-			if (jsonData.event) {
-				if (jsonData.event.data) {
-					this.trigger(jsonData.event.name,
-							jsonData.event.data);
+			// Trigger events passed from the server
+			_.each(jsonData.events, function(event) {
+				var eventData = _.has(event, 'data') ? event.data : null;
+				if (!_.isNull(eventData) && eventData.isGlobalEvent) {
+					eventData.handler = this;
+					$.pkp.eventRouter.trigger(event.name, eventData);
 				} else {
-					this.trigger(jsonData.event.name);
+					this.trigger(event.name, eventData);
 				}
-			}
+			}, this);
 			return jsonData;
 		} else {
 			// If we got an error message then display it.

@@ -235,7 +235,6 @@
 			this.trigger('callWhenClickOutside', {
 				container: this.getHtmlElement(),
 				callback: this.callbackWrapper(this.hidePopover_),
-				skipWhenVisibleModals: false
 			});
 
 			this.showPopover_();

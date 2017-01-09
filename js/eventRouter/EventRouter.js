@@ -31,7 +31,14 @@
 	 *
 	 * @type {object} Key list of event names with an array of jQuery selectors
 	 */
-	$.pkp.eventRouter.eventRegistry = {};
+	$.pkp.eventRouter.eventRegistry = {
+		'issuePublished': [
+			'[id^="component-grid-issues-backissuegrid-"].pkp_controllers_grid',
+		],
+		'issueUnpublished': [
+			'[id^="component-grid-issues-futureissuegrid-"].pkp_controllers_grid',
+		],
+	};
 
 	/**
 	 * Respond to events triggered on the event router

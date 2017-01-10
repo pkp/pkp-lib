@@ -8,15 +8,17 @@
   * Copyright (c) 2000-2016 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localized list of countries. Based on ISO 3166-1.
-  * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Russian_(ru_RU)
+  * Localized list of countries. Based on ISO 3166-1:2006.
+  * Translation based on Russian classification of countries of the world 
+  * ОК (МК (ИСО 3166) 004-97) 025-2001 (with changes dated 26.09.2013).
+  * With updates from Pavel Pisklakov (revising translation). 
   -->
 <countries>
 	<country name="Афганистан" code="AF"/>
-	<country name="Аландские острова" code="AX"/>
+	<country name="Эландские острова" code="AX"/>
 	<country name="Албания" code="AL"/>
 	<country name="Алжир" code="DZ"/>
-	<country name="Американское Самоа" code="AS"/>
+	<country name="Американские Самоа" code="AS"/>
 	<country name="Андорра" code="AD"/>
 	<country name="Ангола" code="AO"/>
 	<country name="Ангилья" code="AI"/>
@@ -38,59 +40,59 @@
 	<country name="Бенин" code="BJ"/>
 	<country name="Бермуды" code="BM"/>
 	<country name="Бутан" code="BT"/>
-	<country name="Боливия" code="BO"/>
-	<country name="Бонайре, Синт-Эстатиус и Саба" code="BQ"/>
+	<country name="Боливия, Многонациональное государство" code="BO"/>
+	<country name="Бонэйр, Синт-Эстатиус и Саба" code="BQ"/>
 	<country name="Босния и Герцеговина" code="BA"/>
 	<country name="Ботсвана" code="BW"/>
 	<country name="Остров Буве" code="BV"/>
 	<country name="Бразилия" code="BR"/>
 	<country name="Британская территория в Индийском океане" code="IO"/>
-	<country name="Бруней" code="BN"/>
+	<country name="Бруней-Даруссалам" code="BN"/>
 	<country name="Болгария" code="BG"/>
 	<country name="Буркина-Фасо" code="BF"/>
 	<country name="Бурунди" code="BI"/>
+	<country name="Кабо-Верде" code="CV"/>
 	<country name="Камбоджа" code="KH"/>
 	<country name="Камерун" code="CM"/>
 	<country name="Канада" code="CA"/>
-	<country name="Кабо-Верде" code="CV"/>
-	<country name="Каймановы острова" code="KY"/>
-	<country name="ЦАР" code="CF"/>
+	<country name="Острова Кайман" code="KY"/>
+	<country name="Центрально-Африканская Республика" code="CF"/>
 	<country name="Чад" code="TD"/>
 	<country name="Чили" code="CL"/>
-	<country name="КНР" code="CN"/>
+	<country name="Китай" code="CN"/>
 	<country name="Остров Рождества" code="CX"/>
-	<country name="Кокосовые острова" code="CC"/>
+	<country name="Кокосовые (Килинг) острова" code="CC"/>
 	<country name="Колумбия" code="CO"/>
 	<country name="Коморы" code="KM"/>
-	<country name="Республика Конго" code="CG"/>
-	<country name="Демократическая Республика Конго" code="CD"/>
+	<country name="Конго" code="CG"/>
+	<country name="Конго, Демократическая Республика" code="CD"/>
 	<country name="Острова Кука" code="CK"/>
 	<country name="Коста-Рика" code="CR"/>
-	<country name="Кот-д'Ивуар" code="CI"/>
+	<country name="Кот д'Ивуар" code="CI"/>
 	<country name="Хорватия" code="HR"/>
 	<country name="Куба" code="CU"/>
 	<country name="Кюрасао" code="CW"/>
 	<country name="Кипр" code="CY"/>
-	<country name="Чехия" code="CZ"/>
+	<country name="Чешская Республика" code="CZ"/>
 	<country name="Дания" code="DK"/>
 	<country name="Джибути" code="DJ"/>
 	<country name="Доминика" code="DM"/>
 	<country name="Доминиканская Республика" code="DO"/>
 	<country name="Эквадор" code="EC"/>
 	<country name="Египет" code="EG"/>
-	<country name="Сальвадор" code="SV"/>
+	<country name="Эль-Сальвадор" code="SV"/>
 	<country name="Экваториальная Гвинея" code="GQ"/>
 	<country name="Эритрея" code="ER"/>
 	<country name="Эстония" code="EE"/>
 	<country name="Эфиопия" code="ET"/>
-	<country name="Фолклендские острова" code="FK"/>
+	<country name="Фолклендские острова (Мальвинские)" code="FK"/>
 	<country name="Фарерские острова" code="FO"/>
 	<country name="Фиджи" code="FJ"/>
 	<country name="Финляндия" code="FI"/>
 	<country name="Франция" code="FR"/>
-	<country name="Гвиана" code="GF"/>
+	<country name="Французская Гвиана" code="GF"/>
 	<country name="Французская Полинезия" code="PF"/>
-	<country name="Французские Южные и Антарктические Территории" code="TF"/>
+	<country name="Французские южные территории" code="TF"/>
 	<country name="Габон" code="GA"/>
 	<country name="Гамбия" code="GM"/>
 	<country name="Грузия" code="GE"/>
@@ -108,15 +110,15 @@
 	<country name="Гвинея-Бисау" code="GW"/>
 	<country name="Гайана" code="GY"/>
 	<country name="Гаити" code="HT"/>
-	<country name="Херд и Макдональд" code="HM"/>
-	<country name="Ватикан" code="VA"/>
+	<country name="Остров Херд и острова МакДональд" code="HM"/>
+	<country name="Папский Престол (Государство-город Ватикан)" code="VA"/>
 	<country name="Гондурас" code="HN"/>
 	<country name="Гонконг" code="HK"/>
 	<country name="Венгрия" code="HU"/>
 	<country name="Исландия" code="IS"/>
 	<country name="Индия" code="IN"/>
 	<country name="Индонезия" code="ID"/>
-	<country name="Иран" code="IR"/>
+	<country name="Иран, Исламская Республика" code="IR"/>
 	<country name="Ирак" code="IQ"/>
 	<country name="Ирландия" code="IE"/>
 	<country name="Остров Мэн" code="IM"/>
@@ -124,16 +126,16 @@
 	<country name="Италия" code="IT"/>
 	<country name="Ямайка" code="JM"/>
 	<country name="Япония" code="JP"/>
-	<country name="Джерси (остров)" code="JE"/>
+	<country name="Джерси" code="JE"/>
 	<country name="Иордания" code="JO"/>
 	<country name="Казахстан" code="KZ"/>
 	<country name="Кения" code="KE"/>
 	<country name="Кирибати" code="KI"/>
-	<country name="КНДР" code="KP"/>
-	<country name="Республика Корея" code="KR"/>
+	<country name="Корея, Народно-Демократическая Республика" code="KP"/>
+	<country name="Корея, Республика" code="KR"/>
 	<country name="Кувейт" code="KW"/>
 	<country name="Киргизия" code="KG"/>
-	<country name="Лаос" code="LA"/>
+	<country name="Лаосская Народно-Демократическая Республика" code="LA"/>
 	<country name="Латвия" code="LV"/>
 	<country name="Ливан" code="LB"/>
 	<country name="Лесото" code="LS"/>
@@ -143,21 +145,21 @@
 	<country name="Литва" code="LT"/>
 	<country name="Люксембург" code="LU"/>
 	<country name="Макао" code="MO"/>
-	<country name="Македония" code="MK"/>
+	<country name="Республика Македония" code="MK"/>
 	<country name="Мадагаскар" code="MG"/>
 	<country name="Малави" code="MW"/>
 	<country name="Малайзия" code="MY"/>
 	<country name="Мальдивы" code="MV"/>
 	<country name="Мали" code="ML"/>
 	<country name="Мальта" code="MT"/>
-	<country name="Маршалловы Острова" code="MH"/>
+	<country name="Маршалловы острова" code="MH"/>
 	<country name="Мартиника" code="MQ"/>
 	<country name="Мавритания" code="MR"/>
 	<country name="Маврикий" code="MU"/>
 	<country name="Майотта" code="YT"/>
 	<country name="Мексика" code="MX"/>
-	<country name="Микронезия" code="FM"/>
-	<country name="Молдавия" code="MD"/>
+	<country name="Микронезия, Федеративные Штаты" code="FM"/>
+	<country name="Молдова, Республика" code="MD"/>
 	<country name="Монако" code="MC"/>
 	<country name="Монголия" code="MN"/>
 	<country name="Черногория" code="ME"/>
@@ -181,13 +183,13 @@
 	<country name="Оман" code="OM"/>
 	<country name="Пакистан" code="PK"/>
 	<country name="Палау" code="PW"/>
-	<country name="Государство Палестина" code="PS"/>
+	<country name="Палестина, Государство" code="PS"/>
 	<country name="Панама" code="PA"/>
-	<country name="Папуа - Новая Гвинея" code="PG"/>
+	<country name="Папуа-Новая Гвинея" code="PG"/>
 	<country name="Парагвай" code="PY"/>
 	<country name="Перу" code="PE"/>
 	<country name="Филиппины" code="PH"/>
-	<country name="Острова Питкэрн" code="PN"/>
+	<country name="Питкерн" code="PN"/>
 	<country name="Польша" code="PL"/>
 	<country name="Португалия" code="PT"/>
 	<country name="Пуэрто-Рико" code="PR"/>
@@ -197,7 +199,7 @@
 	<country name="Россия" code="RU"/>
 	<country name="Руанда" code="RW"/>
 	<country name="Сен-Бартелеми" code="BL"/>
-	<country name="Острова Святой Елены, Вознесения и Тристан-да-Кунья" code="SH"/>
+	<country name="Святая Елена, Остров Вознесения, Тристан-да-Кунья" code="SH"/>
 	<country name="Сент-Китс и Невис" code="KN"/>
 	<country name="Сент-Люсия" code="LC"/>
 	<country name="Сен-Мартен" code="MF"/>
@@ -209,31 +211,31 @@
 	<country name="Саудовская Аравия" code="SA"/>
 	<country name="Сенегал" code="SN"/>
 	<country name="Сербия" code="RS"/>
-	<country name="Сейшельские Острова" code="SC"/>
+	<country name="Сейшелы" code="SC"/>
 	<country name="Сьерра-Леоне" code="SL"/>
 	<country name="Сингапур" code="SG"/>
-	<country name="Синт-Мартен (нидерландская часть)" code="SX"/>
+	<country name="Сен-Мартен (нидерландская часть)" code="SX"/>
 	<country name="Словакия" code="SK"/>
 	<country name="Словения" code="SI"/>
 	<country name="Соломоновы Острова" code="SB"/>
 	<country name="Сомали" code="SO"/>
-	<country name="ЮАР" code="ZA"/>
-	<country name="Южная Георгия и Южные Сандвичевы острова" code="GS"/>
+	<country name="Южная Африка" code="ZA"/>
+	<country name="Южная Джорджия и Южные Сандвичевы острова" code="GS"/>
 	<country name="Испания" code="ES"/>
 	<country name="Шри-Ланка" code="LK"/>
 	<country name="Судан" code="SD"/>
 	<country name="Суринам" code="SR"/>
 	<country name="Южный Судан" code="SS"/>
-	<country name="Шпицберген и Ян-Майен" code="SJ"/>
+	<country name="Шпицберген и Ян Майен" code="SJ"/>
 	<country name="Свазиленд" code="SZ"/>
 	<country name="Швеция" code="SE"/>
 	<country name="Швейцария" code="CH"/>
-	<country name="Сирия" code="SY"/>
-	<country name="Китайская республика" code="TW"/>
+	<country name="Сирийская Арабская Республика" code="SY"/>
+	<country name="Тайвань (Китай)" code="TW"/>
 	<country name="Таджикистан" code="TJ"/>
-	<country name="Танзания" code="TZ"/>
+	<country name="Танзания, Объединенная республика" code="TZ"/>
 	<country name="Таиланд" code="TH"/>
-	<country name="Восточный Тимор" code="TL"/>
+	<country name="Тимор-Лесте" code="TL"/>
 	<country name="Того" code="TG"/>
 	<country name="Токелау" code="TK"/>
 	<country name="Тонга" code="TO"/>
@@ -241,21 +243,21 @@
 	<country name="Тунис" code="TN"/>
 	<country name="Турция" code="TR"/>
 	<country name="Туркмения" code="TM"/>
-	<country name="Тёркс и Кайкос" code="TC"/>
+	<country name="Острова Теркс и Кайкос" code="TC"/>
 	<country name="Тувалу" code="TV"/>
 	<country name="Уганда" code="UG"/>
 	<country name="Украина" code="UA"/>
-	<country name="ОАЭ" code="AE"/>
-	<country name="Великобритания" code="GB"/>
-	<country name="США" code="US"/>
-	<country name="Внешние малые острова (США)" code="UM"/>
+	<country name="Объединённые Арабские Эмираты" code="AE"/>
+	<country name="Соединенное Королевство" code="GB"/>
+	<country name="Малые Тихоокеанские Отдаленные острова Соединенных Штатов" code="UM"/>
+	<country name="Соединенные штаты" code="US"/>
 	<country name="Уругвай" code="UY"/>
 	<country name="Узбекистан" code="UZ"/>
 	<country name="Вануату" code="VU"/>
-	<country name="Венесуэла" code="VE"/>
+	<country name="Венесуэла Боливарианская Республика" code="VE"/>
 	<country name="Вьетнам" code="VN"/>
-	<country name="Британские Виргинские острова" code="VG"/>
-	<country name="Американские Виргинские острова" code="VI"/>
+	<country name="Виргинские острова, Британские" code="VG"/>
+	<country name="Виргинские острова, США" code="VI"/>
 	<country name="Уоллис и Футуна" code="WF"/>
 	<country name="Западная Сахара" code="EH"/>
 	<country name="Йемен" code="YE"/>

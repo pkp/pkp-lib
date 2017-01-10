@@ -114,7 +114,7 @@
 	<message key="editor.review.reviewDue">Évaluation due pour le: {$date}</message>
 	<message key="editor.review.reviewConfirmed">Évaluation confirmée</message>
 	<message key="editor.review.reviewSubmitted">Évaluation soumise</message>
-	<message key="editor.submission.copyedit.manageCopyeditFilesDescription">Tous les fichiers qui ont déjà été téléchargés dans une étape de soumission peuvent être ajoutés à la """"liste des fichiers de copie""" en cochant la case Inclure ci-dessous et en cliquant sur Rechercher: tous les fichiers disponibles seront répertoriés et peuvent être choisis pour inclusion. Les fichiers supplémentaires qui ne sont pas déjà chargés sur une étape peuvent être ajoutés à la liste en cliquant sur le lien Télécharger un fichier.</message>
+	<message key="editor.submission.copyedit.manageCopyeditFilesDescription">Tous les fichiers qui ont déjà été téléchargés dans une étape de soumission peuvent être ajoutés à la liste des fichiers de copie en cochant la case Inclure ci-dessous et en cliquant sur Rechercher: tous les fichiers disponibles seront répertoriés et peuvent être choisis pour inclusion. Les fichiers supplémentaires qui ne sont pas déjà chargés sur une étape peuvent être ajoutés à la liste en cliquant sur le lien Télécharger un fichier.</message>
 	<message key="editor.review.reviewDetails">Détails de l'évaluation</message>
 	<message key="editor.review.noReviewFilesUploaded">Aucun fichier téléchargé</message>
 	<message key="editor.review.noReviewFilesUploaded.details">Vous n'avez téléverser aucun fichier d'évaluation</message>
@@ -134,5 +134,4 @@
 	<message key="editor.publicIdentificationExistsForTheSameType">Le public identifié comme '{$publicIdentifier}' existe déjà pour un autre objet de même type. Veuillez indiquer un public unique pour l'objet de même type à l'intérieur de votre revue.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">Le public identifié comme '{$publicIdentifier}' ne peut être un numéro.</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">Le modèle {$pattern} ne peut pas être utilisé comme public identifié.</message>
-	<message key=""><![CDATA[]]></message>
 </locale>

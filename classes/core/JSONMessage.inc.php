@@ -159,7 +159,13 @@ class JSONMessage {
 		}
 
 		// Encode the object.
-		return json_encode($jsonObject);
+		$json = json_encode($jsonObject);
+
+		if ($json === false) {
+			error_log(json_last_error_msg());
+		}
+
+		return $json;
 	}
 }
 

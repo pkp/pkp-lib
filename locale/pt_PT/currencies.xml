@@ -188,4 +188,5 @@
 	<currency name="Rial Iêmenita " code_alpha="YER" code_numeric="886" />
 	<currency name="Rand Sul-Africano" code_alpha="ZAR" code_numeric="710" />
 	<currency name="Dólar do Zimbabwe" code_alpha="ZWD" code_numeric="716" />
+	<currency name="Bitcoin" code_alpha="XTC" code_numeric="000" />
 </currencies>

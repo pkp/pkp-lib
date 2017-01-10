@@ -173,4 +173,5 @@
 	<currency name="Rand" code_alpha="ZAR" code_numeric="710" />
 	<currency name="Sambischer Kwacha" code_alpha="ZMK" code_numeric="894" />
 	<currency name="Simbabwe-Dollar" code_alpha="ZWD" code_numeric="716" />
+	<currency name="Bitcoin" code_alpha="XTC" code_numeric="000" />
 </currencies>

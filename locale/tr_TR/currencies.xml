@@ -182,4 +182,5 @@
 	<currency name="Yuan Renminbi" code_alpha="CNY" code_numeric="156" />
 	<currency name="Zimbabve Doları" code_alpha="ZWD" code_numeric="716" />
 	<currency name="Cezayir Dinarı" code_alpha="DZD" code_numeric="12" />
+	<currency name="Bitcoin" code_alpha="XTC" code_numeric="000" />
 </currencies>

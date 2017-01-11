@@ -604,6 +604,11 @@
 	}
 }
 
+// Make emails wrap rather than overflow table column in the users grid
+[id^="component-grid-settings-user-usergrid-"] .gridRow td:last-child .label {
+	word-break: break-word;
+}
+
 
 // TODO check if these styles can be removed
 .pkp_controllers_grid {

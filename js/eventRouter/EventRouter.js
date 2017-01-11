@@ -38,6 +38,9 @@
 		'issueUnpublished': [
 			'[id^="component-grid-issues-futureissuegrid-"].pkp_controllers_grid',
 		],
+		'userMerged': [
+			'[id^="component-grid-settings-user-usergrid-"].pkp_controllers_grid',
+		],
 	};
 
 	/**

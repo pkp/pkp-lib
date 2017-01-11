@@ -54,7 +54,7 @@
 				</div>
 			</div>
 		{/if}
+		<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 		{fbvFormButtons}
 	</div>
 </form>
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>

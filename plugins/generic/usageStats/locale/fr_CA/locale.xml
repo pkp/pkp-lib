@@ -31,7 +31,6 @@
 	<message key="plugins.generic.usageStats.settings.optionalColumns.description">Activez ou désactivez la collecte des informations facultatives suivantes. Cela aura une influence sur les rapports statistiques possibles que vous pouvez récupérer et aura également un impact sur la taille de la base de données. NE PAS CHANGER, sauf si vous comprenez parfaitement ce que vous faites.</message>
 	<message key="plugins.generic.usageStats.settings.optionalColumns.cityRequiresRegion">Si vous cochez la colonne "Ville" vous devez cochez la colonne "Région"</message>
 	<message key="plugins.generic.usageStats.settings.archives">Archives</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="plugins.generic.usageStats.settings.compressArchives">Compresser les archives</message>
 	<message key="plugins.generic.usageStats.settings.compressArchives.description">Activez cette option pour compresser les fichiers journaux archivés à l'aide de l'outil gzip (vous devrez configurer le paramètre gzip dans config.inc.php). Si vous avez un site à fort trafic, c'est une bonne idée de le faire, vous pouvez donc économiser de l'espace disque supplémentaire.</message>
 	<message key="plugins.generic.usageStats.settings.statsDisplayOptions">Options d'affichage pour les statistques</message>
@@ -43,7 +42,6 @@
 	<message key="plugins.generic.usageStats.usageStatsLoaderName">Statistiques sur le téléversement de fichier</message>
 	<message key="plugins.generic.usageStats.openFileFailed">Le fichier {$file} n'a pas pu être ouvert et a été rejeté.</message>
 	<message key="plugins.generic.usageStats.invalidLogEntry">La ligne {$lineNumber} du fichier {$file} n'est pas une entrée de journal valide. Le fichier a été rejeté.</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="plugins.generic.usageStats.removeUrlError">La ligne {$lineNumber} du fichier {$file} contient une url dont le système ne peut pas supprimer l'URL de base.</message>
 	<message key="plugins.generic.usageStats.loadDataError">Impossible de charger les données extraites du fichier {$file}. Le fichier est revenu à l'étape précédente.</message>
 	<message key="plugins.generic.usageStats.pluginNotEnabled">Le plugiciel de statistique d'utilisation est désactivé. Les fichiers journaux n'ont pas été traités.</message>

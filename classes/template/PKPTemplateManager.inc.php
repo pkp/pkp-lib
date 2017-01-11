@@ -688,21 +688,6 @@ class PKPTemplateManager extends Smarty {
 	 */
 	function fetch($resource_name, $cache_id = null, $compile_id = null, $display = false) {
 
-		foreach( $this->_styleSheets as &$list ) {
-			ksort( $list );
-		}
-		$this->assign('stylesheets', $this->_styleSheets);
-
-		foreach( $this->_javaScripts as &$list ) {
-			ksort( $list );
-		}
-		$this->assign('scripts', $this->_javaScripts);
-
-		foreach( $this->_htmlHeaders as &$list ) {
-			ksort( $list );
-		}
-		$this->assign('headers', $this->_htmlHeaders);
-
 		// If no compile ID was assigned, get one.
 		if (!$compile_id) $compile_id = $this->getCompileId($resource_name);
 
@@ -1361,15 +1346,11 @@ class PKPTemplateManager extends Smarty {
 	 */
 	function smartyLoadStylesheet($params, $smarty) {
 
-		if (empty($params['stylesheets'])) {
-			return;
-		}
-
 		if (empty($params['context'])) {
 			$context = 'frontend';
 		}
 
-		$stylesheets = $this->getResourcesByContext($params['stylesheets'], $params['context']);
+		$stylesheets = $this->getResourcesByContext($this->_styleSheets, $params['context']);
 
 		$output = '';
 		foreach($stylesheets as $priorityList) {
@@ -1395,15 +1376,11 @@ class PKPTemplateManager extends Smarty {
 	 */
 	function smartyLoadScript($params, $smarty) {
 
-		if (empty($params['scripts'])) {
-			return;
-		}
-
 		if (empty($params['context'])) {
 			$params['context'] = 'frontend';
 		}
 
-		$scripts = $this->getResourcesByContext($params['scripts'], $params['context']);
+		$scripts = $this->getResourcesByContext($this->_javaScripts, $params['context']);
 
 		$output = '';
 		foreach($scripts as $priorityList) {
@@ -1429,15 +1406,11 @@ class PKPTemplateManager extends Smarty {
 	 */
 	function smartyLoadHeader($params, $smarty) {
 
-		if (empty($params['headers'])) {
-			return;
-		}
-
 		if (empty($params['context'])) {
 			$params['context'] = 'frontend';
 		}
 
-		$headers = $this->getResourcesByContext($params['headers'], $params['context']);
+		$headers = $this->getResourcesByContext($this->_htmlHeaders, $params['context']);
 
 		$output = '';
 		foreach($headers as $priorityList) {

@@ -18,6 +18,6 @@
 		{/if}
 	</title>
 
-	{load_header context="frontend" headers=$headers}
-	{load_stylesheet context="frontend" stylesheets=$stylesheets}
+	{load_header context="frontend"}
+	{load_stylesheet context="frontend"}
 </head>

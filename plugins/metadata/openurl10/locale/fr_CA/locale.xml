@@ -13,6 +13,5 @@
 
 <locale name="fr_CA" full_name="Français (Canada)">
 	<message key="plugins.metadata.openurl10.displayName">Schéma de métadonnées OpenURL 1.0</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="plugins.metadata.openurl10.description">Gestion des adaptateurs et schéma selon le format OpenURL 1.0</message>
 </locale>

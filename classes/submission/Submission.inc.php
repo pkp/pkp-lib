@@ -935,6 +935,12 @@ class Submission extends DataObject {
 				$pages = preg_replace('/^[[:alpha:]]+[:.]?/', '', $pages);
 			}
 		}
+		// strip leading and trailing space
+		$pages = trim($pages);
+		// shortcut the explode/foreach if the remainder is an empty value
+		if ($pages === '') {
+			return array();
+		}
 		// commas indicate distinct ranges
 		$ranges = explode(',', $pages);
 		$pageArray = array();

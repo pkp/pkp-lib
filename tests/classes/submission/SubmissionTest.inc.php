@@ -72,6 +72,21 @@ class SubmissionTest extends PKPTestCase {
 		$this->submission->setPages('pp:  a6 -a12,   b43');
 		$pageArray = $this->submission->getPageArray();
 		$this->assertSame($expected,$pageArray);
+		$this->submission->setPages('  a6 -a12,   b43 ');
+		$pageArray = $this->submission->getPageArray();
+		$this->assertSame($expected,$pageArray);
+		// empty-ish values
+		$expected = array();
+		$this->submission->setPages('');
+		$pageArray = $this->submission->getPageArray();
+		$this->assertSame($expected,$pageArray);
+		$this->submission->setPages(' ');
+		$pageArray = $this->submission->getPageArray();
+		$this->assertSame($expected,$pageArray);
+		$expected = array(array('0'));
+		$this->submission->setPages('0');
+		$pageArray = $this->submission->getPageArray();
+		$this->assertSame($expected,$pageArray);
 	}
 }
 

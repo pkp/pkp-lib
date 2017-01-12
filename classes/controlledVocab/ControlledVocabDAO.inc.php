@@ -174,7 +174,7 @@ class ControlledVocabDAO extends DAO {
 	 * @param $assocType int
 	 * @param $assocId int
 	 */
-	function getBySymbolic($symbolic, $assocType, $assocId) {
+	function getBySymbolic($symbolic, $assocType = 0, $assocId = 0) {
 		$result = $this->retrieve(
 			'SELECT * FROM controlled_vocabs WHERE symbolic = ? AND assoc_type = ? AND assoc_id = ?',
 			array($symbolic, (int) $assocType, (int) $assocId)

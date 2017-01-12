@@ -611,13 +611,9 @@ abstract class SubmissionDAO extends DAO {
 	 */
 	function getAssignedToUser($userId, $contextId = null, $title = null, $author = null, $stageId = null, $rangeInfo = null) {
 		$params = array_merge(
-			array(ROLE_ID_AUTHOR),
+			array((int) $userId, ROLE_ID_AUTHOR, (int) $userId),
 			$this->getFetchParameters(),
-			array(
-				(int) STATUS_DECLINED,
-				(int) $userId,
-				(int) $userId
-			)
+			array((int) STATUS_DECLINED)
 		);
 		if ($contextId) $params[] = (int) $contextId;
 
@@ -634,10 +630,10 @@ abstract class SubmissionDAO extends DAO {
 			FROM submissions s
 				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
 				' . $this->getCompletionJoins() . '
-				LEFT JOIN stage_assignments sa ON (s.submission_id = sa.submission_id)
+				LEFT JOIN stage_assignments sa ON (s.submission_id = sa.submission_id AND sa.user_id = ?)
 				LEFT JOIN user_groups aug ON (sa.user_group_id = aug.user_group_id AND aug.role_id = ?)
 				LEFT JOIN submission_files sf ON (s.submission_id = sf.submission_id)
-				LEFT JOIN review_assignments ra ON (s.submission_id = ra.submission_id AND ra.declined = 0)
+				LEFT JOIN review_assignments ra ON (s.submission_id = ra.submission_id AND ra.declined = 0 AND ra.reviewer_id = ?)
 				' . ($title?' LEFT JOIN submission_settings ss ON (s.submission_id = ss.submission_id)':'') . '
 				' . ($author?' LEFT JOIN authors au ON (s.submission_id = au.submission_id)':'')
 				. $this->getFetchJoins() .
@@ -645,7 +641,7 @@ abstract class SubmissionDAO extends DAO {
 				AND ' . $this->getCompletionConditions(false) . '
 				AND s.status <> ?
 				AND aug.user_group_id IS NULL
-				AND (sa.user_id = ? OR ra.reviewer_id = ?)'
+				AND (sa.user_id IS NOT NULL OR ra.reviewer_id IS NOT NULL)'
 				. ($contextId?' AND s.context_id = ?':'')
 				. ($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'') 
 				. ($author?' AND (ra.submission_id IS NULL AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?))':'') // Don't permit reviewer searching on author name

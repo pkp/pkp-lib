@@ -53,7 +53,7 @@
 			{translate key="about.authorGuidelines"}
 			{include file="frontend/components/editLink.tpl" page="management" op="settings" path="journal" anchor="guidelines" sectionTitleKey="about.authorGuidelines"}
 		</h2>
-		{$currentContext->getLocalizedSetting('authorGuidelines')|nl2br}
+		{$currentContext->getLocalizedSetting('authorGuidelines')}
 	</div>
 	{/if}
 

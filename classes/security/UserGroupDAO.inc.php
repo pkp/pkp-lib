@@ -686,6 +686,10 @@ class UserGroupDAO extends DAO {
 		$xmlParser = new XMLParser();
 		$tree = $xmlParser->parse($filename);
 
+		$siteDao = DAORegistry::getDAO('SiteDAO');
+		$site = $siteDao->getSite();
+		$installedLocales = $site->getInstalledLocales();
+
 		if (!$tree) {
 			$xmlParser->destroy();
 			return false;
@@ -724,7 +728,9 @@ class UserGroupDAO extends DAO {
 			$this->updateSetting($userGroup->getId(), 'abbrevLocaleKey', $abbrevKey);
 
 			// install the settings in the current locale for this context
-			$this->installLocale(AppLocale::getLocale(), $contextId);
+			foreach ($installedLocales as $locale) {
+				$this->installLocale($locale, $contextId);
+			}
 		}
 
 		return true;

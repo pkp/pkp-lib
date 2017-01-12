@@ -15,6 +15,7 @@
  */
 
 import('lib.pkp.classes.plugins.GalleryPlugin');
+import('lib.pkp.classes.file.FileWrapper');
 
 define('PLUGIN_GALLERY_XML_URL', 'http://pkp.sfu.ca/ojs/xml/plugins.xml');
 
@@ -58,7 +59,8 @@ class PluginGalleryDAO extends DAO {
 	 */
 	private function _getDocument() {
 		$doc = new DOMDocument('1.0');
-		$doc->load(PLUGIN_GALLERY_XML_URL);
+		$gallery = FileWrapper::wrapper(PLUGIN_GALLERY_XML_URL);
+		$doc->loadXML($gallery->contents());
 		return $doc;
 	}
 

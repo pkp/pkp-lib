@@ -419,7 +419,6 @@
 	<message key="submission.submit.metadataForm">Ajustos addicionals</message>
 	<message key="submission.submit.metadataForm.tip">Afegiu informació addicional a la tramesa.  Feu clic a «Introdueix» després de cada terme.</message>
 	<message key="submission.submit.submissionLocale">Llengua de la tramesa</message>
-	<message key="submission.submit.submissionLocaleDescription">Aquesta publicació accepta trameses en diverses llengües. Trieu la llengua principal de la tramesa al menú desplegable que hi ha a continuació.</message>
 	<message key="submission.submit.submissionFiles">Fitxers de la tramesa</message>
 	<message key="submission.submit.dependentFiles">Fitxers dependents</message>
 	<message key="submission.manageDependentFiles">Administra els fitxers dependents</message>

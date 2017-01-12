@@ -83,22 +83,22 @@ class PKPUserUserXmlFilter extends NativeExportFilter {
 		$userNode = $doc->createElementNS($deployment->getNamespace(), 'user');
 
 		// Add metadata
-		$userNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'firstname', $user->getFirstName()));
+		$userNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'firstname', htmlspecialchars($user->getFirstName(), ENT_COMPAT, 'UTF-8')));
 		$this->createOptionalNode($doc, $userNode, 'middlename', $user->getMiddleName());
-		$userNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'lastname', $user->getLastName()));
+		$userNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'lastname', htmlspecialchars($user->getLastName(), ENT_COMPAT, 'UTF-8')));
 
 		if (is_array($user->getAffiliation(null))) {
 			$this->createLocalizedNodes($doc, $userNode, 'affiliation', $user->getAffiliation(null));
 		}
 
 		$this->createOptionalNode($doc, $userNode, 'country', $user->getCountry());
-		$userNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'email', $user->getEmail()));
+		$userNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'email', htmlspecialchars($user->getEmail(), ENT_COMPAT, 'UTF-8')));
 		$this->createOptionalNode($doc, $userNode, 'url', $user->getUrl());
 		if (is_array($user->getBiography(null))) {
 			$this->createLocalizedNodes($doc, $userNode, 'biography', $user->getBiography(null));
 		}
 
-		$userNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'username', $user->getUsername()));
+		$userNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'username', htmlspecialchars($user->getUsername(), ENT_COMPAT, 'UTF-8')));
 
 		if (is_array($user->getGossip(null))) {
 			$this->createLocalizedNodes($doc, $userNode, 'gossip', $user->getGossip(null));
@@ -111,7 +111,7 @@ class PKPUserUserXmlFilter extends NativeExportFilter {
 		$passwordNode->setAttribute('is_disabled', $user->getDisabled() ? 'true' : 'false');
 		$passwordNode->setAttribute('must_change', $user->getMustChangePassword() ? 'true' : 'false');
 		$passwordNode->setAttribute('encryption', Config::getVar('security', 'encryption'));
-		$passwordNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'value', $user->getPassword()));
+		$passwordNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'value', htmlspecialchars($user->getPassword(), ENT_COMPAT, 'UTF-8')));
 
 		$userNode->appendChild($passwordNode);
 
@@ -140,7 +140,7 @@ class PKPUserUserXmlFilter extends NativeExportFilter {
 		while ($assignedGroup = $assignedGroups->next()) {
 			$userGroup = $userGroupDao->getById($assignedGroup->getUserGroupId());
 			if ($userGroup) {
-				$userNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'user_group_ref', $userGroup->getName($context->getPrimaryLocale())));
+				$userNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'user_group_ref', htmlspecialchars($userGroup->getName($context->getPrimaryLocale()), ENT_COMPAT, 'UTF-8')));
 			}
 		}
 

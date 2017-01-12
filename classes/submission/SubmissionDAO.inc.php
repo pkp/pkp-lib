@@ -134,6 +134,12 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		// Delete submission files.
 		$submission = $this->getById($submissionId);
 		assert(is_a($submission, 'Submission'));
+		// 'deleteAllRevisionsBySubmissionId' has to be called before 'rmtree'
+		// because SubmissionFileDaoDelegate::deleteObjects checks the file
+		// and returns false if the file is not there, which makes the foreach loop in
+		// PKPSubmissionFileDAO::_deleteInternally not run till the end.
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
+		$submissionFileDao->deleteAllRevisionsBySubmissionId($submissionId);
 		import('lib.pkp.classes.file.SubmissionFileManager');
 		$submissionFileManager = new SubmissionFileManager($submission->getContextId(), $submission->getId());
 		$submissionFileManager->rmtree($submissionFileManager->getBasePath());
@@ -159,10 +165,6 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		while ($stageAssignment = $stageAssignments->next()) {
 			$stageAssignmentDao->deleteObject($stageAssignment);
 		}
-
-		// Delete submission files.
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-		$submissionFileDao->deleteAllRevisionsBySubmissionId($submissionId);
 
 		$noteDao = DAORegistry::getDAO('NoteDAO');
 		$noteDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId);
@@ -783,9 +785,10 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @param $editor int|null optional Filter by editor name.
 	 * @param $stageId int|null optional Filter by stage id.
 	 * @param $rangeInfo DBResultRange optional
+	 * @param $orphaned boolean Whether the incomplete submissions that have no author assigned should be considered too
 	 * @return DAOResultFactory
 	 */
-	function getActiveSubmissions($contextId = null, $title = null, $author = null, $editor = null, $stageId = null, $rangeInfo = null) {
+	function getActiveSubmissions($contextId = null, $title = null, $author = null, $editor = null, $stageId = null, $rangeInfo = null, $orphaned = false) {
 		$params = $this->getFetchParameters();
 		$params[] = (int) STATUS_DECLINED;
 
@@ -811,8 +814,9 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 						LEFT JOIN user_groups g ON (sa.user_group_id = g.user_group_id)
 						LEFT JOIN users u ON (sa.user_id = u.user_id)':'') . '
 				' . $this->getFetchJoins() . '
-			WHERE	s.date_submitted IS NOT NULL
-				AND ' . $this->getCompletionConditions(false) . '
+			WHERE	(s.date_submitted IS NOT NULL
+				' . ($orphaned?' OR (s.submission_progress <> 0 AND s.submission_id NOT IN (SELECT sa2.submission_id FROM stage_assignments sa2 LEFT JOIN user_groups g2 ON (sa2.user_group_id = g2.user_group_id) WHERE g2.role_id = ' . (int) ROLE_ID_AUTHOR .'))':'') .'
+				) AND ' . $this->getCompletionConditions(false) . '
 				AND s.status <> ?
 				' . ($contextId?' AND s.context_id = ?':'') . '
 				' . ($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'') . '

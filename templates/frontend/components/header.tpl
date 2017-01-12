@@ -22,7 +22,13 @@
 <html lang="{$currentLocale|replace:"_":"-"}" xml:lang="{$currentLocale|replace:"_":"-"}">
 {if !$pageTitleTranslated}{translate|assign:"pageTitleTranslated" key=$pageTitle}{/if}
 {include file="frontend/components/headerHead.tpl"}
-<body class="pkp_page_{$requestedPage|escape|default:"index"} pkp_op_{$requestedOp|escape|default:"index"}{if $showingLogo} has_site_logo{/if}">
+<body class="pkp_page_{$requestedPage|escape|default:"index"} pkp_op_{$requestedOp|escape|default:"index"}{if $showingLogo} has_site_logo{/if}" dir="{$currentLocaleLangDir|escape|default:"ltr"}">
+
+	<div class="cmp_skip_to_content">
+		<a href="#pkp_content_main">{translate key="navigation.skip.main"}</a>
+		<a href="#pkp_content_nav">{translate key="navigation.skip.nav"}</a>
+		<a href="#pkp_content_footer">{translate key="navigation.skip.footer"}</a>
+	</div>
 	<div class="pkp_structure_page">
 
 		{* Header *}
@@ -66,7 +72,7 @@
 
 				{* Primary site navigation *}
 				{if $currentContext}
-					<nav class="pkp_navigation_primary_row navDropdownMenu" aria-label="{translate|escape key="common.navigation.site"}">
+					<nav id="pkp_content_nav" class="pkp_navigation_primary_row navDropdownMenu" aria-label="{translate|escape key="common.navigation.site"}">
 						<div class="pkp_navigation_primary_wrapper">
 
 							{* Primary navigation menu for current application *}
@@ -142,4 +148,4 @@
 			{assign var=hasSidebar value=0}
 		{/if}
 		<div class="pkp_structure_content{if $hasSidebar} has_sidebar{/if}">
-			<div class="pkp_structure_main" role="main">
+			<div id="pkp_content_main" class="pkp_structure_main" role="main">

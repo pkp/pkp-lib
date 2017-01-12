@@ -138,7 +138,18 @@ class PKPSubmissionMetadataViewForm extends Form {
 				$field . 'Required' => $context->getSetting($field . 'Required')
 			));
 		}
-
+		// Provide available submission languages. (Convert the array
+		// of locale symbolic names xx_XX into an associative array
+		// of symbolic names => readable names.)
+		$supportedSubmissionLocales = $context->getSetting('supportedSubmissionLocales');
+		if (empty($supportedSubmissionLocales)) $supportedSubmissionLocales = array($context->getPrimaryLocale());
+		$templateMgr->assign(
+			'supportedSubmissionLocaleNames',
+			array_flip(array_intersect(
+				array_flip(AppLocale::getAllLocales()),
+				$supportedSubmissionLocales
+			))
+		);
 		return parent::fetch($request);
 	}
 

@@ -130,13 +130,14 @@ class NotificationHandler extends Handler {
 		$version = $versionDao->getCurrentVersion();
 
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('version', $version->getVersionString(false));
-		$templateMgr->assign('selfUrl', $request->getCompleteUrl());
-		$templateMgr->assign('locale', AppLocale::getPrimaryLocale());
-		$templateMgr->assign('appName', $appName);
-		$templateMgr->assign('siteTitle', $siteTitle);
-		$templateMgr->assign('formattedNotifications', $notifications);
-
+		$templateMgr->assign(array(
+			'version' => $version->getVersionString(false),
+			'selfUrl' => $request->getCompleteUrl(),
+			'locale' => AppLocale::getPrimaryLocale(),
+			'appName' => $appName,
+			'siteTitle' => $siteTitle,
+			'formattedNotifications' => $notifications,
+		));
 		$templateMgr->display('notification/' . $typeMap[$type], $mimeTypeMap[$type]);
 
 		return true;

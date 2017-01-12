@@ -8,7 +8,7 @@
   * Copyright (c) 2000-2016 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localized list of countries. Based on ISO 3166-1.
+  * Localized list of countries. Based on ISO 3166-1:2006.
   -->
 <countries>
 	<country name="Afghanistan" code="AF"/>
@@ -37,7 +37,7 @@
 	<country name="Benin" code="BJ"/>
 	<country name="Bermuda" code="BM"/>
 	<country name="Bhutan" code="BT"/>
-	<country name="Bolivia, Plurinational State of" code="BO"/>
+	<country name="Bolivia (Plurinational State of)" code="BO"/>
 	<country name="Bonaire, Sint Eustatius and Saba" code="BQ"/>
 	<country name="Bosnia and Herzegovina" code="BA"/>
 	<country name="Botswana" code="BW"/>
@@ -48,10 +48,10 @@
 	<country name="Bulgaria" code="BG"/>
 	<country name="Burkina Faso" code="BF"/>
 	<country name="Burundi" code="BI"/>
+	<country name="Cabo Verde" code="CV"/>
 	<country name="Cambodia" code="KH"/>
 	<country name="Cameroon" code="CM"/>
 	<country name="Canada" code="CA"/>
-	<country name="Cape Verde" code="CV"/>
 	<country name="Cayman Islands" code="KY"/>
 	<country name="Central African Republic" code="CF"/>
 	<country name="Chad" code="TD"/>
@@ -62,7 +62,7 @@
 	<country name="Colombia" code="CO"/>
 	<country name="Comoros" code="KM"/>
 	<country name="Congo" code="CG"/>
-	<country name="Congo, The Democratic Republic of the" code="CD"/>
+	<country name="Congo (the Democratic Republic of the)" code="CD"/>
 	<country name="Cook Islands" code="CK"/>
 	<country name="Costa Rica" code="CR"/>
 	<country name="Côte d'Ivoire" code="CI"/>
@@ -70,7 +70,7 @@
 	<country name="Cuba" code="CU"/>
 	<country name="Curaçao" code="CW"/>
 	<country name="Cyprus" code="CY"/>
-	<country name="Czech Republic" code="CZ"/>
+	<country name="Czechia" code="CZ"/>
 	<country name="Denmark" code="DK"/>
 	<country name="Djibouti" code="DJ"/>
 	<country name="Dominica" code="DM"/>
@@ -82,7 +82,7 @@
 	<country name="Eritrea" code="ER"/>
 	<country name="Estonia" code="EE"/>
 	<country name="Ethiopia" code="ET"/>
-	<country name="Falkland Islands (Malvinas)" code="FK"/>
+	<country name="Falkland Islands [Malvinas]" code="FK"/>
 	<country name="Faroe Islands" code="FO"/>
 	<country name="Fiji" code="FJ"/>
 	<country name="Finland" code="FI"/>
@@ -108,14 +108,14 @@
 	<country name="Guyana" code="GY"/>
 	<country name="Haiti" code="HT"/>
 	<country name="Heard Island and McDonald Islands" code="HM"/>
-	<country name="Holy See (Vatican City State)" code="VA"/>
+	<country name="Holy See" code="VA"/>
 	<country name="Honduras" code="HN"/>
 	<country name="Hong Kong" code="HK"/>
 	<country name="Hungary" code="HU"/>
 	<country name="Iceland" code="IS"/>
 	<country name="India" code="IN"/>
 	<country name="Indonesia" code="ID"/>
-	<country name="Iran, Islamic Republic of" code="IR"/>
+	<country name="Iran (Islamic Republic of)" code="IR"/>
 	<country name="Iraq" code="IQ"/>
 	<country name="Ireland" code="IE"/>
 	<country name="Isle of Man" code="IM"/>
@@ -128,8 +128,8 @@
 	<country name="Kazakhstan" code="KZ"/>
 	<country name="Kenya" code="KE"/>
 	<country name="Kiribati" code="KI"/>
-	<country name="Korea, Democratic People's Republic of" code="KP"/>
-	<country name="Korea, Republic of" code="KR"/>
+	<country name="Korea (the Democratic People's Republic of)" code="KP"/>
+	<country name="Korea (the Republic of)" code="KR"/>
 	<country name="Kuwait" code="KW"/>
 	<country name="Kyrgyzstan" code="KG"/>
 	<country name="Lao People's Democratic Republic" code="LA"/>
@@ -142,7 +142,7 @@
 	<country name="Lithuania" code="LT"/>
 	<country name="Luxembourg" code="LU"/>
 	<country name="Macao" code="MO"/>
-	<country name="Macedonia, Republic of" code="MK"/>
+	<country name="Macedonia (the former Yugoslav Republic of)" code="MK"/>
 	<country name="Madagascar" code="MG"/>
 	<country name="Malawi" code="MW"/>
 	<country name="Malaysia" code="MY"/>
@@ -155,8 +155,8 @@
 	<country name="Mauritius" code="MU"/>
 	<country name="Mayotte" code="YT"/>
 	<country name="Mexico" code="MX"/>
-	<country name="Micronesia, Federated States of" code="FM"/>
-	<country name="Moldova, Republic of" code="MD"/>
+	<country name="Micronesia (Federated States of)" code="FM"/>
+	<country name="Moldova (the Republic of)" code="MD"/>
 	<country name="Monaco" code="MC"/>
 	<country name="Mongolia" code="MN"/>
 	<country name="Montenegro" code="ME"/>
@@ -218,17 +218,17 @@
 	<country name="Somalia" code="SO"/>
 	<country name="South Africa" code="ZA"/>
 	<country name="South Georgia and the South Sandwich Islands" code="GS"/>
+	<country name="South Sudan" code="SS"/>
 	<country name="Spain" code="ES"/>
 	<country name="Sri Lanka" code="LK"/>
 	<country name="Sudan" code="SD"/>
 	<country name="Suriname" code="SR"/>
-	<country name="South Sudan" code="SS"/>
 	<country name="Svalbard and Jan Mayen" code="SJ"/>
 	<country name="Swaziland" code="SZ"/>
 	<country name="Sweden" code="SE"/>
 	<country name="Switzerland" code="CH"/>
 	<country name="Syrian Arab Republic" code="SY"/>
-	<country name="Taiwan, Province of China" code="TW"/>
+	<country name="Taiwan (Province of China)" code="TW"/>
 	<country name="Tajikistan" code="TJ"/>
 	<country name="Tanzania, United Republic of" code="TZ"/>
 	<country name="Thailand" code="TH"/>
@@ -245,16 +245,16 @@
 	<country name="Uganda" code="UG"/>
 	<country name="Ukraine" code="UA"/>
 	<country name="United Arab Emirates" code="AE"/>
-	<country name="United Kingdom" code="GB"/>
-	<country name="United States" code="US"/>
+	<country name="United Kingdom of Great Britain and Nothern Ireland" code="GB"/>
 	<country name="United States Minor Outlying Islands" code="UM"/>
+	<country name="United States of America" code="US"/>
 	<country name="Uruguay" code="UY"/>
 	<country name="Uzbekistan" code="UZ"/>
 	<country name="Vanuatu" code="VU"/>
-	<country name="Venezuela, Bolivarian Republic of" code="VE"/>
+	<country name="Venezuela (Bolivarian Republic of)" code="VE"/>
 	<country name="Viet Nam" code="VN"/>
-	<country name="Virgin Islands, British" code="VG"/>
-	<country name="Virgin Islands, U.S." code="VI"/>
+	<country name="Virgin Islands (British)" code="VG"/>
+	<country name="Virgin Islands (U.S.)" code="VI"/>
 	<country name="Wallis and Futuna" code="WF"/>
 	<country name="Western Sahara" code="EH"/>
 	<country name="Yemen" code="YE"/>

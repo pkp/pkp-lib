@@ -44,7 +44,6 @@
 	<message key="user.login.lostPassword.invalidUser">Κανένας χρήστης δεν υπάρχει με τη συγκεκριμένη διεύθυνση ηλεκτρονικού ταχυδρομείου.</message>
 	<message key="user.login.lostPassword.passwordSent">Ένας καινούργιος  κωδικός πρόσβασης έχει σταλεί στη διεύθυνση ηλεκτρονικού ταχυδρομείου  σας. Μπορείτε τώρα να συνδεθείτε στην συλλογή  με την χρήση του νέου σας κωδικού.</message>
 	<message key="user.login.registeredEmail">Διεύθυνση ηλεκτρονικού ταχυδρομείου εγγεγραμμένου χρήστη</message>
-	<message key="user.login.rememberUsernameAndPassword">Απομνημόνευση  του προσωπικού μου Ονόματος Χρήστη και Κωδικού Πρόσβασης</message>
 	<message key="user.login.resetPassword">Αλλαγή του προσωπικού σας Κωδικού Πρόσβασης</message>
 	<message key="user.logOut">Αποσυνδεθείτε</message>
 	<message key="user.mailingAddress">Ταχυδρομική Διεύθυνση</message>

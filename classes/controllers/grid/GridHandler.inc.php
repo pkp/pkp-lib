@@ -1011,10 +1011,12 @@ class GridHandler extends PKPHandler {
 
 		// Pass control to the view to render the row
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('grid', $this);
-		$templateMgr->assign('columns', $columns);
-		$templateMgr->assign('cells', $renderedCells);
-		$templateMgr->assign('row', $row);
+		$templateMgr->assign(array(
+			'grid' => $this,
+			'columns' => $columns,
+			'cells' => $renderedCells,
+			'row' => $row,
+		));
 		return $templateMgr->fetch($row->getTemplate());
 	}
 

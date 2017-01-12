@@ -68,33 +68,28 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 	 */
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
-
 		$reviewAssignment = $this->getReviewAssignment();
-		$reviewRoundId = $reviewAssignment->getReviewRoundId();
 
 		// Assign the objects and data to the template.
 		$context = $this->request->getContext();
-		$templateMgr->assign('reviewAssignment', $reviewAssignment);
-		$templateMgr->assign('reviewRoundId', $reviewRoundId);
-
-		// Include the review recommendation options on the form.
-		$templateMgr->assign('reviewerRecommendationOptions', ReviewAssignment::getReviewerRecommendationOptions());
+		$templateMgr->assign(array(
+			'reviewAssignment' => $reviewAssignment,
+			'reviewRoundId' => $reviewAssignment->getReviewRoundId(),
+			'reviewerRecommendationOptions' => ReviewAssignment::getReviewerRecommendationOptions(),
+		));
 
 		if ($reviewAssignment->getReviewFormId()) {
 
 			// Get the review form components
 			$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
-			$reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewAssignment->getReviewFormId());
 			$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO');
-			$reviewFormResponses = $reviewFormResponseDao->getReviewReviewFormResponseValues($reviewAssignment->getId());
 			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
-			$reviewformid = $reviewAssignment->getReviewFormId();
-			$reviewForm = $reviewFormDao->getById($reviewAssignment->getReviewFormId(), Application::getContextAssocType(), $context->getId());
-
-			$templateMgr->assign('reviewForm', $reviewForm);
-			$templateMgr->assign('reviewFormElements', $reviewFormElements);
-			$templateMgr->assign('reviewFormResponses', $reviewFormResponses);
-			$templateMgr->assign('disabled', isset($reviewAssignment) && $reviewAssignment->getDateCompleted() != null);
+			$templateMgr->assign(array(
+				'reviewForm' => $reviewFormDao->getById($reviewAssignment->getReviewFormId(), Application::getContextAssocType(), $context->getId()),
+				'reviewFormElements' => $reviewFormElementDao->getByReviewFormId($reviewAssignment->getReviewFormId()),
+				'reviewFormResponses' => $reviewFormResponseDao->getReviewReviewFormResponseValues($reviewAssignment->getId()),
+				'disabled' => isset($reviewAssignment) && $reviewAssignment->getDateCompleted() != null,
+			));
 		}
 
 		//

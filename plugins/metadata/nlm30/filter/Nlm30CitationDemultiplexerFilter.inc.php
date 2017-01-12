@@ -285,7 +285,7 @@ class Nlm30CitationDemultiplexerFilter extends Filter {
 			// Set the found "best" element value in the result citation.
 			$statements = array($propertyName => $bestValue);
 			$success = $targetDescription->setStatements($statements);
-			assert($success);
+			assert((boolean) $success);
 		}
 
 		// Instantiate the target citation

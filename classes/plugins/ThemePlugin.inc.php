@@ -234,6 +234,22 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	}
 
 	/**
+	 * Remove a registered stylesheet
+	 *
+	 * @param $name string The name of the stylesheet to remove
+	 * @return bool Whether or not the stylesheet was found and removed.
+	 */
+	public function removeStyle($name) {
+
+		if (isset($this->styles[$name])) {
+			unset($this->styles[$name]);
+			return true;
+		}
+
+		return $this->parent ? $this->parent->removeStyle($name) : false;
+	}
+
+	/**
 	 * Get a style from this theme or any parent theme
 	 *
 	 * @param $name string The name of the style to retrieve
@@ -308,6 +324,22 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	}
 
 	/**
+	 * Remove a registered script
+	 *
+	 * @param $name string The name of the script to remove
+	 * @return bool Whether or not the stylesheet was found and removed.
+	 */
+	public function removeScript($name) {
+
+		if (isset($this->scripts[$name])) {
+			unset($this->scripts[$name]);
+			return true;
+		}
+
+		return $this->parent ? $this->parent->removeScript($name) : false;
+	}
+
+	/**
 	 * Get a script from this theme or any parent theme
 	 *
 	 * @param $name string The name of the script to retrieve
@@ -338,7 +370,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 *
 	 * @param $name string Unique name for this setting
 	 * @param $type string A pre-registered type of setting. Supported values:
-	 *   text|colour|select. Default: `text`
+	 *   text|colour|radio. Default: `text`
 	 * @param $args array Optional parameters defining this setting. Some setting
 	 *   types may accept or require additional arguments.
 	 *  `label` string Locale key for a label for this field.
@@ -362,9 +394,14 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 *
 	 * @param $name The name of the option value to retrieve
 	 * @return mixed The value of the option. Will return a default if set in
-	 *  the option config.
+	 *  the option config. False if no option exists
 	 */
 	public function getOption($name) {
+
+		// Check if this is a valid option
+		if (!isset($this->options[$name])) {
+			return $this->parent ? $this->parent->getOption($name) : false;
+		}
 
 		// Retrieve option values if they haven't been loaded yet
 		if (is_null($this->_optionValues)) {
@@ -423,6 +460,39 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	}
 
 	/**
+	 * Modify option configuration settings
+	 *
+	 * @param $name The name of the option config to retrieve
+	 * @param $args The new configuration settings for this option
+	 * @return bool Whether the option was found and the config was updated.
+	 */
+	public function modifyOptionsConfig($name, $args = array()) {
+
+		if (isset($this->options[$name])) {
+			$this->options[$name] = $args;
+			return true;
+		}
+
+		return $this->parent ? $this->parent->modifyOptionsConfig($name, $args) : false;
+	}
+
+	/**
+	 * Remove an option
+	 *
+	 * @param $name The name of the option to remove
+	 * @return bool Whether the option was found and removed
+	 */
+	public function removeOption($name) {
+
+		if (isset($this->options[$name])) {
+			unset($this->options[$name]);
+			return true;
+		}
+
+		return $this->parent ? $this->parent->removeOption($name) : false;
+	}
+
+	/**
 	 * Get all option values
 	 *
 	 * This retrieves a single array containing option values for this theme
@@ -437,6 +507,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		$context = Request::getContext();
 		$contextId = empty($context) ? 0 : $context->getId();
 		$values = $pluginSettingsDAO->getPluginSettings($contextId, $this->getName());
+		$values = array_intersect_key($values, $this->options);
 
 		if (!$this->parent) {
 			return $values;

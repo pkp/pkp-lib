@@ -40,10 +40,10 @@ class UserRoleForm extends UserForm {
 	 */
 	function display($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
-
-		$templateMgr->assign('userId', $this->userId);
-		$templateMgr->assign('userFullName', $this->_userFullName);
-
+		$templateMgr->assign(array(
+			'userId' => $this->userId,
+			'userFullName' => $this->_userFullName,
+		));
 		return $this->fetch($request);
 	}
 

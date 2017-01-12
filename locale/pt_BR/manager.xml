@@ -148,6 +148,7 @@
 	<message key="manager.setup.homeHeaderImageInvalid">Formato de imagem inválido para o logo no cabeçalho da página inicial. Formatos aceitáveis são .gif, .jpg ou .png. Verifique as configurações de mime_type, permissão e dono de pasta, e tamanho de arquivo permitido.</message>
 	<message key="manager.setup.homepageImageInvalid">Formato de imagem inválido para a imagem da página inicial. Formatos aceitáveis são .gif, .jpg ou .png.Verifique as configurações de mime_type, permissão e dono de pasta, e tamanho de arquivo permitido.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Formato de imagem inválido para o título no cabeçalho da página inicial. Formatos aceitáveis são .gif, .jpg ou .png. Verifique as configurações de mime_type, permissão e dono de pasta, e tamanho de arquivo permitido.</message>
+	<message key="manager.setup.layout.leftSidebar">Barra esquerda</message>
 	<message key="manager.setup.layout.unselected">Não marcados</message>
 	<message key="manager.setup.loggingAndAuditing">Controle e Auditoria</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Formato de imagem inválido ou falha no envio para logo no cabeçalho de páginas internas. Formatos aceitáveis são .gif, .jpg ou .png. Verifique as configurações de mime_type, permissão e dono de pasta, e tamanho de arquivo permitido.</message>
@@ -174,7 +175,7 @@
 	<message key="plugins.categories.themes">Plugins de Visual</message>
 	<message key="manager.emails.form.emailKeyRequired">É necessária uma chave única para o e-mail.</message>
 	<message key="manager.setup.errorDeletingItem">Ocorreu um erro ao tentar excluir o item.</message>
-	<message key="manager.reviewerSearch.searchByName">Buscar por nome do avaliador</message>
+	<message key="manager.reviewerSearch.searchByName">Buscar por Nome do Avaliador</message>
 	<message key="manager.reviewerSearch.doneAmount">Avaliações concluídas: {$current}</message>
 	<message key="manager.reviewerSearch.avgAmount">Média de dias para avaliar: {$current}</message>
 	<message key="manager.reviewerSearch.lastAmount">Dias desde a última avaliação: {$current}</message>
@@ -229,7 +230,7 @@
 	<message key="manager.emails.resetAll.message">Caso restaure todos os modelos, todas as alterações aos modelos de mensagem serão perdidas. Deseja confirmar a operação?</message>
 	<message key="manager.emails.reset.message">Caso restaure este modelo, todos os dados da mensagem retornarão ao valor original, perdendo todas as alterações. Deseja confirmar esta operação?</message>
 	<message key="manager.masthead.title">Expediente</message>
-	<message key="manager.reviewerSearch.searchByName.short">Buscar por nome</message>
+	<message key="manager.reviewerSearch.searchByName.short">Buscar por Nome</message>
 	<message key="manager.reviewerSearch.form.instructions">Use o formulário a seguir para definir os valores máximos para os termos pelos quais deseja buscar. O formulário está preenchido previamente com médias calculadas dos campos.</message>
 	<message key="manager.reviewerSearch.form.interests.instructions">Informe as áreas de interesse para avaliação, separadas por vírgula...</message>
 	<message key="manager.setup.layout.blockManagement">Gerenciamento da barra lateral</message>
@@ -505,4 +506,6 @@ Há casos em que uma única estatística de uso devem ser utilizada, por exemplo
 	<message key="manager.setup.principalContactDescription">Digite os detalhes de contato, normalmente para do editor principal, administrador editorial ou pessoal administrativo que pode ser exibido em seu site acessível ao público.</message>
 	<message key="manager.setup.privacyStatement">Declaração de Privacidade</message>
 	<message key="manager.setup.privacyStatement.description">Esta declaração aparecerá durante o envio do manuscrito pelo autor e na página "Sobre" disponível publicamente.</message>
+	<message key="plugins.importexport.common.validationErrors">Erros de validação:</message>
+	<message key="manager.userSearch.searchByName">Buscar Esuário por Nome</message>
 </locale>

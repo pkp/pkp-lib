@@ -206,12 +206,11 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 		$email = new SubmissionMailTemplate($submission, $emailKey, null, null, null, false);
 		$email->setBody($this->getData('personalMessage'));
 
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-		$userDao = DAORegistry::getDAO('UserDAO');
-		$submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR);
-		while ($submitterAssignment = $submitterAssignments->next()) {
-			$submitterUser = $userDao->getById($submitterAssignment->getUserId());
-			$email->addRecipient($submitterUser->getEmail(), $submitterUser->getFullName());
+		// Get submission authors in the same way as for the email template form,
+		// that editor sees. This also ensures that the recipient list is not empty.
+		$authors = $submission->getAuthors(true);
+		foreach($authors as $author) {
+			$email->addRecipient($author->getEmail(), $author->getFullName());
 		}
 
 		DAORegistry::getDAO('SubmissionEmailLogDAO'); // Load constants

@@ -56,7 +56,6 @@
 	<message key="user.login.lostPassword.invalidUser">Tidak ada pengguna dengan alamat email yang spesifik.</message>
 	<message key="user.login.lostPassword.passwordSent">Kata sandi baru telah dikirim ke alamat emal Anda. Anda sekarang bisa login ke situs dengan kata sandi baru Anda.</message>
 	<message key="user.login.registeredEmail">Email pengguna yang sudah terdaftar</message>
-	<message key="user.login.rememberUsernameAndPassword">Ingat nama pengguna dan kata sandi saya.</message>
 	<message key="user.login.resetPassword">Atur ulang kata sandi</message>
 	<message key="user.logOut">Log Out</message>
 	<message key="user.mailingAddress">Alamat Surat Menyurat</message>

@@ -134,10 +134,12 @@ class UserDetailsForm extends UserForm {
 		$templateMgr = TemplateManager::getManager($request);
 		$userDao = DAORegistry::getDAO('UserDAO');
 
-		$templateMgr->assign('genderOptions', $userDao->getGenderOptions());
-		$templateMgr->assign('minPasswordLength', $site->getMinPasswordLength());
-		$templateMgr->assign('source', $request->getUserVar('source'));
-		$templateMgr->assign('userId', $this->userId);
+		$templateMgr->assign(array(
+			'genderOptions' => $userDao->getGenderOptions(),
+			'minPasswordLength' => $site->getMinPasswordLength(),
+			'source' => $request->getUserVar('source'),
+			'userId' => $this->userId,
+		));
 
 		if (isset($this->userId)) {
 			$user = $userDao->getById($this->userId);

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file controllers/listbuilder/settings/BlockPluginsListbuilderHandler.inc.php
  *

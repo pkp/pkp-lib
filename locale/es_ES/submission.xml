@@ -407,7 +407,6 @@
 	<message key="submission.submit.metadataForm">Mejoras adicionales</message>
 	<message key="submission.submit.metadataForm.tip">Añada más información al envío.  Pulse "Intro" después de cada término.</message>
 	<message key="submission.submit.submissionLocale">Idioma del envío</message>
-	<message key="submission.submit.submissionLocaleDescription">Esta publicación acepta envíos en varios idiomas. Elija el idioma principal del envío en el menú desplegable que aparece a continuación.</message>
 	<message key="submission.submit.submissionFiles">Archivos de envío</message>
 	<message key="submission.submit.dependentFiles">Archivos dependientes</message>
 	<message key="submission.manageDependentFiles">Gestionar los archivos dependientes</message>

@@ -144,6 +144,7 @@
 		}
 	};
 
+
 	/**
 	 * Check if the field is missing a localization
 	 *
@@ -156,14 +157,14 @@
 			function() {
 
 		var $popover = this.getHtmlElement(),
-			$inputs = [],
-			valuesCount = 0;
+				$inputs = [],
+				valuesCount = 0;
 
 		// Track current values in the tinyMCE control
 		if (this.getHtmlElement().find('.richContent').length) {
 			$popover.find('textarea').each(function() {
 				var id = $(this).attr('id'),
-					tinymce;
+						tinymce;
 
 				$inputs.push($(this));
 				tinymce = tinyMCE.EditorManager.get(/** @type {string} */(

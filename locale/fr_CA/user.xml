@@ -44,7 +44,6 @@
 	<message key="user.login.lostPassword.invalidUser">Aucun utilisateur n'existe avec l'adresse de courriel indiquée.</message>
 	<message key="user.login.lostPassword.passwordSent">Un nouveau mot de passe a été envoyé à votre adresse de courriel. Vous pouvez maintenant vous connecter au site avec votre nouveau mot de passe.</message>
 	<message key="user.login.registeredEmail">Courriel de l'utilisateur inscrit</message>
-	<message key="user.login.rememberUsernameAndPassword">Mémoriser mon nom d'usager et mon mot de passe</message>
 	<message key="user.login.resetPassword">Réinitialiser le mot de passe</message>
 	<message key="user.logOut">Se déconnecter</message>
 	<message key="user.mailingAddress">Adresse postale</message>

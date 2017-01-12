@@ -39,13 +39,6 @@ class PKPEditorDecisionHandler extends Handler {
 		import('lib.pkp.classes.security.authorization.internal.ReviewRoundRequiredPolicy');
 		$this->addPolicy(new ReviewRoundRequiredPolicy($request, $args, 'reviewRoundId', $reviewRoundOps));
 
-		// Approve proof need submission access policy.
-		$router = $request->getRouter();
-		if ($router->getRequestedOp($request) == 'saveApproveProof') {
-			import('lib.pkp.classes.security.authorization.SubmissionFileAccessPolicy');
-			$this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_MODIFY));
-		}
-
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 
@@ -228,7 +221,7 @@ class PKPEditorDecisionHandler extends Handler {
 				while ($comment = $submissionComments->next()) {
 					// If the comment is viewable by the author, then add the comment.
 					if ($comment->getViewable()) {
-						$body .= PKPString::html2text($comment->getComments()) . "\n\n";
+						$body .= PKPString::stripUnsafeHtml($comment->getComments());
 					}
 				}
 				$body .= "<br>$textSeparator<br><br>";
@@ -239,32 +232,36 @@ class PKPEditorDecisionHandler extends Handler {
 
 					$reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewFormId);
 					if(!$submissionComments) {
-						$body .= "$textSeparator\n";
+						$body .= "$textSeparator<br>";
 
-						$body .= __('submission.comments.importPeerReviews.reviewerLetter', array('reviewerLetter' => PKPString::enumerateAlphabetically($reviewIndexes[$reviewAssignment->getId()]))) . "\n\n";
+						$body .= __('submission.comments.importPeerReviews.reviewerLetter', array('reviewerLetter' => PKPString::enumerateAlphabetically($reviewIndexes[$reviewAssignment->getId()]))) . '<br><br>';
 					}
 					while ($reviewFormElement = $reviewFormElements->next()) {
-						$body .= PKPString::html2text($reviewFormElement->getLocalizedQuestion()) . ": \n";
+						if (!$reviewFormElement->getIncluded()) continue;
+
+						$body .= PKPString::stripUnsafeHtml($reviewFormElement->getLocalizedQuestion());
 						$reviewFormResponse = $reviewFormResponseDao->getReviewFormResponse($reviewId, $reviewFormElement->getId());
 
 						if ($reviewFormResponse) {
 							$possibleResponses = $reviewFormElement->getLocalizedPossibleResponses();
 							if (in_array($reviewFormElement->getElementType(), $reviewFormElement->getMultipleResponsesElementTypes())) {
 								if ($reviewFormElement->getElementType() == REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES) {
+									$body .= '<ul>';
 									foreach ($reviewFormResponse->getValue() as $value) {
-										$body .= "\t" . PKPString::html2text($possibleResponses[$value]) . "\n";
+										$body .= '<li>' . PKPString::stripUnsafeHtml($possibleResponses[$value]) . '</li>';
 									}
+									$body .= '</ul>';
 								} else {
-									$body .= "\t" . PKPString::html2text($possibleResponses[$reviewFormResponse->getValue()]) . "\n";
+									$body .= '<blockquote>' . PKPString::stripUnsafeHtml($possibleResponses[$reviewFormResponse->getValue()]) . '</blockquote>';
 								}
-								$body .= "\n";
+								$body .= '<br>';
 							} else {
-								$body .= "\t" . PKPString::html2text($reviewFormResponse->getValue()) . "\n\n";
+								$body .= '<blockquote>' . htmlspecialchars($reviewFormResponse->getValue()) . '</blockquote>';
 							}
 						}
 
 					}
-					$body .= "$textSeparator\n\n";
+					$body .= "$textSeparator<br><br>";
 
 				}
 

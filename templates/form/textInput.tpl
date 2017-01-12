@@ -28,6 +28,7 @@
 			value="{$FBV_value[$formLocale]|escape}"
 			name="{$FBV_name|escape}[{$formLocale|escape}]"
 			id="{$FBV_id|escape}-{$formLocale|escape}{$uniqId}"
+			{if $FBV_required} required aria-required="true"{/if}
 		/>
 
 		{$FBV_label_content}
@@ -60,7 +61,15 @@
 		value="{if $FBV_multilingual}{$FBV_value[$formLocale]|escape}{else}{$FBV_value|escape}{/if}"
 		id="{$FBV_id|escape}{$uniqId}"
 		{if $FBV_tabIndex} tabindex="{$FBV_tabIndex|escape}"{/if}
+		{if $FBV_required} required aria-required="true"{/if}
 	/>
+
+	{if $FBV_class|strstr:"datepicker"} 
+		<input data-date-format="{$dateFormatShort|dateformatPHP2JQueryDatepicker}" type="hidden" 
+		name="{$FBV_name|escape}{if $FBV_multilingual}[{$formLocale|escape}]{/if}"
+		value="{if $FBV_multilingual}{$FBV_value[$formLocale]|escape}{else}{$FBV_value|escape}{/if}"
+		id="{$FBV_id|escape}{$uniqId}-altField" />
+	{/if}
 
 	<span>{$FBV_label_content}</span>
 {/if}

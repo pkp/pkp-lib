@@ -81,10 +81,11 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter {
 			if (in_array($userGroupName, $userGroup->getName(null))) {
 				// Found a candidate; stash it.
 				$author->setUserGroupId($userGroup->getId());
+				break;
 			}
 		}
 		if (!$author->getUserGroupId()) {
-			fatalError("Could not identify a matching user group \"$userGroupName\".");
+			$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownUserGroup', array('param' => $userGroupName)));
 		}
 
 		// Handle metadata in subelements

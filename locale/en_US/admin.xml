@@ -73,7 +73,7 @@
 	<message key="admin.settings.form.titleRequired">A title is required.</message>
 	<message key="admin.settings.defaultMetricDescription">
 		Your installation is configured to record more than one usage metric. Usage statistics will be displayed in several contexts.
-		There are cases where a single usage statistic must be used, e.g. to display an orderd list of most-used submissions or to rank
+		There are cases where a single usage statistic must be used, e.g. to display an ordered list of most-used submissions or to rank
 		search results. Please select one of the configured metrics as a default.
 	</message>
 	<message key="admin.settings.homeHeaderImage.altText">Site Logo</message>

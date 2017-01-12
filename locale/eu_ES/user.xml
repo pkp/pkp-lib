@@ -44,7 +44,6 @@
 	<message key="user.login.lostPassword.invalidUser">Ez dago helbide elektroniko hori duen erabiltzailerik.</message>
 	<message key="user.login.lostPassword.passwordSent">Pasahitz berri bat bidali da zure helbide elektronikora. Pasahitz berriarekin sartuko zara orain webgunean.</message>
 	<message key="user.login.registeredEmail">Erabiltzaile erregistratuaren helbide elektronikoa</message>
-	<message key="user.login.rememberUsernameAndPassword">Gogoratu nire erabiltzaile-izena eta pasahitza</message>
 	<message key="user.login.resetPassword">Berrezarri pasahitza</message>
 	<message key="user.logOut">Amaitu saioa</message>
 	<message key="user.mailingAddress">Posta-helbidea</message>

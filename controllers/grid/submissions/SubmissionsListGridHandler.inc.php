@@ -123,11 +123,11 @@ class SubmissionsListGridHandler extends GridHandler {
 		ksort($workflowStages);
 		$filterColumns = $this->getFilterColumns();
 
-		$filterData = array(
+		$filterData = array_merge($filterData, array(
 			'columns' => $filterColumns,
 			'workflowStages' => $workflowStages,
 			'gridId' => $this->getId()
-		);
+		));
 
 		return parent::renderFilter($request, $filterData);
 	}

@@ -15,7 +15,7 @@
 
 import('lib.pkp.classes.form.Form');
 
-class PKPStageParticipantNotifyForm extends Form {
+abstract class PKPStageParticipantNotifyForm extends Form {
 	/** @var int The file/submission ID this form is for */
 	var $_itemId;
 
@@ -267,6 +267,7 @@ class PKPStageParticipantNotifyForm extends Form {
 			case 'EDITOR_ASSIGN': return array(
 				'editorUsername' => __('user.username'),
 				'editorialContactName' => __('user.role.editor'),
+				'submissionUrl' => __('common.url'),
 			);
 		}
 	}
@@ -322,9 +323,7 @@ class PKPStageParticipantNotifyForm extends Form {
 	 * return app-specific stage templates.
 	 * @return array
 	 */
-	protected function _getStageTemplates() {
-		assert(false); // Must be overridden in sub classs.
-	}
+	abstract protected function _getStageTemplates();
 
 	/**
 	 * Return app-specific mail template.
@@ -333,9 +332,7 @@ class PKPStageParticipantNotifyForm extends Form {
 	 * @param $includeSignature boolean
 	 * @return array
 	 */
-	protected function _getMailTemplate($submission, $templateKey, $includeSignature = true) {
-		assert(false); // Must be overridden in sub classs.
-	}
+	abstract protected function _getMailTemplate($submission, $templateKey, $includeSignature = true);
 }
 
 ?>

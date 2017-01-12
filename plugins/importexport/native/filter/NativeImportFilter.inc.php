@@ -43,21 +43,21 @@ class NativeImportFilter extends NativeImportExportFilter {
 		assert(is_a($document, 'DOMDocument'));
 
 		$deployment = $this->getDeployment();
-		$submissions = array();
+		$importedObjects = array();
 		if ($document->documentElement->tagName == $this->getPluralElementName()) {
 			// Multiple element (plural) import
 			for ($n = $document->documentElement->firstChild; $n !== null; $n=$n->nextSibling) {
 				if (!is_a($n, 'DOMElement')) continue;
-				$submissions[] = $this->handleElement($n);
+				$importedObjects[] = $this->handleElement($n);
 			}
 		} else {
 			assert($document->documentElement->tagName == $this->getSingularElementName());
 
 			// Single element (singular) import
-			$submissions[] = $this->handleElement($document->documentElement);
+			$importedObjects[] = $this->handleElement($document->documentElement);
 		}
 
-		return $submissions;
+		return $importedObjects;
 	}
 
 	/**

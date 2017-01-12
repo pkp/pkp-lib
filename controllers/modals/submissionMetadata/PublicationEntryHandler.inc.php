@@ -104,18 +104,12 @@ class PublicationEntryHandler extends Handler {
 	 */
 	function fetch($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
-
-		$submission = $this->getSubmission();
-
-		$templateMgr->assign('submissionId', $submission->getId());
-		$templateMgr->assign('stageId', $this->getStageId());
-		$tabPosition = (int) $this->getTabPosition();
-		$templateMgr->assign('selectedTab', $tabPosition);
-
-		if ($request->getUserVar('hideHelp')) {
-			$templateMgr->assign('hideHelp', true);
-		}
-
+		$templateMgr->assign(array(
+			'submissionId' => $this->getSubmission()->getId(),
+			'stageId' => $this->getStageId(),
+			'selectedTab' => (int) $this->getTabPosition(),
+			'hideHelp' => (boolean) $request->getUserVar('hideHelp'),
+		));
 		$this->setupTemplate($request);
 	}
 

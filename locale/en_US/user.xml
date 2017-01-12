@@ -66,7 +66,7 @@
 	<message key="user.login.registrationComplete.newSubmission">Make a New Submission</message>
 	<message key="user.login.registrationComplete.continueBrowsing">Continue Browsing</message>
 	<message key="user.login.registrationPendingValidation">Registration awaiting verification</message>
-	<message key="user.login.rememberUsernameAndPassword">Remember my username and password</message>
+	<message key="user.login.rememberUsernameAndPassword">Keep me logged in</message>
 	<message key="user.login.resetPassword">Reset Password</message>
 	<message key="user.logOut">Logout</message>
 	<message key="user.logOutAs">Logout as</message>

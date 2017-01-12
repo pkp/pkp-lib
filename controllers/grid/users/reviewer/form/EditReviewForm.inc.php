@@ -63,13 +63,12 @@ class EditReviewForm extends Form {
 	 */
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
-
-		// Pass along various necessary parameters from request
-		$templateMgr->assign('stageId', $this->_reviewAssignment->getStageId());
-		$templateMgr->assign('reviewRoundId', $this->_reviewRound->getId());
-		$templateMgr->assign('submissionId', $this->_reviewAssignment->getSubmissionId());
-		$templateMgr->assign('reviewAssignmentId', $this->_reviewAssignment->getId());
-
+		$templateMgr->assign(array(
+			'stageId' => $this->_reviewAssignment->getStageId(),
+			'reviewRoundId' => $this->_reviewRound->getId(),
+			'submissionId' => $this->_reviewAssignment->getSubmissionId(),
+			'reviewAssignmentId' => $this->_reviewAssignment->getId(),
+		));
 		return parent::fetch($request);
 	}
 

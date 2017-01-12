@@ -48,6 +48,8 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter {
 	function &process(&$authors) {
 		// Create the XML document
 		$doc = new DOMDocument('1.0');
+		$doc->preserveWhiteSpace = false;
+		$doc->formatOutput = true;
 		$deployment = $this->getDeployment();
 
 		// Multiple authors; wrap in a <authors> element
@@ -82,18 +84,18 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter {
 
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroup = $userGroupDao->getById($author->getUserGroupId());
-		assert($userGroup);
+		assert(isset($userGroup));
 		$authorNode->setAttribute('user_group_ref', $userGroup->getName($context->getPrimaryLocale()));
 
 		// Add metadata
-		$authorNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'firstname', $author->getFirstName()));
+		$authorNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'firstname', htmlspecialchars($author->getFirstName(), ENT_COMPAT, 'UTF-8')));
 		$this->createOptionalNode($doc, $authorNode, 'middlename', $author->getMiddleName());
-		$authorNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'lastname', $author->getLastName()));
+		$authorNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'lastname', htmlspecialchars($author->getLastName(), ENT_COMPAT, 'UTF-8')));
 
 		$this->createLocalizedNodes($doc, $authorNode, 'affiliation', $author->getAffiliation(null));
 
 		$this->createOptionalNode($doc, $authorNode, 'country', $author->getCountry());
-		$authorNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'email', $author->getEmail()));
+		$authorNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'email', htmlspecialchars($author->getEmail(), ENT_COMPAT, 'UTF-8')));
 		$this->createOptionalNode($doc, $authorNode, 'url', $author->getUrl());
 
 		$this->createLocalizedNodes($doc, $authorNode, 'biography', $author->getBiography(null));

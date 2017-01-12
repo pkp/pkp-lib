@@ -87,12 +87,15 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 	 * @param $submissionFiles array
 	 */
 	function handleChildElement($node, $stageId, $fileId, &$submissionFiles) {
+		$deployment = $this->getDeployment();
+		$submission = $deployment->getSubmission();
 		switch ($node->tagName) {
 			case 'revision':
-				$submissionFiles[] = $this->handleRevisionElement($node, $stageId, $fileId);
+				$submissionFile = $this->handleRevisionElement($node, $stageId, $fileId);
+				if ($submissionFile) $submissionFiles[] = $submissionFile;
 				break;
 			default:
-				fatalError('Unknown element ' . $node->tagName);
+				$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownElement', array('param' => $node->tagName)));
 		}
 	}
 
@@ -109,8 +112,11 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		$submission = $deployment->getSubmission();
 		$context = $deployment->getContext();
 
+		$errorOccured = false;
+
 		$revisionId = $node->getAttribute('number');
 
+		$genreId = null;
 		$genreName = $node->getAttribute('genre');
 		if ($genreName) {
 			// Build a cached list of genres by context ID by name
@@ -124,12 +130,12 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 				}
 			}
 			if (!isset($genresByContextId[$context->getId()][$genreName])) {
-				fatalError('Unknown genre "' . $genreName . '"!');
+				$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownGenre', array('param' => $genreName)));
+				$errorOccured = true;
+			} else {
+				$genre = $genresByContextId[$context->getId()][$genreName];
+				$genreId = $genre->getId();
 			}
-			$genre = $genresByContextId[$context->getId()][$genreName];
-			$genreId = $genre->getId();
-		} else {
-			$genreId = null;
 		}
 
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
@@ -157,7 +163,12 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		while ($userGroup = $userGroups->next()) {
 			if (in_array($uploaderUserGroup, $userGroup->getName(null))) {
 				$submissionFile->setUserGroupId($userGroup->getId());
+				break;
 			}
+		}
+		if (!$submissionFile->getUserGroupId()) {
+			$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownUserGroup', array('param' => $uploaderUserGroup)));
+			$errorOccured = true;
 		}
 
 		// Do the same for the user.
@@ -165,6 +176,9 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		$user = $userDao->getByUsername($uploaderUsername);
 		if ($user) {
 			$submissionFile->setUploaderUserId($user->getId());
+		} else {
+			$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownUploader', array('param' => $uploaderUsername)));
+			$errorOccured = true;
 		}
 
 		$fileSize = $node->getAttribute('filesize');
@@ -175,8 +189,14 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 
 		$submissionFile->setRevision($revisionId);
 
-		$insertedSubmissionFile = $submissionFileDao->insertObject($submissionFile, $filename, false);
-		$deployment->setFileDBId($fileId, $revisionId, $insertedSubmissionFile->getFileId());
+		if ($errorOccured) {
+			// if error occured, the file cannot be inserted into DB, becase
+			// genre, uploader and user group are required (e.g. at name generation).
+			$submissionFile = null;
+		} else {
+			$insertedSubmissionFile = $submissionFileDao->insertObject($submissionFile, $filename, false);
+			$deployment->setFileDBId($fileId, $revisionId, $insertedSubmissionFile->getFileId());
+		}
 
 		$fileManager = new FileManager();
 		$fileManager->deleteFile($filename);
@@ -193,6 +213,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 	function handleRevisionChildElement($node, $submission, $submissionFile) {
 		$deployment = $this->getDeployment();
 		$context = $deployment->getContext();
+		$submission = $deployment->getSubmission();
 		switch ($node->tagName) {
 			case 'id':
 				$this->parseIdentifier($node, $submissionFile);
@@ -209,12 +230,13 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 				break;
 			case 'embed':
 				$submissionFile->setFileType($node->getAttribute('mime_type'));
-				if (($e = $node->getAttribute('encoding')) != 'base64') {
-					fatalError('Unknown encoding "' . $e . '"!');
-				}
 				$temporaryFileManager = new TemporaryFileManager();
 				$temporaryFilename = tempnam($temporaryFileManager->getBasePath(), 'embed');
-				file_put_contents($temporaryFilename, base64_decode($node->textContent));
+				if (($e = $node->getAttribute('encoding')) != 'base64') {
+					$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownEncoding', array('param' => $e)));
+				} else {
+					file_put_contents($temporaryFilename, base64_decode($node->textContent));
+				}
 				return $temporaryFilename;
 				break;
 		}

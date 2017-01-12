@@ -19,7 +19,7 @@
 	<input type="hidden" name="userId" value="{$userId|escape}" />
 
 	{fbvFormSection title="email.subject" for="subject" required="true" size=$fbvStyles.size.MEDIUM inline=true}
-		{fbvElement type="text" id="subject" value=$subject}
+		{fbvElement type="text" id="subject" value=$subject required="true"}
 	{/fbvFormSection}
 
 	{fbvFormSection title="email.to" size=$fbvStyles.size.MEDIUM inline=true}
@@ -27,7 +27,7 @@
 	{/fbvFormSection}
 
 	{fbvFormSection title="email.body" for="message" required="true"}
-		{fbvElement type="textarea" id="message" value=$message rich=true}
+		{fbvElement type="textarea" id="message" value=$message rich=true required="true"}
 	{/fbvFormSection}
 
 	{fbvFormButtons submitText="common.sendEmail"}

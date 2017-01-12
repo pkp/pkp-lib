@@ -125,6 +125,14 @@ class QueriesAccessHelper {
 		// Managers and sub editors are always allowed
 		if (count(array_intersect($userRoles, array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR)))) return true;
 
+		// Users can always delete their own placeholder queries.
+		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$query = $queryDao->getById($queryId);
+		if ($query) {
+			$headNote = $query->getHeadNote();
+			if ($headNote->getUserId() == $this->_user->getId() && $headNote->getTitle()=='') return true;
+		}
+
 		// Otherwise, not allowed.
 		return false;
 	}

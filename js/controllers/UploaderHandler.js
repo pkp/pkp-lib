@@ -35,7 +35,10 @@
 				' to a div!'].join(''));
 		}
 
-		var uploaderOptions, pluploaderId;
+		var uploaderOptions,
+				pluploaderId,
+				$browseButton,
+				self;
 
 		// Set up options to pass to plupload
 		uploaderOptions = {
@@ -88,15 +91,26 @@
 		this.pluploader.bind('QueueChanged',
 				this.callbackWrapper(this.refreshUploader));
 
-		// Pass clicks from the visual button to plupload's file input
-		pluploaderId = this.pluploader.id;
-		this.getHtmlElement().find('#' + uploaderOptions.browse_button)
-				.click(function(e) {
-					e.preventDefault();
-					$(this).siblings('.moxie-shim').find('input').click();
-				});
+		// Ensure clicks on the visual button don't attempt to submit the form
+		$browseButton = $('#' + uploaderOptions.browse_button, this.getHtmlElement());
+		$browseButton.click(function(e) {
+			return false;
+		});
 
 		this.pluploader.refresh();
+
+		// Fake a focus effect on the visual button when plupload's hidden
+		// button is focused
+		self = this;
+		setTimeout(function() {
+			self.getHtmlElement().find('.moxie-shim input')
+			.focus(function(e) {
+						$browseButton.addClass('in_focus');
+					})
+			.blur(function(e) {
+						$browseButton.removeClass('in_focus');
+					});
+		}, 100);
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.UploaderHandler, $.pkp.classes.Handler);

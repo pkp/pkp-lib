@@ -21,10 +21,10 @@
 
 {fbvFormArea id="genreInfo"}
 {fbvFormSection title="common.name" for="name" required="true"}
-	{fbvElement type="text" multilingual="true" id="name" value=$name maxlength="80"}
+	{fbvElement type="text" multilingual="true" id="name" value=$name maxlength="80" required="true"}
 {/fbvFormSection}
 {fbvFormSection title="common.designation" for="designation" required="true"}
-	{fbvElement type="text" id="designation" value=$designation maxlength="80"}
+	{fbvElement type="text" id="designation" value=$designation maxlength="80" required="true"}
 {/fbvFormSection}
 {fbvFormSection list="true" title="common.options"}
 	{fbvElement type="checkbox" id="sortable" checked=$sortable label="manager.setup.genres.sortable"}

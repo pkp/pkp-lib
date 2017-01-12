@@ -275,6 +275,17 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 	}
 
 	/**
+	 * Get all hooks that define the
+	 * finished file download.
+	 * @return array
+	 */
+	protected function getDownloadFinishedEventHooks() {
+		return array(
+			'FileManager::downloadFileFinished'
+		);
+	}
+
+	/**
 	 * Log the usage event into a file.
 	 * @param $hookName string
 	 * @param $args array
@@ -287,7 +298,7 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 		// Check the statistics opt-out.
 		if ($this->_optedOut) return false;
 
-		if ($hookName == 'FileManager::downloadFileFinished' && !$usageEvent && $this->_currentUsageEvent) {
+		if (in_array($hookName, $this->getDownloadFinishedEventHooks()) && !$usageEvent && $this->_currentUsageEvent) {
 			// File download is finished, try to log the current usage event.
 			$downloadSuccess = $args[2];
 			if ($downloadSuccess && !connection_aborted()) {

@@ -137,6 +137,17 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 	}
 
 	/**
+	 * Get all hooks that define the
+	 * finished file download.
+	 * @return array
+	 */
+	protected function getDownloadFinishedEventHooks() {
+		return array(
+			'FileManager::downloadFileFinished'
+		);
+	}
+
+	/**
 	 * Build an usage event.
 	 * @param $hookName string
 	 * @param $args array
@@ -144,7 +155,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 	 */
 	protected function buildUsageEvent($hookName, $args) {
 		// Finished downloading a file?
-		if ($hookName == 'FileManager::downloadFileFinished') {
+		if (in_array($hookName, $this->getDownloadFinishedEventHooks())) {
 			// The usage event for this request is already build and
 			// passed to any other registered hook.
 			return null;

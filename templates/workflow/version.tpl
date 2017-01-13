@@ -10,8 +10,6 @@
 
 <div class="pkp_panel_wrapper">
 
-	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="reviewRoundNotification_"|concat:$reviewRoundId requestOptions=$reviewRoundNotificationRequestOptions}
-
 	<div class="pkp_context_sidebar">
 
 		{** edit metadata of this version **}
@@ -44,7 +42,7 @@
 		{load_url_in_div id="productionReadyFilesGridDiv" url=$productionReadyFilesGridUrl} 
 
 		{** galleys **}
-		{url|assign:representationsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.articleGalleys.ArticleGalleyGridHandler" op="fetchGrid" submissionId=$submission->getId() escape=false}
+		{url|assign:representationsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.articleGalleys.ArticleGalleyGridHandler" op="fetchGrid" submissionId=$submission->getId() submissionRevision=$submissionRevision escape=false}
 		{load_url_in_div id="formatsGridContainer"|uniqid url=$representationsGridUrl}
 
 	</div>

@@ -138,6 +138,19 @@ abstract class PKPWorkflowTabHandler extends Handler {
 				$templateMgr->assign('representations', $representations->toAssociativeArray());
 
 				$templateMgr->assign('productionNotificationRequestOptions', $notificationRequestOptions);
+
+				// Versioning
+				$context = $request->getContext();
+				$templateMgr->assign('versioningEnabled', $context->getSetting('versioningEnabled'));
+
+				// get all revisions of this submission
+				$articleDao = DAORegistry::getDAO('ArticleDAO');
+				$submissionRevisions = $articleDao->getSubmissionRevisions($submission->getId(), $context->getId(), true, false, SORT_DIRECTION_ASC);
+				$templateMgr->assign('submissionRevisions', $submissionRevisions);
+
+				// get latest submission revision
+				$latestSubmissionRevision = $articleDao -> getLatestRevisionId($submission->getId(), $context->getId());
+				$templateMgr->assign('latestSubmissionRevision', $latestSubmissionRevision);
 				return $templateMgr->fetchJson('controllers/tab/workflow/production.tpl');
 		}
 	}

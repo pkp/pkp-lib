@@ -85,6 +85,22 @@ class Representation extends DataObject {
 	}
 
 	/**
+	 * Set submission revision.
+	 * @param $submissionRevision int
+	 */
+	function setSubmissionRevision($submissionRevision) {
+		$this->setData('submissionRevision', $submissionRevision);
+	}
+
+	/**
+	 * Get submission revision.
+	 * @return int
+	 */
+	function getSubmissionRevision() {
+		return $this->getData('submissionRevision');
+	}
+
+	/**
 	 * Determines if a representation is approved or not.
 	 * @return boolean
 	 */

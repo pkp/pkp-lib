@@ -74,9 +74,6 @@ class PKPVersioningTabHandler extends Handler {
 	protected function _version($args, $request) {
 		$this->setupTemplate($request);
 
-		$debugFile = fopen("debug.txt", "a");
-		fwrite($debugFile, "PKPVersioningTabHandler _version <br>");
-
 		// Retrieve the authorized submission, stage id and submission revision.
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);

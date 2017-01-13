@@ -116,7 +116,7 @@ class UpgradeTool extends CommandLineTool {
 		$download = $versionInfo['package'];
 		$outFile = basename($download);
 
-		printf("Download %s: %s\n", $type, $download);
+		printf("Download: %s\n", $download);
 		printf("File will be saved to: %s\n", $outFile);
 
 		if (!$this->promptContinue()) {

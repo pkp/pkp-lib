@@ -18,7 +18,8 @@ class SubmissionTest extends PKPTestCase {
 	 * @see PKPTestCase::setUp()
 	 */
 	protected function setUp() {
-		$this->submission = $this->_getSubmission();
+		$submissionDao = Application::getSubmissionDao();
+		$this->submission = $submissionDao->newDataObject();
 	}
 	/**
 	 * @see PKPTestCase::tearDown()
@@ -80,22 +81,6 @@ class SubmissionTest extends PKPTestCase {
 		$this->submission->setPages('0');
 		$pageArray = $this->submission->getPageArray();
 		$this->assertSame($expected,$pageArray);
-	}
-
-	/**
-	 * Return the application specific submission object.
-	 * @return Submission|null
-	 */
-	function _getSubmission() {
-		$submissionDAO = Application::getSubmissionDAO();
-		if (is_a($submissionDAO, 'ArticleDAO')) {
-			import('classes.article.Article');
-			return new Article();
-		} elseif (is_a($submissionDAO, 'MonographDAO')) {
-			import('classes.monograph.Monograph');
-			return new Monograph();
-		}
-		return null;
 	}
 }
 ?>

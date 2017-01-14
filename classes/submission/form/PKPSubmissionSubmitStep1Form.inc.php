@@ -161,6 +161,51 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	}
 
 	/**
+	 * Add or update comments to editor
+	 */
+	function setCommentsToEditor($submissionId, $commentsToEditor, $userId, $update = null) {
+		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$noteDao = DAORegistry::getDAO('NoteDAO');
+
+		if (!isset($update)){
+			$query = $queryDao->newDataObject();
+			$query->setAssocType(ASSOC_TYPE_SUBMISSION);
+			$query->setAssocId($submissionId);
+			$query->setStageId(WORKFLOW_STAGE_ID_SUBMISSION);
+			$query->setSequence(REALLY_BIG_NUMBER);
+			$queryDao->insertObject($query);
+			$queryDao->resequence(ASSOC_TYPE_SUBMISSION, $submissionId);
+			$queryDao->insertParticipant($query->getId(), $userId);
+			$queryId = $query->getId();
+
+			$note = $noteDao->newDataObject();
+			$note->setUserId($userId);
+			$note->setAssocType(ASSOC_TYPE_QUERY);
+			$note->setTitle('Comments to editor'); // Localize?
+			$note->setContents($commentsToEditor);
+			$note->setDateCreated(Core::getCurrentDate());
+			$note->setDateModified(Core::getCurrentDate());			
+			$note->setAssocId($queryId);
+			$noteDao->insertObject($note);
+
+		} else{
+			$queries = $queryDao->getByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId);
+			$query = $queries->next();
+			$queryId = $query->getData('id');
+
+			$notes = $noteDao->getByAssoc(ASSOC_TYPE_QUERY, $queryId);
+			if (!$notes->wasEmpty()) {
+				$note = $notes->next();
+				$note->setContents($commentsToEditor);
+				$note->setDateModified(Core::getCurrentDate());
+				$noteDao->updateObject($note);
+			}
+
+		}
+
+	}
+
+	/**
 	 * Save changes to submission.
 	 * @param $args array
 	 * @param $request PKPRequest
@@ -168,6 +213,8 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 */
 	function execute($args, $request) {
 		$submissionDao = Application::getSubmissionDAO();
+		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$user = $request->getUser();
 
 		if (isset($this->submission)) {
 			// Update existing submission
@@ -176,11 +223,20 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 				$this->submission->stampStatusModified();
 				$this->submission->setSubmissionProgress($this->step + 1);
 			}
+			// Add or update comments to editor
+			if ($this->getData('commentsToEditor')){
+				$queries = $queryDao->getByAssoc(ASSOC_TYPE_SUBMISSION, $this->submissionId);
+				$query = $queries->next();
+				if (isset($query)){
+					$this->setCommentsToEditor($this->submissionId, $this->getData('commentsToEditor'), $user->getId(), 1);
+				} else{
+					$this->setCommentsToEditor($this->submissionId, $this->getData('commentsToEditor'), $user->getId());
+				}
+			}
 			$submissionDao->updateObject($this->submission);
 		} else {
 			// Create new submission
 			$this->submission = $submissionDao->newDataObject();
-			$user = $request->getUser();
 			$this->submission->setContextId($this->context->getId());
 
 			$this->setSubmissionData($this->submission);
@@ -216,6 +272,12 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			// Assign the user author to the stage
 			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 			$stageAssignmentDao->build($this->submissionId, $authorUserGroupId, $user->getId());
+
+			// Add comments to editor
+			if ($this->getData('commentsToEditor')){
+				$this->setCommentsToEditor($this->submissionId, $this->getData('commentsToEditor'), $user->getId());
+			}
+
 		}
 
 		return $this->submissionId;

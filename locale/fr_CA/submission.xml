@@ -632,4 +632,5 @@
 	<message key="submission.query.activity.contents">Une nouvelle entrée vient d'être ajouté dans la discussion intitulée "{$queryTitle}" pour la soumission "{$submissionTitle}".</message>
 	<message key="submission.query.new.contents">Vous avez été ajouté à une discussion intitulée "{$queryTitle}" au sujet de la soumission "{$submissionTitle}".</message>
 	<message key="submission.submit.includeInBrowse">Inclure ce contributeur dans la liste ?</message>
+	<message key="submission.submit.submissionLocaleDescription">Les soumission dans plusieurs langues sont acceptées. Choisissez la langue principal de la soumission parmi celle présentes dans le menu déroulant.</message>
 </locale>

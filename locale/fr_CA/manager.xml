@@ -513,4 +513,11 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.plugins.installedVersionNewest.short">Version à jour</message>
 	<message key="manager.plugins.noCompatibleVersion.short">Pas disponible</message>
 	<message key=""><![CDATA[]]></message>
+	<message key="manager.setup.layout.sidebar">Barre latérale</message>
+	<message key="plugins.importexport.common.errorsOccured">Erreurs:</message>
+	<message key="plugins.importexport.common.error.unknownElement">Élément inconnu {$param}</message>
+	<message key="plugins.importexport.common.error.unknownGenre">Genre inconnu {$param}</message>
+	<message key="plugins.importexport.common.error.unknownEncoding">Encodage inconnu {$param}</message>
+	<message key="plugins.importexport.common.error.unknownUserGroup">Groupe d'utilisateur inconnu {$param}</message>
+	<message key="plugins.importexport.common.error.unknownUploader">Téléverseur inconnu {$param}</message>
 </locale>

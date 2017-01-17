@@ -259,4 +259,5 @@
 	<message key="grid.userGroup.assignedStage">Le rôle {$userGroupName} est assigné à l'étape {$stageName}.</message>
 	<message key="grid.userGroup.unassignedStage">Le rôle {$userGroupName} est désassigner de l'étape {$stageName}.</message>
 	<message key="grid.submission.itemTitle">Auteur; Titre</message>
+	<message key="grid.submission.active.selectOrphaned">Inclu les soumissions incomplètes qui n'ont pas été soumises par un auteur.</message>
 </locale>

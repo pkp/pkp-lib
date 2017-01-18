@@ -83,11 +83,7 @@
 			function(sourceElement, event, content) {
 
 		if (content) {
-			// Get the form that we're updating
-			var $element = this.getHtmlElement();
-
-			// Replace the form content
-			$element.replaceWith(content);
+			this.replaceWith(content);
 		}
 	};
 
@@ -133,8 +129,7 @@
 				}
 
 				// Redisplay the form.
-				$form = this.getHtmlElement();
-				$form.replaceWith(processedJsonData.content);
+				this.replaceWith(processedJsonData.content);
 			}
 		} else {
 			// data was false -- assume errors, re-enable form controls.

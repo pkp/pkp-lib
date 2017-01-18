@@ -31,11 +31,8 @@
 		<span class="date">
 			{$note->getDateCreated()|date_format:$datetimeFormatShort}
 		</span>
-		{if ($notesDeletable && array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR), (array)$userRoles)) || $noteFileDownloadLink}
+		{if ($notesDeletable && array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR), (array)$userRoles))}
 			<div class="actions">
-				{if $noteFileDownloadLink}
-					{include file="linkAction/linkAction.tpl" action=$noteFileDownloadLink contextId=$note->getId()}
-				{/if}
 				{if $notesDeletable && array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR), (array)$userRoles)}
 					<form class="pkp_form" id="{$formId}" action="{url op="deleteNote" noteId=$noteId params=$linkParams}">
 						{csrf}

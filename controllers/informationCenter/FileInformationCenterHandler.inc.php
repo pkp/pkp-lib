@@ -29,16 +29,6 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 	 */
 	function __construct() {
 		parent::__construct();
-
-		$this->addRoleAssignment(
-			array(
-				ROLE_ID_AUTHOR,
-				ROLE_ID_SUB_EDITOR,
-				ROLE_ID_MANAGER,
-				ROLE_ID_ASSISTANT
-			),
-			array('listPastNotes')
-		);
 	}
 
 	/**
@@ -82,7 +72,6 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 		$fileName = (($s = $this->submissionFile->getLocalizedName()) != '') ? $s : __('common.untitled');
 		if (($i = $this->submissionFile->getRevision()) > 1) $fileName .= " ($i)"; // Add revision number to label
 		if (empty($fileName)) $fileName = __('common.untitled');
-		$templateMgr->assign('title', $fileName);
 		$templateMgr->assign('removeHistoryTab', (int) $request->getUserVar('removeHistoryTab'));
 
 		return parent::viewInformationCenter($args, $request);
@@ -101,6 +90,10 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 		$notesForm = new NewFileNoteForm($this->submissionFile->getFileId());
 		$notesForm->initData();
 
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign('notesList', $this->_listNotes($args, $request));
+		$templateMgr->assign('pastNotesList', $this->_listPastNotes($args, $request));
+
 		return new JSONMessage(true, $notesForm->fetch($request));
 	}
 
@@ -110,7 +103,7 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
 	 */
-	function listPastNotes($args, $request) {
+	function _listPastNotes($args, $request) {
 		$this->setupTemplate($request);
 
 		$templateMgr = TemplateManager::getManager($request);
@@ -133,7 +126,9 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 		$templateMgr->assign('currentUserId', $user->getId());
 
 		$templateMgr->assign('notesListId', 'pastNotesList');
-		return $templateMgr->fetchJson('controllers/informationCenter/notesList.tpl');
+		$templateMgr->assign('notesDeletable', false);
+
+		return $templateMgr->fetch('controllers/informationCenter/notesList.tpl');
 	}
 
 	/**
@@ -157,7 +152,14 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 
 			$user = $request->getUser();
 			NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.addedNote')));
-			return new JSONMessage(true);
+
+			$jsonViewNotesResponse = $this->viewNotes($args, $request);
+			$json = new JSONMessage(true);
+			$json->setEvent('dataChanged');
+			$json->setEvent('noteAdded', $jsonViewNotesResponse->_content);
+
+			return $json;
+
 		} else {
 			// Return a JSON string indicating failure
 			return new JSONMessage(false);

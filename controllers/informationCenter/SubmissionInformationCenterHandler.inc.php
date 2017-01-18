@@ -26,31 +26,6 @@ class SubmissionInformationCenterHandler extends InformationCenterHandler {
 	}
 
 	/**
-	 * Display the main information center modal.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function viewInformationCenter($args, $request) {
-		// Get the latest history item to display in the header
-		$submissionEventLogDao = DAORegistry::getDAO('SubmissionEventLogDAO');
-		$submissionEvents = $submissionEventLogDao->getBySubmissionId($this->_submission->getId());
-		$lastEvent = $submissionEvents->next();
-
-		// Assign variables to the template manager and display
-		$templateMgr = TemplateManager::getManager($request);
-		if(isset($lastEvent)) {
-			$templateMgr->assign('lastEvent', $lastEvent);
-
-			// Get the user who posted the last note
-			$userDao = DAORegistry::getDAO('UserDAO');
-			$user = $userDao->getById($lastEvent->getUserId());
-			$templateMgr->assign('lastEventUser', $user);
-		}
-
-		return parent::viewInformationCenter($args, $request);
-	}
-
-	/**
 	 * Display the notes tab.
 	 * @param $args array
 	 * @param $request PKPRequest
@@ -62,6 +37,9 @@ class SubmissionInformationCenterHandler extends InformationCenterHandler {
 		import('lib.pkp.controllers.informationCenter.form.NewSubmissionNoteForm');
 		$notesForm = new NewSubmissionNoteForm($this->_submission->getId());
 		$notesForm->initData();
+
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign('notesList', $this->_listNotes($args, $request));
 
 		return new JSONMessage(true, $notesForm->fetch($request));
 	}
@@ -82,9 +60,18 @@ class SubmissionInformationCenterHandler extends InformationCenterHandler {
 			$notesForm->execute($request);
 
 			// Save to event log
-			import('lib.pkp.classes.log.SubmissionLog');
-			SubmissionLog::logEvent($request, $this->_submission, $eventType, 'informationCenter.history.notePosted');
-			return new JSONMessage(true);
+			$this->_logEvent($request, SUBMISSION_LOG_NOTE_POSTED);
+
+			$user = $request->getUser();
+			NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.addedNote')));
+
+			$jsonViewNotesResponse = $this->viewNotes($args, $request);
+			$json = new JSONMessage(true);
+			$json->setEvent('dataChanged');
+			$json->setEvent('noteAdded', $jsonViewNotesResponse->_content);
+
+			return $json;
+
 		} else {
 			// Return a JSON string indicating failure
 			return new JSONMessage(false);

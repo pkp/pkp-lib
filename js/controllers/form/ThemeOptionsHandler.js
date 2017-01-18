@@ -26,7 +26,9 @@
 
 		$activeThemeOptions = $container.find('#activeThemeOptions');
 		if ($activeThemeOptions.length) {
+			var self = this;
 			$container.find('#themePluginPath').change(function(e) {
+				self.unbindPartial($activeThemeOptions);
 				$activeThemeOptions.empty();
 			});
 			$activeThemeOptions.find('input[type="color"]').each(function() {

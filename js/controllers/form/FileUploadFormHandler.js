@@ -149,7 +149,7 @@
 				$temporaryFileId.val(jsonData.temporaryFileId);
 			} else {
 				// Display the revision confirmation form.
-				this.getHtmlElement().replaceWith(jsonData.content);
+				this.replaceWith(jsonData.content);
 			}
 		}
 	};

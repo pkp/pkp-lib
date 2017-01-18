@@ -17,8 +17,7 @@
 
 	/** @type {Object} */
 	$.pkp.controllers.grid.users.reviewer =
-			$.pkp.controllers.grid.users.reviewer ||
-			{ };
+			$.pkp.controllers.grid.users.reviewer || {};
 
 
 
@@ -100,7 +99,7 @@
 			prototype.showWarning_ = function() {
 		this.getHtmlElement().find('#noFilesWarning').show(250);
 	};
-	
+
 
 /** @param {jQuery} $ jQuery closure. */
 }(jQuery));

@@ -381,6 +381,7 @@
 		if ($newElement.hasClass('category_grid_body')) {
 			// Need to delete the category empty placeholder.
 			var $emptyPlaceholder = this.getCategoryEmptyPlaceholder($existingElement);
+			this.unbindPartial($emptyPlaceHolder);
 			$emptyPlaceholder.remove();
 		}
 

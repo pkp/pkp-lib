@@ -898,6 +898,28 @@ abstract class Submission extends DataObject {
 	}
 
 	/**
+	 * Get starting page of a submission.  Note the return type of string - this is not to be used for page counting.
+	 * @return string
+	 */
+	function getStartingPage() {
+		$ranges = $this->getPageArray();
+		$firstRange = array_pop(array_reverse($ranges));
+		$firstPage = is_array($firstRange) ? array_pop(array_reverse($firstRange)) : "";
+		return isset($firstPage) ? $firstPage : "";
+	}
+
+	/**
+	 * Get ending page of a submission.  Note the return type of string - this is not to be used for page counting.
+	 * @return string
+	 */
+	function getEndingPage() {
+		$ranges = $this->getPageArray();
+		$lastRange = array_pop($ranges);
+		$lastPage = is_array($lastRange) ? array_pop($lastRange) : "";
+		return isset($lastPage) ? $lastPage : "";
+	}
+
+	/**
 	 * get pages as a nested array of page ranges
 	 * for example, pages of "pp. ii-ix, 9,15-18,a2,b2-b6" will return array( array(0 => 'ii', 1, => 'ix'), array(0 => '9'), array(0 => '15', 1 => '18'), array(0 => 'a2'), array(0 => 'b2', 1 => 'b6') )
 	 * @return array

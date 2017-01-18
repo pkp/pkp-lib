@@ -57,5 +57,13 @@
 		}
 	};
 
+	$.pkp.eventRouter.listeners_ = {};
+	$.pkp.eventRouter.listenTo = function(eventName, handler) {
+		if (!_.has(this.listeners_, eventName)) {
+			this.listeners_[eventName] = [];
+		}
+		this.listeners_[eventName].push(handler);
+	};
+
 /** @param {jQuery} $ jQuery closure. */
 }(jQuery));

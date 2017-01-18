@@ -17,9 +17,8 @@
 (function($) {
 
 	/** @type {Object} */
-	$.pkp.controllers.grid.users.reviewer =
-			$.pkp.controllers.grid.users.reviewer ||
-			{ form: { } };
+	$.pkp.controllers.grid.users.reviewer.form =
+			$.pkp.controllers.grid.users.reviewer.form || {};
 
 
 

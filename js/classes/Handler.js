@@ -361,7 +361,7 @@
 				var eventData = _.has(event, 'data') ? event.data : null;
 				if (!_.isNull(eventData) && eventData.isGlobalEvent) {
 					eventData.handler = this;
-					$.pkp.eventRouter.trigger(event.name, eventData);
+					$.pkp.classes.EventRouter.trigger(event.name, eventData);
 				} else {
 					this.trigger(event.name, eventData);
 				}
@@ -471,6 +471,54 @@
 		}
 
 		return true;
+	};
+
+
+	/**
+	 * Bind a global event to a handler operation.
+	 *
+	 * Binds a callback function to fire when a global event is triggered on
+	 * the global event router.
+	 *
+	 * @param {string} eventName The name of the event to bind to.
+	 * @param {Function} callback The function to firewhen the event is triggered
+	 */
+	$.pkp.classes.Handler.prototype.bindGlobal = function(eventName, callback) {
+		$.pkp.classes.EventRouter.on(eventName, callback, this);
+	};
+
+
+	/**
+	 * Unbind a global event from a handler operation.
+	 *
+	 * If passing a `null` callback, all callbacks bound to eventName by this
+	 * handler will be unbound. See: http://backbonejs.org/#Events-off
+	 *
+	 * @see $.pkp.classes.Handler.prototype.bindGlobal()
+	 * @param {string} eventName The name of the event to bind to
+	 * @param {Function} callback The function to fire when event is triggered
+	 */
+	$.pkp.classes.Handler.prototype.unbindGlobal = function(eventName, callback) {
+		$.pkp.classes.EventRouter.off(eventName, callback, this);
+	};
+
+
+	/**
+	 * Unbind all global event listeners on this handler and any child handlers
+	 */
+	$.pkp.classes.Handler.prototype.unbindGlobalAll = function() {
+		$.pkp.classes.EventRouter.off(null, null, this);
+		this.unbindGlobalChildren();
+	};
+
+
+	/**
+	 * Unbind all global event listeners on child handlers
+	 */
+	$.pkp.classes.Handler.prototype.unbindGlobalChildren = function() {
+		_.each(this.handlerChildren_, function(childHandler) {
+			childHandler.unbindGlobalAll();
+		});
 	};
 
 
@@ -757,36 +805,6 @@
 				var handler = $.pkp.classes.Handler.getHandler($(this));
 				handler.callbackWrapper(handler.unbindGlobalAll());
 			}
-		});
-	};
-
-	/**
-	 * Bind a global event listener
-	 *
-	 * @param {string} eventName
-	 */
-	$.pkp.classes.Handler.prototype.bindGlobal = function(eventName) {
-		$.pkp.eventRouter.listenTo(eventName, this);
-	}
-
-	/**
-	 * Unbind all global event listeners on this handler and any child handlers
-	 */
-	$.pkp.classes.Handler.prototype.unbindGlobalAll = function() {
-		_.each($.pkp.eventRouter.listeners_, function(listeners, eventName) {
-			$.pkp.eventRouter.listeners_[eventName] = _.reject(listeners, function(listener) {
-				return listener.getHtmlElement().attr('id') === this.getHtmlElement().attr('id');
-			}, this);
-		}, this);
-		this.unbindGlobalChildren();
-	};
-
-	/**
-	 * Unbind all global event listeners on child handlers
-	 */
-	$.pkp.classes.Handler.prototype.unbindGlobalChildren = function() {
-		_.each(this.handlerChildren_, function(childHandler) {
-			childHandler.unbindGlobalAll();
 		});
 	};
 

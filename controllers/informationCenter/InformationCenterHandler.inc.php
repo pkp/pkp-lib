@@ -17,7 +17,7 @@ import('classes.handler.Handler');
 import('lib.pkp.classes.core.JSONMessage');
 import('classes.log.SubmissionEventLogEntry');
 
-class InformationCenterHandler extends Handler {
+abstract class InformationCenterHandler extends Handler {
 	/** @var Submission */
 	var $_submission;
 
@@ -26,24 +26,13 @@ class InformationCenterHandler extends Handler {
 	 */
 	function __construct() {
 		parent::__construct();
-
-		// Author can do everything except delete notes.
-		// (Review-related log entries are hidden from the author, but
-		// that's not implemented here.)
-		$this->addRoleAssignment(
-			array(ROLE_ID_AUTHOR),
-			$authorOps = array(
-				'viewInformationCenter', // Information Center
-				'metadata', 'saveForm', // Metadata
-				'viewNotes', 'listNotes', 'saveNote', // Notes
-				'viewHistory', // History tab
-			)
-		);
 		$this->addRoleAssignment(
 			array(ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER, ROLE_ID_ASSISTANT),
-			array_merge($authorOps, array(
-				'deleteNote' // Notes tab
-			))
+			array(
+				'viewInformationCenter',
+				'viewHistory',
+				'viewNotes', 'listNotes', 'saveNote', 'deleteNote',
+			)
 		);
 	}
 
@@ -90,30 +79,10 @@ class InformationCenterHandler extends Handler {
 	}
 
 	/**
-	 * Display the metadata tab.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function metadata($args, $request) {
-		assert(false);
-	}
-
-	/**
-	 * Save the metadata tab.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function saveForm($args, $request) {
-		assert(false);
-	}
-
-	/**
 	 * View a list of notes posted on the item.
 	 * Subclasses must implement.
 	 */
-	function viewNotes($args, $request) {
-		assert(false);
-	}
+	abstract function viewNotes($args, $request);
 
 	/**
 	 * Save a note.
@@ -121,9 +90,7 @@ class InformationCenterHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function saveNote($args, $request) {
-		assert(false);
-	}
+	abstract function saveNote($args, $request);
 
 	/**
 	 * Display the list of existing notes.
@@ -136,13 +103,13 @@ class InformationCenterHandler extends Handler {
 
 		$templateMgr = TemplateManager::getManager($request);
 		$noteDao = DAORegistry::getDAO('NoteDAO');
-		$templateMgr->assign('notes', $noteDao->getByAssoc($this->_getAssocType(), $this->_getAssocId()));
-
 		$user = $request->getUser();
-		$templateMgr->assign('currentUserId', $user->getId());
-		$templateMgr->assign('notesDeletable', true);
-
-		$templateMgr->assign('notesListId', 'notesList');
+		$templateMgr->assign(array(
+			'notes' => $noteDao->getByAssoc($this->_getAssocType(), $this->_getAssocId()),
+			'currentUserId' => $user->getId(),
+			'notesDeletable' => true,
+			'notesListId' => 'notesList'
+		));
 		$json = new JSONMessage(true, $templateMgr->fetch('controllers/informationCenter/notesList.tpl'));
 		$json->setEvent('dataChanged');
 		return $json;
@@ -167,16 +134,6 @@ class InformationCenterHandler extends Handler {
 		NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedNote')));
 
 		return new JSONMessage(true);
-	}
-
-	/**
-	 * Log an event for this item.
-	 * NB: sub-classes must implement this method.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function _logEvent ($itemId, $eventType, $userId) {
-		assert(false);
 	}
 
 	/**
@@ -223,17 +180,13 @@ class InformationCenterHandler extends Handler {
 	 * Get the association ID for this information center view
 	 * @return int
 	 */
-	function _getAssocId() {
-		assert(false);
-	}
+	abstract function _getAssocId();
 
 	/**
 	 * Get the association type for this information center view
 	 * @return int
 	 */
-	function _getAssocType() {
-		assert(false);
-	}
+	abstract function _getAssocType();
 }
 
 ?>

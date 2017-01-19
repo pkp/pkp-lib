@@ -7,8 +7,8 @@
  * Copyright (c) 2003-2016 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class InformationCenterNotifyForm
- * @ingroup informationCenter_form
+ * @class PKPStageParticipantNotifyForm
+ * @ingroup controllers_grid_users_stageParticipant_form
  *
  * @brief Form to notify a user regarding a file
  */

@@ -857,36 +857,6 @@
 		});
 	};
 
-	/**
-	 * Bind a global event listener
-	 *
-	 * @param {string} eventName
-	 */
-	$.pkp.classes.Handler.prototype.bindGlobal = function(eventName) {
-		$.pkp.eventRouter.listenTo(eventName, this);
-	}
-
-	/**
-	 * Unbind all global event listeners on this handler and any child handlers
-	 */
-	$.pkp.classes.Handler.prototype.unbindGlobalAll = function() {
-		_.each($.pkp.eventRouter.listeners_, function(listeners, eventName) {
-			$.pkp.eventRouter.listeners_[eventName] = _.reject(listeners, function(listener) {
-				return listener.getHtmlElement().attr('id') === this.getHtmlElement().attr('id');
-			}, this);
-		}, this);
-		this.unbindGlobalChildren();
-	};
-
-	/**
-	 * Unbind all global event listeners on child handlers
-	 */
-	$.pkp.classes.Handler.prototype.unbindGlobalChildren = function() {
-		_.each(this.handlerChildren_, function(childHandler) {
-			childHandler.unbindGlobalAll();
-		});
-	};
-
 
 	/**
 	 * Wrapper for the jQuery .replaceWith() function.

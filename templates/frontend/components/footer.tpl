@@ -49,7 +49,7 @@
 
 </div><!-- pkp_structure_page -->
 
-{load_script context="frontend" scripts=$scripts}
+{load_script context="frontend"}
 
 {call_hook name="Templates::Common::Footer::PageFooter"}
 </body>

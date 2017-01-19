@@ -30,13 +30,10 @@
 			function($grid, options) {
 		this.parent($grid, options);
 
-		this.bind('userMerged', function() {
+		this.bindGlobal('userMerged', function() {
 
-			// Close the modal with the merging user grid
-			// This is a little bit hacky. The `formSubmitted` event is
-			// typically fired by an AjaxFormHandler when a form is submitted,
-			// and AjaxModalHandler listens to it to close.
-			this.trigger('formSubmitted');
+			// Signal to any parent modals that they can close now
+			this.trigger('modalFinished');
 
 			this.refreshGridHandler();
 		});

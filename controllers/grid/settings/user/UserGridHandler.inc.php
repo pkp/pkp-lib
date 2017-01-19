@@ -540,7 +540,7 @@ class UserGridHandler extends GridHandler {
 			import('classes.user.UserAction');
 			$userAction = new UserAction();
 			$userAction->mergeUsers($oldUserId, $newUserId);
-			$json = DAO::getDataChangedEvent();
+			$json = new JSONMessage(true);
 			$json->setGlobalEvent('userMerged', array(
 				'oldUserId' => $oldUserId,
 				'newUserId' => $newUserId,

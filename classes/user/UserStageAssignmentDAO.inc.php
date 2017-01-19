@@ -89,7 +89,8 @@ class UserStageAssignmentDAO extends UserDAO {
 				JOIN user_group_stage ugs ON (uug.user_group_id = ugs.user_group_id AND ugs.stage_id = ?)
 			WHERE	uug.user_group_id = ? AND
 				s.user_group_id IS NULL'
-				. ($name !== null ? ' AND (u.first_name LIKE ? OR u.middle_name LIKE ? OR u.last_name LIKE ? OR u.username LIKE ? OR u.email LIKE ?)' : ''),
+				. ($name !== null ? ' AND (u.first_name LIKE ? OR u.middle_name LIKE ? OR u.last_name LIKE ? OR u.username LIKE ? OR u.email LIKE ?)' : '')
+			. ' ORDER BY u.last_name',
 				$params,
 				$rangeInfo);
 		return new DAOResultFactory($result, $this, '_returnUserFromRowWithData');

@@ -43,4 +43,5 @@
 	<message key="reviewer.aboutDueDates.text">The editor asks that you either accept or decline the review before the Response Due Date and complete the review by the Review Due Date.</message>
 	<message key="submission.comments.canShareWithAuthor">For author and editor</message>
 	<message key="submission.comments.cannotShareWithAuthor">For editor only</message>
+	<message key="user.authorization.submissionReviewer">The current user is not assigned as a reviewer for the requested document.</message>
 </locale>

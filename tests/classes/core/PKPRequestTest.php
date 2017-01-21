@@ -254,6 +254,18 @@ class PKPRequestTest extends PKPTestCase {
 		$_SERVER = array(
 			'HOSTNAME' => 'hostname'
 		);
+		self::assertEquals('localhost', $this->request->getServerHost());
+	}
+
+	/**
+	 * @covers PKPRequest::getServerHost
+	 * @depends testGetServerHostLocalhost
+	 */
+	public function testGetServerHostWithServerName() {
+		// if HOSTNAME is set then return it
+		$_SERVER = array(
+			'SERVER_NAME' => 'hostname'
+		);
 		self::assertEquals('hostname', $this->request->getServerHost());
 	}
 

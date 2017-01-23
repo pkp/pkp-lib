@@ -129,7 +129,7 @@ class PKPRequestTest extends PKPTestCase {
 	public function testGetBaseUrlWithHostDetection() {
 		$this->setTestConfiguration('request1', 'classes/core/config');
 		$_SERVER = array(
-			'HOSTNAME' => 'hostname',
+			'SERVER_NAME' => 'hostname',
 			'SCRIPT_NAME' => '/some/base/path'
 		);
 		self::assertEquals('http://hostname/some/base/path', $this->request->getBaseUrl());
@@ -250,11 +250,11 @@ class PKPRequestTest extends PKPTestCase {
 	 * @depends testGetServerHostLocalhost
 	 */
 	public function testGetServerHostWithHostname() {
-		// if HOSTNAME is set then return it
+		// if SERVER_NAME is set then return it
 		$_SERVER = array(
-			'HOSTNAME' => 'hostname'
+			'SERVER_NAME' => 'hostname'
 		);
-		self::assertEquals('localhost', $this->request->getServerHost());
+		self::assertEquals('hostname', $this->request->getServerHost());
 	}
 
 	/**
@@ -262,7 +262,7 @@ class PKPRequestTest extends PKPTestCase {
 	 * @depends testGetServerHostLocalhost
 	 */
 	public function testGetServerHostWithServerName() {
-		// if HOSTNAME is set then return it
+		// if SERVER_NAME is set then return it
 		$_SERVER = array(
 			'SERVER_NAME' => 'hostname'
 		);
@@ -276,7 +276,7 @@ class PKPRequestTest extends PKPTestCase {
 	public function testGetServerHostWithHttpHost() {
 		// if HTTP_HOST is set then return it
 		$_SERVER = array(
-			'HOSTNAME' => 'hostname',
+			'SERVER_NAME' => 'hostname',
 			'HTTP_HOST' => 'http_host'
 		);
 		self::assertEquals('http_host', $this->request->getServerHost());
@@ -289,7 +289,7 @@ class PKPRequestTest extends PKPTestCase {
 	public function testGetServerHostWithHttpXForwardedHost() {
 		// if HTTP_X_FORWARDED_HOST is set then return it
 		$_SERVER = array(
-			'HOSTNAME' => 'hostname',
+			'SERVER_NAME' => 'hostname',
 			'HTTP_HOST' => 'http_host',
 			'HTTP_X_FORWARDED_HOST' => 'x_host'
 		);

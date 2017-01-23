@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file controllers/informationCenter/PKPSubmissionInformationCenterHandler.inc.php
+ * @file controllers/informationCenter/SubmissionInformationCenterHandler.inc.php
  *
  * Copyright (c) 2014-2016 Simon Fraser University Library
  * Copyright (c) 2003-2016 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPSubmissionInformationCenterHandler
+ * @class SubmissionInformationCenterHandler
  * @ingroup controllers_informationCenter
  *
  * @brief Handle requests to view the information center for a submission.
@@ -17,59 +17,12 @@ import('lib.pkp.controllers.informationCenter.InformationCenterHandler');
 import('lib.pkp.classes.core.JSONMessage');
 import('classes.log.SubmissionEventLogEntry');
 
-class PKPSubmissionInformationCenterHandler extends InformationCenterHandler {
+class SubmissionInformationCenterHandler extends InformationCenterHandler {
 	/**
 	 * Constructor
 	 */
 	function __construct() {
 		parent::__construct();
-	}
-
-	/**
-	 * Display the metadata tab.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function metadata($args, $request) {
-		$this->setupTemplate($request);
-
-		import('controllers.modals.submissionMetadata.form.SubmissionMetadataViewForm');
-		// prevent anyone but managers and editors from submitting the catalog entry form
-		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-		$params = array();
-		if (!array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR), $userRoles)) {
-			$params['hideSubmit'] = true;
-			$params['readOnly'] = true;
-		}
-		$submissionMetadataViewForm = new SubmissionMetadataViewForm($this->_submission->getId(), null, $params);
-		$submissionMetadataViewForm->initData($args, $request);
-
-		return new JSONMessage(true, $submissionMetadataViewForm->fetch($request));
-	}
-
-	/**
-	 * Save the metadata tab.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function saveForm($args, $request) {
-		$this->setupTemplate($request);
-
-		import('controllers.modals.submissionMetadata.form.SubmissionMetadataViewForm');
-		$submissionMetadataViewForm = new SubmissionMetadataViewForm($this->_submission->getId());
-
-		// Try to save the form data.
-		$submissionMetadataViewForm->readInputData($request);
-		if($submissionMetadataViewForm->validate()) {
-			$submissionMetadataViewForm->execute($request);
-			// Create trivial notification.
-			$notificationManager = new NotificationManager();
-			$user = $request->getUser();
-			$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.savedSubmissionMetadata')));
-			return new JSONMessage(true);
-		}
-		return new JSONMessage(false);
 	}
 
 	/**
@@ -129,10 +82,8 @@ class PKPSubmissionInformationCenterHandler extends InformationCenterHandler {
 			$notesForm->execute($request);
 
 			// Save to event log
-			$user = $request->getUser();
-			$userId = $user->getId();
-			$this->_logEvent($request, SUBMISSION_LOG_NOTE_POSTED);
-
+			import('lib.pkp.classes.log.SubmissionLog');
+			SubmissionLog::logEvent($request, $this->_submission, $eventType, 'informationCenter.history.notePosted');
 			return new JSONMessage(true);
 		} else {
 			// Return a JSON string indicating failure
@@ -168,15 +119,6 @@ class PKPSubmissionInformationCenterHandler extends InformationCenterHandler {
 	 */
 	function _getAssocType() {
 		return ASSOC_TYPE_SUBMISSION;
-	}
-
-	/**
-	 * Log an event for this file
-	 * @param $request PKPRequest
-	 * @param $eventType SUBMISSION_LOG_...
-	 */
-	function _logEvent ($request, $eventType) {
-		assert(false); // overridden in subclasses.
 	}
 }
 

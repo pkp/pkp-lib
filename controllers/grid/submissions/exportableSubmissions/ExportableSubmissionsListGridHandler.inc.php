@@ -62,11 +62,10 @@ class ExportableSubmissionsListGridHandler extends SubmissionsListGridHandler {
 
 	/**
 	 * @see GridHandler::getRowInstance()
-	 * @return SubmissionsListGridRow
+	 * @return ExportableSubmissionsGridRow
 	 */
-	function &getRowInstance() {
-		$row = new ExportableSubmissionsGridRow();
-		return $row;
+	function getRowInstance() {
+		return new ExportableSubmissionsGridRow();
 	}
 
 	/**

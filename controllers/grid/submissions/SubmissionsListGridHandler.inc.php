@@ -18,6 +18,7 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 
 // Import submissions list grid specific classes.
 import('lib.pkp.controllers.grid.submissions.SubmissionsListGridCellProvider');
+import('lib.pkp.controllers.grid.submissions.SubmissionsListGridRow');
 
 // Access decision actions constants.
 import('classes.workflow.EditorDecisionActionsManager');
@@ -192,7 +193,7 @@ class SubmissionsListGridHandler extends GridHandler {
 	 * @return SubmissionsListGridRow
 	 */
 	protected function getRowInstance() {
-		return new SubmissionsListGridRow($this->_isManager);
+		return new SubmissionsListGridRow($this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES));
 	}
 
 	/**

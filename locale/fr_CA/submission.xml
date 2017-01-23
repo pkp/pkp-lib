@@ -408,7 +408,7 @@
 	<message key="submission.event.lastRevisionDeleted">La dernière évaluation du fichier  "{$title}" a été supprimée par {$username}.</message>
 	<message key="submission.event.fileAuditorAdded">"{$name}" ({$username}) a été ajouté à titre de vérificateur du fichier "{$file}".</message>
 	<message key="submission.event.fileAuditorCleared">"{$name}" ({$username}) n'est plus vérificateur du fichier "{$file}".</message>
-	<message key="submission.event.fileAuditUploaded">"{$name}" ({$username}) a terminé la vérification et téléversé"{$file}".</message>
+	<message key="submission.event.fileAuditUploaded">"{$name}" ({$username}) a terminé la vérification et téléversé "{$file}".</message>
 	<message key="submission.event.signoffSignoff">"{$name}" ({$username}) a fermé la session pour "{$file}".</message>
 	<message key="submission.event.proofsApproved">"{$name}" ({$username}) a approuvé les épreuves pour "{$formatName}".</message>
 	<message key="submission.overview">Aperçu de la soumission</message>

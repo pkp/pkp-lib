@@ -77,7 +77,7 @@
 	<message key="manager.files.indexOfDir">Index de {$dir}</message>
 	<message key="manager.files.parentDir">Répertoire parent</message>
 	<message key="manager.files.uploadedFiles">Fichiers téléchargés</message>
-	<message key="manager.files.uploadFile">Télécharger le fichier</message>
+	<message key="manager.files.uploadFile">Téléverser le fichier</message>
 	<message key="manager.groups.confirmDelete">Êtes-vous certain de vouloir supprimer ce groupe?</message>
 	<message key="manager.groups.createTitle">Créer un titre</message>
 	<message key="manager.groups.editTitle">Modifier un titre</message>
@@ -116,7 +116,7 @@
 	<message key="manager.people.enrollUserAs">Inscrire l'utilisateur en tant que</message>
 	<message key="manager.people.invalidUser">Désolé, l'utilisateur demandé n'existe pas.</message>
 	<message key="manager.people.mergeUser">Fusionner l'utilisateur</message>
-	<message key="manager.people.mergeUsers.confirm">Êtes-vous certain de vouloir fusionner le compte ayant le nom d'utilisateur "{$oldUsername}" avec le compte ayant le nom d'utilisateur "{$newUsername}"? Le compte ayant le nom d'utilisateur "{$oldUsername}" n'existera plus par la suite. Cette action est irréversible.</message>
+	<message key="manager.people.mergeUsers.confirm">Êtes-vous certain de vouloir fusionner les {$oldAccountCount} compte(s) d'utilisateur avec le compte ayant le nom d'utilisateur "{$newUsername}"? Les {$oldAccountCount} compte(s) n'existeront plus par la suite. Cette action est irréversible.</message>
 	<message key="manager.people.mergeUsers">Fusionner les utilisateurs</message>
 	<message key="manager.people.mustChooseRole">Veuillez sélectionner un rôle en haut de la page avant de cliquer sur « Inscrire un utilisateur ».</message>
 	<message key="manager.people.mustProvideName">Veuillez d'abord fournir au moins un nom de famille pour l'utilisateur.</message>
@@ -143,6 +143,8 @@
 	<message key="manager.setup.homeHeaderImageInvalid">Format d'image du logo de l'en-tête de la page d'accueil invalide. Les formats acceptés sont .gif, .jpg, ou .png.</message>
 	<message key="manager.setup.homepageImageInvalid">Format d'image de la page d'accueil invalide. Les formats acceptés sont .gif, .jpg, ou .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Format d'image de l'en-tête de la page d'accueil invalide. Les formats acceptés sont .gif, .jpg, ou .png.</message>
+	<message key="manager.setup.layout.leftSidebar">Encadré de gauche</message>
+	<message key="manager.setup.layout.rightSidebar">Encadré de droite</message>
 	<message key="manager.setup.layout.unselected">Non sélectionné</message>
 	<message key="manager.setup.loggingAndAuditing">Journalisation et audit</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Format d'image du logo de l'en-tête de la page invalide. Les formats acceptés sont .gif, .jpg, ou .png.</message>
@@ -150,7 +152,7 @@
 	<message key="manager.setup.sortableByComponent">Peut être trié par composante</message>
 	<message key="manager.statistics">Statistiques et rapports</message>
 	<message key="manager.statistics.reports">Générateur de rapports</message>
-	<message key="manager.statistics.reports.description">Le système génère des rapports qui suivent les détails liés à l'utilisation du site et des observations sur une période de temps donnée. Les rapports sont générés au format CSV qui nécessite un tableur pour voir.</message>
+	<message key="manager.statistics.reports.description">Le système génère des rapports qui suivent les détails liés à l'utilisation du site et des observations sur une période de temps donnée. Les rapports sont générés au format CSV qui nécessite un tableur pour sa visualisation.</message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
 	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} nouveau(x))</message>
 	<message key="manager.users">Utilisateurs</message>
@@ -172,10 +174,10 @@
 	<message key="manager.emails.form.emailKeyRequired">Une clé de courriel unique est obligatoire pour le courriel.</message>
 	<message key="manager.setup.errorDeletingItem">Il s'est produit une erreur lors de la suppression de cet élément.</message>
 	<message key="manager.reviewerSearch.searchByName">Chercher un évaluateur par nom</message>
-	<message key="manager.reviewerSearch.doneAmount">Nombre d'évaluations terminé</message>
-	<message key="manager.reviewerSearch.avgAmount">Nombre de jours moyen par évaluation</message>
-	<message key="manager.reviewerSearch.lastAmount">Jours depuis la dernière évaluation</message>
-	<message key="manager.reviewerSearch.activeAmount">Nombre d'évaluations présentement actives</message>
+	<message key="manager.reviewerSearch.doneAmount">Nombre d'évaluations terminée : {$current}</message>
+	<message key="manager.reviewerSearch.avgAmount">Nombre de jours moyen par évaluation: {$current}</message>
+	<message key="manager.reviewerSearch.lastAmount">Jours depuis la dernière évaluation: {$current}</message>
+	<message key="manager.reviewerSearch.activeAmount">Nombre d'évaluations présentement actives: {$current}</message>
 	<message key="manager.reviewerSearch.interests">Intérêts d'évaluation</message>
 	<message key="manager.setup.citationAssistant">Aide au balisage de références</message>
 	<message key="manager.setup.citationFilterParser">Extraction de références</message>
@@ -197,7 +199,7 @@
 	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Veuillez sélectionner une base de données de recherche.</message>
 	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Ce filtre se connecte à la base de données livre et ISBN <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a>.</p>
 	<p>Une clé ISBNdb API est obligatoire. Pour plus d'information sur la génération de la clé, voir la <a href="http://isbndb.com/api/v1/docs/keys" target="_blank">documentation en ligne</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Ce filtre se connecte à la base de données de références CrossRef en utilisant l'<a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">interface de requête OpenURL</a> de CrossRef.</p>
+	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Ce filtre se connecte à la base de données de références CrossRef en utilisant l'<a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">interface de requête OpenURL</a> de CrossRef.</p> 
 	<p>Pour utiliser ce filtre, vous pouvez utiliser votre compte système CrossRef, ou s'inscrire à l'aide une adresse de courriel valide avec CrossRef <a href="http://www.crossref.org/requestaccount/" target="_blank">ici</a>.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Ce filtre se connecte au moteur de recherche de base de données croisée <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a> de PubMed.</p>
 	<p>Un courriel n'est pas obligatoire au sens strict du terme pour s'inscrire, mais peut être nécessaire si vous faites face à des problèmes de connection. Voir la section <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Usage Guidelines and Requirements</a> dans la documentation de Entrez pour plus d'information.</p>]]></message>
@@ -221,7 +223,7 @@
 	<message key="plugins.categories.oaiMetadataFormats.description">Ces plugiciels de format émettent les métadonnées en communications OAI.</message>
 
 	<!--  Genre grid settings -->
-	<message key="grid.action.addGenre">Ajouter un genre</message>
+	<message key="grid.action.addGenre">Ajouter un type</message>
 	<message key="grid.action.editGenre">Modifier ce genre</message>
 	<message key="grid.action.deleteGenre">Supprimer ce genre</message>
 	<message key="grid.action.restoreGenres">Restaurer les paramètres par défaut des genres.</message>
@@ -231,7 +233,7 @@
 	<message key="manager.website.information">Renseignements</message>
 	<message key="manager.announcements.datePublish">Publié</message>
 	<message key="manager.publication.submissionStage">Soumission</message>
-	<message key="manager.publication.reviewStage">Revue</message>
+	<message key="manager.publication.reviewStage">Évaluation</message>
 	<message key="manager.publication.editorialStage">Éditorial</message>
 	<message key="manager.publication.productionStage">Production</message>
 	<message key="manager.publication.emails">Courriels</message>
@@ -252,7 +254,7 @@
 	<message key="manager.statistics.reports.objectId">ID de l'objet</message>
 	<message key="manager.statistics.reports.today">Aujourd'hui</message>
 	<message key="manager.statistics.reports.currentMonth">Mois actuel</message>
-	<message key="manager.statistics.reports.orderBy">Commander avant</message>
+	<message key="manager.statistics.reports.orderBy">Trier par</message>
 	<message key="manager.statistics.reports.orderDir">Direction</message>
 	<message key="manager.statistics.reports.orderDir.asc">Croissant</message>
 	<message key="manager.statistics.reports.orderDir.desc">Décroissant</message>
@@ -261,8 +263,8 @@
 	<message key="manager.statistics.reports.reportUrl">Signaler l'URL</message>
 	<message key="manager.statistics.reports.filters.byContext">Par contexte</message>
 	<message key="manager.statistics.reports.filters.byObject">Par type d'objet et/ou ID de l'objet</message>
-	<message key="manager.statistics.reports.filters.byTime">Choisir la portée du rapport</message>
-	<message key="manager.statistics.reports.filters.byTime.dimensionSelector">Ou choisir la portée par:</message>
+	<message key="manager.statistics.reports.filters.byTime">Choisir la période du rapport</message>
+	<message key="manager.statistics.reports.filters.byTime.dimensionSelector">Ou choisir la période par :</message>
 	<message key="manager.statistics.reports.filters.byLocation">Par l'emplacement géo</message>
 	<message key="manager.affiliationAndSupport">Commanditaire</message>
 	<message key="manager.setup.authorGuidelines">Normes pour les auteurs</message>
@@ -271,13 +273,13 @@
 	<message key="manager.setup.citations">Citations</message>
 	<message key="manager.setup.layout.theme">Thème</message>
 	<message key="manager.setup.layout.themeDescription">Choisir un thème parmi les modules d'extension de thèmes disponibles.</message>
-	<message key="manager.siteAccessOptions.siteAccessOptions">Options d'accès au site.</message>
+	<message key="manager.siteAccessOptions.siteAccessOptions">Options d'accès au site</message>
 	<message key="manager.website.appearance">Apparence</message>
 	<message key="manager.website.imageFileRequired">Un fichier image est requis. Assurez-vous d'avoir choisi et téléchargé un fichier.</message>
 	<message key="manager.language.ui">UI</message>
 	<message key="manager.masthead.title">Bloc-générique</message>
 	<message key="manager.publication.libraryDescription"><![CDATA[Ces fichiers ont été préparés à titre de modèles et de guides pour être utilisés dans le cadre des documents de soumission <span class="pkp_help_title">  </span>.]]></message>
-	<message key="manager.emails.disable.message">Vous êtes sur le point de désactiver ce modèle pour les courriels. Si des processus systèmes utilisent ce modèle, ils ne l'utiliseront plus. Vous souhaitez confirmer cette opération?</message>
+	<message key="manager.emails.disable.message">Vous êtes sur le point de désactiver ce modèle de courriel. Si des processus systèmes utilisent ce modèle, ils ne pourront plus l'utiliser. Souhaitez-vous confirmer cette action?</message>
 	<message key="manager.emails.enable.message">Vous êtes sur le point de désactiver ce courriel. Vous souhaitez confirmer cette opération?</message>
 	<message key="manager.emails.resetAll.message">Si vous réinitialisez tous les modèles, toutes vos modifications des modèles de courriels seront perdues. Vous souhaitez confirmer cette opération?</message>
 	<message key="manager.emails.reset.message">Si vous réinitialisez ce modèle, toutes les données des messages seront réinitialisées à leur valeur par défaut et vous perdrez toutes les modifications. Vous souhaitez confirmer cette opération?</message>
@@ -297,11 +299,11 @@
 	<message key="manager.setup.sponsors.note">Vous pouvez ajouter une note décrivant votre politique en matière de commandite; celle-ci apparaitra dans la liste des commanditaires sur votre page À propos de.</message>
 	<message key="manager.setup.contributors.note">Vous pouvez ajouter une note décrivant votre rapport et votre politique entre vous et vos bailleurs de fonds; celle-ci apparaitra dans la liste des bailleurs de fonds sur votre page À propos de.</message>
 	<message key="manager.plugins.fileSelectError">Veuillez sélectionner un fichier d'abord</message>
-	<message key="manager.statistics.defaultMetricDescription">Votre {$contextObjectName} a été configuré pour enregistrer plus d'une mesure d'utilisation. Les statistiques d'utilisation seront affichées dans plusieurs contextes.
+	<message key="manager.statistics.defaultMetricDescription">Votre {$contextObjectName} a été configuré pour enregistrer plus d'une mesure d'utilisation. Les statistiques d'utilisation seront affichées dans plusieurs contextes. 
 
 Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, par exemple pour afficher une liste ordonnée des soumissions les plus utilisées ou pour ordonner les résultats de la recherche. Veuillez choisir l'une des mesures configurées à titre de mesure par défaut.</message>
 	<message key="manager.statistics.reports.advancedOptions.label">Personnaliser les colonnes, le filtre et les options de classement. Les changements apportés à ces options pourraient modifier le résultat du modèle de rapport attendu.</message>
-	<message key="manager.statistics.reports.columns.description">Définir les colonnes qui seront utilisées pour construire le rapport. Les colonnes que vous sélectionnez ici précisent non seulement les données qui apparaitront dans les rapports, mais également le niveau d'agrégation des statistiques. Par exemple, si vous choisissez les colonnes ID, Type et Mois, le rapport effectuera la somme de tous les visionnements d'un objet pour un mois particulier et affichera les données sur une ligne. Si vous choisissez Jour au lieu de Mois, chaque objet affichera une ligne pour chaque jour.</message>
+	<message key="manager.statistics.reports.columns.description">Définir les colonnes qui seront utilisées pour construire le rapport. Les colonnes que vous sélectionnez ici précisent non seulement les données qui apparaîtront dans les rapports, mais également le niveau d'agrégation des statistiques. Par exemple, si vous choisissez les colonnes "ID", "Type" et "Mois", le rapport effectuera la somme de tous les visionnements d'un objet pour un mois particulier et affichera les données sur une ligne. Si vous choisissez "Jour" au lieu de "Mois", chaque objet affichera une ligne pour chaque jour.</message>
 	<message key="manager.statistics.reports.objectId.label">Définir une ou plusieurs identifications d'objet, séparées par une virgule (ex.: 1,2,3,4,5)</message>
 	<message key="manager.statistics.reports.cities.label">Un ou plusieurs noms de villes, séparés par une virgule (ex.: Ville 1, Ville 2)</message>
 	<message key="manager.statistics.reports.reportUrl.label">L'adresse URL suivante peut être utilisée pour produire le rapport avec les configurations de formulaire actuelles. Il suffit de la copier, de la coller dans votre navigateur Web et d'entrer. Vous pouvez utiliser vos favoris pour conserver votre générateur d'URL pour les rapports personnalisés.</message>
@@ -317,33 +319,33 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="plugins.categories.citationParser.description">Les modules d'extension pour l'extraction des citations prélèvent des données locales à partir des citations brutes (ex.: auteur, titre, etc.)</message>
 	<message key="plugins.categories.pubIds">Modules d'extension d'identificateur public</message>
 	<message key="plugins.categories.pubIds.description">Ces modules d'extension installent un support pour un indentificateur public.</message>
-	<message key="manager.plugins.copyError">Le module d'extension n'a pu être copié. Il peut s'agir d'un problème de permissions. Assurez-vous que le serveur Web a le droit d'écriture dans le répertoire des modules d'extension (y compris les sous-répertoires), mais n'oubliez pas de le sécuriser à nouveau plus tard.</message>
-	<message key="manager.plugins.delete">Supprimer le module d'extension</message>
-	<message key="manager.plugins.deleteConfirm">Vous voulez vraiment supprimer ce module d'extension du système?</message>
-	<message key="manager.plugins.deleteDescription">En cliquant Supprimer, vous supprimerez le module d'extension du système de fichier du serveur.</message>
-	<message key="manager.plugins.deleteError">Le module d'extension "{$pluginName}" n'a pu être supprimé du système de fichier. Il peut s'agir d'un problème de persmissions. Assurez-vous que le serveur Web a le droit d'écriture dans le répertoire des modules d'extension (y compris les sous-répertoires), mais n'oubliez pas de le sécuriser à nouveau plus tard.</message>
-	<message key="manager.plugins.deleteSuccess">Le module d'extension  "{$pluginName}" a été supprimé.</message>
+	<message key="manager.plugins.copyError">Le plugiciel n'a pu être copié. Il peut s'agir d'un problème de permissions. Assurez-vous que le serveur Web a le droit d'écriture dans le répertoire des modules d'extension (y compris les sous-répertoires), mais n'oubliez pas de le sécuriser à nouveau plus tard.</message>
+	<message key="manager.plugins.delete">Supprimer le plugiciel</message>
+	<message key="manager.plugins.deleteConfirm">Vous voulez vraiment supprimer ce plugiciel du système?</message>
+	<message key="manager.plugins.deleteDescription">En cliquant Supprimer, vous supprimerez le plugiciel du système de fichier du serveur.</message>
+	<message key="manager.plugins.deleteError">Le plugiciel "{$pluginName}" n'a pu être supprimé du système de fichier. Il peut s'agir d'un problème de persmissions. Assurez-vous que le serveur Web a le droit d'écriture dans le répertoire des modules d'extension (y compris les sous-répertoires), mais n'oubliez pas de le sécuriser à nouveau plus tard.</message>
+	<message key="manager.plugins.deleteSuccess">Le plugiciel  "{$pluginName}" a été supprimé.</message>
 	<message key="manager.plugins.description">Cette page permet au gestionnaire de réviser et de configurer les modules d'extension actuellement installés. Les modules d'extension sont divisés en catégories, selon leur fonction. Les catégories sont énumérées ci-dessous, et dans chaque catégorie, son ensemble de modules d'extension.</message>
-	<message key="manager.plugins.doesNotExist">Le module d'extension "{$pluginName}" n'existe pas.</message>
-	<message key="manager.plugins.installedVersionNewer">Ce module d'extension existe déjà, et il est aussi ou plus récent que la version installée.</message>
-	<message key="manager.plugins.installedVersionOlder">Ce module d'extension existe déjà, et il est aussi ou moins récent que la version installée.</message>
+	<message key="manager.plugins.doesNotExist">Le plugiciel "{$pluginName}" n'existe pas.</message>
+	<message key="manager.plugins.installedVersionNewer">Ce plugiciel existe déjà, et il est aussi ou plus récent que la version installée.</message>
+	<message key="manager.plugins.installedVersionOlder">Ce plugiciel existe déjà, et il est aussi ou moins récent que la version installée.</message>
 	<message key="manager.plugins.installFailed">L'installation a échoué. {$errorString}</message>
 	<message key="manager.plugins.installSuccessful">La version {$versionNumber} a été installée avec succès.</message>
-	<message key="manager.plugins.invalidPluginArchive">Les archives du module d'extension téléchargées ne contiennent pas de dossier qui correspond au nom du module d'extension.</message>
-	<message key="manager.plugins.wrongCategory">Le module d'extension téléchargé ne s'inscrit pas dans la catégorie du module d'extension mis à jour.</message>
-	<message key="manager.plugins.wrongName">La version.xml dans le module d'extension téléchargé contient un nom de module d'extension qui ne correspond pas au nom du module d'extension mis à jour.</message>
-	<message key="manager.plugins.pleaseInstall">Le module d'extension n'existe pas. Veuillez plutôt l'installer.</message>
-	<message key="manager.plugins.pleaseUpgrade">Le module d'extension existe déjà mais il est plus récent que la version installée. Veuillez plutôt le mettre à jour.</message>
+	<message key="manager.plugins.invalidPluginArchive">Les archives du plugiciel téléchargées ne contiennent pas de dossier qui correspond au nom du plugiciel.</message>
+	<message key="manager.plugins.wrongCategory">Le plugiciel téléchargé ne s'inscrit pas dans la catégorie du plugiciel mis à jour.</message>
+	<message key="manager.plugins.wrongName">La version.xml dans le plugiciel téléchargé contient un nom de plugiciel qui ne correspond pas au nom du plugiciel mis à jour.</message>
+	<message key="manager.plugins.pleaseInstall">Le plugiciel n'existe pas. Veuillez plutôt l'installer.</message>
+	<message key="manager.plugins.pleaseUpgrade">Le plugiciel existe déjà mais il est plus récent que la version installée. Veuillez plutôt le mettre à jour.</message>
 	<message key="manager.plugins.settings">Paramètres</message>
 	<message key="manager.plugins.tarCommandNotFound">La commande tar n'est pas disponible. Veuillez la configurer correctement dans votre "config.inc.php".</message>
-	<message key="manager.plugins.upgrade">Mettre le module d'extension à jour</message>
-	<message key="manager.plugins.upgradeDescription">Ce formulaire vous permet de mettre le module d'extension à jour. Assurez-vous que le module d'extension est compressé en un fichier .tar.gz.</message>
+	<message key="manager.plugins.upgrade">Mettre le plugiciel à jour</message>
+	<message key="manager.plugins.upgradeDescription">Ce formulaire vous permet de mettre le plugiciel à jour. Assurez-vous que le plugiciel est compressé en un fichier .tar.gz.</message>
 	<message key="manager.plugins.upgradeFailed">La mise à jour a échoué. {$errorString}</message>
 	<message key="manager.plugins.upgradeSuccessful">La version {$versionString} a été mise à jour avec succès.</message>
 	<message key="manager.plugins.uploadError">Erreur de téléchargement du fichier</message>
-	<message key="manager.plugins.uploadPluginDir">Choisir un fichier de module d'extension</message>
-	<message key="manager.plugins.versionFileInvalid">version.xml dans le répertoire du module d'extension contient des données non valides.</message>
-	<message key="manager.plugins.versionFileNotFound">version.xml non trouvée dans le répertoire du module d'extension</message>
+	<message key="manager.plugins.uploadPluginDir">Choisir un fichier de plugiciel</message>
+	<message key="manager.plugins.versionFileInvalid">version.xml dans le répertoire du plugiciel contient des données non valides.</message>
+	<message key="manager.plugins.versionFileNotFound">version.xml non trouvée dans le répertoire du plugiciel</message>
 	<message key="notification.localeEnabled">Paramètre régional activé</message>
 	<message key="notification.localeDisabled">Paramètre régional désactivé</message>
 	<message key="notification.primaryLocaleDefined">{$locale} est défini en tant que paramètre régional principal.</message>
@@ -352,7 +354,7 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="notification.localeReloaded">Le paramètre régional {$locale} a été rechargé.</message>
 	<message key="notification.localeSettingsSaved">Les paramètres du paramètre régional ont été sauvegardés.</message>
 	<message key="notification.editedUser">Utilisateur modifié</message>
-	<message key="manager.distribution.indexing">Indexage</message>
+	<message key="manager.distribution.indexing">Indexation</message>
 	<message key="manager.paymentMethod">Paiements</message>
 	<message key="manager.paymentMethod.title">Méthodes de paiement</message>
 	<message key="manager.paymentMethod.description">Veuillez choisir à partir de la liste des méthodes de paiement disponibles. La zone ci-dessous s'actualisera en conséquence.</message>
@@ -431,4 +433,91 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.reviewFormElements.textfield">Zone de texte simple ligne</message>
 	<message key="manager.reviewFormElements.viewable">Visualisable (pour les auteurs)</message>
 
+	<message key="manager.userSearch.searchByName">Rechercher un usager par son nom</message>
+	<message key="manager.reviewerSearch.change">Changé</message>
+	<message key="manager.reviewerSearch.doneAmountToggle">Activer/désactiver le filtre pour évaluations complétées.</message>
+	<message key="manager.reviewerSearch.avgAmountToggle">Activer/désactiver le filtre pour moyenne de jours pour compléter une évaluation.</message>
+	<message key="manager.reviewerSearch.lastAmountToggle">Activer/désactiver le filtre pour les jours depuis la dernière évaluation</message>
+	<message key="manager.reviewerSearch.activeAmountToggle">Activer/désactiver le filtre pour les évaluations présentement actives.</message>
+	<message key="manager.reviewerSearch.form.previousReviewRounds">Évaluateurs des rondes précédentes de cette soumission</message>
+	<message key="manager.statistics.reports.optionalColumns.description">Les éléments en italique et marqués d'un astérisque représentent des données facultatives pour le mode actuel de comptage des statistiques dans le système (type métrique). Vous pouvez avoir ces données ou non, dépendamment de la configuration des plugiciels statistiques.</message>
+	<message key="manager.statistics.reports.advancedOptions.hide">Masquer les options avancées</message>
+	<message key="manager.statistics.reports.objectNotFound">Objet introuvable dans la base de données.</message>
+	<message key="manager.statistics.reports.yesterday">Hier</message>
+	<message key="manager.setup.additionalContent">Contenu additionnel</message>
+	<message key="manager.setup.additionalContentDescription">Tout ce que vous inscrirez ici apparaîtra sur votre page d'accueil.</message>
+	<message key="manager.setup.authorCopyrightNotice">Avis de droits d'auteur</message>
+	<message key="manager.setup.authorCopyrightNoticeAgree">Nécessite que les auteurs acceptent l'avis de droit d'auteur dans le cadre du processus de soumission.</message>
+	<message key="manager.setup.authorGuidelines.description">Les lignes directrices comprennent des normes bibliographiques et de mise en forme, ainsi que des exemples de formats de citation communs à utiliser dans les soumissions.</message>
+	<message key="manager.setup.favicon">Format de favicon invalide. Les formats acceptés sont .ico, .png, and .gif.</message>
+	<message key="manager.setup.homepageImage">Image de la page d'accueil.</message>
+	<message key="manager.setup.homepageImageDescription">Téléverser une image qui sera afficher en pleine grandeur sur la page d'accueil.</message>
+	<message key="manager.setup.information.descriptionTitle">Descriptions</message>
+	<message key="manager.setup.logo">Logo</message>
+	<message key="manager.setup.notifications">Notification d'une soumission par auteur</message>
+	<message key="manager.setup.notifications.copyPrimaryContact">Envoyer une copie au contact principal identifié à l'étape 1 de la configuration</message>
+	<message key="manager.setup.notifications.copySpecifiedAddress">Envoyer une copie à cette adresse courriel</message>
+	<message key="manager.setup.notifications.description">Les auteurs reçoivent automatiquement un courrier électronique leur confirmant la réception de leur soumission. On peut aussi avoir des copies de ce message envoyé à:</message>
+	<message key="manager.setup.openAccessPolicy">Politiques sur le libre accès</message>
+	<message key="manager.setup.openAccessPolicy.description">Si vous fournissez un accès immédiat et gratuit à tout le contenu publié, vous pouvez inscrire une description de votre politique sur le libre accès.</message>
+	<message key="manager.setup.pageFooter">Pied de page</message>
+	<message key="manager.setup.pageFooterDescription">Entrer une image, du texte ou du code HTML que vous voudriez voir apparaître au bas de votre site web.</message>
+	<message key="manager.setup.peerReview.description">Décrivez la politique et les processus d'examen par les pairs pour les lecteurs et les auteurs. Cette description comprend souvent le nombre d'évaluateur impliqués dans l'examen d'une soumission, les critères par lesquels les évaluateurs sont invités à juger ces soumissions, le temps prévu pour effectuer les évaluations et enfin, les critères utilisés pour sélectionner les examinateurs.</message>
+	<message key="manager.setup.principalContact">Contact principal</message>
+	<message key="manager.setup.principalContactDescription">Entrez les coordonnées d'un rédacteur en chef, d'un membre de la rédaction ou du personnel administratif qui peuvent être affichées sur la version public de votre site Web.</message>
+	<message key="manager.setup.privacyStatement">Déclaration de confidentialité</message>
+	<message key="manager.setup.privacyStatement.description">Cette déclaration apparaîtra lors de la soumission de l'auteur et sur la page accessible au public.</message>
+	<message key="manager.setup.reviewOptions.noteOnModification">Les valeurs par défauts peuvent être modifiées pour chaque évaluation durant le processus éditorial.</message>
+	<message key="manager.setup.reviewOptions.reviewTime">Date limite par défaut des évaluations</message>
+	<message key="manager.setup.reviewOptions.showBlindReviewLink">Présentez un lien "Assurer une évaluation à l'aveugle" lors du téléchargement</message>
+	<message key="manager.setup.sponsors.description">Exemples: associations ou sociétés savantes, départements universitaires, coopératives, etc. Les commanditaire sont affichés publiquement.</message>
+	<message key="manager.setup.technicalSupportContact">Support technique</message>
+	<message key="manager.setup.technicalSupportContactDescription">Une personne-ressource qui peut aider les rédacteurs en chef, les auteurs et les évaluateurs à résoudre des problèmes lors d'une soumission, de l'édition, de l'évaluation ou lors de la publication de documents.</message>
+	<message key="manager.plugins.installConfirm">Voulez-vous vraiment installer ce plugiciel?</message>
+	<message key="manager.plugins.upgradeConfirm">Voulez-vous vraiment mettre à jour ce plugiciel?</message>
+	<message key="grid.action.installPlugin">Installer ou mettre à jour le plugiciel</message>
+	<message key="manager.plugins.upload">Téléverser un nouveau plugiciel</message>
+	<message key="manager.plugins.uploadDescription">Ce formulaire vous permet de téléverser et d'installer un nouveau plugiciel. Assurez-vous que le plugiciel est compressé en tant que fichier .tar.gz.</message>
+	<message key="manager.plugins.uploadFailed">Veuillez vous assurer qu'un fichier a été sélectionné pour le téléversement.</message>
+	<message key="manager.plugins.installed">Plugiciels installés</message>
+	<message key="manager.plugins.pluginGallery">Galerie de plugiciels</message>
+	<message key="manager.plugins.pluginGallery.overview">Aperçu</message>
+	<message key="manager.plugins.pluginGallery.installation">Installation</message>
+	<message key="manager.plugins.pluginGallery.latestCompatible">Dernière version compatible</message>
+	<message key="manager.plugins.pluginGallery.certifications.official">Officiel</message>
+	<message key="manager.plugins.pluginGallery.certifications.reviewed">Révisé</message>
+	<message key="manager.setup.genres.supplementary">Marquer les fichiers de ce type en tant que fichiers supplémentaires (par exemple, ne font pas partie du contenu principal de la soumission)</message>
+	<message key="manager.reviewForms.confirmActivate">Voulez-vous vraiment activer ce formulaire d'évaluation? Une fois qu'il est affecté à une évaluation, vous ne pourrez plus le désactiver.</message>
+	<message key="manager.reviewForms.confirmDeactivate">Voulez-vous vraiment désactiver ce formulaire d'évaluation? Une fois désactivé, il ne sera plus disponible pour les évaluations.</message>
+	<message key="manager.reviewForms.confirmCopy">Voulez-vous vraiment créer une copie de ce formulaire d'évaluation?</message>
+	<message key="manager.reviewForms.confirmDelete">Voulez-vous vraiment supprimer ce formulaire d'évaluation?</message>
+	<message key="manager.plugins.pluginGallery.certifications.partner">Partenaire</message>
+	<message key="manager.plugins.pluginGallery.maintainer">Responsable</message>
+	<message key="manager.plugins.pluginGallery.version">Version: {$version}</message>
+	<message key="manager.plugins.pluginGallery.date">Date de sortie: {$date}</message>
+	<message key="manager.plugins.pluginGallery.homepage">Page d'accueil</message>
+	<message key="manager.plugins.pluginGallery.status">État</message>
+	<message key="manager.plugins.noInstalledVersion">Le plugiciel n'est pas encore installé</message>
+	<message key="manager.plugins.noCompatibleVersion">Il n'existe actuellement aucune version compatible de ce plugiciel.</message>
+	<message key="manager.plugins.installedVersionNewest">Plugiciel déjà installé et en est à la dernière version.</message>
+	<message key="manager.plugins.pluginGallery.summary">Sommaire</message>
+	<message key="manager.reviewFormElements.included">Inclu dans le message à l'auteur</message>
+	<message key="grid.action.createReviewForm">Créer un nouveau formulaire d'évaluation</message>
+	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Déclaration de conflit d'intérêts de l'évaluateur</message>
+	<message key="manager.setup.competingInterests.required">Demander une déclaration de conflit d'intérêts de l'évaluateur</message>
+	<message key="manager.setup.licenseURLDescription">URL de la page décrivant la licence, si disponible.</message>
+	<message key="manager.setup.metadata.submission">Formulaire de soumission</message>
+	<message key="plugins.importexport.common.validationErrors">Erreurs de validation:</message>
+	<message key="manager.plugins.installedVersionNewer.short">Plus récent que la version disponible</message>
+	<message key="manager.plugins.installedVersionOlder.short">Mise à jour disponible</message>
+	<message key="manager.plugins.installedVersionNewest.short">Version à jour</message>
+	<message key="manager.plugins.noCompatibleVersion.short">Pas disponible</message>
+	<message key=""><![CDATA[]]></message>
+	<message key="manager.setup.layout.sidebar">Barre latérale</message>
+	<message key="plugins.importexport.common.errorsOccured">Erreurs:</message>
+	<message key="plugins.importexport.common.error.unknownElement">Élément inconnu {$param}</message>
+	<message key="plugins.importexport.common.error.unknownGenre">Genre inconnu {$param}</message>
+	<message key="plugins.importexport.common.error.unknownEncoding">Encodage inconnu {$param}</message>
+	<message key="plugins.importexport.common.error.unknownUserGroup">Groupe d'utilisateur inconnu {$param}</message>
+	<message key="plugins.importexport.common.error.unknownUploader">Téléverseur inconnu {$param}</message>
 </locale>

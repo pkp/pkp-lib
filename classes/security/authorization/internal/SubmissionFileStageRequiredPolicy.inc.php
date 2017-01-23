@@ -25,8 +25,12 @@ class SubmissionFileStageRequiredPolicy extends SubmissionFileBaseAccessPolicy {
 	/**
 	 * Constructor
 	 * @param $request PKPRequest
+	 * @param $fileIdAndRevision string This policy will try to
+	 * get the submission file from this data.
+	 * @param $fileStage int SUBMISSION_FILE_...
+	 * @param $viewable boolean Whether the file has to be viewable
 	 */
-	function __construct($request, $fileIdAndRevision = null, $fileStage = null, $viewable = false) {
+	function __construct($request, $fileIdAndRevision, $fileStage, $viewable = false) {
 		parent::__construct($request, $fileIdAndRevision);
 		$this->_fileStage = $fileStage;
 		$this->_viewable = $viewable;
@@ -41,10 +45,6 @@ class SubmissionFileStageRequiredPolicy extends SubmissionFileBaseAccessPolicy {
 	 */
 	function effect() {
 		$request = $this->getRequest();
-
-		// Get the user
-		$user = $request->getUser();
-		if (!is_a($user, 'PKPUser')) return AUTHORIZATION_DENY;
 
 		// Get the submission file.
 		$submissionFile = $this->getSubmissionFile($request);

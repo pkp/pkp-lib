@@ -553,7 +553,6 @@
 	<message key="common.captcha.error.invalid-input-secret">La validation par captcha pour ce site Web n'est pas configurée correctement. La clé secrète est invalide.</message>
 	<message key="common.captcha.error.missing-input-response">Vous devez compléter la vérification de validation utilisée pour empêcher la soumission de spam.</message>
 	<message key="common.captcha.error.invalid-input-response">Vous n'avez pas complété le contrôle de validation utilisé pour empêcher les soumissions de spam.</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="navigation.skip.main">Aller directement au contenu principal</message>
 	<message key="navigation.skip.nav">Aller directement au menu principal</message>
 	<message key="navigation.skip.footer">Aller au pied de page</message>

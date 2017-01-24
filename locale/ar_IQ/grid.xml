@@ -11,7 +11,7 @@
   * Localization strings for the ar_IQ (العربية) locale.
   -->
 
-<locale name="ar_IQ" full_name = "العربية">
+<locale name="ar_IQ" full_name="العربية">
 	<!-- Common -->
 	<message key="grid.noItems">لا فقرات</message>
 	<message key="grid.settings">الإعدادات</message>

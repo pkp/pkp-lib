@@ -11,7 +11,7 @@
   * Localization strings for the fr_CA (Français (Canada)) locale.
   -->
 
-<locale name="fr_CA" full_name = "Français (Canada)">
+<locale name="fr_CA" full_name="Français (Canada)">
 	<!-- Group defaults -->
 	<message key="default.groups.name.siteAdmin">Administrateur du site</message>
 	<message key="default.groups.plural.siteAdmin">Administrateurs du site</message>

@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="id_ID" full_name = "Indonesia">
+<locale name="id_ID" full_name="Bahasa Indonesia">
 	<message key="manager.announcements">Pengumuman</message>
 	<message key="manager.announcements.confirmDelete">Apakah Anda yakin ingin menghapus pengumuman ini secara permanen?</message>
 	<message key="manager.announcements.create">Buat Pengumuman Baru</message>

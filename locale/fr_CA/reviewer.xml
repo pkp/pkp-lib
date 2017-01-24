@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="fr_CA" full_name = "Français (Canada)">
+<locale name="fr_CA" full_name="Français (Canada)">
 	<message key="reviewer.submission.reviewerFiles">Fichiers de l'évaluateur</message>
 	<message key="reviewer.reviewSteps.request">1. Requête</message>
 	<message key="reviewer.reviewSteps.guidelines">2. Lignes directrices</message>

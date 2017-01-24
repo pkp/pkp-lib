@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="nb_NO" full_name = "Norwegian">
+<locale name="nb_NO" full_name="Norsk bokmål">
 	<message key="submission.abstractViews">Sammendrag av synspunkt</message>
 	<message key="submission.accepted">Akseptert</message>
 	<message key="submission.acknowledge">Bekreft</message>

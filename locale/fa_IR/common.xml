@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="fa_IR" full_name = "Persian">
+<locale name="fa_IR" full_name="فارسی">
 	<message key="about.aboutSite">درباره سایت</message>
 	<message key="about.contact">تماس</message>
 	<message key="about.contact.email">ایمیل</message>

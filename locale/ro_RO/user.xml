@@ -13,7 +13,7 @@
   *
   -->
 
-<locale name="ro_RO" full_name = "Romanian">
+<locale name="ro_RO" full_name="Limba Română">
 	<message key="user.affiliation">Afiliere</message>
 	<message key="user.affiliations">Afilieri</message>
 	<message key="user.biography">Biografie</message>

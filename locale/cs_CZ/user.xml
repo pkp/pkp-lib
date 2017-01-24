@@ -14,7 +14,7 @@
   *
   -->
 
-<locale name="cs_CZ" full_name = "Čeština">
+<locale name="cs_CZ" full_name="Čeština">
 	<message key="user.affiliation">Pracoviště</message>
 	<message key="user.affiliation.description">(Vaše instituce, např. "Simon Fraser University")</message>
 	<message key="user.affiliations">Pracoviště</message>

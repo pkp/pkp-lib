@@ -14,7 +14,7 @@
   *
   -->
 
-<locale name="cs_CZ" full_name = "Čeština">
+<locale name="cs_CZ" full_name="Čeština">
 	<message key="comments.anonymous">Anonymní uživatel</message>
 	<message key="comments.anonymousNamed">"{$userName}"</message>
 	<message key="comments.body">Tělo</message>

@@ -14,7 +14,7 @@
   * V. I. Vernadsky National Library of Ukraine
   -->
 
-<locale name="uk_UA" full_name = "Ukrainian">
+<locale name="uk_UA" full_name="Українська">
 	<message key="manager.announcements">Анонси</message>
 	<message key="manager.announcements.confirmDelete">Ви впевнені, що бажаєте назавжди видалити цей анонс?</message>
 	<message key="manager.announcements.create">Створити новий анонс</message>

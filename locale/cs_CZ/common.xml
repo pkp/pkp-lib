@@ -14,7 +14,7 @@
   *
   -->
 
-<locale name="cs_CZ" full_name = "Čeština">
+<locale name="cs_CZ" full_name="Čeština">
 	<message key="about.aboutSite">Podrobnosti o těchto stránkách</message>
 	<message key="about.contact">Kontakt</message>
 	<message key="about.contact.email">Email</message>

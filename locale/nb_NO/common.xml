@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="nb_NO" full_name = "Norwegian">
+<locale name="nb_NO" full_name="Norsk bokmål">
 	<message key="about.aboutSite">Om nettstedet</message>
 	<message key="about.contact">Kontakt</message>
 	<message key="about.contact.email">E-post</message>

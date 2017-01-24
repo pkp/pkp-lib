@@ -13,7 +13,7 @@
   *
   -->
 
-<locale name="ro_RO" full_name = "Romanian">
+<locale name="ro_RO" full_name="Limba Română">
 	<message key="installer.additionalLocales">Localizări suplimentare</message>
 	<message key="installer.administratorAccount">Contul administratorului</message>
 	<message key="installer.administratorAccountInstructions">Acest cont va fi administratorul siteului și are acces complet asupra sistemului. După instalare pot fi create și alte conturi.</message>

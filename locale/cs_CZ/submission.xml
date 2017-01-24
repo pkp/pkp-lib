@@ -14,7 +14,7 @@
   *
   -->
 
-<locale name="cs_CZ" full_name = "Čeština">
+<locale name="cs_CZ" full_name="Čeština">
 	<message key="submission.agencies">Agentury</message>
 	<message key="submission.abstractViews">Zobrazení abstraktu</message>
 	<message key="submission.accepted">Přijata</message>

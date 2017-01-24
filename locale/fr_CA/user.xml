@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="fr_CA" full_name = "Français (Canada)">
+<locale name="fr_CA" full_name="Français (Canada)">
 	<message key="user.affiliation">Affiliation</message>
 	<message key="user.affiliations">Affiliations</message>
 	<message key="user.biography">Note biographique</message>

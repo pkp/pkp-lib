@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="vi_VN" full_name = "Tiếng Việt">
+<locale name="vi_VN" full_name="Tiếng Việt">
 	<message key="installer.additionalLocales">Các ngôn ngữ khác</message>
 	<message key="installer.administratorAccount">Tài khoản của Người quản trị </message>
 	<message key="installer.administratorAccountInstructions">Tài khoản người dùng này sẽ trở thành người quản trị website và có quyền truy cập toàn bộ hệ thống. Các tài khoản người dùng khác có thể thêm sau khi cài đặt.</message>

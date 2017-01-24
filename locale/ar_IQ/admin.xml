@@ -11,7 +11,7 @@
   * Localization strings for the ar_IQ (العربية) locale.
   -->
 
-<locale name="ar_IQ" full_name = "العربية">
+<locale name="ar_IQ" full_name="العربية">
 	<message key="admin.systemInfo.settingName">اسم الإعداد</message>
 	<message key="admin.systemInfo.settingValue">قيمة الإعداد</message>
 	<message key="admin.adminFunctions">الوظائف الإدارية</message>

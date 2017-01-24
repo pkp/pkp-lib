@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="zh_CN" full_name = "China .PR">
+<locale name="zh_CN" full_name="简体中文">
 	<message key="about.aboutSite">关于本站</message>
 	<message key="about.contact">联系方式</message>
 	<message key="about.contact.email">电子邮件</message>

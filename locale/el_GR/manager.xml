@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="el_GR" full_name = "Greek">
+<locale name="el_GR" full_name="ελληνικά">
 	<message key="manager.announcements">Ανακοινώσεις</message>
 	<message key="manager.announcements.confirmDelete">Είστε βέβαιοι ότι επιθυμείτε να διαγράψετε οριστικά τη συγκεκριμένη ανακοίνωση;</message>
 	<message key="manager.announcements.create">Δημιουργία νέας ανακοίνωσης</message>

@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="fr_CA" full_name = "Français (Canada)">
+<locale name="fr_CA" full_name="Français (Canada)">
 	<message key="manager.announcements">Annonces</message>
 	<message key="manager.announcements.confirmDelete">Êtes-vous certain de vouloir supprimer cette annonce de façon permanente?</message>
 	<message key="manager.announcements.create">Créer une nouvelle annonce</message>

@@ -11,7 +11,7 @@
   * Localization strings for the ml_IN (മലയാളം) locale.
   -->
 
-<locale name="ml_IN" full_name = "Malayalam">
+<locale name="ml_IN" full_name="മലയാളം">
 	<message key="user.affiliation">അംഗീകരണം</message>
 	<message key="user.affiliation.description">(Your institution, e.g. "Simon Fraser University")</message>
 	<message key="user.affiliations">അംഗീകരണങ്ങള്‍</message>

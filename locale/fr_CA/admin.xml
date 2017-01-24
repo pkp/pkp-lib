@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="fr_CA" full_name = "Français (Canada)">
+<locale name="fr_CA" full_name="Français (Canada)">
 	<message key="admin.systemInfo.settingName">Fixation du nom</message>
 	<message key="admin.systemInfo.settingValue">Fixation de la valeur</message>
 	<message key="admin.adminFunctions">Fonctions administratives</message>

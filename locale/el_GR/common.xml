@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="el_GR" full_name = "Greek">
+<locale name="el_GR" full_name="ελληνικά">
 	<message key="about.aboutSite">Σχετικά με τον ιστότοπο</message>
 	<message key="about.contact">Επικοινωνία</message>
 	<message key="about.contact.email">Διεύθυνση ηλεκτρονικού ταχυδρομείου</message>

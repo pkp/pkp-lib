@@ -11,7 +11,7 @@
   * Localization strings for the sr_SR (Cрпски) locale.
   -->
 
-<locale name="sr_SR" full_name = "Serbian">
+<locale name="sr_SR" full_name="Cрпски">
 	<message key="user.affiliation">Affiliation</message>
 	<message key="user.affiliation.description">(Your institution, e.g. "Simon Fraser University")</message>
 	<message key="user.affiliations">Affiliations</message>

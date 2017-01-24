@@ -11,7 +11,7 @@
   * Localization strings for the ar_IQ (العربية) locale.
   -->
 
-<locale name="ar_IQ" full_name = "العربية">
+<locale name="ar_IQ" full_name="العربية">
 	<message key="common.publicKnowledgeProject">مشروع المعرفة العامة</message>
 	<message key="common.currentStyleSheet">ملف الأنماط الحالي</message>
 	<message key="about.description">الوصف</message>

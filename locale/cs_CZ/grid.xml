@@ -13,7 +13,7 @@
   *
   -->
 
-<locale name="cs_CZ" full_name = "Čeština">
+<locale name="cs_CZ" full_name="Čeština">
 	<!-- Common -->
 	<message key="grid.noItems">Žádné položky</message>
 	<message key="grid.settings">Nastavení</message>

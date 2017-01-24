@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="pt_PT" full_name = "Português">
+<locale name="pt_PT" full_name="Português (Portugal)">
 	<message key="manager.announcements">Notícias</message>
 	<message key="manager.announcements.confirmDelete">Deseja realmente eliminar permanentemente esta notícia?</message>
 	<message key="manager.announcements.create">Criar nova notícia</message>

@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="hr_HR" full_name = "Hrvatski">
+<locale name="hr_HR" full_name="Hrvatski">
 	<message key="about.contact">Kontakt</message>
 	<message key="about.contact.email">E-pošta</message>
 	<message key="about.contact.phone">Telefon</message>

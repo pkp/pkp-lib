@@ -12,7 +12,7 @@
   * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Russian_(ru_RU)
   -->
 
-<locale name="ru_RU" full_name = "Русский">
+<locale name="ru_RU" full_name="Русский">
 	<message key="editor.submissionLibrary">Поступившие материалы: библиотека</message>
 	<message key="editor.review.notInitiated">Процесс рецензирования еще не был начат.</message>
 	<message key="editor.submission.copyediting.personalMessageToUser">Сообщение пользователю</message>

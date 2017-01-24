@@ -44,4 +44,5 @@
 	<message key="reviewer.aboutDueDates.text">Редактор просит вас принять или отклонить запрос на рецензию до даты ответа на запрос и выполнить рецензию до даты предоставления рецензии.</message>
 	<message key="submission.comments.canShareWithAuthor">Для автора и редактора</message>
 	<message key="submission.comments.cannotShareWithAuthor">Только для редактора</message>
+	<message key="user.authorization.submissionReviewer">Данный пользователь не назначен рецензентом для запрошенного документа.</message>
 </locale>

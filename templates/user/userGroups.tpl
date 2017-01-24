@@ -7,6 +7,7 @@
  *
  * The user group (role) selection part of the registration and profile forms.
  * @uses $contexts array List of journals/presses on this site that have enabled registration
+ * @uses $showOtherContexts bool Whether or not to show the other contexts selection
  *}
 
 {fbvFormArea id="userGroups" title="user.roles" class=border}

@@ -30,10 +30,16 @@ class UserFormHelper {
 		// extras-on-demand for role selection in other contexts.
 		$contextDao = Application::getContextDAO();
 		$contexts = $contextDao->getAll(true)->toArray();
+		$contextsWithUserRegistration = array();
+		foreach ($contexts as $context) {
+			if (!$context->getSetting('disableUserReg')) {
+				$contextsWithUserRegistration[] = $context;
+			}
+		}
 		$templateMgr->assign(array(
-			'showOtherContexts' => !$request->getContext() || count($contexts)>1,
+			'contexts' => $contexts,
+			'showOtherContexts' => !$request->getContext() || count($contextsWithUserRegistration)>1,
 		));
-
 
 		// Expose potential self-registration user groups to template
 		$authorUserGroups = $reviewerUserGroups = $readerUserGroups = array();

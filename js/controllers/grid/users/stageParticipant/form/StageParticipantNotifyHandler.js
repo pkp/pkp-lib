@@ -16,9 +16,8 @@
 (function($) {
 
 	/** @type {Object} */
-	$.pkp.controllers.grid.users.stageParticipant =
-			$.pkp.controllers.grid.users.stageParticipant ||
-			{ form: { } };
+	$.pkp.controllers.grid.users.stageParticipant.form =
+			$.pkp.controllers.grid.users.stageParticipant.form || {};
 
 
 

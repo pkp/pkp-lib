@@ -15,7 +15,7 @@
 	{help file="editorial-workflow/copyediting.md" class="pkp_help_tab"}
 
 	<div class="pkp_context_sidebar">
-		{url|assign:copyeditingEditorDecisionsUrl router=$smarty.const.ROUTE_PAGE page="workflow" op="editorDecisionActions" submissionId=$submission->getId() stageId=$stageId contextId="copyediting" escape=false}
+		{url|assign:copyeditingEditorDecisionsUrl router=$smarty.const.ROUTE_PAGE page="workflow" op="editorDecisionActions" submissionId=$submission->getId() stageId=$stageId escape=false}
 		{load_url_in_div id="copyeditingEditorDecisionsDiv" url=$copyeditingEditorDecisionsUrl class="editorDecisionActions pkp_tab_actions"}
 		{include file="controllers/tab/workflow/stageParticipants.tpl"}
 	</div>

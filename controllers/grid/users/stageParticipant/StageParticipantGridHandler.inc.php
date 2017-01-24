@@ -512,6 +512,14 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 			);
 		}
 	}
+
+	/**
+	 * Get the js handler for this component.
+	 * @return string
+	 */
+	public function getJSHandler() {
+		return '$.pkp.controllers.grid.users.stageParticipant.StageParticipantGridHandler';
+	}
 }
 
 ?>

@@ -32,7 +32,7 @@ class ItemSelectionGridColumn extends GridColumn {
 		import('lib.pkp.classes.controllers.grid.ColumnBasedGridCellProvider');
 		$cellProvider = new ColumnBasedGridCellProvider();
 		parent::__construct('select', 'common.select', null, 'controllers/grid/gridRowSelectInput.tpl', $cellProvider,
-				array('width' => 1));
+				array('width' => 3));
 	}
 
 

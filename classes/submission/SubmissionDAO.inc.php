@@ -510,7 +510,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 			. ($contextId && is_array($contextId)?' AND s.context_id IN  (' . join(',', array_map(array($this,'_arrayWalkIntCast'), $contextId)) . ')':'')
 			. ($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'')
 			. ($author?' AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)':'')
-			. ($stageId?' AND s.stage_id = ?':'') .
+			. ($stageId?' AND s.stage_id = ?':'')
 			. ($sectionId?' AND s.section_id = ?':'') .
 			' GROUP BY ' . $this->getGroupByColumns(),
 			$params,

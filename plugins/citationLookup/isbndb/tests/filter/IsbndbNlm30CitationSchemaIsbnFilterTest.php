@@ -26,6 +26,8 @@ class IsbndbNlm30CitationSchemaIsbnFilterTest extends IsbndbNlm30CitationSchemaF
 	 * @covers IsbndbNlm30CitationSchemaFilter
 	 */
 	public function testExecute() {
+		$this->markTestSkipped('ISBNDB API key daily limit too low.');
+
 		// Test data
 		$isbnSearchTest = array(
 			'testInput' => array(

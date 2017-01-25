@@ -315,7 +315,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 		$this->setTestConfiguration('request1', 'classes/core/config'); // restful URLs
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 		$_SERVER = array(
-			'SERVER_NAME' => 'mydomain.org',
+			'HOSTNAME' => 'mydomain.org',
 			'SCRIPT_NAME' => '/index.php',
 			'PATH_INFO' => '/current-context1/current-context2/$$$call$$$/current/component-class/current-op'
 		);
@@ -382,7 +382,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 		$this->setTestConfiguration('request1', 'classes/core/config'); // contains overridden context
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 		$_SERVER = array(
-			'SERVER_NAME' => 'mydomain.org',
+			'HOSTNAME' => 'mydomain.org',
 			'SCRIPT_NAME' => '/index.php',
 			'PATH_INFO' => '/overridden-context/current-context2/$$$call$$$/current/component-class/current-op'
 		);
@@ -405,7 +405,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 	public function testUrlWithPathinfoAndSecondContextObjectIsNull() {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 		$_SERVER = array(
-			'SERVER_NAME' => 'mydomain.org',
+			'HOSTNAME' => 'mydomain.org',
 			'SCRIPT_NAME' => '/index.php',
 			'PATH_INFO' => '/current-context1/current-context2/$$$call$$$/current/component-class/current-op'
 		);
@@ -428,7 +428,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 	public function testUrlWithoutPathinfo() {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
 		$_SERVER = array(
-			'SERVER_NAME' => 'mydomain.org',
+			'HOSTNAME' => 'mydomain.org',
 			'SCRIPT_NAME' => '/index.php',
 		);
 		$_GET = array(
@@ -497,7 +497,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 		$this->setTestConfiguration('request2', 'classes/core/config'); // contains overridden context
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
 		$_SERVER = array(
-			'SERVER_NAME' => 'mydomain.org',
+			'HOSTNAME' => 'mydomain.org',
 			'SCRIPT_NAME' => '/index.php',
 		);
 		$_GET = array(
@@ -528,7 +528,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 		$this->setTestConfiguration('request2', 'classes/core/config'); // restful URLs enabled
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
 		$_SERVER = array(
-			'SERVER_NAME' => 'mydomain.org',
+			'HOSTNAME' => 'mydomain.org',
 			'SCRIPT_NAME' => '/index.php',
 		);
 		$_GET = array(

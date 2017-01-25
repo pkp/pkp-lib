@@ -245,7 +245,7 @@ class PKPRouterTestCase extends PKPTestCase {
 		$this->_setUpMockEnvironment();
 		$this->setTestConfiguration('request1', 'classes/core/config'); // no restful URLs
 		$_SERVER = array(
-			'SERVER_NAME' => 'mydomain.org',
+			'HOSTNAME' => 'mydomain.org',
 			'SCRIPT_NAME' => '/base/index.php'
 		);
 		HookRegistry::resetCalledHooks(true);
@@ -281,7 +281,7 @@ class PKPRouterTestCase extends PKPTestCase {
 		$this->_setUpMockEnvironment();
 		$this->setTestConfiguration('request2', 'classes/core/config'); // restful URLs
 		$_SERVER = array(
-			'SERVER_NAME' => 'mydomain.org',
+			'HOSTNAME' => 'mydomain.org',
 			'SCRIPT_NAME' => '/base/index.php'
 		);
 

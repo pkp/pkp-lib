@@ -68,7 +68,7 @@ class UnassignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 
 		$context = $request->getContext();
 
-		list($search, $column, $stageId) = $this->getFilterValues($filter);
+		list($search, $column, $stageId, $sectionId) = $this->getFilterValues($filter);
 		$title = $author = null;
 		if ($column == 'title') {
 			$title = $search;
@@ -85,6 +85,7 @@ class UnassignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 			$title,
 			$author,
 			$stageId,
+			$sectionId,
 			$rangeInfo
 		);
 	}

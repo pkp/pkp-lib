@@ -41,7 +41,7 @@ class ExportableSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		$submissionDao = Application::getSubmissionDAO();
 		$context = $request->getContext();
 
-		list($search, $column, $stageId) = $this->getFilterValues($filter);
+		list($search, $column, $stageId, $sectionId) = $this->getFilterValues($filter);
 		$title = $author = null;
 		if ($column == 'title') {
 			$title = $search;
@@ -56,6 +56,7 @@ class ExportableSubmissionsListGridHandler extends SubmissionsListGridHandler {
 			$title,
 			$author,
 			$stageId,
+			$sectionId,
 			$this->getGridRangeInfo($request, $this->getId())
 		);
 	}

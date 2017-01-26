@@ -321,7 +321,6 @@
 	<message key="manager.distribution.title">Impostazioni di distribuzione</message>
 	<message key="manager.setup.competingInterests.required">Richiedi uan dichiarazione su eventuali conflitti di interessi durante la peer review</message>
 	<message key="manager.setup.metadata.submission">Form per le proposte</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="manager.plugins.upload">Carica un nuovo plugin</message>
 	<message key="manager.distribution.indexing">Indicizzazione</message>
 </locale>

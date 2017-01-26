@@ -111,10 +111,10 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 */
 	function initData($data = array()) {
 		if (isset($this->submission)) {
-			$query = $this->getCommentsToEditor($this->submissionId);
+			$query = $this->getCommentsToEditor($this->submissionId);			
 			$this->_data = array_merge($data, array(
 				'locale' => $this->submission->getLocale(),
-				'commentsToEditor' => $query->getHeadNote(),
+				'commentsToEditor' => $query->getHeadNote()->getContents(),
 			));
 		} else {
 			$supportedSubmissionLocales = $this->context->getSupportedSubmissionLocales();
@@ -163,7 +163,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	/**
 	 * Add or update comments to editor
 	 */
-	function setCommentsToEditor($submissionId, $commentsToEditor, $userId, $query) {
+	function setCommentsToEditor($submissionId, $commentsToEditor, $userId, $query = null) {
 		$queryDao = DAORegistry::getDAO('QueryDAO');
 		$noteDao = DAORegistry::getDAO('NoteDAO');
 
@@ -206,6 +206,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 * Get comments to editor
 	 */
 	function getCommentsToEditor($submissionId) {
+		$queryDao = DAORegistry::getDAO('QueryDAO');		
 		$queries = $queryDao->getByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId);
 		$query = $queries->next();
 		return $query; 		
@@ -219,7 +220,6 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 */
 	function execute($args, $request) {
 		$submissionDao = Application::getSubmissionDAO();
-		$queryDao = DAORegistry::getDAO('QueryDAO');
 		$user = $request->getUser();
 
 		if (isset($this->submission)) {

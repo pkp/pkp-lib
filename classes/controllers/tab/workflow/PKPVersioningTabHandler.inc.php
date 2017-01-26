@@ -42,6 +42,56 @@ class PKPVersioningTabHandler extends Handler {
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 
+	// create new submission revisions
+	function newVersion($args, $request){
+		$submissionId = (int)$request->getUserVar('submissionId');
+		$submissionDao = Application::getSubmissionDAO();
+		$submissionRevision = $submissionDao->getLatestRevisionId($submissionId);
+		// get data of the old version
+		$submission = $submissionDao->getById($submissionId, null, false, $submissionRevision);
+		// authors
+		$authorDao = DAORegistry::getDAO('AuthorDAO');
+		$authors = $authorDao->getBySubmissionId($submissionId, true, false, $submissionRevision);
+		// galleys
+		import('classes.article.ArticleGalley');
+		$articleGalleyDao = DAORegistry::getDAO('ArticleGalleyDAO');
+		$articleGalleys = $articleGalleyDao->getBySubmissionId($submissionId, null, $submissionRevision);
+		$galleys = $articleGalleys->toArray();
+
+		// update submission version and remove publication date
+		$submissionRevision++;
+		$submission->setData('submissionRevision', $submissionRevision);
+		$submission->setDatePublished(null);
+
+		// save new submission version
+		$submissionDao->updateObject($submission);
+
+		// copy the authors from old version to new version
+		foreach($authors as $author) {
+			$authorId = (int)$author->getId();
+			$author->setVersion($submissionRevision);
+			$authorDao->insertObject($author, true);
+			$newAuthorId = (int)$authorDao->getInsertId();
+			$authorDao->update('UPDATE authors SET author_id = ? WHERE author_id = ?', array($authorId, $newAuthorId));
+		}
+
+		// create new galley with data from old galley
+		foreach($galleys as $galley) {
+			$newGalley = $articleGalleyDao->newDataObject();
+			$newGalley->setSubmissionId($submissionId);
+			$newGalley->setSubmissionRevision($submissionRevision);
+			$newGalley->setLabel($galley->getLabel());
+			$newGalley->setLocale($galley->getLocale());
+			$newGalley->setRemoteURL($galley->getRemoteURL());
+			$articleGalleyDao->insertObject($newGalley);
+		}
+
+		// display tab for new version
+		$args['submissionRevision'] = $submissionRevision;
+		return $this->_version($args, $request);
+
+	}
+
 	/**
 	 * JSON fetch the external review round info (tab).
 	 * @param $args array

@@ -163,26 +163,6 @@ class PKPSubmissionMetadataFormImplementation {
 			$revision = $submission->getCurrentVersionId($contextId);
 		}
 
-		// new version
-		if ($request->getUserVar('saveAsRevision')) {
-
-			// get all authors of this submission
-			$authorDao = DAORegistry::getDAO('AuthorDAO');
-			$authors = $authorDao->getBySubmissionId($submission->getId(), true, false, $revision);
-
-			// copy the authors from the old version into the new version
-			// (the author_id is retained unchanged as the primary key for the authors table is [author_id, version])
-			$revision++;
-			foreach($authors as $author) {
-				$authorId = (int)$author->getId();
-				$author->setVersion($revision);
-				$authorDao->insertObject($author, true);
-				$newAuthorId = (int)$authorDao->getInsertId();
-				$authorDao->update('UPDATE authors SET author_id = ? WHERE author_id = ?', array($authorId, $newAuthorId));
-			}
-
-		}
-
 		// save submission revision
 		$submission->setData('submissionRevision', $revision);
 

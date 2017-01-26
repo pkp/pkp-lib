@@ -111,9 +111,8 @@ class PublicationEntryTabHandler extends Handler {
 		if(isset($args['submissionRevision'])){
 			$revision = $args['submissionRevision'];
 		}
-		$saveAsRevision = $request->getUserVar('saveAsRevision') ? (int)$request->getUserVar('saveAsRevision') : null;
 
-		$publicationEntrySubmissionReviewForm = $this->_getPublicationEntrySubmissionReviewForm($revision, $saveAsRevision);
+		$publicationEntrySubmissionReviewForm = $this->_getPublicationEntrySubmissionReviewForm($revision);
 
 		$publicationEntrySubmissionReviewForm->initData($args, $request, $revision);
 		return new JSONMessage(true, $publicationEntrySubmissionReviewForm->fetch($request));

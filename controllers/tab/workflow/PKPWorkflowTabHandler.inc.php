@@ -131,6 +131,8 @@ abstract class PKPWorkflowTabHandler extends Handler {
 				$templateMgr->assign('editingNotificationRequestOptions', $notificationRequestOptions);
 				return $templateMgr->fetchJson('controllers/tab/workflow/editorial.tpl');
 			case WORKFLOW_STAGE_ID_PRODUCTION:
+				$selectedStageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+
 				$templateMgr = TemplateManager::getManager($request);
 				$notificationRequestOptions = $this->getProductionNotificationOptions($submission->getId());
 				$representationDao = Application::getRepresentationDAO();
@@ -151,6 +153,31 @@ abstract class PKPWorkflowTabHandler extends Handler {
 				// get latest submission revision
 				$latestSubmissionRevision = $articleDao -> getLatestRevisionId($submission->getId(), $context->getId());
 				$templateMgr->assign('latestSubmissionRevision', $latestSubmissionRevision);
+
+				// add new version button action
+				$dispatcher = $request->getDispatcher();
+				import('lib.pkp.classes.linkAction.request.AjaxAction');
+
+				$newVersionAction = new LinkAction(
+					'newVersion',
+					new AjaxAction(
+						$dispatcher->url(
+							$request, ROUTE_COMPONENT, null,
+							'tab.workflow.VersioningTabHandler',
+							'newVersion', null, array(
+								'submissionId' => $submission->getId(),
+								'stageId' => $selectedStageId
+							)
+						),
+						__('editor.submission.newVersion'),
+						'modal_add_item'
+					),
+					__('editor.submission.newVersion'),
+					'add_item_small'
+				);
+
+				$templateMgr->assign('newVersionAction', $newVersionAction);
+
 				return $templateMgr->fetchJson('controllers/tab/workflow/production.tpl');
 		}
 	}

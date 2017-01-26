@@ -73,26 +73,13 @@ class AuthorGridHandler extends GridHandler {
 	 * Get the selected version
 	 * @param $request PKPRequest
 	 * @return int
-	 * FIXME solution without cookie
 	 */
 	function getCurrentVersion($request) {
-		if (null !== $request->getCookieVar('version') && $request->getCookieVar('version') >= 0 ) {
-			$currentVersion = $request->getCookieVar('version');
-		} else {
+		$currentVersion = $request->getUserVar('submissionRevision');
+		if (!isset($currentVersion)) {
 			$currentVersion = $this->getNewestVersion($request);
 		}
-
 		return $currentVersion;
-	}
-
-	/**
-	 * Checks whether the 'saveAsNewVersion' checkbox is activated
-	 * @param $request PKPRequest
-	 * @return boolean
-	 * FIXME solution without cookie
-	 */
-	function getSaveAsNewVersion($request) {
-		return $request->getCookieVar('version') == 0;
 	}
 
 	/**
@@ -156,7 +143,7 @@ class AuthorGridHandler extends GridHandler {
 			$router = $request->getRouter();
 			$actionArgs = $this->getRequestArgs();
 
-			if ($this->isNewestVersion($request) || $this->getSaveAsNewVersion($request)) {
+			if ($this->isNewestVersion($request)) {
 				$this->addAction(
 					new LinkAction(
 						'addAuthor',
@@ -237,7 +224,7 @@ class AuthorGridHandler extends GridHandler {
 		$features = parent::initFeatures($request, $args);
 		if ($this->canAdminister($request->getUser())) {
 			import('lib.pkp.classes.controllers.grid.feature.OrderGridItemsFeature');
-			if ($this->isNewestVersion($request) && (!$this->getSaveAsNewVersion($request))) {
+			if ($this->isNewestVersion($request)) {
 				$features[] = new OrderGridItemsFeature();
 			}
 		}

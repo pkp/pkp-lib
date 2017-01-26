@@ -27,7 +27,6 @@
 {/if}
 
 {fbvElement type="hidden" name="submissionRevision" id="submissionRevision" value=$formParams.revision}
-{fbvElement type="hidden" name="saveAsRevision" id="saveAsRevision" value=$formParams.saveAsRevision}
 
 <div class="pkp_helpers_clear">
 	{fbvFormSection for="title" title="common.prefix" inline="true" size=$fbvStyles.size.SMALL}

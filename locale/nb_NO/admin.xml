@@ -84,4 +84,14 @@
 	<message key="admin.settings">Innstillinger</message>
 	<message key="admin.settings.siteTheme">Nettstedstema</message>
 	<message key="admin.siteSetup">Nettstedsoppsett</message>
+	<message key="admin.languages.download">Last ned språkfil</message>
+	<message key="admin.languages.availableLocales">Tilgjengelige språk</message>
+	<message key="admin.languages.installLocale">Installer språk</message>
+	<message key="admin.scheduledTask">Planlagt oppgave</message>
+	<message key="admin.scheduledTask.startTime">Oppgave startet.</message>
+	<message key="admin.scheduledTask.stopTime">Oppgave stoppet.</message>
+	<message key="admin.scheduledTask.noLog">Oppgaven skapte ikke noen loggfil.</message>
+	<message key="admin.scheduledTask.downloadLog">Din {$softwareName} installasjon utførte og avsluttet denne oppgaven automatisk, og du kan laste ned loggfila her: {$url}</message>
+	<message key="admin.settings.siteLogo">Nettstedets logo</message>
+	<message key="admin.error.executingUtil">Feil: Kan ikke eksekvere "{$utilPath}".  Sjekk {$utilVar}-innstillingene i config.inc.php.</message>
 </locale>

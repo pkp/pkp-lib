@@ -366,4 +366,7 @@
 	<message key="common.remoteURL">Ekstern URL</message>
 	<message key="navigation.sitemap">Nettstedskart</message>
 	<message key="common.reset">Tilbakestill</message>
+	<message key="about.guidelines">Veiledninger</message>
+	<message key="common.name">Navn</message>
+	<message key="navigation.archives">Arkiv</message>
 </locale>

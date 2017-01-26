@@ -36,7 +36,7 @@
 	<message key="reader.fullText">Fulltekst:</message>
 	<message key="rt.addComment">Legg til kommentar</message>
 	<message key="rt.admin.configuration">Konfigurasjon</message>
-	<message key="rt.admin.contexts.confirmDelete">Er du sikker på at du vil slette denne kontekst og alle tilknyttete søk?</message>
+	<message key="rt.admin.contexts.confirmDelete">Er du sikker på at du vil slette denne kontekst og alle tilknyttede søk?</message>
 	<message key="rt.admin.contexts.createContext">Opprett kontekst</message>
 	<message key="rt.admin.contexts.edit.editContext">Rediger kontekst</message>
 	<message key="rt.admin.contexts.metadata">Metadata</message>
@@ -173,4 +173,6 @@
 	<message key="rt.admin.sharing.logoBackgroundLabel">Logobakgrunn</message>
 	<message key="rt.admin.sharing.logoColorLabel">Logofarge</message>
 	<message key="rt.admin.configureSharing">Konfigurer AddThis</message>
+	<message key="rt.admin.settings.viewReviewPolicy">Se retningslinjer for fagfellevurdering i dette tidsskriftet</message>
+	<message key="rt.captureCite.web">Internett</message>
 </locale>

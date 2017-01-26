@@ -111,9 +111,10 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 */
 	function initData($data = array()) {
 		if (isset($this->submission)) {
+			$query = $this->getCommentsToEditor($this->submissionId);
 			$this->_data = array_merge($data, array(
 				'locale' => $this->submission->getLocale(),
-				'commentsToEditor' => $this->submission->getCommentsToEditor(),
+				'commentsToEditor' => $query->getHeadNote(),
 			));
 		} else {
 			$supportedSubmissionLocales = $this->context->getSupportedSubmissionLocales();
@@ -156,18 +157,17 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 */
 	function setSubmissionData($submission) {
 		$this->submission->setLanguage(PKPString::substr($this->submission->getLocale(), 0, 2));
-		$this->submission->setCommentsToEditor($this->getData('commentsToEditor'));
 		$this->submission->setLocale($this->getData('locale'));
 	}
 
 	/**
 	 * Add or update comments to editor
 	 */
-	function setCommentsToEditor($submissionId, $commentsToEditor, $userId, $update = null) {
+	function setCommentsToEditor($submissionId, $commentsToEditor, $userId, $query) {
 		$queryDao = DAORegistry::getDAO('QueryDAO');
 		$noteDao = DAORegistry::getDAO('NoteDAO');
 
-		if (!isset($update)){
+		if (!isset($query)){
 			$query = $queryDao->newDataObject();
 			$query->setAssocType(ASSOC_TYPE_SUBMISSION);
 			$query->setAssocId($submissionId);
@@ -181,7 +181,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			$note = $noteDao->newDataObject();
 			$note->setUserId($userId);
 			$note->setAssocType(ASSOC_TYPE_QUERY);
-			$note->setTitle('Comments to editor'); // Localize?
+			$note->setTitle(__('submission.submit.coverNote'));
 			$note->setContents($commentsToEditor);
 			$note->setDateCreated(Core::getCurrentDate());
 			$note->setDateModified(Core::getCurrentDate());			
@@ -189,10 +189,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			$noteDao->insertObject($note);
 
 		} else{
-			$queries = $queryDao->getByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId);
-			$query = $queries->next();
-			$queryId = $query->getData('id');
-
+			$queryId = $query->getId();
 			$notes = $noteDao->getByAssoc(ASSOC_TYPE_QUERY, $queryId);
 			if (!$notes->wasEmpty()) {
 				$note = $notes->next();
@@ -203,6 +200,15 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 
 		}
 
+	}
+	
+	/**
+	 * Get comments to editor
+	 */
+	function getCommentsToEditor($submissionId) {
+		$queries = $queryDao->getByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId);
+		$query = $queries->next();
+		return $query; 		
 	}
 
 	/**
@@ -225,10 +231,9 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			}
 			// Add or update comments to editor
 			if ($this->getData('commentsToEditor')){
-				$queries = $queryDao->getByAssoc(ASSOC_TYPE_SUBMISSION, $this->submissionId);
-				$query = $queries->next();
+				$query = $this->getCommentsToEditor($this->submissionId);				
 				if (isset($query)){
-					$this->setCommentsToEditor($this->submissionId, $this->getData('commentsToEditor'), $user->getId(), 1);
+					$this->setCommentsToEditor($this->submissionId, $this->getData('commentsToEditor'), $user->getId(), $query);
 				} else{
 					$this->setCommentsToEditor($this->submissionId, $this->getData('commentsToEditor'), $user->getId());
 				}

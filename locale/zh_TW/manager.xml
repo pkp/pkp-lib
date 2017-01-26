@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="zh_TW" full_name = "繁體中文">
+<locale name="zh_TW" full_name="繁體中文">
 	<message key="manager.announcements">公告</message>
 	<message key="manager.announcements.confirmDelete">您確定您要永久性地刪除這份公告？</message>
 	<message key="manager.announcements.create">建立新的公告</message>

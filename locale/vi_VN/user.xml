@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="vi_VN" full_name = "Tiếng Việt">
+<locale name="vi_VN" full_name="Tiếng Việt">
 	<message key="user.affiliation">Cơ quan</message>
 	<message key="user.affiliations">Cơ quan</message>
 	<message key="user.biography">Thông tin lý lịch</message>

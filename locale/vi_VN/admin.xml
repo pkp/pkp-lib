@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="vi_VN" full_name = "Tiếng Việt">
+<locale name="vi_VN" full_name="Tiếng Việt">
 	<message key="admin.adminFunctions">Các chức năng quản trị</message>
 	<message key="admin.auth.confirmDelete">Quý vị có chắc chắn muốn xóa vĩnh viễn nguồn xác thực này?</message>
 	<message key="admin.auth.create">Tạo nguồn xác thực quyền truy cập</message>

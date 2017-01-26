@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="fr_CA" full_name = "Français">
+<locale name="fr_CA" full_name="Français (Canada)">
 	<message key="editor.submissionLibrary.description"><![CDATA[Télécharger les documents qui concernent la révision et la publication de cette soumission. Des modèles ont été créés pour plusieurs de ces documents. Il suffit de cliquer sur <em>Visionner la bibliothèque de documents</em>.]]></message>
 	<message key="editor.review.notInitiated">Le processus de révision n'a pas encore débuté.</message>
 	<message key="editor.submission.copyediting.personalMessageToUser">Message à l'utilisateur</message>

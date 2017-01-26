@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="ja_JP" full_name = "日本語">
+<locale name="ja_JP" full_name="日本語">
 	<message key="installer.additionalLocales">追加言語</message>
 	<message key="installer.administratorAccount">管理者アカウント</message>
 	<message key="installer.administratorAccountInstructions">このユーザアカウントはサイト管理者になり、システムのすべてにアクセスできるようになります。ユーザアカウントの追加はインストール後に行うことができます。</message>

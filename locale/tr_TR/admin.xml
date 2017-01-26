@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="tr_TR" full_name = "Türkçe">
+<locale name="tr_TR" full_name="Türkçe">
 	<message key="admin.adminFunctions">Yönetsel İşlevler</message>
 	<message key="admin.auth.confirmDelete">Bu yetkilendirme kaynağını kalıcı olarak silmek istediğinizden emin misiniz?</message>
 	<message key="admin.auth.create">Yetkilendirme kaynağı yarat</message>

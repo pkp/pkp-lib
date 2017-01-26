@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="pt_PT" full_name = "Português">
+<locale name="pt_PT" full_name="Português (Portugal)">
 	<message key="installer.additionalLocales">Idiomas Adicionais</message>
 	<message key="installer.administratorAccount">Conta de Administrador</message>
 	<message key="installer.administratorAccountInstructions">Este utilizador será o Administrador do Portal e terá acesso total ao sistema. Contas adicionais podem ser criadas após a instalação.</message>

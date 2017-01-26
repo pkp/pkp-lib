@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="sv_SE" full_name = "Swedish">
+<locale name="sv_SE" full_name="Svenska">
 	<message key="submission.abstractViews">Visningar av sammanfattning</message>
 	<message key="submission.accepted">Accepterad</message>
 	<message key="submission.acknowledge">Bekräfta</message>

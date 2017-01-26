@@ -12,7 +12,7 @@
   * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Russian_(ru_RU)
   -->
 
-<locale name="ru_RU" full_name = "Русский">
+<locale name="ru_RU" full_name="Русский">
 	<message key="common.publicKnowledgeProject">Public Knowledge Project</message>
 	<message key="common.currentStyleSheet">Текущая таблица стилей</message>
 	<message key="about.description">Описание</message>

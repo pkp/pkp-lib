@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="sv_SE" full_name = "Swedish">
+<locale name="sv_SE" full_name="Svenska">
 	<message key="admin.adminFunctions">Administrativa funktioner</message>
 	<message key="admin.auth.confirmDelete">Är du säker på att du vill ta bort valideringskällan permanent?</message>
 	<message key="admin.auth.create">Skapa valideringskälla</message>

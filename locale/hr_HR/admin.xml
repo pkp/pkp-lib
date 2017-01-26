@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="hr_HR" full_name = "Hrvatski">
+<locale name="hr_HR" full_name="Hrvatski">
 	<message key="admin.adminFunctions">Administrativne funkcije</message>
 	<message key="admin.auth.confirmDelete">Jeste li sigurni da želite trajno obrisati ovaj izvor autentifikacije?</message>
 	<message key="admin.auth.create">Kreirajte izvor autentifikacije</message>

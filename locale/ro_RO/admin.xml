@@ -13,7 +13,7 @@
   *
   -->
 
-<locale name="ro_RO" full_name = "Romanian">
+<locale name="ro_RO" full_name="Limba Română">
 	<message key="admin.adminFunctions">Funcţii administrative</message>
 	<message key="admin.auth.confirmDelete">Eşti sigur că doreşti ştergerea permanentă a sursei de autentificare?</message>
 	<message key="admin.auth.create">Creează o sursă de autentificare</message>

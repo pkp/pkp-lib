@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="hr_HR" full_name = "Hrvatski">
+<locale name="hr_HR" full_name="Hrvatski">
 	<message key="user.affiliation">Ustanova</message>
 	<message key="user.affiliations">Ustanove</message>
 	<message key="user.biography">Biografski podaci</message>

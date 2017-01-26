@@ -11,7 +11,7 @@
   * Localization strings for the ar_IQ (العربية) locale.
   -->
 
-<locale name="ar_IQ" full_name = "العربية">
+<locale name="ar_IQ" full_name="العربية">
 	<message key="user.accountInformation">معلومات الحساب</message>
 	<message key="user.affiliation">الانتماء</message>
 	<message key="user.affiliation.description">(المؤسسة التي تعمل فيها، مثلاً: "جامعة بغداد")</message>

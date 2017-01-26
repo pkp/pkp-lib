@@ -14,7 +14,7 @@
   * V. I. Vernadsky National Library of Ukraine
   -->
 
-<locale name="uk_UA" full_name = "Ukrainian">
+<locale name="uk_UA" full_name="Українська">
 	<message key="user.affiliation">Місце роботи</message>
 	<message key="user.affiliation.description">(Ваше місце роботи, наприклад, "Київський національний університет імені Тараса Шевченка")</message>
 	<message key="user.affiliations">Місця роботи</message>

@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="tr_TR" full_name = "Türkiye Türkçesi">
+<locale name="tr_TR" full_name="Türkçe">
 	<message key="comments.anonymous">Anonim Okuyucu</message>
 	<message key="comments.anonymousNamed">"{$userName}"</message>
 	<message key="comments.body">Yorumunuz</message>

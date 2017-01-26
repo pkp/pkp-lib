@@ -11,7 +11,7 @@
   * Localization strings for the ar_IQ (العربية) locale.
   -->
 
-<locale name="ar_IQ" full_name = "العربية">
+<locale name="ar_IQ" full_name="العربية">
 	<!-- Author Submission -->
 	<message key="author.submit.userGroupRequired">حسابك الحالي ليس له دور يسمح بتقديم طلبات جديدة كمؤلف. لطفاً، راجع بيانات حسابك؛ فقد يكون بإمكانك إضافة الدور المناسب لنفسك.</message>
 	<message key="author.submit.submissionCitations">إدرج قائمة منسقة من المراجع للأعمال المقتبس منها ضمن هذا المؤلَّف. لطفاً، إفصل بين المراجع بسطر فارغ.</message>

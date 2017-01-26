@@ -12,7 +12,7 @@
   * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Russian_(ru_RU)
   -->
 
-<locale name="ru_RU" full_name = "Русский">
+<locale name="ru_RU" full_name="Русский">
 	<message key="user.accountInformation">Информация учетной записи</message>
 	<message key="user.affiliation">Организация</message>
 	<message key="user.affiliation.description">(Ваша организация, например, «Московский государственный университет имени М.В. Ломоносова»)</message>

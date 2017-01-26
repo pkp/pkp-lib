@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="eu_ES" full_name = "Basque (Euskara)">
+<locale name="eu_ES" full_name="Euskara">
 	<message key="manager.announcements">Anuntzioak</message>
 	<message key="manager.announcements.confirmDelete">Ziur zaude betiko ezabatu nahi duzula anuntzio hau?</message>
 	<message key="manager.announcements.create">Sortu Anuntzio berria</message>

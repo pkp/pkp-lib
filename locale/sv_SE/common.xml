@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="sv_SE" full_name = "Swedish">
+<locale name="sv_SE" full_name="Svenska">
 	<message key="about.aboutSite">Om sidan</message>
 	<message key="about.contact">Kontakt</message>
 	<message key="about.contact.email">E-post</message>

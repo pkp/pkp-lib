@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="ja_JP" full_name = "日本語">
+<locale name="ja_JP" full_name="日本語">
 	<message key="about.aboutSite">このサイトについて</message>
 	<message key="about.contact">連絡先</message>
 	<message key="about.contact.email">メールアドレス</message>

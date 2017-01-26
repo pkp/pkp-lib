@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="es_AR" full_name = "Español (Argentina)">
+<locale name="es_AR" full_name="Español (Argentina)">
 	<message key="admin.adminFunctions">Funciones Administrativas</message>
 	<message key="admin.auth.confirmDelete">¿Está seguro de borrar esta fuente de autenticación?</message>
 	<message key="admin.auth.create">Crear fuente de autenticación</message>

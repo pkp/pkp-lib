@@ -14,7 +14,7 @@
   * V. I. Vernadsky National Library of Ukraine
   -->
 
-<locale name="uk_UA" full_name = "Ukrainian">
+<locale name="uk_UA" full_name="Українська">
 	<message key="comments.anonymous">Гість</message>
 	<message key="comments.anonymousNamed">"{$userName}"</message>
 	<message key="comments.body">Текст</message>

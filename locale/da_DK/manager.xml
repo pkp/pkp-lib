@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="da_DK" full_name = "Danish">
+<locale name="da_DK" full_name="Dansk">
 	<message key="manager.announcements">Meddelelser</message>
 	<message key="manager.announcements.confirmDelete">Er du sikker på, at du vil slette denne meddelelse permanent?</message>
 	<message key="manager.announcements.create">Opret ny meddelelse</message>

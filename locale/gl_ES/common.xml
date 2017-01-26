@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="gl_ES" full_name = "GAlego (Galiza)">
+<locale name="gl_ES" full_name="Galego">
 	<message key="about.aboutSite">Sobre o sitio</message>
 	<message key="about.contact">Contacto</message>
 	<message key="about.contact.email">Correo-e</message>

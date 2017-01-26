@@ -12,7 +12,7 @@
   * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Russian_(ru_RU)
   -->
 
-<locale name="ru_RU" full_name = "Русский">
+<locale name="ru_RU" full_name="Русский">
 	<message key="admin.systemInfo.settingName">Задаем название</message>
 	<message key="admin.systemInfo.settingValue">Задаем значение</message>
 	<message key="admin.adminFunctions">Административные функции</message>

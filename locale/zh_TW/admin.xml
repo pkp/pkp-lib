@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="zh_TW" full_name = "繁體中文">
+<locale name="zh_TW" full_name="繁體中文">
 	<message key="admin.adminFunctions">管理功能</message>
 	<message key="admin.auth.confirmDelete">您確定您要永遠刪除這個認證資源？</message>
 	<message key="admin.auth.create">開取認證資源</message>

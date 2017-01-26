@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="eu_ES" full_name = "Basque (Euskara)">
+<locale name="eu_ES" full_name="Euskara">
 	<message key="comments.anonymous">Erabiltzaile anonimoa</message>
 	<message key="comments.anonymousNamed">"{$userName}"</message>
 	<message key="comments.body">Gorputza</message>

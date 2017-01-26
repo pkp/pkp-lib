@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="eu_ES" full_name = "Basque (Euskara)">
+<locale name="eu_ES" full_name="Euskara">
 	<message key="installer.additionalLocales">Locale gehiago</message>
 	<message key="installer.administratorAccount">Administratzailearen kontua</message>
 	<message key="installer.administratorAccountInstructions">Erabiltzaile-kontu hau gune-administratzaile bihurtuko da eta sistemarako sarbide osoa izango du. Erabiltzaile-kontu gehiago sortu ahal izango dira instalazioa egin ondoren.</message>

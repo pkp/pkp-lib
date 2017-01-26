@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="pt_PT" full_name = "Português">
+<locale name="pt_PT" full_name="Português (Portugal)">
 	<message key="admin.adminFunctions">Funções Administrativas</message>
 	<message key="admin.auth.confirmDelete">Deseja realmente eliminar esta fonte de autenticação?</message>
 	<message key="admin.auth.create">Criar fonte de autenticação</message>

@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="da_DK" full_name = "Danish">
+<locale name="da_DK" full_name="Dansk">
 	<message key="installer.additionalLocales">Yderligere landestandarder</message>
 	<message key="installer.administratorAccount">Administratorkonto</message>
 	<message key="installer.administratorAccountInstructions">Denne brugerkonto bliver webstedsadministrator og vil få fuld adgang til systemet. Efter installationen kan der oprettes flere brugerkonti.</message>

@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="tr_TR" full_name = "Türkiye Türkçesi">
+<locale name="tr_TR" full_name="Türkçe">
 	<message key="manager.announcements">Duyurular</message>
 	<message key="manager.announcements.confirmDelete">Bu duyuruyu kalıcı olarak silmek istediğinizden emin misiniz?</message>
 	<message key="manager.announcements.create">Yeni Duyuru Oluştur</message>

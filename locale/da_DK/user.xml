@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="da_DK" full_name = "Danish">
+<locale name="da_DK" full_name="Dansk">
 	<message key="user.affiliation">Tilhørsforhold</message>
 	<message key="user.affiliations">Tilhørsforhold</message>
 	<message key="user.biography">Biografierklæring</message>

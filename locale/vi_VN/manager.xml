@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="vi_VN" full_name = "Tiếng Việt">
+<locale name="vi_VN" full_name="Tiếng Việt">
 	<message key="manager.announcements">Thông báo</message>
 	<message key="manager.announcements.confirmDelete">Quý vị có chắc chắn muốn xóa thông báo này vĩnh viễn không?</message>
 	<message key="manager.announcements.create">Đăng Thông báo mới</message>

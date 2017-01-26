@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="fr_CA" full_name = "Français (Canada)">
+<locale name="fr_CA" full_name="Français (Canada)">
 	<message key="common.queue.long.submissionsUnassigned">Soumissions non assignées</message>
 	<message key="common.queue.long.myAssigned">Les soumissions m'ayant été assignées</message>
 	<message key="submission.authors">Auteurs</message>

@@ -34,8 +34,9 @@
 				$colourInput.spectrum({
 					preferredFormat: 'hex',
 					showInitial: true,
+					showInput: true,
 					showButtons: false,
-					change: function(colour)  {
+					change: function(colour) {
 						/** @type {{toHexString: function()}} */
 						hexColour = colour.toHexString();
 						$colourInput.val(hexColour);

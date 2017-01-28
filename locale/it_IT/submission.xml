@@ -373,4 +373,8 @@
 
 	<message key="submission.reviewForm">Modulo di revisione</message>
 	<message key="submission.reviewFormResponse">Risposta del modulo di revisione</message>
+	<message key="submission.upload.selectOptionalFileToRevise">Se stai caricando una revisione di un file già esistente, selezionare il file da sostituire.</message>
+	<message key="submission.confirm.message">La tua proposta è stata caricata ed è pronta per essere inviata. Puoi tornare indietro per rivedere e modificare i dati inseriti. Quando sei pronto, clicca su "Invia la proposta".</message>
+	<message key="submission.contributors">Lista degli autori</message>
+	<message key="submission.editorial">Copyediting</message>
 </locale>

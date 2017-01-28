@@ -13,4 +13,6 @@
 
 <locale name="it_IT" full_name="Italiano">
 	<!-- Used in submission review -->
+	<message key="reviewer.submission.reviewerFiles">File del revisore</message>
+	<message key="reviewer.submission.competingInterests">Conflitto d'interessi</message>
 </locale>

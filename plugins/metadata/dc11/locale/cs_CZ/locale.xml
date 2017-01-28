@@ -13,4 +13,6 @@
  
 <locale name="cs_CZ" full_name="Čeština">
 	<!-- plug-in -->
+	<message key="plugins.metadata.dc11.displayName">Dublin Core 1.1 meta-data</message>
+	<message key="plugins.metadata.dc11.description">Poskytuje schémata a aplikační adaptéry standardu Dublin Core verze 1.1</message>
 </locale>

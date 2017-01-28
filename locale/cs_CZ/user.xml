@@ -129,4 +129,7 @@
 	<message key="user.profile.form.usergroupRequired">Je vyžadována uživatelská skupina.</message>
 	<message key="user.register.form.emailsDoNotMatch">Pole uživatelského e-mailu se neshodují.</message>
 	<message key="user.suffix">Suffix</message>
+	<message key="user.login.implicitAuthLogin">Přihlášení pomocí Shibboleth</message>
+	<message key="user.login.localAuth">Přihlášení pomocí místního účtu</message>
+	<message key="user.login.implicitAuth">Přihlášení pomocí Shibboleth</message>
 </locale>

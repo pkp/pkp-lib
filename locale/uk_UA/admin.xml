@@ -59,7 +59,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Неприпустимий формат зображення логотипу. Припустимі формати .gif, .jpg, або .png.</message>
 	<message key="admin.settings.introduction">Вступ</message>
 	<message key="admin.settings.minPasswordLength">Мінімальна довжина пароля</message>
-	<message key="admin.settings.oaiRegistration">Реєстрація сайту для індексації (збору метаданих)</message>
 	<message key="admin.settings.passwordCharacters">символів</message>
 	<message key="admin.settings.siteLanguage">Мова сайту</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Неприпустимий формат таблиці стилю сайту. Припустимий формат .css.</message>

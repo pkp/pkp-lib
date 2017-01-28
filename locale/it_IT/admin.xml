@@ -55,7 +55,7 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Formato dell'immagine del logo del sito non valido. I formati accettati sono .gif, .jpg, o .png.</message>
 	<message key="admin.settings.introduction">Introduzione</message>
 	<message key="admin.settings.minPasswordLength">Lunghezza minima delle password</message>
-	<message key="admin.settings.oaiRegistration">Registra il sito per l'indicizzazione (Harvest dei metadati)</message>
+	<message key="admin.settings.passwordCharacters">caratteri</message>
 	<message key="admin.settings.siteLanguage">Lingua del sito</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Formato del foglio di stile del sito non valido. Il formato accettato è .css.</message>
 	<message key="admin.settings.siteStyleSheet">Foglio di stile del sito</message>

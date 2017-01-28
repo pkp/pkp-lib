@@ -92,7 +92,6 @@ Aquesta eina només copiarà els fitxers que no es trobin al fitxer d'estats d'�
 	<message key="admin.settings.homeHeaderImageInvalid">El format de la imatge utilitzada com a logotip al lloc web no és vàlid. Els formats acceptats són .gif, .jpg i .png.</message>
 	<message key="admin.settings.introduction">Introducció</message>
 	<message key="admin.settings.minPasswordLength">Longitud mínima de la contrasenya</message>
-	<message key="admin.settings.oaiRegistration">Registra el lloc per a la indexació (recopilació de dades)</message>
 	<message key="admin.settings.passwordCharacters">caràcters</message>
 	<message key="admin.settings.siteLanguage">Llengua del lloc</message>
 	<message key="admin.settings.siteStyleSheetInvalid">El format del full d'estil del lloc web no és vàlid. El format admès és .css.</message>

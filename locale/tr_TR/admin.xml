@@ -57,7 +57,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Geçersiz site logosu biçimi. Kabul edilebilir biçimler: .gif, .jpg veya .png.</message>
 	<message key="admin.settings.introduction">Giriş</message>
 	<message key="admin.settings.minPasswordLength">Şifre için en kısa karakter sayısı</message>
-	<message key="admin.settings.oaiRegistration">İndekslemesi için Siteyi Kaydet (Üst veri Harmanlama)</message>
 	<message key="admin.settings.passwordCharacters">karakterler</message>
 	<message key="admin.settings.siteLanguage">Site Dili</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Geçersiz biçim. Kabul edilebilir biçimler .css.</message>

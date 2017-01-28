@@ -90,7 +90,6 @@ Uso (procesar todos los archivos de un directorio que empieza con la cadena pasa
 	<message key="admin.settings.homeHeaderImageInvalid">Formato de imagen del logotipo del sitio inválido. Formatos aceptados: .gif, .jpg y .png.</message>
 	<message key="admin.settings.introduction">Introducción</message>
 	<message key="admin.settings.minPasswordLength">Longitud mínima de la contraseña</message>
-	<message key="admin.settings.oaiRegistration">Registrar sitio para índice (Metadata Harvesting)</message>
 	<message key="admin.settings.passwordCharacters">caracteres</message>
 	<message key="admin.settings.siteLanguage">Idioma</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Formato inválido de hoja de estilo del sitio. El formato aceptado es .css.</message>

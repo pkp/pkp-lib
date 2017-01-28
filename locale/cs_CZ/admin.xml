@@ -60,7 +60,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Neplatný formát obrázku loga stránky. Podporované formáty jsou .gif, .jpg, nebo .png.</message>
 	<message key="admin.settings.introduction">Úvod</message>
 	<message key="admin.settings.minPasswordLength">Minimální délka hesla</message>
-	<message key="admin.settings.oaiRegistration">Zaregistrovat stránku pro indexaci (shromažďování metadat)</message>
 	<message key="admin.settings.passwordCharacters">znaky</message>
 	<message key="admin.settings.siteLanguage">Jazyk stránky</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Neplatný formát stylu stránky. Podporovaný formát je .css.</message>

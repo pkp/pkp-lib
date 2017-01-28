@@ -57,7 +57,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Formato de imagem inválido. Formatos aceitáveis são .gif, .jpg ou .png.</message>
 	<message key="admin.settings.introduction">Introdução</message>
 	<message key="admin.settings.minPasswordLength">Tamanho mínimo de senha</message>
-	<message key="admin.settings.oaiRegistration">Registar Portal para Indexação (Recolha de Metadados)</message>
 	<message key="admin.settings.passwordCharacters">caracteres</message>
 	<message key="admin.settings.siteLanguage">Idioma do Portal</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Formato de folha de estilo inválido. Formato aceitável é .css.</message>

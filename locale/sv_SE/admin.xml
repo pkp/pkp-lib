@@ -56,7 +56,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Ogiltigt bildformat på sidlogotyp. Tillåtna format är: .gif, .jpg, or .png.</message>
 	<message key="admin.settings.introduction">Introduktion</message>
 	<message key="admin.settings.minPasswordLength">Minsta längd på lösenord</message>
-	<message key="admin.settings.oaiRegistration">Registrera sidan för indexering (Metadata Harvesting)</message>
 	<message key="admin.settings.passwordCharacters">tecken</message>
 	<message key="admin.settings.siteLanguage">Sidans språk</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Ogiltigt format på sidans stylesheet. Tillåtet format är: .css.</message>

@@ -56,7 +56,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Neispravni format logotipa stranice. Sustav prihvaća .gif, .jpg ili .png formate.</message>
 	<message key="admin.settings.introduction">Uvod</message>
 	<message key="admin.settings.minPasswordLength">Minimalna duljina lozinke</message>
-	<message key="admin.settings.oaiRegistration">Evidentirajte stranicu za indeksiranje (sakupljanje metapodataka)</message>
 	<message key="admin.settings.passwordCharacters">znakova</message>
 	<message key="admin.settings.siteLanguage">Jezik stranice</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Neispravni style sheet format. Sustav prihvaća samo .css format.</message>

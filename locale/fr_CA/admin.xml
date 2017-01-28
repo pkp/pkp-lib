@@ -72,7 +72,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Le format de l'image du logo du site est invalide. Seuls les formats .gif, .jpg ou .png sont acceptés.</message>
 	<message key="admin.settings.introduction">Introduction</message>
 	<message key="admin.settings.minPasswordLength">Longueur minimum du mot de passe</message>
-	<message key="admin.settings.oaiRegistration">Enregistrer le site pour l'indexation (collecte de métadonnées)</message>
 	<message key="admin.settings.passwordCharacters">caractères</message>
 	<message key="admin.settings.siteLanguage">Langue du site</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Format de la feuille de style du site invalide. Le format accepté est .css.</message>

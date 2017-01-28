@@ -57,7 +57,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Neispravan format logoa sajta. Sistem prihvata .gif, .jpg ili .png formate.</message>
 	<message key="admin.settings.introduction">Uvod</message>
 	<message key="admin.settings.minPasswordLength">Minimalna dužina lozinke</message>
-	<message key="admin.settings.oaiRegistration">Registrujte sajt za indeksiranje (sakupljanje metapodataka)</message>
 	<message key="admin.settings.passwordCharacters">znakova</message>
 	<message key="admin.settings.siteLanguage">Jezik sajta</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Neispravan style sheet format. Sistem prihvata samo .css format.</message>

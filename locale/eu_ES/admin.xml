@@ -57,7 +57,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Logoaren irudi-formatua ez da baliozkoa: .gif, .jpg, edo .png formatuak bakarrik onartzen dira.</message>
 	<message key="admin.settings.introduction">Aurkezpenaa</message>
 	<message key="admin.settings.minPasswordLength">Pasahitzaren gutxieneko luzera</message>
-	<message key="admin.settings.oaiRegistration">Erregistratu gunea indexatzeko (Metadata Harvesting)</message>
 	<message key="admin.settings.passwordCharacters">karaktere</message>
 	<message key="admin.settings.siteLanguage">Gunearen hizkuntza</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Gunearen estilo-orriaren formatua ez da baliozkoa: .css formatua izan behar du.</message>

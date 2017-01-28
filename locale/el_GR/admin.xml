@@ -57,7 +57,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Μη έγκυρη μορφή αρχείου εικόνας λογοτύπου περιοδικού. Έγκυρες μορφές αρχείων είναι .gif, .jpg, ή .png.</message>
 	<message key="admin.settings.introduction">Εισαγωγή</message>
 	<message key="admin.settings.minPasswordLength">Ελάχιστο μήκος κωδικού πρόσβασης (password)</message>
-	<message key="admin.settings.oaiRegistration">Εγγράψτε τον ιστότοπο για ευρετηρίαση μεταδεδομένων (Metadata Harvesting)</message>
 	<message key="admin.settings.passwordCharacters">χαρακτήρες</message>
 	<message key="admin.settings.siteLanguage">Γλώσσα ιστοτόπου</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Μη έγκυρη μορφή αρχείου stylesheet ιστοτόπου. Έγκυρη μορφή αρχείου είναι η  .css.</message>

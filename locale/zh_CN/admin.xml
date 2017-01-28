@@ -57,7 +57,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">无效的网站Logo图片格式，只有如下格式允许 .gif, .jpg, or .png.</message>
 	<message key="admin.settings.introduction">介绍</message>
 	<message key="admin.settings.minPasswordLength">最小的密码长度</message>
-	<message key="admin.settings.oaiRegistration">注册网站便于索引 (Metadata Harvesting)</message>
 	<message key="admin.settings.passwordCharacters">字符</message>
 	<message key="admin.settings.siteLanguage">网站语言</message>
 	<message key="admin.settings.siteStyleSheetInvalid">无效的样式表格式，允许的格式有.css.</message>

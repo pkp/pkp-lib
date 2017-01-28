@@ -57,7 +57,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Ugyldigt billedformat for webstedslogo. De accepterede formater er .gif, .jpg eller .png.</message>
 	<message key="admin.settings.introduction">Introduktion</message>
 	<message key="admin.settings.minPasswordLength">Minimumlængde for adgangskode</message>
-	<message key="admin.settings.oaiRegistration">Registrer websted med henblik på indeksering (harvesting af metadata)</message>
 	<message key="admin.settings.passwordCharacters">tegn</message>
 	<message key="admin.settings.siteLanguage">Sprog på websted</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Ugyldigt format for typografiark til websted. Det accepterede format er .css.</message>

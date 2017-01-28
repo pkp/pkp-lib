@@ -57,7 +57,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Onjuist bestandstype voor het site logo. Geldige types zijn .gif, .jpg, en .png.</message>
 	<message key="admin.settings.introduction">Introductie</message>
 	<message key="admin.settings.minPasswordLength">Minimale wachtwoordlengte</message>
-	<message key="admin.settings.oaiRegistration">Site aanmelden voor indexering (Metadata Harvesting)</message>
 	<message key="admin.settings.passwordCharacters">tekens</message>
 	<message key="admin.settings.siteLanguage">Taal van de site</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Onjuist bestandstype voor site stylesheet. Geldig bestandstype is .css.</message>

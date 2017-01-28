@@ -57,7 +57,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Format gambar logo invalid. Format yang diterima adalah .gif, .jpg, atau .png.</message>
 	<message key="admin.settings.introduction">Pendahuluan</message>
 	<message key="admin.settings.minPasswordLength">Panjang Kata Sandi Min</message>
-	<message key="admin.settings.oaiRegistration">Daftarkan Situs Untuk Pengindeksan (Metadata Harvesting)</message>
 	<message key="admin.settings.passwordCharacters">Karakter</message>
 	<message key="admin.settings.siteLanguage">Bahasa Situs</message>
 	<message key="admin.settings.siteStyleSheetInvalid"> Format lembar model situs invalid. Format yang dapat diterima adalah .css.</message>

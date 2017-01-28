@@ -80,7 +80,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">صيغة ملف شعار الموقع غير صحيحة. الصيغ المقبولة هي .gif، .jpg، أو .png.</message>
 	<message key="admin.settings.introduction">المقدمة</message>
 	<message key="admin.settings.minPasswordLength">أقل طول لكلمة المرور</message>
-	<message key="admin.settings.oaiRegistration">سجِّل الموقع لأغراض الفهرسة (حصاد البيانات الوصفية)</message>
 	<message key="admin.settings.siteLanguage">لغة الموقع</message>
 	<message key="admin.settings.siteStyleSheetInvalid">صيغة ملف أنماط الموقع غير صحيحة. الصيغة المقبولة هي .css.</message>
 	<message key="admin.settings.siteStyleSheet">ملف أنماط الموقع</message>

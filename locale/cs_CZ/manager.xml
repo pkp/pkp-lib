@@ -244,4 +244,10 @@
 	<message key="plugins.categories.citationOutput.description">Pluginy pro citační výstupy implementují citační standardy. Nahrazují Pluginy citačních formátů.</message>
 	<message key="plugins.categories.citationParser">Pluginy pro extrakci citací</message>
 	<message key="plugins.categories.citationParser.description">Pluginy pro extrakci citací extrahují z nezpracovaných citací jednotlivé položky (např. autora, název, atd.)</message>
+	<message key="manager.emails.exportXML">Exportovat vybrané šablony emailů jako XML</message>
+	<message key="manager.emails.uploadXML">Nahrát soubor XML</message>
+	<message key="manager.emails.uploadSuccess">Vybrané emailové šablony byly úspěšně aktualizovány</message>
+	<message key="manager.emails.uploadError">Nahrávání souboru skončilo chybou</message>
+	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>Tento extrakční filtr používá <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> Perl moduly k provedení <a href="http://paracite.eprints.org" target="_blank">ParaCite</a> funkcionality citačního rozboru. Aby tato funkce fungovala správně, musíte mít nainstalovaný Perl, spolu s <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> a <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a> CPAN moduly. Musíte také nakonfigurovat nastavení <tt>perl</tt> ve vašem konfiguračním souboru. Toto nastavení můžete najít v sekci External Commands konfiguračního souboru <tt>config.inc.php</tt>.</p>
+	<p>Můžete si také vybrat který modul parseru ParaTools má být použit. Můžete si vybrat mezi standardem, <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a>, a <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a> parser modules.</p>]]></message>
 </locale>

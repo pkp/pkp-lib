@@ -71,4 +71,6 @@
 	<message key="installer.securitySettings">Bezpečnostní nastavení</message>
 	<message key="installer.installParseFilterConfigFileError"><![CDATA[Chyba při analýze konfiguračního souboru filtru <tt>{$file}</tt>.]]></message>
 	<message key="installer.oaiSettings">Nastavení OAI</message>
+	<message key="installer.beacon">Maják</message>
+	<message key="installer.beacon.enable">Poskytnout PKP unikátní ID stránky a základní adresu OAI pro statistické a bezpečnostní účely.</message>
 </locale>

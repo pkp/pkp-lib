@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE languages SYSTEM "../../dtd/languages.dtd">
+<!--
+  * locale/en_US/languages.xml
+  *
+  * Copyright (c) 2013-2016 Simon Fraser University Library
+  * Copyright (c) 2000-2016 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Lokalizovaný seznam běžných jazyků. Dle ISO 639-1.
+  *
+  -->
+<languages>
+	<language code="ab" name="abcházština"/>
+	<language code="aa" name="afarština"/>
+	<language code="af" name="afrikánština"/>
+	<language code="ak" name="akanština"/>
+	<language code="sq" name="albánština"/>
+	<language code="am" name="amharština"/>
+	<language code="ar" name="arabština"/>
+	<language code="an" name="aragonština"/>
+	<language code="hy" name="arménština"/>
+	<language code="as" name="ásámština"/>
+	<language code="av" name="avarština"/>
+	<language code="ae" name="averstánština"/>
+	<language code="ay" name="ajvarština"/>
+	<language code="az" name="azerbájdžánština"/>
+	<language code="bm" name="bambaršitna"/>
+	<language code="ba" name="baškirština"/>
+	<language code="eu" name="baskičtina"/>
+	<language code="be" name="běloruština"/>
+	<language code="bn" name="bengálština"/>
+	<language code="bh" name="bihárské jazyky"/>
+	<language code="bi" name="bislamština"/>
+	<language code="bs" name="bosenština"/>
+	<language code="br" name="bretonština"/>
+	<language code="bg" name="bulharština"/>
+	<language code="my" name="barmština"/>
+	<language code="ca" name="katalánština"/>
+	<language code="km" name="khmérština"/>
+	<language code="ch" name="chamorro"/>
+	<language code="ce" name="čečenština"/>
+	<language code="ny" name="čičevština"/>
+	<language code="zh" name="čínština"/>
+	<language code="cu" name="staroslověnštiny"/>
+	<language code="cv" name="čuvaština"/>
+	<language code="kw" name="kornština"/>
+	<language code="co" name="korsičtina"/>
+	<language code="cr" name="krijština"/>
+	<language code="hr" name="chorvatština"/>
+	<language code="cs" name="čeština"/>
+	<language code="da" name="dánština"/>
+	<language code="dv" name="divehi"/>
+	<language code="nl" name="nizozemština, vlámština"/>
+	<language code="dz" name="dzongkha"/>
+	<language code="en" name="angličtina"/>
+	<language code="eo" name="esperanto"/>
+	<language code="et" name="estonština"/>
+	<language code="ee" name="eveština"/>
+	<language code="fo" name="faerština"/>
+	<language code="fj" name="fidžijština"/>
+	<language code="fi" name="finština"/>
+	<language code="fr" name="francouzština"/>
+	<language code="ff" name="fulbština"/>
+	<language code="gl" name="galicijština"/>
+	<language code="lg" name="gandština"/>
+	<language code="ka" name="gruzínština"/>
+	<language code="de" name="němčina"/>
+	<language code="el" name="řečtina"/>
+	<language code="gn" name="guarani"/>
+	<language code="gu" name="gudžarátština"/>
+	<language code="ht" name="haitština"/>
+	<language code="ha" name="hauština"/>
+	<language code="he" name="hebrejština"/>
+	<language code="hz" name="hererština"/>
+	<language code="hi" name="hindština"/>
+	<language code="ho" name="hiri motu"/>
+	<language code="hu" name="maďarština"/>
+	<language code="is" name="islandština"/>
+	<language code="io" name="ido"/>
+	<language code="ig" name="igbo"/>
+	<language code="id" name="indonéština"/>
+	<language code="ia" name="interlingua"/>
+	<language code="ie" name="interlingue"/>
+	<language code="iu" name="inuitštiny"/>
+	<language code="ik" name="inupiaq"/>
+	<language code="ga" name="irština"/>
+	<language code="it" name="italština"/>
+	<language code="ja" name="japonština"/>
+	<language code="jv" name="javánština"/>
+	<language code="kl" name="grónština"/>
+	<language code="kn" name="kannadština"/>
+	<language code="kr" name="kanurijština"/>
+	<language code="ks" name="kašmírština"/>
+	<language code="kk" name="kazaština"/>
+	<language code="ki" name="kukujština"/>
+	<language code="rw" name="rwandština"/>
+	<language code="ky" name="kyrgyzština"/>
+	<language code="kv" name="komijština"/>
+	<language code="kg" name="konžština"/>
+	<language code="ko" name="koršjština"/>
+	<language code="kj" name="kuanyama"/>
+	<language code="ku" name="kurdština"/>
+	<language code="lo" name="laoština"/>
+	<language code="la" name="latin"a/>
+	<language code="lv" name="lotyšština"/>
+	<language code="li" name="limburština"/>
+	<language code="ln" name="ngalština"/>
+	<language code="lt" name="litevština"/>
+	<language code="lu" name="lubština"/>
+	<language code="lb" name="luceburština"/>
+	<language code="mk" name="makedonština"/>
+	<language code="mg" name="malgaština"/>
+	<language code="ms" name="malajština"/>
+	<language code="ml" name="malajámština"/>
+	<language code="mt" name="maltština"/>
+	<language code="gv" name="manština"/>
+	<language code="mi" name="maorština"/>
+	<language code="mr" name="maráthština"/>
+	<language code="mh" name="maršálština"/>
+	<language code="mo" name="moldavština"/>
+	<language code="mn" name="mongolština"/>
+	<language code="na" name="naurština"/>
+	<language code="nv" name="navažština"/>
+	<language code="ng" name="ndonga"/>
+	<language code="ne" name="nepálština"/>
+	<language code="nd" name="severní ndebelština"/>
+	<language code="se" name="severní sámština"/>
+	<language code="no" name="norština"/>
+	<language code="nb" name="norský bokmål"/>
+	<language code="nn" name="norský nynorsk"/>
+	<language code="oc" name="okcitánština"/>
+	<language code="oj" name="odžibvejština"/>
+	<language code="or" name="urujština"/>
+	<language code="om" name="oromština"/>
+	<language code="os" name="osetština"/>
+	<language code="pi" name="páli"/>
+	<language code="pa" name="paňdžábština"/>
+	<language code="fa" name="peršitna"/>
+	<language code="pl" name="polština"/>
+	<language code="pt" name="portugalština"/>
+	<language code="ps" name="paštština"/>
+	<language code="qu" name="kečuánština"/>
+	<language code="ro" name="rumunština"/>
+	<language code="rm" name="rétorománština"/>
+	<language code="rn" name="kirundština"/>
+	<language code="ru" name="ruština"/>
+	<language code="ry" name="rusínština"/>
+	<language code="sm" name="samojština"/>
+	<language code="sg" name="sangština"/>
+	<language code="sa" name="sanskrt"/>
+	<language code="sc" name="sardština"/>
+	<language code="gd" name="skotská gaelština"/>
+	<language code="sr" name="srbština"/>
+	<language code="sh" name="srbochorvatština"/>
+	<language code="sn" name="šonština"/>
+	<language code="ii" name="yi"/>
+	<language code="sd" name="sandhština"/>
+	<language code="si" name="sinhálština"/>
+	<language code="sk" name="slovenština"/>
+	<language code="sl" name="slovinština"/>
+	<language code="so" name="somálština"/>
+	<language code="st" name="sotština"/>
+	<language code="nr" name="jižní ndebelština"/>
+	<language code="es" name="španělština"/>
+	<language code="su" name="sudština"/>
+	<language code="sw" name="svahilština"/>
+	<language code="ss" name="svazijština"/>
+	<language code="sv" name="švédština"/>
+	<language code="tl" name="tagalština"/>
+	<language code="ty" name="tahijština"/>
+	<language code="tg" name="tádžičtina"/>
+	<language code="ta" name="tamilština"/>
+	<language code="tt" name="tatarština"/>
+	<language code="te" name="telugština"/>
+	<language code="th" name="thajština"/>
+	<language code="bo" name="tibetština"/>
+	<language code="ti" name="tigriňňa"/>
+	<language code="to" name="tonžština"/>
+	<language code="ts" name="tsonga"/>
+	<language code="tn" name="čvanština"/>
+	<language code="tr" name="turečtina"/>
+	<language code="tk" name="turkmenština"/>
+	<language code="tw" name="twiština"/>
+	<language code="ug" name="ujgurština"/>
+	<language code="uk" name="ukrajinštna"/>
+	<language code="ur" name="urdština"/>
+	<language code="uz" name="uzbečtina"/>
+	<language code="ve" name="luvendština"/>
+	<language code="vi" name="veitnamština"/>
+	<language code="vo" name="volapük"/>
+	<language code="wa" name="valonština"/>
+	<language code="cy" name="velština"/>
+	<language code="fy" name="západofríština"/>
+	<language code="wo" name="wolofština"/>
+	<language code="xh" name="xhoština"/>
+	<language code="yi" name="jidiš"/>
+	<language code="yo" name="jorubština"/>
+	<language code="za" name="čuangština"/>
+	<language code="zu" name="zulština"/>
+</languages>

@@ -99,4 +99,9 @@
 	<message key="admin.fileLoader.moveFileFailed">Soubor {$filename} nelze přesunout z {$currentFilePath} do {$destinationPath}</message>
 	<message key="admin.fileLoader.fileProcessed">Soubor {$filename} byl zpracován a archivován.</message>
 	<message key="admin.fileLoader">Nahrávání souborů</message>
+	<message key="admin.scheduledTask.downloadLog">Vaše instalace OJS automaticky provedla a ukončila tuto úlohu; soubor s protokolem této úlohy najdete zde: {$url}</message>
+	<message key="admin.scheduledTask.confirmClearLogs">Jste si jisti, že chcete smazat protokoly všech předem naplánovaných úloh?</message>
+	<message key="admin.scheduledTask.clearLogs">Vymazání protokolů naplánovaných úloh</message>
+	<message key="admin.error.utilExecutionProblem">Při běhu programu "{$utilPath}" došlo k následující chybě: {$output}</message>
+	<message key="admin.error.executingUtil">Chyba. Nelze spustit "{$utilPath}".  Zkontrolujte vaše nastavení {$utilVar} v souboru config.inc.php.</message>
 </locale>

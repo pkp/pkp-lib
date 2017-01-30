@@ -114,7 +114,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			$query = $this->getCommentsToEditor($this->submissionId);			
 			$this->_data = array_merge($data, array(
 				'locale' => $this->submission->getLocale(),
-				'commentsToEditor' => $query->getHeadNote()->getContents(),
+				'commentsToEditor' => $query ? $query->getHeadNote()->getContents() : '',
 			));
 		} else {
 			$supportedSubmissionLocales = $this->context->getSupportedSubmissionLocales();
@@ -162,6 +162,10 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 
 	/**
 	 * Add or update comments to editor
+	 * @param $submissionId int
+	 * @param $commentsToEditor string
+	 * @param $userId int
+	 * @param $query Query optional
 	 */
 	function setCommentsToEditor($submissionId, $commentsToEditor, $userId, $query = null) {
 		$queryDao = DAORegistry::getDAO('QueryDAO');
@@ -197,19 +201,22 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 				$note->setDateModified(Core::getCurrentDate());
 				$noteDao->updateObject($note);
 			}
-
+			
 		}
-
+		
 	}
 	
 	/**
 	 * Get comments to editor
+	 * @param $submissionId int
+	 * @return null|Query
 	 */
 	function getCommentsToEditor($submissionId) {
+		$query = null;
 		$queryDao = DAORegistry::getDAO('QueryDAO');		
 		$queries = $queryDao->getByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId);
-		$query = $queries->next();
-		return $query; 		
+		if ($queries) $query = $queries->next();
+		return $query;
 	}
 
 	/**
@@ -232,11 +239,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			// Add or update comments to editor
 			if ($this->getData('commentsToEditor')){
 				$query = $this->getCommentsToEditor($this->submissionId);				
-				if (isset($query)){
-					$this->setCommentsToEditor($this->submissionId, $this->getData('commentsToEditor'), $user->getId(), $query);
-				} else{
-					$this->setCommentsToEditor($this->submissionId, $this->getData('commentsToEditor'), $user->getId());
-				}
+				$this->setCommentsToEditor($this->submissionId, $this->getData('commentsToEditor'), $user->getId(), $query);
 			}
 			$submissionDao->updateObject($this->submission);
 		} else {

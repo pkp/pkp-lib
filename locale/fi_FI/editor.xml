@@ -1,4 +1,7 @@
-<?xml version='1.0' encoding='UTF-8'?><!DOCTYPE locale SYSTEM "../../dtd/locale.dtd" []><!--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
   * locale/fi_FI/editor.xml
   *
   * Copyright (c) 2014-2016 Simon Fraser University Library
@@ -6,7 +9,9 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
-  --><locale name="fi_FI" full_name="Suomi">
+  -->
+
+<locale name="fi_FI" full_name="Suomi">
 	<message key="editor.submissionLibrary">Liitekirjasto</message>
 	<message key="editor.review.notInitiated">Tarkistusprosessia ei ole vielä aloitettu.</message>
 	<message key="editor.submission.copyediting.personalMessageToUser">Viesti käyttäjälle</message>

@@ -1,4 +1,7 @@
-<?xml version='1.0' encoding='UTF-8'?><!DOCTYPE locale SYSTEM "../../dtd/locale.dtd" []><!--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
   * locale/fi_FI/installer.xml
   *
   * Copyright (c) 2014-2016 Simon Fraser University Library
@@ -6,7 +9,9 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
-  --><locale name="fi_FI" full_name="Suomi">
+  -->
+  
+<locale name="fi_FI" full_name="Suomi">
 	<message key="installer.additionalLocales">Muut kielialueet</message>
 	<message key="installer.administratorAccount">Ylläpitäjätili</message>
 	<message key="installer.administratorAccountInstructions">Tästä käyttäjätilistä tulee sivuston ylläpitäjä, jolla on käyttöoikeudet koko järjestelmään. Lisää käyttäjätilejä voidaan luoda asennuksen jälkeen.</message>

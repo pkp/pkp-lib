@@ -17,6 +17,7 @@
 			$.pkp.controllers.grid.users.stageParticipant || {};
 
 
+
 	/**
 	 * @constructor
 	 *
@@ -34,11 +35,11 @@
 		this.bind('dataChanged', function() {
 			this.refreshGridHandler();
 			$(['#submissionEditorDecisionsDiv',
-					'#copyeditingEditorDecisionsDiv',
-					'#reviewDecisionsDiv-13'].join(','))
+				'#copyeditingEditorDecisionsDiv',
+				'#reviewDecisionsDiv-13'].join(','))
 				.each(function() {
-					$.pkp.classes.Handler.getHandler($(this)).reload();
-				});
+						$.pkp.classes.Handler.getHandler($(this)).reload();
+					});
 		});
 	};
 	$.pkp.classes.Helper.inherits(

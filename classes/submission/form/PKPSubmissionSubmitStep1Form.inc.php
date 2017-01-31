@@ -111,7 +111,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 */
 	function initData($data = array()) {
 		if (isset($this->submission)) {
-			$query = $this->getCommentsToEditor($this->submissionId);			
+			$query = $this->getCommentsToEditor($this->submissionId);
 			$this->_data = array_merge($data, array(
 				'locale' => $this->submission->getLocale(),
 				'commentsToEditor' => $query ? $query->getHeadNote()->getContents() : '',
@@ -172,40 +172,44 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		$noteDao = DAORegistry::getDAO('NoteDAO');
 
 		if (!isset($query)){
-			$query = $queryDao->newDataObject();
-			$query->setAssocType(ASSOC_TYPE_SUBMISSION);
-			$query->setAssocId($submissionId);
-			$query->setStageId(WORKFLOW_STAGE_ID_SUBMISSION);
-			$query->setSequence(REALLY_BIG_NUMBER);
-			$queryDao->insertObject($query);
-			$queryDao->resequence(ASSOC_TYPE_SUBMISSION, $submissionId);
-			$queryDao->insertParticipant($query->getId(), $userId);
-			$queryId = $query->getId();
+			if ($commentsToEditor) {
+				$query = $queryDao->newDataObject();
+				$query->setAssocType(ASSOC_TYPE_SUBMISSION);
+				$query->setAssocId($submissionId);
+				$query->setStageId(WORKFLOW_STAGE_ID_SUBMISSION);
+				$query->setSequence(REALLY_BIG_NUMBER);
+				$queryDao->insertObject($query);
+				$queryDao->resequence(ASSOC_TYPE_SUBMISSION, $submissionId);
+				$queryDao->insertParticipant($query->getId(), $userId);
+				$queryId = $query->getId();
 
-			$note = $noteDao->newDataObject();
-			$note->setUserId($userId);
-			$note->setAssocType(ASSOC_TYPE_QUERY);
-			$note->setTitle(__('submission.submit.coverNote'));
-			$note->setContents($commentsToEditor);
-			$note->setDateCreated(Core::getCurrentDate());
-			$note->setDateModified(Core::getCurrentDate());			
-			$note->setAssocId($queryId);
-			$noteDao->insertObject($note);
-
+				$note = $noteDao->newDataObject();
+				$note->setUserId($userId);
+				$note->setAssocType(ASSOC_TYPE_QUERY);
+				$note->setTitle(__('submission.submit.coverNote'));
+				$note->setContents($commentsToEditor);
+				$note->setDateCreated(Core::getCurrentDate());
+				$note->setDateModified(Core::getCurrentDate());
+				$note->setAssocId($queryId);
+				$noteDao->insertObject($note);
+			}
 		} else{
 			$queryId = $query->getId();
 			$notes = $noteDao->getByAssoc(ASSOC_TYPE_QUERY, $queryId);
 			if (!$notes->wasEmpty()) {
 				$note = $notes->next();
-				$note->setContents($commentsToEditor);
-				$note->setDateModified(Core::getCurrentDate());
-				$noteDao->updateObject($note);
+				if ($commentsToEditor) {
+					$note->setContents($commentsToEditor);
+					$note->setDateModified(Core::getCurrentDate());
+					$noteDao->updateObject($note);
+				} else {
+					$noteDao->deleteObject($note);
+					$queryDao->deleteObject($query);
+				}
 			}
-			
 		}
-		
 	}
-	
+
 	/**
 	 * Get comments to editor
 	 * @param $submissionId int
@@ -213,7 +217,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 */
 	function getCommentsToEditor($submissionId) {
 		$query = null;
-		$queryDao = DAORegistry::getDAO('QueryDAO');		
+		$queryDao = DAORegistry::getDAO('QueryDAO');
 		$queries = $queryDao->getByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId);
 		if ($queries) $query = $queries->next();
 		return $query;
@@ -236,11 +240,10 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 				$this->submission->stampStatusModified();
 				$this->submission->setSubmissionProgress($this->step + 1);
 			}
-			// Add or update comments to editor
-			if ($this->getData('commentsToEditor')){
-				$query = $this->getCommentsToEditor($this->submissionId);				
-				$this->setCommentsToEditor($this->submissionId, $this->getData('commentsToEditor'), $user->getId(), $query);
-			}
+			// Add, remove or update comments to editor
+			$query = $this->getCommentsToEditor($this->submissionId);
+			$this->setCommentsToEditor($this->submissionId, $this->getData('commentsToEditor'), $user->getId(), $query);
+
 			$submissionDao->updateObject($this->submission);
 		} else {
 			// Create new submission

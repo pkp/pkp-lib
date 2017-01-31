@@ -110,7 +110,6 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		$submission->setDatePublished($this->datetimeFromDB($row['date_published']));
 		$submission->setLastModified($this->datetimeFromDB($row['last_modified']));
 		$submission->setLanguage($row['language']);
-		$submission->setCommentsToEditor($row['comments_to_ed']);
 		$submission->setCitations($row['citations']);
 
 		$this->getDataObjectSettings('submission_settings', 'submission_id', $submission->getId(), $submission);

@@ -185,8 +185,6 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 			$controlledVocabulary = $dao->$getFunction($submission->getId(), $supportedLocales);
 			$this->addControlledVocabulary($doc, $submissionNode, $controlledVocabulariesNodeName, $controlledVocabularyNodeName, $controlledVocabulary);
 		}
-
-		$this->createOptionalNode($doc, $submissionNode, 'comments_to_editor', $submission->getCommentsToEditor());
 	}
 
 	/**

@@ -162,9 +162,6 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 			case 'submission_file':
 				$this->parseSubmissionFile($n, $submission);
 				break;
-			case 'comments_to_editor':
-				$submission->setCommentsToEditor($n->textContent);
-				break;
 			default:
 				$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownElement', array('param' => $n->tagName)));
 		}

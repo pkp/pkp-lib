@@ -477,7 +477,6 @@
 	<message key="author.submission.roundStatus.reviewsReady">Nye bedømmelser er blevet indsendt og bliver behandlet af redaktøren.</message>
 	<message key="submission.submit.extendedMetadata">Yderligere metadata</message>
 	<message key="common.queue.long.submissionsUnassigned">Ikke tildelt</message>
-	<message key="submission.citations.filter.webserviceError">The {$filterName}'s web service call has returned an error when called with the following URL: {$webserviceUrl}. It may be that the web service is temporarily unavailable. You'll still be able to work with the remaining services and save your results. You can also try again later. If the error persists then please ask the manager to deactivate this service and open a bug report.</message>
 	<message key="submission.copyediting">Manuskriptredigering</message>
 	<message key="submission.coverage">Information om dækningsområde</message>
 	<message key="submission.event.viewEmail">Se e-mail</message>

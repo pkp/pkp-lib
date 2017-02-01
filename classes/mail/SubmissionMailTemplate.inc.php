@@ -54,7 +54,7 @@ class SubmissionMailTemplate extends MailTemplate {
 			array(
 				'submissionTitle' => strip_tags($submission->getLocalizedTitle()),
 				'submissionId' => $submission->getId(),
-				'submissionAbstract' => PKPString::html2text($submission->getLocalizedAbstract()),
+				'submissionAbstract' => PKPString::stripUnsafeHtml($submission->getLocalizedAbstract()),
 				'authorString' => strip_tags($submission->getAuthorString()),
 			),
 			$paramArray

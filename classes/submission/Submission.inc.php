@@ -233,14 +233,6 @@ abstract class Submission extends DataObject {
 	}
 
 	/**
-	 * Get comments to editor.
-	 * @return string
-	 */
-	function getCommentsToEditor() {
-		return $this->getData('commentsToEditor');
-	}
-
-	/**
 	 * Return option selection indicating if author should be hidden in issue ToC.
 	 * @return int AUTHOR_TOC_...
 	 */
@@ -254,14 +246,6 @@ abstract class Submission extends DataObject {
 	 */
 	function setHideAuthor($hideAuthor) {
 		$this->setData('hideAuthor', $hideAuthor);
-	}
-
-	/**
-	 * Set comments to editor.
-	 * @param $commentsToEditor string
-	 */
-	function setCommentsToEditor($commentsToEditor) {
-		$this->setData('commentsToEditor', $commentsToEditor);
 	}
 
 	/**

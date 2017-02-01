@@ -32,7 +32,7 @@
 	<message key="user.lastName">Efternavn</message>
 	<message key="user.login.accountDisabledWithReason">Din konto er blevet deaktiveret af følgende årsag: {$reason}</message>
 	<message key="user.login.accountDisabled">Din konto er blevet deaktiveret. Kontakt administratoren for at få flere oplysninger.</message>
-	<message key="user.login.accountNotValidated">Din e-mail-adresse er ikke blevet valideret. Kontroller e-mail-adressen, og følg de angivne instruktioner. Hvis du ikke har modtaget en e-mail, skal du kontakte webstedsadministratoren for at få hjælp.</message>
+	<message key="user.login.accountNotValidated">Vi har sendt en bekræftelses-e-mail til dig på {$email}. For at aktivere din nye konto skal du følge de angivne instruktioner i e-mailen. Hvis du ikke kan se nogen e-mail, bedes du tjekke din spam-mappe.</message>
 	<message key="user.login.activate">Aktiver konto</message>
 	<message key="user.login.activated">Tak, fordi du har aktiveret din konto. Du kan nu logge på ved hjælp af de legitimationsoplysninger, du angav, da du oprettede kontoen.</message>
 	<message key="user.login.changePasswordInstructions"><![CDATA[Du skal vælge en ny adgangskode, inden du kan logge på dette websted.<br /><br />Angiv dit brugernavn samt din aktuelle og din nye adgangskode nedenfor for at ændre adgangskoden til din konto.]]></message>
@@ -78,7 +78,7 @@
 	<message key="user.register.form.passwordsDoNotMatch">Adgangskoderne stemmer ikke overens.</message>
 	<message key="user.register.form.usernameExists">Det valgte brugernavn benyttes allerede af en anden bruger.</message>
 	<message key="user.register.passwordLengthRestriction">Adgangskoden skal bestå af mindst {$length} tegn.</message>
-	<message key="user.register.registerAs">Registrer som</message>
+	<message key="user.register.registerAs">Registrer i {$contextName} som...</message>
 	<message key="user.register">Registrer</message>
 	<message key="user.register.usernameRestriction">Brugernavnet må kun indeholde små bogstaver, tal og bindestreger/understregningstegn.</message>
 	<message key="user.role.reader">Læser</message>
@@ -122,4 +122,35 @@
 	<message key="user.profile.form.passwordSameAsOld">Din nye adgangskode er den samme som din gamle adgangskode.</message>
 	<message key="user.profile.form.usergroupRequired">En brugergruppe er påkrævet.</message>
 	<message key="user.suffix">Suffiks</message>
+	<message key="user.profile.identity">Identitet</message>
+	<message key="user.profile.contact">Kontakt</message>
+	<message key="user.profile.public">Offentlig</message>
+	<message key="user.register.form.passwordLengthRestriction">Adgangskoden skal være på mindst {$length} tegn.</message>
+	<message key="user.role.editor">Redaktør</message>
+	<message key="user.role.editors">Redaktører</message>
+	<message key="user.role.author">Forfatter</message>
+	<message key="user.role.author_s">Forfatter(e)</message>
+	<message key="user.role.authors">Forfattere</message>
+	<message key="user.orcid">ORCID iD</message>
+	<message key="user.orcid.orcidInvalid">Den ORCID iD du angav er ikke gyldig. Husk at inkludere den hele URI (e.g. "http://orcid.org/0000-0002-1825-0097").</message>
+	<message key="user.login.registerNewAccount">Registrér</message>
+	<message key="user.authorization.accessibleWorkflowStage">Du har på nuværende tidspunkt ikke adgang til dette workflow-trin.</message>
+	<message key="user.authorization.workflowStageRequired">Der blev ikke angivet et workflow-trin.</message>
+	<message key="user.authorization.pluginRequired">Der mangler at blive anvist et plug-in.</message>
+	<message key="user.login.registrationComplete">Registrering fuldført</message>
+	<message key="user.login.registrationComplete.instructions">Tak for registreringen! Hvad ønsker du at foretage dig efterfølgende?</message>
+	<message key="user.login.registrationComplete.manageSubmissions">Se indsendelser</message>
+	<message key="user.login.registrationComplete.newSubmission">Foretag en ny indsendelse</message>
+	<message key="user.login.registrationComplete.continueBrowsing">Fortsæt browsing</message>
+	<message key="user.login.registrationPendingValidation">Registrering afventer bekræftelse</message>
+	<message key="user.login.resetPasswordInstructions">Registrér din kontos e-mailadresse nedenfor. Du vil efterfølgende modtage en e-mail med en vejledning i, hvordan du nulstiller dit password.</message>
+	<message key="user.register.form.userGroupRequired">Du skal vælge mindst én rolle.</message>
+	<message key="user.register.registrationCompleted"><![CDATA[Registreringen er gennemført. <a href="{$profileUrl}">Klik her</a> for at færdigredigere din profil.]]></message>
+	<message key="user.role.copyeditor">Manuskriptredaktør</message>
+	<message key="user.role.copyeditors">Manuskriptredaktører</message>
+	<message key="user.role.proofreader">Korrekturlæser</message>
+	<message key="user.role.proofreaders">Korrekturlæsere</message>
+	<message key="user.role.layoutEditor">Layoutredaktør</message>
+	<message key="user.role.layoutEditors">Layoutredaktører</message>
+	<message key="user.logOutAs">Log ud som</message>
 </locale>

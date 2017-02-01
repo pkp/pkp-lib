@@ -1,8 +1,8 @@
 {**
  * plugins/generic/usageStats/templates/outputFrontend.tpl
  *
- * Copyright (c) 2013-2016 Simon Fraser University Library
- * Copyright (c) 2003-2016 John Willinsky
+ * Copyright (c) 2013-2017 Simon Fraser University
+ * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @brief Add HTML markup for a usage stats graph on the frontend

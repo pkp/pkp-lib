@@ -66,7 +66,7 @@
 			{if $installAction}
 				{include file="linkAction/linkAction.tpl" action=$installAction contextId="pluginGallery"}
 			{/if}
-		</p>
+		</div>
 	</div>
 	<div id="pluginDescriptionContainer">
 		<div class="pluginDescription">{$plugin->getLocalizedDescription()|strip_unsafe_html}</div>

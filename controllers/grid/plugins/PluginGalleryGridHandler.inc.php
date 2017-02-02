@@ -14,6 +14,7 @@
  */
 
 import('lib.pkp.classes.controllers.grid.GridHandler');
+import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 
 class PluginGalleryGridHandler extends GridHandler {
 	/**

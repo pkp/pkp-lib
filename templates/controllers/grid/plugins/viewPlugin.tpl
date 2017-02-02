@@ -62,7 +62,7 @@
 
 			<div class="pluginStatus {$statusClass|escape}">{translate key=$statusKey}</div>
 		</div>
-		<p class="pluginActions pkp_linkActions pkp_helpers_align_right">
+		<div class="actions">
 			{if $installAction}
 				{include file="linkAction/linkAction.tpl" action=$installAction contextId="pluginGallery"}
 			{/if}

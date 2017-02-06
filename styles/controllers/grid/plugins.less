@@ -4,69 +4,122 @@
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
- * 
+ *
  * @ingroup pkp_controllers_grid
  *
  * @brief Classes for the plugin grid and gallery
  */
 
-div.pluginReleaseDetails {
-	float: right;
-	border: 1px solid;
-	padding: 0.5em 1em 1em 1em;
-	margin-top: 1em;
+.pkp_plugin_details {
+	.pkp_helpers_clear;
 
-	ul.pluginCertifications {
-		list-style-type: none;
-		padding: 0;
-		li {
-			float: left;
-			width: 50px;
-			height: 50px;
+	.status {
+		float: right;
+		margin-left: @double;
+		margin-bottom: @double;
+		width: 40%;
+		border: @bg-border-light;
+		border-radius: @radius;
+		font-size: @font-tiny;
+		line-height: @line-tiny;
 
-			&.official {
-				/* FIXME: Needs badge */
-			}
+		> * {
+			margin: 0;
+			padding: @base;
+			border-bottom: @bg-border-light;
 
-			&.reviewed {
-				/* FIXME: Needs badge */
-			}
-
-			&.partner {
-				/* FIXME: Needs badge */
-			}
-
-			&.mature {
-				/* FIXME: Needs badge */
+			&:last-child {
+				border-bottom: none;
 			}
 		}
 	}
-}
 
-div.pluginDescription {
-	img {
-		border: 1px solid;
-		max-width: 96%;
-		margin-left: 2%;
+	.action_button a {
+		&:extend(.pkp_button all);
+		display: block;
+		text-align: center;
 	}
-}
 
-.pluginStatus {
-	&.notInstalled {
-		color: #000000;
+	.status_notice {
+		font-weight: @bold;
 	}
-	&.newer {
-		color: #990000;
-	}
-	&.older {
-		color: #990000;
-	}
-	&.newest {
-		color: #009900;
-	}
-}
 
-.pluginActions {
-	float: right;
-	padding-right: 20px;
+	.status.is_current .status_notice {
+		color: @yes;
+	}
+
+	.status.is_not_compatible .status_notice {
+		color: @no;
+	}
+
+	.certifications {
+		&:extend(.pkp_unstyled_list all);
+
+		.label {
+			display: block;
+			font-weight: @bold;
+		}
+	}
+
+	> .maintainer,
+	> .url,
+	> .description,
+	> .installation {
+		font-size: @font-sml;
+		line-height: @line-sml;
+	}
+
+	.url {
+		margin-top: @base;
+	}
+
+	.description,
+	.installation {
+		margin-top: @double;
+	}
+
+	.author,
+	.url {
+		position: relative;
+		padding-left: @double;
+
+		&:before {
+			&:extend(.fa all);
+			position: absolute;
+			top: 50%;
+			left: @base;
+			transform: translate(-50%, -50%);
+			color: @text-light-rgba;
+		}
+
+	}
+
+	.author {
+		font-weight: @bold;
+
+		a {
+			text-decoration: none;
+		}
+
+		&:before {
+			content: @fa-var-user;
+		}
+	}
+
+	.institution {
+		padding-left: @double;
+		color: @text-light;
+	}
+
+	.url {
+
+		a {
+			text-decoration: none;
+		}
+
+		&:before {
+			content: @fa-var-link;
+		}
+
+	}
 }

@@ -16,6 +16,11 @@
 import('lib.pkp.plugins.importexport.native.filter.NativeImportExportFilter');
 
 class NativeExportFilter extends NativeImportExportFilter {
+
+	/** @var boolean If set to true no validation (e.g. XML validation) will be done */
+	var $_noValidation = null;
+
+
 	/**
 	 * Constructor
 	 * @param $filterGroup FilterGroup
@@ -24,6 +29,46 @@ class NativeExportFilter extends NativeImportExportFilter {
 		parent::__construct($filterGroup);
 	}
 
+	/**
+	 * Set no validation option
+	 * @param $noValidation boolean
+	 */
+	function setNoValidation($noValidation) {
+		$this->_noValidation = $noValidation;
+	}
+
+	/**
+	 * Get no validation option
+	 * @return boolean true|null
+	 */
+	function getNoValidation() {
+		return $this->_noValidation;
+	}
+
+	//
+	// Public methods
+	//
+	/**
+	 * @copydoc Filter::supports()
+	 */
+	function supports(&$input, &$output) {
+		// Validate input
+		$inputType =& $this->getInputType();
+		$validInput = $inputType->isCompatible($input);
+
+		// If output is null then we're done
+		if (is_null($output)) return $validInput;
+
+		// Validate output
+		$outputType =& $this->getOutputType();
+
+		if (is_a($outputType, 'XMLTypeDescription') && $this->getNoValidation()) {
+			$outputType->setValidationStrategy(XML_TYPE_DESCRIPTION_VALIDATE_NONE);
+		}
+		$validOutput = $outputType->isCompatible($output);
+
+		return $validInput && $validOutput;
+	}
 
 	//
 	// Helper functions

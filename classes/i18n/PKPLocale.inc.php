@@ -330,7 +330,8 @@ class PKPLocale {
 	 */
 	static function isLocaleValid($locale) {
 		if (empty($locale)) return false;
-		if (!preg_match('/^[a-z][a-z]_[A-Z][A-Z]$/', $locale)) return false;
+		// variants can be composed of five to eight letters, or of four characters starting with a digit
+		if (!preg_match('/^[a-z][a-z]_[A-Z][A-Z](@([A-Za-z0-9]{5,8}|\d[A-Za-z0-9]{3}))?$/', $locale)) return false;
 		if (file_exists('locale/' . $locale)) return true;
 		return false;
 	}

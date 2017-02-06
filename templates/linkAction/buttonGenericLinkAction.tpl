@@ -16,7 +16,7 @@
 
 <script>
 	$(function() {ldelim}
-		$('{$buttonSelector|escape:javascript}').pkpHandler(
+		$('{$buttonSelector|escape:javascript|escape:jqselector}').pkpHandler(
 				'$.pkp.controllers.linkAction.LinkActionHandler',
 				{include file="linkAction/linkActionOptions.tpl" action=$action});
 	{rdelim});

@@ -7,73 +7,87 @@
  *
  * View a plugin gallery plugin's details.
  *}
-<script type="text/javascript">
-	// Attach the JS file tab handler.
-	$(function() {ldelim}
-		$('#viewPluginTabs').pkpHandler('$.pkp.controllers.TabHandler');
+<div class="pkp_plugin_details">
 
-		// This isn't enough to justify a separate JS controller
-		$('#pluginOverviewContainer').find('.pluginActions a').button();
-	{rdelim});
-</script>
+	{if $statusKey == 'manager.plugins.installedVersionNewer' ||
+			$statusKey == 'manager.plugins.installedVersionNewest'}
+		{assign var="statusClass" value="is_current"}
+	{elseif $statusKey == 'manager.plugins.installedVersionOlder' ||
+				$statusKey == 'manager.plugins.noInstalledVersion'}
+		{assign var="statusClass" value="is_not_current"}
+	{elseif $statusKey == 'manager.plugins.noCompatibleVersion'}
+		{assign var="statusClass" value="is_not_compatible"}
+	{/if}
 
-<div id="viewPluginTabs" class="pkp_controllers_tab">
-	<ul>
-		<li><a href="#pluginOverviewContainer">{translate key="manager.plugins.pluginGallery.overview"}</a></li>
-		<li><a href="#pluginDescriptionContainer">{translate key="common.description"}</a></li>
-		{if $plugin->getLocalizedInstallationInstructions()}
-			<li><a href="#pluginInstallationContainer">{translate key="manager.plugins.pluginGallery.installation"}</a></li>
+	<div class="status {$statusClass|escape}">
+		<div class="pkp_screen_reader">
+			{translate key="manager.plugins.pluginGallery.latestCompatible"}
+		</div>
+
+		{if $statusClass == 'is_not_current'}
+			<div class="action_button">
+				{include file="linkAction/linkAction.tpl" action=$installAction contextId="pluginGallery"}
+			</div>
+		{else}
+			<div class="status_notice">
+				{translate key=$statusKey}
+			</div>
 		{/if}
-	</ul>
-	<div id="pluginOverviewContainer">
-		<div class="pluginReleaseDetails">
-			<h4>{translate key="manager.plugins.pluginGallery.latestCompatible"}</h4>
-			<div class="pluginVersion">{translate key="manager.plugins.pluginGallery.version" version=$plugin->getVersion()|escape}</div>
-			<div class="pluginDate">{translate key="manager.plugins.pluginGallery.date" date=$plugin->getDate()|date_format:$dateFormatShort}</div>
-			<ul class="pluginCertifications">
+
+		{if $statusClass != 'is_not_compatible'}
+
+			<ul class="certifications">
 				{foreach from=$plugin->getReleaseCertifications() item=certification}
-					<li class="{$certification}" title="{translate key="manager.plugins.pluginGallery.certifications.$certification"}" />
+					<li class="certification_{$certification}">
+						<span class="label">
+							{translate key="manager.plugins.pluginGallery.certifications.$certification"}
+						</span>
+						<span class="description">
+							{translate key="manager.plugins.pluginGallery.certifications.$certification.description"}
+						</span>
+					</li>
 				{/foreach}
 			</ul>
-			<div id="releaseDescription" class="pkp_helpers_clear">
+
+			<div class="release">
+				{translate key="manager.plugins.pluginGallery.version" version=$plugin->getVersion()|escape date=$plugin->getDate()|date_format:$dateFormatShort}
+			</div>
+			<div class="release_description">
 				{$plugin->getLocalizedReleaseDescription()|strip_unsafe_html}
 			</div>
-		</div>
-		<div id="pluginMaintainer">
-			<h4>{translate key="manager.plugins.pluginGallery.maintainer"}</h4>
-			<div id="maintainerContact">
-				{if $plugin->getContactEmail()}<a href="mailto:{$plugin->getContactEmail()|escape}">{/if}{$plugin->getContactName()|escape}{if $plugin->getContactEmail()}</a>{/if}<br/>
-			</div>
-			<div id="maintainerInstitution">{$plugin->getContactInstitutionName()|escape}</div>
-		</div>
+		{/if}
+	</div>
 
-		<div id="pluginHomepage">
-			<h4>{translate key="manager.plugins.pluginGallery.homepage"}</h4>
-			<a href="{$plugin->getHomepage()|escape}" target="_blank">{$plugin->getHomepage()|escape}</a>
-		</div>
+	<h4 class="pkp_screen_reader">
+		{translate key="manager.plugins.pluginGallery.summary"}
+	</h4>
 
-		<div id="pluginSummary">
-			<h4>{translate key="manager.plugins.pluginGallery.summary"}</h4>
-			{$plugin->getLocalizedSummary()|escape}
-		</div>
-
-		<div id="pluginStatus">
-			<h4>{translate key="common.status"}</h4>
-
-			<div class="pluginStatus {$statusClass|escape}">{translate key=$statusKey}</div>
-		</div>
-		<div class="actions">
-			{if $installAction}
-				{include file="linkAction/linkAction.tpl" action=$installAction contextId="pluginGallery"}
+	<div class="maintainer">
+		<div class="author">
+			{if $plugin->getContactEmail()}
+				<a href="mailto:{$plugin->getContactEmail()|escape}">
+					{$plugin->getContactName()|escape}
+				</a>
+			{else}
+				{$plugin->getContactName()|escape}
 			{/if}
 		</div>
+		<div class="institution">
+			{$plugin->getContactInstitutionName()|escape}
+		</div>
 	</div>
-	<div id="pluginDescriptionContainer">
-		<div class="pluginDescription">{$plugin->getLocalizedDescription()|strip_unsafe_html}</div>
+
+	<div class="url">
+		<a href="{$plugin->getHomepage()|escape}" target="_blank">{$plugin->getHomepage()|escape}</a>
 	</div>
+
+	<div class="description">
+		{include file="controllers/revealMore.tpl" content=$plugin->getLocalizedDescription()|strip_unsafe_html}
+	</div>
+
 	{if $plugin->getLocalizedInstallationInstructions()}
-		<div id="pluginInstallationContainer">
-			<div class="pluginInstallation">{$plugin->getLocalizedInstallationInstructions()|strip_unsafe_html}</div>
+		<div class="installation">
+			{include file="controllers/revealMore.tpl" content=$plugin->getLocalizedInstallationInstructions()|strip_unsafe_html}
 		</div>
 	{/if}
 </div>

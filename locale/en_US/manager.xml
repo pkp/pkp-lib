@@ -368,11 +368,13 @@
 	<message key="manager.plugins.pluginGallery.installation">Installation</message>
 	<message key="manager.plugins.pluginGallery.latestCompatible">Latest Compatible Release</message>
 	<message key="manager.plugins.pluginGallery.certifications.official">Official</message>
+	<message key="manager.plugins.pluginGallery.certifications.official.description">This plugin is developed and maintained by the Public Knowledge Project team.</message>
 	<message key="manager.plugins.pluginGallery.certifications.reviewed">Reviewed</message>
-	<message key="manager.plugins.pluginGallery.certifications.partner">Partner</message>
+	<message key="manager.plugins.pluginGallery.certifications.reviewed.description">This plugin has been reviewed and approved by the Public Knowledge Project team.</message>
+	<message key="manager.plugins.pluginGallery.certifications.partner.description">Partner</message>
+	<message key="manager.plugins.pluginGallery.certifications.partner.description">This plugin is provided by one of our development partners.</message>
 	<message key="manager.plugins.pluginGallery.maintainer">Maintainer</message>
-	<message key="manager.plugins.pluginGallery.version">Version: {$version}</message>
-	<message key="manager.plugins.pluginGallery.date">Release Date: {$date}</message>
+	<message key="manager.plugins.pluginGallery.version">v{$version} released on {$date}</message>
 	<message key="manager.plugins.pluginGallery.homepage">Homepage</message>
 	<message key="manager.plugins.pluginGallery.summary">Summary</message>
 	<message key="manager.plugins.pluginGallery.status">Status</message>

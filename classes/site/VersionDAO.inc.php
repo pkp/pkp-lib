@@ -214,27 +214,19 @@ class VersionDAO extends DAO {
 	 * first key representing the product type, the second
 	 * key the product name and the value the product version.
 	 *
-	 * @param $context array the application context, only
+	 * @param $contextId int The application context ID, only
 	 *  products enabled in that context will be returned.
 	 * @return array
 	 */
-	function &getCurrentProducts($context) {
-
-		$contextColumn = Application::getPluginSettingsContextColumnName();
-		if (count($context)) {
-			assert(count($context)==1); // Context depth > 1 no longer supported here.
-			$contextWhereClause = 'AND (' . $contextColumn . ' = ? OR v.sitewide = 1)';
-		} else {
-			$contextWhereClause = '';
-		}
-
+	function getCurrentProducts($contextId) {
 		$result = $this->retrieve(
 			'SELECT v.*
 			FROM versions v LEFT JOIN plugin_settings ps ON
 				lower(v.product_class_name) = ps.plugin_name
-				AND ps.setting_name = \'enabled\' '.$contextWhereClause.'
+				AND ps.setting_name = \'enabled\'
+				AND (' . Application::getPluginSettingsContextColumnName() . ' = ? OR v.sitewide = 1)
 			WHERE v.current = 1 AND (ps.setting_value = \'1\' OR v.lazy_load <> 1)',
-			$context, false
+			$contextId, false
 		);
 
 		$productArray = array();

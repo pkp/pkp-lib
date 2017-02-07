@@ -49,7 +49,7 @@ class LimitReviewFilesGridHandler extends SelectableFileListGridHandler {
 			// Add the required policies:
 
 			// 1) Review stage access policy (fetches submission in context)
-			import('classes.security.authorization.ReviewStageAccessPolicy');
+			import('lib.pkp.classes.security.authorization.ReviewStageAccessPolicy');
 			$this->addPolicy(new ReviewStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $request->getUserVar('stageId')));
 
 			// 2) Review assignment

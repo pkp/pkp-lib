@@ -193,11 +193,7 @@ abstract class BlockPlugin extends LazyLoadPlugin {
 	 */
 	function _getContextSpecificHomepageHook() {
 		$application = PKPApplication::getApplication();
-
-		if ($application->getContextDepth() == 0) return null;
-
-		$contextList = $application->getContextList();
-		return 'Templates::Index::'.array_shift($contextList);
+		return 'Templates::Index::'.$application->getContextName();
 	}
 }
 

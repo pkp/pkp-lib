@@ -44,21 +44,11 @@ class DispatcherTest extends PKPTestCase {
 		parent::setUp();
 		// Mock application object without calling its constructor.
 		$mockApplication =
-				$this->getMock('Application', array('getContextDepth', 'getContextList'),
+				$this->getMock('Application', array(),
 				array(), '', false);
 		Registry::set('application', $mockApplication);
 		$nullVar = null;
 		Registry::set('dispatcher', $nullVar);
-
-		// Set up the getContextDepth() method
-		$mockApplication->expects($this->any())
-		                ->method('getContextDepth')
-		                ->will($this->returnValue(2));
-
-		// Set up the getContextList() method
-		$mockApplication->expects($this->any())
-		                ->method('getContextList')
-		                ->will($this->returnValue(array('firstContext', 'secondContext')));
 
 		$this->dispatcher = $mockApplication->getDispatcher(); // this also adds the component router
 		$this->dispatcher->addRouterName('lib.pkp.classes.core.PKPPageRouter', 'page');

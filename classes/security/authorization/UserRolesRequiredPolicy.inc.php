@@ -50,15 +50,9 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy {
 
 		// Prepare an array with the context ids of the request.
 		$application = PKPApplication::getApplication();
-		$contextDepth = $application->getContextDepth();
 		$router = $request->getRouter();
-		$roleContext = array();
-		for ($contextLevel = 1; $contextLevel <= $contextDepth; $contextLevel++) {
-			$context = $router->getContext($request, $contextLevel);
-			$roleContext[] = $context?$context->getId():CONTEXT_ID_NONE;
-		}
-
-		$contextRoles = $this->_getContextRoles($roleContext, $contextDepth, $userRoles);
+		$context = $router->getContext($request);
+		$contextRoles = $this->_getContextRoles($context?$context->getId():CONTEXT_ID_NONE, $userRoles);
 
 		$this->addAuthorizedContextObject(ASSOC_TYPE_USER_ROLES, $contextRoles);
 		return AUTHORIZATION_PERMIT;
@@ -66,65 +60,33 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy {
 
 	/**
 	 * Get the current context roles from all user roles.
-	 * @param array $roleContext
-	 * @param int $contextDepth
+	 * @param array $contextId
 	 * @param array $userRoles
 	 * @return mixed array or null
 	 */
-	function _getContextRoles($roleContext, $contextDepth, $userRoles) {
+	function _getContextRoles($contextId, $userRoles) {
 		// Adapt the role context based on the passed role id.
-		$workingRoleContext = $roleContext;
 		$roleDao = DAORegistry::getDAO('RoleDAO');
 		$contextRoles = array();
 
 		// Check if user has site level or manager roles.
-		if ($contextDepth > 0) {
-			if (array_key_exists(CONTEXT_ID_NONE, $userRoles) &&
+		if ($contextId == CONTEXT_ID_NONE &&
 			array_key_exists(ROLE_ID_SITE_ADMIN, $userRoles[CONTEXT_ID_NONE])) {
-				// site level role
-				$contextRoles[] = ROLE_ID_SITE_ADMIN;
-			}
-			if ($contextDepth == 2 &&
-				array_key_exists(CONTEXT_ID_NONE, $userRoles[$workingRoleContext[0]]) &&
-				array_key_exists(ROLE_ID_MANAGER, $userRoles[$workingRoleContext[0]][CONTEXT_ID_NONE])) {
-				// This is a main context managerial role (i.e. conference-level).
-				$contextRoles[] = ROLE_ID_MANAGER;
-			}
-		} else {
-			// Application has no context.
-			return $this->_prepareContextRolesArray($userRoles[CONTEXT_ID_NONE]);
+			// site level role
+			return array(ROLE_ID_SITE_ADMIN);
 		}
 
 		// Get the user roles related to the passed context.
-		for ($contextLevel = 1; $contextLevel <= $contextDepth; $contextLevel++) {
-			$contextId = $workingRoleContext[$contextLevel-1];
-			if ($contextId != CONTEXT_ID_NONE && isset($userRoles[$contextId])) {
-				// Filter the user roles to the found context id.
-				$userRoles = $userRoles[$contextId];
-
-				// If we reached the context depth, search for the role id.
-				if ($contextLevel == $contextDepth) {
-					return $this->_prepareContextRolesArray($userRoles, $contextRoles);
-				}
-			} else {
-				// Context id not present in user roles array.
-				return $contextRoles;
+		if (isset($userRoles[$contextId])) {
+			// Filter the user roles to the found context id.
+			$roleIds = array();
+			foreach ($userRoles[$contextId] as $role) {
+				$roleIds[] = $role->getRoleId();
 			}
+			return $roleIds;
 		}
-	}
 
-	/**
-	 * Prepare an array with the passed user roles. Can optionally
-	 * add those roles to an already created array.
-	 * @param $userRoles array
-	 * @param $contextRoles array
-	 * @return array
-	 */
-	function _prepareContextRolesArray($userRoles, $contextRoles = array()) {
-		foreach ($userRoles as $role) {
-			$contextRoles[] = $role->getRoleId();
-		}
-		return $contextRoles;
+		return array();
 	}
 }
 

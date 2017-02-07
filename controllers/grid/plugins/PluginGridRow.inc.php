@@ -1,38 +1,32 @@
 <?php
 
 /**
- * @file classes/controllers/grid/plugins/PKPPluginGridRow.inc.php
+ * @file controllers/grid/plugins/PluginGridRow.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPPluginGridRow
- * @ingroup classes_controllers_grid_plugins
+ * @class PluginGridRow
+ * @ingroup controllers_grid_plugins
  *
  * @brief Plugin grid row definition
  */
 
 import('lib.pkp.classes.controllers.grid.GridRow');
 
-abstract class PKPPluginGridRow extends GridRow {
+class PluginGridRow extends GridRow {
 
 	/** @var Array */
 	var $_userRoles;
 
-	/** @var int */
-	var $_contextLevel;
-
 	/**
 	 * Constructor
 	 * @param $userRoles array
-	 * @param $contextLevel int CONTEXT_...
 	 */
-	function __construct($userRoles, $contextLevel) {
-		$this->_userRoles = $userRoles;
-		$this->_contextLevel = $contextLevel;
-
+	function __construct($userRoles) {
 		parent::__construct();
+		$this->_userRoles = $userRoles;
 	}
 
 
@@ -101,7 +95,14 @@ abstract class PKPPluginGridRow extends GridRow {
 	 * @param $plugin Plugin
 	 * @return boolean
 	 */
-	protected abstract function _canEdit($plugin);
+	protected function _canEdit($plugin) {
+		if ($plugin->isSitePlugin()) {
+			if (in_array(ROLE_ID_SITE_ADMIN, $this->_userRoles)) return true;
+		} else {
+			if (in_array(ROLE_ID_MANAGER, $this->_userRoles)) return true;
+		}
+		return false;
+	}
 }
 
 ?>

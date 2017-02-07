@@ -94,7 +94,7 @@ class PKPRouterTestCase extends PKPTestCase {
 	 */
 	public function testGetRequestedContextPathWithInvalidLevel() {
 		// Context depth = 1 but we try to access context level 2
-		$this->_setUpMockEnvironment(self::PATHINFO_ENABLED, 1, array('oneContext'));
+		$this->_setUpMockEnvironment(self::PATHINFO_ENABLED, array('oneContext'));
 		$this->router->getRequestedContextPath($this->request, 2);
 	}
 
@@ -198,7 +198,7 @@ class PKPRouterTestCase extends PKPTestCase {
 	 */
 	public function testGetContext() {
 		// We use a 1-level context
-		$this->_setUpMockEnvironment(true, 1, array('someContext'));
+		$this->_setUpMockEnvironment(true, array('someContext'));
 		$_SERVER['PATH_INFO'] = '/contextPath';
 
 		// Simulate a context DAO
@@ -228,7 +228,7 @@ class PKPRouterTestCase extends PKPTestCase {
 	 */
 	public function testGetContextForIndex() {
 		// We use a 1-level context
-		$this->_setUpMockEnvironment(true, 1, array('someContext'));
+		$this->_setUpMockEnvironment(true, array('someContext'));
 		$_SERVER['PATH_INFO'] = '/';
 
 		$result = $this->router->getContext($this->request, 1);
@@ -292,26 +292,13 @@ class PKPRouterTestCase extends PKPTestCase {
 	 * Set's up a mock environment for router tests (PKPApplication,
 	 * PKPRequest) with customizable contexts and path info flag.
 	 * @param $pathInfoEnabled boolean
-	 * @param $contextDepth integer
-	 * @param $contextList array
 	 * @return unknown
 	 */
-	protected function _setUpMockEnvironment($pathInfoEnabled = self::PATHINFO_ENABLED,
-			$contextDepth = 2, $contextList = array('firstContext', 'secondContext')) {
+	protected function _setUpMockEnvironment($pathInfoEnabled = self::PATHINFO_ENABLED) {
 		// Mock application object without calling its constructor.
 		$mockApplication =
-				$this->getMock('Application', array('getContextDepth', 'getContextList'),
+				$this->getMock('Application', array(),
 				array(), '', false);
-
-		// Set up the getContextDepth() method
-		$mockApplication->expects($this->any())
-		                ->method('getContextDepth')
-		                ->will($this->returnValue($contextDepth));
-
-		// Set up the getContextList() method
-		$mockApplication->expects($this->any())
-		                ->method('getContextList')
-		                ->will($this->returnValue($contextList));
 
 		$this->router->setApplication($mockApplication);
 		Registry::set('application', $mockApplication);

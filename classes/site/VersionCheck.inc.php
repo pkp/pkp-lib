@@ -33,7 +33,7 @@ class VersionCheck {
 
 		if ($includeId) {
 			$pluginSettingsDao =& DAORegistry::getDAO('PluginSettingsDAO');
-			$uniqueSiteId = $pluginSettingsDao->getSetting(CONTEXT_SITE, 'UsageEventPlugin', 'uniqueSiteId');
+			$uniqueSiteId = $pluginSettingsDao->getSetting(CONTEXT_ID_NONE, 'UsageEventPlugin', 'uniqueSiteId');
 		} else $uniqueSiteId = null;
 
 		$request = $application->getRequest();

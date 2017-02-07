@@ -47,7 +47,7 @@ class ReviewerReviewAttachmentGridDataProvider extends SubmissionFilesGridDataPr
 			assert($assocType == ASSOC_TYPE_REVIEW_ASSIGNMENT);
 
 			$this->setUploaderRoles($roleAssignments);
-			import('classes.security.authorization.ReviewStageAccessPolicy');
+			import('lib.pkp.classes.security.authorization.ReviewStageAccessPolicy');
 
 			$authorizationPolicy = new ReviewStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $request->getUserVar('stageId'));
 			$paramName = 'assocId';

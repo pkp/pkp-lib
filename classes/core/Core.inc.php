@@ -150,48 +150,30 @@ class Core {
 	 * @param $urlInfo string Full url or just path info.
 	 * @param $isPathInfo boolean Whether the
 	 * passed url info string is a path info or not.
-	 * @param $contextList array (optional)
-	 * @param $contextDepth int (optional)
 	 * @param $userVars array (optional) Pass GET variables
 	 * if needed (for testing only).
 	 * @return array
 	 */
-	static function getContextPaths($urlInfo, $isPathInfo, $contextList = null, $contextDepth = null, $userVars = array()) {
+	static function getContextPaths($urlInfo, $isPathInfo, $userVars = array()) {
 		$contextPaths = array();
 		$application = Application::getApplication();
 
-		if (!$contextList) {
-			$contextList = $application->getContextList();
-		}
-		if (!$contextDepth) {
-			$contextDepth = $application->getContextDepth();
-		}
-
-		// Handle context depth 0
-		if (!$contextDepth) return $contextPaths;
-
 		if ($isPathInfo) {
 			// Split the path info into its constituents. Save all non-context
-			// path info in $contextPaths[$contextDepth]
+			// path info in $contextPaths[1]
 			// by limiting the explode statement.
-			$contextPaths = explode('/', trim($urlInfo, '/'), $contextDepth + 1);
+			$contextPaths = explode('/', trim($urlInfo, '/'), 2);
 			// Remove the part of the path info that is not relevant for context (if present)
-			unset($contextPaths[$contextDepth]);
+			unset($contextPaths[1]);
 		} else {
 			// Retrieve context from url query string
-			foreach($contextList as $key => $contextName) {
-				$contextPaths[$key] = Core::_getUserVar($urlInfo, $contextName, $userVars);
-			}
+			$contextPaths[0] = Core::_getUserVar($urlInfo, $application->getContextName(), $userVars);
 		}
 
 		// Canonicalize and clean context paths
-		for($key = 0; $key < $contextDepth; $key++) {
-			$contextPaths[$key] = (
-				isset($contextPaths[$key]) && !empty($contextPaths[$key]) ?
-				$contextPaths[$key] : 'index'
-			);
-			$contextPaths[$key] = Core::cleanFileVar($contextPaths[$key]);
-		}
+		$contextPaths[0] = 
+			isset($contextPaths[0]) && !empty($contextPaths[0]) ?
+			Core::cleanFileVar($contextPaths[0]) : 'index';
 
 		return $contextPaths;
 	}
@@ -478,18 +460,15 @@ class Core {
 			$isArrayComponent = true;
 		}
 		if ($isPathInfo) {
-			$application = Application::getApplication();
-			$contextDepth = $application->getContextDepth();
-
 			$vars = explode('/', trim($urlInfo, '/'));
-			if (count($vars) > $contextDepth + $offset) {
+			if (count($vars) > 1 + $offset) {
 				if ($isArrayComponent) {
-					$component = array_slice($vars, $contextDepth + $offset);
+					$component = array_slice($vars, 1 + $offset);
 					for ($i=0, $count=count($component); $i<$count; $i++) {
 						$component[$i] = Core::cleanVar(get_magic_quotes_gpc() ? stripslashes($component[$i]) : $component[$i]);
 					}
 				} else {
-					$component = $vars[$contextDepth + $offset];
+					$component = $vars[1 + $offset];
 				}
 			}
 		} else {

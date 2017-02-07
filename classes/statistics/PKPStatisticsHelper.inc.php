@@ -148,7 +148,7 @@ abstract class PKPStatisticsHelper {
 		$returner = null;
 
 		// Retrieve site-level report plugins.
-		$reportPlugins = PluginRegistry::loadCategory('reports', true, CONTEXT_SITE);
+		$reportPlugins = PluginRegistry::loadCategory('reports', true, CONTEXT_ID_NONE);
 		if (!is_array($reportPlugins) || empty($metricType)) {
 			return $returner;
 		}
@@ -178,7 +178,7 @@ abstract class PKPStatisticsHelper {
 	 */
 	function getAllMetricTypeStrings() {
 		$allMetricTypes = array();
-		$reportPlugins = PluginRegistry::loadCategory('reports', true, CONTEXT_SITE);
+		$reportPlugins = PluginRegistry::loadCategory('reports', true, CONTEXT_ID_NONE);
 		if (is_array($reportPlugins)) {
 			foreach ($reportPlugins as $reportPlugin) {
 				/* @var $reportPlugin ReportPlugin */

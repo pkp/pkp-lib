@@ -309,7 +309,7 @@ class PKPRequest {
 		}
 
 		// Filter out disable_path_info reserved parameters
-		foreach (array_merge(Application::getContextList(), array('path', 'page', 'op')) as $varName) {
+		foreach (array('path', 'page', 'op', Application::getContextName()) as $varName) {
 			if (isset($queryArray[$varName])) unset($queryArray[$varName]);
 		}
 

@@ -122,9 +122,8 @@ class UserGroupForm extends Form {
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
 
-		import('classes.security.RoleDAO');
-		$roleOptions = RoleDAO::getRoleNames(true);
-		$templateMgr->assign('roleOptions', $roleOptions);
+		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$templateMgr->assign('roleOptions', $roleDao->getRoleNames(true));
 
 		// Users can't edit the role once user group is created.
 		// userGroupId is 0 for new User Groups because it is cast to int in UserGroupGridHandler.

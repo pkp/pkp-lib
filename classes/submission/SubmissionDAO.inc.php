@@ -399,7 +399,8 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				AND aug.user_group_id IS NULL
 				AND s.date_submitted IS NOT NULL
 				AND s.status <> ' .  STATUS_DECLINED .
-				($contextId?' AND s.context_id = ?':''),
+				($contextId?' AND s.context_id = ?':'')
+			. ' ORDER BY s.submission_id',
 			$params
 		);
 
@@ -427,7 +428,8 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 			FROM	submissions s
 				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
 				' . $this->getFetchJoins() . '
-			WHERE	s.context_id = ?',
+			WHERE	s.context_id = ?
+			ORDER BY s.submission_id',
 			$params
 		);
 
@@ -454,7 +456,8 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
 				' . $this->getFetchJoins() . '
 			WHERE	s.submission_id IN (SELECT asa.submission_id FROM stage_assignments asa, user_groups aug WHERE asa.user_group_id = aug.user_group_id AND aug.role_id = ? AND asa.user_id = ?)' .
-				($contextId?' AND s.context_id = ?':''),
+				($contextId?' AND s.context_id = ?':'') .
+			' ORDER BY s.submission_id',
 			$params
 		);
 
@@ -511,7 +514,8 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 			. ($author?' AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)':'')
 			. ($stageId?' AND s.stage_id = ?':'')
 			. ($sectionId?' AND s.section_id = ?':'') .
-			' GROUP BY ' . $this->getGroupByColumns(),
+			' GROUP BY ' . $this->getGroupByColumns() .
+			' ORDER BY s.submission_id',
 			$params,
 			$rangeInfo
 		);
@@ -553,7 +557,8 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				($stageId?' AND s.stage_id = ?':'') .
 				($contextId?' AND s.context_id = ?':'') .
 				($sectionId?' AND s.section_id = ?':'') .
-				' GROUP BY ' . $this->getGroupByColumns(),
+				' GROUP BY ' . $this->getGroupByColumns() .
+			' ORDER BY s.submission_id',
 			$params, $rangeInfo
 		);
 
@@ -602,7 +607,8 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				. ($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'')
 				. ($author?' AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)':'')
 				. ($stageId?' AND s.stage_id = ?':'')
-				. ($sectionId?' AND s.section_id = ?':''),
+				. ($sectionId?' AND s.section_id = ?':'')
+			. ' ORDER BY s.submission_id',
 			$params,
 			$rangeInfo
 		);
@@ -666,7 +672,8 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				. ($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'')
 				. ($author?' AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)':'')
 				. ($stageId?' AND s.stage_id = ?':'')
-				. ($sectionId?' AND s.section_id = ?':''),
+				. ($sectionId?' AND s.section_id = ?':'')
+			. ' ORDER BY s.submission_id',
 			$params,
 			$rangeInfo
 		);
@@ -724,7 +731,8 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				. ($author?' AND (ra.submission_id IS NULL AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?))':'') // Don't permit reviewer searching on author name
 				. ($stageId?' AND s.stage_id = ?':'')
 				. ($sectionId?' AND s.section_id = ?':'') .
-			' GROUP BY ' . $this->getGroupByColumns(),
+			' GROUP BY ' . $this->getGroupByColumns() .
+			' ORDER BY s.submission_id',
 			$params,
 			$rangeInfo
 		);
@@ -781,7 +789,8 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				' . ($stageId?' AND s.stage_id = ?':'') . '
 				' . ($sectionId?' AND s.section_id = ?':'') . '
 				' . ($editor?' AND (g.role_id = ? OR g.role_id = ?) AND' . $this->_getEditorSearchQuery():'') .
-			' GROUP BY ' . $this->getGroupByColumns(),
+			' GROUP BY ' . $this->getGroupByColumns() .
+			' ORDER BY s.submission_id',
 			$params,
 			$rangeInfo
 		);

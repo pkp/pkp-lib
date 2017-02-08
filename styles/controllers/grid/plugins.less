@@ -44,11 +44,15 @@
 		font-weight: @bold;
 	}
 
-	.status.is_current .status_notice {
-		color: @yes;
+	.status.newer,
+	.status.newest {
+
+		.status_notice {
+			color: @yes;
+		}
 	}
 
-	.status.is_not_compatible .status_notice {
+	.status.incompatible .status_notice {
 		color: @no;
 	}
 

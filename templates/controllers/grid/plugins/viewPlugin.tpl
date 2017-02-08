@@ -5,26 +5,21 @@
  * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * View a plugin gallery plugin's details.
+ * @brief View a plugin gallery plugin's details.
+ *
+ * @uses $plugin Plugin The plugin being displayed
+ * @uses $statusKey string The locale string describing the plugin's install
+ *  status
+ * @uses $statusClass string A class corresponding to the status
  *}
 <div class="pkp_plugin_details">
-
-	{if $statusKey == 'manager.plugins.installedVersionNewer' ||
-			$statusKey == 'manager.plugins.installedVersionNewest'}
-		{assign var="statusClass" value="is_current"}
-	{elseif $statusKey == 'manager.plugins.installedVersionOlder' ||
-				$statusKey == 'manager.plugins.noInstalledVersion'}
-		{assign var="statusClass" value="is_not_current"}
-	{elseif $statusKey == 'manager.plugins.noCompatibleVersion'}
-		{assign var="statusClass" value="is_not_compatible"}
-	{/if}
 
 	<div class="status {$statusClass|escape}">
 		<div class="pkp_screen_reader">
 			{translate key="manager.plugins.pluginGallery.latestCompatible"}
 		</div>
 
-		{if $statusClass == 'is_not_current'}
+		{if $statusClass == 'older' || $statusClass == 'notinstalled'}
 			<div class="action_button">
 				{include file="linkAction/linkAction.tpl" action=$installAction contextId="pluginGallery"}
 			</div>
@@ -34,7 +29,7 @@
 			</div>
 		{/if}
 
-		{if $statusClass != 'is_not_compatible'}
+		{if $statusClass != 'incompatible'}
 
 			<ul class="certifications">
 				{foreach from=$plugin->getReleaseCertifications() item=certification}

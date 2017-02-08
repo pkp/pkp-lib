@@ -38,7 +38,7 @@
 
 			<ul class="certifications">
 				{foreach from=$plugin->getReleaseCertifications() item=certification}
-					<li class="certification_{$certification}">
+					<li class="certification_{$certification|escape}">
 						<span class="label">
 							{translate key="manager.plugins.pluginGallery.certifications.$certification"}
 						</span>

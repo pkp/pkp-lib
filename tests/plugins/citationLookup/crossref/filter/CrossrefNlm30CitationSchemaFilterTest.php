@@ -31,6 +31,8 @@ class CrossrefNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTes
 	 * @covers CrossrefNlm30CitationSchemaFilter
 	 */
 	public function testExecuteWithDoi() {
+		$this->markTestSkipped('Disabled because of apparent API volume limits.');
+
 		// Test article DOI lookup
 		$articleTest = array(
 			'testInput' => array(
@@ -114,6 +116,8 @@ class CrossrefNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTes
 	 * @covers CrossrefNlm30CitationSchemaFilter
 	 */
 	public function testExecuteWithOpenurl10Search() {
+		$this->markTestSkipped('Disabled because of apparent API volume limits.');
+
 		// Build the test citations array
 		$citationFilterTests = array(
 			array(

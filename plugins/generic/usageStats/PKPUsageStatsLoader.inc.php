@@ -404,7 +404,8 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 	 */
 	protected function getContextByPath($contextPaths) {
 		$application = Application::getApplication();
-		$contextPath = $contextPaths[0];
+		$deepestContextDepthIndex = $application->getContextDepth() - 1;
+		$contextPath = $contextPaths[$deepestContextDepthIndex];
 
 		$context = null;
 		if (isset($this->_contextsByPath[$contextPath])) {

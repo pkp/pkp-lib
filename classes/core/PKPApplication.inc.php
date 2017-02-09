@@ -17,6 +17,7 @@
 define('ROUTE_COMPONENT', 'component');
 define('ROUTE_PAGE', 'page');
 
+define('CONTEXT_SITE', 0);
 define('CONTEXT_ID_NONE', 0);
 define('REVIEW_ROUND_NONE', 0);
 
@@ -241,10 +242,21 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	abstract function getNameKey();
 
 	/**
-	 * Get the name of the context available for this application.
-	 * @return string
+	 * Get the "context depth" of this application, i.e. the number of
+	 * parts of the URL after index.php that represent the context of
+	 * the current request (e.g. Journal [1], or Conference and
+	 * Scheduled Conference [2]).
+	 * @return int
 	 */
-	abstract function getContextName();
+	abstract function getContextDepth();
+
+	/**
+	 * Get the list of the contexts available for this application
+	 * i.e. the various parameters that are needed to represent the
+	 * (e.g. array('journal') or array('conference', 'schedConf'))
+	 * @return Array
+	 */
+	abstract function getContextList();
 
 	/**
 	 * Get the URL to the XML descriptor for the current version of this
@@ -263,30 +275,40 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * (e.g. Journal, Conference, Press) to query for enabled products
 	 * @return array
 	 */
-	function getEnabledProducts($category = null, $mainContextId = null) {
+	function &getEnabledProducts($category = null, $mainContextId = null) {
 		if (is_null($this->enabledProducts) || !is_null($mainContextId)) {
-			$settingContext = array();
-			$request = $this->getRequest();
-			$router = $request->getRouter();
+			$contextDepth = $this->getContextDepth();
 
-			if (is_null($mainContextId)) {
-				// Try to identify the main context (e.g. journal, conference, press),
-				// will be null if none found.
-				$mainContext = $router->getContext($request);
-				if ($mainContext) $mainContextId = $mainContext->getId();
-				else $mainContextId = CONTEXT_ID_NONE;
+			$settingContext = array();
+			if ($contextDepth > 0) {
+				$request = $this->getRequest();
+				$router = $request->getRouter();
+
+				if (is_null($mainContextId)) {
+					// Try to identify the main context (e.g. journal, conference, press),
+					// will be null if none found.
+					$mainContext = $router->getContext($request, 1);
+					if ($mainContext) $mainContextId = $mainContext->getId();
+				}
+
+				// Create the context for the setting if found
+				if (!is_null($mainContextId)) $settingContext[] = $mainContextId;
+				$settingContext = array_pad($settingContext, $contextDepth, 0);
+				$settingContext = array_combine($this->getContextList(), $settingContext);
 			}
 
 			$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
-			$this->enabledProducts =& $versionDao->getCurrentProducts($mainContextId);
+			$this->enabledProducts =& $versionDao->getCurrentProducts($settingContext);
 		}
 
 		if (is_null($category)) {
 			return $this->enabledProducts;
 		} elseif (isset($this->enabledProducts[$category])) {
 			return $this->enabledProducts[$category];
+		} else {
+			$returner = array();
+			return $returner;
 		}
-		return array();
 	}
 
 	/**
@@ -432,7 +454,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 */
 	function getMetricTypes($withDisplayNames = false) {
 		// Retrieve site-level report plugins.
-		$reportPlugins = PluginRegistry::loadCategory('reports', true, CONTEXT_ID_NONE);
+		$reportPlugins = PluginRegistry::loadCategory('reports', true, CONTEXT_SITE);
 		if (!is_array($reportPlugins)) return array();
 
 		// Run through all report plugins and retrieve all supported metrics.
@@ -535,7 +557,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		if (is_a($context, 'Context')) {
 			$contextId = $context->getId();
 		} else {
-			$contextId = CONTEXT_ID_NONE;
+			$contextId = CONTEXT_SITE;
 		}
 		$reportPlugins = PluginRegistry::loadCategory('reports', true, $contextId);
 		if (!is_array($reportPlugins)) return null;

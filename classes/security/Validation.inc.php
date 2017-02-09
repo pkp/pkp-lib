@@ -404,17 +404,17 @@ class Validation {
 		if ($administeredUserId == $administratorUserId) return true;
 
 		// You cannot adminster administrators
-		if ($roleDao->userHasRole(CONTEXT_ID_NONE, $administeredUserId, ROLE_ID_SITE_ADMIN)) return false;
+		if ($roleDao->userHasRole(CONTEXT_SITE, $administeredUserId, ROLE_ID_SITE_ADMIN)) return false;
 
 		// Otherwise, administrators can administer everyone
-		if ($roleDao->userHasRole(CONTEXT_ID_NONE, $administratorUserId, ROLE_ID_SITE_ADMIN)) return true;
+		if ($roleDao->userHasRole(CONTEXT_SITE, $administratorUserId, ROLE_ID_SITE_ADMIN)) return true;
 
 		// Check for administered user group assignments in other contexts
 		// that the administrator user doesn't have a manager role in.
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroups = $userGroupDao->getByUserId($administeredUserId);
 		while ($userGroup = $userGroups->next()) {
-			if ($userGroup->getContextId()!=CONTEXT_ID_NONE && !$roleDao->userHasRole($userGroup->getContextId(), $administratorUserId, ROLE_ID_MANAGER)) {
+			if ($userGroup->getContextId()!=CONTEXT_SITE && !$roleDao->userHasRole($userGroup->getContextId(), $administratorUserId, ROLE_ID_MANAGER)) {
 				// Found an assignment: disqualified.
 				return false;
 			}

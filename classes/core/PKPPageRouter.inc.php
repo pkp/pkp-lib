@@ -76,7 +76,7 @@ class PKPPageRouter extends PKPRouter {
 			if (!empty($_GET)) return false;
 		} else {
 			$application = $this->getApplication();
-			$ok = array('page', 'op', 'path', Application::getContextName());
+			$ok = array_merge($application->getContextList(), array('page', 'op', 'path'));
 			if (!empty($_GET) && count(array_diff(array_keys($_GET), $ok)) != 0) {
 				return false;
 			}
@@ -135,7 +135,9 @@ class PKPPageRouter extends PKPRouter {
 			} else {
 				$id = '';
 				$application = $this->getApplication();
-				$id .= $request->getUserVar(Application::getContextName()) . '-';
+				foreach($application->getContextList() as $contextName) {
+					$id .= $request->getUserVar($contextName) . '-';
+				}
 				$id .= $request->getUserVar('page') . '-' . $request->getUserVar('op') . '-' . $request->getUserVar('path') . '-' . AppLocale::getLocale();
 			}
 			$path = Core::getBaseDir();
@@ -157,7 +159,20 @@ class PKPPageRouter extends PKPRouter {
 		if (!Config::getVar('general', 'installed')) {
 			define('SESSION_DISABLE_INIT', 1);
 			if (!in_array($page, $this->getInstallationPages())) {
-				$request->redirect(null, 'install');
+				// A non-installation page was called although
+				// the system is not yet installed. Redirect to
+				// the installation page.
+				$redirectMethod = array($request, 'redirect');
+
+				// The correct redirection for the installer page
+				// depends on the context depth of this application.
+				$application = $this->getApplication();
+				$contextDepth = $application->getContextDepth();
+				// The context will be filled with all nulls
+				$redirectArguments = array_pad(array('install'), - $contextDepth - 1, null);
+
+				// Call request's redirect method
+				call_user_func_array($redirectMethod, $redirectArguments);
 			}
 		}
 

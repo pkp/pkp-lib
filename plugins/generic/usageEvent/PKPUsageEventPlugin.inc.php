@@ -99,7 +99,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 	 * @return mixed string or null
 	 */
 	function getUniqueSiteId() {
-		return $this->getSetting(CONTEXT_ID_NONE, 'uniqueSiteId');
+		return $this->getSetting(CONTEXT_SITE, 'uniqueSiteId');
 	}
 
 
@@ -271,7 +271,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 		if ($user) {
 			$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao PKPRoleDAO */
 			$rolesByContext = $roleDao->getByUserIdGroupedByContext($user->getId());
-			foreach (array(CONTEXT_ID_NONE, $context->getId()) as $workingContext) {
+			foreach (array(CONTEXT_SITE, $context->getId()) as $workingContext) {
 				if(isset($rolesByContext[$workingContext])) {
 					foreach ($rolesByContext[$workingContext] as $roleId => $role) {
 						$roles[] = $roleId;

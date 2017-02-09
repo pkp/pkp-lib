@@ -450,8 +450,19 @@ abstract class Plugin {
 	 * @return boolean
 	 */
 	function installSiteSettings($hookName, $args) {
+		// All contexts are set to zero for site-wide plug-in settings
+		$application = PKPApplication::getApplication();
+		$contextDepth = $application->getContextDepth();
+		if ($contextDepth >0) {
+			$arguments = array_fill(0, $contextDepth, 0);
+		} else {
+			$arguments = array();
+		}
+		$arguments[] = $this->getName();
+		$arguments[] = $this->getInstallSitePluginSettingsFile();
 		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
-		$pluginSettingsDao->installSettings(CONTEXT_ID_NONE, $this->getName(), $this->getInstallSitePluginSettingsFile());
+		call_user_func_array(array(&$pluginSettingsDao, 'installSettings'), $arguments);
+
 		return false;
 	}
 
@@ -478,15 +489,33 @@ abstract class Plugin {
 	 * @return boolean
 	 */
 	function installContextSpecificSettings($hookName, $args) {
-		// Make sure that this is really a new context
-		$isNewContext = isset($args[3]) ? $args[3] : true;
-		if ($isNewContext) {
-			// Install context specific settings
+		// Only applications that have at least one context can
+		// install context specific settings.
+		$application = PKPApplication::getApplication();
+		$contextDepth = $application->getContextDepth();
+		if ($contextDepth > 0) {
 			$context =& $args[1];
-			$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
-			$pluginSettingsDao->installSettings($context->getId(), $this->getName(), $this->getContextSpecificPluginSettingsFile());
-		}
 
+			// Make sure that this is really a new context
+			$isNewContext = isset($args[3]) ? $args[3] : true;
+			if (!$isNewContext) return false;
+
+			// Install context specific settings
+			$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
+			switch ($contextDepth) {
+				case 1:
+					$pluginSettingsDao->installSettings($context->getId(), $this->getName(), $this->getContextSpecificPluginSettingsFile());
+					break;
+
+				case 2:
+					$pluginSettingsDao->installSettings($context->getId(), 0, $this->getName(), $this->getContextSpecificPluginSettingsFile());
+					break;
+
+				default:
+					// No application can have a context depth > 2
+					assert(false);
+			}
+		}
 		return false;
 	}
 
@@ -675,7 +704,11 @@ abstract class Plugin {
 	 */
 	function _getContextSpecificInstallationHook() {
 		$application = PKPApplication::getApplication();
-		return ucfirst($application->getContextName()).'SiteSettingsForm::execute';
+
+		if ($application->getContextDepth() == 0) return null;
+
+		$contextList = $application->getContextList();
+		return ucfirst(array_shift($contextList)).'SiteSettingsForm::execute';
 	}
 
 	/**

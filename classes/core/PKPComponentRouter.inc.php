@@ -429,19 +429,20 @@ class PKPComponentRouter extends PKPRouter {
 			// We expect at least the context + the component
 			// router marker + 3 component parts (path, handler, operation)
 			$application = $this->getApplication();
-			if (count($pathInfoParts) < 5) {
+			$contextDepth = $application->getContextDepth();
+			if (count($pathInfoParts) < $contextDepth + 4) {
 				// This path info is too short to be an RPC request
 				return null;
 			}
 
 			// Check the component router marker
-			if ($pathInfoParts[1] != COMPONENT_ROUTER_PATHINFO_MARKER) {
+			if ($pathInfoParts[$contextDepth] != COMPONENT_ROUTER_PATHINFO_MARKER) {
 				// This is not an RPC request
 				return null;
 			}
 
 			// Remove context and component marker from the array
-			$rpcServiceEndpointParts = array_slice($pathInfoParts, 2);
+			$rpcServiceEndpointParts = array_slice($pathInfoParts, $contextDepth + 1);
 		} else {
 			$componentParameter = $request->getUserVar(COMPONENT_ROUTER_PARAMETER_MARKER);
 			$operationParameter = $request->getUserVar('op');

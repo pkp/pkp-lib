@@ -1080,12 +1080,14 @@ class PKPTemplateManager extends Smarty {
 			// passed along to Request::url as extra parameters.
 			$context = array();
 			$application = PKPApplication::getApplication();
-			$contextName = $application->getContextName();
-			if (isset($parameters[$contextName])) {
-				$context[$contextName] = $parameters[$contextName];
-				unset($parameters[$contextName]);
-			} else {
-				$context[$contextName] = null;
+			$contextList = $application->getContextList();
+			foreach ($contextList as $contextName) {
+				if (isset($parameters[$contextName])) {
+					$context[$contextName] = $parameters[$contextName];
+					unset($parameters[$contextName]);
+				} else {
+					$context[$contextName] = null;
+				}
 			}
 			$parameters['context'] = $context;
 		}

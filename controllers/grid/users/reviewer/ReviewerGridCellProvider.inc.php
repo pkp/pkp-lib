@@ -54,7 +54,7 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider {
 				if (!$reviewAssignment->getDateCompleted()) {
 					if ($reviewAssignment->getDateDue() < Core::getCurrentDate(strtotime('tomorrow'))) {
 						return 'overdue';
-					} elseif($reviewAssignment->getDateResponseDue() < Core::getCurrentDate(strtotime('tomorrow'))) {
+					} elseif($reviewAssignment->getDateResponseDue() < Core::getCurrentDate(strtotime('tomorrow')) && !$reviewAssignment->getDateConfirmed()) {
 						return 'overdue_response';
 					} else {
 						if (!$reviewAssignment->getDateConfirmed()) {

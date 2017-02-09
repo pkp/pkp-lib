@@ -1,15 +1,14 @@
 <?php
 
 /**
- * @file classes/security/PKPRoleDAO.inc.php
+ * @file classes/security/RoleDAO.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPRoleDAO
+ * @class RoleDAO
  * @ingroup security
- * @see Role
  *
  * @brief Operations for retrieving and modifying Role objects.
  */
@@ -17,7 +16,7 @@
 import('lib.pkp.classes.security.Role');
 import('lib.pkp.classes.security.UserGroupAssignment');
 
-class PKPRoleDAO extends DAO {
+class RoleDAO extends DAO {
 	/** @var The User DAO to return User objects when necessary **/
 	var $userDao;
 
@@ -228,16 +227,28 @@ class PKPRoleDAO extends DAO {
 	/**
 	 * Get a mapping of role keys and i18n key names.
 	 * @param boolean $contextOnly If false, also returns site-level roles (Site admin)
+	 * @param array|null $roleIds Only return role names of these IDs
 	 * @return array
 	 */
-	static function getRoleNames($contextOnly = false) {
+	static function getRoleNames($contextOnly = false, $roleIds = null) {
 		$siteRoleNames = array(ROLE_ID_SITE_ADMIN => 'user.role.siteAdmin');
 		$appRoleNames = array(
+			ROLE_ID_MANAGER => 'user.role.manager',
+			ROLE_ID_SUB_EDITOR => 'user.role.subEditor',
+			ROLE_ID_ASSISTANT => 'user.role.assistant',
 			ROLE_ID_AUTHOR => 'user.role.author',
 			ROLE_ID_REVIEWER => 'user.role.reviewer',
 			ROLE_ID_READER => 'user.role.reader',
 		);
 		$roleNames = $contextOnly ? $appRoleNames : $siteRoleNames + $appRoleNames;
+
+		if(!empty($roleIds)) {
+			$returner = array();
+			foreach($roleIds as $roleId) {
+				if(isset($roleNames[$roleId])) $returner[$roleId] = $roleNames[$roleId];
+			}
+			return $returner;
+		}
 
 		return $roleNames;
 	}

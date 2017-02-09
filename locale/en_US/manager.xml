@@ -371,7 +371,7 @@
 	<message key="manager.plugins.pluginGallery.certifications.official.description">This plugin is developed and maintained by the Public Knowledge Project team.</message>
 	<message key="manager.plugins.pluginGallery.certifications.reviewed">Reviewed</message>
 	<message key="manager.plugins.pluginGallery.certifications.reviewed.description">This plugin has been reviewed and approved by the Public Knowledge Project team.</message>
-	<message key="manager.plugins.pluginGallery.certifications.partner.description">Partner</message>
+	<message key="manager.plugins.pluginGallery.certifications.partner">Partner</message>
 	<message key="manager.plugins.pluginGallery.certifications.partner.description">This plugin is provided by one of our development partners.</message>
 	<message key="manager.plugins.pluginGallery.maintainer">Maintainer</message>
 	<message key="manager.plugins.pluginGallery.version">v{$version} released on {$date}</message>

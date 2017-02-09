@@ -369,11 +369,13 @@
 	<message key="manager.plugins.pluginGallery.installation">Установка</message>
 	<message key="manager.plugins.pluginGallery.latestCompatible">Последний совместимый релиз</message>
 	<message key="manager.plugins.pluginGallery.certifications.official">Официальный</message>
+	<message key="manager.plugins.pluginGallery.certifications.official.description">Этот модуль разработан и поддерживается командой Public Knowledge Project.</message>
 	<message key="manager.plugins.pluginGallery.certifications.reviewed">Рецензированный</message>
+	<message key="manager.plugins.pluginGallery.certifications.reviewed.description">Этот модуль был отрецензирован и одобрен командой Public Knowledge Project.</message>
 	<message key="manager.plugins.pluginGallery.certifications.partner">Партнерский</message>
+	<message key="manager.plugins.pluginGallery.certifications.partner.description">Этот модуль предоставлен одним из наших партнеров по разработке.</message>
 	<message key="manager.plugins.pluginGallery.maintainer">Разработчик</message>
-	<message key="manager.plugins.pluginGallery.version">Версия: {$version}</message>
-	<message key="manager.plugins.pluginGallery.date">Дата выпуска: {$date}</message>
+	<message key="manager.plugins.pluginGallery.version">Версия {$version} выпущена {$date}</message>
 	<message key="manager.plugins.pluginGallery.homepage">Главная страница</message>
 	<message key="manager.plugins.pluginGallery.summary">Общая информация</message>
 	<message key="manager.plugins.pluginGallery.status">Статус</message>

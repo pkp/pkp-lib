@@ -262,8 +262,8 @@
 	<message key="submission.event.confirmDeleteLogEntry">Haluatko varmasti poistaa tämän tapahtumalokin merkinnän?</message>
 	<message key="submission.event.deleteLogEntry">Poista lokimerkintä</message>
 	<message key="submission.event.submissionSubmitted">Käsikirjoituksen ensimmäinen lähetys suoritettu.</message>
-	<message key="submission.event.fileUploaded">Tiedosto "{$name}" (tiedoston tunniste {$fileId}-{$revision}) ladattiin.</message>
-	<message key="submission.event.fileRevised">Korjaus "{$name}" (tiedoston tunniste {$fileId}-{$revision}) ladattiin.</message>
+	<message key="submission.event.fileUploaded">Tiedosto "{$name}" (tiedoston tunniste {$fileId}-{$fileRevision}) ladattiin.</message>
+	<message key="submission.event.fileRevised">Korjaus "{$name}" (tiedoston tunniste {$fileId}-{$fileRevision}) ladattiin.</message>
 	<message key="submission.event.general.metadataUpdated">Käsikirjoituksen metatiedot päivitetty</message>
 	<message key="submission.event.general.suppFileUpdated">Käsikirjoitustiedosto päivitetty</message>
 	<message key="submission.event.participantAdded">{$name} valittiin tämän käsikirjoituksen {$userGroupName}ksi.</message>

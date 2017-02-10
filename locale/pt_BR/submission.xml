@@ -410,7 +410,7 @@
 	<message key="submission.coverage">Informações de Cobertura</message>
 	<message key="submission.event.submissionSubmitted">Submissão inicial concluída.</message>
 	<message key="submission.event.fileUploaded">Um arquivo "{$originalFileName}" foi carregado para a submissão {$submissionId} por {$username}.</message>
-	<message key="submission.event.fileRevised">Avaliação "{$name}" (ID do arquivo {$fileId} -{$revision}) foi carregado.</message>
+	<message key="submission.event.fileRevised">Avaliação "{$name}" (ID do arquivo {$fileId}-{$fileRevision}) foi carregado.</message>
 	<message key="submission.files.downloadAll">Baixar Todos os Arquivos</message>
 	<message key="submission.informationCenter.submissionInfo">Informações da Submissão</message>
 	<message key="submission.informationCenter.metadata">Metadados</message>

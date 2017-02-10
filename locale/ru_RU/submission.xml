@@ -278,8 +278,8 @@
 	<message key="submission.event.confirmDeleteLogEntry">Вы уверены, что хотите удалить эту запись из журнала событий?</message>
 	<message key="submission.event.deleteLogEntry">Удалить запись журнала</message>
 	<message key="submission.event.submissionSubmitted">Первоначальная отправка материала завершена.</message>
-	<message key="submission.event.fileUploaded">Файл «{$name}» (ID файла {$fileId}-{$revision}) был загружен.</message>
-	<message key="submission.event.fileRevised">Версия «{$name}» (ID файла {$fileId}-{$revision}) была загружена.</message>
+	<message key="submission.event.fileUploaded">Файл «{$name}» (ID файла {$fileId}-{$fileRevision}) был загружен.</message>
+	<message key="submission.event.fileRevised">Версия «{$name}» (ID файла {$fileId}-{$fileRevision}) была загружена.</message>
 	<message key="submission.event.general.metadataUpdated">Метаданные материала обновлены</message>
 	<message key="submission.event.general.suppFileUpdated">Файл материала обновлен</message>
 	<message key="submission.event.participantAdded">{$name} был назначен в этот материал как {$userGroupName}.</message>

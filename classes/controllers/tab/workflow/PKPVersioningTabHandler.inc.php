@@ -42,7 +42,12 @@ class PKPVersioningTabHandler extends Handler {
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 
-	// create new submission revisions
+	/**
+	 * create new submission revision
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
 	function newVersion($args, $request){
 		$submissionId = (int)$request->getUserVar('submissionId');
 		$submissionDao = Application::getSubmissionDAO();
@@ -75,15 +80,10 @@ class PKPVersioningTabHandler extends Handler {
 			$authorDao->update('UPDATE authors SET author_id = ? WHERE author_id = ?', array($authorId, $newAuthorId));
 		}
 
-		// create new galley with data from old galley
+		// create new galley version without file
 		foreach($galleys as $galley) {
-			$newGalley = $articleGalleyDao->newDataObject();
-			$newGalley->setSubmissionId($submissionId);
-			$newGalley->setSubmissionRevision($submissionRevision);
-			$newGalley->setLabel($galley->getLabel());
-			$newGalley->setLocale($galley->getLocale());
-			$newGalley->setRemoteURL($galley->getRemoteURL());
-			$articleGalleyDao->insertObject($newGalley);
+			$galley->setFileId(0);
+			$articleGalleyDao->updateObject($galley);
 		}
 
 		// display tab for new version
@@ -93,7 +93,6 @@ class PKPVersioningTabHandler extends Handler {
 	}
 
 	/**
-	 * JSON fetch the external review round info (tab).
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object

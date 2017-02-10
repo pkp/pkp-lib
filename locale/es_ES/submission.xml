@@ -260,6 +260,8 @@
 	<message key="submission.email.confirmDeleteLogEntry">¿Seguro que quieres borrar esta entrada de registro de correo electrónico?</message>
 	<message key="submission.email.deleteLogEntry">Borrar entrada de registro</message>
 	<message key="submission.emailLog">Registro de correo electrónico</message>
+	<message key="submission.event.participantAdded">"{$name}" ({$username}) añadido como {$userGroupName}.</message>
+	<message key="submission.event.participantRemoved">"{$name}" ({$username}) eliminado como {$userGroupName}.</message>
 	<message key="submission.event.backToEventLog">Volver a registro de eventos</message>
 	<message key="submission.event.confirmClearLog">¿Seguro que quieres limpiar el registro de eventos de este envío?</message>
 	<message key="submission.event.confirmDeleteLogEntry">¿Seguro que quieres borrar esta entrada del registro de eventos?</message>

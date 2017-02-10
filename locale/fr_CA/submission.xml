@@ -51,6 +51,8 @@
 	<message key="submission.email.confirmDeleteLogEntry">Êtes-vous certain de vouloir supprimer cette entrée du registre des courriels?</message>
 	<message key="submission.email.deleteLogEntry">Supprimer l'entrée du registre</message>
 	<message key="submission.emailLog">Registre de courriels</message>
+	<message key="submission.event.participantAdded">"{$name}" ({$username}) fait partie du groupe {$userGroupName}.</message>
+	<message key="submission.event.participantRemoved">"{$name}" ({$username}) ne fait plus partie du groupe {$userGroupName}.</message>
 	<message key="submission.event.backToEventLog">Retour au Registre d'événements</message>
 	<message key="submission.event.confirmClearLog">Êtes-vous certain de vouloir effacer le registre d'évènements pour cette soumission?</message>
 	<message key="submission.event.confirmDeleteLogEntry">Êtes-vous certain de vouloir supprimer cette entrée du registre d'événements?</message>

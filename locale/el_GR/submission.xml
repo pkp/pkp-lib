@@ -46,6 +46,8 @@
 	<message key="submission.email.confirmDeleteLogEntry"> Είστε βέβαιοι ότι επιθυμείτε να διαγράψετε τη συγκεκριμένη καταχώριση από το ημερολόγιο των email;</message>
 	<message key="submission.email.deleteLogEntry">Διαγραφή καταχώρισης ημερολογίους</message>
 	<message key="submission.emailLog">Email Log</message>
+	<message key="submission.event.participantAdded">Ο/Η "{$name}" ({$username}) έχει προστεθεί ως {$userGroupName}.</message>
+	<message key="submission.event.participantRemoved">Ο/Η "{$name}" ({$username}) έχει αφαιρεθεί από {$userGroupName}.</message>
 	<message key="submission.event.backToEventLog">Επιστροφή στο ημερολόγιο συμβάντων </message>
 	<message key="submission.event.confirmClearLog"> Είστε βέβαιοι ότι επιθυμείτε να καταργήσετε το ημερολόγιο (log) συμβάντων για τη συγκεκριμένη υποβολή;</message>
 	<message key="submission.event.confirmDeleteLogEntry"> Είστε βέβαιοι ότι επιθυμείτε να διαγράψετε τη συγκεκριμένη καταχώριση από το ημερολόγιο (Log) συμβάντων;</message>

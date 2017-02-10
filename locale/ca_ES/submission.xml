@@ -269,6 +269,8 @@
 	<message key="submission.email.confirmDeleteLogEntry">Esteu segur/a que voleu suprimir aquesta entrada del registre del correu electrònic?</message>
 	<message key="submission.email.deleteLogEntry">Suprimeix l’entrada del registre</message>
 	<message key="submission.emailLog">Registre del correu electrònic</message>
+	<message key="submission.event.participantAdded">S'ha afegit«{$name}» ({$username}) com a {$userGroupName}.</message>
+	<message key="submission.event.participantRemoved">Suprimeix «{$name}» ({$username}) com a {$userGroupName}.</message>
 	<message key="submission.event.backToEventLog">Torna al registre d’esdeveniments</message>
 	<message key="submission.event.confirmClearLog">Esteu segur/a que voleu esborrar el registre d’esdeveniments per a aquesta tramesa?</message>
 	<message key="submission.event.confirmDeleteLogEntry">Esteu segur/a que voleu suprimir aquesta entrada del registre d’esdeveniments?</message>

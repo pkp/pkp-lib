@@ -259,6 +259,8 @@
 	<message key="submission.email.confirmDeleteLogEntry">Sind Sie sicher, dass Sie diesen Eintrag im E-Mail-Protokoll löschen wollen?</message>
 	<message key="submission.email.deleteLogEntry">Eintrag löschen </message>
 	<message key="submission.emailLog">E-Mail-Protokoll</message>
+	<message key="submission.event.participantAdded">"{$name}" ({$username}) wurde zu der Gruppe der {$userGroupName} hinzugefügt.</message>
+	<message key="submission.event.participantRemoved">"{$name}" ({$username}) wurde aus der Gruppe der {$userGroupName} entfernt.</message>
 	<message key="submission.event.backToEventLog">Zurück zum Ereignisprotokoll</message>
 	<message key="submission.event.confirmClearLog">Sind Sie sicher, dass Sie das Ereignisprotokoll zu diesem Beitrag löschen wollen?</message>
 	<message key="submission.event.confirmDeleteLogEntry">Sind Sie sicher, dass Sie diesen Eintrag im Ereignisprotokoll löschen wollen</message>

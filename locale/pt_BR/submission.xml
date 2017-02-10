@@ -173,6 +173,8 @@
 	<message key="submission.email.confirmDeleteLogEntry">Deseja realmente excluir esta entrada no log de e-mail?</message>
 	<message key="submission.email.deleteLogEntry">Excluir entrada no log</message>
 	<message key="submission.emailLog">Log de e-mail</message>
+	<message key="submission.event.participantAdded">"{$name}" ({$username}) foi incluído no grupo de {$userGroupName}.</message>
+	<message key="submission.event.participantRemoved">"{$name}" ({$username}) foi excluído do grupo de {$userGroupName}.</message>
 	<message key="submission.event.backToEventLog">Voltar para log de eventos</message>
 	<message key="submission.event.confirmClearLog">Deseja realmente limpar o log de eventos da submissão?</message>
 	<message key="submission.event.confirmDeleteLogEntry">Deseja realmente excluir esta entrada no log de eventos?</message>

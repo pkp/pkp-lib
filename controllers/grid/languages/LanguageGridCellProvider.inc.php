@@ -26,7 +26,7 @@ class LanguageGridCellProvider extends GridCellProvider {
 	/**
 	 * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
-	function getTemplateVarsFromRowColumn($row, $column) {
+	function getTemplateVarsFromRowColumn($request, $row, $column) {
 		$element = $row->getData();
 		$columnId = $column->getId();
 		switch ($columnId) {

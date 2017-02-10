@@ -28,9 +28,9 @@ class GridCategoryRowCellProvider extends GridCellProvider {
 	// Implemented methods from GridCellProvider.
 	//
 	/**
-	 * @see GridCellProvider::getTemplateVarsFromRowColumn()
+	 * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
-	function getTemplateVarsFromRowColumn($row, $column) {
+	function getTemplateVarsFromRowColumn($request, $row, $column) {
 		// Default category rows will only have the first column
 		// as label columns.
 		if ($column->hasFlag('firstColumn')) {

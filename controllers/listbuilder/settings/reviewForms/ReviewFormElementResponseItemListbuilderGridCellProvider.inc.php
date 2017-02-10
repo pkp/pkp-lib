@@ -26,9 +26,9 @@ class ReviewFormElementResponseItemListbuilderGridCellProvider extends GridCellP
 	// Template methods from GridCellProvider
 	//
 	/**
-	 * @see GridCellProvider::getTemplateVarsFromRowColumn()
+	 * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
-	function getTemplateVarsFromRowColumn($row, $column) {
+	function getTemplateVarsFromRowColumn($request, $row, $column) {
 		switch ($column->getId()) {
 			case 'possibleResponse':
 				$possibleResponse = $row->getData();

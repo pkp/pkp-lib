@@ -32,6 +32,7 @@ class GridCellProvider {
 	 * To be used by a GridRow to generate a rendered representation of
 	 * the element for the given column.
 	 *
+	 * @param $request PKPRequest
 	 * @param $row GridRow
 	 * @param $column GridColumn
 	 * @return string the rendered representation of the element for the given column
@@ -46,7 +47,7 @@ class GridCellProvider {
 
 		// Assign values extracted from the element for the cell.
 		$templateMgr = TemplateManager::getManager($request);
-		$templateVars = $this->getTemplateVarsFromRowColumn($row, $column);
+		$templateVars = $this->getTemplateVarsFromRowColumn($request, $row, $column);
 		foreach ($templateVars as $varName => $varValue) {
 			$templateMgr->assign($varName, $varValue);
 		}
@@ -69,11 +70,13 @@ class GridCellProvider {
 	 * Subclasses have to implement this method to extract variables
 	 * for a given column from a data element so that they may be assigned
 	 * to template before rendering.
+	 * 
+	 * @param $request PKPRequest
 	 * @param $row GridRow
 	 * @param $column GridColumn
 	 * @return array
 	 */
-	function getTemplateVarsFromRowColumn($row, $column) {
+	function getTemplateVarsFromRowColumn($request, $row, $column) {
 		return array();
 	}
 
@@ -86,7 +89,7 @@ class GridCellProvider {
 	 * be row-specific actions in which case action instantiation
 	 * should be delegated to the row.
 	 *
-	 * @param $request Request
+	 * @param $request PKPRequest
 	 * @param $row GridRow
 	 * @param $column GridColumn
 	 * @param $position int GRID_ACTION_POSITION_...

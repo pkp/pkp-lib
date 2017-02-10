@@ -29,12 +29,9 @@ class FileListbuilderGridCellProvider extends GridCellProvider {
 	/**
 	 * This implementation assumes a simple data element array that
 	 * has column ids as keys.
-	 * @see GridCellProvider::getTemplateVarsFromRowColumn()
-	 * @param $row GridRow
-	 * @param $column GridColumn
-	 * @return array
+	 * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
-	function getTemplateVarsFromRowColumn($row, $column) {
+	function getTemplateVarsFromRowColumn($request, $row, $column) {
 		$file = $row->getData();
 		$columnId = $column->getId();
 		assert(is_a($file, 'SubmissionFile') && !empty($columnId));
@@ -45,7 +42,7 @@ class FileListbuilderGridCellProvider extends GridCellProvider {
 					'label' => '<span class="label before_actions">' . $file->getFileId() . '-' . $file->getRevision() . '</span>' . htmlspecialchars($file->getFileLabel())
 				);
 		}
-		return parent::getTemplateVarsFromRowColumn($row, $column);
+		return parent::getTemplateVarsFromRowColumn($request, $row, $column);
 	}
 }
 

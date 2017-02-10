@@ -39,12 +39,10 @@ class DateGridCellProvider extends GridCellProvider {
 	/**
 	 * Fetch a value from the provided DataProvider (in constructor)
 	 * and format it as a date.
-	 * @param $row GridRow
-	 * @param $column GridColumn
-	 * @return array
+	 * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
-	function getTemplateVarsFromRowColumn($row, $column) {
-		$v = $this->_dataProvider->getTemplateVarsFromRowColumn($row, $column);
+	function getTemplateVarsFromRowColumn($request, $row, $column) {
+		$v = $this->_dataProvider->getTemplateVarsFromRowColumn($request, $row, $column);
 		$v['label'] = strftime($this->_format, strtotime($v['label']));
 		return $v;
 	}

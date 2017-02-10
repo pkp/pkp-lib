@@ -135,14 +135,6 @@ class GenreDAO extends DAO {
 	}
 
 	/**
-	 * Get a list of field names for which non-localized settings are stored
-	 * @return array
-	 */
-	function getAdditionalFieldNames() {
-		return array('designation');
-	}
-
-	/**
 	 * Update the settings for this object
 	 * @param $genre object
 	 */
@@ -313,7 +305,6 @@ class GenreDAO extends DAO {
 			foreach ($locales as $locale) {
 				$genre->setName(__($attrs['localeKey'], array(), $locale), $locale);
 			}
-			$genre->setDesignation($attrs['designation']);
 
 			if ($genre->getId() > 0) { // existing genre.
 				$this->updateObject($genre);

@@ -16,5 +16,4 @@
 		category CDATA #REQUIRED
 		dependent CDATA #REQUIRED
 		supplementary CDATA #REQUIRED
-		localeKey CDATA #REQUIRED
-		designation CDATA #REQUIRED>
+		localeKey CDATA #REQUIRED>

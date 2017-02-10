@@ -96,17 +96,6 @@ class GenreGridHandler extends SetupGridHandler {
 				'common.name',
 				null,
 				null,
-				$cellProvider,
-				array('width' => 90)
-			)
-		);
-
-		$this->addColumn(
-			new GridColumn(
-				'designation',
-				'common.designation',
-				null,
-				null,
 				$cellProvider
 			)
 		);

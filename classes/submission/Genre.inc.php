@@ -119,22 +119,6 @@ class Genre extends DataObject {
 	}
 
 	/**
-	 * Set the designation of the genre
-	 * @param $abbrev string
-	 */
-	function setDesignation($abbrev) {
-		$this->setData('designation', $abbrev);
-	}
-
-	/**
-	 * Get the designation of the genre
-	 * @return string
-	 */
-	function getDesignation() {
-		return $this->getData('designation');
-	}
-
-	/**
 	 * Get sortable flag of the context type
 	 * @return bool
 	 */

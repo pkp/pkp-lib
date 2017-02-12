@@ -141,7 +141,9 @@
 	<message key="common.queue.long.myAssigned">Назначенные мне</message>
 	<message key="common.queue.long.submissionsArchived">Архивные материалы</message>
 	<message key="submission.authors">Авторы</message>
+	<message key="submission.authorBiography">Биография автора</message>
 	<message key="submission.authorBiographies">Биографии авторов</message>
+	<message key="submission.authorWithAffiliation">{$name}, {$affiliation}</message>
 	<message key="submission.shortAuthor">{$author} и др.</message>
 	<message key="submission.mySubmissions">С моим авторством</message>
 	<message key="submission.addFile">Загрузить файл</message>
@@ -273,6 +275,8 @@
 	<message key="submission.email.confirmDeleteLogEntry">Вы уверены, что хотите удалить эту запись из журнала писем электронной почты?</message>
 	<message key="submission.email.deleteLogEntry">Удалить запись журнала</message>
 	<message key="submission.emailLog">Журнал электронной почты</message>
+	<message key="submission.event.participantAdded">«{$name}» ({$username}) добавлен как {$userGroupName}.</message>
+	<message key="submission.event.participantRemoved">«{$name}» ({$username}) удален как {$userGroupName}.</message>
 	<message key="submission.event.backToEventLog">Назад к журналу событий</message>
 	<message key="submission.event.confirmClearLog">Вы уверены, что хотите очистить журнал событий для этого материала?</message>
 	<message key="submission.event.confirmDeleteLogEntry">Вы уверены, что хотите удалить эту запись из журнала событий?</message>

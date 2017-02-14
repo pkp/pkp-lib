@@ -165,7 +165,7 @@ class PKPVersioningTabHandler extends Handler {
 				),
 				__('submission.issueEntry.publicationMetadata')
 			),
-			__('editor.article.schedulePublication')
+			__('editor.article.publishVersion')
 		);
 		$templateMgr->assign('schedulePublicationLinkAction', $schedulePublicationLinkAction);
 

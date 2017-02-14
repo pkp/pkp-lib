@@ -102,6 +102,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		$submission = $this->newDataObject();
 
 		$submission->setId($row['submission_id']);
+		$submission->setSubmissionRevision($submissionRevision);
 		$submission->setContextId($row['context_id']);
 		$submission->setLocale($row['locale']);
 		$submission->setStageId($row['stage_id']);
@@ -119,18 +120,13 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	}
 
 	/**
-	 * Get all revisions for a submission; default settings:
-	 * 1) Retrieve only the previous revisions, not the current one
-	 * 2) Get only the id's; optionally the title can be retrieved, too
-	 * 3) Default sorting order is ASC
+	 * Get all revisions for a submission
 	 * @param $submissionId int
-	 * @param $contextId int
-	 * @param $showAll boolean false to exclude current revision; true to fetch all revisions including current
-	 * @param $withTitle boolean false to fetch only the IDs of the revisions; true to fetch additionally the title of the submission
-	 * $param $order string
+	 * @param $contextId int optional
+	 * $param $order string optional default: ASC
 	 * @return array
 	 */
-	function getSubmissionRevisions($submissionId, $contextId = null, $showAll = false, $withTitle = false, $order = SORT_DIRECTION_ASC) {
+	function getSubmissionRevisionIds($submissionId, $contextId = null, $order = SORT_DIRECTION_ASC) {
 
 		if (!ctype_digit("$submissionId")) {
 			$publishedArticleDao = DAORegistry::getDAO('PublishedArticleDAO');
@@ -153,53 +149,30 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		$submissionRevisions = array();
 
 		foreach($result->getArray() as $submission) {
-			$revision = $submission['submission_revision'];
-
-			if ($withTitle == false) {
-				$submissionRevisions[] = $revision;
-			} else {
-				$title = $this->getLocalizedTitleByVersion($submissionId, $revision);
-				$submissionRevisions[$revision] = $title . ' (' . $revision . ')';
-			}
-		}
-
-		if ($showAll == false) {
-			if ($order == SORT_DIRECTION_ASC) {
-				array_pop($submissionRevisions);
-			} else {
-				array_shift($submissionRevisions);
-			}
+			$submissionRevisions[] = $submission['submission_revision'];
 		}
 
 		return $submissionRevisions;
 	}
 
-
 	/**
-	 * Get the localized title of a submission for a specific version
+	 * Get all published revisions for a submission
 	 * @param $submissionId int
-	 * @param $revisionId int
-	 * @return string
-	 */
-	function getLocalizedTitleByVersion($submissionId, $revisionId) {
-		$localePrecedence = array_map(function($v) { return '"'.$v.'"'; }, AppLocale::getLocalePrecedence());
-		$strLocalePrecedence = implode(', ', $localePrecedence);
+	 * @return array
+	*/
+	function getPublishedSubmissionRevisions($submissionId, $contextId = null, $order = SORT_DIRECTION_DESC){
+		$submissionRevisions = $this->getSubmissionRevisionIds($submissionId, $contextId, $order);
+		$publishedSubmissionRevisions = array();
 
-		$params = array((int) $submissionId, 'title', (int) $revisionId);
-
-		$sql = "SELECT locale, setting_value FROM submission_settings WHERE submission_id = ? AND setting_name = ? AND submission_revision = ? AND locale IN ($strLocalePrecedence)";
-		$result = $this->retrieve($sql, $params);
-		$resultArray = $result->getArray();
-
-		foreach(AppLocale::getLocalePrecedence() as $preferredLocale) {
-			foreach($resultArray as $data) {
-				if (in_array($preferredLocale, $data) && !empty($data['setting_value'])) {
-					return $data['setting_value'];
-				}
+		foreach($submissionRevisions as $revision){
+			$submission = $this->getById($submissionId, null, false, $revision);
+			if($submission->getDatePublished()){
+				$publishedSubmissionRevisions[] = $submission;
 			}
 		}
 
-		return '';
+		return $publishedSubmissionRevisions;
+
 	}
 
 	/**
@@ -209,8 +182,20 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @return int
 	 */
 	function getLatestRevisionId($submissionId, $contextId = null) {
-		$submissionRevisions = $this->getSubmissionRevisions($submissionId, $contextId, true);
+		$submissionRevisions = $this->getSubmissionRevisionIds($submissionId, $contextId, SORT_DIRECTION_ASC);
 		return array_pop($submissionRevisions);
+	}
+
+	/**
+	 * Get the current published revision id for a submission
+	 * @param $submissionId int
+	 * @param $contextId int
+	 * @return int
+	 */
+	function getLatestPublishedRevisionId($submissionId, $contextId = null) {
+		$submissionRevisions = $this->getPublishedSubmissionRevisions($submissionId, $contextId, SORT_DIRECTION_ASC);
+		$latestSubmissionRevision = array_pop($submissionRevisions);
+		return $latestSubmissionRevision->getSubmissionRevision();
 	}
 
 	/**
@@ -221,7 +206,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @return boolean
 	 */
 	function revisionIdExists($submissionId, $revisionId, $contextId = null) {
-		$submissionRevisions = $this->getSubmissionRevisions($submissionId, $contextId, true);
+		$submissionRevisions = $this->getSubmissionRevisionIds($submissionId, $contextId);
 		return in_array($revisionId, $submissionRevisions);
 	}
 

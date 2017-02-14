@@ -651,14 +651,16 @@
 	<message key="submission.query.new.contents">You have been added to a discussion titled "{$queryTitle}" regarding the submission "{$submissionTitle}".</message>
 
 	<!-- Versioning -->
-	<message key="submission.versioning.versionHistory">Version History of this article</message>
-	<message key="submission.versioning.currentVersion">Current version of this article</message>
-	<message key="submission.versioning.previousVersions">Previous versions of this article</message>
+	<message key="submission.versioning.versionHistory">Version History</message>
+	<message key="submission.versioning.linkToLatest">This is a previous version. See </message>
+	<message key="submission.versioning.latest">latest version</message>
+
+	<message key="submission.versioning.previousVersions">Previous Versions of this Article</message>
 
 	<message key="submission.production.version">Version {$submissionRevision}</message>
 	<message key="submission.production.newVersion">New Version</message>
-	<message key="submission.production.editMetadata">Edit metadata of this version</message>
+	<message key="submission.production.editMetadata">Edit Metadata of this Version</message>
 
-	<message key="issue.manage.entryDescription">Recent versions of this article</message>
+	<message key="issue.manage.entryDescription">Recent Versions of this Article</message>
 
 </locale>

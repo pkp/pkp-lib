@@ -147,37 +147,41 @@ abstract class PKPWorkflowTabHandler extends Handler {
 
 				// get all revisions of this submission
 				$articleDao = DAORegistry::getDAO('ArticleDAO');
-				$submissionRevisions = $articleDao->getSubmissionRevisions($submission->getId(), $context->getId(), true, false, SORT_DIRECTION_ASC);
+				$submissionRevisions = $articleDao->getSubmissionRevisionIds($submission->getId(), $context->getId());
 				$templateMgr->assign('submissionRevisions', $submissionRevisions);
 
 				// get latest submission revision
 				$latestSubmissionRevision = $articleDao -> getLatestRevisionId($submission->getId(), $context->getId());
 				$templateMgr->assign('latestSubmissionRevision', $latestSubmissionRevision);
 
-				// add new version button action
-				$dispatcher = $request->getDispatcher();
-				import('lib.pkp.classes.linkAction.request.AjaxAction');
+				// add new version button action if the latest submission revision has been published
+				$submissionDao = Application::getSubmissionDAO();
+				$submission = $submissionDao->getById($submission->getId(), null, false, $latestSubmissionRevision);
 
-				$newVersionAction = new LinkAction(
-					'newVersion',
-					new AjaxAction(
-						$dispatcher->url(
-							$request, ROUTE_COMPONENT, null,
-							'tab.workflow.VersioningTabHandler',
-							'newVersion', null, array(
-								'submissionId' => $submission->getId(),
-								'stageId' => $selectedStageId
-							)
+				if($submission->getDatePublished()){
+					$dispatcher = $request->getDispatcher();
+					import('lib.pkp.classes.linkAction.request.AjaxAction');
+
+					$newVersionAction = new LinkAction(
+						'newVersion',
+						new AjaxAction(
+							$dispatcher->url(
+								$request, ROUTE_COMPONENT, null,
+								'tab.workflow.VersioningTabHandler',
+								'newVersion', null, array(
+									'submissionId' => $submission->getId(),
+									'stageId' => $selectedStageId
+								)
+							),
+							__('editor.submission.newVersion'),
+							'modal_add_item'
 						),
 						__('editor.submission.newVersion'),
-						'modal_add_item'
-					),
-					__('editor.submission.newVersion'),
-					'add_item_small'
-				);
+						'add_item_small'
+					);
 
-				$templateMgr->assign('newVersionAction', $newVersionAction);
-
+					$templateMgr->assign('newVersionAction', $newVersionAction);
+				}
 				return $templateMgr->fetchJson('controllers/tab/workflow/production.tpl');
 		}
 	}

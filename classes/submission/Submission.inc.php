@@ -256,6 +256,22 @@ abstract class Submission extends DataObject {
 	}
 
 	/**
+	 * Set submission revision.
+	 * @param $submissionRevision int
+	 */
+	function setSubmissionRevision($submissionRevision) {
+		$this->setData('submissionRevision', $submissionRevision);
+	}
+
+	/**
+	 * Return submission revision.
+	 * @return int
+	 */
+	function getSubmissionRevision() {
+		return $this->getData('submissionRevision');
+	}
+
+	/**
 	 * Get the current revision id for a submission
 	 * @param $contextId int
 	 * @return int
@@ -270,7 +286,7 @@ abstract class Submission extends DataObject {
 		}
 
 		$submissionDao = Application::getSubmissionDAO();
-		$submissionRevisions = $submissionDao->getSubmissionRevisions($submissionId, $contextId, true);
+		$submissionRevisions = $submissionDao->getSubmissionRevisionIds($submissionId, $contextId);
 
 		return array_pop($submissionRevisions);
 	}

@@ -39,6 +39,14 @@
 </div>
 
 <div class="pkp_content_panel">
+
+	{assign var="uuid" value=""|uniqid|escape}
+	<div id="my-submission-list-handler-{$uuid}">
+		<script type="text/javascript">
+			pkp.registry.init('my-submission-list-handler-{$uuid}', 'ListPanel', {$submissionListData});
+		</script>
+	</div>
+
 	<!-- Unassigned submissions grid: If the user is a manager or a series editor, then display these submissions which have not been assigned to anyone -->
 	{if array_intersect(array(ROLE_ID_MANAGER), (array)$userRoles)}
 		{url|assign:unassignedSubmissionsListGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.submissions.unassignedSubmissions.UnassignedSubmissionsListGridHandler" op="fetchGrid" escape=false}

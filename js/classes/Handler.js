@@ -517,7 +517,14 @@
 	 */
 	$.pkp.classes.Handler.prototype.unbindGlobalChildren = function() {
 		_.each(this.handlerChildren_, function(childHandler) {
-			childHandler.unbindGlobalAll();
+			// Handler in legacy JS framework
+			if (typeof childHandler.unbindGlobalAll !== 'undefined') {
+				childHandler.unbindGlobalAll();
+			// Handler in new Vue.js framework
+			} else if (typeof childHandler.$destroy !== 'undefined') {
+				delete pkp.vue.registry[childHandler.id];
+				childHandler.$destroy();
+			}
 		});
 	};
 

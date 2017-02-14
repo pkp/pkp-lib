@@ -91,6 +91,12 @@ class DashboardHandler extends Handler {
 			}
 		}
 
+		import('lib.pkp.controllers.list.submissions.MySubmissionListHandler');
+		$submissionListHandler = new MySubmissionListHandler(array(
+			'title' => 'common.queue.long.myAssigned',
+		));
+		$templateMgr->assign('submissionListData', json_encode($submissionListHandler->getConfig()));
+
 		return $templateMgr->fetchJson('dashboard/myQueue.tpl');
 	}
 

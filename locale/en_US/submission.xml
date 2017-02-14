@@ -647,4 +647,8 @@
 	<message key="submission.query.new">{$creatorName} started a discussion: {$noteTitle}: {$noteContents}</message>
 	<message key="submission.query.activity.contents">There is new activity in the discussion titled "{$queryTitle}" regarding the submission "{$submissionTitle}".</message>
 	<message key="submission.query.new.contents">You have been added to a discussion titled "{$queryTitle}" regarding the submission "{$submissionTitle}".</message>
+
+	<!-- Submission Lists -->
+	<message key="submission.list.view">View</message>
+	<message key="submission.list.count">{$count} submissions</message>
 </locale>

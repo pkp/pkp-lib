@@ -80,16 +80,39 @@ class PKPVersioningTabHandler extends Handler {
 			$authorDao->update('UPDATE authors SET author_id = ? WHERE author_id = ?', array($authorId, $newAuthorId));
 		}
 
-		// create new galley version without file
+		// create new galley versions
 		foreach($galleys as $galley) {
-			$galley->setFileId(0);
+			// copy file and link copy to new galley
+			if($galley->getFile()){
+				$context = $request->getContext();
+				$oldFile = $galley->getFile();
+				$fileStage = $oldFile->getFileStage();
+				$newFileId = $this->copyFile($context, $oldFile, $fileStage);
+				$galley->setFileId($newFileId);
+			}
+			// save new galley version
 			$articleGalleyDao->updateObject($galley);
 		}
 
 		// display tab for new version
 		$args['submissionRevision'] = $submissionRevision;
 		return $this->_version($args, $request);
+	}
 
+	/**
+	* Make a copy of the file to the specified file stage
+	* @param $context Context
+	* @param $submissionFile SubmissionFile
+	* @param $fileStage int SUBMISSION_FILE_...
+	* @return newFileId int
+	*/
+	function copyFile($context, $submissionFile, $fileStage){
+		import('lib.pkp.classes.file.SubmissionFileManager');
+		$submissionFileManager = new SubmissionFileManager($context->getId(), $submissionFile->getSubmissionId());
+		$fileId = $submissionFile->getFileId();
+		$revision = $submissionFile->getRevision();
+		list($newFileId, $newRevision) = $submissionFileManager->copyFileToFileStage($fileId, $revision, $fileStage, null, true);
+		return $newFileId;
 	}
 
 	/**

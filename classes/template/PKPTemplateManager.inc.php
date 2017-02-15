@@ -602,7 +602,7 @@ class PKPTemplateManager extends Smarty {
 				$baseUrl . '/js/build.js',
 				array(
 					'priority' => STYLE_SEQUENCE_LATE,
-					'contexts' => array('backend', 'frontend')
+					'contexts' => array('backend')
 				)
 			);
 		}
@@ -614,10 +614,7 @@ class PKPTemplateManager extends Smarty {
 				$this->addJavaScript(
 					'pkpLib',
 					$baseUrl . '/js/pkp.min.js',
-					array(
-						'priority' => STYLE_SEQUENCE_CORE,
-						'contexts' => array('backend', 'frontend')
-					)
+					$args
 				);
 				return;
 			}

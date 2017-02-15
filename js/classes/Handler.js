@@ -378,6 +378,7 @@
 
 		if (jsonData.status === true) {
 			// Trigger events passed from the server
+<<<<<<< HEAD
 			_.each((/** @type {{ events: Object }} */ jsonData).events,
 				function(event) {
 					/** @type {{isGlobalEvent: boolean}} */
@@ -389,6 +390,17 @@
 						this.trigger(event.name, eventData);
 					}
 				}, this);
+=======
+			_.each(jsonData.events, function(event) {
+				var eventData = _.has(event, 'data') ? event.data : null;
+				if (!_.isNull(eventData) && eventData.isGlobalEvent) {
+					eventData.handler = this;
+					pkp.eventBus.$emit(event.name, eventData);
+				} else {
+					this.trigger(event.name, eventData);
+				}
+			}, this);
+>>>>>>> 94f46f3... pkp/pkp-lib#2163 Update global event bindings to use new Vue event bus
 			return jsonData;
 		} else {
 			// If we got an error message then display it.
@@ -529,10 +541,16 @@
 	$.pkp.classes.Handler.prototype.unbindGlobal = function(eventName, callback) {
 		var wrapper = this.callbackWrapper(callback);
 		if (typeof this.globalEventListeners_[eventName] !== 'undefined') {
+<<<<<<< HEAD
 			this.globalEventListeners = _.reject(this.globalEventListeners,
 					function(cb) {
 						return cb === wrapper;
 					});
+=======
+			this.globalEventListeners = _.reject(this.globalEventListeners, function(cb) {
+				return cb === wrapper;
+			});
+>>>>>>> 94f46f3... pkp/pkp-lib#2163 Update global event bindings to use new Vue event bus
 		}
 		pkp.eventBus.$off(eventName, wrapper);
 	};

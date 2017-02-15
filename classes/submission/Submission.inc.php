@@ -382,7 +382,9 @@ abstract class Submission extends DataObject {
 	function getLocalizedTitle($preferredLocale = null, $includePrefix = true) {
 		$title = $this->getLocalizedData('title', $preferredLocale);
 		if ($includePrefix) {
-			$title = $this->getLocalizedPrefix() . ' ' . $title;
+			$prefix = $this->getLocalizedPrefix();
+			if (!empty($prefix)) $prefix .= ' ';
+			$title = $prefix . $title;
 		}
 		return $title;
 	}
@@ -398,10 +400,14 @@ abstract class Submission extends DataObject {
 		if ($includePrefix) {
 			if (is_array($title)) {
 				foreach($title as $locale => $currentTitle) {
-					$title[$locale] = $this->getPrefix($locale) . ' ' . $currentTitle;
+					$prefix = $this->getPrefix($locale);
+					if (!empty($prefix)) $prefix .= ' ';
+					$title[$locale] = $prefix . $currentTitle;
 				}
 			} else {
-				$title = $this->getPrefix($locale) . ' ' . $title;
+				$prefix = $this->getPrefix($locale);
+				if (!empty($prefix)) $prefix .= ' ';
+				$title = $prefix . $title;
 			}
 		}
 		return $title;

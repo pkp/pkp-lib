@@ -60,6 +60,13 @@ class XMLTypeDescription extends TypeDescription {
 		return TYPE_DESCRIPTION_NAMESPACE_XML;
 	}
 
+	/**
+	 * Set the validation strategy
+	 * @param $validationStrategy string XML_TYPE_DESCRIPTION_VALIDATE_...
+	 */
+	function setValidationStrategy($validationStrategy) {
+		$this->_validationStrategy = $validationStrategy;
+	}
 
 	//
 	// Implement abstract template methods from TypeDescription

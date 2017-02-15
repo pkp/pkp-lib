@@ -44,6 +44,7 @@
 		this.dataItems_ = { };
 		this.publishedEvents_ = { };
 		this.handlerChildren_ = [];
+		this.globalEventListeners_ = { };
 
 		// Register this handler with a parent handler if one is found. This
 		// allows global events to be de-registered when a parent handler is
@@ -131,6 +132,15 @@
 	 * @type {?string}
 	 */
 	$.pkp.classes.Handler.prototype.eventBridge_ = null;
+
+
+	/**
+	 * Global event bindings. These are tracked so they can be deregistered when
+	 * the handler is destroyed.
+	 * @private
+	 * @type {?string}
+	 */
+	$.pkp.classes.Handler.prototype.globalEventListeners_ = null;
 
 
 	//
@@ -361,7 +371,7 @@
 				var eventData = _.has(event, 'data') ? event.data : null;
 				if (!_.isNull(eventData) && eventData.isGlobalEvent) {
 					eventData.handler = this;
-					$.pkp.classes.EventRouter.trigger(event.name, eventData);
+					pkp.eventBus.$emit(event.name, eventData);
 				} else {
 					this.trigger(event.name, eventData);
 				}
@@ -484,7 +494,12 @@
 	 * @param {Function} callback The function to firewhen the event is triggered
 	 */
 	$.pkp.classes.Handler.prototype.bindGlobal = function(eventName, callback) {
-		$.pkp.classes.EventRouter.on(eventName, callback, this);
+		if (typeof this.globalEventListeners_[eventName] === 'undefined') {
+			this.globalEventListeners_[eventName] = [];
+		}
+		var wrapper = this.callbackWrapper(callback);
+		this.globalEventListeners_[eventName].push(wrapper);
+		pkp.eventBus.$on(eventName, wrapper);
 	};
 
 
@@ -499,7 +514,13 @@
 	 * @param {Function} callback The function to fire when event is triggered
 	 */
 	$.pkp.classes.Handler.prototype.unbindGlobal = function(eventName, callback) {
-		$.pkp.classes.EventRouter.off(eventName, callback, this);
+		var wrapper = this.callbackWrapper(callback);
+		if (typeof this.globalEventListeners_[eventName] !== 'undefined') {
+			this.globalEventListeners = _.reject(this.globalEventListeners, function(cb) {
+				return cb === wrapper;
+			});
+		}
+		pkp.eventBus.$off(eventName, wrapper);
 	};
 
 
@@ -507,7 +528,14 @@
 	 * Unbind all global event listeners on this handler and any child handlers
 	 */
 	$.pkp.classes.Handler.prototype.unbindGlobalAll = function() {
-		$.pkp.classes.EventRouter.off(null, null, this);
+		if (typeof this.globalEventListeners_ !== 'undefined') {
+			_.each(this.globalEventListeners_, function(callbacks, eventName) {
+				_.each(callbacks, function(callback) {
+					pkp.eventBus.$off(eventName, callback);
+				});
+			});
+		}
+		this.globalEventListeners = null;
 		this.unbindGlobalChildren();
 	};
 

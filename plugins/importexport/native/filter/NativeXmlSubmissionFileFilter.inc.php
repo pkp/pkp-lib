@@ -116,6 +116,12 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 
 		$revisionId = $node->getAttribute('number');
 
+		$source = $node->getAttribute('source');
+		$sourceFileAndRevision = null;
+		if ($source) {
+			$sourceFileAndRevision = explode('-', $source);
+		}
+
 		$genreId = null;
 		$genreName = $node->getAttribute('genre');
 		if ($genreName) {
@@ -188,6 +194,15 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		$submissionFile->setFileType($fileType);
 
 		$submissionFile->setRevision($revisionId);
+
+		if ($sourceFileAndRevision) {
+			// the source file revision should already be processed, so get the new source file ID
+			$sourceFileId = $deployment->getFileDBId($sourceFileAndRevision[0], $sourceFileAndRevision[1]);
+			if ($sourceFileId) {
+				$submissionFile->setSourceFileId($sourceFileId);
+				$submissionFile->setSourceRevision($sourceFileAndRevision[1]);
+			}
+		}
 
 		if ($errorOccured) {
 			// if error occured, the file cannot be inserted into DB, becase

@@ -24,6 +24,12 @@ class SubmissionRequiredPolicy extends DataObjectRequiredPolicy {
 	 */
 	function __construct($request, &$args, $submissionParameterName = 'submissionId', $operations = null) {
 		parent::__construct($request, $args, $submissionParameterName, 'user.authorization.invalidSubmission', $operations);
+
+		$callOnDeny = array($request->getDispatcher(), 'handle404', array());
+		$this->setAdvice(
+			AUTHORIZATION_ADVICE_CALL_ON_DENY,
+			$callOnDeny
+		);
 	}
 
 	//

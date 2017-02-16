@@ -194,6 +194,9 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 			// genre, uploader and user group are required (e.g. at name generation).
 			$submissionFile = null;
 		} else {
+			// if the same file is already inserted, take its DB file ID
+			$DBId = $deployment->getFileDBId($fileId);
+			if ($DBId) $submissionFile->setFileId($DBId);
 			$insertedSubmissionFile = $submissionFileDao->insertObject($submissionFile, $filename, false);
 			$deployment->setFileDBId($fileId, $revisionId, $insertedSubmissionFile->getFileId());
 		}

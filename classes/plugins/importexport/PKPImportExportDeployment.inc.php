@@ -212,9 +212,20 @@ class PKPImportExportDeployment {
 	 * @param $revisionId integer
 	 * @return integer
 	 */
-	function getFileDBId($fileId, $revisionId) {
-		if (array_key_exists($fileId, $this->_fileDBIds) && array_key_exists($revisionId, $this->_fileDBIds[$fileId])) {
-			return $this->_fileDBIds[$fileId][$revisionId];
+	function getFileDBId($fileId, $revisionId = null) {
+		if (array_key_exists($fileId, $this->_fileDBIds)) {
+			// is there already the revisionId?
+			if ($revisionId) {
+				if (array_key_exists($revisionId, $this->_fileDBIds[$fileId])) {
+					return $this->_fileDBIds[$fileId][$revisionId];
+				} else {
+					return null;
+				}
+			} else {
+				// the revisionId is not important, but the fileId
+				// the DB Id is unique for a fileId
+				return current($this->_fileDBIds[$fileId]);
+			}
 		}
 		return null;
 	}

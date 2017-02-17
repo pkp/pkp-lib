@@ -22,7 +22,7 @@
 	<message key="user.authorization.loginRequired">Kirjautuminen vaaditaan.</message>
 	<message key="user.authorization.privateOperation">Toiminto, jota yritit käyttää, on yksityinen tai sitä ei olemassa.</message>
 	<message key="user.authorization.restrictedSiteAccess">Pääsy evätty. Sivustolle pääsyä on tällä hetkellä rajoitettu.</message>
-	<message key="user.authorization.roleBasedAccessDenied">Tällä hetkellä käytössä oleva rooli ei oikeuta tähän toimintoon.</message>
+	<message key="user.authorization.roleBasedAccessDenied"><![CDATA[Tällä hetkellä käytössä oleva rooli ei oikeuta tähän toimintoon. <a href="profile/roles/">Voit tarkistaa roolisi täältä &raquo;</a>]]></message>
 	<message key="user.authorization.userGroupRequired">Sinun on määritettävä kelvollinen käyttäjäryhmä, jotta voit käyttää tätä toimintoa.</message>
 	<message key="user.authorization.managerRequired">Hallinnoivassa roolissa oleva käyttäjä (esim. tuotantotoimittaja) on valittava vaiheeseen, ennen kuin voit jatkaa.</message>
 	<message key="user.authorization.accessibleWorkflowStage">Sinulla ei ole tällä hetkellä pääsyä kyseiseen työnkulun vaiheeseen.</message>

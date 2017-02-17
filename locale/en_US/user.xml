@@ -22,7 +22,7 @@
 	<message key="user.authorization.loginRequired">Login required.</message>
 	<message key="user.authorization.privateOperation">The operation you tried to access is either private or doesn't exist.</message>
 	<message key="user.authorization.restrictedSiteAccess">You have been denied access. Access to this site is currently restricted.</message>
-	<message key="user.authorization.roleBasedAccessDenied">The current role does not have access to this operation.</message>
+	<message key="user.authorization.roleBasedAccessDenied"><![CDATA[The current role does not have access to this operation. <a href="profile/roles/">You can edit your roles here &raquo;</a>]]></message>	
 	<message key="user.authorization.userGroupRequired">You have to set a valid user group to access this operation.</message>
 	<message key="user.authorization.managerRequired">A user with a Manager role (i.e. Production Editor) must be assigned to the stage before you can proceed.</message>
 	<message key="user.authorization.accessibleWorkflowStage">You don't currently have access to that stage of the workflow.</message>

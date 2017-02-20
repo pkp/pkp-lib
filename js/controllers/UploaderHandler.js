@@ -104,10 +104,10 @@
 		self = this;
 		setTimeout(function() {
 			self.getHtmlElement().find('.moxie-shim input')
-			.focus(function(e) {
+					.focus(function(e) {
 						$browseButton.addClass('in_focus');
 					})
-			.blur(function(e) {
+					.blur(function(e) {
 						$browseButton.removeClass('in_focus');
 					});
 		}, 100);

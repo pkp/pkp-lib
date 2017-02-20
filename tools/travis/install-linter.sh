@@ -12,8 +12,8 @@
 set -xe
 
 # Install python, linter, closure compiler stuff
-sudo apt-get install python-pip
-sudo  pip install https://github.com/google/closure-linter/zipball/master
+sudo pip install six
+sudo pip install https://github.com/google/closure-linter/zipball/master
 # wget -O compiler.zip "http://dl.google.com/closure-compiler/compiler-20130603.zip"
 # unzip compiler.zip compiler.jar
 mkdir ~/bin

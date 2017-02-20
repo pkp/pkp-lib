@@ -50,7 +50,6 @@
 	<message key="submission.event.general.suppFileUpdated">Inskickad fil uppdaterad</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Granskningsarbete accepterat av annan</message>
 	<message key="submission.event.reviewer.reviewAccepted">Granskningsarbete accepterat</message>
-	<message key="submission.event.reviewer.reviewCancelled">Granskningsarbete avbrutet</message>
 	<message key="submission.event.reviewer.reviewDeclined">Granskningsarbete avslaget</message>
 	<message key="submission.event.reviewer.reviewDueDate">Sista datum för granskning ändrat</message>
 	<message key="submission.event.reviewer.reviewerAssigned">Granskare har tilldelats manuskript</message>
@@ -163,5 +162,5 @@
 	<message key="submission.viewMetadata">Visa metadata</message>
 	<message key="submission.views">Visningar</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} har tilldelats ett manuskript att granska {$submissionId} för granskningsomgång {$round}.</message>
-	<message key="submission.reviewForm">Granskningsformulär</message> 
+	<message key="submission.reviewForm">Granskningsformulär</message>
 </locale>

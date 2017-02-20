@@ -288,7 +288,6 @@
 	<message key="submission.event.participantAdded">{$name} was assigned to this submission as a {$userGroupName}.</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Review assignment accepted by proxy</message>
 	<message key="submission.event.reviewer.reviewAccepted">Review assignment accepted</message>
-	<message key="submission.event.reviewer.reviewCancelled">Review assignment cancelled</message>
 	<message key="submission.event.reviewer.reviewDeclined">Review assignment declined</message>
 	<message key="submission.event.reviewer.reviewDueDate">Review due date modified</message>
 	<message key="submission.event.reviewer.reviewerAssigned">Reviewer assigned to submission</message>
@@ -518,7 +517,8 @@
 	<message key="editor.submission.roundStatus.pendingReviewers">Waiting for reviewers to be selected.</message>
 	<message key="editor.submission.roundStatus.pendingReviews">Awaiting responses from reviewers.</message>
 	<message key="editor.submission.roundStatus.reviewsReady">New reviews have been submitted.</message>
-	<message key="editor.submission.roundStatus.reviewsCompleted">Reviews completed.</message>
+	<message key="editor.submission.roundStatus.reviewsCompleted">All reviews are in and a decision is needed.</message>
+	<message key="editor.submission.roundStatus.reviewOverdue">A review is overdue.</message>
 
 	<!-- Participants -->
 	<message key="editor.submission.stageParticipants">Participants</message>
@@ -590,6 +590,14 @@
 	<message key="submission.productionReady">Book available</message>
 	<message key="submission.review.uploadRevisionToRound">Upload Revised File</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} has been assigned to review submission {$submissionId} for review round {$round}.</message>
+	<message key="submission.review.status.awaitingResponse">Waiting for a response from the reviewer.</message>
+	<message key="submission.review.status.declined">The reviewer declined this review request.</message>
+	<message key="submission.review.status.responseOverdue">The reviewer has missed the response due date.</message>
+	<message key="submission.review.status.reviewOverdue">The reviewer has missed the review due date.</message>
+	<message key="submission.review.status.accepted">This review has been accepted.</message>
+	<message key="submission.review.status.received">The reviewer has submitted their review.</message>
+	<message key="submission.review.status.complete">This review has been completed.</message>
+	<message key="submission.review.status.thanked">This review is complete and the reviewer has been thanked for their contribution.</message>
 	<message key="submission.document">Document</message>
 	<message key="submission.art">Artwork</message>
 	<message key="submission.supplementary">Supplementary Content</message>

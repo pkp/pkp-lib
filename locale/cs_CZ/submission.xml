@@ -109,7 +109,6 @@
 	<message key="submission.event.general.suppFileUpdated">Soubor příspěvku aktualizován</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Přidělení recenze akceptováno náhradníkem</message>
 	<message key="submission.event.reviewer.reviewAccepted">Přidělení recenze akceptováno</message>
-	<message key="submission.event.reviewer.reviewCancelled">Přidělená recenze zrušena</message>
 	<message key="submission.event.reviewer.reviewDeclined">Přidělení recenze odmítnuto</message>
 	<message key="submission.event.reviewer.reviewDueDate">Změněn termín splnění recenze</message>
 	<message key="submission.event.reviewer.reviewerAssigned">Recenzent přidělen k příspěvku</message>

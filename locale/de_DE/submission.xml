@@ -272,7 +272,6 @@
 	<message key="submission.event.general.suppFileUpdated">Anlagedatei aktualisiert</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Gutachter/innenzuteilung in Vertretung akzeptiert</message>
 	<message key="submission.event.reviewer.reviewAccepted">Gutachter/innenzuteilung akzeptiert</message>
-	<message key="submission.event.reviewer.reviewCancelled">Gutachter/innenzuteilung aufgehoben</message>
 	<message key="submission.event.reviewer.reviewDeclined">Begutachtung abgelehnt</message>
 	<message key="submission.event.reviewer.reviewDueDate">Abgabetermin der Begutachtung geändert</message>
 	<message key="submission.event.reviewer.reviewerAssigned">Beitrag einer Gutachterin/einem Gutachter zugewiesen</message>

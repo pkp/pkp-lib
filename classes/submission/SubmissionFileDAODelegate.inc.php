@@ -42,6 +42,10 @@ class SubmissionFileDAODelegate extends DAO {
 	 */
 	function insertObject($submissionFile, $sourceFile, $isUpload = false) {
 		$fileId = $submissionFile->getFileId();
+		
+		$submissionDao = Application::getSubmissionDAO();
+		$submission = $submissionDao->getById($submissionFile->getSubmissionId());
+		$submissionLocale = $submission->getLocale();		
 
 		if (!is_numeric($submissionFile->getRevision())) {
 			// Set the initial revision.
@@ -97,6 +101,7 @@ class SubmissionFileDAODelegate extends DAO {
 				$submissionFile->setName($submissionFile->_generateName(true), AppLocale::getPrimaryLocale());
 			} else {
 				$submissionFile->setName($submissionFile->_generateName(), AppLocale::getPrimaryLocale());
+				$submissionFile->setName($submissionFile->_generateName(), $submissionLocale);
 			}
 		} else {
 			if ($reviewStage &&	$submissionFile->getName(AppLocale::getPrimaryLocale()) == $submissionFile->_generateName()) {

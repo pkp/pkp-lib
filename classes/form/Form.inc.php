@@ -348,7 +348,7 @@ class Form {
 	 * @return string
 	 */
 	function getFormLocale() {
-		$formLocale = Request::getUserVar('formLocale');
+		$this->overrideLocale ? $formLocale = $this->overrideLocale : $formLocale = Request::getUserVar('formLocale');
 		if (!$formLocale || !isset($this->supportedLocales[$formLocale])) {
 			$formLocale = $this->getDefaultFormLocale();
 		}

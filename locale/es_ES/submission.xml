@@ -271,7 +271,6 @@
 	<message key="submission.event.general.suppFileUpdated">Archivo de envío actualizado</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Asignación de revisión aceptada por poderes</message>
 	<message key="submission.event.reviewer.reviewAccepted">Asignación de revisión aceptada</message>
-	<message key="submission.event.reviewer.reviewCancelled">Asignación de revisión cancelada</message>
 	<message key="submission.event.reviewer.reviewDeclined">Asignación de revisión rechazada</message>
 	<message key="submission.event.reviewer.reviewDueDate">Plazo de revisión modificado</message>
 	<message key="submission.event.reviewer.reviewerAssigned">Se ha asignado un revisor a la propuesta</message>

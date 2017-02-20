@@ -82,7 +82,6 @@ class PKPReviewRoundTabHandler extends Handler {
 			NOTIFICATION_LEVEL_NORMAL => array(
 				NOTIFICATION_TYPE_REVIEW_ROUND_STATUS => array(ASSOC_TYPE_REVIEW_ROUND, $reviewRound->getId())),
 			NOTIFICATION_LEVEL_TASK => array(
-				NOTIFICATION_TYPE_ALL_REVIEWS_IN => array(ASSOC_TYPE_REVIEW_ROUND, $reviewRound->getId()),
 				NOTIFICATION_TYPE_ALL_REVISIONS_IN => array(ASSOC_TYPE_REVIEW_ROUND, $reviewRound->getId())),
 			NOTIFICATION_LEVEL_TRIVIAL => array()
 		);

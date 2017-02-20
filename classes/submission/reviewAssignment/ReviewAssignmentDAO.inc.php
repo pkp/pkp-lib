@@ -326,7 +326,7 @@ class ReviewAssignmentDAO extends DAO {
 	 * @param $reviewAssignment ReviewAssignment
 	 */
 	function insertObject($reviewAssignment) {
-		$this->update(
+		$result = $this->update(
 			sprintf('INSERT INTO review_assignments (
 				submission_id,
 				reviewer_id,
@@ -376,7 +376,13 @@ class ReviewAssignmentDAO extends DAO {
 		);
 
 		$reviewAssignment->setId($this->getInsertId());
-		return $reviewAssignment->getId();
+
+		// Update review stage status whenever a review assignment is changed
+		if ($result) {
+			$this->updateReviewRoundStatus($reviewAssignment);
+		}
+
+		return $reviewAssignment;
 	}
 
 	/**
@@ -384,7 +390,7 @@ class ReviewAssignmentDAO extends DAO {
 	 * @param $reviewAssignment object
 	 */
 	function updateObject($reviewAssignment) {
-		return $this->update(
+		$result = $this->update(
 			sprintf('UPDATE review_assignments
 				SET	submission_id = ?,
 					reviewer_id = ?,
@@ -429,6 +435,34 @@ class ReviewAssignmentDAO extends DAO {
 				(int) $reviewAssignment->getUnconsidered(),
 				(int) $reviewAssignment->getId()
 			)
+		);
+
+		// Update review stage status whenever a review assignment is changed
+		if ($result) {
+			$this->updateReviewRoundStatus($reviewAssignment);
+		}
+
+		return $result;
+	}
+
+	/**
+	 * Update the status of the review round an assignment is attached to. This
+	 * should be fired whenever a reviewer assignment is modified.
+	 *
+	 * @param $reviewAssignment ReviewAssignment
+	 */
+	public function updateReviewRoundStatus($reviewAssignment) {
+		import('lib.pkp.classes.submission.reviewRound/ReviewRoundDAO');
+		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+		$reviewRound = $reviewRoundDao->getReviewRound(
+			$reviewAssignment->getSubmissionId(),
+			$reviewAssignment->getStageId(),
+			$reviewAssignment->getRound()
+		);
+
+		return $reviewRoundDao->updateStatus(
+			$reviewRound,
+			$this->getByReviewRoundId($reviewRound->getId())
 		);
 	}
 
@@ -492,10 +526,21 @@ class ReviewAssignmentDAO extends DAO {
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');
 		$notificationDao->deleteByAssoc(ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewId);
 
-		return $this->update(
+		// Retrieve the review assignment before it's deleted, so it can be
+		// be used to fire an update on the review round status.
+		import('lib.pkp.classes.submission.reviewRound/ReviewRoundDAO');
+		$reviewAssignment = $this->getById($reviewId);
+
+		$result = $this->update(
 			'DELETE FROM review_assignments WHERE review_id = ?',
 			(int) $reviewId
 		);
+
+		if ($result) {
+			$this->updateReviewRoundStatus($reviewAssignment);
+		}
+
+		return $result;
 	}
 
 	/**

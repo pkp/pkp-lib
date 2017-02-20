@@ -50,7 +50,6 @@
 	<message key="submission.event.general.suppFileUpdated">Aggiornato il file della proposta</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Incarico di revisione accettato per procura</message>
 	<message key="submission.event.reviewer.reviewAccepted">Incarico di revisione accettato</message>
-	<message key="submission.event.reviewer.reviewCancelled">Incarico di revisione cancellato</message>
 	<message key="submission.event.reviewer.reviewDeclined">Incarico di revisione rifiutato</message>
 	<message key="submission.event.reviewer.reviewDueDate">Modificata la data di consegna della revisione</message>
 	<message key="submission.event.reviewer.reviewerAssigned">Revisore assegnato alla proposta</message>

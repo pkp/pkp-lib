@@ -49,7 +49,6 @@
 	<message key="submission.event.general.suppFileUpdated">Datoteka prijave je ažurirana</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Dodjelu recenzije je prihvatio zamjenik</message>
 	<message key="submission.event.reviewer.reviewAccepted">Dodjela recenzije je prihvaćena</message>
-	<message key="submission.event.reviewer.reviewCancelled">Otkazana je dodjela recenzije</message>
 	<message key="submission.event.reviewer.reviewDeclined">Dodjela recenzije je odbijena</message>
 	<message key="submission.event.reviewer.reviewDueDate">Izmjenjen je rok recenzije</message>
 	<message key="submission.event.reviewer.reviewerAssigned">Recenzentu je dodijeljena prijava</message>

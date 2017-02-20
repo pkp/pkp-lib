@@ -53,7 +53,6 @@
 	<message key="submission.event.general.suppFileUpdated">Documento Suplementar da submissão actualizado</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Tarefa de Revisão aceite pelo proxy</message>
 	<message key="submission.event.reviewer.reviewAccepted">Tarefa de Revisão aceite</message>
-	<message key="submission.event.reviewer.reviewCancelled">Tarefa de Revisão cancelada</message>
 	<message key="submission.event.reviewer.reviewDeclined">Tarefa de Revisão recusada</message>
 	<message key="submission.event.reviewer.reviewDueDate">Data de Conclusão de Revisão alterada</message>
 	<message key="submission.event.reviewer.reviewerAssigned">Revisor designado para a submissão</message>
@@ -165,9 +164,9 @@
 	<message key="submission.uploadFileTo">Transferir documento</message>
 	<message key="submission.viewMetadata">Ver Metadados</message>
 	<message key="submission.views">Acessos</message>
-	
-	<!-- Author Submission --> 
-	<message key="author.submit.submissionCitations">Forneça uma lista formatada de referências a citações incluídas nesta submissão.</message>	
+
+	<!-- Author Submission -->
+	<message key="author.submit.submissionCitations">Forneça uma lista formatada de referências a citações incluídas nesta submissão.</message>
 	<message key="submission.citations.editor.citationlist.title">Editar Citações</message>
 	<message key="submission.citations.editor.details.rawCitation">Texto Citação</message>
 	<message key="submission.citations.editor.details.rawCitationRequired">É requerido um texto de citação.</message>

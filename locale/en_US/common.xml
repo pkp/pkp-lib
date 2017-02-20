@@ -416,6 +416,7 @@
 	<message key="notification.removedAuditor">Auditor removed.</message>
 	<message key="notification.addedQuery">Added Discussion</message>
 	<message key="notification.reviewAcknowledged">Review marked as acknowledged. Email not sent.</message>
+	<message key="notification.reviewerThankedEmail">Thank you email sent to reviewer.</message>
 	<message key="notification.updatedReviewFiles">Review files updated.</message>
 	<message key="notification.allow">Enable these types of notifications.</message>
 	<message key="notification.addedAnnouncementType">Announcement type added.</message>

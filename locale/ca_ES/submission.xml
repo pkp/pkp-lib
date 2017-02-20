@@ -282,7 +282,6 @@
 	<message key="submission.event.general.suppFileUpdated">Fitxer de tramesa actualitzat</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Assignació de la revisió acceptada per poders</message>
 	<message key="submission.event.reviewer.reviewAccepted">Assignació de la revisió acceptada</message>
-	<message key="submission.event.reviewer.reviewCancelled">Assignació de la revisió cancel·lada</message>
 	<message key="submission.event.reviewer.reviewDeclined">Assignació de la revisió rebutjada</message>
 	<message key="submission.event.reviewer.reviewDueDate">Data de venciment de la revisió modificada</message>
 	<message key="submission.event.reviewer.reviewerAssigned">Revisor/a assignat a la tramesa</message>

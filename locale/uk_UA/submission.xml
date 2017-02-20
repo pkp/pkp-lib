@@ -32,13 +32,13 @@
 	<message key="metadata.filters.paracite.settings.citationModule.validationMessage">Будь ласка, виберіть один з модулів цитат.</message>
 	<message key="metadata.filters.settings.isOptional.displayName">Не використовувати за замовчуванням (служба залишатиметься доступною редактору)</message>
 	<message key="metadata.filters.settings.isOptional.validationMessage">Внутрішня помилка. Для налаштування 'optional filter' було завантажено некоректне значення. Будь ласка, повідомте розробників про цю помилку.</message>
-	
+
 	<!-- messages shared between MD schemas -->
 	<message key="metadata.property.displayName.author">Автори</message>
 	<message key="metadata.property.validationMessage.author">Для найкращих результатів рекомендується вводити імена авторів у наступному форматі: Coleman Jr, D. (Ralf) Dr.</message>
 	<message key="metadata.property.displayName.editor">Редактори</message>
 	<message key="metadata.property.validationMessage.editor">Для найкращих результатів рекомендується вводити імена редакторів у наступному форматі: Coleman Jr, D. (Ralf) Dr.</message>
-	
+
 	<!-- NLM-specific messages -->
 	<message key="metadata.property.displayName.article-title">Назва статті/праці</message>
 	<message key="metadata.property.validationMessage.article-title">Будь ласка, вкажіть коректну назву статті/праці.</message>
@@ -248,7 +248,6 @@
 	<message key="submission.event.general.suppFileUpdated">Супровідний файл подання оновлений</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Від імені рецензента призначення було прийняте</message>
 	<message key="submission.event.reviewer.reviewAccepted">Рецензент прийняв призначення</message>
-	<message key="submission.event.reviewer.reviewCancelled">Призначення рецензента відмінене</message>
 	<message key="submission.event.reviewer.reviewDeclined">Рецензент відмовився від призначення</message>
 	<message key="submission.event.reviewer.reviewDueDate">Строк рецензування змінений</message>
 	<message key="submission.event.reviewer.reviewerAssigned">Рецензент для подання призначений</message>

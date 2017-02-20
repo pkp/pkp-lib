@@ -28,13 +28,13 @@
 	<message key="metadata.filters.paracite.settings.citationModule.validationMessage">Lütfen verilen atıf modüllerinden birini seçiniz.</message>
 	<message key="metadata.filters.settings.isOptional.displayName">Varsayılanı kullanmayınız (editör tarafından kullanılabilir olacak)</message>
 	<message key="metadata.filters.settings.isOptional.validationMessage">Dahili hata. "İsteğe bağlı filitre" ayarlarına geçerli olmayan bir değer gönderildi. Bunu hata mesajı olarak rapor edin.</message>
-	
+
 	<!-- messages shared between MD schemas -->
 	<message key="metadata.property.displayName.author">Yazarlar</message>
 	<message key="metadata.property.validationMessage.author">En iyi sonuç için yazarlar aşağıdaki biçimde girmelidir: Coleman Jr, D. (Ralf) Dr.</message>
 	<message key="metadata.property.displayName.editor">Editörler</message>
 	<message key="metadata.property.validationMessage.editor">En iyi sonuç için editörler aşağıdaki biçimde girmelidir: Coleman Jr, D. (Ralf) Dr.</message>
-	
+
 	<!-- NLM-specific messages -->
 	<message key="metadata.property.displayName.article-title">Makale Adı</message>
 	<message key="metadata.property.validationMessage.article-title">Lütfen geçerli bir makale adı giriniz.</message>
@@ -102,7 +102,7 @@
 	<message key="metadata.property.validationMessage.annotation">Lütfen geçerli bir açıklama giriniz.</message>
 	<message key="metadata.property.displayName.publication-type">Yayın Türü</message>
 	<message key="metadata.property.validationMessage.publication-type">Her zaman bir yayın türü belirlediğinizden emin olun. Şu halde desteklenen türler kitap (kitaplar ve kitap bölümleri) ve dergidir (dergi makaleleri). Aksi halde atıf çıkış biçimlendirmesi düzgün çalışmaz.</message>
-	
+
 	<!-- MODS-specific messages -->
 	<message key="metadata.property.displayName.title-type">Başlık Türü</message>
 	<message key="metadata.property.validationMessage.title-type">Lütfen geçerli başlık türü belirlediğinizden emin olun. Desteklenen değerler 'kısaltılmış', 'çevrilmiş', 'alternatif' ve 'tek biçim'dir.</message>
@@ -119,7 +119,7 @@
 	<message key="metadata.property.displayName.name-type">Ad Türü</message>
 	<message key="metadata.property.validationMessage.name-type">Lütfen geçerli bir isim türü belirlediğinizden emin olunuz. Desteklenen isimler 'kişisel', 'kurumsal' ve 'konferans'tır.</message>
 	<!-- FIXME: end -->
-	
+
 	<message key="submission.agencies">Aracılık Edenler</message>
 	<message key="submission.abstractViews">Özet Görüntüleri</message>
 	<message key="submission.accepted">Kabul edildi</message>
@@ -220,7 +220,6 @@
 	<message key="submission.event.general.suppFileUpdated">Gönderi dosyası güncellendi</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Değerlendirme ataması vekil (proxy) tarafından kabul edildi</message>
 	<message key="submission.event.reviewer.reviewAccepted">Değerlendirme ataöası kabul edildi</message>
-	<message key="submission.event.reviewer.reviewCancelled">Değerlendirme ataması iptal edildi</message>
 	<message key="submission.event.reviewer.reviewDeclined">Değerlendirme ataması reddedildi</message>
 	<message key="submission.event.reviewer.reviewDueDate">Değerlendirme son tarihi değiştirildi</message>
 	<message key="submission.event.reviewer.reviewerAssigned">Gönderiye hakem atandı</message>

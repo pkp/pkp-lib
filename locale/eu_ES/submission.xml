@@ -52,7 +52,6 @@
 	<message key="submission.event.general.suppFileUpdated">Bidalketa-fitxategia eguneratu</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Ebaluazioa egitea ordezkari bidez onartu</message>
 	<message key="submission.event.reviewer.reviewAccepted">Ebaluazioa egitea onartu</message>
-	<message key="submission.event.reviewer.reviewCancelled">Ebaluazioa bertan behera utzi</message>
 	<message key="submission.event.reviewer.reviewDeclined">Ebaluazioa egitea ez da onartu</message>
 	<message key="submission.event.reviewer.reviewDueDate">Ebaluazioaren mugaeguna aldatu</message>
 	<message key="submission.event.reviewer.reviewerAssigned">Ebaluatzailea izendatu</message>

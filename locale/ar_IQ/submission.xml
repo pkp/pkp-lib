@@ -288,7 +288,6 @@
 	<message key="submission.event.participantAdded">{$name} قد عُيِّن لطلب النشر هذا بصفة {$userGroupName}.</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">مهمة التحكيم قُبلت من قبل الوكيل</message>
 	<message key="submission.event.reviewer.reviewAccepted">مهمة التحكيم قُبلت</message>
-	<message key="submission.event.reviewer.reviewCancelled">مهمة التحكيم أُلغيت</message>
 	<message key="submission.event.reviewer.reviewDeclined">مهمة التحكيم رُفضت</message>
 	<message key="submission.event.reviewer.reviewDueDate">تأريخ استيجاب التحكيم تم تعديله</message>
 	<message key="submission.event.reviewer.reviewerAssigned">المحكم المتكفل بالمؤلَّف</message>

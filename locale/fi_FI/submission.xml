@@ -269,7 +269,6 @@
 	<message key="submission.event.participantAdded">{$name} valittiin tämän käsikirjoituksen {$userGroupName}ksi.</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Arviointitoimeksianto hyväksytty valtuutetun välityksellä</message>
 	<message key="submission.event.reviewer.reviewAccepted">Arviointitoimeksianto hyväksytty</message>
-	<message key="submission.event.reviewer.reviewCancelled">Arviointitoimeksianto peruutettu</message>
 	<message key="submission.event.reviewer.reviewDeclined">Arviointitoimeksiannosta kieltäydytty</message>
 	<message key="submission.event.reviewer.reviewDueDate">Arvioinnin määräpäivää muutettu</message>
 	<message key="submission.event.reviewer.reviewerAssigned">Arvioija valittu käsikirjoitukselle</message>

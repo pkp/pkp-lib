@@ -246,9 +246,7 @@ class ReviewRoundDAO extends DAO {
 
 	/**
 	 * FIXME #7386#
-	 * Update the review round status. If review assignments is passed and
-	 * no status, then this method will find the correct review round status
-	 * based on the review round assignments state.
+	 * Update the review round status.
 	 * @param $reviewRound ReviewRound
 	 * @param $reviewAssignments array Review round review assignments.
 	 * @param $status int? REVIEW_ROUND_STATUS_... New status (or null to determine based on review assignments)
@@ -258,42 +256,7 @@ class ReviewRoundDAO extends DAO {
 		$currentStatus = $reviewRound->getStatus();
 
 		if (is_null($status)) {
-			assert(is_array($reviewAssignments));
-
-			$viewsDao = DAORegistry::getDAO('ViewsDAO'); /* @var $viewsDao ViewsDAO */
-			$anyUnreadReview = false;
-			$anyIncompletedReview = false;
-
-			foreach ($reviewAssignments as $reviewAssignment) { /* @var $reviewAssignment ReviewAssignment */
-				// Skip declined reviews.
-				if ($reviewAssignment->getDeclined()) {
-					continue;
-				}
-
-				// Check for an incomplete review.
-				if (!$reviewAssignment->getDateCompleted()) {
-					$anyIncompletedReview = true;
-				}
-
-				// Check for an unread or unconsidered review.
-				if (!$viewsDao->getLastViewDate(ASSOC_TYPE_REVIEW_RESPONSE, $reviewAssignment->getId()) || $reviewAssignment->getUnconsidered() == REVIEW_ASSIGNMENT_UNCONSIDERED) {
-					$anyUnreadReview = true;
-
-				}
-			}
-
-			// Find the correct review round status based on the state of
-			// the current review assignments. The check order matters: the
-			// first conditions override the others.
-			if (empty($reviewAssignments)) {
-				$status = REVIEW_ROUND_STATUS_PENDING_REVIEWERS;
-			} else if ($anyIncompletedReview) {
-				$status = REVIEW_ROUND_STATUS_PENDING_REVIEWS;
-			} else if ($anyUnreadReview) {
-				$status = REVIEW_ROUND_STATUS_REVIEWS_READY;
-			} else {
-				$status = REVIEW_ROUND_STATUS_REVIEWS_COMPLETED;
-			}
+			$status = $reviewRound->determineStatus($reviewAssignments);
 
 			// Check for special cases where we don't want to update the status.
 			if (in_array($status, array(REVIEW_ROUND_STATUS_REVIEWS_COMPLETED, REVIEW_ROUND_STATUS_REVIEWS_READY))) {

@@ -289,7 +289,6 @@
 	<message key="submission.event.participantAdded">{$name} был назначен в этот материал как {$userGroupName}.</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Согласие на рецензирование получено через посредника</message>
 	<message key="submission.event.reviewer.reviewAccepted">Согласие на рецензирование получено</message>
-	<message key="submission.event.reviewer.reviewCancelled">Рецензирование отменено</message>
 	<message key="submission.event.reviewer.reviewDeclined">Рецензент отказался от рецензирования</message>
 	<message key="submission.event.reviewer.reviewDueDate">Срок предоставления рецензии изменен</message>
 	<message key="submission.event.reviewer.reviewerAssigned">Назначен рецензент для материала</message>

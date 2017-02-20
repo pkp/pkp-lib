@@ -51,7 +51,6 @@
 	<message key="submission.event.general.suppFileUpdated">投稿元文件已更新</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">通过代理接受的审查指派</message>
 	<message key="submission.event.reviewer.reviewAccepted">已经接受的审查指派</message>
-	<message key="submission.event.reviewer.reviewCancelled">已经取消的审查指派</message>
 	<message key="submission.event.reviewer.reviewDeclined">已经拒绝的审查指派</message>
 	<message key="submission.event.reviewer.reviewDueDate">已修改的审阅截至日期</message>
 	<message key="submission.event.reviewer.reviewerAssigned">已指派给投稿的审稿人</message>

@@ -37,7 +37,7 @@
 			$(['#submissionEditorDecisionsDiv',
 				'#copyeditingEditorDecisionsDiv',
 				'#reviewDecisionsDiv-13'].join(','))
-				.each(function() {
+					.each(function() {
 						$.pkp.classes.Handler.getHandler($(this)).reload();
 					});
 		});

@@ -128,20 +128,6 @@ class EditorAction {
 			$notificationMgr = new NotificationManager();
 			$notificationMgr->createTrivialNotification($currentUser->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedReviewer')));
 
-			// Update the review round status, if needed.
-			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-			$reviewRound = $reviewRoundDao->getById($reviewAssignment->getReviewRoundId());
-			$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($reviewRound->getSubmissionId(), $reviewRound->getId(), $reviewRound->getStageId());
-			$reviewRoundDao->updateStatus($reviewRound, $reviewAssignments);
-
-			$notificationMgr->updateNotification(
-				$request,
-				array(NOTIFICATION_TYPE_ALL_REVIEWS_IN),
-				null,
-				ASSOC_TYPE_REVIEW_ROUND,
-				$reviewRound->getId()
-			);
-
 			// Add log
 			import('lib.pkp.classes.log.SubmissionLog');
 			import('classes.log.SubmissionEventLogEntry');
@@ -157,10 +143,10 @@ class EditorAction {
 	 * @param $submission object
 	 * @param $reviewerId int
 	 * @param $reviewRound ReviewRound
-	 * @param $reviewDueDate datetime optional
-	 * @param $responseDueDate datetime optional
+	 * @param $reviewDueDate datetime
+	 * @param $responseDueDate datetime
 	 */
-	function addReviewer($request, $submission, $reviewerId, &$reviewRound, $reviewDueDate = null, $responseDueDate = null, $reviewMethod = null) {
+	function addReviewer($request, $submission, $reviewerId, &$reviewRound, $reviewDueDate, $responseDueDate, $reviewMethod = null) {
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
 		$userDao = DAORegistry::getDAO('UserDAO');
 
@@ -186,7 +172,7 @@ class EditorAction {
 			if (isset($reviewMethod)) {
 				$reviewAssignment->setReviewMethod($reviewMethod);
 			}
-			$reviewAssignmentDao->insertObject($reviewAssignment);
+			$reviewAssignment = $reviewAssignmentDao->insertObject($reviewAssignment);
 
 			// Stamp modification date
 			$submission->stampStatusModified();
@@ -194,7 +180,6 @@ class EditorAction {
 			$submissionDao->updateObject($submission);
 
 			$this->setDueDates($request, $submission, $reviewAssignment, $reviewDueDate, $responseDueDate);
-
 			// Add notification
 			$notificationMgr = new NotificationManager();
 			$notificationMgr->createNotification(
@@ -214,19 +199,6 @@ class EditorAction {
 			$notificationMgr = new NotificationManager();
 			$notificationMgr->createTrivialNotification($currentUser->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.addedReviewer')));
 
-			// Update the review round status.
-			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
-			$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId(), $reviewRound->getId(), $stageId);
-			$reviewRoundDao->updateStatus($reviewRound, $reviewAssignments);
-
-			$notificationMgr->updateNotification(
-				$request,
-				array(NOTIFICATION_TYPE_ALL_REVIEWS_IN),
-				null,
-				ASSOC_TYPE_REVIEW_ROUND,
-				$reviewRound->getId()
-			);
-
 			// Add log
 			import('lib.pkp.classes.log.SubmissionLog');
 			import('lib.pkp.classes.log.PKPSubmissionEventLogEntry');
@@ -238,12 +210,12 @@ class EditorAction {
 	 * Sets the due date for a review assignment.
 	 * @param $request PKPRequest
 	 * @param $submission Submission
-	 * @param $reviewId int
-	 * @param $dueDate string
-	 * @param $numWeeks int
+	 * @param $reviewAssignment ReviewAssignment
+	 * @param $reviewDueDate string
+	 * @param $responseDueDate string
 	 * @param $logEntry boolean
 	 */
-	function setDueDates($request, $submission, $reviewAssignment, $reviewDueDate = null, $responseDueDate = null, $logEntry = false) {
+	function setDueDates($request, $submission, $reviewAssignment, $reviewDueDate, $responseDueDate, $logEntry = false) {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$context = $request->getContext();
 
@@ -254,11 +226,11 @@ class EditorAction {
 
 			// Set the review due date
 			$defaultNumWeeks = $context->getSetting('numWeeksPerReview');
-			$reviewAssignment->setDateDue(DAO::formatDateToDB($reviewDueDate, $defaultNumWeeks, false));
+			$reviewAssignment->setDateDue($reviewDueDate);
 
 			// Set the response due date
 			$defaultNumWeeks = $context->getSetting('numWeeksPerReponse');
-			$reviewAssignment->setDateResponseDue(DAO::formatDateToDB($responseDueDate, $defaultNumWeeks, false));
+			$reviewAssignment->setDateResponseDue($responseDueDate);
 
 			// update the assignment (with both the new dates)
 			$reviewAssignment->stampModified();

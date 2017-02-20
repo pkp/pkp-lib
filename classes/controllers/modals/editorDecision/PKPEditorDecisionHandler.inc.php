@@ -407,7 +407,7 @@ class PKPEditorDecisionHandler extends Handler {
 			if ($reviewRound) {
 				$notificationMgr->updateNotification(
 					$request,
-					array(NOTIFICATION_TYPE_ALL_REVIEWS_IN, NOTIFICATION_TYPE_ALL_REVISIONS_IN),
+					array(NOTIFICATION_TYPE_ALL_REVISIONS_IN),
 					null,
 					ASSOC_TYPE_REVIEW_ROUND,
 					$reviewRound->getId()

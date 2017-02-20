@@ -175,6 +175,11 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 	//
 	/**
 	 * Retrieve the last review round and update it with the new status.
+	 *
+	 * The review round status is typically set according to the statuses of its
+	 * ReviewAssignments. This method overrides that status and sets a new one
+	 * based on an EditorDecision.
+	 *
 	 * @param $submission Submission
 	 * @param $status integer One of the REVIEW_ROUND_STATUS_* constants.
 	 */

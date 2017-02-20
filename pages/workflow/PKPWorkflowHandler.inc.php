@@ -405,20 +405,6 @@ abstract class PKPWorkflowHandler extends Handler {
 			}
 		}
 
-		if ($stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
-			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-			$reviewRounds = $reviewRoundDao->getBySubmissionId($submission->getId(), $stageId);
-			$notificationTypes = array(NOTIFICATION_TYPE_ALL_REVIEWS_IN);
-			while ($reviewRound = $reviewRounds->next()) {
-				foreach ($notificationTypes as $type) {
-					$notifications = $notificationDao->getByAssoc(ASSOC_TYPE_REVIEW_ROUND, $reviewRound->getId(), null, $type, $contextId);
-					if (!$notifications->wasEmpty()) {
-						return true;
-					}
-				}
-			}
-		}
-
 		return false;
 	}
 

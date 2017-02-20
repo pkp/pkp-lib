@@ -185,10 +185,10 @@
 
 		if (valuesCount > 0 && valuesCount < $inputs.length) {
 			$popover.removeClass('localizationComplete')
-				.addClass('localizationIncomplete');
+					.addClass('localizationIncomplete');
 		} else if (valuesCount === $inputs.length) {
 			$popover.removeClass('localizationIncomplete')
-				.addClass('localizationComplete');
+					.addClass('localizationComplete');
 		} else {
 			$popover.removeClass('localizationIncomplete localizationComplete');
 		}

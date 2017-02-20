@@ -98,7 +98,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @param $submissionRevision int optional
 	 * @return Submission
 	 */
-	function _fromRow($row, $submissionRevision = null) {
+	function _fromRow($row, $submissionRevision = 1) {
 		$submission = $this->newDataObject();
 
 		$submission->setId($row['submission_id']);
@@ -435,7 +435,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		if ($contextId) $params[] = (int) $contextId;
 
 		$result = $this->retrieve(
-			'SELECT	s.*, ps.date_published,
+			'SELECT	s.*,
 				' . $this->getFetchColumns() . '
 			FROM	submissions s
 				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
@@ -482,7 +482,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		if ($contextId) $params[] = (int) $contextId;
 
 		$result = $this->retrieve(
-			'SELECT	s.*, ps.date_published,
+			'SELECT	s.*,
 				' . $this->getFetchColumns() . '
 			FROM	submissions s
 				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
@@ -519,7 +519,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		$params[] = (int) $contextId;
 
 		$result = $this->retrieve(
-			'SELECT	s.*, ps.date_published,
+			'SELECT	s.*,
 				' . $this->getFetchColumns() . '
 			FROM	submissions s
 				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
@@ -546,7 +546,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		if ($contextId) $params[] = (int) $contextId;
 
 		$result = $this->retrieve(
-			'SELECT	s.*, ps.date_published,
+			'SELECT	s.*,
 				' . $this->getFetchColumns() . '
 			FROM	submissions s
 				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
@@ -596,7 +596,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		if ($sectionId) $params[] = (int) $sectionId;
 
 		$result = $this->retrieveRange(
-			'SELECT	s.*, ps.date_published,
+			'SELECT	s.*,
 				' . $this->getFetchColumns() . '
 			FROM	submissions s
 				LEFT JOIN published_submissions ps ON s.submission_id = ps.submission_id
@@ -657,7 +657,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		if ($sectionId) $params[] = (int) $sectionId;
 
 		$result = $this->retrieveRange(
-			'SELECT	s.*, ps.date_published,
+			'SELECT	s.*,
 				' . $this->getFetchColumns() . '
 			FROM	submissions s
 				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)' .
@@ -712,7 +712,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		if ($sectionId) $params[] = (int) $sectionId;
 
 		$result = $this->retrieveRange(
-			'SELECT s.*, ps.date_published,
+			'SELECT s.*,
 				' . $this->getFetchColumns() . '
 			FROM	submissions s
 				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
@@ -780,7 +780,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		if ($sectionId) $params[] = (int) $sectionId;
 
 		$result = $this->retrieveRange(
-			'SELECT	s.*, ps.date_published,
+			'SELECT	s.*,
 				' . $this->getFetchColumns() . '
 			FROM	submissions s
 				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
@@ -844,7 +844,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		if ($sectionId) $params[] = (int) $sectionId;
 
 		$result = $this->retrieveRange($sql =
-			'SELECT s.*, ps.date_published,
+			'SELECT s.*,
 				' . $this->getFetchColumns() . '
 			FROM submissions s
 				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
@@ -910,7 +910,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		if ($editor) array_push($params, (int) ROLE_ID_MANAGER, (int) ROLE_ID_SUB_EDITOR, $editorQuery = '%' . $editor . '%', $editorQuery);
 
 		$result = $this->retrieveRange(
-			'SELECT	s.*, ps.date_published,
+			'SELECT	s.*,
 				' . $this->getFetchColumns() . '
 			FROM	submissions s
 				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)

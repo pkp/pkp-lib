@@ -69,6 +69,14 @@ abstract class PKPManageFileApiHandler extends Handler {
 		$noteDao = DAORegistry::getDAO('NoteDAO');
 		$noteDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getFileId());
 
+		// Retrieve the review round so it can be updated after the file is
+		// deleted
+		if ($submissionFile->getFileStage() == SUBMISSION_FILE_REVIEW_REVISION) {
+			import('lib.pkp.classes.submission.reviewRound.ReviewRoundDAO');
+			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+			$reviewRound = $reviewRoundDao->getBySubmissionFileId($submissionFile->getFileId());
+		}
+
 		// Delete the submission file.
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 
@@ -100,10 +108,9 @@ abstract class PKPManageFileApiHandler extends Handler {
 				);
 
 				// Update the ReviewRound status when revision is submitted
-				import('lib.pkp.classes.submission.reviewRound.ReviewRoundDAO');
-				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
 				$reviewRoundDao->updateStatus($reviewRound);
 				break;
+
 			case SUBMISSION_FILE_COPYEDIT:
 				$notificationMgr->updateNotification(
 					$request,

@@ -17,8 +17,8 @@
  * @brief Basic class describing a review round.
  */
 
-// The first four statuses are related to EditorDecisions, which override the
-// current status.
+// The first four statuses are set explicitly by EditorDecisions, which override
+// the current status.
 define('REVIEW_ROUND_STATUS_REVISIONS_REQUESTED', 1);
 define('REVIEW_ROUND_STATUS_RESUBMITTED', 2);
 define('REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL', 3);
@@ -32,6 +32,10 @@ define('REVIEW_ROUND_STATUS_PENDING_REVIEWS', 7); // Waiting for reviews to be s
 define('REVIEW_ROUND_STATUS_REVIEWS_READY', 8); // One or more reviews is ready for an editor to view
 define('REVIEW_ROUND_STATUS_REVIEWS_COMPLETED', 9); // All assigned reviews have been confirmed by an editor
 define('REVIEW_ROUND_STATUS_REVIEWS_OVERDUE', 10); // One or more reviews is overdue
+
+// The following status is calculated when the round is in revisions and at
+// at least one revision file has been uploaded.
+define('REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED', 11);
 
 class ReviewRound extends DataObject {
 
@@ -104,25 +108,60 @@ class ReviewRound extends DataObject {
 	}
 
 	/**
-	 * Calculate the status of this review round based on the
-	 * review assignment statuses.
+	 * Calculate the status of this review round.
 	 *
-	 * @param array $reviewAssignments
+	 * If the round is in revisions, it will search for revision files and set
+	 * the status accordingly. If the round has not reached a revision status
+	 * yet, it will determine the status based on the statuses of the round's
+	 * ReviewAssignments.
+	 *
 	 * @return int
 	 */
-	public function determineStatus($reviewAssignments) {
-		assert(is_array($reviewAssignments));
+	public function determineStatus() {
 
+		// Check if revisions requested or received, if this is latest review round and then check files
+		$roundStatus = $this->getStatus();
+
+		// If revisions have been requested, check to see if any have been
+		// submitted
+		if ($this->getStatus() == REVIEW_ROUND_STATUS_REVISIONS_REQUESTED || $this->getStatus() == REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED) {
+			import('classes.article.SubmissionFileDAO');
+			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+			$submissionFiles =  $submissionFileDao->getRevisionsByReviewRound($this, SUBMISSION_FILE_REVIEW_REVISION);
+			if (empty($submissionFiles)) {
+				return REVIEW_ROUND_STATUS_REVISIONS_REQUESTED;
+			}
+			return REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED;
+		}
+
+		// Leave the status alone if it is set to one of the EditorDecisions
+		// which have advanced the submission beyond this round
+		$statusFinished = in_array(
+			$this->getStatus(),
+			array(
+				REVIEW_ROUND_STATUS_RESUBMITTED,
+				REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL,
+				REVIEW_ROUND_STATUS_ACCEPTED,
+				REVIEW_ROUND_STATUS_DECLINED
+			)
+		);
+		if ($statusFinished) {
+			return $this->getStatus();
+		}
+
+		// Determine the round status by looking at the assignment statuses
 		$anyOverdueReview = false;
 		$anyIncompletedReview = false;
 		$anyUnreadReview = false;
-
+		import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignmentDAO');
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewAssignments = $reviewAssignmentDao->getByReviewRoundId($this->getId());
 		foreach ($reviewAssignments as $reviewAssignment) {
 			assert(is_a($reviewAssignment, 'ReviewAssignment'));
 
-			$status = $reviewAssignment->getStatus();
+			$assignmentStatus = $reviewAssignment->getStatus();
 
-			switch ($status) {
+			switch ($assignmentStatus) {
 				case REVIEW_ASSIGNMENT_STATUS_DECLINED:
 					break;
 
@@ -166,6 +205,8 @@ class ReviewRound extends DataObject {
 		switch ($this->getStatus()) {
 			case REVIEW_ROUND_STATUS_REVISIONS_REQUESTED:
 				return 'editor.submission.roundStatus.revisionsRequested';
+			case REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED:
+				return 'editor.submission.roundStatus.revisionsSubmitted';
 			case REVIEW_ROUND_STATUS_RESUBMITTED:
 				return 'editor.submission.roundStatus.resubmitted';
 			case REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL:

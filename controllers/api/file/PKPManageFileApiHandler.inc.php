@@ -99,15 +99,10 @@ abstract class PKPManageFileApiHandler extends Handler {
 					$submission->getId()
 				);
 
+				// Update the ReviewRound status when revision is submitted
+				import('lib.pkp.classes.submission.reviewRound.ReviewRoundDAO');
 				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-				$lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
-				$notificationMgr->updateNotification(
-					$request,
-					array(NOTIFICATION_TYPE_ALL_REVISIONS_IN),
-					null,
-					ASSOC_TYPE_REVIEW_ROUND,
-					$lastReviewRound->getId()
-				);
+				$reviewRoundDao->updateStatus($reviewRound);
 				break;
 			case SUBMISSION_FILE_COPYEDIT:
 				$notificationMgr->updateNotification(
@@ -203,15 +198,8 @@ abstract class PKPManageFileApiHandler extends Handler {
 			);
 
 			if ($reviewRound) {
-				$notificationMgr->updateNotification(
-					$request,
-					array(NOTIFICATION_TYPE_ALL_REVISIONS_IN),
-					null,
-					ASSOC_TYPE_REVIEW_ROUND,
-					$reviewRound->getId()
-				);
 
-				// Delete any 'revision requested' notifications since all revisions are now in.
+				// Delete any 'revision requested' notifications since revisions are now in.
 				$context = $request->getContext();
 				$notificationDao = DAORegistry::getDAO('NotificationDAO');
 				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');

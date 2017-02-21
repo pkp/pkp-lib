@@ -32,12 +32,11 @@ class PKPVersioningTabHandler extends Handler {
 	//
 	/**
 	 * @copydoc PKPHandler::authorize()
-	 * TODO: add policy for versioning
 	 */
 	function authorize($request, &$args, $roleAssignments) {
-		// We need a review round id in request.
-		import('lib.pkp.classes.security.authorization.internal.ReviewRoundRequiredPolicy');
-	//	$this->addPolicy(new VersioningRequiredPolicy($request, $args));
+		// We need a submission revision id in request.
+		import('lib.pkp.classes.security.authorization.internal.VersioningRequiredPolicy');
+		$this->addPolicy(new VersioningRequiredPolicy($request, $args));
 
 		return parent::authorize($request, $args, $roleAssignments);
 	}
@@ -149,8 +148,7 @@ class PKPVersioningTabHandler extends Handler {
 		// Retrieve the authorized submission, stage id and submission revision.
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
-		// TODO: get submissionRevision via getAuthorizedContextObject?
-		$submissionRevision = $args['submissionRevision'];
+		$submissionRevision = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_REVISION);
 		
 		// Add the round information to the template.
 		$templateMgr = TemplateManager::getManager($request);

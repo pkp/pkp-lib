@@ -652,6 +652,7 @@
 
 	<!-- Versioning -->
 	<message key="submission.versioning.versionHistory">Version History</message>
+	<message key="submission.versioning.version">Version {$version} ({$date})</message>
 	<message key="submission.versioning.linkToLatest">This is a previous version. See </message>
 	<message key="submission.versioning.latest">latest version</message>
 

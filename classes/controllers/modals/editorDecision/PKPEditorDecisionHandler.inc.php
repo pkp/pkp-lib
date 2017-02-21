@@ -399,18 +399,6 @@ class PKPEditorDecisionHandler extends Handler {
 				$submission->getId()
 			);
 
-			// Update review round notifications
-			$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
-			if ($reviewRound) {
-				$notificationMgr->updateNotification(
-					$request,
-					array(NOTIFICATION_TYPE_ALL_REVISIONS_IN),
-					null,
-					ASSOC_TYPE_REVIEW_ROUND,
-					$reviewRound->getId()
-				);
-			}
-
 			// Update submission notifications
 			$submissionNotificationsToUpdate = array(
 				SUBMISSION_EDITOR_DECISION_ACCEPT => array(NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,	NOTIFICATION_TYPE_AWAITING_COPYEDITS),

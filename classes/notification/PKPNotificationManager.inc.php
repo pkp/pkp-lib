@@ -375,10 +375,6 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				assert($assocType == ASSOC_TYPE_SUBMISSION && is_numeric($assocId));
 				import('lib.pkp.classes.notification.managerDelegate.PendingRevisionsNotificationManager');
 				return new PendingRevisionsNotificationManager($notificationType);
-			case NOTIFICATION_TYPE_ALL_REVISIONS_IN:
-				assert($assocType == ASSOC_TYPE_REVIEW_ROUND && is_numeric($assocId));
-				import('lib.pkp.classes.notification.managerDelegate.review.AllRevisionsInNotificationManager');
-				return new AllRevisionsInNotificationManager($notificationType);
 			case NOTIFICATION_TYPE_ASSIGN_COPYEDITOR:
 			case NOTIFICATION_TYPE_AWAITING_COPYEDITS:
 			case NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER:

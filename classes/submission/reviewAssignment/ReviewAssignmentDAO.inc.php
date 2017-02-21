@@ -507,10 +507,7 @@ class ReviewAssignmentDAO extends DAO {
 			$reviewAssignment->getRound()
 		);
 
-		return $reviewRoundDao->updateStatus(
-			$reviewRound,
-			$this->getByReviewRoundId($reviewRound->getId())
-		);
+		return $reviewRoundDao->updateStatus($reviewRound);
 	}
 
 	/**

@@ -1,0 +1,335 @@
+/**
+ * @file styles/controllers/listPanel.less
+ *
+ * Copyright (c) 2014-2016 Simon Fraser University Library
+ * Copyright (c) 2003-2016 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * @brief Styles for the ListPanel controller
+ */
+.pkpListPanel {
+	position: relative;
+	max-width: 900px;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+	border-radius: @radius;
+
+	&.loading {
+
+		.pkpListPanel__title:after {
+			&:extend(.pkp_spinner:after);
+			position: absolute;
+			top: 50%;
+			margin-top: -10px;
+			margin-left: 1em;
+		}
+	}
+}
+
+.pkpListPanel__header {
+	.pkp_helpers_clear;
+	background: @bg-light;
+	padding: 0 1em 0.5em;
+}
+
+.pkpListPanel__title {
+	position: relative;
+	margin-top: 0.5em;
+	font-weight: @bold;
+	float: left;
+	max-width: 30em;
+}
+
+.pkpListPanel__actions {
+	&:extend(.pkp_unstyled_list all);
+	float: right;
+	margin-top: 0.5em;
+	max-width: 30em;
+
+	a {
+		display: inline-block;
+		padding-left: 0.5em;
+		padding-right: 0.5em;
+		background: #fff;
+		border: @bg-border-light;
+		border-radius: @radius;
+		font-size: @font-sml;
+		font-weight: @bold;
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			background: @primary;
+			border-color: @primary;
+			color: #fff;
+		}
+	}
+}
+
+.pkpListPanel__search {
+	float: right;
+	margin: 0.5em 0.5em 0;
+	max-width: 100%;
+
+	&.searching {
+
+		.pkpListPanel__searchInputIcons--search:before {
+			opacity: 0;
+		}
+
+		.pkpListPanel__searchInputIcons--searching:before {
+			opacity: 1;
+		}
+	}
+}
+
+.pkpListPanel__searchInput {
+	position: relative;
+
+	input {
+		display: block;
+		box-sizing: border-box;
+		padding-left: 3.5em;
+		padding-right: 0.5em;
+		width: 25em;
+		max-width: 100%;
+		border: @bg-border-light;
+		border-radius: @radius;
+		font-size: @font-sml;
+		line-height: @double - 2;
+
+		&:focus {
+			outline: 0;
+			border-color: @primary;
+
+			+ .pkpListPanel__searchInputIcons {
+				border-color: @primary;
+				background: @primary;
+
+				.pkpListPanel__searchInputIcons--search:before {
+					color: #fff;
+				}
+
+				.pkpListPanel__searchInputIcons--searching:before {
+					border-top-color: rgba(255,255,255,0.5);
+					border-left-color: rgba(255,255,255,0.5);
+				}
+			}
+		}
+	}
+}
+
+.pkpListPanel__searchInputLabel {
+	&:extend(.pkp_screen_reader all);
+}
+
+.pkpListPanel__searchInputIcons {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 2.5em;
+	height: 100%;
+	border-right: @bg-border-light;
+	border-top-left-radius: @radius;
+	border-bottom-left-radius: @radius;
+}
+
+.pkpListPanel__searchInputIcons--search:before {
+	&:extend(.fa);
+	content: @fa-var-search;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: @primary;
+	transition: opacity 0.3s;
+	opacity: 1;
+}
+
+.pkpListPanel__searchInputIcons--searching:before {
+	&:extend(.pkp_spinner:after);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -10px;
+	margin-left: -10px;
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+.pkpListPanel__items {
+	margin-top: 0;
+	padding: 0;
+	list-style: none;
+	font-size: @font-sml;
+	line-height: 1.5em;
+}
+
+// Submissions list item
+.pkpSubmissionsListItem {
+	.pkp_helpers_clear();
+	margin-left: -0.25em;
+	border-bottom: @grid-border;
+	border-left: 0.25em solid transparent;
+	transition: all 0.3s;
+	cursor: pointer;
+
+	&:last-child {
+		border-bottom: none;
+	}
+
+	&:hover {
+		border-left-color: @primary;
+
+		.pkpSubmissionsListItem__actions {
+			opacity: 1;
+		}
+	}
+}
+
+.pkpSubmissionsListItem__item,
+.pkpSubmissionsListItem__stage {
+	float: left;
+	padding: 1em;
+}
+
+.pkpSubmissionsListItem__item {
+	float: left;
+	width: 65%;
+	padding: 1em;
+}
+
+.pkpSubmissionsListItem__item__title,
+.pkpSubmissionsListItem__item__author,
+.pkpSubmissionsListItem__item__activity {
+	display: block;
+	white-space: nowrap;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+}
+
+.pkpSubmissionsListItem__item__title {
+	font-weight: @bold;
+	color: @text;
+	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		color: @text;
+	}
+}
+
+.pkpSubmissionsListItem__item__author {
+	color: @text;
+	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		color: @text;
+	}
+}
+
+.pkpSubmissionsListItem__item__activity {
+	margin-top: 0.5em;
+	font-size: @font-tiny;
+	line-height: 1.5em;
+
+	.fa {
+		margin-right: 0.25em;
+		font-size: @font-sml;
+		color: @no;
+	}
+}
+
+.pkpSubmissionsListItem__stage {
+	width: 35%;
+}
+
+.pkpSubmissionsListItem__stage__label,
+.pkpSubmissionsListItem__flags {
+	display: inline-block;
+}
+
+.pkpSubmissionsListItem__stage__label {
+	font-weight: @bold;
+}
+
+.pkpSubmissionsListItem__flags {
+	float: right;
+
+	> * {
+		margin-left: 1em;
+		color: @text-light-rgba;
+
+		&:before {
+			.fa();
+			margin-right: 0.5em;
+		}
+
+		&.--notice:before {
+			color: @primary;
+		}
+
+		&.--warning:before {
+			color: @no;
+		}
+	}
+}
+
+.pkpSubmissionsListItem__flags--reviews {
+
+	&:before {
+		content: @fa-var-user-o;
+	}
+
+	&.--notice:before {
+		content: @fa-var-user;
+	}
+
+	&.--warning:before {
+		content: @fa-var-user;
+	}
+}
+
+.pkpSubmissionsListItem__flags--files {
+
+	&:before {
+		content: @fa-var-file-text-o;
+	}
+
+	&.--notice:before {
+		content: @fa-var-file-text;
+	}
+}
+
+.pkpSubmissionsListItem__flags--discussions {
+
+	&:before {
+		content: @fa-var-comment-o;
+	}
+
+	&.--notice:before {
+		content: @fa-var-comment;
+	}
+}
+
+.pkpSubmissionsListItem__actions {
+	opacity: 0;
+	transition: opacity 0.3s;
+
+	a {
+		margin-top: 1em;
+		margin-right: 2em;
+		display: inline-block;
+		font-size: @font-tiny;
+		font-weight: @bold;
+		text-decoration: none;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	.delete {
+		color: @no;
+	}
+}

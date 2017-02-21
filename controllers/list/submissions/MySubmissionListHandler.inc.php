@@ -9,178 +9,123 @@
  * @class MySubmissionListHandler
  * @ingroup classes_controllers_list
  */
+import('lib.pkp.controllers.list.ListHandler');
 
-import('classes.article.ArticleDAO');
-
-class MySubmissionListHandler extends PKPHandler {
-    /**
-     * Title (expects a translation key)
-     *
-     * @param string
-     */
-    public $_title = '';
-
-    /**
-     * Component path
-     *
-     * Used to generate component URLs
-     */
-    public $_componentPath = 'list.submissions.MySubmissionListHandler';
-
-    /**
-     * Routes
-     *
-     * Endpoints which can be requested by a URL. Defined by ::setRoutes()
-     *
-     * @param array
-     */
-    public $_routes = array();
+class MySubmissionListHandler extends ListHandler {
+	/**
+	 * Component path
+	 *
+	 * Used to generate component URLs
+	 */
+	public $_componentPath = 'list.submissions.MySubmissionListHandler';
 
 	/**
-	 * Constructor
+	 * Define the routes this component supports
+	 *
+	 * @return array Routes supported by this component
 	 */
-	function __construct($args = array()) {
-		parent::__construct();
+	public function setRoutes() {
 
-        $this->init($args);
+		$this->addRoute('get', array(
+			'methods' => array('GET'),
+			'roleAccess' => array(
+				ROLE_ID_SITE_ADMIN,
+				ROLE_ID_MANAGER,
+				ROLE_ID_SUB_EDITOR,
+				ROLE_ID_AUTHOR,
+				ROLE_ID_REVIEWER,
+				ROLE_ID_ASSISTANT,
+			),
+		));
 
-        $this->setRoutes();
-
-        foreach($this->_routes as $routerId => $router) {
-            $this->addRoleAssignment($router['roleAccess'], $routerId);
-        }
+		return $this->_routes;
 	}
 
-    /**
-     * Initialize the handler with config parameters
-     *
-     * @param array $args Configuration params
-     */
-    public function init($args = array()) {
+	/**
+	 * Retrieve the configuration data to be used when initializing this
+	 * handler on the frontend
+	 *
+	 * return array Configuration data
+	 */
+	public function getConfig() {
 
-        $this->setId(!empty($args['id']) ? $args['id'] : get_class($this));
+		$config = parent::getConfig();
 
-        if (!empty( $args['title'])) {
-            $this->_title = $args['title'];
-        }
-    }
+		$request = Application::getRequest();
 
-    /**
-     * Define the routes this component supports
-     *
-     * @return array Routes supported by this component
-     */
-    public function setRoutes() {
+		// Url to add a new submission
+		$config['add_url'] = $request->getDispatcher()->url(
+			$request,
+			ROUTE_PAGE,
+			null,
+			'submission',
+			'wizard'
+		);
 
-        $this->addRoute('get', array(
-            'methods' => array('GET'),
-            'roleAccess' => array(
-                ROLE_ID_SITE_ADMIN,
-                ROLE_ID_MANAGER,
-                ROLE_ID_SUB_EDITOR,
-                ROLE_ID_AUTHOR,
-                ROLE_ID_REVIEWER,
-                ROLE_ID_ASSISTANT,
-            ),
-        ));
+		$config['i18n']['add'] = __('submission.submit.newSubmissionSingle');
+		$config['i18n']['view'] = __('submission.list.view');
+		$config['i18n']['search'] = __('common.search');
+		$config['i18n']['item_count'] = __('submission.list.count');
 
-        return $this->_routes;
-    }
+		return $config;
+	}
 
-    /**
-     * Add a new route for this component
-     *
-     * @param string $router The component's route that should be invoked
-     * @param array $args Configuration params for this route
-     *  `methods` array Supported request methods (GET|POST)
-     *  `roleAccess` array Roles allowed to access this route
-     *  `url` string Optional
-     * @return bool
-     */
-    public function addRoute($router, $args) {
+	/**
+	 * API Route: Get all submissions assigned to author
+	 *
+	 * @param array $args None supported at this time
+	 * @param Request $request
+	 */
+	public function get($args, $request) {
+		echo json_encode($this->getItems($args));
+		exit();
+	}
 
-        if (empty($args['methods'])) {
-            error_log("Handler $router is missing a methods key in " . get_class($this));
-            return false;
-        }
+	/**
+	 * Helper function to retrieve all items assigned to the author
+	 *
+	 * @param array $args None supported at this time
+	 * @return array Items requested
+	 */
+	public function getItems($args = array()) {
 
-        if (empty($args['roleAccess']) || !is_array($args['roleAccess'])) {
-            error_log("Handler $router is missing a roleAccess key in " . get_class($this));
-            return false;
-        }
+		import('classes.article.ArticleDAO');
 
-        if (empty($args['url'])) {
-            $request = Application::getRequest();
-            $args['url'] = $request->getDispatcher()->url(
-                $request,
-                ROUTE_COMPONENT,
-                null,
-                $this->_componentPath,
-                $router
-            );
-        }
+		$submissionDao = Application::getSubmissionDAO();
+		$request = Application::getRequest();
+		$user = $request->getUser();
 
-        $this->_routes[$router] = $args;
+		$search = isset($args['searchPhrase']) ? $args['searchPhrase'] : null;
 
-        return true;
-    }
+		$assigned = $submissionDao->getAssignedToUser(
+			$user->getId(),
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			$search
+		)->toArray();
 
-    /**
-     * Retrieve the configuration data to be used when initializing this
-     * handler on the frontend
-     *
-     * return array Configuration data
-     */
-    public function getConfig() {
+        // @todo only add these for journal editors
+		$unassigned = $submissionDao->getBySubEditorId(
+			$request->getContext()->getId(),
+			null,
+			false, // do not include STATUS_DECLINED submissions
+			false,  // include only unpublished submissions
+			null,
+			null,
+			$search
+		)->toArray();
 
-        return array(
-            'id' => $this->getId(),
-            'items' => $this->getItems(),
-            'config' => array(
-                'routes' => $this->_routes,
-            ),
-            'i18n' => array(
-                'title' => __($this->_title),
-                'view' => __('submission.list.view'),
-                'item_count' => __('submission.list.count'),
-            ),
-        );
-    }
+		$submissions = array_merge($unassigned, $assigned);
 
-    /**
-     * API Route: Get all submissions assigned to author
-     *
-     * @param array $args None supported at this time
-     * @param Request $request
-     */
-    public function get($args, $request) {
-        echo json_encode($this->getItems());
-        exit();
-    }
+		$items = array();
+		foreach($submissions as $submission) {
+			$items[] = $submission->toArray();
+		}
 
-    /**
-     * Helper function to retrieve all items assigned to the author
-     *
-     * @param array $args None supported at this time
-     * @return array Items requested
-     */
-    public function getItems($args = array()) {
-
-        $submissionDao = Application::getSubmissionDAO();
-        $request = Application::getRequest();
-        $user = $request->getUser();
-
-        $submissions = $submissionDao->getAssignedToUser($user->getId())->toArray();
-
-        $items = array();
-        foreach($submissions as $submission) {
-            $items[] = array(
-                'title' => $submission->getLocalizedTitle(),
-                'author' => $submission->getAuthorString(),
-                'dateSubmitted' => $submission->getDateSubmitted(),
-            );
-        }
-
-        return $items;
-    }
+		return $items;
+	}
 }

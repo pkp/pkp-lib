@@ -146,5 +146,7 @@
 	<message key="user.profile.identity">Identidad</message>
 	<message key="user.profile.contact">Contacto</message>
 	<message key="user.profile.public">Público</message>
-	<message key="user.register.form.passwordLengthRestriction">La contraseña debe tener como mínimo {$length} caracteres.</message>
+        <message key="user.register.form.passwordLengthRestriction">La contraseña debe tener como mínimo {$length} caracteres.</message>
+        <message key="user.register.form.usernameAlphaNumeric">El nombre de usuario/a debe contener únicamente letras minúsculas, números y guiones/guiones bajos.</message>
+        <message key="user.login.rememberUsernameAndPassword">Recordar Usuario</message>
 </locale>

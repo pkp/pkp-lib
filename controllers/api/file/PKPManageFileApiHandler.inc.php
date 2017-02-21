@@ -108,6 +108,7 @@ abstract class PKPManageFileApiHandler extends Handler {
 				);
 
 				// Update the ReviewRound status when revision is submitted
+				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
 				$reviewRoundDao->updateStatus($reviewRound);
 				break;
 

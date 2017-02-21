@@ -242,7 +242,7 @@ export default {
 		 * @return int
 		 */
 		openQueryCount: function() {
-			return _.where(this.activeStage.queries, {closed: false}).length;
+			return _.where(this.submission.stage.queries, {closed: "0"}).length;
 		},
 
 		/**
@@ -468,4 +468,62 @@ export default {
 		},
 	},
 };
+=======
+		 * Return a class to highlight the reviews icon
+		 *
+		 * @return string
+		 */
+		classHighlightReviews: function() {
+			if (!this.isReviewStage) {
+				return '';
+			}
+
+			// REVIEW_ROUND_STATUS_REVIEWS_OVERDUE
+			if (this.submission.stage.statusId == 10) {
+				return '--warning';
+			}
+
+			// No reviews have been assigned
+			if (!this.submission.stage.reviews.length) {
+				return '--warning';
+			}
+
+			// REVIEW_ROUND_STATUS_REVIEWS_READY
+			if (this.submission.stage.statusId == 8) {
+				return '--notice';
+			}
+
+			return '';
+		},
+
+		/**
+		 * Return a class to highlight the files icon when revisions have been
+		 * submitted.
+		 *
+		 * @return string
+		 */
+		classHighlightFiles: function() {
+			if (this.submission.stage.files.count) {
+				return '--notice';
+			}
+
+			return '';
+		},
+	},
+	methods: {
+		/**
+		 * Send all clicks on the list item to the submission workflow page
+		 */
+		clickItem: function(e) {
+
+			// Ignore clicks on the actions
+			var $target = $(e.target);
+			if ($target.is('.pkpSubmissionsListItem__actions') || $target.parents('.pkpSubmissionsListItem__actions').length) {
+				return false;
+			}
+
+			window.location.href = this.submission.urlWorkflow;
+		},
+	},
+}
 </script>

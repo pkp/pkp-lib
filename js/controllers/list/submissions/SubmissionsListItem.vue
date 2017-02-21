@@ -21,7 +21,7 @@
 					<span v-if="isReviewStage"  class="pkpSubmissionsListItem__flags--reviews" v-bind:class="classHighlightReviews">
 						<span class="count">{{ completedReviewsCount }} / {{ submission.stage.reviews.length }}</span>
 					</span>
-					<span class="pkpSubmissionsListItem__flags--files" v-bind:class="classHighlightFiles">
+					<span v-if="submission.stage.files.count" class="pkpSubmissionsListItem__flags--files" v-bind:class="classHighlightFiles">
 						<span class="count">{{ submission.stage.files.count }}</span>
 					</span>
 					<span v-if="openQueryCount" class="pkpSubmissionsListItem__flags--discussions">

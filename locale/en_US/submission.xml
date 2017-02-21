@@ -409,7 +409,7 @@
 	<message key="submissions.noSubmissions">No Submissions</message>
 	<message key="submissions.queuedEditing">In Editing</message>
 	<message key="submissions.queued">Queued</message>
-	<message key="submissions.queuedUnassigned">Awaiting assignment</message>
+	<message key="submissions.queuedUnassigned">No editor has been assigned to this submission.</message>
 	<message key="submissions.ruling">Ruling</message>
 	<message key="submission.source">Source</message>
 	<message key="submission.source.tip">Is this submission derived from another resource? If so, you may enter a URL or description of that resource.</message>
@@ -510,6 +510,7 @@
 
 	<!-- Review Round Status Keys -->
 	<message key="editor.submission.roundStatus.revisionsRequested">Revisions have been requested.</message>
+	<message key="editor.submission.roundStatus.revisionsSubmitted">Revisions have been submitted.</message>
 	<message key="editor.submission.roundStatus.resubmitted">Submission has been resubmitted for review.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">Sent to external review.</message>
 	<message key="editor.submission.roundStatus.accepted">Submission accepted.</message>

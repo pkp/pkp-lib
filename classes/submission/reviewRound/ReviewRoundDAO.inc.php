@@ -248,32 +248,16 @@ class ReviewRoundDAO extends DAO {
 	 * FIXME #7386#
 	 * Update the review round status.
 	 * @param $reviewRound ReviewRound
-	 * @param $reviewAssignments array Review round review assignments.
-	 * @param $status int? REVIEW_ROUND_STATUS_... New status (or null to determine based on review assignments)
+	 * @param $status int? Optionally pass a REVIEW_ROUND_STATUS_... to set a
+	 *  specific status. If not included, will determine the appropriate status
+	 *  based on ReviewRound::determineStatus().
 	 */
-	function updateStatus($reviewRound, $reviewAssignments = array(), $status = null) {
+	function updateStatus($reviewRound, $status = null) {
 		assert(is_a($reviewRound, 'ReviewRound'));
 		$currentStatus = $reviewRound->getStatus();
 
 		if (is_null($status)) {
-			$status = $reviewRound->determineStatus($reviewAssignments);
-
-			// Check for special cases where we don't want to update the status.
-			if (in_array($status, array(REVIEW_ROUND_STATUS_REVIEWS_COMPLETED, REVIEW_ROUND_STATUS_REVIEWS_READY))) {
-				if (in_array($reviewRound->getStatus(), $this->getEditorDecisionRoundStatus())) {
-					// We will skip changing the current review round status to
-					// "reviews completed" or "reviews ready" if the current round
-					// status is related with an editor decision.
-					return;
-				}
-			}
-
-			// Don't update the review round status if it isn't the
-			// stage's current one.
-			$lastReviewRound = $this->getLastReviewRoundBySubmissionId($reviewRound->getSubmissionId(), $reviewRound->getStageId());
-			if ($lastReviewRound->getId() != $reviewRound->getId()) {
-				return;
-			}
+			$status = $reviewRound->determineStatus();
 		}
 
 		// Avoid unnecessary database access.
@@ -284,21 +268,6 @@ class ReviewRoundDAO extends DAO {
 			// Update the data in object too.
 			$reviewRound->setStatus($status);
 		}
-	}
-
-	/**
-	 * Return review round status that are related
-	 * with editor decisions.
-	 * @return array
-	 */
-	function getEditorDecisionRoundStatus() {
-		return array(
-			REVIEW_ROUND_STATUS_REVISIONS_REQUESTED,
-			REVIEW_ROUND_STATUS_RESUBMITTED,
-			REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL,
-			REVIEW_ROUND_STATUS_ACCEPTED,
-			REVIEW_ROUND_STATUS_DECLINED
-		);
 	}
 
 

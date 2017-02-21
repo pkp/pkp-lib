@@ -1014,6 +1014,269 @@ abstract class Submission extends DataObject {
 		return Application::getSubmissionDAO();
 	}
 
+	/**
+	 * Get details about the submission's current stage in the workflow.
+	 *
+	 * These details include the stage id, translation key, status and
+	 * associated objects, like review assignments, revision files and
+	 * discussions.
+	 *
+	 * @param $stageId int Optional stage ID to retrieve details for. Default
+	 *  will retrieve the current stage.
+	 * @return array
+	 */
+	public function getStageDetails($stageId = null) {
+
+		if (is_null($stageId)) {
+			$stageId = $this->getStageId();
+		}
+
+		import('lib.pkp.classes.workflow.WorkflowStageDAO');
+		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
+		$stage = array(
+			'id' => (int) $stageId,
+			'label' => __($workflowStageDao->getTranslationKeyFromId($stageId)),
+		);
+
+		// Discussions in this stage
+		$stage['queries'] = array();
+		$request = Application::getRequest();
+		import('lib.pkp.classes.query.QueryDAO');
+		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$queries = $queryDao->getByAssoc(
+			ASSOC_TYPE_SUBMISSION,
+			$this->getId(),
+			$stageId,
+			$request->getUser()->getId() // Current user restriction should prevent unauthorized access
+		)->toArray();
+
+		foreach ($queries as $query) {
+			$stage['queries'][] = array(
+				'id' => $query->getId(),
+				'assocType' => $query->getAssocType(),
+				'assocId' => $query->getAssocId(),
+				'stageId' => $qstageId,
+				'sequence' => $query->getSequence(),
+				'closed' => $query->getIsClosed(),
+			);
+		}
+
+		// Stage-specific statuses
+		switch ($stageId) {
+
+			case WORKFLOW_STAGE_ID_SUBMISSION:
+				import('lib.pkp.classes.stageAssignment/StageAssignmentDAO');
+				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+				$assignedEditors = $stageAssignmentDao->editorAssignedToStage($this->getId(), $stageId);
+				if (!$assignedEditors) {
+					$stage['statusId'] = 1; // @todo this should be abstracted to a documented constant
+					$stage['status'] = __('submissions.queuedUnassigned');
+				}
+
+				// Submission stage never has revisions
+				$stage['files'] = array(
+					'count' => 0,
+				);
+				break;
+
+			case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
+			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
+				import('lib.pkp.classes.submission.reviewRound.ReviewRoundDAO');
+				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+				$reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($this->getId(), $stageId);
+				if ($reviewRound) {
+					$stage['statusId'] = $reviewRound->getStatus();
+					$stage['status'] = __($reviewRound->getStatusKey());
+				}
+
+				// Revision files in this round.
+				import('classes.article.SubmissionFileDAO');
+				import('lib.pkp.classes.submission.SubmissionFile'); // Import constants
+				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+				$submissionFiles = $submissionFileDao->getRevisionsByReviewRound($reviewRound, SUBMISSION_FILE_REVIEW_REVISION);
+				$stage['files'] = array(
+					'count' => count($submissionFiles),
+				);
+
+				// Review assignments
+				import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignmentDAO');
+				$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+				$reviewAssignments = $reviewAssignmentDao->getByReviewRoundId($reviewRound->getId());
+
+				$stage['reviews'] = array();
+				foreach($reviewAssignments as $reviewAssignment) {
+					// @todo for now, only show reviews that haven't been
+					// declined or cancelled
+					if ($reviewAssignment->getDeclined() || $reviewAssignment->getCancelled()) {
+						continue;
+					}
+					$stage['reviews'][] = array(
+						'id' => $reviewAssignment->getId(),
+						'statusId' => $reviewAssignment->getStatus(),
+						'status' => __($reviewAssignment->getStatusKey()),
+						'due' => $reviewAssignment->getDateDue(),
+						'responseDue' => $reviewAssignment->getDateResponseDue(),
+					);
+				}
+				break;
+
+			// Get revision files for editing and production stages.
+			// Review rounds are handled separately in the review stage below.
+			// @todo consider useful statuses for these stages:
+			//  - No copyeditor assigned
+			//  - No layout editor assigned
+			//  - No editor assigned (if an editor is removed during workflow)
+			case WORKFLOW_STAGE_ID_EDITING:
+			case WORKFLOW_STAGE_ID_PRODUCTION:
+				import('classes.article.SubmissionFileDAO');
+				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+				$submissionFiles = $submissionFileDao->getAllRevisionsByAssocId(
+					ASSOC_TYPE_WORKFLOW_STAGE,
+					$stageId,
+					SUBMISSION_FILE_REVIEW_REVISION
+				);
+				$stage['files'] = array(
+					'count' => count($submissionFiles),
+				);
+				break;
+		}
+
+		return $stage;
+	}
+
+	/**
+	 * Generate an array of data about this submission
+	 *
+	 * @see DataObject::toArray()
+	 */
+	public function toArray($params = null) {
+
+		$defaultParams = array(
+			'id' => true,
+			'section' => true,
+			'title' => true,
+			'subtitle' => true,
+			'fullTitle' => true,
+			'prefix' => true,
+			'author' => true,
+			'abstract' => true,
+			'discipline' => true,
+			'subject' => true,
+			'type' => true,
+			'rights' => true,
+			'source' => true,
+			'language' => true,
+			'sponsor' => true,
+			'pages' => true,
+			'pageArray' => true,
+			'citations' => true,
+			'copyrightNotice' => true,
+			'copyrightHolder' => true,
+			'copyrightYear' => true,
+			'licenseUrl' => true,
+			'locale' => true,
+			'dateSubmitted' => true,
+			'dateStatusModified' => true,
+			'lastModified' => true,
+			'status' => true,
+			'submissionProgress' => true,
+			'stage' => true,
+			'datePublished' => true,
+			'urlWorkflow' => true,
+			'urlPublished' => true,
+		);
+
+		HookRegistry::call('Article::toArray::defaultParams', array(&$defaultParams, $params, $this));
+
+		$params = $this->getOutputParams($defaultParams, $params);
+
+		$output = parent::toArray($params);
+
+		foreach ($params as $param => $val) {
+
+			switch ($param) {
+
+				case 'author':
+					$output[$param] = array(
+						// @todo Author needs a toArray() method we can use
+						// 'authors' => $this->getAuthors();
+						// 'primaryAuthor' => $this->getPrimaryAuthor();
+						'authorString' => $this->getAuthorString(),
+						'shortAuthorString' => $this->getShortAuthorString(),
+						'firstAuthor' => $this->getFirstAuthor(),
+						'authorEmails' => $this->getAuthorEmails(),
+					);
+					break;
+
+				case 'status':
+					$output[$param] = array(
+						'id' => $this->getStatus(),
+						'label' => __($this->getStatusKey()),
+					);
+					break;
+
+				case 'stage':
+					$output[$param] = $this->getStageDetails();
+					break;
+
+				case 'section':
+					// @todo
+					break;
+
+				case 'source':
+				case 'copyrightNotice':
+				case 'rights':
+					// @todo needs params
+					break;
+
+				case 'urlWorkflow':
+				case 'urlPublished':
+					$request = Application::getRequest();
+					$dispatcher = $request->getDispatcher();
+					if ($param === 'urlWorkflow') {
+						$output[$param] = $dispatcher->url(
+							$request,
+							ROUTE_PAGE,
+							null,
+							'workflow',
+							'access',
+							$this->getId()
+						);
+					} elseif ($param === 'urlPublished') {
+						$output[$param] == $dispatcher->url(
+							$request,
+							ROUTE_PAGE,
+							null,
+							'article',
+							'view',
+							$this->getId()
+						);
+					}
+					break;
+
+				default:
+
+					$method = $this->findGetMethod($param);
+					if ($method) {
+						$output[$param] = $this->{$method}();
+					}
+			}
+		}
+
+		// Get context info
+		$id = $this->getContextId();
+
+		// Get all pub ids
+		// see $this->getStoredPubId
+
+		// If has access
+		$this->getCommentsToEditor();
+
+		HookRegistry::call('Article::toArray::output', array(&$output, $params, $this));
+
+		return $output;
+	}
+
 	//
 	// Abstract methods.
 	//

@@ -43,4 +43,5 @@
 	<message key="reviewer.aboutDueDates.text">يلتمس منك المحرر الإختيار ما بين قبول التحكيم أو رفضه قبل تاريخ استيجاب الرد. إذا قبلت إجراء التحكيم، ينبغي أن يكون إنجازه قبل تاريخ استيجاب التحكيم.</message>
 	<message key="submission.comments.canShareWithAuthor">للمؤلف والمحرر</message>
 	<message key="submission.comments.cannotShareWithAuthor">للمحرر حصراً</message>
+	<message key="user.authorization.submissionReviewer">المستخدم الحالي ليس معيناً بمثابة محكم للوثيقة المطلوبة.</message>
 </locale>

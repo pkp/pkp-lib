@@ -66,6 +66,7 @@
 	<message key="user.login.registrationComplete.newSubmission">إنشاء طلب نشر جديد</message>
 	<message key="user.login.registrationComplete.continueBrowsing">متابعة التصفح</message>
 	<message key="user.login.registrationPendingValidation">التسجيل ينتظر التحقق</message>
+	<message key="user.login.rememberUsernameAndPassword">أبقني مسجلاً لدخولي في الموقع</message>
 	<message key="user.login.resetPassword">إعادة تعيين كلمة المرور</message>
     	<message key="user.logOut">الخروج</message>
 	<message key="user.logOutAs">الخروج كأنني</message>

@@ -140,9 +140,11 @@
 	<message key="common.queue.long.myAssigned">المعيّن لي</message>
 	<message key="common.queue.long.submissionsArchived">طلبات النشر المحفوظة</message>
 	<message key="submission.authors">المؤلفون</message>
+	<message key="submission.authorBiography">السيرة الشخصية للمؤلف</message>
 	<message key="submission.authorBiographies">السير الشخصية للمؤلفين</message>
+	<message key="submission.authorWithAffiliation">{$name}، {$affiliation}</message>
 	<message key="submission.shortAuthor">{$author}.</message>
-	<message key="submission.mySubmissions">مؤلفاتي</message>
+	<message key="submission.mySubmissions">طلباتي للنشر</message>
 	<message key="submission.addFile">رفع الملف</message>
 	<message key="submission.agencies">الوكالات</message>
 	<message key="submission.abstractViews">معاينات الملخص</message>
@@ -277,8 +279,8 @@
 	<message key="submission.event.confirmDeleteLogEntry">هل أنت متأكد من رغبتك في حذف هذه المعلومة من سجل وقائع الأحداث؟</message>
 	<message key="submission.event.deleteLogEntry">حذف المعلومة من سجل الوقائع</message>
 	<message key="submission.event.submissionSubmitted">طلب النشر الأساسي إكتمل.</message>
-	<message key="submission.event.fileUploaded">الملف "{$name}" (رمزه {$fileId}-{$fileRevision}) قد رُفع إلى الموقع.</message>
-	<message key="submission.event.fileRevised">التنقيح "{$name}" (رمز الملف {$fileId}-{$fileRevision}) قد رُفع إلى الموقع.</message>
+	<message key="submission.event.fileUploaded">الملف "{$name}" (رمزه {$fileId}-{$revision}) قد رُفع إلى الموقع.</message>
+	<message key="submission.event.fileRevised">التنقيح "{$name}" (رمز الملف {$fileId}-{$revision}) قد رُفع إلى الموقع.</message>
 	<message key="submission.event.general.metadataUpdated">البيانات الوصفية للمؤلَّف تم تحديثها</message>
 	<message key="submission.event.general.suppFileUpdated">ملف المؤلَّف تم تحديثه</message>
 	<message key="submission.event.participantAdded">{$name} قد عُيِّن لطلب النشر هذا بصفة {$userGroupName}.</message>
@@ -428,6 +430,7 @@
 	<message key="submission.submit.metadataForm">تحسينات إضافية</message>
 	<message key="submission.submit.metadataForm.tip">أضف معلومات أخرى عن مؤلَّفِك. إضغط 'enter' بعد كل عبارة.</message>
 	<message key="submission.submit.submissionLocale">لغة المؤلَّف</message>
+	<message key="submission.submit.submissionLocaleDescription">نقبل نشر المؤلفات بعدة لغات. لطفاً إختر اللغة الأساسية لمؤلَّفِك من القائمة المنسدلة.</message>
 	<message key="submission.submit.submissionFiles">ملفات المؤلَّف</message>
 	<message key="submission.submit.dependentFiles">الملفات الملحقة</message>
 	<message key="submission.manageDependentFiles">إدارة الملفات الملحقة</message>

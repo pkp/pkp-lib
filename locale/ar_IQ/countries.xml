@@ -48,10 +48,10 @@
 	<country name="بلغاريا" code="BG"/>
 	<country name="بوركينا فاسو" code="BF"/>
 	<country name="بوروندي" code="BI"/>
+	<country name="Cabo Verde" code="CV"/>
 	<country name="كمبوديا" code="KH"/>
 	<country name="الكاميرون" code="CM"/>
 	<country name="كندا" code="CA"/>
-	<country name="Cape Verde" code="CV"/>
 	<country name="Cayman Islands" code="KY"/>
 	<country name="أفريقيا الوسطى" code="CF"/>
 	<country name="تشاد" code="TD"/>
@@ -218,11 +218,11 @@
 	<country name="الصومال" code="SO"/>
 	<country name="جنوب أفريقيا" code="ZA"/>
 	<country name="South Georgia and the South Sandwich Islands" code="GS"/>
+	<country name="جنوب السودان" code="SS"/>
 	<country name="إسبانيا" code="ES"/>
 	<country name="سريلانكا" code="LK"/>
 	<country name="السودان" code="SD"/>
 	<country name="سورينام" code="SR"/>
-	<country name="جنوب السودان" code="SS"/>
 	<country name="Svalbard and Jan Mayen" code="SJ"/>
 	<country name="سوازيلاند" code="SZ"/>
 	<country name="السويد" code="SE"/>
@@ -246,15 +246,15 @@
 	<country name="أوكرانيا" code="UA"/>
 	<country name="الإمارات العربية المتحدة" code="AE"/>
 	<country name="المملكة المتحدة" code="GB"/>
-	<country name="الولايات المتحدة" code="US"/>
 	<country name="United States Minor Outlying Islands" code="UM"/>
+	<country name="الولايات المتحدة الأمريكية" code="US"/>
 	<country name="أوروغواي" code="UY"/>
 	<country name="أوزبكستان" code="UZ"/>
 	<country name="Vanuatu" code="VU"/>
 	<country name="فنزويلا" code="VE"/>
 	<country name="فيتنام" code="VN"/>
-	<country name="Virgin Islands, British" code="VG"/>
-	<country name="Virgin Islands, U.S." code="VI"/>
+	<country name="الجزر العذراء (بريطانيا)" code="VG"/>
+	<country name="الجزر العذراء (الولايات المتحدة)" code="VI"/>
 	<country name="Wallis and Futuna" code="WF"/>
 	<country name="الصحراء الغربية" code="EH"/>
 	<country name="اليمن" code="YE"/>

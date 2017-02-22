@@ -31,19 +31,20 @@
 		{/if}
 
 		{** stage participants **}
-		{include file="controllers/tab/workflow/stageParticipants.tpl"}
+		{url|assign:stageParticipantGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.users.stageParticipant.StageParticipantGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}
+		{load_url_in_div id="stageParticipantGridContainer-version_"|concat:$submissionRevision url=$stageParticipantGridUrl class="pkp_participants_grid"}
 
 	</div>
 
 	<div class="pkp_content_panel">
-	
+
 		{** production ready files **}
 		{url|assign:productionReadyFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.productionReady.ProductionReadyFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}
-		{load_url_in_div id="productionReadyFilesGridDiv" url=$productionReadyFilesGridUrl} 
+		{load_url_in_div id="productionReadyFilesGridDiv-version_"|concat:$submissionRevision url=$productionReadyFilesGridUrl}
 
 		{** galleys **}
 		{url|assign:representationsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.articleGalleys.ArticleGalleyGridHandler" op="fetchGrid" submissionId=$submission->getId() submissionRevision=$submissionRevision escape=false}
-		{load_url_in_div id="formatsGridContainer"|uniqid url=$representationsGridUrl}
+		{load_url_in_div id="formatsGridContainer-version_"|concat:$submissionRevision url=$representationsGridUrl}
 
 	</div>
 </div>

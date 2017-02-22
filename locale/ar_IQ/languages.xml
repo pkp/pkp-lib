@@ -62,6 +62,7 @@
 	<language code="fi" name="الفنلندية"/>
 	<language code="fr" name="الفرنسية"/>
 	<language code="ff" name="الفولائية"/>
+	<language code="gd" name="الغالية؛ الغالية الاسكتلندية"/>
 	<language code="gl" name="الجاليكية"/>
 	<language code="lg" name="الغاندائية"/>
 	<language code="ka" name="الجورجية"/>
@@ -80,8 +81,8 @@
 	<language code="io" name="الايدو"/>
 	<language code="ig" name="الإيبو"/>
 	<language code="id" name="الإندونيسية"/>
-	<language code="ia" name="اللغة الوسيطة"/>
-	<language code="ie" name="اللغة الوسيطة"/>
+	<language code="ia" name="اللغة الوسيطة (الرابطة العالمية للغة الثانوية)"/>
+	<language code="ie" name="اللغة الوسيطة؛ الغربية"/>
 	<language code="iu" name="الإنكتيتوتية"/>
 	<language code="ik" name="الاينبياكية"/>
 	<language code="ga" name="الايرلندية"/>
@@ -118,7 +119,6 @@
 	<language code="mi" name="الماوري"/>
 	<language code="mr" name="المهاراتية"/>
 	<language code="mh" name="المارشالية"/>
-	<language code="mo" name="المولدافية"/>
 	<language code="mn" name="المنغولية"/>
 	<language code="na" name="ناورو"/>
 	<language code="nv" name="نافاهو"/>
@@ -145,14 +145,11 @@
 	<language code="rm" name="الرومانشية"/>
 	<language code="rn" name="الرندية"/>
 	<language code="ru" name="الروسية"/>
-	<language code="ry" name="الرزنية"/>
 	<language code="sm" name="الساموائية"/>
 	<language code="sg" name="السانغو"/>
 	<language code="sa" name="السنسكريتية"/>
 	<language code="sc" name="السردينية"/>
-	<language code="gd" name="الغيلية الأسكتلندية"/>
 	<language code="sr" name="الصربية"/>
-	<language code="sh" name="الصرب كرواتية"/>
 	<language code="sn" name="الشونا"/>
 	<language code="ii" name="سيتشوان يي"/>
 	<language code="sd" name="السندية"/>
@@ -176,7 +173,7 @@
 	<language code="th" name="التايلندية"/>
 	<language code="bo" name="التبتية"/>
 	<language code="ti" name="التغرينية"/>
-	<language code="to" name="تونغا"/>
+	<language code="to" name="تونغا (جزر التونغا)"/>
 	<language code="ts" name="تسونجا"/>
 	<language code="tn" name="التسوانية"/>
 	<language code="tr" name="التركية"/>

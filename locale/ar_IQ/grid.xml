@@ -268,4 +268,5 @@
 
 	<!-- Submission list grids -->
 	<message key="grid.submission.itemTitle">المؤلف؛ العنوان</message>
+	<message key="grid.submission.active.selectOrphaned">إشمل طلبات النشر غير المكتملة التي لم تقدم من قبل أي مؤلف.</message>
 </locale>

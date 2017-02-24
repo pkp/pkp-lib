@@ -117,7 +117,6 @@
 	<message key="editor.submission.proofreading.revokeProofApproval">Kumoa korjausvedoksen hyväksyntä</message>
 	<message key="editor.submission.proofreading.confirmCompletion">Hyväksy tämä korjausvedos osoittaaksesi, että oikoluku on valmis ja tiedosto on valmis julkaistavaksi.</message>
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">Kumoa tämän korjausvedoksen hyväksyntä osoittaaksesi, että oikoluku ei ole enää valmis ja tiedosto ei ole valmis julkaistavaksi.</message>
-	<message key="editor.publicIdentificationExistsForTheSameType">Julkinen tunniste {$publicIdentifier} on jo toisen samantyyppisen kohteen käytössä. Valitse julkaisusi samantyyppisille kohteille yksilöivät tunnisteet.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">Julkinen tunnus {$publicIdentifier} ei saa olla numero.</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">Muotoilua {$pattern} ei sallita julkisessa tunnisteessa.</message>
 </locale>

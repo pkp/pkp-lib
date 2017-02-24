@@ -117,7 +117,6 @@
 	<message key="editor.submission.proofreading.revokeProofApproval">إلغاء المصادقة على القراءة التصحيحية</message>
 	<message key="editor.submission.proofreading.confirmCompletion">صادق على هذه القراءة التصحيحة للإشارة إلى إكتمالها واعتبار الملف جاهزاً للنشر.</message>
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">ألغِ المصادقة على هذه القراءة التصحيحة للإشارة إلى عدم إكتمالها واعتبار الملف غير جاهز للنشر.</message>
-	<message key="editor.publicIdentificationExistsForTheSameType">المعرف العام '{$publicIdentifier}' موجود سلفاً لمكون آخر من نفس النوع. لطفاً، إختر معرفات فريدة للمكونات التي من نفس النوع ضمن مجلتك.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">المعرف العام '{$publicIdentifier}' يجب أن لا يكون رقماً.</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">إن النمط {$pattern} غير مسموح به للمعرفات العامة.</message>
 </locale>

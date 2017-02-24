@@ -116,7 +116,6 @@
 	<message key="editor.submission.proofreading.revokeProofApproval">Freigabe der Korrekturfahne zurücknehmen</message>
 	<message key="editor.submission.proofreading.confirmCompletion">Diese Korrekturfahne freigeben, um zu signalisieren, dass das Korrektorat abgeschlossen ist und die Datei publiziert werden kann.</message>
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">Die Freigabe dieser Korrekturfahne zurücknehmen, um zu signalisieren, dass das Korrektorat nicht mehr abgeschlossen ist und dass die Datei noch nicht publiziert werden kann.</message>
-	<message key="editor.publicIdentificationExistsForTheSameType">Die öffentliche Kennung '{$publicIdentifier}' wird bereits für ein Objekt des selben Typs verwendet. Bitte wählen Sie innerhalb Ihrer Zeitschrift eindeutige Kennungen für Objekte gleichen Typs.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">Die öffentliche Kennung '{$publicIdentifier}' darf keine Zahl sein.</message>
 	<message key="editor.submission.findAndSelectUser">Nutzer/in finden</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">Das Muster {$pattern} ist für die Bildung der öffentlichen Kennung nicht zulässig.</message>

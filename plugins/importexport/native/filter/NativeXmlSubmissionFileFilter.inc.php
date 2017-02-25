@@ -116,6 +116,12 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 
 		$revisionId = $node->getAttribute('number');
 
+		$source = $node->getAttribute('source');
+		$sourceFileAndRevision = null;
+		if ($source) {
+			$sourceFileAndRevision = explode('-', $source);
+		}
+
 		$genreId = null;
 		$genreName = $node->getAttribute('genre');
 		if ($genreName) {
@@ -189,11 +195,23 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 
 		$submissionFile->setRevision($revisionId);
 
+		if ($sourceFileAndRevision) {
+			// the source file revision should already be processed, so get the new source file ID
+			$sourceFileId = $deployment->getFileDBId($sourceFileAndRevision[0], $sourceFileAndRevision[1]);
+			if ($sourceFileId) {
+				$submissionFile->setSourceFileId($sourceFileId);
+				$submissionFile->setSourceRevision($sourceFileAndRevision[1]);
+			}
+		}
+
 		if ($errorOccured) {
 			// if error occured, the file cannot be inserted into DB, becase
 			// genre, uploader and user group are required (e.g. at name generation).
 			$submissionFile = null;
 		} else {
+			// if the same file is already inserted, take its DB file ID
+			$DBId = $deployment->getFileDBId($fileId);
+			if ($DBId) $submissionFile->setFileId($DBId);
 			$insertedSubmissionFile = $submissionFileDao->insertObject($submissionFile, $filename, false);
 			$deployment->setFileDBId($fileId, $revisionId, $insertedSubmissionFile->getFileId());
 		}

@@ -85,6 +85,7 @@ class PKPNativeImportExportDeployment extends PKPImportExportDeployment {
 			'attachment' => SUBMISSION_FILE_ATTACHMENT,
 			'review_revision' => SUBMISSION_FILE_REVIEW_REVISION,
 			'dependent' => SUBMISSION_FILE_DEPENDENT,
+			'query' => SUBMISSION_FILE_QUERY,
 		);
 	}
 }

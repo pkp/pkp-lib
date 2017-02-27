@@ -40,8 +40,11 @@
 		// the modal closes.
 		this.remoteAction_ = options.remoteAction;
 
-		// Store the CSRF token for inclusion in the request.
-		this.csrfToken_ = options.csrfToken;
+		// Store the data to send with the post request
+		this.postData_ = options.postData || {};
+
+		// Add the CSRF token to the post data
+		this.postData_.csrfToken = options.csrfToken;
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.modal.RemoteActionConfirmationModalHandler,
@@ -62,12 +65,12 @@
 
 
 	/**
-	 * A CSRF token to be included in request parameters.
+	 * Data params to send with the post request
 	 * @private
-	 * @type {?string}
+	 * @type {?object}
 	 */
 	$.pkp.controllers.modal.RemoteActionConfirmationModalHandler.prototype.
-			csrfToken_ = null;
+			postData_ = null;
 
 
 	//
@@ -106,8 +109,9 @@
 			modalConfirm = function(dialogElement, event) {
 		event.preventDefault();
 
+		console.log(this.postData_);
 		$.post(this.remoteAction_,
-				{csrfToken: this.csrfToken_},
+				this.postData_,
 				this.callbackWrapper(this.remoteResponse), 'json');
 	};
 

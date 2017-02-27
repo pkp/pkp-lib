@@ -172,7 +172,7 @@ class UserGroupGridHandler extends GridHandler {
 		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
 
 		if ($stageIdFilter && $stageIdFilter != 0) {
-			return $userGroupDao->getUserGroupsByStage($contextId, $stageIdFilter, false, false, $roleIdFilter, $rangeInfo);
+			return $userGroupDao->getUserGroupsByStage($contextId, $stageIdFilter, $roleIdFilter, $rangeInfo);
 		} else if ($roleIdFilter && $roleIdFilter != 0) {
 			return $userGroupDao->getByRoleId($contextId, $roleIdFilter, false, $rangeInfo);
 		} else {

@@ -57,12 +57,13 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroups = $userGroupDao->getUserGroupsByStage(
 			$request->getContext()->getId(),
-			$this->getStageId(),
-			false, true // Exclude reviewers
+			$this->getStageId()
 		);
 
 		$userGroupOptions = array();
 		while ($userGroup = $userGroups->next()) {
+			// Exclude reviewers.
+			if ($userGroup->getRoleId() == ROLE_ID_REVIEWER) continue;
 			$userGroupOptions[$userGroup->getId()] = $userGroup->getLocalizedName();
 		}
 

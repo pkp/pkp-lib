@@ -847,36 +847,31 @@ class UserGroupDAO extends DAO {
 	//
 
 	/**
-	 * Get the user groups assigned to each stage. Provide the ability to omit authors and reviewers
-	 * Since these are typically stored differently and displayed in different circumstances
-	 * @param Integer $contextId
-	 * @param Integer $stageId
-	 * @param boolean (optional) $omitAuthors
-	 * @param boolean (optional) $omitReviewers
-	 * @param Integer (optional) $roleId
+	 * Get the user groups assigned to each stage.
+	 * @param int $contextId Context ID
+	 * @param int $stageId WORKFLOW_STAGE_ID_...
+	 * @param int $roleId Optional ROLE_ID_... to filter results by
 	 * @param DBResultRange (optional) $dbResultRange
 	 * @return DAOResultFactory
 	 */
-	function getUserGroupsByStage($contextId, $stageId, $omitAuthors = false, $omitReviewers = false, $roleId = null, $dbResultRange = null) {
+	function getUserGroupsByStage($contextId, $stageId, $roleId = null, $dbResultRange = null) {
 		$params = array((int) $contextId, (int) $stageId);
-		if ($omitAuthors) $params[] = ROLE_ID_AUTHOR;
-		if ($omitReviewers) $params[] = ROLE_ID_REVIEWER;
-		if ($roleId) $params[] = $roleId;
-		$result = $this->retrieveRange(
-			'SELECT	ug.*
-			FROM	user_groups ug
-			JOIN user_group_stage ugs ON (ug.user_group_id = ugs.user_group_id AND ug.context_id = ugs.context_id)
-			WHERE	ugs.context_id = ? AND
-			ugs.stage_id = ?' .
-			($omitAuthors?' AND ug.role_id <> ?':'') .
-			($omitReviewers?' AND ug.role_id <> ?':'') .
-			($roleId?' AND ug.role_id = ?':'') .
-			' ORDER BY ug.role_id ASC',
-			$params,
-			$dbResultRange
+		if ($roleId) $params[] = (int) $roleId;
+		return new DAOResultFactory(
+			$this->retrieveRange(
+				'SELECT	ug.*
+				FROM	user_groups ug
+					JOIN user_group_stage ugs ON (ug.user_group_id = ugs.user_group_id AND ug.context_id = ugs.context_id)
+				WHERE	ugs.context_id = ? AND
+					ugs.stage_id = ?
+					' . ($roleId?'AND ug.role_id = ?':'') . '
+				ORDER BY ug.role_id ASC',
+				$params,
+				$dbResultRange
+			),
+			$this,
+			'_returnFromRow'
 		);
-
-		return new DAOResultFactory($result, $this, '_returnFromRow');
 	}
 
 	/**

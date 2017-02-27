@@ -86,13 +86,10 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider {
 				// Get the user groups for this stage
 				$userGroups = $userGroupDao->getUserGroupsByStage(
 					$submission->getContextId(),
-					$reviewAssignment->getStageId(),
-					true,
-					true
+					$reviewAssignment->getStageId()
 				);
 				while ($userGroup = $userGroups->next()) {
-					$roleId = $userGroup->getRoleId();
-					if ($roleId != ROLE_ID_MANAGER && $roleId != ROLE_ID_SUB_EDITOR) continue;
+					if (!in_array($userGroup->getRoleId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR))) continue;
 
 					// Get the users assigned to this stage and user group
 					$stageUsers = $userStageAssignmentDao->getUsersBySubmissionAndStageId(

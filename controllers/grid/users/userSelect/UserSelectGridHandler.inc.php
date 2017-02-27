@@ -65,11 +65,12 @@ class UserSelectGridHandler extends GridHandler {
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroups = $userGroupDao->getUserGroupsByStage(
 			$request->getContext()->getId(),
-			$stageId,
-			false, true // Exclude reviewers
+			$stageId
 		);
 		$this->_userGroupOptions = array();
 		while ($userGroup = $userGroups->next()) {
+			// Exclude reviewers.
+			if ($userGroup->getRoleId() == ROLE_ID_REVIEWER) continue;
 			$this->_userGroupOptions[$userGroup->getId()] = $userGroup->getLocalizedName();
 		}
 

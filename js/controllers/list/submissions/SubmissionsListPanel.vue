@@ -1,5 +1,5 @@
 <template>
-	<div class="pkpListPanel pkpMySubmissions" v-bind:class="classLoading">
+	<div class="pkpListPanel pkpSubmissionsListPanel" v-bind:class="classLoading">
 		<div class="pkpListPanel__header">
 			<div class="pkpListPanel__title">{{ i18n.title }}</div>
 			<ul class="pkpListPanel__actions">
@@ -24,7 +24,6 @@
 			/>
 		</ul>
 		<list-panel-count v-bind:count="itemCount" v-bind:i18n="i18n"></list-panel-count>
-		<a href="#" @click="refresh">Refresh</a>
 	</div>
 </template>
 
@@ -33,7 +32,7 @@ import ListPanel from './../ListPanel.vue';
 import SubmissionsListItem from './SubmissionsListItem.vue';
 
 export default _.extend({}, ListPanel, {
-	name: 'MySubmissions',
+	name: 'SubmissionsListPanel',
 	components: _.extend({}, ListPanel.components, {
 		SubmissionsListItem,
 	}),

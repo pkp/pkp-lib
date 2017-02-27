@@ -109,6 +109,12 @@ class DashboardHandler extends Handler {
 	function active($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
+
+		import('lib.pkp.controllers.list.submissions.ActiveSubmissionListHandler');
+		$submissionListHandler = new ActiveSubmissionListHandler(array(
+			'title' => 'common.queue.long.active',
+		));
+		$templateMgr->assign('submissionListData', json_encode($submissionListHandler->getConfig()));
 		return $templateMgr->fetchJson('dashboard/active.tpl');
 	}
 

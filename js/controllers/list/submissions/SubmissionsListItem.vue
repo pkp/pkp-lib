@@ -1,17 +1,19 @@
 <template>
-	<li class="pkpListPanelItem pkpSubmissionsListItem assigned" @click="clickItem">
-		<div class="pkpSubmissionsListItem__item">
-			<a :href="submission.urlWorkflow" class="pkpSubmissionsListItem__item__title">
-				{{ submission.title }}
-			</a>
-			<a :href="submission.urlWorkflow" class="pkpSubmissionsListItem__item__author">
-				{{ submission.author.authorString }}
-			</a>
-			<div v-if="notice" class="pkpSubmissionsListItem__item__activity">
-				<span class="fa fa-exclamation-triangle"></span>
-				{{ notice }}
+	<li class="pkpListPanelItem pkpSubmissionsListItem assigned">
+		<a :href="submission.urlWorkflow">
+			<div class="pkpSubmissionsListItem__item">
+				<div class="pkpSubmissionsListItem__item__title">
+					{{ submission.title }}
+				</div>
+				<div class="pkpSubmissionsListItem__item__author">
+					{{ submission.author.authorString }}
+				</div>
+				<div v-if="notice" class="pkpSubmissionsListItem__item__activity">
+					<span class="fa fa-exclamation-triangle"></span>
+					{{ notice }}
+				</div>
 			</div>
-		</div>
+		</a>
 		<div class="pkpSubmissionsListItem__stage">
 			<div class="pkpSubmissionsListItem__stage__row">
 				<div class="pkpSubmissionsListItem__stage__label">
@@ -160,20 +162,6 @@ export default {
 		},
 	},
 	methods: {
-		/**
-		 * Send all clicks on the list item to the submission workflow page
-		 */
-		clickItem: function(e) {
-
-			// Ignore clicks on the actions
-			var $target = $(e.target);
-			if ($target.is('.pkpSubmissionsListItem__actions') || $target.parents('.pkpSubmissionsListItem__actions').length) {
-				return false;
-			}
-
-			window.location.href = this.submission.urlWorkflow;
-		},
-
 		/**
 		 * Load the history and notes modal
 		 */

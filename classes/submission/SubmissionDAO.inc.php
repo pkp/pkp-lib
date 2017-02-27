@@ -690,7 +690,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @param $stageId int|null optional Filter by stage id.
 	 * @param $sectionId int|null optional Filter by section id.
 	 * @param $rangeInfo DBResultRange optional
-	 * @param $search string Broad search parameters
+	 * @param $search string General search parameters
 	 * @return DAOResultFactory
 	 */
 	function getAssignedToUser($userId, $contextId = null, $title = null, $author = null, $stageId = null, $sectionId = null, $rangeInfo = null, $search = null) {
@@ -709,6 +709,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		if ($stageId) $params[] = (int) $stageId;
 		if ($sectionId) $params[] = (int) $sectionId;
 
+		$searchWhere = '';
 		if ($search) {
 			$words = explode(" ", trim($search));
 			if (count($words)) {
@@ -772,9 +773,10 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @param $sectionId int|null optional Filter by section id.
 	 * @param $rangeInfo DBResultRange optional
 	 * @param $orphaned boolean Whether the incomplete submissions that have no author assigned should be considered too
+	 * @param $search string General search parameters
 	 * @return DAOResultFactory
 	 */
-	function getActiveSubmissions($contextId = null, $title = null, $author = null, $editor = null, $stageId = null, $sectionId = null, $rangeInfo = null, $orphaned = false) {
+	function getActiveSubmissions($contextId = null, $title = null, $author = null, $editor = null, $stageId = null, $sectionId = null, $rangeInfo = null, $orphaned = false, $search = null) {
 		$params = $this->getFetchParameters();
 		$params[] = (int) STATUS_DECLINED;
 
@@ -789,6 +791,27 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		if ($sectionId) $params[] = (int) $sectionId;
 		if ($editor) array_push($params, (int) ROLE_ID_MANAGER, (int) ROLE_ID_SUB_EDITOR, $editorQuery = '%' . $editor . '%', $editorQuery);
 
+		$searchWhere = '';
+		if ($search) {
+			$words = explode(" ", trim($search));
+			if (count($words)) {
+				$searchWhere = ' AND (';
+				$searchClauses = array();
+				foreach($words as $word) {
+					$clause = '(';
+					$clause .= '(ss.setting_name = ? AND ss.setting_value LIKE ?)';
+					$params[] = 'title';
+					$params[] = '%' . $word . '%';
+					$clause .= ' OR (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)';
+					$params[] = '%' . $word . '%';
+					$params[] = '%' . $word . '%';
+					$params[] = '%' . $word . '%';
+					$searchClauses[] = $clause . ')';
+				}
+				$searchWhere .= join(' AND ', $searchClauses) . ')';
+			}
+		}
+
 		$result = $this->retrieveRange(
 			'SELECT	s.*, ps.date_published,
 				' . $this->getFetchColumns() . '
@@ -800,7 +823,9 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				' . ($editor?' LEFT JOIN stage_assignments sa ON (s.submission_id = sa.submission_id)
 						LEFT JOIN user_groups g ON (sa.user_group_id = g.user_group_id)
 						LEFT JOIN users u ON (sa.user_id = u.user_id)':'') . '
-				' . $this->getFetchJoins() . '
+				' . ($title||$searchWhere?' LEFT JOIN submission_settings ss ON (s.submission_id = ss.submission_id)':'') . '
+				' . ($author||$searchWhere?' LEFT JOIN authors au ON (s.submission_id = au.submission_id)':'')
+				. $this->getFetchJoins() . '
 			WHERE	(s.date_submitted IS NOT NULL
 				' . ($orphaned?' OR (s.submission_progress <> 0 AND s.submission_id NOT IN (SELECT sa2.submission_id FROM stage_assignments sa2 LEFT JOIN user_groups g2 ON (sa2.user_group_id = g2.user_group_id) WHERE g2.role_id = ' . (int) ROLE_ID_AUTHOR .'))':'') .'
 				) AND ' . $this->getCompletionConditions(false) . '
@@ -809,10 +834,10 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				' . ($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'') . '
 				' . ($author?' AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)':'') . '
 				' . ($stageId?' AND s.stage_id = ?':'') . '
-				' . ($sectionId?' AND s.section_id = ?':'') . '
-				' . ($editor?' AND (g.role_id = ? OR g.role_id = ?) AND' . $this->_getEditorSearchQuery():'') .
+				' . ($sectionId?' AND s.section_id = ?':'')
+				. ($searchWhere?$searchWhere:'') .
 			' GROUP BY ' . $this->getGroupByColumns() .
-			' ORDER BY s.submission_id',
+			' ORDER BY s.date_submitted DESC',
 			$params,
 			$rangeInfo
 		);

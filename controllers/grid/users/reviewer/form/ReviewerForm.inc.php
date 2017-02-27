@@ -275,7 +275,7 @@ class ReviewerForm extends Form {
 		$context = $request->getContext();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$reviewRound = $this->getReviewRound();
-		$reviewerUserGroups = $userGroupDao->getUserGroupsByStage($context->getId(), $reviewRound->getStageId(), false, false, ROLE_ID_REVIEWER);
+		$reviewerUserGroups = $userGroupDao->getUserGroupsByStage($context->getId(), $reviewRound->getStageId(), ROLE_ID_REVIEWER);
 		$userGroups = array();
 		while($userGroup = $reviewerUserGroups->next()) {
 			$userGroups[$userGroup->getId()] = $userGroup->getLocalizedName();

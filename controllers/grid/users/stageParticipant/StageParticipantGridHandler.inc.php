@@ -224,11 +224,12 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 		$result = array();
 		$userGroups = $userGroupDao->getUserGroupsByStage(
 			$request->getContext()->getId(),
-			$this->getStageId(),
-			false, true // Exclude reviewers
+			$this->getStageId()
 		);
 		while ($userGroup = $userGroups->next()) {
-			if (in_array($userGroup->getId(), $userGroupIds)) $result[$userGroup->getId()] = $userGroup;
+			if ($userGroup->getRoleId() == ROLE_ID_REVIEWER) continue;
+			if (!in_array($userGroup->getId(), $userGroupIds)) continue;
+			$result[$userGroup->getId()] = $userGroup;
 		}
 		return $result;
 	}

@@ -512,20 +512,6 @@ export default {
 	},
 	methods: {
 		/**
-		 * Send all clicks on the list item to the submission workflow page
-		 */
-		clickItem: function(e) {
-
-			// Ignore clicks on the actions
-			var $target = $(e.target);
-			if ($target.is('.pkpSubmissionsListItem__actions') || $target.parents('.pkpSubmissionsListItem__actions').length) {
-				return false;
-			}
-
-			window.location.href = this.submission.urlWorkflow;
-		},
-
-		/**
 		 * Load the history and notes modal
 		 */
 		emitInfoCenter: function(e) {

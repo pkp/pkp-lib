@@ -4,7 +4,7 @@
             <div class="pkpListPanel__title">{{ i18n.title }}</div>
 			<ul class="pkpListPanel__actions">
 				<li>
-					<a :href="add_url">{{ i18n.add }}</a>
+					<a :href="addUrl">{{ i18n.add }}</a>
 				</li>
 			</ul>
             <list-panel-search
@@ -18,6 +18,7 @@
     		<submissions-list-item
     			v-for="item in items"
                 :submission="item"
+                :infoUrl="infoUrl"
     			:i18n="i18n"
     		/>
     	</ul>

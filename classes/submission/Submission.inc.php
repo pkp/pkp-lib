@@ -1055,7 +1055,7 @@ abstract class Submission extends DataObject {
 				'id' => $query->getId(),
 				'assocType' => $query->getAssocType(),
 				'assocId' => $query->getAssocId(),
-				'stageId' => $qstageId,
+				'stageId' => $stageId,
 				'sequence' => $query->getSequence(),
 				'closed' => $query->getIsClosed(),
 			);

@@ -14,7 +14,6 @@
 {assign var="uuid" value=""|uniqid|escape}
 <div id="active-submission-list-handler-{$uuid}">
     <script type="text/javascript">
-        console.log({$submissionListData});
         pkp.registry.init('active-submission-list-handler-{$uuid}', 'SubmissionsListPanel', {$submissionListData});
     </script>
 </div>

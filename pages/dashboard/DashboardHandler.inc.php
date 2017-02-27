@@ -127,6 +127,12 @@ class DashboardHandler extends Handler {
 	function archives($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
+
+		import('lib.pkp.controllers.list.submissions.ArchivedSubmissionListHandler');
+		$submissionListHandler = new ArchivedSubmissionListHandler(array(
+			'title' => 'common.queue.long.submissionsArchived',
+		));
+		$templateMgr->assign('submissionListData', json_encode($submissionListHandler->getConfig()));
 		return $templateMgr->fetchJson('dashboard/archives.tpl');
 	}
 

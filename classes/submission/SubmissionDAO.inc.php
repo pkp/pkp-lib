@@ -626,6 +626,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @param $stageId int optional stage ID to restrict results to
 	 * @param $sectionId int optional section ID to restrict results to
 	 * @param $rangeInfo DBResultRange optional
+	 * @param $search string General search parameters
 	 * @return DAOResultFactory
 	 */
 	function getByStatus($status, $userId = null, $contextId = null, $title = null, $author = null, $stageId = null, $sectionId, $rangeInfo = null) {
@@ -651,6 +652,27 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		if ($stageId) $params[] = (int) $stageId;
 		if ($sectionId) $params[] = (int) $sectionId;
 
+		$searchWhere = '';
+		if ($search) {
+			$words = explode(" ", trim($search));
+			if (count($words)) {
+				$searchWhere = ' AND (';
+				$searchClauses = array();
+				foreach($words as $word) {
+					$clause = '(';
+					$clause .= '(ss.setting_name = ? AND ss.setting_value LIKE ?)';
+					$params[] = 'title';
+					$params[] = '%' . $word . '%';
+					$clause .= ' OR (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)';
+					$params[] = '%' . $word . '%';
+					$params[] = '%' . $word . '%';
+					$params[] = '%' . $word . '%';
+					$searchClauses[] = $clause . ')';
+				}
+				$searchWhere .= join(' AND ', $searchClauses) . ')';
+			}
+		}
+
 		$result = $this->retrieveRange(
 			'SELECT	s.*, ps.date_published,
 				' . $this->getFetchColumns() . '
@@ -662,8 +684,8 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 					LEFT JOIN review_assignments ra ON (s.submission_id = ra.submission_id AND ra.reviewer_id = ?)
 					LEFT JOIN review_assignments ra2 ON (s.submission_id = ra2.submission_id AND ra2.reviewer_id = ? AND ra2.review_id > ra.review_id)'
 				:'') .
-				($title?' LEFT JOIN submission_settings ss ON (s.submission_id = ss.submission_id)':'') . '
-				' . ($author?' LEFT JOIN authors au ON (s.submission_id = au.submission_id)':'') .
+				($title||$searchWhere?' LEFT JOIN submission_settings ss ON (s.submission_id = ss.submission_id)':'') . '
+				' . ($author||$searchWhere?' LEFT JOIN authors au ON (s.submission_id = au.submission_id)':'') .
 				$this->getFetchJoins() .
 			'WHERE
 				s.status IN  (' . join(',', array_map(array($this,'_arrayWalkIntCast'), (array) $status)) . ')
@@ -673,6 +695,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				. ($author?' AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)':'')
 				. ($stageId?' AND s.stage_id = ?':'')
 				. ($sectionId?' AND s.section_id = ?':'')
+				. ($searchWhere?$searchWhere:'')
 			. ' ORDER BY s.submission_id',
 			$params,
 			$rangeInfo
@@ -831,8 +854,8 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				) AND ' . $this->getCompletionConditions(false) . '
 				AND s.status <> ?
 				' . ($contextId?' AND s.context_id = ?':'') . '
-				' . ($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'') . '
-				' . ($author?' AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)':'') . '
+				' . ($title||$searchWhere?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'') . '
+				' . ($author||$searchWhere?' AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)':'') . '
 				' . ($stageId?' AND s.stage_id = ?':'') . '
 				' . ($sectionId?' AND s.section_id = ?':'')
 				. ($searchWhere?$searchWhere:'') .

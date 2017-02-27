@@ -35,7 +35,6 @@ abstract class SubmissionListHandler extends ListHandler {
 			'roleAccess' => array(
 				ROLE_ID_SITE_ADMIN,
 				ROLE_ID_MANAGER,
-				ROLE_ID_SUB_EDITOR,
 			),
 		));
 

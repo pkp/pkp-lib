@@ -35,18 +35,19 @@ class ActiveSubmissionListHandler extends SubmissionListHandler {
 		$submissionDao = Application::getSubmissionDAO();
 		$request = Application::getRequest();
 		$user = $request->getUser();
+		$context = $request->getContext();
 
 		$search = isset($args['searchPhrase']) ? $args['searchPhrase'] : null;
 
 		$submissions = $submissionDao->getActiveSubmissions(
-			$contextId = null,
-			$title = null,
-			$author = null,
-			$editor = null,
-			$stageId = null,
-			$rangeInfo = null,
-			$orphaned = false,
-			$search = $search
+			$context->getId(),
+			null,
+			null,
+			null,
+			null,
+			null,
+			false,
+			$search
 		)->toArray();
 
 		$items = array();

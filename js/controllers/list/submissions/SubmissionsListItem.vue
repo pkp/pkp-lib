@@ -524,6 +524,21 @@ export default {
 
 			window.location.href = this.submission.urlWorkflow;
 		},
+
+		/**
+		 * Load the history and notes modal
+		 */
+		loadInfoCenter: function() {
+
+			var opts = {
+				title: this.submission.title,
+				url: this.infoUrl.replace('__id__', this.submission.id),
+			};
+
+			$('<div id="' + $.pkp.classes.Helper.uuid() + '" ' +
+					'class="pkp_modal pkpModalWrapper" tabindex="-1"></div>')
+				.pkpHandler('$.pkp.controllers.modal.AjaxModalHandler', opts);
+		},
 	},
 }
 </script>

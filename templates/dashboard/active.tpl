@@ -11,6 +11,10 @@
 {* Help File *}
 {help file="submissions.md" section="active" class="pkp_help_tab"}
 
-<!-- Archived submissions grid: Show all archived submissions -->
-{url|assign:activeSubmissionsListGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.submissions.activeSubmissions.ActiveSubmissionsListGridHandler" op="fetchGrid" escape=false}
-{load_url_in_div id="activeSubmissionsListGridContainer" url=$activeSubmissionsListGridUrl}
+{assign var="uuid" value=""|uniqid|escape}
+<div id="active-submission-list-handler-{$uuid}">
+    <script type="text/javascript">
+        console.log({$submissionListData});
+        pkp.registry.init('active-submission-list-handler-{$uuid}', 'SubmissionsListPanel', {$submissionListData});
+    </script>
+</div>

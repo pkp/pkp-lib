@@ -60,12 +60,13 @@ class MySubmissionListHandler extends SubmissionListHandler {
 		$submissionDao = Application::getSubmissionDAO();
 		$request = Application::getRequest();
 		$user = $request->getUser();
+		$context = $request->getContext();
 
 		$search = isset($args['searchPhrase']) ? $args['searchPhrase'] : null;
 
 		$assigned = $submissionDao->getAssignedToUser(
 			$user->getId(),
-			null,
+			$context->getId(),
 			null,
 			null,
 			null,
@@ -74,16 +75,30 @@ class MySubmissionListHandler extends SubmissionListHandler {
 			$search
 		)->toArray();
 
-		// @todo only add these for journal editors
-		$unassigned = $submissionDao->getBySubEditorId(
-			$request->getContext()->getId(),
-			null,
-			false, // do not include STATUS_DECLINED submissions
-			false,  // include only unpublished submissions
-			null,
-			null,
-			$search
-		)->toArray();
+		import('classes.security.RoleDAO');
+		$userRolesDao = DAORegistry::getDAO('RoleDAO');
+		$userRoles = $userRolesDao->getByUserId($user->getId(), $context->getId());
+
+		$isManager = false;
+		foreach($userRoles as $role) {
+			if ($role->getId() == ROLE_ID_MANAGER) {
+				$isManager = true;
+				break;
+			}
+		}
+
+		$unassigned = array();
+		if ($isManager) {
+			$unassigned = $submissionDao->getBySubEditorId(
+				$request->getContext()->getId(),
+				null,
+				false, // do not include STATUS_DECLINED submissions
+				false,  // include only unpublished submissions
+				null,
+				null,
+				$search
+			)->toArray();
+		}
 
 		$submissions = array_merge($unassigned, $assigned);
 

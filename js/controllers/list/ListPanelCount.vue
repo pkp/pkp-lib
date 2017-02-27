@@ -1,6 +1,6 @@
 <template>
 	<div class="pkp-vue-list-panel-count">
-		{{ __('item_count', { count: this.count }) }}
+		{{ __('itemCount', { count: this.count }) }}
 	</div>
 </template>
 

@@ -82,6 +82,9 @@ export default _.extend({}, ListPanel, {
 	}),
 	mounted: function() {
 
+		// Call the mounted function on parent component
+		ListPanel.mounted.call(this);
+
 		// Store a reference to this component for global event callbacks
 		var self = this;
 

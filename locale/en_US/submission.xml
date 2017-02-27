@@ -659,6 +659,6 @@
 	<message key="submission.query.new.contents">You have been added to a discussion titled "{$queryTitle}" regarding the submission "{$submissionTitle}".</message>
 
 	<!-- Submission Lists -->
-	<message key="submission.list.view">View</message>
+	<message key="submission.list.infoCenter">Activity Log &amp; Notes</message>
 	<message key="submission.list.count">{$count} submissions</message>
 </locale>

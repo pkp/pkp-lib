@@ -31,13 +31,10 @@
 			</div>
 			<div class="pkpSubmissionsListItem__actions">
 				<a href="#" class="delete">
-					Delete
+					{{ i18n.delete }}
 				</a>
-				<a href="#">
-					Activity Log
-				</a>
-				<a href="#">
-					Notes
+				<a href="#" @click="loadInfoCenter">
+					{{ i18n.infoCenter }}
 				</a>
 			</div>
 		</div>
@@ -47,7 +44,7 @@
 <script>
 export default {
 	name: 'SubmissionsListItem',
-	props: ['submission', 'i18n'],
+	props: ['submission', 'infoUrl', 'i18n'],
 	computed: {
 		/**
 		 * Compile a notice depending on the stage status
@@ -175,6 +172,21 @@ export default {
 			}
 
 			window.location.href = this.submission.urlWorkflow;
+		},
+
+		/**
+		 * Load the history and notes modal
+		 */
+		loadInfoCenter: function() {
+
+			var opts = {
+				title: this.submission.title,
+				url: this.infoUrl.replace('__id__', this.submission.id),
+			};
+
+			$('<div id="' + $.pkp.classes.Helper.uuid() + '" ' +
+					'class="pkp_modal pkpModalWrapper" tabindex="-1"></div>')
+				.pkpHandler('$.pkp.controllers.modal.AjaxModalHandler', opts);
 		},
 	},
 }

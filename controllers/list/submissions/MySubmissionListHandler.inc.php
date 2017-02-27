@@ -54,7 +54,7 @@ class MySubmissionListHandler extends ListHandler {
 		$request = Application::getRequest();
 
 		// Url to add a new submission
-		$config['add_url'] = $request->getDispatcher()->url(
+		$config['addUrl'] = $request->getDispatcher()->url(
 			$request,
 			ROUTE_PAGE,
 			null,
@@ -62,10 +62,22 @@ class MySubmissionListHandler extends ListHandler {
 			'wizard'
 		);
 
+		// URl to view info center for a submissions
+		$config['infoUrl'] = $request->getDispatcher()->url(
+			$request,
+			ROUTE_COMPONENT,
+			null,
+			'informationCenter.SubmissionInformationCenterHandler',
+			'viewInformationCenter',
+			null,
+			array('submissionId' => '__id__')
+		);
+
 		$config['i18n']['add'] = __('submission.submit.newSubmissionSingle');
-		$config['i18n']['view'] = __('submission.list.view');
 		$config['i18n']['search'] = __('common.search');
-		$config['i18n']['item_count'] = __('submission.list.count');
+		$config['i18n']['itemCount'] = __('submission.list.count');
+		$config['i18n']['delete'] = __('common.delete');
+		$config['i18n']['infoCenter'] = __('submission.list.infoCenter');
 
 		return $config;
 	}

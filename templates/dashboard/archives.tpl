@@ -11,5 +11,9 @@
 {* Help File *}
 {help file="submissions.md" section="archives" class="pkp_help_tab"}
 
-{url|assign:archivedSubmissionsListGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.submissions.archivedSubmissions.ArchivedSubmissionsListGridHandler" op="fetchGrid" escape=false}
-{load_url_in_div id="archivedSubmissionsListGridContainer" url=$archivedSubmissionsListGridUrl}
+{assign var="uuid" value=""|uniqid|escape}
+<div id="archived-submission-list-handler-{$uuid}">
+    <script type="text/javascript">
+        pkp.registry.init('archived-submission-list-handler-{$uuid}', 'SubmissionsListPanel', {$submissionListData});
+    </script>
+</div>

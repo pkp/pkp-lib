@@ -1242,7 +1242,7 @@ abstract class Submission extends DataObject {
 							$this->getId()
 						);
 					} elseif ($param === 'urlPublished') {
-						$output[$param] == $dispatcher->url(
+						$output[$param] = $dispatcher->url(
 							$request,
 							ROUTE_PAGE,
 							null,

@@ -528,16 +528,25 @@ export default {
 		/**
 		 * Load the history and notes modal
 		 */
-		loadInfoCenter: function() {
+		emitInfoCenter: function(e) {
 
-			var opts = {
-				title: this.submission.title,
-				url: this.infoUrl.replace('__id__', this.submission.id),
-			};
+			if (e instanceof Event) {
+				e.preventDefault();
+			}
 
-			$('<div id="' + $.pkp.classes.Helper.uuid() + '" ' +
-					'class="pkp_modal pkpModalWrapper" tabindex="-1"></div>')
-				.pkpHandler('$.pkp.controllers.modal.AjaxModalHandler', opts);
+			this.$emit('openInfoCenter', this.submission.id, this.submission.title);
+		},
+
+		/**
+		 * Load the delete confirmation modal
+		 */
+		emitDelete: function(e) {
+
+			if (e instanceof Event) {
+				e.preventDefault();
+			}
+
+			this.$emit('deleteSubmission', this.submission.id);
 		},
 	},
 }

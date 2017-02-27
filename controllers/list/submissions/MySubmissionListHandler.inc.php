@@ -38,6 +38,13 @@ class MySubmissionListHandler extends ListHandler {
 			),
 		));
 
+		$this->addRoute('delete', array(
+			'methods' => array('POST'),
+			'roleAccess' => array(
+				ROLE_ID_MANAGER,
+			),
+		));
+
 		return $this->_routes;
 	}
 
@@ -53,7 +60,7 @@ class MySubmissionListHandler extends ListHandler {
 
 		$request = Application::getRequest();
 
-		// Url to add a new submission
+		// URL to add a new submission
 		$config['addUrl'] = $request->getDispatcher()->url(
 			$request,
 			ROUTE_PAGE,
@@ -62,7 +69,7 @@ class MySubmissionListHandler extends ListHandler {
 			'wizard'
 		);
 
-		// URl to view info center for a submissions
+		// URL to view info center for a submission
 		$config['infoUrl'] = $request->getDispatcher()->url(
 			$request,
 			ROUTE_COMPONENT,
@@ -78,6 +85,12 @@ class MySubmissionListHandler extends ListHandler {
 		$config['i18n']['itemCount'] = __('submission.list.count');
 		$config['i18n']['delete'] = __('common.delete');
 		$config['i18n']['infoCenter'] = __('submission.list.infoCenter');
+		$config['i18n']['ok'] = __('common.ok');
+		$config['i18n']['cancel'] = __('common.cancel');
+		$config['i18n']['confirmDelete'] = __('common.confirmDelete');
+
+		// Attach a CSRF token for post requests
+		$config['csrfToken'] = $request->getSession()->getCSRFToken();
 
 		return $config;
 	}
@@ -139,5 +152,34 @@ class MySubmissionListHandler extends ListHandler {
 		}
 
 		return $items;
+	}
+
+	/**
+	 * API Route: delete a submission
+	 *
+	 * @param $args int ID of the submission to delete
+	 * @param $request PKPRequest
+	 * return JSONMessage
+	 */
+	public function delete($args, $request) {
+
+		if (!$request->checkCSRF()) {
+			return new JSONMessage(false);
+		}
+
+		$submissionDao = Application::getSubmissionDAO();
+		$submission = $submissionDao->getById(
+			(int) $request->getUserVar('id')
+		);
+
+		if (!$submission) {
+			return new JSONMessage(false);
+		}
+
+		$submissionDao->deleteById($submission->getId());
+
+		$json = DAO::getDataChangedEvent($submission->getId());
+		$json->setGlobalEvent('submissionDeleted', array('id' => $submission->getId()));
+		return $json;
 	}
 }

@@ -109,6 +109,7 @@
 			modalConfirm = function(dialogElement, event) {
 		event.preventDefault();
 
+		console.log(this.postData_);
 		$.post(this.remoteAction_,
 				this.postData_,
 				this.callbackWrapper(this.remoteResponse), 'json');

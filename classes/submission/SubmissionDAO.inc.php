@@ -680,7 +680,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @param $search string General search parameters
 	 * @return DAOResultFactory
 	 */
-	function getByStatus($status, $userId = null, $contextId = null, $submissionId = null, $title = null, $author = null, $stageId = null, $sectionId, $rangeInfo = null) {
+	function getByStatus($status, $userId = null, $contextId = null, $submissionId = null, $title = null, $author = null, $stageId = null, $sectionId, $rangeInfo = null, $search = null) {
 		$params = array();
 
 		if ($userId) $params = array_merge(
@@ -910,14 +910,12 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				' . $this->getFetchColumns() . '
 			FROM	submissions s
 				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
-				' . $this->getCompletionJoins() . '
-				' . ($title?' LEFT JOIN submission_settings ss ON (s.submission_id = ss.submission_id)':'') . '
-				' . ($author?' LEFT JOIN authors au ON (s.submission_id = au.submission_id)':'') . '
-				' . ($editor?' LEFT JOIN stage_assignments sa ON (s.submission_id = sa.submission_id)
+				' . $this->getCompletionJoins()
+				. ($title||$searchWhere?' LEFT JOIN submission_settings ss ON (s.submission_id = ss.submission_id)':'')
+				. ($author||$searchWhere?' LEFT JOIN authors au ON (s.submission_id = au.submission_id)':'')
+				. ($editor?' LEFT JOIN stage_assignments sa ON (s.submission_id = sa.submission_id)
 						LEFT JOIN user_groups g ON (sa.user_group_id = g.user_group_id)
-						LEFT JOIN users u ON (sa.user_id = u.user_id)':'') . '
-				' . ($title||$searchWhere?' LEFT JOIN submission_settings ss ON (s.submission_id = ss.submission_id)':'') . '
-				' . ($author||$searchWhere?' LEFT JOIN authors au ON (s.submission_id = au.submission_id)':'')
+						LEFT JOIN users u ON (sa.user_id = u.user_id)':'')
 				. $this->getFetchJoins() . '
 			WHERE	(s.date_submitted IS NOT NULL
 				' . ($orphaned?' OR (s.submission_progress <> 0 AND s.submission_id NOT IN (SELECT sa2.submission_id FROM stage_assignments sa2 LEFT JOIN user_groups g2 ON (sa2.user_group_id = g2.user_group_id) WHERE g2.role_id = ' . (int) ROLE_ID_AUTHOR .'))':'') .'

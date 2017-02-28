@@ -1,5 +1,5 @@
 <template>
-	<div class="pkp-vue-list-panel-count">
+	<div class="pkpListPanelCount">
 		{{ __('itemCount', { count: this.count }) }}
 	</div>
 </template>

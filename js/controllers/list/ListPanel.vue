@@ -11,12 +11,14 @@
 <script>
 import ListPanelCount from './ListPanelCount.vue';
 import ListPanelSearch from './ListPanelSearch.vue';
+import ListPanelLoadMore from './ListPanelLoadMore.vue';
 
 export default {
 	name: 'ListPanel',
 	components: {
 		ListPanelCount,
 		ListPanelSearch,
+		ListPanelLoadMore,
 	},
 	data: function() {
 		return {
@@ -31,13 +33,36 @@ export default {
 	},
 	computed: {
 		classLoading: function() {
-			return { loading: this.isLoading };
+			return { '--isLoading': this.isLoading };
 		},
 		itemCount: function() {
 			return this.items.length;
 		},
 	},
 	methods: {
+
+		/**
+		 * Setter for child components.
+		 *
+		 * If child components want to modify state in the parent component,
+		 * they need to emit an event that ListPanel can capture to make the
+		 * modification. This setter acts as a simple API, allowing components
+		 * to pass event data and have that event passed to this method to
+		 * set the data.
+		 *
+		 * @param object data Key/value pairs for data to update:
+		 *  {
+		 *    name: 'value',
+		 *    desc: 'value',
+		 *  }
+		 */
+		set: function(data) {
+			for (var key in data) {
+				if (_.has(this, key)) {
+					this[key] = data[key];
+				}
+			}
+		},
 
 		/**
 		 * Refresh the items in the list. This ListPanel must have a defined
@@ -65,6 +90,7 @@ export default {
 				this.config.routes.get.url,
 				{
 					searchPhrase: this.searchPhrase,
+					range: this.config.range,
 				},
 				function(r) {
 					self.items = JSON.parse(r);
@@ -74,21 +100,36 @@ export default {
 		},
 
 		/**
-		 * Setter for the search phrase
-		 *
-		 * @param object data Key/value pairs for data to update:
-		 *  {
-		 *    name: 'value',
-		 *    desc: 'value',
-		 *  }
+		 * Load more items in the list
 		 */
-		set: function(data) {
-			for (var key in data) {
-				if (_.has(this, key)) {
-					this[key] = data[key];
-				}
+		loadMore: function() {
+			this.isLoading = true;
+
+			if (typeof this.config.routes.get === 'undefined') {
+				console.log('List loadMore requested but no get route specified');
+				return;
 			}
-		}
+
+			this.config.range.page++;
+
+			var self = this;
+			$.get(
+				this.config.routes.get.url,
+				{
+					searchPhrase: this.searchPhrase,
+					range: this.config.range,
+				},
+				function(r) {
+					var existingItemIds = _.pluck(self.items, 'id');
+					_.each(JSON.parse(r), function(item) {
+						if (existingItemIds.indexOf(item.id) < 0) {
+							self.items.push(item);
+						}
+					})
+					self.isLoading = false;
+				}
+			);
+		},
 	},
 	mounted: function() {
 		/**

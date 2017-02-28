@@ -149,9 +149,8 @@ abstract class Submission extends DataObject {
 
 		// Fallback: Get the first available piece of data.
 		$data =& $this->getData($key, null);
-		if (!empty($data)) {
-			$keys = array_keys($data);
-			return $data[array_shift($keys)];
+		foreach ((array) $data as $dataValue) {
+			if (!empty($dataValue)) return $dataValue;
 		}
 
 		// No data available; return null.

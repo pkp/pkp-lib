@@ -39,13 +39,22 @@ class ActiveSubmissionListHandler extends SubmissionListHandler {
 
 		$search = isset($args['searchPhrase']) ? $args['searchPhrase'] : null;
 
+		if (isset($args['range'])) {
+			if (isset($args['range']['count'])) {
+				$this->_range->setCount((int) $args['range']['count']);
+			}
+			if (isset($args['range']['page'])) {
+				$this->_range->setPage((int) $args['range']['page']);
+			}
+		}
+
 		$submissions = $submissionDao->getActiveSubmissions(
 			$context->getId(),
 			null,
 			null,
 			null,
 			null,
-			null,
+			$this->_range,
 			false,
 			$search
 		)->toArray();

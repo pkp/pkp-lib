@@ -51,6 +51,15 @@ class ArchivedSubmissionListHandler extends SubmissionListHandler {
 
 		$search = isset($args['searchPhrase']) ? $args['searchPhrase'] : null;
 
+		if (isset($args['range'])) {
+			if (isset($args['range']['count'])) {
+				$this->_range->setCount((int) $args['range']['count']);
+			}
+			if (isset($args['range']['page'])) {
+				$this->_range->setPage((int) $args['range']['page']);
+			}
+		}
+
 		$submissions = $submissionDao->getByStatus(
 			array(STATUS_DECLINED, STATUS_PUBLISHED),
 			$isManager ? null : $user->getId(),
@@ -58,8 +67,8 @@ class ArchivedSubmissionListHandler extends SubmissionListHandler {
 			null,
 			null,
 			null,
-			null,
-			$search = $search
+			$this->_range,
+			$search
 		)->toArray();
 
 		$items = array();

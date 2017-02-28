@@ -531,9 +531,10 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @param $stageId int? Optional stage ID to limit results
 	 * @param $sectionId int? Optional section ID to limit results
 	 * @param $rangeInfo DBResultRange optional
+	 * @param $search string General search parameters
 	 * @return array Submissions
 	 */
-	function getUnpublishedByUserId($userId, $contextId = null, $title = null, $stageId = null, $sectionId = null, $rangeInfo = null) {
+	function getUnpublishedByUserId($userId, $contextId = null, $title = null, $stageId = null, $sectionId = null, $rangeInfo = null, $search = null) {
 		$params = array_merge(
 			$this->getFetchParameters(),
 			array((int) ROLE_ID_AUTHOR, (int) $userId)
@@ -543,13 +544,35 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		if ($contextId) $params[] = (int) $contextId;
 		if ($sectionId) $params[] = (int) $sectionId;
 
+		$searchWhere = '';
+		if ($search) {
+			$words = explode(" ", trim($search));
+			if (count($words)) {
+				$searchWhere = ' AND (';
+				$searchClauses = array();
+				foreach($words as $word) {
+					$clause = '(';
+					$clause .= '(ss.setting_name = ? AND ss.setting_value LIKE ?)';
+					$params[] = 'title';
+					$params[] = '%' . $word . '%';
+					$clause .= ' OR (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)';
+					$params[] = '%' . $word . '%';
+					$params[] = '%' . $word . '%';
+					$params[] = '%' . $word . '%';
+					$searchClauses[] = $clause . ')';
+				}
+				$searchWhere .= join(' AND ', $searchClauses) . ')';
+			}
+		}
+
 		$result = $this->retrieveRange(
 			'SELECT	s.*, ps.date_published,
 				' . $this->getFetchColumns() . '
 			FROM	submissions s
 				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)' .
 				$this->getCompletionJoins() .
-				($title?' LEFT JOIN submission_settings ss ON (s.submission_id = ss.submission_id)':'') .
+				($title||$searchWhere?' LEFT JOIN submission_settings ss ON (s.submission_id = ss.submission_id)':'') .
+				($searchWhere?' LEFT JOIN authors au ON (s.submission_id = au.submission_id)':'') .
 				$this->getFetchJoins() .
 			'WHERE	s.submission_id IN (SELECT asa.submission_id FROM stage_assignments asa, user_groups aug WHERE asa.user_group_id = aug.user_group_id AND aug.role_id = ? AND asa.user_id = ?)' .
 				' AND ' . $this->getCompletionConditions(false) .
@@ -557,6 +580,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				($stageId?' AND s.stage_id = ?':'') .
 				($contextId?' AND s.context_id = ?':'') .
 				($sectionId?' AND s.section_id = ?':'') .
+				($searchWhere?$searchWhere:'') .
 				' GROUP BY ' . $this->getGroupByColumns() .
 			' ORDER BY s.submission_id',
 			$params, $rangeInfo

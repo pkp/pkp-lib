@@ -234,7 +234,6 @@ class FileManager {
 	function downloadFile($filePath, $mediaType = null, $inline = false, $fileName = null) {
 		$result = null;
 		if (HookRegistry::call('FileManager::downloadFile', array(&$filePath, &$mediaType, &$inline, &$result, &$fileName))) return $result;
-		$postDownloadHookList = array('FileManager::downloadFileFinished', 'UsageEventPlugin::getUsageEvent');
 		if (is_readable($filePath)) {
 			if ($mediaType === null) {
 				// If the media type wasn't specified, try to detect.
@@ -246,37 +245,18 @@ class FileManager {
 				$fileName = basename($filePath);
 			}
 
-			// Free some memory
-			$postDownloadHooks = null;
-			$hooks = HookRegistry::getHooks();
-			foreach ($postDownloadHookList as $hookName) {
-				if (isset($hooks[$hookName])) {
-					$postDownloadHooks[$hookName] = $hooks[$hookName];
-				}
-			}
-			unset($hooks);
-			Registry::clear();
-
 			// Stream the file to the end user.
 			header("Content-Type: $mediaType");
 			header('Content-Length: ' . filesize($filePath));
 			header('Content-Disposition: ' . ($inline ? 'inline' : 'attachment') . "; filename=\"$fileName\"");
 			header('Cache-Control: private'); // Workarounds for IE weirdness
 			header('Pragma: public');
-
 			$this->readFileFromPath($filePath, true);
-
-			if ($postDownloadHooks) {
-				foreach ($postDownloadHooks as $hookName => $hooks) {
-					HookRegistry::setHooks($hookName, $hooks);
-				}
-			}
 			$returner = true;
 		} else {
 			$returner = false;
 		}
 		HookRegistry::call('FileManager::downloadFileFinished', array(&$returner));
-
 		return $returner;
 	}
 

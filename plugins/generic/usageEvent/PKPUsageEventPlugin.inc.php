@@ -111,8 +111,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 	 */
 	function getUsageEvent($hookName, $args) {
 		// Check if we have a registration to receive the usage event.
-		$hooks = HookRegistry::getHooks();
-		if (array_key_exists('UsageEventPlugin::getUsageEvent', $hooks)) {
+		if (HookRegistry::getHooks('UsageEventPlugin::getUsageEvent')) {
 
 			$usageEvent = $this->buildUsageEvent($hookName, $args);
 			HookRegistry::call('UsageEventPlugin::getUsageEvent', array_merge(array($hookName, $usageEvent), $args));

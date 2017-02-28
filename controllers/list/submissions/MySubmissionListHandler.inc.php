@@ -103,9 +103,10 @@ class MySubmissionListHandler extends SubmissionListHandler {
 		$authored = $submissionDao->getUnpublishedByUserId(
 			$user->getId(),
 			$context->getId(),
-			$search,
 			null,
-			null
+			null,
+			null,
+			$search
 		)->toArray();
 
 		$submissions = array_merge($unassigned, $authored, $assigned);

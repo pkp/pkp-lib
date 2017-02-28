@@ -89,18 +89,20 @@ class SubmissionFileDAODelegate extends DAO {
 			$submissionFile->setFileId($this->_getInsertId('submission_files', 'file_id'));
 		}
 
+		$submissionLocale = $submissionFile->getSubmissionLocale();
+
 		$reviewStage = in_array($submissionFile->getFileStage(), array(
 				SUBMISSION_FILE_REVIEW_FILE, SUBMISSION_FILE_REVIEW_ATTACHMENT, SUBMISSION_FILE_REVIEW_REVISION
 		));
-		if (!$submissionFile->getName(AppLocale::getPrimaryLocale())) {
+		if (!$submissionFile->getName($submissionLocale)) {
 			if ($reviewStage) {
-				$submissionFile->setName($submissionFile->_generateName(true), AppLocale::getPrimaryLocale());
+				$submissionFile->setName($submissionFile->_generateName(true), $submissionLocale);
 			} else {
-				$submissionFile->setName($submissionFile->_generateName(), AppLocale::getPrimaryLocale());
+				$submissionFile->setName($submissionFile->_generateName(), $submissionLocale);
 			}
 		} else {
-			if ($reviewStage &&	$submissionFile->getName(AppLocale::getPrimaryLocale()) == $submissionFile->_generateName()) {
-				$submissionFile->setName($submissionFile->_generateName(true), AppLocale::getPrimaryLocale());
+			if ($reviewStage &&	$submissionFile->getName($submissionLocale) == $submissionFile->_generateName()) {
+				$submissionFile->setName($submissionFile->_generateName(true), $submissionLocale);
 			}
 		}
 
@@ -262,6 +264,7 @@ class SubmissionFileDAODelegate extends DAO {
 	function fromRow($row) {
 		$submissionFile = $this->newDataObject();
 		$submissionFile->setFileId((int)$row['submission_file_id']);
+		$submissionFile->setSubmissionLocale($row['submission_locale']);
 		$submissionFile->setRevision((int)$row['submission_revision']);
 		$submissionFile->setAssocType(is_null($row['assoc_type']) ? null : (int)$row['assoc_type']);
 		$submissionFile->setAssocId(is_null($row['assoc_id']) ? null : (int)$row['assoc_id']);

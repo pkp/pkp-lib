@@ -55,6 +55,8 @@ class PKPSubmissionMetadataViewForm extends Form {
 
 		$this->_metadataFormImplem = new SubmissionMetadataFormImplementation($this);
 
+		$this->setDefaultFormLocale($submission->getLocale());
+
 		// Validation checks for this form
 		$this->_metadataFormImplem->addChecks($submission);
 		$this->addCheck(new FormValidatorPost($this));

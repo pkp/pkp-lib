@@ -69,6 +69,16 @@ class DBResultRange {
 	function setCount($count) {
 		$this->count = $count;
 	}
+
+	/**
+	 * Convert the data set to an array for output
+	 */
+	public function toArray() {
+		return array(
+			'count' => $this->getCount(),
+			'page' => $this->getPage(),
+		);
+	}
 }
 
 ?>

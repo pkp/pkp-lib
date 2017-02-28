@@ -23,7 +23,7 @@
 				:i18n="i18n"
 			/>
 		</ul>
-		<div class="pkpListPanelFooter">
+		<div class="pkpListPanel__footer">
 			<list-panel-load-more
 				@loadMore="loadMore"
 				:isLoading="isLoading"

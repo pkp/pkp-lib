@@ -23,7 +23,17 @@
 				:i18n="i18n"
 			/>
 		</ul>
-		<list-panel-count v-bind:count="itemCount" v-bind:i18n="i18n"></list-panel-count>
+		<div class="pkpListPanelFooter">
+			<list-panel-load-more
+				@loadMore="loadMore"
+				:isLoading="isLoading"
+				:i18n="i18n"
+			/>
+			<list-panel-count
+				v-bind:count="itemCount"
+				v-bind:i18n="i18n"
+			/>
+		</div>
 	</div>
 </template>
 

@@ -14,14 +14,38 @@
  *  submissions (eg - active, archived, assigned to me).
  */
 import('lib.pkp.controllers.list.ListHandler');
+import('lib.pkp.classes.db.DBResultRange');
 
 abstract class SubmissionListHandler extends ListHandler {
 	/**
 	 * Component path
 	 *
-	 * Used to generate component URLs
+	 * Used to generate component URLs.
+	 *
+	 * @param string
 	 */
 	public $_componentPath = 'list.submissions.SubmissionListHandler';
+
+	/**
+	 * Pagination object for the list
+	 *
+	 * @param DBResultRange
+	 */
+	public $_range = null;
+
+	/**
+	 * Initialize the handler with config parameters
+	 *
+	 * @param array $args Configuration params
+	 */
+	public function init( $args = array() ) {
+		parent::init($args);
+
+		$count = isset($args['count']) ? (int) $args['count'] : 20;
+		$page = isset($args['page']) ? (int) $args['page'] : 1;
+
+		$this->_range = new DBResultRange($count, $page);
+	}
 
 	/**
 	 * Define the routes this component supports
@@ -48,13 +72,13 @@ abstract class SubmissionListHandler extends ListHandler {
 		return $this->_routes;
 	}
 
-    /**
-     * Retrieve the configuration data to be used when initializing this
-     * handler on the frontend
-     *
-     * return array Configuration data
-     */
-    public function getConfig() {
+	/**
+	 * Retrieve the configuration data to be used when initializing this
+	 * handler on the frontend
+	 *
+	 * return array Configuration data
+	 */
+	public function getConfig() {
 
 		$config = parent::getConfig();
 
@@ -80,9 +104,17 @@ abstract class SubmissionListHandler extends ListHandler {
 			array('submissionId' => '__id__')
 		);
 
+		// Initialize the DBResultRange
+		$config['config']['range'] = $this->_range->toArray();
+
+		// Load grid localisation files
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID);
+
 		$config['i18n']['add'] = __('submission.submit.newSubmissionSingle');
 		$config['i18n']['search'] = __('common.search');
 		$config['i18n']['itemCount'] = __('submission.list.count');
+		$config['i18n']['loadMore'] = __('grid.action.moreItems');
+		$config['i18n']['loading'] = __('common.loading');
 		$config['i18n']['delete'] = __('common.delete');
 		$config['i18n']['infoCenter'] = __('submission.list.infoCenter');
 		$config['i18n']['ok'] = __('common.ok');
@@ -93,7 +125,7 @@ abstract class SubmissionListHandler extends ListHandler {
 		$config['csrfToken'] = $request->getSession()->getCSRFToken();
 
 		return $config;
-    }
+	}
 
 	/**
 	 * API Route: Get all submissions assigned to author

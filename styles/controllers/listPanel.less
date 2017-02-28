@@ -164,6 +164,70 @@
 	line-height: 1.5em;
 }
 
+.pkpListPanel__footer {
+	.pkp_helpers_clear();
+	position: relative;
+	padding: @half @base;
+	font-size: @font-tiny;
+	line-height: @line-base;
+	border-top: @grid-border;
+}
+
+.pkpListPanelLoadMore {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	text-align: center;
+}
+
+.pkpListPanelLoadMore__button,
+.pkpListPanelLoadMore__notice {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: @half @base;
+	transition: opacity 0.3s;
+}
+
+.pkpListPanelLoadMore__button {
+	font-weight: @bold;
+	text-decoration: none;
+	opacity: 1;
+
+	.fa {
+		margin-right: 0.25em;
+	}
+}
+
+.pkpListPanelLoadMore__notice {
+	display: none;
+	opacity: 0;
+
+	.pkp_spinner {
+		margin-right: 0.25em;
+	}
+}
+
+.pkpListPanelCount {
+	float: right;
+}
+
+.pkpListPanelLoadMore.--isLoadingMore {
+
+	.pkpListPanelLoadMore__button {
+		opacity: 0;
+	}
+
+	.pkpListPanelLoadMore__notice {
+		display: block;
+		opacity: 1;
+	}
+}
+
 // Submissions list item
 .pkpSubmissionsListItem {
 	.pkp_helpers_clear();

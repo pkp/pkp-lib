@@ -90,7 +90,7 @@ class MySubmissionListHandler extends SubmissionListHandler {
 		$unassigned = array();
 		if ($isManager) {
 			$unassigned = $submissionDao->getBySubEditorId(
-				$request->getContext()->getId(),
+				$context->getId(),
 				null,
 				false, // do not include STATUS_DECLINED submissions
 				false,  // include only unpublished submissions
@@ -100,7 +100,15 @@ class MySubmissionListHandler extends SubmissionListHandler {
 			)->toArray();
 		}
 
-		$submissions = array_merge($unassigned, $assigned);
+		$authored = $submissionDao->getUnpublishedByUserId(
+			$user->getId(),
+			$context->getId(),
+			$search,
+			null,
+			null
+		)->toArray();
+
+		$submissions = array_merge($unassigned, $authored, $assigned);
 
 		$items = array();
 		foreach($submissions as $submission) {

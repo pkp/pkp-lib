@@ -639,8 +639,18 @@ class PKPTemplateManager extends Smarty {
 		$output = '$.pkp = $.pkp || {};';
 
 		// Load data intended for general use by the app
+		import('lib.pkp.classes.security.Role');
 		$app_data = array(
 			'baseUrl' => $this->_request->getBaseUrl(),
+			'accessRoles' => array(
+				'manager' => ROLE_ID_MANAGER,
+				'siteAdmin' => ROLE_ID_SITE_ADMIN,
+				'author' => ROLE_ID_AUTHOR,
+				'reviewer' => ROLE_ID_REVIEWER,
+				'assistant' => ROLE_ID_ASSISTANT,
+				'reader' => ROLE_ID_READER,
+				'subeditor' => ROLE_ID_SECTION_EDITOR,
+			),
 		);
 		$output .= '$.pkp.app = ' . json_encode($app_data) . ';';
 
@@ -674,6 +684,17 @@ class PKPTemplateManager extends Smarty {
 				$output .= $namespace . ' = ' . json_encode($data) . ';';
 			}
 		}
+
+		// Load current user data
+		import('classes.security.RoleDAO');
+		import('lib.pkp.classes.security.UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroups = $userGroupDao->getByUserId($this->_request->getUser()->getId())->toArray();
+		$currentUserAccessRoles = array();
+		foreach ($userGroups as $userGroup) {
+			$currentUserAccessRoles[] = (int) $userGroup->getRoleId();
+		}
+		$output .= '$.pkp.currentUser = ' . json_encode(array('accessRoles' => $currentUserAccessRoles));
 
 		$this->addJavaScript(
 			'pkpLibData',

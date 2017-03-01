@@ -696,7 +696,11 @@ class PKPTemplateManager extends Smarty {
 			foreach ($userGroups as $userGroup) {
 				$currentUserAccessRoles[] = (int) $userGroup->getRoleId();
 			}
-			$output .= '$.pkp.currentUser = ' . json_encode(array('accessRoles' => $currentUserAccessRoles));
+			$userOutput = array(
+				'id' => (int) $user->getId(),
+				'accessRoles' => $currentUserAccessRoles,
+			);
+			$output .= '$.pkp.currentUser = ' . json_encode($userOutput);
 		}
 
 		$this->addJavaScript(

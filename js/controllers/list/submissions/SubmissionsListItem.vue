@@ -63,14 +63,7 @@ export default {
 		 * @return bool
 		 */
 		currentUserCanViewInfoCenter: function() {
-
-			var infoCenterRoles = [
-				$.pkp.app.accessRoles.manager,
-				$.pkp.app.accessRoles.subeditor,
-				$.pkp.app.accessRoles.assistant,
-			];
-
-			return _.intersection(infoCenterRoles, $.pkp.currentUser.accessRoles).length;
+			return pkp.userHasRole(['manager', 'subeditor', 'assistant']);
 		},
 
 		/**
@@ -95,26 +88,57 @@ export default {
 		notice: function() {
 			var notice = '';
 
-			// Submission
-			if (this.submission.stage.id === 1) {
-				switch (this.submission.stage.statusId) {
-					case 1: // @todo g
-						notice = this.submission.stage.status;
-						break;
+			// Notices for journal managers
+			if (pkp.userHasRole('manager')) {
+				if (this.submission.stage.id === 1) {
+					switch (this.submission.stage.statusId) {
+						case 1: // @todo this should be a global
+							notice = this.submission.stage.status;
+							break;
+					}
 				}
+			}
 
-			// Review
-			// @todo account for multiple review stages in OMP
-			} else if (this.isReviewStage) {
+			// Notices for journal managers and subeditors
+			if (pkp.userHasRole(['manager', 'subeditor'])) {
+				if (this.isReviewStage) {
+					switch (this.submission.stage.statusId) {
+						case 6: // REVIEW_ROUND_STATUS_PENDING_REVIEWERS
+						case 8: // REVIEW_ROUND_STATUS_REVIEWS_READY
+						case 9: // REVIEW_ROUND_STATUS_REVIEWS_COMPLETED
+						case 10: // REVIEW_ROUND_STATUS_REVIEWS_OVERDUE
+						case 11: // REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED
+							notice = this.submission.stage.status;
+							break;
+					}
+				}
+			}
 
-				switch (this.submission.stage.statusId) {
-					case 6: // REVIEW_ROUND_STATUS_PENDING_REVIEWERS
-					case 8: // REVIEW_ROUND_STATUS_REVIEWS_READY
-					case 9: // REVIEW_ROUND_STATUS_REVIEWS_COMPLETED
-					case 10: // REVIEW_ROUND_STATUS_REVIEWS_OVERDUE
-					case 11: // REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED
-						notice = this.submission.stage.status;
-						break;
+			// Notices for authors
+			if (pkp.userHasRole(['author'])) {
+				if (this.isReviewStage) {
+					switch (this.submission.stage.statusId) {
+						case 1: // REVIEW_ROUND_STATUS_REVISIONS_REQUESTED
+							notice = this.submission.stage.status;
+							break;
+					}
+				}
+			}
+
+			// Notices for reviewers
+			if (pkp.userHasRole(['reviewer'])) {
+				if (this.isReviewStage) {
+					_.each(this.submission.stage.reviews, function(review) {
+						if (review.reviewerId === $.pkp.currentUser.id) {
+							switch (review.statusId) {
+								case 0: // REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE
+								case 4: // REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE
+								case 6: // REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE
+									notice = review.status;
+									break;
+							}
+						}
+					});
 				}
 			}
 

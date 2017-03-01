@@ -175,14 +175,7 @@ export default {
 		 * @return bool
 		 */
 		currentUserCanViewInfoCenter: function() {
-
-			var infoCenterRoles = [
-				$.pkp.app.accessRoles.manager,
-				$.pkp.app.accessRoles.subeditor,
-				$.pkp.app.accessRoles.assistant,
-			];
-
-			return _.intersection(infoCenterRoles, $.pkp.currentUser.accessRoles).length;
+			return pkp.userHasRole(['manager', 'subeditor', 'assistant']);
 		},
 
 		/**

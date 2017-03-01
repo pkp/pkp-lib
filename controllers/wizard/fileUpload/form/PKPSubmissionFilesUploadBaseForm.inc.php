@@ -73,6 +73,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 		$this->setData('submissionId', (int)$submissionId);
 		$this->setData('revisionOnly', (boolean)$revisionOnly);
 		$this->setData('revisedFileId', $revisedFileId ? (int)$revisedFileId : null);
+		$this->setData('reviewRoundId', $reviewRound?$reviewRound->getId():null);
 		$this->setData('assocType', $assocType ? (int)$assocType : null);
 		$this->setData('assocId', $assocId ? (int)$assocId : null);
 

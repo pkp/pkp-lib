@@ -1087,36 +1087,36 @@ abstract class Submission extends DataObject {
 				if ($reviewRound) {
 					$stage['statusId'] = $reviewRound->getStatus();
 					$stage['status'] = __($reviewRound->getStatusKey());
-				}
-
-				// Revision files in this round.
-				import('classes.article.SubmissionFileDAO');
-				import('lib.pkp.classes.submission.SubmissionFile'); // Import constants
-				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
-				$submissionFiles = $submissionFileDao->getRevisionsByReviewRound($reviewRound, SUBMISSION_FILE_REVIEW_REVISION);
-				$stage['files'] = array(
-					'count' => count($submissionFiles),
-				);
-
-				// Review assignments
-				import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignmentDAO');
-				$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
-				$reviewAssignments = $reviewAssignmentDao->getByReviewRoundId($reviewRound->getId());
-
-				$stage['reviews'] = array();
-				foreach($reviewAssignments as $reviewAssignment) {
-					// @todo for now, only show reviews that haven't been
-					// declined or cancelled
-					if ($reviewAssignment->getDeclined() || $reviewAssignment->getCancelled()) {
-						continue;
-					}
-					$stage['reviews'][] = array(
-						'id' => $reviewAssignment->getId(),
-						'statusId' => $reviewAssignment->getStatus(),
-						'status' => __($reviewAssignment->getStatusKey()),
-						'due' => $reviewAssignment->getDateDue(),
-						'responseDue' => $reviewAssignment->getDateResponseDue(),
+					
+					// Revision files in this round.
+					import('classes.article.SubmissionFileDAO');
+					import('lib.pkp.classes.submission.SubmissionFile'); // Import constants
+					$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+					$submissionFiles = $submissionFileDao->getRevisionsByReviewRound($reviewRound, SUBMISSION_FILE_REVIEW_REVISION);
+					$stage['files'] = array(
+						'count' => count($submissionFiles),
 					);
+
+					// Review assignments
+					import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignmentDAO');
+					$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+					$reviewAssignments = $reviewAssignmentDao->getByReviewRoundId($reviewRound->getId());
+
+					$stage['reviews'] = array();
+					foreach($reviewAssignments as $reviewAssignment) {
+						// @todo for now, only show reviews that haven't been
+						// declined or cancelled
+						if ($reviewAssignment->getDeclined() || $reviewAssignment->getCancelled()) {
+							continue;
+						}
+						$stage['reviews'][] = array(
+							'id' => $reviewAssignment->getId(),
+							'statusId' => $reviewAssignment->getStatus(),
+							'status' => __($reviewAssignment->getStatusKey()),
+							'due' => $reviewAssignment->getDateDue(),
+							'responseDue' => $reviewAssignment->getDateResponseDue(),
+						);
+					}
 				}
 				break;
 

@@ -460,7 +460,12 @@ class ReviewAssignmentDAO extends DAO {
 			$reviewAssignment->getRound()
 		);
 
-		return $reviewRoundDao->updateStatus($reviewRound);
+		// Review round may not exist if submission is being deleted
+		if ($reviewRound) {
+			return $reviewRoundDao->updateStatus($reviewRound);
+		}
+
+		return false;
 	}
 
 	/**

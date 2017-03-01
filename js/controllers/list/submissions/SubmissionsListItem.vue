@@ -170,6 +170,31 @@ export default {
 		},
 
 		/**
+		 * Can the current user view the info center?
+		 *
+		 * @return bool
+		 */
+		currentUserCanViewInfoCenter: function() {
+
+			var infoCenterRoles = [
+				$.pkp.app.accessRoles.manager,
+				$.pkp.app.accessRoles.subeditor,
+				$.pkp.app.accessRoles.assistant,
+			];
+
+			return _.intersection(infoCenterRoles, $.pkp.currentUser.accessRoles).length;
+		},
+
+		/**
+		 * Are there any actions available for this submission?
+		 *
+		 * @return bool
+		 */
+		hasActions: function() {
+			return this.currentUserCanDelete || this.currentUserCanViewInfoCenter;
+		},
+
+		/**
 		 * Compile a notice depending on the stage status
 		 *
 		 * Only stage status' that have pending work for the current user should

@@ -60,7 +60,7 @@ class ArchivedSubmissionListHandler extends SubmissionListHandler {
 			}
 		}
 
-		$submissions = $submissionDao->getByStatus(
+		$submissionResults = $submissionDao->getByStatus(
 			array(STATUS_DECLINED, STATUS_PUBLISHED),
 			$isManager ? null : $user->getId(),
 			$context->getId(),
@@ -69,13 +69,18 @@ class ArchivedSubmissionListHandler extends SubmissionListHandler {
 			null,
 			$this->_range,
 			$search
-		)->toArray();
+		);
+
+		$submissions = $submissionResults->toArray();
 
 		$items = array();
 		foreach($submissions as $submission) {
 			$items[] = $submission->toArray();
 		}
 
-		return $items;
+		return array(
+			'items' => $items,
+			'maxItems' => (int) $submissionResults->getCount(),
+		);
 	}
 }

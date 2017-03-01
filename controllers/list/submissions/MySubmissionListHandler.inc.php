@@ -116,6 +116,9 @@ class MySubmissionListHandler extends SubmissionListHandler {
 			$items[] = $submission->toArray();
 		}
 
-		return $items;
+		return array(
+			'items' => $items,
+			'maxItems' => null,
+		);
 	}
 }

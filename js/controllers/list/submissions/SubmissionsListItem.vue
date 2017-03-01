@@ -1,5 +1,5 @@
 <template>
-	<li class="pkpListPanelItem pkpSubmissionsListItem assigned">
+	<li class="pkpListPanelItem pkpSubmissionsListItem">
 		<a :href="submission.urlWorkflow">
 			<div class="pkpSubmissionsListItem__item">
 				<div class="pkpSubmissionsListItem__item__title">

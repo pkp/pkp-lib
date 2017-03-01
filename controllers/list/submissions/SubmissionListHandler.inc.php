@@ -113,6 +113,7 @@ abstract class SubmissionListHandler extends ListHandler {
 		$config['i18n']['add'] = __('submission.submit.newSubmissionSingle');
 		$config['i18n']['search'] = __('common.search');
 		$config['i18n']['itemCount'] = __('submission.list.count');
+		$config['i18n']['itemsOfTotal'] = __('submission.list.itemsOfTotal');
 		$config['i18n']['loadMore'] = __('grid.action.moreItems');
 		$config['i18n']['loading'] = __('common.loading');
 		$config['i18n']['delete'] = __('common.delete');

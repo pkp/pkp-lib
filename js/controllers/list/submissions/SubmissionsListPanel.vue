@@ -16,7 +16,7 @@
 		</div>
 		<ul class="pkpListPanel__items">
 			<submissions-list-item
-				v-for="item in items"
+				v-for="item in collection.items"
 				@deleteSubmission="deleteSubmission"
 				@openInfoCenter="openInfoCenter"
 				:submission="item"
@@ -25,12 +25,14 @@
 		</ul>
 		<div class="pkpListPanel__footer">
 			<list-panel-load-more
+				v-if="canLoadMore"
 				@loadMore="loadMore"
 				:isLoading="isLoading"
 				:i18n="i18n"
 			/>
 			<list-panel-count
 				v-bind:count="itemCount"
+				v-bind:total="this.collection.maxItems"
 				v-bind:i18n="i18n"
 			/>
 		</div>

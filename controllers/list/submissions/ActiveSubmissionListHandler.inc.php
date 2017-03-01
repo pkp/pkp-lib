@@ -48,7 +48,7 @@ class ActiveSubmissionListHandler extends SubmissionListHandler {
 			}
 		}
 
-		$submissions = $submissionDao->getActiveSubmissions(
+		$submissionResults = $submissionDao->getActiveSubmissions(
 			$context->getId(),
 			null,
 			null,
@@ -57,13 +57,18 @@ class ActiveSubmissionListHandler extends SubmissionListHandler {
 			$this->_range,
 			false,
 			$search
-		)->toArray();
+		);
+
+		$submissions = $submissionResults->toArray();
 
 		$items = array();
 		foreach($submissions as $submission) {
 			$items[] = $submission->toArray();
 		}
 
-		return $items;
+		return array(
+			'items' => $items,
+			'maxItems' => (int) $submissionResults->getCount(),
+		);
 	}
 }

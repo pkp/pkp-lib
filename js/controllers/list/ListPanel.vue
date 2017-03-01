@@ -153,6 +153,13 @@ export default {
 					}
 
 					self[statusIndicator] = false;
+
+					if (typeof r === 'undefined') {
+						console.log('No response received from refresh request in ListPanel');
+						return false;
+					}
+
+					self.collection = JSON.parse(r);
 				}
 			});
 		},

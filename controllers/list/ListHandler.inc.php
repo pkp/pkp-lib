@@ -172,7 +172,7 @@ abstract class ListHandler extends PKPHandler {
 
         return array(
             'id' => $this->getId(),
-            'items' => $this->getItems(),
+            'collection' => $this->getItems(),
             'searchPhrase' => '',
             'isLoading' => false,
             'isSearching' => false,
@@ -186,11 +186,11 @@ abstract class ListHandler extends PKPHandler {
     }
 
     /**
-     * Helper function to retrieve all items assigned to the author
+     * Retrieve items
      *
      * Sub-classes should use this to pre-populate the list with data.
      *
-     * @param array $args None supported at this time
+     * @param array $args Optional
      * @return array Items requested
      */
     public function getItems($args = array()) {

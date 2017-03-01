@@ -157,7 +157,7 @@
 }
 
 .pkpListPanel__items {
-	margin-top: 0;
+	margin: 0;
 	padding: 0;
 	list-style: none;
 	font-size: @font-sml;
@@ -201,6 +201,28 @@
 	.fa {
 		margin-right: 0.25em;
 	}
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: 1em;
+		height: 2px;
+		background: @primary;
+		opacity: 0;
+		transform: translateX(-50%);
+		transition: width 0.3s;
+	}
+
+	&:hover,
+	&:focus {
+
+		&:before {
+			opacity: 1;
+			width: 10em;
+		}
+	}
 }
 
 .pkpListPanelLoadMore__notice {
@@ -231,17 +253,34 @@
 // Submissions list item
 .pkpSubmissionsListItem {
 	.pkp_helpers_clear();
-	margin-left: -0.25em;
+	position: relative;
 	border-bottom: @grid-border;
-	border-left: 0.25em solid transparent;
 	transition: all 0.3s;
 
 	&:last-child {
 		border-bottom: none;
 	}
 
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 50%;
+		right: 100%;
+		width: 0.25em;
+		height: 25%;
+		background: @primary;
+		opacity: 0;
+		transition: height 0.3s;
+		transform: translateY(-50%);
+	}
+
 	&:hover {
-		border-left-color: @primary;
+
+		&:before {
+			height: 100%;
+			opacity: 1;
+		}
 
 		.pkpSubmissionsListItem__actions {
 			opacity: 1;

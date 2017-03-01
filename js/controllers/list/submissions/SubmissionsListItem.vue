@@ -31,11 +31,11 @@
 					</span>
 				</div>
 			</div>
-			<div class="pkpSubmissionsListItem__actions">
+			<div v-if="hasActions" class="pkpSubmissionsListItem__actions">
 				<a v-if="currentUserCanDelete" href="#" class="delete" @click="emitDelete">
 					{{ i18n.delete }}
 				</a>
-				<a href="#" @click="emitInfoCenter">
+				<a v-if="currentUserCanViewInfoCenter" href="#" @click="emitInfoCenter">
 					{{ i18n.infoCenter }}
 				</a>
 			</div>
@@ -55,6 +55,31 @@ export default {
 		 */
 		currentUserCanDelete: function() {
 			return _.intersection(this.config.routes.delete.roleAccess, $.pkp.currentUser.accessRoles).length;
+		},
+
+		/**
+		 * Can the current user view the info center?
+		 *
+		 * @return bool
+		 */
+		currentUserCanViewInfoCenter: function() {
+
+			var infoCenterRoles = [
+				$.pkp.app.accessRoles.manager,
+				$.pkp.app.accessRoles.subeditor,
+				$.pkp.app.accessRoles.assistant,
+			];
+
+			return _.intersection(infoCenterRoles, $.pkp.currentUser.accessRoles).length;
+		},
+
+		/**
+		 * Are there any actions available for this submission?
+		 *
+		 * @return bool
+		 */
+		hasActions: function() {
+			return this.currentUserCanDelete || this.currentUserCanViewInfoCenter;
 		},
 
 		/**

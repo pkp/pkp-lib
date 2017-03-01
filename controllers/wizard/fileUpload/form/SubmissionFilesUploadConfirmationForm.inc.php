@@ -23,11 +23,14 @@ class SubmissionFilesUploadConfirmationForm extends SubmissionFilesUploadBaseFor
 	 * @param $submissionId integer
 	 * @param $stageId integer One of the WORKFLOW_STAGE_ID_* constants.
 	 * @param $fileStage integer
+	 * @param $reviewRound object
 	 * @param $revisedFileId integer
+	 * @param $assocType int optional
+	 * @param $assocId int optional
 	 * @param $uploadedFile integer
 	 */
 	function __construct($request, $submissionId, $stageId, $fileStage,
-			&$reviewRound, $revisedFileId = null, $assocType = null, $assocId = null, $uploadedFile = null) {
+			$reviewRound, $revisedFileId = null, $assocType = null, $assocId = null, $uploadedFile = null) {
 
 		// Initialize class.
 		parent::__construct(

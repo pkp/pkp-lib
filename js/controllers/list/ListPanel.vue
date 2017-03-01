@@ -23,7 +23,10 @@ export default {
 	data: function() {
 		return {
 			id: '',
-			items: [],
+			collection: {
+				items: [],
+				maxItems: null,
+			},
 			searchPhrase: '',
 			isLoading: false,
 			isSearching: false,
@@ -36,7 +39,10 @@ export default {
 			return { '--isLoading': this.isLoading };
 		},
 		itemCount: function() {
-			return this.items.length;
+			return this.collection.items.length;
+		},
+		canLoadMore: function() {
+			return typeof this.collection.maxItems !== 'undefined' && this.collection.maxItems > this.itemCount;
 		},
 	},
 	methods: {
@@ -93,8 +99,15 @@ export default {
 					range: this.config.range,
 				},
 				function(r) {
-					self.items = JSON.parse(r);
+
 					self[statusIndicator] = false;
+
+					if (typeof r === 'undefined') {
+						console.log('No response received from refresh request in ListPanel');
+						return false;
+					}
+
+					self.collection = JSON.parse(r);
 				}
 			);
 		},
@@ -120,13 +133,23 @@ export default {
 					range: this.config.range,
 				},
 				function(r) {
-					var existingItemIds = _.pluck(self.items, 'id');
-					_.each(JSON.parse(r), function(item) {
+
+					self.isLoading = false;
+
+					if (typeof r === 'undefined') {
+						console.log('No response received from laodMore request in ListPanel');
+						return false;
+					}
+
+					var result = JSON.parse(r),
+						existingItemIds = _.pluck(self.items, 'id');
+
+					_.each(result.items, function(item) {
 						if (existingItemIds.indexOf(item.id) < 0) {
-							self.items.push(item);
+							self.collection.items.push(item);
 						}
 					})
-					self.isLoading = false;
+					self.collection.maxItems = result.maxItems;
 				}
 			);
 		},

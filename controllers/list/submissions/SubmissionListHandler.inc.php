@@ -73,6 +73,20 @@ abstract class SubmissionListHandler extends ListHandler {
 	}
 
 	/**
+	 * Add a submission access policy, which prevents authors and assistants
+	 * from accessing routes for submissions they're not assigned to.
+	 *
+	 * @see PKPHandler::authorize
+	 */
+	public function authorize($request, &$args, $roleAssignments) {
+		import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
+		// id: query param where the request's submission id can be found
+		$this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments, 'id'));
+		return parent::authorize($request, $args, $roleAssignments);
+	}
+
+
+	/**
 	 * Retrieve the configuration data to be used when initializing this
 	 * handler on the frontend
 	 *

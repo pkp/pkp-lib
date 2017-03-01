@@ -20,6 +20,7 @@
 				@deleteSubmission="deleteSubmission"
 				@openInfoCenter="openInfoCenter"
 				:submission="item"
+				:config="config"
 				:i18n="i18n"
 			/>
 		</ul>

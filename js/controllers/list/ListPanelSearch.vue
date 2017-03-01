@@ -1,11 +1,11 @@
 <template>
-	<div class="pkpListPanel__search" v-bind:class="classSearching">
+	<div class="pkpListPanel__search" :class="classSearching">
 		<div class="pkpListPanel__searchInput">
 			<label>
 				<span class="pkpListPanel__searchInputLabel">{{ i18n.search }}</span>
 				<input type="search"
 					@keyup="searchPhraseChanged"
-					v-bind:value="searchPhrase"
+					:value="searchPhrase"
 					:placeholder="i18n.search"
 				>
 				<span class="pkpListPanel__searchInputIcons">

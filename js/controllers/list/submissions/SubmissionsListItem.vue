@@ -32,7 +32,7 @@
 				</div>
 			</div>
 			<div class="pkpSubmissionsListItem__actions">
-				<a href="#" class="delete" @click="emitDelete">
+				<a v-if="currentUserCanDelete" href="#" class="delete" @click="emitDelete">
 					{{ i18n.delete }}
 				</a>
 				<a href="#" @click="emitInfoCenter">
@@ -46,8 +46,17 @@
 <script>
 export default {
 	name: 'SubmissionsListItem',
-	props: ['submission', 'i18n'],
+	props: ['submission', 'config', 'i18n'],
 	computed: {
+		/**
+		 * Can the current user delete a submission?
+		 *
+		 * @return bool
+		 */
+		currentUserCanDelete: function() {
+			return _.intersection(this.config.routes.delete.roleAccess, $.pkp.currentUser.accessRoles).length;
+		},
+
 		/**
 		 * Compile a notice depending on the stage status
 		 *

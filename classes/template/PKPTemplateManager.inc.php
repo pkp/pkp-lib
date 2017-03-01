@@ -694,15 +694,18 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		// Load current user data
-		import('classes.security.RoleDAO');
-		import('lib.pkp.classes.security.UserGroupDAO');
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$userGroups = $userGroupDao->getByUserId($this->_request->getUser()->getId())->toArray();
-		$currentUserAccessRoles = array();
-		foreach ($userGroups as $userGroup) {
-			$currentUserAccessRoles[] = (int) $userGroup->getRoleId();
+		$user = $this->_request->getUser();
+		if ($user) {
+			import('classes.security.RoleDAO');
+			import('lib.pkp.classes.security.UserGroupDAO');
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+			$userGroups = $userGroupDao->getByUserId($this->_request->getUser()->getId())->toArray();
+			$currentUserAccessRoles = array();
+			foreach ($userGroups as $userGroup) {
+				$currentUserAccessRoles[] = (int) $userGroup->getRoleId();
+			}
+			$output .= '$.pkp.currentUser = ' . json_encode(array('accessRoles' => $currentUserAccessRoles));
 		}
-		$output .= '$.pkp.currentUser = ' . json_encode(array('accessRoles' => $currentUserAccessRoles));
 
 		$this->addJavaScript(
 			'pkpLibData',

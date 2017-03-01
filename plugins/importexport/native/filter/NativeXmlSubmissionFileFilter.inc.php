@@ -216,6 +216,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 			$deployment->setFileDBId($fileId, $revisionId, $insertedSubmissionFile->getFileId());
 		}
 
+		import('lib.pkp.classes.file.FileManager');
 		$fileManager = new FileManager();
 		$fileManager->deleteFile($filename);
 		return $submissionFile;
@@ -248,6 +249,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 				break;
 			case 'embed':
 				$submissionFile->setFileType($node->getAttribute('mime_type'));
+				import('lib.pkp.classes.file.TemporaryFileManager');
 				$temporaryFileManager = new TemporaryFileManager();
 				$temporaryFilename = tempnam($temporaryFileManager->getBasePath(), 'embed');
 				if (($e = $node->getAttribute('encoding')) != 'base64') {

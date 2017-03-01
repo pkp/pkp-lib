@@ -89,7 +89,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$submissionNode->setAttribute('locale', $submission->getLocale());
 		$submissionLanguage = $submission->getLanguage();
 		if ($submissionLanguage) {
-			$submissionNode->setAttribute('locale', $submissionLanguage);
+			$submissionNode->setAttribute('language', $submissionLanguage);
 		}
 		$submissionNode->setAttribute('date_submitted', strftime('%Y-%m-%d', strtotime($submission->getDateSubmitted())));
 

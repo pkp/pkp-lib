@@ -1087,7 +1087,7 @@ abstract class Submission extends DataObject {
 				if ($reviewRound) {
 					$stage['statusId'] = $reviewRound->getStatus();
 					$stage['status'] = __($reviewRound->getStatusKey());
-					
+
 					// Revision files in this round.
 					import('classes.article.SubmissionFileDAO');
 					import('lib.pkp.classes.submission.SubmissionFile'); // Import constants
@@ -1110,8 +1110,9 @@ abstract class Submission extends DataObject {
 							continue;
 						}
 						$stage['reviews'][] = array(
-							'id' => $reviewAssignment->getId(),
-							'statusId' => $reviewAssignment->getStatus(),
+							'id' => (int) $reviewAssignment->getId(),
+							'reviewerId' => (int) $reviewAssignment->getReviewerId(),
+							'statusId' => (int) $reviewAssignment->getStatus(),
 							'status' => __($reviewAssignment->getStatusKey()),
 							'due' => $reviewAssignment->getDateDue(),
 							'responseDue' => $reviewAssignment->getDateResponseDue(),

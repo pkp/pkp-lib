@@ -1,5 +1,5 @@
 <template>
-	<div class="pkpListPanel pkpSubmissionsListPanel" v-bind:class="classLoading">
+	<div class="pkpListPanel pkpSubmissionsListPanel" :class="classLoading">
 		<div class="pkpListPanel__header">
 			<div class="pkpListPanel__title">{{ i18n.title }}</div>
 			<ul class="pkpListPanel__actions">
@@ -31,9 +31,9 @@
 				:i18n="i18n"
 			/>
 			<list-panel-count
-				v-bind:count="itemCount"
-				v-bind:total="this.collection.maxItems"
-				v-bind:i18n="i18n"
+				:count="itemCount"
+				:total="this.collection.maxItems"
+				:i18n="i18n"
 			/>
 		</div>
 	</div>

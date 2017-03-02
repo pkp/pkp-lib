@@ -32,6 +32,7 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 	function __construct($context, $submission, $metadataFormImplementation) {
 		parent::__construct($context, $submission, 3);
 
+		$this->setDefaultFormLocale($submission->getLocale());
 		$this->_metadataFormImplem = $metadataFormImplementation;
 		$this->_metadataFormImplem->addChecks($submission);
 	}

@@ -45,8 +45,11 @@ class SubmissionFilesMetadataForm extends Form {
 			$this->_reviewRound = $reviewRound;
 		}
 
+		$submissionLocale = $submissionFile->getSubmissionLocale();
+		$this->setDefaultFormLocale($submissionLocale);
+
 		// Add validation checks.
-		$this->addCheck(new FormValidatorLocale($this, 'name', 'required', 'submission.submit.fileNameRequired'));
+		$this->addCheck(new FormValidatorLocale($this, 'name', 'required', 'submission.submit.fileNameRequired', $submissionLocale));
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
 	}

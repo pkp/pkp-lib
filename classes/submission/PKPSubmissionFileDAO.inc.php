@@ -649,10 +649,12 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO implements PKPPubIdPlugin
 				sf.file_id AS submission_file_id, sf.revision AS submission_revision,
 				af.file_id AS artwork_file_id, af.revision AS artwork_revision,
 				suf.file_id AS supplementary_file_id, suf.revision AS supplementary_revision,
+				s.locale AS submission_locale,
 				sf.*, af.*, suf.*
 			FROM	submission_files sf
 				LEFT JOIN submission_artwork_files af ON sf.file_id = af.file_id AND sf.revision = af.revision
-				LEFT JOIN submission_supplementary_files suf ON sf.file_id = suf.file_id AND sf.revision = suf.revision ';
+				LEFT JOIN submission_supplementary_files suf ON sf.file_id = suf.file_id AND sf.revision = suf.revision
+				LEFT JOIN submissions s ON s.submission_id = sf.submission_id ';
 	}
 
 

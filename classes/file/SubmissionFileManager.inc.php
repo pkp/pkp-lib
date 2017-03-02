@@ -288,6 +288,11 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 		$submissionFile = $submissionFileDao->newDataObjectByGenreId($genreId); /* @var $submissionFile SubmissionFile */
 		$submissionFile->setSubmissionId($this->getSubmissionId());
 
+		// Instantiate submission locale for the file
+		$submissionDao = Application::getSubmissionDAO();
+		$submission = $submissionDao->getById($submissionFile->getSubmissionId());
+		$submissionFile->setSubmissionLocale($submission->getLocale());
+
 		// Do we create a new file or a new revision of an existing file?
 		if ($revisedFileId) {
 			// Make sure that the submission of the revised file is

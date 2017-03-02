@@ -58,7 +58,7 @@ class ValidatorUri extends ValidatorRegExp {
 	/**
 	 * Return the regex for an URI check. This can be called
 	 * statically.
-	 * @param $allowedSchemes
+	 * @param $allowedSchemes Array of strings to restrict accepted schemes to defined set, or null for any
 	 * @return string
 	 */
 	static function getRegexp($allowedSchemes = null) {

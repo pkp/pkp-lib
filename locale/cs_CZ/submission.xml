@@ -28,10 +28,8 @@
 	<message key="submission.citations.grid.fields">Název pole</message>
 	<message key="submission.citations.grid.values">Hodnota pole</message>
 	<message key="submission.citations.grid.title">Upravit citace</message>
-	<message key="submission.citations.grid.importCitations">Importovat citace</message>
 	<message key="submission.citations.grid.exportCitations">Exportovat citace</message>
 	<message key="submission.citations.grid.editCheckCitation">Upravit/Kontrolovat</message>
-	<message key="submission.citations.grid.checkCitationAgain">Znovu zkontrolovat</message>
 	<message key="submission.citations.grid.editedCitation">Text citace</message>
 	<message key="submission.citations.grid.editedCitationRequired">Je vyžadován text citace</message>
 	<message key="submission.citations.grid.publicationTypeRequired">Prosím ujistěte se, že jste skutečně správně nastavili typ publikace. Možné varianty jsou: kniha (pro knihu nebo kapitolu v knize) a časopis (pro článek v časopise). Jinak nebude citace zobrazena ve správném formátu.</message>

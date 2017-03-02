@@ -129,7 +129,7 @@ class NotificationsGridHandler extends GridHandler {
 	/**
 	 * @copydoc GridHandler::initFeatures()
 	 */
-	function initFeatures($request, &$args) {
+	function initFeatures($request, $args) {
 		import('lib.pkp.classes.controllers.grid.feature.selectableItems.SelectableItemsFeature');
 		import('lib.pkp.classes.controllers.grid.feature.PagingFeature');
 		return array(new SelectableItemsFeature(), new PagingFeature());

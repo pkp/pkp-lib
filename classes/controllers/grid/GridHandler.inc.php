@@ -560,7 +560,7 @@ class GridHandler extends PKPHandler {
 	/**
 	 * @copydoc PKPHandler::authorize()
 	 */
-	function authorize($request, &$args, $roleAssignments, $enforceRestrictedSite = true) {
+	function authorize($request, &$args, $roleAssignments) {
 		$dataProvider = $this->getDataProvider();
 		$hasDataProvider = is_a($dataProvider, 'GridDataProvider');
 		if ($hasDataProvider) {
@@ -946,7 +946,7 @@ class GridHandler extends PKPHandler {
 	 * @param $args array
 	 * @return array Array with initialized grid features objects.
 	 */
-	protected function initFeatures($request, &$args) {
+	protected function initFeatures($request, $args) {
 		return array();
 	}
 

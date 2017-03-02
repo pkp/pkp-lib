@@ -44,6 +44,10 @@ class SubmissionFilesMetadataForm extends Form {
 		if (is_a($reviewRound, 'ReviewRound')) {
 			$this->_reviewRound = $reviewRound;
 		}
+		
+		$submissionDao = Application::getSubmissionDAO();
+		$submission = $submissionDao->getById($submissionFile->getSubmissionId());
+		$this->overrideLocale = $submission->getLocale();		
 
 		// Add validation checks.
 		$this->addCheck(new FormValidatorLocale($this, 'name', 'required', 'submission.submit.fileNameRequired'));

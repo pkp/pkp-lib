@@ -274,7 +274,7 @@ class RegistrationForm extends Form {
 	/**
 	 * Set mail from address
 	 * @param $request PKPRequest
-	 * @param MailTemplate $mail
+	 * @param $mail MailTemplate
 	 */
 	function _setMailFrom($request, $mail) {
 		$site = $request->getSite();

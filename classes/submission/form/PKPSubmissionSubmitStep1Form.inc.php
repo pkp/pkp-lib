@@ -33,7 +33,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		}
 		$this->addCheck(new FormValidator($this, 'authorUserGroupId', 'required', 'author.submit.userGroupRequired'));
 
-		foreach ($context->getLocalizedSetting('submissionChecklist') as $key => $checklistItem) {
+		foreach ((array) $context->getLocalizedSetting('submissionChecklist') as $key => $checklistItem) {
 			$this->addCheck(new FormValidator($this, "checklist-$key", 'required', 'submission.submit.checklistErrors'));
 		}
 	}
@@ -144,7 +144,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		$vars = array(
 			'authorUserGroupId', 'locale', 'copyrightNoticeAgree', 'commentsToEditor', 'copyrightNoticeAgree'
 		);
-		foreach ($this->context->getLocalizedSetting('submissionChecklist') as $key => $checklistItem) {
+		foreach ((array) $this->context->getLocalizedSetting('submissionChecklist') as $key => $checklistItem) {
 			$vars[] = "checklist-$key";
 		}
 

@@ -447,7 +447,7 @@ class GridHandler extends PKPHandler {
 	 * @param $gridDataElement mixed
 	 * @return int
 	 */
-	function getDataElementSequence(&$gridDataElement) {
+	function getDataElementSequence($row) {
 		return 0; // Ordering is ambiguous or irrelevant.
 	}
 
@@ -458,7 +458,7 @@ class GridHandler extends PKPHandler {
 	 * @param $gridDataElement mixed
 	 * @param $newSequence int
 	 */
-	function setDataElementSequence($request, $rowId, &$gridDataElement, $newSequence) {
+	function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence) {
 		assert(false);
 	}
 

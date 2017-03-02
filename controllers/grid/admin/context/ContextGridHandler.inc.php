@@ -137,10 +137,10 @@ class ContextGridHandler extends GridHandler {
 	/**
 	 * @copydoc GridHandler::setDataElementSequence()
 	 */
-	function setDataElementSequence($request, $rowId, $context, $newSequence) {
+	function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence) {
 		$contextDao = Application::getContextDAO();
-		$context->setSequence($newSequence);
-		$contextDao->updateObject($context);
+		$gridDataElement->setSequence($newSequence);
+		$contextDao->updateObject($gridDataElement);
 	}
 
 	/**

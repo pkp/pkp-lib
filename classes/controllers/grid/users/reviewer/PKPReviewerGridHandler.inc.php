@@ -100,12 +100,11 @@ class PKPReviewerGridHandler extends GridHandler {
 	//
 	// Overridden methods from PKPHandler
 	//
-	/*
-	 * Configure the grid
-	 * @param $request PKPRequest
+	/**
+	 * @copydoc GridHandler::initialize()
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 
 		// Load submission-specific translations
 		AppLocale::requireComponents(

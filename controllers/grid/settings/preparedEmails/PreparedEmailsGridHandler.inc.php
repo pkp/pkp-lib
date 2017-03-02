@@ -45,7 +45,7 @@ class PreparedEmailsGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see GridHandler::initialize()
+	 * @copydoc GridHandler::initialize()
 	 */
 	function initialize($request, $args = null) {
 		parent::initialize($request, $args);

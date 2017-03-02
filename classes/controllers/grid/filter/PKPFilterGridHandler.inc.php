@@ -108,11 +108,10 @@ class PKPFilterGridHandler extends GridHandler {
 	// Overridden methods from PKPHandler
 	//
 	/**
-	 * Configure the grid
-	 * @see PKPHandler::initialize()
+	 * @copydoc GridHandler::initialize()
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 
 		// Load manager-specific translations
 		// FIXME: the submission translation component can be removed

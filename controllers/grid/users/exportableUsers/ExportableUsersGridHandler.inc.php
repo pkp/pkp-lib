@@ -46,9 +46,9 @@ class ExportableUsersGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @copydoc PKPHandler::initialize()
+	 * @copydoc GridHandler::initialize()
 	 */
-	function initialize($request) {
+	function initialize($request, $args = null) {
 		parent::initialize($request);
 
 		// Load user-related translations.

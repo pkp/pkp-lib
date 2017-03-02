@@ -89,8 +89,8 @@ class UserGroupGridHandler extends GridHandler {
 	/**
 	 * @copydoc PKPHandler::initialize()
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 
 		$context = $request->getContext();
 		$this->_contextId = $context->getId();

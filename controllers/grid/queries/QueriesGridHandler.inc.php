@@ -122,11 +122,10 @@ class QueriesGridHandler extends GridHandler {
 	}
 
 	/**
-	 * Configure the grid
-	 * @param $request PKPRequest
+	 * @copydoc GridHandler::initialize()
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 		import('lib.pkp.controllers.grid.queries.QueriesGridCellProvider');
 
 		switch ($this->getStageId()) {

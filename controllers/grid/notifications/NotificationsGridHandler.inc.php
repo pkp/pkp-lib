@@ -32,7 +32,7 @@ class NotificationsGridHandler extends GridHandler {
 
 
 	/**
-	 * @see PKPHandler::initialize()
+	 * @copydoc GridHandler::initialize()
 	 */
 	function initialize($request, $args = null) {
 		parent::initialize($request);

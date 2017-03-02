@@ -37,10 +37,11 @@ class PluginGalleryGridHandler extends GridHandler {
 	// Implement template methods from PKPHandler.
 	//
 	/**
-	 * @see PKPHandler::initialize()
+	 * @copydoc GridHandler::initialize()
 	 */
-	function initialize($request) {
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_PKP_GRID, LOCALE_COMPONENT_APP_DEFAULT);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_DEFAULT);
 
 		// Basic grid configuration.
 		$this->setTitle('manager.plugins.pluginGallery');
@@ -144,15 +145,15 @@ class PluginGalleryGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see GridHandler::renderFilter()
+	 * @copydoc GridHandler::renderFilter()
 	 */
-	function renderFilter($request) {
+	protected function renderFilter($request, $filterData = array()) {
 		$categoriesSymbolic = $categories = PluginRegistry::getCategories();
 		$categories = array('all' => __('grid.plugin.allCategories'));
 		foreach ($categoriesSymbolic as $category) {
 			$categories[$category] = __("plugins.categories.$category");
 		}
-		$filterData = array('categories' => $categories);
+		$filterData['categories'] = $categories;
 
 		return parent::renderFilter($request, $filterData);
 	}

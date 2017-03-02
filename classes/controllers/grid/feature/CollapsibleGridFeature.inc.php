@@ -45,7 +45,7 @@ class CollapsibleGridFeature extends GridFeature {
 			'expand_all'
 		);
 
-		$templateMgr = TemplateManager::getManager();
+		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('controlLink', $controlLink);
 		$markup = $templateMgr->fetch('controllers/grid/feature/collapsibleGridFeature.tpl');
 

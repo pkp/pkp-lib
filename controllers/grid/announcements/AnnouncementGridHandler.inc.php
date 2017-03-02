@@ -62,8 +62,8 @@ class AnnouncementGridHandler extends GridHandler {
 	/**
 	 * @copydoc GridHandler::initialize()
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 
 		// Set the no items row text
 		$this->setEmptyRowText('announcement.noneExist');

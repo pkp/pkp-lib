@@ -50,17 +50,13 @@ class ListbuilderHandler extends GridHandler {
 	}
 
 	/**
-	 * @see GridHandler::initialize
-	 * @param $request PKPRequest
-	 * @param $addItemLink boolean optional True/default to present an "add item" link action
+	 * @copydoc GridHandler::initialize
 	 */
-	function initialize($request, $addItemLink = true) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 
-		if ($addItemLink) {
-			import('lib.pkp.classes.linkAction.request.NullAction');
-			$this->addAction($this->getAddItemLinkAction(new NullAction()));
-		}
+		import('lib.pkp.classes.linkAction.request.NullAction');
+		$this->addAction($this->getAddItemLinkAction(new NullAction()));
 	}
 
 

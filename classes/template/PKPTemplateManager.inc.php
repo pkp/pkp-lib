@@ -684,16 +684,18 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
-	 * @see Smarty::fetch()
+	 * @copydoc Smarty::fetch()
 	 */
-	function fetch($resource_name, $cache_id = null, $compile_id = null, $display = false) {
+	function fetch($template, $cache_id = null, $compile_id = null, $display = false) {
 
 		// If no compile ID was assigned, get one.
-		if (!$compile_id) $compile_id = $this->getCompileId($resource_name);
+		if (!$compile_id) $compile_id = $this->getCompileId($template);
 
+		// Give hooks an opportunity to override
 		$result = null;
-		if ($display == false && HookRegistry::call('TemplateManager::fetch', array($this, $resource_name, $cache_id, $compile_id, &$result))) return $result;
-		return parent::fetch($resource_name, $cache_id, $compile_id, $display);
+		if (HookRegistry::call($display?'TemplateManager::display':'TemplateManager::fetch', array($this, $template, $cache_id, $compile_id, &$result))) return $result;
+
+		return parent::fetch($template, $cache_id, $compile_id, $display);
 	}
 
 	/**
@@ -733,7 +735,7 @@ class PKPTemplateManager extends Smarty {
 
 	/**
 	 * Returns the template results as a JSON message.
-	 * @param $template string
+	 * @param $template string Template filename (or Smarty resource name)
 	 * @param $status boolean
 	 * @return JSONMessage JSON object
 	 */
@@ -743,45 +745,33 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
-	 * Display the template.
+	 * @copydoc Smarty::display()
+	 * @param $template string Template filename (or Smarty resource name)
+	 * @param $sendHeaders boolean True iff content type/cache control headers should be sent
 	 */
-	function display($template, $sendContentType = null, $hookName = null, $display = true) {
-		// Set the defaults
-		// N.B: This was moved from method signature to allow calls such as: ->display($template, null, null, false)
-		if ( is_null($sendContentType) ) {
-			$sendContentType = 'text/html';
-		}
-		if ( is_null($hookName) ) {
-			$hookName = 'TemplateManager::display';
-		}
-
-		$charset = Config::getVar('i18n', 'client_charset');
-
+	function display($template, $cache_id = null, $compile_id = null, $sendHeaders = true) {
 		// Give any hooks registered against the TemplateManager
 		// the opportunity to modify behavior; otherwise, display
 		// the template as usual.
 
 		$output = null;
-		if (!HookRegistry::call($hookName, array($this, &$template, &$sendContentType, &$charset, &$output))) {
-			// If this is the main display call, send headers.
-			if ($hookName == 'TemplateManager::display') {
-				// Explicitly set the character encoding
-				// Required in case server is using Apache's
-				// AddDefaultCharset directive (which can
-				// prevent browser auto-detection of the proper
-				// character set)
-				header('Content-Type: ' . $sendContentType . '; charset=' . $charset);
-
-				// Send caching info
-				header('Cache-Control: ' . $this->_cacheability);
-			}
-
-			// Actually display the template.
-			return $this->fetch($template, null, null, $display);
-		} else {
-			// Display the results of the plugin.
+		if (HookRegistry::call('TemplateManager::display', array($this, &$template, &$output))) {
 			echo $output;
+			return;
 		}
+
+		// If this is the main display call, send headers.
+		if ($sendHeaders) {
+			// Explicitly set the character encoding. Required in
+			// case server is using Apache's AddDefaultCharset
+			// directive (which can prevent browser auto-detection
+			// of the proper character set).
+			header('Content-Type: text/html; charset=' . Config::getVar('i18n', 'client_charset'));
+			header('Cache-Control: ' . $this->_cacheability);
+		}
+
+		// Actually display the template.
+		parent::display($template, $cache_id, $compile_id);
 	}
 
 

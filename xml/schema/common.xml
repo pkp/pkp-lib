@@ -88,7 +88,7 @@
 			<DEFAULT VALUE="0"/>
 			<descr>If not 0, redirect to the specified journal/conference/... site.</descr>
 		</field>
-		<field name="primary_locale" type="C2" size="5">
+		<field name="primary_locale" type="C2" size="14">
 			<NOTNULL/>
 			<descr>Primary locale for the site.</descr>
 		</field>
@@ -117,7 +117,7 @@
 		<field name="setting_name" type="C2" size="255">
 			<NOTNULL />
 		</field>
-		<field name="locale" type="C2" size="5">
+		<field name="locale" type="C2" size="14">
 			<NOTNULL />
 			<DEFAULT VALUE=""/>
 		</field>
@@ -231,7 +231,7 @@
 		<field name="user_id" type="I8">
 			<NOTNULL/>
 		</field>
-		<field name="locale" type="C2" size="5">
+		<field name="locale" type="C2" size="14">
 			<NOTNULL/>
 			<DEFAULT VALUE=""/>
 		</field>
@@ -391,7 +391,7 @@
 		<field name="notification_id" type="I8">
 			<NOTNULL/>
 		</field>
-		<field name="locale" type="C2" size="5" />
+		<field name="locale" type="C2" size="14" />
 		<field name="setting_name" type="C2" size="64">
 			<NOTNULL/>
 		</field>
@@ -514,7 +514,7 @@
 			<NOTNULL />
 			<descr>Unique identifier for this email.</descr>
 		</field>
-		<field name="locale" type="C2" size="5">
+		<field name="locale" type="C2" size="14">
 			<NOTNULL />
 			<DEFAULT VALUE="en_US"/>
 		</field>
@@ -580,7 +580,7 @@
 			<NOTNULL />
 			<descr>Unique identifier for this email.</descr>
 		</field>
-		<field name="locale" type="C2" size="5">
+		<field name="locale" type="C2" size="14">
 			<NOTNULL />
 			<DEFAULT VALUE="en_US"/>
 		</field>

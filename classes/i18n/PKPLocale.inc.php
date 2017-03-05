@@ -474,7 +474,7 @@ class PKPLocale {
 	 * @return string
 	 */
 	static function get3LetterIsoFromLocale($locale) {
-		assert(strlen($locale) == 5);
+		assert(strlen($locale) >= 5);
 		$iso2Letter = substr($locale, 0, 2);
 		return AppLocale::get3LetterFrom2LetterIsoLanguage($iso2Letter);
 	}
@@ -573,7 +573,7 @@ class PKPLocale {
 	 * @return string
 	 */
 	static function getIso3FromLocale($locale) {
-		assert(strlen($locale) == 5);
+		assert(strlen($locale) >= 5);
 		$iso1 = substr($locale, 0, 2);
 		return AppLocale::getIso3FromIso1($iso1);
 	}
@@ -585,7 +585,7 @@ class PKPLocale {
 	* @return string
 	*/
 	static function getIso1FromLocale($locale) {
-		assert(strlen($locale) == 5);
+		assert(strlen($locale) >= 5);
 		return substr($locale, 0, 2);
 	}
 

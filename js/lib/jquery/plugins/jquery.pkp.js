@@ -84,6 +84,21 @@
 		return this;
 	};
 
+	/**
+	 * Re-implementation of jQuery's init method so that we have a
+	 * central place to escape @ character to allow variant in locale name
+	 * @param {string|Object} selector
+	 * @param {Object} context
+	 * @return {jQueryObject}
+	 */
+	var jQueryInit = $.fn.init;
+	$.fn.init = function(selector, context) {
+		if ((typeof selector === "string") && (selector.indexOf('\\@') == -1)) {
+			selector = $.pkp.classes.Helper.escapeJQuerySelector(selector);
+		}
+	    return new jQueryInit(selector, context);
+	};
+
 
 /** @param {jQuery} $ jQuery closure. */
 })(jQuery);

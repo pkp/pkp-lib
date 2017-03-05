@@ -724,7 +724,7 @@
 				// The server reported that this element no
 				// longer exists in the database so let's
 				// delete it.
-				elementId = $.pkp.classes.Helper.escapeJQuerySelector(handledJsonData.elementNotFound);
+				elementId = handledJsonData.elementNotFound;
 				$element = this.getRowByDataId(elementId);
 
 				// Sometimes we get a delete event before the

@@ -351,14 +351,14 @@
 	};
 
 	/**
-	 * A function that takes care of escaping special characters which could be interpreted
+	 * A function that takes care of escaping @ character which could be interpreted
 	 * as CSS notation. This is due to the fact that jQuery uses CSS syntax for selecting elements.
 	 * These characters must be escaped by placing two backslashes in front of them.
 	 * @param {string} selector jQuery element selector
 	 * @return {string}
 	 */
 	$.pkp.classes.Helper.escapeJQuerySelector = function(selector) {
-		return selector.replace( /(:|\.|\[|\]|,|=|@)/g, "\\\\$1" );
+		return selector.replace('@', '\\@' );
 	};
 
 

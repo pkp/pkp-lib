@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/settings/roles/form/UserGroupForm.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2003-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class UserGroupForm
@@ -122,9 +122,8 @@ class UserGroupForm extends Form {
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
 
-		import('classes.security.RoleDAO');
-		$roleOptions = RoleDAO::getRoleNames(true);
-		$templateMgr->assign('roleOptions', $roleOptions);
+		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$templateMgr->assign('roleOptions', $roleDao->getRoleNames(true));
 
 		// Users can't edit the role once user group is created.
 		// userGroupId is 0 for new User Groups because it is cast to int in UserGroupGridHandler.

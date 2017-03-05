@@ -3,8 +3,8 @@
 /**
  * @file plugins/importexport/native/filter/NativeXmlSubmissionFileFilter.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NativeXmlSubmissionFileFilter
@@ -116,6 +116,12 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 
 		$revisionId = $node->getAttribute('number');
 
+		$source = $node->getAttribute('source');
+		$sourceFileAndRevision = null;
+		if ($source) {
+			$sourceFileAndRevision = explode('-', $source);
+		}
+
 		$genreId = null;
 		$genreName = $node->getAttribute('genre');
 		if ($genreName) {
@@ -189,15 +195,28 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 
 		$submissionFile->setRevision($revisionId);
 
+		if ($sourceFileAndRevision) {
+			// the source file revision should already be processed, so get the new source file ID
+			$sourceFileId = $deployment->getFileDBId($sourceFileAndRevision[0], $sourceFileAndRevision[1]);
+			if ($sourceFileId) {
+				$submissionFile->setSourceFileId($sourceFileId);
+				$submissionFile->setSourceRevision($sourceFileAndRevision[1]);
+			}
+		}
+
 		if ($errorOccured) {
 			// if error occured, the file cannot be inserted into DB, becase
 			// genre, uploader and user group are required (e.g. at name generation).
 			$submissionFile = null;
 		} else {
+			// if the same file is already inserted, take its DB file ID
+			$DBId = $deployment->getFileDBId($fileId);
+			if ($DBId) $submissionFile->setFileId($DBId);
 			$insertedSubmissionFile = $submissionFileDao->insertObject($submissionFile, $filename, false);
 			$deployment->setFileDBId($fileId, $revisionId, $insertedSubmissionFile->getFileId());
 		}
 
+		import('lib.pkp.classes.file.FileManager');
 		$fileManager = new FileManager();
 		$fileManager->deleteFile($filename);
 		return $submissionFile;
@@ -230,6 +249,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 				break;
 			case 'embed':
 				$submissionFile->setFileType($node->getAttribute('mime_type'));
+				import('lib.pkp.classes.file.TemporaryFileManager');
 				$temporaryFileManager = new TemporaryFileManager();
 				$temporaryFilename = tempnam($temporaryFileManager->getBasePath(), 'embed');
 				if (($e = $node->getAttribute('encoding')) != 'base64') {

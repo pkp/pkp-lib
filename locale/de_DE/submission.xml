@@ -4,8 +4,8 @@
 <!--
   * locale/de_DE/submission.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Please contact Marco Tullney, marco.tullney@fu-berlin.de, with any questions regarding this translation.
   * Localization strings.
@@ -259,13 +259,15 @@
 	<message key="submission.email.confirmDeleteLogEntry">Sind Sie sicher, dass Sie diesen Eintrag im E-Mail-Protokoll löschen wollen?</message>
 	<message key="submission.email.deleteLogEntry">Eintrag löschen </message>
 	<message key="submission.emailLog">E-Mail-Protokoll</message>
+	<message key="submission.event.participantAdded">"{$name}" ({$username}) wurde zu der Gruppe der {$userGroupName} hinzugefügt.</message>
+	<message key="submission.event.participantRemoved">"{$name}" ({$username}) wurde aus der Gruppe der {$userGroupName} entfernt.</message>
 	<message key="submission.event.backToEventLog">Zurück zum Ereignisprotokoll</message>
 	<message key="submission.event.confirmClearLog">Sind Sie sicher, dass Sie das Ereignisprotokoll zu diesem Beitrag löschen wollen?</message>
 	<message key="submission.event.confirmDeleteLogEntry">Sind Sie sicher, dass Sie diesen Eintrag im Ereignisprotokoll löschen wollen</message>
 	<message key="submission.event.deleteLogEntry">Eintrag löschen </message>
 	<message key="submission.event.submissionSubmitted">Ersteinreichung abgeschlossen.</message>
-	<message key="submission.event.fileUploaded">Datei "{$name}" (Datei-ID {$fileId}-{$revision}) wurde hochgeladen.</message>
-	<message key="submission.event.fileRevised">Revisionsdatei "{$name}" (Datei-ID {$fileId}-{$revision}) wurde hochgeladen.</message>
+	<message key="submission.event.fileUploaded">Datei "{$name}" (Datei-ID {$fileId}-{$fileRevision}) wurde hochgeladen.</message>
+	<message key="submission.event.fileRevised">Revisionsdatei "{$name}" (Datei-ID {$fileId}-{$fileRevision}) wurde hochgeladen.</message>
 	<message key="submission.event.general.metadataUpdated">Metadaten des Beitrags aktualisiert</message>
 	<message key="submission.event.general.suppFileUpdated">Anlagedatei aktualisiert</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Gutachter/innenzuteilung in Vertretung akzeptiert</message>

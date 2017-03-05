@@ -4,15 +4,15 @@
 <!--
   * locale/da_DK/installer.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the da_DK (Dansk) locale.
   *
   -->
 
-<locale name="da_DK" full_name = "Danish">
+<locale name="da_DK" full_name="Dansk">
 	<message key="installer.additionalLocales">Yderligere landestandarder</message>
 	<message key="installer.administratorAccount">Administratorkonto</message>
 	<message key="installer.administratorAccountInstructions">Denne brugerkonto bliver webstedsadministrator og vil få fuld adgang til systemet. Efter installationen kan der oprettes flere brugerkonti.</message>
@@ -64,6 +64,6 @@
 	<message key="installer.securitySettings">Sikkerhedsindstillinger</message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Fejl ved parsing af e-mail-skabelonfil <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale.maybeIncomplete">De markerede landestandarder kan være ufuldstændige.</message>
-	<message key="installer.installParseFilterConfigFileError"><![CDATA[Error parsing the filter configuration file <tt>{$file}</tt>.]]></message>
+	<message key="installer.installParseFilterConfigFileError"><![CDATA[Fejl ved parsing af filter-skabelonfil <tt>{$file}</tt>.]]></message>
 	<message key="installer.oaiSettings">OAI indstilling</message>
 </locale>

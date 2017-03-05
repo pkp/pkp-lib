@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/submissions/SubmissionsListGridRow.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2003-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FileRow
@@ -17,15 +17,16 @@ import('lib.pkp.classes.controllers.grid.GridRow');
 import('lib.pkp.classes.linkAction.request.AjaxModal');
 
 class SubmissionsListGridRow extends GridRow {
-	/** @var boolean true iff the user has a managerial role */
-	var $_isManager;
+	/** @var array List of user roles */
+	var $_userRoles;
 
 	/**
 	 * Constructor
+	 * @var $userRoles array List of available user roles
 	 */
-	function __construct($isManager) {
+	function __construct($userRoles) {
 		parent::__construct();
-		$this->_isManager = $isManager;
+		$this->_userRoles = $userRoles;
 	}
 
 	//
@@ -44,7 +45,7 @@ class SubmissionsListGridRow extends GridRow {
 			$submissionDao = Application::getSubmissionDAO(); /* @var $submissionDao SubmissionDAO */
 			$submission = $submissionDao->getById($rowId);
 			assert(is_a($submission, 'Submission'));
-			if ($submission->getSubmissionProgress() != 0 || $this->_isManager) {
+			if ($submission->getSubmissionProgress() != 0 || in_array(ROLE_ID_MANAGER, $this->_userRoles)) {
 				$router = $request->getRouter();
 				import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 				$this->addAction(
@@ -65,9 +66,11 @@ class SubmissionsListGridRow extends GridRow {
 				);
 			}
 
-			// 2) Information Centre action
-			import('lib.pkp.controllers.informationCenter.linkAction.SubmissionInfoCenterLinkAction');
-			$this->addAction(new SubmissionInfoCenterLinkAction($request, $rowId, 'grid.action.moreInformation'));
+			if (count(array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT), $this->_userRoles))) {
+				// 2) Information Centre action
+				import('lib.pkp.controllers.informationCenter.linkAction.SubmissionInfoCenterLinkAction');
+				$this->addAction(new SubmissionInfoCenterLinkAction($request, $rowId, 'grid.action.moreInformation'));
+			}
 		}
 	}
 }

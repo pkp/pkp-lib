@@ -3,8 +3,8 @@
 <!--
   * plugins/importexport/native/pkp-native.xsd
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2003-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University Library
+  * Copyright (c) 2003-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Schema describing native XML import/export elements shared across PKP applications
@@ -225,7 +225,6 @@
 			<element ref="pkp:agencies" minOccurs="0" maxOccurs="unbounded" />
 			<element ref="pkp:disciplines" minOccurs="0" maxOccurs="unbounded" />
 			<element ref="pkp:subjects" minOccurs="0" maxOccurs="unbounded" />
-			<element name="comments_to_editor" type="string" minOccurs="0" maxOccurs="1" />
 			<element ref="pkp:authors" minOccurs="1" maxOccurs="1" />
 			<element ref="pkp:submission_file" minOccurs="0" maxOccurs="unbounded" />
 			<element ref="pkp:representation" minOccurs="0" maxOccurs="unbounded" />

@@ -4,8 +4,8 @@
 <!--
   * locale/it_IT/grid.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the it_IT (Italiano) locale.
@@ -182,4 +182,17 @@
 	<message key="grid.task.status.unfinished">Revisioni non completate</message>
 	<message key="grid.task.status.reviewReady">Questa revisione è completa. Clicca sull'icona a sinistra per leggerla.</message>
 	<message key="grid.action.unassignUser">Esenta l'utente</message>
+	<message key="grid.action.addQuery">Aggiungi una discussione</message>
+	<message key="grid.action.updateQuery">Aggiorna la discussione</message>
+	<message key="grid.action.logInAs">Impersona</message>
+	<message key="grid.action.exportAllUsers">Esporta tutti gli utenti</message>
+	<message key="author.users.contributor.includeInBrowse">Includi nei risultati di ricerca</message>
+	<message key="grid.user.allPermissionLevels">Tutti i permessi</message>
+	<message key="grid.user.mergeUsers.mergeUser">Unisci utenti</message>
+	<message key="grid.userGroup.allStages">Tutte le fasi editoriali</message>
+	<message key="grid.userGroup.filter.listRoles">Mostra i ruoli relativi a</message>
+	<message key="grid.userGroup.filter.permissionLevel">Con permessi di accesso come</message>
+	<message key="grid.submission.itemTitle">Autore; Titolo</message>
+	<message key="grid.users.confirmExportAllUsers">Sei sicuro di voler esportare tutti gli utenti?</message>
+	<message key="grid.action.moreItems">Visualizza altri</message>
 </locale>

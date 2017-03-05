@@ -2,8 +2,8 @@
 /**
  * @file classes/security/authorization/internal/SubmissionFileRequestedRevisionRequiredPolicy.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileRequestedRevisionRequiredPolicy
@@ -41,11 +41,6 @@ class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAc
 		// Get the submission file.
 		$submissionFile = $this->getSubmissionFile($request);
 		if (!is_a($submissionFile, 'SubmissionFile')) return AUTHORIZATION_DENY;
-
-		// Make sure the file belongs to the submission in request.
-		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		if (!is_a($submission, 'Submission')) return AUTHORIZATION_DENY;
-		if ($submission->getId() != $submissionFile->getSubmissionId()) return AUTHORIZATION_DENY;
 
 		// Make sure the file is part of a review round
 		// with a requested revision decision.

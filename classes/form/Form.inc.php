@@ -10,8 +10,8 @@
 /**
  * @file classes/form/Form.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Form
@@ -79,6 +79,9 @@ class Form {
 	/** @var array Set of supported locales */
 	var $supportedLocales;
 
+	/** @var string Default form locale */
+	var $defaultLocale;
+
 	/**
 	 * Constructor.
 	 * @param $template string the path to the form template file
@@ -89,6 +92,8 @@ class Form {
 		$this->requiredLocale = $requiredLocale;
 		if ($supportedLocales === null) $supportedLocales = AppLocale::getSupportedFormLocales();
 		$this->supportedLocales = $supportedLocales;
+
+		$this->defaultLocale = AppLocale::getLocale();
 
 		$this->_template = $template;
 		$this->_data = array();
@@ -338,9 +343,17 @@ class Form {
 	 * @return string
 	 */
 	function getDefaultFormLocale() {
-		$formLocale = AppLocale::getLocale();
+		$formLocale = $this->defaultLocale;
 		if (!isset($this->supportedLocales[$formLocale])) $formLocale = $this->requiredLocale;
 		return $formLocale;
+	}
+
+	/**
+	 * Set the default form locale.
+	 * @param $defaultLocale string
+	 */
+	function setDefaultFormLocale($defaultLocale) {
+		$this->defaultLocale = $defaultLocale;
 	}
 
 	/**

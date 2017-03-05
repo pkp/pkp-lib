@@ -4,8 +4,8 @@
 <!--
   * locale/ar_IQ/reviewer.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ar_IQ (العربية) locale.
@@ -43,4 +43,5 @@
 	<message key="reviewer.aboutDueDates.text">يلتمس منك المحرر الإختيار ما بين قبول التحكيم أو رفضه قبل تاريخ استيجاب الرد. إذا قبلت إجراء التحكيم، ينبغي أن يكون إنجازه قبل تاريخ استيجاب التحكيم.</message>
 	<message key="submission.comments.canShareWithAuthor">للمؤلف والمحرر</message>
 	<message key="submission.comments.cannotShareWithAuthor">للمحرر حصراً</message>
+	<message key="user.authorization.submissionReviewer">المستخدم الحالي ليس معيناً بمثابة محكم للوثيقة المطلوبة.</message>
 </locale>

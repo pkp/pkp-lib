@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/announcements/AnnouncementGridHandler.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2003-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AnnouncementGridHandler
@@ -62,8 +62,8 @@ class AnnouncementGridHandler extends GridHandler {
 	/**
 	 * @copydoc GridHandler::initialize()
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 
 		// Set the no items row text
 		$this->setEmptyRowText('announcement.noneExist');

@@ -4,14 +4,14 @@
 <!--
   * locale/ar_IQ/installer.xml
   *
-  * Copyright (c) 2013-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2013-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ar_IQ (العربية) locale.
   -->
 
-<locale name="ar_IQ" full_name = "العربية">
+<locale name="ar_IQ" full_name="العربية">
 	<message key="installer.additionalLocales">لغات إضافية</message>
 	<message key="installer.administratorAccount">حساب المشرف الإداري</message>
 	<message key="installer.administratorAccountInstructions">حساب هذا المستخدم سيكون بمثابة المشرف الإداري الذي ستكون له حرية الوصول الكاملة للنظام. المزيد من حسابات المستخدمين يمكن إنشاؤها بعد إكمال التنصيب.</message>

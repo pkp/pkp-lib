@@ -3,8 +3,8 @@
 /**
  * @file classes/controllers/grid/feature/CollapsibleGridFeature.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CollapsibleGridFeature
@@ -45,7 +45,7 @@ class CollapsibleGridFeature extends GridFeature {
 			'expand_all'
 		);
 
-		$templateMgr = TemplateManager::getManager();
+		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('controlLink', $controlLink);
 		$markup = $templateMgr->fetch('controllers/grid/feature/collapsibleGridFeature.tpl');
 

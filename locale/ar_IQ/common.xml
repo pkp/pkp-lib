@@ -4,14 +4,14 @@
 <!--
   * locale/ar_IQ/common.xml
   *
-  * Copyright (c) 2013-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2013-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ar_IQ (العربية) locale.
   -->
 
-<locale name="ar_IQ" full_name = "العربية">
+<locale name="ar_IQ" full_name="العربية">
 	<message key="common.publicKnowledgeProject">مشروع المعرفة العامة</message>
 	<message key="common.currentStyleSheet">ملف الأنماط الحالي</message>
 	<message key="about.description">الوصف</message>
@@ -206,7 +206,7 @@
 	<message key="common.preview">معاينة</message>
 	<message key="common.publisher">الناشر</message>
 	<message key="common.quality">النوعية</message>
-	<message key="common.queue.long.active">كلها مفعلة</message>
+	<message key="common.queue.long.active">كل ما هو نشط</message>
 	<message key="common.range">{$min}-{$max}</message>
 	<message key="common.re">رد:</message>
 	<message key="common.readMore">إقرأ المزيد</message>
@@ -499,7 +499,7 @@
 	<message key="grid.action.markRead">كأنها مقروءة</message>
 
 	<message key="dashboard.tasks">المهام</message>
-	<message key="dashboard.myQueue">طابوري</message>
+	<message key="dashboard.myQueue">مساراتي</message>
 
 	<message key="review.blindPeerReview">
 		<![CDATA[<p>لضمان تكامل التحكيم المناظر السري بالنسبة إلى طلبات النشر لهذه الدار، يجب بذل كل جهد من شأنه حجب هويات المؤلفين والمحكمين بعضهم عن البعض الآخر. هذه المهمة يضطلع بها المؤلفون، المحررون والمحكمون (الذين يرفعون الملفات كجزء من مهام التحكيم) عبر تدقيق فيما إذا تم العمل بالخطوات الآتية المتعلقة بالنصوص وخصائص الملفات:</p>

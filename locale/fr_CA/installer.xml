@@ -4,15 +4,15 @@
 <!--
   * locale/fr_CA/installer.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the fr_CA (Français (Canada)) locale.
   *
   -->
 
-<locale name="fr_CA" full_name = "Français (Canada)">
+<locale name="fr_CA" full_name="Français (Canada)">
 	<message key="installer.additionalLocales">Langues supplémentaires</message>
 	<message key="installer.administratorAccount">Compte administrateur</message>
 	<message key="installer.administratorAccountInstructions">Ce compte utilisateur deviendra l'administrateur du site et aura le plein accès à tout le système. D'autres comptes utilisateurs peuvent être créés après l'installation.</message>
@@ -81,4 +81,6 @@
 		</ul>
 
 		<p>2. Vous devez créer un repertoire pour conserver les fichiers téléchargés et il doit être accessible en écriture (voir "Paramètres du fichier" ci-dessous).</p>]]></message>
+	<message key="installer.beacon">Balise</message>
+	<message key="installer.beacon.enable">Procure un identifiant unique de site et un URL pour le protocole OAI pour PKP. Ceux-ci utilisés seulement pour des fins de statistiques et de sécurité.</message>
 </locale>

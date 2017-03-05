@@ -2,8 +2,8 @@
 /**
  * @file classes/security/authorization/SubmissionFileAccessPolicy.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileAccessPolicy
@@ -101,18 +101,22 @@ class SubmissionFileAccessPolicy extends ContextPolicy {
 
 			// ...or if we don't want to modify the file...
 			if (!($mode & SUBMISSION_FILE_ACCESS_MODIFY)) {
+				import('lib.pkp.classes.submission.SubmissionFile'); // for SUBMISSION_FILE_...
 
 				// 3c) ...and the file is at submission stage...
-				import('lib.pkp.classes.security.authorization.internal.SubmissionFileSubmissionStageRequiredPolicy');
-				$authorFileAccessOptionsPolicy->addPolicy(new SubmissionFileSubmissionStageRequiredPolicy($request, $fileIdAndRevision));
+				import('lib.pkp.classes.security.authorization.internal.SubmissionFileStageRequiredPolicy');
+				$authorFileAccessOptionsPolicy->addPolicy(new SubmissionFileStageRequiredPolicy($request, $fileIdAndRevision, SUBMISSION_FILE_SUBMISSION));
 
 				// 3d) ...or the file is a viewable reviewer response...
-				import('lib.pkp.classes.security.authorization.internal.SubmissionFileViewableReviewerResponseRequiredPolicy');
-				$authorFileAccessOptionsPolicy->addPolicy(new SubmissionFileViewableReviewerResponseRequiredPolicy($request, $fileIdAndRevision));
+				$authorFileAccessOptionsPolicy->addPolicy(new SubmissionFileStageRequiredPolicy($request, $fileIdAndRevision, SUBMISSION_FILE_REVIEW_ATTACHMENT, true));
 
 				// 3e) ...or if the file is part of a query assigned to the user, allow.
 				import('lib.pkp.classes.security.authorization.internal.SubmissionFileAssignedQueryAccessPolicy');
 				$authorFileAccessOptionsPolicy->addPolicy(new SubmissionFileAssignedQueryAccessPolicy($request, $fileIdAndRevision));
+
+				// 3f) ...or the file is at revision stage...
+				$authorFileAccessOptionsPolicy->addPolicy(new SubmissionFileStageRequiredPolicy($request, $fileIdAndRevision, SUBMISSION_FILE_REVIEW_REVISION));
+
 			}
 
 			// Add the rules from 3)

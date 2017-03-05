@@ -8,8 +8,8 @@
 /**
  * @file classes/template/PKPTemplateManager.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class TemplateManager
@@ -1352,6 +1352,8 @@ class PKPTemplateManager extends Smarty {
 
 		$stylesheets = $this->getResourcesByContext($this->_styleSheets, $params['context']);
 
+		ksort($stylesheets);
+
 		$output = '';
 		foreach($stylesheets as $priorityList) {
 			foreach($priorityList as $style) {
@@ -1382,6 +1384,8 @@ class PKPTemplateManager extends Smarty {
 
 		$scripts = $this->getResourcesByContext($this->_javaScripts, $params['context']);
 
+		ksort($scripts);
+
 		$output = '';
 		foreach($scripts as $priorityList) {
 			foreach($priorityList as $name => $data) {
@@ -1411,6 +1415,8 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		$headers = $this->getResourcesByContext($this->_htmlHeaders, $params['context']);
+
+		ksort($headers);
 
 		$output = '';
 		foreach($headers as $priorityList) {

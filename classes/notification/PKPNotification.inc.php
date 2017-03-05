@@ -3,8 +3,8 @@
 /**
  * @file classes/notification/Notification.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Notification
@@ -49,7 +49,7 @@ define('NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_INTERNAL_REVIEW',	0x1000005);
 define('NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EXTERNAL_REVIEW',	0x1000006);
 define('NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EDITING',		0x1000007);
 define('NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_PRODUCTION',	0x1000008);
-define('NOTIFICATION_TYPE_AUDITOR_REQUEST',			0x1000009); // DEPRECATED; DO NOT USE
+// define('NOTIFICATION_TYPE_AUDITOR_REQUEST',			0x1000009); // DEPRECATED; DO NOT USE
 define('NOTIFICATION_TYPE_REVIEW_ASSIGNMENT',			0x100000B);
 define('NOTIFICATION_TYPE_EDITOR_DECISION_INTERNAL_REVIEW',	0x100000D);
 define('NOTIFICATION_TYPE_EDITOR_DECISION_ACCEPT',		0x100000E);

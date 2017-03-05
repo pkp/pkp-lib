@@ -3,8 +3,8 @@
 /**
  * @file plugins/importexport/native/filter/SubmissionNativeXmlFilter.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionNativeXmlFilter
@@ -89,7 +89,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$submissionNode->setAttribute('locale', $submission->getLocale());
 		$submissionLanguage = $submission->getLanguage();
 		if ($submissionLanguage) {
-			$submissionNode->setAttribute('locale', $submissionLanguage);
+			$submissionNode->setAttribute('language', $submissionLanguage);
 		}
 		$submissionNode->setAttribute('date_submitted', strftime('%Y-%m-%d', strtotime($submission->getDateSubmitted())));
 
@@ -185,8 +185,6 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 			$controlledVocabulary = $dao->$getFunction($submission->getId(), $supportedLocales);
 			$this->addControlledVocabulary($doc, $submissionNode, $controlledVocabulariesNodeName, $controlledVocabularyNodeName, $controlledVocabulary);
 		}
-
-		$this->createOptionalNode($doc, $submissionNode, 'comments_to_editor', $submission->getCommentsToEditor());
 	}
 
 	/**

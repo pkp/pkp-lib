@@ -3,8 +3,8 @@
 /**
  * @file classes/user/PKPUserDAO.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPUserDAO
@@ -617,7 +617,7 @@ class PKPUserDAO extends DAO {
 			case USER_FIELD_INTERESTS:
 				$interestDao = DAORegistry::getDAO('InterestDAO');  // Loaded to ensure interest constant is in namespace
 				$sql .=', controlled_vocabs cv, controlled_vocab_entries cve, controlled_vocab_entry_settings cves, user_interests ui
-					WHERE cv.symbolic = "' . CONTROLLED_VOCAB_INTEREST .  '" AND cve.controlled_vocab_id = cv.controlled_vocab_id
+					WHERE cv.symbolic = \'' . CONTROLLED_VOCAB_INTEREST .  '\' AND cve.controlled_vocab_id = cv.controlled_vocab_id
 					AND cves.controlled_vocab_entry_id = cve.controlled_vocab_entry_id AND LOWER(cves.setting_value) ' . ($match == 'is' ? '=' : 'LIKE') . ' LOWER(?)
 					AND ui.user_id = u.user_id AND cve.controlled_vocab_entry_id = ui.controlled_vocab_entry_id';
 				$var = $match == 'is' ? $value : "%$value%";

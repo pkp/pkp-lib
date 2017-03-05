@@ -3,8 +3,8 @@
 /**
  * @file plugins/importexport/native/filter/NativeXmlSubmissionFilter.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NativeXmlSubmissionFilter
@@ -161,9 +161,6 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 				break;
 			case 'submission_file':
 				$this->parseSubmissionFile($n, $submission);
-				break;
-			case 'comments_to_editor':
-				$submission->setCommentsToEditor($n->textContent);
 				break;
 			default:
 				$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownElement', array('param' => $n->tagName)));

@@ -3,8 +3,8 @@
 /**
  * @file controllers/wizard/fileUpload/form/PKPSubmissionFilesUploadBaseForm.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2003-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionFilesUploadBaseForm
@@ -73,6 +73,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 		$this->setData('submissionId', (int)$submissionId);
 		$this->setData('revisionOnly', (boolean)$revisionOnly);
 		$this->setData('revisedFileId', $revisedFileId ? (int)$revisedFileId : null);
+		$this->setData('reviewRoundId', $reviewRound?$reviewRound->getId():null);
 		$this->setData('assocType', $assocType ? (int)$assocType : null);
 		$this->setData('assocId', $assocId ? (int)$assocId : null);
 

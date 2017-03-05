@@ -4,8 +4,8 @@
 <!--
   * locale/uk_UA/admin.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the uk_UA (Українська) locale.
@@ -14,7 +14,7 @@
   * V. I. Vernadsky National Library of Ukraine
   -->
 
-<locale name="uk_UA" full_name = "Ukrainian">
+<locale name="uk_UA" full_name="Українська">
 	<message key="admin.adminFunctions">Адміністративні функції</message>
 	<message key="admin.auth.confirmDelete">Ви впевнені, що бажаєте видалити назавжди це джерело аутентифікації?</message>
 	<message key="admin.auth.create">Створити джерело аутентифікації</message>
@@ -59,7 +59,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Неприпустимий формат зображення логотипу. Припустимі формати .gif, .jpg, або .png.</message>
 	<message key="admin.settings.introduction">Вступ</message>
 	<message key="admin.settings.minPasswordLength">Мінімальна довжина пароля</message>
-	<message key="admin.settings.oaiRegistration">Реєстрація сайту для індексації (збору метаданих)</message>
 	<message key="admin.settings.passwordCharacters">символів</message>
 	<message key="admin.settings.siteLanguage">Мова сайту</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Неприпустимий формат таблиці стилю сайту. Припустимий формат .css.</message>

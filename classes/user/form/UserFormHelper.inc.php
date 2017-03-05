@@ -3,8 +3,8 @@
 /**
  * @file classes/user/form/UserFormHelper.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2003-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class UserFormHelper
@@ -30,10 +30,16 @@ class UserFormHelper {
 		// extras-on-demand for role selection in other contexts.
 		$contextDao = Application::getContextDAO();
 		$contexts = $contextDao->getAll(true)->toArray();
+		$contextsWithUserRegistration = array();
+		foreach ($contexts as $context) {
+			if (!$context->getSetting('disableUserReg')) {
+				$contextsWithUserRegistration[] = $context;
+			}
+		}
 		$templateMgr->assign(array(
-			'showOtherContexts' => !$request->getContext() || count($contexts)>1,
+			'contexts' => $contexts,
+			'showOtherContexts' => !$request->getContext() || count($contextsWithUserRegistration)>1,
 		));
-
 
 		// Expose potential self-registration user groups to template
 		$authorUserGroups = $reviewerUserGroups = $readerUserGroups = array();

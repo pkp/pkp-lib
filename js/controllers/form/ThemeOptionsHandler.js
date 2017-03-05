@@ -1,8 +1,8 @@
 /**
  * @file js/controllers/form/ThemeOptionsHandler.js
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @brief This handles theme options. When a new theme is selected, it removes
@@ -34,8 +34,9 @@
 				$colourInput.spectrum({
 					preferredFormat: 'hex',
 					showInitial: true,
+					showInput: true,
 					showButtons: false,
-					change: function(colour)  {
+					change: function(colour) {
 						/** @type {{toHexString: function()}} */
 						hexColour = colour.toHexString();
 						$colourInput.val(hexColour);

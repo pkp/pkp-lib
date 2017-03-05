@@ -4,15 +4,15 @@
 <!--
   * locale/da_DK/admin.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the da_DK (Dansk) locale.
   *
   -->
 
-<locale name="da_DK" full_name = "Danish">
+<locale name="da_DK" full_name="Dansk">
 	<message key="admin.adminFunctions">Administrative funktioner</message>
 	<message key="admin.auth.confirmDelete">Er du sikker på, at du vil slette denne godkendelseskilde permanent?</message>
 	<message key="admin.auth.create">Opret godkendelseskilde</message>
@@ -57,7 +57,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Ugyldigt billedformat for webstedslogo. De accepterede formater er .gif, .jpg eller .png.</message>
 	<message key="admin.settings.introduction">Introduktion</message>
 	<message key="admin.settings.minPasswordLength">Minimumlængde for adgangskode</message>
-	<message key="admin.settings.oaiRegistration">Registrer websted med henblik på indeksering (harvesting af metadata)</message>
 	<message key="admin.settings.passwordCharacters">tegn</message>
 	<message key="admin.settings.siteLanguage">Sprog på websted</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Ugyldigt format for typografiark til websted. Det accepterede format er .css.</message>
@@ -84,4 +83,24 @@
 	<message key="admin.settings">Indstillinger</message>
 	<message key="admin.settings.siteTheme">Website tema</message>
 	<message key="admin.siteSetup">Website opsætning</message>
+	<message key="admin.scheduledTask.downloadLog">Din {$softwareName}-installation udførte og afsluttede automatisk denne proces. Du kan downloade logfilen her: {$url}</message>
+	<message key="admin.settings.siteLogo">Webstedets logo</message>
+	<message key="admin.languages.cantDisable">Denne landestandard er valgt som webstedets primære sprog. Den kan ikke deaktiveres før en ny primær landestandard er valgt.</message>
+	<message key="admin.languages.availableLocales">Tilgængelige landestandarder</message>
+	<message key="admin.languages.installLocale">Installér landestandard</message>
+	<message key="admin.copyAccessLogFileTool.error.creatingFolder">Fejl: Kan ikke danne midlertidig mappe {$tmpDir}</message>
+	<message key="admin.copyAccessLogFileTool.error.acessingFile">Fejl: Filen {$filePath} eksisterer ikke eller kan ikke tilgås.</message>
+	<message key="admin.copyAccessLogFileTool.error.copyingFile">Fejl: Kan ikke kopiere filen fra {$filePath} til {$tmpFilePath}</message>
+	<message key="admin.copyAccessLogFileTool.error.deletingFile">Fejl: Kan ikke slette filen {$tmpFilePath}</message>
+	<message key="admin.error.utilExecutionProblem">"{$utilPath}" programudførelse returnerede følgende fejl: {$output}</message>
+	<message key="admin.error.executingUtil">Fejl: Kan ikke eksekvere "{$utilPath}".  Tjek {$utilVar} indstillinger i config.inc.php.</message>
+	<message key="admin.languages.noLocalesToDownload">Ingen landestandarder er tilgængelige for download.</message>
+	<message key="admin.scheduledTask">Planlagt opgave</message>
+	<message key="admin.scheduledTask.startTime">Planlagt opgave påbegyndt.</message>
+	<message key="admin.scheduledTask.stopTime">Planlagt opgave afsluttet.</message>
+	<message key="admin.scheduledTask.noLog">Planlagt opgave genererede ingen log-data.</message>
+	<message key="admin.scheduledTask.confirmClearLogs">Er du sikker på, at du vil slette alle de genererede log-data fra planlagte opgaver?</message>
+	<message key="admin.scheduledTask.reviewReminder">Påmindelse om bedømmelse</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">Påmindelse om abonnementsophør</message>
+
 </locale>

@@ -4,8 +4,8 @@
 <!--
   * locale/it_IT/reviewer.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings
@@ -13,4 +13,6 @@
 
 <locale name="it_IT" full_name="Italiano">
 	<!-- Used in submission review -->
+	<message key="reviewer.submission.reviewerFiles">File del revisore</message>
+	<message key="reviewer.submission.competingInterests">Conflitto d'interessi</message>
 </locale>

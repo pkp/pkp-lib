@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/stageParticipant/form/AddParticipantForm.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2003-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AddParticipantForm
@@ -57,12 +57,13 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroups = $userGroupDao->getUserGroupsByStage(
 			$request->getContext()->getId(),
-			$this->getStageId(),
-			false, true // Exclude reviewers
+			$this->getStageId()
 		);
 
 		$userGroupOptions = array();
 		while ($userGroup = $userGroups->next()) {
+			// Exclude reviewers.
+			if ($userGroup->getRoleId() == ROLE_ID_REVIEWER) continue;
 			$userGroupOptions[$userGroup->getId()] = $userGroup->getLocalizedName();
 		}
 

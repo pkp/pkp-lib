@@ -3,8 +3,8 @@
 /**
  * @file tests/classes/core/PKPPageRouterTest.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPPageRouterTest
@@ -245,7 +245,7 @@ class PKPPageRouterTest extends PKPRouterTestCase {
 		$this->setTestConfiguration('request1', 'classes/core/config'); // restful URLs
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 		$_SERVER = array(
-			'HOSTNAME' => 'mydomain.org',
+			'SERVER_NAME' => 'mydomain.org',
 			'SCRIPT_NAME' => '/index.php',
 			'PATH_INFO' => '/current-context1/current-context2/current-page/current-op'
 		);
@@ -313,7 +313,7 @@ class PKPPageRouterTest extends PKPRouterTestCase {
 		// Set up a request with an overridden context
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 		$_SERVER = array(
-			'HOSTNAME' => 'mydomain.org',
+			'SERVER_NAME' => 'mydomain.org',
 			'SCRIPT_NAME' => '/index.php',
 			'PATH_INFO' => '/overridden-context/current-context2/current-page/current-op'
 		);
@@ -333,7 +333,7 @@ class PKPPageRouterTest extends PKPRouterTestCase {
 		// 'overridden-context' as new context. (Reproduces #5118)
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 		$_SERVER = array(
-			'HOSTNAME' => 'mydomain.org',
+			'SERVER_NAME' => 'mydomain.org',
 			'SCRIPT_NAME' => '/index.php',
 			'PATH_INFO' => '/current-context1/current-context2/current-page/current-op'
 		);
@@ -348,7 +348,7 @@ class PKPPageRouterTest extends PKPRouterTestCase {
 	public function testUrlWithPathinfoAndSecondContextObjectIsNull() {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 		$_SERVER = array(
-			'HOSTNAME' => 'mydomain.org',
+			'SERVER_NAME' => 'mydomain.org',
 			'SCRIPT_NAME' => '/index.php',
 			'PATH_INFO' => '/current-context1/current-context2/current-page/current-op'
 		);
@@ -366,7 +366,7 @@ class PKPPageRouterTest extends PKPRouterTestCase {
 	public function testUrlWithoutPathinfo() {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
 		$_SERVER = array(
-			'HOSTNAME' => 'mydomain.org',
+			'SERVER_NAME' => 'mydomain.org',
 			'SCRIPT_NAME' => '/index.php',
 		);
 		$_GET = array(
@@ -434,7 +434,7 @@ class PKPPageRouterTest extends PKPRouterTestCase {
 		$this->setTestConfiguration('request2', 'classes/core/config'); // contains overridden context
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
 		$_SERVER = array(
-			'HOSTNAME' => 'mydomain.org',
+			'SERVER_NAME' => 'mydomain.org',
 			'SCRIPT_NAME' => '/index.php',
 		);
 		$_GET = array(
@@ -460,7 +460,7 @@ class PKPPageRouterTest extends PKPRouterTestCase {
 		$this->setTestConfiguration('request2', 'classes/core/config'); // restful URLs enabled
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
 		$_SERVER = array(
-			'HOSTNAME' => 'mydomain.org',
+			'SERVER_NAME' => 'mydomain.org',
 			'SCRIPT_NAME' => '/index.php',
 		);
 		$_GET = array(

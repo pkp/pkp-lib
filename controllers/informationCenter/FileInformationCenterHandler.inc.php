@@ -3,8 +3,8 @@
 /**
  * @file controllers/informationCenter/FileInformationCenterHandler.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2003-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FileInformationCenterHandler
@@ -160,50 +160,6 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 			return new JSONMessage(true);
 		} else {
 			// Return a JSON string indicating failure
-			return new JSONMessage(false);
-		}
-	}
-
-	/**
-	 * Display the notify tab.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function viewNotify ($args, $request) {
-		$this->setupTemplate($request);
-
-		import('controllers.informationCenter.form.InformationCenterNotifyForm');
-		$notifyForm = new InformationCenterNotifyForm($this->submissionFile->getFileId(), ASSOC_TYPE_SUBMISSION_FILE);
-		$notifyForm->initData();
-
-		return new JSONMessage(true, $notifyForm->fetch($request));
-	}
-
-	/**
-	 * Send a notification from the notify tab.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function sendNotification ($args, $request) {
-		$this->setupTemplate($request);
-
-		import('controllers.informationCenter.form.InformationCenterNotifyForm');
-		$notifyForm = new InformationCenterNotifyForm($this->submissionFile->getFileId(), ASSOC_TYPE_SUBMISSION_FILE);
-		$notifyForm->readInputData($request);
-
-		if ($notifyForm->validate()) {
-			$noteId = $notifyForm->execute($request);
-
-			$this->_logEvent($request, SUBMISSION_LOG_MESSAGE_SENT);
-			$user = $request->getUser();
-			NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.sentNotification')));
-
-			// Success--Return a JSON string indicating so (will clear the form on return, and indicate success)
-			return new JSONMessage(true);
-		} else {
-			// Failure--Return a JSON string indicating so
 			return new JSONMessage(false);
 		}
 	}

@@ -6,8 +6,8 @@
 /**
  * @file classes/user/form/RegistrationForm.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2003-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class RegistrationForm
@@ -274,7 +274,7 @@ class RegistrationForm extends Form {
 	/**
 	 * Set mail from address
 	 * @param $request PKPRequest
-	 * @param MailTemplate $mail
+	 * @param $mail MailTemplate
 	 */
 	function _setMailFrom($request, $mail) {
 		$site = $request->getSite();

@@ -3,8 +3,8 @@
 /**
  * @file classes/submission/GenreDAO.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2003-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class GenreDAO
@@ -132,14 +132,6 @@ class GenreDAO extends DAO {
 	 */
 	function getLocaleFieldNames() {
 		return array('name');
-	}
-
-	/**
-	 * Get a list of field names for which non-localized settings are stored
-	 * @return array
-	 */
-	function getAdditionalFieldNames() {
-		return array('designation');
 	}
 
 	/**
@@ -313,7 +305,6 @@ class GenreDAO extends DAO {
 			foreach ($locales as $locale) {
 				$genre->setName(__($attrs['localeKey'], array(), $locale), $locale);
 			}
-			$genre->setDesignation($attrs['designation']);
 
 			if ($genre->getId() > 0) { // existing genre.
 				$this->updateObject($genre);

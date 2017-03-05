@@ -4,8 +4,8 @@
 <!--
   * locale/es_ES/user.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Credits: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Spanish_(es_ES)
   * Localization strings.
@@ -146,5 +146,7 @@
 	<message key="user.profile.identity">Identidad</message>
 	<message key="user.profile.contact">Contacto</message>
 	<message key="user.profile.public">Público</message>
-	<message key="user.register.form.passwordLengthRestriction">La contraseña debe tener como mínimo {$length} caracteres.</message>
+        <message key="user.register.form.passwordLengthRestriction">La contraseña debe tener como mínimo {$length} caracteres.</message>
+        <message key="user.register.form.usernameAlphaNumeric">El nombre de usuario/a debe contener únicamente letras minúsculas, números y guiones/guiones bajos.</message>
+        <message key="user.login.rememberUsernameAndPassword">Recordar Usuario</message>
 </locale>

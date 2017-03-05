@@ -4,8 +4,8 @@
 <!--
   * locale/pt_BR/editor.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2003-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2003-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Locale information: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Portuguese_(pt_BR)
   * Localization strings.
@@ -117,7 +117,6 @@
 	<message key="editor.submission.proofreading.revokeProofApproval">Revogar Aprovação</message>
 	<message key="editor.submission.proofreading.confirmCompletion">Aprove essa versão para indicar que a leitura de prova está completa e o arquivo pode ser publicado.</message>
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">Revogar a aprovação desta versão para indicar que a leitura de prova não está mais completa e que o arquivo não está pronto para ser publicado.</message>
-	<message key="editor.publicIdentificationExistsForTheSameType">O identificador público '{$publicIdentifier}' já existe para outro objeto do mesmo tipo. Por favor, escolha identificadores únicos para os objetos do mesmo tipo dentro de sua revista.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">O identificador público '{$publicIdentifier}' não pode ser um número.</message>
 	<message key="editor.submission.findAndSelectUser">Localizar Usuário</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">O padrão {$pattern} não é permitido para o identificador público.</message>

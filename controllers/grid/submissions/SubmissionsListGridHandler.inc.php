@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/submissions/SubmissionsListGridHandler.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionsListGridHandler
@@ -18,6 +18,7 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 
 // Import submissions list grid specific classes.
 import('lib.pkp.controllers.grid.submissions.SubmissionsListGridCellProvider');
+import('lib.pkp.controllers.grid.submissions.SubmissionsListGridRow');
 
 // Access decision actions constants.
 import('classes.workflow.EditorDecisionActionsManager');
@@ -49,8 +50,8 @@ class SubmissionsListGridHandler extends GridHandler {
 	/**
 	 * @copydoc PKPHandler::initialize()
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 
 		// Load submission-specific translations.
 		AppLocale::requireComponents(
@@ -118,18 +119,28 @@ class SubmissionsListGridHandler extends GridHandler {
 	 * @copyDoc GridHandler::renderFilter()
 	 */
 	function renderFilter($request, $filterData = array()) {
+		// Build a list of workflow stages
 		$workflowStages = WorkflowStageDAO::getWorkflowStageTranslationKeys();
 		$workflowStages[0] = 'workflow.stage.any';
 		ksort($workflowStages);
-		$filterColumns = $this->getFilterColumns();
 
-		$filterData = array_merge($filterData, array(
-			'columns' => $filterColumns,
-			'workflowStages' => $workflowStages,
-			'gridId' => $this->getId()
-		));
+		// Build a list of sections
+		$sectionDao = Application::getSectionDAO();
+		$sectionsIterator = $sectionDao->getByContextId($request->getContext()->getId());
+		$sections = array(0 => __('section.any'));
+		while ($section = $sectionsIterator->next()) {
+			$sections[$section->getId()] = $section->getLocalizedTitle();
+		}
 
-		return parent::renderFilter($request, $filterData);
+				return parent::renderFilter(
+			$request,
+			array_merge($filterData, array(
+				'columns' => $this->getFilterColumns(),
+				'workflowStages' => $workflowStages,
+				'sections' => $sections,
+				'gridId' => $this->getId()
+			))
+		);
 	}
 
 	/**
@@ -139,11 +150,13 @@ class SubmissionsListGridHandler extends GridHandler {
 		$search = (string) $request->getUserVar('search');
 		$column = (string) $request->getUserVar('column');
 		$stageId = (int) $request->getUserVar('stageId');
+		$sectionId = (int) $request->getUserVar('sectionId');
 
 		return array(
 			'search' => $search,
 			'column' => $column,
-			'stageId' => $stageId
+			'stageId' => $stageId,
+			'sectionId' => $sectionId,
 		);
 	}
 
@@ -192,7 +205,7 @@ class SubmissionsListGridHandler extends GridHandler {
 	 * @return SubmissionsListGridRow
 	 */
 	protected function getRowInstance() {
-		return new SubmissionsListGridRow($this->_isManager);
+		return new SubmissionsListGridRow($this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES));
 	}
 
 	/**
@@ -202,7 +215,8 @@ class SubmissionsListGridHandler extends GridHandler {
 	protected function getFilterColumns() {
 		return array(
 			'title' => __('submission.title'),
-			'author' => __('submission.authors'));
+			'author' => __('submission.authors'),
+		);
 	}
 
 	/**
@@ -211,25 +225,24 @@ class SubmissionsListGridHandler extends GridHandler {
 	 * @return Array
 	 */
 	protected function getFilterValues($filter) {
+		$search = $column = $stageId = $sectionId = null;
 		if (isset($filter['search']) && $filter['search']) {
 			$search = $filter['search'];
-		} else {
-			$search = null;
 		}
 
 		if (isset($filter['column']) && $filter['column']) {
 			$column = $filter['column'];
-		} else {
-			$column = null;
 		}
 
 		if (isset($filter['stageId']) && $filter['stageId']) {
 			$stageId = $filter['stageId'];
-		} else {
-			$stageId = null;
 		}
 
-		return array($search, $column, $stageId);
+		if (isset($filter['sectionId']) && $filter['sectionId']) {
+			$sectionId = $filter['sectionId'];
+		}
+
+		return array($search, $column, $stageId, $sectionId);
 	}
 
 	/**

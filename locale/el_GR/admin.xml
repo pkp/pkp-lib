@@ -4,15 +4,15 @@
 <!--
   * locale/el_GR/admin.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the el_GR (ελληνικά) locale.
   *
   -->
 
-<locale name="el_GR" full_name = "Greek">
+<locale name="el_GR" full_name="ελληνικά">
 	<message key="admin.adminFunctions">Λειτουργίες Διαχείρισης</message>
 	<message key="admin.auth.confirmDelete">Είστε σίγουροι ότι  θέλετε να διαγράψετε μόνιμα αυτή τη πηγή  πιστοποίησης;</message>
 	<message key="admin.auth.create">Δημιουργία Πηγής  Πιστοποίησης</message>
@@ -57,7 +57,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Μη έγκυρη μορφή αρχείου εικόνας λογοτύπου περιοδικού. Έγκυρες μορφές αρχείων είναι .gif, .jpg, ή .png.</message>
 	<message key="admin.settings.introduction">Εισαγωγή</message>
 	<message key="admin.settings.minPasswordLength">Ελάχιστο μήκος κωδικού πρόσβασης (password)</message>
-	<message key="admin.settings.oaiRegistration">Εγγράψτε τον ιστότοπο για ευρετηρίαση μεταδεδομένων (Metadata Harvesting)</message>
 	<message key="admin.settings.passwordCharacters">χαρακτήρες</message>
 	<message key="admin.settings.siteLanguage">Γλώσσα ιστοτόπου</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Μη έγκυρη μορφή αρχείου stylesheet ιστοτόπου. Έγκυρη μορφή αρχείου είναι η  .css.</message>

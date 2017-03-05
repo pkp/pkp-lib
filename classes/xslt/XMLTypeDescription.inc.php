@@ -3,8 +3,8 @@
 /**
  * @file classes/xslt/XMLTypeDescription.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class XMLTypeDescription
@@ -60,6 +60,13 @@ class XMLTypeDescription extends TypeDescription {
 		return TYPE_DESCRIPTION_NAMESPACE_XML;
 	}
 
+	/**
+	 * Set the validation strategy
+	 * @param $validationStrategy string XML_TYPE_DESCRIPTION_VALIDATE_...
+	 */
+	function setValidationStrategy($validationStrategy) {
+		$this->_validationStrategy = $validationStrategy;
+	}
 
 	//
 	// Implement abstract template methods from TypeDescription

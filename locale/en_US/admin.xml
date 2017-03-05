@@ -4,8 +4,8 @@
 <!--
   * locale/en_US/admin.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -80,7 +80,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Invalid site logo image format. Accepted formats are .gif, .jpg, or .png.</message>
 	<message key="admin.settings.introduction">Introduction</message>
 	<message key="admin.settings.minPasswordLength">Minimum password length (characters)</message>
-	<message key="admin.settings.oaiRegistration">Register Site for Indexing (Metadata Harvesting)</message>
 	<message key="admin.settings.siteLanguage">Site language</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Invalid site style sheet format. Accepted format is .css.</message>
 	<message key="admin.settings.siteStyleSheet">Site style sheet</message>

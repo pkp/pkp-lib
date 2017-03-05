@@ -3,8 +3,8 @@
 /**
  * @file pages/admin/AdminHandler.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2003-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AdminHandler
@@ -31,10 +31,10 @@ class AdminHandler extends Handler {
 	/**
 	 * @copydoc PKPHandler::authorize()
 	 */
-	function authorize($request, &$args, $roleAssignments, $enforceRestrictedSite = true) {
+	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PKPSiteAccessPolicy');
 		$this->addPolicy(new PKPSiteAccessPolicy($request, null, $roleAssignments));
-		$returner = parent::authorize($request, $args, $roleAssignments, $enforceRestrictedSite);
+		$returner = parent::authorize($request, $args, $roleAssignments);
 
 		// Make sure user is in a context. Otherwise, redirect.
 		$context = $request->getContext();

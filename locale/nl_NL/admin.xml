@@ -4,15 +4,15 @@
 <!--
   * locale/nl_NL/admin.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the nl_NL (Nederlands) locale.
   *
   -->
 
-<locale name="nl_NL" full_name = "Nederlands">
+<locale name="nl_NL" full_name="Nederlands">
 	<message key="admin.adminFunctions">Administratieve functies</message>
 	<message key="admin.auth.confirmDelete">Weet u zeker dat u deze authenticatiebron wilt verwijderen?</message>
 	<message key="admin.auth.create">Creëer authenticatiebron</message>
@@ -57,7 +57,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Onjuist bestandstype voor het site logo. Geldige types zijn .gif, .jpg, en .png.</message>
 	<message key="admin.settings.introduction">Introductie</message>
 	<message key="admin.settings.minPasswordLength">Minimale wachtwoordlengte</message>
-	<message key="admin.settings.oaiRegistration">Site aanmelden voor indexering (Metadata Harvesting)</message>
 	<message key="admin.settings.passwordCharacters">tekens</message>
 	<message key="admin.settings.siteLanguage">Taal van de site</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Onjuist bestandstype voor site stylesheet. Geldig bestandstype is .css.</message>

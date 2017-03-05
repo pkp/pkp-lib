@@ -4,15 +4,15 @@
 <!--
   * locale/zh_CN/admin.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the en_US (English) locale.
   *
   -->
 
-<locale name="zh_CN" full_name = "China .PR">
+<locale name="zh_CN" full_name="简体中文">
 	<message key="admin.adminFunctions">管理职能</message>
 	<message key="admin.auth.confirmDelete">您确定要永久删除此验证来源?</message>
 	<message key="admin.auth.create">创建验证来源</message>
@@ -57,7 +57,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">无效的网站Logo图片格式，只有如下格式允许 .gif, .jpg, or .png.</message>
 	<message key="admin.settings.introduction">介绍</message>
 	<message key="admin.settings.minPasswordLength">最小的密码长度</message>
-	<message key="admin.settings.oaiRegistration">注册网站便于索引 (Metadata Harvesting)</message>
 	<message key="admin.settings.passwordCharacters">字符</message>
 	<message key="admin.settings.siteLanguage">网站语言</message>
 	<message key="admin.settings.siteStyleSheetInvalid">无效的样式表格式，允许的格式有.css.</message>

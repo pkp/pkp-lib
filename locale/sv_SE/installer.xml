@@ -4,15 +4,15 @@
 <!--
   * locale/sv_SE/installer.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the sv_SE (Svenska) locale.
   *
   -->
 
-<locale name="sv_SE" full_name = "Swedish">
+<locale name="sv_SE" full_name="Svenska">
 	<message key="installer.additionalLocales">Fler lokalinställningar</message>
 	<message key="installer.administratorAccount">Administratörskonto</message>
 	<message key="installer.administratorAccountInstructions">Det här användarkontot kommer att bli Sidaministratörens och kommer att ha fullständig tillgång till systemet. Ytterligare konton kan skapas efter installationen.</message>

@@ -4,14 +4,14 @@
 <!--
   * locale/ar_IQ/submission.xml
   *
-  * Copyright (c) 2013-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2013-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ar_IQ (العربية) locale.
   -->
 
-<locale name="ar_IQ" full_name = "العربية">
+<locale name="ar_IQ" full_name="العربية">
 	<!-- Author Submission -->
 	<message key="author.submit.userGroupRequired">حسابك الحالي ليس له دور يسمح بتقديم طلبات جديدة كمؤلف. لطفاً، راجع بيانات حسابك؛ فقد يكون بإمكانك إضافة الدور المناسب لنفسك.</message>
 	<message key="author.submit.submissionCitations">إدرج قائمة منسقة من المراجع للأعمال المقتبس منها ضمن هذا المؤلَّف. لطفاً، إفصل بين المراجع بسطر فارغ.</message>
@@ -140,9 +140,11 @@
 	<message key="common.queue.long.myAssigned">المعيّن لي</message>
 	<message key="common.queue.long.submissionsArchived">طلبات النشر المحفوظة</message>
 	<message key="submission.authors">المؤلفون</message>
+	<message key="submission.authorBiography">السيرة الشخصية للمؤلف</message>
 	<message key="submission.authorBiographies">السير الشخصية للمؤلفين</message>
+	<message key="submission.authorWithAffiliation">{$name}، {$affiliation}</message>
 	<message key="submission.shortAuthor">{$author}.</message>
-	<message key="submission.mySubmissions">مؤلفاتي</message>
+	<message key="submission.mySubmissions">طلباتي للنشر</message>
 	<message key="submission.addFile">رفع الملف</message>
 	<message key="submission.agencies">الوكالات</message>
 	<message key="submission.abstractViews">معاينات الملخص</message>
@@ -428,6 +430,7 @@
 	<message key="submission.submit.metadataForm">تحسينات إضافية</message>
 	<message key="submission.submit.metadataForm.tip">أضف معلومات أخرى عن مؤلَّفِك. إضغط 'enter' بعد كل عبارة.</message>
 	<message key="submission.submit.submissionLocale">لغة المؤلَّف</message>
+	<message key="submission.submit.submissionLocaleDescription">نقبل نشر المؤلفات بعدة لغات. لطفاً إختر اللغة الأساسية لمؤلَّفِك من القائمة المنسدلة.</message>
 	<message key="submission.submit.submissionFiles">ملفات المؤلَّف</message>
 	<message key="submission.submit.dependentFiles">الملفات الملحقة</message>
 	<message key="submission.manageDependentFiles">إدارة الملفات الملحقة</message>

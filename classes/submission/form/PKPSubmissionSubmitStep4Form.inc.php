@@ -3,8 +3,8 @@
 /**
  * @file classes/submission/form/PKPSubmissionSubmitStep4Form.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2003-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionSubmitStep4Form
@@ -50,14 +50,16 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 		// Assign the default stage participants.
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 
-		// Assistant roles -- For each assistant role user group assigned to this
+		// Manager and assistant roles -- for each assigned to this
 		//  stage in setup, iff there is only one user for the group,
-		//  automatically assign the user to the stage
-		// But skip authors and reviewers, since these are very submission specific
+		//  automatically assign the user to the stage.
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-		$submissionStageGroups = $userGroupDao->getUserGroupsByStage($this->submission->getContextId(), WORKFLOW_STAGE_ID_SUBMISSION, true, true);
+		$submissionStageGroups = $userGroupDao->getUserGroupsByStage($this->submission->getContextId(), WORKFLOW_STAGE_ID_SUBMISSION);
 		$managerFound = false;
 		while ($userGroup = $submissionStageGroups->next()) {
+			// Only handle manager and assistant roles
+			if (!in_array($userGroup->getRoleId(), array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT))) continue;
+
 			$users = $userGroupDao->getUsersById($userGroup->getId(), $this->submission->getContextId());
 			if($users->getCount() == 1) {
 				$user = $users->next();

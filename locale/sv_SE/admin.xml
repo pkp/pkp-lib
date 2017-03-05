@@ -4,15 +4,15 @@
 <!--
   */locale/sv_SE/admin.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the sv_SE (Svenska) locale.
   *
   -->
 
-<locale name="sv_SE" full_name = "Swedish">
+<locale name="sv_SE" full_name="Svenska">
 	<message key="admin.adminFunctions">Administrativa funktioner</message>
 	<message key="admin.auth.confirmDelete">Är du säker på att du vill ta bort valideringskällan permanent?</message>
 	<message key="admin.auth.create">Skapa valideringskälla</message>
@@ -56,7 +56,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Ogiltigt bildformat på sidlogotyp. Tillåtna format är: .gif, .jpg, or .png.</message>
 	<message key="admin.settings.introduction">Introduktion</message>
 	<message key="admin.settings.minPasswordLength">Minsta längd på lösenord</message>
-	<message key="admin.settings.oaiRegistration">Registrera sidan för indexering (Metadata Harvesting)</message>
 	<message key="admin.settings.passwordCharacters">tecken</message>
 	<message key="admin.settings.siteLanguage">Sidans språk</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Ogiltigt format på sidans stylesheet. Tillåtet format är: .css.</message>

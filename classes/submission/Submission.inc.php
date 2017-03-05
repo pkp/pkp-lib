@@ -10,8 +10,8 @@
 /**
  * @file classes/submission/Submission.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Submission
@@ -149,9 +149,8 @@ abstract class Submission extends DataObject {
 
 		// Fallback: Get the first available piece of data.
 		$data =& $this->getData($key, null);
-		if (!empty($data)) {
-			$keys = array_keys($data);
-			return $data[array_shift($keys)];
+		foreach ((array) $data as $dataValue) {
+			if (!empty($dataValue)) return $dataValue;
 		}
 
 		// No data available; return null.
@@ -233,14 +232,6 @@ abstract class Submission extends DataObject {
 	}
 
 	/**
-	 * Get comments to editor.
-	 * @return string
-	 */
-	function getCommentsToEditor() {
-		return $this->getData('commentsToEditor');
-	}
-
-	/**
 	 * Return option selection indicating if author should be hidden in issue ToC.
 	 * @return int AUTHOR_TOC_...
 	 */
@@ -254,14 +245,6 @@ abstract class Submission extends DataObject {
 	 */
 	function setHideAuthor($hideAuthor) {
 		$this->setData('hideAuthor', $hideAuthor);
-	}
-
-	/**
-	 * Set comments to editor.
-	 * @param $commentsToEditor string
-	 */
-	function setCommentsToEditor($commentsToEditor) {
-		$this->setData('commentsToEditor', $commentsToEditor);
 	}
 
 	/**
@@ -398,7 +381,9 @@ abstract class Submission extends DataObject {
 	function getLocalizedTitle($preferredLocale = null, $includePrefix = true) {
 		$title = $this->getLocalizedData('title', $preferredLocale);
 		if ($includePrefix) {
-			$title = $this->getLocalizedPrefix() . ' ' . $title;
+			$prefix = $this->getLocalizedPrefix();
+			if (!empty($prefix)) $prefix .= ' ';
+			$title = $prefix . $title;
 		}
 		return $title;
 	}
@@ -414,10 +399,14 @@ abstract class Submission extends DataObject {
 		if ($includePrefix) {
 			if (is_array($title)) {
 				foreach($title as $locale => $currentTitle) {
-					$title[$locale] = $this->getPrefix($locale) . ' ' . $currentTitle;
+					$prefix = $this->getPrefix($locale);
+					if (!empty($prefix)) $prefix .= ' ';
+					$title[$locale] = $prefix . $currentTitle;
 				}
 			} else {
-				$title = $this->getPrefix($locale) . ' ' . $title;
+				$prefix = $this->getPrefix($locale);
+				if (!empty($prefix)) $prefix .= ' ';
+				$title = $prefix . $title;
 			}
 		}
 		return $title;

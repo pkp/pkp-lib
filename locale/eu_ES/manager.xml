@@ -4,15 +4,15 @@
 <!--
   * locale/eu_ES/manager.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the eu_ES (Euskara) locale.
   *
   -->
 
-<locale name="eu_ES" full_name = "Basque (Euskara)">
+<locale name="eu_ES" full_name="Euskara">
 	<message key="manager.announcements">Anuntzioak</message>
 	<message key="manager.announcements.confirmDelete">Ziur zaude betiko ezabatu nahi duzula anuntzio hau?</message>
 	<message key="manager.announcements.create">Sortu Anuntzio berria</message>

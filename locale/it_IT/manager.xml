@@ -4,8 +4,8 @@
 <!--
   * locale/it_IT/manager.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -271,4 +271,56 @@
 	<message key="manager.reviewForms.noneCreated">Non è stato creato nessun modulo di revisione</message>
 	<message key="manager.reviewForms.preview">Anteprima del modulo</message>
 	<message key="manager.reviewForms.title">Titolo</message>
+	<message key="manager.website.information">Informazioni sul sito</message>
+	<message key="manager.website.appearance">Aspetto</message>
+	<message key="manager.publication.submissionStage">Proposte</message>
+	<message key="manager.publication.emails">Email</message>
+	<message key="manager.userSearch.searchByName">Cerca utente per nome</message>
+	<message key="manager.setup.authorGuidelines">Linee guida per gli autori</message>
+	<message key="manager.setup.authorGuidelines.description">Le linee guida dovrebbero contenere informazioni sulle norme redazionali per la redazione del testo e della bibliografia, includendo esempi dei formati delle citazioni</message>
+	<message key="manager.setup.competingInterests">Conflitti di interessi</message>
+	<message key="manager.setup.competingInterestsDescription">Richiedi ai revisori di accettare le seguenti norme sul conflitto di interessi</message>
+	<message key="manager.setup.favicon">Formato della favicon non valido. I formati accettati sono .ico, .png e .gif.</message>
+	<message key="manager.setup.layout.theme">Temi</message>
+	<message key="manager.setup.layout.themeDescription">Nuovi temi possomo essere installati nella sezione Plugin in cima a questa pagina</message>
+	<message key="manager.setup.logo">Logo</message>
+	<message key="manager.setup.notifications">Notifiche per lle proposte</message>
+	<message key="manager.setup.notifications.copyPrimaryContact">Copia il contatto principale</message>
+	<message key="manager.setup.notifications.copySpecifiedAddress">Invia una copia a questo indirizzo email</message>
+	<message key="manager.setup.pageFooter">Piè di pagina</message>
+	<message key="manager.setup.pageFooterDescription">Inserisci immagini, testo o codice HTML che vuoi compaia nel piè di pagina</message>
+	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Settimane concesse per accettare o rifiutare una richiesta di revisione</message>
+	<message key="manager.setup.reviewOptions.noteOnModification">I valori impostati qui possono essere modificati durante il processo editoriale.</message>
+	<message key="manager.setup.reviewOptions.remindForInvite">Invia un promemoria se il revisore non risponde ad una richiesta di revisione entro (n) giorni dopo la scadenza:</message>
+	<message key="manager.setup.reviewOptions.remindForSubmit">Invia un promemoria se il revisore non invia un parere entro (n) giorni dopo la scadenza:</message>
+	<message key="manager.setup.reviewOptions.reviewTime">Tempo per la revisione</message>
+	<message key="manager.setup.reviewOptions.showBlindReviewLink">Inserisci un link a "Come assicurare una peer review cieca" durante il caricamento di una proposta</message>
+	<message key="manager.setup.styleSheetDescription">È possbile caricare un file CSS per personalizzare ulteriormente l'aspetto del sito</message>
+	<message key="manager.siteAccessOptions.siteAccessOptions">Opzioni di accesso al sito</message>
+	<message key="manager.paymentMethod">Pagamenti</message>
+	<message key="manager.paymentMethod.none">Nessun metodo di pagamento selezionato</message>
+	<message key="manager.paymentMethod.method">Metodo di pagamento</message>
+	<message key="manager.paymentMethod.currency">Valuta</message>
+	<message key="manager.paymentMethod.currency.description">I pagamenti effettuati direttamente sul sito saranno considerati nella seguente valuta:</message>
+	<message key="settings.roles.roleOptions">Opzioni per i ruoli</message>
+	<message key="settings.roles.showTitles">Mostra questo ruolo nella lista dei collaboratori</message>
+	<message key="settings.roles.permitSelfRegistration">Consenti agli utenti di registrarsi in questo ruolo</message>
+	<message key="settings.roles.roleName">Nome del ruolo</message>
+	<message key="settings.roles.roleAbbrev">Sigla del ruolo</message>
+	<message key="settings.roles.roleDetails">Dettagli del ruolo</message>
+	<message key="settings.roles.from">Imposta i permessi di accesso</message>
+	<message key="settings.libraryFiles.category.marketing">Marketing</message>
+	<message key="settings.libraryFiles.category.permissions">Permessi</message>
+	<message key="settings.libraryFiles.category.reports">Report</message>
+	<message key="settings.libraryFiles.category.other">Altro</message>
+	<message key="grid.action.addGenre">Aggiungi un componente</message>
+	<message key="manager.website.title">Impostazioni del sito</message>
+	<message key="manager.workflow">Flusso di lavoro</message>
+	<message key="manager.workflow.title">Impostazioni del flusso di lavoro</message>
+	<message key="manager.distribution">Distribuzione</message>
+	<message key="manager.distribution.title">Impostazioni di distribuzione</message>
+	<message key="manager.setup.competingInterests.required">Richiedi uan dichiarazione su eventuali conflitti di interessi durante la peer review</message>
+	<message key="manager.setup.metadata.submission">Form per le proposte</message>
+	<message key="manager.plugins.upload">Carica un nuovo plugin</message>
+	<message key="manager.distribution.indexing">Indicizzazione</message>
 </locale>

@@ -3,8 +3,8 @@
 /**
  * @file classes/handler/PKPHandler.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @package core
@@ -40,6 +40,9 @@ class PKPHandler {
 	/** @var AuthorizationDecisionManager authorization decision manager for this handler */
 	var $_authorizationDecisionManager;
 
+	/** @var boolean Whether to enforce site access restrictions. */
+	var $_enforceRestrictedSite = true;
+
 	/**
 	 * Constructor
 	 */
@@ -49,6 +52,10 @@ class PKPHandler {
 	//
 	// Setters and Getters
 	//
+	function setEnforceRestrictedSite($enforceRestrictedSite) {
+		$this->_enforceRestrictedSite = $enforceRestrictedSite;
+	}
+
 	/**
 	 * Set the controller id
 	 * @param $id string
@@ -230,12 +237,11 @@ class PKPHandler {
 	 * @param $args array request arguments
 	 * @param $roleAssignments array the operation role assignment,
 	 *  see getRoleAssignment() for more details.
-	 * @param $enforceRestrictedSite boolean True iff site restrictions are to be enforced
 	 * @return boolean
 	 */
-	function authorize($request, &$args, $roleAssignments, $enforceRestrictedSite = true) {
+	function authorize($request, &$args, $roleAssignments) {
 		// Enforce restricted site access if required.
-		if ($enforceRestrictedSite) {
+		if ($this->_enforceRestrictedSite) {
 			import('lib.pkp.classes.security.authorization.RestrictedSiteAccessPolicy');
 			$this->addPolicy(new RestrictedSiteAccessPolicy($request), true);
 		}
@@ -331,9 +337,8 @@ class PKPHandler {
 	 * authorization.
 	 *
 	 * @param $request PKPRequest
-	 * @param $args array
 	 */
-	function initialize($request, $args = null) {
+	function initialize($request) {
 		// Set the controller id to the requested
 		// page (page routing) or component name
 		// (component routing) by default.

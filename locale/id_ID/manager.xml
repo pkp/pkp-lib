@@ -4,14 +4,14 @@
 <!--
   * locale/id_ID/manager.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2003-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2003-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
   -->
 
-<locale name="id_ID" full_name = "Indonesia">
+<locale name="id_ID" full_name="Bahasa Indonesia">
 	<message key="manager.announcements">Pengumuman</message>
 	<message key="manager.announcements.confirmDelete">Apakah Anda yakin ingin menghapus pengumuman ini secara permanen?</message>
 	<message key="manager.announcements.create">Buat Pengumuman Baru</message>

@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/admin/systemInfo/ServerInfoGridHandler.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ServerInfoGridHandler
@@ -50,10 +50,10 @@ class ServerInfoGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @copydoc PKPHandler::initialize()
+	 * @copydoc GridHandler::initialize()
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 
 		// Load user-related translations.
 		AppLocale::requireComponents(
@@ -61,7 +61,6 @@ class ServerInfoGridHandler extends GridHandler {
 			LOCALE_COMPONENT_PKP_ADMIN,
 			LOCALE_COMPONENT_APP_ADMIN,
 			LOCALE_COMPONENT_APP_MANAGER,
-			LOCALE_COMPONENT_APP_COMMON
 		);
 
 		// Basic grid configuration.

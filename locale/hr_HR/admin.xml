@@ -4,15 +4,15 @@
 <!--
   * locale/hr_HR/admin.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the hr_HR (Hrvatski) locale.
   *
   -->
 
-<locale name="hr_HR" full_name = "Hrvatski">
+<locale name="hr_HR" full_name="Hrvatski">
 	<message key="admin.adminFunctions">Administrativne funkcije</message>
 	<message key="admin.auth.confirmDelete">Jeste li sigurni da želite trajno obrisati ovaj izvor autentifikacije?</message>
 	<message key="admin.auth.create">Kreirajte izvor autentifikacije</message>
@@ -56,7 +56,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Neispravni format logotipa stranice. Sustav prihvaća .gif, .jpg ili .png formate.</message>
 	<message key="admin.settings.introduction">Uvod</message>
 	<message key="admin.settings.minPasswordLength">Minimalna duljina lozinke</message>
-	<message key="admin.settings.oaiRegistration">Evidentirajte stranicu za indeksiranje (sakupljanje metapodataka)</message>
 	<message key="admin.settings.passwordCharacters">znakova</message>
 	<message key="admin.settings.siteLanguage">Jezik stranice</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Neispravni style sheet format. Sustav prihvaća samo .css format.</message>

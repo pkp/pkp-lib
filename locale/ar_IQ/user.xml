@@ -4,14 +4,14 @@
 <!--
   * locale/ar_IQ/user.xml
   *
-  * Copyright (c) 2013-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2013-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ar_IQ (العربية) locale.
   -->
 
-<locale name="ar_IQ" full_name = "العربية">
+<locale name="ar_IQ" full_name="العربية">
 	<message key="user.accountInformation">معلومات الحساب</message>
 	<message key="user.affiliation">الانتماء</message>
 	<message key="user.affiliation.description">(المؤسسة التي تعمل فيها، مثلاً: "جامعة بغداد")</message>
@@ -66,6 +66,7 @@
 	<message key="user.login.registrationComplete.newSubmission">إنشاء طلب نشر جديد</message>
 	<message key="user.login.registrationComplete.continueBrowsing">متابعة التصفح</message>
 	<message key="user.login.registrationPendingValidation">التسجيل ينتظر التحقق</message>
+	<message key="user.login.rememberUsernameAndPassword">أبقني مسجلاً لدخولي في الموقع</message>
 	<message key="user.login.resetPassword">إعادة تعيين كلمة المرور</message>
     	<message key="user.logOut">الخروج</message>
 	<message key="user.logOutAs">الخروج كأنني</message>

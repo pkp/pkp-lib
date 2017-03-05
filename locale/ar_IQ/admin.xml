@@ -4,14 +4,14 @@
 <!--
   * locale/ar_IQ/admin.xml
   *
-  * Copyright (c) 2013-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2013-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ar_IQ (العربية) locale.
   -->
 
-<locale name="ar_IQ" full_name = "العربية">
+<locale name="ar_IQ" full_name="العربية">
 	<message key="admin.systemInfo.settingName">اسم الإعداد</message>
 	<message key="admin.systemInfo.settingValue">قيمة الإعداد</message>
 	<message key="admin.adminFunctions">الوظائف الإدارية</message>
@@ -80,7 +80,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">صيغة ملف شعار الموقع غير صحيحة. الصيغ المقبولة هي .gif، .jpg، أو .png.</message>
 	<message key="admin.settings.introduction">المقدمة</message>
 	<message key="admin.settings.minPasswordLength">أقل طول لكلمة المرور</message>
-	<message key="admin.settings.oaiRegistration">سجِّل الموقع لأغراض الفهرسة (حصاد البيانات الوصفية)</message>
 	<message key="admin.settings.siteLanguage">لغة الموقع</message>
 	<message key="admin.settings.siteStyleSheetInvalid">صيغة ملف أنماط الموقع غير صحيحة. الصيغة المقبولة هي .css.</message>
 	<message key="admin.settings.siteStyleSheet">ملف أنماط الموقع</message>

@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/submissions/exportableSubmissions/ExportableSubmissionsListGridHandler.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ExportableSubmissionsListGridHandler
@@ -41,7 +41,7 @@ class ExportableSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		$submissionDao = Application::getSubmissionDAO();
 		$context = $request->getContext();
 
-		list($search, $column, $stageId) = $this->getFilterValues($filter);
+		list($search, $column, $stageId, $sectionId) = $this->getFilterValues($filter);
 		$title = $author = null;
 		if ($column == 'title') {
 			$title = $search;
@@ -56,17 +56,17 @@ class ExportableSubmissionsListGridHandler extends SubmissionsListGridHandler {
 			$title,
 			$author,
 			$stageId,
+			$sectionId,
 			$this->getGridRangeInfo($request, $this->getId())
 		);
 	}
 
 	/**
 	 * @see GridHandler::getRowInstance()
-	 * @return SubmissionsListGridRow
+	 * @return ExportableSubmissionsGridRow
 	 */
-	function &getRowInstance() {
-		$row = new ExportableSubmissionsGridRow();
-		return $row;
+	function getRowInstance() {
+		return new ExportableSubmissionsGridRow();
 	}
 
 	/**

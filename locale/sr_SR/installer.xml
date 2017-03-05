@@ -4,15 +4,15 @@
 <!--
   * locale/sr_SR/installer.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the sr_SR (Cрпски) locale.
   *
   -->
 
-<locale name="sr_SR" full_name = "Serbian">
+<locale name="sr_SR" full_name="Cрпски">
 	<message key="installer.additionalLocales">Dodatne lokalizacije</message>
 	<message key="installer.administratorAccount">Administratorski nalog</message>
 	<message key="installer.administratorAccountInstructions">Ovaj korisnički nalog će postati administrator sajta i imati potpuni pristup sistemu. Dodatni korisnički nalozi mogu biti kreirani nakon instalacije.</message>

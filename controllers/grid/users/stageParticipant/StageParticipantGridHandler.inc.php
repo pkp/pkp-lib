@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/stageParticipant/StageParticipantGridHandler.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class StageParticipantGridHandler
@@ -224,11 +224,12 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 		$result = array();
 		$userGroups = $userGroupDao->getUserGroupsByStage(
 			$request->getContext()->getId(),
-			$this->getStageId(),
-			false, true // Exclude reviewers
+			$this->getStageId()
 		);
 		while ($userGroup = $userGroups->next()) {
-			if (in_array($userGroup->getId(), $userGroupIds)) $result[$userGroup->getId()] = $userGroup;
+			if ($userGroup->getRoleId() == ROLE_ID_REVIEWER) continue;
+			if (!in_array($userGroup->getId(), $userGroupIds)) continue;
+			$result[$userGroup->getId()] = $userGroup;
 		}
 		return $result;
 	}
@@ -511,6 +512,14 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 				)
 			);
 		}
+	}
+
+	/**
+	 * Get the js handler for this component.
+	 * @return string
+	 */
+	public function getJSHandler() {
+		return '$.pkp.controllers.grid.users.stageParticipant.StageParticipantGridHandler';
 	}
 }
 

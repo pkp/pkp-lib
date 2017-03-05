@@ -4,15 +4,15 @@
 <!--
   * locale/fr_CA/common.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the fr_CA (Français (Canada)) locale.
   *
   -->
 
-<locale name="fr_CA" full_name = "Français (Canada)">
+<locale name="fr_CA" full_name="Français (Canada)">
 	<message key="about.aboutSite">À propos du site</message>
 	<message key="about.contact">Contact</message>
 	<message key="about.contact.email">Courriel</message>
@@ -33,6 +33,7 @@
 	<message key="common.copy">Copier</message>
 	<message key="common.preview">Aperçu</message>
 	<message key="common.activate">Activer</message>
+	<message key="common.allDownloads">Tous les téléchargements</message>
 	<message key="common.deactivate">Désactiver</message>
 	<message key="common.dimensionsInches"><![CDATA[{$width}"&nbsp;x&nbsp;{$height}" @ {$dpi} DPI/PPI]]></message>
 	<message key="common.dimensionsPixels">{$width} x {$height} pixels</message>
@@ -49,6 +50,7 @@
 	<message key="common.applyAction">Appliquer l'action</message>
 	<message key="common.assign">Assigner</message>
 	<message key="common.assigned">Assigné</message>
+	<message key="common.assigned.date">Assigné: {$dateAssigned}</message>
 	<message key="common.back">Précédent</message>
 	<message key="common.between">entre</message>
 	<message key="common.cancel">Annuler</message>
@@ -60,9 +62,12 @@
 	<message key="common.changesSaved">Les changements effectués ont été enregistrés.</message>
 	<message key="common.chooseOne">En choisir un(e)</message>
 	<message key="common.close">Fermer</message>
+	<message key="common.closePanel">Fermer le panneau</message>
 	<message key="common.closeWindow">Fermer la fenêtre</message>
 	<message key="common.complete">Terminer</message>
 	<message key="common.completed">Terminé</message>
+	<message key="common.completed.date">Terminé: {$dateCompleted}</message>
+	<message key="common.component">Composante</message>
 	<message key="common.continue">Continuer</message>
 	<message key="common.country">Pays</message>
 	<message key="common.create">Créer</message>
@@ -71,7 +76,7 @@
 	<message key="common.dateModified">Date de modification</message>
 	<message key="common.dateRequested">Date d'échéance</message>
 	<message key="common.dateSubmitted">Date de soumission</message>
-	<message key="common.dateUploaded">Date de téléchargement</message>
+	<message key="common.dateUploaded">Date de téléversement</message>
 	<message key="common.day">Jour</message>
 	<message key="common.default">Défaut</message>
 	<message key="common.delete">Supprimer</message>
@@ -134,7 +139,7 @@
 	<message key="common.removeSelection">Supprimer la sélection</message>
 	<message key="common.replaced">Remplacé</message>
 	<message key="common.replaceFile">Remplacer le fichier</message>
-	<message key="common.requiredField">* Indique un champ obligatoire</message>
+	<message key="common.requiredField"> Indique un champ obligatoire</message>
 	<message key="common.required">Obligatoire</message>
 	<message key="common.saveAndContinue">Enregistrer et continuer</message>
 	<message key="common.saveAndEmail">Enregistrer et envoyer par courriel</message>
@@ -155,12 +160,15 @@
 	<message key="common.uninitiated">Non engagé</message>
 	<message key="common.untitled">Sans titre</message>
 	<message key="common.updated">Mis à jour</message>
-	<message key="common.uploadedFile">Fichier téléchargé</message>
-	<message key="common.upload">Télécharger</message>
+	<message key="common.uploadedFile">Fichier téléversé</message>
+	<message key="common.upload">Téléverser</message>
 	<message key="common.up">Haut</message>
+	<message key="common.upload.addFile">Téléverser un fichier</message>
+	<message key="common.upload.dragFile">Faites glisser et déposez un fichier ici pour commencer le téléversement</message>
 	<message key="common.url">URL</message>
 	<message key="common.user">Utilisateur</message>
 	<message key="common.view">Afficher</message>
+	<message key="common.viewProfile">Mon profil</message>
 	<message key="common.weeks">semaines</message>
 	<message key="common.width">Largeur</message>
 	<message key="common.year">Année</message>
@@ -203,14 +211,16 @@
 	<message key="form.postRequired">Le formulaire n'a pas été soumis correctement.</message>
 	<message key="form.required">(* Obligatoire)</message>
 	<message key="form.resubmit">Soumettre de nouveau</message>
-	<message key="form.saveToUpload">Utiliser Enregistrer pour télécharger le fichier.</message>
+	<message key="form.saveToUpload">Utiliser Enregistrer pour téléverser le fichier.</message>
 	<message key="form.send">Envoyer</message>
 	<message key="form.submit">Soumettre</message>
 	<message key="help.contents">Contenu</message>
 	<message key="help.help">Aide</message>
 	<message key="help.helpIndex">Index de l'aide</message>
 	<message key="help.matchesFound">{$matches} correspondances trouvées</message>
+	<message key="help.next">Suivant</message>
 	<message key="help.noMatchingTopics">Aucun sujet d'aide correspondant trouvé.</message>
+	<message key="help.previous">Précédent</message>
 	<message key="help.relatedTopics">Sujets connexes</message>
 	<message key="help.searchFor">Rechercher les sujets d'aide pour</message>
 	<message key="help.searchResultsFor">Résultats pour</message>
@@ -287,7 +297,11 @@
 	<message key="common.re">Re:</message>
 	<message key="common.manage">Gérer</message>
 	<message key="common.noComments">Aucun commentaire</message>
+	<message key="email.senderEmail">Courriel de l'expéditeur</message>
+	<message key="email.senderName">Nom de l'expéditeur</message>
+	<message key="form.csrfInvalid">le formulaire n'a pas été soumis de la bonne façon.</message>
 	<message key="form.startsWith">commence par</message>
+	<message key="form.url.invalid">L'URL indiquée n'est pas valide. Veuillez vérifier et essayer de nouveau.</message>
 	<message key="notification.updatedReviewFiles">Fichiers d'évaluation mis à jour.</message>
 	<message key="notification.addedAuditor">Un vérificateur a été ajouté.</message>
 	<message key="notification.removedAuditor">Le vérificateur a été supprimé.</message>
@@ -320,7 +334,7 @@
 	<message key="notification.unsubscribeError">Il s'est produit une erreur lors de votre désabonnement. Veuillez vous assurer que votre adresse de courriel et votre mot de passe sont corrects.</message>
 	<message key="notification.unsubscribeSuccess">Vous avez été désabonné avec succès.</message>
 	<message key="notification.savedSubmissionMetadata">Les métadonnées de la soumission ont été sauvegardées.</message>
-	<message key="common.uploadFailed">Le fichier n'a pu être téléchargé. Veuillez essayer de nouveau ou communiquer avec l'administrateur si le problème persiste.</message>
+	<message key="common.uploadFailed">Le fichier n'a pu être téléverser. Veuillez essayer de nouveau ou communiquer avec l'administrateur si le problème persiste.</message>
 	<message key="navigation.dashboard">Tableau de bord</message>
 	<message key="common.false">Faux</message>
 	<message key="common.ok">OK</message>
@@ -343,6 +357,7 @@
 	<message key="informationCenter.informationCenter">Centre de renseignements</message>
 	<message key="informationCenter.composeNote">Écrire une note</message>
 	<message key="informationCenter.addFileNote">Ajouter au fichier</message>
+	<message key="informationCenter.addNote">Ajouter une note</message>
 	<message key="informationCenter.addSubmissionNote">Ajouter à la soumission</message>
 	<message key="informationCenter.noNotes">Il n'y a aucune note à afficher.</message>
 	<message key="informationCenter.currentNotes">Notes en cours</message>
@@ -351,9 +366,14 @@
 	<message key="informationCenter.deleteConfirm">Vous êtes certain de vouloir supprimer cette note?</message>
 	<message key="informationCenter.currentHistory">Révision en cours</message>
 	<message key="informationCenter.pastHistory">Révisions antérieures</message>
+	<message key="informationCenter.history.messageSent">Notification aux usager.</message>
 	<message key="informationCenter.history.noItems">Aucune activité n'a été enregistrée.</message>
 	<message key="informationCenter.history.notePosted">Nouvelle note publiée.</message>
+	<message key="navigation.breadcrumbLabel">Vous êtes ici:</message>
+	<message key="navigation.breadcrumbSeparator">/</message>
 	<message key="navigation.goBack">Retour</message>
+	<message key="navigation.items.shownTotal">{$shown} de {$total} article(s)</message>
+	<message key="navigation.viewFrontend">Voir le site</message>
 
 	<!-- Stage Participants -->
 	<message key="stageParticipants.history.messageSent">Avis envoyé aux utilisateurs.</message>
@@ -364,12 +384,21 @@
 	<message key="notification.addedReviewer">Un évaluateur a été ajouté.</message>
 	<message key="notification.removedReviewer">L'évaluateur a été supprimé.</message>
 	<message key="notification.addedStageParticipant">L'utilisateur a été ajouté à titre de participant.</message>
+	<message key="notification.addedQuery">Discussion ajoutée</message>
+	<message key="notification.removedSubmission">Soumission retirée.</message>
 	<message key="notification.type.reviewAssignment">Vous avez une évaluation en attente.</message>
 	<message key="notification.type.auditorRequest">On vous a demandé de vérifier "{$file}"</message>
-	<message key="notification.type.allReviewsIn">Toutes les évaluations ont été soumises. Il faut prendre une décision à l'étape suivante: {$stage}.</message>
+	<message key="notification.type.allReviewsIn">Toutes les évaluations ont été soumises. Il faut prendre une décision à l'étape {$stage}.</message>
 	<message key="notification.type.allRevisionsIn">Un fichier révisé a été téléchargé dans {$stage} afin que vous puissiez l'évaluer.</message>
+	<message key="notification.type.assignCopyeditors">Affectez un réviseur à l'aide du lien "Ajouter" dans la liste "Participants".</message>
+	<message key="notification.type.awaitingCopyedits">En attente de copies.</message>
+	<message key="notification.type.metadataModified">Les metadata de "{$title}" ont été modifiées.</message>
+	<message key="notification.type.newAnnouncement">Nouvelle annonce.</message>
 	<message key="notification.type.pendingRevisions">Vous devez tenir compte des révisions à cette étape: {$stage}.</message>
-	<message key="notification.type.pendingRevisions.title">Révisions soumises à {$stage}.</message>
+	<message key="notification.type.pendingRevisions.title">Révisions soumiss à {$stage}.</message>
+	<message key="notification.type.queryActivity">Activités sur la discusssion.</message>
+	<message key="notification.type.queryAdded">Discussion ajouté.</message>
+	<message key="notification.type.reviewerComment">Un réviseur a laissé un commentaire sur "{$title}".</message>
 	<message key="notification.type.roundStatusTitle">Statut de la série {$round} </message>
 	<message key="notification.signedFile">Fichier considéré.</message>
 	<message key="user.authorization.authorRoleMissing">Vos privilèges actuels ne vous permettent pas de visionner cette soumission. Veuillez modifier votre profil pour vous assurer que l'on vous a assigné les rôles appropriés dans la section "S'inscrire comme".</message>
@@ -385,18 +414,37 @@
 	<message key="common.abstract">Résumé</message>
 	<message key="common.acknowledged">Reçu</message>
 	<message key="common.name">Nom</message>
+	<message key="common.navigation.sidebar">Barre de navigation</message>
+	<message key="common.navigation.site">Site de navigation</message>
+	<message key="common.navigation.siteContext">Navigation en contexte</message>
+	<message key="common.navigation.user">Navigation à l'usager</message>
+	<message key="common.notice">Notice</message>
+	<message key="common.notified.date">Date de notification: {$dateNotified}</message>
+	<message key="common.pageNumber">Page {$pageNumber}</message>
+	<message key="common.percentage">{$percentage}%</message>
+	<message key="common.queue.long.active">Tous actifs</message>
+	<message key="common.range">{$min}-{$max}</message>
+	<message key="common.readMore">Lire plus</message>
+	<message key="common.readMoreWithTitle">Lire plus à propos de {$title}</message>
+	<message key="common.reminded.date">Date de rappel: {$dateReminded}</message>
+	<message key="common.searchQuery">Requête</message>
 	<message key="common.titleSmallWords">de à le la et un une ou ni mais est si puis alors lorsque à de par ouvert fermé pour à l'intérieur à l'extérieur par-dessus dans avec</message>
+	<message key="common.upload.changeFile">Remplacer un fichier</message>
+	<message key="common.uploadedDate">Date de téléversement</message>
 	<message key="common.available">Disponible</message>
 	<message key="common.warning">Avertissement</message>
 	<message key="common.error">Erreur</message>
 	<message key="common.confirm">Confirmer</message>
+	<message key="common.confirmed.date">Date de confirmation: {$dateConfirmed}</message>
 	<message key="common.content">Contenu</message>
 	<message key="common.contents">Contenu</message>
 	<message key="common.dateHijri">Calendrier Hijri</message>
 	<message key="common.declined">Refusé</message>
+	<message key="common.favicon.altText">Favicon</message>
 	<message key="common.finish">Terminer</message>
-	<message key="common.fileUploaderError">Le chargement du téléverseur de fichier système est en cours. S'il n'apparait pas, il est probable qu'aucun de ses temps d'exécution ne soit supporté par ce navigateur. Veuillez contacter l'administrateur pour obtenir de l'aide.</message>
+	<message key="common.fileUploaderError">La fenêtre pour téléverser un fichier système est en cours. Si elle n'apparait pas, il est probable qu'aucun de ses temps d'exécution ne soit supporté par ce navigateur. Veuillez contacter l'administrateur pour obtenir de l'aide.</message>
 	<message key="common.go">Continuer</message>
+	<message key="common.homepageNavigationLabel">Accueil</message>
 	<message key="common.itemsPerPage">Items par page</message>
 	<message key="common.less">Réduire</message>
 	<message key="common.billingAddress">Adresse de facturation (si différente)</message>
@@ -406,7 +454,7 @@
 	<message key="common.noMatches">Aucunes concordances</message>
 	<message key="common.overdue">En retard</message>
 	<message key="common.prefix">Préfixe</message>
-	<message key="common.prefixAndTitle.tip">Si le titre du livre commence par "un/une" ou "le/la" (ou quelque chose de similaire concernant l'ordre alphabétique), mettre le mot dans Préfixe.</message>
+	<message key="common.prefixAndTitle.tip">Si le titre du document commence par "un/une" ou "le/la" (ou quelque chose de similaire concernant l'ordre alphabétique), mettre le mot dans Préfixe.</message>
 	<message key="common.subtitle.tip">Le titre optionnel de la soumission suivra les deux points (:), après le titre principal.</message>
 	<message key="common.reminder">Rappel</message>
 	<message key="common.remote">À distance</message>
@@ -419,7 +467,7 @@
 	<message key="common.subtitle">Sous-titre</message>
 	<message key="common.element">Élément</message>
 	<message key="common.unread">Non lu</message>
-	<message key="common.fileUpload.maxFileSizeStatus"><![CDATA[Ce serveur permet de télécharger un fichier dont la taille maximale est {$fileSize}. Si nécessaire, contactez <a href="mailto:{$supportEmail}">{$supportName}</a> pour obtenir de l'aide.]]></message>
+	<message key="common.fileUpload.maxFileSizeStatus"><![CDATA[Ce serveur permet de téléverser un fichier dont la taille maximale est {$fileSize}. Si nécessaire, contactez <a href="mailto:{$supportEmail}">{$supportName}</a> pour obtenir de l'aide.]]></message>
 	<message key="common.invalidFileType">Aucun fichier n'a été téléchargé ou type de fichier invalide!</message>
 	<message key="common.homepageImage.altText">Image de la page d'accueil</message>
 	<message key="common.plugins">Modules externes</message>
@@ -427,8 +475,8 @@
 	<message key="common.count">Décompte</message>
 	<message key="defaultMetric.title">Métrique (par défaut)</message>
 	<message key="defaultMetric.availableMetrics">Mesures disponibles</message>
-	<message key="editor.submissionReview.uploadFile">Télécharger le fichier de révision</message>
-	<message key="editor.submissionReview.uploadAttachment">Télécharger le fichier</message>
+	<message key="editor.submissionReview.uploadFile">Téléverser le fichier de révision</message>
+	<message key="editor.submissionReview.uploadAttachment">Téléverser le fichier</message>
 	<message key="email.subjectRequired">Veuillez indiquer le sujet du courriel.</message>
 	<message key="email.bodyRequired">Veuillez ajouter le texte du courriel.</message>
 	<message key="form.confirmSubmit">Vous voulez vraiment envoyer ce formulaire?</message>
@@ -473,16 +521,23 @@
 	<message key="search.cli.rebuildIndex.result">{$numIndexed} articles indexés</message>
 	<message key="search.deleteFilter">Supprimer</message>
 	<message key="search.indexTermsLong">Tous les champs des termes de l'index</message>
+	<message key="grid.action.deleteNotification">Supprimer la tâche</message>
 	<message key="grid.action.downloadFile">Télécharger ce fichier</message>
+	<message key="grid.action.markNew">Marquer non lu</message>
+	<message key="grid.action.markRead">Marquer lu</message>
 	<message key="context.path">Chemin d'accès</message>
 	<message key="dashboard.tasks">Tâches</message>
 	<message key="dashboard.submissions">Soumissions</message>
+	<message key="dashboard.myQueue">Ma file d'attente</message>
 	<message key="submission.task.responseDueDate">Date d'exigibilité de la réponse</message>
 	<message key="user.authorization.invalidSubmission">Soumission invalide</message>
 	<message key="navigation.archives">Archives</message>
 	<message key="search.advancedSearchMore">Options de recherche supplémentaires (cliquer pour afficher)</message>
+	<message key="search.searchAgain">Recherché à nouveau</message>
+	<message key="search.SearchFor">Recherche pour</message>
 	<message key="review.ensuringBlindReview">Assurer un examen aveugle</message>
 	<message key="grid.action.showReviewPolicy">Lire la politique actuelle concernant la révision</message>
+	<message key="user.authorization.invalidRepresentation">Représentation invalide.</message>
 	<message key="user.authorization.submissionFile">L'utilisateur actuel n'a pas accès au fichier de soumission spécifié.</message>
 	<message key="user.authorization.submissionAuthor">L'utilisateur actuel n'est pas l'auteur de la soumission demandée. Veuillez vous assurer d'avoir ouvert une session avec le compte d'utilisateur approprié.</message>
 	<message key="review.blindPeerReview"><![CDATA[<p>Afin d'assurer l'intégrité de l'examen en aveugle des soumissions envoyées à cette presse, il faut faire tous les efforts possibles pour éviter que l'on révèle l'identité des auteurs et des examinateurs. Pour ce faire, les auteurs, les réviseurs et les examinateurs (qui téléchargent les documents dans le cadre de l'examen) doivent s'assurer de suivre les étapes suivantes en ce qui concerne les propriétés du texte et du fichier:</p>
@@ -494,4 +549,11 @@
 <li>Pour les fichiers PDF, le nom de l'auteur doit être enlevé des propriétés du document dans le menu Fichier, du menu principal d'Adobe Acrobat.</li>
 
 		</ul>]]></message>
+	<message key="common.captcha.error.missing-input-secret">La validation par captcha pour ce site Web n'est pas configurée correctement. La clé secrète est manquante.</message>
+	<message key="common.captcha.error.invalid-input-secret">La validation par captcha pour ce site Web n'est pas configurée correctement. La clé secrète est invalide.</message>
+	<message key="common.captcha.error.missing-input-response">Vous devez compléter la vérification de validation utilisée pour empêcher la soumission de spam.</message>
+	<message key="common.captcha.error.invalid-input-response">Vous n'avez pas complété le contrôle de validation utilisé pour empêcher les soumissions de spam.</message>
+	<message key="navigation.skip.main">Aller directement au contenu principal</message>
+	<message key="navigation.skip.nav">Aller directement au menu principal</message>
+	<message key="navigation.skip.footer">Aller au pied de page</message>
 </locale>

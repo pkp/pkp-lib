@@ -2,10 +2,10 @@
  * @defgroup js_controllers_grid_users_stageParticipant_form
  */
 /**
- * @file js/controllers/grid/users/stageParticipant/AddParticipantFormHandler.js
+ * @file js/controllers/grid/users/stageParticipant/form/AddParticipantFormHandler.js
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AddParticipantFormHandler
@@ -15,11 +15,6 @@
  * add the value to the hidden userGroupId field.
  */
 (function($) {
-
-	/** @type {Object} */
-	$.pkp.controllers.grid.users.stageParticipant.form =
-			$.pkp.controllers.grid.users.stageParticipant.form || { };
-
 
 
 	/**

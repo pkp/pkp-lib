@@ -1,12 +1,13 @@
 {**
  * templates/user/userGroups.tpl
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2003-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * The user group (role) selection part of the registration and profile forms.
  * @uses $contexts array List of journals/presses on this site that have enabled registration
+ * @uses $showOtherContexts bool Whether or not to show the other contexts selection
  *}
 
 {fbvFormArea id="userGroups" title="user.roles" class=border}

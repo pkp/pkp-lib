@@ -4,8 +4,8 @@
 <!--
   * locale/cs_CZ/reader.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the cs_CZ (Čeština) locale.
@@ -14,7 +14,7 @@
   *
   -->
 
-<locale name="cs_CZ" full_name = "Čeština">
+<locale name="cs_CZ" full_name="Čeština">
 	<message key="comments.anonymous">Anonymní uživatel</message>
 	<message key="comments.anonymousNamed">"{$userName}"</message>
 	<message key="comments.body">Tělo</message>

@@ -4,15 +4,15 @@
 <!--
   * locale/ru_RU/user.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ru_RU (Русский) locale.
   * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Russian_(ru_RU)
   -->
 
-<locale name="ru_RU" full_name = "Русский">
+<locale name="ru_RU" full_name="Русский">
 	<message key="user.accountInformation">Информация учетной записи</message>
 	<message key="user.affiliation">Организация</message>
 	<message key="user.affiliation.description">(Ваша организация, например, «Московский государственный университет имени М.В. Ломоносова»)</message>

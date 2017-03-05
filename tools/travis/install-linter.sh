@@ -2,8 +2,8 @@
 
 # @file tools/travis/install-linter.sh
 #
-# Copyright (c) 2014-2016 Simon Fraser University Library
-# Copyright (c) 2010-2016 John Willinsky
+# Copyright (c) 2014-2017 Simon Fraser University Library
+# Copyright (c) 2010-2017 John Willinsky
 # Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
 #
 # Script to install the JS linter.
@@ -12,8 +12,8 @@
 set -xe
 
 # Install python, linter, closure compiler stuff
-sudo apt-get install python-pip
-sudo  pip install https://github.com/google/closure-linter/zipball/master
+sudo pip install six
+sudo pip install https://github.com/google/closure-linter/zipball/master
 # wget -O compiler.zip "http://dl.google.com/closure-compiler/compiler-20130603.zip"
 # unzip compiler.zip compiler.jar
 mkdir ~/bin

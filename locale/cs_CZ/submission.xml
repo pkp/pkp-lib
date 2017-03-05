@@ -4,8 +4,8 @@
 <!--
   * locale/cs_CZ/submission.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the cs_CZ (Čeština) locale.
@@ -14,7 +14,7 @@
   *
   -->
 
-<locale name="cs_CZ" full_name = "Čeština">
+<locale name="cs_CZ" full_name="Čeština">
 	<message key="submission.agencies">Agentury</message>
 	<message key="submission.abstractViews">Zobrazení abstraktu</message>
 	<message key="submission.accepted">Přijata</message>
@@ -28,10 +28,8 @@
 	<message key="submission.citations.grid.fields">Název pole</message>
 	<message key="submission.citations.grid.values">Hodnota pole</message>
 	<message key="submission.citations.grid.title">Upravit citace</message>
-	<message key="submission.citations.grid.importCitations">Importovat citace</message>
 	<message key="submission.citations.grid.exportCitations">Exportovat citace</message>
 	<message key="submission.citations.grid.editCheckCitation">Upravit/Kontrolovat</message>
-	<message key="submission.citations.grid.checkCitationAgain">Znovu zkontrolovat</message>
 	<message key="submission.citations.grid.editedCitation">Text citace</message>
 	<message key="submission.citations.grid.editedCitationRequired">Je vyžadován text citace</message>
 	<message key="submission.citations.grid.publicationTypeRequired">Prosím ujistěte se, že jste skutečně správně nastavili typ publikace. Možné varianty jsou: kniha (pro knihu nebo kapitolu v knize) a časopis (pro článek v časopise). Jinak nebude citace zobrazena ve správném formátu.</message>

@@ -4,14 +4,14 @@
 <!--
   * locale/de_DE/common.xml
   *
-  * Copyright (c) 2013-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2013-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization strings for the de_DE (Deutsch (Deutschland)) locale.
   * Please contact Marco Tullney, marco.tullney@fu-berlin.de, with any questions regarding this translation.
   -->
 
-<locale name="de_DE" full_name = "Deutsch (Deutschland)">
+<locale name="de_DE" full_name="Deutsch (Deutschland)">
 	<message key="common.publicKnowledgeProject">Public Knowledge Project</message>
 	<message key="common.currentStyleSheet">Aktuelle Formatvorlage</message>
 	<message key="about.description">Beschreibung</message>
@@ -368,6 +368,9 @@
 	<message key="navigation.settings">Einstellungen</message>
 	<message key="navigation.setup">Einrichtung</message>
 	<message key="navigation.sitemap">Site Map</message>
+	<message key="navigation.skip.main">Zum Inhalt springen</message>
+	<message key="navigation.skip.nav">Zur Hauptnavigation springen</message>
+	<message key="navigation.skip.footer">Zur Fußzeile springen</message>
 	<message key="navigation.stepNumber">Schritt {$step}</message>
 	<message key="navigation.submissions">Einreichungen</message>
 	<message key="navigation.system">System</message>

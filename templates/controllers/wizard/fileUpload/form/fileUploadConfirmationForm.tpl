@@ -1,8 +1,8 @@
 {**
  * fileUploadConfirmationForm.tpl
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2003-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * File revision confirmation form.
@@ -13,6 +13,7 @@
  *   $uploadedFile: The SubmissionFile object of the uploaded file.
  *   $revisedFileId: The id of the potential revision.
  *   $revisedFileName: The name of the potential revision.
+ *   $reviewRoundId: The review round ID (if specified)
  *   $submissionFileOptions: A list of submission files that can be
  *    revised.
  *}
@@ -26,7 +27,7 @@
 </script>
 
 <form class="pkp_form pkp_controllers_grid_files" id="uploadForm"
-		action="{url op="confirmRevision" submissionId=$submissionId stageId=$stageId fileStage=$fileStage uploadedFileId=$uploadedFile->getFileId()}"
+		action="{url op="confirmRevision" submissionId=$submissionId stageId=$stageId fileStage=$fileStage uploadedFileId=$uploadedFile->getFileId() reviewRoundId=$reviewRoundId}"
 		method="post">
 	{csrf}
 	{fbvFormArea id="file"}

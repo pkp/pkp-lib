@@ -4,8 +4,8 @@
 <!--
   * locale/ca_ES/submission.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Credits: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Catalan_(ca_ES)
   * Localization strings.
@@ -269,13 +269,15 @@
 	<message key="submission.email.confirmDeleteLogEntry">Esteu segur/a que voleu suprimir aquesta entrada del registre del correu electrònic?</message>
 	<message key="submission.email.deleteLogEntry">Suprimeix l’entrada del registre</message>
 	<message key="submission.emailLog">Registre del correu electrònic</message>
+	<message key="submission.event.participantAdded">S'ha afegit«{$name}» ({$username}) com a {$userGroupName}.</message>
+	<message key="submission.event.participantRemoved">Suprimeix «{$name}» ({$username}) com a {$userGroupName}.</message>
 	<message key="submission.event.backToEventLog">Torna al registre d’esdeveniments</message>
 	<message key="submission.event.confirmClearLog">Esteu segur/a que voleu esborrar el registre d’esdeveniments per a aquesta tramesa?</message>
 	<message key="submission.event.confirmDeleteLogEntry">Esteu segur/a que voleu suprimir aquesta entrada del registre d’esdeveniments?</message>
 	<message key="submission.event.deleteLogEntry">Suprimeix l’entrada del registre</message>
 	<message key="submission.event.submissionSubmitted">La tramesa inicial s'ha completat.</message>
-	<message key="submission.event.fileUploaded">S'ha carregat el fitxer «{$name}» (amb l'identificador de fitxer {$fileId}-{$revision}).</message>
-	<message key="submission.event.fileRevised">S'ha carregat la revisió «{$name}» (amb l'identificador de fitxer {$fileId}-{$revision}).</message>
+	<message key="submission.event.fileUploaded">S'ha carregat el fitxer «{$name}» (amb l'identificador de fitxer {$fileId}-{$fileRevision}).</message>
+	<message key="submission.event.fileRevised">S'ha carregat la revisió «{$name}» (amb l'identificador de fitxer {$fileId}-{$fileRevision}).</message>
 	<message key="submission.event.general.metadataUpdated">Metadades de tramesa actualitzades</message>
 	<message key="submission.event.general.suppFileUpdated">Fitxer de tramesa actualitzat</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Assignació de la revisió acceptada per poders</message>

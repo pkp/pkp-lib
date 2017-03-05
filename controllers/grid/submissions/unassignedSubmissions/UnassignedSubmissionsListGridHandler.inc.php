@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/submissions/unassignedSubmissions/UnassignedSubmissionsListGridHandler.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class UnassignedSubmissionsListGridHandler
@@ -15,7 +15,6 @@
 
 // Import grid base classes.
 import('lib.pkp.controllers.grid.submissions.SubmissionsListGridHandler');
-import('lib.pkp.controllers.grid.submissions.SubmissionsListGridRow');
 
 // Filter editor
 define('FILTER_EDITOR_ALL', 0);
@@ -39,10 +38,10 @@ class UnassignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 	// Implement template methods from PKPHandler
 	//
 	/**
-	 * @copydoc PKPHandler::initialize()
+	 * @copydoc GridHandler::initialize()
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 
 		// Set title.
 		$this->setTitle('common.queue.long.submissionsUnassigned');
@@ -69,7 +68,7 @@ class UnassignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 
 		$context = $request->getContext();
 
-		list($search, $column, $stageId) = $this->getFilterValues($filter);
+		list($search, $column, $stageId, $sectionId) = $this->getFilterValues($filter);
 		$title = $author = null;
 		if ($column == 'title') {
 			$title = $search;
@@ -86,6 +85,7 @@ class UnassignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 			$title,
 			$author,
 			$stageId,
+			$sectionId,
 			$rangeInfo
 		);
 	}

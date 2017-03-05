@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/settings/genre/form/GenreForm.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2003-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class GenreForm
@@ -67,7 +67,6 @@ class GenreForm extends Form {
 			$this->_data = array(
 				'genreId' => $this->getGenreId(),
 				'name' => $genre->getName(null),
-				'designation' => $genre->getDesignation(),
 				'sortable' => $genre->getSortable(),
 				'category' => $genre->getCategory(),
 				'dependent' => $genre->getDependent(),
@@ -76,7 +75,6 @@ class GenreForm extends Form {
 		} else {
 			$this->_data = array(
 				'name' => array(),
-				'designation' => ''
 			);
 		}
 
@@ -107,7 +105,7 @@ class GenreForm extends Form {
 	 * @see Form::readInputData()
 	 */
 	function readInputData() {
-		$this->readUserVars(array('genreId', 'name', 'designation', 'sortable', 'category', 'dependent', 'supplementary', 'gridId', 'rowId'));
+		$this->readUserVars(array('genreId', 'name', 'sortable', 'category', 'dependent', 'supplementary', 'gridId', 'rowId'));
 	}
 
 	/**
@@ -128,7 +126,6 @@ class GenreForm extends Form {
 		}
 
 		$genre->setData('name', $this->getData('name'), null); // Localized
-		$genre->setData('designation', $this->getData('designation'), null); // Localized
 		$genre->setSortable($this->getData('sortable'));
 		$genre->setCategory($this->getData('category'));
 		$genre->setDependent($this->getData('dependent'));

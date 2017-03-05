@@ -1,8 +1,8 @@
 /**
  * @file js/controllers/UploaderHandler.js
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class UploaderHandler
@@ -104,10 +104,10 @@
 		self = this;
 		setTimeout(function() {
 			self.getHtmlElement().find('.moxie-shim input')
-			.focus(function(e) {
+					.focus(function(e) {
 						$browseButton.addClass('in_focus');
 					})
-			.blur(function(e) {
+					.blur(function(e) {
 						$browseButton.removeClass('in_focus');
 					});
 		}, 100);

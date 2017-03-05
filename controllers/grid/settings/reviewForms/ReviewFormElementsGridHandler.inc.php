@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/settings/reviewForms/ReviewFormElementsGridHandler.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewFormElementsGridHandler
@@ -57,10 +57,10 @@ class ReviewFormElementsGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see PKPHandler::initialize()
+	 * @copydoc GridHandler::initialize()
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 
 		// Load user-related translations.
 		AppLocale::requireComponents(
@@ -155,12 +155,12 @@ class ReviewFormElementsGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see lib/pkp/classes/controllers/grid/GridHandler::setDataElementSequence()
+	 * @copydoc GridHandler::setDataElementSequence()
 	 */
-	function setDataElementSequence($request, $rowId, &$reviewFormElement, $newSequence) {
+	function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence) {
 		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /* @var $reviewFormElementDao ReviewFormElementDAO */
-		$reviewFormElement->setSequence($newSequence);
-		$reviewFormElementDao->updateObject($reviewFormElement);
+		$gridDataElement->setSequence($newSequence);
+		$reviewFormElementDao->updateObject($gridDataElement);
 	}
 
 

@@ -4,15 +4,15 @@
 <!--
   * locale/nl_NL/submission.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the nl_NL (Nederlands) locale.
   *
   -->
 
-<locale name="nl_NL" full_name = "Nederlands">
+<locale name="nl_NL" full_name="Nederlands">
 	<message key="submission.agencies">Organisaties</message>
 	<message key="submission.abstractViews">Samenvatting bekeken</message>
 	<message key="submission.accepted">Geaccepteerd</message>

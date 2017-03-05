@@ -4,15 +4,15 @@
 <!--
   * locale/nl_NL/reader.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the nl_NL (Nederlands) locale.
   *
   -->
 
-<locale name="nl_NL" full_name = "Nederlands">
+<locale name="nl_NL" full_name="Nederlands">
 	<message key="comments.anonymous">Anonieme gebruiker</message>
 	<message key="comments.anonymousNamed">"{$userName}"</message>
 	<message key="comments.body">Inhoud</message>

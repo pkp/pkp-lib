@@ -4,8 +4,8 @@
 <!--
   * locale/pt_BR/admin.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Locale information: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Portuguese_(pt_BR)
   * Localization strings.
@@ -80,7 +80,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Formato de imagem inválido. Formatos aceitáveis são .gif, .jpg ou .png. Verifique as configuração de mime_type, permissões e dono de pasta, e tamanho de arquivo permitido.</message>
 	<message key="admin.settings.introduction">Introdução</message>
 	<message key="admin.settings.minPasswordLength">Tamanho mínimo de senha</message>
-	<message key="admin.settings.oaiRegistration">Cadastrar Portal para Indexação (Coleta de Metadados)</message>
 	<message key="admin.settings.passwordCharacters">caracteres</message>
 	<message key="admin.settings.siteLanguage">Idioma do Portal</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Formato de folha de estilo inválido. Formato aceitável é .css. Verifique as configuração de mime_type, permissões e dono de pasta.</message>

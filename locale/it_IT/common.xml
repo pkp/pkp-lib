@@ -4,8 +4,8 @@
 <!--
   * locale/it_IT/common.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -369,4 +369,49 @@
 	<message key="common.acknowledged">Riconosciuto</message>
 	<message key="common.notified">Notificato</message>
 	<message key="common.reset">Reset</message>
+	<message key="common.tasks">Lavori</message>
+	<message key="common.confirmDelete">Sei sicuro di voler eliminare il file?</message>
+	<message key="common.abstract">Abstract</message>
+	<message key="common.name">Nome</message>
+	<message key="common.completed.date">Data di completamento: {$dateCompleted}</message>
+	<message key="common.designation">Sigla</message>
+	<message key="common.downloadPdf">Scarica PDF</message>
+	<message key="common.homepageNavigationLabel">Home</message>
+	<message key="common.itemsPerPage">Numero di oggetti visualizzati per pagina</message>
+	<message key="common.prefix">Prefisso</message>
+	<message key="common.prefixAndTitle.tip">Ad esempio: Un; Il, I; La, ecc.</message>
+	<message key="common.readMore">Leggi tutto</message>
+	<message key="common.sendEmail">Invia email</message>
+	<message key="common.subtitle">Sottotitolo</message>
+	<message key="common.uploadedDate">Data di caricamento</message>
+	<message key="common.upload.addFile">Carica il file</message>
+	<message key="common.upload.changeFile">Sostituisci il file</message>
+	<message key="common.upload.dragFile">Trascina un file qui per iniziare il caricamento</message>
+	<message key="common.viewProfile">Visualizza profilo</message>
+	<message key="editor.submissionReview.uploadAttachment">Carica un file</message>
+	<message key="informationCenter.informationCenter">Informazioni</message>
+	<message key="informationCenter.editorialHistory">Storia editoriale</message>
+	<message key="informationCenter.addNote">Aggiungi una nota</message>
+	<message key="informationCenter.noNotes">Non sono presenti note</message>
+	<message key="informationCenter.currentNotes">Note di revisione attuali</message>
+	<message key="informationCenter.pastNotes">Note di revisione precedenti</message>
+	<message key="stageParticipants.notify.chooseMessage">Scegli un messaggio predefinito da inviare oppure scrivi nel campo sottostante</message>
+	<message key="stageParticipants.notify.message">Messaggio</message>
+	<message key="navigation.breadcrumbSeparator">/</message>
+	<message key="navigation.tools">Strumenti</message>
+	<message key="navigation.tools.importExport">Import/Export</message>
+	<message key="navigation.tools.statistics">Statistiche</message>
+	<message key="navigation.items.shownTotal">{$shown} di {$total} elementi</message>
+	<message key="navigation.viewFrontend">Visualizza il sito</message>
+	<message key="context.path">Percorso</message>
+	<message key="dashboard.myQueue">Lavori in coda</message>
+	<message key="submission.task.responseDueDate">Scadenza per confermare la disponibilità</message>
+	<message key="notification.type.allReviewsIn">È stato caricato un nuovo file che richiede il tuo intervento per {$stage}.</message>
+	<message key="notification.type.queryActivity">Un nuovo commento all'interno di una discussione</message>
+	<message key="notification.type.queryAdded">Una nuova discussione è stata aggiunta</message>
+	<message key="common.subtitle.tip">L'eventuale sottotitolo comparirà dopo i due punti (:) accanto al titolo.</message>
+	<message key="grid.action.markNew">Segna come nuovo</message>
+	<message key="grid.action.markRead">Segna come già letto</message>
+	<message key="review.ensuringBlindReview">Assicurare una revisione cieca</message>
+	<message key="notification.addedStageParticipant">Utente aggiunto ai partecipanti.</message>
 </locale>

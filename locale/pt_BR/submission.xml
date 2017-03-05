@@ -4,8 +4,8 @@
 <!--
   * locale/pt_BR/submission.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Locale information: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Portuguese_(pt_BR)
   * Localization strings.
@@ -173,6 +173,8 @@
 	<message key="submission.email.confirmDeleteLogEntry">Deseja realmente excluir esta entrada no log de e-mail?</message>
 	<message key="submission.email.deleteLogEntry">Excluir entrada no log</message>
 	<message key="submission.emailLog">Log de e-mail</message>
+	<message key="submission.event.participantAdded">"{$name}" ({$username}) foi incluído no grupo de {$userGroupName}.</message>
+	<message key="submission.event.participantRemoved">"{$name}" ({$username}) foi excluído do grupo de {$userGroupName}.</message>
 	<message key="submission.event.backToEventLog">Voltar para log de eventos</message>
 	<message key="submission.event.confirmClearLog">Deseja realmente limpar o log de eventos da submissão?</message>
 	<message key="submission.event.confirmDeleteLogEntry">Deseja realmente excluir esta entrada no log de eventos?</message>
@@ -408,7 +410,7 @@
 	<message key="submission.coverage">Informações de Cobertura</message>
 	<message key="submission.event.submissionSubmitted">Submissão inicial concluída.</message>
 	<message key="submission.event.fileUploaded">Um arquivo "{$originalFileName}" foi carregado para a submissão {$submissionId} por {$username}.</message>
-	<message key="submission.event.fileRevised">Avaliação "{$name}" (ID do arquivo {$fileId} -{$revision}) foi carregado.</message>
+	<message key="submission.event.fileRevised">Avaliação "{$name}" (ID do arquivo {$fileId}-{$fileRevision}) foi carregado.</message>
 	<message key="submission.files.downloadAll">Baixar Todos os Arquivos</message>
 	<message key="submission.informationCenter.submissionInfo">Informações da Submissão</message>
 	<message key="submission.informationCenter.metadata">Metadados</message>

@@ -3,8 +3,8 @@
 /**
  * @file classes/controllers/grid/GridHandler.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class GridHandler
@@ -447,7 +447,7 @@ class GridHandler extends PKPHandler {
 	 * @param $gridDataElement mixed
 	 * @return int
 	 */
-	function getDataElementSequence(&$gridDataElement) {
+	function getDataElementSequence($row) {
 		return 0; // Ordering is ambiguous or irrelevant.
 	}
 
@@ -458,7 +458,7 @@ class GridHandler extends PKPHandler {
 	 * @param $gridDataElement mixed
 	 * @param $newSequence int
 	 */
-	function setDataElementSequence($request, $rowId, &$gridDataElement, $newSequence) {
+	function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence) {
 		assert(false);
 	}
 
@@ -560,7 +560,7 @@ class GridHandler extends PKPHandler {
 	/**
 	 * @copydoc PKPHandler::authorize()
 	 */
-	function authorize($request, &$args, $roleAssignments, $enforceRestrictedSite = true) {
+	function authorize($request, &$args, $roleAssignments) {
 		$dataProvider = $this->getDataProvider();
 		$hasDataProvider = is_a($dataProvider, 'GridDataProvider');
 		if ($hasDataProvider) {
@@ -582,7 +582,7 @@ class GridHandler extends PKPHandler {
 	 * @param $args array optional
 	 */
 	function initialize($request, $args = null) {
-		parent::initialize($request, $args);
+		parent::initialize($request);
 
 		// Load grid-specific translations
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID, LOCALE_COMPONENT_APP_COMMON);
@@ -946,7 +946,7 @@ class GridHandler extends PKPHandler {
 	 * @param $args array
 	 * @return array Array with initialized grid features objects.
 	 */
-	protected function initFeatures($request, &$args) {
+	protected function initFeatures($request, $args) {
 		return array();
 	}
 

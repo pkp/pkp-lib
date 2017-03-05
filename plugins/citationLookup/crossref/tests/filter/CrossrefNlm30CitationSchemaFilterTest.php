@@ -6,8 +6,8 @@
 /**
  * @file plugins/citationLookup/crossref/tests/filter/CrossrefNlm30CitationSchemaFilterTest.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CrossrefNlm30CitationSchemaFilterTest
@@ -29,6 +29,8 @@ class CrossrefNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTes
 	 * @covers CrossrefNlm30CitationSchemaFilter
 	 */
 	public function testExecuteWithDoi() {
+		$this->markTestSkipped('Disabled because of apparent API volume limits.');
+
 		// Test article DOI lookup
 		$articleTest = array(
 			'testInput' => array(
@@ -112,6 +114,8 @@ class CrossrefNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTes
 	 * @covers CrossrefNlm30CitationSchemaFilter
 	 */
 	public function testExecuteWithOpenurl10Search() {
+		$this->markTestSkipped('Disabled because of apparent API volume limits.');
+
 		// Build the test citations array
 		$citationFilterTests = array(
 			array(

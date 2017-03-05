@@ -4,15 +4,15 @@
 <!--
   * locale/tr_TR/admin.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the tr_TR (Türkçe) locale.
   *
   -->
 
-<locale name="tr_TR" full_name = "Türkçe">
+<locale name="tr_TR" full_name="Türkçe">
 	<message key="admin.adminFunctions">Yönetsel İşlevler</message>
 	<message key="admin.auth.confirmDelete">Bu yetkilendirme kaynağını kalıcı olarak silmek istediğinizden emin misiniz?</message>
 	<message key="admin.auth.create">Yetkilendirme kaynağı yarat</message>
@@ -57,7 +57,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Geçersiz site logosu biçimi. Kabul edilebilir biçimler: .gif, .jpg veya .png.</message>
 	<message key="admin.settings.introduction">Giriş</message>
 	<message key="admin.settings.minPasswordLength">Şifre için en kısa karakter sayısı</message>
-	<message key="admin.settings.oaiRegistration">İndekslemesi için Siteyi Kaydet (Üst veri Harmanlama)</message>
 	<message key="admin.settings.passwordCharacters">karakterler</message>
 	<message key="admin.settings.siteLanguage">Site Dili</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Geçersiz biçim. Kabul edilebilir biçimler .css.</message>

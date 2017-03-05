@@ -4,13 +4,13 @@
 <!--
   * locale/tr_TR/submission.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2000-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization strings for the tr_TR (Türkçe) locale.
   -->
 
-<locale name="tr_TR" full_name = "Türkiye Türkçesi">
+<locale name="tr_TR" full_name="Türkçe">
 	<!-- Author Submission -->
 	<message key="author.submit.submissionCitations">Gönderide atıf yapılan kaynaklar için biçimlendirilmiş bir referans listesi verin. Lütfen her referansı yeni bir satırdan başlatın.</message>
 

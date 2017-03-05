@@ -3,8 +3,8 @@
 /**
  * @file classes/submission/form/PKPSubmissionSubmitStep1Form.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2003-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionSubmitStep1Form
@@ -33,7 +33,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		}
 		$this->addCheck(new FormValidator($this, 'authorUserGroupId', 'required', 'author.submit.userGroupRequired'));
 
-		foreach ($context->getLocalizedSetting('submissionChecklist') as $key => $checklistItem) {
+		foreach ((array) $context->getLocalizedSetting('submissionChecklist') as $key => $checklistItem) {
 			$this->addCheck(new FormValidator($this, "checklist-$key", 'required', 'submission.submit.checklistErrors'));
 		}
 	}
@@ -111,9 +111,10 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 */
 	function initData($data = array()) {
 		if (isset($this->submission)) {
+			$query = $this->getCommentsToEditor($this->submissionId);
 			$this->_data = array_merge($data, array(
 				'locale' => $this->submission->getLocale(),
-				'commentsToEditor' => $this->submission->getCommentsToEditor(),
+				'commentsToEditor' => $query ? $query->getHeadNote()->getContents() : '',
 			));
 		} else {
 			$supportedSubmissionLocales = $this->context->getSupportedSubmissionLocales();
@@ -143,7 +144,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		$vars = array(
 			'authorUserGroupId', 'locale', 'copyrightNoticeAgree', 'commentsToEditor', 'copyrightNoticeAgree'
 		);
-		foreach ($this->context->getLocalizedSetting('submissionChecklist') as $key => $checklistItem) {
+		foreach ((array) $this->context->getLocalizedSetting('submissionChecklist') as $key => $checklistItem) {
 			$vars[] = "checklist-$key";
 		}
 
@@ -156,8 +157,70 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 */
 	function setSubmissionData($submission) {
 		$this->submission->setLanguage(PKPString::substr($this->submission->getLocale(), 0, 2));
-		$this->submission->setCommentsToEditor($this->getData('commentsToEditor'));
 		$this->submission->setLocale($this->getData('locale'));
+	}
+
+	/**
+	 * Add or update comments to editor
+	 * @param $submissionId int
+	 * @param $commentsToEditor string
+	 * @param $userId int
+	 * @param $query Query optional
+	 */
+	function setCommentsToEditor($submissionId, $commentsToEditor, $userId, $query = null) {
+		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$noteDao = DAORegistry::getDAO('NoteDAO');
+
+		if (!isset($query)){
+			if ($commentsToEditor) {
+				$query = $queryDao->newDataObject();
+				$query->setAssocType(ASSOC_TYPE_SUBMISSION);
+				$query->setAssocId($submissionId);
+				$query->setStageId(WORKFLOW_STAGE_ID_SUBMISSION);
+				$query->setSequence(REALLY_BIG_NUMBER);
+				$queryDao->insertObject($query);
+				$queryDao->resequence(ASSOC_TYPE_SUBMISSION, $submissionId);
+				$queryDao->insertParticipant($query->getId(), $userId);
+				$queryId = $query->getId();
+
+				$note = $noteDao->newDataObject();
+				$note->setUserId($userId);
+				$note->setAssocType(ASSOC_TYPE_QUERY);
+				$note->setTitle(__('submission.submit.coverNote'));
+				$note->setContents($commentsToEditor);
+				$note->setDateCreated(Core::getCurrentDate());
+				$note->setDateModified(Core::getCurrentDate());
+				$note->setAssocId($queryId);
+				$noteDao->insertObject($note);
+			}
+		} else{
+			$queryId = $query->getId();
+			$notes = $noteDao->getByAssoc(ASSOC_TYPE_QUERY, $queryId);
+			if (!$notes->wasEmpty()) {
+				$note = $notes->next();
+				if ($commentsToEditor) {
+					$note->setContents($commentsToEditor);
+					$note->setDateModified(Core::getCurrentDate());
+					$noteDao->updateObject($note);
+				} else {
+					$noteDao->deleteObject($note);
+					$queryDao->deleteObject($query);
+				}
+			}
+		}
+	}
+
+	/**
+	 * Get comments to editor
+	 * @param $submissionId int
+	 * @return null|Query
+	 */
+	function getCommentsToEditor($submissionId) {
+		$query = null;
+		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$queries = $queryDao->getByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId);
+		if ($queries) $query = $queries->next();
+		return $query;
 	}
 
 	/**
@@ -168,6 +231,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 */
 	function execute($args, $request) {
 		$submissionDao = Application::getSubmissionDAO();
+		$user = $request->getUser();
 
 		if (isset($this->submission)) {
 			// Update existing submission
@@ -176,11 +240,14 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 				$this->submission->stampStatusModified();
 				$this->submission->setSubmissionProgress($this->step + 1);
 			}
+			// Add, remove or update comments to editor
+			$query = $this->getCommentsToEditor($this->submissionId);
+			$this->setCommentsToEditor($this->submissionId, $this->getData('commentsToEditor'), $user->getId(), $query);
+
 			$submissionDao->updateObject($this->submission);
 		} else {
 			// Create new submission
 			$this->submission = $submissionDao->newDataObject();
-			$user = $request->getUser();
 			$this->submission->setContextId($this->context->getId());
 
 			$this->setSubmissionData($this->submission);
@@ -216,6 +283,12 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			// Assign the user author to the stage
 			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 			$stageAssignmentDao->build($this->submissionId, $authorUserGroupId, $user->getId());
+
+			// Add comments to editor
+			if ($this->getData('commentsToEditor')){
+				$this->setCommentsToEditor($this->submissionId, $this->getData('commentsToEditor'), $user->getId());
+			}
+
 		}
 
 		return $this->submissionId;

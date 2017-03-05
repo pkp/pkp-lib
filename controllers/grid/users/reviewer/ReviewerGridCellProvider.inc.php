@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/reviewer/ReviewerGridCellProvider.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewerGridCellProvider
@@ -54,7 +54,7 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider {
 				if (!$reviewAssignment->getDateCompleted()) {
 					if ($reviewAssignment->getDateDue() < Core::getCurrentDate(strtotime('tomorrow'))) {
 						return 'overdue';
-					} elseif($reviewAssignment->getDateResponseDue() < Core::getCurrentDate(strtotime('tomorrow'))) {
+					} elseif($reviewAssignment->getDateResponseDue() < Core::getCurrentDate(strtotime('tomorrow')) && !$reviewAssignment->getDateConfirmed()) {
 						return 'overdue_response';
 					} else {
 						if (!$reviewAssignment->getDateConfirmed()) {
@@ -86,13 +86,10 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider {
 				// Get the user groups for this stage
 				$userGroups = $userGroupDao->getUserGroupsByStage(
 					$submission->getContextId(),
-					$reviewAssignment->getStageId(),
-					true,
-					true
+					$reviewAssignment->getStageId()
 				);
 				while ($userGroup = $userGroups->next()) {
-					$roleId = $userGroup->getRoleId();
-					if ($roleId != ROLE_ID_MANAGER && $roleId != ROLE_ID_SUB_EDITOR) continue;
+					if (!in_array($userGroup->getRoleId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR))) continue;
 
 					// Get the users assigned to this stage and user group
 					$stageUsers = $userStageAssignmentDao->getUsersBySubmissionAndStageId(

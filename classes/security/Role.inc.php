@@ -3,8 +3,8 @@
 /**
  * @file classes/security/Role.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2003-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Role
@@ -17,6 +17,7 @@
 /** ID codes and paths for all default roles */
 define('ROLE_ID_MANAGER',		0x00000010);
 define('ROLE_ID_SITE_ADMIN',		0x00000001);
+define('ROLE_ID_SUB_EDITOR',		0x00000011);
 define('ROLE_ID_AUTHOR',		0x00010000);
 define('ROLE_ID_REVIEWER',		0x00001000);
 define('ROLE_ID_ASSISTANT',		0x00001001);

@@ -3,8 +3,8 @@
 /**
  * @file classes/citation/CitationDAO.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CitationDAO
@@ -94,89 +94,6 @@ class CitationDAO extends DAO {
 		$result->Close();
 
 		return $citation;
-	}
-
-	/**
-	 * Import citations from a raw citation list to the object
-	 * described by the given association type and id.
-	 * @param $request Request
-	 * @param $assocType int
-	 * @param $assocId int
-	 * @param $rawCitationList string
-	 * @return integer the number of spawned citation checking processes
-	 */
-	function importCitations($request, $assocType, $assocId, $rawCitationList) {
-		assert(is_numeric($assocType) && is_numeric($assocId));
-		$assocType = (int) $assocType;
-		$assocId = (int) $assocId;
-
-		// Remove existing citations.
-		$this->deleteObjectsByAssocId($assocType, $assocId);
-
-		// Tokenize raw citations
-		import('lib.pkp.classes.citation.CitationListTokenizerFilter');
-		$citationTokenizer = new CitationListTokenizerFilter();
-		$citationStrings = $citationTokenizer->execute($rawCitationList);
-
-		// Instantiate and persist citations
-		$citations = array();
-		if (is_array($citationStrings)) foreach($citationStrings as $seq => $citationString) {
-			$citation = new Citation($citationString);
-
-			// Initialize the citation with the raw
-			// citation string.
-			$citation->setRawCitation($citationString);
-
-			// Set the object association
-			$citation->setAssocType($assocType);
-			$citation->setAssocId($assocId);
-
-			// Set the counter
-			$citation->setSequence($seq+1);
-
-			$this->insertObject($citation);
-			$citations[$citation->getId()] = $citation;
-		}
-
-		// Check new citations in parallel.
-		$noOfProcesses = (int)Config::getVar('general', 'citation_checking_max_processes');
-		$processDao = DAORegistry::getDAO('ProcessDAO');
-		return $processDao->spawnProcesses($request, 'api.citation.CitationApiHandler', 'checkAllCitations', PROCESS_TYPE_CITATION_CHECKING, $noOfProcesses);
-	}
-
-	/**
-	 * Parses and looks up the given citation.
-	 *
-	 * NB: checking the citation will not automatically
-	 * persist the changes. This has to be done by the caller.
-	 *
-	 * @param $request Request
-	 * @param $originalCitation Citation
-	 * @param $filterIds array a custom selection of filters to be applied
-	 * @return Citation the checked citation. If checking
-	 *  was not successful then the original citation
-	 *  will be returned unchanged.
-	 */
-	function &checkCitation($request, &$originalCitation, $filterIds = array()) {
-		assert(is_a($originalCitation, 'Citation'));
-
-		// Only parse the citation if it has not been parsed before.
-		// Otherwise we risk to overwrite manual user changes.
-		$filteredCitation =& $originalCitation;
-		if ($filteredCitation->getCitationState() < CITATION_PARSED) {
-			// Parse the requested citation
-			$filterCallback = array($this, '_instantiateParserFilters');
-			$filteredCitation =& $this->_filterCitation($request, $filteredCitation, $filterCallback, CITATION_PARSED, $filterIds);
-		}
-
-		// Always re-lookup the citation even if it's been looked-up
-		// before. The user asked us to re-check so there's probably
-		// additional manual information in the citation fields.
-		$filterCallback = array($this, '_instantiateLookupFilters');
-		$filteredCitation =& $this->_filterCitation($request, $filteredCitation, $filterCallback, CITATION_LOOKED_UP, $filterIds);
-
-		// Return the filtered citation.
-		return $filteredCitation;
 	}
 
 	/**

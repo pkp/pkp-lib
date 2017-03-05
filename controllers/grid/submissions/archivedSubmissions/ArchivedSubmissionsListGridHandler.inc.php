@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/submissions/archivedSubmissions/ArchivedSubmissionsListGridHandler.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ArchivedSubmissionsListGridHandler
@@ -15,7 +15,6 @@
 
 // Import grid base classes.
 import('lib.pkp.controllers.grid.submissions.SubmissionsListGridHandler');
-import('lib.pkp.controllers.grid.submissions.SubmissionsListGridRow');
 
 // Filter editor
 define('FILTER_EDITOR_ALL', 0);
@@ -55,7 +54,7 @@ class ArchivedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		$user = $request->getUser();
 		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
 
-		list($search, $column, $stageId) = $this->getFilterValues($filter);
+		list($search, $column, $stageId, $sectionId) = $this->getFilterValues($filter);
 		$title = $author = null;
 		if ($column == 'title') {
 			$title = $search;
@@ -65,7 +64,7 @@ class ArchivedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 
 		if ($userRoles == array(ROLE_ID_REVIEWER)) {
 			// Just a reviewer, get the rejected reviews submissions only.
-			return $submissionDao->getReviewerArchived($user->getId(), $context->getId(), $title, $author, $stageId, $rangeInfo);
+			return $submissionDao->getReviewerArchived($user->getId(), $context->getId(), $title, $author, $stageId, $sectionId, $rangeInfo);
 		}
 
 		$canSeeAllSubmissions = in_array(ROLE_ID_MANAGER, $userRoles);
@@ -77,6 +76,7 @@ class ArchivedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 			$title,
 			$author,
 			$stageId,
+			$sectionId,
 			$rangeInfo
 		);
 	}
@@ -86,10 +86,10 @@ class ArchivedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 	// Implement template methods from PKPHandler
 	//
 	/**
-	 * @copydoc PKPHandler::initialize()
+	 * @copydoc GridHandler::initialize()
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 
 		// Set title.
 		$this->setTitle('common.queue.long.submissionsArchived');

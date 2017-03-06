@@ -79,9 +79,15 @@ abstract class SubmissionListHandler extends ListHandler {
 	 * @see PKPHandler::authorize
 	 */
 	public function authorize($request, &$args, $roleAssignments) {
-		import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
-		// id: query param where the request's submission id can be found
-		$this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments, 'id'));
+		$router = $request->getRouter();
+		$operation = $router->getRequestedOp($request);
+
+		if ($operation === 'delete') {
+			import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
+			// id: query param where the request's submission id can be found
+			$this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments, 'id'));
+		}
+
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 

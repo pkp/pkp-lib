@@ -54,6 +54,7 @@ class ActiveSubmissionListHandler extends SubmissionListHandler {
 			null,
 			null,
 			null,
+			null,
 			$this->_range,
 			false,
 			$search

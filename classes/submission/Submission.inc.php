@@ -1286,15 +1286,6 @@ abstract class Submission extends DataObject {
 			}
 		}
 
-		// Get context info
-		$id = $this->getContextId();
-
-		// Get all pub ids
-		// see $this->getStoredPubId
-
-		// If has access
-		$this->getCommentsToEditor();
-
 		HookRegistry::call('Article::toArray::output', array(&$output, $params, $this));
 
 		return $output;

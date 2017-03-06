@@ -1,37 +1,37 @@
 <template>
-	<li class="pkpListPanelItem pkpSubmissionsListItem">
+	<li class="pkpListPanelItem pkpListPanelItem--submission">
 		<a :href="accessUrl">
-			<div class="pkpSubmissionsListItem__item">
-				<div class="pkpSubmissionsListItem__item__title">
+			<div class="pkpListPanelItem--submission__item">
+				<div class="pkpListPanelItem--submission__title">
 					{{ submission.title }}
 				</div>
-				<div class="pkpSubmissionsListItem__item__author">
+				<div class="pkpListPanelItem--submission__author">
 					{{ submission.author.authorString }}
 				</div>
-				<div v-if="notice" class="pkpSubmissionsListItem__item__activity">
+				<div v-if="notice" class="pkpListPanelItem--submission__activity">
 					<span class="fa fa-exclamation-triangle"></span>
 					{{ notice }}
 				</div>
 			</div>
 		</a>
-		<div class="pkpSubmissionsListItem__stage">
-			<div class="pkpSubmissionsListItem__stage__row">
-				<div class="pkpSubmissionsListItem__stage__label">
+		<div class="pkpListPanelItem--submission__stage">
+			<div class="pkpListPanelItem--submission__stageRow">
+				<div class="pkpListPanelItem--submission__stageLabel">
 					{{ submission.stage.label }}
 				</div>
-				<div class="pkpSubmissionsListItem__flags">
-					<span v-if="isReviewStage"  class="pkpSubmissionsListItem__flags--reviews" :class="classHighlightReviews">
+				<div class="pkpListPanelItem--submission__flags">
+					<span v-if="isReviewStage"  class="pkpListPanelItem--submission__flags--reviews" :class="classHighlightReviews">
 						<span class="count">{{ completedReviewsCount }} / {{ submission.stage.reviews.length }}</span>
 					</span>
-					<span v-if="submission.stage.files.count" class="pkpSubmissionsListItem__flags--files" :class="classHighlightFiles">
+					<span v-if="submission.stage.files.count" class="pkpListPanelItem--submission__flags--files" :class="classHighlightFiles">
 						<span class="count">{{ submission.stage.files.count }}</span>
 					</span>
-					<span v-if="openQueryCount" class="pkpSubmissionsListItem__flags--discussions">
+					<span v-if="openQueryCount" class="pkpListPanelItem--submission__flags--discussions">
 						<span class="count">{{ openQueryCount }}</span>
 					</span>
 				</div>
 			</div>
-			<div v-if="hasActions" class="pkpSubmissionsListItem__actions">
+			<div v-if="hasActions" class="pkpListPanelItem--submission__actions">
 				<a v-if="currentUserCanDelete" href="#" class="delete" @click="emitDelete">
 					{{ i18n.delete }}
 				</a>

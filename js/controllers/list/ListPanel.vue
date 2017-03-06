@@ -4,7 +4,6 @@
 			<div class="pkpListPanel__title">{{ i18n.title }}</div>
 		</div>
 		<ul class="pkpListPanel__items"></ul>
-		<list-panel-count v-bind:count="itemCount" v-bind:i18n="i18n"></list-panel-count>
 	</div>
 </template>
 

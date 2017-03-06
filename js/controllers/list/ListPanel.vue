@@ -161,6 +161,7 @@ export default {
 			if (newVal === oldVal) {
 				return;
 			}
+			this.config.range.page = 1;
 			this.refresh('isSearching');
 		});
 	}

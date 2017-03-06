@@ -37,7 +37,7 @@ class ArchivedSubmissionListHandler extends SubmissionListHandler {
 		$context = $request->getContext();
 
 		$user = $request->getUser();
-		import('classes.security.RoleDAO');
+		import('lib.pkp.classes.security.RoleDAO');
 		$userRolesDao = DAORegistry::getDAO('RoleDAO');
 		$userRoles = $userRolesDao->getByUserId($user->getId(), $context->getId());
 
@@ -64,6 +64,7 @@ class ArchivedSubmissionListHandler extends SubmissionListHandler {
 			array(STATUS_DECLINED, STATUS_PUBLISHED),
 			$isManager ? null : $user->getId(),
 			$context->getId(),
+			null,
 			null,
 			null,
 			null,

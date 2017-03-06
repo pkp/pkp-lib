@@ -753,6 +753,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				. ($stageId?' AND s.stage_id = ?':'')
 				. ($sectionId?' AND s.section_id = ?':'')
 				. ($searchWhere?$searchWhere:'')
+			. ' GROUP BY ' . $this->getGroupByColumns()
 			. ' ORDER BY s.submission_id',
 			$params,
 			$rangeInfo
@@ -839,7 +840,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				. ($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'')
 				. ($author?' AND (ra.submission_id IS NULL AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?))':'') // Don't permit reviewer searching on author name
 				. ($stageId?' AND s.stage_id = ?':'')
-				. ($sectionId?' AND s.section_id = ?':'') .
+				. ($sectionId?' AND s.section_id = ?':'')
 				. ($searchWhere?$searchWhere:'') .
 			' GROUP BY ' . $this->getGroupByColumns() .
 			' ORDER BY s.date_submitted DESC',

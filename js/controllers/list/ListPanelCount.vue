@@ -1,5 +1,5 @@
 <template>
-	<div class="pkpListPanelCount">
+	<div class="pkpListPanel__count">
 		{{ countString }}
 	</div>
 </template>

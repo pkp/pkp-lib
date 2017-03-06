@@ -1,19 +1,17 @@
 <template>
 	<div class="pkpListPanel__search" :class="classSearching">
-		<div class="pkpListPanel__searchInput">
-			<label>
-				<span class="pkpListPanel__searchInputLabel">{{ i18n.search }}</span>
-				<input type="search"
-					@keyup="searchPhraseChanged"
-					:value="searchPhrase"
-					:placeholder="i18n.search"
-				>
-				<span class="pkpListPanel__searchInputIcons">
-					<span class="pkpListPanel__searchInputIcons--search"></span>
-					<span class="pkpListPanel__searchInputIcons--searching"></span>
-				</span>
-			</label>
-		</div>
+		<label>
+			<span class="pkpListPanel__searchLabel">{{ i18n.search }}</span>
+			<input type="search"
+				@keyup="searchPhraseChanged"
+				:value="searchPhrase"
+				:placeholder="i18n.search"
+			>
+			<span class="pkpListPanel__searchIcons">
+				<span class="pkpListPanel__searchIcons--search"></span>
+				<span class="pkpListPanel__searchIcons--searching"></span>
+			</span>
+		</label>
 	</div>
 </template>
 

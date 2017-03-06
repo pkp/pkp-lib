@@ -1,10 +1,10 @@
 <template>
-	<div class="pkpListPanelLoadMore" :class="classLoadingMore">
-		<a href="#" class="pkpListPanelLoadMore__button" @click="loadMore">
+	<div class="pkpListPanel__loadMore" :class="classLoadingMore">
+		<a href="#" class="pkpListPanel__loadMoreButton" @click="loadMore">
 			<span class="fa fa-chevron-down"></span>
 			{{ i18n.loadMore }}
 		</a>
-		<span class="pkpListPanelLoadMore__notice">
+		<span class="pkpListPanel__loadMoreNotice">
 			<span class="pkp_spinner"></span>
 			{{ i18n.loading }}
 		</span>

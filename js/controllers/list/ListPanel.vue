@@ -1,5 +1,5 @@
 <template>
-	<div class="pkpListPanel" v-bind:class="classLoading">
+	<div class="pkpListPanel" :class="classLoading">
 		<div class="pkpListPanel__header">
 			<div class="pkpListPanel__title">{{ i18n.title }}</div>
 		</div>

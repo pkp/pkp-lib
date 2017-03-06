@@ -75,7 +75,7 @@ class MySubmissionListHandler extends SubmissionListHandler {
 			$search
 		)->toArray();
 
-		import('classes.security.RoleDAO');
+		import('lib.pkp.classes.security.RoleDAO');
 		$userRolesDao = DAORegistry::getDAO('RoleDAO');
 		$userRoles = $userRolesDao->getByUserId($user->getId(), $context->getId());
 
@@ -103,6 +103,7 @@ class MySubmissionListHandler extends SubmissionListHandler {
 		$authored = $submissionDao->getUnpublishedByUserId(
 			$user->getId(),
 			$context->getId(),
+			null,
 			null,
 			null,
 			null,

@@ -526,9 +526,7 @@ class ReviewAssignment extends DataObject {
 		// Get the user groups for this stage
 		$userGroups = $userGroupDao->getUserGroupsByStage(
 			$submission->getContextId(),
-			$this->getStageId(),
-			true,
-			true
+			$this->getStageId()
 		);
 		while ($userGroup = $userGroups->next()) {
 			$roleId = $userGroup->getRoleId();

@@ -696,7 +696,7 @@ class PKPTemplateManager extends Smarty {
 		// Load current user data
 		$user = $this->_request->getUser();
 		if ($user) {
-			import('classes.security.RoleDAO');
+			import('lib.pkp.classes.security.RoleDAO');
 			import('lib.pkp.classes.security.UserGroupDAO');
 			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 			$userGroups = $userGroupDao->getByUserId($this->_request->getUser()->getId())->toArray();

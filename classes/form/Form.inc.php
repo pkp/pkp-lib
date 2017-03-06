@@ -166,7 +166,6 @@ class Form {
 		// Set custom template.
 		if (!is_null($template)) $this->_template = $template;
 
-
 		// Call hooks based on the calling entity, assuming
 		// this method is only called by a subclass. Results
 		// in hook calls named e.g. "papergalleyform::display"
@@ -195,8 +194,12 @@ class Form {
 		));
 
 		$templateMgr->register_function('form_language_chooser', array($this, 'smartyFormLanguageChooser'));
-
-		$returner = $templateMgr->fetch($this->_template);
+		if ($display) {
+			$templateMgr->display($this->_template);
+			$returner = null;
+		} else {
+			$returner = $templateMgr->fetch($this->_template);
+		}
 
 		// Reset the FBV's form in case template manager fetches another template not within a form.
 		$fbv->setForm(null);

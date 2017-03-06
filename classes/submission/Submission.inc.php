@@ -1185,6 +1185,8 @@ abstract class Submission extends DataObject {
 			'datePublished' => true,
 			'urlWorkflow' => true,
 			'urlPublished' => true,
+			'urlAuthorDashboard' => true,
+			'urlReviewer' => true,
 		);
 
 		HookRegistry::call('Article::toArray::defaultParams', array(&$defaultParams, $params, $this));
@@ -1232,6 +1234,8 @@ abstract class Submission extends DataObject {
 
 				case 'urlWorkflow':
 				case 'urlPublished':
+				case 'urlAuthorDashboard':
+				case 'urlReviewer':
 					$request = Application::getRequest();
 					$dispatcher = $request->getDispatcher();
 					if ($param === 'urlWorkflow') {
@@ -1250,6 +1254,24 @@ abstract class Submission extends DataObject {
 							null,
 							'article',
 							'view',
+							$this->getId()
+						);
+					} elseif ($param === 'urlAuthorDashboard') {
+						$output[$param] = $dispatcher->url(
+							$request,
+							ROUTE_PAGE,
+							null,
+							'authorDashboard',
+							'submission',
+							$this->getId()
+						);
+					} elseif ($param === 'urlReviewer') {
+						$output[$param] = $dispatcher->url(
+							$request,
+							ROUTE_PAGE,
+							null,
+							'reviewer',
+							'submission',
 							$this->getId()
 						);
 					}

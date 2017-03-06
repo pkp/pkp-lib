@@ -1,6 +1,6 @@
 <template>
 	<li class="pkpListPanelItem pkpSubmissionsListItem">
-		<a :href="submission.urlWorkflow">
+		<a :href="accessUrl">
 			<div class="pkpSubmissionsListItem__item">
 				<div class="pkpSubmissionsListItem__item__title">
 					{{ submission.title }}
@@ -48,6 +48,25 @@ export default {
 	name: 'SubmissionsListItem',
 	props: ['submission', 'config', 'i18n'],
 	computed: {
+		/**
+		 * The appropriate URL to access the submission workflow for the current
+		 * user.
+		 *
+		 * @return string
+		 */
+		accessUrl: function() {
+
+			if (pkp.userHasRole(['assistant', 'manager', 'siteAdmin', 'subeditor'])) {
+				return this.submission.urlWorkflow;
+			} else if (pkp.userHasRole(['author'])) {
+				return this.submission.urlAuthorDashboard;
+			} else if (pkp.userHasRole(['reviewer'])) {
+				return this.submission.urlReviewer;
+			}
+
+			return '';
+		},
+
 		/**
 		 * Can the current user delete a submission?
 		 *

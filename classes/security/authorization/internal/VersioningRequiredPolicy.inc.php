@@ -33,13 +33,14 @@ class VersioningRequiredPolicy extends DataObjectRequiredPolicy {
 	 * @see DataObjectRequiredPolicy::dataObjectEffect()
 	 */
 	function dataObjectEffect() {
-		// Get the review round id.
+
+		// Get the submission revision id.
 		$submissionRevisionId = $this->getDataObjectId();
 		if ($submissionRevisionId === false) return AUTHORIZATION_DENY;
 
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 
-		// Validate the review round id.
+		// Validate the submission revision id.
 		$submissionDao = Application::getSubmissionDAO();
 		$submissionRevision = $submissionDao->getById($submission->getId(), null, false, $submissionRevisionId);
 		if (!is_a($submissionRevision, 'Submission')) return AUTHORIZATION_DENY;
@@ -47,7 +48,7 @@ class VersioningRequiredPolicy extends DataObjectRequiredPolicy {
 		// Ensure that the submissionRevision exists.
 		if (!in_array($submissionRevisionId, $submissionDao->getSubmissionRevisionIds($submission->getId()))) AUTHORIZATION_DENY;
 
-		// Save the review round to the authorization context.
+		// Save the submission revision to the authorization context.
 		$this->addAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_REVISION, $submissionRevisionId);
 
 		return AUTHORIZATION_PERMIT;

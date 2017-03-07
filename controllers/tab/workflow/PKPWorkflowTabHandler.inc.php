@@ -170,7 +170,8 @@ abstract class PKPWorkflowTabHandler extends Handler {
 								'tab.workflow.VersioningTabHandler',
 								'newVersion', null, array(
 									'submissionId' => $submission->getId(),
-									'stageId' => $selectedStageId
+									'stageId' => $selectedStageId,
+									'submissionRevision' => $latestSubmissionRevision
 								)
 							),
 							__('editor.submission.newVersion'),

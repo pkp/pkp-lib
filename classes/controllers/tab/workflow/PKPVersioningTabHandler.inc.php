@@ -93,9 +93,10 @@ class PKPVersioningTabHandler extends Handler {
 			$articleGalleyDao->updateObject($galley);
 		}
 
-		// display tab for new version
-		$args['submissionRevision'] = $submissionRevision;
-		return $this->_version($args, $request);
+		// reload page to display new version
+		$dispatcher = $this->getDispatcher();
+		$redirectUrl = $dispatcher->url($request, ROUTE_PAGE, null, 'workflow', 'index', array($submission->getId(), $submission->getStageId()));
+		return $request->redirectUrlJson($redirectUrl);
 	}
 
 	/**
@@ -156,7 +157,7 @@ class PKPVersioningTabHandler extends Handler {
 		$templateMgr->assign('stageId', $stageId);
 		$templateMgr->assign('submissionRevision', $submissionRevision);
 
-		// create edit metadata link action
+		// Create edit metadata link action
 		$dispatcher = $request->getDispatcher();
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
 		$editMetadataLinkAction = new LinkAction(

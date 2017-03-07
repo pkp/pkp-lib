@@ -59,7 +59,7 @@ class IsbndbIsbnNlm30CitationSchemaFilter extends IsbndbNlm30CitationSchemaFilte
 	 * @return MetadataDescription a looked up citation description
 	 *  or null if the filter fails
 	 */
-	function &process($isbn) {
+	function &process(&$isbn) {
 		$nullVar = null;
 
 		// Instantiate the web service request

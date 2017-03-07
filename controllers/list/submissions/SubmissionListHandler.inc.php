@@ -141,6 +141,8 @@ abstract class SubmissionListHandler extends ListHandler {
 		$config['i18n']['ok'] = __('common.ok');
 		$config['i18n']['cancel'] = __('common.cancel');
 		$config['i18n']['confirmDelete'] = __('common.confirmDelete');
+		$config['i18n']['responseDue'] = __('submission.list.responseDue');
+		$config['i18n']['reviewDue'] = __('submission.list.reviewDue');
 
 		// Attach a CSRF token for post requests
 		$config['csrfToken'] = $request->getSession()->getCSRFToken();

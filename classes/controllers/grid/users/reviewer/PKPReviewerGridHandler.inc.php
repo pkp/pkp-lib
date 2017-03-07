@@ -435,11 +435,10 @@ class PKPReviewerGridHandler extends GridHandler {
 		$viewsDao = DAORegistry::getDAO('ViewsDAO');
 		$viewsDao->recordView(ASSOC_TYPE_REVIEW_RESPONSE, $reviewAssignment->getId(), $user->getId());
 
+
 		// if the review assignment had been unconsidered, update the flag.
 		if ($reviewAssignment->getUnconsidered() == REVIEW_ASSIGNMENT_UNCONSIDERED) {
-			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
 			$reviewAssignment->setUnconsidered(REVIEW_ASSIGNMENT_UNCONSIDERED_READ);
-			$reviewAssignmentDao->updateObject($reviewAssignment);
 		}
 
 		if (!$reviewAssignment->getDateCompleted()) {
@@ -447,6 +446,10 @@ class PKPReviewerGridHandler extends GridHandler {
 			$reviewAssignment->setDateConfirmed(Core::getCurrentDate());
 			$reviewAssignment->setDateCompleted(Core::getCurrentDate());
 		}
+
+		// Trigger an update of the review round status
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewAssignmentDao->updateObject($reviewAssignment);
 
 		// Remove the reviewer task.
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');

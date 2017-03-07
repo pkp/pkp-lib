@@ -488,23 +488,32 @@ class ReviewAssignment extends DataObject {
 			return REVIEW_ASSIGNMENT_STATUS_CANCELLED;
 		} elseif ($this->getDeclined()) {
 			return REVIEW_ASSIGNMENT_STATUS_DECLINED;
-		} elseif ($this->getDateAcknowledged()) {
-			if ($this->getUnconsidered() == REVIEW_ASSIGNMENT_UNCONSIDERED) {
+		} elseif (!$this->getDateCompleted()) {
+			if (!$this->getDateConfirmed()){ // no response
+				if($this->getDateResponseDue() < Core::getCurrentDate(strtotime('tomorrow'))) { // response overdue
+					return REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE;
+				} elseif ($this->getDateDue() < Core::getCurrentDate(strtotime('tomorrow'))) { // review overdue but not response
+					return REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE;
+				} else { // response not due yet
+					return REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE;
+				}
+			} else { // response given
+				if ($this->getDateDue() < Core::getCurrentDate(strtotime('tomorrow'))) { // review due
+					return REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE;
+				} else {
+					return REVIEW_ASSIGNMENT_STATUS_ACCEPTED;
+				}
+			}
+		} elseif ($this->getDateAcknowledged()) { // reviewer thanked...
+			if ($this->getUnconsidered() == REVIEW_ASSIGNMENT_UNCONSIDERED) { // ...but review later unconsidered
 				return REVIEW_ASSIGNMENT_STATUS_RECEIVED;
 			}
 			return REVIEW_ASSIGNMENT_STATUS_THANKED;
-		} elseif ($this->getDateCompleted()) {
-			if ($this->getUnconsidered() != REVIEW_ASSIGNMENT_UNCONSIDERED && $this->isRead()) {
+		} elseif ($this->getDateCompleted()) { // review submitted...
+			if ($this->getUnconsidered() != REVIEW_ASSIGNMENT_UNCONSIDERED && $this->isRead()) { // ...and confirmed by an editor
 				return REVIEW_ASSIGNMENT_STATUS_COMPLETE;
 			}
 			return REVIEW_ASSIGNMENT_STATUS_RECEIVED;
-		} elseif ($this->getDateConfirmed()) {
-			if ($this->getDateDue() < Core::getCurrentDate(strtotime('tomorrow'))) {
-				return REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE;
-			}
-			return REVIEW_ASSIGNMENT_STATUS_ACCEPTED;
-		} elseif ($this->getDateResponseDue() < Core::getCurrentDate(strtotime('tomorrow'))) {
-			return REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE;
 		}
 
 		return REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE;

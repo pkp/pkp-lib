@@ -179,6 +179,23 @@ export default {
 		},
 
 		/**
+		 * Is the current user a reviewer on this submission?
+		 *
+		 * @return bool
+		 */
+		currentUserIsReviewer: function() {
+			var isReviewer = false;
+			_.each(this.submission.reviewAssignments, function(review) {
+				if (review.isCurrentUserAssigned) {
+					isReviewer = true;
+					return;
+				}
+			});
+
+			return isReviewer;
+		},
+
+		/**
 		 * Are there any actions available for this submission?
 		 *
 		 * @return bool
@@ -270,6 +287,67 @@ export default {
 		 */
 		isReviewStage: function() {
 			return this.activeStage.id === 3;
+		},
+
+		/**
+		 * Retrieve the review assignments for the latest review round
+		 *
+		 * @return array
+		 */
+		currentReviewAssignments: function() {
+			if (!this.submission.reviewRounds.length || !this.submission.reviewAssignments.length) {
+				return [];
+			}
+			var currentReviewRoundId = this.submission.reviewRounds[this.submission.reviewRounds.length - 1].id;
+			return _.filter(this.submission.reviewAssignments, function(assignment) {
+				return assignment.roundId === currentReviewRoundId;
+			});
+		},
+
+		/**
+		 * The current user's latest review assignment. This retrieves the
+		 * review assignment from the latest round if available, or any other
+		 * round if not available.
+		 *
+		 * @return object|false False if no review assignment exists
+		 */
+		currentUserLatestReviewAssignment: function() {
+
+			if (!this.currentUserIsReviewer) {
+				return false;
+			}
+
+			var assignments = _.where(this.submission.reviewAssignments, {isCurrentUserAssigned: true});
+
+			if (!assignments.length) {
+				return false;
+			}
+
+			var latest = _.max(assignments, function(assignment) {
+				return assignment.round;
+			});
+
+			switch (latest.statusId) {
+
+				case 0: // REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE
+				case 4: // REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE
+					latest.responsePending = true;
+					latest.reviewPending = true;
+					break;
+
+				case 5: // REVIEW_ASSIGNMENT_STATUS_ACCEPTED
+				case 6: // REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE
+					latest.reviewPending = true;
+					break;
+
+				case 7: // REVIEW_ASSIGNMENT_STATUS_RECEIVED
+				case 8: // REVIEW_ASSIGNMENT_STATUS_COMPLETE
+				case 9: // REVIEW_ASSIGNMENT_STATUS_THANKED
+					latest.reviewComplete = true;
+					break;
+			}
+
+			return latest;
 		},
 
 		/**
@@ -502,7 +580,7 @@ export default {
 			}
 
 			// No reviews have been assigned
-			if (!this.submission.stage.reviews.length) {
+			if (!this.currentReviewAssignments.length) {
 				return '--warning';
 			}
 

@@ -5,7 +5,7 @@
 				<div class="pkpListPanelItem--submission__title">
 					{{ submission.title }}
 				</div>
-				<div class="pkpListPanelItem--submission__author">
+				<div v-if="submission.author" class="pkpListPanelItem--submission__author">
 					{{ submission.author.authorString }}
 				</div>
 				<div v-if="notice" class="pkpListPanelItem--submission__activity">
@@ -14,14 +14,34 @@
 				</div>
 			</div>
 		</a>
-		<div class="pkpListPanelItem--submission__stage">
+		<div v-if="currentUserIsReviewer" class="pkpListPanelItem--submission__stage pkpListPanelItem--submission__stage--reviewer">
+			<a :href="accessUrl" tabindex="-1">
+				<div v-if="currentUserLatestReviewAssignment.responsePending" class="pkpListPanelItem--submission__dueDate">
+					<div class="pkpListPanelItem--submission__dueDateValue">
+						{{ currentUserLatestReviewAssignment.responseDue }}
+					</div>
+					<div class="pkpListPanelItem--submission__dueDateLabel">
+						{{ i18n.responseDue }}
+					</div>
+				</div>
+				<div v-if="currentUserLatestReviewAssignment.reviewPending" class="pkpListPanelItem--submission__dueDate">
+					<div class="pkpListPanelItem--submission__dueDateValue">
+						{{ currentUserLatestReviewAssignment.due }}
+					</div>
+					<div class="pkpListPanelItem--submission__dueDateLabel">
+						{{ i18n.reviewDue }}
+					</div>
+				</div>
+			</a>
+		</div>
+		<div v-else class="pkpListPanelItem--submission__stage">
 			<div class="pkpListPanelItem--submission__stageRow">
 				<div class="pkpListPanelItem--submission__stageLabel">
 					{{ submission.stage.label }}
 				</div>
 				<div class="pkpListPanelItem--submission__flags">
 					<span v-if="isReviewStage"  class="pkpListPanelItem--submission__flags--reviews" :class="classHighlightReviews">
-						<span class="count">{{ completedReviewsCount }} / {{ submission.stage.reviews.length }}</span>
+						<span class="count">{{ completedReviewsCount }} / {{ currentReviewAssignments.length }}</span>
 					</span>
 					<span v-if="submission.stage.files.count" class="pkpListPanelItem--submission__flags--files" :class="classHighlightFiles">
 						<span class="count">{{ submission.stage.files.count }}</span>
@@ -86,6 +106,23 @@ export default {
 		},
 
 		/**
+		 * Is the current user a reviewer on this submission?
+		 *
+		 * @return bool
+		 */
+		currentUserIsReviewer: function() {
+			var isReviewer = false;
+			_.each(this.submission.reviewAssignments, function(review) {
+				if (review.isCurrentUserAssigned) {
+					isReviewer = true;
+					return;
+				}
+			});
+
+			return isReviewer;
+		},
+
+		/**
 		 * Are there any actions available for this submission?
 		 *
 		 * @return bool
@@ -145,19 +182,13 @@ export default {
 			}
 
 			// Notices for reviewers
-			if (pkp.userHasRole(['reviewer'])) {
-				if (this.isReviewStage) {
-					_.each(this.submission.stage.reviews, function(review) {
-						if (review.reviewerId === $.pkp.currentUser.id) {
-							switch (review.statusId) {
-								case 0: // REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE
-								case 4: // REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE
-								case 6: // REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE
-									notice = review.status;
-									break;
-							}
-						}
-					});
+			if (this.currentUserIsReviewer) {
+				switch (this.currentUserLatestReviewAssignment.statusId) {
+					case 0: // REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE
+					case 4: // REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE
+					case 6: // REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE
+					notice = this.currentUserLatestReviewAssignment.status;
+					break;
 				}
 			}
 
@@ -183,6 +214,67 @@ export default {
 		},
 
 		/**
+		 * Retrieve the review assignments for the latest review round
+		 *
+		 * @return array
+		 */
+		currentReviewAssignments: function() {
+			if (!this.submission.reviewRounds.length || !this.submission.reviewAssignments.length) {
+				return [];
+			}
+			var currentReviewRoundId = this.submission.reviewRounds[this.submission.reviewRounds.length - 1].id;
+			return _.filter(this.submission.reviewAssignments, function(assignment) {
+				return assignment.roundId === currentReviewRoundId;
+			});
+		},
+
+		/**
+		 * The current user's latest review assignment. This retrieves the
+		 * review assignment from the latest round if available, or any other
+		 * round if not available.
+		 *
+		 * @return object|false False if no review assignment exists
+		 */
+		currentUserLatestReviewAssignment: function() {
+
+			if (!this.currentUserIsReviewer) {
+				return false;
+			}
+
+			var assignments = _.where(this.submission.reviewAssignments, {isCurrentUserAssigned: true});
+
+			if (!assignments.length) {
+				return false;
+			}
+
+			var latest = _.max(assignments, function(assignment) {
+				return assignment.round;
+			});
+
+			switch (latest.statusId) {
+
+				case 0: // REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE
+				case 4: // REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE
+					latest.responsePending = true;
+					latest.reviewPending = true;
+					break;
+
+				case 5: // REVIEW_ASSIGNMENT_STATUS_ACCEPTED
+				case 6: // REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE
+					latest.reviewPending = true;
+					break;
+
+				case 7: // REVIEW_ASSIGNMENT_STATUS_RECEIVED
+				case 8: // REVIEW_ASSIGNMENT_STATUS_COMPLETE
+				case 9: // REVIEW_ASSIGNMENT_STATUS_THANKED
+					latest.reviewComplete = true;
+					break;
+			}
+
+			return latest;
+		},
+
+		/**
 		 * Compile the count of completed reviews
 		 *
 		 * @return int
@@ -191,7 +283,7 @@ export default {
 			if (!this.isReviewStage) {
 				return 0;
 			}
-			return _.filter(this.submission.stage.reviews, function(review) {
+			return _.filter(this.currentReviewAssignments, function(review) {
 				return review.statusId >= 7; // REVIEW_ASSIGNMENT_STATUS_RECEIVED and above
 			}).length;
 		},
@@ -212,7 +304,7 @@ export default {
 			}
 
 			// No reviews have been assigned
-			if (!this.submission.stage.reviews.length) {
+			if (!this.currentReviewAssignments.length) {
 				return '--warning';
 			}
 

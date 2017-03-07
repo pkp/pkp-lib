@@ -192,3 +192,36 @@
 		color: @no;
 	}
 }
+
+// Reviewer-specific displays
+.pkpListPanelItem--submission__stage--reviewer a {
+	display: block;
+	color: @text;
+	text-decoration: none;
+}
+
+.pkpListPanelItem--submission__dueDate {
+	float: left;
+	width: 50%;
+	padding-right: 1em;
+
+	&:last-child:not(:first-child) {
+		padding-left: 1em;
+		padding-right: 0;
+	}
+}
+
+.pkpListPanelItem--submission__dueDate:first-child:last-child {
+	float: none;
+	width: 100%;
+	padding-right: 0;
+}
+
+.pkpListPanelItem--submission__dueDateValue {
+	font-weight: @bold;
+}
+
+.pkpListPanelItem--submission__dueDateLabel {
+	font-size: @font-tiny;
+	line-height: @line-tiny;
+}

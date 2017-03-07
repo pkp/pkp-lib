@@ -662,4 +662,6 @@
 	<message key="submission.list.infoCenter">Activity Log &amp; Notes</message>
 	<message key="submission.list.count">{$count} submissions</message>
 	<message key="submission.list.itemsOfTotal">{$count} of {$total} submissions</message>
+	<message key="submission.list.responseDue">Response Due</message>
+	<message key="submission.list.reviewDue">Review Due</message>
 </locale>

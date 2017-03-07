@@ -1096,28 +1096,6 @@ abstract class Submission extends DataObject {
 					$stage['files'] = array(
 						'count' => count($submissionFiles),
 					);
-
-					// Review assignments
-					import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignmentDAO');
-					$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
-					$reviewAssignments = $reviewAssignmentDao->getByReviewRoundId($reviewRound->getId());
-
-					$stage['reviews'] = array();
-					foreach($reviewAssignments as $reviewAssignment) {
-						// @todo for now, only show reviews that haven't been
-						// declined or cancelled
-						if ($reviewAssignment->getDeclined() || $reviewAssignment->getCancelled()) {
-							continue;
-						}
-						$stage['reviews'][] = array(
-							'id' => (int) $reviewAssignment->getId(),
-							'reviewerId' => (int) $reviewAssignment->getReviewerId(),
-							'statusId' => (int) $reviewAssignment->getStatus(),
-							'status' => __($reviewAssignment->getStatusKey()),
-							'due' => $reviewAssignment->getDateDue(),
-							'responseDue' => $reviewAssignment->getDateResponseDue(),
-						);
-					}
 				}
 				break;
 
@@ -1146,6 +1124,71 @@ abstract class Submission extends DataObject {
 	}
 
 	/**
+	 * Get details about the review rounds and assignments for this submission
+	 *
+	 * @todo account for extra review stage in omp
+	 * @return array
+	 */
+	public function getReviewRounds() {
+
+		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+		$reviewRounds = $reviewRoundDao->getBySubmissionId($this->getId())->toArray();
+
+		$rounds = array();
+		foreach ($reviewRounds as $reviewRound) {
+			$rounds[] = array(
+				'id' => $reviewRound->getId(),
+				'round' => $reviewRound->getRound(),
+				'stageId' => $reviewRound->getStageId(),
+				'statusId' => $reviewRound->getStatus(),
+				'status' => __($reviewRound->getStatusKey()),
+			);
+		}
+
+		return $rounds;
+	}
+
+	/**
+	 * Get details about the review assignments for this submission
+	 *
+	 * @todo account for extra review stage in omp
+	 * @return array
+	 */
+	public function getReviewAssignments() {
+
+		import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignmentDAO');
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($this->getId());
+
+		$reviews = array();
+		foreach($reviewAssignments as $reviewAssignment) {
+			// @todo for now, only show reviews that haven't been
+			// declined or cancelled
+			if ($reviewAssignment->getDeclined() || $reviewAssignment->getCancelled()) {
+				continue;
+			}
+
+			$currentUser = Application::getRequest()->getUser();
+			$dateFormatShort = Config::getVar('general', 'date_format_short');
+			$due = is_null($reviewAssignment->getDateDue()) ? null : strftime($dateFormatShort, strtotime($reviewAssignment->getDateDue()));
+			$responseDue = is_null($reviewAssignment->getDateResponseDue()) ? null : strftime($dateFormatShort, strtotime($reviewAssignment->getDateResponseDue()));
+
+			$reviews[] = array(
+				'id' => (int) $reviewAssignment->getId(),
+				'isCurrentUserAssigned' => $currentUser->getId() == (int) $reviewAssignment->getReviewerId(),
+				'statusId' => (int) $reviewAssignment->getStatus(),
+				'status' => __($reviewAssignment->getStatusKey()),
+				'due' => $due,
+				'responseDue' => $responseDue,
+				'round' => (int) $reviewAssignment->getRound(),
+				'roundId' => (int) $reviewAssignment->getReviewRoundId(),
+			);
+		}
+
+		return $reviews;
+	}
+
+	/**
 	 * Generate an array of data about this submission
 	 *
 	 * @see DataObject::toArray()
@@ -1159,7 +1202,13 @@ abstract class Submission extends DataObject {
 			'subtitle' => true,
 			'fullTitle' => true,
 			'prefix' => true,
-			'author' => true,
+			'author' => array(
+				ROLE_ID_MANAGER,
+				ROLE_ID_SITE_ADMIN,
+				ROLE_ID_SUB_EDITOR,
+				ROLE_ID_AUTHOR,
+				ROLE_ID_ASSISTANT,
+			),
 			'abstract' => true,
 			'discipline' => true,
 			'subject' => true,
@@ -1172,7 +1221,13 @@ abstract class Submission extends DataObject {
 			'pageArray' => true,
 			'citations' => true,
 			'copyrightNotice' => true,
-			'copyrightHolder' => true,
+			'copyrightHolder' => array(
+				ROLE_ID_MANAGER,
+				ROLE_ID_SITE_ADMIN,
+				ROLE_ID_SUB_EDITOR,
+				ROLE_ID_AUTHOR,
+				ROLE_ID_ASSISTANT,
+			),
 			'copyrightYear' => true,
 			'licenseUrl' => true,
 			'locale' => true,
@@ -1182,6 +1237,8 @@ abstract class Submission extends DataObject {
 			'status' => true,
 			'submissionProgress' => true,
 			'stage' => true,
+			'reviewRounds' => true,
+			'reviewAssignments' => true,
 			'datePublished' => true,
 			'urlWorkflow' => true,
 			'urlPublished' => true,
@@ -1213,13 +1270,21 @@ abstract class Submission extends DataObject {
 
 				case 'status':
 					$output[$param] = array(
-						'id' => $this->getStatus(),
+						'id' => (int) $this->getStatus(),
 						'label' => __($this->getStatusKey()),
 					);
 					break;
 
 				case 'stage':
 					$output[$param] = $this->getStageDetails();
+					break;
+
+				case 'reviewRounds':
+					$output[$param] = $this->getReviewRounds();
+					break;
+
+				case 'reviewAssignments':
+					$output[$param] = $this->getReviewAssignments();
 					break;
 
 				case 'section':

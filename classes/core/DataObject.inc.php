@@ -499,7 +499,18 @@ class DataObject {
 
 		// @todo don't use a closure
 		$output = array_filter($compiled, function($param) {
-			return $param;
+
+			if ($param === true) {
+				return true;
+			} elseif (is_array($param)) {
+				foreach ($param as $role) {
+					if (Application::getRequest()->currentUserHasRole($role)) {
+						return true;
+					}
+				}
+			}
+
+			return false;
 		});
 
 		return $output;

@@ -657,7 +657,7 @@ class PKPTemplateManager extends Smarty {
 				'reviewer' => ROLE_ID_REVIEWER,
 				'assistant' => ROLE_ID_ASSISTANT,
 				'reader' => ROLE_ID_READER,
-				'subeditor' => ROLE_ID_SECTION_EDITOR,
+				'subeditor' => ROLE_ID_SUB_EDITOR,
 			),
 		);
 		$output .= '$.pkp.app = ' . json_encode($app_data) . ';';

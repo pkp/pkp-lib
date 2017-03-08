@@ -250,6 +250,10 @@ class MailTemplate extends Mail {
 		$body = $this->getBody();
 		foreach ($this->params as $key => $value) {
 			if (!is_object($value)) {
+				if (filter_var($value, FILTER_VALIDATE_URL) != false) {
+					$value = "<a href='$value' class='$key-style-class'>$value</a>";
+				}
+
 				$subject = str_replace('{$' . $key . '}', $value, $subject);
 				$body = str_replace('{$' . $key . '}', $value, $body);
 			}

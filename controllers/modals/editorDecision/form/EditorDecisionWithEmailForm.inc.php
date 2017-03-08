@@ -81,7 +81,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 		$email->assignParams(array(
 			'authorName' => $submission->getAuthorString(),
 			'editorialContactSignature' => $user->getContactSignature(),
-			'submissionUrl' => "<a href=\"$submissionUrl\">$submissionUrl</a>",
+			'submissionUrl' => $submissionUrl,
 		));
 		$email->replaceParams();
 

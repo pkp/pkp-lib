@@ -165,8 +165,8 @@ class PKPVersioningTabHandler extends Handler {
 			new AjaxModal(
 				$dispatcher->url(
 					$request, ROUTE_COMPONENT, null,
-					'tab.issueEntry.IssueEntryTabHandler',
-					'submissionMetadata', null,
+					'modals.submissionMetadata.IssueEntryHandler',
+					'fetch', null,
 					array('submissionId' => $submission->getId(), 'stageId' => $stageId, 'submissionRevision' => $submissionRevision)
 				),
 				__('submission.issueEntry.submissionMetadata')

@@ -661,6 +661,9 @@
 	<message key="submission.production.version">Version {$submissionRevision}</message>
 	<message key="submission.production.newVersion">New Version</message>
 	<message key="submission.production.editMetadata">Edit Metadata of this Version</message>
+	<message key="submission.production.editMetadata.info">This is the metadata of version {$version}. </message>
+	<message key="submission.production.editMetadata.previous">Previous versions can be seen at the corresponding tab at the production stage. </message>
+
 
 	<message key="issue.manage.entryDescription">Recent Versions of this Article</message>
 

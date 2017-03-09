@@ -165,6 +165,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 		}
 
 		$templateMgr->assign('allowedVariables', $this->_getAllowedVariables($request));
+		$templateMgr->assign('allowedVariablesType', $this->_getAllowedVariablesType());
 
 		return parent::fetch($request);
 	}
@@ -301,6 +302,20 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 			'editorialContactSignature' => strip_tags($user->getContactSignature(), "<br>"),
 			'submissionTitle' => strip_tags($submission->getLocalizedTitle()),
 			'authorName' => strip_tags($submission->getAuthorString()),
+		);
+	}
+
+	/**
+	 * Get a list of allowed email template variables type.
+	 * @param $request PKPRequest Request object
+	 * @return array
+	 */
+	function _getAllowedVariablesType() {
+		return array(
+			'contextName' => 'PLAIN_TEXT',
+			'editorialContactSignature' => 'PLAIN_TEXT',
+			'submissionTitle' => 'PLAIN_TEXT',
+			'authorName' => 'PLAIN_TEXT',
 		);
 	}
 }

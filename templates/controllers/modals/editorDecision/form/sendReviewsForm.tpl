@@ -37,7 +37,7 @@
 
 	{* Message to reviewer textarea *}
 	{fbvFormSection title="editor.review.personalMessageToAuthor" for="personalMessage"}
-		{fbvElement type="textarea" name="personalMessage" id="personalMessage" value=$personalMessage rich=true variables=$allowedVariables}
+		{fbvElement type="textarea" name="personalMessage" id="personalMessage" value=$personalMessage rich=true variables=$allowedVariables variablesType=$allowedVariablesType}
 	{/fbvFormSection}
 
 	{* Button to add reviews to the email automatically *}

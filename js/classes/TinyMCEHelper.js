@@ -10,8 +10,14 @@
  *
  * @brief TinyMCE helper methods
  */
-(function($) {
-
+(function ($) {
+	/**
+	 * Constants dedicated to change the way an insert tag is shown
+	 */
+	/**
+	 * @constant {string} INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT
+	 */
+	var INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT = 'PLAIN_TEXT';
 
 	/**
 	 * Helper singleton
@@ -27,6 +33,7 @@
 	//
 	// Public static methods.
 	//
+
 	/**
 	 * Get the list of variables and their descriptions for a specified field.
 	 * @param {string} selector The textarea field's selector.
@@ -80,9 +87,10 @@
 			function(selector, variableSymbolic, variableName) {
 				var variableTypes = $.pkp.classes.TinyMCEHelper.prototype.getVariableTypesMap(selector);
 
+				// Check if there is a variable type that should be treated otherwise
 				if (variableTypes[variableSymbolic] != undefined) {
 					var variableType = variableTypes[variableSymbolic];
-					if (variableType == "PLAIN_TEXT") { //maybe should make it a common static variable, throughout the code:: not hard coded
+					if (variableType == INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT) {
 						return $('<div/>').append($('<span/>').text(variableName));
 					}
 				}

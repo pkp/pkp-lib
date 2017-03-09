@@ -54,6 +54,8 @@
  *   required: Adds an asterisk and a .required class to the element's label
  */
 
+define('INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT', 'PLAIN_TEXT');
+
 class FormBuilderVocabulary {
 	/** Form associated with this object, if any.  Will inform smarty which forms to label as required **/
 	var $_form;

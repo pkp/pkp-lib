@@ -98,9 +98,9 @@ class InstallForm extends MaintenanceForm {
 	/**
 	 * @copydoc Form::display
 	 */
-	function display($request = null, $template = null) {
+	function display($template = null) {
 		import('lib.pkp.classes.xslt.XSLTransformer');
-		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($this->_request);
 		$templateMgr->assign(array(
 			'localeOptions' => $this->supportedLocales,
 			'localesComplete' => $this->localesComplete,

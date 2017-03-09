@@ -166,7 +166,6 @@ class Form {
 		// Set custom template.
 		if (!is_null($template)) $this->_template = $template;
 
-
 		// Call hooks based on the calling entity, assuming
 		// this method is only called by a subclass. Results
 		// in hook calls named e.g. "papergalleyform::display"
@@ -184,23 +183,26 @@ class Form {
 		$fbv = $templateMgr->getFBV();
 		$fbv->setForm($this);
 
-		$templateMgr->assign($this->_data);
-		$templateMgr->assign('isError', !$this->isValid());
-		$templateMgr->assign('errors', $this->getErrorsArray());
+		$templateMgr->assign(array_merge(
+			$this->_data,
+			array(
+				'isError' => !$this->isValid(),
+				'errors' => $this->getErrorsArray(),
+				'formLocales' => $this->supportedLocales,
+				'formLocale' => $this->getFormLocale(),
+			)
+		));
 
 		$templateMgr->register_function('form_language_chooser', array($this, 'smartyFormLanguageChooser'));
-		$templateMgr->assign('formLocales', $this->supportedLocales);
+		if ($display) {
+			$templateMgr->display($this->_template);
+			$returner = null;
+		} else {
+			$returner = $templateMgr->fetch($this->_template);
+		}
 
-		// Determine the current locale to display fields with
-		$templateMgr->assign('formLocale', $this->getFormLocale());
-
-		// N.B: We have to call $templateMgr->display instead of ->fetch($display)
-		// in order for the TemplateManager::display hook to be called
-		$returner = $templateMgr->display($this->_template, null, null, $display);
-
-		// Need to reset the FBV's form in case the template manager does another fetch on a template that is not within a form.
-		$nullVar = null;
-		$fbv->setForm($nullVar);
+		// Reset the FBV's form in case template manager fetches another template not within a form.
+		$fbv->setForm(null);
 
 		return $returner;
 	}

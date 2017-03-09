@@ -312,10 +312,10 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 	 */
 	function _getAllowedVariablesType() {
 		return array(
-			'contextName' => 'PLAIN_TEXT',
-			'editorialContactSignature' => 'PLAIN_TEXT',
-			'submissionTitle' => 'PLAIN_TEXT',
-			'authorName' => 'PLAIN_TEXT',
+			'contextName' => INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT,
+			'editorialContactSignature' => INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT,
+			'submissionTitle' => INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT,
+			'authorName' => INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT,
 		);
 	}
 }

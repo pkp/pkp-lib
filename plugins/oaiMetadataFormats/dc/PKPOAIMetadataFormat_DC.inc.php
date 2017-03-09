@@ -17,7 +17,7 @@ class PKPOAIMetadataFormat_DC extends OAIMetadataFormat {
 	/**
 	 * @copydoc OAIMetadataFormat::toXML
 	 */
-	function toXml(&$dataObject, $format = null) {
+	function toXml($dataObject, $format = null) {
 		import('plugins.metadata.dc11.schema.Dc11Schema');
 		$dcDescription = $dataObject->extractMetadata(new Dc11Schema());
 

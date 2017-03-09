@@ -671,6 +671,9 @@ define_exposed('WORKFLOW_STAGE_ID_EXTERNAL_REVIEW', 3);
 define_exposed('WORKFLOW_STAGE_ID_EDITING', 4);
 define_exposed('WORKFLOW_STAGE_ID_PRODUCTION', 5);
 
+/* TextArea insert tag variable types used to change their display when selected */
+define_exposed('INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT', 'PLAIN_TEXT');
+
 // To expose LISTBUILDER_SOURCE_TYPE_... constants via JS
 import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
 

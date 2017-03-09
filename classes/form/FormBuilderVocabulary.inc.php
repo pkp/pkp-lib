@@ -473,10 +473,8 @@ class FormBuilderVocabulary {
 				case 'readonly':
 				case 'multilingual':
 				case 'uniqId':
-				case 'variables':
-					$smarty->assign('FBV_' . $key, $value);
-					break;
 				case 'variablesType':
+				case 'variables':
 					$smarty->assign('FBV_' . $key, $value);
 					break;
 				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, $smarty)); break;

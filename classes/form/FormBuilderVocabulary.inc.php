@@ -461,7 +461,7 @@ class FormBuilderVocabulary {
 		$params['uniqId'] = uniqid();
 
 		$textAreaParams = '';
-		$smarty->clear_assign(array('FBV_label_content', 'FBV_disabled', 'FBV_readonly', 'FBV_multilingual', 'FBV_name', 'FBV_value', 'FBV_height', 'FBV_uniqId', 'FBV_rows', 'FBV_cols', 'FBV_rich', 'FBV_variables'));
+		$smarty->clear_assign(array('FBV_label_content', 'FBV_disabled', 'FBV_readonly', 'FBV_multilingual', 'FBV_name', 'FBV_value', 'FBV_height', 'FBV_uniqId', 'FBV_rows', 'FBV_cols', 'FBV_rich', 'FBV_variables', 'FBV_variablesType'));
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'name':
@@ -474,6 +474,9 @@ class FormBuilderVocabulary {
 				case 'multilingual':
 				case 'uniqId':
 				case 'variables':
+					$smarty->assign('FBV_' . $key, $value);
+					break;
+				case 'variablesType':
 					$smarty->assign('FBV_' . $key, $value);
 					break;
 				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, $smarty)); break;

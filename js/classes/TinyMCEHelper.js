@@ -11,13 +11,6 @@
  * @brief TinyMCE helper methods
  */
 (function ($) {
-	/**
-	 * Constants dedicated to change the way an insert tag is shown
-	 */
-	/**
-	 * @constant {string} INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT
-	 */
-	var INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT = 'PLAIN_TEXT';
 
 	/**
 	 * Helper singleton
@@ -90,7 +83,7 @@
 				// Check if there is a variable type that should be treated otherwise
 				if (variableTypes[variableSymbolic] != undefined) {
 					var variableType = variableTypes[variableSymbolic];
-					if (variableType == INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT) {
+					if (variableType == $.pkp.cons.INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT) {
 						return $('<div/>').append($('<span/>').text(variableName));
 					}
 				}

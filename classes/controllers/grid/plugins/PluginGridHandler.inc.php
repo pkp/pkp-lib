@@ -119,7 +119,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 		$pluginName = $request->getUserVar('pluginName');
 
 		if (is_null($category)) {
-			$category = 'all';
+			$category = PLUGIN_GALLERY_ALL_CATEGORY_SEARCH_VALUE;
 		}
 
 		return array('category' => $category, 'pluginName' => $pluginName);
@@ -130,7 +130,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	 */
 	function renderFilter($request) {
 		$categoriesSymbolic = $this->loadData($request, null);
-		$categories = array('all' => __('grid.plugin.allCategories'));
+		$categories = array(PLUGIN_GALLERY_ALL_CATEGORY_SEARCH_VALUE => __('grid.plugin.allCategories'));
 		foreach ($categoriesSymbolic as $category) {
 			$categories[$category] = __("plugins.categories.$category");
 		}

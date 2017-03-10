@@ -16,6 +16,11 @@
 import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 
+/**
+ * Global value for 'all' category string value
+ */
+define('PLUGIN_GALLERY_ALL_CATEGORY_SEARCH_VALUE', 'all');
+
 class PluginGalleryGridHandler extends GridHandler {
 	/**
 	 * Constructor
@@ -138,7 +143,7 @@ class PluginGalleryGridHandler extends GridHandler {
 		$pluginName = $request->getUserVar('pluginText');
 
 		if (is_null($category)) {
-			$category = 'all';
+			$category = PLUGIN_GALLERY_ALL_CATEGORY_SEARCH_VALUE;
 		}
 
 		return array('category' => $category, 'pluginText' => $pluginName);
@@ -149,7 +154,7 @@ class PluginGalleryGridHandler extends GridHandler {
 	 */
 	protected function renderFilter($request, $filterData = array()) {
 		$categoriesSymbolic = $categories = PluginRegistry::getCategories();
-		$categories = array('all' => __('grid.plugin.allCategories'));
+		$categories = array(PLUGIN_GALLERY_ALL_CATEGORY_SEARCH_VALUE => __('grid.plugin.allCategories'));
 		foreach ($categoriesSymbolic as $category) {
 			$categories[$category] = __("plugins.categories.$category");
 		}

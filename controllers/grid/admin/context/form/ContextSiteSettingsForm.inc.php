@@ -40,14 +40,12 @@ class ContextSiteSettingsForm extends Form {
 	}
 
 	/**
-	 * Display the form.
+	 * Fetch the form.
+	 * @param $request PKPRequest
 	 */
-	function fetch($args, $request) {
-		$json = new JSONMessage();
-
+	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('contextId', $this->contextId);
-
 		return parent::fetch($request);
 	}
 

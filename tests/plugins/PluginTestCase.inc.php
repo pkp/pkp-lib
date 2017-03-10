@@ -75,8 +75,8 @@ class PluginTestCase extends DatabaseTestCase {
 		// Parse the plug-ins version.xml.
 		import('lib.pkp.classes.site.VersionCheck');
 		self::assertFileExists($versionFile = './plugins/'.$pluginCategory.'/'.$pluginDir.'/version.xml');
-		self::assertArrayHasKey('version', $versionInfo =& VersionCheck::parseVersionXML($versionFile));
-		self::assertInstanceOf('Version', $pluginVersion =& $versionInfo['version']);
+		self::assertArrayHasKey('version', $versionInfo = VersionCheck::parseVersionXML($versionFile));
+		self::assertInstanceOf('Version', $pluginVersion = $versionInfo['version']);
 		$installer->setCurrentVersion($pluginVersion);
 
 		// Install the plug-in.

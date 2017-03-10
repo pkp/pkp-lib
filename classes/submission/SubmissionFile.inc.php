@@ -686,17 +686,6 @@ class SubmissionFile extends PKPFile {
 	// Public methods
 	//
 	/**
-	 * Check if the file may be displayed inline.
-	 * FIXME: Move to DAO to remove coupling of the domain
-	 *  object to its DAO.
-	 * @return boolean
-	 */
-	function isInlineable() {
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-		return $submissionFileDao->isInlineable($this);
-	}
-
-	/**
 	 * Get the metadata form for this submission file.
 	 * @param $stageId int FILE_STAGE_...
 	 * @param $reviewRound ReviewRound

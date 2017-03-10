@@ -30,11 +30,11 @@
  * between DAO implementations.
  */
 
-import('lib.pkp.classes.file.PKPFileDAO');
+import('lib.pkp.classes.db.DAO');
 import('lib.pkp.classes.submission.Genre'); // GENRE_CATEGORY_... constants
 import('lib.pkp.classes.plugins.PKPPubIdPluginDAO');
 
-abstract class PKPSubmissionFileDAO extends PKPFileDAO implements PKPPubIdPluginDAO {
+abstract class PKPSubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 	/**
 	 * @var array a private list of delegates that provide operations for
 	 *  different SubmissionFile implementations.

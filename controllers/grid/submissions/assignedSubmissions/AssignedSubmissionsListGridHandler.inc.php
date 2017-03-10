@@ -32,7 +32,7 @@ class AssignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		);
 	}
 
-	
+
 	//
 	// Implement template methods from PKPHandler
 	//
@@ -48,7 +48,7 @@ class AssignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 
 
 	//
-	// Implement methods from GridHandler 
+	// Implement methods from GridHandler
 	//
 	/**
 	 * @copydoc GridHandler::loadData()
@@ -63,17 +63,19 @@ class AssignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
 
 		list($search, $column, $stageId, $sectionId) = $this->getFilterValues($filter);
-		$title = $author = null;
+		$title = $author = $id = null;
 		if ($column == 'title') {
 			$title = $search;
-		} else {
+		} elseif ($column == 'author') {
 			$author = $search;
+		} elseif ($column == 'id') {
+			$id = $search;
 		}
-	
+
 		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
 		$context = $request->getContext();
 
-		return $submissionDao->getAssignedToUser($userId, $context?$context->getId():null, $title, $author, $stageId, $sectionId, $rangeInfo);
+		return $submissionDao->getAssignedToUser($userId, $context?$context->getId():null, $id, $title, $author, $stageId, $sectionId, $rangeInfo);
 	}
 }
 

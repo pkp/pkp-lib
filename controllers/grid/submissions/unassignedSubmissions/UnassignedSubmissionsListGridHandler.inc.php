@@ -21,7 +21,7 @@ define('FILTER_EDITOR_ALL', 0);
 define('FILTER_EDITOR_ME', 1);
 
 class UnassignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
-	
+
 	/**
 	 * Constructor
 	 */
@@ -69,11 +69,13 @@ class UnassignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		$context = $request->getContext();
 
 		list($search, $column, $stageId, $sectionId) = $this->getFilterValues($filter);
-		$title = $author = null;
+		$title = $author = $id = null;
 		if ($column == 'title') {
 			$title = $search;
-		} else {
+		} elseif ($column == 'author') {
 			$author = $search;
+		} elseif ($column == 'id') {
+			$id = $search;
 		}
 
 		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
@@ -82,6 +84,7 @@ class UnassignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 			null,
 			false, // do not include STATUS_DECLINED submissions
 			false,  // include only unpublished submissions
+			$id,
 			$title,
 			$author,
 			$stageId,

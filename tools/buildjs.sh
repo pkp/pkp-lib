@@ -2,7 +2,7 @@
 
 # @file tools/buildjs.sh
 #
-# Copyright (c) 2014-2017 Simon Fraser University Library
+# Copyright (c) 2014-2017 Simon Fraser University
 # Copyright (c) 2010-2017 John Willinsky
 # Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
 #
@@ -67,7 +67,7 @@ shift $((OPTIND-1))
 ### Start Processing ###
 echo >&2
 echo "Starting PKP JavaScript builder." >&2
-echo "Copyright (c) 2014-2017 Simon Fraser University Library" >&2
+echo "Copyright (c) 2014-2017 Simon Fraser University" >&2
 echo "Copyright (c) 2010-2017 John Willinsky" >&2
 
 

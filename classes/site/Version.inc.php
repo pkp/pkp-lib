@@ -64,7 +64,7 @@ class Version extends DataObject {
 	 * @param $sitewide integer
 	 * @return Version
 	 */
-	function &fromString($versionString, $productType = null, $product = null, $productClass = '', $lazyLoad = 0, $sitewide = 1) {
+	static function fromString($versionString, $productType = null, $product = null, $productClass = '', $lazyLoad = 0, $sitewide = 1) {
 		$versionArray = explode('.', $versionString);
 
 		if(!$product && !$productType) {

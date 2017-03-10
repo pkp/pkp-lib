@@ -20,6 +20,7 @@ switch ($op) {
 	case 'index':
 	case 'editorialTeam':
 	case 'submissions':
+	case 'versioning':
 	case 'contact':
 		define('HANDLER_CLASS', 'AboutContextHandler');
 		import('lib.pkp.pages.about.AboutContextHandler');

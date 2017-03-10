@@ -104,6 +104,20 @@ class AboutContextHandler extends Handler {
 		));
 		$templateMgr->display('frontend/pages/contact.tpl');
 	}
+
+	/**
+	 * Display versioning policy page.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function versioning($args, $request) {
+		$templateMgr = TemplateManager::getManager($request);
+		$this->setupTemplate($request);
+		$context = $request->getContext();
+		$templateMgr->assign('versioningPolicy', $context->getSetting('versioningPolicy'));
+		$templateMgr->display('frontend/pages/versioning.tpl');
+	}
+
 }
 
 ?>

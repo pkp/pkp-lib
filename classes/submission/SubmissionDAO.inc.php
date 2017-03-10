@@ -199,19 +199,6 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	}
 
 	/**
-	 * Checks whether a revision ID exists for a submission
-	 * @param $submissionId int
-	 * @param $revisionId int
-	 * @param $contextId int
-	 * @return boolean
-	 */
-	function revisionIdExists($submissionId, $revisionId, $contextId = null) {
-		$submissionRevisions = $this->getSubmissionRevisionIds($submissionId, $contextId);
-		return in_array($revisionId, $submissionRevisions);
-	}
-
-
-	/**
 	 * Delete a submission.
 	 * @param $submission Submission
 	 */

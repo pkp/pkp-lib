@@ -7,7 +7,13 @@
  *
  * Version view for workflow stage production
  *}
-
+{if $isPublished}
+	<div class="pkp_notification">
+		<div class="notifyInfo">
+			This version has not been published yet.
+		</div>
+	</div>
+{/if}
 <div class="pkp_panel_wrapper">
 
 	<div class="pkp_context_sidebar">
@@ -18,8 +24,6 @@
 				<li>{include file="linkAction/linkAction.tpl" action=$editMetadataLinkAction}</li>
 			</ul>
 		</div>
-
-		{** TODO: identifiers **}
 		
 		{** schedule for publication **}
 		{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR), (array)$userRoles)}

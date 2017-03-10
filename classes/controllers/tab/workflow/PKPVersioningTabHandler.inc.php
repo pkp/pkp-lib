@@ -151,13 +151,19 @@ class PKPVersioningTabHandler extends Handler {
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
 		$submissionRevision = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_REVISION);
 		
-		// Add the round information to the template.
+		// Add variables to the template.
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('submission', $submission);
 		$templateMgr->assign('stageId', $stageId);
 		$templateMgr->assign('submissionRevision', $submissionRevision);
 
-		// Create edit metadata link action
+		// Get publication date of submission revision 
+		$submissionDao = Application::getSubmissionDAO();
+		$submission = $submissionDao->getById($submission->getId(), null, false, $submissionRevision);
+		$isPublished = $submission->getDatePublished() ? false : true;
+		$templateMgr->assign('isPublished', $isPublished);
+
+		// Create edit metadata link action.
 		$dispatcher = $request->getDispatcher();
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
 		$editMetadataLinkAction = new LinkAction(
@@ -175,7 +181,7 @@ class PKPVersioningTabHandler extends Handler {
 		);
 		$templateMgr->assign('editMetadataLinkAction', $editMetadataLinkAction);
 
-		// create schedule for publication link action
+		// Create schedule for publication link action.
 		$schedulePublicationLinkAction = new LinkAction(
 			'schedulePublication',
 			new AjaxModal(

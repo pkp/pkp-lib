@@ -44,4 +44,5 @@
 
 	<message key="submission.comments.canShareWithAuthor">Para el autor y el editor</message>
 	<message key="submission.comments.cannotShareWithAuthor">Solo para el editor</message>
+	<message key="user.authorization.submissionReviewer">El usuario actual no está asignado como revisor para el documento solicitado.</message>
 </locale>

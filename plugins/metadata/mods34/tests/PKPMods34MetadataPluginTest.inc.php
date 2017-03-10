@@ -26,7 +26,7 @@ class PKPMods34MetadataPluginTest extends MetadataPluginTestCase {
 	 * @covers Mods34MetadataPlugin
 	 * @covers PKPMods34MetadataPlugin
 	 */
-	public function testMods34MetadataPlugin($appSpecificFilters) {
+	public function testMods34MetadataPlugin($appSpecificFilters = array()) {
 		$this->executeMetadataPluginTest(
 			'mods34',
 			'Mods34MetadataPlugin',

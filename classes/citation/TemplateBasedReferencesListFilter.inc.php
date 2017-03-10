@@ -85,7 +85,7 @@ class TemplateBasedReferencesListFilter extends TemplateBasedFilter {
 	 * @param $request Request
 	 * @param $locale AppLocale
 	 */
-	function addTemplateVars($templateMgr, $submission, $request, &$locale) {
+	function addTemplateVars($templateMgr, &$submission, $request, &$locale) {
 		// Retrieve approved citations for this assoc object.
 		$citationDao = DAORegistry::getDAO('CitationDAO');
 		$citationResults = $citationDao->getObjectsByAssocId(ASSOC_TYPE_SUBMISSION, $submission->getId(), CITATION_APPROVED);

@@ -39,20 +39,24 @@ abstract class PKPOAIDAO extends DAO {
 	//
 	// Records
 	//
+	/**
+	 * Get the SQL query fragment to fetch the earliest datestamp.
+	 * @return string
+	 */
+	abstract function getEarliestDatestampQuery();
 
 	/**
 	 * Return the *nix timestamp of the earliest published submission.
-	 * @param $selectStatement string
 	 * @param $setIds array optional Objects ids that specify an OAI set,
 	 * in hierarchical order. If empty, all records from
 	 * all sets will be included.
 	 * @return int
 	 */
-	function getEarliestDatestamp($selectStatement, $setIds = array()) {
+	function getEarliestDatestamp($setIds = array()) {
 		$params = $this->getOrderedRecordParams(null, $setIds);
 
 		$result = $this->retrieve(
-			$selectStatement . ' FROM mutex m ' .
+			$this->getEarliestDatestampQuery() . ' FROM mutex m ' .
 			$this->getRecordJoinClause(null, $setIds) . ' ' .
 			$this->getAccessibleRecordWhereClause(),
 			$params

@@ -892,9 +892,11 @@ abstract class Submission extends DataObject {
 	 */
 	function getStartingPage() {
 		$ranges = $this->getPageArray();
-		$firstRange = array_pop(array_reverse($ranges));
-		$firstPage = is_array($firstRange) ? array_pop(array_reverse($firstRange)) : "";
-		return isset($firstPage) ? $firstPage : "";
+		$firstRange = array_shift($ranges);
+		if (is_array($firstRange)) {
+			return array_shift($firstRange);
+		}
+		return '';
 	}
 
 	/**

@@ -189,7 +189,7 @@ class PKPRequest {
 			// and we need to avoid stripping the terminal directory
 			$path = preg_replace('#/[^/]*$#', '', $_SERVER['SCRIPT_NAME'].(substr($_SERVER['SCRIPT_NAME'], -1) == '/' || preg_match('#.php$#i', $_SERVER['SCRIPT_NAME']) ? '' : '/'));
 
-			// Encode charcters which need to be encoded in a URL.
+			// Encode characters which need to be encoded in a URL.
 			// Simply using rawurlencode() doesn't work because it
 			// also encodes characters which are valid in a URL (i.e. @, $).
 			$parts = explode('/', $path);
@@ -327,7 +327,7 @@ class PKPRequest {
 			if ($_this->isRestfulUrlsEnabled()) {
 				$_this->_requestPath = $_this->getBasePath();
 			} else {
-				$_this->_requestPath = $_SERVER['SCRIPT_NAME'];
+				$_this->_requestPath = isset($_SERVER['SCRIPT_NAME'])?$_SERVER['SCRIPT_NAME']:'';
 			}
 
 			if ($_this->isPathInfoEnabled()) {

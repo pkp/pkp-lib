@@ -67,7 +67,7 @@ fi
 
 # Run test suite.
 sudo rm -f cache/*.php
-if [[ "$TEST" == "mysql" ]]; then
+if [[ "$DBTYPE" == "MySQL" ]]; then
 	./lib/pkp/tools/runAllTests.sh -CcPpfH
 else
 	./lib/pkp/tools/runAllTests.sh -CcPpf

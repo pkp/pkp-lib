@@ -27,7 +27,7 @@
 			{if $FBV_readonly} readonly="readonly"{/if}
 			value="{$FBV_value[$formLocale]|escape}"
 			name="{$FBV_name|escape}[{$formLocale|escape}]"
-			id="{$FBV_id|escape}-{$formLocale|escape}{$uniqId}"
+			id="{$FBV_id|escape}-{$formLocale|escape|escape:jqselector}{$uniqId}"
 			{if $FBV_required} required aria-required="true"{/if}
 		/>
 
@@ -43,7 +43,7 @@
 					{if $FBV_readonly} readonly="readonly"{/if}
 					value="{$FBV_value[$thisFormLocale]|escape}"
 					name="{$FBV_name|escape}[{$thisFormLocale|escape}]"
-					id="{$FBV_id|escape}-{$thisFormLocale|escape}{$uniqId}"
+					id="{$FBV_id|escape}-{$thisFormLocale|escape|escape:jqselector}{$uniqId}"
 					{if $FBV_tabIndex} tabindex="{$FBV_tabIndex|escape}"{/if}
 				/>
 				<label for="{$FBV_id|escape}-{$thisFormLocale|escape}{$uniqId}" class="locale">({$thisFormLocaleName|escape})</label>

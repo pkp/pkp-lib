@@ -60,7 +60,7 @@
 		</field>
 		<field name="recipient_user_id" type="I8" />
 		<field name="date_redeemed" type="T" />
-		<field name="locale" type="C2" size="5">
+		<field name="locale" type="C2" size="14">
 			<NOTNULL/>
 			<DEFAULT VALUE=""/>
 		</field>

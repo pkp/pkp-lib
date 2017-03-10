@@ -28,7 +28,7 @@
 <script>
 	{* Attach the action handler to the button. *}
 	$(function() {ldelim}
-		$('#{$buttonId}').pkpHandler(
+		$('#{$buttonId|escape:jqselector}').pkpHandler(
 			'$.pkp.controllers.linkAction.LinkActionHandler',
 				{include file="linkAction/linkActionOptions.tpl" action=$action selfActivate=$selfActivate staticId=$staticId}
 			);

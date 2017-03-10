@@ -12,7 +12,7 @@
 	{foreach from=$formLocales key=thisFormLocale item=thisFormLocaleName}
 		<script>
 			$(document).ready(function(){ldelim}
-				$("#{$thisFormLocale|escape}-{$FBV_id}{$uniqId}").tagit({ldelim}
+				$("#{$thisFormLocale|escape|escape:jqselector}-{$FBV_id}{$uniqId}").tagit({ldelim}
 					fieldName: "keywords[{$thisFormLocale|escape}-{$FBV_id|escape}][]",
 					allowSpaces: true,
 					{if $FBV_sourceUrl && !$FBV_disabled}
@@ -32,7 +32,7 @@
 
 				{** Tag-it has no "read-only" option, so we must remove input elements to disable the widget **}
 				{if $FBV_disabled}
-					$("#{$thisFormLocale|escape}-{$FBV_id|concat:$uniqId|escape}").find('.tagit-close, .tagit-new').remove();
+					$("#{$thisFormLocale|escape|escape:jqselector}-{$FBV_id|concat:$uniqId|escape}").find('.tagit-close, .tagit-new').remove();
 				{/if}
 			{rdelim});
 		</script>
@@ -46,13 +46,13 @@
 		{rdelim});
 		</script>
 		<span id="{$FBV_id|escape}-localization-popover-container{$uniqId}" class="localization_popover_container pkpTagit">
-			<ul class="localization_popover_container localizable {if $formLocale != $currentLocale} flag flag_{$formLocale|escape}{/if}" id="{$formLocale|escape}-{$FBV_id|escape}{$uniqId}">
+			<ul class="localization_popover_container localizable {if $formLocale != $currentLocale} flag flag_{$formLocale|escape}{/if}" id="{$formLocale|escape|escape:jqselector}-{$FBV_id|escape}{$uniqId}">
 				{if $FBV_currentKeywords}{foreach from=$FBV_currentKeywords.$formLocale item=currentKeyword}<li>{$currentKeyword|escape}</li>{/foreach}{/if}
 			</ul>
 			{if $FBV_label_content}<span>{$FBV_label_content}</span>{/if}
 			<div class="localization_popover">
 				{foreach from=$formLocales key=thisFormLocale item=thisFormLocaleName}{if $formLocale != $thisFormLocale}
-					<ul class="multilingual_extra flag flag_{$thisFormLocale|escape}" id="{$thisFormLocale|escape}-{$FBV_id|escape}{$uniqId}">
+					<ul class="multilingual_extra flag flag_{$thisFormLocale|escape}" id="{$thisFormLocale|escape|escape:jqselector}-{$FBV_id|escape}{$uniqId}">
 						{if $FBV_currentKeywords}{foreach from=$FBV_currentKeywords.$thisFormLocale item=currentKeyword}<li>{$currentKeyword|escape}</li>{/foreach}{/if}
 					</ul>
 				{/if}{/foreach}
@@ -62,7 +62,7 @@
 {else} {* this is not a multilingual keyword field or there is only one locale available *}
 	<script>
 		$(document).ready(function(){ldelim}
-			$("#{$FBV_id}{$uniqId}").tagit({ldelim}
+			$("#{$FBV_id|escape:jqselector}{$uniqId}").tagit({ldelim}
 				fieldName: "keywords[{if $FBV_multilingual}{$formLocale|escape}-{/if}{$FBV_id|escape}][]",
 				allowSpaces: true,
 				{if $FBV_sourceUrl && !$FBV_disabled}

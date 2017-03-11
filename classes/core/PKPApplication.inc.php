@@ -298,7 +298,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			}
 
 			$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
-			$this->enabledProducts =& $versionDao->getCurrentProducts($settingContext);
+			$this->enabledProducts = $versionDao->getCurrentProducts($settingContext);
 		}
 
 		if (is_null($category)) {

@@ -15,6 +15,7 @@
 
 import('lib.pkp.classes.controllers.grid.CategoryGridHandler');
 import('lib.pkp.controllers.grid.plugins.form.UploadPluginForm');
+import('lib.pkp.controllers.grid.plugins.PluginGalleryGridHandler');
 
 abstract class PluginGridHandler extends CategoryGridHandler {
 	/**

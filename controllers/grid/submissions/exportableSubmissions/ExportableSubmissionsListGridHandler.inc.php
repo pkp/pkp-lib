@@ -42,20 +42,20 @@ class ExportableSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		$context = $request->getContext();
 
 		list($search, $column, $stageId, $sectionId) = $this->getFilterValues($filter);
-		$title = $author = $id = null;
+		$title = $author = $submissionId = null;
 		if ($column == 'title') {
 			$title = $search;
 		} elseif ($column == 'author') {
 			$author = $search;
-		} elseif ($column == 'id') {
-			$id = $search;
+		} elseif ($column == 'submissionId') {
+			$submissionId = $search;
 		}
 
 		return $submissionDao->getByStatus(
 			array(STATUS_DECLINED, STATUS_PUBLISHED, STATUS_QUEUED),
 			null,
 			$context?$context->getId():null,
-			$id,
+			$submissionId,
 			$title,
 			$author,
 			$stageId,

@@ -69,13 +69,13 @@ class UnassignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		$context = $request->getContext();
 
 		list($search, $column, $stageId, $sectionId) = $this->getFilterValues($filter);
-		$title = $author = $id = null;
+		$title = $author = $submissionId = null;
 		if ($column == 'title') {
 			$title = $search;
 		} elseif ($column == 'author') {
 			$author = $search;
-		} elseif ($column == 'id') {
-			$id = $search;
+		} elseif ($column == 'submissionId') {
+			$submissionId = $search;
 		}
 
 		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
@@ -84,7 +84,7 @@ class UnassignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 			null,
 			false, // do not include STATUS_DECLINED submissions
 			false,  // include only unpublished submissions
-			$id,
+			$submissionId,
 			$title,
 			$author,
 			$stageId,

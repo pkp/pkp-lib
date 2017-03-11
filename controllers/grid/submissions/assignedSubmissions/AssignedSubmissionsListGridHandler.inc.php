@@ -63,19 +63,19 @@ class AssignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
 
 		list($search, $column, $stageId, $sectionId) = $this->getFilterValues($filter);
-		$title = $author = $id = null;
+		$title = $author = $submissionId = null;
 		if ($column == 'title') {
 			$title = $search;
 		} elseif ($column == 'author') {
 			$author = $search;
-		} elseif ($column == 'id') {
-			$id = $search;
+		} elseif ($column == 'submissionId') {
+			$submissionId = $search;
 		}
 
 		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
 		$context = $request->getContext();
 
-		return $submissionDao->getAssignedToUser($userId, $context?$context->getId():null, $id, $title, $author, $stageId, $sectionId, $rangeInfo);
+		return $submissionDao->getAssignedToUser($userId, $context?$context->getId():null, $submissionId, $title, $author, $stageId, $sectionId, $rangeInfo);
 	}
 }
 

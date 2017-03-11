@@ -52,17 +52,17 @@ class MySubmissionsListGridHandler extends SubmissionsListGridHandler {
 
 		$submissionDao = Application::getSubmissionDAO();
 
-		$title = $id = null;
+		$title = $submissionId = null;
 		if ($column == 'title') {
 			$title = $search;
-		} elseif ($column == 'id') {
-			$id = $search;
+		} elseif ($column == 'submissionId') {
+			$submissionId = $search;
 		}
 
 		return $submissionDao->getUnpublishedByUserId(
 			$request->getUser()->getId(),
 			$request->getContext()->getId(),
-			$id,
+			$submissionId,
 			$title,
 			$stageId,
 			$sectionId,

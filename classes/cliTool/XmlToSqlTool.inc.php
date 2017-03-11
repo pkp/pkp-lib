@@ -88,7 +88,7 @@ class XmlToSqlTool extends CommandLineTool {
 	 * See lib/pkp/dtd/xmlSchema.dtd for the format of the XML files.
 	 */
 	function execute() {
-		require_once('./lib/pkp/lib/adodb/adodb-xmlschema.inc.php');
+		require_once('./lib/pkp/lib/vendor/adodb/adodb-php/adodb-xmlschema.inc.php');
 
 		if (in_array($this->command, array('print', 'save'))) {
 			// Don't connect to actual database (so parser won't build upgrade XML)
@@ -110,7 +110,6 @@ class XmlToSqlTool extends CommandLineTool {
 
 		$schema = new adoSchema($dbconn);
 		$dict =& $schema->dict;
-		$dict->SetCharSet(Config::getVar('i18n', 'database_charset'));
 
 		if ($this->type == 'schema') {
 			// Parse XML schema files

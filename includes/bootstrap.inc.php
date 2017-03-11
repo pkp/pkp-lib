@@ -42,7 +42,7 @@ ini_set('include_path', '.'
 	. ENV_SEPARATOR . BASE_SYS_DIR . '/lib/pkp'
 	. ENV_SEPARATOR . BASE_SYS_DIR . '/lib/pkp/classes'
 	. ENV_SEPARATOR . BASE_SYS_DIR . '/lib/pkp/pages'
-	. ENV_SEPARATOR . BASE_SYS_DIR . '/lib/pkp/lib/adodb'
+	. ENV_SEPARATOR . BASE_SYS_DIR . '/lib/pkp/lib/vendor/adodb/adodb-php'
 	. ENV_SEPARATOR . ini_get('include_path')
 );
 

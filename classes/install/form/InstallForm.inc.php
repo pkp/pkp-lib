@@ -70,7 +70,7 @@ class InstallForm extends MaintenanceForm {
 			// <adodb-driver> => array(<php-module>, <name>)
 			'mysql' => array('mysql', 'MySQL'),
 			'mysqli' => array('mysqli', 'MySQLi'),
-			'postgres' => array('pgsql', 'PostgreSQL'),
+			'postgres9' => array('pgsql', 'PostgreSQL'),
 			'oracle' => array('oci8', 'Oracle'),
 			'mssql' => array('mssql', 'MS SQL Server'),
 			'fbsql' => array('fbsql', 'FrontBase'),

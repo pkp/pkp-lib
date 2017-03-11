@@ -32,6 +32,10 @@ class DBDataXMLParserTest extends DatabaseTestCase {
 				$this->assertEquals(array('RAW QUERY', 'RAW MYSQL QUERY'), $sql);
 				break;
 			case 'postgres':
+			case 'postgres64':
+			case 'postgres7':
+			case 'postgres8':
+			case 'postgres9':
 				$this->assertEquals(array('RAW QUERY', 'RAW POSTGRESQL QUERY'), $sql);
 				break;
 			default: $this->fail('Unknown DB driver.');
@@ -72,6 +76,10 @@ class DBDataXMLParserTest extends DatabaseTestCase {
 				);
 				break;
 			case 'postgres':
+			case 'postgres64':
+			case 'postgres7':
+			case 'postgres8':
+			case 'postgres9':
 				$this->markTestSkipped('PostgreSQL/ADODB weirdness prevents this test.');
 				break;
 			default: $this->fail('Unknown DB driver.');

@@ -486,7 +486,18 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		$params[] = (int) ROLE_ID_MANAGER;
 		$params[] = (int) ROLE_ID_SUB_EDITOR;
 
-		if ($submissionId) $params[] = (int) $submissionId;
+		if ($submissionId) {
+			// Check the case that the user does put a value that is not an integer. SubmissionId must be an integer
+			// If that check is not made, strings like "91f" will pass as the integer 91 in the convertion.
+			// That means that if we put "91f" to the search, if there is a submission with id=91, it will be returned.
+			if (filter_var($submissionId, FILTER_VALIDATE_INT) !== false) {
+				$params[] = (int) $submissionId;
+			} else {
+				// add a value that could never be found as a submissionId
+				$params[] = -1;
+			}
+		}
+
 		if ($title) {
 			$params[] = 'title';
 			$params[] = '%' . $title . '%';
@@ -542,7 +553,19 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 			$this->getFetchParameters(),
 			array((int) ROLE_ID_AUTHOR, (int) $userId)
 		);
-		if ($submissionId) $params[] = (int) $submissionId;
+
+		if ($submissionId) {
+			// Check the case that the user does put a value that is not an integer. SubmissionId must be an integer
+			// If that check is not made, strings like "91f" will pass as the integer 91 in the convertion.
+			// That means that if we put "91f" to the search, if there is a submission with id=91, it will be returned.
+			if (filter_var($submissionId, FILTER_VALIDATE_INT) !== false) {
+				$params[] = (int) $submissionId;
+			} else {
+				// add a value that could never be found as a submissionId
+				$params[] = -1;
+			}
+		}
+
 		if ($title) {
 			$params[] = 'title';
 			$params[] = '%' . $title . '%';
@@ -592,7 +615,19 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		$params = array($reviewerId, $reviewerId);
 		$params = array_merge($params, $this->getFetchParameters());
 		$params[] = $reviewerId;
-		if ($submissionId) $params[] = (int) $submissionId;
+
+		if ($submissionId) {
+			// Check the case that the user does put a value that is not an integer. SubmissionId must be an integer
+			// If that check is not made, strings like "91f" will pass as the integer 91 in the convertion.
+			// That means that if we put "91f" to the search, if there is a submission with id=91, it will be returned.
+			if (filter_var($submissionId, FILTER_VALIDATE_INT) !== false) {
+				$params[] = (int) $submissionId;
+			} else {
+				// add a value that could never be found as a submissionId
+				$params[] = -1;
+			}
+		}
+
 		if ($title) {
 			$params[] = 'title';
 			$params[] = '%' . $title . '%';
@@ -656,7 +691,18 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 
 		$params = array_merge($params, $this->getFetchParameters());
 
-		if ($submissionId) $params[] = (int) $submissionId;
+		if ($submissionId) {
+			// Check the case that the user does put a value that is not an integer. SubmissionId must be an integer
+			// If that check is not made, strings like "91f" will pass as the integer 91 in the convertion.
+			// That means that if we put "91f" to the search, if there is a submission with id=91, it will be returned.
+			if (filter_var($submissionId, FILTER_VALIDATE_INT) !== false) {
+				$params[] = (int) $submissionId;
+			} else {
+				// add a value that could never be found as a submissionId
+				$params[] = -1;
+			}
+		}
+
 		if ($title) {
 			$params[] = 'title';
 			$params[] = '%' . $title . '%';
@@ -716,7 +762,18 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		);
 		if ($contextId) $params[] = (int) $contextId;
 
-		if ($submissionId) $params[] = (int) $submissionId;
+		if ($submissionId) {
+			// Check the case that the user does put a value that is not an integer. SubmissionId must be an integer
+			// If that check is not made, strings like "91f" will pass as the integer 91 in the convertion.
+			// That means that if we put "91f" to the search, if there is a submission with id=91, it will be returned.
+			if (filter_var($submissionId, FILTER_VALIDATE_INT) !== false) {
+				$params[] = (int) $submissionId;
+			} else {
+				// add a value that could never be found as a submissionId
+				$params[] = -1;
+			}
+		}
+
 		if ($title) {
 			$params[] = 'title';
 			$params[] = '%' . $title . '%';
@@ -777,7 +834,18 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 
 		if ($contextId) $params[] = (int) $contextId;
 
-		if ($submissionId) $params[] = (int) $submissionId;
+		if ($submissionId) {
+			// Check the case that the user does put a value that is not an integer. SubmissionId must be an integer
+			// If that check is not made, strings like "91f" will pass as the integer 91 in the convertion.
+			// That means that if we put "91f" to the search, if there is a submission with id=91, it will be returned.
+			if (filter_var($submissionId, FILTER_VALIDATE_INT) !== false) {
+				$params[] = (int) $submissionId;
+			} else {
+				// add a value that could never be found as a submissionId
+				$params[] = -1;
+			}
+		}
+
 		if ($title) {
 			$params[] = 'title';
 			$params[] = '%' . $title . '%';

@@ -109,15 +109,21 @@ class ActiveSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
 
 		list($search, $column, $stageId, $sectionId) = $this->getFilterValues($filter);
+
 		$title = $author = $editor = $submissionId = null;
-		if ($column == 'title') {
-			$title = $search;
-		} elseif ($column == 'author') {
-			$author = $search;
-		} elseif ($column == 'editor') {
-			$editor = $search;
-		} elseif ($column == 'submissionId') {
-			$submissionId = $search;
+		switch ($column) {
+			case 'title':
+				$title = $search;
+				break;
+			case 'author':
+				$author = $search;
+				break;
+			case 'editor':
+				$editor = $search;
+				break;
+			case 'submissionId':
+				$submissionId = $search;
+				break;
 		}
 
 		$nonExistingUserId = 0;

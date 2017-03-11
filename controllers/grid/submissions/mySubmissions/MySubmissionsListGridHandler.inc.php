@@ -53,10 +53,13 @@ class MySubmissionsListGridHandler extends SubmissionsListGridHandler {
 		$submissionDao = Application::getSubmissionDAO();
 
 		$title = $submissionId = null;
-		if ($column == 'title') {
-			$title = $search;
-		} elseif ($column == 'submissionId') {
-			$submissionId = $search;
+		switch ($column) {
+			case 'title':
+				$title = $search;
+				break;
+			case 'submissionId':
+				$submissionId = $search;
+				break;
 		}
 
 		return $submissionDao->getUnpublishedByUserId(

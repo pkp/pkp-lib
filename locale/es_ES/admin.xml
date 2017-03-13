@@ -142,5 +142,4 @@ Uso (procesamiento de todos los archivos dentro de un directorio): {$scriptName}
 	<message key="admin.scheduledTask.confirmClearLogs">Está seguro de que quiere eliminar todos los registros de ejecución de tareas programados?</message>
 	<message key="admin.settings.siteLogo">Logo del sitio</message>
 	<message key="admin.languages.noLocalesToDownload">No hay locales disponibles para descargar.</message>
-	<message key=""><![CDATA[]]></message>
 </locale>

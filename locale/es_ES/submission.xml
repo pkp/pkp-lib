@@ -791,6 +791,4 @@
 	<message key="notification.type.copyeditorRequest">Se le ha pedido que revise las correcciones para "{$title}".</message>
 	<message key="notification.type.layouteditorRequest">Se le ha pedido revisar los diseños de "{$title}".</message>
 	<message key="notification.type.indexRequest">Se le ha pedido que cree un índice para "{$title}".</message>
-	<message key=""><![CDATA[]]></message>
-	<message key=""><![CDATA[]]></message>
 </locale>

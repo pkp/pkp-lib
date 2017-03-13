@@ -154,6 +154,6 @@
 	<message key="user.login.registrationComplete.continueBrowsing">Continuar navegando</message>
 	<message key="user.login.registrationPendingValidation">Registro pendiente de verificación</message>
 	<message key="user.login.rememberUsernameAndPassword">Manténme conectado</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="user.register.form.usernameAlphaNumeric">El nombre de usuario sólo puede contener caracteres alfanuméricos en minúsculas, subrayados y guiones, y debe comenzar y finalizar con un carácter alfanumérico.</message>
 </locale>
+

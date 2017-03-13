@@ -546,5 +546,4 @@
 	<message key="notification.removedSubmission">Envío eliminado.</message>
 	<message key="notification.type.assignCopyeditors">Asigne un editor de corrección usando el enlace agregar de la lista de participantes.</message>
 	<message key="notification.type.awaitingCopyedits">Esperando correcciones.</message>
-	<message key=""><![CDATA[]]></message>
 </locale>

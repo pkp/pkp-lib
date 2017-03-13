@@ -142,7 +142,7 @@ class ReviewReminder extends ScheduledTask {
 			// Avoid review assignments that a reminder exists for.
 			if ($reviewAssignment->getDateReminded() !== null) continue;
 
-			// Fetch the submission and the context.
+			// Fetch the submission
 			if ($submission == null || $submission->getId() != $reviewAssignment->getSubmissionId()) {
 				unset($submission);
 				$submission = $submissionDao->getById($reviewAssignment->getSubmissionId());
@@ -151,14 +151,16 @@ class ReviewReminder extends ScheduledTask {
 
 				if ($submission->getStatus() != STATUS_QUEUED) continue;
 
-				if ($context == null || $context->getId() != $submission->getContextId()) {
-					unset($context);
-					$context = $contextDao->getById($submission->getContextId());
-
-					$inviteReminderDays = $context->getSetting('numDaysBeforeInviteReminder');
-					$submitReminderDays = $context->getSetting('numDaysBeforeSubmitReminder');
-				}
 			}
+
+			// Fetch the context
+			if ($context == null || $context->getId() != $submission->getContextId()) {
+				unset($context);
+				$context = $contextDao->getById($submission->getContextId());
+
+				$inviteReminderDays = $context->getSetting('numDaysBeforeInviteReminder');
+				$submitReminderDays = $context->getSetting('numDaysBeforeSubmitReminder');
+			}			
 
 			$reminderType = false;
 			if ($submitReminderDays>=1 && $reviewAssignment->getDateDue() != null) {

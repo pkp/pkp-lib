@@ -100,7 +100,7 @@ class FilterHelper {
 
 		// We ensure idempotence of plug-in installation by checking
 		// for existing identical filters.
-		$similarFilterFactory =& $filterDao->getObjectsByGroupAndClass($filterGroupSymbolic, $filterClassName, 0, $isTemplate);
+		$similarFilterFactory = $filterDao->getObjectsByGroupAndClass($filterGroupSymbolic, $filterClassName, 0, $isTemplate);
 		if ($similarFilterFactory->getCount() > 0) {
 			// 1) Find similar filters.
 			$similarFilters =& $similarFilterFactory->toArray();

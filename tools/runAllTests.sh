@@ -27,7 +27,7 @@
 #  TIMEOUT=30: Selenium timeout; optional, 30 seconds by default
 #
 
-set -e # Fail on first error
+set -xe # Fail on first error
 
 # Before executing tests for the first time please execute the
 # following commands from the main ojs directory to install

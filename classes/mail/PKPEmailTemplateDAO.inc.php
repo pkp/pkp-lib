@@ -30,7 +30,7 @@ class PKPEmailTemplateDAO extends DAO {
 	 * @param $assocId int
 	 * @return BaseEmailTemplate
 	 */
-	function getBaseEmailTemplate($emailKey, $assocType, $assocId) {
+	function _getBaseEmailTemplate($emailKey, $assocType, $assocId) {
 		$result = $this->retrieve(
 			'SELECT	d.email_key,
 				d.can_edit,

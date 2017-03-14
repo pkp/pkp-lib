@@ -39,7 +39,7 @@ if [[ "$TEST" == "pgsql" ]]; then
 elif [[ "$TEST" == "mysql" ]]; then
 	mysql -u root -e 'CREATE DATABASE `ojs-ci` DEFAULT CHARACTER SET utf8'
 	mysql -u root -e "GRANT ALL ON \`ojs-ci\`.* TO \`ojs-ci\`@localhost IDENTIFIED BY 'ojs-ci'"
-	if `/usr/bin/php -r "echo phpversion();" | grep -e "^7\."`; then
+	if if [[ ${TRAVIS_PHP_VERSION:0:2} == "7." ]]; then
 		export DBTYPE=MySQLi
 	else
 		export DBTYPE=MySQL

@@ -1,21 +1,22 @@
 <?php
 
 /**
- * @file classes/mail/PKPEmailTemplateDAO.inc.php
+ * @file classes/mail/EmailTemplateDAO.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPEmailTemplateDAO
+ * @class EmailTemplateDAO
  * @ingroup mail
- * @see PKPEmailTemplate
+ * @see EmailTemplate
  *
  * @brief Operations for retrieving and modifying Email Template objects.
  */
 
+import('lib.pkp.classes.mail.EmailTemplate');
 
-class PKPEmailTemplateDAO extends DAO {
+class EmailTemplateDAO extends DAO {
 	/**
 	 * Constructor
 	 */
@@ -26,11 +27,10 @@ class PKPEmailTemplateDAO extends DAO {
 	/**
 	 * Retrieve a base email template by key.
 	 * @param $emailKey string
-	 * @param assocType int
-	 * @param $assocId int
+	 * @param $contextId int
 	 * @return BaseEmailTemplate
 	 */
-	function _getBaseEmailTemplate($emailKey, $assocType, $assocId) {
+	function getBaseEmailTemplate($emailKey, $contextId) {
 		$result = $this->retrieve(
 			'SELECT	d.email_key,
 				d.can_edit,
@@ -44,7 +44,7 @@ class PKPEmailTemplateDAO extends DAO {
 			FROM	email_templates_default d
 				LEFT JOIN email_templates e ON (d.email_key = e.email_key AND e.assoc_type = ? AND e.assoc_id = ?)
 			WHERE	d.email_key = ?',
-			array($assocType, $assocId, $emailKey)
+			array(Application::getContextAssocType(), (int) $contextId, $emailKey)
 		);
 
 		$returner = null;
@@ -59,11 +59,10 @@ class PKPEmailTemplateDAO extends DAO {
 	/**
 	 * Retrieve localized email template by key.
 	 * @param $emailKey string
-	 * @param $assocType int
-	 * @param $assocId int
+	 * @param $contextId int Context ID
 	 * @return LocaleEmailTemplate
 	 */
-	function getLocaleEmailTemplate($emailKey, $assocType, $assocId) {
+	function getLocaleEmailTemplate($emailKey, $contextId) {
 		$result = $this->retrieve(
 			'SELECT	d.email_key,
 				d.can_edit,
@@ -77,7 +76,7 @@ class PKPEmailTemplateDAO extends DAO {
 			FROM	email_templates_default d
 				LEFT JOIN email_templates e ON (d.email_key = e.email_key AND e.assoc_type = ? AND e.assoc_id = ?)
 			WHERE	d.email_key = ?',
-			array($assocType, $assocId, $emailKey)
+			array(Application::getContextAssocType(), (int) $contextId, $emailKey)
 		);
 
 		$returner = null;
@@ -104,7 +103,7 @@ class PKPEmailTemplateDAO extends DAO {
 					e.assoc_type = ? AND
 					e.assoc_id = ? AND
 					e.email_key = ?',
-				array($assocType, $assocId, $emailKey)
+				array(Application::getContextAssocType(), $contextId, $emailKey)
 			);
 			if ($result->RecordCount() != 0) {
 				$returner = $this->_returnLocaleEmailTemplateFromRow($result->GetRowAssoc(false));
@@ -119,11 +118,10 @@ class PKPEmailTemplateDAO extends DAO {
 	 * Retrieve an email template by key.
 	 * @param $emailKey string
 	 * @param $locale string
-	 * @param $assocType int
-	 * @param $assocId int
+	 * @param $contextId int
 	 * @return EmailTemplate
 	 */
-	function getEmailTemplate($emailKey, $locale, $assocType, $assocId) {
+	function getEmailTemplate($emailKey, $locale, $contextId) {
 		$primaryLocale = AppLocale::getPrimaryLocale();
 
 		$result = $this->retrieve(
@@ -141,7 +139,7 @@ class PKPEmailTemplateDAO extends DAO {
 				LEFT JOIN email_templates_data edpl ON (edpl.email_key = e.email_key AND edpl.assoc_type = e.assoc_type AND edpl.assoc_id = e.assoc_id AND edpl.locale = ?)
 				LEFT JOIN email_templates_data edl ON (edl.email_key = e.email_key AND edl.assoc_type = e.assoc_type AND edl.assoc_id = e.assoc_id AND edl.locale = ?)
 			WHERE	d.email_key = ?',
-			array($primaryLocale, $locale, $assocType, $assocId, $primaryLocale, $locale, $emailKey)
+			array($primaryLocale, $locale, Application::getContextAssocType(), (int) $contextId, $primaryLocale, $locale, $emailKey)
 		);
 
 		$returner = null;
@@ -174,7 +172,7 @@ class PKPEmailTemplateDAO extends DAO {
 					e.assoc_id = ? AND
 					e.email_key = ? AND
 					ed.locale = ?',
-				array($assocType, $assocId, $emailKey, $locale)
+				array(Application::getContextAssocType(), $contextId, $emailKey, $locale)
 			);
 			if ($result->RecordCount() != 0) {
 				$returner = $this->_returnEmailTemplateFromRow($result->GetRowAssoc(false));
@@ -424,29 +422,28 @@ class PKPEmailTemplateDAO extends DAO {
 	/**
 	 * Delete an email template by key.
 	 * @param $emailKey string
-	 * @param $assocType int
+	 * @param $contextId int
 	 * @param $assocId int
 	 */
-	function deleteEmailTemplateByKey($emailKey, $assocType, $assocId) {
+	function deleteEmailTemplateByKey($emailKey, $contextId) {
 		$this->update(
 			'DELETE FROM email_templates_data WHERE email_key = ? AND assoc_type = ? AND assoc_id = ?',
-			array($emailKey, $assocType, $assocId)
+			array($emailKey, Application::getContextAssocType(), (int) $contextId)
 		);
 		return $this->update(
 			'DELETE FROM email_templates WHERE email_key = ? AND assoc_type = ? AND assoc_id = ?',
-			array($emailKey, $assocType, $assocId)
+			array($emailKey, Application::getContextAssocType(), (int) $contextId)
 		);
 	}
 
 	/**
 	 * Retrieve all email templates.
 	 * @param $locale string
-	 * @param $assocType int
-	 * @param $assocId int
+	 * @param $contextId int
 	 * @param $rangeInfo object optional
 	 * @return array Email templates
 	 */
-	function getEmailTemplates($locale, $assocType, $assocId, $rangeInfo = null) {
+	function getEmailTemplates($locale, $contextId, $rangeInfo = null) {
 		$emailTemplates = array();
 
 		$result = $this->retrieveRange(
@@ -462,7 +459,7 @@ class PKPEmailTemplateDAO extends DAO {
 				LEFT JOIN email_templates e ON (d.email_key = e.email_key AND e.assoc_type = ? AND e.assoc_id = ?)
 				LEFT JOIN email_templates_data ed ON (ed.email_key = e.email_key AND ed.assoc_type = e.assoc_type AND ed.assoc_id = e.assoc_id AND ed.locale = dd.locale)
 			WHERE	dd.locale = ?',
-			array($assocType, $assocId, $locale),
+			array(Application::getContextAssocType(), (int) $contextId, $locale),
 			$rangeInfo
 		);
 
@@ -493,7 +490,7 @@ class PKPEmailTemplateDAO extends DAO {
 			WHERE	e.assoc_type = ? AND
 				e.assoc_id = ? AND
 				d.email_key IS NULL',
-			array($locale, $assocType, $assocId)
+			array($locale, Application::getContextAssocType(), (int) $contextId)
 		);
 
 		while (!$result->EOF) {
@@ -519,15 +516,16 @@ class PKPEmailTemplateDAO extends DAO {
 
 	/**
 	 * Delete all email templates for a specific journal/conference/...
-	 * @param $assocType int
-	 * @param $assocId int
+	 * @param $contextId int
 	 */
-	function deleteEmailTemplatesByAssoc($assocType, $assocId) {
+	function deleteEmailTemplatesByContext($contextId) {
 		$this->update(
-			'DELETE FROM email_templates_data WHERE assoc_type = ? AND assoc_id = ?', array($assocType, $assocId)
+			'DELETE FROM email_templates_data WHERE assoc_type = ? AND assoc_id = ?',
+			array(Application::getContextAssocType(), (int) $contextId)
 		);
 		return $this->update(
-			'DELETE FROM email_templates WHERE assoc_type = ? AND assoc_id = ?', array($assocType, $assocId)
+			'DELETE FROM email_templates WHERE assoc_type = ? AND assoc_id = ?',
+			array(Application::getContextAssocType(), (int) $contextId)
 		);
 	}
 
@@ -555,12 +553,11 @@ class PKPEmailTemplateDAO extends DAO {
 	 * Check if a template exists with the given email key for a journal/
 	 * conference/...
 	 * @param $emailKey string
-	 * @param $assocType int optional
-	 * @param $assocId int optional
+	 * @param $contextId int optional
 	 * @return boolean
 	 */
-	function templateExistsByKey($emailKey, $assocType = null, $assocId = null) {
-		if ($assocType !== null) {
+	function templateExistsByKey($emailKey, $contextId = null) {
+		if ($contextId !== null) {
 			$result = $this->retrieve(
 				'SELECT	COUNT(*)
 				FROM	email_templates
@@ -569,8 +566,8 @@ class PKPEmailTemplateDAO extends DAO {
 					assoc_id = ?',
 				array(
 					$emailKey,
-					$assocType,
-					$assocId
+					Application::getContextAssocType(),
+					(int) $contextId
 				)
 			);
 			if (isset($result->fields[0]) && $result->fields[0] != 0) {
@@ -601,11 +598,10 @@ class PKPEmailTemplateDAO extends DAO {
 	 * Check if a custom template exists with the given email key for a
 	 * journal/conference/...
 	 * @param $emailKey string
-	 * @param $assocType int
-	 * @param $assocId int
+	 * @param $contextId int
 	 * @return boolean
 	 */
-	function customTemplateExistsByKey($emailKey, $assocType, $assocId) {
+	function customTemplateExistsByKey($emailKey, $contextId) {
 		$result = $this->retrieve(
 			'SELECT	COUNT(*)
 			FROM	email_templates e
@@ -616,8 +612,8 @@ class PKPEmailTemplateDAO extends DAO {
 				e.assoc_id = ?',
 			array(
 				$emailKey,
-				$assocType,
-				$assocId
+				Application::getContextAssocType(),
+				(int) $contextId
 			)
 		);
 		$returner = (isset($result->fields[0]) && $result->fields[0] != 0);
@@ -628,11 +624,10 @@ class PKPEmailTemplateDAO extends DAO {
 
 	/**
 	 * Returns an array of custom template keys
-	 * @param int $assocType
-	 * @param int $assocId
+	 * @param int $contextId
 	 */
-	function getCustomTemplateKeys($assocType, $assocId) {
-		$result = $this->retrieve('SELECT email_key FROM email_templates WHERE assoc_type = ? AND assoc_id = ?', array($assocType, $assocId));
+	function getCustomTemplateKeys($contextId) {
+		$result = $this->retrieve('SELECT email_key FROM email_templates WHERE assoc_type = ? AND assoc_id = ?', array(Application::getContextAssocType(), (int) $contextId));
 		$keys = array();
 		while (!$result->EOF) {
 			$row = $result->GetRowAssoc(false);

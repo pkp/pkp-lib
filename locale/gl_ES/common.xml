@@ -298,16 +298,16 @@
 	<message key="notification.notificationsNew">({$numNew} novo)</message>
 	<message key="notification.notificationsDescription"><![CDATA[Tes {$unreadCount} notificacións sen ler e {$readCount} lidas.  <a href="{$settingsUrl}">Fai clic aquí</a> para cambiar a configuración das túas notificacións.]]></message>
 	<message key="common.ccLicense"><![CDATA[<br /><br />
-		<a target="_new" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
-			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
+		<a target="_new" rel="license" href="https://creativecommons.org/licenses/by/3.0/">
+			<img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png"/>
 		</a>
 		<br />
-		Esta obra está baixo unha licenza <a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 </a>.]]></message>
+		Esta obra está baixo unha licenza <a rel="license" target="_new" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 </a>.]]></message>
 	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
 		<br />
-		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_new"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png" /></a>
 		<br />
-		Esta obra está baixo unha licenza <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new">Creative Commons Attribution 3.0 </a>.
+		Esta obra está baixo unha licenza <a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_new">Creative Commons Attribution 3.0 </a>.
 	</div>]]></message>
 	<message key="common.uploadFailed">Non se puido subir o ficheiro. Por favor, tentao outra vez ou contacta co Administrador se o problema persiste.</message>
 	<message key="navigation.dashboard">Panel de control</message>

@@ -21,7 +21,7 @@
 	{* This is a multilingual control. Enable popover display. *}
 	<span id="{$FBV_name|escape}-localization-popover-container{$uniqId}" class="localization_popover_container">
 		{strip}
-			<textarea id="{$FBV_id|escape}-{$formLocale|escape|escape:jqselector}{$uniqId}" {$FBV_textAreaParams}
+			<textarea id="{$FBV_id|escape}-{$formLocale|escape:jqselector}{$uniqId}" {$FBV_textAreaParams}
 				rows="{$FBV_rows|escape}"
 				cols="{$FBV_cols|escape}"
 				class="localizable {$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}{if $FBV_rich && !$FBV_disabled} richContent{if $FBV_rich==="extended"} extendedRichContent{/if}{/if}"
@@ -38,7 +38,7 @@
 		<div class="localization_popover">
 			{foreach from=$formLocales key=thisFormLocale item=thisFormLocaleName}{if $formLocale != $thisFormLocale}
 				{strip}
-				<textarea id="{$FBV_id|escape}-{$thisFormLocale|escape|escape:jqselector}{$uniqId}" {$FBV_textAreaParams}
+				<textarea id="{$FBV_id|escape}-{$thisFormLocale|escape:jqselector}{$uniqId}" {$FBV_textAreaParams}
 					placeholder="{$thisFormLocaleName|escape}"
 					class="flag flag_{$thisFormLocale|escape} {$FBV_class} {$FBV_height}{if $FBV_rich && !$FBV_disabled} richContent{if $FBV_rich==="extended"} extendedRichContent{/if}{/if}"
 					{if $FBV_disabled} disabled="disabled"{/if}

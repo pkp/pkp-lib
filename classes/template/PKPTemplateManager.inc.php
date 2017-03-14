@@ -1277,14 +1277,24 @@ class PKPTemplateManager extends Smarty {
 	 * add the jqselector escaping method.
 	 */
 	function smartyEscape($string, $esc_type = 'html', $char_set = 'ISO-8859-1') {
+		$pattern = "/(:|\.|\[|\]|,|=|@)/";
+		$replacement = "\\\\\\\\$1";
 		switch ($esc_type) {
+			// Because jQuery uses CSS syntax for selecting elements
+			// some characters are interpreted as CSS notation.
+			// In order to tell jQuery to treat these characters literally rather
+			// than as CSS notation, they must be escaped by placing two backslashes
+			// in front of them.
 			case 'jqselector':
-				// Because jQuery uses CSS syntax for selecting elements
-				// some characters are interpreted as CSS notation.
-				// In order to tell jQuery to treat these characters literally rather
-				// than as CSS notation, they must be escaped by placing two backslashes
-				// in front of them.
-				return preg_replace("/(:|\.|\[|\]|,|=|@)/", "\\\\\\\\$1", $string);
+				$result = smarty_modifier_escape($string, 'html', $char_set);
+				$result = preg_replace($pattern, $replacement, $result);
+				return $result;
+
+			case 'jsid':
+				$result = smarty_modifier_escape($string, 'javascript', $char_set);
+				$result = preg_replace($pattern, $replacement, $result);
+				return $result;
+
 			default:
 				return smarty_modifier_escape($string, $esc_type, $char_set);
 		}

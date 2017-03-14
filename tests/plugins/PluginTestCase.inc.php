@@ -83,7 +83,8 @@ class PluginTestCase extends DatabaseTestCase {
 		self::assertTrue($installer->execute());
 
 		// Reset the hook registry.
-		Registry::set('hooks', $nullVar = null);
+		$nullVar = null;
+		Registry::set('hooks', $nullVar);
 
 		// Test whether the installation is idempotent.
 		$this->markTestIncomplete('Idempotence test disabled temporarily.');

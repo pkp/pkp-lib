@@ -61,13 +61,13 @@
 	<message key="common.captchaField">Validación</message>
 	<message key="common.ccLicense"><![CDATA[<br /><br />
 		<a target="_blank" rel="license" href="https://creativecommons.org/licenses/by/3.0/">
-			<img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png"/>
+			<img alt="Creative Commons License" style="border-width:0" src="//licensebuttons.net/l/by/3.0/80x15.png"/>
 		</a>
 		<br />
                 Este trabajo está licenciado bajo una <a rel="license" target="_blank" href="https://creativecommons.org/licenses/by/3.0/">Licencia de Atribución Creative Commons 3.0</a>.]]></message>
 	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
 		<br />
-		<a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="//licensebuttons.net/l/by/3.0/80x15.png" /></a>
 		<br />
 		Este trabajo está licenciado bajo una <a rel="license" target="_blank" href="https://creativecommons.org/licenses/by/3.0/">Licencia de Atribución Creative Commons 3.0</a>.
 	</div>]]></message>

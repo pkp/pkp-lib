@@ -26,7 +26,7 @@ class APIHandler extends PKPHandler {
 	 * Constructor
 	 */
 	function APIHandler() {
-		parent::PKPHandler();
+		parent::__construct();
 		$this->_app = new \Slim\App;
 		$this->_request = Application::getRequest();
 		$this->setupEndpoints();

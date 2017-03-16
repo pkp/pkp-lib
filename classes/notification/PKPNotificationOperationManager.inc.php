@@ -326,7 +326,13 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 		}
 
 		$mail = $this->getMailTemplate($template);
-		$mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
+		
+		if ($context) {
+			$mail->setReplyTo($context->getContactEmail(), $context->getContactName());
+		} else {
+			$mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
+		}
+		
 		$mail->assignParams($params);
 		$mail->addRecipient($email);
 		$mail->send();
@@ -447,7 +453,13 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 			$context = $request->getContext();
 			$site = $request->getSite();
 			$mail = $this->getMailTemplate('NOTIFICATION');
-			$mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
+			
+			if ($context) {
+				$mail->setReplyTo($context->getContactEmail(), $context->getContactName());
+			} else {
+				$mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
+			}
+			
 			$mail->assignParams(array(
 				'notificationContents' => $this->getNotificationContents($request, $notification),
 				'url' => $this->getNotificationUrl($request, $notification),

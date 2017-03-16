@@ -29,7 +29,7 @@ class APIRouter extends PKPRouter {
 	 * Constructor
 	 */
 	function APIRouter() {
-		parent::PKPRouter();
+		parent::__construct();
 	}
 
 	/**

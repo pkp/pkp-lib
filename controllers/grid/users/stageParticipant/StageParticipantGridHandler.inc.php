@@ -290,13 +290,14 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 					ASSOC_TYPE_SUBMISSION,
 					$submission->getId()
 				);
-				$stages = Application::getApplicationStages();
-				foreach ($stages as $workingStageId) {
-					// remove the 'editor required' task if we now have an editor assigned
-					if ($stageAssignmentDao->editorAssignedToStage($submission->getId(), $stageId)) {
-						$notificationDao = DAORegistry::getDAO('NotificationDAO');
-						$notificationDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submission->getId(), null, NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED);
-					}
+			}
+
+			$stages = Application::getApplicationStages();
+			foreach ($stages as $workingStageId) {
+				// remove the 'editor required' task if we now have an editor assigned
+				if ($stageAssignmentDao->editorAssignedToStage($submission->getId(), $workingStageId)) {
+					$notificationDao = DAORegistry::getDAO('NotificationDAO');
+					$notificationDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submission->getId(), null, NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED);
 				}
 			}
 

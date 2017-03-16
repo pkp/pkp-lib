@@ -468,7 +468,9 @@
 		}
 
 		$emptyElement = this.getEmptyElement($element);
+		var self = this;
 		deleteFunction = function() {
+			self.unbindPartial($element);
 			$element.remove();
 			if (lastElement) {
 				$emptyElement.fadeIn(100);
@@ -668,7 +670,7 @@
 			this.deleteControlsRow_($existingElement);
 		}
 
-		$existingElement.replaceWith($newElement);
+		this.replacePartialWith($newElement, $existingElement);
 		this.callFeaturesHook('replaceElement', $newElement);
 	};
 
@@ -824,7 +826,7 @@
 			isFilterVisible = $grid.find('.filter').is(':visible');
 
 			// Replace the grid content
-			$grid.replaceWith(handledJsonData.content);
+			this.replaceWith(handledJsonData.content);
 
 			// Update the html element of this handler.
 			$newGrid = $('div[id^="' + this.getGridIdPrefix() + '"]', $gridParent);
@@ -855,6 +857,7 @@
 				this.getHtmlElement());
 
 		if ($controlRow.is('tr') && $controlRow.hasClass('row_controls')) {
+			this.unbindPartial($controlRow);
 			$controlRow.remove();
 		}
 	};

@@ -91,6 +91,12 @@ class DashboardHandler extends Handler {
 			}
 		}
 
+		import('lib.pkp.controllers.list.submissions.MySubmissionListHandler');
+		$submissionListHandler = new MySubmissionListHandler(array(
+			'title' => 'common.queue.long.myAssigned',
+		));
+		$templateMgr->assign('submissionListData', json_encode($submissionListHandler->getConfig()));
+
 		return $templateMgr->fetchJson('dashboard/myQueue.tpl');
 	}
 
@@ -103,6 +109,12 @@ class DashboardHandler extends Handler {
 	function active($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
+
+		import('lib.pkp.controllers.list.submissions.ActiveSubmissionListHandler');
+		$submissionListHandler = new ActiveSubmissionListHandler(array(
+			'title' => 'common.queue.long.active',
+		));
+		$templateMgr->assign('submissionListData', json_encode($submissionListHandler->getConfig()));
 		return $templateMgr->fetchJson('dashboard/active.tpl');
 	}
 
@@ -115,6 +127,12 @@ class DashboardHandler extends Handler {
 	function archives($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
+
+		import('lib.pkp.controllers.list.submissions.ArchivedSubmissionListHandler');
+		$submissionListHandler = new ArchivedSubmissionListHandler(array(
+			'title' => 'common.queue.long.submissionsArchived',
+		));
+		$templateMgr->assign('submissionListData', json_encode($submissionListHandler->getConfig()));
 		return $templateMgr->fetchJson('dashboard/archives.tpl');
 	}
 

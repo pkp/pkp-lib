@@ -108,12 +108,14 @@
 			// The file setting data was deleted, we can remove
 			// its markup from the form.
 			$fileElement = this.getFileHtmlElement_(processedJsonData.noData);
+			this.unbindPartial($fileElement);
 			$fileElement.empty();
 		} else {
 
 			// The server returned mark-up to replace
 			// or insert the file data in form.
 			$fileElement = this.getFileHtmlElement_(processedJsonData.elementId);
+			this.unbindPartial($fileElement);
 			$fileElement.html(processedJsonData.content);
 		}
 	};

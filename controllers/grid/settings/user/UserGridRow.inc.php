@@ -56,105 +56,18 @@ class UserGridRow extends GridRow {
 
 			$actionArgs = array_merge($actionArgs, $this->getRequestArgs());
 
-			$this->addAction(
-				new LinkAction(
-					'email',
-					new AjaxModal(
-						$router->url($request, null, null, 'editEmail', null, $actionArgs),
-						__('grid.user.email'),
-						'modal_email',
-						true
-						),
-					__('grid.user.email'),
-					'notify')
-			);
-			$this->addAction(
-				new LinkAction(
-					'edit',
-					new AjaxModal(
-						$router->url($request, null, null, 'editUser', null, $actionArgs),
-						__('grid.user.edit'),
-						'modal_edit',
-						true
-						),
-					__('grid.user.edit'),
-					'edit')
-			);
-			if ($element->getDisabled()) {
-				$actionArgs['enable'] = true;
-				$this->addAction(
-					new LinkAction(
-						'enable',
-						new AjaxModal(
-							$router->url($request, null, null, 'editDisableUser', null, $actionArgs),
-							__('common.enable'),
-							'enable',
-							true
-							),
-						__('common.enable'),
-						'enable')
-				);
-			} else {
-				$actionArgs['enable'] = false;
-				$this->addAction(
-					new LinkAction(
-						'disable',
-						new AjaxModal(
-							$router->url($request, null, null, 'editDisableUser', null, $actionArgs),
-							__('grid.user.disable'),
-							'disable',
-							true
-							),
-						__('grid.user.disable'),
-						'disable')
-				);
-			}
-			$this->addAction(
-				new LinkAction(
-					'remove',
-					new RemoteActionConfirmationModal(
-						$request->getSession(),
-						__('manager.people.confirmRemove'),
-						__('common.remove'),
-						$router->url($request, null, null, 'removeUser', null, $actionArgs),
-						'modal_delete'
-						),
-					__('grid.action.remove'),
-					'delete')
-			);
-
-			$canAdminister = Validation::canAdminister($this->getId(), $request->getUser()->getId());
-			if (
-				!Validation::isLoggedInAs() and
-				$request->getUser()->getId() != $this->getId() and
-				$canAdminister
-			) {
-				$dispatcher = $router->getDispatcher();
-				$this->addAction(
-					new LinkAction(
-						'logInAs',
-						new RedirectConfirmationModal(
-							__('grid.user.confirmLogInAs'),
-							__('grid.action.logInAs'),
-							$dispatcher->url($request, ROUTE_PAGE, null, 'login', 'signInAsUser', $this->getId())
-						),
-						__('grid.action.logInAs'),
-						'enroll_user'
-					)
-				);
-			}
-
-			$oldUserId = $this->getOldUserId();
-			$userDao = DAORegistry::getDAO('UserDAO');
-			$oldUser = $userDao->getById($this->getOldUserId());
-			if ($oldUser) {
+			// If this is the grid for merging a user, only show the merge
+			// linkaction
+			if ($this->getOldUserId()) {
 				$actionArgs['oldUserId'] = $this->getOldUserId();
 				$actionArgs['newUserId'] = $rowId;
 
+				// Verify that the old user exists
+				$userDao = DAORegistry::getDAO('UserDAO');
+				$oldUser = $userDao->getById($this->getOldUserId());
+
 				// Don't merge a user in itself
-				if ($actionArgs['oldUserId'] != $actionArgs['newUserId']) {
-					$userDao = DAORegistry::getDAO('UserDAO');
-					$oldUser = $userDao->getById($this->getOldUserId());
+				if ($oldUser && $actionArgs['oldUserId'] != $actionArgs['newUserId']) {
 					$this->addAction(
 						new LinkAction(
 							'mergeUser',
@@ -170,19 +83,108 @@ class UserGridRow extends GridRow {
 					);
 				}
 
+			// Otherwise display all the default link actions
 			} else {
+
+				$this->addAction(
+					new LinkAction(
+						'email',
+						new AjaxModal(
+							$router->url($request, null, null, 'editEmail', null, $actionArgs),
+							__('grid.user.email'),
+							'modal_email',
+							true
+							),
+						__('grid.user.email'),
+						'notify')
+				);
+				$this->addAction(
+					new LinkAction(
+						'edit',
+						new AjaxModal(
+							$router->url($request, null, null, 'editUser', null, $actionArgs),
+							__('grid.user.edit'),
+							'modal_edit',
+							true
+							),
+						__('grid.user.edit'),
+						'edit')
+				);
+				if ($element->getDisabled()) {
+					$actionArgs['enable'] = true;
+					$this->addAction(
+						new LinkAction(
+							'enable',
+							new AjaxModal(
+								$router->url($request, null, null, 'editDisableUser', null, $actionArgs),
+								__('common.enable'),
+								'enable',
+								true
+								),
+							__('common.enable'),
+							'enable')
+					);
+				} else {
+					$actionArgs['enable'] = false;
+					$this->addAction(
+						new LinkAction(
+							'disable',
+							new AjaxModal(
+								$router->url($request, null, null, 'editDisableUser', null, $actionArgs),
+								__('grid.user.disable'),
+								'disable',
+								true
+								),
+							__('grid.user.disable'),
+							'disable')
+					);
+				}
+				$this->addAction(
+					new LinkAction(
+						'remove',
+						new RemoteActionConfirmationModal(
+							$request->getSession(),
+							__('manager.people.confirmRemove'),
+							__('common.remove'),
+							$router->url($request, null, null, 'removeUser', null, $actionArgs),
+							'modal_delete'
+							),
+						__('grid.action.remove'),
+						'delete')
+				);
+
+				$canAdminister = Validation::canAdminister($this->getId(), $request->getUser()->getId());
+				if (
+					!Validation::isLoggedInAs() and
+					$request->getUser()->getId() != $this->getId() and
+					$canAdminister
+				) {
+					$dispatcher = $router->getDispatcher();
+					$this->addAction(
+						new LinkAction(
+							'logInAs',
+							new RedirectConfirmationModal(
+								__('grid.user.confirmLogInAs'),
+								__('grid.action.logInAs'),
+								$dispatcher->url($request, ROUTE_PAGE, null, 'login', 'signInAsUser', $this->getId())
+							),
+							__('grid.action.logInAs'),
+							'enroll_user'
+						)
+					);
+				}
+
 				// do not allow the deletion of the admin account.
 				if ($rowId > 1 && $canAdminister) {
 					$this->addAction(
 						new LinkAction(
 							'mergeUser',
-							new JsEventConfirmationModal(
-								__('grid.user.mergeUsers.mergeUserSelect.confirm'),
-								'confirmationModalConfirmed',
-								array('oldUserId' => $rowId),
-								null,
-								'modal_merge_users'
-							),
+							new AjaxModal(
+								$router->url($request, null, null, 'mergeUsers', null, array('oldUserId' => $rowId)),
+								__('grid.user.mergeUsers.mergeUser'),
+								'modal_merge_users',
+								true
+								),
 							__('grid.user.mergeUsers.mergeUser'),
 							'merge_users')
 					);

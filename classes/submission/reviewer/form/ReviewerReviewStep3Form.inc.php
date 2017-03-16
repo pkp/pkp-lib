@@ -226,21 +226,6 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		$reviewAssignmentDao->updateObject($reviewAssignment);
 
-		// Update the review round status.
-		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
-		$reviewRound = $reviewRoundDao->getById($reviewAssignment->getReviewRoundId());
-		$reviewAssignments = $reviewAssignmentDao->getByReviewRoundId($reviewRound->getId(), true);
-		$reviewRoundDao->updateStatus($reviewRound, $reviewAssignments);
-
-		// Update "all reviews in" notification.
-		$notificationMgr->updateNotification(
-			$request,
-			array(NOTIFICATION_TYPE_ALL_REVIEWS_IN),
-			null,
-			ASSOC_TYPE_REVIEW_ROUND,
-			$reviewRound->getId()
-		);
-
 		// Remove the task
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');
 		$notificationDao->deleteByAssoc(

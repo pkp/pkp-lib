@@ -410,7 +410,7 @@
 	<message key="submissions.noSubmissions">No Submissions</message>
 	<message key="submissions.queuedEditing">In Editing</message>
 	<message key="submissions.queued">Queued</message>
-	<message key="submissions.queuedUnassigned">Awaiting assignment</message>
+	<message key="submissions.queuedUnassigned">No editor has been assigned to this submission.</message>
 	<message key="submissions.ruling">Ruling</message>
 	<message key="submission.source">Source</message>
 	<message key="submission.source.tip">Is this submission derived from another resource? If so, you may enter a URL or description of that resource.</message>
@@ -511,6 +511,7 @@
 
 	<!-- Review Round Status Keys -->
 	<message key="editor.submission.roundStatus.revisionsRequested">Revisions have been requested.</message>
+	<message key="editor.submission.roundStatus.revisionsSubmitted">Revisions have been submitted.</message>
 	<message key="editor.submission.roundStatus.resubmitted">Submission has been resubmitted for review.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">Sent to external review.</message>
 	<message key="editor.submission.roundStatus.accepted">Submission accepted.</message>
@@ -518,7 +519,8 @@
 	<message key="editor.submission.roundStatus.pendingReviewers">Waiting for reviewers to be selected.</message>
 	<message key="editor.submission.roundStatus.pendingReviews">Awaiting responses from reviewers.</message>
 	<message key="editor.submission.roundStatus.reviewsReady">New reviews have been submitted.</message>
-	<message key="editor.submission.roundStatus.reviewsCompleted">Reviews completed.</message>
+	<message key="editor.submission.roundStatus.reviewsCompleted">All reviews are in and a decision is needed.</message>
+	<message key="editor.submission.roundStatus.reviewOverdue">A review is overdue.</message>
 
 	<!-- Participants -->
 	<message key="editor.submission.stageParticipants">Participants</message>
@@ -589,6 +591,15 @@
 	<message key="submission.productionReady">Book available</message>
 	<message key="submission.review.uploadRevisionToRound">Upload Revised File</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} has been assigned to review submission {$submissionId} for review round {$round}.</message>
+	<message key="submission.review.status.awaitingResponse">Waiting for a response from the reviewer.</message>
+	<message key="submission.review.status.declined">The reviewer declined this review request.</message>
+	<message key="submission.review.status.cancelled">This review was cancelled.</message>
+	<message key="submission.review.status.responseOverdue">The reviewer has missed the response due date.</message>
+	<message key="submission.review.status.reviewOverdue">The reviewer has missed the review due date.</message>
+	<message key="submission.review.status.accepted">This review has been accepted.</message>
+	<message key="submission.review.status.received">The reviewer has submitted their review.</message>
+	<message key="submission.review.status.complete">This review has been completed.</message>
+	<message key="submission.review.status.thanked">This review is complete and the reviewer has been thanked for their contribution.</message>
 	<message key="submission.document">Document</message>
 	<message key="submission.art">Artwork</message>
 	<message key="submission.supplementary">Supplementary Content</message>
@@ -647,4 +658,11 @@
 	<message key="submission.query.new">{$creatorName} started a discussion: {$noteTitle}: {$noteContents}</message>
 	<message key="submission.query.activity.contents">There is new activity in the discussion titled "{$queryTitle}" regarding the submission "{$submissionTitle}".</message>
 	<message key="submission.query.new.contents">You have been added to a discussion titled "{$queryTitle}" regarding the submission "{$submissionTitle}".</message>
+
+	<!-- Submission Lists -->
+	<message key="submission.list.infoCenter">Activity Log &amp; Notes</message>
+	<message key="submission.list.count">{$count} submissions</message>
+	<message key="submission.list.itemsOfTotal">{$count} of {$total} submissions</message>
+	<message key="submission.list.responseDue">Response Due</message>
+	<message key="submission.list.reviewDue">Review Due</message>
 </locale>

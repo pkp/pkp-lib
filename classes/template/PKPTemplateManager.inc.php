@@ -549,6 +549,7 @@ class PKPTemplateManager extends Smarty {
 	 */
 	function registerJSLibrary() {
 
+		$baseDir = Core::getBaseDir();
 		$basePath = $this->_request->getBasePath();
 		$baseUrl = $this->_request->getBaseUrl();
 		$localeChecks = array(AppLocale::getLocale(), strtolower(substr(AppLocale::getLocale(), 0, 2)));
@@ -593,17 +594,27 @@ class PKPTemplateManager extends Smarty {
 		$this->addJavaScript('pNotify', $baseUrl . '/lib/pkp/js/lib/pnotify/pnotify.core.js', $args);
 		$this->addJavaScript('pNotifyButtons', $baseUrl . '/lib/pkp/js/lib/pnotify/pnotify.buttons.js', $args);
 
+		// Load new component library bundle
+		$path = $baseDir . '/js/build.js';
+		if (file_exists($path)) {
+			$this->addJavaScript(
+				'pkpApp',
+				$baseUrl . '/js/build.js',
+				array(
+					'priority' => STYLE_SEQUENCE_LATE,
+					'contexts' => array('backend')
+				)
+			);
+		}
+
 		// Load minified file if it exists
 		if (Config::getVar('general', 'enable_minified')) {
-			$path = $basePath . '/js/pkp.min.js';
+			$path = $baseDir . '/js/pkp.min.js';
 			if (file_exists($path)) {
 				$this->addJavaScript(
 					'pkpLib',
-					$path,
-					array(
-						'priority' => STYLE_SEQUENCE_CORE,
-						'contexts' => array('backend', 'frontend')
-					)
+					$baseUrl . '/js/pkp.min.js',
+					$args
 				);
 				return;
 			}
@@ -636,8 +647,18 @@ class PKPTemplateManager extends Smarty {
 		$output = '$.pkp = $.pkp || {};';
 
 		// Load data intended for general use by the app
+		import('lib.pkp.classes.security.Role');
 		$app_data = array(
 			'baseUrl' => $this->_request->getBaseUrl(),
+			'accessRoles' => array(
+				'manager' => ROLE_ID_MANAGER,
+				'siteAdmin' => ROLE_ID_SITE_ADMIN,
+				'author' => ROLE_ID_AUTHOR,
+				'reviewer' => ROLE_ID_REVIEWER,
+				'assistant' => ROLE_ID_ASSISTANT,
+				'reader' => ROLE_ID_READER,
+				'subeditor' => ROLE_ID_SUB_EDITOR,
+			),
 		);
 		$output .= '$.pkp.app = ' . json_encode($app_data) . ';';
 
@@ -670,6 +691,24 @@ class PKPTemplateManager extends Smarty {
 			foreach($plugin_data as $namespace => $data) {
 				$output .= $namespace . ' = ' . json_encode($data) . ';';
 			}
+		}
+
+		// Load current user data
+		$user = $this->_request->getUser();
+		if ($user) {
+			import('lib.pkp.classes.security.RoleDAO');
+			import('lib.pkp.classes.security.UserGroupDAO');
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+			$userGroups = $userGroupDao->getByUserId($this->_request->getUser()->getId())->toArray();
+			$currentUserAccessRoles = array();
+			foreach ($userGroups as $userGroup) {
+				$currentUserAccessRoles[] = (int) $userGroup->getRoleId();
+			}
+			$userOutput = array(
+				'id' => (int) $user->getId(),
+				'accessRoles' => $currentUserAccessRoles,
+			);
+			$output .= '$.pkp.currentUser = ' . json_encode($userOutput);
 		}
 
 		$this->addJavaScript(

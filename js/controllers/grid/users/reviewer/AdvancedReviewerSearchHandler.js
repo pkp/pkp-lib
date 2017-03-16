@@ -16,8 +16,8 @@
 (function($) {
 
 	/** @type {Object} */
-	$.pkp.controllers.grid.users = $.pkp.controllers.grid.users ||
-			{ reviewer: { form: { } } };
+	$.pkp.controllers.grid.users.reviewer =
+			$.pkp.controllers.grid.users.reviewer || {};
 
 
 
@@ -96,11 +96,7 @@
 			handleRefresh_ = function(sourceElement, event, content) {
 
 		if (content) {
-			// Get the element that we're updating
-			var $element = this.getHtmlElement();
-
-			// Replace the grid content
-			$element.replaceWith(content);
+			this.replaceWith(content);
 		}
 	};
 

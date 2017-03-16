@@ -43,6 +43,21 @@
 		this.eventBindings_ = { };
 		this.dataItems_ = { };
 		this.publishedEvents_ = { };
+		this.handlerChildren_ = [];
+		this.globalEventListeners_ = { };
+
+		// Register this handler with a parent handler if one is found. This
+		// allows global events to be de-registered when a parent handler is
+		// refreshed.
+		var $parents = this.$htmlElement_.parents();
+		var self = this;
+		$parents.each(function(i) {
+			if ($.pkp.classes.Handler.hasHandler($($parents[i]))) {
+				$.pkp.classes.Handler.getHandler($($parents[i]))
+					.handlerChildren_.push(self);
+				return; // only attach to the closest parent handler
+			}
+		});
 
 		if (options.eventBridge) {
 			// Configure the event bridge.
@@ -119,6 +134,15 @@
 	$.pkp.classes.Handler.prototype.eventBridge_ = null;
 
 
+	/**
+	 * Global event bindings. These are tracked so they can be deregistered when
+	 * the handler is destroyed.
+	 * @private
+	 * @type {?string}
+	 */
+	$.pkp.classes.Handler.prototype.globalEventListeners_ = null;
+
+
 	//
 	// Public static methods
 	//
@@ -143,6 +167,16 @@
 		}
 
 		return handler;
+	};
+
+	/**
+	 * Check if a jQuery element has a handler bound to it
+	 *
+	 * @param {jQueryObject} $element The element to check for a handler
+	 * @return {bool}
+	 */
+	$.pkp.classes.Handler.hasHandler = function($element) {
+		return $element.data('pkp.handler') instanceof $.pkp.classes.Handler;
 	};
 
 
@@ -332,15 +366,16 @@
 		}
 
 		if (jsonData.status === true) {
-			// Did the server respond with an event to be triggered?
-			if (jsonData.event) {
-				if (jsonData.event.data) {
-					this.trigger(jsonData.event.name,
-							jsonData.event.data);
+			// Trigger events passed from the server
+			_.each(jsonData.events, function(event) {
+				var eventData = _.has(event, 'data') ? event.data : null;
+				if (!_.isNull(eventData) && eventData.isGlobalEvent) {
+					eventData.handler = this;
+					pkp.eventBus.$emit(event.name, eventData);
 				} else {
-					this.trigger(jsonData.event.name);
+					this.trigger(event.name, eventData);
 				}
-			}
+			}, this);
 			return jsonData;
 		} else {
 			// If we got an error message then display it.
@@ -446,6 +481,79 @@
 		}
 
 		return true;
+	};
+
+
+	/**
+	 * Bind a global event to a handler operation.
+	 *
+	 * Binds a callback function to fire when a global event is triggered on
+	 * the global event router.
+	 *
+	 * @param {string} eventName The name of the event to bind to.
+	 * @param {Function} callback The function to firewhen the event is triggered
+	 */
+	$.pkp.classes.Handler.prototype.bindGlobal = function(eventName, callback) {
+		if (typeof this.globalEventListeners_[eventName] === 'undefined') {
+			this.globalEventListeners_[eventName] = [];
+		}
+		var wrapper = this.callbackWrapper(callback);
+		this.globalEventListeners_[eventName].push(wrapper);
+		pkp.eventBus.$on(eventName, wrapper);
+	};
+
+
+	/**
+	 * Unbind a global event from a handler operation.
+	 *
+	 * If passing a `null` callback, all callbacks bound to eventName by this
+	 * handler will be unbound. See: http://backbonejs.org/#Events-off
+	 *
+	 * @see $.pkp.classes.Handler.prototype.bindGlobal()
+	 * @param {string} eventName The name of the event to bind to
+	 * @param {Function} callback The function to fire when event is triggered
+	 */
+	$.pkp.classes.Handler.prototype.unbindGlobal = function(eventName, callback) {
+		var wrapper = this.callbackWrapper(callback);
+		if (typeof this.globalEventListeners_[eventName] !== 'undefined') {
+			this.globalEventListeners = _.reject(this.globalEventListeners, function(cb) {
+				return cb === wrapper;
+			});
+		}
+		pkp.eventBus.$off(eventName, wrapper);
+	};
+
+
+	/**
+	 * Unbind all global event listeners on this handler and any child handlers
+	 */
+	$.pkp.classes.Handler.prototype.unbindGlobalAll = function() {
+		if (typeof this.globalEventListeners_ !== 'undefined') {
+			_.each(this.globalEventListeners_, function(callbacks, eventName) {
+				_.each(callbacks, function(callback) {
+					pkp.eventBus.$off(eventName, callback);
+				});
+			});
+		}
+		this.globalEventListeners = null;
+		this.unbindGlobalChildren();
+	};
+
+
+	/**
+	 * Unbind all global event listeners on child handlers
+	 */
+	$.pkp.classes.Handler.prototype.unbindGlobalChildren = function() {
+		_.each(this.handlerChildren_, function(childHandler) {
+			// Handler in legacy JS framework
+			if (typeof childHandler.unbindGlobalAll !== 'undefined') {
+				childHandler.unbindGlobalAll();
+			// Handler in new Vue.js framework
+			} else if (typeof childHandler.$destroy !== 'undefined') {
+				delete pkp.vue.registry[childHandler.id];
+				childHandler.$destroy();
+			}
+		});
 	};
 
 
@@ -645,6 +753,94 @@
 		if (this.eventBridge_) {
 			$('[id^="' + this.eventBridge_ + '"]').trigger(eventName, opt_data);
 		}
+	};
+
+	/**
+	 * Wrapper for the jQuery .replaceWith() function.
+	 *
+	 * This unbinds all global events before replacing the HTML content, to
+	 * ensure there are no orphaned event listeners lingering from handlers
+	 * which may have been destroyed when the HTML was replaced.
+	 *
+	 * This function can only be used when the entire handler is replaced. For
+	 * replacing parts of a handler, see replacePartialWith().
+	 *
+	 * @param {string} html The HTML content to replace the current element with
+	 */
+	$.pkp.classes.Handler.prototype.replaceWith = function(html) {
+		this.unbindGlobalAll();
+		this.getHtmlElement().replaceWith(html);
+	};
+
+	/**
+	 * Wrapper for the jQuery .replaceWith() function.
+	 *
+	 * This function works like the .replaceWith() wrapper above, except it
+	 * allows you to pass a specific dom element to replace within the Handler.
+	 *
+	 * This function loops over any handlers found within the $partial dom
+	 * element, unbinding global events to ensure there are no orphaned event
+	 * listeners when the HTML element is replaced.
+	 *
+	 * The .replaceWith() function is preferred in most cases. This should only
+	 * been used when you _need_ to replace part of a Handler's HTML content.
+	 * Full handler refreshes are preferred to keep things simple. Also, this
+	 * function isn't very performant, because it requires looping over every
+	 * child DOM element.
+	 *
+	 * @param {string} html The HTML content to inject into the $partial
+	 * @param {jQueryObject} $partial The HTML element to unbind
+	 */
+	$.pkp.classes.Handler.prototype.replacePartialWith =
+			function(html, $partial) {
+
+		// Check if the $partial already has a handler bound to it on which
+		// we can call .unbindGlobalAll() instead
+		if ($.pkp.classes.Handler.hasHandler($partial)) {
+			$.pkp.classes.Handler.getHandler($partial).replaceWith(html);
+			return;
+		}
+
+		this.unbindPartial($partial);
+		$partial.replaceWith(html);
+	};
+
+	/**
+	 * Wrapper for the jQuery .html() function.
+	 *
+	 * This unbinds all global events before replacing the inner HTML content.
+	 * It differs from the .replaceWith() wrapper function in that the handler's
+	 * element is not removed. This means the handler isn't re-initialized, and
+	 * so only child handler events need to be unbound.
+	 *
+	 * @param {string} html The HTML content to inject into the $partial
+	 */
+	$.pkp.classes.Handler.prototype.html = function(html) {
+		this.unbindGlobalChildren();
+		this.getHtmlElement().html(html);
+	};
+
+	/**
+	 * This function loops over any handlers found within the $partial dom
+	 * element, unbinding global events to ensure there are no orphaned event
+	 * listeners when the HTML element is replaced.
+	 *
+	 * This function isn't very performant. It requires looping over every
+	 * element in scope, which could potentially be hundreds or thousands.
+	 * This should only be used as a last resort for some handlers which need
+	 * to empty out partial content, such as tabs and grids.
+	 *
+	 * @param {jQuery} $partial The HTML element to unbind
+	 */
+	$.pkp.classes.Handler.prototype.unbindPartial =
+			function($partial) {
+
+		$('*', $partial).each(function() {
+			if ($.pkp.classes.Handler.hasHandler($(this))) {
+				var handler = $.pkp.classes.Handler.getHandler($(this));
+				handler.callbackWrapper(handler.unbindGlobalAll());
+			}
+		});
 	};
 
 

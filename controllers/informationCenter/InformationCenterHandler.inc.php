@@ -93,29 +93,6 @@ abstract class InformationCenterHandler extends Handler {
 	abstract function saveNote($args, $request);
 
 	/**
-	 * Display the list of existing notes.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function listNotes($args, $request) {
-		$this->setupTemplate($request);
-
-		$templateMgr = TemplateManager::getManager($request);
-		$noteDao = DAORegistry::getDAO('NoteDAO');
-		$user = $request->getUser();
-		$templateMgr->assign(array(
-			'notes' => $noteDao->getByAssoc($this->_getAssocType(), $this->_getAssocId()),
-			'currentUserId' => $user->getId(),
-			'notesDeletable' => true,
-			'notesListId' => 'notesList'
-		));
-		$json = new JSONMessage(true, $templateMgr->fetch('controllers/informationCenter/notesList.tpl'));
-		$json->setEvent('dataChanged');
-		return $json;
-	}
-
-	/**
 	 * Delete a note.
 	 * @param $args array
 	 * @param $request PKPRequest
@@ -127,13 +104,41 @@ abstract class InformationCenterHandler extends Handler {
 		$noteId = (int) $request->getUserVar('noteId');
 		$noteDao = DAORegistry::getDAO('NoteDAO');
 		$note = $noteDao->getById($noteId);
+
 		if (!$request->checkCSRF() || !$note || $note->getAssocType() != $this->_getAssocType() || $note->getAssocId() != $this->_getAssocId()) fatalError('Invalid note!');
 		$noteDao->deleteById($noteId);
 
 		$user = $request->getUser();
 		NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedNote')));
 
-		return new JSONMessage(true);
+		$json = new JSONMessage(true);
+		$jsonViewNotesResponse = $this->viewNotes($args, $request);
+		$json->setEvent('dataChanged');
+		$json->setEvent('noteDeleted', $jsonViewNotesResponse->_content);
+
+		return $json;
+	}
+
+	/**
+	 * Display the list of existing notes.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
+	function _listNotes($args, $request) {
+		$this->setupTemplate($request);
+
+		$templateMgr = TemplateManager::getManager($request);
+		$noteDao = DAORegistry::getDAO('NoteDAO');
+		$templateMgr->assign('notes', $noteDao->getByAssoc($this->_getAssocType(), $this->_getAssocId()));
+
+		$user = $request->getUser();
+		$templateMgr->assign('currentUserId', $user->getId());
+		$templateMgr->assign('notesDeletable', true);
+
+		$templateMgr->assign('notesListId', 'notesList');
+
+		return $templateMgr->fetch('controllers/informationCenter/notesList.tpl');
 	}
 
 	/**

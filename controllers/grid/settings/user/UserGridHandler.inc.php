@@ -208,7 +208,9 @@ class UserGridHandler extends GridHandler {
 		$filterData = array(
 			'userGroupOptions' => $userGroupOptions,
 			'fieldOptions' => $fieldOptions,
-			'matchOptions' => $matchOptions
+			'matchOptions' => $matchOptions,
+			// oldUserId is used when merging users. see: userGridFilter.tpl
+			'oldUserId' => $request->getUserVar('oldUserId'),
 		);
 
 		return parent::renderFilter($request, $filterData);
@@ -241,6 +243,14 @@ class UserGridHandler extends GridHandler {
 	 */
 	protected function getFilterForm() {
 		return 'controllers/grid/settings/user/userGridFilter.tpl';
+	}
+
+	/**
+	 * Get the js handler for this component.
+	 * @return string
+	 */
+	public function getJSHandler() {
+		return '$.pkp.controllers.grid.users.UserGridHandler';
 	}
 
 
@@ -519,21 +529,30 @@ class UserGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function mergeUsers($args, $request) {
-		if (!$request->checkCSRF()) return new JSONMessage(false);
 
-		// if there is a $newUserId, this is the second time through, so merge the users.
 		$newUserId =  (int) $request->getUserVar('newUserId');
 		$oldUserId = (int) $request->getUserVar('oldUserId');
 		$user = $request->getUser();
+
+		// if there is a $newUserId, this is the second time through, so merge the users.
 		if ($newUserId > 0 && $oldUserId > 0 && Validation::canAdminister($oldUserId, $user->getId())) {
+			if (!$request->checkCSRF()) return new JSONMessage(false);
 			import('classes.user.UserAction');
 			$userAction = new UserAction();
 			$userAction->mergeUsers($oldUserId, $newUserId);
-			return DAO::getDataChangedEvent();
+			$json = new JSONMessage(true);
+			$json->setGlobalEvent('userMerged', array(
+				'oldUserId' => $oldUserId,
+				'newUserId' => $newUserId,
+			));
+			return $json;
+
+		// Otherwise present the grid for selecting the user to merge into
 		} else {
-			// The grid shouldn't have presented an action in this
-			// case.
-			return new JSONMessage(false, __('grid.user.cannotAdminister'));
+			$userGrid = new UserGridHandler();
+			$userGrid->initialize($request);
+			$userGrid->setTitle('grid.user.mergeUsers.mergeIntoUser');
+			return $userGrid->fetchGrid($args, $request);
 		}
 	}
 

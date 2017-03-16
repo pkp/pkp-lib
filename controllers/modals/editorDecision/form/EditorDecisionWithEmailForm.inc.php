@@ -175,6 +175,11 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 	//
 	/**
 	 * Retrieve the last review round and update it with the new status.
+	 *
+	 * The review round status is typically set according to the statuses of its
+	 * ReviewAssignments. This method overrides that status and sets a new one
+	 * based on an EditorDecision.
+	 *
 	 * @param $submission Submission
 	 * @param $status integer One of the REVIEW_ROUND_STATUS_* constants.
 	 */
@@ -188,7 +193,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 		// accepted without starting any of the review stages. In that case we
 		// do nothing.
 		if (is_a($reviewRound, 'ReviewRound')) {
-			$reviewRoundDao->updateStatus($reviewRound, null, $status);
+			$reviewRoundDao->updateStatus($reviewRound, $status);
 		}
 	}
 

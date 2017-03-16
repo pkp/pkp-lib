@@ -454,5 +454,95 @@ class DataObject {
 	function getDAO() {
 		assert(false);
 	}
+
+	/**
+	 * Compile data array representing this object
+	 *
+	 * This method is intended to be used with the rest API or other situations
+	 * where we want to pass a compiled representation of this data object.
+	 *
+	 * @params array $params A key/value hash indicating which data should be
+	 *  returned. Default: null. All values are compiled and returned when
+	 *  $params is null.
+	 * @return array
+	 */
+	public function toArray($params = null) {
+
+		$output = array();
+
+		if (is_null($params)) {
+			$params = array(
+				'id' => true,
+			);
+		}
+
+		if (!empty($params['id'])) {
+			$output['id'] = $this->getId();
+		}
+
+		return $output;
+	}
+
+	/**
+	 * Compiles the params passed to the toArray method
+	 *
+	 * Merges requested params with the defaults, and filters out those which
+	 * shouldn't be included
+	 *
+	 * @params array $defaultParams The default param settings
+	 * @params array|null $params The param settings for this request
+	 * @return array
+	 */
+	public function getOutputParams($defaultParams, $params = null) {
+
+		$compiled = is_null($params) ? $defaultParams : array_merge($defaultParams, $params);
+
+		// @todo don't use a closure
+		$output = array_filter($compiled, function($param) {
+
+			if ($param === true) {
+				return true;
+			} elseif (is_array($param)) {
+				foreach ($param as $role) {
+					if (Application::getRequest()->currentUserHasRole($role)) {
+						return true;
+					}
+				}
+			}
+
+			return false;
+		});
+
+		return $output;
+	}
+
+	/**
+	 * Retrieve the result of a "get" method if one exists
+	 *
+	 * This takes a key (eg `title`) and looks for accessor methods (eg
+	 * `getLocalizedTitle` or `getTitle`). If found, it returns the method name.
+	 * This is used as a shortcut for retrieving common params compiled in the
+	 * toArray() method.
+	 *
+	 * @params string $param The param to searh for a get method.
+	 * @return string
+	 */
+	public function findGetMethod($param) {
+
+		$method = '';
+
+		if (method_exists($this, 'getLocalized' . ucfirst($param))) {
+			$method = 'getLocalized' . ucfirst($param);
+		} elseif (method_exists($this, 'get' . ucfirst($param))) {
+			$method = 'get' . ucfirst($param);
+		}
+
+		if (empty($method)) {
+			error_log('No method found for retrieving param ' . $param . ' in ' . get_class($this) . ' on line ' . __LINE__ . '.');
+			return '';
+		}
+
+		return $method;
+	}
 }
 ?>

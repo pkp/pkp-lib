@@ -302,7 +302,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		$editReviewForm->readInputData();
 		if ($editReviewForm->validate()) {
 			$editReviewForm->execute();
-			return new JSONMessage(true);
+			return DAO::getDataChangedEvent($reviewAssignment->getId());
 		} else {
 			return new JSONMessage(false);
 		}
@@ -394,7 +394,6 @@ class PKPReviewerGridHandler extends GridHandler {
 
 		$reviewAssignment->setUnconsidered(REVIEW_ASSIGNMENT_UNCONSIDERED);
 		$reviewAssignmentDao->updateObject($reviewAssignment);
-		$this->_updateReviewRoundStatus($reviewAssignment);
 
 		// log the unconsider.
 		import('lib.pkp.classes.log.SubmissionLog');
@@ -436,11 +435,10 @@ class PKPReviewerGridHandler extends GridHandler {
 		$viewsDao = DAORegistry::getDAO('ViewsDAO');
 		$viewsDao->recordView(ASSOC_TYPE_REVIEW_RESPONSE, $reviewAssignment->getId(), $user->getId());
 
+
 		// if the review assignment had been unconsidered, update the flag.
 		if ($reviewAssignment->getUnconsidered() == REVIEW_ASSIGNMENT_UNCONSIDERED) {
-			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
 			$reviewAssignment->setUnconsidered(REVIEW_ASSIGNMENT_UNCONSIDERED_READ);
-			$reviewAssignmentDao->updateObject($reviewAssignment);
 		}
 
 		if (!$reviewAssignment->getDateCompleted()) {
@@ -449,7 +447,9 @@ class PKPReviewerGridHandler extends GridHandler {
 			$reviewAssignment->setDateCompleted(Core::getCurrentDate());
 		}
 
-		$this->_updateReviewRoundStatus($reviewAssignment);
+		// Trigger an update of the review round status
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewAssignmentDao->updateObject($reviewAssignment);
 
 		// Remove the reviewer task.
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');
@@ -458,15 +458,6 @@ class PKPReviewerGridHandler extends GridHandler {
 			$reviewAssignment->getId(),
 			$reviewAssignment->getReviewerId(),
 			NOTIFICATION_TYPE_REVIEW_ASSIGNMENT
-		);
-		$notificationMgr = new NotificationManager();
-		$reviewRound = $this->getReviewRound();
-		$notificationMgr->updateNotification(
-			$request,
-			array(NOTIFICATION_TYPE_ALL_REVIEWS_IN),
-			null,
-			ASSOC_TYPE_REVIEW_ROUND,
-			$reviewRound->getId()
 		);
 
 		return DAO::getDataChangedEvent($reviewAssignment->getId());
@@ -553,18 +544,17 @@ class PKPReviewerGridHandler extends GridHandler {
 		$thankReviewerForm->readInputData();
 		if ($thankReviewerForm->validate()) {
 			$thankReviewerForm->execute($args, $request);
-			$json = new JSONMessage(true);
+			$json = DAO::getDataChangedEvent($reviewAssignment->getId());
 			// Insert a trivial notification to indicate the reviewer was reminded successfully.
 			$currentUser = $request->getUser();
 			$notificationMgr = new NotificationManager();
-			$messageKey = $thankReviewerForm->getData('skipEmail') ? __('notification.reviewAcknowledged') : __('notification.sentNotification');
+			$messageKey = $thankReviewerForm->getData('skipEmail') ? __('notification.reviewAcknowledged') : __('notification.reviewerThankedEmail');
 			$notificationMgr->createTrivialNotification($currentUser->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => $messageKey));
 		} else {
 			$json = new JSONMessage(false, __('editor.review.thankReviewerError'));
 		}
 
-		$this->_updateReviewRoundStatus($reviewAssignment);
-		return DAO::getDataChangedEvent($reviewAssignment->getId());
+		return $json;
 	}
 
 	/**
@@ -742,20 +732,6 @@ class PKPReviewerGridHandler extends GridHandler {
 			'getUsersNotAssignedAsReviewers',
 			'fetchTemplateBody'
 		);
-	}
-
-	/**
-	 * Update the review round status.
-	 * @param $reviewAssignment ReviewAssignment
-	 */
-	function _updateReviewRoundStatus($reviewAssignment) {
-		// Update the review round status.
-		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-		$reviewRound = $reviewRoundDao->getById($reviewAssignment->getReviewRoundId());
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
-		$reviewAssignmentDao->updateObject($reviewAssignment);
-		$reviewAssignments = $reviewAssignmentDao->getByReviewRoundId($reviewRound->getId());
-		$reviewRoundDao->updateStatus($reviewRound, $reviewAssignments);
 	}
 }
 

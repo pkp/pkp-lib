@@ -39,6 +39,20 @@ class APIHandler extends PKPHandler {
 	protected $_handlerPath = null;
 
 	/**
+	 * The endpoint pattern for this handler
+	 *
+	 * @param string
+	 */
+	protected $_pathPattern;
+
+	/**
+	 * The unique endpoint string for this handler
+	 *
+	 * @param string
+	 */
+	protected $_handlerPath;
+
+	/**
 	 * Constructor
 	 */
 	public function __construct() {

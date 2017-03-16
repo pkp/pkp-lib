@@ -23,6 +23,20 @@ class APIHandler extends PKPHandler {
 	protected $_endpoints = array();
 
 	/**
+	 * The endpoint pattern for this handler
+	 *
+	 * @param string
+	 */
+	protected $_pathPattern;
+
+	/**
+	 * The unique endpoint string for this handler
+	 *
+	 * @param string
+	 */
+	protected $_handlerPath;
+
+	/**
 	 * Constructor
 	 */
 	function APIHandler() {
@@ -38,6 +52,23 @@ class APIHandler extends PKPHandler {
 	 */
 	public function getApp() {
 		return $this->_app;
+	}
+
+	/**
+	 * Get the endpoint pattern for this handler
+	 *
+	 * Compiles the URI path pattern from the context, api version and the
+	 * unique string for the this handler.
+	 *
+	 * @return string
+	 */
+	public function getEndpointPattern() {
+
+		if (!isset($this->_pathPattern)) {
+			$this->_pathPattern = '/{contextPath}/api/{version}/' . $this->_handlerPath;
+		}
+
+		return $this->_pathPattern;
 	}
 
 	/**

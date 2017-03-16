@@ -8,11 +8,9 @@
  * Form to change a user's password in order to login.
  *
  *}
-{strip}
-{assign var="pageTitle" value="user.changePassword"}
-{url|assign:"currentUrl" page="login" op="changePassword"}
-{include file="common/header.tpl"}
-{/strip}
+{include file="common/header.tpl" pageTitle="user.changePassword"}
+
+<div class="pkp_page_content pkp_page_loginChangePassword">
 
 <script>
 	$(function() {ldelim}
@@ -50,5 +48,7 @@
 
 	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </form>
+
+</div>
 
 {include file="common/footer.tpl"}

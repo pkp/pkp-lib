@@ -590,8 +590,7 @@ class PKPTemplateManager extends Smarty {
 			}
 		}
 
-		$this->addJavaScript('pNotify', $baseUrl . '/lib/pkp/js/lib/pnotify/pnotify.core.js', $args);
-		$this->addJavaScript('pNotifyButtons', $baseUrl . '/lib/pkp/js/lib/pnotify/pnotify.buttons.js', $args);
+		$this->addJavaScript('pNotify', $baseUrl . '/lib/pkp/lib/vendor/alex198710/pnotify/assets/js/pnotify.custom.min.js', $args);
 
 		// Load minified file if it exists
 		if (Config::getVar('general', 'enable_minified')) {

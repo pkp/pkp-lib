@@ -8,26 +8,18 @@
  * Display list of notifications.
  *
  *}
-{strip}
-{assign var="pageTitle" value="notification.notifications"}
-{include file="frontend/components/header.tpl"}
-{/strip}
+{include file="common/header.tpl" pageTitle="notification.notifications"}
 
-<table>
-	<tr>
-		<td>{if $isUserLoggedIn}
-				<p>{translate key="notification.notificationsDescription" unreadCount=$unread readCount=$read settingsUrl=$url}</p>
-			{else}
-				<p>{translate key="notification.notificationsPublicDescription" emailUrl=$emailUrl}</p>
-			{/if}
-		</td>
-		<td><ul class="plain">
-			<li><a href="{url op="getNotificationFeedUrl" path="rss"}" class="icon"><img src="{$baseUrl|escape}/lib/pkp/templates/images/rss10_logo.gif" alt="RSS 1.0"/></a></li>
-			<li><a href="{url op="getNotificationFeedUrl" path="rss2"}" class="icon"><img src="{$baseUrl}/lib/pkp/templates/images/rss20_logo.gif" alt="RSS 2.0"/></a></li>
-			<li><a href="{url op="getNotificationFeedUrl" path="atom"}" class="icon"><img src="{$baseUrl}/lib/pkp/templates/images/atom10_logo.gif" alt="Atom 1.0"/></a></li>
-		</ul></td>
-	</tr>
-</table>
+<div class="pkp_page_content pkp_page_notifications">
+
+{if $isUserLoggedIn}
+	<p>{translate key="notification.notificationsDescription" unreadCount=$unread readCount=$read settingsUrl=$url}</p>
+{else}
+	<p>{translate key="notification.notificationsPublicDescription" emailUrl=$emailUrl}</p>
+{/if}
+<a href="{url op="getNotificationFeedUrl" path="rss"}" class="icon"><img src="{$baseUrl|escape}/lib/pkp/templates/images/rss10_logo.gif" alt="RSS 1.0"/></a>
+<a href="{url op="getNotificationFeedUrl" path="rss2"}" class="icon"><img src="{$baseUrl}/lib/pkp/templates/images/rss20_logo.gif" alt="RSS 2.0"/></a>
+<a href="{url op="getNotificationFeedUrl" path="atom"}" class="icon"><img src="{$baseUrl}/lib/pkp/templates/images/atom10_logo.gif" alt="Atom 1.0"/></a>
 
 <br/>
 
@@ -38,5 +30,6 @@
 	</div>
 {/if}
 
-{include file="frontend/components/footer.tpl"}
+</div>
 
+{include file="common/footer.tpl"}

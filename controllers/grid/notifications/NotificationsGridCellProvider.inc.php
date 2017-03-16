@@ -133,8 +133,7 @@ class NotificationsGridCellProvider extends GridCellProvider {
 				}
 				break;
 			default:
-				// Don't know of other ASSOC_TYPEs for TASK notifications
-				assert(false);
+				return '—';
 		}
 
 		if (!isset($submissionId) && isset($fileId)) {

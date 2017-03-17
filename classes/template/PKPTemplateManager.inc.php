@@ -595,18 +595,15 @@ class PKPTemplateManager extends Smarty {
 
 		// Load minified file if it exists
 		if (Config::getVar('general', 'enable_minified')) {
-			$path = $basePath . '/js/pkp.min.js';
-			if (file_exists($path)) {
-				$this->addJavaScript(
-					'pkpLib',
-					$path,
-					array(
-						'priority' => STYLE_SEQUENCE_CORE,
-						'contexts' => array('backend', 'frontend')
-					)
-				);
-				return;
-			}
+			$this->addJavaScript(
+				'pkpLib',
+				$basePath . '/js/pkp.min.js',
+				array(
+					'priority' => STYLE_SEQUENCE_CORE,
+					'contexts' => array('backend', 'frontend')
+				)
+			);
+			return;
 		}
 
 		// Otherwise retrieve and register all script files

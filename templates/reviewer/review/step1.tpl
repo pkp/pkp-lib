@@ -31,7 +31,12 @@
 	{fbvFormSection label=$descriptionFieldKey}
 		{$submission->getLocalizedAbstract()|strip_unsafe_html}
 	{/fbvFormSection}
-
+	
+	{if !$restrictReviewerFileAccess}
+	{url|assign:reviewFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.review.ReviewerReviewFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$reviewAssignment->getStageId() reviewRoundId=$reviewRoundId reviewAssignmentId=$reviewAssignment->getId() escape=false}
+	{load_url_in_div id="reviewFiles" url=$reviewFilesGridUrl}	
+	{/if}
+	
 	<div class="pkp_linkActions">
 		{include file="linkAction/linkAction.tpl" action=$viewMetadataAction contextId="reviewStep1Form"}
 	</div>

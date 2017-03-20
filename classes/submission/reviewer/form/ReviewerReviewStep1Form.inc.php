@@ -44,8 +44,15 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 		// Add review assignment.
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
 		$reviewAssignment = $reviewAssignmentDao->getById($submission->getReviewId());
-		$templateMgr->assign('reviewAssignment', $reviewAssignment);
-
+		$templateMgr->assign(array(
+			'reviewAssignment' => $reviewAssignment,
+			'reviewRoundId' => $reviewAssignment->getReviewRoundId(),
+			'reviewerRecommendationOptions' => ReviewAssignment::getReviewerRecommendationOptions(),
+		));		
+		
+		// Check for reviewer file access
+		$templateMgr->assign('restrictReviewerFileAccess', $context->getSetting('restrictReviewerFileAccess'));
+		
 		// Add reviewer request text.
 		$templateMgr->assign('reviewerRequest', __('reviewer.step1.requestBoilerplate'));
 

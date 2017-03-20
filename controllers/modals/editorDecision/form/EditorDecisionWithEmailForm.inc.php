@@ -129,7 +129,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
 			$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId(), $reviewRound->getId());
 			foreach ($reviewAssignments as $reviewAssignment) {
-				if ($reviewAssignment->getDateCompleted() != null && !$reviewAssignment->getCancelled()) {
+				if ($reviewAssignment->getDateCompleted() != null) {
 					$reviewsAvailable = true;
 					break;
 				}

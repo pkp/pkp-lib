@@ -50,10 +50,6 @@
 			<NOTNULL/>
 			<DEFAULT VALUE="0"/>
 		</field>
-		<field name="cancelled" type="I1">
-			<NOTNULL/>
-			<DEFAULT VALUE="0"/>
-		</field>
 		<field name="reviewer_file_id" type="I8"/>
 		<field name="date_rated" type="T"/>
 		<field name="date_reminded" type="T"/>

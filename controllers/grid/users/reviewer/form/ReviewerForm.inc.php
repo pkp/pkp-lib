@@ -339,7 +339,6 @@ class ReviewerForm extends Form {
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		$reviewAssignment = $reviewAssignmentDao->getReviewAssignment($currentReviewRound->getId(), $reviewerId, $currentReviewRound->getRound(), $stageId);
 		$reviewAssignment->setDateNotified(Core::getCurrentDate());
-		$reviewAssignment->setCancelled(0);
 		$reviewAssignment->stampModified();
 
 		// Ensure that the review form ID is valid, if specified

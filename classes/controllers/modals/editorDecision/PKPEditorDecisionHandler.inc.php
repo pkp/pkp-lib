@@ -206,7 +206,7 @@ class PKPEditorDecisionHandler extends Handler {
 		$textSeparator = '------------------------------------------------------';
 		foreach ($reviewAssignments as $reviewAssignment) {
 			// If the reviewer has completed the assignment, then import the review.
-			if ($reviewAssignment->getDateCompleted() != null && !$reviewAssignment->getCancelled()) {
+			if ($reviewAssignment->getDateCompleted() != null) {
 				// Get the comments associated with this review assignment
 				$submissionComments = $submissionCommentDao->getSubmissionComments($submission->getId(), COMMENT_TYPE_PEER_REVIEW, $reviewAssignment->getId());
 

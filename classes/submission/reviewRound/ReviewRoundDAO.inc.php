@@ -271,9 +271,8 @@ class ReviewRoundDAO extends DAO {
 			$anyIncompletedReview = false;
 
 			foreach ($reviewAssignments as $reviewAssignment) { /* @var $reviewAssignment ReviewAssignment */
-				// Skip cancelled and declined reviews.
-				if ($reviewAssignment->getCancelled() ||
-				$reviewAssignment->getDeclined()) {
+				// Skip declined reviews.
+				if ($reviewAssignment->getDeclined()) {
 					continue;
 				}
 

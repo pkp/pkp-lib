@@ -51,7 +51,7 @@
 	<div class="author_guidelines">
 		<h2>
 			{translate key="about.authorGuidelines"}
-			{include file="frontend/components/editLink.tpl" page="management" op="settings" path="journal" anchor="guidelines" sectionTitleKey="about.authorGuidelines"}
+			{include file="frontend/components/editLink.tpl" page="management" op="settings" path="publication" anchor="submissionStage" sectionTitleKey="about.authorGuidelines"}
 		</h2>
 		{$currentContext->getLocalizedSetting('authorGuidelines')}
 	</div>
@@ -61,7 +61,7 @@
 		<div class="copyright_notice">
 			<h2>
 				{translate key="about.copyrightNotice"}
-				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="journal" anchor="guidelines" sectionTitleKey="about.copyrightNotice"}
+				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="distribution" anchor="permissions" sectionTitleKey="about.copyrightNotice"}
 			</h2>
 			{$currentContext->getLocalizedSetting('copyrightNotice')|nl2br}
 		</div>

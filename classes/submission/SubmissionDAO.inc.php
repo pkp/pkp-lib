@@ -127,52 +127,26 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @return array
 	 */
 	function getSubmissionRevisionIds($submissionId, $contextId = null, $order = SORT_DIRECTION_ASC) {
-
-		if (!ctype_digit("$submissionId")) {
-			$publishedArticleDao = DAORegistry::getDAO('PublishedArticleDAO');
-			$publishedArticle = $publishedArticleDao->getPublishedArticleByPubId('publisher-id', $submissionId, $contextId);
-			$submissionId = $publishedArticle->getId();
-		}
-
 		$params = array((int) $submissionId);
 		if ($contextId) {
 			$params[] = (int) $contextId;
 		}
 
-		$sql = 'SELECT DISTINCT submission_revision FROM submission_settings ' .
-			   'INNER JOIN submissions ON submission_settings.submission_id = submissions.submission_id' .
-			   ' WHERE submission_settings.submission_id = ?'  .
-			   ($contextId ? ' AND submissions.context_id = ?' : '') .
-			   ' ORDER BY submission_revision ' . $this->getDirectionMapping($order);
+		$sql = 'SELECT DISTINCT ss.submission_revision
+			FROM 	submission_settings ss
+				INNER JOIN submissions s ON ss.submission_id = s.submission_id
+			WHERE 	ss.submission_id = ?
+				'.($contextId ? ' AND s.context_id = ?' : '') .'
+			ORDER BY ss.submission_revision ' . $this->getDirectionMapping($order);
 
 		$result = $this->retrieve($sql, $params);
 		$submissionRevisions = array();
 
-		foreach($result->getArray() as $submission) {
+		foreach($result as $submission) {
 			$submissionRevisions[] = $submission['submission_revision'];
 		}
 
 		return $submissionRevisions;
-	}
-
-	/**
-	 * Get all published revisions for a submission
-	 * @param $submissionId int
-	 * @return array
-	*/
-	function getPublishedSubmissionRevisions($submissionId, $contextId = null, $order = SORT_DIRECTION_DESC){
-		$submissionRevisions = $this->getSubmissionRevisionIds($submissionId, $contextId, $order);
-		$publishedSubmissionRevisions = array();
-
-		foreach($submissionRevisions as $revision){
-			$submission = $this->getById($submissionId, null, false, $revision);
-			if($submission->getDatePublished()){
-				$publishedSubmissionRevisions[] = $submission;
-			}
-		}
-
-		return $publishedSubmissionRevisions;
-
 	}
 
 	/**
@@ -182,20 +156,20 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @return int
 	 */
 	function getLatestRevisionId($submissionId, $contextId = null) {
-		$submissionRevisions = $this->getSubmissionRevisionIds($submissionId, $contextId, SORT_DIRECTION_ASC);
-		return array_pop($submissionRevisions);
-	}
+		$params = array((int) $submissionId);
+		if ($contextId) {
+			$params[] = (int) $contextId;
+		}
 
-	/**
-	 * Get the current published revision id for a submission
-	 * @param $submissionId int
-	 * @param $contextId int
-	 * @return int
-	 */
-	function getLatestPublishedRevisionId($submissionId, $contextId = null) {
-		$submissionRevisions = $this->getPublishedSubmissionRevisions($submissionId, $contextId, SORT_DIRECTION_ASC);
-		$latestSubmissionRevision = array_pop($submissionRevisions);
-		return $latestSubmissionRevision->getSubmissionRevision();
+		$sql = 'SELECT MAX(ss.submission_revision)
+			FROM 	submission_settings ss
+				INNER JOIN submissions s ON ss.submission_id = s.submission_id
+			WHERE 	ss.submission_id = ?
+				'.($contextId ? ' AND s.context_id = ?' : '');
+
+		$result = $this->retrieve($sql, $params);
+
+		return $result->fields[0];
 	}
 
 	/**

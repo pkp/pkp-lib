@@ -95,18 +95,13 @@ class PKPSubmissionMetadataFormImplementation {
 			$submissionAgencyDao = DAORegistry::getDAO('SubmissionAgencyDAO');
 			$submissionLanguageDao = DAORegistry::getDAO('SubmissionLanguageDAO');
 
-			// versioning
-			$contextId = Request::getContext()->getId();
-			$latestRevisionId = $submission->getCurrentVersionId($contextId);
-			if (!$revision) $revision = $latestRevisionId;
-
 			$this->_parentForm->setData('subjects', $submissionSubjectDao->getSubjects($submission->getId(), $locales));
 			$this->_parentForm->setData('keywords', $submissionKeywordDao->getKeywords($submission->getId(), $locales));
 			$this->_parentForm->setData('disciplines', $submissionDisciplineDao->getDisciplines($submission->getId(), $locales));
 			$this->_parentForm->setData('agencies', $submissionAgencyDao->getAgencies($submission->getId(), $locales));
 			$this->_parentForm->setData('languages', $submissionLanguageDao->getLanguages($submission->getId(), $locales));
 			$this->_parentForm->setData('abstractsRequired', $this->_getAbstractsRequired($submission));
-			$this->_parentForm->setData('latestRevisionId', $latestRevisionId);
+			$this->_parentForm->setData('latestRevisionId', $submission->getCurrentVersionId());
 		}
 	}
 
@@ -158,9 +153,7 @@ class PKPSubmissionMetadataFormImplementation {
 		if ($request->getUserVar('submissionRevision')) {
 			$revision = (int)$request->getUserVar('submissionRevision');
 		} else {
-			$context = $request->getContext();
-			$contextId = $context->getId();
-			$revision = $submission->getCurrentVersionId($contextId);
+			$revision = $submission->getCurrentVersionId();
 		}
 
 		// save submission revision

@@ -142,20 +142,20 @@ abstract class PKPWorkflowTabHandler extends Handler {
 				$templateMgr->assign('productionNotificationRequestOptions', $notificationRequestOptions);
 
 				// Versioning
+				$submissionDao = Application::getSubmissionDAO();
 				$context = $request->getContext();
+
+				// versioning enabled?
 				$templateMgr->assign('versioningEnabled', $context->getSetting('versioningEnabled'));
 
-				// get all revisions of this submission
-				$articleDao = DAORegistry::getDAO('ArticleDAO');
-				$submissionRevisions = $articleDao->getSubmissionRevisionIds($submission->getId(), $context->getId());
-				$templateMgr->assign('submissionRevisions', $submissionRevisions);
+				// all revisions of this submission
+				$templateMgr->assign('submissionRevisions', $submissionDao->getSubmissionRevisionIds($submission->getId(), $context->getId()));
 
-				// get latest submission revision
-				$latestSubmissionRevision = $articleDao -> getLatestRevisionId($submission->getId(), $context->getId());
+				// latest submission revision
+				$latestSubmissionRevision = $submissionDao->getLatestRevisionId($submission->getId(), $context->getId());
 				$templateMgr->assign('latestSubmissionRevision', $latestSubmissionRevision);
 
 				// add new version button action if the latest submission revision has been published
-				$submissionDao = Application::getSubmissionDAO();
 				$submission = $submissionDao->getById($submission->getId(), null, false, $latestSubmissionRevision);
 
 				if($submission->getDatePublished()){

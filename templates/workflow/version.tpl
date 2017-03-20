@@ -1,16 +1,16 @@
 {**
- * lib/pkp/templates/workflow/version.tpl
+ * templates/workflow/version.tpl
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2003-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Version view for workflow stage production
  *}
-{if $isPublished}
+{if !$isPublished}
 	<div class="pkp_notification">
 		<div class="notifyInfo">
-			This version has not been published yet.
+			{translate key="submission.versioning.notPublished"}
 		</div>
 	</div>
 {/if}

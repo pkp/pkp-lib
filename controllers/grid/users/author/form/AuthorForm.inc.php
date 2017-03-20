@@ -215,9 +215,7 @@ class AuthorForm extends Form {
 		$author->setBiography($this->getData('biography'), null); // localized
 		$author->setPrimaryContact(($this->getData('primaryContact') ? true : false));
 		$author->setIncludeInBrowse(($this->getData('includeInBrowse') ? true : false));
-		$contextId = Request::getContext()->getId();
-		$newestVersion = $submission->getCurrentVersionId($contextId);
-		$author->setVersion($newestVersion);
+		$author->setVersion($submission->getCurrentVersionId());
 
 		// in order to be able to use the hook
 		parent::execute();

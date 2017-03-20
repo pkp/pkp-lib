@@ -248,14 +248,6 @@ abstract class Submission extends DataObject {
 	}
 
 	/**
-	 * Set comments to editor.
-	 * @param $commentsToEditor string
-	 */
-	function setCommentsToEditor($commentsToEditor) {
-		$this->setData('commentsToEditor', $commentsToEditor);
-	}
-
-	/**
 	 * Set submission revision.
 	 * @param $submissionRevision int
 	 */
@@ -276,9 +268,11 @@ abstract class Submission extends DataObject {
 	 * @param $contextId int
 	 * @return int
 	 */
-	function getCurrentVersionId($contextId = null) {
+	function getCurrentVersionId() {
 		$submissionId = $this->getId();
+		$contextId = $this->getContextId();
 
+		// handle publisher ids
 		if (!ctype_digit("$submissionId")) {
 			$publishedArticleDao = DAORegistry::getDAO('PublishedArticleDAO');
 			$publishedArticle = $publishedArticleDao->getPublishedArticleByPubId('publisher-id', $submissionId, $contextId);
@@ -286,9 +280,7 @@ abstract class Submission extends DataObject {
 		}
 
 		$submissionDao = Application::getSubmissionDAO();
-		$submissionRevisions = $submissionDao->getSubmissionRevisionIds($submissionId, $contextId);
-
-		return array_pop($submissionRevisions);
+		return $submissionDao->getLatestRevisionId($submissionId, $contextId);
 	}
 
 	/**

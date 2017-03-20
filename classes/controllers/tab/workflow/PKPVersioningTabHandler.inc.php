@@ -76,21 +76,18 @@ class PKPVersioningTabHandler extends Handler {
 			$author->setVersion($submissionRevision);
 			$authorDao->insertObject($author, true);
 			$newAuthorId = (int)$authorDao->getInsertId();
-			$authorDao->update('UPDATE authors SET author_id = ? WHERE author_id = ?', array($authorId, $newAuthorId));
 		}
 
 		// create new galley versions
 		foreach($galleys as $galley) {
-			// copy file and link copy to new galley
+			// copy file and link copy to galley version
 			if($galley->getFile()){
 				$context = $request->getContext();
 				$oldFile = $galley->getFile();
 				$fileStage = $oldFile->getFileStage();
 				$newFileId = $this->copyFile($context, $oldFile, $fileStage);
-				$galley->setFileId($newFileId);
+				$articleGalleyDao->addFile($galley->getId(), $newFileId, $galley->getCurrentVersionId());
 			}
-			// save new galley version
-			$articleGalleyDao->updateObject($galley);
 		}
 
 		// reload page to display new version
@@ -160,7 +157,7 @@ class PKPVersioningTabHandler extends Handler {
 		// Get publication date of submission revision 
 		$submissionDao = Application::getSubmissionDAO();
 		$submission = $submissionDao->getById($submission->getId(), null, false, $submissionRevision);
-		$isPublished = $submission->getDatePublished() ? false : true;
+		$isPublished = $submission->getDatePublished() ? true : false;
 		$templateMgr->assign('isPublished', $isPublished);
 
 		// Create edit metadata link action.

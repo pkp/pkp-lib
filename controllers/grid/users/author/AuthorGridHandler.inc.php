@@ -75,7 +75,7 @@ class AuthorGridHandler extends GridHandler {
 	 * @return int
 	 */
 	function getCurrentVersion($request) {
-		$currentVersion = $request->getUserVar('submissionRevision');
+		$currentVersion = (int) $request->getUserVar('submissionRevision');
 		if (!isset($currentVersion)) {
 			$currentVersion = $this->getNewestVersion($request);
 		}
@@ -89,9 +89,7 @@ class AuthorGridHandler extends GridHandler {
 	 */
 	function getNewestVersion($request) {
 		$submission = $this->getSubmission();
-		$context = $request->getContext();
-		$contextId = $context->getId();
-		$submissionVersion = $submission->getCurrentVersionId($contextId);
+		$submissionVersion = $submission->getCurrentVersionId();
 		// new submission do not have a version
 		if($submissionVersion==''){
 			$submissionVersion = 1;
@@ -246,7 +244,6 @@ class AuthorGridHandler extends GridHandler {
 		$submission = $this->getSubmission();
 		$author = $authorDao->getById($rowId, $submission->getId(), $this->_version);
 		$author->setSequence($newSequence);
-		$author->setVersion($this->_version);
 		$authorDao->updateObject($author);
 	}
 
@@ -299,16 +296,6 @@ class AuthorGridHandler extends GridHandler {
 	}
 
 	/**
-	 * Fetches the application-specific submission id from the request object.
-	 * Should be overridden by subclasses.
-	 * @param PKPRequest $request
-	 * @return int
-	 */
-	function getRequestedSubmissionId($request) {
-		return $request->getUserVar('submissionId');
-	}
-
-	/**
 	 * @copydoc GridHandler::loadData()
 	 */
 	protected function loadData($request, $filter = null) {
@@ -334,15 +321,15 @@ class AuthorGridHandler extends GridHandler {
 	}
 
 	/**
-	 * Edit a author
+	 * Edit an author
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
 	 */
 	function editAuthor($args, $request) {
 		// Identify the author to be updated
-		$authorId = $request->getUserVar('authorId');
-		$version = $request->getUserVar('version');
+		$authorId = (int) $request->getUserVar('authorId');
+		$version = (int) $request->getUserVar('version');
 		$submission = $this->getSubmission();
 
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
@@ -357,14 +344,14 @@ class AuthorGridHandler extends GridHandler {
 	}
 
 	/**
-	 * Edit a author
+	 * Update an author
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
 	 */
 	function updateAuthor($args, $request) {
 		// Identify the author to be updated
-		$authorId = $request->getUserVar('authorId');
+		$authorId = (int) $request->getUserVar('authorId');
 		$submission = $this->getSubmission();
 
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
@@ -419,12 +406,13 @@ class AuthorGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function deleteAuthor($args, $request) {
+		if (!$request->checkCSRF()) return new JSONMessage(false);
 		// Identify the submission Id
-		$submissionId = $this->getRequestedSubmissionId($request);
+		$submissionId = (int) $request->getUserVar('submissionId');
 		// Identify the author to be deleted
-		$authorId = $request->getUserVar('authorId');
+		$authorId = (int) $request->getUserVar('authorId');
 		// Identify the version
-		$version = $request->getUserVar('version');
+		$version = (int) $request->getUserVar('version');
 
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
 		$authorDao->deleteById($authorId, $submissionId, $version);
@@ -439,7 +427,7 @@ class AuthorGridHandler extends GridHandler {
 	 */
 	function addUser($args, $request) {
 		// Identify the author Id.
-		$authorId = $request->getUserVar('authorId');
+		$authorId = (int) $request->getUserVar('authorId');
 
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
 		$userDao = DAORegistry::getDAO('UserDAO');

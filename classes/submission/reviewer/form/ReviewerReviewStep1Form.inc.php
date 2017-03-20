@@ -47,11 +47,8 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 		$templateMgr->assign(array(
 			'reviewAssignment' => $reviewAssignment,
 			'reviewRoundId' => $reviewAssignment->getReviewRoundId(),
-			'reviewerRecommendationOptions' => ReviewAssignment::getReviewerRecommendationOptions(),
-		));		
-		
-		// Check for reviewer file access
-		$templateMgr->assign('restrictReviewerFileAccess', $context->getSetting('restrictReviewerFileAccess'));
+			'restrictReviewerFileAccess' => $context->getSetting('restrictReviewerFileAccess'),
+		));
 		
 		// Add reviewer request text.
 		$templateMgr->assign('reviewerRequest', __('reviewer.step1.requestBoilerplate'));

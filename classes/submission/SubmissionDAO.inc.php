@@ -98,11 +98,11 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @param $submissionRevision int optional
 	 * @return Submission
 	 */
-	function _fromRow($row, $submissionRevision = 1) {
+	function _fromRow($row, $submissionRevision = null) {
 		$submission = $this->newDataObject();
 
 		$submission->setId($row['submission_id']);
-		$submission->setSubmissionRevision($submissionRevision);
+		$submission->setSubmissionRevision($submissionRevision ? $submissionRevision : $this->getLatestRevisionId($row['submission_id']));
 		$submission->setContextId($row['context_id']);
 		$submission->setLocale($row['locale']);
 		$submission->setStageId($row['stage_id']);

@@ -471,6 +471,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 *  whose section will be included in the results (excluding others).
 	 * @param $includeDeclined boolean optional include submissions which have STATUS_DECLINED
 	 * @param $includePublished boolean optional include submissions which are published
+	 * @param $submissionId int|null optional Filter by submission id.
 	 * @param $title string|null optional Filter by title.
 	 * @param $author string|null optional Filter by author.
 	 * @param $stageId int|null optional Filter by stage id.
@@ -478,12 +479,17 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @param $rangeInfo DBRangeInfo
 	 * @return DAOResultFactory containing matching Submissions
 	 */
-	function getBySubEditorId($contextId, $subEditorId = null, $includeDeclined = true, $includePublished = true, $title = null, $author = null, $stageId = null, $sectionId = null, $rangeInfo = null) {
+	function getBySubEditorId($contextId, $subEditorId = null, $includeDeclined = true, $includePublished = true, $submissionId = null, $title = null, $author = null, $stageId = null, $sectionId = null, $rangeInfo = null) {
 		$params = $this->getFetchParameters();
 		if ($subEditorId) $params[] = (int) $subEditorId;
 		$params[] = (int) $contextId;
 		$params[] = (int) ROLE_ID_MANAGER;
 		$params[] = (int) ROLE_ID_SUB_EDITOR;
+
+		// Check the case that the user does put a value that is not an integer. SubmissionId must be an integer
+		// If that check is not made, strings like "91f" will pass as the integer 91 in the convertion.
+		// That means that if we put "91f" to the search, if there is a submission with id=91, it will be returned.
+		if ($submissionId) $params[] = (int) filter_var($submissionId, FILTER_VALIDATE_INT);
 
 		if ($title) {
 			$params[] = 'title';
@@ -510,6 +516,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 			. (!$includeDeclined?' AND s.status <> ' . STATUS_DECLINED : '' )
 			. (!$includePublished?' AND ' . $this->getCompletionConditions(false):'')
 			. ($contextId && is_array($contextId)?' AND s.context_id IN  (' . join(',', array_map(array($this,'_arrayWalkIntCast'), $contextId)) . ')':'')
+			. ($submissionId?' AND s.submission_id = ?':'')
 			. ($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'')
 			. ($author?' AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)':'')
 			. ($stageId?' AND s.stage_id = ?':'')
@@ -527,18 +534,28 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * Get all unpublished submissions for a user.
 	 * @param $userId int
 	 * @param $contextId int optional
+	 * @param $submissionId int|null optional Filter by submission id.
 	 * @param $title string? Optional title search string to limit results
 	 * @param $stageId int? Optional stage ID to limit results
 	 * @param $sectionId int? Optional section ID to limit results
 	 * @param $rangeInfo DBResultRange optional
 	 * @return array Submissions
 	 */
-	function getUnpublishedByUserId($userId, $contextId = null, $title = null, $stageId = null, $sectionId = null, $rangeInfo = null) {
+	function getUnpublishedByUserId($userId, $contextId = null, $submissionId = null, $title = null, $stageId = null, $sectionId = null, $rangeInfo = null) {
 		$params = array_merge(
 			$this->getFetchParameters(),
 			array((int) ROLE_ID_AUTHOR, (int) $userId)
 		);
-		if ($title) $params[] = '%' . $title . '%';
+
+		// Check the case that the user does put a value that is not an integer. SubmissionId must be an integer
+		// If that check is not made, strings like "91f" will pass as the integer 91 in the convertion.
+		// That means that if we put "91f" to the search, if there is a submission with id=91, it will be returned.
+		if ($submissionId) $params[] = (int) filter_var($submissionId, FILTER_VALIDATE_INT);
+
+		if ($title) {
+			$params[] = 'title';
+			$params[] = '%' . $title . '%';
+		}
 		if ($stageId) $params[] = (int) $stageId;
 		if ($contextId) $params[] = (int) $contextId;
 		if ($sectionId) $params[] = (int) $sectionId;
@@ -553,6 +570,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				$this->getFetchJoins() .
 			'WHERE	s.submission_id IN (SELECT asa.submission_id FROM stage_assignments asa, user_groups aug WHERE asa.user_group_id = aug.user_group_id AND aug.role_id = ? AND asa.user_id = ?)' .
 				' AND ' . $this->getCompletionConditions(false) .
+				($submissionId?' AND s.submission_id = ?':'') .
 				($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'') .
 				($stageId?' AND s.stage_id = ?':'') .
 				($contextId?' AND s.context_id = ?':'') .
@@ -571,6 +589,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * ALL review assignments.
 	 * @param $reviewerId int Reviewer ID to fetch archived submissions for
 	 * @param $contextId int optional
+	 * @param $submissionId int|null optional Filter by submission id.
 	 * @param $title string|null optional submission title to filter results
 	 * @param $author string|null optional author name to filter results
 	 * @param $stageId int|null optional stage ID to filter results
@@ -578,10 +597,16 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @param $rangeInfo DBResultRange optional
 	 * @return DAOResultFactory
 	 */
-	function getReviewerArchived($reviewerId, $contextId = null, $title = null, $author = null, $stageId = null, $sectionId, $rangeInfo = null) {
+	function getReviewerArchived($reviewerId, $contextId = null, $submissionId = null, $title = null, $author = null, $stageId = null, $sectionId, $rangeInfo = null) {
 		$params = array($reviewerId, $reviewerId);
 		$params = array_merge($params, $this->getFetchParameters());
 		$params[] = $reviewerId;
+
+		// Check the case that the user does put a value that is not an integer. SubmissionId must be an integer
+		// If that check is not made, strings like "91f" will pass as the integer 91 in the convertion.
+		// That means that if we put "91f" to the search, if there is a submission with id=91, it will be returned.
+		if ($submissionId) $params[] = (int) filter_var($submissionId, FILTER_VALIDATE_INT);
+
 		if ($title) {
 			$params[] = 'title';
 			$params[] = '%' . $title . '%';
@@ -604,6 +629,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				AND (SELECT COUNT(ra3.review_id) FROM review_assignments ra3
 					WHERE s.submission_id = ra3.submission_id AND ra3.reviewer_id = ? AND ra3.declined = 0) = 0
 				' . ($contextId?' AND s.context_id IN  (' . join(',', array_map(array($this,'_arrayWalkIntCast'), (array) $contextId)) . ')':'')
+				. ($submissionId?' AND s.submission_id = ?':'')
 				. ($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'')
 				. ($author?' AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)':'')
 				. ($stageId?' AND s.stage_id = ?':'')
@@ -621,6 +647,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @param $status int Status to get submissions for
 	 * @param $userId int optional User to require an assignment for
 	 * @param $contextId mixed optional Context(s) to fetch submissions for
+	 * @param $submissionId int|null optional Filter by submission id.
 	 * @param $title string optional submission title to restrict results to
 	 * @param $author string optional author name to restrict results to
 	 * @param $stageId int optional stage ID to restrict results to
@@ -628,7 +655,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @param $rangeInfo DBResultRange optional
 	 * @return DAOResultFactory
 	 */
-	function getByStatus($status, $userId = null, $contextId = null, $title = null, $author = null, $stageId = null, $sectionId, $rangeInfo = null) {
+	function getByStatus($status, $userId = null, $contextId = null, $submissionId = null, $title = null, $author = null, $stageId = null, $sectionId, $rangeInfo = null) {
 		$params = array();
 
 		if ($userId) $params = array_merge(
@@ -642,6 +669,11 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		);
 
 		$params = array_merge($params, $this->getFetchParameters());
+
+		// Check the case that the user does put a value that is not an integer. SubmissionId must be an integer
+		// If that check is not made, strings like "91f" will pass as the integer 91 in the convertion.
+		// That means that if we put "91f" to the search, if there is a submission with id=91, it will be returned.
+		if ($submissionId) $params[] = (int) filter_var($submissionId, FILTER_VALIDATE_INT);
 
 		if ($title) {
 			$params[] = 'title';
@@ -669,6 +701,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				s.status IN  (' . join(',', array_map(array($this,'_arrayWalkIntCast'), (array) $status)) . ')
 				' . ($contextId?' AND s.context_id IN  (' . join(',', array_map(array($this,'_arrayWalkIntCast'), (array) $contextId)) . ')':'')
 				. ($userId?' AND sa2.stage_assignment_id IS NULL AND ra2.review_id IS NULL AND (sa.stage_assignment_id IS NOT NULL OR ra.review_id IS NOT NULL)':'')
+				. ($submissionId?' AND s.submission_id = ?':'')
 				. ($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'')
 				. ($author?' AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)':'')
 				. ($stageId?' AND s.stage_id = ?':'')
@@ -685,6 +718,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * Get all submissions that are considered assigned to the passed user, excluding author participation.
 	 * @param $userId int
 	 * @param $contextId int optional
+	 * @param $submissionId int|null optional Filter by submission id.
 	 * @param $title string|null optional Filter by title.
 	 * @param $author string|null optional Filter by author.
 	 * @param $stageId int|null optional Filter by stage id.
@@ -692,13 +726,18 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @param $rangeInfo DBResultRange optional
 	 * @return DAOResultFactory
 	 */
-	function getAssignedToUser($userId, $contextId = null, $title = null, $author = null, $stageId = null, $sectionId, $rangeInfo = null) {
+	function getAssignedToUser($userId, $contextId = null, $submissionId = null, $title = null, $author = null, $stageId = null, $sectionId, $rangeInfo = null) {
 		$params = array_merge(
 			array((int) $userId, ROLE_ID_AUTHOR, (int) $userId),
 			$this->getFetchParameters(),
 			array((int) STATUS_DECLINED)
 		);
 		if ($contextId) $params[] = (int) $contextId;
+
+		// Check the case that the user does put a value that is not an integer. SubmissionId must be an integer
+		// If that check is not made, strings like "91f" will pass as the integer 91 in the convertion.
+		// That means that if we put "91f" to the search, if there is a submission with id=91, it will be returned.
+		if ($submissionId) $params[] = (int) filter_var($submissionId, FILTER_VALIDATE_INT);
 
 		if ($title) {
 			$params[] = 'title';
@@ -727,6 +766,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				AND aug.user_group_id IS NULL
 				AND (sa.user_id IS NOT NULL OR ra.reviewer_id IS NOT NULL)'
 				. ($contextId?' AND s.context_id = ?':'')
+				. ($submissionId?' AND s.submission_id = ?':'')
 				. ($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'')
 				. ($author?' AND (ra.submission_id IS NULL AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?))':'') // Don't permit reviewer searching on author name
 				. ($stageId?' AND s.stage_id = ?':'')
@@ -743,6 +783,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	/**
 	 * Get all active submissions for a context.
 	 * @param $contextId int optional
+	 * @param $submissionId int|null optional Filter by submission id.
 	 * @param $title string|null optional Filter by title.
 	 * @param $author string|null optional Filter by author.
 	 * @param $editor int|null optional Filter by editor name.
@@ -752,11 +793,16 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @param $orphaned boolean Whether the incomplete submissions that have no author assigned should be considered too
 	 * @return DAOResultFactory
 	 */
-	function getActiveSubmissions($contextId = null, $title = null, $author = null, $editor = null, $stageId = null, $sectionId = null, $rangeInfo = null, $orphaned = false) {
+	function getActiveSubmissions($contextId = null, $submissionId = null, $title = null, $author = null, $editor = null, $stageId = null, $sectionId = null, $rangeInfo = null, $orphaned = false) {
 		$params = $this->getFetchParameters();
 		$params[] = (int) STATUS_DECLINED;
 
 		if ($contextId) $params[] = (int) $contextId;
+
+		// Check the case that the user does put a value that is not an integer. SubmissionId must be an integer
+		// If that check is not made, strings like "91f" will pass as the integer 91 in the convertion.
+		// That means that if we put "91f" to the search, if there is a submission with id=91, it will be returned.
+		if ($submissionId) $params[] = (int) filter_var($submissionId, FILTER_VALIDATE_INT);
 
 		if ($title) {
 			$params[] = 'title';
@@ -784,6 +830,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				) AND ' . $this->getCompletionConditions(false) . '
 				AND s.status <> ?
 				' . ($contextId?' AND s.context_id = ?':'') . '
+				' . ($submissionId?' AND s.submission_id = ?':'') . '
 				' . ($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'') . '
 				' . ($author?' AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)':'') . '
 				' . ($stageId?' AND s.stage_id = ?':'') . '

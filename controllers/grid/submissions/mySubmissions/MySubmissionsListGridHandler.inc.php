@@ -36,11 +36,11 @@ class MySubmissionsListGridHandler extends SubmissionsListGridHandler {
 	 */
 	function initialize($request, $args = null) {
 		parent::initialize($request, $args);
-		
+
 		$this->setTitle('submission.mySubmissions');
 	}
 
-	
+
 	//
 	// Implement methods from GridHandler
 	//
@@ -51,17 +51,29 @@ class MySubmissionsListGridHandler extends SubmissionsListGridHandler {
 		list($search, $column, $stageId, $sectionId) = $this->getFilterValues($filter);
 
 		$submissionDao = Application::getSubmissionDAO();
+
+		$title = $submissionId = null;
+		switch ($column) {
+			case 'title':
+				$title = $search;
+				break;
+			case 'submissionId':
+				$submissionId = $search;
+				break;
+		}
+
 		return $submissionDao->getUnpublishedByUserId(
 			$request->getUser()->getId(),
 			$request->getContext()->getId(),
-			$search,
+			$submissionId,
+			$title,
 			$stageId,
 			$sectionId,
 			$this->getGridRangeInfo($request, $this->getId())
 		);
 	}
 
-	
+
 	//
 	// Extend methods from SubmissionListGridHandler
 	//

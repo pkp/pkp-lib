@@ -214,6 +214,7 @@ class SubmissionsListGridHandler extends GridHandler {
 	 */
 	protected function getFilterColumns() {
 		return array(
+			'submissionId' => __('common.id'),
 			'title' => __('submission.title'),
 			'author' => __('submission.authors'),
 		);

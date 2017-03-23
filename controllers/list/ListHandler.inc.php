@@ -20,6 +20,14 @@ abstract class ListHandler extends PKPHandler {
      */
     public $_title = '';
 
+	/**
+	 * Whether to pre-populate the UI component with list data or wait until the
+	 * page has loaded to request the data.
+	 *
+	 * @param bool
+	 */
+	public $_lazyLoad = false;
+
     /**
      * Component path
      *
@@ -53,10 +61,8 @@ abstract class ListHandler extends PKPHandler {
     public function init($args = array()) {
 
         $this->setId(!empty($args['id']) ? $args['id'] : get_class($this));
-
-        if (!empty($args['title'])) {
-            $this->_title = $args['title'];
-        }
+        $this->_title = !empty($args['title']) ? $args['title'] : $this->_title;
+        $this->_lazyLoad = !empty($args['lazyLoad']);
     }
 
     /**

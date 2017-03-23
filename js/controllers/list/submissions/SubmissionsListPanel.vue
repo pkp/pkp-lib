@@ -63,6 +63,7 @@ export default _.extend({}, ListPanel, {
 			apiPath: '',
 			getParams: {},
 			i18n: {},
+			lazyLoad: false,
 			addUrl: '',
 		};
 	},

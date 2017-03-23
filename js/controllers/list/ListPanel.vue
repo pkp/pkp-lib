@@ -34,6 +34,7 @@ export default {
 			apiPath: '',
 			getParams: {},
 			i18n: {},
+			lazyLoad: false,
 		};
 	},
 	computed: {
@@ -144,6 +145,21 @@ export default {
 			this.page = 1;
 			this.get('isSearching');
 		});
+
+		/**
+		 * Load a collection into the component once the page is loaded if a
+		 * lazyLoad is requested.
+		 */
+		if (this.lazyLoad) {
+			if (document.readyState === 'complete') {
+				this.get();
+			} else {
+				var self = this;
+				$(function() {
+					self.get();
+				});
+			}
+		}
 	}
 }
 </script>

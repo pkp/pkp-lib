@@ -65,7 +65,11 @@ class SubmissionListHandler extends ListHandler {
 
 		$config = array();
 
-		$config['collection'] = $this->getItems();
+		if ($this->_lazyLoad) {
+			$config['lazyLoad'] = true;
+		} else {
+			$config['collection'] = $this->getItems();
+		}
 
 		// URL to add a new submission
 		$config['addUrl'] = $request->getDispatcher()->url(

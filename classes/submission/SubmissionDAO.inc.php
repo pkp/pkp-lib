@@ -319,6 +319,152 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	}
 
 	/**
+	 * Get submissions by passed parameters
+	 *
+	 * This method will retrieve submissions for a given context which match
+	 * the passed parameters. This method is intended to form an api for
+	 * accessing submissions in a wide array of contexts. It backs the REST
+	 * API's /submissions endpoint.
+	 *
+	 * It only supports white-listed parameters and a single context at this
+	 * time.
+	 *
+	 * @param $caller APIHandler|SubmissionListHandler The handler which is
+	 *  initiating this request.
+	 * @param $params array Key/value hash of params for the fetch
+	 * @param $contextId int Context to fetch submissions for
+	 * @return DAOResultFactory
+	 */
+	public function get($caller, $params, $contextId) {
+
+		HookRegistry::call('api::submission::get::query', array(&$params, $caller, $contextId));
+
+		$query = new DBQueryBuilder();
+		$query->select(array(
+			's.*',
+			$this->getFetchColumns(),
+		));
+		$query->from('submissions s');
+		$query->where('s.context_id = ?', (int) $contextId);
+		$query->groupBy(array(
+			's.submission_id',
+			'stl.setting_value',
+			'stpl.setting_value',
+			'sal.setting_value',
+			'sapl.setting_value',
+		));
+
+		$order = isset($params['order']) ? $params['order'] : 'DESC';
+		if (!is_null($params['orderBy']) && $params['orderBy'] === 'id') {
+			$query->orderBy('s.submission_id ' . $order);
+		} elseif (!is_null($params['orderBy']) && $params['orderBy'] === 'lastModified') {
+			$query->orderBy('s.last_modified ' . $order);
+		} else {
+			$query->orderBy('s.date_submitted ' . $order);
+		}
+
+		if (!is_null($params['status'])) {
+			if (in_array(STATUS_PUBLISHED, (array) $params['status'])) {
+				$query->select('ps.date_published');
+				$query->from('LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)');
+				$query->groupBy('ps.date_published');
+			}
+			$query->where('s.status IN (' . join(',', array_map('intval', (array) $params['status'] ) ) . ')');
+		}
+
+		if (!empty($params['assignedTo'])) {
+			$assignedTo = (int) $params['assignedTo'];
+
+			// Stage assignments
+			$query->from(
+				'LEFT JOIN stage_assignments sa ON (s.submission_id = sa.submission_id AND sa.user_id = ?)',
+				$assignedTo
+			);
+
+			// sa2 to prevent dupes
+			$query->from(
+				'LEFT JOIN stage_assignments sa2 ON (s.submission_id = sa2.submission_id AND sa2.user_id = ? AND sa2.stage_assignment_id > sa.stage_assignment_id)',
+				$assignedTo
+			);
+
+			// Review assignments
+			$query->from(
+				'LEFT JOIN review_assignments ra ON (s.submission_id = ra.submission_id AND ra.reviewer_id = ?)',
+				$assignedTo
+			);
+
+			// ra2 to prevent dupes
+			$query->from(
+				'LEFT JOIN review_assignments ra2 ON (s.submission_id = ra2.submission_id AND ra2.reviewer_id = ? AND ra2.review_id > ra.review_id)',
+				$assignedTo
+			);
+
+			$query->where('sa2.stage_assignment_id IS NULL');
+			$query->where('ra2.review_id IS NULL');
+			$query->where('(sa.stage_assignment_id IS NOT NULL OR ra.review_id IS NOT NULL)');
+
+		// Only support unassigned queries if an `assignedTo` param has not been passed
+		} elseif (!empty($params['unassigned'])) {
+			$query->where('s.date_submitted IS NOT NULL');
+			$query->where('(SELECT COUNT(sa.stage_assignment_id)
+					FROM stage_assignments sa
+					LEFT JOIN user_groups g ON sa.user_group_id = g.user_group_id
+					WHERE sa.submission_id = s.submission_id AND (g.role_id = ? OR g.role_id = ?)) = 0',
+				array(
+					(int) ROLE_ID_MANAGER,
+					(int) ROLE_ID_SUB_EDITOR,
+				)
+			);
+		}
+
+		if (!empty($params['searchPhrase'])) {
+			$words = explode(" ", trim($params['searchPhrase']));
+			if (count($words)) {
+				$query->from('LEFT JOIN submission_settings ss ON (s.submission_id = ss.submission_id)');
+				$query->from('LEFT JOIN authors au ON (s.submission_id = au.submission_id)');
+
+				$searchClauses = array();
+				$searchParams = array();
+				foreach($words as $word) {
+					$clause = '(';
+					$clause .= '(ss.setting_name = ? AND ss.setting_value LIKE ?)';
+					$searchParams[] = 'title';
+					$searchParams[] = '%' . $word . '%';
+					$clause .= ' OR (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)';
+					$searchParams[] = '%' . $word . '%';
+					$searchParams[] = '%' . $word . '%';
+					$searchParams[] = '%' . $word . '%';
+					$searchClauses[] = $clause . ')';
+				}
+				$query->where('(' . join(' AND ', $searchClauses) . ')', $searchParams);
+			}
+		}
+
+		$query->from($this->getFetchJoins(), $this->getFetchParameters());
+		$range = new DBResultRange($params['count'], $params['page']);
+		$result = $this->retrieveRange($query->getQuery(), $query->getParams(), $range);
+		$queryResults = new DAOResultFactory($result, $this, '_fromRow');
+
+		$submissions = $queryResults->toArray();
+		$items = array();
+		foreach($submissions as $submission) {
+			$items[] = $submission->toArray();
+		}
+
+		$data = array(
+			'items' => $items,
+			'maxItems' => (int) $queryResults->getCount(),
+			'page' => $queryResults->getPage(),
+			'pageCount' => $queryResults->getPageCount(),
+		);
+
+		HookRegistry::call('api::submission::get::result', array(&$data, $queryResults, $submissions, $params, $caller, $contextId));
+
+		return $data;
+	}
+
+
+	/**
 	 * Retrieve a submission by ID.
 	 * @param $submissionId int
 	 * @param $contextId int optional

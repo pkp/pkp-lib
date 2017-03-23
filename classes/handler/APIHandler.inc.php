@@ -12,10 +12,11 @@
  *
  * @brief Base request API handler
  */
-
+AppLocale::requireComponents(LOCALE_COMPONENT_PKP_API);
 import('lib.pkp.classes.handler.PKPHandler');
 
 use \Slim\App;
+import('lib.pkp.classes.core.APIResponse');
 
 class APIHandler extends PKPHandler {
 	protected $_app;
@@ -39,9 +40,14 @@ class APIHandler extends PKPHandler {
 	/**
 	 * Constructor
 	 */
-	function APIHandler() {
+	function __construct() {
 		parent::__construct();
-		$this->_app = new \Slim\App;
+		$this->_app = new \Slim\App([
+			// Load custom response handler
+			'response' => function($c) {
+				return new APIResponse();
+			}
+		]);
 		$this->_request = Application::getRequest();
 		$this->setupEndpoints();
 	}

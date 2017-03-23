@@ -229,7 +229,7 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 		// Update the review round status.
 		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 		$reviewRound = $reviewRoundDao->getById($reviewAssignment->getReviewRoundId());
-		$reviewAssignments = $reviewAssignmentDao->getByReviewRoundId($reviewRound->getId(), true);
+		$reviewAssignments = $reviewAssignmentDao->getByReviewRoundId($reviewRound->getId());
 		$reviewRoundDao->updateStatus($reviewRound, $reviewAssignments);
 
 		// Update "all reviews in" notification.

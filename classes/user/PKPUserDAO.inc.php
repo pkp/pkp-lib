@@ -270,7 +270,7 @@ class PKPUserDAO extends DAO {
 				LEFT JOIN review_assignments rac ON (rac.reviewer_id = u.user_id AND rac.date_notified IS NOT NULL AND rac.date_completed IS NOT NULL)
 				LEFT JOIN review_assignments raf ON (raf.reviewer_id = u.user_id)
 				LEFT JOIN review_assignments ran ON (ran.reviewer_id = u.user_id AND ran.review_id > raf.review_id)
-				LEFT JOIN review_assignments rai ON (rai.reviewer_id = u.user_id AND rai.date_notified IS NOT NULL AND rai.date_completed IS NULL AND rai.cancelled = 0 AND rai.declined = 0 AND rai.replaced = 0)
+				LEFT JOIN review_assignments rai ON (rai.reviewer_id = u.user_id AND rai.date_notified IS NOT NULL AND rai.date_completed IS NULL AND rai.declined = 0 AND rai.replaced = 0)
 			WHERE	ras.review_id IS NULL
 				AND ran.review_id IS NULL' .
 				($reviewRound !== null ? ' AND rac.submission_id = ? AND rac.stage_id = ? AND rac.round < ?':'') .

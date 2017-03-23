@@ -40,12 +40,62 @@ class DashboardHandler extends Handler {
 	 * @param $args array
 	 */
 	function index($args, $request) {
-		if ($request->getContext()) {
-			$templateMgr = TemplateManager::getManager($request);
-			$this->setupTemplate($request);
-			return $templateMgr->display('dashboard/index.tpl');
+		if (!$request->getContext()) {
+			$request->redirect(null, 'user');
 		}
-		$request->redirect(null, 'user');
+
+		$templateMgr = TemplateManager::getManager($request);
+		$this->setupTemplate($request);
+
+		$currentUser = $request->getUser();
+
+		import('lib.pkp.controllers.list.submissions.SubmissionListHandler');
+
+		// My Queue
+		$myQueueListHandler = new SubmissionListHandler(array(
+			'title' => 'common.queue.long.myAssigned',
+			'getParams' => array(
+				'status' => STATUS_QUEUED,
+				'assignedTo' => $request->getUser()->getId(),
+			),
+		));
+		$templateMgr->assign('myQueueListData', json_encode($myQueueListHandler->getConfig()));
+
+		if ($currentUser->hasRole(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), $request->getContext()->getId())) {
+
+			// Unassigned
+			$unassignedListHandler = new SubmissionListHandler(array(
+				'title' => 'common.queue.long.submissionsUnassigned',
+				'getParams' => array(
+					'status' => STATUS_QUEUED,
+					'unassigned' => true,
+				),
+			));
+			$templateMgr->assign('unassignedListData', json_encode($unassignedListHandler->getConfig()));
+
+			// Active
+			$activeListHandler = new SubmissionListHandler(array(
+				'title' => 'common.queue.long.active',
+				'getParams' => array(
+					'status' => STATUS_QUEUED,
+				),
+			));
+			$templateMgr->assign('activeListData', json_encode($activeListHandler->getConfig()));
+		}
+
+		if ($currentUser->hasRole(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_REVIEWER, ROLE_ID_ASSISTANT), $request->getContext()->getId())) {
+
+			// Archived
+			$archivedListHandler = new SubmissionListHandler(array(
+				'title' => 'common.queue.long.submissionsArchived',
+				'getParams' => array(
+					'status' => array(STATUS_DECLINED, STATUS_PUBLISHED),
+				),
+			));
+			$templateMgr->assign('archivedListData', json_encode($archivedListHandler->getConfig()));
+		}
+
+		return $templateMgr->display('dashboard/index.tpl');
 	}
 
 	/**
@@ -60,97 +110,6 @@ class DashboardHandler extends Handler {
 
 
 		return $templateMgr->fetchJson('dashboard/tasks.tpl');
-	}
-
-	/**
-	 * View myQueue tab
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function myQueue($args, $request) {
-		$templateMgr = TemplateManager::getManager($request);
-		$this->setupTemplate($request);
-
-		import('lib.pkp.controllers.list.submissions.SubmissionListHandler');
-		$submissionListHandler = new SubmissionListHandler(array(
-			'title' => 'common.queue.long.myAssigned',
-			'getParams' => array(
-				'status' => STATUS_QUEUED,
-				'assignedTo' => $request->getUser()->getId(),
-			),
-		));
-		$templateMgr->assign('submissionListData', json_encode($submissionListHandler->getConfig()));
-
-		return $templateMgr->fetchJson('dashboard/myQueue.tpl');
-	}
-
-	/**
-	 * View unassigned tab
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function unassigned($args, $request) {
-		$templateMgr = TemplateManager::getManager($request);
-		$this->setupTemplate($request);
-
-		import('lib.pkp.controllers.list.submissions.SubmissionListHandler');
-		$submissionListHandler = new SubmissionListHandler(array(
-			'title' => 'common.queue.long.submissionsUnassigned',
-			'getParams' => array(
-				'status' => STATUS_QUEUED,
-				'unassigned' => true,
-			),
-		));
-
-		$templateMgr->assign('submissionListData', json_encode($submissionListHandler->getConfig()));
-
-		return $templateMgr->fetchJson('dashboard/myQueue.tpl');
-	}
-
-	/**
-	 * View active submissions tab
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function active($args, $request) {
-		$templateMgr = TemplateManager::getManager($request);
-		$this->setupTemplate($request);
-
-		import('lib.pkp.controllers.list.submissions.SubmissionListHandler');
-		$submissionListHandler = new SubmissionListHandler(array(
-			'title' => 'common.queue.long.active',
-			'getParams' => array(
-				'status' => STATUS_QUEUED,
-			),
-		));
-		$templateMgr->assign('submissionListData', json_encode($submissionListHandler->getConfig()));
-
-		return $templateMgr->fetchJson('dashboard/active.tpl');
-	}
-
-	/**
-	 * View archived submissions tab
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function archives($args, $request) {
-		$templateMgr = TemplateManager::getManager($request);
-		$this->setupTemplate($request);
-
-		import('lib.pkp.controllers.list.submissions.SubmissionListHandler');
-		$submissionListHandler = new SubmissionListHandler(array(
-			'title' => 'common.queue.long.submissionsArchived',
-			'getParams' => array(
-				'status' => array(STATUS_DECLINED, STATUS_PUBLISHED),
-			),
-		));
-		$templateMgr->assign('submissionListData', json_encode($submissionListHandler->getConfig()));
-
-		return $templateMgr->fetchJson('dashboard/archives.tpl');
 	}
 
 	/**

@@ -17,17 +17,62 @@
 </script>
 <div id="dashboardTabs" class="pkp_controllers_tab">
 	<ul>
-		<li><a name="myQueue" href="{url op="myQueue"}">{translate key="dashboard.myQueue"}</a></li>
+		<li><a name="myQueue" href="#myQueue">{translate key="dashboard.myQueue"}</a></li>
 		{if array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), (array)$userRoles)}
-			<li><a name="unassigned" href="{url op="unassigned"}">{translate key="common.queue.long.submissionsUnassigned"}</a></li>
-		{/if}
-		{if array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), (array)$userRoles)}
-			<li><a name="active" href="{url op="active"}">{translate key="common.queue.long.active"}</a></li>
+			<li><a name="unassigned" href="#unassigned">{translate key="common.queue.long.submissionsUnassigned"}</a></li>
+			<li><a name="active" href="#active">{translate key="common.queue.long.active"}</a></li>
 		{/if}
 		{if array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_REVIEWER, ROLE_ID_ASSISTANT), (array)$userRoles)}
-			<li><a name="archives" href="{url op="archives"}">{translate key="navigation.archives"}</a></li>
+			<li><a name="archives" href="#archived">{translate key="navigation.archives"}</a></li>
 		{/if}
 	</ul>
+	<div id="myQueue">
+		{help file="submissions.md" section="my-queue" class="pkp_help_tab"}
+		<div class="pkp_content_panel">
+			{assign var="uuid" value=""|uniqid|escape}
+			<div id="my-submission-list-handler-{$uuid}">
+				<script type="text/javascript">
+					pkp.registry.init('my-submission-list-handler-{$uuid}', 'SubmissionsListPanel', {$myQueueListData});
+				</script>
+			</div>
+		</div>
+	</div>
+	{if array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), (array)$userRoles)}
+		<div id="unassigned">
+			<div class="pkp_content_panel">
+				{assign var="uuid" value=""|uniqid|escape}
+				<div id="unassigned-list-handler-{$uuid}">
+					<script type="text/javascript">
+						pkp.registry.init('unassigned-list-handler-{$uuid}', 'SubmissionsListPanel', {$unassignedListData});
+					</script>
+				</div>
+			</div>
+		</div>
+		<div id="active">
+			{help file="submissions.md" section="active" class="pkp_help_tab"}
+			<div class="pkp_content_panel">
+				{assign var="uuid" value=""|uniqid|escape}
+				<div id="active-list-handler-{$uuid}">
+					<script type="text/javascript">
+						pkp.registry.init('active-list-handler-{$uuid}', 'SubmissionsListPanel', {$activeListData});
+					</script>
+				</div>
+			</div>
+		</div>
+	{/if}
+	{if array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_REVIEWER, ROLE_ID_ASSISTANT), (array)$userRoles)}
+		<div id="archived">
+			{help file="submissions.md" section="archives" class="pkp_help_tab"}
+			<div class="pkp_content_panel">
+				{assign var="uuid" value=""|uniqid|escape}
+				<div id="archived-list-handler-{$uuid}">
+					<script type="text/javascript">
+						pkp.registry.init('archived-list-handler-{$uuid}', 'SubmissionsListPanel', {$archivedListData});
+					</script>
+				</div>
+			</div>
+		</div>
+	{/if}
 </div>
 
 {include file="common/footer.tpl"}

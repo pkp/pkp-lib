@@ -16,22 +16,30 @@
 import('lib.pkp.controllers.list.ListHandler');
 import('lib.pkp.classes.db.DBResultRange');
 
-abstract class SubmissionListHandler extends ListHandler {
+class SubmissionListHandler extends ListHandler {
+
 	/**
-	 * Component path
+	 * Count of items to retrieve in initial page/request
 	 *
-	 * Used to generate component URLs.
+	 * @param int
+	 */
+	public $_count = 20;
+
+	/**
+	 * Query parameters to pass with every GET request
+	 *
+	 * @param array
+	 */
+	public $_getParams = array();
+
+	/**
+	 * API endpoint path
+	 *
+	 * Used to generate URLs to API endpoints for this component.
 	 *
 	 * @param string
 	 */
-	public $_componentPath = 'list.submissions.SubmissionListHandler';
-
-	/**
-	 * Pagination object for the list
-	 *
-	 * @param DBResultRange
-	 */
-	public $_range = null;
+	public $_apiPath = 'submissions';
 
 	/**
 	 * Initialize the handler with config parameters
@@ -41,68 +49,23 @@ abstract class SubmissionListHandler extends ListHandler {
 	public function init( $args = array() ) {
 		parent::init($args);
 
-		$count = isset($args['count']) ? (int) $args['count'] : 20;
-		$page = isset($args['page']) ? (int) $args['page'] : 1;
-
-		$this->_range = new DBResultRange($count, $page);
+		$this->_count = isset($args['count']) ? (int) $args['count'] : $this->_count;
+		$this->_getParams = isset($args['getParams']) ? $args['getParams'] : $this->_getParams;
 	}
-
-	/**
-	 * Define the routes this component supports
-	 *
-	 * @return array Routes supported by this component
-	 */
-	public function setRoutes() {
-
-		$this->addRoute('get', array(
-			'methods' => array('GET'),
-			'roleAccess' => array(
-				ROLE_ID_SITE_ADMIN,
-				ROLE_ID_MANAGER,
-			),
-		));
-
-		$this->addRoute('delete', array(
-			'methods' => array('POST'),
-			'roleAccess' => array(
-				ROLE_ID_MANAGER,
-			),
-		));
-
-		return $this->_routes;
-	}
-
-	/**
-	 * Add a submission access policy, which prevents authors and assistants
-	 * from accessing routes for submissions they're not assigned to.
-	 *
-	 * @see PKPHandler::authorize
-	 */
-	public function authorize($request, &$args, $roleAssignments) {
-		$router = $request->getRouter();
-		$operation = $router->getRequestedOp($request);
-
-		if ($operation === 'delete') {
-			import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
-			// id: query param where the request's submission id can be found
-			$this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments, 'id'));
-		}
-
-		return parent::authorize($request, $args, $roleAssignments);
-	}
-
 
 	/**
 	 * Retrieve the configuration data to be used when initializing this
 	 * handler on the frontend
 	 *
-	 * return array Configuration data
+	 * @return array Configuration data
 	 */
 	public function getConfig() {
 
-		$config = parent::getConfig();
-
 		$request = Application::getRequest();
+
+		$config = array();
+
+		$config['collection'] = $this->getItems();
 
 		// URL to add a new submission
 		$config['addUrl'] = $request->getDispatcher()->url(
@@ -124,12 +87,17 @@ abstract class SubmissionListHandler extends ListHandler {
 			array('submissionId' => '__id__')
 		);
 
-		// Initialize the DBResultRange
-		$config['config']['range'] = $this->_range->toArray();
+		$config['apiPath'] = $this->_apiPath;
+
+		$config['count'] = $this->_count;
+		$config['page'] = 1;
+
+		$config['getParams'] = $this->_getParams;
 
 		// Load grid localisation files
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID);
 
+		$config['i18n']['title'] = __($this->_title);
 		$config['i18n']['add'] = __('submission.submit.newSubmissionSingle');
 		$config['i18n']['search'] = __('common.search');
 		$config['i18n']['itemCount'] = __('submission.list.count');
@@ -148,17 +116,6 @@ abstract class SubmissionListHandler extends ListHandler {
 		$config['csrfToken'] = $request->getSession()->getCSRFToken();
 
 		return $config;
-	}
-
-	/**
-	 * API Route: Get all submissions assigned to author
-	 *
-	 * @param array $args None supported at this time
-	 * @param Request $request
-	 */
-	public function get($args, $request) {
-		echo json_encode($this->getItems($args));
-		exit();
 	}
 
 	/**
@@ -188,5 +145,29 @@ abstract class SubmissionListHandler extends ListHandler {
 		$json = DAO::getDataChangedEvent($submission->getId());
 		$json->setGlobalEvent('submissionDeleted', array('id' => $submission->getId()));
 		return $json;
+	}
+
+	/**
+	 * Helper function to retrieve items
+	 *
+	 * @return array Items requested
+	 */
+	public function getItems() {
+
+		$params = array_merge(
+			array(
+				'count' => $this->_count,
+				'page' => $this->_page,
+			),
+			$this->_getParams
+		);
+
+		$submissionDao = Application::getSubmissionDAO();
+
+		return $submissionDao->get(
+			$this,
+			$params,
+			Application::getRequest()->getContext()->getId()
+		);
 	}
 }

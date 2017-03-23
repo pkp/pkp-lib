@@ -112,7 +112,6 @@ class DashboardHandler extends Handler {
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
 
-
 		return $templateMgr->fetchJson('dashboard/tasks.tpl');
 	}
 

@@ -139,6 +139,7 @@ export default {
 		 *
 		 * @return bool
 		 */
+<<<<<<< HEAD
 		currentUserIsReviewer: function() {
 			var isReviewer = false;
 			_.each(this.submission.reviewAssignments, function(review) {
@@ -167,6 +168,10 @@ export default {
 		 */
 		activeStage: function() {
 			return _.findWhere(this.submission.stages, {isActiveStage: true});
+=======
+		currentUserCanDelete: function() {
+			return false; // @todo
+>>>>>>> 038d191... pkp/pkp-lib#2163 Initial implementation of submissions list using the REST API
 		},
 
 		/**

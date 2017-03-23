@@ -20,7 +20,6 @@
 				@deleteSubmission="deleteSubmission"
 				@openInfoCenter="openInfoCenter"
 				:submission="item"
-				:config="config"
 				:i18n="i18n"
 			/>
 		</ul>
@@ -49,15 +48,30 @@ export default _.extend({}, ListPanel, {
 	components: _.extend({}, ListPanel.components, {
 		SubmissionsListItem,
 	}),
+	data: function() {
+		return {
+			id: '',
+			collection: {
+				items: [],
+				maxItems: null,
+			},
+			searchPhrase: '',
+			isLoading: false,
+			isSearching: false,
+			count: 20,
+			page: 1,
+			apiPath: '',
+			getParams: {},
+			i18n: {},
+			addUrl: '',
+		};
+	},
 	methods: _.extend({}, ListPanel.methods, {
 		/**
 		 * Delete a submission
 		 */
 		deleteSubmission: function(submissionId) {
-
-			if (!_.has(this.config.routes, 'delete')) {
-				return;
-			}
+			return; // @todo
 
 			// Initialize a confirmation modal before deleting
 			var opts = {

@@ -45,6 +45,7 @@ class UserFormHelper {
 		$authorUserGroups = $reviewerUserGroups = $readerUserGroups = array();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		foreach ($contexts as $context) {
+			if ($context->getSetting('disableUserReg')) continue;
 			$reviewerUserGroups[$context->getId()] = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_REVIEWER)->toArray();
 			$authorUserGroups[$context->getId()] = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_AUTHOR)->toArray();
 			$readerUserGroups[$context->getId()] = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_READER)->toArray();
@@ -66,6 +67,8 @@ class UserFormHelper {
 		$contextDao = Application::getContextDAO();
 		$contexts = $contextDao->getAll(true);
 		while ($context = $contexts->next()) {
+			if ($context->getSetting('disableUserReg')) continue;
+
 			foreach (array(
 				array(
 					'roleId' => ROLE_ID_REVIEWER,

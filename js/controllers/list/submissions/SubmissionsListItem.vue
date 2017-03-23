@@ -66,7 +66,7 @@
 <script>
 export default {
 	name: 'SubmissionsListItem',
-	props: ['submission', 'config', 'i18n'],
+	props: ['submission', 'i18n'],
 	computed: {
 		/**
 		 * The appropriate URL to access the submission workflow for the current
@@ -93,7 +93,7 @@ export default {
 		 * @return bool
 		 */
 		currentUserCanDelete: function() {
-			return _.intersection(this.config.routes.delete.roleAccess, $.pkp.currentUser.accessRoles).length;
+			return false; // @todo
 		},
 
 		/**

@@ -51,9 +51,6 @@ class PKPRequest {
 	/** @var string user agent */
 	var $_userAgent;
 
-	/** @var array current user's roles */
-	var $_currentUserRoleIds;
-
 
 	/**
 	 * get the router instance
@@ -582,28 +579,6 @@ class PKPRequest {
 		}
 
 		return $user;
-	}
-
-	/**
-	 * Check if the current user has a current role
-	 *
-	 * @param string $role Role to check for.
-	 * @return bool
-	 */
-	function currentUserHasRole($role) {
-
-		if (!isset($this->_currentUserRoleIds)) {
-			$currentUser = $this->getUser();
-			$currentContext = $this->getContext();
-			$roleDao = DAORegistry::getDAO('RoleDAO');
-			$currentUserRoles = $roleDao->getByUserId($currentUser->getId(), $currentContext->getId());
-			$this->_currentUserRoleIds = array();
-			foreach ($currentUserRoles as $currentUserRole) {
-				$this->_currentUserRoleIds[] = $currentUserRole->getId();
-			}
-		}
-
-		return in_array($role, $this->_currentUserRoleIds);
 	}
 
 	/**

@@ -39,7 +39,7 @@ var VueRegistry = {
 		var args = _.extend({}, pkp.controllers[type],
 			{
 				el: '#' + id,
-				data: _.extend(data, { id: id }),
+				data: _.extend(pkp.controllers[type].data(), data, { id: id }),
 			}
 		);
 

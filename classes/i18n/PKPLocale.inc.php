@@ -57,6 +57,7 @@ define('LOCALE_COMPONENT_PKP_GRID',		0x00000008);
 define('LOCALE_COMPONENT_PKP_DEFAULT',		0x00000009);
 define('LOCALE_COMPONENT_PKP_EDITOR',		0x0000000A);
 define('LOCALE_COMPONENT_PKP_REVIEWER',		0x0000000B);
+define('LOCALE_COMPONENT_PKP_API',			0x00000107);
 
 // Application-specific locale components
 define('LOCALE_COMPONENT_APP_COMMON',		0x00000100);
@@ -190,6 +191,7 @@ class PKPLocale {
 			LOCALE_COMPONENT_PKP_USER => $baseDir . 'user.xml',
 			LOCALE_COMPONENT_PKP_GRID => $baseDir . 'grid.xml',
 			LOCALE_COMPONENT_PKP_DEFAULT => $baseDir . 'default.xml',
+			LOCALE_COMPONENT_PKP_API => $baseDir . 'api.xml',
 		);
 	}
 

@@ -21,7 +21,9 @@
 
 
 import('lib.pkp.classes.db.DBConnection');
+import('lib.pkp.classes.db.DBQueryBuilder');
 import('lib.pkp.classes.db.DAOResultFactory');
+import('lib.pkp.classes.db.DBResultRange');
 import('lib.pkp.classes.core.DataObject');
 
 define('SORT_DIRECTION_ASC', 0x00001);

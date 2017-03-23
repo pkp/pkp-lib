@@ -70,6 +70,7 @@ class DashboardHandler extends Handler {
 					'status' => STATUS_QUEUED,
 					'unassigned' => true,
 				),
+				'lazyLoad' => true,
 			));
 			$templateMgr->assign('unassignedListData', json_encode($unassignedListHandler->getConfig()));
 
@@ -79,6 +80,7 @@ class DashboardHandler extends Handler {
 				'getParams' => array(
 					'status' => STATUS_QUEUED,
 				),
+				'lazyLoad' => true,
 			));
 			$templateMgr->assign('activeListData', json_encode($activeListHandler->getConfig()));
 		}
@@ -91,6 +93,7 @@ class DashboardHandler extends Handler {
 				'getParams' => array(
 					'status' => array(STATUS_DECLINED, STATUS_PUBLISHED),
 				),
+				'lazyLoad' => true,
 			));
 			$templateMgr->assign('archivedListData', json_encode($archivedListHandler->getConfig()));
 		}

@@ -85,18 +85,16 @@ class DashboardHandler extends Handler {
 			$templateMgr->assign('activeListData', json_encode($activeListHandler->getConfig()));
 		}
 
-		if ($currentUser->hasRole(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_REVIEWER, ROLE_ID_ASSISTANT), $request->getContext()->getId())) {
-
-			// Archived
-			$archivedListHandler = new SubmissionListHandler(array(
-				'title' => 'common.queue.long.submissionsArchived',
-				'getParams' => array(
-					'status' => array(STATUS_DECLINED, STATUS_PUBLISHED),
-				),
-				'lazyLoad' => true,
-			));
-			$templateMgr->assign('archivedListData', json_encode($archivedListHandler->getConfig()));
-		}
+		// Archived
+		$archivedListHandler = new SubmissionListHandler(array(
+			'title' => 'common.queue.long.submissionsArchived',
+			'getParams' => array(
+				'status' => array(STATUS_DECLINED, STATUS_PUBLISHED),
+				'assignedTo' => $currentUser->hasRole(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), $request->getContext()->getId()) ? null : $currentUser->getId(),
+			),
+			'lazyLoad' => true,
+		));
+		$templateMgr->assign('archivedListData', json_encode($archivedListHandler->getConfig()));
 
 		return $templateMgr->display('dashboard/index.tpl');
 	}

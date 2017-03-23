@@ -114,7 +114,7 @@ class RegistrationForm extends Form {
 
 		// If a context exists, opt the user into reader and author roles in
 		// that context by default.
-		if ($request->getContext()) {
+		if ($request->getContext() && !$context->getSetting('disableUserReg')) {
 			$context = $request->getContext();
 			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 

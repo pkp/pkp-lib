@@ -29,7 +29,10 @@ export default {
 			searchPhrase: '',
 			isLoading: false,
 			isSearching: false,
-			config: {},
+			count: 20,
+			page: 1,
+			apiPath: '',
+			getParams: {},
 			i18n: {},
 		};
 	},
@@ -70,19 +73,16 @@ export default {
 		},
 
 		/**
-		 * Refresh the items in the list. This ListPanel must have a defined
+		 * Get items for the list. This ListPanel must have a defined
 		 * `get` route to execute this method.
 		 *
 		 * @param string statusIndicator The key for the data which should be
 		 *  toggled while this action is being performed. Default: `isLoading`
 		 *  corresponds with this.isLoading. The data referenced must be a bool
+		 * @param string handleResponse How to handle the response. `append` to
+		 *  add to the collection. Default: null will replace the collection.
 		 */
-		refresh: function(statusIndicator) {
-
-			if (typeof this.config.routes.get === 'undefined') {
-				console.log('List refresh requested but no get route specified');
-				return;
-			}
+		get: function(statusIndicator, handleResponse) {
 
 			if (typeof statusIndicator === 'undefined') {
 				statusIndicator = 'isLoading';
@@ -92,21 +92,35 @@ export default {
 
 			var self = this;
 			$.get(
-				this.config.routes.get.url,
-				{
-					searchPhrase: this.searchPhrase,
-					range: this.config.range,
-				},
+				$.pkp.app.apiBaseUrl + '/' + this.apiPath,
+				_.extend(
+					{},
+					this.getParams,
+					{
+						searchPhrase: this.searchPhrase,
+						count: this.count,
+						page: this.page,
+					},
+				),
 				function(r) {
-
 					self[statusIndicator] = false;
 
 					if (typeof r === 'undefined') {
-						console.log('No response received from refresh request in ListPanel');
+						console.log('No response received from get request in ListPanel');
 						return false;
 					}
 
-					self.collection = JSON.parse(r);
+					if (handleResponse === 'append') {
+						var existingItemIds = _.pluck(self.items, 'id');
+						_.each(r.items, function(item) {
+							if (existingItemIds.indexOf(item.id) < 0) {
+								self.collection.items.push(item);
+							}
+						})
+						self.collection.maxItems = r.maxItems;
+					} else {
+						self.collection = r;
+					}
 				}
 			);
 		},
@@ -115,42 +129,8 @@ export default {
 		 * Load more items in the list
 		 */
 		loadMore: function() {
-			this.isLoading = true;
-
-			if (typeof this.config.routes.get === 'undefined') {
-				console.log('List loadMore requested but no get route specified');
-				return;
-			}
-
-			this.config.range.page++;
-
-			var self = this;
-			$.get(
-				this.config.routes.get.url,
-				{
-					searchPhrase: this.searchPhrase,
-					range: this.config.range,
-				},
-				function(r) {
-
-					self.isLoading = false;
-
-					if (typeof r === 'undefined') {
-						console.log('No response received from laodMore request in ListPanel');
-						return false;
-					}
-
-					var result = JSON.parse(r),
-						existingItemIds = _.pluck(self.items, 'id');
-
-					_.each(result.items, function(item) {
-						if (existingItemIds.indexOf(item.id) < 0) {
-							self.collection.items.push(item);
-						}
-					})
-					self.collection.maxItems = result.maxItems;
-				}
-			);
+			this.page++;
+			this.get('isLoading', 'append');
 		},
 	},
 	mounted: function() {
@@ -161,8 +141,8 @@ export default {
 			if (newVal === oldVal) {
 				return;
 			}
-			this.config.range.page = 1;
-			this.refresh('isSearching');
+			this.page = 1;
+			this.get('isSearching');
 		});
 	}
 }

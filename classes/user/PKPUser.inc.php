@@ -21,6 +21,19 @@
 import('lib.pkp.classes.identity.Identity');
 
 class PKPUser extends Identity {
+	/**
+	 * Roles assigned to this user grouped by context
+	 *
+	 * @param array
+	 */
+	protected $_roles = array();
+
+	/**
+	 * Constructor
+	 */
+	function __construct() {
+		parent::__construct();
+	}
 
 	//
 	// Get/set methods
@@ -377,6 +390,62 @@ class PKPUser extends Identity {
 		if ($p = $this->getPhone()) $signature .= '<br/>' . __('user.phone') . ' ' . htmlspecialchars($p);
 		$signature .= '<br/>' . htmlspecialchars($this->getEmail());
 		return $signature;
+	}
+
+	/**
+	 * Check if this user has a role in a context
+	 *
+	 * @param int|array $roles Role(s) to check for
+	 * @param int $contextId The context to check for roles in.
+	 * @return bool
+	 */
+	public function hasRole($roles, $contextId) {
+
+		$contextRoles = $this->getRoles($contextId);
+
+		if (empty($contextRoles)) {
+			return false;
+		}
+
+		if (!is_array($roles)) {
+			$roles = array($roles);
+		}
+
+		foreach($contextRoles as $contextRole) {
+			if (in_array((int) $contextRole->getId(), $roles)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	 * Get this user's roles in a context
+	 *
+	 * @param int $contextId The context to retrieve roles in.
+	 * @param bool $noCache Force the roles to be retrieved from the database
+	 * @return array
+	 */
+	public function getRoles($contextId, $noCache = false) {
+
+		if ($noCache || empty($this->_roles[$contextId])) {
+			import('lib.pkp.classes.security.RoleDAO');
+			$userRolesDao = DAORegistry::getDAO('RoleDAO');
+			$this->setRoles($userRolesDao->getByUserId($this->getId(), $contextId), $contextId);
+		}
+
+		return isset($this->_roles[$contextId]) ? $this->_roles[$contextId] : array();
+	}
+
+	/**
+	 * Set this user's roles in a context
+	 *
+	 * @param array $roles The roles to assign this user
+	 * @param int $contextId The context to assign these roles
+	 */
+	public function setRoles($roles, $contextId) {
+		$this->_roles[$contextId] = $roles;
 	}
 }
 

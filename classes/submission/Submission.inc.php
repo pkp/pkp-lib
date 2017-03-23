@@ -847,7 +847,6 @@ abstract class Submission extends DataObject {
 				STATUS_QUEUED => 'submissions.queued',
 				STATUS_PUBLISHED => 'submissions.published',
 				STATUS_DECLINED => 'submissions.declined',
-				STATUS_INCOMPLETE => 'submissions.incomplete'
 			);
 		}
 		return $statusMap;

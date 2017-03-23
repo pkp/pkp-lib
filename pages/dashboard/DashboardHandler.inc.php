@@ -22,7 +22,7 @@ class DashboardHandler extends Handler {
 		parent::__construct();
 
 		$this->addRoleAssignment(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_AUTHOR, ROLE_ID_REVIEWER, ROLE_ID_ASSISTANT),
-				array('index', 'tasks', 'myQueue', 'active', 'archives'));
+				array('index', 'tasks', 'myQueue', 'unassigned', 'active', 'archives'));
 	}
 
 	/**
@@ -72,29 +72,38 @@ class DashboardHandler extends Handler {
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
 
-		// Get all the contexts in the system, to determine which 'new submission' entry point we display
-		$contextDao = Application::getContextDAO(); /* @var $contextDao ContextDAO */
-		$contexts = $contextDao->getAll();
-
-		// Check each context to see if user has access to it.
-		$user = $request->getUser();
-		$roleDao = DAORegistry::getDAO('RoleDAO');
-		$allContextsUserRoles = $roleDao->getByUserIdGroupedByContext($user->getId());
-		$userRolesThatCanSubmit = array(ROLE_ID_AUTHOR, ROLE_ID_ASSISTANT, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR);
-		$accessibleContexts = array();
-		while ($context = $contexts->next()) {
-			if (array_key_exists($context->getId(), $allContextsUserRoles)) {
-				$contextUserRoles = array_keys($allContextsUserRoles[$context->getId()]);
-				if (array_intersect($userRolesThatCanSubmit, $contextUserRoles)) {
-					$accessibleContexts[] = $context;
-				}
-			}
-		}
-
-		import('lib.pkp.controllers.list.submissions.MySubmissionListHandler');
-		$submissionListHandler = new MySubmissionListHandler(array(
+		import('lib.pkp.controllers.list.submissions.SubmissionListHandler');
+		$submissionListHandler = new SubmissionListHandler(array(
 			'title' => 'common.queue.long.myAssigned',
+			'getParams' => array(
+				'status' => STATUS_QUEUED,
+				'assignedTo' => $request->getUser()->getId(),
+			),
 		));
+		$templateMgr->assign('submissionListData', json_encode($submissionListHandler->getConfig()));
+
+		return $templateMgr->fetchJson('dashboard/myQueue.tpl');
+	}
+
+	/**
+	 * View unassigned tab
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
+	function unassigned($args, $request) {
+		$templateMgr = TemplateManager::getManager($request);
+		$this->setupTemplate($request);
+
+		import('lib.pkp.controllers.list.submissions.SubmissionListHandler');
+		$submissionListHandler = new SubmissionListHandler(array(
+			'title' => 'common.queue.long.submissionsUnassigned',
+			'getParams' => array(
+				'status' => STATUS_QUEUED,
+				'unassigned' => true,
+			),
+		));
+
 		$templateMgr->assign('submissionListData', json_encode($submissionListHandler->getConfig()));
 
 		return $templateMgr->fetchJson('dashboard/myQueue.tpl');
@@ -110,11 +119,15 @@ class DashboardHandler extends Handler {
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
 
-		import('lib.pkp.controllers.list.submissions.ActiveSubmissionListHandler');
-		$submissionListHandler = new ActiveSubmissionListHandler(array(
+		import('lib.pkp.controllers.list.submissions.SubmissionListHandler');
+		$submissionListHandler = new SubmissionListHandler(array(
 			'title' => 'common.queue.long.active',
+			'getParams' => array(
+				'status' => STATUS_QUEUED,
+			),
 		));
 		$templateMgr->assign('submissionListData', json_encode($submissionListHandler->getConfig()));
+
 		return $templateMgr->fetchJson('dashboard/active.tpl');
 	}
 
@@ -128,11 +141,15 @@ class DashboardHandler extends Handler {
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
 
-		import('lib.pkp.controllers.list.submissions.ArchivedSubmissionListHandler');
-		$submissionListHandler = new ArchivedSubmissionListHandler(array(
+		import('lib.pkp.controllers.list.submissions.SubmissionListHandler');
+		$submissionListHandler = new SubmissionListHandler(array(
 			'title' => 'common.queue.long.submissionsArchived',
+			'getParams' => array(
+				'status' => array(STATUS_DECLINED, STATUS_PUBLISHED),
+			),
 		));
 		$templateMgr->assign('submissionListData', json_encode($submissionListHandler->getConfig()));
+
 		return $templateMgr->fetchJson('dashboard/archives.tpl');
 	}
 

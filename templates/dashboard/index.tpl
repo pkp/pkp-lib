@@ -19,6 +19,9 @@
 	<ul>
 		<li><a name="myQueue" href="{url op="myQueue"}">{translate key="dashboard.myQueue"}</a></li>
 		{if array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), (array)$userRoles)}
+			<li><a name="unassigned" href="{url op="unassigned"}">{translate key="common.queue.long.submissionsUnassigned"}</a></li>
+		{/if}
+		{if array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), (array)$userRoles)}
 			<li><a name="active" href="{url op="active"}">{translate key="common.queue.long.active"}</a></li>
 		{/if}
 		{if array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_REVIEWER, ROLE_ID_ASSISTANT), (array)$userRoles)}

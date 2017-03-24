@@ -237,7 +237,7 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 
 		// Check if the user should be considered as reviewer.
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
-		$reviewAssignment = $reviewAssignmentDao->getLastReviewRoundReviewAssignmentByReviewer($submission->getId(), $request->getUser()->getId());
+		$reviewAssignment = $reviewAssignmentDao->getLastReviewRoundReviewAssignmentByReviewer($submission->getId(), $user->getId());
 		if ($reviewAssignment) return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'reviewer', 'submission', $submission->getId());
 
 		return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'workflow', $stageName?$stageName:'access', $submission->getId());

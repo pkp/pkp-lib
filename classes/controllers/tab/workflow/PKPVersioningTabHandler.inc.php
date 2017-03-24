@@ -50,44 +50,25 @@ class PKPVersioningTabHandler extends Handler {
 	function newVersion($args, $request){
 		$submissionId = (int)$request->getUserVar('submissionId');
 		$submissionDao = Application::getSubmissionDAO();
-		$submissionRevision = $submissionDao->getLatestRevisionId($submissionId);
+		$oldVersion = $submissionDao->getLatestRevisionId($submissionId);
+
 		// get data of the old version
-		$submission = $submissionDao->getById($submissionId, null, false, $submissionRevision);
-		// authors
+		$submission = $submissionDao->getById($submissionId, null, false, $oldVersion);
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
-		$authors = $authorDao->getBySubmissionId($submissionId, true, false, $submissionRevision);
-		// galleys
-		import('classes.article.ArticleGalley');
-		$articleGalleyDao = DAORegistry::getDAO('ArticleGalleyDAO');
-		$articleGalleys = $articleGalleyDao->getBySubmissionId($submissionId, null, $submissionRevision);
-		$galleys = $articleGalleys->toArray();
+		$authors = $authorDao->getBySubmissionId($submissionId, true, false, $oldVersion);
 
-		// update submission version and remove publication date
-		$submissionRevision++;
-		$submission->setData('submissionRevision', $submissionRevision);
+		// save new submission version without publication date
+		$newVersion = $oldVersion+1;
+		$submission->setData('submissionRevision', $newVersion);
 		$submission->setDatePublished(null);
-
-		// save new submission version
 		$submissionDao->updateObject($submission);
 
 		// copy the authors from old version to new version
 		foreach($authors as $author) {
 			$authorId = (int)$author->getId();
-			$author->setVersion($submissionRevision);
+			$author->setVersion($newVersion);
 			$authorDao->insertObject($author, true);
 			$newAuthorId = (int)$authorDao->getInsertId();
-		}
-
-		// create new galley versions
-		foreach($galleys as $galley) {
-			// copy file and link copy to galley version
-			if($galley->getFile()){
-				$context = $request->getContext();
-				$oldFile = $galley->getFile();
-				$fileStage = $oldFile->getFileStage();
-				$newFileId = $this->copyFile($context, $oldFile, $fileStage);
-				$articleGalleyDao->addFile($galley->getId(), $newFileId, $galley->getCurrentVersionId());
-			}
 		}
 
 		// reload page to display new version
@@ -113,16 +94,6 @@ class PKPVersioningTabHandler extends Handler {
 	}
 
 	/**
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function versioning($args, $request) {
-		return $this->_version($args, $request);
-	}
-
-
-	/**
 	 * @see PKPHandler::setupTemplate
 	 */
 	function setupTemplate($request) {
@@ -130,18 +101,15 @@ class PKPVersioningTabHandler extends Handler {
 		parent::setupTemplate($request);
 	}
 
-
-	//
-	// Protected helper methods.
-	//
 	/**
-	 * Internal function to handle version info (tab content).
+	 * Handle version info (tab content).
 	 * @param $request PKPRequest
 	 * @param $args array
 	 * @return JSONMessage JSON object
 	 */
-	protected function _version($args, $request) {
+	function versioning($args, $request) {
 		$this->setupTemplate($request);
+		$templateMgr = TemplateManager::getManager($request);
 
 		// Retrieve the authorized submission, stage id and submission revision.
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
@@ -177,22 +145,6 @@ class PKPVersioningTabHandler extends Handler {
 			__('submission.production.editMetadata')
 		);
 		$templateMgr->assign('editMetadataLinkAction', $editMetadataLinkAction);
-
-		// Create schedule for publication link action.
-		$schedulePublicationLinkAction = new LinkAction(
-			'schedulePublication',
-			new AjaxModal(
-				$dispatcher->url(
-					$request, ROUTE_COMPONENT, null,
-					'tab.issueEntry.IssueEntryTabHandler',
-					'publicationMetadata', null,
-					array('submissionId' => $submission->getId(), 'stageId' => $stageId, 'submissionRevision' => $submissionRevision)
-				),
-				__('submission.issueEntry.publicationMetadata')
-			),
-			__('editor.article.publishVersion')
-		);
-		$templateMgr->assign('schedulePublicationLinkAction', $schedulePublicationLinkAction);
 
 		return $templateMgr->fetchJson('workflow/version.tpl');
 	}

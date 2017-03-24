@@ -100,9 +100,10 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 */
 	function _fromRow($row, $submissionRevision = null) {
 		$submission = $this->newDataObject();
+		$submissionRevision = $submissionRevision ? $submissionRevision : $this->getLatestRevisionId($row['submission_id']);
 
 		$submission->setId($row['submission_id']);
-		$submission->setSubmissionRevision($submissionRevision ? $submissionRevision : $this->getLatestRevisionId($row['submission_id']));
+		$submission->setSubmissionRevision($submissionRevision);
 		$submission->setContextId($row['context_id']);
 		$submission->setLocale($row['locale']);
 		$submission->setStageId($row['stage_id']);
@@ -150,7 +151,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	}
 
 	/**
-	 * Get the current revision id for a submission
+	 * Get the latest revision id for a submission
 	 * @param $submissionId int
 	 * @param $contextId int
 	 * @return int

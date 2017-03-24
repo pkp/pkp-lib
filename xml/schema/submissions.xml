@@ -19,11 +19,11 @@
 	  -->
 	<table name="authors">
 		<field name="author_id" type="I8">
-			<KEY />
 			<AUTOINCREMENT/>
 		</field>
 		<field name="version" type="I8">
-			<KEY />
+			<NOTNULL/>
+			<DEFAULT VALUE="1"/>
 		</field>
 		<field name="submission_id" type="I8">
 			<NOTNULL/>
@@ -57,6 +57,11 @@
 		<descr>Author metadata for submissions.</descr>
 		<index name="authors_submission_id">
 			<col>submission_id</col>
+		</index>
+		<index name="authors_pkey">
+			<col>author_id</col>
+			<col>version</col>
+			<UNIQUE/>
 		</index>
 	</table>
 

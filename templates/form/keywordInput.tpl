@@ -52,7 +52,7 @@
 			{if $FBV_label_content}<span>{$FBV_label_content}</span>{/if}
 			<div class="localization_popover">
 				{foreach from=$formLocales key=thisFormLocale item=thisFormLocaleName}{if $formLocale != $thisFormLocale}
-					<ul class="multilingual_extra flag flag_{$thisFormLocale|escape}" id="{$thisFormLocale|escape:jqselector}-{$FBV_id|escape}{$uniqId}">
+					<ul class="multilingual_extra flag flag_{$thisFormLocale|escape}" id="{$thisFormLocale}-{$FBV_id|escape}{$uniqId}">
 						{if $FBV_currentKeywords}{foreach from=$FBV_currentKeywords.$thisFormLocale item=currentKeyword}<li>{$currentKeyword|escape}</li>{/foreach}{/if}
 					</ul>
 				{/if}{/foreach}

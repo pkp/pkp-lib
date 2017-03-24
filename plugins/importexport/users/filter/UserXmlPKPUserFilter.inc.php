@@ -133,7 +133,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 
 			// Insert reviewing interests, now that there is a userId.
 			$interestNodeList = $node->getElementsByTagNameNS($deployment->getNamespace(), 'review_interests');
-			if ($interestNodeList->length == 0) {
+			if ($interestNodeList->length == 1) {
 				$n = $interestNodeList->item(0);
 				if ($n) {
 					$interests = preg_split('/,\s*/', $n->textContent);

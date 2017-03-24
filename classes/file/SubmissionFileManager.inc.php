@@ -95,6 +95,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 			// Send the file to the user.
 			$filePath = $submissionFile->getFilePath();
 			$mediaType = $submissionFile->getFileType();
+			if(!isset($filename)) $filename = $submissionFile->getClientFileName();
 			$returner = parent::downloadFile($filePath, $mediaType, $inline, $filename);
 		}
 

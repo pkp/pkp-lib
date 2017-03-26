@@ -12,7 +12,7 @@
   * $Id$
   -->
 
-<locale name="tr_TR" full_name = "Türkiye Türkçesi">
+<locale name="tr_TR" full_name = "Türkçe">
 	<message key="user.affiliation">Kurum</message>
 	<message key="user.affiliations">Kurumlar</message>
 	<message key="user.biography">Öz geçmiş</message>

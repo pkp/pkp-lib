@@ -13,7 +13,7 @@
   -->
 
 <locale name="tr_TR" full_name = "Türkiye Türkçesi">
-	<message key="admin.adminFunctions">Yönetsel işlevler</message>
+	<message key="admin.adminFunctions">Yönetsel İşlevler</message>
 	<message key="admin.auth.confirmDelete">Bu yetkilendirme kaynağını kalıcı olarak silmek istediğinizden emin misiniz?</message>
 	<message key="admin.auth.create">Yetkilendirme kaynağı yarat</message>
 	<message key="admin.auth.noneCreated">Hiç yetkilendirme kaynağı tanımlanmamış.</message>
@@ -39,9 +39,9 @@
 	<message key="admin.languages.uninstall">Dili kaldır</message>
 	<message key="admin.phpInfo">Genişletilmiş PHP Bilgisi</message>
 	<message key="admin.server.apacheVersion">Apache sürümü</message>
-	<message key="admin.server.dbDriver">veritabanı sürücüsü</message>
+	<message key="admin.server.dbDriver">Veritabanı sürücüsü</message>
 	<message key="admin.server.dbVersion">Veritabanı sunucu sürümü</message>
-	<message key="admin.serverInformationDescription"><![CDATA[temel işletme sistemi ve sunucu yazılım sürümleri. Tıkla <span class="highlight">Uzatılmış PHP bilgisi</span> bu sunucunun PHP yapılanmasının uzatılmış ayrıntılarını görüntülemek için.]]></message>
+	<message key="admin.serverInformationDescription"><![CDATA[Temel işletme sistemi ve sunucu yazılım sürümleri. Tıkla <span class="highlight">Uzatılmış PHP bilgisi</span> bu sunucunun PHP yapılanmasının uzatılmış ayrıntılarını görüntülemek için.]]></message>
 	<message key="admin.serverInformation">Sunucu bilgisi</message>
 	<message key="admin.server.phpVersion">PHP sürümü</message>
 	<message key="admin.server.platform">Sunucu İşletim Sistemi</message>
@@ -67,7 +67,7 @@
 	<message key="admin.version.checkForUpdates">Güncelleme için kontrol edin</message>
 	<message key="admin.version.downloadPackage">İndir</message>
 	<message key="admin.version.downloadPatch">Yamayı İndir</message>
-	<message key="admin.versionHistory">sürüm geçmişi</message>
+	<message key="admin.versionHistory">Sürüm geçmişi</message>
 	<message key="admin.version.latest">En son sürüm</message>
 	<message key="admin.versionMajor">Büyük</message>
 	<message key="admin.versionMinor">Küçük</message>
@@ -76,4 +76,9 @@
 	<message key="admin.version.updateAvailable">Güncel sürümü mevcuttur</message>
 	<message key="admin.version.upToDate">Sisteminiz güncel</message>
 	<message key="admin.version">Sürüm</message>
+	<message key="admin.languages.installLanguages">Dilleri Yönet</message>
+	<message key="admin.settings.homeHeaderImage.altText">Site Logosu</message>
+	<message key="admin.settings.homeHeaderImageInvalid">Hatalı siste logo görseli biçimi. Kabul edilebilir biçimler: .gif, .jpg veya .png.</message>
+	<message key="admin.settings.siteStyleSheetInvalid">Hatalı site stil biçimi. Kabul edilebilir biçim: .css.</message>
+	<message key="admin.settings.siteStyleSheet">Site stil sayfası</message>
 </locale>

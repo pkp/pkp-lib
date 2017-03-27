@@ -13,7 +13,7 @@
 
 <div class="page page_announcements">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="announcement.announcements"}
-
+	{$announcementsIntroduction}
 	{include file="frontend/components/announcements.tpl"}
 </div><!-- .page -->
 

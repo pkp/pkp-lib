@@ -540,6 +540,11 @@ class FileManager {
 			$fileExtension = 'txt';
 		}
 
+		// consider .tar.gz extension
+		if (strtolower(substr($fileName, -7)) == '.tar.gz') {
+			$fileExtension = substr($fileName, -6);
+		}
+
 		return $fileExtension;
 	}
 
@@ -552,7 +557,7 @@ class FileManager {
 	function decompressFile($filePath, &$errorMsg) {
 		return $this->_executeGzip($filePath, true, $errorMsg);
 	}
-	
+
 	/**
 	 * Compress passed file.
 	 * @param $filePath string The file to be compressed.
@@ -574,7 +579,7 @@ class FileManager {
 	 * needs to be decompressed.
 	 * @param $errorMsg string
 	 * @return false|string The file path that was created with the operation
-	 * or false in case of fail. 
+	 * or false in case of fail.
 	 */
 	function _executeGzip($filePath, $decompress = false, &$errorMsg) {
 		PKPLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN);

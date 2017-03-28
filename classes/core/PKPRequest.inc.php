@@ -563,15 +563,18 @@ class PKPRequest {
 	function &getUser() {
 		PKPRequest::_checkThis();
 
+		$user =& Registry::get('user', true, null);
+
 		// Reference required
 		if (is_a($this->getRouter(), 'APIRouter') && ($token = $this->getUserVar('apiToken'))) {
-			$userDao = DAORegistry::getDAO('UserDAO');
-			$user = $userDao->getBySetting('apiKey', $token);
+			if ($user === null) {
+				$userDao = DAORegistry::getDAO('UserDAO');
+				$user = $userDao->getBySetting('apiKey', $token);
+			}
 			if (!$user->getData('apiKeyEnabled')) return null;
 			return $user;
 		}
 
-		$user =& Registry::get('user', true, null);
 		if ($user === null) {
 			$sessionManager = SessionManager::getManager();
 			$session = $sessionManager->getUserSession();

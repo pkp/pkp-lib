@@ -10,8 +10,7 @@
  *
  * @brief TinyMCE helper methods
  */
-(function($) {
-
+(function ($) {
 
 	/**
 	 * Helper singleton
@@ -27,6 +26,7 @@
 	//
 	// Public static methods.
 	//
+
 	/**
 	 * Get the list of variables and their descriptions for a specified field.
 	 * @param {string} selector The textarea field's selector.
@@ -48,6 +48,26 @@
 		return [];
 	};
 
+	/**
+	 * Get the list of variables and their types for a specified field.
+	 * @param {string} selector The textarea field's selector.
+	 * @return {?Object} Map of variableName: variableType entries.
+	 */
+	$.pkp.classes.TinyMCEHelper.prototype.getVariableTypesMap =
+			function (selector) {
+
+				var variablesTypeEncoded = $(selector).attr('data-variablesType');
+
+				// If we found the data attribute, decode and return it.
+				if (variablesTypeEncoded !== undefined) {
+					return $.parseJSON(decodeURIComponent(
+							/** @type {string} */(variablesTypeEncoded)));
+				}
+
+				// If we could not find the data attribute, return an empty list.
+				return [];
+			};
+
 
 	/**
 	 * Generate an element to represent a PKP variable (e.g. primary contact name
@@ -57,9 +77,18 @@
 	 * @return {jQueryObject} JQuery DOM representing the PKP variable.
 	 */
 	$.pkp.classes.TinyMCEHelper.prototype.getVariableElement =
-			function(variableSymbolic, variableName) {
+			function(selector, variableSymbolic, variableName) {
+				var variableTypes = $.pkp.classes.TinyMCEHelper.prototype.getVariableTypesMap(selector);
 
-		return $('<div/>').append($('<span/>')
+				// Check if there is a variable type that should be treated otherwise
+				if (variableTypes[variableSymbolic] != undefined) {
+					var variableType = variableTypes[variableSymbolic];
+					if (variableType == $.pkp.cons.INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT) {
+						return $('<div/>').append($('<span/>').text(variableName));
+					}
+				}
+				
+				return $('<div/>').append($('<span/>')
 				.addClass('pkpTag mceNonEditable')
 				.attr('data-symbolic', variableSymbolic)
 				.text(variableName));

@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file pages/login/PKPLoginHandler.inc.php
+ * @file pages/login/LoginHandler.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPLoginHandler
+ * @class LoginHandler
  * @ingroup pages_login
  *
  * @brief Handle login/logout requests.
@@ -16,14 +16,7 @@
 
 import('classes.handler.Handler');
 
-class PKPLoginHandler extends Handler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
+class LoginHandler extends Handler {
 	/**
 	 * @copydoc PKPHandler::authorize()
 	 */
@@ -65,7 +58,7 @@ class PKPLoginHandler extends Handler {
 		));
 
 		// For force_login_ssl with base_url[...]: make sure SSL used for login form
-		$loginUrl = $this->_getLoginUrl($request);
+		$loginUrl = $request->url(null, 'login', 'signIn');
 		if (Config::getVar('security', 'force_login_ssl')) {
 			$loginUrl = PKPString::regexp_replace('/^http:/', 'https:', $loginUrl);
 		}
@@ -76,10 +69,18 @@ class PKPLoginHandler extends Handler {
 
 	/**
 	 * After a login has completed, direct the user somewhere.
-	 * (May be extended by subclasses.)
 	 * @param $request PKPRequest
 	 */
 	function _redirectAfterLogin($request) {
+		$context = $this->getTargetContext($request);
+		// If there's a context, send them to the dashboard after login.
+		if ($context && $request->getUserVar('source') == '' && array_intersect(
+			array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_AUTHOR, ROLE_ID_REVIEWER, ROLE_ID_ASSISTANT),
+			(array) $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES)
+		)) {
+			return $request->redirect($context->getPath(), 'dashboard');
+		}
+
 		$request->redirectHome();
 	}
 
@@ -386,6 +387,14 @@ class PKPLoginHandler extends Handler {
 	protected function sendHome($request) {
 		if ($request->getContext()) $request->redirect(null, 'submissions');
 		else $request->redirect(null, 'user');
+	}
+
+	/**
+	 * Configure the template for display.
+	 */
+	function setupTemplate($request) {
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_PKP_MANAGER);
+		parent::setupTemplate($request);
 	}
 }
 

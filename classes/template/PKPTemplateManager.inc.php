@@ -635,6 +635,7 @@ class PKPTemplateManager extends Smarty {
 
 		$application = PKPApplication::getApplication();
 		$context = $this->_request->getContext();
+		$contextPath = isset($context) ? '/' . $context->getPath() : '';
 
 		// Instantiate the namespace
 		$output = '$.pkp = $.pkp || {};';
@@ -643,7 +644,7 @@ class PKPTemplateManager extends Smarty {
 		import('lib.pkp.classes.security.Role');
 		$app_data = array(
 			'baseUrl' => $this->_request->getBaseUrl(),
-			'apiBaseUrl' => $this->_request->getBaseUrl() . '/index.php/' . $context->getPath() . '/api/v1',
+			'apiBaseUrl' => $this->_request->getBaseUrl() . '/index.php' . $contextPath . '/api/v1',
 			'accessRoles' => array(
 				'manager' => ROLE_ID_MANAGER,
 				'siteAdmin' => ROLE_ID_SITE_ADMIN,

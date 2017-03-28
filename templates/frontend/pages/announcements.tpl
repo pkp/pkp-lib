@@ -15,6 +15,8 @@
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="announcement.announcements"}
 	{include file="frontend/components/editLink.tpl" page="management" op="settings" path="website" anchor="announcements" sectionTitleKey="announcement.announcements"}
 
+	{$announcementsIntroduction}
+
 	{include file="frontend/components/announcements.tpl"}
 </div><!-- .page -->
 

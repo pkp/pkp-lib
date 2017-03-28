@@ -496,23 +496,29 @@ class DataObject {
 	public function getOutputParams($defaultParams, $params = null) {
 
 		$compiled = is_null($params) ? $defaultParams : array_merge($defaultParams, $params);
-		$currentUser = Application::getRequest()->getUser();
 
-		// @todo don't use a closure
-		$output = array_filter($compiled, function($param) {
-
-			if ($param === true) {
-				return true;
-			} elseif (is_array($param) && !is_null($currentUser)) {
-				if ($currentUser->hasRole($role)) {
-					return true;
-				}
-			}
-
-			return false;
-		});
+		$output = array_filter($compiled, array($this, '_filterOutputParams'));
 
 		return $output;
+	}
+
+	/**
+	 * Helper function to check roles for getOutputParams. Used by array_filter
+	 *
+	 * @params array $param
+	 */
+	public function _filterOutputParams($param) {
+		$currentUser = Application::getRequest()->getUser();
+
+		if ($param === true) {
+			return true;
+		} elseif (is_array($param) && !is_null($currentUser)) {
+			if ($currentUser->hasRole($param)) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	/**

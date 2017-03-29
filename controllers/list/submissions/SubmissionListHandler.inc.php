@@ -123,35 +123,6 @@ class SubmissionListHandler extends ListHandler {
 	}
 
 	/**
-	 * API Route: delete a submission
-	 *
-	 * @param $args int ID of the submission to delete
-	 * @param $request PKPRequest
-	 * return JSONMessage
-	 */
-	public function delete($args, $request) {
-
-		if (!$request->checkCSRF()) {
-			return new JSONMessage(false);
-		}
-
-		$submissionDao = Application::getSubmissionDAO();
-		$submission = $submissionDao->getById(
-			(int) $request->getUserVar('id')
-		);
-
-		if (!$submission) {
-			return new JSONMessage(false);
-		}
-
-		$submissionDao->deleteById($submission->getId());
-
-		$json = DAO::getDataChangedEvent($submission->getId());
-		$json->setGlobalEvent('submissionDeleted', array('id' => $submission->getId()));
-		return $json;
-	}
-
-	/**
 	 * Helper function to retrieve items
 	 *
 	 * @return array Items requested

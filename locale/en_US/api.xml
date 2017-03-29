@@ -13,4 +13,8 @@
 
 <locale name="en_US" full_name="U.S. English">
 	<message key="api.submissions.403.requestedOthersUnpublishedSubmissions">You can only view unpublished submissions to which you have been assigned.</message>
+	<message key="api.submissions.403.deleteSubmissionOutOfContext">You can not delete a submission that is not assigned to this context.</message>
+	<message key="api.submissions.403.unauthorizedDeleteSubmission">You do not have permission to delete this submission.</message>
+	<message key="api.submissions.404.resourceNotFound">The requested resource was not found.</message>
+	<message key="api.submissions.unknownError">An unexpected error has occurred. Please reload the page and try again.</message>
 </locale>

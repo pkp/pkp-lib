@@ -17,10 +17,10 @@
 		<ul class="pkpListPanel__items">
 			<submissions-list-item
 				v-for="item in collection.items"
-				@deleteSubmission="deleteSubmission"
-				@openInfoCenter="openInfoCenter"
 				:submission="item"
 				:i18n="i18n"
+				:apiPath="apiPath"
+				:infoUrl="infoUrl"
 			/>
 		</ul>
 		<div class="pkpListPanel__footer">
@@ -65,48 +65,9 @@ export default _.extend({}, ListPanel, {
 			i18n: {},
 			lazyLoad: false,
 			addUrl: '',
+			infoUrl: '',
 		};
 	},
-	methods: _.extend({}, ListPanel.methods, {
-		/**
-		 * Delete a submission
-		 */
-		deleteSubmission: function(submissionId) {
-			return; // @todo
-
-			// Initialize a confirmation modal before deleting
-			var opts = {
-				title: this.i18n.delete,
-				okButton: this.i18n.ok,
-				cancelButton: this.i18n.cancel,
-				dialogText: this.i18n.confirmDelete,
-				remoteAction: this.config.routes.delete.url,
-				csrfToken: this.csrfToken,
-				postData: {
-					id: submissionId,
-				},
-			};
-
-			$('<div id="' + $.pkp.classes.Helper.uuid() + '" ' +
-					'class="pkp_modal pkpModalWrapper" tabindex="-1"></div>')
-				.pkpHandler('$.pkp.controllers.modal.RemoteActionConfirmationModalHandler', opts);
-		},
-
-		/**
-		 * Load a modal displaying history and notes of a submission
-		 */
-		openInfoCenter: function(submissionId, submissionTitle) {
-
-			var opts = {
-				title: submissionTitle,
-				url: this.infoUrl.replace('__id__', submissionId),
-			};
-
-			$('<div id="' + $.pkp.classes.Helper.uuid() + '" ' +
-					'class="pkp_modal pkpModalWrapper" tabindex="-1"></div>')
-				.pkpHandler('$.pkp.controllers.modal.AjaxModalHandler', opts);
-		},
-	}),
 	mounted: function() {
 
 		// Call the mounted function on parent component
@@ -117,14 +78,11 @@ export default _.extend({}, ListPanel, {
 
 		// Remove a submission from the list when it is deleted
 		pkp.eventBus.$on('submissionDeleted', function(data) {
-
 			if (!_.has(data, 'id')) {
 				return;
 			}
-
-			self.items = _.filter(self.items, function(item) {
-				return item.id != data.id;
-			});
+			self.collection.items = _.reject(self.collection.items, data);
+			self.collection.maxItems--;
 		});
 	},
 });

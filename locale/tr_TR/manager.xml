@@ -12,7 +12,7 @@
   * $Id$
   -->
 
-<locale name="tr_TR" full_name = "Türkiye Türkçesi">
+<locale name="tr_TR" full_name = "Türkçe">
 	<message key="manager.announcements">Duyurular</message>
 	<message key="manager.announcements.confirmDelete">Bu duyuruyu kalıcı olarak silmek istediğinizden emin misiniz?</message>
 	<message key="manager.announcements.create">Yeni duyuru oluştur</message>
@@ -39,16 +39,16 @@
 	<message key="manager.announcements.form.typeIdValid">Lütfen geçerli bir duyuru tipi seçiniz.</message>
 	<message key="manager.announcements.noneCreated">Duyuru oluşturulmadı.</message>
 	<message key="manager.announcements.title">Başlık</message>
-	<message key="manager.announcements.type">Tip</message>
-	<message key="manager.announcementTypes">Duyuru tipleri</message>
+	<message key="manager.announcements.type">Tür</message>
+	<message key="manager.announcementTypes">Duyuru Türleri</message>
 	<message key="manager.announcementTypes.confirmDelete">Dikkat! Bu Duyuru Tipi ve bu tip ile kayıtlı tüm duyurular silinecektir. Silmek itediğinizden emin misiniz?</message>
 	<message key="manager.announcementTypes.create">Duyuru Tipi Oluştur</message>
 	<message key="manager.announcementTypes.createTitle">Oluştur</message>
 	<message key="manager.announcementTypes.edit">Duyuru Tipini Düzenle</message>
 	<message key="manager.announcementTypes.editTitle">Düzenle</message>
-	<message key="manager.announcementTypes.form.saveAndCreateAnother">Kaydet ve başka oluştur</message>
+	<message key="manager.announcementTypes.form.saveAndCreateAnother">Kaydet ve Başka Oluştur</message>
 	<message key="manager.announcementTypes.form.typeNameExists">Bu isim ile Duyuru Tipi zaten var.</message>
-	<message key="manager.announcementTypes.form.typeName">Adı</message>
+	<message key="manager.announcementTypes.form.typeName">Ad</message>
 	<message key="manager.announcementTypes.form.typeNameRequired">Duyuru Tipi için bir isim gerekli.</message>
 	<message key="manager.announcementTypes.noneCreated">Duyuru Tipi oluşturulmadı.</message>
 	<message key="manager.announcementTypes.typeName">Duyuru Tipi</message>
@@ -89,7 +89,7 @@
 	<message key="manager.groups.membership.noUsers">Hiç kullanıcı bulunamadı.</message>
 	<message key="manager.groups.title">Başlık</message>
 	<message key="manager.importExport">Verilerin sistemden alınması/eklenmesi</message>
-	<message key="manager.languages.supportedLocalesInstructions">Tüm sayfalarda dil seçimi olanağı ile siteyi geliştirmek için desteklemek istediğiniz dilleri seçiniz. Dil seçimi menüsü yalnızca birden fazla dil desteği seçilir ise sayfalarda sunulacaktır. </message>
+	<message key="manager.languages.supportedLocalesInstructions">Tüm sayfalarda dil seçimi olanağı ile siteyi geliştirmek için desteklemek istediğiniz dilleri seçiniz. Dil seçimi menüsü yalnızca birden fazla dil desteği seçilir ise sayfalarda sunulacaktır.</message>
 	<message key="manager.people.authSource">Yetkilenme kaynağı</message>
 	<message key="manager.people.confirmUnenroll">Bu kullanıcı kayıt dışı kalsın mı?</message>
 	<message key="manager.people.createUser">Yeni kullanıcı oluştur</message>
@@ -112,15 +112,15 @@
 	<message key="manager.people.enrollSync">Eşzamanlı kayıt</message>
 	<message key="manager.people.enrollUserAs">Kullanıcıyı böyle kaydet</message>
 	<message key="manager.people.invalidUser">Üzgünüz, böyle bir kullanıcı yok.</message>
-	<message key="manager.people.mergeUser">Kullanıcıyı birleştir</message>
-	<message key="manager.people.mergeUsers.confirm">"{$oldUsername}" kullanıcının tüm hesabını "{$newUsername}" kullanıcısına taşımak istediğinizden emin misiniz? Bundan sonra "{$oldUsername}" kullanıcı adı ile hesap kalmayacaktır ve bu işlemin geri dönüşü yoktur.</message>
+	<message key="manager.people.mergeUser">Kullanıcı Birleştir</message>
+	<message key="manager.people.mergeUsers.confirm">"{$oldAccountCount}" kullanıcının tüm hesabını "{$newUsername}" kullanıcısına taşımak istediğinizden emin misiniz? Seçmiş olduğunuz {$oldAccountCount} kullanıcı adı ile hesap kalmayacaktır. Bu işlemin geri dönüşü yoktur.</message>
 	<message key="manager.people.mergeUsers">Kullanıcıları birleştir</message>
 	<message key="manager.people.noMatchingUsers">Eşleşmeyen kullanıcılar.</message>
 	<message key="manager.people.noneEnrolled">Kayıt olmamış kullanıcı.</message>
 	<message key="manager.people">Kişiler</message>
 	<message key="manager.people.remove">Çıkar</message>
 	<message key="manager.people.saveAndCreateAnotherUser">Kaydet ve başka bir kullanıcı oluştur</message>
-	<message key="manager.people.signInAs">Bu kişi gibi giriş yap: </message>
+	<message key="manager.people.signInAs">Bu kişi gibi giriş yap:</message>
 	<message key="manager.people.signInAsUser">Kullanıcı olarak giriş yap</message>
 	<message key="manager.people.syncUsers">Kullanıcı kaydını eşzamanlı yap</message>
 	<message key="manager.people.unenroll">Kayıt dışı bırak</message>

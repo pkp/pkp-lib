@@ -170,6 +170,9 @@ export default {
 					} else {
 						self.collection = r;
 					}
+				},
+				complete: function(r) {
+					self[statusIndicator] = false;
 				}
 			});
 		},

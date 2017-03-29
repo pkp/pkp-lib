@@ -139,7 +139,6 @@ export default {
 		 *
 		 * @return bool
 		 */
-<<<<<<< HEAD
 		currentUserIsReviewer: function() {
 			var isReviewer = false;
 			_.each(this.submission.reviewAssignments, function(review) {
@@ -168,10 +167,6 @@ export default {
 		 */
 		activeStage: function() {
 			return _.findWhere(this.submission.stages, {isActiveStage: true});
-=======
-		currentUserCanDelete: function() {
-			return false; // @todo
->>>>>>> 038d191... pkp/pkp-lib#2163 Initial implementation of submissions list using the REST API
 		},
 
 		/**
@@ -610,30 +605,88 @@ export default {
 
 			return '';
 		},
+
+		/**
+		 * Return a class to toggle the item mask
+		 *
+		 * @return string
+		 */
+		classMask: function() {
+			if (!this.mask) {
+				return '';
+			}
+			return '--' + this.mask;
+		},
 	},
 	methods: {
+
 		/**
-		 * Load the history and notes modal
+		 * Load a modal displaying history and notes of a submission
 		 */
-		emitInfoCenter: function(e) {
+		openInfoCenter: function(e) {
 
 			if (e instanceof Event) {
 				e.preventDefault();
 			}
 
-			this.$emit('openInfoCenter', this.submission.id, this.submission.title);
+			var opts = {
+				title: this.submission.title,
+				url: this.infoUrl.replace('__id__', this.submission.id),
+			};
+
+			$('<div id="' + $.pkp.classes.Helper.uuid() + '" ' +
+					'class="pkp_modal pkpModalWrapper" tabindex="-1"></div>')
+				.pkpHandler('$.pkp.controllers.modal.AjaxModalHandler', opts);
 		},
 
 		/**
-		 * Load the delete confirmation modal
+		 * Load a confirmation modal before deleting a submission
 		 */
-		emitDelete: function(e) {
+		deleteSubmissionPrompt: function(e) {
 
 			if (e instanceof Event) {
 				e.preventDefault();
 			}
 
-			this.$emit('deleteSubmission', this.submission.id);
+			var opts = {
+				title: this.i18n.delete,
+				okButton: this.i18n.ok,
+				cancelButton: this.i18n.cancel,
+				dialogText: this.i18n.confirmDelete,
+				callback: this.deleteSubmission,
+			};
+
+			$('<div id="' + $.pkp.classes.Helper.uuid() + '" ' +
+					'class="pkp_modal pkpModalWrapper" tabindex="-1"></div>')
+				.pkpHandler('$.pkp.controllers.modal.ConfirmationModalHandler', opts);
+		},
+
+		/**
+		 * Send a request to delete the submission and handle the response
+		 */
+		deleteSubmission: function() {
+			this.mask = 'deleting';
+
+			var self = this;
+			$.ajax({
+				url: $.pkp.app.apiBaseUrl + '/' + this.apiPath + '/' + this.submission.id,
+				type: 'DELETE',
+				error: this.ajaxErrorCallback,
+				success: function(r) {
+					self.mask = 'removed';
+					// Allow time for the removed CSS transition to display
+					setTimeout(function() {
+						pkp.eventBus.$emit('submissionDeleted', { id: self.submission.id });
+						self.mask = '';
+					}, 300);
+				},
+				complete: function(r) {
+					// Reset the mask in case there is an error
+					if (self.mask === 'deleting') {
+						self.mask = '';
+					}
+				}
+			});
 		},
 	},
 }

@@ -12,37 +12,37 @@
   * $Id$
   -->
 
-<locale name="tr_TR" full_name = "Türkiye Türkçesi">
+<locale name="tr_TR" full_name = "Türkçe">
 	<message key="installer.additionalLocales">Ekli diller</message>
-	<message key="installer.administratorAccount">Yönetici Hesabı </message>
+	<message key="installer.administratorAccount">Yönetici Hesabı</message>
 	<message key="installer.administratorAccountInstructions">Bu kullanıcı hesabı site yöneticisi olacaktır ve sisteme tam giriş yetkisi olacaktır. Ek kullanıcı hesapları yükleme sonrası oluşturulabilir.</message>
 	<message key="installer.checkNo"><![CDATA[<span class="formError">HAYIR</span>]]></message>
 	<message key="installer.checkYes">Evet</message>
 	<message key="installer.clientCharset">Müşteri öğe kümesi</message>
 	<message key="installer.clientCharsetInstructions">Hizmet vericiden veri gönderme ve almak için şifreleme.</message>
-	<message key="installer.configFileError"><![CDATA[The configuration file <tt>config.inc.php</tt> mevcut değil veya okunabilir değil.]]></message>
-	<message key="installer.connectionCharset">Bağlantı öğe kümesi</message>
-	<message key="installer.contentsOfConfigFile">Konfigürasyon dosyasının içerikleri </message>
-	<message key="installer.createDatabase">Yeni veritabanı oluştur </message>
-	<message key="installer.createDatabaseInstructions">Bu seçeneği kullanmak için veritabanı sisteminiz uzaktan kumandalı veritabanı sistemini desteklemeli ve kullanıcı hesabınız yeni veritabanı oluşturmak için uygun giriş izinlerine sahip olmalıdır. Eğer bu seçenek kullanıldığında yükleme başarısız olursa veritabanını sunucunuzda manuel olarak oluşturun ve bu seçenek işlemediğinde yükleyiciyi tekrar çalıştırın. </message>
-	<message key="installer.databaseCharset">Veritabanı öğe kümesi</message>
-	<message key="installer.databaseDriver">Veritabanı sürücüsü</message>
-	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Köşeli parentez içinde belirtilen veritabanı sürücüleri, gerekli olan PHP uzantısını göstermez ve eğer o seçilirse yüklenme muhtemelen başarısız olacaktır. </strong><br />yukarıda belirtilen desteklenmeyen veritabanı sürücülerinden her hangi biri yalnızca akademik amaçlar için listelenmiştir ve muhtemelen işlemeyecektir.]]></message>
+	<message key="installer.configFileError"><![CDATA[<tt>config.inc.php</tt> adlı konfigürasyon dosyası mevcut veya okunabilir değil.]]></message>
+	<message key="installer.connectionCharset">Bağlantı karakter seti</message>
+	<message key="installer.contentsOfConfigFile">Konfigürasyon dosyasının içerikleri</message>
+	<message key="installer.createDatabase">Yeni veri tabanı oluştur</message>
+	<message key="installer.createDatabaseInstructions">Bu seçeneği kullanmak için veri tabanı sisteminiz uzaktan kumandalı veri tabanı sistemini desteklemeli ve kullanıcı hesabınız yeni veri tabanı oluşturmak için uygun giriş izinlerine sahip olmalıdır. Eğer bu seçenek kullanıldığında yükleme başarısız olursa veri tabanını sunucunuzda manuel olarak oluşturun ve bu seçenek işlemediğinde yükleyiciyi tekrar çalıştırın.</message>
+	<message key="installer.databaseCharset">Veri tabanı karakter seti</message>
+	<message key="installer.databaseDriver">Veri tabanı sürücüsü</message>
+	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Köşeli parentez içinde belirtilen veri tabanı sürücüleri, gerekli olan PHP uzantısını göstermez ve eğer o seçilirse yüklenme muhtemelen başarısız olacaktır. </strong><br />yukarıda belirtilen desteklenmeyen veri tabanı sürücülerinden her hangi biri yalnızca akademik amaçlar için listelenmiştir ve muhtemelen işlemeyecektir.]]></message>
 	<message key="installer.databaseHost">Ana makine</message>
-	<message key="installer.databaseHostInstructions">TCP/IP yerine alan soketleri kullanarak bağlantı kurmak için ana makine adını boş bırakın. Bu durum MySQL ile gerekli değildir çünkü 'yerel makine' girilirse o otomatik olarak soketleri kullanacaktır, ancak PostgreSQL gibi diğer bazı veritabanı sunucuları ile kullanılması gerekir. </message>
-	<message key="installer.databaseName">Veritabanı adı</message>
+	<message key="installer.databaseHostInstructions">TCP/IP yerine alan soketleri kullanarak bağlantı kurmak için ana makine adını boş bırakın. Bu durum MySQL ile gerekli değildir çünkü 'yerel makine' girilirse o otomatik olarak soketleri kullanacaktır, ancak PostgreSQL gibi diğer bazı veri tabanı sunucuları ile kullanılması gerekir.</message>
+	<message key="installer.databaseName">Veri tabanı adı</message>
 	<message key="installer.databasePassword">Şifre</message>
-	<message key="installer.databaseSettings">Veritabanı Ayarları </message>
+	<message key="installer.databaseSettings">Veri Tabanı Ayarları</message>
 	<message key="installer.databaseUsername">Kullanıcı adı</message>
-	<message key="installer.encryptionInstructions">Eğer sisteminiz onu destekliyorsa SHA1 önerilir (PHP>=4.3.0 gerektirir) </message>
+	<message key="installer.encryptionInstructions"><![CDATA[Eğer sisteminiz onu destekliyorsa SHA1 önerilir (PHP>=4.3.0 gerektirir)]]></message>
 	<message key="installer.encryption">Şifre yazma şeması</message>
 	<message key="installer.filesDir">Yüklemeler için dizin</message>
 	<message key="installer.fileSettings">Dosya Ayarları</message>
 	<message key="installer.form.clientCharsetRequired">Bir müşteri öğe kümesi seçilmeli.</message>
-	<message key="installer.form.databaseDriverRequired">Bir veritabanı sürücüsü seçilmelidir.</message>
-	<message key="installer.form.databaseNameRequired">Veritabanı ismi gereklidir.</message>
+	<message key="installer.form.databaseDriverRequired">Bir veri tabanı sürücüsü seçilmelidir.</message>
+	<message key="installer.form.databaseNameRequired">Veri tabanı ismi gereklidir.</message>
 	<message key="installer.form.emailRequired">Yönetici hesabı için geçerli bir e-posta adresi gereklidir.</message>
-	<message key="installer.form.encryptionRequired">Kullanıcı şifrelerini oluşturmak için kullanılmak üzere algoritma seçilmelidir. </message>
+	<message key="installer.form.encryptionRequired">Kullanıcı şifrelerini oluşturmak için kullanılmak üzere algoritma seçilmelidir.</message>
 	<message key="installer.form.filesDirRequired">Yüklenen dosyaları saklamak için kullanılacak dzin.</message>
 	<message key="installer.form.localeRequired">Bir yer seçilmeli.</message>
 	<message key="installer.form.passwordRequired">Yönetici hesabı için bir şifre gereklidir.</message>
@@ -50,10 +50,10 @@
 	<message key="installer.form.separateMultiple">Çoklu değerleri tırnak işareti ile ayırın.</message>
 	<message key="installer.form.usernameAlphaNumeric">Yöneticinin kullanıcı adı yalnızca alfanümerik karakterleri, altçizgileri ve tire işaretlerini içerebilir ve mutlaka bir alfanümerik karakter ile başlayıp sonlanmalıdır.</message>
 	<message key="installer.form.usernameRequired">Yönetici hesabı için bir kullanıcı adı gereklidir.</message>
-	<message key="installer.installErrorsOccurred">Yükleme sırasında hata oluştu. </message>
-	<message key="installer.installFileError"><![CDATA[The installation file <tt>dbscripts/xml/install.xml</tt> mevcut değil veya okunabilir değil.]]></message>
+	<message key="installer.installErrorsOccurred">Yükleme sırasında hata oluştu.</message>
+	<message key="installer.installFileError"><![CDATA[<tt>dbscripts/xml/install.xml</tt> adlı yükleme dosyası mevcut veya okunabilir değil.]]></message>
 	<message key="installer.installFilesDirError">Yüklenen dosyalara özgü dizin mevcut değil veya yazılabilir değil.</message>
-	<message key="installer.installParseDBFileError"><![CDATA[Error parsing the database installation file <tt>{$file}</tt>.]]></message>
+	<message key="installer.installParseDBFileError"><![CDATA[<tt>{$file}</tt> adlı veri tabanı yükleme dosyası ayrıştırılırken hata oluştu.]]></message>
 	<message key="installer.locale">Kurulum dili yeri</message>
 	<message key="installer.localeSettings">Yerel Ayarlar</message>
 	<message key="installer.miscSettings">Diğer Ayarlar</message>
@@ -62,5 +62,11 @@
 	<message key="installer.publicFilesDirError">Genel dosya dizini mevcut değil veya yazılabilir değil.</message>
 	<message key="installer.releaseNotes">Sürüm Notları</message>
 	<message key="installer.securitySettings">Güvenlik Ayarları</message>
-	<message key="installer.skipFilesDir">Gerekli alt dizinleri oluşturmayın (yalnızca manuel yükleme için yaralıdır) </message>
+	<message key="installer.skipFilesDir">Gerekli alt dizinleri oluşturmayın (yalnızca manuel yükleme için yaralıdır)</message>
+	<message key="installer.connectionCharsetInstructions"><![CDATA[Veritabanına gönderilen ve alınan veri için kullanılacak şifreleme. Bu, istemci karakter kümesiyle aynı olmalıdır. Bu kabiliyetin yalnızca MySQL> = 4.1.1 veya PostgreSQL> = 7.1 ile desteklendiğini unutmayın. Veritabanı sunucunuz bu gereksinimleri karşılamıyorsa, "Geçerli değil" i seçin.]]></message>
+	<message key="installer.databaseCharsetInstructions"><![CDATA[Veritabanında saklanan veriler için kullanılacak kodlama. Bu kabiliyetin yalnızca MySQL> = 4.1.1 veya PostgreSQL> = 7.1 ile desteklendiğini unutmayın. Veritabanı sunucunuz bu gereksinimleri karşılamıyorsa, "Geçerli değil" i seçin.]]></message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>UYARI: PHP'nin geçerli sürümü kurulum için minimum gereksinimleri karşılamıyor. PHP'nin daha yeni bir sürümüne yükseltilmesi önerilir.</strong>]]></message>
+	<message key="installer.installerSQLStatements">Kurulum için SQL bildirimleri</message>
+	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[E-posta şablon dosyasını ayrıştırırken hata oluştu: <tt>{$file}</tt>.]]></message>
+	<message key="installer.locale.maybeIncomplete">İşaretli diller eksik olabilir.</message>
 </locale>

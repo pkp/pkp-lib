@@ -1243,6 +1243,7 @@ abstract class Submission extends DataObject {
 			'urlPublished' => true,
 			'urlAuthorDashboard' => true,
 			'urlReviewer' => true,
+			'urlIncomplete' => true,
 		);
 
 		HookRegistry::call('Article::toArray::defaultParams', array(&$defaultParams, $params, $this));
@@ -1296,6 +1297,7 @@ abstract class Submission extends DataObject {
 				case 'urlPublished':
 				case 'urlAuthorDashboard':
 				case 'urlReviewer':
+				case 'urlIncomplete':
 					$request = Application::getRequest();
 					$dispatcher = $request->getDispatcher();
 					if ($param === 'urlWorkflow') {
@@ -1333,6 +1335,16 @@ abstract class Submission extends DataObject {
 							'reviewer',
 							'submission',
 							$this->getId()
+						);
+					} elseif ($param === 'urlIncomplete') {
+						$output[$param] = $dispatcher->url(
+							$request,
+							ROUTE_PAGE,
+							null,
+							'submission',
+							'wizard',
+							$this->getSubmissionProgress(),
+							array('submissionId' => $this->getId())
 						);
 					}
 					break;

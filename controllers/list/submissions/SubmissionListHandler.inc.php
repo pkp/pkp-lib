@@ -108,6 +108,7 @@ class SubmissionListHandler extends ListHandler {
 		$config['i18n']['itemsOfTotal'] = __('submission.list.itemsOfTotal');
 		$config['i18n']['loadMore'] = __('grid.action.moreItems');
 		$config['i18n']['loading'] = __('common.loading');
+		$config['i18n']['incomplete'] = __('submissions.incomplete');
 		$config['i18n']['delete'] = __('common.delete');
 		$config['i18n']['infoCenter'] = __('submission.list.infoCenter');
 		$config['i18n']['ok'] = __('common.ok');

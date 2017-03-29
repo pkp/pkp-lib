@@ -546,6 +546,11 @@ class FileManager {
 			$fileExtension = 'txt';
 		}
 
+		// consider .tar.gz extension
+		if (strtolower(substr($fileName, -7)) == '.tar.gz') {
+			$fileExtension = substr($fileName, -6);
+		}
+
 		return $fileExtension;
 	}
 

@@ -43,11 +43,12 @@ class SubmissionFileAssignedReviewerAccessPolicy extends SubmissionFileBaseAcces
 		$submissionFile = $this->getSubmissionFile($request);
 		if (!is_a($submissionFile, 'SubmissionFile')) return AUTHORIZATION_DENY;
 
+		$context = $request->getContext();
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
 		$reviewAssignments = $reviewAssignmentDao->getByUserId($user->getId());
 		$reviewFilesDao = DAORegistry::getDAO('ReviewFilesDAO');
 		foreach ($reviewAssignments as $reviewAssignment) {
-			if (!$reviewAssignment->getDateConfirmed()) continue;
+			if ($context->getSetting('restrictReviewerFileAccess') && !$reviewAssignment->getDateConfirmed()) continue;
 
 			if (
 				$submissionFile->getSubmissionId() == $reviewAssignment->getSubmissionId() &&

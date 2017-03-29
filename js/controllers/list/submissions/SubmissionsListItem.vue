@@ -37,7 +37,12 @@
 		<div v-else class="pkpListPanelItem--submission__stage">
 			<div class="pkpListPanelItem--submission__stageRow">
 				<div class="pkpListPanelItem--submission__stageLabel">
-					{{ submission.stage.label }}
+					<template v-if="submission.submissionProgress > 0">
+						{{ i18n.incomplete }}
+					</template>
+					<template v-else>
+						{{ submission.stage.label }}
+					</template>
 				</div>
 				<div class="pkpListPanelItem--submission__flags">
 					<span v-if="isReviewStage"  class="pkpListPanelItem--submission__flags--reviews" :class="classHighlightReviews">
@@ -89,6 +94,9 @@ export default {
 			if (pkp.userHasRole(['assistant', 'manager', 'siteAdmin', 'subeditor'])) {
 				return this.submission.urlWorkflow;
 			} else if (pkp.userHasRole(['author'])) {
+				if (this.submission.submissionProgress !== 0) {
+					return this.submission.urlIncomplete;
+				}
 				return this.submission.urlAuthorDashboard;
 			} else if (pkp.userHasRole(['reviewer'])) {
 				return this.submission.urlReviewer;

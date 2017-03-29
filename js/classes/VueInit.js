@@ -45,6 +45,31 @@ Vue.mixin({
 			}
 			return str;
 		},
+
+		/**
+		 * Display an error message from an ajax request
+		 *
+		 * This callback expects to be attached to the `error` param of the
+		 * jQuery $.ajax method. It can also be fired directly, but should have
+		 * a jQuery response object with the following:
+		 * {
+		 *   responseJSON: {
+		 *     error: 'localised.string.key',
+		 *     errorMessage: 'The string rendered into localised form for display',
+		 *   }
+		 * }
+		 *
+		 * @todo show errors in a nice notification
+		 * @param object r The response from jQuery's ajax request
+		 * @return null
+		 */
+		ajaxErrorCallback: function(r) {
+			if (_.has(r, 'responseJSON') && _.has(r.responseJSON, 'errorMessage')) {
+				alert(r.responseJSON.errorMessage);
+			} else {
+				alert($.pkp.locale.api_submissions_unknownError);
+			}
+		},
 	}
 });
 

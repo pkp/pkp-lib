@@ -447,10 +447,12 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * @return array
 	 */
 	function getJSLocaleKeys() {
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_API);
 		return array(
 			'form.dataHasChanged',
 			'common.close',
 			'search.noKeywordError',
+			'api.submissions.unknownError',
 		);
 	}
 

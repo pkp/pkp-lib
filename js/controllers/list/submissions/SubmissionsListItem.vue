@@ -416,13 +416,13 @@ export default {
 					// Allow time for the removed CSS transition to display
 					setTimeout(function() {
 						pkp.eventBus.$emit('submissionDeleted', { id: self.submission.id });
-						self.mask = '';
+						self.mask = null;
 					}, 300);
 				},
 				complete: function(r) {
 					// Reset the mask in case there is an error
 					if (self.mask === 'deleting') {
-						self.mask = '';
+						self.mask = null;
 					}
 				}
 			});

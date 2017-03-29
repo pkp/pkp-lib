@@ -1278,12 +1278,8 @@ abstract class Submission extends DataObject {
 					$output[$param] = $this->getStageDetails();
 					break;
 
-				case 'reviewRounds':
-					$output[$param] = $this->getReviewRounds();
-					break;
-
-				case 'reviewAssignments':
-					$output[$param] = $this->getReviewAssignments();
+				case 'submissionProgress':
+					$output[$param] = (int) $this->getSubmissionProgress();
 					break;
 
 				case 'section':

@@ -52,12 +52,17 @@
 				</div>
 			</div>
 			<div v-if="hasActions" class="pkpListPanelItem--submission__actions">
-				<a v-if="currentUserCanDelete" href="#" class="delete" @click="emitDelete">
+				<a v-if="currentUserCanDelete" href="#" class="delete" @click="deleteSubmissionPrompt">
 					{{ i18n.delete }}
 				</a>
-				<a v-if="currentUserCanViewInfoCenter" href="#" @click="emitInfoCenter">
+				<a v-if="currentUserCanViewInfoCenter" href="#" @click="openInfoCenter">
 					{{ i18n.infoCenter }}
 				</a>
+			</div>
+		</div>
+		<div class="pkpListPanelItem__mask" :class="classMask">
+			<div class="pkpListPanelItem__maskLabel">
+				<span v-if="mask === 'deleting'" class="pkp_spinner"></span>
 			</div>
 		</div>
 	</li>
@@ -66,7 +71,12 @@
 <script>
 export default {
 	name: 'SubmissionsListItem',
-	props: ['submission', 'i18n'],
+	props: ['submission', 'i18n', 'apiPath', 'infoUrl'],
+	data: function() {
+		return {
+			mask: null,
+		};
+	},
 	computed: {
 		/**
 		 * The appropriate URL to access the submission workflow for the current
@@ -93,6 +103,11 @@ export default {
 		 * @return bool
 		 */
 		currentUserCanDelete: function() {
+			if (pkp.userHasRole(['manager', 'siteAdmin'])) {
+				return true;
+			} else if (pkp.userHasRole('author') && this.submission.submissionProgress !== 0) {
+				return true;
+			}
 			return false; // @todo
 		},
 
@@ -329,30 +344,88 @@ export default {
 
 			return '';
 		},
+
+		/**
+		 * Return a class to toggle the item mask
+		 *
+		 * @return string
+		 */
+		classMask: function() {
+			if (!this.mask) {
+				return '';
+			}
+			return '--' + this.mask;
+		},
 	},
 	methods: {
+
 		/**
-		 * Load the history and notes modal
+		 * Load a modal displaying history and notes of a submission
 		 */
-		emitInfoCenter: function(e) {
+		openInfoCenter: function(e) {
 
 			if (e instanceof Event) {
 				e.preventDefault();
 			}
 
-			this.$emit('openInfoCenter', this.submission.id, this.submission.title);
+			var opts = {
+				title: this.submission.title,
+				url: this.infoUrl.replace('__id__', this.submission.id),
+			};
+
+			$('<div id="' + $.pkp.classes.Helper.uuid() + '" ' +
+					'class="pkp_modal pkpModalWrapper" tabindex="-1"></div>')
+				.pkpHandler('$.pkp.controllers.modal.AjaxModalHandler', opts);
 		},
 
 		/**
-		 * Load the delete confirmation modal
+		 * Load a confirmation modal before deleting a submission
 		 */
-		emitDelete: function(e) {
+		deleteSubmissionPrompt: function(e) {
 
 			if (e instanceof Event) {
 				e.preventDefault();
 			}
 
-			this.$emit('deleteSubmission', this.submission.id);
+			var opts = {
+				title: this.i18n.delete,
+				okButton: this.i18n.ok,
+				cancelButton: this.i18n.cancel,
+				dialogText: this.i18n.confirmDelete,
+				callback: this.deleteSubmission,
+			};
+
+			$('<div id="' + $.pkp.classes.Helper.uuid() + '" ' +
+					'class="pkp_modal pkpModalWrapper" tabindex="-1"></div>')
+				.pkpHandler('$.pkp.controllers.modal.ConfirmationModalHandler', opts);
+		},
+
+		/**
+		 * Send a request to delete the submission and handle the response
+		 */
+		deleteSubmission: function() {
+			this.mask = 'deleting';
+
+			var self = this;
+			$.ajax({
+				url: $.pkp.app.apiBaseUrl + '/' + this.apiPath + '/' + this.submission.id,
+				type: 'DELETE',
+				error: this.ajaxErrorCallback,
+				success: function(r) {
+					self.mask = 'removed';
+					// Allow time for the removed CSS transition to display
+					setTimeout(function() {
+						pkp.eventBus.$emit('submissionDeleted', { id: self.submission.id });
+						self.mask = '';
+					}, 300);
+				},
+				complete: function(r) {
+					// Reset the mask in case there is an error
+					if (self.mask === 'deleting') {
+						self.mask = '';
+					}
+				}
+			});
 		},
 	},
 }

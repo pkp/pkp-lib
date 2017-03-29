@@ -30,11 +30,16 @@
 	 *    (or false for no button).
 	 *  - dialogText string the text to be displayed in the modal.
 	 *  - All options from the ModalHandler widget.
+	 *  - callback function A callback function to close when confirmed
+	 *  - callbackArgs object Arguments to pass to the callback function
 	 */
 	$.pkp.controllers.modal.ConfirmationModalHandler =
 			function($handledElement, options) {
 
 		this.parent($handledElement, options);
+
+		this.callback_ = options.callback || null;
+		this.callbackArgs_ = options.callbackArgs || null;
 
 		// Bind to the confirmation button
 		$handledElement.find('.pkpModalConfirmButton')
@@ -42,6 +47,27 @@
 	};
 	$.pkp.classes.Helper.inherits($.pkp.controllers.modal.ConfirmationModalHandler,
 			$.pkp.controllers.modal.ModalHandler);
+
+
+	//
+	// Private properties
+	//
+	/**
+	 * A callback to fire when confirmed
+	 * @private
+	 * @type {?function}
+	 */
+	$.pkp.controllers.modal.ConfirmationModalHandler.prototype.
+			callback_ = null;
+
+
+	/**
+	 * Arguments to pass to the callback function
+	 * @private
+	 * @type {?object}
+	 */
+	$.pkp.controllers.modal.ConfirmationModalHandler.prototype.
+			callbackArgs_ = null;
 
 
 	//
@@ -118,6 +144,12 @@
 
 		// The default implementation will simply close the modal.
 		this.modalClose(dialogElement);
+
+		if (this.callback_) {
+			this.callback_.call(null, this.callbackArgs_);
+		}
+
+		return false;
 	};
 
 

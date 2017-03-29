@@ -92,9 +92,10 @@ export default {
 			this[statusIndicator] = true;
 
 			var self = this;
-			$.get(
-				$.pkp.app.apiBaseUrl + '/' + this.apiPath,
-				_.extend(
+			$.ajax({
+				url: $.pkp.app.apiBaseUrl + '/' + this.apiPath,
+				type: 'GET',
+				data: _.extend(
 					{},
 					this.getParams,
 					{
@@ -103,13 +104,8 @@ export default {
 						page: this.page,
 					},
 				),
-				function(r) {
-					self[statusIndicator] = false;
-
-					if (typeof r === 'undefined') {
-						console.log('No response received from get request in ListPanel');
-						return false;
-					}
+				error: this.ajaxErrorCallback,
+				success: function(r) {
 
 					if (handleResponse === 'append') {
 						var existingItemIds = _.pluck(self.items, 'id');
@@ -122,8 +118,11 @@ export default {
 					} else {
 						self.collection = r;
 					}
+				},
+				complete: function(r) {
+					self[statusIndicator] = false;
 				}
-			);
+			});
 		},
 
 		/**

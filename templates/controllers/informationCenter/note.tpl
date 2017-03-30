@@ -33,9 +33,6 @@
 		</span>
 		{if ($notesDeletable && array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR), (array)$userRoles)) || $noteFileDownloadLink}
 			<div class="actions">
-				{if $noteFileDownloadLink}
-					{include file="linkAction/linkAction.tpl" action=$noteFileDownloadLink contextId=$note->getId()}
-				{/if}
 				{if $notesDeletable && array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR), (array)$userRoles)}
 					<form class="pkp_form" id="{$formId}" action="{url op="deleteNote" noteId=$noteId params=$linkParams}">
 						{csrf}
@@ -48,6 +45,9 @@
 		{/if}
 	</div>
 	<div class="message">
+		{if $noteFileDownloadLink}
+			{include file="linkAction/linkAction.tpl" action=$noteFileDownloadLink contextId=$note->getId()}
+		{/if}
 		{include file="controllers/revealMore.tpl" content=$note->getContents()|strip_unsafe_html}
 	</div>
 </div>

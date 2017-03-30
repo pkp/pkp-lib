@@ -104,11 +104,31 @@ abstract class InformationCenterHandler extends Handler {
 		$templateMgr = TemplateManager::getManager($request);
 		$noteDao = DAORegistry::getDAO('NoteDAO');
 		$user = $request->getUser();
+
+		// get submission note file, needed for legacy data
+		$noteFilesDownloadLink = array();
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+		import('lib.pkp.classes.submission.SubmissionFile');
+		import('lib.pkp.controllers.api.file.linkAction.DownloadFileLinkAction');
+		$notes = $noteDao->getByAssoc($this->_getAssocType(), $this->_getAssocId());
+		while ($note = $notes->next()) {
+			$submissionFiles = $submissionFileDao->getLatestRevisionsByAssocId(
+				ASSOC_TYPE_NOTE, $note->getId(),
+				$this->_getAssocId(),
+				SUBMISSION_FILE_NOTE
+			);
+			if (!empty($submissionFiles)) {
+				assert(count($submissionFiles) == 1);
+				$noteFilesDownloadLink[$note->getId()] = new DownloadFileLinkAction($request, array_shift($submissionFiles), $request->getUserVar('stageId'));
+			}
+		}
+
 		$templateMgr->assign(array(
 			'notes' => $noteDao->getByAssoc($this->_getAssocType(), $this->_getAssocId()),
 			'currentUserId' => $user->getId(),
 			'notesDeletable' => true,
-			'notesListId' => 'notesList'
+			'notesListId' => 'notesList',
+			'noteFilesDownloadLink' => $noteFilesDownloadLink,
 		));
 		$json = new JSONMessage(true, $templateMgr->fetch('controllers/informationCenter/notesList.tpl'));
 		$json->setEvent('dataChanged');

@@ -121,6 +121,7 @@
 	<message key="common.default">Default</message>
 	<message key="common.declined">Declined</message>
 	<message key="common.delete">Delete</message>
+	<message key="common.deleting">Deleting</message>
 	<message key="common.deleteSelection">Delete Selection</message>
 	<message key="common.designation">Designation</message>
 	<message key="common.description">Description</message>

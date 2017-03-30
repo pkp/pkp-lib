@@ -57,17 +57,29 @@
 				</div>
 			</div>
 			<div v-if="hasActions" class="pkpListPanelItem--submission__actions">
-				<a v-if="currentUserCanDelete" href="#" class="delete" @click="deleteSubmissionPrompt">
+				<a v-if="currentUserCanDelete" href="#" class="delete" @click.prevent="deleteSubmissionPrompt">
 					{{ i18n.delete }}
 				</a>
-				<a v-if="currentUserCanViewInfoCenter" href="#" @click="openInfoCenter">
+				<a v-if="currentUserCanViewInfoCenter" href="#" @click.prevent="openInfoCenter">
 					{{ i18n.infoCenter }}
 				</a>
 			</div>
 		</div>
 		<div class="pkpListPanelItem__mask" :class="classMask">
 			<div class="pkpListPanelItem__maskLabel">
-				<span v-if="mask === 'deleting'" class="pkp_spinner"></span>
+				<template v-if="mask === 'confirmingDelete'">
+					<span class="pkpListPanelItem__maskLabel_prompt">
+						{{ i18n.confirmDelete }}
+						<a href="#" @click.prevent="deleteSubmission">Yes</a>
+						<a href="#" @click.prevent="cancelDeleteRequest">No</a>
+					</span>
+				</template>
+				<template v-if="mask === 'deleting'">
+					<span class="pkpListPanelItem__maskLabel_loading">
+						<span class="pkp_spinner"></span>
+						{{ i18n.deleting }}
+					</span>
+				</template>
 			</div>
 		</div>
 	</li>
@@ -361,8 +373,15 @@ export default {
 		classMask: function() {
 			if (!this.mask) {
 				return '';
+			} else if (this.mask === 'finish') {
+				return '--finish';
 			}
-			return '--' + this.mask;
+			var classes = ['--active'];
+			if (this.mask === 'confirmingDelete' || this.mask === 'deleting') {
+				classes.push('--alert');
+			}
+
+			return classes.join(' ');
 		},
 	},
 	methods: {
@@ -370,11 +389,7 @@ export default {
 		/**
 		 * Load a modal displaying history and notes of a submission
 		 */
-		openInfoCenter: function(e) {
-
-			if (e instanceof Event) {
-				e.preventDefault();
-			}
+		openInfoCenter: function() {
 
 			var opts = {
 				title: this.submission.title,
@@ -387,31 +402,17 @@ export default {
 		},
 
 		/**
-		 * Load a confirmation modal before deleting a submission
+		 * Display a confirmation prompt before deleting a submission
 		 */
-		deleteSubmissionPrompt: function(e) {
-
-			if (e instanceof Event) {
-				e.preventDefault();
-			}
-
-			var opts = {
-				title: this.i18n.delete,
-				okButton: this.i18n.ok,
-				cancelButton: this.i18n.cancel,
-				dialogText: this.i18n.confirmDelete,
-				callback: this.deleteSubmission,
-			};
-
-			$('<div id="' + $.pkp.classes.Helper.uuid() + '" ' +
-					'class="pkp_modal pkpModalWrapper" tabindex="-1"></div>')
-				.pkpHandler('$.pkp.controllers.modal.ConfirmationModalHandler', opts);
+		deleteSubmissionPrompt: function() {
+			this.mask = 'confirmingDelete';
 		},
 
 		/**
 		 * Send a request to delete the submission and handle the response
 		 */
 		deleteSubmission: function() {
+
 			this.mask = 'deleting';
 
 			var self = this;
@@ -420,8 +421,8 @@ export default {
 				type: 'DELETE',
 				error: this.ajaxErrorCallback,
 				success: function(r) {
-					self.mask = 'removed';
-					// Allow time for the removed CSS transition to display
+					self.mask = 'finish';
+					// Allow time for the finished CSS transition to display
 					setTimeout(function() {
 						pkp.eventBus.$emit('submissionDeleted', { id: self.submission.id });
 						self.mask = null;
@@ -430,11 +431,18 @@ export default {
 				complete: function(r) {
 					// Reset the mask in case there is an error
 					if (self.mask === 'deleting') {
-						self.mask = null;
+						self.cancelDeleteRequest();
 					}
 				}
 			});
 		},
+
+		/**
+		 * Cancel the delete request
+		 */
+		cancelDeleteRequest: function() {
+			this.mask = null;
+		}
 	},
 }
 </script>

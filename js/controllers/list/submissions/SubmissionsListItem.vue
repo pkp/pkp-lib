@@ -614,8 +614,15 @@ export default {
 		classMask: function() {
 			if (!this.mask) {
 				return '';
+			} else if (this.mask === 'finish') {
+				return '--finish';
 			}
-			return '--' + this.mask;
+			var classes = ['--active'];
+			if (this.mask === 'confirmingDelete' || this.mask === 'deleting') {
+				classes.push('--alert');
+			}
+
+			return classes.join(' ');
 		},
 	},
 	methods: {
@@ -623,11 +630,7 @@ export default {
 		/**
 		 * Load a modal displaying history and notes of a submission
 		 */
-		openInfoCenter: function(e) {
-
-			if (e instanceof Event) {
-				e.preventDefault();
-			}
+		openInfoCenter: function() {
 
 			var opts = {
 				title: this.submission.title,
@@ -640,31 +643,17 @@ export default {
 		},
 
 		/**
-		 * Load a confirmation modal before deleting a submission
+		 * Display a confirmation prompt before deleting a submission
 		 */
-		deleteSubmissionPrompt: function(e) {
-
-			if (e instanceof Event) {
-				e.preventDefault();
-			}
-
-			var opts = {
-				title: this.i18n.delete,
-				okButton: this.i18n.ok,
-				cancelButton: this.i18n.cancel,
-				dialogText: this.i18n.confirmDelete,
-				callback: this.deleteSubmission,
-			};
-
-			$('<div id="' + $.pkp.classes.Helper.uuid() + '" ' +
-					'class="pkp_modal pkpModalWrapper" tabindex="-1"></div>')
-				.pkpHandler('$.pkp.controllers.modal.ConfirmationModalHandler', opts);
+		deleteSubmissionPrompt: function() {
+			this.mask = 'confirmingDelete';
 		},
 
 		/**
 		 * Send a request to delete the submission and handle the response
 		 */
 		deleteSubmission: function() {
+
 			this.mask = 'deleting';
 
 			var self = this;
@@ -673,8 +662,8 @@ export default {
 				type: 'DELETE',
 				error: this.ajaxErrorCallback,
 				success: function(r) {
-					self.mask = 'removed';
-					// Allow time for the removed CSS transition to display
+					self.mask = 'finish';
+					// Allow time for the finished CSS transition to display
 					setTimeout(function() {
 						pkp.eventBus.$emit('submissionDeleted', { id: self.submission.id });
 						self.mask = null;
@@ -683,11 +672,18 @@ export default {
 				complete: function(r) {
 					// Reset the mask in case there is an error
 					if (self.mask === 'deleting') {
-						self.mask = null;
+						self.cancelDeleteRequest();
 					}
 				}
 			});
 		},
+
+		/**
+		 * Cancel the delete request
+		 */
+		cancelDeleteRequest: function() {
+			this.mask = null;
+		}
 	},
 }
 </script>

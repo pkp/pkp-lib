@@ -664,4 +664,5 @@
 	<message key="submission.list.itemsOfTotal">{$count} of {$total} submissions</message>
 	<message key="submission.list.responseDue">Response Due</message>
 	<message key="submission.list.reviewDue">Review Due</message>
+	<message key="submission.list.confirmDelete">Delete submission?</message>
 </locale>

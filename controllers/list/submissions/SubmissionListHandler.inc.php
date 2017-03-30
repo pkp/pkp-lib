@@ -111,9 +111,10 @@ class SubmissionListHandler extends ListHandler {
 		$config['i18n']['incomplete'] = __('submissions.incomplete');
 		$config['i18n']['delete'] = __('common.delete');
 		$config['i18n']['infoCenter'] = __('submission.list.infoCenter');
-		$config['i18n']['ok'] = __('common.ok');
-		$config['i18n']['cancel'] = __('common.cancel');
-		$config['i18n']['confirmDelete'] = __('common.confirmDelete');
+		$config['i18n']['yes'] = __('common.yes');
+		$config['i18n']['no'] = __('common.no');
+		$config['i18n']['deleting'] = __('common.deleting');
+		$config['i18n']['confirmDelete'] = __('submission.list.confirmDelete');
 		$config['i18n']['responseDue'] = __('submission.list.responseDue');
 		$config['i18n']['reviewDue'] = __('submission.list.reviewDue');
 

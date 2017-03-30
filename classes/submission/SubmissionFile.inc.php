@@ -252,7 +252,7 @@ class SubmissionFile extends PKPFile {
 	function getExtension() {
 		import('lib.pkp.classes.file.FileManager');
 		$fileManager = new FileManager();
-		return strtoupper($fileManager->parseFileExtension($this->getOriginalFileName()));
+		return $fileManager->parseFileExtension($this->getOriginalFileName());
 	}
 
 	/**
@@ -561,7 +561,7 @@ class SubmissionFile extends PKPFile {
 			$this->getFileStage() . '-' .
 			$timestamp .
 			'.' .
-			strtolower_codesafe($this->getExtension());
+			$this->getExtension();
 	}
 
 	//

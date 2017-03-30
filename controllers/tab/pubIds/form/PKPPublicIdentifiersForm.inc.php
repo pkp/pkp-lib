@@ -48,6 +48,12 @@ class PKPPublicIdentifiersForm extends Form {
 		$this->_stageId = $stageId;
 		$this->_formParams = $formParams;
 
+		if (is_a($pubObject, 'Submission')) {
+			$submissionDao = Application::getSubmissionDAO();
+			$revision = isset($formParams['revision']) ? $formParams['revision'] : null;
+			$this->_pubObject = $submissionDao->getById($pubObject->getId(), null, false, $revision);
+		}
+
 		$request = Application::getRequest();
 		$context = $request->getContext();
 		$this->_contextId = $context->getId();

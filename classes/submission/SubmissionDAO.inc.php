@@ -298,10 +298,11 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 */
 	function changePubId($submissionId, $pubIdType, $pubId) {
 		$idFields = array(
-			'submission_id', 'locale', 'setting_name'
+			'submission_id', 'submission_revision', 'locale', 'setting_name'
 		);
 		$updateArray = array(
 			'submission_id' => (int) $submissionId,
+			'submission_revision' => $this->getLatestRevisionId($submissionId),
 			'locale' => '',
 			'setting_name' => 'pub-id::'.$pubIdType,
 			'setting_type' => 'string',

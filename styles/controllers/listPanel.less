@@ -258,26 +258,46 @@
 	transform: translate(-50%, -50%);
 	transition: all 0.3s;
 
-	&.--deleting,
-	&.--removed {
+	&.--active {
 		width: 100%;
 		height: 100%;
 		opacity: 1;
 		border-radius: 0;
 	}
 
-	&.--deleting {
+	&.--alert {
 		background: @offset;
 
 		.pkp_spinner:after {
+			margin-right: 1em;
 			border-top-color: #fff;
 			border-left-color: #fff;
 			border-bottom-color: transparent;
 			border-right-color: transparent;
 		}
+
+		.pkpListPanelItem__maskLabel {
+			font-weight: @bold;
+			color: #fff;
+
+			a {
+				margin-left: 1em;
+				padding: 0.25em 0.5em;
+				background: #fff;
+				border-radius: @radius;
+				text-decoration: none;
+				color: @offset;
+
+				&:hover,
+				&:focus {
+					background: @offset-lift;
+					color: #fff;
+				}
+			}
+		}
 	}
 
-	&.--removed {
+	&.--finish {
 		background: #fff;
 	}
 }

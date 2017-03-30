@@ -587,17 +587,14 @@ class PKPTemplateManager extends Smarty {
 		$this->addJavaScript('pNotify', $baseUrl . '/lib/pkp/lib/vendor/alex198710/pnotify/assets/js/pnotify.custom.min.js', $args);
 
 		// Load new component library bundle
-		$path = $baseDir . '/js/build.js';
-		if (file_exists($path)) {
-			$this->addJavaScript(
-				'pkpApp',
-				$baseUrl . '/js/build.js',
-				array(
-					'priority' => STYLE_SEQUENCE_LATE,
-					'contexts' => array('backend')
-				)
-			);
-		}
+		$this->addJavaScript(
+			'pkpApp',
+			$baseUrl . '/js/build.js',
+			array(
+				'priority' => STYLE_SEQUENCE_LATE,
+				'contexts' => array('backend')
+			)
+		);
 
 		// Load minified file if it exists
 		if (Config::getVar('general', 'enable_minified')) {

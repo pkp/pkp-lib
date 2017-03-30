@@ -335,7 +335,7 @@ class ReviewAssignmentDAO extends DAO {
 				round,
 				competing_interests,
 				recommendation,
-				declined, replaced,
+				declined,
 				date_assigned, date_notified, date_confirmed,
 				date_completed, date_acknowledged, date_due, date_response_due,
 				quality, date_rated,
@@ -366,7 +366,6 @@ class ReviewAssignmentDAO extends DAO {
 				$reviewAssignment->getCompetingInterests(),
 				$reviewAssignment->getRecommendation(),
 				(int) $reviewAssignment->getDeclined(),
-				(int) $reviewAssignment->getReplaced(),
 				$reviewAssignment->getQuality(),
 				(int) $reviewAssignment->getReminderWasAutomatic(),
 				$reviewAssignment->getReviewFormId(),
@@ -400,7 +399,6 @@ class ReviewAssignmentDAO extends DAO {
 					competing_interests = ?,
 					recommendation = ?,
 					declined = ?,
-					replaced = ?,
 					date_assigned = %s,
 					date_notified = %s,
 					date_confirmed = %s,
@@ -427,7 +425,6 @@ class ReviewAssignmentDAO extends DAO {
 				$reviewAssignment->getCompetingInterests(),
 				$reviewAssignment->getRecommendation(),
 				(int) $reviewAssignment->getDeclined(),
-				(int) $reviewAssignment->getReplaced(),
 				$reviewAssignment->getQuality(),
 				$reviewAssignment->getReminderWasAutomatic(),
 				$reviewAssignment->getReviewFormId(),
@@ -491,7 +488,6 @@ class ReviewAssignmentDAO extends DAO {
 		$reviewAssignment->setDateResponseDue($this->datetimeFromDB($row['date_response_due']));
 		$reviewAssignment->setLastModified($this->datetimeFromDB($row['last_modified']));
 		$reviewAssignment->setDeclined($row['declined']);
-		$reviewAssignment->setReplaced($row['replaced']);
 		$reviewAssignment->setQuality($row['quality']);
 		$reviewAssignment->setDateRated($this->datetimeFromDB($row['date_rated']));
 		$reviewAssignment->setDateReminded($this->datetimeFromDB($row['date_reminded']));

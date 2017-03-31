@@ -519,14 +519,14 @@
 	<message key="manager.reviewForms.noneChosen">Formulario de revisión libre</message>
 	<message key="manager.reviewerSearch.form.previousReviewRounds">Revisores de este envío en las rondas previas</message>
 	<message key="manager.statistics.reports.optionalColumns.description">Los ítems en cursiva y señalados con un asterisco (*) son datos opcionales para el actual método de cálculo de estadísticas en el sistema (tipo métrico). Puede tener estos datos o no, según su configuración del plugin de estadísticas.</message>
-	<message key="manager.userSearch.searchByName">Buscar usuario por nombre</message>
+	<message key="manager.userSearch.searchByName">Buscar usuario/a por nombre</message>
 	<message key="manager.setup.layout.sidebar">Barra lateral</message>
 	<message key="manager.plugins.pluginGallery.certifications.official.description">Este plugin es desarrollado y mantenido por el equipo de Public Knowledge Project.</message>
 	<message key="manager.plugins.pluginGallery.certifications.reviewed.description">Este plugin ha sido revisado y aprobado por el equipo de Public Knowledge Project.</message>
 	<message key="manager.plugins.pluginGallery.certifications.partner.description">Este módulo es proporcionado por uno de nuestros socios de desarrollo.</message>
 	<message key="plugins.importexport.common.validationErrors">Errores de validación:</message>
 	<message key="plugins.importexport.common.errorsOccured">Se produjeron errores:</message>
-	<message key="plugins.importexport.common.error.unknownElement">Elemento  {$param} desconocido</message>
+	<message key="plugins.importexport.common.error.unknownElement">Elemento {$param} desconocido</message>
 	<message key="plugins.importexport.common.error.unknownGenre">Género {$param} desconocido</message>
 	<message key="plugins.importexport.common.error.unknownEncoding">Codificación {$param} desconocida</message>
 	<message key="plugins.importexport.common.error.unknownUserGroup">Grupo de usuario {$param} desconocido</message>

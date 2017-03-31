@@ -779,16 +779,16 @@
 	<message key="submission.changeFile">Cambia el archivo</message>
 	<message key="submission.identifiers">Identificadores</message>
 	<message key="submission.publisherId">Identificador público de la URL</message>
-	<message key="author.submission.roundStatus.reviewsReady">Se han enviado nuevas revisiones y están siendo consideradas por el editor.</message>
-	<message key="submission.submit.copyrightNoticeAgreementLabel">Reconocer la declaración de derechos de autor</message>
-	<message key="submission.authorBiography">Biografía del autor</message>
+	<message key="author.submission.roundStatus.reviewsReady">Se han enviado nuevas revisiones y están siendo consideradas por el editor/a.</message>
+	<message key="submission.submit.copyrightNoticeAgreementLabel">Aceptar la declaración de derechos de autor</message>
+	<message key="submission.authorBiography">Biografía del autor/a</message>
 	<message key="submission.authorWithAffiliation">{$name}, {$affiliation}</message>
-	<message key="submission.event.participantAdded">se asignó {$name}  a este envío como {$userGroupName}.</message>
-	<message key="submission.howToCite">Como citar</message>
+	<message key="submission.event.participantAdded">Se añadió a "{$name}" ({$username}) como {$userGroupName}.</message>
+	<message key="submission.howToCite">Cómo citar</message>
 	<message key="submission.howToCite.citationFormats">Formatos de citas</message>
 	<message key="submission.submit.submissionLocaleDescription">Se aceptan envíos en varios idiomas. Elija el idioma principal del envío desde el menú desplegable de abajo.</message>
 	<message key="submission.upload.proof">Subir un archivo listo para publicación</message>
 	<message key="notification.type.copyeditorRequest">Se le ha pedido que revise las correcciones para "{$title}".</message>
-	<message key="notification.type.layouteditorRequest">Se le ha pedido revisar los diseños de "{$title}".</message>
+	<message key="notification.type.layouteditorRequest">Se le ha pedido que revise las galeradas de "{$title}".</message>
 	<message key="notification.type.indexRequest">Se le ha pedido que cree un índice para "{$title}".</message>
 </locale>

@@ -533,4 +533,17 @@
 	<message key="common.component">Componente</message>
 	<message key="navigation.dashboard">Panel de control</message>
 	<message key="search.SearchFor">Buscar</message>
+	<message key="common.captcha.error.missing-input-secret">La validación de captcha para este sitio web no está configurada correctamente. Falta la clave secreta.</message>
+	<message key="common.captcha.error.invalid-input-secret">La validación de captcha para este sitio web no está configurada correctamente. La clave secreta no es válida.</message>
+	<message key="common.captcha.error.missing-input-response">Debe completar la comprobación de validación utilizada para evitar envíos de spam.</message>
+	<message key="common.captcha.error.invalid-input-response">No superó la comprobación de validación utilizada para evitar envíos de spam.</message>
+	<message key="common.downloadPdf">Descargar PDF</message>
+	<message key="form.csrfInvalid">El formulario no se envió correctamente.</message>
+	<message key="informationCenter.addNote">Añadir nota</message>
+	<message key="navigation.skip.main">Saltar al contenido principal</message>
+	<message key="navigation.skip.nav">Saltar al menú de navegación principal</message>
+	<message key="navigation.skip.footer">Saltar al pie de página del sitio</message>
+	<message key="notification.removedSubmission">Envío eliminado.</message>
+	<message key="notification.type.assignCopyeditors">Asigne un corrector/a mediante la opción Añadir del panel de participantes.</message>
+	<message key="notification.type.awaitingCopyedits">Esperando correcciones.</message>
 </locale>

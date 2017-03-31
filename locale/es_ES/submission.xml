@@ -260,15 +260,13 @@
 	<message key="submission.email.confirmDeleteLogEntry">¿Seguro que quieres borrar esta entrada de registro de correo electrónico?</message>
 	<message key="submission.email.deleteLogEntry">Borrar entrada de registro</message>
 	<message key="submission.emailLog">Registro de correo electrónico</message>
-	<message key="submission.event.participantAdded">"{$name}" ({$username}) añadido como {$userGroupName}.</message>
-	<message key="submission.event.participantRemoved">"{$name}" ({$username}) eliminado como {$userGroupName}.</message>
 	<message key="submission.event.backToEventLog">Volver a registro de eventos</message>
 	<message key="submission.event.confirmClearLog">¿Seguro que quieres limpiar el registro de eventos de este envío?</message>
 	<message key="submission.event.confirmDeleteLogEntry">¿Seguro que quieres borrar esta entrada del registro de eventos?</message>
 	<message key="submission.event.deleteLogEntry">Borrar entrada de registro</message>
 	<message key="submission.event.submissionSubmitted">Envío inicial completado.</message>
-	<message key="submission.event.fileUploaded">Se cargó el archivo "{$name}" (Id. de archivo {$fileId}-{$fileRevision}).</message>
-	<message key="submission.event.fileRevised">Se cargó la revisión "{$name}" (Id. de archivo {$fileId}-{$fileRevision}).</message>
+	<message key="submission.event.fileUploaded">Se cargó el archivo "{$name}" (Id. de archivo {$fileId}-{$revision}).</message>
+	<message key="submission.event.fileRevised">Se cargó la revisión "{$name}" (Id. de archivo {$fileId}-{$revision}).</message>
 	<message key="submission.event.general.metadataUpdated">Metadatos de envío actualizados</message>
 	<message key="submission.event.general.suppFileUpdated">Archivo de envío actualizado</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Asignación de revisión aceptada por poderes</message>
@@ -771,8 +769,8 @@
 	<message key="submission.query.closed">Cerrado</message>
 	<message key="submission.query.addNote">Añade mensaje</message>
 	<message key="grid.action.openNoteForm">Añade una respuesta nueva a la discusión</message>
-	<message key="submission.query.activity">Hay actividad nueva en la conversación.</message>
-	<message key="submission.query.new">Hay una pregunta nueva pendiente de respuesta.</message>
+	<message key="submission.query.activity">{$responderName} respondió a {$noteTitle}: {$noteContents}</message>
+	<message key="submission.query.new">{$creatorName} inició una discusión: {$noteTitle}: {$noteContents}</message>
 	<message key="submission.query.activity.contents">Hay actividad nueva en la conversación titulada "{$queryTitle}" que hace referencia al envío "{$submissionTitle}".</message>
 	<message key="submission.query.new.contents">Ha sido añadido a la conversación titulada "{$queryTitle}" que hace referencia al envío "{$submissionTitle}".</message>
 	<message key="submission.submit.submissionChecklist">Requisitos de envío</message>
@@ -781,4 +779,16 @@
 	<message key="submission.changeFile">Cambia el archivo</message>
 	<message key="submission.identifiers">Identificadores</message>
 	<message key="submission.publisherId">Identificador público de la URL</message>
+	<message key="author.submission.roundStatus.reviewsReady">Se han enviado nuevas revisiones y están siendo consideradas por el editor/a.</message>
+	<message key="submission.submit.copyrightNoticeAgreementLabel">Aceptar la declaración de derechos de autor</message>
+	<message key="submission.authorBiography">Biografía del autor/a</message>
+	<message key="submission.authorWithAffiliation">{$name}, {$affiliation}</message>
+	<message key="submission.event.participantAdded">Se añadió a "{$name}" ({$username}) como {$userGroupName}.</message>
+	<message key="submission.howToCite">Cómo citar</message>
+	<message key="submission.howToCite.citationFormats">Formatos de citas</message>
+	<message key="submission.submit.submissionLocaleDescription">Se aceptan envíos en varios idiomas. Elija el idioma principal del envío desde el menú desplegable de abajo.</message>
+	<message key="submission.upload.proof">Subir un archivo listo para publicación</message>
+	<message key="notification.type.copyeditorRequest">Se le ha pedido que revise las correcciones para "{$title}".</message>
+	<message key="notification.type.layouteditorRequest">Se le ha pedido que revise las galeradas de "{$title}".</message>
+	<message key="notification.type.indexRequest">Se le ha pedido que cree un índice para "{$title}".</message>
 </locale>

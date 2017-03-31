@@ -117,5 +117,8 @@
 	<message key="editor.submission.proofreading.confirmCompletion">Acepta esta prueba para indicar que la revisión se ha completado y que el fichero está listo para ser publicado.</message>
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">Anula la aceptación de esta prueba para indicar que la revisión ya no está completa y que el fichero no está listo para ser publicado.</message>
 	<message key="editor.submission.copyedit.manageCopyeditFilesDescription">Cualquier fichero que ya haya sido subido en cualquier fase del envío puede añadirse a la lista de ficheros de corrección marcando la siguiente casilla "Añadir" y pulsando "Buscar": todos los ficheros disponibles serán listados y podrán incluirse. Los ficheros adicionales que todavía no se hayan subido a esta fase se pueden añadir al listado pulsando el enlace "Cargar fichero".</message>
+	<message key="editor.publicIdentificationExistsForTheSameType">El identificador público '{$publicIdentifier}' ya existe para otro objeto del mismo tipo. Por favor, elija identificadores únicos para los objetos del mismo tipo en su revista.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">El identificador público '{$publicIdentifier}' no puede ser un número.</message>
+	<message key="editor.submission.findAndSelectUser">Localizar un usuario</message>
+	<message key="editor.publicIdentificationPatternNotAllowed">El patrón {$pattern} no está permitido para el identificador público.</message>
 </locale>

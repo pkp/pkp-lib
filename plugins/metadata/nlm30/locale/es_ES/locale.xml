@@ -41,10 +41,12 @@
 	<message key="plugins.metadata.nlm30.nlm23XmlOutput.displayName">Generador de publicación de revistas NLM 2.3</message>
 
 	<!-- NLM 3.0 to 2.3 downgrade -->
-	<message key="plugins.metadata.nlm30.nlm30ToNlm23Xml.displayName">Pasar la publicación de revistas NLM 3.0 a la versión 2.3.</message>
+	<message key="plugins.metadata.nlm30.nlm30ToNlm23Xml.displayName">Pasar la publicación de revistas NLM 3.0 a la versión 2.3</message>
 	<message key="plugins.metadata.nlm30.nlm30ToNlm23Xml.description">Retrocede de la versión NLM 3.0 a la NLM 2.3.</message>
 
 	<!-- Plain text reference list output -->
 	<message key="plugins.metadata.nlm30.refList.displayName">Creación de una lista de referencia de texto sin formato</message>
 	<message key="plugins.metadata.nlm30.refList.description">Crea una lista de referencia de texto sin formato desde referencias de envío de OJS/OCS/OMP</message>
+	<message key="plugins.metadata.nlm30.nlm30XmlOutput.description">Convierta una presentación en NLM 3.0</message>
+	<message key="plugins.metadata.nlm30.nlm23XmlOutput.description">Convierta una presentación en NLM 2.3</message>
 </locale>

@@ -218,7 +218,6 @@ class OAIRecord extends OAIIdentifier {
 	 * Constructor
 	 */
 	function __construct() {
-		parent::__construct();
 		$this->data = array();
 	}
 

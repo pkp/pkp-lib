@@ -265,6 +265,7 @@ class PKPTemplateManager extends Smarty {
 		$this->register_modifier('strtotime', array($this, 'smartyStrtotime'));
 		$this->register_modifier('explode', array($this, 'smartyExplode'));
 		$this->register_modifier('assign', array($this, 'smartyAssign'));
+		$this->register_modifier('escape', array(&$this, 'smartyEscape'));
 		$this->register_function('csrf', array($this, 'smartyCSRF'));
 		$this->register_function('translate', array($this, 'smartyTranslate'));
 		$this->register_function('null_link_action', array($this, 'smartyNullLinkAction'));
@@ -1252,6 +1253,34 @@ class PKPTemplateManager extends Smarty {
 			$this->assign($varName, $value);
 		}
 		if ($passThru) return $value;
+	}
+
+	/**
+	 * Override the built-in smarty escape modifier to
+	 * add the jqselector escaping method.
+	 */
+	function smartyEscape($string, $esc_type = 'html', $char_set = 'ISO-8859-1') {
+		$pattern = "/(:|\.|\[|\]|,|=|@)/";
+		$replacement = "\\\\\\\\$1";
+		switch ($esc_type) {
+			// Because jQuery uses CSS syntax for selecting elements
+			// some characters are interpreted as CSS notation.
+			// In order to tell jQuery to treat these characters literally rather
+			// than as CSS notation, they must be escaped by placing two backslashes
+			// in front of them.
+			case 'jqselector':
+				$result = smarty_modifier_escape($string, 'html', $char_set);
+				$result = preg_replace($pattern, $replacement, $result);
+				return $result;
+
+			case 'jsid':
+				$result = smarty_modifier_escape($string, 'javascript', $char_set);
+				$result = preg_replace($pattern, $replacement, $result);
+				return $result;
+
+			default:
+				return smarty_modifier_escape($string, $esc_type, $char_set);
+		}
 	}
 
 	/**

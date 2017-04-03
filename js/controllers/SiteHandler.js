@@ -184,7 +184,7 @@
 	$.pkp.controllers.SiteHandler.prototype.triggerTinyMCEInitialized =
 			function(tinyMCEObject) {
 
-		var $inputElement = $('#' + tinyMCEObject.id);
+		var $inputElement = $('#' + $.pkp.classes.Helper.escapeJQuerySelector(tinyMCEObject.id));
 		$inputElement.trigger('tinyMCEInitialized', [tinyMCEObject]);
 	};
 
@@ -196,7 +196,7 @@
 	 */
 	$.pkp.controllers.SiteHandler.prototype.triggerTinyMCESetup =
 			function(tinyMCEObject) {
-		var target = $('#' + tinyMCEObject.id), height;
+		var target = $('#' + $.pkp.classes.Helper.escapeJQuerySelector(tinyMCEObject.id)), height;
 
 		// For read-only controls, set up TinyMCE read-only mode.
 		if (target.attr('readonly')) {
@@ -254,7 +254,7 @@
 
 		tinyMCEObject.on('BeforeSetContent', function(e) {
 			var variablesParsed = $.pkp.classes.TinyMCEHelper.prototype.getVariableMap(
-					'#' + tinyMCEObject.id);
+					'#' + $.pkp.classes.Helper.escapeJQuerySelector(tinyMCEObject.id));
 
 			e.content = e.content.replace(
 					/\{\$([a-zA-Z]+)\}(?![^<]*>)/g, function(match, contents, offset, s) {

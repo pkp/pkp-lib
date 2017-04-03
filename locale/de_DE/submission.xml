@@ -648,4 +648,31 @@
 	<message key="submission.query.new">{$creatorName} hat eine neue Diskussion begonnen: {$noteTitle}: {$noteContents}</message>
 	<message key="submission.query.activity.contents">Es gibt eine neue Aktivität in der Diskussion "{$queryTitle}" in Bezug auf das Manuskript "{$submissionTitle}".</message>
 	<message key="submission.query.new.contents">Sie sind zu einer Diskussion unter dem Titel "{$queryTitle}" in Bezug auf das Manuskript "{$submissionTitle}" hinzugefügt worden.</message>
+	<message key="submission.citations.filter.webserviceError">Der Webdienst für {$filterName} hat einen Fehler zurückgeliefert beim Aufruf dieser URL: {$webserviceUrl}. Es kann sein, dass der Webdienst vorübergehend nicht verfügbar ist. Sie können immer noch mit den sonstigen Diensten weiterarbeiten und Ihre Ergebnisse speichern. Sie können es auch später noch einmal versuchen. Wenn der Fehler andauert, bitten Sie die/den Verwalter/in, den Dienst zu deaktivieren und einen Bug Report einzureichen.</message>
+	<message key="submission.identifiers">Identifier</message>
+	<message key="submission.publisherId">Öffentliche URL</message>
+	<message key="grid.action.createReviewFormElement">Ein neues Begutachtungsformular-Element anlegen</message>
+	<message key="submission.submit.submissionChecklist">Einreichungs-Anforderungen</message>
+	<message key="submission.submit.submissionChecklistDescription">Sie müssen Sie die Anforderungen lesen und bestätigen, bevor Sie fortfahren können.</message>
+	<message key="submission.authorBiographies">Autor/innen-Biografien</message>
+	<message key="submission.changeFile">Datei ändern</message>
+	<message key="submission.attachPermissions">Die folgenden Rechte für die Einreichung festlegen:</message>
+	<message key="author.submission.roundStatus.reviewsReady">Neue Gutachten sind eingegangen und werden durch den/die Redakteur/in geprüft.</message>
+	<message key="submission.event.participantAdded">{$name} wurde dieser Einreichung als {$userGroupName} hinzugefügt.</message>
+	<message key="notification.type.copyeditorRequest">Sie sind gebeten worden, das Lektorat von "{$title}" zu überprüfen.</message>
+	<message key="notification.type.layouteditorRequest">Sie sind gebeten worden, Layouts für "{$title}" zu überprüfen.</message>
+	<message key="notification.type.indexRequest">Sie sind gebeten worden, einen Index für "{$title}" anzulegen.</message>
+	<message key=""><![CDATA[]]></message>
+
+	<!-- Versioning -->
+	<message key="submission.versioning.versionHistory">Versionsgeschiche</message>
+	<message key="submission.versioning.version">Version {$version} ({$date})</message>
+	<message key="submission.versioning.linkToLatest">Dies ist eine alte Version. Siehe </message>
+	<message key="submission.versioning.latest">aktuellste Version</message>
+	<message key="submission.production.version">Version {$submissionRevision}</message>
+	<message key="submission.production.newVersion">Neue Version</message>
+	<message key="submission.production.editMetadata">Metadaten dieser Version</message>
+	<message key="submission.production.editMetadata.info">Hier werden die Metadaten von Version {$version} angezeigt. </message>
+	<message key="submission.production.editMetadata.previous">Ältere Versionen können im entsprechenden Tab unter Produktions eingesehen werden. </message>
+	<message key="submission.versioning.notPublished">Diese Version wurde noch nicht veröffentlicht.</message>
 </locale>

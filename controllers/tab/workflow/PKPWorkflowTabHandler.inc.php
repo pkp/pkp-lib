@@ -174,10 +174,10 @@ abstract class PKPWorkflowTabHandler extends Handler {
 									'submissionRevision' => $latestSubmissionRevision
 								)
 							),
-							__('editor.submission.newVersion'),
+							__('submission.production.newVersion'),
 							'modal_add_item'
 						),
-						__('editor.submission.newVersion'),
+						__('submission.production.newVersion'),
 						'add_item_small'
 					);
 

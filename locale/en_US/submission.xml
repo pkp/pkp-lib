@@ -655,16 +655,11 @@
 	<message key="submission.versioning.version">Version {$version} ({$date})</message>
 	<message key="submission.versioning.linkToLatest">This is a previous version. See </message>
 	<message key="submission.versioning.latest">latest version</message>
-
-	<message key="submission.versioning.previousVersions">Previous Versions of this Article</message>
-
 	<message key="submission.production.version">Version {$submissionRevision}</message>
 	<message key="submission.production.newVersion">New Version</message>
-	<message key="submission.production.editMetadata">Edit Metadata of this Version</message>
+	<message key="submission.production.editMetadata">Metadata of this Version</message>
 	<message key="submission.production.editMetadata.info">This is the metadata of version {$version}. </message>
 	<message key="submission.production.editMetadata.previous">Previous versions can be seen at the corresponding tab at the production stage. </message>
 	<message key="submission.versioning.notPublished">This version has not been published yet.</message>
-
-	<message key="issue.manage.entryDescription">Recent Versions of this Article</message>
 
 </locale>

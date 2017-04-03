@@ -152,7 +152,7 @@ class ReviewReminderForm extends Form {
 		if ($context->getSetting('reviewerAccessKeysEnabled')) {
 			import('lib.pkp.classes.security.AccessKeyManager');
 			$accessKeyManager = new AccessKeyManager();
-			$expiryDays = $context->getSetting('numWeeksPerReview') + 4 * 7;
+			$expiryDays = ($context->getSetting('numWeeksPerReview') + 4) * 7;
 			$accessKey = $accessKeyManager->createKey($context->getId(), $reviewerId, $reviewAssignment->getId(), $expiryDays);
 			$reviewUrlArgs = array_merge($reviewUrlArgs, array('reviewId' => $reviewAssignment->getId(), 'key' => $accessKey));
 		}		
@@ -179,7 +179,7 @@ class ReviewReminderForm extends Form {
 	 * Get the email template key depending on if reviewer one click access is
 	 * enabled or not.
 	 *
-	 * @param mixed $context Context
+	 * @param $context Context
 	 * @return int Email template key
 	 */
 	function _getMailTemplateKey($context) {

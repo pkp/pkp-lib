@@ -68,21 +68,22 @@ class ReviewReminder extends ScheduledTask {
 		$email->setSubject($email->getSubject($context->getPrimaryLocale()));
 		$email->setBody($email->getBody($context->getPrimaryLocale()));
 
-		$urlParams = array(
-			'submissionId' => $reviewAssignment->getSubmissionId(),
-		);
+		$reviewUrlArgs = array('submissionId' => $reviewAssignment->getSubmissionId());
 		if ($reviewerAccessKeysEnabled) {
 			import('lib.pkp.classes.security.AccessKeyManager');
 			$accessKeyManager = new AccessKeyManager();
 
 			// Key lifetime is the typical review period plus four weeks
-			$keyLifetime = ($context->getSetting('numWeeksPerReview') + 4) * 7;
-			$urlParams['key'] = $accessKeyManager->createKey('ReviewerContext', $reviewer->getId(), $reviewId, $keyLifetime);
+			$keyLifetime = ($context->getSetting('numWeeksPerReview') + 4) * 7;			
+			$accessKey = $accessKeyManager->createKey($context->getId(), $reviewer->getId(), $reviewId, $keyLifetime);
+			$reviewUrlArgs = array_merge($reviewUrlArgs, array('reviewId' => $reviewId, 'key' => $accessKey));
+			
 		}
+		
 		$application = PKPApplication::getApplication();
 		$request = $application->getRequest();
 		$dispatcher = $application->getDispatcher();
-		$submissionReviewUrl = $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'reviewer', 'submission', null, $urlParams);
+		$submissionReviewUrl = $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'reviewer', 'submission', null, $reviewUrlArgs);
 
 		// Format the review due date
 		$reviewDueDate = strtotime($reviewAssignment->getDateDue());

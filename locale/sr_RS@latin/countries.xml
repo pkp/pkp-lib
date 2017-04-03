@@ -163,7 +163,7 @@
 	<country name="Moldavija, Republika" code="MD"/>
 	<country name="Monako" code="MC"/>
 	<country name="Mongolija" code="MN"/>
-    <country name="Crna Gora" code="ME"/>
+	<country name="Crna Gora" code="ME"/>
 	<country name="Monserat" code="MS"/>
 	<country name="Maroko" code="MA"/>
 	<country name="Mozambik" code="MZ"/>
@@ -225,7 +225,7 @@
 	<country name="Južni Sudan" code="SS"/>
 	<country name="Španija" code="ES"/>
 	<country name="Šri Lanka" code="LK"/>
-    <country name="Sudan" code="SD"/>
+	<country name="Sudan" code="SD"/>
 	<country name="Surinam" code="SR"/>
 	<country name="Svalbard i Jan Majen" code="SJ"/>
 	<country name="Svazilend" code="SZ"/>
@@ -253,7 +253,7 @@
 	<country name="Sjedinjene Države" code="US"/>
 	<country name="Manja Spoljašnja Ostrva Sjedinjenih Država" code="UM"/>
 	<country name="Urugvaj" code="UY"/>
-    <country name="Uzbekistan" code="UZ"/>
+	<country name="Uzbekistan" code="UZ"/>
 	<country name="Vanuatu" code="VU"/>
 	<country name="Venecuela, Bolivarska Republika" code="VE"/>
 	<country name="Vijetnam" code="VN"/>

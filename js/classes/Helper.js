@@ -358,6 +358,10 @@
 	 * @return {string}
 	 */
 	$.pkp.classes.Helper.escapeJQuerySelector = function(elementId) {
+		if (typeof(elementId) !== "string") {
+			return elementId;
+		}
+
 		return elementId.replace('@', '\\@' );
 	};
 

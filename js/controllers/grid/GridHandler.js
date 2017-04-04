@@ -193,13 +193,13 @@
 
 	/**
 	 * Get the grid row by the passed data element id.
-	 * @param {string} rowDataId
+	 * @param {number} rowDataId
 	 * @param {number=} opt_parentElementId
 	 * @return {jQueryObject}
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.getRowByDataId =
 			function(rowDataId, opt_parentElementId) {
-		return $('#' + this.getRowIdPrefix() + rowDataId, this.getHtmlElement());
+		return $('#' + this.getRowIdPrefix() + $.pkp.classes.Helper.escapeJQuerySelector(rowDataId), this.getHtmlElement());
 	};
 
 
@@ -360,7 +360,7 @@
 		}
 		for (index in sequenceMap) {
 			id = sequenceMap[index];
-			$row = $('#' + id);
+			$row = $('#' + $.pkp.classes.Helper.escapeJQuerySelector(id));
 			if ($row.length == 0) {
 				$row = this.getRowByDataId(id);
 			}
@@ -409,7 +409,7 @@
 
 		// Does the element exist already?
 		$grid = this.getHtmlElement();
-		$existingElement = newElementId ? $grid.find('#' + newElementId) : null;
+		$existingElement = newElementId ? $grid.find('#' + $.pkp.classes.Helper.escapeJQuerySelector(newElementId)) : null;
 
 		if ($existingElement !== null && $existingElement.length > 1) {
 			throw new Error('There were ' + $existingElement.length +

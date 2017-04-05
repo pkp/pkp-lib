@@ -52,6 +52,7 @@
 	<message key="editor.review.NotifyAuthorExternal">Notify the author of the decision to initiate an external review.</message>
 	<message key="editor.review.personalMessageToAuthor">Email to be sent to author</message>
 	<message key="editor.review.dateAccepted">Review Acceptance Date</message>
+	<message key="editor.review.reviewsAdded">Reviews added to message body.</message>
 	<message key="editor.review.noReviews">No peer reviews to import</message>
 	<message key="editor.review.reminder">Review Reminder</message>
 	<message key="editor.review.thankReviewer">Thank Reviewer</message>

@@ -100,6 +100,9 @@
 			editor.setContent(
 					currentContent + processedJsonData.content + '<br>');
 		}
+
+		// Present any new notifications to the user.
+		this.trigger('notifyUser', [this.getHtmlElement()]);
 	};
 
 

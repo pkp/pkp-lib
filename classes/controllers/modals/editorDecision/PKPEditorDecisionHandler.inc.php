@@ -264,16 +264,15 @@ class PKPEditorDecisionHandler extends Handler {
 					$body .= "$textSeparator<br><br>";
 
 				}
-
-
 			}
 		}
 
-		if(empty($body)) {
-			return new JSONMessage(false, __('editor.review.noReviews'));
-		} else {
-			return new JSONMessage(true, $body);
-		}
+		// Notify the user.
+		$notificationMgr = new NotificationManager();
+		$user = $request->getUser();
+		$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('editor.review.reviewsAdded')));
+
+		return new JSONMessage(true, empty($body)?__('editor.review.noReviews'):$body);
 	}
 
 

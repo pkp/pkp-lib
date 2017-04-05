@@ -67,6 +67,20 @@ class FormValidatorReCaptcha extends FormValidator {
 			),
 		);
 
+		$proxySettings = array(
+			'host' => Config::getVar('proxy', 'http_host'),
+			'port' => Config::getVar('proxy', 'http_port'),
+			'user' => Config::getVar('proxy', 'proxy_username'),
+			'pass' => Config::getVar('proxy', 'proxy_password'),
+		);
+		if (!empty($proxySettings['host'])) {
+			$requestOptions['http']['proxy'] = $proxySettings['host'] . ((!empty($proxySettings['port'])) ? ':'.$proxySettings['port'] : '');
+			$requestOptions['http']['request_fulluri'] = true;
+			if (!empty($proxySettings['user'])) {
+				$requestOptions['http']['header'] .= 'Proxy-Authorization: Basic ' . base64_encode($proxySettings['user'].':'.$proxySettings['pass']);
+			}
+		}
+
 		$requestContext = stream_context_create($requestOptions);
 		$response = file_get_contents(RECAPTCHA_HOST . RECAPTCHA_PATH, false, $requestContext);
 		if ($response === false) {

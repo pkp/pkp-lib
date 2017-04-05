@@ -475,6 +475,7 @@ class FormBuilderVocabulary {
 				case 'uniqId':
 				case 'variablesType':
 				case 'variables':
+				case 'required':
 					$smarty->assign('FBV_' . $key, $value);
 					break;
 				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, $smarty)); break;

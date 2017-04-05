@@ -214,7 +214,7 @@ class PKPTemplateManager extends Smarty {
 			if (Config::getVar('captcha', 'recaptcha') && Config::getVar('captcha', 'captcha_on_register')) {
 				$this->addJavaScript(
 					'recaptcha',
-					'https://www.google.com/recaptcha/api.js',
+					'https://www.google.com/recaptcha/api.js?hl=' . substr(AppLocale::getLocale(),0,2),
 					array(
 						'contexts' => array('frontend-user-register', 'frontend-user-registerUser'),
 					)

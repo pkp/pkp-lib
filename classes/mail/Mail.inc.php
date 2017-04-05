@@ -473,6 +473,11 @@ class Mail extends DataObject {
 			$mailer->Host = Config::getVar('email', 'smtp_server');
 			$mailer->Username = Config::getVar('email', 'smtp_username');
 			$mailer->Password = Config::getVar('email', 'smtp_password');
+			if (Config::getVar('debug', 'show_stacktrace')) {
+				// debug level 3 represents client and server interaction, plus initial connection debugging
+				$mailer->SMTPDebug = 3;
+				$mailer->Debugoutput = 'error_log';
+			}
 		}
 		$mailer->CharSet = Config::getVar('i18n', 'client_charset');
 		if (($t = $this->getContentType()) != null) $mailer->ContentType = $t;
@@ -514,7 +519,11 @@ class Mail extends DataObject {
 		}
 
 		try {
-			$mailer->Send();
+			$success = $mailer->Send();
+			if (!$success) {
+				error_log($mailer->ErrorInfo);
+				return false;
+			}
 		} catch (phpmailerException $e) {
 			error_log($mailer->ErrorInfo);
 			return false;

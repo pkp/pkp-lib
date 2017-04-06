@@ -53,6 +53,7 @@
 	<message key="editor.review.NotifyAuthorExternal">Уведомить автора о решении начать внешнее рецензирование.</message>
 	<message key="editor.review.personalMessageToAuthor">Письмо электронной почты для отправки автору</message>
 	<message key="editor.review.dateAccepted">Дата принятия материала на рецензирование</message>
+	<message key="editor.review.reviewsAdded">Рецензии добавлены в текст сообщения.</message>
 	<message key="editor.review.noReviews">Нет рецензий для импорта</message>
 	<message key="editor.review.reminder">Напоминание о рецензии</message>
 	<message key="editor.review.thankReviewer">Благодарность рецензенту</message>

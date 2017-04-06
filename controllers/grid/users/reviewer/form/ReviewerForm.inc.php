@@ -451,7 +451,7 @@ class ReviewerForm extends Form {
 	 * Get the email template key depending on if reviewer one click access is
 	 * enabled or not.
 	 *
-	 * @param mixed $context Context
+	 * @param $context Context The user's current context.
 	 * @return int Email template key
 	 */
 	function _getMailTemplateKey($context) {

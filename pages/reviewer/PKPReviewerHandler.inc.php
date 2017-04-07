@@ -123,6 +123,7 @@ class PKPReviewerHandler extends Handler {
 			$json->setEvent('setStep', $step+1);
 			return $json;
 		} else {
+			$this->setupTemplate($request);
 			return new JSONMessage(true, $reviewerForm->fetch($request));
 		}
 	}

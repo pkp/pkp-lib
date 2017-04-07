@@ -278,10 +278,16 @@ class PKPNotificationManagerTest extends PKPTestCase {
 
 		// Stub context.
 		$contextStub = $this->getMock('Context',
-			array('getLocalizedName'));
+			array('getLocalizedName', 'getContactName', 'getContactEmail'));
 		$contextStub->expects($this->any())
 		            ->method('getLocalizedName')
 		            ->will($this->returnValue($contextTitle));
+		$contextStub->expects($this->any())
+		            ->method('getContactName')
+		            ->will($this->returnValue($siteContactName));
+		$contextStub->expects($this->any())
+		            ->method('getContactEmail')
+		            ->will($this->returnValue($siteEmail));
 
 		// Inject context stub into our request stub.
 		$requestStub->expects($this->any())

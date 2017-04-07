@@ -193,7 +193,7 @@
 
 	/**
 	 * Get the grid row by the passed data element id.
-	 * @param {string} rowDataId
+	 * @param {number} rowDataId
 	 * @param {number=} opt_parentElementId
 	 * @return {jQueryObject}
 	 */
@@ -851,7 +851,8 @@
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.deleteControlsRow_ =
 			function($row) {
-		var $controlRow = $('#' + $.pkp.classes.Helper.escapeJQuerySelector($row.attr('id')) + '-control-row',
+		var $controlRow = $('#' + $.pkp.classes.Helper.escapeJQuerySelector(
+				/** @type {string} */ ($row.attr('id'))) + '-control-row',
 				this.getHtmlElement());
 
 		if ($controlRow.is('tr') && $controlRow.hasClass('row_controls')) {
@@ -880,7 +881,8 @@
 
 		rowId = $gridRow.attr('id');
 		controlRowId = rowId + '-control-row';
-		return $context.filter('#' + $.pkp.classes.Helper.escapeJQuerySelector(controlRowId));
+		return $context.filter('#' +
+				$.pkp.classes.Helper.escapeJQuerySelector(controlRowId));
 	};
 
 

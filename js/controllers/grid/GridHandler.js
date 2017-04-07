@@ -360,7 +360,7 @@
 		}
 		for (index in sequenceMap) {
 			id = sequenceMap[index];
-			$row = $('#' + $.pkp.classes.Helper.escapeJQuerySelector(id));
+			$row = $('#' + $.pkp.classes.Helper.escapeJQuerySelector(String(id)));
 			if ($row.length == 0) {
 				$row = this.getRowByDataId(id);
 			}

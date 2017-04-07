@@ -551,7 +551,8 @@
 
 			// Get the form element that stores the tinyMCE data.
 			var $form = this.getHtmlElement(),
-					formElement = $('#' + $.pkp.classes.Helper.escapeJQuerySelector(editorId), $form),
+					formElement = $('#' +
+					$.pkp.classes.Helper.escapeJQuerySelector(editorId), $form),
 					// Validate only this element.
 					validator = $form.validate();
 

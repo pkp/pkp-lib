@@ -413,11 +413,11 @@
 		// Does the element exist already?
 		$grid = this.getHtmlElement();
 		$existingElement = newElementId ?
-			$grid.find('#' +
+				$grid.find('#' +
 				$.pkp.classes.Helper.escapeJQuerySelector(
 					/** @type {string} */ (newElementId))
 				) :
-			null;
+				null;
 
 		if ($existingElement !== null && $existingElement.length > 1) {
 			throw new Error('There were ' + $existingElement.length +

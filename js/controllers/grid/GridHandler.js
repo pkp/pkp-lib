@@ -415,7 +415,7 @@
 		$existingElement = newElementId ?
 				$grid.find('#' +
 				$.pkp.classes.Helper.escapeJQuerySelector(
-					/** @type {string} */ (newElementId))
+				/** @type {string} */ (newElementId))
 				) :
 				null;
 

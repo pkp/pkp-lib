@@ -506,11 +506,11 @@
 
 	<!--  editor decisions -->
 	<message key="editor.submission.decision">Entscheidung</message>
-	<message key="editor.submission.decision.accept">Beitrag annehmen</message>
+	<message key="editor.submission.decision.accept">In Lektorat überweisen</message>
 	<message key="editor.submission.decision.requestRevisions">Überarbeitung anfordern</message>
 	<message key="editor.submission.decision.resubmit">Erneut zur Begutachtung einreichen</message>
 	<message key="editor.submission.decision.decline">Beitrag ablehnen</message>
-	<message key="editor.submission.decision.sendToProduction">Zur Produktion senden</message>
+	<message key="editor.submission.decision.sendToProduction">Zur Herstellung senden</message>
 	<message key="editor.submission.decision.sendInternalReview">Zur internen Begutachtung senden</message>
 	<message key="editor.submission.decision.approveProofs">Korrekturfahne akzeptieren</message>
 	<message key="editor.submission.decision.approveProofsDescription">Die Datei der Korrekturfahne muss angenommen werden, um verfügbar gemacht werden zu können. Wollen Sie sie annehmen?</message>
@@ -523,7 +523,7 @@
 
 	<message key="reviewer.submission.reviewFiles">Review Files</message>
 	<message key="submission.submit.currentFile">Aktuelle Datei</message>
-	<message key="submission.finalDraft">Endfassung</message>
+	<message key="submission.finalDraft">Entwurf für Lektorat</message>
 
 	<!-- Auditor keys -->
 	<message key="editor.submission.addAuditorError">Es gab einen Fehler beim Hinzufügen des/der Prüfer/in. Bitte versuchen Sie es erneut.</message>

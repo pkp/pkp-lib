@@ -107,6 +107,13 @@
 							</li>
 						{/if}
 						{if array_intersect(array(ROLE_ID_SITE_ADMIN), (array)$userRoles)}
+							{if $currentContext && !array_intersect(array(ROLE_ID_MANAGER), (array)$userRoles)}
+							<li>
+								<a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="access" anchor="users"}">
+									{translate key="navigation.access"}
+								</a>
+							</li>
+							{/if}
 							<li>
 								<a href="{if $multipleContexts}{url router=$smarty.const.ROUTE_PAGE context="index" page="admin" op="index"}{else}{url router=$smarty.const.ROUTE_PAGE page="admin" op="index"}{/if}">
 									{translate key="navigation.admin"}

@@ -26,7 +26,7 @@ class ManagerSettingsTabHandler extends SettingsTabHandler {
 	 * Constructor
 	 */
 	function __construct() {
-		$role = array(ROLE_ID_MANAGER);
+		$role = array(ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN);
 		parent::__construct($role);
 	}
 

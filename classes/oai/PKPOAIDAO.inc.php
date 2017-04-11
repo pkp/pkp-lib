@@ -50,6 +50,7 @@ abstract class PKPOAIDAO extends DAO {
 
 	/**
 	 * Retrieve a resumption token.
+	 * @param $tokenId string OAI resumption token
 	 * @return OAIResumptionToken
 	 */
 	function getToken($tokenId) {
@@ -124,7 +125,7 @@ abstract class PKPOAIDAO extends DAO {
 		if ($result->RecordCount() != 0) {
 			$row = $result->GetRowAssoc(false);
 			$returner = $this->_returnRecordFromRow($row);
-		} else $record = null;
+		} else $returner = null;
 		$result->Close();
 		return $returner;
 	}
@@ -196,10 +197,13 @@ abstract class PKPOAIDAO extends DAO {
 		$result = $this->_getRecordsRecordSet($setIds, null, null, null, null, 'last_modified ASC');
 		if ($result->RecordCount() != 0) {
 			$row = $result->GetRowAssoc(false);
-			$returner = $this->_returnRecordFromRow($row);
-		} else $returner = null;
+			$record = $this->_returnRecordFromRow($row);
+			$datestamp = OAIUtils::UTCtoTimestamp($record->datestamp, false);
+		} else {
+			$datestamp = 0;
+		}
 		$result->Close();
-		return OAIUtils::UTCtoTimestamp($returner->datestamp, false);
+		return $datestamp;
 	}
 
 

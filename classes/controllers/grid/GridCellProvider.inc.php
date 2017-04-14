@@ -59,7 +59,7 @@ class GridCellProvider {
 		$templateMgr->assign(array(
 			'id' => $cellId,
 			'column' => $column,
-			'actions' => $this->getCellActions($this->_request, $row, $column),
+			'actions' => $this->getCellActions($row, $column),
 			'flags' => $column->getFlags(),
 			'formLocales' => AppLocale::getSupportedFormLocales(),
 		));

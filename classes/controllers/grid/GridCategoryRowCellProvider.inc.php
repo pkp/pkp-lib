@@ -36,7 +36,7 @@ class GridCategoryRowCellProvider extends GridCellProvider {
 	/**
 	 * @see GridCellProvider::getCellActions()
 	 */
-	function getCellActions($request, $row, $column) {
+	function getCellActions($row, $column) {
 		// Get cell actions from the row, that are
 		// positioned with the GRID_ACTION_POSITION_ROW_CLICK
 		// constant.

@@ -147,7 +147,7 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider {
 			'stageId' => $reviewAssignment->getStageId()
 		);
 
-		$router = $request->getRouter();
+		$router = $this->_request->getRouter();
 		$action = false;
 		$submissionDao = Application::getSubmissionDAO();
 		$submission = $submissionDao->getById($reviewAssignment->getSubmissionId());
@@ -160,20 +160,20 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider {
 				case 'overdue':
 				case 'overdue_response':
 					import('lib.pkp.controllers.api.task.SendReminderLinkAction');
-					return array(new SendReminderLinkAction($request, 'editor.review.reminder', $actionArgs));
+					return array(new SendReminderLinkAction($this->_request, 'editor.review.reminder', $actionArgs));
 				case 'read':
 					import('lib.pkp.controllers.api.task.SendThankYouLinkAction');
-					return array(new SendThankYouLinkAction($request, 'editor.review.thankReviewer', $actionArgs));
+					return array(new SendThankYouLinkAction($this->_request, 'editor.review.thankReviewer', $actionArgs));
 				case 'completed':
 					import('lib.pkp.controllers.review.linkAction.UnconsiderReviewLinkAction');
-					return array(new UnconsiderReviewLinkAction($request, $reviewAssignment, $submission));
+					return array(new UnconsiderReviewLinkAction($this->_request, $reviewAssignment, $submission));
 				case 'reviewReady':
-					$user = $request->getUser();
+					$user = $this->_request->getUser();
 					import('lib.pkp.controllers.review.linkAction.ReviewNotesLinkAction');
-					return array(new ReviewNotesLinkAction($request, $reviewAssignment, $submission, $user, true));
+					return array(new ReviewNotesLinkAction($this->_request, $reviewAssignment, $submission, $user, true));
 			}
 		}
-		return parent::getCellActions($request, $row, $column, $position);
+		return parent::getCellActions($row, $column, $position);
 	}
 
 	/**

@@ -44,9 +44,9 @@ class GridCategoryRowCellProvider extends GridCellProvider {
 	}
 
 	/**
-	 * @see GridCellProvider::render()
+	 * @copydoc GridCellProvider::render()
 	 */
-	function render($request, $row, $column) {
+	function render($row, $column) {
 		// Default category rows will only have the first column
 		// as label columns.
 		if ($column->hasFlag('firstColumn')) {
@@ -57,7 +57,7 @@ class GridCategoryRowCellProvider extends GridCellProvider {
 			$column->setTemplate('controllers/grid/gridCell.tpl');
 
 			// Render the cell.
-			$renderedCell = parent::render($request, $row, $column);
+			$renderedCell = parent::render($row, $column);
 
 			// Restore the original column template.
 			$column->setTemplate($template);

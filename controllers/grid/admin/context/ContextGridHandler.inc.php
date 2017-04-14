@@ -84,7 +84,7 @@ class ContextGridHandler extends GridHandler {
 		// Grid columns.
 		//
 		import('lib.pkp.controllers.grid.admin.context.ContextGridCellProvider');
-		$contextGridCellProvider = new ContextGridCellProvider();
+		$contextGridCellProvider = new ContextGridCellProvider($request);
 
 		// Context name.
 		$this->addColumn(

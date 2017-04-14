@@ -133,7 +133,7 @@ class SubEditorsListbuilderHandler extends SetupListbuilderHandler {
 
 		// We can reuse the User cell provider because getFullName
 		import('lib.pkp.controllers.listbuilder.users.UserListbuilderGridCellProvider');
-		$nameColumn->setCellProvider(new UserListbuilderGridCellProvider());
+		$nameColumn->setCellProvider(new UserListbuilderGridCellProvider($request));
 		$this->addColumn($nameColumn);
 	}
 }

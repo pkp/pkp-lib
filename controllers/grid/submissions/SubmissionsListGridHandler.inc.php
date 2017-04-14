@@ -65,7 +65,7 @@ class SubmissionsListGridHandler extends GridHandler {
 		$this->_isManager = in_array(ROLE_ID_MANAGER, $authorizedRoles);
 
 		// If there is more than one context in the system, add a context column
-		$cellProvider = new SubmissionsListGridCellProvider($request->getUser(), $authorizedRoles);
+		$cellProvider = new SubmissionsListGridCellProvider($request, $request->getUser(), $authorizedRoles);
 		$this->addColumn(
 			new GridColumn(
 				'id',

@@ -47,7 +47,7 @@ class ReviewFormElementResponseItemListbuilderHandler extends SetupListbuilderHa
 		// Possible response column
 		$responseColumn = new MultilingualListbuilderGridColumn($this, 'possibleResponse', 'manager.reviewFormElements.possibleResponse', null, null, null, null, array('tabIndex' => 1));
 		import('lib.pkp.controllers.listbuilder.settings.reviewForms.ReviewFormElementResponseItemListbuilderGridCellProvider');
-	 	$responseColumn->setCellProvider(new ReviewFormElementResponseItemListbuilderGridCellProvider());	
+	 	$responseColumn->setCellProvider(new ReviewFormElementResponseItemListbuilderGridCellProvider($request));	
 		$this->addColumn($responseColumn);
 	}
 

@@ -40,7 +40,7 @@ class NotificationsGridHandler extends GridHandler {
 
 		$this->_selectedNotificationIds = (array) $request->getUserVar('selectedNotificationIds');
 
-		$cellProvider = new NotificationsGridCellProvider();
+		$cellProvider = new NotificationsGridCellProvider($request);
 		$this->addColumn(
 			new GridColumn(
 				'task',

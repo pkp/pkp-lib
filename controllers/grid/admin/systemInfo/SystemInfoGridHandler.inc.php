@@ -73,7 +73,7 @@ class SystemInfoGridHandler extends CategoryGridHandler {
 		// Grid columns.
 		//
 		import('lib.pkp.controllers.grid.admin.systemInfo.InfoGridCellProvider');
-		$infoGridCellProvider = new InfoGridCellProvider();
+		$infoGridCellProvider = new InfoGridCellProvider($request);
 
 		// setting name.
 		$this->addColumn(

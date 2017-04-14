@@ -17,13 +17,6 @@
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
 class GridCategoryRowCellProvider extends GridCellProvider {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 	//
 	// Implemented methods from GridCellProvider.
 	//

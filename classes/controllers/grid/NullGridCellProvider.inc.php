@@ -18,20 +18,13 @@
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
 class NullGridCellProvider extends GridCellProvider {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 	//
 	// Template methods from GridCellProvider
 	//
 	/**
 	 * @see GridCellProvider::render()
 	 */
-	function render($request, $row, $column) {
+	function render($row, $column) {
 		return null;
 	}
 }

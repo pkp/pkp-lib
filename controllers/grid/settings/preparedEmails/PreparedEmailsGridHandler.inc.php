@@ -82,7 +82,7 @@ class PreparedEmailsGridHandler extends GridHandler {
 
 		// Columns
 		import('lib.pkp.controllers.grid.settings.preparedEmails.PreparedEmailsGridCellProvider');
-		$cellProvider = new PreparedEmailsGridCellProvider();
+		$cellProvider = new PreparedEmailsGridCellProvider($request);
 		$this->addColumn(new GridColumn('name', 'common.name', null, null, $cellProvider, array('width' => 40)));
 		$this->addColumn(new GridColumn('sender', 'email.sender', null, null, $cellProvider, array('width' => 10)));
 		$this->addColumn(new GridColumn('recipient', 'email.recipient', null, null, $cellProvider));

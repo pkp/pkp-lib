@@ -16,13 +16,6 @@
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
 class FileListbuilderGridCellProvider extends GridCellProvider {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 	//
 	// Template methods from GridCellProvider
 	//

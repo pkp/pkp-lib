@@ -19,40 +19,33 @@ import('lib.pkp.classes.linkAction.request.AjaxAction');
 
 class NotificationsGridCellProvider extends GridCellProvider {
 	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
-	/**
 	 * Get cell actions associated with this row/column combination
 	 * @param $row GridRow
 	 * @param $column GridColumn
 	 * @return array an array of LinkAction instances
 	 */
-	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
+	function getCellActions($row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
 		assert($column->getId() == 'task');
 
-		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($this->_request);
 
 		$notification = $row->getData();
 		$contextDao = Application::getContextDAO();
 		$context = $contextDao->getById($notification->getContextId());
 
 		$notificationMgr = new NotificationManager();
-		$router = $request->getRouter();
+		$router = $this->_request->getRouter();
 
 		$templateMgr->assign(array(
 			'notificationMgr'         => $notificationMgr,
 			'notification'            => $notification,
 			'context'                 => $context,
 			'notificationObjectTitle' => $this->_getTitle($notification),
-			'message'                 => PKPString::stripUnsafeHtml($notificationMgr->getNotificationMessage($request, $notification)),
+			'message'                 => PKPString::stripUnsafeHtml($notificationMgr->getNotificationMessage($this->_request, $notification)),
 		));
 
 		// See if we're working in a multi-context environment
-		$user = $request->getUser();
+		$user = $this->_request->getUser();
 		$contextDao = Application::getContextDAO();
 		$contexts = $contextDao->getAvailable($user?$user->getId():null)->toArray();
 		$templateMgr->assign('isMultiContext', count($contexts) > 1);
@@ -60,7 +53,7 @@ class NotificationsGridCellProvider extends GridCellProvider {
 		return array(new LinkAction(
 			'details',
 			new AjaxAction($router->url(
-				$request, null, null, 'markRead',
+				$this->_request, null, null, 'markRead',
 				null,
 				array('redirect' => 1, 'selectedElements' => array($notification->getId()))
 			)),
@@ -73,11 +66,7 @@ class NotificationsGridCellProvider extends GridCellProvider {
 	// Template methods from GridCellProvider
 	//
 	/**
-	 * Extracts variables for a given column from a data element
-	 * so that they may be assigned to template before rendering.
-	 * @param $row GridRow
-	 * @param $column GridColumn
-	 * @return array
+	 * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
 	function getTemplateVarsFromRowColumn($row, $column) {
 		assert($column->getId()=='task');

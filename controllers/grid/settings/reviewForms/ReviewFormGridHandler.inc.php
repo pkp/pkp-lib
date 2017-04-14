@@ -79,7 +79,7 @@ class ReviewFormGridHandler extends GridHandler {
 		// Grid columns.
 		//
 		import('lib.pkp.controllers.grid.settings.reviewForms.ReviewFormGridCellProvider');
-		$reviewFormGridCellProvider = new ReviewFormGridCellProvider();
+		$reviewFormGridCellProvider = new ReviewFormGridCellProvider($request);
 
 		// Review form name.
 		$this->addColumn(

@@ -38,7 +38,9 @@ class FileNameGridColumn extends GridColumn {
 		$this->_removeHistoryTab = $removeHistoryTab;
 
 		import('lib.pkp.classes.controllers.grid.ColumnBasedGridCellProvider');
-		$cellProvider = new ColumnBasedGridCellProvider();
+		// TODO: Where should the request come from?
+		$request = PKPApplication::getRequest();
+		$cellProvider = new ColumnBasedGridCellProvider($request);
 
 		parent::__construct('name', 'common.name', null, null, $cellProvider,
 			array('width' => 70, 'alignment' => COLUMN_ALIGNMENT_LEFT, 'anyhtml' => true));

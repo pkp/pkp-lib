@@ -22,18 +22,16 @@ class InfoGridCellProvider extends GridCellProvider {
 
 	/**
 	 * Constructor
+	 * @param $request PKPRequest
+	 * @param $translate boolean
 	 */
-	function __construct($translate = false) {
-		parent::__construct();
+	function __construct($request, $translate = false) {
+		parent::__construct($request);
 		$this->_translate = $translate;
 	}
 
 	/**
-	 * Extracts variables for a given column from a data element
-	 * so that they may be assigned to template before rendering.
-	 * @param $row GridRow
-	 * @param $column GridColumn
-	 * @return array
+	 * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
 	function getTemplateVarsFromRowColumn($row, $column) {
 		$element = $row->getData();

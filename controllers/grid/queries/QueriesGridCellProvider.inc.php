@@ -27,12 +27,13 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 
 	/**
 	 * Constructor
+	 * @param $request PKPRequest
 	 * @param $submission Submission
 	 * @param $stageId int
 	 * @param $queriesAccessHelper QueriesAccessHelper
 	 */
-	function __construct($submission, $stageId, $queriesAccessHelper) {
-		parent::__construct();
+	function __construct($request, $submission, $stageId, $queriesAccessHelper) {
+		parent::__construct($request);
 		$this->_submission = $submission;
 		$this->_stageId = $stageId;
 		$this->_queriesAccessHelper = $queriesAccessHelper;
@@ -42,11 +43,7 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 	// Template methods from GridCellProvider
 	//
 	/**
-	 * Extracts variables for a given column from a data element
-	 * so that they may be assigned to template before rendering.
-	 * @param $row GridRow
-	 * @param $column GridColumn
-	 * @return array
+	 * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
 	function getTemplateVarsFromRowColumn($row, $column) {
 		$element = $row->getData();
@@ -82,12 +79,12 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 	/**
 	 * @copydoc GridCellProvider::getCellActions()
 	 */
-	function getCellActions($request, $row, $column) {
+	function getCellActions($row, $column) {
 		import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 		import('lib.pkp.classes.linkAction.request.AjaxAction');
 
 		$element = $row->getData();
-		$router = $request->getRouter();
+		$router = $this->_request->getRouter();
 		$actionArgs = $this->getRequestArgs($row);
 		switch ($column->getId()) {
 			case 'closed':
@@ -96,20 +93,20 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 					if ($enabled) {
 						return array(new LinkAction(
 							'close-' . $row->getId(),
-							new AjaxAction($router->url($request, null, null, 'closeQuery', null, $actionArgs)),
+							new AjaxAction($router->url($this->_request, null, null, 'closeQuery', null, $actionArgs)),
 							null, null
 						));
 					} else {
 						return array(new LinkAction(
 							'open-' . $row->getId(),
-							new AjaxAction($router->url($request, null, null, 'openQuery', null, $actionArgs)),
+							new AjaxAction($router->url($this->_request, null, null, 'openQuery', null, $actionArgs)),
 							null, null
 						));
 					}
 				}
 				break;
 		}
-		return parent::getCellActions($request, $row, $column);
+		return parent::getCellActions($row, $column);
 	}
 
 	/**

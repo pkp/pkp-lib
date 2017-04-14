@@ -22,11 +22,12 @@ class MetadataGridCellProvider extends GridCellProvider {
 
 	/**
 	 * Constructor
+	 * @param $request PKPRequest
 	 * @param $context Context
 	 */
-	function __construct($context) {
+	function __construct($request, $context) {
 		$this->_context = $context;
-		parent::__construct();
+		parent::__construct($request);
 	}
 
 	/**

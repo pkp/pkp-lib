@@ -160,12 +160,14 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 	 */
 	function getFileNameColumn() {
 		import('lib.pkp.controllers.grid.files.LibraryFileGridCellProvider');
+		// TODO: Where should the request come from?
+		$request = PKPApplication::getRequest();
 		return new GridColumn(
 			'files',
 			'grid.libraryFiles.column.files',
 			null,
 			null,
-			new LibraryFileGridCellProvider()
+			new LibraryFileGridCellProvider($request)
 		);
 	}
 

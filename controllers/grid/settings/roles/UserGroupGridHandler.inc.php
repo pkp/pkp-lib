@@ -122,7 +122,7 @@ class UserGroupGridHandler extends GridHandler {
 		);
 
 		import('lib.pkp.controllers.grid.settings.roles.UserGroupGridCellProvider');
-		$cellProvider = new UserGroupGridCellProvider();
+		$cellProvider = new UserGroupGridCellProvider($request);
 
 		$workflowStagesLocales = WorkflowStageDAO::getWorkflowStageTranslationKeys();
 

@@ -24,11 +24,12 @@ class DateGridCellProvider extends GridCellProvider {
 
 	/**
 	 * Constructor
+	 * @param $request PKPRequest
 	 * @param $dataProvider DataProvider The object to wrap
 	 * @param $format string See strftime
 	 */
-	function __construct($dataProvider, $format) {
-		parent::__construct();
+	function __construct($request, $dataProvider, $format) {
+		parent::__construct($request);
 		$this->_dataProvider = $dataProvider;
 		$this->_format = $format;
 	}
@@ -39,9 +40,7 @@ class DateGridCellProvider extends GridCellProvider {
 	/**
 	 * Fetch a value from the provided DataProvider (in constructor)
 	 * and format it as a date.
-	 * @param $row GridRow
-	 * @param $column GridColumn
-	 * @return array
+	 * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
 	function getTemplateVarsFromRowColumn($row, $column) {
 		$v = $this->_dataProvider->getTemplateVarsFromRowColumn($row, $column);

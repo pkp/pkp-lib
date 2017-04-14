@@ -16,23 +16,13 @@
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
 class MapGridCellProvider extends GridCellProvider {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 	//
 	// Template methods from GridCellProvider
 	//
 	/**
 	 * This implementation assumes a simple data element array that
 	 * has column ids as keys.
-	 * @see GridCellProvider::getTemplateVarsFromRowColumn()
-	 * @param $row GridRow
-	 * @param $column GridColumn
-	 * @return array
+	 * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
 	function getTemplateVarsFromRowColumn($row, $column) {
 		$element =& $row->getData();

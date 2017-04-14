@@ -69,7 +69,7 @@ class ServerInfoGridHandler extends GridHandler {
 		//
 		// Grid columns.
 		//
-		$infoGridCellProvider = new InfoGridCellProvider(true);
+		$infoGridCellProvider = new InfoGridCellProvider($request, true);
 
 		// Setting name.
 		$this->addColumn(

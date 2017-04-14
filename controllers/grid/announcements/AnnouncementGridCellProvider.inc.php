@@ -16,29 +16,21 @@
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
 class AnnouncementGridCellProvider extends GridCellProvider {
-
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 	/**
 	 * @copydoc GridCellProvider::getCellActions()
 	 */
-	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
+	function getCellActions($row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
 		switch ($column->getId()) {
 			case 'title':
 				$announcement = $row->getData();
-				$router = $request->getRouter();
+				$router = $this->_request->getRouter();
 				$actionArgs = array('announcementId' => $row->getId());
 
 				import('lib.pkp.classes.linkAction.request.AjaxModal');
 				return array(new LinkAction(
 					'moreInformation',
 					new AjaxModal(
-						$router->url($request, null, null, 'moreInformation', null, $actionArgs),
+						$router->url($this->_request, null, null, 'moreInformation', null, $actionArgs),
 						$announcement->getLocalizedTitle(),
 						null,
 						true
@@ -47,15 +39,11 @@ class AnnouncementGridCellProvider extends GridCellProvider {
 					'moreInformation'
 				));
 		}
-		return parent::getCellActions($request, $row, $column, $position);
+		return parent::getCellActions($row, $column, $position);
 	}
 
 	/**
-	 * Extracts variables for a given column from a data element
-	 * so that they may be assigned to template before rendering.
-	 * @param $row GridRow
-	 * @param $column GridColumn
-	 * @return array
+	 * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
 	function getTemplateVarsFromRowColumn($row, $column) {
 		$announcement = $row->getData();

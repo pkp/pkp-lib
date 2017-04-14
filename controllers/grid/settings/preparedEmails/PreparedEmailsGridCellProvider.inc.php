@@ -17,18 +17,7 @@ import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 
 class PreparedEmailsGridCellProvider extends DataObjectGridCellProvider {
 	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
-	/**
-	 * Extracts variables for a given column from a data element
-	 * so that they may be assigned to template before rendering.
-	 * @param $element mixed
-	 * @param $columnId string
-	 * @return array
+	 * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
 	function getTemplateVarsFromRowColumn($row, $column) {
 		$element =& $row->getData();

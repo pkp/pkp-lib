@@ -88,7 +88,7 @@ class UserGridHandler extends GridHandler {
 		//
 
 		// First Name.
-		$cellProvider = new DataObjectGridCellProvider();
+		$cellProvider = new DataObjectGridCellProvider($request);
 		$this->addColumn(
 			new GridColumn(
 				'firstName',
@@ -100,7 +100,7 @@ class UserGridHandler extends GridHandler {
 		);
 
 		// Last Name.
-		$cellProvider = new DataObjectGridCellProvider();
+		$cellProvider = new DataObjectGridCellProvider($request);
 		$this->addColumn(
 			new GridColumn(
 				'lastName',
@@ -112,7 +112,7 @@ class UserGridHandler extends GridHandler {
 		);
 
 		// User name.
-		$cellProvider = new DataObjectGridCellProvider();
+		$cellProvider = new DataObjectGridCellProvider($request);
 		$this->addColumn(
 			new GridColumn(
 				'username',
@@ -124,7 +124,7 @@ class UserGridHandler extends GridHandler {
 		);
 
 		// Email.
-		$cellProvider = new DataObjectGridCellProvider();
+		$cellProvider = new DataObjectGridCellProvider($request);
 		$this->addColumn(
 			new GridColumn(
 				'email',

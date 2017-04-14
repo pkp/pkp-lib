@@ -22,19 +22,11 @@
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
 class ColumnBasedGridCellProvider extends GridCellProvider {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
-
 	//
 	// Implement protected template methods from GridCellProvider
 	//
 	/**
-	 * @see GridCellProvider::getTemplateVarsFromRowColumn()
+	 * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
 	function getTemplateVarsFromRowColumn($row, $column) {
 		// Delegate to the column to provide template variables.

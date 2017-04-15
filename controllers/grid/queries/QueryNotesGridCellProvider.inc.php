@@ -66,7 +66,7 @@ class QueryNotesGridCellProvider extends DataObjectGridCellProvider {
 				import('lib.pkp.controllers.api.file.linkAction.DownloadFileLinkAction');
 				$actions = array();
 				foreach ($submissionFiles as $submissionFile) {
-					$actions[] = new DownloadFileLinkAction($this->_request, $submissionFile, $request->getUserVar('stageId'));
+					$actions[] = new DownloadFileLinkAction($this->_request, $submissionFile, $this->_request->getUserVar('stageId'));
 				}
 				return $actions;
 		}

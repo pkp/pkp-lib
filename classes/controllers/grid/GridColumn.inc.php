@@ -115,7 +115,7 @@ class GridColumn extends GridBodyElement {
 		if (is_null(parent::getCellProvider())) {
 			// provide a sensible default cell provider
 			import('lib.pkp.classes.controllers.grid.ArrayGridCellProvider');
-			// TODO: Where should the request come from?
+			// TODO: pkp/pkp-lib#2444 Where should the request come from?
 			$request = PKPApplication::getRequest();
 			$cellProvider = new ArrayGridCellProvider($request);
 			$this->setCellProvider($cellProvider);

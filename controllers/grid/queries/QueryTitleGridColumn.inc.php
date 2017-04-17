@@ -28,7 +28,7 @@ class QueryTitleGridColumn extends GridColumn {
 		$this->_actionArgs = $actionArgs;
 
 		import('lib.pkp.classes.controllers.grid.ColumnBasedGridCellProvider');
-		// TODO: Where should the request come from?
+		// TODO: pkp/pkp-lib#2444 Where should the request come from?
 		$request = PKPApplication::getRequest();
 		$cellProvider = new ColumnBasedGridCellProvider($request);
 

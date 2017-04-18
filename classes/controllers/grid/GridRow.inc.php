@@ -155,8 +155,8 @@ class GridRow extends GridBodyElement {
 
 	/**
 	 * Add an action
-	 * @param $position string the position of the action
 	 * @param $action mixed a single action
+	 * @param $position string the position of the action
 	 */
 	function addAction($action, $position = GRID_ACTION_POSITION_DEFAULT) {
 		if (!isset($this->_actions[$position])) $this->_actions[$position] = array();
@@ -188,7 +188,7 @@ class GridRow extends GridBodyElement {
 	 *
 	 * Subclasses can override this method.
 	 *
-	 * @param $request Request
+	 * @param $request PKPRequest
 	 * @param $template string
 	 */
 	function initialize($request, $template = null) {

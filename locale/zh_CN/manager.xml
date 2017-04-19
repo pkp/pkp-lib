@@ -206,7 +206,6 @@
 	<message key="plugins.categories.metadata">元数据插件</message>
 	<message key="plugins.categories.citationLookup">引文数据库连接器插件</message>
 	<message key="plugins.categories.citationOutput">引文输出插件</message>
-	<message key="manager.masthead.title">职务名称</message>
 	<message key="plugins.categories.citationParser">引文提取插件</message>
 	<message key="plugins.categories.citationParser.description">引提取插件提取字段级数据（如作者，标题等）</message>
 	<message key="manager.reviewerSearch.form.instructions">使用下表来设定您希望用来查询术语的最大值。此表已预先填充了这些领域的计算平均值。</message>

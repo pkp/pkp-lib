@@ -115,7 +115,6 @@
 	<message key="manager.language.reloadLocalizedDefaultSettings">Reload defaults</message>
 	<message key="manager.languages.alternateLocaleInstructions">This system optionally allows certain critical information to be entered in several additional languages. To use this feature, select alternate locales and choose from the options listed below.</message>
 	<message key="manager.languages.supportedLocalesInstructions">Select all locales to support on the site via a language select menu to appear on each page. The menu will only appear if more than one locale is selected.</message>
-	<message key="manager.masthead.title">Masthead</message>
 	<message key="manager.payment.timestamp">Timestamp</message>
 	<message key="manager.people.authSource">Authentication source</message>
 	<message key="manager.people.confirmUnenroll">Unenroll this user?</message>

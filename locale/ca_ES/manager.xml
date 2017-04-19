@@ -116,7 +116,6 @@
 	<message key="manager.language.reloadLocalizedDefaultSettings">Torna a carregar els valors predeterminats</message>
 	<message key="manager.languages.alternateLocaleInstructions">Aquest sistema permet introduir determinades informacions crítiques en diverses llengües addicionals. Per utilitzar aquesta característica, seleccioneu configuracions regionals alternatives i trieu alguna de les opcions que es mostren a continuació.</message>
 	<message key="manager.languages.supportedLocalesInstructions">Seleccioneu totes les configuracions regionals que seran compatibles amb el lloc web mitjançant un menú de selecció de llengua que apareixerà a totes les pàgines. Aquest menú només es mostrarà si heu seleccionat més d'una configuració regional.</message>
-	<message key="manager.masthead.title">Capçalera</message>
 	<message key="manager.navigation">Navegació</message>
 	<message key="manager.payment.timestamp">Data i hora</message>
 	<message key="manager.people.authSource">Font d’autenticació</message>

@@ -115,7 +115,6 @@
 	<message key="manager.language.reloadLocalizedDefaultSettings">Standard wiederherstellen</message>
 	<message key="manager.languages.alternateLocaleInstructions">Dieses System bietet die Möglichkeit, wichtige Informationen in verschiedenen zusätzlichen Sprachen einzutragen. Dazu wählen Sie bitte aus der nachstehenden Liste eine andere Regionaleinstellung aus.</message>
 	<message key="manager.languages.supportedLocalesInstructions">Wählen Sie alle Regionaleinstellungen aus, die von der Website unterstützt werden sollen und die über ein Sprachenmenü auf jeder Seite ausgewählt werden können. Dieses Menü erscheint nur dann, wenn mehr als eine Regionaleinstellung ausgewählt wird.</message>
-	<message key="manager.masthead.title">Impressum</message>
 	<message key="manager.payment.timestamp">Zeitpunkt</message>
 	<message key="manager.people.authSource">Authentifizierungsquelle</message>
 	<message key="manager.people.confirmUnenroll">Diese/n Benutzer/in austragen?</message>

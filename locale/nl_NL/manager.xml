@@ -233,7 +233,6 @@
 	<message key="plugins.categories.citationOutput.description">Citatie uitvoer plugins implementeren citatiestandaards. Dit is de opvolger van citatie format plugins.</message>
 	<message key="plugins.categories.citationParser">Citatie extractie plugins</message>
 	<message key="plugins.categories.citationParser.description">Citatie extractie plugins extraheren velden uit citaties (auteur, titel, etc).</message>
-	<message key="manager.masthead.title">Redactieteam</message>
 	<message key="plugins.categories.oaiMetadataFormats">OAI Metadata formaat plugins</message>
 	<message key="subscriptions.individualDescription">Bij individuele abonnementen is inloggen nodig om teogang te krijgen tot de inhoud.</message>
 	<message key="manager.website">Website</message>

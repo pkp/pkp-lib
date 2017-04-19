@@ -277,7 +277,6 @@
 	<message key="manager.website.appearance">Apparence</message>
 	<message key="manager.website.imageFileRequired">Un fichier image est requis. Assurez-vous d'avoir choisi et téléchargé un fichier.</message>
 	<message key="manager.language.ui">UI</message>
-	<message key="manager.masthead.title">Bloc-générique</message>
 	<message key="manager.publication.libraryDescription"><![CDATA[Ces fichiers ont été préparés à titre de modèles et de guides pour être utilisés dans le cadre des documents de soumission <span class="pkp_help_title">  </span>.]]></message>
 	<message key="manager.emails.disable.message">Vous êtes sur le point de désactiver ce modèle de courriel. Si des processus systèmes utilisent ce modèle, ils ne pourront plus l'utiliser. Souhaitez-vous confirmer cette action?</message>
 	<message key="manager.emails.enable.message">Vous êtes sur le point de désactiver ce courriel. Vous souhaitez confirmer cette opération?</message>

@@ -115,7 +115,6 @@
 	<message key="manager.language.reloadLocalizedDefaultSettings">Lataa oletusarvot uudelleen</message>
 	<message key="manager.languages.alternateLocaleInstructions">Tämä järjestelmä sallii halutessasi tiettyjen tärkeiden tietojen syöttämisen useilla lisäkielillä. Käyttääksesi tätä ominaisuutta valitse vaihtoehtoiset kielialueet ja vaihtoehdot alla olevasta listasta.</message>
 	<message key="manager.languages.supportedLocalesInstructions">Valitse kaikki sivustolla tuettavat kielialueet kielivalikosta, joka tulee näkymään jokaisella sivulla. Valikko näkyy vain, jos useampi kuin yksi kielialue on valittuna.</message>
-	<message key="manager.masthead.title">Tunnuslaatikko</message>
 	<message key="manager.payment.timestamp">Aikaleima</message>
 	<message key="manager.people.authSource">Todentamislähde</message>
 	<message key="manager.people.confirmUnenroll">Poistetaanko käyttäjältä tämä rooli?</message>

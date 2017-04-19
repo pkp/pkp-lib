@@ -116,7 +116,6 @@
 	<message key="manager.language.reloadLocalizedDefaultSettings">Перезагрузить значения по умолчанию</message>
 	<message key="manager.languages.alternateLocaleInstructions">Эта система позволяет вводить некоторую важную информацию одновременно на нескольких языках. Для включения этой возможности выберите альтернативные языки и выберите один из вариантов, приведенных ниже.</message>
 	<message key="manager.languages.supportedLocalesInstructions">Выберите все языки, которые будут поддерживаться на сайте через меню выбора языка, появляющееся на каждой странице. Это меню будет отображаться только в том случае, если будет выбрано несколько языков.</message>
-	<message key="manager.masthead.title">Выходные данные</message>
 	<message key="manager.payment.timestamp">Дата/Время</message>
 	<message key="manager.people.authSource">Источник аутентификации</message>
 	<message key="manager.people.confirmUnenroll">Отменить назначение этого пользователя?</message>

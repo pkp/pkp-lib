@@ -115,7 +115,6 @@
 	<message key="manager.language.reloadLocalizedDefaultSettings">استعادة الإعدادات الإفتراضية</message>
 	<message key="manager.languages.alternateLocaleInstructions">هذا النظام يتيح إختيارياً إدخال بعض المعلومات الحرجة بعدة لغات أخرى. لاستعمال هذه الميزة، إختر لغاب بديلة وحددها من قائمة الاختيارات أدناه.</message>
 	<message key="manager.languages.supportedLocalesInstructions">إختر كل اللغات التي تريد أن يدعمها الموقع عبر قائمة إختيار اللغة التي تظهر عند كل صفحة. تلك القائمة ستكون ظاهرة فقط عند اختيار أكثر من لغة للموقع.</message>
-	<message key="manager.masthead.title">دفة القيادة</message>
 	<message key="manager.payment.timestamp">بصمة الوقت</message>
 	<message key="manager.people.authSource">مصدر المصادقة</message>
 	<message key="manager.people.confirmUnenroll">إزالة الدور من هذا المستخدم؟</message>

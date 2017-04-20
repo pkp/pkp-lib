@@ -597,7 +597,7 @@ class PKPTemplateManager extends Smarty {
 				$baseUrl . '/js/pkp.min.js',
 				array(
 					'priority' => STYLE_SEQUENCE_CORE,
-					'contexts' => array('backend', 'frontend')
+					'contexts' => array('backend')
 				)
 			);
 			return;

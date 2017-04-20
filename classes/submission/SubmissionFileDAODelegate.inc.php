@@ -94,16 +94,11 @@ class SubmissionFileDAODelegate extends DAO {
 		$reviewStage = in_array($submissionFile->getFileStage(), array(
 				SUBMISSION_FILE_REVIEW_FILE, SUBMISSION_FILE_REVIEW_ATTACHMENT, SUBMISSION_FILE_REVIEW_REVISION
 		));
-		if (!$submissionFile->getName($submissionLocale)) {
-			if ($reviewStage) {
-				$submissionFile->setName($submissionFile->_generateName(true), $submissionLocale);
-			} else {
-				$submissionFile->setName($submissionFile->_generateName(), $submissionLocale);
-			}
+
+		if ($reviewStage) {
+			$submissionFile->setName($submissionFile->_generateName(true), $submissionLocale);
 		} else {
-			if ($reviewStage &&	$submissionFile->getName($submissionLocale) == $submissionFile->_generateName()) {
-				$submissionFile->setName($submissionFile->_generateName(true), $submissionLocale);
-			}
+			$submissionFile->setName($submissionFile->_generateName(), $submissionLocale);
 		}
 
 		$this->updateLocaleFields($submissionFile);

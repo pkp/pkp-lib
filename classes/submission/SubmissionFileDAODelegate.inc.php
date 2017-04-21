@@ -98,7 +98,9 @@ class SubmissionFileDAODelegate extends DAO {
 		if ($reviewStage) {
 			$submissionFile->setName($submissionFile->_generateName(true), $submissionLocale);
 		} else {
-			$submissionFile->setName($submissionFile->_generateName(), $submissionLocale);
+			if ($isUpload || !$submissionFile->getName($submissionLocale)) {
+				$submissionFile->setName($submissionFile->_generateName(), $submissionLocale);
+			}
 		}
 
 		$this->updateLocaleFields($submissionFile);

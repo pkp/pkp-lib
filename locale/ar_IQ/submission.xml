@@ -274,13 +274,15 @@
 	<message key="submission.email.confirmDeleteLogEntry">هل أنت متأكد من رغبتك في حذف هذه المعلومة من سجل وقائع البريد الالكتروني؟</message>
 	<message key="submission.email.deleteLogEntry">حذف المعلومة من سجل الوقائع</message>
 	<message key="submission.emailLog">وقائع البريد الالكتروني</message>
+	<message key="submission.event.participantAdded">"{$name}" ({$username}) تمت إضافته بمثابة {$userGroupName}.</message>
+	<message key="submission.event.participantRemoved">"{$name}" ({$username}) تمت إزالته بمثابة {$userGroupName}.</message>
 	<message key="submission.event.backToEventLog">العودة إلى وقائع الأحداث</message>
 	<message key="submission.event.confirmClearLog">هل أنت متأكد من رغبتك في تصفير سجل وقائع الأحداث لطلب التقديم هذا؟</message>
 	<message key="submission.event.confirmDeleteLogEntry">هل أنت متأكد من رغبتك في حذف هذه المعلومة من سجل وقائع الأحداث؟</message>
 	<message key="submission.event.deleteLogEntry">حذف المعلومة من سجل الوقائع</message>
 	<message key="submission.event.submissionSubmitted">طلب النشر الأساسي إكتمل.</message>
-	<message key="submission.event.fileUploaded">الملف "{$name}" (رمزه {$fileId}-{$revision}) قد رُفع إلى الموقع.</message>
-	<message key="submission.event.fileRevised">التنقيح "{$name}" (رمز الملف {$fileId}-{$revision}) قد رُفع إلى الموقع.</message>
+	<message key="submission.event.fileUploaded">الملف "{$name}" (رمزه {$fileId}-{$fileRevision}) قد رُفع إلى الموقع.</message>
+	<message key="submission.event.fileRevised">التنقيح "{$name}" (رمز الملف {$fileId}-{$fileRevision}) قد رُفع إلى الموقع.</message>
 	<message key="submission.event.general.metadataUpdated">البيانات الوصفية للمؤلَّف تم تحديثها</message>
 	<message key="submission.event.general.suppFileUpdated">ملف المؤلَّف تم تحديثه</message>
 	<message key="submission.event.participantAdded">{$name} قد عُيِّن لطلب النشر هذا بصفة {$userGroupName}.</message>

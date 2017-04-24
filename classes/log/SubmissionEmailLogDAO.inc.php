@@ -43,7 +43,7 @@ class SubmissionEmailLogDAO extends EmailLogDAO {
 	 * @return DAOResultFactory
 	 */
 	function getByEventType($submissionId, $eventType, $userId = null) {
-		return parent::getByEventType(ASSOC_TYPE_SUBMISSION, $submissionId, $eventType, $userId);
+		return parent::_getByEventType(ASSOC_TYPE_SUBMISSION, $submissionId, $eventType, $userId);
 	}
 
 	/**

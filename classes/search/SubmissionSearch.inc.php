@@ -345,7 +345,7 @@ class SubmissionSearch {
 	 *
 	 * @return array
 	 */
-	static function formatResults(&$results) {
+	static function formatResults($results) {
 		assert(false);
 	}
 

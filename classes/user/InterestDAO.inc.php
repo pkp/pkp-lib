@@ -25,7 +25,7 @@ class InterestDAO extends ControlledVocabDAO {
 	 * @return ControlledVocab
 	 */
 	function build() {
-		return parent::build(CONTROLLED_VOCAB_INTEREST);
+		return parent::_build(CONTROLLED_VOCAB_INTEREST);
 	}
 
 	/**

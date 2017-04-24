@@ -57,7 +57,7 @@ class ControlledVocabDAO extends DAO {
 	 * @param $assocId int
 	 * @return $controlledVocab
 	 */
-	function build($symbolic, $assocType = 0, $assocId = 0) {
+	function _build($symbolic, $assocType = 0, $assocId = 0) {
 		// Attempt to build a new controlled vocabulary.
 		$controlledVocab = $this->newDataObject();
 		$controlledVocab->setSymbolic($symbolic);
@@ -277,7 +277,7 @@ class ControlledVocabDAO extends DAO {
 			}
 
 			// It doesn't exist; create a new one.
-			$controlledVocabs[] = $controlledVocab = $this->build($symbolic, $assocType, $assocId);
+			$controlledVocabs[] = $controlledVocab = $this->_build($symbolic, $assocType, $assocId);
 			foreach ($controlledVocabNode->getChildren() as $entryNode) {
 				$seq = $entryNode->getAttribute('seq');
 				if ($seq !== null) $seq = (float) $seq;

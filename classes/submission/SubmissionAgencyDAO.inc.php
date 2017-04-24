@@ -32,7 +32,7 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 	 * @return ControlledVocab
 	 */
 	function build($submissionId) {
-		return parent::build(CONTROLLED_VOCAB_SUBMISSION_AGENCY, ASSOC_TYPE_SUBMISSION, $submissionId);
+		return parent::_build(CONTROLLED_VOCAB_SUBMISSION_AGENCY, ASSOC_TYPE_SUBMISSION, $submissionId);
 	}
 
 	/**

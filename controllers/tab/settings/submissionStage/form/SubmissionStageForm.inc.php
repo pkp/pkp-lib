@@ -42,6 +42,7 @@ class SubmissionStageForm extends ContextSettingsForm {
 					'copySubmissionAckPrimaryContact' => 'bool',
 					'copySubmissionAckAddress' => 'string',
 					'authorGuidelines' => 'string',
+					'privacyStatement' => 'string',
 				),
 				array_combine($metadataSettings, array_fill(0, count($metadataSettings), 'bool'))
 			),
@@ -54,7 +55,7 @@ class SubmissionStageForm extends ContextSettingsForm {
 	 * @copydoc Form::getLocaleFieldNames()
 	 */
 	function getLocaleFieldNames() {
-		return array('authorGuidelines');
+		return array('authorGuidelines', 'privacyStatement');
 	}
 
 	/**

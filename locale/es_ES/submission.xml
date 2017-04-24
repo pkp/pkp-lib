@@ -657,7 +657,6 @@
 
 	<!--  editor decisions -->
 	<message key="editor.submission.decision">Decisión</message>
-	<message key="editor.submission.decision.accept">Aceptar envío</message>
 	<message key="editor.submission.decision.requestRevisions">Solicitar revisiones</message>
 	<message key="editor.submission.decision.resubmit">Reevaluable</message>
 	<message key="editor.submission.decision.decline">No publicable</message>

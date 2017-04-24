@@ -535,11 +535,12 @@
 
 	<!--  editor decisions -->
 	<message key="editor.submission.decision">Decision</message>
-	<message key="editor.submission.decision.accept">Send to Copyediting</message>
+	<message key="editor.submission.decision.accept">Accept Submission</message>
 	<message key="editor.submission.decision.requestRevisions">Request Revisions</message>
 	<message key="editor.submission.decision.resubmit">Resubmit for Review</message>
 	<message key="editor.submission.decision.decline">Decline Submission</message>
 	<message key="editor.submission.decision.sendToProduction">Send To Production</message>
+	<message key="editor.submission.decision.skipReview">Accept and Skip Review</message>
 	<message key="editor.submission.decision.sendInternalReview">Send to Internal Review</message>
 	<message key="editor.submission.decision.approveProofsDescription">The page proof file must be checked as approved to be made Available. Do you want to approve it?</message>
 	<message key="editor.submission.decision.approveProofs">Approve Proofs</message>

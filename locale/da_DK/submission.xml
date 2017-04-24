@@ -425,7 +425,6 @@
 	<message key="submission.event.submissionSubmitted">Første indsendelse afsluttet.</message>
 	<message key="submission.event.subjectPrefix">En e-mail er afsendt:</message>
 	<message key="submission.event.fileUploaded">En fil "{$originalFileName}" blev uploadet til indsendelse {$submissionId} af {$username}.</message>
-	<message key="editor.submission.decision.accept">Send til manuskriptredigering</message>
 	<message key="editor.submission.decision.decline">Afvis indsendelse</message>
 	<message key="editor.submission.addStageParticipant">Tilføj deltager</message>
 	<message key="submission.finalDraft">Filer til redigering</message>

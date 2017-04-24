@@ -13,6 +13,8 @@
 
 <locale name="de_DE" full_name="Deutsch (Deutschland)">
 	<!-- Common -->
+	<message key="grid.genres.title">Kategorien</message>
+	<message key="grid.genres.title.short">Komponenten</message>
 	<message key="grid.noItems">Keine Einträge</message>
 	<message key="grid.settings">Einstellungen</message>
 	<message key="grid.noAuditors">Kein/e Prüfer/in</message>

@@ -73,20 +73,20 @@ class BlockPluginsListbuilderHandler extends MultipleListsListbuilderHandler {
 	 * @copydoc MultipleListsListbuilderHandler::setListsData()
 	 */
 	function setListsData($request, $filter) {
-		$leftBlockPlugins = $disabledBlockPlugins = array();
+		$sidebarBlockPlugins = $disabledBlockPlugins = array();
 		$plugins = PluginRegistry::loadCategory('blocks');
 		foreach ($plugins as $key => $junk) {
 			if (!$plugins[$key]->getEnabled() || $plugins[$key]->getBlockContext() == '') {
 				if (count(array_intersect($plugins[$key]->getSupportedContexts(), array(BLOCK_CONTEXT_SIDEBAR))) > 0) $disabledBlockPlugins[$key] = $plugins[$key];
 			} else switch ($plugins[$key]->getBlockContext()) {
 				case BLOCK_CONTEXT_SIDEBAR:
-					$leftBlockPlugins[$key] = $plugins[$key];
+					$sidebarBlockPlugins[$key] = $plugins[$key];
 					break;
 			}
 		}
 
 		$lists = $this->getLists();
-		$lists['sidebarContext']->setData($leftBlockPlugins);
+		$lists['sidebarContext']->setData($sidebarBlockPlugins);
 		$lists['unselected']->setData($disabledBlockPlugins);
 	}
 }

@@ -33,7 +33,7 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 	 */
 	function build($submissionId) {
 		// may return an array of ControlledVocabs
-		return parent::build(CONTROLLED_VOCAB_SUBMISSION_LANGUAGE, ASSOC_TYPE_SUBMISSION, $submissionId);
+		return parent::_build(CONTROLLED_VOCAB_SUBMISSION_LANGUAGE, ASSOC_TYPE_SUBMISSION, $submissionId);
 	}
 
 	/**

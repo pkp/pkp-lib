@@ -33,7 +33,7 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO {
 	 * @return ControlledVocabulary
 	 */
 	function build($submissionId) {
-		return parent::build(CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE, ASSOC_TYPE_SUBMISSION, $submissionId);
+		return parent::_build(CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE, ASSOC_TYPE_SUBMISSION, $submissionId);
 	}
 
 	/**

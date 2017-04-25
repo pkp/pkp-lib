@@ -157,7 +157,7 @@ class MetadataPropertyTest extends PKPTestCase {
 		// Build a test vocabulary. (Assoc type and id are 0 to
 		// simulate a site-wide vocabulary).
 		$controlledVocabDao = DAORegistry::getDao('ControlledVocabDAO');
-		$testControlledVocab = $controlledVocabDao->build('test-controlled-vocab', 0, 0);
+		$testControlledVocab = $controlledVocabDao->_build('test-controlled-vocab', 0, 0);
 
 		// Make a vocabulary entry
 		$controlledVocabEntryDao = DAORegistry::getDao('ControlledVocabEntryDAO');

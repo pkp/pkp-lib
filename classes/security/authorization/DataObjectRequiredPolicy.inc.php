@@ -118,7 +118,7 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy {
 
 			case is_a($router, 'APIRouter'):
 				$handler = $router->getHandler();
-				return $handler->getEntityId($this->_parameterName);
+				return $handler->getParameter($this->_parameterName);
 				break;
 
 			default:

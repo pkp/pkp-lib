@@ -10,7 +10,9 @@
 		"tinymce/tinymce": "4.1.7",
 		"ircmaxell/password-compat": "v1.0.4",
 		"michelf/php-markdown": "1.5.0",
-		"slim/slim": "^3.0"
+		"slim/slim": "^3.0",
+		"pimple/pimple": "^3.0",
+		"illuminate/database": "4.1.*"
 	},
 	"require-dev": {
 		"phpunit/phpunit-selenium": "1.4.2"
@@ -18,5 +20,10 @@
 	"config": {
 		"component-dir": "lib/components",
 		"vendor-dir": "lib/vendor"
+	},
+	"autoload": {
+	   "psr-4": {
+	       "App\\Services\\": "classes/services"
+	   }
 	}
 }

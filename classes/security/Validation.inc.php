@@ -126,6 +126,7 @@ class Validation {
 		$session->setSessionVar('userId', $user->getId());
 		$session->setUserId($user->getId());
 		$session->setSessionVar('username', $user->getUsername());
+		$session->getCSRFToken(); // Force generation (see issue #2417)
 		$session->setRemember($remember);
 
 		if ($remember && Config::getVar('general', 'session_lifetime') > 0) {

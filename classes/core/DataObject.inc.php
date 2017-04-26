@@ -509,11 +509,15 @@ class DataObject {
 	 */
 	public function _filterOutputParams($param) {
 		$currentUser = Application::getRequest()->getUser();
+		$context = Application::getRequest()->getContext();
+		if (!$context) {
+			return false;
+		}
 
 		if ($param === true) {
 			return true;
 		} elseif (is_array($param) && !is_null($currentUser)) {
-			if ($currentUser->hasRole($param)) {
+			if ($currentUser->hasRole($param, $context->getId())) {
 				return true;
 			}
 		}

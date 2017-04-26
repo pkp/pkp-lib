@@ -90,19 +90,7 @@ class APIRouter extends PKPRouter {
 		}
 
 		$this->_handler = require ('./'.$sourceFile);
-
-		$args = $this->getRequestedArgs($request);
-		if ($this->_handler->authorize($request, $args, $this->_handler->getRoleAssignments())) {
-			$this->_handler->validate($request, $args);
-			$this->_handler->initialize($request, $args);
-			$this->_handler->getApp()->run();
-		} else {
-			$authorizationMessage = $this->_handler->getLastAuthorizationMessage();
-			if ($authorizationMessage == '') $authorizationMessage = 'user.authorization.accessDenied';
-			$result = $this->handleAuthorizationFailure($request, $authorizationMessage);
-			if (is_string($result)) echo $result;
-			elseif (is_a($result, 'JSONMessage')) echo $result->getString();
-		}
+		$this->_handler->getApp()->run();
 	}
 
 	/**
@@ -122,15 +110,6 @@ class APIRouter extends PKPRouter {
 	 */
 	function url($request, $endpoint, $params) {
 		fatalError('unimplemented.');
-	}
-
-	/**
-	 * Get the arguments requested in the URL.
-	 * @param $request PKPRequest the request to be routed
-	 * @return array
-	 */
-	function getRequestedArgs($request) {
-		return $this->_getRequestedUrlParts(array('Core', 'getArgs'), $request);
 	}
 
 	function getRequestedOp($request) {
@@ -156,33 +135,6 @@ class APIRouter extends PKPRouter {
 		$dispatcher->handle404();
 	}
 
-	//
-	// Private helper methods.
-	//
-	/**
-	 * Retrieve part of the current requested
-	 * url using the passed callback method.
-	 * @param $callback array Core method to retrieve
-	 * page, operation or arguments from url.
-	 * @param $request PKPRequest
-	 * @return array|string|null
-	 */
-	private function _getRequestedUrlParts($callback, &$request) {
-		$url = null;
-		assert(is_a($request->getRouter(), 'APIRouter'));
-		$isPathInfoEnabled = $request->isPathInfoEnabled();
-
-		if ($isPathInfoEnabled) {
-			if (isset($_SERVER['PATH_INFO'])) {
-				$url = $_SERVER['PATH_INFO'];
-			}
-		} else {
-			$url = $request->getCompleteUrl();
-		}
-
-		$userVars = $request->getUserVars();
-		return call_user_func_array($callback, array($url, $isPathInfoEnabled, $userVars));
-	}
 }
 
 ?>

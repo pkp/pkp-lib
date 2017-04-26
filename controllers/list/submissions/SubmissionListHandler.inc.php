@@ -39,7 +39,7 @@ class SubmissionListHandler extends ListHandler {
 	 *
 	 * @param string
 	 */
-	public $_apiPath = 'submissions';
+	public $_apiPath = 'backend/submissions';
 
 	/**
 	 * Initialize the handler with config parameters
@@ -131,6 +131,9 @@ class SubmissionListHandler extends ListHandler {
 	 */
 	public function getItems() {
 
+		$context = Application::getRequest()->getContext();
+		$contextId = $context ? $context->getId() : 0;
+
 		$params = array_merge(
 			array(
 				'count' => $this->_count,
@@ -139,12 +142,9 @@ class SubmissionListHandler extends ListHandler {
 			$this->_getParams
 		);
 
-		$submissionDao = Application::getSubmissionDAO();
-
-		return $submissionDao->get(
-			$this,
-			$params,
-			Application::getRequest()->getContext()->getId()
-		);
+		import('lib.pkp.classes.core.ServicesContainer');
+		return ServicesContainer::instance()
+				->get('submission')
+				->getSubmissionList($contextId, $params);
 	}
 }

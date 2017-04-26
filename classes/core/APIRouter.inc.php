@@ -128,30 +128,6 @@ class APIRouter extends PKPRouter {
 	}
 
 	/**
-	 * Get the arguments requested in the URL.
-	 * @param $request PKPRequest the request to be routed
-	 * @return array
-	 */
-	function getRequestedArgs($request) {
-		return $this->_getRequestedUrlParts(array('Core', 'getArgs'), $request);
-	}
-
-	function getRequestedOp($request) {
-		$handler = $this->getHandler();
-		$container = $handler->getApp()->getContainer();
-		$router = $container->get('router');
-		$request = $container->get('request');
-		$routeInfo = $router->dispatch($request);
-		if (isset($routeInfo[1])) {
-			$route = $router->lookupRoute($routeInfo[1]);
-			$callable = $route->getCallable();
-			if (is_array($callable) && count($callable) == 2)
-				return $callable[1];
-		}
-		return '';
-	}
-
-	/**
 	 * @copydoc PKPRouter::handleAuthorizationFailure()
 	 */
 	function handleAuthorizationFailure($request, $authorizationMessage) {

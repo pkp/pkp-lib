@@ -48,7 +48,7 @@
 	{/if}
 
 	{if $currentContext->getLocalizedSetting('authorGuidelines')}
-	<div class="author_guidelines">
+	<div class="author_guidelines" id="authorGuidelines">
 		<h2>
 			{translate key="about.authorGuidelines"}
 			{include file="frontend/components/editLink.tpl" page="management" op="settings" path="journal" anchor="guidelines" sectionTitleKey="about.authorGuidelines"}

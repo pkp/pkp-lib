@@ -244,6 +244,11 @@ class PKPEditorDecisionHandler extends Handler {
 
 						if ($reviewFormResponse) {
 							$possibleResponses = $reviewFormElement->getLocalizedPossibleResponses();
+							// See issue #2437.
+							if (in_array($reviewFormElement->getElementType(), array(REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES, REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS))) {
+								ksort($possibleResponses);
+								$possibleResponses = array_values($possibleResponses);
+							}
 							if (in_array($reviewFormElement->getElementType(), $reviewFormElement->getMultipleResponsesElementTypes())) {
 								if ($reviewFormElement->getElementType() == REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES) {
 									$body .= '<ul>';

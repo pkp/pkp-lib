@@ -13,6 +13,10 @@
  * @brief Class for linking core functionality with plugins
  */
 
+define('HOOK_SEQUENCE_CORE', 0);
+define('HOOK_SEQUENCE_NORMAL', 10);
+define('HOOK_SEQUENCE_LATE', 15);
+define('HOOK_SEQUENCE_LAST', 20);
 
 class HookRegistry {
 	/**
@@ -61,13 +65,11 @@ class HookRegistry {
 	 * Register a hook against the given hook name.
 	 * @param $hookName string Name of hook to register against
 	 * @param $callback object Callback pseudotype
+	 * @param $hookSequence int Optional hook sequence specifier HOOK_SEQUENCE_...
 	 */
-	static function register($hookName, $callback) {
+	static function register($hookName, $callback, $hookSequence = HOOK_SEQUENCE_NORMAL) {
 		$hooks =& HookRegistry::getHooks();
-		if (!isset($hooks[$hookName])) {
-			$hooks[$hookName] = array();
-		}
-		$hooks[$hookName][] =& $callback;
+		$hooks[$hookName][$hookSequence][] =& $callback;
 	}
 
 	/**
@@ -98,9 +100,14 @@ class HookRegistry {
 			return false;
 		}
 
-		foreach ($hooks[$hookName] as $hook) {
-			if ($result = call_user_func($hook, $hookName, $args)) {
-				break;
+		if (isset($hooks[$hookName])) {
+			ksort($hooks[$hookName]);
+			foreach ($hooks[$hookName] as $priority => $hookList) {
+				foreach ($hookList as $hook) {
+					if ($result = call_user_func($hook, $hookName, $args)) {
+						break;
+					}
+				}
 			}
 		}
 

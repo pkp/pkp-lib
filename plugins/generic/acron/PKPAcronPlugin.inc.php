@@ -148,15 +148,13 @@ class PKPAcronPlugin extends GenericPlugin {
 
 		// Check if the plugin wants to add its own
 		// scheduled task into the cron tab.
-		$hooks = HookRegistry::getHooks();
-		$hookName = 'AcronPlugin::parseCronTab';
 
-		if (!isset($hooks[$hookName])) return false;
-
-		foreach ($hooks[$hookName] as $callback) {
-			if ($callback[0] == $plugin) {
-				$this->_parseCrontab();
-				break;
+		foreach (HookRegistry::getHooks('AcronPlugin::parseCronTab') as $hookPriorityList) {
+			foreach ($hookPriorityList as $priority => $callback) {
+				if ($callback[0] == $plugin) {
+					$this->_parseCrontab();
+					break;
+				}
 			}
 		}
 

@@ -46,6 +46,9 @@ define('ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES',	0x0100008);
 define('ASSOC_TYPE_SUBMISSION',			0x0100009);
 define('ASSOC_TYPE_QUERY',			0x010000a);
 
+// Constant used in UsageStats for submission files that are not full texts
+define('ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER', 0x0000213);
+
 // FIXME: these were defined in userGroup. they need to be moved somewhere with classes that do mapping.
 define('WORKFLOW_STAGE_PATH_SUBMISSION', 'submission');
 define('WORKFLOW_STAGE_PATH_INTERNAL_REVIEW', 'internalReview');

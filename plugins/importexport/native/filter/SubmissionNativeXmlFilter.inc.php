@@ -165,6 +165,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 	 * @param $submission Submission
 	 */
 	function addMetadata($doc, $submissionNode, $submission) {
+		$deployment = $this->getDeployment();
 		$this->createLocalizedNodes($doc, $submissionNode, 'title', $submission->getTitle(null, false));
 		$this->createLocalizedNodes($doc, $submissionNode, 'prefix', $submission->getPrefix(null));
 		$this->createLocalizedNodes($doc, $submissionNode, 'subtitle', $submission->getSubtitle(null));
@@ -173,6 +174,13 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$this->createLocalizedNodes($doc, $submissionNode, 'type', $submission->getType(null));
 		$this->createLocalizedNodes($doc, $submissionNode, 'source', $submission->getSource(null));
 		$this->createLocalizedNodes($doc, $submissionNode, 'rights', $submission->getRights(null));
+		if ($submission->getLicenseUrl()) {
+			$this->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'licenseUrl', htmlspecialchars($submission->getLicenseUrl())));
+		}
+		$this->createLocalizedNodes($doc, $submissionNode, 'copyrightHolder', $submission->getCopyrightHolder(null));
+		if ($submission->getCopyrightYear()) {
+			$this->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'copyrightYear', intval($submission->getCopyrightYear())));
+		}
 
 		// add controlled vocabularies
 		// get the supported locale keys

@@ -30,7 +30,6 @@ class HelpHandler extends Handler {
 	 * @param $request PKPRequest
 	 */
 	function index($args, $request) {
-		require_once('lib/pkp/lib/vendor/michelf/php-markdown/Michelf/Markdown.inc.php');
 		$path = 'docs/manual/';
 		$filename = join('/', $request->getRequestedArgs());
 

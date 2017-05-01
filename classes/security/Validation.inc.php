@@ -13,8 +13,6 @@
  * @brief Class providing user validation/authentication operations.
  */
 
-require_once(BASE_SYS_DIR . '/lib/pkp/lib/vendor/ircmaxell/password-compat/lib/password.php');
-
 class Validation {
 
 	/**

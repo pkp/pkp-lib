@@ -118,6 +118,9 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		// Seed random number generator
 		mt_srand(((double) microtime()) * 1000000);
 
+		// Load Composer autoloader
+		require_once('lib/pkp/lib/vendor/autoload.php');
+
 		import('lib.pkp.classes.core.Core');
 		import('lib.pkp.classes.core.PKPString');
 		import('lib.pkp.classes.core.Registry');

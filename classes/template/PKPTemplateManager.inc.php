@@ -22,7 +22,6 @@
 /* This definition is required by Smarty */
 define('SMARTY_DIR', Core::getBaseDir() . '/lib/pkp/lib/vendor/smarty/smarty/libs/');
 
-require_once('./lib/pkp/lib/vendor/smarty/smarty/libs/Smarty.class.php');
 require_once('./lib/pkp/lib/vendor/smarty/smarty/libs/plugins/modifier.escape.php'); // Seems to be needed?
 
 define('CACHEABILITY_NO_CACHE',		'no-cache');
@@ -383,9 +382,6 @@ class PKPTemplateManager extends Smarty {
 	 * @return string Compiled CSS styles
 	 */
 	public function compileLess($name, $lessFile, $args = array()) {
-
-		// Load the LESS compiler
-		require_once('lib/pkp/lib/vendor/oyejorge/less.php/lessc.inc.php');
 		$less = new Less_Parser(array(
 			'relativeUrls' => false,
 			'compress' => true,

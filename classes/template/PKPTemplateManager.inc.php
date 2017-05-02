@@ -687,7 +687,7 @@ class PKPTemplateManager extends Smarty {
 
 		// Give hooks an opportunity to override
 		$result = null;
-		if (HookRegistry::call($display?'TemplateManager::display':'TemplateManager::fetch', array($this, $template, $cache_id, $compile_id, &$result))) return $result;
+		if ($display == false && HookRegistry::call('TemplateManager::fetch', array($this, $template, $cache_id, $compile_id, &$result))) return $result;
 
 		return parent::fetch($template, $cache_id, $compile_id, $display);
 	}
@@ -747,7 +747,6 @@ class PKPTemplateManager extends Smarty {
 		// Give any hooks registered against the TemplateManager
 		// the opportunity to modify behavior; otherwise, display
 		// the template as usual.
-
 		$output = null;
 		if (HookRegistry::call('TemplateManager::display', array($this, &$template, &$output))) {
 			echo $output;

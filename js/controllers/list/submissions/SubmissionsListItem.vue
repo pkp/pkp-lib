@@ -37,7 +37,10 @@
 		<div v-else class="pkpListPanelItem--submission__stage">
 			<div class="pkpListPanelItem--submission__stageRow">
 				<div class="pkpListPanelItem--submission__stageLabel">
-					<template v-if="submission.submissionProgress > 0">
+					<template v-if="submission.status.id === 3 || submission.status.id === 4">
+						{{ submission.status.label }}
+					</template>
+					<template v-else-if="submission.submissionProgress > 0">
 						{{ i18n.incomplete }}
 					</template>
 					<template v-else>

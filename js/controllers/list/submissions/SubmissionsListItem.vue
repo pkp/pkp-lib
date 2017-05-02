@@ -170,6 +170,7 @@ export default {
 		},
 
 		/**
+<<<<<<< HEAD
 		 * Can the current user view the info center?
 		 *
 		 * @return bool
@@ -205,6 +206,8 @@ export default {
 		},
 
 		/**
+=======
+>>>>>>> 3973a7b... pkp/pkp-lib#2163 Move Submission->toArray() into service class
 		 * Compile a notice depending on the stage status
 		 *
 		 * Only stage status' that have pending work for the current user should
@@ -222,10 +225,14 @@ export default {
 				if (this.activeStage.id === 1) {
 					switch (this.activeStage.statusId) {
 						case 1: // @todo this should be a global
+<<<<<<< HEAD
 							// Only display unassigned notice for completed submissions
 							if (this.submission.submissionProgress === 0) {
 								notice = this.activeStage.status;
 							}
+=======
+							notice = this.activeStage.status;
+>>>>>>> 3973a7b... pkp/pkp-lib#2163 Move Submission->toArray() into service class
 							break;
 					}
 				}
@@ -277,7 +284,7 @@ export default {
 		 * @return int
 		 */
 		openQueryCount: function() {
-			return _.where(this.submission.stage.queries, {closed: "0"}).length;
+			return _.where(this.activeStage.queries, {closed: false}).length;
 		},
 
 		/**
@@ -287,6 +294,7 @@ export default {
 		 */
 		isReviewStage: function() {
 			return this.activeStage.id === 3;
+<<<<<<< HEAD
 		},
 
 		/**
@@ -348,6 +356,8 @@ export default {
 			}
 
 			return latest;
+=======
+>>>>>>> 3973a7b... pkp/pkp-lib#2163 Move Submission->toArray() into service class
 		},
 
 		/**
@@ -575,7 +585,7 @@ export default {
 			}
 
 			// REVIEW_ROUND_STATUS_REVIEWS_OVERDUE
-			if (this.submission.stage.statusId == 10) {
+			if (this.activeStage.statusId == 10) {
 				return '--warning';
 			}
 
@@ -585,7 +595,7 @@ export default {
 			}
 
 			// REVIEW_ROUND_STATUS_REVIEWS_READY
-			if (this.submission.stage.statusId == 8) {
+			if (this.activeStage.statusId == 8) {
 				return '--notice';
 			}
 
@@ -599,7 +609,7 @@ export default {
 		 * @return string
 		 */
 		classHighlightFiles: function() {
-			if (this.submission.stage.files.count) {
+			if (this.activeStage.files.count) {
 				return '--notice';
 			}
 

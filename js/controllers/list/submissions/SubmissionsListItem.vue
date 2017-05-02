@@ -666,7 +666,7 @@ export default {
 					// Allow time for the finished CSS transition to display
 					setTimeout(function() {
 						pkp.eventBus.$emit('submissionDeleted', { id: self.submission.id });
-						self.mask = null;
+						self.cancelDeleteRequest();
 					}, 300);
 				},
 				complete: function(r) {

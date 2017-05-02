@@ -561,12 +561,12 @@ class PKPRequest {
 	 * @return User
 	 */
 	function &getUser() {
-		PKPRequest::_checkThis();
+		$_this = PKPRequest::_checkThis();
 
 		$user =& Registry::get('user', true, null);
 
 		// Reference required
-		if (is_a($this->getRouter(), 'APIRouter') && ($token = $this->getUserVar('apiToken'))) {
+		if (is_a($_this->getRouter(), 'APIRouter') && ($token = $_this->getUserVar('apiToken'))) {
 			if ($user === null) {
 				$userDao = DAORegistry::getDAO('UserDAO');
 				$user = $userDao->getBySetting('apiKey', $token);

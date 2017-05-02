@@ -44,15 +44,15 @@
 						{{ i18n.incomplete }}
 					</template>
 					<template v-else>
-						{{ submission.stage.label }}
+						{{ activeStage.label }}
 					</template>
 				</div>
 				<div class="pkpListPanelItem--submission__flags">
 					<span v-if="isReviewStage"  class="pkpListPanelItem--submission__flags--reviews" :class="classHighlightReviews">
 						<span class="count">{{ completedReviewsCount }} / {{ currentReviewAssignments.length }}</span>
 					</span>
-					<span v-if="submission.stage.files.count" class="pkpListPanelItem--submission__flags--files" :class="classHighlightFiles">
-						<span class="count">{{ submission.stage.files.count }}</span>
+					<span v-if="activeStage.files.count" class="pkpListPanelItem--submission__flags--files" :class="classHighlightFiles">
+						<span class="count">{{ activeStage.files.count }}</span>
 					</span>
 					<span v-if="openQueryCount" class="pkpListPanelItem--submission__flags--discussions">
 						<span class="count">{{ openQueryCount }}</span>
@@ -170,6 +170,15 @@ export default {
 		},
 
 		/**
+		 * The current stage
+		 *
+		 * @return array
+		 */
+		activeStage: function() {
+			return _.findWhere(this.submission.stages, {isActiveStage: true});
+		},
+
+		/**
 		 * Compile a notice depending on the stage status
 		 *
 		 * Only stage status' that have pending work for the current user should
@@ -184,10 +193,10 @@ export default {
 
 			// Notices for journal managers
 			if (pkp.userHasRole('manager')) {
-				if (this.submission.stage.id === 1) {
-					switch (this.submission.stage.statusId) {
+				if (this.activeStage.id === 1) {
+					switch (this.activeStage.statusId) {
 						case 1: // @todo this should be a global
-							notice = this.submission.stage.status;
+							notice = this.activeStage.status;
 							break;
 					}
 				}
@@ -196,13 +205,13 @@ export default {
 			// Notices for journal managers and subeditors
 			if (pkp.userHasRole(['manager', 'subeditor'])) {
 				if (this.isReviewStage) {
-					switch (this.submission.stage.statusId) {
+					switch (this.activeStage.statusId) {
 						case 6: // REVIEW_ROUND_STATUS_PENDING_REVIEWERS
 						case 8: // REVIEW_ROUND_STATUS_REVIEWS_READY
 						case 9: // REVIEW_ROUND_STATUS_REVIEWS_COMPLETED
 						case 10: // REVIEW_ROUND_STATUS_REVIEWS_OVERDUE
 						case 11: // REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED
-							notice = this.submission.stage.status;
+							notice = this.activeStage.status;
 							break;
 					}
 				}
@@ -211,9 +220,9 @@ export default {
 			// Notices for authors
 			if (pkp.userHasRole(['author'])) {
 				if (this.isReviewStage) {
-					switch (this.submission.stage.statusId) {
+					switch (this.activeStage.statusId) {
 						case 1: // REVIEW_ROUND_STATUS_REVISIONS_REQUESTED
-							notice = this.submission.stage.status;
+							notice = this.activeStage.status;
 							break;
 					}
 				}
@@ -239,7 +248,7 @@ export default {
 		 * @return int
 		 */
 		openQueryCount: function() {
-			return _.where(this.submission.stage.queries, {closed: "0"}).length;
+			return _.where(this.activeStage.queries, {closed: false}).length;
 		},
 
 		/**
@@ -248,7 +257,7 @@ export default {
 		 * @return bool
 		 */
 		isReviewStage: function() {
-			return this.submission.stage.id === 3;
+			return this.activeStage.id === 3;
 		},
 
 		/**
@@ -337,7 +346,7 @@ export default {
 			}
 
 			// REVIEW_ROUND_STATUS_REVIEWS_OVERDUE
-			if (this.submission.stage.statusId == 10) {
+			if (this.activeStage.statusId == 10) {
 				return '--warning';
 			}
 
@@ -347,7 +356,7 @@ export default {
 			}
 
 			// REVIEW_ROUND_STATUS_REVIEWS_READY
-			if (this.submission.stage.statusId == 8) {
+			if (this.activeStage.statusId == 8) {
 				return '--notice';
 			}
 
@@ -361,7 +370,7 @@ export default {
 		 * @return string
 		 */
 		classHighlightFiles: function() {
-			if (this.submission.stage.files.count) {
+			if (this.activeStage.files.count) {
 				return '--notice';
 			}
 

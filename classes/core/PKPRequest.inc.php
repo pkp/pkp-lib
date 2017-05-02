@@ -565,8 +565,6 @@ class PKPRequest {
 
 		$user =& Registry::get('user', true, null);
 
-		$user =& Registry::get('user', true, null);
-
 		// Reference required
 		if (is_a($_this, 'PKPRequest') && is_a($_this->getRouter(), 'APIRouter') && ($token = $_this->getUserVar('apiToken'))) {
 			if ($user === null) {

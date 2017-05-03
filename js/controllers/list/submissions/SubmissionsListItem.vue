@@ -170,7 +170,6 @@ export default {
 		},
 
 		/**
-<<<<<<< HEAD
 		 * Can the current user view the info center?
 		 *
 		 * @return bool
@@ -206,8 +205,6 @@ export default {
 		},
 
 		/**
-=======
->>>>>>> 3973a7b... pkp/pkp-lib#2163 Move Submission->toArray() into service class
 		 * Compile a notice depending on the stage status
 		 *
 		 * Only stage status' that have pending work for the current user should
@@ -225,14 +222,10 @@ export default {
 				if (this.activeStage.id === 1) {
 					switch (this.activeStage.statusId) {
 						case 1: // @todo this should be a global
-<<<<<<< HEAD
 							// Only display unassigned notice for completed submissions
 							if (this.submission.submissionProgress === 0) {
 								notice = this.activeStage.status;
 							}
-=======
-							notice = this.activeStage.status;
->>>>>>> 3973a7b... pkp/pkp-lib#2163 Move Submission->toArray() into service class
 							break;
 					}
 				}
@@ -294,70 +287,6 @@ export default {
 		 */
 		isReviewStage: function() {
 			return this.activeStage.id === 3;
-<<<<<<< HEAD
-		},
-
-		/**
-		 * Retrieve the review assignments for the latest review round
-		 *
-		 * @return array
-		 */
-		currentReviewAssignments: function() {
-			if (!this.submission.reviewRounds.length || !this.submission.reviewAssignments.length) {
-				return [];
-			}
-			var currentReviewRoundId = this.submission.reviewRounds[this.submission.reviewRounds.length - 1].id;
-			return _.filter(this.submission.reviewAssignments, function(assignment) {
-				return assignment.roundId === currentReviewRoundId;
-			});
-		},
-
-		/**
-		 * The current user's latest review assignment. This retrieves the
-		 * review assignment from the latest round if available, or any other
-		 * round if not available.
-		 *
-		 * @return object|false False if no review assignment exists
-		 */
-		currentUserLatestReviewAssignment: function() {
-
-			if (!this.currentUserIsReviewer) {
-				return false;
-			}
-
-			var assignments = _.where(this.submission.reviewAssignments, {isCurrentUserAssigned: true});
-
-			if (!assignments.length) {
-				return false;
-			}
-
-			var latest = _.max(assignments, function(assignment) {
-				return assignment.round;
-			});
-
-			switch (latest.statusId) {
-
-				case 0: // REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE
-				case 4: // REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE
-					latest.responsePending = true;
-					latest.reviewPending = true;
-					break;
-
-				case 5: // REVIEW_ASSIGNMENT_STATUS_ACCEPTED
-				case 6: // REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE
-					latest.reviewPending = true;
-					break;
-
-				case 7: // REVIEW_ASSIGNMENT_STATUS_RECEIVED
-				case 8: // REVIEW_ASSIGNMENT_STATUS_COMPLETE
-				case 9: // REVIEW_ASSIGNMENT_STATUS_THANKED
-					latest.reviewComplete = true;
-					break;
-			}
-
-			return latest;
-=======
->>>>>>> 3973a7b... pkp/pkp-lib#2163 Move Submission->toArray() into service class
 		},
 
 		/**

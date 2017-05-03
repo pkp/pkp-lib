@@ -99,10 +99,10 @@
 					<attribute name="viewable" type="boolean" />
 					<attribute name="date_uploaded" type="date" />
 					<attribute name="date_modified" type="date" />
-					<attribute name="user_group_ref" type="pkp:user_group_ref" use="required" />
+					<attribute name="user_group_ref" type="pkp:user_group_ref" />
 					<attribute name="uploader" type="pkp:username" />
 					<attribute name="genre" type="normalizedString" />
-					<attribute name="filesize" type="int" use="required" />
+					<attribute name="filesize" type="int" />
 					<attribute name="filetype" type="normalizedString" use="required" />
 				</complexType>
 			</element>

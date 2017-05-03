@@ -102,8 +102,8 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 	/**
 	 * Handle a revision element
 	 * @param $node DOMElement
-	 * @param $fileId int File id
 	 * @param $stageId int SUBMISSION_FILE_...
+	 * @param $fileId int File id
 	 */
 	function handleRevisionElement($node, $stageId, $fileId) {
 		static $genresByContextId = array();
@@ -163,24 +163,13 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 
 		$uploaderUsername = $node->getAttribute('uploader');
 		$uploaderUserGroup = $node->getAttribute('user_group_ref');
-
-		// Determine the user group based on the user_group_ref element.
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$userGroups = $userGroupDao->getByContextId($context->getId());
-		while ($userGroup = $userGroups->next()) {
-			if (in_array($uploaderUserGroup, $userGroup->getName(null))) {
-				$submissionFile->setUserGroupId($userGroup->getId());
-				break;
-			}
+		if (!$uploaderUsername) {
+			$user = $deployment->getUser();
+		} else {
+			// Determine the user based on the username
+			$userDao = DAORegistry::getDAO('UserDAO');
+			$user = $userDao->getByUsername($uploaderUsername);
 		}
-		if (!$submissionFile->getUserGroupId()) {
-			$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownUserGroup', array('param' => $uploaderUserGroup)));
-			$errorOccured = true;
-		}
-
-		// Do the same for the user.
-		$userDao = DAORegistry::getDAO('UserDAO');
-		$user = $userDao->getByUsername($uploaderUsername);
 		if ($user) {
 			$submissionFile->setUploaderUserId($user->getId());
 		} else {
@@ -188,7 +177,50 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 			$errorOccured = true;
 		}
 
+		// Determine the user group.
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		if ($user && !$uploaderUserGroup) {
+			// We have a user, but no group specified in the import.  Select a default group.
+			// We will prefer any group that has access to the submission's stage; find these
+			$stageUserGroups = $userGroupDao->getUserGroupsByStage($context->getId(), $stageId);
+			$stageUserGroupLookup = array();
+			while ($userGroup = $stageUserGroups->next()) {
+				$stageUserGroupLookup[] = $userGroup->getId();
+			}
+			// Check all user groups from this user
+			$userUserGroups = $userGroupDao->getByUserId($user->getId(), $context->getId());
+			$lastUserGroup = null;
+			while ($userGroup = $userUserGroups->next()) {
+				// If the user's user group has access to this stage, select it.
+				$lastUserGroup = $userGroup->getId();
+				if (in_array($lastUserGroup, $stageUserGroupLookup, true)) {
+					$submissionFile->setUserGroupId($userGroup->getId());
+					break;
+				}
+				// No matching user group has access to this stage, select the last one seen.
+				if ($lastUserGroup) {
+					$submissionFile->setUserGroupId($lastUserGroup);
+				}
+			}
+		} else {
+			// Determine the user group based on the user_group_ref element.
+			$userGroups = $userGroupDao->getByContextId($context->getId());
+			while ($userGroup = $userGroups->next()) {
+				if (in_array($uploaderUserGroup, $userGroup->getName(null))) {
+					$submissionFile->setUserGroupId($userGroup->getId());
+					break;
+				}
+			}
+		}
+		if (!$submissionFile->getUserGroupId()) {
+			$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownUserGroup', array('param' => $uploaderUserGroup)));
+			$errorOccured = true;
+		}
+
 		$fileSize = $node->getAttribute('filesize');
+		if (!$fileSize) {
+			$fileSize = filesize($filename);
+		}
 		$submissionFile->setFileSize($fileSize);
 
 		$fileType = $node->getAttribute('filetype');

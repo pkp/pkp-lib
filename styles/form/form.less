@@ -25,6 +25,10 @@
 		margin: 0 0 @double 0;
 		padding: 0;
 		border: none;
+		// Chrome sets the fieldset min-width to min-content, which
+		// prevents our grids from shrinking properly.
+		// See: https://css-tricks.com/almanac/properties/w/width/#article-header-id-2
+		min-width: auto;
 
 		&:last-child {
 			margin-bottom: 0;

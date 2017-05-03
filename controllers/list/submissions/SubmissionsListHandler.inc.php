@@ -1,12 +1,12 @@
 <?php
 /**
- * @file classes/controllers/list/submissions/SubmissionListHandler.inc.php
+ * @file classes/controllers/list/submissions/SubmissionsListHandler.inc.php
  *
  * Copyright (c) 2014-2016 Simon Fraser University Library
  * Copyright (c) 2000-2016 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class SubmissionListHandler
+ * @class SubmissionsListHandler
  * @ingroup classes_controllers_list
  *
  * @brief A base class for submission list handlers. Sub-classes should extend
@@ -16,7 +16,7 @@
 import('lib.pkp.controllers.list.ListHandler');
 import('lib.pkp.classes.db.DBResultRange');
 
-class SubmissionListHandler extends ListHandler {
+class SubmissionsListHandler extends ListHandler {
 
 	/**
 	 * Count of items to retrieve in initial page/request

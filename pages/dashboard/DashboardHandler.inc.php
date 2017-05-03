@@ -49,10 +49,10 @@ class DashboardHandler extends Handler {
 
 		$currentUser = $request->getUser();
 
-		import('lib.pkp.controllers.list.submissions.SubmissionListHandler');
+		import('lib.pkp.controllers.list.submissions.SubmissionsListHandler');
 
 		// My Queue
-		$myQueueListHandler = new SubmissionListHandler(array(
+		$myQueueListHandler = new SubmissionsListHandler(array(
 			'title' => 'common.queue.long.myAssigned',
 			'getParams' => array(
 				'status' => STATUS_QUEUED,
@@ -64,7 +64,7 @@ class DashboardHandler extends Handler {
 		if ($currentUser->hasRole(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), $request->getContext()->getId())) {
 
 			// Unassigned
-			$unassignedListHandler = new SubmissionListHandler(array(
+			$unassignedListHandler = new SubmissionsListHandler(array(
 				'title' => 'common.queue.long.submissionsUnassigned',
 				'getParams' => array(
 					'status' => STATUS_QUEUED,
@@ -75,7 +75,7 @@ class DashboardHandler extends Handler {
 			$templateMgr->assign('unassignedListData', json_encode($unassignedListHandler->getConfig()));
 
 			// Active
-			$activeListHandler = new SubmissionListHandler(array(
+			$activeListHandler = new SubmissionsListHandler(array(
 				'title' => 'common.queue.long.active',
 				'getParams' => array(
 					'status' => STATUS_QUEUED,
@@ -96,7 +96,7 @@ class DashboardHandler extends Handler {
 		if (!$currentUser->hasRole(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), $request->getContext()->getId())) {
 			$params['getParams']['assignedTo'] = $currentUser->getId();
 		}
-		$archivedListHandler = new SubmissionListHandler($params);
+		$archivedListHandler = new SubmissionsListHandler($params);
 		$templateMgr->assign('archivedListData', json_encode($archivedListHandler->getConfig()));
 
 		return $templateMgr->display('dashboard/index.tpl');

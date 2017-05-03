@@ -1,19 +1,20 @@
 <?php
 /**
- * @file controllers/list/submissions/SubmissionsListHandler.inc.php
+ * @file classes/controllers/list/submissions/SubmissionsListHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2014-2016 Simon Fraser University Library
  * Copyright (c) 2000-2016 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionsListHandler
  * @ingroup classes_controllers_list
  *
- * @brief Instantiates and manages a UI component to list submissions.
+ * @brief A base class for submission list handlers. Sub-classes should extend
+ *  this class by defining a `getItems` method to fetch a particular set of
+ *  submissions (eg - active, archived, assigned to me).
  */
 import('lib.pkp.controllers.list.ListHandler');
 import('lib.pkp.classes.db.DBResultRange');
-import('lib.pkp.classes.submission.Submission');
 
 class SubmissionsListHandler extends ListHandler {
 
@@ -38,7 +39,7 @@ class SubmissionsListHandler extends ListHandler {
 	 *
 	 * @param string
 	 */
-	public $_apiPath = '_submissions';
+	public $_apiPath = 'backend/submissions';
 
 	/**
 	 * Initialize the handler with config parameters
@@ -99,12 +100,10 @@ class SubmissionsListHandler extends ListHandler {
 
 		// Load grid localisation files
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID);
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
 
 		$config['i18n']['title'] = __($this->_title);
 		$config['i18n']['add'] = __('submission.submit.newSubmissionSingle');
 		$config['i18n']['search'] = __('common.search');
-		$config['i18n']['clearSearch'] = __('submission.list.clearSearch');
 		$config['i18n']['itemCount'] = __('submission.list.count');
 		$config['i18n']['itemsOfTotal'] = __('submission.list.itemsOfTotal');
 		$config['i18n']['loadMore'] = __('grid.action.moreItems');
@@ -118,13 +117,6 @@ class SubmissionsListHandler extends ListHandler {
 		$config['i18n']['confirmDelete'] = __('submission.list.confirmDelete');
 		$config['i18n']['responseDue'] = __('submission.list.responseDue');
 		$config['i18n']['reviewDue'] = __('submission.list.reviewDue');
-		$config['i18n']['filter'] = __('submission.list.filter');
-		$config['i18n']['filterRemove'] = __('submission.list.filterRemove');
-		$config['i18n']['itemOrdererUp'] = __('submission.list.itemOrdererUp');
-		$config['i18n']['itemOrdererDown'] = __('submission.list.itemOrdererDown');
-		$config['i18n']['reviewsCompleted'] = __('submission.list.reviewsCompleted');
-		$config['i18n']['filesPrepared'] = __('submission.list.filesPrepared');
-		$config['i18n']['discussions'] = __('submission.list.discussions');
 
 		// Attach a CSRF token for post requests
 		$config['csrfToken'] = $request->getSession()->getCSRFToken();
@@ -150,7 +142,7 @@ class SubmissionsListHandler extends ListHandler {
 			$this->_getParams
 		);
 
-		import('classes.core.ServicesContainer');
+		import('lib.pkp.classes.core.ServicesContainer');
 		return ServicesContainer::instance()
 				->get('submission')
 				->getSubmissionList($contextId, $params);

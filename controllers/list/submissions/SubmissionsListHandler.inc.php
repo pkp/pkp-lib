@@ -9,9 +9,7 @@
  * @class SubmissionsListHandler
  * @ingroup classes_controllers_list
  *
- * @brief A base class for submission list handlers. Sub-classes should extend
- *  this class by defining a `getItems` method to fetch a particular set of
- *  submissions (eg - active, archived, assigned to me).
+ * @brief Instantiates and manages a UI component to list submissions.
  */
 import('lib.pkp.controllers.list.ListHandler');
 import('lib.pkp.classes.db.DBResultRange');

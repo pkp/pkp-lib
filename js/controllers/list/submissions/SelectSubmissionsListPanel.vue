@@ -42,5 +42,10 @@ export default _.extend({}, SubmissionsListPanel, {
 	components: _.extend({}, SubmissionsListPanel.components, {
 		SelectSubmissionsListItem,
 	}),
+	data: function() {
+		return _.extend({}, SubmissionsListPanel.data(), {
+			inputName: '',
+		});
+	},
 });
 </script>

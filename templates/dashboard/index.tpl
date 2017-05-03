@@ -25,7 +25,7 @@
 		<li><a name="archives" href="#archived">{translate key="navigation.archives"}</a></li>
 	</ul>
 	<div id="myQueue">
-		{help file="submissions.md" section="my-queue" class="pkp_help_tab"}
+		{help file="submissions.md" class="pkp_help_tab"}
 		<div class="pkp_content_panel">
 			{assign var="uuid" value=""|uniqid|escape}
 			<div id="my-submission-list-handler-{$uuid}">
@@ -37,6 +37,7 @@
 	</div>
 	{if array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), (array)$userRoles)}
 		<div id="unassigned">
+			{help file="submissions.md" section="unassigned" class="pkp_help_tab"}
 			<div class="pkp_content_panel">
 				{assign var="uuid" value=""|uniqid|escape}
 				<div id="unassigned-list-handler-{$uuid}">

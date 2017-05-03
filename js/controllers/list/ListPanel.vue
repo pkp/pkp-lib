@@ -30,7 +30,7 @@ export default {
 			isLoading: false,
 			isSearching: false,
 			count: 20,
-			page: 1,
+			offset: 0,
 			apiPath: '',
 			getParams: {},
 			i18n: {},
@@ -101,7 +101,7 @@ export default {
 					{
 						searchPhrase: this.searchPhrase,
 						count: this.count,
-						page: this.page,
+						offset: this.offset,
 					},
 				),
 				error: this.ajaxErrorCallback,
@@ -129,7 +129,7 @@ export default {
 		 * Load more items in the list
 		 */
 		loadMore: function() {
-			this.page++;
+			this.offset = this.collection.items.length;
 			this.get('isLoading', 'append');
 		},
 	},
@@ -141,7 +141,7 @@ export default {
 			if (newVal === oldVal) {
 				return;
 			}
-			this.page = 1;
+			this.offset = 0;
 			this.get('isSearching');
 		});
 

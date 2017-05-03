@@ -40,7 +40,7 @@ class SubmissionService {
 	 * 		@option int|array status
 	 * 		@option string searchPhrase
 	 * 		@option int count
-	 * 		@option int page
+	 * 		@option int offset
 	 * }
 	 *
 	 * @return array
@@ -54,7 +54,7 @@ class SubmissionService {
 			'status' => null,
 			'searchPhrase' => null,
 			'count' => 20,
-			'page' => 1,
+			'offset' => 0,
 		);
 
 		$args = array_merge($defaultArgs, $args);
@@ -67,18 +67,25 @@ class SubmissionService {
 			->searchPhrase($args['searchPhrase']);
 
 		$submissionListQO = $submissionListQB->get();
-		$range = new DBResultRange($args['count'], $args['page']);
+		$range = new DBResultRange($args['count'], null, $args['offset']);
 
 		$submissionDao = Application::getSubmissionDAO();
 		$result = $submissionDao->retrieveRange($submissionListQO->toSql(), $submissionListQO->getBindings(), $range);
 		$queryResults = new DAOResultFactory($result, $submissionDao, '_fromRow');
 
+		// We have to run $queryResults->toArray() before we load the next
+		// query, as it seems to interfere with the results.
 		$data = array(
 			'items' => $this->toArray($queryResults->toArray()),
-			'maxItems' => (int) $queryResults->getCount(),
-			'page' => $queryResults->getPage(),
-			'pageCount' => $queryResults->getPageCount(),
 		);
+
+		$countQO = $submissionListQB->get(true);
+		$countRange = new DBResultRange($args['count'], 1);
+
+		$countResult = $submissionDao->retrieveRange($countQO->toSql(), $countQO->getBindings(), $countRange);
+		$countQueryResults = new DAOResultFactory($countResult, $submissionDao, '_fromRow');
+
+		$data['maxItems'] = (int) $countQueryResults->getCount();
 
 		return $data;
 	}
@@ -347,13 +354,13 @@ class SubmissionService {
 					default:
 
 						$method = '';
-						if (method_exists($this, 'getLocalized' . ucfirst($param))) {
+						if (method_exists($submission, 'getLocalized' . ucfirst($param))) {
 							$method = 'getLocalized' . ucfirst($param);
-						} elseif (method_exists($this, 'get' . ucfirst($param))) {
+						} elseif (method_exists($submission, 'get' . ucfirst($param))) {
 							$method = 'get' . ucfirst($param);
 						}
 						if (empty($method)) {
-							error_log('No method found for retrieving param ' . $param . ' in ' . get_class($this) . ' on line ' . __LINE__ . '.');
+							error_log('No method found for retrieving param ' . $param . ' in ' . get_class($submission) . ' on line ' . __LINE__ . '.');
 						} else {
 							$compiled[$param] = $submission->{$method}();
 						}
@@ -396,7 +403,7 @@ class SubmissionService {
 	 */
 	public function toArrayStageDetails($submission, $stageIds = null) {
 
-		if (is_null($stageId)) {
+		if (is_null($stageIds)) {
 			$stageIds = Application::getApplicationStages();
 		} elseif (is_int($stageIds)) {
 			$stageIds = array($stageIds);
@@ -483,6 +490,7 @@ class SubmissionService {
 				case WORKFLOW_STAGE_ID_EDITING:
 				case WORKFLOW_STAGE_ID_PRODUCTION:
 					import('classes.article.SubmissionFileDAO');
+					import('lib.pkp.classes.submission.SubmissionFile'); // Import constants
 					$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 					$submissionFiles = $submissionFileDao->getAllRevisionsByAssocId(
 						ASSOC_TYPE_WORKFLOW_STAGE,

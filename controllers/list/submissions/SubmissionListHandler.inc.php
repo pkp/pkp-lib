@@ -137,7 +137,7 @@ class SubmissionListHandler extends ListHandler {
 		$params = array_merge(
 			array(
 				'count' => $this->_count,
-				'page' => $this->_page,
+				'offset' => 0,
 			),
 			$this->_getParams
 		);

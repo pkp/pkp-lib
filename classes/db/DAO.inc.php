@@ -187,7 +187,11 @@ class DAO {
 		if (isset($dbResultRange) && $dbResultRange->isValid()) {
 			$start = Core::microtime();
 			$dataSource = $this->getDataSource();
-			$result = $dataSource->PageExecute($sql, $dbResultRange->getCount(), $dbResultRange->getPage(), $params);
+			if (is_null($dbResultRange->getOffset())) {
+				$result = $dataSource->PageExecute($sql, $dbResultRange->getCount(), $dbResultRange->getPage(), $params);
+			} else {
+				$result = $dataSource->SelectLimit($sql, $dbResultRange->getCount(), $dbResultRange->getOffset(), $params);
+			}
 			if ($dataSource->errorNo()) {
 				fatalError('DB Error: ' . $dataSource->errorMsg());
 			}

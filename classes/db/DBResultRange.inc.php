@@ -21,13 +21,17 @@ class DBResultRange {
 	/** The number of pages to skip */
 	var $page;
 
+	/** Optional offset if pagination is not used. */
+	var $offset;
+
 	/**
 	 * Constructor.
 	 * Initialize the DBResultRange.
 	 */
-	function __construct($count, $page = 1) {
+	function __construct($count, $page = 1, $offset = null) {
 		$this->count = $count;
 		$this->page = $page;
+		$this->offset = $offset;
 	}
 
 	/**
@@ -35,7 +39,8 @@ class DBResultRange {
 	 * @return boolean
 	 */
 	function isValid() {
-		return (($this->count>0) && ($this->page>=0));
+		return (($this->count > 0) && ($this->page >= 0))
+				|| ($this->count > 0 && !is_null($this->offset));
 	}
 
 	/**
@@ -71,13 +76,19 @@ class DBResultRange {
 	}
 
 	/**
-	 * Convert the data set to an array for output
+	 * Returns the offset of items in this range to display.
+	 * @return int
 	 */
-	public function toArray() {
-		return array(
-			'count' => $this->getCount(),
-			'page' => $this->getPage(),
-		);
+	function getOffset() {
+		return $this->offset;
+	}
+
+	/**
+	 * Set the offset of items in this range to display.
+	 * @param $offset int
+	 */
+	function setOffset($offset) {
+		$this->offset = $offset;
 	}
 }
 

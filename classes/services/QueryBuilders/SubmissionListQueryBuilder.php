@@ -111,9 +111,10 @@ class SubmissionListQueryBuilder extends BaseQueryBuilder {
 	/**
 	 * Execute query builder
 	 *
+	 * @param $countOnly bool Whether to only retrieve a count of results
 	 * @return object Query object
 	 */
-	public function get() {
+	public function get($countOnly = false) {
 		$this->columns[] = 's.*';
 		$q = Capsule::table('submissions as s')
 					->where('s.context_id','=', $this->contextId)
@@ -186,7 +187,11 @@ class SubmissionListQueryBuilder extends BaseQueryBuilder {
 			}
 		}
 
-		$q->select($this->columns);
+		if ($countOnly) {
+			$q->select(Capsule::raw('count(*) as submission_count'));
+		} else {
+			$q->select($this->columns);
+		}
 
 		return $q;
 	}

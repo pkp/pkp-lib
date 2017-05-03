@@ -225,3 +225,46 @@
 	font-size: @font-tiny;
 	line-height: @line-tiny;
 }
+
+// Exportable submissions list
+.pkpListPanelItem--select a {
+	text-decoration: none;
+
+	.pkpListPanelItem--submission__item {
+		padding-left: 6em;
+		width: 100%;
+		float: none;
+	}
+
+	.pkpListPanelItem__selectItem {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 5em;
+		height: 100%;
+		border-right: @grid-border;
+
+		input {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
+}
+
+// Exportable submissions list appears nested in a .pkp_form. These styles
+// reset some styles that are being applied to the listpanel
+.pkp_form {
+
+	.pkpListPanel__title {
+		font-size: @font-base;
+		line-height: @double;
+	}
+
+	.pkpListPanel__search input {
+		&:extend(.pkpListPanel__search input all);
+		height: auto;
+		font-weight: @normal;
+	}
+}

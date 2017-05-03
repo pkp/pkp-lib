@@ -59,7 +59,7 @@ export default _.extend({}, ListPanel, {
 			isLoading: false,
 			isSearching: false,
 			count: 20,
-			page: 1,
+			offset: 0,
 			apiPath: '',
 			getParams: {},
 			i18n: {},
@@ -78,7 +78,7 @@ export default _.extend({}, ListPanel, {
 
 		// Remove a submission from the list when it is deleted
 		pkp.eventBus.$on('submissionDeleted', function(data) {
-			if (!_.has(data, 'id')) {
+			if (!_.has(data, 'id') || !_.findWhere(self.collection.items, data)) {
 				return;
 			}
 			self.collection.items = _.reject(self.collection.items, data);

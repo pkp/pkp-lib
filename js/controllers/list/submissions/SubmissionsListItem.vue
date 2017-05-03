@@ -101,6 +101,7 @@ export default {
 	data: function() {
 		return {
 			mask: null,
+			isFocused: false,
 		};
 	},
 	computed: {
@@ -565,6 +566,19 @@ export default {
 		},
 	},
 	methods: {
+		/**
+		 * Update the isFocused property
+		 */
+		focusItem: function() {
+			this.isFocused = true;
+		},
+
+		/**
+		 * Update the isFocused property
+		 */
+		blurItem: function() {
+			this.isFocused = false;
+		},
 
 		/**
 		 * Load a modal displaying history and notes of a submission

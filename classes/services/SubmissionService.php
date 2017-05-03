@@ -328,9 +328,6 @@ class SubmissionService {
 			'datePublished' => true,
 			'urlWorkflow' => true,
 			'urlPublished' => true,
-			'urlAuthorDashboard' => true,
-			'urlReviewer' => true,
-			'urlIncomplete' => true,
 		);
 
 		\HookRegistry::call('Submission::toArray::defaultParams', array(&$defaultParams, $params, $submissions));

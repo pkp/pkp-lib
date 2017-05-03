@@ -166,7 +166,6 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 		$email = $this->_getMailTemplate($submission, $template, false);
 		$email->setReplyTo($fromUser->getEmail(), $fromUser->getFullName());
 
-		import('lib.pkp.controllers.grid.submissions.SubmissionsListGridCellProvider');
 		$dispatcher = $request->getDispatcher();
 
 		$userDao = DAORegistry::getDAO('UserDAO');
@@ -174,7 +173,9 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 		if (isset($user)) {
 			$email->addRecipient($user->getEmail(), $user->getFullName());
 			$email->setBody($this->getData('message'));
-			$submissionUrl = SubmissionsListGridCellProvider::getUrlByUserRoles($request, $submission, $user->getId());
+
+			import('lib.pkp.classes.core.ServicesContainer');
+			$submissionUrl = ServicesContainer::instance()->getWorklowUrlByUserRoles($submission, $user->getId());
 
 			// Parameters for various emails
 			$email->assignParams(array(

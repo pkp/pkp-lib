@@ -130,8 +130,8 @@ abstract class PKPSubmissionHandler extends Handler {
 			$templateMgr->assign('context', $context);
 
 			// Retrieve the correct url for author review his submission.
-			import('lib.pkp.controllers.grid.submissions.SubmissionsListGridCellProvider');
-			$reviewSubmissionUrl = SubmissionsListGridCellProvider::getUrlByUserRoles($request, $submission);
+			import('lib.pkp.classes.core.ServicesContainer');
+			$reviewSubmissionUrl = ServicesContainer::instance()->getWorklowUrlByUserRoles($submission);
 			$router = $request->getRouter();
 			$dispatcher = $router->getDispatcher();
 

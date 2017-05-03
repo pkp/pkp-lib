@@ -91,6 +91,104 @@ class SubmissionService {
 	}
 
 	/**
+	 * Get the correct access URL for a submission's workflow based on a user's
+	 * role.
+	 *
+	 * The returned URL will point to the correct workflow page based on whether
+	 * the user should be treated as an author, reviewer or editor/assistant for
+	 * this submission.
+	 *
+	 * @param $submission Submission
+	 * @param $userId an optional user id
+	 * @param $stageName string An optional suggested stage name
+	 * @return string|false URL; false if the user does not exist or an
+	 *   appropriate access URL could not be determined
+	 */
+	public function getWorklowUrlByUserRoles($submission, $userId = null, $stageName = null) {
+
+		$request = Application::getRequest();
+
+		if (is_null($userId)) {
+			$user = $request->getUser();
+		} else {
+			$userDao = DAORegistry::getDAO('UserDAO');
+			$user = $userDao->getById($userId);
+		}
+
+		if (is_null($user)) {
+			return false;
+		}
+
+		$submissionContext = $request->getContext();
+
+		if (!$submissionContext || $submissionContext->getId() != $submission->getContextId()) {
+			$contextDao = Application::getContextDAO();
+			$submissionContext = $contextDao->getById($submission->getContextId());
+		}
+
+		$dispatcher = $request->getDispatcher();
+
+		// Check if the user is an author of this submission
+		$authorUserGroupIds = DAORegistry::getDAO('UserGroupDAO')->getUserGroupIdsByRoleId(ROLE_ID_AUTHOR);
+		$stageAssignmentsFactory = DAORegistry::getDAO('StageAssignmentDAO')->getBySubmissionAndStageId($submission->getId(), null, null, $user->getId());
+
+		$authorDashboard = false;
+		while ($stageAssignment = $stageAssignmentsFactory->next()) {
+			if (in_array($stageAssignment->getUserGroupId(), $authorUserGroupIds)) {
+				$authorDashboard = true;
+			}
+		}
+		if ($authorDashboard) {
+
+			// Send authors of incomplete submissions to the wizard
+			if ($submission->getSubmissionProgress() > 0) {
+				return $dispatcher->url(
+					$request,
+					ROUTE_PAGE,
+					$submissionContext->getPath(),
+					'submission',
+					'wizard',
+					$submission->getSubmissionProgress(),
+					array('submissionId' => $submission->getId())
+				);
+			} else {
+				return $dispatcher->url(
+					$request,
+					ROUTE_PAGE,
+					$submissionContext->getPath(),
+					'authorDashboard',
+					'submission',
+					$submission->getId()
+				);
+			}
+		}
+
+		// Check if the user is a reviewer of this submission
+		$reviewAssignment = DAORegistry::getDAO('ReviewAssignmentDAO')->getLastReviewRoundReviewAssignmentByReviewer($submission->getId(), $user->getId());
+		if ($reviewAssignment) {
+			return $dispatcher->url(
+				$request,
+				ROUTE_PAGE,
+				$submissionContext->getPath(),
+				'reviewer',
+				'submission',
+				$submission->getId()
+			);
+		}
+
+		// Give any other users the editorial workflow URL. If they can't access
+		// it, they'll be blocked there.
+		return $dispatcher->url(
+			$request,
+			ROUTE_PAGE,
+			$submissionContext->getPath(),
+			'workflow',
+			$stageName?$stageName:'access',
+			$submission->getId()
+		);
+	}
+
+	/**
 	 * Delete a submission
 	 *
 	 * @param $submissionId int
@@ -296,59 +394,20 @@ class SubmissionService {
 						break;
 
 					case 'urlWorkflow':
+						$compiled[$param] = $this->getWorklowUrlByUserRoles($submission);
+						break;
+
 					case 'urlPublished':
-					case 'urlAuthorDashboard':
-					case 'urlReviewer':
-					case 'urlIncomplete':
 						$request = \Application::getRequest();
 						$dispatcher = $request->getDispatcher();
-						if ($param === 'urlWorkflow') {
-							$compiled[$param] = $dispatcher->url(
-								$request,
-								ROUTE_PAGE,
-								null,
-								'workflow',
-								'access',
-								$submission->getId()
-							);
-						} elseif ($param === 'urlPublished') {
-							$compiled[$param] = $dispatcher->url(
-								$request,
-								ROUTE_PAGE,
-								null,
-								'article',
-								'view',
-								$submission->getId()
-							);
-						} elseif ($param === 'urlAuthorDashboard') {
-							$compiled[$param] = $dispatcher->url(
-								$request,
-								ROUTE_PAGE,
-								null,
-								'authorDashboard',
-								'submission',
-								$submission->getId()
-							);
-						} elseif ($param === 'urlReviewer') {
-							$compiled[$param] = $dispatcher->url(
-								$request,
-								ROUTE_PAGE,
-								null,
-								'reviewer',
-								'submission',
-								$submission->getId()
-							);
-						} elseif ($param === 'urlIncomplete') {
-							$compiled[$param] = $dispatcher->url(
-								$request,
-								ROUTE_PAGE,
-								null,
-								'submission',
-								'wizard',
-								$submission->getSubmissionProgress(),
-								array('submissionId' => $submission->getId())
-							);
-						}
+						$compiled[$param] = $dispatcher->url(
+							$request,
+							ROUTE_PAGE,
+							null,
+							'article',
+							'view',
+							$submission->getId()
+						);
 						break;
 
 					default:

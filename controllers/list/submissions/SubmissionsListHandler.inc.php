@@ -100,6 +100,7 @@ class SubmissionsListHandler extends ListHandler {
 
 		// Load grid localisation files
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID);
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
 
 		$config['i18n']['title'] = __($this->_title);
 		$config['i18n']['add'] = __('submission.submit.newSubmissionSingle');

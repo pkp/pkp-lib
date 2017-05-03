@@ -101,8 +101,8 @@ class QueryNotificationManager extends NotificationManagerDelegate {
 		assert(is_a($query, 'Query'));
 		$submission = $this->getQuerySubmission($query);
 
-		import('lib.pkp.controllers.grid.submissions.SubmissionsListGridCellProvider');
-		return SubmissionsListGridCellProvider::getUrlByUserRoles($request, $submission, $notification->getUserId());
+		import('lib.pkp.classes.core.ServicesContainer');
+		return ServicesContainer::instance()->getWorklowUrlByUserRoles($submission, $notification->getUserId());
 	}
 
 	/**

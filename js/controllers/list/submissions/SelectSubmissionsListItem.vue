@@ -5,7 +5,7 @@
 				<input type="checkbox" :name="inputName" :value="inputValue" :checked="selected" @click.stop>
 			</div>
 		</a>
-		<a :href="accessUrl">
+		<a :href="submission.urlWorkflow">
 			<div class="pkpListPanelItem--submission__item">
 				<div class="pkpListPanelItem--submission__title">
 					{{ submission.title }}
@@ -29,13 +29,6 @@ export default _.extend({}, SubmissionsListItem, {
 		};
 	},
 	computed: {
-		/**
-		 * @see SubmissionsListItem.computed.accessUrl
-		 */
-		accessUrl: function() {
-			return SubmissionsListItem.computed.accessUrl.call(this);
-		},
-
 		/**
 		 * The input value to use for this item
 		 *

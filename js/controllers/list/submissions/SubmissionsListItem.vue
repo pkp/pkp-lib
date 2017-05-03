@@ -1,6 +1,6 @@
 <template>
 	<li class="pkpListPanelItem pkpListPanelItem--submission">
-		<a :href="accessUrl">
+		<a :href="submission.urlWorkflow">
 			<div class="pkpListPanelItem--submission__item">
 				<div class="pkpListPanelItem--submission__title">
 					{{ submission.title }}
@@ -15,7 +15,7 @@
 			</div>
 		</a>
 		<div v-if="currentUserIsReviewer" class="pkpListPanelItem--submission__stage pkpListPanelItem--submission__stage--reviewer">
-			<a :href="accessUrl" tabindex="-1">
+			<a :href="submission.urlWorkflow" tabindex="-1">
 				<div v-if="currentUserLatestReviewAssignment.responsePending" class="pkpListPanelItem--submission__dueDate">
 					<div class="pkpListPanelItem--submission__dueDateValue">
 						{{ currentUserLatestReviewAssignment.responseDue }}
@@ -98,28 +98,6 @@ export default {
 		};
 	},
 	computed: {
-		/**
-		 * The appropriate URL to access the submission workflow for the current
-		 * user.
-		 *
-		 * @return string
-		 */
-		accessUrl: function() {
-
-			if (pkp.userHasRole(['assistant', 'manager', 'siteAdmin', 'subeditor'])) {
-				return this.submission.urlWorkflow;
-			} else if (pkp.userHasRole(['author'])) {
-				if (this.submission.submissionProgress !== 0) {
-					return this.submission.urlIncomplete;
-				}
-				return this.submission.urlAuthorDashboard;
-			} else if (pkp.userHasRole(['reviewer'])) {
-				return this.submission.urlReviewer;
-			}
-
-			return '';
-		},
-
 		/**
 		 * Can the current user delete a submission?
 		 *

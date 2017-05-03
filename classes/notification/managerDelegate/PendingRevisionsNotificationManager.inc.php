@@ -43,8 +43,8 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate {
 		$stageData = $this->_getStageDataByType();
 		$operation = $stageData['path'];
 
-		import('lib.pkp.controllers.grid.submissions.SubmissionsListGridCellProvider');
-		return SubmissionsListGridCellProvider::getUrlByUserRoles($request, $submission, $notification->getUserId(), $stageData['path']);
+		import('lib.pkp.classes.core.ServicesContainer');
+		return ServicesContainer::instance()->getWorklowUrlByUserRoles($submission, $notification->getUserId(), $stageData['path']);
 	}
 
 	/**

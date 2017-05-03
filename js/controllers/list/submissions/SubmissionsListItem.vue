@@ -1,6 +1,6 @@
 <template>
-	<li class="pkpListPanelItem pkpListPanelItem--submission">
-		<a :href="submission.urlWorkflow">
+	<li class="pkpListPanelItem pkpListPanelItem--submission" :class="{'--has-focus': isFocused}">
+		<a :href="submission.urlWorkflow" class="pkpListPanelItem--submission__link" @focus="focusItem" @blur="blurItem">
 			<div class="pkpListPanelItem--submission__item">
 				<div class="pkpListPanelItem--submission__title">
 					{{ submission.title }}
@@ -60,10 +60,10 @@
 				</div>
 			</div>
 			<div v-if="hasActions" class="pkpListPanelItem--submission__actions">
-				<a v-if="currentUserCanDelete" href="#" class="delete" @click.prevent="deleteSubmissionPrompt">
+				<a v-if="currentUserCanDelete" href="#" class="delete" @click.prevent="deleteSubmissionPrompt" @focus="focusItem" @blur="blurItem">
 					{{ i18n.delete }}
 				</a>
-				<a v-if="currentUserCanViewInfoCenter" href="#" @click.prevent="openInfoCenter">
+				<a v-if="currentUserCanViewInfoCenter" href="#" @click.prevent="openInfoCenter" @focus="focusItem" @blur="blurItem">
 					{{ i18n.infoCenter }}
 				</a>
 			</div>
@@ -95,6 +95,7 @@ export default {
 	data: function() {
 		return {
 			mask: null,
+			isFocused: false,
 		};
 	},
 	computed: {
@@ -375,6 +376,19 @@ export default {
 		},
 	},
 	methods: {
+		/**
+		 * Update the isFocused property
+		 */
+		focusItem: function() {
+			this.isFocused = true;
+		},
+
+		/**
+		 * Update the isFocused property
+		 */
+		blurItem: function() {
+			this.isFocused = false;
+		},
 
 		/**
 		 * Load a modal displaying history and notes of a submission

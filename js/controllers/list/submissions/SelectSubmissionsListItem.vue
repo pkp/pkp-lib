@@ -1,20 +1,20 @@
 <template>
 	<li class="pkpListPanelItem pkpListPanelItem--submission pkpListPanelItem--select">
-		<a href="#" @click.prevent="toggleSelection">
-			<div class="pkpListPanelItem__selectItem">
-				<input type="checkbox" :name="inputName" :value="inputValue" :checked="selected" @click.stop>
+		<div class="pkpListPanelItem__selectItem" @click.prevent="toggleSelection">
+			<input type="checkbox" :id="inputId" :name="inputName" :value="inputValue" :checked="selected" @click.stop>
+		</div>
+		<label :for="inputId" class="pkpListPanelItem--submission__item">
+			<div class="pkpListPanelItem--submission__title">
+				{{ submission.title }}
 			</div>
-		</a>
-		<a :href="submission.urlWorkflow">
-			<div class="pkpListPanelItem--submission__item">
-				<div class="pkpListPanelItem--submission__title">
-					{{ submission.title }}
-				</div>
-				<div v-if="submission.author" class="pkpListPanelItem--submission__author">
-					{{ submission.author.authorString }}
-				</div>
+			<div v-if="submission.author" class="pkpListPanelItem--submission__author">
+				{{ submission.author.authorString }}
 			</div>
+		</label>
+		<a :href="submission.urlWorkflow" class="pkpListPanelItem--submission__link">
+			{{ __('viewSubmission', {title: submission.title}) }}
 		</a>
+	</li>
 </template>
 
 <script>
@@ -37,6 +37,15 @@ export default _.extend({}, SubmissionsListItem, {
 		inputValue: function() {
 			return this.submission.id;
 		},
+
+		/**
+		 * The id attribute of the checkbox
+		 *
+		 * @return string
+		 */
+		inputId: function() {
+			return this.inputName + this.inputValue;
+		}
 	},
 	methods: {
 		/**

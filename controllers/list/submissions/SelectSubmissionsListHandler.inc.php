@@ -36,6 +36,7 @@ class SelectSubmissionsListHandler extends SubmissionsListHandler {
 	public function getConfig() {
 		$config = parent::getConfig();
 		$config['inputName'] = $this->_inputName;
+		$config['i18n']['viewSubmission'] = __('submission.list.viewSubmission');
 		return $config;
 	}
 }

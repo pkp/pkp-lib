@@ -665,4 +665,5 @@
 	<message key="submission.list.responseDue">Response Due</message>
 	<message key="submission.list.reviewDue">Review Due</message>
 	<message key="submission.list.confirmDelete">Delete submission?</message>
+	<message key="submission.list.viewSubmission">View {$title}</message>
 </locale>

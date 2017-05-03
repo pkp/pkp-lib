@@ -100,7 +100,7 @@ class UserGroup extends DataObject {
 
 	/**
 	 * Set the "show title" flag
-	 * @param $isDefault boolean
+	 * @param $showTitle boolean
 	 */
 	function setShowTitle($showTitle) {
 		$this->setData('showTitle', $showTitle);
@@ -119,7 +119,7 @@ class UserGroup extends DataObject {
 
 	/**
 	 * Set the "permit self-registration" flag
-	 * @param $isDefault boolean
+	 * @param $permitSelfRegistration boolean
 	 */
 	function setPermitSelfRegistration($permitSelfRegistration) {
 		$this->setData('permitSelfRegistration', $permitSelfRegistration);
@@ -134,9 +134,9 @@ class UserGroup extends DataObject {
 	}
 
 	/**
-	 * Get user group name
-	 * @param $locale string
-	 * @return string
+	 * Get localized user group name, or array of localized names if $locale is null
+	 * @param $locale string|null
+	 * @return string|array|null localized name or array of localized names or null
 	 */
 	function getName($locale) {
 		return $this->getData('name', $locale);
@@ -160,16 +160,16 @@ class UserGroup extends DataObject {
 	}
 
 	/**
-	 * Get user group abbrev
-	 * @param $locale string
-	 * @return string
+	 * Get localized user group abbreviation, or array of localized abbreviations if $locale is null
+	 * @param $locale string|null
+	 * @return string|array|null localized abbreviation or array of localized abbreviations or null
 	 */
 	function getAbbrev($locale) {
 		return $this->getData('abbrev', $locale);
 	}
 
 	/**
-	 * Set user group abbrev
+	 * Set user group abbreviation
 	 * @param $abbrev string
 	 * @param $locale string
 	 */

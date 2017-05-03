@@ -221,6 +221,9 @@
 			<element name="type" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 			<element name="source" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 			<element name="rights" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+			<element name="licenseUrl" type="anyURI" minOccurs="0" maxOccurs="1" />
+			<element name="copyrightHolder" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+			<element name="copyrightYear" type="int" minOccurs="0" maxOccurs="1" />
 			<element ref="pkp:keywords" minOccurs="0" maxOccurs="unbounded" />
 			<element ref="pkp:agencies" minOccurs="0" maxOccurs="unbounded" />
 			<element ref="pkp:disciplines" minOccurs="0" maxOccurs="unbounded" />

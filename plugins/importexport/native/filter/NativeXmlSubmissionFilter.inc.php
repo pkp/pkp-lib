@@ -162,6 +162,12 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 			case 'submission_file':
 				$this->parseSubmissionFile($n, $submission);
 				break;
+			case 'copyrightYear':
+				$submission->setCopyrightYear($n->textContent);
+				break;
+			case 'licenseUrl':
+				$submission->setLicenseUrl($n->textContent);
+				break;
 			default:
 				$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownElement', array('param' => $n->tagName)));
 		}
@@ -258,6 +264,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 			'type' => 'setType',
 			'source' => 'setSource',
 			'rights' => 'setRights',
+			'copyrightHolder' => 'setCopyrightHolder',
 		);
 	}
 

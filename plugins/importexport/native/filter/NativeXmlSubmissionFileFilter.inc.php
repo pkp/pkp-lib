@@ -194,13 +194,12 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 				// If the user's user group has access to this stage, select it.
 				$lastUserGroup = $userGroup->getId();
 				if (in_array($lastUserGroup, $stageUserGroupLookup, true)) {
-					$submissionFile->setUserGroupId($userGroup->getId());
 					break;
 				}
-				// No matching user group has access to this stage, select the last one seen.
-				if ($lastUserGroup) {
-					$submissionFile->setUserGroupId($lastUserGroup);
-				}
+			}
+			// Select the best match user group (might just be the last one we saw, if none had access to this stage).
+			if ($lastUserGroup) {
+				$submissionFile->setUserGroupId($lastUserGroup);
 			}
 		} else {
 			// Determine the user group based on the user_group_ref element.

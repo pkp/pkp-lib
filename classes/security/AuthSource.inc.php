@@ -15,7 +15,7 @@
  */
 
 
-import('classes.plugins.AuthPlugin');
+import('lib.pkp.classes.plugins.AuthPlugin');
 
 class AuthSource extends DataObject {
 	/**

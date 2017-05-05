@@ -15,7 +15,7 @@
 
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
-class AnnouncementGridCellProvider extends GridCellProvider {
+class NavigationMenuItemsGridCellProvider extends GridCellProvider {
 
 	/**
 	 * Constructor

@@ -26,5 +26,8 @@
 	{url|assign:navigationMenusGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.navigationMenus.NavigationMenusGridHandler" op="fetchGrid" escape=false}
 	{load_url_in_div id="navigationMenuGridContainer" url=$navigationMenusGridUrl}
 
+    {url|assign:navigationMenuItemsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.navigationMenus.NavigationMenuItemsGridHandler" op="fetchGrid" escape=false}
+	{load_url_in_div id="navigationMenuItemsGridContainer" url=$navigationMenuItemsGridUrl}
+
 	{*{fbvFormButtons id="navigationMenusSettingsFormSubmit" submitText="common.save" hideCancel=true}*}
 </form>

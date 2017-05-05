@@ -26,7 +26,7 @@ class NavigationMenuItem extends DataObject {
 	// Get/set methods
 	//
 	/**
-	 * Get assoc ID for this annoucement.
+	 * Get assoc ID for this navigation menu item.
 	 * @return int
 	 */
 	function getAssocId() {
@@ -34,7 +34,7 @@ class NavigationMenuItem extends DataObject {
 	}
 
 	/**
-	 * Set assoc ID for this annoucement.
+	 * Set assoc ID for this navigation menu item.
 	 * @param $assocId int
 	 */
 	function setAssocId($assocId) {
@@ -42,45 +42,77 @@ class NavigationMenuItem extends DataObject {
 	}
 
 	/**
-	 * Get assoc type for this annoucement.
+	 * Get seq for this navigation menu item.
 	 * @return int
 	 */
-	function getAssocType() {
-		return $this->getData('assocType');
+	function getSeq() {
+		return $this->getData('seq');
 	}
 
 	/**
-	 * Set assoc Type for this annoucement.
+	 * Set seq for this navigation menu item.
+	 * @param $assocId int
+	 */
+	function setSeq($seq) {
+		$this->setData('seq', $seq);
+	}
+
+	/**
+	 * Get navigationMenuId for this navigation menu item.
+	 * @return int
+	 */
+	function getNavigationMenuId() {
+		return $this->getData('navigationMenuId');
+	}
+
+	/**
+	 * Set navigationMenuId for this navigation menu item.
 	 * @param $assocType int
 	 */
-	function setAssocType($assocType) {
-		$this->setData('assocType', $assocType);
+	function setNavigationMenuId($navigationMenuId) {
+		$this->setData('navigationMenuId', $navigationMenuId);
 	}
 
 	/**
-	 * Get the type of the announcement type.
+	 * Set path for this navigation menu item.
+	 * @param $path string
+	 */
+	function setPath($path) {
+		$this->setData('path', $path);
+	}
+
+	/**
+	 * Get navigationMenuId for this navigation menu item.
+	 * @return int
+	 */
+	function getPath() {
+		return $this->getData('path');
+	}
+
+	/**
+	 * Get the title of the navigation Menu.
 	 * @return string
 	 */
-	function getLocalizedTypeName() {
-		return $this->getLocalizedData('name');
+	function getLocalizedNavigationMenuTitle() {
+		return $this->getLocalizedData('title');
 	}
 
 	/**
-	 * Get the type of the announcement type.
+	 * Get the title of the navigation menu item.
 	 * @param $locale string
 	 * @return string
 	 */
-	function getName($locale) {
-		return $this->getData('name', $locale);
+	function getTitle($locale) {
+		return $this->getData('title', $locale);
 	}
 
 	/**
-	 * Set the type of the announcement type.
-	 * @param $name string
+	 * Set the title of the navigation menu item.
+	 * @param $title string
 	 * @param $locale string
 	 */
-	function setName($name, $locale) {
-		$this->setData('name', $name, $locale);
+	function setTitle($title, $locale) {
+		$this->setData('title', $title, $locale);
 	}
 }
 

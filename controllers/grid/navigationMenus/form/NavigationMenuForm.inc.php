@@ -58,10 +58,6 @@ class NavigationMenuForm extends Form {
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
 
-		//$navigationMenusDao = DAORegistry::getDAO('NavigationMenuDAO');
-		//$navigationMenu = $navigationMenusDao->getById($this->navigationMenuId);
-
-
 		$templateMgr->assign('navigationMenuId', $this->navigationMenuId);
 		$templateMgr->assign('title', $this->getData('title'));
 

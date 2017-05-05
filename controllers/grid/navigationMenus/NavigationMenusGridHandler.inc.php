@@ -15,6 +15,7 @@
 
 import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.controllers.grid.navigationMenus.form.NavigationMenuForm');
+import('lib.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
 
 class NavigationMenusGridHandler extends GridHandler {
 	/**

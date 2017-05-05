@@ -19,7 +19,7 @@
  *  Edit Q     All       All         If Creator If Creator
  *  List/View  All       All	     Assigned   Assigned
  *  Open/close All       All	     Assigned   No
- *  Delete Q   All       All	     No         No
+ *  Delete Q   All       All	     If Blank	If Blank
  */
 
 class QueriesAccessHelper {

@@ -24,8 +24,18 @@ class CopyeditFilesGridHandler extends FileListGridHandler {
 		import('lib.pkp.controllers.grid.files.copyedit.CopyeditFilesGridDataProvider');
 		parent::__construct(
 			new CopyeditFilesGridDataProvider(),
-			null,
-			FILE_GRID_EDIT|FILE_GRID_MANAGE|FILE_GRID_VIEW_NOTES
+			null
+		);
+		$this->addRoleAssignment(
+			array(
+				ROLE_ID_SUB_EDITOR,
+				ROLE_ID_MANAGER,
+				ROLE_ID_ASSISTANT,
+				ROLE_ID_AUTHOR,
+			),
+			array(
+				'fetchGrid', 'fetchRow',
+			)
 		);
 		$this->addRoleAssignment(
 			array(
@@ -34,9 +44,10 @@ class CopyeditFilesGridHandler extends FileListGridHandler {
 				ROLE_ID_ASSISTANT
 			),
 			array(
-				'fetchGrid', 'fetchRow', 'selectFiles'
+				'selectFiles'
 			)
 		);
+
 
 		$this->setTitle('submission.copyedited');
 	}
@@ -44,6 +55,20 @@ class CopyeditFilesGridHandler extends FileListGridHandler {
 	//
 	// Public handler methods
 	//
+	/**
+	 * @copydoc GridHandler::initialize()
+	 */
+	function initialize($request, $args = null) {
+		if (0 != count(array_intersect(
+			$this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES),
+			array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_SUB_EDITOR)
+			// Authors may also view this grid, and shouldn't be able to do anything (just view).
+		))) {
+			$this->setCapabilities(new FilesGridCapabilities(FILE_GRID_EDIT|FILE_GRID_MANAGE|FILE_GRID_VIEW_NOTES));
+		}
+		parent::initialize($request, $args);
+	}
+
 	/**
 	 * Show the form to allow the user to select files from previous stages
 	 * @param $args array

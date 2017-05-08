@@ -63,6 +63,14 @@ class SubmissionFilesGridHandler extends GridHandler {
 	}
 
 	/**
+	 * Set grid capabilities object.
+	 * @param $capabilities FilesGridCapabilities
+	 */
+	function setCapabilities($capabilities) {
+		$this->_capabilities = $capabilities;
+	}
+
+	/**
 	 * Get the workflow stage id.
 	 * @return integer
 	 */

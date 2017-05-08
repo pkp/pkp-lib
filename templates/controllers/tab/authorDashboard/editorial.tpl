@@ -14,6 +14,10 @@
 	<!-- Display queries grid -->
 	{url|assign:queriesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$smarty.const.WORKFLOW_STAGE_ID_EDITING escape=false}
 	{load_url_in_div id="queriesGrid" url=$queriesGridUrl}
+
+	<!-- Copyedited Files grid -->
+	{url|assign:copyeditedFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.copyedit.CopyeditFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}
+	{load_url_in_div id="copyeditedFilesGrid" url=$copyeditedFilesGridUrl}
 {else}
 	{translate key="submission.stageNotInitiated"}
 {/if}

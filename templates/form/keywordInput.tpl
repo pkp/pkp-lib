@@ -9,11 +9,12 @@
  *}
 {assign var="uniqId" value="-"|concat:$FBV_uniqId|escape}
 {if $FBV_multilingual && count($formLocales) > 1}
-	{foreach from=$formLocales key=thisFormLocale item=thisFormLocaleName}
+	{foreach name=formLocales from=$formLocales key=thisFormLocale item=thisFormLocaleName}
 		<script>
 			$(document).ready(function(){ldelim}
 				$("#{$thisFormLocale|escape:jqselector}-{$FBV_id}{$uniqId}").tagit({ldelim}
 					fieldName: "keywords[{$thisFormLocale|escape}-{$FBV_id|escape}][]",
+					{if !$smarty.foreach.formLocales.first && empty($FBV_currentKeywords.$thisFormLocale)}placeholderText: "{$thisFormLocaleName|escape}",{/if}
 					allowSpaces: true,
 					{if $FBV_sourceUrl && !$FBV_disabled}
 						tagSource: function(search, showChoices) {ldelim}
@@ -46,7 +47,7 @@
 		{rdelim});
 		</script>
 		<span id="{$FBV_id|escape}-localization-popover-container{$uniqId}" class="localization_popover_container pkpTagit">
-			<ul class="localization_popover_container localizable {if $formLocale != $currentLocale} flag flag_{$formLocale|escape}{/if}" id="{$formLocale|escape}-{$FBV_id|escape}{$uniqId}">
+			<ul class="localizable {if $formLocale != $currentLocale} flag flag_{$formLocale|escape}{/if}" id="{$formLocale|escape}-{$FBV_id|escape}{$uniqId}">
 				{if $FBV_currentKeywords}{foreach from=$FBV_currentKeywords.$formLocale item=currentKeyword}<li>{$currentKeyword|escape}</li>{/foreach}{/if}
 			</ul>
 			{if $FBV_label_content}<span>{$FBV_label_content}</span>{/if}

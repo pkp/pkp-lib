@@ -154,10 +154,6 @@ class XmlToSqlTool extends CommandLineTool {
 					echo @$schema->PrintSQL('TEXT') . "\n";
 					break;
 			}
-
-			$schema->destroy();
-
-			$dataXMLParser->destroy();
 		}
 	}
 }

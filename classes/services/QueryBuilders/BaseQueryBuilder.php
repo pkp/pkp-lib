@@ -35,16 +35,17 @@ abstract class BaseQueryBuilder {
 	 */
 	protected function bootstrap() {
 
+		// Map valid OJS3 config options to Illuminate database drivers
 		$driver = strtolower(Config::getVar('database', 'driver'));
-		if (substr($driver, 0, 5) === 'mysql') {
+		if (substr($driver, 0, 8) === 'postgres') {
+			$driver = 'pgsql';
+		} else {
 			$driver = 'mysql';
 		}
-		
-		$charset = strtolower(Config::getVar('i18n', 'connection_charset'));
-		if (empty($charset)) {
-			$charset = strtolower(Config::getVar('i18n', 'client_charset'));
-		}
-		if ($charset = 'utf-8') {
+
+		// Always use `utf8` unless `latin1` is specified
+		$charset = Config::getVar('i18n', 'connection_charset');
+		if ($charset !== 'latin1') {
 			$charset = 'utf8';
 		}
 

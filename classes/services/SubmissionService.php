@@ -527,7 +527,6 @@ class SubmissionService {
 						$stage['status'] = __($reviewRound->getStatusKey());
 
 						// Revision files in this round.
-						import('classes.article.SubmissionFileDAO');
 						import('lib.pkp.classes.submission.SubmissionFile'); // Import constants
 						$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 						$submissionFiles = $submissionFileDao->getRevisionsByReviewRound($reviewRound, SUBMISSION_FILE_REVIEW_REVISION);
@@ -545,7 +544,6 @@ class SubmissionService {
 				//  - No editor assigned (if an editor is removed during workflow)
 				case WORKFLOW_STAGE_ID_EDITING:
 				case WORKFLOW_STAGE_ID_PRODUCTION:
-					import('classes.article.SubmissionFileDAO');
 					import('lib.pkp.classes.submission.SubmissionFile'); // Import constants
 					$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 					$submissionFiles = $submissionFileDao->getAllRevisionsByAssocId(

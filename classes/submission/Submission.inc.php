@@ -845,8 +845,8 @@ abstract class Submission extends DataObject {
 		if (!isset($statusMap)) {
 			$statusMap = array(
 				STATUS_QUEUED => 'submissions.queued',
-				STATUS_PUBLISHED => 'submissions.published',
-				STATUS_DECLINED => 'submissions.declined',
+				STATUS_PUBLISHED => 'submission.status.published',
+				STATUS_DECLINED => 'submission.status.declined',
 			);
 		}
 		return $statusMap;

@@ -125,7 +125,6 @@ class ReviewRound extends DataObject {
 		// If revisions have been requested, check to see if any have been
 		// submitted
 		if ($this->getStatus() == REVIEW_ROUND_STATUS_REVISIONS_REQUESTED || $this->getStatus() == REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED) {
-			import('classes.article.SubmissionFileDAO');
 			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 			$submissionFiles = $submissionFileDao->getRevisionsByReviewRound($this, SUBMISSION_FILE_REVIEW_REVISION);
 			if (empty($submissionFiles)) {

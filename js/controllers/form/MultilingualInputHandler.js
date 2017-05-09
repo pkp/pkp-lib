@@ -160,6 +160,10 @@
 				$inputs = [],
 				valuesCount = 0;
 
+		if (typeof tinyMCE === 'undefined') {
+			return;
+		}
+
 		// Track current values in the tinyMCE control
 		if (this.getHtmlElement().find('.richContent').length) {
 			$popover.find('textarea').each(function() {
@@ -204,6 +208,10 @@
 			function() {
 
 		if (!this.getHtmlElement().find('.richContent').length) {
+			return;
+		}
+
+		if (typeof tinyMCE === 'undefined') {
 			return;
 		}
 

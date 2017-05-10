@@ -525,7 +525,6 @@
 
 	<!--  editor decisions -->
 	<message key="editor.submission.decision">Decisió</message>
-	<message key="editor.submission.decision.accept">Accepta la tramesa</message>
 	<message key="editor.submission.decision.requestRevisions">Sol·licita revisions</message>
 	<message key="editor.submission.decision.resubmit">Torna-ho a trametre per a revisió</message>
 	<message key="editor.submission.decision.decline">Rebutja la tramesa</message>

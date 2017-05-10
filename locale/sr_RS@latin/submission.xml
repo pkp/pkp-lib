@@ -29,13 +29,13 @@
 	<message key="metadata.filters.paracite.settings.citationModule.validationMessage">Izaberite jedan od ponuđenih citatnih modula.</message>
 	<message key="metadata.filters.settings.isOptional.displayName">Po pravilu ne koristi (i dalje će biti dostupno uredniku)</message>
 	<message key="metadata.filters.settings.isOptional.validationMessage">Interna greška. Neispravna vrednost je uneta za 'optional filter' podešavanja. Molimo vas da ovo prijavite kao "bug".</message>
-	
+
 	<!-- messages shared between MD schemas -->
 	<message key="metadata.property.displayName.author">Autori</message>
 	<message key="metadata.property.validationMessage.author">Za najbolje rezultate, autori bi trebali biti unešeni u formatu: Coleman Jr, D. (Ralf) Dr.</message>
 	<message key="metadata.property.displayName.editor">Urednici</message>
 	<message key="metadata.property.validationMessage.editor">Za najbolje rezultate, urednici bi trebali biti unešeni u formatu: Coleman Jr, D. (Ralf) Dr.</message>
-	
+
 	<!-- NLM-specific messages -->
 	<message key="metadata.property.displayName.article-title">Naslov rada</message>
 	<message key="metadata.property.validationMessage.article-title">Molimo Vas da unesete ispravan naslov rada</message>
@@ -103,7 +103,7 @@
 	<message key="metadata.property.validationMessage.annotation">Unesite ispravne beleške.</message>
 	<message key="metadata.property.displayName.publication-type">Tip publikacije.</message>
 	<message key="metadata.property.validationMessage.publication-type">Uvek podesite tip publikacije. Trenutno su podržani tipovi: knjiga (za knjige i poglavlja) časopisi. U suprotnom formatiranje citata neće raditi ispravno.</message>
-	
+
 	<!-- MODS-specific messages -->
 	<message key="metadata.property.displayName.title-type">Tip naslova</message>
 	<message key="metadata.property.validationMessage.title-type">Unesite ispravan tip naslova. Podržani tipovi su: 'skraćen', 'preveden', 'alternativan' i 'uniforman'.</message>
@@ -121,7 +121,7 @@
 	<message key="metadata.property.displayName.name-type">Tip imena</message>
 	<message key="metadata.property.validationMessage.name-type">Molimo proverite da li ste podesili ispravan tip imena. Podržane vrednosti su 'lično', 'korporativno' i 'konferencija'.</message>
 	<!-- FIXME: end -->
-	
+
 	<message key="submission.agencies">Ustanove</message>
 	<message key="submission.abstractViews">Pregleda apstrakta</message>
 	<message key="submission.accepted">Prihvaćeno</message>
@@ -286,7 +286,6 @@
 	<message key="editor.submission.addStageParticipant.form.userGroupRequired">Morate odabrati korisničku grupu.</message>
 	<message key="editor.submission.addStageParticipant.form.userRequired">Morate odabrati korisnika za odabranu korisničku grupu.</message>
 	<message key="editor.submission.decision">Odluka</message>
-	<message key="editor.submission.decision.accept">Prihvati rad</message>
 	<message key="editor.submission.decision.requestRevisions">Zahtevaj reviziju</message>
 	<message key="editor.submission.decision.resubmit">Ponovo pošalji na recenziju</message>
 	<message key="submission.upload.noAvailableReviewFiles">Nemate dokumenata za revidiranje.</message>

@@ -13,9 +13,9 @@
   -->
 
 <locale name="ru_RU" full_name="Русский">
-	<!-- Отправка материала автором --> 
+	<!-- Отправка материала автором -->
 	<message key="author.submit.userGroupRequired">В настоящий момент у вашей учетной записи нет роли, которая позволяла бы отправлять новые материалы, например такой роли как Автор. Пожалуйста, внимательно проверьте свою учетную запись; возможно вы можете добавить подходящую роль самостоятельно, отредактировав свой профиль.</message>
-	<message key="author.submit.submissionCitations">Введите отформатированный список ссылок на работы, использованные при подготовке данного материала. Пожалуйста, отделяйте ссылки одну от другой с помощью пустой строки.</message>	
+	<message key="author.submit.submissionCitations">Введите отформатированный список ссылок на работы, использованные при подготовке данного материала. Пожалуйста, отделяйте ссылки одну от другой с помощью пустой строки.</message>
 	<message key="author.submission.roundStatus.reviewsReady">Новые рецензии были отправлены рецензентами и рассмотрены редактором.</message>
 	<message key="submission.confirm.message">Ваш материал был загружен на сервер и готов к отправке. Вы можете вернуться назад, чтобы проверить и откорректировать любую информацию, которую вы ввели, перед тем как продолжить. Когда вы будете готовы, щелкните на кнопке «Завершить отправку».</message>
 	<message key="submission.submit.submissionChecklist">Требования к отправляемому материалу</message>
@@ -450,7 +450,7 @@
 	<message key="submission.uploadFileTo">Загрузить файл в</message>
 	<message key="submission.createRemote">Создать удаленный</message>
 	<message key="submission.viewMetadata">Просмотреть метаданные</message>
-	<message key="submission.views">Просмотры</message>	
+	<message key="submission.views">Просмотры</message>
 	<message key="submission.uploadSuccessful">Ваш файл был загружен.</message>
 	<message key="submission.loadMessage">Пожалуйста, подождите пока ваш файл загрузится на сервер.</message>
 	<message key="submission.artworkFileDetails">Информация о графическом файле</message>
@@ -536,7 +536,6 @@
 
 	<!--  решения редакции -->
 	<message key="editor.submission.decision">Решение</message>
-	<message key="editor.submission.decision.accept">Отправить на литературное редактирование</message>
 	<message key="editor.submission.decision.requestRevisions">Запросить новые версии</message>
 	<message key="editor.submission.decision.resubmit">Отправить повторно на рецензию</message>
 	<message key="editor.submission.decision.decline">Отклонить материал</message>

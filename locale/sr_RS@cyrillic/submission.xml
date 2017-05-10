@@ -29,13 +29,13 @@
 	<message key="metadata.filters.paracite.settings.citationModule.validationMessage">Изаберите један од понуђених цитатних модула.</message>
 	<message key="metadata.filters.settings.isOptional.displayName">По правилу не користи (и даље ће бити доступно уреднику)</message>
 	<message key="metadata.filters.settings.isOptional.validationMessage">Интерна грешка. Неисправна вредност је унета за 'optional filter' подешавања. Молимо вас да ово пријавите као "bug".</message>
-	
+
 	<!-- messages shared between MD schemas -->
 	<message key="metadata.property.displayName.author">Аутори</message>
 	<message key="metadata.property.validationMessage.author">За најбоље резултате, аутори би требали бити унешени у формату: Coleman Jr, D. (Ralf) Dr.</message>
 	<message key="metadata.property.displayName.editor">Уредници</message>
 	<message key="metadata.property.validationMessage.editor">За најбоље резултате, уредници би требали бити унешени у формату: Coleman Jr, D. (Ralf) Dr.</message>
-	
+
 	<!-- NLM-specific messages -->
 	<message key="metadata.property.displayName.article-title">Наслов рада</message>
 	<message key="metadata.property.validationMessage.article-title">Молимо Вас да унесете исправан наслов рада</message>
@@ -103,7 +103,7 @@
 	<message key="metadata.property.validationMessage.annotation">Унесите исправне белешке.</message>
 	<message key="metadata.property.displayName.publication-type">Тип публикације.</message>
 	<message key="metadata.property.validationMessage.publication-type">Увек подесите тип публикације. Тренутно су подржани типови: књига (за књиге и поглавља) часописи. У супротном форматирање цитата неће радити исправно.</message>
-	
+
 	<!-- MODS-specific messages -->
 	<message key="metadata.property.displayName.title-type">Тип наслова</message>
 	<message key="metadata.property.validationMessage.title-type">Унесите исправан тип наслова. Подржани типови су: 'скраћен', 'преведен', 'алтернативан' и 'униформан'.</message>
@@ -121,7 +121,7 @@
 	<message key="metadata.property.displayName.name-type">Тип имена</message>
 	<message key="metadata.property.validationMessage.name-type">Молимо проверите да ли сте подесили исправан тип имена. Подржане вредности су 'лично', 'корпоративно' и 'конференција'.</message>
 	<!-- FIXME: end -->
-	
+
 	<message key="submission.agencies">Установе</message>
 	<message key="submission.abstractViews">Приступа апстракту</message>
 	<message key="submission.accepted">Прихваћено</message>
@@ -286,7 +286,6 @@
 	<message key="editor.submission.addStageParticipant.form.userGroupRequired">Морате одабрати корисничку групу.</message>
 	<message key="editor.submission.addStageParticipant.form.userRequired">Морате одабрати корисника за одабрану корисничку групу.</message>
 	<message key="editor.submission.decision">Одлука</message>
-	<message key="editor.submission.decision.accept">Прихвати рад</message>
 	<message key="editor.submission.decision.requestRevisions">Захтевај ревизију</message>
 	<message key="editor.submission.decision.resubmit">Поново пошаљи на рецензирање</message>
 	<message key="submission.upload.noAvailableReviewFiles">Немате докумената за ревидирање.</message>

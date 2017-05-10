@@ -144,7 +144,7 @@
 	<message key="submission.attachedFile">Angehängte Datei</message>
 	<message key="submission.backToSubmissionEditing">Zurück zur Beitragsbearbeitung</message>
 	<message key="submission.changeComments">Ändern in</message>
-	<message key="submission.citations">Literaturhinweise</message>	
+	<message key="submission.citations">Literaturhinweise</message>
 	<message key="submission.citations.editor.citationlist.approved">Bestätigt</message>
 	<message key="submission.citations.editor.citationlist.deleteCitationConfirmation">Sind Sie sicher, dass Sie diese Zitation löschen möchten?</message>
 	<message key="submission.citations.editor.citationlist.errorDeletingCitation">Ein Fehler ist bei dem Versuch, die Zitation zu löschen, aufgetreten. Bitte melden Sie dies als einen Bug.</message>
@@ -465,7 +465,7 @@
 	<message key="submission.upload.selectMandatoryFileToRevise">Bitte wählen Sie die Datei aus, die Sie überarbeiten/ersetzen wollen.</message>
 	<message key="submission.upload.selectOptionalFileToRevise">Wenn Sie eine überarbeitete Fassung einer existierenden Datei hochladen, geben Sie bitte an, welche Datei.</message>
 	<message key="submission.upload.uploadNewFile">Datei auswählen (um Historie intakt zu lassen)</message>
-	<message key="submission.upload.userGroup">Diese Datei hochladen in meiner 
+	<message key="submission.upload.userGroup">Diese Datei hochladen in meiner
 	Rolle als ...</message>
 	<message key="submission.upload.userGroupDescription">Wenn Sie einen Sammelband einreichen, sollten Sie alle Kapitel individuell in Ihrer Rolle als Sammelbandherausgeber/in hochladen.</message>
 	<message key="submission.upload.uploadLibraryFile">Eine Bibliotheksdatei hochladen</message>
@@ -494,7 +494,7 @@
 
 	<!-- Participants -->
 	<message key="editor.submission.stageParticipants">Beteiligte</message>
-	
+
 	<!-- Stage Participants grid -->
 	<message key="editor.submission.noneAssigned">Nicht zugewiesen</message>
 	<message key="editor.submission.participant">Beteiligte/r</message>
@@ -506,7 +506,6 @@
 
 	<!--  editor decisions -->
 	<message key="editor.submission.decision">Entscheidung</message>
-	<message key="editor.submission.decision.accept">In Lektorat überweisen</message>
 	<message key="editor.submission.decision.requestRevisions">Überarbeitung anfordern</message>
 	<message key="editor.submission.decision.resubmit">Erneut zur Begutachtung einreichen</message>
 	<message key="editor.submission.decision.decline">Beitrag ablehnen</message>

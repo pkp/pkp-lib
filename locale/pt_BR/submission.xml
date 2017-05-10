@@ -497,7 +497,6 @@
 	<message key="editor.submission.addStageParticipant.form.userGroupRequired">Selecione um grupo de usuários.</message>
 	<message key="editor.submission.addStageParticipant.form.userRequired">Você deve selecionar um usuário para o grupo especificado.</message>
 	<message key="editor.submission.decision">Decisão</message>
-	<message key="editor.submission.decision.accept">Aceitar Submissão</message>
 	<message key="editor.submission.decision.requestRevisions">Requerer Avaliações</message>
 	<message key="editor.submission.decision.resubmit">Reenviar para Avaliação</message>
 	<message key="editor.submission.decision.decline">Rejeitar Submissão</message>

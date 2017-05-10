@@ -516,7 +516,6 @@
 
 	<!--  editor decisions -->
 	<message key="editor.submission.decision">Päätös</message>
-	<message key="editor.submission.decision.accept">Lähetä teknisesti toimitettavaksi</message>
 	<message key="editor.submission.decision.requestRevisions">Pyydä korjauksia</message>
 	<message key="editor.submission.decision.resubmit">Lähetä uudelleen arvioitavaksi</message>
 	<message key="editor.submission.decision.decline">Hylkää käsikirjoitus</message>

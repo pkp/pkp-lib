@@ -464,7 +464,7 @@
 	<message key="notification.savedSubmissionMetadata">Сохранены метаданные материала.</message>
 	<message key="search.author">По автору</message>
 	<message key="search.abstract">Аннотация</message>
-	<message key="search.activeFilters">Расширенные фильтры</message>
+	<message key="search.advancedFilters">Расширенные фильтры</message>
 	<message key="search.advancedSearchMore">Дополнительные параметры поиска</message>
 	<message key="search.advancedSearchLess">Скрыть дополнительные параметры поиска</message>
 	<message key="search.searchAgain">Искать снова</message>

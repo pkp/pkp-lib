@@ -14,7 +14,7 @@
 			$(document).ready(function(){ldelim}
 				$("#{$thisFormLocale|escape:jqselector}-{$FBV_id}{$uniqId}").tagit({ldelim}
 					fieldName: "keywords[{$thisFormLocale|escape}-{$FBV_id|escape}][]",
-					{if !$smarty.foreach.formLocales.first && empty($FBV_currentKeywords.$thisFormLocale)}placeholderText: "{$thisFormLocaleName|escape}",{/if}
+					{if $thisFormLocale != $formLocale && empty($FBV_currentKeywords.$thisFormLocale)}placeholderText: "{$thisFormLocaleName|escape}",{/if}
 					allowSpaces: true,
 					{if $FBV_sourceUrl && !$FBV_disabled}
 						tagSource: function(search, showChoices) {ldelim}

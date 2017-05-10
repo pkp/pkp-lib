@@ -25,13 +25,16 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 
 	/**
 	 * Constructor
+	 * @param $request PKPRequest
+	 * @param $user PKPUser
+	 * @param $authorizedRoles mixed
 	 */
-	function __construct($user, $authorizedRoles = null) {
+	function __construct($request, $user, $authorizedRoles = null) {
 		if ($authorizedRoles) {
 			$this->_authorizedRoles = $authorizedRoles;
 		}
 		$this->user = $user;
-		parent::__construct();
+		parent::__construct($request);
 	}
 
 
@@ -66,9 +69,9 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 	 * @param $column GridColumn
 	 * @return array an array of LinkAction instances
 	 */
-	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
+	function getCellActions($row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
 		$submission = $row->getData();
-		$user = $request->getUser();
+		$user = $this->_request->getUser();
 		switch ($column->getId()) {
 			case 'editor':
 				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
@@ -106,8 +109,8 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 					return array(new LinkAction(
 						'itemWorkflow',
 						new RedirectAction(
-							$request->getDispatcher()->url(
-								$request, ROUTE_PAGE,
+							$this->_request->getDispatcher()->url(
+								$this->_request, ROUTE_PAGE,
 								null,
 								'reviewer', 'submission',
 								$submission->getId()
@@ -119,12 +122,12 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 				return array(new LinkAction(
 					'itemWorkflow',
 					new RedirectAction(
-						SubmissionsListGridCellProvider::getUrlByUserRoles($request, $submission)
+						SubmissionsListGridCellProvider::getUrlByUserRoles($this->_request, $submission)
 					),
 					$stage
 				));
 		}
-		return parent::getCellActions($request, $row, $column, $position);
+		return parent::getCellActions($row, $column, $position);
 	}
 
 	//

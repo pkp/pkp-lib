@@ -16,13 +16,6 @@
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
 class FilterGridCellProvider extends GridCellProvider {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 	//
 	// Template methods from GridCellProvider
 	//
@@ -30,10 +23,7 @@ class FilterGridCellProvider extends GridCellProvider {
 	 * This implementation assumes an element that is a
 	 * Filter. It will display the filter name and information
 	 * about filter parameters (if any).
-	 * @see GridCellProvider::getTemplateVarsFromRowColumn()
-	 * @param $row GridRow
-	 * @param $column GridColumn
-	 * @return array
+	 * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
 	function getTemplateVarsFromRowColumn($row, $column) {
 		$filter =& $row->getData();

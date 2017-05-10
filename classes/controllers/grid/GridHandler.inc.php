@@ -1089,8 +1089,8 @@ class GridHandler extends PKPHandler {
 		$element =& $row->getData();
 		if ( is_null($element) && $row->getIsModified() ) {
 			import('lib.pkp.classes.controllers.grid.GridCellProvider');
-			$cellProvider = new GridCellProvider();
-			return $cellProvider->render($request, $row, $column);
+			$cellProvider = new GridCellProvider($request);
+			return $cellProvider->render($row, $column);
 		}
 
 		// Otherwise, get the cell content.
@@ -1103,7 +1103,7 @@ class GridHandler extends PKPHandler {
 			$cellProvider = $column->getCellProvider();
 		}
 
-		return $cellProvider->render($request, $row, $column);
+		return $cellProvider->render($row, $column);
 	}
 
 	/**

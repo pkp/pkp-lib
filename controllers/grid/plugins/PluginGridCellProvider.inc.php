@@ -16,20 +16,8 @@
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
 class PluginGridCellProvider extends GridCellProvider {
-
 	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
-	/**
-	 * Extracts variables for a given column from a data element
-	 * so that they may be assigned to template before rendering.
-	 * @param $row GridRow
-	 * @param $column GridColumn
-	 * @return array
+	 * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
 	function getTemplateVarsFromRowColumn($row, $column) {
 		$plugin =& $row->getData();
@@ -62,7 +50,7 @@ class PluginGridCellProvider extends GridCellProvider {
 	/**
 	 * @copydoc GridCellProvider::getCellActions()
 	 */
-	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
+	function getCellActions($row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
 		switch ($column->getId()) {
 			case 'enabled':
 				$plugin = $row->getData(); /* @var $plugin Plugin */
@@ -77,10 +65,10 @@ class PluginGridCellProvider extends GridCellProvider {
 						return array(new LinkAction(
 							'disable',
 							new RemoteActionConfirmationModal(
-								$request->getSession(),
+								$this->_request->getSession(),
 								__('grid.plugin.disable'),
 								__('common.disable'),
-								$request->url(null, null, 'disable', null, $requestArgs)
+								$this->_request->url(null, null, 'disable', null, $requestArgs)
 							),
 							__('manager.plugins.disable'),
 							null
@@ -92,7 +80,7 @@ class PluginGridCellProvider extends GridCellProvider {
 						return array(new LinkAction(
 							'enable',
 							new AjaxAction(
-								$request->url(null, null, 'enable', null, $requestArgs)
+								$this->_request->url(null, null, 'enable', null, $requestArgs)
 							),
 							__('manager.plugins.enable'),
 							null
@@ -100,7 +88,7 @@ class PluginGridCellProvider extends GridCellProvider {
 					break;
 				}
 		}
-		return parent::getCellActions($request, $row, $column, $position);
+		return parent::getCellActions($row, $column, $position);
 	}
 }
 

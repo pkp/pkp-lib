@@ -17,13 +17,6 @@ import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
 class LanguageGridCellProvider extends GridCellProvider {
 	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
-	/**
 	 * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
 	function getTemplateVarsFromRowColumn($row, $column) {
@@ -65,12 +58,12 @@ class LanguageGridCellProvider extends GridCellProvider {
 	/**
 	 * @copydoc GridCellProvider::getCellActions()
 	 */
-	function getCellActions($request, $row, $column) {
+	function getCellActions($row, $column) {
 		import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 		import('lib.pkp.classes.linkAction.request.AjaxAction');
 
 		$element = $row->getData();
-		$router = $request->getRouter();
+		$router = $this->_request->getRouter();
 		$actions = array();
 		$actionArgs = array('rowId' => $row->getId());
 
@@ -83,47 +76,47 @@ class LanguageGridCellProvider extends GridCellProvider {
 				if ($enabled) {
 					$action = 'disable-' . $row->getId();
 					$actionRequest = new RemoteActionConfirmationModal(
-						$request->getSession(),
+						$this->_request->getSession(),
 						__('admin.languages.confirmDisable'),
 						__('common.disable'),
-						$router->url($request, null, null, 'disableLocale', null, $actionArgs)
+						$router->url($this->_request, null, null, 'disableLocale', null, $actionArgs)
 					);
 				} else {
 					$action = 'enable-' . $row->getId();
-					$actionRequest = new AjaxAction($router->url($request, null, null, 'enableLocale', null, $actionArgs));
+					$actionRequest = new AjaxAction($router->url($this->_request, null, null, 'enableLocale', null, $actionArgs));
 				}
 				break;
 			case 'sitePrimary':
 				$primary = $element['primary'];
 				if (!$primary) {
 					$action = 'setPrimary-' . $row->getId();
-					$actionRequest = new AjaxAction($router->url($request, null, null, 'setPrimaryLocale', null, $actionArgs));
+					$actionRequest = new AjaxAction($router->url($this->_request, null, null, 'setPrimaryLocale', null, $actionArgs));
 				}
 				break;
 			case 'contextPrimary':
 				$primary = $element['primary'];
 				if (!$primary) {
 					$action = 'setPrimary-' . $row->getId();
-					$actionRequest = new AjaxAction($router->url($request, null, null, 'setContextPrimaryLocale', null, $actionArgs));
+					$actionRequest = new AjaxAction($router->url($this->_request, null, null, 'setContextPrimaryLocale', null, $actionArgs));
 				}
 				break;
 			case 'uiLocale':
 				$action = 'setUiLocale-' . $row->getId();
 				$actionArgs['setting'] = 'supportedLocales';
 				$actionArgs['value'] = !$element['supportedLocales'];
-				$actionRequest = new AjaxAction($router->url($request, null, null, 'saveLanguageSetting', null, $actionArgs));
+				$actionRequest = new AjaxAction($router->url($this->_request, null, null, 'saveLanguageSetting', null, $actionArgs));
 				break;
 			case 'submissionLocale':
 				$action = 'setSubmissionLocale-' . $row->getId();
 				$actionArgs['setting'] = 'supportedSubmissionLocales';
 				$actionArgs['value'] = !$element['supportedSubmissionLocales'];
-				$actionRequest = new AjaxAction($router->url($request, null, null, 'saveLanguageSetting', null, $actionArgs));
+				$actionRequest = new AjaxAction($router->url($this->_request, null, null, 'saveLanguageSetting', null, $actionArgs));
 				break;
 			case 'formLocale':
 				$action = 'setFormLocale-' . $row->getId();
 				$actionArgs['setting'] = 'supportedFormLocales';
 				$actionArgs['value'] = !$element['supportedFormLocales'];
-				$actionRequest = new AjaxAction($router->url($request, null, null, 'saveLanguageSetting', null, $actionArgs));
+				$actionRequest = new AjaxAction($router->url($this->_request, null, null, 'saveLanguageSetting', null, $actionArgs));
 				break;
 		}
 

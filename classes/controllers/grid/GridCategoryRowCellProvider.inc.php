@@ -17,13 +17,6 @@
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
 class GridCategoryRowCellProvider extends GridCellProvider {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 	//
 	// Implemented methods from GridCellProvider.
 	//
@@ -43,7 +36,7 @@ class GridCategoryRowCellProvider extends GridCellProvider {
 	/**
 	 * @see GridCellProvider::getCellActions()
 	 */
-	function getCellActions($request, $row, $column) {
+	function getCellActions($row, $column) {
 		// Get cell actions from the row, that are
 		// positioned with the GRID_ACTION_POSITION_ROW_CLICK
 		// constant.
@@ -51,9 +44,9 @@ class GridCategoryRowCellProvider extends GridCellProvider {
 	}
 
 	/**
-	 * @see GridCellProvider::render()
+	 * @copydoc GridCellProvider::render()
 	 */
-	function render($request, $row, $column) {
+	function render($row, $column) {
 		// Default category rows will only have the first column
 		// as label columns.
 		if ($column->hasFlag('firstColumn')) {
@@ -64,7 +57,7 @@ class GridCategoryRowCellProvider extends GridCellProvider {
 			$column->setTemplate('controllers/grid/gridCell.tpl');
 
 			// Render the cell.
-			$renderedCell = parent::render($request, $row, $column);
+			$renderedCell = parent::render($row, $column);
 
 			// Restore the original column template.
 			$column->setTemplate($template);

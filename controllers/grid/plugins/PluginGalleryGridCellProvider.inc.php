@@ -17,18 +17,7 @@ import('lib.pkp.classes.linkAction.request.AjaxModal');
 
 class PluginGalleryGridCellProvider extends GridCellProvider {
 	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
-	/**
-	 * Extracts variables for a given column from a data element
-	 * so that they may be assigned to template before rendering.
-	 * @param $row GridRow
-	 * @param $column GridColumn
-	 * @return array
+	 * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
 	function getTemplateVarsFromRowColumn($row, $column) {
 		$element = $row->getData();
@@ -74,15 +63,15 @@ class PluginGalleryGridCellProvider extends GridCellProvider {
 	 * @param $column GridColumn
 	 * @return array an array of LinkAction instances
 	 */
-	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
+	function getCellActions($row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
 		$element = $row->getData();
 		switch ($column->getId()) {
 			case 'name':
-				$router = $request->getRouter();
+				$router = $this->_request->getRouter();
 				return array(new LinkAction(
 					'moreInformation',
 					new AjaxModal(
-						$router->url($request, null, null, 'viewPlugin', null, array('rowId' => $row->getId()+1)),
+						$router->url($this->_request, null, null, 'viewPlugin', null, array('rowId' => $row->getId()+1)),
 						$element->getLocalizedName(),
 						'modal_information',
 						true
@@ -91,7 +80,7 @@ class PluginGalleryGridCellProvider extends GridCellProvider {
 					'details'
 				));
 		}
-		return parent::getCellActions($request, $row, $column, $position);
+		return parent::getCellActions($row, $column, $position);
 	}
 }
 

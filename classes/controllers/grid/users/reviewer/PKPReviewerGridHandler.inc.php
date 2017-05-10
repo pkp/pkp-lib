@@ -136,7 +136,7 @@ class PKPReviewerGridHandler extends GridHandler {
 			);
 
 		// Columns
-		$cellProvider = new ReviewerGridCellProvider();
+		$cellProvider = new ReviewerGridCellProvider($request);
 		$this->addColumn(
 			new GridColumn(
 				'name',

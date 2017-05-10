@@ -92,7 +92,7 @@ class SubmissionEventLogGridHandler extends GridHandler {
 		);
 
 		// Columns
-		$cellProvider = new EventLogGridCellProvider();
+		$cellProvider = new EventLogGridCellProvider($request);
 		$this->addColumn(
 			new GridColumn(
 				'date',
@@ -100,6 +100,7 @@ class SubmissionEventLogGridHandler extends GridHandler {
 				null,
 				null,
 				new DateGridCellProvider(
+					$request,
 					$cellProvider,
 					Config::getVar('general', 'date_format_short')
 				)

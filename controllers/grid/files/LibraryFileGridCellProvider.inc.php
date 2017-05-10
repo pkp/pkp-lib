@@ -17,18 +17,7 @@ import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
 class LibraryFileGridCellProvider extends GridCellProvider {
 	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
-	/**
-	 * Extracts variables for a given column from a data element
-	 * so that they may be assigned to template before rendering.
-	 * @param $row GridRow
-	 * @param $column GridColumn
-	 * @return array
+	 * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
 	function getTemplateVarsFromRowColumn($row, $column) {
 		$element =& $row->getData();
@@ -47,16 +36,16 @@ class LibraryFileGridCellProvider extends GridCellProvider {
 	 * @param $column GridColumn
 	 * @return array an array of LinkAction instances
 	 */
-	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
+	function getCellActions($row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
 		switch ($column->getId()) {
 			case 'files':
 				$element = $row->getData();
 				assert(is_a($element, 'LibraryFile'));
 				// Create the cell action to download a file.
 				import('lib.pkp.controllers.api.file.linkAction.DownloadLibraryFileLinkAction');
-				return array(new DownloadLibraryFileLinkAction($request, $element));
+				return array(new DownloadLibraryFileLinkAction($this->_request, $element));
 		}
-		return parent::getCellActions($request, $row, $column, $position);
+		return parent::getCellActions($row, $column, $position);
 	}
 }
 

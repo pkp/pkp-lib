@@ -53,7 +53,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 
 		// Columns
 		import('lib.pkp.controllers.grid.plugins.PluginGridCellProvider');
-		$pluginCellProvider = new PluginGridCellProvider();
+		$pluginCellProvider = new PluginGridCellProvider($request);
 		$this->addColumn(
 			new GridColumn('name',
 				'common.name',

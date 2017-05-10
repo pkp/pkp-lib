@@ -16,23 +16,13 @@
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
 class LiteralGridCellProvider extends GridCellProvider {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 	//
 	// Template methods from GridCellProvider
 	//
 	/**
 	 * This implementation assumes a data element that is a literal value.
 	 * If desired, the 'id' column can be used to present the row ID.
-	 * @see GridCellProvider::getTemplateVarsFromRowColumn()
-	 * @param $row GridRow
-	 * @param $column GridColumn
-	 * @return array
+	 * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
 	function getTemplateVarsFromRowColumn($row, $column) {
 		switch ($column->getId()) {

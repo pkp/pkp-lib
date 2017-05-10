@@ -21,7 +21,9 @@ class FileGenreGridColumn extends GridColumn {
 	 */
 	function __construct() {
 		import('lib.pkp.classes.controllers.grid.ColumnBasedGridCellProvider');
-		$cellProvider = new ColumnBasedGridCellProvider();
+		// TODO: pkp/pkp-lib#2444 Where should the request come from?
+		$request = PKPApplication::getRequest();
+		$cellProvider = new ColumnBasedGridCellProvider($request);
 		parent::__construct('type', 'common.component', null, null, $cellProvider);
 	}
 

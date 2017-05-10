@@ -76,7 +76,7 @@ class UserSelectGridHandler extends GridHandler {
 		$this->setTitle('editor.submission.findAndSelectUser');
 
 		// Columns
-		$cellProvider = new UserSelectGridCellProvider();
+		$cellProvider = new UserSelectGridCellProvider($request);
 		$this->addColumn(
 			new GridColumn(
 				'select',

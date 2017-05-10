@@ -131,7 +131,9 @@ class LanguageGridHandler extends GridHandler {
 	 * @return GridCellProvider
 	 */
 	function getCellProvider() {
-		return new LanguageGridCellProvider();
+		// TODO: pkp/pkp-lib#2444 Where should the request come from?
+		$request = PKPApplication::getRequest();
+		return new LanguageGridCellProvider($request);
 	}
 
 	/**

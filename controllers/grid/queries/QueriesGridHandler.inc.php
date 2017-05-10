@@ -90,7 +90,10 @@ class QueriesGridHandler extends GridHandler {
 	 */
 	function getCellProvider() {
 		import('lib.pkp.controllers.grid.queries.QueriesGridCellProvider');
+		// TODO: pkp/pkp-lib#2444 Where should the request come from?
+		$request = PKPApplication::getRequest();
 		return new QueriesGridCellProvider(
+			$request,
 			$this->getSubmission(),
 			$this->getStageId(),
 			$this->getAccessHelper()

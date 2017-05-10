@@ -25,7 +25,9 @@ class UploaderUserGroupGridColumn extends GridColumn {
 	 */
 	function __construct($userGroup, $flags = array()) {
 		$this->_userGroup = $userGroup;
-		$cellProvider = new ColumnBasedGridCellProvider();
+		// TODO: pkp/pkp-lib#2444 Where should the request come from?
+		$request = PKPApplication::getRequest();
+		$cellProvider = new ColumnBasedGridCellProvider($request);
 		parent::__construct(
 			'userGroup-' . $userGroup->getId(),
 			null, $userGroup->getLocalizedName(),

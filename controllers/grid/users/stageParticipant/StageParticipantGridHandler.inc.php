@@ -106,7 +106,7 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 
 		// Columns
 		import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridCellProvider');
-		$cellProvider = new StageParticipantGridCellProvider();
+		$cellProvider = new StageParticipantGridCellProvider($request);
 		$this->addColumn(new GridColumn(
 			'participants',
 			null,

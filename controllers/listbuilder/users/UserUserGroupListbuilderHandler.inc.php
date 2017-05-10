@@ -181,7 +181,7 @@ class UserUserGroupListbuilderHandler extends ListbuilderHandler {
 		$this->setSaveFieldName('roles');
 
 		import('lib.pkp.controllers.listbuilder.users.UserGroupListbuilderGridCellProvider');
-		$cellProvider = new UserGroupListbuilderGridCellProvider();
+		$cellProvider = new UserGroupListbuilderGridCellProvider($request);
 
 		// Name column
 		$nameColumn = new ListbuilderGridColumn(

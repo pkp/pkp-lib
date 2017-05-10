@@ -57,12 +57,9 @@ class DataObjectGridCellProvider extends GridCellProvider {
 	 * This implementation assumes an element that is a
 	 * DataObject. It will retrieve an element in the
 	 * configured locale.
-	 * @see GridCellProvider::getTemplateVarsFromRowColumn()
-	 * @param $row GridRow
-	 * @param $column GridColumn
-	 * @return array
+	 * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
-	function getTemplateVarsFromRowColumn($row, $column) {
+	function getTemplateVarsFromRowColumn($request, $row, $column) {
 		$element = $row->getData();
 		$columnId = $column->getId();
 		assert(is_a($element, 'DataObject') && !empty($columnId));

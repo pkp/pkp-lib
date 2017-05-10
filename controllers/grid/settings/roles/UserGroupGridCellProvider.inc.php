@@ -25,13 +25,9 @@ class UserGroupGridCellProvider extends GridCellProvider {
 	}
 
 	/**
-	 * Extracts variables for a given column from a data element
-	 * so that they may be assigned to template before rendering.
-	 * @param $row GridRow
-	 * @param $column GridColumn
-	 * @return array
+	 * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
-	function getTemplateVarsFromRowColumn($row, $column) {
+	function getTemplateVarsFromRowColumn($request, $row, $column) {
 		$userGroup = $row->getData(); /* @var $userGroup UserGroup */
 		$columnId = $column->getId();
 		$workflowStages = Application::getApplicationStages();
@@ -59,7 +55,7 @@ class UserGroupGridCellProvider extends GridCellProvider {
 				break;
 		}
 
-		return parent::getTemplateVarsFromRowColumn($row, $column);
+		return parent::getTemplateVarsFromRowColumn($request, $row, $column);
 	}
 
 	/**

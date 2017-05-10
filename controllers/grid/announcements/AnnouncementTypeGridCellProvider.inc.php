@@ -49,13 +49,9 @@ class AnnouncementTypeGridCellProvider extends GridCellProvider {
 	}
 
 	/**
-	 * Extracts variables for a given column from a data element
-	 * so that they may be assigned to template before rendering.
-	 * @param $row GridRow
-	 * @param $column GridColumn
-	 * @return array
+	 * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
-	function getTemplateVarsFromRowColumn($row, $column) {
+	function getTemplateVarsFromRowColumn($request, $row, $column) {
 		$announcementType = $row->getData();
 		$columnId = $column->getId();
 		assert(is_a($announcementType, 'AnnouncementType') && !empty($columnId));
@@ -68,7 +64,7 @@ class AnnouncementTypeGridCellProvider extends GridCellProvider {
 				break;
 		}
 
-		return parent::getTemplateVarsFromRowColumn($row, $column);
+		return parent::getTemplateVarsFromRowColumn($request, $row, $column);
 	}
 }
 

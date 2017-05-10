@@ -29,12 +29,9 @@ class LiteralGridCellProvider extends GridCellProvider {
 	/**
 	 * This implementation assumes a data element that is a literal value.
 	 * If desired, the 'id' column can be used to present the row ID.
-	 * @see GridCellProvider::getTemplateVarsFromRowColumn()
-	 * @param $row GridRow
-	 * @param $column GridColumn
-	 * @return array
+	 * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
-	function getTemplateVarsFromRowColumn($row, $column) {
+	function getTemplateVarsFromRowColumn($request, $row, $column) {
 		switch ($column->getId()) {
 			case 'id':
 				return array('label' => $row->getId());

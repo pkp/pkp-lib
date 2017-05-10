@@ -527,4 +527,5 @@
 	<message key="plugins.importexport.common.error.unknownEncoding">Unknown encoding {$param}</message>
 	<message key="plugins.importexport.common.error.unknownUserGroup">Unknown user group {$param}</message>
 	<message key="plugins.importexport.common.error.unknownUploader">Unknown uploader {$param}</message>
+	<message key="plugins.importexport.common.error.temporaryFileFailed">Temporary file {$dest} could not be created from {$source}</message>
 </locale>

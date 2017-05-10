@@ -160,6 +160,10 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 				$filename = $this->handleRevisionChildElement($n, $submission, $submissionFile);
 			}
 		}
+		if (!file_exists($filename) || !filesize($filename)) {
+			// $this->handleRevisionChildElement() failed to provide a real file
+			$errorOccured = true;
+		}
 
 		$uploaderUsername = $node->getAttribute('uploader');
 		$uploaderUserGroup = $node->getAttribute('user_group_ref');
@@ -259,7 +263,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 	 * @param $node DOMElement
 	 * @param $submission Submission
 	 * @param $submissionFile SubmissionFile
-	 * @return string Filename for new file
+	 * @return string Filename for temporary file
 	 */
 	function handleRevisionChildElement($node, $submission, $submissionFile) {
 		$deployment = $this->getDeployment();
@@ -276,8 +280,38 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 				break;
 			case 'href':
 				$submissionFile->setFileType($node->getAttribute('mime_type'));
-				// Allow wrappers to handle URLs
-				return $node->getAttribute('src');
+				import('lib.pkp.classes.file.TemporaryFileManager');
+				$temporaryFileManager = new TemporaryFileManager();
+				$temporaryFilename = tempnam($temporaryFileManager->getBasePath(), 'src');
+				$filesrc = $node->getAttribute('src');
+				$errorFlag = false;
+				if (preg_match('|\w+://.+|', $filesrc)) {
+					// process as a URL
+					import('lib.pkp.classes.file.FileWrapper');
+					$wrapper = FileWrapper::wrapper($filesrc);
+					file_put_contents($temporaryFilename, $wrapper->contents());
+					if (!filesize($temporaryFilename)) {
+						$errorFlag = true;
+					}
+				} elseif (substr($filesrc, 1, 1) === '/') {
+					// local file (absolute path)
+					if (!copy($filesrc, $temporaryFilename)) {
+						$errorFlag = true;
+					}
+				} elseif (is_readable($deployment->getImportPath() . '/' . $filesrc)) {
+					// local file (relative path)
+					$filesrc = $deployment->getImportPath() . '/' . $filesrc;
+					if(!copy($filesrc, $temporaryFilename)) {
+						$errorFlag = true;
+					}
+				} else {
+					// unhandled file path
+					$errorFlag = true;
+				}
+				if ($errorFlag) {
+					$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.temporaryFileFailed', array('dest' => $temporaryFilename, 'source' => $filesrc)));
+				}
+				return $temporaryFilename;
 				break;
 			case 'embed':
 				$submissionFile->setFileType($node->getAttribute('mime_type'));
@@ -287,7 +321,9 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 				if (($e = $node->getAttribute('encoding')) != 'base64') {
 					$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownEncoding', array('param' => $e)));
 				} else {
-					file_put_contents($temporaryFilename, base64_decode($node->textContent));
+					if (!file_put_contents($temporaryFilename, base64_decode($node->textContent))) {
+						$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.temporaryFileFailed', array('dest' => $temporaryFilename, 'source' => 'embed')));
+					}
 				}
 				return $temporaryFilename;
 				break;

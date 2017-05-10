@@ -33,6 +33,9 @@ class PKPImportExportDeployment {
 	/** @var array Connection between the file and revision IDs from the XML import file and the DB file IDs */
 	var $_fileDBIds;
 
+	/** @var string Base path for the import source */
+	var $_baseImportPath = '';
+
 	/**
 	 * Constructor
 	 * @param $context Context
@@ -238,6 +241,22 @@ class PKPImportExportDeployment {
 	 */
 	function setFileDBId($fileId, $revisionId, $DBId) {
 		return $this->_fileDBIds[$fileId][$revisionId]= $DBId;
+	}
+
+	/**
+	 * Set the directory location for the import source
+	 * @param $path string
+	 */
+	function setImportPath($path) {
+		$this->_baseImportPath = $path;
+	}
+
+	/**
+	 * Get the directory location for the import source
+	 * @return string
+	 */
+	function getImportPath() {
+		return $this->_baseImportPath;
 	}
 }
 

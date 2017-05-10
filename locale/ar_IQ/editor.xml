@@ -52,6 +52,7 @@
 	<message key="editor.review.NotifyAuthorExternal">أشعر المؤلف بأن طلبه سيخضع للتحكيم الخارجي.</message>
 	<message key="editor.review.personalMessageToAuthor">الرسالة المعدة للمؤلف</message>
 	<message key="editor.review.dateAccepted">تاريخ قبول التحكيم</message>
+	<message key="editor.review.reviewsAdded">التنقيحات أُضيفت إلى متن الرسالة.</message>
 	<message key="editor.review.noReviews">لا توجد تحكيمات مناظرة لاستيرادها</message>
 	<message key="editor.review.reminder">تذكير التحكيم</message>
 	<message key="editor.review.thankReviewer">أشكر المحكم</message>

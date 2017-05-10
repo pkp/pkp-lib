@@ -242,7 +242,6 @@
 	<message key="manager.setup.citationOutputStyleDescription">إختر نمط الاقتباس الذي ترغب باعتماده في منشورات مجلتك. مساعد تأشير الاقتباسات يمكنك من مقارنة نسخة المؤلف من الاقتباس مع نسخة مولدة من ملف XML الذي تولده أنت، بحيث يمكنك تشخيص الأخطاء ومعالجتها بسهولة:</message>
 	<message key="manager.setup.competingInterests">المصالح المتضاربة</message>
 	<message key="manager.setup.competingInterestsDescription">ستتم مطالبة المحكمين بالإذعان لسياسة الكشف عن المصالح المتضاربة التي تحددها أدناه.</message>
-	<!-- FIXME #6843 (JM): should this just reference reviewers? -->
 	<message key="manager.setup.errorDeletingItem">حدث خطأ ما عند حذف هذه الفقرة.</message>
 	<message key="manager.setup.favicon">صيغة الصورة المصغرة خاطئة. الصيغ المدعومة هي: .ico, .png, and .gif.</message>
 	<message key="manager.setup.filter.grid.errorDeletingFilter">حدث خطأ ما أثناء محاولة إزالة هذه التصفية. لطفاً، أبلغ عن الأمر بمثابة خطأ برمجي.</message>
@@ -282,13 +281,13 @@
 	<message key="manager.setup.information.descriptionTitle">الأوصاف</message>
 	<message key="manager.setup.layout.theme">النمط</message>
 	<message key="manager.setup.layout.themeDescription">يمكن تنصيب الأنماط الجديدة عبر باب الإضافة المتوضع في أعلى هذه الصفحة.</message>
-	<message key="manager.setup.layout.blockManagement">إدارة شريط التمرير الجانبي</message>
+	<message key="manager.setup.layout.blockManagement">إدارة الشريط الجانبي</message>
+	<message key="manager.setup.layout.sidebar">الشريط الجانبي</message>
 	<message key="manager.setup.layout.unselected">غير محددة</message>
 	<message key="manager.setup.loggingAndAuditing">تسجيل الوقائع والمراجعة</message>
 	<message key="manager.setup.logo">الصورة المصغرة</message>
 	<message key="manager.setup.metaCitationsDescription">قم بتفعيل خانة الاختيار الآتية لتمكين إجراء التعديلات على الاقتباسات والمراجع. هذا الأمر سيتيح للمؤلفين إدراج اقتباسات بشكل خام في مؤلفاتهم. كما سيكون للمحررين إمكانية الاستعانة بمساعد تأشير الاقتباسات الذي يقوم بتدقيق الاقتباسات الخام مستعيناً بقواعد بيانات خارجية، مثل: WorldCat، ISBNdb، PubMed وغيرها لتحقيق الدقة والضبط العاليين. الاقتباسات المصادق عليها يمكن تصديرها في ملفات طباعية نهائية.</message>
 	<message key="manager.setup.notifications">إشعار تقديم المؤلف لطلب نشر</message>
-	<message key="manager.setup.notifications.copyPrimaryContact">أرسل نسخة إلى عنوان الاتصال الرئيسي المعرف في الخطوة 1 من التهيئة.</message>
 	<message key="manager.setup.notifications.copySpecifiedAddress">أرسل نسخة إلى هذا العنوان</message>
 	<message key="manager.setup.notifications.description">يحصل المؤلفون تلقائياً على رسالة تبلغهم باستلام طلبهم. يمكنك الحصول على نسخ من هذه الرسالة موجهة إلى العناوين الآتية:</message>
 	<message key="manager.setup.openAccessPolicy">سياسة الوصول المفتوح</message>
@@ -369,11 +368,13 @@
 	<message key="manager.plugins.pluginGallery.installation">التنصيب</message>
 	<message key="manager.plugins.pluginGallery.latestCompatible">آخر إصدار متوافق</message>
 	<message key="manager.plugins.pluginGallery.certifications.official">رسمي</message>
+	<message key="manager.plugins.pluginGallery.certifications.official.description">هذه الإضافة مطورة ومدعومة من قبل فريق مشروع المعرفة العامة.</message>
 	<message key="manager.plugins.pluginGallery.certifications.reviewed">منقح</message>
+	<message key="manager.plugins.pluginGallery.certifications.reviewed.description">هذه الإضافة تم تنقيحها والمصادقة عليها من قبل فريق مشروع المعرفة العامة.</message>
 	<message key="manager.plugins.pluginGallery.certifications.partner">الشريك</message>
+	<message key="manager.plugins.pluginGallery.certifications.partner.description">هذه الإضافة مقدمة من قبل أحد شركائنا المطورين.</message>
 	<message key="manager.plugins.pluginGallery.maintainer">المتعهد</message>
-	<message key="manager.plugins.pluginGallery.version">النسخة: {$version}</message>
-	<message key="manager.plugins.pluginGallery.date">تاريخ الإطلاق: {$date}</message>
+	<message key="manager.plugins.pluginGallery.version">النسخة: {$version} المنشورة بتاريخ {$date}</message>
 	<message key="manager.plugins.pluginGallery.homepage">الصفحة الرئيسية</message>
 	<message key="manager.plugins.pluginGallery.summary">الموجز</message>
 	<message key="manager.plugins.pluginGallery.status">الحالة</message>
@@ -515,9 +516,15 @@
 	<message key="manager.setup.reviewerCompetingInterestsRequired.description">عبارة بيان المصالح المتضاربة للمحكم</message>
 	<message key="manager.setup.competingInterests.required">طالب المحكم بعبارة تتعلق بالمصالح المتضاربة خلال عملية التحكيم المناظر.</message>
 
-	<message key="manager.setup.licenseURLDescription">رباط إلى موقع يصف الرخصة، لو توافر ذلك.</message>
+	<message key="manager.setup.licenseURLDescription">رابط إلى موقع يصف الرخصة، لو توافر ذلك.</message>
 
 	<message key="manager.setup.metadata.submission">نموذج تقديم طلب النشر</message>
 	<!--  common importexport keys -->
 	<message key="plugins.importexport.common.validationErrors">أخطاء التحقق:</message>
+	<message key="plugins.importexport.common.errorsOccured">حدثت أخطاء:</message>
+	<message key="plugins.importexport.common.error.unknownElement">عنصر مجهول {$param}</message>
+	<message key="plugins.importexport.common.error.unknownGenre">نوع مجهول {$param}</message>
+	<message key="plugins.importexport.common.error.unknownEncoding">ترميز مجهول {$param}</message>
+	<message key="plugins.importexport.common.error.unknownUserGroup">مجموعة مستخدم مجهولة {$param}</message>
+	<message key="plugins.importexport.common.error.unknownUploader">رافع مجهول {$param}</message>
 </locale>

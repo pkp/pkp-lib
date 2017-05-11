@@ -800,7 +800,7 @@ abstract class PKPSubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 			$delegateClasses = $this->getDelegateClassNames();
 			assert(isset($delegateClasses[$fileImplementation]));
 			$delegateClass = $delegateClasses[$fileImplementation];
-			$this->_delegates[$fileImplementation] = instantiate($delegateClass, 'SubmissionFileDAODelegate', null, null, $this);
+			$this->_delegates[$fileImplementation] = instantiate($delegateClass, 'SubmissionFileDAODelegate');
 		}
 
 		// Return the delegate.

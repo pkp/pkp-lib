@@ -19,12 +19,6 @@
  */
 
 class Identity extends DataObject {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Get the identity's complete name.

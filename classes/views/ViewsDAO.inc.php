@@ -18,12 +18,6 @@ define('RECORD_VIEW_RESULT_EXISTING', 1);
 define('RECORD_VIEW_RESULT_INSERTED', 2);
 
 class ViewsDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Mark an item as viewed.

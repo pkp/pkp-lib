@@ -17,12 +17,6 @@
 import('lib.pkp.classes.stageAssignment.StageAssignment');
 
 class StageAssignmentDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Retrieve an assignment by  its ID

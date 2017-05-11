@@ -18,12 +18,6 @@
 import('lib.pkp.classes.file.TemporaryFile');
 
 class TemporaryFileDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Retrieve a temporary file by ID.

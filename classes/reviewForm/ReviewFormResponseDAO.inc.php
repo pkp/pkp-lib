@@ -20,13 +20,6 @@ import ('lib.pkp.classes.reviewForm.ReviewFormResponse');
 class ReviewFormResponseDAO extends DAO {
 
 	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
-	/**
 	 * Retrieve a review form response.
 	 * @param $reviewId int
 	 * @param $reviewFormElementId int

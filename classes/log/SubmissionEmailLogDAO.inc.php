@@ -18,12 +18,6 @@ import('lib.pkp.classes.log.EmailLogDAO');
 import('classes.log.SubmissionEmailLogEntry');
 
 class SubmissionEmailLogDAO extends EmailLogDAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Instantiate and return a SubmissionEmailLogEntry

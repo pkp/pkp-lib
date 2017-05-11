@@ -18,12 +18,6 @@
 import('lib.pkp.classes.site.Version');
 
 class VersionDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Retrieve the current version.

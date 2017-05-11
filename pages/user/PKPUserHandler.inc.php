@@ -16,12 +16,6 @@
 import('classes.handler.Handler');
 
 class PKPUserHandler extends Handler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Index page; redirect to profile

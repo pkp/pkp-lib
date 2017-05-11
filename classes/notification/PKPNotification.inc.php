@@ -81,12 +81,6 @@ define('NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER',		0x1000026);
 
 
 class PKPNotification extends DataObject {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * get user id associated with this notification

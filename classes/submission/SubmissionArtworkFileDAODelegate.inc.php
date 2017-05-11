@@ -21,13 +21,6 @@ import('lib.pkp.classes.submission.SubmissionFileDAODelegate');
 import('lib.pkp.classes.submission.SubmissionArtworkFile');
 
 class SubmissionArtworkFileDAODelegate extends SubmissionFileDAODelegate {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 
 	//
 	// Public methods

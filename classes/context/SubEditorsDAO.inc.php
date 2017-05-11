@@ -14,12 +14,6 @@
  */
 
 class SubEditorsDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Insert a new section editor.

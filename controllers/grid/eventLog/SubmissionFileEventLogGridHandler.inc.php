@@ -17,13 +17,6 @@
 import('lib.pkp.controllers.grid.eventLog.SubmissionEventLogGridHandler');
 
 class SubmissionFileEventLogGridHandler extends SubmissionEventLogGridHandler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 
 	//
 	// Getters/Setters

@@ -15,12 +15,6 @@
  */
 
 class ReviewFilesDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Grant a review file to a review.

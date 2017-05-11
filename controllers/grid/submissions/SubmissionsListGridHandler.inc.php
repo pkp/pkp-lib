@@ -27,13 +27,6 @@ class SubmissionsListGridHandler extends GridHandler {
 	/** @var true iff the current user has a managerial role */
 	var $_isManager;
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 
 	//
 	// Implement template methods from PKPHandler

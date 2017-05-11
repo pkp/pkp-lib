@@ -20,13 +20,6 @@ class SubmissionArtworkFile extends SubmissionFile {
 	/** @var array image file information */
 	var $_imageInfo;
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 
 	//
 	// Getters and Setters

@@ -17,12 +17,6 @@
 import('lib.pkp.classes.context.LibraryFile');
 
 class LibraryFileDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Retrieve a library file by ID.

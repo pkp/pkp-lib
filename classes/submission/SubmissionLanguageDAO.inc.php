@@ -19,12 +19,6 @@ import('lib.pkp.classes.controlledVocab.ControlledVocabDAO');
 define('CONTROLLED_VOCAB_SUBMISSION_LANGUAGE', 'submissionLanguage');
 
 class SubmissionLanguageDAO extends ControlledVocabDAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Build/fetch and return a controlled vocabulary for languages.

@@ -15,12 +15,6 @@
 import('classes.controllers.grid.filter.FilterGridHandler');
 
 class LookupFilterGridHandler extends FilterGridHandler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * @copydoc PKPHandler::initialize()

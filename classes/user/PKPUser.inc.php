@@ -21,12 +21,6 @@
 import('lib.pkp.classes.identity.Identity');
 
 class PKPUser extends Identity {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	//
 	// Get/set methods

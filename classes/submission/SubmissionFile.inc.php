@@ -34,12 +34,6 @@ define('SUBMISSION_FILE_DEPENDENT', 17);
 define('SUBMISSION_FILE_QUERY', 18);
 
 class SubmissionFile extends PKPFile {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Get a piece of data for this object, localized to the current

@@ -17,12 +17,6 @@
 import('lib.pkp.classes.tombstone.DataObjectTombstone');
 
 class DataObjectTombstoneDAO extends DAO {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Return an instance of the DataObjectTombstone class.

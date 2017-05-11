@@ -15,12 +15,6 @@
  */
 
 abstract class ContextDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Retrieve a context by context ID.

@@ -17,13 +17,6 @@
 class WorkflowStageDAO extends DAO {
 
 	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
-	/**
 	 * Convert a stage id into a stage path
 	 * @param $stageId integer
 	 * @return string|null

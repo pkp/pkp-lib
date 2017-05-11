@@ -17,12 +17,6 @@
 import('lib.pkp.classes.submission.reviewRound.ReviewRound');
 
 class ReviewRoundDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	//
 	// Public methods

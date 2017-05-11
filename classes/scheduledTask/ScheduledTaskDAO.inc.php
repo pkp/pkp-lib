@@ -24,12 +24,6 @@
 import('lib.pkp.classes.scheduledTask.ScheduledTask');
 
 class ScheduledTaskDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Get the last time a scheduled task was executed.

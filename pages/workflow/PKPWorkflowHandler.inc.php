@@ -22,13 +22,6 @@ import('lib.pkp.classes.linkAction.LinkAction');
 import('lib.pkp.classes.linkAction.request.AjaxModal');
 
 abstract class PKPWorkflowHandler extends Handler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 
 	//
 	// Implement template methods from PKPHandler

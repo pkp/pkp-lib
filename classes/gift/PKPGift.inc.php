@@ -26,12 +26,6 @@ define('GIFT_STATUS_REDEEMED', 0x04);
 define('GIFT_STATUS_OTHER', 0x10);
 
 class PKPGift extends DataObject {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	//
 	// Get/set methods

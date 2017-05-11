@@ -17,12 +17,6 @@
 import('lib.pkp.classes.submission.SubmissionComment');
 
 class SubmissionCommentDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Retrieve SubmissionComments by submission id

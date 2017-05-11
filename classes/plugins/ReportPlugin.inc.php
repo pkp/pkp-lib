@@ -16,13 +16,6 @@
 import('lib.pkp.classes.plugins.Plugin');
 
 abstract class ReportPlugin extends Plugin {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 
 	//
 	// Public methods to be implemented by subclasses.

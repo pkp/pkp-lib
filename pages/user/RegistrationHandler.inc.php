@@ -17,12 +17,6 @@
 import('pages.user.UserHandler');
 
 class RegistrationHandler extends UserHandler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * @see PKPHandler::initialize()

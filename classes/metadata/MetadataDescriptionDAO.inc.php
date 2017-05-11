@@ -18,12 +18,6 @@ import('lib.pkp.classes.metadata.MetadataDescription');
 
 
 class MetadataDescriptionDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Insert a new meta-data description.

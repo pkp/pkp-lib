@@ -18,12 +18,6 @@
 import('classes.notification.Notification');
 
 class NotificationDAO extends DAO {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Retrieve Notification by notification id

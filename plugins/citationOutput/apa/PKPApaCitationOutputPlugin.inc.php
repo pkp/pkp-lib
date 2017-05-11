@@ -20,13 +20,6 @@
 import('lib.pkp.classes.plugins.Plugin');
 
 class PKPApaCitationOutputPlugin extends Plugin {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 
 	//
 	// Override protected template methods from Plugin

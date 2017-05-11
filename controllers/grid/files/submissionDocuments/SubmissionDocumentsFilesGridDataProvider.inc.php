@@ -17,13 +17,6 @@ import('lib.pkp.classes.controllers.grid.CategoryGridDataProvider');
 class SubmissionDocumentsFilesGridDataProvider extends CategoryGridDataProvider {
 
 	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
-	/**
 	 * @copydoc GridDataProvider::getAuthorizationPolicy()
 	 */
 	function getAuthorizationPolicy($request, $args, $roleAssignments) {

@@ -18,12 +18,6 @@
 import('classes.notification.Notification');
 
 class NotificationSettingsDAO extends DAO {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Update a notification's metadata

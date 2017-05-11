@@ -16,12 +16,6 @@
 import('lib.pkp.classes.controllers.grid.GridRow');
 
 class PKPFilterGridRow extends GridRow {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	//
 	// Overridden methods from GridRow

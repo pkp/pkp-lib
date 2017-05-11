@@ -23,13 +23,6 @@ class MultipleListsListbuilderHandler extends ListbuilderHandler {
 	/** @var array Set of ListbuilderList objects that this listbuilder will handle **/
 	var $_lists;
 
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 
 	//
 	// Getters and Setters

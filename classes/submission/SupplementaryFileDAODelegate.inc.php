@@ -21,12 +21,6 @@ import('lib.pkp.classes.submission.SubmissionFileDAODelegate');
 import('lib.pkp.classes.submission.SupplementaryFile');
 
 class SupplementaryFileDAODelegate extends SubmissionFileDAODelegate {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 
 	//

@@ -19,18 +19,13 @@ define('BLOCK_CONTEXT_HOMEPAGE',		0x00000003);
 import('lib.pkp.classes.plugins.LazyLoadPlugin');
 
 abstract class BlockPlugin extends LazyLoadPlugin {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
-	/*
-	 * Override public methods from Plugin
-	 */
+	//
+	// Override public methods from Plugin
+	//
+
 	/**
-	 * @see Plugin::register()
+	 * @copydoc Plugin::register()
 	 */
 	function register($category, $path) {
 		$success = parent::register($category, $path);

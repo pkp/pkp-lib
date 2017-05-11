@@ -15,12 +15,6 @@
  */
 
 class SiteSettingsDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	function _getCache() {
 		$settingCache =& Registry::get('siteSettingCache', true, null);

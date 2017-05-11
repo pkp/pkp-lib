@@ -17,12 +17,6 @@
 import('lib.pkp.classes.controlledVocab.ControlledVocab');
 
 class ControlledVocabDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Return the Controlled Vocab Entry DAO for this Controlled Vocab.

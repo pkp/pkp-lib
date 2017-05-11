@@ -16,12 +16,6 @@
 import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
 
 abstract class UsersListbuilderHandler extends ListbuilderHandler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	//
 	// Implement protected template methods from PKPHandler

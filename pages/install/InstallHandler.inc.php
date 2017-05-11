@@ -18,12 +18,6 @@ import('lib.pkp.classes.install.form.UpgradeForm');
 import('classes.handler.Handler');
 
 class InstallHandler extends Handler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * If no context is selected, list all.

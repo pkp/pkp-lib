@@ -17,14 +17,6 @@ import('classes.handler.Handler');
 
 class UsageStatsHandler extends Handler {
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
-
 	//
 	// Public operations
 	//

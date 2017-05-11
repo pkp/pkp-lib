@@ -15,12 +15,6 @@
  */
 
 class NotificationMailListDAO extends DAO {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Generates an access key for the guest user and adds them to the notification_mail_list table

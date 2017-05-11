@@ -17,13 +17,6 @@ import('lib.pkp.classes.controllers.grid.GridCategoryRow');
 
 class UserGroupGridRow extends GridRow {
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 	//
 	// Overridden methods from GridRow
 	//

@@ -16,13 +16,6 @@
 class PKPSection extends DataObject {
 
 	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
-	/**
 	 * Get ID of context.
 	 * @return int
 	 */

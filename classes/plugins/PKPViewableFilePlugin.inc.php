@@ -16,12 +16,6 @@
 import('lib.pkp.classes.plugins.GenericPlugin');
 
 abstract class PKPViewableFilePlugin extends GenericPlugin {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Get the filename of the template. (Default behavior may

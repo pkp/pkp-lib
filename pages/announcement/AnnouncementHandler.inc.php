@@ -16,12 +16,6 @@
 import('classes.handler.Handler');
 
 class AnnouncementHandler extends Handler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	//
 	// Implement methods from Handler.

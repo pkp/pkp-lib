@@ -20,13 +20,6 @@
 import('lib.pkp.classes.plugins.MetadataPlugin');
 
 class PKPOpenurl10MetadataPlugin extends MetadataPlugin {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 
 	//
 	// Override protected template methods from Plugin

@@ -16,12 +16,6 @@ import('lib.pkp.classes.controllers.grid.GridRow');
 import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 
 class ReviewFormElementGridRow extends GridRow {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	//
 	// Overridden methods from GridRow

@@ -15,12 +15,6 @@
  */
 
 class PluginSettingsDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Get the cache for plugin settings.

@@ -16,13 +16,6 @@ import('lib.pkp.classes.controllers.grid.GridCategoryRow');
 
 class SelectableSubmissionFileListCategoryGridRow extends GridCategoryRow {
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 	//
 	// Overridden methods from GridCategoryRow
 	//

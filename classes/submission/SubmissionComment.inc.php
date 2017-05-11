@@ -22,12 +22,6 @@ define('COMMENT_TYPE_LAYOUT', 0x04);
 define('COMMENT_TYPE_PROOFREAD', 0x05);
 
 class SubmissionComment extends DataObject {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * get comment type

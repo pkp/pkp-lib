@@ -21,14 +21,6 @@ import('lib.pkp.classes.submission.SubmissionFile');
 
 class SupplementaryFile extends SubmissionFile {
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
-
 	//
 	// Getters and Setters
 	//

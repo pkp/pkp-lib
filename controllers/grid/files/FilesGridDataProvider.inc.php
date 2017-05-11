@@ -27,13 +27,6 @@ class FilesGridDataProvider extends GridDataProvider {
 	/** @var boolean */
 	var $_viewableOnly = false;
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 
 	//
 	// Getters and Setters

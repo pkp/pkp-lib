@@ -41,13 +41,6 @@ abstract class PKPSubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 	 */
 	var $_delegates = array();
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 
 	//
 	// Public methods

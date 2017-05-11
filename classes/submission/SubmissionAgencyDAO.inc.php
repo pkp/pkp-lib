@@ -19,12 +19,6 @@ import('lib.pkp.classes.controlledVocab.ControlledVocabDAO');
 define('CONTROLLED_VOCAB_SUBMISSION_AGENCY', 'submissionAgency');
 
 class SubmissionAgencyDAO extends ControlledVocabDAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Build/fetch and return a controlled vocabulary for agencies.

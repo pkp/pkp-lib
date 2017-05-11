@@ -19,13 +19,6 @@ import('lib.pkp.classes.file.PKPFile');
 class TemporaryFile extends PKPFile {
 
 	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
-	/**
 	 * Return absolute path to the file on the host filesystem.
 	 * @return string
 	 */

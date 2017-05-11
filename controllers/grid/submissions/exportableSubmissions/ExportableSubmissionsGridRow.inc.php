@@ -17,12 +17,6 @@ import('lib.pkp.classes.controllers.grid.GridRow');
 import('lib.pkp.classes.linkAction.request.AjaxModal');
 
 class ExportableSubmissionsGridRow extends GridRow {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	//
 	// Overridden template methods

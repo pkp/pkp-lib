@@ -25,13 +25,6 @@ class CategoryGridDataProvider extends GridDataProvider {
 	 */
 	var $_dataProvider;
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 
 	//
 	// Getters and setters.

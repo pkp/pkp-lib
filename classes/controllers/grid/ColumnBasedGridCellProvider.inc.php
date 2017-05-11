@@ -22,13 +22,6 @@
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
 class ColumnBasedGridCellProvider extends GridCellProvider {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 
 	//
 	// Implement protected template methods from GridCellProvider

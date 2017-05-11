@@ -20,12 +20,6 @@
 import('lib.pkp.classes.security.UserGroupAssignment');
 
 class UserGroupAssignmentDAO extends DAO {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Create a new UserGroupAssignment object

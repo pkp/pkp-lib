@@ -19,12 +19,6 @@ import('lib.pkp.classes.user.InterestEntry');
 import('lib.pkp.classes.controlledVocab.ControlledVocabEntryDAO');
 
 class InterestEntryDAO extends ControlledVocabEntryDAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Construct a new data object corresponding to this DAO.

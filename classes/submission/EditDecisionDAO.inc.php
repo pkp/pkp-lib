@@ -18,12 +18,6 @@
 import('classes.workflow.EditorDecisionActionsManager');
 
 class EditDecisionDAO extends DAO {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Update the editor decision table.

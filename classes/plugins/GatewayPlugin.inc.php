@@ -16,12 +16,6 @@
 import('lib.pkp.classes.plugins.Plugin');
 
 abstract class GatewayPlugin extends Plugin {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Handle fetch requests for this plugin.

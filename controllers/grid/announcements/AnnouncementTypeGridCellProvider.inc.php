@@ -18,13 +18,6 @@ import('lib.pkp.classes.controllers.grid.GridCellProvider');
 class AnnouncementTypeGridCellProvider extends GridCellProvider {
 
 	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
-	/**
 	 * @copydoc GridCellProvider::getCellActions()
 	 */
 	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {

@@ -43,12 +43,6 @@
 import('lib.pkp.classes.core.DataObject');
 
 class FilterGroup extends DataObject {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	//
 	// Setters and Getters

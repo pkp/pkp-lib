@@ -16,13 +16,6 @@
 import('lib.pkp.classes.linkAction.request.LinkActionRequest');
 
 class NullAction extends LinkActionRequest {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 
 	//
 	// Overridden protected methods from LinkActionRequest

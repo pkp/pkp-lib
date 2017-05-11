@@ -17,12 +17,6 @@
 import('lib.pkp.classes.note.NoteDAO'); // Constants
 
 class Query extends DataObject {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Get query assoc type

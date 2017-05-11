@@ -15,12 +15,6 @@
  */
 
 class SubmissionSearchDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Add a word to the keyword list (if it doesn't already exist).

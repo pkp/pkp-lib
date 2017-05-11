@@ -20,12 +20,6 @@ define('REVIEW_REQUEST_REMIND_AUTO', 'REVIEW_REQUEST_REMIND_AUTO');
 
 class ReviewReminder extends ScheduledTask {
 
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * @copydoc ScheduledTask::getName()

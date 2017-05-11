@@ -20,13 +20,6 @@ import('lib.pkp.classes.language.Language');
 class LanguageDAO extends DAO {
 
 	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
-	/**
 	 * Return the language cache.
 	 * @param $locale string
 	 */

@@ -18,12 +18,6 @@
 import('lib.pkp.classes.query.Query');
 
 class QueryDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Retrieve a submission query by ID.

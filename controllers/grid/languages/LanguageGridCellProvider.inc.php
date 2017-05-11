@@ -16,12 +16,6 @@
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
 class LanguageGridCellProvider extends GridCellProvider {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()

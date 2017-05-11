@@ -19,12 +19,6 @@ abstract class ImportExportPlugin extends Plugin {
 	/** @var Request Request made available for plugin URL generation */
 	var $_request;
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Execute import/export tasks using the command-line interface.

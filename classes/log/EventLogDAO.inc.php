@@ -18,12 +18,6 @@
 import ('lib.pkp.classes.log.EventLogEntry');
 
 class EventLogDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Retrieve a log entry by ID.

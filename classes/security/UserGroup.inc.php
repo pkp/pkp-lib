@@ -18,12 +18,6 @@
 import('lib.pkp.classes.security.Role');
 
 class UserGroup extends DataObject {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Get the role ID

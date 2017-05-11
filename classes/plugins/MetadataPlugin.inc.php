@@ -20,13 +20,6 @@ import('lib.pkp.classes.plugins.Plugin');
 define('METADATA_PLUGIN_VOCAB_DATAFILE', 'controlledVocabs.xml');
 
 abstract class MetadataPlugin extends Plugin {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 
 	//
 	// Override public methods from Plugin

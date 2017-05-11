@@ -37,13 +37,6 @@ define('REVIEW_ASSIGNMENT_UNCONSIDERED_READ', 2);
 
 class ReviewAssignment extends DataObject {
 
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 	//
 	// Get/set methods
 	//

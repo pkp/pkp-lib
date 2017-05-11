@@ -17,12 +17,6 @@
 import('pages.user.UserHandler');
 
 class ProfileHandler extends UserHandler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	//
 	// Implement template methods from PKPHandler

@@ -17,13 +17,6 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.controllers.grid.settings.metadata.MetadataGridCellProvider');
 
 class MetadataGridHandler extends GridHandler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 
 	//
 	// Implement template methods from PKPHandler.

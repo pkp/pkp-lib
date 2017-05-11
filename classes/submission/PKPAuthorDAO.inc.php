@@ -18,12 +18,6 @@
 import('lib.pkp.classes.submission.PKPAuthor');
 
 abstract class PKPAuthorDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Retrieve an author by ID.

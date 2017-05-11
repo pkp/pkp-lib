@@ -18,13 +18,6 @@ import('lib.pkp.classes.controllers.grid.GridCellProvider');
 class PluginGridCellProvider extends GridCellProvider {
 
 	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
-	/**
 	 * Extracts variables for a given column from a data element
 	 * so that they may be assigned to template before rendering.
 	 * @param $row GridRow

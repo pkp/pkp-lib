@@ -19,13 +19,6 @@ import('lib.pkp.classes.db.DAO');
 import('lib.pkp.classes.submission.SubmissionFile');
 
 class SubmissionFileDAODelegate extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 
 	//
 	// Abstract public methods to be implemented by subclasses.

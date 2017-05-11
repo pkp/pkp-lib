@@ -18,12 +18,6 @@ import('lib.pkp.classes.core.JSONMessage');
 import('classes.log.SubmissionEventLogEntry');
 
 class SubmissionInformationCenterHandler extends InformationCenterHandler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Display the main information center modal.

@@ -17,13 +17,6 @@
 import('classes.handler.Handler');
 
 class ManagementHandler extends Handler {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 
 	//
 	// Overridden methods from Handler

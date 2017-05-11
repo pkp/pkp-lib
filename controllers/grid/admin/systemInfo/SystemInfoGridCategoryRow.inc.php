@@ -19,12 +19,6 @@ class SystemInfoGridCategoryRow extends GridCategoryRow {
 
 	var $_configSection;
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	//
 	// Overridden methods from GridCategoryRow

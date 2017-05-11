@@ -48,12 +48,6 @@ class FilterDAO extends DAO {
 	/** @var array names of localized settings for the currently persisted/retrieved filter */
 	var $localeFieldNames;
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Instantiates a new filter from configuration data and then

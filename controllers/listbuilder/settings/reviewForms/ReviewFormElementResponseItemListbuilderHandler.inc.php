@@ -19,13 +19,6 @@ class ReviewFormElementResponseItemListbuilderHandler extends SetupListbuilderHa
 	/** @var int Review form element ID **/
 	var $_reviewFormElementId;
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 
 	//
 	// Overridden template methods

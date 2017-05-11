@@ -20,12 +20,6 @@ import('lib.pkp.classes.controlledVocab.ControlledVocabDAO');
 define('CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE', 'submissionDiscipline');
 
 class SubmissionDisciplineDAO extends ControlledVocabDAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Build/fetch a submission discipline controlled vocabulary.

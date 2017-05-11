@@ -60,13 +60,6 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	private $_optionValues = null;
 
 	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
-	/**
 	 * @copydoc Plugin::register
 	 */
 	function register($category, $path) {

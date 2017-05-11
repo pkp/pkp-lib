@@ -63,20 +63,20 @@ define('SUBMISSION_EMAIL_LAYOUT_NOTIFY_COMPLETE',		0x70000003);
 
 class PKPSubmissionEmailLogEntry extends EmailLogEntry {
 	/**
-	 * Constructor.
+	 * Set the submission ID for the log entry.
+	 * @param $submissionId int
 	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 	function setSubmissionId($submissionId) {
 		return $this->setAssocId($submissionId);
 	}
 
+	/**
+	 * Get the submission ID for the log entry.
+	 * @return int
+	 */
 	function getSubmissionId() {
 		return $this->getAssocId();
 	}
-
 }
 
 ?>

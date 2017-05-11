@@ -17,13 +17,6 @@
 import('classes.handler.Handler');
 
 class PageHandler extends Handler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 
 	//
 	// Implement template methods from PKPHandler

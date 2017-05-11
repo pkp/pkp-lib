@@ -24,12 +24,6 @@ define('CITATION_LOOKUP_FILTER_GROUP', 'nlm30-element-citation=>nlm30-element-ci
 import('lib.pkp.classes.citation.Citation');
 
 class CitationDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Insert a new citation.

@@ -19,13 +19,6 @@ import('lib.pkp.controllers.grid.notifications.NotificationsGridHandler');
 class TaskNotificationsGridHandler extends NotificationsGridHandler {
 
 	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
-	/**
 	 * @see GridHandler::loadData()
 	 * @return array Grid data.
 	 */

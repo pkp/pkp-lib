@@ -20,12 +20,6 @@ class UserGroupAssignment extends DataObject {
 	/** @var the UserGroup object associated with this assignment **/
 	var $userGroup;
 
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	//
 	// Get/set methods

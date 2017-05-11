@@ -19,13 +19,6 @@ import('lib.pkp.classes.file.FileManager');
 class PKPPublicFileManager extends FileManager {
 
 	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
-	/**
 	 * Get the path to the site public files directory.
 	 * @return string
 	 */

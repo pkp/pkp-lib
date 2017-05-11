@@ -17,11 +17,6 @@
 import('lib.pkp.classes.xml.XMLParser');
 
 class XMLDAO {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-	}
 
 	/**
 	 * Parse an XML file and return data in an object.

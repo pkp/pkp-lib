@@ -18,12 +18,6 @@ import('lib.pkp.classes.submission.SubmissionLanguage');
 import('lib.pkp.classes.controlledVocab.ControlledVocabEntryDAO');
 
 class SubmissionLanguageEntryDAO extends ControlledVocabEntryDAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Construct a new data object corresponding to this DAO.

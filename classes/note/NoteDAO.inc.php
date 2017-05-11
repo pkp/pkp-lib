@@ -20,12 +20,6 @@ define('NOTE_ORDER_DATE_CREATED',	0x0001);
 define('NOTE_ORDER_ID',			0x0002);
 
 class NoteDAO extends DAO {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Create a new data object

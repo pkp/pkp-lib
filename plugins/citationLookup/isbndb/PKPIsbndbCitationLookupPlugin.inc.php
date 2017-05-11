@@ -21,13 +21,6 @@
 import('lib.pkp.classes.plugins.Plugin');
 
 class PKPIsbndbCitationLookupPlugin extends Plugin {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 
 	//
 	// Override protected template methods from Plugin

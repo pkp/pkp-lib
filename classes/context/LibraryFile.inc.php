@@ -23,12 +23,6 @@ define('LIBRARY_FILE_TYPE_OTHER',	0x00005);
 import('lib.pkp.classes.file.FileManager');
 
 class LibraryFile extends DataObject {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Return absolute path to the file on the host filesystem.

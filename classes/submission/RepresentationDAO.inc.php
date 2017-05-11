@@ -14,12 +14,6 @@
  */
 
 abstract class RepresentationDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Retrieves a representation by ID.

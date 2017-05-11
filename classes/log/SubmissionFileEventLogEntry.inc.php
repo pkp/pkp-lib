@@ -30,12 +30,6 @@ define('SUBMISSION_LOG_FILE_AUDIT_UPLOAD', 		0x50000006);
 define('SUBMISSION_LOG_FILE_SIGNOFF_SIGNOFF', 	0x50000007);
 
 class SubmissionFileEventLogEntry extends EventLogEntry {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Set the associated file ID.

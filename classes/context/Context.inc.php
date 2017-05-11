@@ -14,12 +14,6 @@
  */
 
 class Context extends DataObject {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Get the localized name of the context

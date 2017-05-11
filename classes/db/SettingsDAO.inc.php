@@ -14,12 +14,6 @@
  */
 
 class SettingsDAO extends DAO {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Retrieve (and newly cache) all settings.

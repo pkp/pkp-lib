@@ -24,12 +24,6 @@ class Session extends DataObject {
 	/** The User object associated with this session */
 	var $user;
 
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Get a session variable's value.

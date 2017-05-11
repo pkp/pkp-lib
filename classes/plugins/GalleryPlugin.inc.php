@@ -20,12 +20,6 @@ define('PLUGIN_GALLERY_STATE_CURRENT', 2);
 define('PLUGIN_GALLERY_STATE_NEWER', 3);
 
 class GalleryPlugin extends DataObject {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Get the localized name of the plugin

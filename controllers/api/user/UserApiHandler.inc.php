@@ -23,13 +23,6 @@ import('lib.pkp.classes.handler.PKPHandler');
 import('lib.pkp.classes.core.JSONMessage');
 
 class UserApiHandler extends PKPHandler {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 
 	//
 	// Implement template methods from PKPHandler

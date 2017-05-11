@@ -21,12 +21,6 @@ define('GENRE_CATEGORY_SUPPLEMENTARY', 3);
 define('GENRE_SORTABLE_DESIGNATION', '##');
 
 class Genre extends DataObject {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Get ID of context.

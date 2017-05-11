@@ -18,12 +18,6 @@
 import('lib.pkp.classes.session.Session');
 
 class SessionDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Instantiate and return a new data object.

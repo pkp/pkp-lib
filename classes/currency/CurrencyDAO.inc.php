@@ -19,13 +19,6 @@ import('lib.pkp.classes.currency.Currency');
 
 class CurrencyDAO extends DAO {
 
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 	function _getCache() {
 		$locale = AppLocale::getLocale();
 		$cache =& Registry::get('currencyCache', true, null);

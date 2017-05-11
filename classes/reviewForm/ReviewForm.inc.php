@@ -22,12 +22,6 @@
  */
 
 class ReviewForm extends DataObject {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Get localized title.

@@ -17,12 +17,6 @@ import('lib.pkp.classes.plugins.OAIMetadataFormatPlugin');
 
 class PKPOAIMetadataFormatPlugin_DC extends OAIMetadataFormatPlugin {
 	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-	/**
 	 * Get the name of this plugin. The name must be unique within
 	 * its category.
 	 * @return String name of plugin

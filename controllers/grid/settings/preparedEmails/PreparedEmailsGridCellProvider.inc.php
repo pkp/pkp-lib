@@ -16,12 +16,6 @@
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 
 class PreparedEmailsGridCellProvider extends DataObjectGridCellProvider {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Extracts variables for a given column from a data element

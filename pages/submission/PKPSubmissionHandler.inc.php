@@ -17,12 +17,6 @@ import('classes.handler.Handler');
 import('lib.pkp.classes.core.JSONMessage');
 
 abstract class PKPSubmissionHandler extends Handler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * @copydoc PKPHandler::authorize()

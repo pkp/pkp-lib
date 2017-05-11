@@ -21,12 +21,6 @@ abstract class PKPOAIDAO extends DAO {
  	/** @var OAI parent OAI object */
  	var $oai;
 
- 	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Set parent OAI object.

@@ -19,13 +19,6 @@ import('classes.handler.Handler');
 import('lib.pkp.classes.core.JSONMessage');
 
 class SubmissionMetadataHandler extends Handler {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 
 	//
 	// Implement template methods from PKPHandler.

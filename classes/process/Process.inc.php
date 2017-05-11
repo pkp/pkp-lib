@@ -26,13 +26,6 @@ define('PROCESS_TYPE_CITATION_CHECKING', 0x01);
 import('lib.pkp.classes.core.DataObject');
 
 class Process extends DataObject {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 
 	//
 	// Setters and Getters

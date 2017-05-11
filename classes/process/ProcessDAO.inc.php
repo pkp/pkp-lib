@@ -63,12 +63,6 @@ define('PROCESS_MAX_KEY_VALID', 10);
 import('lib.pkp.classes.process.Process');
 
 class ProcessDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Insert a new process.

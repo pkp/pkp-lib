@@ -16,12 +16,6 @@
 import('lib.pkp.classes.plugins.LazyLoadPlugin');
 
 abstract class GenericPlugin extends LazyLoadPlugin {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 }
 
 ?>

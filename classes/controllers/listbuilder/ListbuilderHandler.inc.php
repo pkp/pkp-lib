@@ -42,12 +42,6 @@ class ListbuilderHandler extends GridHandler {
 	/** @var string Field for LISTBUILDER_SAVE_TYPE_EXTERNAL naming the field used to send the saved contents of the LB */
 	var $_saveFieldName = null;
 
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * @copydoc GridHandler::initialize

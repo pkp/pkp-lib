@@ -19,14 +19,6 @@ import('lib.pkp.classes.core.JSONMessage');
 
 class PKPReviewRoundTabHandler extends Handler {
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
-
 	//
 	// Extended methods from Handler
 	//

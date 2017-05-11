@@ -15,12 +15,6 @@
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
 class ReviewFormElementResponseItemListbuilderGridCellProvider extends GridCellProvider {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	//
 	// Template methods from GridCellProvider

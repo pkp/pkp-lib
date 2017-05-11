@@ -18,12 +18,6 @@
 import ('lib.pkp.classes.log.EmailLogEntry');
 
 class EmailLogDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Retrieve a log entry by ID.

@@ -18,12 +18,6 @@ import('lib.pkp.classes.notification.PKPNotificationOperationManager');
 import('lib.pkp.classes.workflow.WorkflowStageDAO');
 
 class PKPNotificationManager extends PKPNotificationOperationManager {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Construct a URL for the notification based on its type and associated object

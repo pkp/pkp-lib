@@ -23,13 +23,6 @@ class NotificationsGridHandler extends GridHandler {
 	/** @var $_selectedNotificationIds array Set of selected IDs */
 	var $_selectedNotificationIds;
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 
 	/**
 	 * @copydoc GridHandler::initialize()

@@ -19,13 +19,6 @@ import('lib.pkp.controllers.grid.notifications.NotificationsGridHandler');
 class NormalNotificationsGridHandler extends NotificationsGridHandler {
 
 	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
-	/**
 	 * @copydoc GridHandler::loadData()
 	 * @return array Grid data.
 	 */

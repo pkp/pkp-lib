@@ -23,12 +23,6 @@ class DataObjectGridCellProvider extends GridCellProvider {
 	/** @var string the locale to be retrieved. */
 	var $_locale = null;
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	//
 	// Setters and Getters

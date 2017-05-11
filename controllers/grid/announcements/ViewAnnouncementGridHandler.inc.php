@@ -16,13 +16,6 @@
 import('lib.pkp.controllers.grid.announcements.AnnouncementGridHandler');
 
 class ViewAnnouncementGridHandler extends AnnouncementGridHandler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 
 	/**
 	 * @copydoc AnnouncementGridHandler::initialize()

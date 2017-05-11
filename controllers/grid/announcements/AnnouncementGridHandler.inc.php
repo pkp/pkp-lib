@@ -18,13 +18,6 @@ import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 import('lib.pkp.classes.controllers.grid.DateGridCellProvider');
 
 class AnnouncementGridHandler extends GridHandler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 
 	//
 	// Overridden template methods

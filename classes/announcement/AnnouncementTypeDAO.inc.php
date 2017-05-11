@@ -18,12 +18,6 @@
 import('lib.pkp.classes.announcement.AnnouncementType');
 
 class AnnouncementTypeDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Generate a new data object.

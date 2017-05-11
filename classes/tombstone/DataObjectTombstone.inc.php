@@ -14,12 +14,6 @@
  */
 
 class DataObjectTombstone extends DataObject {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * get data object id

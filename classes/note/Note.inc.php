@@ -15,12 +15,6 @@
 
 
 class Note extends DataObject {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * get user id of the note's author

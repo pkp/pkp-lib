@@ -21,12 +21,6 @@
 
 
 class Site extends DataObject {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Return associative array of all locales supported by the site.

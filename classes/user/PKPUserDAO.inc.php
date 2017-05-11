@@ -29,12 +29,6 @@ define('USER_FIELD_AFFILIATION', 'affiliation');
 define('USER_FIELD_NONE', null);
 
 class PKPUserDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Construct a new User object.

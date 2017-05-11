@@ -17,13 +17,6 @@
 import('lib.pkp.classes.plugins.Plugin');
 
 abstract class LazyLoadPlugin extends Plugin {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 
 	//
 	// Override public methods from Plugin

@@ -17,12 +17,6 @@
 import('lib.pkp.classes.filter.FilterGroup');
 
 class FilterGroupDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Insert a new filter group.

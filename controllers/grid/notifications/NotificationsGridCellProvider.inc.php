@@ -18,12 +18,6 @@ import('lib.pkp.classes.controllers.grid.GridCellProvider');
 import('lib.pkp.classes.linkAction.request.AjaxAction');
 
 class NotificationsGridCellProvider extends GridCellProvider {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Get cell actions associated with this row/column combination

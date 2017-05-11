@@ -20,12 +20,6 @@ import('lib.pkp.classes.file.FileWrapper');
 define('PLUGIN_GALLERY_XML_URL', 'http://pkp.sfu.ca/ojs/xml/plugins.xml');
 
 class PluginGalleryDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Get a set of GalleryPlugin objects describing the available

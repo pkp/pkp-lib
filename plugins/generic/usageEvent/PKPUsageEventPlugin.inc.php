@@ -22,12 +22,6 @@ define('USAGE_EVENT_PLUGIN_CLASSIFICATION_BOT', 'bot');
 define('USAGE_EVENT_PLUGIN_CLASSIFICATION_ADMIN', 'administrative');
 
 abstract class PKPUsageEventPlugin extends GenericPlugin {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	//
 	// Implement methods from PKPPlugin.

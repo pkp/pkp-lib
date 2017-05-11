@@ -19,13 +19,6 @@ import('lib.pkp.classes.linkAction.request.AjaxModal');
 import('lib.pkp.classes.linkAction.request.AjaxAction');
 
 class ReviewerGridCellProvider extends DataObjectGridCellProvider {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 
 	//
 	// Template methods from GridCellProvider

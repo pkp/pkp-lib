@@ -36,12 +36,6 @@ class PKPPageRouter extends PKPRouter {
 	/** @var string cache filename */
 	var $_cacheFilename;
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * get the installation pages

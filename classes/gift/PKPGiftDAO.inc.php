@@ -23,12 +23,6 @@ define('GIFT_REDEEM_STATUS_ERROR_GIFT_ALREADY_REDEEMED', 0x4);
 
 
 class PKPGiftDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Retrieve a gift by gift ID.

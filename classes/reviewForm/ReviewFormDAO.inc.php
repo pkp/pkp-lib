@@ -20,13 +20,6 @@ import('lib.pkp.classes.reviewForm.ReviewForm');
 class ReviewFormDAO extends DAO {
 
 	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
-	/**
 	 * Retrieve a review form by ID.
 	 * @param $reviewFormId int
 	 * @param $assocType int optional

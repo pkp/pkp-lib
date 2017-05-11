@@ -17,12 +17,6 @@ import('classes.handler.Handler');
 import('classes.notification.Notification');
 
 class NotificationHandler extends Handler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Display help table of contents.

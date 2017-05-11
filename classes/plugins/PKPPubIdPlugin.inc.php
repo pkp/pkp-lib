@@ -17,14 +17,6 @@ import('lib.pkp.classes.plugins.Plugin');
 
 abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
-
 	//
 	// Implement template methods from Plugin
 	//

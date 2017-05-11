@@ -18,12 +18,6 @@ import('lib.pkp.classes.submission.Genre');
 import('lib.pkp.classes.db.DAO');
 
 class GenreDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Retrieve a genre by type id.

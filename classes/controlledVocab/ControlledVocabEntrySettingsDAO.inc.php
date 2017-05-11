@@ -16,12 +16,6 @@
 import('lib.pkp.classes.db.SettingsDAO');
 
 class ControlledVocabEntrySettingsDAO extends SettingsDAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Get the settings table name.

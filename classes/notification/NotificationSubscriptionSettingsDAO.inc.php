@@ -18,12 +18,6 @@
 
 
 class NotificationSubscriptionSettingsDAO extends DAO {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Delete a notification setting by setting name

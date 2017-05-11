@@ -17,12 +17,6 @@
 import('lib.pkp.classes.mail.EmailTemplate');
 
 class EmailTemplateDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Retrieve a base email template by key.

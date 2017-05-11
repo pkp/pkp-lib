@@ -15,12 +15,6 @@
  */
 
 class AnnouncementType extends DataObject {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	//
 	// Get/set methods

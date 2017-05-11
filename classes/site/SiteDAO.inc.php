@@ -18,12 +18,6 @@
 import('lib.pkp.classes.site.Site');
 
 class SiteDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Retrieve site information.

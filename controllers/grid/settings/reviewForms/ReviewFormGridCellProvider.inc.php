@@ -15,12 +15,6 @@
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
 class ReviewFormGridCellProvider extends GridCellProvider {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Extracts variables for a given column from a data element

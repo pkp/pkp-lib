@@ -19,12 +19,6 @@ import('lib.pkp.classes.controlledVocab.ControlledVocabDAO');
 define('CONTROLLED_VOCAB_SUBMISSION_KEYWORD', 'submissionKeyword');
 
 class SubmissionKeywordDAO extends ControlledVocabDAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Build/fetch and return a controlled vocabulary for keywords.

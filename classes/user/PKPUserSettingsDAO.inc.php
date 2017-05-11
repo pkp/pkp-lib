@@ -16,12 +16,6 @@
 
 
 class PKPUserSettingsDAO extends DAO {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Retrieve a user setting value.

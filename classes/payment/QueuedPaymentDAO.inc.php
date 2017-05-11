@@ -17,12 +17,6 @@
 
 
 class QueuedPaymentDAO extends DAO {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Retrieve a queued payment by ID.

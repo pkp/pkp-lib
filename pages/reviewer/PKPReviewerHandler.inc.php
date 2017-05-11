@@ -18,12 +18,6 @@ import('lib.pkp.classes.core.JSONMessage');
 import('lib.pkp.classes.submission.reviewer.ReviewerAction');
 
 class PKPReviewerHandler extends Handler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Display the submission review page.

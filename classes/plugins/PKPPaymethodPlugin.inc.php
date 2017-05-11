@@ -16,12 +16,6 @@
 import('lib.pkp.classes.plugins.Plugin');
 
 abstract class PKPPaymethodPlugin extends Plugin {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	/**
 	 * Called as a plugin is registered to the registry. Subclasses over-

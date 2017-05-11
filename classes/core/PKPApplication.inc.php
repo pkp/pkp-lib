@@ -362,7 +362,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			'NotificationSubscriptionSettingsDAO' => 'lib.pkp.classes.notification.NotificationSubscriptionSettingsDAO',
 			'PluginGalleryDAO' => 'lib.pkp.classes.plugins.PluginGalleryDAO',
 			'PluginSettingsDAO' => 'lib.pkp.classes.plugins.PluginSettingsDAO',
-			'ProcessDAO' => 'lib.pkp.classes.process.ProcessDAO',
 			'QueuedPaymentDAO' => 'lib.pkp.classes.payment.QueuedPaymentDAO',
 			'ReviewAssignmentDAO' => 'lib.pkp.classes.submission.reviewAssignment.ReviewAssignmentDAO',
 			'ReviewFilesDAO' => 'lib.pkp.classes.submission.ReviewFilesDAO',

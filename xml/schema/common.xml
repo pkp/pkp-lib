@@ -631,35 +631,6 @@
 		</index>
 	</table>
 
-	<!-- Parallel Processing -->
-
-	<!--
-	 *
-	 * TABLE processes
-	 *
-	 -->
-	<table name="processes">
-		<field name="process_id" type="C2" size="23">
-			<NOTNULL />
-		</field>
-		<field name="process_type" type="I1">
-			<NOTNULL/>
-		</field>
-		<field name="time_started" type="I8">
-			<NOTNULL/>
-		</field>
-		<field name="additional_data" type="X"/>
-		<field name="obliterated" type="I1">
-			<NOTNULL/>
-			<DEFAULT VALUE="0"/>
-		</field>
-		<descr>Currently running processes.</descr>
-		<index name="processes_pkey">
-			<col>process_id</col>
-			<UNIQUE/>
-		</index>
-	</table>
-
 	<!--
 	  *
 	  * TABLE plugin_settings

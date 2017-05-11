@@ -536,10 +536,12 @@
 
 	<!--  решения редакции -->
 	<message key="editor.submission.decision">Решение</message>
+	<message key="editor.submission.decision.accept">Принять материал</message>
 	<message key="editor.submission.decision.requestRevisions">Запросить новые версии</message>
 	<message key="editor.submission.decision.resubmit">Отправить повторно на рецензию</message>
 	<message key="editor.submission.decision.decline">Отклонить материал</message>
 	<message key="editor.submission.decision.sendToProduction">Отправить на публикацию</message>
+	<message key="editor.submission.decision.skipReview">Принять материал и пропустить рецензирование</message>
 	<message key="editor.submission.decision.sendInternalReview">Отправить на внутреннее рецензирование</message>
 	<message key="editor.submission.decision.approveProofsDescription">Файл с корректурой страницы должен быть отмечен как одобренный, чтобы его можно было опубликовать. Вы хотите одобрить его?</message>
 	<message key="editor.submission.decision.approveProofs">Одобрить корректуры</message>

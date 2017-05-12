@@ -48,13 +48,19 @@ class NativeImportFilter extends NativeImportExportFilter {
 			// Multiple element (plural) import
 			for ($n = $document->documentElement->firstChild; $n !== null; $n=$n->nextSibling) {
 				if (!is_a($n, 'DOMElement')) continue;
-				$importedObjects[] = $this->handleElement($n);
+				$object = $this->handleElement($n);
+				if ($object) {
+					$importedObjects[] = $object;
+				}
 			}
 		} else {
 			assert($document->documentElement->tagName == $this->getSingularElementName());
 
 			// Single element (singular) import
-			$importedObjects[] = $this->handleElement($document->documentElement);
+			$object = $this->handleElement($document->documentElement);
+			if ($object) {
+				$importedObjects[] = $object;
+			}
 		}
 
 		return $importedObjects;

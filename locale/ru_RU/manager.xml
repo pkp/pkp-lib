@@ -528,4 +528,5 @@
 	<message key="plugins.importexport.common.error.unknownEncoding">Неизвестная кодировка {$param}</message>
 	<message key="plugins.importexport.common.error.unknownUserGroup">Неизвестная группа пользователей {$param}</message>
 	<message key="plugins.importexport.common.error.unknownUploader">Неизвестный загрузчик {$param}</message>
+	<message key="plugins.importexport.common.error.temporaryFileFailed">Временный файл {$dest} не может быть создан из {$source}</message>
 </locale>

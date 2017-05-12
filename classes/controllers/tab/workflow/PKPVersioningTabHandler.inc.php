@@ -3,8 +3,8 @@
 /**
  * @file controllers/tab/workflow/PKPVersioningTabHandler.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2003-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewRoundTabHandler
@@ -114,37 +114,18 @@ class PKPVersioningTabHandler extends Handler {
 		// Retrieve the authorized submission, stage id and submission revision.
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
-		$submissionRevision = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_REVISION);
-		
+		$submissionRevisionId = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_REVISION);
+
+		// Get submission revision
+		$submissionDao = Application::getSubmissionDAO();
+		$submissionRevision = $submissionDao->getById($submission->getId(), null, false, $submissionRevisionId);
+
 		// Add variables to the template.
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('submission', $submission);
+		$templateMgr->assign('submission', $submissionRevision);
 		$templateMgr->assign('stageId', $stageId);
-		$templateMgr->assign('submissionRevision', $submissionRevision);
-
-		// Get publication date of submission revision 
-		$submissionDao = Application::getSubmissionDAO();
-		$submission = $submissionDao->getById($submission->getId(), null, false, $submissionRevision);
-		$isPublished = $submission->getDatePublished() ? true : false;
-		$templateMgr->assign('isPublished', $isPublished);
-
-		// Create edit metadata link action.
-		$dispatcher = $request->getDispatcher();
-		import('lib.pkp.classes.linkAction.request.AjaxModal');
-		$editMetadataLinkAction = new LinkAction(
-			'editMetadata',
-			new AjaxModal(
-				$dispatcher->url(
-					$request, ROUTE_COMPONENT, null,
-					'modals.submissionMetadata.IssueEntryHandler',
-					'fetch', null,
-					array('submissionId' => $submission->getId(), 'stageId' => $stageId, 'submissionRevision' => $submissionRevision)
-				),
-				__('submission.issueEntry.submissionMetadata')
-			),
-			__('submission.production.editMetadata')
-		);
-		$templateMgr->assign('editMetadataLinkAction', $editMetadataLinkAction);
+		$templateMgr->assign('submissionRevision', $submissionRevisionId);
+		$templateMgr->assign('isPublished', $submissionRevision->getDatePublished() ? true : false);
 
 		return $templateMgr->fetchJson('workflow/version.tpl');
 	}

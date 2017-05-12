@@ -269,18 +269,8 @@ abstract class Submission extends DataObject {
 	 * @return int
 	 */
 	function getCurrentVersionId() {
-		$submissionId = $this->getId();
-		$contextId = $this->getContextId();
-
-		// handle publisher ids
-		if (!ctype_digit("$submissionId")) {
-			$publishedArticleDao = DAORegistry::getDAO('PublishedArticleDAO');
-			$publishedArticle = $publishedArticleDao->getPublishedArticleByPubId('publisher-id', $submissionId, $contextId);
-			$submissionId = $publishedArticle->getId();
-		}
-
 		$submissionDao = Application::getSubmissionDAO();
-		return $submissionDao->getLatestRevisionId($submissionId, $contextId);
+		return $submissionDao->getLatestRevisionId($this->getId(), $this->getContextId());
 	}
 
 	/**

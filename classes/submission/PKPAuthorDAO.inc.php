@@ -209,9 +209,8 @@ abstract class PKPAuthorDAO extends DAO {
 	/**
 	 * Insert a new Author.
 	 * @param $author Author
-	 * @param $saveAsNewVersion boolean
 	 */
-	function insertObject($author, $saveAsNewVersion = false) {
+	function insertObject($author) {
 		// Set author sequence to end of author list
 		if(!$author->getSequence()) {
 			$authorCount = $this->getAuthorCountBySubmissionId($author->getSubmissionId());
@@ -247,7 +246,7 @@ abstract class PKPAuthorDAO extends DAO {
 				)
 		);
 
-		if ($saveAsNewVersion == false) $author->setId($this->getInsertId());
+		$author->setId($this->getInsertId());
 		$this->updateLocaleFields($author);
 
 		return $author->getId();

@@ -76,7 +76,7 @@ class AuthorGridHandler extends GridHandler {
 	 */
 	function getCurrentVersion($request) {
 		$currentVersion = (int) $request->getUserVar('submissionRevision');
-		if (!isset($currentVersion)) {
+		if (!isset($currentVersion) || $currentVersion == 0) {
 			$currentVersion = $this->getNewestVersion($request);
 		}
 		return $currentVersion;
@@ -408,7 +408,7 @@ class AuthorGridHandler extends GridHandler {
 	function deleteAuthor($args, $request) {
 		if (!$request->checkCSRF()) return new JSONMessage(false);
 		// Identify the submission Id
-		$submissionId = (int) $request->getUserVar('submissionId');
+		$submissionId = $this->getSubmission()->getId();
 		// Identify the author to be deleted
 		$authorId = (int) $request->getUserVar('authorId');
 		// Identify the version

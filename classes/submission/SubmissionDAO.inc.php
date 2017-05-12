@@ -141,11 +141,13 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 			ORDER BY ss.submission_revision ' . $this->getDirectionMapping($order);
 
 		$result = $this->retrieve($sql, $params);
-		$submissionRevisions = array();
 
-		foreach($result as $submission) {
-			$submissionRevisions[] = $submission['submission_revision'];
+		while(!$result->EOF){
+			$row = $result->getRowAssoc(false);
+			$submissionRevisions[] = $row['submission_revision'];
+			$result->moveNext();
 		}
+		$result->close();
 
 		return $submissionRevisions;
 	}
@@ -353,7 +355,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 */
 	function updateLocaleFields($submission) {
 		$this->updateDataObjectSettings('submission_settings', $submission, array(
-			'submission_id' => $submission->getId(), 'submission_revision' => ($submission->getData('submissionRevision') ? $submission->getData('submissionRevision') : 1)
+			'submission_id' => $submission->getId(), 'submission_revision' => ($submission->getSubmissionRevision() ? $submission->getSubmissionRevision() : 1)
 		));
 	}
 

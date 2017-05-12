@@ -56,6 +56,7 @@ class ContactForm extends BaseProfileForm {
 			'country' => $user->getCountry(),
 			'email' => $user->getEmail(),
 			'phone' => $user->getPhone(),
+			'signature' => $user->getSignature(null), // Localized
 			'mailingAddress' => $user->getMailingAddress(),
 			'affiliation' => $user->getAffiliation(null), // Localized
 			'userLocales' => $user->getLocales(),
@@ -69,7 +70,7 @@ class ContactForm extends BaseProfileForm {
 		parent::readInputData();
 
 		$this->readUserVars(array(
-			'country', 'email', 'phone', 'mailingAddress', 'affiliation', 'userLocales',
+			'country', 'email', 'signature', 'phone', 'mailingAddress', 'affiliation', 'userLocales',
 		));
 
 		if ($this->getData('userLocales') == null || !is_array($this->getData('userLocales'))) {
@@ -87,6 +88,7 @@ class ContactForm extends BaseProfileForm {
 
 		$user->setCountry($this->getData('country'));
 		$user->setEmail($this->getData('email'));
+		$user->setSignature($this->getData('signature'), null); // Localized
 		$user->setPhone($this->getData('phone'));
 		$user->setMailingAddress($this->getData('mailingAddress'));
 		$user->setAffiliation($this->getData('affiliation'), null); // Localized

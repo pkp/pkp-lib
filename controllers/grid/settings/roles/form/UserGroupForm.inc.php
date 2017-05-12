@@ -123,7 +123,7 @@ class UserGroupForm extends Form {
 		$templateMgr = TemplateManager::getManager($request);
 
 		$roleDao = DAORegistry::getDAO('RoleDAO');
-		$templateMgr->assign('roleOptions', $roleDao->getRoleNames(true));
+		$templateMgr->assign('roleOptions', Application::getRoleNames(true));
 
 		// Users can't edit the role once user group is created.
 		// userGroupId is 0 for new User Groups because it is cast to int in UserGroupGridHandler.

@@ -35,11 +35,11 @@ class PreparedEmailsGridCellProvider extends DataObjectGridCellProvider {
 				return array('label' => ucwords(strtolower(str_replace('_', ' ', $label))));
 			case 'sender':
 				$roleId = $element->getFromRoleId();
-				$label = $roleDao->getRoleNames(false, array($roleId));
+				$label = Application::getRoleNames(false, array($roleId));
 				return array('label' => __(array_shift($label)));
 			case 'recipient':
 				$roleId = $element->getToRoleId();
-				$label = $roleDao->getRoleNames(false, array($roleId));
+				$label = Application::getRoleNames(false, array($roleId));
 				return array('label' => __(array_shift($label)));
 			case 'subject':
 				$locale = AppLocale::getLocale();

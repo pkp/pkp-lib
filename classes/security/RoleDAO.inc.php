@@ -219,39 +219,6 @@ class RoleDAO extends DAO {
 			return $forbiddenStages;
 		}
 	}
-
-
-	//
-	// Static methods.
-	//
-	/**
-	 * Get a mapping of role keys and i18n key names.
-	 * @param boolean $contextOnly If false, also returns site-level roles (Site admin)
-	 * @param array|null $roleIds Only return role names of these IDs
-	 * @return array
-	 */
-	static function getRoleNames($contextOnly = false, $roleIds = null) {
-		$siteRoleNames = array(ROLE_ID_SITE_ADMIN => 'user.role.siteAdmin');
-		$appRoleNames = array(
-			ROLE_ID_MANAGER => 'user.role.manager',
-			ROLE_ID_SUB_EDITOR => 'user.role.subEditor',
-			ROLE_ID_ASSISTANT => 'user.role.assistant',
-			ROLE_ID_AUTHOR => 'user.role.author',
-			ROLE_ID_REVIEWER => 'user.role.reviewer',
-			ROLE_ID_READER => 'user.role.reader',
-		);
-		$roleNames = $contextOnly ? $appRoleNames : $siteRoleNames + $appRoleNames;
-
-		if(!empty($roleIds)) {
-			$returner = array();
-			foreach($roleIds as $roleId) {
-				if(isset($roleNames[$roleId])) $returner[$roleId] = $roleNames[$roleId];
-			}
-			return $returner;
-		}
-
-		return $roleNames;
-	}
 }
 
 ?>

@@ -229,20 +229,23 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 			$headNote->setContents($email->getBody());
 			$noteDao->insertObject($headNote);
 
-			$notificationMgr = new NotificationManager();
-			$notificationMgr->updateNotification(
-				$request,
-				array(
-					NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
-					NOTIFICATION_TYPE_AWAITING_COPYEDITS,
-					NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
-					NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
-				),
-				null,
-				ASSOC_TYPE_SUBMISSION,
-				$submission->getId()
-			);
+			if ($submission->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
+				$submission->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {
 
+				$notificationMgr = new NotificationManager();
+				$notificationMgr->updateNotification(
+					$request,
+					array(
+						NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
+						NOTIFICATION_TYPE_AWAITING_COPYEDITS,
+						NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
+						NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
+					),
+					null,
+					ASSOC_TYPE_SUBMISSION,
+					$submission->getId()
+				);
+			}
 		}
 	}
 

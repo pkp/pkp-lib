@@ -319,20 +319,24 @@ class QueriesGridHandler extends GridHandler {
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');
 		$notificationDao->deleteByAssoc(ASSOC_TYPE_QUERY, $query->getId());
 
-		// Update submission notifications
-		$notificationMgr = new NotificationManager();
-		$notificationMgr->updateNotification(
-			$request,
-			array(
-				NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
-				NOTIFICATION_TYPE_AWAITING_COPYEDITS,
-				NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
-				NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
-			),
-			null,
-			ASSOC_TYPE_SUBMISSION,
-			$this->getAssocId()
-		);
+		if ($this->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
+			$this->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {
+
+			// Update submission notifications
+			$notificationMgr = new NotificationManager();
+			$notificationMgr->updateNotification(
+				$request,
+				array(
+					NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
+					NOTIFICATION_TYPE_AWAITING_COPYEDITS,
+					NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
+					NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
+				),
+				null,
+				ASSOC_TYPE_SUBMISSION,
+				$this->getAssocId()
+			);
+		}
 
 		return DAO::getDataChangedEvent($query->getId());
 	}

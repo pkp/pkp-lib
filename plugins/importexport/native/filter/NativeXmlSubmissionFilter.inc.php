@@ -65,7 +65,6 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 	function handleElement($node) {
 		$deployment = $this->getDeployment();
 		$context = $deployment->getContext();
-		$user = $deployment->getUser();
 
 		// Create and insert the submission (ID needed for other entities)
 		$submissionDao = Application::getSubmissionDAO();
@@ -76,7 +75,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 		if (empty($submissionLocale)) $submissionLocale = $context->getPrimaryLocale();
 		$submission->setLocale($submissionLocale);
 		$submission->setSubmissionProgress(0);
-		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
+		import('lib.pkp.classes.workflow.WorkflowStageDAO');
 		$submission->setStageId(WorkflowStageDAO::getIdFromPath($node->getAttribute('stage')));
 		$submissionDao->insertObject($submission);
 		$deployment->setSubmission($submission);
@@ -103,6 +102,8 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 		$submissionDao = Application::getSubmissionDAO();
 		if ($dateSubmitted = $node->getAttribute('date_submitted')) {
 			$submission->setDateSubmitted(strtotime($dateSubmitted));
+		} else {
+			$submission->setDateSubmitted(time());
 		}
 		$submissionDao->updateObject($submission);
 
@@ -169,6 +170,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 				$submission->setLicenseUrl($n->textContent);
 				break;
 			default:
+				$deployment = $this->getDeployment();
 				$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownElement', array('param' => $n->tagName)));
 		}
 	}
@@ -182,7 +184,6 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 	 * @param $submission Submission
 	 */
 	function parseIdentifier($element, $submission) {
-		$deployment = $this->getDeployment();
 		$advice = $element->getAttribute('advice');
 		switch ($element->getAttribute('type')) {
 			case 'internal':
@@ -196,7 +197,6 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 				break;
 			default:
 				if ($advice == 'update') {
-					$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $deployment->getContext()->getId());
 					$submission->setStoredPubId($element->getAttribute('type'), $element->textContent);
 				}
 		}

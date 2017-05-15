@@ -170,7 +170,9 @@ class PKPImportExportDeployment {
 				if (!empty($processedSubmisssionsIds)) {
 					$submissionDao = Application::getSubmissionDAO();
 					foreach ($processedSubmisssionsIds as $submissionId => $errorMessages) {
-						$submissionDao->deleteById($submissionId);
+						if ($submissionId) {
+							$submissionDao->deleteById($submissionId);
+						}
 					}
 				}
 				break;

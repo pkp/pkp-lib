@@ -11,8 +11,6 @@
  * @brief Class to represent a page validation check.
  */
 
-import('handler.validation.HandlerValidator');
-
 class HandlerValidator {
 
 	/** The Handler associated with the check */

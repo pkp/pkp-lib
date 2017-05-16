@@ -378,7 +378,7 @@
 	<message key="search.deleteFilter">Удалить</message>
 	<message key="search.discipline">Дисциплины</message>
 	<message key="search.fullText">Полный текст</message>
-	<message key="search.indexTerms">Термины для индексирования</message>
+	<message key="search.indexTerms">Ключевые слова</message>
 	<message key="search.indexTermsLong">Все поля терминов для индексирования</message>
 	<message key="search.matchAll">Совпадение по всем категориям</message>
 	<message key="search.noKeywordError">Вы должны ввести хотя бы одно ключевое слово для поиска.</message>

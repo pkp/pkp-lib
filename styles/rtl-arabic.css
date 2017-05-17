@@ -1,0 +1,75 @@
+/**
+ * styles/rtl.css
+ *
+ * Copyright (c) 2014-2016 Simon Fraser University Library
+ * Copyright (c) 2000-2016 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * Stylesheet for customizing headers and page contents for Arabic locale
+ *
+ */
+
+body {
+	direction: rtl;
+	text-align: right; 
+	unicode-bidi: embed;
+	font-family: 'Arabic Typesetting', Verdana, Arial, Helvetica, sans-serif;
+}
+
+#headerTitle {
+	text-align: center !important;
+}
+
+#header h1 {
+	font-family: 'Arabic Typesetting', Verdana,Times,serif;
+}
+div {	
+	direction: rtl;
+	text-align: right; 
+	font-size: 115%;
+}
+#main h2 {
+	font-family: 'Arabic Typesetting','Times New Roman',Times,serif;
+}
+#main h3 {
+	font-family: 'Arabic Typesetting','Times New Roman',Times,serif;
+}
+#main h4 {
+	font-family: 'Arabic Typesetting','Times New Roman',Times,serif;
+}
+a.action, a.file {
+	font-size: 0.9em;
+}
+#content h3 {
+	font-size: 30px;
+}
+#content h4 {
+	font-family: 'Arabic Typesetting','Times New Roman',Times,serif;
+	font-size: 1.4em;
+	font-weight: bold;
+}
+input.textField, select.selectMenu, textarea.textArea, input.uploadField {
+	font-family: 'Traditional Arabic', Helvetica, sans-serif, sans, Verdana, Arial;
+	font-size: 0.8em;
+}
+input.button {
+	font-family: 'Traditional Arabic', sans-serif, Arial;
+	font-weight: bold;
+}
+#content, #citationEditor {
+    font-family: 'Traditional Arabic', 'Arabic Typesetting', sans-serif, Arial;
+	font-size: 80%;
+}
+#helpTopic, #helpToc, #submissionEventLog {
+    font-size: 85%;
+}
+#breadcrumb {
+	font-size: 1em;
+}
+#navbar a {
+	font-size: 0.8em;
+	font-weight: bold;
+}
+#sidebar {
+    font-size: 1.4em;
+}

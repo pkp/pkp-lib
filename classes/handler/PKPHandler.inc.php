@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/core/PKPHandler.inc.php
+ * @file classes/handler/PKPHandler.inc.php
  *
  * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -13,7 +13,6 @@
  *
  */
 
-import('handler.validation.HandlerValidator');
 import('handler.validation.HandlerValidatorCustom');
 
 class PKPHandler {

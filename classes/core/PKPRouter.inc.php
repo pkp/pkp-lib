@@ -577,7 +577,7 @@ class PKPRouter {
 		$pathInfo = implode('/', $pathInfoArray);
 
 		// Expand query parameters
-		$amp = ($escape ? '&amp;' : '&');
+		$amp = ($escape ? rawurlencode('&') : '&');
 		$queryParameters = implode($amp, $queryParametersArray);
 		$queryParameters = (empty($queryParameters) ? '' : '?'.$queryParameters);
 

@@ -171,7 +171,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 				break;
 			default:
 				$deployment = $this->getDeployment();
-				$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownElement', array('param' => $n->tagName)));
+				$deployment->addWarning(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownElement', array('param' => $n->tagName)));
 		}
 	}
 

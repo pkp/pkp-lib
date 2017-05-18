@@ -95,7 +95,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 				if ($submissionFile) $submissionFiles[] = $submissionFile;
 				break;
 			default:
-				$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownElement', array('param' => $node->tagName)));
+				$deployment->addWarning(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownElement', array('param' => $node->tagName)));
 		}
 	}
 

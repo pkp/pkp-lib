@@ -230,6 +230,7 @@
 	<message key="common.saveAndContinue">Save and continue</message>
 	<message key="common.saveAndEmail">Save and email</message>
 	<message key="common.save">Save</message>
+	<message key="common.saving">Saving</message>
 	<message key="common.search">Search</message>
 	<message key="common.searchQuery">Search Query</message>
 	<message key="common.second">Second(s)</message>

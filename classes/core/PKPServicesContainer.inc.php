@@ -16,7 +16,7 @@
 
 require_once(dirname(__FILE__) . '/../../lib/vendor/autoload.php');
 
-class ServicesContainer {
+abstract class PKPServicesContainer {
 
 	/** @var Pimple\Container Pimple Dependency Injection Container */
 	private static $instance = null;
@@ -35,9 +35,7 @@ class ServicesContainer {
 	/**
 	 * container initialization
 	 */
-	protected function init() {
-		$this->container->register(new App\Services\OJSServiceProvider());
-	}
+	abstract protected function init();
 
 	/**
 	 * Get service from container

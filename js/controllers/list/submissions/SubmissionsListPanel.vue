@@ -49,24 +49,10 @@ export default _.extend({}, ListPanel, {
 		SubmissionsListItem,
 	}),
 	data: function() {
-		return {
-			id: '',
-			collection: {
-				items: [],
-				maxItems: null,
-			},
-			searchPhrase: '',
-			isLoading: false,
-			isSearching: false,
-			count: 20,
-			offset: 0,
-			apiPath: '',
-			getParams: {},
-			i18n: {},
-			lazyLoad: false,
+		return _.extend({}, ListPanel.data(), {
 			addUrl: '',
 			infoUrl: '',
-		};
+		});
 	},
 	mounted: function() {
 
@@ -75,6 +61,11 @@ export default _.extend({}, ListPanel, {
 
 		// Store a reference to this component for global event callbacks
 		var self = this;
+
+		// Refresh the list when a submission is updated in any way
+		pkp.eventBus.$on('submissionUpdated', function(data) {
+			self.get();
+		});
 
 		// Remove a submission from the list when it is deleted
 		pkp.eventBus.$on('submissionDeleted', function(data) {

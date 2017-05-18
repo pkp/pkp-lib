@@ -1,6 +1,6 @@
 <?php
 /**
- * @file classes/controllers/list/submissions/SubmissionsListHandler.inc.php
+ * @file controllers/list/submissions/SubmissionsListHandler.inc.php
  *
  * Copyright (c) 2014-2016 Simon Fraser University Library
  * Copyright (c) 2000-2016 John Willinsky
@@ -13,6 +13,7 @@
  */
 import('lib.pkp.controllers.list.ListHandler');
 import('lib.pkp.classes.db.DBResultRange');
+import('lib.pkp.classes.submission.Submission');
 
 class SubmissionsListHandler extends ListHandler {
 
@@ -37,7 +38,7 @@ class SubmissionsListHandler extends ListHandler {
 	 *
 	 * @param string
 	 */
-	public $_apiPath = 'backend/submissions';
+	public $_apiPath = '_submissions';
 
 	/**
 	 * Initialize the handler with config parameters
@@ -116,6 +117,8 @@ class SubmissionsListHandler extends ListHandler {
 		$config['i18n']['confirmDelete'] = __('submission.list.confirmDelete');
 		$config['i18n']['responseDue'] = __('submission.list.responseDue');
 		$config['i18n']['reviewDue'] = __('submission.list.reviewDue');
+		$config['i18n']['filter'] = __('submission.list.filter');
+		$config['i18n']['filterRemove'] = __('submission.list.filterRemove');
 
 		// Attach a CSRF token for post requests
 		$config['csrfToken'] = $request->getSession()->getCSRFToken();
@@ -141,7 +144,7 @@ class SubmissionsListHandler extends ListHandler {
 			$this->_getParams
 		);
 
-		import('lib.pkp.classes.core.ServicesContainer');
+		import('classes.core.ServicesContainer');
 		return ServicesContainer::instance()
 				->get('submission')
 				->getSubmissionList($contextId, $params);

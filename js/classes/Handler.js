@@ -550,7 +550,7 @@
 				childHandler.unbindGlobalAll();
 			// Handler in new Vue.js framework
 			} else if (typeof childHandler.$destroy !== 'undefined') {
-				delete pkp.vue.registry[childHandler.id];
+				delete pkp.registry._instances[childHandler.id];
 				childHandler.$destroy();
 			}
 		});

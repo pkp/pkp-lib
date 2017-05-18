@@ -172,6 +172,11 @@ class PublicationEntryTabHandler extends Handler {
 				$json->setAdditionalAttributes(array('reloadContainer' => true, 'tabsUrl' => $url));
 				$json->setContent(true); // prevents modal closure
 			}
+
+			// Pass a global event to indicate the submission has changed
+			$json->setGlobalEvent('submissionUpdated', array(
+				'submissions' => array($submission->getId()),
+			));
 			return $json;
 		} else {
 			fatalError('Unknown or unassigned format id!');

@@ -3,13 +3,16 @@
 		<div class="pkpListPanel__header">
 			<div class="pkpListPanel__title">{{ i18n.title }}</div>
 		</div>
-		<ul class="pkpListPanel__items"></ul>
+		<div class="pkpListPanel__body">
+			<ul class="pkpListPanel__items"></ul>
+		</div>
 	</div>
 </template>
 
 <script>
 import ListPanelCount from './ListPanelCount.vue';
 import ListPanelSearch from './ListPanelSearch.vue';
+import ListPanelFilter from './ListPanelFilter.vue';
 import ListPanelLoadMore from './ListPanelLoadMore.vue';
 
 export default {
@@ -17,6 +20,7 @@ export default {
 	components: {
 		ListPanelCount,
 		ListPanelSearch,
+		ListPanelFilter,
 		ListPanelLoadMore,
 	},
 	data: function() {
@@ -26,15 +30,18 @@ export default {
 				items: [],
 				maxItems: null,
 			},
+			filterParams: {},
 			searchPhrase: '',
 			isLoading: false,
 			isSearching: false,
+			isFilterVisible: false,
 			count: 20,
 			offset: 0,
 			apiPath: '',
 			getParams: {},
 			i18n: {},
 			lazyLoad: false,
+			_lastGetRequest: null,
 		};
 	},
 	computed: {
@@ -92,20 +99,41 @@ export default {
 			this[statusIndicator] = true;
 
 			var self = this;
+
+			// Address issues with multiple async get requests. Store an ID for the
+			// most recent get request. When we receive the response, we
+			// can check that the response matches the most recent get request, and
+			// discard responses that are outdated.
+			this._latestGetRequest = $.pkp.classes.Helper.uuid();
+
 			$.ajax({
 				url: $.pkp.app.apiBaseUrl + '/' + this.apiPath,
 				type: 'GET',
 				data: _.extend(
 					{},
 					this.getParams,
+					this.filterParams,
 					{
 						searchPhrase: this.searchPhrase,
 						count: this.count,
 						offset: this.offset,
 					},
 				),
-				error: this.ajaxErrorCallback,
+				_uuid: this._latestGetRequest,
+				error: function(r) {
+
+					// Only process latest request response
+					if (self._latestGetRequest !== this._uuid) {
+						return;
+					}
+					self.ajaxErrorCallback(r);
+				},
 				success: function(r) {
+
+					// Only process latest request response
+					if (self._latestGetRequest !== this._uuid) {
+						return;
+					}
 
 					if (handleResponse === 'append') {
 						var existingItemIds = _.pluck(self.items, 'id');
@@ -120,6 +148,12 @@ export default {
 					}
 				},
 				complete: function(r) {
+
+					// Only process latest request response
+					if (self._latestGetRequest !== this._uuid) {
+						return;
+					}
+
 					self[statusIndicator] = false;
 				}
 			});
@@ -132,6 +166,20 @@ export default {
 			this.offset = this.collection.items.length;
 			this.get('isLoading', 'append');
 		},
+
+		/**
+		 * Toggle filter visibility
+		 */
+		toggleFilter: function() {
+			this.isFilterVisible = !this.isFilterVisible;
+		},
+
+		/**
+		 * Update filter parameters
+		 */
+		updateFilter: function(params) {
+			this.filterParams = params;
+		},
 	},
 	mounted: function() {
 		/**
@@ -143,6 +191,17 @@ export default {
 			}
 			this.offset = 0;
 			this.get('isSearching');
+		});
+
+		/**
+		 * Update list whenever a filter is applied
+		 */
+		this.$watch('filterParams', function(newVal, oldVal) {
+			if (newVal === oldVal) {
+				return;
+			}
+			this.offset = 0;
+			this.get('isLoading');
 		});
 
 		/**

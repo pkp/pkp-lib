@@ -59,7 +59,7 @@
 					</span>
 				</div>
 			</div>
-			<div v-if="hasActions" class="pkpListPanelItem--submission__actions">
+			<div v-if="hasActions" class="pkpListPanelItem__actions">
 				<a v-if="currentUserCanDelete" href="#" class="delete" @click.prevent="deleteSubmissionPrompt" @focus="focusItem" @blur="blurItem">
 					{{ i18n.delete }}
 				</a>

@@ -120,7 +120,7 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate {
 			case NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION:
 				$submissionDao = Application::getSubmissionDAO();
 				$submission = $submissionDao->getById($notification->getAssocId());
-				import('lib.pkp.classes.core.ServicesContainer');
+				import('classes.core.ServicesContainer');
 				return ServicesContainer::instance()->getWorklowUrlByUserRoles($submission, $notification->getUserId());
 			default:
 				return '';

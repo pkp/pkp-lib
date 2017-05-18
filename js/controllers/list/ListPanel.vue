@@ -153,26 +153,6 @@ export default {
 					}
 
 					self[statusIndicator] = false;
-
-					if (typeof r === 'undefined') {
-						console.log('No response received from get request in ListPanel');
-						return false;
-					}
-
-					if (handleResponse === 'append') {
-						var existingItemIds = _.pluck(self.items, 'id');
-						_.each(r.items, function(item) {
-							if (existingItemIds.indexOf(item.id) < 0) {
-								self.collection.items.push(item);
-							}
-						})
-						self.collection.maxItems = r.maxItems;
-					} else {
-						self.collection = r;
-					}
-				},
-				complete: function(r) {
-					self[statusIndicator] = false;
 				}
 			});
 		},

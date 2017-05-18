@@ -8,7 +8,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionListQueryBuilder
- * @ingroup services_query_builders
+ * @ingroup query_builders
  *
  * @brief Submission list Query builder
  */
@@ -63,12 +63,11 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 	 */
 	public function orderBy($column, $direction = 'DESC') {
 		if ($column === 'lastModified') {
-			$this->orderColumn = 's.last_modified';
-		} elseif ($column === 'title') {
-			$this->orderColumn = 'st.setting_value';
+			$column = 'last_modified';
 		} else {
-			$this->orderColumn = 's.date_submitted';
+			$column = 'date_submitted';
 		}
+		$this->orderColumn = "s.{$column}";
 		$this->orderDirection = $direction;
 		return $this;
 	}
@@ -135,13 +134,6 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 					->where('s.context_id','=', $this->contextId)
 					->orderBy($this->orderColumn, $this->orderDirection)
 					->groupBy('s.submission_id');
-
-		// order by title
-		if ($this->orderColumn === 'st.setting_value') {
-			$q->leftJoin('submission_settings as st', 's.submission_id', '=', 'st.submission_id')
-				->where('st.setting_name', '=', 'title');
-			$q->groupBy('st.setting_value');
-		}
 
 		// statuses
 		if (!is_null($this->statuses)) {
@@ -220,12 +212,4 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 
 		return $q;
 	}
-
-	/**
-	 * Execute additional actions for app-specific query objects
-	 *
-	 * @param object Query object
-	 * @return object Query object
-	 */
-	abstract function appGet($q);
 }

@@ -140,7 +140,6 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 	}
 
 	/**
-	 * Delete a submission
 	 *
 	 * @param $slimRequest Request Slim request object
 	 * @param $response Response object

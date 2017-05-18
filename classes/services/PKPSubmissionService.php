@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/services/SubmissionService.php
+ * @file classes/services/PKPSubmissionService.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2000-2017 John Willinsky
@@ -22,7 +22,7 @@ use \DAORegistry;
 
 import('lib.pkp.classes.db.DBResultRange');
 
-class SubmissionService {
+abstract class PKPSubmissionService {
 
 	/**
 	 * Constructor
@@ -66,6 +66,8 @@ class SubmissionService {
 			->filterByStatus($args['status'])
 			->searchPhrase($args['searchPhrase']);
 
+		\HookRegistry::call('Submission::getSubmissionList::queryBuilder', array(&$submissionListQB, $contextId, $args));
+
 		$submissionListQO = $submissionListQB->get();
 		$range = new DBResultRange($args['count'], null, $args['offset']);
 
@@ -79,7 +81,7 @@ class SubmissionService {
 			'items' => $this->toArray($queryResults->toArray()),
 		);
 
-		$countQO = $submissionListQB->get(true);
+		$countQO = $submissionListQB->countOnly()->get();
 		$countRange = new DBResultRange($args['count'], 1);
 
 		$countResult = $submissionDao->retrieveRange($countQO->toSql(), $countQO->getBindings(), $countRange);
@@ -283,7 +285,6 @@ class SubmissionService {
 
 		$defaultParams = array(
 			'id' => true,
-			'section' => true,
 			'title' => true,
 			'subtitle' => true,
 			'fullTitle' => true,
@@ -337,7 +338,7 @@ class SubmissionService {
 		$output = array();
 		foreach ($submissions as $submission) {
 			if (!is_a($submission, 'Submission')) {
-				error_log('Could not convert item to array because it is not a submission.');
+				error_log('Could not convert item to array because it is not a submission. ' . __LINE__);
 			}
 
 			$compiled = array();
@@ -415,9 +416,7 @@ class SubmissionService {
 						} elseif (method_exists($submission, 'get' . ucfirst($param))) {
 							$method = 'get' . ucfirst($param);
 						}
-						if (empty($method)) {
-							error_log('No method found for retrieving param ' . $param . ' in ' . get_class($submission) . ' on line ' . __LINE__ . '.');
-						} else {
+						if (!empty($method)) {
 							$compiled[$param] = $submission->{$method}();
 						}
 						break;

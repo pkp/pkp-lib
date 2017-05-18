@@ -101,7 +101,7 @@ class QueryNotificationManager extends NotificationManagerDelegate {
 		assert(is_a($query, 'Query'));
 		$submission = $this->getQuerySubmission($query);
 
-		import('lib.pkp.classes.core.ServicesContainer');
+		import('classes.core.ServicesContainer');
 		return ServicesContainer::instance()->getWorklowUrlByUserRoles($submission, $notification->getUserId());
 	}
 

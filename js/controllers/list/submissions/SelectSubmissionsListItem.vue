@@ -11,7 +11,7 @@
 				{{ submission.author.authorString }}
 			</div>
 		</label>
-		<a :href="submission.urlWorkflow" class="pkpListPanelItem--submission__link">
+		<a :href="submission.urlWorkflow" class="pkpListPanelItem--submission__link" target="_blank">
 			{{ __('viewSubmission', {title: submission.title}) }}
 		</a>
 	</li>

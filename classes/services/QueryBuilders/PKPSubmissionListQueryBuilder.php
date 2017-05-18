@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/services/queryBuilders/SubmissionListQueryBuilder.php
+ * @file classes/services/QueryBuilders/PKPSubmissionListQueryBuilder.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2000-2017 John Willinsky
@@ -17,7 +17,7 @@ namespace App\Services\QueryBuilders;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 
-class SubmissionListQueryBuilder extends BaseQueryBuilder {
+abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 
 	/** @var int Context ID */
 	protected $contextId = null;
@@ -39,6 +39,9 @@ class SubmissionListQueryBuilder extends BaseQueryBuilder {
 
 	/** @var string search phrase */
 	protected $searchPhrase = null;
+
+	/** @var bool whether to return only a count of results */
+	protected $countOnly = null;
 
 	/**
 	 * Constructor
@@ -109,12 +112,23 @@ class SubmissionListQueryBuilder extends BaseQueryBuilder {
 	}
 
 	/**
+	 * Whether to return only a count of results
+	 *
+	 * @param bool $enable
+	 *
+	 * @return \App\Services\QueryBuilders\SubmissionListQueryBuilder
+	 */
+	public function countOnly($enable = true) {
+		$this->countOnly = $enable;
+		return $this;
+	}
+
+	/**
 	 * Execute query builder
 	 *
-	 * @param $countOnly bool Whether to only retrieve a count of results
 	 * @return object Query object
 	 */
-	public function get($countOnly = false) {
+	public function get() {
 		$this->columns[] = 's.*';
 		$q = Capsule::table('submissions as s')
 					->where('s.context_id','=', $this->contextId)
@@ -187,7 +201,10 @@ class SubmissionListQueryBuilder extends BaseQueryBuilder {
 			}
 		}
 
-		if ($countOnly) {
+		// Add app-specific query statements
+		\HookRegistry::call('Submission::listQueryBuilder::get', array(&$q, $this));
+
+		if (!empty($this->countOnly)) {
 			$q->select(Capsule::raw('count(*) as submission_count'));
 		} else {
 			$q->select($this->columns);

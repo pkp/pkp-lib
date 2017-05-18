@@ -174,7 +174,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 			$email->addRecipient($user->getEmail(), $user->getFullName());
 			$email->setBody($this->getData('message'));
 
-			import('lib.pkp.classes.core.ServicesContainer');
+			import('classes.core.ServicesContainer');
 			$submissionUrl = ServicesContainer::instance()->getWorklowUrlByUserRoles($submission, $user->getId());
 
 			// Parameters for various emails

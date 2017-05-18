@@ -666,4 +666,6 @@
 	<message key="submission.list.reviewDue">Review Due</message>
 	<message key="submission.list.confirmDelete">Delete submission?</message>
 	<message key="submission.list.viewSubmission">View {$title}</message>
+	<message key="submission.list.filter">Filters</message>
+	<message key="submission.list.filterRemove">Clear filter: {$filterTitle}</message>
 </locale>

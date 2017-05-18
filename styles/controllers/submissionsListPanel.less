@@ -13,8 +13,11 @@
 	border-bottom: @grid-border;
 	transition: all 0.3s;
 
+	// Use a box-shadow instead of a border so
+	// it overlaps with the footer border
 	&:last-child {
 		border-bottom: none;
+		box-shadow: 0 1px 0 @grid-border-color;
 	}
 
 	&:before {
@@ -23,7 +26,7 @@
 		position: absolute;
 		top: 50%;
 		right: 100%;
-		width: 0.25em;
+		width: 0.1rem;
 		height: 25%;
 		background: @primary;
 		opacity: 0;
@@ -36,10 +39,6 @@
 
 		&:before {
 			height: 100%;
-			opacity: 1;
-		}
-
-		.pkpListPanelItem--submission__actions {
 			opacity: 1;
 		}
 	}
@@ -176,28 +175,6 @@
 	}
 }
 
-.pkpListPanelItem--submission__actions {
-	opacity: 0;
-	transition: opacity 0.3s;
-
-	a {
-		margin-top: 1em;
-		margin-right: 2em;
-		display: inline-block;
-		font-size: @font-tiny;
-		font-weight: @bold;
-		text-decoration: none;
-
-		&:last-child {
-			margin-right: 0;
-		}
-	}
-
-	.delete {
-		color: @no;
-	}
-}
-
 // Reviewer-specific displays
 .pkpListPanelItem--submission__stage--reviewer a {
 	display: block;
@@ -232,7 +209,6 @@
 }
 
 // Exportable submissions list
-
 .pkpListPanelItem--select {
 
 	.pkpListPanelItem--submission__item {

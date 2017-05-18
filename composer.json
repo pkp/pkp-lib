@@ -23,8 +23,8 @@
 		"vendor-dir": "lib/vendor"
 	},
 	"autoload": {
-	   "psr-4": {
-	       "App\\Services\\": "classes/services"
-	   }
+		"psr-4": {
+			"App\\Services\\": ["classes/services", "../../classes/services"]
+		}
 	}
 }

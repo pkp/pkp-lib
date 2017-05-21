@@ -249,4 +249,5 @@
 	<message key="manager.reviewForms.noneCreated">Nenhum formulário de revisão criado.</message>
 	<message key="manager.reviewForms.preview">Visualizar formulário de revisão</message>
 	<message key="manager.reviewForms.title">Título</message>
+	<message key="manager.masthead.title">Expediente</message>
 </locale>

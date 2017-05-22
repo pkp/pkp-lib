@@ -18,10 +18,16 @@
 
 
 class GridCellProvider {
+
+	/** @var PKPRequest the requesting context for this provider */
+	var $_request;
+
 	/**
 	 * Constructor
+	 * @param $request PKPRequest
 	 */
-	function __construct() {
+	function __construct($request) {
+		$this->_request = $request;
 	}
 
 	//
@@ -36,7 +42,7 @@ class GridCellProvider {
 	 * @param $column GridColumn
 	 * @return string the rendered representation of the element for the given column
 	 */
-	function render($request, $row, $column) {
+	function render($row, $column) {
 		$columnId = $column->getId();
 		assert(!empty($columnId));
 
@@ -45,7 +51,7 @@ class GridCellProvider {
 		$cellId = isset($rowId)?$rowId.'-'.$columnId:null;
 
 		// Assign values extracted from the element for the cell.
-		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($this->_request);
 		$templateVars = $this->getTemplateVarsFromRowColumn($row, $column);
 		foreach ($templateVars as $varName => $varValue) {
 			$templateMgr->assign($varName, $varValue);
@@ -53,7 +59,7 @@ class GridCellProvider {
 		$templateMgr->assign(array(
 			'id' => $cellId,
 			'column' => $column,
-			'actions' => $this->getCellActions($request, $row, $column),
+			'actions' => $this->getCellActions($row, $column),
 			'flags' => $column->getFlags(),
 			'formLocales' => AppLocale::getSupportedFormLocales(),
 		));
@@ -86,14 +92,13 @@ class GridCellProvider {
 	 * be row-specific actions in which case action instantiation
 	 * should be delegated to the row.
 	 *
-	 * @param $request Request
 	 * @param $row GridRow
 	 * @param $column GridColumn
 	 * @param $position int GRID_ACTION_POSITION_...
 	 * @return array an array of LinkAction instances
 	 */
-	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
-		return $column->getCellActions($request, $row, $position);
+	function getCellActions($row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
+		return $column->getCellActions($this->_request, $row, $position);
 	}
 }
 

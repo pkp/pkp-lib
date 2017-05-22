@@ -143,7 +143,7 @@ class PKPFilterGridHandler extends GridHandler {
 		);
 
 		// Columns
-		$cellProvider = new FilterGridCellProvider();
+		$cellProvider = new FilterGridCellProvider($request);
 		$this->addColumn(
 			new GridColumn(
 				'displayName',

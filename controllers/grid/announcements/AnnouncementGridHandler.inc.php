@@ -65,7 +65,7 @@ class AnnouncementGridHandler extends GridHandler {
 
 		// Columns
 		import('lib.pkp.controllers.grid.announcements.AnnouncementGridCellProvider');
-		$announcementCellProvider = new AnnouncementGridCellProvider();
+		$announcementCellProvider = new AnnouncementGridCellProvider($request);
 		$this->addColumn(
 			new GridColumn('title',
 				'common.title',
@@ -86,7 +86,8 @@ class AnnouncementGridHandler extends GridHandler {
 		);
 
 		$dateCellProvider = new DateGridCellProvider(
-			new DataObjectGridCellProvider(),
+			$request,
+			new DataObjectGridCellProvider($request),
 			Config::getVar('general', 'date_format_short')
 		);
 		$this->addColumn(

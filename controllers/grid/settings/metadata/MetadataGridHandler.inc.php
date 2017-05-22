@@ -38,7 +38,7 @@ class MetadataGridHandler extends GridHandler {
 		// Basic grid configuration.
 		$this->setTitle('submission.metadata');
 
-		$cellProvider = new MetadataGridCellProvider($request->getContext());
+		$cellProvider = new MetadataGridCellProvider($request, $request->getContext());
 
 		// Field name.
 		$this->addColumn(

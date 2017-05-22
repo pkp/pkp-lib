@@ -26,9 +26,12 @@ class GridCategoryRow extends GridRow {
 	function __construct() {
 		parent::__construct();
 
+		// TODO: pkp/pkp-lib#2444 Where should the request come from?
+		$request = PKPApplication::getRequest();
+
 		// Set a default cell provider that will get the cell template
 		// variables from the category grid row.
-		$this->setCellProvider(new GridCategoryRowCellProvider());
+		$this->setCellProvider(new GridCategoryRowCellProvider($request));
 	}
 
 

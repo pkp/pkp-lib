@@ -58,7 +58,7 @@ class UserGroupGridCellProvider extends GridCellProvider {
 	/**
 	 * @copydoc GridCellProvider::getCellActions()
 	 */
-	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
+	function getCellActions($row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
 		$workflowStages = Application::getApplicationStages();
 		$columnId = $column->getId();
 
@@ -67,7 +67,7 @@ class UserGroupGridCellProvider extends GridCellProvider {
 			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 			$assignedStages = $userGroupDao->getAssignedStagesByUserGroupId($userGroup->getContextId(), $userGroup->getId());
 
-			$router = $request->getRouter();
+			$router = $this->_request->getRouter();
 			$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 
 			if (!in_array($columnId, $roleDao->getForbiddenStages($userGroup->getRoleId()))) {
@@ -81,7 +81,7 @@ class UserGroupGridCellProvider extends GridCellProvider {
 				$actionArgs = array_merge(array('stageId' => $columnId),
 					$row->getRequestArgs());
 
-				$actionUrl = $router->url($request, null, null, $operation, null, $actionArgs);
+				$actionUrl = $router->url($this->_request, null, null, $operation, null, $actionArgs);
 				import('lib.pkp.classes.linkAction.request.AjaxAction');
 				$actionRequest = new AjaxAction($actionUrl);
 
@@ -96,7 +96,7 @@ class UserGroupGridCellProvider extends GridCellProvider {
 			}
 		}
 
-		return parent::getCellActions($request, $row, $column, $position);
+		return parent::getCellActions($row, $column, $position);
 	}
 }
 

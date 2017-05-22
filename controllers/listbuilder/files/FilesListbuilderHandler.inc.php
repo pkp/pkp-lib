@@ -74,7 +74,7 @@ class FilesListbuilderHandler extends ListbuilderHandler {
 		// Add the file column
 		$itemColumn = new ListbuilderGridColumn($this, 'name', 'common.name', null, null, null, array('anyhtml' => true));
 		import('lib.pkp.controllers.listbuilder.files.FileListbuilderGridCellProvider');
-		$itemColumn->setCellProvider(new FileListbuilderGridCellProvider());
+		$itemColumn->setCellProvider(new FileListbuilderGridCellProvider($request));
 		$this->addColumn($itemColumn);
 	}
 

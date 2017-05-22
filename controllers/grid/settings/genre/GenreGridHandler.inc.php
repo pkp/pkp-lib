@@ -89,7 +89,7 @@ class GenreGridHandler extends SetupGridHandler {
 		);
 
 		// Columns
-		$cellProvider = new DataObjectGridCellProvider();
+		$cellProvider = new DataObjectGridCellProvider($request);
 		$cellProvider->setLocale(AppLocale::getLocale());
 		$this->addColumn(
 			new GridColumn('name',

@@ -21,10 +21,11 @@ class QueryNotesGridCellProvider extends DataObjectGridCellProvider {
 
 	/**
 	 * Constructor
+	 * @param $request PKPRequest
 	 * @param $submission Submission
 	 */
-	function __construct($submission) {
-		parent::__construct();
+	function __construct($request, $submission) {
+		parent::__construct($request);
 		$this->_submission = $submission;
 	}
 
@@ -32,11 +33,7 @@ class QueryNotesGridCellProvider extends DataObjectGridCellProvider {
 	// Template methods from GridCellProvider
 	//
 	/**
-	 * Extracts variables for a given column from a data element
-	 * so that they may be assigned to template before rendering.
-	 * @param $row GridRow
-	 * @param $column GridColumn
-	 * @return array
+	 * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
 	function getTemplateVarsFromRowColumn($row, $column) {
 		$element = $row->getData();
@@ -55,7 +52,7 @@ class QueryNotesGridCellProvider extends DataObjectGridCellProvider {
 	/**
 	 * @copydoc GridCellProvider::getCellActions()
 	 */
-	function getCellActions($request, $row, $column) {
+	function getCellActions($row, $column) {
 		switch ($column->getId()) {
 			case 'contents':
 				$element = $row->getData();
@@ -69,11 +66,11 @@ class QueryNotesGridCellProvider extends DataObjectGridCellProvider {
 				import('lib.pkp.controllers.api.file.linkAction.DownloadFileLinkAction');
 				$actions = array();
 				foreach ($submissionFiles as $submissionFile) {
-					$actions[] = new DownloadFileLinkAction($request, $submissionFile, $request->getUserVar('stageId'));
+					$actions[] = new DownloadFileLinkAction($this->_request, $submissionFile, $this->_request->getUserVar('stageId'));
 				}
 				return $actions;
 		}
-		return parent::getCellActions($request, $row, $column);
+		return parent::getCellActions($row, $column);
 	}
 }
 

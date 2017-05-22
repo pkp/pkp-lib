@@ -25,7 +25,7 @@ class NullGridCellProvider extends GridCellProvider {
 	/**
 	 * @see GridCellProvider::render()
 	 */
-	function render($request, $row, $column) {
+	function render($row, $column) {
 		return null;
 	}
 }

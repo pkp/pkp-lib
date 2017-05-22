@@ -18,11 +18,7 @@ import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 class PreparedEmailsGridCellProvider extends DataObjectGridCellProvider {
 
 	/**
-	 * Extracts variables for a given column from a data element
-	 * so that they may be assigned to template before rendering.
-	 * @param $element mixed
-	 * @param $columnId string
-	 * @return array
+	 * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
 	function getTemplateVarsFromRowColumn($row, $column) {
 		$element =& $row->getData();
@@ -54,20 +50,20 @@ class PreparedEmailsGridCellProvider extends DataObjectGridCellProvider {
 	/**
 	 * @copydoc GridCellProvider::getCellActions()
 	 */
-	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
+	function getCellActions($row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
 		switch ($column->getId()) {
 			case 'enabled':
 				$element = $row->getData(); /* @var $element DataObject */
-				$router = $request->getRouter();
+				$router = $this->_request->getRouter();
 				import('lib.pkp.classes.linkAction.LinkAction');
 				if ($element->getCanDisable()) {
 					if ($element->getEnabled()) {
 						return array(new LinkAction(
 							'disableEmail',
 							new RemoteActionConfirmationModal(
-								$request->getSession(),
+								$this->_request->getSession(),
 								__('manager.emails.disable.message'), null,
-								$router->url($request, null, 'grid.settings.preparedEmails.PreparedEmailsGridHandler',
+								$router->url($this->_request, null, 'grid.settings.preparedEmails.PreparedEmailsGridHandler',
 									'disableEmail', null, array('emailKey' => $element->getEmailKey()))
 							),
 							__('manager.emails.disable'),
@@ -77,9 +73,9 @@ class PreparedEmailsGridCellProvider extends DataObjectGridCellProvider {
 						return array(new LinkAction(
 							'enableEmail',
 							new RemoteActionConfirmationModal(
-								$request->getSession(),
+								$this->_request->getSession(),
 								__('manager.emails.enable.message'), null,
-								$router->url($request, null, 'grid.settings.preparedEmails.PreparedEmailsGridHandler',
+								$router->url($this->_request, null, 'grid.settings.preparedEmails.PreparedEmailsGridHandler',
 									'enableEmail', null, array('emailKey' => $element->getEmailKey()))
 							),
 							__('manager.emails.enable'),
@@ -88,7 +84,7 @@ class PreparedEmailsGridCellProvider extends DataObjectGridCellProvider {
 					}
 			}
 		}
-		return parent::getCellActions($request, $row, $column, $position);
+		return parent::getCellActions($row, $column, $position);
 	}
 }
 

@@ -86,7 +86,7 @@ class UserGridHandler extends GridHandler {
 		//
 		// Grid columns.
 		//
-		$cellProvider = new DataObjectGridCellProvider();
+		$cellProvider = new DataObjectGridCellProvider($request);
 
 		// First Name.
 		$this->addColumn(

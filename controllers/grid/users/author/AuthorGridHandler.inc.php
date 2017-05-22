@@ -118,7 +118,7 @@ class AuthorGridHandler extends GridHandler {
 		}
 
 		// Columns
-		$cellProvider = new PKPAuthorGridCellProvider();
+		$cellProvider = new PKPAuthorGridCellProvider($request);
 		$this->addColumn(
 			new GridColumn(
 				'name',

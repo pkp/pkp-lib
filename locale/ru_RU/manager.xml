@@ -522,6 +522,7 @@
 	<message key="manager.setup.metadata.submission">Форма отправки материала</message>
 	<!--  общие ключи импорта/экспорта -->
 	<message key="plugins.importexport.common.validationErrors">Ошибки проверки:</message>
+	<message key="plugins.importexport.common.warningsEncountered">Встретившиеся предупреждения:</message>
 	<message key="plugins.importexport.common.errorsOccured">Возникшие ошибки:</message>
 	<message key="plugins.importexport.common.error.unknownElement">Неизвестный элемент {$param}</message>
 	<message key="plugins.importexport.common.error.unknownGenre">Неизвестный жанр {$param}</message>

@@ -160,9 +160,16 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 				$filename = $this->handleRevisionChildElement($n, $submission, $submissionFile);
 			}
 		}
-		if (!file_exists($filename) || !filesize($filename)) {
-			// $this->handleRevisionChildElement() failed to provide a real file
+		if (!$filename) {
+			// $this->handleRevisionChildElement() failed to provide any file (error message should have been handled in called method)
 			$errorOccured = true;
+		} else {
+			clearstatcache(true, $filename);
+			if (!file_exists($filename) || !filesize($filename)) {
+				// $this->handleRevisionChildElement() failed to provide a real file
+				$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.native.error.submissionFileImportFailed'));
+				$errorOccured = true;
+			}
 		}
 
 		$uploaderUsername = $node->getAttribute('uploader');
@@ -221,8 +228,14 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		}
 
 		$fileSize = $node->getAttribute('filesize');
-		if (!$fileSize) {
-			$fileSize = filesize($filename);
+		$fileSizeOnDisk = filesize($filename);
+		if ($fileSize) {
+			if ($fileSize != $fileSizeOnDisk) {
+				$deployment->addWarning(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.filesizeMismatch', array('expected' => $fileSize, 'actual' => $fileSizeOnDisk)));
+			}
+		}
+		else {
+			$fileSize = $fileSizeOnDisk;
 		}
 		$submissionFile->setFileSize($fileSize);
 
@@ -263,7 +276,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 	 * @param $node DOMElement
 	 * @param $submission Submission
 	 * @param $submissionFile SubmissionFile
-	 * @return string Filename for temporary file
+	 * @return string Filename for temporary file, if one was created
 	 */
 	function handleRevisionChildElement($node, $submission, $submissionFile) {
 		$deployment = $this->getDeployment();
@@ -310,6 +323,8 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 				}
 				if ($errorFlag) {
 					$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.temporaryFileFailed', array('dest' => $temporaryFilename, 'source' => $filesrc)));
+					$temporaryFileManager->deleteFile($temporaryFilename);
+					$temporaryFilename = '';
 				}
 				return $temporaryFilename;
 				break;
@@ -321,8 +336,18 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 				if (($e = $node->getAttribute('encoding')) != 'base64') {
 					$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownEncoding', array('param' => $e)));
 				} else {
-					if (!file_put_contents($temporaryFilename, base64_decode($node->textContent))) {
+					$content = base64_decode($node->textContent, true);
+					$errorFlag = false;
+					if (!$content) {
+						$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.encodingError', array('param' => $e)));
+						$errorFlag = true;
+					} elseif (!file_put_contents($temporaryFilename, $content)) {
 						$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.temporaryFileFailed', array('dest' => $temporaryFilename, 'source' => 'embed')));
+						$errorFlag = true;
+					}
+					if ($errorFlag) {
+						$temporaryFileManager->deleteFile($temporaryFilename);
+						$temporaryFilename = '';
 					}
 				}
 				return $temporaryFilename;

@@ -46,7 +46,7 @@ class PKPAcronPlugin extends GenericPlugin {
 	}
 
 	/**
-	* @copydoc PKPPlugin::isSitePlugin()
+	* @copydoc Plugin::isSitePlugin()
 	*/
 	function isSitePlugin() {
 		// This is a site-wide plugin.
@@ -61,24 +61,63 @@ class PKPAcronPlugin extends GenericPlugin {
 	}
 
 	/**
-	 * @copydoc PKPPlugin::getDisplayName()
+	 * @copydoc Plugin::getDisplayName()
 	 */
 	function getDisplayName() {
 		return __('plugins.generic.acron.name');
 	}
 
 	/**
-	 * @copydoc PKPPlugin::getDescription()
+	 * @copydoc Plugin::getDescription()
 	 */
 	function getDescription() {
 		return __('plugins.generic.acron.description');
 	}
 
 	/**
-	* @copydoc PKPPlugin::getInstallSitePluginSettingsFile()
+	* @copydoc Plugin::getInstallSitePluginSettingsFile()
 	*/
 	function getInstallSitePluginSettingsFile() {
 		return PKP_LIB_PATH . DIRECTORY_SEPARATOR . $this->getPluginPath() . '/settings.xml';
+	}
+
+	/**
+	 * @copydoc Plugin::getActions()
+	 */
+	function getActions($request, $actionArgs) {
+		import('lib.pkp.classes.linkAction.request.AjaxAction');
+		$router = $request->getRouter();
+		return array_merge(
+			$this->getEnabled()?array(
+				new LinkAction(
+					'reload',
+					new AjaxAction(
+						$router->url($request, null, null, 'manage', null, array('verb' => 'reload', 'plugin' => $this->getName(), 'category' => 'generic'))
+					),
+					__('plugins.generic.acron.reload'),
+					null
+				)
+			):array(),
+			parent::getActions($request, $actionArgs)
+		);
+	}
+
+	/**
+	 * @see Plugin::manage()
+	 */
+	function manage($args, $request) {
+		switch($request->getUserVar('verb')) {
+			case 'reload':
+				$this->_parseCrontab();
+				$notificationManager = new NotificationManager();
+				$user = $request->getUser();
+				$notificationManager->createTrivialNotification(
+					$user->getId(), NOTIFICATION_TYPE_SUCCESS,
+					array('contents' => __('plugins.generic.acron.tasksReloaded'))
+				);
+				return DAO::getDataChangedEvent();
+		}
+		return parent::manage($args, $request);
 	}
 
 	/**

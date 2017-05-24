@@ -63,11 +63,12 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 	 */
 	public function orderBy($column, $direction = 'DESC') {
 		if ($column === 'lastModified') {
-			$column = 'last_modified';
+			$this->orderColumn = 's.last_modified';
+		} elseif ($column === 'title') {
+			$this->orderColumn = 'st.setting_value';
 		} else {
-			$column = 'date_submitted';
+			$this->orderColumn = 's.date_submitted';
 		}
-		$this->orderColumn = "s.{$column}";
 		$this->orderDirection = $direction;
 		return $this;
 	}
@@ -134,6 +135,13 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 					->where('s.context_id','=', $this->contextId)
 					->orderBy($this->orderColumn, $this->orderDirection)
 					->groupBy('s.submission_id');
+
+		// order by title
+		if ($this->orderColumn === 'st.setting_value') {
+			$q->leftJoin('submission_settings as st', 's.submission_id', '=', 'st.submission_id')
+				->where('st.setting_name', '=', 'title');
+			$q->groupBy('st.setting_value');
+		}
 
 		// statuses
 		if (!is_null($this->statuses)) {

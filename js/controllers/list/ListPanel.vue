@@ -34,6 +34,7 @@ export default {
 			searchPhrase: '',
 			isLoading: false,
 			isSearching: false,
+			isOrdering: false,
 			isFilterVisible: false,
 			count: 20,
 			offset: 0,
@@ -53,6 +54,17 @@ export default {
 		},
 		canLoadMore: function() {
 			return typeof this.collection.maxItems !== 'undefined' && this.collection.maxItems > this.itemCount;
+		},
+
+		/**
+		 * Options for the draggable component
+		 *
+		 * @see https://github.com/SortableJS/Vue.Draggable
+		 */
+		draggableOptions: function() {
+			return {
+				disabled: !this.isOrdering,
+			}
 		},
 	},
 	methods: {
@@ -180,6 +192,55 @@ export default {
 		updateFilter: function(params) {
 			this.filterParams = params;
 		},
+
+		/**
+		 * Toggle the ordering status
+		 */
+		toggleOrdering: function() {
+			if (this.isOrdering) {
+				this.setItemOrderSequence();
+			}
+			this.isOrdering = !this.isOrdering;
+		},
+
+		/**
+		 * Pass an itemOrderUp event up to the list panel
+		 *
+		 * This event emerges from a ListPanelItemOrderer component.
+		 */
+		itemOrderUp: function(data) {
+			console.log('itemOrderUp', data);
+		},
+
+		/**
+		 * Pass an itemOrderDown event up to the list panel
+		 *
+		 * This event emerges from a ListPanelItemOrderer component.
+		 */
+		itemOrderDown: function(data) {
+			console.log('itemOrderDown', data);
+		},
+
+		/**
+		 * Update the order sequence property for items in this list based on
+		 * the new order of items
+		 */
+		setItemOrderSequence: function(prop) {
+			prop = prop || 'seq'; // default sequence property in item models
+
+			_.each(this.collection.items, function(item, i) {
+				item[prop] = i;
+			});
+		},
+
+		/**
+		 * Cancel changes made by ordering items
+		 */
+		cancelOrdering: function() {
+			this.isOrdering = false;
+			this.offset = 0;
+			this.get();
+		}
 	},
 	mounted: function() {
 		/**

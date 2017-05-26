@@ -58,23 +58,16 @@ class PKPDistributionSettingsTabHandler extends ManagerSettingsTabHandler {
 	 */
 	function getPaymentFormContents($args, $request) {
 		$paymentPluginName = $request->getUserVar('paymentPluginName');
-		$plugins =& PluginRegistry::loadCategory('paymethod');
+		$plugins = PluginRegistry::loadCategory('paymethod');
 		if (!isset($plugins[$paymentPluginName])) {
 			// Invalid plugin name
 			return new JSONMessage(false);
 		} else {
 			// Fetch and return the JSON-encoded form contents
 			$plugin =& $plugins[$paymentPluginName];
-			$params = array(); // Blank -- OJS compatibility. Need to supply by reference.
-			$templateMgr = TemplateManager::getManager($request);
-
-			// Expose current settings to the template
-			$context = $request->getContext();
-			foreach ($plugin->getSettingsFormFieldNames() as $fieldName) {
-				$templateMgr->assign($fieldName, $plugin->getSetting($context->getId(), $fieldName));
-			}
-
-			return new JSONMessage(true, $plugin->displayPaymentSettingsForm($params, $templateMgr));
+			$form = $plugin->getSettingsForm($request->getContext());
+			$form->initData();
+			return new JSONMessage(true, $form->fetch($request));
 		}
 	}
 

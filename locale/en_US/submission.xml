@@ -668,4 +668,6 @@
 	<message key="submission.list.viewSubmission">View {$title}</message>
 	<message key="submission.list.filter">Filters</message>
 	<message key="submission.list.filterRemove">Clear filter: {$filterTitle}</message>
+	<message key="submission.list.itemOrdererUp">Increase position of {$itemTitle}</message>
+	<message key="submission.list.itemOrdererDown">Decrease position of {$itemTitle}</message>
 </locale>

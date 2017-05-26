@@ -5,11 +5,11 @@
 		</button>
 		<button class="pkpListPanelItem__ordererUp" @click.prevent="orderUp">
 			<span class="fa fa-chevron-up"></span>
-			<span class="pkp_screen_reader">Move {{ itemTitle }} up.</span>
+			<span class="pkp_screen_reader">{{ __('itemOrdererUp', {itemTitle: itemTitle}) }}</span>
 		</button>
 		<button class="pkpListPanelItem__ordererDown" @click.prevent="orderDown">
 			<span class="fa fa-chevron-down"></span>
-			<span class="pkp_screen_reader">Move {{ itemTitle }} down.</span>
+			<span class="pkp_screen_reader">{{ __('itemOrdererDown', {itemTitle: itemTitle}) }}</span>
 		</button>
 	</div>
 </template>

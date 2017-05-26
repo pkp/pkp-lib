@@ -7,6 +7,12 @@
 <script>
 export default {
 	name: 'ListPanelItem',
+	data: function() {
+		return {
+			// ListPanelItem components must have an id for ordering to work
+			id: null,
+		}
+	},
 	methods: {
 		/**
 		 * Pass an itemOrderUp event up to the list panel

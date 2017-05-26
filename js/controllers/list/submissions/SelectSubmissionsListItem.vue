@@ -30,6 +30,13 @@ export default _.extend({}, SubmissionsListItem, {
 	},
 	computed: {
 		/**
+		 * Map the submission id to the list item id
+		 */
+		id: function() {
+			return this.submission.id;
+		},
+
+		/**
 		 * The input value to use for this item
 		 *
 		 * @return string

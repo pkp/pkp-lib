@@ -55,7 +55,7 @@ export default {
 			return this.inputName + this.inputValue;
 		}
 	},
-	methods: {
+	methods: _.extend({}, SubmissionsListItem.methods, {
 		/**
 		 * Toggle the checkbox when clicked
 		 */

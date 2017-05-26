@@ -100,6 +100,13 @@ export default {
 	},
 	computed: {
 		/**
+		 * Map the submission id to the list item id
+		 */
+		id: function() {
+			return this.submission.id;
+		},
+
+		/**
 		 * Can the current user delete a submission?
 		 *
 		 * @return bool

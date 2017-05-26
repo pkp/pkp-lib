@@ -54,13 +54,13 @@ export default _.extend({}, SubmissionsListItem, {
 			return this.inputName + this.inputValue;
 		}
 	},
-	methods: {
+	methods: _.extend({}, SubmissionsListItem.methods, {
 		/**
 		 * Toggle the checkbox when clicked
 		 */
 		toggleSelection: function(e) {
 			this.selected = !this.selected;
 		}
-	}
+	}),
 });
 </script>

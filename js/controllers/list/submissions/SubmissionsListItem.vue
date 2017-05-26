@@ -89,7 +89,9 @@
 </template>
 
 <script>
-export default {
+import ListPanelItem from '../../../../lib/pkp/js/controllers/list/ListPanelItem.vue';
+
+export default _.extend({}, ListPanelItem, {
 	name: 'SubmissionsListItem',
 	props: ['submission', 'i18n', 'apiPath', 'infoUrl'],
 	data: function() {
@@ -382,7 +384,7 @@ export default {
 			return classes.join(' ');
 		},
 	},
-	methods: {
+	methods: _.extend({}, ListPanelItems.methods, {
 		/**
 		 * Update the isFocused property
 		 */
@@ -454,6 +456,6 @@ export default {
 		cancelDeleteRequest: function() {
 			this.mask = null;
 		}
-	},
+	}),
 }
 </script>

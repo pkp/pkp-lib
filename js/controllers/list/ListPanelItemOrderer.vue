@@ -31,6 +31,14 @@ export default {
 		 */
 		orderDown: function() {
 			this.$emit('itemOrderDown');
+		},
+
+		/**
+		 * Set the focus on one of the up/down buttons
+		 */
+		setFocus: function(dir)  {
+			var selector = dir === 'up' ? '.pkpListPanelItem__ordererUp' : '.pkpListPanelItem__ordererDown';
+			this.$el.querySelector(selector).focus();
 		}
 	}
 }

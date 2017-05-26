@@ -204,21 +204,72 @@ export default {
 		},
 
 		/**
-		 * Pass an itemOrderUp event up to the list panel
-		 *
-		 * This event emerges from a ListPanelItemOrderer component.
+		 * Move an item up in the list
 		 */
 		itemOrderUp: function(data) {
-			console.log('itemOrderUp', data);
+			var index = _.findIndex(this.collection.items, function(item) { return item.id == data.id });
+			if (index === 0) {
+				return;
+			}
+			this.collection.items.splice(index - 1, 0, this.collection.items.splice(index, 1)[0]);
+			this.itemOrderResetFocus(data.id, 'up')
 		},
 
 		/**
-		 * Pass an itemOrderDown event up to the list panel
-		 *
-		 * This event emerges from a ListPanelItemOrderer component.
+		 * Move an item down in the list
 		 */
 		itemOrderDown: function(data) {
-			console.log('itemOrderDown', data);
+			var index = _.findIndex(this.collection.items, function(item) { return item.id == data.id });
+			if (index === this.collection.items.length - 1) {
+				return;
+			}
+			this.collection.items.splice(index + 1, 0, this.collection.items.splice(index, 1)[0]);
+			this.itemOrderResetFocus(data.id, 'down');
+		},
+
+		/**
+		 * Move focus to up/down button for item that was just moved
+		 *
+		 * When using the up/down arrows, the focus stays on the button in
+		 * the position which was clicked. This function ensures the focus
+		 * travels with the item that's been moved.
+		 *
+		 * For the same reason, we have to do a manual look up on the child
+		 * component by id. Vue.js's optimization code swaps out the items
+		 * without resetting the components, so any callback is fired on the
+		 * item which is in the position of the item that was just moved. In
+		 * other words, under-the-hood Vue.js moves the data around but leaves
+		 * the components in place, so we have to manually find the component
+		 * where the moved item is and set focus there.
+		 *
+		 * @param itemId int The id of the item to set focus in
+		 * @param direction string Set focus on the 'up' or 'down' btn
+		 */
+		itemOrderResetFocus: function(itemId, direction) {
+
+			// Wait until the components have been redrawn before setting focus
+			this.$nextTick(function() {
+				_.each(this.$children, function(child) {
+					// If the list items are nested inside a draggable,
+					// search in that component's children.
+					if (child.$options._componentTag === 'draggable') {
+						var listItem = _.findWhere(child.$children, {id: itemId});
+						_.each(listItem.$children, function(itemChild) {
+							if (itemChild.$options._componentTag === 'list-panel-item-orderer') {
+								itemChild.setFocus(direction);
+							}
+						});
+						return false;
+					} else if (child.id === itemId) {
+						_.each(child.$children, function(itemChild) {
+							if (itemChild.$options._componentTag === 'list-panel-item-orderer') {
+								itemChild.setFocus(direction);
+							}
+						});
+						return false;
+					}
+				}, this);
+			});
 		},
 
 		/**
@@ -240,7 +291,7 @@ export default {
 			this.isOrdering = false;
 			this.offset = 0;
 			this.get();
-		}
+		},
 	},
 	mounted: function() {
 		/**

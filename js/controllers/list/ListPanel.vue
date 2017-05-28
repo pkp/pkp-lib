@@ -201,6 +201,14 @@ export default {
 				this.setItemOrderSequence();
 			}
 			this.isOrdering = !this.isOrdering;
+			if (this.isOrdering) {
+				this.$nextTick(function() {
+					var helpEl = this.$el.querySelector('.pkpListPanel__notice');
+					if (helpEl) {
+						helpEl.focus();
+					}
+				})
+			}
 		},
 
 		/**

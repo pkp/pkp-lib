@@ -14,7 +14,7 @@
 <script>
 export default {
 	name: 'ListPanelLoadMore',
-	props: ['isLoading', 'classLoading', 'i18n'],
+	props: ['isLoading', 'i18n'],
 	computed: {
 		classLoadingMore: function() {
 			return { '--isLoadingMore': this.isLoading };

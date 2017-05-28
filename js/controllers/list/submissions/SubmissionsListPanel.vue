@@ -1,5 +1,5 @@
 <template>
-	<div class="pkpListPanel pkpListPanel--submissions" :class="classLoading">
+	<div class="pkpListPanel pkpListPanel--submissions" :class="classStatus">
 		<div class="pkpListPanel__header">
 			<div class="pkpListPanel__title">{{ i18n.title }}</div>
 			<ul class="pkpListPanel__actions">

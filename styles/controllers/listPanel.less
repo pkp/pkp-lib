@@ -233,6 +233,10 @@
 	line-height: @line-sml;
 	font-weight: @bold;
 
+	&:focus {
+		outline: 0;
+	}
+
 	.fa {
 		margin-right: 0.25em;
 	}
@@ -253,7 +257,7 @@
 }
 
 .pkpListPanel__filterSet {
-	margin: @base;
+	margin: @base 0;
 	font-size: @font-sml;
 	line-height: @line-sml;
 
@@ -269,10 +273,14 @@
 
 	a {
 		display: block;
-		padding-top: @half / 2;
-		padding-bottom: @half / 2;
-		padding-right: @base;
+		padding: (@half / 2) @base;
 		text-decoration: none;
+
+		&:focus {
+			border-left: 2px solid @primary;
+			padding-left: @base - 2;
+			outline: 0;
+		}
 
 		&.--isActive {
 			font-weight: @bold;
@@ -282,7 +290,7 @@
 	.pkpListPanel__filterRemove {
 		position: absolute;
 		top: 50%;
-		right: -@base;
+		right: 0;
 		padding: 0;
 		margin: 0;
 		width: @double;
@@ -304,6 +312,8 @@
 }
 
 .pkpListPanel__filterSetLabel {
+	padding-left: @base;
+	padding-right: @base;
 	font-weight: @bold;
 	font-size: @font-tiny;
 	color: @text-light;

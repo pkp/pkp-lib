@@ -1,11 +1,11 @@
 <template>
-	<a href="#" @click.prevent="toggleFilter" class="pkpListPanel__filter" :class="{'--isVisible': this.isVisible}">
-		<div class="pkpListPanel__filterHeader">
+	<div href="#" @click.prevent="toggleFilter" class="pkpListPanel__filter" :class="{'--isVisible': this.isVisible}">
+		<div class="pkpListPanel__filterHeader" tabindex="0">
 			<span class="fa fa-filter"></span>
 			{{ i18n.filter }}
 		</div>
 		<div class="pkpListPanel__filterOptions"></div>
-	</a>
+	</div>
 </template>
 
 <script>
@@ -15,6 +15,11 @@ export default {
 	data: function() {
 		return {
 			activeFilters: [],
+		}
+	},
+	computed: {
+		tabIndex: function() {
+			return this.isVisible ? false : -1;
 		}
 	},
 	methods: {
@@ -33,5 +38,16 @@ export default {
 			this.filterList({});
 		},
 	},
+	mounted: function() {
+		/**
+		 * Set focus in filters whenever the visible status is initiated
+		 */
+		this.$watch('isVisible', function(newVal, oldVal) {
+			if (!newVal || newVal === oldVal) {
+				return;
+			}
+			this.$el.querySelector('.pkpListPanel__filterHeader').focus();
+		});
+	}
 }
 </script>

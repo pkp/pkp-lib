@@ -220,4 +220,12 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 
 		return $q;
 	}
+
+	/**
+	 * Execute additional actions for app-specific query objects
+	 *
+	 * @param object Query object
+	 * @return object Query object
+	 */
+	abstract function appGet($q);
 }

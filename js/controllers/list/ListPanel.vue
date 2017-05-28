@@ -1,5 +1,5 @@
 <template>
-	<div class="pkpListPanel" :class="classLoading">
+	<div class="pkpListPanel" :class="classStatus">
 		<div class="pkpListPanel__header">
 			<div class="pkpListPanel__title">{{ i18n.title }}</div>
 		</div>
@@ -46,7 +46,7 @@ export default {
 		};
 	},
 	computed: {
-		classLoading: function() {
+		classStatus: function() {
 			return { '--isLoading': this.isLoading };
 		},
 		itemCount: function() {

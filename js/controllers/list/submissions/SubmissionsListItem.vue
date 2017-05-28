@@ -565,7 +565,7 @@ export default {
 			return classes.join(' ');
 		},
 	},
-	methods: _.extend({}, ListPanelItems.methods, {
+	methods: _.extend({}, ListPanelItem.methods, {
 		/**
 		 * Update the isFocused property
 		 */
@@ -636,7 +636,7 @@ export default {
 		 */
 		cancelDeleteRequest: function() {
 			this.mask = null;
-		}
+		},
 	}),
-}
+});
 </script>

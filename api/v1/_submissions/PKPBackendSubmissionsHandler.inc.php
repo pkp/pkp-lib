@@ -143,7 +143,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 			return $response->withStatus(403)->withJsonError('api.submissions.403.requestedOthersUnpublishedSubmissions');
 		}
 
-		$params = $this->addAppSubmissionsParams($params, $slimRequest, $response);
+		\HookRegistry::call('API::_submissions::params', array(&$params, $slimRequest, $response));
 
 		import('classes.core.ServicesContainer');
 		$submissions = ServicesContainer::instance()
@@ -152,17 +152,6 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 
 		return $response->withJson($submissions);
 	}
-
-	/**
-	 * Add app-specific parameters to the getSubmissions request
-	 *
-	 * @param $params array
-	 * @param $slimRequest Request Slim request object
-	 * @param $response Response object
-	 *
-	 * @return array
-	 */
-	abstract function addAppSubmissionsParams($params, $slimRequest, $response);
 
 	/**
 	 * Delete a submission

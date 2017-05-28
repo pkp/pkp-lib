@@ -59,20 +59,6 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 	 *
 	 * @param $slimRequest Request Slim request object
 	 * @param $response Response object
-	 * @param $args array {
-	 * 		@option string orderBy Supports `dateSubmitted` and `lastModified`.
-	 *		  Default: `dateSubmitted`
-	 * 		@option string orderDirection `ASC` or `DESC`. Default: `DESC`
-	 * 		@option int assignedTo Return submissions assigned to this user ID.
-	 *        A value of -1 will return unassigned submissions. Only journal
-	 *		  managers and admins can view submissions they're not assigned to.
-	 * 		@option int|array status Restrict results to specified statuses.
-	 *		  By default it will return submissions in any status.
-	 * 		@option string searchPhrase Return submissions matching the words in
-	 *		  this string.
-	 * 		@option int count Max submissions to return. Default: 20
-	 * 		@option int offset Default: 0
-	 * }
 	 *
 	 * @return Response
 	 */

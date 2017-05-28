@@ -395,19 +395,6 @@ abstract class PKPSubmissionService {
 						$compiled[$param] = $this->getWorklowUrlByUserRoles($submission);
 						break;
 
-					case 'urlPublished':
-						$request = \Application::getRequest();
-						$dispatcher = $request->getDispatcher();
-						$compiled[$param] = $dispatcher->url(
-							$request,
-							ROUTE_PAGE,
-							null,
-							'article',
-							'view',
-							$submission->getId()
-						);
-						break;
-
 					default:
 
 						$method = '';

@@ -89,7 +89,7 @@
 </template>
 
 <script>
-import ListPanelItem from '../../../../lib/pkp/js/controllers/list/ListPanelItem.vue';
+import ListPanelItem from '../ListPanelItem.vue';
 
 export default _.extend({}, ListPanelItem, {
 	name: 'SubmissionsListItem',
@@ -384,7 +384,7 @@ export default _.extend({}, ListPanelItem, {
 			return classes.join(' ');
 		},
 	},
-	methods: _.extend({}, ListPanelItems.methods, {
+	methods: _.extend({}, ListPanelItem.methods, {
 		/**
 		 * Update the isFocused property
 		 */
@@ -455,7 +455,7 @@ export default _.extend({}, ListPanelItem, {
 		 */
 		cancelDeleteRequest: function() {
 			this.mask = null;
-		}
+		},
 	}),
-}
+});
 </script>

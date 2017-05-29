@@ -73,9 +73,9 @@
 		{/fbvFormSection}
 	{/if}
 
-	{if $reviewAssignment->getDateConfirmed()}
+	{if $reviewAssignment->getDateConfirmed() && !$reviewAssignment->getDeclined()}
 		{fbvFormButtons hideCancel=true submitText="common.saveAndContinue" submitDisabled=$reviewIsComplete}
-	{else}
+	{elseif !$reviewAssignment->getDateConfirmed()}
 		{fbvFormButtons submitText="reviewer.submission.acceptReview" cancelText="reviewer.submission.declineReview" cancelAction=$declineReviewAction submitDisabled=$reviewIsComplete}
 	{/if}
 {/fbvFormArea}

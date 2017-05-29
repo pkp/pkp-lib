@@ -9,12 +9,21 @@ export default {
 	name: 'ListPanelItem',
 	data: function() {
 		return {
-			// ListPanelItem components must have an id for ordering to work
-			id: null,
 			isFocused: false,
 		}
 	},
+	computed: {
+		/**
+		 * Each item needs an id for list ordering to work. Most components
+		 * should overwrite this computed property and map the item's id to
+		 * this property.
+		 */
+		id: function() {
+			return 0;
+		},
+	},
 	methods: {
+
 		/**
 		 * Update the isFocused property
 		 */

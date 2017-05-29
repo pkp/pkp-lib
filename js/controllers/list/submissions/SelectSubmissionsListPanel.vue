@@ -9,7 +9,7 @@
 				:i18n="i18n"
 			/>
 		</div>
-		<ul class="pkpListPanel__items">
+		<ul class="pkpListPanel__items" aria-live="polite">
 			<select-submissions-list-item
 				v-for="item in collection.items"
 				:submission="item"

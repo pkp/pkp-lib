@@ -4,7 +4,7 @@
 			<div class="pkpListPanel__title">{{ i18n.title }}</div>
 		</div>
 		<div class="pkpListPanel__body">
-			<ul class="pkpListPanel__items"></ul>
+			<ul class="pkpListPanel__items" aria-live="polite"></ul>
 		</div>
 	</div>
 </template>

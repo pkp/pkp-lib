@@ -252,15 +252,13 @@ class MailTemplate extends Mail {
 			if (!is_object($value)) {
 				// $value is checked to identify URL pattern
 				if (filter_var($value, FILTER_VALIDATE_URL) != false) {
-					$subject = $this->manageURLValues($subject, $key, $value);
 					$body = $this->manageURLValues($body, $key, $value);
 				} else {
-					$subject = str_replace('{$' . $key . '}', $value, $subject);
 					$body = str_replace('{$' . $key . '}', $value, $body);
 				}
-
-
 			}
+
+			$subject = str_replace('{$' . $key . '}', $value, $subject);
 		}
 		$this->setSubject($subject);
 		$this->setBody($body);

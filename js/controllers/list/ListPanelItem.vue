@@ -37,6 +37,20 @@ export default {
 		},
 
 		/**
+		 * Update the isFocused property
+		 */
+		focusItem: function() {
+			this.isFocused = true;
+		},
+
+		/**
+		 * Update the isFocused property
+		 */
+		blurItem: function() {
+			this.isFocused = false;
+		},
+
+		/**
 		 * Pass an itemOrderUp event up to the list panel
 		 *
 		 * This event emerges from a ListPanelItemOrderer component.

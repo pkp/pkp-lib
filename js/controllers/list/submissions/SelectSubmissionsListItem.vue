@@ -25,9 +25,9 @@ export default {
 	name: 'SelectSubmissionsListItem',
 	props: ['submission', 'i18n', 'inputName'],
 	data: function() {
-		return {
+		return _.extend({}, ListPanelItem.data(), {
 			selected: false,
-		};
+		});
 	},
 	computed: {
 		/**
@@ -55,7 +55,7 @@ export default {
 			return this.inputName + this.inputValue;
 		}
 	},
-	methods: _.extend({}, SubmissionsListItem.methods, {
+	methods: _.extend({}, ListPanelItem.methods, {
 		/**
 		 * Toggle the checkbox when clicked
 		 */

@@ -1,7 +1,7 @@
 <template>
-	<li class="pkpListPanelItem pkpListPanelItem--submission pkpListPanelItem--select">
+	<li class="pkpListPanelItem pkpListPanelItem--submission pkpListPanelItem--select" :class="{'--has-focus': isFocused}">
 		<div class="pkpListPanelItem__selectItem" @click.prevent="toggleSelection">
-			<input type="checkbox" :id="inputId" :name="inputName" :value="inputValue" :checked="selected" @click.stop>
+			<input type="checkbox" :id="inputId" :name="inputName" :value="inputValue" :checked="selected" @click.stop @focus="focusItem" @blur="blurItem">
 		</div>
 		<label :for="inputId" class="pkpListPanelItem--submission__item">
 			<div class="pkpListPanelItem--submission__title">
@@ -11,22 +11,22 @@
 				{{ submission.author.authorString }}
 			</div>
 		</label>
-		<a :href="submission.urlWorkflow" class="pkpListPanelItem--submission__link" target="_blank">
+		<a :href="submission.urlWorkflow" class="pkpListPanelItem--submission__link" target="_blank" @focus="focusItem" @blur="blurItem">
 			{{ __('viewSubmission', {title: submission.title}) }}
 		</a>
 	</li>
 </template>
 
 <script>
-import SubmissionsListItem from './SubmissionsListItem.vue';
+import ListPanelItem from '../ListPanelItem.vue';
 
-export default _.extend({}, SubmissionsListItem, {
+export default _.extend({}, ListPanelItem, {
 	name: 'SelectSubmissionsListItem',
 	props: ['submission', 'i18n', 'inputName'],
 	data: function() {
-		return {
+		return _.extend({}, ListPanelItem.data(), {
 			selected: false,
-		};
+		});
 	},
 	computed: {
 		/**
@@ -54,7 +54,7 @@ export default _.extend({}, SubmissionsListItem, {
 			return this.inputName + this.inputValue;
 		}
 	},
-	methods: _.extend({}, SubmissionsListItem.methods, {
+	methods: _.extend({}, ListPanelItem.methods, {
 		/**
 		 * Toggle the checkbox when clicked
 		 */

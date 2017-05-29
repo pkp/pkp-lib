@@ -1,5 +1,5 @@
 <template>
-	<li class="pkpListPanelItem pkpListPanelItem--submission pkpListPanelItem--select" :class="{'--has-focus': isFocused}">
+	<li class="pkpListPanelItem pkpListPanelItem--submission pkpListPanelItem--select" :class="{'--hasFocus': isFocused}">
 		<div class="pkpListPanelItem__selectItem" @click.prevent="toggleSelection">
 			<input type="checkbox" :id="inputId" :name="inputName" :value="inputValue" :checked="selected" @click.stop @focus="focusItem" @blur="blurItem">
 		</div>

@@ -103,7 +103,7 @@ export default {
 			mask: null,
 		});
 	},
-	computed: {
+	computed: _.extend({}, ListPanelItem.computed, {
 		/**
 		 * Map the submission id to the list item id
 		 */
@@ -563,7 +563,7 @@ export default {
 
 			return classes.join(' ');
 		},
-	},
+	}),
 	methods: _.extend({}, ListPanelItem.methods, {
 
 		/**

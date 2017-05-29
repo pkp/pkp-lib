@@ -29,7 +29,7 @@ export default {
 			selected: false,
 		});
 	},
-	computed: {
+	computed: _.extend({}, ListPanelItem.computed, {
 		/**
 		 * Map the submission id to the list item id
 		 */
@@ -54,7 +54,7 @@ export default {
 		inputId: function() {
 			return this.inputName + this.inputValue;
 		}
-	},
+	}),
 	methods: _.extend({}, ListPanelItem.methods, {
 		/**
 		 * Toggle the checkbox when clicked

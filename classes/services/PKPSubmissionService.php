@@ -381,10 +381,6 @@ abstract class PKPSubmissionService {
 						$compiled[$param] = $this->toArrayReviewAssignments($submission);
 						break;
 
-					case 'section':
-						// @todo
-						break;
-
 					case 'source':
 					case 'copyrightNotice':
 					case 'rights':

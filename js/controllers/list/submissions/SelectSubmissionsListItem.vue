@@ -28,7 +28,7 @@ export default _.extend({}, ListPanelItem, {
 			selected: false,
 		});
 	},
-	computed: {
+	computed: _.extend({}, ListPanelItem.computed, {
 		/**
 		 * Map the submission id to the list item id
 		 */
@@ -53,7 +53,7 @@ export default _.extend({}, ListPanelItem, {
 		inputId: function() {
 			return this.inputName + this.inputValue;
 		}
-	},
+	}),
 	methods: _.extend({}, ListPanelItem.methods, {
 		/**
 		 * Toggle the checkbox when clicked

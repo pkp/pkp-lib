@@ -95,10 +95,9 @@ export default _.extend({}, ListPanelItem, {
 	name: 'SubmissionsListItem',
 	props: ['submission', 'i18n', 'apiPath', 'infoUrl'],
 	data: function() {
-		return {
+		return _.extend({}, ListPanelItem.data(), {
 			mask: null,
-			isFocused: false,
-		};
+		});
 	},
 	computed: {
 		/**
@@ -385,19 +384,6 @@ export default _.extend({}, ListPanelItem, {
 		},
 	},
 	methods: _.extend({}, ListPanelItem.methods, {
-		/**
-		 * Update the isFocused property
-		 */
-		focusItem: function() {
-			this.isFocused = true;
-		},
-
-		/**
-		 * Update the isFocused property
-		 */
-		blurItem: function() {
-			this.isFocused = false;
-		},
 
 		/**
 		 * Load a modal displaying history and notes of a submission

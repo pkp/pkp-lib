@@ -52,6 +52,45 @@ class ShibbolethAuthPlugin extends AuthPlugin {
 		return __('plugins.auth.shibboleth.description');
 	}
 
+
+	//
+	// Public methods required to support lazy load.
+	// We don’t inherit from LazyLoadPlugin, but we need to able to be
+	// enabled or disabled.
+	//
+	/**
+	 * Determine whether or not this plugin is currently enabled.
+	 * @return boolean
+	 */
+	function getEnabled() {
+		return $this->getSetting($this->getCurrentContextId(), 'enabled');
+	}
+
+	/**
+	 * Set whether or not this plugin is currently enabled.
+	 * @param $enabled boolean
+	 */
+	function setEnabled($enabled) {
+		$this->updateSetting($this->getCurrentContextId(), 'enabled', $enabled, 'bool');
+	}
+
+	/**
+	 * Determine whether the plugin can be enabled.
+	 * @return boolean
+	 */
+	function getCanEnable() {
+		return true;
+	}
+
+	/**
+	 * Determine whether the plugin can be disabled.
+	 * @return boolean
+	 */
+	function getCanDisable() {
+		return true;
+	}
+
+
 	//
 	// Core Plugin Functions
 	// (Must be implemented by every authentication plugin)
@@ -75,6 +114,15 @@ class ShibbolethAuthPlugin extends AuthPlugin {
 	 */
 	function authenticate($username, $password) {
 		return false;
+	}
+
+	/**
+	 * Get the current context ID or the site-wide context ID (0) if no context
+	 * can be found.
+	 */
+	function getCurrentContextId() {
+		$context = PKPApplication::getRequest()->getContext();
+		return is_null($context) ? 0 : $context->getId();
 	}
 }
 

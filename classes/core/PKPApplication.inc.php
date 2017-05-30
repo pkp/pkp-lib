@@ -584,7 +584,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			$partialReport = $reportPlugin->getMetrics($availableMetrics, $columns, $filter, $orderBy, $range);
 
 			// Merge the partial report with the main report.
-			$report = array_merge($report, $partialReport);
+			$report = array_merge($report, (array) $partialReport);
 
 			// Remove the found metric types from the metric type array.
 			$metricType = array_diff($metricType, $availableMetrics);

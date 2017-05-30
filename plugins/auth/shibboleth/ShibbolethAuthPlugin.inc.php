@@ -66,6 +66,16 @@ class ShibbolethAuthPlugin extends AuthPlugin {
 	function getInstance($settings, $authId) {
 		return new ShibbolethAuthPlugin($settings, $authId);
 	}
+
+	/**
+	 * Authenticate a username and password.
+	 * @param $username string
+	 * @param $password string
+	 * @return boolean true if authentication is successful
+	 */
+	function authenticate($username, $password) {
+		return false;
+	}
 }
 
 ?>

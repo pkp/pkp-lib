@@ -104,14 +104,12 @@ class HookRegistry {
 			ksort($hooks[$hookName]);
 			foreach ($hooks[$hookName] as $priority => $hookList) {
 				foreach ($hookList as $hook) {
-					if ($result = call_user_func($hook, $hookName, $args)) {
-						break;
-					}
+					if ($result = call_user_func($hook, $hookName, $args)) return true;
 				}
 			}
 		}
 
-		return $result;
+		return false;
 	}
 
 

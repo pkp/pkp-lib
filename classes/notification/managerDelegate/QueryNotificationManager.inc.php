@@ -102,7 +102,7 @@ class QueryNotificationManager extends NotificationManagerDelegate {
 		$submission = $this->getQuerySubmission($query);
 
 		import('classes.core.ServicesContainer');
-		return ServicesContainer::instance()->getWorklowUrlByUserRoles($submission, $notification->getUserId());
+		return ServicesContainer::instance()->get('submission')->getWorkflowUrlByUserRoles($submission, $notification->getUserId());
 	}
 
 	/**

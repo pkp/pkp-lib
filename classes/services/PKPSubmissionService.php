@@ -106,7 +106,7 @@ abstract class PKPSubmissionService {
 	 * @return string|false URL; false if the user does not exist or an
 	 *   appropriate access URL could not be determined
 	 */
-	public function getWorklowUrlByUserRoles($submission, $userId = null, $stageName = null) {
+	public function getWorkflowUrlByUserRoles($submission, $userId = null, $stageName = null) {
 
 		$request = Application::getRequest();
 
@@ -388,7 +388,7 @@ abstract class PKPSubmissionService {
 						break;
 
 					case 'urlWorkflow':
-						$compiled[$param] = $this->getWorklowUrlByUserRoles($submission);
+						$compiled[$param] = $this->getWorkflowUrlByUserRoles($submission);
 						break;
 
 					default:

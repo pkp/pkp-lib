@@ -121,7 +121,7 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate {
 				$submissionDao = Application::getSubmissionDAO();
 				$submission = $submissionDao->getById($notification->getAssocId());
 				import('classes.core.ServicesContainer');
-				return ServicesContainer::instance()->getWorklowUrlByUserRoles($submission, $notification->getUserId());
+				return ServicesContainer::instance()->get('submission')->getWorkflowUrlByUserRoles($submission, $notification->getUserId());
 			default:
 				return '';
 		}

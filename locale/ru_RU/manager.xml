@@ -527,7 +527,11 @@
 	<message key="plugins.importexport.common.error.unknownElement">Неизвестный элемент {$param}</message>
 	<message key="plugins.importexport.common.error.unknownGenre">Неизвестный жанр {$param}</message>
 	<message key="plugins.importexport.common.error.unknownEncoding">Неизвестная кодировка {$param}</message>
+	<message key="plugins.importexport.common.error.encodingError">Кодировка контента не совпадает с {$param}</message>
 	<message key="plugins.importexport.common.error.unknownUserGroup">Неизвестная группа пользователей {$param}</message>
 	<message key="plugins.importexport.common.error.unknownUploader">Неизвестный загрузчик {$param}</message>
 	<message key="plugins.importexport.common.error.temporaryFileFailed">Временный файл {$dest} не может быть создан из {$source}</message>
+	<message key="plugins.importexport.common.error.filesizeMismatch">Указанный размер файла «{$expected}» и фактический размер «{$actual}» не совпадают</message>
+	<!-- native importexport keys -->
+	<message key="plugins.importexport.native.error.submissionFileImportFailed">Файл материала не может быть импортирован</message>
 </locale>

@@ -41,10 +41,10 @@ class APIHandler extends PKPHandler {
 	/**
 	 * Constructor
 	 */
-	function __construct() {
+	public function __construct() {
 		parent::__construct();
 		import('lib.pkp.classes.security.authorization.internal.ApiAuthorizationMiddleware');
-		$this->_app = new \Slim\App([
+		$this->_app = new \Slim\App(array(
 			// Load custom response handler
 			'response' => function($c) {
 				return new APIResponse();
@@ -53,7 +53,7 @@ class APIHandler extends PKPHandler {
 				// we need access to route within middleware
 				'determineRouteBeforeAppMiddleware' => true,
 			)
-		]);
+		));
 		$this->_app->add(new ApiAuthorizationMiddleware($this));
 		$this->_request = Application::getRequest();
 		$this->setupEndpoints();
@@ -151,25 +151,34 @@ class APIHandler extends PKPHandler {
 
 	/**
 	 * Fetches parameter value
+	 *
 	 * @param string $parameterName
+	 * @param mixed $default
+	 *
+	 * @return mixed
 	 */
-	public function getParameter($parameterName) {
+	public function getParameter($parameterName, $default = null) {
 		$slimRequest = $this->getSlimRequest();
 		if ($slimRequest == null) {
-			return null;
+			return $default;
 		}
 
-		$arguments = $slimRequest->getAttribute('route')->getArguments();
-		if (isset($arguments[$parameterName])) {
-			return $arguments[$parameterName];
+		$route = $slimRequest->getAttribute('route');
+
+		// we probably have an invalid url if route is null
+		if (!is_null($route)) {
+			$arguments = $route->getArguments();
+			if (isset($arguments[$parameterName])) {
+				return $arguments[$parameterName];
+			}
+
+			$queryParams = $slimRequest->getQueryParams();
+			if (isset($queryParams[$parameterName])) {
+				return $queryParams[$parameterName];
+			}
 		}
 
-		$queryParams = $slimRequest->getQueryParams();
-		if (isset($queryParams[$parameterName])) {
-			return $queryParams[$parameterName];
-		}
-
-		return null;
+		return $default;
 	}
 }
 

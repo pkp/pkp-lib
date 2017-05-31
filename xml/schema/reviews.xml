@@ -85,6 +85,10 @@
 		<index name="review_assignments_form_id">
 			<col>review_form_id</col>
 		</index>
+		<index name="review_assignments_reviewer_review">
+			<col>reviewer_id</col>
+			<col>review_id</col>
+		</index>
 	</table>
 
 	<!--

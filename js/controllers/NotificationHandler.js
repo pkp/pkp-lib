@@ -129,7 +129,7 @@
 				// Remove in place trivial notifications.
 				for (i in trivialNotificationsId) {
 					notificationId = trivialNotificationsId[i];
-					var $notificationElement =
+					$notificationElement =
 							$('#pkp_notification_' + notificationId,
 							this.getHtmlElement());
 					this.unbindPartial($notificationElement);

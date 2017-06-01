@@ -55,7 +55,7 @@
 	/**
 	 * A callback to fire when confirmed
 	 * @private
-	 * @type {?function}
+	 * @type {?Function}
 	 */
 	$.pkp.controllers.modal.ConfirmationModalHandler.prototype.
 			callback_ = null;
@@ -148,8 +148,6 @@
 		if (this.callback_) {
 			this.callback_.call(null, this.callbackArgs_);
 		}
-
-		return false;
 	};
 
 

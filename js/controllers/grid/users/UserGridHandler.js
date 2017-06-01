@@ -17,6 +17,7 @@
 	$.pkp.controllers.grid.users = $.pkp.controllers.grid.users || {};
 
 
+
 	/**
 	 * @constructor
 	 *

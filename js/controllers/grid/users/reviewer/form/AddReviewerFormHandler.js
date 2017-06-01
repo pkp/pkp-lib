@@ -17,6 +17,7 @@
 			$.pkp.controllers.grid.users.reviewer.form || {};
 
 
+
 	/**
 	 * @constructor
 	 *

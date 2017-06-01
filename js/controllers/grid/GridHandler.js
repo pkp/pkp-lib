@@ -452,7 +452,7 @@
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.deleteElement =
 			function($element, opt_noFadeOut) {
-		var lastElement, $emptyElement, deleteFunction;
+		var lastElement, $emptyElement, deleteFunction, self;
 
 		// Check whether we really only match one element.
 		if ($element.length !== 1) {
@@ -476,7 +476,7 @@
 		}
 
 		$emptyElement = this.getEmptyElement($element);
-		var self = this;
+		self = this;
 		deleteFunction = function() {
 			self.unbindPartial($element);
 			$element.remove();

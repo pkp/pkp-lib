@@ -22,11 +22,13 @@
 	 */
 	$.pkp.controllers.form.ThemeOptionsHandler = function($container, options) {
 		this.parent($container, options);
-		var $activeThemeOptions, hexColour;
+		var $activeThemeOptions,
+			hexColour,
+			self;
 
 		$activeThemeOptions = $container.find('#activeThemeOptions');
 		if ($activeThemeOptions.length) {
-			var self = this;
+			self = this;
 			$container.find('#themePluginPath').change(function(e) {
 				self.unbindPartial($activeThemeOptions);
 				$activeThemeOptions.empty();

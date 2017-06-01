@@ -3,7 +3,7 @@
 		<div class="pkpListPanelItem__selectItem" @click.prevent="toggleSelection">
 			<input type="checkbox" :id="inputId" :name="inputName" :value="inputValue" :checked="selected" @click.stop @focus="focusItem" @blur="blurItem">
 		</div>
-		<label :for="inputId" class="pkpListPanelItem--submission__item">
+		<label :for="inputId" class="pkpListPanelItem__item">
 			<div class="pkpListPanelItem--submission__title">
 				{{ submission.title }}
 			</div>

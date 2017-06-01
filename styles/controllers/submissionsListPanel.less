@@ -10,15 +10,7 @@
 .pkpListPanelItem--submission {
 	.pkp_helpers_clear();
 	position: relative;
-	border-bottom: @grid-border;
 	transition: all 0.3s;
-
-	// Use a box-shadow instead of a border so
-	// it overlaps with the footer border
-	&:last-child {
-		border-bottom: none;
-		box-shadow: 0 1px 0 @grid-border-color;
-	}
 
 	&:before {
 		content: '';
@@ -51,19 +43,18 @@
 .pkpListPanelItem--submission__item,
 .pkpListPanelItem--submission__stage {
 	float: left;
-	padding: 1em;
 }
 
 .pkpListPanelItem--submission__item {
 	float: left;
 	width: 65%;
-	padding: 1em;
 }
 
 .pkpListPanelItem--submission__title,
 .pkpListPanelItem--submission__author,
 .pkpListPanelItem--submission__activity {
 	display: block;
+	padding-right: 2em;
 	white-space: nowrap;
 	overflow-x: hidden;
 	text-overflow: ellipsis;

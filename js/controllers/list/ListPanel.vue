@@ -70,26 +70,12 @@ export default {
 	methods: {
 
 		/**
-		 * Setter for child components.
+		 * Set the search phrase
 		 *
-		 * If child components want to modify state in the parent component,
-		 * they need to emit an event that ListPanel can capture to make the
-		 * modification. This setter acts as a simple API, allowing components
-		 * to pass event data and have that event passed to this method to
-		 * set the data.
-		 *
-		 * @param object data Key/value pairs for data to update:
-		 *  {
-		 *    name: 'value',
-		 *    desc: 'value',
-		 *  }
+		 * @param string val The new search phrase
 		 */
-		set: function(data) {
-			for (var key in data) {
-				if (_.has(this, key)) {
-					this[key] = data[key];
-				}
-			}
+		setSearchPhrase: function(val) {
+			this.searchPhrase = val;
 		},
 
 		/**

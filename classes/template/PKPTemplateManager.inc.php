@@ -686,22 +686,26 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		// Load current user data
-		$user = $this->_request->getUser();
-		if ($user) {
-			import('lib.pkp.classes.security.RoleDAO');
-			import('lib.pkp.classes.security.UserGroupDAO');
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-			$userGroups = $userGroupDao->getByUserId($this->_request->getUser()->getId())->toArray();
-			$currentUserAccessRoles = array();
-			foreach ($userGroups as $userGroup) {
-				$currentUserAccessRoles[] = (int) $userGroup->getRoleId();
+		if (!Config::getVar('general', 'installed')) {
+			$output .= '$.pkp.currentUser = null;';
+		} else {
+			$user = $this->_request->getUser();
+			if ($user) {
+				import('lib.pkp.classes.security.RoleDAO');
+				import('lib.pkp.classes.security.UserGroupDAO');
+				$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+				$userGroups = $userGroupDao->getByUserId($this->_request->getUser()->getId())->toArray();
+				$currentUserAccessRoles = array();
+				foreach ($userGroups as $userGroup) {
+					$currentUserAccessRoles[] = (int) $userGroup->getRoleId();
+				}
+				$userOutput = array(
+					'id' => (int) $user->getId(),
+					'accessRoles' => $currentUserAccessRoles,
+					'csrfToken' => $this->_request->getSession()->getCSRFToken()
+				);
+				$output .= '$.pkp.currentUser = ' . json_encode($userOutput);
 			}
-			$userOutput = array(
-				'id' => (int) $user->getId(),
-				'accessRoles' => $currentUserAccessRoles,
-				'csrfToken' => $this->_request->getSession()->getCSRFToken()
-			);
-			$output .= '$.pkp.currentUser = ' . json_encode($userOutput);
 		}
 
 		$this->addJavaScript(

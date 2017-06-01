@@ -169,6 +169,7 @@
 		return handler;
 	};
 
+
 	/**
 	 * Check if a jQuery element has a handler bound to it
 	 *
@@ -769,6 +770,7 @@
 		}
 	};
 
+
 	/**
 	 * Wrapper for the jQuery .replaceWith() function.
 	 *
@@ -785,6 +787,7 @@
 		this.unbindGlobalAll();
 		this.getHtmlElement().replaceWith(html);
 	};
+
 
 	/**
 	 * Wrapper for the jQuery .replaceWith() function.
@@ -819,6 +822,7 @@
 		$partial.replaceWith(html);
 	};
 
+
 	/**
 	 * Wrapper for the jQuery .html() function.
 	 *
@@ -833,6 +837,7 @@
 		this.unbindGlobalChildren();
 		this.getHtmlElement().html(html);
 	};
+
 
 	/**
 	 * This function loops over any handlers found within the $partial dom

@@ -298,3 +298,13 @@ $.pkp.cons = {
 	UPLOAD_MAX_FILESIZE: 0,
 	INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT: 0
 }
+
+/**
+ * @type {Object}
+ */
+var _;
+
+/**
+ * @type {Object}
+ */
+var pkp;

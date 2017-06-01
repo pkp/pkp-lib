@@ -110,9 +110,9 @@
 			showFetchedNoteForm_ = function(ajaxContext, jsonData) {
 
 		var processedJsonData = this.handleJson(jsonData),
-				$noteFormContainer = $('#newNotePlaceholder', this.getHtmlElement());
-
-		var $openNoteForm = $('.openNoteForm.is_loading', this.getHtmlElement());
+				$noteFormContainer = $('#newNotePlaceholder', this.getHtmlElement()),
+				$openNoteForm = $('.openNoteForm.is_loading', this.getHtmlElement());
+		
 		this.unbindPartial($openNoteForm);
 		$openNoteForm.remove();
 		this.unbindPartial($noteFormContainer);

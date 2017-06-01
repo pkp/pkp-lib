@@ -8,7 +8,7 @@
 				</li>
 			</ul>
 			<list-panel-search
-				@searchPhraseChanged="set"
+				@searchPhraseChanged="setSearchPhrase"
 				:isSearching="isSearching"
 				:searchPhrase="searchPhrase"
 				:i18n="i18n"

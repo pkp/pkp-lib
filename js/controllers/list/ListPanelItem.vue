@@ -1,7 +1,5 @@
 <template>
-	<li class="pkpListPanelItem" :class="{'--hasFocus': isFocused}">
-		<div class="pkpListPanelItem--submission__item"></div>
-	</li>
+	<li class="pkpListPanelItem" :class="{'--hasFocus': isFocused}"></li>
 </template>
 
 <script>

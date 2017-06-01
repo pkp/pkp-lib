@@ -3,7 +3,7 @@
 		<div class="pkpListPanel__header">
 			<div class="pkpListPanel__title">{{ i18n.title }}</div>
 			<list-panel-search
-				@searchPhraseChanged="set"
+				@searchPhraseChanged="setSearchPhrase"
 				:isSearching="isSearching"
 				:searchPhrase="searchPhrase"
 				:i18n="i18n"

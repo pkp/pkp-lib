@@ -518,7 +518,7 @@
 	$.pkp.classes.Handler.prototype.unbindGlobal = function(eventName, callback) {
 		var wrapper = this.callbackWrapper(callback);
 		if (typeof this.globalEventListeners_[eventName] !== 'undefined') {
-			this.globalEventListeners = _.reject( this.globalEventListeners,
+			this.globalEventListeners = _.reject(this.globalEventListeners,
 					function(cb) {
 						return cb === wrapper;
 					});

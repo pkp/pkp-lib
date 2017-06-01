@@ -311,7 +311,7 @@ _.isNull = function(object) {};
 var pkp;
 pkp.eventBus = {
 	$emit: function(name, data) {},
-	$on: function(name, function) {}
+	$on: function(name, callback) {}
 };
 pkp.registry = {
 	_instances: []

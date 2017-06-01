@@ -320,3 +320,4 @@ var pkp = {
 	registry: {
 		_instances: []
 	}
+};

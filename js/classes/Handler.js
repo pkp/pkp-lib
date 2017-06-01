@@ -174,7 +174,7 @@
 	 * Check if a jQuery element has a handler bound to it
 	 *
 	 * @param {jQueryObject} $element The element to check for a handler
-	 * @return {bool}
+	 * @return {boolean}
 	 */
 	$.pkp.classes.Handler.hasHandler = function($element) {
 		return $element.data('pkp.handler') instanceof $.pkp.classes.Handler;
@@ -849,7 +849,7 @@
 	 * This should only be used as a last resort for some handlers which need
 	 * to empty out partial content, such as tabs and grids.
 	 *
-	 * @param {jQuery} $partial The HTML element to unbind
+	 * @param {jQueryObject} $partial The HTML element to unbind
 	 */
 	$.pkp.classes.Handler.prototype.unbindPartial =
 			function($partial) {

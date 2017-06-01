@@ -308,7 +308,7 @@ class MailTemplate extends Mail {
 	 */
 	function manageURLValues($targetString, $key, $value) {
 		// If the value is URL, we need to find if $key resides in a href={$...} pattern.
-		preg_match_all('/=[\\\'"]{\\$' . $key . '}/', $targetString, $matches, PREG_SET_ORDER|PREG_OFFSET_CAPTURE);
+		preg_match_all('/=[\\\'"]{\\$' . preg_quote($key) . '}/', $targetString, $matches, PREG_SET_ORDER|PREG_OFFSET_CAPTURE);
 
 		// if we find some ={$...} occurences of the $key in the email body, then we need to replace them with
 		// the corresponding value

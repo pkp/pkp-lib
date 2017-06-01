@@ -37,7 +37,7 @@ export default {
          */
 		searchPhraseChanged: _.debounce(function(data) {
 			var newVal = typeof data === 'String' ? data : data.target.value;
-			this.$emit('searchPhraseChanged', {searchPhrase: newVal});
+			this.$emit('searchPhraseChanged', newVal);
 		}, 250),
 	},
 }

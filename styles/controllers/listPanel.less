@@ -270,45 +270,6 @@
 	li {
 		position: relative;
 	}
-
-	a {
-		display: block;
-		padding: (@half / 2) @base;
-		text-decoration: none;
-
-		&:focus {
-			border-left: 2px solid @primary;
-			padding-left: @base - 2;
-			outline: 0;
-		}
-
-		&.--isActive {
-			font-weight: @bold;
-		}
-	}
-
-	.pkpListPanel__filterRemove {
-		position: absolute;
-		top: 50%;
-		right: 0;
-		padding: 0;
-		margin: 0;
-		width: @double;
-		border: none;
-		transform: translateY(-50%);
-		background: transparent;
-		text-align: center;
-		color: @text-light;
-
-		&:hover,
-		&:focus {
-			color: @offset;
-		}
-	}
-}
-
-.pkpListPanel__filterRemoveLabel {
-	&:extend(.pkp_screen_reader);
 }
 
 .pkpListPanel__filterSetLabel {
@@ -317,6 +278,48 @@
 	font-weight: @bold;
 	font-size: @font-tiny;
 	color: @text-light;
+}
+
+.pkpListPanel__filterLabel {
+	display: block;
+	padding: (@half / 2) @base;
+	background: transparent;
+	border: none;
+	color: @primary;
+	text-decoration: none;
+
+	&:focus {
+		border-left: 2px solid @primary;
+		padding-left: @base - 2;
+		outline: 0;
+	}
+
+	&.--isActive {
+		font-weight: @bold;
+	}
+}
+
+.pkpListPanel__filterRemove {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	padding: 0;
+	margin: 0;
+	width: @double;
+	border: none;
+	transform: translateY(-50%);
+	background: transparent;
+	text-align: center;
+	color: @text-light;
+
+	&:hover,
+	&:focus {
+		color: @offset;
+	}
+}
+
+.pkpListPanel__filterRemoveLabel {
+	&:extend(.pkp_screen_reader);
 }
 
 .pkpListPanel__filter.--isVisible {
@@ -353,9 +356,21 @@
 .pkpListPanel__items {
 	margin: 0;
 	padding: 0;
-	list-style: none;
+}
+
+.pkpListPanelItem {
+	padding: 1em;
+	border-bottom: @grid-border;
 	font-size: @font-sml;
 	line-height: 1.5em;
+	list-style: none;
+
+	// Use a box-shadow instead of a border so
+	// it overlaps with the footer border
+	&:last-child {
+		border-bottom: none;
+		box-shadow: 0 1px 0 @grid-border-color;
+	}
 }
 
 .pkpListPanelItem__actions {
@@ -546,8 +561,8 @@
 
 	.pkpListPanelItem {
 		position: relative;
-		padding-left: 4em;
-		padding-right: 8em;
+		padding-left: 5em;
+		padding-right: 9em;
 	}
 }
 
@@ -611,7 +626,7 @@
 	}
 }
 
-.pkpListPanel__noticeInfo {
+.pkpListPanel__notice--info .fa {
 	color: @yes;
 }
 

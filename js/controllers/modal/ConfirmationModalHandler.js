@@ -64,7 +64,7 @@
 	/**
 	 * Arguments to pass to the callback function
 	 * @private
-	 * @type {?object}
+	 * @type {?Object}
 	 */
 	$.pkp.controllers.modal.ConfirmationModalHandler.prototype.
 			callbackArgs_ = null;

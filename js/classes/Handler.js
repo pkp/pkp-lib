@@ -23,9 +23,7 @@
 	 * @param {Object} options Handler options.
 	 */
 	$.pkp.classes.Handler = function($element, options) {
-		var $parents,
-			self,
-			i;
+		var $parents, self, i;
 
 		// Check whether a single element was passed in.
 		if ($element.length > 1) {
@@ -140,7 +138,7 @@
 	 * Global event bindings. These are tracked so they can be deregistered when
 	 * the handler is destroyed.
 	 * @private
-	 * @type {?string}
+	 * @type {Object}
 	 */
 	$.pkp.classes.Handler.prototype.globalEventListeners_ = null;
 
@@ -176,7 +174,7 @@
 	 * Check if a jQuery element has a handler bound to it
 	 *
 	 * @param {jQueryObject} $element The element to check for a handler
-	 * @return {bool}
+	 * @return {boolean}
 	 */
 	$.pkp.classes.Handler.hasHandler = function($element) {
 		return $element.data('pkp.handler') instanceof $.pkp.classes.Handler;
@@ -371,6 +369,7 @@
 		if (jsonData.status === true) {
 			// Trigger events passed from the server
 			_.each(jsonData.events, function(event) {
+				/** @type {Object} */
 				var eventData = _.has(event, 'data') ? event.data : null;
 				if (!_.isNull(eventData) && eventData.isGlobalEvent) {
 					eventData.handler = this;
@@ -519,12 +518,10 @@
 	$.pkp.classes.Handler.prototype.unbindGlobal = function(eventName, callback) {
 		var wrapper = this.callbackWrapper(callback);
 		if (typeof this.globalEventListeners_[eventName] !== 'undefined') {
-			this.globalEventListeners = _.reject(
-				this.globalEventListeners,
-				function(cb) {
-					return cb === wrapper;
-				}
-			);
+			this.globalEventListeners = _.reject( this.globalEventListeners,
+					function(cb) {
+						return cb === wrapper;
+					});
 		}
 		pkp.eventBus.$off(eventName, wrapper);
 	};
@@ -840,7 +837,7 @@
 	 * This should only be used as a last resort for some handlers which need
 	 * to empty out partial content, such as tabs and grids.
 	 *
-	 * @param {jQuery} $partial The HTML element to unbind
+	 * @param {jQueryObject} $partial The HTML element to unbind
 	 */
 	$.pkp.classes.Handler.prototype.unbindPartial =
 			function($partial) {

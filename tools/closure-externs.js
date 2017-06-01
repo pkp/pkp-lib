@@ -303,8 +303,16 @@ $.pkp.cons = {
  * @type {Object}
  */
 var _;
+_.isNull = function(object) {};
 
 /**
  * @type {Object}
  */
 var pkp;
+pkp.eventBus = {
+	$emit: function(name, data) {},
+	$on: function(name, function) {}
+};
+pkp.registry = {
+	_instances: []
+}

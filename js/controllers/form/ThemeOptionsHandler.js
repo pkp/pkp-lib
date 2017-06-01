@@ -22,9 +22,7 @@
 	 */
 	$.pkp.controllers.form.ThemeOptionsHandler = function($container, options) {
 		this.parent($container, options);
-		var $activeThemeOptions,
-			hexColour,
-			self;
+		var $activeThemeOptions, hexColour, self;
 
 		$activeThemeOptions = $container.find('#activeThemeOptions');
 		if ($activeThemeOptions.length) {

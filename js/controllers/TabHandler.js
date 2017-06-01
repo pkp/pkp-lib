@@ -275,7 +275,7 @@
 			function(divElement, event, jsonContent) {
 
 		var $element = this.getHtmlElement(),
-			self = this;
+				self = this;
 		$.get(jsonContent.tabsUrl, function(data) {
 			var jsonData = $.parseJSON(data);
 			self.replaceWith(jsonData.content);

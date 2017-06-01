@@ -274,10 +274,11 @@
 	$.pkp.controllers.TabHandler.prototype.tabsReloadRequested =
 			function(divElement, event, jsonContent) {
 
-		var $element = this.getHtmlElement();
+		var $element = this.getHtmlElement(),
+			self = this;
 		$.get(jsonContent.tabsUrl, function(data) {
 			var jsonData = $.parseJSON(data);
-			this.replaceWith(jsonData.content);
+			self.replaceWith(jsonData.content);
 		});
 	};
 

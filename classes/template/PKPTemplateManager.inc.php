@@ -1215,7 +1215,7 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
-	 * Concatenate the parameters and return the result.
+	 * Compare the parameters.
 	 * @param $a mixed Parameter A
 	 * @param $a mixed Parameter B
 	 * @param $strict boolean True iff a strict (===) compare should be used

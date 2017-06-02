@@ -16,7 +16,12 @@
 </script>
 
 {fbvFormArea id="selectTheme"}
-	{fbvFormSection label="manager.setup.layout.theme" for="themePluginPath" description="manager.setup.layout.themeDescription"}
+	{if $wizardMode}{* Suppress the "click the plugins tab" message in the wizard *}
+		{assign var="themeDescription" value=""}
+	{else}
+		{assign var="themeDescription" value="manager.setup.layout.themeDescription"}
+	{/if}
+	{fbvFormSection label="manager.setup.layout.theme" for="themePluginPath" description=$themeDescription}
 		{fbvElement type="select" id="themePluginPath" from=$enabledThemes selected=$themePluginPath translate=false}
 	{/fbvFormSection}
 

@@ -60,10 +60,16 @@ class APIRouter extends PKPRouter {
 
 	/**
 	 * Get the entity being requested
-	 * @return string
+	 * @return string|array
 	 */
 	function getEntity() {
 		$pathInfoParts = explode('/', trim($_SERVER['PATH_INFO'], '/'));
+		if (isset($pathInfoParts[4])) {
+			return array(
+				Core::cleanFileVar(isset($pathInfoParts[3]) ? $pathInfoParts[3] : ''),
+				Core::cleanFileVar(isset($pathInfoParts[4]) ? $pathInfoParts[4] : '')
+			);
+		}
 		return Core::cleanFileVar(isset($pathInfoParts[3]) ? $pathInfoParts[3] : '');
 	}
 
@@ -77,7 +83,14 @@ class APIRouter extends PKPRouter {
 		// Ensure slim library is available
 		require_once('lib/pkp/lib/vendor/autoload.php');
 
-		$sourceFile = sprintf('api/%s/%s/index.php', $this->getVersion(), $this->getEntity());
+		$sourceFile = null;
+		$entity = $this->getEntity();
+		if (is_array($entity)) {
+			$sourceFile = sprintf('api/%s/%s/%s/index.php', $this->getVersion(), $entity[0], $entity[1]);
+		}
+		else {
+			$sourceFile = sprintf('api/%s/%s/index.php', $this->getVersion(), $this->getEntity());
+		}
 
 		if (!file_exists($sourceFile)) {
 			$dispatcher = $this->getDispatcher();

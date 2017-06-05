@@ -60,17 +60,14 @@ class APIRouter extends PKPRouter {
 
 	/**
 	 * Get the entity being requested
-	 * @return string|array
+	 * @return array
 	 */
 	function getEntity() {
 		$pathInfoParts = explode('/', trim($_SERVER['PATH_INFO'], '/'));
-		if (isset($pathInfoParts[4])) {
-			return array(
-				Core::cleanFileVar(isset($pathInfoParts[3]) ? $pathInfoParts[3] : ''),
-				Core::cleanFileVar(isset($pathInfoParts[4]) ? $pathInfoParts[4] : '')
-			);
-		}
-		return Core::cleanFileVar(isset($pathInfoParts[3]) ? $pathInfoParts[3] : '');
+		return array(
+			Core::cleanFileVar(isset($pathInfoParts[3]) ? $pathInfoParts[3] : ''),
+			Core::cleanFileVar(isset($pathInfoParts[4]) ? $pathInfoParts[4] : '')
+		);
 	}
 
 	//
@@ -85,11 +82,13 @@ class APIRouter extends PKPRouter {
 
 		$sourceFile = null;
 		$entity = $this->getEntity();
-		if (is_array($entity)) {
-			$sourceFile = sprintf('api/%s/%s/%s/index.php', $this->getVersion(), $entity[0], $entity[1]);
-		}
-		else {
-			$sourceFile = sprintf('api/%s/%s/index.php', $this->getVersion(), $this->getEntity());
+		$sourceFile = sprintf('api/%s/%s/index.php', $this->getVersion(), $entity[0]);
+
+		if (!empty($entity[1])) {
+			$filepath = sprintf('api/%s/%s/%s/index.php', $this->getVersion(), $entity[0], $entity[1]);
+			if (file_exists($filepath)) {
+				$sourceFile = $filepath;
+			}
 		}
 
 		if (!file_exists($sourceFile)) {

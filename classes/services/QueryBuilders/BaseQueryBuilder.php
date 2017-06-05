@@ -8,7 +8,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class BaseQueryBuilder
- * @ingroup query_builders
+ * @ingroup services_query_builders
  *
  * @brief Query builder base class
  */

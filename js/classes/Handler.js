@@ -10,7 +10,7 @@
  *
  * @brief Base class for handlers bound to a DOM HTML element.
  */
-(function($) {
+(function($, _, pkp) {
 
 
 	/**
@@ -973,4 +973,4 @@
 
 
 /** @param {jQuery} $ jQuery closure. */
-}(jQuery));
+}(jQuery, _, pkp));

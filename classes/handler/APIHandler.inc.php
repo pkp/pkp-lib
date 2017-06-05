@@ -36,7 +36,7 @@ class APIHandler extends PKPHandler {
 	 *
 	 * @param string
 	 */
-	protected $_handlerPath;
+	protected $_handlerPath = null;
 
 	/**
 	 * Constructor

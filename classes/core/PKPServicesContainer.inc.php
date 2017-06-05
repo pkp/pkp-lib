@@ -56,4 +56,8 @@ abstract class PKPServicesContainer {
 		return self::$instance;
 	}
 
+	/**
+	 * Private clone method to prevent cloning of the singleton instance
+	 */
+	private function __clone() {}
 }

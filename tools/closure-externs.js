@@ -303,7 +303,7 @@ $.pkp.cons = {
  * @type {Object}
  */
 var _ = {
-	isNull: function(object) {};
+	isNull: function(object) {}
 };
 
 /**

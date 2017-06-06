@@ -52,10 +52,10 @@ class PKPOAIDAO extends DAO {
 		$params = $this->getOrderedRecordParams(null, $setIds);
 
 		$result =& $this->retrieve(
-			$selectStatement . ' FROM mutex m ' .
+			$selectStatement . ' as the_date FROM mutex m ' .
 			$this->getRecordJoinClause(null, $setIds) . ' ' .
-			$this->getAccessibleRecordWhereClause(),
-			$params
+			$this->getAccessibleRecordWhereClause() . 
+			'ORDER BY the_date',
 		);
 
 		if (isset($result->fields[0])) {

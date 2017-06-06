@@ -99,11 +99,11 @@ export default {
 	name: 'SubmissionsListItem',
 	props: ['submission', 'i18n', 'apiPath', 'infoUrl'],
 	data: function() {
-		return _.extend({}, ListPanelItem.data(), {
+		return {
 			mask: null,
-		});
+		};
 	},
-	computed: _.extend({}, ListPanelItem.computed, {
+	computed: {
 		/**
 		 * Map the submission id to the list item id
 		 */
@@ -563,8 +563,8 @@ export default {
 
 			return classes.join(' ');
 		},
-	}),
-	methods: _.extend({}, ListPanelItem.methods, {
+	},
+	methods: {
 
 		/**
 		 * Load a modal displaying history and notes of a submission
@@ -623,6 +623,6 @@ export default {
 		cancelDeleteRequest: function() {
 			this.mask = null;
 		},
-	}),
-});
+	},
+};
 </script>

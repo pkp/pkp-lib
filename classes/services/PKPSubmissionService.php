@@ -644,35 +644,15 @@ abstract class PKPSubmissionService {
 	}
 
 	/**
-	 * Helper function to create a submission object
-	 *
-	 * @param int $contextId
-	 * @param int $submissionId
-	 * @throws Exceptions\InvalidSubmissionException
-	 *
-	 * @return Submission
-	 */
-	protected function getSubmission($contextId, $submissionId) {
-		$submissionDao = Application::getSubmissionDAO();
-		$submission = $submissionDao->getById($submissionId, $contextId);
-		if (!$submission) {
-			throw new Exceptions\InvalidSubmissionException($contextId, $submissionId);
-		}
-		return $submission;
-	}
-
-	/**
 	 * Retrieve all submission files
 	 *
 	 * @param int $contextId
-	 * @param int $submissionId
+	 * @param Submission $submission
 	 * @param int $fileStage Limit to a specific file stage
-	 * @throws Exceptions\InvalidSubmissionException
 	 *
 	 * @return array
 	 */
-	public function getFiles($contextId, $submissionId, $fileStage = null) {
-		$submission = $this->getSubmission($contextId, $submissionId);
+	public function getFiles($contextId, $submission, $fileStage = null) {
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 		$submissionFiles = $submissionFileDao->getLatestRevisions($submission->getId(), $fileStage);
 		return $submissionFiles;
@@ -682,14 +662,12 @@ abstract class PKPSubmissionService {
 	 * Retrieve participants for a specific stage
 	 *
 	 * @param int $contextId
-	 * @param int $submissionId
+	 * @param Submission $submission
 	 * @param int $stageId
-	 * @throws Exceptions\InvalidSubmissionException
 	 *
 	 * @return array
 	 */
-	public function getParticipantsByStage($contextId, $submissionId, $stageId) {
-		$submission = $this->getSubmission($contextId, $submissionId);
+	public function getParticipantsByStage($contextId, $submission, $stageId) {
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 		$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId(
 			$submission->getId(),
@@ -738,17 +716,16 @@ abstract class PKPSubmissionService {
 	 * Retrieve galley list
 	 *
 	 * @param int $contextId
-	 * @param int $submissionId
+	 * @param Submission $submissionId
 	 * @throws Exceptions\SubmissionStageException
 	 *
 	 * @return array
 	 */
-	public function getGalleys($contextId, $submissionId) {
+	public function getGalleys($contextId, $submission) {
 		$data = array();
-		$submission = $this->getSubmission($contextId, $submissionId);
 		$stageId = (int) $submission->getStageId();
 		if ($stageId !== WORKFLOW_STAGE_ID_PRODUCTION) {
-			throw new Exceptions\SubmissionStageNotValidException($contextId, $submissionId);
+			throw new Exceptions\SubmissionStageNotValidException($contextId, $submission->getId());
 		}
 		$galleyDao = DAORegistry::getDAO('ArticleGalleyDAO');
 		$galleys = $galleyDao->getBySubmissionId($submission->getId());

@@ -14,8 +14,28 @@
 
 namespace App\Services\Exceptions;
 
-class SubmissionStageNotValidException extends InvalidSubmissionException {	
-	public function __construct($contextId, $submissionId) {
-		parent::__construct($contextId, $submissionId);
+class SubmissionStageNotValidException extends ServiceException {
+
+	/** @var int Submission ID */
+	protected $submissionId = null;
+
+	/**
+	 * Constructor
+	 *
+	 * @param string $message
+	 * @param int $code
+	 */
+	public function __construct ($contextId, $submissionId) {
+		$this->submissionId = $submissionId;
+		parent::__construct($contextId, "Invalid submission stage");
+	}
+
+	/**
+	 * Return the submission ID
+	 *
+	 * @return int
+	 */
+	public function getSubmissionId() {
+		return $this->submissionId;
 	}
 }

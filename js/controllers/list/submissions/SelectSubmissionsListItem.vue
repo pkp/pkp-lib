@@ -1,7 +1,7 @@
 <template>
 	<li class="pkpListPanelItem pkpListPanelItem--submission pkpListPanelItem--select" :class="{'--hasFocus': isFocused}">
 		<div class="pkpListPanelItem__selectItem" @click.prevent="toggleSelection">
-			<input type="checkbox" :id="inputId" :name="inputName" :value="inputValue" :checked="selected" @click.stop @focus="focusItem" @blur="blurItem">
+			<input type="checkbox" :id="inputId" :name="inputName" value="inputValue" v-model="selected" @click.stop @focus="focusItem" @blur="blurItem">
 		</div>
 		<label :for="inputId" class="pkpListPanelItem__item">
 			<div class="pkpListPanelItem--submission__title">

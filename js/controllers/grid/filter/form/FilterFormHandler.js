@@ -123,7 +123,7 @@
 
 		// Replace the current form with the new one.
 		this.remove();
-		this.replaceWith($(processedJsonData.content));
+		this.replaceWith(processedJsonData.content);
 	};
 
 

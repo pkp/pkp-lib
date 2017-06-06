@@ -440,7 +440,7 @@
 	 * @param {Event} event The "call when click outside" event.
 	 * @param {{
 	 *   container: jQueryObject,
-	 *   callback: Function,
+	 *   callback: Function
 	 *   }} eventParams The event parameters.
 	 * - container: a jQuery element to be used to test if user click
 	 * outside of it or not.

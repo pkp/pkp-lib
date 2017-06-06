@@ -37,15 +37,16 @@
 import SubmissionsListPanel from './SubmissionsListPanel.vue';
 import SelectSubmissionsListItem from './SelectSubmissionsListItem.vue';
 
-export default _.extend({}, SubmissionsListPanel, {
+export default {
+	extends: SubmissionsListPanel,
 	name: 'SelectSubmissionsListPanel',
-	components: _.extend({}, SubmissionsListPanel.components, {
+	components: {
 		SelectSubmissionsListItem,
-	}),
-	data: function() {
-		return _.extend({}, SubmissionsListPanel.data(), {
-			inputName: '',
-		});
 	},
-});
+	data: function() {
+		return {
+			inputName: '',
+		};
+	},
+};
 </script>

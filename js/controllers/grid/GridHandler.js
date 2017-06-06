@@ -678,7 +678,7 @@
 			this.deleteControlsRow_($existingElement);
 		}
 
-		this.replacePartialWith($newElement, $existingElement);
+		this.replacePartialWith($newElement.html(), $existingElement);
 		this.callFeaturesHook('replaceElement', $newElement);
 	};
 

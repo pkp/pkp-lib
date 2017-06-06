@@ -303,7 +303,9 @@ $.pkp.cons = {
  * @type {Object}
  */
 var _ = {
-	isNull: function(object) {};
+	isNull: function(object) {},
+	each: function(array, callback) {},
+	reject: function(array, callback) {}
 };
 
 /**
@@ -312,7 +314,8 @@ var _ = {
 var pkp = {
 	eventBus: {
 		$emit: function(name, data) {},
-		$on: function(name, callback) {}
+		$on: function(name, callback) {},
+		$off: function(name, callback) {}
 	},
 	registry: {
 		_instances: []

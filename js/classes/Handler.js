@@ -369,7 +369,7 @@
 		if (jsonData.status === true) {
 			// Trigger events passed from the server
 			_.each(jsonData.events, function(event) {
-				/** @type {Object} */
+				/** @type {{isGlobalEvent: boolean}} */
 				var eventData = _.has(event, 'data') ? event.data : null;
 				if (!_.isNull(eventData) && eventData.isGlobalEvent) {
 					eventData.handler = this;

@@ -20,8 +20,11 @@
 	 *
 	 * @param {jQueryObject} $handledElement The clickable element
 	 *  the modal will be attached to.
-	 * @param {Object.<string,*>} options Non-default options to configure
-	 *  the modal.
+	 * @param {{
+	 *  remoteAction: string,
+	 *  postData: Object,
+	 *  csrfToken: string
+	 *  }} options Non-default options to configure the modal.
 	 *
 	 *  Options are:
 	 *  - remoteAction string An action to be executed when the confirmation

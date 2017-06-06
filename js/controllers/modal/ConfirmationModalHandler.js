@@ -21,8 +21,10 @@
 	 *
 	 * @param {jQueryObject} $handledElement The clickable element
 	 *  the modal will be attached to.
-	 * @param {Object.<string,*>} options Non-default options to
-	 *  configure the modal.
+	 * @param {{
+	 *  callback: Function,
+	 *  callbackArgs: Object
+	 *  }} options Non-default options to configure the modal.
 	 *
 	 *  Options are:
 	 *  - okButton string the name for the confirmation button.

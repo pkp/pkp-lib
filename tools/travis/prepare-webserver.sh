@@ -13,7 +13,8 @@ set -xe
 
 # Start apache and configure a virtual host.
 sudo apt-get update > /dev/null
-sudo apt-get install -y --force-yes apache2 php5-cgi libapache2-mod-fastcgi apache2-suexec-custom apache2-mpm-prefork php5-curl php5-mysql php5-pgsql php5-intl php5-xsl
+sudo apt-get install -y --force-yes apache2 libapache2-mod-fastcgi apache2-suexec-custom apache2-mpm-prefork
+if [[ ${TRAVIS_PHP_VERSION:0:2} == "5." ]]; then sudo apt-get install php5-cgi php5-curl php5-mysql php5-pgsql php5-intl php5-xsl; fi
 sudo a2enmod actions fastcgi suexec
 
 # Prepare FastCGI/suEXEC environment: Apache2 config for FastCGI/suEXEC
@@ -25,7 +26,7 @@ mkdir cgi-bin
 echo "#!/bin/sh
 export PHP_FCGI_CHILDREN=4
 export PHP_FCGI_MAX_REQUESTS=200
-exec /usr/bin/php5-cgi" > cgi-bin/php.fcgi
+exec $(which php-cgi)" > cgi-bin/php.fcgi
 chmod -R 755 cgi-bin
 
 # Edit configuration files

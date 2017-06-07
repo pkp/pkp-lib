@@ -225,8 +225,8 @@
 			}
 
 			// Create placeholder element
-			$placeholder = /** @type {jQueryObject} */ ($('<span></span>')
-					.html(/** @type {string} */ (placeholderText)));
+			$placeholder = $('<span></span>');
+			$placeholder.html(/** @type {string} */ (placeholderText)));
 			$placeholder.addClass('mcePlaceholder');
 			$placeholder.attr('id', 'mcePlaceholder-' + tinyMCEObject.id);
 

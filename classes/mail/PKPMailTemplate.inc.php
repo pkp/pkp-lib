@@ -180,7 +180,7 @@ class PKPMailTemplate extends Mail {
 		$form->setData('blankTo', Request::getUserVar('blankTo'));
 		$form->setData('blankCc', Request::getUserVar('blankCc'));
 		$form->setData('blankBcc', Request::getUserVar('blankBcc'));
-		$form->setData('from', $this->getFromString(false));
+		$form->setData('from', $this->getReplyToString()? $this->getReplyToString() : $this->getFromString(false));
 
 		$form->setData('addressFieldsEnabled', $this->getAddressFieldsEnabled());
 

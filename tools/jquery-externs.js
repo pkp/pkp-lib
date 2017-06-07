@@ -789,7 +789,7 @@ jQueryObject.prototype.hover = function(arg1, handlerOut) {};
 
 /**
  * @param {(string|function(number,string))=} arg1
- * @return {(string|jQueryObject)}
+ * @return {(string)}
  */
 jQueryObject.prototype.html = function(arg1) {};
 

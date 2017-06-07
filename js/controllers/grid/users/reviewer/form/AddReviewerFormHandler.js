@@ -13,7 +13,6 @@
 (function($) {
 
 
-
 	/**
 	 * @constructor
 	 *

@@ -21,7 +21,7 @@
 	 *
 	 * @param {jQueryObject} $handledElement The clickable element
 	 *  the modal will be attached to.
-	 * @param {Object.<string, function, *>} options Non-default options to
+	 * @param {Object.<string,*>} options Non-default options to
 	 *  configure the modal.
 	 *
 	 *  Options are:

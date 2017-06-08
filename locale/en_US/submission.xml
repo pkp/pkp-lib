@@ -670,4 +670,5 @@
 	<message key="submission.list.filterRemove">Clear filter: {$filterTitle}</message>
 	<message key="submission.list.itemOrdererUp">Increase position of {$itemTitle}</message>
 	<message key="submission.list.itemOrdererDown">Decrease position of {$itemTitle}</message>
+	<message key="submission.list.clearSearch">Clear search phrase</message>
 </locale>

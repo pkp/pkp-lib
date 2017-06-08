@@ -104,6 +104,7 @@ class SubmissionsListHandler extends ListHandler {
 		$config['i18n']['title'] = __($this->_title);
 		$config['i18n']['add'] = __('submission.submit.newSubmissionSingle');
 		$config['i18n']['search'] = __('common.search');
+		$config['i18n']['clearSearch'] = __('submission.list.clearSearch');
 		$config['i18n']['itemCount'] = __('submission.list.count');
 		$config['i18n']['itemsOfTotal'] = __('submission.list.itemsOfTotal');
 		$config['i18n']['loadMore'] = __('grid.action.moreItems');

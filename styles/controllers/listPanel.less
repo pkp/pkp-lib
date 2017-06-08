@@ -137,6 +137,28 @@
 		}
 	}
 
+	.pkpListPanel__searchClear {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: @double;
+		height: 100%;
+		background: transparent;
+		border: none;
+		border-top-right-radius: @radius;
+		border-bottom-right-radius: @radius;
+		vertical-align: middle;
+		text-align: center;
+		color: @offset;
+
+		&:hover,
+		&:focus {
+			outline: 0;
+			background: @offset;
+			color: #fff;
+		}
+	}
+
 	&.searching {
 
 		.pkpListPanel__searchIcons--search:before {

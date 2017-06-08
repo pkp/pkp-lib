@@ -1,9 +1,10 @@
 <template>
 	<div class="pkpListPanel__search" :class="classSearching">
 		<label>
-			<span class="pkpListPanel__searchLabel">{{ i18n.search }}</span>
+			<span class="pkp_screen_reader">{{ i18n.search }}</span>
 			<input type="search"
 				@keyup="searchPhraseChanged"
+				:id="inputId"
 				:value="searchPhrase"
 				:placeholder="i18n.search"
 			>
@@ -12,16 +13,25 @@
 				<span class="pkpListPanel__searchIcons--searching"></span>
 			</span>
 		</label>
+		<button class="pkpListPanel__searchClear"
+			v-if="searchPhrase"
+			@click.prevent="clearSearchPhrase"
+			:aria-controls="inputId"
+		>
+			<span class="fa fa-times"></span>
+			<span class="pkp_screen_reader">{{ i18n.clearSearch }}</span>
+		</button>
 	</div>
 </template>
 
 <script>
-import ListPanelCount from './ListPanelCount.vue';
-
 export default {
 	name: 'ListPanelSearch',
 	props: ['isSearching', 'searchPhrase', 'i18n'],
 	computed: {
+		inputId: function() {
+			return 'list-panel-search-' + this._uid;
+		},
         classSearching: function() {
             return { searching: this.isSearching };
         },
@@ -36,9 +46,19 @@ export default {
 		 *  phrase (string)
          */
 		searchPhraseChanged: _.debounce(function(data) {
-			var newVal = typeof data === 'String' ? data : data.target.value;
+			var newVal = typeof data === 'string' ? data : data.target.value;
 			this.$emit('searchPhraseChanged', newVal);
 		}, 250),
+
+		/**
+		 * Clear the search phrase
+		 */
+		clearSearchPhrase: function() {
+			this.$emit('searchPhraseChanged', '');
+			this.$nextTick(function() {
+				this.$el.querySelector('input[type="search"]').focus();
+			});
+		},
 	},
 }
 </script>

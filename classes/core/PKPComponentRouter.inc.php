@@ -174,6 +174,10 @@ class PKPComponentRouter extends PKPRouter {
 			// time.
 			$this->_rpcServiceEndpoint = $nullVar = null;
 
+			// Retrieve requested component operation
+			$op = $this->getRequestedOp($request);
+			assert(!empty($op));
+
 			//
 			// Component Handler
 			//
@@ -183,7 +187,7 @@ class PKPComponentRouter extends PKPRouter {
 			$allowedPackages = null;
 
 			// Give plugins a chance to intervene
-			if (!HookRegistry::call('LoadComponentHandler', array(&$component))) {
+			if (!HookRegistry::call('LoadComponentHandler', array(&$component, &$op))) {
 
 				if (empty($component)) return $nullVar;
 
@@ -210,10 +214,6 @@ class PKPComponentRouter extends PKPRouter {
 					'lib.pkp.controllers'
 				);
 			}
-
-			// Retrieve requested component operation
-			$op = $this->getRequestedOp($request);
-			assert(!empty($op));
 
 			// A handler at least needs to implement the
 			// following methods:

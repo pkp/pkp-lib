@@ -54,7 +54,7 @@ abstract class PKPOAIDAO extends DAO {
 		$result = $this->retrieve(
 			$selectStatement . ' FROM mutex m ' .
 			$this->getRecordJoinClause(null, $setIds) . ' ' .
-			$this->getAccessibleRecordWhereClause(),
+			$this->getAccessibleRecordWhereClause($setIds),
 			$params
 		);
 
@@ -84,7 +84,7 @@ abstract class PKPOAIDAO extends DAO {
 			'SELECT	COUNT(*)
 			FROM mutex m ' .
 			$this->getRecordJoinClause($dataObjectId, $setIds) . ' ' .
-			$this->getAccessibleRecordWhereClause(),
+			$this->getAccessibleRecordWhereClause($setIds),
 			$params
 		);
 
@@ -108,7 +108,7 @@ abstract class PKPOAIDAO extends DAO {
 		$result = $this->retrieve(
 			$this->getRecordSelectStatement() . ' FROM mutex m ' .
 			$this->getRecordJoinClause($dataObjectId, $setIds) . ' ' .
-			$this->getAccessibleRecordWhereClause(),
+			$this->getAccessibleRecordWhereClause($setIds),
 			$params
 		);
 
@@ -286,6 +286,7 @@ abstract class PKPOAIDAO extends DAO {
 		// Add the set specification, if any.
 		if (isset($set)) {
 			$params[] = $set;
+			$params[] = $set . ':%';
 		}
 
 		// Add the set ids again, so they can be used in the tombstone JOIN part of the sql too.
@@ -325,9 +326,11 @@ abstract class PKPOAIDAO extends DAO {
 	 * an sql that will filter only accessible OAI records.
 	 *
 	 * Must be implemented by subclasses.
+	 * @param $setIds array Objects ids that specify an OAI set,
+	 * in hierarchical order.
 	 * @return string
 	 */
-	abstract function getAccessibleRecordWhereClause();
+	abstract function getAccessibleRecordWhereClause($setIds = array());
 
 	/**
 	 * Return the string defining the WHERE part of
@@ -421,7 +424,7 @@ abstract class PKPOAIDAO extends DAO {
 		$result = $this->retrieve(
 			$this->getRecordSelectStatement() . ' FROM mutex m ' .
 			$this->getRecordJoinClause(null, $setIds, $set) . ' ' .
-			$this->getAccessibleRecordWhereClause() .
+			$this->getAccessibleRecordWhereClause($setIds) .
 			$this->getDateRangeWhereClause($from, $until),
 			$params
 		);

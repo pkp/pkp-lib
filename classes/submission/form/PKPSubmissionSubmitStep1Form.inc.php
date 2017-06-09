@@ -272,6 +272,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			$author->setBiography($user->getBiography(null), null);
 			$author->setPrimaryContact(1);
 			$author->setIncludeInBrowse(1);
+			$author->setOrcid($user->getOrcid());
 
 			// Get the user group to display the submitter as
 			$authorUserGroupId = (int) $this->getData('authorUserGroupId');

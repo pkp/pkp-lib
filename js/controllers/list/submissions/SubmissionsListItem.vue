@@ -170,41 +170,6 @@ export default {
 		},
 
 		/**
-		 * Can the current user view the info center?
-		 *
-		 * @return bool
-		 */
-		currentUserCanViewInfoCenter: function() {
-			return pkp.userHasRole(['manager', 'subeditor', 'assistant']);
-		},
-
-		/**
-		 * Is the current user a reviewer on this submission?
-		 *
-		 * @return bool
-		 */
-		currentUserIsReviewer: function() {
-			var isReviewer = false;
-			_.each(this.submission.reviewAssignments, function(review) {
-				if (review.isCurrentUserAssigned) {
-					isReviewer = true;
-					return;
-				}
-			});
-
-			return isReviewer;
-		},
-
-		/**
-		 * Are there any actions available for this submission?
-		 *
-		 * @return bool
-		 */
-		hasActions: function() {
-			return this.currentUserCanDelete || this.currentUserCanViewInfoCenter;
-		},
-
-		/**
 		 * Compile a notice depending on the stage status
 		 *
 		 * Only stage status' that have pending work for the current user should
@@ -266,6 +231,11 @@ export default {
 					notice = this.currentUserLatestReviewAssignment.status;
 					break;
 				}
+			}
+
+			// Incomplete submissions
+			if (this.submission.submissionProgress > 0) {
+				notice = this.i18n.incompleteSubmissionNotice;
 			}
 
 			return notice;
@@ -457,128 +427,6 @@ export default {
 		 */
 		resetFocusInfoCenter: function() {
 			this.$el.querySelector('.pkpListPanelItem__openInfoCenter').focus();
-		},
-
-		/**
-		 * Display a confirmation prompt before deleting a submission
-		 */
-		deleteSubmissionPrompt: function() {
-			this.mask = 'confirmingDelete';
-		},
-
-		/**
-		 * Send a request to delete the submission and handle the response
-		 */
-		deleteSubmission: function() {
-
-			this.mask = 'deleting';
-
-			var self = this;
-			$.ajax({
-				url: $.pkp.app.apiBaseUrl + '/' + this.apiPath + '/' + this.submission.id,
-				type: 'DELETE',
-				error: this.ajaxErrorCallback,
-				success: function(r) {
-					self.mask = 'finish';
-					// Allow time for the finished CSS transition to display
-					setTimeout(function() {
-						pkp.eventBus.$emit('submissionDeleted', { id: self.submission.id });
-						self.cancelDeleteRequest();
-					}, 300);
-				},
-				complete: function(r) {
-					// Reset the mask in case there is an error
-					if (self.mask === 'deleting') {
-						self.cancelDeleteRequest();
-					}
-				}
-			});
-		},
-
-		/**
-		 * Cancel the delete request
-		 */
-		cancelDeleteRequest: function() {
-			this.mask = null;
-		},
-	},
-};
-=======
-		 * Return a class to highlight the reviews icon
-		 *
-		 * @return string
-		 */
-		classHighlightReviews: function() {
-			if (!this.isReviewStage) {
-				return '';
-			}
-
-			// REVIEW_ROUND_STATUS_REVIEWS_OVERDUE
-			if (this.activeStage.statusId == 10) {
-				return '--warning';
-			}
-
-			// No reviews have been assigned
-			if (!this.currentReviewAssignments.length) {
-				return '--warning';
-			}
-
-			// REVIEW_ROUND_STATUS_REVIEWS_READY
-			if (this.activeStage.statusId == 8) {
-				return '--notice';
-			}
-
-			return '';
-		},
-
-		/**
-		 * Return a class to highlight the files icon when revisions have been
-		 * submitted.
-		 *
-		 * @return string
-		 */
-		classHighlightFiles: function() {
-			if (this.activeStage.files.count) {
-				return '--notice';
-			}
-
-			return '';
-		},
-
-		/**
-		 * Return a class to toggle the item mask
-		 *
-		 * @return string
-		 */
-		classMask: function() {
-			if (!this.mask) {
-				return '';
-			} else if (this.mask === 'finish') {
-				return '--finish';
-			}
-			var classes = ['--active'];
-			if (this.mask === 'confirmingDelete' || this.mask === 'deleting') {
-				classes.push('--alert');
-			}
-
-			return classes.join(' ');
-		},
-	},
-	methods: {
-
-		/**
-		 * Load a modal displaying history and notes of a submission
-		 */
-		openInfoCenter: function() {
-
-			var opts = {
-				title: this.submission.title,
-				url: this.infoUrl.replace('__id__', this.submission.id),
-			};
-
-			$('<div id="' + $.pkp.classes.Helper.uuid() + '" ' +
-					'class="pkp_modal pkpModalWrapper" tabindex="-1"></div>')
-				.pkpHandler('$.pkp.controllers.modal.AjaxModalHandler', opts);
 		},
 
 		/**

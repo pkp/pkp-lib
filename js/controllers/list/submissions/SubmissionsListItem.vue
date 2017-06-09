@@ -48,10 +48,10 @@
 					</template>
 				</div>
 				<div class="pkpListPanelItem--submission__flags">
-					<span v-if="isReviewStage"  class="pkpListPanelItem--submission__flags--reviews" :class="classHighlightReviews">
+					<span v-if="isReviewStage"  class="pkpListPanelItem--submission__flags--reviews">
 						<span class="count">{{ completedReviewsCount }} / {{ currentReviewAssignments.length }}</span>
 					</span>
-					<span v-if="activeStage.files.count" class="pkpListPanelItem--submission__flags--files" :class="classHighlightFiles">
+					<span v-if="activeStage.files.count" class="pkpListPanelItem--submission__flags--files">
 						<span class="count">{{ activeStage.files.count }}</span>
 					</span>
 					<span v-if="openQueryCount" class="pkpListPanelItem--submission__flags--discussions">
@@ -321,48 +321,6 @@ export default {
 			return _.filter(this.currentReviewAssignments, function(review) {
 				return review.statusId >= 7; // REVIEW_ASSIGNMENT_STATUS_RECEIVED and above
 			}).length;
-		},
-
-		/**
-		 * Return a class to highlight the reviews icon
-		 *
-		 * @return string
-		 */
-		classHighlightReviews: function() {
-			if (!this.isReviewStage) {
-				return '';
-			}
-
-			// REVIEW_ROUND_STATUS_REVIEWS_OVERDUE
-			if (this.activeStage.statusId == 10) {
-				return '--warning';
-			}
-
-			// No reviews have been assigned
-			if (!this.currentReviewAssignments.length) {
-				return '--warning';
-			}
-
-			// REVIEW_ROUND_STATUS_REVIEWS_READY
-			if (this.activeStage.statusId == 8) {
-				return '--notice';
-			}
-
-			return '';
-		},
-
-		/**
-		 * Return a class to highlight the files icon when revisions have been
-		 * submitted.
-		 *
-		 * @return string
-		 */
-		classHighlightFiles: function() {
-			if (this.activeStage.files.count) {
-				return '--notice';
-			}
-
-			return '';
 		},
 
 		/**

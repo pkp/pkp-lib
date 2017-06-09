@@ -345,7 +345,7 @@ class ReviewAssignmentDAO extends DAO {
 				review_round_id,
 				unconsidered
 				) VALUES (
-				?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, %s, %s, %s, ?, %s, %s, %s, ?, ?, ?, ?
+				?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, %s, %s, %s, ?, %s, %s, %s, ?, ?, ?, ?
 				)',
 				$this->datetimeToDB($reviewAssignment->getDateAssigned()),
 				$this->datetimeToDB($reviewAssignment->getDateNotified()),

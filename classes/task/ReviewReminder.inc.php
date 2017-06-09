@@ -68,12 +68,11 @@ class ReviewReminder extends ScheduledTask {
 			$accessKeyManager = new AccessKeyManager();
 
 			// Key lifetime is the typical review period plus four weeks
-			$keyLifetime = ($context->getSetting('numWeeksPerReview') + 4) * 7;			
+			$keyLifetime = ($context->getSetting('numWeeksPerReview') + 4) * 7;
 			$accessKey = $accessKeyManager->createKey($context->getId(), $reviewer->getId(), $reviewId, $keyLifetime);
 			$reviewUrlArgs = array_merge($reviewUrlArgs, array('reviewId' => $reviewId, 'key' => $accessKey));
-			
 		}
-		
+
 		$application = PKPApplication::getApplication();
 		$request = $application->getRequest();
 		$dispatcher = $application->getDispatcher();
@@ -155,7 +154,7 @@ class ReviewReminder extends ScheduledTask {
 
 				$inviteReminderDays = $context->getSetting('numDaysBeforeInviteReminder');
 				$submitReminderDays = $context->getSetting('numDaysBeforeSubmitReminder');
-			}			
+			}
 
 			$reminderType = false;
 			if ($submitReminderDays>=1 && $reviewAssignment->getDateDue() != null) {

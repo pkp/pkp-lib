@@ -1,7 +1,7 @@
 <template>
 	<li class="pkpListPanelItem pkpListPanelItem--submission pkpListPanelItem--select" :class="{'--hasFocus': isFocused}">
 		<div class="pkpListPanelItem__selectItem" @click.prevent="toggleSelection">
-			<input type="checkbox" :id="inputId" :name="inputName" :value="inputValue" :checked="selected" @click.stop @focus="focusItem" @blur="blurItem">
+			<input type="checkbox" :id="inputId" :name="inputName" value="inputValue" v-model="selected" @click.stop @focus="focusItem" @blur="blurItem">
 		</div>
 		<label :for="inputId" class="pkpListPanelItem__item">
 			<div class="pkpListPanelItem--submission__title">
@@ -20,15 +20,16 @@
 <script>
 import ListPanelItem from '../ListPanelItem.vue';
 
-export default _.extend({}, ListPanelItem, {
+export default {
+	extends: ListPanelItem,
 	name: 'SelectSubmissionsListItem',
 	props: ['submission', 'i18n', 'inputName'],
 	data: function() {
-		return _.extend({}, ListPanelItem.data(), {
+		return {
 			selected: false,
-		});
+		};
 	},
-	computed: _.extend({}, ListPanelItem.computed, {
+	computed: {
 		/**
 		 * Map the submission id to the list item id
 		 */
@@ -53,14 +54,14 @@ export default _.extend({}, ListPanelItem, {
 		inputId: function() {
 			return this.inputName + this.inputValue;
 		}
-	}),
-	methods: _.extend({}, ListPanelItem.methods, {
+	},
+	methods: {
 		/**
 		 * Toggle the checkbox when clicked
 		 */
 		toggleSelection: function(e) {
 			this.selected = !this.selected;
 		}
-	}),
-});
+	},
+};
 </script>

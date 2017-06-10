@@ -43,22 +43,19 @@
 import ListPanel from './../ListPanel.vue';
 import SubmissionsListItem from './SubmissionsListItem.vue';
 
-export default _.extend({}, ListPanel, {
+export default {
+	extends: ListPanel,
 	name: 'SubmissionsListPanel',
-	components: _.extend({}, ListPanel.components, {
+	components: {
 		SubmissionsListItem,
-	}),
+	},
 	data: function() {
-		return _.extend({}, ListPanel.data(), {
+		return {
 			addUrl: '',
 			infoUrl: '',
-		});
+		};
 	},
 	mounted: function() {
-
-		// Call the mounted function on parent component
-		ListPanel.mounted.call(this);
-
 		// Store a reference to this component for global event callbacks
 		var self = this;
 
@@ -76,5 +73,5 @@ export default _.extend({}, ListPanel, {
 			self.collection.maxItems--;
 		});
 	},
-});
+};
 </script>

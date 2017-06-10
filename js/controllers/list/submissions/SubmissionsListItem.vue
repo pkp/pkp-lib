@@ -48,10 +48,10 @@
 					</template>
 				</div>
 				<div class="pkpListPanelItem--submission__flags">
-					<span v-if="isReviewStage"  class="pkpListPanelItem--submission__flags--reviews" :class="classHighlightReviews">
+					<span v-if="isReviewStage"  class="pkpListPanelItem--submission__flags--reviews">
 						<span class="count">{{ completedReviewsCount }} / {{ currentReviewAssignments.length }}</span>
 					</span>
-					<span v-if="activeStage.files.count" class="pkpListPanelItem--submission__flags--files" :class="classHighlightFiles">
+					<span v-if="activeStage.files.count" class="pkpListPanelItem--submission__flags--files">
 						<span class="count">{{ activeStage.files.count }}</span>
 					</span>
 					<span v-if="openQueryCount" class="pkpListPanelItem--submission__flags--discussions">
@@ -91,15 +91,16 @@
 <script>
 import ListPanelItem from '../ListPanelItem.vue';
 
-export default _.extend({}, ListPanelItem, {
+export default {
+	extends: ListPanelItem,
 	name: 'SubmissionsListItem',
 	props: ['submission', 'i18n', 'apiPath', 'infoUrl'],
 	data: function() {
-		return _.extend({}, ListPanelItem.data(), {
+		return {
 			mask: null,
-		});
+		};
 	},
-	computed: _.extend({}, ListPanelItem.computed, {
+	computed: {
 		/**
 		 * Map the submission id to the list item id
 		 */
@@ -323,48 +324,6 @@ export default _.extend({}, ListPanelItem, {
 		},
 
 		/**
-		 * Return a class to highlight the reviews icon
-		 *
-		 * @return string
-		 */
-		classHighlightReviews: function() {
-			if (!this.isReviewStage) {
-				return '';
-			}
-
-			// REVIEW_ROUND_STATUS_REVIEWS_OVERDUE
-			if (this.activeStage.statusId == 10) {
-				return '--warning';
-			}
-
-			// No reviews have been assigned
-			if (!this.currentReviewAssignments.length) {
-				return '--warning';
-			}
-
-			// REVIEW_ROUND_STATUS_REVIEWS_READY
-			if (this.activeStage.statusId == 8) {
-				return '--notice';
-			}
-
-			return '';
-		},
-
-		/**
-		 * Return a class to highlight the files icon when revisions have been
-		 * submitted.
-		 *
-		 * @return string
-		 */
-		classHighlightFiles: function() {
-			if (this.activeStage.files.count) {
-				return '--notice';
-			}
-
-			return '';
-		},
-
-		/**
 		 * Return a class to toggle the item mask
 		 *
 		 * @return string
@@ -382,8 +341,8 @@ export default _.extend({}, ListPanelItem, {
 
 			return classes.join(' ');
 		},
-	}),
-	methods: _.extend({}, ListPanelItem.methods, {
+	},
+	methods: {
 
 		/**
 		 * Load a modal displaying history and notes of a submission
@@ -442,6 +401,6 @@ export default _.extend({}, ListPanelItem, {
 		cancelDeleteRequest: function() {
 			this.mask = null;
 		},
-	}),
-});
+	},
+};
 </script>

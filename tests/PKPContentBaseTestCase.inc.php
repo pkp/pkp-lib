@@ -120,6 +120,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 
 		// Page 4
 		$this->waitForElementPresent($selector='//form[@id=\'submitStep4Form\']//button[text()=\'Finish Submission\']');
+		$this->waitJQuery();
 		$this->click($selector);
 		$this->waitForElementPresent($selector="//a[text()='OK']");
 		$this->click($selector);

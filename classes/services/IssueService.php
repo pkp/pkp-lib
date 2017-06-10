@@ -35,4 +35,26 @@ class IssueService {
 
 		return !$subscriptionRequired || $issue->getAccessStatus() == ISSUE_ACCESS_OPEN || $subscribedUser || $subscribedDomain;
 	}
+	
+	/**
+	 * Determine issue access status based on journal publishing mode
+	 * @param \Journal $journal
+	 * @return int
+	 */
+	public function determineAccessStatus(\Journal $journal) {
+	        $accessStatus = null;
+	
+	        switch ($journal->getSetting('publishingMode')) {
+	                case PUBLISHING_MODE_SUBSCRIPTION:
+	                case PUBLISHING_MODE_NONE:
+	                        $accessStatus = ISSUE_ACCESS_SUBSCRIPTION;
+	                        break;
+	                case PUBLISHING_MODE_OPEN:
+	                default:
+	                        $accessStatus = ISSUE_ACCESS_OPEN;
+	                        break;
+	        }
+	
+	        return $accessStatus;
+	}
 }

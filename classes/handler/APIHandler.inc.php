@@ -52,6 +52,7 @@ class APIHandler extends PKPHandler {
 			'settings' => array(
 				// we need access to route within middleware
 				'determineRouteBeforeAppMiddleware' => true,
+			                'displayErrorDetails' => true
 			)
 		));
 		$this->_app->add(new ApiAuthorizationMiddleware($this));

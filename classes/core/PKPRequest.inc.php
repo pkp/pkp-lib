@@ -571,7 +571,7 @@ class PKPRequest {
 				$userDao = DAORegistry::getDAO('UserDAO');
 				$user = $userDao->getBySetting('apiKey', $token);
 			}
-			if (!$user->getData('apiKeyEnabled')) return null;
+			if (!$user || !$user->getData('apiKeyEnabled')) return null;
 			return $user;
 		}
 
@@ -591,7 +591,7 @@ class PKPRequest {
 	function getUserVar($key) {
 		$_this = PKPRequest::_checkThis();
 
-		if (is_a($_this, 'Request')) {
+		if (is_a($this, 'Request')) {
 			// special treatment for APIRouter. APIHandler gets to fetch parameter first
 			$router = $this->getRouter();
 			if (is_a($router, 'APIRouter') && (!is_null($handler = $router->getHandler()))) {

@@ -371,7 +371,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			'LibraryFileDAO' => 'lib.pkp.classes.context.LibraryFileDAO',
 			'MetadataDescriptionDAO' => 'lib.pkp.classes.metadata.MetadataDescriptionDAO',
 			'NavigationMenuDAO' => 'lib.pkp.classes.navigationMenu.NavigationMenuDAO',
-			'NavigationMenuItemsDAO' => 'lib.pkp.classes.navigationMenus.NavigationMenuItemsDAO',
+			'NavigationMenuItemDAO' => 'lib.pkp.classes.navigationMenu.NavigationMenuItemDAO',
 			'NoteDAO' => 'lib.pkp.classes.note.NoteDAO',
 			'NotificationDAO' => 'lib.pkp.classes.notification.NotificationDAO',
 			'NotificationMailListDAO' => 'lib.pkp.classes.notification.NotificationMailListDAO',

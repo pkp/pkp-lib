@@ -1,16 +1,16 @@
 <?php
 
 /**
- * @file controllers/grid/announcements/AnnouncementGridCellProvider.inc.php
+ * @file controllers/grid/navigationMenus/NavigationMenuItemsCellProvider.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class AnnouncementGridCellProvider
- * @ingroup controllers_grid_announcements
+ * @class NavigationMenuItemsGridCellProvider
+ * @ingroup controllers_grid_navigationMenus
  *
- * @brief Cell provider for title column of a announcement grid.
+ * @brief Cell provider for title column of a NavigationMenuItems grid.
  */
 
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
@@ -30,21 +30,19 @@ class NavigationMenuItemsGridCellProvider extends GridCellProvider {
 	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
 		switch ($column->getId()) {
 			case 'title':
-				$announcement = $row->getData();
+				$navigationMenuItem = $row->getData();
 				$router = $request->getRouter();
-				$actionArgs = array('announcementId' => $row->getId());
+				$actionArgs = array('navigationMenuItemId' => $row->getId());
 
 				import('lib.pkp.classes.linkAction.request.AjaxModal');
 				return array(new LinkAction(
-					'moreInformation',
+					'edit',
 					new AjaxModal(
-						$router->url($request, null, null, 'moreInformation', null, $actionArgs),
-						$announcement->getLocalizedTitle(),
+						$router->url($request, null, null, 'editNavigationMenuItem', null, $actionArgs),
+						__('grid.action.edit'),
 						null,
-						true
-					),
-					$announcement->getLocalizedTitle(),
-					'moreInformation'
+						true),
+					$navigationMenuItem->getLocalizedTitle()
 				));
 		}
 		return parent::getCellActions($request, $row, $column, $position);
@@ -58,24 +56,24 @@ class NavigationMenuItemsGridCellProvider extends GridCellProvider {
 	 * @return array
 	 */
 	function getTemplateVarsFromRowColumn($row, $column) {
-		$announcement = $row->getData();
+		$navigationMenuItem = $row->getData();
 		$columnId = $column->getId();
-		assert(is_a($announcement, 'Announcement') && !empty($columnId));
+		assert(is_a($navigationMenuItem, 'NavigationMenuItem') && !empty($columnId));
 
 		switch ($columnId) {
 			case 'title':
 				return array('label' => '');
 				break;
-			case 'type':
-				$typeId = $announcement->getTypeId();
-				if ($typeId) {
-					$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
-					$announcementType = $announcementTypeDao->getById($typeId);
-					return array('label' => $announcementType->getLocalizedTypeName());
-				} else {
-					return array('label' => __('common.none'));
-				}
-				break;
+			//case 'type':
+			//    $typeId = $announcement->getTypeId();
+			//    if ($typeId) {
+			//        $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
+			//        $announcementType = $announcementTypeDao->getById($typeId);
+			//        return array('label' => $announcementType->getLocalizedTypeName());
+			//    } else {
+			//        return array('label' => __('common.none'));
+			//    }
+			//    break;
 			default:
 				break;
 		}

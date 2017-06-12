@@ -1,17 +1,17 @@
 <?php
 
 /**
- * @file classes/announcement/AnnouncementDAO.inc.php
+ * @file classes/navigationMenu/NavigationMenuItemDAO.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class AnnouncementDAO
- * @ingroup announcement
- * @see Announcement
+ * @class NavigationMenuItemDAO
+ * @ingroup navigationMenuItem
+ * @see NavigationMenuItem
  *
- * @brief Operations for retrieving and modifying Announcement objects.
+ * @brief Operations for retrieving and modifying NavigationMenuItem objects.
  */
 
 import('lib.pkp.classes.navigationMenu.NavigationMenu');
@@ -46,6 +46,21 @@ class NavigationMenuItemDAO extends DAO {
 	}
 
 	/**
+	 * Retrieve a navigation menu items by context Id.
+	 * @param $contextId int Context Id
+	 * @return NavigationMenu
+	 */
+	function getByContextId($contextId) {
+		$params = array((int) $contextId);
+		$result = $this->retrieve(
+			'SELECT * FROM navigation_menu_items WHERE context_id = ?',
+			$params
+		);
+
+		return new DAOResultFactory($result, $this, '_fromRow');
+	}
+
+	/**
 	 * Retrieve navigation menu items by navigation menu ID.
 	 * @param $navigationMenuId int
 	 * @return int
@@ -77,18 +92,18 @@ class NavigationMenuItemDAO extends DAO {
 	}
 
 	/**
-	 * Internal function to return an Announcement object from a row.
+	 * Internal function to return a NavigationMenuItem object from a row.
 	 * @param $row array
-	 * @return Announcement
+	 * @return NavigationMenuItem
 	 */
 	function _fromRow($row) {
 		$navigationMenuItem = $this->newDataObject();
-		$navigationMenuItem->setId($row['announcement_id']);
-		$navigationMenuItem->setAssocType($row['assoc_type']);
+		$navigationMenuItem->setId($row['navigation_menu_item_id']);
+		$navigationMenuItem->setNavigationMenuId($row['navigation_menu_id']);
 		$navigationMenuItem->setAssocId($row['assoc_id']);
-		$navigationMenuItem->setTypeId($row['type_id']);
-		$navigationMenuItem->setDateExpire($this->datetimeFromDB($row['date_expire']));
-		$navigationMenuItem->setDatePosted($this->datetimeFromDB($row['date_posted']));
+		$navigationMenuItem->setSeq($row['seq']);
+		$navigationMenuItem->setPath($row['path']);
+		$navigationMenuItem->setContextId($row['context_id']);
 
 		$this->getDataObjectSettings('navigation_menu_item_settings', 'navigation_menu_item_id', $row['navigation_menu_item_id'], $navigationMenuItem);
 
@@ -97,30 +112,33 @@ class NavigationMenuItemDAO extends DAO {
 
 	/**
 	 * Update the settings for this object
-	 * @param $announcement object
+	 * @param $navigationMenuItem object
 	 */
 	function updateLocaleFields($navigationMenuItem) {
-		$this->updateDataObjectSettings('announcement_settings', $navigationMenuItem, array(
+		$this->updateDataObjectSettings('navigation_menu_item_settings', $navigationMenuItem, array(
 			'navigation_menu_item_id' => $navigationMenuItem->getId()
 		));
 	}
 
 	/**
-	 * Insert a new Announcement.
+	 * Insert a new NavigationMenuItem.
 	 * @param $navigationMenuItem NavigationMenuItem
 	 * @return int
 	 */
 	function insertObject($navigationMenuItem) {
 		$this->update(
 				'INSERT INTO navigation_menu_items
-				(navigation_menu_id, seq, assoc_id, path)
+				(navigation_menu_id, seq, assoc_id, path, defaultMenu, enabled, context_id)
 				VALUES
-				(?, ?, ?, ?)',
+				(?, ?, ?, ?, ?, ?, ?)',
 			array(
 				(int) $navigationMenuItem->getNavigationMenuId(),
 				(int) $navigationMenuItem->getSeq(),
 				(int) $navigationMenuItem->getAssocId(),
-				$navigationMenuItem->getPath()
+				$navigationMenuItem->getPath(),
+				(int) $navigationMenuItem->getDefaultMenu(),
+				(int) $navigationMenuItem->getEnabled(),
+				(int) $navigationMenuItem->getContextId()
 			)
 		);
 		$navigationMenuItem->setId($this->getInsertId());
@@ -129,24 +147,30 @@ class NavigationMenuItemDAO extends DAO {
 	}
 
 	/**
-	 * Update an existing announcement.
+	 * Update an existing NavigationMenuItem.
 	 * @param $navigationMenuItem NavigationMenuItem
 	 * @return boolean
 	 */
-	function updateObject($announcement) {
+	function updateObject($navigationMenuItem) {
 		$returner = $this->update(
-				'UPDATE announcements
+				'UPDATE navigation_menu_items
 				SET
 					navigation_menu_id = ?,
 					seq = ?,
 					assoc_id = ?,
-					path = ?
-				WHERE announcement_id = ?',
+					path = ?,
+					defaultMenu = ?,
+					enabled = ?,
+					context_id = ?
+				WHERE navigation_menu_item_id = ?',
 			array(
 				(int) $navigationMenuItem->getNavigationMenuId(),
 				(int) $navigationMenuItem->getSeq(),
 				(int) $navigationMenuItem->getAssocId(),
 				$navigationMenuItem->getPath(),
+				(int) $navigationMenuItem->getDefaultMenu(),
+				(int) $navigationMenuItem->getEnabled(),
+				(int) $navigationMenuItem->getContextId(),
 				(int) $navigationMenuItem->getId()
 			)
 		);
@@ -155,7 +179,7 @@ class NavigationMenuItemDAO extends DAO {
 	}
 
 	/**
-	 * Delete an announcement.
+	 * Delete a NavigationMenuItem.
 	 * @param $navigationMenuItem NavigationMenuItem
 	 * @return boolean
 	 */
@@ -164,8 +188,8 @@ class NavigationMenuItemDAO extends DAO {
 	}
 
 	/**
-	 * Delete an announcement by announcement ID.
-	 * @param $announcementId int
+	 * Delete a NavigationMenuItem by navigationMenuItem ID.
+	 * @param $navigationMenuItemId int
 	 * @return boolean
 	 */
 	function deleteById($navigationMenuItemId) {
@@ -185,79 +209,8 @@ class NavigationMenuItemDAO extends DAO {
 		}
 	}
 
-	///**
-	// * Delete announcements by Assoc ID
-	// * @param $assocType int ASSOC_TYPE_...
-	// * @param $assocId int
-	// */
-	//function deleteByAssoc($assocType, $assocId) {
-	//    $announcements = $this->getByAssocId($assocType, $assocId);
-	//    while ($announcement = $announcements->next()) {
-	//        $this->deleteById($announcement->getId());
-	//    }
-	//    return true;
-	//}
-
-	///**
-	// * Retrieve an array of announcements matching a particular assoc ID.
-	// * @param $assocType int ASSOC_TYPE_...
-	// * @param $assocId int
-	// * @param $rangeInfo DBResultRange (optional)
-	// * @return object DAOResultFactory containing matching Announcements
-	// */
-	//function getByAssocId($assocType, $assocId, $rangeInfo = null) {
-	//    $result = $this->retrieveRange(
-	//        'SELECT *
-	//        FROM announcements
-	//        WHERE assoc_type = ? AND assoc_id = ?
-	//        ORDER BY date_posted DESC',
-	//        array((int) $assocType, (int) $assocId),
-	//        $rangeInfo
-	//    );
-
-	//    return new DAOResultFactory($result, $this, '_fromRow');
-	//}
-
-	///**
-	// * Retrieve an array of announcements matching a particular type ID.
-	// * @param $typeId int
-	// * @param $rangeInfo DBResultRange (optional)
-	// * @return object DAOResultFactory containing matching Announcements
-	// */
-	//function getByTypeId($typeId, $rangeInfo = null) {
-	//    $result = $this->retrieveRange(
-	//        'SELECT * FROM announcements WHERE type_id = ? ORDER BY date_posted DESC',
-	//        (int) $typeId,
-	//        $rangeInfo
-	//    );
-
-	//    return new DAOResultFactory($result, $this, '_fromRow');
-	//}
-
-	///**
-	// * Retrieve an array of numAnnouncements announcements matching a particular Assoc ID.
-	// * @param $assocType int ASSOC_TYPE_...
-	// * @param $assocId int
-	// * @param $numAnnouncements int Maximum number of announcements
-	// * @param $rangeInfo DBResultRange (optional)
-	// * @return object DAOResultFactory containing matching Announcements
-	// */
-	//function getNumAnnouncementsByAssocId($assocType, $assocId, $numAnnouncements, $rangeInfo = null) {
-	//    $result = $this->retrieveRange(
-	//        'SELECT *
-	//        FROM announcements
-	//        WHERE assoc_type = ?
-	//            AND assoc_id = ?
-	//        ORDER BY date_posted DESC LIMIT ?',
-	//        array((int) $assocType, (int) $assocId, (int) $numAnnouncements),
-	//        $rangeInfo
-	//    );
-
-	//    return new DAOResultFactory($result, $this, '_fromRow');
-	//}
-
 	/**
-	 * Get the ID of the last inserted announcement.
+	 * Get the ID of the last inserted navigation menu item.
 	 * @return int
 	 */
 	function getInsertId() {

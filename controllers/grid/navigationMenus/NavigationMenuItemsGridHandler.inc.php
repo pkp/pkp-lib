@@ -1,21 +1,21 @@
 <?php
 
 /**
- * @file controllers/grid/announcements/AnnouncementGridHandler.inc.php
+ * @file controllers/grid/navigationMenus/NavigationMenusGridHandler.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class AnnouncementGridHandler
- * @ingroup controllers_grid_announcements
+ * @class NavigationMenusGridHandler
+ * @ingroup controllers_grid_navigationMenus
  *
- * @brief Handle announcements grid requests.
+ * @brief Handle navigationMenus grid requests.
  */
 
 import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
-import('lib.pkp.classes.controllers.grid.DateGridCellProvider');
+import('lib.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
 
 class NavigationMenuItemsGridHandler extends GridHandler {
 	/**
@@ -40,19 +40,17 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 	//
 	/**
 	 * @copydoc GridHandler::authorize()
-	 * @param $requireAnnouncementsEnabled Iff true, allow access only if context settings enable announcements
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
 		$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 		$context = $request->getContext();
 
-		$navigationMenuId = $request->getUserVar('navigationMenuId');
-		if ($navigationMenuId) {
-			// Ensure announcement type is valid and for this context
-			$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO'); /* @var $announcementTypeDao AnnouncementTypeDAO */
-			$navigationMenu = $navigationMenuDao->getById($navigationMenuId);
-			if (!$navigationMenu ||  $navigationMenu->getContextId() != $context->getId()) {
+		$navigationMenuItemId = $request->getUserVar('navigationMenuItemId');
+		if ($navigationMenuItemId) {
+			$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+			$navigationMenuItem = $navigationMenuItemDao->getById($navigationMenuItemId);
+			if (!$navigationMenuItem ||  $navigationMenuItem->getContextId() != $context->getId()) {
 				return false;
 			}
 		}
@@ -92,6 +90,9 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 			)
 		);
 
+		// Load language components
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
+
 		// Add grid action.
 		$router = $request->getRouter();
 
@@ -116,51 +117,94 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 	 */
 	protected function loadData($request, $filter) {
 		$context = $request->getContext();
-		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
-		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
-		return $announcementDao->getAnnouncementsNotExpiredByAssocId($context->getAssocType(), $context->getId(), $rangeInfo);
+		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+		return $navigationMenuItemDao->getByContextId($context->getId());
 	}
 
+	/**
+	 * @copydoc GridHandler::getRowInstance()
+	 */
+	protected function getRowInstance() {
+		import('lib.pkp.controllers.grid.navigationMenus.NavigationMenuItemsGridRow');
+		return new NavigationMenuItemsGridRow();
+	}
 
 	//
 	// Public grid actions.
 	//
 	/**
-	 * Load and fetch the announcement form in read-only mode.
+	 * Load and fetch the navigation menu items form in read-only mode.
 	 * @param $args array
 	 * @param $request Request
 	 * @return JSONMessage JSON object
 	 */
 	function updateNavigationMenuItem($args, $request) {
-		$announcementId = (int)$request->getUserVar('announcementId');
+		$navigationMenuItemId = (int)$request->getUserVar('navigationMenuItemId');
 		$context = $request->getContext();
 		$contextId = $context->getId();
 
 		import('lib.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
-		$announcementForm = new NavigationMenuItemsForm($contextId, $announcementId, true);
+		$navigationMenuItemForm = new NavigationMenuItemsForm($contextId, $navigationMenuItemId, true);
 
-		$announcementForm->initData($args, $request);
+		$navigationMenuItemForm->readInputData();
 
-		return new JSONMessage(true, $announcementForm->fetch($request));
+		if ($navigationMenuItemForm->validate()) {
+			$navigationMenuItemForm->execute($request);
+
+			if ($navigationMenuItemId) {
+				// Successful edit of an existing $navigationMenuItem.
+				$notificationLocaleKey = 'notification.editedNavigationMenuItem';
+			} else {
+				// Successful added a new $navigationMenuItemForm.
+				$notificationLocaleKey = 'notification.addedNavigationMenuItem';
+			}
+
+			// Record the notification to user.
+			$notificationManager = new NotificationManager();
+			$user = $request->getUser();
+			$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __($notificationLocaleKey)));
+
+			// Prepare the grid row data.
+			return DAO::getDataChangedEvent($navigationMenuItemId);
+		} else {
+			return new JSONMessage(false);
+		}
 	}
 
 	/**
-	 * Load and fetch the announcement form in read-only mode.
+	 * Display form to edit a navigation menu item object.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
+	function editNavigationMenuItem($args, $request) {
+		$navigationMenuItemId = (int) $request->getUserVar('navigationMenuItemId');
+		$context = $request->getContext();
+		$contextId = $context->getId();
+
+		$navigationMenuItemForm = new NavigationMenuItemsForm($contextId, $navigationMenuItemId);
+		$navigationMenuItemForm->initData($args, $request);
+
+		return new JSONMessage(true, $navigationMenuItemForm->fetch($request));
+	}
+
+	/**
+	 * Load and fetch the navigation menu item form in read-only mode.
 	 * @param $args array
 	 * @param $request Request
 	 * @return JSONMessage JSON object
 	 */
 	function addNavigationMenuItem($args, $request) {
-		$announcementId = (int)$request->getUserVar('announcementId');
+		$navigationMenuItemId = (int)$request->getUserVar('navigationMenuItemId');
 		$context = $request->getContext();
 		$contextId = $context->getId();
 
 		import('lib.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
-		$announcementForm = new NavigationMenuItemsForm($contextId, $announcementId, true);
+		$navigationMenuItemForm = new NavigationMenuItemsForm($contextId, $navigationMenuItemId, true);
 
-		$announcementForm->initData($args, $request);
+		$navigationMenuItemForm->initData($args, $request);
 
-		return new JSONMessage(true, $announcementForm->fetch($request));
+		return new JSONMessage(true, $navigationMenuItemForm->fetch($request));
 	}
 }
 

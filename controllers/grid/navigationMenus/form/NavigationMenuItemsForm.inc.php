@@ -1,24 +1,24 @@
 <?php
 
 /**
- * @file controllers/grid/announcements/form/AnnouncementForm.inc.php
+ * @file controllers/grid/navigationMenus/form/NavigationMenuItemsForm.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class AnnouncementForm
- * @ingroup controllers_grid_announcements
+ * @class NavigationMenuItemsForm
+ * @ingroup controllers_grid_navigationMenus
  *
- * @brief Form for managers to create/edit announcements.
+ * @brief Form for managers to create/edit navigationMenuItems.
  */
 
 
 import('lib.pkp.classes.form.Form');
 
 class NavigationMenuItemsForm extends Form {
-	/** @var $navigationMenuId int the ID of the navigationMenu */
-	var $navigationMenuId;
+	/** @var $navigationMenuItemId int the ID of the navigationMenuItem */
+	var $navigationMenuItemId;
 
 	/** @var int */
 	var $_contextId;
@@ -26,24 +26,13 @@ class NavigationMenuItemsForm extends Form {
 	/**
 	 * Constructor
 	 * @param $contextId int
-	 * @param $navigationMenuId int
+	 * @param $navigationMenuItemId int
 	 */
-	function __construct($contextId, $navigationMenuId) {
+	function __construct($contextId, $navigationMenuItemId) {
 		$this->_contextId = $contextId;
+		$this->navigationMenuItemId = $navigationMenuItemId;
 
 		parent::__construct('manager/navigationMenus/navigationMenuItemsForm.tpl');
-
-		//// Title is provided
-		//$this->addCheck(new FormValidatorLocale($this, 'title', 'required', 'manager.announcements.form.titleRequired'));
-
-		//// Short description is provided
-		//$this->addCheck(new FormValidatorLocale($this, 'descriptionShort', 'required', 'manager.announcements.form.descriptionShortRequired'));
-
-		//// Description is provided
-		//$this->addCheck(new FormValidatorLocale($this, 'description', 'optional', 'manager.announcements.form.descriptionRequired'));
-
-		//// If provided, announcement type is valid
-		//$this->addCheck(new FormValidatorCustom($this, 'typeId', 'optional', 'manager.announcements.form.typeIdValid', create_function('$typeId, $contextId', '$announcementTypeDao = DAORegistry::getDAO(\'AnnouncementTypeDAO\'); if((int)$typeId === 0) { return true; } else { return $announcementTypeDao->announcementTypeExistsByTypeId($typeId, Application::getContextAssocType(), $contextId);}'), array($contextId)));
 
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
@@ -79,10 +68,6 @@ class NavigationMenuItemsForm extends Form {
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
 
-		//$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
-		//$announcement = $announcementDao->getById($this->announcementId);
-		//$templateMgr->assign('announcement', $announcement);
-
 		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
 		$navigationMenus = $navigationMenuDao->getByContextId($this->getContextId());
 
@@ -94,108 +79,82 @@ class NavigationMenuItemsForm extends Form {
 			$navigationMenuOptions[$navigationMenu->getId()] = $navigationMenu->getTitle();
 		}
 		$templateMgr->assign('navigationMenus', $navigationMenuOptions);
+		$templateMgr->assign('navigationMenuItemId', $this->navigationMenuItemId);
 
 		return parent::fetch($request, 'controllers/grid/navigationMenus/form/navigationMenuItemsForm.tpl');
 	}
 
 	/**
-	 * Initialize form data from current announcement.
+	 * Initialize form data from current navigation menu item.
 	 */
 	function initData() {
-		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
-		$announcement = $announcementDao->getById($this->announcementId);
+		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+		$navigationMenuItem = $navigationMenuItemDao->getById($this->navigationMenuItemId);
 
-		if ($announcement) {
+		if ($navigationMenuItem) {
 			$this->_data = array(
-				'typeId' => $announcement->getTypeId(),
-				'assocType' => $announcement->getAssocType(),
-				'assocId' => $announcement->getAssocId(),
-				'title' => $announcement->getTitle(null), // Localized
-				'descriptionShort' => $announcement->getDescriptionShort(null), // Localized
-				'description' => $announcement->getDescription(null), // Localized
-				'dateExpire' => $announcement->getDateExpire()
+				'navigationMenuId' => $navigationMenuItem->getNavigationMenuId(),
+				'path' => $navigationMenuItem->getPath(),
+				'title' => $navigationMenuItem->getTitle(null)
 			);
 		} else {
-			$this->announcementId = null;
+			$this->navigationMenuItemId = null;
 		}
+
+
 	}
 
 	/**
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('typeId', 'title', 'descriptionShort', 'description', 'dateExpireYear', 'dateExpireMonth', 'dateExpireDay', 'dateExpire'));
+		$this->readUserVars(array('navigationMenuItemId', 'navigationMenuId', 'title', 'path'));
 	}
 
 	/**
-	 * Save announcement.
+	 * Save NavigationMenuItem.
 	 * @param $request PKPRequest
 	 */
 	function execute($request) {
-		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
+		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
 
-		$announcement = $announcementDao->getById($this->announcementId);
-		if (!$announcement) {
-			$announcement = $announcementDao->newDataObject();
+		$navigationMenuItem = $navigationMenuItemDao->getById($this->navigationMenuItemId);
+		if (!$navigationMenuItem) {
+			$navigationMenuItem = $navigationMenuItemDao->newDataObject();
 		}
 
-		$announcement->setAssocType(Application::getContextAssocType());
-		$announcement->setAssocId($this->getContextId());
+		$navigationMenuItem->setNavigationMenuId($this->getData('navigationMenuId'));
+		$navigationMenuItem->setPath($this->getData('path'));
+		$navigationMenuItem->setAssocId($this->getData('assoc_id'));
+		$navigationMenuItem->setTitle($this->getData('title'), null); // Localized
+		$navigationMenuItem->setSeq(0);
+		$navigationMenuItem->setDefaultMenu(0);
+		$navigationMenuItem->setEnabled(1);
+		$navigationMenuItem->setContextId($this->getContextId());
 
-		$announcement->setTitle($this->getData('title'), null); // Localized
-		$announcement->setDescriptionShort($this->getData('descriptionShort'), null); // Localized
-		$announcement->setDescription($this->getData('description'), null); // Localized
-
-		if ($this->getData('typeId')) {
-			$announcement->setTypeId($this->getData('typeId'));
+		// Update or insert navigation menu item
+		if ($navigationMenuItem->getId()) {
+			$navigationMenuItemDao->updateObject($navigationMenuItem);
 		} else {
-			$announcement->setTypeId(null);
+			$navigationMenuItemDao->insertObject($navigationMenuItem);
 		}
 
-		// Give the parent class a chance to set the dateExpire.
-		$dateExpireSetted = $this->setDateExpire($announcement);
-		if (!$dateExpireSetted) {
-			if ($this->getData('dateExpireYear') != null) {
-				$announcement->setDateExpire($this->getData('dateExpire'));
-			} else {
-				$announcement->setDateExpire(null);
-			}
+		return $navigationMenuItem->getId();
+	}
+
+	/**
+	 * Perform additional validation checks
+	 * @copydoc Form::validate
+	 */
+	function validate() {
+		// Validate that the a NavigationMenu has been selected.
+		$navigationMenuId = $this->getData('navigationMenuId');
+
+		if (!isset($navigationMenuId) || $navigationMenuId < 1) {
+			$this->addError('navigationMenuId', __('manager.navigationMenus.form.navigationMenuRequired'));
 		}
 
-		// Update or insert announcement
-		if ($announcement->getId()) {
-			$announcementDao->updateObject($announcement);
-		} else {
-			$announcement->setDatetimePosted(Core::getCurrentDate());
-			$announcementDao->insertObject($announcement);
-		}
-
-		$contextId = $this->getContextId();
-
-		// Send a notification to associated users
-		import('classes.notification.NotificationManager');
-		$notificationManager = new NotificationManager();
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$notificationUsers = array();
-		$allUsers = $userGroupDao->getUsersByContextId($contextId);
-		while ($user = $allUsers->next()) {
-			$notificationUsers[] = array('id' => $user->getId());
-		}
-		if (!$this->announcementId) { // Only for new announcements
-			foreach ($notificationUsers as $userRole) {
-				$notificationManager->createNotification(
-					$request, $userRole['id'], NOTIFICATION_TYPE_NEW_ANNOUNCEMENT,
-					$contextId, ASSOC_TYPE_ANNOUNCEMENT, $announcement->getId()
-				);
-			}
-			$notificationManager->sendToMailingList($request,
-				$notificationManager->createNotification(
-					$request, UNSUBSCRIBED_USER_NOTIFICATION, NOTIFICATION_TYPE_NEW_ANNOUNCEMENT,
-					$contextId, ASSOC_TYPE_ANNOUNCEMENT, $announcement->getId()
-				)
-			);
-		}
-		return $announcement->getId();
+		return parent::validate();
 	}
 
 }

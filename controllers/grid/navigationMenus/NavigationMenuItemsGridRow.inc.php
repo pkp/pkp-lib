@@ -1,16 +1,16 @@
 <?php
 
 /**
- * @file controllers/grid/announcements/AnnouncementGridRow.inc.php
+ * @file controllers/grid/navigationMenus/NavigationMenuItemsGridRow.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class AnnouncementGridRow
- * @ingroup controllers_grid_announcements
+ * @class NavigationMenuItemsGridRow
+ * @ingroup controllers_grid_navigationMenus
  *
- * @brief Announcement grid row definition
+ * @brief NavigationMenuItem grid row definition
  */
 
 import('lib.pkp.classes.controllers.grid.GridRow');
@@ -35,8 +35,8 @@ class NavigationMenuItemsGridRow extends GridRow {
 		parent::initialize($request, $template);
 
 		// Is this a new row or an existing row?
-		$element =& $this->getData();
-		assert(is_a($element, 'Announcement'));
+		$element = $this->getData();
+		assert(is_a($element, 'NavigationMenuItem'));
 
 		$rowId = $this->getId();
 
@@ -44,13 +44,13 @@ class NavigationMenuItemsGridRow extends GridRow {
 			// Only add row actions if this is an existing row
 			$router = $request->getRouter();
 			$actionArgs = array(
-				'announcementId' => $rowId
+				'navigationMenuItemId' => $rowId
 			);
 			$this->addAction(
 				new LinkAction(
 					'edit',
 					new AjaxModal(
-						$router->url($request, null, null, 'editAnnouncement', null, $actionArgs),
+						$router->url($request, null, null, 'editNavigationMenuItem', null, $actionArgs),
 						__('grid.action.edit'),
 						'modal_edit',
 						true
@@ -65,7 +65,7 @@ class NavigationMenuItemsGridRow extends GridRow {
 						$request->getSession(),
 						__('common.confirmDelete'),
 						__('common.remove'),
-						$router->url($request, null, null, 'deleteAnnouncement', null, $actionArgs),
+						$router->url($request, null, null, 'deleteNavigationMenuItem', null, $actionArgs),
 						'modal_delete'
 						),
 					__('grid.action.remove'),

@@ -1,17 +1,17 @@
 <?php
 
 /**
- * @file classes/announcement/AnnouncementType.inc.php
+ * @file classes/navigationMenu/NavigationMenuItem.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class AnnouncementType
- * @ingroup announcement
- * @see AnnouncementTypeDAO, AnnouncementTypeForm
+ * @class NavigationMenuItem
+ * @ingroup navigationMenu
+ * @see NavigationMenuItemDAO
  *
- * @brief Basic class describing an announcement type.
+ * @brief Basic class describing a NavigationMenuItem.
  */
 
 class NavigationMenuItem extends DataObject {
@@ -51,7 +51,7 @@ class NavigationMenuItem extends DataObject {
 
 	/**
 	 * Set seq for this navigation menu item.
-	 * @param $assocId int
+	 * @param $seq int
 	 */
 	function setSeq($seq) {
 		$this->setData('seq', $seq);
@@ -67,7 +67,7 @@ class NavigationMenuItem extends DataObject {
 
 	/**
 	 * Set navigationMenuId for this navigation menu item.
-	 * @param $assocType int
+	 * @param $navigationMenuId int
 	 */
 	function setNavigationMenuId($navigationMenuId) {
 		$this->setData('navigationMenuId', $navigationMenuId);
@@ -83,17 +83,65 @@ class NavigationMenuItem extends DataObject {
 
 	/**
 	 * Get navigationMenuId for this navigation menu item.
-	 * @return int
+	 * @return string
 	 */
 	function getPath() {
 		return $this->getData('path');
 	}
 
 	/**
+	 * Get enabled for this navigation menu item.
+	 * @return int
+	 */
+	function getEnabled() {
+		return $this->getData('enabled');
+	}
+
+	/**
+	 * Set enabled for this navigation menu item.
+	 * @param $enabled int
+	 */
+	function setEnabled($enabled) {
+		$this->setData('enabled', $enabled);
+	}
+
+	/**
+	 * Get default for this navigation menu item.
+	 * @return int
+	 */
+	function getDefaultMenu() {
+		return $this->getData('defaultMenu');
+	}
+
+	/**
+	 * Set defaultMenu for this navigation menu item.
+	 * @param $default int
+	 */
+	function setDefaultMenu($default) {
+		$this->setData('defaultMenu', $default);
+	}
+
+	/**
+	 * Get contextId for this navigation menu item.
+	 * @return int
+	 */
+	function getContextId() {
+		return $this->getData('context_id');
+	}
+
+	/**
+	 * Set context_id for this navigation menu item.
+	 * @param $contextId int
+	 */
+	function setContextId($contextId) {
+		$this->setData('context_id', $contextId);
+	}
+
+	/**
 	 * Get the title of the navigation Menu.
 	 * @return string
 	 */
-	function getLocalizedNavigationMenuTitle() {
+	function getLocalizedTitle() {
 		return $this->getLocalizedData('title');
 	}
 

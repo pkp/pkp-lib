@@ -1,28 +1,37 @@
 {**
- * templates/controllers/grid/announcements/form/announcementTypeForm.tpl
+ * templates/controllers/grid/navigationMenus/form/navigationMenuItemsForm.tpl
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * Form to read/create/edit announcement types.
+ * Form to read/create/edit navigation menu Items.
  *}
 
 <script>
-	$(function() {ldelim}
+    $(function() {ldelim}
+		// Attach the form handler.
+        $('#navigationMenuItemForm').pkpHandler(
+				'$.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsFormHandler');
+    {rdelim});
+
+	{*$(function() {ldelim}
 		// Attach the form handler.
 		$('#navigationMenuItemForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
-	{rdelim});
+	{rdelim});*}
 </script>
 
 <form class="pkp_form" id="navigationMenuItemForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.navigationMenus.NavigationMenuItemsGridHandler" op="updateNavigationMenuItem"}">
 	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="navigationMenuItemFormNotification"}
 	{fbvFormArea id="navigationMenuItemInfo"}
-        {if $navigationMenus}
-			{fbvElement type="select" id="navigationMenuId" from=$navigationMenus selected=$selectedNavigationMenuId label="manager.navigationMenus.form.navigationMenuTitle" translate=false}
+        {if $navigationMenuItemId}
+			<input type="hidden" name="navigationMenuItemId" value="{$navigationMenuItemId|escape}" />
 		{/if}
-		{if $navigationMenuId}
+        {if $navigationMenus}
+			{fbvElement type="select" id="navigationMenuId" required="true" from=$navigationMenus selected=$navigationMenuId label="manager.navigationMenus.form.navigationMenuTitle" translate=false}
+		{/if}
+		{if $navigationMenuItemId}
 			<input type="hidden" name="navigationMenuItemId" value="{$navigationMenuItemId|escape}" />
 		{/if}
 		{fbvFormSection title="manager.navigationMenus.form.typeName" for="title" required="true"}

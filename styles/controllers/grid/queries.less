@@ -107,3 +107,27 @@
         margin-bottom: 0;
     }
 }
+
+.query_participants {
+
+    ul {
+        &:extend(.pkp_unstyled_list);
+
+        label {
+            padding-top: 0.25em;
+            padding-bottom: 0.25em;
+            font-size: @font-sml;
+            line-height: @line-sml;
+            font-weight: @normal;
+        }
+    }
+
+    input {
+        margin-right: 0.5em;
+    }
+
+    .role {
+        margin-left: 0.5em;
+        color: @text-light;
+    }
+}

@@ -17,18 +17,18 @@
 		<div v-if="currentUserIsReviewer" class="pkpListPanelItem--submission__stage pkpListPanelItem--submission__stage--reviewer">
 			<a :href="submission.urlWorkflow" tabindex="-1">
 				<div v-if="currentUserLatestReviewAssignment.responsePending" class="pkpListPanelItem--submission__dueDate">
-					<div class="pkpListPanelItem--submission__dueDateValue">
+					<div :aria-labelledby="responseDueLabelId" class="pkpListPanelItem--submission__dueDateValue">
 						{{ currentUserLatestReviewAssignment.responseDue }}
 					</div>
-					<div class="pkpListPanelItem--submission__dueDateLabel">
+					<div :id="responseDueLabelId" class="pkpListPanelItem--submission__dueDateLabel">
 						{{ i18n.responseDue }}
 					</div>
 				</div>
 				<div v-if="currentUserLatestReviewAssignment.reviewPending" class="pkpListPanelItem--submission__dueDate">
-					<div class="pkpListPanelItem--submission__dueDateValue">
+					<div :aria-labelledby="reviewDueLabelId" class="pkpListPanelItem--submission__dueDateValue">
 						{{ currentUserLatestReviewAssignment.due }}
 					</div>
-					<div class="pkpListPanelItem--submission__dueDateLabel">
+					<div :id="reviewDueLabelId" class="pkpListPanelItem--submission__dueDateLabel">
 						{{ i18n.reviewDue }}
 					</div>
 				</div>
@@ -49,13 +49,16 @@
 				</div>
 				<div class="pkpListPanelItem--submission__flags">
 					<span v-if="isReviewStage"  class="pkpListPanelItem--submission__flags--reviews">
-						<span class="count">{{ completedReviewsCount }} / {{ currentReviewAssignments.length }}</span>
+						<span :aria-labelledby="reviewsCompletedLabelId" class="count">{{ completedReviewsCount }} / {{ currentReviewAssignments.length }}</span>
+						<span :id="reviewsCompletedLabelId" class="pkp_screen_reader">{{ i18n.reviewsCompleted }}</span>
 					</span>
 					<span v-if="activeStage.files.count" class="pkpListPanelItem--submission__flags--files">
-						<span class="count">{{ activeStage.files.count }}</span>
+						<span :aria-labelledby="filesPreparedLabelId" class="count">{{ activeStage.files.count }}</span>
+						<span :id="filesPreparedLabelId" class="pkp_screen_reader">{{ i18n.filesPrepared }}</span>
 					</span>
 					<span v-if="openQueryCount" class="pkpListPanelItem--submission__flags--discussions">
-						<span class="count">{{ openQueryCount }}</span>
+						<span :aria-labelledby="discussionsLabelId" class="count">{{ openQueryCount }}</span>
+						<span :id="discussionsLabelId" class="pkp_screen_reader">{{ i18n.discussions }}</span>
 					</span>
 				</div>
 			</div>
@@ -340,6 +343,56 @@ export default {
 			}
 
 			return classes.join(' ');
+		},
+
+		/**
+		 * ID attribute to use in aria-labelledby linking the reponse due date
+		 * with it's label
+		 *
+		 * @return string
+		 */
+		responseDueLabelId: function() {
+			return 'responseDueLabel' + this._uid;
+		},
+
+		/**
+		 * ID attribute to use in aria-labelledby linking the review due date
+		 * with it's label
+		 *
+		 * @return string
+		 */
+		reviewDueLabelId: function() {
+			return 'reviewDueLabel' + this._uid;
+		},
+
+		/**
+		 * ID attribute to use in aria-labelledby linking the reviews completed
+		 * icons with their label
+		 *
+		 * @return string
+		 */
+		reviewsCompletedLabelId: function() {
+			return 'reviewsCompletedLabel' + this._uid;
+		},
+
+		/**
+		 * ID attribute to use in aria-labelledby linking the files prepared
+		 * icons with their label
+		 *
+		 * @return string
+		 */
+		filesPreparedLabelId: function() {
+			return 'filesPreparedLabel' + this._uid;
+		},
+
+		/**
+		 * ID attribute to use in aria-labelledby linking the discussion icons
+		 * with their label
+		 *
+		 * @return string
+		 */
+		discussionsLabelId: function() {
+			return 'discussionsLabel' + this._uid;
 		},
 	},
 	methods: {

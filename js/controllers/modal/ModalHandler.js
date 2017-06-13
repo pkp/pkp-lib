@@ -90,7 +90,8 @@
 		draggable: false,
 		resizable: false,
 		position: {my: 'center', at: 'center center-10%', of: window},
-		canClose: true
+		canClose: true,
+		closeCallback: false
 	};
 
 
@@ -251,7 +252,12 @@
 			modalHandler.unbindPartial($modalElement);
 			$modalElement.empty();
 			modalHandler.remove();
+			// Fire a callback function if one has been passed with options
+			if (typeof modalHandler.options.closeCallback === 'function') {
+				modalHandler.options.closeCallback.call();
+			}
 		}, 300);
+
 
 		return false;
 	};

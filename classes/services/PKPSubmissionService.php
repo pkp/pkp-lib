@@ -528,11 +528,8 @@ abstract class PKPSubmissionService {
 				case WORKFLOW_STAGE_ID_PRODUCTION:
 					import('lib.pkp.classes.submission.SubmissionFile'); // Import constants
 					$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
-					$submissionFiles = $submissionFileDao->getAllRevisionsByAssocId(
-						ASSOC_TYPE_WORKFLOW_STAGE,
-						$stageId,
-						SUBMISSION_FILE_REVIEW_REVISION
-					);
+					$fileStageIId = $stageId === WORKFLOW_STAGE_ID_EDITING ? SUBMISSION_FILE_COPYEDIT : SUBMISSION_FILE_PROOF;
+					$submissionFiles = $submissionFileDao->getLatestRevisions($submission->getId(), $fileStageIId);
 					$stage['files'] = array(
 						'count' => count($submissionFiles),
 					);

@@ -672,4 +672,7 @@
 	<message key="submission.list.itemOrdererUp">Increase position of {$itemTitle}</message>
 	<message key="submission.list.itemOrdererDown">Decrease position of {$itemTitle}</message>
 	<message key="submission.list.clearSearch">Clear search phrase</message>
+	<message key="submission.list.reviewsCompleted">Reviews completed</message>
+	<message key="submission.list.filesPrepared">Files prepared</message>
+	<message key="submission.list.discussions">Discussions</message>
 </locale>

@@ -66,7 +66,7 @@
 				<a v-if="currentUserCanDelete" href="#" class="delete" @click.prevent="deleteSubmissionPrompt" @focus="focusItem" @blur="blurItem">
 					{{ i18n.delete }}
 				</a>
-				<a v-if="currentUserCanViewInfoCenter" href="#" @click.prevent="openInfoCenter" @focus="focusItem" @blur="blurItem">
+				<a v-if="currentUserCanViewInfoCenter" class="pkpListPanelItem__openInfoCenter" href="#" @click.prevent="openInfoCenter" @focus="focusItem" @blur="blurItem">
 					{{ i18n.infoCenter }}
 				</a>
 			</div>
@@ -405,11 +405,20 @@ export default {
 			var opts = {
 				title: this.submission.title,
 				url: this.infoUrl.replace('__id__', this.submission.id),
+				closeCallback: this.resetFocusInfoCenter,
 			};
 
 			$('<div id="' + $.pkp.classes.Helper.uuid() + '" ' +
 					'class="pkp_modal pkpModalWrapper" tabindex="-1"></div>')
 				.pkpHandler('$.pkp.controllers.modal.AjaxModalHandler', opts);
+		},
+
+		/**
+		 * Reset the focus on the info center link when the modal has been
+		 * closed. This is a callback function passed into ModalHandler.js
+		 */
+		resetFocusInfoCenter: function() {
+			this.$el.querySelector('.pkpListPanelItem__openInfoCenter').focus();
 		},
 
 		/**

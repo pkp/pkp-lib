@@ -12,8 +12,13 @@
     $(function() {ldelim}
 		// Attach the form handler.
         $('#navigationMenuItemForm').pkpHandler(
-				'$.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsFormHandler');
-    {rdelim});
+				'$.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsFormHandler',
+                {ldelim}
+                    fetchNavigationMenuItemsUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT op="getNavigationMenuItemsWithNoAssocId" escape=false},
+                    navigationMenuItemId: '{$navigationMenuItemId}',
+                    parentNavigationMenuItemId: '{$parentNavigationMenuItemId}',
+                {rdelim});
+        {rdelim});
 
 	{*$(function() {ldelim}
 		// Attach the form handler.
@@ -38,12 +43,17 @@
 		{if $navigationMenuItemId}
 			<input type="hidden" name="navigationMenuItemId" value="{$navigationMenuItemId|escape}" />
 		{/if}
+        
+        <div id="possibleParentNavigationMemuItemsDiv"></div>
+
 		{fbvFormSection title="manager.navigationMenus.form.typeName" for="title" required="true"}
 			{fbvElement type="text" multilingual="true" id="title" value=$title maxlength="255" required="true"}
 		{/fbvFormSection}
         {fbvFormSection title="manager.navigationMenus.form.menuItemPath" for="title" required="true"}
 			{fbvElement type="text" id="path" value=$path maxlength="255" required="true"}
 		{/fbvFormSection}
+
+        {fbvElement type="checkbox" id="enabled" value=1 label="manager.navigationMenus.form.menuItemEnabled" checked=$navigationMenuItemEnabled}
 	{/fbvFormArea}
 	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 	{fbvFormButtons id="navigationMenuItemFormSubmit" submitText="common.save"}

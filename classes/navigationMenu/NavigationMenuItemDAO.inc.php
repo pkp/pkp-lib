@@ -61,6 +61,21 @@ class NavigationMenuItemDAO extends DAO {
 	}
 
 	/**
+	 * Retrieve a navigation menu items without parent by context Id.
+	 * @param $contextId int Context Id
+	 * @return NavigationMenu
+	 */
+	function getWithoutParentByContextId($contextId) {
+		$params = array((int) $contextId);
+		$result = $this->retrieve(
+			'SELECT * FROM navigation_menu_items WHERE context_id = ? and navigation_menu_id=0',
+			$params
+		);
+
+		return new DAOResultFactory($result, $this, '_fromRow');
+	}
+
+	/**
 	 * Retrieve navigation menu items by navigation menu ID.
 	 * @param $navigationMenuId int
 	 * @return int

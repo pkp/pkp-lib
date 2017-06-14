@@ -30,7 +30,7 @@ class NavigationMenuItem extends DataObject {
 	 * @return int
 	 */
 	function getAssocId() {
-		return $this->getData('assocId');
+		return $this->getData('assoc_id');
 	}
 
 	/**
@@ -38,7 +38,7 @@ class NavigationMenuItem extends DataObject {
 	 * @param $assocId int
 	 */
 	function setAssocId($assocId) {
-		$this->setData('assocId', $assocId);
+		$this->setData('assoc_id', $assocId);
 	}
 
 	/**

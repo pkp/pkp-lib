@@ -20,8 +20,11 @@ class NavigationMenuItemsForm extends Form {
 	/** @var $navigationMenuItemId int the ID of the navigationMenuItem */
 	var $navigationMenuItemId;
 
-	/** @var $navigationMenuId int the ID of the navigationMenu that is the parent of the navigationMenuItem */
+	/** @var $navigationMenuIdParent int the ID of the navigationMenu that is the parent of the navigationMenuItem */
 	var $navigationMenuIdParent;
+
+	/** @var $navigationMenuId int the ID of the navigationMenu */
+	var $navigationMenuId;
 
 	/** @var int */
 	var $_contextId;
@@ -86,6 +89,7 @@ class NavigationMenuItemsForm extends Form {
 		$templateMgr->assign('navigationMenus', $navigationMenuOptions);
 		$templateMgr->assign('navigationMenuItemId', $this->navigationMenuItemId);
 		$templateMgr->assign('navigationMenuIdParent', $this->navigationMenuIdParent);
+		$templateMgr->assign('navigationMenuId', $this->navigationMenuId);
 
 		return parent::fetch($request, 'controllers/grid/navigationMenus/form/navigationMenuItemsForm.tpl');
 	}
@@ -101,7 +105,11 @@ class NavigationMenuItemsForm extends Form {
 			$this->_data = array(
 				'navigationMenuId' => $navigationMenuItem->getNavigationMenuId(),
 				'path' => $navigationMenuItem->getPath(),
-				'title' => $navigationMenuItem->getTitle(null)
+				'title' => $navigationMenuItem->getTitle(null),
+				'parentNavigationMenuItemId' => $navigationMenuItem->getAssocId(),
+				'assoc_id' => $navigationMenuItem->getAssocId(),
+				'navigationMenuItemEnabled' => $navigationMenuItem->getEnabled(),
+				'enabled' => $navigationMenuItem->getEnabled(),
 			);
 		} else {
 			$this->navigationMenuItemId = null;
@@ -114,7 +122,7 @@ class NavigationMenuItemsForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('navigationMenuItemId', 'navigationMenuId', 'navigationMenuIdParent', 'title', 'path'));
+		$this->readUserVars(array('navigationMenuItemId', 'navigationMenuId', 'navigationMenuIdParent', 'title', 'path', 'assoc_id', 'enabled'));
 	}
 
 	/**
@@ -135,7 +143,7 @@ class NavigationMenuItemsForm extends Form {
 		$navigationMenuItem->setTitle($this->getData('title'), null); // Localized
 		$navigationMenuItem->setSequence($navigationMenuItem->getSequence());
 		$navigationMenuItem->setDefaultMenu($navigationMenuItem->getDefaultMenu());
-		$navigationMenuItem->setEnabled($navigationMenuItem->getEnabled());
+		$navigationMenuItem->setEnabled($this->getData('enabled'));
 		$navigationMenuItem->setContextId($this->getContextId());
 
 		// Update or insert navigation menu item

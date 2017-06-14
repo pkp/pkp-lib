@@ -11,7 +11,7 @@
  * @ingroup navigationMenuItem
  * @see NavigationMenuItem
  *
- * @brief Operations for retrieving and modifying NavigationMenuItem objects.
+ * @brief Operations for retrieving and modifying NavigationMenuItem objects. NMI = NavigationMenuItem
  */
 
 import('lib.pkp.classes.navigationMenu.NavigationMenu');
@@ -84,6 +84,21 @@ class NavigationMenuItemDAO extends DAO {
 		$params = array((int) $navigationMenuId);
 		$result = $this->retrieve(
 			'SELECT	* FROM navigation_menu_items WHERE navigation_menu_id = ? order by seq',
+			$params
+		);
+
+		return new DAOResultFactory($result, $this, '_fromRow');
+	}
+
+	/**
+	 * Retrieve possible parents of a navigation menu item (other navigation menu Items) by navigation menu ID.
+	 * @param $navigationMenuId int
+	 * @return int
+	 */
+	function getPossibleParrentNMIByNavigationMenuId($navigationMenuId, $navigationMenuItemId) {
+		$params = array((int) $navigationMenuId, (int) $navigationMenuItemId);
+		$result = $this->retrieve(
+			'SELECT	* FROM navigation_menu_items WHERE navigation_menu_id = ? and navigation_menu_item_id <> ? order by seq',
 			$params
 		);
 

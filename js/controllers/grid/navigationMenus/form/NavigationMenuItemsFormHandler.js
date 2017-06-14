@@ -31,17 +31,26 @@
 	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsFormHandler =
 			function ($form, options) {
 
-		this.parent($form, options);
+				this.parent($form, options);
 
-		alert("bla");
-		//// Save the preview URL for later
-		//this.previewUrl_ = options.previewUrl;
+				this.fetchNavigationMenuItemsUrl_ = options.fetchNavigationMenuItemsUrl;
+				this.navigationMenuItemId_ = options.navigationMenuItemId;
+				this.parentNavigationMenuItemId_ = options.parentNavigationMenuItemId;
 
-		//// bind a handler to make sure we update the required state
-		//// of the comments field.
-		//$('#previewButton', $formElement).click(this.callbackWrapper(
-		//		this.showPreview_));
-	};
+				var that = this;
+				$("#navigationMenuId").change(function () {
+					if ($(this).val() == 0) {
+						$('#possibleParentNavigationMemuItemsDiv').hide();
+					} else {
+						$('#possibleParentNavigationMemuItemsDiv').html("<span id='possibleParentNavigationMemuItems-loading-span' class='possibleParentNavigationMemuItems-loading-span-class'>loading...</span>");
+						$('#possibleParentNavigationMemuItemsDiv').show();
+						$.get(that.fetchNavigationMenuItemsUrl_, { navigationMenuIdParent: $(this).val(), navigationMenuItemId: that.navigationMenuItemId_, parentNavigationMenuItemId: that.parentNavigationMenuItemId_ }, that.callbackWrapper(that.setNavigationMenuItemsList_), 'json');
+					}
+					
+				});
+				
+				$("#navigationMenuId").trigger("change");
+			};
 
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsFormHandler,
@@ -52,17 +61,41 @@
 	// Private properties
 	//
 	/**
-	 * The preview url.
+	 * The URL to be called to fetch a list of navigationMenuItems.
 	 * @private
-	 * @type {?string}
+	 * @type {string}
 	 */
-	//$.pkp.controllers.form.staticPages.StaticPageFormHandler.prototype.
-	//		previewUrl_ = null;
+	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsFormHandler.
+			prototype.fetchNavigationMenuItemsUrl_ = '';
 
+	/**
+	 * The id of the navigationMenuItem
+	 * @private
+	 * @type {string}
+	 */
+	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsFormHandler.
+			prototype.navigationMenuItemId_ = '';
+
+	/**
+	 * The id of the parent navigationMenuItem
+	 * @private
+	 * @type {string}
+	 */
+	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsFormHandler.
+			prototype.parentNavigationMenuItemId_ = '';
 
 	//
 	// Private methods.
 	//
+	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsFormHandler.
+			prototype.setNavigationMenuItemsList_ = function (formElement, jsonData) {
+
+				var processedJsonData = this.handleJson(jsonData);
+
+				$('#possibleParentNavigationMemuItemsDiv').replaceWith(processedJsonData.content);
+				$('#possibleParentNavigationMemuItemsDiv').show();
+			};
+
 	/**
 	 * Callback triggered on clicking the "preview" button to open a preview window.
 	 *

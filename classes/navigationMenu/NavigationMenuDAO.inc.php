@@ -183,7 +183,7 @@ class NavigationMenuDAO extends DAO {
 		$navigationMenu->setContextId($row['context_id']);
 		$navigationMenu->setSeq($row['seq']);
 		$navigationMenu->setAssocId($row['assoc_id']);
-		$navigationMenu->setDefault($row['default']);
+		$navigationMenu->setDefaultMenu($row['defaultMenu']);
 		$navigationMenu->setEnabled($row['enabled']);
 
 		//$this->getDataObjectSettings('announcement_type_settings', 'type_id', $row['type_id'], $announcementType);

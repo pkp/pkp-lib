@@ -45,7 +45,7 @@ class NavigationMenuItem extends DataObject {
 	 * Get seq for this navigation menu item.
 	 * @return int
 	 */
-	function getSeq() {
+	function getSequence() {
 		return $this->getData('seq');
 	}
 
@@ -53,7 +53,7 @@ class NavigationMenuItem extends DataObject {
 	 * Set seq for this navigation menu item.
 	 * @param $seq int
 	 */
-	function setSeq($seq) {
+	function setSequence($seq) {
 		$this->setData('seq', $seq);
 	}
 

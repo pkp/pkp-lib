@@ -83,7 +83,7 @@ class NavigationMenuItemDAO extends DAO {
 	function getByNavigationMenuId($navigationMenuId) {
 		$params = array((int) $navigationMenuId);
 		$result = $this->retrieve(
-			'SELECT	* FROM navigation_menu_items WHERE navigation_menu_id = ? order by seq',
+			'SELECT	* FROM navigation_menu_items WHERE navigation_menu_id = ? order by enabled desc, seq',
 			$params
 		);
 
@@ -98,7 +98,7 @@ class NavigationMenuItemDAO extends DAO {
 	function getPossibleParrentNMIByNavigationMenuId($navigationMenuId, $navigationMenuItemId) {
 		$params = array((int) $navigationMenuId, (int) $navigationMenuItemId);
 		$result = $this->retrieve(
-			'SELECT	* FROM navigation_menu_items WHERE navigation_menu_id = ? and navigation_menu_item_id <> ? order by seq',
+			'SELECT	* FROM navigation_menu_items WHERE navigation_menu_id = ? and navigation_menu_item_id <> ? and enabled = 1 order by seq',
 			$params
 		);
 
@@ -134,6 +134,7 @@ class NavigationMenuItemDAO extends DAO {
 		$navigationMenuItem->setSequence($row['seq']);
 		$navigationMenuItem->setPath($row['path']);
 		$navigationMenuItem->setContextId($row['context_id']);
+		$navigationMenuItem->setEnabled($row['enabled']);
 
 		$this->getDataObjectSettings('navigation_menu_item_settings', 'navigation_menu_item_id', $row['navigation_menu_item_id'], $navigationMenuItem);
 

@@ -107,9 +107,7 @@ class NavigationMenuItemsForm extends Form {
 				'path' => $navigationMenuItem->getPath(),
 				'title' => $navigationMenuItem->getTitle(null),
 				'parentNavigationMenuItemId' => $navigationMenuItem->getAssocId(),
-				'assoc_id' => $navigationMenuItem->getAssocId(),
 				'navigationMenuItemEnabled' => $navigationMenuItem->getEnabled(),
-				'enabled' => $navigationMenuItem->getEnabled(),
 			);
 		} else {
 			$this->navigationMenuItemId = null;

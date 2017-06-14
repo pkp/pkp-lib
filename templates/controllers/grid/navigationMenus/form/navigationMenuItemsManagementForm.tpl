@@ -9,6 +9,6 @@
  *
  *}
 
-{url|assign:blockPluginsUrl router=$smarty.const.ROUTE_COMPONENT component="listbuilder.navigationMenus.NavigationMenuItemsListbuilderHandler" navigationMenuId=$navigationMenuId op="fetch" escape=false}
-{load_url_in_div id="blockPluginsContainer" url=$blockPluginsUrl}
+{url|assign:navigationMenuItemsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.navigationMenus.NavigationMenuItemsGridHandler" navigationMenuIdParent=$navigationMenuIdParent op="fetchGrid" escape=false}
+{load_url_in_div id="navigationMenuItemsGridContainer" url=$navigationMenuItemsGridUrl}
 

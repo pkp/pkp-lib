@@ -228,9 +228,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->logIn($username, $password);
 		$this->waitForElementPresent('css=#dashboardTabs');
 		$this->click('css=[name=active]');
-		$this->waitForElementPresent('css=[id^=component-grid-submissions-activesubmissions-activesubmissionslistgrid-]');
-		$this->scrollPageDown();
-		$xpath = '//span[contains(text(),' . $this->quoteXpath($title) .')]/../../..//a[contains(@id, "-stage-itemWorkflow-button-")]';
+		$xpath = '//div[contains(text(),' . $this->quoteXPath($title) . ')]';
 		$this->waitForElementPresent($xpath);
 		$this->click($xpath);
 	}

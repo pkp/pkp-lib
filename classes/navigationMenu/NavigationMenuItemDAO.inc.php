@@ -83,7 +83,7 @@ class NavigationMenuItemDAO extends DAO {
 	function getByNavigationMenuId($navigationMenuId) {
 		$params = array((int) $navigationMenuId);
 		$result = $this->retrieve(
-			'SELECT	* FROM navigation_menu_items WHERE navigation_menu_id = ?',
+			'SELECT	* FROM navigation_menu_items WHERE navigation_menu_id = ? order by seq',
 			$params
 		);
 
@@ -116,7 +116,7 @@ class NavigationMenuItemDAO extends DAO {
 		$navigationMenuItem->setId($row['navigation_menu_item_id']);
 		$navigationMenuItem->setNavigationMenuId($row['navigation_menu_id']);
 		$navigationMenuItem->setAssocId($row['assoc_id']);
-		$navigationMenuItem->setSeq($row['seq']);
+		$navigationMenuItem->setSequence($row['seq']);
 		$navigationMenuItem->setPath($row['path']);
 		$navigationMenuItem->setContextId($row['context_id']);
 
@@ -148,7 +148,7 @@ class NavigationMenuItemDAO extends DAO {
 				(?, ?, ?, ?, ?, ?, ?)',
 			array(
 				(int) $navigationMenuItem->getNavigationMenuId(),
-				(int) $navigationMenuItem->getSeq(),
+				(int) $navigationMenuItem->getSequence(),
 				(int) $navigationMenuItem->getAssocId(),
 				$navigationMenuItem->getPath(),
 				(int) $navigationMenuItem->getDefaultMenu(),
@@ -180,7 +180,7 @@ class NavigationMenuItemDAO extends DAO {
 				WHERE navigation_menu_item_id = ?',
 			array(
 				(int) $navigationMenuItem->getNavigationMenuId(),
-				(int) $navigationMenuItem->getSeq(),
+				(int) $navigationMenuItem->getSequence(),
 				(int) $navigationMenuItem->getAssocId(),
 				$navigationMenuItem->getPath(),
 				(int) $navigationMenuItem->getDefaultMenu(),

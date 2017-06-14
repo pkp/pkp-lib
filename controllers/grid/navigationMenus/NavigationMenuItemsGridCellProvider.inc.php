@@ -16,6 +16,8 @@
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
 class NavigationMenuItemsGridCellProvider extends GridCellProvider {
+	/** @var int the ID of the parent navigationMenuId */
+	var $navigationMenuIdParent;
 
 	/**
 	 * Constructor
@@ -32,7 +34,17 @@ class NavigationMenuItemsGridCellProvider extends GridCellProvider {
 			case 'title':
 				$navigationMenuItem = $row->getData();
 				$router = $request->getRouter();
-				$actionArgs = array('navigationMenuItemId' => $row->getId());
+
+				if ($request->getUserVar('rowId')){
+					$this->navigationMenuIdParent = $request->getUserVar('rowId')['parentElementId'];
+				} else {
+					$this->navigationMenuIdParent = $request->getUserVar('navigationMenuIdParent');
+				}
+
+				$actionArgs = array(
+					'navigationMenuItemId' => $row->getId(),
+					'navigationMenuIdParent' => $this->navigationMenuIdParent
+				);
 
 				import('lib.pkp.classes.linkAction.request.AjaxModal');
 				return array(new LinkAction(

@@ -17,6 +17,9 @@ import('lib.pkp.classes.controllers.grid.GridRow');
 import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 
 class NavigationMenuItemsGridRow extends GridRow {
+	/** @var int the ID of the parent navigationMenuId */
+	var $navigationMenuIdParent;
+
 	/**
 	 * Constructor
 	 */
@@ -40,11 +43,18 @@ class NavigationMenuItemsGridRow extends GridRow {
 
 		$rowId = $this->getId();
 
+		if ($request->getUserVar('rowId')){
+			$this->navigationMenuIdParent = $request->getUserVar('rowId')['parentElementId'];
+		} else {
+			$this->navigationMenuIdParent = $request->getUserVar('navigationMenuIdParent');
+		}
+
 		if (!empty($rowId) && is_numeric($rowId)) {
 			// Only add row actions if this is an existing row
 			$router = $request->getRouter();
 			$actionArgs = array(
-				'navigationMenuItemId' => $rowId
+				'navigationMenuItemId' => $rowId,
+				'navigationMenuIdParent' => $this->navigationMenuIdParent
 			);
 			$this->addAction(
 				new LinkAction(

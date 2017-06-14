@@ -18,6 +18,9 @@ import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 import('lib.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
 
 class NavigationMenuItemsGridHandler extends GridHandler {
+	/** @var int the ID of the parent navigationMenuId */
+	var $navigationMenuIdParent;
+
 	/**
 	 * Constructor
 	 */
@@ -29,11 +32,10 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 				'fetchGrid', 'fetchRow',
 				'addNavigationMenuItem', 'editNavigationMenuItem',
 				'updateNavigationMenuItem',
-				'deleteNavigationMenuItem'
+				'deleteNavigationMenuItem', 'saveSequence'
 			)
 		);
 	}
-
 
 	//
 	// Overridden template methods
@@ -42,8 +44,10 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 	 * @copydoc GridHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
-		import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
-		$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+		import('lib.pkp.classes.security.authorization.internal.NavigationMenuRequiredPolicy');
+		$this->addPolicy(new NavigationMenuRequiredPolicy($request, $args, 'navigationMenuIdParent'));
+		//import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
+		//$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 		$context = $request->getContext();
 
 		$navigationMenuItemId = $request->getUserVar('navigationMenuItemId');
@@ -56,6 +60,16 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 		}
 		return parent::authorize($request, $args, $roleAssignments);
 	}
+
+	/**
+	 * @copydoc GridHandler::addFeatures()
+	 */
+	function initFeatures($request, $args) {
+		import('lib.pkp.classes.controllers.grid.feature.OrderGridItemsFeature');
+		return array(new OrderGridItemsFeature());
+	}
+
+
 
 	/**
 	 * @copydoc GridHandler::initialize()
@@ -97,11 +111,17 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 		$router = $request->getRouter();
 
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
+
+		$navigationMenu = $this->getAuthorizedContextObject(ASSOC_TYPE_NAVIGATION_MENU);
+		$actionArgs = array(
+			'navigationMenuIdParent' => $navigationMenu->getId()
+		);
+
 		$this->addAction(
 			new LinkAction(
 				'addNavigationMenuItem',
 				new AjaxModal(
-					$router->url($request, null, null, 'addNavigationMenuItem', null, null),
+					$router->url($request, null, null, 'addNavigationMenuItem', null, $actionArgs),
 					__('grid.action.addNavigationMenuItem'),
 					'modal_add_item',
 					true
@@ -116,9 +136,13 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 	 * @copydoc GridHandler::loadData()
 	 */
 	protected function loadData($request, $filter) {
-		$context = $request->getContext();
+		$navigationMenu = $this->getAuthorizedContextObject(ASSOC_TYPE_NAVIGATION_MENU);
+
+		//$context = $request->getContext();
+		//$contextId = $context->getId();
+
 		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
-		return $navigationMenuItemDao->getByContextId($context->getId());
+		return $navigationMenuItemDao->getByNavigationMenuId($navigationMenu->getId());
 	}
 
 	/**
@@ -127,6 +151,34 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 	protected function getRowInstance() {
 		import('lib.pkp.controllers.grid.navigationMenus.NavigationMenuItemsGridRow');
 		return new NavigationMenuItemsGridRow();
+	}
+
+	/**
+	 * @copydoc GridDataProvider::getRequestArgs()
+	 */
+	function getRequestArgs() {
+		$navigationMenu = $this->getAuthorizedContextObject(ASSOC_TYPE_NAVIGATION_MENU);
+		return array_merge(
+			parent::getRequestArgs(),
+			array('navigationMenuIdParent' => $navigationMenu->getId())
+		);
+	}
+
+	/**
+	 * @copydoc GridHandler::getDataElementSequence()
+	 */
+	function getDataElementSequence($gridDataElement) {
+		return $gridDataElement->getSequence();
+	}
+
+	/**
+	 * @copydoc GridHandler::setDataElementSequence()
+	 */
+	function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence) {
+		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+		$navigationMenuItem = $navigationMenuItemDao->getById($rowId);
+		$navigationMenuItem->setSequence($newSequence);
+		$navigationMenuItemDao->updateObject($navigationMenuItem);
 	}
 
 	//
@@ -141,11 +193,12 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 	function updateNavigationMenuItem($args, $request) {
 		$navigationMenuItemId = (int)$request->getUserVar('navigationMenuItemId');
 		$navigationMenuId = (int)$request->getUserVar('navigationMenuId');
+		$navigationMenuIdParent = (int)$request->getUserVar('navigationMenuIdParent');
 		$context = $request->getContext();
 		$contextId = $context->getId();
 
 		import('lib.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
-		$navigationMenuItemForm = new NavigationMenuItemsForm($contextId, $navigationMenuItemId, true);
+		$navigationMenuItemForm = new NavigationMenuItemsForm($contextId, $navigationMenuItemId, $navigationMenuIdParent);
 
 		$navigationMenuItemForm->readInputData();
 
@@ -166,7 +219,7 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 			$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __($notificationLocaleKey)));
 
 			// Prepare the grid row data.
-			return DAO::getDataChangedEvent($navigationMenuItemId);
+			return DAO::getDataChangedEvent($navigationMenuItemId, $navigationMenuIdParent);
 		} else {
 			return new JSONMessage(false);
 		}
@@ -180,10 +233,11 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 	 */
 	function editNavigationMenuItem($args, $request) {
 		$navigationMenuItemId = (int) $request->getUserVar('navigationMenuItemId');
+		$navigationMenuIdParent = (int) $request->getUserVar('navigationMenuIdParent');
 		$context = $request->getContext();
 		$contextId = $context->getId();
 
-		$navigationMenuItemForm = new NavigationMenuItemsForm($contextId, $navigationMenuItemId);
+		$navigationMenuItemForm = new NavigationMenuItemsForm($contextId, $navigationMenuItemId, $navigationMenuIdParent);
 		$navigationMenuItemForm->initData($args, $request);
 
 		return new JSONMessage(true, $navigationMenuItemForm->fetch($request));
@@ -197,15 +251,43 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 	 */
 	function addNavigationMenuItem($args, $request) {
 		$navigationMenuItemId = (int)$request->getUserVar('navigationMenuItemId');
+		$navigationMenuIdParent = (int)$request->getUserVar('navigationMenuIdParent');
 		$context = $request->getContext();
 		$contextId = $context->getId();
 
 		import('lib.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
-		$navigationMenuItemForm = new NavigationMenuItemsForm($contextId, $navigationMenuItemId, true);
+		$navigationMenuItemForm = new NavigationMenuItemsForm($contextId, $navigationMenuItemId, $navigationMenuIdParent);
 
 		$navigationMenuItemForm->initData($args, $request);
 
 		return new JSONMessage(true, $navigationMenuItemForm->fetch($request));
+	}
+
+	/**
+	 * Delete a navigation Menu item.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
+	function deleteNavigationMenuItem($args, $request) {
+		$navigationMenuItemId = (int) $request->getUserVar('navigationMenuItemId');
+		$navigationMenuIdParent = (int) $request->getUserVar('navigationMenuIdParent');
+		$context = $request->getContext();
+
+		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+		$navigationMenuItem = $navigationMenuItemDao->getById($navigationMenuItemId, $context->getId());
+		if ($navigationMenuItem && $request->checkCSRF()) {
+			$navigationMenuItemDao->deleteObject($navigationMenuItem);
+
+			// Create notification.
+			$notificationManager = new NotificationManager();
+			$user = $request->getUser();
+			$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedNavigationMenuItem')));
+
+			return DAO::getDataChangedEvent($navigationMenuItemId, $navigationMenuIdParent);
+		}
+
+		return new JSONMessage(false);
 	}
 }
 

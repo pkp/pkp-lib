@@ -20,6 +20,9 @@ class NavigationMenuItemsForm extends Form {
 	/** @var $navigationMenuItemId int the ID of the navigationMenuItem */
 	var $navigationMenuItemId;
 
+	/** @var $navigationMenuId int the ID of the navigationMenu that is the parent of the navigationMenuItem */
+	var $navigationMenuIdParent;
+
 	/** @var int */
 	var $_contextId;
 
@@ -27,10 +30,12 @@ class NavigationMenuItemsForm extends Form {
 	 * Constructor
 	 * @param $contextId int
 	 * @param $navigationMenuItemId int
+	 * @param $navigationMenuIdParent int
 	 */
-	function __construct($contextId, $navigationMenuItemId) {
+	function __construct($contextId, $navigationMenuItemId, $navigationMenuIdParent) {
 		$this->_contextId = $contextId;
 		$this->navigationMenuItemId = $navigationMenuItemId;
+		$this->navigationMenuIdParent = $navigationMenuIdParent;
 
 		parent::__construct('manager/navigationMenus/navigationMenuItemsForm.tpl');
 
@@ -80,6 +85,7 @@ class NavigationMenuItemsForm extends Form {
 		}
 		$templateMgr->assign('navigationMenus', $navigationMenuOptions);
 		$templateMgr->assign('navigationMenuItemId', $this->navigationMenuItemId);
+		$templateMgr->assign('navigationMenuIdParent', $this->navigationMenuIdParent);
 
 		return parent::fetch($request, 'controllers/grid/navigationMenus/form/navigationMenuItemsForm.tpl');
 	}
@@ -108,7 +114,7 @@ class NavigationMenuItemsForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('navigationMenuItemId', 'navigationMenuId', 'title', 'path'));
+		$this->readUserVars(array('navigationMenuItemId', 'navigationMenuId', 'navigationMenuIdParent', 'title', 'path'));
 	}
 
 	/**
@@ -127,9 +133,9 @@ class NavigationMenuItemsForm extends Form {
 		$navigationMenuItem->setPath($this->getData('path'));
 		$navigationMenuItem->setAssocId($this->getData('assoc_id'));
 		$navigationMenuItem->setTitle($this->getData('title'), null); // Localized
-		$navigationMenuItem->setSeq(0);
-		$navigationMenuItem->setDefaultMenu(0);
-		$navigationMenuItem->setEnabled(1);
+		$navigationMenuItem->setSequence($navigationMenuItem->getSequence());
+		$navigationMenuItem->setDefaultMenu($navigationMenuItem->getDefaultMenu());
+		$navigationMenuItem->setEnabled($navigationMenuItem->getEnabled());
 		$navigationMenuItem->setContextId($this->getContextId());
 
 		// Update or insert navigation menu item

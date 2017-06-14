@@ -23,8 +23,10 @@ class NavigationMenuItemsGridRow extends GridRow {
 	/**
 	 * Constructor
 	 */
-	function __construct() {
+	function __construct($navigationMenuIdParent) {
 		parent::__construct();
+
+		$this->navigationMenuIdParent = $navigationMenuIdParent;
 	}
 
 
@@ -42,12 +44,6 @@ class NavigationMenuItemsGridRow extends GridRow {
 		assert(is_a($element, 'NavigationMenuItem'));
 
 		$rowId = $this->getId();
-
-		if ($request->getUserVar('rowId')){
-			$this->navigationMenuIdParent = $request->getUserVar('rowId')['parentElementId'];
-		} else {
-			$this->navigationMenuIdParent = $request->getUserVar('navigationMenuIdParent');
-		}
 
 		if (!empty($rowId) && is_numeric($rowId)) {
 			// Only add row actions if this is an existing row

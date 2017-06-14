@@ -46,8 +46,6 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.internal.NavigationMenuRequiredPolicy');
 		$this->addPolicy(new NavigationMenuRequiredPolicy($request, $args, 'navigationMenuIdParent'));
-		//import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
-		//$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 		$context = $request->getContext();
 
 		$navigationMenuItemId = $request->getUserVar('navigationMenuItemId');
@@ -149,8 +147,11 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 	 * @copydoc GridHandler::getRowInstance()
 	 */
 	protected function getRowInstance() {
+		$navigationMenu = $this->getAuthorizedContextObject(ASSOC_TYPE_NAVIGATION_MENU);
+
 		import('lib.pkp.controllers.grid.navigationMenus.NavigationMenuItemsGridRow');
-		return new NavigationMenuItemsGridRow();
+		return new NavigationMenuItemsGridRow($navigationMenu->getId());
+
 	}
 
 	/**
@@ -219,7 +220,7 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 			$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __($notificationLocaleKey)));
 
 			// Prepare the grid row data.
-			return DAO::getDataChangedEvent($navigationMenuItemId, $navigationMenuIdParent);
+			return DAO::getDataChangedEvent($navigationMenuItemId);
 		} else {
 			return new JSONMessage(false);
 		}
@@ -271,7 +272,7 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 	 */
 	function deleteNavigationMenuItem($args, $request) {
 		$navigationMenuItemId = (int) $request->getUserVar('navigationMenuItemId');
-		$navigationMenuIdParent = (int) $request->getUserVar('navigationMenuIdParent');
+		//$navigationMenuIdParent = (int) $request->getUserVar('navigationMenuIdParent');
 		$context = $request->getContext();
 
 		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
@@ -284,7 +285,7 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 			$user = $request->getUser();
 			$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedNavigationMenuItem')));
 
-			return DAO::getDataChangedEvent($navigationMenuItemId, $navigationMenuIdParent);
+			return DAO::getDataChangedEvent($navigationMenuItemId);
 		}
 
 		return new JSONMessage(false);

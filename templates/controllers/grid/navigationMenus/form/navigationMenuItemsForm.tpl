@@ -21,8 +21,7 @@
 	{rdelim});*}
 </script>
 
-{*<form class="pkp_form" id="navigationMenuItemForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.navigationMenus.NavigationMenuItemsGridHandler" op="updateNavigationMenuItem"}">*}
-<form class="pkp_form" id="navigationMenuItemForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="listbuilder.navigationMenus.NavigationMenuItemsListbuilderHandler" op="updateNavigationMenuItem"}">
+<form class="pkp_form" id="navigationMenuItemForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.navigationMenus.NavigationMenuItemsGridHandler" navigationMenuIdParent=$navigationMenuIdParent op="updateNavigationMenuItem"}">
 	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="navigationMenuItemFormNotification"}
 	{fbvFormArea id="navigationMenuItemInfo"}
@@ -30,7 +29,11 @@
 			<input type="hidden" name="navigationMenuItemId" value="{$navigationMenuItemId|escape}" />
 		{/if}
         {if $navigationMenus}
-			{fbvElement type="select" id="navigationMenuId" required="true" from=$navigationMenus selected=$navigationMenuId label="manager.navigationMenus.form.navigationMenuTitle" translate=false}
+            {if $navigationMenuId != 0}
+			    {fbvElement type="select" id="navigationMenuId" required="true" from=$navigationMenus selected=$navigationMenuId label="manager.navigationMenus.form.navigationMenuTitle" translate=false}
+            {else}
+                {fbvElement type="select" id="navigationMenuId" required="true" from=$navigationMenus selected=$navigationMenuIdParent label="manager.navigationMenus.form.navigationMenuTitle" translate=false}
+            {/if}
 		{/if}
 		{if $navigationMenuItemId}
 			<input type="hidden" name="navigationMenuItemId" value="{$navigationMenuItemId|escape}" />

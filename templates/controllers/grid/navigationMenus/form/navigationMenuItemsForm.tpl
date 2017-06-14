@@ -33,6 +33,10 @@
         {if $navigationMenuItemId}
 			<input type="hidden" name="navigationMenuItemId" value="{$navigationMenuItemId|escape}" />
 		{/if}
+        {fbvFormSection list="false"}
+	        {fbvElement type="checkbox" id="enabled" value=1 label="manager.navigationMenus.form.menuItemEnabled" checked=$navigationMenuItemEnabled}
+        {/fbvFormSection}
+
         {if $navigationMenus}
             {if $navigationMenuId != 0}
 			    {fbvElement type="select" id="navigationMenuId" required="true" from=$navigationMenus selected=$navigationMenuId label="manager.navigationMenus.form.navigationMenuTitle" translate=false}
@@ -52,8 +56,6 @@
         {fbvFormSection title="manager.navigationMenus.form.menuItemPath" for="title" required="true"}
 			{fbvElement type="text" id="path" value=$path maxlength="255" required="true"}
 		{/fbvFormSection}
-
-        {fbvElement type="checkbox" id="enabled" value=1 label="manager.navigationMenus.form.menuItemEnabled" checked=$navigationMenuItemEnabled}
 	{/fbvFormArea}
 	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 	{fbvFormButtons id="navigationMenuItemFormSubmit" submitText="common.save"}

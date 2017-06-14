@@ -72,7 +72,7 @@ class NavigationMenusGridRow extends GridRow {
 					'add')
 			);
 
-			if (!$element->getDefault()) {
+			if (!$element->getDefaultMenu()) {
 				$this->addAction(
 				new LinkAction(
 					'remove',

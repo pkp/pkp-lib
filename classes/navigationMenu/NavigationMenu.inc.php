@@ -50,16 +50,16 @@ class NavigationMenu extends DataObject {
 	 * Get the announcement type of the announcement.
 	 * @return int
 	 */
-	function getDefault() {
-	    return $this->getData('default');
+	function getDefaultMenu() {
+	    return $this->getData('defaultMenu');
 	}
 
 	/**
 	 * Set the announcement type of the announcement.
 	 * @param $navigationMenuId int
 	 */
-	function setDefault($default) {
-	    $this->setData('default', $default);
+	function setDefaultMenu($default) {
+	    $this->setData('defaultMenu', $default);
 	}
 
 	/**

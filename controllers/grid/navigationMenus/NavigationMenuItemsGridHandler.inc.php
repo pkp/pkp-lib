@@ -140,6 +140,7 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 	 */
 	function updateNavigationMenuItem($args, $request) {
 		$navigationMenuItemId = (int)$request->getUserVar('navigationMenuItemId');
+		$navigationMenuId = (int)$request->getUserVar('navigationMenuId');
 		$context = $request->getContext();
 		$contextId = $context->getId();
 

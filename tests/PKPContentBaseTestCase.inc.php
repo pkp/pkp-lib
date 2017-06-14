@@ -314,8 +314,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 
 		// Use an xpath concat to permit apostrophes to appear in titles
 		// http://kushalm.com/the-perils-of-xpath-expressions-specifically-escaping-quotes
-		$this->scrollGridDown('assignedSubmissionsListGridContainer');
-		$xpath = '//span[contains(text(),' . $this->quoteXpath($title) .')]/../../..//a[contains(@id, "-stage-itemWorkflow-button-")]';
+		$xpath = '//div[contains(text(),' . $this->quoteXPath($title) . ')]';
 		$this->waitForElementPresent($xpath);
 		$this->click($xpath);
 

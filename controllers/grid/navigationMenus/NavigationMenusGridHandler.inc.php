@@ -15,7 +15,8 @@
 
 import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.controllers.grid.navigationMenus.form.NavigationMenuForm');
-import('lib.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
+//import('lib.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
+import('lib.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsManagementForm');
 
 class NavigationMenusGridHandler extends GridHandler {
 	/**
@@ -231,10 +232,10 @@ class NavigationMenusGridHandler extends GridHandler {
 		$context = $request->getContext();
 		$contextId = $context->getId();
 
-		$navigationMenuItemsForm = new NavigationMenuItemsForm($contextId, $navigationMenuId);
-		$navigationMenuItemsForm->initData($args, $request);
+		$navigationMenuItemsManagementForm = new NavigationMenuItemsManagementForm($contextId, $navigationMenuId);
+		$navigationMenuItemsManagementForm->initData($args, $request);
 
-		return new JSONMessage(true, $navigationMenuItemsForm->fetch($request));
+		return new JSONMessage(true, $navigationMenuItemsManagementForm->fetch($request));
 	}
 }
 

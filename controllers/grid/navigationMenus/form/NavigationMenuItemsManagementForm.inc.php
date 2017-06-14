@@ -17,8 +17,8 @@
 import('lib.pkp.classes.form.Form');
 
 class NavigationMenuItemsManagementForm extends Form {
-	/** @var $navigationMenuId int the ID of the navigationMenu */
-	var $navigationMenuId;
+	/** @var $navigationMenuIdParent int the ID of the parent navigationMenu */
+	var $navigationMenuIdParent;
 
 	/** @var int */
 	var $_contextId;
@@ -28,9 +28,9 @@ class NavigationMenuItemsManagementForm extends Form {
 	 * @param $contextId int
 	 * @param $navigationMenuId int
 	 */
-	function __construct($contextId, $navigationMenuId) {
+	function __construct($contextId, $navigationMenuIdParent) {
 		$this->_contextId = $contextId;
-		$this->navigationMenuId = $navigationMenuId;
+		$this->navigationMenuIdParent = $navigationMenuIdParent;
 
 		parent::__construct('manager/navigationMenus/navigationMenuItemsManagementForm.tpl');
 
@@ -80,7 +80,7 @@ class NavigationMenuItemsManagementForm extends Form {
 		}
 		$templateMgr->assign('navigationMenus', $navigationMenuOptions);
 		$templateMgr->assign('navigationMenuItemId', $this->navigationMenuItemId);
-		$templateMgr->assign('navigationMenuId', $this->navigationMenuId);
+		$templateMgr->assign('navigationMenuIdParent', $this->navigationMenuIdParent);
 
 		return parent::fetch($request, 'controllers/grid/navigationMenus/form/navigationMenuItemsManagementForm.tpl');
 	}

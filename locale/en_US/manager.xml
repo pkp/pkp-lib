@@ -531,4 +531,13 @@
 	<message key="plugins.importexport.common.error.duplicateRevisionForSubmission">The revision "{$revisionId}" for submission file "{$fileId}" would create a duplicate record</message>
 	<!-- native importexport keys -->
 	<message key="plugins.importexport.native.error.submissionFileImportFailed">The submission file could not be imported</message>
+
+	<!-- Navigation Menus -->
+	<message key="manager.navigationMenus.form.title">Title</message>
+	<message key="manager.navigationMenus.form.path">Path</message>
+	<message key="manager.navigationMenus.form.navigationMenuRequired">A selected navigation menu is required</message>
+	<message key="manager.navigationMenus">Navigation Menus</message>
+	<message key="manager.navigationMenus.form.menuItemEnabled">Enabled</message>
+	<message key="manager.navigationMenus.form.parentNavigationMenu">Select Parent navigation Menu</message>
+	<message key="manager.navigationMenus.form.parentNavigationMenuItem">Select Parent navigation Menu item</message>
 </locale>

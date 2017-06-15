@@ -9,5 +9,5 @@
  *}
 
 <div id="possibleParentNavigationMemuItemsDiv">
-    {fbvElement type="select" id="assoc_id" from=$navigationMenuItems selected=$parentNavigationMenuItemId label="manager.navigationMenus.form.navigationMenuItemsTitle" translate=false}
+    {fbvElement type="select" id="assoc_id" from=$navigationMenuItems selected=$parentNavigationMenuItemId label="manager.navigationMenus.form.parentNavigationMenuItem" translate=false}
 </div>

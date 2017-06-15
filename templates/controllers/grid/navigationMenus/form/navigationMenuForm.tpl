@@ -22,7 +22,7 @@
 		{if $navigationMenuId}
 			<input type="hidden" name="navigationMenuId" value="{$navigationMenuId|escape}" />
 		{/if}
-		{fbvFormSection title="manager.navigationMenus.form.typeName" for="title" required="true"}
+		{fbvFormSection title="manager.navigationMenus.form.title" for="title" required="true"}
 			{fbvElement type="text" id="title" value=$title maxlength="255" required="true"}
 		{/fbvFormSection}
 	{/fbvFormArea}

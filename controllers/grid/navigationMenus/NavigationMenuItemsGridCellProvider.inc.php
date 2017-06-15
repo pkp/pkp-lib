@@ -56,6 +56,7 @@ class NavigationMenuItemsGridCellProvider extends GridCellProvider {
 						true),
 					$navigationMenuItem->getLocalizedTitle()
 				));
+
 		}
 		return parent::getCellActions($request, $row, $column, $position);
 	}
@@ -75,17 +76,37 @@ class NavigationMenuItemsGridCellProvider extends GridCellProvider {
 		switch ($columnId) {
 			case 'title':
 				return array('label' => '');
-				break;
-			//case 'type':
-			//    $typeId = $announcement->getTypeId();
-			//    if ($typeId) {
-			//        $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
-			//        $announcementType = $announcementTypeDao->getById($typeId);
-			//        return array('label' => $announcementType->getLocalizedTypeName());
-			//    } else {
-			//        return array('label' => __('common.none'));
-			//    }
-			//    break;
+			case 'enabled':
+			    $enabled = $navigationMenuItem->getEnabled();
+			    if ($enabled) {
+			        return array('label' => __('common.enabled'));
+			    } else {
+			        return array('label' => __('common.disabled'));
+			    }
+			case 'path':
+			    $path = $navigationMenuItem->getPath();
+			    if ($path) {
+			        return array('label' => $navigationMenuItem->getPath());
+			    } else {
+			        return array('label' => __('common.none'));
+			    }
+			case 'parentNavigationMenuItem':
+			    $assoc_id = $navigationMenuItem->getAssocId();
+			    if ($assoc_id) {
+					$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+					$parentNavigationMenuItem = $navigationMenuItemDao->getById($assoc_id);
+
+			        return array('label' => $parentNavigationMenuItem->getLocalizedTitle());
+			    } else {
+			        return array('label' => __('common.none'));
+			    }
+			case 'default':
+			    $default = $navigationMenuItem->getDefaultMenu();
+			    if ($default) {
+			        return array('label' => __('common.yes'));
+			    } else {
+			        return array('label' => __('common.no'));
+			    }
 			default:
 				break;
 		}

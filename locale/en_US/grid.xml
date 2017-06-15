@@ -270,4 +270,6 @@
 	<message key="grid.action.addNavigationMenu">Add Menu</message>
 	<message key="grid.action.addMenuItems">Add navigation menu item</message>
 	<message key="grid.action.addNavigationMenuItem">Add item</message>
+	<message key="grid.navigationMenu.navigationMenuItemParent">Parent Item Title</message>
+	<message key="grid.navigationMenu.navigationMenuItemPath">Path</message>
 </locale>

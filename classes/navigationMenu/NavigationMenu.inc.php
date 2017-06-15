@@ -52,7 +52,7 @@ class NavigationMenu extends DataObject {
 	 * @return int
 	 */
 	function getDefaultMenu() {
-	    return $this->getData('defaultMenu');
+	    return $this->getData('defaultmenu');
 	}
 
 	/**
@@ -60,7 +60,7 @@ class NavigationMenu extends DataObject {
 	 * @param $default int
 	 */
 	function setDefaultMenu($default) {
-	    $this->setData('defaultMenu', $default);
+	    $this->setData('defaultmenu', $default);
 	}
 
 	/**
@@ -84,7 +84,7 @@ class NavigationMenu extends DataObject {
 	 * TODO::defstat May not be needed - added to support sequence inside an Area
 	 * @return int
 	 */
-	function getSeq() {
+	function getSequence() {
 		return $this->getData('seq');
 	}
 
@@ -92,7 +92,7 @@ class NavigationMenu extends DataObject {
 	 * Set the NavigationMenu sequence
 	 * @param $seq int
 	 */
-	function setSeq($seq) {
+	function setSequence($seq) {
 		$this->setData('seq', $seq);
 	}
 

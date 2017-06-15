@@ -110,7 +110,7 @@ class NavigationMenuItem extends DataObject {
 	 * @return int
 	 */
 	function getDefaultMenu() {
-		return $this->getData('defaultMenu');
+		return $this->getData('defaultmenu');
 	}
 
 	/**
@@ -118,7 +118,7 @@ class NavigationMenuItem extends DataObject {
 	 * @param $default int
 	 */
 	function setDefaultMenu($default) {
-		$this->setData('defaultMenu', $default);
+		$this->setData('defaultmenu', $default);
 	}
 
 	/**

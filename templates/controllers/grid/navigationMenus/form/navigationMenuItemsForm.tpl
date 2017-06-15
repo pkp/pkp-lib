@@ -39,9 +39,9 @@
 
         {if $navigationMenus}
             {if $navigationMenuId != 0}
-			    {fbvElement type="select" id="navigationMenuId" required="true" from=$navigationMenus selected=$navigationMenuId label="manager.navigationMenus.form.navigationMenuTitle" translate=false}
+			    {fbvElement type="select" id="navigationMenuId" required="true" from=$navigationMenus selected=$navigationMenuId label="manager.navigationMenus.form.parentNavigationMenu" translate=false}
             {else}
-                {fbvElement type="select" id="navigationMenuId" required="true" from=$navigationMenus selected=$navigationMenuIdParent label="manager.navigationMenus.form.navigationMenuTitle" translate=false}
+                {fbvElement type="select" id="navigationMenuId" required="true" from=$navigationMenus selected=$navigationMenuIdParent label="manager.navigationMenus.form.parentNavigationMenu" translate=false}
             {/if}
 		{/if}
 		{if $navigationMenuItemId}
@@ -50,10 +50,10 @@
         
         <div id="possibleParentNavigationMemuItemsDiv"></div>
 
-		{fbvFormSection title="manager.navigationMenus.form.typeName" for="title" required="true"}
+		{fbvFormSection title="manager.navigationMenus.form.title" for="title" required="true"}
 			{fbvElement type="text" multilingual="true" id="title" value=$title maxlength="255" required="true"}
 		{/fbvFormSection}
-        {fbvFormSection title="manager.navigationMenus.form.menuItemPath" for="title" required="true"}
+        {fbvFormSection title="manager.navigationMenus.form.path" for="title" required="true"}
 			{fbvElement type="text" id="path" value=$path maxlength="255" required="true"}
 		{/fbvFormSection}
 	{/fbvFormArea}

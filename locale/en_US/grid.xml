@@ -265,4 +265,9 @@
 	<!-- Submission list grids -->
 	<message key="grid.submission.itemTitle">Author; Title</message>
 	<message key="grid.submission.active.selectOrphaned">Include incomplete submissions not submitted by an author.</message>
+
+	<!-- Navigation Menus -->
+	<message key="grid.action.addNavigationMenu">Add Menu</message>
+	<message key="grid.action.addMenuItems">Add navigation menu item</message>
+	<message key="grid.action.addNavigationMenuItem">Add item</message>
 </locale>

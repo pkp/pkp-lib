@@ -552,4 +552,12 @@
 	<message key="notification.type.roundStatusTitle">Round {$round} Status</message>
 
 	<message key="semicolon">{$label}:</message>
+
+	<!-- Navigation Menus -->
+	<message key="notification.editedNavigationMenuItem">Succesfully updated</message>
+	<message key="notification.removedNavigationMenuItem">Succesfully removed</message>
+	<message key="notification.addedNavigationMenuItem">Succesfully added</message>
+	<message key="notification.addedNavigationMenu">Succesfully added</message>
+	<message key="notification.editedNavigationMenu">Succesfully updated</message>
+	<message key="notification.removedNavigationMenu">Succesfully removed</message>
 </locale>

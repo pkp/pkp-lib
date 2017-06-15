@@ -73,13 +73,31 @@ class NavigationMenusGridHandler extends GridHandler {
 		// Columns
 		import('lib.pkp.controllers.grid.navigationMenus.NavigationMenusGridCellProvider');
 		$navigationMenuCellProvider = new NavigationMenusGridCellProvider();
+
 		$this->addColumn(
 		    new GridColumn('title',
 		        'common.title',
 		        null,
 		        null,
-		        $navigationMenuCellProvider,
-		        array('width' => 60)
+		        $navigationMenuCellProvider
+		    )
+		);
+
+		$this->addColumn(
+			new GridColumn('itemCount',
+				'common.count',
+		        null,
+		        null,
+		        $navigationMenuCellProvider
+		    )
+		);
+
+		$this->addColumn(
+			new GridColumn('default',
+				'common.default',
+		        null,
+		        null,
+		        $navigationMenuCellProvider
 		    )
 		);
 

@@ -7,7 +7,7 @@
 		"smarty/smarty": "v2.6.28",
 		"ezyang/htmlpurifier": "v4.6.0",
 		"moxiecode/plupload": "v2.1.x",
-		"tinymce/tinymce": "4.1.7",
+		"tinymce/tinymce": "4.6.4",
 		"ircmaxell/password-compat": "v1.0.4",
 		"alex198710/pnotify": "dev-master",
 		"michelf/php-markdown": "1.5.0"

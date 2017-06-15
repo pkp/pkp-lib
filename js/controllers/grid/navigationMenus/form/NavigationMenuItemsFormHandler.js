@@ -37,6 +37,14 @@
 				this.navigationMenuItemId_ = options.navigationMenuItemId;
 				this.parentNavigationMenuItemId_ = options.parentNavigationMenuItemId;
 
+				// Save the preview URL for later
+				this.previewUrl_ = options.previewUrl;
+
+				// bind a handler to make sure we update the required state
+				// of the comments field.
+				$('#previewButton', $form).click(this.callbackWrapper(
+						this.showPreview_));
+
 				var that = this;
 				$("#navigationMenuId").change(function () {
 					if ($(this).val() == 0) {
@@ -84,6 +92,14 @@
 	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsFormHandler.
 			prototype.parentNavigationMenuItemId_ = '';
 
+	/**
+	 * The preview url.
+	 * @private
+	 * @type {?string}
+	 */
+	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsFormHandler.prototype.
+			previewUrl_ = null;
+
 	//
 	// Private methods.
 	//
@@ -105,21 +121,21 @@
 	 * @return {boolean} true.
 	 * @private
 	 */
-	//$.pkp.controllers.form.staticPages.StaticPageFormHandler.
-	//		prototype.showPreview_ = function(submitButton, event) {
+	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsFormHandler.
+			prototype.showPreview_ = function(submitButton, event) {
 
-	//	var $formElement = this.getHtmlElement();
-	//	$.post(this.previewUrl_,
-	//			$formElement.serialize(),
-	//			function(data) {
-	//				var win = window.open('about:blank');
-	//				with(win.document) {
-	//					open();
-	//					write(data);
-	//					close();
-	//				}
-	//			});
-	//	return true;
-	//};
+		var $formElement = this.getHtmlElement();
+		$.post(this.previewUrl_,
+				$formElement.serialize(),
+				function(data) {
+					var win = window.open('about:blank');
+					with(win.document) {
+						open();
+						write(data);
+						close();
+					}
+				});
+		return true;
+	};
 /** @param {jQuery} $ jQuery closure. */
 }(jQuery));

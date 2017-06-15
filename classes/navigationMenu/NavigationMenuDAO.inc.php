@@ -118,9 +118,9 @@ class NavigationMenuDAO extends DAO {
 		$navigationMenu->setId($row['navigation_menu_id']);
 		$navigationMenu->setTitle($row['title']);
 		$navigationMenu->setContextId($row['context_id']);
-		$navigationMenu->setSeq($row['seq']);
+		$navigationMenu->setSequence($row['seq']);
 		$navigationMenu->setAssocId($row['assoc_id']);
-		$navigationMenu->setDefaultMenu($row['defaultMenu']);
+		$navigationMenu->setDefaultMenu($row['defaultmenu']);
 		$navigationMenu->setEnabled($row['enabled']);
 
 		return $navigationMenu;
@@ -133,13 +133,17 @@ class NavigationMenuDAO extends DAO {
 	 */
 	function insertObject($navigationMenu) {
 		$this->update(
-			sprintf('INSERT INTO navigation_menus
-				(title, context_id)
+				'INSERT INTO navigation_menus
+				(title, context_id, seq, assoc_id, defaultmenu, enabled)
 				VALUES
-				(?, ?)'),
+				(?, ?, ?, ?, ?, ?)',
 			array(
 				$navigationMenu->getTitle(),
-				(int) $navigationMenu->getContextId()
+				(int) $navigationMenu->getContextId(),
+				(int) $navigationMenu->getSequence(),
+				(int) $navigationMenu->getAssocId(),
+				(int) $navigationMenu->getDefaultMenu(),
+				(int) $navigationMenu->getEnabled()
 			)
 		);
 		$navigationMenu->setId($this->getInsertId());
@@ -159,15 +163,15 @@ class NavigationMenuDAO extends DAO {
 				context_id = ?,
 				seq = ?,
 				assoc_id = ?,
-				default = ?,
+				defaultmenu = ?,
 				enabled = ?
 			WHERE	navigation_menu_id = ?',
 			array(
 				$navigationMenu->getTitle(),
 				(int) $navigationMenu->getContextId(),
-				(int) $navigationMenu->getSeq(),
+				(int) $navigationMenu->getSequence(),
 				(int) $navigationMenu->getAssocId(),
-				(int) $navigationMenu->getDefault(),
+				(int) $navigationMenu->getDefaultMenu(),
 				(int) $navigationMenu->getEnabled(),
 				(int) $navigationMenu->getId()
 			)

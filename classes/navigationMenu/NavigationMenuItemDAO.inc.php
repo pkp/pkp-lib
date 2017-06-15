@@ -159,7 +159,7 @@ class NavigationMenuItemDAO extends DAO {
 	function insertObject($navigationMenuItem) {
 		$this->update(
 				'INSERT INTO navigation_menu_items
-				(navigation_menu_id, seq, assoc_id, path, defaultMenu, enabled, context_id)
+				(navigation_menu_id, seq, assoc_id, path, defaultmenu, enabled, context_id)
 				VALUES
 				(?, ?, ?, ?, ?, ?, ?)',
 			array(
@@ -190,7 +190,7 @@ class NavigationMenuItemDAO extends DAO {
 					seq = ?,
 					assoc_id = ?,
 					path = ?,
-					defaultMenu = ?,
+					defaultmenu = ?,
 					enabled = ?,
 					context_id = ?
 				WHERE navigation_menu_item_id = ?',

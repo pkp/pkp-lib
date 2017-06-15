@@ -123,6 +123,7 @@ class NavigationMenuItemsForm extends Form {
 		} else {
 			$this->navigationMenuItemId = null;
 			$this->setData('content', "");
+			$this->setData('navigationMenuItemEnabled', 1);
 		}
 
 

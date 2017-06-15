@@ -1,16 +1,16 @@
 <?php
 
 /**
- * @file controllers/grid/announcements/AnnouncementTypeGridCellProvider.inc.php
+ * @file controllers/grid/navigationMenus/NavigationMenusGridCellProvider.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class AnnouncementTypeGridCellProvider
- * @ingroup controllers_grid_announcements
+ * @class NavigationMenusGridCellProvider
+ * @ingroup controllers_grid_navigationMenus
  *
- * @brief Cell provider for title column of an announcement type grid.
+ * @brief Cell provider for title column of a NavigationMenu grid.
  */
 
 import('lib.pkp.classes.controllers.grid.GridCellProvider');

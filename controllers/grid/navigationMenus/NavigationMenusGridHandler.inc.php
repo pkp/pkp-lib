@@ -1,21 +1,20 @@
 <?php
 
 /**
- * @file controllers/grid/announcements/AnnouncementTypeGridHandler.inc.php
+ * @file controllers/grid/navigationMenus/NavigationMenusGridHandler.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class AnnouncementTypeGridHandler
- * @ingroup controllers_grid_announcements
+ * @class NavigationMenusGridHandler
+ * @ingroup controllers_grid_navigationMenus
  *
- * @brief Handle announcement type grid requests.
+ * @brief Handle NavigationMenus grid requests.
  */
 
 import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.controllers.grid.navigationMenus.form.NavigationMenuForm');
-//import('lib.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
 import('lib.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsManagementForm');
 
 class NavigationMenusGridHandler extends GridHandler {
@@ -49,8 +48,8 @@ class NavigationMenusGridHandler extends GridHandler {
 
 		$navigationMenuId = $request->getUserVar('navigationMenuId');
 		if ($navigationMenuId) {
-			// Ensure announcement type is valid and for this context
-			$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO'); /* @var $announcementTypeDao AnnouncementTypeDAO */
+			// Ensure NavigationMenus is valid and for this context
+			$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO'); /* @var $navigationMenuDao NavigationMenuDAO */
 			$navigationMenu = $navigationMenuDao->getById($navigationMenuId);
 			if (!$navigationMenu ||  $navigationMenu->getContextId() != $context->getId()) {
 				return false;
@@ -70,8 +69,6 @@ class NavigationMenusGridHandler extends GridHandler {
 
 		// Set the no items row text
 		$this->setEmptyRowText('manager.navigationMenus.noneCreated');
-
-		$context = $request->getContext();
 
 		// Columns
 		import('lib.pkp.controllers.grid.navigationMenus.NavigationMenusGridCellProvider');
@@ -129,7 +126,7 @@ class NavigationMenusGridHandler extends GridHandler {
 	// Public grid actions.
 	//
 	/**
-	 * Display form to add announcement type.
+	 * Display form to add NavigationMenus.
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return string
@@ -139,7 +136,7 @@ class NavigationMenusGridHandler extends GridHandler {
 	}
 
 	/**
-	 * Display form to edit an announcement type.
+	 * Display form to edit NavigationMenus.
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
@@ -156,30 +153,30 @@ class NavigationMenusGridHandler extends GridHandler {
 	}
 
 	/**
-	 * Save an edited/inserted announcement type.
+	 * Save an edited/inserted NavigationMenus.
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
 	 */
 	function updateNavigationMenu($args, $request) {
 
-		// Identify the announcement type id.
+		// Identify the NavigationMenu id.
 		$navigationMenuId = $request->getUserVar('navigationMenuId');
 		$context = $request->getContext();
 		$contextId = $context->getId();
 
 		// Form handling.
-		$announcementTypeForm = new NavigationMenuForm($contextId, $navigationMenuId);
-		$announcementTypeForm->readInputData();
+		$navigationMenusForm = new NavigationMenuForm($contextId, $navigationMenuId);
+		$navigationMenusForm->readInputData();
 
-		if ($announcementTypeForm->validate()) {
-			$announcementTypeForm->execute($request);
+		if ($navigationMenusForm->validate()) {
+			$navigationMenusForm->execute($request);
 
 			if ($navigationMenuId) {
-				// Successful edit of an existing announcement type.
+				// Successful edit of an existing NavigationMenu.
 				$notificationLocaleKey = 'notification.editedNavigationMenu';
 			} else {
-				// Successful added a new announcement type.
+				// Successful added a new NavigationMenu.
 				$notificationLocaleKey = 'notification.addedNavigationMenu';
 			}
 
@@ -196,7 +193,7 @@ class NavigationMenusGridHandler extends GridHandler {
 	}
 
 	/**
-	 * Delete an announcement type.
+	 * Delete a NavigationMenu.
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object

@@ -1,22 +1,22 @@
 <?php
 
 /**
- * @defgroup announcement Announcement
- * Implements announcements that can be presented to website visitors.
+ * @defgroup navigationMenu.NavigationMenu
+ * Implements NavigationMenu Object.
  */
 
 /**
- * @file classes/announcement/Announcement.inc.php
+ * @file classes/navigationMenu/NavigationMenu.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class Announcement
- * @ingroup announcement
- * @see AnnouncementDAO
+ * @class NavigationMenu
+ * @ingroup navigationMenu
+ * @see NavigationMenuDAO
  *
- * @brief Basic class describing a announcement.
+ * @brief Class describing a NavigationMenu.
  */
 
 class NavigationMenu extends DataObject {
@@ -31,23 +31,24 @@ class NavigationMenu extends DataObject {
 	// Get/set methods
 	//
 	/**
-	 * Get assoc ID for this annoucement.
+	 * Get assoc ID for this NavigationMenu.
+	 * TODO::defstat could be a string or an id - its for the Area implementation
 	 * @return int
 	 */
 	function getAssocId() {
-		return $this->getData('assocId');
+		return $this->getData('assoc_id');
 	}
 
 	/**
-	 * Set assoc ID for this annoucement.
+	 * Set assoc ID for this NavigationMenu.
 	 * @param $assocId int
 	 */
 	function setAssocId($assocId) {
-		$this->setData('assocId', $assocId);
+		$this->setData('assoc_id', $assocId);
 	}
 
 	/**
-	 * Get the announcement type of the announcement.
+	 * Get the NavigationMenu 'default' status (can be edited/deleted if not default)
 	 * @return int
 	 */
 	function getDefaultMenu() {
@@ -55,15 +56,15 @@ class NavigationMenu extends DataObject {
 	}
 
 	/**
-	 * Set the announcement type of the announcement.
-	 * @param $navigationMenuId int
+	 * Set the NavigationMenu 'default' status (can be edited/deleted if not default)
+	 * @param $default int
 	 */
 	function setDefaultMenu($default) {
 	    $this->setData('defaultMenu', $default);
 	}
 
 	/**
-	 * Get the announcement type of the announcement.
+	 * Get the NavigationMenu 'enabled' status.
 	 * @return int
 	 */
 	function getEnabled() {
@@ -71,15 +72,16 @@ class NavigationMenu extends DataObject {
 	}
 
 	/**
-	 * Set the announcement type of the announcement.
-	 * @param $navigationMenuId int
+	 * Set the NavigationMenu 'enabled' status.
+	 * @param $enabled int
 	 */
 	function setEnabled($enabled) {
 	    $this->setData('enabled', $enabled);
 	}
 
 	/**
-	 * Get the announcement type of the announcement.
+	 * Get the NavigationMenu sequence
+	 * TODO::defstat May not be needed - added to support sequence inside an Area
 	 * @return int
 	 */
 	function getSeq() {
@@ -87,31 +89,31 @@ class NavigationMenu extends DataObject {
 	}
 
 	/**
-	 * Set the announcement type of the announcement.
-	 * @param $typeId int
+	 * Set the NavigationMenu sequence
+	 * @param $seq int
 	 */
 	function setSeq($seq) {
 		$this->setData('seq', $seq);
 	}
 
 	/**
-	 * Get assoc ID for this annoucement.
+	 * Get contextId of this NavigationMenu
 	 * @return int
 	 */
 	function getContextId() {
-		return $this->getData('contextId');
+		return $this->getData('context_id');
 	}
 
 	/**
-	 * Set assoc ID for this annoucement.
-	 * @param $assocId int
+	 * Set contextId of this NavigationMenu
+	 * @param $contextId int
 	 */
 	function setContextId($contextId) {
-		$this->setData('contextId', $contextId);
+		$this->setData('context_id', $contextId);
 	}
 
 	/**
-	 * Get title
+	 * Get title of this NavigationMenu. Not localised.
 	 * @return string
 	 */
 	function getTitle() {
@@ -119,39 +121,12 @@ class NavigationMenu extends DataObject {
 	}
 
 	/**
-	 * Set title.
+	 * Set title of this NavigationMenu. Not localised.
 	 * @param $title string
-	 * @param $locale string
 	 */
 	function setTitle($title) {
 		$this->setData('title', $title);
 	}
-
-	///**
-	// * Get localized short description
-	// * @return string
-	// */
-	//function getLocalizedDescriptionShort() {
-	//    return $this->getLocalizedData('descriptionShort');
-	//}
-
-	///**
-	// * Get announcement brief description.
-	// * @param $locale string
-	// * @return string
-	// */
-	//function getDescriptionShort($locale) {
-	//    return $this->getData('descriptionShort', $locale);
-	//}
-
-	///**
-	// * Set announcement brief description.
-	// * @param $descriptionShort string
-	// * @param $locale string
-	// */
-	//function setDescriptionShort($descriptionShort, $locale) {
-	//    $this->setData('descriptionShort', $descriptionShort, $locale);
-	//}
 }
 
 ?>

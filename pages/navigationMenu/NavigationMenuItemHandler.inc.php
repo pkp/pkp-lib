@@ -75,13 +75,16 @@ class NavigationMenuItemHandler extends Handler {
 		$templateMgr->assign('title', $navigationMenuItem->getLocalizedTitle());
 
 		$vars = array();
-		if ($context) $vars = array(
-			'{$contactName}' => $context->getSetting('contactName'),
-			'{$contactEmail}' => $context->getSetting('contactEmail'),
-			'{$supportName}' => $context->getSetting('supportName'),
-			'{$supportPhone}' => $context->getSetting('supportPhone'),
-			'{$supportEmail}' => $context->getSetting('supportEmail'),
-		);
+		if ($context) {
+			$vars = array(
+				'{$contactName}' => $context->getSetting('contactName'),
+				'{$contactEmail}' => $context->getSetting('contactEmail'),
+				'{$supportName}' => $context->getSetting('supportName'),
+				'{$supportPhone}' => $context->getSetting('supportPhone'),
+				'{$supportEmail}' => $context->getSetting('supportEmail'),
+			);
+		}
+
 		$templateMgr->assign('content', strtr($navigationMenuItem->getLocalizedContent(), $vars));
 
 		$templateMgr->display('frontend/pages/navigationMenuItemViewContent.tpl');

@@ -162,6 +162,32 @@ class NavigationMenuItem extends DataObject {
 	function setTitle($title, $locale) {
 		$this->setData('title', $title, $locale);
 	}
+
+	/**
+	 * Get the content of the navigation Menu.
+	 * @return string
+	 */
+	function getLocalizedContent() {
+		return $this->getLocalizedData('content');
+	}
+
+	/**
+	 * Get the content of the navigation menu item.
+	 * @param $locale string
+	 * @return string
+	 */
+	function getContent($locale) {
+		return $this->getData('content', $locale);
+	}
+
+	/**
+	 * Set the content of the navigation menu item.
+	 * @param $content string
+	 * @param $locale string
+	 */
+	function setContent($content, $locale) {
+		$this->setData('content', $content, $locale);
+	}
 }
 
 ?>

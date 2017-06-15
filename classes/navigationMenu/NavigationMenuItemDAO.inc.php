@@ -46,6 +46,27 @@ class NavigationMenuItemDAO extends DAO {
 	}
 
 	/**
+	 * Retrieve a navigation menu item by path.
+	 * @param $contextId int Context Id
+	 * @param $path string
+	 * @return NavigationMenuItem
+	 */
+	function getByPath($contextId, $path) {
+		$params = array($path, $contextId);
+		$result = $this->retrieve(
+			'SELECT	* FROM navigation_menu_items WHERE path = ? and context_id = ?',
+			$params
+		);
+
+		$returner = null;
+		if ($result->RecordCount() != 0) {
+			$returner = $this->_fromRow($result->GetRowAssoc(false));
+		}
+		$result->Close();
+		return $returner;
+	}
+
+	/**
 	 * Retrieve a navigation menu items by context Id.
 	 * @param $contextId int Context Id
 	 * @return NavigationMenu
@@ -110,7 +131,7 @@ class NavigationMenuItemDAO extends DAO {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return array('title');
+		return array('title', 'content');
 	}
 
 	/**

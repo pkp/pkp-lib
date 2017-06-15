@@ -44,6 +44,7 @@ class NavigationMenuItemsForm extends Form {
 
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
+		$this->addCheck(new FormValidatorRegExp($this, 'path', 'required', 'manager.navigationMenus.form.pathRegEx', '/^[a-zA-Z0-9\/._-]+$/'));
 	}
 
 
@@ -91,6 +92,15 @@ class NavigationMenuItemsForm extends Form {
 		$templateMgr->assign('navigationMenuIdParent', $this->navigationMenuIdParent);
 		$templateMgr->assign('navigationMenuId', $this->navigationMenuId);
 
+		$context = $request->getContext();
+		if ($context) $templateMgr->assign('allowedVariables', array(
+			'contactName' => __('plugins.generic.tinymce.variables.principalContactName', array('value' => $context->getSetting('contactName'))),
+			'contactEmail' => __('plugins.generic.tinymce.variables.principalContactEmail', array('value' => $context->getSetting('contactEmail'))),
+			'supportName' => __('plugins.generic.tinymce.variables.supportContactName', array('value' => $context->getSetting('supportName'))),
+			'supportPhone' => __('plugins.generic.tinymce.variables.supportContactPhone', array('value' => $context->getSetting('supportPhone'))),
+			'supportEmail' => __('plugins.generic.tinymce.variables.supportContactEmail', array('value' => $context->getSetting('supportEmail'))),
+		));
+
 		return parent::fetch($request, 'controllers/grid/navigationMenus/form/navigationMenuItemsForm.tpl');
 	}
 
@@ -109,8 +119,10 @@ class NavigationMenuItemsForm extends Form {
 				'parentNavigationMenuItemId' => $navigationMenuItem->getAssocId(),
 				'navigationMenuItemEnabled' => $navigationMenuItem->getEnabled(),
 			);
+			$this->setData('content', $navigationMenuItem->getContent(null)); // Localized
 		} else {
 			$this->navigationMenuItemId = null;
+			$this->setData('content', "");
 		}
 
 
@@ -120,7 +132,7 @@ class NavigationMenuItemsForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('navigationMenuItemId', 'navigationMenuId', 'navigationMenuIdParent', 'title', 'path', 'assoc_id', 'enabled'));
+		$this->readUserVars(array('navigationMenuItemId', 'content', 'navigationMenuId', 'navigationMenuIdParent', 'title', 'path', 'assoc_id', 'enabled'));
 	}
 
 	/**
@@ -139,6 +151,7 @@ class NavigationMenuItemsForm extends Form {
 		$navigationMenuItem->setPath($this->getData('path'));
 		$navigationMenuItem->setAssocId($this->getData('assoc_id'));
 		$navigationMenuItem->setTitle($this->getData('title'), null); // Localized
+		$navigationMenuItem->setContent($this->getData('content'), null); // Localized
 		$navigationMenuItem->setSequence($navigationMenuItem->getSequence());
 		$navigationMenuItem->setDefaultMenu($navigationMenuItem->getDefaultMenu());
 		$navigationMenuItem->setEnabled($this->getData('enabled'));
@@ -164,6 +177,13 @@ class NavigationMenuItemsForm extends Form {
 
 		if (!isset($navigationMenuId) || $navigationMenuId < 1) {
 			$this->addError('navigationMenuId', __('manager.navigationMenus.form.navigationMenuRequired'));
+		}
+
+		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+
+		$navigationMenuItem = $navigationMenuItemDao->getByPath($this->_contextId, $this->getData('path'));
+		if (isset($navigationMenuItem) && $navigationMenuItem->getId() != $this->navigationMenuItemId) {
+			$this->addError('path', __('manager.navigationMenus.form.duplicatePath'));
 		}
 
 		return parent::validate();

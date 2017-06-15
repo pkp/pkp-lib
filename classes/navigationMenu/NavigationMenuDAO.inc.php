@@ -1,17 +1,17 @@
 <?php
 
 /**
- * @file classes/announcement/AnnouncementTypeDAO.inc.php
+ * @file classes/navigationMenu/NavigationMenuDAO.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class AnnouncementTypeDAO
- * @ingroup announcement
- * @see AnnouncementType
+ * @class NavigationMenuDAO
+ * @ingroup navigationMenu
+ * @see NavigationMenu
  *
- * @brief Operations for retrieving and modifying AnnouncementType objects.
+ * @brief Operations for retrieving and modifying NavigationMenu objects.
  */
 
 
@@ -77,41 +77,6 @@ class NavigationMenuDAO extends DAO {
 		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
-	///**
-	// * Retrieve announcement type Assoc ID by announcement type ID.
-	// * @param $typeId int
-	// * @return int
-	// */
-	//function getAnnouncementTypeAssocId($typeId) {
-	//    $result = $this->retrieve(
-	//        'SELECT assoc_id FROM announcement_types WHERE type_id = ?',
-	//        (int) $typeId
-	//    );
-
-	//    return isset($result->fields[0]) ? $result->fields[0] : 0;
-	//}
-
-	///**
-	// * Retrieve announcement type name by ID.
-	// * @param $typeId int
-	// * @return string
-	// */
-	//function getAnnouncementTypeName($typeId) {
-	//    $result = $this->retrieve(
-	//        'SELECT COALESCE(l.setting_value, p.setting_value) FROM announcement_type_settings p LEFT JOIN announcement_type_settings l ON (l.type_id = ? AND l.setting_name = ? AND l.locale = ?) WHERE p.type_id = ? AND p.setting_name = ? AND p.locale = ?',
-	//        array(
-	//            (int) $typeId, 'name', AppLocale::getLocale(),
-	//            (int) $typeId, 'name', AppLocale::getPrimaryLocale()
-	//        )
-	//    );
-
-	//    $returner = isset($result->fields[0]) ? $result->fields[0] : false;
-
-	//    $result->Close();
-	//    return $returner;
-	//}
-
-
 	/**
 	 * Check if a navigationMenu exists with the given title.
 	 * @param $title int
@@ -135,46 +100,18 @@ class NavigationMenuDAO extends DAO {
 		return $returner;
 	}
 
-	///**
-	// * Get the locale field names.
-	// * @return array
-	// */
-	//function getLocaleFieldNames() {
-	//    return array('name');
-	//}
-
-	///**
-	// * Return announcement type ID based on a type name for an assoc type/id pair.
-	// * @param $typeName string
-	// * @param $assocType int ASSOC_TYPE_...
-	// * @param $assocId int
-	// * @return int
-	// */
-	//function getByTypeName($typeName, $assocType, $assocId) {
-	//    $result = $this->retrieve(
-	//        'SELECT ats.type_id
-	//            FROM announcement_type_settings AS ats
-	//            LEFT JOIN announcement_types at ON ats.type_id = at.type_id
-	//            WHERE ats.setting_name = "name"
-	//            AND ats.setting_value = ?
-	//            AND at.assoc_type = ?
-	//            AND at.assoc_id = ?',
-	//        array(
-	//            $typeName,
-	//            (int) $assocType,
-	//            (int) $assocId
-	//        )
-	//    );
-	//    $returner = isset($result->fields[0]) ? $result->fields[0] : 0;
-
-	//    $result->Close();
-	//    return $returner;
-	//}
+	/**
+	 * Get the locale field names.
+	 * @return array
+	 */
+	function getLocaleFieldNames() {
+	    return array();
+	}
 
 	/**
 	 * Internal function to return an NavigationMenu object from a row.
 	 * @param $row array
-	 * @return AnnouncementType
+	 * @return NavigationMenu
 	 */
 	function _fromRow($row) {
 		$navigationMenu = $this->newDataObject();
@@ -186,23 +123,11 @@ class NavigationMenuDAO extends DAO {
 		$navigationMenu->setDefaultMenu($row['defaultMenu']);
 		$navigationMenu->setEnabled($row['enabled']);
 
-		//$this->getDataObjectSettings('announcement_type_settings', 'type_id', $row['type_id'], $announcementType);
-
 		return $navigationMenu;
 	}
 
-	///**
-	// * Update the localized settings for this object
-	// * @param $announcementType object
-	// */
-	//function updateLocaleFields($announcementType) {
-	//    $this->updateDataObjectSettings('announcement_type_settings', $announcementType, array(
-	//        'type_id' => (int) $announcementType->getId()
-	//    ));
-	//}
-
 	/**
-	 * Insert a new AnnouncementType.
+	 * Insert a new NavigationMenu.
 	 * @param $navigationMenu NavigationMenu
 	 * @return int
 	 */
@@ -218,13 +143,13 @@ class NavigationMenuDAO extends DAO {
 			)
 		);
 		$navigationMenu->setId($this->getInsertId());
-		//$this->updateLocaleFields($announcementType);
+
 		return $navigationMenu->getId();
 	}
 
 	/**
-	 * Update an existing announcement type.
-	 * @param $announcementType AnnouncementType
+	 * Update an existing NavigationMenu
+	 * @param NavigationMenu $navigationMenu
 	 * @return boolean
 	 */
 	function updateObject($navigationMenu) {
@@ -248,14 +173,13 @@ class NavigationMenuDAO extends DAO {
 			)
 		);
 
-		//$this->updateLocaleFields($announcementType);
 		return $returner;
 	}
 
 	/**
-	 * Delete an announcement type. Note that all announcements with this type are also
-	 * deleted.
-	 * @param $announcementType AnnouncementType
+	 * Delete a NavigationMenu.
+	 * TODO::defstat - What whould we do with NavigationMenuItems having the deleted NavigationMenu as parent
+	 * @param $navigationMenu NavigationMenu
 	 * @return boolean
 	 */
 	function deleteObject($navigationMenu) {
@@ -263,45 +187,16 @@ class NavigationMenuDAO extends DAO {
 	}
 
 	/**
-	 * Delete an announcement type by announcement type ID. Note that all announcements with
-	 * this type ID are also deleted.
-	 * @param $typeId int
+	 * Delete a NavigationMenu.
+	 * TODO::defstat - What whould we do with NavigationMenuItems having the deleted NavigationMenu as parent
+	 * @param $navigationMenuId int
 	 */
 	function deleteById($navigationMenuId) {
 		return $this->update('DELETE FROM navigation_menus WHERE navigation_menu_id = ?', (int) $navigationMenuId);
 	}
 
-	///**
-	// * Delete announcement types by association.
-	// * @param $assocType int ASSOC_TYPE_...
-	// * @param $assocId int
-	// */
-	//function deleteByAssoc($assocType, $assocId) {
-	//    $types = $this->getByAssoc($assocType, $assocId);
-	//    while ($type = $types->next()) {
-	//        $this->deleteObject($type);
-	//    }
-	//}
-
-	///**
-	// * Retrieve an array of announcement types matching a particular Assoc ID.
-	// * @param $assocType int ASSOC_TYPE_...
-	// * @param $assocId int
-	// * @param $rangeInfo DBResultRange (optional)
-	// * @return object DAOResultFactory containing matching AnnouncementTypes
-	// */
-	//function getByAssoc($assocType, $assocId, $rangeInfo = null) {
-	//    $result = $this->retrieveRange(
-	//        'SELECT * FROM announcement_types WHERE assoc_type = ? AND assoc_id = ? ORDER BY type_id',
-	//        array((int) $assocType, (int) $assocId),
-	//        $rangeInfo
-	//    );
-
-	//    return new DAOResultFactory($result, $this, '_fromRow');
-	//}
-
 	/**
-	 * Get the ID of the last inserted announcement type.
+	 * Get the ID of the last inserted NavigationMenu
 	 * @return int
 	 */
 	function getInsertId() {

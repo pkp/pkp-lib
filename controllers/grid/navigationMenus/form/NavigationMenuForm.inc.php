@@ -1,17 +1,17 @@
 <?php
 
 /**
- * @file controllers/grid/announcements/form/AnnouncementTypeForm.inc.php
+ * @file controllers/grid/navigationMenus/form/NavigationMenuForm.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class AnnouncementTypeForm
- * @ingroup controllers_grid_announcements_form
- * @see AnnouncementType
+ * @class NavigationMenuForm
+ * @ingroup controllers_grid_navigationMenus_form
+ * @see NavigationMenu
  *
- * @brief Form for manager to create/edit announcement types.
+ * @brief Form for manager to create/edit NavigationMenus.
  */
 
 
@@ -21,13 +21,13 @@ class NavigationMenuForm extends Form {
 	/** @var int Context ID */
 	var $contextId;
 
-	/** @var navigationMenuId int the ID of the announcement type being edited */
+	/** @var $navigationMenuId int the ID of the NavigationMenu being edited */
 	var $navigationMenuId;
 
 	/**
 	 * Constructor
 	 * @param $contextId int Context ID
-	 * @param $navigationMenuId int leave as default for new announcement type
+	 * @param $navigationMenuId int NavigationMenu Id
 	 */
 	function __construct($contextId, $navigationMenuId = null) {
 		$this->navigationMenuId = isset($navigationMenuId) ? (int) $navigationMenuId : null;
@@ -35,7 +35,6 @@ class NavigationMenuForm extends Form {
 
 		parent::__construct('manager/navigationMenus/navigationMenuForm.tpl');
 
-		// Type name is provided
 		$this->addCheck(new FormValidator($this, 'title', 'required', 'manager.announcementTypes.form.typeNameRequired'));
 
 		$this->addCheck(new FormValidatorPost($this));
@@ -47,8 +46,6 @@ class NavigationMenuForm extends Form {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		//$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
-		//return $announcementTypeDao->getLocaleFieldNames();
 		return null;
 	}
 
@@ -65,7 +62,7 @@ class NavigationMenuForm extends Form {
 	}
 
 	/**
-	 * Initialize form data from current announcement type.
+	 * Initialize form data from current NavigationMenu.
 	 */
 	function initData() {
 		$navigationMenusDao = DAORegistry::getDAO('NavigationMenuDAO');
@@ -93,28 +90,27 @@ class NavigationMenuForm extends Form {
 	}
 
 	/**
-	 * Save announcement type.
+	 * Save NavigationMenu .
 	 */
 	function execute() {
 		$navigationMenusDao = DAORegistry::getDAO('NavigationMenuDAO');
 
 		if (isset($this->navigationMenuId)) {
-			$announcementType = $navigationMenusDao->getById($this->navigationMenuId);
+			$navigationMenu = $navigationMenusDao->getById($this->navigationMenuId);
 		}
 
-		if (!isset($announcementType)) {
-			$announcementType = $navigationMenusDao->newDataObject();
+		if (!isset($navigationMenu)) {
+			$navigationMenu = $navigationMenusDao->newDataObject();
 		}
 
-		//$announcementType->setAssocType(Application::getContextAssocType());
-		$announcementType->setContextId($this->contextId);
-		$announcementType->setTitle($this->getData('title'), null); // Localized
+		$navigationMenu->setContextId($this->contextId);
+		$navigationMenu->setTitle($this->getData('title'), null); // Localized
 
-		// Update or insert announcement type
-		if ($announcementType->getId() != null) {
-			$navigationMenusDao->updateObject($announcementType);
+		// Update or insert NavigationMenu
+		if ($navigationMenu->getId() != null) {
+			$navigationMenusDao->updateObject($navigationMenu);
 		} else {
-			$navigationMenusDao->insertObject($announcementType);
+			$navigationMenusDao->insertObject($navigationMenu);
 		}
 	}
 }

@@ -1,11 +1,11 @@
 {**
- * templates/controllers/grid/announcements/form/announcementTypeForm.tpl
+ * templates/controllers/grid/navigationMenus/form/navigationMenuForm.tpl
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * Form to read/create/edit announcement types.
+ * Form to read/create/edit NavigationMenus.
  *}
 
 <script>

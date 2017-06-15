@@ -1,16 +1,16 @@
 <?php
 
 /**
- * @file controllers/grid/announcements/AnnouncementTypeGridRow.inc.php
+ * @file controllers/grid/navigationMenus/NavigationMenusGridRow.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class AnnouncementTypeGridRow
- * @ingroup controllers_grid_content_announcements
+ * @class NavigationMenusGridRow
+ * @ingroup controllers_grid_navigationMenus
  *
- * @brief Announcement type grid row definition
+ * @brief NavigationMenu grid row definition
  */
 
 import('lib.pkp.classes.controllers.grid.GridRow');

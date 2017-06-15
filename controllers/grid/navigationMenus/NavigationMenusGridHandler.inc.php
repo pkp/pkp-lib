@@ -68,7 +68,7 @@ class NavigationMenusGridHandler extends GridHandler {
 		$this->setTitle('manager.navigationMenus');
 
 		// Set the no items row text
-		$this->setEmptyRowText('manager.navigationMenus.noneCreated');
+		$this->setEmptyRowText('grid.navigationMenus.navigationMenu.noneExist');
 
 		// Columns
 		import('lib.pkp.controllers.grid.navigationMenus.NavigationMenusGridCellProvider');

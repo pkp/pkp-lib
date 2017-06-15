@@ -65,9 +65,9 @@ Vue.mixin({
 		 */
 		ajaxErrorCallback: function(r) {
 			if (_.has(r, 'responseJSON') && _.has(r.responseJSON, 'errorMessage')) {
-				alert(r.responseJSON.errorMessage);
+				// alert(r.responseJSON.errorMessage);
 			} else {
-				alert($.pkp.locale.api_submissions_unknownError);
+				// alert($.pkp.locale.api_submissions_unknownError);
 			}
 		},
 	}

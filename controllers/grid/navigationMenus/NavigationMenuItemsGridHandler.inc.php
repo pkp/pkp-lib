@@ -76,7 +76,7 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 		parent::initialize($request, $args);
 
 		// Set the no items row text
-		$this->setEmptyRowText('navigationMenuItems.noneExist');
+		$this->setEmptyRowText('grid.navigationMenus.navigationMenuItems.noneExist');
 
 		$context = $request->getContext();
 

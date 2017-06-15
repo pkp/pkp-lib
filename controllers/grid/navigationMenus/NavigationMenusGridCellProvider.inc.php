@@ -60,13 +60,29 @@ class NavigationMenusGridCellProvider extends GridCellProvider {
 		$columnId = $column->getId();
 		assert(is_a($navigationMenu, 'NavigationMenu') && !empty($columnId));
 
-		//switch ($columnId) {
-		//    case 'title':
-		//        return array('label' => $navigationMenu->getTitle());
-		//        break;
-		//    default:
-		//        break;
-		//}
+		switch ($columnId) {
+		    case 'title':
+		        return array('label' => '');
+			case 'default':
+		        $default = $navigationMenu->getDefaultMenu();
+			    if ($default) {
+			        return array('label' => __('common.yes'));
+			    } else {
+			        return array('label' => __('common.no'));
+			    }
+			case 'itemCount':
+				$navigationMenuId = $navigationMenu->getId();
+			    if ($navigationMenuId) {
+					$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+					$navigationMenuItems = $navigationMenuItemDao->getByNavigationMenuId($navigationMenuId);
+
+			        return array('label' => $navigationMenuItems->count);
+			    } else {
+			        return array('label' => __('common.none'));
+			    }
+		    default:
+		        break;
+		}
 
 		return parent::getTemplateVarsFromRowColumn($row, $column);
 	}

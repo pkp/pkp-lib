@@ -232,63 +232,26 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	function execute($args, $request) {
 		$submissionDao = Application::getSubmissionDAO();
 		$user = $request->getUser();
+		$submissionRepository = new App\Repositories\SubmissionRepository();
 
 		if (isset($this->submission)) {
 			// Update existing submission
-			$this->setSubmissionData($this->submission);
-			if ($this->submission->getSubmissionProgress() <= $this->step) {
-				$this->submission->stampStatusModified();
-				$this->submission->setSubmissionProgress($this->step + 1);
-			}
-			// Add, remove or update comments to editor
-			$query = $this->getCommentsToEditor($this->submissionId);
-			$this->setCommentsToEditor($this->submissionId, $this->getData('commentsToEditor'), $user->getId(), $query);
-
-			$submissionDao->updateObject($this->submission);
+			$submissionData = array(
+				'step'				=> $this->step,
+				'locale'			=> $this->getData('locale'),
+				'commentsToEditor'	=> $this->getData('commentsToEditor'),
+			);
+			$submissionRepository->update($this->submission, $user, $submissionData);
 		} else {
 			// Create new submission
-			$this->submission = $submissionDao->newDataObject();
-			$this->submission->setContextId($this->context->getId());
-
-			$this->setSubmissionData($this->submission);
-
-			$this->submission->stampStatusModified();
-			$this->submission->setSubmissionProgress($this->step + 1);
-			$this->submission->setStageId(WORKFLOW_STAGE_ID_SUBMISSION);
-			$this->submission->setCopyrightNotice($this->context->getLocalizedSetting('copyrightNotice'), $this->getData('locale'));
-			// Insert the submission
-			$this->submissionId = $submissionDao->insertObject($this->submission);
-
-			// Set user to initial author
-			$authorDao = DAORegistry::getDAO('AuthorDAO');
-			$author = $authorDao->newDataObject();
-			$author->setFirstName($user->getFirstName());
-			$author->setMiddleName($user->getMiddleName());
-			$author->setLastName($user->getLastName());
-			$author->setAffiliation($user->getAffiliation(null), null);
-			$author->setCountry($user->getCountry());
-			$author->setEmail($user->getEmail());
-			$author->setUrl($user->getUrl());
-			$author->setBiography($user->getBiography(null), null);
-			$author->setPrimaryContact(1);
-			$author->setIncludeInBrowse(1);
-
-			// Get the user group to display the submitter as
-			$authorUserGroupId = (int) $this->getData('authorUserGroupId');
-			$author->setUserGroupId($authorUserGroupId);
-
-			$author->setSubmissionId($this->submissionId);
-			$authorDao->insertObject($author);
-
-			// Assign the user author to the stage
-			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-			$stageAssignmentDao->build($this->submissionId, $authorUserGroupId, $user->getId());
-
-			// Add comments to editor
-			if ($this->getData('commentsToEditor')){
-				$this->setCommentsToEditor($this->submissionId, $this->getData('commentsToEditor'), $user->getId());
-			}
-
+			$submissionData = array(
+				'sectionId' 		=> $this->getData('sectionId'),
+				'locale'			=> $this->getData('locale'),
+				'authorUserGroupId'	=> (int) $this->getData('authorUserGroupId'),
+				'commentsToEditor'	=> $this->getData('commentsToEditor'),
+			);
+			$this->submission = $submissionRepository->create($this->context, $user, $submissionData);
+			$this->submissionId = $this->submission->getId();
 		}
 
 		return $this->submissionId;

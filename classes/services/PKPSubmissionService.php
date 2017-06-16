@@ -19,6 +19,10 @@ use \DBResultRange;
 use \Application;
 use \DAOResultFactory;
 use \DAORegistry;
+use \Submission;
+use \User;
+use \Exception;
+use \SubmissionFileManager;
 
 import('lib.pkp.classes.db.DBResultRange');
 
@@ -701,10 +705,10 @@ abstract class PKPSubmissionService {
 			);
 			while($user = $users->next()) {
 				$result[] = array(
-					'roleId' 		=> $userGroup->getRoleId(),
-					'roleName'		=> $userGroup->getLocalizedName(),
-					'userId'		=> $user->getId(),
-					'userFullName'	=> $user->getFullName(),
+					'roleId'           => $userGroup->getRoleId(),
+					'roleName'         => $userGroup->getLocalizedName(),
+					'userId'           => $user->getId(),
+					'userFullName'     => $user->getFullName(),
 				);
 			}
 		}
@@ -732,17 +736,71 @@ abstract class PKPSubmissionService {
 		while ($galley = $galleys->next()) {
 			$submissionFile = $galley->getFile();
 			$data[] = array(
-				'id'				=> $galley->getId(),
-				'submissionId'		=> $galley->getSubmissionId(),
-				'locale'			=> $galley->getLocale(),
-				'label'				=> $galley->getGalleyLabel(),
-				'seq'				=> $galley->getSequence(),
-				'remoteUrl'			=> $galley->getremoteUrl(),
-				'fileId'			=> $galley->getFileId(),
-				'revision'			=> $submissionFile->getRevision(),
-				'fileType'			=> $galley->getFileType(),
+				'id'                => $galley->getId(),
+				'submissionId'      => $galley->getSubmissionId(),
+				'locale'            => $galley->getLocale(),
+				'label'             => $galley->getGalleyLabel(),
+				'seq'               => $galley->getSequence(),
+				'remoteUrl'         => $galley->getremoteUrl(),
+				'fileId'            => $galley->getFileId(),
+				'revision'          => $submissionFile->getRevision(),
+				'fileType'          => $galley->getFileType(),
 			);
 		}
 		return $data;
+	}
+	
+	/**
+	 * Save submission file
+	 * @param int $contextId
+	 * @param int $submissionId
+	 * @param User $user
+	 * @param array $uploadData
+	 * 		$uploadData['revisedFileId']
+	 * 		$uploadData['fileGenre']
+	 * 		$uploadData['uploaderUserGroupId']
+	 * 		$uploadData['assocType']
+	 * 		$uploadData['assocId']
+	 * 		$uploadData['fileStage']
+	 */
+	public function saveUploadedFile($contextId, $submissionId, User $user, $uploadData) {
+		
+		if (!isset($uploadData['uploaderUserGroupId'])) {
+			throw new Exception('Invalid uploader user group!');
+		}
+		
+		if (!isset($uploadData['fileStage'])) {
+			throw new Exception('Submission file stage is required');
+		}
+		
+		$defaults = array(
+			'revisedFileId'      => null,
+			'fileGenre'          => null,
+			'assocType'          => null,
+			'assocId'            => null,
+		);
+		
+		$uploadData = array_merge($defaults, $uploadData);
+		
+		// Upload the file.
+		import('lib.pkp.classes.file.SubmissionFileManager');
+		$submissionFileManager = new SubmissionFileManager(
+			$contextId,
+			$submissionId
+		);
+		$submissionFile = $submissionFileManager->uploadSubmissionFile(
+			'uploadedFile', 
+			$uploadData['fileStage'], 
+			$user->getId(),
+			$uploadData['uploaderUserGroupId'], 
+			$uploadData['revisedFileId'], 
+			$uploadData['fileGenre'], 
+			$uploadData['assocType'], 
+			$uploadData['assocId']
+		);
+		
+		if (!$submissionFile) return null;
+		
+		return $submissionFile;
 	}
 }

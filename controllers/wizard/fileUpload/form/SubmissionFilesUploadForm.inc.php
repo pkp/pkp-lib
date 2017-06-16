@@ -255,18 +255,37 @@ class SubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 		$assocType = $this->getData('assocType') ? (int) $this->getData('assocType') : null;
 		$assocId = $this->getData('assocId') ? (int) $this->getData('assocId') : null;
 		$fileStage = $this->getData('fileStage');
+		
+		$uploadData = array(
+			'revisedFileId' 		=> $revisedFileId,
+			'fileGenre'				=> $fileGenre,
+			'uploaderUserGroupId'	=> $uploaderUserGroupId,
+			'assocType'				=> $assocType,
+			'assocId'				=> $assocId,
+			'fileStage'				=> $fileStage
+		);
+		
+		import('classes.core.ServicesContainer');
+		$submissionService = ServicesContainer::instance()->get('submission');
+		
+		$submissionFile = $submissionService->saveUploadedFile(
+			$request->getContext()->getId(),
+			$this->getData('submissionId'),
+			$user,
+			$uploadData
+		);
 
 		// Upload the file.
-		import('lib.pkp.classes.file.SubmissionFileManager');
-		$submissionFileManager = new SubmissionFileManager(
-			$request->getContext()->getId(),
-			$this->getData('submissionId')
-		);
-		$submissionFile = $submissionFileManager->uploadSubmissionFile(
-			'uploadedFile', $fileStage, $user->getId(),
-			$uploaderUserGroupId, $revisedFileId, $fileGenre, $assocType, $assocId
-		);
-		if (!$submissionFile) return null;
+// 		import('lib.pkp.classes.file.SubmissionFileManager');
+// 		$submissionFileManager = new SubmissionFileManager(
+// 			$request->getContext()->getId(),
+// 			$this->getData('submissionId')
+// 		);
+// 		$submissionFile = $submissionFileManager->uploadSubmissionFile(
+// 			'uploadedFile', $fileStage, $user->getId(),
+// 			$uploaderUserGroupId, $revisedFileId, $fileGenre, $assocType, $assocId
+// 		);
+// 		if (!$submissionFile) return null;
 
 		// Log the event.
 		import('lib.pkp.classes.log.SubmissionFileLog');

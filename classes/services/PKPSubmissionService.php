@@ -195,9 +195,9 @@ abstract class PKPSubmissionService {
 	 *
 	 * @param $submissionId int
 	 */
-	public function deleteSubmission(int $id) {
+	public function deleteSubmission($id) {
 		Application::getSubmissionDAO()
-				->deleteById($id);
+				->deleteById((int) $id);
 	}
 
 	/**

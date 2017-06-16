@@ -361,15 +361,14 @@ class ReviewerForm extends Form {
 			}
 		}
 
-
 		// Notify the reviewer via email.
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
 		$templateKey = $this->getData('template');
 		$mail = new SubmissionMailTemplate($submission, $templateKey, null, null, null, false);
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
+		$reviewer = $userDao->getById($reviewerId);
 
 		if ($mail->isEnabled() && !$this->getData('skipEmail')) {
-			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
-			$reviewer = $userDao->getById($reviewerId);
 			$user = $request->getUser();
 			$mail->addRecipient($reviewer->getEmail(), $reviewer->getFullName());
 			$mail->setBody($this->getData('personalMessage'));
@@ -395,6 +394,16 @@ class ReviewerForm extends Form {
 			));
 			$mail->send($request);
 		}
+
+		// Insert a trivial notification to indicate the reviewer was added successfully.
+		$currentUser = $request->getUser();
+		$notificationMgr = new NotificationManager();
+		$msgKey = $this->getData('skipEmail') ? 'notification.addedReviewerNoEmail' : 'notification.addedReviewer';
+		$notificationMgr->createTrivialNotification(
+			$currentUser->getId(),
+			NOTIFICATION_TYPE_SUCCESS,
+			array('contents' => __($msgKey, array('reviewerName' => $reviewer->getFullName())))
+		);
 
 		return $reviewAssignment;
 	}

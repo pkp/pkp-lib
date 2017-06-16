@@ -187,7 +187,10 @@ export default {
 				if (this.activeStage.id === 1) {
 					switch (this.activeStage.statusId) {
 						case 1: // @todo this should be a global
-							notice = this.activeStage.status;
+							// Only display unassigned notice for completed submissions
+							if (this.submission.submissionProgress === 0) {
+								notice = this.activeStage.status;
+							}
 							break;
 					}
 				}

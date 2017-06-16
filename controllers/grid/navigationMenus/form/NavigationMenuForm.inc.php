@@ -113,6 +113,21 @@ class NavigationMenuForm extends Form {
 			$navigationMenusDao->insertObject($navigationMenu);
 		}
 	}
+
+	/**
+	 * Perform additional validation checks
+	 * @copydoc Form::validate
+	 */
+	function validate() {
+		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+
+		$navigationMenu = $navigationMenuDao->getByTitle($this->contextId, $this->getData('title'));
+		if (isset($navigationMenu) && $navigationMenu->getId() != $this->navigationMenuId) {
+			$this->addError('path', __('manager.navigationMenus.form.duplicateTitle'));
+		}
+
+		return parent::validate();
+	}
 }
 
 ?>

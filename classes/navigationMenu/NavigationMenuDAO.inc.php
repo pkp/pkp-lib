@@ -78,6 +78,28 @@ class NavigationMenuDAO extends DAO {
 	}
 
 	/**
+	 * Retrieve a navigation menu by title
+	 * @param $contextId int Context Id
+	 * @param $title string
+	 * @return NavigationMenu
+	 */
+	function getByTitle($contextId, $title) {
+		$params = array((int) $contextId);
+		$params[] = $title;
+		$result = $this->retrieve(
+			'SELECT * FROM navigation_menus WHERE context_id = ? and title = ?',
+			$params
+		);
+
+		$returner = null;
+		if ($result->RecordCount() != 0) {
+			$returner = $this->_fromRow($result->GetRowAssoc(false));
+		}
+		$result->Close();
+		return $returner;
+	}
+
+	/**
 	 * Check if a navigationMenu exists with the given title.
 	 * @param $title int
 	 * @param $contextId int

@@ -25,6 +25,7 @@
 	<message key="admin.confirmClearTemplateCache">Are you sure you want to clear the cache of compiled templates?</message>
 	<message key="admin.confirmExpireSessions">Are you sure you want to expire all user sessions? All users who are currently logged into the system will be forced to log in again (yourself included).</message>
 	<message key="admin.contentsOfConfigFile">Contents of configuration file</message>
+	<message key="admin.contexts.confirmDelete">Are you sure you want to permanently delete {$contextName} and all of its contents?</message>
 	<message key="admin.currentVersion">Current version</message>
 	<message key="admin.dateInstalled">Date installed</message>
 	<message key="admin.displayConfigFileInstructions"><![CDATA[The contents of your updated configuration are displayed below. To apply the configuration changes you must open <tt>config.inc.php</tt> in a suitable text editor and replace its contents with the contents of the text field below.]]></message>

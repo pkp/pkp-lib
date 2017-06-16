@@ -17,4 +17,8 @@
 			{/foreach}
 		</ul>
 	{/if}
+{elseif array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR), (array)$userRoles)}
+	<div class="pkp_no_workflow_decisions">
+		{translate key="editor.submission.decision.noDecisionsAvailable"}
+	</div>
 {/if}

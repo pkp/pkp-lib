@@ -55,6 +55,22 @@ class APIHandler extends PKPHandler {
 			)
 		));
 		$this->_app->add(new ApiAuthorizationMiddleware($this));
+		// remove trailing slashes
+		$this->_app->add(function ($request, $response, $next) {
+		        $uri = $request->getUri();
+		        $path = $uri->getPath();
+		        if ($path != '/' && substr($path, -1) == '/') {
+		                // path with trailing slashes to non-trailing counterpart
+		                $uri = $uri->withPath(substr($path, 0, -1));
+		                if($request->getMethod() == 'GET') {
+		                        return $response->withRedirect((string)$uri, 301);
+		                }
+		                else {
+		                        return $next($request->withUri($uri), $response);
+		                }
+		        }
+		        return $next($request, $response);
+		});
 		$this->_request = Application::getRequest();
 		$this->setupEndpoints();
 	}

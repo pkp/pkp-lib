@@ -52,7 +52,7 @@ class ContextGridRow extends GridRow {
 				'delete',
 				new RemoteActionConfirmationModal(
 					$request->getSession(),
-					__('admin.contexts.confirmDelete'),
+					__('admin.contexts.confirmDelete', array('contextName' => $element->getLocalizedName())),
 					null,
 					$router->url($request, null, null, 'deleteContext', null, array('rowId' => $rowId))
 					),

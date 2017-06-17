@@ -122,6 +122,9 @@ class SubmissionsListHandler extends ListHandler {
 		$config['i18n']['filterRemove'] = __('submission.list.filterRemove');
 		$config['i18n']['itemOrdererUp'] = __('submission.list.itemOrdererUp');
 		$config['i18n']['itemOrdererDown'] = __('submission.list.itemOrdererDown');
+		$config['i18n']['reviewsCompleted'] = __('submission.list.reviewsCompleted');
+		$config['i18n']['filesPrepared'] = __('submission.list.filesPrepared');
+		$config['i18n']['discussions'] = __('submission.list.discussions');
 
 		// Attach a CSRF token for post requests
 		$config['csrfToken'] = $request->getSession()->getCSRFToken();

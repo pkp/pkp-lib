@@ -257,12 +257,12 @@ class SubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 		$fileStage = $this->getData('fileStage');
 		
 		$uploadData = array(
-			'revisedFileId' 		=> $revisedFileId,
-			'fileGenre'				=> $fileGenre,
-			'uploaderUserGroupId'	=> $uploaderUserGroupId,
-			'assocType'				=> $assocType,
-			'assocId'				=> $assocId,
-			'fileStage'				=> $fileStage
+	                'revisedFileId'         => $revisedFileId,
+	                'fileGenre'             => $fileGenre,
+	                'uploaderUserGroupId'   => $uploaderUserGroupId,
+	                'assocType'             => $assocType,
+	                'assocId'               => $assocId,
+	                'fileStage'             => $fileStage
 		);
 		
 		import('classes.core.ServicesContainer');

@@ -756,12 +756,12 @@ abstract class PKPSubmissionService {
 	 * @param int $submissionId
 	 * @param User $user
 	 * @param array $uploadData
-	 * 		$uploadData['revisedFileId']
-	 * 		$uploadData['fileGenre']
-	 * 		$uploadData['uploaderUserGroupId']
-	 * 		$uploadData['assocType']
-	 * 		$uploadData['assocId']
-	 * 		$uploadData['fileStage']
+	 *     $uploadData['revisedFileId']
+	 *     $uploadData['fileGenre']
+	 *     $uploadData['uploaderUserGroupId']
+	 *     $uploadData['assocType']
+	 *     $uploadData['assocId']
+	 *     $uploadData['fileStage']
 	 */
 	public function saveUploadedFile($contextId, $submissionId, User $user, $uploadData) {
 		
@@ -773,6 +773,10 @@ abstract class PKPSubmissionService {
 			throw new Exception('Submission file stage is required');
 		}
 		
+		if (!isset($uploadData['revisedFileId']) && !isset($uploadData['fileGenre'])) {
+		        throw new Exception('File genre is required');
+		}
+
 		$defaults = array(
 			'revisedFileId'      => null,
 			'fileGenre'          => null,

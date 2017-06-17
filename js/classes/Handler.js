@@ -10,6 +10,7 @@
  *
  * @brief Base class for handlers bound to a DOM HTML element.
  */
+/*global _, pkp */
 (function($) {
 
 
@@ -380,16 +381,16 @@
 		if (jsonData.status === true) {
 			// Trigger events passed from the server
 			_.each((/** @type {{ events: Object }} */ jsonData).events,
-				function(event) {
-					/** @type {{isGlobalEvent: boolean}} */
-					var eventData = _.has(event, 'data') ? event.data : null;
-					if (!_.isNull(eventData) && eventData.isGlobalEvent) {
-						eventData.handler = this;
-						pkp.eventBus.$emit(event.name, eventData);
-					} else {
-						this.trigger(event.name, eventData);
-					}
-				}, this);
+					function(event) {
+						/** @type {{isGlobalEvent: boolean}} */
+						var eventData = _.has(event, 'data') ? event.data : null;
+						if (!_.isNull(eventData) && eventData.isGlobalEvent) {
+							eventData.handler = this;
+							pkp.eventBus.$emit(event.name, eventData);
+						} else {
+							this.trigger(event.name, eventData);
+						}
+					}, this);
 			return jsonData;
 		} else {
 			// If we got an error message then display it.

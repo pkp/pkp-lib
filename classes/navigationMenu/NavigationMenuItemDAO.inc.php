@@ -101,10 +101,13 @@ class NavigationMenuItemDAO extends DAO {
 	 * @param $navigationMenuId int
 	 * @return int
 	 */
-	function getByNavigationMenuId($navigationMenuId) {
+	function getByNavigationMenuId($navigationMenuId, $enabled = null) {
 		$params = array((int) $navigationMenuId);
+		if ($enabled !== null) $params[] = (int) $enabled;
 		$result = $this->retrieve(
-			'SELECT	* FROM navigation_menu_items WHERE navigation_menu_id = ? order by enabled desc, seq',
+			'SELECT	* FROM navigation_menu_items WHERE navigation_menu_id = ?' .
+			($enabled !== null?' AND enabled = ?':'') .
+			(' order by enabled desc, seq'),
 			$params
 		);
 
@@ -120,6 +123,25 @@ class NavigationMenuItemDAO extends DAO {
 		$params = array((int) $navigationMenuId, (int) $navigationMenuItemId);
 		$result = $this->retrieve(
 			'SELECT	* FROM navigation_menu_items WHERE navigation_menu_id = ? and navigation_menu_item_id <> ? and enabled = 1 order by seq',
+			$params
+		);
+
+		return new DAOResultFactory($result, $this, '_fromRow');
+	}
+
+	/**
+	 * Get NMIs that have NavigationMenuItemId as parent.
+	 * @param $navigationMenuItemId int
+	 * @param $enabled int - Default null (get all Children)
+	 * @return DAOResultFactory
+	 */
+	function getChildrenNMIsByNavigationMenuItemId($navigationMenuItemId, $enabled = null) {
+		$params = array((int) $navigationMenuItemId);
+		if ($enabled !== null) $params[] = (int) $enabled;
+		$result = $this->retrieve(
+			'SELECT	* FROM navigation_menu_items WHERE assoc_id = ?' .
+			($enabled !== null?' AND enabled = ?':'') .
+			(' order by seq'),
 			$params
 		);
 

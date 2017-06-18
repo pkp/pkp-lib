@@ -116,7 +116,12 @@ class NavigationMenuItemsManagementForm extends Form {
 				$navigationMenuItem->setSequence(0);
 				break;
 			case 'selectedMenuItems':
-				$navigationMenuItem->setNavigationMenuId($navigationMenuId);
+				$previousNavigationMenuId = $navigationMenuItem->getNavigationMenuId();
+				if ($navigationMenuId != $previousNavigationMenuId) {
+					$navigationMenuItem->setNavigationMenuId($navigationMenuId);
+					$navigationMenuItem->setAssocId(0);
+				}
+
 				$navigationMenuItem->setSequence((int) $newRowId['sequence']);
 				break;
 			default:

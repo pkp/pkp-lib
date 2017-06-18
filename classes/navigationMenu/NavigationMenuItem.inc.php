@@ -15,6 +15,9 @@
  */
 
 class NavigationMenuItem extends DataObject {
+	/** @var $navigationMenuItems array The navigationMenuItems underneath this navigationMenuItem */
+	var $navigationMenuItems = array();
+
 	/**
 	 * Constructor
 	 */
@@ -187,6 +190,13 @@ class NavigationMenuItem extends DataObject {
 	 */
 	function setContent($content, $locale) {
 		$this->setData('content', $content, $locale);
+	}
+
+	function populateNavigationMenuItems() {
+		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+		$navigationMenuItems = $navigationMenuItemDao->getChildrenNMIsByNavigationMenuItemId($this->getId(), true);
+
+		$this->navigationMenuItems = $navigationMenuItems->toAssociativeArray();
 	}
 }
 

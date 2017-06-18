@@ -63,14 +63,17 @@ class NavigationMenuDAO extends DAO {
 	 * Retrieve a navigation menu by context Id.
 	 * @param $contextId int Context Id
 	 * @param $assocId int Optional assoc ID - may associate with template area :: TODO:DEFSTAT is area Entity or String?
+	 * @param $enabled int Optional enabled - null if we want all, else define retrieval according to the value (true, false)
 	 * @return NavigationMenu
 	 */
-	function getByContextId($contextId, $assocId = null) {
+	function getByContextId($contextId, $assocId = null, $enabled = null) {
 		$params = array((int) $contextId);
 		if ($assocId !== null) $params[] = (int) $assocId;
+		if ($enabled !== null) $params[] = (int) $enabled;
 		$result = $this->retrieve(
 			'SELECT * FROM navigation_menus WHERE context_id = ?' .
-			($assocId !== null?' AND assoc_id = ?':''),
+			($assocId !== null?' AND assoc_id = ?':'') .
+			($enabled !== null?' AND enabled = ?':''),
 			$params
 		);
 

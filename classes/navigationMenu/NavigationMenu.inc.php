@@ -20,6 +20,9 @@
  */
 
 class NavigationMenu extends DataObject {
+	/** @var $navigationMenuItems array The navigationMenuItems of this navigationMenu */
+	var $navigationMenuItems = array();
+
 	/**
 	 * Constructor
 	 */
@@ -126,6 +129,17 @@ class NavigationMenu extends DataObject {
 	 */
 	function setTitle($title) {
 		$this->setData('title', $title);
+	}
+
+	function populateNavigationMenuItems() {
+		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+		$navigationMenuItems = $navigationMenuItemDao->getByNavigationMenuId($this->getId(), true);
+
+		$this->navigationMenuItems = $navigationMenuItems->toAssociativeArray();
+
+		foreach ($this->navigationMenuItems as $navigationMenuItem) {
+			$navigationMenuItem->populateNavigationMenuItems();
+		}
 	}
 }
 

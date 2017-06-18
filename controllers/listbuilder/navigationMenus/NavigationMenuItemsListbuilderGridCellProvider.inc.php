@@ -29,47 +29,18 @@ class NavigationMenuItemsListbuilderGridCellProvider extends GridCellProvider {
 	 * @return array
 	 */
 	function getTemplateVarsFromRowColumn($row, $column) {
-		$navigationMenuItem =& $row->getData();
+		$navigationMenuItem = $row->getData();
 		$columnId = $column->getId();
 		assert((is_a($navigationMenuItem, 'NavigationMenuItem')) && !empty($columnId));
-
-		return array('label' => $navigationMenuItem->getLocalizedTitle());
-	}
-
-	/**
-	 * @copydoc GridCellProvider::getCellActions()
-	 */
-	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
-		switch ($column->getId()) {
+		switch ($columnId) {
 			case 'name':
-				$navigationMenuItem = $row->getData();
-				$router = $request->getRouter();
-				$actionArgs = array('navigationMenuItemId' => $row->getId());
-
-				import('lib.pkp.classes.linkAction.request.AjaxModal');
-				return array(new LinkAction(
-					'edit',
-					new AjaxModal(
-						$router->url($request, null, null, 'editNavigationMenuItem', null, $actionArgs),
-						__('grid.action.edit'),
-						null,
-						true),
-					__('grid.action.edit')
-				),
-				new LinkAction(
-					'remove',
-					new RemoteActionConfirmationModal(
-						$request->getSession(),
-						__('common.confirmDelete'),
-						__('common.remove'),
-						$router->url($request, null, null, 'deleteNavigationMenuItem', null, $actionArgs),
-						'modal_delete'
-						),
-					__('grid.action.remove'),
-					'delete'
-				));
+				return array(
+					//'labelKey' => $file->getFileId(),
+					'label' => $navigationMenuItem->getLocalizedTitle()
+				);
 		}
-		return parent::getCellActions($request, $row, $column, $position);
+
+		return parent::getTemplateVarsFromRowColumn($row, $column);
 	}
 }
 

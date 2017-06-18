@@ -550,4 +550,7 @@
 	<message key="manager.navigationMenus.form.duplicatePath">This path already exists for another navigation menu item.</message>
 	<message key="manager.navigationMenus.form.duplicateTitle">This titles already exists for another navigation menu.</message>
 	<message key="manager.navigationMenuItems">Navigation Menu Items</message>
+	<message key="manager.navigationMenus.navigationMenuItemsManagement">Manage Navigation Menu Items</message>
+	<message key="manager.navigationMenus.selectedMenuItems">Selected Navigation Menu Items</message>
+	<message key="manager.navigationMenus.unselectedMenuItems">Unselected Navigation Menu Items</message>
 </locale>

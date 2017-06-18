@@ -164,10 +164,10 @@ class NavigationMenusGridHandler extends GridHandler {
 		$context = $request->getContext();
 		$contextId = $context->getId();
 
-		$announcementTypeForm = new NavigationMenuForm($contextId, $navigationMenuId);
-		$announcementTypeForm->initData($args, $request);
+		$navigationMenuForm = new NavigationMenuForm($contextId, $navigationMenuId);
+		$navigationMenuForm->initData($args, $request);
 
-		return new JSONMessage(true, $announcementTypeForm->fetch($request));
+		return new JSONMessage(true, $navigationMenuForm->fetch($request));
 	}
 
 	/**

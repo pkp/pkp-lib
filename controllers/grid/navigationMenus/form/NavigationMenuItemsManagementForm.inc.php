@@ -111,6 +111,7 @@ class NavigationMenuItemsManagementForm extends Form {
 		$navigationMenuItem = $navigationMenuItemDao->getById($rowId);
 		switch ($newRowId['listId']) {
 			case 'unselectedMenuItems':
+				$navigationMenuItem->setAssocId(0);
 				$navigationMenuItem->setNavigationMenuId(0);
 				$navigationMenuItem->setSequence(0);
 				break;

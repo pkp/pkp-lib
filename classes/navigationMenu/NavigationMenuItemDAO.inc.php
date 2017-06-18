@@ -122,9 +122,9 @@ class NavigationMenuItemDAO extends DAO {
 	 * @return int
 	 */
 	function getPossibleParrentNMIByNavigationMenuId($navigationMenuId, $navigationMenuItemId) {
-		$params = array((int) $navigationMenuId, (int) $navigationMenuItemId);
+		$params = array((int) $navigationMenuId, (int) $navigationMenuItemId, (int) $navigationMenuItemId);
 		$result = $this->retrieve(
-			'SELECT	* FROM navigation_menu_items WHERE navigation_menu_id = ? and navigation_menu_item_id <> ? and enabled = 1 order by seq',
+			'SELECT	* FROM navigation_menu_items WHERE navigation_menu_id = ? and navigation_menu_item_id <> ? and assoc_id <> ? and enabled = 1 order by seq',
 			$params
 		);
 

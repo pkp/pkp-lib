@@ -82,14 +82,16 @@ class NavigationMenuItemDAO extends DAO {
 	}
 
 	/**
-	 * Retrieve a navigation menu items without parent by context Id.
+	 * Retrieve all the navigationMenuItems that can be selected to be added to a NavigationMenu.
 	 * @param $contextId int Context Id
-	 * @return NavigationMenu
+	 * @param $navigationMenuId int All the NMIs not having this parameter as parent needed
+	 * @return NavigationMenuItem
 	 */
-	function getWithoutParentByContextId($contextId) {
+	function getByContextIdNotHavingThisNavigationMenuId($contextId, $navigationMenuId) {
 		$params = array((int) $contextId);
+		$params[] = (int) $navigationMenuId;
 		$result = $this->retrieve(
-			'SELECT * FROM navigation_menu_items WHERE context_id = ? and navigation_menu_id=0',
+			'SELECT * FROM navigation_menu_items WHERE context_id = ? and navigation_menu_id <> ? and enabled = 1',
 			$params
 		);
 

@@ -32,7 +32,7 @@ class NavigationMenuItemsManagementForm extends Form {
 		$this->_contextId = $contextId;
 		$this->navigationMenuIdParent = $navigationMenuIdParent;
 
-		parent::__construct('manager/navigationMenus/navigationMenuItemsManagementForm.tpl');
+		// parent::__construct('manager/navigationMenus/navigationMenuItemsManagementForm.tpl');
 
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
@@ -68,18 +68,6 @@ class NavigationMenuItemsManagementForm extends Form {
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
 
-		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
-		$navigationMenus = $navigationMenuDao->getByContextId($this->getContextId());
-
-		$navigationMenuOptions = array();
-		if (!$navigationMenus->wasEmpty()) {
-			$navigationMenuOptions = array(0 => __('common.none'));
-		}
-		while ($navigationMenu = $navigationMenus->next()) {
-			$navigationMenuOptions[$navigationMenu->getId()] = $navigationMenu->getTitle();
-		}
-		$templateMgr->assign('navigationMenus', $navigationMenuOptions);
-		$templateMgr->assign('navigationMenuItemId', $this->navigationMenuItemId);
 		$templateMgr->assign('navigationMenuIdParent', $this->navigationMenuIdParent);
 
 		return parent::fetch($request, 'controllers/grid/navigationMenus/form/navigationMenuItemsManagementForm.tpl');
@@ -89,19 +77,6 @@ class NavigationMenuItemsManagementForm extends Form {
 	 * Initialize form data from current navigation menu item.
 	 */
 	function initData() {
-		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
-		$navigationMenuItem = $navigationMenuItemDao->getById($this->navigationMenuItemId);
-
-		if ($navigationMenuItem) {
-			$this->_data = array(
-				'navigationMenuId' => $navigationMenuItem->getNavigationMenuId(),
-				'path' => $navigationMenuItem->getPath(),
-				'title' => $navigationMenuItem->getTitle(null)
-			);
-		} else {
-			$this->navigationMenuItemId = null;
-		}
-
 
 	}
 
@@ -109,7 +84,7 @@ class NavigationMenuItemsManagementForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('navigationMenuItemId', 'navigationMenuId', 'title', 'path'));
+		$this->readUserVars(array('navigationMenuIdParent'));
 	}
 
 	/**
@@ -117,30 +92,51 @@ class NavigationMenuItemsManagementForm extends Form {
 	 * @param $request PKPRequest
 	 */
 	function execute($request) {
+		import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
+		ListbuilderHandler::unpack($request, $request->getUserVar('navigation_menu_items'), array($this, 'deleteEntry'), array($this, 'insertEntry'), array($this, 'updateEntry'));
+	}
+
+	/**
+	 * Overriden method from ListbuilderHandler.
+	 * @param $request Request
+	 * @param $rowId mixed
+	 * @param $newRowId array
+	 */
+	function updateEntry($request, $rowId, $newRowId) {
+		$navigationMenuId = $request->getUserVar('navigationMenuIdParent');
+		//$context = $request->getContext();
+		//$contextId = $context->getId();
+
 		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
-
-		$navigationMenuItem = $navigationMenuItemDao->getById($this->navigationMenuItemId);
-		if (!$navigationMenuItem) {
-			$navigationMenuItem = $navigationMenuItemDao->newDataObject();
+		$navigationMenuItem = $navigationMenuItemDao->getById($rowId);
+		switch ($newRowId['listId']) {
+			case 'unselectedMenuItems':
+				$navigationMenuItem->setNavigationMenuId(0);
+				$navigationMenuItem->setSequence(0);
+				break;
+			case 'selectedMenuItems':
+				$navigationMenuItem->setNavigationMenuId($navigationMenuId);
+				$navigationMenuItem->setSequence((int) $newRowId['sequence']);
+				break;
+			default:
+				assert(false);
 		}
 
-		$navigationMenuItem->setNavigationMenuId($this->getData('navigationMenuId'));
-		$navigationMenuItem->setPath($this->getData('path'));
-		$navigationMenuItem->setAssocId($this->getData('assoc_id'));
-		$navigationMenuItem->setTitle($this->getData('title'), null); // Localized
-		$navigationMenuItem->setSeq(0);
-		$navigationMenuItem->setDefaultMenu(0);
-		$navigationMenuItem->setEnabled(1);
-		$navigationMenuItem->setContextId($this->getContextId());
+		$navigationMenuItemDao->updateObject($navigationMenuItem);
+	}
 
-		// Update or insert navigation menu item
-		if ($navigationMenuItem->getId()) {
-			$navigationMenuItemDao->updateObject($navigationMenuItem);
-		} else {
-			$navigationMenuItemDao->insertObject($navigationMenuItem);
-		}
+	/**
+	 * Avoid warnings when Listbuilder::unpack tries to call this method.
+	 */
+	function deleteEntry() {
+		return false;
+	}
 
-		return $navigationMenuItem->getId();
+	/**
+	 * Avoid warnings when Listbuilder::unpack tries to call this method.
+	 */
+	function insertEntry() {
+		return false;
 	}
 
 	/**
@@ -149,11 +145,11 @@ class NavigationMenuItemsManagementForm extends Form {
 	 */
 	function validate() {
 		// Validate that the a NavigationMenu has been selected.
-		$navigationMenuId = $this->getData('navigationMenuId');
+		//$navigationMenuId = $this->getData('navigationMenuId');
 
-		if (!isset($navigationMenuId) || $navigationMenuId < 1) {
-			$this->addError('navigationMenuId', __('manager.navigationMenus.form.navigationMenuRequired'));
-		}
+		//if (!isset($navigationMenuId) || $navigationMenuId < 1) {
+		//    $this->addError('navigationMenuId', __('manager.navigationMenus.form.navigationMenuRequired'));
+		//}
 
 		return parent::validate();
 	}

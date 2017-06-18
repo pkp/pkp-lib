@@ -65,7 +65,7 @@ class NavigationMenusGridRow extends GridRow {
 					new AjaxModal(
 						$router->url($request, null, null, 'addMenuItems', null, $actionArgs),
 						__('grid.action.addMenuItems'),
-						'modal_add',
+						'modal_manage',
 						true
 						),
 					__('grid.action.addMenuItems'),

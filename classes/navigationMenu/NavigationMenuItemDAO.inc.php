@@ -74,7 +74,7 @@ class NavigationMenuItemDAO extends DAO {
 	function getByContextId($contextId) {
 		$params = array((int) $contextId);
 		$result = $this->retrieve(
-			'SELECT * FROM navigation_menu_items WHERE context_id = ?',
+			'SELECT * FROM navigation_menu_items WHERE context_id = ? order by enabled desc, navigation_menu_id, assoc_id desc',
 			$params
 		);
 

@@ -18,6 +18,8 @@ import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 import('lib.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
 
 class NavigationMenuItemsGridHandler extends GridHandler {
+	/** @var int the ID of the parent navigationMenuId */
+	var $navigationMenuIdParent;
 
 	/**
 	 * Constructor
@@ -30,7 +32,7 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 				'fetchGrid', 'fetchRow',
 				'addNavigationMenuItem', 'editNavigationMenuItem',
 				'updateNavigationMenuItem',
-				'deleteNavigationMenuItem', 'saveSequence', 'getNavigationMenuItemsWithNoAssocId'
+				'deleteNavigationMenuItem', 'saveSequence'
 			)
 		);
 	}
@@ -42,8 +44,8 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 	 * @copydoc GridHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
-		import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
-		$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+		import('lib.pkp.classes.security.authorization.internal.NavigationMenuRequiredPolicy');
+		$this->addPolicy(new NavigationMenuRequiredPolicy($request, $args, 'navigationMenuIdParent'));
 		$context = $request->getContext();
 
 		$navigationMenuItemId = $request->getUserVar('navigationMenuItemId');
@@ -58,13 +60,20 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 	}
 
 	/**
+	 * @copydoc GridHandler::addFeatures()
+	 */
+	function initFeatures($request, $args) {
+		import('lib.pkp.classes.controllers.grid.feature.OrderGridItemsFeature');
+		return array(new OrderGridItemsFeature());
+	}
+
+
+
+	/**
 	 * @copydoc GridHandler::initialize()
 	 */
 	function initialize($request, $args = null) {
 		parent::initialize($request, $args);
-
-		// Basic grid configuration
-		$this->setTitle('manager.navigationMenuItems');
 
 		// Set the no items row text
 		$this->setEmptyRowText('grid.navigationMenus.navigationMenuItems.noneExist');
@@ -102,15 +111,6 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 		);
 
 		$this->addColumn(
-			new GridColumn('parentNavigationMenu',
-				'grid.navigationMenu.navigationMenuParent',
-				null,
-				null,
-				$navigationMenuItemsCellProvider
-			)
-		);
-
-		$this->addColumn(
 			new GridColumn('parentNavigationMenuItem',
 				'grid.navigationMenu.navigationMenuItemParent',
 				null,
@@ -136,9 +136,9 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
 
-
+		$navigationMenu = $this->getAuthorizedContextObject(ASSOC_TYPE_NAVIGATION_MENU);
 		$actionArgs = array(
-
+			'navigationMenuIdParent' => $navigationMenu->getId()
 		);
 
 		$this->addAction(
@@ -160,20 +160,52 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 	 * @copydoc GridHandler::loadData()
 	 */
 	protected function loadData($request, $filter) {
-		$context = $request->getContext();
-		$contextId = $context->getId();
+		$navigationMenu = $this->getAuthorizedContextObject(ASSOC_TYPE_NAVIGATION_MENU);
+
+		//$context = $request->getContext();
+		//$contextId = $context->getId();
 
 		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
-		return $navigationMenuItemDao->getByContextId($contextId);
+		return $navigationMenuItemDao->getByNavigationMenuId($navigationMenu->getId());
 	}
 
 	/**
 	 * @copydoc GridHandler::getRowInstance()
 	 */
 	protected function getRowInstance() {
-		import('lib.pkp.controllers.grid.navigationMenus.NavigationMenuItemsGridRow');
-		return new NavigationMenuItemsGridRow();
+		$navigationMenu = $this->getAuthorizedContextObject(ASSOC_TYPE_NAVIGATION_MENU);
 
+		import('lib.pkp.controllers.grid.navigationMenus.NavigationMenuItemsGridRow');
+		return new NavigationMenuItemsGridRow($navigationMenu->getId());
+
+	}
+
+	/**
+	 * @copydoc GridDataProvider::getRequestArgs()
+	 */
+	function getRequestArgs() {
+		$navigationMenu = $this->getAuthorizedContextObject(ASSOC_TYPE_NAVIGATION_MENU);
+		return array_merge(
+			parent::getRequestArgs(),
+			array('navigationMenuIdParent' => $navigationMenu->getId())
+		);
+	}
+
+	/**
+	 * @copydoc GridHandler::getDataElementSequence()
+	 */
+	function getDataElementSequence($gridDataElement) {
+		return $gridDataElement->getSequence();
+	}
+
+	/**
+	 * @copydoc GridHandler::setDataElementSequence()
+	 */
+	function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence) {
+		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+		$navigationMenuItem = $navigationMenuItemDao->getById($rowId);
+		$navigationMenuItem->setSequence($newSequence);
+		$navigationMenuItemDao->updateObject($navigationMenuItem);
 	}
 
 	//

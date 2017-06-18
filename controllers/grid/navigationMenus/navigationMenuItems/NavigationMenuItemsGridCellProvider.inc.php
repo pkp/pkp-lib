@@ -16,6 +16,8 @@
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
 class NavigationMenuItemsGridCellProvider extends GridCellProvider {
+	/** @var int the ID of the parent navigationMenuId */
+	var $navigationMenuIdParent;
 
 	/**
 	 * Constructor
@@ -33,9 +35,15 @@ class NavigationMenuItemsGridCellProvider extends GridCellProvider {
 				$navigationMenuItem = $row->getData();
 				$router = $request->getRouter();
 
+				if ($request->getUserVar('rowId')){
+					$this->navigationMenuIdParent = $request->getUserVar('rowId')['parentElementId'];
+				} else {
+					$this->navigationMenuIdParent = $request->getUserVar('navigationMenuIdParent');
+				}
 
 				$actionArgs = array(
-					'navigationMenuItemId' => $row->getId()
+					'navigationMenuItemId' => $row->getId(),
+					'navigationMenuIdParent' => $this->navigationMenuIdParent
 				);
 
 				import('lib.pkp.classes.linkAction.request.AjaxModal');
@@ -82,17 +90,6 @@ class NavigationMenuItemsGridCellProvider extends GridCellProvider {
 			    } else {
 			        return array('label' => __('common.none'));
 			    }
-			case 'parentNavigationMenu':
-			    $navigationMenuId = $navigationMenuItem->getNavigationMenuId();
-			    if ($navigationMenuId) {
-					$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
-					$parentNavigationMenu = $navigationMenuDao->getById($navigationMenuId);
-					if (!is_null($parentNavigationMenu)) {
-						return array('label' => $parentNavigationMenu->getTitle());
-					}
-			    } 
-			    
-				return array('label' => __('common.none'));
 			case 'parentNavigationMenuItem':
 			    $assoc_id = $navigationMenuItem->getAssocId();
 			    if ($assoc_id) {

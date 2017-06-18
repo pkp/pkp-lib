@@ -271,6 +271,7 @@
 	<message key="grid.action.addMenuItems">Manage navigation menu items</message>
 	<message key="grid.action.addNavigationMenuItem">Add item</message>
 	<message key="grid.navigationMenu.navigationMenuItemParent">Parent Item Title</message>
+	<message key="grid.navigationMenu.navigationMenuParent">Parent Navigation Menu Title</message>
 	<message key="grid.navigationMenu.navigationMenuItemPath">Path</message>
 	<message key="grid.navigationMenus.navigationMenuItems.noneExist">No Navigation Menu Items</message>
 	<message key="grid.navigationMenus.navigationMenu.noneExist">No Navigation Menu Item</message>

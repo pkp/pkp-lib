@@ -1,21 +1,21 @@
 <?php
 
 /**
- * @file controllers/tab/settings/announcements/form/AnnouncementSettingsForm.inc.php
+ * @file controllers/tab/settings/navigationMenus/form/NavigationMenuSettingsForm.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class AnnouncementSettingsForm
- * @ingroup controllers_tab_settings_announcements_form
+ * @class NavigationMenuSettingsForm
+ * @ingroup controllers_tab_settings_navigationMenus_form
  *
- * @brief Form to edit announcement settings.
+ * @brief Form to edit NavigationMenus settings.
  */
 
 import('lib.pkp.classes.controllers.tab.settings.form.ContextSettingsForm');
 
-class NavigationMenusForm extends ContextSettingsForm {
+class NavigationMenuSettingsForm extends ContextSettingsForm {
 
 	/**
 	 * Constructor.
@@ -28,7 +28,7 @@ class NavigationMenusForm extends ContextSettingsForm {
 			'announcementsIntroduction' => 'string',
 		);
 
-		parent::__construct($settings, 'controllers/tab/settings/navigationMenus/form/navigationMenusSettingsForm.tpl', $wizardMode);
+		parent::__construct($settings, 'controllers/tab/settings/navigationMenus/form/navigationMenuSettingsForm.tpl', $wizardMode);
 	}
 
 

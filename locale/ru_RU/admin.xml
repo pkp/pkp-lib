@@ -26,6 +26,7 @@
 	<message key="admin.confirmClearTemplateCache">Вы уверены, что хотите очистить кэш скомпилированных шаблонов?</message>
 	<message key="admin.confirmExpireSessions">Вы уверены, что хотите прекратить все сессии пользователей? Все пользователи, которые сейчас работают в системе, должны будут заново войти в нее под своей учетной записью (в том числе и вы).</message>
 	<message key="admin.contentsOfConfigFile">Содержимое конфигурационного файла</message>
+	<message key="admin.contexts.confirmDelete">Вы уверены, что хотите навсегда удалить {$contextName} и все содержимое?</message>
 	<message key="admin.currentVersion">Текущая версия</message>
 	<message key="admin.dateInstalled">Дата установки</message>
 	<message key="admin.displayConfigFileInstructions"><![CDATA[Содержимое обновленной конфигурации показано ниже. Чтобы применить изменения к конфигурации, вы должны открыть <tt>config.inc.php</tt> в подходящем текстовом редакторе и заменить его содержимое содержимым текстового поля, расположенного ниже.]]></message>

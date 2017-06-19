@@ -78,7 +78,7 @@ class QueryForm extends Form {
 		$this->setQuery($query);
 
 		// Validation checks for this form
-		$this->addCheck(new FormValidatorListbuilder($this, 'users', 'stageParticipants.notify.warning'));
+		$this->addCheck(new FormValidator($this, 'users', 'required', 'stageParticipants.notify.warning'));
 		$this->addCheck(new FormValidator($this, 'subject', 'required', 'submission.queries.subjectRequired'));
 		$this->addCheck(new FormValidator($this, 'comment', 'required', 'submission.queries.messageRequired'));
 		$this->addCheck(new FormValidatorPost($this));
@@ -111,7 +111,7 @@ class QueryForm extends Form {
 	function getStageId() {
 		return $this->_stageId;
 	}
- 
+
 	/**
 	 * Set the stage id
 	 * @param int
@@ -188,11 +188,27 @@ class QueryForm extends Form {
 		$query = $this->getQuery();
 		$headNote = $query->getHeadNote();
 
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+		$assignments = $stageAssignmentDao->getBySubmissionAndStageId($query->getAssocId(), $query->getStageId());
+		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$currentParticipants = $query->getId() ? $queryDao->getParticipantIds($query->getId()) : array();
+		$userDao = DAORegistry::getDAO('UserDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$participantOptions = array();
+		foreach ($assignments->toArray() as $assignment) {
+			$participantOptions[] = array(
+				'user' => $userDao->getById($assignment->getUserId()),
+				'userGroup' => $userGroupDao->getById($assignment->getUserGroupId()),
+				'isParticipant' => in_array($assignment->getUserId(), $currentParticipants),
+			);
+		}
+
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
 			'isNew' => $this->_isNew,
 			'noteId' => $headNote->getId(),
 			'actionArgs' => $actionArgs,
+			'participantOptions' => $participantOptions,
 		));
 
 		return parent::fetch($request);
@@ -225,18 +241,31 @@ class QueryForm extends Form {
 		$noteDao = DAORegistry::getDAO('NoteDAO');
 		$noteDao->updateObject($headNote);
 
-		import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
-		ListbuilderHandler::unpack($request, $this->getData('users'), array($this, 'deleteEntry'), array($this, 'insertEntry'), array($this, 'updateEntry'));
-
 		$queryDao->updateObject($query);
 
-		// Notify the users of a new query.
-		$notificationManager = new NotificationManager();
-		$user = $request->getUser();
-		foreach ($queryDao->getParticipantIds($query->getId()) as $userId) {
-			// Skip sending a message to the current user.
-			if ($user->getId() == $userId) continue;
+		// Update participants
+		$oldParticipantIds = $queryDao->getParticipantIds($query->getId());
+		$newParticipantIds = $this->getData('users');
+		$queryDao->removeAllParticipants($query->getId());
+		foreach ($newParticipantIds as $userId) {
+			$queryDao->insertParticipant($query->getId(), $userId);
+		}
 
+		// Update participant notifications
+		$notificationManager = new NotificationManager();
+		$removed = array_diff($oldParticipantIds, $newParticipantIds);
+		$added = array_diff($newParticipantIds, $oldParticipantIds);
+		foreach($removed as $userId) {
+			// Delete this users's notifications relating to this query
+			$notificationDao = DAORegistry::getDAO('NotificationDAO');
+			$notificationDao->deleteByAssoc(ASSOC_TYPE_QUERY, $query->getId(), $userId);
+		}
+		$currentUser = $request->getUser();
+		foreach($added as $userId) {
+			// Skip sending a message to the current user.
+			if ($currentUser->getId() == $userId) {
+				continue;
+			}
 			$notificationManager->createNotification(
 				$request,
 				$userId,
@@ -247,36 +276,6 @@ class QueryForm extends Form {
 				NOTIFICATION_LEVEL_TASK
 			);
 		}
-	}
-
-	/**
-	 * @copydoc ListbuilderHandler::insertEntry()
-	 */
-	function insertEntry($request, $newRowId) {
-		$query = $this->getQuery();
-		$queryDao = DAORegistry::getDAO('QueryDAO');
-		$queryDao->insertParticipant($query->getId(), $newRowId['name']);
-	}
-
-	/**
-	 * @copydoc ListbuilderHandler::deleteEntry()
-	 */
-	function deleteEntry($request, $rowId) {
-		$query = $this->getQuery();
-		$queryDao = DAORegistry::getDAO('QueryDAO');
-		$queryDao->removeParticipant($query->getId(), $rowId);
-
-		// This user should have any notifications relating to the query deleted.
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
-		$notificationDao->deleteByAssoc(ASSOC_TYPE_QUERY, $query->getId(), $rowId);
-	}
-
-	/**
-	 * @copydoc ListbuilderHandler::updateEntry()
-	 */
-	function updateEntry($request, $rowId, $newRowId) {
-		$this->deleteEntry($request, $rowId);
-		$this->insertEntry($request, $newRowId);
 	}
 }
 

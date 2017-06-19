@@ -26,10 +26,20 @@
 
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="queryFormNotification"}
 
-	{fbvFormArea id="queryUsersArea"}
-		{url|assign:queryUsersUrl router=$smarty.const.ROUTE_COMPONENT component="listbuilder.users.QueryUsersListbuilderHandler" op="fetch" queryId=$queryId params=$actionArgs escape=false}
-		{load_url_in_div id="queryUsersContainer" url=$queryUsersUrl}
-	{/fbvFormArea}
+	{fbvFormSection class="query_participants" title="editor.submission.stageParticipants" required="true"}
+		<ul>
+			{foreach from=$participantOptions item=participantOption}
+				<li>
+					{assign var="inputId" value="queryForm-user-"|concat:$participantOption.user->getId()}
+					<label for="{$inputId}">
+						<input type="checkbox" name="users[]" id="{$inputId}" value="{$participantOption.user->getId()}"{if $participantOption.isParticipant} checked="checked"{/if}>
+						<span class="name">{$participantOption.user->getFullName()}</span>
+						<span class="role">{$participantOption.userGroup->getLocalizedName()}</span>
+					</label>
+				</li>
+			{/foreach}
+		</ul>
+	{/fbvFormSection}
 
 	{fbvFormArea id="queryContentsArea"}
 		{fbvFormSection title="common.subject" for="subject" required="true"}

@@ -125,6 +125,7 @@ class SubmissionsListHandler extends ListHandler {
 		$config['i18n']['reviewsCompleted'] = __('submission.list.reviewsCompleted');
 		$config['i18n']['filesPrepared'] = __('submission.list.filesPrepared');
 		$config['i18n']['discussions'] = __('submission.list.discussions');
+		$config['i18n']['incompleteSubmissionNotice'] = __('submission.list.incompleteSubmissionNotice');
 
 		// Attach a CSRF token for post requests
 		$config['csrfToken'] = $request->getSession()->getCSRFToken();

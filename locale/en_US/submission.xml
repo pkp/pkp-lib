@@ -675,4 +675,5 @@
 	<message key="submission.list.reviewsCompleted">Reviews completed</message>
 	<message key="submission.list.filesPrepared">Files prepared</message>
 	<message key="submission.list.discussions">Discussions</message>
+	<message key="submission.list.incompleteSubmissionNotice">This submission must be completed before an editor will review it.</message>
 </locale>

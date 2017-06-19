@@ -355,6 +355,9 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('load_script', array($this, 'smartyLoadScript'));
 		$this->register_function('load_header', array($this, 'smartyLoadHeader'));
 
+		// load NavigationMenu Areas from context
+		$this->register_function('load_navigationMenuArea', array($this, 'smartyLoadNavigationMenuArea'));
+
 		/**
 		 * Kludge to make sure no code that tries to connect to the
 		 * database is executed (e.g., when loading installer pages).
@@ -1519,6 +1522,43 @@ class PKPTemplateManager extends Smarty {
 		foreach($headers as $priorityList) {
 			foreach($priorityList as $name => $data) {
 				$output .= "\n" . $data['header'];
+			}
+		}
+
+		return $output;
+	}
+
+	/**
+	 * Smarty usage: {load_navigationMenuAreas context="frontend" name=$areaName}
+	 *
+	 * Custom Smarty function for printing navigation menu areas attached to a context.
+	 * @param $params array associative array
+	 * @param $smarty Smarty
+	 * @return string of HTML/Javascript
+	 */
+	function smartyLoadNavigationMenuArea($params, $smarty) {
+		$areaName = $params['name'];
+		$declaredMenuTemplatePath = $params['path'];
+		$currentContext = $this->_request->getContext();
+
+		$menuTemplatePath = 'frontend/components/navigationMenu.tpl';
+		if (isset($declaredMenuTemplatePath)) {
+			$menuTemplatePath = $declaredMenuTemplatePath;
+		}
+
+		$output = '';
+		if ($currentContext) {
+			$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+			$navigationMenu = $navigationMenuDao->getByArea($currentContext->getId(), $areaName, null); // null->true if only enabled NMs needed 
+
+			if (isset($navigationMenu)) {
+				$navigationMenu->populateNavigationMenuItems();
+
+				$this->assign(array(
+					'navigationMenu' => $navigationMenu
+				));
+
+				$output = $this->fetch($menuTemplatePath);
 			}
 		}
 

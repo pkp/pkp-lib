@@ -25,6 +25,9 @@
 		{fbvFormSection title="manager.navigationMenus.form.title" for="title" required="true"}
 			{fbvElement type="text" id="title" value=$title maxlength="255" required="true"}
 		{/fbvFormSection}
+        {fbvFormSection title="manager.navigationMenus.form.navigationMenuArea" for="area_name"}
+            {fbvElement type="select" id="area_name" from=$activeThemeNavigationAreas selected=$navigationMenuArea label="manager.navigationMenus.form.navigationMenuAreaMessage" translate=false}
+        {/fbvFormSection}
 	{/fbvFormArea}
 	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 	{fbvFormButtons id="navigationMenuFormSubmit" submitText="common.save"}

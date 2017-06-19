@@ -81,6 +81,31 @@ class NavigationMenuDAO extends DAO {
 	}
 
 	/**
+	 * Retrieve a navigation menu by navigation menu ID.
+	 * @param $navigationMenuId int navigation menu ID
+	 * @param $contextId int Context Id
+	 * @param $assocId int Optional assoc ID - may associate with template area :: TODO:DEFSTAT is area Entity or String?
+	 * @return NavigationMenu
+	 */
+	function getByArea($contextId, $areaName, $enabled = null) {
+		$params = array($areaName);
+		$params[] = (int) $contextId;
+		if ($enabled !== null) $params[] = (int) $enabled;
+		$result = $this->retrieve(
+			'SELECT * FROM navigation_menus WHERE area_name = ? and context_id = ?' .
+			($enabled !== null?' AND enabled = ?':''),
+			$params
+		);
+
+		$returner = null;
+		if ($result->RecordCount() != 0) {
+			$returner = $this->_fromRow($result->GetRowAssoc(false));
+		}
+		$result->Close();
+		return $returner;
+	}
+
+	/**
 	 * Retrieve a navigation menu by title
 	 * @param $contextId int Context Id
 	 * @param $title string
@@ -142,6 +167,7 @@ class NavigationMenuDAO extends DAO {
 		$navigationMenu = $this->newDataObject();
 		$navigationMenu->setId($row['navigation_menu_id']);
 		$navigationMenu->setTitle($row['title']);
+		$navigationMenu->setAreaName($row['area_name']);
 		$navigationMenu->setContextId($row['context_id']);
 		$navigationMenu->setSequence($row['seq']);
 		$navigationMenu->setAssocId($row['assoc_id']);
@@ -159,7 +185,7 @@ class NavigationMenuDAO extends DAO {
 	function insertObject($navigationMenu) {
 		$this->update(
 				'INSERT INTO navigation_menus
-				(title, context_id, seq, assoc_id, defaultmenu, enabled)
+				(title, context_id, seq, assoc_id, defaultmenu, enabled, area_name)
 				VALUES
 				(?, ?, ?, ?, ?, ?)',
 			array(
@@ -168,7 +194,8 @@ class NavigationMenuDAO extends DAO {
 				(int) $navigationMenu->getSequence(),
 				(int) $navigationMenu->getAssocId(),
 				(int) $navigationMenu->getDefaultMenu(),
-				(int) $navigationMenu->getEnabled()
+				(int) $navigationMenu->getEnabled(),
+				$navigationMenu->getAreaName()
 			)
 		);
 		$navigationMenu->setId($this->getInsertId());
@@ -185,6 +212,7 @@ class NavigationMenuDAO extends DAO {
 		$returner = $this->update(
 			'UPDATE	navigation_menus
 			SET	title = ?,
+				area_name = ?,
 				context_id = ?,
 				seq = ?,
 				assoc_id = ?,
@@ -193,12 +221,13 @@ class NavigationMenuDAO extends DAO {
 			WHERE	navigation_menu_id = ?',
 			array(
 				$navigationMenu->getTitle(),
+				$navigationMenu->getAreaName(),
 				(int) $navigationMenu->getContextId(),
 				(int) $navigationMenu->getSequence(),
 				(int) $navigationMenu->getAssocId(),
 				(int) $navigationMenu->getDefaultMenu(),
 				(int) $navigationMenu->getEnabled(),
-				(int) $navigationMenu->getId()
+				(int) $navigationMenu->getId(),
 			)
 		);
 

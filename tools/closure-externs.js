@@ -297,4 +297,27 @@ $.pkp.cons = {
 	ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY: 0,
 	UPLOAD_MAX_FILESIZE: 0,
 	INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT: 0
-}
+};
+
+/**
+ * @type {Object}
+ */
+var _ = {
+	isNull: function(object) {},
+	each: function(array, callback) {},
+	reject: function(array, callback) {}
+};
+
+/**
+ * @type {Object}
+ */
+var pkp = {
+	eventBus: {
+		$emit: function(name, data) {},
+		$on: function(name, callback) {},
+		$off: function(name, callback) {}
+	},
+	registry: {
+		_instances: []
+	}
+};

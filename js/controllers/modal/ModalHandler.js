@@ -248,7 +248,8 @@
 		$modalElement.removeClass('is_visible');
 		this.trigger('pkpModalClose');
 		setTimeout(function() {
-			modalHandler.getHtmlElement().empty();
+			modalHandler.unbindPartial($modalElement);
+			$modalElement.empty();
 			modalHandler.remove();
 		}, 300);
 

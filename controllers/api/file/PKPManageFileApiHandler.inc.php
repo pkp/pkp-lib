@@ -69,6 +69,14 @@ abstract class PKPManageFileApiHandler extends Handler {
 		$noteDao = DAORegistry::getDAO('NoteDAO');
 		$noteDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getFileId());
 
+		// Retrieve the review round so it can be updated after the file is
+		// deleted
+		if ($submissionFile->getFileStage() == SUBMISSION_FILE_REVIEW_REVISION) {
+			import('lib.pkp.classes.submission.reviewRound.ReviewRoundDAO');
+			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+			$reviewRound = $reviewRoundDao->getBySubmissionFileId($submissionFile->getFileId());
+		}
+
 		// Delete the submission file.
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 
@@ -99,16 +107,10 @@ abstract class PKPManageFileApiHandler extends Handler {
 					$submission->getId()
 				);
 
-				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-				$lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
-				$notificationMgr->updateNotification(
-					$request,
-					array(NOTIFICATION_TYPE_ALL_REVISIONS_IN),
-					null,
-					ASSOC_TYPE_REVIEW_ROUND,
-					$lastReviewRound->getId()
-				);
+				// Update the ReviewRound status when revision is submitted
+				$reviewRoundDao->updateStatus($reviewRound);
 				break;
+
 			case SUBMISSION_FILE_COPYEDIT:
 				$notificationMgr->updateNotification(
 					$request,
@@ -203,15 +205,8 @@ abstract class PKPManageFileApiHandler extends Handler {
 			);
 
 			if ($reviewRound) {
-				$notificationMgr->updateNotification(
-					$request,
-					array(NOTIFICATION_TYPE_ALL_REVISIONS_IN),
-					null,
-					ASSOC_TYPE_REVIEW_ROUND,
-					$reviewRound->getId()
-				);
 
-				// Delete any 'revision requested' notifications since all revisions are now in.
+				// Delete any 'revision requested' notifications since revisions are now in.
 				$context = $request->getContext();
 				$notificationDao = DAORegistry::getDAO('NotificationDAO');
 				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');

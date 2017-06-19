@@ -38,6 +38,7 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy {
 	 */
 	function effect() {
 		$request = $this->_request;
+		$router = $request->getRouter();
 		$user = $request->getUser();
 
 		if (!is_a($user, 'User')) {
@@ -59,7 +60,6 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy {
 		}
 
 		$contextRoles = $this->_getContextRoles($roleContext, $contextDepth, $userRoles);
-
 		$this->addAuthorizedContextObject(ASSOC_TYPE_USER_ROLES, $contextRoles);
 		return AUTHORIZATION_PERMIT;
 	}

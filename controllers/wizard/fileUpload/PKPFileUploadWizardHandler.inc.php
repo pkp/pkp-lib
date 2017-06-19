@@ -347,13 +347,11 @@ class PKPFileUploadWizardHandler extends Handler {
 						ASSOC_TYPE_SUBMISSION,
 						$reviewRound->getSubmissionId()
 					);
-					$notificationMgr->updateNotification(
-						PKPApplication::getRequest(),
-						array(NOTIFICATION_TYPE_ALL_REVISIONS_IN),
-						null,
-						ASSOC_TYPE_REVIEW_ROUND,
-						$reviewRound->getId()
-					);
+
+					// Update the ReviewRound status when revision is submitted
+					import('lib.pkp.classes.submission.reviewRound.ReviewRoundDAO');
+					$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+					$reviewRoundDao->updateStatus($reviewRound);
 				}
 				break;
 		}

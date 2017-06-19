@@ -11,30 +11,8 @@
  */
 .pkp_controllers_informationCenter {
 
-	#notesAccordion {
-		margin-bottom: @double;
-	}
-
-	.ui-accordion {
-		border: @bg-border-light;
-		font-size: @font-sml;
-		line-height: @line-sml;
-	}
-
-	.ui-accordion-header {
-		margin: 0;
-		padding: 4px @base;
-		border-bottom: @bg-border-light;
-		font-size: @font-sml;
-		background: @bg-border-color-light;
-
-		a {
-			text-decoration: none;
-		}
-	}
-
 	.pkp_notes_list {
-		padding: @base;
+		margin-bottom: @double;
 
 		p:first-child {
 			margin-top: 0;
@@ -46,9 +24,13 @@
 	}
 
 	.note {
-		padding: @base 0;
+		margin-bottom: @double;
 		font-size: @font-sml;
 		line-height: @line-sml;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 
 		.details {
 			.pkp_helpers_clear;
@@ -74,9 +56,21 @@
 				}
 			}
 		}
+
+		// Unread notes
+		&.new {
+
+			.message {
+				font-weight: @bold;
+			}
+		}
 	}
 
 	.no_notes {
 		font-size: @font-sml;
+	}
+
+	.pkp_controllers_extrasOnDemand {
+		margin-bottom: @double;
 	}
 }

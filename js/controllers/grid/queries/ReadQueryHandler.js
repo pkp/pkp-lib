@@ -110,9 +110,12 @@
 			showFetchedNoteForm_ = function(ajaxContext, jsonData) {
 
 		var processedJsonData = this.handleJson(jsonData),
-				$noteFormContainer = $('#newNotePlaceholder', this.getHtmlElement());
+				$noteFormContainer = $('#newNotePlaceholder', this.getHtmlElement()),
+				$openNoteForm = $('.openNoteForm.is_loading', this.getHtmlElement());
 
-		$('.openNoteForm.is_loading', this.getHtmlElement()).remove();
+		this.unbindPartial($openNoteForm);
+		$openNoteForm.remove();
+		this.unbindPartial($noteFormContainer);
 		$noteFormContainer.html(processedJsonData.content);
 	};
 
@@ -130,6 +133,7 @@
 				$participantsListContainer = $(
 				'#participantsListPlaceholder', this.getHtmlElement());
 
+		this.unbindPartial($participantsListContainer);
 		$participantsListContainer.children().remove();
 		$participantsListContainer.append(processedJsonData.content);
 	};

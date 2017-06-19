@@ -87,9 +87,8 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 				// Renew the Opt-Out cookie if present.
 				$request->setCookieVar('usageStats-opt-out', true, time() + 60*60*24*365);
 			}
-			if ($this->getSetting(CONTEXT_ID_NONE, 'displayStatistics')) {
-				$this->displayReaderStatistics();
-			}
+
+			$this->displayReaderStatistics();
 		}
 
 		return $success;
@@ -415,11 +414,13 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 		);
 
 		// Add locale and configuration data
+		$context = $request->getContext();
+		$chartType = $this->_getPluginSetting($context, 'chartType');
 		$script_data = 'var pkpUsageStats = pkpUsageStats || {};';
 		$script_data .= 'pkpUsageStats.locale = pkpUsageStats.locale || {};';
 		$script_data .= 'pkpUsageStats.locale.months = ' . json_encode(explode(' ', __('plugins.generic.usageStats.monthInitials'))) . ';';
 		$script_data .= 'pkpUsageStats.config = pkpUsageStats.config || {};';
-		$script_data .= 'pkpUsageStats.config.chartType = ' . json_encode($this->getSetting(CONTEXT_ID_NONE, 'chartType')) . ';';
+		$script_data .= 'pkpUsageStats.config.chartType = ' . json_encode($chartType) . ';';
 		$templateMgr->addJavaScript(
 			'pkpUsageStatsConfig',
 			$script_data,
@@ -491,8 +492,12 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 		$smarty->assign('year', key($statsYears));
 		$smarty->assign('statistics', json_encode(array('byRepresentation' => $statsByRepresentation, 'byMonth' => $statsByMonth)));
 		$smarty->assign('labels', json_encode(explode(' ', __('plugins.generic.usageStats.monthInitials'))));
-		$smarty->assign('chartType', $this->getSetting(CONTEXT_ID_NONE, 'chartType'));
-		$smarty->assign('datasetMaxCount', $this->getSetting(CONTEXT_ID_NONE, 'datasetMaxCount'));
+		$request = Application::getRequest();
+		$context = $request->getContext();
+		$chartType = $this->_getPluginSetting($context, 'chartType');
+		$smarty->assign('chartType', $chartType);
+		$datasetMaxCount = $this->_getPluginSetting($context, 'datasetMaxCount');
+		$smarty->assign('datasetMaxCount', $datasetMaxCount);
 		$metricsHTML = $smarty->fetch($this->getTemplatePath(true) . 'outputBackend.tpl');
 		$output .= $metricsHTML;
 
@@ -756,6 +761,22 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 	function _getColor($num) {
 		$hash = md5('color' . $num * 2);
 		return hexdec(substr($hash, 0, 2)) . ',' . hexdec(substr($hash, 2, 2)) . ',' . hexdec(substr($hash, 4, 2));
+	}
+
+	/**
+	 * Get context wide setting. If the context or the setting does not exist,
+	 * get the site wide setting.
+	 * @param $context Context
+	 * @param $name Setting name
+	 * @return mixed
+	 */
+	function _getPluginSetting($context, $name) {
+		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
+		if ($context && $pluginSettingsDao->settingExists($context->getId(), $this->getName(), $name)) {
+			return $this->getSetting($context->getId(), $name);
+		} else {
+			return $this->getSetting(CONTEXT_ID_NONE, $name);
+		}
 	}
 
 }

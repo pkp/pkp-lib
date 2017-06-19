@@ -48,9 +48,11 @@ class UsageStatsSettingsForm extends Form {
 		$this->setData('saltFilepath', $plugin->getSaltPath());
 		$this->setData('selectedOptionalColumns', $plugin->getSetting(CONTEXT_ID_NONE, 'optionalColumns'));
 		$this->setData('compressArchives', $plugin->getSetting(CONTEXT_ID_NONE, 'compressArchives'));
-		$this->setData('displayStatistics', $plugin->getSetting(CONTEXT_ID_NONE, 'displayStatistics'));
-		$this->setData('datasetMaxCount', $plugin->getSetting(CONTEXT_ID_NONE, 'datasetMaxCount'));
-		$this->setData('chartType', $plugin->getSetting(CONTEXT_ID_NONE, 'chartType'));
+
+		$context = Request::getContext();
+		$this->setData('displayStatistics', $plugin->_getPluginSetting($context, 'displayStatistics'));
+		$this->setData('datasetMaxCount', $plugin->_getPluginSetting($context, 'datasetMaxCount'));
+		$this->setData('chartType', $plugin->_getPluginSetting($context, 'chartType'));
 	}
 
 	/**
@@ -102,9 +104,12 @@ class UsageStatsSettingsForm extends Form {
 		$plugin->updateSetting(CONTEXT_ID_NONE, 'dataPrivacyOption', $this->getData('dataPrivacyOption'), bool);
 		$plugin->updateSetting(CONTEXT_ID_NONE, 'compressArchives', $this->getData('compressArchives'), bool);
 		$plugin->updateSetting(CONTEXT_ID_NONE, 'saltFilepath', $this->getData('saltFilepath'));
-		$plugin->updateSetting(CONTEXT_ID_NONE, 'displayStatistics', $this->getData('displayStatistics'), bool);
-		$plugin->updateSetting(CONTEXT_ID_NONE, 'chartType', $this->getData('chartType'));
-		$plugin->updateSetting(CONTEXT_ID_NONE, 'datasetMaxCount', $this->getData('datasetMaxCount'));
+
+		$context = Request::getContext();
+		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
+		$plugin->updateSetting($contextId, 'displayStatistics', $this->getData('displayStatistics'), bool);
+		$plugin->updateSetting($contextId, 'chartType', $this->getData('chartType'));
+		$plugin->updateSetting($contextId, 'datasetMaxCount', $this->getData('datasetMaxCount'));
 
 		$optionalColumns = $this->getData('optionalColumns');
 		// Make sure optional columns data makes sense.

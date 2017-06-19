@@ -85,11 +85,27 @@ class NavigationMenuItem extends DataObject {
 	}
 
 	/**
-	 * Get navigationMenuId for this navigation menu item.
+	 * Get path for this navigation menu item.
 	 * @return string
 	 */
 	function getPath() {
 		return $this->getData('path');
+	}
+
+	/**
+	 * Set page handler name for this navigation menu item.
+	 * @param $page string
+	 */
+	function setPage($page) {
+		$this->setData('page', $page);
+	}
+
+	/**
+	 * Get page handler name for this navigation menu item.
+	 * @return string
+	 */
+	function getPage() {
+		return $this->getData('page');
 	}
 
 	/**

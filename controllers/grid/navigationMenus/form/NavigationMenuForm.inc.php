@@ -70,7 +70,7 @@ class NavigationMenuForm extends Form {
 
 		$activeThemeNavigationAreas = array();
 		if (!count($activeThemeOptions['navigationMenuArea']) == 0) {
-			$activeThemeNavigationAreas = array(0 => __('common.none'));
+			$activeThemeNavigationAreas = array('' => __('common.none'));
 		}
 
 		foreach ($activeThemeOptions['navigationMenuArea'] as $navigationMenuArea) {

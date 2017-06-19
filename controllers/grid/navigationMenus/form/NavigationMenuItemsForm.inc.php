@@ -119,12 +119,14 @@ class NavigationMenuItemsForm extends Form {
 				'title' => $navigationMenuItem->getTitle(null),
 				'parentNavigationMenuItemId' => $navigationMenuItem->getAssocId(),
 				'navigationMenuItemEnabled' => $navigationMenuItem->getEnabled(),
+				'page' => $navigationMenuItem->getPage(),
 			);
 			$this->setData('content', $navigationMenuItem->getContent(null)); // Localized
 		} else {
 			$this->navigationMenuItemId = null;
 			$this->setData('content', "");
 			$this->setData('navigationMenuItemEnabled', 1);
+			$this->setData('page', 'navigationMenu');
 		}
 
 
@@ -134,7 +136,7 @@ class NavigationMenuItemsForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('navigationMenuItemId', 'content', 'navigationMenuId', 'navigationMenuIdParent', 'title', 'path', 'assoc_id', 'enabled'));
+		$this->readUserVars(array('navigationMenuItemId', 'content', 'navigationMenuId', 'navigationMenuIdParent', 'title', 'path', 'assoc_id', 'enabled', 'page'));
 	}
 
 	/**
@@ -158,6 +160,7 @@ class NavigationMenuItemsForm extends Form {
 		$navigationMenuItem->setDefaultMenu($navigationMenuItem->getDefaultMenu());
 		$navigationMenuItem->setEnabled($this->getData('enabled'));
 		$navigationMenuItem->setContextId($this->getContextId());
+		$navigationMenuItem->setPage($this->getData('page'));
 
 		// Update or insert navigation menu item
 		if ($navigationMenuItem->getId()) {

@@ -52,7 +52,7 @@ class NavigationMenuItemDAO extends DAO {
 	 * @return NavigationMenuItem
 	 */
 	function getByPath($contextId, $path) {
-		$params = array($path, $contextId);
+		$params = array($path, (int) $contextId);
 		$result = $this->retrieve(
 			'SELECT	* FROM navigation_menu_items WHERE path = ? and context_id = ?',
 			$params
@@ -180,6 +180,7 @@ class NavigationMenuItemDAO extends DAO {
 		$navigationMenuItem->setPath($row['path']);
 		$navigationMenuItem->setContextId($row['context_id']);
 		$navigationMenuItem->setEnabled($row['enabled']);
+		$navigationMenuItem->setPage($row['page']);
 
 		$this->getDataObjectSettings('navigation_menu_item_settings', 'navigation_menu_item_id', $row['navigation_menu_item_id'], $navigationMenuItem);
 
@@ -204,17 +205,18 @@ class NavigationMenuItemDAO extends DAO {
 	function insertObject($navigationMenuItem) {
 		$this->update(
 				'INSERT INTO navigation_menu_items
-				(navigation_menu_id, seq, assoc_id, path, defaultmenu, enabled, context_id)
+				(path, page, navigation_menu_id, seq, assoc_id, defaultmenu, enabled, context_id)
 				VALUES
-				(?, ?, ?, ?, ?, ?, ?)',
+				(?, ?, ?, ?, ?, ?, ?, ?)',
 			array(
+				$navigationMenuItem->getPath(),
+				$navigationMenuItem->getPage(),
 				(int) $navigationMenuItem->getNavigationMenuId(),
 				(int) $navigationMenuItem->getSequence(),
 				(int) $navigationMenuItem->getAssocId(),
-				$navigationMenuItem->getPath(),
 				(int) $navigationMenuItem->getDefaultMenu(),
 				(int) $navigationMenuItem->getEnabled(),
-				(int) $navigationMenuItem->getContextId()
+				(int) $navigationMenuItem->getContextId(),
 			)
 		);
 		$navigationMenuItem->setId($this->getInsertId());
@@ -231,23 +233,25 @@ class NavigationMenuItemDAO extends DAO {
 		$returner = $this->update(
 				'UPDATE navigation_menu_items
 				SET
+					path = ?,
+					page = ?,
 					navigation_menu_id = ?,
 					seq = ?,
 					assoc_id = ?,
-					path = ?,
 					defaultmenu = ?,
 					enabled = ?,
 					context_id = ?
 				WHERE navigation_menu_item_id = ?',
 			array(
+				$navigationMenuItem->getPath(),
+				$navigationMenuItem->getPage(),
 				(int) $navigationMenuItem->getNavigationMenuId(),
 				(int) $navigationMenuItem->getSequence(),
 				(int) $navigationMenuItem->getAssocId(),
-				$navigationMenuItem->getPath(),
 				(int) $navigationMenuItem->getDefaultMenu(),
 				(int) $navigationMenuItem->getEnabled(),
 				(int) $navigationMenuItem->getContextId(),
-				(int) $navigationMenuItem->getId()
+				(int) $navigationMenuItem->getId(),
 			)
 		);
 		$this->updateLocaleFields($navigationMenuItem);

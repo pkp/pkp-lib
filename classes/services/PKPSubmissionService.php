@@ -140,32 +140,35 @@ abstract class PKPSubmissionService {
 				$authorDashboard = true;
 			}
 		}
-		if ($authorDashboard) {
 
-			// Send authors of incomplete submissions to the wizard
-			if ($submission->getSubmissionProgress() > 0) {
-				return $dispatcher->url(
-					$request,
-					ROUTE_PAGE,
-					$submissionContext->getPath(),
-					'submission',
-					'wizard',
-					$submission->getSubmissionProgress(),
-					array('submissionId' => $submission->getId())
-				);
-			} else {
-				return $dispatcher->url(
-					$request,
-					ROUTE_PAGE,
-					$submissionContext->getPath(),
-					'authorDashboard',
-					'submission',
-					$submission->getId()
-				);
-			}
+		// Send authors, journal managers and site admins to the submission
+		// wizard for incomplete submissions
+		if ($submission->getSubmissionProgress() > 0 &&
+				($authorDashboard || $user->hasRole(array(ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN), $submissionContext->getId()))) {
+			return $dispatcher->url(
+				$request,
+				ROUTE_PAGE,
+				$submissionContext->getPath(),
+				'submission',
+				'wizard',
+				$submission->getSubmissionProgress(),
+				array('submissionId' => $submission->getId())
+			);
 		}
 
-		// Check if the user is a reviewer of this submission
+		// Send authors to author dashboard
+		if ($authorDashboard) {
+			return $dispatcher->url(
+				$request,
+				ROUTE_PAGE,
+				$submissionContext->getPath(),
+				'authorDashboard',
+				'submission',
+				$submission->getId()
+			);
+		}
+
+		// Send reviewers to review wizard
 		$reviewAssignment = DAORegistry::getDAO('ReviewAssignmentDAO')->getLastReviewRoundReviewAssignmentByReviewer($submission->getId(), $user->getId());
 		if ($reviewAssignment) {
 			return $dispatcher->url(

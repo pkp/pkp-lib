@@ -55,6 +55,43 @@ class InstallPluginVersionTool extends CommandLineTool {
 		$pluginVersion = $versionInfo['version'];
 		$versionDao = DAORegistry::getDAO('VersionDAO');
 		$versionDao->insertVersion($pluginVersion, true);
+
+		$pluginPath = dirname($this->_descriptor);
+		$pluginCategory = preg_replace('/^plugins\./', '', $pluginVersion->getProductType());
+		$pluginCategories = array('auth', 'blocks', 'citationFormats', 'citationLookup',
+			'citationOutput', 'citationParser', 'gateways', 'generic', 'importexport',
+			'metadata', 'oaiMetadataFormats', 'paymethod', 'pubIds', 'reports', 'themes',
+		);
+		assert(in_array($pluginCategory, $pluginCategories));
+		$plugin = @include("$pluginPath/index.php");
+		if ($plugin && is_object($plugin)) {
+			PluginRegistry::register($pluginCategory, $plugin, $pluginPath);
+		}
+
+		import('classes.install.Upgrade');
+		$installer = new Upgrade(array());
+		$result = true;
+		$param = array(&$installer, &$result);
+		if ($plugin->getInstallSchemaFile()) {
+			$plugin->updateSchema('Installer::postInstall', $param);
+		}
+		if ($plugin->getInstallSitePluginSettingsFile()) {
+			$plugin->installSiteSettings('Installer::postInstall', $param);
+		}
+		if ($plugin->getInstallControlledVocabFiles()) {
+			$plugin->installControlledVocabs('Installer::postInstall', $param);
+		}
+		if ($plugin->getInstallEmailTemplatesFile()) {
+			$plugin->installEmailTemplates('Installer::postInstall', $param);
+		}
+		if ($plugin->getInstallEmailTemplateDataFile()) {
+			$plugin->installEmailTemplateData('Installer::postInstall', $param);
+		}
+		if ($plugin->getInstallDataFile()) {
+			$plugin->installData('Installer::postInstall', $param);
+		}
+		$plugin->installFilters('Installer::postInstall', $param);
+		return $result;
 	}
 }
 

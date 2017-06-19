@@ -54,7 +54,6 @@
 						$('#possibleParentNavigationMemuItemsDiv').show();
 						$.get(that.fetchNavigationMenuItemsUrl_, { navigationMenuIdParent: $(this).val(), navigationMenuItemId: that.navigationMenuItemId_, parentNavigationMenuItemId: that.parentNavigationMenuItemId_ }, that.callbackWrapper(that.setNavigationMenuItemsList_), 'json');
 					}
-					
 				});
 				
 				$("#navigationMenuId").trigger("change");

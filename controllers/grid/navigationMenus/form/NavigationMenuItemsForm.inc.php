@@ -87,6 +87,7 @@ class NavigationMenuItemsForm extends Form {
 		while ($navigationMenu = $navigationMenus->next()) {
 			$navigationMenuOptions[$navigationMenu->getId()] = $navigationMenu->getTitle();
 		}
+
 		$templateMgr->assign('navigationMenus', $navigationMenuOptions);
 		$templateMgr->assign('navigationMenuItemId', $this->navigationMenuItemId);
 		$templateMgr->assign('navigationMenuIdParent', $this->navigationMenuIdParent);
@@ -185,6 +186,12 @@ class NavigationMenuItemsForm extends Form {
 		$navigationMenuItem = $navigationMenuItemDao->getByPath($this->_contextId, $this->getData('path'));
 		if (isset($navigationMenuItem) && $navigationMenuItem->getId() != $this->navigationMenuItemId) {
 			$this->addError('path', __('manager.navigationMenus.form.duplicatePath'));
+		}
+
+		$selectedNavigationMenuItemId = $this->getData('assoc_id');
+		$selectedNavigationMenuItem = $navigationMenuItemDao->getById($selectedNavigationMenuItemId);
+		if (isset($selectedNavigationMenuItem) && $selectedNavigationMenuItem->getAssocId() != 0) {
+			$this->addError('path', __('manager.navigationMenus.form.parentNMICantBeChild'));
 		}
 
 		return parent::validate();

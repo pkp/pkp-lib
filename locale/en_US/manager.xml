@@ -553,4 +553,5 @@
 	<message key="manager.navigationMenus.navigationMenuItemsManagement">Manage Navigation Menu Items</message>
 	<message key="manager.navigationMenus.selectedMenuItems">Selected Navigation Menu Items</message>
 	<message key="manager.navigationMenus.unselectedMenuItems">Unselected Navigation Menu Items</message>
+	<message key="manager.navigationMenus.form.parentNMICantBeChild">The selected parent navigation menu item can't be selected because it is child of another navigation menu item</message>
 </locale>

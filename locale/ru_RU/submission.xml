@@ -546,6 +546,7 @@
 	<message key="editor.submission.decision.approveProofsDescription">Файл с корректурой страницы должен быть отмечен как одобренный, чтобы его можно было опубликовать. Вы хотите одобрить его?</message>
 	<message key="editor.submission.decision.approveProofs">Одобрить корректуры</message>
 	<message key="editor.submission.decision.disapproveProofsDescription">Этот файл корректуры больше не будет доступен для скачивания или покупки. Вы хотите отменить его одобрение?</message>
+	<message key="editor.submission.decision.noDecisionsAvailable">Назначить редактора, чтобы включить решения редакции для этого этапа.</message>
 
 	<!-- ключи навигации рабочего потока -->
 	<message key="submission.currentStage">Текущий этап</message>

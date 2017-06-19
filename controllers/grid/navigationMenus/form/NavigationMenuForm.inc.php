@@ -55,8 +55,37 @@ class NavigationMenuForm extends Form {
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
 
+		$themePlugins = PluginRegistry::getPlugins('themes');
+		if (is_null($themePlugins)) {
+			$themePlugins = PluginRegistry::loadCategory('themes', true);
+		}
+		$enabledThemes = array();
+		$activeThemeOptions = array();
+		foreach ($themePlugins as $themePlugin) {
+			$enabledThemes[basename($themePlugin->getPluginPath())] = $themePlugin->getDisplayName();
+			if ($themePlugin->isActive()) {
+				$activeThemeOptions = $themePlugin->getOptionsConfig();
+			}
+		}
+
+		$activeThemeNavigationAreas = array();
+		if (!count($activeThemeOptions['navigationMenuArea']) == 0) {
+			$activeThemeNavigationAreas = array(0 => __('common.none'));
+		}
+
+		foreach ($activeThemeOptions['navigationMenuArea'] as $navigationMenuArea) {
+			$activeThemeNavigationAreas[$navigationMenuArea] = $navigationMenuArea;
+		}
+
+
+		$templateMgr->assign(array(
+			'enabledThemes' => $enabledThemes,
+			'activeThemeNavigationAreas' => $activeThemeNavigationAreas,
+		));
+
 		$templateMgr->assign('navigationMenuId', $this->navigationMenuId);
 		$templateMgr->assign('title', $this->getData('title'));
+		$templateMgr->assign('navigationMenuArea', $this->getData('area_name'));
 
 		return parent::fetch($request, 'controllers/grid/navigationMenus/form/navigationMenuForm.tpl');
 	}
@@ -73,7 +102,8 @@ class NavigationMenuForm extends Form {
 		    if ($navigationMenu != null) {
 		        $this->_data = array(
 		            'title' => $navigationMenu->getTitle(),
-					'navigationMenuId' => $navigationMenu->getId()
+					'navigationMenuId' => $navigationMenu->getId(),
+					'navigationMenuArea' => $navigationMenu->getAreaName()
 		        );
 		    } else {
 		        $this->navigationMenuId = null;
@@ -85,7 +115,7 @@ class NavigationMenuForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('title', 'navigationMenuId'));
+		$this->readUserVars(array('title', 'navigationMenuId', 'area_name'));
 
 	}
 
@@ -104,7 +134,8 @@ class NavigationMenuForm extends Form {
 		}
 
 		$navigationMenu->setContextId($this->contextId);
-		$navigationMenu->setTitle($this->getData('title'), null); // Localized
+		$navigationMenu->setTitle($this->getData('title'));
+		$navigationMenu->setAreaName($this->getData('area_name'));
 
 		// Update or insert NavigationMenu
 		if ($navigationMenu->getId() != null) {

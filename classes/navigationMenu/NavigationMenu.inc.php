@@ -131,6 +131,22 @@ class NavigationMenu extends DataObject {
 		$this->setData('title', $title);
 	}
 
+	/**
+	 * Get areaName of this NavigationMenu. Not localised.
+	 * @return string
+	 */
+	function getAreaName() {
+		return $this->getData('area_name');
+	}
+
+	/**
+	 * Set navigationArea name of this NavigationMenu. Not localised.
+	 * @param $areaName string
+	 */
+	function setAreaName($areaName) {
+		$this->setData('area_name', $areaName);
+	}
+
 	function populateNavigationMenuItems() {
 		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
 		$navigationMenuItems = $navigationMenuItemDao->getByNavigationMenuId($this->getId(), true);

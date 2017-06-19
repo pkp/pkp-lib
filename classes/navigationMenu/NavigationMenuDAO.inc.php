@@ -185,17 +185,18 @@ class NavigationMenuDAO extends DAO {
 	function insertObject($navigationMenu) {
 		$this->update(
 				'INSERT INTO navigation_menus
-				(title, context_id, seq, assoc_id, defaultmenu, enabled, area_name)
+				(title, area_name, context_id, seq, assoc_id, defaultmenu, enabled)
 				VALUES
-				(?, ?, ?, ?, ?, ?)',
+				(?, ?, ?, ?, ?, ?, ?)',
 			array(
 				$navigationMenu->getTitle(),
+				$navigationMenu->getAreaName(),
 				(int) $navigationMenu->getContextId(),
 				(int) $navigationMenu->getSequence(),
 				(int) $navigationMenu->getAssocId(),
 				(int) $navigationMenu->getDefaultMenu(),
 				(int) $navigationMenu->getEnabled(),
-				$navigationMenu->getAreaName()
+
 			)
 		);
 		$navigationMenu->setId($this->getInsertId());

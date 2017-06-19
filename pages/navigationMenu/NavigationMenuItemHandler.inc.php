@@ -114,24 +114,27 @@ class NavigationMenuItemHandler extends Handler {
 
 		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
 
-		$navigationMenuItem = $navigationMenuItemDao->newDataObject();
-		$navigationMenuItem->setContent((array) $request->getUserVar('content'), null);
-		$navigationMenuItem->setTitle((array) $request->getUserVar('title'), null);
+		$navigationMenuItem = $navigationMenuItemDao->getByPath($contextId, $path);
 
 
-		$templateMgr->assign('title', $navigationMenuItem->getLocalizedTitle());
+		if (isset($navigationMenuItem)) {
+			$templateMgr->assign('title', $navigationMenuItem->getLocalizedTitle());
 
-		$vars = array();
-		if ($context) $vars = array(
-			'{$contactName}' => $context->getSetting('contactName'),
-			'{$contactEmail}' => $context->getSetting('contactEmail'),
-			'{$supportName}' => $context->getSetting('supportName'),
-			'{$supportPhone}' => $context->getSetting('supportPhone'),
-			'{$supportEmail}' => $context->getSetting('supportEmail'),
-		);
-		$templateMgr->assign('content', strtr($navigationMenuItem->getLocalizedContent(), $vars));
+			$vars = array();
+			if ($context) $vars = array(
+				'{$contactName}' => $context->getSetting('contactName'),
+				'{$contactEmail}' => $context->getSetting('contactEmail'),
+				'{$supportName}' => $context->getSetting('supportName'),
+				'{$supportPhone}' => $context->getSetting('supportPhone'),
+				'{$supportEmail}' => $context->getSetting('supportEmail'),
+			);
+			$templateMgr->assign('content', strtr($navigationMenuItem->getLocalizedContent(), $vars));
 
-		$templateMgr->display('frontend/pages/navigationMenuItemViewContent.tpl');
+			$templateMgr->display('frontend/pages/navigationMenuItemViewContent.tpl');
+		} else {
+			return false;
+		}
+
 	}
 }
 

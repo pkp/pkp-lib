@@ -43,7 +43,7 @@ class UsageStatsHandler extends Handler {
 		}
 
 		$router = $request->getRouter(); /* @var $router PageRouter */
-		$privacyStatementUrl = $router->url($request, null, 'about', 'submissions', null, null, 'privacyStatement');
+		$privacyStatementUrl = $router->url($request, null, 'about', 'submissions');
 
 		// Display the privacy info page.
 		$this->setupTemplate($request);
@@ -53,7 +53,7 @@ class UsageStatsHandler extends Handler {
 		$templateMgr->assign('usageStatsDisplayPrivacyInfo', true);
 		$templateMgr->assign('hasOptedOut', ($request->getCookieVar('usageStats-opt-out') ? true : false));
 		$templateMgr->assign('privacyStatementUrl', $privacyStatementUrl);
-		$templateMgr->display($plugin->getTemplatePath().'privacyInformation.tpl');
+		$templateMgr->display($plugin->getTemplatePath(true).'privacyInformation.tpl');
 	}
 
 	//

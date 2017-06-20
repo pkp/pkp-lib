@@ -27,31 +27,33 @@ class RegistrationHandler extends UserHandler {
 	}
 
 	/**
-	 * Display registration form for new users.
+	 * Display registration form for new users, validate and execute that form,
+	 * or display a registration success page if the user is logged in.
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
 	function register($args, $request) {
+		// If the user is logged in, show them the registration success page
+		if (Validation::isLoggedIn()) {
+			$this->setupTemplate($request);
+			$templateMgr = TemplateManager::getManager($request);
+			$templateMgr->assign('pageTitle', 'user.login.registrationComplete');
+			return $templateMgr->fetch('frontend/pages/userRegisterComplete.tpl');
+		}
+
 		$this->validate($request);
 		$this->setupTemplate($request);
 
 		import('lib.pkp.classes.user.form.RegistrationForm');
 		$regForm = new RegistrationForm($request->getSite());
-		$regForm->initData($request);
-		$regForm->display($request);
-	}
 
-	/**
-	 * Validate user registration information and register new user.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function registerUser($args, $request) {
-		$this->validate($request);
-		$this->setupTemplate($request);
+		// Initial GET request to register page
+		if (!$request->isPost()) {
+			$regForm->initData($request);
+			return $regForm->display($request);
+		}
 
-		import('lib.pkp.classes.user.form.RegistrationForm');
-		$regForm = new RegistrationForm($request->getSite());
+		// Form submitted
 		$regForm->readInputData();
 		if (!$regForm->validate()) {
 			return $regForm->display($request);
@@ -96,23 +98,19 @@ class RegistrationHandler extends UserHandler {
 		if ($source = $request->getUserVar('source')) {
 			return $request->redirectUrlJson($source);
 		} else {
-			$request->redirect(null, 'user', 'registrationComplete');
+			// Make a new request to update cookie details after login
+			$request->redirect(null, 'user', 'register');
 		}
 	}
 
 	/**
-	 * A landing page once users complete registration
-	 * @param $args array
-	 * @param $request PKPRequest
+	 * Re-route request to the register method.
+	 * Backwards-compatible with third-party themes that submit the registration
+	 * form to the registerUser method.
+	 * @see RegistrationHandler::register
 	 */
-	function registrationComplete($args, $request) {
-		if (!Validation::isLoggedIn()) {
-			$request->redirect(null, 'login');
-		}
-		$this->setupTemplate($request);
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('pageTitle', 'user.login.registrationComplete');
-		return $templateMgr->fetch('frontend/pages/userRegisterComplete.tpl');
+	function registerUser($args, $request) {
+		$this->register($args, $request);
 	}
 
 	/**

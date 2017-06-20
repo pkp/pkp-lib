@@ -268,6 +268,7 @@ class SubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 		import('classes.core.ServicesContainer');
 		$submissionService = ServicesContainer::instance()->get('submission');
 		
+		// Upload the file.
 		$submissionFile = $submissionService->saveUploadedFile(
 			$request->getContext()->getId(),
 			$this->getData('submissionId'),
@@ -275,17 +276,7 @@ class SubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 			$uploadData
 		);
 
-		// Upload the file.
-// 		import('lib.pkp.classes.file.SubmissionFileManager');
-// 		$submissionFileManager = new SubmissionFileManager(
-// 			$request->getContext()->getId(),
-// 			$this->getData('submissionId')
-// 		);
-// 		$submissionFile = $submissionFileManager->uploadSubmissionFile(
-// 			'uploadedFile', $fileStage, $user->getId(),
-// 			$uploaderUserGroupId, $revisedFileId, $fileGenre, $assocType, $assocId
-// 		);
-// 		if (!$submissionFile) return null;
+		if (!$submissionFile) return null;
 
 		// Log the event.
 		import('lib.pkp.classes.log.SubmissionFileLog');

@@ -521,7 +521,8 @@
 	<message key="submission.task.responseDueDate">Дата подтверждения получения рецензии</message>
 	<message key="navigation.goBack">Вернуться назад</message>
 
-	<message key="notification.addedReviewer">Рецензент добавлен.</message>
+	<message key="notification.addedReviewer">Назначен рецензент данного материала ({$reviewerName}), отправлено уведомление электронной почтой.</message>
+	<message key="notification.addedReviewerNoEmail">Назначен рецензент данного материала ({$reviewerName}), уведомление электронной почтой не отправлено.</message>
 	<message key="notification.removedReviewer">Рецензент удален.</message>
 	<message key="notification.addedStageParticipant">Пользователь добавлен в качестве участника этапа.</message>
 	<message key="notification.type.newAnnouncement">Новое объявление.</message>

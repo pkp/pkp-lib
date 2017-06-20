@@ -58,6 +58,23 @@ class PluginSettingsDAO extends DAO {
 	}
 
 	/**
+	 * Does the plugin setting exist.
+	 * @param $contextId int Context ID
+	 * @param $pluginName string Plugin symbolic name
+	 * @param $name Setting name
+	 * @return boolean
+	 */
+	function settingExists($contextId, $pluginName, $name) {
+		$pluginName = strtolower_codesafe($pluginName);
+		$result = $this->retrieve(
+			'SELECT COUNT(*) FROM plugin_settings WHERE plugin_name = ? AND context_id = ? AND setting_name = ?', array($pluginName, (int) $contextId, $name)
+		);
+		$returner = $result->fields[0] ? true : false;
+		$result->Close();
+		return $returner;
+	}
+
+	/**
 	 * Callback for a cache miss.
 	 * @param $cache Cache object
 	 * @param $id string Identifier to look up in cache

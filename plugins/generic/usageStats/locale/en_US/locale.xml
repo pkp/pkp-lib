@@ -34,6 +34,7 @@
 	<message key="plugins.generic.usageStats.settings.compressArchives.description">Activate this option to compress archived log files using gzip tool (you will have to configure the gzip setting inside config.inc.php). If you have a high traffic site it's a good idea to enable this, so you can save some extra disk space.</message>
 	<message key="plugins.generic.usageStats.settings.compressArchives">Compress archives</message>
 	<message key="plugins.generic.usageStats.settings.statsDisplayOptions">Statistics display options</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.contextWide">These settings will only be applied to usage statistics on {$contextName}.</message>
 	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.display">Display submission statistics chart for reader</message>
 	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.chartType">Choose the type of the chart to display the download statistics</message>
 	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.chartType.bar">Bar</message>

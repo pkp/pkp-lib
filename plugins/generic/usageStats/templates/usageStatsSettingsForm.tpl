@@ -46,7 +46,15 @@
 			{fbvElement type="checkboxgroup" id="optionalColumns" from=$optionalColumnsOptions selected=$selectedOptionalColumns translate=false}
 		{/fbvFormSection}
 	{/fbvFormArea}
+
 	{fbvFormArea id="usageStatsDisplayOptions" title="plugins.generic.usageStats.settings.statsDisplayOptions"}
+		<p>
+			{if $currentContext}
+				{translate key="plugins.generic.usageStats.settings.statsDisplayOptions.contextWide" contextName=$currentContext->getLocalizedName()}
+			{else}
+				{translate key="plugins.generic.usageStats.settings.statsDisplayOptions.siteWide"}
+			{/if}
+		</p>
 		{fbvFormSection for="displayStatistics" list=true}
 			{fbvElement type="checkbox" id="displayStatistics" value="1" checked=$displayStatistics label="plugins.generic.usageStats.settings.statsDisplayOptions.display"}
 		{/fbvFormSection}

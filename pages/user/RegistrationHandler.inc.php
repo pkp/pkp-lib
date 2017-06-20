@@ -96,7 +96,7 @@ class RegistrationHandler extends UserHandler {
 		}
 
 		if ($source = $request->getUserVar('source')) {
-			return $request->redirectUrlJson($source);
+			return $request->redirectUrl($source);
 		} else {
 			// Make a new request to update cookie details after login
 			$request->redirect(null, 'user', 'register');

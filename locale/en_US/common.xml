@@ -519,7 +519,8 @@
 	<message key="submission.task.responseDueDate">Response Due Date</message>
 	<message key="navigation.goBack">Go Back</message>
 
-	<message key="notification.addedReviewer">Reviewer added.</message>
+	<message key="notification.addedReviewer">{$reviewerName} was assigned to review this submission and sent an email notification.</message>
+	<message key="notification.addedReviewerNoEmail">{$reviewerName} was assigned to review this submission and was not sent an email notification.</message>
 	<message key="notification.removedReviewer">Reviewer removed.</message>
 	<message key="notification.addedStageParticipant">User added as a stage participant.</message>
 	<message key="notification.type.newAnnouncement">New announcement.</message>

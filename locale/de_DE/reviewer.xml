@@ -43,4 +43,5 @@
 	<message key="reviewer.aboutDueDates.text">Der/die Redakteur/in bittet darum, dass Sie vor der Fälligkeit der Antwort die Begutachtung annehmen oder absagen und dass Sie Ihr Gutachten vor dem Fälligkeitsdatum des Gutachtens abschließen.</message>
 	<message key="submission.comments.canShareWithAuthor">Für Autor/in und Redakteur/in</message>
 	<message key="submission.comments.cannotShareWithAuthor">Nur für Redakteur/in</message>
+	<message key="user.authorization.submissionReviewer">Aktuelle/r Nutzer/in ist nicht als Gutachter/in für das angeforderte Dokument eingetragen.</message>
 </locale>

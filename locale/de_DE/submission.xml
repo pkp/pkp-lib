@@ -15,14 +15,21 @@
 	<!-- Author Submission -->
 	<message key="author.submit.userGroupRequired">Ihr Account ist momentan keiner Rolle zugeordnet, die neue Beiträge einreichen kann (z.B. Autor/in). Bitte überprüfen Sie Ihren Account, Sie könnten evtl. eine entsprechende Rolle selbst hinzufügen, wenn Sie Ihr Profil bearbeiten.</message>
 	<message key="author.submit.submissionCitations">Stellen Sie bitte ein formatiertes Literaturverzeichnis für die Werke zur Verfügung, die Sie in Ihrem Beitrag zitiert haben. Bitte trennen Sie die einzelnen Verweise durch Leerzeilen.</message>
+	<message key="author.submission.roundStatus.reviewsReady">Neue Gutachten sind eingegangen und werden durch den/die Redakteur/in geprüft.</message>
+	<message key="submission.confirm.message">Eine Einreichung ist hochgeladen worden und kann abgeschickt werden. Sie können noch einmal zurückgehen, um alle eingegebenen Informationen durchzusehen und anzupassen, bevor Sie weitermachen. Wenn Sie fertig sind, klicken Sie "Einreichung abschließen".</message>
+	<message key="submission.submit.submissionChecklist">Einreichungs-Anforderungen</message>
+	<message key="submission.submit.submissionChecklistDescription">Sie müssen Sie die Anforderungen lesen und bestätigen, bevor Sie fortfahren können.</message>
 	<message key="submission.submit.submissionComplete">Die Einreichung ist abgeschlossen.</message>
 	<message key="submission.submit.submissionCompleteThanks">Vielen Dank für Ihr Interesse an einer Veröffentlichung bei {$contextName}.</message>
+	<message key="submission.submit.copyrightNoticeAgree">Ich versichere, die Bedingungen des Copyright-Vermerks zu akzeptieren.</message>
+	<message key="submission.submit.copyrightNoticeAgreementLabel">Stimmen Sie dem Copyright-Vermerk zu</message>
 	<message key="submission.submit.whatNext">Was passiert als nächstes?</message>
 	<message key="submission.submit.whatNext.forNow">Sie können jetzt:</message>
 	<message key="submission.submit.whatNext.review">Die Einreichung begutachten</message>
 	<message key="submission.submit.whatNext.create">Eine neue Einreichung erstellen</message>
 	<message key="submission.submit.whatNext.return">Zum Dashboard zurückkehren</message>
 	<message key="submission.submit.extendedMetadata">Erweiterte Metadaten</message>
+
 	<!-- FIXME: move to meta-data plugins -->
 	<!-- messages used by meta-data filters -->
 	<message key="metadata.filters.crossref.settings.email.displayName">Bei CrossRef registrierte E-Mail-Adresse</message>
@@ -133,6 +140,10 @@
 	<message key="common.queue.long.myAssigned">Mir zugewiesene Beiträge</message>
 	<message key="common.queue.long.submissionsArchived">Archivierte Beiträge</message>
 	<message key="submission.authors">Autor/innen</message>
+	<message key="submission.authorBiography">Autor/innen-Biografie</message>
+	<message key="submission.authorBiographies">Autor/innen-Biografien</message>
+	<message key="submission.authorWithAffiliation">{$name}, {$affiliation}</message>
+	<message key="submission.shortAuthor">{$author} et al.</message>
 	<message key="submission.mySubmissions">Von mir eingereichte Beiträge</message>
 	<message key="submission.addFile">Datei hochladen</message>
 	<message key="submission.agencies">Organisationen</message>
@@ -144,6 +155,7 @@
 	<message key="submission.attachedFile">Angehängte Datei</message>
 	<message key="submission.backToSubmissionEditing">Zurück zur Beitragsbearbeitung</message>
 	<message key="submission.changeComments">Ändern in</message>
+	<message key="submission.changeFile">Datei ändern</message>
 	<message key="submission.citations">Literaturhinweise</message>
 	<message key="submission.citations.editor.citationlist.approved">Bestätigt</message>
 	<message key="submission.citations.editor.citationlist.deleteCitationConfirmation">Sind Sie sicher, dass Sie diese Zitation löschen möchten?</message>
@@ -218,8 +230,8 @@
 		<p>Alle endgültigen Zitationen eines Beitrags müssen akzeptiert werden, bevor sie exportiert werden können.</p></li>
 		<li><p><strong>Zitationen exportieren</strong></p>
 		<p>Zitationen können als XML oder als Text exportiert werden. Die XML-Export-Optionen beinhalten im Moment <a href="http://dtd.nlm.nih.gov/publishing/">NLM Journal Publishing</a> 2.3 und 3.0 <a href="http://www.ncbi.nlm.nih.gov/pmc/pmcdoc/tagging-guidelines/article/tags.html#el-reflist">ref-list XML</a>. Wird eine dieser Optionen gewählt, wird ein XML-kodierter Block mit Verweisen ausgegben, der kopiert und in eine NLM-XML-Fahne eingefügt werden kann.</p>
-		<p>Experimentelle Text-Export-Optionen beinhalten die Stile ABNT, APA, MLA und Vancouver. Diese Optionen liefern eine Textausgabe, die kopiert und in textbasierte Artikelfahnen eingefügt werden kann (zum Beispiel in Microsoft Word oder OpenOffice, Adobe InDesign etc.). Jede Zitationen umfasst einen eingebauten Link zur automatischen Suche nach dieser Zitation in Google Scholar.</p>
-	</li></ul>]]></message>
+		<p>Experimentelle Text-Export-Optionen beinhalten die Stile ABNT, APA, MLA und Vancouver. Diese Optionen liefern eine Textausgabe, die kopiert und in textbasierte Artikelfahnen eingefügt werden kann (zum Beispiel in Microsoft Word oder OpenOffice, Adobe InDesign etc.). Jede Zitationen umfasst einen eingebauten Link zur automatischen Suche nach dieser Zitation in Google Scholar.</p></li>
+	</ul>]]></message>
 	<message key="submission.citations.editor.loadMessage">Bitte warten Sie, bis der Zitationsauszeichnungsassistent geladen worden ist.</message>
 	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>Es gibt keine Zitationen für diesen Artikel.</p><p>Bitte gehen Sie zu der <a href="{$articleMetadataUrl}">Metadaten-Seite</a> dieses Artikels und geben Sie eine Literaturliste ein oder fügen Sie Literaturverweise manuell hinzu, in dem Sie den Hinzufügen-Knopf benutzen.]]></message>
 	<message key="submission.citations.editor.pleaseSelect">Bitte wählen Sie aus…</message>
@@ -229,6 +241,7 @@
 	<message key="submission.citations.filter.invalidMetadata">Ein Fehler ist in {$filterName} aufgetreten: Eines der Datenelemente, das die Datenquelle (z.B. ein Webdienst) zurückgegeben hat, war nicht mit dem internen Metadaten-Format vereinbar. Deshalb wurden die Ergebnisse der Datenquelle zurückgewiesen. Bitte melden Sie dies als einen Bug.</message>
 	<message key="submission.citations.filter.noResultFromFilterError">Verschiedene Zitationsdienste haben keine Ergebnisse gemeldet. Sie können versuchen, Zitationsfelder manuell zu bearbeiten und die Zitationsdienste dann erneut abfragen, ujm die Ergebnisse zu verbessern. Wenn dies nicht hilft, dann existiert die Zitation in keiner der verknüpften Datenbanken.</message>
 	<message key="submission.citations.filter.unsupportedPublicationType">Nicht unterstützter oder fehlender Publikationstyp. Bitte bearbeiten Sie die Zitation manuell und geben Sie einen Publikationstyp ein (erlaubte Typen sind 'book', 'journal', 'thesis' und 'conf-proc').</message>
+	<message key="submission.citations.filter.webserviceError">Der Webdienst für {$filterName} hat einen Fehler zurückgeliefert beim Aufruf dieser URL: {$webserviceUrl}. Es kann sein, dass der Webdienst vorübergehend nicht verfügbar ist. Sie können immer noch mit den sonstigen Diensten weiterarbeiten und Ihre Ergebnisse speichern. Sie können es auch später noch einmal versuchen. Wenn der Fehler andauert, bitten Sie die/den Verwalter/in, den Dienst zu deaktivieren und einen Bug Report einzureichen.</message>
 	<message key="submission.citations.filter.webserviceResultTransformationError">Ein Fehler ist in {$filterName} aufgetreten: Die Umwandlung von XML-Ergebnissen (z.B. von einem Webdienst) in feldbasierte Metadaten ist fehlgeschlagen. Der Grund ist vermutlich, dass der Webdienst ungültige oder unvollständige Daten geliefert hat. Bitte melden Sie dies als Bug.</message>
 	<message key="submission.citations.metadata.changeWarning">Sind Sie sicher, dass Sie Ihre Literaturliste aktualisieren wollen? Wenn Sie OK klicken, werden alle Änderungen der Redakteur/innen überschrieben. Wenn Sie nicht sicher sind, ob Sie Änderungen an der Literaturliste durchführen sollten, nehmen Sie bitte Kontakt zu dem/der für Ihren Beitrag zuständigen Redakteur/in auf.</message>
 	<message key="submission.comments.addComment">Kommentar hinzufügen</message>
@@ -248,12 +261,14 @@
 	<message key="submission.contributors">Liste der Beiträger/innen</message>
 	<message key="submission.copyedited">Lektoriert</message>
 	<message key="submission.copyediting">Lektorat</message>
+	<message key="submission.queryNoteFiles">Diskussionsdateien</message>
 	<message key="submission.coverage">Informationen zum Themenbereich</message>
 	<message key="submission.done">Erledigt</message>
 	<message key="submission.dueDate">Abgabetermin</message>
 	<message key="submission.due">Fällig</message>
 	<message key="submission.editing">Redaktion</message>
 	<message key="submission.editMetadata">Metadaten bearbeiten</message>
+	<message key="submission.editorial">Lektorat</message>
 	<message key="submission.email.backToEmailLog">Zurück zum E-Mail-Protokoll </message>
 	<message key="submission.email.confirmClearLog">Sind Sie sicher, dass Sie das E-Mail-Protokoll zu diesem Beitrag löschen wollen?</message>
 	<message key="submission.email.confirmDeleteLogEntry">Sind Sie sicher, dass Sie diesen Eintrag im E-Mail-Protokoll löschen wollen?</message>
@@ -270,6 +285,7 @@
 	<message key="submission.event.fileRevised">Revisionsdatei "{$name}" (Datei-ID {$fileId}-{$fileRevision}) wurde hochgeladen.</message>
 	<message key="submission.event.general.metadataUpdated">Metadaten des Beitrags aktualisiert</message>
 	<message key="submission.event.general.suppFileUpdated">Anlagedatei aktualisiert</message>
+	<message key="submission.event.participantAdded">{$name} wurde dieser Einreichung als {$userGroupName} hinzugefügt.</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Gutachter/innenzuteilung in Vertretung akzeptiert</message>
 	<message key="submission.event.reviewer.reviewAccepted">Gutachter/innenzuteilung akzeptiert</message>
 	<message key="submission.event.reviewer.reviewCancelled">Gutachter/innenzuteilung aufgehoben</message>
@@ -284,6 +300,8 @@
 	<message key="submission.event.reviewer.reviewReinitiated">Begutachtung für Beitrag erneut veranlasst</message>
 	<message key="submission.event.reviewer.reviewResubmitted">Begutachtung erneut vorgelegt</message>
 	<message key="submission.event.reviewer.reviewRevision">Bearbeitungsdatei der Gutachterin/des Gutachter aktualisiert</message>
+	<message key="submission.event.subjectPrefix">Eine E-Mail ist gesendet worden:</message>
+	<message key="submission.event.viewEmail">E-Mail anzeigen</message>
 	<message key="submission.files">Dateien</message>
 	<message key="submission.files.downloadAll">Alle Dateien herunterladen</message>
 	<message key="submission.galley">Fahne</message>
@@ -295,8 +313,14 @@
 	<message key="submission.history.submissionEventLog">Protokoll der Ereignisse</message>
 	<message key="submission.history.submissionNotes">Einträge zu den Beiträgen</message>
 	<message key="submission.history.viewLog">Protokoll anzeigen</message>
+	<message key="submission.howToCite">Zitationsvorschlag</message>
+	<message key="submission.howToCite.citationFormats">Zitationsformate</message>
 	<message key="submission.indexing">Indizieren</message>
 	<message key="submission.initiated">Begonnen</message>
+
+	<!-- Identifiers -->
+	<message key="submission.identifiers">Identifier</message>
+	<message key="submission.publisherId">Öffentliche URL</message>
 
 	<!-- Information Center -->
 	<message key="submission.informationCenter.submissionInfo">Informationen zur Einreichung</message>
@@ -315,7 +339,6 @@
 	<message key="submission.layout.confirmDeleteSupplementaryFile">Sind Sie sicher, dass Sie diese Zusatzdatei endgültig löschen wollen?</message>
 	<message key="submission.layout.deleteGalleyStylesheet">Diese Formatvorlage löschen.</message>
 	<message key="submission.layout.editGalley">Fahne bearbeiten</message>
-	<message key="submission.layout.galleyFileData">Fahnendateiinformationen</message>
 	<message key="submission.layout.galleyFormat">Fahnenformat</message>
 	<message key="submission.layout.galleyHTMLData">HTML-Fahnendateien</message>
 	<message key="submission.layout.galleyImages">Bilder</message>
@@ -394,6 +417,7 @@
 	<message key="submissions.submit">Einreichen</message>
 	<message key="submissions.submitted">Eingereicht</message>
 	<message key="submission.submission">Einreichung</message>
+	<message key="submission.submissionTitle">Manuskript-Titel:</message>
 	<message key="submission.start">Beginn</message>
 	<message key="submission.submissionHistory">Verlauf der Bearbeitung des Beitrags</message>
 	<message key="submission.submissionManuscript">Beitragsmanuskript</message>
@@ -408,10 +432,12 @@
 	<message key="submission.submit.metadataForm">Zusätzliche Verfeinerung</message>
 	<message key="submission.submit.metadataForm.tip">Fügen Sie zusätzliche Informationen für Ihre Einreichung hinzu. Drücken Sie 'Enter' nach jedem Begriff.</message>
 	<message key="submission.submit.submissionLocale">Beitragssprache</message>
-	<message key="submission.submit.submissionFiles">Beitragssdateien</message>
+	<message key="submission.submit.submissionLocaleDescription">Es werden Einreichungen in verschiedenen Sprachen akzeptiert. Wählen Sie die Hauptsprache der Einreichung im Pulldown-Menü unten aus.</message>
+	<message key="submission.submit.submissionFiles">Beitragsdateien</message>
 	<message key="submission.submit.dependentFiles">Abhängige Dateien</message>
 	<message key="submission.manageDependentFiles">Abhängige Dateien verwalten</message>
 	<message key="submission.upload.dependent">Abhängige Dateien hochladen</message>
+	<message key="submission.upload.query">Eine Diskussionsdatei hochladen</message>
 	<message key="submission.summary">Zusammenfassung</message>
 	<message key="submission.supplementaryFiles">Zusätzliche Dateien</message>
 	<message key="submission.supportingAgencies">Unterstützung</message>
@@ -438,8 +464,13 @@
 	<!-- Submission file upload form elements -->
 	<message key="submission.form.name">Bitte geben Sie dieser Datei einen aussagefähigen Namen.</message>
 	<message key="submission.form.replaceExisting">Eine existierende Datei ersetzen?</message>
+
 	<!-- Workflow keys -->
 	<message key="workflow.review.internalReview">Interne Begutachtung</message>
+	<message key="workflow.stage.any">Irgendein Stadium</message>
+	<message key="workflow.stage">Stadium</message>
+
+
 	<!-- Submission status -->
 	<message key="submission.status.editorial">Im Lektorat</message>
 	<message key="submission.status.production">Im Korrekturlektorat</message>
@@ -454,8 +485,6 @@
 	<message key="submission.submit.metadataStep">2. Metadaten</message>
 	<message key="submission.submit.finishingUpStep">3. Fertigstellung</message>
 	<message key="submission.submit.fileNameRequired">Sie müssen einen Namen für diese Datei eingeben</message>
-	<message key="submission.submit.howToSubmit"><![CDATA[Sind Schwierigkeiten aufgetreten? Kontaktieren Sie <a href="mailto:{$supportEmail}">{$supportName}</a> ({$supportPhone}).]]></message>
-	<message key="submission.submit.howToSubmitNoPhone"><![CDATA[Sind Schwierigkeiten aufgetreten? Kontaktieren Sie <a href="mailto:{$supportEmail}">{$supportName}</a>.]]></message>
 
 	<!-- File upload wizard -->
 	<message key="submission.upload.noGenre">Genre fehlt oder ist ungültig!</message>
@@ -465,8 +494,7 @@
 	<message key="submission.upload.selectMandatoryFileToRevise">Bitte wählen Sie die Datei aus, die Sie überarbeiten/ersetzen wollen.</message>
 	<message key="submission.upload.selectOptionalFileToRevise">Wenn Sie eine überarbeitete Fassung einer existierenden Datei hochladen, geben Sie bitte an, welche Datei.</message>
 	<message key="submission.upload.uploadNewFile">Datei auswählen (um Historie intakt zu lassen)</message>
-	<message key="submission.upload.userGroup">Diese Datei hochladen in meiner
-	Rolle als ...</message>
+	<message key="submission.upload.userGroup">Diese Datei hochladen in meiner Rolle als ...</message>
 	<message key="submission.upload.userGroupDescription">Wenn Sie einen Sammelband einreichen, sollten Sie alle Kapitel individuell in Ihrer Rolle als Sammelbandherausgeber/in hochladen.</message>
 	<message key="submission.upload.uploadLibraryFile">Eine Bibliotheksdatei hochladen</message>
 	<message key="submission.upload.libraryCategory">Dokumentkategorie der Einreichung</message>
@@ -499,6 +527,7 @@
 	<message key="editor.submission.noneAssigned">Nicht zugewiesen</message>
 	<message key="editor.submission.participant">Beteiligte/r</message>
 	<message key="editor.submission.addStageParticipant">Beteiligte/n hinzufügen</message>
+	<message key="editor.submission.addStageParticipant.userGroup">Benutzer/innen werden Stadien des Workflows anhand ihrer Benutzergruppe zugewiesen. Alle Nutzer/innen, die diesem Stadium zugewiesen sind, werden automatisch anderen Stadien zugewiesen, denen ihre Benutzergruppe zugewiesen worden ist. Dies ist üblicherweise für Herausgeber/innen, Autor/innen und Übersetzer/innen vorgesehen.</message>
 	<message key="editor.submission.removeStageParticipant">Beteiligte/n löschen</message>
 	<message key="editor.submission.removeStageParticipant.description"><![CDATA[Sie werden diese Person aus <strong>allen</strong> Phasen entfernen. Wenn der/die Benutzer/in auch ausstehende Prüfaufgaben hat, werden diese ebenfalls entfernt.]]></message>
 	<message key="editor.submission.addStageParticipant.form.userGroupRequired">Sie müssen eine Benutzer/innengruppe auswählen.</message>
@@ -506,13 +535,15 @@
 
 	<!--  editor decisions -->
 	<message key="editor.submission.decision">Entscheidung</message>
+	<message key="editor.submission.decision.accept">Einreichung annehmen</message>
 	<message key="editor.submission.decision.requestRevisions">Überarbeitung anfordern</message>
 	<message key="editor.submission.decision.resubmit">Erneut zur Begutachtung einreichen</message>
 	<message key="editor.submission.decision.decline">Beitrag ablehnen</message>
 	<message key="editor.submission.decision.sendToProduction">Zur Herstellung senden</message>
+	<message key="editor.submission.decision.skipReview">Annehmen und Begutachtung überspringen</message>
 	<message key="editor.submission.decision.sendInternalReview">Zur internen Begutachtung senden</message>
-	<message key="editor.submission.decision.approveProofs">Korrekturfahne akzeptieren</message>
 	<message key="editor.submission.decision.approveProofsDescription">Die Datei der Korrekturfahne muss angenommen werden, um verfügbar gemacht werden zu können. Wollen Sie sie annehmen?</message>
+	<message key="editor.submission.decision.approveProofs">Korrekturfahne akzeptieren</message>
 	<message key="editor.submission.decision.disapproveProofsDescription">Diese Korrekturfahne wird nicht weiter zum Download oder Erwerb zur Verfügung stehen. Wollen Sie sie ablehnen?</message>
 
 	<!-- workflow navigation keys -->
@@ -542,6 +573,9 @@
 	<message key="submission.description">Beschreibung</message>
 	<message key="submission.stageNotInitiated">Arbeitsschritt nicht veranlasst.</message>
 	<message key="submission.documents">Dokumente der Einreichung</message>
+	<message key="notification.type.copyeditorRequest">Sie sind gebeten worden, das Lektorat von "{$title}" zu überprüfen.</message>
+	<message key="notification.type.layouteditorRequest">Sie sind gebeten worden, Layouts für "{$title}" zu überprüfen.</message>
+	<message key="notification.type.indexRequest">Sie sind gebeten worden, einen Index für "{$title}" anzulegen.</message>
 	<message key="notification.type.editorDecisionTitle">Letzte Entscheidung des/der Redakteur/in.</message>
 	<message key="notification.type.editorDecisionAccept">Beitrag akzeptiert.</message>
 	<message key="notification.type.editorDecisionExternalReview">Externer Begutachtungsprozess gestartet.</message>
@@ -550,7 +584,7 @@
 	<message key="notification.type.editorDecisionDecline">Beitrag abgelehnt.</message>
 	<message key="notification.type.editorDecisionSendToProduction">Produktionsprozess gestartet.</message>
 	<message key="notification.uploadedResponse">Antwort hochgeladen.</message>
- 	<!-- Read/Upload/Perform Signoff -->
+
 	<message key="notification.type.editorAssignment">Ein/e Redakteur/in muss hinzugefügt werden, bevor die Begutachtung veranlasst wird. Verwenden Sie bitte den obigen Beteiligten-Link, um eine/n Redakteur/in hinzuzufügen.</message>
 	<message key="grid.reviewAttachments.title">Gutachter/innen-Anlagen</message>
 	<message key="submission.productionReady">Buch verfügbar</message>
@@ -558,32 +592,25 @@
 	<message key="log.review.reviewerAssigned">Das Manuskript {$submissionId} wurde {$reviewerName} zur Begutachtung im Durchgang {$round} zugewiesen.</message>
 	<message key="submission.document">Dokument</message>
 	<message key="submission.art">Kunstwerk</message>
-	<message key="grid.action.itemWorkflow">Zum Workflow für diese Einreichung gehen</message>
-	<message key="notification.type.editorDecisionSendToProduction">Produktionsprozess gestartet.</message>
-	<message key="notification.type.editorAssignmentProduction">Ein/e Produktionsredakteur/in muss hinzugefügt werden, bevor der Poduktionsprozess veranlasst werden kann. Verwenden Sie bitte den obigen Beteiligten-Link um Produktionsredakteur/in hinzuzufügen.</message>
-	<message key="notification.type.editorAssignmentEditing">Ein/e Produktionsredakteur/in muss hinzugefügt werden, bevor die redaktionelle Bearbeitung veranlasst wird. Verwenden Sie bitte den obigen Beteiligten-Link um Produktionsredakteur/in hinzuzufügen.</message>
-	<message key="submission.confirm.message">Eine Einreichung ist hochgeladen worden und kann abgeschickt werden. Sie können noch einmal zurückgehen, um alle eingegebenen Informationen durchzusehen und anzupassen, bevor Sie weitermachen. Wenn Sie fertig sind, klicken Sie "Einreichung abschließen".</message>
-	<message key="submission.submit.copyrightNoticeAgree">Ich versichere, die Bedingungen des Copyright-Vermerks zu akzeptieren.</message>
-	<message key="submission.shortAuthor">{$author} et al.</message>
-	<message key="submission.queryNoteFiles">Diskussionsdateien</message>
-	<message key="submission.editorial">Lektorat</message>
-	<message key="submission.event.subjectPrefix">Eine E-Mail ist gesendet worden:</message>
-	<message key="submission.event.viewEmail">E-Mail anzeigen</message>
-	<message key="submission.metadataDescription">Die Metadatenspezifikationen basieren auf ONIX für Bücher, einem internationalen Standard der Buchverlage zur Kommunikation von Produktinformationen.</message>
-	<message key="submission.submissionTitle">Manuskript-Titel:</message>
-	<message key="submission.upload.query">Eine Diskussionsdatei hochladen</message>
-	<message key="workflow.stage.any">Irgendein Stadium</message>
-	<message key="workflow.stage">Stadium</message>
-	<message key="editor.submission.addStageParticipant.userGroup">Benutzer/innen werden Stadien des Workflows anhand ihrer Benutzergruppe zugewiesen. Alle Nutzer/innen, die diesem Stadium zugewiesen sind, werden automatisch anderen Stadien zugewiesen, denen ihre Benutzergruppe zugewiesen worden ist. Dies ist üblicherweise für Herausgeber/innen, Autor/innen und Übersetzer/innen vorgesehen.</message>
 	<message key="submission.supplementary">Zusätzliche Inhalte</message>
 	<message key="submission.supplementary.creator">Urheber/in (oder Besitzer/in) der Datei</message>
 	<message key="submission.supplementary.subject">Thema</message>
 	<message key="submission.supplementary.publisher">Verlag</message>
 	<message key="submission.supplementary.sponsor">Beitragende/r oder Sponsor</message>
+	<message key="grid.action.itemWorkflow">Zum Workflow für diese Einreichung gehen</message>
+	<message key="notification.type.editorDecisionSendToProduction">Produktionsprozess gestartet.</message>
+	<message key="notification.type.editorAssignmentProduction">Ein/e Produktionsredakteur/in muss hinzugefügt werden, bevor der Poduktionsprozess veranlasst werden kann. Verwenden Sie bitte den obigen Beteiligten-Link um Produktionsredakteur/in hinzuzufügen.</message>
+	<message key="notification.type.editorAssignmentEditing">Ein/e Produktionsredakteur/in muss hinzugefügt werden, bevor die redaktionelle Bearbeitung veranlasst wird. Verwenden Sie bitte den obigen Beteiligten-Link um Produktionsredakteur/in hinzuzufügen.</message>
+
+	<!--  peer review -->
 	<message key="submission.reviewForm">Begutachtungsformular</message>
 	<message key="submission.reviewFormResponse">Begutachtungsformular-Antwort</message>
+	<message key="grid.action.createReviewFormElement">Ein neues Begutachtungsformular-Element anlegen</message>
 	<message key="grid.action.editMetadata">Metadaten bearbeiten</message>
+
+	<!-- Permissions -->
 	<message key="submission.permissions">Rechte</message>
+	<message key="submission.attachPermissions">Die folgenden Rechte für die Einreichung festlegen:</message>
 	<message key="submission.license">Lizenz</message>
 	<message key="submission.copyright">Copyright</message>
 	<message key="submission.copyrightHolder">Copyright-Inhaber/in</message>
@@ -603,6 +630,8 @@
 	<message key="submission.license.cc.by-nd4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative-Commons-Lizenz" style="border-width:0" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><br />Dieses Werk steht unter der <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">Lizenz Creative Commons Namensnennung - Keine Bearbeitungen 4.0 International</a>.]]></message>
 	<message key="submission.license.cc.by4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative-Commons-Lizenz" style="border-width:0" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />Dieses Werk steht unter der <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Lizenz Creative Commons Namensnennung 4.0 International</a>.]]></message>
 	<message key="submission.license.cc.by-sa4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative-Commons-Lizenz" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />Dieses Werk steht unter der <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Lizenz Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 International</a>.]]></message>
+
+	<!-- Submission Queries -->
 	<message key="submission.queries.submission">Diskussion vor der Begutachtung</message>
 	<message key="submission.queries.review">Diskussion zur Begutachtung</message>
 	<message key="submission.queries.editorial">Diskussion zum Lektorat</message>
@@ -619,19 +648,4 @@
 	<message key="submission.query.new">{$creatorName} hat eine neue Diskussion begonnen: {$noteTitle}: {$noteContents}</message>
 	<message key="submission.query.activity.contents">Es gibt eine neue Aktivität in der Diskussion "{$queryTitle}" in Bezug auf das Manuskript "{$submissionTitle}".</message>
 	<message key="submission.query.new.contents">Sie sind zu einer Diskussion unter dem Titel "{$queryTitle}" in Bezug auf das Manuskript "{$submissionTitle}" hinzugefügt worden.</message>
-	<message key="submission.citations.filter.webserviceError">Der Webdienst für {$filterName} hat einen Fehler zurückgeliefert beim Aufruf dieser URL: {$webserviceUrl}. Es kann sein, dass der Webdienst vorübergehend nicht verfügbar ist. Sie können immer noch mit den sonstigen Diensten weiterarbeiten und Ihre Ergebnisse speichern. Sie können es auch später noch einmal versuchen. Wenn der Fehler andauert, bitten Sie die/den Verwalter/in, den Dienst zu deaktivieren und einen Bug Report einzureichen.</message>
-	<message key="submission.identifiers">Identifier</message>
-	<message key="submission.publisherId">Öffentliche URL</message>
-	<message key="grid.action.createReviewFormElement">Ein neues Begutachtungsformular-Element anlegen</message>
-	<message key="submission.submit.submissionChecklist">Einreichungs-Anforderungen</message>
-	<message key="submission.submit.submissionChecklistDescription">Sie müssen Sie die Anforderungen lesen und bestätigen, bevor Sie fortfahren können.</message>
-	<message key="submission.authorBiographies">Autor/innen-Biografien</message>
-	<message key="submission.changeFile">Datei ändern</message>
-	<message key="submission.attachPermissions">Die folgenden Rechte für die Einreichung festlegen:</message>
-	<message key="author.submission.roundStatus.reviewsReady">Neue Gutachten sind eingegangen und werden durch den/die Redakteur/in geprüft.</message>
-	<message key="submission.event.participantAdded">{$name} wurde dieser Einreichung als {$userGroupName} hinzugefügt.</message>
-	<message key="notification.type.copyeditorRequest">Sie sind gebeten worden, das Lektorat von "{$title}" zu überprüfen.</message>
-	<message key="notification.type.layouteditorRequest">Sie sind gebeten worden, Layouts für "{$title}" zu überprüfen.</message>
-	<message key="notification.type.indexRequest">Sie sind gebeten worden, einen Index für "{$title}" anzulegen.</message>
-	<message key=""><![CDATA[]]></message>
 </locale>

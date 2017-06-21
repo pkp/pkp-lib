@@ -12,4 +12,7 @@
   -->
 
 <locale name="ca_ES" full_name="Català">
+	<message key="plugins.generic.usageStats.optout.done"><![CDATA[<p>Heu optat per sortir de la recopilació d'estadístiques d'ús amb èxit. Mentre vegeu aquest missatge no es recopilarà cap estadística de l'ús d'aquest lloc. Feu clic al botó de sota per revertir la decisió.</p>]]></message>
+	<message key="plugins.generic.usageStats.optin">Incloure's</message>
+	<message key="plugins.generic.usageStats.optout">Excloure's</message>
 </locale>

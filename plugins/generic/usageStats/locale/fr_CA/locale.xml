@@ -55,6 +55,10 @@
 	<message key="plugins.reports.usageStats.optout.description">Informations sur la confidentialité des statistiques d'utilisation</message>
 	<message key="plugins.generic.usageStats.optout.title">Informations sur les statistiques d'utilisation</message>
 	<message key="plugins.generic.usageStats.optout.shortDesc"><![CDATA[Les connexions anonymes sont répertoriées dans les statistiques. Veuillez lire les <a href="{$privacyInfo}">clauses sur la confidentialité</a> pour plus de détails.]]></message>
+	<message key="plugins.generic.usageStats.optout.done"><![CDATA[<p>Vous avez choisi de vous retirer de la collecte de statistiques d'utilisation. La présence de ce message confirme qu'aucune mesure de votre utilisation du site ne sera prise. Cliquez sur le bouton ci-bas pour revenir sur votre décision.</p>]]></message>
+	<message key="plugins.generic.usageStats.optin">Option d'adhésion</message>
+	<message key="plugins.generic.usageStats.optout">Se retirer</message>
+	<message key="plugins.generic.usageStats.optout.cookie"><![CDATA[<p>Si vous le souhaitez, vous pouvez vous retirer de la collecte des données. En cliquant sur le bouton « Se retirer », vous pouvez refuser de participer à la collecte des données. Lorsque vous cliquez sur le bouton « Se retirer », cette décision est enregistrée dans votre système avec un cookie. Si, en raison de la configuration des options de confidentialité dans votre navigateur, les cookies sont supprimés automatiquement, vous devrer vous retirer de nouveau lors de votre prochaine consultation de cette revue. Le cookie n'est valide que pour un seul navigateur. Si vous utilisez un autre navigateur, vous devez vous retirer de nouveau. Aucune information permettant de vous identifier n'est enregistrée avec ce cookie. Ce cookie expirera un an après la date de votre dernier accès au site de la revue.</p>]]></message>
 	<message key="plugins.reports.usageStats.metricType">PKP/COUNTER</message>
 	<message key="plugins.reports.usageStats.metricType.full">Public Knowledge Project statistics (COUNTER ready)</message>
 	<message key="plugins.generic.usageStats.statsSum">Somme de tous les fichiers téléchargés</message>

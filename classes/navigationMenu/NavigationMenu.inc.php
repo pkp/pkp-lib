@@ -167,14 +167,32 @@ class NavigationMenu extends DataObject {
 				foreach ($this->navigationMenuItems as $navigationMenuItem) {
 					if ($navigationMenuItem->getId() == $navigationMenuItemId) {
 						$childNavigationMenuItem = $navigationMenuItemDao->getById($childNavigationMenuItemId);
+						$childNavigationMenuItem->setSequence($ruleSeq);
 						$navigationMenuItem->navigationMenuItems[$ruleId] = $childNavigationMenuItem;
 					}
 				}
 			} else { // we are still at the first level
 				$navigationMenuItem = $navigationMenuItemDao->getById($navigationMenuItemId);
+				$navigationMenuItem->setSequence($ruleSeq);
 				$this->navigationMenuItems[$ruleId] = $navigationMenuItem;
 			}
 		}
+
+		// sort navigationMenuItems arrays by NavigationMenuItem sequence
+		foreach($this->navigationMenuItems as $navigationMenuItem) {
+			uasort($navigationMenuItem->navigationMenuItems, array($this, 'cmp'));
+		}
+
+		uasort($this->navigationMenuItems, array($this, 'cmp'));
+	}
+
+	/**
+	 * Compare NavigationMenuItems sequence to sort them in arrays
+	 * @param $a NavigationMenuItem
+	 * @param $b NavigationMenuItem
+	 */
+	function cmp($a, $b) {
+		return $a->getSequence() - $b->getSequence();
 	}
 }
 

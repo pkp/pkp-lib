@@ -149,7 +149,7 @@ class NavigationMenu extends DataObject {
 
 	function populateNavigationMenuItems() {
 		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
-		$navigationMenuItems = $navigationMenuItemDao->getByNavigationMenuId($this->getId(), true);
+		$navigationMenuItems = $navigationMenuItemDao->getByNavigationMenuId($this->getId(), true, true);
 
 		$this->navigationMenuItems = $navigationMenuItems->toAssociativeArray();
 

@@ -40,7 +40,13 @@ class NotificationMailingListForm extends Form {
 
 		// Validation checks for this form
 		if ($this->captchaEnabled && $this->recaptchaEnabled) {
-			$this->addCheck(new FormValidatorReCaptcha($this, 'recaptcha_challenge_field', 'recaptcha_response_field', Request::getRemoteAddr(), 'common.captchaField.badCaptcha'));
+			if (Config::getVar('captcha', 'recaptcha_enforce_hostname')) {
+				$host = Request::getServerHost();
+			} else { 
+				$host = '';
+			}
+			$reCaptchaVersion = intval(Config::getVar('captcha', 'recaptcha_version', 0));
+			$this->addCheck(new FormValidatorReCaptcha($this, 'recaptcha_challenge_field', ($reCaptchaVersion === 1 ? 'recaptcha_response_field' : 'g-recaptcha-response'), Request::getRemoteAddr(), 'common.captchaField.badCaptcha', $host));
 		} elseif ($this->captchaEnabled) {
 			$this->addCheck(new FormValidatorCaptcha($this, 'captcha', 'captchaId', 'common.captchaField.badCaptcha'));
 		}
@@ -56,8 +62,18 @@ class NotificationMailingListForm extends Form {
 		$userVars = array('email', 'confirmEmail');
 		
 		if ($this->captchaEnabled) {
-			$userVars[] = ($this->recaptchaEnabled ? 'recaptcha_challenge_field' : 'captchaId');
-			$userVars[] = ($this->recaptchaEnabled ? 'recaptcha_response_field' : 'captcha');
+			if ($this->reCaptchaEnabled) {
+				$reCaptchaVersion = intval(Config::getVar('captcha', 'recaptcha_version', 0));
+				if ($reCaptchaVersion === 0) {
+					$userVars[] = 'recaptcha_challenge_field';
+					$userVars[] = 'recaptcha_response_field';
+				} else {
+					$userVars[] = 'g-recaptcha-response';
+				}
+			} else {
+				$userVars[] = 'captchaId';
+				$userVars[] = 'captcha';
+			}
 		}
 		
 		$this->readUserVars($userVars);
@@ -72,9 +88,10 @@ class NotificationMailingListForm extends Form {
 		
 		if ($this->captchaEnabled && $this->recaptchaEnabled) {
 			import('lib.pkp.lib.recaptcha.recaptchalib');
+			$reCaptchaVersion = intval(Config::getVar('captcha', 'recaptcha_version', 0));
 			$publicKey = Config::getVar('captcha', 'recaptcha_public_key');
 			$useSSL = Config::getVar('security', 'force_ssl')||Request::getProtocol()=='https'?true:false;
-			$reCaptchaHtml = recaptcha_get_html($publicKey, null, $useSSL);
+			$reCaptchaHtml = recaptcha_versioned_get_html($reCaptchaVersion, $publicKey, null, $useSSL);
 			$templateMgr->assign('reCaptchaHtml', $reCaptchaHtml);
 			$templateMgr->assign('captchaEnabled', true);
 		} elseif ($this->captchaEnabled) {

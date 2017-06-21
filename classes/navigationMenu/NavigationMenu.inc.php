@@ -148,13 +148,32 @@ class NavigationMenu extends DataObject {
 	}
 
 	function populateNavigationMenuItems() {
+		$navigationMenuHierarchyDao = DAORegistry::getDAO('NavigationMenuHierarchyDAO');
 		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
-		$navigationMenuItems = $navigationMenuItemDao->getByNavigationMenuId($this->getId(), true, true);
+		$navigationMenuHierarchyRulesRet = $navigationMenuHierarchyDao->getByNavigationMenuId($this->getId());
 
-		$this->navigationMenuItems = $navigationMenuItems->toAssociativeArray();
+		$navigationMenuItemsRules = $navigationMenuHierarchyRulesRet->toAssociativeArray();
 
-		foreach ($this->navigationMenuItems as $navigationMenuItem) {
-			$navigationMenuItem->populateNavigationMenuItems();
+		// because the getByNavigationMenuId is ordered by child_navigation_menu_item_id
+		// we will get first the rules with null child_navigation_menu_item_id
+		foreach ($navigationMenuItemsRules as $navigationMenuHierarchyRule) {
+			$childNavigationMenuItemId = $navigationMenuHierarchyRule->getChildNavigationMenuItemId();
+			$navigationMenuItemId = $navigationMenuHierarchyRule->getNavigationMenuItemId();
+			$ruleSeq = $navigationMenuHierarchyRule->getSequence();
+			$ruleId = $navigationMenuHierarchyRule->getId();
+
+			// its a rule that contains a child so we are done with the first level
+			if (isset($childNavigationMenuItemId) && $childNavigationMenuItemId != 0) {
+				foreach ($this->navigationMenuItems as $navigationMenuItem) {
+					if ($navigationMenuItem->getId() == $navigationMenuItemId) {
+						$childNavigationMenuItem = $navigationMenuItemDao->getById($childNavigationMenuItemId);
+						$navigationMenuItem->navigationMenuItems[$ruleId] = $childNavigationMenuItem;
+					}
+				}
+			} else { // we are still at the first level
+				$navigationMenuItem = $navigationMenuItemDao->getById($navigationMenuItemId);
+				$this->navigationMenuItems[$ruleId] = $navigationMenuItem;
+			}
 		}
 	}
 }

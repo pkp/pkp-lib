@@ -35,6 +35,7 @@
 	<message key="plugins.generic.usageStats.settings.compressArchives.description">Включите этот параметр для сжатия архивированных файлов журнала с помощью инструмента gzip (вам нужно будет настроить параметр gzip в файле config.inc.php). Если у вас сайт с большим трафиком, стоит включить этот параметр, чтобы сэкономить место на диске.</message>
 	<message key="plugins.generic.usageStats.settings.compressArchives">Сжать архивы</message>
 	<message key="plugins.generic.usageStats.settings.statsDisplayOptions">Параметры отображения статистики</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.contextWide">Эти настройки будут применены только для статистики использования в контексте «{$contextName}».</message>
 	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.display">Показывать график статистики материалов читателю</message>
 	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.chartType">Выберите тип графика для отображения статистики скачивания</message>
 	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.chartType.bar">Столбики</message>

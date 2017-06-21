@@ -101,14 +101,16 @@ class NavigationMenuItemDAO extends DAO {
 	/**
 	 * Retrieve navigation menu items by navigation menu ID.
 	 * @param $navigationMenuId int
+	 * @param $withNoParentNMI bool true: return only those that have no parent NMI| false: return all
 	 * @return int
 	 */
-	function getByNavigationMenuId($navigationMenuId, $enabled = null) {
+	function getByNavigationMenuId($navigationMenuId, $enabled = null, $withNoParentNMI = false) {
 		$params = array((int) $navigationMenuId);
 		if ($enabled !== null) $params[] = (int) $enabled;
 		$result = $this->retrieve(
 			'SELECT	* FROM navigation_menu_items WHERE navigation_menu_id = ?' .
 			($enabled !== null?' AND enabled = ?':'') .
+			($withNoParentNMI?' AND assoc_id = 0':'') .
 			(' order by enabled desc, seq'),
 			$params
 		);

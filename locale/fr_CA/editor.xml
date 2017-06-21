@@ -70,7 +70,7 @@
 	<message key="editor.submission.createNewRound">Créer une nouvelle série de révisions.</message>
 	<message key="editor.submission.review.manageReviewFilesDescription">Tous les fichiers qui ont déjà été téléchargés à une étape du processus de soumission (même à une étape d'édition ou de publication) peuvent être choisis pour révision. Il suffit de cocher la case Ajouter ci-dessous, puis de cliquer Recherche: tous les fichiers disponibles seront affichés et peuvent être choisis pour être ajoutés. Les autres fichiers qui n'ont pas déjà été téléchargés à une certaine étape du processus peuvent être ajoutés à cette liste en cliquant sur le lien Télécharger le fichier d'évaluation.</message>
 	<message key="editor.submission.selectPromoteRevisions">Choisir les révisions qui seront utilisées à la prochaine étape</message>
-	<message key="editor.review.unassignReviewer">Retirer le privilège de l'examinateur.</message>
+	<message key="editor.review.unassignReviewer">Retirer le privilège de l'examinateur</message>
 	<message key="editor.submissionReview.restrictFiles">Restreindre les fichiers disponibles.</message>
 	<message key="editor.submissionReview.restrictFiles.gridDescription">Si cet examinateur ne devrait pas avoir le droit de réviser tous les fichiers apparaissant dans cette liste, assurez-vous de cocher uniquement les fichiers pertinents.</message>
 	<message key="editor.review.uploadRevision">Télécharger la révision</message>
@@ -118,7 +118,7 @@
 	<message key="editor.review.reviewDetails">Détails de l'évaluation</message>
 	<message key="editor.review.noReviewFilesUploaded">Aucun fichier téléchargé</message>
 	<message key="editor.review.noReviewFilesUploaded.details">Vous n'avez téléverser aucun fichier d'évaluation</message>
-	<message key="editor.review.emailReviewer">Courriel de l'évaluateur</message>
+	<message key="editor.review.emailReviewer">Envoyer un courriel</message>
 	<message key="editor.article.confirmChangeReviewForm">Avertissement: La modification du formulaire d'évaluation aura une incidence sur les réponses que les examinateurs auront faites en utilisant ce formulaire. Êtes-vous sûr de vouloir continuer?</message>
 	<message key="editor.submission.noReviewerFilesSelected">Aucun fichier sélectionné</message>
 	<message key="editor.submission.noReviewerFilesSelected.details">Vous n'avez pas sélectionné de fichiers pour que l'évaluateur puisse les examiner.</message>
@@ -131,6 +131,7 @@
 	<message key="editor.submission.query.manageQueryNoteFilesDescription">Les fichiers peuvent être inclus dans cette discussion à partir de la liste ci-dessous.</message>
 	<message key="editor.submission.proofreading.confirmCompletion">Accepter la preuve pour indiquer que le document est prêt à être publié.</message>
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">Retirer l'approbation de la preuve et indiquer que ce document n'est pas prêt pour la publication.</message>
+	<message key="editor.publicIdentificationExistsForTheSameType">Le public identifié comme '{$publicIdentifier}' existe déjà pour un autre objet de même type. Veuillez indiquer un public unique pour l'objet de même type à l'intérieur de votre revue.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">Le public identifié comme '{$publicIdentifier}' ne peut être un numéro.</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">Le modèle {$pattern} ne peut pas être utilisé comme public identifié.</message>
 </locale>

@@ -804,4 +804,55 @@ abstract class PKPSubmissionService {
 		
 		return $submissionFile;
 	}
+
+	/**
+	 * Return an array of submission metadata
+	 * 
+	 * @param \Submission $submission
+	 * 
+	 * @return array
+	 */
+	public function getMetadata(Submission $submission) {
+	        if (!isset($submission)) {
+	                throw new Exception('Invalid submission');
+	        }
+	        return array(
+			'title' => $submission->getTitle(null, false), // Localized
+			'prefix' => $submission->getPrefix(null), // Localized
+			'subtitle' => $submission->getSubtitle(null), // Localized
+			'abstract' => $submission->getAbstract(null), // Localized
+			'coverage' => $submission->getCoverage(null), // Localized
+			'type' => $submission->getType(null), // Localized
+			'source' =>$submission->getSource(null), // Localized
+			'rights' => $submission->getRights(null), // Localized
+			'citations' => $submission->getCitations(),
+			'locale' => $submission->getLocale(),
+		);
+	}
+
+	/**
+	 * 
+	 * @param Submission $submission
+	 * @param array $locales Supported locale keys
+	 * @return array
+	 */
+	public function getPersistedMetadataControlledVocabularies(Submission $submission, $locales) {
+	        if (!isset($submission)) {
+	                throw new Exception('Invalid submission'); 
+	        }
+	        // load the persisted metadata controlled vocabularies
+	        $submissionKeywordDao = DAORegistry::getDAO('SubmissionKeywordDAO');
+	        $submissionSubjectDao = DAORegistry::getDAO('SubmissionSubjectDAO');
+	        $submissionDisciplineDao = DAORegistry::getDAO('SubmissionDisciplineDAO');
+	        $submissionAgencyDao = DAORegistry::getDAO('SubmissionAgencyDAO');
+	        $submissionLanguageDao = DAORegistry::getDAO('SubmissionLanguageDAO');
+
+	        return array(
+                        'subjects'      => $submissionSubjectDao->getSubjects($submission->getId(), $locales),
+                        'keywords'      => $submissionKeywordDao->getKeywords($submission->getId(), $locales),
+                        'disciplines'   => $submissionDisciplineDao->getDisciplines($submission->getId(), $locales),
+                        'agencies'      => $submissionAgencyDao->getAgencies($submission->getId(), $locales),
+                        'languages'     => $submissionAgencyDao->getAgencies($submission->getId(), $locales),
+	        );
+	}
 }

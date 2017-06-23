@@ -67,18 +67,9 @@ class PKPSubmissionMetadataFormImplementation {
 	 */
 	function initData($submission) {
 		if (isset($submission)) {
-			$formData = array(
-				'title' => $submission->getTitle(null, false), // Localized
-				'prefix' => $submission->getPrefix(null), // Localized
-				'subtitle' => $submission->getSubtitle(null), // Localized
-				'abstract' => $submission->getAbstract(null), // Localized
-				'coverage' => $submission->getCoverage(null), // Localized
-				'type' => $submission->getType(null), // Localized
-				'source' =>$submission->getSource(null), // Localized
-				'rights' => $submission->getRights(null), // Localized
-				'citations' => $submission->getCitations(),
-				'locale' => $submission->getLocale(),
-			);
+		        import('classes.core.ServicesContainer');
+		        $submissionService = ServicesContainer::instance()->get('submission');
+			$formData = $submissionService->getMetadata($submission);
 
 			foreach ($formData as $key => $data) {
 				$this->_parentForm->setData($key, $data);
@@ -94,11 +85,12 @@ class PKPSubmissionMetadataFormImplementation {
 			$submissionAgencyDao = DAORegistry::getDAO('SubmissionAgencyDAO');
 			$submissionLanguageDao = DAORegistry::getDAO('SubmissionLanguageDAO');
 
-			$this->_parentForm->setData('subjects', $submissionSubjectDao->getSubjects($submission->getId(), $locales));
-			$this->_parentForm->setData('keywords', $submissionKeywordDao->getKeywords($submission->getId(), $locales));
-			$this->_parentForm->setData('disciplines', $submissionDisciplineDao->getDisciplines($submission->getId(), $locales));
-			$this->_parentForm->setData('agencies', $submissionAgencyDao->getAgencies($submission->getId(), $locales));
-			$this->_parentForm->setData('languages', $submissionLanguageDao->getLanguages($submission->getId(), $locales));
+			$persistedMetadata = $submissionService->getPersistedMetadataControlledVocabularies($submission, $locales);
+			$this->_parentForm->setData('subjects', $persistedMetadata['subjects']);
+			$this->_parentForm->setData('keywords', $persistedMetadata['keywords']);
+			$this->_parentForm->setData('disciplines', $persistedMetadata['disciplines']);
+			$this->_parentForm->setData('agencies', $persistedMetadata['agencies']);
+			$this->_parentForm->setData('languages', $persistedMetadata['languages']);
 			$this->_parentForm->setData('abstractsRequired', $this->_getAbstractsRequired($submission));
 		}
 	}

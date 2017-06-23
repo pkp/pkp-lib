@@ -25,7 +25,7 @@ class EditorReviewFilesGridHandler extends FileListGridHandler {
 		parent::__construct(
 			new ReviewGridDataProvider(SUBMISSION_FILE_REVIEW_FILE),
 			null,
-			FILE_GRID_MANAGE|FILE_GRID_VIEW_NOTES|FILE_GRID_DELETE
+			FILE_GRID_EDIT|FILE_GRID_MANAGE|FILE_GRID_VIEW_NOTES|FILE_GRID_DELETE
 		);
 
 		$this->addRoleAssignment(

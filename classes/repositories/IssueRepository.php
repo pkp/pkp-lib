@@ -20,11 +20,6 @@ use \Issue;
 class IssueRepository implements IssueRepositoryInterface {
 	
 	/**
-	 * Constructor
-	 */
-	public function __construct() {}
-	
-	/**
 	 * 
 	 * {@inheritDoc}
 	 * @see \App\Repositories\IssueRepositoryInterface::validate()

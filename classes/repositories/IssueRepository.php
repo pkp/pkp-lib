@@ -20,9 +20,7 @@ use \Issue;
 class IssueRepository implements IssueRepositoryInterface {
 	
 	/**
-	 * 
-	 * {@inheritDoc}
-	 * @see \App\Repositories\IssueRepositoryInterface::validate()
+	 * @copy IssueRepositoryInterface::validate()
 	 */
 	public function validate($issueData) {
 		

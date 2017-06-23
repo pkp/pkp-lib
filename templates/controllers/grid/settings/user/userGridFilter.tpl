@@ -1,5 +1,5 @@
 {**
- * controllers/grid/settings/user/userGridFilter.tpl
+ * templates/controllers/grid/settings/user/userGridFilter.tpl
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2000-2017 John Willinsky

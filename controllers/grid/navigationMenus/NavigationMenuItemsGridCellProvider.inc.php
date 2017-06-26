@@ -68,38 +68,10 @@ class NavigationMenuItemsGridCellProvider extends GridCellProvider {
 		switch ($columnId) {
 			case 'title':
 				return array('label' => '');
-			case 'enabled':
-			    $enabled = $navigationMenuItem->getEnabled();
-			    if ($enabled) {
-			        return array('label' => __('common.enabled'));
-			    } else {
-			        return array('label' => __('common.disabled'));
-			    }
 			case 'path':
 			    $path = $navigationMenuItem->getPath();
 			    if ($path) {
 			        return array('label' => $navigationMenuItem->getPath());
-			    } else {
-			        return array('label' => __('common.none'));
-			    }
-			case 'parentNavigationMenu':
-			    $navigationMenuId = $navigationMenuItem->getNavigationMenuId();
-			    if ($navigationMenuId) {
-					$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
-					$parentNavigationMenu = $navigationMenuDao->getById($navigationMenuId);
-					if (!is_null($parentNavigationMenu)) {
-						return array('label' => $parentNavigationMenu->getTitle());
-					}
-			    } 
-			    
-				return array('label' => __('common.none'));
-			case 'parentNavigationMenuItem':
-			    $assoc_id = $navigationMenuItem->getAssocId();
-			    if ($assoc_id) {
-					$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
-					$parentNavigationMenuItem = $navigationMenuItemDao->getById($assoc_id);
-
-			        return array('label' => $parentNavigationMenuItem->getLocalizedTitle());
 			    } else {
 			        return array('label' => __('common.none'));
 			    }

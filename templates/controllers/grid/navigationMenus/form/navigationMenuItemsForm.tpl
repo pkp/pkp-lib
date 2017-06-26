@@ -20,11 +20,6 @@
                     previewUrl: {url|json_encode router=$smarty.const.ROUTE_PAGE page="navigationMenu" op="preview"}
                 {rdelim});
         {rdelim});
-
-	{*$(function() {ldelim}
-		// Attach the form handler.
-		$('#navigationMenuItemForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
-	{rdelim});*}
 </script>
 
 <form class="pkp_form" id="navigationMenuItemForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.navigationMenus.NavigationMenuItemsGridHandler" navigationMenuIdParent=$navigationMenuIdParent op="updateNavigationMenuItem"}">
@@ -35,9 +30,6 @@
         {if $navigationMenuItemId}
 			<input type="hidden" name="navigationMenuItemId" value="{$navigationMenuItemId|escape}" />
 		{/if}
-        {fbvFormSection list="false"}
-	        {fbvElement type="checkbox" id="enabled" value=1 label="manager.navigationMenus.form.menuItemEnabled" checked=$navigationMenuItemEnabled}
-        {/fbvFormSection}
 
         {if $navigationMenus}
             {if $navigationMenuId != 0}

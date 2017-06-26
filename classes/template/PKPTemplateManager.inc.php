@@ -287,7 +287,7 @@ class PKPTemplateManager extends Smarty {
 				$navigationMenusArray = $navigationMenus->toAssociativeArray();
 
 				foreach ($navigationMenusArray as $navigationMenu) {
-					$navigationMenu->populateNavigationMenuItems();
+					$navigationMenu->getMenuTree();
 				}
 
 				$this->assign('navigationMenus', $navigationMenusArray);

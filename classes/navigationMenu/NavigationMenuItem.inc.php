@@ -45,22 +45,6 @@ class NavigationMenuItem extends DataObject {
 	}
 
 	/**
-	 * Get seq for this navigation menu item.
-	 * @return int
-	 */
-	function getSequence() {
-		return $this->getData('seq');
-	}
-
-	/**
-	 * Set seq for this navigation menu item.
-	 * @param $seq int
-	 */
-	function setSequence($seq) {
-		$this->setData('seq', $seq);
-	}
-
-	/**
 	 * Get navigationMenuId for this navigation menu item.
 	 * @return int
 	 */
@@ -192,11 +176,20 @@ class NavigationMenuItem extends DataObject {
 		$this->setData('content', $content, $locale);
 	}
 
-	function populateNavigationMenuItems() {
-		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
-		$navigationMenuItems = $navigationMenuItemDao->getChildrenNMIsByNavigationMenuItemId($this->getId());
+	/**
+	 * Get seq for this navigation menu item.
+	 * @return int
+	 */
+	function getSequence() {
+		return $this->getData('seq');
+	}
 
-		$this->navigationMenuItems = $navigationMenuItems->toAssociativeArray();
+	/**
+	 * Set seq for this navigation menu item.
+	 * @param $seq int
+	 */
+	function setSequence($seq) {
+		$this->setData('seq', $seq);
 	}
 }
 

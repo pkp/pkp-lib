@@ -82,6 +82,23 @@ class NavigationMenuItemDAO extends DAO {
 	}
 
 	/**
+	 * Retrieve items by menu id
+	 */
+	public function getByMenuId($menuId) {
+		$params = array((int) $menuId);
+		$result = $this->retrieve(
+			'SELECT nmi.*
+				FROM navigation_menu_item_assignments as nmh
+				LEFT JOIN navigation_menu_items as nmi ON (nmh.navigation_menu_item_id = nmi.navigation_menu_item_id)
+				WHERE nmh.navigation_menu_id = ?
+				ORDER BY nmh.seq',
+			$params
+		);
+
+		return new DAOResultFactory($result, $this, '_fromRow');
+	}
+
+	/**
 	 * Retrieve all the navigationMenuItems that can be selected to be added to a NavigationMenu.
 	 * @param $contextId int Context Id
 	 * @param $navigationMenuId int All the NMIs not having this parameter as parent needed
@@ -168,12 +185,11 @@ class NavigationMenuItemDAO extends DAO {
 	 * @param $row array
 	 * @return NavigationMenuItem
 	 */
-	function _fromRow($row) {
+	function _fromRow($row, $dataObject = false) {
 		$navigationMenuItem = $this->newDataObject();
 		$navigationMenuItem->setId($row['navigation_menu_item_id']);
 		$navigationMenuItem->setNavigationMenuId($row['navigation_menu_id']);
 		$navigationMenuItem->setAssocId($row['assoc_id']);
-		$navigationMenuItem->setSequence($row['seq']);
 		$navigationMenuItem->setPath($row['path']);
 		$navigationMenuItem->setContextId($row['context_id']);
 		$navigationMenuItem->setPage($row['page']);

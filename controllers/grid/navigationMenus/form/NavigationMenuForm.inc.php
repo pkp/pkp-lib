@@ -19,10 +19,10 @@ import('lib.pkp.classes.form.Form');
 
 class NavigationMenuForm extends Form {
 	/** @var int Context ID */
-	var $contextId;
+	var $_contextId;
 
-	/** @var $navigationMenuId int the ID of the NavigationMenu being edited */
-	var $navigationMenuId;
+	/** @var $navigationMenu NavigationMenu The menu being edited */
+	var $_navigationMenuId;
 
 	/**
 	 * Constructor
@@ -30,10 +30,10 @@ class NavigationMenuForm extends Form {
 	 * @param $navigationMenuId int NavigationMenu Id
 	 */
 	function __construct($contextId, $navigationMenuId = null) {
-		$this->navigationMenuId = isset($navigationMenuId) ? (int) $navigationMenuId : null;
-		$this->contextId = $contextId;
+		$this->_navigationMenuId = !empty($navigationMenuId) ? (int) $navigationMenuId : null;
+		$this->_contextId = $contextId;
 
-		parent::__construct('manager/navigationMenus/navigationMenuForm.tpl');
+		parent::__construct('controllers/grid/navigationMenus/form/navigationMenuForm.tpl');
 
 		$this->addCheck(new FormValidator($this, 'title', 'required', 'manager.announcementTypes.form.typeNameRequired'));
 
@@ -77,37 +77,47 @@ class NavigationMenuForm extends Form {
 			$activeThemeNavigationAreas[$navigationMenuArea] = $navigationMenuArea;
 		}
 
+		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+		$navigationMenuItems = $navigationMenuItemDao->getByContextId($request->getContext()->getId())
+				->toArray();
+		$assignedItems = $navigationMenuItemDao->getByMenuId($this->_navigationMenuId)
+				->toArray();
+		$unassignedItems = array_udiff($navigationMenuItems, $assignedItems, function($a, $b) {
+			return $a->getId() - $b->getId();
+		});
 
 		$templateMgr->assign(array(
 			'enabledThemes' => $enabledThemes,
 			'activeThemeNavigationAreas' => $activeThemeNavigationAreas,
+			'unassignedItems' => $unassignedItems,
+			'navigationMenuId' => $this->_navigationMenuId,
+			'title' => $this->getData('title'),
+			'navigationMenuArea' => $this->getData('area_name'),
+			'menuTree' => $this->getData('menuTree'),
 		));
 
-		$templateMgr->assign('navigationMenuId', $this->navigationMenuId);
-		$templateMgr->assign('title', $this->getData('title'));
-		$templateMgr->assign('navigationMenuArea', $this->getData('area_name'));
-
-		return parent::fetch($request, 'controllers/grid/navigationMenus/form/navigationMenuForm.tpl');
+		return parent::fetch($request);
 	}
 
 	/**
 	 * Initialize form data from current NavigationMenu.
 	 */
 	function initData() {
-		$navigationMenusDao = DAORegistry::getDAO('NavigationMenuDAO');
 
-		if (isset($this->navigationMenuId) && $this->navigationMenuId != 0) {
-		    $navigationMenu = $navigationMenusDao->getById($this->navigationMenuId);
+		if (isset($this->_navigationMenuId) && $this->_navigationMenuId != 0) {
+			$navigationMenusDao = DAORegistry::getDAO('NavigationMenuDAO');
+			$navigationMenu = $navigationMenusDao->getById($this->_navigationMenuId);
 
-		    if ($navigationMenu != null) {
-		        $this->_data = array(
-		            'title' => $navigationMenu->getTitle(),
+			if ($navigationMenu != null) {
+				$this->_data = array(
+					'title' => $navigationMenu->getTitle(),
 					'navigationMenuId' => $navigationMenu->getId(),
-					'navigationMenuArea' => $navigationMenu->getAreaName()
-		        );
-		    } else {
-		        $this->navigationMenuId = null;
-		    }
+					'navigationMenuArea' => $navigationMenu->getAreaName(),
+					'menuTree' => $navigationMenu->getMenuTree(),
+				);
+			} else {
+				$this->_navigationMenuId = null;
+			}
 		}
 	}
 
@@ -115,7 +125,7 @@ class NavigationMenuForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('title', 'navigationMenuId', 'area_name'));
+		$this->readUserVars(array('title', 'navigationMenuId', 'area_name', 'menuTree'));
 
 	}
 
@@ -124,16 +134,17 @@ class NavigationMenuForm extends Form {
 	 */
 	function execute() {
 		$navigationMenusDao = DAORegistry::getDAO('NavigationMenuDAO');
+		$navigationMenuItemAssignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
 
-		if (isset($this->navigationMenuId)) {
-			$navigationMenu = $navigationMenusDao->getById($this->navigationMenuId);
+		if (isset($this->_navigationMenuId)) {
+			$navigationMenu = $navigationMenusDao->getById($this->_navigationMenuId);
 		}
 
 		if (!isset($navigationMenu)) {
 			$navigationMenu = $navigationMenusDao->newDataObject();
 		}
 
-		$navigationMenu->setContextId($this->contextId);
+		$navigationMenu->setContextId($this->_contextId);
 		$navigationMenu->setTitle($this->getData('title'));
 		$navigationMenu->setAreaName($this->getData('area_name'));
 
@@ -141,7 +152,25 @@ class NavigationMenuForm extends Form {
 		if ($navigationMenu->getId() != null) {
 			$navigationMenusDao->updateObject($navigationMenu);
 		} else {
-			$navigationMenusDao->insertObject($navigationMenu);
+			$this->_navigationMenuId = $navigationMenusDao->insertObject($navigationMenu);
+		}
+
+		// Update NavigationMenuItemAssignment
+		if ($this->_navigationMenuId) {
+			$navigationMenuItemAssignmentDao->deleteByMenuId($this->_navigationMenuId);
+			$menuTree = $this->getData('menuTree');
+			if (!empty($menuTree)) {
+				foreach ($menuTree as $menuItemId => $assignmentData) {
+					$assignment = new NavigationMenuItemAssignment();
+					$assignment->setMenuId($this->_navigationMenuId);
+					$assignment->setMenuItemId((int) $menuItemId);
+					$assignment->setSequence((int) $assignmentData['seq']);
+					if (isset($assignmentData['parentId'])) {
+						$assignment->setParentId((int) $assignmentData['parentId']);
+					}
+					$navigationMenuItemAssignmentDao->insertObject($assignment);
+				}
+			}
 		}
 	}
 
@@ -152,8 +181,8 @@ class NavigationMenuForm extends Form {
 	function validate() {
 		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
 
-		$navigationMenu = $navigationMenuDao->getByTitle($this->contextId, $this->getData('title'));
-		if (isset($navigationMenu) && $navigationMenu->getId() != $this->navigationMenuId) {
+		$navigationMenu = $navigationMenuDao->getByTitle($this->_contextId, $this->getData('title'));
+		if (isset($navigationMenu) && $navigationMenu->getId() != $this->_navigationMenuId) {
 			$this->addError('path', __('manager.navigationMenus.form.duplicateTitle'));
 		}
 

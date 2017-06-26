@@ -8,4 +8,4 @@
  * Display a radio button for selecting one user from the grid
  *}
 
-<input type="radio" id="user_{$rowId}" name="userId" class="advancedUserSelect" value="{$rowId}" />
+<input type="radio" id="user_{$rowId}" name="userId" class="advancedUserSelect" {if $userId==$rowId}checked="checked" {/if}value="{$rowId}" />

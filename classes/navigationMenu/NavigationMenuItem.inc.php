@@ -109,22 +109,6 @@ class NavigationMenuItem extends DataObject {
 	}
 
 	/**
-	 * Get enabled for this navigation menu item.
-	 * @return int
-	 */
-	function getEnabled() {
-		return $this->getData('enabled');
-	}
-
-	/**
-	 * Set enabled for this navigation menu item.
-	 * @param $enabled int
-	 */
-	function setEnabled($enabled) {
-		$this->setData('enabled', $enabled);
-	}
-
-	/**
 	 * Get default for this navigation menu item.
 	 * @return int
 	 */
@@ -210,7 +194,7 @@ class NavigationMenuItem extends DataObject {
 
 	function populateNavigationMenuItems() {
 		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
-		$navigationMenuItems = $navigationMenuItemDao->getChildrenNMIsByNavigationMenuItemId($this->getId(), true);
+		$navigationMenuItems = $navigationMenuItemDao->getChildrenNMIsByNavigationMenuItemId($this->getId());
 
 		$this->navigationMenuItems = $navigationMenuItems->toAssociativeArray();
 	}

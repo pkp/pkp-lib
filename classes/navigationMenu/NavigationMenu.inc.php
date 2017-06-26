@@ -67,22 +67,6 @@ class NavigationMenu extends DataObject {
 	}
 
 	/**
-	 * Get the NavigationMenu 'enabled' status.
-	 * @return int
-	 */
-	function getEnabled() {
-	    return $this->getData('enabled');
-	}
-
-	/**
-	 * Set the NavigationMenu 'enabled' status.
-	 * @param $enabled int
-	 */
-	function setEnabled($enabled) {
-	    $this->setData('enabled', $enabled);
-	}
-
-	/**
 	 * Get the NavigationMenu sequence
 	 * TODO::defstat May not be needed - added to support sequence inside an Area
 	 * @return int

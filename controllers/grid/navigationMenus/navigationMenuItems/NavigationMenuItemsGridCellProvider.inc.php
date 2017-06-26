@@ -76,13 +76,6 @@ class NavigationMenuItemsGridCellProvider extends GridCellProvider {
 		switch ($columnId) {
 			case 'title':
 				return array('label' => '');
-			case 'enabled':
-			    $enabled = $navigationMenuItem->getEnabled();
-			    if ($enabled) {
-			        return array('label' => __('common.enabled'));
-			    } else {
-			        return array('label' => __('common.disabled'));
-			    }
 			case 'path':
 			    $path = $navigationMenuItem->getPath();
 			    if ($path) {

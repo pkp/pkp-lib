@@ -84,35 +84,8 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 		);
 
 		$this->addColumn(
-			new GridColumn('enabled',
-				'common.enabled',
-				null,
-				null,
-				$navigationMenuItemsCellProvider
-			)
-		);
-
-		$this->addColumn(
 			new GridColumn('path',
 				'grid.navigationMenu.navigationMenuItemPath',
-				null,
-				null,
-				$navigationMenuItemsCellProvider
-			)
-		);
-
-		$this->addColumn(
-			new GridColumn('parentNavigationMenu',
-				'grid.navigationMenu.navigationMenuParent',
-				null,
-				null,
-				$navigationMenuItemsCellProvider
-			)
-		);
-
-		$this->addColumn(
-			new GridColumn('parentNavigationMenuItem',
-				'grid.navigationMenu.navigationMenuItemParent',
 				null,
 				null,
 				$navigationMenuItemsCellProvider

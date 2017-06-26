@@ -438,17 +438,18 @@ class UserGroupDAO extends DAO {
 
 	/**
 	 * Find users that don't have a given role
-	 * @param $contextId int optional
-	 * @param ROLE_ID_... int (const)
-	 * @param $search string
+	 * @param $roleId ROLE_ID_... int (const)
+	 * @param $contextId int Optional context ID
+	 * @param $search string Optional search string
+	 * @param $rangeInfo RangeInfo Optional range info
 	 * @return DAOResultFactory
 	 */
-	function getUsersNotInRole($roleId, $contextId = null, $search = null) {
+	function getUsersNotInRole($roleId, $contextId = null, $search = null, $rangeInfo = null) {
 		$params = array((int) $roleId);
 		if ($contextId) $params[] = (int) $contextId;
 		if(isset($search)) $params = array_merge($params, array_pad(array(), 5, '%' . $search . '%'));
 
-		$result = $this->retrieve(
+		$result = $this->retrieveRange(
 			'SELECT	*
 			FROM	users u
 			WHERE	u.user_id NOT IN (
@@ -460,7 +461,8 @@ class UserGroupDAO extends DAO {
 					($contextId ? ' AND ug.context_id = ?' : '') .
 				')' .
 				(isset($search) ? ' AND (u.first_name LIKE ? OR u.middle_name LIKE ? OR u.last_name LIKE ? OR u.email LIKE ? OR u.username LIKE ?)' : ''),
-			$params
+			$params,
+			$rangeInfo
 		);
 
 		return new DAOResultFactory($result, $this->userDao, '_returnUserFromRowWithData');
@@ -490,9 +492,9 @@ class UserGroupDAO extends DAO {
 				LEFT JOIN controlled_vocab_entry_settings cves ON (ui.controlled_vocab_entry_id = cves.controlled_vocab_entry_id)
 				LEFT JOIN user_user_groups uug ON (uug.user_id = u.user_id)
 				LEFT JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id)
-			WHERE	1=1' .
-				($contextId?' AND ug.context_id = ?':'') .
-				($userGroupId?' AND ug.user_group_id = ?':'') .
+			WHERE	1=1 ' .
+				($contextId?'AND ug.context_id = ? ':'') .
+				($userGroupId?'AND ug.user_group_id = ? ':'') .
 				$this->_getSearchSql($searchType, $search, $searchMatch, $params),
 			$params,
 			$dbResultRange

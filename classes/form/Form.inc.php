@@ -387,22 +387,6 @@ class Form {
 	}
 
 	/**
-	 * Adds specified user date variables to input data.
-	 * @param $vars array the names of the date variables to read
-	 */
-	function readUserDateVars($vars) {
-		// Call hooks based on the calling entity, assuming
-		// this method is only called by a subclass. Results
-		// in hook calls named e.g. "papergalleyform::readUserDateVars"
-		// Note that class and function names are always lower
-		// case.
-		HookRegistry::call(strtolower_codesafe(get_class($this) . '::readUserDateVars'), array($this, &$vars));
-		foreach ($vars as $k) {
-			$this->setData($k, Request::getUserDateVar($k));
-		}
-	}
-
-	/**
 	 * Add a validation check to the form.
 	 * @param $formValidator FormValidator
 	 */

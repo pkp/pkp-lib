@@ -12,11 +12,6 @@
  */
 (function($) {
 
-	/** @type {Object} */
-	$.pkp.controllers.grid.navigationMenus =
-			$.pkp.controllers.grid.navigationMenus ||
-			{ form: {} };
-
 
 
 	/**
@@ -55,7 +50,7 @@
 						$.get(that.fetchNavigationMenuItemsUrl_, { navigationMenuIdParent: $(this).val(), navigationMenuItemId: that.navigationMenuItemId_, parentNavigationMenuItemId: that.parentNavigationMenuItemId_ }, that.callbackWrapper(that.setNavigationMenuItemsList_), 'json');
 					}
 				});
-				
+
 				$("#navigationMenuId").trigger("change");
 			};
 

@@ -20,8 +20,8 @@
  */
 
 class NavigationMenu extends DataObject {
-	/** @var $navigationMenuItems array The navigationMenuItems of this navigationMenu */
-	var $navigationMenuItems = array();
+	/** @var $menuTree array Hierarchical array of NavigationMenuItems */
+	var $menuTree = null;
 
 	/**
 	 * Constructor
@@ -131,52 +131,52 @@ class NavigationMenu extends DataObject {
 		$this->setData('area_name', $areaName);
 	}
 
-	function populateNavigationMenuItems() {
-		$navigationMenuHierarchyDao = DAORegistry::getDAO('NavigationMenuHierarchyDAO');
+	/**
+	 * Get a tree of NavigationMenuItems assigned to this menu
+	 *
+	 * @return array Hierarchical array of menu items
+	 */
+	public function getMenuTree() {
 		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
-		$navigationMenuHierarchyRulesRet = $navigationMenuHierarchyDao->getByNavigationMenuId($this->getId());
+		$items = $navigationMenuItemDao->getByMenuId($this->getId())
+				->toArray();
+		$navigationMenuItemAssignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
+		$assignments = $navigationMenuItemAssignmentDao->getByMenuId($this->getId())
+				->toArray();
 
-		$navigationMenuItemsRules = $navigationMenuHierarchyRulesRet->toAssociativeArray();
-
-		// because the getByNavigationMenuId is ordered by child_navigation_menu_item_id
-		// we will get first the rules with null child_navigation_menu_item_id
-		foreach ($navigationMenuItemsRules as $navigationMenuHierarchyRule) {
-			$childNavigationMenuItemId = $navigationMenuHierarchyRule->getChildNavigationMenuItemId();
-			$navigationMenuItemId = $navigationMenuHierarchyRule->getNavigationMenuItemId();
-			$ruleSeq = $navigationMenuHierarchyRule->getSequence();
-			$ruleId = $navigationMenuHierarchyRule->getId();
-
-			// its a rule that contains a child so we are done with the first level
-			if (isset($childNavigationMenuItemId) && $childNavigationMenuItemId != 0) {
-				foreach ($this->navigationMenuItems as $navigationMenuItem) {
-					if ($navigationMenuItem->getId() == $navigationMenuItemId) {
-						$childNavigationMenuItem = $navigationMenuItemDao->getById($childNavigationMenuItemId);
-						$childNavigationMenuItem->setSequence($ruleSeq);
-						$navigationMenuItem->navigationMenuItems[$ruleId] = $childNavigationMenuItem;
-					}
+		for ($i = 0; $i < count($assignments); $i++) {
+			foreach($items as $item) {
+				if ($item->getId() === $assignments[$i]->getMenuItemId()) {
+					$assignments[$i]->setMenuItem($item);
+					break;
 				}
-			} else { // we are still at the first level
-				$navigationMenuItem = $navigationMenuItemDao->getById($navigationMenuItemId);
-				$navigationMenuItem->setSequence($ruleSeq);
-				$this->navigationMenuItems[$ruleId] = $navigationMenuItem;
 			}
 		}
 
-		// sort navigationMenuItems arrays by NavigationMenuItem sequence
-		foreach($this->navigationMenuItems as $navigationMenuItem) {
-			uasort($navigationMenuItem->navigationMenuItems, array($this, 'cmp'));
+		// Create an array of parent items and array of child items sorted by
+		// their parent id as the array key
+		$this->menuTree = array();
+		$children = array();
+		foreach ($assignments as $assignment) {
+			if (!$assignment->getParentId()) {
+				$this->menuTree[] = $assignment;
+			} else {
+				if (!isset($children[$assignment->getParentId()])) {
+					$children[$assignment->getParentId()] = array();
+				}
+				$children[$assignment->getParentId()][] = $assignment;
+			}
 		}
 
-		uasort($this->navigationMenuItems, array($this, 'cmp'));
-	}
+		// Assign child items to parent in array
+		for ($i = 0; $i < count($this->menuTree); $i++) {
+			$assignmentId = $this->menuTree[$i]->getMenuItemId();
+			if (isset($children[$assignmentId])) {
+				$this->menuTree[$i]->children = $children[$assignmentId];
+			}
+		}
 
-	/**
-	 * Compare NavigationMenuItems sequence to sort them in arrays
-	 * @param $a NavigationMenuItem
-	 * @param $b NavigationMenuItem
-	 */
-	function cmp($a, $b) {
-		return $a->getSequence() - $b->getSequence();
+		return $this->menuTree;
 	}
 }
 

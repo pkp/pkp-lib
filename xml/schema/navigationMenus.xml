@@ -147,29 +147,25 @@
 
 	<!--
 	 *
-	 * TABLE navigation_menus_hierarchy
+	 * TABLE navigation_menu_item_assignments
 	 *
 	 -->
-	<table name="navigation_menus_hierarchy">
-		<field name="navigation_menu_hierarchy_id" type="I8">
-			<KEY />
-			<AUTOINCREMENT/>
-		</field>
+	<table name="navigation_menu_item_assignments">
 		<field name="navigation_menu_id" type="I8">
 			<NOTNULL/>
 		</field>
 		<field name="navigation_menu_item_id" type="I8">
 			<NOTNULL/>
 		</field>
-		<field name="child_navigation_menu_item_id" type="I8">
+		<field name="parent_id" type="I8">
 		</field>
 		<field name="seq" type="I8">
 			<DEFAULT VALUE="0"/>
 		</field>
-		<descr>NavigationMenusHierarchy rules</descr>
+		<descr>NavigationMenuItemAssignments which assign menu items to a menu and describe nested menu structure.</descr>
 	</table>
-	
-	
-	
-	
+
+
+
+
 </schema>

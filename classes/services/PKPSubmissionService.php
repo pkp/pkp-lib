@@ -342,9 +342,7 @@ abstract class PKPSubmissionService {
 
 		$output = array();
 		foreach ($submissions as $submission) {
-			if (!is_a($submission, 'Submission')) {
-				error_log('Could not convert item to array because it is not a submission. ' . __LINE__);
-			}
+			assert(is_a($submission, 'Submission'));
 
 			$compiled = array();
 			foreach ($params as $param => $val) {

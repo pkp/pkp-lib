@@ -278,9 +278,11 @@ abstract class PKPSubmissionService {
 	 * component or returned with a REST API endpoint
 	 *
 	 * @param $submissions Submission|array One or more Submission objects
+	 * @param $params array Optional array of role permissions to effect what is
+	 *  returned.
 	 * @param return array
 	 */
-	public function toArray($submissions, $params = null) {
+	public function toArray($submissions, $params = array()) {
 
 		if (is_a($submissions, 'Submission')) {
 			$submissions = array($submissions);
@@ -615,12 +617,12 @@ abstract class PKPSubmissionService {
 	 * the user does not have permission to access.
 	 *
 	 * @params array $defaultParams The default param settings
-	 * @params array|null $params The param settings for this request
+	 * @params array $params The param settings for this request
 	 * @return array
 	 */
-	public function compileToArrayParams($defaultParams, $params = null) {
+	public function compileToArrayParams($defaultParams, $params = array()) {
 
-		$compiled = is_null($params) ? $defaultParams : array_merge($defaultParams, $params);
+		$compiled = array_merge($defaultParams, $params);
 
 		$result = array_filter($compiled, function($param) {
 			$currentUser = \Application::getRequest()->getUser();

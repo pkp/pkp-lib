@@ -130,20 +130,6 @@
 	position: relative;
 	bottom: auto;
 	left: auto;
-
-	.pkp_tasks {
-
-		a {
-			background: @offset;
-			text-shadow: 0 2px 0 rgb(0,0,0,0.2);
-
-			&:hover,
-			&:focus {
-				color: #fff;
-				background: @offset-shade;
-			}
-		}
-	}
 }
 
 // User-specific navigation menu
@@ -243,39 +229,11 @@
 	}
 }
 
-// User login menu
-.pkp_nav_user {
-	float: right;
-	font-size: @font-tiny;
-
-	> li {
-		display: inline-block;
-	}
-
-	.fa {
-		color: #fff;
-	}
-
-	ul {
-		width: 12em;
-	}
-
-	> [aria-expanded="true"] > ul,
-	> [aria-expanded="true"] > ul {
-		top: @double;
-		left: 0;
-	}
-
-	// Ensure a dropdown doesn't open beyond the edge of the screen by aligning
-	// such dropdowns to the right rather than the left.
-	li.align_right:hover > ul,
-	li.align_right.in_focus > ul {
-		left: auto;
-		right: 0;
-	}
+// Tasks menu
+.pkp_nav_tasks {
+	float: left;
 }
 
-// Tasks panel
 .pkp_tasks {
 	position: relative;
 
@@ -309,8 +267,8 @@
 	.panel {
 		display: none;
 		position: absolute;
-		top: 0;
-		left: 100%;
+		top: 100%;
+		left: 0;
 		width: 600px; // Keep wide for ease-of-use until we can make grids responsive
 		padding: @base @base 0; // Account for grid footer padding
 		background: @lift;
@@ -330,5 +288,38 @@
 				color: @primary-lift;
 			}
 		}
+	}
+}
+
+
+// User login menu
+.pkp_nav_user {
+	float: right;
+	font-size: @font-tiny;
+
+	> li {
+		display: inline-block;
+	}
+
+	.fa {
+		color: #fff;
+	}
+
+	ul {
+		width: 12em;
+	}
+
+	> [aria-expanded="true"] > ul,
+	> [aria-expanded="true"] > ul {
+		top: @double;
+		left: 0;
+	}
+
+	// Ensure a dropdown doesn't open beyond the edge of the screen by aligning
+	// such dropdowns to the right rather than the left.
+	li.align_right:hover > ul,
+	li.align_right.in_focus > ul {
+		left: auto;
+		right: 0;
 	}
 }

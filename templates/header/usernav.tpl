@@ -59,6 +59,24 @@
 <script type="text/javascript">
 	// Attach the JS file tab handler.
 	$(function() {ldelim}
+		$('#navigationTasks').pkpHandler(
+				'$.pkp.controllers.MenuHandler');
+	{rdelim});
+</script>
+<ul id="navigationTasks" class="pkp_nav_tasks pkp_nav_list" role="navigation" aria-label="{translate|escape key="common.tasks"}">
+	{url|assign:fetchTaskUrl router=$smarty.const.ROUTE_COMPONENT component="page.PageHandler" op="tasks" escape=false}
+	{capture assign="tasksNavPlaceholder"}
+		<a href="#">
+			{translate key="common.tasks"}
+			<span class="pkp_spinner"></span>
+		</a>
+	{/capture}
+	{load_url_in_el el="li" class="pkp_tasks" id="userTasksWrapper" url=$fetchTaskUrl placeholder=$tasksNavPlaceholder}
+</ul>
+
+<script type="text/javascript">
+	// Attach the JS file tab handler.
+	$(function() {ldelim}
 		$('#navigationUser').pkpHandler(
 				'$.pkp.controllers.MenuHandler');
 	{rdelim});

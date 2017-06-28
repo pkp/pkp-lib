@@ -18,8 +18,8 @@
 	<message key="reviewer.reviewSteps.guidelines">2. Diretrizes</message>
 	<message key="reviewer.reviewSteps.download">3. Download e Revisão</message>
 	<message key="reviewer.reviewSteps.completion">4. Finalização</message>
-	<message key="reviewer.step1.request">Requisitar Revisor</message>
-	<message key="reviewer.step1.requestBoilerplate">Você foi selecionado como um revisor potencial da submissão a seguir. Abaixo está uma visão geral da mesma, assim como os prazos para esta revisão. Esperamos que esteja apto a participar.</message>
+	<message key="reviewer.step1.request">Solicitar Avaliação</message>
+	<message key="reviewer.step1.requestBoilerplate">Você foi selecionado como um avaliadores potencial da submissão a seguir. Abaixo está uma visão geral da mesma, assim como os prazos para esta revisão. Esperamos que esteja apto a participar.</message>
 	<message key="reviewer.step1.viewAllDetails">Ver Todos os Detalhes da Submissão</message>
 	<message key="reviewer.submission.declineReview">Recusar Pedido de Revisão</message>
 	<message key="reviewer.submission.declineReviewMessage">Você pode informar ao editor as razões de sua recusa com comentários no campo abaixo.</message>
@@ -27,7 +27,7 @@
 	<message key="reviewer.submission.continueToStepThree">Continuar no Passo #3</message>
 	<message key="reviewer.submission.submitReview">Enviar Revisão</message>
 	<message key="reviewer.submission.reviewerGuidelines">Diretrizes de Revisão</message>
-	<message key="reviewer.submission.enterCompetingInterests">Este editor tem uma política de divulgação de potenciais conflitos de interesse de seus revisores. Por favor, tome um momento para rever esta política.</message>
+	<message key="reviewer.submission.enterCompetingInterests">Este editor tem uma política de divulgação de potenciais conflitos de interesse de seus avaliadores. Por favor, tome um momento para rever esta política.</message>
 	<message key="reviewer.submission.noCompetingInterests">Não há nenhum conflito de interesse</message>
 	<message key="reviewer.submission.hasCompetingInterests">Podem haver conflitos de interesse  (Especifique abaixo)</message>
 	<message key="reviewer.submission.competingInterests">Conflitos de Interesse</message>

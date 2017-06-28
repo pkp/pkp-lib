@@ -21,7 +21,7 @@
 	<message key="submission.submit.copyrightNoticeAgree">Concordo em cumprir os termos da declaração de direitos autorais.</message>
 	<message key="submission.submit.whatNext">O que acontece a seguir?</message>
 	<message key="submission.submit.whatNext.forNow">Por enquanto, você pode:</message>
-	<message key="submission.submit.whatNext.review">Revisar esta submissão</message>
+	<message key="submission.submit.whatNext.review">Avaliar esta submissão</message>
 	<message key="submission.submit.whatNext.create">Criar uma nova submissão</message>
 	<message key="submission.submit.whatNext.return">Voltar para seu painel</message>
 	<message key="submission.submit.extendedMetadata">Metadados Extendidos</message>
@@ -239,7 +239,7 @@
 	<message key="submission.layout.viewProof">Ler prova</message>
 	<message key="submission.metadata">Metadados da submissão</message>
 	<message key="submission.metadataDescription">Os metadados são baseados no padrão ONIX para Livros, que é um padrão internacional utilizado por editoras para troca de informações sobre produtos.</message>
-	<message key="submission.noReviewAssignments">Sem avaliações</message>
+	<message key="submission.noReviewAssignments">Sem avaliações designadas</message>
 	<message key="submission.notes.addNewNote">Incluir</message>
 	<message key="submission.notes.attachedFile">Documento anexo</message>
 	<message key="submission.notes.backToSubmissionNotes">Voltar para notas sobre a submissão</message>
@@ -497,8 +497,8 @@
 	<message key="editor.submission.addStageParticipant.form.userGroupRequired">Selecione um grupo de usuários.</message>
 	<message key="editor.submission.addStageParticipant.form.userRequired">Você deve selecionar um usuário para o grupo especificado.</message>
 	<message key="editor.submission.decision">Decisão</message>
-	<message key="editor.submission.decision.requestRevisions">Requerer Avaliações</message>
-	<message key="editor.submission.decision.resubmit">Reenviar para Avaliação</message>
+	<message key="editor.submission.decision.requestRevisions">Solicitar Modificações</message>
+	<message key="editor.submission.decision.resubmit">Solicitar Reenvio</message>
 	<message key="editor.submission.decision.decline">Rejeitar Submissão</message>
 	<message key="editor.submission.decision.sendToProduction">Enviar para Produção</message>
 	<message key="editor.submission.decision.sendInternalReview">Enviar para Avaliação Interna</message>
@@ -577,7 +577,7 @@
 	<message key="submission.supplementary.creator">Criador (ou proprietário) do arquivo</message>
 	<message key="submission.supplementary.subject">Assunto</message>
 	<message key="submission.supplementary.publisher">Editora</message>
-	<message key="submission.supplementary.sponsor">Agência de financiamento ou contribuidores</message>
+	<message key="submission.supplementary.sponsor">Agência de financiamento ou apoio</message>
 
 	<message key="submission.submissionTitle">Título da Submissão:</message>
 	<message key="submission.upload.query">Enviar um Arquivo de Discussão</message>
@@ -601,7 +601,7 @@
 	<message key="submission.loadMessage">Aguarde enquanto o arquivo é enviado ao servidor.</message>
 	<message key="submission.fileDetails">Detalhes do arquivo</message>
 
-	<message key="submission.contributors">Lista de Contribuidores</message>
+	<message key="submission.contributors">Lista de Coautores</message>
 	<message key="submission.submit.submissionChecklist">Requisitos para Envio de Manuscrito</message>
 	<message key="submission.submit.submissionChecklistDescription">Você deve ler e reconhecer que você completou os requisitos abaixo antes de prosseguir.</message>
 	<message key="submission.authorBiographies">Biografia do Autor</message>
@@ -610,11 +610,17 @@
 	<message key="submission.publisherId">URL de Identificação Pública</message>
 	<message key="author.submission.roundStatus.reviewsReady">Novas avaliações foram enviados e estão sendo considerados pelo editor.</message>
 	<message key="submission.submit.copyrightNoticeAgreementLabel">Aceitar a declaração de direitos autorais</message>
-	<message key="submission.event.participantAdded">{$name} foi atribuído a este envio como {$userGroupName}.</message>
+	<message key="submission.event.participantAdded">"{$name}" ({$username}) foi incluído no grupo de {$userGroupName}.</message>
 	<message key="submission.howToCite">Como Citar</message>
 	<message key="submission.howToCite.citationFormats">Fomatos de Citação</message>
 	<message key="submission.upload.proof">Fazer upload de um arquivo pronto para publicação</message>
 	<message key="notification.type.copyeditorRequest">Você foi convidado a avaliar a versão de texto revisado para "{$title}".</message>
 	<message key="notification.type.layouteditorRequest">Você foi solicitado a avaliar o layout para "{$title}".</message>
 	<message key="notification.type.indexRequest">Você foi solicitado a catalogar o documento "{$title}".</message>
+  <message key="submission.authorBiography">Biografia do Autor</message>
+  <message key="submission.authorWithAffiliation">{$author} et al.</message>
+  <message key="submission.submit.submissionLocaleDescription">Arquivos da Submissão</message>
+  <message key="editor.submission.decision.accept">Aceitar Submissão</message>
+  <message key="editor.submission.decision.skipReview">Aceitar e Enviar para Avaliação Interna</message>
+  <message key="editor.submission.decision.noDecisionsAvailable">Estágio Atual</message>
 </locale>

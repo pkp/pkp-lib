@@ -130,4 +130,5 @@ Uso (processando todos os arquivos dentro de um diretório): {$scriptName} camin
 	<message key="admin.error.executingUtil">Erro: não foi possível executar "{$utilPath}".  Cheque a configuração de {$utilVar} em config.inc.php.</message>
 	<message key="admin.settings.siteLogo">Logotipo do Site</message>
 	<message key="admin.languages.noLocalesToDownload">Sem idiomas disponíveis para download.</message>
+  <message key="admin.contexts.confirmDelete">Versão Atual</message>
 </locale>

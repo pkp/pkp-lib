@@ -120,4 +120,5 @@
 	<message key="editor.publicIdentificationNumericNotAllowed">O identificador público '{$publicIdentifier}' não pode ser um número.</message>
 	<message key="editor.submission.findAndSelectUser">Localizar Usuário</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">O padrão {$pattern} não é permitido para o identificador público.</message>
+  <message key="editor.review.reviewsAdded">Sem avaliações por pares para importar</message>
 </locale>

@@ -14,7 +14,7 @@
 <locale name="pt_BR" full_name="Português (Brasil)">
 	<message key="user.accountInformation">Informações de cadastro</message>
 	<message key="user.affiliation">Instituição/Afiliação</message>
-	<message key="user.affiliation.description">(Sua instituição, por exemplo "Simon Fraser University")</message>
+	<message key="user.affiliation.description">(Sua instituição, por exemplo "Universidade Simon Fraser")</message>
 	<message key="user.affiliations">Outras Afiliações</message>
 	<message key="user.authorization.accessDenied">Acesso negado.</message>
 	<message key="user.authorization.processAuthenticationTokenRequired">O verificador do processo de autenticação está faltando ou é inválido.</message>
@@ -70,7 +70,7 @@
 	<message key="user.login.resetPassword">Nova senha</message>
 	<message key="user.logOut">Sair do sistema</message>
 	<message key="user.logOutAs">Sair como</message>
-	<message key="user.hello">Olá,</message>
+	<message key="user.hello">Olá, </message>
 	<message key="user.mailingAddress">Endereço postal</message>
 	<message key="user.masculine">M</message>
 	<message key="user.middleName">Nome do meio</message>

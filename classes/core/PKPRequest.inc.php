@@ -593,7 +593,7 @@ class PKPRequest {
 
 		if (is_a($_this, 'Request')) {
 			// special treatment for APIRouter. APIHandler gets to fetch parameter first
-			$router = $this->getRouter();
+			$router = $_this->getRouter();
 			if (is_a($router, 'APIRouter') && (!is_null($handler = $router->getHandler()))) {
 				$handler = $router->getHandler();
 				$value = $handler->getParameter($key);

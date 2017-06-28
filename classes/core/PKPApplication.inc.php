@@ -169,6 +169,9 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 				}
 			}
 		}
+
+		// Register custom autoloaders
+		require('./lib/pkp/includes/autoloaders.inc.php');
 	}
 
 	/**

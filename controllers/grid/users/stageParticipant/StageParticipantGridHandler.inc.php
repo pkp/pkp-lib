@@ -127,7 +127,7 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 						__('editor.submission.addStageParticipant'),
 						'modal_add_user'
 					),
-					__('common.add'),
+					__('common.assign'),
 					'add_user'
 				)
 			);

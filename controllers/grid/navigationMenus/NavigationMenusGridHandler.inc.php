@@ -29,8 +29,7 @@ class NavigationMenusGridHandler extends GridHandler {
 				'fetchGrid', 'fetchRow',
 				'addNavigationMenu', 'editNavigationMenu',
 				'updateNavigationMenu',
-				'deleteNavigationMenu',
-				'addMenuItems'
+				'deleteNavigationMenu'
 			)
 		);
 	}
@@ -235,22 +234,7 @@ class NavigationMenusGridHandler extends GridHandler {
 		return new JSONMessage(false);
 	}
 
-	/**
-	 * Display form to add navigation menu items.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function addMenuItems($args, $request) {
-		$navigationMenuId = (int)$request->getUserVar('navigationMenuId');
-		$context = $request->getContext();
-		$contextId = $context->getId();
-
-		$navigationMenuItemsManagementForm = new NavigationMenuItemsManagementForm($contextId, $navigationMenuId);
-		$navigationMenuItemsManagementForm->initData($args, $request);
-
-		return new JSONMessage(true, $navigationMenuItemsManagementForm->fetch($request));
-	}
+	
 }
 
 ?>

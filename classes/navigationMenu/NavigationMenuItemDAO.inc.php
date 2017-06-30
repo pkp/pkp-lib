@@ -99,70 +99,6 @@ class NavigationMenuItemDAO extends DAO {
 	}
 
 	/**
-	 * Retrieve all the navigationMenuItems that can be selected to be added to a NavigationMenu.
-	 * @param $contextId int Context Id
-	 * @param $navigationMenuId int All the NMIs not having this parameter as parent needed
-	 * @return NavigationMenuItem
-	 */
-	function getByContextIdNotHavingThisNavigationMenuId($contextId, $navigationMenuId) {
-		$params = array((int) $contextId);
-		$params[] = (int) $navigationMenuId;
-		$result = $this->retrieve(
-			'SELECT * FROM navigation_menu_items WHERE context_id = ? and navigation_menu_id <> ?',
-			$params
-		);
-
-		return new DAOResultFactory($result, $this, '_fromRow');
-	}
-
-	/**
-	 * Retrieve navigation menu items by navigation menu ID.
-	 * @param $navigationMenuId int
-	 * @param $withNoParentNMI bool true: return only those that have no parent NMI| false: return all
-	 * @return int
-	 */
-	function getByNavigationMenuId($navigationMenuId, $withNoParentNMI = false) {
-		$params = array((int) $navigationMenuId);
-		$result = $this->retrieve(
-			'SELECT	* FROM navigation_menu_items WHERE navigation_menu_id = ?' .
-			($withNoParentNMI?' AND assoc_id = 0':''),
-			$params
-		);
-
-		return new DAOResultFactory($result, $this, '_fromRow');
-	}
-
-	/**
-	 * Retrieve possible parents of a navigation menu item (other navigation menu Items) by navigation menu ID.
-	 * @param $navigationMenuId int
-	 * @return int
-	 */
-	function getPossibleParrentNMIByNavigationMenuId($navigationMenuId, $navigationMenuItemId) {
-		$params = array((int) $navigationMenuId, (int) $navigationMenuItemId, (int) $navigationMenuItemId);
-		$result = $this->retrieve(
-			'SELECT	* FROM navigation_menu_items WHERE navigation_menu_id = ? and navigation_menu_item_id <> ? and assoc_id <> ?',
-			$params
-		);
-
-		return new DAOResultFactory($result, $this, '_fromRow');
-	}
-
-	/**
-	 * Get NMIs that have NavigationMenuItemId as parent.
-	 * @param $navigationMenuItemId int
-	 * @return DAOResultFactory
-	 */
-	function getChildrenNMIsByNavigationMenuItemId($navigationMenuItemId) {
-		$params = array((int) $navigationMenuItemId);
-		$result = $this->retrieve(
-			'SELECT	* FROM navigation_menu_items WHERE assoc_id = ?',
-			$params
-		);
-
-		return new DAOResultFactory($result, $this, '_fromRow');
-	}
-
-	/**
 	 * Get the list of localized field names for this table
 	 * @return array
 	 */
@@ -186,8 +122,6 @@ class NavigationMenuItemDAO extends DAO {
 	function _fromRow($row, $dataObject = false) {
 		$navigationMenuItem = $this->newDataObject();
 		$navigationMenuItem->setId($row['navigation_menu_item_id']);
-		$navigationMenuItem->setNavigationMenuId($row['navigation_menu_id']);
-		$navigationMenuItem->setAssocId($row['assoc_id']);
 		$navigationMenuItem->setPath($row['path']);
 		$navigationMenuItem->setContextId($row['context_id']);
 		$navigationMenuItem->setPage($row['page']);
@@ -215,14 +149,12 @@ class NavigationMenuItemDAO extends DAO {
 	function insertObject($navigationMenuItem) {
 		$this->update(
 				'INSERT INTO navigation_menu_items
-				(path, page, navigation_menu_id, assoc_id, defaultmenu, context_id)
+				(path, page, defaultmenu, context_id)
 				VALUES
-				(?, ?, ?, ?, ?, ?)',
+				(?, ?, ?, ?)',
 			array(
 				$navigationMenuItem->getPath(),
 				$navigationMenuItem->getPage(),
-				(int) $navigationMenuItem->getNavigationMenuId(),
-				(int) $navigationMenuItem->getAssocId(),
 				(int) $navigationMenuItem->getDefaultMenu(),
 				(int) $navigationMenuItem->getContextId(),
 			)
@@ -243,16 +175,12 @@ class NavigationMenuItemDAO extends DAO {
 				SET
 					path = ?,
 					page = ?,
-					navigation_menu_id = ?,
-					assoc_id = ?,
 					defaultmenu = ?,
 					context_id = ?
 				WHERE navigation_menu_item_id = ?',
 			array(
 				$navigationMenuItem->getPath(),
 				$navigationMenuItem->getPage(),
-				(int) $navigationMenuItem->getNavigationMenuId(),
-				(int) $navigationMenuItem->getAssocId(),
 				(int) $navigationMenuItem->getDefaultMenu(),
 				(int) $navigationMenuItem->getContextId(),
 				(int) $navigationMenuItem->getId(),
@@ -287,10 +215,7 @@ class NavigationMenuItemDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteByNavigationMenuId($navigationMenuId) {
-		$navigationMenuItems = $this->getByNavigationMenuId($navigationMenuId);
-		while ($navigationMenuItem = $navigationMenuItems->next()) {
-			$this->deleteObject($navigationMenuItem);
-		}
+		return false;
 	}
 
 	/**

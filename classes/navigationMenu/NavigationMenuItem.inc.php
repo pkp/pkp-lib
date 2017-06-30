@@ -28,37 +28,6 @@ class NavigationMenuItem extends DataObject {
 	//
 	// Get/set methods
 	//
-	/**
-	 * Get assoc ID for this navigation menu item.
-	 * @return int
-	 */
-	function getAssocId() {
-		return $this->getData('assoc_id');
-	}
-
-	/**
-	 * Set assoc ID for this navigation menu item.
-	 * @param $assocId int
-	 */
-	function setAssocId($assocId) {
-		$this->setData('assoc_id', $assocId);
-	}
-
-	/**
-	 * Get navigationMenuId for this navigation menu item.
-	 * @return int
-	 */
-	function getNavigationMenuId() {
-		return $this->getData('navigationMenuId');
-	}
-
-	/**
-	 * Set navigationMenuId for this navigation menu item.
-	 * @param $navigationMenuId int
-	 */
-	function setNavigationMenuId($navigationMenuId) {
-		$this->setData('navigationMenuId', $navigationMenuId);
-	}
 
 	/**
 	 * Set path for this navigation menu item.

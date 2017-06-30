@@ -11,18 +11,11 @@
 <script>
     $(function() {ldelim}
 		// Attach the form handler.
-        $('#navigationMenuItemForm').pkpHandler(
-				'$.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsFormHandler',
-                {ldelim}
-                    fetchNavigationMenuItemsUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT op="getNavigationMenuItemsWithNoAssocId" escape=false},
-                    navigationMenuItemId: '{$navigationMenuItemId}',
-                    parentNavigationMenuItemId: '{$parentNavigationMenuItemId}',
-                    previewUrl: {url|json_encode router=$smarty.const.ROUTE_PAGE page="navigationMenu" op="preview"}
-                {rdelim});
-        {rdelim});
+        $('#navigationMenuItemForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
+    {rdelim});
 </script>
 
-<form class="pkp_form" id="navigationMenuItemForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.navigationMenus.NavigationMenuItemsGridHandler" navigationMenuIdParent=$navigationMenuIdParent op="updateNavigationMenuItem"}">
+<form class="pkp_form" id="navigationMenuItemForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.navigationMenus.NavigationMenuItemsGridHandler" op="updateNavigationMenuItem"}">
 	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="navigationMenuItemFormNotification"}
 	{fbvFormArea id="navigationMenuItemInfo"}
@@ -30,19 +23,6 @@
         {if $navigationMenuItemId}
 			<input type="hidden" name="navigationMenuItemId" value="{$navigationMenuItemId|escape}" />
 		{/if}
-
-        {if $navigationMenus}
-            {if $navigationMenuId != 0}
-			    {fbvElement type="select" id="navigationMenuId" required="true" from=$navigationMenus selected=$navigationMenuId label="manager.navigationMenus.form.parentNavigationMenu" translate=false}
-            {else}
-                {fbvElement type="select" id="navigationMenuId" required="true" from=$navigationMenus selected=$navigationMenuIdParent label="manager.navigationMenus.form.parentNavigationMenu" translate=false}
-            {/if}
-		{/if}
-		{if $navigationMenuItemId}
-			<input type="hidden" name="navigationMenuItemId" value="{$navigationMenuItemId|escape}" />
-		{/if}
-        
-        <div id="possibleParentNavigationMemuItemsDiv"></div>
 
 		{fbvFormSection title="manager.navigationMenus.form.title" for="title" required="true"}
 			{fbvElement type="text" multilingual="true" id="title" value=$title maxlength="255" required="true"}

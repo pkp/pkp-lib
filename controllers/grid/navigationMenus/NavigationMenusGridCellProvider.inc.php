@@ -74,7 +74,7 @@ class NavigationMenusGridCellProvider extends GridCellProvider {
 				$navigationMenuId = $navigationMenu->getId();
 			    if ($navigationMenuId) {
 					$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
-					$navigationMenuItems = $navigationMenuItemDao->getByNavigationMenuId($navigationMenuId);
+					$navigationMenuItems = $navigationMenuItemDao->getByMenuId($navigationMenuId);
 
 			        return array('label' => $navigationMenuItems->count);
 			    } else {

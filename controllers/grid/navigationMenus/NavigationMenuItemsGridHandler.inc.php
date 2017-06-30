@@ -30,7 +30,7 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 				'fetchGrid', 'fetchRow',
 				'addNavigationMenuItem', 'editNavigationMenuItem',
 				'updateNavigationMenuItem',
-				'deleteNavigationMenuItem', 'saveSequence', 'getNavigationMenuItemsWithNoAssocId'
+				'deleteNavigationMenuItem', 'saveSequence'
 			)
 		);
 	}
@@ -256,35 +256,6 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 		}
 
 		return new JSONMessage(false);
-	}
-
-	/**
-	 * Load and fetch the navigation menu item form in read-only mode.
-	 * @param $args array
-	 * @param $request Request
-	 * @return JSONMessage JSON object
-	 */
-	function getNavigationMenuItemsWithNoAssocId($args, $request) {
-		$navigationMenuItemId = (int)$request->getUserVar('navigationMenuItemId');
-		$navigationMenuIdParent = (int)$request->getUserVar('navigationMenuIdParent');
-		$parentNavigationMenuItemId = (int)$request->getUserVar('parentNavigationMenuItemId');
-
-		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
-		$navigationMenuItems = $navigationMenuItemDao->getPossibleParrentNMIByNavigationMenuId($navigationMenuIdParent, $navigationMenuItemId);
-
-		$templateMgr = TemplateManager::getManager($request);
-
-		$navigationMenuOptions = array();
-		if (!$navigationMenuItems->wasEmpty()) {
-			$navigationMenuOptions = array(0 => __('common.none'));
-		}
-		while ($navigationMenuItem = $navigationMenuItems->next()) {
-			$navigationMenuOptions[$navigationMenuItem->getId()] = $navigationMenuItem->getLocalizedTitle();
-		}
-		$templateMgr->assign('navigationMenuItems', $navigationMenuOptions);
-		$templateMgr->assign('parentNavigationMenuItemId', $parentNavigationMenuItemId);
-		$json = new JSONMessage(true, $templateMgr->fetch('controllers/grid/navigationMenus/navigationMenuItemsList.tpl'));
-		return $json;
 	}
 }
 

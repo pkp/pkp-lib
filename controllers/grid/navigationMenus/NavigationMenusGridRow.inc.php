@@ -59,19 +59,6 @@ class NavigationMenusGridRow extends GridRow {
 					'edit')
 			);
 
-			$this->addAction(
-				new LinkAction(
-					'addMenuItems',
-					new AjaxModal(
-						$router->url($request, null, null, 'addMenuItems', null, $actionArgs),
-						__('grid.action.addMenuItems'),
-						'modal_manage',
-						true
-						),
-					__('grid.action.addMenuItems'),
-					'add')
-			);
-
 			if (!$element->getDefaultMenu()) {
 				$this->addAction(
 				new LinkAction(

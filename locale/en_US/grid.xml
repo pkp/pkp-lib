@@ -268,7 +268,6 @@
 
 	<!-- Navigation Menus -->
 	<message key="grid.action.addNavigationMenu">Add Menu</message>
-	<message key="grid.action.addMenuItems">Manage navigation menu items</message>
 	<message key="grid.action.addNavigationMenuItem">Add item</message>
 	<message key="grid.navigationMenu.navigationMenuItemParent">Parent Item Title</message>
 	<message key="grid.navigationMenu.navigationMenuParent">Parent Navigation Menu Title</message>

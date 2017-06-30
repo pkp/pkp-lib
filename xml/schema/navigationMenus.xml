@@ -25,9 +25,6 @@
 		<field name="context_id" type="I8">
 			<NOTNULL/>
 		</field>
-		<field name="seq" type="I8">
-			<DEFAULT VALUE="0"/>
-		</field>
 		<field name="defaultMenu" type="I2">
 			<DEFAULT VALUE="0"/>
 		</field>

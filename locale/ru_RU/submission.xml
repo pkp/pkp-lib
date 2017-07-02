@@ -527,7 +527,7 @@
 	<!-- Сетка «Участники этапа» -->
 	<message key="editor.submission.noneAssigned">Никто не назначен</message>
 	<message key="editor.submission.participant">Участник</message>
-	<message key="editor.submission.addStageParticipant">Добавить участника</message>
+	<message key="editor.submission.addStageParticipant">Назначить участника</message>
 	<message key="editor.submission.addStageParticipant.userGroup">Пользователи, назначенные на этапы рабочего потока по группам пользователей. Любой пользователь, назначенный на этот этап, будет автоматически назначен на другие этапы, которым назначена эта группа пользователей. Обычно это остается за редакторами, авторами и переводчиками.</message>
 	<message key="editor.submission.removeStageParticipant">Удалить участника</message>
 	<message key="editor.submission.removeStageParticipant.description"><![CDATA[Вы собираетесь удалить этого участника со <strong>всех</strong> этапов. Если у пользователя также есть приостановленные задачи аудитора, они также будут удалены.]]></message>

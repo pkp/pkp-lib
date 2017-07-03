@@ -151,5 +151,5 @@
 	<message key="user.profile.identity">Identificação</message>
 	<message key="user.profile.contact">Contato</message>
 	<message key="user.profile.public">Público</message>
-  <message key="user.login.rememberUsernameAndPassword">Mantenha-me conectado </message>
+  <message key="user.login.rememberUsernameAndPassword">Mantenha-me conectado</message>
 </locale>

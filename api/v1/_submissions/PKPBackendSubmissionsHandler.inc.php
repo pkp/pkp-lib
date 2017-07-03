@@ -88,7 +88,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 
 				// Always convert status to array
 				case 'status':
-					if (strpos($val, ',') > -1) {
+					if (is_string($val) && strpos($val, ',') > -1) {
 						$val = explode(',', $val);
 					} elseif (!is_array($val)) {
 						$val = array($val);

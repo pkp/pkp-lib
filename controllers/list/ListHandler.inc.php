@@ -13,12 +13,12 @@
  *  be used by handlers which need to present, manage or edit a list of items.
  */
 abstract class ListHandler extends PKPHandler {
-    /**
-     * Title (expects a translation key)
-     *
-     * @param string
-     */
-    public $_title = '';
+	/**
+	 * Title (expects a translation key)
+	 *
+	 * @param string
+	 */
+	public $_title = '';
 
 	/**
 	 * Whether to pre-populate the UI component with list data or wait until the
@@ -28,21 +28,21 @@ abstract class ListHandler extends PKPHandler {
 	 */
 	public $_lazyLoad = false;
 
-    /**
-     * Component path
-     *
-     * Used to generate component URLs. Sub-classes must define this.
-     */
-    public $_componentPath = '';
+	/**
+	 * Component path
+	 *
+	 * Used to generate component URLs. Sub-classes must define this.
+	 */
+	public $_componentPath = '';
 
-    /**
-     * Routes
-     *
-     * Endpoints which can be requested by a URL. Defined by ::setRoutes()
-     *
-     * @param array
-     */
-    public $_routes = array();
+	/**
+	 * Routes
+	 *
+	 * Endpoints which can be requested by a URL. Defined by ::setRoutes()
+	 *
+	 * @param array
+	 */
+	public $_routes = array();
 
 	/**
 	 * Constructor
@@ -50,26 +50,26 @@ abstract class ListHandler extends PKPHandler {
 	function __construct($args = array()) {
 		parent::__construct();
 
-        $this->init($args);
+		$this->init($args);
 	}
 
-    /**
-     * Initialize the handler with config parameters
-     *
-     * @param array $args Configuration params
-     */
-    public function init($args = array()) {
+	/**
+	 * Initialize the handler with config parameters
+	 *
+	 * @param array $args Configuration params
+	 */
+	public function init($args = array()) {
 
-        $this->setId(!empty($args['id']) ? $args['id'] : get_class($this));
-        $this->_title = !empty($args['title']) ? $args['title'] : $this->_title;
-        $this->_lazyLoad = !empty($args['lazyLoad']);
-    }
+		$this->setId(!empty($args['id']) ? $args['id'] : get_class($this));
+		$this->_title = !empty($args['title']) ? $args['title'] : $this->_title;
+		$this->_lazyLoad = !empty($args['lazyLoad']);
+	}
 
-    /**
-     * Retrieve the configuration data to be used when initializing this
-     * handler on the frontend
-     *
-     * return array Configuration data
-     */
-    abstract function getConfig();
+	/**
+	 * Retrieve the configuration data to be used when initializing this
+	 * handler on the frontend
+	 *
+	 * return array Configuration data
+	 */
+	abstract function getConfig();
 }

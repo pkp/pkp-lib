@@ -268,4 +268,5 @@
 
 	<!-- Submission list grids -->
 	<message key="grid.submission.itemTitle">Autor; Título</message>
+  <message key="grid.submission.active.selectOrphaned">Incluir submissões incompletas não enviadas por um autor.</message>
 </locale>

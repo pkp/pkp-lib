@@ -546,13 +546,14 @@
 	<message key="notification.type.assignCopyeditors">Atribua um editor de texto usando o link "Adicionar" na lista Participantes.</message>
 	<message key="notification.type.awaitingCopyedits">Aguardando Textos Revisados</message>
   <message key="common.captcha.error.missing-input-secret">Informe o código como aparece na imagem.</message>
-  <message key="common.captcha.error.invalid-input-secret">Informe o código como aparece na imagem.</message>
-  <message key="common.downloadPdf">Editar</message>
-  <message key="form.csrfInvalid">Um arquivo é necessário.</message>
+  <message key="common.captcha.error.invalid-input-secret">A configuração do captcha deste site não está configurada corretamente. A chave secreta é inválida.</message>
+  <message key="common.downloadPdf">Baixar PDF</message>
+  <message key="form.csrfInvalid">O formulário não foi enviado corretamente.</message>
   <message key="informationCenter.addNote">Adicionar Nota</message>
   <message key="navigation.skip.main">Ir para o conteúdo principal</message>
   <message key="navigation.skip.nav">Ir para o menu de navegação principal</message>
   <message key="navigation.skip.footer">Ir pro rodapé</message>
   <message key="notification.removedSubmission">Submissão removida.</message>
   <message key="notification.addedReviewerNoEmail">{$reviewerName} foi designado para avaliar essa submissão e não recebeu uma notificação por email.</message>
+  <message key="common.captcha.error.missing-input-response">Informe o código como aparece na imagem.</message>
 </locale>

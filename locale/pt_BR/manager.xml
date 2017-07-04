@@ -439,15 +439,15 @@ Há casos em que uma única estatística de uso devem ser utilizada, por exemplo
 	<message key="manager.reviewFormElements.textarea">Caixa de texto extendida</message>
 	<message key="manager.reviewFormElements.textfield">Caixa de texto de uma linha</message>
 	<message key="manager.reviewFormElements.viewable">Visível (para autores)</message>
-	<message key="grid.action.createReviewForm">Create a new Review Form</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Reviewer Competing Interest statement</message>
-	<message key="manager.setup.competingInterests.required">Request a Competing Interest statement during the peer review.</message>
+	<message key="grid.action.createReviewForm">Criar Novo Formulário de Avaliação</message>
+	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Declaração de Conflito de Interesses para Avaliadores</message>
+	<message key="manager.setup.competingInterests.required">Requisitar uma declaração de Conflito de Interesses durante a avaliação por pares.</message>
 
 	<message key="manager.setup.includeCopyrightStatement">Display the copyright statement with content (advisable for asserting an author-held copyright).</message>
 	<message key="manager.setup.includeLicense">Display the license with published work.</message>
-	<message key="manager.setup.licenseURLDescription">Provide URL for license webpage, if available.</message>
+	<message key="manager.setup.licenseURLDescription">Informe a URL da página da licença, se disponível.</message>
 
-	<message key="manager.setup.metadata.submission">Submission Form</message>
+	<message key="manager.setup.metadata.submission">Formulário de Submissão</message>
 	<message key="manager.setup.genres.sortable">Permitir que os arquivos deste tipo para ser classificados por componente (por exemplo, por capítulo)</message>
 	<message key="manager.setup.genres.dependent">Marque os arquivos deste tipo como arquivos dependentes (por exemplo, não submissões primárias)</message>
 
@@ -508,8 +508,19 @@ Há casos em que uma única estatística de uso devem ser utilizada, por exemplo
 	<message key="manager.setup.privacyStatement.description">Esta declaração aparecerá durante o envio do manuscrito pelo autor e na página "Sobre" disponível publicamente.</message>
 	<message key="plugins.importexport.common.validationErrors">Erros de validação:</message>
 	<message key="manager.userSearch.searchByName">Buscar Esuário por Nome</message>
-  <message key="manager.setup.layout.sidebar">Não marcados</message>
-  <message key="manager.plugins.pluginGallery.certifications.official.description">Revisado</message>
-  <message key="manager.plugins.pluginGallery.certifications.reviewed.description">Parceiro</message>
-  <message key="manager.plugins.pluginGallery.certifications.partner.description">Mantenedor</message>
+  <message key="manager.setup.layout.sidebar">Barra Lateral</message>
+  <message key="manager.plugins.pluginGallery.certifications.official.description">Este plugin foi desenvolvido e mantido pela equipe do Public Knowledge Project.</message>
+  <message key="manager.plugins.pluginGallery.certifications.reviewed.description">Este plugin foi revisado e aprovado pela equipe do Public Knowledge Project.</message>
+  <message key="manager.plugins.pluginGallery.certifications.partner.description">Este plugin é oferecido por um de nossos desenvolvedores parceiros.</message>
+  <message key="plugins.importexport.common.warningsEncountered">Advertências encontradas:</message>
+  <message key="plugins.importexport.common.errorsOccured">Erros encontrados:</message>
+  <message key="plugins.importexport.common.error.unknownElement">Elemento desconhecido {$param}</message>
+  <message key="plugins.importexport.common.error.unknownGenre">Gênero desconhecido {$param}</message>
+  <message key="plugins.importexport.common.error.unknownEncoding">Codificação desconhecida {$param}</message>
+  <message key="plugins.importexport.common.error.encodingError">O conteúdo não é codificado como {$param}</message>
+  <message key="plugins.importexport.common.error.unknownUserGroup">Grupo de usuário desconhecido {$param}</message>
+  <message key="plugins.importexport.common.error.unknownUploader">Uploader desconhecido {$param}</message>
+  <message key="plugins.importexport.common.error.temporaryFileFailed">Arquivo temporário {$dest} não pode ser criado por {$source}</message>
+  <message key="plugins.importexport.common.error.filesizeMismatch">O tamanho de arquivo informado "{$expected}" e o tamanho real  "{$actual}" não conferem</message>
+  <message key="plugins.importexport.native.error.submissionFileImportFailed">O arquivo da submissão não pode ser importado</message>
 </locale>

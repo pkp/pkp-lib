@@ -447,7 +447,7 @@
 	<message key="workflow.stage">Etapa</message>
 
 	<message key="submission.status.editorial">Em Edição de Texto</message>
-	<message key="submission.status.production">Em Leiutra de Prova</message>
+	<message key="submission.status.production">Em Leitura de Prova</message>
 	<message key="submission.status.review">Em Avaliação</message>
 	<message key="submission.status.submission">Aguardando Decisão do Avaliador</message>
 	<message key="submission.status.unassigned">Não Designado</message>
@@ -622,5 +622,5 @@
   <message key="submission.submit.submissionLocaleDescription">Arquivos da Submissão</message>
   <message key="editor.submission.decision.accept">Aceitar Submissão</message>
   <message key="editor.submission.decision.skipReview">Aceitar e Enviar para Avaliação Interna</message>
-  <message key="editor.submission.decision.noDecisionsAvailable">Estágio Atual</message>
+  <message key="editor.submission.decision.noDecisionsAvailable">Designe um editor para habilitar as decisões editoriais nesse estágio.</message>
 </locale>

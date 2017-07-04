@@ -555,5 +555,5 @@
   <message key="navigation.skip.footer">Ir pro rodapé</message>
   <message key="notification.removedSubmission">Submissão removida.</message>
   <message key="notification.addedReviewerNoEmail">{$reviewerName} foi designado para avaliar essa submissão e não recebeu uma notificação por email.</message>
-  <message key="common.captcha.error.missing-input-response">Informe o código como aparece na imagem.</message>
+  <message key="common.captcha.error.missing-input-response">Você deve completar a checagem de validação para evitar o envio de SPAM.</message>
 </locale>

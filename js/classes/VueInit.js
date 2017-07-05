@@ -59,16 +59,35 @@ Vue.mixin({
 		 *   }
 		 * }
 		 *
-		 * @todo show errors in a nice notification
 		 * @param object r The response from jQuery's ajax request
 		 * @return null
 		 */
 		ajaxErrorCallback: function(r) {
+			var msg, modalOptions, $modal, modalHandler;
+
 			if (_.has(r, 'responseJSON') && _.has(r.responseJSON, 'errorMessage')) {
-				alert(r.responseJSON.errorMessage);
+				msg = r.responseJSON.errorMessage;
 			} else {
-				alert($.pkp.locale.api_submissions_unknownError);
+				msg = $.pkp.locale.api_submissions_unknownError;
 			}
+
+			modalOptions = {
+				modalHandler: '$.pkp.controllers.modal.ConfirmationModalHandler',
+				title: $.pkp.locale.common_error,
+				okButton: $.pkp.locale.common_ok,
+				cancelButton: false,
+				dialogText: msg,
+			};
+
+			$modal_ = $(
+				'<div id="' + $.pkp.classes.Helper.uuid() + '" ' +
+				'class="pkp_modal pkpModalWrapper" tabindex="-1"></div>')
+				.pkpHandler(modalOptions.modalHandler, modalOptions);
+
+			modalHandler_ = $.pkp.classes.Handler.getHandler(this.$modal_);
+
+			modalHandler_.modalBuild();
+			modalHandler_.modalOpen();
 		},
 	}
 });

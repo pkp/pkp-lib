@@ -53,19 +53,20 @@ class InstallPluginVersionTool extends CommandLineTool {
 	function execute() {
 		$versionInfo = VersionCheck::parseVersionXML($this->_descriptor);
 		$pluginVersion = $versionInfo['version'];
+
+		$productType = $pluginVersion->getProductType();
+		if (!preg_match('/^plugins\.(.+)$/', $productType, $matches) || !in_array($matches[1], Application::getPluginCategories())) {
+			error_log("Invalid type \"$productType\".");
+			return false;
+		}
+
 		$versionDao = DAORegistry::getDAO('VersionDAO');
 		$versionDao->insertVersion($pluginVersion, true);
 
 		$pluginPath = dirname($this->_descriptor);
-		$pluginCategory = preg_replace('/^plugins\./', '', $pluginVersion->getProductType());
-		$pluginCategories = array('auth', 'blocks', 'citationFormats', 'citationLookup',
-			'citationOutput', 'citationParser', 'gateways', 'generic', 'importexport',
-			'metadata', 'oaiMetadataFormats', 'paymethod', 'pubIds', 'reports', 'themes',
-		);
-		assert(in_array($pluginCategory, $pluginCategories));
 		$plugin = @include("$pluginPath/index.php");
 		if ($plugin && is_object($plugin)) {
-			PluginRegistry::register($pluginCategory, $plugin, $pluginPath);
+			PluginRegistry::register($matches[1], $plugin, $pluginPath);
 		}
 
 		import('classes.install.Upgrade');

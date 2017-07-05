@@ -1,4 +1,3 @@
-
 {**
  * templates/controllers/grid/settings/submissionChecklist/form/submissionChecklists.tpl
  *

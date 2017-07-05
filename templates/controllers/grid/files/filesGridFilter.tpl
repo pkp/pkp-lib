@@ -1,5 +1,5 @@
 {**
- * controllers/grid/files/filesGridFilter.tpl
+ * templates/controllers/grid/files/filesGridFilter.tpl
  *
  * Copyright (c) 2016-2017 Simon Fraser University
  * Copyright (c) 2000-2017 John Willinsky

@@ -243,7 +243,7 @@
 	<message key="manager.language.submissions">Soumissions</message>
 	<message key="manager.language.forms">Formulaires</message>
 	<message key="manager.language.reloadLocalizedDefaultSettings">Retélécharger les paramètres par défaut</message>
-	<message key="manager.reviewerSearch.searchByName.short">Recherche pas nom</message>
+	<message key="manager.reviewerSearch.searchByName.short">Recherche par nom</message>
 	<message key="manager.statistics.city">Ville</message>
 	<message key="manager.statistics.region">Région</message>
 	<message key="manager.statistics.reports.generateReport">Générer un rapport personnalisé</message>
@@ -429,7 +429,7 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.reviewFormElements.radiobuttons">Boutons radio (vous ne pouvez en choisir qu'un)</message>
 	<message key="manager.reviewFormElements.required">Les évaluateurs doivent remplir l'élément</message>
 	<message key="manager.reviewFormElements.smalltextfield">Case de saisie pour un seul mot</message>
-	<message key="manager.reviewFormElements.textarea">Case de saisie élargie</message>
+	<message key="manager.reviewFormElements.textarea">Zone de texte élargie</message>
 	<message key="manager.reviewFormElements.textfield">Zone de texte simple ligne</message>
 	<message key="manager.reviewFormElements.viewable">Visualisable (pour les auteurs)</message>
 
@@ -501,7 +501,7 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.plugins.noCompatibleVersion">Il n'existe actuellement aucune version compatible de ce plugiciel.</message>
 	<message key="manager.plugins.installedVersionNewest">Plugiciel déjà installé et en est à la dernière version.</message>
 	<message key="manager.plugins.pluginGallery.summary">Sommaire</message>
-	<message key="manager.reviewFormElements.included">Inclu dans le message à l'auteur</message>
+	<message key="manager.reviewFormElements.included">Inclus dans le message à l'auteur</message>
 	<message key="grid.action.createReviewForm">Créer un nouveau formulaire d'évaluation</message>
 	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Déclaration de conflit d'intérêts de l'évaluateur</message>
 	<message key="manager.setup.competingInterests.required">Demander une déclaration de conflit d'intérêts de l'évaluateur</message>
@@ -512,7 +512,6 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.plugins.installedVersionOlder.short">Mise à jour disponible</message>
 	<message key="manager.plugins.installedVersionNewest.short">Version à jour</message>
 	<message key="manager.plugins.noCompatibleVersion.short">Pas disponible</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="manager.setup.layout.sidebar">Barre latérale</message>
 	<message key="plugins.importexport.common.errorsOccured">Erreurs:</message>
 	<message key="plugins.importexport.common.error.unknownElement">Élément inconnu {$param}</message>

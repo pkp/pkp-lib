@@ -380,6 +380,7 @@
 
 	<!-- editor decisions -->
 	<message key="editor.submission.decision">Décision</message>
+	<message key="editor.submission.decision.accept">Accepter la soumission</message>
 	<message key="editor.submission.decision.requestRevisions">Demande de révisions</message>
 	<message key="editor.submission.decision.resubmit">Resoumettre pour évaluation</message>
 	<message key="editor.submission.decision.decline">Refus de la soumission</message>
@@ -628,7 +629,7 @@
 	<message key="submission.query.closed">Fermé</message>
 	<message key="submission.query.addNote">Ajouter un message</message>
 	<message key="grid.action.openNoteForm">Ajouter une nouvelles réponse à la discussion</message>
-	<message key="submission.query.activity">{$responderName} répond à {$noteTitle}: {$noteContents}</message>
+	<message key="submission.query.activity">{$responderName} répond à "{$noteTitle}": {$noteContents}</message>
 	<message key="submission.query.new">{$creatorName} a commencé la discussion: {$noteTitle}: {$noteContents}</message>
 	<message key="submission.query.activity.contents">Une nouvelle entrée vient d'être ajouté dans la discussion intitulée "{$queryTitle}" pour la soumission "{$submissionTitle}".</message>
 	<message key="submission.query.new.contents">Vous avez été ajouté à une discussion intitulée "{$queryTitle}" au sujet de la soumission "{$submissionTitle}".</message>

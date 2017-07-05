@@ -25,6 +25,7 @@ class FreeciteRawCitationNlm30CitationSchemaFilterTest extends Nlm30CitationSche
 	 * @covers FreeciteRawCitationNlm30CitationSchemaFilter
 	 */
 	public function testExecute() {
+		$this->markTestSkipped('Service unreliable');
 		$testCitations = array(
 			array(
 				'testInput' => 'Sheril, R. D. (1956). The terrifying future: Contemplating color television. San Diego: Halstead.',
@@ -80,6 +81,7 @@ class FreeciteRawCitationNlm30CitationSchemaFilterTest extends Nlm30CitationSche
 	 * @covers FreeciteRawCitationNlm30CitationSchemaFilter
 	 */
 	public function testExecuteWithWebServiceError() {
+		$this->markTestSkipped('Service unreliable');
 		$constructor = array(PersistableFilter::tempGroup(
 				'primitive::string',
 				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'));
@@ -90,6 +92,7 @@ class FreeciteRawCitationNlm30CitationSchemaFilterTest extends Nlm30CitationSche
 	 * @see Nlm30CitationSchemaParserFilterTestCase::testAllCitationsWithThisParser()
 	 */
 	public function testAllCitationsWithThisParser() {
+		$this->markTestSkipped('Service unreliable');
 		$filter = new FreeciteRawCitationNlm30CitationSchemaFilter(PersistableFilter::tempGroup(
 				'primitive::string',
 				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'));

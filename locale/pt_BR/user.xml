@@ -14,7 +14,7 @@
 <locale name="pt_BR" full_name="Português (Brasil)">
 	<message key="user.accountInformation">Informações de cadastro</message>
 	<message key="user.affiliation">Instituição/Afiliação</message>
-	<message key="user.affiliation.description">(Sua instituição, por exemplo "Universidade Simon Fraser")</message>
+	<message key="user.affiliation.description">(Sua instituição, por exemplo "Simon Fraser University")</message>
 	<message key="user.affiliations">Outras Afiliações</message>
 	<message key="user.authorization.accessDenied">Acesso negado.</message>
 	<message key="user.authorization.processAuthenticationTokenRequired">O verificador do processo de autenticação está faltando ou é inválido.</message>

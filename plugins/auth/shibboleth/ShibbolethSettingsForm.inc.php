@@ -35,8 +35,14 @@ class ShibbolethSettingsForm extends Form {
 
 		parent::__construct($plugin->getTemplatePath() . 'settingsForm.tpl');
 
-		$this->addCheck(new FormValidator($this, 'shibbolethWayfUrl', 'required', 'plugins.auth.shibboleth.manager.settings.shibbolethWayfUrlRequired'));
-
+		$this->addCheck(
+			new FormValidator(
+				$this,
+				'shibbolethWayfUrl',
+				'required',
+				'plugins.auth.shibboleth.manager.settings.shibbolethWayfUrlRequired'
+			)
+		);
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
 	}
@@ -71,7 +77,12 @@ class ShibbolethSettingsForm extends Form {
 	 * Save settings.
 	 */
 	function execute() {
-		$this->_plugin->updateSetting($this->_contextId, 'shibbolethWayfUrl', trim($this->getData('shibbolethWayfUrl'), "\"\';"), 'string');
+		$this->_plugin->updateSetting(
+			$this->_contextId,
+			'shibbolethWayfUrl',
+			trim($this->getData('shibbolethWayfUrl'), "\"\';"),
+			'string'
+		);
 	}
 }
 

@@ -16,6 +16,21 @@
 import('lib.pkp.classes.plugins.AuthPlugin');
 
 class ShibbolethAuthPlugin extends AuthPlugin {
+	/** @var int */
+	var $_contextId;
+
+	/** @var bool */
+	var $_globallyEnabled;
+
+	/**
+	 * @copydoc AuthPlugin::__construct()
+	 */
+	function __construct($settings = array(), $authId = null) {
+		parent::__construct($settings, $authId);
+		$this->_contextId = $this->getCurrentContextId();
+		$this->_globallyEnabled = $this->getSetting(0, 'enabled');
+	}
+
 	/**
 	 * Called as a plugin is registered to the registry
 	 * @param $category String Name of category plugin was registered to
@@ -85,18 +100,27 @@ class ShibbolethAuthPlugin extends AuthPlugin {
 		);
 	}
 
- 	/**
+	/**
 	 * @copydoc Plugin::manage()
 	 */
 	function manage($args, $request) {
 		switch ($request->getUserVar('verb')) {
 			case 'settings':
-				AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON,  LOCALE_COMPONENT_PKP_MANAGER);
+				AppLocale::requireComponents(
+					LOCALE_COMPONENT_APP_COMMON,
+					LOCALE_COMPONENT_PKP_MANAGER
+				);
 				$templateMgr = TemplateManager::getManager($request);
-				$templateMgr->register_function('plugin_url', array($this, 'smartyPluginUrl'));
+				$templateMgr->register_function(
+					'plugin_url',
+					array($this, 'smartyPluginUrl')
+				);
 
 				$this->import('ShibbolethSettingsForm');
-				$form = new ShibbolethSettingsForm($this, $this->getCurrentContextId());
+				$form = new ShibbolethSettingsForm(
+					$this,
+					$this->_contextId
+				);
 
 				if ($request->getUserVar('save')) {
 					$form->readInputData();
@@ -130,7 +154,11 @@ class ShibbolethAuthPlugin extends AuthPlugin {
 	 * @return boolean
 	 */
 	function getEnabled() {
-		return $this->getSetting($this->getCurrentContextId(), 'enabled');
+		if ($this->_globallyEnabled) {
+			return true;
+		} else {
+			return $this->getSetting($this->_contextId, 'enabled');
+		}
 	}
 
 	/**
@@ -138,7 +166,7 @@ class ShibbolethAuthPlugin extends AuthPlugin {
 	 * @param $enabled boolean
 	 */
 	function setEnabled($enabled) {
-		$this->updateSetting($this->getCurrentContextId(), 'enabled', $enabled, 'bool');
+		$this->updateSetting($this->_contextId, 'enabled', $enabled, 'bool');
 	}
 
 	/**
@@ -146,7 +174,7 @@ class ShibbolethAuthPlugin extends AuthPlugin {
 	 * @return boolean
 	 */
 	function getCanEnable() {
-		return true;
+		return !$this->_globallyEnabled || $this->_contextId == 0;
 	}
 
 	/**
@@ -154,7 +182,7 @@ class ShibbolethAuthPlugin extends AuthPlugin {
 	 * @return boolean
 	 */
 	function getCanDisable() {
-		return true;
+		return !$this->_globallyEnabled || $this->_contextId == 0;
 	}
 
 

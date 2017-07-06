@@ -11,7 +11,11 @@
 <script>
     $(function() {ldelim}
 		// Attach the form handler.
-        $('#navigationMenuItemForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
+        $('#navigationMenuItemForm').pkpHandler(
+            '$.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsFormHandler',
+            {ldelim}
+                previewUrl: {url|json_encode router=$smarty.const.ROUTE_PAGE page="navigationMenu" op="preview"}
+            {rdelim});
     {rdelim});
 </script>
 
@@ -41,8 +45,8 @@
 	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 	{*{fbvFormButtons id="navigationMenuItemFormSubmit" submitText="common.save"}*}
     {fbvFormSection class="formButtons"}
-		{fbvElement type="button" class="pkp_helpers_align_left" id="previewButton" label="common.preview"}
+        {fbvElement type="submit" class="submitFormButton pkp_helpers_align_left pkp_button_primary" id=$buttonId label="common.save"}
 		{assign var=buttonId value="submitFormButton"|concat:"-"|uniqid}
-		{fbvElement type="submit" class="submitFormButton" id=$buttonId label="common.save"}
+		{fbvElement type="button" class="pkp_button_link" id="previewButton" label="common.preview"}
 	{/fbvFormSection}
 </form>

@@ -40,7 +40,29 @@ class ShibbolethAuthPlugin extends AuthPlugin {
 	function register($category, $path) {
 		$success = parent::register($category, $path);
 		$this->addLocaleData();
+		if ($success && $this->getEnabled()) {
+			// Register pages to handle login.
+			HookRegistry::register(
+				'LoadHandler',
+				array($this, 'handleRequest')
+			);
+		}
 		return $success;
+	}
+
+	/**
+	 * Hook callback: register pages for each login method.
+	 * This URL is of the form: shibboleth/{$shibrequest}
+	 * @see PKPPageRouter::route()
+	 */
+	function handleRequest($hookName, $params) {
+		$page = $params[0];
+		if ($this->getEnabled() && $page == 'shibboleth') {
+			$this->import('pages/ShibbolethHandler');
+			define('HANDLER_CLASS', 'ShibbolethHandler');
+			return true;
+		}
+		return false;
 	}
 
 	/**
@@ -154,11 +176,8 @@ class ShibbolethAuthPlugin extends AuthPlugin {
 	 * @return boolean
 	 */
 	function getEnabled() {
-		if ($this->_globallyEnabled) {
-			return true;
-		} else {
-			return $this->getSetting($this->_contextId, 'enabled');
-		}
+		return $this->_globallyEnabled ||
+			$this->getSetting($this->_contextId, 'enabled'
 	}
 
 	/**

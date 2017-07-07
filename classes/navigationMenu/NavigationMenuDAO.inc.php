@@ -27,7 +27,7 @@ class NavigationMenuDAO extends DAO {
 
 	/**
 	 * Generate a new data object.
-	 * @return DataObject
+	 * @return NavigationMenu
 	 */
 	function newDataObject() {
 		return new NavigationMenu();
@@ -180,7 +180,7 @@ class NavigationMenuDAO extends DAO {
 				'INSERT INTO navigation_menus
 				(title, area_name, context_id, assoc_id, defaultmenu)
 				VALUES
-				(?, ?, ?, ?, ?, ?)',
+				(?, ?, ?, ?, ?)',
 			array(
 				$navigationMenu->getTitle(),
 				$navigationMenu->getAreaName(),
@@ -246,6 +246,42 @@ class NavigationMenuDAO extends DAO {
 	 */
 	function getInsertId() {
 		return $this->_getInsertId('navigation_menus', 'navigation_menu_id');
+	}
+
+	/**
+	 * Load the XML file and move the settings to the DB
+	 * @param $contextId
+	 * @param $filename
+	 * @return boolean true === success
+	 */
+	function installSettings($contextId, $filename) {
+		$xmlParser = new XMLParser();
+		$tree = $xmlParser->parse($filename);
+
+		$contextDao = Application::getContextDAO();
+		$context = $contextDao->getById($contextId);
+		$supportedLocales = $context->getSupportedLocales();
+
+		if (!$tree) {
+			$xmlParser->destroy();
+			return false;
+		}
+
+		foreach ($tree->getChildren() as $navigationMenuNode) {
+			$title = $navigationMenuNode->getAttribute('title');
+			$area = $navigationMenuNode->getAttribute('area');
+
+			$navigationMenu = $this->newDataObject();
+			$navigationMenu->setTitle($title);
+			$navigationMenu->setContextId($contextId);
+			$navigationMenu->setAreaName($area);
+			$navigationMenu->setDefaultMenu(true);
+
+			// insert the group into the DB
+			$navigationMenuId = $this->insertObject($navigationMenu);
+		}
+
+		return true;
 	}
 }
 

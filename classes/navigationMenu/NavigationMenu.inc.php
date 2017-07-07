@@ -54,16 +54,16 @@ class NavigationMenu extends DataObject {
 	 * Get the NavigationMenu 'default' status (can be edited/deleted if not default)
 	 * @return int
 	 */
-	function getDefaultMenu() {
-	    return $this->getData('defaultmenu');
+	function getDefault() {
+	    return $this->getData('is_default');
 	}
 
 	/**
 	 * Set the NavigationMenu 'default' status (can be edited/deleted if not default)
 	 * @param $default int
 	 */
-	function setDefaultMenu($default) {
-	    $this->setData('defaultmenu', $default);
+	function setDefault($default) {
+	    $this->setData('is_default', $default);
 	}
 
 	/**

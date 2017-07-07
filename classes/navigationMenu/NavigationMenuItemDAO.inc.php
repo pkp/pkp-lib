@@ -149,13 +149,13 @@ class NavigationMenuItemDAO extends DAO {
 	function insertObject($navigationMenuItem) {
 		$this->update(
 				'INSERT INTO navigation_menu_items
-				(path, page, defaultmenu, context_id)
+				(path, page, is_default, context_id)
 				VALUES
 				(?, ?, ?, ?)',
 			array(
 				$navigationMenuItem->getPath(),
 				$navigationMenuItem->getPage(),
-				(int) $navigationMenuItem->getDefaultMenu(),
+				(int) $navigationMenuItem->getDefault(),
 				(int) $navigationMenuItem->getContextId(),
 			)
 		);
@@ -175,13 +175,13 @@ class NavigationMenuItemDAO extends DAO {
 				SET
 					path = ?,
 					page = ?,
-					defaultmenu = ?,
+					is_default = ?,
 					context_id = ?
 				WHERE navigation_menu_item_id = ?',
 			array(
 				$navigationMenuItem->getPath(),
 				$navigationMenuItem->getPage(),
-				(int) $navigationMenuItem->getDefaultMenu(),
+				(int) $navigationMenuItem->getDefault(),
 				(int) $navigationMenuItem->getContextId(),
 				(int) $navigationMenuItem->getId(),
 			)
@@ -256,7 +256,7 @@ class NavigationMenuItemDAO extends DAO {
 			$navigationMenuItem->setPath($path);
 			$navigationMenuItem->setContextId($contextId);
 			$navigationMenuItem->setPage($page);
-			$navigationMenuItem->setDefaultMenu($isDefault);
+			$navigationMenuItem->setDefault($isDefault);
 
 			// insert the group into the DB
 			$navigationMenuItemId = $this->insertObject($navigationMenuItem);

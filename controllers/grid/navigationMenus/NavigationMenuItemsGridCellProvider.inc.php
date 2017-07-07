@@ -76,7 +76,7 @@ class NavigationMenuItemsGridCellProvider extends GridCellProvider {
 			        return array('label' => __('common.none'));
 			    }
 			case 'default':
-			    $default = $navigationMenuItem->getDefaultMenu();
+			    $default = $navigationMenuItem->getDefault();
 			    if ($default) {
 			        return array('label' => __('common.yes'));
 			    } else {

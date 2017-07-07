@@ -108,7 +108,7 @@ class NavigationMenuItemDAO extends DAO {
 
 	/**
 	 * Get a new data object.
-	 * @return DataObject
+	 * @return NavigationMenuItem
 	 */
 	function newDataObject() {
 		return new NavigationMenuItem();
@@ -224,6 +224,157 @@ class NavigationMenuItemDAO extends DAO {
 	 */
 	function getInsertId() {
 		return $this->_getInsertId('navigation_menu_items', 'navigation_menu_item_id');
+	}
+
+	/**
+	 * Load the XML file and move the settings to the DB
+	 * @param $contextId
+	 * @param $filename
+	 * @return boolean true === success
+	 */
+	function installSettings($contextId, $filename) {
+		$xmlParser = new XMLParser();
+		$tree = $xmlParser->parse($filename);
+
+		$contextDao = Application::getContextDAO();
+		$context = $contextDao->getById($contextId);
+		$supportedLocales = $context->getSupportedSubmissionLocales();
+
+		if (!$tree) {
+			$xmlParser->destroy();
+			return false;
+		}
+
+		foreach ($tree->getChildren() as $setting) {
+			$titleKey = $setting->getAttribute('title');
+			$path = $setting->getAttribute('path');
+			$page = $setting->getAttribute('page');
+			$isDefault = $setting->getAttribute('default');
+
+			// create a role associated with this user group
+			$navigationMenuItem = $this->newDataObject();
+			$navigationMenuItem->setPath($path);
+			$navigationMenuItem->setContextId($contextId);
+			$navigationMenuItem->setPage($page);
+			$navigationMenuItem->setDefaultMenu($isDefault);
+
+			// insert the group into the DB
+			$navigationMenuItemId = $this->insertObject($navigationMenuItem);
+
+			// add the i18n keys to the settings table so that they
+			// can be used when a new locale is added/reloaded
+			$this->updateSetting($navigationMenuItemId, 'titleLocaleKey', $titleKey);
+
+			// install the settings in the current locale for this context
+			foreach ($supportedLocales as $locale) {
+				$this->installLocale($locale, $contextId);
+			}
+		}
+
+		return true;
+	}
+
+	/**
+	 * use the locale keys stored in the settings table to install the locale settings
+	 * @param $locale
+	 * @param $contextId
+	 */
+	function installLocale($locale, $contextId = null) {
+		$navigationMenuItems = $this->getByContextId($contextId);
+		while ($navigationMenuItem = $navigationMenuItems->next()) {
+			$titleKey = $this->getSetting($navigationMenuItem->getId(), 'titleLocaleKey');
+			$this->updateSetting($navigationMenuItem->getId(),
+				'title',
+				array($locale => __($titleKey, null, $locale)),
+				'string',
+				$locale,
+				true
+			);
+		}
+	}
+
+	/**
+	 * Method for update navigationMenuItem setting
+	 * @param $navigationMenuItemId int
+	 * @param $name string
+	 * @param $value mixed
+	 * @param $type string data type of the setting. If omitted, type will be guessed
+	 * @param $isLocalized boolean
+	 */
+	function updateSetting($navigationMenuItemId, $name, $value, $type = null, $isLocalized = false) {
+		$keyFields = array('setting_name', 'locale', 'navigation_menu_item_id');
+
+		if (!$isLocalized) {
+			$value = $this->convertToDB($value, $type);
+			$this->replace('navigation_menu_item_settings',
+				array(
+					'navigation_menu_item_id' => (int) $navigationMenuItemId,
+					'setting_name' => $name,
+					'setting_value' => $value,
+					'setting_type' => $type,
+					'locale' => ''
+				),
+				$keyFields
+			);
+		} else {
+			if (is_array($value)) foreach ($value as $locale => $localeValue) {
+				$this->update('DELETE FROM navigation_menu_item_settings WHERE navigation_menu_item_id = ? AND setting_name = ? AND locale = ?', array((int) $navigationMenuItemId, $name, $locale));
+				if (empty($localeValue)) continue;
+				$type = null;
+				$this->update('INSERT INTO navigation_menu_item_settings
+					(navigation_menu_item_id, setting_name, setting_value, setting_type, locale)
+					VALUES (?, ?, ?, ?, ?)',
+					array(
+						$navigationMenuItemId, $name, $this->convertToDB($localeValue, $type), $type, $locale
+					)
+				);
+			}
+		}
+	}
+
+	/**
+	 * Retrieve a context setting value.
+	 * @param $userGroupId int
+	 * @param $name string
+	 * @param $locale string optional
+	 * @return mixed
+	 */
+	function getSetting($navigationMenuItemId, $name, $locale = null) {
+		$params = array((int) $navigationMenuItemId, $name);
+		if ($locale) $params[] = $locale;
+		$result = $this->retrieve(
+			'SELECT	setting_name, setting_value, setting_type, locale
+			FROM	navigation_menu_item_settings
+			WHERE	navigation_menu_item_id = ? AND
+				setting_name = ?' .
+				($locale?' AND locale = ?':''),
+			$params
+		);
+
+		$recordCount = $result->RecordCount();
+		$returner = false;
+		if ($recordCount == 1) {
+			$row = $result->getRowAssoc(false);
+			$returner = $this->convertFromDB($row['setting_value'], $row['setting_type']);
+		} elseif ($recordCount > 1) {
+			$returner = array();
+			while (!$result->EOF) {
+				$returner[$row['locale']] = $this->convertFromDB($row['setting_value'], $row['setting_type']);
+				$result->MoveNext();
+			}
+
+			$result->Close();
+		}
+
+		return $returner;
+	}
+
+	/**
+	 * Remove all settings associated with a locale
+	 * @param $locale
+	 */
+	function deleteSettingsByLocale($locale) {
+		return $this->update('DELETE FROM navigation_menu_item_settings WHERE locale = ?', $locale);
 	}
 }
 

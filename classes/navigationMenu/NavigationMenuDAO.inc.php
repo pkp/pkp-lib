@@ -165,7 +165,7 @@ class NavigationMenuDAO extends DAO {
 		$navigationMenu->setAreaName($row['area_name']);
 		$navigationMenu->setContextId($row['context_id']);
 		$navigationMenu->setAssocId($row['assoc_id']);
-		$navigationMenu->setDefaultMenu($row['defaultmenu']);
+		$navigationMenu->setDefault($row['is_default']);
 
 		return $navigationMenu;
 	}
@@ -178,7 +178,7 @@ class NavigationMenuDAO extends DAO {
 	function insertObject($navigationMenu) {
 		$this->update(
 				'INSERT INTO navigation_menus
-				(title, area_name, context_id, assoc_id, defaultmenu)
+				(title, area_name, context_id, assoc_id, is_default)
 				VALUES
 				(?, ?, ?, ?, ?)',
 			array(
@@ -186,7 +186,7 @@ class NavigationMenuDAO extends DAO {
 				$navigationMenu->getAreaName(),
 				(int) $navigationMenu->getContextId(),
 				(int) $navigationMenu->getAssocId(),
-				(int) $navigationMenu->getDefaultMenu(),
+				(int) $navigationMenu->getDefault(),
 			)
 		);
 		$navigationMenu->setId($this->getInsertId());
@@ -206,14 +206,14 @@ class NavigationMenuDAO extends DAO {
 				area_name = ?,
 				context_id = ?,
 				assoc_id = ?,
-				defaultmenu = ?
+				is_default = ?
 			WHERE	navigation_menu_id = ?',
 			array(
 				$navigationMenu->getTitle(),
 				$navigationMenu->getAreaName(),
 				(int) $navigationMenu->getContextId(),
 				(int) $navigationMenu->getAssocId(),
-				(int) $navigationMenu->getDefaultMenu(),
+				(int) $navigationMenu->getDefault(),
 				(int) $navigationMenu->getId(),
 			)
 		);
@@ -275,7 +275,7 @@ class NavigationMenuDAO extends DAO {
 			$navigationMenu->setTitle($title);
 			$navigationMenu->setContextId($contextId);
 			$navigationMenu->setAreaName($area);
-			$navigationMenu->setDefaultMenu(true);
+			$navigationMenu->setDefault(true);
 
 			// insert the group into the DB
 			$navigationMenuId = $this->insertObject($navigationMenu);

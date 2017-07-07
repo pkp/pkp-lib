@@ -25,7 +25,7 @@
 		<field name="context_id" type="I8">
 			<NOTNULL/>
 		</field>
-		<field name="defaultMenu" type="I2">
+		<field name="is_default" type="I2">
 			<DEFAULT VALUE="0"/>
 		</field>
 		<field name="assoc_id" type="I8">
@@ -87,7 +87,7 @@
 		<field name="context_id" type="I8">
 			<NOTNULL/>
 		</field>
-		<field name="defaultMenu" type="I2">
+		<field name="is_default" type="I2">
 			<DEFAULT VALUE="0"/>
 		</field>
 		<field name="path" type="C2" size="255">

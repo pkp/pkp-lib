@@ -128,7 +128,7 @@ class NavigationMenuItemsForm extends Form {
 		$navigationMenuItem->setPath($this->getData('path'));
 		$navigationMenuItem->setTitle($this->getData('title'), null); // Localized
 		$navigationMenuItem->setContent($this->getData('content'), null); // Localized
-		$navigationMenuItem->setDefaultMenu($navigationMenuItem->getDefaultMenu());
+		$navigationMenuItem->setDefault($navigationMenuItem->getDefault());
 		$navigationMenuItem->setContextId($this->getContextId());
 		$navigationMenuItem->setPage($this->getData('page'));
 

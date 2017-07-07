@@ -11,7 +11,7 @@
   * NavigationMenus schema in XML.
   -->
 
-<schema version="0.3">
+<schema version="0.2">
 	<!--
 	 *
 	 * TABLE navigation_menus

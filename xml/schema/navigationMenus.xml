@@ -11,7 +11,7 @@
   * NavigationMenus schema in XML.
   -->
 
-<schema version="0.2">
+<schema version="0.3">
 	<!--
 	 *
 	 * TABLE navigation_menus
@@ -28,8 +28,6 @@
 		<field name="is_default" type="I2">
 			<DEFAULT VALUE="0"/>
 		</field>
-		<field name="assoc_id" type="I8">
-		</field>
 		<field name="area_name" type="C2" size="255">
 			<DEFAULT VALUE=""/>
 		</field>
@@ -37,41 +35,6 @@
 			<NOTNULL />
 		</field>
 		<descr>NavigationMenus</descr>
-		<index name="navigation_menus_assoc">
-			<col>assoc_id</col>
-		</index>
-	</table>
-
-	<!--
-	  *
-	  * TABLE navigation_menu_settings
-	  *
-	  -->
-	<table name="navigation_menu_settings">
-		<field name="navigation_menu_id" type="I8">
-			<NOTNULL />
-		</field>
-		<field name="locale" type="C2" size="14">
-			<NOTNULL />
-			<DEFAULT VALUE=""/>
-		</field>
-		<field name="setting_name" type="C2" size="255">
-			<NOTNULL />
-		</field>
-		<field name="setting_value" type="X"/>
-		<field name="setting_type" type="C2" size="6">
-			<NOTNULL/>
-		</field>
-		<descr>Locale-specific navigation menu type data</descr>
-		<index name="navigation_menu_settings_navigation_menu_id">
-			<col>navigation_menu_id</col>
-		</index>
-		<index name="navigation_menu_settings_pkey">
-			<col>navigation_menu_id</col>
-			<col>locale</col>
-			<col>setting_name</col>
-			<UNIQUE/>
-		</index>
 	</table>
 
 	<!--
@@ -97,9 +60,6 @@
 			<NOTNULL />
 		</field>
 		<descr>NavigationMenuItems</descr>
-		<index name="navigation_menu_items_assoc">
-			<col>assoc_id</col>
-		</index>
 	</table>
 
 	<!--
@@ -153,8 +113,4 @@
 		</field>
 		<descr>NavigationMenuItemAssignments which assign menu items to a menu and describe nested menu structure.</descr>
 	</table>
-
-
-
-
 </schema>

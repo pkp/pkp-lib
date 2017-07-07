@@ -34,23 +34,6 @@ class NavigationMenu extends DataObject {
 	// Get/set methods
 	//
 	/**
-	 * Get assoc ID for this NavigationMenu.
-	 * TODO::defstat could be a string or an id - its for the Area implementation
-	 * @return int
-	 */
-	function getAssocId() {
-		return $this->getData('assoc_id');
-	}
-
-	/**
-	 * Set assoc ID for this NavigationMenu.
-	 * @param $assocId int
-	 */
-	function setAssocId($assocId) {
-		$this->setData('assoc_id', $assocId);
-	}
-
-	/**
 	 * Get the NavigationMenu 'default' status (can be edited/deleted if not default)
 	 * @return int
 	 */
@@ -64,23 +47,6 @@ class NavigationMenu extends DataObject {
 	 */
 	function setDefault($default) {
 	    $this->setData('is_default', $default);
-	}
-
-	/**
-	 * Get the NavigationMenu sequence
-	 * TODO::defstat May not be needed - added to support sequence inside an Area
-	 * @return int
-	 */
-	function getSequence() {
-		return $this->getData('seq');
-	}
-
-	/**
-	 * Set the NavigationMenu sequence
-	 * @param $seq int
-	 */
-	function setSequence($seq) {
-		$this->setData('seq', $seq);
 	}
 
 	/**

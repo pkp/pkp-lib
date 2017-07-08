@@ -261,30 +261,74 @@ class NavigationMenuItemDAO extends DAO {
 		}
 
 		foreach ($tree->getChildren() as $setting) {
-			$titleKey = $setting->getAttribute('title');
-			$path = $setting->getAttribute('path');
-			$page = $setting->getAttribute('page');
-			$op = $setting->getAttribute('op');
-			$isDefault = $setting->getAttribute('default');
+			$this->installNodeSettings($contextId, $setting, null, null, 0, true);
+		}
 
-			// create a role associated with this user group
-			$navigationMenuItem = $this->newDataObject();
-			$navigationMenuItem->setPath($path);
-			$navigationMenuItem->setContextId($contextId);
-			$navigationMenuItem->setPage($page);
-			$navigationMenuItem->setDefault($isDefault);
-			$navigationMenuItem->setOp($op);
+		return true;
+	}
 
-			// insert the group into the DB
-			$navigationMenuItemId = $this->insertObject($navigationMenuItem);
+	/**
+	 * Load a XML node to DB
+	 * @param $contextId
+	 * @param $node
+	 * @param $checkChildren bool Optional
+	 * @return boolean true === success
+	 */
+	function installNodeSettings($contextId, $node, $navigationMenuId = null, $navigationMenuItemParentId = null, $seq = 0, $checkChildren = false) {
+		$contextDao = Application::getContextDAO();
+		$context = $contextDao->getById($contextId);
+		$supportedLocales = $context->getSupportedSubmissionLocales();
 
-			// add the i18n keys to the settings table so that they
-			// can be used when a new locale is added/reloaded
-			$this->updateSetting($navigationMenuItemId, 'titleLocaleKey', $titleKey);
+		$titleKey = $node->getAttribute('title');
+		$path = $node->getAttribute('path');
+		$page = $node->getAttribute('page');
+		$op = $node->getAttribute('op');
+		$isDefault = $node->getAttribute('default');
 
-			// install the settings in the current locale for this context
-			foreach ($supportedLocales as $locale) {
-				$this->installLocale($locale, $contextId);
+		// create a role associated with this user group
+		$navigationMenuItem = $this->newDataObject();
+		$navigationMenuItem->setPath($path);
+		$navigationMenuItem->setContextId($contextId);
+		$navigationMenuItem->setPage($page);
+		$navigationMenuItem->setDefault($isDefault);
+		$navigationMenuItem->setOp($op);
+
+		// insert the group into the DB
+		$navigationMenuItemId = $this->insertObject($navigationMenuItem);
+
+		// insert into Assignments
+		if ($navigationMenuId) {
+			$navigationMenuItemAssignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
+			$navigationMenuItemAssignment = $navigationMenuItemAssignmentDao->newDataObject();
+
+			$navigationMenuItemAssignment->setMenuItemId($navigationMenuItemId);
+			$navigationMenuItemAssignment->setMenuId($navigationMenuId);
+
+			if ($navigationMenuItemParentId) {
+				$navigationMenuItemAssignment->setParentId($navigationMenuItemParentId);
+			}
+
+			$navigationMenuItemAssignment->setSequence($seq);
+
+			// Insert Assignment
+			$navigationMenuItemAssignmentDao->insertObject($navigationMenuItemAssignment);
+		}
+
+		// add the i18n keys to the settings table so that they
+		// can be used when a new locale is added/reloaded
+		$this->updateSetting($navigationMenuItemId, 'titleLocaleKey', $titleKey);
+
+		// install the settings in the current locale for this context
+		foreach ($supportedLocales as $locale) {
+			$this->installLocale($locale, $contextId);
+		}
+
+		if ($checkChildren) {
+			$seqSec = 0;
+
+			foreach ($node->getChildren() as $navigationMenuItemSecondLevelNode) {
+				$this->installNodeSettings($contextId, $navigationMenuItemSecondLevelNode, $navigationMenuId, $navigationMenuItemId, $seqSec, false);
+				$seqSec++;
 			}
 		}
 

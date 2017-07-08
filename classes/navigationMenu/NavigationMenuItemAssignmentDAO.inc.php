@@ -23,7 +23,7 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 
 	/**
 	 * Get a new data object.
-	 * @return DataObject
+	 * @return NavigationMenuItemAssignment
 	 */
 	public function newDataObject() {
 		return new NavigationMenuItemAssignment();

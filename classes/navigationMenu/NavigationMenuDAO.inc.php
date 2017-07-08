@@ -286,6 +286,14 @@ class NavigationMenuDAO extends DAO {
 
 			// insert the group into the DB
 			$navigationMenuId = $this->insertObject($navigationMenu);
+
+			$seq = 0;
+			foreach ($navigationMenuNode->getChildren() as $navigationMenuItemFirstLevelNode) {
+				$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+				$navigationMenuItemDao->installNodeSettings($contextId, $navigationMenuItemFirstLevelNode, $navigationMenuId, null, $seq, true);
+
+				$seq++;
+			}
 		}
 
 		return true;

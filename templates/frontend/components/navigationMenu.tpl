@@ -11,17 +11,17 @@
 
 <ul id="{$navigationMenu->getTitle()}" class="pkp_navigation_primary pkp_nav_list">
 	{if $currentJournal}
-        {foreach key=field item=navigationMenuItem from=$navigationMenu->navigationMenuItems}
-            {if !empty($navigationMenuItem->navigationMenuItems)}
+        {foreach key=field item=navigationMenuItemAssignment from=$navigationMenu->menuTree}
+            {if !empty($navigationMenuItemAssignment->children)}
                 <li aria-haspopup="true" aria-expanded="false">
-			        <a href="{url router=$smarty.const.ROUTE_PAGE page=$navigationMenuItem->getPage() op="view" path=$navigationMenuItem->getPath()}">
-				        {$navigationMenuItem->getLocalizedTitle()}
+			        <a href="{url router=$smarty.const.ROUTE_PAGE page=$navigationMenuItemAssignment->navigationMenuItem->getPage() op="view" path=$navigationMenuItemAssignment->navigationMenuItem->getPath()}">
+				        {$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
 			        </a>
                     <ul>
-                    {foreach key=childField item=childNavigationMenuItem from=$navigationMenuItem->navigationMenuItems}
+                    {foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
                         <li>
-					        <a href="{url router=$smarty.const.ROUTE_PAGE page=$childNavigationMenuItem->getPage() op="view" path=$childNavigationMenuItem->getPath()}">
-				                {$childNavigationMenuItem->getLocalizedTitle()}
+					        <a href="{url router=$smarty.const.ROUTE_PAGE page=$childNavigationMenuItemAssignment->navigationMenuItem->getPage() op="view" path=$childNavigationMenuItemAssignment->navigationMenuItem->getPath()}">
+				                {$childNavigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
 			                </a>
 				        </li>
                     {/foreach}
@@ -29,8 +29,8 @@
                 </li>
             {else}
                 <li>
-				    <a href="{url router=$smarty.const.ROUTE_PAGE page=$navigationMenuItem->getPage() op="view" path=$navigationMenuItem->getPath()}">
-				        {$navigationMenuItem->getLocalizedTitle()}
+				    <a href="{url router=$smarty.const.ROUTE_PAGE page=$navigationMenuItemAssignment->navigationMenuItem->getPage() op="view" path=$navigationMenuItemAssignment->navigationMenuItem->getPath()}">
+				        {$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
 			        </a>
 			    </li>
             {/if}

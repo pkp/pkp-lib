@@ -8,9 +8,8 @@
  * Primary navigation menu list for OJS
  *}
 
-
-<ul id="{$navigationMenu->getTitle()}" class="pkp_navigation_primary pkp_nav_list">
-	{if $currentJournal}
+<nav id="{$navigationMenu->getTitle()}-navMenu" class="{$navClass} navDropdownMenu">
+    <ul id="{$navigationMenu->getTitle()}-navMenuUL" class="{$ulClass} pkp_nav_list">
         {foreach key=field item=navigationMenuItemAssignment from=$navigationMenu->menuTree}
             {if !empty($navigationMenuItemAssignment->children)}
                 <li aria-haspopup="true" aria-expanded="false">
@@ -34,6 +33,6 @@
 			        </a>
 			    </li>
             {/if}
-		{/foreach}
-	{/if}
-</ul>
+	    {/foreach}
+    </ul>
+</nav>

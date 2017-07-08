@@ -222,11 +222,29 @@ class NavigationMenuDAO extends DAO {
 
 	/**
 	 * Delete a NavigationMenu.
-	 * TODO::defstat - What whould we do with NavigationMenuItems having the deleted NavigationMenu as parent
 	 * @param $navigationMenuId int
 	 */
 	function deleteById($navigationMenuId) {
-		return $this->update('DELETE FROM navigation_menus WHERE navigation_menu_id = ?', (int) $navigationMenuId);
+		$this->update('DELETE FROM navigation_menus WHERE navigation_menu_id = ?', (int) $navigationMenuId);
+
+		$navigationMenuItemAssignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
+		$navigationMenuItemAssignmentDao->deleteByMenuId($navigationMenuId);
+
+		return true;
+	}
+
+	/**
+	 * Delete NavigationMenus by contextId.
+	 * @param $contextId int
+	 */
+	function deleteByContextId($contextId) {
+		$navigationMenus = $this->getByContextId($contextId);
+
+		while ($navigationMenu = $navigationMenus->next()) {
+			$this->deleteObject($navigationMenu);
+		}
+
+		return true;
 	}
 
 	/**

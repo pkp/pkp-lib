@@ -62,6 +62,22 @@ class NavigationMenuItem extends DataObject {
 	}
 
 	/**
+	 * Set page's op handler name for this navigation menu item.
+	 * @param $op string
+	 */
+	function setOp($op) {
+		$this->setData('op', $op);
+	}
+
+	/**
+	 * Get page's op handler name for this navigation menu item.
+	 * @return string
+	 */
+	function getOp() {
+		return $this->getData('op');
+	}
+
+	/**
 	 * Get is_default for this navigation menu item.
 	 * @return int
 	 */

@@ -56,6 +56,9 @@
 		<field name="path" type="C2" size="255">
 			<DEFAULT VALUE=""/>
 		</field>
+		<field name="op" type="C2" size="255">
+			<DEFAULT VALUE=""/>
+		</field>
 		<field name="page" type="C2" size="255">
 			<NOTNULL />
 		</field>

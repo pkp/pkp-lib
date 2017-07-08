@@ -23,7 +23,7 @@
 			<input type="hidden" name="navigationMenuId" value="{$navigationMenuId|escape}" />
 		{/if}
 		{fbvFormSection title="manager.navigationMenus.form.title" for="title" required="true"}
-			{fbvElement type="text" id="title" value=$title maxlength="255" required="true"}
+			{fbvElement type="text" id="title" readonly=$navigationMenuIsDefault value=$title maxlength="255" required="true"}
 		{/fbvFormSection}
         {fbvFormSection title="manager.navigationMenus.form.navigationMenuArea" for="area_name"}
             {fbvElement type="select" id="area_name" from=$activeThemeNavigationAreas selected=$navigationMenuArea label="manager.navigationMenus.form.navigationMenuAreaMessage" translate=false}

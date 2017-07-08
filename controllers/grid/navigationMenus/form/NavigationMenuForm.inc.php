@@ -86,6 +86,16 @@ class NavigationMenuForm extends Form {
 			return $a->getId() - $b->getId();
 		});
 
+		if ($this->_navigationMenuId) {
+			$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+			$navigationMenu = $navigationMenuDao->getById($this->_navigationMenuId);
+
+			$templateMgr->assign('navigationMenuIsDefault', $navigationMenu->getDefault());
+		} else {
+			$templateMgr->assign('navigationMenuIsDefault', 0);
+		}
+
+
 		$templateMgr->assign(array(
 			'enabledThemes' => $enabledThemes,
 			'activeThemeNavigationAreas' => $activeThemeNavigationAreas,

@@ -28,28 +28,7 @@ class NavigationMenuItemsGridCellProvider extends GridCellProvider {
 	 * @copydoc GridCellProvider::getCellActions()
 	 */
 	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
-		switch ($column->getId()) {
-			case 'title':
-				$navigationMenuItem = $row->getData();
-				$router = $request->getRouter();
 
-
-				$actionArgs = array(
-					'navigationMenuItemId' => $row->getId()
-				);
-
-				import('lib.pkp.classes.linkAction.request.AjaxModal');
-				return array(new LinkAction(
-					'edit',
-					new AjaxModal(
-						$router->url($request, null, null, 'editNavigationMenuItem', null, $actionArgs),
-						__('grid.action.edit'),
-						null,
-						true),
-					$navigationMenuItem->getLocalizedTitle()
-				));
-
-		}
 		return parent::getCellActions($request, $row, $column, $position);
 	}
 
@@ -67,7 +46,7 @@ class NavigationMenuItemsGridCellProvider extends GridCellProvider {
 
 		switch ($columnId) {
 			case 'title':
-				return array('label' => '');
+				return array('label' => $navigationMenuItem->getLocalizedTitle());
 			case 'path':
 			    $path = $navigationMenuItem->getPath();
 			    if ($path) {

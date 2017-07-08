@@ -47,31 +47,35 @@ class NavigationMenuItemsGridRow extends GridRow {
 			$actionArgs = array(
 				'navigationMenuItemId' => $rowId
 			);
-			$this->addAction(
-				new LinkAction(
-					'edit',
-					new AjaxModal(
-						$router->url($request, null, null, 'editNavigationMenuItem', null, $actionArgs),
+
+			if (!$element->getDefault()) {
+				$this->addAction(
+					new LinkAction(
+						'edit',
+						new AjaxModal(
+							$router->url($request, null, null, 'editNavigationMenuItem', null, $actionArgs),
+							__('grid.action.edit'),
+							'modal_edit',
+							true
+							),
 						__('grid.action.edit'),
-						'modal_edit',
-						true
-						),
-					__('grid.action.edit'),
-					'edit')
-			);
-			$this->addAction(
-				new LinkAction(
-					'remove',
-					new RemoteActionConfirmationModal(
-						$request->getSession(),
-						__('common.confirmDelete'),
-						__('common.remove'),
-						$router->url($request, null, null, 'deleteNavigationMenuItem', null, $actionArgs),
-						'modal_delete'
-						),
-					__('grid.action.remove'),
-					'delete')
-			);
+						'edit')
+				);
+
+				$this->addAction(
+					new LinkAction(
+						'remove',
+						new RemoteActionConfirmationModal(
+							$request->getSession(),
+							__('common.confirmDelete'),
+							__('common.remove'),
+							$router->url($request, null, null, 'deleteNavigationMenuItem', null, $actionArgs),
+							'modal_delete'
+							),
+						__('grid.action.remove'),
+						'delete')
+				);
+			}
 		}
 	}
 }

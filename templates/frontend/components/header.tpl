@@ -76,7 +76,7 @@
 						<div class="pkp_navigation_primary_wrapper">
 
 							{* Primary navigation menu for current application *}
-							{include file="frontend/components/primaryNavMenu.tpl"}
+							{load_navigationMenuArea name="primary"}
 
 							{* Search form *}
 							{include file="frontend/components/searchForm_simple.tpl"}

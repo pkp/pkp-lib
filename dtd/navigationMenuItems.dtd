@@ -15,4 +15,5 @@
 		content CDATA #IMPLIED
 		path CDATA #IMPLIED
 		page CDATA #REQUIRED
-		default CDATA #REQUIRED>
+		default CDATA #REQUIRED
+		op CDATA #IMPLIED>

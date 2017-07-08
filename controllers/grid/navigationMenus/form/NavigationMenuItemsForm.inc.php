@@ -95,12 +95,14 @@ class NavigationMenuItemsForm extends Form {
 				'path' => $navigationMenuItem->getPath(),
 				'title' => $navigationMenuItem->getTitle(null),
 				'page' => $navigationMenuItem->getPage(),
+				'op' => $navigationMenuItem->getOp(),
 			);
 			$this->setData('content', $navigationMenuItem->getContent(null)); // Localized
 		} else {
 			$this->navigationMenuItemId = null;
 			$this->setData('content', "");
 			$this->setData('page', 'navigationMenu');
+			$this->setData('op', 'view');
 		}
 
 
@@ -110,7 +112,7 @@ class NavigationMenuItemsForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('navigationMenuItemId', 'content', 'title', 'path', 'page'));
+		$this->readUserVars(array('navigationMenuItemId', 'content', 'title', 'path', 'page', 'op'));
 	}
 
 	/**
@@ -131,6 +133,7 @@ class NavigationMenuItemsForm extends Form {
 		$navigationMenuItem->setDefault($navigationMenuItem->getDefault());
 		$navigationMenuItem->setContextId($this->getContextId());
 		$navigationMenuItem->setPage($this->getData('page'));
+		$navigationMenuItem->setOp($this->getData('op'));
 
 		// Update or insert navigation menu item
 		if ($navigationMenuItem->getId()) {

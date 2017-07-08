@@ -126,6 +126,7 @@ class NavigationMenuItemDAO extends DAO {
 		$navigationMenuItem->setContextId($row['context_id']);
 		$navigationMenuItem->setPage($row['page']);
 		$navigationMenuItem->setDefault($row['is_default']);
+		$navigationMenuItem->setOp($row['op']);
 
 		$this->getDataObjectSettings('navigation_menu_item_settings', 'navigation_menu_item_id', $row['navigation_menu_item_id'], $navigationMenuItem);
 
@@ -150,14 +151,15 @@ class NavigationMenuItemDAO extends DAO {
 	function insertObject($navigationMenuItem) {
 		$this->update(
 				'INSERT INTO navigation_menu_items
-				(path, page, is_default, context_id)
+				(path, page, is_default, context_id, op)
 				VALUES
-				(?, ?, ?, ?)',
+				(?, ?, ?, ?, ?)',
 			array(
 				$navigationMenuItem->getPath(),
 				$navigationMenuItem->getPage(),
 				(int) $navigationMenuItem->getDefault(),
 				(int) $navigationMenuItem->getContextId(),
+				$navigationMenuItem->getOp(),
 			)
 		);
 		$navigationMenuItem->setId($this->getInsertId());
@@ -177,7 +179,8 @@ class NavigationMenuItemDAO extends DAO {
 					path = ?,
 					page = ?,
 					is_default = ?,
-					context_id = ?
+					context_id = ?,
+					op = ?
 				WHERE navigation_menu_item_id = ?',
 			array(
 				$navigationMenuItem->getPath(),
@@ -185,6 +188,7 @@ class NavigationMenuItemDAO extends DAO {
 				(int) $navigationMenuItem->getDefault(),
 				(int) $navigationMenuItem->getContextId(),
 				(int) $navigationMenuItem->getId(),
+				$navigationMenuItem->getOp(),
 			)
 		);
 		$this->updateLocaleFields($navigationMenuItem);
@@ -260,6 +264,7 @@ class NavigationMenuItemDAO extends DAO {
 			$titleKey = $setting->getAttribute('title');
 			$path = $setting->getAttribute('path');
 			$page = $setting->getAttribute('page');
+			$op = $setting->getAttribute('op');
 			$isDefault = $setting->getAttribute('default');
 
 			// create a role associated with this user group
@@ -268,6 +273,7 @@ class NavigationMenuItemDAO extends DAO {
 			$navigationMenuItem->setContextId($contextId);
 			$navigationMenuItem->setPage($page);
 			$navigationMenuItem->setDefault($isDefault);
+			$navigationMenuItem->setOp($op);
 
 			// insert the group into the DB
 			$navigationMenuItemId = $this->insertObject($navigationMenuItem);

@@ -125,6 +125,7 @@ class NavigationMenuItemDAO extends DAO {
 		$navigationMenuItem->setPath($row['path']);
 		$navigationMenuItem->setContextId($row['context_id']);
 		$navigationMenuItem->setPage($row['page']);
+		$navigationMenuItem->setDefault($row['is_default']);
 
 		$this->getDataObjectSettings('navigation_menu_item_settings', 'navigation_menu_item_id', $row['navigation_menu_item_id'], $navigationMenuItem);
 

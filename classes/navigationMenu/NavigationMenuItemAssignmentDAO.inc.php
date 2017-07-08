@@ -84,7 +84,7 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 
 	/**
 	 * Delete all assignments by NavigationMenu ID
-	 * @param $menuId NavigationMenu
+	 * @param $menuId NavigationMenu id
 	 * @return boolean
 	 */
 	function deleteByMenuId($menuId) {
@@ -92,6 +92,22 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 			'DELETE FROM navigation_menu_item_assignments
 				WHERE navigation_menu_id = ?',
 			(int) $menuId
+		);
+	}
+
+	/**
+	 * Delete all assignments by NavigationMenuItem ID
+	 * @param $menuItemId NavigationMenuItem id
+	 * @return boolean
+	 */
+	function deleteByMenuItemId($menuItemId) {
+		return $this->update(
+			'DELETE FROM navigation_menu_item_assignments
+				WHERE navigation_menu_item_id = ? or parent_id = ?',
+			array(
+				(int) $menuItemId,
+				(int) $menuItemId
+			)
 		);
 	}
 }

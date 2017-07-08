@@ -1548,6 +1548,12 @@ class PKPTemplateManager extends Smarty {
 			$menuTemplatePath = $declaredMenuTemplatePath;
 		}
 
+		// "user" menuArea must be always displayed using the navigationMenuUser.tpl which contains necessary functionality
+		// as well as the customelly added navigationMenuItems
+		if ($areaName == "user") { //TODO: we should not hard code that - also else where
+			$menuTemplatePath = 'frontend/components/navigationMenuUser.tpl';
+		}
+
 		$output = '';
 		if ($currentContext) {
 			$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');

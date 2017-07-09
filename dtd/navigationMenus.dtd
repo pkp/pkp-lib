@@ -16,7 +16,8 @@
 		path CDATA #IMPLIED
 		page CDATA #REQUIRED
 		default CDATA #REQUIRED
-		op CDATA #IMPLIED>
+		op CDATA #IMPLIED
+		default_id CDATA #REQUIRED>
 
 <!ELEMENT navigationMenus (navigationMenu+)>
 <!ELEMENT navigationMenu (navigationMenuItem*)>

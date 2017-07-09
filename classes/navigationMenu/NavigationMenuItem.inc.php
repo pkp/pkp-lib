@@ -14,6 +14,17 @@
  * @brief Basic class describing a NavigationMenuItem.
  */
 
+/** ID codes and paths for all default navigationMenuItems */
+define('NMI_ID_CURRENT',	0x00000001);
+define('NMI_ID_ARCHIVES',	0x00000002);
+define('NMI_ID_ABOUT',	0x00000003);
+define('NMI_ID_ABOUT_CONTEXT',	0x00000004);
+define('NMI_ID_SUBMISSIONS',	0x00000005);
+define('NMI_ID_EDITORIAL_TEAM',	0x00000006);
+define('NMI_ID_CONTACT',	0x00000007);
+define('NMI_ID_LOGOUT',	0x00000008);
+define('NMI_ID_ANNOUNCEMENTS',	0x00000009);
+
 class NavigationMenuItem extends DataObject {
 	/** @var $navigationMenuItems array The navigationMenuItems underneath this navigationMenuItem */
 	var $navigationMenuItems = array();
@@ -91,6 +102,22 @@ class NavigationMenuItem extends DataObject {
 	 */
 	function setDefault($default) {
 		$this->setData('is_default', $default);
+	}
+
+	/**
+	 * Get defaultId of this NavigationMenuItem
+	 * @return int
+	 */
+	function getDefaultId() {
+		return $this->getData('default_id');
+	}
+
+	/**
+	 * Set defaultId of this NavigationMenuItem
+	 * @param $defaultId int
+	 */
+	function setDefaultId($defaultId) {
+		$this->setData('default_id', $defaultId);
 	}
 
 	/**

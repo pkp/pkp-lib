@@ -96,6 +96,7 @@ class NavigationMenuItemsForm extends Form {
 				'title' => $navigationMenuItem->getTitle(null),
 				'page' => $navigationMenuItem->getPage(),
 				'op' => $navigationMenuItem->getOp(),
+				'default_id' => $navigationMenuItem->getOp(),
 			);
 			$this->setData('content', $navigationMenuItem->getContent(null)); // Localized
 		} else {
@@ -112,7 +113,7 @@ class NavigationMenuItemsForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('navigationMenuItemId', 'content', 'title', 'path', 'page', 'op'));
+		$this->readUserVars(array('navigationMenuItemId', 'content', 'title', 'path', 'page', 'op', 'default_id'));
 	}
 
 	/**

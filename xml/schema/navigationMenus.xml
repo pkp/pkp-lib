@@ -62,6 +62,9 @@
 		<field name="page" type="C2" size="255">
 			<NOTNULL />
 		</field>
+		<field name="default_id" type="I2">
+			<DEFAULT VALUE="NULL"/>
+		</field>
 		<descr>NavigationMenuItems</descr>
 	</table>
 

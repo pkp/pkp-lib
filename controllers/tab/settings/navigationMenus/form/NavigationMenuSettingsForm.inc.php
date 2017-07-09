@@ -22,10 +22,6 @@ class NavigationMenuSettingsForm extends ContextSettingsForm {
 	 */
 	function __construct($wizardMode = false) {
 		$settings = array(
-			'enableAnnouncements' => 'bool',
-			'enableAnnouncementsHomepage' => 'bool',
-			'numAnnouncementsHomepage' => 'int',
-			'announcementsIntroduction' => 'string',
 		);
 
 		parent::__construct($settings, 'controllers/tab/settings/navigationMenus/form/navigationMenuSettingsForm.tpl', $wizardMode);
@@ -35,12 +31,6 @@ class NavigationMenuSettingsForm extends ContextSettingsForm {
 	//
 	// Implement template methods from Form.
 	//
-	/**
-	 * @copydoc Form::getLocaleFieldNames()
-	 */
-	function getLocaleFieldNames() {
-		return array('announcementsIntroduction');
-	}
 
 
 	//
@@ -50,15 +40,6 @@ class NavigationMenuSettingsForm extends ContextSettingsForm {
 	 * @copydoc ContextSettingsForm::fetch()
 	 */
 	function fetch($request) {
-		for($x = 1; $x < 11; $x++) {
-			$numAnnouncementsHomepageOptions[$x] = $x;
-		}
-
-		$params = array(
-			'numAnnouncementsHomepageOptions' => $numAnnouncementsHomepageOptions,
-			'disableAnnouncementsHomepage' => !$this->getData('enableAnnouncementsHomepage')
-		);
-
 		return parent::fetch($request, $params);
 	}
 }

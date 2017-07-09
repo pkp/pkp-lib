@@ -125,9 +125,6 @@ class ContextSiteSettingsForm extends Form {
 
 		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
 		$navigationMenuItemDao->installSettings($contextId, 'registry/navigationMenuItems.xml');
-
-		//$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
-		//$navigationMenuItemDao->installSettings($contextId, 'registry/navigationMenuItemAssignments.xml');
 	}
 }
 

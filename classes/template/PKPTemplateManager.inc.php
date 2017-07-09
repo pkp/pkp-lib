@@ -1554,23 +1554,28 @@ class PKPTemplateManager extends Smarty {
 			$menuTemplatePath = 'frontend/components/navigationMenuUser.tpl';
 		}
 
+		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+
 		$output = '';
 		if ($currentContext) {
-			$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+
 			$navigationMenu = $navigationMenuDao->getByArea($currentContext->getId(), $areaName);
 
 			if (isset($navigationMenu)) {
 				$navigationMenu->getMenuTree();
-
-				$this->assign(array(
-					'navigationMenu' => $navigationMenu,
-					'ulClass' => $ulClass,
-					'navClass' => $navClass
-				));
-
-				$output = $this->fetch($menuTemplatePath);
 			}
+		} else {
+			$navigationMenu = $navigationMenuDao->newDataObject();
+			$navigationMenu->setTitle($areaName);
 		}
+
+		$this->assign(array(
+			'navigationMenu' => $navigationMenu,
+			'ulClass' => $ulClass,
+			'navClass' => $navClass
+		));
+
+		$output = $this->fetch($menuTemplatePath);
 
 		return $output;
 	}

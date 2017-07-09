@@ -82,6 +82,27 @@ class NavigationMenuItemDAO extends DAO {
 	}
 
 	/**
+	 * Retrieve a navigation menu items by default_id.
+	 * @param $contextId int Context Id
+	 * @param $defaultId int default_id
+	 * @return NavigationMenuItem
+	 */
+	function getByDefaultId($contextId, $defaultId) {
+		$params = array((int) $contextId, (int) $defaultId);
+		$result = $this->retrieve(
+			'SELECT * FROM navigation_menu_items WHERE context_id = ? AND default_id = ?',
+			$params
+		);
+
+		$returner = null;
+		if ($result->RecordCount() != 0) {
+			$returner = $this->_fromRow($result->GetRowAssoc(false));
+		}
+		$result->Close();
+		return $returner;
+	}
+
+	/**
 	 * Retrieve items by menu id
 	 */
 	public function getByMenuId($menuId) {
@@ -127,6 +148,7 @@ class NavigationMenuItemDAO extends DAO {
 		$navigationMenuItem->setPage($row['page']);
 		$navigationMenuItem->setDefault($row['is_default']);
 		$navigationMenuItem->setOp($row['op']);
+		$navigationMenuItem->setDefaultId($row['default_id']);
 
 		$this->getDataObjectSettings('navigation_menu_item_settings', 'navigation_menu_item_id', $row['navigation_menu_item_id'], $navigationMenuItem);
 
@@ -151,15 +173,16 @@ class NavigationMenuItemDAO extends DAO {
 	function insertObject($navigationMenuItem) {
 		$this->update(
 				'INSERT INTO navigation_menu_items
-				(path, page, is_default, context_id, op)
+				(path, page, is_default, context_id, op, default_id)
 				VALUES
-				(?, ?, ?, ?, ?)',
+				(?, ?, ?, ?, ?, ?)',
 			array(
 				$navigationMenuItem->getPath(),
 				$navigationMenuItem->getPage(),
 				(int) $navigationMenuItem->getDefault(),
 				(int) $navigationMenuItem->getContextId(),
 				$navigationMenuItem->getOp(),
+				(int) $navigationMenuItem->getDefaultId(),
 			)
 		);
 		$navigationMenuItem->setId($this->getInsertId());
@@ -180,7 +203,8 @@ class NavigationMenuItemDAO extends DAO {
 					page = ?,
 					is_default = ?,
 					context_id = ?,
-					op = ?
+					op = ?,
+					default_id = ?
 				WHERE navigation_menu_item_id = ?',
 			array(
 				$navigationMenuItem->getPath(),
@@ -189,6 +213,7 @@ class NavigationMenuItemDAO extends DAO {
 				(int) $navigationMenuItem->getContextId(),
 				(int) $navigationMenuItem->getId(),
 				$navigationMenuItem->getOp(),
+				(int) $navigationMenuItem->getDefaultId(),
 			)
 		);
 		$this->updateLocaleFields($navigationMenuItem);
@@ -284,6 +309,7 @@ class NavigationMenuItemDAO extends DAO {
 		$page = $node->getAttribute('page');
 		$op = $node->getAttribute('op');
 		$isDefault = $node->getAttribute('default');
+		$defaultId = $node->getAttribute('default_id');
 
 		// create a role associated with this user group
 		$navigationMenuItem = $this->newDataObject();
@@ -292,6 +318,7 @@ class NavigationMenuItemDAO extends DAO {
 		$navigationMenuItem->setPage($page);
 		$navigationMenuItem->setDefault($isDefault);
 		$navigationMenuItem->setOp($op);
+		$navigationMenuItem->setDefaultId($defaultId);
 
 		// insert the group into the DB
 		$navigationMenuItemId = $this->insertObject($navigationMenuItem);
@@ -334,6 +361,68 @@ class NavigationMenuItemDAO extends DAO {
 
 		return true;
 	}
+
+	/**
+	 * Unload the XML file and move the settings to the DB
+	 * @param $contextId
+	 * @param $filename
+	 * @return boolean true === success
+	 */
+	function uninstallSettings($contextId, $filename) {
+		$xmlParser = new XMLParser();
+		$tree = $xmlParser->parse($filename);
+
+		$contextDao = Application::getContextDAO();
+		$context = $contextDao->getById($contextId);
+		$supportedLocales = $context->getSupportedSubmissionLocales();
+
+		if (!$tree) {
+			$xmlParser->destroy();
+			return false;
+		}
+
+		foreach ($tree->getChildren() as $setting) {
+			$this->uninstallNodeSettings($contextId, $setting, true);
+		}
+
+		return true;
+	}
+
+	/**
+	 * unload a XML node to DB
+	 * @param $contextId
+	 * @param $node
+	 * @param $checkChildren bool Optional
+	 * @return boolean true === success
+	 */
+	function uninstallNodeSettings($contextId, $node, $checkChildren = false) {
+		$contextDao = Application::getContextDAO();
+		$context = $contextDao->getById($contextId);
+		$supportedLocales = $context->getSupportedSubmissionLocales();
+
+		$titleKey = $node->getAttribute('title');
+		$path = $node->getAttribute('path');
+		$page = $node->getAttribute('page');
+		$op = $node->getAttribute('op');
+		$isDefault = $node->getAttribute('default');
+		$defaultId = $node->getAttribute('default_id');
+
+		$navigationMenuItem = $this->getByDefaultId($contextId, $defaultId);
+
+		if ($navigationMenuItem) {
+			// delete the navigationMenuItem from DB
+			$this->deleteObject($navigationMenuItem);
+		}
+
+		if ($checkChildren) {
+			foreach ($node->getChildren() as $navigationMenuItemSecondLevelNode) {
+				$this->uninstallNodeSettings($contextId, $navigationMenuItemSecondLevelNode, false);
+			}
+		}
+
+		return true;
+	}
+
 
 	/**
 	 * use the locale keys stored in the settings table to install the locale settings

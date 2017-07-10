@@ -434,7 +434,7 @@
 	<message key="notification.location">Gå till URL</message>
 	<message key="notification.mailList">E-postlista för aviseringar</message>
 	<message key="notification.mailList.emailInvalid">Vänligen skriv in en giltig e-postadress.</message>
-	<message key="notification.mailList.privacyProtection">Policy för integritetsskydd</message>
+	<message key="notification.mailList.privacyProtection">Sekretesspolicy</message>
 	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Prenumerera</a> på låst material.]]></message>
 	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Skicka in</a> en artikel]]></message>
 	<message key="notification.mailList.register">Du kan registrera dig på den här webbplatsen för att...</message>

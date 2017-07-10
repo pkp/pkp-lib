@@ -317,7 +317,7 @@ function customAutoload($rootPath, $prefix, $class) {
 
 	$className = Core::cleanFileVar(array_pop($parts));
 	$parts = array_map(function($part) {
-		return strtolower(Core::cleanFileVar($part));
+		return lcfirst(Core::cleanFileVar($part));
 	}, $parts);
 
 	$subParts = join('/', $parts);

@@ -1,14 +1,14 @@
 <?php
 
 /**
- * @file plugins/auth/shibboleth/pages/ShibbolethHandler.inc.php
+ * @file plugins/generic/shibboleth/pages/ShibbolethHandler.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2 or later. For full terms see the file docs/COPYING.
  *
  * @class ShibbolethHandler
- * @ingroup plugins_auth_shibboleth
+ * @ingroup plugins_generic_shibboleth
  *
  * @brief Handle Shibboleth responses
  */

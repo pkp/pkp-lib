@@ -1,14 +1,14 @@
 <?php
 
 /**
- * @file plugins/auth/shibboleth/ShibbolethSettingsForm.inc.php
+ * @file plugins/generic/shibboleth/ShibbolethSettingsForm.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ShibbolethSettingsForm
- * @ingroup plugins_auth_shibboleth
+ * @ingroup plugins_generic_shibboleth
  *
  * @brief Form for journal managers to modify Shibboleth
  * authentication plugin settings
@@ -40,7 +40,7 @@ class ShibbolethSettingsForm extends Form {
 				$this,
 				'shibbolethWayfUrl',
 				'required',
-				'plugins.auth.shibboleth.manager.settings.shibbolethWayfUrlRequired'
+				'plugins.generic.shibboleth.manager.settings.shibbolethWayfUrlRequired'
 			)
 		);
 		$this->addCheck(new FormValidatorPost($this));

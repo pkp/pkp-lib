@@ -78,7 +78,7 @@ class ShibbolethAuthPlugin extends GenericPlugin {
 	 * @return string
 	 */
 	function getDisplayName() {
-		return __('plugins.auth.shibboleth.displayName');
+		return __('plugins.generic.shibboleth.displayName');
 	}
 
 	/**
@@ -86,7 +86,7 @@ class ShibbolethAuthPlugin extends GenericPlugin {
 	 * @return string
 	 */
 	function getDescription() {
-		return __('plugins.auth.shibboleth.description');
+		return __('plugins.generic.shibboleth.description');
 	}
 
 	/**
@@ -109,7 +109,7 @@ class ShibbolethAuthPlugin extends GenericPlugin {
 							array(
 								'verb' => 'settings',
 								'plugin' => $this->getName(),
-								'category' => 'auth'
+								'category' => 'generic'
 							)
 						),
 						$this->getDisplayName()
@@ -200,32 +200,6 @@ class ShibbolethAuthPlugin extends GenericPlugin {
 	 */
 	function getCanDisable() {
 		return !$this->_globallyEnabled || $this->_contextId == 0;
-	}
-
-
-	//
-	// Core Plugin Functions
-	// (Must be implemented by every authentication plugin)
-	//
-
-	/**
-	 * Returns an instance of the authentication plugin
-	 * @param $settings array settings specific to this instance.
-	 * @param $authId int identifier for this instance
-	 * @return ShibbolethAuthPlugin
-	 */
-	function getInstance($settings, $authId) {
-		return new ShibbolethAuthPlugin($settings, $authId);
-	}
-
-	/**
-	 * Authenticate a username and password.
-	 * @param $username string
-	 * @param $password string
-	 * @return boolean true if authentication is successful
-	 */
-	function authenticate($username, $password) {
-		return false;
 	}
 }
 

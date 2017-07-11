@@ -169,6 +169,13 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 				}
 			}
 		}
+
+		// Register custom autoloader function for PKP namespace
+		spl_autoload_register(function($class) {
+			$prefix = 'PKP\\';
+			$rootPath = BASE_SYS_DIR . "/lib/pkp/classes";
+			customAutoload($rootPath, $prefix, $class);
+		});
 	}
 
 	/**

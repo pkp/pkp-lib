@@ -292,4 +292,39 @@ function cygwinConversion($path) {
 	}
 	return $path;
 }
+
+/**
+ * Helper function to define custom autoloader 
+ * @param string $rootPath
+ * @param string $prefix
+ * @param string $class
+ * 
+ * @return void
+ */
+function customAutoload($rootPath, $prefix, $class) {
+	if (substr($class, 0, strlen($prefix)) !== $prefix) {
+		return;
+	}
+
+	$class = substr($class, strlen($prefix));
+	$parts = explode('\\', $class);
+
+	// we expect at least one folder in the namespace
+	// there is no class defined directly under classes/ folder
+	if (count($parts) < 2) {
+		return;
+	}
+
+	$className = Core::cleanFileVar(array_pop($parts));
+	$parts = array_map(function($part) {
+		return lcfirst(Core::cleanFileVar($part));
+	}, $parts);
+
+	$subParts = join('/', $parts);
+	$filePath = "{$rootPath}/{$subParts}/{$className}.inc.php";
+
+	if (is_file($filePath)) {
+		require_once($filePath);
+	}
+}
 ?>

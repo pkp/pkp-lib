@@ -1,21 +1,21 @@
 <?php
 
 /**
- * @file plugins/auth/shibboleth/ShibbolethAuthPlugin.inc.php
+ * @file plugins/generic/shibboleth/ShibbolethAuthPlugin.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ShibbolethAuthPlugin
- * @ingroup plugins_auth_shibboleth
+ * @ingroup plugins_generic_shibboleth
  *
  * @brief Shibboleth authentication plugin.
  */
 
-import('lib.pkp.classes.plugins.AuthPlugin');
+import('lib.pkp.classes.plugins.GenericPlugin');
 
-class ShibbolethAuthPlugin extends AuthPlugin {
+class ShibbolethAuthPlugin extends GenericPlugin {
 	/** @var int */
 	var $_contextId;
 
@@ -23,10 +23,10 @@ class ShibbolethAuthPlugin extends AuthPlugin {
 	var $_globallyEnabled;
 
 	/**
-	 * @copydoc AuthPlugin::__construct()
+	 * @copydoc Plugin::__construct()
 	 */
-	function __construct($settings = array(), $authId = null) {
-		parent::__construct($settings, $authId);
+	function __construct() {
+		parent::__construct();
 		$this->_contextId = $this->getCurrentContextId();
 		$this->_globallyEnabled = $this->getSetting(0, 'enabled');
 	}
@@ -168,8 +168,6 @@ class ShibbolethAuthPlugin extends AuthPlugin {
 
 	//
 	// Public methods required to support lazy load.
-	// We don’t inherit from LazyLoadPlugin, but we need to able to be
-	// enabled or disabled.
 	//
 	/**
 	 * Determine whether or not this plugin is currently enabled.
@@ -177,7 +175,7 @@ class ShibbolethAuthPlugin extends AuthPlugin {
 	 */
 	function getEnabled() {
 		return $this->_globallyEnabled ||
-			$this->getSetting($this->_contextId, 'enabled'
+			$this->getSetting($this->_contextId, 'enabled');
 	}
 
 	/**
@@ -228,15 +226,6 @@ class ShibbolethAuthPlugin extends AuthPlugin {
 	 */
 	function authenticate($username, $password) {
 		return false;
-	}
-
-	/**
-	 * Get the current context ID or the site-wide context ID (0) if no context
-	 * can be found.
-	 */
-	function getCurrentContextId() {
-		$context = PKPApplication::getRequest()->getContext();
-		return is_null($context) ? 0 : $context->getId();
 	}
 }
 

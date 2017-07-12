@@ -201,6 +201,15 @@ class ShibbolethAuthPlugin extends GenericPlugin {
 	function getCanDisable() {
 		return !$this->_globallyEnabled || $this->_contextId == 0;
 	}
+
+	/**
+	 * @copydoc Plugin::isSitePlugin
+	 *
+	 * @return boolean
+	 */
+	function isSitePlugin() {
+		return true;
+	}
 }
 
 ?>

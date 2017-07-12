@@ -61,15 +61,6 @@
 					 </script>
 					<ul id="navigationPrimary" class="pkp_navigation_primary pkp_nav_list" role="navigation" aria-label="{translate|escape key="common.navigation.site"}">
 
-						{url|assign:fetchTaskUrl router=$smarty.const.ROUTE_COMPONENT component="page.PageHandler" op="tasks" escape=false}
-						{capture assign="tasksNavPlaceholder"}
-							<a href="#">
-								{translate key="common.tasks"}
-								<span class="pkp_spinner"></span>
-							</a>
-						{/capture}
-						{load_url_in_el el="li" class="pkp_tasks" id="userTasksWrapper" url=$fetchTaskUrl placeholder=$tasksNavPlaceholder}
-
 						{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR), (array)$userRoles)}
 							<li>
 								<a href="{url router=$smarty.const.ROUTE_PAGE page="submissions"}">

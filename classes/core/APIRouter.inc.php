@@ -26,13 +26,6 @@ class APIRouter extends PKPRouter {
 	var $_handler;
 
 	/**
-	 * Constructor
-	 */
-	public function __construct() {
-		parent::__construct();
-	}
-
-	/**
 	 * Determines whether this router can route the given request.
 	 * @param $request PKPRequest
 	 * @return boolean true, if the router supports this request, otherwise false
@@ -112,6 +105,12 @@ class APIRouter extends PKPRouter {
 		fatalError('unimplemented.');
 	}
 
+	/**
+	 * Get the requested operation
+	 * 
+	 * @param $request PKPRequest
+	 * @return string
+	 */
 	function getRequestedOp($request) {
 		$handler = $this->getHandler();
 		$container = $handler->getApp()->getContainer();

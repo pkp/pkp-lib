@@ -41,14 +41,19 @@ class ApiAuthorizationMiddleware {
 		if ($this->_handler->authorize($request, $args, $this->_handler->getRoleAssignments())) {
 			$this->_handler->validate($request, $args);
 			$this->_handler->initialize($request, $args);
-			return TRUE;
+			return true;
 		} else {
 			$authorizationMessage = $this->_handler->getLastAuthorizationMessage();
 			if ($authorizationMessage == '') $authorizationMessage = 'user.authorization.accessDenied';
 			$router = $request->getRouter();
 			$result = $router->handleAuthorizationFailure($request, $authorizationMessage);
-			if (is_string($result)) return $result;
-			elseif (is_a($result, 'JSONMessage')) return $result->getString();
+			switch(1) {
+				case is_string($result): return $result;
+				case is_a($result, 'JSONMessage'): return $result->getString();
+				default:
+					assert(false);
+					return null;
+			}
 		}
 	}
 
@@ -62,7 +67,7 @@ class ApiAuthorizationMiddleware {
 	 */
 	public function __invoke($request, $response, $next) {
 		$result = $this->_authorize($request);
-		if ($result !== TRUE) {
+		if ($result !== true) {
 			return $result;
 		}
 

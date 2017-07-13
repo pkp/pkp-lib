@@ -46,7 +46,7 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 	/**
 	 * Constructor
 	 *
-	 * @param int $contextId context ID
+	 * @param $contextId int context ID
 	 */
 	public function __construct($contextId) {
 		parent::__construct();

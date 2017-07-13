@@ -16,17 +16,17 @@ namespace PKP\Services\Exceptions;
 
 class SubmissionStageNotValidException extends ServiceException {
 
-	/** @var int Submission ID */
-	protected $submissionId = null;
+	/** @var int|null Submission ID */
+	protected $_submissionId = null;
 
 	/**
 	 * Constructor
 	 *
-	 * @param string $message
-	 * @param int $code
+	 * @param $contextId int Context ID
+	 * @param $submissionId int Submission ID
 	 */
 	public function __construct ($contextId, $submissionId) {
-		$this->submissionId = $submissionId;
+		$this->_submissionId = $submissionId;
 		parent::__construct($contextId, "Invalid submission stage");
 	}
 
@@ -36,6 +36,6 @@ class SubmissionStageNotValidException extends ServiceException {
 	 * @return int
 	 */
 	public function getSubmissionId() {
-		return $this->submissionId;
+		return $this->_submissionId;
 	}
 }

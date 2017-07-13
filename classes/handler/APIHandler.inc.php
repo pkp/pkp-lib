@@ -24,18 +24,10 @@ class APIHandler extends PKPHandler {
 	protected $_endpoints = array();
 	protected $_slimRequest = null;
 
-	/**
-	 * The endpoint pattern for this handler
-	 *
-	 * @param string
-	 */
+	/** @var string The endpoint pattern for this handler */
 	protected $_pathPattern;
 
-	/**
-	 * The unique endpoint string for this handler
-	 *
-	 * @param string
-	 */
+	/** @var string The unique endpoint string for this handler */
 	protected $_handlerPath = null;
 
 	/**
@@ -57,19 +49,19 @@ class APIHandler extends PKPHandler {
 		$this->_app->add(new ApiAuthorizationMiddleware($this));
 		// remove trailing slashes
 		$this->_app->add(function ($request, $response, $next) {
-				$uri = $request->getUri();
-				$path = $uri->getPath();
-				if ($path != '/' && substr($path, -1) == '/') {
-						// path with trailing slashes to non-trailing counterpart
-						$uri = $uri->withPath(substr($path, 0, -1));
-						if($request->getMethod() == 'GET') {
-								return $response->withRedirect((string)$uri, 301);
-						}
-						else {
-								return $next($request->withUri($uri), $response);
-						}
+			$uri = $request->getUri();
+			$path = $uri->getPath();
+			if ($path != '/' && substr($path, -1) == '/') {
+				// path with trailing slashes to non-trailing counterpart
+				$uri = $uri->withPath(substr($path, 0, -1));
+				if($request->getMethod() == 'GET') {
+					return $response->withRedirect((string)$uri, 301);
 				}
-				return $next($request, $response);
+				else {
+					return $next($request->withUri($uri), $response);
+				}
+			}
+			return $next($request, $response);
 		});
 		$this->_request = Application::getRequest();
 		$this->setupEndpoints();

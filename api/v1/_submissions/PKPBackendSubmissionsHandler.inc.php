@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file api/v1/backend/BackendHandler.inc.php
+ * @file api/v1/_submissions/PKPBackendSubmissionsHandler.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2003-2016 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class BackendHandler
+ * @class PKPBackendSubmissionsHandler
  * @ingroup api_v1_backend
  *
  * @brief Handle API requests for backend operations.

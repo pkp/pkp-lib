@@ -245,8 +245,8 @@ class ReviewRoundDAO extends DAO {
 	}
 
 	/**
-	 * FIXME #7386#
 	 * Update the review round status.
+	 *
 	 * @param $reviewRound ReviewRound
 	 * @param $status int? Optionally pass a REVIEW_ROUND_STATUS_... to set a
 	 *  specific status. If not included, will determine the appropriate status

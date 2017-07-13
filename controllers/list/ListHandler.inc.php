@@ -13,19 +13,10 @@
  *  be used by handlers which need to present, manage or edit a list of items.
  */
 abstract class ListHandler extends PKPHandler {
-	/**
-	 * Title (expects a translation key)
-	 *
-	 * @param string
-	 */
+	/** @var string Title (expects a translation key) */
 	public $_title = '';
 
-	/**
-	 * Whether to pre-populate the UI component with list data or wait until the
-	 * page has loaded to request the data.
-	 *
-	 * @param bool
-	 */
+	/** @var bool Whether to pre-populate the UI component with list data or wait until the page has loaded to request the data. */
 	public $_lazyLoad = false;
 
 	/**
@@ -35,13 +26,7 @@ abstract class ListHandler extends PKPHandler {
 	 */
 	public $_componentPath = '';
 
-	/**
-	 * Routes
-	 *
-	 * Endpoints which can be requested by a URL. Defined by ::setRoutes()
-	 *
-	 * @param array
-	 */
+	/** @var array Endpoints which can be requested by a URL. Defined by ::setRoutes() */
 	public $_routes = array();
 
 	/**

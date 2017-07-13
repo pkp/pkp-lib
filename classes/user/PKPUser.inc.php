@@ -21,19 +21,8 @@
 import('lib.pkp.classes.identity.Identity');
 
 class PKPUser extends Identity {
-	/**
-	 * Roles assigned to this user grouped by context
-	 *
-	 * @param array
-	 */
+	/** @var array Roles assigned to this user grouped by context */
 	protected $_roles = array();
-
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
 
 	//
 	// Get/set methods

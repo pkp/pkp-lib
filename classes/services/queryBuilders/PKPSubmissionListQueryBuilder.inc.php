@@ -13,7 +13,7 @@
  * @brief Submission list Query builder
  */
 
-namespace App\Services\QueryBuilders;
+namespace PKP\Services\QueryBuilders;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 
@@ -59,7 +59,7 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 	 * @param string $column
 	 * @param string $direction
 	 *
-	 * @return \App\Services\QueryBuilders\SubmissionListQueryBuilder
+	 * @return \OJS\Services\QueryBuilders\SubmissionListQueryBuilder
 	 */
 	public function orderBy($column, $direction = 'DESC') {
 		if ($column === 'lastModified') {
@@ -78,7 +78,7 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 	 *
 	 * @param int|array $statuses
 	 *
-	 * @return \App\Services\QueryBuilders\SubmissionListQueryBuilder
+	 * @return \OJS\Services\QueryBuilders\SubmissionListQueryBuilder
 	 */
 	public function filterByStatus($statuses) {
 		if (!is_null($statuses) && !is_array($statuses)) {
@@ -93,7 +93,7 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 	 *
 	 * @param int $assigneeId
 	 *
-	 * @return \App\Services\QueryBuilders\SubmissionListQueryBuilder
+	 * @return \OJS\Services\QueryBuilders\SubmissionListQueryBuilder
 	 */
 	public function assignedTo($assigneeId) {
 		$this->assigneeId = $assigneeId;
@@ -105,7 +105,7 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 	 *
 	 * @param string $phrase
 	 *
-	 * @return \App\Services\QueryBuilders\SubmissionListQueryBuilder
+	 * @return \OJS\Services\QueryBuilders\SubmissionListQueryBuilder
 	 */
 	public function searchPhrase($phrase) {
 		$this->searchPhrase = $phrase;
@@ -117,7 +117,7 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 	 *
 	 * @param bool $enable
 	 *
-	 * @return \App\Services\QueryBuilders\SubmissionListQueryBuilder
+	 * @return \OJS\Services\QueryBuilders\SubmissionListQueryBuilder
 	 */
 	public function countOnly($enable = true) {
 		$this->countOnly = $enable;

@@ -13,7 +13,7 @@
  * @brief Helper class that encapsulates submission business logic
  */
 
-namespace App\Services;
+namespace PKP\Services;
 
 use \DBResultRange;
 use \Application;
@@ -59,7 +59,7 @@ abstract class PKPSubmissionService {
 
 		$args = array_merge($defaultArgs, $args);
 
-		$submissionListQB = new QueryBuilders\SubmissionListQueryBuilder($contextId);
+		$submissionListQB = new \OJS\Services\QueryBuilders\SubmissionListQueryBuilder($contextId);
 		$submissionListQB
 			->orderBy($args['orderBy'], $args['orderDirection'])
 			->assignedTo($args['assignedTo'])

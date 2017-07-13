@@ -13,7 +13,7 @@
 * @brief Helper class that encapsulates issue business logic
 */
 
-namespace App\Services;
+namespace PKP\Services;
 
 class IssueService {
 

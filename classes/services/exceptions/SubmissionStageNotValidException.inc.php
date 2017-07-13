@@ -12,7 +12,7 @@
  * @brief Invalid submission stage exception class
  */
 
-namespace App\Services\Exceptions;
+namespace PKP\Services\Exceptions;
 
 class SubmissionStageNotValidException extends ServiceException {
 

@@ -13,7 +13,7 @@
  * @brief Query builder base class
  */
 
-namespace App\Services\QueryBuilders;
+namespace PKP\Services\QueryBuilders;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 use \Config;

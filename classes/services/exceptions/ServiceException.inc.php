@@ -13,7 +13,7 @@
  * @brief Abstract base exception class for services
  */
 
-namespace App\Services\Exceptions;
+namespace PKP\Services\Exceptions;
 
 use \Exception;
 

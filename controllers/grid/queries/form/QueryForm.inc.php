@@ -209,6 +209,7 @@ class QueryForm extends Form {
 			'noteId' => $headNote->getId(),
 			'actionArgs' => $actionArgs,
 			'participantOptions' => $participantOptions,
+			'csrfToken' => $request->getSession()->getCSRFToken(),
 		));
 
 		return parent::fetch($request);

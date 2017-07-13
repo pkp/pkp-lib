@@ -62,6 +62,7 @@ class ShibbolethAuthPlugin extends GenericPlugin {
 		if ($this->getEnabled() && $page == 'shibboleth') {
 			$this->import('pages/ShibbolethHandler');
 			define('HANDLER_CLASS', 'ShibbolethHandler');
+			define('SHIBBOLETH_PLUGIN_NAME', $this->getName());
 			return true;
 		}
 		return false;

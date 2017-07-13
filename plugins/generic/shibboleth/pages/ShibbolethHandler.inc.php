@@ -22,8 +22,27 @@ class ShibbolethHandler extends Handler {
 	 * @param $request Request
 	 */
 	function shibLogin($args, $request) {
-        
+		$plugin = $this->_getPlugin();
+		$uin_header = $plugin->getSetting($contextId, 'shibbolethHeaderUin');
+
+		if (!isset($_SERVER[$uin_header])) {
+			syslog(LOG_ERR, "Shibboleth plugin enabled, but not fully configured.");
+				Validation::logout();
+				Validation::redirectLogin();
+			}
 	}
 }
 
+	//
+	// Private helper methods
+	//
+	/**
+	 * Get the Shibboleth plugin object
+	 * @return ShibbolethAuthPlugin
+	 */
+	function &_getPlugin() {
+		$plugin =& PluginRegistry::getPlugin('generic', SHIBBOLETH_PLUGIN_NAME);
+		return $plugin;
+	}
+}
 ?>

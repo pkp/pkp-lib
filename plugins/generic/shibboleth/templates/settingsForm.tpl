@@ -23,7 +23,7 @@
 
 	{fbvFormArea id="shibbolethSettingsFormArea"}
 		{fbvElement type="text" name="shibbolethWayfUrl" value=$shibbolethWayfUrl label="plugins.generic.shibboleth.manager.settings.shibbolethWayfUrl"}
-		{fbvElement type="text" name="shibbolethHeadingUin" value=$shibbolethHeadingUin label="plugins.generic.shibboleth.manager.settings.shibbolethHeadingUin"}
+		{fbvElement type="text" name="shibbolethHeaderUin" value=$shibbolethHeaderUin label="plugins.generic.shibboleth.manager.settings.shibbolethHeaderUin"}
 	{/fbvFormArea}
 
 	{fbvFormButtons}

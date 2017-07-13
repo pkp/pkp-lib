@@ -193,6 +193,7 @@ class QueryForm extends Form {
 			'isNew' => $this->_isNew,
 			'noteId' => $headNote->getId(),
 			'actionArgs' => $actionArgs,
+			'csrfToken' => $request->getSession()->getCSRFToken(),
 		));
 
 		return parent::fetch($request);

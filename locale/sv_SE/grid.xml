@@ -49,7 +49,7 @@
 	<message key="grid.action.addAuthor">Lägg till författare</message>
 	<message key="grid.action.editAuthor">Redigera författare</message>
 	<message key="grid.action.deleteAuthor">Ta bort författare</message>
-	<message key="grid.action.addAuditor">Lägg till en manusgranskare</message>
+	<message key="grid.action.addAuditor">Tilldela manusgranskare</message>
 	<message key="grid.action.upgrade">Uppgradera</message>
 	<message key="grid.action.order">Beställ</message>
 	<message key="grid.action.cancelOrdering">Avbryt beställning</message>

@@ -22,6 +22,7 @@ class ShibbolethHandler extends Handler {
 	 * @param $request Request
 	 */
 	function shibLogin($args, $request) {
+        
 	}
 }
 

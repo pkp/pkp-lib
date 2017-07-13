@@ -11,6 +11,8 @@
  * @ingroup plugins_generic_shibboleth
  *
  * @brief Shibboleth authentication plugin.
+ *
+ * Assumes Apache mod_shib and appropriate configuration.
  */
 
 import('lib.pkp.classes.plugins.GenericPlugin');

@@ -43,6 +43,14 @@ class ShibbolethSettingsForm extends Form {
 				'plugins.generic.shibboleth.manager.settings.shibbolethWayfUrlRequired'
 			)
 		);
+		$this->addCheck(
+			new FormValidator(
+				$this,
+				'shibbolethHeaderUin',
+				'required',
+				'plugins.generic.shibboleth.manager.settings.shibbolethHeaderUinRequired'
+			)
+		);
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
 	}
@@ -53,6 +61,7 @@ class ShibbolethSettingsForm extends Form {
 	function initData() {
 		$this->_data = array(
 			'shibbolethWayfUrl' => $this->_plugin->getSetting($this->_contextId, 'shibbolethWayfUrl'),
+			'shibbolethHeaderUin' => $this->_plugin->getSetting($this->_contextId, 'shibbolethHeaderUin'),
 		);
 	}
 
@@ -61,6 +70,7 @@ class ShibbolethSettingsForm extends Form {
 	 */
 	function readInputData() {
 		$this->readUserVars(array('shibbolethWayfUrl'));
+		$this->readUserVars(array('shibbolethHeaderUin'));
 	}
 
 	/**
@@ -81,6 +91,12 @@ class ShibbolethSettingsForm extends Form {
 			$this->_contextId,
 			'shibbolethWayfUrl',
 			trim($this->getData('shibbolethWayfUrl'), "\"\';"),
+			'string'
+		);
+		$this->_plugin->updateSetting(
+			$this->_contextId,
+			'shibbolethHeaderUin',
+			trim($this->getData('shibbolethHeaderUin'), "\"\';"),
 			'string'
 		);
 	}

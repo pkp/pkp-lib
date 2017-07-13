@@ -15,7 +15,7 @@
 		$('#queryForm').pkpHandler(
 			'$.pkp.controllers.form.CancelActionAjaxFormHandler',
 			{ldelim}
-				cancelUrl: {if $isNew}'{url|escape:javascript op="deleteQuery" queryId=$queryId params=$actionArgs escape=false}'{else}null{/if}
+				cancelUrl: {if $isNew}'{url|escape:javascript op="deleteQuery" queryId=$queryId params=$actionArgs csrfToken=$csrfToken escape=false}'{else}null{/if}
 			{rdelim}
 		);
 	{rdelim});

@@ -34,7 +34,7 @@ class ShibbolethHandler extends Handler {
 
 		// ... and being set.
 		$uin = $_SERVER[$uin_header];
-		if ($uid == null) {
+		if ($uin == null) {
 			Validation::logout();
 			Validation::redirectLogin();
 		}

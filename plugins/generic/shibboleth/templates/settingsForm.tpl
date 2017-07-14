@@ -30,7 +30,7 @@
 		{fbvElement type="text" name="shibbolethHeaderEmail" value=$shibbolethHeaderEmail label="plugins.generic.shibboleth.manager.settings.shibbolethHeaderEmail"}
 		{fbvElement type="text" name="shibbolethHeaderPhone" value=$shibbolethHeaderPhone label="plugins.generic.shibboleth.manager.settings.shibbolethHeaderPhone"}
 		{fbvElement type="text" name="shibbolethHeaderMailing" value=$shibbolethHeaderMailing label="plugins.generic.shibboleth.manager.settings.shibbolethHeaderMailing"}
-		{fbvElement type="text" name="shibboletAdminUins" value=$shibbolethAdminUins label="plugins.generic.shibboleth.manager.settings.shibbolethAdminUins"}
+		{fbvElement type="text" name="shibbolethAdminUins" value=$shibbolethAdminUins label="plugins.generic.shibboleth.manager.settings.shibbolethAdminUins"}
 	{/fbvFormArea}
 
 	{fbvFormButtons}

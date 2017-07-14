@@ -25,13 +25,20 @@ class ShibbolethHandler extends Handler {
 		$plugin = $this->_getPlugin();
 		$uin_header = $plugin->getSetting($contextId, 'shibbolethHeaderUin');
 
+		// We rely on this header being present.
 		if (!isset($_SERVER[$uin_header])) {
-			syslog(LOG_ERR, "Shibboleth plugin enabled, but not fully configured.");
-				Validation::logout();
-				Validation::redirectLogin();
-			}
+			syslog(LOG_ERR, "Shibboleth plugin enabled, but not properly configured; failed to find $uin_header.");
+			Validation::logout();
+			Validation::redirectLogin();
+		}
+
+		// ... and being set.
+		$uin = $_SERVER[$uin_header];
+		if ($uid == null) {
+			Validation::logout();
+			Validation::redirectLogin();
+		}
 	}
-}
 
 	//
 	// Private helper methods

@@ -34,7 +34,7 @@ class FileArchive {
 		// attempt to use Zip first, if it is available.  Otherwise
 		// fall back to the tar CLI.
 		$zipTest = false;
-		if ($this->zipFunctional()) {
+		if (self::zipFunctional()) {
 			$zipTest = true;
 			$zip = new ZipArchive();
 			if ($zip->open($archivePath, ZIPARCHIVE::CREATE) == true) {
@@ -43,13 +43,15 @@ class FileArchive {
 				}
 				$zip->close();
 			}
-		} else {
+		} elseif (self::tarFunctional()) {
 			// Create the archive and download the file.
 			exec(Config::getVar('cli', 'tar') . ' -c -z ' .
 					'-f ' . escapeshellarg($archivePath) . ' ' .
 					'-C ' . escapeshellarg($filesDir) . ' ' .
 					implode(' ', array_map('escapeshellarg', array_keys($files)))
 			);
+		} else {
+			throw new Exception('No archive tool is available!');
 		}
 
 		return $archivePath;
@@ -59,8 +61,20 @@ class FileArchive {
 	 * Return true if PHP is new enough and has the zip extension loaded.
 	 * @return boolean
 	 */
-	function zipFunctional() {
+	static function zipFunctional() {
 		return (checkPhpVersion('5.2.0') && extension_loaded('zip'));
+	}
+
+	/**
+	 * Return true if the tar tools are configured.
+	 */
+	static function tarFunctional() {
+		$tarBinary = Config::getVar('cli', 'tar');
+		return !empty($tarBinary) && file_exists($tarBinary);
+	}
+
+	static function isFunctional() {
+		return self::zipFunctional() || self::tarFunctional();
 	}
 }
 

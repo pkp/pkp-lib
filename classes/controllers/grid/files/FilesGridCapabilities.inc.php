@@ -97,8 +97,8 @@ class FilesGridCapabilities {
 	 * @return boolean
 	 */
 	function canDownloadAll() {
-		$tarBinary = Config::getVar('cli', 'tar');
-		return $this->_canDownloadAll && !empty($tarBinary) && file_exists($tarBinary);
+		import('lib.pkp.classes.file.FileArchive');
+		return $this->_canDownloadAll && FileArchive::isFunctional();
 	}
 
 	/**

@@ -233,8 +233,6 @@ class NavigationMenuItemDAO extends DAO {
 
 		$navigationMenuItemAssignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
 		$navigationMenuItemAssignmentDao->deleteByMenuItemId($navigationMenuItemId);
-
-		return true;
 	}
 
 	/**
@@ -247,8 +245,6 @@ class NavigationMenuItemDAO extends DAO {
 		while ($navigationMenuItem = $navigationMenuItems->next()) {
 			$this->deleteObject($navigationMenuItem);
 		}
-
-		return true;
 	}
 
 	/**

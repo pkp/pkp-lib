@@ -222,8 +222,6 @@ class NavigationMenuDAO extends DAO {
 
 		$navigationMenuItemAssignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
 		$navigationMenuItemAssignmentDao->deleteByMenuId($navigationMenuId);
-
-		return true;
 	}
 
 	/**

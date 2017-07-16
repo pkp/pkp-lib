@@ -136,7 +136,7 @@ class NavigationMenuDAO extends DAO {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-	    return array();
+		return array();
 	}
 
 	/**

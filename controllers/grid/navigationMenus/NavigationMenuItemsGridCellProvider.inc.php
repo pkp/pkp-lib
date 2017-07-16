@@ -16,14 +16,6 @@
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
 class NavigationMenuItemsGridCellProvider extends GridCellProvider {
-
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 	/**
 	 * @copydoc GridCellProvider::getCellActions()
 	 */

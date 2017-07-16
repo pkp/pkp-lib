@@ -29,13 +29,6 @@ class NavigationMenuItem extends DataObject {
 	/** @var $navigationMenuItems array The navigationMenuItems underneath this navigationMenuItem */
 	var $navigationMenuItems = array();
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 	//
 	// Get/set methods
 	//

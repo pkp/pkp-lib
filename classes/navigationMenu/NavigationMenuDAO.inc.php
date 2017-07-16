@@ -19,13 +19,6 @@ import('lib.pkp.classes.navigationMenu.NavigationMenu');
 
 class NavigationMenuDAO extends DAO {
 	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
-	/**
 	 * Generate a new data object.
 	 * @return NavigationMenu
 	 */

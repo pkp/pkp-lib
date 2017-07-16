@@ -59,7 +59,7 @@ class NavigationMenu extends DataObject {
 	}
 
 	/**
-	 * Get title of this NavigationMenu. Not localised.
+	 * Get title of this NavigationMenu. Not localized.
 	 * @return string
 	 */
 	function getTitle() {
@@ -67,7 +67,7 @@ class NavigationMenu extends DataObject {
 	}
 
 	/**
-	 * Set title of this NavigationMenu. Not localised.
+	 * Set title of this NavigationMenu. Not localized.
 	 * @param $title string
 	 */
 	function setTitle($title) {
@@ -75,7 +75,7 @@ class NavigationMenu extends DataObject {
 	}
 
 	/**
-	 * Get areaName of this NavigationMenu. Not localised.
+	 * Get areaName of this NavigationMenu. Not localized.
 	 * @return string
 	 */
 	function getAreaName() {
@@ -83,7 +83,7 @@ class NavigationMenu extends DataObject {
 	}
 
 	/**
-	 * Set navigationArea name of this NavigationMenu. Not localised.
+	 * Set navigationArea name of this NavigationMenu. Not localized.
 	 * @param $areaName string
 	 */
 	function setAreaName($areaName) {

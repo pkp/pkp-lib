@@ -45,7 +45,6 @@ define('ASSOC_TYPE_USER_ROLES',			0x0100007);
 define('ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES',	0x0100008);
 define('ASSOC_TYPE_SUBMISSION',			0x0100009);
 define('ASSOC_TYPE_QUERY',			0x010000a);
-define('ASSOC_TYPE_NAVIGATION_MENU',			0x010000b);
 
 // Constant used in UsageStats for submission files that are not full texts
 define('ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER', 0x0000213);

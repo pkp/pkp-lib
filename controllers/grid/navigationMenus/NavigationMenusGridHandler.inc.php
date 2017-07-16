@@ -73,30 +73,30 @@ class NavigationMenusGridHandler extends GridHandler {
 		$navigationMenuCellProvider = new NavigationMenusGridCellProvider();
 
 		$this->addColumn(
-		    new GridColumn('title',
-		        'common.title',
-		        null,
-		        null,
-		        $navigationMenuCellProvider
-		    )
+			new GridColumn('title',
+				'common.title',
+				null,
+				null,
+				$navigationMenuCellProvider
+			)
 		);
 
 		$this->addColumn(
 			new GridColumn('itemCount',
 				'common.count',
-		        null,
-		        null,
-		        $navigationMenuCellProvider
-		    )
+				null,
+				null,
+				$navigationMenuCellProvider
+			)
 		);
 
 		$this->addColumn(
 			new GridColumn('default',
 				'common.default',
-		        null,
-		        null,
-		        $navigationMenuCellProvider
-		    )
+				null,
+				null,
+				$navigationMenuCellProvider
+			)
 		);
 
 		// Load language components

@@ -31,7 +31,7 @@ class NavigationMenu extends DataObject {
 	 * @return int
 	 */
 	function getDefault() {
-	    return $this->getData('is_default');
+		return $this->getData('is_default');
 	}
 
 	/**
@@ -39,7 +39,7 @@ class NavigationMenu extends DataObject {
 	 * @param $default int
 	 */
 	function setDefault($default) {
-	    $this->setData('is_default', $default);
+		$this->setData('is_default', $default);
 	}
 
 	/**

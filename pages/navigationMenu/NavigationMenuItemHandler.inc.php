@@ -30,7 +30,6 @@ class NavigationMenuItemHandler extends Handler {
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 
-
 	//
 	// Public handler methods.
 	//

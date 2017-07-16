@@ -15,7 +15,7 @@
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
-	    $('#navigationMenuSettingsForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
+		$('#navigationMenuSettingsForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
 	{rdelim});
 </script>
 
@@ -26,7 +26,7 @@
 	{url|assign:navigationMenusGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.navigationMenus.NavigationMenusGridHandler" op="fetchGrid" escape=false}
 	{load_url_in_div id="navigationMenuGridContainer" url=$navigationMenusGridUrl}
 
-    {url|assign:navigationMenuItemsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.navigationMenus.NavigationMenuItemsGridHandler" op="fetchGrid" escape=false}
+	{url|assign:navigationMenuItemsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.navigationMenus.NavigationMenuItemsGridHandler" op="fetchGrid" escape=false}
 	{load_url_in_div id="navigationMenuItemsGridContainer" url=$navigationMenuItemsGridUrl}
 
 </form>

@@ -53,13 +53,13 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	 * @return NavigationMenuItemAssignment
 	 */
 	public function _fromRow($row) {
-		$assignnment = $this->newDataObject();
-		$assignnment->setMenuId($row['navigation_menu_id']);
-		$assignnment->setMenuItemId($row['navigation_menu_item_id']);
-		$assignnment->setParentId($row['parent_id']);
-		$assignnment->setSequence($row['seq']);
+		$assignment = $this->newDataObject();
+		$assignment->setMenuId($row['navigation_menu_id']);
+		$assignment->setMenuItemId($row['navigation_menu_item_id']);
+		$assignment->setParentId($row['parent_id']);
+		$assignment->setSequence($row['seq']);
 
-		return $assignnment;
+		return $assignment;
 	}
 
 	/**

@@ -236,8 +236,6 @@ class NavigationMenuDAO extends DAO {
 		while ($navigationMenu = $navigationMenus->next()) {
 			$this->deleteObject($navigationMenu);
 		}
-
-		return true;
 	}
 
 	/**

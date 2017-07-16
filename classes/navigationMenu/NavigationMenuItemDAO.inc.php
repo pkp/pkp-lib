@@ -19,13 +19,6 @@ import('lib.pkp.classes.navigationMenu.NavigationMenuItem');
 
 class NavigationMenuItemDAO extends DAO {
 	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
-	/**
 	 * Retrieve a navigation menu item by ID.
 	 * @param $navigationMenuItemId int
 	 * @return NavigationMenuItem

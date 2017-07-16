@@ -17,15 +17,6 @@ import('lib.pkp.classes.controllers.grid.GridRow');
 import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 
 class NavigationMenuItemsGridRow extends GridRow {
-
-	/**
-	 * Constructor
-	 */
-	function __construct($navigationMenuIdParent) {
-		parent::__construct();
-	}
-
-
 	//
 	// Overridden methods from GridRow
 	//

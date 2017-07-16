@@ -23,13 +23,6 @@ class NavigationMenu extends DataObject {
 	/** @var $menuTree array Hierarchical array of NavigationMenuItems */
 	var $menuTree = null;
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
 	//
 	// Get/set methods
 	//

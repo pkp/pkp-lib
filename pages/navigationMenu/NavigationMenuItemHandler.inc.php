@@ -35,15 +35,6 @@ class NavigationMenuItemHandler extends Handler {
 	// Public handler methods.
 	//
 	/**
-	 * Show NavigationMenuItem content page.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return string
-	 */
-	function index($args, $request) {
-	}
-
-	/**
 	 * View NavigationMenuItem content preview page.
 	 * @param $args array
 	 * @param $request PKPRequest

@@ -531,6 +531,7 @@
 	<message key="plugins.importexport.common.error.unknownUploader">Unknown uploader {$param}</message>
 	<message key="plugins.importexport.common.error.temporaryFileFailed">Temporary file {$dest} could not be created from {$source}</message>
 	<message key="plugins.importexport.common.error.filesizeMismatch">The provided filesize "{$expected}" and the actual filesize "{$actual}" do not match</message>
+	<message key="plugins.importexport.common.error.duplicateRevisionForSubmission">The revision "{$revisionId}" for submission file "{$fileId}" would create a duplicate record</message>
 	<!-- native importexport keys -->
 	<message key="plugins.importexport.native.error.submissionFileImportFailed">The submission file could not be imported</message>
 </locale>

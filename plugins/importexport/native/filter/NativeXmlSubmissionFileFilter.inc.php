@@ -253,14 +253,23 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 			}
 		}
 
+		// if the same file is already inserted, take its DB file ID
+		$DBId = $deployment->getFileDBId($fileId);
+		if ($DBId) {
+			$submissionFile->setFileId($DBId);
+			$DBRevision = $deployment->getFileDBId($fileId, $revisionId);
+			// If both the file id and the revision id is duplicated, we cannot insert the record
+			if ($DBRevision) {
+				$errorOccured = true;
+				$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.duplicateRevisionForSubmission', array('fileId' => $fileId, 'revisionId' => $revisionId)));
+			}
+		}
+
 		if ($errorOccured) {
 			// if error occured, the file cannot be inserted into DB, becase
 			// genre, uploader and user group are required (e.g. at name generation).
 			$submissionFile = null;
 		} else {
-			// if the same file is already inserted, take its DB file ID
-			$DBId = $deployment->getFileDBId($fileId);
-			if ($DBId) $submissionFile->setFileId($DBId);
 			$insertedSubmissionFile = $submissionFileDao->insertObject($submissionFile, $filename, false);
 			$deployment->setFileDBId($fileId, $revisionId, $insertedSubmissionFile->getFileId());
 		}

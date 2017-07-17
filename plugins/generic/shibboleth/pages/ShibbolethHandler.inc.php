@@ -18,8 +18,10 @@ import('classes.handler.Handler');
 class ShibbolethHandler extends Handler {
 	/**
 	 * Login handler
+	 * 
 	 * @param $args array
 	 * @param $request Request
+	 * @return bool
 	 */
 	function shibLogin($args, $request) {
 		$plugin = $this->_getPlugin();
@@ -29,18 +31,20 @@ class ShibbolethHandler extends Handler {
 
 		// We rely on these headers being present.
 		if (!isset($_SERVER[$uin_header])) {
-			syslog(LOG_ERR, "Shibboleth plugin enabled, but not properly configured; failed to find $uin_header.");
+			syslog(LOG_ERR, "Shibboleth plugin enabled, but not properly configured; failed to find $uin_header");
 			Validation::logout();
 			Validation::redirectLogin();
 		}
 		if (!isset($_SERVER[$email_header])) {
-			syslog(LOG_ERR, "Shibboleth plugin enabled, but not properly configured; failed to find $email_header.");
+			syslog(LOG_ERR, "Shibboleth plugin enabled, but not properly configured; failed to find $email_header");
 			Validation::logout();
 			Validation::redirectLogin();
 		}
 
-		// The UIN must be set; otherwise login failed.
 		$uin = $_SERVER[$uin_header];
+		$user_email = $_SERVER[$email_header];
+
+		// The UIN must be set; otherwise login failed.
 		if ($uin == null) {
 			Validation::logout();
 			Validation::redirectLogin();
@@ -50,23 +54,39 @@ class ShibbolethHandler extends Handler {
 		$userDao =& DAORegistry::getDAO('UserDAO');
 		$user =& $userDao->getUserByAuthStr($uin, true);
 		if (isset($user)) {
-			syslog(LOG_INFO, "Shibboleth located returning user $uin.");
-			// @@@ TODO do the login
+			syslog(LOG_INFO, "Shibboleth located returning user $uin");
+		} else {
+			// We use the e-mail as a key.
+			$user =& $userDao->getUserByEmail($user_email);
 		}
 
-		// We use the e-mail as a key.
-		$user_email = $_SERVER[$email_header];
-		if (!isset($user)) {
-			$user =& $userDao->getUserByEmail($email);
+		if (isset($user)) {
+			syslog(LOG_INFO,"Shibboleth located returning email $user_email");
 
-			if (isset($user)) {
-				syslog(LOG_INFO, "Shibboleth located returning email $email.");
-			// @@@ TODO do the login
+			if ($user->getAuthStr() != "") {
+				syslog(
+					LOG_ERR,
+					"Shibboleth user with email $user_email already has UID"
+				);
+				return false;
 			}
+		} else {
+			// @@@ TODO register a new user
+			return false;
 		}
 
-		// @@@ TODO admin stuff
-		return true;
+		if (isset($user)) {
+			// @@@ TODO: admin privileges
+
+			$disabledReason = null;
+			Validation::registerUserSessions($user, $disabledReason);
+
+			// @@@ TODO: check disabled status
+
+			return $this->_redirectAfterLogin($request);
+		}
+
+		return false;
 	}
 
 	//
@@ -74,11 +94,28 @@ class ShibbolethHandler extends Handler {
 	//
 	/**
 	 * Get the Shibboleth plugin object
+	 * 
 	 * @return ShibbolethAuthPlugin
 	 */
 	function &_getPlugin() {
 		$plugin =& PluginRegistry::getPlugin('generic', SHIBBOLETH_PLUGIN_NAME);
 		return $plugin;
+	}
+
+	/**
+	 * @copydoc LoginHandler::_redirectAfterLogin
+	 */
+	function _redirectAfterLogin($request) {
+		$context = $this->getTargetContext($request);
+		// If there's a context, send them to the dashboard after login.
+		if ($context && $request->getUserVar('source') == '' && array_intersect(
+			array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_AUTHOR, ROLE_ID_REVIEWER, ROLE_ID_ASSISTANT),
+			(array) $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES)
+		)) {
+			return $request->redirect($context->getPath(), 'dashboard');
+		}
+
+		$request->redirectHome();
 	}
 }
 ?>

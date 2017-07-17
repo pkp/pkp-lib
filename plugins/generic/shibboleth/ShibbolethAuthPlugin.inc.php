@@ -18,10 +18,12 @@
 import('lib.pkp.classes.plugins.GenericPlugin');
 
 class ShibbolethAuthPlugin extends GenericPlugin {
-    // @@@ TODO: getSetting() should have local override that returns
-    // global settings if globally-enabled, regardless of context.
-    // Should also disable settings verb in local contexts if globally
-    // enabled.
+	// @@@ TODO: ubiquitous UI hooks to override login paths everywhere
+
+	// @@@ TODO: getSetting() should have local override that returns
+	// global settings if globally-enabled, regardless of context.
+	// Should also disable settings verb in local contexts if globally
+	// enabled.
 
 	/** @var int */
 	var $_contextId;

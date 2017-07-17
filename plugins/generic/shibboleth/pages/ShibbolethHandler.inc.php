@@ -16,6 +16,12 @@
 import('classes.handler.Handler');
 
 class ShibbolethHandler extends Handler {
+	/** @var ShibbolethAuthPlugin */
+	var $_plugin;
+
+	/** @var int */
+	var $_contextId;
+
 	/**
 	 * Login handler
 	 * 
@@ -24,21 +30,29 @@ class ShibbolethHandler extends Handler {
 	 * @return bool
 	 */
 	function shibLogin($args, $request) {
-		$plugin = $this->_getPlugin();
-		$contextId = $plugin->getCurrentContextId();
-		$uin_header = $plugin->getSetting($contextId, 'shibbolethHeaderUin');
-		$email_header = $plugin->getSetting($contextId, 'shibbolethHeaderEmail');
+		$this->_$plugin = $this->_getPlugin();
+		$this->_contextId = $this->_plugin->getCurrentContextId();
+		$uin_header = $this->_plugin->getSetting(
+			$this->_contextId,
+			'shibbolethHeaderUin'
+		);
+		$email_header = $this->_plugin->getSetting(
+			$this->_contextId,
+			'shibbolethHeaderEmail'
+		);
 
 		// We rely on these headers being present.
 		if (!isset($_SERVER[$uin_header])) {
 			syslog(LOG_ERR, "Shibboleth plugin enabled, but not properly configured; failed to find $uin_header");
 			Validation::logout();
 			Validation::redirectLogin();
+			return false;
 		}
 		if (!isset($_SERVER[$email_header])) {
 			syslog(LOG_ERR, "Shibboleth plugin enabled, but not properly configured; failed to find $email_header");
 			Validation::logout();
 			Validation::redirectLogin();
+			return false;
 		}
 
 		$uin = $_SERVER[$uin_header];
@@ -48,6 +62,7 @@ class ShibbolethHandler extends Handler {
 		if ($uin == null) {
 			Validation::logout();
 			Validation::redirectLogin();
+			return false;
 		}
 
 		// Try to locate the user by UIN.
@@ -68,20 +83,35 @@ class ShibbolethHandler extends Handler {
 					LOG_ERR,
 					"Shibboleth user with email $user_email already has UID"
 				);
+				Validation::logout();
+				Validation::redirectLogin();
 				return false;
-			}
+			} else {
+                $user->setAuthStr($uin);
+                $userDao->updateObject($user);
+            }
 		} else {
 			// @@@ TODO register a new user
 			return false;
 		}
 
 		if (isset($user)) {
-			// @@@ TODO: admin privileges
+			$this->_checkAdminStatus($user);
 
 			$disabledReason = null;
-			Validation::registerUserSessions($user, $disabledReason);
+			$success = Validation::registerUserSession($user, $disabledReason);
 
-			// @@@ TODO: check disabled status
+			if (!$success) {
+				// @@@ TODO: present user with disabled reason
+				syslog(
+					LOG_ERR,
+					"Disabled user $uin attempted Shibboleth login" .
+						($disabledReason == null? "" : ": $disabledReason")
+				);
+				Validation::logout();
+				Validation::redirectLogin();
+				return false;
+			}
 
 			return $this->_redirectAfterLogin($request);
 		}
@@ -103,19 +133,63 @@ class ShibbolethHandler extends Handler {
 	}
 
 	/**
+	 * Check if the user should be an admin according to the
+	 * Shibboleth plugin settings, and adjust the User object
+	 * accordingly.
+	 * 
+	 * @param $user User
+	 */
+	function _checkAdminStatus($user) {
+		$adminsStr = $this->_plugin->getSetting(
+			$this->_contextId,
+			'shibbolethAdminUins'
+		);
+		$admins = explode(' ', $adminStr);
+
+		$uin = $user->getAuthStr();
+		if ($uin == null || $uin == "") {
+			return;
+		}
+
+		$userId = $user->getId();
+		$adminFound = array_search($uin, $admins); // note by UIN, not UserID
+
+		$userGroupDao =& DAORegistry::getDAO('UserGroupDAO');
+		$adminGroup = $userGroupDao->getByRoleId(0, ROLE_ID_SITE_ADMIN);
+		$adminId = $adminGroup->getId();
+
+		$userGroupAssignmentDao =& DAORegistry::getDAO('UserGroupAssignmentDAO');
+
+		// If they are in the list of users who should be admins
+		if ($adminFound !== false) {
+			// and if they are not already an admin
+			if(!$userGroupAssignmentDao->userInGroup($userId, $adminId)) {
+				syslog(LOG_INFO, "Shibboleth assigning admin to $uin");
+				$userGroupAssignmentDao->assignUserToGroup($userId, $adminId);
+			}
+		} else {
+			// If they are not in the admin list - then be sure they
+			// are not an admin in the role table
+			syslog(LOG_ERR, "removing admin for $uin");
+			$userGroupAssignmentDao->removeUserFromGroup($userId, $adminId, 0);
+		}
+	}
+
+	/**
 	 * @copydoc LoginHandler::_redirectAfterLogin
 	 */
 	function _redirectAfterLogin($request) {
 		$context = $this->getTargetContext($request);
 		// If there's a context, send them to the dashboard after login.
-		if ($context && $request->getUserVar('source') == '' && array_intersect(
-			array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_AUTHOR, ROLE_ID_REVIEWER, ROLE_ID_ASSISTANT),
-			(array) $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES)
-		)) {
+		if ($context && $request->getUserVar('source') == '' &&
+			array_intersect(
+				array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_AUTHOR, ROLE_ID_REVIEWER, ROLE_ID_ASSISTANT),
+				(array) $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES)
+			)) {
 			return $request->redirect($context->getPath(), 'dashboard');
 		}
 
-		$request->redirectHome();
+		return $request->redirectHome();
 	}
 }
 ?>

@@ -54,9 +54,9 @@ mkdir ${FILESDIR}
 
 # Run data build suite
 if [[ "$TEST" == "mysql" ]]; then
-	./lib/pkp/tools/runAllTests.sh -bH
+	./lib/pkp/tools/runAllTests.sh -bHd
 else
-	./lib/pkp/tools/runAllTests.sh -b
+	./lib/pkp/tools/runAllTests.sh -bd
 fi
 
 # Dump the completed database.
@@ -69,7 +69,7 @@ fi
 # Run test suite.
 sudo rm -f cache/*.php
 if [[ "$DBTYPE" == "MySQL" ]]; then
-	./lib/pkp/tools/runAllTests.sh -CcPpfH
+	./lib/pkp/tools/runAllTests.sh -CcPpfHd
 else
-	./lib/pkp/tools/runAllTests.sh -CcPpf
+	./lib/pkp/tools/runAllTests.sh -CcPpfd
 fi

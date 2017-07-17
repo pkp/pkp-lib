@@ -23,6 +23,7 @@ class ShibbolethHandler extends Handler {
 	 */
 	function shibLogin($args, $request) {
 		$plugin = $this->_getPlugin();
+		$contextId = $plugin->getCurrentContextId();
 		$uin_header = $plugin->getSetting($contextId, 'shibbolethHeaderUin');
 		$email_header = $plugin->getSetting($contextId, 'shibbolethHeaderEmail');
 
@@ -45,27 +46,27 @@ class ShibbolethHandler extends Handler {
 			Validation::redirectLogin();
 		}
 
-        // Try to locate the user by UIN.
+		// Try to locate the user by UIN.
 		$userDao =& DAORegistry::getDAO('UserDAO');
 		$user =& $userDao->getUserByAuthStr($uin, true);
-        if (isset($user)) {
-            syslog(LOG_INFO, "Shibboleth located returning user $uin.");
-            // @@@ TODO do the login
-        }
+		if (isset($user)) {
+			syslog(LOG_INFO, "Shibboleth located returning user $uin.");
+			// @@@ TODO do the login
+		}
 
 		// We use the e-mail as a key.
 		$user_email = $_SERVER[$email_header];
-        if (!isset($user)) {
-            $user =& $userDao=>getUserByEmail($email);
+		if (!isset($user)) {
+			$user =& $userDao->getUserByEmail($email);
 
-            if (isset($user)) {
-                syslog(LOG_INFO, "Shibboleth located returning email $email.");
-            // @@@ TODO do the login
-            }
-        }
+			if (isset($user)) {
+				syslog(LOG_INFO, "Shibboleth located returning email $email.");
+			// @@@ TODO do the login
+			}
+		}
 
-        // @@@ TODO admin stuff
-        return true;
+		// @@@ TODO admin stuff
+		return true;
 	}
 
 	//

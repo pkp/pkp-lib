@@ -13,6 +13,6 @@
 <version>
 	<application>ShibbolethAuthPlugin</application>
 	<type>plugins.generic</type>
-	<release>0.0.2.0</release>
-	<date>2017-07-17</date>
+	<release>0.0.2.1</release>
+	<date>2017-07-18</date>
 </version>

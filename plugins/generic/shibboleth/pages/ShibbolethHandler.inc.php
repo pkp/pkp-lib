@@ -152,10 +152,9 @@ class ShibbolethHandler extends Handler {
 		}
 
 		$userId = $user->getId();
-		$adminFound = array_search($uin, $admins); // note by UIN, not UserID
+		$adminFound = array_search($uin, $admins);
 
 		$userGroupDao =& DAORegistry::getDAO('UserGroupDAO');
-		$userGroupAssignmentDao =& DAORegistry::getDAO('UserGroupAssignmentDAO');
 
 		// should be unique
 		$adminGroup = $userGroupDao->getByRoleId(0, ROLE_ID_SITE_ADMIN)->next();
@@ -167,13 +166,13 @@ class ShibbolethHandler extends Handler {
 			// and if they are not already an admin
 			if(!$userGroupDao->userInGroup($userId, $adminId)) {
 				syslog(LOG_INFO, "Shibboleth assigning admin to $uin");
-				$userGroupAssignmentDao->assignUserToGroup($userId, $adminId);
+				$userGroupDao->assignUserToGroup($userId, $adminId);
 			}
 		} else {
 			// If they are not in the admin list - then be sure they
 			// are not an admin in the role table
 			syslog(LOG_ERR, "removing admin for $uin");
-			$userGroupAssignmentDao->removeUserFromGroup($userId, $adminId, 0);
+			$userGroupDao->removeUserFromGroup($userId, $adminId, 0);
 		}
 	}
 

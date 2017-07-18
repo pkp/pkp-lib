@@ -32,10 +32,10 @@ class MaintenanceForm extends Form {
 	/**
 	 * @copydoc Form::display
 	 */
-	function display($template = null) {
+	function display($request = null, $template = null) {
 		$templateMgr = TemplateManager::getManager($this->_request);
 		$templateMgr->assign('version', VersionCheck::getCurrentCodeVersion());
-		parent::display($this->_request, $template);
+		parent::display($request, $template);
 	}
 
 	/**

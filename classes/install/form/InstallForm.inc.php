@@ -98,9 +98,9 @@ class InstallForm extends MaintenanceForm {
 	/**
 	 * @copydoc Form::display
 	 */
-	function display($template = null) {
+	function display($request, $template = null) {
 		import('lib.pkp.classes.xslt.XSLTransformer');
-		$templateMgr = TemplateManager::getManager($this->_request);
+		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
 			'localeOptions' => $this->supportedLocales,
 			'localesComplete' => $this->localesComplete,
@@ -118,7 +118,7 @@ class InstallForm extends MaintenanceForm {
 			'phpVersion' => PHP_VERSION,
 		));
 
-		parent::display();
+		parent::display($request, $template);
 	}
 
 	/**

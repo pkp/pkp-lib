@@ -74,26 +74,26 @@ class ShibbolethHandler extends Handler {
 			// We use the e-mail as a key.
 			$user =& $userDao->getUserByEmail($user_email);
 
-            if (isset($user)) {
-                syslog(LOG_INFO, "Shibboleth located returning email $user_email");
+			if (isset($user)) {
+				syslog(LOG_INFO, "Shibboleth located returning email $user_email");
 
-                if ($user->getAuthStr() != "") {
-                    syslog(
-                        LOG_ERR,
-                        "Shibboleth user with email $user_email already has UID"
-                    );
-                    Validation::logout();
-                    Validation::redirectLogin();
-                    return false;
-                } else {
-                    $user->setAuthStr($uin);
-                    $userDao->updateObject($user);
-                }
-            } else {
-                // @@@ TODO register a new user
-                return false;
-            }
-        }
+				if ($user->getAuthStr() != "") {
+					syslog(
+						LOG_ERR,
+						"Shibboleth user with email $user_email already has UID"
+					);
+					Validation::logout();
+					Validation::redirectLogin();
+					return false;
+				} else {
+					$user->setAuthStr($uin);
+					$userDao->updateObject($user);
+				}
+			} else {
+				// @@@ TODO register a new user
+				return false;
+			}
+		}
 
 		if (isset($user)) {
 			$this->_checkAdminStatus($user);

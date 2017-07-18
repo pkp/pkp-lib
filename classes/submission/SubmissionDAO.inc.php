@@ -356,12 +356,15 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		));
 
 		$order = isset($params['order']) ? $params['order'] : 'DESC';
-		if (!is_null($params['orderBy']) && $params['orderBy'] === 'id') {
-			$query->orderBy('s.submission_id ' . $order);
-		} elseif (!is_null($params['orderBy']) && $params['orderBy'] === 'lastModified') {
-			$query->orderBy('s.last_modified ' . $order);
-		} else {
-			$query->orderBy('s.date_submitted ' . $order);
+		switch ($order) {
+			case 'id':
+				$query->orderBy('s.submission_id ' . $order);
+				break;
+			case 'last_modified':
+				$query->orderBy('s.last_modified ' . $order);
+				break;
+			default:
+				$query->orderBy('s.date_submitted ' . $order);
 		}
 
 		if (!is_null($params['status'])) {
@@ -686,7 +689,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @param $stageId int? Optional stage ID to limit results
 	 * @param $sectionId int? Optional section ID to limit results
 	 * @param $rangeInfo DBResultRange optional
-	 * @param $search string General search parameters
+	 * @param $search string|null General search parameters
 	 * @return array Submissions
 	 */
 	function getUnpublishedByUserId($userId, $contextId = null, $submissionId = null, $title = null, $stageId = null, $sectionId = null, $rangeInfo = null, $search = null) {
@@ -708,26 +711,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		if ($contextId) $params[] = (int) $contextId;
 		if ($sectionId) $params[] = (int) $sectionId;
 
-		$searchWhere = '';
-		if ($search) {
-			$words = explode(" ", trim($search));
-			if (count($words)) {
-				$searchWhere = ' AND (';
-				$searchClauses = array();
-				foreach($words as $word) {
-					$clause = '(';
-					$clause .= '(ss.setting_name = ? AND ss.setting_value LIKE ?)';
-					$params[] = 'title';
-					$params[] = '%' . $word . '%';
-					$clause .= ' OR (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)';
-					$params[] = '%' . $word . '%';
-					$params[] = '%' . $word . '%';
-					$params[] = '%' . $word . '%';
-					$searchClauses[] = $clause . ')';
-				}
-				$searchWhere .= join(' AND ', $searchClauses) . ')';
-			}
-		}
+		$searchWhere = $this->getSearchWhere($search);
 
 		$result = $this->retrieveRange(
 			'SELECT	s.*, ps.date_published,
@@ -855,26 +839,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		if ($stageId) $params[] = (int) $stageId;
 		if ($sectionId) $params[] = (int) $sectionId;
 
-		$searchWhere = '';
-		if ($search) {
-			$words = explode(" ", trim($search));
-			if (count($words)) {
-				$searchWhere = ' AND (';
-				$searchClauses = array();
-				foreach($words as $word) {
-					$clause = '(';
-					$clause .= '(ss.setting_name = ? AND ss.setting_value LIKE ?)';
-					$params[] = 'title';
-					$params[] = '%' . $word . '%';
-					$clause .= ' OR (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)';
-					$params[] = '%' . $word . '%';
-					$params[] = '%' . $word . '%';
-					$params[] = '%' . $word . '%';
-					$searchClauses[] = $clause . ')';
-				}
-				$searchWhere .= join(' AND ', $searchClauses) . ')';
-			}
-		}
+		$searchWhere = $this->getSearchWhere($search);
 
 		$result = $this->retrieveRange(
 			'SELECT	s.*, ps.date_published,
@@ -943,26 +908,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		if ($stageId) $params[] = (int) $stageId;
 		if ($sectionId) $params[] = (int) $sectionId;
 
-		$searchWhere = '';
-		if ($search) {
-			$words = explode(" ", trim($search));
-			if (count($words)) {
-				$searchWhere = ' AND (';
-				$searchClauses = array();
-				foreach($words as $word) {
-					$clause = '(';
-					$clause .= '(ss.setting_name = ? AND ss.setting_value LIKE ?)';
-					$params[] = 'title';
-					$params[] = '%' . $word . '%';
-					$clause .= ' OR (ra.submission_id IS NULL AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?))';
-					$params[] = '%' . $word . '%';
-					$params[] = '%' . $word . '%';
-					$params[] = '%' . $word . '%';
-					$searchClauses[] = $clause . ')';
-				}
-				$searchWhere .= join(' AND ', $searchClauses) . ')';
-			}
-		}
+		$searchWhere = $this->getSearchWhere($search);
 
 		$result = $this->retrieveRange($sql =
 			'SELECT s.*, ps.date_published,
@@ -1032,26 +978,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		if ($sectionId) $params[] = (int) $sectionId;
 		if ($editor) array_push($params, (int) ROLE_ID_MANAGER, (int) ROLE_ID_SUB_EDITOR, $editorQuery = '%' . $editor . '%', $editorQuery);
 
-		$searchWhere = '';
-		if ($search) {
-			$words = explode(" ", trim($search));
-			if (count($words)) {
-				$searchWhere = ' AND (';
-				$searchClauses = array();
-				foreach($words as $word) {
-					$clause = '(';
-					$clause .= '(ss.setting_name = ? AND ss.setting_value LIKE ?)';
-					$params[] = 'title';
-					$params[] = '%' . $word . '%';
-					$clause .= ' OR (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)';
-					$params[] = '%' . $word . '%';
-					$params[] = '%' . $word . '%';
-					$params[] = '%' . $word . '%';
-					$searchClauses[] = $clause . ')';
-				}
-				$searchWhere .= join(' AND ', $searchClauses) . ')';
-			}
-		}
+		$searchWhere = $this->getSearchWhere($search);
 
 		$result = $this->retrieveRange(
 			'SELECT	s.*, ps.date_published,
@@ -1114,6 +1041,38 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 			);
 		}
 		$this->flushCache();
+	}
+
+	/**
+	 * Helper function to collect the SQL WHERE statement for searching
+	 * submissions by word(s)
+	 *
+	 * @param $phrase string The search phrase. One or more words.
+	 * @return string
+	 */
+	public function getSearchWhere($phrase) {
+		$searchWhere = '';
+		if ($search) {
+			$words = explode(" ", trim($phrase));
+			if (count($words)) {
+				$searchWhere = ' AND (';
+				$searchClauses = array();
+				foreach($words as $word) {
+					$clause = '(';
+					$clause .= '(ss.setting_name = ? AND ss.setting_value LIKE ?)';
+					$params[] = 'title';
+					$params[] = '%' . $word . '%';
+					$clause .= ' OR (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)';
+					$params[] = '%' . $word . '%';
+					$params[] = '%' . $word . '%';
+					$params[] = '%' . $word . '%';
+					$searchClauses[] = $clause . ')';
+				}
+				$searchWhere .= join(' AND ', $searchClauses) . ')';
+			}
+		}
+
+		return $searchWhere;
 	}
 
 

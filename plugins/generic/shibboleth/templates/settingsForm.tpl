@@ -22,15 +22,15 @@
 	<div id="description">{translate key="plugins.generic.shibboleth.manager.settings.description"}</div>
 
 	{fbvFormArea id="shibbolethSettingsFormArea"}
-		{fbvElement type="text" name="shibbolethWayfUrl" value=$shibbolethWayfUrl label="plugins.generic.shibboleth.manager.settings.shibbolethWayfUrl"}
-		{fbvElement type="text" name="shibbolethHeaderUin" value=$shibbolethHeaderUin label="plugins.generic.shibboleth.manager.settings.shibbolethHeaderUin"}
-		{fbvElement type="text" name="shibbolethHeaderFirstName" value=$shibbolethHeaderFirstName label="plugins.generic.shibboleth.manager.settings.shibbolethHeaderFirstName"}
-		{fbvElement type="text" name="shibbolethHeaderLastName" value=$shibbolethHeaderLastName label="plugins.generic.shibboleth.manager.settings.shibbolethHeaderLastName"}
-		{fbvElement type="text" name="shibbolethHeaderInitials" value=$shibbolethHeaderInitials label="plugins.generic.shibboleth.manager.settings.shibbolethHeaderInitials"}
-		{fbvElement type="text" name="shibbolethHeaderEmail" value=$shibbolethHeaderEmail label="plugins.generic.shibboleth.manager.settings.shibbolethHeaderEmail"}
-		{fbvElement type="text" name="shibbolethHeaderPhone" value=$shibbolethHeaderPhone label="plugins.generic.shibboleth.manager.settings.shibbolethHeaderPhone"}
-		{fbvElement type="text" name="shibbolethHeaderMailing" value=$shibbolethHeaderMailing label="plugins.generic.shibboleth.manager.settings.shibbolethHeaderMailing"}
-		{fbvElement type="text" name="shibbolethAdminUins" value=$shibbolethAdminUins label="plugins.generic.shibboleth.manager.settings.shibbolethAdminUins"}
+		{fbvElement id="shibbolethWayfUrlSetting" type="text" name="shibbolethWayfUrl" value=$shibbolethWayfUrl label="plugins.generic.shibboleth.manager.settings.shibbolethWayfUrl"}
+		{fbvElement id="shibbolethHeaderUinSetting" type="text" name="shibbolethHeaderUin" value=$shibbolethHeaderUin label="plugins.generic.shibboleth.manager.settings.shibbolethHeaderUin"}
+		{fbvElement id="shibbolethHeaderFirstNameSetting" type="text" name="shibbolethHeaderFirstName" value=$shibbolethHeaderFirstName label="plugins.generic.shibboleth.manager.settings.shibbolethHeaderFirstName"}
+		{fbvElement id="shibbolethHeaderLastNameSetting" type="text" name="shibbolethHeaderLastName" value=$shibbolethHeaderLastName label="plugins.generic.shibboleth.manager.settings.shibbolethHeaderLastName"}
+		{fbvElement id="shibbolethHeaderInitialsSetting" type="text" name="shibbolethHeaderInitials" value=$shibbolethHeaderInitials label="plugins.generic.shibboleth.manager.settings.shibbolethHeaderInitials"}
+		{fbvElement id="shibbolethHeaderEmailSetting" type="text" name="shibbolethHeaderEmail" value=$shibbolethHeaderEmail label="plugins.generic.shibboleth.manager.settings.shibbolethHeaderEmail"}
+		{fbvElement id="shibbolethHeaderPhoneSetting" type="text" name="shibbolethHeaderPhone" value=$shibbolethHeaderPhone label="plugins.generic.shibboleth.manager.settings.shibbolethHeaderPhone"}
+		{fbvElement id="shibbolethHeaderMailingSetting" type="text" name="shibbolethHeaderMailing" value=$shibbolethHeaderMailing label="plugins.generic.shibboleth.manager.settings.shibbolethHeaderMailing"}
+		{fbvElement id="shibbolethAdminUinsSetting" type="text" name="shibbolethAdminUins" value=$shibbolethAdminUins label="plugins.generic.shibboleth.manager.settings.shibbolethAdminUins"}
 	{/fbvFormArea}
 
 	{fbvFormButtons}

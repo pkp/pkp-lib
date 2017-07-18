@@ -80,7 +80,7 @@ class ScheduledTaskHelper {
 	 * @param $frequency XMLNode
 	 * @return string
 	 */
-	function checkFrequency($className, $frequency) {
+	static function checkFrequency($className, $frequency) {
 		$isValid = true;
 		$taskDao = DAORegistry::getDAO('ScheduledTaskDAO'); /* @var $taskDao ScheduledTaskDAO */
 		$lastRunTime = $taskDao->getLastRunTime($className);
@@ -88,14 +88,14 @@ class ScheduledTaskHelper {
 		// Check day of week
 		$dayOfWeek = $frequency->getAttribute('dayofweek');
 		if (isset($dayOfWeek)) {
-			$isValid = ScheduledTaskHelper::_isInRange($dayOfWeek, (int)date('w'), $lastRunTime, 'day', strtotime('-1 week'));
+			$isValid = self::_isInRange($dayOfWeek, (int)date('w'), $lastRunTime, 'day', strtotime('-1 week'));
 		}
 
 		if ($isValid) {
 			// Check month
 			$month = $frequency->getAttribute('month');
 			if (isset($month)) {
-				$isValid = ScheduledTaskHelper::_isInRange($month, (int)date('n'), $lastRunTime, 'month', strtotime('-1 year'));
+				$isValid = self::_isInRange($month, (int)date('n'), $lastRunTime, 'month', strtotime('-1 year'));
 			}
 		}
 
@@ -103,7 +103,7 @@ class ScheduledTaskHelper {
 			// Check day
 			$day = $frequency->getAttribute('day');
 			if (isset($day)) {
-				$isValid = ScheduledTaskHelper::_isInRange($day, (int)date('j'), $lastRunTime, 'day', strtotime('-1 month'));
+				$isValid = self::_isInRange($day, (int)date('j'), $lastRunTime, 'day', strtotime('-1 month'));
 			}
 		}
 
@@ -111,7 +111,7 @@ class ScheduledTaskHelper {
 			// Check hour
 			$hour = $frequency->getAttribute('hour');
 			if (isset($hour)) {
-				$isValid = ScheduledTaskHelper::_isInRange($hour, (int)date('G'), $lastRunTime, 'hour', strtotime('-1 day'));
+				$isValid = self::_isInRange($hour, (int)date('G'), $lastRunTime, 'hour', strtotime('-1 day'));
 			}
 		}
 
@@ -119,7 +119,7 @@ class ScheduledTaskHelper {
 			// Check minute
 			$minute = $frequency->getAttribute('minute');
 			if (isset($minute)) {
-				$isValid = ScheduledTaskHelper::_isInRange($minute, (int)date('i'), $lastRunTime, 'min', strtotime('-1 hour'));
+				$isValid = self::_isInRange($minute, (int)date('i'), $lastRunTime, 'min', strtotime('-1 hour'));
 			}
 		}
 
@@ -228,7 +228,7 @@ class ScheduledTaskHelper {
 	 * @param $cutoffTimestamp int value will be considered valid if older than this
 	 * @return boolean
 	 */
-	private function _isInRange($rangeStr, $currentValue, $lastTimestamp, $timeCompareStr, $cutoffTimestamp) {
+	private static function _isInRange($rangeStr, $currentValue, $lastTimestamp, $timeCompareStr, $cutoffTimestamp) {
 		$isValid = false;
 		$rangeArray = explode(',', $rangeStr);
 
@@ -248,7 +248,7 @@ class ScheduledTaskHelper {
 
 			} else if (preg_match('/^(\d*)\-(\d*)$/', $rangeArray[$i], $matches)) {
 				// Is a range
-				$isValid = ScheduledTaskHelper::_isInNumericRange($currentValue, (int)$matches[1], (int)$matches[2]);
+				$isValid = self::_isInNumericRange($currentValue, (int)$matches[1], (int)$matches[2]);
 
 			} else if (preg_match('/^(.+)\/(\d+)$/', $rangeArray[$i], $matches)) {
 				// Is a range with a skip factor
@@ -259,7 +259,7 @@ class ScheduledTaskHelper {
 					$isValid = true;
 
 				} else if (preg_match('/^(\d*)\-(\d*)$/', $skipRangeStr, $matches)) {
-					$isValid = ScheduledTaskHelper::_isInNumericRange($currentValue, (int)$matches[1], (int)$matches[2]);
+					$isValid = self::_isInNumericRange($currentValue, (int)$matches[1], (int)$matches[2]);
 				}
 
 				if ($isValid) {
@@ -279,7 +279,7 @@ class ScheduledTaskHelper {
 	 * @param $max int
 	 * @return boolean
 	 */
-	private function _isInNumericRange($value, $min, $max) {
+	private static function _isInNumericRange($value, $min, $max) {
 		return ($value >= $min && $value <= $max);
 	}
 

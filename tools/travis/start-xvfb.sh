@@ -23,7 +23,7 @@ sudo apt-get install -y cabextract ttf-mscorefonts-installer
 mkfontdir
 
 # Start Virtual Framebuffer to imitate a monitor.
-sh -e /etc/init.d/xvfb start
+/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16
 
 # Wait for xvfb to start.
 until xprop -root; do sleep 1; done

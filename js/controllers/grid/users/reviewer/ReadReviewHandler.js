@@ -15,11 +15,6 @@
  */
 (function($) {
 
-	/** @type {Object} */
-	$.pkp.controllers.grid.users.reviewer =
-			$.pkp.controllers.grid.users.reviewer || {};
-
-
 
 	/**
 	 * @constructor

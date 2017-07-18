@@ -20,11 +20,6 @@ import('lib.pkp.classes.plugins.GenericPlugin');
 class ShibbolethAuthPlugin extends GenericPlugin {
 	// @@@ TODO: ubiquitous UI hooks to override login paths everywhere
 
-	// @@@ TODO: getSetting() should have local override that returns
-	// global settings if globally-enabled, regardless of context.
-	// Should also disable settings verb in local contexts if globally
-	// enabled.
-
 	/** @var int */
 	var $_contextId;
 
@@ -41,7 +36,7 @@ class ShibbolethAuthPlugin extends GenericPlugin {
 	}
 
 	/**
-     * @copydoc Plugin::register()
+	 * @copydoc Plugin::register()
 	 */
 	function register($category, $path) {
 		$success = parent::register($category, $path);
@@ -57,21 +52,21 @@ class ShibbolethAuthPlugin extends GenericPlugin {
 	}
 
 	/**
-     * @copydoc LazyLoadPlugin::getName()
+	 * @copydoc LazyLoadPlugin::getName()
 	 */
 	function getName() {
 		return 'ShibbolethAuthPlugin';
 	}
 
 	/**
-     * @copydoc Plugin::getDisplayName()
+	 * @copydoc Plugin::getDisplayName()
 	 */
 	function getDisplayName() {
 		return __('plugins.generic.shibboleth.displayName');
 	}
 
 	/**
-     * @copydoc Plugin::getDescription()
+	 * @copydoc Plugin::getDescription()
 	 */
 	function getDescription() {
 		return __('plugins.generic.shibboleth.description');
@@ -127,24 +122,27 @@ class ShibbolethAuthPlugin extends GenericPlugin {
 		return parent::getTemplatePath($inCore) . 'templates/';
 	}
 
-    /**
-     * @copydoc Plugin::getSetting()
-     */
-    function getSetting($contextId, $name) {
-        return parent::getSetting($contextId, $name);
-    }
+	/**
+	 * @copydoc Plugin::getSetting()
+	 */
+	function getSetting($contextId, $name) {
+		if ($this->_globallyEnabled) {
+			return parent::getSetting(0, $name);
+		} else {
+			return parent::getSetting($contextId, $name);
+		}
+	}
 
 	/**
 	 * @copydoc Plugin::getActions()
 	 */
 	function getActions($request, $verb) {
-		$router = $request->getRouter();
-		$allowSettings = $this->getEnabled() && $this->getCanDisable();
-
-		if (!$allowSettings) {
+		// Don’t allow settings unless enabled in this context.
+		if (!$this->getEnabled() || !$this->getCanDisable()) {
 			return parent::getActions($request, $verb);
 		}
 
+		$router = $request->getRouter();
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
 		return array_merge(
 			array(
@@ -178,21 +176,21 @@ class ShibbolethAuthPlugin extends GenericPlugin {
 	// Public methods required to support lazy load.
 	//
 	/**
-     * @copydoc LazyLoadPlugin::getCanEnable()
+	 * @copydoc LazyLoadPlugin::getCanEnable()
 	 */
 	function getCanEnable() {
 		return !$this->_globallyEnabled || $this->_contextId == 0;
 	}
 
 	/**
-     * @copydoc LazyLoadPlugin::getCanDisable()
+	 * @copydoc LazyLoadPlugin::getCanDisable()
 	 */
 	function getCanDisable() {
 		return !$this->_globallyEnabled || $this->_contextId == 0;
 	}
 
 	/**
-     * @copydoc LazyLoadPlugin::getEnabled()
+	 * @copydoc LazyLoadPlugin::getEnabled()
 	 */
 	function getEnabled() {
 		return $this->_globallyEnabled ||
@@ -200,16 +198,16 @@ class ShibbolethAuthPlugin extends GenericPlugin {
 	}
 
 	/**
-     * @copydoc LazyLoadPlugin::setEnabled()
+	 * @copydoc LazyLoadPlugin::setEnabled()
 	 */
 	function setEnabled($enabled) {
 		$this->updateSetting($this->_contextId, 'enabled', $enabled, 'bool');
 	}
 
 
-    //
-    // Callback handler
-    // 
+	//
+	// Callback handler
+	// 
 	/**
 	 * Hook callback: register pages for each login method.
 	 * This URL is of the form: shibboleth/{$shibrequest}

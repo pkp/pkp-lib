@@ -32,34 +32,40 @@ class ShibbolethHandler extends Handler {
 	function shibLogin($args, $request) {
 		$this->_plugin = $this->_getPlugin();
 		$this->_contextId = $this->_plugin->getCurrentContextId();
-		$uin_header = $this->_plugin->getSetting(
+		$uinHeader = $this->_plugin->getSetting(
 			$this->_contextId,
 			'shibbolethHeaderUin'
 		);
-		$email_header = $this->_plugin->getSetting(
+		$emailHeader = $this->_plugin->getSetting(
 			$this->_contextId,
 			'shibbolethHeaderEmail'
 		);
 
 		// We rely on these headers being present.
-		if (!isset($_SERVER[$uin_header])) {
-			syslog(LOG_ERR, "Shibboleth plugin enabled, but not properly configured; failed to find $uin_header");
+		if (!isset($_SERVER[$uinHeader])) {
+			syslog(
+				LOG_ERR,
+				"Shibboleth plugin enabled, but not properly configured; failed to find $uinHeader"
+			);
 			Validation::logout();
 			Validation::redirectLogin();
 			return false;
 		}
-		if (!isset($_SERVER[$email_header])) {
-			syslog(LOG_ERR, "Shibboleth plugin enabled, but not properly configured; failed to find $email_header");
+		if (!isset($_SERVER[$emailHeader])) {
+			syslog(
+				LOG_ERR,
+				"Shibboleth plugin enabled, but not properly configured; failed to find $emailHeader"
+			);
 			Validation::logout();
 			Validation::redirectLogin();
 			return false;
 		}
 
-		$uin = $_SERVER[$uin_header];
-		$user_email = $_SERVER[$email_header];
+		$uin = $_SERVER[$uinHeader];
+		$userEmail = $_SERVER[$emailHeader];
 
 		// The UIN must be set; otherwise login failed.
-		if ($uin == null) {
+		if (is_null($uin)) {
 			Validation::logout();
 			Validation::redirectLogin();
 			return false;
@@ -72,15 +78,21 @@ class ShibbolethHandler extends Handler {
 			syslog(LOG_INFO, "Shibboleth located returning user $uin");
 		} else {
 			// We use the e-mail as a key.
-			$user =& $userDao->getUserByEmail($user_email);
+			if (empty($userEmail)) {
+				syslog(LOG_ERR, "Shibboleth failed to find UIN $uin and no email given.");
+				Validation::logout();
+				Validation::redirectLogin();
+				return false;
+			}
+			$user =& $userDao->getUserByEmail($userEmail);
 
 			if (isset($user)) {
-				syslog(LOG_INFO, "Shibboleth located returning email $user_email");
+				syslog(LOG_INFO, "Shibboleth located returning email $userEmail");
 
 				if ($user->getAuthStr() != "") {
 					syslog(
 						LOG_ERR,
-						"Shibboleth user with email $user_email already has UID"
+						"Shibboleth user with email $userEmail already has UID"
 					);
 					Validation::logout();
 					Validation::redirectLogin();
@@ -90,8 +102,7 @@ class ShibbolethHandler extends Handler {
 					$userDao->updateObject($user);
 				}
 			} else {
-				// @@@ TODO register a new user
-				return false;
+				$user = $this->_registerFromShibboleth();
 			}
 		}
 
@@ -106,7 +117,7 @@ class ShibbolethHandler extends Handler {
 				syslog(
 					LOG_ERR,
 					"Disabled user $uin attempted Shibboleth login" .
-						($disabledReason == null ? "" : ": $disabledReason")
+						(is_null($disabledReason) ? "" : ": $disabledReason")
 				);
 				Validation::logout();
 				Validation::redirectLogin();
@@ -147,7 +158,7 @@ class ShibbolethHandler extends Handler {
 		$admins = explode(' ', $adminsStr);
 
 		$uin = $user->getAuthStr();
-		if ($uin == null || $uin == "") {
+		if (empty($uin)) {
 			return;
 		}
 
@@ -159,7 +170,6 @@ class ShibbolethHandler extends Handler {
 		// should be unique
 		$adminGroup = $userGroupDao->getByRoleId(0, ROLE_ID_SITE_ADMIN)->next();
 		$adminId = $adminGroup->getId();
-
 
 		// If they are in the list of users who should be admins
 		if ($adminFound !== false) {
@@ -191,6 +201,113 @@ class ShibbolethHandler extends Handler {
 		}
 
 		return $request->redirectHome();
+	}
+
+	/**
+	 * Create a new user from the Shibboleth-provided information.
+	 * 
+	 * @return User
+	 */
+	function _registerFromShibboleth() {
+		$uinHeader = $this->_plugin->getSetting(
+			$this->_contextId,
+			'shibbolethHeaderUin'
+		);
+		$emailHeader = $this->_plugin->getSetting(
+			$this->_contextId,
+			'shibbolethHeaderEmail'
+		);
+		$firstNameHeader = $this->_plugin->getSetting(
+			$this->_contextId,
+			'shibbolethHeaderFirstName'
+		);
+		$lastNameHeader = $this->_plugin->getSetting(
+			$this->_contextId,
+			'shibbolethHeaderLastName'
+		);
+		$initialsHeader = $this->_plugin->getSetting(
+			$this->_contextId,
+			'shibbolethHeaderInitials'
+		);
+		$phoneHeader = $this->_plugin->getSetting(
+			$this->_contextId,
+			'shibbolethHeaderPhone'
+		);
+		$mailingHeader = $this->_plugin->getSetting(
+			$this->_contextId,
+			'shibbolethHeaderMailing'
+		);
+
+		// We rely on these headers being present.	Redundant with the
+		// login handler, but we need to check for more headers than
+		// these; better safe than sorry.
+		if (!isset($_SERVER[$uinHeader])) {
+			syslog(
+				LOG_ERR,
+				"Shibboleth plugin enabled, but not properly configured; failed to find $uinHeader"
+			);
+			Validation::logout();
+			Validation::redirectLogin();
+			return false;
+		}
+		if (!isset($_SERVER[$emailHeader])) {
+			syslog(
+				LOG_ERR,
+				"Shibboleth plugin enabled, but not properly configured; failed to find $emailHeader"
+			);
+			Validation::logout();
+			Validation::redirectLogin();
+			return false;
+		}
+
+		// required values
+		$uin = $_SERVER[$uinHeader];
+		$userEmail = $_SERVER[$emailHeader];
+		$userFirstName = $_SERVER[$firstNameHeader];
+		$userLastName = $_SERVER[$lastNameHeader];
+
+		if (empty($uin) || empty($userEmail) || empty($userFirstName) || empty($userLastName)) {
+			syslog(LOG_ERR, "Shibboleth failed to find required fields for new user");
+		}
+
+		// optional values
+		$userInitials = isset($_SERVER[$initialsHeader]) ? $_SERVER[$initialsHeader] : null;
+		$userPhone = isset($_SERVER[$phoneHeader]) ? $_SERVER[$phoneHeader] : null;
+		$userMailing = isset($_SERVER[$mailingHeader]) ? $_SERVER[$mailingHeader] : null;
+
+		$userDao =& DAORegistry::getDAO('UserDAO');
+		$user = $userDao->newDataObject();
+		$user->setAuthStr($uin);
+		$user->setUsername($userEmail);
+		$user->setEmail($userEmail);
+		$user->setFirstName($userFirstName);
+		$user->setLastName($userLastName);
+
+		if (!empty($userInitials)) {
+			$user->setInitials($userInitials);
+		}
+		if (!empty($userPhone)) {
+			$user->setPhone($userPhone);
+		}
+		if (!empty($userMailing)) {
+			$user->setMailingAddress($userMailing);
+		}
+
+		$user->setDateRegistered(Core::getCurrentDate());
+		$user->setPassword(
+			Validation::encryptCredentials(
+				Validation::generatePassword(40),
+				Validation::generatePassword(40)
+			)
+		);
+
+		$userDao->insertUser($user);
+		$userId = $user->getId();
+		if ($userId) {
+			return null;
+		} else {
+			return $user;
+		}
 	}
 }
 ?>

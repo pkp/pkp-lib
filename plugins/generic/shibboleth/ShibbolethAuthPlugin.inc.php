@@ -41,10 +41,7 @@ class ShibbolethAuthPlugin extends GenericPlugin {
 	}
 
 	/**
-	 * Called as a plugin is registered to the registry
-	 * @param $category String Name of category plugin was registered to
-	 * @return boolean True iff plugin initialized successfully; if false,
-	 * the plugin will not be registered.
+     * @copydoc Plugin::register()
 	 */
 	function register($category, $path) {
 		$success = parent::register($category, $path);
@@ -60,76 +57,31 @@ class ShibbolethAuthPlugin extends GenericPlugin {
 	}
 
 	/**
-	 * Hook callback: register pages for each login method.
-	 * This URL is of the form: shibboleth/{$shibrequest}
-	 * @see PKPPageRouter::route()
-	 */
-	function handleRequest($hookName, $params) {
-		$page = $params[0];
-		if ($this->getEnabled() && $page == 'shibboleth') {
-			$this->import('pages/ShibbolethHandler');
-			define('HANDLER_CLASS', 'ShibbolethHandler');
-			define('SHIBBOLETH_PLUGIN_NAME', $this->getName());
-			return true;
-		}
-		return false;
-	}
-
-	/**
-	 * Return the name of this plugin.
-	 * @return string
+     * @copydoc LazyLoadPlugin::getName()
 	 */
 	function getName() {
 		return 'ShibbolethAuthPlugin';
 	}
 
 	/**
-	 * Return the localized name of this plugin.
-	 * @return string
+     * @copydoc Plugin::getDisplayName()
 	 */
 	function getDisplayName() {
 		return __('plugins.generic.shibboleth.displayName');
 	}
 
 	/**
-	 * Return the localized description of this plugin.
-	 * @return string
+     * @copydoc Plugin::getDescription()
 	 */
 	function getDescription() {
 		return __('plugins.generic.shibboleth.description');
 	}
 
 	/**
-	 * @copydoc Plugin::getActions()
+	 * @copydoc Plugin::isSitePlugin()
 	 */
-	function getActions($request, $verb) {
-		$router = $request->getRouter();
-		import('lib.pkp.classes.linkAction.request.AjaxModal');
-		return array_merge(
-			$this->getEnabled()?array(
-				new LinkAction(
-					'settings',
-					new AjaxModal(
-						$router->url(
-							$request,
-							null,
-							null,
-							'manage',
-							null,
-							array(
-								'verb' => 'settings',
-								'plugin' => $this->getName(),
-								'category' => 'generic'
-							)
-						),
-						$this->getDisplayName()
-					),
-					__('manager.plugins.settings'),
-					null
-				),
-			):array(),
-			parent::getActions($request, $verb)
-		);
+	function isSitePlugin() {
+		return true;
 	}
 
 	/**
@@ -169,10 +121,56 @@ class ShibbolethAuthPlugin extends GenericPlugin {
 	}
 
 	/**
-	 * @copydoc Plugin::getTemplatePath
+	 * @copydoc Plugin::getTemplatePath()
 	 */
 	function getTemplatePath($inCore = false) {
 		return parent::getTemplatePath($inCore) . 'templates/';
+	}
+
+    /**
+     * @copydoc Plugin::getSetting()
+     */
+    function getSetting($contextId, $name) {
+        return parent::getSetting($contextId, $name);
+    }
+
+	/**
+	 * @copydoc Plugin::getActions()
+	 */
+	function getActions($request, $verb) {
+		$router = $request->getRouter();
+		$allowSettings = $this->getEnabled() && $this->getCanDisable();
+
+		if (!$allowSettings) {
+			return parent::getActions($request, $verb);
+		}
+
+		import('lib.pkp.classes.linkAction.request.AjaxModal');
+		return array_merge(
+			array(
+				new LinkAction(
+					'settings',
+					new AjaxModal(
+						$router->url(
+							$request,
+							null,
+							null,
+							'manage',
+							null,
+							array(
+								'verb' => 'settings',
+								'plugin' => $this->getName(),
+								'category' => 'generic'
+							)
+						),
+						$this->getDisplayName()
+					),
+					__('manager.plugins.settings'),
+					null
+				),
+			),
+			parent::getActions($request, $verb)
+		);
 	}
 
 
@@ -180,8 +178,21 @@ class ShibbolethAuthPlugin extends GenericPlugin {
 	// Public methods required to support lazy load.
 	//
 	/**
-	 * Determine whether or not this plugin is currently enabled.
-	 * @return boolean
+     * @copydoc LazyLoadPlugin::getCanEnable()
+	 */
+	function getCanEnable() {
+		return !$this->_globallyEnabled || $this->_contextId == 0;
+	}
+
+	/**
+     * @copydoc LazyLoadPlugin::getCanDisable()
+	 */
+	function getCanDisable() {
+		return !$this->_globallyEnabled || $this->_contextId == 0;
+	}
+
+	/**
+     * @copydoc LazyLoadPlugin::getEnabled()
 	 */
 	function getEnabled() {
 		return $this->_globallyEnabled ||
@@ -189,36 +200,30 @@ class ShibbolethAuthPlugin extends GenericPlugin {
 	}
 
 	/**
-	 * Set whether or not this plugin is currently enabled.
-	 * @param $enabled boolean
+     * @copydoc LazyLoadPlugin::setEnabled()
 	 */
 	function setEnabled($enabled) {
 		$this->updateSetting($this->_contextId, 'enabled', $enabled, 'bool');
 	}
 
-	/**
-	 * Determine whether the plugin can be enabled.
-	 * @return boolean
-	 */
-	function getCanEnable() {
-		return !$this->_globallyEnabled || $this->_contextId == 0;
-	}
 
+    //
+    // Callback handler
+    // 
 	/**
-	 * Determine whether the plugin can be disabled.
-	 * @return boolean
+	 * Hook callback: register pages for each login method.
+	 * This URL is of the form: shibboleth/{$shibrequest}
+	 * @see PKPPageRouter::route()
 	 */
-	function getCanDisable() {
-		return !$this->_globallyEnabled || $this->_contextId == 0;
-	}
-
-	/**
-	 * @copydoc Plugin::isSitePlugin
-	 *
-	 * @return boolean
-	 */
-	function isSitePlugin() {
-		return true;
+	function handleRequest($hookName, $params) {
+		$page = $params[0];
+		if ($this->getEnabled() && $page == 'shibboleth') {
+			$this->import('pages/ShibbolethHandler');
+			define('HANDLER_CLASS', 'ShibbolethHandler');
+			define('SHIBBOLETH_PLUGIN_NAME', $this->getName());
+			return true;
+		}
+		return false;
 	}
 }
 

@@ -30,7 +30,7 @@ class ShibbolethHandler extends Handler {
 	 * @return bool
 	 */
 	function shibLogin($args, $request) {
-		$this->_$plugin = $this->_getPlugin();
+		$this->_plugin = $this->_getPlugin();
 		$this->_contextId = $this->_plugin->getCurrentContextId();
 		$uin_header = $this->_plugin->getSetting(
 			$this->_contextId,
@@ -87,9 +87,9 @@ class ShibbolethHandler extends Handler {
 				Validation::redirectLogin();
 				return false;
 			} else {
-                $user->setAuthStr($uin);
-                $userDao->updateObject($user);
-            }
+				$user->setAuthStr($uin);
+				$userDao->updateObject($user);
+			}
 		} else {
 			// @@@ TODO register a new user
 			return false;
@@ -144,7 +144,7 @@ class ShibbolethHandler extends Handler {
 			$this->_contextId,
 			'shibbolethAdminUins'
 		);
-		$admins = explode(' ', $adminStr);
+		$admins = explode(' ', $adminsStr);
 
 		$uin = $user->getAuthStr();
 		if ($uin == null || $uin == "") {
@@ -155,7 +155,8 @@ class ShibbolethHandler extends Handler {
 		$adminFound = array_search($uin, $admins); // note by UIN, not UserID
 
 		$userGroupDao =& DAORegistry::getDAO('UserGroupDAO');
-		$adminGroup = $userGroupDao->getByRoleId(0, ROLE_ID_SITE_ADMIN);
+		// should be unique
+		$adminGroup = $userGroupDao->getByRoleId(0, ROLE_ID_SITE_ADMIN)->next();
 		$adminId = $adminGroup->getId();
 
 		$userGroupAssignmentDao =& DAORegistry::getDAO('UserGroupAssignmentDAO');

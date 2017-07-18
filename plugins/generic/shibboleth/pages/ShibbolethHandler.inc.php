@@ -304,9 +304,9 @@ class ShibbolethHandler extends Handler {
 		$userDao->insertUser($user);
 		$userId = $user->getId();
 		if ($userId) {
-			return null;
-		} else {
 			return $user;
+		} else {
+			return null;
 		}
 	}
 }

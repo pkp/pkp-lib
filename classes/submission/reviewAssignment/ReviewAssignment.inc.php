@@ -577,7 +577,7 @@ class ReviewAssignment extends DataObject {
 				return 'submission.review.status.thanked';
 		}
 
-		error_log('No status key could be found for ' . get_class($this) . ' on ' . __LINE__);
+		assert(false, 'No status key could be found for ' . get_class($this) . ' on ' . __LINE__);
 
 		return '';
 	}

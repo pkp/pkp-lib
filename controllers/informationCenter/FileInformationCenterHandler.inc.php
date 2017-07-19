@@ -123,10 +123,11 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 		$templateMgr->assign('notes', new ArrayItemIterator($notes));
 
 		$user = $request->getUser();
-		$templateMgr->assign('currentUserId', $user->getId());
-
-		$templateMgr->assign('notesListId', 'pastNotesList');
-		$templateMgr->assign('notesDeletable', false);
+		$templateMgr->assign(array(
+			'currentUserId' => $user->getId(),
+			'notesListId' => 'pastNotesList',
+			'notesDeletable' => false,
+		));
 
 		return $templateMgr->fetch('controllers/informationCenter/notesList.tpl');
 	}

@@ -302,17 +302,16 @@ class Form {
 	/**
 	 * Execute the form's action.
 	 * (Note that it is assumed that the form has already been validated.)
-	 * @param $object object The object edited by this form.
-	 * @return $object The same object, potentially changed via hook.
 	 */
-	function execute($object = null) {
+	function execute() {
 		// Call hooks based on the calling entity, assuming
 		// this method is only called by a subclass. Results
 		// in hook calls named e.g. "papergalleyform::execute"
 		// Note that class and function names are always lower
 		// case.
-		HookRegistry::call(strtolower_codesafe(get_class($this) . '::execute'), array($this, &$object));
-		return $object;
+		$returner = null;
+		HookRegistry::call(strtolower_codesafe(get_class($this) . '::execute'), array_merge(array($this), func_get_args(), array(&$returner)));
+		return $returner;
 	}
 
 	/**

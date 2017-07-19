@@ -399,7 +399,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		// Retrieve option values if they haven't been loaded yet
 		if (is_null($this->_optionValues)) {
 			$pluginSettingsDAO = DAORegistry::getDAO('PluginSettingsDAO');
-			$context = PKPApplication::getRequest()::getContext();
+			$context = PKPApplication::getRequest()->getContext();
 			$contextId = $context ? $context->getId() : 0;
 			$this->_optionValues = $pluginSettingsDAO->getPluginSettings($contextId, $this->getName());
 		}
@@ -497,7 +497,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 
 		$pluginSettingsDAO = DAORegistry::getDAO('PluginSettingsDAO');
 
-		$context = PKPApplication::getRequest()::getContext();
+		$context = PKPApplication::getRequest()->getContext();
 		$contextId = empty($context) ? 0 : $context->getId();
 		$values = $pluginSettingsDAO->getPluginSettings($contextId, $this->getName());
 		$values = array_intersect_key($values, $this->options);
@@ -538,7 +538,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		}
 
 		if (is_null($contextId)) {
-			$context = PKPApplication::getRequest()::getContext();
+			$context = PKPApplication::getRequest()->getContext();
 			$contextId = $context->getId();
 		}
 
@@ -607,7 +607,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 
 		foreach ($options as $optionName => $optionArgs) {
 			$fullOptionName = THEME_OPTION_PREFIX . $optionName;
-			$form->setData($fullOptionName, PKPApplication::getRequest()::getUserVar($fullOptionName));
+			$form->setData($fullOptionName, PKPApplication::getRequest()->getUserVar($fullOptionName));
 		}
 	}
 

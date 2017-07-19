@@ -101,31 +101,33 @@ class SubmissionsListHandler extends ListHandler {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID);
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
 
-		$config['i18n']['title'] = __($this->_title);
-		$config['i18n']['add'] = __('submission.submit.newSubmissionSingle');
-		$config['i18n']['search'] = __('common.search');
-		$config['i18n']['clearSearch'] = __('submission.list.clearSearch');
-		$config['i18n']['itemCount'] = __('submission.list.count');
-		$config['i18n']['itemsOfTotal'] = __('submission.list.itemsOfTotal');
-		$config['i18n']['loadMore'] = __('grid.action.moreItems');
-		$config['i18n']['loading'] = __('common.loading');
-		$config['i18n']['incomplete'] = __('submissions.incomplete');
-		$config['i18n']['delete'] = __('common.delete');
-		$config['i18n']['infoCenter'] = __('submission.list.infoCenter');
-		$config['i18n']['yes'] = __('common.yes');
-		$config['i18n']['no'] = __('common.no');
-		$config['i18n']['deleting'] = __('common.deleting');
-		$config['i18n']['confirmDelete'] = __('submission.list.confirmDelete');
-		$config['i18n']['responseDue'] = __('submission.list.responseDue');
-		$config['i18n']['reviewDue'] = __('submission.list.reviewDue');
-		$config['i18n']['filter'] = __('submission.list.filter');
-		$config['i18n']['filterRemove'] = __('submission.list.filterRemove');
-		$config['i18n']['itemOrdererUp'] = __('submission.list.itemOrdererUp');
-		$config['i18n']['itemOrdererDown'] = __('submission.list.itemOrdererDown');
-		$config['i18n']['reviewsCompleted'] = __('submission.list.reviewsCompleted');
-		$config['i18n']['filesPrepared'] = __('submission.list.filesPrepared');
-		$config['i18n']['discussions'] = __('submission.list.discussions');
-		$config['i18n']['incompleteSubmissionNotice'] = __('submission.list.incompleteSubmissionNotice');
+		$config['i18n'] = array(
+			'title' => __($this->_title),
+			'add' => __('submission.submit.newSubmissionSingle'),
+			'search' => __('common.search'),
+			'clearSearch' => __('submission.list.clearSearch'),
+			'itemCount' => __('submission.list.count'),
+			'itemsOfTotal' => __('submission.list.itemsOfTotal'),
+			'loadMore' => __('grid.action.moreItems'),
+			'loading' => __('common.loading'),
+			'incomplete' => __('submissions.incomplete'),
+			'delete' => __('common.delete'),
+			'infoCenter' => __('submission.list.infoCenter'),
+			'yes' => __('common.yes'),
+			'no' => __('common.no'),
+			'deleting' => __('common.deleting'),
+			'confirmDelete' => __('submission.list.confirmDelete'),
+			'responseDue' => __('submission.list.responseDue'),
+			'reviewDue' => __('submission.list.reviewDue'),
+			'filter' => __('submission.list.filter'),
+			'filterRemove' => __('submission.list.filterRemove'),
+			'itemOrdererUp' => __('submission.list.itemOrdererUp'),
+			'itemOrdererDown' => __('submission.list.itemOrdererDown'),
+			'reviewsCompleted' => __('submission.list.reviewsCompleted'),
+			'filesPrepared' => __('submission.list.filesPrepared'),
+			'discussions' => __('submission.list.discussions'),
+			'incompleteSubmissionNotice' => __('submission.list.incompleteSubmissionNotice'),
+		);
 
 		// Attach a CSRF token for post requests
 		$config['csrfToken'] = $request->getSession()->getCSRFToken();

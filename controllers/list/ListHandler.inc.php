@@ -1,6 +1,6 @@
 <?php
 /**
- * @file classes/controllers/list/ListHandler.inc.php
+ * @file controllers/list/ListHandler.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2000-2016 John Willinsky

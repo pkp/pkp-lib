@@ -211,8 +211,7 @@ class ShibbolethHandler extends Handler {
 
 		Validation::logout();
 
-		$contextPath = is_null($context) ? "/" : $context->getPath();
-
+		$contextPath = is_null($context) ? "" : $context->getPath();
 		$returnUrl = $router->url($request, $contextPath);
 		return $request->redirectUrl($returnUrl);
 	}

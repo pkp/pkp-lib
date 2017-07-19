@@ -21,6 +21,9 @@ class ShibbolethAuthPlugin extends GenericPlugin {
 	// @@@ TODO: Is there a way to disable delete and upgrade actions
 	// when the user does not have permission to disable?
 
+	// @@@ TODO: The profile password tab should just be hidden
+	// completely when the plugin is enabled.
+
 	/** @var int */
 	var $_contextId;
 

@@ -198,6 +198,24 @@ class ShibbolethHandler extends Handler {
 	}
 
 	/**
+	 * Intercept normal logout; redirect to context home page instead
+	 * of login (which would send back to Shibboleth again).
+	 * 
+	 * @param $args array
+	 * @param $request Request
+	 * @return bool
+	 */
+	function signOut($args, $request) {
+		$context = $this->getTargetContext($request);
+		$router = $request->getRouter();
+
+		Validation::logout();
+
+		$returnUrl = $router->url($request, $context->getPath());
+		return $request->redirectUrl($returnUrl);
+	}
+
+	/**
 	 * @copydoc ShibbolethHandler::activateUser()
 	 */
 	function validate($args, $request) {

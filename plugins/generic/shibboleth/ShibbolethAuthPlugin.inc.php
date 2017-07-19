@@ -221,6 +221,7 @@ class ShibbolethAuthPlugin extends GenericPlugin {
 							'requestResetPassword',
 							'savePassword',
 							'signIn',
+							'signOut',
 						)
 					))
 				|| ($page == 'user'

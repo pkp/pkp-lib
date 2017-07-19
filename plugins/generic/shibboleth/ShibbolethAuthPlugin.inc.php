@@ -18,7 +18,8 @@
 import('lib.pkp.classes.plugins.GenericPlugin');
 
 class ShibbolethAuthPlugin extends GenericPlugin {
-	// @@@ TODO: ubiquitous UI hooks to override login paths everywhere
+	// @@@ TODO: Is there a way to disable delete and upgrade actions
+	// when the user does not have permission to disable?
 
 	/** @var int */
 	var $_contextId;
@@ -190,14 +191,6 @@ class ShibbolethAuthPlugin extends GenericPlugin {
 	}
 
 	/**
-	 * @copydoc LazyLoadPlugin::getEnabled()
-	 */
-	function getEnabled() {
-		return $this->_globallyEnabled ||
-			$this->getSetting($this->_contextId, 'enabled');
-	}
-
-	/**
 	 * @copydoc LazyLoadPlugin::setEnabled()
 	 */
 	function setEnabled($enabled) {
@@ -215,7 +208,34 @@ class ShibbolethAuthPlugin extends GenericPlugin {
 	 */
 	function handleRequest($hookName, $params) {
 		$page = $params[0];
-		if ($this->getEnabled() && $page == 'shibboleth') {
+		$op = $params[1];
+		if ($this->getEnabled()
+			&& ($page == 'shibboleth'
+				|| ($page == 'login'
+					&& array_search(
+						$op,
+						array(
+							'changePassword',
+							'index',
+							'lostPassword',
+							'requestResetPassword',
+							'savePassword',
+							'signIn',
+						)
+					))
+				|| ($page == 'user'
+					&& array_search(
+						$op,
+						array(
+							'activateUser',
+							'register',
+							'registerUser',
+							'validate',
+						)
+					)
+				)
+			)
+		) {
 			$this->import('pages/ShibbolethHandler');
 			define('HANDLER_CLASS', 'ShibbolethHandler');
 			define('SHIBBOLETH_PLUGIN_NAME', $this->getName());

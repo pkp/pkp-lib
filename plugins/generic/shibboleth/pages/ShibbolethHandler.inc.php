@@ -23,7 +23,67 @@ class ShibbolethHandler extends Handler {
 	var $_contextId;
 
 	/**
-	 * Login handler
+	 * Intercept normal login/registration requests; defer to Shibboleth.
+	 * 
+	 * @param $args array
+	 * @param $request Request
+	 * @return bool
+	 */
+	function activateUser($args, $request) {
+		return $this->_shibbolethRedirect($args, $request);
+	}
+
+	/**
+	 * @copydoc ShibbolethHandler::activateUser()
+	 */
+	function changePassword($args, $request) {
+		return $this->_shibbolethRedirect($args, $request);
+	}
+
+	/**
+	 * @copydoc ShibbolethHandler::activateUser()
+	 */
+	function index($args, $request) {
+		return $this->_shibbolethRedirect($args, $request);
+	}
+
+	/**
+	 * @copydoc ShibbolethHandler::activateUser()
+	 */
+	function lostPassword($args, $request) {
+		return $this->_shibbolethRedirect($args, $request);
+	}
+
+	/**
+	 * @copydoc ShibbolethHandler::activateUser()
+	 */
+	function register($args, $request) {
+		return $this->_shibbolethRedirect($args, $request);
+	}
+
+	/**
+	 * @copydoc ShibbolethHandler::activateUser()
+	 */
+	function registerUser($args, $request) {
+		return $this->_shibbolethRedirect($args, $request);
+	}
+
+	/**
+	 * @copydoc ShibbolethHandler::activateUser()
+	 */
+	function requestResetPassword($args, $request) {
+		return $this->_shibbolethRedirect($args, $request);
+	}
+
+	/**
+	 * @copydoc ShibbolethHandler::activateUser()
+	 */
+	function savePassword($args, $request) {
+		return $this->_shibbolethRedirect($args, $request);
+	}
+
+	/**
+	 * Login handler; receives post-validation Shibboleth redirect.
 	 * 
 	 * @param $args array
 	 * @param $request Request
@@ -129,6 +189,21 @@ class ShibbolethHandler extends Handler {
 
 		return false;
 	}
+
+	/**
+	 * @copydoc ShibbolethHandler::activateUser()
+	 */
+	function signIn($args, $request) {
+		return $this->_shibbolethRedirect($args, $request);
+	}
+
+	/**
+	 * @copydoc ShibbolethHandler::activateUser()
+	 */
+	function validate($args, $request) {
+		return $this->_shibbolethRedirect($args, $request);
+	}
+
 
 	//
 	// Private helper methods
@@ -308,6 +383,36 @@ class ShibbolethHandler extends Handler {
 		} else {
 			return null;
 		}
+	}
+
+	/**
+	 * Intercept normal login/registration requests; defer to Shibboleth.
+	 * 
+	 * @param $args array
+	 * @param $request Request
+	 * @return bool
+	 */
+	function _shibbolethRedirect($args, $request) {
+		$this->_plugin = $this->_getPlugin();
+		$this->_contextId = $this->_plugin->getCurrentContextId();
+		$context = $this->getTargetContext($request);
+		$router = $request->getRouter();
+
+		$wayfUrl = $this->_plugin->getSetting(
+			$this->_contextId,
+			'shibbolethWayfUrl'
+		);
+		$shibLoginUrl = $router->url(
+			$request,
+			null,
+			'shibboleth',
+			'shibLogin',
+			null,
+			null,
+			true
+		);
+		$shibUrl = $wayfUrl . '?target=' . $shibLoginUrl;
+		return $request->redirectUrl($shibUrl);
 	}
 }
 ?>

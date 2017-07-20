@@ -434,8 +434,6 @@ class ReviewAssignmentDAO extends DAO {
 
 		// Update review stage status whenever a review assignment is changed
 		$this->updateReviewRoundStatus($reviewAssignment);
-
-		return $result;
 	}
 
 	/**

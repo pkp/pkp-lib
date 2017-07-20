@@ -377,9 +377,7 @@ class ReviewAssignmentDAO extends DAO {
 		$reviewAssignment->setId($this->getInsertId());
 
 		// Update review stage status whenever a review assignment is changed
-		if ($result) {
-			$this->updateReviewRoundStatus($reviewAssignment);
-		}
+		$this->updateReviewRoundStatus($reviewAssignment);
 
 		return $reviewAssignment;
 	}
@@ -435,9 +433,7 @@ class ReviewAssignmentDAO extends DAO {
 		);
 
 		// Update review stage status whenever a review assignment is changed
-		if ($result) {
-			$this->updateReviewRoundStatus($reviewAssignment);
-		}
+		$this->updateReviewRoundStatus($reviewAssignment);
 
 		return $result;
 	}
@@ -534,9 +530,7 @@ class ReviewAssignmentDAO extends DAO {
 			(int) $reviewId
 		);
 
-		if ($result) {
-			$this->updateReviewRoundStatus($reviewAssignment);
-		}
+		$this->updateReviewRoundStatus($reviewAssignment);
 
 		return $result;
 	}

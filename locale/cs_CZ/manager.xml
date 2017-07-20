@@ -156,7 +156,6 @@
 	<message key="plugins.categories.auth">Autorizační doplňky</message>
 	<message key="plugins.categories.blocks">Doplňkové panely</message>
 	<message key="plugins.categories.blocks.description">Doplňkové panely patří mezi doplňky, které je možné připojit do uživatelského rozhranní. Například různé postranní lišty s nástroji.</message>
-	<message key="plugins.categories.citationFormats">Doplňky pro citační styly</message>
 	<message key="plugins.categories.gateways.description">Doplňky přenosové brány poskytují živá data externím systémům.</message>
 	<message key="plugins.categories.gateways">Doplňky přenosové brány</message>
 	<message key="plugins.categories.generic">Obecné doplňky</message>

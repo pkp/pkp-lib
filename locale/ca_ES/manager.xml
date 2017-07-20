@@ -242,8 +242,6 @@
 		<p>Proporcionem mòduls a diverses bases de dades externes en les quals podeu buscar citacions. Per entrar en algunes d'aquestes bases de dades, us hi haureu de registrar o configurar la informació. Consulteu els llocs web públics de les bases de dades per obtenir més informació sobre com registrar-s'hi. Podeu afegir una o més bases de dades fent clic al botó «Afegeix un element» que hi ha a continuació.</p>
 		<p>Podeu editar o eliminar una base de dades externa existent fent clic a la icona que té al costat.</p>
 		<p><strong>Nota:</strong> per permetre que el procés de comprovació de les citacions es completi al més aviat possible, heu d'establir el directiu <tt>citation_checking_max_processes</tt> del vostre fitxer de configuració en un valor raonable. Consulteu la secció Configuració general a <tt>config.inc.php</tt> por obtenir-ne més informació.</p>]]></message>
-	<message key="manager.setup.citationOutput">Sortida de la citació</message>
-	<message key="manager.setup.citationOutputStyleDescription">Trieu l'estil de citacions que s'utilitza a la vostra revista en les trameses. L'Assistent de marcatge de citacions us permet comparar la versió de la citació de l'autor/a amb una versió generada a partir del fitxer XML que esteu generant perquè pugueu detectar errors fàcilment:</message>
 	<message key="manager.setup.errorDeletingItem">S’ha produït un error en suprimir aquest element.</message>
 	<message key="manager.setup.filter.grid.errorDeletingFilter">S'ha produït un error en eliminar aquest filtre. Informeu d'aquest error.</message>
 	<message key="manager.setup.filter.grid.filterDisplayName">Mòdul</message>
@@ -294,11 +292,8 @@
 	<message key="plugins.categories.auth">Connectors d’autorització</message>
 	<message key="plugins.categories.blocks">Connectors de bloc</message>
 	<message key="plugins.categories.blocks.description">Els connectors de bloc són components connectables de la interfície d’usuari/usuària, com ara les eines de les barres laterals.</message>
-	<message key="plugins.categories.citationFormats">Connectors de format de citació</message>
 	<message key="plugins.categories.citationLookup">Mòduls de la base de dades de citacions</message>
 	<message key="plugins.categories.citationLookup.description">Els mòduls de la base de dades de citacions es connecten a bases de dades de citacions per cercar citacions, p. ex. durant l'edició de les citacions.</message>
-	<message key="plugins.categories.citationOutput">Mòduls de sortida de la citació</message>
-	<message key="plugins.categories.citationOutput.description">Els mòduls de format de citació implementen estàndards de sortida. Això substitueix els mòduls de format de citació.</message>
 	<message key="plugins.categories.citationParser">Mòduls d'extracció de citacions</message>
 	<message key="plugins.categories.citationParser.description">Els mòduls d'extracció de la citacions extreuen dades a nivell de camp des de citacions sense processar (p. ex. autor/a, títol, etc.).</message>
 	<message key="plugins.categories.gateways.description">Els connectors de passarel·la proporcionen dades actives als sistemes externs.</message>

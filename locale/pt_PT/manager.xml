@@ -153,7 +153,6 @@
 	<message key="plugins.categories.auth">Plugins de Autenticação</message>
 	<message key="plugins.categories.blocks">Plugins de Bloco</message>
 	<message key="plugins.categories.blocks.description">Plugins de Bloco oferecem controle de posicionamento de ferramentas da interface, como as barras laterais.</message>
-	<message key="plugins.categories.citationFormats">Plugins de Formato de Citação</message>
 	<message key="plugins.categories.gateways.description">Plugins de Gateway alimentam sistemas externos com conteúdo do sistema.</message>
 	<message key="plugins.categories.gateways">Plugins de Gateway</message>
 	<message key="plugins.categories.generic">Plugins Genéricos</message>

@@ -238,8 +238,6 @@
 		<p>Wir liefern Verknüpfungen zu verschiedenen externen Datenbanken, in denen Sie nach Zitationen suchen können. Einige dieser Datenbanken erfordern die Eingabe von Informationen zur Registrierung oder zu den Einstellungen. Bitte überprüfen Sie die öffentlichen Webseiten der Datenbanken für weitere Informationen über die Registrierung. Sie können eine oder mehrere Datenbanken hinzufügen, indem Sie den "Eintrag hinzufügen"-Knopf unten drücken.</p>
 		<p>Sie können eine existierende Datenbankverknüpfung bearbeiten oder löschen, indem Sie das zugehörige Symbol klicken.</p>
 		<p><strong>Hinweis:</strong> Damit die Zitationsprüfung in vertretbarer Zeit abgeschlossen werden kann, muss die <tt>citation_checking_max_processes</tt>-Direktive in Ihrer Konfigurationsdatei auf einen vernünftigen Wert gesetzt sein. Für weitere Informationen vgl. den General-Settings-Abschnitt in <tt>config.inc.php</tt>.]]></message>
-	<message key="manager.setup.citationOutput">Zitationsausgabe</message>
-	<message key="manager.setup.citationOutputStyleDescription">Bitte wählen Sie den Zitationsstil, der bei den Beiträgen in Ihrer Publikation genutzt wird. Der Zitationsauszeichnungsassistent bietet Ihnen einen Vergleich zwischen der Autor/innenversion der Zitation zu einer aus dem von Ihnen erstellten XML generierten Version, so dass Sie Fehler einfach aufspüren können:</message>
 	<message key="manager.setup.competingInterests">Interessenkonflikte</message>
 	<message key="manager.setup.competingInterestsDescription">Gutachter/innen werden aufgefordert, den Richtlinien zur Offenlegung von Interessenkonflikten zu entsprechen, die Sie unten angeben.</message> <!-- FIXME #6843 (JM): should this just reference reviewers? -->
 	<message key="manager.setup.errorDeletingItem">Es gab einen Fehler beim Löschen dieses Eintrags.</message>
@@ -323,11 +321,8 @@
 	<message key="plugins.categories.auth">Plugins für Zugangsberechtigungen</message>
 	<message key="plugins.categories.blocks">Block-Plugins</message>
 	<message key="plugins.categories.blocks.description">Block-Plugins sind ein- und ausschaltbare Designelemente, z.B. die verschiedenen Instrumente für die Seitenleiste.</message>
-	<message key="plugins.categories.citationFormats">Plugins für Zitatformate</message>
 	<message key="plugins.categories.citationLookup">Plugins für Verbindungen zu Zitationsdatenbanken</message>
 	<message key="plugins.categories.citationLookup.description">Plugins für Verbindungen zu Zitationsdatenbanken verbinden sich zu Zitationsdatenbank, um Zitationen nachzuschlagen, z.B. während der Bearbeitung der Literaturliste.</message>
-	<message key="plugins.categories.citationOutput">Plugins zur Ausgabe von Zitationen</message>
-	<message key="plugins.categories.citationOutput.description">Plugins zur Ausgabe von Zitationen implementieren Zitationsstandards.  Dies ersetzt Zitatformate-Plugins.</message>
 	<message key="plugins.categories.citationParser">Plugins zum Auslesen von Zitationen</message>
 	<message key="plugins.categories.citationParser.description">Plugins zum Auslesen von Zitationen extrahieren aus rohen Literaturlisten Daten auf Feldebene (z.B. Autor/in, Titel etc.).</message>
 	<message key="plugins.categories.gateways.description">Gateways stellen externen Systemen Daten zur Verfügung.</message>

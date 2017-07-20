@@ -157,8 +157,6 @@
 		<p>Ми забезпечуємо шлюзи до кількох зовнішніх баз даних, у яких може проводитись пошук цитат. Деякі з цих баз даних вимагають реєстрації або налаштування. Для того, щоб отримати додаткову інформацію щодо реєстрації, користуйтеся публічними веб-сайтами відповідних баз даних. Ви можете додати одну або декілька баз даних засобами розміщеної нижче кнопки "Додати об'єкт".</p>
 		<p>Для редагування або видалення шлюзу до зовнішньої бази даних потрібно натиснути на зображення шестерінки поруч з ним.</p>
 		<p><strong>Примітка:</strong> Для того, щоб процес перевірки цитат не займав занадто багато часу, вкажіть помірне значення директиви <tt>citation_checking_max_processes</tt> у вашому файлі конфігурації. Для більш детальної інформації з цього приводу див. розділ General Settings у файлі <tt>config.inc.php</tt>.</p>]]></message>
-	<message key="manager.setup.citationOutput">Вихідний формат цитат</message>
-	<message key="manager.setup.citationOutputStyleDescription">Оберіть стиль цитат, який буде використовуватись у авторських поданнях цього журналу. Ви зможете легко знаходити помилки, оскільки Помічник розмітки цитат дозволяє порівнювати авторську версію цитати з версією, згенерованою з XML:</message>
 	<message key="manager.setup.errorDeletingItem">Під час видалення цього об'єкту виникла помилка.</message>
 	<message key="manager.setup.filter.grid.errorDeletingFilter">Під час спроби видалення цього фільтру виникла помилка. Будь ласка, повідомте про цей випадок розробників.</message>
 	<message key="manager.setup.filter.grid.filterDisplayName">Шлюз</message>
@@ -203,7 +201,6 @@
 	<message key="plugins.categories.auth">Модулі авторизації</message>
 	<message key="plugins.categories.blocks">Модулі блоків</message>
 	<message key="plugins.categories.blocks.description">Модулі блоків — це модульні інтерфейсні компоненти, наприклад, різноманітні інструменти бічних панелей і т.і.</message>
-	<message key="plugins.categories.citationFormats">Модулі форматів цитування</message>
 	<message key="plugins.categories.gateways.description">Модулі шлюзів забезпечують онлайновий зв'язок із зовнішніми системами.</message>
 	<message key="plugins.categories.gateways">Модулі шлюзів</message>
 	<message key="plugins.categories.generic">Загальні модулі</message>
@@ -227,8 +224,6 @@
 	<message key="manager.announcements.datePublish">Опубліковано</message>
 	<message key="manager.reviewerSearch.searchByName.short">Пошук за іменем</message>
 	<message key="manager.reviewerSearch.form.instructions">Користуйтеся формою нижче, щоб встановити максимальні значення для параметрів, за якими здійснюється пошук. За замовчуванням, форма заповнена вирахуваними середніми значеннями для кожного з полів.</message>
-	<message key="plugins.categories.citationOutput">Модулі відображення цитат</message>
-	<message key="plugins.categories.citationOutput.description">Модулі відображення цитат дозволяють відображати цитати за правилами різних бібліографічних стандартів. Ці модулі раніше називалися "Модулі форматів цитування".</message>
 	<message key="plugins.categories.citationParser">Модулі екстракції цитат</message>
 	<message key="plugins.categories.citationParser.description">Модулі екстракції цитат дозволяють видобувати з оригінальних цитат бібліографічну інформацію (наприклад, імена авторів, назви статей тощо).</message>
 	<message key="manager.emails.data">Дані шаблону повідомлення</message>

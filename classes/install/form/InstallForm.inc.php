@@ -98,7 +98,7 @@ class InstallForm extends MaintenanceForm {
 	/**
 	 * @copydoc Form::display
 	 */
-	function display($request, $template = null) {
+	function display($request = null, $template = null) {
 		import('lib.pkp.classes.xslt.XSLTransformer');
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(

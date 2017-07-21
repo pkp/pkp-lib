@@ -26,15 +26,39 @@ class APIRouter extends PKPRouter {
 	var $_handler;
 
 	/**
+	 * Determines path info parts depending of disable_path_info config value
+	 * @return array|NULL
+	 */
+	protected function getPathInfoParts() {
+		$pathInfoEnabled = Config::getVar('general', 'disable_path_info') ? false : true;
+		if ($pathInfoEnabled && isset($_SERVER['PATH_INFO'])) {
+			return explode('/', trim($_SERVER['PATH_INFO'], '/'));
+		}
+
+		$request = $this->getApplication()->getRequest();
+		$queryString = $request->getQueryString();
+		$queryArray = array();
+		if (isset($queryString)) {
+			parse_str($queryString, $queryArray);
+		}
+
+		if (in_array('endpoint', array_keys($queryArray)) && isset($queryArray['journal'])) {
+			$endpoint = $queryArray['endpoint'];
+			return explode('/', trim($endpoint, '/'));
+		}
+
+		return null;
+	}
+
+	/**
 	 * Determines whether this router can route the given request.
 	 * @param $request PKPRequest
 	 * @return boolean true, if the router supports this request, otherwise false
 	 */
 	function supports($request) {
-		if (!isset($_SERVER['PATH_INFO'])) return false;
-		$pathInfoParts = explode('/', trim($_SERVER['PATH_INFO'], '/'));
+		$pathInfoParts = $this->getPathInfoParts();
 
-		if (count($pathInfoParts)>=2 && $pathInfoParts[1] == 'api') {
+		if (!is_null($pathInfoParts) && count($pathInfoParts)>=2 && $pathInfoParts[1] == 'api') {
 			// Context-specific API requests: [index.php]/{contextPath}/api
 			return true;
 		}
@@ -47,7 +71,7 @@ class APIRouter extends PKPRouter {
 	 * @return string
 	 */
 	function getVersion() {
-		$pathInfoParts = explode('/', trim($_SERVER['PATH_INFO'], '/'));
+		$pathInfoParts = $this->getPathInfoParts();
 		return Core::cleanFileVar(isset($pathInfoParts[2]) ? $pathInfoParts[2] : '');
 	}
 
@@ -56,7 +80,7 @@ class APIRouter extends PKPRouter {
 	 * @return string
 	 */
 	function getEntity() {
-		$pathInfoParts = explode('/', trim($_SERVER['PATH_INFO'], '/'));
+		$pathInfoParts = $this->getPathInfoParts();
 		return Core::cleanFileVar(isset($pathInfoParts[3]) ? $pathInfoParts[3] : '');
 	}
 

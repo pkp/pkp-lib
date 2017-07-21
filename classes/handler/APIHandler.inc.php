@@ -44,6 +44,7 @@ class APIHandler extends PKPHandler {
 			'settings' => array(
 				// we need access to route within middleware
 				'determineRouteBeforeAppMiddleware' => true,
+					'displayErrorDetails' => true
 			)
 		));
 		$this->_app->add(new ApiAuthorizationMiddleware($this));
@@ -54,6 +55,25 @@ class APIHandler extends PKPHandler {
 			if ($path != '/' && substr($path, -1) == '/') {
 				// path with trailing slashes to non-trailing counterpart
 				$uri = $uri->withPath(substr($path, 0, -1));
+				if($request->getMethod() == 'GET') {
+					return $response->withRedirect((string)$uri, 301);
+				}
+				else {
+					return $next($request->withUri($uri), $response);
+				}
+			}
+			return $next($request, $response);
+		});
+		// if pathinfo is disabled, rewrite URI to match Slim's expectation
+		$this->_app->add(function ($request, $response, $next) {
+			$uri = $request->getUri();
+			$endpoint = trim($request->getQueryParam('endpoint'));
+			$pathInfoEnabled = Config::getVar('general', 'disable_path_info') ? false : true;
+			$path = $uri->getPath();
+			if (!$pathInfoEnabled && !is_null($endpoint) && !isset($_SERVER['PATH_INFO']) && ($path == '/')) {
+				$basePath = $uri->getBasePath();
+				$url = $basePath . $endpoint;
+				$uri = $uri->withPath($url);
 				if($request->getMethod() == 'GET') {
 					return $response->withRedirect((string)$uri, 301);
 				}

@@ -64,20 +64,22 @@ class APIHandler extends PKPHandler {
 			return $next($request, $response);
 		});
 		// if pathinfo is disabled, rewrite URI to match Slim's expectation
-		$this->_app->add(function ($request, $response, $next) {
+		$app = $this->getApp();
+		$this->_app->add(function ($request, $response, $next) use($app) {
 			$uri = $request->getUri();
 			$endpoint = trim($request->getQueryParam('endpoint'));
 			$pathInfoEnabled = Config::getVar('general', 'disable_path_info') ? false : true;
 			$path = $uri->getPath();
 			if (!$pathInfoEnabled && !is_null($endpoint) && !isset($_SERVER['PATH_INFO']) && ($path == '/')) {
 				$basePath = $uri->getBasePath();
-				$url = $basePath . $endpoint;
-				$uri = $uri->withPath($url);
+				$uri = $uri->withPath($endpoint);
 				if($request->getMethod() == 'GET') {
 					return $response->withRedirect((string)$uri, 301);
 				}
 				else {
-					return $next($request->withUri($uri), $response);
+					// because the route is calculated before any middleware is executed
+					// we need to call App::process because the URI changed so that dispatch happens again
+					return $app->process($request->withUri($uri), $response);
 				}
 			}
 			return $next($request, $response);

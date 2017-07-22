@@ -88,6 +88,11 @@ class SendReviewsForm extends EditorDecisionWithEmailForm {
 				$status = REVIEW_ROUND_STATUS_DECLINED;
 				break;
 
+			case SUBMISSION_EDITOR_INITIAL_DECLINE:
+				$emailKey = 'EDITOR_INITIAL_DECLINE';
+				$status = REVIEW_ROUND_STATUS_DECLINED;
+				break;
+
 			default:
 				fatalError('Unsupported decision!');
 		}
@@ -109,7 +114,8 @@ class SendReviewsForm extends EditorDecisionWithEmailForm {
 		return array(
 			SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS,
 			SUBMISSION_EDITOR_DECISION_RESUBMIT,
-			SUBMISSION_EDITOR_DECISION_DECLINE
+			SUBMISSION_EDITOR_DECISION_DECLINE,
+			SUBMISSION_EDITOR_INITIAL_DECLINE
 		);
 	}
 }

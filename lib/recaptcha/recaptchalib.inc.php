@@ -38,6 +38,8 @@
 define("RECAPTCHA_API_SERVER", "http://www.google.com/recaptcha/api");
 define("RECAPTCHA_API_SECURE_SERVER", "https://www.google.com/recaptcha/api");
 define("RECAPTCHA_VERIFY_SERVER", "www.google.com");
+define("RECAPTCHA_VERSION_LEGACY", 0);
+define("RECAPTCHA_VERSION_2", 2);
 
 /**
  * Encodes the given data into a query string format
@@ -91,7 +93,28 @@ function _recaptcha_http_post($host, $path, $data, $port = 80) {
         return $response;
 }
 
+/**
+ * Gets the challenge HTML (versioned)
+ * This is called from the browser, and the resulting reCAPTCHA HTML widget
+ * is embedded within the HTML form it was called from.
+ * @param int $version The reCAPTCHA version
+ * @param string $pubkey A public key for reCAPTCHA
+ * @param string $error The error given by reCAPTCHA (optional, default is null)
+ * @param boolean $use_ssl Should the request be made over ssl? (optional, default is false)
 
+ * @return string - The HTML to be embedded in the user's form.
+ */
+function recaptcha_versioned_get_html ($version, $pubkey, $error = null, $use_ssl = false)
+{
+	switch (intval($version)) {
+		case RECAPTCHA_VERSION_LEGACY:
+			return recaptcha_get_html($pubkey, $error, $use_ssl);
+		case RECAPTCHA_VERSION_2:
+			return '<script src="https://www.google.com/recaptcha/api.js" async defer></script><div class="g-recaptcha" data-sitekey="'.$pubkey.'"></div>';
+		default:
+			return '';
+	}
+}
 
 /**
  * Gets the challenge HTML (javascript and non-javascript version).
@@ -139,6 +162,62 @@ class ReCaptchaResponse {
         var $error;
 }
 
+/**
+  * Calls an HTTP POST function to verify if the user's guess was correct, specifying version of ReCaptcha
+  * @param int $version
+  * @param false|string $enforce_host
+  * @param string $privkey
+  * @param string $remoteip
+  * @param string $challenge
+  * @param string $response
+  * @param array $extra_params an array of extra variables to post to the server
+  * @return ReCaptchaResponse
+  */
+function recaptcha_versioned_check_answer ($version, $enforce_host, $privkey, $remoteip, $challenge, $response, $extra_params = array())
+{
+	$recaptcha_response = new ReCaptchaResponse();
+	$recaptcha_response->is_valid = false;
+	$recaptcha_response->error = 'incorrect-captcha-sol';
+	switch ($version) {
+		case RECAPTCHA_VERSION_LEGACY:
+			return recaptcha_check_answer ($privkey, $remoteip, $challenge, $response, $extra_params);
+		case RECAPTCHA_VERSION_2:
+			// Request response from recaptcha api
+			$requestOptions = array(
+				'http' => array(
+					'header' => "Content-Type: application/x-www-form-urlencoded;\r\n",
+					'method' => 'POST',
+					'content' => http_build_query(array(
+						'secret' => $privkey,
+						'response' => $response,
+						'remoteip' => $remoteip,
+					)),
+				),
+			);
+			$requestContext = stream_context_create($requestOptions);
+			$response = file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $requestContext);
+			if ($response === false) {
+				return false;
+			}
+			$response = json_decode($response, true);
+			// Check response from Google server
+			if (isset($response['success']) && $response['success'] === true) {
+				if ($enforce_host && $response['hostname'] !== $enforce_host) {
+					$recaptcha_response->error = 'common.captcha.error.hostnameMismatch';
+				} else {
+					$recaptcha_response->error = '';
+					$recaptcha_response->is_valid = true;
+				}
+			} else {
+				if (isset($response['error-codes']) && is_array($response['error-codes'])) {
+					$recaptcha_response->error = 'common.captcha.error.' . $response['error-codes'][0];
+				}
+			}
+			return $recaptcha_response;
+		default:
+			return $recaptcha_response;
+	}
+}
 
 /**
   * Calls an HTTP POST function to verify if the user's guess was correct

@@ -172,7 +172,7 @@ class EditorAction {
 			if (isset($reviewMethod)) {
 				$reviewAssignment->setReviewMethod($reviewMethod);
 			}
-			$reviewAssignment = $reviewAssignmentDao->insertObject($reviewAssignment);
+			$reviewAssignmentDao->insertObject($reviewAssignment);
 
 			// Stamp modification date
 			$submission->stampStatusModified();

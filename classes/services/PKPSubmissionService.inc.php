@@ -643,4 +643,101 @@ abstract class PKPSubmissionService {
 		return $result;
 	}
 
+	/**
+	 * Retrieve all submission files
+	 *
+	 * @param int $contextId
+	 * @param Submission $submission
+	 * @param int $fileStage Limit to a specific file stage
+	 *
+	 * @return array
+	 */
+	public function getFiles($contextId, $submission, $fileStage = null) {
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+		$submissionFiles = $submissionFileDao->getLatestRevisions($submission->getId(), $fileStage);
+		return $submissionFiles;
+	}
+
+	/**
+	 * Retrieve participants for a specific stage
+	 *
+	 * @param int $contextId
+	 * @param Submission $submission
+	 * @param int $stageId
+	 *
+	 * @return array
+	 */
+	public function getParticipantsByStage($contextId, $submission, $stageId) {
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+		$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId(
+			$submission->getId(),
+			$stageId
+		);
+		// Make a list of the active (non-reviewer) user groups.
+		$userGroupIds = array();
+		while ($stageAssignment = $stageAssignments->next()) {
+			$userGroupIds[] = $stageAssignment->getUserGroupId();
+		}
+		// Fetch the desired user groups as objects.
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$result = array();
+		$userGroups = $userGroupDao->getUserGroupsByStage(
+			$contextId,
+			$stageId
+		);
+		$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO'); /* @var $userStageAssignmentDao UserStageAssignmentDAO */
+		while ($userGroup = $userGroups->next()) {
+			if ($userGroup->getRoleId() == ROLE_ID_REVIEWER) continue;
+			if (!in_array($userGroup->getId(), $userGroupIds)) continue;
+			$roleId = $userGroup->getRoleId();
+			$users = $userStageAssignmentDao->getUsersBySubmissionAndStageId(
+				$submission->getId(),
+				$stageId,
+				$userGroup->getId()
+			);
+			while($user = $users->next()) {
+				$result[] = array(
+					'roleId'	=> $userGroup->getRoleId(),
+					'roleName'	=> $userGroup->getLocalizedName(),
+					'userId'	=> $user->getId(),
+					'userFullName'	=> $user->getFullName(),
+				);
+			}
+		}
+		return $result;
+	}
+
+	/**
+	 * Retrieve galley list
+	 *
+	 * @param int $contextId
+	 * @param Submission $submissionId
+	 * @throws Exceptions\SubmissionStageException
+	 *
+	 * @return array
+	 */
+	public function getGalleys($contextId, $submission) {
+		$data = array();
+		$stageId = (int) $submission->getStageId();
+		if ($stageId !== WORKFLOW_STAGE_ID_PRODUCTION) {
+			throw new Exceptions\SubmissionStageNotValidException($contextId, $submission->getId());
+		}
+		$galleyDao = DAORegistry::getDAO('ArticleGalleyDAO');
+		$galleys = $galleyDao->getBySubmissionId($submission->getId());
+		while ($galley = $galleys->next()) {
+			$submissionFile = $galley->getFile();
+			$data[] = array(
+				'id'		=> $galley->getId(),
+				'submissionId'	=> $galley->getSubmissionId(),
+				'locale'	=> $galley->getLocale(),
+				'label'		=> $galley->getGalleyLabel(),
+				'seq'		=> $galley->getSequence(),
+				'remoteUrl'	=> $galley->getremoteUrl(),
+				'fileId'	=> $galley->getFileId(),
+				'revision'	=> $submissionFile->getRevision(),
+				'fileType'	=> $galley->getFileType(),
+			);
+		}
+		return $data;
+	}
 }

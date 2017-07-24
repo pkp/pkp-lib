@@ -44,6 +44,25 @@ class PKPMods34MetadataPlugin extends MetadataPlugin {
 	function getDescription() {
 		return __('plugins.metadata.mods34.description');
 	}
+
+	/**
+	 * Get a unique id for this metadata format
+	 *
+	 * @return string
+	 */
+	public function getFormatId() {
+		return 'mods34';
+	}
+
+	/**
+	 * Instantiate and return the schema object for this metadata format
+	 *
+	 * @return mixed
+	 */
+	public function getSchemaObject() {
+		import('plugins.metadata.mods34.schema.Mods34Schema');
+		return new Mods34Schema();
+	}
 }
 
 ?>

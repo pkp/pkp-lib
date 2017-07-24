@@ -44,6 +44,25 @@ class PKPDc11MetadataPlugin extends MetadataPlugin {
 	function getDescription() {
 		return __('plugins.metadata.dc11.description');
 	}
+
+	/**
+	 * Get a unique id for this metadata format
+	 *
+	 * @return string
+	 */
+	public function getFormatId() {
+		return 'dc11';
+	}
+
+	/**
+	 * Instantiate and return the schema object for this metadata format
+	 *
+	 * @return mixed
+	 */
+	public function getSchemaObject() {
+		import('plugins.metadata.dc11.schema.Dc11Schema');
+		return new Dc11Schema();
+	}
 }
 
 ?>

@@ -105,7 +105,7 @@ export default {
 			this._latestGetRequest = $.pkp.classes.Helper.uuid();
 
 			$.ajax({
-				url: $.pkp.app.apiBaseUrl + '/' + this.apiPath,
+				url: this.getApiUrl(this.apiPath),
 				type: 'GET',
 				data: _.extend(
 					{},

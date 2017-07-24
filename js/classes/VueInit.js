@@ -47,6 +47,31 @@ Vue.mixin({
 		},
 
 		/**
+		 * Get an API endpoint URL
+		 *
+		 * This constructs an appropriate URL for querying the API, adjusting
+		 * as necessary for the disable_path_info configuration option.
+		 *
+		 * @param string endpoint
+		 * @return string
+		 */
+		getApiUrl: function(endpoint) {
+			var apiBase;
+			if ($.pkp.app.contextPath) {
+				apiBase = '/' + $.pkp.app.contextPath + $.pkp.app.apiBasePath;
+			} else {
+				apiBase = $.pkp.app.apiBasePath;
+			}
+			if (!$.pkp.app.pathInfoEnabled) {
+				if ($.pkp.app.contextPath) {
+					return $.pkp.app.baseUrl + '/index.php?journal=' + encodeURIComponent($.pkp.app.contextPath) + '&endpoint=' + apiBase + '/' + endpoint;
+				}
+				return $.pkp.app.baseUrl + '/index.php?endpoint=' + apiBase + '/' + endpoint;
+			}
+			return $.pkp.app.baseUrl + '/index.php' + apiBase + '/' + endpoint;
+		},
+
+		/**
 		 * Display an error message from an ajax request
 		 *
 		 * This callback expects to be attached to the `error` param of the

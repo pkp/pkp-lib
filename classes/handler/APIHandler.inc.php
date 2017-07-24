@@ -72,13 +72,14 @@ class APIHandler extends PKPHandler {
 			$path = $uri->getPath();
 			if (!$pathInfoEnabled && !is_null($endpoint) && !isset($_SERVER['PATH_INFO']) && ($path == '/')) {
 				$basePath = $uri->getBasePath();
-				$uri = $uri->withPath($endpoint);
 				if($request->getMethod() == 'GET') {
+					$uri = $uri->withPath($basePath . $endpoint);
 					return $response->withRedirect((string)$uri, 301);
 				}
 				else {
 					// because the route is calculated before any middleware is executed
 					// we need to call App::process because the URI changed so that dispatch happens again
+					$uri = $uri->withPath($endpoint);
 					return $app->process($request->withUri($uri), $response);
 				}
 			}

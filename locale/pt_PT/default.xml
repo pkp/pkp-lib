@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/pt_PT/default.xml
+  *
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the pt_PT (Português (Portugal)) locale.
+  -->
+
+<locale name="pt_PT" full_name="Português (Portugal)">
+
+	<message key="default.groups.name.siteAdmin">Administrador do Portal</message>
+	<message key="default.groups.plural.siteAdmin">Administradores do Portal</message>
+	<message key="default.groups.name.productionEditor">Editor de Produção</message>
+	<message key="default.groups.plural.productionEditor">Editores de Produção</message>
+	<message key="default.groups.abbrev.productionEditor">EProd</message>
+	<message key="default.groups.name.copyeditor">Editor de Cópia</message>
+	<message key="default.groups.plural.copyeditor">Editores de Cópia</message>
+	<message key="default.groups.abbrev.copyeditor">EC</message>
+	<message key="default.groups.name.proofreader">Proofreader</message>
+	<message key="default.groups.plural.proofreader">Proofreaders</message>
+	<message key="default.groups.abbrev.proofreader">PR</message>
+	<message key="default.groups.name.designer">Designer</message>
+	<message key="default.groups.plural.designer">Designers</message>
+	<message key="default.groups.abbrev.designer">Design</message>
+	<message key="default.groups.name.internalReviewer">Revisor Interno</message>
+	<message key="default.groups.plural.internalReviewer">Revisores Internos</message>
+	<message key="default.groups.abbrev.internalReviewer">RI</message>
+	<message key="default.groups.name.marketing">Coordenador de Vendas e Marketing</message>
+	<message key="default.groups.plural.marketing">Coordenadores de Vendas e Marketing</message>
+	<message key="default.groups.abbrev.marketing">VM</message>
+	<message key="default.groups.name.funding">Coordenador de Financiamento</message>
+	<message key="default.groups.plural.funding">Coordenadores de Financiamento</message>
+	<message key="default.groups.abbrev.funding">CF</message>
+	<message key="default.groups.name.indexer">Indexador</message>
+	<message key="default.groups.plural.indexer">Indexadores</message>
+	<message key="default.groups.abbrev.indexer">IND</message>
+	<message key="default.groups.name.layoutEditor">Editor de Layout</message>
+	<message key="default.groups.plural.layoutEditor">Editores de Layout</message>
+	<message key="default.groups.abbrev.layoutEditor">EL</message>
+	<message key="default.groups.name.author">Autor</message>
+	<message key="default.groups.plural.author">Autores</message>
+	<message key="default.groups.abbrev.author">AU</message>
+	<message key="default.groups.name.translator">Tradutor</message>
+	<message key="default.groups.plural.translator">Tradutores</message>
+	<message key="default.groups.abbrev.translator">Trad</message>
+	<message key="default.groups.name.reader">Leitor</message>
+	<message key="default.groups.plural.reader">Leitores</message>
+	<message key="default.groups.abbrev.reader">Leit</message>
+	<message key="default.genres.other">Outro</message>
+	<message key="default.genres.multimedia">Multimédia</message>
+	<message key="default.genres.image">Imagem</message>
+	<message key="default.genres.styleSheet">Stylesheet HTML</message>
+</locale>

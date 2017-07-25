@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/pt_PT/reviewer.xml
+  *
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the pt_PT (Português (Portugal)) locale.
+  -->
+
+<locale name="pt_PT" full_name="Português (Portugal)">
+
+
+
+	<message key="reviewer.reviewSteps.request">1. Pedido</message>
+	<message key="reviewer.reviewSteps.guidelines">2. Guias</message>
+	<message key="reviewer.reviewSteps.download"><![CDATA[3. Download & Revisão]]></message>
+	<message key="reviewer.reviewSteps.completion">4. Conclusão</message>
+	<message key="reviewer.step1.request">Propôr para Revisão</message>
+	<message key="reviewer.step1.requestBoilerplate">Foi selecionado como um potencial revisor das seguintes submissões. Em baixo existe uma visão da submissão, assim como uma cronologia para esta revisão. Esperamos que seja capaz de participar.</message>
+	<message key="reviewer.step1.viewAllDetails">Ver todos os detalhes de Submissão</message>
+	<message key="reviewer.submission.reviewerFiles">Ficheiros de revisão</message>
+	<message key="reviewer.submission.declineReview">Recusar Pedido de Revisão</message>
+	<message key="reviewer.submission.declineReviewMessage">Pode indicar ao editor quais os motivos de recusar a revisão no campo abaixo.</message>
+	<message key="reviewer.submission.acceptReview">Revisão aceite, Continuar para a Etapa #2</message>
+	<message key="reviewer.submission.continueToStepThree">Continuar para a Etapa #3</message>
+	<message key="reviewer.submission.submitReview">Submeter Revisão</message>
+	<message key="reviewer.submission.reviewerGuidelines">Guias de Revisão</message>
+	<message key="reviewer.submission.enterCompetingInterests">O Editor tem uma politica de divulgação de Conflitos de interesse dos seus revisores. Por favor reveja esta política.</message>
+	<message key="reviewer.submission.noCompetingInterests">Eu não tenho nenhum conflito de interesses</message>
+	<message key="reviewer.submission.hasCompetingInterests">Eu poderei ter alguns conflitos de interesses (Especificados Abaixo)</message>
+	<message key="reviewer.submission.competingInterests">Conflito de Interesses</message>
+	<message key="reviewer.submission.guidelines">Rever Guias</message>
+	<message key="reviewer.submission.noGuidelines">Este Editor não definiu guias para a revisão</message>
+	<message key="reviewer.submission.downloadDescription">Clique nos nomes dos ficheiros abaixo, para descarregar os ficheiros associados com esta submissão.</message>
+	<message key="reviewer.submission.reviewDescription">Introduza a sua revisão desta submissão no formulário abaixo.</message>
+	<message key="reviewer.submission.uploadDescription">Carregue todos os ficheiros que gostaria que o Editor/Autor consulte, incluindo as versões revistas dos ficheiros originais.</message>
+	<message key="reviewer.complete">Revisão Submetida</message>
+	<message key="reviewer.confirmSubmit">Tem a certeza que deseja submeter esta revisão?</message>
+	<message key="reviewer.complete.whatNext">Obrigado por completar esta revisão. A sua revisão foi submetida com sucesso. Agradecemos a sua contribuição para a qualidade do trabalho que publicamos; o editor poderá contatá-lo novamente para informação adicional.</message>
+	<message key="reviewer.aboutDueDates">Sobre Datas de Vencimento</message>
+	<message key="reviewer.aboutDueDates.text">O editor pede que aceite ou rejeite a revisão antes da sua Data de Vencimento da Reposta, e complete a revisão antes do fim do periodo de revisão.</message>
+	<message key="submission.comments.canShareWithAuthor">Para o autor e editor</message>
+	<message key="submission.comments.cannotShareWithAuthor">Para editores apenas</message>
+	<message key="user.authorization.submissionReviewer">O utilizador atual não está designado como revisor para o documento pedido.</message>
+</locale>

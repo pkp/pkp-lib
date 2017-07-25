@@ -9,10 +9,11 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the pt_PT (Português (Portugal)) locale.
-  *
   -->
 
 <locale name="pt_PT" full_name="Português (Portugal)">
+	<message key="admin.systemInfo.settingName">Nome da Configuração</message>
+	<message key="admin.systemInfo.settingValue">Valor da Configuração</message>
 	<message key="admin.adminFunctions">Funções Administrativas</message>
 	<message key="admin.auth.confirmDelete">Deseja realmente eliminar esta fonte de autenticação?</message>
 	<message key="admin.auth.create">Criar fonte de autenticação</message>
@@ -21,7 +22,7 @@
 	<message key="admin.clearDataCache">Limpar Cache de Dados</message>
 	<message key="admin.clearTemplateCache">Limpar Cache de Template</message>
 	<message key="admin.configFileUpdatedInstructions"><![CDATA[O documento de configuração foi actualizado com sucesso. Caso as alterações incorram em erros no sistema será necessário actualizar manualmente o ficheiro <tt>config.inc.php</tt>.]]></message>
-	<message key="admin.confirmClearTemplateCache">Deseja realmente limpar o Cache das templates compiladas?</message>
+	<message key="admin.confirmClearTemplateCache">Deseja realmente limpar a Cache dos templates compilados?</message>
 	<message key="admin.confirmExpireSessions">Deseja realmente expirar todas as sessões de todos os utlizadores? Todos os utlizadores ligados serão forçados a aceder novamente ao sistema (incluindo o utilizador actual).</message>
 	<message key="admin.contentsOfConfigFile">Conteúdo do ficheiro de configuração</message>
 	<message key="admin.currentVersion">Versão Actual</message>
@@ -29,23 +30,40 @@
 	<message key="admin.displayConfigFileInstructions"><![CDATA[As configurações actualizadas são exibidas abaixo. Para aplicar as alterações é necessário editar o documento <tt>config.inc.php</tt> manualmente em algum editor de texto, substituindo-o com o conteúdo do campo a seguir.]]></message>
 	<message key="admin.displayNewSystemConfig">Exibir Configuração Actual</message>
 	<message key="admin.expireSessions">Expirar Sessões de Utilizadores</message>
+	<message key="admin.languages.download">Obter Idioma</message>
+	<message key="admin.languages.downloadLocales">Obter Idioma</message>
+	<message key="admin.languages.download.cannotOpen">Não é possível abrir o descritor de linguagem do Portal PKP.</message>
+	<message key="admin.languages.download.cannotModifyRegistry">Não foi possível adicionar o novo Idioma ao arquivo de Idiomas, situado em "registry/locales.xml".</message>
+	<message key="admin.languages.cantDisable">Este idioma representa a linguagem definida por omissão do Portal. Não é possivel desactivar até que exista outro idioma definido.</message>
+
 	<message key="admin.languages.confirmReload">Deseja realmente recarregar este idioma? A sua execução irá apagar qualquer informação de idioma específico como customização de e-mails.</message>
 	<message key="admin.languages.installedLocales">Idiomas Instalados</message>
 	<message key="admin.languages.installLanguages">Administrar Idiomas</message>
-	<message key="admin.languages.installLocales">Instalar</message>
-	<message key="admin.languages.installNewLocales">Instalar Idiomas</message>
+	<message key="admin.languages.availableLocales">Idiomas Disponíveis</message>
+	<message key="admin.languages.installLocale">Instalar Idioma</message>
+	<message key="admin.languages.installLocales">Instalar</message>		
+	<message key="admin.languages.installNewLocales">Instalar Novos Idiomas</message>
 	<message key="admin.languages.languageSettings">Configurações de Idioma</message>
 	<message key="admin.languages.noLocalesAvailable">Nenhum idioma adicional disponível para instalação.</message>
 	<message key="admin.languages.reload">Recarregar Idioma</message>
 	<message key="admin.languages.uninstall">Desinstalar Idioma</message>
 	<message key="admin.phpInfo">Informações do PHP</message>
+	<message key="admin.scheduledTask">Tarefa Agendada</message>
+	<message key="admin.scheduledTask.startTime">Tarefa iniciada em:.</message>
+	<message key="admin.scheduledTask.stopTime">Tarefa terminada em:.</message>
+	<message key="admin.scheduledTask.noLog">A tarefa não produziu registos.</message>
+	<message key="admin.scheduledTask.downloadLog">A instalação automática do {$softwareName} terminout. Esta tarefa produziu o registo que pode ser consultado em: {$url}</message>
+	<message key="admin.scheduledTask.confirmClearLogs">Tem a certeza que deseja remover todos os registos de todas as tarefas agendadas?</message>
+	<message key="admin.scheduledTask.clearLogs">Remover registos de Tarefas agendadas</message>
+	<message key="admin.scheduledTask.reviewReminder">Aviso de Revisão</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">Aviso de expiração da Subscrição </message>
 	<message key="admin.server.apacheVersion">Versão do Apache</message>
 	<message key="admin.server.dbDriver">Driver da Base de Dados</message>
 	<message key="admin.server.dbVersion">Versão do Servidor de Base de Dados</message>
-	<message key="admin.serverInformationDescription"><![CDATA[Versão de software do Sistema Operativo Básico e do Servidor. Clique em <span class="highlight">Informações do PHP</span> para ver detalhes das suas configurações neste servidor.]]></message>
 	<message key="admin.serverInformation">Informações do Servidor</message>
 	<message key="admin.server.phpVersion">Versão do PHP</message>
 	<message key="admin.server.platform">Sistema Operativo</message>
+	<message key="admin.settings">Configurações</message>
 	<message key="admin.settings.aboutDescription">Descrição sobre o Portal</message>
 	<message key="admin.settings.contactEmail">E-mail do Contacto Principal</message>
 	<message key="admin.settings.contactName">Nome do Contacto Principal</message>
@@ -53,18 +71,25 @@
 	<message key="admin.settings.form.contactNameRequired">Nome do contacto principal é obrigatório</message>
 	<message key="admin.settings.form.minPasswordLengthRequired">A senha deve possuir no mínimo 4 caracteres.</message>
 	<message key="admin.settings.form.titleRequired">Título obrigatório.</message>
+	<message key="admin.settings.defaultMetricDescription">
+		Your installation is configured to record more than one usage metric. Usage statistics will be displayed in several contexts.
+		There are cases where a single usage statistic must be used, e.g. to display an ordered list of most-used submissions or to rank
+		search results. Please select one of the configured metrics as a default.
+	</message>
 	<message key="admin.settings.homeHeaderImage.altText">Logo do portal</message>
 	<message key="admin.settings.homeHeaderImageInvalid">Formato de imagem inválido. Formatos aceitáveis são .gif, .jpg ou .png.</message>
 	<message key="admin.settings.introduction">Introdução</message>
 	<message key="admin.settings.minPasswordLength">Tamanho mínimo de senha</message>
-	<message key="admin.settings.passwordCharacters">caracteres</message>
 	<message key="admin.settings.siteLanguage">Idioma do Portal</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Formato de folha de estilo inválido. Formato aceitável é .css.</message>
 	<message key="admin.settings.siteStyleSheet">Folha de Estilos do Portal (CSS)</message>
+	<message key="admin.settings.siteLogo">Site Logo</message>
 	<message key="admin.settings.siteTitle">Título do Portal</message>
+	<message key="admin.settings.siteTheme">Site Theme</message>	
 	<message key="admin.siteAdmin">Administração do Portal</message>
 	<message key="admin.siteManagement">Administração da Revista</message>
 	<message key="admin.siteSettings">Configurações do Portal</message>
+	<message key="admin.siteSetup">Site Setup</message>
 	<message key="admin.systemConfigFileReadError"><![CDATA[O documento de configuração <tt>config.inc.php</tt> não existe, não possui permissão de leitura ou está corrompido.]]></message>
 	<message key="admin.systemInformation">Informações sobre o Sistema</message>
 	<message key="admin.versionBuild">Construção</message>
@@ -80,4 +105,26 @@
 	<message key="admin.version.updateAvailable">Actualização disponível</message>
 	<message key="admin.version.upToDate">Sistema está actualizado</message>
 	<message key="admin.version">Versão</message>
+
+	<message key="admin.fileLoader.wrongBasePathLocation">O caminho base {$path} deve estar contido no directório público de ficheiros.</message>
+	<message key="admin.fileLoader.pathNotAccessible">A pasta {$path} não é um directório ou não tem permissões para leitura.</message>
+	<message key="admin.fileLoader.moveFileFailed">Não foi possível mover o ficheiro {$filename} de {$currentFilePath} para {$destinationPath}</message>
+	<message key="admin.fileLoader.fileProcessed">O ficheiro {$filename} foi processado e arquivado.</message>
+	<message key="admin.fileLoader.emailSubject">Arquivador de Ficheiros</message>
+
+	<message key="admin.copyAccessLogFileTool.usage">Copie os registos do apache aprovados, filtrando as entradas relacionadas com esta instalação, para a pasta em uso, dentro do Plugin de Estatísticas de Utilização. Deve ser instânciado utilizando um utilizador com permissões suficientes para consultar os registos fornecidos pelo Apache.
+	Esta ferramenta irá copiar apenas os ficheiros que ainda não estejam dentro do Plugin de Estatísticas de Utilização.
+	Utilização: {$scriptName} path/to/apache/log/file.log
+	Utilização (processar todos os ficheiros dentro de uma pasta): {$scriptName} path/to/apache/directory
+	</message>
+	<message key="admin.copyAccessLogFileTool.error.creatingFolder">Erro: não é possível criar a pasta temporária {$tmpDir}</message>
+	<message key="admin.copyAccessLogFileTool.error.acessingFile">Erro: o ficheiro {$filePath} não existe ou não tem permissões de leitura.</message>
+	<message key="admin.copyAccessLogFileTool.error.copyingFile">Erro: não é possivel copiar o ficheiro de {$filePath} para {$tmpFilePath}</message>
+	<message key="admin.copyAccessLogFileTool.error.deletingFile">Erro: não é possível remover o ficheiro: {$tmpFilePath}</message>
+	<message key="admin.copyAccessLogFileTool.warning.fileAlreadyExists">Aviso: o ficheiro {$filePath} já existe dentro da pasta de Estatísticas de Utilização.</message>
+	<message key="admin.copyAccessLogFileTool.success">Sucesso: {$filePath} para {$destinationPath}</message>
+	<message key="admin.error.utilExecutionProblem">A execução do programa "{$utilPath}" retornou o seguinte erro: {$output}</message>
+	<message key="admin.error.executingUtil">Erro: não é possível executar "{$utilPath}".  Por favor verifique a configuração {$utilVar} no ficheiro config.inc.php.</message>
+	<message key="admin.languages.noLocalesToDownload">Não existem Idiomas disponíveis para download.</message>
+	<message key="admin.contexts.confirmDelete">Tem a certeza que deseja remover o {$contextName} de forma permanente, assim como todo o seu conteúdo?</message>
 </locale>

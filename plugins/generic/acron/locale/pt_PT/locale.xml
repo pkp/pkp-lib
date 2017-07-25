@@ -14,5 +14,11 @@
  
 <locale name="pt_PT" full_name="Português (Portugal)">
 	<message key="plugins.generic.acron.name">Plugin Acron</message>
-	<message key="plugins.generic.acron.reload">Recarregar Tarefas Agendadas</message>
+  <message key="plugins.generic.acron.description">Este plugin tenta reduzir as dependencias da aplicação em ferramentas de agendamento (e.g. Cron).</message>
+  <message key="plugins.generic.acron.enabled">O Plugin Acron foi activado.</message>
+  <message key="plugins.generic.acron.disabled">O Plugin Acron foi desactivado.</message>
+  <message key="plugins.generic.acron.reloadedCronTab">Tarefa de Cron actualizada com sucesso.</message>
+  
+  <message key="plugins.generic.acron.reload">Recarregar Tarefas Agendadas</message>
+  <message key="plugins.generic.acron.tasksReloaded">As Tarefas Agendadas foram recarregadas.</message>
 </locale>

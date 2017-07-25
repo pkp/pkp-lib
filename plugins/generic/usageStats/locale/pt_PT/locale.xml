@@ -11,7 +11,7 @@
   * Localization strings
   -->
 
-<locale name="pt_BR" full_name="Português (Brasil)">
+<locale name="pt_PT" full_name="Português (Portugal)">
 	<message key="plugins.generic.usageStats.settings.logging">Opções de registo de acesso</message>
 	<message key="plugins.generic.usageStats.settings.createLogFiles">Criar Ficheiros de registo</message>
 	<message key="plugins.generic.usageStats.settings.createLogFiles.description">Activar esta opção fará com que o plugin crie registos de acesso dentro do pasta especificada. Esses registos devem ser usados para extrair estatísticas de utilização. Se não desejar criar mais registos de acesso, pode deixar esta opção em branco e utilizar os registos do servidor.</message>

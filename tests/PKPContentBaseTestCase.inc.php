@@ -74,7 +74,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		if ($location == 'frontend') {
 			$this->waitForElementPresent($selector='//a[contains(text(), \'Make a New Submission\')]');
 		} else {
-			$this->waitForElementPresent($selector='//button[starts-with(., \'New Submission\')]');
+			$this->waitForElementPresent($selector='//a[contains(text(), \'New Submission\')]');
 		}
 		$this->click($selector);
 

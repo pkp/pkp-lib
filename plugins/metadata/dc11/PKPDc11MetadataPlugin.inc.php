@@ -46,20 +46,17 @@ class PKPDc11MetadataPlugin extends MetadataPlugin {
 	}
 
 	/**
-	 * Get a unique id for this metadata format
-	 *
-	 * @return string
+	 * @copydoc MetadataPlugin::supportsFormat()
 	 */
-	public function getFormatId() {
-		return 'dc11';
+	public function supportsFormat($format) {
+		return $format === 'dc11';
 	}
 
 	/**
-	 * Instantiate and return the schema object for this metadata format
-	 *
-	 * @return mixed
+	 * @copydoc MetadataPlugin::getSchemaObject()
 	 */
-	public function getSchemaObject() {
+	public function getSchemaObject($format) {
+		assert($this->supportsFormat($format));
 		import('plugins.metadata.dc11.schema.Dc11Schema');
 		return new Dc11Schema();
 	}

@@ -46,20 +46,17 @@ class PKPMods34MetadataPlugin extends MetadataPlugin {
 	}
 
 	/**
-	 * Get a unique id for this metadata format
-	 *
-	 * @return string
+	 * @copydoc MetadataPlugin::supportsFormat()
 	 */
-	public function getFormatId() {
-		return 'mods34';
+	public function supportsFormat($format) {
+		return $format === 'mods34';
 	}
 
 	/**
-	 * Instantiate and return the schema object for this metadata format
-	 *
-	 * @return mixed
+	 * @copydoc MetadataPlugin::getSchemaObject()
 	 */
-	public function getSchemaObject() {
+	public function getSchemaObject($format) {
+		assert($this->supportsFormat($format));
 		import('plugins.metadata.mods34.schema.Mods34Schema');
 		return new Mods34Schema();
 	}

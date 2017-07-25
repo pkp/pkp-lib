@@ -59,7 +59,7 @@ abstract class PKPSubmissionService {
 
 		$args = array_merge($defaultArgs, $args);
 
-		$submissionListQB = new \OJS\Services\QueryBuilders\SubmissionListQueryBuilder($contextId);
+		$submissionListQB = $this->getSubmissionListQueryBuilder($contextId);
 		$submissionListQB
 			->orderBy($args['orderBy'], $args['orderDirection'])
 			->assignedTo($args['assignedTo'])

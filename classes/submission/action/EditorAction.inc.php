@@ -72,7 +72,7 @@ class EditorAction {
 			$editDecisionDao->updateEditorDecision($submission->getId(), $editorDecision, $stageId, $reviewRound);
 
 			// Set a new submission status if necessary
-			if ($decision == SUBMISSION_EDITOR_DECISION_DECLINE) {
+			if ($decision == SUBMISSION_EDITOR_DECISION_DECLINE || $decision == SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE) {
 				$submission->setStatus(STATUS_DECLINED);
 			} elseif ($submission->getStatus() == STATUS_DECLINED) {
 				$submission->setStatus(STATUS_QUEUED);

@@ -458,18 +458,24 @@ class ReviewerForm extends Form {
 
 	/**
 	 * Get the email template key depending on if reviewer one click access is
-	 * enabled or not.
+	 * enabled or not as well as on review round.
 	 *
 	 * @param $context Context The user's current context.
 	 * @return int Email template key
 	 */
 	function _getMailTemplateKey($context) {
-		$templateKey = 'REVIEW_REQUEST';
-		if ($context->getSetting('reviewerAccessKeysEnabled')) {
-			$templateKey = 'REVIEW_REQUEST_ONECLICK';
-		}
+		$reviewerAccessKeysEnabled = $context->getSetting('reviewerAccessKeysEnabled');
+		$round = $this->getReviewRound()->getRound();
 
-		return $templateKey;
+		if ($reviewerAccessKeysEnabled && ($round == 1)) {
+			return 'REVIEW_REQUEST_ONECLICK';
+		} elseif ($reviewerAccessKeysEnabled) {
+			return 'REVIEW_REQUEST_ONECLICK_SUBSEQUENT';
+		} elseif ($round == 1) {
+			return 'REVIEW_REQUEST';
+		} else {
+			return 'REVIEW_REQUEST_SUBSEQUENT';
+		}
 	}
 }
 

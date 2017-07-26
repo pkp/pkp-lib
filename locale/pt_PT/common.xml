@@ -315,7 +315,6 @@
 	<message key="common.allDownloads">Todos os Downloads</message>
 	<message key="common.navigation.sidebar">Barra Lateral</message>
 	<message key="common.navigation.site">Navegação no Portal</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="common.dimensionsInches"><![CDATA[{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI]]></message>
 	<message key="common.dimensionsPixels"><![CDATA[{$width}&times;{$height} pixéis]]></message>
 	<message key="common.downloadPdf">Download PDF</message>
@@ -328,8 +327,6 @@
 	<message key="common.less">Menos</message>
 	<message key="common.more">Mais</message>
 	<message key="about.description">Descrição</message>
-	<message key=""><![CDATA[]]></message>
-	<message key=""><![CDATA[]]></message>
 	<message key="common.navigation.siteContext">Contexto Navegação do Portal</message>
 	<message key="common.navigation.user">Navegação do Utilizador</message>
 	<message key="common.tasks">Tarefas</message>
@@ -340,7 +337,6 @@
 	<message key="common.accepted">Aceite</message>
 	<message key="common.acknowledged">Confirmado</message>
 	<message key="common.name">Nome</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="common.assigned.date">Designado: {$dateAssigned}</message>
 	<message key="common.available">Disponível</message>
 	<message key="common.warning">Aviso</message>
@@ -349,7 +345,6 @@
 	<message key="common.captcha.error.missing-input-secret">A validação do captcha para este portal não está configurada correctamente. A chave secreta está em falta.</message>
 	<message key="common.captcha.error.missing-input-response">Deve completar a verificação de validação utilizada para evitar envios de spam.</message>
 	<message key="common.captcha.error.invalid-input-response">Não aprovou a verificação de validação usada para evitar envios de spam.</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="common.completed.date">Concluído: {$dateCompleted}</message>
 	<message key="common.confirm">Confirmar</message>
 	<message key="common.confirmed.date">Confirmado: {$dateConfirmed}</message>
@@ -358,8 +353,6 @@
 	<message key="common.dateHijri">Calendário Hijri</message>
 	<message key="common.declined">Recusado</message>
 	<message key="common.designation">Designação</message>
-	<message key=""><![CDATA[]]></message>
-	<message key=""><![CDATA[]]></message>
 	<message key="common.billingAddress">Endereço facturação (se diferente)</message>
 	<message key="common.notes.tooltip">Notas (amarelo: tem novas notas; azul: viu notas; cinza: sem notas)</message>
 	<message key="common.notified">Notificado</message>
@@ -375,9 +368,6 @@
 	<message key="common.queue.long.active">Todos as Activas</message>
 	<message key="common.range">{$min}-{$max}</message>
 	<message key="common.readMore">Ler Mais</message>
-	<message key=""><![CDATA[]]></message>
-	<message key=""><![CDATA[]]></message>
-	<message key=""><![CDATA[]]></message>
 	<message key="common.reminder">Lembrete</message>
 	<message key="common.reminded.date">Data lembrete: {$dateReminded}</message>
 	<message key="common.remote">Remoto</message>
@@ -398,10 +388,6 @@
 	<message key="common.viewProfile">Ver Perfil</message>
 	<message key="common.plugins">Plugins</message>
 	<message key="common.metric">Métrica</message>
-	<message key=""><![CDATA[]]></message>
-	<message key=""><![CDATA[]]></message>
-	<message key=""><![CDATA[]]></message>
-	<message key=""><![CDATA[]]></message>
 	<message key="defaultMetric.title">Métrica Padrão</message>
 	<message key="defaultMetric.availableMetrics">Métricas Disponíveis</message>
 	<message key="editor.submissionReview.uploadFile">Upload Ficheiro Revisão</message>
@@ -450,7 +436,6 @@
 	<message key="navigation.tools">Ferramentas</message>
 	<message key="navigation.tools.importExport">Importar/Exportar</message>
 	<message key="navigation.tools.statistics">Estatísticas</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="navigation.data">Dados</message>
 	<message key="navigation.browseByAuthor">Por Autor</message>
 	<message key="navigation.items.shownTotal">{$shown} de {$total} artigos</message>

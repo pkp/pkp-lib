@@ -105,11 +105,7 @@
 	<message key="user.login.registrationComplete">Registo concluído</message>
 	<message key="user.authorization.accessDenied">Acesso recusado.</message>
 	<message key="user.authorization.processAuthenticationTokenRequired">O token de autenticação de processo não existe ou é inválido.</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="user.accountInformation">Informação sobre Conta</message>
-	<message key=""><![CDATA[]]></message>
-	<message key=""><![CDATA[]]></message>
-	<message key=""><![CDATA[]]></message>
 	<message key="user.suffix">Sufixo</message>
 	<message key="user.orcid">iD ORCID</message>
 	<message key="user.orcid.orcidInvalid">O ORCID iD fornecido é inválido. Inclua o URI completo (por exemplo, "http://orcid.org/0000-0002-1825-0097").</message>
@@ -121,7 +117,6 @@
 	<message key="user.authorization.privateOperation">A operação que tentou aceder é privada ou não existe.</message>
 	<message key="user.authorization.restrictedSiteAccess">Acesso recusado. O acesso a este portal está actualmente restrito.</message>
 	<message key="user.authorization.roleBasedAccessDenied">O actual papel não tem acesso a esta operação.</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="user.login.registrationComplete.instructions">Obrigado pelo registo! O que gostaria de fazer a seguir?</message>
 	<message key="user.login.registrationComplete.manageSubmissions">Ver Submissões</message>
 	<message key="user.login.registrationComplete.newSubmission">Submeter Artigo</message>

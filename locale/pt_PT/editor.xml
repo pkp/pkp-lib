@@ -23,7 +23,6 @@
 	<message key="editor.submission.uploadSelectFiles">Upload/Seleccionar Ficheiros</message>
 	<message key="editor.submission.selectFiles">Seleccionar Ficheiros</message>
 	<message key="editor.submission.revisions">Revisões</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="editor.submission.review.reviewersDescription"><![CDATA[Usar <em>+ Adicionar revisor</em> para convidar os leitores a rever os ficheiros submetidos. O ícone do caderno indica que uma revisão foi enviada, que é então marcada <em>Reconhecida</em> depois de ter sido consultada. Quando as revisões estão atrasadas, um ícone de envelope vermelho aparece para lembrar os revisores.]]></message>
 	<message key="editor.submission.addReviewer">Adicionar Revisor</message>
 	<message key="editor.submission.findAndSelectReviewer">Localizar um Revisor</message>

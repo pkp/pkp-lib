@@ -586,6 +586,16 @@ class PKPTemplateManager extends Smarty {
 
 		$this->addJavaScript('pNotify', $baseUrl . '/lib/pkp/lib/vendor/alex198710/pnotify/assets/js/pnotify.custom.min.js', $args);
 
+		// Load new component library bundle
+		$this->addJavaScript(
+			'pkpApp',
+			$baseUrl . '/js/build.js',
+			array(
+				'priority' => STYLE_SEQUENCE_LATE,
+				'contexts' => array('backend')
+			)
+		);
+
 		// Load minified file if it exists
 		if (Config::getVar('general', 'enable_minified')) {
 			$this->addJavaScript(
@@ -621,13 +631,28 @@ class PKPTemplateManager extends Smarty {
 	function registerJSLibraryData() {
 
 		$application = PKPApplication::getApplication();
+		$context = $this->_request->getContext();
 
 		// Instantiate the namespace
 		$output = '$.pkp = $.pkp || {};';
 
 		// Load data intended for general use by the app
+		import('lib.pkp.classes.security.Role');
+
 		$app_data = array(
 			'baseUrl' => $this->_request->getBaseUrl(),
+			'contextPath' => isset($context) ? $context->getPath() : '',
+			'apiBasePath' => '/api/v1',
+			'pathInfoEnabled' => Config::getVar('general', 'disable_path_info') ? false : true,
+			'accessRoles' => array(
+				'manager' => ROLE_ID_MANAGER,
+				'siteAdmin' => ROLE_ID_SITE_ADMIN,
+				'author' => ROLE_ID_AUTHOR,
+				'reviewer' => ROLE_ID_REVIEWER,
+				'assistant' => ROLE_ID_ASSISTANT,
+				'reader' => ROLE_ID_READER,
+				'subeditor' => ROLE_ID_SUB_EDITOR,
+			),
 		);
 		$output .= '$.pkp.app = ' . json_encode($app_data) . ';';
 
@@ -659,6 +684,29 @@ class PKPTemplateManager extends Smarty {
 			$output .= '$.pkp.plugins = {};';
 			foreach($plugin_data as $namespace => $data) {
 				$output .= $namespace . ' = ' . json_encode($data) . ';';
+			}
+		}
+
+		// Load current user data
+		if (!Config::getVar('general', 'installed')) {
+			$output .= '$.pkp.currentUser = null;';
+		} else {
+			$user = $this->_request->getUser();
+			if ($user) {
+				import('lib.pkp.classes.security.RoleDAO');
+				import('lib.pkp.classes.security.UserGroupDAO');
+				$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+				$userGroups = $userGroupDao->getByUserId($this->_request->getUser()->getId())->toArray();
+				$currentUserAccessRoles = array();
+				foreach ($userGroups as $userGroup) {
+					$currentUserAccessRoles[] = (int) $userGroup->getRoleId();
+				}
+				$userOutput = array(
+					'id' => (int) $user->getId(),
+					'accessRoles' => $currentUserAccessRoles,
+					'csrfToken' => $this->_request->getSession()->getCSRFToken()
+				);
+				$output .= '$.pkp.currentUser = ' . json_encode($userOutput);
 			}
 		}
 

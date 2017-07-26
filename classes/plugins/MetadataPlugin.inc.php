@@ -54,6 +54,23 @@ abstract class MetadataPlugin extends Plugin {
 		}
 		return $controlledVocabFiles;
 	}
+
+	/**
+	 * Get a unique id for this metadata format
+	 *
+	 * @param $format string The format to check for support.
+	 * @return string
+	 */
+	abstract function supportsFormat($format);
+
+	/**
+	 * Instantiate and return the schema object for this metadata format
+	 *
+	 * @param $format string The format to return the schema object for in case
+	 *  the plugin supports multiple formats.
+	 * @return mixed
+	 */
+	abstract function getSchemaObject($format);
 }
 
 ?>

@@ -214,7 +214,7 @@
 
 			// Display the revision confirmation form.
 			if (jsonData.content !== '') {
-				this.getHtmlElement().replaceWith(jsonData.content);
+				this.replaceWith(jsonData.content);
 			}
 		}
 

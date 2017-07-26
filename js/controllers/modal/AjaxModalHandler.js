@@ -37,6 +37,7 @@
 		this.bind('formSubmitted', this.formSubmitted);
 		this.bind('formCanceled', this.modalClose);
 		this.bind('ajaxHtmlError', this.modalClose);
+		this.bind('modalFinished', this.modalClose);
 	};
 	$.pkp.classes.Helper.inherits($.pkp.controllers.modal.AjaxModalHandler,
 			$.pkp.controllers.modal.ModalHandler);

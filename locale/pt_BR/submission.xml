@@ -183,7 +183,6 @@
 	<message key="submission.event.general.suppFileUpdated">Documento suplementar da submissão atualizado</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Tarefa de avaliação aceita pelo responsável, em nome do avaliador</message>
 	<message key="submission.event.reviewer.reviewAccepted">Tarefa de avaliação aceita</message>
-	<message key="submission.event.reviewer.reviewCancelled">Tarefa de avaliação cancelada</message>
 	<message key="submission.event.reviewer.reviewDeclined">Tarefa de avaliação recusada</message>
 	<message key="submission.event.reviewer.reviewDueDate">Data de conclusão da avaliação alterada</message>
 	<message key="submission.event.reviewer.reviewerAssigned">Avaliador designado para a submissão</message>

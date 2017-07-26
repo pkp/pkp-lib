@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/en_US/api.xml
+  *
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the REST API.
+  -->
+
+<locale name="en_US" full_name="U.S. English">
+	<message key="api.submissions.403.csrfTokenFailure">Your request was denied. This may be because your login has expired. Try reloading the page and trying again.</message>
+	<message key="api.submissions.403.requestedOthersUnpublishedSubmissions">You can only view unpublished submissions to which you have been assigned.</message>
+	<message key="api.submissions.403.deleteSubmissionOutOfContext">You can not delete a submission that is not assigned to this context.</message>
+	<message key="api.submissions.403.unauthorizedDeleteSubmission">You do not have permission to delete this submission.</message>
+	<message key="api.submissions.404.resourceNotFound">The requested resource was not found.</message>
+	<message key="api.submissions.400.missingRequired">Your request could not be fulfilled because it is missing required information.</message>
+	<message key="api.submissions.unknownError">An unexpected error has occurred. Please reload the page and try again.</message>
+	<message key="api.submissions.400.stageNotValid">Your request could not be fulfilled because the submission stage ID is compatible.</message>
+</locale>

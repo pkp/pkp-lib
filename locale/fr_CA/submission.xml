@@ -61,7 +61,6 @@
 	<message key="submission.event.general.suppFileUpdated">Fichier de la soumission mis à jour</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Évaluation acceptée par procuration</message>
 	<message key="submission.event.reviewer.reviewAccepted">Évaluation acceptée</message>
-	<message key="submission.event.reviewer.reviewCancelled">Évaluation annulée</message>
 	<message key="submission.event.reviewer.reviewDeclined">Évaluation refusée</message>
 	<message key="submission.event.reviewer.reviewDueDate">Date d'échéance de l'évaluation modifiée</message>
 	<message key="submission.event.reviewer.reviewerAssigned">Évaluateur assigné à une soumission</message>

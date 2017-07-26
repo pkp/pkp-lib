@@ -44,6 +44,28 @@ class PKPNlm30MetadataPlugin extends MetadataPlugin {
 	function getDescription() {
 		return __('plugins.metadata.nlm30.description');
 	}
+
+	/**
+	 * @copydoc MetadataPlugin::supportsFormat()
+	 */
+	public function supportsFormat($format) {
+		return $format === 'nlm30citation' || $format === 'nlm30name';
+	}
+
+	/**
+	 * @copydoc MetadataPlugin::getSchemaObject()
+	 */
+	public function getSchemaObject($format) {
+		assert($this->supportsFormat($format));
+		if ($format === 'nlm30citation') {
+			import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
+			return new Nlm30CitationSchema();
+		} elseif ($format === 'nlm30name') {
+			import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema');
+			return new Nlm30NameSchema();
+		}
+		assert(false);
+	}
 }
 
 ?>

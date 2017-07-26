@@ -1,0 +1,671 @@
+/**
+ * @file styles/controllers/listPanel.less
+ *
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2003-2016 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * @brief Styles for the ListPanel controller
+ */
+.pkpListPanel {
+	position: relative;
+	max-width: 900px;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+	border-radius: @radius;
+
+	&.--isLoading {
+
+		.pkpListPanel__title:after {
+			&:extend(.pkp_spinner:after);
+			position: absolute;
+			top: 50%;
+			margin-top: -10px;
+			margin-left: 1em;
+		}
+	}
+}
+
+.pkpListPanel__header {
+	.pkp_helpers_clear;
+	background: @bg-light;
+	padding: 0 0.5em 0.5em 1em;
+}
+
+.pkpListPanel__title {
+	position: relative;
+	margin-top: 0.5em;
+	font-weight: @bold;
+	float: left;
+	max-width: 30em;
+}
+
+.pkpListPanel__actions {
+	&:extend(.pkp_unstyled_list all);
+	float: right;
+	margin-top: 0.5em;
+	max-width: 30em;
+
+	li {
+		display: inline-block;
+	}
+
+	a,
+	button {
+		display: inline-block;
+		padding: 0 0.5em;
+		background: #fff;
+		border: @bg-border-light;
+		border-radius: @radius;
+		font-size: @font-sml;
+		font-weight: @bold;
+		color: @primary;
+		text-decoration: none;
+
+		&.--isActive {
+			background: @primary;
+			border-color: @primary;
+			color: #fff;
+		}
+
+		&:hover,
+		&:focus {
+			border-color: @primary;
+			outline: 0;
+		}
+
+		&.--isWarnable {
+			color: @no;
+			border-color: @no-btn-border;
+
+			&:hover,
+			&:focus {
+				background: @no;
+				border-color: @no;
+				color: #fff;
+			}
+		}
+
+		.fa {
+			margin-right: 0.25em;
+		}
+	}
+}
+
+.pkpListPanel__search {
+	position: relative;
+	float: right;
+	margin-top: 0.5em;
+	max-width: 100%;
+
+	input {
+		display: block;
+		box-sizing: border-box;
+		padding: 0 0.5em 0 3.5em;
+		width: 25em;
+		height: auto;
+		max-width: 100%;
+		border: @bg-border-light;
+		border-radius: @radius;
+		font-size: @font-sml;
+		line-height: @double;
+
+		&:hover {
+			border-color: @primary;
+
+			+ .pkpListPanel__searchIcons {
+				border-color: @primary;
+			}
+		}
+
+		&:focus {
+			outline: 0;
+			border-color: @primary;
+
+			+ .pkpListPanel__searchIcons {
+				border-color: @primary;
+				background: @primary;
+
+				.pkpListPanel__searchIcons--search:before {
+					color: #fff;
+				}
+
+				.pkpListPanel__searchIcons--searching:before {
+					border-top-color: rgba(255,255,255,0.5);
+					border-left-color: rgba(255,255,255,0.5);
+				}
+			}
+		}
+	}
+
+	.pkpListPanel__searchClear {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: @double;
+		height: 100%;
+		background: transparent;
+		border: none;
+		border-top-right-radius: @radius;
+		border-bottom-right-radius: @radius;
+		vertical-align: middle;
+		text-align: center;
+		color: @offset;
+
+		&:hover,
+		&:focus {
+			outline: 0;
+			background: @offset;
+			color: #fff;
+		}
+	}
+
+	&.searching {
+
+		.pkpListPanel__searchIcons--search:before {
+			opacity: 0;
+		}
+
+		.pkpListPanel__searchIcons--searching:before {
+			opacity: 1;
+		}
+	}
+}
+
+.pkpListPanel__actions + .pkpListPanel__search {
+	margin-right: 0.5em;
+}
+
+.pkpListPanel__searchLabel {
+	&:extend(.pkp_screen_reader all);
+}
+
+.pkpListPanel__searchIcons {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 2.5em;
+	height: 100%;
+	border-right: @bg-border-light;
+	border-top-left-radius: @radius;
+	border-bottom-left-radius: @radius;
+}
+
+.pkpListPanel__searchIcons--search:before {
+	&:extend(.fa);
+	content: @fa-var-search;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: @primary;
+	transition: opacity 0.3s;
+	opacity: 1;
+}
+
+.pkpListPanel__searchIcons--searching:before {
+	&:extend(.pkp_spinner:after);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -10px;
+	margin-left: -10px;
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+.pkpListPanel__body {
+	.pkp_helpers_clear;
+	position: relative;
+}
+
+.pkpListPanel__filter {
+	position: absolute;
+	left: -9999px;
+	width: 0;
+}
+
+.pkpListPanel__filter:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	border-right: @grid-border;
+}
+
+.pkpListPanel__filter,
+.pkpListPanel__content {
+	transition: width 0.2s;
+}
+
+.pkpListPanel__content {
+	position: relative;
+}
+
+.pkpListPanel__filter + .pkpListPanel__content {
+	float: right;
+	width: 100%;
+}
+
+.pkpListPanel__filterHeader {
+	margin: @base 0;
+	padding: 0 @base;
+	font-size: @font-sml;
+	line-height: @line-sml;
+	font-weight: @bold;
+
+	&:focus {
+		outline: 0;
+	}
+
+	.fa {
+		margin-right: 0.25em;
+	}
+}
+
+.pkpListPanel__filterHeader,
+.pkpListPanel__filterOptions {
+	position: absolute;
+	left: -9999px;
+	opacity: 0;
+	// This is an arbitrarily large width that is used to smooth the transition
+	// when the filter panel is shown. Without a large width, the filter options
+	// get squished as the parent element grows from a small to a large size.
+	// This then causes the content to have additional line breaks, so that the
+	// panel starts tall and shortens as the width expands. By forcing a big
+	// width here, we prevent it from "jumping" to a large height.
+	width: 1000px;
+}
+
+.pkpListPanel__filterSet {
+	margin: @base 0;
+	font-size: @font-sml;
+	line-height: @line-sml;
+
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	li {
+		position: relative;
+	}
+}
+
+.pkpListPanel__filterSetLabel {
+	padding-left: @base;
+	padding-right: @base;
+	font-weight: @bold;
+	font-size: @font-tiny;
+	color: @text-light;
+}
+
+.pkpListPanel__filterLabel {
+	display: block;
+	padding: (@half / 2) @base;
+	background: transparent;
+	border: none;
+	color: @primary;
+	text-decoration: none;
+
+	&:focus {
+		border-left: 2px solid @primary;
+		padding-left: @base - 2;
+		outline: 0;
+	}
+
+	&.--isActive {
+		font-weight: @bold;
+	}
+}
+
+.pkpListPanel__filterRemove {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	padding: 0;
+	margin: 0;
+	width: @double;
+	border: none;
+	transform: translateY(-50%);
+	background: transparent;
+	text-align: center;
+	color: @text-light;
+
+	&:hover,
+	&:focus {
+		color: @offset;
+	}
+}
+
+.pkpListPanel__filterRemoveLabel {
+	&:extend(.pkp_screen_reader);
+}
+
+.pkpListPanel__filter.--isVisible {
+	float: left;
+	position: relative;
+	left: auto;
+	width: 25%;
+
+	+ .pkpListPanel__content  {
+		float: right;
+		width: 75%;
+	}
+
+	.pkpListPanel__filterHeader,
+	.pkpListPanel__filterOptions {
+		position: relative;
+		left: 0;
+		opacity: 1;
+		width: 100%;
+		transition: opacity 0.2s ease-in-out 0.2s, left 0s ease-in-out 0.2s, width 0s ease-in-out 0.2s;
+	}
+}
+
+.pkpListPanel__columnLabels {
+	position: relative;
+	display: block;
+	min-height: @base * 3;
+	background: @lift;
+	border-bottom: @grid-border;
+	font-size: @font-tiny;
+	line-height: @line-tiny;
+}
+
+.pkpListPanel__items {
+	margin: 0;
+	padding: 0;
+}
+
+.pkpListPanelItem {
+	padding: 1em;
+	border-bottom: @grid-border;
+	font-size: @font-sml;
+	line-height: 1.5em;
+	list-style: none;
+
+	// Use a box-shadow instead of a border so
+	// it overlaps with the footer border
+	&:last-child {
+		border-bottom: none;
+		box-shadow: 0 1px 0 @grid-border-color;
+	}
+}
+
+.pkpListPanelItem__actions {
+
+	a,
+	button {
+		display: inline-block;
+		margin-top: 1em;
+		margin-right: 2em;
+		padding: 0;
+		border: none;
+		background: transparent;
+		font-size: @font-tiny;
+		font-weight: @bold;
+		color: @primary;
+		text-decoration: none;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	.delete {
+		color: @no;
+	}
+}
+
+.pkpListPanel__footer {
+	.pkp_helpers_clear();
+	position: relative;
+	padding: @half @base;
+	font-size: @font-tiny;
+	line-height: @line-base;
+	border-top: @grid-border;
+}
+
+.pkpListPanel__loadMore {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	text-align: center;
+}
+
+.pkpListPanel__loadMoreButton,
+.pkpListPanel__loadMoreNotice {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: @half @base;
+	transition: opacity 0.3s;
+}
+
+.pkpListPanel__loadMoreButton {
+	font-weight: @bold;
+	text-decoration: none;
+	opacity: 1;
+
+	.fa {
+		margin-right: 0.25em;
+	}
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: 1em;
+		height: 2px;
+		background: @primary;
+		opacity: 0;
+		transform: translateX(-50%);
+		transition: width 0.3s;
+	}
+
+	&:hover,
+	&:focus {
+
+		&:before {
+			opacity: 1;
+			width: 10em;
+		}
+	}
+}
+
+.pkpListPanel__loadMoreNotice {
+	display: none;
+	opacity: 0;
+
+	.pkp_spinner {
+		margin-right: 0.25em;
+	}
+}
+
+.pkpListPanel__count {
+	float: right;
+}
+
+.pkpListPanel__loadMore.--isLoadingMore {
+
+	.pkpListPanel__loadMoreButton {
+		opacity: 0;
+	}
+
+	.pkpListPanel__loadMoreNotice {
+		display: block;
+		opacity: 1;
+	}
+}
+
+.pkpListPanelItem__mask {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 0;
+	height: 0;
+	opacity: 0;
+	border-radius: 50%;
+	transform: translate(-50%, -50%);
+	transition: all 0.3s;
+
+	&.--active {
+		width: 100%;
+		height: 100%;
+		opacity: 1;
+		border-radius: 0;
+		background: @bg-light;
+	}
+
+	&.--alert {
+		background: @offset;
+
+		.pkp_spinner:after {
+			border-top-color: #fff;
+			border-left-color: #fff;
+			border-bottom-color: transparent;
+			border-right-color: transparent;
+		}
+
+		.pkpListPanelItem__maskLabel {
+			font-weight: @bold;
+			color: #fff;
+
+			a {
+				margin-left: 1em;
+				padding: 0.25em 0.5em;
+				background: #fff;
+				border-radius: @radius;
+				text-decoration: none;
+				color: @offset;
+
+				&:hover,
+				&:focus {
+					background: @offset-lift;
+					color: #fff;
+				}
+			}
+		}
+	}
+
+	&.--finish {
+		background: #fff;
+	}
+}
+
+.pkpListPanelItem__maskLabel {
+	position: absolute;
+	top: 50%;
+	width: 100%;
+	transform: translateY(-50%);
+	text-align: center;
+
+	.pkp_spinner {
+		margin-right: 1em;
+	}
+}
+
+.pkpListPanel.--isOrdering {
+
+	// Hide other items on screen
+	.pkpListPanel__actions > li:not(.pkpListPanel__orderToggle):not(.pkpListPanel__orderToggleCancel),
+	.pkpListPanel__search {
+		display: none;
+	}
+
+	.pkpListPanelItem {
+		position: relative;
+		padding-left: 5em;
+		padding-right: 9em;
+	}
+}
+
+.pkpListPanelItem__ordererDragDrop,
+.pkpListPanelItem__ordererUp,
+.pkpListPanelItem__ordererDown {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 4em;
+	height: 100%;
+	text-align: center;
+	background: transparent;
+	border: none;
+
+	&:focus {
+		outline: 0;
+	}
+}
+
+.pkpListPanelItem__ordererDragDrop {
+	color: @primary;
+	border-right: @grid-border;
+	cursor: move;
+}
+
+.pkpListPanelItem__ordererUp,
+.pkpListPanelItem__ordererDown {
+	left: auto;
+	right: 0;
+	color: @text-light;
+	border-left: @grid-border;
+
+	&:hover {
+		color: @primary;
+		box-shadow: 0 2px 0 @primary;
+	}
+
+	&:focus {
+		background: @bg-light;
+	}
+}
+
+.pkpListPanelItem__ordererUp {
+	right: 4em;
+}
+
+.pkpListPanel__notice {
+	padding: 1em;
+	border-bottom: @grid-border;
+	font-size: @font-sml;
+	line-height: @line-sml;
+
+	&:focus {
+		box-shadow: -2px 0 0 @primary;
+		outline: 0;
+	}
+
+	.fa {
+		margin-right: 0.25em;
+	}
+}
+
+.pkpListPanel__notice--info .fa {
+	color: @yes;
+}
+
+.pkpListPanelItem__selectItem {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 4rem;
+	height: 100%;
+	background: transparent;
+	border: none;
+	border-right: @grid-border;
+}
+
+.pkpListPanelItem--select {
+
+	.pkpListPanelItem__item {
+		padding-left: 4rem;
+	}
+}

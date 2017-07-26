@@ -419,15 +419,14 @@ class ReviewerForm extends Form {
 	 */
 	function getAdvancedSearchAction($request) {
 		$reviewRound = $this->getReviewRound();
-
-		$actionArgs['submissionId'] = $this->getSubmissionId();
-		$actionArgs['stageId'] = $reviewRound->getStageId();
-		$actionArgs['reviewRoundId'] = $reviewRound->getId();
-		$actionArgs['selectionType'] = REVIEWER_SELECT_ADVANCED_SEARCH;
-
 		return new LinkAction(
 			'addReviewer',
-			new AjaxAction($request->url(null, null, 'reloadReviewerForm', null, $actionArgs)),
+			new AjaxAction($request->url(null, null, 'reloadReviewerForm', null, array(
+				'submissionId' => $this->getSubmissionId(),
+				'stageId' => $reviewRound->getStageId(),
+				'reviewRoundId' => $reviewRound->getId(),
+				'selectionType' => REVIEWER_SELECT_ADVANCED_SEARCH,
+			))),
 			__('editor.submission.backToSearch'),
 			'return'
 		);
@@ -467,14 +466,11 @@ class ReviewerForm extends Form {
 		$reviewerAccessKeysEnabled = $context->getSetting('reviewerAccessKeysEnabled');
 		$round = $this->getReviewRound()->getRound();
 
-		if ($reviewerAccessKeysEnabled && ($round == 1)) {
-			return 'REVIEW_REQUEST_ONECLICK';
-		} elseif ($reviewerAccessKeysEnabled) {
-			return 'REVIEW_REQUEST_ONECLICK_SUBSEQUENT';
-		} elseif ($round == 1) {
-			return 'REVIEW_REQUEST';
-		} else {
-			return 'REVIEW_REQUEST_SUBSEQUENT';
+		switch(1) {
+			case $reviewerAccessKeysEnabled && $round == 1: return 'REVIEW_REQUEST_ONECLICK';
+			case $reviewerAccessKeysEnabled: return 'REVIEW_REQUEST_ONECLICK_SUBSEQUENT';
+			case $round == 1: return 'REVIEW_REQUEST';
+			default: return 'REVIEW_REQUEST_SUBSEQUENT';
 		}
 	}
 }

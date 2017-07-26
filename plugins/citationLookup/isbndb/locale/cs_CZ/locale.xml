@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * plugins/citationLookup/isbndb/locale/cs_CZ/locale.xml
+  *
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2003-2017 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+
+<locale name="cs_CZ" full_name="Čeština">
+	<message key="plugins.citationLookup.isbndb.displayName">Konektor k databázi ISBNdb</message>
+	<message key="plugins.citationLookup.isbndb.description">Připojuje k bibliografické databázi ISBNdb.</message>
+	<message key="plugins.citationLookup.isbndbExtraction.displayName">Extrakční služba ISBN.</message>
+	<message key="plugins.citationLookup.isbndbExtraction.description">Hledá ISBN pro daný citační prvek NLM 3.0</message>
+	<message key="plugins.citationLookup.isbndbLookup.displayName">Vyhledávací služba ISBN</message>
+	<message key="plugins.citationLookup.isbndbLookup.description">Hledá plnou plný citační prvek NLM 3.0 pro dané ISBN.</message>
+</locale>

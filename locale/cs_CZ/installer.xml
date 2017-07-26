@@ -36,14 +36,12 @@
 	<message key="installer.databasePassword">Heslo</message>
 	<message key="installer.databaseSettings">Nastavení databáze</message>
 	<message key="installer.databaseUsername">Uživatelské jméno</message>
-	<message key="installer.encryption">Algoritmus šifrování hesla</message>
 	<message key="installer.filesDir">Adresář pro nahrávání souborů</message>
 	<message key="installer.fileSettings">Nastavení souboru</message>
 	<message key="installer.form.clientCharsetRequired">Musí být zvolena znaková sada klienta.</message>
 	<message key="installer.form.databaseDriverRequired">Musí být zvolen ovladač databáze.</message>
 	<message key="installer.form.databaseNameRequired">Je vyžadován název databáze.</message>
 	<message key="installer.form.emailRequired">Je vyžadována platná emailová adresa pro účet administrátora.</message>
-	<message key="installer.form.encryptionRequired">Musí být zvolen algoritmus pro šifrování hesel uživatelů.</message>
 	<message key="installer.form.filesDirRequired">Je vyžadován adresář pro ukládání nahraných souborů.</message>
 	<message key="installer.form.localeRequired">Musí být zvolena lokalizace.</message>
 	<message key="installer.form.passwordRequired">Je vyžadováno heslo pro účet administrátora.</message>
@@ -61,12 +59,24 @@
 	<message key="installer.locale">Lokalizace</message>
 	<message key="installer.locale.maybeIncomplete">Označené soubory lokalizace mohou být nekompletní.</message>
 	<message key="installer.localeSettings">Nastavení lokalizace</message>
-	<message key="installer.manualInstall">Instalovat ručně</message>
-	<message key="installer.miscSettings">Různá nastavení</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[jedinečný identifikátor použitý pro identifikaci záznamů metadat indexovaných z těchto stránek s využitím <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> protokolu pro shromažďování metadat (Protocol for Metadata Harvesting).]]></message>
 	<message key="installer.oaiRepositoryId">Identifikátor OAI úložiště</message>
 	<message key="installer.publicFilesDirError">Adresář veřejných souborů (public) neexistuje nebo není zapsatelný.</message>
 	<message key="installer.releaseNotes">Poznámky k vydání</message>
-	<message key="installer.securitySettings">Bezpečnostní nastavení</message>
-	<message key="installer.manualUpgrade">Upgradovat ručně</message>
+	<message key="installer.installParseFilterConfigFileError"><![CDATA[Chyba při parsingu souboru konfigurace filtru <tt>{$file}</tt>.]]></message>
+	<message key="installer.unsupportedUpgradeError">Upgrade není podporován. Přečtěte si, prosím, docs/UPGRADE-UNSUPPORTED pro další informace.</message>
+	<message key="installer.oaiSettings">Nastavení OAI</message>
+	<message key="installer.preInstallationInstructionsTitle">Předinstalační kroky</message>
+	<message key="installer.preInstallationInstructions"><![CDATA[<p>1. Následující soubory a složky (a jejich obsah) musí být zapisovatelné:</p>
+		<ul>
+			<li><tt>config.inc.php</tt> je zapisovatelný (volitelné): {$writable_config}</li>
+			<li><tt>public/</tt> je zapisovatelný: {$writable_public}</li>
+			<li><tt>cache/</tt> je zapisovatelný: {$writable_cache}</li>
+			<li><tt>cache/t_cache/</tt> je zapisovatelný: {$writable_templates_cache}</li>
+			<li><tt>cache/t_compile/</tt> je zapisovatelný: {$writable_templates_compile}</li>
+			<li><tt>cache/_db</tt> je zapisovatelný: {$writable_db_cache}</li>
+		</ul>]]></message>
+	<message key="installer.configureXSLMessage"><![CDATA[<p>Váše instalace PHP nemá povolený modul XSL. Buď ho povolte, nebo změňte parametr xslt_command parameter ve vašem konfiguračním souboru config.inc.php.</p>]]></message>
+	<message key="installer.beacon">Signál</message>
+	<message key="installer.beacon.enable">Poskytněte, prosím, unikátní ID a OAI base URL vašich stránek pro PKP - budou využity pouze pro statistické účely a bezpečnostní varování.</message>
 </locale>

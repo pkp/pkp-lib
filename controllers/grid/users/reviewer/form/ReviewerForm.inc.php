@@ -419,15 +419,14 @@ class ReviewerForm extends Form {
 	 */
 	function getAdvancedSearchAction($request) {
 		$reviewRound = $this->getReviewRound();
-
-		$actionArgs['submissionId'] = $this->getSubmissionId();
-		$actionArgs['stageId'] = $reviewRound->getStageId();
-		$actionArgs['reviewRoundId'] = $reviewRound->getId();
-		$actionArgs['selectionType'] = REVIEWER_SELECT_ADVANCED_SEARCH;
-
 		return new LinkAction(
 			'addReviewer',
-			new AjaxAction($request->url(null, null, 'reloadReviewerForm', null, $actionArgs)),
+			new AjaxAction($request->url(null, null, 'reloadReviewerForm', null, array(
+				'submissionId' => $this->getSubmissionId(),
+				'stageId' => $reviewRound->getStageId(),
+				'reviewRoundId' => $reviewRound->getId(),
+				'selectionType' => REVIEWER_SELECT_ADVANCED_SEARCH,
+			))),
 			__('editor.submission.backToSearch'),
 			'return'
 		);
@@ -458,18 +457,21 @@ class ReviewerForm extends Form {
 
 	/**
 	 * Get the email template key depending on if reviewer one click access is
-	 * enabled or not.
+	 * enabled or not as well as on review round.
 	 *
 	 * @param $context Context The user's current context.
 	 * @return int Email template key
 	 */
 	function _getMailTemplateKey($context) {
-		$templateKey = 'REVIEW_REQUEST';
-		if ($context->getSetting('reviewerAccessKeysEnabled')) {
-			$templateKey = 'REVIEW_REQUEST_ONECLICK';
-		}
+		$reviewerAccessKeysEnabled = $context->getSetting('reviewerAccessKeysEnabled');
+		$round = $this->getReviewRound()->getRound();
 
-		return $templateKey;
+		switch(1) {
+			case $reviewerAccessKeysEnabled && $round == 1: return 'REVIEW_REQUEST_ONECLICK';
+			case $reviewerAccessKeysEnabled: return 'REVIEW_REQUEST_ONECLICK_SUBSEQUENT';
+			case $round == 1: return 'REVIEW_REQUEST';
+			default: return 'REVIEW_REQUEST_SUBSEQUENT';
+		}
 	}
 }
 

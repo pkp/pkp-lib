@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/cs_CZ/editor.xml
+  *
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2003-2017 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+
+<locale name="cs_CZ" full_name="Čeština">
+	<message key="editor.submissionLibrary">Knihovna příspěvků</message>
+	<message key="editor.review.notInitiated">Recenzní proces doposud nezačal.</message>
+	<message key="editor.submission.copyediting.personalMessageToUser">Zpráva uživateli</message>
+	<message key="editor.submission.externalReviewDescription">Vyberte z níže uvedených souborů, které se odešlou do recenzní fáze.</message>
+	<!-- Add file or auditor to editor/audit grids -->
+	<message key="editor.submission.fileAuditor.form.fileRequired">Musíte vybrat alespoň jeden soubor, kterému chcete přiřadit uživatele.</message>
+	<message key="editor.submission.fileAuditor.form.messageRequired">Musíte zahrnout osobní zprávu.</message>
+	<message key="editor.submission.fileAuditor.skipEmail">Neposílat email auditorovi.</message>
+	<message key="editor.submission.fileAuditor.form.userRequired">Musíte vybrat uživatele, kterého chcete přiřadit.</message>
+	<message key="editor.submission.uploadSelectFiles">Nahrát/vybrat soubory</message>
+	<message key="editor.submission.selectFiles">Vyberte soubory</message>
+	<message key="editor.submission.revisions">Recenze</message>
+	<message key="editor.submission.review.reviewersDescription"><![CDATA[Pomocí <em> + Přidat recenzenta </ em> můžete pozvat čtenáře, aby si prohlédli soubory Příspěvku. Ikona poznámkového bloku označuje, že byla odevzdána recenze, která byla po konzultaci zaškrtnuta <em> Potvrzeno </ em>. Když jsou recenze po termínu, objeví se červená ikona obálky, která tuto skutečnost připomíná recenzentům.]]></message>
+	<message key="editor.submission.addReviewer">Přidat recenzenta</message>
+	<message key="editor.submission.findAndSelectReviewer">Lokalizovat recenzenta</message>
+	<message key="editor.submission.findAndSelectUser">Lokalizovat uživatele</message>
+	<message key="editor.submission.fileList.includeAllStages">Ukázat soubory ze všech přístupných etap workflow.</message>
+	<message key="editor.submission.review.currentFiles">Souasné soubory recenzentů pro fázi {$round}</message>
+	<message key="editor.submission.backToSearch">Zpět na vyhledávání</message>
+	<message key="editor.review.createReviewer">Vytvořit nového recenzenta</message>
+	<message key="editor.review.enrollReviewer.short">Zapsat existujícího uživatele</message>
+	<message key="editor.review.unassignReviewer">Zrušit přiřazení recenzenta</message>
+	<message key="editor.submissionReview.reviewType">Typ recenze</message>
+	<message key="editor.submissionReview.skipEmail">Neposílat autorovi email</message>
+	<message key="editor.submissionReview.open">Otevřený</message>
+	<message key="editor.submissionReview.blind">Anonymní</message>
+	<message key="editor.submissionReview.doubleBlind">Dvojitě anonymní (Double-blind)</message>
+	<message key="editor.submissionReview.restrictFiles">Soubory k recenzi</message>
+	<message key="editor.submissionReview.restrictFiles.hide">Uzavřít sekci souborů</message>
+	<message key="editor.submissionReview.editReview">Editovat recenzenta</message>
+	<message key="editor.review.personalMessageToReviewer">Email, který má být zaslán recenzentovi</message>
+	<message key="editor.review.importantDates">Důležité termíny</message>
+	<message key="editor.review.uploadRevision">Nahrát recenze</message>
+	<message key="editor.review.NotifyAuthorAccept">Upozornit autora, že jejich příspěvek byl přijat.</message>
+	<message key="editor.review.NotifyAuthorDecline">Upozornit autora, že jejich příspěvek byl odmítnut.</message>
+	<message key="editor.review.NotifyAuthorRevisions">Požadovat od autora úpravy.</message>
+	<message key="editor.review.NotifyAuthorResubmit">Požadovat od autora úpravy, které budou předmětem další recenze.</message>
+	<message key="editor.review.NotifyAuthorExternal">Upozornit autora na rozhodnutí provést externí recenzi.</message>
+	<message key="editor.review.personalMessageToAuthor">Email, který má být odeslán autorovi</message>
+	<message key="editor.review.dateAccepted">Datum souhlasu recenzenta s provedením recenze</message>
+	<message key="editor.review.noReviews">Nejsou žádní recenzenti k importu</message>
+	<message key="editor.review.reminder">Připomenutí recenze</message>
+	<message key="editor.review.thankReviewer">Poděkování recenzentovi</message>
+	<message key="editor.review.reminderError">Chyba při odesílání připomenutí recenze</message>
+	<message key="editor.review.thankReviewerError">Chyba při odesílání poděkování recenzentovi</message>
+	<message key="editor.review.skipEmail">Neposílat email recenzentovi</message>
+	<message key="editor.review.sendReminder">Odeslat připomenutí</message>
+	<message key="editor.review.readReview">Číst recenzi</message>
+	<message key="editor.review.readNewReview">Přečíst novou recenzi</message>
+	<message key="editor.review.responseDue">Termín reakce: {$date}</message>
+	<message key="editor.review.requestSent">Požadavek odeslán</message>
+	<message key="editor.review.requestAccepted">Požadavek přijat</message>
+	<message key="editor.review.revertDecision">Vrátit rozhodnutí</message>
+	<message key="editor.review.reviewDue">Termín recenze: {$date}</message>
+	<message key="editor.review.reviewDueDate">Termín recenze</message>
+	<message key="editor.review.reviewCompleted">Recenze ukončena</message>
+	<message key="editor.review.reviewConfirmed">Recenze potvrzena</message>
+	<message key="editor.review.reviewSubmitted">Recenze odeslána</message>
+	<message key="editor.review.reviewerComments">Recenzentovy komentáře</message>
+	<message key="editor.review.days">Průměrný počet dnů</message>
+	<message key="editor.review.mustSelect">Je třeba vybrat recenzenta</message>
+	<message key="editor.review.errorAddingReviewer">Při vybírání recenzenta došlo k chybě. Zkuste to, prosím, znovu.</message>
+	<message key="editor.review.errorDeletingReviewer">Při odebírání recenzenta došlo k chybě. Zkuste to, prosím, znovu.</message>
+	<message key="editor.review.userGroupSelect">Zapsat uživatele ze uživatelské skupiny "Recenzenti"</message>
+	<message key="editor.review.unconsiderReviewText">Chtěli byste tuto recenzi označit za nedostatečnou? Historie recenzí bude zachována.</message>
+	<message key="editor.review.unconsiderReview">Označit tuto recenzi za nedostatečnou</message>
+	<message key="editor.review.readConfirmation">Po přečtení této recenze stiskněte tlačítko "Potvrdit" a označte, že proces přezkoumání může pokračovat. Pokud recenzent podal recenzi jiným způsobem, můžete nahrát níže uvedený soubor a pak pokračovat stisknutím tlačítka "Potvrdit".</message>
+	<message key="editor.submission.selectCopyedingFiles">Soubory k redakční úpravě</message>
+	<message key="editor.submission.selectReviewer">Vybrat recenzenta</message>
+	<message key="editor.submission.taskDueDate">Termín úkolu</message>
+	<message key="editor.submission.taskSchedule">Plán úkolů</message>
+	<message key="editor.review.enrollReviewer">Zapsat existujícího uživatele jako recenzenta</message>
+	<message key="editor.submission.noAuditRequested">Pro tento soubor není třeba posudek</message>
+	<message key="editor.submission.personalMessageToUser">Email, který má být odeslán autorovi</message>
+	<message key="editor.submission.proof.reminder">Připomínka korektury</message>
+	<message key="editor.submission.editorial.approveCopyeditDescription">Soubor po redakční úpravě musí být potvrzen před odesláním do produkční fáze. Chcete tento soubor potvrdit?</message>
+	<message key="editor.submission.editorial.disapproveCopyeditDescription">Zrušení potvrzení redakční úpravy souboru způsobí, že nebude možné ho poslat do produkční fáze. Chcete skutečně zrušit potvrzení tohoto souboru?</message>
+	<message key="editor.submission.addAuditor">Přiřadit posuzovatele</message>
+	<message key="editor.submission.copyedit.manageCopyeditFilesDescription">Všechny soubory, které již byly nahrány do libovolné fáze odeslání, lze přidat do seznamu souborů pro redakční úpravy zaškrtnutím políčka Zahrnout a klepnutím na tlačítko Hledat: budou uvedeny všechny dostupné soubory a mohou být vybrány k zařazení. Další soubory, které ještě nebyly nahrané do této fáze, lze přidat do seznamu kliknutím na odkaz Nahrát soubor.</message>
+	<message key="editor.review">Recenze</message>
+	<message key="editor.review.reviewDetails">Detaily recenze</message>
+	<message key="editor.review.noReviewFilesUploaded">Žádné soubory nebyly nahrány</message>
+	<message key="editor.review.noReviewFilesUploaded.details">Nenahráli jste žádné soubory recenzí.</message>
+	<message key="editor.review.emailReviewer">Email recenzentovi</message>
+	<message key="editor.submission.production.productionReadyFiles">Soubory připravené pro produkční fázi</message>
+	<message key="editor.submission.newRound">Nové kolo recenzí</message>
+	<message key="editor.submissionReview.recordDecision">Nahrát rozhodnutí editora</message>
+	<message key="editor.submission.newRoundDescription">Pro tento příspěvek se chystáte vytvořit nové kolo recenzí. Soubory, které nebyly použity v jiných kolech recenzí, jsou uvedeny níže.</message>
+	<message key="editor.submission.createNewRound">Vytvořit nové kolo recenzí</message>
+	<message key="editor.article.reviewForms">Recenzní formuláře</message>
+	<message key="editor.article.selectReviewForm">Vybrat recenzní formulář</message>
+	<message key="editor.article.clearReviewForm">Vymazat recenzní formulář</message>
+	<message key="editor.article.confirmChangeReviewForm">Upozornění: Změna recenzního formuláře  ovlivní všechny odpovědi, které recenzenti provedli pomocí tohoto formuláře. Opravdu chcete pokračovat?</message>
+	<message key="editor.submission.noReviewerFilesSelected">Nebyly vybrány žádné soubory</message>
+	<message key="editor.submission.noReviewerFilesSelected.details">Nevybrali jste žádné soubory pro recenzenta k recenzi.</message>
+	<message key="submission.queries.subjectRequired">Je třeba vyplnit předmět diskuse</message>
+	<message key="submission.queries.messageRequired">Je třeba vyplnit obsah diskusní zprávy.</message>
+	<message key="submission.queries.attachedFiles">Připojené soubory</message>
+	<message key="grid.action.editQuery">Editovat diskusi</message>
+	<message key="editor.submission.query.manageQueryNoteFilesDescription">K diskusi lze připojit soubory ze seznamu níže.</message>
+	<message key="editor.submission.selectedReviewer">Vybraný recenzent</message>
+	<message key="editor.submission.proofreading.approveProof">Potvrdit korekturu</message>
+	<message key="editor.submission.proofreading.revokeProofApproval">Odvolat potvrzení korektury</message>
+	<message key="editor.submission.proofreading.confirmCompletion">Potvrdit tuto korekturu, aby bylo indikováno, že korektura byla ukončena a soubor je připravený k publikaci.</message>
+	<message key="editor.submission.proofreading.confirmRemoveCompletion">Odstranit potvrzení tuto korektury, aby bylo indikováno, že korektura není ukončena a soubor není připravený k publikaci.</message>
+	<message key="editor.publicIdentificationExistsForTheSameType">Veřejný identifikátor '{$publicIdentifier}' již existuje pro jiný objekt stejného typu. Vyberte prosím jedinečné identifikátory pro objekty stejného typu ve vašem časopise.</message>
+	<message key="editor.publicIdentificationNumericNotAllowed">Veřejný identifikátor '{$publicIdentifier}' nesmí být číslo.</message>
+	<message key="editor.publicIdentificationPatternNotAllowed">Vzor {$pattern} není povolen jako veřejný identifikátor.</message>
+</locale>

@@ -304,7 +304,8 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 				}
 				assert(is_a($revisionNode, 'DOMElement'));
 				$clone = $doc->importNode($revisionNode, true);
-				$submissionFileNode->appendChild($clone);
+				$firstRevisionChild = $submissionFileNode->firstChild;
+				$submissionFileNode->insertBefore($clone, $firstRevisionChild);
 			}
 		}
 	}

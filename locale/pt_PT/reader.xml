@@ -8,15 +8,14 @@
   * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the pt_PT (Português (Portugal)) locale.
-  *
+  * Localization strings.
   -->
 
 <locale name="pt_PT" full_name="Português (Portugal)">
 	<message key="comments.anonymous">Utilizador Anónimo</message>
 	<message key="comments.anonymousNamed">"{$userName}"</message>
 	<message key="comments.body">Corpo</message>
-	<message key="comments.confirmDeleteChildren">Eliminar este comentário também eliminará todas as respostas. Deseja realmente eliominar o comentário?</message>
+	<message key="comments.confirmDeleteChildren">Eliminar este comentário também eliminará todas as respostas. Deseja realmente eliminar o comentário?</message>
 	<message key="comments.delete">Eliminar este comentário</message>
 	<message key="comments.email">E-mail do comentador</message>
 	<message key="comments.emailReply">Responder e-mail</message>
@@ -65,7 +64,7 @@
 	<message key="rt.admin.status">Situação</message>
 	<message key="rt.admin.validateUrls.complete">Validação concluída.</message>
 	<message key="rt.admin.validateUrls.ok">OK</message>
-	<message key="rt.admin.validateUrls.urlIsInvalid">{$url} é inválida.</message>
+	<message key="rt.admin.validateUrls.urlIsInvalid">{$url} é inválido.</message>
 	<message key="rt.admin.validateUrls">Validar URLs</message>
 	<message key="rt.admin.validateUrls.validate">Validar</message>
 	<message key="rt.admin.versions.confirmDelete">Deseja realmente eliminar esta Versão e todos os Contextos e Pesquisas associados?</message>
@@ -83,7 +82,7 @@
 	<message key="rt.colleague">Enviar para outros</message>
 	<message key="rt.context.abbrev">Abreviatura</message>
 	<message key="rt.context.and">E</message>
-	<message key="rt.context.citesContextDescription">Caso o documento seja indexado pelo Google Académico, o mesmo pode ser acompanhado por um hipertexto "Citado por X", que encaminhará à lista de trabalhos que fazem a sua citação. O Google Académico também listará todos os itens que citam o título e o autor. Para aceder a recursos on-line disponíveis somente na sua biblioteca, podem ser activados Links de Biblioteca para a sua instituição nas Preferências do Google Académico.</message>
+	<message key="rt.context.citesContextDescription">Caso o documento seja indexado pelo Google Académico, o mesmo pode ser acompanhado por um hipertexto "Citado por X", que encaminhará à lista de trabalhos que fazem a sua citação. O Google Académico também listará todos os artigos que citam o título e o autor. Para aceder a recursos on-line disponíveis somente na sua biblioteca, podem ser activados Links de Biblioteca para a sua instituição nas Preferências do Google Académico.</message>
 	<message key="rt.context">Contexto</message>
 	<message key="rt.context.defineTermsDescription">Clique duas vezes sobre qualquer palavra, de um documento em HTML (ao contrário do PDF), para que apareça na janela de definição de termos. É possível inserir ou colar uma palavra no campo. Utilize a função de pesquisa para procurar uma definição para o termo. Para saber mais sobre o recurso pesquisado, clique no símbolo de informação. Estes recursos foram escolhidos devido à sua relevância e acessibilidade aberta (gratuita) para todo ou parte do conteúdo.</message>
 	<message key="rt.context.description">Descrição</message>
@@ -94,13 +93,13 @@
 	<message key="rt.context.termToDefine">Definir palavra</message>
 	<message key="rt.context.title">Título</message>
 	<message key="rt.emailAuthor">E-mail ao autor</message>
-	<message key="rt.email.needLogin"><![CDATA[* Requer <a target="_parent" href="{$loginUrl}">registo</a>]]></message>
+	<message key="rt.email.needLogin"><![CDATA[* Obrigatório <a target="_parent" href="{$loginUrl}">registo</a>]]></message>
 	<message key="rt.email.sent">Mensagem enviada.</message>
 	<message key="rt.findingReferences">Pesquisando Referências</message>
 	<message key="rt.findingReferences.googleScholar">Google Académico</message>
 	<message key="rt.findingReferences.windowsLiveAcademic">Windows Live Académico</message>
 	<message key="rt.lookUp">Pesquisar palavra</message>
-	<message key="rt.metadata.dublinCore.contributor">Contribuidor</message>
+	<message key="rt.metadata.dublinCore.contributor">Colaborador</message>
 	<message key="rt.metadata.dublinCore.coverage">Cobertura</message>
 	<message key="rt.metadata.dublinCore.date">Data</message>
 	<message key="rt.metadata.dublinCore.description">Descrição</message>
@@ -109,7 +108,7 @@
 	<message key="rt.metadata.dublinCore.identifier">Identificador</message>
 	<message key="rt.metadata.dublinCore.language">Idioma</message>
 	<message key="rt.metadata.dublinCore.publisher">Editora</message>
-	<message key="rt.metadata.dublinCore.relation">Itens Relacionados</message>
+	<message key="rt.metadata.dublinCore.relation">Relacionados</message>
 	<message key="rt.metadata.dublinCore.rights">Direitos</message>
 	<message key="rt.metadata.dublinCore.source">Fonte</message>
 	<message key="rt.metadata.dublinCore.subject">Assunto</message>
@@ -122,11 +121,11 @@
 	<message key="rt.metadata.pkp.date">(YYYY-MM-DD)</message>
 	<message key="rt.metadata.pkp.discipline">Área(s) do Conhecimento</message>
 	<message key="rt.metadata.pkp.format">Formato do Documento</message>
-	<message key="rt.metadata.pkp.genre"><![CDATA[Situação & gênero]]></message>
+	<message key="rt.metadata.pkp.genre"><![CDATA[Estado & género]]></message>
 	<message key="rt.metadata.pkpItem">Metadados para o PKP</message>
 	<message key="rt.metadata.pkp.language">Português=pt</message>
 	<message key="rt.metadata.pkp.publisher">Editora, localização</message>
-	<message key="rt.metadata.pkp.source">Título da Revista/conferência; V., No. (ano)</message>
+	<message key="rt.metadata.pkp.source">Título da Revista/Conferência; V., No. (ano)</message>
 	<message key="rt.metadata.pkp.sponsors">Patrocínio</message>
 	<message key="rt.metadata.pkp.subject">Palavras-chave(s)</message>
 	<message key="rt.metadata.pkp.suppFiles">Docs. Sups.</message>
@@ -156,7 +155,7 @@
 	<message key="rt.version.title">Título</message>
 	<message key="rt.version">Versão</message>
 	<message key="rt.viewMetadata">Exibir metadados</message>
-	<message key="comments.titleRequired">O título do comentário é obrigatório.</message>
+	<message key="comments.titleRequired">É obrigatório o título do comentário.</message>
 	<message key="rt.admin.sharing">Partilha</message>
 	<message key="rt.admin.sharing.enabled">Partilha activada</message>
 	<message key="rt.admin.sharing.description"><![CDATA[Para permitir aos leitores partilhar artigos, registe-se no <a href="http://www.addthis.com">AddThis.com</a>, e copie/cole o código de Partilhar a seguir.]]></message>
@@ -174,4 +173,5 @@
 	<message key="rt.admin.sharing.logoColorLabel">Cor do logótipo</message>
 	<message key="rt.admin.configureSharing">Configurar AddThis</message>
 	<message key="rt.captureCite.web">Web</message>
+	<message key="rt.admin.settings.viewReviewPolicy">Ver Políticas Revisão</message>
 </locale>

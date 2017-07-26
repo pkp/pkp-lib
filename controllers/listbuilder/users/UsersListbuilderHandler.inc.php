@@ -48,7 +48,7 @@ abstract class UsersListbuilderHandler extends ListbuilderHandler {
 		// Name column
 		$nameColumn = new ListbuilderGridColumn($this, 'name', 'common.name');
 		import('lib.pkp.controllers.listbuilder.users.UserListbuilderGridCellProvider');
-		$cellProvider = new UserListbuilderGridCellProvider();
+		$cellProvider = new UserListbuilderGridCellProvider($request);
 		$nameColumn->setCellProvider($cellProvider);
 		$this->addColumn($nameColumn);
 	}

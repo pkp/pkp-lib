@@ -72,7 +72,7 @@ class AnnouncementTypeGridHandler extends GridHandler {
 
 		// Columns
 		import('lib.pkp.controllers.grid.announcements.AnnouncementTypeGridCellProvider');
-		$announcementTypeCellProvider = new AnnouncementTypeGridCellProvider();
+		$announcementTypeCellProvider = new AnnouncementTypeGridCellProvider($request);
 		$this->addColumn(
 			new GridColumn('name',
 				'common.name',

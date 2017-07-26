@@ -16,7 +16,6 @@
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 
 class ReviewerSelectGridCellProvider extends DataObjectGridCellProvider {
-
 	//
 	// Template methods from GridCellProvider
 	//

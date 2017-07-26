@@ -54,7 +54,7 @@ class ActiveSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		// Fetch the authorized roles and determine if the user is a manager.
 		$authorizedRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
 		$this->_isManager = in_array(ROLE_ID_MANAGER, $authorizedRoles);
-		$cellProvider = new SubmissionsListGridCellProvider($request->getUser(), $authorizedRoles);
+		$cellProvider = new SubmissionsListGridCellProvider($request, $request->getUser(), $authorizedRoles);
 
 		$columns =& $this->getColumns();
 		$editorColumn = new GridColumn(

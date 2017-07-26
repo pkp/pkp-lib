@@ -68,7 +68,7 @@ class ReviewerSelectGridHandler extends GridHandler {
 		$this->setTitle('editor.submission.findAndSelectReviewer');
 
 		// Columns
-		$cellProvider = new ReviewerSelectGridCellProvider();
+		$cellProvider = new ReviewerSelectGridCellProvider($request);
 		$this->addColumn(
 			new GridColumn(
 				'select',

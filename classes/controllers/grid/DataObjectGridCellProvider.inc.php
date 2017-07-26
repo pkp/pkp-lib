@@ -23,7 +23,6 @@ class DataObjectGridCellProvider extends GridCellProvider {
 	/** @var string the locale to be retrieved. */
 	var $_locale = null;
 
-
 	//
 	// Setters and Getters
 	//
@@ -51,10 +50,7 @@ class DataObjectGridCellProvider extends GridCellProvider {
 	 * This implementation assumes an element that is a
 	 * DataObject. It will retrieve an element in the
 	 * configured locale.
-	 * @see GridCellProvider::getTemplateVarsFromRowColumn()
-	 * @param $row GridRow
-	 * @param $column GridColumn
-	 * @return array
+	 * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
 	function getTemplateVarsFromRowColumn($row, $column) {
 		$element = $row->getData();

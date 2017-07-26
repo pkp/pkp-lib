@@ -69,7 +69,7 @@ class VersionInfoGridHandler extends GridHandler {
 		//
 		// Grid columns.
 		//
-		$infoGridCellProvider = new InfoGridCellProvider();
+		$infoGridCellProvider = new InfoGridCellProvider($request);
 
 		// Version number.
 		$this->addColumn(

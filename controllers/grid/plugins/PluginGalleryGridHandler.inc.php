@@ -55,7 +55,7 @@ class PluginGalleryGridHandler extends GridHandler {
 		// Grid columns.
 		//
 		import('lib.pkp.controllers.grid.plugins.PluginGalleryGridCellProvider');
-		$pluginGalleryGridCellProvider = new PluginGalleryGridCellProvider();
+		$pluginGalleryGridCellProvider = new PluginGalleryGridCellProvider($request);
 
 		// Plugin name.
 		$this->addColumn(

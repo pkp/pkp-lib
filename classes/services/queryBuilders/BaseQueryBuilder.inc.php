@@ -57,6 +57,7 @@ abstract class BaseQueryBuilder {
 				'username'  => Config::getVar('database', 'username'),
 				'password'  => Config::getVar('database', 'password'),
 				'charset'   => $charset,
+				'collation' => 'utf8_general_ci',
 		));
 		$capsule->setAsGlobal();
 	}

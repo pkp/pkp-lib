@@ -102,6 +102,7 @@ class SubmissionsListHandler extends ListHandler {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
 
 		$config['i18n'] = array(
+			'id' => __('common.id'),
 			'title' => __($this->_title),
 			'add' => __('submission.submit.newSubmissionSingle'),
 			'search' => __('common.search'),

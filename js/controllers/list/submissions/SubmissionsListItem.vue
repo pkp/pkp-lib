@@ -2,6 +2,10 @@
 	<li class="pkpListPanelItem pkpListPanelItem--submission" :class="{'--hasFocus': isFocused}">
 		<a :href="item.urlWorkflow" class="pkpListPanelItem--submission__link" @focus="focusItem" @blur="blurItem">
 			<div class="pkpListPanelItem--submission__item">
+				<div class="pkpListPanelItem--submission__id">
+					<span class="pkp_screen_reader">{{ i18n.id }}</span>
+					{{ item.id }}
+				</div>
 				<div v-if="item.author" class="pkpListPanelItem--submission__author">
 					{{ item.author.authorString }}
 				</div>

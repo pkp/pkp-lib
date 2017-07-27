@@ -2,11 +2,11 @@
 	<li class="pkpListPanelItem pkpListPanelItem--submission" :class="{'--hasFocus': isFocused}">
 		<a :href="submission.urlWorkflow" class="pkpListPanelItem--submission__link" @focus="focusItem" @blur="blurItem">
 			<div class="pkpListPanelItem--submission__item">
-				<div class="pkpListPanelItem--submission__title">
-					{{ submission.title }}
-				</div>
 				<div v-if="submission.author" class="pkpListPanelItem--submission__author">
 					{{ submission.author.authorString }}
+				</div>
+				<div class="pkpListPanelItem--submission__title">
+					{{ submission.title }}
 				</div>
 				<div v-if="notice" class="pkpListPanelItem--submission__activity">
 					<span class="fa fa-exclamation-triangle"></span>

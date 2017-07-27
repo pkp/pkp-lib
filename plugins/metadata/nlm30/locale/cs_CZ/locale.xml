@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * plugins/metadata/nlm30/locale/cs_CZ/locale.xml
+  *
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2003-2017 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+ 
+<locale name="cs_CZ" full_name="Čeština">
+	<!-- plug-in -->
+	<message key="plugins.metadata.nlm30.displayName">Metadata NLM 3.0</message>
+	<message key="plugins.metadata.nlm30.description">Využívá schémata a aplikační adaptéry NLM 3.0.</message>
+
+	<!-- citation meta-data adapter -->
+	<message key="plugins.metadata.nlm30.citationAdapter.displayName">Citační adaptér NLM 3.0</message>
+	<message key="plugins.metadata.nlm30.citationAdapter.description">Extrahuje/vkládá metadata z/do citací.</message>
+
+	<!-- citation parsers (citation extraction services) -->
+	<message key="plugins.metadata.nlm30.citationParsers.displayName">Extrakční služby pro citace"</message>
+	<message key="plugins.metadata.nlm30.citationParsers.description">Konvertuje citace z prostého textu do metadat pro jednotlivé prvky dle  NLM 3.0. "</message>
+
+	<!-- citation lookup (citation database/improvement/lookup services) -->
+	<message key="plugins.metadata.nlm30.citationLookup.displayName">Citační databázové služby"</message>
+	<message key="plugins.metadata.nlm30.citationLookup.description">Vylepšuje tvorbu metadat citací dle NLM 3.0, např. vyhledáváním citací v externích databázích. "</message>
+	<message key="plugins.metadata.nlm30.citationOutput.displayName">Výstupní služby pro citace</message>
+	<message key="plugins.metadata.nlm30.citationOutput.description">Konvertuje metadata formátu NLM 3.0 do prostého textu citací dle stanovené normy.</message>
+	<message key="plugins.metadata.nlm30Xml.citationOutput.displayName">Výstupní služby pro citace (XML).</message>
+	<message key="plugins.metadata.nlm30Xml.citationOutput.description">Konvertuje metadata formátu NLM 3.0 do XML citačního formátu.</message>
+	<message key="plugins.metadata.nlm30.nlm30XmlOutput.displayName">Výstup NLM 3.0 pro publikování v časopise</message>
+	<message key="plugins.metadata.nlm30.nlm30XmlOutput.description">Konvertuje příspěvek do NLM 3.0</message>
+	<message key="plugins.metadata.nlm30.nlm23XmlOutput.displayName">Výstup NLM 2.3 pro publikování v časopise</message>
+	<message key="plugins.metadata.nlm30.nlm23XmlOutput.description">Konvertuje příspěvek do NLM 2.3</message>
+	<message key="plugins.metadata.nlm30.nlm30ToNlm23Xml.displayName">Downgrade z formátu NLM 3.0 do 2.3</message>
+	<message key="plugins.metadata.nlm30.nlm30ToNlm23Xml.description">Downgraduje z formátu NLM 3.0 do 2.3</message>
+	<message key="plugins.metadata.nlm30.refList.displayName">Generování seznamu odkazů ve formátu prostého textu</message>
+	<message key="plugins.metadata.nlm30.refList.description">Vytvořte formátovaný prostý text seznamu citací  z citací OJS/OCS/OMP</message>
+</locale>

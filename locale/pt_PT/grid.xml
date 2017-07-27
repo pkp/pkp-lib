@@ -8,11 +8,10 @@
   * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the en_US (English) locale.
-  *
+  * Localization strings.
   -->
 
-<locale name="en_US" full_name = "English">
+<locale name="pt_PT" full_name="Português (Portugal)">
 	<!-- Common -->
 	<message key="grid.noItems">Sem Itens</message>
 	<message key="grid.settings">Configurações</message>
@@ -23,9 +22,7 @@
 	<message key="grid.action.remove">Remover</message>
 	<message key="grid.action.edit">Editar</message>
 	<message key="grid.action.approve">Aprovar</message>
-	<message key="grid.action.approveForReview">Submeter para Fase de Revisão</message>
-	<message key="grid.action.approveForPub">Aprovar para Publicação</message>
-	<message key="grid.action.decline">Declinar</message>
+	<message key="grid.action.decline">Rejeitar</message>
 	<message key="grid.action.moreInformation">Mais Informação</message>
 	<message key="grid.action.restoreDefaults">Restaurar Padrão</message>
 
@@ -38,35 +35,20 @@
 	<message key="grid.sponsor.title">Patrocinadores</message>
 
 	<!-- Masthead Grid -->
-	<message key="grid.masthead.title">Masthead</message>
-	<message key="grid.masthead.column.groups">Grupos</message>
-
 	<!-- Contributor Grid -->
-	<message key="grid.contributor.title">Contribuidor</message>
+	<message key="grid.contributor.title">Colaborador</message>
 	<message key="grid.action.addAuthor">Adicionar Autor</message>
 
 	<!-- Review Forms Grid -->
 	<message key="grid.reviewForm.title">Formulários de Revisão</message>
 
 	<!-- Artwork Files Grid -->
-	<message key="grid.artworkFile.title">Artwork c/Permissões</message>
-	<message key="grid.artworkFile.file">Ficheiro</message>
-	<message key="grid.artworkFile.form.title">Adicionar Artwork c/Permissões</message>
-	<message key="grid.artworkFile.form.metadata">Metadados Artwork</message>
 	<message key="grid.artworkFile.caption">Caption</message>
 	<message key="grid.artworkFile.credit">Crédito</message>
-	<message key="grid.artworkFile.captionAndCredit">Caption e Crédito (Se não for Incluído no Ficheiro)</message>
 	<message key="grid.artworkFile.copyrightOwner">Proprietário do Copyright</message>
-	<message key="grid.artworkFile.copyrightContact">Info de Contacto (se não for autor/editor)</message>
+	<message key="grid.artworkFile.copyrightContact">Contacto (se não for autor/editor)</message>
 	<message key="grid.artworkFile.permissionTerms">Termos de Permissão</message>
-	<message key="grid.artworkFile.permissionForm">Formulário de Permissão</message>
-	<message key="grid.artworkFile.type">Tipo</message>
-	<message key="grid.artworkFile.type.table">Tabela</message>
-	<message key="grid.artworkFile.type.figure">Figura</message>
-	<message key="grid.artworkFile.placement">Localização no livro</message>
-	<message key="grid.artworkFile.placementDetail">Tabela/Fig. Nr.</message>
-	<message key="grid.artworkFile.contactAuthor">Contacto Autor</message>
-
+	<message key="grid.artworkFile.placement">Colocação em submissão</message>
 	<!-- Library Files -->
 	<message key="grid.libraryFiles.column.files">Ficheiros</message>
 	<message key="grid.libraryFiles.submission.title">Livraria Submissão</message>
@@ -86,9 +68,6 @@
 	<message key="author.users.contributor.principalContact">Contacto Principal</message>
 
 	<!-- Review Attachments -->
-	<message key="grid.reviewAttachments.title">Anexos do Revisor</message>
-	<message key="grid.reviewAttachments.add">Adicionar Anexos à Revisão</message>
-
 	<!-- Chapters -->
 	<message key="grid.chapters.title">Capítulos</message>
 	<message key="grid.noAuditors">Sem Auditores</message>
@@ -98,11 +77,11 @@
 	<message key="grid.action.addQuery">Adicionar Discussão</message>
 	<message key="grid.action.readQuery">Ler Discussão</message>
 	<message key="grid.action.deleteQuery">Remover Discussão</message>
-	<message key="grid.action.updateQuery">Atualizar Discussão</message>
+	<message key="grid.action.updateQuery">Actualizar Discussão</message>
 	<message key="grid.action.addUser">Adicionar Utilizador</message>
 	<message key="grid.action.unassignReviewer">Remover este revisor</message>
 	<message key="grid.action.approveCopyedit">Aprovar esta cópia de edição para enviar para a próxima etapa.</message>
-	<message key="grid.action.reload">Re-carregar</message>
+	<message key="grid.action.reload">Recarregar</message>
 	<message key="grid.action.deleteFile">Remover Ficheiro</message>
 	<message key="grid.action.deleteMedia">Remover Media</message>
 	<message key="grid.action.editMedia">Editar Media</message>
@@ -116,78 +95,78 @@
 	<message key="grid.action.editAuthor">Editar Autor</message>
 	<message key="grid.action.deleteAuthor">Remover Autor</message>
 	<message key="grid.action.addAuditor">Adicionar Auditor</message>
-	<message key="grid.action.upgrade">Atualizar</message>
+	<message key="grid.action.upgrade">Actualizar</message>
 	<message key="grid.action.order">Ordenar</message>
 	<message key="grid.action.cancelOrdering">Cancelar Ordenação</message>
-	<message key="grid.action.extendAll">Extender Todos</message>
+	<message key="grid.action.extendAll">Expandir Todos</message>
 	<message key="grid.action.collapse">Colapsar</message>
 	<message key="grid.action.collapseAll">Colapsar Todos</message>
 	<message key="grid.action.wizard">Assistente de Configurações</message>
 	<message key="grid.action.moveItem">Mover Item</message>
-	<message key="grid.action.downloadAll">Descarregar todos os ficheiros como um</message>
+	<message key="grid.action.downloadAll">Descarregar todos os ficheiros como um arquivo</message>
 	<message key="grid.action.readReview">Ler esta revisão</message>
-	<message key="grid.action.email">Enviar email</message>
+	<message key="grid.action.email">Enviar e-mail</message>
 	<message key="grid.action.addReviewer">Adicionar Revisor</message>
 	<message key="grid.action.addFile">Adicionar Ficheiro</message>
 	<message key="grid.action.editFile">Editar Ficheiro</message>
-	<message key="grid.action.selectFiles">Selecionar ficheiros para gestão</message>
-	<message key="grid.action.requestRevisions">Pedir revisão para submissão</message>
+	<message key="grid.action.selectFiles">Seleccionar ficheiros para gestão</message>
+	<message key="grid.action.requestRevisions">Solicitar revisão para esta submissão</message>
 	<message key="grid.action.accept">Aceitar esta submissão</message>
 	<message key="grid.action.internalReview">Enviar esta submissão para revisão interna</message>
 	<message key="grid.action.externalReview">Enviar esta submissão para revisão externa</message>
 	<message key="grid.action.sendToProduction">Enviar esta submissão para produção</message>
 	<message key="grid.action.settings">Configurações</message>
 	<message key="grid.action.importexport">Importar ou exportar conteúdo do Portal</message>
-	<message key="grid.action.orderItems">Ativar modo de ordenação</message>
+	<message key="grid.action.orderItems">Activar modo de ordenação</message>
 	<message key="grid.action.editSubmissionChecklist">Editar este item da lista</message>
 	<message key="grid.action.deleteSubmissionChecklist">Remover este item da lista</message>
-	<message key="grid.action.resetAll">Re-definir todos os items para os valores padrão</message>
-	<message key="grid.action.addPreparedEmail">Adicionar um novo template de e-mail</message>
-	<message key="grid.action.editPreparedEmail">Editar este template de email</message>
-	<message key="grid.action.disableEmail">Remover este template de e-mail</message>
-	<message key="grid.action.resetEmail">Re-definir este template de e-mail para o original</message>
+	<message key="grid.action.resetAll">Repôr todos os items para os valores padrão</message>
+	<message key="grid.action.addPreparedEmail">Adicionar um novo modelo de e-mail</message>
+	<message key="grid.action.editPreparedEmail">Editar este modelo de e-mail</message>
+	<message key="grid.action.disableEmail">Remover este modelo de e-mail</message>
+	<message key="grid.action.resetEmail">Restabelecer este modelo de e-mail para o original</message>
 	<message key="grid.action.expandAll">Expandir Todos</message>
 	<message key="grid.action.requestAccount">Adicionar um Participante</message>
 	<message key="grid.action.expand">Expandir</message>
 	<message key="grid.action.notify">Notificar este Utilizador</message>
 	<message key="grid.action.addUserGroup">Adicionar um novo Grupo de Utilizadores</message>
 	<message key="grid.action.editUserGroup">Editar este Grupo de Utilizadores</message>
-	<message key="grid.action.disable">Desativar</message>
+	<message key="grid.action.disable">Desactivar</message>
 	<message key="grid.action.details">Consultar este item</message>
-	<message key="grid.action.enrolExisting">Adicionar um utilizador existente como revisor</message>
-	<message key="grid.action.selectCreate">Criar um novo revisor</message>
+	<message key="grid.action.enrolExisting">Inscrever um utilizador existente como Revisor</message>
+	<message key="grid.action.selectCreate">Criar um Novo Revisor</message>
 	<message key="grid.action.search">Pesquisa</message>
 	<message key="grid.action.advancedSearch">Pesquisa Avançada</message>
 	<message key="grid.action.viewLibrary">Ver Biblioteca de Documentos</message>
 	<message key="grid.action.viewMetadata">Ver metadados para submissão</message>
 	<message key="grid.action.sendReminder">Enviar um lembrete da tarefa para este utilizador</message>
 	<message key="grid.action.newRound">Criar nova ronda</message>
-	<message key="grid.action.viewReviewGuidelines">Consultar as Guias de revisão</message>
+	<message key="grid.action.viewReviewGuidelines">Consultar as Diretrizes de revisão</message>
 	<message key="grid.action.viewCompetingInterestGuidelines">Ver a política de conflito de interesses</message>
 	<message key="grid.action.thankReviewer">Enviar uma mensagem de agradecimento a este revisor</message>
 	<message key="grid.action.uploadFile">Carregar um Ficheiro</message>
-	<message key="grid.action.addAnnouncementType">Adicionar um Tipo de Anúncio</message>
-	<message key="grid.action.addAnnouncement">Adicionar Anúncio</message>
+	<message key="grid.action.addAnnouncementType">Adicionar um Tipo de Notícia</message>
+	<message key="grid.action.addAnnouncement">Adicionar Notícia</message>
 	<message key="grid.action.mergeUser">Fundir Utilizador</message>
 	<message key="grid.action.unassignUser">Remover Utilizador</message>
 	<message key="grid.action.history">Ver Histórico</message>
-	<message key="grid.action.unconsiderReview">A revisão está completa, mas poder´a invalidar este estado</message>
-	<message key="grid.action.enable">Ativar</message>
-	<message key="grid.action.bookInfo">Informação da Submissão</message>
+	<message key="grid.action.unconsiderReview">A revisão está completa, mas pode invalidar este estado</message>
+	<message key="grid.action.enable">Activar</message>
+	<message key="grid.action.bookInfo">Informação sobre a Submissão</message>
 	<message key="grid.action.logInAs">Entrar como</message>
 	<message key="grid.action.exportAllUsers">Exportar todos os Utilizadores</message>
-	<message key="grid.users.confirmExportAllUsers">Confirmar a exportação de todos os utilizadores?</message>
+	<message key="grid.users.confirmExportAllUsers">Tem a certeza que deseja exportar todos os utilizadores?</message>
 	<message key="grid.action.activate">Ativar</message>
 	<message key="grid.action.deactivate">Desativar</message>
 	<message key="grid.action.copy">Copiar</message>
 	<message key="grid.action.preview">Pré-visualizar</message>
 	<message key="grid.action.install">Instalar</message>
 	<message key="grid.action.moreItems">Carregar mais</message>
-	<message key="grid.task.status.completed">Esta tarefa está completa</message>
+	<message key="grid.task.status.completed">Esta tarefa está concluída</message>
 	<message key="grid.task.status.new">Assinalar Concordância</message>
 	<message key="grid.task.status.uploaded">O título da coluna indica quem carregou este ficheiro</message>
 	<message key="grid.task.status.unfinished">Tarefa Incompleta</message>
-	<message key="grid.task.status.reviewReady">A revisão está pronta. Carregue no icon do cardeno à esquerda para ler.</message>
+	<message key="grid.task.status.reviewReady">A revisão está pronta. Carregue no ícone do cardeno à esquerda para ler.</message>
 	<message key="grid.columns.auditor">Auditor</message>
 	<message key="grid.columns.locale">Idioma</message>
 	<message key="grid.action.addSponsor">Adicionar Patrocinador</message>
@@ -204,7 +183,7 @@
 	<message key="grid.action.deleteContributor">Remover Colaborador</message>
 	<message key="grid.reviewFormElement.responseItems">Opções de Resposta</message>
 	<message key="grid.noFiles">Sem ficheiros</message>
-	<message key="author.users.contributor.includeInBrowse">Nas lista de navegação</message>
+	<message key="author.users.contributor.includeInBrowse">Nas Listas de Navegação</message>
 	<message key="grid.roles.currentRoles">Funções Ativas</message>
 	<message key="grid.roles.add">Adicionar novas Funções</message>
 	<message key="grid.roles.stageAssignment">Atribuir Etapa</message>
@@ -218,20 +197,20 @@
 	<message key="grid.user.email">E-mail</message>
 	<message key="grid.user.enable">Ativar</message>
 	<message key="grid.user.disable">Desativar</message>
-	<message key="grid.user.disableReason">Motivo para desativar Utilizador</message>
-	<message key="grid.user.enableReason">Motivo para ativar utilizador</message>
-	<message key="grid.user.error">Foi encontrado um erro ao gerir este utilizador. Por favor tente novamente.</message>
-	<message key="grid.user.errorEmail">Foi encontrado um erro ao enviar este e-mail. Por favor assegure-se que o seu servidor de e-mail está correctamente configurado e/ou contate o seu administrador do sistema.</message>
-	<message key="grid.user.cannotAdminister">Não tem permissões suficientes para gerir este utilizador. Para ser capaz de tal, deve possuir um registo como administrador do portal, ou administrador de todos os contextos em que o utilizador está inscrito.</message>
+	<message key="grid.user.disableReason">Motivo para descativar Utilizador</message>
+	<message key="grid.user.enableReason">Motivo para activar utilizador</message>
+	<message key="grid.user.error">Ocorreu um erro ao gerir este utilizador. Por favor, tente novamente.</message>
+	<message key="grid.user.errorEmail">Foi encontrado um erro ao enviar este e-mail. Por favor assegure-se que o seu servidor de e-mail está correctamente configurado e/ou contacte o seu administrador do sistema.</message>
+	<message key="grid.user.cannotAdminister">Não tem permissões suficientes para gerir este utilizador. Para gerir um utilizador, deve ser administrador do site ou gerir todos os contextos em que este utilizador está inscrito.</message>
 	<message key="grid.user.authSource">Fonte de Autenticação</message>
 	<message key="grid.user.mustProvideName">Indique pelo menos um Apelido para o utilizador</message>
-	<message key="grid.user.generatePassword">Gerar Password</message>
-	<message key="grid.user.generatePasswordDescription">Será gerada uma password aleatória para este utilizador.</message>
+	<message key="grid.user.generatePassword">Gerar Senha</message>
+	<message key="grid.user.generatePasswordDescription">Será gerada uma senha aleatória para este utilizador.</message>
 	<message key="grid.user.notifyUser">Notificar o Utilizador</message>
-	<message key="grid.user.notifyUserDescription">Enviar um email de Boas Vindas</message>
-	<message key="grid.user.mustChangePassword">Modificar Password</message>
-	<message key="grid.user.mustChangePasswordDescription">O utilizador tem de mudar a password no próximo login.</message>
-	<message key="grid.user.mustChangePasswordDescriptionOld">Obrigar o utilizador a alterar a sua password na próxima entrada no sistema.</message>
+	<message key="grid.user.notifyUserDescription">Enviar um email de boas-vindas</message>
+	<message key="grid.user.mustChangePassword">Modificar senha</message>
+	<message key="grid.user.mustChangePasswordDescription">O utilizador tem de mudar a senha no próximo login.</message>
+	<message key="grid.user.mustChangePasswordDescriptionOld">Obrigar o utilizador a alterar a sua senha na próxima entrada no sistema.</message>
 	<message key="grid.user.moreDetails">Mais detalhes do Utilizador</message>
 	<message key="grid.user.lessDetails">Menos detalhes do Utilizador</message>
 	<message key="grid.user.userDetails">Detalhes do Utilizador</message>

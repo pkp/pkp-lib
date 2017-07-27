@@ -5,7 +5,6 @@
   * locale/pt_PT/default.xml
   *
   * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the pt_PT (Português (Portugal)) locale.
@@ -32,7 +31,7 @@
 	<message key="default.groups.abbrev.internalReviewer">RI</message>
 	<message key="default.groups.name.marketing">Coordenador de Vendas e Marketing</message>
 	<message key="default.groups.plural.marketing">Coordenadores de Vendas e Marketing</message>
-	<message key="default.groups.abbrev.marketing">VM</message>
+	<message key="default.groups.abbrev.marketing">CVM</message>
 	<message key="default.groups.name.funding">Coordenador de Financiamento</message>
 	<message key="default.groups.plural.funding">Coordenadores de Financiamento</message>
 	<message key="default.groups.abbrev.funding">CF</message>
@@ -47,10 +46,10 @@
 	<message key="default.groups.abbrev.author">AU</message>
 	<message key="default.groups.name.translator">Tradutor</message>
 	<message key="default.groups.plural.translator">Tradutores</message>
-	<message key="default.groups.abbrev.translator">Trad</message>
+	<message key="default.groups.abbrev.translator">TRAD</message>
 	<message key="default.groups.name.reader">Leitor</message>
 	<message key="default.groups.plural.reader">Leitores</message>
-	<message key="default.groups.abbrev.reader">Leit</message>
+	<message key="default.groups.abbrev.reader">LEIT</message>
 	<message key="default.genres.other">Outro</message>
 	<message key="default.genres.multimedia">Multimédia</message>
 	<message key="default.genres.image">Imagem</message>

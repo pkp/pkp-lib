@@ -79,6 +79,27 @@ class PKPUserDAO extends DAO {
 	}
 
 	/**
+	 * Retrieve a user by setting.
+	 * @param $settingName string
+	 * @param $settingValue string
+	 * @param $allowDisabled boolean
+	 * @return PKPUser
+	 */
+	function getBySetting($settingName, $settingValue, $allowDisabled = true) {
+		$result = $this->retrieve(
+			'SELECT u.* FROM users u JOIN user_settings us ON (u.user_id = us.user_id) WHERE us.setting_name = ? AND us.setting_value = ?' . ($allowDisabled?'':' AND u.disabled = 0'),
+			array($settingName, $settingValue)
+		);
+
+		$returner = null;
+		if ($result->RecordCount() != 0) {
+			$returner =& $this->_returnUserFromRowWithData($result->GetRowAssoc(false));
+		}
+		$result->Close();
+		return $returner;
+	}
+
+	/**
 	 * Get the user by the TDL ID (implicit authentication).
 	 * @param $authstr string
 	 * @param $allowDisabled boolean
@@ -443,6 +464,8 @@ class PKPUserDAO extends DAO {
 	function getAdditionalFieldNames() {
 		return array_merge(parent::getAdditionalFieldNames(), array(
 			'orcid',
+			'apiKey',
+			'apiKeyEnabled',
 		));
 	}
 

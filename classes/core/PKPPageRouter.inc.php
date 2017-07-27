@@ -435,13 +435,13 @@ class PKPPageRouter extends PKPRouter {
 	// Private helper methods.
 	//
 	/**
-	* Retrieve part of the current requested
-	* url using the passed callback method.
-	* @param $callback array Core method to retrieve
-	* page, operation or arguments from url.
-	* @param $request PKPRequest
-	* @return array|string|null
-	*/
+	 * Retrieve part of the current requested
+	 * url using the passed callback method.
+	 * @param $callback array Core method to retrieve
+	 * page, operation or arguments from url.
+	 * @param $request PKPRequest
+	 * @return array|string|null
+	 */
 	private function _getRequestedUrlParts($callback, &$request) {
 		$url = null;
 		assert(is_a($request->getRouter(), 'PKPPageRouter'));

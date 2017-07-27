@@ -2,14 +2,13 @@
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * locale/pt_BR/installer.xml
+  * locale/pt_PT/installer.xml
   *
   * Copyright (c) 2014-2017 Simon Fraser University
   * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the pt_PT (Português (Portugal)) locale.
-  *
+  * Localization strings.
   -->
 
 <locale name="pt_PT" full_name="Português (Portugal)">
@@ -63,7 +62,7 @@
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Um identificador único de registos de metadados indexados através do protocolo de Recolha de Metadados do <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a>.]]></message>
 	<message key="installer.oaiRepositoryId">Identificador para repositório OAI</message>
 	<message key="installer.publicFilesDirError">A pasta de documentos públicos não existe ou não possui permissão de escrita.</message>
-	<message key="installer.releaseNotes">Notas de Lançamento</message>
+	<message key="installer.releaseNotes">Notas da Versão</message>
 	<message key="installer.securitySettings">Configurações de Segurança</message>
 	<message key="installer.locale.maybeIncomplete">Traduções marcadas podem estar incompletas.</message>
 	<message key="installer.oaiSettings">Configurações do OAI</message>
@@ -84,5 +83,4 @@
 	<message key="installer.configureXSLMessage"><![CDATA[<p>A sua instalação de PHP não contém o módulo de XSL activo. Active esta funcionalidade ou configure o parametro 'xslt_command_parameter' na ficheiro de configuração config.inc.php.</p>]]></message>
 	<message key="installer.beacon">Beacon</message>
 	<message key="installer.beacon.enable">Forneça um ID único para o Portal e o caminho base para o OAI, para que o PKP forneça estatísticas e alertas de segurança.</message>
-	
 </locale>

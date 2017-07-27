@@ -34,41 +34,14 @@ jQuery.pkp.controllers.informationCenter =
 			function($notesDiv, options) {
 		this.parent($notesDiv, options);
 
-		// Store the list fetch URLs for later
-		this.fetchNotesUrl_ = options.fetchNotesUrl;
-		this.fetchPastNotesUrl_ = options.fetchPastNotesUrl;
-		// Bind for changes in the note list (e.g.  new note or delete)
-		this.bind('formSubmitted', this.handleRefreshNoteList);
-
-		// Load a list of the current notes.
-		this.loadPastNoteList_();
-		this.loadNoteList_();
+		// Refresh the widget when a note is added or deleted
+		this.bind('noteAdded', this.handleRefreshNoteList);
+		this.bind('noteDeleted', this.handleRefreshNoteList);
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.informationCenter.NotesHandler,
 			$.pkp.classes.Handler
 	);
-
-
-	//
-	// Private properties
-	//
-	/**
-	 * The URL to be called to fetch a list of notes.
-	 * @private
-	 * @type {string}
-	 */
-	$.pkp.controllers.informationCenter.NotesHandler.
-			prototype.fetchNotesUrl_ = '';
-
-
-	/**
-	 * The URL to be called to fetch a list of prior notes.
-	 * @private
-	 * @type {string}
-	 */
-	$.pkp.controllers.informationCenter.NotesHandler.
-			prototype.fetchPastNotesUrl_ = '';
 
 
 	//
@@ -81,62 +54,15 @@ jQuery.pkp.controllers.informationCenter =
 	 * @param {$.pkp.controllers.form.AjaxFormHandler} callingForm The form
 	 *  that triggered the event.
 	 * @param {Event} event The upload event.
+	 * @param {string} html Rendered HTML to refresh the notes handler
 	 */
 	$.pkp.controllers.informationCenter.NotesHandler.
-			prototype.handleRefreshNoteList = function(callingForm, event) {
-		$(callingForm).find('[id^="newNote"]').val('');
-		this.loadNoteList_();
-	};
+			prototype.handleRefreshNoteList = function(callingForm, event, html) {
 
+		// Scroll back to the top of the notes list, where the note will appear
+		$('.pkp_modal').first().scrollTop(0);
 
-	//
-	// Private methods
-	//
-	$.pkp.controllers.informationCenter.NotesHandler.prototype.
-			loadNoteList_ = function() {
-
-		$.get(this.fetchNotesUrl_, this.callbackWrapper(this.setNoteList_), 'json');
-	};
-
-	$.pkp.controllers.informationCenter.NotesHandler.prototype.
-			setNoteList_ = function(formElement, jsonData) {
-
-		var processedJsonData = this.handleJson(jsonData);
-
-		$('#notesList').replaceWith(processedJsonData.content);
-		this.getHtmlElement().find('.showMore, .showLess').
-				bind('click', this.switchViz);
-
-		// Initialize an accordion for the "past notes" list, if it's
-		// available (e.g. for a file information center).
-		if (!$('#notesAccordion').hasClass('ui-accordion')) {
-			$('#notesAccordion').accordion({ heightStyle: 'content', animate: 200 });
-		} else {
-			// this is a refresh.  Since the accordion exists, we must destroy
-			// and then recreate it or the content looks unstyled.
-			$('#notesAccordion')
-					.accordion('destroy')
-					.accordion({ heightStyle: 'content', animate: 200 });
-		}
-	};
-
-
-	$.pkp.controllers.informationCenter.NotesHandler.prototype.
-			loadPastNoteList_ = function() {
-
-		// Only attempt to load the past note list if it's in the UI
-		if ($('#pastNotesList').length) {
-			$.get(this.fetchPastNotesUrl_,
-					this.callbackWrapper(this.setPastNoteList_), 'json');
-		}
-	};
-
-
-	$.pkp.controllers.informationCenter.NotesHandler.prototype.
-			setPastNoteList_ = function(formElement, jsonData) {
-
-		var processedJsonData = this.handleJson(jsonData);
-		$('#pastNotesList').replaceWith(jsonData.content);
+		this.replaceWith(html);
 	};
 
 

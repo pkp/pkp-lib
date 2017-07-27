@@ -448,6 +448,8 @@ class Filter extends DataObject {
 		// Process the filter
 		$preliminaryOutput =& $this->process($input);
 
+		HookRegistry::call(strtolower_codesafe(get_class($this) . '::execute'), array(&$preliminaryOutput));
+
 		// Validate the filter output
 		if ((!is_null($preliminaryOutput) && $this->supports($input, $preliminaryOutput)) || $returnErrors) {
 			$this->_output =& $preliminaryOutput;

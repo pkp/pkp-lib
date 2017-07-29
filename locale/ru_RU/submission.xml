@@ -410,7 +410,7 @@
 	<message key="submissions.noSubmissions">Нет материалов</message>
 	<message key="submissions.queuedEditing">На редакции</message>
 	<message key="submissions.queued">В очереди</message>
-	<message key="submissions.queuedUnassigned">Ждет назначения</message>
+	<message key="submissions.queuedUnassigned">Этому материалу не назначен редактор.</message>
 	<message key="submissions.ruling">Решение</message>
 	<message key="submission.source">Источник</message>
 	<message key="submission.source.tip">Этот материал пришел с другого ресурса? Если да, вы можете ввести URL-адрес или описание этого ресурса.</message>
@@ -510,15 +510,17 @@
 	<message key="submission.upload.noAvailableReviewFiles">На данный момент нет файлов, которые вы могли бы откорректировать.</message>
 
 	<!-- Ключи статуса раунда рецензирования -->
-	<message key="editor.submission.roundStatus.revisionsRequested">Были запрошены новые версии.</message>
+	<message key="editor.submission.roundStatus.revisionsRequested">Новые версии были запрошены.</message>
+	<message key="editor.submission.roundStatus.revisionsSubmitted">Новые версии были отправлены.</message>
 	<message key="editor.submission.roundStatus.resubmitted">Материал был повторно отправлен на рецензию.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">Отправлен на внешнее рецензирование.</message>
 	<message key="editor.submission.roundStatus.accepted">Материал принят.</message>
 	<message key="editor.submission.roundStatus.declined">Материал отклонен.</message>
-	<message key="editor.submission.roundStatus.pendingReviewers">Ожидает выбора рецензентов.</message>
+	<message key="editor.submission.roundStatus.pendingReviewers">Ожидает назначения рецензентов.</message>
 	<message key="editor.submission.roundStatus.pendingReviews">Ожидает ответа от рецензентов.</message>
 	<message key="editor.submission.roundStatus.reviewsReady">Новые рецензии были отправлены.</message>
-	<message key="editor.submission.roundStatus.reviewsCompleted">Рецензии завершены.</message>
+	<message key="editor.submission.roundStatus.reviewsCompleted">Все рецензии пришли, нужно принять решение.</message>
+	<message key="editor.submission.roundStatus.reviewOverdue">Срок рецензии прошел.</message>
 
 	<!-- Участники -->
 	<message key="editor.submission.stageParticipants">Участники</message>
@@ -591,6 +593,14 @@
 	<message key="submission.productionReady">Книга доступна</message>
 	<message key="submission.review.uploadRevisionToRound">Загрузить новую версию файла</message>
 	<message key="log.review.reviewerAssigned">Рецензент {$reviewerName} был назначен на рецензирование материала «{$submissionId}» (раунд рецензирования — {$round}).</message>
+	<message key="submission.review.status.awaitingResponse">Ожидает ответа от рецензента.</message>
+	<message key="submission.review.status.declined">Рецензент отклонил этот запрос на рецензию.</message>
+	<message key="submission.review.status.responseOverdue">Рецензент пропустил срок ответа на запрос.</message>
+	<message key="submission.review.status.reviewOverdue">Рецензент пропустил срок предоставления рецензии.</message>
+	<message key="submission.review.status.accepted">Рецензия была принята.</message>
+	<message key="submission.review.status.received">Рецензент отправил свою рецензию.</message>
+	<message key="submission.review.status.complete">Рецензирование было завершено.</message>
+	<message key="submission.review.status.thanked">Рецензирование завершено и рецензент получил благодарность.</message>
 	<message key="submission.document">Документ</message>
 	<message key="submission.art">Изображение</message>
 	<message key="submission.supplementary">Дополнительный контент</message>
@@ -649,4 +659,22 @@
 	<message key="submission.query.new">Пользователь «{$creatorName}» начал обсуждение «{$noteTitle}»: {$noteContents}</message>
 	<message key="submission.query.activity.contents">Есть новая активность в обсуждении с названием «{$queryTitle}», относящимся к материалу «{$submissionTitle}».</message>
 	<message key="submission.query.new.contents">Вы были добавлены к обсуждению с названием «{$queryTitle}», относящимся к материалу «{$submissionTitle}».</message>
+
+	<!-- Списки материалов -->
+	<message key="submission.list.infoCenter">Журнал активности и обсуждений</message>
+	<message key="submission.list.count">{$count} материалов</message>
+	<message key="submission.list.itemsOfTotal">{$count} из {$total} материалов</message>
+	<message key="submission.list.responseDue">Срок ответа на запрос</message>
+	<message key="submission.list.reviewDue">Срок сдачи рецензии</message>
+	<message key="submission.list.confirmDelete">Удалить материал?</message>
+	<message key="submission.list.viewSubmission">Показать «{$title}»</message>
+	<message key="submission.list.filter">Фильтры</message>
+	<message key="submission.list.filterRemove">Сбросить фильтр: {$filterTitle}</message>
+	<message key="submission.list.itemOrdererUp">Поднять вверх «{$itemTitle}»</message>
+	<message key="submission.list.itemOrdererDown">Опустить вниз «{$itemTitle}»</message>
+	<message key="submission.list.clearSearch">Очистить фразу поиска</message>
+	<message key="submission.list.reviewsCompleted">Завершено рецензий</message>
+	<message key="submission.list.filesPrepared">Подготовлено файлов</message>
+	<message key="submission.list.discussions">Обсуждения</message>
+	<message key="submission.list.incompleteSubmissionNotice">Этот материал должен быть завершен до того, как редактор будет его рецензировать.</message>
 </locale>

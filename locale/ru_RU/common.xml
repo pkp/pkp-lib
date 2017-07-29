@@ -20,7 +20,6 @@
 	<message key="about.aboutSite">О сайте</message>
 	<message key="about.contact">Контакты</message>
 	<message key="about.contact.email">E-mail</message>
-	<message key="about.contact.fax">Факс</message>
 	<message key="about.contact.phone">Телефон</message>
 	<message key="about.contact.principalContact">Представитель редакции</message>
 	<message key="about.contact.supportContact">Представитель технической поддержки</message>
@@ -123,6 +122,7 @@
 	<message key="common.default">По умолчанию</message>
 	<message key="common.declined">Отклонен</message>
 	<message key="common.delete">Удалить</message>
+	<message key="common.deleting">Удаление...</message>
 	<message key="common.deleteSelection">Удалить выбранное</message>
 	<message key="common.designation">Назначение</message>
 	<message key="common.description">Описание</message>
@@ -231,6 +231,7 @@
 	<message key="common.saveAndContinue">Сохранить и продолжить</message>
 	<message key="common.saveAndEmail">Сохранить и отправить</message>
 	<message key="common.save">Сохранить</message>
+	<message key="common.saving">Сохранение...</message>
 	<message key="common.search">Найти</message>
 	<message key="common.searchQuery">Поисковый запрос</message>
 	<message key="common.second">Секунд</message>
@@ -359,9 +360,7 @@
 	<message key="informationCenter.editorialHistory">Редакционная история</message>
 	<message key="informationCenter.addNote">Добавить заметку</message>
 	<message key="informationCenter.noNotes">Нет заметок для отображения.</message>
-	<message key="informationCenter.currentNotes">Заметки к текущей версии</message>
 	<message key="informationCenter.pastNotes">Заметки к предыдущим версиям</message>
-	<message key="informationCenter.lastUpdated">Последнее обновление</message>
 	<message key="informationCenter.deleteConfirm">Вы уверены, что хотите удалить эту заметку?</message>
 	<message key="informationCenter.currentHistory">Текущая версия</message>
 	<message key="informationCenter.pastHistory">Предыдущие версии</message>
@@ -420,6 +419,7 @@
 	<message key="notification.removedAuditor">Аудитор удален.</message>
 	<message key="notification.addedQuery">Добавлено обсуждение</message>
 	<message key="notification.reviewAcknowledged">Рецензия отмечена как принятая. Письмо электронной почты не отправлено.</message>
+	<message key="notification.reviewerThankedEmail">Письмо с благодарностью отправлено рецензенту.</message>
 	<message key="notification.updatedReviewFiles">Файлы рецензии обновлены.</message>
 	<message key="notification.allow">Включить эти типы уведомлений.</message>
 	<message key="notification.addedAnnouncementType">Тип объявлений добавлен.</message>

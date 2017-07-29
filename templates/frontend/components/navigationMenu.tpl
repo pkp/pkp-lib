@@ -14,24 +14,43 @@
             {foreach key=field item=navigationMenuItemAssignment from=$navigationMenu->menuTree}
                 {if !empty($navigationMenuItemAssignment->children)}
                     <li aria-haspopup="true" aria-expanded="false">
-			            <a href="{url router=$smarty.const.ROUTE_PAGE page=$navigationMenuItemAssignment->navigationMenuItem->getPage() op=$navigationMenuItemAssignment->navigationMenuItem->getOp() path=$navigationMenuItemAssignment->navigationMenuItem->getPath()}">
-				            {$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
-			            </a>
+                        {if $navigationMenuItemAssignment->navigationMenuItem->getUseCustomUrl()}
+                            <a href="{$navigationMenuItemAssignment->navigationMenuItem->getCustomUrl()}">
+				                {$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
+			                </a>
+                        {else}
+                            <a href="{url router=$smarty.const.ROUTE_PAGE page=$navigationMenuItemAssignment->navigationMenuItem->getPage() op=$navigationMenuItemAssignment->navigationMenuItem->getOp() path=$navigationMenuItemAssignment->navigationMenuItem->getPath()}">
+				                {$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
+			                </a>
+                        {/if}
                         <ul>
                         {foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
                             <li>
-					            <a href="{url router=$smarty.const.ROUTE_PAGE page=$childNavigationMenuItemAssignment->navigationMenuItem->getPage() op=$childNavigationMenuItemAssignment->navigationMenuItem->getOp() path=$childNavigationMenuItemAssignment->navigationMenuItem->getPath()}">
-				                    {$childNavigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
-			                    </a>
+                                {if $childNavigationMenuItemAssignment->navigationMenuItem->getUseCustomUrl()}
+                                    <a href="{$childNavigationMenuItemAssignment->navigationMenuItem->getCustomUrl()}">
+				                        {$childNavigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
+			                        </a>
+                                {else}
+                                    <a href="{url router=$smarty.const.ROUTE_PAGE page=$childNavigationMenuItemAssignment->navigationMenuItem->getPage() op=$childNavigationMenuItemAssignment->navigationMenuItem->getOp() path=$childNavigationMenuItemAssignment->navigationMenuItem->getPath()}">
+				                        {$childNavigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
+			                        </a>
+                                {/if}
+					            
 				            </li>
                         {/foreach}
 			            </ul>
                     </li>
                 {else}
                     <li>
-				        <a href="{url router=$smarty.const.ROUTE_PAGE page=$navigationMenuItemAssignment->navigationMenuItem->getPage() op=$navigationMenuItemAssignment->navigationMenuItem->getOp() path=$navigationMenuItemAssignment->navigationMenuItem->getPath()}">
-				            {$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
-			            </a>
+                        {if $navigationMenuItemAssignment->navigationMenuItem->getUseCustomUrl()}
+                            <a href="{$navigationMenuItemAssignment->navigationMenuItem->getCustomUrl()}">
+				                {$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
+			                </a>
+                        {else}
+                            <a href="{url router=$smarty.const.ROUTE_PAGE page=$navigationMenuItemAssignment->navigationMenuItem->getPage() op=$navigationMenuItemAssignment->navigationMenuItem->getOp() path=$navigationMenuItemAssignment->navigationMenuItem->getPath()}">
+				                {$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
+			                </a>
+                        {/if}
 			        </li>
                 {/if}
 	        {/foreach}

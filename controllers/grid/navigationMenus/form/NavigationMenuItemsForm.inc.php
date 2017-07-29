@@ -36,7 +36,6 @@ class NavigationMenuItemsForm extends Form {
 
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
-		$this->addCheck(new FormValidatorRegExp($this, 'path', 'required', 'manager.navigationMenus.form.pathRegEx', '/^[a-zA-Z0-9\/._-]+$/'));
 	}
 
 
@@ -96,7 +95,9 @@ class NavigationMenuItemsForm extends Form {
 				'title' => $navigationMenuItem->getTitle(null),
 				'page' => $navigationMenuItem->getPage(),
 				'op' => $navigationMenuItem->getOp(),
-				'default_id' => $navigationMenuItem->getOp(),
+				'default_id' => $navigationMenuItem->getDefaultId(),
+				'useCustomUrl' => $navigationMenuItem->getUseCustomUrl(),
+				'customUrl' => $navigationMenuItem->getCustomUrl(),
 			);
 			$this->setData('content', $navigationMenuItem->getContent(null)); // Localized
 		} else {
@@ -113,7 +114,7 @@ class NavigationMenuItemsForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('navigationMenuItemId', 'content', 'title', 'path', 'page', 'op', 'default_id'));
+		$this->readUserVars(array('navigationMenuItemId', 'content', 'title', 'path', 'page', 'op', 'default_id', 'useCustomUrl', 'customUrl'));
 	}
 
 	/**
@@ -135,6 +136,8 @@ class NavigationMenuItemsForm extends Form {
 		$navigationMenuItem->setContextId($this->getContextId());
 		$navigationMenuItem->setPage($this->getData('page'));
 		$navigationMenuItem->setOp($this->getData('op'));
+		$navigationMenuItem->setUseCustomUrl($this->getData('useCustomUrl') ? 1 : 0);
+		$navigationMenuItem->setCustomUrl($this->getData('customUrl'));
 
 		// Update or insert navigation menu item
 		if ($navigationMenuItem->getId()) {
@@ -156,6 +159,16 @@ class NavigationMenuItemsForm extends Form {
 		$navigationMenuItem = $navigationMenuItemDao->getByPath($this->_contextId, $this->getData('path'));
 		if (isset($navigationMenuItem) && $navigationMenuItem->getId() != $this->navigationMenuItemId) {
 			$this->addError('path', __('manager.navigationMenus.form.duplicatePath'));
+		}
+
+		if ($this->getData('useCustomUrl')) {
+			if(!filter_var($this->getData('customUrl'), FILTER_VALIDATE_URL)) {
+				$this->addError('customUrl', __('manager.navigationMenus.form.customUrlError'));
+			}
+		} else {
+			if (!preg_match('/^[a-zA-Z0-9\/._-]+$/', $this->getData('path'))) {
+				$this->addError('path', __('manager.navigationMenus.form.pathRegEx'));
+			}
 		}
 
 		return parent::validate();

@@ -114,6 +114,38 @@ class NavigationMenuItem extends DataObject {
 	}
 
 	/**
+	 * Get use_custom_url of this NavigationMenuItem
+	 * @return int
+	 */
+	function getUseCustomUrl() {
+		return $this->getData('use_custom_url');
+	}
+
+	/**
+	 * Set use_custom_url for this navigation menu item.
+	 * @param $useCustomUrl int
+	 */
+	function setUseCustomUrl($useCustomUrl) {
+		$this->setData('use_custom_url', $useCustomUrl);
+	}
+
+	/**
+	 * Set custom_url for this navigation menu item.
+	 * @param $customUrl string
+	 */
+	function setCustomUrl($customUrl) {
+		$this->setData('custom_url', $customUrl);
+	}
+
+	/**
+	 * Get custom_url for this navigation menu item.
+	 * @return string
+	 */
+	function getCustomUrl() {
+		return $this->getData('custom_url');
+	}
+
+	/**
 	 * Get contextId for this navigation menu item.
 	 * @return int
 	 */

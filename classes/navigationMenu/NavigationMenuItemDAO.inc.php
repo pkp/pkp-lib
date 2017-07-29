@@ -142,6 +142,8 @@ class NavigationMenuItemDAO extends DAO {
 		$navigationMenuItem->setDefault($row['is_default']);
 		$navigationMenuItem->setOp($row['op']);
 		$navigationMenuItem->setDefaultId($row['default_id']);
+		$navigationMenuItem->setUseCustomUrl($row['use_custom_url']);
+		$navigationMenuItem->setCustomUrl($row['custom_url']);
 
 		$this->getDataObjectSettings('navigation_menu_item_settings', 'navigation_menu_item_id', $row['navigation_menu_item_id'], $navigationMenuItem);
 
@@ -166,9 +168,9 @@ class NavigationMenuItemDAO extends DAO {
 	function insertObject($navigationMenuItem) {
 		$this->update(
 				'INSERT INTO navigation_menu_items
-				(path, page, is_default, context_id, op, default_id)
+				(path, page, is_default, context_id, op, default_id, use_custom_url, custom_url)
 				VALUES
-				(?, ?, ?, ?, ?, ?)',
+				(?, ?, ?, ?, ?, ?, ?, ?)',
 			array(
 				$navigationMenuItem->getPath(),
 				$navigationMenuItem->getPage(),
@@ -176,6 +178,8 @@ class NavigationMenuItemDAO extends DAO {
 				(int) $navigationMenuItem->getContextId(),
 				$navigationMenuItem->getOp(),
 				(int) $navigationMenuItem->getDefaultId(),
+				(int) $navigationMenuItem->getUseCustomUrl() ? 1 : 0,
+				$navigationMenuItem->getCustomUrl(),
 			)
 		);
 		$navigationMenuItem->setId($this->getInsertId());
@@ -197,16 +201,20 @@ class NavigationMenuItemDAO extends DAO {
 					is_default = ?,
 					context_id = ?,
 					op = ?,
-					default_id = ?
+					default_id = ?,
+					use_custom_url = ?,
+					custom_url = ?
 				WHERE navigation_menu_item_id = ?',
 			array(
 				$navigationMenuItem->getPath(),
 				$navigationMenuItem->getPage(),
 				(int) $navigationMenuItem->getDefault(),
 				(int) $navigationMenuItem->getContextId(),
-				(int) $navigationMenuItem->getId(),
 				$navigationMenuItem->getOp(),
 				(int) $navigationMenuItem->getDefaultId(),
+				(int) $navigationMenuItem->getUseCustomUrl() ? 1 : 0,
+				$navigationMenuItem->getCustomUrl(),
+				(int) $navigationMenuItem->getId(),
 			)
 		);
 		$this->updateLocaleFields($navigationMenuItem);
@@ -299,6 +307,8 @@ class NavigationMenuItemDAO extends DAO {
 		$op = $node->getAttribute('op');
 		$isDefault = $node->getAttribute('default');
 		$defaultId = $node->getAttribute('default_id');
+		$useCustomUrl = $node->getAttribute('use_custom_url');
+		$customUrl = $node->getAttribute('custom_url');
 
 		// create a role associated with this user group
 		$navigationMenuItem = $this->newDataObject();
@@ -308,6 +318,8 @@ class NavigationMenuItemDAO extends DAO {
 		$navigationMenuItem->setDefault($isDefault);
 		$navigationMenuItem->setOp($op);
 		$navigationMenuItem->setDefaultId($defaultId);
+		$navigationMenuItem->setUseCustomUrl($useCustomUrl);
+		$navigationMenuItem->setCustomUrl($customUrl);
 
 		// insert the group into the DB
 		$navigationMenuItemId = $this->insertObject($navigationMenuItem);

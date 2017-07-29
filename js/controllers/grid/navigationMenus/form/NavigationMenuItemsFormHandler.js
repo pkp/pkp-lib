@@ -32,6 +32,19 @@
 				// of the comments field.
 				$('#previewButton', $form).click(this.callbackWrapper(
 						this.showPreview_));
+
+				// custom url or path functionality change
+				$('#useCustomUrl').change(function () {
+					if ($(this).is(":checked")) {
+						$('#targetUrl').show();
+						$('#targetPath').hide();
+					} else {
+						$('#targetUrl').hide();
+						$('#targetPath').show();
+					}					
+				});
+
+				$('#useCustomUrl').trigger("change");
 			};
 
 	$.pkp.classes.Helper.inherits(

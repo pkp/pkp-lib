@@ -53,6 +53,12 @@
 		<field name="is_default" type="I2">
 			<DEFAULT VALUE="0"/>
 		</field>
+		<field name="use_custom_url" type="I2">
+			<DEFAULT VALUE="0"/>
+		</field>
+		<field name="custom_url" type="C2" size="255">
+			<DEFAULT VALUE=""/>
+		</field>
 		<field name="path" type="C2" size="255">
 			<DEFAULT VALUE=""/>
 		</field>

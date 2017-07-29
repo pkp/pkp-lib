@@ -8,31 +8,33 @@
  * Primary navigation menu list for OJS
  *}
 
-<nav id="{$navigationMenu->getTitle()}-navMenu" class="{$navClass} navDropdownMenu">
-    <ul id="{$navigationMenu->getTitle()}-navMenuUL" class="{$ulClass} pkp_nav_list">
-        {foreach key=field item=navigationMenuItemAssignment from=$navigationMenu->menuTree}
-            {if !empty($navigationMenuItemAssignment->children)}
-                <li aria-haspopup="true" aria-expanded="false">
-			        <a href="{url router=$smarty.const.ROUTE_PAGE page=$navigationMenuItemAssignment->navigationMenuItem->getPage() op=$navigationMenuItemAssignment->navigationMenuItem->getOp() path=$navigationMenuItemAssignment->navigationMenuItem->getPath()}">
-				        {$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
-			        </a>
-                    <ul>
-                    {foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
-                        <li>
-					        <a href="{url router=$smarty.const.ROUTE_PAGE page=$childNavigationMenuItemAssignment->navigationMenuItem->getPage() op=$childNavigationMenuItemAssignment->navigationMenuItem->getOp() path=$childNavigationMenuItemAssignment->navigationMenuItem->getPath()}">
-				                {$childNavigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
-			                </a>
-				        </li>
-                    {/foreach}
-			        </ul>
-                </li>
-            {else}
-                <li>
-				    <a href="{url router=$smarty.const.ROUTE_PAGE page=$navigationMenuItemAssignment->navigationMenuItem->getPage() op=$navigationMenuItemAssignment->navigationMenuItem->getOp() path=$navigationMenuItemAssignment->navigationMenuItem->getPath()}">
-				        {$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
-			        </a>
-			    </li>
-            {/if}
-	    {/foreach}
-    </ul>
-</nav>
+{if $navigationMenu}
+    <nav id="{$navigationMenu->getTitle()}-navMenu" class="{$navClass} navDropdownMenu">
+        <ul id="{$navigationMenu->getTitle()}-navMenuUL" class="{$ulClass} pkp_nav_list">
+            {foreach key=field item=navigationMenuItemAssignment from=$navigationMenu->menuTree}
+                {if !empty($navigationMenuItemAssignment->children)}
+                    <li aria-haspopup="true" aria-expanded="false">
+			            <a href="{url router=$smarty.const.ROUTE_PAGE page=$navigationMenuItemAssignment->navigationMenuItem->getPage() op=$navigationMenuItemAssignment->navigationMenuItem->getOp() path=$navigationMenuItemAssignment->navigationMenuItem->getPath()}">
+				            {$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
+			            </a>
+                        <ul>
+                        {foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
+                            <li>
+					            <a href="{url router=$smarty.const.ROUTE_PAGE page=$childNavigationMenuItemAssignment->navigationMenuItem->getPage() op=$childNavigationMenuItemAssignment->navigationMenuItem->getOp() path=$childNavigationMenuItemAssignment->navigationMenuItem->getPath()}">
+				                    {$childNavigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
+			                    </a>
+				            </li>
+                        {/foreach}
+			            </ul>
+                    </li>
+                {else}
+                    <li>
+				        <a href="{url router=$smarty.const.ROUTE_PAGE page=$navigationMenuItemAssignment->navigationMenuItem->getPage() op=$navigationMenuItemAssignment->navigationMenuItem->getOp() path=$navigationMenuItemAssignment->navigationMenuItem->getPath()}">
+				            {$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
+			            </a>
+			        </li>
+                {/if}
+	        {/foreach}
+        </ul>
+    </nav>
+{/if}

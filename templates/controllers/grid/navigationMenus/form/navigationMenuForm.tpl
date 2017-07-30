@@ -41,6 +41,28 @@
 							<div class="item">
 								<span class="fa fa-sort"></span>
 								{$assignment->navigationMenuItem->getLocalizedTitle()}
+                                {url|assign:navigationMenuItemAssignmentEditURL router=$smarty.const.ROUTE_COMPONENT component="grid.navigationMenus.NavigationMenuItemsGridHandler" op="editNavigationMenuItemAssignment" navigationMenuItemAssignmentId=$assignment->getId() escape=false}
+                                <a id="editNavigationMenuItemAssignment-{$assignment->getId()}" class="pkp_controllers_linkAction pkp_linkaction_edit pkp_linkaction_icon_edit" href="{$navigationMenuItemAssignmentEditURL}">Edit</a>
+                                <script>
+		$(function() {ldelim}
+		$('#{$navigationMenuItemAssignmentEditId}').pkpHandler(
+			'$.pkp.controllers.linkAction.LinkActionHandler',
+				
+{ldelim}
+		    staticId: "editNavigationMenuItemAssignment-{$assignment->getId()}",
+		    actionRequest: "$.pkp.classes.linkAction.ModalRequest",
+	        actionRequestOptions: {ldelim}
+					"title": "Edit",
+					"titleIcon": "modal_edit",
+					"canClose": "1",
+					"width": "710",
+					"closeButtonText": "Close Panel",
+					"modalHandler": "editNavigationMenuItemAssignment-{$assignment->getId()}",
+			{rdelim}
+		    {rdelim}
+			);
+		    {rdelim});
+</script>
 							</div>
 							{if !empty($assignment->children)}
 								<ul>

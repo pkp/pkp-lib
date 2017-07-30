@@ -147,6 +147,12 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 			)
 		);
 
+		// Add default title (of the navigationMenuItem)
+		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+		$navigationMenuItem = $navigationMenuItemDao->getById($assignment->getMenuItemId());
+
+		$assignment->setTitle($navigationMenuItem->getTitle(), null);
+
 		$assignment->setId($this->getInsertId());
 		$this->updateLocaleFields($assignment);
 		return $assignment->getId();

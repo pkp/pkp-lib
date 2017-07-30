@@ -32,7 +32,7 @@ class NavigationMenuDAO extends DAO {
 	 * @param $contextId int Context Id
 	 * @return NavigationMenu
 	 */
-	function getById($navigationMenuId, $contextId) {
+	function getById($navigationMenuId, $contextId = null) {
 		$params = array((int) $navigationMenuId);
 		if ($contextId !== null) $params[] = (int) $contextId;
 		$result = $this->retrieve(

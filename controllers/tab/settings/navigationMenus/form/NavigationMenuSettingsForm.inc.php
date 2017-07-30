@@ -39,8 +39,8 @@ class NavigationMenuSettingsForm extends ContextSettingsForm {
 	/**
 	 * @copydoc ContextSettingsForm::fetch()
 	 */
-	function fetch($request) {
-		return parent::fetch($request, $params);
+	function fetch($request, $params = null) {
+		return parent::fetch($request);
 	}
 }
 

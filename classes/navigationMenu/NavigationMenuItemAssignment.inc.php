@@ -109,6 +109,32 @@ class NavigationMenuItemAssignment extends DataObject {
 	public function setMenuItem($obj) {
 		$this->navigationMenuItem = is_a($obj, 'NavigationMenuItem') ? $obj : null;
 	}
+
+	/**
+	 * Get the title of the object.
+	 * @return string
+	 */
+	function getLocalizedTitle() {
+		return $this->getLocalizedData('title');
+	}
+
+	/**
+	 * Get the title of the object.
+	 * @param $locale string
+	 * @return string
+	 */
+	function getTitle($locale) {
+		return $this->getData('title', $locale);
+	}
+
+	/**
+	 * Set the title of the object.
+	 * @param $title string
+	 * @param $locale string
+	 */
+	function setTitle($title, $locale) {
+		$this->setData('title', $title, $locale);
+	}
 }
 
 ?>

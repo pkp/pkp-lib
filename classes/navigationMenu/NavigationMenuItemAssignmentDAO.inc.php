@@ -22,6 +22,26 @@ import('lib.pkp.classes.navigationMenu.NavigationMenuItemAssignment');
 class NavigationMenuItemAssignmentDAO extends DAO {
 
 	/**
+	 * Retrieve a navigation menu item assignment by ID.
+	 * @param $navigationMenuItemId int
+	 * @return NavigationMenuItemAssignment
+	 */
+	function getById($navigationMenuItemAssignmentId) {
+		$params = array((int) $navigationMenuItemAssignmentId);
+		$result = $this->retrieve(
+			'SELECT	* FROM navigation_menu_item_assignments WHERE navigation_menu_item_assignment_id = ?',
+			$params
+		);
+
+		$returner = null;
+		if ($result->RecordCount() != 0) {
+			$returner = $this->_fromRow($result->GetRowAssoc(false));
+		}
+		$result->Close();
+		return $returner;
+	}
+
+	/**
 	 * Get a new data object.
 	 * @return NavigationMenuItemAssignment
 	 */

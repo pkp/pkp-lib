@@ -47,6 +47,23 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	}
 
 	/**
+	 * Retrieve items by menu item id
+	 */
+	public function getByMenuItemId($menuItemId) {
+		$params = array((int) $menuItemId);
+		$result = $this->retrieve(
+			'SELECT nmi.*,nmh.navigation_menu_id,nmh.parent_id,nmh.seq, nmh.navigation_menu_item_assignment_id
+				FROM navigation_menu_item_assignments as nmh
+				LEFT JOIN navigation_menu_items as nmi ON (nmh.navigation_menu_item_id = nmi.navigation_menu_item_id)
+				WHERE nmh.navigation_menu_item_id = ?
+				ORDER BY nmh.seq',
+			$params
+		);
+
+		return new DAOResultFactory($result, $this, '_fromRow');
+	}
+
+	/**
 	 * Internal function to return a NavigationMenuItemAssignment object from a
 	 * row.
 	 * @param $row array
@@ -121,11 +138,12 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteByMenuId($menuId) {
-		return $this->update(
-			'DELETE FROM navigation_menu_item_assignments
-				WHERE navigation_menu_id = ?',
-			(int) $menuId
-		);
+		$navigationMenuItemAssignments = $this->getByMenuId($menuId);
+		while ($navigationMenuItemAssignment = $navigationMenuItemAssignments->next()) {
+			$this->deleteObject($navigationMenuItemAssignment);
+		}
+
+		return true;
 	}
 
 	/**
@@ -134,14 +152,12 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteByMenuItemId($menuItemId) {
-		return $this->update(
-			'DELETE FROM navigation_menu_item_assignments
-				WHERE navigation_menu_item_id = ? or parent_id = ?',
-			array(
-				(int) $menuItemId,
-				(int) $menuItemId
-			)
-		);
+		$navigationMenuItemAssignments = $this->getByMenuItemId($menuItemId);
+		while ($navigationMenuItemAssignment = $navigationMenuItemAssignments->next()) {
+			$this->deleteObject($navigationMenuItemAssignment);
+		}
+
+		return true;
 	}
 
 	/**
@@ -159,7 +175,7 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteById($navigationMenuItemAssignmentId) {
-		$this->update('DELETE FROM navigation_menu_item_assignement_settings WHERE navigation_menu_item_assignment_id = ?', (int) $navigationMenuItemAssignmentId);
+		$this->update('DELETE FROM navigation_menu_item_assignment_settings WHERE navigation_menu_item_assignment_id = ?', (int) $navigationMenuItemAssignmentId);
 		$this->update('DELETE FROM navigation_menu_item_assignments WHERE navigation_menu_item_assignment_id = ?', (int) $navigationMenuItemAssignmentId);
 	}
 

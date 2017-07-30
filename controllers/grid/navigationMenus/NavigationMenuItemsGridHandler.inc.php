@@ -16,6 +16,7 @@
 import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 import('lib.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
+import('lib.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemAssignmentsForm');
 
 class NavigationMenuItemsGridHandler extends GridHandler {
 
@@ -30,7 +31,8 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 				'fetchGrid', 'fetchRow',
 				'addNavigationMenuItem', 'editNavigationMenuItem',
 				'updateNavigationMenuItem',
-				'deleteNavigationMenuItem', 'saveSequence'
+				'deleteNavigationMenuItem', 'saveSequence',
+				'editNavigationMenuItemAssignment', 'updateNavigationMenuItemAssignment',
 			)
 		);
 	}
@@ -256,6 +258,60 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 		}
 
 		return new JSONMessage(false);
+	}
+
+	// NavigationMenuItemAssignments
+	/**
+	 * update NavigationMenuItemAssignment mode.
+	 * @param $args array
+	 * @param $request Request
+	 * @return JSONMessage JSON object
+	 */
+	function updateNavigationMenuItemAssignment($args, $request) {
+		$navigationMenuItemAssignmentId = (int)$request->getUserVar('navigationMenuItemId');
+		$context = $request->getContext();
+		$contextId = $context->getId();
+
+		import('lib.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemAssignmentsForm');
+		$navigationMenuItemAssignmentsForm = new NavigationMenuItemAssignmentsForm($contextId, $navigationMenuItemAssignmentId);
+
+		$navigationMenuItemAssignmentsForm->readInputData();
+
+		if ($navigationMenuItemAssignmentsForm->validate()) {
+			$navigationMenuItemAssignmentsForm->execute($request);
+
+			if ($navigationMenuItemAssignmentId) {
+				// Successful edit of an existing $navigationMenuItemAssignment.
+				$notificationLocaleKey = 'notification.editedNavigationMenuItemAssignment';
+			}
+
+			// Record the notification to user.
+			$notificationManager = new NotificationManager();
+			$user = $request->getUser();
+			$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __($notificationLocaleKey)));
+
+			// Prepare the grid row data.
+			return DAO::getDataChangedEvent($navigationMenuItemAssignmentId);
+		} else {
+			return new JSONMessage(false);
+		}
+	}
+
+	/**
+	 * Display form to edit a navigation menu item assignment object.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
+	function editNavigationMenuItemAssignment($args, $request) {
+		$navigationMenuItemAssignmentId = (int) $request->getUserVar('navigationMenuItemAssignmentId');
+		$context = $request->getContext();
+		$contextId = $context->getId();
+
+		$navigationMenuItemAssignmentForm = new NavigationMenuItemAssignmentsForm($contextId, $navigationMenuItemAssignmentId);
+		$navigationMenuItemAssignmentForm->initData($args, $request);
+
+		return new JSONMessage(true, $navigationMenuItemAssignmentForm->fetch($request));
 	}
 }
 

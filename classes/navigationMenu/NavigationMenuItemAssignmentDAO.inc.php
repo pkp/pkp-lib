@@ -35,7 +35,7 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	public function getByMenuId($menuId) {
 		$params = array((int) $menuId);
 		$result = $this->retrieve(
-			'SELECT nmi.*,nmh.navigation_menu_id,nmh.parent_id,nmh.seq
+			'SELECT nmi.*,nmh.navigation_menu_id,nmh.parent_id,nmh.seq, nmh.navigation_menu_item_assignment_id
 				FROM navigation_menu_item_assignments as nmh
 				LEFT JOIN navigation_menu_items as nmi ON (nmh.navigation_menu_item_id = nmi.navigation_menu_item_id)
 				WHERE nmh.navigation_menu_id = ?
@@ -54,12 +54,41 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	 */
 	public function _fromRow($row) {
 		$assignment = $this->newDataObject();
+		$assignment->setId($row['navigation_menu_item_assignment_id']);
 		$assignment->setMenuId($row['navigation_menu_id']);
 		$assignment->setMenuItemId($row['navigation_menu_item_id']);
 		$assignment->setParentId($row['parent_id']);
 		$assignment->setSequence($row['seq']);
 
+		$this->getDataObjectSettings('navigation_menu_item_assignment_settings', 'navigation_menu_item_assignment_id', $row['navigation_menu_item_assignment_id'], $assignment);
+
 		return $assignment;
+	}
+
+	/**
+	 * Update an existing NavigationMenuItemAssignment.
+	 * @param $navigationMenuItemAssignment NavigationMenuItemAssignment
+	 * @return boolean
+	 */
+	function updateObject($navigationMenuItemAssignment) {
+		$returner = $this->update(
+				'UPDATE navigation_menu_item_assignments
+				SET
+					navigation_menu_id = ?,
+					navigation_menu_item_id = ?,
+					parent_id = ?,
+					seq = ?,
+				WHERE navigation_menu_item_assignment_id = ?',
+			array(
+				(int) $navigationMenuItemAssignment->getMenuId(),
+				(int) $navigationMenuItemAssignment->getMenuItemId(),
+				(int) $navigationMenuItemAssignment->getParentId(),
+				(int) $navigationMenuItemAssignment->getSequence(),
+				(int) $navigationMenuItemAssignment->getId(),
+			)
+		);
+		$this->updateLocaleFields($navigationMenuItemAssignment);
+		return $returner;
 	}
 
 	/**
@@ -68,7 +97,7 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	 * @return int
 	 */
 	public function insertObject($assignment) {
-		return $this->update(
+		$this->update(
 				'INSERT INTO navigation_menu_item_assignments
 				(navigation_menu_id, navigation_menu_item_id, parent_id, seq)
 				VALUES
@@ -80,6 +109,10 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 				(int) $assignment->getSequence(),
 			)
 		);
+
+		$assignment->setId($this->getInsertId());
+		$this->updateLocaleFields($assignment);
+		return $assignment->getId();
 	}
 
 	/**
@@ -109,6 +142,51 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 				(int) $menuItemId
 			)
 		);
+	}
+
+	/**
+	 * Delete a NavigationMenuItemAssignment.
+	 * @param $navigationMenuItemAssignment NavigationMenuItemAssignment
+	 * @return boolean
+	 */
+	function deleteObject($navigationMenuItemAssignment) {
+		return $this->deleteById($navigationMenuItemAssignment->getId());
+	}
+
+	/**
+	 * Delete a NavigationMenuItemAssignment by NavigationMenuItemAssignment ID.
+	 * @param $navigationMenuItemAssignmentId int
+	 * @return boolean
+	 */
+	function deleteById($navigationMenuItemAssignmentId) {
+		$this->update('DELETE FROM navigation_menu_item_assignement_settings WHERE navigation_menu_item_assignment_id = ?', (int) $navigationMenuItemAssignmentId);
+		$this->update('DELETE FROM navigation_menu_item_assignments WHERE navigation_menu_item_assignment_id = ?', (int) $navigationMenuItemAssignmentId);
+	}
+
+	/**
+	 * Get the list of localized field names for this table
+	 * @return array
+	 */
+	function getLocaleFieldNames() {
+		return array('title');
+	}
+
+	/**
+	 * Get the ID of the last inserted navigation menu item assignment.
+	 * @return int
+	 */
+	function getInsertId() {
+		return $this->_getInsertId('navigation_menu_item_assignments', 'navigation_menu_item_assignment_id');
+	}
+
+	/**
+	 * Update the settings for this object
+	 * @param $navigationMenuItemAssignment object
+	 */
+	function updateLocaleFields($navigationMenuItemAssignment) {
+		$this->updateDataObjectSettings('navigation_menu_item_assignment_settings', $navigationMenuItemAssignment, array(
+			'navigation_menu_item_assignment_id' => $navigationMenuItemAssignment->getId()
+		));
 	}
 }
 

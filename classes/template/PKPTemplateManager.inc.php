@@ -768,6 +768,7 @@ class PKPTemplateManager extends Smarty {
 	 * Clear template compile and cache directories.
 	 */
 	function clearTemplateCache() {
+		$this->clearCssCache();
 		$this->clear_compiled_tpl();
 		$this->clear_all_cache();
 	}

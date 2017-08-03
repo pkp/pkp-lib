@@ -13,6 +13,8 @@
  * @brief Form to edit user's API key settings.
  */
 
+use \Firebase\JWT\JWT;
+
 import('lib.pkp.classes.user.form.BaseProfileForm');
 
 class APIProfileForm extends BaseProfileForm {
@@ -51,10 +53,22 @@ class APIProfileForm extends BaseProfileForm {
 	 */
 	public function fetch($request) {
 		$user = $request->getUser();
+		$apiKey = $user->getSetting('apiKey');
+		$secret = Config::getVar('security', 'api_key_secret', '');
+		$jwt = '';
+		if ($secret !== '') {
+			$jwt = JWT::encode(json_encode($apiKey), $secret, 'HS256');
+		} else {
+			$notificationManager = new NotificationManager();
+			$notificationManager->createTrivialNotification(
+				$user->getId(), NOTIFICATION_TYPE_WARNING, array(
+					'contents' => __('user.apiKey.secretRequired'),
+			));
+		}
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
 			'apiKeyEnabled' => $user->getSetting('apiKeyEnabled'),
-			'apiKey' => $user->getSetting('apiKey'),
+			'apiKey' => $jwt,
 		));
 		return parent::fetch($request);
 	}

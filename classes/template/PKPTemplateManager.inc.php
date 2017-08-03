@@ -292,6 +292,9 @@ class PKPTemplateManager extends Smarty {
 
 				$this->assign('navigationMenus', $navigationMenusArray);
 			}
+
+			HookRegistry::call('NavigationMenus::setTypes', array(&$types));
+			$this->assign('navigationMenuTypes', $types);
 		}
 
 		// Register custom functions

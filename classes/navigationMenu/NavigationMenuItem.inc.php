@@ -29,6 +29,8 @@ class NavigationMenuItem extends DataObject {
 	/** @var $navigationMenuItems array The navigationMenuItems underneath this navigationMenuItem */
 	var $navigationMenuItems = array();
 
+	var $_isDispayed = true;
+
 	//
 	// Get/set methods
 	//
@@ -146,6 +148,22 @@ class NavigationMenuItem extends DataObject {
 	}
 
 	/**
+	 * Set type for this navigation menu item.
+	 * @param $type string
+	 */
+	function setType($type) {
+		$this->setData('type', $type);
+	}
+
+	/**
+	 * Get type for this navigation menu item.
+	 * @return string
+	 */
+	function getType() {
+		return $this->getData('type');
+	}
+
+	/**
 	 * Get contextId for this navigation menu item.
 	 * @return int
 	 */
@@ -227,6 +245,39 @@ class NavigationMenuItem extends DataObject {
 	 */
 	function setSequence($seq) {
 		$this->setData('seq', $seq);
+	}
+
+	/**
+	 * Get $isDisplayed for this navigation menu item.
+	 * @return boolean
+	 */
+	function getIsDisplayed() {
+		return $this->_isDispayed;
+	}
+
+	/**
+	 * Set $isDisplayed for this navigation menu item.
+	 * @param $isDisplayed boolean
+	 */
+	function setIsDisplayed($isDisplayed) {
+		$this->_isDispayed = $isDisplayed;
+	}
+
+	function getDisplayStatus() {
+		$menuItemType = $this->getType();
+		switch ($menuItemType) {
+		  case 'announcements': // should be made as symbolic type - globally accessible
+			// check if annoucements are enabled
+			$this->setIsDisplayed($isAnnouncementsEnabled);
+		  case 'userProfile':
+			  // check if user is logged in
+			  $this->setIsDisplayed($isUserLoggedIn);
+		  default:
+			// Fire hook for determining display status of third-party types. Default: true
+			$display = true;
+			HookRegistry::call('NavigationMenus::displayType', array(&$display, $menuItemType));
+			$this->setIsDisplayed($display);
+		}
 	}
 }
 

@@ -45,6 +45,17 @@
 				});
 
 				$('#useCustomUrl').trigger("change");
+
+				// type change event
+				$('#type').change(function () {
+					if ($(this)[0].value == "custom") { // add global variable somehow
+						$('#customItemFields').show();
+					} else {
+						$('#customItemFields').hide();
+					}
+				});
+
+				$('#type').trigger("change");
 			};
 
 	$.pkp.classes.Helper.inherits(

@@ -68,6 +68,9 @@
 		<field name="page" type="C2" size="255">
 			<NOTNULL />
 		</field>
+		<field name="type" type="C2" size="255">
+			<DEFAULT VALUE=""/>
+		</field>
 		<field name="default_id" type="I2">
 			<DEFAULT VALUE="NULL"/>
 		</field>

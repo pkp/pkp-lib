@@ -106,6 +106,12 @@ abstract class Plugin {
 		if ($this->getContextSpecificPluginSettingsFile()) {
 			HookRegistry::register ($this->_getContextSpecificInstallationHook(), array($this, 'installContextSpecificSettings'));
 		}
+		if ($this->getNavigationMenuItemTypes()) {
+			HookRegistry::register ('NavigationMenus::setTypes', array($this, 'registerNavigationMenuItemTypes'));
+		}
+		//if ($this->getNavigationMenuItemTypesDisplay()) {
+		//    HookRegistry::register ('NavigationMenus::displayType', array($this, 'registerNavigationMenuItemTypesDisplay'));
+		//}
 		HookRegistry::register ('Installer::postInstall', array($this, 'installFilters'));
 		return true;
 	}
@@ -240,6 +246,14 @@ abstract class Plugin {
 	 * @return string
 	 */
 	function getContextSpecificPluginSettingsFile() {
+		return null;
+	}
+
+	function getNavigationMenuItemTypes() {
+		return null;
+	}
+
+	function getNavigationMenuItemTypesDisplay() {
 		return null;
 	}
 
@@ -752,6 +766,17 @@ abstract class Plugin {
 	function getJavascriptNameSpace() {
 		return '$.pkp.plugins.' . strtolower(get_class($this));
 	}
+
+	function registerNavigationMenuItemTypes($hookName, $args) {
+		$pluginTypes = $this->getNavigationMenuItemTypes();
+
+		$types =& $args[0];
+		$types =& array_merge($types, $pluginTypes);
+	}
+
+	//function registerNavigationMenuItemTypesDisplay($hookName, $args) {
+	//    return $this->getNavigationMenuItemTypesDisplay();
+	//}
 }
 
 ?>

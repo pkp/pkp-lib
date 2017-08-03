@@ -97,8 +97,11 @@ class NavigationMenu extends DataObject {
 	 */
 	public function getMenuTree() {
 		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
-		$items = $navigationMenuItemDao->getByMenuId($this->getId())
-				->toArray();
+		$items = $navigationMenuItemDao->getByMenuId($this->getId())->toArray();
+		foreach($items as $item) {
+			$item->getDisplayStatus();
+		}
+
 		$navigationMenuItemAssignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
 		$assignments = $navigationMenuItemAssignmentDao->getByMenuId($this->getId())
 				->toArray();

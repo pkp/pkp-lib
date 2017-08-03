@@ -66,7 +66,7 @@ class NavigationMenuItemsForm extends Form {
 	 * @copydoc Form::fetch()
 	 */
 	function fetch($request) {
-		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr =& TemplateManager::getManager($request);
 
 		$templateMgr->assign('navigationMenuItemId', $this->navigationMenuItemId);
 
@@ -78,6 +78,10 @@ class NavigationMenuItemsForm extends Form {
 			'supportPhone' => __('plugins.generic.tinymce.variables.supportContactPhone', array('value' => $context->getSetting('supportPhone'))),
 			'supportEmail' => __('plugins.generic.tinymce.variables.supportContactEmail', array('value' => $context->getSetting('supportEmail'))),
 		));
+
+		$types = array();
+		HookRegistry::call('NavigationMenus::setTypes', array(&$types));
+		$templateMgr->assign('navigationMenuTypes', $types);
 
 		return parent::fetch($request, 'controllers/grid/navigationMenus/form/navigationMenuItemsForm.tpl');
 	}
@@ -114,7 +118,7 @@ class NavigationMenuItemsForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('navigationMenuItemId', 'content', 'title', 'path', 'page', 'op', 'default_id', 'useCustomUrl', 'customUrl'));
+		$this->readUserVars(array('navigationMenuItemId', 'content', 'title', 'path', 'page', 'op', 'default_id', 'useCustomUrl', 'customUrl','type'));
 	}
 
 	/**
@@ -138,6 +142,7 @@ class NavigationMenuItemsForm extends Form {
 		$navigationMenuItem->setOp($this->getData('op'));
 		$navigationMenuItem->setUseCustomUrl($this->getData('useCustomUrl') ? 1 : 0);
 		$navigationMenuItem->setCustomUrl($this->getData('customUrl'));
+		$navigationMenuItem->setType($this->getData('type'));
 
 		// Update or insert navigation menu item
 		if ($navigationMenuItem->getId()) {
@@ -154,21 +159,25 @@ class NavigationMenuItemsForm extends Form {
 	 * @copydoc Form::validate
 	 */
 	function validate() {
-		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+		if ($this->getData('type') && $this->getData('type') != "") {
+			if ($this->getData('useCustomUrl')) {
+				if(!filter_var($this->getData('customUrl'), FILTER_VALIDATE_URL)) {
+					$this->addError('customUrl', __('manager.navigationMenus.form.customUrlError'));
+				}
+			} else {
+				if (!preg_match('/^[a-zA-Z0-9\/._-]+$/', $this->getData('path'))) {
+					$this->addError('path', __('manager.navigationMenus.form.pathRegEx'));
+				}
 
-		$navigationMenuItem = $navigationMenuItemDao->getByPath($this->_contextId, $this->getData('path'));
-		if (isset($navigationMenuItem) && $navigationMenuItem->getId() != $this->navigationMenuItemId) {
-			$this->addError('path', __('manager.navigationMenus.form.duplicatePath'));
-		}
+				$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
 
-		if ($this->getData('useCustomUrl')) {
-			if(!filter_var($this->getData('customUrl'), FILTER_VALIDATE_URL)) {
-				$this->addError('customUrl', __('manager.navigationMenus.form.customUrlError'));
+				$navigationMenuItem = $navigationMenuItemDao->getByPath($this->_contextId, $this->getData('path'));
+				if (isset($navigationMenuItem) && $navigationMenuItem->getId() != $this->navigationMenuItemId) {
+					$this->addError('path', __('manager.navigationMenus.form.duplicatePath'));
+				}
 			}
 		} else {
-			if (!preg_match('/^[a-zA-Z0-9\/._-]+$/', $this->getData('path'))) {
-				$this->addError('path', __('manager.navigationMenus.form.pathRegEx'));
-			}
+			$this->addError('path', __('manager.navigationMenus.form.typeMissing'));
 		}
 
 		return parent::validate();

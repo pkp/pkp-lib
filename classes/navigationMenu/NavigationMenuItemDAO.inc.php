@@ -144,6 +144,7 @@ class NavigationMenuItemDAO extends DAO {
 		$navigationMenuItem->setDefaultId($row['default_id']);
 		$navigationMenuItem->setUseCustomUrl($row['use_custom_url']);
 		$navigationMenuItem->setCustomUrl($row['custom_url']);
+		$navigationMenuItem->setType($row['type']);
 
 		$this->getDataObjectSettings('navigation_menu_item_settings', 'navigation_menu_item_id', $row['navigation_menu_item_id'], $navigationMenuItem);
 
@@ -168,9 +169,9 @@ class NavigationMenuItemDAO extends DAO {
 	function insertObject($navigationMenuItem) {
 		$this->update(
 				'INSERT INTO navigation_menu_items
-				(path, page, is_default, context_id, op, default_id, use_custom_url, custom_url)
+				(path, page, is_default, context_id, op, default_id, use_custom_url, custom_url, type)
 				VALUES
-				(?, ?, ?, ?, ?, ?, ?, ?)',
+				(?, ?, ?, ?, ?, ?, ?, ?, ?)',
 			array(
 				$navigationMenuItem->getPath(),
 				$navigationMenuItem->getPage(),
@@ -180,6 +181,7 @@ class NavigationMenuItemDAO extends DAO {
 				(int) $navigationMenuItem->getDefaultId(),
 				(int) $navigationMenuItem->getUseCustomUrl() ? 1 : 0,
 				$navigationMenuItem->getCustomUrl(),
+				$navigationMenuItem->getType(),
 			)
 		);
 		$navigationMenuItem->setId($this->getInsertId());
@@ -203,7 +205,8 @@ class NavigationMenuItemDAO extends DAO {
 					op = ?,
 					default_id = ?,
 					use_custom_url = ?,
-					custom_url = ?
+					custom_url = ?,
+					type = ?
 				WHERE navigation_menu_item_id = ?',
 			array(
 				$navigationMenuItem->getPath(),
@@ -214,6 +217,7 @@ class NavigationMenuItemDAO extends DAO {
 				(int) $navigationMenuItem->getDefaultId(),
 				(int) $navigationMenuItem->getUseCustomUrl() ? 1 : 0,
 				$navigationMenuItem->getCustomUrl(),
+				$navigationMenuItem->getType(),
 				(int) $navigationMenuItem->getId(),
 			)
 		);

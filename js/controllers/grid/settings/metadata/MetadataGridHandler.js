@@ -29,8 +29,9 @@
 	 */
 	$.pkp.controllers.grid.settings.metadata.MetadataGridHandler =
 			function($grid, options) {
-		$grid.find(':checkbox[name$="EnabledSubmission"]').change(
-				this.callbackWrapper(this.toggleSubmissionEnabledHandler_));
+
+		$grid.find(':checkbox').change(
+				this.callbackWrapper(this.checkboxHandler_));
 
 		this.parent($grid, options);
 	};
@@ -50,7 +51,7 @@
 		this.parent('initialize', options);
 
 		// Initialize the controls with sensible readonly states
-		$(this.getHtmlElement()).find(':checkbox[name$="EnabledSubmission"]')
+		$(this.getHtmlElement()).find(':checkbox')
 				.change();
 	};
 
@@ -59,7 +60,8 @@
 	// Private methods.
 	//
 	/**
-	 * Callback that will be activated when the "delete" icon is clicked
+	 * Callback that will be activated when an "enabled" checkbox is clicked
+	 * under the "submission" column
 	 *
 	 * @private
 	 *
@@ -69,19 +71,30 @@
 	 * @return {boolean} Should return false to stop event processing.
 	 */
 	$.pkp.controllers.grid.settings.metadata.MetadataGridHandler.prototype.
-			toggleSubmissionEnabledHandler_ = function(callingContext, opt_event) {
+			checkboxHandler_ = function(callingContext, opt_event) {
 		var $checkbox = $(callingContext), checked = $checkbox.is(':checked'),
-				$grid = $(this.getHtmlElement()), name = $checkbox.attr('name'),
-				$pair = $grid.find('input:checkbox[name="' +
-				name.replace('EnabledSubmission', 'EnabledWorkflow' + '"]'));
-		if (checked) {
-			// Workflow checkbox must be enabled if submission checkbox is
-			$pair.prop('checked', true);
-			$pair.prop('readonly', true);
-		} else {
-			// Relax forcing workflow checkbox according to submission checkbox
-			$pair.prop('readonly', false);
-		}
+				$grid = $(this.getHtmlElement()), name = $checkbox.prop('name');
+
+		this.getRows().each(function() {
+			var fieldName = $(this).prop('id').split('-').pop(),
+					$enabled = $grid.find(
+							':checkbox[name=' + fieldName + 'EnabledWorkflow]'),
+					$enabledSubmission = $grid.find(
+							':checkbox[name=' + fieldName + 'EnabledSubmission]'),
+					$required = $grid.find(
+							':checkbox[name=' + fieldName + 'Required]');
+
+			if ($enabledSubmission.prop('checked') || $required.prop('checked')) {
+				$enabled.prop('checked', true);
+			}
+			$enabled.prop('readonly',
+					$enabledSubmission.prop('checked') || $required.prop('checked'));
+
+			if ($required.prop('checked')) {
+				$enabledSubmission.prop('checked', true);
+			}
+			$enabledSubmission.prop('readonly', $required.prop('checked'));
+		});
 		return false;
 	};
 /** @param {jQuery} $ jQuery closure. */

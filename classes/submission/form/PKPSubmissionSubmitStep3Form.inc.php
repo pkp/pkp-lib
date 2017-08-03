@@ -55,7 +55,7 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 
 		// Tell the form what fields are enabled (and which of those are required)
 		foreach (array_keys(MetadataGridHandler::getNames()) as $field) {
-			$templateMgr->assign($a = array(
+			$templateMgr->assign(array(
 				$field . 'Enabled' => $context->getSetting($field . 'EnabledSubmission'),
 				$field . 'Required' => $context->getSetting($field . 'Required')
 			));

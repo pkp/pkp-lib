@@ -128,11 +128,6 @@
 				.pkpListPanel__searchIcons--search:before {
 					color: #fff;
 				}
-
-				.pkpListPanel__searchIcons--searching:before {
-					border-top-color: rgba(255,255,255,0.5);
-					border-left-color: rgba(255,255,255,0.5);
-				}
 			}
 		}
 	}
@@ -156,17 +151,6 @@
 			outline: 0;
 			background: @offset;
 			color: #fff;
-		}
-	}
-
-	&.searching {
-
-		.pkpListPanel__searchIcons--search:before {
-			opacity: 0;
-		}
-
-		.pkpListPanel__searchIcons--searching:before {
-			opacity: 1;
 		}
 	}
 }
@@ -198,19 +182,6 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 	color: @primary;
-	transition: opacity 0.3s;
-	opacity: 1;
-}
-
-.pkpListPanel__searchIcons--searching:before {
-	&:extend(.pkp_spinner:after);
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-top: -10px;
-	margin-left: -10px;
-	opacity: 0;
-	transition: opacity 0.3s;
 }
 
 .pkpListPanel__body {

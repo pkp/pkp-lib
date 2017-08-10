@@ -9,7 +9,6 @@
 			</ul>
 			<list-panel-search
 				@searchPhraseChanged="setSearchPhrase"
-				:isSearching="isSearching"
 				:searchPhrase="searchPhrase"
 				:i18n="i18n"
 			/>

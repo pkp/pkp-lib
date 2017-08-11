@@ -1,12 +1,12 @@
 <?php
 /**
- * @file controllers/list/submissions/SubmissionsListHandler.inc.php
+ * @file controllers/list/submissions/PKPSubmissionsListHandler.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2000-2016 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class SubmissionsListHandler
+ * @class PKPSubmissionsListHandler
  * @ingroup classes_controllers_list
  *
  * @brief Instantiates and manages a UI component to list submissions.
@@ -15,7 +15,7 @@ import('lib.pkp.controllers.list.ListHandler');
 import('lib.pkp.classes.db.DBResultRange');
 import('lib.pkp.classes.submission.Submission');
 
-class SubmissionsListHandler extends ListHandler {
+abstract class PKPSubmissionsListHandler extends ListHandler {
 
 	/**
 	 * Count of items to retrieve in initial page/request
@@ -97,6 +97,8 @@ class SubmissionsListHandler extends ListHandler {
 
 		$config['getParams'] = $this->_getParams;
 
+		$config['stages'] = $this->getWorkflowStages();
+
 		// Load grid localisation files
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID);
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
@@ -128,6 +130,8 @@ class SubmissionsListHandler extends ListHandler {
 			'filesPrepared' => __('submission.list.filesPrepared'),
 			'discussions' => __('submission.list.discussions'),
 			'incompleteSubmissionNotice' => __('submission.list.incompleteSubmissionNotice'),
+			'stages' => __('settings.roles.stages'),
+			'sections' => __('section.sections'),
 		);
 
 		// Attach a CSRF token for post requests
@@ -159,4 +163,11 @@ class SubmissionsListHandler extends ListHandler {
 				->get('submission')
 				->getSubmissionList($contextId, $params);
 	}
+
+	/**
+	 * Get an array of workflow stages supported by the current app
+	 *
+	 * @return array
+	 */
+	abstract function getWorkflowStages();
 }

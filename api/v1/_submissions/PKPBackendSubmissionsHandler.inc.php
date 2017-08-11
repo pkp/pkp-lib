@@ -86,8 +86,9 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 		foreach ($params as $param => $val) {
 			switch ($param) {
 
-				// Always convert status to array
+				// Always convert status and stageIds to array
 				case 'status':
+				case 'stageIds':
 					if (is_string($val) && strpos($val, ',') > -1) {
 						$val = explode(',', $val);
 					} elseif (!is_array($val)) {
@@ -119,6 +120,9 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 				case 'orderDirection':
 					$params[$param] = $val === 'ASC' ? $val : 'DESC';
 					break;
+
+				case 'isIncomplete':
+					$params[$param] = true;
 			}
 		}
 

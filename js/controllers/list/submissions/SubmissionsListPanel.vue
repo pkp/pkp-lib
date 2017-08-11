@@ -3,6 +3,12 @@
 		<div class="pkpListPanel__header">
 			<div class="pkpListPanel__title">{{ i18n.title }}</div>
 			<ul class="pkpListPanel__actions">
+				<li v-if="currentUserCanFilter">
+					<button @click.prevent="toggleFilter" :class="{'--isActive': isFilterVisible}">
+						<span class="fa fa-filter"></span>
+						{{ i18n.filter }}
+					</button>
+				</li>
 				<li>
 					<a :href="addUrl">{{ i18n.add }}</a>
 				</li>
@@ -13,15 +19,27 @@
 				:i18n="i18n"
 			/>
 		</div>
-		<ul class="pkpListPanel__items" aria-live="polite">
-			<submissions-list-item
-				v-for="item in collection.items"
-				:item="item"
+		<div class="pkpListPanel__body pkpListPanel__body--submissions">
+			<submissions-list-filter
+				v-if="currentUserCanFilter"
+				@filterList="updateFilter"
+				:isVisible="isFilterVisible"
+				:stages="stages"
+				:sections="sections"
 				:i18n="i18n"
-				:apiPath="apiPath"
-				:infoUrl="infoUrl"
 			/>
-		</ul>
+			<div class="pkpListPanel__content pkpListPanel__content--submissions">
+				<ul class="pkpListPanel__items" aria-live="polite">
+					<submissions-list-item
+						v-for="item in collection.items"
+						:submission="item"
+						:i18n="i18n"
+						:apiPath="apiPath"
+						:infoUrl="infoUrl"
+					/>
+				</ul>
+			</div>
+		</div>
 		<div class="pkpListPanel__footer">
 			<list-panel-load-more
 				v-if="canLoadMore"
@@ -40,12 +58,14 @@
 
 <script>
 import ListPanel from './../ListPanel.vue';
+import SubmissionsListFilter from './SubmissionsListFilter.vue';
 import SubmissionsListItem from './SubmissionsListItem.vue';
 
 export default {
 	extends: ListPanel,
 	name: 'SubmissionsListPanel',
 	components: {
+		SubmissionsListFilter,
 		SubmissionsListItem,
 	},
 	data: function() {
@@ -53,6 +73,14 @@ export default {
 			addUrl: '',
 			infoUrl: '',
 		};
+	},
+	computed: {
+		/**
+		 * Can the current user filter the list?
+		 */
+		currentUserCanFilter: function() {
+			return pkp.userHasRole(['manager', 'subeditor', 'assistant']);
+		}
 	},
 	mounted: function() {
 		// Store a reference to this component for global event callbacks

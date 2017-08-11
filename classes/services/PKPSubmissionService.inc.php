@@ -55,6 +55,7 @@ abstract class PKPSubmissionService {
 			'searchPhrase' => null,
 			'count' => 20,
 			'offset' => 0,
+			'isIncomplete' => false,
 		);
 
 		$args = array_merge($defaultArgs, $args);
@@ -64,6 +65,8 @@ abstract class PKPSubmissionService {
 			->orderBy($args['orderBy'], $args['orderDirection'])
 			->assignedTo($args['assignedTo'])
 			->filterByStatus($args['status'])
+			->filterByStageIds($args['stageIds'])
+			->filterByIncomplete($args['isIncomplete'])
 			->searchPhrase($args['searchPhrase']);
 
 		\HookRegistry::call('Submission::getSubmissionList::queryBuilder', array(&$submissionListQB, $contextId, $args));

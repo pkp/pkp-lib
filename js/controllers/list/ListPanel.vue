@@ -167,7 +167,10 @@ export default {
 		 * Update filter parameters
 		 */
 		updateFilter: function(params) {
-			this.filterParams = params;
+			this.filterParams = {};
+			this.$nextTick(function() {
+				this.filterParams = params;
+			});
 		},
 
 		/**

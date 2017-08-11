@@ -34,6 +34,9 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 	/** @var array list of statuses */
 	protected $statuses = null;
 
+	/** @var array list of stage ids */
+	protected $stageIds = null;
+
 	/** @var int user ID */
 	protected $assigneeId = null;
 
@@ -42,6 +45,9 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 
 	/** @var bool whether to return only a count of results */
 	protected $countOnly = null;
+
+	/** @var bool whether to return only incomplete results */
+	protected $isIncomplete = false;
 
 	/**
 	 * Constructor
@@ -85,6 +91,33 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 			$statuses = array($statuses);
 		}
 		$this->statuses = $statuses;
+		return $this;
+	}
+
+	/**
+	 * Set stage filter
+	 *
+	 * @param int|array $stageIds
+	 *
+	 * @return \OJS\Services\QueryBuilders\SubmissionListQueryBuilder
+	 */
+	public function filterByStageIds($stageIds) {
+		if (!is_null($stageIds) && !is_array($stageIds)) {
+			$stageIds = array($stageIds);
+		}
+		$this->stageIds = $stageIds;
+		return $this;
+	}
+
+	/**
+	 * Set incomplete submissions filter
+	 *
+	 * @param boolean $isIncomplete
+	 *
+	 * @return \OJS\Services\QueryBuilders\SubmissionListQueryBuilder
+	 */
+	public function filterByIncomplete($isIncomplete) {
+		$this->isIncomplete = $isIncomplete;
 		return $this;
 	}
 
@@ -151,6 +184,16 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 					->groupBy('ps.date_published');
 			}
 			$q->whereIn('s.status', $this->statuses);
+		}
+
+		// stage ids
+		if (!is_null($this->stageIds)) {
+			$q->whereIn('s.stage_id', $this->stageIds);
+		}
+
+		// incomplete submissions
+		if ($this->isIncomplete) {
+			$q->where('s.submission_progress', '>', 0);
 		}
 
 		// assigned to

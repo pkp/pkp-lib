@@ -97,7 +97,20 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 
 		$config['getParams'] = $this->_getParams;
 
-		$config['stages'] = $this->getWorkflowStages();
+		$config['filters'] = array(
+			'stageIds' => array(
+				'heading' => __('settings.roles.stages'),
+				'filters' => $this->getWorkflowStages(),
+			),
+			'isIncomplete' => array(
+				'filters' => array(
+					array(
+						'val' => true,
+						'title' => __('submissions.incomplete'),
+					),
+				),
+			),
+		);
 
 		// Load grid localisation files
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID);
@@ -130,7 +143,6 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 			'filesPrepared' => __('submission.list.filesPrepared'),
 			'discussions' => __('submission.list.discussions'),
 			'incompleteSubmissionNotice' => __('submission.list.incompleteSubmissionNotice'),
-			'stages' => __('settings.roles.stages'),
 			'sections' => __('section.sections'),
 		);
 

@@ -5,71 +5,26 @@
 			{{ i18n.filter }}
 		</div>
 		<div class="pkpListPanel__filterOptions pkpListPanel__filterOptions--submissions">
-			<div v-if="stages.length > 0" class="pkpListPanel__filterSet">
-				<div class="pkpListPanel__filterSetLabel">
-					{{ i18n.stages }}
+			<div v-for="(filter, param) in filters" class="pkpListPanel__filterSet">
+				<div v-if="filter.heading" class="pkpListPanel__filterSetLabel">
+					{{ filter.heading }}
 				</div>
 				<ul>
-					<li v-for="stage in stages">
+					<li v-for="filterItem in filter.filters">
 						<a href="#"
-							@click.prevent.stop="filterBy('stageIds', stage.id)"
+							@click.prevent.stop="filterBy(param, filterItem.val)"
 							class="pkpListPanel__filterLabel"
-							:class="{'--isActive': isFilterActive('stageIds', stage.id)}"
+							:class="{'--isActive': isFilterActive(param, filterItem.val)}"
 							:tabindex="tabIndex"
-						>{{ stage.title }}</a>
+						>{{ filterItem.title }}</a>
 						<button
-							v-if="isFilterActive('stageIds', stage.id)"
+							v-if="isFilterActive(param, filterItem.val)"
 							href="#"
 							class="pkpListPanel__filterRemove"
-							@click.prevent.stop="clearFilter('stageIds', stage.id)"
+							@click.prevent.stop="clearFilter(param, filterItem.val)"
 						>
 							<span class="fa fa-times-circle-o"></span>
-							<span class="pkpListPanel__filterRemoveLabel">{{ __('filterRemove', {filterTitle: stage.title}) }}</span>
-						</button>
-					</li>
-				</ul>
-			</div>
-			<div v-if="sections.length > 0" class="pkpListPanel__filterSet">
-				<div class="pkpListPanel__filterSetLabel">
-					{{ i18n.sections }}
-				</div>
-				<ul>
-					<li v-for="section in sections">
-						<a href="#"
-							@click.prevent.stop="filterBy('sectionIds', section.id)"
-							class="pkpListPanel__filterLabel"
-							:class="{'--isActive': isFilterActive('sectionIds', section.id)}"
-							:tabindex="tabIndex"
-						>{{ section.title }}</a>
-						<button
-							v-if="isFilterActive('sectionIds', section.id)"
-							href="#"
-							class="pkpListPanel__filterRemove"
-							@click.prevent.stop="clearFilter('sectionIds', section.id)"
-						>
-							<span class="fa fa-times-circle-o"></span>
-							<span class="pkpListPanel__filterRemoveLabel">{{ __('filterRemove', {filterTitle: section.title}) }}</span>
-						</button>
-					</li>
-				</ul>
-			</div>
-			<div class="pkpListPanel__filterSet">
-				<ul>
-					<li>
-						<a href="#"
-							@click.prevent.stop="filterByIncomplete()"
-							class="pkpListPanel__filterLabel"
-							:class="{'--isActive': isFilterActive('isIncomplete', true)}"
-							:tabindex="tabIndex"
-						>{{ i18n.incomplete }}</a>
-						<button
-							v-if="isFilterActive('isIncomplete', true)"
-							href="#"
-							class="pkpListPanel__filterRemove"
-							@click.prevent.stop="clearFilters()"
-						>
-							<span class="fa fa-times-circle-o"></span>
-							<span class="pkpListPanel__filterRemoveLabel">{{ __('filterRemove', {filterTitle: i18n.incomplete}) }}</span>
+							<span class="pkpListPanel__filterRemoveLabel">{{ __('filterRemove', {filterTitle: filterItem.title}) }}</span>
 						</button>
 					</li>
 				</ul>
@@ -84,23 +39,17 @@ import ListPanelFilter from '../ListPanelFilter.vue';
 export default {
 	extends: ListPanelFilter,
 	name: 'SubmissionsListFilter',
-	props: ['isVisible', 'stages', 'sections', 'i18n'],
+	props: ['isVisible', 'filters', 'i18n'],
 	methods: {
-		/**
-		 * Check if a filter is currently active
-		 */
-		isFilterActive: function(type, val) {
-			return this.activeFilters.filter(filter => {
-				return filter.type === type && filter.val === val;
-			}).length
-		},
-
 		/**
 		 * Add a filter
 		 */
 		filterBy: function(type, val) {
-			// Deactivate the isIncomplete filter when anotherr filter is selected
-			if (this.isFilterActive('isIncomplete', true)) {
+			if (type === 'isIncomplete') {
+				this.filterByIncomplete();
+				return;
+			// Deactivate the isIncomplete filter when any other filter is selected
+			} else if (this.isFilterActive('isIncomplete', true)) {
 				this.clearFilter('isIncomplete', true);
 			}
 			if (this.isFilterActive(type, val)) {
@@ -109,30 +58,6 @@ export default {
 			}
 			this.activeFilters.push({type: type, val: val});
 			this.filterList(this.compileFilterParams());
-		},
-
-		/**
-		 * Remove a filter
-		 */
-		clearFilter: function(type, val) {
-			this.activeFilters = this.activeFilters.filter(filter => {
-				return filter.type !== type || filter.val !== val;
-			});
-			this.filterList(this.compileFilterParams());
-		},
-
-		/**
-		 * Compile active filters into filter parameters
-		 */
-		compileFilterParams: function() {
-			let params = {};
-			for (var filter of this.activeFilters) {
-				if (params[filter.type] === undefined) {
-					params[filter.type] = [];
-				}
-				params[filter.type].push(filter.val);
-			}
-			return params;
 		},
 
 		/**
@@ -146,7 +71,8 @@ export default {
 				return;
 			}
 			this.clearFilters();
-			this.filterBy('isIncomplete', true);
+			this.activeFilters.push({type: 'isIncomplete', val: true});
+			this.filterList(this.compileFilterParams());
 		},
 	},
 };

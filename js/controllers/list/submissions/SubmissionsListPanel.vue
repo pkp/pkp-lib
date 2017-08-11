@@ -24,8 +24,7 @@
 				v-if="currentUserCanFilter"
 				@filterList="updateFilter"
 				:isVisible="isFilterVisible"
-				:stages="stages"
-				:sections="sections"
+				:filters="filters"
 				:i18n="i18n"
 			/>
 			<div class="pkpListPanel__content pkpListPanel__content--submissions">

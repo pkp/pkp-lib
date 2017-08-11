@@ -20,5 +20,5 @@
 	<message key="api.submissions.404.resourceNotFound">Запрошенный ресурс не был найден.</message>
 	<message key="api.submissions.400.missingRequired">Ваш запрос не может быть выполнен, так как в нем отсутствует необходимая информация.</message>
 	<message key="api.submissions.unknownError">Произошла неожиданная ошибка. Пожалуйста, перезагрузите страницу и попробуйте снова.</message>
-	<message key="api.submissions.400.stageNotValid">Ваш запрос не может быть выполнен из-за совместимости ID этапа материала.</message>
+	<message key="api.submissions.400.stageNotValid">Ваш запрос не может быть выполнен, так как указан недействительный ID этапа материала.</message>
 </locale>

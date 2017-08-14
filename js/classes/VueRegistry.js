@@ -31,9 +31,14 @@ var VueRegistry = {
 	 */
 	init: function(id, type, data) {
 
-		if (typeof pkp.controllers[type] === 'undefined' ) {
+		if (pkp.controllers[type] === undefined ) {
 			console.log('No Vue of the type ' + type + ' could be found.');
 			return;
+		}
+
+		if (data._constants !== undefined) {
+			Object.assign(pkp.const, data._constants);
+			delete data._constants;
 		}
 
 		var args = _.extend({}, pkp.controllers[type],

@@ -22,6 +22,8 @@ use \DAORegistry;
 
 import('lib.pkp.classes.db.DBResultRange');
 
+define('STAGE_STATUS_SUBMISSION_UNASSIGNED', 1);
+
 abstract class PKPSubmissionService {
 
 	/**
@@ -497,7 +499,7 @@ abstract class PKPSubmissionService {
 					$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 					$assignedEditors = $stageAssignmentDao->editorAssignedToStage($submission->getId(), $stageId);
 					if (!$assignedEditors) {
-						$stage['statusId'] = 1; // @todo this should be abstracted to a documented constant
+						$stage['statusId'] = STAGE_STATUS_SUBMISSION_UNASSIGNED;
 						$stage['status'] = __('submissions.queuedUnassigned');
 					}
 

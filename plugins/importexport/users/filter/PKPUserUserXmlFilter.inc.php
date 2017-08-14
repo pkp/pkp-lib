@@ -94,6 +94,7 @@ class PKPUserUserXmlFilter extends NativeExportFilter {
 		$this->createOptionalNode($doc, $userNode, 'country', $user->getCountry());
 		$userNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'email', htmlspecialchars($user->getEmail(), ENT_COMPAT, 'UTF-8')));
 		$this->createOptionalNode($doc, $userNode, 'url', $user->getUrl());
+		$this->createOptionalNode($doc, $userNode, 'orcid', $user->getOrcid());
 		if (is_array($user->getBiography(null))) {
 			$this->createLocalizedNodes($doc, $userNode, 'biography', $user->getBiography(null));
 		}

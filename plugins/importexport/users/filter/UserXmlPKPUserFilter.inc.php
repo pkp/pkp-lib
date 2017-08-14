@@ -90,6 +90,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 			case 'country': $user->setCountry($n->textContent); break;
 			case 'email': $user->setEmail($n->textContent); break;
 			case 'url': $user->setUrl($n->textContent); break;
+			case 'orcid': $user->setOrcid($n->textContent); break;
 			case 'phone': $user->setPhone($n->textContent); break;
 			case 'billing_address': $user->setBillingAddress($n->textContent); break;
 			case 'mailing_address': $user->setMailingAddress($n->textContent); break;

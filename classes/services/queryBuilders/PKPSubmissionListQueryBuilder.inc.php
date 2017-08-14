@@ -203,7 +203,7 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 							$q->orWhere('au.middle_name', 'LIKE', "%{$word}%");
 							$q->orWhere('au.last_name', 'LIKE', "%{$word}%");
 						});
-						if (count(ctype_digit($word))) {
+						if (ctype_digit($word)) {
 							$q->orWhere('s.submission_id', '=', $word);
 						}
 					});

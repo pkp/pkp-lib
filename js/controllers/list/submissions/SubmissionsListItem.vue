@@ -1,12 +1,16 @@
 <template>
 	<li class="pkpListPanelItem pkpListPanelItem--submission" :class="{'--hasFocus': isFocused}">
-		<a :href="submission.urlWorkflow" class="pkpListPanelItem--submission__link" @focus="focusItem" @blur="blurItem">
+		<a :href="item.urlWorkflow" class="pkpListPanelItem--submission__link" @focus="focusItem" @blur="blurItem">
 			<div class="pkpListPanelItem--submission__item">
-				<div class="pkpListPanelItem--submission__title">
-					{{ submission.title }}
+				<div class="pkpListPanelItem--submission__id">
+					<span class="pkp_screen_reader">{{ i18n.id }}</span>
+					{{ item.id }}
 				</div>
-				<div v-if="submission.author" class="pkpListPanelItem--submission__author">
-					{{ submission.author.authorString }}
+				<div v-if="item.author" class="pkpListPanelItem--submission__author">
+					{{ item.author.authorString }}
+				</div>
+				<div class="pkpListPanelItem--submission__title">
+					{{ item.title }}
 				</div>
 				<div v-if="notice" class="pkpListPanelItem--submission__activity">
 					<span class="fa fa-exclamation-triangle"></span>
@@ -15,7 +19,7 @@
 			</div>
 		</a>
 		<div v-if="currentUserIsReviewer" class="pkpListPanelItem--submission__stage pkpListPanelItem--submission__stage--reviewer">
-			<a :href="submission.urlWorkflow" tabindex="-1">
+			<a :href="item.urlWorkflow" tabindex="-1">
 				<div v-if="currentUserLatestReviewAssignment.responsePending" class="pkpListPanelItem--submission__dueDate">
 					<div :aria-labelledby="responseDueLabelId" class="pkpListPanelItem--submission__dueDateValue">
 						{{ currentUserLatestReviewAssignment.responseDue }}
@@ -37,10 +41,10 @@
 		<div v-else class="pkpListPanelItem--submission__stage">
 			<div class="pkpListPanelItem--submission__stageRow">
 				<div class="pkpListPanelItem--submission__stageLabel">
-					<template v-if="submission.status.id === 3 || submission.status.id === 4">
-						{{ submission.status.label }}
+					<template v-if="item.status.id === 3 || item.status.id === 4">
+						{{ item.status.label }}
 					</template>
-					<template v-else-if="submission.submissionProgress > 0">
+					<template v-else-if="item.submissionProgress > 0">
 						{{ i18n.incomplete }}
 					</template>
 					<template v-else>
@@ -97,7 +101,7 @@ import ListPanelItem from '../ListPanelItem.vue';
 export default {
 	extends: ListPanelItem,
 	name: 'SubmissionsListItem',
-	props: ['submission', 'i18n', 'apiPath', 'infoUrl'],
+	props: ['item', 'i18n', 'apiPath', 'infoUrl'],
 	data: function() {
 		return {
 			mask: null,
@@ -108,7 +112,7 @@ export default {
 		 * Map the submission id to the list item id
 		 */
 		id: function() {
-			return this.submission.id;
+			return this.item.id;
 		},
 
 		/**
@@ -119,7 +123,7 @@ export default {
 		currentUserCanDelete: function() {
 			if (pkp.userHasRole(['manager', 'siteAdmin'])) {
 				return true;
-			} else if (pkp.userHasRole('author') && this.submission.submissionProgress !== 0) {
+			} else if (pkp.userHasRole('author') && this.item.submissionProgress !== 0) {
 				return true;
 			}
 			return false; // @todo
@@ -141,7 +145,7 @@ export default {
 		 */
 		currentUserIsReviewer: function() {
 			var isReviewer = false;
-			_.each(this.submission.reviewAssignments, function(review) {
+			_.each(this.item.reviewAssignments, function(review) {
 				if (review.isCurrentUserAssigned) {
 					isReviewer = true;
 					return;
@@ -166,7 +170,7 @@ export default {
 		 * @return array
 		 */
 		activeStage: function() {
-			return _.findWhere(this.submission.stages, {isActiveStage: true});
+			return _.findWhere(this.item.stages, {isActiveStage: true});
 		},
 
 		/**
@@ -188,7 +192,7 @@ export default {
 					switch (this.activeStage.statusId) {
 						case 1: // @todo this should be a global
 							// Only display unassigned notice for completed submissions
-							if (this.submission.submissionProgress === 0) {
+							if (this.item.submissionProgress === 0) {
 								notice = this.activeStage.status;
 							}
 							break;
@@ -234,7 +238,7 @@ export default {
 			}
 
 			// Incomplete submissions
-			if (this.submission.submissionProgress > 0) {
+			if (this.item.submissionProgress > 0) {
 				notice = this.i18n.incompleteSubmissionNotice;
 			}
 
@@ -265,11 +269,11 @@ export default {
 		 * @return array
 		 */
 		currentReviewAssignments: function() {
-			if (!this.submission.reviewRounds.length || !this.submission.reviewAssignments.length) {
+			if (!this.item.reviewRounds.length || !this.item.reviewAssignments.length) {
 				return [];
 			}
-			var currentReviewRoundId = this.submission.reviewRounds[this.submission.reviewRounds.length - 1].id;
-			return _.filter(this.submission.reviewAssignments, function(assignment) {
+			var currentReviewRoundId = this.item.reviewRounds[this.item.reviewRounds.length - 1].id;
+			return _.filter(this.item.reviewAssignments, function(assignment) {
 				return assignment.roundId === currentReviewRoundId;
 			});
 		},
@@ -287,7 +291,7 @@ export default {
 				return false;
 			}
 
-			var assignments = _.where(this.submission.reviewAssignments, {isCurrentUserAssigned: true});
+			var assignments = _.where(this.item.reviewAssignments, {isCurrentUserAssigned: true});
 
 			if (!assignments.length) {
 				return false;
@@ -411,8 +415,8 @@ export default {
 		openInfoCenter: function() {
 
 			var opts = {
-				title: this.submission.title,
-				url: this.infoUrl.replace('__id__', this.submission.id),
+				title: this.item.title,
+				url: this.infoUrl.replace('__id__', this.item.id),
 				closeCallback: this.resetFocusInfoCenter,
 			};
 
@@ -445,14 +449,14 @@ export default {
 
 			var self = this;
 			$.ajax({
-				url: this.getApiUrl(this.apiPath + '/' + this.submission.id),
+				url: this.getApiUrl(this.apiPath + '/' + this.item.id),
 				type: 'DELETE',
 				error: this.ajaxErrorCallback,
 				success: function(r) {
 					self.mask = 'finish';
 					// Allow time for the finished CSS transition to display
 					setTimeout(function() {
-						pkp.eventBus.$emit('submissionDeleted', { id: self.submission.id });
+						pkp.eventBus.$emit('submissionDeleted', { id: self.item.id });
 						self.cancelDeleteRequest();
 					}, 300);
 				},

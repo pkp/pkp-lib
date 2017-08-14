@@ -4,15 +4,15 @@
 			<input type="checkbox" :id="inputId" :name="inputName" value="inputValue" v-model="selected" @click.stop @focus="focusItem" @blur="blurItem">
 		</div>
 		<label :for="inputId" class="pkpListPanelItem__item">
-			<div class="pkpListPanelItem--submission__title">
-				{{ submission.title }}
+			<div v-if="item.author" class="pkpListPanelItem--submission__author">
+				{{ item.author.authorString }}
 			</div>
-			<div v-if="submission.author" class="pkpListPanelItem--submission__author">
-				{{ submission.author.authorString }}
+			<div class="pkpListPanelItem--submission__title">
+				{{ item.title }}
 			</div>
 		</label>
-		<a :href="submission.urlWorkflow" class="pkpListPanelItem--submission__link" target="_blank" @focus="focusItem" @blur="blurItem">
-			{{ __('viewSubmission', {title: submission.title}) }}
+		<a :href="item.urlWorkflow" class="pkpListPanelItem--submission__link" target="_blank" @focus="focusItem" @blur="blurItem">
+			{{ __('viewSubmission', {title: item.title}) }}
 		</a>
 	</li>
 </template>
@@ -23,7 +23,7 @@ import ListPanelItem from '../ListPanelItem.vue';
 export default {
 	extends: ListPanelItem,
 	name: 'SelectSubmissionsListItem',
-	props: ['submission', 'i18n', 'inputName'],
+	props: ['item', 'i18n', 'inputName'],
 	data: function() {
 		return {
 			selected: false,
@@ -34,7 +34,7 @@ export default {
 		 * Map the submission id to the list item id
 		 */
 		id: function() {
-			return this.submission.id;
+			return this.item.id;
 		},
 
 		/**
@@ -43,7 +43,7 @@ export default {
 		 * @return string
 		 */
 		inputValue: function() {
-			return this.submission.id;
+			return this.item.id;
 		},
 
 		/**

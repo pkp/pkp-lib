@@ -33,7 +33,6 @@ export default {
 			filterParams: {},
 			searchPhrase: '',
 			isLoading: false,
-			isSearching: false,
 			isOrdering: false,
 			isFilterVisible: false,
 			count: 20,
@@ -82,21 +81,13 @@ export default {
 		 * Get items for the list. This ListPanel must have a defined
 		 * `get` route to execute this method.
 		 *
-		 * @param string statusIndicator The key for the data which should be
-		 *  toggled while this action is being performed. Default: `isLoading`
-		 *  corresponds with this.isLoading. The data referenced must be a bool
 		 * @param string handleResponse How to handle the response. `append` to
 		 *  add to the collection. Default: null will replace the collection.
 		 */
-		get: function(statusIndicator, handleResponse) {
-
-			if (typeof statusIndicator === 'undefined') {
-				statusIndicator = 'isLoading';
-			}
-
-			this[statusIndicator] = true;
-
+		get: function(handleResponse) {
 			var self = this;
+
+			this.isLoading = true;
 
 			// Address issues with multiple async get requests. Store an ID for the
 			// most recent get request. When we receive the response, we
@@ -152,7 +143,7 @@ export default {
 						return;
 					}
 
-					self[statusIndicator] = false;
+					self.isLoading = false;
 				}
 			});
 		},
@@ -162,7 +153,7 @@ export default {
 		 */
 		loadMore: function() {
 			this.offset = this.collection.items.length;
-			this.get('isLoading', 'append');
+			this.get('append');
 		},
 
 		/**
@@ -296,7 +287,7 @@ export default {
 				return;
 			}
 			this.offset = 0;
-			this.get('isSearching');
+			this.get();
 		});
 
 		/**
@@ -307,7 +298,7 @@ export default {
 				return;
 			}
 			this.offset = 0;
-			this.get('isLoading');
+			this.get();
 		});
 
 		/**

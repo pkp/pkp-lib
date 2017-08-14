@@ -1,5 +1,5 @@
 <template>
-	<div class="pkpListPanel__search" :class="classSearching">
+	<div class="pkpListPanel__search">
 		<label>
 			<span class="pkp_screen_reader">{{ i18n.search }}</span>
 			<input type="search"
@@ -10,7 +10,6 @@
 			>
 			<span class="pkpListPanel__searchIcons">
 				<span class="pkpListPanel__searchIcons--search"></span>
-				<span class="pkpListPanel__searchIcons--searching"></span>
 			</span>
 		</label>
 		<button class="pkpListPanel__searchClear"
@@ -27,24 +26,21 @@
 <script>
 export default {
 	name: 'ListPanelSearch',
-	props: ['isSearching', 'searchPhrase', 'i18n'],
+	props: ['searchPhrase', 'i18n'],
 	computed: {
 		inputId: function() {
 			return 'list-panel-search-' + this._uid;
 		},
-        classSearching: function() {
-            return { searching: this.isSearching };
-        },
 	},
 	methods: {
-        /**
-         * A throttled function to signal to the parent element that the
+		/**
+		 * A throttled function to signal to the parent element that the
 		 * searchPhrase should be updated. It's throttled to allow it to be
 		 * fired by frequent events, like keyup.
 		 *
 		 * @param string|object data A DOM event (object) or the new search
 		 *  phrase (string)
-         */
+		 */
 		searchPhraseChanged: _.debounce(function(data) {
 			var newVal = typeof data === 'string' ? data : data.target.value;
 			this.$emit('searchPhraseChanged', newVal);

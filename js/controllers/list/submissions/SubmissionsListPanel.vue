@@ -9,7 +9,6 @@
 			</ul>
 			<list-panel-search
 				@searchPhraseChanged="setSearchPhrase"
-				:isSearching="isSearching"
 				:searchPhrase="searchPhrase"
 				:i18n="i18n"
 			/>
@@ -17,7 +16,7 @@
 		<ul class="pkpListPanel__items" aria-live="polite">
 			<submissions-list-item
 				v-for="item in collection.items"
-				:submission="item"
+				:item="item"
 				:i18n="i18n"
 				:apiPath="apiPath"
 				:infoUrl="infoUrl"

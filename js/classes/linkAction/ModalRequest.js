@@ -118,7 +118,8 @@
 		// again. This hack effects accessibility and should be removed if/when we
 		// move away from jQueryUI tabs.
 		// See: https://github.com/pkp/pkp-lib/issues/2703
-		if (this.$linkActionElement.attr('id').indexOf('newRoundTabContainer') !== 0) {
+		if (this.$linkActionElement.attr('id')
+				.indexOf('newRoundTabContainer') !== 0) {
 			// Put the focus back on the linkAction which launched the modal
 			this.$linkActionElement.focus();
 		}

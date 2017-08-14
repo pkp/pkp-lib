@@ -98,17 +98,23 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 		$config['getParams'] = $this->_getParams;
 
 		$config['filters'] = array(
-			'stageIds' => array(
-				'heading' => __('settings.roles.stages'),
-				'filters' => $this->getWorkflowStages(),
-			),
-			'isIncomplete' => array(
+			'attention' => array(
 				'filters' => array(
 					array(
+						'param' => 'isOverdue',
+						'val' => true,
+						'title' => __('common.overdue'),
+					),
+					array(
+						'param' => 'isIncomplete',
 						'val' => true,
 						'title' => __('submissions.incomplete'),
 					),
 				),
+			),
+			'stageIds' => array(
+				'heading' => __('settings.roles.stages'),
+				'filters' => $this->getWorkflowStages(),
 			),
 		);
 

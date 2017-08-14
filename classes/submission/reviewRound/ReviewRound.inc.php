@@ -201,7 +201,7 @@ class ReviewRound extends DataObject {
 	 * @return int
 	 */
 	function getStatusKey($isAuthor = false) {
-		switch ($this->getStatus()) {
+		switch ($this->determineStatus()) {
 			case REVIEW_ROUND_STATUS_REVISIONS_REQUESTED:
 				return 'editor.submission.roundStatus.revisionsRequested';
 			case REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED:

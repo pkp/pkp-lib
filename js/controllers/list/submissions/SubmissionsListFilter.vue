@@ -5,23 +5,23 @@
 			{{ i18n.filter }}
 		</div>
 		<div class="pkpListPanel__filterOptions pkpListPanel__filterOptions--submissions">
-			<div v-for="(filter, param) in filters" class="pkpListPanel__filterSet">
+			<div v-for="filter in filters" class="pkpListPanel__filterSet">
 				<div v-if="filter.heading" class="pkpListPanel__filterSetLabel">
 					{{ filter.heading }}
 				</div>
 				<ul>
 					<li v-for="filterItem in filter.filters">
 						<a href="#"
-							@click.prevent.stop="filterBy(param, filterItem.val)"
+							@click.prevent.stop="filterBy(filterItem.param, filterItem.val)"
 							class="pkpListPanel__filterLabel"
-							:class="{'--isActive': isFilterActive(param, filterItem.val)}"
+							:class="{'--isActive': isFilterActive(filterItem.param, filterItem.val)}"
 							:tabindex="tabIndex"
 						>{{ filterItem.title }}</a>
 						<button
-							v-if="isFilterActive(param, filterItem.val)"
+							v-if="isFilterActive(filterItem.param, filterItem.val)"
 							href="#"
 							class="pkpListPanel__filterRemove"
-							@click.prevent.stop="clearFilter(param, filterItem.val)"
+							@click.prevent.stop="clearFilter(filterItem.param, filterItem.val)"
 						>
 							<span class="fa fa-times-circle-o"></span>
 							<span class="pkpListPanel__filterRemoveLabel">{{ __('filterRemove', {filterTitle: filterItem.title}) }}</span>

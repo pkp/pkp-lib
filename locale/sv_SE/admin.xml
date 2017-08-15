@@ -93,7 +93,7 @@
 	<message key="admin.siteSetup">Konfiguration av webbplats</message>
 	<message key="admin.systemConfigFileReadError"><![CDATA[Konfigurationsfilen <tt>config.inc.php</tt> existerar inte, är ogiltig, eller går inte att läsa.]]></message>
 	<message key="admin.systemInformation">Systeminformation</message>
-	<message key="admin.versionBuild"></message> <!-- FIXME -->
+	<message key="admin.versionBuild">Version</message>
 	<message key="admin.version.checkForUpdates">Kolla efter uppdateringar</message>
 	<message key="admin.version.downloadPackage">Ladda ned</message>
 	<message key="admin.version.downloadPatch">Ladda ned patch</message>
@@ -113,7 +113,8 @@
 	<message key="admin.fileLoader.fileProcessed">Filen {$filename} behandlades och arkiverades.</message>
 	<message key="admin.fileLoader.emailSubject">Filladdare</message> <!-- FIXME: check -->
 
-	<message key="admin.copyAccessLogFileTool.usage">Kopiera passerade Apache-loggfil(er), med poster relaterade till den här installationen filtrerade, till den aktuella filkatalogen, i stage-katalogen för UsageStatsPlugin. Jobbet måste köras av en användare med behörighet tillräcklig för att läsa Apache-loggfiler.
+	<message key="admin.copyAccessLogFileTool.usage">Kopiera passerade Apache-loggfil(er), med poster relaterade till den här installationen filtrerade,
+till den aktuella filkatalogen, i stage-katalogen för UsageStatsPlugin. Jobbet måste köras av en användare med behörighet tillräcklig för att läsa Apache-loggfiler.
 
 Det här verktyget kommer enbart kopiera filer som inte redan finns i usageStats-kataloger för filladdare (stage, processing, archive, reject).
 

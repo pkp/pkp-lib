@@ -52,7 +52,7 @@
 	<message key="admin.scheduledTask">Schemalagd åtgärd</message>
 	<message key="admin.scheduledTask.startTime">Åtgärdsprocess påbörjad.</message>
 	<message key="admin.scheduledTask.stopTime">Åtgärdsprocess avslutad.</message>
-	<message key="admin.scheduledTask.noLog">Åtgärden producerade inte någon logg.</message>
+	<message key="admin.scheduledTask.noLog">Åtgärden skapade inte någon logg.</message>
 	<message key="admin.scheduledTask.downloadLog">Installationen av {$softwareName} startade automatiskt och färdigställde den här åtgärden. Du kan ladde ned loggfilen här: {$url}</message>
 	<message key="admin.scheduledTask.confirmClearLogs">Är du säker på att du vill ta bort samtliga loggar för utförandet av schemalagda åtgärder?</message>
 	<message key="admin.scheduledTask.clearLogs">Rensa loggar för utförande av schemalagda åtgärder</message>
@@ -64,7 +64,7 @@
 	<message key="admin.serverInformation">Serverinformation</message>
 	<message key="admin.server.phpVersion">PHP-version</message>
 	<message key="admin.server.platform">Operativsystem/plattform</message>
-	<message key="admin.settings">Settings</message>
+	<message key="admin.settings">Inställningar</message>
 	<message key="admin.settings.aboutDescription">Om webbplatsen</message>
 	<message key="admin.settings.contactEmail">E-postadress till primär kontaktperson</message>
 	<message key="admin.settings.contactName">Namn på primär kontaktperson</message>
@@ -73,24 +73,27 @@
 	<message key="admin.settings.form.minPasswordLengthRequired">Du måste ange ett lösenord på minst fyra tecken.</message>
 	<message key="admin.settings.form.titleRequired">Du måste ange titel.</message>
 	<message key="admin.settings.defaultMetricDescription">
-		 Din installation är konfigurerad för att registrera mer än ett användningsmått. Användningsstatistiken kommer att presenteras i flera sammanhang.
-		Det finns fall där endast ett användningsmått måste användas, t.ex. för att visa en sorterad lista över de mest använda bidragen eller för
+		Din installation är konfigurerad för att registrera mer än ett mått på användning. Användningsstatistiken kommer att presenteras i flera sammanhang.
+		Det finns fall där endast ett mått på användning måste användas, t.ex. för att visa en sorterad lista över de mest använda bidragen eller för
 		att rangordna sökresultat. Välj ett av de konfigurerade värdena som standard.
 	</message>
 	<message key="admin.settings.homeHeaderImage.altText">Webbplatslogotyp</message>
 	<message key="admin.settings.homeHeaderImageInvalid">Ogiltigt format för webbplatslogotyp. Tillåtna format är .gif, .jpg eller .png.</message>
 	<message key="admin.settings.introduction">Introduktion</message>
-	<message key="admin.settings.minPasswordLength">Minimumlängd på lösenord (antal tecken)</message>
+	<message key="admin.settings.minPasswordLength">Minimilängd på lösenord (antal tecken)</message>
 	<message key="admin.settings.siteLanguage">Språk för webbplatsen</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Ogiltigt format på stilmall för webbplatsen. Tillåtet format är: .css.</message>
 	<message key="admin.settings.siteStyleSheet">Stilmall för webbplatsen</message>
+	<message key="admin.settings.siteLogo">Webbplatslogotyp</message>
 	<message key="admin.settings.siteTitle">Webbplatsens namn</message>
+	<message key="admin.settings.siteTheme">Tema för webbplats</message>
 	<message key="admin.siteAdmin">Webbplatsadministration</message>
 	<message key="admin.siteManagement">Hantera webbplats</message>
 	<message key="admin.siteSettings">Webbplatsinställningar</message>
+	<message key="admin.siteSetup">Konfiguration av webbplats</message>
 	<message key="admin.systemConfigFileReadError"><![CDATA[Konfigurationsfilen <tt>config.inc.php</tt> existerar inte, är ogiltig, eller går inte att läsa.]]></message>
 	<message key="admin.systemInformation">Systeminformation</message>
-	<message key="admin.versionBuild">Build</message> <!-- FIXME -->
+	<message key="admin.versionBuild"></message> <!-- FIXME -->
 	<message key="admin.version.checkForUpdates">Kolla efter uppdateringar</message>
 	<message key="admin.version.downloadPackage">Ladda ned</message>
 	<message key="admin.version.downloadPatch">Ladda ned patch</message>
@@ -103,5 +106,27 @@
 	<message key="admin.version.updateAvailable">En uppdaterad version finns tillgänglig</message>
 	<message key="admin.version.upToDate">Systemet kör den senaste versionen</message>
 	<message key="admin.version">Version</message>
-	
+
+	<message key="admin.fileLoader.wrongBasePathLocation">Grundsökvägen {$path} måste ligga i katalogen för publika filer.</message>
+	<message key="admin.fileLoader.pathNotAccessible">Mappen {$path} är inte en katalog, eller så är den inte läsbar.</message>
+	<message key="admin.fileLoader.moveFileFailed">Filen {$filename} kunde inte flyttas från {$currentFilePath} till {$destinationPath}</message>
+	<message key="admin.fileLoader.fileProcessed">Filen {$filename} behandlades och arkiverades.</message>
+	<message key="admin.fileLoader.emailSubject">Filladdare</message> <!-- FIXME: check -->
+
+	<message key="admin.copyAccessLogFileTool.usage">Kopiera passerade Apache-loggfil(er), med poster relaterade till den här installationen filtrerade, till den aktuella filkatalogen, i stage-katalogen för UsageStatsPlugin. Jobbet måste köras av en användare med behörighet tillräcklig för att läsa Apache-loggfiler.
+
+Det här verktyget kommer enbart kopiera filer som inte redan finns i usageStats-kataloger för filladdare (stage, processing, archive, reject).
+
+Användning: {$scriptName} sökväg/till/apache/loggfil.log
+Användning (behandla alla filer i en katalog): {$scriptName} sökväg/till/apache/katalog
+	</message>
+	<message key="admin.copyAccessLogFileTool.error.creatingFolder">Fel: Kan inte skapa den temporära mappen {$tmpDir}</message>
+	<message key="admin.copyAccessLogFileTool.error.acessingFile">Fel: Filen {$filePath} finns inte, eller går inte att få åtkomst till.</message>
+	<message key="admin.copyAccessLogFileTool.error.copyingFile">Fel: Kan inte kopiera filen från {$filePath} till {$tmpFilePath}</message>
+	<message key="admin.copyAccessLogFileTool.error.deletingFile">Fel: Kan inte radera filen {$tmpFilePath}</message>
+	<message key="admin.copyAccessLogFileTool.warning.fileAlreadyExists">Varning: Filen {$filePath} existerar redan i användarstatistik-katalogen.</message>
+	<message key="admin.copyAccessLogFileTool.success">Lyckades: {$filePath} till {$destinationPath}</message>
+	<message key="admin.error.utilExecutionProblem">Körningen av "{$utilPath}"-programmet genererade följande fel: {$output}</message>
+	<message key="admin.error.executingUtil">Fel: Kan inte köra "{$utilPath}".  Kolla inställningen {$utilVar} i config.inc.php.</message>
+	<message key="admin.languages.noLocalesToDownload">Det finns inga språkfiler tillgängliga för nedladdning.</message>
 </locale>

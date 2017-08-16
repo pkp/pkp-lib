@@ -19,17 +19,21 @@ use \DBResultRange;
 use \Application;
 use \DAOResultFactory;
 use \DAORegistry;
+use \ServicesContainer;
+use \PKP\Services\EntityProperties\PKPBaseEntityPropertyService;
 
 import('lib.pkp.classes.db.DBResultRange');
 
 define('STAGE_STATUS_SUBMISSION_UNASSIGNED', 1);
 
-abstract class PKPSubmissionService {
+abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 
 	/**
 	 * Constructor
 	 */
-	public function __construct() {}
+	public function __construct() {
+		parent::__construct($this);
+	}
 
 	/**
 	 * Get submissions
@@ -761,5 +765,209 @@ abstract class PKPSubmissionService {
 			);
 		}
 		return $data;
+	}
+
+	/**
+	 * @copydoc \PKP\Services\EntityProperties\EntityPropertyInterface::getProperties()
+	 */
+	public function getProperties($submission, $props, $args = null) {
+		$values = array();
+		$issueService = \ServicesContainer::instance()->get('issue');
+		$authorService = \ServicesContainer::instance()->get('author');
+
+		$journal = $args['journal'];
+		$publishedArticleDao = DAORegistry::getDAO('PublishedArticleDAO');
+		$publishedArticle = null;
+		if ($journal) {
+			$publishedArticle = $publishedArticleDao->getPublishedArticleByBestArticleId(
+				(int) $journal->getId(),
+				$submission->getId(),
+				true
+			);
+		}
+
+		if ($publishedArticle) {
+			$articleId = $publishedArticle->getId();
+			$issueDao = DAORegistry::getDAO('IssueDAO');
+			$issue = $issueDao->getById(
+				$publishedArticle->getIssueId(),
+				$publishedArticle->getJournalId(),
+				true
+			);
+		}
+
+		foreach ($props as $prop) {
+			switch ($prop) {
+				case 'id':
+					$values[$prop] = (int) $submission->getId();
+					break;
+				case 'title':
+					$values[$prop] = $submission->getTitle(null);
+					break;
+				case 'subtitle':
+					$values[$prop] = $submission->getSubtitle(null);
+					break;
+				case 'fullTitle':
+					$values[$prop] = $submission->getFullTitle(null);
+					break;
+				case 'prefix':
+					$values[$prop] = $submission->getPrefix(null);
+					break;
+				case 'authorString':
+					$values[$prop] = $submission->getAuthorString();
+					break;
+				case 'shortAuthorString':
+					$values[$prop] = $submission->getShortAuthorString();
+					break;
+// 				case 'authorIds':
+// 					$values[$prop] = $submission->();
+// 					break;
+				case 'abstract':
+					$values[$prop] = $submission->getAbstract(null);
+					break;
+				case 'discipline':
+					$values[$prop] = $submission->getDiscipline(null);
+					break;
+				case 'subject':
+					$values[$prop] = $submission->getSubject(null);
+					break;
+				case 'type':
+					$values[$prop] = $submission->getType(null);
+					break;
+				case 'language':
+					$values[$prop] = $submission->getLanguage();
+					break;
+				case 'sponsor':
+					$values[$prop] = $submission->getSponsor(null);
+					break;
+				case 'pages':
+					$values[$prop] = $submission->getPages();
+					break;
+				case 'copyrightHolder':
+					$values[$prop] = $submission->getCopyrightHolder(null);
+					break;
+				case 'copyrightYear':
+					$values[$prop] = $submission->getCopyrightYear();
+					break;
+				case 'licenseUrl':
+					$values[$prop] = $submission->getLicenseURL();
+					break;
+				case 'locale':
+					$values[$prop] = $submission->getLocale();
+					break;
+				case 'dateSubmitted':
+					$values[$prop] = $submission->getDateSubmitted();
+					break;
+				case 'dateStatusModified':
+					$values[$prop] = $submission->getDateStatusModified();
+					break;
+				case 'lastModified':
+					$values[$prop] = $submission->getLastModified();
+					break;
+				case 'datePublished':
+					$values[$prop] = $submission->getDatePublished();
+					break;
+				case 'status':
+					$values[$prop] = array(
+						'id' => (int) $submission->getStatus(),
+						'label' => __($submission->getStatusKey()),
+					);
+					break;
+				case 'submissionProgress':
+					$values[$prop] = (int) $submission->getSubmissionProgress();
+					break;
+				case 'stages':
+					$values[$prop] = $this->toArrayStageDetails($submission);
+					break;
+				case 'reviewRounds':
+					$values[$prop] = $this->toArrayReviewRounds($submission);
+					break;
+				case 'reviewAssignments':
+					$values[$prop] = $this->toArrayReviewAssignments($submission);
+					break;
+				case 'urlWorkflow':
+					$values[$prop] = $this->getWorkflowUrlByUserRoles($submission);
+					break;
+// 				case 'urlPublished':
+// 					$values[$prop] = $submission->();
+// 					break;
+				case '_href':
+					$values[$prop] = null;
+					$slimRequest = $args['slimRequest'];
+					if ($slimRequest) {
+						$route = $slimRequest->getAttribute('route');
+						$arguments = $route->getArguments();
+						$href = "/{$arguments['contextPath']}/api/{$arguments['version']}/submissions/{$arguments['submissionId']}";
+						$values[$prop] = $href;
+					}
+					break;
+				case 'coverImage':
+					$values[$prop] = null;
+					if ($publishedArticle) {
+						$coverImage = $publishedArticle->getCoverImage(null) ?
+							$publishedArticle->getLocalizedCoverImageUrl() :
+							$issue->getCoverImageUrl(null);
+						$values[$prop] = $submission->getDatePublished();
+					}
+					break;
+				case 'authors':
+				case 'authorsSummary';
+					$authors = $submission->getAuthors();
+					$values[$prop] = [];
+					foreach ($authors as $author) {
+						$values[$prop][] = ($prop == 'authors')
+							? $authorService->getFullProperties($author, $args)
+							: $authorService->getSummaryProperties($author, $args);
+					}
+					break;
+// 				case 'galleys':
+// 				case 'galleysSummary';
+// 					$authors = $submission->getAuthors();
+// 					$values[$prop] = [];
+// 					foreach ($authors as $author) {
+// 						$values[$prop][] = ($prop == 'author')
+// 						? $authorService->getFullProperties($author)
+// 						: $authorService->getSummaryProperties($author);
+// 					}
+// 					break;
+				case 'issue':
+				case 'issueSummary':
+					$values['issue'] = ($prop == 'issue')
+						? $issueService->getFullProperties()
+						: $issueService->getSummaryProperties();
+					break;
+				default:
+					$this->getUnknownProperty($submission, $prop, $values);
+			}
+		}
+		return $values;
+	}
+
+	/**
+	 * @copydoc \PKP\Services\EntityProperties\EntityPropertyInterface::getSummaryProperties()
+	 */
+	public function getSummaryProperties($submission, $args = null) {
+		$props = array (
+			'id','_href','issueId','sectionId','title','subtitle','fullTitle','prefix','authorString',
+			'shortAuthorString','authorsSummary','abstract','language','pages','datePublished','status',
+			'submissionProgress','urlWorkflow','urlPublished','galleysSummary','doi',
+		);
+		$props = $this->getSummaryPropertyList($submission, $props);
+		return $this->getProperties($submission, $props, $args);
+	}
+
+	/**
+	 * @copydoc \PKP\Services\EntityProperties\EntityPropertyInterface::getFullProperties()
+	 */
+	public function getFullProperties($submission, $args = null) {
+		$props = array (
+			'id','issueId','sectionId','title','subtitle','fullTitle','prefix','authorString','shortAuthorString',
+			'authors','abstract','discipline','subject','type','language','sponsor','pages','copyrightHolder',
+			'copyrightYear','licenseUrl','locale','dateSubmitted','dateStatusModified','lastModified','datePublished',
+			'status','submissionProgress','stages','reviewRounds','reviewAssignments','urlWorkflow','urlPublished',
+			'galleys','doi',
+		);
+		$props = $this->getFullPropertyList($submission, $props);
+		return $this->getProperties($submission, $props, $args);
 	}
 }

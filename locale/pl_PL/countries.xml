@@ -2,12 +2,13 @@
 <!DOCTYPE countries SYSTEM "../../dtd/countries.dtd">
 
 <!--
-  * Copyright (c) 2013-2016 Simon Fraser University Library
-  * Copyright (c) 2003-2016 John Willinsky
+  * locale/pl_PL/countries.xml
+  *
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Plik językowy dla pl_PL
-  *
+  * Localized list of countries. Based on ISO 3166-1:2006.
   -->
 <countries>
 	<country name="Afganistan" code="AF"/>

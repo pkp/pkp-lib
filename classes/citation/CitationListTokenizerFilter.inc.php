@@ -36,18 +36,65 @@ class CitationListTokenizerFilter extends Filter {
 	 */
 	function &process(&$input) {
 		// The default implementation assumes that raw citations are
-		// separated with line endings.
-		// 1) Remove empty lines and normalize line endings.
-		$input = String::regexp_replace('/[\r\n]+/s', "\n", $input);
-		// 2) Remove trailing/leading line breaks.
+		// separated with a blank line.
+
+		// Normalize line endings.
+		if (strpos($input, "\r") !== FALSE) {
+			// Windows formatting to *nix
+			$input = str_replace("\r\n", "\n", $input);
+			// Are returns begin used as line endings?
+			$input = str_replace("\r", "\n", $input);
+		}
+
+		// Make blank lines truely blank
+		$input = preg_replace('/^\s+$/m', '', $input);
+
+		// Remove trailing/leading line breaks overall.
 		$input = trim($input, "\n");
-		// 3) Break up at line endings.
+
+		// Normalize line seperation
+		$input = String::regexp_replace('/\n{2,}/s', "\n\n", $input);
+		if (strpos($input, "\n\n") === FALSE) {
+			$input = str_replace("\n", "\n\n", $input);
+		}
+
+		// Check for multiline citations
+		$separationExists = false;
+		$indentationExists = false;
+		$unindentedExists = false;
+		$lines = explode("\n", $input);
+		foreach ($lines as $line) {
+			if ($line == '') {
+				$separationExists = true;
+			} else {
+				if (substr($line, 0, 1) === "\t" || substr($line, 0, 1) === ' ') {
+					$indentationExists = true;
+				} else {
+					$unindentedExists = true;
+				}
+			}
+		}
+		if ($separationExists && $indentationExists && $unindentedExists) {
+			$input = '';
+			foreach ($lines as $line) {
+				if (substr($line, 0, 1) === "\t" || substr($line, 0, 1) === ' ') {
+					$line = ltrim($line);
+					$input = rtrim($input, "\n");
+					$input .= $line."\n";
+				} else {
+					$input .= $line."\n";
+				}
+			}
+		}
+
+		// Break up at line endings.
 		if (empty($input)) {
 			$citations = array();
 		} else {
-			$citations = explode("\n", $input);
+			$citations = explode("\n\n", $input);
 		}
-		// 4) Remove numbers from the beginning of each citation.
+
+		// Remove numbers from the beginning of each citation.
 		foreach($citations as $index => $citation) {
 			$citations[$index] = String::regexp_replace('/^\s*[\[#]?[0-9]+[.)\]]?\s*/', '', $citation);
 		}

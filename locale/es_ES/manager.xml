@@ -531,4 +531,9 @@
 	<message key="plugins.importexport.common.error.unknownEncoding">Codificación {$param} desconocida</message>
 	<message key="plugins.importexport.common.error.unknownUserGroup">Grupo de usuario {$param} desconocido</message>
 	<message key="plugins.importexport.common.error.unknownUploader">Cargador {$param} desconocido</message>
+	<message key="plugins.importexport.common.warningsEncountered">Alertas encontradas:</message>
+	<message key="plugins.importexport.common.error.encodingError">El contenido no está codificado como {$param}</message>
+	<message key="plugins.importexport.common.error.temporaryFileFailed">El archivo temporal {$dest} no se ha podido crear desde {$source}</message>
+	<message key="plugins.importexport.common.error.filesizeMismatch">El tamaño de archivo proporcionado "{$expected}" y el tamaño real "{$actual}" no coinciden</message>
+	<message key="plugins.importexport.native.error.submissionFileImportFailed">El archivo de envío no puede ser importado</message>
 </locale>

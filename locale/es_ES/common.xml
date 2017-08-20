@@ -462,7 +462,7 @@
 	<message key="submission.task.responseDueDate">Fecha límite de la contestación</message>
 	<message key="navigation.goBack">Volver</message>
 
-	<message key="notification.addedReviewer">Revisor/a añadido.</message>
+	<message key="notification.addedReviewer">Se ha asignado a {$reviewerName} para revisar este envío y se le ha enviado un correo electrónico de notificación.</message>
 	<message key="notification.removedReviewer">Revisor/a eliminado.</message>
 	<message key="notification.addedStageParticipant">Usuario/a añadido como participante de la fase.</message>
 	<message key="notification.type.reviewAssignment">Tiene una revisión pendiente.</message>
@@ -546,4 +546,5 @@
 	<message key="notification.removedSubmission">Envío eliminado.</message>
 	<message key="notification.type.assignCopyeditors">Asigne un corrector/a mediante la opción Añadir del panel de participantes.</message>
 	<message key="notification.type.awaitingCopyedits">Esperando correcciones.</message>
+	<message key="notification.addedReviewerNoEmail">Se ha asignado a {$reviewerName} para revisar este envío y no se le ha enviado un correo electrónico de notificación.</message>
 </locale>

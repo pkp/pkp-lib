@@ -34,4 +34,40 @@
 	
 	<message key="plugins.reports.usageStats.metricType">OMP/COUNTER</message>
 	<message key="plugins.reports.usageStats.metricType.full">Estadísticas de Open Monograph Press (compatibles con COUNTER)</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption">Opciones de privacidad de datos</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.excludesCity">Activar la privacidad de datos excluye "Ciudad" como una estadística opcional.</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.excludesRegion">Activar la privacidad de datos excluye "Región" como una estadística opcional.</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyCheckbox">Respetar la privacidad de datos</message>
+	<message key="plugins.generic.usageStats.settings.optionalColumns">Información estadística opcional</message>
+	<message key="plugins.generic.usageStats.settings.optionalColumns.description">Activar o desactivar la recolección de la siguiente información opcional. Esto influirá en los posibles informes estadísticos que obtenga y también tendrá impacto en el tamaño de la base de datos. NO HAGA CAMBIOS a menos que sepa lo que está haciendo.</message>
+	<message key="plugins.generic.usageStats.settings.optionalColumns.cityRequiresRegion">La columna opcional "Ciudad" requiere la columna opcional "Región".</message>
+	<message key="plugins.generic.usageStats.settings.archives">Archivos</message>
+	<message key="plugins.generic.usageStats.settings.compressArchives.description">Active esta opción para comprimir archivos de registro almacenados mediante la herramienta gzip (tendrá que configurar los ajustes de gzip en config.inc.php). Si tiene un sitio con un tráfico muy elevado puede ser buena idea activarla para ahorrar un espacio en disco extra.</message>
+	<message key="plugins.generic.usageStats.settings.compressArchives">Comprimir archivos</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions">Opciones de visualización de estadísticas</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.contextWide">Estos ajustes solo se aplicarán a las estadísticas de uso en {$contextName}.</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.display">Mostrar el gráfico de estadísticas de envío para lectura</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.chartType">Elija el tipo de gráfico para mostrar las estadísticas de descarga</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.chartType.bar">Barra</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.chartType.line">Línea</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.datasetMaxCount">Defina el número máximo de datos que se presentan al mismo tiempo para un punto específico del eje X. Entre 3 y 5 está bien, un valor mayor podría generar gráficos díficiles de comprender.</message>
+	<message key="plugins.generic.usageStats.processingPathNotEmpty">El directorio {$directory} no está vacío. Esto podría señalar un proceso erróneo previo o un proceso ejecutándose simultáneamente. Este archivo se reprocesará automáticamente si también está usando  scheduledTasksAutoStage.xml, en caso contrario deberá mover manualmente cualquier archivo huérfano del directorio de proceso al directorio principal.</message>
+	<message key="plugins.reports.usageStats.optout.displayName">Información de privacidad de las estadísticas de uso</message>
+	<message key="plugins.reports.usageStats.optout.description">Información de privacidad de las estadísticas de uso</message>
+	<message key="plugins.generic.usageStats.optout.title">Información de las estadísticas de uso</message>
+	<message key="plugins.generic.usageStats.optout.shortDesc"><![CDATA[Recopilamos estadísticas de uso anónimas. Consulte <a href="{$privacyInfo}">información de privacidad</a> para más detalles.]]></message>
+	<message key="plugins.generic.usageStats.optin">Incluirse</message>
+	<message key="plugins.generic.usageStats.optout">Excluirse</message>
+	<message key="plugins.generic.usageStats.statsSum">Sumar todas las descargas de archivos</message>
+	<message key="plugins.generic.usageStats.noStats">La descarga de datos todavía no está disponible.</message>
+	<message key="plugins.generic.usageStats.monthInitials">Ene Feb Mar Abr May Jun Jul Ago Sep Oct Nov Dic</message>
+	<message key="plugins.generic.usageStats.downloads">Descargas</message>
+	<message key="plugins.generic.usageStats.optout.done"><![CDATA[<p>Se ha excluido con éxito de la recopilación de estadísticas de uso. Mientras vea este mensaje no se recopilarán estadísticas del uso que haga de este sitio. Haga clic en el botón inferior para revertir su decisión.</p>]]></message>
+	<message key="plugins.generic.usageStats.optout.cookie"><![CDATA[<p>Si lo desea puede excluirse del proceso de recopilación de datos. Haciendo clic en el botón excluirse inferior puede decidir activamente no participar en el análisis estadístico. Al hacerlo se crea una <em>cookie</em> en su sistema para guardar su decisión. Si los ajustes de privacidad de su navegador están configurados para que las cookies se eliminen automáticamente deberá volver a marcar la opción de excluirse la próxima vez que acceda al sitio web. Esta cookie solo es válida para este navegador. Si utiliza otros navegadores  deberá marcar la opción de excluirse de nuevo. Esta cookie no almacena ningún tipo de información personal y es válida durante un año desde el último acceso.</p>
+		<p>Tenga en cuenta que los registros generales del servidor no quedan afectados por la decisión de excluirse del proceso de evaluación detallada. Consulte nuestra <a href="{$privacyStatementUrl}">declaración de privacidad</a> general.</p>]]></message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.saltFilepath">Ruta de fichero para anonimizar el "salt".</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.saltFilepath.invalid">El archivo "salt" no es editable</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.description">Activar esta opción para usar una versión del módulo que respete las legislaciones de privacidad, es decir, para el registro de direcciones IP "hashed", informa a los usuarios acerca del seguimiento y les proporciona una opción de exclusión. Nota: cuando use esta opción no podrá utilizar las características geográficas del módulo.</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.requiresSalt">La activación de la privacidad de datos requiere un archivo "salt".</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.requirements">Para asegurar la privacidad de los datos debe especificar un archivo que el usuario/a web pueda leer y editar y que contenga un valor "salt" generado aleatoriamente. NO se debe hacer copia de seguridad del archivo para garantizar la protección de privacidad. El archivo "salt" se genera aleatoriamente utilizando la función mcrypt_create_iv, que requiere PHP mcrypt; la función openssl_random_pseudo_bytes, que requiere PHP openssl; el archivo /dev/urandom, que solo funciona en sistemas *nix; o la función mt_rand, que no es criptográficamente segura. Por lo tanto, si utiliza un servidor Windows asegúrese de que tiene instalado PHP mcrypt o activado openssl para conseguir la generación de un archivo "salt" criptográficamente seguro.</message>
 </locale>

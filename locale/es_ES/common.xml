@@ -515,7 +515,6 @@
 	<message key="notification.type.reviewerComment">Un revisor ha hecho comentarios acerca de "{$title}".</message>
 	<message key="user.authorization.invalidRepresentation">Representación inválida.</message>
 	<message key="notification.type.queryActivity">Actividad de la conversación.</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="common.navigation.sidebar">Barra lateral</message>
 	<message key="common.navigation.site">Navegación del sitio</message>
 	<message key="common.navigation.user">Navegación del usuario</message>

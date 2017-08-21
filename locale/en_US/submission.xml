@@ -658,6 +658,7 @@
 	<message key="submission.query.new">{$creatorName} started a discussion: {$noteTitle}: {$noteContents}</message>
 	<message key="submission.query.activity.contents">There is new activity in the discussion titled "{$queryTitle}" regarding the submission "{$submissionTitle}".</message>
 	<message key="submission.query.new.contents">You have been added to a discussion titled "{$queryTitle}" regarding the submission "{$submissionTitle}".</message>
+	<message key="submission.query.noParticipantOptions">You must assign at least one participant to this submission before initiating a discussion.</message>
 
 	<!-- Submission Lists -->
 	<message key="submission.list.infoCenter">Activity Log &amp; Notes</message>

@@ -55,6 +55,8 @@ abstract class PKPSubmissionService {
 			'searchPhrase' => null,
 			'count' => 20,
 			'offset' => 0,
+			'isIncomplete' => false,
+			'isOverdue' => false,
 		);
 
 		$args = array_merge($defaultArgs, $args);
@@ -64,6 +66,9 @@ abstract class PKPSubmissionService {
 			->orderBy($args['orderBy'], $args['orderDirection'])
 			->assignedTo($args['assignedTo'])
 			->filterByStatus($args['status'])
+			->filterByStageIds($args['stageIds'])
+			->filterByIncomplete($args['isIncomplete'])
+			->filterByOverdue($args['isOverdue'])
 			->searchPhrase($args['searchPhrase']);
 
 		\HookRegistry::call('Submission::getSubmissionList::queryBuilder', array(&$submissionListQB, $contextId, $args));
@@ -508,7 +513,7 @@ abstract class PKPSubmissionService {
 					$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
 					$reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
 					if ($reviewRound) {
-						$stage['statusId'] = $reviewRound->getStatus();
+						$stage['statusId'] = $reviewRound->determineStatus();
 						$stage['status'] = __($reviewRound->getStatusKey());
 
 						// Revision files in this round.
@@ -562,7 +567,7 @@ abstract class PKPSubmissionService {
 				'id' => $reviewRound->getId(),
 				'round' => $reviewRound->getRound(),
 				'stageId' => $reviewRound->getStageId(),
-				'statusId' => $reviewRound->getStatus(),
+				'statusId' => $reviewRound->determineStatus(),
 				'status' => __($reviewRound->getStatusKey()),
 			);
 		}

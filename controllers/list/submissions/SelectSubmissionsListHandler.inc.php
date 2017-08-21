@@ -11,7 +11,7 @@
  *
  * @brief A list handler for selecting submissions
  */
-import('lib.pkp.controllers.list.submissions.SubmissionsListHandler');
+import('controllers.list.submissions.SubmissionsListHandler');
 
 class SelectSubmissionsListHandler extends SubmissionsListHandler {
 
@@ -23,7 +23,7 @@ class SelectSubmissionsListHandler extends SubmissionsListHandler {
 	public $_inputName = 'selectedSubmissions';
 
 	/**
-	 * @see SubmissionsListHandler
+	 * @copydoc SubmissionsListHandler
 	 */
 	public function init( $args = array() ) {
 		parent::init($args);
@@ -31,7 +31,7 @@ class SelectSubmissionsListHandler extends SubmissionsListHandler {
 	}
 
 	/**
-	 * @see SubmissionsListHandler
+	 * @copydoc SubmissionsListHandler
 	 */
 	public function getConfig() {
 		$config = parent::getConfig();

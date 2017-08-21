@@ -34,6 +34,9 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 	/** @var array list of statuses */
 	protected $statuses = null;
 
+	/** @var array list of stage ids */
+	protected $stageIds = null;
+
 	/** @var int user ID */
 	protected $assigneeId = null;
 
@@ -42,6 +45,12 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 
 	/** @var bool whether to return only a count of results */
 	protected $countOnly = null;
+
+	/** @var bool whether to return only incomplete results */
+	protected $isIncomplete = false;
+
+	/** @var bool whether to return only submissions with overdue review assignments */
+	protected $isOverdue = false;
 
 	/**
 	 * Constructor
@@ -85,6 +94,45 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 			$statuses = array($statuses);
 		}
 		$this->statuses = $statuses;
+		return $this;
+	}
+
+	/**
+	 * Set stage filter
+	 *
+	 * @param int|array $stageIds
+	 *
+	 * @return \OJS\Services\QueryBuilders\SubmissionListQueryBuilder
+	 */
+	public function filterByStageIds($stageIds) {
+		if (!is_null($stageIds) && !is_array($stageIds)) {
+			$stageIds = array($stageIds);
+		}
+		$this->stageIds = $stageIds;
+		return $this;
+	}
+
+	/**
+	 * Set incomplete submissions filter
+	 *
+	 * @param boolean $isIncomplete
+	 *
+	 * @return \OJS\Services\QueryBuilders\SubmissionListQueryBuilder
+	 */
+	public function filterByIncomplete($isIncomplete) {
+		$this->isIncomplete = $isIncomplete;
+		return $this;
+	}
+
+	/**
+	 * Set overdue submissions filter
+	 *
+	 * @param boolean $isOverdue
+	 *
+	 * @return \OJS\Services\QueryBuilders\SubmissionListQueryBuilder
+	 */
+	public function filterByOverdue($isOverdue) {
+		$this->isOverdue = $isOverdue;
 		return $this;
 	}
 
@@ -151,6 +199,33 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 					->groupBy('ps.date_published');
 			}
 			$q->whereIn('s.status', $this->statuses);
+		}
+
+		// stage ids
+		if (!is_null($this->stageIds)) {
+			$q->whereIn('s.stage_id', $this->stageIds);
+		}
+
+		// incomplete submissions
+		if ($this->isIncomplete) {
+			$q->where('s.submission_progress', '>', 0);
+		}
+
+		// overdue submisions
+		if ($this->isOverdue) {
+			$q->leftJoin('review_assignments as raod', 'raod.submission_id', '=', 's.submission_id')
+				->leftJoin('review_rounds as rr', function($table) {
+					$table->on('rr.submission_id', '=', 's.submission_id');
+					$table->on('raod.review_round_id', '=', 'rr.review_round_id');
+				});
+			// Only get overdue assignments on active review rounds
+			import('lib.pkp.classes.submission.reviewRound.ReviewRound');
+			$q->where('rr.status', '!=', REVIEW_ROUND_STATUS_RESUBMITTED);
+			$q->where('rr.status', '!=', REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL);
+			$q->where('rr.status', '!=', REVIEW_ROUND_STATUS_ACCEPTED);
+			$q->where('rr.status', '!=', REVIEW_ROUND_STATUS_DECLINED);
+			$q->where('raod.date_due', '<', \Core::getCurrentDate(strtotime('tomorrow')));
+			$q->where('raod.date_response_due', '<', \Core::getCurrentDate(strtotime('tomorrow')));
 		}
 
 		// assigned to

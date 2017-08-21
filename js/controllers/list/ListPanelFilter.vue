@@ -24,10 +24,34 @@ export default {
 	},
 	methods: {
 		/**
-		 * Emit an event to filter items in the list panel
+		 * Check if a filter is currently active
 		 */
-		filterList: function(data) {
-			this.$emit('filterList', data);
+		isFilterActive: function(type, val) {
+			return this.activeFilters.filter(filter => {
+				return filter.type === type && filter.val === val;
+			}).length
+		},
+
+		/**
+		 * Add a filter
+		 */
+		filterBy: function(type, val) {
+			if (this.isFilterActive(type, val)) {
+				this.clearFilter(type, val);
+				return;
+			}
+			this.activeFilters.push({type: type, val: val});
+			this.filterList(this.compileFilterParams());
+		},
+
+		/**
+		 * Remove a filter
+		 */
+		clearFilter: function(type, val) {
+			this.activeFilters = this.activeFilters.filter(filter => {
+				return filter.type !== type || filter.val !== val;
+			});
+			this.filterList(this.compileFilterParams());
 		},
 
 		/**
@@ -36,6 +60,27 @@ export default {
 		clearFilters: function() {
 			this.activeFilters = [];
 			this.filterList({});
+		},
+
+		/**
+		 * Compile active filters into filter parameters
+		 */
+		compileFilterParams: function() {
+			let params = {};
+			for (var filter of this.activeFilters) {
+				if (params[filter.type] === undefined) {
+					params[filter.type] = [];
+				}
+				params[filter.type].push(filter.val);
+			}
+			return params;
+		},
+
+		/**
+		 * Emit an event to filter items in the list panel
+		 */
+		filterList: function(data) {
+			this.$emit('filterList', data);
 		},
 	},
 	mounted: function() {

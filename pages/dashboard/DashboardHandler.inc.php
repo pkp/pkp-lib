@@ -49,7 +49,7 @@ class DashboardHandler extends Handler {
 
 		$currentUser = $request->getUser();
 
-		import('lib.pkp.controllers.list.submissions.SubmissionsListHandler');
+		import('controllers.list.submissions.SubmissionsListHandler');
 
 		// My Queue
 		$myQueueListHandler = new SubmissionsListHandler(array(

@@ -587,5 +587,4 @@
 	<message key="submission.query.new">{$creatorName} påbegyndte en drøftelse: {$noteTitle}: {$noteContents}</message>
 	<message key="submission.query.activity.contents">Der er nyt under følgende drøftelse "{$queryTitle}" omhandlende indsendelsen "{$submissionTitle}".</message>
 	<message key="submission.query.new.contents">Du er blevet føjet til følgende drøftelse "{$queryTitle}" omhandlende indsendelsen "{$submissionTitle}".</message>
-	<message key=""><![CDATA[]]></message>
 </locale>

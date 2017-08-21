@@ -84,9 +84,6 @@
 	<message key="admin.siteSetup">Podešavanje sajta</message>
 	<message key="admin.systemInfo.settingName">Naziv podešavanja</message>
 	<message key="admin.systemInfo.settingValue">Vrednost podešavanja</message>
-	<message key=""><![CDATA[]]></message>
-	<message key=""><![CDATA[]]></message>
-	<message key=""><![CDATA[]]></message>
 	<message key="admin.languages.download">Preuzmi lokalizaciju</message>
 	<message key="admin.languages.downloadLocales">Preuzmi lokalizacije</message>
 	<message key="admin.languages.download.cannotOpen">Ne mogu da otvorim deskriptor jezika sa PKP web sajta.</message>

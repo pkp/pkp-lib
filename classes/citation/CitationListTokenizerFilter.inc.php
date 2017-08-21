@@ -39,23 +39,22 @@ class CitationListTokenizerFilter extends Filter {
 		// separated with a blank line.
 
 		// Normalize line endings.
-		if (strpos($input, "\r") !== FALSE) {
-			// Windows formatting to *nix
-			$input = str_replace("\r\n", "\n", $input);
-			// Are returns begin used as line endings?
-			$input = str_replace("\r", "\n", $input);
-		}
+		$lines = array();
+		String::regexp_match_all('/(*ANY)^(.*)$/m', $input, $lines);
+		$input = join("\n", $lines[0]);
 
 		// Make blank lines truely blank
-		$input = preg_replace('/^\s+$/m', '', $input);
+		$input = String::regexp_replace('/^\s+$/m', '', $input);
 
 		// Remove trailing/leading line breaks overall.
 		$input = trim($input, "\n");
 
 		// Normalize line seperation
-		$input = String::regexp_replace('/\n{2,}/s', "\n\n", $input);
-		if (strpos($input, "\n\n") === FALSE) {
-			$input = str_replace("\n", "\n\n", $input);
+		$input = String::regexp_replace('/\n{2,}/', "\n\n", $input);
+		if (String::strpos($input, "\n\n") === FALSE) {
+			$lines = array();
+			String::regexp_match_all('/^(.*)$/m', $input, $lines);
+			$input = join("\n\n", $lines[0]);
 		}
 
 		// Check for multiline citations
@@ -67,7 +66,7 @@ class CitationListTokenizerFilter extends Filter {
 			if ($line == '') {
 				$separationExists = true;
 			} else {
-				if (substr($line, 0, 1) === "\t" || substr($line, 0, 1) === ' ') {
+				if (String::strpos($line, "\t") === 0 || String::strpos($line, ' ') === 0) {
 					$indentationExists = true;
 				} else {
 					$unindentedExists = true;
@@ -77,7 +76,7 @@ class CitationListTokenizerFilter extends Filter {
 		if ($separationExists && $indentationExists && $unindentedExists) {
 			$input = '';
 			foreach ($lines as $line) {
-				if (substr($line, 0, 1) === "\t" || substr($line, 0, 1) === ' ') {
+				if (String::strpos($line, "\t") === 0 || String::strpos($line, ' ') === 0) {
 					$line = ltrim($line);
 					$input = rtrim($input, "\n");
 					$input .= $line."\n";

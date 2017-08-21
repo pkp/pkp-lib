@@ -73,6 +73,8 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 		$templateMgr->assign('userGroupOptions', $userGroupOptions);
 		// assigned the first element as selected
 		$templateMgr->assign('selectedUserGroupId', array_shift(array_keys($userGroupOptions)));
+		// assign recommendOnly user group IDs and recommendOnly option of the first user group ID
+		$templateMgr->assign('recommendOnlyUserGroupIds', $userGroupDao->getRecommendOnlyGroupIds($request->getContext()->getId()));
 
 		// assign the vars required for the request
 		$templateMgr->assign('submissionId', $this->getSubmission()->getId());
@@ -88,7 +90,8 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 			'userGroupId',
 			'userId',
 			'message',
-			'template'
+			'template',
+			'recommendOnly',
 		));
 	}
 
@@ -116,11 +119,12 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 		$submission = $this->getSubmission();
 		$userGroupId = (int) $this->getData('userGroupId');
 		$userId = (int) $this->getData('userId');
+		$recommendOnly = $this->getData('recommendOnly')?true:false;
 
 		// sanity check
 		if ($userGroupDao->userGroupAssignedToStage($userGroupId, $this->getStageId())) {
 			// insert the assignment
-			$stageAssignment = $stageAssignmentDao->build($submission->getId(), $userGroupId, $userId);
+			$stageAssignment = $stageAssignmentDao->build($submission->getId(), $userGroupId, $userId, $recommendOnly);
 		}
 
 		parent::execute($request);

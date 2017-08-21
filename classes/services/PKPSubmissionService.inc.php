@@ -54,6 +54,7 @@ abstract class PKPSubmissionService {
 			'orderDirection' => 'DESC',
 			'assignedTo' => null,
 			'status' => null,
+			'stageIds' => null,
 			'searchPhrase' => null,
 			'count' => 20,
 			'offset' => 0,
@@ -525,6 +526,20 @@ abstract class PKPSubmissionService {
 						$stage['files'] = array(
 							'count' => count($submissionFiles),
 						);
+
+						// See if the  curent user can only recommend:
+						$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+						$user = $request->getUser();
+						$editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $stageId);
+						// if the user is assigned several times in the editorial role, and
+						// one of the assignments have recommendOnly option set, consider it here
+						$stage['currentUserCanRecommendOnly'] = false;
+						foreach ($editorsStageAssignments as $editorsStageAssignment) {
+							if ($editorsStageAssignment->getUserId() == $user->getId() && $editorsStageAssignment->getRecommendOnly()) {
+								$stage['currentUserCanRecommendOnly'] = true;
+								break;
+							}
+						}
 					}
 					break;
 

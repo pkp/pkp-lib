@@ -63,13 +63,15 @@ class EditDecisionDAO extends DAO {
 	 * @param $submissionId int Submission ID
 	 * @param $stageId int Optional STAGE_ID_...
 	 * @param $round int Optional review round number
+	 * @param $editorId int Optional editor ID
 	 * @return array List of information on the editor decisions:
 	 * 	editDecisionId, reviewRoundId, stageId, round, editorId, decision, dateDecided
 	 */
-	function getEditorDecisions($submissionId, $stageId = null, $round = null) {
+	function getEditorDecisions($submissionId, $stageId = null, $round = null, $editorId = null) {
 		$params = array((int) $submissionId);
 		if ($stageId) $params[] = (int) $stageId;
 		if ($round) $params[] = (int) $round;
+		if ($editorId) $params[] = (int) $editorId;
 
 		$result = $this->retrieve(
 			'SELECT	edit_decision_id, editor_id, decision,
@@ -78,7 +80,8 @@ class EditDecisionDAO extends DAO {
 			WHERE	submission_id = ?
 				' . ($stageId?' AND stage_id = ?':'') . '
 				' . ($round?' AND round = ?':'') . '
-			ORDER BY date_decided ASC',
+				' . ($editorId?' AND editor_id = ?':'') . '
+				ORDER BY date_decided ASC',
 			$params
 		);
 
@@ -110,7 +113,7 @@ class EditDecisionDAO extends DAO {
 			array((int) $newUserId, (int) $oldUserId)
 		);
 	}
-	
+
 	/**
 	 * Find any still valid pending revisions decision for the passed
 	 * submission id. A valid decision is one that is not overriden by any

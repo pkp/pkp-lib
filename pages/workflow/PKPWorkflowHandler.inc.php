@@ -199,34 +199,64 @@ abstract class PKPWorkflowHandler extends Handler {
 		// If a review round was specified,
 
 		// If there is an editor assigned, retrieve stage decisions.
+		// See if the  curent user can only recommend:
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-		if ($stageAssignmentDao->editorAssignedToStage($submission->getId(), $stageId) && (!$reviewRoundId || $reviewRoundId == $lastReviewRound->getId())) {
+		$dispatcher = $request->getDispatcher();
+		$user = $request->getUser();
+		$editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $stageId);
+		// if the user is assigned several times in the editorial role, and
+		// one of the assignments have recommendOnly option set, consider it here
+		$recommendOnly = false;
+		foreach ($editorsStageAssignments as $editorsStageAssignment) {
+			if ($editorsStageAssignment->getUserId() == $user->getId() && $editorsStageAssignment->getRecommendOnly()) {
+				$recommendOnly = true;
+				break;
+			}
+		}
+		import('lib.pkp.classes.linkAction.request.AjaxModal');
+		if (!empty($editorsStageAssignments) && (!$reviewRoundId || $reviewRoundId == $lastReviewRound->getId())) {
 			import('classes.workflow.EditorDecisionActionsManager');
-			$decisions = EditorDecisionActionsManager::getStageDecisions($stageId);
+			// if it is a review stage and the user has "recommend only role"
+			if (($stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_PATH_INTERNAL_REVIEW) && $recommendOnly) {
+				// Add the recommend link action.
+				$editorActions = array(
+					new LinkAction(
+						'recommendation',
+						new AjaxModal(
+							$dispatcher->url(
+								$request, ROUTE_COMPONENT, null,
+								'modals.editorDecision.EditorDecisionHandler',
+								'sendRecommendation', null, $actionArgs
+							),
+							__('editor.submission.recommend'),
+							'review_recommendation'
+						),
+						__('editor.submission.recommend')
+					)
+				);
+			} else {
+				$decisions = EditorDecisionActionsManager::getStageDecisions($stageId);
+				// Iterate through the editor decisions and create a link action for each decision.
+				$editorActions = array();
+				foreach($decisions as $decision => $action) {
+					$actionArgs['decision'] = $decision;
+					$editorActions[] = new LinkAction(
+						$action['name'],
+						new AjaxModal(
+							$dispatcher->url(
+								$request, ROUTE_COMPONENT, null,
+								'modals.editorDecision.EditorDecisionHandler',
+								$action['operation'], null, $actionArgs
+							),
+							__($action['title']),
+							$action['titleIcon']
+						),
+					__($action['title'])
+					);
+				}
+			}
 		} else {
 			$decisions = array(); // None available
-		}
-
-		// Iterate through the editor decisions and create a link action for each decision.
-		$editorActions = array();
-
-		$dispatcher = $request->getDispatcher();
-		import('lib.pkp.classes.linkAction.request.AjaxModal');
-		foreach($decisions as $decision => $action) {
-			$actionArgs['decision'] = $decision;
-			$editorActions[] = new LinkAction(
-				$action['name'],
-				new AjaxModal(
-					$dispatcher->url(
-						$request, ROUTE_COMPONENT, null,
-						'modals.editorDecision.EditorDecisionHandler',
-						$action['operation'], null, $actionArgs
-					),
-					__($action['title']),
-					$action['titleIcon']
-				),
-				__($action['title'])
-			);
 		}
 
 		// Assign the actions to the template.

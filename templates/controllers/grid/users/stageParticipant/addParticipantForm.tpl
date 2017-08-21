@@ -17,6 +17,7 @@
 		// Attach the form handler.
 		$('#addParticipantForm').pkpHandler('$.pkp.controllers.grid.users.stageParticipant.form.StageParticipantNotifyHandler',
 			{ldelim}
+				recommendOnlyUserGroupIds: {$recommendOnlyUserGroupIds|@json_encode},
 				templateUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT component='grid.users.stageParticipant.StageParticipantGridHandler' op='fetchTemplateBody' stageId=$stageId submissionId=$submissionId escape=false}
 			{rdelim}
 		);
@@ -35,6 +36,9 @@
 		{url|assign:userSelectGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.users.userSelect.UserSelectGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId escape=false}
 		{load_url_in_div id='userSelectGridContainer' url=$userSelectGridUrl}
 
+		{fbvFormSection title="stageParticipants.options" list="true" class="recommendOnlyClass"}
+			{fbvElement type="checkbox" name="recommendOnly" id="recommendOnly" label="stageParticipants.recommendOnly"}
+		{/fbvFormSection}
 	{/fbvFormArea}
 
 	{fbvFormArea id="notifyFormArea"}

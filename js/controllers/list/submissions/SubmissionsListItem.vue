@@ -212,6 +212,14 @@ export default {
 							notice = this.activeStage.status;
 							break;
 					}
+					if (!this.activeStage.currentUserCanRecommendOnly) {
+						switch (this.activeStage.statusId) {
+							case 13: // REVIEW_ROUND_STATUS_RECOMMENDATIONS_READY
+							case 14: // REVIEW_ROUND_STATUS_RECOMMENDATIONS_COMPLETED
+								notice = this.activeStage.status;
+								break;
+						}
+					}
 				}
 			}
 

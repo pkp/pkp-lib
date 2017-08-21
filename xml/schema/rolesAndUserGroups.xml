@@ -164,6 +164,10 @@
 		<field name="date_assigned" type="T">
 			<NOTNULL/>
 		</field>
+		<field name="recommend_only" type="I1">
+			<NOTNULL/>
+			<DEFAULT VALUE="0"/>
+		</field>
 		<descr>Stage Assignments</descr>
 		<index name="stage_assignment">
 			<col>submission_id</col>

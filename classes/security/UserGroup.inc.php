@@ -120,6 +120,24 @@ class UserGroup extends DataObject {
 	}
 
 	/**
+	 * Get the recommendOnly option (whether or not the manager or the sub-editor role
+	 * can only recommend or also make decisions in the submission review)
+	 * @return boolean
+	 */
+	function getRecommendOnly() {
+		return $this->getData('recommendOnly');
+	}
+
+	/**
+	 * Set the recommendOnly option (whether or not the manager or the sub-editor role
+	 * can only recommend or also make decisions in the submission review)
+	 * @param $recommendOnly boolean
+	 */
+	function setRecommendOnly($recommendOnly) {
+		$this->setData('recommendOnly', $recommendOnly);
+	}
+
+	/**
 	 * Get the localized role name
 	 * @return string
 	 */

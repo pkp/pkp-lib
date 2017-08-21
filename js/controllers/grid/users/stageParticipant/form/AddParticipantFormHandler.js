@@ -56,7 +56,7 @@
 				$filterUserGroupId = $form.find('select[name^=\'filterUserGroupId\']'),
 				filterUserGroupIdVal = /** @type {string} */ $filterUserGroupId.val();
 
-		$('input[name=\'userGroupId\']').val(filterUserGroupIdVal);
+		$('input[name=\'userGroupId\']').val(filterUserGroupIdVal).trigger('change');
 	};
 
 

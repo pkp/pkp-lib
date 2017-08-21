@@ -39,6 +39,15 @@
 			this.templateUrl_ = options.templateUrl;
 		}
 
+		// Set the user group IDs with the recommendOnly setting
+		if (options.recommendOnlyUserGroupIds) {
+			this.recommendOnlyUserGroupIds_ = options.recommendOnlyUserGroupIds;
+		}
+
+		// Update the recommendOnly option when user group changes
+		$('input[name=\'userGroupId\']', $form).change(
+				this.callbackWrapper(this.updateRecommendOnly));
+
 		// Attach form elements events.
 		$form.find('#template').change(
 				this.callbackWrapper(this.selectTemplateHandler_));
@@ -106,6 +115,38 @@
 		editor.setContent(jsonDataContent.body);
 
 		return processedJsonData.status;
+	};
+
+
+	/**
+	 * Update the enabled/disabled and checked state of the recommendOnly checkbox.
+	 */
+	$.pkp.controllers.grid.users.stageParticipant.form.
+			StageParticipantNotifyHandler.prototype.updateRecommendOnly = function() {
+
+		var $form = this.getHtmlElement(),
+				$filterUserGroupId = $form.find('input[name=\'userGroupId\']'),
+				$checkbox = $('[id^=\'recommendOnly\']'),
+				$checkboxDiv = $('div.recommendOnlyClass'),
+				i,
+				found = false,
+				filterUserGroupIdVal = /** @type {string} */ $filterUserGroupId.val();
+
+		for (i = 0; i < this.recommendOnlyUserGroupIds_.length; i++) {
+			if (this.recommendOnlyUserGroupIds_[i] == filterUserGroupIdVal) {
+				found = true;
+			}
+		}
+
+		if (found) {
+			$checkbox.removeAttr('disabled');
+			$checkbox.prop('checked', true);
+			$checkboxDiv.show();
+		} else {
+			$checkbox.attr('disabled', 'disabled');
+			$checkbox.removeAttr('checked');
+			$checkboxDiv.hide();
+		}
 	};
 
 

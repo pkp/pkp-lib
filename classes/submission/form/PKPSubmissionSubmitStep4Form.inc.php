@@ -63,7 +63,7 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 			$users = $userGroupDao->getUsersById($userGroup->getId(), $this->submission->getContextId());
 			if($users->getCount() == 1) {
 				$user = $users->next();
-				$stageAssignmentDao->build($this->submission->getId(), $userGroup->getId(), $user->getId());
+				$stageAssignmentDao->build($this->submission->getId(), $userGroup->getId(), $user->getId(), $userGroup->getRecommendOnly());
 				if ($userGroup->getRoleId() == ROLE_ID_MANAGER) $managerFound = true;
 			}
 		}
@@ -92,7 +92,7 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 			$userGroups = $userGroupDao->getByUserId($subEditor->getId(), $this->submission->getContextId());
 			while ($userGroup = $userGroups->next()) {
 				if ($userGroup->getRoleId() != ROLE_ID_SUB_EDITOR) continue;
-				$stageAssignmentDao->build($this->submission->getId(), $userGroup->getId(), $subEditor->getId());
+				$stageAssignmentDao->build($this->submission->getId(), $userGroup->getId(), $subEditor->getId(), $userGroup->getRecommendOnly());
 				// If we assign a stage assignment in the Submission stage to a sub editor, make note.
 				if ($userGroupDao->userGroupAssignedToStage($userGroup->getId(), WORKFLOW_STAGE_ID_SUBMISSION)) {
 					$submissionSubEditorFound = true;

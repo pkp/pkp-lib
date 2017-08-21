@@ -273,6 +273,52 @@ class PKPEditorDecisionHandler extends Handler {
 		return new JSONMessage(true, empty($body)?__('editor.review.noReviews'):$body);
 	}
 
+	/**
+	 * Show the editor recommendation form
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return string Serialized JSON object
+	 */
+	function sendRecommendation($args, $request) {
+		// Retrieve the authorized submission, stage id and review round.
+		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+		assert(in_array($stageId, $this->_getReviewStages()));
+		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
+		assert(is_a($reviewRound, 'ReviewRound'));
+
+		// Form handling
+		import('lib.pkp.controllers.modals.editorDecision.form.RecommendationForm');
+		$editorRecommendationForm = new RecommendationForm($submission, $stageId, $reviewRound);
+		$editorRecommendationForm->initData($request);
+		return new JSONMessage(true, $editorRecommendationForm->fetch($request));
+	}
+
+	/**
+	 * Show the editor recommendation form
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return string Serialized JSON object
+	 */
+	function saveRecommendation($args, $request) {
+		// Retrieve the authorized submission, stage id and review round.
+		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+		assert(in_array($stageId, $this->_getReviewStages()));
+		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
+		assert(is_a($reviewRound, 'ReviewRound'));
+
+		// Form handling
+		import('lib.pkp.controllers.modals.editorDecision.form.RecommendationForm');
+		$editorRecommendationForm = new RecommendationForm($submission, $stageId, $reviewRound);
+		$editorRecommendationForm->readInputData();
+		if ($editorRecommendationForm->validate()) {
+			$editorRecommendationForm->execute($request);
+			return DAO::getDataChangedEvent();
+		}
+		return new JSONMessage(false);
+	}
+
 
 	//
 	// Protected helper methods
@@ -282,7 +328,7 @@ class PKPEditorDecisionHandler extends Handler {
 	 * @return array
 	 */
 	protected function _getReviewRoundOps() {
-		return array('promoteInReview', 'savePromoteInReview', 'newReviewRound', 'saveNewReviewRound', 'sendReviewsInReview', 'saveSendReviewsInReview', 'importPeerReviews');
+		return array('promoteInReview', 'savePromoteInReview', 'newReviewRound', 'saveNewReviewRound', 'sendReviewsInReview', 'saveSendReviewsInReview', 'importPeerReviews', 'sendRecommendation', 'saveRecommendation');
 	}
 
 	/**

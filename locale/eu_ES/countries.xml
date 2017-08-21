@@ -2,7 +2,7 @@
 <!DOCTYPE countries SYSTEM "../../dtd/countries.dtd">
 
 <!--
-  * lib/pkp/locale/eu_ES/countries.xml
+  * locale/eu_ES/countries.xml
   *
   * Copyright (c) 2014-2017 Simon Fraser University
   * Copyright (c) 2000-2017 John Willinsky
@@ -52,10 +52,10 @@
 	<country name="Bulgaria" code="BG"/>
 	<country name="Burkina Faso" code="BF"/>
 	<country name="Burundi" code="BI"/>
+	<country name="Cabo Verde" code="CV"/>
 	<country name="Kanbodia" code="KH"/>
 	<country name="Kamerun" code="CM"/>
 	<country name="Kanada" code="CA"/>
-	<country name="Cabo Verde" code="CV"/>
 	<country name="Kaiman uharteak" code="KY"/>
 	<country name="Afrika Erdiko Errepublika" code="CF"/>
 	<country name="Txad" code="TD"/>
@@ -73,7 +73,7 @@
 	<country name="Kuba" code="CU"/>
 	<country name="Curaçao" code="CW"/>
 	<country name="Zipre" code="CY"/>
-	<country name="Txekiar Errepublika" code="CZ"/>
+	<country name="Czechia" code="CZ"/>
 	<country name="Boli Kosta" code="CI"/>
 	<country name="Danimarka" code="DK"/>
 	<country name="Djibuti" code="DJ"/>

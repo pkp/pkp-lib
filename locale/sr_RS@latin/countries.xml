@@ -2,7 +2,7 @@
 <!DOCTYPE countries SYSTEM "../../dtd/countries.dtd">
 
 <!--
-  * lib/pkp/locale/sr_RS@latin/countries.xml
+  * locale/sr_RS@latin/countries.xml
   *
   * Copyright (c) 2014-2017 Simon Fraser University
   * Copyright (c) 2000-2017 John Willinsky
@@ -52,10 +52,10 @@
 	<country name="Bugarska" code="BG"/>
 	<country name="Burkina Faso" code="BF"/>
 	<country name="Burundi" code="BI"/>
+	<country name="Cabo Verde" code="CV"/>
 	<country name="Kambodža" code="KH"/>
 	<country name="Kamerun" code="CM"/>
 	<country name="Kanada" code="CA"/>
-	<country name="Zelenortska ostrva" code="CV"/>
 	<country name="Ostrva Kajman" code="KY"/>
 	<country name="Centralnoafrička Republika" code="CF"/>
 	<country name="Čad" code="TD"/>
@@ -73,7 +73,7 @@
 	<country name="Kuba" code="CU"/>
 	<country name="Kurasao" code="CW"/>
 	<country name="Kipar" code="CY"/>
-	<country name="Češka Republika" code="CZ"/>
+	<country name="Czechia" code="CZ"/>
 	<country name="Obala Slonovače" code="CI"/>
 	<country name="Danska" code="DK"/>
 	<country name="Džibuti" code="DJ"/>
@@ -200,7 +200,7 @@
 	<country name="Ruanda" code="RW"/>
 	<country name="Reunion" code="RE"/>
 	<country name="Sveti Bartolomej" code="BL"/>
-	<country name="Sveta Helena, Asansion i Tristan da Kuna" code="SH"/>
+	<country name="Sveta Jelena, Asansion i Tristan da Kuna" code="SH"/>
 	<country name="Sveti Kits i Nevis" code="KN"/>
 	<country name="Sveta Lucija" code="LC"/>
 	<country name="Sveti Martin (francuski deo)" code="MF"/>

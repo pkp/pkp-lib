@@ -2,7 +2,7 @@
 <!DOCTYPE countries SYSTEM "../../dtd/countries.dtd">
 
 <!--
-  * lib/pkp/locale/zh_CN/countries.xml
+  * locale/zh_CN/countries.xml
   *
   * Copyright (c) 2014-2017 Simon Fraser University
   * Copyright (c) 2000-2017 John Willinsky
@@ -52,10 +52,10 @@
 	<country name="保加利亚" code="BG"/>
 	<country name="布基纳法索" code="BF"/>
 	<country name="布隆迪" code="BI"/>
+	<country name="Cabo Verde" code="CV"/>
 	<country name="柬埔塞" code="KH"/>
 	<country name="喀麦隆" code="CM"/>
 	<country name="加拿大" code="CA"/>
-	<country name="佛得角" code="CV"/>
 	<country name="开曼群岛" code="KY"/>
 	<country name="中非" code="CF"/>
 	<country name="乍得" code="TD"/>
@@ -73,7 +73,7 @@
 	<country name="古巴" code="CU"/>
 	<country name="库拉索" code="CW"/>
 	<country name="塞浦路斯" code="CY"/>
-	<country name="捷克" code="CZ"/>
+	<country name="Czechia" code="CZ"/>
 	<country name="科特迪瓦" code="CI"/>
 	<country name="丹麦" code="DK"/>
 	<country name="吉布提" code="DJ"/>

@@ -236,7 +236,6 @@
 	<message key="manager.website.information">Информације</message>
 	<message key="manager.website.appearance">Изглед</message>
 	<message key="manager.website.imageFileRequired">Фајл слике је неопходан. Проверите да ли сте одабрали и доставили фајл.</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="manager.workflow">Процес рада</message>
 	<message key="manager.workflow.title">Подешавање процеса рада</message>
 	<message key="manager.distribution">Дистрибуција</message>
@@ -319,7 +318,6 @@
 	<message key="manager.setup.technicalSupportContact">Конакт за техничку подршку</message>
 	<message key="manager.setup.technicalSupportContactDescription">Контакт особа која може помоћи уредницима, ауторима и рецензентима са проблемима приликом предаје, уређивања и рецензирања материјала за објављивање.</message>
 	<message key="manager.siteAccessOptions.siteAccessOptions">Опције приступа сајту</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="manager.setup.reviewOptions.showBlindReviewLink">Прикажи линк ка "Обезбеђивање процеса слепе рецензије" приликом додавања</message>
 	<message key="plugins.categories.pubIds">Додатак јавних идентификатора</message>
 	<message key="plugins.categories.pubIds.description">Овај додатак уводи подршку за јавне идентификаторе.</message>
@@ -363,7 +361,6 @@
 	<message key="manager.plugins.wrongName">version.xml у достављеном додатку садржи име додатка које није исто као име достављеног додатка.</message>
 	<message key="manager.plugins.pleaseInstall">Додатак не постоји. Инсталирајте га</message>
 	<message key="manager.plugins.pleaseUpgrade">Додатак већ постоји али је новији од инсталиране верзије. Надоградите га</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="manager.plugins.settings">Подешавања</message>
 	<message key="manager.plugins.tarCommandNotFound">Tar команда није доступна. Подесите је исправно у вашем "config.inc.php" фајлу.</message>
 	<message key="manager.plugins.upgrade">Надогради додатак</message>

@@ -399,7 +399,6 @@
 	<message key="common.range">{$min}-{$max}</message>
 	<message key="common.readMore">Прочитај више</message>
 	<message key="common.readMoreWithTitle">Прочитај више о {$title}</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="common.reminded.date">Подсећен: {$dateReminded}</message>
 	<message key="common.searchQuery">Упит за претрагу</message>
 	<message key="common.sendEmail">Пошаљи имејл</message>
@@ -442,7 +441,6 @@
 	<message key="stageParticipants.history.messageSent">Обавештење послато корисницима.</message>
 	<message key="stageParticipants.notify.chooseMessage">Одаберите предефинисану поруку коју желите да користите или попуните формулар ниже.</message>
 	<message key="stageParticipants.notify.message">Порука</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="stageParticipants.notify.warning">Уверите се да сте попунили поље поруке и одабрали барем једног примаоца.</message>
 	<message key="navigation.breadcrumbLabel">Ви сте овде:</message>
 	<message key="navigation.breadcrumbSeparator">/</message>
@@ -519,7 +517,6 @@
 	<message key="notification.type.pendingRevisions.title">Ревизија је предата у {$stage}.</message>
 	<message key="user.authorization.submissionFile">Тренутни корисник нема права приступа означеном документу предаје.</message>
 	<message key="user.authorization.invalidRepresentation">Неисправно представљање.</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="common.notes.tooltip">Напомена (жуто: постоје нове напомене; плаво: постоје прочитане напомене; сиво: нема напомена)</message>
 	<message key="review.blindPeerReview"><![CDATA[<p>Да би обезбедили интегритет двоструко слепе рецензије за овај часопис моа се учинити сваки напор да се спречи да су аутори и рецензенти једни другима познати. Ово се односи на ауторе, уреднике и рецензенте (који прилажу документе у току своје рецензије)  како би се проверило да ли су следећи кораци поштовани у смислу провере текста и собина фајлова:</p>
 			<ul><li>Аутори документа треба да избришу своје име из текста са "Aутор" и година у референцама и фуснотама, уместо имена аутора, наслова чланка и сл.</li>

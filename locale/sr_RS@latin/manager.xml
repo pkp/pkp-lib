@@ -236,7 +236,6 @@
 	<message key="manager.website.information">Informacije</message>
 	<message key="manager.website.appearance">Izgled</message>
 	<message key="manager.website.imageFileRequired">Fajl slike je neophodan. Proverite da li ste odabrali i dostavili fajl.</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="manager.workflow">Proces rada</message>
 	<message key="manager.workflow.title">Podešavanje procesa rada</message>
 	<message key="manager.distribution">Distribucija</message>
@@ -319,7 +318,6 @@
 	<message key="manager.setup.technicalSupportContact">Kontakt za tehničku podršku</message>
 	<message key="manager.setup.technicalSupportContactDescription">Kontakt osoba koja može pomoći urednicima, autorima i recenzentima sa problemima prilikom predaje, uređivanja i recenziranja materijala za objavljivanje.</message>
 	<message key="manager.siteAccessOptions.siteAccessOptions">Оpcije pristupa sajtu</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="manager.setup.reviewOptions.showBlindReviewLink">Prikaži link ka "Obezbeđivanje procesa slepe recenzije" prilikom dodavanja</message>
 	<message key="plugins.categories.pubIds">Dodatak javnih identifikatora</message>
 	<message key="plugins.categories.pubIds.description">Ovaj dodatak uvodi podršku za javne identifikatore.</message>
@@ -363,7 +361,6 @@
 	<message key="manager.plugins.wrongName">version.xml u dostavljenom dodatku sadrži ime dodatka koje nije isto kao ime dostavljenog dodatka.</message>
 	<message key="manager.plugins.pleaseInstall">Dodatak ne postoji. Instalirajte ga</message>
 	<message key="manager.plugins.pleaseUpgrade">Dodatak već postoji ali je noviji od instalirane verzije. Nadogradite ga</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="manager.plugins.settings">Podešavanja</message>
 	<message key="manager.plugins.tarCommandNotFound">Tar komanda nije dostupna. Podesite je ispravno u vašem "config.inc.php" fajlu.</message>
 	<message key="manager.plugins.upgrade">Nadogradi dodatak</message>

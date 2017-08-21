@@ -195,7 +195,6 @@
 	<message key="submission.reviewForm">Recenzentski obrazac</message>
 	<message key="submission.reviewFormResponse">Odgovor na recenzentski obrazac</message>
 	<message key="author.submit.userGroupRequired">Vaš nalog trenutno nema ulogu koja ima dozvolu za nove predaje (kao što je autor). Proverite podešavanja vašeg naloga pošto uloge kao što je autorska možete dodeliti sami sebi.</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="submission.query.from">Od</message>
 	<message key="submission.query.lastReply">Poslednji odgovor</message>
 	<message key="submission.query.closed">Zatvoreno</message>
@@ -205,7 +204,6 @@
 	<message key="submission.query.new">{$creatorName} je započela/o diskusiju: {$noteTitle}: {$noteContents}</message>
 	<message key="submission.query.activity.contents">Došlo je do promena u diskusiji "{$queryTitle}" povodom predaje "{$submissionTitle}".</message>
 	<message key="submission.query.new.contents">Dodati ste u diskusiju "{$queryTitle}" povodom predaje "{$submissionTitle}".</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="grid.action.editMetadata">Izmeni metapodatke</message>
 	<message
  key="submission.permissions">Prava</message>
@@ -250,7 +248,6 @@
 	<message key="submission.supplementary.sponsor">Saradnik ili ustanova podrške</message>
 	<message key="grid.action.itemWorkflow">Idi na proces predaje</message>
 	<message key="notification.type.editorAssignmentProduction">Urednik produkcije mora biti dodeljen časopisu pre nego što produkcijski proces može biti započet. Dodajte urednika produkcije koristeći link "Učesnici".</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="editor.submission.decision.sendToProduction">Pošalji u produkciju</message>
 	<message key="editor.submission.decision.sendInternalReview">Pošalji na internu recenziju</message>
 	<message key="editor.submission.decision.approveProofs">Odobri probne kopije</message>
@@ -277,7 +274,6 @@
 	<message key="grid.reviewAttachments.title">Dodati fajlovi recenzenta</message>
 	<message key="submission.productionReady">Knjiga je dostupna</message>
 	<message key="submission.review.uploadRevisionToRound">Dostavi revidirane fajlove</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="editor.submission.decision.decline">Odbij predati članak</message>
 	<message key="editor.submission.noneAssigned">Nema dodeljenih</message>
 	<message key="editor.submission.participant">Učesnik</message>
@@ -358,7 +354,6 @@
 	<message key="submission.mySubmissions">Moje autorstvo</message>
 	<message key="submission.attachedFile">Pridodati fajlovi</message>
 	<message key="submission.changeFile">Izmeni fajl</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="common.queue.long.submissionsUnassigned">Nedodeljeno</message>
 	<message key="common.queue.long.submissionsArchived">Arhivirane predaje</message>
 	<message key="submission.authors">Autori</message>

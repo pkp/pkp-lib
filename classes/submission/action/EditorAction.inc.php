@@ -194,11 +194,6 @@ class EditorAction {
 				true
 			);
 
-			// Insert a trivial notification to indicate the reviewer was added successfully.
-			$currentUser = $request->getUser();
-			$notificationMgr = new NotificationManager();
-			$notificationMgr->createTrivialNotification($currentUser->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.addedReviewer', array('reviewerName' => $reviewer->getFullName()))));
-
 			// Add log
 			import('lib.pkp.classes.log.SubmissionLog');
 			import('lib.pkp.classes.log.PKPSubmissionEventLogEntry');

@@ -155,6 +155,8 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 		$config['csrfToken'] = $request->getSession()->getCSRFToken();
 
 		// Provide required constants
+		import('lib.pkp.classes.submission.reviewRound.ReviewRound');
+		import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignment');
 		$config['_constants'] = array(
 			'WORKFLOW_STAGE_ID_SUBMISSION' => WORKFLOW_STAGE_ID_SUBMISSION,
 			'WORKFLOW_STAGE_ID_INTERNAL_REVIEW' => WORKFLOW_STAGE_ID_INTERNAL_REVIEW,

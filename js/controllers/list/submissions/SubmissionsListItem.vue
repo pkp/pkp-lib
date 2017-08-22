@@ -260,7 +260,7 @@ export default {
 		 * @return bool
 		 */
 		isReviewStage: function() {
-			return this.activeStage.id === 2 || this.activeStage.id === 3;
+			return this.activeStage.id === pkp.const.WORKFLOW_STAGE_ID_INTERNAL_REVIEW || this.activeStage.id === pkp.const.WORKFLOW_STAGE_ID_EXTERNAL_REVIEW;
 		},
 
 		/**

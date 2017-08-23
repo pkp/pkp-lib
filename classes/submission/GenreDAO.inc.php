@@ -82,6 +82,43 @@ class GenreDAO extends DAO {
 	}
 
 	/**
+	 * Retrieve genres based on whether they are supplementary or not.
+	 * @param $supplementaryFilesOnly boolean
+	 * @param $contextId int
+	 * @param $rangeInfo object optional
+	 * @return DAOResultFactory
+	 */
+	public function getBySupplementaryAndContextId($supplementaryFilesOnly, $contextId, $rangeInfo = null) {
+		$result = $this->retrieveRange(
+			'SELECT * FROM genres
+			WHERE enabled = ? AND context_id = ? AND supplementary = ?
+			ORDER BY seq',
+			array(1, (int) $contextId, (int) $supplementaryFilesOnly),
+			$rangeInfo
+		);
+
+		return new DAOResultFactory($result, $this, '_fromRow', array('id'));
+	}
+
+	/**
+	 * Retrieve genres that are not supplementary or dependent.
+	 * @param $contextId int
+	 * @param $rangeInfo object optional
+	 * @return DAOResultFactory
+	 */
+	public function getPrimaryByContextId($contextId, $rangeInfo = null) {
+		$result = $this->retrieveRange(
+			'SELECT * FROM genres
+			WHERE enabled = ? AND context_id = ? AND dependent = ? AND supplementary = ?
+			ORDER BY seq',
+			array(1, (int) $contextId, 0, 0),
+			$rangeInfo
+		);
+
+		return new DAOResultFactory($result, $this, '_fromRow', array('id'));
+	}
+
+	/**
 	 * Retrieve all genres
 	 * @param $contextId int
 	 * @param $rangeInfo object optional

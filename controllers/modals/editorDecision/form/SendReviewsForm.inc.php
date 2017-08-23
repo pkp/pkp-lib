@@ -54,6 +54,45 @@ class SendReviewsForm extends EditorDecisionWithEmailForm {
 	}
 
 	/**
+	 * @copydoc Form::readInputData()
+	 */
+	function readInputData() {
+		$this->readUserVars(array('decision'));
+		parent::readInputData();
+	}
+
+	/**
+	 * @copydoc Form::fetch()
+	 */
+	function fetch($request) {
+		$templateMgr = TemplateManager::getManager($request);
+		$router = $request->getRouter();
+		$dispatcher = $router->getDispatcher();
+		$submission = $this->getSubmission();
+		$user = $request->getUser();
+
+		import('lib.pkp.classes.mail.SubmissionMailTemplate');
+		$revisionsEmail = new SubmissionMailTemplate($submission, 'EDITOR_DECISION_REVISIONS');
+		$resubmitEmail = new SubmissionMailTemplate($submission, 'EDITOR_DECISION_RESUBMIT');
+
+		foreach (array($revisionsEmail, $resubmitEmail) as &$email) {
+			$email->assignParams(array(
+				'authorName' => $submission->getAuthorString(),
+				'editorialContactSignature' => $user->getContactSignature(),
+				'submissionUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId()),
+			));
+			$email->replaceParams();
+		}
+
+		$templateMgr->assign(array(
+			'revisionsEmail' => $revisionsEmail->getBody(),
+			'resubmitEmail' => $resubmitEmail->getBody(),
+		));
+
+		return parent::fetch($request);
+	}
+
+	/**
 	 * @copydoc Form::execute()
 	 */
 	function execute($args, $request) {

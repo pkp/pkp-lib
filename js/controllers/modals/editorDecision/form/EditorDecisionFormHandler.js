@@ -41,6 +41,21 @@
 			$('#importPeerReviews', $form).click(
 					this.callbackWrapper(this.importPeerReviews));
 		}
+
+		if (options.revisionsEmail !== null) {
+			this.revisionsEmail_ = options.revisionsEmail;
+		}
+
+		if (options.resubmitEmail !== null) {
+			this.resubmitEmail_ = options.resubmitEmail;
+		}
+
+		$('#skipEmail-send, #skipEmail-skip', $form).change(
+				this.callbackWrapper(this.toggleEmailDisplay));
+
+		$('input[name="decision"]', $form).change(
+				this.callbackWrapper(this.toggleDecisionEmail));
+
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.modals.editorDecision.form.EditorDecisionFormHandler,
@@ -57,6 +72,24 @@
 	 */
 	$.pkp.controllers.modals.editorDecision.form.EditorDecisionFormHandler.
 			peerReviewUrl_ = null;
+
+
+	/**
+	 * The content of the revisions requested email.
+	 * @private
+	 * @type {?string}
+	 */
+	$.pkp.controllers.modals.editorDecision.form.EditorDecisionFormHandler.
+			revisionsEmail_ = null;
+
+
+	/**
+	 * The content of the resubmit for review email.
+	 * @private
+	 * @type {?string}
+	 */
+	$.pkp.controllers.modals.editorDecision.form.EditorDecisionFormHandler.
+			resubmitEmail_ = null;
 
 
 	//
@@ -103,6 +136,51 @@
 
 		// Present any new notifications to the user.
 		this.trigger('notifyUser', [this.getHtmlElement()]);
+	};
+
+
+	/**
+	 * Show or hide the email depending on the `skipEmail` setting
+	 */
+	$.pkp.controllers.modals.editorDecision.form.EditorDecisionFormHandler.
+			prototype.toggleEmailDisplay = function() {
+		var $emailDiv = $('#sendReviews-emailContent');
+
+		$('#skipEmail-send, #skipEmail-skip').each(function() {
+			if ($(this).attr('id') === 'skipEmail-send' && $(this).prop('checked')) {
+				$emailDiv.fadeIn();
+			} else if ($(this).attr('id') === 'skipEmail-skip' && $(this).prop('checked')) {
+				$emailDiv.fadeOut();
+			}
+		});
+	};
+
+
+	/**
+	 * Update the email content depending on which decision was selected.
+	 *
+	 * Only used in the request revisions modal to choose between two decisions.
+	 */
+	$.pkp.controllers.modals.editorDecision.form.EditorDecisionFormHandler.
+			prototype.toggleDecisionEmail = function() {
+		var emailContent = '',
+			isEmailDivVisible = $('#skipEmail-send').prop('checked'),
+			$emailDiv = $('#sendReviews-emailContent'),
+			self = this;
+
+		$('input[name="decision"]').each(function() {
+			if ($(this).attr('id') === 'decisionRevisions' && $(this).prop('checked')) {''
+				emailContent = self.revisionsEmail_;
+			} else if ($(this).attr('id') === 'decisionResubmit' && $(this).prop('checked')) {
+				emailContent = self.resubmitEmail_;
+			}
+		});
+
+		tinyMCE.get($('textarea[id^="personalMessage"]').attr('id')).setContent(emailContent);
+
+		if (isEmailDivVisible) {
+			$emailDiv.hide().fadeIn();
+		}
 	};
 
 

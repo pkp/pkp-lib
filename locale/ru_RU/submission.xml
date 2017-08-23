@@ -659,6 +659,7 @@
 	<message key="submission.query.new">Пользователь «{$creatorName}» начал обсуждение «{$noteTitle}»: {$noteContents}</message>
 	<message key="submission.query.activity.contents">Есть новая активность в обсуждении с названием «{$queryTitle}», относящимся к материалу «{$submissionTitle}».</message>
 	<message key="submission.query.new.contents">Вы были добавлены к обсуждению с названием «{$queryTitle}», относящимся к материалу «{$submissionTitle}».</message>
+	<message key="submission.query.noParticipantOptions">До начала обсуждения вы должны назначить хотя бы одного участника в этот материал.</message>
 
 	<!-- Списки материалов -->
 	<message key="submission.list.infoCenter">Журнал активности и обсуждений</message>

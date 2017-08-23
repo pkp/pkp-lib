@@ -558,6 +558,9 @@
 	<message key="editor.submission.recommendation">Recommendation</message>
 	<message key="editor.submission.recommendation.description">Recommend an editorial decision for this submission.</message>
 	<message key="editor.submission.recordedRecommendations">Recorded Recommendations</message>
+	<message key="editor.submission.decision.nextButton">Next: Select Files for {$stageName}</message>
+	<message key="editor.submission.decision.selectFiles">Select the files you would like to forward to the {$stageName} stage.</message>
+	<message key="editor.submission.decision.previousAuthorNotification">Previous: Author Notification</message>
 
 	<!-- workflow navigation keys -->
 	<message key="submission.currentStage">Current stage</message>

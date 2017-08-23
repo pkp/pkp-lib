@@ -42,20 +42,26 @@
 					this.callbackWrapper(this.importPeerReviews));
 		}
 
+		// Handle revisions, resubmit and decline decision forms
 		if (options.revisionsEmail !== null) {
 			this.revisionsEmail_ = options.revisionsEmail;
 		}
-
 		if (options.resubmitEmail !== null) {
 			this.resubmitEmail_ = options.resubmitEmail;
 		}
-
 		$('#skipEmail-send, #skipEmail-skip', $form).change(
 				this.callbackWrapper(this.toggleEmailDisplay));
-
 		$('input[name="decision"]', $form).change(
 				this.callbackWrapper(this.toggleDecisionEmail));
 
+		// Handle promotion forms
+		this.setStep('email');
+		var self = this;
+		$('.promoteForm-step-btn', $form).click(function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			self.callbackWrapper(self.setStep($(e.target).data('step')));
+		});
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.modals.editorDecision.form.EditorDecisionFormHandler,
@@ -180,6 +186,28 @@
 
 		if (isEmailDivVisible) {
 			$emailDiv.hide().fadeIn();
+		}
+	};
+
+
+	/**
+	 * Display the requested step of the form
+	 *
+	 * Only used on promotion forms.
+	 *
+	 * @param step string Name of the step to display
+	 */
+	$.pkp.controllers.modals.editorDecision.form.EditorDecisionFormHandler.
+			prototype.setStep = function(step) {
+		var emailStepContent = $('#promoteForm-step1, .promoteForm-step-btn[data-step="files"]'),
+			filesStepContent = $('#promoteForm-step2, #promoteForm-complete-btn, .promoteForm-step-btn[data-step="email"]');
+
+		if (step === 'files') {
+			filesStepContent.show();
+			emailStepContent.hide();
+		} else {
+			emailStepContent.show();
+			filesStepContent.hide();
 		}
 	};
 

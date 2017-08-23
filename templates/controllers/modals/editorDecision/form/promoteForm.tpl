@@ -31,27 +31,35 @@
 		<p>{translate key=$decisionData.help}</p>
 	{/if}
 
-	{fbvFormSection title="user.role.author_s" for="authorName" size=$fbvStyles.size.MEDIUM}
-		{fbvElement type="text" id="authorName" name="authorName" value=$authorName disabled=true}
-	{/fbvFormSection}
-
-	{fbvFormSection title="editor.review.personalMessageToAuthor" for="personalMessage"}
-		{fbvElement type="textarea" name="personalMessage" id="personalMessage" value=$personalMessage rich=true variables=$allowedVariables variablesType=$allowedVariablesType}
-	{/fbvFormSection}
-
-	{* Button to add reviews to the email automatically *}
-	{if $reviewsAvailable}
-		{fbvFormSection}
-			<a id="importPeerReviews" href="#" class="pkp_button">
-				<span class="fa fa-plus" aria-hidden="true"></span>
-				{translate key="submission.comments.addReviews"}
-			</a>
-		{/fbvFormSection}
+	{capture assign="sendEmailLabel"}{translate key="editor.submissionReview.sendEmail" authorName=$authorName}{/capture}
+	{if $skipEmail}
+		{assign var="skipEmailSkip" value=true}
+	{else}
+		{assign var="skipEmailSend" value=true}
 	{/if}
-
-	{fbvFormSection for="skipEmail" size=$fbvStyles.size.MEDIUM list=true}
-		{fbvElement type="checkbox" id="skipEmail" name="skipEmail" label="editor.submissionReview.skipEmail"}
+	{fbvFormSection title="common.sendEmail"}
+		<ul class="checkbox_and_radiobutton">
+			{fbvElement type="radio" id="skipEmail-send" name="skipEmail" value="0" checked=$skipEmailSend label=$sendEmailLabel translate=false}
+			{fbvElement type="radio" id="skipEmail-skip" name="skipEmail" value="1" checked=$skipEmailSkip label="editor.submissionReview.skipEmail"}
+		</ul>
 	{/fbvFormSection}
+
+	<div id="sendReviews-emailContent">
+		{* Message to author textarea *}
+		{fbvFormSection title="editor.review.personalMessageToAuthor" for="personalMessage"}
+			{fbvElement type="textarea" name="personalMessage" id="personalMessage" value=$personalMessage rich=true variables=$allowedVariables variablesType=$allowedVariablesType}
+		{/fbvFormSection}
+
+		{* Button to add reviews to the email automatically *}
+		{if $reviewsAvailable}
+			{fbvFormSection}
+				<a id="importPeerReviews" href="#" class="pkp_button">
+					<span class="fa fa-plus" aria-hidden="true"></span>
+					{translate key="submission.comments.addReviews"}
+				</a>
+			{/fbvFormSection}
+		{/if}
+	</div>
 
 	{** Some decisions can be made before review is initiated (i.e. no attachments). **}
 	{if $reviewRoundId}

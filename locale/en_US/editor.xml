@@ -46,13 +46,9 @@
 	<message key="editor.review.personalMessageToReviewer">Email to be sent to reviewer</message>
 	<message key="editor.review.importantDates">Important Dates</message>
 	<message key="editor.review.uploadRevision">Upload Revision</message>
-	<message key="editor.review.NotifyAuthorAccept">Notify the author that their submission has been accepted.</message>
-	<message key="editor.review.NotifyAuthorDecline">Notify the author that their submission has been declined.</message>
 	<message key="editor.review.newReviewRound">Require New Review Round</message>
 	<message key="editor.review.NotifyAuthorRevisions">Revisions will not be subject to a new round of peer reviews.</message>
 	<message key="editor.review.NotifyAuthorResubmit">Revisions will be subject to a new round of peer reviews.</message>
-	<message key="editor.review.NotifyAuthorExternal">Notify the author of the decision to initiate an external review.</message>
-	<message key="editor.review.personalMessageToAuthor">Email to be sent to author</message>
 	<message key="editor.review.dateAccepted">Review Acceptance Date</message>
 	<message key="editor.review.reviewsAdded">Reviews added to message body.</message>
 	<message key="editor.review.noReviews">No peer reviews to import</message>

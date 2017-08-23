@@ -47,7 +47,7 @@
 
 		<div id="sendReviews-emailContent" style="margin-bottom: 30px;">
 			{* Message to author textarea *}
-			{fbvFormSection title="editor.review.personalMessageToAuthor" for="personalMessage"}
+			{fbvFormSection for="personalMessage"}
 				{fbvElement type="textarea" name="personalMessage" id="personalMessage" value=$personalMessage rich=true variables=$allowedVariables variablesType=$allowedVariablesType}
 			{/fbvFormSection}
 

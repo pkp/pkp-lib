@@ -35,6 +35,16 @@ class SelectableFinalDraftFilesGridHandler extends SelectableFileListGridHandler
 		// Set the grid title.
 		$this->setTitle('submission.finalDraft');
 	}
+
+	//
+	// Implemented methods from GridHandler.
+	//
+	/**
+	 * @copydoc GridHandler::isDataElementSelected()
+	 */
+	function isDataElementSelected($gridDataElement) {
+		return false;
+	}
 }
 
 ?>

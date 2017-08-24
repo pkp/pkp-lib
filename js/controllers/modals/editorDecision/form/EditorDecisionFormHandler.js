@@ -29,6 +29,8 @@
 	 * @param {jQueryObject} $form the wrapped HTML form element.
 	 * @param {{
 	 *  peerReviewUrl: string?
+	 *  revisionsEmail: string?
+	 *  resubmitEmail: string?
 	 *  }} options form options
 	 */
 	$.pkp.controllers.modals.editorDecision.form.EditorDecisionFormHandler =
@@ -60,7 +62,8 @@
 		$('.promoteForm-step-btn', $form).click(function(e) {
 			e.preventDefault();
 			e.stopPropagation();
-			self.callbackWrapper(self.setStep($(e.target).data('step')));
+			var step = $(e.target).data('step');
+			self.setStep(step);
 		});
 	};
 	$.pkp.classes.Helper.inherits(
@@ -155,7 +158,8 @@
 		$('#skipEmail-send, #skipEmail-skip').each(function() {
 			if ($(this).attr('id') === 'skipEmail-send' && $(this).prop('checked')) {
 				$emailDiv.fadeIn();
-			} else if ($(this).attr('id') === 'skipEmail-skip' && $(this).prop('checked')) {
+			} else if ($(this).attr('id') === 'skipEmail-skip'
+					&& $(this).prop('checked')) {
 				$emailDiv.fadeOut();
 			}
 		});
@@ -170,19 +174,22 @@
 	$.pkp.controllers.modals.editorDecision.form.EditorDecisionFormHandler.
 			prototype.toggleDecisionEmail = function() {
 		var emailContent = '',
-			isEmailDivVisible = $('#skipEmail-send').prop('checked'),
-			$emailDiv = $('#sendReviews-emailContent'),
-			self = this;
+				isEmailDivVisible = $('#skipEmail-send').prop('checked'),
+				$emailDiv = $('#sendReviews-emailContent'),
+				textareaId = $('textarea[id^="personalMessage"]').attr('id'),
+				self = this;
 
 		$('input[name="decision"]').each(function() {
-			if ($(this).attr('id') === 'decisionRevisions' && $(this).prop('checked')) {''
+			if ($(this).attr('id') === 'decisionRevisions'
+					&& $(this).prop('checked')) {
 				emailContent = self.revisionsEmail_;
-			} else if ($(this).attr('id') === 'decisionResubmit' && $(this).prop('checked')) {
+			} else if ($(this).attr('id') === 'decisionResubmit'
+					&& $(this).prop('checked')) {
 				emailContent = self.resubmitEmail_;
 			}
 		});
 
-		tinyMCE.get($('textarea[id^="personalMessage"]').attr('id')).setContent(emailContent);
+		tinyMCE.get(textareaId).setContent(emailContent);
 
 		if (isEmailDivVisible) {
 			$emailDiv.hide().fadeIn();
@@ -195,12 +202,14 @@
 	 *
 	 * Only used on promotion forms.
 	 *
-	 * @param step string Name of the step to display
+	 * @param {string} step Name of the step to display
 	 */
 	$.pkp.controllers.modals.editorDecision.form.EditorDecisionFormHandler.
 			prototype.setStep = function(step) {
-		var emailStepContent = $('#promoteForm-step1, .promoteForm-step-btn[data-step="files"]'),
-			filesStepContent = $('#promoteForm-step2, #promoteForm-complete-btn, .promoteForm-step-btn[data-step="email"]');
+		var emailStepContent =
+						$('#promoteForm-step1, .promoteForm-step-btn[data-step="files"]'),
+				filesStepContent = $('#promoteForm-step2, #promoteForm-complete-btn,' +
+						' .promoteForm-step-btn[data-step="email"]');
 
 		if (step === 'files') {
 			filesStepContent.show();

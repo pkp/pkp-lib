@@ -587,7 +587,7 @@
 	<message key="notification.type.editorDecisionSendToProduction">Production process started.</message>
 	<message key="notification.uploadedResponse">Response uploaded.</message>
 
-	<message key="notification.type.editorAssignment">An editor must be assigned before review is initiated. Please add editor using Participants link above.</message>
+	<message key="notification.type.editorAssignment">An editor must be assigned before review is initiated. Please add editor using the Participants list.</message>
 	<message key="grid.reviewAttachments.title">Reviewer's Attachments</message>
 	<message key="submission.productionReady">Book available</message>
 	<message key="submission.review.uploadRevisionToRound">Upload Revised File</message>
@@ -609,8 +609,8 @@
 	<message key="submission.supplementary.sponsor">Contributor or sponsoring agency</message>
 	<message key="grid.action.itemWorkflow">Go to this submission's workflow</message>
 	<message key="notification.type.editorDecisionSendToProduction">Production process started.</message>
-	<message key="notification.type.editorAssignmentProduction">A production editor must be assigned before production process can be initiated. Please add production editor via the Participants link above.</message>
-	<message key="notification.type.editorAssignmentEditing">A production editor must be assigned before editorial process is initiated. Please add production editor using Participants link above.</message>
+	<message key="notification.type.editorAssignmentProduction">A production editor must be assigned before production process can be initiated. Please add a production editor using the Participants list.</message>
+	<message key="notification.type.editorAssignmentEditing">A production editor must be assigned before editorial process is initiated. Please add a production editor using the Participants list.</message>
 
 	<!--  peer review -->
 	<message key="submission.reviewForm">Review Form</message>

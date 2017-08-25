@@ -62,7 +62,7 @@
 		$('.promoteForm-step-btn', $form).click(function(e) {
 			e.preventDefault();
 			e.stopPropagation();
-			self.setStep(/** @type {string} */ $(e.target).data('step'));
+			self.setStep(/** @type {string} */ ($(e.target).data('step')));
 		});
 	};
 	$.pkp.classes.Helper.inherits(
@@ -188,7 +188,7 @@
 			}
 		});
 
-		tinyMCE.get(/** @type {string} */ textareaId).setContent(emailContent);
+		tinyMCE.get(/** @type {string} */ (textareaId)).setContent(emailContent);
 
 		if (isEmailDivVisible) {
 			$emailDiv.hide().fadeIn();

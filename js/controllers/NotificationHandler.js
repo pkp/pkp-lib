@@ -34,6 +34,10 @@
 
 		// Trigger the notify user event without bubbling up.
 		this.getHtmlElement().triggerHandler('notifyUser');
+
+		if (this.options_.refreshOn) {
+			this.bindGlobal(this.options_.refreshOn, this.fetchNotificationHandler_);
+		}
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.NotificationHandler,

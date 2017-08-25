@@ -471,7 +471,9 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 				);
 			}
 
-			return new JSONMessage(true);
+			$json = new JSONMessage(true);
+			$json->setGlobalEvent('stageStatusUpdated');
+			return $json;
 		} else {
 			// Return a JSON string indicating failure
 			return new JSONMessage(false);

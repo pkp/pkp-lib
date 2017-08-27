@@ -12,18 +12,11 @@
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
-		$('#archivingForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler', {ldelim}
-			baseUrl: {$baseUrl|json_encode}
-		{rdelim});
-
-		$('.expand-others').click(function(){ldelim}
-			$('#otherLockss').slideToggle('fast');
-		{rdelim});
-
-			var plnInstalled = $('#isPLNPluginInstalled').val();
-			if (plnInstalled == "1") {ldelim}
-				$('#otherLockss').hide();
+		$('#archivingForm').pkpHandler('$.pkp.controllers.tab.settings.archiving.form.ArchivingSettingsFormHandler',
+			{ldelim}
+				baseUrl: {$baseUrl|json_encode}
 			{rdelim}
+		);
 	{rdelim});
 </script>
 

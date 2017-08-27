@@ -35,6 +35,10 @@
 					{fbvElement type="checkbox" id="enablePln" value="1" checked=$isPLNPluginEnabled label=$enablePLNArchivingLabel translate=false}
 				{/fbvFormSection}
 			{/fbvFormArea}
+			{if $isPLNPluginEnabled}
+				{url|assign:depositsGridUrl component="plugins.generic.pln.controllers.grid.PLNStatusGridHandler" op="fetchGrid" escape=false}
+				{load_url_in_div id="depositsGridContainer" url=$depositsGridUrl}
+			{/if}
 		{/fbvFormArea}
 		<p class="expand-others">
 			<a id="toggleOthers" href="#">{translate key="manager.setup.otherLockss"}</a>

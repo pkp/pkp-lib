@@ -46,7 +46,5 @@
 	$.pkp.classes.Helper.inherits(
 		$.pkp.controllers.tab.settings.archiving.form.ArchivingSettingsFormHandler,
 		$.pkp.controllers.form.AjaxFormHandler);
-
-
 /** @param {jQuery} $ jQuery closure. */
 }(jQuery));

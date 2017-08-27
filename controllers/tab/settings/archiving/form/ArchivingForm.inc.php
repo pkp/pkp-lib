@@ -75,6 +75,8 @@ class ArchivingForm extends ContextSettingsForm {
 	 * @param $request PKPRequest
 	 */
 	function execute($request) {
+		parent::execute($request);
+
 		$versionDao = DAORegistry::getDAO('VersionDAO');
 		$product = $versionDao->getCurrentVersion("plugins.generic", "pln", true);
 		$categoryDir = PLUGINS_PREFIX . 'generic';
@@ -104,8 +106,8 @@ class ArchivingForm extends ContextSettingsForm {
 				}
 			}
 		}
-
-		parent::execute($request);
+		
+		return new JSONMessage(true, $this->fetch($request));
 	}
 }
 

@@ -110,15 +110,18 @@ class FileManager {
 	 * @return boolean returns true if successful
 	 */
 	function uploadFile($fileName, $destFileName) {
+		$returnValue = false;
 		$destDir = dirname($destFileName);
 		if (!$this->fileExists($destDir, 'dir')) {
 			// Try to create the destination directory
 			$this->mkdirtree($destDir);
 		}
 		if (!isset($_FILES[$fileName])) return false;
-		if (move_uploaded_file($_FILES[$fileName]['tmp_name'], $destFileName))
-			return $this->setMode($destFileName, FILE_MODE_MASK);
-		return false;
+		if (!move_uploaded_file($_FILES[$fileName]['tmp_name'], $destFileName)) return false;
+		$fileType = $this->getDocumentType(PKPString::mime_content_type($destFileName));
+		if (!$this->setMode($destFileName, FILE_MODE_MASK)) return false;
+		HookRegistry::call('FileManager::uploadFileFinished', array(&$fileName, &$destFileName, &$fileType, &$returnValue));
+		return true;
 	}
 
 	/**

@@ -1,5 +1,5 @@
 <template>
-	<div class="pkpListPanel__filter pkpListPanel__filter--submissions" :class="{'--isVisible': isVisible}" :aria-hidden="!isVisible">
+	<div class="pkpListPanel__filter pkpListPanel__filter--submissions" :class="{'-isVisible': isVisible}" :aria-hidden="!isVisible">
 		<div class="pkpListPanel__filterHeader pkpListPanel__filterHeader--submissions" tabindex="0">
 			<span class="fa fa-filter"></span>
 			{{ i18n.filter }}
@@ -14,7 +14,7 @@
 						<a href="#"
 							@click.prevent.stop="filterBy(filterItem.param, filterItem.val)"
 							class="pkpListPanel__filterLabel"
-							:class="{'--isActive': isFilterActive(filterItem.param, filterItem.val)}"
+							:class="{'-isActive': isFilterActive(filterItem.param, filterItem.val)}"
 							:tabindex="tabIndex"
 						>{{ filterItem.title }}</a>
 						<button

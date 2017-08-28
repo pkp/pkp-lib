@@ -62,7 +62,8 @@
 		$('.promoteForm-step-btn', $form).click(function(e) {
 			e.preventDefault();
 			e.stopPropagation();
-			self.setStep(/** @type {string} */ ($(e.target).data('step')));
+			var step = $(e.target).data('step');
+			self.setStep(/** @type {string} */ (step));
 		});
 	};
 	$.pkp.classes.Helper.inherits(

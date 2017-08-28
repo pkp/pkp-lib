@@ -32,14 +32,11 @@ set -xe # Fail on first error
 # We recommend using Travis (https://travis-ci.org/) for continuous-integration
 # based testing. Review the Travis configuration file (.travis.yml) as a
 # reference for running the test locally, should you choose to do so.
-# 
+#
 # The tests include an integration test suite that builds a data environment
 # from scratch, including the installation process. (This is the "-b" flag to
 # this script; this is also executed in the Travis environment.)
 
-## Bugs / Issues
-
-See https://github.com/pkp/pkp-lib/#issues for information on reporting issues.
 # Identify the tests directory.
 TESTS_DIR=`readlink -f "lib/pkp/tests"`
 

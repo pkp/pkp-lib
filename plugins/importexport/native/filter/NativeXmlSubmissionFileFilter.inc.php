@@ -332,7 +332,8 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 				}
 				if ($errorFlag) {
 					$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.temporaryFileFailed', array('dest' => $temporaryFilename, 'source' => $filesrc)));
-					$temporaryFileManager->deleteFile($temporaryFilename);
+					$fileManager = new FileManager();
+					$fileManager->deleteFile($temporaryFilename);
 					$temporaryFilename = '';
 				}
 				return $temporaryFilename;
@@ -355,7 +356,8 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 						$errorFlag = true;
 					}
 					if ($errorFlag) {
-						$temporaryFileManager->deleteFile($temporaryFilename);
+						$fileManager = new FileManager();
+						$fileManager->deleteFile($temporaryFilename);
 						$temporaryFilename = '';
 					}
 				}

@@ -113,7 +113,7 @@
 	{/if}
 	{if $isUserLoggedIn}
 		<li class="user" aria-haspopup="true" aria-expanded="false">
-			<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="profile"}">
+			<a href="#">
 				<span class="fa fa-user"></span>
 				{$loggedInUsername|escape}
 			</a>

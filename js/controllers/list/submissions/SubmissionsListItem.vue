@@ -188,9 +188,9 @@ export default {
 
 			// Notices for journal managers
 			if (pkp.userHasRole('manager')) {
-				if (this.activeStage.id === 1) {
+				if (this.activeStage.id === pkp.const.WORKFLOW_STAGE_ID_SUBMISSION) {
 					switch (this.activeStage.statusId) {
-						case 1: // @todo this should be a global
+						case pkp.const.STAGE_STATUS_SUBMISSION_UNASSIGNED:
 							// Only display unassigned notice for completed submissions
 							if (this.item.submissionProgress === 0) {
 								notice = this.activeStage.status;
@@ -204,11 +204,11 @@ export default {
 			if (pkp.userHasRole(['manager', 'subeditor'])) {
 				if (this.isReviewStage) {
 					switch (this.activeStage.statusId) {
-						case 6: // REVIEW_ROUND_STATUS_PENDING_REVIEWERS
-						case 8: // REVIEW_ROUND_STATUS_REVIEWS_READY
-						case 9: // REVIEW_ROUND_STATUS_REVIEWS_COMPLETED
-						case 10: // REVIEW_ROUND_STATUS_REVIEWS_OVERDUE
-						case 11: // REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED
+						case pkp.const.REVIEW_ROUND_STATUS_PENDING_REVIEWERS:
+						case pkp.const.REVIEW_ROUND_STATUS_REVIEWS_READY:
+						case pkp.const.REVIEW_ROUND_STATUS_REVIEWS_COMPLETED:
+						case pkp.const.REVIEW_ROUND_STATUS_REVIEWS_OVERDUE:
+						case pkp.const.REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED:
 							notice = this.activeStage.status;
 							break;
 					}
@@ -219,7 +219,7 @@ export default {
 			if (pkp.userHasRole(['author'])) {
 				if (this.isReviewStage) {
 					switch (this.activeStage.statusId) {
-						case 1: // REVIEW_ROUND_STATUS_REVISIONS_REQUESTED
+						case pkp.const.REVIEW_ROUND_STATUS_REVISIONS_REQUESTED:
 							notice = this.activeStage.status;
 							break;
 					}
@@ -229,9 +229,9 @@ export default {
 			// Notices for reviewers
 			if (this.currentUserIsReviewer) {
 				switch (this.currentUserLatestReviewAssignment.statusId) {
-					case 0: // REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE
-					case 4: // REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE
-					case 6: // REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE
+					case pkp.const.REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE:
+					case pkp.const.REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE:
+					case pkp.const.REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE:
 					notice = this.currentUserLatestReviewAssignment.status;
 					break;
 				}
@@ -260,7 +260,7 @@ export default {
 		 * @return bool
 		 */
 		isReviewStage: function() {
-			return this.activeStage.id === 2 || this.activeStage.id === 3;
+			return this.activeStage.id === pkp.const.WORKFLOW_STAGE_ID_INTERNAL_REVIEW || this.activeStage.id === pkp.const.WORKFLOW_STAGE_ID_EXTERNAL_REVIEW;
 		},
 
 		/**
@@ -303,20 +303,20 @@ export default {
 
 			switch (latest.statusId) {
 
-				case 0: // REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE
-				case 4: // REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE
+				case pkp.const.REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE:
+				case pkp.const.REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE:
 					latest.responsePending = true;
 					latest.reviewPending = true;
 					break;
 
-				case 5: // REVIEW_ASSIGNMENT_STATUS_ACCEPTED
-				case 6: // REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE
+				case pkp.const.REVIEW_ASSIGNMENT_STATUS_ACCEPTED:
+				case pkp.const.REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE:
 					latest.reviewPending = true;
 					break;
 
-				case 7: // REVIEW_ASSIGNMENT_STATUS_RECEIVED
-				case 8: // REVIEW_ASSIGNMENT_STATUS_COMPLETE
-				case 9: // REVIEW_ASSIGNMENT_STATUS_THANKED
+				case pkp.const.REVIEW_ASSIGNMENT_STATUS_RECEIVED:
+				case pkp.const.REVIEW_ASSIGNMENT_STATUS_COMPLETE:
+				case pkp.const.REVIEW_ASSIGNMENT_STATUS_THANKED:
 					latest.reviewComplete = true;
 					break;
 			}
@@ -334,7 +334,7 @@ export default {
 				return 0;
 			}
 			return _.filter(this.currentReviewAssignments, function(review) {
-				return review.statusId >= 7; // REVIEW_ASSIGNMENT_STATUS_RECEIVED and above
+				return review.statusId >= pkp.const.REVIEW_ASSIGNMENT_STATUS_RECEIVED;
 			}).length;
 		},
 

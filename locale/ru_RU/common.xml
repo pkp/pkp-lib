@@ -543,7 +543,7 @@
 	<message key="user.authorization.submissionAuthor">Данный пользователь не является автором запрошенного материала. Пожалуйста, проверьте, что вы вошли в систему с правильной учетной записью пользователя.</message>
 	<message key="notification.type.queryActivity">Активность обсуждений.</message>
 	<message key="notification.type.queryAdded">Добавлено обсуждение.</message>
-	<message key="notification.type.assignCopyeditors">Назначьте литературного редактора, используя ссылку «Добавить» в списке «Участники».</message>
+	<message key="notification.type.assignCopyeditors">Назначьте литературного редактора, используя ссылку «Назначить» в списке «Участники».</message>
 	<message key="notification.type.awaitingCopyedits">Ожидание литературного редактирование.</message>
 	<message key="notification.type.roundStatusTitle">Статус раунда {$round}</message>
 </locale>

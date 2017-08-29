@@ -27,6 +27,8 @@ class ArchivingForm extends ContextSettingsForm {
 			'enablePln' => 'bool',
 		);
 
+		$this->addCheck(new FormValidatorCSRF($this));
+
 		parent::__construct($settings, 'controllers/tab/settings/archiving/form/archivingForm.tpl', $wizardMode);
 	}
 
@@ -96,7 +98,7 @@ class ArchivingForm extends ContextSettingsForm {
 					}
 				} else {
 					if ($plugin->getEnabled()) {
-						if ($request->checkCSRF() && $plugin->getCanDisable()) {
+						if ($plugin->getCanDisable()) {
 							$plugin->setEnabled(false);
 							$user = $request->getUser();
 							$notificationManager = new NotificationManager();
@@ -106,7 +108,7 @@ class ArchivingForm extends ContextSettingsForm {
 				}
 			}
 		}
-		
+
 		return new JSONMessage(true, $this->fetch($request));
 	}
 }

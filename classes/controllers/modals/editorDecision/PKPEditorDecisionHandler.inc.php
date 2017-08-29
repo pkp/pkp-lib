@@ -277,7 +277,7 @@ class PKPEditorDecisionHandler extends Handler {
 	 * Show the editor recommendation form
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage
 	 */
 	function sendRecommendation($args, $request) {
 		// Retrieve the authorized submission, stage id and review round.
@@ -298,7 +298,7 @@ class PKPEditorDecisionHandler extends Handler {
 	 * Show the editor recommendation form
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage
 	 */
 	function saveRecommendation($args, $request) {
 		// Retrieve the authorized submission, stage id and review round.

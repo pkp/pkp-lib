@@ -374,8 +374,8 @@
 	<message key="stageParticipants.notify.chooseMessage">Choose a predefined message to use, or fill out the form below.</message>
 	<message key="stageParticipants.notify.message">Message</message>
 	<message key="stageParticipants.notify.warning">Please ensure that you have filled out the message field and selected at least one recipient.</message>
-	<message key="stageParticipants.options">Stage participants options</message>
-	<message key="stageParticipants.recommendOnly">The users can not make a review decission, only a recommendation.</message>
+	<message key="stageParticipants.options">Assignment privileges</message>
+	<message key="stageParticipants.recommendOnly">This participant is only allowed to recommend an editorial decision and will require an authorised editor to record editorial decisions.</message>
 
 	<message key="locale.primary">Primary locale</message>
 	<message key="locale.supported">Supported locales</message>

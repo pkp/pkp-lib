@@ -429,7 +429,7 @@
 	<message key="settings.roles.roleOptions">Role Options</message>
 	<message key="settings.roles.showTitles">Show role title in contributor list</message>
 	<message key="settings.roles.permitSelfRegistration">Allow user self-registration</message>
-	<message key="settings.roles.recommendOnly">This role can not make a review decission, only a recommendation.</message>
+	<message key="settings.roles.recommendOnly">This role is only allowed to recommend a review decision and will require an authorised editor to record a final decision.</message>
 	<message key="settings.roles.roleName">Role Name</message>
 	<message key="settings.roles.roleAbbrev">Abbreviation</message>
 	<message key="settings.roles.assignedStages">Assigned Stages</message>

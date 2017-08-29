@@ -203,15 +203,13 @@
 			updateRecommendOnly = function(roleId) {
 
 		// JQuerify the element
-		var $checkbox = $('[id^="recommendOnly"]'),
-				$form = this.getHtmlElement(),
+		var $checkbox = $('[id^=\'recommendOnly\']', this.getHtmlElement()),
 				i,
 				found = false;
 
 		for (i = 0; i < this.recommendOnlyRoleIds_.length; i++) {
 			if (this.recommendOnlyRoleIds_[i] == roleId) {
 				found = true;
-
 			}
 		}
 

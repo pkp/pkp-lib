@@ -194,32 +194,61 @@ abstract class PKPWorkflowHandler extends Handler {
 			$actionArgs['reviewRoundId'] = $reviewRoundId;
 			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
 			$lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
+			$reviewRound = $reviewRoundDao->getById($reviewRoundId);
 		}
 
 		// If a review round was specified,
 
 		// If there is an editor assigned, retrieve stage decisions.
-		// See if the  curent user can only recommend:
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+		$editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $stageId);
 		$dispatcher = $request->getDispatcher();
 		$user = $request->getUser();
-		$editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $stageId);
-		// if the user is assigned several times in the editorial role, and
-		// one of the assignments have recommendOnly option set, consider it here
-		$recommendOnly = false;
-		foreach ($editorsStageAssignments as $editorsStageAssignment) {
-			if ($editorsStageAssignment->getUserId() == $user->getId() && $editorsStageAssignment->getRecommendOnly()) {
-				$recommendOnly = true;
-				break;
+
+		// If it is a review stage, check if the user can make decisions or recommend only
+		$recommendOnly = $makeDecision = false;
+		if ($reviewRoundId) {
+			// if the user is assigned several times in an editorial role, check his/her assignments permissions i.e.
+			// if the user is assigned with both possibilities: to only recommend as well as make decision
+			foreach ($editorsStageAssignments as $editorsStageAssignment) {
+				if ($editorsStageAssignment->getUserId() == $user->getId()) {
+					if (!$editorsStageAssignment->getRecommendOnly()) {
+						$makeDecision = true;
+					} else {
+						$recommendOnly = true;
+					}
+				}
 			}
 		}
+
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
 		if (!empty($editorsStageAssignments) && (!$reviewRoundId || $reviewRoundId == $lastReviewRound->getId())) {
 			import('classes.workflow.EditorDecisionActionsManager');
-			// if it is a review stage and the user has "recommend only role"
+			$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
+			$recommendationOptions = EditorDecisionActionsManager::getRecommendationOptions();
+			$editorActions = array();
+			$lastRecommendation = $allRrecommendations = null;
+			// If this is a review stage and the user has "recommend only role"
 			if (($stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_PATH_INTERNAL_REVIEW) && $recommendOnly) {
+				// Get the made editorial decisions from the current user
+				$editorDecisions = $editDecisionDao->getEditorDecisions($submission->getId(), $stageId, $reviewRound->getRound(), $user->getId());
+				// Get the last recommendation
+				foreach ($editorDecisions as $editorDecision) {
+					if (array_key_exists($editorDecision['decision'], $recommendationOptions)) {
+						if ($lastRecommendation) {
+							if ($editorDecision['dateDecided'] >= $lastRecommendation['dateDecided']) {
+								$lastRecommendation = $editorDecision;
+							}
+						} else {
+							$lastRecommendation = $editorDecision;
+						}
+					}
+				}
+				if ($lastRecommendation) {
+					$lastRecommendation = __($recommendationOptions[$lastRecommendation['decision']]);
+				}
 				// Add the recommend link action.
-				$editorActions = array(
+				$editorActions[] =
 					new LinkAction(
 						'recommendation',
 						new AjaxModal(
@@ -228,16 +257,39 @@ abstract class PKPWorkflowHandler extends Handler {
 								'modals.editorDecision.EditorDecisionHandler',
 								'sendRecommendation', null, $actionArgs
 							),
-							__('editor.submission.recommend'),
+							$lastRecommendation ? __('editor.submission.changeRecommendation') : __('editor.submission.makeRecommendation'),
 							'review_recommendation'
 						),
-						__('editor.submission.recommend')
-					)
-				);
-			} else {
+						$lastRecommendation ? __('editor.submission.changeRecommendation') : __('editor.submission.makeRecommendation')
+					);
+			}
+			// If this is not a review stage or the user can make decision
+			if (!($stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_PATH_INTERNAL_REVIEW) || $makeDecision) {
+				if ($makeDecision) { // It is a review stage
+					// Get the made editorial decisions from all users
+					$editorDecisions = $editDecisionDao->getEditorDecisions($submission->getId(), $stageId, $reviewRound->getRound());
+					// Get all recommendations
+					$recommendations = array();
+					foreach ($editorDecisions as $editorDecision) {
+						if (array_key_exists($editorDecision['decision'], $recommendationOptions)) {
+							if (array_key_exists($editorDecision['editorId'], $recommendations)) {
+								if ($editorDecision['dateDecided'] >= $recommendations[$editorDecision['editorId']]['dateDecided']) {
+									$recommendations[$editorDecision['editorId']] = array('dateDecided' => $editorDecision['dateDecided'], 'decision' => $editorDecision['decision']);;
+								}
+							} else {
+								$recommendations[$editorDecision['editorId']] = array('dateDecided' => $editorDecision['dateDecided'], 'decision' => $editorDecision['decision']);
+							}
+						}
+					}
+					$i = 0;
+					foreach ($recommendations as $recommendation) {
+						$allRrecommendations .= $i == 0 ? __($recommendationOptions[$recommendation['decision']]) : ', ' . __($recommendationOptions[$recommendation['decision']]);
+						$i++;
+					}
+				}
+				// Get the possible editor decisions for this stage
 				$decisions = EditorDecisionActionsManager::getStageDecisions($stageId);
 				// Iterate through the editor decisions and create a link action for each decision.
-				$editorActions = array();
 				foreach($decisions as $decision => $action) {
 					$actionArgs['decision'] = $decision;
 					$editorActions[] = new LinkAction(
@@ -255,14 +307,14 @@ abstract class PKPWorkflowHandler extends Handler {
 					);
 				}
 			}
-		} else {
-			$decisions = array(); // None available
 		}
 
 		// Assign the actions to the template.
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('editorActions', $editorActions);
 		$templateMgr->assign('stageId', $stageId);
+		$templateMgr->assign('lastRecommendation', $lastRecommendation);
+		$templateMgr->assign('allRrecommendations', $allRrecommendations);
 		return $templateMgr->fetchJson('workflow/editorialLinkActions.tpl');
 	}
 

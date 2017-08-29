@@ -115,7 +115,6 @@ class RecommendationForm extends Form {
 		$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
 		$editorRecommendations = $editDecisionDao->getEditorDecisions($submission->getId(), $this->getStageId(), null, $user->getId());
 
-
 		// Set form data
 		$recommendationOptions = EditorDecisionActionsManager::getRecommendationOptions();
 		$data = array(
@@ -137,7 +136,7 @@ class RecommendationForm extends Form {
 	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {
-		$this->readUserVars(array('recommendation', 'personalMessage', 'skipEmail'));
+		$this->readUserVars(array('recommendation', 'personalMessage', 'skipEmail', 'skipDiscussion'));
 		parent::readInputData();
 	}
 
@@ -158,34 +157,30 @@ class RecommendationForm extends Form {
 		$actionLabels = array($recommendation => $recommendationOptions[$recommendation]);
 		$editorAction->recordDecision($request, $submission, $recommendation, $actionLabels, $reviewRound, $this->getStageId(), true);
 
-		// Send the email to the decision making editors assigned to this submission.
-		import('lib.pkp.classes.mail.SubmissionMailTemplate');
-		$email = new SubmissionMailTemplate($submission, 'EDITOR_RECOMMENDATION', null, null, null, false);
-		$email->setBody($this->getData('personalMessage'));
-		// Get decision making editors in the same way as for the email template form,
-		// that recommending editor sees.
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-		$userDao = DAORegistry::getDAO('UserDAO');
-		$editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $this->getStageId());
-		$editorsStr = '';
-		$i = 0;
-		foreach ($editorsStageAssignments as $editorsStageAssignment) {
-			if (!$editorsStageAssignment->getRecommendOnly()) {
-				$editor = $userDao->getById($editorsStageAssignment->getUserId());
-				$editorFullName = $editor->getFullName();
-				$editorsStr .= ($i == 0) ? $editorFullName : ', ' . $editorFullName;
-				$email->addRecipient($editor->getEmail(), $editorFullName);
-				$i++;
-			}
-		}
-
-		DAORegistry::getDAO('SubmissionEmailLogDAO'); // Load constants
-		$email->setEventType(SUBMISSION_EMAIL_EDITOR_RECOMMEND_NOTIFY);
-
-		if (!$this->getData('skipEmail')) {
+		if (!$this->getData('skipEmail') || !$this->getData('skipDiscussion')) {
 			$router = $request->getRouter();
-			$dispatcher = $router->getDispatcher();
 			$user = $request->getUser();
+
+			// Send the email to the decision making editors assigned to this submission.
+			import('lib.pkp.classes.mail.SubmissionMailTemplate');
+			$email = new SubmissionMailTemplate($submission, 'EDITOR_RECOMMENDATION', null, null, null, false);
+			$email->setBody($this->getData('personalMessage'));
+
+			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+			$userDao = DAORegistry::getDAO('UserDAO');
+			$editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $this->getStageId());
+			foreach ($editorsStageAssignments as $editorsStageAssignment) {
+				if (!$editorsStageAssignment->getRecommendOnly()) {
+					$editor = $userDao->getById($editorsStageAssignment->getUserId());
+					$editorFullName = $editor->getFullName();
+					$email->addRecipient($editor->getEmail(), $editorFullName);
+				}
+			}
+
+			DAORegistry::getDAO('SubmissionEmailLogDAO'); // Load constants
+			$email->setEventType(SUBMISSION_EMAIL_EDITOR_RECOMMEND_NOTIFY);
+
+			$dispatcher = $router->getDispatcher();
 			$submissionUrl = $dispatcher->url($request, ROUTE_PAGE, null, 'workflow', 'index', $submission->getId());
 			$email->assignParams(array(
 				'editors' => $this->getData('editors'),
@@ -193,7 +188,60 @@ class RecommendationForm extends Form {
 				'submissionUrl' => $submissionUrl,
 				'recommendation' => __($recommendationOptions[$recommendation]),
 			));
-			$email->send($request);
+			if (!$this->getData('skipEmail')) {
+				$email->send($request);
+			}
+
+			if (!$this->getData('skipDiscussion')) {
+				// Create a discussion
+				$queryDao = DAORegistry::getDAO('QueryDAO');
+				$query = $queryDao->newDataObject();
+				$query->setAssocType(ASSOC_TYPE_SUBMISSION);
+				$query->setAssocId($submission->getId());
+				$query->setStageId($this->getStageId());
+				$query->setSequence(REALLY_BIG_NUMBER);
+				$queryDao->insertObject($query);
+				$queryDao->resequence(ASSOC_TYPE_SUBMISSION, $submission->getId());
+
+				// Add the decision making editors as discussion participants
+				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+				$userDao = DAORegistry::getDAO('UserDAO');
+				$discussionParticipantsIds = array();
+				$editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $this->getStageId());
+				foreach ($editorsStageAssignments as $editorsStageAssignment) {
+					if (!$editorsStageAssignment->getRecommendOnly()) {
+						if (!in_array($editorsStageAssignment->getUserId(), $discussionParticipantsIds)) {
+							$discussionParticipantsIds[] = $editorsStageAssignment->getUserId();
+							$queryDao->insertParticipant($query->getId(), $editorsStageAssignment->getUserId());
+						}
+					}
+				}
+
+				$noteDao = DAORegistry::getDAO('NoteDAO');
+				$note = $noteDao->newDataObject();
+				$note->setAssocType(ASSOC_TYPE_QUERY);
+				$note->setAssocId($query->getId());
+				$note->setContents($email->getBody());
+				$note->setTitle(__('editor.submission.recommendation'));
+				$note->setDateCreated(Core::getCurrentDate());
+				$note->setDateModified(Core::getCurrentDate());
+				$note->setUserId( $user->getId());
+				$noteDao->insertObject($note);
+
+				// Add task
+				$notificationMgr = new NotificationManager();
+				foreach ($discussionParticipantsIds as $discussionParticipantsId) {
+					$notificationMgr->createNotification(
+						$request,
+						$discussionParticipantsId,
+						NOTIFICATION_TYPE_NEW_QUERY,
+						$request->getContext()->getId(),
+						ASSOC_TYPE_QUERY,
+						$query->getId(),
+						NOTIFICATION_LEVEL_TASK
+					);
+				}
+			}
 		}
 	}
 

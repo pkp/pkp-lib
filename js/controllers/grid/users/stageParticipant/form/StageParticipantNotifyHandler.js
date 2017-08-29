@@ -39,14 +39,21 @@
 			this.templateUrl_ = options.templateUrl;
 		}
 
-		// Set the user group IDs with the recommendOnly setting
+		// Set the user group IDs with the recommendOnly possibility
+		if (options.possibleRecommendOnlyUserGroupIds) {
+			this.possibleRecommendOnlyUserGroupIds_ =
+					options.possibleRecommendOnlyUserGroupIds;
+		}
+
+		// Set the user group IDs with the recommendOnly option set
 		if (options.recommendOnlyUserGroupIds) {
 			this.recommendOnlyUserGroupIds_ = options.recommendOnlyUserGroupIds;
 		}
 
-		// Update the recommendOnly option when user group changes
-		$('input[name=\'userGroupId\']', $form).change(
-				this.callbackWrapper(this.updateRecommendOnly));
+		// Update the recommendOnly option display when user group changes
+		// or user is selected
+		$('input[name=\'userGroupId\'], input[name=\'userIdSelected\']', $form)
+			.change(this.callbackWrapper(this.updateRecommendOnly));
 
 		// Attach form elements events.
 		$form.find('#template').change(
@@ -120,32 +127,46 @@
 
 	/**
 	 * Update the enabled/disabled and checked state of the recommendOnly checkbox.
+	 * @param {HTMLElement} sourceElement The element that
+	 *  issued the event.
+	 * @param {Event} event The triggering event.
 	 */
 	$.pkp.controllers.grid.users.stageParticipant.form.
-			StageParticipantNotifyHandler.prototype.updateRecommendOnly = function() {
+			StageParticipantNotifyHandler.prototype.updateRecommendOnly =
+			function(sourceElement, event) {
 
 		var $form = this.getHtmlElement(),
 				$filterUserGroupId = $form.find('input[name=\'userGroupId\']'),
-				$checkbox = $('[id^=\'recommendOnly\']'),
-				$checkboxDiv = $('div.recommendOnlyClass'),
+				$checkbox = $form.find('input[id^=\'recommendOnly\']'),
+				$checkboxDiv = $form.find('.recommendOnlyWrapper'),
 				i,
 				found = false,
 				filterUserGroupIdVal = /** @type {string} */ $filterUserGroupId.val();
 
-		for (i = 0; i < this.recommendOnlyUserGroupIds_.length; i++) {
-			if (this.recommendOnlyUserGroupIds_[i] == filterUserGroupIdVal) {
-				found = true;
-			}
-		}
-
-		if (found) {
-			$checkbox.removeAttr('disabled');
-			$checkbox.prop('checked', true);
-			$checkboxDiv.show();
-		} else {
+		// If user group changes, hide the recommendOnly option
+		if ($(sourceElement).prop('name') == 'userGroupId') {
 			$checkbox.attr('disabled', 'disabled');
 			$checkbox.removeAttr('checked');
 			$checkboxDiv.hide();
+		} else if ($(sourceElement).prop('name') == 'userIdSelected' &&
+				!$checkboxDiv.is(':visible')) {
+			// Display recommendOnly option if
+			// an user group with a possible recommendOnly option is selected
+			for (i = 0; i < this.possibleRecommendOnlyUserGroupIds_.length; i++) {
+				if (this.possibleRecommendOnlyUserGroupIds_[i] == filterUserGroupIdVal) {
+					$checkbox.removeAttr('disabled');
+					$checkboxDiv.show();
+					// Select the recommendOnly option if
+					// an user group with a recommendOnly option set is selected
+					for (i = 0; i < this.recommendOnlyUserGroupIds_.length; i++) {
+						if (this.recommendOnlyUserGroupIds_[i] == filterUserGroupIdVal) {
+							$checkbox.prop('checked', true);
+							break;
+						}
+					}
+					break;
+				}
+			}
 		}
 	};
 

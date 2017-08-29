@@ -10,6 +10,20 @@
 {if !empty($editorActions)}
 	{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR), (array)$userRoles)}
 		<ul class="pkp_workflow_decisions">
+			{if $allRrecommendations}
+				<li>
+					<div class="pkp_workflow_recommendations">
+						{translate key="editor.submission.allRrecommendations.display" recommendations=$allRrecommendations}
+					</div>
+				</li>
+			{/if}
+			{if $lastRecommendation}
+				<li>
+					<div class="pkp_workflow_recommendations">
+						{translate key="editor.submission.recommendation.display" recommendation=$lastRecommendation}
+					</div>
+				</li>
+			{/if}
 			{foreach from=$editorActions item=action}
 				<li>
 					{include file="linkAction/linkAction.tpl" action=$action contextId=$contextId}

@@ -73,7 +73,12 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 		$templateMgr->assign('userGroupOptions', $userGroupOptions);
 		// assigned the first element as selected
 		$templateMgr->assign('selectedUserGroupId', array_shift(array_keys($userGroupOptions)));
-		// assign recommendOnly user group IDs and recommendOnly option of the first user group ID
+		// assign all user group IDs with ROLE_ID_MANAGER or ROLE_ID_SUB_EDITOR
+		$managerGroupIds = $userGroupDao->getUserGroupIdsByRoleId(ROLE_ID_MANAGER, $request->getContext()->getId());
+		$subEditorGroupIds = $userGroupDao->getUserGroupIdsByRoleId(ROLE_ID_SUB_EDITOR, $request->getContext()->getId());
+		$possibleRecommendOnlyUserGroupIds = array_merge($managerGroupIds, $subEditorGroupIds);
+		$templateMgr->assign('possibleRecommendOnlyUserGroupIds', $possibleRecommendOnlyUserGroupIds);
+		// assign user group IDs with recommendOnly option set
 		$templateMgr->assign('recommendOnlyUserGroupIds', $userGroupDao->getRecommendOnlyGroupIds($request->getContext()->getId()));
 
 		// assign the vars required for the request

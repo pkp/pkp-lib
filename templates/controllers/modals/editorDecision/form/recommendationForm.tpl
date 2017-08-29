@@ -25,7 +25,7 @@
 	{if !empty($editorRecommendations)}
 		{fbvFormSection label="editor.submission.recordedRecommendations"}
 			{foreach from=$editorRecommendations item=editorRecommendation}
-				<div class="pkp_controllers_informationCenter_itemLastEvent">
+				<div>
 					{translate key="submission.round" round=$editorRecommendation.round} ({$editorRecommendation.dateDecided|date_format:$datetimeFormatShort}): {translate key=$recommendationOptions[$editorRecommendation.decision]}
 				</div>
 			{/foreach}
@@ -40,12 +40,16 @@
 		{fbvElement type="text" id="editors" name="editors" value=$editors disabled=true}
 	{/fbvFormSection}
 
-	{fbvFormSection title="editor.review.personalMessageToAuthor" for="personalMessage"}
+	{fbvFormSection title="stageParticipants.notify.message" for="personalMessage"}
 		{fbvElement type="textarea" name="personalMessage" id="personalMessage" value=$personalMessage rich=true variables=$allowedVariables variablesType=$allowedVariablesType}
 	{/fbvFormSection}
 
 	{fbvFormSection for="skipEmail" size=$fbvStyles.size.MEDIUM list=true}
-		{fbvElement type="checkbox" id="skipEmail" name="skipEmail" label="editor.submissionReview.skipEmail"}
+		{fbvElement type="checkbox" id="skipEmail" name="skipEmail" label="editor.submissionReview.recordRecommendation.skipEmail"}
+	{/fbvFormSection}
+
+	{fbvFormSection for="skipDiscussion" size=$fbvStyles.size.MEDIUM list=true}
+		{fbvElement type="checkbox" id="skipDiscussion" name="skipDiscussion" label="editor.submissionReview.recordRecommendation.skipDiscussion"}
 	{/fbvFormSection}
 
 	{fbvFormButtons submitText="editor.submissionReview.recordRecommendation"}

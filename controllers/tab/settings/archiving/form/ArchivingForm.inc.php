@@ -78,7 +78,7 @@ class ArchivingForm extends ContextSettingsForm {
 		parent::execute($request);
 
 		$versionDao = DAORegistry::getDAO('VersionDAO');
-		$product = $versionDao->getCurrentVersion("plugins.generic", "pln", true);
+		$product = $versionDao->getCurrentVersion('plugins.generic', 'pln', true);
 		$categoryDir = PLUGINS_PREFIX . 'generic';
 		if (isset($product)) {
 			$file = $product->getProduct();

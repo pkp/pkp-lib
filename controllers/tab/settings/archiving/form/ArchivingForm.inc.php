@@ -84,25 +84,27 @@ class ArchivingForm extends ContextSettingsForm {
 		if (isset($product)) {
 			$plugin = PluginRegistry::loadPlugin('generic', 'pln');
 			if ($plugin && is_object($plugin)) {
+				$notification = null;
+
 				if (isset($this->_data['enablePln'])) {
 					if (!$plugin->getEnabled()) {
 						if ($plugin->getCanEnable()) {
 							$plugin->setEnabled(true);
-							$user = $request->getUser();
-							$notificationManager = new NotificationManager();
-							$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_PLUGIN_ENABLED, array('pluginName' => $plugin->getDisplayName()));
+							$notification = NOTIFICATION_TYPE_PLUGIN_ENABLED;
 						}
 					}
 				} else {
 					if ($plugin->getEnabled()) {
 						if ($plugin->getCanDisable()) {
 							$plugin->setEnabled(false);
-							$user = $request->getUser();
-							$notificationManager = new NotificationManager();
-							$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_PLUGIN_DISABLED, array('pluginName' => $plugin->getDisplayName()));
+							$notification = NOTIFICATION_TYPE_PLUGIN_DISABLED;
 						}
 					}
 				}
+
+				$user = $request->getUser();
+				$notificationManager = new NotificationManager();
+				$notificationManager->createTrivialNotification($user->getId(), $notification, array('pluginName' => $plugin->getDisplayName()));
 			}
 		}
 

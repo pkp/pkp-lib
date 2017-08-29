@@ -35,12 +35,9 @@
 			</div>
 		{/if}
 
-		<div class="pkp_brand_footer" role="complementary" aria-label="{translate|escape key="about.aboutThisPublishingSystem"}">
-			<a href="{url page="about" op="aboutThisPublishingSystem"}">
-				<img alt="{translate key=$packageKey}" src="{$baseUrl}/{$brandImage}">
-			</a>
+		<div class="pkp_brand_footer" role="complementary">
 			<a href="{$pkpLink}">
-				<img alt="{translate key="common.publicKnowledgeProject"}" src="{$baseUrl}/lib/pkp/templates/images/pkp_brand.png">
+				<img alt="{translate key="common.publicKnowledgeProject"}" src="{$baseUrl}/{$brandImage}">
 			</a>
 		</div>
 	</div>

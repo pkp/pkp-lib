@@ -81,11 +81,8 @@ class ArchivingForm extends ContextSettingsForm {
 
 		$versionDao = DAORegistry::getDAO('VersionDAO');
 		$product = $versionDao->getCurrentVersion('plugins.generic', 'pln', true);
-		$categoryDir = PLUGINS_PREFIX . 'generic';
 		if (isset($product)) {
-			$file = $product->getProduct();
-
-			$plugin =& PluginRegistry::_instantiatePlugin('generic', $categoryDir, $file, $product->getProductClassname());
+			$plugin = PluginRegistry::loadPlugin('generic', 'pln');
 			if ($plugin && is_object($plugin)) {
 				if (isset($this->_data['enablePln'])) {
 					if (!$plugin->getEnabled()) {

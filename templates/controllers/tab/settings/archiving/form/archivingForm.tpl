@@ -24,8 +24,8 @@
 	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="archivingFormNotification"}
 
-	<input type="hidden" value="{$isPLNPluginInstalled}" id="isPLNPluginInstalled" name="isPLNPluginInstalled" />
-	<input type="hidden" value="{$isPLNPluginEnabled}" id="isPLNPluginEnabled" name="isPLNPluginEnabled" />
+	<input type="hidden" value="{$isPLNPluginInstalled|escape}" id="isPLNPluginInstalled" name="isPLNPluginInstalled" />
+	<input type="hidden" value="{$isPLNPluginEnabled|escape}" id="isPLNPluginEnabled" name="isPLNPluginEnabled" />
 
 	{if $isPLNPluginInstalled}
 		{fbvFormArea id="mainLockss"}

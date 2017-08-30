@@ -72,7 +72,7 @@
 
 				{* Primary site navigation *}
 				{if $currentContext}
-					<nav id="pkp_content_nav" class="pkp_navigation_primary_row navDropdownMenu" aria-label="{translate|escape key="common.navigation.site"}">
+					<nav id="pkp_content_nav" class="pkp_navigation_primary_row" aria-label="{translate|escape key="common.navigation.site"}">
 						<div class="pkp_navigation_primary_wrapper">
 
 							{* Primary navigation menu for current application *}
@@ -84,10 +84,10 @@
 					</nav>
 				{/if}
 
-				<nav class="pkp_navigation_user_wrapper navDropdownMenu" id="navigationUserWrapper" aria-label="{translate|escape key="common.navigation.user"}">
+				<nav class="pkp_navigation_user_wrapper" id="navigationUserWrapper" aria-label="{translate|escape key="common.navigation.user"}">
 					<ul id="navigationUser" class="pkp_navigation_user pkp_nav_list">
 						{if $isUserLoggedIn}
-							<li class="profile {if $unreadNotificationCount} has_tasks{/if}" aria-haspopup="true" aria-expanded="false">
+							<li class="profile {if $unreadNotificationCount} has_tasks{/if}">
 								<a href="{url router=$smarty.const.ROUTE_PAGE page="submissions"}">
 									{$loggedInUsername|escape}
 									<span class="task_count">

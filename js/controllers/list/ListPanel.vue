@@ -46,7 +46,7 @@ export default {
 	},
 	computed: {
 		classStatus: function() {
-			return { '--isLoading': this.isLoading };
+			return { '-isLoading': this.isLoading };
 		},
 		itemCount: function() {
 			return this.collection.items.length;

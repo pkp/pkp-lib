@@ -4,7 +4,7 @@
 			<div class="pkpListPanel__title">{{ i18n.title }}</div>
 			<ul class="pkpListPanel__actions">
 				<li v-if="currentUserCanFilter">
-					<button @click.prevent="toggleFilter" :class="{'--isActive': isFilterVisible}">
+					<button @click.prevent="toggleFilter" :class="{'-isActive': isFilterVisible}">
 						<span class="fa fa-filter"></span>
 						{{ i18n.filter }}
 					</button>

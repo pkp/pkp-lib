@@ -1,5 +1,5 @@
 <template>
-	<div href="#" @click.prevent="toggleFilter" class="pkpListPanel__filter" :class="{'--isVisible': this.isVisible}">
+	<div class="pkpListPanel__filter" :class="{'-isVisible': this.isVisible}">
 		<div class="pkpListPanel__filterHeader" tabindex="0">
 			<span class="fa fa-filter"></span>
 			{{ i18n.filter }}

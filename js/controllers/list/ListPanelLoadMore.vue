@@ -17,7 +17,7 @@ export default {
 	props: ['isLoading', 'i18n'],
 	computed: {
 		classLoadingMore: function() {
-			return { '--isLoadingMore': this.isLoading };
+			return { '-isLoadingMore': this.isLoading };
 		},
 	},
 	methods: {

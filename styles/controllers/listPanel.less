@@ -13,7 +13,7 @@
 	box-shadow: 0 1px 1px rgba(0,0,0,0.2);
 	border-radius: @radius;
 
-	&.--isLoading {
+	&.-isLoading {
 
 		.pkpListPanel__title:after {
 			&:extend(.pkp_spinner:after);
@@ -61,7 +61,7 @@
 		color: @primary;
 		text-decoration: none;
 
-		&.--isActive {
+		&.-isActive {
 			background: @primary;
 			border-color: @primary;
 			color: #fff;
@@ -73,7 +73,7 @@
 			outline: 0;
 		}
 
-		&.--isWarnable {
+		&.-isWarnable {
 			color: @no;
 			border-color: @no-btn-border;
 
@@ -108,6 +108,7 @@
 		border-radius: @radius;
 		font-size: @font-sml;
 		line-height: @double;
+		-webkit-appearance: none; /* Override Safari search input styles */
 
 		&:hover {
 			border-color: @primary;
@@ -287,7 +288,7 @@
 		outline: 0;
 	}
 
-	&.--isActive {
+	&.-isActive {
 		font-weight: @bold;
 	}
 }
@@ -315,7 +316,7 @@
 	&:extend(.pkp_screen_reader);
 }
 
-.pkpListPanel__filter.--isVisible {
+.pkpListPanel__filter.-isVisible {
 	float: left;
 	position: relative;
 	left: auto;
@@ -465,7 +466,7 @@
 	float: right;
 }
 
-.pkpListPanel__loadMore.--isLoadingMore {
+.pkpListPanel__loadMore.-isLoadingMore {
 
 	.pkpListPanel__loadMoreButton {
 		opacity: 0;
@@ -544,7 +545,7 @@
 	}
 }
 
-.pkpListPanel.--isOrdering {
+.pkpListPanel.-isOrdering {
 
 	// Hide other items on screen
 	.pkpListPanel__actions > li:not(.pkpListPanel__orderToggle):not(.pkpListPanel__orderToggleCancel),

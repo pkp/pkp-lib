@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * plugins/generic/usageStats/locale/pt_PT/locale.xml
+  *
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2003-2017 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  * Locale information: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Portuguese_(pt_PT)
+  * Localization strings
+  -->
+
+<locale name="pt_PT" full_name="Português (Portugal)">
+	<message key="plugins.generic.usageStats.settings.logging">Opções de registo de acesso</message>
+	<message key="plugins.generic.usageStats.settings.createLogFiles">Criar Ficheiros de registo</message>
+	<message key="plugins.generic.usageStats.settings.createLogFiles.description">Activar esta opção fará com que o plugin crie registos de acesso dentro do pasta especificada. Esses registos devem ser usados para extrair estatísticas de utilização. Se não desejar criar mais registos de acesso, pode deixar esta opção em branco e utilizar os registos do servidor.</message>
+	<message key="plugins.generic.usageStats.settings.logParseRegex">Analisar registos com Expressões Regulares</message>
+	<message key="plugins.generic.usageStats.settings.logParseRegex.description">As expressões regulares utilizadas por omissão conseguem analisar registos de acesso do Apache, assim como o formato utilizado pelo plugin. Se os seus registos de acesso estiverem num formato diferente, terá que inserir uma expressão regular capaz de analisar e fornecer os valores esperados. Ver UsageStatsLoader::_getDataFromLogEntry() para mais informação.</message>
+	<message key="plugins.generic.usageStats.settings.saved">Configurações do Plugin de Utilização gravadas</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption">Opção de Privacidade dos Dados</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.saltFilepath">Caminho para o ficheiro de anonimização</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.saltFilepath.invalid">O ficheiro de código para anonimzação não tem permissões para escrita.</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.requirements"> Para garantir a privacidade dos dados, deve especificar um ficheiro com permissões de escrita e leitura que contém um valor de sal gerado aleatóriamente. Esta ficheiro não deve ser guardado como cópia de segurança para garantir maior nível de proteção. O valor da granularidade deve ser gerado aleatoriamente utilizando: a função mcrypt_create_iv, que requer a extensão de PHP mcrypt; a função openssl_random_pseudo_bytes, que requer o openssl do PHP, o ficheiro /dev/urandom, que apenas funciona com os sistema *nix; ou a função mt_rand, que não é criptograficamente segura. Deste modo, se estiver a utilizar o Windows server, por favor garanta que instalou ou a extensão PHP mcrypt ou o openssl está activo para ser possivel ter um valor de sal criptograficamente gerado</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.description">Active esta opção para utilizar uma versão do plugin que respeita a legislação de privacidade, i.e., que registe valores de IP cifrados, informe os utilizadores sobre a acção de monitorização e que forneça a opção de exclusão para os utilizadores interessados. Nota: quando utilizador esta opção, não será possível utilizar funcionalidades de geolocalização do plugin.</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.requiresSalt">Activar a privacidade dos dados requer um ficheiro de Sal.</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.excludesCity">Activar a privacidade dos dados excluí "Cidade" como uma estatística opcional.</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.excludesRegion">Activar a privacidade dos dados excluí "Região" como uma estatística opcional.</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyCheckbox">Respeitar Privacidade dos Dados</message>
+	<message key="plugins.generic.usageStats.settings.optionalColumns">Informação estatística opcional</message>
+	<message key="plugins.generic.usageStats.settings.optionalColumns.description">Activar ou desactivar a recolha da seguinte informação opcional. Isto irá influenciar o resultado dos relatórios de estatísticas obtidos, e também terá impacto no tamanho da base de dados. NÃO ALTERAR a menos que compreenda o que está a fazer.</message>
+	<message key="plugins.generic.usageStats.settings.optionalColumns.cityRequiresRegion">A coluna opcional "Cidade" requer a coluna opcional "Região"</message>
+	<message key="plugins.generic.usageStats.settings.archives">Arquivos</message>
+	<message key="plugins.generic.usageStats.settings.compressArchives.description">Active esta opção para comprimir os registos de acessos arquivados utilizando a ferramenta gzip (á ferramenta deverá ser configurada dentro do ficheiro config.inc.php). Se tiver um tráfego alto no seu Portal, é uma boa ideia activar esta opção para que seja possível poupar alguns espaço de disco.</message>
+	<message key="plugins.generic.usageStats.settings.compressArchives">Comprimir arquivos</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions">Opções das Estatísticas</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.display">Consultar o gráfico de estatísticas de submissão para leitores</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.chartType">Escolha o tipo de gráfico que deseja consultar para as estatísticas de download</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.chartType.bar">Barras</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.chartType.line">Linhas</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.datasetMaxCount">Indique o número máximo de dados presente para um ponto específico do eixo do X. Um valor demasiado alto poderá gerar gráficos obsoletos. O valor definido deve estar entre 3 e 5.</message>
+
+	<message key="plugins.generic.usageStats.usageStatsLoaderName">Tarefa de carregar Estatísticas de Utilização</message>
+	<message key="plugins.generic.usageStats.openFileFailed">Não foi possível abrir o Ficheiro {$file} tendo sido rejeitado.</message>
+	<message key="plugins.generic.usageStats.invalidLogEntry">A linha número {$lineNumber} do ficheiro {$file} não é uma entrada valida no registo, e o ficheiro foi rejeitado.</message>
+	<message key="plugins.generic.usageStats.removeUrlError">A linha número {$lineNumber} do ficheiro {$file} contém uma ligação fora do Portal.</message>
+	<message key="plugins.generic.usageStats.loadDataError">Não foi possível carregar a informação extraída do ficheiro {$file}. O ficheiro voltou ao estado anterior.</message>
+	<message key="plugins.generic.usageStats.pluginNotEnabled">O plugin de Estatísticas de Utilização está desactivado. Sem ficheiros de registo para processar.</message>
+	<message key="plugins.generic.usageStats.processingPathNotEmpty">A pasta {$directory} não está vazia. Isto pode indicar que um processo anterior falhou, ou que um processo concorrente ainda se encontra em execução. Este ficheiro será automáticamente processado se estiver a utilizar a scheduledTasksAutoStage.xml. Caso contrário, terá de mover de forma manual todos os ficheiros orfão nesta pasta para a àrea de retenção.</message>
+	<message key="plugins.generic.usageStats.noCounterBotList">A lista de limpeza de BOT: {$botlist} não pode ser utilizada. Existe um conjunto de razões para este acontecimento. Por favor consulte se o ficheiro se encontra na directoria 'lib/pkp/plugins/generic/usageStats/lib/counter'. Verifique também as permissões do ficheiro e se este é o unico nesse directório</message>
+	<message key="plugins.generic.usageStats.displayName">Estatísticas de Utilização</message>
+	<message key="plugins.generic.usageStats.description"> Apresenta relatórios de estatísticas de utilização. Pode ser utilizado o registo do servidor para criar as estatísticas.</message>
+
+	<message key="plugins.reports.usageStats.report.displayName">Relatório de Estatísticas de Utilização do PKP</message>
+	<message key="plugins.reports.usageStats.report.description">Relatório de Estatísticas de Utilização por omissão do PKP (preparado para bots)</message>
+
+	<message key="plugins.reports.usageStats.optout.displayName">Informação de Privacidade das Estatísticas de Utilização</message>
+	<message key="plugins.reports.usageStats.optout.description">Informação de Privacidade das Estatísticas de Utilização</message>
+	<message key="plugins.generic.usageStats.optout.title">Informação das Estatísticas de Utilização</message>
+	<message key="plugins.generic.usageStats.optout.shortDesc"><![CDATA[São guardadas estatísticas de utilização anónimas. Consulte a seguinte <a href="{$privacyInfo}">ligação</a> para mais detalhes.]]></message>
+
+	<message key="plugins.reports.usageStats.metricType">PKP/COUNTER</message>
+	<message key="plugins.reports.usageStats.metricType.full">Estatísticas do Public Knowledge Project (COUNTER ready)</message>
+	<message key="plugins.generic.usageStats.statsSum">Somar os downloads de todos ficheiros</message>
+	<message key="plugins.generic.usageStats.noStats">Não existe informação sobre Downloads.</message>
+	<message key="plugins.generic.usageStats.monthInitials">Jan Fev Mar Abr Mai Jun Jul Ago Set Out Nov Dez</message>
+	<message key="plugins.generic.usageStats.downloads">Downloads</message>
+	<message key="plugins.generic.usageStats.optout.done"><![CDATA[<p>Excluíu com sucesso a coleção de estatísticas de utilização. Enquanto vir esta mensagem, não será registada nenhuma estatística de utilização do seu portal. Carrega no botão em baixo para reverter a sua decisão.</p>]]></message>
+	<message key="plugins.generic.usageStats.optin">Optar por</message>
+	<message key="plugins.generic.usageStats.optout">Excluir</message>
+	<message key="plugins.generic.usageStats.optout.cookie"><![CDATA[<p>Se desejar, pode remover o processo de coletar dados. Ao excluír, poderá também decidir se deseja utilizar os dados existente para análise. A informação da sua decisão será guardada numa <em>cookie</em>. Se as definições de privacidade do seu browser, por algum motivo, levarem à remoção da cookie, terá que ativar esta opção novamente. Esta cookie apenas é válida para o browser em que foi ativa. Se utilizar um browser diferente, terá que indicar novamente a sua decisão. A validade da cookie em questão é de um ano e não guarda qualquer tipo de informação pessoal.  </p>
+<p>Por favor tenha em conta que o registo geral do servidor não é afetado por esta decisão. Pode consultar esta e outras informações na <a href="{$privacyStatementUrl}">declaração de privacidade</a>.</p>]]></message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.contextWide">Estas configurações serão aplicadas apenas às estatísticas de utilização do {$contextName}.</message>
+</locale>

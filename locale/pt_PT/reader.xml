@@ -51,6 +51,7 @@
 	<message key="rt.admin.searches.edit.editSearch">Editar Pesquisa</message>
 	<message key="rt.admin.selectedVersion">Itens Relacionados</message>
 	<message key="rt.admin.settings.abstract">Resumo (apresenta o resumo do item).</message>
+	<message key="rt.admin.settings.viewReviewPolicy">Consultar Política de Revisão</message>
 	<message key="rt.admin.settings.authorBio">Biografia do Autor (Exibe a biografia do autor alimentada no sistema)</message>
 	<message key="rt.admin.settings.captureCite">Como citar este documento (Exibe detalhes bibliográficos do documento).</message>
 	<message key="rt.admin.settings.defineTerms">Definição de palavra (Permite leitores clicar duas vezes em um palavra para pesquisa em dicionários)</message>

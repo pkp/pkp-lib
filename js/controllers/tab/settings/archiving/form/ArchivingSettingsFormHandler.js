@@ -30,21 +30,23 @@
 	 * @param {Object} options form options.
 	 */
 	$.pkp.controllers.tab.settings.archiving.form.
-		ArchivingSettingsFormHandler = function ($form, options) {
+			ArchivingSettingsFormHandler = function($form, options) {
 
-			this.parent($form, options);
+		this.parent($form, options);
 
-			$('.expand-others').click(function () {
-				$('#otherLockss').slideToggle('fast');
-			});
+		$('.expand-others').click(function() {
+			$('#otherLockss').slideToggle('fast');
+		});
 
-			var plnInstalled = $('#isPLNPluginInstalled').val();
-			if (plnInstalled == "1") {
-				$('#otherLockss').hide();
-			}
+		var plnInstalled = $('#isPLNPluginInstalled').val();
+		if (plnInstalled == '1') {
+			$('#otherLockss').hide();
+		}
 	};
+
 	$.pkp.classes.Helper.inherits(
-		$.pkp.controllers.tab.settings.archiving.form.ArchivingSettingsFormHandler,
-		$.pkp.controllers.form.AjaxFormHandler);
+			$.pkp.controllers.tab.settings.archiving.form.
+			ArchivingSettingsFormHandler,
+			$.pkp.controllers.form.AjaxFormHandler);
 /** @param {jQuery} $ jQuery closure. */
 }(jQuery));

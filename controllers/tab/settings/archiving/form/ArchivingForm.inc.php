@@ -62,10 +62,13 @@ class ArchivingForm extends ContextSettingsForm {
 			$isPorticoPluginInstalled = true;
 		}
 
+		$plnSettingsShowAction = $this->_getPLNPluginSettingsLinkAction($request);
+
 		$params = array(
 			'isPLNPluginInstalled' => $isPLNPluginInstalled,
 			'isPLNPluginEnabled' => $isPLNPluginEnabled,
-			'isPorticoPluginInstalled' => $isPorticoPluginInstalled
+			'isPorticoPluginInstalled' => $isPorticoPluginInstalled,
+			'plnSettingsShowAction' => $plnSettingsShowAction,
 		);
 
 		return parent::fetch($request, $params);
@@ -92,6 +95,31 @@ class ArchivingForm extends ContextSettingsForm {
 		$this->enablePlugin($request, 'plugins.importexport', 'importexport', 'portico', 'enablePortico');
 
 		return new JSONMessage(true, $this->fetch($request));
+	}
+
+	/**
+	 * Get a link action for PLN Plugin Settings.
+	 * @param $request Request
+	 * @return LinkAction
+	 */
+	function _getPLNPluginSettingsLinkAction($request) {
+		$router = $request->getRouter();
+		import('lib.pkp.classes.linkAction.request.AjaxModal');
+
+		$ajaxModal = new AjaxModal(
+			$router->url($request, null, 'grid.settings.plugins.SettingsPluginGridHandler', 'manage', null, array('verb' => 'settings', 'plugin' => 'plnplugin', 'category' => 'generic')),
+			'PLN Plugin'
+		);
+
+		import('lib.pkp.classes.linkAction.LinkAction');
+		$linkAction = new LinkAction(
+			'pln-settings',
+			$ajaxModal,
+			__('manager.plugins.settings'),
+			null
+		);
+
+		return $linkAction;
 	}
 
 	/**

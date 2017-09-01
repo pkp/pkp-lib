@@ -36,8 +36,16 @@
 				{/fbvFormSection}
 			{/fbvFormArea}
 			{if $isPLNPluginEnabled}
-				{url|assign:depositsGridUrl component="plugins.generic.pln.controllers.grid.PLNStatusGridHandler" op="fetchGrid" escape=false}
-				{load_url_in_div id="depositsGridContainer" url=$depositsGridUrl}
+				{fbvFormSection translate=false}
+					<div id="pln-settings-action" class="pkp_linkActions">
+						{include file="linkAction/linkAction.tpl" action=$plnSettingsShowAction contextId="archivingForm"}
+					</div>
+				{/fbvFormSection}
+
+				{fbvFormSection translate=false}
+					{url|assign:depositsGridUrl component="plugins.generic.pln.controllers.grid.PLNStatusGridHandler" op="fetchGrid" escape=false}
+					{load_url_in_div id="depositsGridContainer" url=$depositsGridUrl}
+				{/fbvFormSection}
 			{/if}
 		{/fbvFormArea}
 		<p class="expand-others">
@@ -80,14 +88,14 @@
 			</p>
 		{/fbvFormArea}
 
-        {if $isPorticoPluginInstalled}
-            {fbvFormArea title="manager.setup.porticoTitle" id="portico_description"}
-			    {fbvFormSection list="true" translate=false}
-				    {translate|assign:"enablePorticoLabel" key="manager.setup.porticoEnable"}
-				    {fbvElement type="checkbox" id="enablePortico" value="1" checked=$enablePortico label=$enablePorticoLabel translate=false}
-			    {/fbvFormSection}
-		    {/fbvFormArea}
-        {/if}
+		{if $isPorticoPluginInstalled}
+			{fbvFormArea title="manager.setup.porticoTitle" id="portico_description"}
+				{fbvFormSection list="true" translate=false}
+					{translate|assign:"enablePorticoLabel" key="manager.setup.porticoEnable"}
+					{fbvElement type="checkbox" id="enablePortico" value="1" checked=$enablePortico label=$enablePorticoLabel translate=false}
+				{/fbvFormSection}
+			{/fbvFormArea}
+		{/if}
 	{/fbvFormArea}
 
 	{fbvFormButtons id="archivingFormSubmit" submitText="common.save" hideCancel=true}

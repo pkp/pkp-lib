@@ -545,4 +545,6 @@
 	<message key="notification.type.assignCopyeditors">Assign a copyeditor using the Assign link in the Participants list.</message>
 	<message key="notification.type.awaitingCopyedits">Awaiting Copyedits.</message>
 	<message key="notification.type.roundStatusTitle">Round {$round} Status</message>
+
+	<message key="semicolon">{$label}:</message>
 </locale>

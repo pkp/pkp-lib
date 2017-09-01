@@ -368,4 +368,6 @@
 	<message key="navigation.setup">Konfigurazioa</message>
 	<message key="navigation.submissions">Aurkezpenak</message>
 	<message key="navigation.access"><![CDATA[&amp erabiltzaileak; eginkizunak]]></message>
+
+	<message key="semicolon">{$label}:</message>
 </locale>

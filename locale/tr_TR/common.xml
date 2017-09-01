@@ -372,4 +372,6 @@
 	<message key="common.acknowledged">Kabul Edilen</message>
 	<message key="common.notified">Bildirilmiş</message>
 	<message key="common.reset">Yeniden Ayarlamak</message>
+
+	<message key="semicolon">{$label}:</message>
 </locale>

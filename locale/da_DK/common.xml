@@ -540,4 +540,6 @@
 	<message key="user.authorization.invalidRepresentation">Ugyldig oplysning.</message>
 	<message key="user.authorization.authorRoleMissing">Du har på nuværende tidspunkt ikke tilstrækkelig bemyndigelse til at se indsendelsen. Redigér din profil og sørg for, at du har fået tildelt de passende roller under "Registrér som".</message>
 	<message key="user.authorization.submissionAuthor">Den aktuelle bruger er ikke forfatter til den rekvirerede indsendelse. Kontrollér at du er logget ind med den korrekte brugerkonto.</message>
+
+	<message key="semicolon">{$label}:</message>
 </locale>

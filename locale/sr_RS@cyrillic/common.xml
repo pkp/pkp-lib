@@ -523,4 +523,6 @@
 			<li>У Microsoft Office документима, морају бити уклоњене идентификације аутора из особина фајла (погледати у  File менију у програму Word), тако што се кликне како следи, почиљући са File у менију у главном менију у Microsoft програму: File &gt; Save As &gt; Tools (или Options кад се користи Mac) &gt; Security &gt; Remove personal information from file properties on save &gt; Save.</li>
 			<li>У PDF, фајловима имена аутора требају бити уклоњена и из опције Document Properties која се налази у менију File у Adobe Acrobat главном менију.</li>
 		</ul>]]></message>
+
+	<message key="semicolon">{$label}:</message>
 </locale>

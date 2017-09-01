@@ -525,4 +525,6 @@
 	<message key="notification.type.assignCopyeditors">Valitse tekninen toimittaja Osallistujat-listan Lisää-linkkiä käyttäen.</message>
 	<message key="notification.type.awaitingCopyedits">Odottavat tekniset toimittamiset.</message>
 	<message key="notification.type.roundStatusTitle">Kierroksen {$round} tila</message>
+
+	<message key="semicolon">{$label}:</message>
 </locale>

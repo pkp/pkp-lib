@@ -524,4 +524,6 @@
 	<message key="notification.type.assignCopyeditors">Atribuir um Editor de Cópia usando o link na lista de Participantes</message>
 	<message key="notification.type.awaitingCopyedits">Aguardando as edições das cópias.</message>
 	<message key="notification.type.roundStatusTitle">Estado Ronda {$round}</message>
+
+	<message key="semicolon">{$label}:</message>
 </locale>

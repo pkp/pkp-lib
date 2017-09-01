@@ -331,4 +331,6 @@
 	<message key="search.titleIndex">Menelusuri Indeks Judul</message>
 	<message key="search.title">Judul</message>
 	<message key="search.typeMethodApproach">Tipe (metode/pendekatan)</message>
+
+	<message key="semicolon">{$label}:</message>
 </locale>

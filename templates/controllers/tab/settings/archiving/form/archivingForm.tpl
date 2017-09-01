@@ -79,6 +79,16 @@
 				{translate key="manager.setup.clockssRegister"}
 			</p>
 		{/fbvFormArea}
+
+        {if $isPorticoPluginInstalled}
+            {fbvFormArea title="manager.setup.porticoTitle" id="portico_description"}
+			    {fbvFormSection list="true" translate=false}
+				    {translate|assign:"enablePorticoLabel" key="manager.setup.porticoEnable"}
+				    {fbvElement type="checkbox" id="enablePortico" value="1" checked=$enablePortico label=$enablePorticoLabel translate=false}
+			    {/fbvFormSection}
+		    {/fbvFormArea}
+        {/if}
 	{/fbvFormArea}
+
 	{fbvFormButtons id="archivingFormSubmit" submitText="common.save" hideCancel=true}
 </form>

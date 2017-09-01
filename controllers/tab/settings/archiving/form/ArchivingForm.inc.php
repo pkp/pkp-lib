@@ -25,6 +25,7 @@ class ArchivingForm extends ContextSettingsForm {
 			'enableLockss' => 'bool',
 			'enableClockss' => 'bool',
 			'enablePln' => 'bool',
+			'enablePortico' => 'bool'
 		);
 
 		$this->addCheck(new FormValidatorCSRF($this));
@@ -38,6 +39,7 @@ class ArchivingForm extends ContextSettingsForm {
 	function fetch($request, $params = null) {
 		$isPLNPluginInstalled = false;
 		$isPLNPluginEnabled = false;
+		$isPorticoPluginInstalled = false;
 
 		$context = $request->getContext();
 
@@ -54,9 +56,16 @@ class ArchivingForm extends ContextSettingsForm {
 			$isPLNPluginEnabled = $pluginSettingsDao->getSetting($context->getId(), 'plnplugin', 'enabled');
 		}
 
+		// Get if Portico is installed
+		$currentPorticoVersion = $versionDao->getCurrentVersion("plugins.importexport", "portico", true);
+		if (isset($currentPorticoVersion)) {
+			$isPorticoPluginInstalled = true;
+		}
+
 		$params = array(
 			'isPLNPluginInstalled' => $isPLNPluginInstalled,
-			'isPLNPluginEnabled' => $isPLNPluginEnabled
+			'isPLNPluginEnabled' => $isPLNPluginEnabled,
+			'isPorticoPluginInstalled' => $isPorticoPluginInstalled
 		);
 
 		return parent::fetch($request, $params);
@@ -79,14 +88,30 @@ class ArchivingForm extends ContextSettingsForm {
 	function execute($request) {
 		parent::execute($request);
 
+		$this->enablePlugin($request, 'plugins.generic', 'generic', 'pln', 'enablePln');
+		$this->enablePlugin($request, 'plugins.importexport', 'importexport', 'portico', 'enablePortico');
+
+		return new JSONMessage(true, $this->fetch($request));
+	}
+
+	/**
+	 * Enable plugin by using check box.
+	 * @param $request Request
+	 * @param $pluginType string
+	 * @param $pluginCategory string
+	 * @param $pluginName string
+	 * @param $parameterName string
+	 *
+	 */
+	function enablePlugin($request, $pluginType, $pluginCategory, $pluginName, $parameterName) {
 		$versionDao = DAORegistry::getDAO('VersionDAO');
-		$product = $versionDao->getCurrentVersion('plugins.generic', 'pln', true);
+		$product = $versionDao->getCurrentVersion($pluginType, $pluginName, true);
 		if (isset($product)) {
-			$plugin = PluginRegistry::loadPlugin('generic', 'pln');
+			$plugin = PluginRegistry::loadPlugin($pluginCategory, $pluginName);
 			if ($plugin && is_object($plugin)) {
 				$notification = null;
 
-				if (isset($this->_data['enablePln'])) {
+				if (isset($this->_data[$parameterName])) {
 					if (!$plugin->getEnabled()) {
 						if ($plugin->getCanEnable()) {
 							$plugin->setEnabled(true);
@@ -102,13 +127,13 @@ class ArchivingForm extends ContextSettingsForm {
 					}
 				}
 
-				$user = $request->getUser();
-				$notificationManager = new NotificationManager();
-				$notificationManager->createTrivialNotification($user->getId(), $notification, array('pluginName' => $plugin->getDisplayName()));
+				if (isset($notification)) {
+					$user = $request->getUser();
+					$notificationManager = new NotificationManager();
+					$notificationManager->createTrivialNotification($user->getId(), $notification, array('pluginName' => $plugin->getDisplayName()));
+				}
 			}
 		}
-
-		return new JSONMessage(true, $this->fetch($request));
 	}
 }
 

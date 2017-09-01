@@ -528,4 +528,6 @@
 <li>U dokumentů Microsoft Office je také třeba odstranit identifikace autora z vlastností souboru (viz pod Soubor v aplikaci Word) klepnutím na  "Soubor" v hlavní nabídce aplikace Microsoft: Soubor & gt; Uložit jako & gt; Nástroje (nebo možnosti s Mac) & gt; Bezpečnost & gt; Odstranit osobní údaje z vlastností souborů uložte & gt; Uložit. </ Li>
 <Li> V případě souborů PDF by měly být názvy autorů také odstraněny z vlastností dokumentu, které naleznete v hlavním menu Soubor v aplikaci Adobe Acrobat. </ Li>
 </ Ul>]]></message>
+
+	<message key="semicolon">{$label}:</message>
 </locale>

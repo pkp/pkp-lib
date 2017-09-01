@@ -369,4 +369,6 @@
 	<message key="about.guidelines">Veiledninger</message>
 	<message key="common.name">Navn</message>
 	<message key="navigation.archives">Arkiv</message>
+
+	<message key="semicolon">{$label}:</message>
 </locale>

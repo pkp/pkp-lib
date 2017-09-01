@@ -546,4 +546,6 @@
 	<message key="notification.type.assignCopyeditors">Назначьте литературного редактора, используя ссылку «Назначить» в списке «Участники».</message>
 	<message key="notification.type.awaitingCopyedits">Ожидание литературного редактирование.</message>
 	<message key="notification.type.roundStatusTitle">Статус раунда {$round}</message>
+
+	<message key="semicolon">{$label}:</message>
 </locale>

@@ -539,4 +539,6 @@
 	<message key="notification.type.assignCopyeditors">عيِّن مدققاً مستعملاً رابط الإضافة ضمن قائمة المشاركين.</message>
 	<message key="notification.type.awaitingCopyedits">التدقيقات قيد الانتظار.</message>
 	<message key="notification.type.roundStatusTitle">حالة الجولة {$round}</message>
+
+	<message key="semicolon">{$label}:</message>
 </locale>

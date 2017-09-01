@@ -521,4 +521,6 @@
 	<message key="notification.type.assignCopyeditors">Przypisz korektora. Użyj linku Dodaj w części Uczestnicy.</message>
 	<message key="notification.type.awaitingCopyedits">Oczekujące na korektę.</message>
 	<message key="notification.type.roundStatusTitle">Status rundy {$round}</message>
+
+	<message key="semicolon">{$label}:</message>
 </locale>

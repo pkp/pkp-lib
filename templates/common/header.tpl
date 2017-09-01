@@ -73,7 +73,7 @@
 
 						{if array_intersect(array(ROLE_ID_MANAGER), (array)$userRoles)}
 							<li aria-haspopup="true" aria-expanded="false">
-								<a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="settings"}">{translate key="navigation.settings"}</a>
+								<a href="#">{translate key="navigation.settings"}</a>
 								<ul>
 									<li><a href="{$contextSettingsUrl}">{translate key="context.context"}</a></li>
 									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="settings" path="website"}">{translate key="manager.website"}</a></li>
@@ -82,7 +82,7 @@
 								</ul>
 							</li>
 							<li aria-haspopup="true" aria-expanded="false">
-								<a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="settings" path="access"}">{translate key="navigation.access"}</a>
+								<a href="#">{translate key="navigation.access"}</a>
 								<ul>
 									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="settings" path="access" anchor="users"}">{translate key="manager.users"}</a></li>
 									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="settings" path="access" anchor="roles"}">{translate key="manager.roles"}</a></li>
@@ -90,7 +90,7 @@
 								</ul>
 							</li>
 							<li aria-haspopup="true" aria-expanded="false">
-								<a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="tools" path="index"}">{translate key="navigation.tools"}</a>
+								<a href="#">{translate key="navigation.tools"}</a>
 								<ul>
 									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="tools" anchor="importexport"}">{translate key="navigation.tools.importExport"}</a></li>
 									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="tools" anchor="statistics"}">{translate key="navigation.tools.statistics"}</a></li>

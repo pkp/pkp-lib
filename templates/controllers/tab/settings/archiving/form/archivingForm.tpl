@@ -29,7 +29,7 @@
 
 	{if $isPLNPluginInstalled}
 		{fbvFormArea id="mainLockss"}
-			{fbvFormArea title="manager.setup.enablePLNArchive" id="plnArea"}
+			{fbvFormArea title="manager.setup.plnPluginArchiving" id="plnArea"}
 				{fbvFormSection list="true" translate=false}
 					{translate|assign:"enablePLNArchivingLabel" key="manager.setup.plnPluginEnable"}
 					{fbvElement type="checkbox" id="enablePln" value="1" checked=$isPLNPluginEnabled label=$enablePLNArchivingLabel translate=false}
@@ -66,12 +66,6 @@
 				{translate|assign:"enableLockssLabel" key="manager.setup.lockssEnable" lockssUrl=$lockssUrl}
 				{fbvElement type="checkbox" id="enableLockss" value="1" checked=$enableLockss label=$enableLockssLabel translate=false}
 			{/fbvFormSection}
-
-			<p>
-				{url|assign:"lockssExistingArchiveUrl" router=$smarty.const.ROUTE_PAGE page="user" op="email" template="LOCKSS_EXISTING_ARCHIVE"}
-				{url|assign:"lockssNewArchiveUrl" router=$smarty.const.ROUTE_PAGE page="user" op="email" template="LOCKSS_NEW_ARCHIVE"}
-				{translate key="manager.setup.lockssRegister" lockssExistingArchiveUrl=$lockssExistingArchiveUrl lockssNewArchiveUrl=$lockssNewArchiveUrl}
-			</p>
 		{/fbvFormArea}
 
 		{fbvFormArea title="manager.setup.clockssTitle" id="clockss_description"}
@@ -82,10 +76,6 @@
 				{translate|assign:"enableClockssLabel" key="manager.setup.clockssEnable" clockssUrl=$clockssUrl}
 				{fbvElement type="checkbox" id="enableClockss" value="1" checked=$enableClockss label=$enableClockssLabel translate=false}
 			{/fbvFormSection}
-
-			<p>
-				{translate key="manager.setup.clockssRegister"}
-			</p>
 		{/fbvFormArea}
 
 		{if $isPorticoPluginInstalled}

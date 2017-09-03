@@ -121,7 +121,7 @@ class FileManager {
 		$fileType = $this->getDocumentType(PKPString::mime_content_type($destFileName));
 		if (!$this->setMode($destFileName, FILE_MODE_MASK)) return false;
 		HookRegistry::call('FileManager::uploadFileFinished', array(&$fileName, &$destFileName, &$fileType, &$returnValue));
-		return true;
+		return $returnValue;
 	}
 
 	/**

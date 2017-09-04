@@ -355,7 +355,7 @@
 	<message key="navigation.publicMenu">Menú público</message>
 	<message key="navigation.register">Registrarse</message>
 	<message key="navigation.search">Buscar</message>
-	<message key="navigation.settings">Preferéncias</message>
+	<message key="navigation.settings">Preferencias</message>
 	<message key="navigation.setup">Configuración</message>
 	<message key="navigation.sitemap">Mapa del sitio</message>
 	<message key="navigation.stepNumber">Paso {$step}</message>

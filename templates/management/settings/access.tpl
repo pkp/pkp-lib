@@ -26,6 +26,7 @@
 			<li><a name="roles" href="{url router=$smarty.const.ROUTE_COMPONENT component="tab.settings.AccessSettingsTabHandler" op="showTab" tab="roles"}">{translate key="manager.roles"}</a></li>
 			<li><a name="siteAccessOptions" href="{url router=$smarty.const.ROUTE_COMPONENT component="tab.settings.AccessSettingsTabHandler" op="showTab" tab="siteAccessOptions"}">{translate key="manager.siteAccessOptions.siteAccessOptions"}</a></li>
 		{/if}
+		{call_hook name="Templates::Management::Settings::access"}
 	</ul>
 </div>
 

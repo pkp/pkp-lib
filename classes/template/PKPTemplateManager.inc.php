@@ -98,6 +98,7 @@ class PKPTemplateManager extends Smarty {
 		$router = $this->_request->getRouter();
 		assert(is_a($router, 'PKPRouter'));
 
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_COMMON);
 		$currentContext = $this->_request->getContext();
 
 		$this->assign(array(

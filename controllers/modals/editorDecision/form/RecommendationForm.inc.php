@@ -221,6 +221,7 @@ class RecommendationForm extends Form {
 				$note = $noteDao->newDataObject();
 				$note->setAssocType(ASSOC_TYPE_QUERY);
 				$note->setAssocId($query->getId());
+				$email->replaceParams();
 				$note->setContents($email->getBody());
 				$note->setTitle(__('editor.submission.recommendation'));
 				$note->setDateCreated(Core::getCurrentDate());

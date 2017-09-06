@@ -53,7 +53,7 @@
 		// Update the recommendOnly option display when user group changes
 		// or user is selected
 		$('input[name=\'userGroupId\'], input[name=\'userIdSelected\']', $form)
-			.change(this.callbackWrapper(this.updateRecommendOnly));
+				.change(this.callbackWrapper(this.updateRecommendOnly));
 
 		// Attach form elements events.
 		$form.find('#template').change(

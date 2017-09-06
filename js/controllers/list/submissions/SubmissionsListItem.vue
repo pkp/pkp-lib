@@ -214,8 +214,8 @@ export default {
 					}
 					if (!this.activeStage.currentUserCanRecommendOnly) {
 						switch (this.activeStage.statusId) {
-							case pkp.const.REVIEW_ROUND_STATUS_RECOMMENDATIONS_READY
-							case pkp.const.REVIEW_ROUND_STATUS_RECOMMENDATIONS_COMPLETED
+							case pkp.const.REVIEW_ROUND_STATUS_RECOMMENDATIONS_READY:
+							case pkp.const.REVIEW_ROUND_STATUS_RECOMMENDATIONS_COMPLETED:
 								notice = this.activeStage.status;
 								break;
 						}

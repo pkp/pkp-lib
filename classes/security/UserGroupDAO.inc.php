@@ -969,7 +969,7 @@ class UserGroupDAO extends DAO {
 		$result = $this->retrieve(
 			'SELECT	ug.user_group_id
 			FROM user_groups ug
-			JOIN user_group_settings ugs ON (ugs.user_group_id = ug.user_group_id AND ugs.setting_name = \'recommendOnly\' AND ugs.setting_value = 1)
+			JOIN user_group_settings ugs ON (ugs.user_group_id = ug.user_group_id AND ugs.setting_name = \'recommendOnly\' AND ugs.setting_value = \'1\')
 			WHERE ug.context_id = ?
 			' . ($roleId?' AND ug.role_id = ?':''),
 			$params

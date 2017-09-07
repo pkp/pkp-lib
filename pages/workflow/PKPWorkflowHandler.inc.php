@@ -225,11 +225,11 @@ abstract class PKPWorkflowHandler extends Handler {
 		if (!empty($editorsStageAssignments) && (!$reviewRoundId || $reviewRoundId == $lastReviewRound->getId())) {
 			import('classes.workflow.EditorDecisionActionsManager');
 			$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
-			$recommendationOptions = EditorDecisionActionsManager::getRecommendationOptions();
+			$recommendationOptions = EditorDecisionActionsManager::getRecommendationOptions($stageId);
 			$editorActions = array();
 			$lastRecommendation = $allRrecommendations = null;
 			// If this is a review stage and the user has "recommend only role"
-			if (($stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_PATH_INTERNAL_REVIEW) && $recommendOnly) {
+			if (($stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW) && $recommendOnly) {
 				// Get the made editorial decisions from the current user
 				$editorDecisions = $editDecisionDao->getEditorDecisions($submission->getId(), $stageId, $reviewRound->getRound(), $user->getId());
 				// Get the last recommendation
@@ -264,7 +264,7 @@ abstract class PKPWorkflowHandler extends Handler {
 					);
 			}
 			// If this is not a review stage or the user can make decision
-			if (!($stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_PATH_INTERNAL_REVIEW) || $makeDecision) {
+			if (!($stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW) || $makeDecision) {
 				if ($makeDecision) { // It is a review stage
 					// Get the made editorial decisions from all users
 					$editorDecisions = $editDecisionDao->getEditorDecisions($submission->getId(), $stageId, $reviewRound->getRound());

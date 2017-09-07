@@ -1,13 +1,32 @@
-// Variables
-// --------------------------
+/**
+ * @file styles/fontawesome.less
+ *
+ * Copyright (c) 2014-2017 Simon Fraser University
+ * Copyright (c) 2003-2017 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * @brief Loads requirements to use fontawesome icon set. This is used by the
+ *  legacy styles which tend to attach icons to :before and :after psuedo
+ *  elements. As we refactor the UI to use our ui-library, we should use the
+ *  icon approach recommended in the style guide. Once there is no more .fa()
+ *  in the legacy styles, we should be able to remove this file.
+ */
 
 @fa-font-size-base:	14px;
 @fa-css-prefix:		fa;
-@fa-version:		"4.3.0";
 
+//  Used for extends
+.fa() {
+  display: inline-block;
+  font: normal normal normal @fa-font-size-base/1 FontAwesome; // shortening font declaration
+  font-size: inherit; // can't have font-size inherit on line above, so need to override
+  text-rendering: auto; // optimizelegibility throws things off #1094
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0); // ensures no half-pixel rendering in firefox
+}
 
-// To use any of these add them to icons.less
-
+// Variables for specific icons when extending .fa
 @fa-var-500px: "\f26e";
 @fa-var-address-book: "\f2b9";
 @fa-var-address-book-o: "\f2ba";

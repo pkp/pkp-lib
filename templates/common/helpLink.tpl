@@ -15,6 +15,7 @@
  * @uses $helpClass string Class to add to the help link
  *}
 <a href="#" class="requestHelpPanel pkp_help_link {$helpClass|escape}" data-topic="{$helpFile|escape}{if $helpSection}#{$helpSection|escape}{/if}">
+	<span class="fa fa-info-circle pkpIcon--inline" aria-hidden="true"></span>
 	{if $helpText}
 		{$text|escape}
 	{else}

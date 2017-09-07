@@ -95,7 +95,7 @@ class WorldcatNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 			if (is_null($result = $this->callWebService(WORLDCAT_WEBSERVICE_SEARCH, $searchParams, XSL_TRANSFORMER_DOCTYPE_STRING))) return $nullVar;
 
 			// parse the OCLC numbers from search results
-			String::regexp_match_all('/id="itemid_(\d+)"/', $result, $matches);
+			PKPString::regexp_match_all('/id="itemid_(\d+)"/', $result, $matches);
 			if (!empty($matches[1])) break;
 		}
 
@@ -170,12 +170,12 @@ class WorldcatNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 		// FIXME: Use MARC parsed author field in XSL rather than full name
 
 		// Clean non-numerics from ISBN
-		if (!empty($metadata['isbn'])) $metadata['isbn'] = String::regexp_replace('/[^\dX]*/', '', $metadata['isbn']);
+		if (!empty($metadata['isbn'])) $metadata['isbn'] = PKPString::regexp_replace('/[^\dX]*/', '', $metadata['isbn']);
 
 		// Clean non-numerics from issued date (year)
 		if (!empty($metadata['date'])) {
-			$metadata['date'] = String::regexp_replace('/,.*/', ', ', $metadata['date']);
-			$metadata['date'] = String::regexp_replace('/[^\d{4}]/', '', $metadata['date']);
+			$metadata['date'] = PKPString::regexp_replace('/,.*/', ', ', $metadata['date']);
+			$metadata['date'] = PKPString::regexp_replace('/[^\d{4}]/', '', $metadata['date']);
 		}
 
 		$citationDescription =& $this->getNlm30CitationDescriptionFromMetadataArray($metadata);

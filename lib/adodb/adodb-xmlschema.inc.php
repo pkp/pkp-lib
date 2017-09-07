@@ -157,7 +157,6 @@ class dbObject {
 	* Destroys the object
 	*/
 	function destroy() {
-		unset( $this );
 	}
 
 	/**
@@ -474,7 +473,7 @@ class dbTable extends dbObject {
 	* @param object $xmls adoSchema object
 	* @return array Array containing table creation SQL
 	*/
-	function create( &$xmls ) {
+	function create($xmls = null) {
 		$sql = array();
 
 		// drop any existing indexes
@@ -739,7 +738,7 @@ class dbIndex extends dbObject {
 	* @param object $xmls adoSchema object
 	* @return array Array containing index creation SQL
 	*/
-	function create( &$xmls ) {
+	function create($xmls = null) {
 		if( $this->drop ) {
 			return NULL;
 		}
@@ -885,7 +884,7 @@ class dbData extends dbObject {
 	* @param object $xmls adoSchema object
 	* @return array Array containing index creation SQL
 	*/
-	function create( &$xmls ) {
+	function create($xmls = null) {
 		$table = $xmls->dict->TableName($this->parent->name);
 		$table_field_count = count($this->parent->fields);
 		$sql = array();
@@ -1130,7 +1129,7 @@ class dbQuerySet extends dbObject {
 	* @param object $xmls adoSchema object
 	* @return array Query set
 	*/
-	function create( &$xmls ) {
+	function create($xmls = null) {
 		foreach( $this->queries as $id => $query ) {
 			switch( $this->prefixMethod ) {
 				case 'AUTO':
@@ -2192,7 +2191,6 @@ class adoSchema {
 	*/
 	function Destroy() {
 		set_magic_quotes_runtime( $this->mgq );
-		unset( $this );
 	}
 }
 

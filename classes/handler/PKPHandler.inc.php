@@ -95,7 +95,7 @@ class PKPHandler {
 	/**
 	 * Fallback method in case request handler does not implement index method.
 	 */
-	function index() {
+	function index($args, $request) {
 		$dispatcher =& $this->getDispatcher();
 		if (isset($dispatcher)) $dispatcher->handle404();
 		else Dispatcher::handle404(); // For old-style handlers
@@ -127,7 +127,7 @@ class PKPHandler {
 	 * @param $addToTop boolean whether to insert the new policy
 	 *  to the top of the list.
 	 */
-	function addPolicy(&$authorizationPolicy, $addToTop = false) {
+	function addPolicy($authorizationPolicy, $addToTop = false) {
 		if (is_null($this->_authorizationDecisionManager)) {
 			// Instantiate the authorization decision manager
 			import('lib.pkp.classes.security.authorization.AuthorizationDecisionManager');
@@ -306,28 +306,9 @@ class PKPHandler {
 	 * to resources (e.g. via redirect) like handler operations
 	 * or data objects.
 	 *
-	 * @param $requiredContexts array
-	 * @param $request Request
 	 */
-	function validate($requiredContexts = null, $request = null) {
-		// FIXME: for backwards compatibility only - remove when request/router refactoring complete
-		if (!isset($request)) {
-			// FIXME: Trigger a deprecation warning when enough instances of this
-			// call have been fixed to not clutter the error log.
-			$request =& Registry::get('request');
-		}
-
+	function validate() {
 		foreach ($this->_checks as $check) {
-			// Using authorization checks in the validate() method is deprecated
-			// FIXME: Trigger a deprecation warning.
-
-			// WARNING: This line is for PHP4 compatibility when
-			// instantiating handlers without reference. Should not
-			// be removed or otherwise used.
-			// See <http://pkp.sfu.ca/wiki/index.php/Information_for_Developers#Use_of_.24this_in_the_constructor>
-			// for a similar problem.
-			$check->_setHandler($this);
-
 			// check should redirect on fail and continue on pass
 			// default action is to redirect to the index page on fail
 			if ( !$check->isValid() ) {
@@ -336,7 +317,7 @@ class PKPHandler {
 				} else {
 					// An unauthorized page request will be re-routed
 					// to the index page.
-					$request->redirect(null, 'index');
+					Request::redirect(null, 'index');
 				}
 			}
 		}
@@ -365,7 +346,7 @@ class PKPHandler {
 			// and human readable component id.
 			// Example: "grid.citation.CitationGridHandler"
 			// becomes "grid-citation-citationgrid"
-			$componentId = str_replace('.', '-', String::strtolower(String::substr($componentId, 0, -7)));
+			$componentId = str_replace('.', '-', PKPString::strtolower(PKPString::substr($componentId, 0, -7)));
 			$this->setId($componentId);
 		} else {
 			assert(is_a($router, 'PKPPageRouter'));

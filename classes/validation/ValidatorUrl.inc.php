@@ -31,8 +31,8 @@ class ValidatorUrl extends ValidatorUri {
 	 * @see ValidatorUri::getRegexp()
 	 * @return string
 	 */
-	function getRegexp() {
-		return parent::getRegexp(ValidatorUrl::_getAllowedSchemes());
+	function getRegexp($allowedSchemes = null) {
+		return parent::getRegexp(self::_getAllowedSchemes());
 	}
 
 	//
@@ -43,7 +43,7 @@ class ValidatorUrl extends ValidatorUri {
 	 * a private static field).
 	 * @return array
 	 */
-	function _getAllowedSchemes() {
+	static function _getAllowedSchemes() {
 		return array('http', 'https', 'ftp');
 	}
 }

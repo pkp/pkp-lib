@@ -68,7 +68,7 @@ class HelpHandler extends Handler {
 		$this->setupTemplate();
 
 		$topicId = implode("/",$args);
-		$keyword = trim(String::regexp_replace('/[^\w\s\.\-]/', '', strip_tags($request->getUserVar('keyword'))));
+		$keyword = trim(PKPString::regexp_replace('/[^\w\s\.\-]/', '', strip_tags($request->getUserVar('keyword'))));
 		$result = (int) $request->getUserVar('result');
 
 		$topicDao =& DAORegistry::getDAO('HelpTopicDAO');
@@ -126,7 +126,7 @@ class HelpHandler extends Handler {
 
 		$searchResults = array();
 
-		$keyword = trim(String::regexp_replace('/[^\w\s\.\-]/', '', strip_tags($request->getUserVar('keyword'))));
+		$keyword = trim(PKPString::regexp_replace('/[^\w\s\.\-]/', '', strip_tags($request->getUserVar('keyword'))));
 
 		if (!empty($keyword)) {
 			$topicDao =& DAORegistry::getDAO('HelpTopicDAO');

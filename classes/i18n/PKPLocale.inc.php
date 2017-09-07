@@ -354,7 +354,7 @@ class PKPLocale {
 	 */
 	function getParameterNames($source) {
 		$matches = null;
-		String::regexp_match_all('/({\$[^}]+})/' /* '/{\$[^}]+})/' */, $source, $matches);
+		PKPString::regexp_match_all('/({\$[^}]+})/' /* '/{\$[^}]+})/' */, $source, $matches);
 		array_shift($matches); // Knock the top element off the array
 		if (isset($matches[0])) return $matches[0];
 		return array();

@@ -26,7 +26,7 @@ class PKPInstallHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function index($args, &$request) {
+	function index($args, $request) {
 		// Make sure errors are displayed to the browser during install.
 		@ini_set('display_errors', true);
 
@@ -37,11 +37,7 @@ class PKPInstallHandler extends Handler {
 			$request->setCookieVar('currentLocale', $setLocale);
 		}
 
-		if (checkPhpVersion('5.0.0')) { // WARNING: This form needs $this in constructor
-			$installForm = new InstallForm();
-		} else {
-			$installForm =& new InstallForm();
-		}
+		$installForm = new InstallForm();
 		$installForm->initData();
 		$installForm->display();
 	}
@@ -50,7 +46,7 @@ class PKPInstallHandler extends Handler {
 	 * Redirect to index if system has already been installed.
 	 * @param $request PKPRequest
 	 */
-	function validate($request) {
+	function validate($request = null) {
 		if (Config::getVar('general', 'installed')) {
 			$request->redirect(null, 'index');
 		}
@@ -61,15 +57,11 @@ class PKPInstallHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function install($args, &$request) {
+	function install($args, $request) {
 		$this->validate($request);
 		$this->setupTemplate();
 
-		if (checkPhpVersion('5.0.0')) { // WARNING: This form needs $this in constructor
-			$installForm = new InstallForm();
-		} else {
-			$installForm =& new InstallForm();
-		}
+		$installForm = new InstallForm();
 		$installForm->readInputData();
 
 		if ($installForm->validate()) {
@@ -85,7 +77,7 @@ class PKPInstallHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function upgrade($args, &$request) {
+	function upgrade($args, $request) {
 		$this->validate($request);
 		$this->setupTemplate();
 
@@ -103,7 +95,7 @@ class PKPInstallHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function installUpgrade($args, &$request) {
+	function installUpgrade($args, $request) {
 		$this->validate($request);
 		$this->setupTemplate();
 

@@ -50,7 +50,7 @@ class DateStringNormalizerFilter extends Filter {
 		);
 		$normalizedDate = null;
 		foreach($dateExpressions as $dateExpression) {
-			if (String::regexp_match_get($dateExpression, $input, $parsedDate) ){
+			if (PKPString::regexp_match_get($dateExpression, $input, $parsedDate) ){
 				if (isset($parsedDate['year'])) {
 					$normalizedDate = $parsedDate['year'];
 

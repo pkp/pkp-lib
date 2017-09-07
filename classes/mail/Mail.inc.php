@@ -267,7 +267,7 @@ class Mail extends DataObject {
 		}
 
 		if (empty($contentType)) {
-			$contentType = String::mime_content_type($filePath);
+			$contentType = PKPString::mime_content_type($filePath);
 			if (empty($contentType)) $contentType = 'application/x-unknown-content-type';
 		}
 
@@ -469,16 +469,16 @@ class Mail extends DataObject {
 		$recipients = $this->getAddressArrayString($this->getRecipients(), true, true);
 		$from = $this->getFromString(true);
 
-		$subject = String::encode_mime_header($this->getSubject());
+		$subject = PKPString::encode_mime_header($this->getSubject());
 		$body = $this->getBody();
 
 		// FIXME Some *nix mailers won't work with CRLFs
 		if (Core::isWindows()) {
 			// Convert LFs to CRLFs for Windows
-			$body = String::regexp_replace("/([^\r]|^)\n/", "\$1\r\n", $body);
+			$body = PKPString::regexp_replace("/([^\r]|^)\n/", "\$1\r\n", $body);
 		} else {
 			// Convert CRLFs to LFs for *nix
-			$body = String::regexp_replace("/\r\n/", "\n", $body);
+			$body = PKPString::regexp_replace("/\r\n/", "\n", $body);
 		}
 
 		if ($this->getContentType() != null) {
@@ -580,7 +580,7 @@ class Mail extends DataObject {
 			}
 			$sent = $smtp->mail($this, $recipients, $subject, $mailBody, $headers);
 		} else {
-			$sent = String::mail($recipients, $subject, $mailBody, $headers, $additionalParameters);
+			$sent = PKPString::mail($recipients, $subject, $mailBody, $headers, $additionalParameters);
 		}
 
 		if (!$sent) {
@@ -603,8 +603,8 @@ class Mail extends DataObject {
 	 * @return string
 	 */
 	function encodeDisplayName($displayName, $send = false) {
-		if (String::regexp_match('!^[-A-Za-z0-9\!#\$%&\'\*\+\/=\?\^_\`\{\|\}~]+$!', $displayName)) return $displayName;
-		return ('"' . ($send ? String::encode_mime_header(str_replace(
+		if (PKPString::regexp_match('!^[-A-Za-z0-9\!#\$%&\'\*\+\/=\?\^_\`\{\|\}~]+$!', $displayName)) return $displayName;
+		return ('"' . ($send ? PKPString::encode_mime_header(str_replace(
 			array('"', '\\'),
 			'',
 			$displayName

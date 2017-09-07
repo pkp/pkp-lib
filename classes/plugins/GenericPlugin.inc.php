@@ -55,7 +55,7 @@ class GenericPlugin extends LazyLoadPlugin {
 	/**
 	 * @see PKPPlugin::manage()
 	 */
-	function manage($verb, $args, &$message, &$messageParams) {
+	function manage($verb, $args, &$message, &$messageParams, $request = null) {
 		if ($verb != 'enable' && !$this->getEnabled()) fatalError('Invalid management action on disabled plug-in!');
 
 		switch ($verb) {

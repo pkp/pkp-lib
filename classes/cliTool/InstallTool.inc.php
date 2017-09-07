@@ -86,11 +86,7 @@ class InstallTool extends CommandLineTool {
 	 * FIXME: Use readline if available?
 	 */
 	function readParams() {
-		if (checkPhpVersion('5.0.0')) { // WARNING: This form needs $this in constructor
-			$installForm = new InstallForm();
-		} else {
-			$installForm =& new InstallForm();
-		}
+		$installForm = new InstallForm();
 
 		// Locale Settings
 		$this->printTitle('installer.localeSettings');

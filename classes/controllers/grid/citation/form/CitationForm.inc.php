@@ -340,7 +340,7 @@ class CitationForm extends Form {
 			$generatedCitation = trim(str_replace(GOOGLE_SCHOLAR_TAG, '', strip_tags($generatedCitation)));
 
 			// Compare the raw and the formatted citation and add the result to the template.
-			$citationDiff = String::diff($this->getData('rawCitation'), $generatedCitation);
+			$citationDiff = PKPString::diff($this->getData('rawCitation'), $generatedCitation);
 			$templateMgr->assign('citationDiff', $citationDiff);
 			$templateMgr->assign('currentOutputFilter', $citationOutputFilter->getDisplayName());
 

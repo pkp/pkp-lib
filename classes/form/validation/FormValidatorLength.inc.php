@@ -52,7 +52,7 @@ class FormValidatorLength extends FormValidator {
 			return true;
 
 		} else {
-			$length = String::strlen($this->getFieldValue());
+			$length = PKPString::strlen($this->getFieldValue());
 			switch ($this->_comparator) {
 				case '==':
 					return $length == $this->_length;

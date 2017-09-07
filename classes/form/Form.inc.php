@@ -298,10 +298,11 @@ class Form {
 	/**
 	 * Execute the form's action.
 	 * (Note that it is assumed that the form has already been validated.)
-	 * @param $object object The object edited by this form.
-	 * @return $object The same object, potentially changed via hook.
 	 */
-	function execute($object = null) {
+	function execute() {
+		$params = func_get_args();
+		$object = null;
+		if (isset($params[0])) $object =& $params[0];
 		// Call hooks based on the calling entity, assuming
 		// this method is only called by a subclass. Results
 		// in hook calls named e.g. "papergalleyform::execute"

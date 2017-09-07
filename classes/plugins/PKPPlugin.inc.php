@@ -170,8 +170,8 @@ class PKPPlugin {
 	 *
 	 * @return array
 	 */
-	function getManagementVerbs() {
-		return null;
+	function getManagementVerbs($verbs = array()) {
+		return $verbs;
 	}
 
 	/**

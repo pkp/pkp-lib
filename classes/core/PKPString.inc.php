@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/core/String.inc.php
+ * @file classes/core/PKPString.inc.php
  *
  * Copyright (c) 2013-2017 Simon Fraser University
  * Copyright (c) 2000-2016 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class String
+ * @class PKPString
  * @ingroup core
  *
  * @brief String manipulation wrapper class.
@@ -54,7 +54,7 @@ define ('CAMEL_CASE_HEAD_DOWN', 0x02);
 
 define('DEFAULT_ALLOWED_HTML', '<a> <em> <strong> <cite> <code> <ul> <ol> <li> <dl> <dt> <dd> <b> <i> <u> <img src|alt> <sup> <sub> <br> <p>');
 
-class String {
+class PKPString {
 	/**
 	 * Perform initialization required for the string wrapper library.
 	 */
@@ -62,7 +62,7 @@ class String {
 		$clientCharset = strtolower_codesafe(Config::getVar('i18n', 'client_charset'));
 
 		// Check if mbstring is installed (requires PHP >= 4.3.0)
-		if (String::hasMBString()) {
+		if (PKPString::hasMBString()) {
 			// mbstring routines are available
 			define('ENABLE_MBSTRING', true);
 
@@ -74,7 +74,7 @@ class String {
 
 		// Define modifier to be used in regexp_* routines
 		// FIXME Should non-UTF-8 encodings be supported with mbstring?
-		if ($clientCharset == 'utf-8' && String::hasPCREUTF8()) {
+		if ($clientCharset == 'utf-8' && PKPString::hasPCREUTF8()) {
 			define('PCRE_UTF8', 'u');
 		} else {
 			define('PCRE_UTF8', '');
@@ -198,7 +198,7 @@ class String {
 		if (function_exists('mb_substr_replace') === false) {
 			function mb_substr_replace($string, $replacement, $start, $length = null) {
 				if (extension_loaded('mbstring') === true) {
-					$string_length = String::strlen($string);
+					$string_length = PKPString::strlen($string);
 
 					if ($start < 0) {
 						$start = max(0, $string_length + $start);
@@ -216,7 +216,7 @@ class String {
 						$length = $string_length - $start;
 					}
 
-					return String::substr($string, 0, $start) . $replacement . String::substr($string, $start + $length, $string_length - $start - $length);
+					return PKPString::substr($string, 0, $start) . $replacement . PKPString::substr($string, $start + $length, $string_length - $start - $length);
 				}
 			}
 
@@ -316,7 +316,7 @@ class String {
 	 * @see http://ca.php.net/manual/en/function.regexp_grep.php
 	 */
 	function regexp_grep($pattern, $input) {
-		if (PCRE_UTF8 && !String::utf8_compliant($input)) $input = String::utf8_bad_strip($input);
+		if (PCRE_UTF8 && !PKPString::utf8_compliant($input)) $input = PKPString::utf8_bad_strip($input);
 		return preg_grep($pattern . PCRE_UTF8, $input);
 	}
 
@@ -324,7 +324,7 @@ class String {
 	 * @see http://ca.php.net/manual/en/function.regexp_match.php
 	 */
 	function regexp_match($pattern, $subject) {
-		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
+		if (PCRE_UTF8 && !PKPString::utf8_compliant($subject)) $subject = PKPString::utf8_bad_strip($subject);
 		return preg_match($pattern . PCRE_UTF8, $subject);
 	}
 
@@ -333,7 +333,7 @@ class String {
 	 */
 	function regexp_match_get($pattern, $subject, &$matches) {
 		// NOTE: This function was created since PHP < 5.x does not support optional reference parameters
-		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
+		if (PCRE_UTF8 && !PKPString::utf8_compliant($subject)) $subject = PKPString::utf8_bad_strip($subject);
 		return preg_match($pattern . PCRE_UTF8, $subject, $matches);
 	}
 
@@ -341,7 +341,7 @@ class String {
 	 * @see http://ca.php.net/manual/en/function.regexp_match_all.php
 	 */
 	function regexp_match_all($pattern, $subject, &$matches) {
-		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
+		if (PCRE_UTF8 && !PKPString::utf8_compliant($subject)) $subject = PKPString::utf8_bad_strip($subject);
 		return preg_match_all($pattern . PCRE_UTF8, $subject, $matches);
 	}
 
@@ -349,7 +349,7 @@ class String {
 	 * @see http://ca.php.net/manual/en/function.regexp_replace.php
 	 */
 	function regexp_replace($pattern, $replacement, $subject, $limit = -1) {
-		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
+		if (PCRE_UTF8 && !PKPString::utf8_compliant($subject)) $subject = PKPString::utf8_bad_strip($subject);
 		return preg_replace($pattern . PCRE_UTF8, $replacement, $subject, $limit);
 	}
 
@@ -357,7 +357,7 @@ class String {
 	 * @see http://ca.php.net/manual/en/function.regexp_replace_callback.php
 	 */
 	function regexp_replace_callback($pattern, $callback, $subject, $limit = -1) {
-		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
+		if (PCRE_UTF8 && !PKPString::utf8_compliant($subject)) $subject = PKPString::utf8_bad_strip($subject);
 		return preg_replace_callback($pattern . PCRE_UTF8, $callback, $subject, $limit);
 	}
 
@@ -365,7 +365,7 @@ class String {
 	 * @see http://ca.php.net/manual/en/function.regexp_split.php
 	 */
 	function regexp_split($pattern, $subject, $limit = -1) {
-		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
+		if (PCRE_UTF8 && !PKPString::utf8_compliant($subject)) $subject = PKPString::utf8_bad_strip($subject);
 		return preg_split($pattern . PCRE_UTF8, $subject, $limit);
 	}
 
@@ -400,7 +400,7 @@ class String {
 				$result = trim(substr($result, 0, $i));
 			}
 		}
-		
+
 		// Check ambiguous mimetypes against extension
 		$ext = array_pop(explode('.',$filename));
 		if ($suggestedExtension) {
@@ -525,11 +525,11 @@ class String {
 	 * @return string
 	 */
 	function html2text($html) {
-		$html = String::regexp_replace('/<[\/]?p>/', "\n", $html);
-		$html = String::regexp_replace('/<li>/', '&bull; ', $html);
-		$html = String::regexp_replace('/<\/li>/', "\n", $html);
-		$html = String::regexp_replace('/<br[ ]?[\/]?>/', "\n", $html);
-		$html = String::html2utf(strip_tags($html));
+		$html = PKPString::regexp_replace('/<[\/]?p>/', "\n", $html);
+		$html = PKPString::regexp_replace('/<li>/', '&bull; ', $html);
+		$html = PKPString::regexp_replace('/<\/li>/', "\n", $html);
+		$html = PKPString::regexp_replace('/<br[ ]?[\/]?>/', "\n", $html);
+		$html = PKPString::html2utf(strip_tags($html));
 		return $html;
 	}
 
@@ -608,7 +608,7 @@ class String {
 	function utf8_normalize($str) {
 		import('lib.pkp.classes.core.Transcoder');
 
-		if (String::hasMBString()) {
+		if (PKPString::hasMBString()) {
 			// NB: CP-1252 often segfaults; we've left it out here but it will detect as 'ISO-8859-1'
 			$mb_encoding_order = 'UTF-8, UTF-7, ASCII, ISO-8859-1, EUC-JP, SJIS, eucJP-win, SJIS-win, JIS, ISO-2022-JP';
 
@@ -716,11 +716,11 @@ class String {
 	 */
 	function html2utf($str) {
 		// convert named entities to numeric entities
-		$str = strtr($str, String::getHTMLEntities());
+		$str = strtr($str, PKPString::getHTMLEntities());
 
 		// use PCRE-aware replace function to replace numeric entities
-		$str = String::regexp_replace('~&#x([0-9a-f]+);~ei', 'String::code2utf(hexdec("\\1"))', $str);
-		$str = String::regexp_replace('~&#([0-9]+);~e', 'String::code2utf(\\1)', $str);
+		$str = PKPString::regexp_replace('~&#x([0-9a-f]+);~ei', 'PKPString::code2utf(hexdec("\\1"))', $str);
+		$str = PKPString::regexp_replace('~&#([0-9]+);~e', 'PKPString::code2utf(\\1)', $str);
 
 		return $str;
 	}
@@ -883,10 +883,10 @@ class String {
 
 		$words = explode(' ', $title);
 		foreach ($words as $key => $word) {
-			if ($key == 0 or !in_array(String::strtolower($word), $smallWords)) {
-				$words[$key] = ucfirst(String::strtolower($word));
+			if ($key == 0 or !in_array(PKPString::strtolower($word), $smallWords)) {
+				$words[$key] = ucfirst(PKPString::strtolower($word));
 			} else {
-				$words[$key] = String::strtolower($word);
+				$words[$key] = PKPString::strtolower($word);
 			}
 		}
 
@@ -953,7 +953,7 @@ class String {
 
 		// Insert hyphens between words and return the string in lowercase
 		$words = array();
-		String::regexp_match_all('/[A-Z][a-z0-9]*/', $string, $words);
+		PKPString::regexp_match_all('/[A-Z][a-z0-9]*/', $string, $words);
 		assert(isset($words[0]) && !empty($words[0]) && strlen(implode('', $words[0])) == strlen($string));
 		return strtolower(implode('-', $words[0]));
 	}
@@ -986,7 +986,7 @@ class String {
 		// Split strings into character arrays (multi-byte compatible).
 		foreach(array('originalStringCharacters' => $originalString, 'editedStringCharacters' => $editedString) as $characterArrayName => $string) {
 			${$characterArrayName} = array();
-			String::regexp_match_all('/./', $string, ${$characterArrayName});
+			PKPString::regexp_match_all('/./', $string, ${$characterArrayName});
 			if (isset(${$characterArrayName}[0])) {
 				${$characterArrayName} = ${$characterArrayName}[0];
 			}
@@ -1044,7 +1044,7 @@ class String {
 						// This is a continuation of an existing common
 						// substring...
 						$newSubstring = $substringIndex[$previousPosition].$comparedCharacter;
-						$newSubstringLength = String::strlen($newSubstring);
+						$newSubstringLength = PKPString::strlen($newSubstring);
 
 						// Move the substring in the substring index.
 						$substringIndex[$currentPosition] = $newSubstring;
@@ -1092,15 +1092,15 @@ class String {
 
 		// Prepend the diff of the substrings before the common substring
 		// to the result diff (by recursion).
-		$precedingSubstringOriginal = String::substr($originalString, 0, $largestSubstringEndOriginal-$largestSubstringLength+1);
-		$precedingSubstringEdited = String::substr($editedString, 0, $largestSubstringEndEdited-$largestSubstringLength+1);
-		$diffResult = array_merge(String::diff($precedingSubstringOriginal, $precedingSubstringEdited), $diffResult);
+		$precedingSubstringOriginal = PKPString::substr($originalString, 0, $largestSubstringEndOriginal-$largestSubstringLength+1);
+		$precedingSubstringEdited = PKPString::substr($editedString, 0, $largestSubstringEndEdited-$largestSubstringLength+1);
+		$diffResult = array_merge(PKPString::diff($precedingSubstringOriginal, $precedingSubstringEdited), $diffResult);
 
 		// Append the diff of the substrings after thr common substring
 		// to the result diff (by recursion).
-		$succeedingSubstringOriginal = String::substr($originalString, $largestSubstringEndOriginal+1);
-		$succeedingSubstringEdited = String::substr($editedString, $largestSubstringEndEdited+1);
-		$diffResult = array_merge($diffResult, String::diff($succeedingSubstringOriginal, $succeedingSubstringEdited));
+		$succeedingSubstringOriginal = PKPString::substr($originalString, $largestSubstringEndOriginal+1);
+		$succeedingSubstringEdited = PKPString::substr($editedString, $largestSubstringEndEdited+1);
+		$diffResult = array_merge($diffResult, PKPString::diff($succeedingSubstringOriginal, $succeedingSubstringEdited));
 
 		// Return the array representing the diff.
 		return $diffResult;

@@ -68,10 +68,10 @@ class FunctionalImportExportBaseTestCase extends WebTestCase {
 
 		do {
 			list($header, $response) = explode("\r\n\r\n", $response, 2);
-		} while (String::regexp_match('#HTTP/.*100#', $header));
+		} while (PKPString::regexp_match('#HTTP/.*100#', $header));
 
 		// Check whether we got a tar file.
-		if (String::regexp_match('#Content-Type: application/x-gtar#', $header)) {
+		if (PKPString::regexp_match('#Content-Type: application/x-gtar#', $header)) {
 			// Save the data to a temporary file.
 			$tempfile = tempnam(sys_get_temp_dir(), 'tst');
 			file_put_contents($tempfile, $response);
@@ -81,7 +81,7 @@ class FunctionalImportExportBaseTestCase extends WebTestCase {
 			unlink($tempfile);
 		} else {
 			$matches = null;
-			String::regexp_match_get('#filename="([^"]+)"#', $header, $matches);
+			PKPString::regexp_match_get('#filename="([^"]+)"#', $header, $matches);
 			self::assertTrue(isset($matches[1]));
 			$result = array($matches[1] => $response);
 		}

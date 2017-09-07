@@ -128,7 +128,7 @@ class HelpTopicDAO extends XMLDAO {
 	 * @return array matching HelpTopics
 	 */
 	function &getTopicsByKeyword($keyword) {
-		$keyword = String::strtolower($keyword);
+		$keyword = PKPString::strtolower($keyword);
 		$matchingTopics = array();
 		$help =& PKPHelp::getHelp();
 		foreach ($help->getSearchPaths() as $searchPath => $mappingFile) {
@@ -186,11 +186,11 @@ class HelpTopicDAO extends XMLDAO {
 			$topic =& $this->getTopic($topicId);
 
 			if ($topic) {
-				$numMatches = String::substr_count(String::strtolower($topic->getTitle()), $keyword);
+				$numMatches = PKPString::substr_count(PKPString::strtolower($topic->getTitle()), $keyword);
 
 				foreach ($topic->getSections() as $section) {
-					$numMatches += String::substr_count(String::strtolower($section->getTitle()), $keyword);
-					$numMatches += String::substr_count(String::strtolower($section->getContent()), $keyword);
+					$numMatches += PKPString::substr_count(PKPString::strtolower($section->getTitle()), $keyword);
+					$numMatches += PKPString::substr_count(PKPString::strtolower($section->getContent()), $keyword);
 				}
 
 				if ($numMatches > 0) {

@@ -146,7 +146,7 @@ class VersionDAO extends DAO {
 			// Find out whether the last installed version is the same as the
 			// one to be inserted.
 			$versionHistory =& $this->getVersionHistory($version->getProductType(), $version->getProduct());
-			$oldVersion =& array_shift($versionHistory);
+			$oldVersion = array_shift($versionHistory);
 			if ($oldVersion) {
 				if ($version->compare($oldVersion) == 0) {
 					// The old and the new current versions are the same so we need
@@ -228,7 +228,7 @@ class VersionDAO extends DAO {
 			$contextNames = array_keys($context);
 			foreach ($contextNames as $contextLevel => $contextName) {
 				// Transform from camel case to ..._...
-				String::regexp_match_all('/[A-Z][a-z]*/', ucfirst($contextName), $words);
+				PKPString::regexp_match_all('/[A-Z][a-z]*/', ucfirst($contextName), $words);
 				$contextNames[$contextLevel] = strtolower_codesafe(implode('_', $words[0]));
 			}
 			$contextWhereClause = 'AND (('.implode('_id = ? AND ', $contextNames).'_id = ?) OR v.sitewide = 1)';

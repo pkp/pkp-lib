@@ -76,7 +76,7 @@ class CaptchaManager {
 	function generateImage(&$captcha) {
 		$width = $this->getWidth();
 		$height = $this->getHeight();
-		$length = String::strlen($captcha->getValue());
+		$length = PKPString::strlen($captcha->getValue());
 		$value = $captcha->getValue();
 
 		$image = imagecreatetruecolor($width, $height);
@@ -94,7 +94,7 @@ class CaptchaManager {
 			rand(40, 60),	// Y position
 			$fg,		// Colour
 			Config::getVar('captcha', 'font_location'),	// Font
-			String::substr($value, $i, 1)	// Text
+			PKPString::substr($value, $i, 1)	// Text
 		);
 
 		// Add some noise to the image.

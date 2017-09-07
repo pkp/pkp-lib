@@ -283,7 +283,7 @@ class Filter extends DataObject {
 		// for persistence.
 		$runtimeSettings = $this->supportedRuntimeEnvironmentSettings();
 		foreach($runtimeSettings as $runtimeSetting => $defaultValue) {
-			$methodName = 'get'.String::ucfirst($runtimeSetting);
+			$methodName = 'get'.PKPString::ucfirst($runtimeSetting);
 			$this->setData($runtimeSetting, $runtimeEnvironment->$methodName());
 		}
 	}

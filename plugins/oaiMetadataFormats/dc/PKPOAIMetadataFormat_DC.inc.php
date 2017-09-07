@@ -55,7 +55,7 @@ class PKPOAIMetadataFormat_DC extends OAIMetadataFormat {
 
 		// Translate the property name to XML syntax.
 		$openingElement = str_replace(array('[@', ']'), array(' ',''), $propertyName);
-		$closingElement = String::regexp_replace('/\[@.*/', '', $propertyName);
+		$closingElement = PKPString::regexp_replace('/\[@.*/', '', $propertyName);
 
 		// Create the actual XML entry.
 		$response = '';

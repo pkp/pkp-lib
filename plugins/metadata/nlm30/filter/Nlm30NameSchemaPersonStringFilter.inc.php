@@ -151,11 +151,11 @@ class Nlm30NameSchemaPersonStringFilter extends Nlm30PersonStringFilter {
 		$givenNames = $personDescription->getStatement('given-names');
 		$nameVars['%firstname%'] = $nameVars['%initials%'] = '';
 		if(is_array($givenNames) && count($givenNames)) {
-			if (String::strlen($givenNames[0]) > 1) {
+			if (PKPString::strlen($givenNames[0]) > 1) {
 				$nameVars['%firstname%'] = array_shift($givenNames);
 			}
 			foreach($givenNames as $givenName) {
-				$nameVars['%initials%'] .= String::substr($givenName, 0, 1).'.';
+				$nameVars['%initials%'] .= PKPString::substr($givenName, 0, 1).'.';
 			}
 		}
 		if (!empty($nameVars['%initials%'])) $nameVars['%initials%'] = ' '.$nameVars['%initials%'];

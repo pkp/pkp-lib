@@ -62,16 +62,24 @@
 		// 'yy-mm-dd' to be send to post request.
 		// [http://api.jqueryui.com/datepicker/#option-altField]
 		$('.datepicker').each(function() {
+			var altFieldId = $(this).prop('id') + '-altField';
 			$(this).datepicker({
-				altField: '#' + $(this).prop('id') + '-altField',
+				altField: $('#' + altFieldId),
 				altFormat: 'yy-mm-dd',
-				dateFormat: $('#' + $(this).prop('id') + '-altField')
+				dateFormat: $('#' + altFieldId)
 						.attr('data-date-format')
 			});
 
 			if (!$(this).hasClass('hasDatepicker')) {
 				$(this).prop('name', $(this).prop('name') + '-removed');
 			}
+
+			// This is called for changing the value of the altField, when a value is assigned to the 
+			// datepicker on page load. 
+			// If the line is not called, the altField value has the datePicker's value format, which
+			// leads to date post back error (wrong format is send to PHP, and a DB wrong Date format exception 
+			// is thrown.
+			$(this).datepicker('setDate', $(this).datepicker("getDate"));
 		});
 
 

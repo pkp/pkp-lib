@@ -79,6 +79,16 @@
 			// Hide the grid now
 			$('#searchGridAndButton').hide();
 			$('#regularReviewerForm').show();
+
+			// Change the NAME placeholder in the mail editor
+			$('[name^="personalMessage"]').val().replace('{$reviewerName}', reviewerName);
+			$("iframe[id^='personalMessage']")
+				.contents()
+				.find('[data-symbolic="reviewerName"]')
+				.each(function () {
+					$(this).html(reviewerName);
+					$(this).attr('class', '');
+				});
 		}
 	};
 

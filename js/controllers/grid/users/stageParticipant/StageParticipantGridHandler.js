@@ -10,6 +10,7 @@
  *
  * @brief Stage participant grid handler.
  */
+/*global pkp */
 (function($) {
 
 	/** @type {Object} */
@@ -36,7 +37,7 @@
 			this.refreshGridHandler();
 			$(['#submissionEditorDecisionsDiv',
 				'#copyeditingEditorDecisionsDiv',
-				'#reviewDecisionsDiv-13'].join(','))
+				'[id^=reviewDecisionsDiv'].join(','))
 					.each(function() {
 						$.pkp.classes.Handler.getHandler($(this)).reload();
 					});

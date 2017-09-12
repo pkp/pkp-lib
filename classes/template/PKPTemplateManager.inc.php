@@ -1352,6 +1352,7 @@ class PKPTemplateManager extends Smarty {
 			'inElUrl' => $params['url'],
 			'inElElId' => $params['id'],
 			'inElClass' => isset($params['class'])?$params['class']:null,
+			'refreshOn' => isset($params['refreshOn'])?$params['refreshOn']:null,
 		));
 
 		if (isset($params['placeholder'])) {

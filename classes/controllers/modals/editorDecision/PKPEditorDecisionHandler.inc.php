@@ -314,7 +314,9 @@ class PKPEditorDecisionHandler extends Handler {
 		$editorRecommendationForm->readInputData();
 		if ($editorRecommendationForm->validate()) {
 			$editorRecommendationForm->execute($request);
-			return DAO::getDataChangedEvent();
+			$json = new JSONMessage(true);
+			$json->setGlobalEvent('decisionActionUpdated');
+			return $json;
 		}
 		return new JSONMessage(false);
 	}

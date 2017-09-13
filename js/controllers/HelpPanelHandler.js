@@ -48,7 +48,8 @@
 		$('body').click(function(e) {
 			var $self = $(e.target),
 					options;
-			if (!$self.hasClass('requestHelpPanel') && !$self.parents('.requestHelpPanel').length) {
+			if (!$self.hasClass('requestHelpPanel') &&
+					!$self.parents('.requestHelpPanel').length) {
 				return;
 			}
 			e.preventDefault();

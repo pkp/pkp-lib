@@ -82,10 +82,10 @@
 				{fbvElement type="radio" name="timeFilterOption" value=$smarty.const.TIME_FILTER_OPTION_RANGE_MONTH id="rangeByMonth" checked=$byMonth label="common.month"}
 			{/fbvFormSection}
 			<div id="dateRangeElementsWrapper">
-				{fbvFormSection title="search.dateFrom"}
+				{fbvFormSection title="common.from"}
 					{html_select_date prefix="dateStart" time=$dateStart start_year=$timeFilterStartYear all_extra="class=\"selectMenu\"" end_year=$timeFilterEndYear field_order=YMD}
 				{/fbvFormSection}
-				{fbvFormSection title="search.dateTo"}
+				{fbvFormSection title="common.until"}
 					{html_select_date prefix="dateEnd" time=$dateEnd start_year=$timeFilterStartYear all_extra="class=\"selectMenu\"" end_year=$timeFilterEndYear field_order=YMD}
 				{/fbvFormSection}
 			</div>

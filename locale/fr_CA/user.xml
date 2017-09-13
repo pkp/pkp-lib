@@ -118,8 +118,8 @@
 	<message key="user.role.author">Auteur</message>
 	<message key="user.role.author_s">Auteur(s)</message>
 	<message key="user.role.authors">Auteurs</message>
-	<message key="user.role.editor">Éditeur</message>
-	<message key="user.role.editors">Éditeurs</message>
+	<message key="user.role.editor">Rédacteur</message>
+	<message key="user.role.editors">Rédacteurs</message>
 	<message key="user.suffix">Suffixe</message>
 	<message key="user.authorization.contextRequired">Vous ne pouvez pas appeler cette opération sans spécifier son contexte (presse, journal, conférence, etc.)</message>
 	<message key="user.authorization.loginRequired">Ouverture de session requise.</message>

@@ -192,7 +192,7 @@ abstract class PKPOAIDAO extends DAO {
 		if ($result->RecordCount() != 0) {
 			$row = $result->GetRowAssoc(false);
 			$record = $this->_returnRecordFromRow($row);
-			$datestamp = OAIUtils::UTCtoTimestamp($record->datestamp, false);
+			$datestamp = OAIUtils::UTCtoTimestamp($record->datestamp);
 		} else {
 			$datestamp = 0;
 		}

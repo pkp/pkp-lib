@@ -72,6 +72,10 @@
 	<message key="manager.emails.resetAll">Ripristina tutti i modelli</message>
 	<message key="manager.emails.reset">Ripristina</message>
 	<message key="manager.emails.resetToDefault">Torna alle impostazioni di default</message>
+	<message key="manager.emails.exportXML">Esporta i template email selezionati come XML</message>
+	<message key="manager.emails.uploadXML">Carica file XML</message>
+	<message key="manager.emails.uploadSuccess">I templates selezionati sono stati caricati con successo</message>
+	<message key="manager.emails.uploadError">Carico file fallito</message>
 	<message key="manager.filesBrowser">Naviga tra i file</message>
 	<message key="manager.files.confirmDelete">Cancellare questo file o directory? Una directory per essere cancellata deve essere vuota.</message>
 	<message key="manager.files.createDir">Crea directory</message>
@@ -154,6 +158,8 @@
 	<message key="manager.statistics"><![CDATA[Statistiche &amp; Report]]></message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
 	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} nuovi)</message>
+	<message key="manager.statistics.city">Città</message>	
+	<message key="manager.statistics.region">Regione</message>
 	<message key="manager.users">Utenti</message>
 	<message key="plugins.categories.auth">Modalità di autenticazione</message>
 	<message key="plugins.categories.blocks">Gestione dei blocchi</message>

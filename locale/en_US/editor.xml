@@ -36,6 +36,7 @@
 	<message key="editor.review.unassignReviewer">Unassign Reviewer</message>
 	<message key="editor.submissionReview.reviewType">Review Type</message>
 	<message key="editor.submissionReview.sendEmail">Send an email notification to the author(s): {$authorName}</message>
+	<message key="editor.submissionReview.sendEmail.editors">Send an email notification to the editor(s): {$editorNames}</message>
 	<message key="editor.submissionReview.skipEmail">Do not send an email notification</message>
 	<message key="editor.submissionReview.open">Open</message>
 	<message key="editor.submissionReview.blind">Blind</message>
@@ -99,8 +100,10 @@
 	<message key="editor.submission.newRound">New Review Round</message>
 	<message key="editor.submissionReview.recordDecision">Record Editorial Decision</message>
 	<message key="editor.submissionReview.recordRecommendation">Record Editorial Recommendation</message>
-	<message key="editor.submissionReview.recordRecommendation.skipEmail">Do not send editors email</message>
-	<message key="editor.submissionReview.recordRecommendation.skipDiscussion">Do not create review discussion</message>
+	<message key="editor.submissionReview.recordRecommendation.notifyEditors">Notify Editors</message>
+	<message key="editor.submissionReview.recordRecommendation.skipEmail">Do not send editors an email.</message>
+	<message key="editor.submissionReview.recordRecommendation.createDiscussion">Create a review discussion about this recommendation.</message>
+	<message key="editor.submissionReview.recordRecommendation.skipDiscussion">Do not create a review discussion.</message>
 	<message key="editor.submission.newRoundDescription">You are about to create a new review round for this submission.  Files that have not been used in other review rounds are listed below.</message>
 	<message key="editor.submission.createNewRound">Create New Review Round</message>
 	<message key="editor.article.reviewForms">Review Forms</message>

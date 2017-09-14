@@ -100,6 +100,9 @@
 	<message key="editor.submission.production.productionReadyFiles">Production Ready Files</message>
 	<message key="editor.submission.newRound">New Review Round</message>
 	<message key="editor.submissionReview.recordDecision">Record Editorial Decision</message>
+	<message key="editor.submissionReview.recordRecommendation">Record Editorial Recommendation</message>
+	<message key="editor.submissionReview.recordRecommendation.skipEmail">Do not send editors email</message>
+	<message key="editor.submissionReview.recordRecommendation.skipDiscussion">Do not create review discussion</message>
 	<message key="editor.submission.newRoundDescription">You are about to create a new review round for this submission.  Files that have not been used in other review rounds are listed below.</message>
 	<message key="editor.submission.createNewRound">Create New Review Round</message>
 	<message key="editor.article.reviewForms">Review Forms</message>

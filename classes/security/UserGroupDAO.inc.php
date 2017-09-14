@@ -172,6 +172,15 @@ class UserGroupDAO extends DAO {
 	}
 
 	/**
+	 * @copydoc DAO::getAdditionalFieldNames()
+	 */
+	function getAdditionalFieldNames() {
+		return array_merge(parent::getAdditionalFieldNames(), array(
+			'recommendOnly',
+		));
+	}
+
+	/**
 	 * Update the localized data for this object
 	 * @param $author object
 	 */
@@ -946,6 +955,36 @@ class UserGroupDAO extends DAO {
 		$result->Close();
 		return $returner;
 	}
+
+	/**
+	 * Get all user group IDs with recommendOnly option enabled.
+	 * @param $contextId integer
+	 * @param $roleId integer (optional)
+	 * @return array
+	 */
+	function getRecommendOnlyGroupIds($contextId, $roleId = null) {
+		$params = array((int) $contextId);
+		if ($roleId) $params[] = (int) $roleId;
+
+		$result = $this->retrieve(
+			'SELECT	ug.user_group_id
+			FROM user_groups ug
+			JOIN user_group_settings ugs ON (ugs.user_group_id = ug.user_group_id AND ugs.setting_name = \'recommendOnly\' AND ugs.setting_value = \'1\')
+			WHERE ug.context_id = ?
+			' . ($roleId?' AND ug.role_id = ?':''),
+			$params
+		);
+
+		$userGroupIds = array();
+		while (!$result->EOF) {
+			$userGroupIds[] = (int) $result->fields[0];
+			$result->MoveNext();
+		}
+
+		$result->Close();
+		return $userGroupIds;
+	}
+
 }
 
 ?>

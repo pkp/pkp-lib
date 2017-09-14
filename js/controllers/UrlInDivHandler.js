@@ -29,6 +29,10 @@
 
 		// Load the contents.
 		this.reload();
+
+		if (options.refreshOn) {
+			this.bindGlobal(options.refreshOn, this.reload);
+		}
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.UrlInDivHandler, $.pkp.classes.Handler);

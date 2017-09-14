@@ -31,11 +31,12 @@ class EditorAction {
 	 * @param $request PKPRequest
 	 * @param $submission Submission
 	 * @param $decision integer
-	 * @param $decisionLabels array(DECISION_CONSTANT => decision.locale.key, ...)
-	 * @param $reviewRound ReviewRound Current review round that user is taking the decision, if any.
-	 * @param $stageId int
+	 * @param $decisionLabels array(SUBMISSION_EDITOR_DECISION_... or SUBMISSION_EDITOR_RECOMMEND_... => editor.submission.decision....)
+	 * @param $reviewRound ReviewRound optional Current review round that user is taking the decision, if any.
+	 * @param $stageId integer optional
+	 * @param $recommendation boolean optional
 	 */
-	function recordDecision($request, $submission, $decision, $decisionLabels, $reviewRound = null, $stageId = null) {
+	function recordDecision($request, $submission, $decision, $decisionLabels, $reviewRound = null, $stageId = null, $recommendation = false) {
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 
 		// Define the stage and round data.
@@ -66,7 +67,7 @@ class EditorAction {
 		);
 
 		$result = $editorDecision;
-		if (!HookRegistry::call('EditorAction::recordDecision', array(&$submission, &$editorDecision, &$result))) {
+		if (!HookRegistry::call('EditorAction::recordDecision', array(&$submission, &$editorDecision, &$result, &$recommendation))) {
 			// Record the new decision
 			$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
 			$editDecisionDao->updateEditorDecision($submission->getId(), $editorDecision, $stageId, $reviewRound);
@@ -87,7 +88,9 @@ class EditorAction {
 			import('lib.pkp.classes.log.SubmissionLog');
 			import('lib.pkp.classes.log.PKPSubmissionEventLogEntry');
 			AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_APP_EDITOR);
-			SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_EDITOR_DECISION, 'log.editor.decision', array('editorName' => $user->getFullName(), 'submissionId' => $submission->getId(), 'decision' => __($decisionLabels[$decision])));
+			$eventType = $recommendation ? SUBMISSION_LOG_EDITOR_RECOMMENDATION : SUBMISSION_LOG_EDITOR_DECISION;
+			$logKey = $recommendation ? 'log.editor.recommendation' : 'log.editor.decision';
+			SubmissionLog::logEvent($request, $submission, $eventType, $logKey, array('editorName' => $user->getFullName(), 'submissionId' => $submission->getId(), 'decision' => __($decisionLabels[$decision])));
 		}
 		return $result;
 	}

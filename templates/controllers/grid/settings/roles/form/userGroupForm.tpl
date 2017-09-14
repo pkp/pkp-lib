@@ -14,6 +14,7 @@
 		$('#userGroupForm').pkpHandler(
 			'$.pkp.controllers.grid.settings.roles.form.UserGroupFormHandler', {ldelim}
 			selfRegistrationRoleIds: {$selfRegistrationRoleIds|@json_encode},
+			recommendOnlyRoleIds: {$recommendOnlyRoleIds|@json_encode},
 			roleForbiddenStagesJSON: {$roleForbiddenStagesJSON},
 			stagesSelector: '[id^="assignedStages"]'
 		{rdelim});
@@ -52,6 +53,7 @@
 			{fbvFormSection title="settings.roles.roleOptions" list="true"}
 				{fbvElement type="checkbox" name="showTitle" id="showTitle" checked=$showTitle label="settings.roles.showTitles"}
 				{fbvElement type="checkbox" name="permitSelfRegistration" id="permitSelfRegistration" checked=$permitSelfRegistration label="settings.roles.permitSelfRegistration"}
+				{fbvElement type="checkbox" name="recommendOnly" id="recommendOnly" checked=$recommendOnly label="settings.roles.recommendOnly"}
 			{/fbvFormSection}
 		{/fbvFormArea}
 	</div>

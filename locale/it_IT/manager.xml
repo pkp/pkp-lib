@@ -72,6 +72,10 @@
 	<message key="manager.emails.resetAll">Ripristina tutti i modelli</message>
 	<message key="manager.emails.reset">Ripristina</message>
 	<message key="manager.emails.resetToDefault">Torna alle impostazioni di default</message>
+	<message key="manager.emails.exportXML">Esporta i template email selezionati come XML</message>
+	<message key="manager.emails.uploadXML">Carica file XML</message>
+	<message key="manager.emails.uploadSuccess">I templates selezionati sono stati caricati con successo</message>
+	<message key="manager.emails.uploadError">Carico file fallito</message>
 	<message key="manager.filesBrowser">Naviga tra i file</message>
 	<message key="manager.files.confirmDelete">Cancellare questo file o directory? Una directory per essere cancellata deve essere vuota.</message>
 	<message key="manager.files.createDir">Crea directory</message>
@@ -154,6 +158,8 @@
 	<message key="manager.statistics"><![CDATA[Statistiche &amp; Report]]></message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
 	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} nuovi)</message>
+	<message key="manager.statistics.city">Città</message>	
+	<message key="manager.statistics.region">Regione</message>
 	<message key="manager.users">Utenti</message>
 	<message key="plugins.categories.auth">Modalità di autenticazione</message>
 	<message key="plugins.categories.blocks">Gestione dei blocchi</message>
@@ -170,10 +176,6 @@
 	<message key="plugins.categories.reports">Gestione dei report</message>
 	<message key="plugins.categories.themes.description">Il plugin del tema può essere usato per cambiare l'aspetto del sistema.</message>
 	<message key="plugins.categories.themes">Temi</message>
-	<message key="plugins.categories.oaiMetadataFormats">Plugin per i formati dei metadati OAI</message>	
-	<message key="plugins.categories.oaiMetadataFormats.description">Questi plugin permettono di esporre i metadati in diversi formati nelle comunicazioni OAI.</message>
-	<message key="plugins.categories.pubIds">Plugin per gli identificatori pubblici</message>
-	<message key="plugins.categories.pubIds.description">Questi plugin permettono il supporto agli identificatori pubblici.</message>
 	<message key="manager.emails.form.emailKeyRequired">L'indirizzo email deve essere unico.</message>
 	<message key="manager.reviewerSearch.activeAmount">Numero di revisioni attive</message>
 	<message key="manager.setup.citationFilterParser">Estrazione delle citazioni</message>

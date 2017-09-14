@@ -20,7 +20,7 @@
 	<message key="installer.checkYes">Si</message>
 	<message key="installer.clientCharset">Set di caratteri del client</message>
 	<message key="installer.clientCharsetInstructions">La codifica da utilizzare per l'invio e ricezione dei dati dai browser.</message>
-	<message key="installer.configFileError"><![CDATA[Il file di configurazione <tt>config.inc.php</tt> non esiste o non &#x00E8; leggibile.]]></message>
+	<message key="installer.configFileError"><![CDATA[Il file di configurazione <tt>config.inc.php</tt> non esiste o non è leggibile.]]></message>
 	<message key="installer.connectionCharset">Set di caratteri per la connessione</message>
 	<message key="installer.connectionCharsetInstructions"><![CDATA[La codifica da usare per i dati inviati a e ricevuti daldatabase. Questa dovrebbe essere la stessa del set di caratteri del client. Nota che questa funzionalità è supportata solo da MySQL >= 4.1.1 o PostgreSQL >= 7.1. Seleziona "Non  applicabile" se il server della tua banca dati non riscontra questi requisiti.]]></message>
 	<message key="installer.contentsOfConfigFile">Contenuti del file di configurazione</message>
@@ -55,7 +55,7 @@
 	<message key="installer.installationWrongPhp"><![CDATA[<br /><strong>ATTENZIONE: La tua versione attuale di PHP non soddisfa i requisiti minimi per l'installazione. E' raccomandato aggionare a una versione più recente di PHP.<br/><strong>]]></message>
 	<message key="installer.installErrorsOccurred">Errori avvenuti durante l'installazione</message>
 	<message key="installer.installerSQLStatements">Istruzioni SQL per l'installazione</message>
-	<message key="installer.installFileError"><![CDATA[Il file d'<tt>dbscripts/xml/install.xml</tt> non esiste o  non &#x00E8; leggibile.]]></message>
+	<message key="installer.installFileError"><![CDATA[Il file d'<tt>dbscripts/xml/install.xml</tt> non esiste o  non è leggibile.]]></message>
 	<message key="installer.installFilesDirError">La directory indicata per l'upload dei file non esiste o non è scrivibile.</message>
 	<message key="installer.installParseDBFileError"><![CDATA[Errore nel parsing del file di installazione <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Localizzazione</message>
@@ -69,4 +69,6 @@
 	<message key="installer.locale.maybeIncomplete">I file contrassegnati  potrebbero essere incompleti.</message>
 	<message key="installer.installParseFilterConfigFileError"><![CDATA[Errore nel parsing del file <tt>{$file}</tt>.]]></message>
 	<message key="installer.oaiSettings">Impostazioni OAI</message>
+	<message key="installer.beacon">Beacon (ID installazione)</message>
+	<message key="installer.beacon.enable">Provede un ID univoco del sito e un baseUrl OAI-PMH a PKP unicamente per statistiche e avvisi di sicurezza.</message>
 </locale>

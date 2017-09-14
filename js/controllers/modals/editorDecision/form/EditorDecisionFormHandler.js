@@ -51,7 +51,8 @@
 		if (options.resubmitEmail !== null) {
 			this.resubmitEmail_ = options.resubmitEmail;
 		}
-		$('#skipEmail-send, #skipEmail-skip', $form).change(
+		$('#skipEmail-send, #skipEmail-skip, ' +
+				'#skipDiscussion-send, #skipDiscussion-skip', $form).change(
 				this.callbackWrapper(this.toggleEmailDisplay));
 		$('input[name="decision"]', $form).change(
 				this.callbackWrapper(this.toggleDecisionEmail));
@@ -153,16 +154,39 @@
 	 */
 	$.pkp.controllers.modals.editorDecision.form.EditorDecisionFormHandler.
 			prototype.toggleEmailDisplay = function() {
-		var $emailDiv = $('#sendReviews-emailContent');
+		var $emailDiv = $('#sendReviews-emailContent'),
+			$self = this.getHtmlElement(),
+			sendEmail = false,
+			createDiscussion = false,
+			$discussionToggles;
 
-		$('#skipEmail-send, #skipEmail-skip').each(function() {
+		$('#skipEmail-send, #skipEmail-skip', $self).each(function() {
 			if ($(this).attr('id') === 'skipEmail-send' && $(this).prop('checked')) {
-				$emailDiv.fadeIn();
+				sendEmail = true;
 			} else if ($(this).attr('id') === 'skipEmail-skip' &&
 					$(this).prop('checked')) {
-				$emailDiv.fadeOut();
+				sendEmail = false;
 			}
 		});
+
+		$discussionToggles = $('#skipDiscussion-send, #skipDiscussion-skip', $self);
+		if ($discussionToggles.length) {
+			$discussionToggles.each(function() {
+				if ($(this).attr('id') === 'skipDiscussion-send'
+						&& $(this).prop('checked')) {
+					createDiscussion = true;
+				} else if ($(this).attr('id') === 'skipDiscussion-skip' &&
+						$(this).prop('checked')) {
+					createDiscussion = false;
+				}
+			});
+		}
+
+		if (!sendEmail && !createDiscussion) {
+			$emailDiv.fadeOut();
+		} else {
+			$emailDiv.fadeIn();
+		}
 	};
 
 

@@ -560,4 +560,8 @@
 	<message key="manager.navigationMenus.form.urlDescription">Check to provide a custom URL</message>
 	<message key="manager.navigationMenus.form.url">URL</message>
 	<message key="manager.navigationMenus.form.customUrlError">A URL must be provided</message>
+	
+	<message key="manager.navigationMenus.form.navigationMenuItemType">Navigation Menu Type</message>
+	<message key="manager.navigationMenus.form.navigationMenuItemTypeMessage">Select a Navigation Menu Type or Custom to make your own</message>
+
 </locale>

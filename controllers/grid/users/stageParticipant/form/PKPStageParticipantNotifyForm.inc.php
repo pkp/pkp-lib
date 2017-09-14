@@ -192,6 +192,9 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 			$email->send($request);
 			// remove the INDEX_ and LAYOUT_ tasks if a user has sent the appropriate _COMPLETE email
 			switch ($template) {
+				case 'EDITOR_ASSIGN':
+					$this->_addAssignmentTaskNotification($request, NOTIFICATION_TYPE_EDITOR_ASSIGN, $user->getId(), $submission->getId());
+					break;
 				case 'COPYEDIT_REQUEST':
 					$this->_addAssignmentTaskNotification($request, NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT, $user->getId(), $submission->getId());
 					break;

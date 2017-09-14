@@ -23,7 +23,7 @@ class SelectableCopyeditFilesGridHandler extends SelectableFileListGridHandler {
 		import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
 		// Pass in null stageId to be set in initialize from request var.
 		parent::__construct(
-			new SubmissionFilesGridDataProvider(SUBMISSION_FILE_COPYEDIT, true),
+			new SubmissionFilesGridDataProvider(SUBMISSION_FILE_COPYEDIT),
 			null,
 			FILE_GRID_VIEW_NOTES
 		);

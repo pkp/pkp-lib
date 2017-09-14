@@ -261,7 +261,7 @@ class PKPEditorDecisionHandler extends Handler {
 								}
 								$body .= '<br>';
 							} else {
-								$body .= '<blockquote>' . htmlspecialchars($reviewFormResponse->getValue()) . '</blockquote>';
+								$body .= '<blockquote>' . nl2br(htmlspecialchars($reviewFormResponse->getValue())) . '</blockquote>';
 							}
 						}
 

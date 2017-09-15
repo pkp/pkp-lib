@@ -1,14 +1,14 @@
 <?php
 
 /**
- * @file controllers/grid/files/copyedit/SelectableFinalDraftFilesGridHandler.inc.php
+ * @file controllers/grid/files/final/SelectableFinalDraftFilesGridHandler.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SelectableFinalDraftFilesGridHandler
- * @ingroup controllers_grid_files_copyedit
+ * @ingroup controllers_grid_files_final
  *
  * @brief Handle copyedited files grid requests to promote to production stage.
  */

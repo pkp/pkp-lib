@@ -554,7 +554,7 @@
 	<message key="editor.submission.makeRecommendation">Make Recommendation</message>
 	<message key="editor.submission.changeRecommendation">Change Recommendation</message>
 	<message key="editor.submission.recommendation.display">Recommendation: {$recommendation}</message>
-	<message key="editor.submission.allRrecommendations.display">Recommendations: {$recommendations}</message>
+	<message key="editor.submission.allRecommendations.display">Recommendations: {$recommendations}</message>
 	<message key="editor.submission.recommendation">Recommendation</message>
 	<message key="editor.submission.recommendation.description">Recommend an editorial decision for this submission.</message>
 	<message key="editor.submission.recordedRecommendations">Recorded Recommendations</message>

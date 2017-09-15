@@ -227,7 +227,7 @@ abstract class PKPWorkflowHandler extends Handler {
 			$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
 			$recommendationOptions = EditorDecisionActionsManager::getRecommendationOptions($stageId);
 			$editorActions = array();
-			$lastRecommendation = $allRrecommendations = null;
+			$lastRecommendation = $allRecommendations = null;
 			// If this is a review stage and the user has "recommend only role"
 			if (($stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW) && $recommendOnly) {
 				// Get the made editorial decisions from the current user
@@ -283,7 +283,7 @@ abstract class PKPWorkflowHandler extends Handler {
 					}
 					$i = 0;
 					foreach ($recommendations as $recommendation) {
-						$allRrecommendations .= $i == 0 ? __($recommendationOptions[$recommendation['decision']]) : ', ' . __($recommendationOptions[$recommendation['decision']]);
+						$allRecommendations .= $i == 0 ? __($recommendationOptions[$recommendation['decision']]) : ', ' . __($recommendationOptions[$recommendation['decision']]);
 						$i++;
 					}
 				}
@@ -314,7 +314,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		$templateMgr->assign('editorActions', $editorActions);
 		$templateMgr->assign('stageId', $stageId);
 		$templateMgr->assign('lastRecommendation', $lastRecommendation);
-		$templateMgr->assign('allRrecommendations', $allRrecommendations);
+		$templateMgr->assign('allRecommendations', $allRecommendations);
 		return $templateMgr->fetchJson('workflow/editorialLinkActions.tpl');
 	}
 

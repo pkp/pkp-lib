@@ -10,10 +10,10 @@
 {if !empty($editorActions)}
 	{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR), (array)$userRoles)}
 		<ul class="pkp_workflow_decisions">
-			{if $allRrecommendations}
+			{if $allRecommendations}
 				<li>
 					<div class="pkp_workflow_recommendations">
-						{translate key="editor.submission.allRrecommendations.display" recommendations=$allRrecommendations}
+						{translate key="editor.submission.allRecommendations.display" recommendations=$allRecommendations}
 					</div>
 				</li>
 			{/if}

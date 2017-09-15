@@ -56,7 +56,7 @@ class EditorAction {
 		);
 
 		// Sanity checks
-		if (!$editorAssigned) return false;
+		if (!$editorAssigned || !isset($decisionLabels[$decision])) return false;
 
 		$user = $request->getUser();
 		$editorDecision = array(

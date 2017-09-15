@@ -12,7 +12,7 @@
 <script type="text/javascript">
 	$(function() {ldelim}
 		$('#recommendations').pkpHandler(
-			'$.pkp.controllers.modals.editorDecision.form.EditorDecisionFormHandler',
+			'$.pkp.controllers.modals.editorDecision.form.EditorDecisionFormHandler'
 		);
 	{rdelim});
 </script>

@@ -287,14 +287,15 @@ class PKPTemplateManager extends Smarty {
 				$navigationMenusArray = $navigationMenus->toAssociativeArray();
 
 				foreach ($navigationMenusArray as $navigationMenu) {
-					$navigationMenu->getMenuTree();
+					import('classes.core.ServicesContainer');
+					ServicesContainer::instance()
+						->get('navigationMenu')
+						->getMenuTree($navigationMenu);
+					// $navigationMenu->getMenuTree();
 				}
 
 				$this->assign('navigationMenus', $navigationMenusArray);
 			}
-
-			HookRegistry::call('NavigationMenus::setTypes', array(&$types));
-			$this->assign('navigationMenuTypes', $types);
 		}
 
 		// Register custom functions
@@ -1553,9 +1554,9 @@ class PKPTemplateManager extends Smarty {
 
 		// "user" menuArea must be always displayed using the navigationMenuUser.tpl which contains necessary functionality
 		// as well as the customelly added navigationMenuItems
-		if ($areaName == "user") { //TODO: we should not hard code that - also else where
-			$menuTemplatePath = 'frontend/components/navigationMenuUser.tpl';
-		}
+		//if ($areaName == "user") { //TODO: we should not hard code that - also else where
+		//    $menuTemplatePath = 'frontend/components/navigationMenuUser.tpl';
+		//}
 
 		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
 
@@ -1565,7 +1566,10 @@ class PKPTemplateManager extends Smarty {
 			$navigationMenu = $navigationMenuDao->getByArea($currentContext->getId(), $areaName);
 
 			if (isset($navigationMenu)) {
-				$navigationMenu->getMenuTree();
+				import('classes.core.ServicesContainer');
+				ServicesContainer::instance()
+					->get('navigationMenu')
+					->getMenuTree($navigationMenu);
 			}
 		} else {
 			$navigationMenu = $navigationMenuDao->newDataObject();

@@ -14,16 +14,24 @@
  * @brief Basic class describing a NavigationMenuItem.
  */
 
-/** ID codes and paths for all default navigationMenuItems */
-define('NMI_ID_CURRENT',	0x00000001);
-define('NMI_ID_ARCHIVES',	0x00000002);
-define('NMI_ID_ABOUT',	0x00000003);
-define('NMI_ID_ABOUT_CONTEXT',	0x00000004);
-define('NMI_ID_SUBMISSIONS',	0x00000005);
-define('NMI_ID_EDITORIAL_TEAM',	0x00000006);
-define('NMI_ID_CONTACT',	0x00000007);
-define('NMI_ID_LOGOUT',	0x00000008);
-define('NMI_ID_ANNOUNCEMENTS',	0x00000009);
+/** types for all default navigationMenuItems */
+define('NMI_TYPE_CURRENT', 'NMI_TYPE_CURRENT');
+define('NMI_TYPE_ARCHIVES',	'NMI_TYPE_ARCHIVES');
+define('NMI_TYPE_ABOUT',	'NMI_TYPE_ABOUT');
+define('NMI_TYPE_ABOUT_CONTEXT',	'NMI_TYPE_ABOUT_CONTEXT');
+define('NMI_TYPE_SUBMISSIONS',	'NMI_TYPE_SUBMISSIONS');
+define('NMI_TYPE_EDITORIAL_TEAM',	'NMI_TYPE_EDITORIAL_TEAM');
+define('NMI_TYPE_CONTACT',	'NMI_TYPE_CONTACT');
+define('NMI_TYPE_ANNOUNCEMENTS',	'NMI_TYPE_ANNOUNCEMENTS');
+define('NMI_TYPE_CUSTOM',	'NMI_TYPE_CUSTOM');
+
+define('NMI_TYPE_USER_LOGOUT',	'NMI_TYPE_USER_LOGOUT');
+define('NMI_TYPE_USER_LOGOUT_AS',	'NMI_TYPE_USER_LOGOUT_AS');
+define('NMI_TYPE_USER_PROFILE',	'NMI_TYPE_USER_PROFILE');
+define('NMI_TYPE_ADMINISTRATION',	'NMI_TYPE_ADMINISTRATION');
+define('NMI_TYPE_USER_DASHBOARD',	'NMI_TYPE_USER_DASHBOARD');
+define('NMI_TYPE_USER_REGISTER',	'NMI_TYPE_USER_REGISTER');
+define('NMI_TYPE_USER_LOGIN',	'NMI_TYPE_USER_LOGIN');
 
 class NavigationMenuItem extends DataObject {
 	/** @var $navigationMenuItems array The navigationMenuItems underneath this navigationMenuItem */
@@ -132,19 +140,19 @@ class NavigationMenuItem extends DataObject {
 	}
 
 	/**
-	 * Set custom_url for this navigation menu item.
-	 * @param $customUrl string
+	 * Set url for this navigation menu item.
+	 * @param $url string
 	 */
-	function setCustomUrl($customUrl) {
-		$this->setData('custom_url', $customUrl);
+	function setUrl($url) {
+		$this->setData('url', $url);
 	}
 
 	/**
-	 * Get custom_url for this navigation menu item.
+	 * Get url for this navigation menu item.
 	 * @return string
 	 */
-	function getCustomUrl() {
-		return $this->getData('custom_url');
+	function getUrl() {
+		return $this->getData('url');
 	}
 
 	/**
@@ -261,23 +269,6 @@ class NavigationMenuItem extends DataObject {
 	 */
 	function setIsDisplayed($isDisplayed) {
 		$this->_isDispayed = $isDisplayed;
-	}
-
-	function getDisplayStatus() {
-		$menuItemType = $this->getType();
-		switch ($menuItemType) {
-		  case 'announcements': // should be made as symbolic type - globally accessible
-			// check if annoucements are enabled
-			$this->setIsDisplayed($isAnnouncementsEnabled);
-		  case 'userProfile':
-			  // check if user is logged in
-			  $this->setIsDisplayed($isUserLoggedIn);
-		  default:
-			// Fire hook for determining display status of third-party types. Default: true
-			$display = true;
-			HookRegistry::call('NavigationMenus::displayType', array(&$display, $menuItemType));
-			$this->setIsDisplayed($display);
-		}
 	}
 }
 

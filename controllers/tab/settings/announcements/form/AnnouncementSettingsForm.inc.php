@@ -67,19 +67,7 @@ class AnnouncementSettingsForm extends ContextSettingsForm {
 	 * @param $request PKPRequest
 	 */
 	function execute($request) {
-		$context = $request->getContext();
-		$contextId = $context->getId();
-
-		// TODO: Maybe we need a more general way to do that - one kind of XML hierarchy perhaps.
-		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
-		if (!$context->getSetting('enableAnnouncements') && $this->getData("enableAnnouncements")) {
-			$navigationMenuItemDao->installSettings($contextId, "registry/announcementNavigationMenuItems.xml");
-		} elseif (!$this->getData("enableAnnouncements")) {
-			$navigationMenuItemDao->uninstallSettings($contextId, "registry/announcementNavigationMenuItems.xml");
-		}
-
 		parent::execute($request);
-
 	}
 }
 

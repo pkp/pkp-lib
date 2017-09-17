@@ -72,16 +72,16 @@
 
 				{* Primary site navigation *}
 				{if $currentContext}
-                    <div class="pkp_navigation_primary_wrapper">
-                        {* Primary navigation menu for current application *}
-                        {load_navigationMenuArea name="primary" ulClass="pkp_navigation_primary"}
+					<div class="pkp_navigation_primary_wrapper">
+						{* Primary navigation menu for current application *}
+						{load_navigationMenuArea name="primary" ulClass="pkp_navigation_primary"}
 
-                        {* Search form *}
-                        {include file="frontend/components/searchForm_simple.tpl"}
-                    </div>
+						{* Search form *}
+						{include file="frontend/components/searchForm_simple.tpl"}
+					</div>
 				{/if}
 
-                {load_navigationMenuArea name="user" ulClass="pkp_navigation_user" navClass="pkp_navigation_user_wrapper"}
+				{load_navigationMenuArea name="user" ulClass="pkp_navigation_user" navClass="pkp_navigation_user_wrapper"}
 			</div><!-- .pkp_head_wrapper -->
 		</header><!-- .pkp_structure_head -->
 

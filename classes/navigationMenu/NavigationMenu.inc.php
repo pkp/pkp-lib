@@ -89,57 +89,6 @@ class NavigationMenu extends DataObject {
 	function setAreaName($areaName) {
 		$this->setData('area_name', $areaName);
 	}
-
-	/**
-	 * Get a tree of NavigationMenuItems assigned to this menu
-	 *
-	 * @return array Hierarchical array of menu items
-	 */
-	public function getMenuTree() {
-		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
-		$items = $navigationMenuItemDao->getByMenuId($this->getId())->toArray();
-		foreach($items as $item) {
-			$item->getDisplayStatus();
-		}
-
-		$navigationMenuItemAssignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
-		$assignments = $navigationMenuItemAssignmentDao->getByMenuId($this->getId())
-				->toArray();
-
-		for ($i = 0; $i < count($assignments); $i++) {
-			foreach($items as $item) {
-				if ($item->getId() === $assignments[$i]->getMenuItemId()) {
-					$assignments[$i]->setMenuItem($item);
-					break;
-				}
-			}
-		}
-
-		// Create an array of parent items and array of child items sorted by
-		// their parent id as the array key
-		$this->menuTree = array();
-		$children = array();
-		foreach ($assignments as $assignment) {
-			if (!$assignment->getParentId()) {
-				$this->menuTree[] = $assignment;
-			} else {
-				if (!isset($children[$assignment->getParentId()])) {
-					$children[$assignment->getParentId()] = array();
-				}
-				$children[$assignment->getParentId()][] = $assignment;
-			}
-		}
-
-		// Assign child items to parent in array
-		for ($i = 0; $i < count($this->menuTree); $i++) {
-			$assignmentId = $this->menuTree[$i]->getMenuItemId();
-			if (isset($children[$assignmentId])) {
-				$this->menuTree[$i]->children = $children[$assignmentId];
-			}
-		}
-
-		return $this->menuTree;
-	}
 }
 
 ?>

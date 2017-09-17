@@ -119,11 +119,16 @@ class NavigationMenuForm extends Form {
 			$navigationMenu = $navigationMenusDao->getById($this->_navigationMenuId);
 
 			if ($navigationMenu != null) {
+				import('classes.core.ServicesContainer');
+				ServicesContainer::instance()
+					->get('navigationMenu')
+					->getMenuTree($navigationMenu);
+
 				$this->_data = array(
 					'title' => $navigationMenu->getTitle(),
 					'navigationMenuId' => $navigationMenu->getId(),
 					'navigationMenuArea' => $navigationMenu->getAreaName(),
-					'menuTree' => $navigationMenu->getMenuTree(),
+					'menuTree' => $navigationMenu->menuTree,
 				);
 			} else {
 				$this->_navigationMenuId = null;

@@ -114,7 +114,7 @@ class NavigationMenuDAO extends DAO {
 	 * @param $contextId int
 	 * @return boolean
 	 */
-	function navigationMenuExistsByTitle($title, $contextId) {
+	function navigationMenuExistsByTitle($contextId, $title) {
 		$result = $this->retrieve(
 			'SELECT COUNT(*)
 			FROM	navigation_menus
@@ -267,19 +267,29 @@ class NavigationMenuDAO extends DAO {
 			$title = $navigationMenuNode->getAttribute('title');
 			$area = $navigationMenuNode->getAttribute('area');
 
-			$navigationMenu = $this->newDataObject();
-			$navigationMenu->setTitle($title);
-			$navigationMenu->setContextId($contextId);
-			$navigationMenu->setAreaName($area);
-			$navigationMenu->setDefault(true);
+			$navigationMenu = null;
+			if ($this->navigationMenuExistsByTitle($contextId, $title)) {
+				$navigationMenu = $this->getByTitle($contextId, $title);
+				$navigationMenu->setAreaName($area);
 
-			// insert the group into the DB
-			$navigationMenuId = $this->insertObject($navigationMenu);
+				// update the navigationMenu into the DB
+				$navigationMenuId = $this->updateObject($navigationMenu);
+			} else {
+				$navigationMenu = $this->newDataObject();
+				$navigationMenu->setTitle($title);
+				$navigationMenu->setContextId($contextId);
+				$navigationMenu->setAreaName($area);
+				$navigationMenu->setDefault(true);
+
+				// insert the navigationMenu into the DB
+				$navigationMenuId = $this->insertObject($navigationMenu);
+				$navigationMenu->setId($navigationMenuId);
+			}
 
 			$seq = 0;
 			foreach ($navigationMenuNode->getChildren() as $navigationMenuItemFirstLevelNode) {
 				$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
-				$navigationMenuItemDao->installNodeSettings($contextId, $navigationMenuItemFirstLevelNode, $navigationMenuId, null, $seq, true);
+				$navigationMenuItemDao->installNodeSettings($contextId, $navigationMenuItemFirstLevelNode, $navigationMenu->getId(), null, $seq, true);
 
 				$seq++;
 			}

@@ -72,7 +72,7 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	public function getByMenuItemId($menuItemId) {
 		$params = array((int) $menuItemId);
 		$result = $this->retrieve(
-			'SELECT nmi.*,nmh.navigation_menu_id,nmh.parent_id,nmh.seq, nmh.navigation_menu_item_assignment_id
+			'SELECT nmi.*, nmh.navigation_menu_id, nmh.parent_id, nmh.seq, nmh.navigation_menu_item_assignment_id
 				FROM navigation_menu_item_assignments as nmh
 				LEFT JOIN navigation_menu_items as nmi ON (nmh.navigation_menu_item_id = nmi.navigation_menu_item_id)
 				WHERE nmh.navigation_menu_item_id = ?
@@ -81,6 +81,33 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 		);
 
 		return new DAOResultFactory($result, $this, '_fromRow');
+	}
+
+	/**
+	 * Retrieve items by menu item id and type
+	 */
+	public function getByMenuIdAndParentId($navigationMenuItemId, $menuId, $parentId = null) {
+		$params = array(
+			(int) $menuId,
+			(int) $navigationMenuItemId
+		);
+		if ($parentId) $params[] = (int) $parentId;
+
+		$result = $this->retrieve(
+			'SELECT nmh.*
+				FROM navigation_menu_item_assignments as nmh
+				WHERE nmh.navigation_menu_id = ?
+				AND nmh.navigation_menu_item_id = ?' .
+				($parentId?' AND nmh.parent_id = ?':''),
+			$params
+		);
+
+		$returner = null;
+		if ($result->RecordCount() != 0) {
+				$returner = $this->_fromRow($result->GetRowAssoc(false));
+		}
+		$result->Close();
+		return $returner;
 	}
 
 	/**

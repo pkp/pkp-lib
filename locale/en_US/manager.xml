@@ -563,5 +563,6 @@
 	
 	<message key="manager.navigationMenus.form.navigationMenuItemType">Navigation Menu Type</message>
 	<message key="manager.navigationMenus.form.navigationMenuItemTypeMessage">Select a Navigation Menu Type or Custom to make your own</message>
+	<message key="manager.navigationMenus.customType">Custom Menu Item</message>
 
 </locale>

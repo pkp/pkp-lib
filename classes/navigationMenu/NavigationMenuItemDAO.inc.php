@@ -75,27 +75,6 @@ class NavigationMenuItemDAO extends DAO {
 	}
 
 	/**
-	 * Retrieve a navigation menu items by default_id.
-	 * @param $contextId int Context Id
-	 * @param $defaultId int default_id
-	 * @return NavigationMenuItem
-	 */
-	function getByDefaultId($contextId, $defaultId) {
-		$params = array((int) $contextId, (int) $defaultId);
-		$result = $this->retrieve(
-			'SELECT * FROM navigation_menu_items WHERE context_id = ? AND default_id = ?',
-			$params
-		);
-
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
-	}
-
-	/**
 	 * Retrieve items by menu id
 	 */
 	public function getByMenuId($menuId) {
@@ -109,7 +88,36 @@ class NavigationMenuItemDAO extends DAO {
 			$params
 		);
 
-		return new DAOResultFactory($result, $this, '_fromRow');
+			return new DAOResultFactory($result, $this, '_fromRow');
+	}
+
+	/**
+	 * Retrieve items by menuItemType and setting_name = titleLocaleKey
+	 */
+	public function getByTypeAndTitleLocaleKey($contextId, $menuItemType, $menuItemTitleLocaleKey) {
+		$params = array(
+			$menuItemType,
+			$menuItemTitleLocaleKey,
+			(int) $contextId
+		);
+		$result = $this->retrieve(
+			'SELECT nmi.*
+				FROM navigation_menu_items as nmi
+				LEFT JOIN navigation_menu_item_settings as nmis ON (nmi.navigation_menu_item_id = nmis.navigation_menu_item_id)
+				WHERE nmi.type = ?
+				AND (nmis.setting_name = "titleLocaleKey" and nmis.setting_value = ?)
+				AND nmi.context_id = ?',
+			$params
+		);
+
+		$returner = null;
+		if ($result->RecordCount() != 0) {
+			$returner = $this->_fromRow($result->GetRowAssoc(false));
+		}
+
+		$result->Close();
+
+		return $returner;
 	}
 
 	/**
@@ -136,15 +144,12 @@ class NavigationMenuItemDAO extends DAO {
 	function _fromRow($row, $dataObject = false) {
 		$navigationMenuItem = $this->newDataObject();
 		$navigationMenuItem->setId($row['navigation_menu_item_id']);
-		$navigationMenuItem->setPath($row['path']);
 		$navigationMenuItem->setContextId($row['context_id']);
-		$navigationMenuItem->setPage($row['page']);
 		$navigationMenuItem->setDefault($row['is_default']);
-		$navigationMenuItem->setOp($row['op']);
-		$navigationMenuItem->setDefaultId($row['default_id']);
 		$navigationMenuItem->setUseCustomUrl($row['use_custom_url']);
-		$navigationMenuItem->setCustomUrl($row['custom_url']);
+		$navigationMenuItem->setUrl($row['url']);
 		$navigationMenuItem->setType($row['type']);
+		$navigationMenuItem->setPath($row['path']);
 
 		$this->getDataObjectSettings('navigation_menu_item_settings', 'navigation_menu_item_id', $row['navigation_menu_item_id'], $navigationMenuItem);
 
@@ -169,18 +174,15 @@ class NavigationMenuItemDAO extends DAO {
 	function insertObject($navigationMenuItem) {
 		$this->update(
 				'INSERT INTO navigation_menu_items
-				(path, page, is_default, context_id, op, default_id, use_custom_url, custom_url, type)
+				(path, is_default, context_id, use_custom_url, url, type)
 				VALUES
-				(?, ?, ?, ?, ?, ?, ?, ?, ?)',
+				(?, ?, ?, ?, ?, ?)',
 			array(
 				$navigationMenuItem->getPath(),
-				$navigationMenuItem->getPage(),
 				(int) $navigationMenuItem->getDefault(),
 				(int) $navigationMenuItem->getContextId(),
-				$navigationMenuItem->getOp(),
-				(int) $navigationMenuItem->getDefaultId(),
 				(int) $navigationMenuItem->getUseCustomUrl() ? 1 : 0,
-				$navigationMenuItem->getCustomUrl(),
+				$navigationMenuItem->getUrl(),
 				$navigationMenuItem->getType(),
 			)
 		);
@@ -199,24 +201,18 @@ class NavigationMenuItemDAO extends DAO {
 				'UPDATE navigation_menu_items
 				SET
 					path = ?,
-					page = ?,
 					is_default = ?,
 					context_id = ?,
-					op = ?,
-					default_id = ?,
 					use_custom_url = ?,
-					custom_url = ?,
+					url = ?,
 					type = ?
 				WHERE navigation_menu_item_id = ?',
 			array(
 				$navigationMenuItem->getPath(),
-				$navigationMenuItem->getPage(),
 				(int) $navigationMenuItem->getDefault(),
 				(int) $navigationMenuItem->getContextId(),
-				$navigationMenuItem->getOp(),
-				(int) $navigationMenuItem->getDefaultId(),
 				(int) $navigationMenuItem->getUseCustomUrl() ? 1 : 0,
-				$navigationMenuItem->getCustomUrl(),
+				$navigationMenuItem->getUrl(),
 				$navigationMenuItem->getType(),
 				(int) $navigationMenuItem->getId(),
 			)
@@ -307,52 +303,53 @@ class NavigationMenuItemDAO extends DAO {
 
 		$titleKey = $node->getAttribute('title');
 		$path = $node->getAttribute('path');
-		$page = $node->getAttribute('page');
-		$op = $node->getAttribute('op');
-		$isDefault = $node->getAttribute('default');
-		$defaultId = $node->getAttribute('default_id');
-		$useCustomUrl = $node->getAttribute('use_custom_url');
-		$customUrl = $node->getAttribute('custom_url');
+		$type = $node->getAttribute('type');
 
-		// create a role associated with this user group
-		$navigationMenuItem = $this->newDataObject();
-		$navigationMenuItem->setPath($path);
-		$navigationMenuItem->setContextId($contextId);
-		$navigationMenuItem->setPage($page);
-		$navigationMenuItem->setDefault($isDefault);
-		$navigationMenuItem->setOp($op);
-		$navigationMenuItem->setDefaultId($defaultId);
-		$navigationMenuItem->setUseCustomUrl($useCustomUrl);
-		$navigationMenuItem->setCustomUrl($customUrl);
+		$navigationMenuItemExisting = $this->getByTypeAndTitleLocaleKey($contextId, $type, $titleKey);
 
-		// insert the group into the DB
-		$navigationMenuItemId = $this->insertObject($navigationMenuItem);
+		if (!isset($navigationMenuItemExisting)) {
+			// create a role associated with this user group
+			$navigationMenuItem = $this->newDataObject();
+			$navigationMenuItem->setPath($path);
+			$navigationMenuItem->setContextId($contextId);
+
+			$navigationMenuItem->setType($type);
+
+			// insert the group into the DB
+			$navigationMenuItemId = $this->insertObject($navigationMenuItem);
+
+			// add the i18n keys to the settings table so that they
+			// can be used when a new locale is added/reloaded
+			$this->updateSetting($navigationMenuItemId, 'titleLocaleKey', $titleKey);
+
+			// install the settings in the current locale for this context
+			foreach ($supportedLocales as $locale) {
+				$this->installLocale($locale, $contextId);
+			}
+		} else {
+			$navigationMenuItemId = $navigationMenuItemExisting->getId();
+		}
 
 		// insert into Assignments
 		if ($navigationMenuId) {
 			$navigationMenuItemAssignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
-			$navigationMenuItemAssignment = $navigationMenuItemAssignmentDao->newDataObject();
+			$assinmentExists = $navigationMenuItemAssignmentDao->getByMenuIdAndParentId($navigationMenuItemId, $navigationMenuId, $navigationMenuItemParentId);
 
-			$navigationMenuItemAssignment->setMenuItemId($navigationMenuItemId);
-			$navigationMenuItemAssignment->setMenuId($navigationMenuId);
+			if (!isset($assinmentExists)) {
+				$navigationMenuItemAssignment = $navigationMenuItemAssignmentDao->newDataObject();
 
-			if ($navigationMenuItemParentId) {
-				$navigationMenuItemAssignment->setParentId($navigationMenuItemParentId);
+				$navigationMenuItemAssignment->setMenuItemId($navigationMenuItemId);
+				$navigationMenuItemAssignment->setMenuId($navigationMenuId);
+
+				if ($navigationMenuItemParentId) {
+					$navigationMenuItemAssignment->setParentId($navigationMenuItemParentId);
+				}
+
+				$navigationMenuItemAssignment->setSequence($seq);
+
+				// Insert Assignment
+				$navigationMenuItemAssignmentDao->insertObject($navigationMenuItemAssignment);
 			}
-
-			$navigationMenuItemAssignment->setSequence($seq);
-
-			// Insert Assignment
-			$navigationMenuItemAssignmentDao->insertObject($navigationMenuItemAssignment);
-		}
-
-		// add the i18n keys to the settings table so that they
-		// can be used when a new locale is added/reloaded
-		$this->updateSetting($navigationMenuItemId, 'titleLocaleKey', $titleKey);
-
-		// install the settings in the current locale for this context
-		foreach ($supportedLocales as $locale) {
-			$this->installLocale($locale, $contextId);
 		}
 
 		if ($checkChildren) {
@@ -361,67 +358,6 @@ class NavigationMenuItemDAO extends DAO {
 			foreach ($node->getChildren() as $navigationMenuItemSecondLevelNode) {
 				$this->installNodeSettings($contextId, $navigationMenuItemSecondLevelNode, $navigationMenuId, $navigationMenuItemId, $seqSec, false);
 				$seqSec++;
-			}
-		}
-
-		return true;
-	}
-
-	/**
-	 * Unload the XML file and move the settings to the DB
-	 * @param $contextId
-	 * @param $filename
-	 * @return boolean true === success
-	 */
-	function uninstallSettings($contextId, $filename) {
-		$xmlParser = new XMLParser();
-		$tree = $xmlParser->parse($filename);
-
-		$contextDao = Application::getContextDAO();
-		$context = $contextDao->getById($contextId);
-		$supportedLocales = $context->getSupportedSubmissionLocales();
-
-		if (!$tree) {
-			$xmlParser->destroy();
-			return false;
-		}
-
-		foreach ($tree->getChildren() as $setting) {
-			$this->uninstallNodeSettings($contextId, $setting, true);
-		}
-
-		return true;
-	}
-
-	/**
-	 * unload a XML node to DB
-	 * @param $contextId
-	 * @param $node
-	 * @param $checkChildren bool Optional
-	 * @return boolean true === success
-	 */
-	function uninstallNodeSettings($contextId, $node, $checkChildren = false) {
-		$contextDao = Application::getContextDAO();
-		$context = $contextDao->getById($contextId);
-		$supportedLocales = $context->getSupportedSubmissionLocales();
-
-		$titleKey = $node->getAttribute('title');
-		$path = $node->getAttribute('path');
-		$page = $node->getAttribute('page');
-		$op = $node->getAttribute('op');
-		$isDefault = $node->getAttribute('default');
-		$defaultId = $node->getAttribute('default_id');
-
-		$navigationMenuItem = $this->getByDefaultId($contextId, $defaultId);
-
-		if ($navigationMenuItem) {
-			// delete the navigationMenuItem from DB
-			$this->deleteObject($navigationMenuItem);
-		}
-
-		if ($checkChildren) {
-			foreach ($node->getChildren() as $navigationMenuItemSecondLevelNode) {
-				$this->uninstallNodeSettings($contextId, $navigationMenuItemSecondLevelNode, false);
 			}
 		}
 
@@ -465,7 +401,7 @@ class NavigationMenuItemDAO extends DAO {
 				array(
 					'navigation_menu_item_id' => (int) $navigationMenuItemId,
 					'setting_name' => $name,
-					'setting_value' => $value,
+					'setting_value' => trim($value,'##'),
 					'setting_type' => $type,
 					'locale' => ''
 				),
@@ -480,7 +416,7 @@ class NavigationMenuItemDAO extends DAO {
 					(navigation_menu_item_id, setting_name, setting_value, setting_type, locale)
 					VALUES (?, ?, ?, ?, ?)',
 					array(
-						$navigationMenuItemId, $name, $this->convertToDB($localeValue, $type), $type, $locale
+						$navigationMenuItemId, $name, trim($this->convertToDB($localeValue, $type),'##'), $type, $locale
 					)
 				);
 			}

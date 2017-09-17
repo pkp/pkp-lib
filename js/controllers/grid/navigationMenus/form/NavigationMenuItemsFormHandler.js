@@ -33,28 +33,37 @@
 				$('#previewButton', $form).click(this.callbackWrapper(
 						this.showPreview_));
 
+				$('#previewButton').hide();
+
 				// custom url or path functionality change
 				$('#useCustomUrl').change(function () {
 					if ($(this).is(":checked")) {
 						$('#targetUrl').show();
 						$('#targetPath').hide();
+						$('#previewButton').hide();
 					} else {
 						$('#targetUrl').hide();
 						$('#targetPath').show();
+						$('#previewButton').show();
 					}					
 				});
 
-				$('#useCustomUrl').trigger("change");
-
 				// type change event
 				$('#type').change(function () {
-					if ($(this)[0].value == "custom") { // add global variable somehow
+					if ($(this)[0].value == "NMI_TYPE_CUSTOM") { // add global variable somehow
 						$('#customItemFields').show();
+						if ($('#useCustomUrl').is(":checked")) {
+							$('#previewButton').hide();
+						} else {
+							$('#previewButton').show();
+						}
 					} else {
 						$('#customItemFields').hide();
+						$('#previewButton').hide();
 					}
 				});
 
+				$('#useCustomUrl').trigger("change");
 				$('#type').trigger("change");
 			};
 

@@ -80,7 +80,12 @@ class NavigationMenuItemsForm extends Form {
 		));
 
 		$types = array();
-		HookRegistry::call('NavigationMenus::setTypes', array(&$types));
+
+		import('classes.core.ServicesContainer');
+		$types = ServicesContainer::instance()
+			->get('navigationMenu')
+			->getMenuItemTypes();
+
 		$templateMgr->assign('navigationMenuTypes', $types);
 
 		return parent::fetch($request, 'controllers/grid/navigationMenus/form/navigationMenuItemsForm.tpl');
@@ -97,18 +102,14 @@ class NavigationMenuItemsForm extends Form {
 			$this->_data = array(
 				'path' => $navigationMenuItem->getPath(),
 				'title' => $navigationMenuItem->getTitle(null),
-				'page' => $navigationMenuItem->getPage(),
-				'op' => $navigationMenuItem->getOp(),
-				'default_id' => $navigationMenuItem->getDefaultId(),
 				'useCustomUrl' => $navigationMenuItem->getUseCustomUrl(),
-				'customUrl' => $navigationMenuItem->getCustomUrl(),
+				'url' => $navigationMenuItem->getUrl(),
+				'type' => $navigationMenuItem->getType(),
 			);
 			$this->setData('content', $navigationMenuItem->getContent(null)); // Localized
 		} else {
 			$this->navigationMenuItemId = null;
 			$this->setData('content', "");
-			$this->setData('page', 'navigationMenu');
-			$this->setData('op', 'view');
 		}
 
 
@@ -118,7 +119,7 @@ class NavigationMenuItemsForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('navigationMenuItemId', 'content', 'title', 'path', 'page', 'op', 'default_id', 'useCustomUrl', 'customUrl','type'));
+		$this->readUserVars(array('navigationMenuItemId', 'content', 'title', 'path', 'useCustomUrl', 'url','type'));
 	}
 
 	/**
@@ -141,7 +142,7 @@ class NavigationMenuItemsForm extends Form {
 		$navigationMenuItem->setPage($this->getData('page'));
 		$navigationMenuItem->setOp($this->getData('op'));
 		$navigationMenuItem->setUseCustomUrl($this->getData('useCustomUrl') ? 1 : 0);
-		$navigationMenuItem->setCustomUrl($this->getData('customUrl'));
+		$navigationMenuItem->setUrl($this->getData('url'));
 		$navigationMenuItem->setType($this->getData('type'));
 
 		// Update or insert navigation menu item
@@ -160,20 +161,22 @@ class NavigationMenuItemsForm extends Form {
 	 */
 	function validate() {
 		if ($this->getData('type') && $this->getData('type') != "") {
-			if ($this->getData('useCustomUrl')) {
-				if(!filter_var($this->getData('customUrl'), FILTER_VALIDATE_URL)) {
-					$this->addError('customUrl', __('manager.navigationMenus.form.customUrlError'));
-				}
-			} else {
-				if (!preg_match('/^[a-zA-Z0-9\/._-]+$/', $this->getData('path'))) {
-					$this->addError('path', __('manager.navigationMenus.form.pathRegEx'));
-				}
+			if ($this->getData('type') == NMI_TYPE_CUSTOM) {
+				if ($this->getData('useCustomUrl')) {
+					if(!filter_var($this->getData('url'), FILTER_VALIDATE_URL)) {
+						$this->addError('url', __('manager.navigationMenus.form.customUrlError'));
+					}
+				} else {
+					if (!preg_match('/^[a-zA-Z0-9\/._-]+$/', $this->getData('path'))) {
+						$this->addError('path', __('manager.navigationMenus.form.pathRegEx'));
+					}
 
-				$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+					$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
 
-				$navigationMenuItem = $navigationMenuItemDao->getByPath($this->_contextId, $this->getData('path'));
-				if (isset($navigationMenuItem) && $navigationMenuItem->getId() != $this->navigationMenuItemId) {
-					$this->addError('path', __('manager.navigationMenus.form.duplicatePath'));
+					$navigationMenuItem = $navigationMenuItemDao->getByPath($this->_contextId, $this->getData('path'));
+					if (isset($navigationMenuItem) && $navigationMenuItem->getId() != $this->navigationMenuItemId) {
+						$this->addError('path', __('manager.navigationMenus.form.duplicatePath'));
+					}
 				}
 			}
 		} else {

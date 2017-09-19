@@ -1,30 +1,29 @@
 <?php
 
 /**
- * @file controllers/grid/files/copyedit/SelectableCopyeditFilesGridHandler.inc.php
+ * @file controllers/grid/files/final/SelectableFinalDraftFilesGridHandler.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class SelectableCopyeditFilesGridHandler
- * @ingroup controllers_grid_files_copyedit
+ * @class SelectableFinalDraftFilesGridHandler
+ * @ingroup controllers_grid_files_final
  *
  * @brief Handle copyedited files grid requests to promote to production stage.
  */
 
 import('lib.pkp.controllers.grid.files.fileList.SelectableFileListGridHandler');
 
-class SelectableCopyeditFilesGridHandler extends SelectableFileListGridHandler {
+class SelectableFinalDraftFilesGridHandler extends SelectableFileListGridHandler {
 	/**
 	 * Constructor
 	 */
 	function __construct() {
-		import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
-		// Pass in null stageId to be set in initialize from request var.
+		import('lib.pkp.controllers.grid.files.final.FinalDraftFilesGridDataProvider');
 		parent::__construct(
-			new SubmissionFilesGridDataProvider(SUBMISSION_FILE_COPYEDIT),
-			null,
+			new FinalDraftFilesGridDataProvider(),
+			WORKFLOW_STAGE_ID_COPYEDIT,
 			FILE_GRID_VIEW_NOTES
 		);
 
@@ -34,7 +33,7 @@ class SelectableCopyeditFilesGridHandler extends SelectableFileListGridHandler {
 		);
 
 		// Set the grid title.
-		$this->setTitle('submission.copyedited');
+		$this->setTitle('submission.finalDraft');
 	}
 
 	//
@@ -44,7 +43,7 @@ class SelectableCopyeditFilesGridHandler extends SelectableFileListGridHandler {
 	 * @copydoc GridHandler::isDataElementSelected()
 	 */
 	function isDataElementSelected($gridDataElement) {
-		return true;
+		return false;
 	}
 }
 

@@ -74,7 +74,7 @@ jQuery.cssHooks;
  * @param {Element} elem
  * @param {string=} key
  * @param {Object=} value
- * @return {(jQueryObject|Object)}
+ * @return {*}
  */
 jQuery.data = function(elem, key, value) {};
 

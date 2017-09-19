@@ -558,6 +558,9 @@
 	<message key="editor.submission.recommendation">Recommendation</message>
 	<message key="editor.submission.recommendation.description">Recommend an editorial decision for this submission.</message>
 	<message key="editor.submission.recordedRecommendations">Recorded Recommendations</message>
+	<message key="editor.submission.decision.nextButton">Next: Select Files for {$stageName}</message>
+	<message key="editor.submission.decision.selectFiles">Select the files you would like to forward to the {$stageName} stage.</message>
+	<message key="editor.submission.decision.previousAuthorNotification">Previous: Author Notification</message>
 
 	<!-- workflow navigation keys -->
 	<message key="submission.currentStage">Current stage</message>
@@ -601,6 +604,7 @@
 
 	<message key="notification.type.editorAssignment">An editor must be assigned before review is initiated. Please add editor using the Participants list.</message>
 	<message key="grid.reviewAttachments.title">Reviewer's Attachments</message>
+	<message key="grid.reviewAttachments.send.title">Select review files to share with the author(s)</message>
 	<message key="submission.productionReady">Book available</message>
 	<message key="submission.review.uploadRevisionToRound">Upload Revised File</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} has been assigned to review submission {$submissionId} for review round {$round}.</message>

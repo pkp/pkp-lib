@@ -7,3 +7,6 @@
 [submodule "js/lib/pnotify"]
 	path = js/lib/pnotify
 	url = https://github.com/sciactive/pnotify.git
+[submodule "lib/adodb"]
+	path = lib/adodb
+	url = https://github.com/ADOdb/ADOdb.git

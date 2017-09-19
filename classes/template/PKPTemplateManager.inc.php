@@ -168,8 +168,35 @@ class PKPTemplateManager extends Smarty {
 				);
 			}
 
-			// Register the primary backend stylesheet
+			// Register the backend app stylesheets
 			if ($dispatcher = $this->_request->getDispatcher()) {
+
+				// FontAwesome - http://fontawesome.io/
+				if (Config::getVar('general', 'enable_cdn')) {
+					$url = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css';
+				} else {
+					$url = $this->_request->getBaseUrl() . '/lib/ui-library/static/fontawesome/fontawesome.css';
+				}
+				$this->addStyleSheet(
+					'fontAwesome',
+					$url,
+					array(
+						'priority' => STYLE_SEQUENCE_CORE,
+						'contexts' => 'backend',
+					)
+				);
+
+				// Stylesheet compiled from Vue.js single-file components
+				$this->addStyleSheet(
+					'build',
+					$this->_request->getBaseUrl() . '/styles/build.css',
+					array(
+						'priority' => STYLE_SEQUENCE_CORE,
+						'contexts' => 'backend',
+					)
+				);
+
+				// The legacy stylesheet for the backend
 				$this->addStyleSheet(
 					'pkpLib',
 					$dispatcher->url($this->_request, ROUTE_COMPONENT, null, 'page.PageHandler', 'css'),

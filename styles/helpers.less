@@ -257,18 +257,6 @@
 	line-height: @line-tiny;
 	font-weight: @bold;
 	text-decoration: none;
-
-	&:before {
-		&:extend(.fa);
-		content: @fa-var-info-circle;
-		color: @yes;
-		margin-right: 0.5em;
-	}
-
-	&:hover:before,
-	&:focus:before {
-		color: @yes-lift;
-	}
 }
 
 // A small help link that attaches to a tab
@@ -317,7 +305,7 @@
 			}
 
 			&:before {
-				&:extend(.fa);
+				.fa();
 				padding-right: 0.25em;
 				color: #aaa;
 			}
@@ -332,7 +320,7 @@
 		margin-left: @double;
 
 		&:before {
-			&:extend(.fa);
+			.fa();
 			padding-right: 0.25em;
 			color: #aaa;
 			content: @fa-var-print;

@@ -291,7 +291,7 @@
 		line-height: @line-sml;
 
 		&:before {
-			&:extend(.fa);
+			.fa();
 			content: @fa-var-file-o;
 			display: block;
 			position: absolute;
@@ -396,7 +396,7 @@
 		right: 0;
 
 		> a {
-			&:extend(.fa);
+			.fa();
 			width: 24px;
 			height: 24px;
 			line-height: 24px;
@@ -447,7 +447,7 @@
 	// Icons
 	.checked,
 	.notChecked {
-		&:extend(.fa);
+		.fa();
 	}
 
 	.checked:after {
@@ -562,7 +562,7 @@
 		.pkp_linkaction_delete {
 
 			&:before {
-				&:extend(.fa);
+				.fa();
 				content: @fa-var-times;
 			}
 		}

@@ -29,9 +29,9 @@ var VueRegistry = {
 	 * @param object The data object to pass to the controller. Can include
 	 *  configuration parameters, translatable strings and initial data.
 	 */
-	init: function(id, type, data) {
+	init: function (id, type, data) {
 
-		if (pkp.controllers[type] === undefined ) {
+		if (pkp.controllers[type] === undefined) {
 			console.log('No Vue of the type ' + type + ' could be found.');
 			return;
 		}
@@ -48,12 +48,12 @@ var VueRegistry = {
 			}
 		);
 
-		pkp.registry._instances[id] = new pkp.vue(args);
+		pkp.registry._instances[id] = new pkp.Vue(args);
 
 		// Register with a parent handler from the legacy JS framework, so that
 		// those componments can destroy a Vue instance when removing HTML code
 		var $parents = $(pkp.registry._instances[id].$el).parents();
-		$parents.each(function(i) {
+		$parents.each(function (i) {
 			if ($.pkp.classes.Handler.hasHandler($($parents[i]))) {
 				$.pkp.classes.Handler.getHandler($($parents[i]))
 					.handlerChildren_.push(pkp.registry._instances[id]);

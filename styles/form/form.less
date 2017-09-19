@@ -207,7 +207,7 @@
 			text-decoration: none;
 
 			&:before {
-				&:extend(.fa);
+				.fa();
 				content: @fa-var-pencil;
 				margin-right: 0.25em;
 			}
@@ -223,7 +223,7 @@
 
 		// Localization globe icon within TinyMce
 		&:after {
-			&:extend(.fa);
+			.fa();
 			content: @fa-var-globe;
 			position: absolute;
 			top: @half - 2;
@@ -415,7 +415,7 @@ a[id^="publicIdentifiersForm-clearObjectsPubIds-button"] {
 	cursor: pointer;
 
 	&:before {
-		&:extend(.fa);
+		.fa();
 		content: @fa-var-arrow-left;
 	}
 

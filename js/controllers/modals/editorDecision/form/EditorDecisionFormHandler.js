@@ -155,10 +155,10 @@
 	$.pkp.controllers.modals.editorDecision.form.EditorDecisionFormHandler.
 			prototype.toggleEmailDisplay = function() {
 		var $emailDiv = $('#sendReviews-emailContent'),
-			$self = this.getHtmlElement(),
-			sendEmail = false,
-			createDiscussion = false,
-			$discussionToggles;
+				$self = this.getHtmlElement(),
+				sendEmail = false,
+				createDiscussion = false,
+				$discussionToggles;
 
 		$('#skipEmail-send, #skipEmail-skip', $self).each(function() {
 			if ($(this).attr('id') === 'skipEmail-send' && $(this).prop('checked')) {
@@ -172,8 +172,8 @@
 		$discussionToggles = $('#skipDiscussion-send, #skipDiscussion-skip', $self);
 		if ($discussionToggles.length) {
 			$discussionToggles.each(function() {
-				if ($(this).attr('id') === 'skipDiscussion-send'
-						&& $(this).prop('checked')) {
+				if ($(this).attr('id') === 'skipDiscussion-send' &&
+						$(this).prop('checked')) {
 					createDiscussion = true;
 				} else if ($(this).attr('id') === 'skipDiscussion-skip' &&
 						$(this).prop('checked')) {

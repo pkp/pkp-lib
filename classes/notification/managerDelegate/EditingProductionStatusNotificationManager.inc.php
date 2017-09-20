@@ -38,6 +38,8 @@ class EditingProductionStatusNotificationManager extends NotificationManagerDele
 				return __('notification.type.assignProductionUser');
 			case NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS:
 				return __('notification.type.awaitingRepresentations');
+			case NOTIFICATION_TYPE_PUBLICATION_SCHEDULED:
+				return __('notification.type.publicationScheduled');
 			default:
 				assert(false);
 		}
@@ -57,6 +59,7 @@ class EditingProductionStatusNotificationManager extends NotificationManagerDele
 			case NOTIFICATION_TYPE_AWAITING_COPYEDITS:
 			case NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER:
 			case NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS:
+			case NOTIFICATION_TYPE_PUBLICATION_SCHEDULED:
 				assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
 				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'workflow', 'access', $notification->getAssocId());
 			default:
@@ -105,7 +108,21 @@ class EditingProductionStatusNotificationManager extends NotificationManagerDele
 		foreach ($editorStageAssignments as $editorStageAssignment) {
 			switch ($submission->getStageId()) {
 				case WORKFLOW_STAGE_ID_PRODUCTION:
-					if ($notificationType == NOTIFICATION_TYPE_ASSIGN_COPYEDITOR || $notificationType == NOTIFICATION_TYPE_AWAITING_COPYEDITS) {
+					if ($notificationType == NOTIFICATION_TYPE_PUBLICATION_SCHEDULED) {
+						$publishedArticleDao = DAORegistry::getDAO('PublishedArticleDAO');
+						$publishedArticle = $publishedArticleDao->getByArticleId($submissionId, $contextId);
+						if ($publishedArticle) {
+							$this->_createNotification(
+								$request,
+								$submissionId,
+								$editorStageAssignment->getUserId(),
+								$notificationType,
+								$contextId
+							);
+						} else {
+							$this->_removeNotification($submissionId, $editorStageAssignment->getUserId(), $notificationType, $contextId);
+						}
+					} elseif ($notificationType == NOTIFICATION_TYPE_ASSIGN_COPYEDITOR || $notificationType == NOTIFICATION_TYPE_AWAITING_COPYEDITS) {
 						// Remove 'assign a copyeditor' and 'awaiting copyedits' notification
 						$this->_removeNotification($submissionId, $editorStageAssignment->getUserId(), $notificationType, $contextId);
 					} else {

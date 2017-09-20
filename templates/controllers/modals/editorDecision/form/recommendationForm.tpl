@@ -9,10 +9,11 @@
  *
  *}
 
-<script>
+<script type="text/javascript">
 	$(function() {ldelim}
-		// Attach the form handler.
-		$('#recommendations').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
+		$('#recommendations').pkpHandler(
+			'$.pkp.controllers.modals.editorDecision.form.EditorDecisionFormHandler'
+		);
 	{rdelim});
 </script>
 
@@ -21,7 +22,7 @@
 	<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
 	<input type="hidden" name="stageId" value="{$stageId|escape}" />
 	<input type="hidden" name="reviewRoundId" value="{$reviewRoundId|escape}" />
-	
+
 	{if !empty($editorRecommendations)}
 		{fbvFormSection label="editor.submission.recordedRecommendations"}
 			{foreach from=$editorRecommendations item=editorRecommendation}
@@ -31,26 +32,41 @@
 			{/foreach}
 		{/fbvFormSection}
 	{/if}
-	
+
 	{fbvFormSection label="editor.submission.recommendation" description=$description|default:"editor.submission.recommendation.description"}
 		{fbvElement type="select" id="recommendation" name="recommendation" from=$recommendationOptions selected=$recommendation size=$fbvStyles.size.MEDIUM required=$required|default:true disabled=$readOnly}
 	{/fbvFormSection}
-	
-	{fbvFormSection title="user.role.editors" for="editors" size=$fbvStyles.size.MEDIUM}
-		{fbvElement type="text" id="editors" name="editors" value=$editors disabled=true}
+
+	{capture assign="sendEmailLabel"}{translate key="editor.submissionReview.sendEmail.editors" editorNames=$editors}{/capture}
+	{if $skipEmail}
+		{assign var="skipEmailSkip" value=true}
+	{else}
+		{assign var="skipEmailSend" value=true}
+	{/if}
+	{fbvFormSection title="editor.submissionReview.recordRecommendation.notifyEditors"}
+		<ul class="checkbox_and_radiobutton">
+			{fbvElement type="radio" id="skipEmail-send" name="skipEmail" value="0" checked=$skipEmailSend label=$sendEmailLabel translate=false}
+			{fbvElement type="radio" id="skipEmail-skip" name="skipEmail" value="1" checked=$skipEmailSkip label="editor.submissionReview.skipEmail"}
+		</ul>
 	{/fbvFormSection}
 
-	{fbvFormSection title="stageParticipants.notify.message" for="personalMessage"}
-		{fbvElement type="textarea" name="personalMessage" id="personalMessage" value=$personalMessage rich=true variables=$allowedVariables variablesType=$allowedVariablesType}
+	{if $skipDiscussion}
+		{assign var="skipDiscussionSkip" value=true}
+	{else}
+		{assign var="skipDiscussionSend" value=true}
+	{/if}
+	{fbvFormSection}
+		<ul class="checkbox_and_radiobutton">
+			{fbvElement type="radio" id="skipDiscussion-send" name="skipDiscussion" value="0" checked=$skipDiscussionSend label="editor.submissionReview.recordRecommendation.createDiscussion"}
+			{fbvElement type="radio" id="skipDiscussion-skip" name="skipDiscussion" value="1" checked=$skipDiscussionSkip label="editor.submissionReview.recordRecommendation.skipDiscussion"}
+		</ul>
 	{/fbvFormSection}
 
-	{fbvFormSection for="skipEmail" size=$fbvStyles.size.MEDIUM list=true}
-		{fbvElement type="checkbox" id="skipEmail" name="skipEmail" label="editor.submissionReview.recordRecommendation.skipEmail"}
-	{/fbvFormSection}
-
-	{fbvFormSection for="skipDiscussion" size=$fbvStyles.size.MEDIUM list=true}
-		{fbvElement type="checkbox" id="skipDiscussion" name="skipDiscussion" label="editor.submissionReview.recordRecommendation.skipDiscussion"}
-	{/fbvFormSection}
+	<div id="sendReviews-emailContent" style="margin-bottom: 30px;">
+		{fbvFormSection for="personalMessage"}
+			{fbvElement type="textarea" name="personalMessage" id="personalMessage" value=$personalMessage rich=true variables=$allowedVariables variablesType=$allowedVariablesType}
+		{/fbvFormSection}
+	</div>
 
 	{fbvFormButtons submitText="editor.submissionReview.recordRecommendation"}
 </form>

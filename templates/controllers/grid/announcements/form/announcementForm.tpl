@@ -56,7 +56,7 @@
 			{/fbvFormSection}
 			{if $announcement}{assign var="checked" value=false}{else}{assign var="checked" value=true}{/if}
 			{fbvFormSection for="sendAnnouncementNotification" list="true"}
-				{fbvElement type="checkbox" name="sendAnnouncementNotification" id="sendAnnouncementNotification" checked=$checked label="notification.type.newAnnouncement" inline=true}
+				{fbvElement type="checkbox" name="sendAnnouncementNotification" id="sendAnnouncementNotification" checked=$checked label="notification.sendNotificationConfirmation" inline=true}
 			{/fbvFormSection}
 		{/fbvFormArea}
 		<p><span class="formRequired">{translate key="common.requiredField"}</span></p>

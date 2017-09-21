@@ -465,6 +465,7 @@
 	<message key="notification.unsubscribeError">There was an error unsubscribing you.  Please ensure that you are using the correct URL as included in your notification email.</message>
 	<message key="notification.unsubscribeSuccess">You were successfully unsubscribed.</message>
 	<message key="notification.savedSubmissionMetadata">Submission metadata saved.</message>
+	<message key="notification.sendNotificationConfirmation">Send notification email to all registered users</message>
 	<message key="search.author">By Author</message>
 	<message key="search.abstract">Abstract</message>
 	<message key="search.advancedFilters">Advanced filters</message>

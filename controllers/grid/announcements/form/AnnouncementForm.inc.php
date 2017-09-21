@@ -140,7 +140,7 @@ class AnnouncementForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('typeId', 'title', 'descriptionShort', 'description', 'dateExpireYear', 'dateExpireMonth', 'dateExpireDay', 'dateExpire'));
+		$this->readUserVars(array('typeId', 'title', 'descriptionShort', 'description', 'dateExpireYear', 'dateExpireMonth', 'dateExpireDay', 'dateExpire', 'sendAnnouncementNotification'));
 	}
 
 	/**
@@ -188,16 +188,16 @@ class AnnouncementForm extends Form {
 
 		$contextId = $this->getContextId();
 
-		// Send a notification to associated users
-		import('classes.notification.NotificationManager');
-		$notificationManager = new NotificationManager();
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$notificationUsers = array();
-		$allUsers = $userGroupDao->getUsersByContextId($contextId);
-		while ($user = $allUsers->next()) {
-			$notificationUsers[] = array('id' => $user->getId());
-		}
-		if (!$this->announcementId) { // Only for new announcements
+		// Send a notification to associated users if selected
+		if ($this->getData('sendAnnouncementNotification')){
+			import('classes.notification.NotificationManager');
+			$notificationManager = new NotificationManager();
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+			$notificationUsers = array();
+			$allUsers = $userGroupDao->getUsersByContextId($contextId);
+			while ($user = $allUsers->next()) {
+				$notificationUsers[] = array('id' => $user->getId());
+			}
 			foreach ($notificationUsers as $userRole) {
 				$notificationManager->createNotification(
 					$request, $userRole['id'], NOTIFICATION_TYPE_NEW_ANNOUNCEMENT,

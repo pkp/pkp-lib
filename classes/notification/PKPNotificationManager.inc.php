@@ -381,7 +381,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 			case NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER:
 			case NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS:
 				assert($assocType == ASSOC_TYPE_SUBMISSION && is_numeric($assocId));
-				import('lib.pkp.classes.notification.managerDelegate.EditingProductionStatusNotificationManager');
+				import('classes.notification.managerDelegate.EditingProductionStatusNotificationManager');
 				return new EditingProductionStatusNotificationManager($notificationType);
 		}
 		return null; // No delegate required, let calling context handle null.

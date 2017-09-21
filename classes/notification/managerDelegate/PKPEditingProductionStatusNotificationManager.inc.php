@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/notification/managerDelegate/EditingProductionStatusNotificationManager.inc.php
+ * @file classes/notification/managerDelegate/PKPEditingProductionStatusNotificationManager.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class EditingProductionStatusNotificationManager
+ * @class PKPEditingProductionStatusNotificationManager
  * @ingroup classses_notification_managerDelegate
  *
  * @brief Editing and productionstatus notifications types manager delegate.
@@ -15,7 +15,7 @@
 
 import('lib.pkp.classes.notification.NotificationManagerDelegate');
 
-class EditingProductionStatusNotificationManager extends NotificationManagerDelegate {
+class PKPEditingProductionStatusNotificationManager extends NotificationManagerDelegate {
 
 	/**
 	 * Constructor.
@@ -47,7 +47,6 @@ class EditingProductionStatusNotificationManager extends NotificationManagerDele
 	 * @copydoc PKPNotificationOperationManager::getNotificationUrl()
 	 */
 	public function getNotificationUrl($request, $notification) {
-		$url = parent::getNotificationUrl($request, $notification);
 		$dispatcher = Application::getDispatcher();
 		$contextDao = Application::getContextDAO();
 		$context = $contextDao->getById($notification->getContextId());

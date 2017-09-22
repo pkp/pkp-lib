@@ -42,12 +42,12 @@ abstract class ReviewRoundNotificationManager extends NotificationManagerDelegat
 		$dispatcher = Application::getDispatcher();
 		$contextDao = Application::getContextDAO();
 		$context = $contextDao->getById($notification->getContextId());
-	
+
 		$reviewRound = $this->getReviewRound($notification->getAssocId());
 		$submissionDao = Application::getSubmissionDAO();
 		$submission = $submissionDao->getById($reviewRound->getSubmissionId());
 		import('lib.pkp.controllers.grid.submissions.SubmissionsListGridCellProvider');
-		return SubmissionsListGridCellProvider::getUrlByUserRoles($request, $submission);
+		return SubmissionsListGridCellProvider::getUrlByUserRoles($request, $submission, $notification->getUserId());
 	}
 
 	/**
@@ -58,7 +58,7 @@ abstract class ReviewRoundNotificationManager extends NotificationManagerDelegat
 		$reviewRound = $this->getReviewRound($notification->getAssocId());
 		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
 		$stagesData = $workflowStageDao->getWorkflowStageKeysAndPaths();
-		return __($localeKey, array('stage' => __($stagesData[$reviewRound->getStageId()]['translationKey'])));	
+		return __($localeKey, array('stage' => __($stagesData[$reviewRound->getStageId()]['translationKey'])));
 	}
 
 	/**
@@ -72,10 +72,10 @@ abstract class ReviewRoundNotificationManager extends NotificationManagerDelegat
 			$this->reviewRound = $reviewRoundDao->getById($reviewRoundId);
 			assert($this->reviewRound instanceof ReviewRound);
 		}
-		
+
 		return $this->reviewRound;
 	}
-	
+
 	/**
 	 * Get the notification message locale key.
 	 * @return string

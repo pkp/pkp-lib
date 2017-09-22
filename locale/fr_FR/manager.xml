@@ -2,17 +2,17 @@
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * locale/fr_CA/manager.xml
+  * locale/fr_FR/manager.xml
   *
   * Copyright (c) 2014-2017 Simon Fraser University
   * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the fr_CA (Français (Canada)) locale.
+  * Localization strings for the fr_FR (Français (France)) locale.
   *
   -->
 
-<locale name="fr_CA" full_name="Français (Canada)">
+<locale name="fr_CA" full_name="Français (France)">
 	<message key="manager.announcements">Annonces</message>
 	<message key="manager.announcements.confirmDelete">Êtes-vous certain de vouloir supprimer cette annonce de façon permanente?</message>
 	<message key="manager.announcements.create">Créer une nouvelle annonce</message>
@@ -76,8 +76,8 @@
 	<message key="manager.files.emptyDir">Aucun fichier n'a été trouvé dans ce répertoire.</message>
 	<message key="manager.files.indexOfDir">Index de {$dir}</message>
 	<message key="manager.files.parentDir">Répertoire parent</message>
-	<message key="manager.files.uploadedFiles">Fichiers téléchargés</message>
-	<message key="manager.files.uploadFile">Téléverser le fichier</message>
+	<message key="manager.files.uploadedFiles">Fichiers transférés</message>
+	<message key="manager.files.uploadFile">Transférer le fichier</message>
 	<message key="manager.groups.confirmDelete">Êtes-vous certain de vouloir supprimer ce groupe?</message>
 	<message key="manager.groups.createTitle">Créer un titre</message>
 	<message key="manager.groups.editTitle">Modifier un titre</message>
@@ -173,7 +173,7 @@
 	<message key="plugins.categories.themes">Plugiciels de thème</message>
 	<message key="manager.emails.form.emailKeyRequired">Une clé de courriel unique est obligatoire pour le courriel.</message>
 	<message key="manager.setup.errorDeletingItem">Il s'est produit une erreur lors de la suppression de cet élément.</message>
-	<message key="manager.reviewerSearch.searchByName">Chercher un évaluateur par nom</message>
+	<message key="manager.reviewerSearch.searchByName">Chercher un rapporteur par nom</message>
 	<message key="manager.reviewerSearch.doneAmount">Nombre d'évaluations terminée : {$current}</message>
 	<message key="manager.reviewerSearch.avgAmount">Nombre de jours moyen par évaluation: {$current}</message>
 	<message key="manager.reviewerSearch.lastAmount">Jours depuis la dernière évaluation: {$current}</message>
@@ -284,17 +284,17 @@
 	<message key="manager.emails.resetAll.message">Si vous réinitialisez tous les modèles, toutes vos modifications des modèles de courriels seront perdues. Vous souhaitez confirmer cette opération?</message>
 	<message key="manager.emails.reset.message">Si vous réinitialisez ce modèle, toutes les données des messages seront réinitialisées à leur valeur par défaut et vous perdrez toutes les modifications. Vous souhaitez confirmer cette opération?</message>
 	<message key="manager.reviewerSearch.form.instructions">Utilisez le formulaire ci-dessous pour indiquer les valeurs maximales des termes de votre recherche. Le formulaire contient les moyennes calculées de ces champs.</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">Saisir les intérêts des examinateurs, séparés par des virgules...</message>
+	<message key="manager.reviewerSearch.form.interests.instructions">Saisir les intérêts des rapporteurs, séparés par des virgules...</message>
 	<message key="manager.statistics.reports.aggregationColumns">Statistiques agrégées par:</message>
 	<message key="manager.statistics.reports.defaultReportTemplates">Modèles de rapport par défaut</message>
 	<message key="manager.statistics.reports.form.columnsRequired">Vous devez choisir au moins une colonne pour produire le rapport.</message>
 	<message key="manager.statistics.reports.filters.byLocation.description">Limiter les résultats selon le pays, la région ou la ville.</message>
 	<message key="manager.setup.competingInterests">Intérêts concurrents</message>
-	<message key="manager.setup.competingInterestsDescription">Les examinateurs devront respecter la politique de divulgation des intérêts concurrents que vous spécifiez ci-dessous.</message>
+	<message key="manager.setup.competingInterestsDescription">Les rapporteurs devront respecter la politique de divulgation des intérêts concurrents que vous spécifiez ci-dessous.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Délai de réponse alloué (semaines)</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Délai alloué pour la révision (semaines)</message>
-	<message key="manager.setup.reviewOptions.remindForInvite">Envoyer un rappel si l'examinateur n'a pas répondu à la demande d'examen dans le délai suivant (jours):</message>
-	<message key="manager.setup.reviewOptions.remindForSubmit">Envoyer un rappel si l'examinateur n'a pas fait sa recommandation dans le délai suivant (jours):</message>
+	<message key="manager.setup.reviewOptions.remindForInvite">Envoyer un rappel si le rapporteur n'a pas répondu à la demande d'examen dans le délai suivant (jours):</message>
+	<message key="manager.setup.reviewOptions.remindForSubmit">Envoyer un rappel si le rapporteur n'a pas fait sa recommandation dans le délai suivant (jours):</message>
 	<message key="manager.setup.dependentGenre">Genres dépendants</message>
 	<message key="manager.setup.sponsors.note">Vous pouvez ajouter une note décrivant votre politique en matière de commandite; celle-ci apparaitra dans la liste des commanditaires sur votre page À propos de.</message>
 	<message key="manager.setup.contributors.note">Vous pouvez ajouter une note décrivant votre rapport et votre politique entre vous et vos bailleurs de fonds; celle-ci apparaitra dans la liste des bailleurs de fonds sur votre page À propos de.</message>
@@ -403,7 +403,7 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.reviewForms.edit">Formulaire d'évaluation</message>
 	<message key="manager.reviewForms.form.titleRequired">Vous devez donner un titre à ce formulaire d'évaluation.</message>
 	<message key="manager.reviewForms.inReview">En cours d'évaluation</message>
-	<message key="manager.reviewForms.list.description">Les formulaires d'évaluation par les pairs créés ici seront présentés aux évaluateurs (plutôt que les formulaires par défaut) afin qu'ils puissent les remplir. Ces formulaires consistent en deux zones de texte ouvertes, la première "pour l'auteur et le rédacteur en chef" et la deuxième "pour le rédacteur en chef". Les formulaires d'évaluation peuvent être assignés à une section spécifique de la presse, et les rédacteurs en chef auront la possibilité de choisir le formulaire à remplir au moment d'assigner l'évaluation. Dans tous les cas, les rédacteurs en chef auront la possibilité de joindre les évaluations à leur message lorsqu'ils correspondront avec l'auteur.</message>
+	<message key="manager.reviewForms.list.description">Les formulaires d'évaluation par les pairs créés ici seront présentés aux rapporteurs (plutôt que les formulaires par défaut) afin qu'ils puissent les remplir. Ces formulaires consistent en deux zones de texte ouvertes, la première "pour l'auteur et le rédacteur en chef" et la deuxième "pour le rédacteur en chef". Les formulaires d'évaluation peuvent être assignés à une section spécifique de la presse, et les rédacteurs en chef auront la possibilité de choisir le formulaire à remplir au moment d'assigner l'évaluation. Dans tous les cas, les rédacteurs en chef auront la possibilité de joindre les évaluations à leur message lorsqu'ils correspondront avec l'auteur.</message>
 	<message key="manager.reviewForms.noneChosen">Aucune évaluation / Évaluation en formule libre</message>
 	<message key="manager.reviewForms.noneCreated">Aucun formulaire d'évaluation n'a été créé.</message>
 	<message key="manager.reviewForms.noneUsed">Aucuns formulaires d'évaluation n'ont été créés.</message>
@@ -427,7 +427,7 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.reviewFormElements.possibleResponse">Sélection</message>
 	<message key="manager.reviewFormElements.question">Élément </message>
 	<message key="manager.reviewFormElements.radiobuttons">Boutons radio (vous ne pouvez en choisir qu'un)</message>
-	<message key="manager.reviewFormElements.required">Les évaluateurs doivent remplir l'élément</message>
+	<message key="manager.reviewFormElements.required">Les rapporteurs doivent remplir l'élément</message>
 	<message key="manager.reviewFormElements.smalltextfield">Case de saisie pour un seul mot</message>
 	<message key="manager.reviewFormElements.textarea">Zone de texte élargie</message>
 	<message key="manager.reviewFormElements.textfield">Zone de texte simple ligne</message>
@@ -439,7 +439,7 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.reviewerSearch.avgAmountToggle">Activer/désactiver le filtre pour moyenne de jours pour compléter une évaluation.</message>
 	<message key="manager.reviewerSearch.lastAmountToggle">Activer/désactiver le filtre pour les jours depuis la dernière évaluation</message>
 	<message key="manager.reviewerSearch.activeAmountToggle">Activer/désactiver le filtre pour les évaluations présentement actives.</message>
-	<message key="manager.reviewerSearch.form.previousReviewRounds">Évaluateurs des rondes précédentes de cette soumission</message>
+	<message key="manager.reviewerSearch.form.previousReviewRounds">Rapporteurs des séries précédentes de cette soumission</message>
 	<message key="manager.statistics.reports.optionalColumns.description">Les éléments en italique et marqués d'un astérisque représentent des données facultatives pour le mode actuel de comptage des statistiques dans le système (type métrique). Vous pouvez avoir ces données ou non, dépendamment de la configuration des plugiciels statistiques.</message>
 	<message key="manager.statistics.reports.advancedOptions.hide">Masquer les options avancées</message>
 	<message key="manager.statistics.reports.objectNotFound">Objet introuvable dans la base de données.</message>
@@ -462,7 +462,7 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.setup.openAccessPolicy.description">Si vous fournissez un accès immédiat et gratuit à tout le contenu publié, vous pouvez inscrire une description de votre politique sur le libre accès.</message>
 	<message key="manager.setup.pageFooter">Pied de page</message>
 	<message key="manager.setup.pageFooterDescription">Entrer une image, du texte ou du code HTML que vous voudriez voir apparaître au bas de votre site web.</message>
-	<message key="manager.setup.peerReview.description">Décrivez la politique et les processus d'examen par les pairs pour les lecteurs et les auteurs. Cette description comprend souvent le nombre d'évaluateur impliqués dans l'examen d'une soumission, les critères par lesquels les évaluateurs sont invités à juger ces soumissions, le temps prévu pour effectuer les évaluations et enfin, les critères utilisés pour sélectionner les examinateurs.</message>
+	<message key="manager.setup.peerReview.description">Décrivez la politique et les processus d'examen par les pairs pour les lecteurs et les auteurs. Cette description comprend souvent le nombre de rapporteurs impliqués dans l'examen d'une soumission, les critères par lesquels les rapporteurs sont invités à juger ces soumissions, le temps prévu pour effectuer les évaluations et enfin, les critères utilisés pour sélectionner les rapporteurs.</message>
 	<message key="manager.setup.principalContact">Contact principal</message>
 	<message key="manager.setup.principalContactDescription">Entrez les coordonnées d'un rédacteur en chef, d'un membre de la rédaction ou du personnel administratif qui peuvent être affichées sur la version public de votre site Web.</message>
 	<message key="manager.setup.privacyStatement">Déclaration de confidentialité</message>
@@ -472,13 +472,13 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.setup.reviewOptions.showBlindReviewLink">Présentez un lien "Assurer une évaluation à l'aveugle" lors du téléchargement</message>
 	<message key="manager.setup.sponsors.description">Exemples: associations ou sociétés savantes, départements universitaires, coopératives, etc. Les commanditaire sont affichés publiquement.</message>
 	<message key="manager.setup.technicalSupportContact">Support technique</message>
-	<message key="manager.setup.technicalSupportContactDescription">Une personne-ressource qui peut aider les rédacteurs en chef, les auteurs et les évaluateurs à résoudre des problèmes lors d'une soumission, de l'édition, de l'évaluation ou lors de la publication de documents.</message>
+	<message key="manager.setup.technicalSupportContactDescription">Une personne-ressource qui peut aider les rédacteurs en chef, les auteurs et les rapporteurs à résoudre des problèmes lors d'une soumission, de l'édition, de l'évaluation ou lors de la publication de documents.</message>
 	<message key="manager.plugins.installConfirm">Voulez-vous vraiment installer ce plugiciel?</message>
 	<message key="manager.plugins.upgradeConfirm">Voulez-vous vraiment mettre à jour ce plugiciel?</message>
 	<message key="grid.action.installPlugin">Installer ou mettre à jour le plugiciel</message>
-	<message key="manager.plugins.upload">Téléverser un nouveau plugiciel</message>
-	<message key="manager.plugins.uploadDescription">Ce formulaire vous permet de téléverser et d'installer un nouveau plugiciel. Assurez-vous que le plugiciel est compressé en tant que fichier .tar.gz.</message>
-	<message key="manager.plugins.uploadFailed">Veuillez vous assurer qu'un fichier a été sélectionné pour le téléversement.</message>
+	<message key="manager.plugins.upload">Transférer un nouveau plugiciel</message>
+	<message key="manager.plugins.uploadDescription">Ce formulaire vous permet de transférer et d'installer un nouveau plugiciel. Assurez-vous que le plugiciel est compressé en tant que fichier .tar.gz.</message>
+	<message key="manager.plugins.uploadFailed">Veuillez vous assurer qu'un fichier a été sélectionné pour le transfert.</message>
 	<message key="manager.plugins.installed">Plugiciels installés</message>
 	<message key="manager.plugins.pluginGallery">Galerie de plugiciels</message>
 	<message key="manager.plugins.pluginGallery.overview">Aperçu</message>
@@ -503,8 +503,8 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.plugins.pluginGallery.summary">Sommaire</message>
 	<message key="manager.reviewFormElements.included">Inclus dans le message à l'auteur</message>
 	<message key="grid.action.createReviewForm">Créer un nouveau formulaire d'évaluation</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Déclaration de conflit d'intérêts de l'évaluateur</message>
-	<message key="manager.setup.competingInterests.required">Demander une déclaration de conflit d'intérêts de l'évaluateur</message>
+	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Déclaration de conflit d'intérêts du rapporteur</message>
+	<message key="manager.setup.competingInterests.required">Demander une déclaration de conflit d'intérêts du rapporteur</message>
 	<message key="manager.setup.licenseURLDescription">URL de la page décrivant la licence, si disponible.</message>
 	<message key="manager.setup.metadata.submission">Formulaire de soumission</message>
 	<message key="plugins.importexport.common.validationErrors">Erreurs de validation:</message>
@@ -519,4 +519,13 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="plugins.importexport.common.error.unknownEncoding">Encodage inconnu {$param}</message>
 	<message key="plugins.importexport.common.error.unknownUserGroup">Groupe d'utilisateur inconnu {$param}</message>
 	<message key="plugins.importexport.common.error.unknownUploader">Téléverseur inconnu {$param}</message>
+	<message key="manager.plugins.pluginGallery.certifications.official.description">Ce plugin est développé et maintenu par l'équipe  Public Knowledge Project</message>
+	<message key="manager.plugins.pluginGallery.certifications.reviewed.description">Ce plugin a été évalué et approuvé par l'équipe de Public Knowledge Project.</message>
+	<message key="manager.plugins.pluginGallery.certifications.partner.description">Ce plugin est fourni par un de nos partenaires</message>
+	<message key="plugins.importexport.common.error.encodingError">Le contenu n'est pas encodé comme {$param}</message>
+	<message key="plugins.importexport.common.error.temporaryFileFailed">Le fichier temporaire {$dest} ne peut pas être créé depuis {$source}</message>
+	<message key="plugins.importexport.common.error.filesizeMismatch">La taille fournie  "{$expected}"  et la taille actuelle "{$actual}" sont différentes</message>
+	<message key="plugins.importexport.common.error.duplicateRevisionForSubmission">La révision "{$revisionId}" pour le fichier "{$fileId}" créerait un duplica</message>
+	<message key="plugins.importexport.native.error.submissionFileImportFailed">Le fichier de la soumission n'a pu être importé</message>
+	<message key="plugins.importexport.common.warningsEncountered">Des erreurs non graves ont été rencontrées :</message>
 </locale>

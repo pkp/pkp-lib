@@ -2,17 +2,17 @@
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * locale/fr_CA/common.xml
+  * locale/fr_FR/common.xml
   *
   * Copyright (c) 2014-2017 Simon Fraser University
   * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the fr_CA (Français (Canada)) locale.
+  * Localization strings for the fr_FR (Français (France)) locale.
   *
   -->
 
-<locale name="fr_CA" full_name="Français (Canada)">
+<locale name="fr_FR" full_name="Français (France)">
 	<message key="about.aboutSite">À propos du site</message>
 	<message key="about.contact">Contact</message>
 	<message key="about.contact.email">Courriel</message>
@@ -76,7 +76,7 @@
 	<message key="common.dateModified">Date de modification</message>
 	<message key="common.dateRequested">Date d'échéance</message>
 	<message key="common.dateSubmitted">Date de soumission</message>
-	<message key="common.dateUploaded">Date de téléversement</message>
+	<message key="common.dateUploaded">Date de transfert</message>
 	<message key="common.day">Jour</message>
 	<message key="common.default">Défaut</message>
 	<message key="common.delete">Supprimer</message>
@@ -160,11 +160,11 @@
 	<message key="common.uninitiated">Non engagé</message>
 	<message key="common.untitled">Sans titre</message>
 	<message key="common.updated">Mis à jour</message>
-	<message key="common.uploadedFile">Fichier téléversé</message>
-	<message key="common.upload">Téléverser</message>
+	<message key="common.uploadedFile">Fichier transféré</message>
+	<message key="common.upload">Transférer</message>
 	<message key="common.up">Haut</message>
-	<message key="common.upload.addFile">Téléverser un fichier</message>
-	<message key="common.upload.dragFile">Faites glisser et déposez un fichier ici pour commencer le téléversement</message>
+	<message key="common.upload.addFile">Transférer un fichier</message>
+	<message key="common.upload.dragFile">Faites glisser et déposez un fichier ici pour commencer le transfert</message>
 	<message key="common.url">URL</message>
 	<message key="common.user">Utilisateur</message>
 	<message key="common.view">Afficher</message>
@@ -211,7 +211,7 @@
 	<message key="form.postRequired">Le formulaire n'a pas été soumis correctement.</message>
 	<message key="form.required">(* Obligatoire)</message>
 	<message key="form.resubmit">Soumettre de nouveau</message>
-	<message key="form.saveToUpload">Utiliser Enregistrer pour téléverser le fichier.</message>
+	<message key="form.saveToUpload">Utiliser Enregistrer pour transférer le fichier.</message>
 	<message key="form.send">Envoyer</message>
 	<message key="form.submit">Soumettre</message>
 	<message key="help.contents">Contenu</message>
@@ -334,7 +334,7 @@
 	<message key="notification.unsubscribeError">Il s'est produit une erreur lors de votre désabonnement. Veuillez vous assurer que votre adresse de courriel et votre mot de passe sont corrects.</message>
 	<message key="notification.unsubscribeSuccess">Vous avez été désabonné avec succès.</message>
 	<message key="notification.savedSubmissionMetadata">Les métadonnées de la soumission ont été sauvegardées.</message>
-	<message key="common.uploadFailed">Le fichier n'a pu être téléverser. Veuillez essayer de nouveau ou communiquer avec l'administrateur si le problème persiste.</message>
+	<message key="common.uploadFailed">Le fichier n'a pu être transféré. Veuillez essayer de nouveau ou communiquer avec l'administrateur si le problème persiste.</message>
 	<message key="navigation.dashboard">Tableau de bord</message>
 	<message key="common.false">Faux</message>
 	<message key="common.ok">OK</message>
@@ -381,8 +381,8 @@
 	<message key="stageParticipants.notify.message">Message</message>
 	<message key="stageParticipants.notify.warning">Assurez-vous d'avoir rempli le champ Message et d'avoir choisi au moins un destinataire.</message>
 
-	<message key="notification.addedReviewer">Un évaluateur a été ajouté.</message>
-	<message key="notification.removedReviewer">L'évaluateur a été supprimé.</message>
+	<message key="notification.addedReviewer">Un rapporteur a été ajouté.</message>
+	<message key="notification.removedReviewer">Le rapporteur a été supprimé.</message>
 	<message key="notification.addedStageParticipant">L'utilisateur a été ajouté à titre de participant.</message>
 	<message key="notification.addedQuery">Discussion ajoutée</message>
 	<message key="notification.removedSubmission">Soumission retirée.</message>
@@ -395,7 +395,7 @@
 	<message key="notification.type.metadataModified">Les metadata de "{$title}" ont été modifiées.</message>
 	<message key="notification.type.newAnnouncement">Nouvelle annonce.</message>
 	<message key="notification.type.pendingRevisions">Vous devez tenir compte des révisions à cette étape: {$stage}.</message>
-	<message key="notification.type.pendingRevisions.title">Révisions soumiss à {$stage}.</message>
+	<message key="notification.type.pendingRevisions.title">Révisions soumises à {$stage}.</message>
 	<message key="notification.type.queryActivity">Activités sur la discusssion.</message>
 	<message key="notification.type.queryAdded">Discussion ajouté.</message>
 	<message key="notification.type.reviewerComment">Un réviseur a laissé un commentaire sur "{$title}".</message>
@@ -430,7 +430,7 @@
 	<message key="common.searchQuery">Requête</message>
 	<message key="common.titleSmallWords">de à le la et un une ou ni mais est si puis alors lorsque à de par ouvert fermé pour à l'intérieur à l'extérieur par-dessus dans avec</message>
 	<message key="common.upload.changeFile">Remplacer un fichier</message>
-	<message key="common.uploadedDate">Date de téléversement</message>
+	<message key="common.uploadedDate">Date de transfert</message>
 	<message key="common.available">Disponible</message>
 	<message key="common.warning">Avertissement</message>
 	<message key="common.error">Erreur</message>
@@ -442,7 +442,7 @@
 	<message key="common.declined">Refusé</message>
 	<message key="common.favicon.altText">Favicon</message>
 	<message key="common.finish">Terminer</message>
-	<message key="common.fileUploaderError">La fenêtre pour téléverser un fichier système est en cours. Si elle n'apparait pas, il est probable qu'aucun de ses temps d'exécution ne soit supporté par ce navigateur. Veuillez contacter l'administrateur pour obtenir de l'aide.</message>
+	<message key="common.fileUploaderError">La fenêtre pour transférer un fichier système est en cours. Si elle n'apparait pas, il est probable qu'aucun de ses temps d'exécution ne soit supporté par ce navigateur. Veuillez contacter l'administrateur pour obtenir de l'aide.</message>
 	<message key="common.go">Continuer</message>
 	<message key="common.homepageNavigationLabel">Accueil</message>
 	<message key="common.itemsPerPage">Items par page</message>
@@ -467,16 +467,16 @@
 	<message key="common.subtitle">Sous-titre</message>
 	<message key="common.element">Élément</message>
 	<message key="common.unread">Non lu</message>
-	<message key="common.fileUpload.maxFileSizeStatus"><![CDATA[Ce serveur permet de téléverser un fichier dont la taille maximale est {$fileSize}. Si nécessaire, contactez <a href="mailto:{$supportEmail}">{$supportName}</a> pour obtenir de l'aide.]]></message>
-	<message key="common.invalidFileType">Aucun fichier n'a été téléchargé ou type de fichier invalide!</message>
+	<message key="common.fileUpload.maxFileSizeStatus"><![CDATA[Ce serveur permet de transférer un fichier dont la taille maximale est {$fileSize}. Si nécessaire, contactez <a href="mailto:{$supportEmail}">{$supportName}</a> pour obtenir de l'aide.]]></message>
+	<message key="common.invalidFileType">Aucun fichier n'a été transféré ou type de fichier invalide!</message>
 	<message key="common.homepageImage.altText">Image de la page d'accueil</message>
 	<message key="common.plugins">Modules externes</message>
 	<message key="common.metric">Métrique</message>
 	<message key="common.count">Décompte</message>
 	<message key="defaultMetric.title">Métrique (par défaut)</message>
 	<message key="defaultMetric.availableMetrics">Mesures disponibles</message>
-	<message key="editor.submissionReview.uploadFile">Téléverser le fichier de révision</message>
-	<message key="editor.submissionReview.uploadAttachment">Téléverser le fichier</message>
+	<message key="editor.submissionReview.uploadFile">Transférer le fichier de révision</message>
+	<message key="editor.submissionReview.uploadAttachment">Transférer le fichier</message>
 	<message key="email.subjectRequired">Veuillez indiquer le sujet du courriel.</message>
 	<message key="email.bodyRequired">Veuillez ajouter le texte du courriel.</message>
 	<message key="form.confirmSubmit">Vous voulez vraiment envoyer ce formulaire?</message>
@@ -540,7 +540,7 @@
 	<message key="user.authorization.invalidRepresentation">Représentation invalide.</message>
 	<message key="user.authorization.submissionFile">L'utilisateur actuel n'a pas accès au fichier de soumission spécifié.</message>
 	<message key="user.authorization.submissionAuthor">L'utilisateur actuel n'est pas l'auteur de la soumission demandée. Veuillez vous assurer d'avoir ouvert une session avec le compte d'utilisateur approprié.</message>
-	<message key="review.blindPeerReview"><![CDATA[<p>Afin d'assurer l'intégrité de l'examen en aveugle des soumissions envoyées à cette presse, il faut faire tous les efforts possibles pour éviter que l'on révèle l'identité des auteurs et des examinateurs. Pour ce faire, les auteurs, les réviseurs et les examinateurs (qui téléchargent les documents dans le cadre de l'examen) doivent s'assurer de suivre les étapes suivantes en ce qui concerne les propriétés du texte et du fichier:</p>
+	<message key="review.blindPeerReview"><![CDATA[<p>Afin d'assurer l'intégrité de l'examen en aveugle des soumissions envoyées à cette presse, il faut faire tous les efforts possibles pour éviter que l'on révèle l'identité des auteurs et des rapporteurs. Pour ce faire, les auteurs, les réviseurs et les rapporteurs (qui téléchargent les documents dans le cadre de l'examen) doivent s'assurer de suivre les étapes suivantes en ce qui concerne les propriétés du texte et du fichier:</p>
 
 <ul><li>Supprimer le nom de l'auteur du texte. Dans la bibliographie et dans les notes en bas de page, on utilise le mot "Auteur" et l'année au lieu du nom de l'auteur, du titre de l'article, etc.</li>
 
@@ -557,6 +557,9 @@
 	<message key="navigation.skip.nav">Aller directement au menu principal</message>
 	<message key="navigation.skip.footer">Aller au pied de page</message>
 	<message key="common.downloadPdf">Télécharger le PDF</message>
-
-	<message key="semicolon">{$label}:</message>
+	<message key="common.deleting">Suppression</message>
+	<message key="notification.reviewerThankedEmail">Le mail de remerciements a été envoyé au rapporteur.</message>
+	<message key=""><![CDATA[]]></message>
+	<message key="common.saving">Enregistrement</message>
+	<message key="notification.addedReviewerNoEmail">{$reviewerName} a été choisi pour évaluer cette soumission et il n'a pas reçu de mail de notification</message>
 </locale>

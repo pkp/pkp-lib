@@ -2,16 +2,16 @@
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * locale/fr_CA/default.xml
+  * locale/fr_FR/default.xml
   *
   * Copyright (c) 2014-2017 Simon Fraser University
   * Copyright (c) 2003-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the fr_CA (Français (Canada)) locale.
+  * Localization strings for the fr_FR (Français (France)) locale.
   -->
 
-<locale name="fr_CA" full_name="Français (Canada)">
+<locale name="fr_FR" full_name="Français (France)">
 	<!-- Group defaults -->
 	<message key="default.groups.name.siteAdmin">Administrateur du site</message>
 	<message key="default.groups.plural.siteAdmin">Administrateurs du site</message>
@@ -27,8 +27,8 @@
 	<message key="default.groups.name.designer">Designer</message>
 	<message key="default.groups.plural.designer">Designers</message>
 	<message key="default.groups.abbrev.designer">Design</message>
-	<message key="default.groups.name.internalReviewer">Évaluateur interne</message>
-	<message key="default.groups.plural.internalReviewer">Évaluateurs internes</message>
+	<message key="default.groups.name.internalReviewer">Rapporteur interne</message>
+	<message key="default.groups.plural.internalReviewer">Rapporteurs internes</message>
 	<message key="default.groups.abbrev.internalReviewer">EvalInt</message>
 	<message key="default.groups.name.marketing">Coordonnateur des ventes et du marketing</message>
 	<message key="default.groups.plural.marketing">Coordonnateurs des ventes et du marketing</message>

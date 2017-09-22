@@ -2,17 +2,17 @@
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * locale/fr_CA/installer.xml
+  * locale/fr_FR/installer.xml
   *
   * Copyright (c) 2014-2017 Simon Fraser University
   * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the fr_CA (Français (Canada)) locale.
+  * Localization strings for the fr_FR (Français (France)) locale.
   *
   -->
 
-<locale name="fr_CA" full_name="Français (Canada)">
+<locale name="fr_FR" full_name="Français (France)">
 	<message key="installer.additionalLocales">Langues supplémentaires</message>
 	<message key="installer.administratorAccount">Compte administrateur</message>
 	<message key="installer.administratorAccountInstructions">Ce compte utilisateur deviendra l'administrateur du site et aura le plein accès à tout le système. D'autres comptes utilisateurs peuvent être créés après l'installation.</message>

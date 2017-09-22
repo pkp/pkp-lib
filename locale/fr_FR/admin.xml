@@ -2,17 +2,17 @@
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * locale/fr_CA/admin.xml
+  * locale/fr_FR/admin.xml
   *
   * Copyright (c) 2014-2017 Simon Fraser University
   * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the fr_CA (Français (Canada)) locale.
+  * Localization strings for the fr_FR (Français (France)) locale.
   *
   -->
 
-<locale name="fr_CA" full_name="Français (Canada)">
+<locale name="fr_FR" full_name="Français (France)">
 	<message key="admin.systemInfo.settingName">Fixation du nom</message>
 	<message key="admin.systemInfo.settingValue">Fixation de la valeur</message>
 	<message key="admin.adminFunctions">Fonctions administratives</message>
@@ -143,4 +143,5 @@ Vous devez parfois utiliser une seule statistique d'utilisation pour, par exempl
 	<message key="admin.scheduledTask.clearLogs">Supprimer le journal d'exécution des tâches planifiées</message>
 	<message key="admin.error.utilExecutionProblem">L'exécution de "{$utilPath}" s'est terminée avec l'erreur suivante: {$output}</message>
 	<message key="admin.error.executingUtil">Erreur: impossible de lancer "{$utilPath}". Veuillez vérifier la configuration de {$utilVar} dans le fichier config.inc.php</message>
+	<message key="admin.contexts.confirmDelete">Voulez vous de manière permanente supprimer {$contextName} et tout son contenu ?</message>
 </locale>

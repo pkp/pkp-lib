@@ -2,17 +2,17 @@
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * locale/fr_CA/user.xml
+  * locale/fr_FR/user.xml
   *
   * Copyright (c) 2014-2017 Simon Fraser University
   * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the fr_CA (Français (Canada)) locale.
+  * Localization strings for the fr_FR (Français (France)) locale.
   *
   -->
 
-<locale name="fr_CA" full_name="Français (Canada)">
+<locale name="fr_FR" full_name="Français (France)">
 	<message key="user.affiliation">Affiliation</message>
 	<message key="user.affiliations">Affiliations</message>
 	<message key="user.biography">Note biographique</message>
@@ -90,8 +90,8 @@
 	<message key="user.register.usernameRestriction">Le nom d'utilisateur ne doit contenir que des lettres minuscules, chiffres, et traits d'union/de soulignement.</message>
 	<message key="user.role.reader">Lecteur</message>
 	<message key="user.role.readers">Lecteurs</message>
-	<message key="user.role.reviewer">Évaluateur</message>
-	<message key="user.role.reviewers">Évaluateurs</message>
+	<message key="user.role.reviewer">Rapporteur</message>
+	<message key="user.role.reviewers">Rapporteurs</message>
 	<message key="user.role.siteAdmin">Administrateur du site</message>
 	<message key="user.role.siteAdmins">Administrateurs du site</message>
 	<message key="user.roles">Rôles</message>
@@ -155,4 +155,8 @@
 	<message key="user.register.registrationCompleted"><![CDATA[*Vous vous êtes inscrit avec succès. <a href="{$profileUrl}"> Cliquez ici </a> pour compléter votre profil utilisateur.]]></message>
 	<message key="user.orcid.orcidInvalid">Le numéro ORCID que vous avez spécifié n'est pas valide. Veuillez inclure l'URI complet (par exemple "http://orcid.org/0000-0002-1825-0097").</message>
 	<message key="user.login.registrationPendingValidation">Inscription en attente de validation</message>
+	<message key="user.apiKey">API Key</message>
+	<message key="user.apiKeyEnabled">Autoriser les applications externes avec l'API key d'accéder à ce compte</message>
+	<message key="user.apiKey.generate">Générer une nouvelle API Key</message>
+	<message key="user.apiKey.generateWarning">Générer une nouvelle API Key invalidera toutes les clés existantes pour cet utilisateur.</message>
 </locale>

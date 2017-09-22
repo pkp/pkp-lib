@@ -2,17 +2,17 @@
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * locale/fr_CA/grid.xml
+  * locale/fr_FR/grid.xml
   *
   * Copyright (c) 2014-2017 Simon Fraser University
   * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the fr_CA locale.
+  * Localization strings for the fr_FR locale.
   *
   -->
 
-<locale name="fr_CA" full_name="Français (Canada)">
+<locale name="fr_FR" full_name="Français (France)">
 	<!-- Common -->
 	<message key="grid.noItems">Aucun élément</message>
 	<message key="grid.settings">Paramètres</message>
@@ -125,19 +125,19 @@
 	<message key="grid.action.cancelOrdering">Annuler la commande</message>
 	<message key="grid.action.readReview">Lire cet examen</message>
 	<message key="grid.action.email">Envoyer un courriel</message>
-	<message key="grid.action.addReviewer">Ajouter un examinateur</message>
+	<message key="grid.action.addReviewer">Ajouter un rapporteur</message>
 	<message key="grid.action.selectFiles">Sélectionner les fichiers à gérer</message>
 	<message key="grid.action.accept">Accepter cette soumission</message>
-	<message key="grid.action.internalReview">Envoyer cette soumission à un examinateur interne</message>
-	<message key="grid.action.externalReview">Envoyer cette soumission à un examinateur externe</message>
+	<message key="grid.action.internalReview">Envoyer cette soumission à un rapporteur interne</message>
+	<message key="grid.action.externalReview">Envoyer cette soumission à un rapporteur externe</message>
 	<message key="grid.action.sendToProduction">Envoyer cette soumission à la production.</message>
 	<message key="grid.action.requestAccount">Ajouter un participant</message>
 	<message key="grid.action.notify">Avertir cet utilisateur</message>
 	<message key="grid.action.details">Visionner cet item</message>
-	<message key="grid.action.selectCreate">Créer un nouvel examinateur</message>
+	<message key="grid.action.selectCreate">Créer un nouveau rapporteur</message>
 	<message key="grid.action.advancedSearch">Recherche avancée</message>
 	<message key="grid.action.viewMetadata">Voir les métadonnées de cette soumission.</message>
-	<message key="grid.action.newRound">Créer une nouvelle ronde</message>
+	<message key="grid.action.newRound">Créer une nouvelle série d'évaluations</message>
 	<message key="grid.action.history">Voir l'historique</message>
 	<message key="grid.task.status.completed">Cette tâche est complétée</message>
 	<message key="grid.task.status.unfinished">Tâche non terminée</message>
@@ -172,12 +172,12 @@
 	<message key="grid.action.addUserGroup">Ajouter un nouveau groupe d'utilisateurs</message>
 	<message key="grid.action.editUserGroup">Modifier ce groupe d'utilisateurs</message>
 	<message key="grid.action.disable">Désactiver</message>
-	<message key="grid.action.enrolExisting">Inscrire un nouvel utilisateur à titre d'examinateur</message>
+	<message key="grid.action.enrolExisting">Inscrire un nouvel utilisateur à titre de rapporteur</message>
 	<message key="grid.action.sendReminder">Envoyer un rappel de tâche à cet utilisateur</message>
 	<message key="grid.action.viewReviewGuidelines">Voir les lignes directrices des examens</message>
 	<message key="grid.action.viewCompetingInterestGuidelines">Voir la politique concernant les intérêts opposés</message>
 	<message key="grid.action.thankReviewer">Envoyer un message de remerciement à cet utilisateur</message>
-	<message key="grid.action.uploadFile">Télécharger un fichier</message>
+	<message key="grid.action.uploadFile">Transférer un fichier</message>
 	<message key="grid.action.addAnnouncementType">Ajouter un type d'annonce</message>
 	<message key="grid.action.addAnnouncement">Ajouter une annonce</message>
 	<message key="grid.action.mergeUser">Fusionner l'utilisateur</message>
@@ -188,7 +188,7 @@
 	<message key="grid.action.exportAllUsers">Exporter tous les utilisateurs</message>
 	<message key="grid.users.confirmExportAllUsers">Vous voulez vraiment exporter tous les utilisateurs?</message>
 	<message key="grid.task.status.new">Coché lorsque considéré</message>
-	<message key="grid.task.status.uploaded">La colonne de titres indique qui a téléchargé ce fichier</message>
+	<message key="grid.task.status.uploaded">La colonne de titres indique qui a transféré ce fichier</message>
 	<message key="grid.task.status.reviewReady">Cet examen est prêt. Cliquez sur l'icône de note à gauche pour le lire.</message>
 	<message key="grid.columns.locale">Paramètre régional</message>
 	<message key="grid.genres.description">Ces genres sont utilisés pour nommer les fichiers et sont présentés dans un menu déroulant au moment de télécharger les fichiers. Les genres désignés par les symboles ## permettent à l'utilisateur d'associer le fichier au livre complet 99Z ou à un chapitre particulier (ex.: 02).</message>
@@ -235,7 +235,7 @@
 	<message key="grid.action.readQuery">Lire la discussion</message>
 	<message key="grid.action.deleteQuery">Supprimer la discussion</message>
 	<message key="grid.action.updateQuery">Mettre à jour la discussion</message>
-	<message key="grid.action.unassignReviewer">Désassigner l'évaluateur</message>
+	<message key="grid.action.unassignReviewer">Désassigner le rapporteur</message>
 	<message key="grid.action.disapprove">Désapprouver</message>
 	<message key="grid.action.setApproval">Approuver</message>
 	<message key="grid.action.search">Rechercher</message>

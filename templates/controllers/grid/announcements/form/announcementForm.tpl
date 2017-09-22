@@ -54,6 +54,10 @@
 			{fbvFormSection title="manager.announcements.form.dateExpire" for="dataExpire"}
 				{fbvElement type="text" id="dateExpire" value=$dateExpire|date_format:$dateFormatShort label="manager.announcements.form.dateExpireInstructions" class="datepicker"}
 			{/fbvFormSection}
+			{if $announcement}{assign var="checked" value=false}{else}{assign var="checked" value=true}{/if}
+			{fbvFormSection for="sendAnnouncementNotification" list="true"}
+				{fbvElement type="checkbox" name="sendAnnouncementNotification" id="sendAnnouncementNotification" checked=$checked label="notification.sendNotificationConfirmation" inline=true}
+			{/fbvFormSection}
 		{/fbvFormArea}
 		<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 		{fbvFormButtons id="announcementFormSubmit" submitText="common.save"}

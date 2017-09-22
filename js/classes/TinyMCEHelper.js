@@ -79,7 +79,7 @@
 	 * @return {jQueryObject} JQuery DOM representing the PKP variable.
 	 */
 	$.pkp.classes.TinyMCEHelper.prototype.getVariableElement =
-			function(selector, variableSymbolic, variableName) {
+			function(variableSymbolic, variableName, selector) {
 		var variableType, variableTypes =
 				$.pkp.classes.TinyMCEHelper.prototype.getVariableTypesMap(selector);
 

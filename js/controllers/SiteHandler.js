@@ -263,7 +263,7 @@
 					/\{\$([a-zA-Z]+)\}(?![^<]*>)/g, function(match, contents, offset, s) {
 						if (variablesParsed[contents] !== undefined) {
 							return $.pkp.classes.TinyMCEHelper.prototype.getVariableElement(
-									'#' + tinyMCEObject.id, contents, variablesParsed[contents])
+									contents, variablesParsed[contents], '#' + tinyMCEObject.id)
 									.html();
 						}
 						return match;

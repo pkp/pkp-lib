@@ -14,6 +14,7 @@
   * (https://packages.debian.org/sid/all/iso-codes) using the
   * tools/poToCountries.php tool.
   -->
+
 <countries>
 	<country name="Afghanistan" code="AF"/>
 	<country name="Albania" code="AL"/>
@@ -51,10 +52,10 @@
 	<country name="Bulgaria" code="BG"/>
 	<country name="Burkina-Faso" code="BF"/>
 	<country name="Burundi" code="BI"/>
+	<country name="Cabo Verde" code="CV"/>
 	<country name="Cambogia" code="KH"/>
 	<country name="Camerun" code="CM"/>
 	<country name="Canada" code="CA"/>
-	<country name="Capo Verde" code="CV"/>
 	<country name="Isole Cayman" code="KY"/>
 	<country name="Repubblica Centrafricana" code="CF"/>
 	<country name="Ciad" code="TD"/>
@@ -72,7 +73,7 @@
 	<country name="Cuba" code="CU"/>
 	<country name="Curaçao" code="CW"/>
 	<country name="Cipro" code="CY"/>
-	<country name="Repubblica Ceca" code="CZ"/>
+	<country name="Czechia" code="CZ"/>
 	<country name="Costa d'Avorio" code="CI"/>
 	<country name="Danimarca" code="DK"/>
 	<country name="Gibuti" code="DJ"/>

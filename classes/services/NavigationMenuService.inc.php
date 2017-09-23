@@ -344,8 +344,8 @@ class NavigationMenuService {
 					$request,
 					ROUTE_PAGE,
 					null,
-					'user',
 					'login',
+					null,
 					null
 				);
 

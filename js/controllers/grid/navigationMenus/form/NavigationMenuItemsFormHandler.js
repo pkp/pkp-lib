@@ -11,33 +11,36 @@
  * @brief NavigationMenuItems form handler.
  */
 (function($) {
+
+
 	/**
-	 * @constructor
-	 *
-	 * @extends $.pkp.controllers.form.AjaxFormHandler
-	 *
-	 * @param {jQueryObject} $formElement A wrapped HTML element that
-	 *  represents the approved proof form interface element.
-	 * @param {Object} options Tabbed modal options.
-	 */
+		* @constructor
+		*
+		* @extends $.pkp.controllers.form.AjaxFormHandler
+		*
+		* @param {jQueryObject} $formElement A wrapped HTML element that
+		*  represents the approved proof form interface element.
+		* @param {Object} options Tabbed modal options.
+		*/
 	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsFormHandler =
-			function ($form, options) {
+			function($formElement, options) {
 
-				this.parent($form, options);
+		this.parent($formElement, options);
 
-				// Save the preview URL for later
-				this.previewUrl_ = options.previewUrl;
+		// Save the preview URL for later
+		this.previewUrl_ = options.previewUrl;
 
-				// bind a handler to make sure we update the required state
-				// of the comments field.
-				$('#previewButton', $form).click(this.callbackWrapper(
-						this.showPreview_));
+		// bind a handler to make sure we update the required state
+		// of the comments field.
+		$('#previewButton', $formElement).click(this.callbackWrapper(
+				this.showPreview_));
 
-				$('#previewButton').hide();
+		$('#previewButton').hide();
 
-				// custom url or path functionality change
-				$('#useCustomUrl').change(function () {
-					if ($(this).is(":checked")) {
+		// custom url or path functionality change
+		$('#useCustomUrl').change(
+				function() {
+					if ($(this).is(':checked')) {
 						$('#targetUrl').show();
 						$('#targetPath').hide();
 						$('#previewButton').hide();
@@ -45,14 +48,17 @@
 						$('#targetUrl').hide();
 						$('#targetPath').show();
 						$('#previewButton').show();
-					}					
-				});
+					}
+				}
+		);
 
-				// type change event
-				$('#type').change(function () {
-					if ($(this)[0].value == "NMI_TYPE_CUSTOM") { // add global variable somehow
+		// type change event
+		$('#type').change(
+				function() {
+					// add global variable somehow
+					if ($(this)[0].value == 'NMI_TYPE_CUSTOM') {
 						$('#customItemFields').show();
-						if ($('#useCustomUrl').is(":checked")) {
+						if ($('#useCustomUrl').is(':checked')) {
 							$('#previewButton').hide();
 						} else {
 							$('#previewButton').show();
@@ -61,11 +67,13 @@
 						$('#customItemFields').hide();
 						$('#previewButton').hide();
 					}
-				});
+				}
+		);
 
-				$('#useCustomUrl').trigger("change");
-				$('#type').trigger("change");
-			};
+		$('#useCustomUrl').trigger('change');
+		$('#type').trigger('change');
+	};
+
 
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsFormHandler,
@@ -76,23 +84,26 @@
 	// Private properties
 	//
 
-	/**
-	 * The preview url.
-	 * @private
-	 * @type {?string}
-	 */
-	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsFormHandler.prototype.
-			previewUrl_ = null;
 
 	/**
-	 * Callback triggered on clicking the "preview" button to open a preview window.
-	 *
-	 * @param {HTMLElement} submitButton The submit button.
-	 * @param {Event} event The event that triggered the
-	 *  submit button.
-	 * @return {boolean} true.
-	 * @private
-	 */
+		* The preview url.
+		* @private
+		* @type {?string}
+		*/
+	$.pkp.controllers.grid.navigationMenus.form.
+			NavigationMenuItemsFormHandler.prototype.previewUrl_ = null;
+
+
+	/**
+		* Callback triggered on clicking the "preview"
+		* button to open a preview window.
+		*
+		* @param {HTMLElement} submitButton The submit button.
+		* @param {Event} event The event that triggered the
+		*  submit button.
+		* @return {boolean} true.
+		* @private
+		*/
 	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsFormHandler.
 			prototype.showPreview_ = function(submitButton, event) {
 
@@ -101,13 +112,15 @@
 				$formElement.serialize(),
 				function(data) {
 					var win = window.open('about:blank');
-					with(win.document) {
-						open();
-						write(data);
-						close();
-					}
-				});
+					win.document.open();
+					win.document.write(data);
+					win.document.close();
+				}
+		);
+
 		return true;
 	};
+
+
 /** @param {jQuery} $ jQuery closure. */
 }(jQuery));

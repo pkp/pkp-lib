@@ -12,7 +12,9 @@
  */
 (function($) {
 
-	/** @type {Object} */
+	/**
+	 * Define the namespace
+	 */
 	$.pkp.controllers.grid.navigationMenus =
 			$.pkp.controllers.grid.navigationMenus ||
 			{ form: {} };
@@ -29,15 +31,17 @@
 	 * @param {Object} options Modal options.
 	 */
 	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuFormHandler =
-			function ($form, options) {
+			function($formElement, options) {
 
-		this.parent($form, options);
+		this.parent($formElement, options);
 		this.initSorting();
 	};
+
 
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.grid.navigationMenus.form.NavigationMenuFormHandler,
 			$.pkp.controllers.form.AjaxFormHandler);
+
 
 	/**
 	 * Initialize the .sortable() lists, limit nesting to one level deep and
@@ -49,42 +53,44 @@
 		// Limit nesting to one level deep and ensure nested lists are formatted
 		// properly for appropriate styles
 		$('#pkpNavAssigned > li').each(
-			function() {
-				var $childList = $(this).children('ul');
-				if (!$childList.length) {
-					$(this).append('<ul></ul>');
-					return;
-				}
+				function() {
+					var $childList = $(this).children('ul'),
+							$children = $childList.children(),
+							$grandchildren = $children.find('li');
 
-				var $children = $childList.children();
-				if (!$children.length) {
-					// Ensure it's just an empty ul (with no spaces) so the CSS
-					// :empty psuedo class can be used
-					$childList.replaceWith('<ul></ul>');
-				} else {
-					// Prevent nesting two levels deep by moving any items
-					// nested at that level up one level.
-					var $grandchildren = $children.find('li');
-					if ($grandchildren.length) {
-						$grandchildren.each(function() {
-							$(this).appendTo($childList);
-						});
+					if (!$childList.length) {
+						$(this).append('<ul></ul>');
+						return;
+					}
+
+					if (!$children.length) {
+						// Ensure it's just an empty ul (with no spaces) so the CSS
+						// :empty psuedo class can be used
+						$childList.replaceWith('<ul></ul>');
+					} else {
+						// Prevent nesting two levels deep by moving any items
+						// nested at that level up one level.
+						//var $grandchildren = $children.find('li');
+						if ($grandchildren.length) {
+							$grandchildren.each(function() {
+								$(this).appendTo($childList);
+							});
+						}
 					}
 				}
-			}
 		);
 
 		// Reset any nesting that's been carried over from the assigned list
 		$('#pkpNavUnassigned > li').each(
-			function() {
-				var $childList = $(this).children('ul');
-				if ($childList.length) {
-					$childList.find('li').each(function() {
-						$(this).appendTo($('#pkpNavUnassigned'));
-					})
+				function() {
+					var $childList = $(this).children('ul');
+					if ($childList.length) {
+						$childList.find('li').each(function() {
+							$(this).appendTo($('#pkpNavUnassigned'));
+						});
+					}
+					$childList.remove();
 				}
-				$childList.remove();
-			}
 		);
 
 		// Initialize the sortable controls
@@ -98,9 +104,10 @@
 			},
 			stop: function() {
 				$('#pkpNavAssigned').removeClass('pkp_is_sorting');
-			},
+			}
 		});
 	};
+
 
 	/**
 	 * Re-initialize the .sortable() components and generate the form fields
@@ -109,9 +116,9 @@
 	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuFormHandler
 			.prototype.updateSorting = function() {
 		var $navManagement = $('#pkpNavManagement'),
-			seq = 0,
-			parent = null,
-			currentName = '';
+				seq = 0,
+				parent = null,
+				currentName = '';
 
 		// Re-intialize the sortable component after adjusting sort order
 		this.initSorting();
@@ -122,14 +129,20 @@
 		// Generate new hidden form fields
 		$('#pkpNavAssigned > li').each(function() {
 			currentName = 'menuTree[' + $(this).data('id') + ']';
-			$navManagement.append('<input type="hidden" name="' + currentName + '[seq]" value="' + seq + '">');
+			$navManagement.append('<input type="hidden" name="' +
+					currentName + '[seq]" value="' +
+					seq + '">');
 			seq++;
 
-			parentId = $(this).data('id');
+			var parentId = $(this).data('id');
 			$(this).find('li').each(function() {
 				currentName = 'menuTree[' + $(this).data('id') + ']';
-				$navManagement.append('<input type="hidden" name="' + currentName + '[seq]" value="' + seq + '">');
-				$navManagement.append('<input type="hidden" name="' + currentName + '[parentId]" value="' + parentId + '">');
+				$navManagement.append('<input type="hidden" name="' +
+						currentName + '[seq]" value="' +
+						seq + '">');
+				$navManagement.append('<input type="hidden" name="' +
+						currentName + '[parentId]" value="' +
+						parentId + '">');
 				seq++;
 			});
 		});

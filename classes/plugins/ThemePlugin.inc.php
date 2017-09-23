@@ -100,6 +100,9 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 			return;
 		}
 
+		// Adding default navigationMenuAreas for all themes
+		$this->addOption('navigationMenuArea', null, array('primary', 'user', 'footer'));
+
 		$this->init();
 	}
 

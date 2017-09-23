@@ -279,6 +279,23 @@ class PKPTemplateManager extends Smarty {
 					)
 				);
 			}
+
+			// Register Navigation Menus
+			if ($currentContext) {
+				$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+				$navigationMenus = $navigationMenuDao->getByContextId($currentContext->getId(), null);
+				$navigationMenusArray = $navigationMenus->toAssociativeArray();
+
+				foreach ($navigationMenusArray as $navigationMenu) {
+					import('classes.core.ServicesContainer');
+					ServicesContainer::instance()
+						->get('navigationMenu')
+						->getMenuTree($navigationMenu);
+					// $navigationMenu->getMenuTree();
+				}
+
+				$this->assign('navigationMenus', $navigationMenusArray);
+			}
 		}
 
 		// Register custom functions
@@ -341,6 +358,9 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('load_stylesheet', array($this, 'smartyLoadStylesheet'));
 		$this->register_function('load_script', array($this, 'smartyLoadScript'));
 		$this->register_function('load_header', array($this, 'smartyLoadHeader'));
+
+		// load NavigationMenu Areas from context
+		$this->register_function('load_navigationMenuArea', array($this, 'smartyLoadNavigationMenuArea'));
 
 		/**
 		 * Kludge to make sure no code that tries to connect to the
@@ -1508,6 +1528,61 @@ class PKPTemplateManager extends Smarty {
 				$output .= "\n" . $data['header'];
 			}
 		}
+
+		return $output;
+	}
+
+	/**
+	 * Smarty usage: {load_navigationMenuAreas name=$areaName path=$declaredMenuTemplatePath navClass=$navClass ulClass=$ulClass}
+	 *
+	 * Custom Smarty function for printing navigation menu areas attached to a context.
+	 * @param $params array associative array
+	 * @param $smarty Smarty
+	 * @return string of HTML/Javascript
+	 */
+	function smartyLoadNavigationMenuArea($params, $smarty) {
+		$areaName = $params['name'];
+		$declaredMenuTemplatePath = $params['path'];
+		$ulClass = $params['ulClass'];
+		$navClass = $params['navClass'];
+		$currentContext = $this->_request->getContext();
+
+		$menuTemplatePath = 'frontend/components/navigationMenu.tpl';
+		if (isset($declaredMenuTemplatePath)) {
+			$menuTemplatePath = $declaredMenuTemplatePath;
+		}
+
+		// "user" menuArea must be always displayed using the navigationMenuUser.tpl which contains necessary functionality
+		// as well as the customelly added navigationMenuItems
+		//if ($areaName == "user") { //TODO: we should not hard code that - also else where
+		//    $menuTemplatePath = 'frontend/components/navigationMenuUser.tpl';
+		//}
+
+		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+
+		$output = '';
+		if ($currentContext) {
+
+			$navigationMenu = $navigationMenuDao->getByArea($currentContext->getId(), $areaName);
+
+			if (isset($navigationMenu)) {
+				import('classes.core.ServicesContainer');
+				ServicesContainer::instance()
+					->get('navigationMenu')
+					->getMenuTree($navigationMenu);
+			}
+		} else {
+			$navigationMenu = $navigationMenuDao->newDataObject();
+			$navigationMenu->setTitle($areaName);
+		}
+
+		$this->assign(array(
+			'navigationMenu' => $navigationMenu,
+			'ulClass' => $ulClass,
+			'navClass' => $navClass
+		));
+
+		$output = $this->fetch($menuTemplatePath);
 
 		return $output;
 	}

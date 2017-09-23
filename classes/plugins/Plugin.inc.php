@@ -106,6 +106,7 @@ abstract class Plugin {
 		if ($this->getContextSpecificPluginSettingsFile()) {
 			HookRegistry::register ($this->_getContextSpecificInstallationHook(), array($this, 'installContextSpecificSettings'));
 		}
+
 		HookRegistry::register ('Installer::postInstall', array($this, 'installFilters'));
 		return true;
 	}
@@ -240,6 +241,14 @@ abstract class Plugin {
 	 * @return string
 	 */
 	function getContextSpecificPluginSettingsFile() {
+		return null;
+	}
+
+	function getNavigationMenuItemTypes() {
+		return null;
+	}
+
+	function getNavigationMenuItemTypesDisplay() {
 		return null;
 	}
 

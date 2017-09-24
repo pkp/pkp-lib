@@ -254,9 +254,15 @@ class NavigationMenuDAO extends DAO {
 		$xmlParser = new XMLParser();
 		$tree = $xmlParser->parse($filename);
 
-		$contextDao = Application::getContextDAO();
-		$context = $contextDao->getById($contextId);
-		$supportedLocales = $context->getSupportedLocales();
+		if ($contextId != CONTEXT_ID_NONE) {
+			$contextDao = Application::getContextDAO();
+			$context = $contextDao->getById($contextId);
+			$supportedLocales = $context->getSupportedLocales();
+		} else {
+			$siteDao = DAORegistry::getDAO('SiteDAO');
+			$site = $siteDao->getSite();
+			$supportedLocales = $site->getSupportedLocales();
+		}
 
 		if (!$tree) {
 			$xmlParser->destroy();
@@ -266,6 +272,11 @@ class NavigationMenuDAO extends DAO {
 		foreach ($tree->getChildren() as $navigationMenuNode) {
 			$title = $navigationMenuNode->getAttribute('title');
 			$area = $navigationMenuNode->getAttribute('area');
+			$site = $navigationMenuNode->getAttribute('site');
+
+			if ($contextId == CONTEXT_ID_NONE && !$site) {
+				continue;
+			}
 
 			$navigationMenu = null;
 			if ($this->navigationMenuExistsByTitle($contextId, $title)) {

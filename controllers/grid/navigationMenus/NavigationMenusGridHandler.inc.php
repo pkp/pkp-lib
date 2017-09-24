@@ -40,16 +40,21 @@ class NavigationMenusGridHandler extends GridHandler {
 	 * @copydoc GridHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
-		import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
-		$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+		//import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
+		//$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 		$context = $request->getContext();
+
+		$contextId = CONTEXT_ID_NONE;
+		if ($context) {
+			$contextId = $context->getId();
+		}
 
 		$navigationMenuId = $request->getUserVar('navigationMenuId');
 		if ($navigationMenuId) {
 			// Ensure NavigationMenus is valid and for this context
 			$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO'); /* @var $navigationMenuDao NavigationMenuDAO */
 			$navigationMenu = $navigationMenuDao->getById($navigationMenuId);
-			if (!$navigationMenu ||  $navigationMenu->getContextId() != $context->getId()) {
+			if (!$navigationMenu ||  $navigationMenu->getContextId() != $contextId) {
 				return false;
 			}
 		}
@@ -126,8 +131,14 @@ class NavigationMenusGridHandler extends GridHandler {
 	 */
 	protected function loadData($request, $filter) {
 		$context = $request->getContext();
+
+		$contextId = CONTEXT_ID_NONE;
+		if ($context) {
+			$contextId = $context->getId();
+		}
+
 		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
-		return $navigationMenuDao->getByContextId($context->getId());
+		return $navigationMenuDao->getByContextId($contextId);
 	}
 
 	/**
@@ -160,7 +171,10 @@ class NavigationMenusGridHandler extends GridHandler {
 	function editNavigationMenu($args, $request) {
 		$navigationMenuId = (int)$request->getUserVar('navigationMenuId');
 		$context = $request->getContext();
-		$contextId = $context->getId();
+		$contextId = CONTEXT_ID_NONE;
+		if ($context) {
+			$contextId = $context->getId();
+		}
 
 		$navigationMenuForm = new NavigationMenuForm($contextId, $navigationMenuId);
 		$navigationMenuForm->initData();
@@ -178,7 +192,10 @@ class NavigationMenusGridHandler extends GridHandler {
 		// Identify the NavigationMenu id.
 		$navigationMenuId = $request->getUserVar('navigationMenuId');
 		$context = $request->getContext();
-		$contextId = $context->getId();
+		$contextId = CONTEXT_ID_NONE;
+		if ($context) {
+			$contextId = $context->getId();
+		}
 
 		// Form handling.
 		$navigationMenusForm = new NavigationMenuForm($contextId, $navigationMenuId);
@@ -233,7 +250,7 @@ class NavigationMenusGridHandler extends GridHandler {
 		return new JSONMessage(false);
 	}
 
-	
+
 }
 
 ?>

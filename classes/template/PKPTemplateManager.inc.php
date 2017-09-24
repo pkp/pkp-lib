@@ -1546,6 +1546,10 @@ class PKPTemplateManager extends Smarty {
 		$ulClass = $params['ulClass'];
 		$navClass = $params['navClass'];
 		$currentContext = $this->_request->getContext();
+		$contextId = CONTEXT_ID_NONE;
+		if ($currentContext) {
+			$contextId = $currentContext->getId();
+		}
 
 		$menuTemplatePath = 'frontend/components/navigationMenu.tpl';
 		if (isset($declaredMenuTemplatePath)) {
@@ -1561,20 +1565,14 @@ class PKPTemplateManager extends Smarty {
 		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
 
 		$output = '';
-		if ($currentContext) {
-
-			$navigationMenu = $navigationMenuDao->getByArea($currentContext->getId(), $areaName);
-
-			if (isset($navigationMenu)) {
-				import('classes.core.ServicesContainer');
-				ServicesContainer::instance()
-					->get('navigationMenu')
-					->getMenuTree($navigationMenu);
-			}
-		} else {
-			$navigationMenu = $navigationMenuDao->newDataObject();
-			$navigationMenu->setTitle($areaName);
+		$navigationMenu = $navigationMenuDao->getByArea($contextId, $areaName);
+		if (isset($navigationMenu)) {
+			import('classes.core.ServicesContainer');
+			ServicesContainer::instance()
+				->get('navigationMenu')
+				->getMenuTree($navigationMenu);
 		}
+
 
 		$this->assign(array(
 			'navigationMenu' => $navigationMenu,

@@ -273,9 +273,15 @@ class NavigationMenuItemDAO extends DAO {
 		$xmlParser = new XMLParser();
 		$tree = $xmlParser->parse($filename);
 
-		$contextDao = Application::getContextDAO();
-		$context = $contextDao->getById($contextId);
-		$supportedLocales = $context->getSupportedSubmissionLocales();
+		if ($contextId != CONTEXT_ID_NONE) {
+			$contextDao = Application::getContextDAO();
+			$context = $contextDao->getById($contextId);
+			$supportedLocales = $context->getSupportedSubmissionLocales();
+		} else {
+			$siteDao = DAORegistry::getDAO('SiteDAO');
+			$site = $siteDao->getSite();
+			$supportedLocales = $site->getSupportedLocales();
+		}
 
 		if (!$tree) {
 			$xmlParser->destroy();
@@ -283,6 +289,12 @@ class NavigationMenuItemDAO extends DAO {
 		}
 
 		foreach ($tree->getChildren() as $setting) {
+			$site = $setting->getAttribute('site');
+
+			if ($contextId == CONTEXT_ID_NONE && !$site) {
+				continue;
+			}
+
 			$this->installNodeSettings($contextId, $setting, null, null, 0, true);
 		}
 
@@ -297,9 +309,15 @@ class NavigationMenuItemDAO extends DAO {
 	 * @return boolean true === success
 	 */
 	function installNodeSettings($contextId, $node, $navigationMenuId = null, $navigationMenuItemParentId = null, $seq = 0, $checkChildren = false) {
-		$contextDao = Application::getContextDAO();
-		$context = $contextDao->getById($contextId);
-		$supportedLocales = $context->getSupportedSubmissionLocales();
+		if ($contextId != CONTEXT_ID_NONE) {
+			$contextDao = Application::getContextDAO();
+			$context = $contextDao->getById($contextId);
+			$supportedLocales = $context->getSupportedSubmissionLocales();
+		} else {
+			$siteDao = DAORegistry::getDAO('SiteDAO');
+			$site = $siteDao->getSite();
+			$supportedLocales = $site->getSupportedLocales();
+		}
 
 		$titleKey = $node->getAttribute('title');
 		$path = $node->getAttribute('path');

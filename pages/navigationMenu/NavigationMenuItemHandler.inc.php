@@ -24,8 +24,8 @@ class NavigationMenuItemHandler extends Handler {
 	 * @copydoc Handler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
-		import('lib.pkp.classes.security.authorization.ContextRequiredPolicy');
-		$this->addPolicy(new ContextRequiredPolicy($request));
+		// import('lib.pkp.classes.security.authorization.ContextRequiredPolicy');
+		// $this->addPolicy(new ContextRequiredPolicy($request));
 
 		return parent::authorize($request, $args, $roleAssignments);
 	}
@@ -43,7 +43,10 @@ class NavigationMenuItemHandler extends Handler {
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_COMMON, LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER);
 		$context = $request->getContext();
-		$contextId = $context?$context->getId():CONTEXT_ID_NONE;
+		$contextId = CONTEXT_ID_NONE;
+		if ($context) {
+			$contextId = $context->getId();
+		}
 
 		// Ensure that if we're previewing, the current user is a manager or admin.
 		$roles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
@@ -90,7 +93,10 @@ class NavigationMenuItemHandler extends Handler {
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_COMMON, LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER);
 		$context = $request->getContext();
-		$contextId = $context?$context->getId():CONTEXT_ID_NONE;
+		$contextId = CONTEXT_ID_NONE;
+		if ($context) {
+			$contextId = $context->getId();
+		}
 
 		// Ensure that if we're previewing, the current user is a manager or admin.
 		$roles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);

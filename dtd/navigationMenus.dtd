@@ -12,10 +12,12 @@
 <!ELEMENT navigationMenuItem (navigationMenuItem*)>
 <!ATTLIST navigationMenuItem
 		title CDATA #REQUIRED
-		type CDATA #REQUIRED>
+		type CDATA #REQUIRED
+		site CDATA #IMPLIED>
 
 <!ELEMENT navigationMenus (navigationMenu+)>
 <!ELEMENT navigationMenu (navigationMenuItem*)>
 	<!ATTLIST navigationMenu
 		title CDATA #REQUIRED
-		area CDATA #REQUIRED>
+		area CDATA #REQUIRED
+		site CDATA #IMPLIED>

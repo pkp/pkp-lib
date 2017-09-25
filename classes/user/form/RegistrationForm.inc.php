@@ -259,9 +259,10 @@ class RegistrationForm extends Form {
 			$mail = new MailTemplate('USER_VALIDATE');
 			$this->_setMailFrom($request, $mail);
 			$context = $request->getContext();
+			$contextPath = $context ? $context->getPath() : null;
 			$mail->assignParams(array(
 				'userFullName' => $user->getFullName(),
-				'activateUrl' => $request->url($context->getPath(), 'user', 'activateUser', array($this->getData('username'), $accessKey))
+				'activateUrl' => $request->url($contextPath, 'user', 'activateUser', array($this->getData('username'), $accessKey))
 			));
 			$mail->addRecipient($user->getEmail(), $user->getFullName());
 			$mail->send();

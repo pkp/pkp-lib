@@ -81,7 +81,7 @@
 					</div>
 				{/if}
 
-				{load_navigationMenuArea name="user" ulClass="pkp_navigation_user" navClass="pkp_navigation_user_wrapper"}
+				{load_navigationMenuArea name="user" ulClass="pkp_navigation_user" navClass="pkp_navigation_user_wrapper" liClass="profile"}
 			</div><!-- .pkp_head_wrapper -->
 		</header><!-- .pkp_structure_head -->
 

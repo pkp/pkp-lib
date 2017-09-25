@@ -14,8 +14,8 @@
 			{foreach key=field item=navigationMenuItemAssignment from=$navigationMenu->menuTree}
 				{if !empty($navigationMenuItemAssignment->children)}
 					{if $navigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
-						<li aria-haspopup="true" aria-expanded="false">
-							<a href="{$navigationMenuItemAssignment->navigationMenuItem->getUrl()}">
+						<li class="{$liClass} ">
+							<a id="{$field}-ancor-dropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="{$navigationMenuItemAssignment->navigationMenuItem->getUrl()}">
 								{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
 							</a>
 							{*
@@ -30,7 +30,7 @@
 							{/if}
 							*}
 						
-							<ul>
+							<ul class="dropdown-menu" aria-labelledby="{$field}-ancor-dropDown">
 							{foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
 								{if $childNavigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
 									<li>
@@ -58,7 +58,7 @@
 					{/if}
 				{else}
 					{if $navigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
-						<li>
+						<li class="{$liClass} ">
 							<a href="{$navigationMenuItemAssignment->navigationMenuItem->getUrl()}">
 								{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
 							</a>

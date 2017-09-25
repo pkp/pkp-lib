@@ -1533,7 +1533,7 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
-	 * Smarty usage: {load_navigationMenuAreas name=$areaName path=$declaredMenuTemplatePath navClass=$navClass ulClass=$ulClass}
+	 * Smarty usage: {load_navigationMenuAreas name=$areaName path=$declaredMenuTemplatePath navClass=$navClass ulClass=$ulClass liClass=$liClass}
 	 *
 	 * Custom Smarty function for printing navigation menu areas attached to a context.
 	 * @param $params array associative array
@@ -1544,6 +1544,7 @@ class PKPTemplateManager extends Smarty {
 		$areaName = $params['name'];
 		$declaredMenuTemplatePath = $params['path'];
 		$ulClass = $params['ulClass'];
+		$liClass = $params['liClass'];
 		$navClass = $params['navClass'];
 		$currentContext = $this->_request->getContext();
 		$contextId = CONTEXT_ID_NONE;
@@ -1577,6 +1578,7 @@ class PKPTemplateManager extends Smarty {
 		$this->assign(array(
 			'navigationMenu' => $navigationMenu,
 			'ulClass' => $ulClass,
+			'liClass' => $liClass,
 			'navClass' => $navClass
 		));
 

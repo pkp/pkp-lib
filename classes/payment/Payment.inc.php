@@ -20,7 +20,7 @@
  */
 
 /** DOES NOT inherit from DataObject for the sake of concise serialization */
-class Payment {
+abstract class Payment {
 	/** @var int payment id */
 	var $paymentId;
 
@@ -105,19 +105,7 @@ class Payment {
 	 * Get the name of the transaction.
 	 * @return string
 	 */
-	function getName() {
-		// must be implemented by sub-classes
-		assert(false);
-	}
-
-	/**
-	 * Get a description of the transaction.
-	 * @return string
-	 */
-	function getDescription() {
-		// must be implemented by sub-classes
-		assert(false);
-	}
+	abstract function getName();
 
 	/**
 	 * Set the user ID of the customer.

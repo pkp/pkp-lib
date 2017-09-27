@@ -78,7 +78,7 @@
 		padding: 0 1px; // 1px prevents aliased icon from getting clipped at the edge
 
 		&:before {
-			&:extend( .fa );
+			.fa();
 			content: @fa-var-search;
 			margin-right: 0.5em;
 		}
@@ -219,7 +219,7 @@
 
 	// Ordering items
 	.pkp_linkaction_moveItem {
-		&:extend( .fa );
+		.fa();
 
 		&:before {
 			content: @fa-var-sort;

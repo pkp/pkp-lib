@@ -405,7 +405,6 @@
 	$.pkp.controllers.grid.GridHandler.prototype.insertOrReplaceElement =
 			function(elementContent, opt_prepend) {
 		var $newElement, newElementId, $grid, $existingElement;
-
 		// Parse the HTML returned from the server.
 		$newElement = $(elementContent);
 		newElementId = $newElement.attr('id');
@@ -678,7 +677,7 @@
 			this.deleteControlsRow_($existingElement);
 		}
 
-		this.replacePartialWith($newElement.html(), $existingElement);
+		this.replacePartialWith($newElement, $existingElement);
 		this.callFeaturesHook('replaceElement', $newElement);
 	};
 

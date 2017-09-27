@@ -771,7 +771,8 @@
 	 * This function can only be used when the entire handler is replaced. For
 	 * replacing parts of a handler, see replacePartialWith().
 	 *
-	 * @param {string} html The HTML content to replace the current element with
+	 * @param {string|jQueryObject} html The HTML content to replace the
+	 *  current element with
 	 */
 	$.pkp.classes.Handler.prototype.replaceWith = function(html) {
 		this.unbindGlobalAll();
@@ -795,7 +796,8 @@
 	 * function isn't very performant, because it requires looping over every
 	 * child DOM element.
 	 *
-	 * @param {string} html The HTML content to inject into the $partial
+	 * @param {string|jQueryObject} html The HTML content to inject into
+	 *  the $partial
 	 * @param {jQueryObject} $partial The HTML element to unbind
 	 */
 	$.pkp.classes.Handler.prototype.replacePartialWith =

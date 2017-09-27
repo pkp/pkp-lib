@@ -87,15 +87,15 @@ class MultipleListsListbuilderHandler extends ListbuilderHandler {
 	}
 
 	/**
-	 * @see ListbuilderHandler::initialize()
+	 * @copydoc ListbuilderHandler::initialize()
 	 */
-	function initialize($request) {
+	function initialize($request, $args = null) {
 		// Basic configuration.
 		// Currently this component only works with
 		// these configurations, but, if needed, it's
 		// easy to adapt this class to work with the other
 		// listbuilders configuration.
-		parent::initialize($request, false);
+		parent::initialize($request, $args);
 		$this->setSourceType(LISTBUILDER_SOURCE_TYPE_NONE);
 		$this->setSaveType(LISTBUILDER_SAVE_TYPE_EXTERNAL);
 	}

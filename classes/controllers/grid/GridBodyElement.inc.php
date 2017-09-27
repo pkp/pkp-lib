@@ -98,7 +98,7 @@ class GridBodyElement {
 	 * Get the cell provider
 	 * @return GridCellProvider
 	 */
-	function &getCellProvider() {
+	function getCellProvider() {
 		return $this->_cellProvider;
 	}
 
@@ -106,8 +106,8 @@ class GridBodyElement {
 	 * Set the cell provider
 	 * @param $cellProvider GridCellProvider
 	 */
-	function setCellProvider(&$cellProvider) {
-		$this->_cellProvider =& $cellProvider;
+	function setCellProvider($cellProvider) {
+		$this->_cellProvider = $cellProvider;
 	}
 }
 

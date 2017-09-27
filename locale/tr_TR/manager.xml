@@ -156,8 +156,6 @@
 		<p>We provide connectors to several external databases in which you can search for citations. Some of these databases require registration or configuration information to be entered. Please refer to the public websites of the databases for further information on how to register. You can add one or several databases by clicking on the "Add Item" button below.</p>
 		<p>You can edit or delete an existing external database connection by clicking the gear icon next to it.</p>
 		<p><strong>Note:</strong> In order for the citation checking process to complete in a timely manner, the <tt>citation_checking_max_processes</tt> directive in your configuration file must be set to a reasonable value. See the General Settings section in <tt>config.inc.php</tt> for more information.</p>]]></message>
-	<message key="manager.setup.citationOutput">Atıf Çıktısı</message>
-	<message key="manager.setup.citationOutputStyleDescription">Derginizde kullanılan yazar gönderileri için bir atıf biçimi seçin. Atıf Biçimlendirme Yardımcısı hataları kolayca görmenizi sağlar ve böylece XML olarak oluşturulan bir sürümle yazarın sürümünü karşılaştırabilirsiniz:</message>
 	<message key="manager.setup.errorDeletingItem">Bu öğe silinirken bir hata oluştu.</message>
 	<message key="manager.setup.filter.grid.errorDeletingFilter">Bu filtreyi kaldırırken bir hata oluştu. Lütfen hata mesajı olarak bildiriniz.</message>
 	<message key="manager.setup.filter.grid.filterDisplayName">Bağlayıcı</message>
@@ -204,7 +202,6 @@
 	<message key="plugins.categories.auth">Yetkilendirme Eklentileri</message>
 	<message key="plugins.categories.blocks">Blok Eklentileri</message>
 	<message key="plugins.categories.blocks.description">Blok Eklentileri, çeşitli kenar çubuğu araçları gibi eklenip kaldırılabilir kullanıcı ara yüz bileşenleridir.</message>
-	<message key="plugins.categories.citationFormats">Atıf Biçimi Eklentileri</message>
 	<message key="plugins.categories.gateways.description">Geçiş Eklentileri diğer sistemlere anında veri sunulması içindir.</message>
 	<message key="plugins.categories.gateways">Geçiş Eklentileri</message>
 	<message key="plugins.categories.generic">Genel Eklentiler</message>
@@ -234,8 +231,6 @@
 	<message key="plugins.categories.metadata.description">Metadata Plugins implement additional meta-data standards.</message>
 	<message key="plugins.categories.citationLookup">Atıf Veri Tabanı Bağlantı Eklentileri</message>
 	<message key="plugins.categories.citationLookup.description">Citation Database Connector Plugins connect to citation databases to look up citations, e.g. during citation editing.</message>
-	<message key="plugins.categories.citationOutput">Atıf Çıktı Eklentileri</message>
-	<message key="plugins.categories.citationOutput.description">Citation Output Plugins implement citation standards. This supersedes Citation Format Plugins.</message>
 	<message key="plugins.categories.citationParser">Atıf Ayıklama Eklentileri</message>
 	<message key="plugins.categories.citationParser.description">Citation Extraction Plugins extract field-level data from raw citations (e.g. author, title, etc.).</message>
 	<message key="plugins.categories.oaiMetadataFormats">OAI Üst Veri Eklentileri</message>

@@ -161,7 +161,6 @@
 	<message key="plugins.categories.auth">Plugins de Autenticação</message>
 	<message key="plugins.categories.blocks">Plugins de Bloco</message>
 	<message key="plugins.categories.blocks.description">Plugins de Bloco oferecem controle de posicionamento de ferramentas da interface, como as barras laterais.</message>
-	<message key="plugins.categories.citationFormats">Plugins de Formato de Citação</message>
 	<message key="plugins.categories.gateways.description">Plugins de Gateway alimentam sistemas externos com conteúdo do sistema.</message>
 	<message key="plugins.categories.gateways">Plugins de Gateway</message>
 	<message key="plugins.categories.generic">Plugins Genéricos</message>
@@ -184,7 +183,6 @@
 	<message key="manager.setup.citationAssistant">Assistente de marcação de citações</message>
 	<message key="manager.setup.citationFilterParser">Extração de citações</message>
 	<message key="manager.setup.citationFilterLookup">Verificação de citações</message>
-	<message key="manager.setup.citationOutput">Retorno das citações</message>
 	<message key="manager.setup.filter.grid.filterDisplayName">Conexão</message>
 	<message key="manager.setup.filter.grid.filterSettings">Cadastro e Configuração de conexões</message>
 	<message key="manager.setup.filter.grid.filterTemplateRequired">Escolha uma das transformações do menu drop-down.</message>
@@ -202,7 +200,6 @@
 <p>O sistema oferece várias conexões a bases externas, nas quais é possível pesquisar citações. Algumas bases exigem cadastro ou informações de configuração. Acesse o site da base de dados para maiores detalhes sobre como se cadastrar. Uma ou mais bases de dados podem ser incluídas clicando no botão "Incluir item" a seguir.</p>
 <p>Edite ou exclua conexões existentes clicando no ícone de engrenagem respectivo.</p>
 <p><strong>Aviso:</strong> Para que o processo de verificação de citações seja concluído em tempo hábil, a diretiva <tt>citation_checking_max_processes</tt> no arquivo de configuração deve ser alterada para um valor aceitável. Veja a seção General Settings no <tt>config.inc.php</tt> para maiores detalhes.</p>]]></message>
-	<message key="manager.setup.citationOutputStyleDescription">Escolha o formato de citação usado para submissão de trabalhos. O assistente de marcação de citações permite comparar a versão de citação do autor com a versão em XML produzida pelo assistente, permitindo identificar possíveis erros mais facilmente:</message>
 	<message key="manager.setup.filter.grid.errorDeletingFilter">Ocorreu um erro ao tentar remover este filtro. Encaminhe este problema como erro de sistema.</message>
 	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">A base {$filterDisplayName} está sendo incluída. Clique em 'ok' para confirmar.</message>
 	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Este filtro se conecta à base de livros e ISBNs <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a>.</p>
@@ -238,8 +235,6 @@
 	<message key="plugins.categories.metadata.description">Plugins de metadados implementam padrões adicionais de metadados.</message>
 	<message key="plugins.categories.citationLookup">Plugins de conexão a bases de dados de citação</message>
 	<message key="plugins.categories.citationLookup.description">Plugins de conexão a bases de dados de citação conectam a bases de dados de citação para pesquisar citações durante a edição das mesmas, por exemplo.</message>
-	<message key="plugins.categories.citationOutput">Plugins de saída de citações</message>
-	<message key="plugins.categories.citationOutput.description">Plugins de saída de citações implementam padrões de saída de citações. Estes substituem os plugins de formatos de citação.</message>
 	<message key="plugins.categories.citationParser">Plugins de extração de citação</message>
 	<message key="plugins.categories.citationParser.description">Plugins de extração de citação extraem dados a nível de campos para citações cruas (ex.: autor, título, entre outros).</message>
 	<message key="plugins.categories.oaiMetadataFormats">Plugins de Formatos de Metadados OAI</message>

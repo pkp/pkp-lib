@@ -10,7 +10,7 @@
   *
   * Localization strings.
   -->
-  
+
 <locale name="fi_FI" full_name="Suomi">
 	<!-- Website settings -->
 	<message key="manager.website.information">Tietoja</message>
@@ -232,8 +232,6 @@
 	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>Viittausten löytämiseksi ja niiden tarkistamiseksi viittaustietokannoista, ne on ensin jaettava koneella luettavissa oleviksi metatiedoiksi: otsikko, julkaisija, julkaisupäivämäärä jne. on kaikki poimittava kirjoittajan antamasta alkuperäisestä viittauksen tekstistä.]]><![CDATA[ ]]><![CDATA[Liitännät ulkoisiin verkkopalveluihin voivat auttaa tässä prosessissa.]]><![CDATA[ ]]><![CDATA[Yksi tai useampia liitäntöjä voidaan lisätä klikkaamalla alla olevaa “Lisää kohde”-painiketta.]]><![CDATA[ ]]><![CDATA[Joitakin näistä liitännöistä voidaan joutua määrittämään; siinä tapauksessa sinua kehotetaan tekemään niin.</p> <p>Voit muokata tai poistaa nykyisen liitännän klikkaamalla sen vieressä olevaa rataskuvaketta.</p>]]></message>
 	<message key="manager.setup.citationFilterLookup">Viittausten tarkistaminen</message>
 	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>Sinun täytyy myös ottaa käyttöön ja määrittää yhteydet ulkoisiin viittaustietokantoihin.]]><![CDATA[ ]]><![CDATA[Näin voit löytää virheitä kirjoittajien viittauksista tai lisätä lisätietoja (esim. DOI- tai PubMed-tunniste), joita vaaditaan elektroniseen julkaisemiseen tai talletukseen.<p/> <p>Tarjoamme liitäntöjä useisiin ulkoisiin tietokantoihin, joista voit etsiä viittauksia.]]><![CDATA[ ]]><![CDATA[Jotkin näistä tietokannoista vaativat rekisteröitymistä tai määritystietojen syöttämistä.]]><![CDATA[ ]]><![CDATA[Katso tietokantojen julkisilta verkkosivuilta lisätietoja siitä, kuinka rekisteröityä.]]><![CDATA[ ]]><![CDATA[Voit lisätä yhden tai useamman tietokannan klikkaamalla alla olevaa "Lisää kohde"-painiketta.</p> <p>Voit muokata tai poistaa olemassa olevan ulkoisen tietokantayhteyden klikkaamalla sen vieressä olevaa rataskuvaketta.</p> <p><strong>Huom.</strong> Jotta viittausten tarkistusprosessi suoritettaisiin loppuun ripeästi, määritystiedoston <tt>citation_checking_max_processes</tt> -direktiiville on määritettävä sopiva arvo.]]><![CDATA[ ]]><![CDATA[Katso lisätietoja <tt>config.inc.php</tt>-tiedoston Yleiset asetukset-osasta.<p>]]></message>
-	<message key="manager.setup.citationOutput">Viittaustapa</message>
-	<message key="manager.setup.citationOutputStyleDescription">Valitse viittaustyyli, jota käytetään julkaisusi käsikirjoituksissa. Viittaustenhallintatyökalun avulla voit verrata kirjoittajan viittausversiota sinun luomastasi XML-tiedostosta luotuun versioon, jotta voit helposti huomata virheet:</message>
 	<message key="manager.setup.competingInterests">Sidonnaisuudet</message>
 	<message key="manager.setup.competingInterestsDescription">Arvioijia pyydetään noudattamaan alla määrittämääsi tiedonantopolitiikkaa sidonnaisuuksien ilmoittamisen suhteen.</message> <!-- FIXME #6843 (JM): should this just reference reviewers? -->
 	<message key="manager.setup.errorDeletingItem">Tätä kohdetta poistaessa tapahtui virhe.</message>
@@ -313,11 +311,8 @@
 	<message key="plugins.categories.auth">Auktorisointilisäosat</message>
 	<message key="plugins.categories.blocks">Lohkolisäosat</message>
 	<message key="plugins.categories.blocks.description">Lohkolisäosat ovat erillisiä käyttöliittymän osia, kuten erilaisia sivupalkkityökaluja.</message>
-	<message key="plugins.categories.citationFormats">Viittausmuotolisäosat</message>
 	<message key="plugins.categories.citationLookup">Viittaustietokantojen liitäntälisäosat</message>
 	<message key="plugins.categories.citationLookup.description">Viittaustietokantojen liitäntälisäosat muodostavat yhteyden viittaustietokantoihin, joista voidaan etsiä viittauksia, esim. viittausten muokkauksen yhteydessä.</message>
-	<message key="plugins.categories.citationOutput">Viittaustapalisäosat</message>
-	<message key="plugins.categories.citationOutput.description">Viittaustapalisäosilla otetaan käyttöön viittausstandardeja. Tämä syrjäyttää viittausmuotolisäosat.</message>
 	<message key="plugins.categories.citationParser">Viittausten poiminnan lisäosat</message>
 	<message key="plugins.categories.citationParser.description">Viittausten poiminnan lisäosat poimivat kenttätasoista tietoa raakaviittauksista (esim. kirjoittaja, otsikko jne.).</message>
 	<message key="plugins.categories.gateways.description">Yhdyskäytävälisäosat tarjoavat ulkoisille järjestelmille reaaliaikaisia tietoja.</message>

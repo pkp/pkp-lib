@@ -155,14 +155,12 @@
 <p>Понуђени су конекторе на неколико екстерних база података у којима можете да тражите цитате. Неке од ових база података захтевају регистрацију или конфигурацију да бисте им приступили. Молимо Вас да погледате на јавним веб сајтовима базама података за више информација о томе како да се региструјете . Можете додати једну или више база података тако што ћете кликнути на " Додај ставку " дугме испод.</p>
 <p>Можете да измените или обришете неку постојећу екстерну конекцију базе података тако што ћете кликнути на икону зупчаника поред ње.</p>
 <p>Напомена:</strong> Да би се процес цитирања завршио благовремено, у <tt>citation_checking_max_processes</tt> директива у конфигурационом фајлу мора бити подешен на разумну вредност. Види General Settings одељак у <tt>config.inc.php</tt> за више информација.</p>]]></message>
-	<message key="manager.setup.citationOutput">Испис цитата</message>
-	<message key="manager.setup.citationOutputStyleDescription">Изаберите стил цитата који се користи у ауторским радовима вашег часописа. Цитатион Маркуп Помоћник вам омогућава да упоредите ауторову верзију цитата и верзију генерисану из XML-а тако да лако можете уочити грешке:</message>
 	<message key="manager.setup.errorDeletingItem">Дошло је до грешке приликом брисања ставке.</message>
 	<message key="manager.setup.filter.grid.errorDeletingFilter">Дошло је до грешке приликом брисања овог филтера. Молимо вас да ово пријавите као грешку "bug".</message>
 	<message key="manager.setup.filter.grid.filterDisplayName">Конектор</message>
 	<message key="manager.setup.filter.grid.filterSettings">Информације о регистрацији и подешавања конектора</message>
 	<message key="manager.setup.filter.grid.filterTemplateRequired">Молимо вас да одаберете једну од трансформација из падајућег менија</message>
-	<message key="manager.setup.filter.grid.confirmDelete">Да ли заиста желите да обришете {$filterName} филтер?</message>	
+	<message key="manager.setup.filter.grid.confirmDelete">Да ли заиста желите да обришете {$filterName} филтер?</message>
 	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Изабрали сте да додате {$filterDisplayName} базу података. Кликните на "ОК" да бисте потврдили..</message>
 	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Изаберите базу за проналажење података.</message>
 	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Овај филтер се повезује са <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> базом података књига и ISBN-ова.</p>
@@ -201,7 +199,6 @@
 	<message key="plugins.categories.auth">Додaци за ауторизацију</message>
 	<message key="plugins.categories.blocks">Блок додаци</message>
 	<message key="plugins.categories.blocks.description">Блок додаци су UI компоненте као што су разне алатке за бочни мени.</message>
-	<message key="plugins.categories.citationFormats">Додaци формата цитата</message>
 	<message key="plugins.categories.gateways.description">Gateway додаци обезбеђују информације са удаљених система.</message>
 	<message key="plugins.categories.gateways">Gateway додаци</message>
 	<message key="plugins.categories.generic">Генерички додаци</message>
@@ -228,7 +225,6 @@
 	<message key="plugins.categories.metadata">Додаци метаподатака</message>
 	<message key="plugins.categories.metadata.description">Додаци метаподатака имплементирају додатне стандарде мета података.</message>
 	<message key="plugins.categories.citationLookup">Додаци веза база података цитата</message>
-	<message key="plugins.categories.citationOutput">Додаци излазног формата цитата</message>
 	<message key="plugins.categories.citationParser">Додаци за екстракцију цитата</message>
 	<message key="plugins.categories.oaiMetadataFormats">Додатак OAI формата метаподатака</message>
 	<message key="plugins.categories.oaiMetadataFormats.description">Овај додатак приказује метаподатке у формату OAI комуникације</message>
@@ -473,7 +469,6 @@
 	<message key="manager.plugins.deleteError">Додатак "{$pluginName}" није могао бити обрисан са сервера. Проблем може бити због недостатка довољних дозвола. Обезбедите да  web сервер може уписивати у директориј за додатке (укључујући и поддиректорије), али не заборавите касније да да поново осигурате.</message>
 	<message key="manager.plugins.wrongCategory">Постављени додатак не припада категорији надогађеног додатка.</message>
 	<message key="plugins.categories.citationLookup.description">Додаци за конекцију са цитатним базама података се спајају са цитатним базама података за претрагу цитата у току уређивања цитата.</message>
-	<message key="plugins.categories.citationOutput.description">Додаци за цитатни извод примељују цитатне стандарде. Они су наследници Додатака за цитатне формате.</message>
 	<message key="plugins.categories.citationParser.description">Додатак за екстракцију цитата врши екстракцију података на нивоу поља из сирових цитата (нпр. аутор, наслов и сл.)</message>
 	<message key="manager.plugins.copyError">Додатак није успешно копиран. Проблем може бити због недостатка довољних дозвола. Обезбедите да web сервер може уписивати у директориј за додатке (укључујући и поддиректорије), али не заборавите касније да да поново осигурате.</message>
 	<message key="manager.setup.sortableByComponent">Може се сортирати по компоненти</message>

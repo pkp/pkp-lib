@@ -238,8 +238,6 @@
 		<p>We provide connectors to several external databases in which you can search for citations. Some of these databases require registration or configuration information to be entered. Please refer to the public websites of the databases for further information on how to register. You can add one or several databases by clicking on the "Add Item" button below.</p>
 		<p>You can edit or delete an existing external database connection by clicking the gear icon next to it.</p>
 		<p><strong>Note:</strong> In order for the citation checking process to complete in a timely manner, the <tt>citation_checking_max_processes</tt> directive in your configuration file must be set to a reasonable value. See the General Settings section in <tt>config.inc.php</tt> for more information.</p>]]></message>
-	<message key="manager.setup.citationOutput">Citation Output</message>
-	<message key="manager.setup.citationOutputStyleDescription">Choose the citation style that is being used in your publication's submissions. The Citation Markup Assistant lets you compare the author's version of the citation to a version generated from the XML you are generating so that you can easily spot errors:</message>
 	<message key="manager.setup.competingInterests">Competing Interests</message>
 	<message key="manager.setup.competingInterestsDescription">Reviewers will be asked to comply with the competing interests disclosure policy you specify below.</message> <!-- FIXME #6843 (JM): should this just reference reviewers? -->
 	<message key="manager.setup.errorDeletingItem">There was an error when deleting this item.</message>
@@ -323,11 +321,8 @@
 	<message key="plugins.categories.auth">Authorization Plugins</message>
 	<message key="plugins.categories.blocks">Block Plugins</message>
 	<message key="plugins.categories.blocks.description">Block Plugins are pluggable UI components, such as the various sidebar tools.</message>
-	<message key="plugins.categories.citationFormats">Citation Format Plugins</message>
 	<message key="plugins.categories.citationLookup">Citation Database Connector Plugins</message>
 	<message key="plugins.categories.citationLookup.description">Citation Database Connector Plugins connect to citation databases to look up citations, e.g. during citation editing.</message>
-	<message key="plugins.categories.citationOutput">Citation Output Plugins</message>
-	<message key="plugins.categories.citationOutput.description">Citation Output Plugins implement citation standards. This supersedes Citation Format Plugins.</message>
 	<message key="plugins.categories.citationParser">Citation Extraction Plugins</message>
 	<message key="plugins.categories.citationParser.description">Citation Extraction Plugins extract field-level data from raw citations (e.g. author, title, etc.).</message>
 	<message key="plugins.categories.gateways.description">Gateway Plugins provide live data to external systems.</message>

@@ -187,8 +187,8 @@
 		Есть случаи, когда должна быть применена только одна статистика использования, например, чтобы отобразить упорядоченный список наиболее используемых статей или отранжировать
 		результаты поиска. Пожалуйста, выберите одну из настроенных метрик в качестве метрики по умолчанию.
 	</message>
-	<message key="manager.statistics.city">Город</message>	
-	<message key="manager.statistics.region">Регион</message>	
+	<message key="manager.statistics.city">Город</message>
+	<message key="manager.statistics.region">Регион</message>
 	<message key="manager.statistics.reports">Генератор отчетов</message>
 	<message key="manager.statistics.reports.description">Система генерирует отчеты, которые помогают отследить детали, связанные с использованием сайта и материалов за заданный период времени. Отчеты генерируются в формате CSV, который требует для просмотра наличия табличного процессора.</message>
 	<message key="manager.statistics.reports.aggregationColumns">Агрегировать статистику по:</message>
@@ -239,8 +239,6 @@
 		<p>Мы предоставляем модули подключения к нескольким внешним базам данных, в которых вы можете искать библиографические ссылки. Некоторые из этих баз данных требуют регистрации или ввода информации для настройки. Пожалуйста, обратитесь к веб-сайтам баз данных для подробной информации о том, как зарегистрироваться. Вы можете добавить одну или несколько баз данных, щелкнув ниже на кнопке «Добавить элемент».</p>
 		<p>Вы можете отредактировать или удалить существующее подключение к внешней базе данных, щелкнув на значке шестренки рядом с ним.</p>
 		<p><strong>Обратите внимание:</strong> Чтобы процесс проверки библиографических ссылок завершался своевременно, параметр <tt>citation_checking_max_processes</tt> в вашем конфигурационном файле должен иметь приемлемое значение. Смотрите раздел General Settings в <tt>config.inc.php</tt> для получения более подробной информации.</p>]]></message>
-	<message key="manager.setup.citationOutput">Оформление библиографических ссылок</message>
-	<message key="manager.setup.citationOutputStyleDescription">Выберите стиль оформления библиографических ссылок, который используется в ваших публикуемых материалах. Помощник разметки библиографических ссылок позволит вам сравнить авторскую версию оформления библиографической ссылки на источник с версией, построенной на основе сгенерированного вами XML, таким образом вы легко сможете обнаружить ошибки:</message>
 	<message key="manager.setup.competingInterests">Конфликт интересов</message>
 	<message key="manager.setup.competingInterestsDescription">Рецензентов просят следовать Правилам декларирования конфликта интересов, которые вы описали ниже.</message> <!-- FIXME #6843 (JM): should this just reference reviewers? -->
 	<message key="manager.setup.errorDeletingItem">Во время удаления этого объекта возникла ошибка.</message>
@@ -324,11 +322,8 @@
 	<message key="plugins.categories.auth">Модули авторизации</message>
 	<message key="plugins.categories.blocks">Модули блоков</message>
 	<message key="plugins.categories.blocks.description">Модули блоков — подключаемые компоненты пользовательского интерфейса, такие как различные инструменты боковой панели.</message>
-	<message key="plugins.categories.citationFormats">Модули форматирования библиографических ссылок</message>
 	<message key="plugins.categories.citationLookup">Модули подключения к базам данных библиографических ссылок</message>
 	<message key="plugins.categories.citationLookup.description">Модули подключения к базам данных библиографических ссылок подключаются к базам данных библиографических ссылок, чтобы найти ссылку на источник, например, во время редактирования библиографических ссылок.</message>
-	<message key="plugins.categories.citationOutput">Модули оформления библиографических ссылок</message>
-	<message key="plugins.categories.citationOutput.description">Модули оформления библиографических ссылок реализуют стандарты оформления библиографических ссылок. Они заменяют модули форматирования библиографических ссылок.</message>
 	<message key="plugins.categories.citationParser">Модули извлечения библиографических ссылок</message>
 	<message key="plugins.categories.citationParser.description">Модули извлечения библиографических ссылок позволяют извлекать данные для полей из «сырых» библиографических ссылок (например, имя автора, название и т. д.).</message>
 	<message key="plugins.categories.gateways.description">Модули шлюзов предоставляют данные в реальном времени внешним системам.</message>

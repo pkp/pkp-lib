@@ -58,6 +58,7 @@ define('STATISTICS_UNKNOWN_COUNTRY_ID', 'ZZ');
 define('STATISTICS_YESTERDAY', 'yesterday');
 define('STATISTICS_CURRENT_MONTH', 'currentMonth');
 
+
 abstract class PKPStatisticsHelper {
 
 	function __construct() {

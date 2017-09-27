@@ -17,7 +17,7 @@
 
 import('lib.pkp.classes.payment.Payment');
 
-class QueuedPayment extends Payment {
+abstract class QueuedPayment extends Payment {
 	/**
 	 * @copydoc Payment::Payment
 	 */

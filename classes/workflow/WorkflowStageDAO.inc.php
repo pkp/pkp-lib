@@ -111,7 +111,7 @@ class WorkflowStageDAO extends DAO {
 	 * @param $stageNotifications array
 	 * @return array
 	 */
-	function getStageStatusesBySubmission($submission, $stagesWithDecisions, $stageNotifications) {
+	static function getStageStatusesBySubmission($submission, $stagesWithDecisions, $stageNotifications) {
 
 		$currentStageId = $submission->getStageId();
 		$workflowStages = self::getWorkflowStageKeysAndPaths();

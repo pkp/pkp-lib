@@ -221,7 +221,6 @@
 	<message key="manager.emails.enable.message">Да ли сте сигурни да желите да укључите овај шаблон?</message>
 	<message key="manager.emails.resetAll.message">Уколико ресетујете све шаблоне, све модификације које сте урадили биће изгубљене, да ли сте сигурни да желите да наставите?</message>
 	<message key="manager.emails.reset.message">Уколико ресетујете овај шаблон, сви подаци биће враћени на почетне вредности, а све промене ће бити изгубљене, да ли желите да наставите?</message>
-	<message key="manager.masthead.title">Управа</message>
 	<message key="manager.reviewerSearch.searchByName.short">Претражи по имену</message>
 	<message key="manager.reviewerSearch.form.interests.instructions">Интереси рецензената (унесите да пронађете интересе).</message>
 	<message key="manager.setup.layout.blockManagement">Управљач бочног менија</message>

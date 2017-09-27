@@ -115,7 +115,6 @@
 	<message key="manager.language.reloadLocalizedDefaultSettings">Restablecer valores predeterminados</message>
 	<message key="manager.languages.alternateLocaleInstructions">Este sistema permite introducir cierta información crítica en varios idiomas adicionales de forma opcional. Para utilizar esta función, seleccione configuraciones regionales alternativas y elija entre las opciones mostradas a continuación.</message>
 	<message key="manager.languages.supportedLocalesInstructions">Seleccione todas las configuraciones regionales que estarán disponibles en el sitio mediante un menú de selección de idiomas que aparecerá en cada página. El menú solo aparecerá si hay más de una configuración regional.</message>
-	<message key="manager.masthead.title">Equipo editorial</message>
 	<message key="manager.payment.timestamp">Fecha operación</message>
 	<message key="manager.people.authSource">Fuente de autentificación</message>
 	<message key="manager.people.confirmUnenroll">¿Desuscribir a esta/e usuaria/o?</message>

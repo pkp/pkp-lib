@@ -214,7 +214,6 @@
 	<message key="manager.setup.metaCitationsDescription">Attivare il seguente controllo per abilitare la modifica di citazioni e riferimenti bibliografici. Questo permetterà agli autori di includere citazioni grezze nelle loro submission. Gli editor avranno accesso a un assistente bibliografico che verificherà l'accuratezza delle citazioni grezze su database esterni, come WorldCat, ISBNdb, PubMed e altri. Le citazioni approvate potranno essere esportate nei file finali per la produzione delle bozze.</message>
 	<message key="manager.announcements.datePublish">Pubblicato</message>
 	<message key="manager.emails.details">Dettagli del template</message>
-	<message key="manager.masthead.title">Redazione</message>
 	<message key="manager.reviewerSearch.searchByName.short">Cerca per nome</message>
 	<message key="manager.emails.addEmail">Aggiungi un modello email</message>
 	<message key="manager.emails.data">Modello per i dati del messaggio</message>

@@ -229,7 +229,6 @@
 	<message key="manager.emails.enable.message">Está prestes a habilitar esta mensagem. Deseja confirmar esta operação?</message>
 	<message key="manager.emails.resetAll.message">Caso restaure todos os modelos, todas as alterações aos modelos de mensagem serão perdidas. Deseja confirmar a operação?</message>
 	<message key="manager.emails.reset.message">Caso restaure este modelo, todos os dados da mensagem retornarão ao valor original, perdendo todas as alterações. Deseja confirmar esta operação?</message>
-	<message key="manager.masthead.title">Expediente</message>
 	<message key="manager.reviewerSearch.searchByName.short">Buscar por Nome</message>
 	<message key="manager.reviewerSearch.form.instructions">Use o formulário a seguir para definir os valores máximos para os termos pelos quais deseja buscar. O formulário está preenchido previamente com médias calculadas dos campos.</message>
 	<message key="manager.reviewerSearch.form.interests.instructions">Informe as áreas de interesse para avaliação, separadas por vírgula...</message>

@@ -178,7 +178,6 @@
 	<message key="manager.emails.addEmail">Legg til e-postmal</message>
 	<message key="manager.emails.details">Maldetaljer</message>
 	<message key="manager.reviewerSearch.searchByName.short">Søk etter navn</message>
-	<message key="manager.masthead.title">Kolofon</message>
 	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Du har valgt å legge til databasen {$filterDisplayName}. Klikk 'OK' for å bekrefte.</message>
 	<message key="manager.emails.data">Malmeldingsdata</message>
 	<message key="manager.emails.disable.message">Du er i ferd med å deaktivere denne e-postmalen. Om det finnes systemprosesser som benytter denne malen, vil de ikke bruke den mer. Ønsker du å bekrefte deaktivering?</message>

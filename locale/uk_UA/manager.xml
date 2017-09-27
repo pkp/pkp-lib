@@ -234,7 +234,6 @@
 	<message key="manager.emails.data">Дані шаблону повідомлення</message>
 	<message key="manager.emails.disable.message">Ви намагаєтеся відключити цей шаблон листа. Якщо система була налаштована на використання цього шаблону, вона не зможе надалі його використовувати. Ви підтверджуєте цю дію?</message>
 	<message key="manager.emails.enable.message">Ви намагаєтеся включити цей шаблон листа. Ви підтверджуєте цю дію?</message>
-	<message key="manager.masthead.title">Вихідні дані</message>
 	<message key="manager.setup.layout.blockManagement">Налаштування бічних панелей</message>
        <message key="plugins.categories.oaiMetadataFormats">Модулі форматів метаданих OAI</message>
        <message key="plugins.categories.oaiMetadataFormats.description">Ці модулі дозволяють генерувати метадані для OAI-комунікації.</message>

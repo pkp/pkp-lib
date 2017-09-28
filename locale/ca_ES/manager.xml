@@ -119,6 +119,7 @@
 	<message key="manager.masthead.title">Capçalera</message>
 	<message key="manager.navigation">Navegació</message>
 	<message key="manager.payment.timestamp">Data i hora</message>
+	<message key="manager.people.allEnrolledUsers">Usuaris/àries donats d’alta en aquesta publicació</message>
 	<message key="manager.people.authSource">Font d’autenticació</message>
 	<message key="manager.people.confirmUnenroll">Voleu donar de baixa aquest usuari/usuària?</message>
 	<message key="manager.people.createUser">Crea un usuari/usuària nou</message>

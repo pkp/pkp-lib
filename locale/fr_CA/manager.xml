@@ -92,6 +92,7 @@
 	<message key="manager.languages.alternateLocaleInstructions">Ce système permet, de façon facultative, la saisie de certaines informations critiques dans plusieurs langues supplémentaires. Pour utiliser cette fonctionnalité, sélectionner d'autres langues à partir des options énumérées ci-dessous.</message>
 	<message key="manager.languages.supportedLocalesInstructions">Sélectionner toutes les langues qui doivent être prises en charge sur le site, dans le menu de sélection de langue apparaissant sur chaque page. Le menu apparaîtra seulement si plus d'une langue est sélectionnée.</message>
 	<message key="manager.payment.timestamp">Estampille temporelle</message>
+	<message key="manager.people.allEnrolledUsers">Utilisateurs inscrits à cette presse</message>
 	<message key="manager.people.authSource">Source d'authentification</message>
 	<message key="manager.people.confirmUnenroll">Désincrire cet utilisateur?</message>
 	<message key="manager.people.createUser">Créer un nouvel utilisateur</message>

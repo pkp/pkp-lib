@@ -117,6 +117,7 @@
 	<message key="manager.languages.supportedLocalesInstructions">Seleccione todas las configuraciones regionales que estarán disponibles en el sitio mediante un menú de selección de idiomas que aparecerá en cada página. El menú solo aparecerá si hay más de una configuración regional.</message>
 	<message key="manager.masthead.title">Equipo editorial</message>
 	<message key="manager.payment.timestamp">Fecha operación</message>
+	<message key="manager.people.existingUserRequired">Debe introducirse un usuario existente.</message>
 	<message key="manager.people.authSource">Fuente de autentificación</message>
 	<message key="manager.people.confirmUnenroll">¿Desuscribir a esta/e usuaria/o?</message>
 	<message key="manager.people.createUser">Crear nueva/o usuaria/o</message>

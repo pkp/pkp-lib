@@ -92,6 +92,7 @@
 	<message key="manager.languages.alternateLocaleInstructions">Το σύστημα επιτρέπει εναλλακτικά την καταχώριση ορισμένων σημαντικών πληροφοριών και σε δύο πρόσθετες γλώσσες. Για να χρησιμοποιήσετε τη λειτουργία αυτή, επιλέξτε μία ή δυο από τις εναλλακτικές τοπικές ρυθμίσεις και επιλέξτε από τις επιλογές που θα εμφανιστούν παρακάτω.</message>
 	<message key="manager.languages.supportedLocalesInstructions">Επιλέξτε όλες τις τοπικές ρυθμίσεις που θα υποστηρίζονται στον ιστότοπο μέσω του μενού επιλογής γλώσσας να εμφανίζονται σε κάθε σελίδα. Το μενού εμφανίζεται μόνο, εάν έχει επιλεχθεί κάποια από τις τοπικές ρυθμίσεις.</message>
 	<message key="manager.payment.timestamp">Σφραγίδα Ημερομηνίας</message>
+	<message key="manager.people.allEnrolledUsers">Εγγεγραμμένοι Χρήστες σε αυτή την έκδοση</message>
 	<message key="manager.people.authSource">Πηγή πιστοποίησης</message>
 	<message key="manager.people.confirmUnenroll">Απαλλάσετε  τον συγκεκριμένο χρήστη από τον ρόλο του;</message>
 	<message key="manager.people.createUser">Δημιουργία νέου χρήστη</message>

@@ -117,6 +117,7 @@
 	<message key="manager.languages.supportedLocalesInstructions">Select all locales to support on the site via a language select menu to appear on each page. The menu will only appear if more than one locale is selected.</message>
 	<message key="manager.masthead.title">Masthead</message>
 	<message key="manager.payment.timestamp">Timestamp</message>
+	<message key="manager.people.existingUserRequired">An existing user must be entered.</message>
 	<message key="manager.people.authSource">Authentication source</message>
 	<message key="manager.people.confirmUnenroll">Unenroll this user?</message>
 	<message key="manager.people.createUser">Create New User</message>

@@ -229,7 +229,8 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 		}
 
 		// assigned to
-		if (!is_null($this->assigneeId) && ($this->assigneeId !== -1)) {
+		$isAssignedOnly = !is_null($this->assigneeId) && ($this->assigneeId !== -1);
+		if ($isAssignedOnly) {
 			$assigneeId = $this->assigneeId;
 
 			// Stage assignments
@@ -268,15 +269,21 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 					->leftJoin('authors as au','s.submission_id','=','au.submission_id');
 
 				foreach ($words as $word) {
-					$q->where(function($q) use ($word)  {
+					$q->where(function($q) use ($word, $isAssignedOnly)  {
 						$q->where(function($q) use ($word) {
 							$q->where('ss.setting_name', 'title');
 							$q->where('ss.setting_value', 'LIKE', "%{$word}%");
 						});
-						$q->orWhere(function($q) use ($word) {
-							$q->where('au.first_name', 'LIKE', "%{$word}%");
-							$q->orWhere('au.middle_name', 'LIKE', "%{$word}%");
-							$q->orWhere('au.last_name', 'LIKE', "%{$word}%");
+						$q->orWhere(function($q) use ($word, $isAssignedOnly) {
+							// Prevent reviewers from matching searches by author name
+							if ($isAssignedOnly) {
+								$q->whereNull('ra.reviewer_id');
+							}
+							$q->where(function($q) use ($word) {
+								$q->where($disallowReviewers . 'au.first_name', 'LIKE', "%{$word}%");
+								$q->orWhere($disallowReviewers . 'au.middle_name', 'LIKE', "%{$word}%");
+								$q->orWhere($disallowReviewers . 'au.last_name', 'LIKE', "%{$word}%");
+							});
 						});
 						if (ctype_digit($word)) {
 							$q->orWhere('s.submission_id', '=', $word);

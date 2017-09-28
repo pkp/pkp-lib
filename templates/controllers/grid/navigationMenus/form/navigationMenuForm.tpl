@@ -11,7 +11,15 @@
 <script>
 	$(function() {ldelim}
 		// Attach the form handler.
-		$('#navigationMenuForm').pkpHandler('$.pkp.controllers.grid.navigationMenus.form.NavigationMenuFormHandler',);
+		$('#navigationMenuForm').pkpHandler('$.pkp.controllers.grid.navigationMenus.form.NavigationMenuFormHandler',
+			{ldelim}
+				submenuWarning: {translate|json_encode key="manager.navigationMenus.form.submenuWarning"},
+				itemTypeConditionalWarnings: {$navigationMenuItemTypeConditionalWarnings},
+				okButton: {translate|json_encode key="common.ok"},
+				warningModalTitle: {translate|json_encode key="common.notice"}
+			{rdelim}
+		);
+
 	{rdelim});
 </script>
 
@@ -37,38 +45,54 @@
 				</div>
 				<ul id="pkpNavAssigned">
 					{foreach from=$menuTree item="assignment"}
-						<li data-id="{$assignment->getMenuItemId()|escape}">
+						{assign var="itemType" value=$assignment->navigationMenuItem->getType()}
+						{if !empty($navigationMenuItemTypes.$itemType.conditionalWarning)}
+							{assign var="hasConditionalDisplay" value=true}
+						{else}
+							{assign var="hasConditionalDisplay" value=false}
+						{/if}
+						<li data-id="{$assignment->getMenuItemId()|escape}" data-type="{$itemType|escape}">
 							<div class="item">
-								<span class="fa fa-sort"></span>
+								<div class="item_title">
+									<span class="fa fa-sort"></span>
 									{$assignment->navigationMenuItem->getLocalizedTitle()}
-								<script>
-		$(function() {ldelim}
-		$('#{$navigationMenuItemAssignmentEditId}').pkpHandler(
-			'$.pkp.controllers.linkAction.LinkActionHandler',
-				
-{ldelim}
-			staticId: "editNavigationMenuItemAssignment-{$assignment->getId()}",
-			actionRequest: "$.pkp.classes.linkAction.ModalRequest",
-			actionRequestOptions: {ldelim}
-					"title": "Edit",
-					"titleIcon": "modal_edit",
-					"canClose": "1",
-					"width": "710",
-					"closeButtonText": "Close Panel",
-					"modalHandler": "editNavigationMenuItemAssignment-{$assignment->getId()}",
-			{rdelim}
-			{rdelim}
-			);
-			{rdelim});
-</script>
+								</div>
+								<div class="item_buttons">
+									{if $hasConditionalDisplay}
+										<button class="btnConditionalDisplay">
+											<span class="fa fa-eye-slash"></span>
+											<span class="-screenReader">
+												{translate key="manager.navigationMenus.form.conditionalDisplay"}
+											</span>
+										</button>
+									{/if}
+								</div>
 							</div>
 							{if !empty($assignment->children)}
 								<ul>
 									{foreach from=$assignment->children item="childAssignment"}
-										<li data-id="{$childAssignment->getMenuItemId()|escape}">
+										{assign var="itemType" value=$childAssignment->navigationMenuItem->getType()}
+										{if !empty($navigationMenuItemTypes.$itemType.conditionalWarning)}
+											{assign var="hasConditionalDisplay" value=true}
+										{else}
+											{assign var="hasConditionalDisplay" value=false}
+										{/if}
+										<li data-id="{$childAssignment->getMenuItemId()|escape}" data-type="{$itemType|escape}">
 											<div class="item">
-												<span class="fa fa-sort"></span>
-												{$childAssignment->navigationMenuItem->getLocalizedTitle()}
+												<div class="item_title">
+													<span class="fa fa-sort"></span>
+													{$childAssignment->navigationMenuItem->getLocalizedTitle()}
+												</div>
+												<div class="item_buttons">
+													{if $hasConditionalDisplay}
+														<button class="btnConditionalDisplay">
+															<span class="fa fa-eye-slash"></span>
+															<span class="-screenReader">
+																{translate key="manager.navigationMenus.form.conditionalDisplay"}
+															</span>
+														</button>
+													{/if}
+												</div>
 											</div>
 										</li>
 									{/foreach}
@@ -84,10 +108,28 @@
 				</div>
 				<ul id="pkpNavUnassigned">
 					{foreach from=$unassignedItems item="unassignedItem"}
-						<li data-id="{$unassignedItem->getId()|escape}">
+						{assign var="itemType" value=$unassignedItem->getType()}
+						{if !empty($navigationMenuItemTypes.$itemType.conditionalWarning)}
+							{assign var="hasConditionalDisplay" value=true}
+						{else}
+							{assign var="hasConditionalDisplay" value=false}
+						{/if}
+						<li data-id="{$unassignedItem->getId()|escape}" data-type="{$itemType|escape}">
 							<div class="item">
-								<span class="fa fa-sort"></span>
-								{$unassignedItem->getLocalizedTitle()}
+								<div class="item_title">
+									<span class="fa fa-sort"></span>
+									{$unassignedItem->getLocalizedTitle()}
+								</div>
+								<div class="item_buttons">
+									{if $hasConditionalDisplay}
+										<button class="btnConditionalDisplay">
+											<span class="fa fa-eye-slash"></span>
+											<span class="-screenReader">
+												{translate key="manager.navigationMenus.form.conditionalDisplay"}
+											</span>
+										</button>
+									{/if}
+								</div>
 							</div>
 						</li>
 					{/foreach}

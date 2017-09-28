@@ -33,6 +33,16 @@
 	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuFormHandler =
 			function($formElement, options) {
 
+		this.okButton_ = options.okButton;
+		this.warningModalTitle_ = options.warningModalTitle;
+		this.submenuWarning_ = options.submenuWarning;
+		this.itemTypeConditionalWarnings_ = options.itemTypeConditionalWarnings;
+
+		$formElement.on('click', '.btnConditionalDisplay',
+				this.callbackWrapper(this.showConditionalDisplayWarning));
+		$formElement.on('click', '.btnSubmenuWarning',
+				this.callbackWrapper(this.showSubmenuWarning));
+
 		this.parent($formElement, options);
 		this.initSorting();
 	};
@@ -43,12 +53,58 @@
 			$.pkp.controllers.form.AjaxFormHandler);
 
 
+	//
+	// Private properties
+	//
+
+
+	/**
+	 * The label for the ok button on the modals displaying submenuWarning and
+	 * conditionalWarnings.
+	 * @private
+	 * @type {?string}
+	 */
+	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuFormHandler
+			.prototype.okButton_ = null;
+
+
+	/**
+	 * The title of the modals displaying submenuWarning and conditionalWarnings.
+	 * @private
+	 * @type {?string}
+	 */
+	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuFormHandler
+			.prototype.warningModalTitle_ = null;
+
+
+	/**
+	 * The warning message to display about submenus
+	 * @private
+	 * @type {?string}
+	 */
+	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuFormHandler
+			.prototype.submenuWarning_ = null;
+
+
+	/**
+	 * Warnings about the conditions of display for each item type.
+	 * @private
+	 * @type {?string}
+	 */
+	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuFormHandler
+			.prototype.itemTypeConditionalWarnings_ = null;
+
+
 	/**
 	 * Initialize the .sortable() lists, limit nesting to one level deep and
 	 * ensure lists are formatted properly the CSS styles
 	 */
 	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuFormHandler
 			.prototype.initSorting = function() {
+		var self = this;
+
+		// Remove any submenu warning buttons
+		$('.btnSubmenuWarning', this.getHtmlElement()).remove();
 
 		// Limit nesting to one level deep and ensure nested lists are formatted
 		// properly for appropriate styles
@@ -70,11 +126,28 @@
 					} else {
 						// Prevent nesting two levels deep by moving any items
 						// nested at that level up one level.
-						//var $grandchildren = $children.find('li');
 						if ($grandchildren.length) {
 							$grandchildren.each(function() {
 								$(this).appendTo($childList);
 							});
+						}
+
+						// Add a submenu warning button
+						if (!$(this).find(
+								'> .item > .item_buttons .btnSubmenuWarning').length) {
+							$(this).find('> .item > .item_buttons').prepend(
+								$('<button></button>')
+								.addClass('btnSubmenuWarning')
+								.append(
+									$('<span></span>')
+									.addClass('fa fa-exclamation-triangle')
+								)
+								.append(
+									$('<span></span>')
+									.addClass('-screenReader')
+									.text(self.submenuWarning_)
+								)
+							);
 						}
 					}
 				}
@@ -147,6 +220,51 @@
 			});
 		});
 	};
+
+
+	/**
+	 * Show the conditional display warning message
+	 */
+	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuFormHandler
+			.prototype.showConditionalDisplayWarning = function(htmlElement) {
+		var itemType = $(htmlElement).closest('li').data('type');
+
+		if (this.itemTypeConditionalWarnings_[itemType] !== null) {
+			var opts = {
+				title: this.warningModalTitle_,
+				okButton: this.okButton_,
+				cancelButton: false,
+				dialogText: this.itemTypeConditionalWarnings_[itemType]
+			};
+
+			$('<div id="' + $.pkp.classes.Helper.uuid() + '" ' +
+					'class="pkp_modal pkpModalWrapper" tabindex="-1"></div>')
+				.pkpHandler('$.pkp.controllers.modal.ConfirmationModalHandler', opts);
+		}
+
+		return false;
+	}
+
+
+	/**
+	 * Show the submenu link warning message
+	 */
+	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuFormHandler
+			.prototype.showSubmenuWarning = function(e) {
+
+		var opts = {
+			title: this.warningModalTitle_,
+			okButton: this.okButton_,
+			cancelButton: false,
+			dialogText: this.submenuWarning_
+		};
+
+		$('<div id="' + $.pkp.classes.Helper.uuid() + '" ' +
+				'class="pkp_modal pkpModalWrapper" tabindex="-1"></div>')
+			.pkpHandler('$.pkp.controllers.modal.ConfirmationModalHandler', opts);
+
+		return false;
+	}
 
 
 /** @param {jQuery} $ jQuery closure. */

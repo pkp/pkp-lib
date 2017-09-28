@@ -1543,9 +1543,6 @@ class PKPTemplateManager extends Smarty {
 	function smartyLoadNavigationMenuArea($params, $smarty) {
 		$areaName = $params['name'];
 		$declaredMenuTemplatePath = $params['path'];
-		$ulClass = $params['ulClass'];
-		$liClass = $params['liClass'];
-		$navClass = $params['navClass'];
 		$currentContext = $this->_request->getContext();
 		$contextId = CONTEXT_ID_NONE;
 		if ($currentContext) {
@@ -1571,8 +1568,9 @@ class PKPTemplateManager extends Smarty {
 
 		$this->assign(array(
 			'navigationMenu' => $navigationMenu,
-			'ulClass' => $ulClass,
-			'liClass' => $liClass,
+			'id' => $params['id'],
+			'ulClass' => $params['ulClass'],
+			'liClass' => $params['liClass'],
 			'navClass' => $navClass
 		));
 

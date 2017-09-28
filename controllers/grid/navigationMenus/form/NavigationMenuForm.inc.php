@@ -95,12 +95,20 @@ class NavigationMenuForm extends Form {
 		if ($this->_navigationMenuId) {
 			$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
 			$navigationMenu = $navigationMenuDao->getById($this->_navigationMenuId);
-
-			$templateMgr->assign('navigationMenuIsDefault', $navigationMenu->getDefault());
+			$navigationMenuIsDefault = $navigationMenu->getDefault();
 		} else {
-			$templateMgr->assign('navigationMenuIsDefault', 0);
+			$navigationMenuIsDefault = 0;
 		}
 
+		import('classes.core.ServicesContainer');
+		$navigationMenuItemTypes = ServicesContainer::instance()
+			->get('navigationMenu')
+			->getMenuItemTypes();
+
+		$typeConditionalWarnings = array();
+		foreach ($navigationMenuItemTypes as $type => $settings) {
+			$typeConditionalWarnings[$type] = $settings['conditionalWarning'];
+		}
 
 		$templateMgr->assign(array(
 			'enabledThemes' => $enabledThemes,
@@ -110,6 +118,9 @@ class NavigationMenuForm extends Form {
 			'title' => $this->getData('title'),
 			'navigationMenuArea' => $this->getData('area_name'),
 			'menuTree' => $this->getData('menuTree'),
+			'navigationMenuIsDefault' => $navigationMenuIsDefault,
+			'navigationMenuItemTypes' => $navigationMenuItemTypes,
+			'navigationMenuItemTypeConditionalWarnings' => json_encode($typeConditionalWarnings),
 		));
 
 		return parent::fetch($request);

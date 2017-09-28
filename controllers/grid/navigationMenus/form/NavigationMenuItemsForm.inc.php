@@ -79,14 +79,31 @@ class NavigationMenuItemsForm extends Form {
 			'supportEmail' => __('plugins.generic.tinymce.variables.supportContactEmail', array('value' => $context->getSetting('supportEmail'))),
 		));
 
-		$types = array();
-
 		import('classes.core.ServicesContainer');
 		$types = ServicesContainer::instance()
 			->get('navigationMenu')
 			->getMenuItemTypes();
 
-		$templateMgr->assign('navigationMenuTypes', $types);
+		$typeTitles = array();
+		foreach ($types as $type => $settings) {
+			$typeTitles[$type] = $settings['title'];
+		}
+
+		$typeDescriptions = array();
+		foreach ($types as $type => $settings) {
+			$typeDescriptions[$type] = $settings['description'];
+		}
+
+		$typeConditionalWarnings = array();
+		foreach ($types as $type => $settings) {
+			$typeConditionalWarnings[$type] = $settings['conditionalWarning'];
+		}
+
+		$templateMgr->assign(array(
+			'navigationMenuItemTypeTitles' => $typeTitles,
+			'navigationMenuItemTypeDescriptions' => json_encode($typeDescriptions),
+			'navigationMenuItemTypeConditionalWarnings' => json_encode($typeConditionalWarnings),
+		));
 
 		return parent::fetch($request, 'controllers/grid/navigationMenus/form/navigationMenuItemsForm.tpl');
 	}

@@ -613,18 +613,40 @@ a[id^="publicIdentifiersForm-clearObjectsPubIds-button"] {
 	position: relative;
 	margin: @base;
 	border: @bg-border;
-	padding: @half @base @half (@base * 3);
+	padding: @half @base;
 	cursor: pointer;
 
-	.fa {
+	.item_title {
+		padding-left: @base * 2;
+
+		.fa {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: @double;
+			height: 100%;
+			border-right: @bg-border;
+			line-height: @double + @half;
+			text-align: center;
+		}
+	}
+
+	.item_buttons {
 		position: absolute;
 		top: 0;
-		left: 0;
-		width: @double;
+		right: 0;
 		height: 100%;
-		border-right: @bg-border;
 		line-height: @double + @half;
-		text-align: center;
+
+		button {
+			margin-right: 0.5em;
+			padding: 0 0.5em;
+			border: none;
+			background: transparent;
+			line-height: @double + @half;
+			color: @primary;
+			cursor: pointer;
+		}
 	}
 }
 
@@ -674,8 +696,15 @@ a[id^="publicIdentifiersForm-clearObjectsPubIds-button"] {
 		color: @text-light;
 		border-color: @bg-border-color-light;
 
-		.fa {
-			border-right-color: @bg-border-color-light;
+		.item_title {
+
+			.fa {
+				border-right-color: @bg-border-color-light;
+			}
+		}
+
+		.item_buttons .fa {
+			color: @text-light;
 		}
 	}
 }

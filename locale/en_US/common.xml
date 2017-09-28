@@ -382,6 +382,7 @@
 	<message key="navigation.access"><![CDATA[Users &amp; Roles]]></message>
 	<message key="navigation.about">About</message>
 	<message key="navigation.admin">Administration</message>
+	<message key="navigation.archives">Archives</message>
 	<message key="navigation.breadcrumbLabel">You are here:</message>
 	<message key="navigation.breadcrumbSeparator">/</message>
 	<message key="navigation.tools">Tools</message>
@@ -542,7 +543,6 @@
 	<message key="user.authorization.submissionFile">The current user is not authorized to access the specified submission file.</message>
 	<message key="user.authorization.invalidSubmission">Invalid submission.</message>
 	<message key="user.authorization.invalidRepresentation">Invalid representation.</message>
-	<message key="navigation.archives">Archives</message>
 	<message key="user.authorization.authorRoleMissing">You do not currently have sufficient privileges to view the submission. Please edit your profile to ensure that you have been granted the appropriate roles under "Register As".</message>
 	<message key="user.authorization.submissionAuthor">The current user is not the author of the requested submission. Please verify that you are logged in with the correct user account.</message>
 	<message key="notification.type.queryActivity">Discussion activity.</message>

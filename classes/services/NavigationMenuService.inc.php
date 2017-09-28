@@ -20,23 +20,71 @@ class NavigationMenuService {
 	public function getMenuItemTypes() {
 		\AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER);
 		$types = array(
-			NMI_TYPE_CUSTOM => __('manager.navigationMenus.customType'),
-			NMI_TYPE_REMOTE_URL => __('manager.navigationMenus.remoteURL'),
-			NMI_TYPE_ABOUT => __('navigation.about'),
-			NMI_TYPE_SUBMISSIONS => __('navigation.submissions'),
-			NMI_TYPE_CURRENT => __('site.journalCurrent'),
-			NMI_TYPE_EDITORIAL_TEAM => __('about.editorialTeam'),
-			NMI_TYPE_CONTACT => __('about.contact'),
-			NMI_TYPE_ANNOUNCEMENTS => __('manager.announcements'),
-			NMI_TYPE_ARCHIVES => __('navigation.archives'),
-			NMI_TYPE_USER_LOGOUT => __('user.logOut'),
-			NMI_TYPE_USER_LOGOUT_AS => __('user.logOutAs'),
-			NMI_TYPE_USER_PROFILE => __('common.viewProfile'),
-			NMI_TYPE_ADMINISTRATION => __('navigation.admin'),
-			NMI_TYPE_USER_DASHBOARD => __('navigation.dashboard'),
-			NMI_TYPE_USER_REGISTER => __('navigation.register'),
-			NMI_TYPE_USER_LOGIN => __('navigation.login'),
-
+			NMI_TYPE_CUSTOM => array(
+				'title' => __('manager.navigationMenus.customPage'),
+				'description' => __('manager.navigationMenus.customPage.description'),
+			),
+			NMI_TYPE_REMOTE_URL => array(
+				'title' => __('manager.navigationMenus.remoteUrl'),
+				'description' => __('manager.navigationMenus.remoteUrl.description'),
+			),
+			NMI_TYPE_ABOUT => array(
+				'title' => __('navigation.about'),
+				'description' => __('manager.navigationMenus.about.description'),
+				'conditionalWarning' => __('manager.navigationMenus.about.conditionalWarning'),
+			),
+			NMI_TYPE_EDITORIAL_TEAM => array(
+				'title' => __('about.editorialTeam'),
+				'description' => __('manager.navigationMenus.editorialTeam.description'),
+				'conditionalWarning' => __('manager.navigationMenus.editorialTeam.conditionalWarning'),
+			),
+			NMI_TYPE_SUBMISSIONS => array(
+				'title' => __('navigation.submissions'),
+				'description' => __('manager.navigationMenus.submissions.description'),
+			),
+			NMI_TYPE_CURRENT => array(
+				'title' => __('editor.issues.currentIssue'),
+				'description' => __('manager.navigationMenus.current.description'),
+			),
+			NMI_TYPE_ARCHIVES => array(
+				'title' => __('navigation.archives'),
+				'description' => __('manager.navigationMenus.archives.description'),
+			),
+			NMI_TYPE_ANNOUNCEMENTS => array(
+				'title' => __('announcement.announcements'),
+				'description' => __('manager.navigationMenus.announcements.description'),
+				'conditionalWarning' => __('manager.navigationMenus.announcements.conditionalWarning'),
+			),
+			NMI_TYPE_USER_LOGIN => array(
+				'title' => __('navigation.login'),
+				'description' => __('manager.navigationMenus.login.description'),
+				'conditionalWarning' => __('manager.navigationMenus.loggedIn.conditionalWarning'),
+			),
+			NMI_TYPE_USER_REGISTER => array(
+				'title' => __('navigation.register'),
+				'description' => __('manager.navigationMenus.register.description'),
+				'conditionalWarning' => __('manager.navigationMenus.loggedIn.conditionalWarning'),
+			),
+			NMI_TYPE_USER_DASHBOARD => array(
+				'title' => __('navigation.dashboard'),
+				'description' => __('manager.navigationMenus.dashboard.description'),
+				'conditionalWarning' => __('manager.navigationMenus.loggedOut.conditionalWarning'),
+			),
+			NMI_TYPE_USER_PROFILE => array(
+				'title' => __('common.viewProfile'),
+				'description' => __('manager.navigationMenus.profile.description'),
+				'conditionalWarning' => __('manager.navigationMenus.loggedOut.conditionalWarning'),
+			),
+			NMI_TYPE_ADMINISTRATION => array(
+				'title' => __('navigation.admin'),
+				'description' => __('manager.navigationMenus.administration.description'),
+				'conditionalWarning' => __('manager.navigationMenus.loggedOut.conditionalWarning'),
+			),
+			NMI_TYPE_USER_LOGOUT => array(
+				'title' => __('user.logOut'),
+				'description' => __('manager.navigationMenus.logOut.description'),
+				'conditionalWarning' => __('manager.navigationMenus.loggedOut.conditionalWarning'),
+			),
 		);
 
 		\HookRegistry::call('NavigationMenus::itemTypes', array(&$types));
@@ -53,14 +101,10 @@ class NavigationMenuService {
 		$context = $request->getContext();
 		$currentUser = $request->getUser();
 
-		$contextId = CONTEXT_ID_NONE;
-		if ($context) {
-			$contextId = $context->getId();
-		}
+		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 
-		// Set navigationMenuItem type display template
+		// Transform an item title if the title includes a {$variable}
 		$templateMgr = \TemplateManager::getManager(\Application::getRequest());
-		// Get 'parameter' from '{$parameter}'
 		$title = $navigationMenuItem->getLocalizedTitle();
 		$prefix = '{$';
 		$postfix = '}';
@@ -80,321 +124,204 @@ class NavigationMenuService {
 			}
 		}
 
-		$templateMgr->assign(array(
-			'navigationMenuItem' => $navigationMenuItem,
-		));
-
 		$menuItemType = $navigationMenuItem->getType();
+
+		// Conditionally hide some items
 		switch ($menuItemType) {
-			case NMI_TYPE_ANNOUNCEMENTS: // should be made as symbolic type - globally accessible
-				// Set navigationMenuItem type Display function
-				$display = false;
-				if ($context) {
-					$display = $context->getSetting('enableAnnouncements');
-				}
-				$navigationMenuItem->setIsDisplayed($display);
-
-				// Set navigationMenuItem type URL
-				$menuItemUrl = $dispatcher->url(
-					$request,
-					ROUTE_PAGE,
-					null,
-					'announcement',
-					null,
-					null
-				);
-
-				$navigationMenuItem->setUrl($menuItemUrl);
-				break;
-			case NMI_TYPE_ABOUT:
-				// Set navigationMenuItem type Display function
-				$navigationMenuItem->setIsDisplayed(true);
-
-				// Set navigationMenuItem type URL
-				$menuItemUrl = $dispatcher->url(
-					$request,
-					ROUTE_PAGE,
-					null,
-					'about',
-					null,
-					null
-				);
-
-				$navigationMenuItem->setUrl($menuItemUrl);
+			case NMI_TYPE_ANNOUNCEMENTS:
+				$navigationMenuItem->setIsDisplayed($context && $context->getSetting('enableAnnouncements'));
 				break;
 			case NMI_TYPE_CURRENT:
-				// Set navigationMenuItem type Display function
-				$display = false;
-				if ($context) {
-					if ($context->getSetting('publishingMode') != PUBLISHING_MODE_NONE) {
-						$display = true;
-					}
-				}
-				$navigationMenuItem->setIsDisplayed($display);
-
-				// Set navigationMenuItem type URL
-				$menuItemUrl = $dispatcher->url(
-					$request,
-					ROUTE_PAGE,
-					null,
-					'issue',
-					'current',
-					null
-				);
-
-				$navigationMenuItem->setUrl($menuItemUrl);
-				break;
 			case NMI_TYPE_ARCHIVES:
-				// Set navigationMenuItem type Display function
-				$display = false;
-				if ($context) {
-					if ($context->getSetting('publishingMode') != PUBLISHING_MODE_NONE) {
-						$display = true;
-					}
-				}
-				$navigationMenuItem->setIsDisplayed($display);
-
-				// Set navigationMenuItem type URL
-				$menuItemUrl = $dispatcher->url(
-					$request,
-					ROUTE_PAGE,
-					null,
-					'issue',
-					'archive',
-					null
-				);
-
-				$navigationMenuItem->setUrl($menuItemUrl);
-				break;
-			case NMI_TYPE_SUBMISSIONS:
-				// Set navigationMenuItem type Display function
-				$navigationMenuItem->setIsDisplayed(true);
-
-				// Set navigationMenuItem type URL
-				$menuItemUrl = $dispatcher->url(
-					$request,
-					ROUTE_PAGE,
-					null,
-					'about',
-					'submissions',
-					null
-				);
-
-				$navigationMenuItem->setUrl($menuItemUrl);
+				$navigationMenuItem->setIsDisplayed($context && $context->getSetting('publishingMode') != PUBLISHING_MODE_NONE);
 				break;
 			case NMI_TYPE_EDITORIAL_TEAM:
-				// Set navigationMenuItem type Display function
-				$display = false;
-				if ($context) {
-					if ($context->getLocalizedSetting('masthead')) {
-						$display = true;
-					}
-				}
-				$navigationMenuItem->setIsDisplayed($display);
-
-				// Set navigationMenuItem type URL
-				$menuItemUrl = $dispatcher->url(
-					$request,
-					ROUTE_PAGE,
-					null,
-					'about',
-					'editorialTeam',
-					null
-				);
-
-					$navigationMenuItem->setUrl($menuItemUrl);
+				$navigationMenuItem->setIsDisplayed($context && $context->getLocalizedSetting('masthead'));
 				break;
 			case NMI_TYPE_CONTACT:
-				// Set navigationMenuItem type Display function
-				$display = false;
-				if ($context) {
-					if ($context->getSetting('mailingAddress') || $context->getSetting('contactName')) {
-						$display = true;
-					}
-				}
-				$navigationMenuItem->setIsDisplayed($display);
-
-				// Set navigationMenuItem type URL
-				$menuItemUrl = $dispatcher->url(
-					$request,
-					ROUTE_PAGE,
-					null,
-					'about',
-					'contact',
-					null
-				);
-
-				$navigationMenuItem->setUrl($menuItemUrl);
+				$navigationMenuItem->setIsDisplayed($context && ($context->getSetting('mailingAddress') || $context->getSetting('contactName')));
+				break;
+			case NMI_TYPE_USER_REGISTER:
+			case NMI_TYPE_USER_LOGIN:
+				$navigationMenuItem->setIsDisplayed(!$isUserLoggedIn);
 				break;
 			case NMI_TYPE_USER_LOGOUT:
-				// Set navigationMenuItem type Display function
-				$navigationMenuItem->setIsDisplayed($isUserLoggedIn);
-
-				// Set navigationMenuItem type URL
-				$menuItemUrl = $dispatcher->url(
-					$request,
-					ROUTE_PAGE,
-					null,
-					'login',
-					'signOut',
-					null
-				);
-
-				$navigationMenuItem->setUrl($menuItemUrl);
-				break;
-			case NMI_TYPE_USER_LOGOUT_AS:
-				// Set navigationMenuItem type Display function
-				$navigationMenuItem->setIsDisplayed($isUserLoggedInAs);
-
-				// Set navigationMenuItem type URL
-				$menuItemUrl = $dispatcher->url(
-					$request,
-					ROUTE_PAGE,
-					null,
-					'login',
-					'signOutAsUser',
-					null
-				);
-
-				$navigationMenuItem->setUrl($menuItemUrl);
-				break;
 			case NMI_TYPE_USER_PROFILE:
-				// Set navigationMenuItem type Display function
+			case NMI_TYPE_USER_DASHBOARD:
 				$navigationMenuItem->setIsDisplayed($isUserLoggedIn);
-
-				// Set navigationMenuItem type URL
-				$menuItemUrl = $dispatcher->url(
-					$request,
-					ROUTE_PAGE,
-					null,
-					'user',
-					'profile',
-					null
-				);
-
-				$navigationMenuItem->setUrl($menuItemUrl);
 				break;
 			case NMI_TYPE_ADMINISTRATION:
-				// Set navigationMenuItem type Display function
-				$display = false;
+				$navigationMenuItem->setIsDisplayed($isUserLoggedIn && $currentUser->hasRole(array(ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN), $contextId));
+				break;
+		}
 
-				if ($currentUser) {
-					if ($currentUser->hasRole(array(ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN), $contextId)) {
-						$display = true;
+		if ($navigationMenuItem->getIsDisplayed()) {
+
+			// Adjust some titles
+			switch ($menuItemType) {
+				case NMI_TYPE_USER_LOGOUT:
+					if ($isUserLoggedInAs) {
+						$userName = $request->getUser() ? ' ' . $request->getUser()->getUserName() : '';
+						$navigationMenuItem->setTitle(__('user.logOutAs') . $userName, \AppLocale::getLocale());
 					}
-				}
+					break;
+				case NMI_TYPE_USER_DASHBOARD:
+					$templateMgr->assign('navigationMenuItem', $navigationMenuItem);
+					$displayTitle = $templateMgr->fetch('frontend/components/navigationMenus/dashboardMenuItem.tpl');
+					$navigationMenuItem->setTitle($displayTitle, \AppLocale::getLocale());
+					break;
+			}
 
-				$navigationMenuItem->setIsDisplayed($display);
-
-				// Set navigationMenuItem type URL
-				$availableContexts = \Application::getContextDAO()->getAvailable();
-
-				if ($availableContexts->count > 0) {
-					$menuItemUrl = $dispatcher->url(
+			// Set the URL
+			switch ($menuItemType) {
+				case NMI_TYPE_ANNOUNCEMENTS:
+					$navigationMenuItem->setUrl($dispatcher->url(
 						$request,
 						ROUTE_PAGE,
 						null,
-						'admin',
-						'index',
+						'announcement',
+						null,
 						null
-					);
-				} else {
-					$menuItemUrl = $dispatcher->url(
+					));
+					break;
+				case NMI_TYPE_ABOUT:
+					$navigationMenuItem->setUrl($dispatcher->url(
+						$request,
+						ROUTE_PAGE,
+						null,
+						'about',
+						null,
+						null
+					));
+					break;
+				case NMI_TYPE_CURRENT:
+					$navigationMenuItem->setUrl($dispatcher->url(
+						$request,
+						ROUTE_PAGE,
+						null,
+						'issue',
+						'current',
+						null
+					));
+					break;
+				case NMI_TYPE_ARCHIVES:
+					$navigationMenuItem->setUrl($dispatcher->url(
+						$request,
+						ROUTE_PAGE,
+						null,
+						'issue',
+						'archive',
+						null
+					));
+					break;
+				case NMI_TYPE_SUBMISSIONS:
+					$navigationMenuItem->setUrl($dispatcher->url(
+						$request,
+						ROUTE_PAGE,
+						null,
+						'about',
+						'submissions',
+						null
+					));
+					break;
+				case NMI_TYPE_EDITORIAL_TEAM:
+					$navigationMenuItem->setUrl($dispatcher->url(
+						$request,
+						ROUTE_PAGE,
+						null,
+						'about',
+						'editorialTeam',
+						null
+					));
+					break;
+				case NMI_TYPE_CONTACT:
+					$navigationMenuItem->setUrl($dispatcher->url(
+						$request,
+						ROUTE_PAGE,
+						null,
+						'about',
+						'contact',
+						null
+					));
+					break;
+				case NMI_TYPE_USER_LOGOUT:
+					$navigationMenuItem->setUrl($dispatcher->url(
+						$request,
+						ROUTE_PAGE,
+						null,
+						'login',
+						$isUserLoggedInAs ? 'signOutAsUser' : 'signOut',
+						null
+					));
+					break;
+				case NMI_TYPE_USER_PROFILE:
+					$navigationMenuItem->setUrl($dispatcher->url(
+						$request,
+						ROUTE_PAGE,
+						null,
+						'user',
+						'profile',
+						null
+					));
+					break;
+				case NMI_TYPE_ADMINISTRATION:
+					$navigationMenuItem->setUrl($dispatcher->url(
 						$request,
 						ROUTE_PAGE,
 						'index',
 						'admin',
 						'index',
 						null
-					);
-				}
-
-				$navigationMenuItem->setUrl($menuItemUrl);
-				break;
-			case NMI_TYPE_USER_DASHBOARD:
-				// Set navigationMenuItem type Display function
-				$navigationMenuItem->setIsDisplayed($isUserLoggedIn);
-
-				// Set navigationMenuItem type display template
-				$displayTitle = $templateMgr->fetch('frontend/components/navigationMenus/dashboardMenuItem.tpl');
-				$navigationMenuItem->setTitle($displayTitle, \AppLocale::getLocale());
-
-				// Set navigationMenuItem type URL
-				$menuItemUrl = $dispatcher->url(
-					$request,
-					ROUTE_PAGE,
-					null,
-					'submissions',
-					null,
-					null
-				);
-
-				$navigationMenuItem->setUrl($menuItemUrl);
-				break;
-			case NMI_TYPE_USER_REGISTER:
-				// Set navigationMenuItem type Display function
-				$navigationMenuItem->setIsDisplayed(!$isUserLoggedIn);
-
-				// Set navigationMenuItem type URL
-				$menuItemUrl = $dispatcher->url(
-					$request,
-					ROUTE_PAGE,
-					null,
-					'user',
-					'register',
-					null
-				);
-
-				$navigationMenuItem->setUrl($menuItemUrl);
-				break;
-			case NMI_TYPE_USER_LOGIN:
-				// Set navigationMenuItem type Display function
-				$navigationMenuItem->setIsDisplayed(!$isUserLoggedIn);
-
-				// Set navigationMenuItem type URL
-				$menuItemUrl = $dispatcher->url(
-					$request,
-					ROUTE_PAGE,
-					null,
-					'login',
-					null,
-					null
-				);
-
-				$navigationMenuItem->setUrl($menuItemUrl);
-				break;
-			case NMI_TYPE_CUSTOM:
-				// Set navigationMenuItem type Display function
-				$navigationMenuItem->setIsDisplayed(true);
-
-				if (!$navigationMenuItem->getUrl()) {
+					));
+					break;
+				case NMI_TYPE_USER_DASHBOARD:
+					$navigationMenuItem->setUrl($dispatcher->url(
+						$request,
+						ROUTE_PAGE,
+						null,
+						'submissions',
+						null,
+						null
+					));
+					break;
+				case NMI_TYPE_USER_REGISTER:
+					$navigationMenuItem->setUrl($dispatcher->url(
+						$request,
+						ROUTE_PAGE,
+						null,
+						'user',
+						'register',
+						null
+					));
+					break;
+				case NMI_TYPE_USER_LOGIN:
+					$navigationMenuItem->setUrl($dispatcher->url(
+						$request,
+						ROUTE_PAGE,
+						null,
+						'login',
+						null,
+						null
+					));
+					break;
+				case NMI_TYPE_CUSTOM:
 					if ($navigationMenuItem->getPath()) {
-						// Set navigationMenuItem type URL
-						$menuItemUrl = $dispatcher->url(
+						$navigationMenuItem->setUrl($dispatcher->url(
 							$request,
 							ROUTE_PAGE,
 							null,
 							'navigationMenu',
 							'view',
 							$navigationMenuItem->getPath()
-						);
-
-						$navigationMenuItem->setUrl($menuItemUrl);
+						));
 					}
-				}
-
-				break;
-			case NMI_TYPE_REMOTE_URL:
-				// Set navigationMenuItem type Display function
-				$navigationMenuItem->setIsDisplayed(true);
-
-				break;
-			default:
-				// Fire hook for determining display status of third-party types. Default: true
-				\HookRegistry::call('NavigationMenus::displayType', array(&$navigationMenuItem));
-
-
+					break;
+			}
 		}
+
+		\HookRegistry::call('NavigationMenus::displaySettings', array($navigationMenuItem));
+
+		$templateMgr->assign('navigationMenuItem', $navigationMenuItem);
 	}
 
 	/**
@@ -413,10 +340,10 @@ class NavigationMenuService {
 		$assignments = $navigationMenuItemAssignmentDao->getByMenuId($navigationMenu->getId())
 				->toArray();
 
-		for ($i = 0; $i < count($assignments); $i++) {
+		foreach ($assignments as $assignment) {
 			foreach($items as $item) {
-				if ($item->getId() === $assignments[$i]->getMenuItemId()) {
-					$assignments[$i]->setMenuItem($item);
+				if ($item->getId() === $assignment->getMenuItemId()) {
+					$assignment->setMenuItem($item);
 					break;
 				}
 			}
@@ -444,23 +371,5 @@ class NavigationMenuService {
 				$navigationMenu->menuTree[$i]->children = $children[$assignmentId];
 			}
 		}
-	}
-
-	function _getContents($str, $startDelimiter, $endDelimiter) {
-		$contents = array();
-		$startDelimiterLength = strlen($startDelimiter);
-		$endDelimiterLength = strlen($endDelimiter);
-		$startFrom = $contentStart = $contentEnd = 0;
-		while (false !== ($contentStart = strpos($str, $startDelimiter, $startFrom))) {
-		$contentStart += $startDelimiterLength;
-		$contentEnd = strpos($str, $endDelimiter, $contentStart);
-		if (false === $contentEnd) {
-		break;
-		}
-		$contents[] = substr($str, $contentStart, $contentEnd - $contentStart);
-		$startFrom = $contentEnd + $endDelimiterLength;
-		}
-
-		return $contents;
 	}
 }

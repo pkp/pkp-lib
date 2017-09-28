@@ -554,10 +554,10 @@
 	<message key="semicolon">{$label}:</message>
 
 	<!-- Navigation Menus -->
-	<message key="notification.editedNavigationMenuItem">Succesfully updated</message>
-	<message key="notification.removedNavigationMenuItem">Succesfully removed</message>
-	<message key="notification.addedNavigationMenuItem">Succesfully added</message>
-	<message key="notification.addedNavigationMenu">Succesfully added</message>
-	<message key="notification.editedNavigationMenu">Succesfully updated</message>
-	<message key="notification.removedNavigationMenu">Succesfully removed</message>
+	<message key="notification.editedNavigationMenuItem">Navigation menu item was succesfully updated</message>
+	<message key="notification.removedNavigationMenuItem">Navigation menu item was succesfully removed</message>
+	<message key="notification.addedNavigationMenuItem">Navigation menu item was succesfully added</message>
+	<message key="notification.addedNavigationMenu">Navigation menu was succesfully added</message>
+	<message key="notification.editedNavigationMenu">Navigation menu was succesfully updated</message>
+	<message key="notification.removedNavigationMenu">Navigation menu was succesfully removed</message>
 </locale>

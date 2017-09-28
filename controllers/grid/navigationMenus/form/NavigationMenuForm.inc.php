@@ -77,8 +77,14 @@ class NavigationMenuForm extends Form {
 			$activeThemeNavigationAreas[$navigationMenuArea] = $navigationMenuArea;
 		}
 
+		$context = $request->getContext();
+		$contextId = CONTEXT_ID_NONE;
+		if ($context) {
+			$contextId = $context->getId();
+		}
+
 		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
-		$navigationMenuItems = $navigationMenuItemDao->getByContextId($request->getContext()->getId())
+		$navigationMenuItems = $navigationMenuItemDao->getByContextId($contextId)
 				->toArray();
 		$assignedItems = $navigationMenuItemDao->getByMenuId($this->_navigationMenuId)
 				->toArray();

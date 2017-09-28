@@ -39,20 +39,6 @@ class NavigationMenuItemsGridCellProvider extends GridCellProvider {
 		switch ($columnId) {
 			case 'title':
 				return array('label' => $navigationMenuItem->getLocalizedTitle());
-			case 'path':
-				$path = $navigationMenuItem->getPath();
-				if ($path) {
-					return array('label' => $navigationMenuItem->getPath());
-				} else {
-					return array('label' => __('common.none'));
-				}
-			case 'default':
-				$default = $navigationMenuItem->getDefault();
-				if ($default) {
-					return array('label' => __('common.yes'));
-				} else {
-					return array('label' => __('common.no'));
-				}
 			default:
 				break;
 		}

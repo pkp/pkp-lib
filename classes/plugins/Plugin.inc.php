@@ -244,14 +244,6 @@ abstract class Plugin {
 		return null;
 	}
 
-	function getNavigationMenuItemTypes() {
-		return null;
-	}
-
-	function getNavigationMenuItemTypesDisplay() {
-		return null;
-	}
-
 	/**
 	 * Get the filename of the email templates for this plugin.
 	 * Subclasses using email templates should override this.

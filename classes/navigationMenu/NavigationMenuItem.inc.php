@@ -18,12 +18,12 @@
 define('NMI_TYPE_CURRENT', 'NMI_TYPE_CURRENT');
 define('NMI_TYPE_ARCHIVES',	'NMI_TYPE_ARCHIVES');
 define('NMI_TYPE_ABOUT',	'NMI_TYPE_ABOUT');
-define('NMI_TYPE_ABOUT_CONTEXT',	'NMI_TYPE_ABOUT_CONTEXT');
 define('NMI_TYPE_SUBMISSIONS',	'NMI_TYPE_SUBMISSIONS');
 define('NMI_TYPE_EDITORIAL_TEAM',	'NMI_TYPE_EDITORIAL_TEAM');
 define('NMI_TYPE_CONTACT',	'NMI_TYPE_CONTACT');
 define('NMI_TYPE_ANNOUNCEMENTS',	'NMI_TYPE_ANNOUNCEMENTS');
 define('NMI_TYPE_CUSTOM',	'NMI_TYPE_CUSTOM');
+define('NMI_TYPE_REMOTE_URL',	'NMI_TYPE_REMOTE_URL');
 
 define('NMI_TYPE_USER_LOGOUT',	'NMI_TYPE_USER_LOGOUT');
 define('NMI_TYPE_USER_LOGOUT_AS',	'NMI_TYPE_USER_LOGOUT_AS');
@@ -121,22 +121,6 @@ class NavigationMenuItem extends DataObject {
 	 */
 	function setDefaultId($defaultId) {
 		$this->setData('default_id', $defaultId);
-	}
-
-	/**
-	 * Get use_custom_url of this NavigationMenuItem
-	 * @return int
-	 */
-	function getUseCustomUrl() {
-		return $this->getData('use_custom_url');
-	}
-
-	/**
-	 * Set use_custom_url for this navigation menu item.
-	 * @param $useCustomUrl int
-	 */
-	function setUseCustomUrl($useCustomUrl) {
-		$this->setData('use_custom_url', $useCustomUrl);
 	}
 
 	/**

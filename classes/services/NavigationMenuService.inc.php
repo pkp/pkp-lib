@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/services/NavigationMenuService.php
+ * @file classes/services/NavigationMenuService.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2000-2017 John Willinsky
@@ -18,17 +18,17 @@ namespace PKP\Services;
 class NavigationMenuService {
 
 	public function getMenuItemTypes() {
-
+		\AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER);
 		$types = array(
+			NMI_TYPE_CUSTOM => __('manager.navigationMenus.customType'),
+			NMI_TYPE_REMOTE_URL => __('manager.navigationMenus.remoteURL'),
 			NMI_TYPE_ABOUT => __('navigation.about'),
 			NMI_TYPE_SUBMISSIONS => __('navigation.submissions'),
 			NMI_TYPE_CURRENT => __('site.journalCurrent'),
-			NMI_TYPE_ABOUT_CONTEXT => __('about.aboutContext'),
 			NMI_TYPE_EDITORIAL_TEAM => __('about.editorialTeam'),
 			NMI_TYPE_CONTACT => __('about.contact'),
 			NMI_TYPE_ANNOUNCEMENTS => __('manager.announcements'),
-			NMI_TYPE_CUSTOM => __('manager.navigationMenus.customType'),
-
+			NMI_TYPE_ARCHIVES => __('navigation.archives'),
 			NMI_TYPE_USER_LOGOUT => __('user.logOut'),
 			NMI_TYPE_USER_LOGOUT_AS => __('user.logOutAs'),
 			NMI_TYPE_USER_PROFILE => __('common.viewProfile'),
@@ -51,13 +51,33 @@ class NavigationMenuService {
 		$isUserLoggedIn = \Validation::isLoggedIn();
 		$isUserLoggedInAs = \Validation::isLoggedInAs();
 		$context = $request->getContext();
+		$currentUser = $request->getUser();
+
+		$contextId = CONTEXT_ID_NONE;
+		if ($context) {
+			$contextId = $context->getId();
+		}
 
 		// Set navigationMenuItem type display template
 		$templateMgr = \TemplateManager::getManager(\Application::getRequest());
-		$templateReplaceTitle = $templateMgr->get_template_vars($navigationMenuItem->getLocalizedTitle());
-		if ($templateReplaceTitle) {
-			$navigationMenuItem->setTitle();
-			$navigationMenuItem->setTitle($templateReplaceTitle, \AppLocale::getLocale());
+		// Get 'parameter' from '{$parameter}'
+		$title = $navigationMenuItem->getLocalizedTitle();
+		$prefix = '{$';
+		$postfix = '}';
+
+		$titleRepl = $title;
+
+		$prefixPos = strpos($title, $prefix);
+		$postfixPos = strpos($title, $postfix);
+
+		if ($prefixPos !== false && $postfixPos !== false && ($postfixPos - $prefixPos) > 0){
+			$titleRepl = substr($title, $prefixPos + strlen($prefix), $postfixPos - $prefixPos - strlen($prefix));
+
+			$templateReplaceTitle = $templateMgr->get_template_vars($titleRepl);
+				if ($templateReplaceTitle) {
+					$navigationMenuItem->setTitle();
+					$navigationMenuItem->setTitle($templateReplaceTitle, \AppLocale::getLocale());
+			}
 		}
 
 		$templateMgr->assign(array(
@@ -141,22 +161,6 @@ class NavigationMenuService {
 					null,
 					'issue',
 					'archive',
-					null
-				);
-
-				$navigationMenuItem->setUrl($menuItemUrl);
-				break;
-			case NMI_TYPE_ABOUT_CONTEXT:
-				// Set navigationMenuItem type Display function
-				$navigationMenuItem->setIsDisplayed(true);
-
-				// Set navigationMenuItem type URL
-				$menuItemUrl = $dispatcher->url(
-					$request,
-					ROUTE_PAGE,
-					null,
-					'about',
-					'contact',
 					null
 				);
 
@@ -272,7 +276,15 @@ class NavigationMenuService {
 				break;
 			case NMI_TYPE_ADMINISTRATION:
 				// Set navigationMenuItem type Display function
-				$navigationMenuItem->setIsDisplayed($isUserLoggedIn);
+				$display = false;
+
+				if ($currentUser) {
+					if ($currentUser->hasRole(array(ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN), $contextId)) {
+						$display = true;
+					}
+				}
+
+				$navigationMenuItem->setIsDisplayed($display);
 
 				// Set navigationMenuItem type URL
 				$availableContexts = \Application::getContextDAO()->getAvailable();
@@ -372,6 +384,11 @@ class NavigationMenuService {
 				}
 
 				break;
+			case NMI_TYPE_REMOTE_URL:
+				// Set navigationMenuItem type Display function
+				$navigationMenuItem->setIsDisplayed(true);
+
+				break;
 			default:
 				// Fire hook for determining display status of third-party types. Default: true
 				\HookRegistry::call('NavigationMenus::displayType', array(&$navigationMenuItem));
@@ -427,7 +444,23 @@ class NavigationMenuService {
 				$navigationMenu->menuTree[$i]->children = $children[$assignmentId];
 			}
 		}
+	}
 
-		// return $navigationMenu->menuTree;
+	function _getContents($str, $startDelimiter, $endDelimiter) {
+		$contents = array();
+		$startDelimiterLength = strlen($startDelimiter);
+		$endDelimiterLength = strlen($endDelimiter);
+		$startFrom = $contentStart = $contentEnd = 0;
+		while (false !== ($contentStart = strpos($str, $startDelimiter, $startFrom))) {
+		$contentStart += $startDelimiterLength;
+		$contentEnd = strpos($str, $endDelimiter, $contentStart);
+		if (false === $contentEnd) {
+		break;
+		}
+		$contents[] = substr($str, $contentStart, $contentEnd - $contentStart);
+		$startFrom = $contentEnd + $endDelimiterLength;
+		}
+
+		return $contents;
 	}
 }

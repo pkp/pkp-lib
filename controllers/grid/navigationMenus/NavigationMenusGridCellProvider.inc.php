@@ -55,23 +55,6 @@ class NavigationMenusGridCellProvider extends GridCellProvider {
 		switch ($columnId) {
 		    case 'title':
 		        return array('label' => '');
-			case 'default':
-		        $default = $navigationMenu->getDefault();
-			    if ($default) {
-			        return array('label' => __('common.yes'));
-			    } else {
-			        return array('label' => __('common.no'));
-			    }
-			case 'itemCount':
-				$navigationMenuId = $navigationMenu->getId();
-			    if ($navigationMenuId) {
-					$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
-					$navigationMenuItems = $navigationMenuItemDao->getByMenuId($navigationMenuId);
-
-			        return array('label' => $navigationMenuItems->count);
-			    } else {
-			        return array('label' => __('common.none'));
-			    }
 		    default:
 		        break;
 		}

@@ -251,6 +251,16 @@ abstract class ContextDAO extends DAO {
 			'DELETE FROM ' . $this->_getTableName() . ' WHERE ' . $this->_getPrimaryKeyColumn() . ' = ?',
 			(int) $contextId
 		);
+
+		// NavigationMenus
+		// TODO: when the NavigationMenu feature gets ported to OMP we could add the code to ContextDAO
+		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+		$navigationMenuDao->deleteByContextId($contextId);
+
+		// NavigationMenuItems
+		// TODO: when the NavigationMenu feature gets ported to OMP we could add the code to ContextDAO
+		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+		$navigationMenuItemDao->deleteByContextId($contextId);
 	}
 
 	/**

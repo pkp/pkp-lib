@@ -360,7 +360,7 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('load_header', array($this, 'smartyLoadHeader'));
 
 		// load NavigationMenu Areas from context
-		$this->register_function('load_navigationMenuArea', array($this, 'smartyLoadNavigationMenuArea'));
+		$this->register_function('load_menu', array($this, 'smartyLoadNavigationMenuArea'));
 
 		/**
 		 * Kludge to make sure no code that tries to connect to the
@@ -1533,7 +1533,7 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
-	 * Smarty usage: {load_navigationMenuAreas name=$areaName path=$declaredMenuTemplatePath navClass=$navClass ulClass=$ulClass liClass=$liClass}
+	 * Smarty usage: {load_menu name=$areaName path=$declaredMenuTemplatePath navClass=$navClass ulClass=$ulClass liClass=$liClass}
 	 *
 	 * Custom Smarty function for printing navigation menu areas attached to a context.
 	 * @param $params array associative array
@@ -1556,12 +1556,6 @@ class PKPTemplateManager extends Smarty {
 		if (isset($declaredMenuTemplatePath)) {
 			$menuTemplatePath = $declaredMenuTemplatePath;
 		}
-
-		// "user" menuArea must be always displayed using the navigationMenuUser.tpl which contains necessary functionality
-		// as well as the customelly added navigationMenuItems
-		//if ($areaName == "user") { //TODO: we should not hard code that - also else where
-		//    $menuTemplatePath = 'frontend/components/navigationMenuUser.tpl';
-		//}
 
 		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
 

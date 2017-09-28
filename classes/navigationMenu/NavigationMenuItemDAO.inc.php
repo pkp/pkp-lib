@@ -146,7 +146,6 @@ class NavigationMenuItemDAO extends DAO {
 		$navigationMenuItem->setId($row['navigation_menu_item_id']);
 		$navigationMenuItem->setContextId($row['context_id']);
 		$navigationMenuItem->setDefault($row['is_default']);
-		$navigationMenuItem->setUseCustomUrl($row['use_custom_url']);
 		$navigationMenuItem->setUrl($row['url']);
 		$navigationMenuItem->setType($row['type']);
 		$navigationMenuItem->setPath($row['path']);
@@ -174,14 +173,13 @@ class NavigationMenuItemDAO extends DAO {
 	function insertObject($navigationMenuItem) {
 		$this->update(
 				'INSERT INTO navigation_menu_items
-				(path, is_default, context_id, use_custom_url, url, type)
+				(path, is_default, context_id, url, type)
 				VALUES
-				(?, ?, ?, ?, ?, ?)',
+				(?, ?, ?, ?, ?)',
 			array(
 				$navigationMenuItem->getPath(),
 				(int) $navigationMenuItem->getDefault(),
 				(int) $navigationMenuItem->getContextId(),
-				(int) $navigationMenuItem->getUseCustomUrl() ? 1 : 0,
 				$navigationMenuItem->getUrl(),
 				$navigationMenuItem->getType(),
 			)
@@ -203,7 +201,6 @@ class NavigationMenuItemDAO extends DAO {
 					path = ?,
 					is_default = ?,
 					context_id = ?,
-					use_custom_url = ?,
 					url = ?,
 					type = ?
 				WHERE navigation_menu_item_id = ?',
@@ -211,7 +208,6 @@ class NavigationMenuItemDAO extends DAO {
 				$navigationMenuItem->getPath(),
 				(int) $navigationMenuItem->getDefault(),
 				(int) $navigationMenuItem->getContextId(),
-				(int) $navigationMenuItem->getUseCustomUrl() ? 1 : 0,
 				$navigationMenuItem->getUrl(),
 				$navigationMenuItem->getType(),
 				(int) $navigationMenuItem->getId(),
@@ -389,6 +385,7 @@ class NavigationMenuItemDAO extends DAO {
 	 * @param $contextId
 	 */
 	function installLocale($locale, $contextId = null) {
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER, $locale);
 		$navigationMenuItems = $this->getByContextId($contextId);
 		while ($navigationMenuItem = $navigationMenuItems->next()) {
 			$titleKey = $this->getSetting($navigationMenuItem->getId(), 'titleLocaleKey');

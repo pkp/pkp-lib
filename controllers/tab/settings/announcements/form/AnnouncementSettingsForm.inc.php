@@ -61,14 +61,6 @@ class AnnouncementSettingsForm extends ContextSettingsForm {
 
 		return parent::fetch($request, $params);
 	}
-
-	/**
-	 * @see Form::execute()
-	 * @param $request PKPRequest
-	 */
-	function execute($request) {
-		parent::execute($request);
-	}
 }
 
 ?>

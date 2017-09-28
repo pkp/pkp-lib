@@ -1,16 +1,16 @@
 <?php
 
 /**
- * @file controllers/grid/navigationMenus/NavigationMenusGridHandler.inc.php
+ * @file controllers/grid/navigationMenus/NavigationMenuItemsGridHandler.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class NavigationMenusGridHandler
+ * @class NavigationMenuItemsGridHandler
  * @ingroup controllers_grid_navigationMenus
  *
- * @brief Handle navigationMenus grid requests.
+ * @brief Handle NavigationMenuItems grid requests.
  */
 
 import('lib.pkp.classes.controllers.grid.GridHandler');
@@ -82,24 +82,6 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 		$this->addColumn(
 			new GridColumn('title',
 				'common.title',
-				null,
-				null,
-				$navigationMenuItemsCellProvider
-			)
-		);
-
-		$this->addColumn(
-			new GridColumn('path',
-				'grid.navigationMenu.navigationMenuItemPath',
-				null,
-				null,
-				$navigationMenuItemsCellProvider
-			)
-		);
-
-		$this->addColumn(
-			new GridColumn('default',
-				'common.default',
 				null,
 				null,
 				$navigationMenuItemsCellProvider

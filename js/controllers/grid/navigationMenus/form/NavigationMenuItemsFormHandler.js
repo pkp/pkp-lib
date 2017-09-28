@@ -37,40 +37,26 @@
 
 		$('#previewButton').hide();
 
-		// custom url or path functionality change
-		$('#useCustomUrl').change(
-				function() {
-					if ($(this).is(':checked')) {
-						$('#targetUrl').show();
-						$('#targetPath').hide();
-						$('#previewButton').hide();
-					} else {
-						$('#targetUrl').hide();
-						$('#targetPath').show();
-						$('#previewButton').show();
-					}
-				}
-		);
-
 		// type change event
 		$('#type').change(
 				function() {
 					// add global variable somehow
-					if ($(this)[0].value == 'NMI_TYPE_CUSTOM') {
+					if ($(this)[0].value == 'NMI_TYPE_REMOTE_URL') {
+						$('#targetUrl').show();
+						$('#customItemFields').hide();
+						$('#previewButton').hide();
+					} else if ($(this)[0].value == 'NMI_TYPE_CUSTOM') {
+						$('#targetUrl').hide();
 						$('#customItemFields').show();
-						if ($('#useCustomUrl').is(':checked')) {
-							$('#previewButton').hide();
-						} else {
-							$('#previewButton').show();
-						}
+						$('#previewButton').show();
 					} else {
+						$('#targetUrl').hide();
 						$('#customItemFields').hide();
 						$('#previewButton').hide();
 					}
 				}
 		);
 
-		$('#useCustomUrl').trigger('change');
 		$('#type').trigger('change');
 	};
 

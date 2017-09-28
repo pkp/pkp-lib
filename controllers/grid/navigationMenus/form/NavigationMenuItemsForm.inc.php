@@ -102,7 +102,6 @@ class NavigationMenuItemsForm extends Form {
 			$this->_data = array(
 				'path' => $navigationMenuItem->getPath(),
 				'title' => $navigationMenuItem->getTitle(null),
-				'useCustomUrl' => $navigationMenuItem->getUseCustomUrl(),
 				'url' => $navigationMenuItem->getUrl(),
 				'type' => $navigationMenuItem->getType(),
 			);
@@ -119,7 +118,7 @@ class NavigationMenuItemsForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('navigationMenuItemId', 'content', 'title', 'path', 'useCustomUrl', 'url','type'));
+		$this->readUserVars(array('navigationMenuItemId', 'content', 'title', 'path', 'url','type'));
 	}
 
 	/**
@@ -139,9 +138,6 @@ class NavigationMenuItemsForm extends Form {
 		$navigationMenuItem->setContent($this->getData('content'), null); // Localized
 		$navigationMenuItem->setDefault($navigationMenuItem->getDefault());
 		$navigationMenuItem->setContextId($this->getContextId());
-		$navigationMenuItem->setPage($this->getData('page'));
-		$navigationMenuItem->setOp($this->getData('op'));
-		$navigationMenuItem->setUseCustomUrl($this->getData('useCustomUrl') ? 1 : 0);
 		$navigationMenuItem->setUrl($this->getData('url'));
 		$navigationMenuItem->setType($this->getData('type'));
 
@@ -162,21 +158,19 @@ class NavigationMenuItemsForm extends Form {
 	function validate() {
 		if ($this->getData('type') && $this->getData('type') != "") {
 			if ($this->getData('type') == NMI_TYPE_CUSTOM) {
-				if ($this->getData('useCustomUrl')) {
-					if(!filter_var($this->getData('url'), FILTER_VALIDATE_URL)) {
-						$this->addError('url', __('manager.navigationMenus.form.customUrlError'));
-					}
-				} else {
-					if (!preg_match('/^[a-zA-Z0-9\/._-]+$/', $this->getData('path'))) {
-						$this->addError('path', __('manager.navigationMenus.form.pathRegEx'));
-					}
+				if (!preg_match('/^[a-zA-Z0-9\/._-]+$/', $this->getData('path'))) {
+					$this->addError('path', __('manager.navigationMenus.form.pathRegEx'));
+				}
 
-					$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+				$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
 
-					$navigationMenuItem = $navigationMenuItemDao->getByPath($this->_contextId, $this->getData('path'));
-					if (isset($navigationMenuItem) && $navigationMenuItem->getId() != $this->navigationMenuItemId) {
-						$this->addError('path', __('manager.navigationMenus.form.duplicatePath'));
-					}
+				$navigationMenuItem = $navigationMenuItemDao->getByPath($this->_contextId, $this->getData('path'));
+				if (isset($navigationMenuItem) && $navigationMenuItem->getId() != $this->navigationMenuItemId) {
+					$this->addError('path', __('manager.navigationMenus.form.duplicatePath'));
+				}
+			} elseif ($this->getData('type') == NMI_TYPE_REMOTE_URL) {
+				if(!filter_var($this->getData('url'), FILTER_VALIDATE_URL)) {
+					$this->addError('url', __('manager.navigationMenus.form.customUrlError'));
 				}
 			}
 		} else {

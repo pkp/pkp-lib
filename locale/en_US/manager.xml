@@ -552,13 +552,11 @@
 	<message key="manager.navigationMenus.form.navigationMenuArea">Active Theme Navigation Areas</message>
 	<message key="manager.navigationMenus.form.navigationMenuAreaMessage">Select a navigation area</message>
 
-	<message key="manager.navigationMenus.form.chooseTarget">Choose Target</message>
-	<message key="manager.navigationMenus.form.urlDescription">Check to provide a custom URL</message>
 	<message key="manager.navigationMenus.form.url">URL</message>
 	<message key="manager.navigationMenus.form.customUrlError">A URL must be provided</message>
 	
 	<message key="manager.navigationMenus.form.navigationMenuItemType">Navigation Menu Type</message>
 	<message key="manager.navigationMenus.form.navigationMenuItemTypeMessage">Select a Navigation Menu Type or Custom to make your own</message>
-	<message key="manager.navigationMenus.customType">Custom Menu Item</message>
-
+	<message key="manager.navigationMenus.customType">Custom Page</message>
+	<message key="manager.navigationMenus.remoteURL">Remote URL</message>
 </locale>

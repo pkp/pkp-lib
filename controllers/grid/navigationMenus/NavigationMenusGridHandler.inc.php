@@ -86,24 +86,6 @@ class NavigationMenusGridHandler extends GridHandler {
 			)
 		);
 
-		$this->addColumn(
-			new GridColumn('itemCount',
-				'common.count',
-				null,
-				null,
-				$navigationMenuCellProvider
-			)
-		);
-
-		$this->addColumn(
-			new GridColumn('default',
-				'common.default',
-				null,
-				null,
-				$navigationMenuCellProvider
-			)
-		);
-
 		// Load language components
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
 

@@ -97,6 +97,7 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter {
 		$this->createOptionalNode($doc, $authorNode, 'country', $author->getCountry());
 		$authorNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'email', htmlspecialchars($author->getEmail(), ENT_COMPAT, 'UTF-8')));
 		$this->createOptionalNode($doc, $authorNode, 'url', $author->getUrl());
+		$this->createOptionalNode($doc, $authorNode, 'orcid', $author->getOrcid());
 
 		$this->createLocalizedNodes($doc, $authorNode, 'biography', $author->getBiography(null));
 

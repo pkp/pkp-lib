@@ -74,7 +74,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		if ($location == 'frontend') {
 			$this->waitForElementPresent($selector='//a[contains(text(), \'Make a New Submission\')]');
 		} else {
-			$this->waitForElementPresent($selector='//button[starts-with(., \'New Submission\')]');
+			$this->waitForElementPresent($selector='//a[contains(text(), \'New Submission\')]');
 		}
 		$this->click($selector);
 
@@ -229,9 +229,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->logIn($username, $password);
 		$this->waitForElementPresent('css=#dashboardTabs');
 		$this->click('css=[name=active]');
-		$this->waitForElementPresent('css=[id^=component-grid-submissions-activesubmissions-activesubmissionslistgrid-]');
-		$this->scrollPageDown();
-		$xpath = '//span[contains(text(),' . $this->quoteXpath($title) .')]/../../..//a[contains(@id, "-stage-itemWorkflow-button-")]';
+		$xpath = '//div[contains(text(),' . $this->quoteXPath($title) . ')]';
 		$this->waitForElementPresent($xpath);
 		$this->click($xpath);
 	}
@@ -259,11 +257,25 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	}
 
 	/**
+	 * Record an editorial recommendation
+	 * @param $recommendation string
+	 */
+	protected function recordEditorialRecommendation($recommendation) {
+		$this->waitForElementPresent($selector='//a[@id[starts-with(., \'recommendation-button-\')]]');
+		$this->click($selector);
+		$this->waitForElementPresent($selector='id=recommendation');
+		$this->select('id=recommendation', 'label=' . $this->escapeJS($recommendation));
+		$this->waitForElementPresent($selector='//button[text()=\'Record Editorial Recommendation\']');
+		$this->click($selector);
+		$this->waitForElementNotPresent('css=div.pkp_modal_panel'); // pkp/pkp-lib#65
+	}
+
+	/**
 	 * Assign a participant
 	 * @param $role string
 	 * @param $name string
 	 */
-	protected function assignParticipant($role, $name) {
+	protected function assignParticipant($role, $name, $recommendOnly = null) {
 		$this->waitForElementPresent('css=[id^=component-grid-users-stageparticipant-stageparticipantgrid-requestAccount-button-]');
 		$this->click('css=[id^=component-grid-users-stageparticipant-stageparticipantgrid-requestAccount-button-]');
 		$this->waitJQuery();
@@ -278,6 +290,10 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		// Assume there is only one user with this last name and user group
 		$this->waitForElementPresent($selector='//input[@name=\'userId\']');
 		$this->click($selector);
+		if ($recommendOnly) {
+			$this->waitForElementPresent($selector='//input[@name=\'recommendOnly\']');
+			$this->click($selector);
+		}
 		$this->click('//button[text()=\'OK\']');
 		$this->waitForText('css=div.ui-pnotify-text', 'User added as a stage participant.');
 		$this->waitForElementNotPresent('css=div.pkp_modal_panel');
@@ -316,8 +332,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 
 		// Use an xpath concat to permit apostrophes to appear in titles
 		// http://kushalm.com/the-perils-of-xpath-expressions-specifically-escaping-quotes
-		$this->scrollGridDown('assignedSubmissionsListGridContainer');
-		$xpath = '//span[contains(text(),' . $this->quoteXpath($title) .')]/../../..//a[contains(@id, "-stage-itemWorkflow-button-")]';
+		$xpath = '//div[contains(text(),' . $this->quoteXPath($title) . ')]';
 		$this->waitForElementPresent($xpath);
 		$this->click($xpath);
 

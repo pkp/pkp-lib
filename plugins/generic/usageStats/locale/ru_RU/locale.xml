@@ -35,6 +35,7 @@
 	<message key="plugins.generic.usageStats.settings.compressArchives.description">Включите этот параметр для сжатия архивированных файлов журнала с помощью инструмента gzip (вам нужно будет настроить параметр gzip в файле config.inc.php). Если у вас сайт с большим трафиком, стоит включить этот параметр, чтобы сэкономить место на диске.</message>
 	<message key="plugins.generic.usageStats.settings.compressArchives">Сжать архивы</message>
 	<message key="plugins.generic.usageStats.settings.statsDisplayOptions">Параметры отображения статистики</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.contextWide">Эти настройки будут применены только для статистики использования в контексте «{$contextName}».</message>
 	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.display">Показывать график статистики материалов читателю</message>
 	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.chartType">Выберите тип графика для отображения статистики скачивания</message>
 	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.chartType.bar">Столбики</message>
@@ -59,6 +60,14 @@
 	<message key="plugins.reports.usageStats.optout.description">Информация о конфиденциальности модуля «Статистика использования»</message>
 	<message key="plugins.generic.usageStats.optout.title">Информация о статистике использования</message>
 	<message key="plugins.generic.usageStats.optout.shortDesc"><![CDATA[Мы сохраняем анонимные данные о статистике использования. Пожалуйста прочтите подробности в <a href="{$privacyInfo}">Информации о конфиденциальности</a>.]]></message>	
+
+	<message key="plugins.generic.usageStats.optout.done"><![CDATA[
+		<p>Вы отказались от сбора статистики использования. Пока вы видите это сообщение, статистика о вашем использовании этого сайта не будет собираться. Щелкните на кнопке ниже, чтобы изменить свое решение.</p>]]></message>
+	<message key="plugins.generic.usageStats.optin">Разрешить</message>
+	<message key="plugins.generic.usageStats.optout">Отклонить</message>
+	<message key="plugins.generic.usageStats.optout.cookie"><![CDATA[
+		<p>При желании вы можете отказаться от участия в процессе сбора данных. Щелкнув на кнопку «Отклонить» ниже, вы можете явно отказаться от участия в статистическом анализе. При нажатии кнопки «Отклонить» в вашей системе создается файл <em>cookie</em>, который хранит данное решение. Если настройки безопасности вашего браузера автоматически удаляют файлы cookie, вам нужно будет снова нажимать на конпку «Отклонить» при следующем входе в этот журнал. Файл cookie действует только для одного браузера. Если вы используете другой браузер, вам нужно снова нажать кнопку «Отклонить». В этом cookie не хранится никакая личная информация о вас. Cookie с отказом действителен в течение одного года после вашего последнего входа в журнал.</p>
+		<p>Пожалуйста помните, что общие журналы доступа сервера не попадают под ваше решение отказаться от процесса подробной оценки. Пожалуйста, прочтите наше общее <a href="{$privacyStatementUrl}">Заявление о конфиденциальности</a>.</p>]]></message>
 
 	<message key="plugins.reports.usageStats.metricType">PKP/COUNTER</message>
 	<message key="plugins.reports.usageStats.metricType.full">Статистика Public Knowledge Project (готовая для COUNTER)</message>

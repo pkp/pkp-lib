@@ -8,6 +8,9 @@
  * Notification options.
  *}
 
+{if $refreshOn}
+	refreshOn: {$refreshOn|json_encode},
+{/if}
 fetchNotificationUrl: {url|json_encode router=$smarty.const.ROUTE_PAGE page='notification' op='fetchNotification' escape=false},
 hasSystemNotifications: {$hasSystemNotifications|json_encode}
 {if $requestOptions}
@@ -25,4 +28,3 @@ hasSystemNotifications: {$hasSystemNotifications|json_encode}
 		{/foreach}
 	{rdelim}
 {/if}
-

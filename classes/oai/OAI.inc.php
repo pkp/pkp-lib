@@ -796,7 +796,7 @@ abstract class OAI {
 	 */
 	function extractDateParams($params, &$from, &$until) {
 		if (isset($params['from'])) {
-			$from = OAIUtils::UTCtoTimestamp($params['from']);
+			$from = OAIUtils::UTCtoTimestamp($params['from'], $this->config->granularity);
 
 			if ($from == 'invalid') {
 				$this->error('badArgument', 'Illegal from parameter');
@@ -809,7 +809,7 @@ abstract class OAI {
 		}
 
 		if(isset($params['until'])) {
-			$until = OAIUtils::UTCtoTimestamp($params['until']);
+			$until = OAIUtils::UTCtoTimestamp($params['until'], $this->config->granularity);
 
 			if($until == 'invalid') {
 				$this->error('badArgument', 'Illegal until parameter');

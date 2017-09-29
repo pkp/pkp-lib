@@ -15,7 +15,8 @@
 		$('#{$inElElId|escape:"js"}').pkpHandler(
 			'$.pkp.controllers.UrlInDivHandler',
 			{ldelim}
-				sourceUrl: {$inElUrl|json_encode}
+				sourceUrl: {$inElUrl|json_encode},
+				refreshOn: {$refreshOn|json_encode}
 			{rdelim}
 		);
 	{rdelim});

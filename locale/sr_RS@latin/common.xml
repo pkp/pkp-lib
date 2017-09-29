@@ -407,7 +407,6 @@
 	<message key="common.range">{$min}-{$max}</message>
 	<message key="common.readMore">Pročitaj više</message>
 	<message key="common.readMoreWithTitle">Pročitaj više o {$title}</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="common.reminded.date">Podsećen: {$dateReminded}</message>
 	<message key="common.searchQuery">Upit za pretragu</message>
 	<message key="common.sendEmail">Pošalji imejl</message>
@@ -451,7 +450,6 @@
 	<message key="stageParticipants.history.messageSent">Obaveštenje poslato korisnicima.</message>
 	<message key="stageParticipants.notify.chooseMessage">Odaberite predefinisanu poruku koju želite da koristite ili popunite formular niže.</message>
 	<message key="stageParticipants.notify.message">Poruka</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="stageParticipants.notify.warning">Uverite se da ste popunili polje poruke i odabrali barem jednog primaoca.</message>
 	<message key="navigation.breadcrumbLabel">Vi ste ovde:</message>
 	<message key="navigation.breadcrumbSeparator">/</message>
@@ -528,11 +526,12 @@
 	<message key="notification.type.pendingRevisions.title">Revizija je predata u {$stage}.</message>
 	<message key="user.authorization.submissionFile">Trenutni korisnik nema prava pristupa označenom dokumentu predaje.</message>
 	<message key="user.authorization.invalidRepresentation">Neispravno predstavljanje.</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="common.notes.tooltip">Napomena (žuto: postoje nove napomene; plavo: postoje pročitane napomene; sivo: nema napomena)</message>
 	<message key="review.blindPeerReview"><![CDATA[<p>Da bi obezbedili integritet dvostruko slepe recenzije za ovaj časopis mora se učiniti svaki napor da se spreči da su autori i recenzenti jedni drugima poznati. Ovo se odnosi na autore, urednike i recenzente (koji prilažu dokumente u toku svoje recenzije)  kako bi se proverilo da li su sledeći koraci poštovani u smislu provere teksta i sobina fajlova:</p>
 			<ul><li>Autori dokumenta treba da izbrišu svoje ime iz teksta sa "Autor" i godina u referencama i fusnotama, umesto imena autora, naslova članka i sl.</li>
 			<li>U Microsoft Office dokumentima, moraju biti uklonjene identifikacije autora iz osobina fajla (pogledati u  File meniju u programu Word), tako što se klikne kako sledi, počiljući sa File u meniju u glavnom meniju u Microsoft programu: File &gt; Save As &gt; Tools (ili Options kad se koristi Mac) &gt; Security &gt; Remove personal information from file properties on save &gt; Save.</li>
 			<li>U PDF, fajlovima imena autora trebaju biti uklonjena i iz opcije Document Properties koja se nalazi u meniju File u Adobe Acrobat glavnom meniju.</li>
 		</ul>]]></message>
+
+	<message key="semicolon">{$label}:</message>
 </locale>

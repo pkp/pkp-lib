@@ -250,13 +250,15 @@ class MailTemplate extends Mail {
 		$body = $this->getBody();
 		foreach ($this->params as $key => $value) {
 			if (!is_object($value)) {
+				// $value is checked to identify URL pattern
 				if (filter_var($value, FILTER_VALIDATE_URL) != false) {
-					$value = "<a href='$value' class='$key-style-class'>$value</a>";
+					$body = $this->manageURLValues($body, $key, $value);
+				} else {
+					$body = str_replace('{$' . $key . '}', $value, $body);
 				}
-
-				$subject = str_replace('{$' . $key . '}', $value, $subject);
-				$body = str_replace('{$' . $key . '}', $value, $body);
 			}
+
+			$subject = str_replace('{$' . $key . '}', $value, $subject);
 		}
 		$this->setSubject($subject);
 		$this->setBody($body);
@@ -295,6 +297,35 @@ class MailTemplate extends Mail {
 		if ($clearHeaders) {
 			$this->setData('headers', null);
 		}
+	}
+
+	/**
+	 * Finds and changes appropriately URL valued template parameter keys.
+	 * @param $targetString string The string that contains the original {$key}s template variables
+	 * @param $key string The key we are looking for, and has an URL as its $value
+	 * @param $value string The value of the $key
+	 * @return string the $targetString replaced appropriately
+	 */
+	function manageURLValues($targetString, $key, $value) {
+		// If the value is URL, we need to find if $key resides in a href={$...} pattern.
+		preg_match_all('/=[\\\'"]{\\$' . preg_quote($key) . '}/', $targetString, $matches, PREG_SET_ORDER|PREG_OFFSET_CAPTURE);
+
+		// if we find some ={$...} occurences of the $key in the email body, then we need to replace them with
+		// the corresponding value
+		if ($matches) {
+			// We make the change backwords (last offset replaced first) so that smaller offsets correctly mark the string they supposed to.
+			for($i = count($matches)-1; $i >= 0; $i--) {
+				$match = $matches[$i][0];
+				$targetString = substr_replace($targetString,  str_replace('{$' . $key . '}', $value, $match[0]), $match[1], strlen($match[0]));
+			}
+		}
+
+		// all the ={$...} patterns have been replaced - now we can change the remaining URL $keys with the following pattern
+		$value = "<a href='$value' class='$key-style-class'>$value</a>";
+
+		$targetString = str_replace('{$' . $key . '}', $value, $targetString);
+
+		return $targetString;
 	}
 }
 

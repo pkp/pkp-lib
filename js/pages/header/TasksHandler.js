@@ -75,8 +75,7 @@
 		if ($listElement.hasClass('expandedIndicator')) {
 			this.trigger('callWhenClickOutside', [{
 				container: $popover.add($listElement),
-				callback: this.callbackWrapper(this.appendToggleIndicator_),
-				skipWhenVisibleModals: true
+				callback: this.callbackWrapper(this.appendToggleIndicator_)
 			}]);
 		}
 	};

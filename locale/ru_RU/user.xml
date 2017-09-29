@@ -153,4 +153,8 @@
 	<message key="user.profile.identity">Идентификация</message>
 	<message key="user.profile.contact">Контакты</message>
 	<message key="user.profile.public">Открытый</message>
+	<message key="user.apiKey">Ключ API</message>
+	<message key="user.apiKeyEnabled">Разрешить внешним приложениям с ключом API доступ к этой учетной записи</message>
+	<message key="user.apiKey.generate">Сгенерировать новый ключ API</message>
+	<message key="user.apiKey.generateWarning">Генерирование нового ключа API сделает недействительным любой уже существующий ключ для этого пользователя.</message>
 </locale>

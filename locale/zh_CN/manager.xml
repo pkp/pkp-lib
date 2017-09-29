@@ -154,7 +154,6 @@
 	<message key="plugins.categories.auth">验证插件</message>
 	<message key="plugins.categories.blocks">单元插件</message>
 	<message key="plugins.categories.blocks.description">单元插件是可插入的UI组件，例如各种边栏工具.</message>
-	<message key="plugins.categories.citationFormats">引证格式插件</message>
 	<message key="plugins.categories.gateways.description">网关插件提供实时数据到外部系统.</message>
 	<message key="plugins.categories.gateways">网关插件</message>
 	<message key="plugins.categories.generic">通用插件</message>
@@ -175,7 +174,6 @@
 	<message key="manager.setup.citationAssistant">引文标记助理</message>
 	<message key="manager.setup.citationFilterParser">引文提取</message>
 	<message key="manager.setup.citationFilterLookup">引文检查</message>
-	<message key="manager.setup.citationOutput">引文输出</message>
 	<message key="manager.setup.errorDeletingItem">在删除这个项目过程中发生了一个错误</message>
 	<message key="manager.setup.filter.grid.errorDeletingFilter">当删除这个过滤器的时候发生了一个错误，请将其作为一个BUG报告给我们。</message>
 	<message key="manager.setup.filter.grid.filterDisplayName">连接器</message>
@@ -205,7 +203,6 @@
 	<message key="manager.setup.layout.blockManagement">边栏管理</message>
 	<message key="plugins.categories.metadata">元数据插件</message>
 	<message key="plugins.categories.citationLookup">引文数据库连接器插件</message>
-	<message key="plugins.categories.citationOutput">引文输出插件</message>
 	<message key="manager.masthead.title">职务名称</message>
 	<message key="plugins.categories.citationParser">引文提取插件</message>
 	<message key="plugins.categories.citationParser.description">引提取插件提取字段级数据（如作者，标题等）</message>
@@ -216,7 +213,6 @@
 		<p>我们向您提供多个外部数据库的连接，通过这些数据库您可以搜寻相关引用。其中某些数据库要求注册或输入配置信息。有关如何进行注册的详细信息，请参照数据库的公共网站。您可以通过点击下面的“新增项目”按钮添加一个或多个数据库。</p>
 		<p>您可以点击其旁边的齿轮形状按钮来对已有的外部数据库连接进行编辑或删除。</p>
 		<p><strong>注释：</strong> 为了保证引用检查过程及时有效地完成， <tt>引用_检查_最大值_进程</tt> 您配置文件中的导则必须设置成合理值。更多信息请参阅<tt>config.inc.php</tt>中的常规设置部分。</p>]]></message>
-	<message key="manager.setup.citationOutputStyleDescription">选择您出版提交中使用的引用样式。引用标记助理工具帮您将作者的引用版本和您从XML中生成的版本进行对比，如此您可以轻而易举地发现错误：</message>
 	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>该过滤器连接到<a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> 书和ISBN数据库。</p>
 	<p>ISBNdb API 密匙为强制性的。有关生成密匙的信息，请参阅<a href="http://isbndb.com/api/v1/docs/keys" target="_blank">在线文档</a>.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>该文件连接到CrossRef 引用数据库，采用CrossRef的 <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL 查询界面</a>.</p>
@@ -233,7 +229,6 @@
 	<message key="manager.setup.metaCitationsDescription">激活下面的checkbox来使引用和参考编辑能够进行。这将会允许作者提交包含原始引用的文件。编辑也将可以通过引用标记助理工具来协助其检查比对原始引用和外部数据库，例如WorldCat， ISBNdb，PubMed和其它一些数据库来保证其准确性。审核过的引用可以导入到最终的校样文件中。</message>
 	<message key="plugins.categories.metadata.description">元数据插件采用附加的元数据标准。</message>
 	<message key="plugins.categories.citationLookup.description">引用数据库连接插件，在如引用编辑的过程中，连接到引用数据库中来查询引用。</message>
-	<message key="plugins.categories.citationOutput.description">引用输出插件采用引用标准。这取代了引用格式插件。</message>
 	<message key="plugins.categories.oaiMetadataFormats">OAI源数据插件</message>
 	<message key="plugins.categories.oaiMetadataFormats.description">这些格式插件表达OAI通信的元数据.</message>
 	<message key="manager.website">网站</message>

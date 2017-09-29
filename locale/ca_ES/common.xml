@@ -498,4 +498,6 @@
 	<message key="navigation.archives">Arxius</message>
 	<message key="user.authorization.authorRoleMissing">No teniu privilegis suficients per visualitzar aquesta tramesa. Editeu el vostre perfil per assegurar-vos que heu proporcionat els rols adequats fent clic a «Registra'm com a».</message>
 	<message key="user.authorization.submissionAuthor">L'autor/a actual no és l'autor/a de la tramesa sol·licitada. Comproveu que heu iniciat sessió amb el compte d'usuari correcte.</message>
+
+	<message key="semicolon">{$label}:</message>
 </locale>

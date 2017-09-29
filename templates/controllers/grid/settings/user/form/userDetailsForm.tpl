@@ -1,5 +1,5 @@
 {**
- * controllers/grid/settings/user/form/userDetailsForm.tpl
+ * templates/controllers/grid/settings/user/form/userDetailsForm.tpl
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2003-2017 John Willinsky
@@ -54,7 +54,7 @@
 				</div>
 			</div>
 		{/if}
+		<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 		{fbvFormButtons}
 	</div>
 </form>
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>

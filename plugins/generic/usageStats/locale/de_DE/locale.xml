@@ -56,6 +56,13 @@
 	<message key="plugins.reports.usageStats.optout.description">Datenschutz-Informationen zur Nutzungsstatistik</message>
 	<message key="plugins.generic.usageStats.optout.title">Nutzungsstatistik-Informationen</message>
 	<message key="plugins.generic.usageStats.optout.shortDesc"><![CDATA[Wir führen eine anonymisierte Nutzungsstatistik. Bitte lesen Sie die <a href="{$privacyInfo}">Datenschutz-Informationen</a>, um mehr zu erfahren.]]></message>
+	<message key="plugins.generic.usageStats.optout.done"><![CDATA[
+		<p>Sie haben der Nutzung Ihrer Daten für die Nutzungsstatistik erfolgreich widersprochen. Solange Sie diese Nachricht sehen, werden keine statistischen Daten aus Ihrer Nutzung dieser Seite gewonnen. Klicken Sie den Knopf unten, um Ihre Entscheidung zurückzunehmen.</p>]]></message>
+	<message key="plugins.generic.usageStats.optin">Opt In (Einwilligen)</message>
+	<message key="plugins.generic.usageStats.optout">Opt Out (Widersprechen)</message>
+	<message key="plugins.generic.usageStats.optout.cookie"><![CDATA[
+		<p>Sollten Sie den Wunsch haben, dass Ihre anonymisierten Daten nicht gespeichert werden, bieten wir Ihnen die Möglichkeit, die Teilnahme am Auswertungsprozess zu unterbinden. Durch einen Klick auf den unten stehenden Opt-out-Button wird ein sog. <em>Cookie</em> auf Ihrem System erstellt, das Ihre Entscheidung dokumentiert und speichert. Sollten die Sicherheits- oder Privatsphären-Einstellungen Ihres Browser Cookies automatisch nach Beendigung löschen, müssen Sie beim nächsten Zugriff auf diese Seite erneut dem Auswertungsprozess widersprechen. Das Cookie ist jeweils nur für einen Browser gültig. Sollten Sie unterschiedliche Browser benutzen, so müssen Sie für jeden Browser Ihren Widerspruch dokumentieren und auf den unten stehenden Button klicken. Innerhalb des Cookies werden keinerlei personenbezogene Daten gespeichert, sondern lediglich Ihr Widerspruch dokumentiert. Dieses Cookie wird bei jedem Zugriff auf dieses Journal automatisch um ein Jahr verlängert.</p>
+		<p>Bitte berücksichtigen Sie, dass die allgemeinen Server-Logs von Ihrer Entscheidung unberührt bleiben, am detaillierten Evaluationsprozess nicht teilzunehmen. Berücksichtigen Sie daher auch unsere <a href="{$privacyStatementUrl}">allgemeinen Datenschutzhinweise</a>.</p>]]></message>
 	<message key="plugins.reports.usageStats.metricType">COUNTER</message>
 	<message key="plugins.reports.usageStats.metricType.full">Nutzungsstatistik (COUNTER-fähig)</message>
 	<message key="plugins.generic.usageStats.statsSum">Summe aller Downloads</message>

@@ -264,4 +264,6 @@
 	<message key="search.titleIndex">Bläddra Titelregister</message>
 	<message key="search.title">Titel</message>
 	<message key="search.typeMethodApproach">Typ (Metod och Tillvägagångssätt)</message>
+
+	<message key="semicolon">{$label}:</message>
 </locale>

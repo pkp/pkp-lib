@@ -342,7 +342,7 @@ class Mail extends DataObject {
 		if (!array_key_exists('email', $replyTo) || $replyTo['email'] == null) {
 			return null;
 		} else {
-			return (Mail::encodeDisplayName($replyTo['name'], $send) . ' <'.$replyTo['email'].'>');
+			return (self::encodeDisplayName($replyTo['name'], $send) . ' <'.$replyTo['email'].'>');
 		}
 	}
 
@@ -388,7 +388,7 @@ class Mail extends DataObject {
 		if ($from == null) {
 			return null;
 		} 
-		return (Mail::encodeDisplayName($from['name'], $send) . ' <'.$from['email'].'>');
+		return (self::encodeDisplayName($from['name'], $send) . ' <'.$from['email'].'>');
 	}
 
 	/**
@@ -412,7 +412,7 @@ class Mail extends DataObject {
 					$addressString .= $address['email'];
 
 				} else {
-					$addressString .= Mail::encodeDisplayName($address['name'], $send) . ' <'.$address['email'].'>';
+					$addressString .= self::encodeDisplayName($address['name'], $send) . ' <'.$address['email'].'>';
 				}
 			}
 
@@ -536,7 +536,7 @@ class Mail extends DataObject {
 	 * @param $send boolean True to encode the results for sending
 	 * @return string
 	 */
-	function encodeDisplayName($displayName, $send = false) {
+	static function encodeDisplayName($displayName, $send = false) {
 		if (PKPString::regexp_match('!^[-A-Za-z0-9\!#\$%&\'\*\+\/=\?\^_\`\{\|\}~]+$!', $displayName)) return $displayName;
 		return ('"' . ($send ? PKPString::encode_mime_header(str_replace(
 			array('"', '\\'),

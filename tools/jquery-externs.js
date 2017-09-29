@@ -74,7 +74,7 @@ jQuery.cssHooks;
  * @param {Element} elem
  * @param {string=} key
  * @param {Object=} value
- * @return {(jQueryObject|Object)}
+ * @return {*}
  */
 jQuery.data = function(elem, key, value) {};
 
@@ -789,7 +789,7 @@ jQueryObject.prototype.hover = function(arg1, handlerOut) {};
 
 /**
  * @param {(string|function(number,string))=} arg1
- * @return {(string|jQueryObject)}
+ * @return {(string)}
  */
 jQueryObject.prototype.html = function(arg1) {};
 

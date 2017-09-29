@@ -111,7 +111,7 @@ class GridColumn extends GridBodyElement {
 	/**
 	 * @see GridBodyElement::getCellProvider()
 	 */
-	function &getCellProvider() {
+	function getCellProvider() {
 		if (is_null(parent::getCellProvider())) {
 			// provide a sensible default cell provider
 			import('lib.pkp.classes.controllers.grid.ArrayGridCellProvider');

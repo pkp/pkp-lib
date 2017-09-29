@@ -152,7 +152,6 @@
 	<message key="plugins.categories.auth">Baimena emateko pluginak</message>
 	<message key="plugins.categories.blocks">Blokeko pluginak</message>
 	<message key="plugins.categories.blocks.description">Blokeko pluginak, erabiltzaile-interfazearen osagai gehigarriak dira, esate baterako, alboko barrako tresnak.</message>
-	<message key="plugins.categories.citationFormats">Aipamen-formatuen pluginak</message>
 	<message key="plugins.categories.gateways.description">Atebide-pluginek zuzeneko datuak pasatzen dituzte kanpoko sistemetara</message>
 	<message key="plugins.categories.gateways">Atebide-pluginak</message>
 	<message key="plugins.categories.generic">Plugin generikoak</message>
@@ -181,8 +180,6 @@
 		<p>Kanpoko hainbat datu-baseetarako konektore ditugu, eta horietan aipuak bilatu ahal izango dituzu. Datu-base horietako zenbaitek erregistratzeko edo konfiguratzeko informazioa eskatzen dute. Mesedez, begiratu datu-baseen web orri publikoak, erregistratzeari buruzko informazio gehiago izateko. Datu-base bat edo gehiago gehitu ditzakezu azpian agertzen den “Gehitu elementua” botoia sakatuz gero. </p>
 		<p> Kanpoko datu-baseetako konexioak editatzeko edo ezabatzeko, egin klik haren ondoko engranaje-ikonoan. </p>
 		<p><strong>Oharra: </strong>Aipua egiaztatzeko prozesua modu egokian amaitzeko, zure konfigurazio-fitxategiko <tt>citation_checking_max_processes</tt> direktiba balio egokian ezarri behar da. Informazio gehiago izateko, begiratu “Ezarpen Orokorrak” atala helbide honetan: <tt>config.inc.php</tt>.</p>]]></message>
-	<message key="manager.setup.citationOutput">Aipuen irteera</message>
-	<message key="manager.setup.citationOutputStyleDescription">Aukeratu zure aldizkariko egilearen aurkezpenetan erabilitako aipuen estiloa. Aipuak markatzeko laguntzaileak egileak egindako aipuaren bertsioa eta egiten ari zaren XML-tik sortutako bertsioa alderatzeko aukera ematen dizu, eta, beraz, erroreak erraz ikus ditzakezu:</message>
 	<message key="manager.setup.filter.grid.errorDeletingFilter">Errore bat gertatu da iragazkia kentzen saiatzean. Mesedez, eman errorearen berri.</message>
 	<message key="manager.setup.filter.grid.filterDisplayName">Konektorea</message>
 	<message key="manager.setup.filter.grid.filterSettings">Erregistratzeko Informazioa eta Konektorearen Ezarpenak</message>
@@ -227,8 +224,6 @@
 	<message key="plugins.categories.metadata.description">Metadatuen pluginek metadatu estandar gehigarriak inplementatzen dituzte,</message>
 	<message key="plugins.categories.citationLookup">Aipuen datu basearen konektore pluginak</message>
 	<message key="plugins.categories.citationLookup.description">Aipuen datu basearen konektore pluginak aipuen datu baseetara konektatzen dira aipuak bilatzeko, adib., aipuak editatzen diren bitartean.</message>
-	<message key="plugins.categories.citationOutput">Aipuen irteerarako pluginak</message>
-	<message key="plugins.categories.citationOutput.description">Aipuen irteerarako pluginek aipu estandarrak inplementatzen dituzte. Horrek aipuen formatu pluginak ordezten ditu.</message>
 	<message key="plugins.categories.citationParser">Aipuak erauzteko pluginak</message>
 	<message key="plugins.categories.citationParser.description">Aipuak erauzteko pluginek eremu mailako datuak erauzten dituzte aipu gordinetatik (adib., egilea, titulua, etab.).</message>
 	<message key="manager.setup.layout.blockManagement">Alboko barraren kudeaketa</message>

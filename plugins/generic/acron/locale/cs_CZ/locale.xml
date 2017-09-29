@@ -14,9 +14,12 @@
   -->
  
 <locale name="cs_CZ" full_name="Čeština">
-	<message key="plugins.generic.acron.name">Doplněk Acron</message>
-	<message key="plugins.generic.acron.enabled">Doplněk Acron byl povolen.</message>
-	<message key="plugins.generic.acron.disabled">Doplněk Acron byl zakázán.</message>
+	<message key="plugins.generic.acron.name">Plugin Acron</message>
+	<message key="plugins.generic.acron.enabled">Plugin Acron byl povolen.</message>
+	<message key="plugins.generic.acron.disabled">Plugin Acron byl zakázán.</message>
 
 	<message key="plugins.generic.acron.reload">Spustit naplánované úlohy</message>
+	<message key="plugins.generic.acron.description">Tento plugin se snaží omezit závislost aplikace na periodicky spouštěných nástrojích jako "cron".</message>
+	<message key="plugins.generic.acron.reloadedCronTab">Tab cronu byl úspěšně znovu nahrán.</message>
+	<message key="plugins.generic.acron.tasksReloaded">Plánované úlohy byly znovu nahrány.</message>
 </locale>

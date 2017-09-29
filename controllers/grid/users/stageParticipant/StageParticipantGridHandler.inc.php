@@ -127,7 +127,7 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 						__('editor.submission.addStageParticipant'),
 						'modal_add_user'
 					),
-					__('common.add'),
+					__('common.assign'),
 					'add_user'
 				)
 			);
@@ -290,13 +290,14 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 					ASSOC_TYPE_SUBMISSION,
 					$submission->getId()
 				);
-				$stages = Application::getApplicationStages();
-				foreach ($stages as $workingStageId) {
-					// remove the 'editor required' task if we now have an editor assigned
-					if ($stageAssignmentDao->editorAssignedToStage($submission->getId(), $stageId)) {
-						$notificationDao = DAORegistry::getDAO('NotificationDAO');
-						$notificationDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submission->getId(), null, NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED);
-					}
+			}
+
+			$stages = Application::getApplicationStages();
+			foreach ($stages as $workingStageId) {
+				// remove the 'editor required' task if we now have an editor assigned
+				if ($stageAssignmentDao->editorAssignedToStage($submission->getId(), $workingStageId)) {
+					$notificationDao = DAORegistry::getDAO('NotificationDAO');
+					$notificationDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submission->getId(), null, NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED);
 				}
 			}
 
@@ -470,7 +471,9 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 				);
 			}
 
-			return new JSONMessage(true);
+			$json = new JSONMessage(true);
+			$json->setGlobalEvent('stageStatusUpdated');
+			return $json;
 		} else {
 			// Return a JSON string indicating failure
 			return new JSONMessage(false);

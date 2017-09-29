@@ -46,6 +46,10 @@ class MetadataGridCellProvider extends GridCellProvider {
 				$settingName = $row->getId() . 'EnabledWorkflow'; // e.g. typeEnabledWorkflow
 				$settingEnabled = $this->_context->getSetting($settingName);
 				return array('name' => $settingName, 'selected' => $settingEnabled?true:false);
+			case 'required':
+				$settingName = $row->getId() . 'Required'; // e.g. typeRequiredWorkflow
+				$settingEnabled = $this->_context->getSetting($settingName);
+				return array('name' => $settingName, 'selected' => $settingEnabled?true:false);
 		}
 		assert(false);
 	}

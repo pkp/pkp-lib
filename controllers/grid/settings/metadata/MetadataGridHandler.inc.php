@@ -73,6 +73,17 @@ class MetadataGridHandler extends GridHandler {
 				array('alignment' => 'center')
 			)
 		);
+
+		$this->addColumn(
+			new GridColumn(
+				'required',
+				'common.required',
+				null,
+				'controllers/grid/common/cell/selectStatusCell.tpl',
+				$cellProvider,
+				array('alignment' => 'center')
+			)
+		);
 	}
 
 	/**

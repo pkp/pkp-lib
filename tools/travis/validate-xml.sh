@@ -14,4 +14,5 @@ set -xe # Fail on first error
 # Search for all XML files in the current directory
 REPOSITORY_DIR="."
 
+sudo apt-get install libxml2-utils
 /usr/bin/xmllint --noout --valid `find $REPOSITORY_DIR -name \*.xml | fgrep -v -f $REPOSITORY_DIR/tools/xmllint-exclusions.txt`

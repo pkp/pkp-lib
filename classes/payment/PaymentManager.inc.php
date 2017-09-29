@@ -49,7 +49,7 @@ class PaymentManager {
 	 * Abstract method for fetching the payment plugin
 	 * @return object
 	 */
-	function &getPaymentPlugin() {
+	function getPaymentPlugin() {
 		// Abstract method; subclasses should implement.
 		assert(false);
 	}
@@ -59,7 +59,7 @@ class PaymentManager {
 	 * @return bool
 	 */
 	function isConfigured() {
-		$paymentPlugin =& $this->getPaymentPlugin();
+		$paymentPlugin = $this->getPaymentPlugin();
 		if ($paymentPlugin !== null) return $paymentPlugin->isConfigured(PKPApplication::getRequest());
 		return false;
 	}
@@ -71,7 +71,7 @@ class PaymentManager {
 	 * @return boolean
 	 */
 	function displayPaymentForm($queuedPaymentId, &$queuedPayment) {
-		$paymentPlugin =& $this->getPaymentPlugin();
+		$paymentPlugin = $this->getPaymentPlugin();
 		if ($paymentPlugin !== null && $paymentPlugin->isConfigured()) return $paymentPlugin->displayPaymentForm($queuedPaymentId, $queuedPayment, $this->request);
 		return false;
 	}
@@ -81,7 +81,7 @@ class PaymentManager {
 	 * @return boolean
 	 */
 	function displayConfigurationForm() {
-		$paymentPlugin =& $this->getPaymentPlugin();
+		$paymentPlugin = $this->getPaymentPlugin();
 		if ($paymentPlugin !== null && $paymentPlugin->isConfigured()) return $paymentPlugin->displayConfigurationForm();
 		return false;
 	}

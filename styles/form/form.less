@@ -25,6 +25,10 @@
 		margin: 0 0 @double 0;
 		padding: 0;
 		border: none;
+		// Chrome sets the fieldset min-width to min-content, which
+		// prevents our grids from shrinking properly.
+		// See: https://css-tricks.com/almanac/properties/w/width/#article-header-id-2
+		min-width: auto;
 
 		&:last-child {
 			margin-bottom: 0;
@@ -203,7 +207,7 @@
 			text-decoration: none;
 
 			&:before {
-				&:extend(.fa);
+				.fa();
 				content: @fa-var-pencil;
 				margin-right: 0.25em;
 			}
@@ -219,7 +223,7 @@
 
 		// Localization globe icon within TinyMce
 		&:after {
-			&:extend(.fa);
+			.fa();
 			content: @fa-var-globe;
 			position: absolute;
 			top: @half - 2;
@@ -411,7 +415,7 @@ a[id^="publicIdentifiersForm-clearObjectsPubIds-button"] {
 	cursor: pointer;
 
 	&:before {
-		&:extend(.fa);
+		.fa();
 		content: @fa-var-arrow-left;
 	}
 

@@ -22,7 +22,7 @@ class DashboardHandler extends Handler {
 		parent::__construct();
 
 		$this->addRoleAssignment(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_AUTHOR, ROLE_ID_REVIEWER, ROLE_ID_ASSISTANT),
-				array('index', 'tasks', 'myQueue', 'active', 'archives'));
+				array('index', 'tasks', 'myQueue', 'unassigned', 'active', 'archives'));
 	}
 
 	/**
@@ -40,12 +40,66 @@ class DashboardHandler extends Handler {
 	 * @param $args array
 	 */
 	function index($args, $request) {
-		if ($request->getContext()) {
-			$templateMgr = TemplateManager::getManager($request);
-			$this->setupTemplate($request);
-			return $templateMgr->display('dashboard/index.tpl');
+		if (!$request->getContext()) {
+			$request->redirect(null, 'user');
 		}
-		$request->redirect(null, 'user');
+
+		$templateMgr = TemplateManager::getManager($request);
+		$this->setupTemplate($request);
+
+		$currentUser = $request->getUser();
+
+		import('controllers.list.submissions.SubmissionsListHandler');
+
+		// My Queue
+		$myQueueListHandler = new SubmissionsListHandler(array(
+			'title' => 'common.queue.long.myAssigned',
+			'getParams' => array(
+				'status' => STATUS_QUEUED,
+				'assignedTo' => $request->getUser()->getId(),
+			),
+		));
+		$templateMgr->assign('myQueueListData', json_encode($myQueueListHandler->getConfig()));
+
+		if ($currentUser->hasRole(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), $request->getContext()->getId())) {
+
+			// Unassigned
+			$unassignedListHandler = new SubmissionsListHandler(array(
+				'title' => 'common.queue.long.submissionsUnassigned',
+				'getParams' => array(
+					'status' => STATUS_QUEUED,
+					'assignedTo' => -1,
+				),
+				'lazyLoad' => true,
+			));
+			$templateMgr->assign('unassignedListData', json_encode($unassignedListHandler->getConfig()));
+
+			// Active
+			$activeListHandler = new SubmissionsListHandler(array(
+				'title' => 'common.queue.long.active',
+				'getParams' => array(
+					'status' => STATUS_QUEUED,
+				),
+				'lazyLoad' => true,
+			));
+			$templateMgr->assign('activeListData', json_encode($activeListHandler->getConfig()));
+		}
+
+		// Archived
+		$params = array(
+			'title' => 'common.queue.long.submissionsArchived',
+			'getParams' => array(
+				'status' => array(STATUS_DECLINED, STATUS_PUBLISHED),
+			),
+			'lazyLoad' => true,
+		);
+		if (!$currentUser->hasRole(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), $request->getContext()->getId())) {
+			$params['getParams']['assignedTo'] = $currentUser->getId();
+		}
+		$archivedListHandler = new SubmissionsListHandler($params);
+		$templateMgr->assign('archivedListData', json_encode($archivedListHandler->getConfig()));
+
+		return $templateMgr->display('dashboard/index.tpl');
 	}
 
 	/**
@@ -58,64 +112,7 @@ class DashboardHandler extends Handler {
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
 
-
 		return $templateMgr->fetchJson('dashboard/tasks.tpl');
-	}
-
-	/**
-	 * View myQueue tab
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function myQueue($args, $request) {
-		$templateMgr = TemplateManager::getManager($request);
-		$this->setupTemplate($request);
-
-		// Get all the contexts in the system, to determine which 'new submission' entry point we display
-		$contextDao = Application::getContextDAO(); /* @var $contextDao ContextDAO */
-		$contexts = $contextDao->getAll();
-
-		// Check each context to see if user has access to it.
-		$user = $request->getUser();
-		$roleDao = DAORegistry::getDAO('RoleDAO');
-		$allContextsUserRoles = $roleDao->getByUserIdGroupedByContext($user->getId());
-		$userRolesThatCanSubmit = array(ROLE_ID_AUTHOR, ROLE_ID_ASSISTANT, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR);
-		$accessibleContexts = array();
-		while ($context = $contexts->next()) {
-			if (array_key_exists($context->getId(), $allContextsUserRoles)) {
-				$contextUserRoles = array_keys($allContextsUserRoles[$context->getId()]);
-				if (array_intersect($userRolesThatCanSubmit, $contextUserRoles)) {
-					$accessibleContexts[] = $context;
-				}
-			}
-		}
-
-		return $templateMgr->fetchJson('dashboard/myQueue.tpl');
-	}
-
-	/**
-	 * View active submissions tab
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function active($args, $request) {
-		$templateMgr = TemplateManager::getManager($request);
-		$this->setupTemplate($request);
-		return $templateMgr->fetchJson('dashboard/active.tpl');
-	}
-
-	/**
-	 * View archived submissions tab
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function archives($args, $request) {
-		$templateMgr = TemplateManager::getManager($request);
-		$this->setupTemplate($request);
-		return $templateMgr->fetchJson('dashboard/archives.tpl');
 	}
 
 	/**

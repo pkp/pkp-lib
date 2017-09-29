@@ -70,7 +70,7 @@ class PKPFile extends DataObject {
 
 	/**
 	 * Get type of the file.
-	 * @ return string
+	 * @return string
 	 */
 	function getFileType() {
 		return $this->getData('filetype');

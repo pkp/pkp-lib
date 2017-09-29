@@ -556,4 +556,7 @@
 	<message key="navigation.skip.main">Aller directement au contenu principal</message>
 	<message key="navigation.skip.nav">Aller directement au menu principal</message>
 	<message key="navigation.skip.footer">Aller au pied de page</message>
+	<message key="common.downloadPdf">Télécharger le PDF</message>
+
+	<message key="semicolon">{$label}:</message>
 </locale>

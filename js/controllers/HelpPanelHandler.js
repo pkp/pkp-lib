@@ -46,12 +46,14 @@
 		// about content getting swapped out on the page either, as any new
 		// help links loaded will bubble up to the body tag.
 		$('body').click(function(e) {
-			if (!$(e.target).hasClass('requestHelpPanel')) {
+			var $self = $(e.target),
+					options;
+			if (!$self.hasClass('requestHelpPanel') &&
+					!$self.parents('.requestHelpPanel').length) {
 				return;
 			}
 			e.preventDefault();
-			var $self = $(e.target),
-					options = $.extend({}, $self.data(), {caller: $self});
+			options = $.extend({}, $self.data(), {caller: $self});
 			$element.trigger('pkp.HelpPanel.Open', options);
 		});
 

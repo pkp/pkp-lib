@@ -113,8 +113,16 @@
 	$.pkp.classes.linkAction.ModalRequest.prototype.finish =
 			function() {
 
-		// Put the focus back on the linkAction which launched the modal
-		this.$linkActionElement.focus();
+		// A workaround for a bug in IE9-11 (and maybe others), whereby restoring
+		// the focus to the New Review Round tab causes the modal to be opened
+		// again. This hack effects accessibility and should be removed if/when we
+		// move away from jQueryUI tabs.
+		// See: https://github.com/pkp/pkp-lib/issues/2703
+		if (this.$linkActionElement.attr('id')
+				.indexOf('newRoundTabContainer') !== 0) {
+			// Put the focus back on the linkAction which launched the modal
+			this.$linkActionElement.focus();
+		}
 
 		this.$modal_.remove();
 		return /** @type {boolean} */ (this.parent('finish'));

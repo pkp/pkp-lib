@@ -16,6 +16,7 @@
 
 define('ROUTE_COMPONENT', 'component');
 define('ROUTE_PAGE', 'page');
+define('ROUTE_API', 'api');
 
 define('CONTEXT_SITE', 0);
 define('CONTEXT_ID_NONE', 0);
@@ -44,6 +45,9 @@ define('ASSOC_TYPE_USER_ROLES',			0x0100007);
 define('ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES',	0x0100008);
 define('ASSOC_TYPE_SUBMISSION',			0x0100009);
 define('ASSOC_TYPE_QUERY',			0x010000a);
+
+// Constant used in UsageStats for submission files that are not full texts
+define('ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER', 0x0000213);
 
 // FIXME: these were defined in userGroup. they need to be moved somewhere with classes that do mapping.
 define('WORKFLOW_STAGE_PATH_SUBMISSION', 'submission');
@@ -169,6 +173,13 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 				}
 			}
 		}
+
+		// Register custom autoloader function for PKP namespace
+		spl_autoload_register(function($class) {
+			$prefix = 'PKP\\';
+			$rootPath = BASE_SYS_DIR . "/lib/pkp/classes";
+			customAutoload($rootPath, $prefix, $class);
+		});
 	}
 
 	/**
@@ -213,6 +224,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			$dispatcher->setApplication(PKPApplication::getApplication());
 
 			// Inject router configuration
+			$dispatcher->addRouterName('lib.pkp.classes.core.APIRouter', ROUTE_API);
 			$dispatcher->addRouterName('lib.pkp.classes.core.PKPComponentRouter', ROUTE_COMPONENT);
 			$dispatcher->addRouterName('classes.core.PageRouter', ROUTE_PAGE);
 		}
@@ -445,10 +457,14 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * @return array
 	 */
 	function getJSLocaleKeys() {
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_API);
 		return array(
 			'form.dataHasChanged',
 			'common.close',
+			'common.ok',
+			'common.error',
 			'search.noKeywordError',
+			'api.submissions.unknownError',
 		);
 	}
 

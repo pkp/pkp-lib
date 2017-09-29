@@ -368,4 +368,6 @@
 	<message key="common.notified">通知的</message>
 	<message key="common.reset">重置</message>
 	<message key="common.acknowledged">已确认</message>
+
+	<message key="semicolon">{$label}:</message>
 </locale>

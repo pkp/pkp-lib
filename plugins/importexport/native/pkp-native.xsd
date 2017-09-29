@@ -178,6 +178,7 @@
 			<element name="country" type="string" minOccurs="0" maxOccurs="1" />
 			<element name="email" type="string" />
 			<element name="url" type="anyURI" minOccurs="0" maxOccurs="1" />
+			<element name="orcid" type="anyURI" minOccurs="0" maxOccurs="1" />
 			<element name="biography" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 		</sequence>
 	</complexType>

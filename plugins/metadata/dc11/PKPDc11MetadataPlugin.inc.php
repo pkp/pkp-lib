@@ -44,6 +44,22 @@ class PKPDc11MetadataPlugin extends MetadataPlugin {
 	function getDescription() {
 		return __('plugins.metadata.dc11.description');
 	}
+
+	/**
+	 * @copydoc MetadataPlugin::supportsFormat()
+	 */
+	public function supportsFormat($format) {
+		return $format === 'dc11';
+	}
+
+	/**
+	 * @copydoc MetadataPlugin::getSchemaObject()
+	 */
+	public function getSchemaObject($format) {
+		assert($this->supportsFormat($format));
+		import('plugins.metadata.dc11.schema.Dc11Schema');
+		return new Dc11Schema();
+	}
 }
 
 ?>

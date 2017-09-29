@@ -27,7 +27,7 @@ abstract class OAIMetadataFormatPlugin extends Plugin {
 	function register($category, $path) {
 		if (!parent::register($category, $path)) return false;
 		$this->addLocaleData();
-		HookRegistry::register('OAI::metadataFormats', array($this, 'callback_formatRequest'));
+		if ($this->getEnabled()) HookRegistry::register('OAI::metadataFormats', array($this, 'callback_formatRequest'));
 		return true;
 	}
 

@@ -225,8 +225,8 @@
 			}
 
 			// Create placeholder element
-			$placeholder = /** @type {jQueryObject} */ ($('<span></span>')
-					.html(/** @type {string} */ (placeholderText)));
+			$placeholder = $('<span></span>');
+			$placeholder.html(/** @type {string} */ (placeholderText));
 			$placeholder.addClass('mcePlaceholder');
 			$placeholder.attr('id', 'mcePlaceholder-' + tinyMCEObject.id);
 
@@ -263,7 +263,7 @@
 					/\{\$([a-zA-Z]+)\}(?![^<]*>)/g, function(match, contents, offset, s) {
 						if (variablesParsed[contents] !== undefined) {
 							return $.pkp.classes.TinyMCEHelper.prototype.getVariableElement(
-									'#' + tinyMCEObject.id, contents, variablesParsed[contents])
+									contents, variablesParsed[contents], '#' + tinyMCEObject.id)
 									.html();
 						}
 						return match;
@@ -440,14 +440,11 @@
 	 * @param {Event} event The "call when click outside" event.
 	 * @param {{
 	 *   container: jQueryObject,
-	 *   callback: Function,
-	 *   skipWhenVisibleModals: boolean
+	 *   callback: Function
 	 *   }} eventParams The event parameters.
 	 * - container: a jQuery element to be used to test if user click
 	 * outside of it or not.
 	 * - callback: a callback function in case test is true.
-	 * - skipWhenVisibleModals: boolean flag to tell whether skip the
-	 * callback when modals are visible or not.
 	 */
 	$.pkp.controllers.SiteHandler.prototype.callWhenClickOutsideHandler_ =
 			function(sourceElement, event, eventParams) {
@@ -494,7 +491,6 @@
 	 * option avoids it, use the callback.
 	 * @private
 	 * @param {{
-	 *   skipWhenVisibleModals: boolean,
 	 *   container: Object,
 	 *   callback: Function
 	 *   }} checkOptions Object with data to be used to
@@ -520,17 +516,6 @@
 		// container is hidden.
 		if ($container.is(':hidden')) {
 			return false;
-		}
-
-		// Check for the visible modals option.
-		if (checkOptions.skipWhenVisibleModals !==
-				undefined) {
-			if (checkOptions.skipWhenVisibleModals) {
-				if (this.getHtmlElement().find('div.ui-dialog').length > 0) {
-					// Found a modal, return.
-					return false;
-				}
-			}
 		}
 
 		// Do the click origin checking.

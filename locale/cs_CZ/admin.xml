@@ -41,11 +41,9 @@
 	<message key="admin.languages.reload">Znovu načíst lokalizace</message>
 	<message key="admin.languages.uninstall">Odinstalovat lokalizaci</message>
 	<message key="admin.phpInfo">Rozšířené informace o PHP</message>
-	<message key="admin.saveSystemConfig">Uložit konfiguraci</message>
 	<message key="admin.server.apacheVersion">Verze Apache</message>
 	<message key="admin.server.dbDriver">Ovladač databáze</message>
 	<message key="admin.server.dbVersion">Verze databázového serveru</message>
-	<message key="admin.serverInformationDescription"><![CDATA[Verze základního operačního systému a software serveru. Klikněte na <span class="highlight">Rozšířené informace o PHP</span> pro zobrazení detailů o PHP konfiguraci serveru.]]></message>
 	<message key="admin.serverInformation">Informace o serveru</message>
 	<message key="admin.server.phpVersion">Verze PHP</message>
 	<message key="admin.server.platform">Platforma OS</message>
@@ -60,7 +58,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Neplatný formát obrázku loga stránky. Podporované formáty jsou .gif, .jpg, nebo .png.</message>
 	<message key="admin.settings.introduction">Úvod</message>
 	<message key="admin.settings.minPasswordLength">Minimální délka hesla</message>
-	<message key="admin.settings.passwordCharacters">znaky</message>
 	<message key="admin.settings.siteLanguage">Jazyk stránky</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Neplatný formát stylu stránky. Podporovaný formát je .css.</message>
 	<message key="admin.settings.siteStyleSheet">Styl stránky</message>
@@ -83,4 +80,50 @@
 	<message key="admin.version.updateAvailable">Je dostupná aktualizovaná verze systému</message>
 	<message key="admin.version.upToDate">Používáte nejaktuálnější verzi systému</message>
 	<message key="admin.version">Verze</message>
+	<message key="admin.systemInfo.settingName">Nastavení - název</message>
+	<message key="admin.systemInfo.settingValue">Nastavení - hodnota</message>
+	<message key="admin.languages.download">Stažení lokalizace</message>
+	<message key="admin.languages.downloadLocales">Stažení lokalizací</message>
+	<message key="admin.languages.download.cannotOpen">Nelze otevřít deskriptory jazyků ze stránek PKP</message>
+	<message key="admin.languages.download.cannotModifyRegistry">Nelze přidat novou lokalizaci do souboru registru lokalizací, typicky "registry/locales.xml".</message>
+	<message key="admin.languages.cantDisable">Tato lokalizace je primární jazyk těchto stránek. Nemůžete ji vypnout dokud nezvolíte jinou primární lokalizaci.</message>
+	<message key="admin.languages.availableLocales">Dostupné lokalizace</message>
+	<message key="admin.languages.installLocale">Instalovat lokalizaci</message>
+	<message key="admin.scheduledTask">Naplánovaná úloha</message>
+	<message key="admin.scheduledTask.startTime">Začátek naplánované úlohy</message>
+	<message key="admin.scheduledTask.stopTime">Konec naplánované úlohy.</message>
+	<message key="admin.scheduledTask.noLog">Úloha nevytvořila žádný záznam do logu.</message>
+	<message key="admin.scheduledTask.downloadLog">Instalace {$softwareName} se automatiky provedla a ukončila tuto úlohu, záznam logu si můžete stáhnout zde: {$url}</message>
+	<message key="admin.scheduledTask.confirmClearLogs">Jste si jisti, že chcete smazat logy všech provedených úloh?</message>
+	<message key="admin.scheduledTask.clearLogs">Smazat logy provedení naplánovaných úloh.</message>
+	<message key="admin.scheduledTask.reviewReminder">Připomínka recenze</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">Připomínka vypršení předplatného</message>
+	<message key="admin.settings">Nastavení</message>
+	<message key="admin.settings.siteLogo">Logo stránek</message>
+	<message key="admin.settings.siteTheme">Téma stránek</message>
+	<message key="admin.siteSetup">Nastavení stránek</message>
+	<message key="admin.fileLoader.wrongBasePathLocation">Základní cesta {$path} musí být v rámci veřejně přístupných složek.</message>
+	<message key="admin.fileLoader.pathNotAccessible">Složka {$path} není knihovna, nebo není zapisovatelná.</message>
+	<message key="admin.fileLoader.moveFileFailed">Soubor {$filename} nemohl být přesunut z {$currentFilePath} do {$destinationPath}</message>
+	<message key="admin.fileLoader.fileProcessed">Soubor {$filename}  byl zpracován a archivován.</message>
+	<message key="admin.fileLoader.emailSubject">Nahrávání souboru</message>
+	<message key="admin.languages.noLocalesToDownload">Nejsou dostupné žádné lokalizace ke stažení.</message>
+	<message key="admin.copyAccessLogFileTool.error.copyingFile">Chyba: nelze zkopírovat soubor z {$filePath} do {$tmpFilePath}</message>
+	<message key="admin.copyAccessLogFileTool.error.deletingFile">Chyba: nelze smazat soubor {$tmpFilePath}</message>
+	<message key="admin.copyAccessLogFileTool.warning.fileAlreadyExists">Varování: soubor {$filePath} již v knihovně usage stats existuje.</message>
+	<message key="admin.copyAccessLogFileTool.success">Úspěch:  {$filePath} do {$destinationPath}</message>
+	<message key="admin.error.utilExecutionProblem">Při běhu programu "{$utilPath}" došlo k následující chybě: {$output}</message>
+	<message key="admin.error.executingUtil">Chyba: nelze spustit "{$utilPath}".  Zkontrolujte vaše nastavení {$utilVar} v config.inc.php.</message>
+	<message key="admin.copyAccessLogFileTool.error.creatingFolder">Chyba: nezle otevřít dočasnou složku {$tmpDir}</message>
+	<message key="admin.copyAccessLogFileTool.error.acessingFile">Chyba: Soubor {$filePath} neexistuje, nebo je k němu zakázaný přístup.</message>
+	<message key="admin.settings.defaultMetricDescription">Vaše instalace je nakonfigurována k zaznamenávání více, než jedné metriky přístupů. Statistika přístupů bude zobrazována v různých souvislostech.
+		Jsou případy, kdy je třeba použít pouze jedna statistika přístupů, např. při zobrazování uspořádaného seznamu nejpoužívanějších příspěvků, nebo při hodnocení
+		výsledků vyhledávání. Zvolte, prosím, jednu z metrik jako výchozí.</message>
+	<message key="admin.copyAccessLogFileTool.usage">Zkopírujte soubor protokolu  přístupů v Apache, proveďte filtraci položek souvisejících s touto instalací,
+do aktuální knihovny souborů v rámci knihovny UsageStatsPlugin stage. Toto je třeba dělat pod uživatelem, který má dostatečná práva ke čtení souborů protokolu Apache.
+
+Tento nástroj zkopíruje pouze ty soubory, které doposud v knihovnách v rámci usageStats neexistují (etapa, zpracování, archiv, odmítnutí).
+
+Použití: {$scriptName} cesta/k/apache/log/file.log
+Použití (zpracování všech souborů v knihovně): {$scriptName} cesta/k/apache/directory</message>
 </locale>

@@ -153,7 +153,6 @@
 	<message key="plugins.categories.auth">Validerings-Plugins</message>
 	<message key="plugins.categories.blocks">Block-Plugins</message>
 	<message key="plugins.categories.blocks.description">Block-Plugins är komponenter för anvädargränssnittet, ex. verktygen i sidomenyerna.</message>
-	<message key="plugins.categories.citationFormats">Citering-Plugins</message>
 	<message key="plugins.categories.gateways.description">Gateway-Plugins tillhandahåller live-data till externa system.</message>
 	<message key="plugins.categories.gateways">Gateway-Plugins</message>
 	<message key="plugins.categories.generic">Generiska Plugins</message>

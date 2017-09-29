@@ -29,7 +29,7 @@
 	<message key="metadata.filters.paracite.settings.citationModule.validationMessage">Pilih satu modul Sitiran yang diberikan.</message>
 	<message key="metadata.filters.settings.isOptional.displayName">Jangan gunakan by default (akan masih tersedia untuk the editor)</message>
 	<message key="metadata.filters.settings.isOptional.validationMessage">Kesalahan internal. Nilai non-valid telah diposting untuk pengaturan 'penyaringan opsional'. Laporkan ini sebagai bug.</message>
-	
+
 	<!-- pesan yang dibagi antara skema MD -->
 	<message key="metadata.property.displayName.author">Penulis</message>
 	<message key="metadata.property.validationMessage.author">Untuk hasil terbaik, penulis harus dimasukkan di format berikut ini: Coleman Jr, D. (Ralf) Dr.</message>
@@ -102,10 +102,10 @@
 	<message key="metadata.property.validationMessage.annotation">Masukkan Catatan Tambahan yang valid.</message>
 	<message key="metadata.property.displayName.publication-type">Tipe Publikasi</message>
 	<message key="metadata.property.validationMessage.publication-type">Pastikan Anda selalu mengatur tipe penerbitan. Nilai yang didukung sekarang ini adalah tipe penerbitan buku (untuk buku atau bab buku) dan jurnal (untuk artikel jurnal). Jika tidak, pemformatan output sitiran tidak akan bekerja secara benar.</message>
-	
+
 	<!-- MODS-pesan spesifik-->
 	<message key="metadata.property.displayName.title-type">Tipe Judul</message>
-	<message key="metadata.property.validationMessage.title-type">Pastikan Anda mengatur tipe judul yang valid. 
+	<message key="metadata.property.validationMessage.title-type">Pastikan Anda mengatur tipe judul yang valid.
 Pastikan Anda mengatur tipe judul yang valid. Nilai dukungan adalah "disingkat", "diterjemahkan", "alternatif" dan "seragam".</message>
 	<message key="metadata.property.displayName.nonSort">Bagian judul diabaikan saat menyortir</message>
 	<message key="metadata.property.validationMessage.nonSort">Masukkan hanya karakter awal  judul yang seharusnya diabaikan saat menyortir file.</message>
@@ -120,7 +120,7 @@ Pastikan Anda mengatur tipe judul yang valid. Nilai dukungan adalah "disingkat",
 	<message key="metadata.property.displayName.name-type">Tipe Nama</message>
 	<message key="metadata.property.validationMessage.name-type">Pastikan Anda mengatur tipe nama yang valid. Nilai dukungan adalah 'personal', 'corporate' dan 'conference'.</message>
 	<!-- FIXME: end -->
-	
+
 	<message key="submission.agencies">Nama Agen</message>
 	<message key="submission.abstractViews">Lihat Sari</message>
 	<message key="submission.accepted">Diterima</message>
@@ -166,7 +166,7 @@ Pastikan Anda mengatur tipe judul yang valid. Nilai dukungan adalah "disingkat",
 	<message key="submission.citations.editor.details.processRawCitationTitle">Mengubah Sitiran Asli</message>
 	<message key="submission.citations.editor.details.processRawCitationWarning">Anda akan mengubah teks Sitiran asli. Jika Anda melakukannya, maka semua bidang akan digantikan dengan nilai yang baru dihasilkan. Ini menghapus perubahan manual yang mungkin sudah Anda buat.</message>
 
-	
+
 		<message key="submission.citations.editor.details.saveAndApprove">Simpan dan Setujui</message>
 	<message key="submission.citations.editor.details.saveAndRevokeApproval">Membatalkan Persetujuan</message>
 	<message key="submission.citations.editor.details.sendAuthorQuery">Kirim Pesan</message>
@@ -247,7 +247,6 @@ Pastikan Anda mengatur tipe judul yang valid. Nilai dukungan adalah "disingkat",
 	<message key="submission.event.general.suppFileUpdated">File naskah telah di-update</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">tugas review yang diterima oleh proxy</message>
 	<message key="submission.event.reviewer.reviewAccepted">Tugas review diterima</message>
-	<message key="submission.event.reviewer.reviewCancelled">Tugas review dibatalkan</message>
 	<message key="submission.event.reviewer.reviewDeclined">Tugas review ditolak</message>
 	<message key="submission.event.reviewer.reviewDueDate">Tenggat waktu review dimodifikasi</message>
 	<message key="submission.event.reviewer.reviewerAssigned">Reviewer yang ditugaskan untuk naskah</message>

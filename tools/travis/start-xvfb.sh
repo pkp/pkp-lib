@@ -17,9 +17,9 @@ export DISPLAY=":99.0" # Travis init script for xvfb specifies this
 sudo apt-get install -y x11-xkb-utils
 
 # Add fonts.
+echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | sudo debconf-set-selections
 sudo apt-get install -y xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic
-sudo apt-get install -y defoma x-ttcidfont-conf cabextract ttf-mscorefonts-installer
-sudo dpkg-reconfigure --default-priority x-ttcidfont-conf
+sudo apt-get install -y cabextract ttf-mscorefonts-installer
 mkfontdir
 
 # Start Virtual Framebuffer to imitate a monitor.

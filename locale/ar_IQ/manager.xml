@@ -238,8 +238,6 @@
 		<p>نحن نقدم توصيلات لعدة قواعد بيانات خارجية حيث يمكنك عبرها البحث في الاقتباسات. بعض تلك القواعد تتطلب التسجيل أو ضبط الإعدادات مسبقاً. لطفاً، إرجع إلى مواقع الإنترنت لتلك المصادر الخارجية للمزيد من المعلومات عن كيفية التسجيل والتهيئة. يمكنك إضافة واحد أو أكثر من هذه التوصيلات عبر النقر على زر "إضافة فقرة" أدناه.</p>
 		<p>بإمكانك تعديل أو حذف توصيلة لقاعدة بيانات خارجية موجودة عبر النقر على إيقونة التروس المجاورة لها.</p>
 		<p><strong>ملاحظة:</strong> لغرض إكمال عملية تدقيق الاقتباسات في وقت مقبول، ينبغي أن يكون الموجه <tt>citation_checking_max_processes</tt> المتوضع في ملف الإعدادات مضبوطاً على قيمة معقولة. أنظر قسم الإعدادات العامة في الملف <tt>config.inc.php</tt> للمزيد من المعلومات.</p>]]></message>
-	<message key="manager.setup.citationOutput">مخرجات الاقتباس</message>
-	<message key="manager.setup.citationOutputStyleDescription">إختر نمط الاقتباس الذي ترغب باعتماده في منشورات مجلتك. مساعد تأشير الاقتباسات يمكنك من مقارنة نسخة المؤلف من الاقتباس مع نسخة مولدة من ملف XML الذي تولده أنت، بحيث يمكنك تشخيص الأخطاء ومعالجتها بسهولة:</message>
 	<message key="manager.setup.competingInterests">المصالح المتضاربة</message>
 	<message key="manager.setup.competingInterestsDescription">ستتم مطالبة المحكمين بالإذعان لسياسة الكشف عن المصالح المتضاربة التي تحددها أدناه.</message>
 	<message key="manager.setup.errorDeletingItem">حدث خطأ ما عند حذف هذه الفقرة.</message>
@@ -323,11 +321,8 @@
 	<message key="plugins.categories.auth">إضافات المصادقة</message>
 	<message key="plugins.categories.blocks">إضافات الكتل</message>
 	<message key="plugins.categories.blocks.description">إن إضافات الكتل هي مكونات واجهة مستخدم، مثل أدوات أشرطة التمرير المتنوعة.</message>
-	<message key="plugins.categories.citationFormats">إضافات تنسيق الاقتباسات</message>
 	<message key="plugins.categories.citationLookup">إضافات توصيلات قواعد بيانات الاقتباسات</message>
 	<message key="plugins.categories.citationLookup.description">إن إضافات توصيلات قواعد بيانات الاقتباسات ترتبط بقواعد البيانات للبحث عن الاقتباسات، مثلما يحدث عند تعديل الاقتباس.</message>
-	<message key="plugins.categories.citationOutput">إضافات مخرجات الاقتباسات</message>
-	<message key="plugins.categories.citationOutput.description">إن إضافات مخرجات الاقتباسات تقوم بتطبيق المعايير القياسية في الاقتباسات. ذلك يحل محل إضافات تنسيق الاقتباسات.</message>
 	<message key="plugins.categories.citationParser">إضافات استقطاع الاقتباسات</message>
 	<message key="plugins.categories.citationParser.description">إن إضافات استقطاع الاقتباسات تقوم باستقطاع البيانات على مستوى الحقول من الاقتباسات الخام (أي: المؤلف، العنوان... إلخ).</message>
 	<message key="plugins.categories.gateways.description">الإضافات البوابية تجهز الأنظمة الخارجية آنياً بالبيانات من الموقع.</message>

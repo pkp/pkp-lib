@@ -230,7 +230,7 @@
 		<p>Помощник разметки библиографических ссылок пытается определить и извлечь отдельные библиографические ссылки из списка библиографических ссылок, указанного автором. Вы можете систематически проверять каждую извлеченную ссылку на точность во внешних базах данных, редактировать неверную информацию в библиографической ссылке и добавлять новую информацию, одобрять или удалять библиографические ссылки, а также добавлять новые библиографические ссылки.</p>
 		<p>Все библиографические ссылки из итогового списка для материала должны быть одобрены, прежде чем они будут экспортированы.</p></li>
 		<li><p><strong>Экспорт ссылок</strong></p>
- 		<p>Библиографические ссылки могут быть экспортированы как XML или текст. Варианты экспорта в XML на текущий момент включают <a href="http://dtd.nlm.nih.gov/publishing/">NLM Journal Publishing</a> 2.3 и 3.0 <a href="http://www.ncbi.nlm.nih.gov/pmc/pmcdoc/tagging-guidelines/article/tags.html#el-reflist">ref-list XML</a>. Выбор одного из этих вариантов выводит список библиографических ссылок в виде фрагмента в формате XML, который может быть скопирован и вставлен в XML-гранки NLM.</p>
+		<p>Библиографические ссылки могут быть экспортированы как XML или текст. Варианты экспорта в XML на текущий момент включают <a href="http://dtd.nlm.nih.gov/publishing/">NLM Journal Publishing</a> 2.3 и 3.0 <a href="http://www.ncbi.nlm.nih.gov/pmc/pmcdoc/tagging-guidelines/article/tags.html#el-reflist">ref-list XML</a>. Выбор одного из этих вариантов выводит список библиографических ссылок в виде фрагмента в формате XML, который может быть скопирован и вставлен в XML-гранки NLM.</p>
 		<p>Экспериментальные варианты экспорта в текстовом формате включают стили оформления библиографических ссылок ABNT, APA, MLA и Vancouver. Эти варианты обеспечивают вывод текста, который может быть скопирован и вставлен в текстовые гранки статьи (например, в Microsoft Word, OpenOffice, Adobe InDesign и т.д.). Каждая библиографическая ссылка включает встроенную гиперссылку для автоматического поиска этого источника в Академии Google.</p></li>
 	</ul>]]></message>
 	<message key="submission.citations.editor.loadMessage">Пожалуйста, подождите пока загрузится помощник разметки библиографических ссылок.</message>
@@ -289,7 +289,6 @@
 	<message key="submission.event.participantAdded">{$name} был назначен в этот материал как {$userGroupName}.</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Согласие на рецензирование получено через посредника</message>
 	<message key="submission.event.reviewer.reviewAccepted">Согласие на рецензирование получено</message>
-	<message key="submission.event.reviewer.reviewCancelled">Рецензирование отменено</message>
 	<message key="submission.event.reviewer.reviewDeclined">Рецензент отказался от рецензирования</message>
 	<message key="submission.event.reviewer.reviewDueDate">Срок предоставления рецензии изменен</message>
 	<message key="submission.event.reviewer.reviewerAssigned">Назначен рецензент для материала</message>
@@ -411,7 +410,7 @@
 	<message key="submissions.noSubmissions">Нет материалов</message>
 	<message key="submissions.queuedEditing">На редакции</message>
 	<message key="submissions.queued">В очереди</message>
-	<message key="submissions.queuedUnassigned">Ждет назначения</message>
+	<message key="submissions.queuedUnassigned">Этому материалу не назначен редактор.</message>
 	<message key="submissions.ruling">Решение</message>
 	<message key="submission.source">Источник</message>
 	<message key="submission.source.tip">Этот материал пришел с другого ресурса? Если да, вы можете ввести URL-адрес или описание этого ресурса.</message>
@@ -511,15 +510,17 @@
 	<message key="submission.upload.noAvailableReviewFiles">На данный момент нет файлов, которые вы могли бы откорректировать.</message>
 
 	<!-- Ключи статуса раунда рецензирования -->
-	<message key="editor.submission.roundStatus.revisionsRequested">Были запрошены новые версии.</message>
+	<message key="editor.submission.roundStatus.revisionsRequested">Новые версии были запрошены.</message>
+	<message key="editor.submission.roundStatus.revisionsSubmitted">Новые версии были отправлены.</message>
 	<message key="editor.submission.roundStatus.resubmitted">Материал был повторно отправлен на рецензию.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">Отправлен на внешнее рецензирование.</message>
 	<message key="editor.submission.roundStatus.accepted">Материал принят.</message>
 	<message key="editor.submission.roundStatus.declined">Материал отклонен.</message>
-	<message key="editor.submission.roundStatus.pendingReviewers">Ожидает выбора рецензентов.</message>
+	<message key="editor.submission.roundStatus.pendingReviewers">Ожидает назначения рецензентов.</message>
 	<message key="editor.submission.roundStatus.pendingReviews">Ожидает ответа от рецензентов.</message>
 	<message key="editor.submission.roundStatus.reviewsReady">Новые рецензии были отправлены.</message>
-	<message key="editor.submission.roundStatus.reviewsCompleted">Рецензии завершены.</message>
+	<message key="editor.submission.roundStatus.reviewsCompleted">Все рецензии пришли, нужно принять решение.</message>
+	<message key="editor.submission.roundStatus.reviewOverdue">Срок рецензии прошел.</message>
 
 	<!-- Участники -->
 	<message key="editor.submission.stageParticipants">Участники</message>
@@ -527,7 +528,7 @@
 	<!-- Сетка «Участники этапа» -->
 	<message key="editor.submission.noneAssigned">Никто не назначен</message>
 	<message key="editor.submission.participant">Участник</message>
-	<message key="editor.submission.addStageParticipant">Добавить участника</message>
+	<message key="editor.submission.addStageParticipant">Назначить участника</message>
 	<message key="editor.submission.addStageParticipant.userGroup">Пользователи, назначенные на этапы рабочего потока по группам пользователей. Любой пользователь, назначенный на этот этап, будет автоматически назначен на другие этапы, которым назначена эта группа пользователей. Обычно это остается за редакторами, авторами и переводчиками.</message>
 	<message key="editor.submission.removeStageParticipant">Удалить участника</message>
 	<message key="editor.submission.removeStageParticipant.description"><![CDATA[Вы собираетесь удалить этого участника со <strong>всех</strong> этапов. Если у пользователя также есть приостановленные задачи аудитора, они также будут удалены.]]></message>
@@ -587,11 +588,19 @@
 	<message key="notification.type.editorDecisionSendToProduction">Начат процесс публикации.</message>
 	<message key="notification.uploadedResponse">Загружен ответ.</message>
 
-	<message key="notification.type.editorAssignment">Редактор должен быть назначен до начала рецензирования. Пожалуйста, добавьте редактора с помощью ссылки «Участники» выше.</message>
+	<message key="notification.type.editorAssignment">Редактор должен быть назначен до начала рецензирования. Пожалуйста, добавьте редактора с помощью списка «Участники».</message>
 	<message key="grid.reviewAttachments.title">Файлы, прикрепленные рецензентом</message>
 	<message key="submission.productionReady">Книга доступна</message>
 	<message key="submission.review.uploadRevisionToRound">Загрузить новую версию файла</message>
 	<message key="log.review.reviewerAssigned">Рецензент {$reviewerName} был назначен на рецензирование материала «{$submissionId}» (раунд рецензирования — {$round}).</message>
+	<message key="submission.review.status.awaitingResponse">Ожидает ответа от рецензента.</message>
+	<message key="submission.review.status.declined">Рецензент отклонил этот запрос на рецензию.</message>
+	<message key="submission.review.status.responseOverdue">Рецензент пропустил срок ответа на запрос.</message>
+	<message key="submission.review.status.reviewOverdue">Рецензент пропустил срок предоставления рецензии.</message>
+	<message key="submission.review.status.accepted">Рецензия была принята.</message>
+	<message key="submission.review.status.received">Рецензент отправил свою рецензию.</message>
+	<message key="submission.review.status.complete">Рецензирование было завершено.</message>
+	<message key="submission.review.status.thanked">Рецензирование завершено и рецензент получил благодарность.</message>
 	<message key="submission.document">Документ</message>
 	<message key="submission.art">Изображение</message>
 	<message key="submission.supplementary">Дополнительный контент</message>
@@ -601,8 +610,8 @@
 	<message key="submission.supplementary.sponsor">Спонсор или автор</message>
 	<message key="grid.action.itemWorkflow">Перейти к рабочему потоку материала</message>
 	<message key="notification.type.editorDecisionSendToProduction">Начат процесс публикации.</message>
-	<message key="notification.type.editorAssignmentProduction">Выпускающий редактор должен быть назначен до начала процесса публикации. Пожалуйста, добавьте выпускающего редактора с помощью ссылки «Участники» выше.</message>
-	<message key="notification.type.editorAssignmentEditing">Выпускающий редактор должен быть назначен до начала процесса редактирования. Пожалуйста, добавьте выпускающего редактора с помощью ссылки «Участники» выше.</message>
+	<message key="notification.type.editorAssignmentProduction">Выпускающий редактор должен быть назначен до начала процесса публикации. Пожалуйста, добавьте выпускающего редактора с помощью списка «Участники».</message>
+	<message key="notification.type.editorAssignmentEditing">Выпускающий редактор должен быть назначен до начала процесса редактирования. Пожалуйста, добавьте выпускающего редактора с помощью списка «Участники».</message>
 
 	<!--  рецензирование -->
 	<message key="submission.reviewForm">Форма рецензии</message>
@@ -650,4 +659,23 @@
 	<message key="submission.query.new">Пользователь «{$creatorName}» начал обсуждение «{$noteTitle}»: {$noteContents}</message>
 	<message key="submission.query.activity.contents">Есть новая активность в обсуждении с названием «{$queryTitle}», относящимся к материалу «{$submissionTitle}».</message>
 	<message key="submission.query.new.contents">Вы были добавлены к обсуждению с названием «{$queryTitle}», относящимся к материалу «{$submissionTitle}».</message>
+	<message key="submission.query.noParticipantOptions">До начала обсуждения вы должны назначить хотя бы одного участника в этот материал.</message>
+
+	<!-- Списки материалов -->
+	<message key="submission.list.infoCenter">Журнал активности и обсуждений</message>
+	<message key="submission.list.count">{$count} материалов</message>
+	<message key="submission.list.itemsOfTotal">{$count} из {$total} материалов</message>
+	<message key="submission.list.responseDue">Срок ответа на запрос</message>
+	<message key="submission.list.reviewDue">Срок сдачи рецензии</message>
+	<message key="submission.list.confirmDelete">Удалить материал?</message>
+	<message key="submission.list.viewSubmission">Показать «{$title}»</message>
+	<message key="submission.list.filter">Фильтры</message>
+	<message key="submission.list.filterRemove">Сбросить фильтр: {$filterTitle}</message>
+	<message key="submission.list.itemOrdererUp">Поднять вверх «{$itemTitle}»</message>
+	<message key="submission.list.itemOrdererDown">Опустить вниз «{$itemTitle}»</message>
+	<message key="submission.list.clearSearch">Очистить фразу поиска</message>
+	<message key="submission.list.reviewsCompleted">Завершено рецензий</message>
+	<message key="submission.list.filesPrepared">Подготовлено файлов</message>
+	<message key="submission.list.discussions">Обсуждения</message>
+	<message key="submission.list.incompleteSubmissionNotice">Этот материал должен быть завершен до того, как редактор будет его рецензировать.</message>
 </locale>

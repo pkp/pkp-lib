@@ -2,7 +2,7 @@
 <!DOCTYPE countries SYSTEM "../../dtd/countries.dtd">
 
 <!--
-  * lib/pkp/locale/el_GR/countries.xml
+  * locale/el_GR/countries.xml
   *
   * Copyright (c) 2014-2017 Simon Fraser University
   * Copyright (c) 2000-2017 John Willinsky
@@ -52,10 +52,10 @@
 	<country name="Βουλγαρία" code="BG"/>
 	<country name="Μπουρκίνα Φάσο" code="BF"/>
 	<country name="Μπουρούντι" code="BI"/>
+	<country name="Cabo Verde" code="CV"/>
 	<country name="Καμπότζη" code="KH"/>
 	<country name="Καμερούν" code="CM"/>
 	<country name="Καναδάς" code="CA"/>
-	<country name="Πράσινο Ακρωτήριο" code="CV"/>
 	<country name="Νήσοι Καϋμάν" code="KY"/>
 	<country name="Δημοκρατία Κεντρικής Αφρικής" code="CF"/>
 	<country name="Τσαντ" code="TD"/>
@@ -73,7 +73,7 @@
 	<country name="Κούβα" code="CU"/>
 	<country name="Κουρακάο" code="CW"/>
 	<country name="Κύπρος" code="CY"/>
-	<country name="Τσεχική Δημοκρατία" code="CZ"/>
+	<country name="Czechia" code="CZ"/>
 	<country name="Ακτή Ελεφαντοστού" code="CI"/>
 	<country name="Δανία" code="DK"/>
 	<country name="Τζιμπουτί" code="DJ"/>

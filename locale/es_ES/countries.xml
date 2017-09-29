@@ -52,10 +52,10 @@
 	<country name="Bulgaria" code="BG"/>
 	<country name="Burquina Faso" code="BF"/>
 	<country name="Burundi" code="BI"/>
+	<country name="Cabo Verde" code="CV"/>
 	<country name="Camboya" code="KH"/>
 	<country name="Camerún" code="CM"/>
 	<country name="Canadá" code="CA"/>
-	<country name="Cabo Verde" code="CV"/>
 	<country name="Islas Caimán" code="KY"/>
 	<country name="República Centro-africana" code="CF"/>
 	<country name="Chad" code="TD"/>
@@ -73,7 +73,7 @@
 	<country name="Cuba" code="CU"/>
 	<country name="Curasao" code="CW"/>
 	<country name="Chipre" code="CY"/>
-	<country name="República Checa" code="CZ"/>
+	<country name="Czechia" code="CZ"/>
 	<country name="Costa de Marfíl" code="CI"/>
 	<country name="Dinamarca" code="DK"/>
 	<country name="Yibuti" code="DJ"/>

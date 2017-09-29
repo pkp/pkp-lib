@@ -18,4 +18,7 @@
 	<message key="plugins.generic.acron.disabled">El plugin Acron ha sido deshabilitado.</message>
 
 	<message key="plugins.generic.acron.reload">Recargar las tareas programadas</message>
+	<message key="plugins.generic.acron.description">Este módulo trata de reducir la dependencia de la aplicación de herramientas de planificación periódica como 'cron'.</message>
+	<message key="plugins.generic.acron.reloadedCronTab">La pestaña Cron se ha recargado con éxito.</message>
+	<message key="plugins.generic.acron.tasksReloaded">Las tareas programadas se han recargado.</message>
 </locale>

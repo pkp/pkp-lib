@@ -1,5 +1,5 @@
 {**
- * controllers/grid/users/reviewer/form/emailReviewerForm.tpl
+ * templates/controllers/grid/users/reviewer/form/emailReviewerForm.tpl
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2003-2017 John Willinsky

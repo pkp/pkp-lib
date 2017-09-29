@@ -435,6 +435,8 @@ class FileManager {
 			case 'image/x-ico':
 			case 'image/ico':
 				return '.ico';
+			case 'image/svg+xml':
+				return '.svg';
 			case 'application/x-shockwave-flash':
 				return '.swf';
 			case 'video/x-flv':

@@ -92,6 +92,7 @@
 	<message key="manager.languages.alternateLocaleInstructions">Ce système permet, de façon facultative, la saisie de certaines informations critiques dans plusieurs langues supplémentaires. Pour utiliser cette fonctionnalité, sélectionner d'autres langues à partir des options énumérées ci-dessous.</message>
 	<message key="manager.languages.supportedLocalesInstructions">Sélectionner toutes les langues qui doivent être prises en charge sur le site, dans le menu de sélection de langue apparaissant sur chaque page. Le menu apparaîtra seulement si plus d'une langue est sélectionnée.</message>
 	<message key="manager.payment.timestamp">Estampille temporelle</message>
+	<message key="manager.people.allEnrolledUsers">Utilisateurs inscrits à cette presse</message>
 	<message key="manager.people.authSource">Source d'authentification</message>
 	<message key="manager.people.confirmUnenroll">Désincrire cet utilisateur?</message>
 	<message key="manager.people.createUser">Créer un nouvel utilisateur</message>
@@ -159,7 +160,6 @@
 	<message key="plugins.categories.auth">Plugiciels d'autorisation</message>
 	<message key="plugins.categories.blocks">Plugiciels de bloc</message>
 	<message key="plugins.categories.blocks.description">Les plugiciels de bloc sont composés de modules d'interface enfichables, tels les différents outils des encadrés latéraux.</message>
-	<message key="plugins.categories.citationFormats">Plugiciels de format de citation</message>
 	<message key="plugins.categories.gateways.description">Les plugiciels de passerelle fournissent des données réelles à des systèmes externes.</message>
 	<message key="plugins.categories.gateways">Plugiciels de passerelle</message>
 	<message key="plugins.categories.generic">Plugiciels génériques</message>
@@ -188,8 +188,6 @@
 <p>Nous fournissions des connecteurs à plusieurs bases de données externes dans lesquelles vous pouvez chercher des références. Certaines de ces bases de données nécessite une inscription ou de l'information de configuration pour y accéder. Veuillez référer aux sites Web publiques de ces bases de données pour plus d'information sur comment s'inscrire. Vous pouvez ajouter une ou plusieurs bases de données en cliquant sur le bouton "Ajouter un élément " ci-dessous.</p>
 <p>Vous pouvez modifier ou supprimer un connection existant à une base de données externe en cliquant sur l'icône d'engrenage juste à côté.</p>
 <p><strong>Note:</strong> en vue de compléter le processus de vérifications des références dans des délais raisonnables, la directive <tt>citation_checking_max_processes</tt> dans votre fichier de configuration doit être paramétré à une valeur raisonnable. Voir la section "General Settings" dans <tt>config.inc.php</tt> pour plus d'information.</p>]]></message>
-	<message key="manager.setup.citationOutput">Version de sortie de la référence</message>
-	<message key="manager.setup.citationOutputStyleDescription">Choisir le modèle de références qui est utilisé dans votre revue pour les soumissions d'auteur. L'Aide au balisage des références vous laisse comparer la version de la référence de l'auteur avec celle générée à partir du XML que vous générez afin que vous puissiez facilement identifier les erreurs :</message>
 	<message key="manager.setup.filter.grid.errorDeletingFilter">Une erreur s'est produite pendant la tentative de suppression de ce filtre. Veuillez rapporter ceci comme un bogue.</message>
 	<message key="manager.setup.filter.grid.filterDisplayName">Connecteur</message>
 	<message key="manager.setup.filter.grid.filterSettings">Information d'inscription et Paramètres du connecteur</message>
@@ -199,7 +197,7 @@
 	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Veuillez sélectionner une base de données de recherche.</message>
 	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Ce filtre se connecte à la base de données livre et ISBN <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a>.</p>
 	<p>Une clé ISBNdb API est obligatoire. Pour plus d'information sur la génération de la clé, voir la <a href="http://isbndb.com/api/v1/docs/keys" target="_blank">documentation en ligne</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Ce filtre se connecte à la base de données de références CrossRef en utilisant l'<a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">interface de requête OpenURL</a> de CrossRef.</p> 
+	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Ce filtre se connecte à la base de données de références CrossRef en utilisant l'<a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">interface de requête OpenURL</a> de CrossRef.</p>
 	<p>Pour utiliser ce filtre, vous pouvez utiliser votre compte système CrossRef, ou s'inscrire à l'aide une adresse de courriel valide avec CrossRef <a href="http://www.crossref.org/requestaccount/" target="_blank">ici</a>.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Ce filtre se connecte au moteur de recherche de base de données croisée <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a> de PubMed.</p>
 	<p>Un courriel n'est pas obligatoire au sens strict du terme pour s'inscrire, mais peut être nécessaire si vous faites face à des problèmes de connection. Voir la section <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Usage Guidelines and Requirements</a> dans la documentation de Entrez pour plus d'information.</p>]]></message>
@@ -243,7 +241,7 @@
 	<message key="manager.language.submissions">Soumissions</message>
 	<message key="manager.language.forms">Formulaires</message>
 	<message key="manager.language.reloadLocalizedDefaultSettings">Retélécharger les paramètres par défaut</message>
-	<message key="manager.reviewerSearch.searchByName.short">Recherche pas nom</message>
+	<message key="manager.reviewerSearch.searchByName.short">Recherche par nom</message>
 	<message key="manager.statistics.city">Ville</message>
 	<message key="manager.statistics.region">Région</message>
 	<message key="manager.statistics.reports.generateReport">Générer un rapport personnalisé</message>
@@ -299,7 +297,7 @@
 	<message key="manager.setup.sponsors.note">Vous pouvez ajouter une note décrivant votre politique en matière de commandite; celle-ci apparaitra dans la liste des commanditaires sur votre page À propos de.</message>
 	<message key="manager.setup.contributors.note">Vous pouvez ajouter une note décrivant votre rapport et votre politique entre vous et vos bailleurs de fonds; celle-ci apparaitra dans la liste des bailleurs de fonds sur votre page À propos de.</message>
 	<message key="manager.plugins.fileSelectError">Veuillez sélectionner un fichier d'abord</message>
-	<message key="manager.statistics.defaultMetricDescription">Votre {$contextObjectName} a été configuré pour enregistrer plus d'une mesure d'utilisation. Les statistiques d'utilisation seront affichées dans plusieurs contextes. 
+	<message key="manager.statistics.defaultMetricDescription">Votre {$contextObjectName} a été configuré pour enregistrer plus d'une mesure d'utilisation. Les statistiques d'utilisation seront affichées dans plusieurs contextes.
 
 Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, par exemple pour afficher une liste ordonnée des soumissions les plus utilisées ou pour ordonner les résultats de la recherche. Veuillez choisir l'une des mesures configurées à titre de mesure par défaut.</message>
 	<message key="manager.statistics.reports.advancedOptions.label">Personnaliser les colonnes, le filtre et les options de classement. Les changements apportés à ces options pourraient modifier le résultat du modèle de rapport attendu.</message>
@@ -313,8 +311,6 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="plugins.categories.metadata.description">Les modules d'extension des métadonnées mettent en place des normes supplémentaires pour les métadonnées.</message>
 	<message key="plugins.categories.citationLookup">Modules d'extension pour connecter à la base de données de citations</message>
 	<message key="plugins.categories.citationLookup.description">Les modules d'extension pour connecter à la base de données de citations permettent d'accéder aux bases de données pour chercher des citations, ex.: pendant la révision des citations.</message>
-	<message key="plugins.categories.citationOutput">Modules d'extension pour la production de citations</message>
-	<message key="plugins.categories.citationOutput.description">Les modules d'extension pour la production de citations mettent en place les normes de citations. Ceci remplace les modules d'extension du format des citations.</message>
 	<message key="plugins.categories.citationParser">Modules d'extension pour l'extraction des citations</message>
 	<message key="plugins.categories.citationParser.description">Les modules d'extension pour l'extraction des citations prélèvent des données locales à partir des citations brutes (ex.: auteur, titre, etc.)</message>
 	<message key="plugins.categories.pubIds">Modules d'extension d'identificateur public</message>
@@ -429,7 +425,7 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.reviewFormElements.radiobuttons">Boutons radio (vous ne pouvez en choisir qu'un)</message>
 	<message key="manager.reviewFormElements.required">Les évaluateurs doivent remplir l'élément</message>
 	<message key="manager.reviewFormElements.smalltextfield">Case de saisie pour un seul mot</message>
-	<message key="manager.reviewFormElements.textarea">Case de saisie élargie</message>
+	<message key="manager.reviewFormElements.textarea">Zone de texte élargie</message>
 	<message key="manager.reviewFormElements.textfield">Zone de texte simple ligne</message>
 	<message key="manager.reviewFormElements.viewable">Visualisable (pour les auteurs)</message>
 
@@ -501,7 +497,7 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.plugins.noCompatibleVersion">Il n'existe actuellement aucune version compatible de ce plugiciel.</message>
 	<message key="manager.plugins.installedVersionNewest">Plugiciel déjà installé et en est à la dernière version.</message>
 	<message key="manager.plugins.pluginGallery.summary">Sommaire</message>
-	<message key="manager.reviewFormElements.included">Inclu dans le message à l'auteur</message>
+	<message key="manager.reviewFormElements.included">Inclus dans le message à l'auteur</message>
 	<message key="grid.action.createReviewForm">Créer un nouveau formulaire d'évaluation</message>
 	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Déclaration de conflit d'intérêts de l'évaluateur</message>
 	<message key="manager.setup.competingInterests.required">Demander une déclaration de conflit d'intérêts de l'évaluateur</message>
@@ -512,7 +508,6 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.plugins.installedVersionOlder.short">Mise à jour disponible</message>
 	<message key="manager.plugins.installedVersionNewest.short">Version à jour</message>
 	<message key="manager.plugins.noCompatibleVersion.short">Pas disponible</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="manager.setup.layout.sidebar">Barre latérale</message>
 	<message key="plugins.importexport.common.errorsOccured">Erreurs:</message>
 	<message key="plugins.importexport.common.error.unknownElement">Élément inconnu {$param}</message>

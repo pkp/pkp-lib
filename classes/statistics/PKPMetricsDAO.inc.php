@@ -351,6 +351,7 @@ class PKPMetricsDAO extends DAO {
 
 		switch($assocType) {
 			case ASSOC_TYPE_SUBMISSION_FILE:
+			case ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER:
 				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 				$submissionFile = $submissionFileDao->getLatestRevision($assocId);
 				if ($submissionFile) {

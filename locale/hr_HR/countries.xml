@@ -2,7 +2,7 @@
 <!DOCTYPE countries SYSTEM "../../dtd/countries.dtd">
 
 <!--
-  * lib/pkp/locale/hr_HR/countries.xml
+  * locale/hr_HR/countries.xml
   *
   * Copyright (c) 2014-2017 Simon Fraser University
   * Copyright (c) 2000-2017 John Willinsky
@@ -41,21 +41,21 @@
 	<country name="Benin" code="BJ"/>
 	<country name="Bermudi" code="BM"/>
 	<country name="Butan" code="BT"/>
-	<country name="Plurinacionalna Država Bolivija" code="BO"/>
+	<country name="Bolivija, Plurinacionalna Država" code="BO"/>
 	<country name="Bonaire, Sveti Eustahije i Saba" code="BQ"/>
 	<country name="Bosna i Hercegovina" code="BA"/>
 	<country name="Bocvana" code="BW"/>
 	<country name="Otok Bouvet" code="BV"/>
 	<country name="Brazil" code="BR"/>
-	<country name="Britanski Teritorij Indijskog Oceana" code="IO"/>
+	<country name="Britanski teritorij Indijskog oceana" code="IO"/>
 	<country name="Brunej Darussalam" code="BN"/>
 	<country name="Bugarska" code="BG"/>
 	<country name="Burkina Faso" code="BF"/>
 	<country name="Burundi" code="BI"/>
+	<country name="Cabo Verde" code="CV"/>
 	<country name="Kambodža" code="KH"/>
 	<country name="Kamerun" code="CM"/>
 	<country name="Kanada" code="CA"/>
-	<country name="Zelenortski otoci" code="CV"/>
 	<country name="Kajmanski otoci" code="KY"/>
 	<country name="Srednjoafrička Republika" code="CF"/>
 	<country name="Čad" code="TD"/>
@@ -73,7 +73,7 @@
 	<country name="Kuba" code="CU"/>
 	<country name="Curaçao" code="CW"/>
 	<country name="Cipar" code="CY"/>
-	<country name="Češka" code="CZ"/>
+	<country name="Czechia" code="CZ"/>
 	<country name="Obala Bjelokosti" code="CI"/>
 	<country name="Danska" code="DK"/>
 	<country name="Džibuti" code="DJ"/>
@@ -86,8 +86,8 @@
 	<country name="Eritreja" code="ER"/>
 	<country name="Estonija" code="EE"/>
 	<country name="Etiopija" code="ET"/>
-	<country name="Falklandski otoci" code="FK"/>
-	<country name="Ovčji otoci" code="FO"/>
+	<country name="Falklandski (Malvinski) otoci" code="FK"/>
+	<country name="Ovčji (Faroe) otoci" code="FO"/>
 	<country name="Fidži" code="FJ"/>
 	<country name="Finska" code="FI"/>
 	<country name="Francuska" code="FR"/>
@@ -133,7 +133,7 @@
 	<country name="Kenija" code="KE"/>
 	<country name="Kiribati" code="KI"/>
 	<country name="Sjeverna Koreja" code="KP"/>
-	<country name="Južna Koreja" code="KR"/>
+	<country name="Južna Koreja, Republika Koreja" code="KR"/>
 	<country name="Kuvajt" code="KW"/>
 	<country name="Kirgistan" code="KG"/>
 	<country name="Laos" code="LA"/>
@@ -232,11 +232,11 @@
 	<country name="Švedska" code="SE"/>
 	<country name="Švicarska" code="CH"/>
 	<country name="Sirija" code="SY"/>
-	<country name="Kineska Pokrajina Tajvan" code="TW"/>
+	<country name="Tajvan, Kineska pokrajina" code="TW"/>
 	<country name="Tadžikistan" code="TJ"/>
 	<country name="Tanzanija" code="TZ"/>
 	<country name="Tajland" code="TH"/>
-	<country name="Istočni Timor" code="TL"/>
+	<country name="Timor-Leste" code="TL"/>
 	<country name="Togo" code="TG"/>
 	<country name="Tokelau" code="TK"/>
 	<country name="Tonga" code="TO"/>
@@ -255,9 +255,9 @@
 	<country name="Urugvaj" code="UY"/>
 	<country name="Uzbekistan" code="UZ"/>
 	<country name="Vanuatu" code="VU"/>
-	<country name="Bolivarijanska Republika Venezuela" code="VE"/>
+	<country name="Venezuela, Bolivarska Republika" code="VE"/>
 	<country name="Vijetnam" code="VN"/>
-	<country name="Djevičanski otoci" code="VG"/>
+	<country name="Djevičanski otoci, britanski" code="VG"/>
 	<country name="Američki Djevičanski otoci" code="VI"/>
 	<country name="Wallis i Futuna" code="WF"/>
 	<country name="Zapadna Sahara" code="EH"/>

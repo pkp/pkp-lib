@@ -260,4 +260,6 @@
 	<message key="search.titleIndex">Kazalo naslova</message>
 	<message key="search.title">Naslov</message>
 	<message key="search.typeMethodApproach">Tip (metoda/pristup)</message>
+
+	<message key="semicolon">{$label}:</message>
 </locale>

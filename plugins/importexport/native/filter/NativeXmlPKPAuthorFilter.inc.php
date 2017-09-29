@@ -101,6 +101,7 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter {
 			case 'country': $author->setCountry($n->textContent); break;
 			case 'email': $author->setEmail($n->textContent); break;
 			case 'url': $author->setUrl($n->textContent); break;
+			case 'orcid': $author->setOrcid($n->textContent); break;
 			case 'biography':
 				$locale = $n->getAttribute('locale');
 				if (empty($locale)) $locale = $submission->getLocale();

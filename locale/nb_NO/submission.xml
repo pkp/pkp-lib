@@ -51,7 +51,6 @@
 	<message key="submission.event.general.suppFileUpdated">Manuskriptfil oppdatert</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Fagvurderingsoppdrag akseptert av mellommann</message>
 	<message key="submission.event.reviewer.reviewAccepted">Fagvurderingsoppdrag akseptert</message>
-	<message key="submission.event.reviewer.reviewCancelled">Fagvurderingsoppdrag avbrutt</message>
 	<message key="submission.event.reviewer.reviewDeclined">Fagvurderingsoppdrag avslått</message>
 	<message key="submission.event.reviewer.reviewDueDate">Fagvurdering ventet-dato omgjort</message>
 	<message key="submission.event.reviewer.reviewerAssigned">Fagkonsulent oppnevnt for manuskript</message>

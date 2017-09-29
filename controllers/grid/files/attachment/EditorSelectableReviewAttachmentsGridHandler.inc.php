@@ -33,7 +33,7 @@ class EditorSelectableReviewAttachmentsGridHandler extends SelectableFileListGri
 		);
 
 		// Set the grid title.
-		$this->setTitle('grid.reviewAttachments.title');
+		$this->setTitle('grid.reviewAttachments.send.title');
 	}
 
 	/**

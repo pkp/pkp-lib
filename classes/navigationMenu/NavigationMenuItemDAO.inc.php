@@ -101,12 +101,12 @@ class NavigationMenuItemDAO extends DAO {
 			(int) $contextId
 		);
 		$result = $this->retrieve(
-			'SELECT nmi.*
-				FROM navigation_menu_items as nmi
-				LEFT JOIN navigation_menu_item_settings as nmis ON (nmi.navigation_menu_item_id = nmis.navigation_menu_item_id)
-				WHERE nmi.type = ?
-				AND (nmis.setting_name = "titleLocaleKey" and nmis.setting_value = ?)
-				AND nmi.context_id = ?',
+			'SELECT *
+				FROM navigation_menu_items
+				LEFT JOIN navigation_menu_item_settings ON (navigation_menu_items.navigation_menu_item_id = navigation_menu_item_settings.navigation_menu_item_id)
+				WHERE navigation_menu_items.type = ?
+				AND (navigation_menu_item_settings.setting_name = \'titleLocaleKey\' and navigation_menu_item_settings.setting_value = ?)
+				AND navigation_menu_items.context_id = ?',
 			$params
 		);
 

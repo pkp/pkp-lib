@@ -120,7 +120,7 @@ class NavigationMenuItemsForm extends Form {
 				'path' => $navigationMenuItem->getPath(),
 				'title' => $navigationMenuItem->getTitle(null),
 				'url' => $navigationMenuItem->getUrl(),
-				'type' => $navigationMenuItem->getType(),
+				'menuItemType' => $navigationMenuItem->getType(),
 			);
 			$this->setData('content', $navigationMenuItem->getContent(null)); // Localized
 		} else {
@@ -135,7 +135,7 @@ class NavigationMenuItemsForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('navigationMenuItemId', 'content', 'title', 'path', 'url','type'));
+		$this->readUserVars(array('navigationMenuItemId', 'content', 'title', 'path', 'url','menuItemType'));
 	}
 
 	/**
@@ -156,7 +156,7 @@ class NavigationMenuItemsForm extends Form {
 		$navigationMenuItem->setDefault($navigationMenuItem->getDefault());
 		$navigationMenuItem->setContextId($this->getContextId());
 		$navigationMenuItem->setUrl($this->getData('url'));
-		$navigationMenuItem->setType($this->getData('type'));
+		$navigationMenuItem->setType($this->getData('menuItemType'));
 
 		// Update or insert navigation menu item
 		if ($navigationMenuItem->getId()) {
@@ -173,8 +173,8 @@ class NavigationMenuItemsForm extends Form {
 	 * @copydoc Form::validate
 	 */
 	function validate() {
-		if ($this->getData('type') && $this->getData('type') != "") {
-			if ($this->getData('type') == NMI_TYPE_CUSTOM) {
+		if ($this->getData('menuItemType') && $this->getData('menuItemType') != "") {
+			if ($this->getData('menuItemType') == NMI_TYPE_CUSTOM) {
 				if (!preg_match('/^[a-zA-Z0-9\/._-]+$/', $this->getData('path'))) {
 					$this->addError('path', __('manager.navigationMenus.form.pathRegEx'));
 				}
@@ -185,7 +185,7 @@ class NavigationMenuItemsForm extends Form {
 				if (isset($navigationMenuItem) && $navigationMenuItem->getId() != $this->navigationMenuItemId) {
 					$this->addError('path', __('manager.navigationMenus.form.duplicatePath'));
 				}
-			} elseif ($this->getData('type') == NMI_TYPE_REMOTE_URL) {
+			} elseif ($this->getData('menuItemType') == NMI_TYPE_REMOTE_URL) {
 				if(!filter_var($this->getData('url'), FILTER_VALIDATE_URL)) {
 					$this->addError('url', __('manager.navigationMenus.form.customUrlError'));
 				}

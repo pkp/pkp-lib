@@ -30,6 +30,8 @@
 	{if $isPLNPluginInstalled}
 		{fbvFormArea id="mainLockss"}
 			{fbvFormArea title="manager.setup.plnPluginArchiving" id="plnArea"}
+				{translate key="manager.setup.plnDescription"}             
+
 				{fbvFormSection list="true" translate=false}
 					{translate|assign:"enablePLNArchivingLabel" key="manager.setup.plnPluginEnable"}
 					{fbvElement type="checkbox" id="enablePln" value="1" checked=$isPLNPluginEnabled label=$enablePLNArchivingLabel translate=false}
@@ -37,6 +39,8 @@
 			{/fbvFormArea}
 			{if $isPLNPluginEnabled}
 				{fbvFormSection translate=false}
+					{translate key="manager.setup.plnSettingsDescription"}
+
 					<div id="pln-settings-action" class="pkp_linkActions">
 						{include file="linkAction/linkAction.tpl" action=$plnSettingsShowAction contextId="archivingForm"}
 					</div>
@@ -80,6 +84,8 @@
 
 		{if $isPorticoPluginInstalled}
 			{fbvFormArea title="manager.setup.porticoTitle" id="portico_description"}
+				{translate key="manager.setup.porticoDescription"}
+
 				{fbvFormSection list="true" translate=false}
 					{translate|assign:"enablePorticoLabel" key="manager.setup.porticoEnable"}
 					{fbvElement type="checkbox" id="enablePortico" value="1" checked=$enablePortico label=$enablePorticoLabel translate=false}

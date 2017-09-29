@@ -23,7 +23,7 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 
 	/**
 	 * Retrieve a navigation menu item assignment by ID.
-	 * @param $navigationMenuItemId int
+	 * @param $navigationMenuItemAssignmentId int
 	 * @return NavigationMenuItemAssignment
 	 */
 	function getById($navigationMenuItemAssignmentId) {
@@ -51,6 +51,7 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 
 	/**
 	 * Retrieve items by menu id
+	 * @param $menuId int
 	 */
 	public function getByMenuId($menuId) {
 		$params = array((int) $menuId);
@@ -68,6 +69,8 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 
 	/**
 	 * Retrieve items by menu item id
+	 *
+	 * @param $menuItemId int
 	 */
 	public function getByMenuItemId($menuItemId) {
 		$params = array((int) $menuItemId);
@@ -84,7 +87,10 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	}
 
 	/**
-	 * Retrieve items by menu item id and type
+	 * Retrieve items by menu item id and ParentId
+	 * @param $navigationMenuItemId int
+	 * @param $menuId int
+	 * @param $parentId int
 	 */
 	public function getByMenuIdAndParentId($navigationMenuItemId, $menuId, $parentId = null) {
 		$params = array(

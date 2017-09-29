@@ -35,7 +35,7 @@
 			{fbvElement type="text" multilingual="true" id="title" value=$title maxlength="255" required="true"}
 		{/fbvFormSection}
 
-		{fbvFormSection id="menuItemTypeSection" title="manager.navigationMenus.form.navigationMenuItemType" for="area_name"}
+		{fbvFormSection id="menuItemTypeSection" title="manager.navigationMenus.form.navigationMenuItemType" for="menuItemType"}
 			{fbvElement type="select" id="menuItemType" from=$navigationMenuItemTypeTitles selected=$type label="manager.navigationMenus.form.navigationMenuItemTypeMessage" translate=false}
 		{/fbvFormSection}
 

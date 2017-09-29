@@ -26,12 +26,12 @@ class NavigationMenuItemsGridRow extends GridRow {
 	function initialize($request, $template = null) {
 		parent::initialize($request, $template);
 
-		// Is this a new row or an existing row?
 		$element = $this->getData();
 		assert(is_a($element, 'NavigationMenuItem'));
 
 		$rowId = $this->getId();
 
+		// Is this a new row or an existing row?
 		if (!empty($rowId) && is_numeric($rowId)) {
 			// Only add row actions if this is an existing row
 			$router = $request->getRouter();
@@ -39,34 +39,32 @@ class NavigationMenuItemsGridRow extends GridRow {
 				'navigationMenuItemId' => $rowId
 			);
 
-			if (!$element->getDefault()) {
-				$this->addAction(
-					new LinkAction(
-						'edit',
-						new AjaxModal(
-							$router->url($request, null, null, 'editNavigationMenuItem', null, $actionArgs),
-							__('grid.action.edit'),
-							'modal_edit',
-							true
-							),
+			$this->addAction(
+				new LinkAction(
+					'edit',
+					new AjaxModal(
+						$router->url($request, null, null, 'editNavigationMenuItem', null, $actionArgs),
 						__('grid.action.edit'),
-						'edit')
-				);
+						'modal_edit',
+						true
+						),
+					__('grid.action.edit'),
+					'edit')
+			);
 
-				$this->addAction(
-					new LinkAction(
-						'remove',
-						new RemoteActionConfirmationModal(
-							$request->getSession(),
-							__('common.confirmDelete'),
-							__('common.remove'),
-							$router->url($request, null, null, 'deleteNavigationMenuItem', null, $actionArgs),
-							'modal_delete'
-							),
-						__('grid.action.remove'),
-						'delete')
-				);
-			}
+			$this->addAction(
+				new LinkAction(
+					'remove',
+					new RemoteActionConfirmationModal(
+						$request->getSession(),
+						__('common.confirmDelete'),
+						__('common.remove'),
+						$router->url($request, null, null, 'deleteNavigationMenuItem', null, $actionArgs),
+						'modal_delete'
+						),
+					__('grid.action.remove'),
+					'delete')
+			);
 		}
 	}
 }

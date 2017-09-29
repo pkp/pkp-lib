@@ -26,12 +26,12 @@ class NavigationMenusGridRow extends GridRow {
 	function initialize($request, $template = null) {
 		parent::initialize($request, $template);
 
-		// Is this a new row or an existing row?
 		$element = $this->getData();
 		assert(is_a($element, 'NavigationMenu'));
 
 		$rowId = $this->getId();
 
+		// Is this a new row or an existing row?
 		if (!empty($rowId) && is_numeric($rowId)) {
 			// Only add row actions if this is an existing row
 			$router = $request->getRouter();
@@ -50,22 +50,20 @@ class NavigationMenusGridRow extends GridRow {
 					__('grid.action.edit'),
 					'edit')
 			);
-
-			if (!$element->getDefault()) {
-				$this->addAction(
-				new LinkAction(
-					'remove',
-					new RemoteActionConfirmationModal(
-						$request->getSession(),
-						__('common.confirmDelete'),
-						__('common.remove'),
-						$router->url($request, null, null, 'deleteNavigationMenu', null, $actionArgs),
-						'modal_delete'
-						),
-					__('grid.action.remove'),
-					'delete')
-				);
-			}
+			
+			$this->addAction(
+			new LinkAction(
+				'remove',
+				new RemoteActionConfirmationModal(
+					$request->getSession(),
+					__('common.confirmDelete'),
+					__('common.remove'),
+					$router->url($request, null, null, 'deleteNavigationMenu', null, $actionArgs),
+					'modal_delete'
+					),
+				__('grid.action.remove'),
+				'delete')
+			);
 
 		}
 	}

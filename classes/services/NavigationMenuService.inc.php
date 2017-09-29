@@ -17,6 +17,10 @@ namespace PKP\Services;
 
 class NavigationMenuService {
 
+	/**
+	 * Return all default navigationMenuItemTypes.
+	 * @return array
+	 */
 	public function getMenuItemTypes() {
 		\AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER);
 		$types = array(
@@ -92,6 +96,9 @@ class NavigationMenuService {
 		return $types;
 	}
 
+	/**
+	 * Callback for display menu item functionallity
+	 */
 	function getDisplayStatus(&$navigationMenuItem) {
 		$request = \Application::getRequest();
 		$dispatcher = $request->getDispatcher();
@@ -326,6 +333,7 @@ class NavigationMenuService {
 
 	/**
 	 * Get a tree of NavigationMenuItems assigned to this menu
+	 * @param $navigationMenu \NavigationMenu 
 	 *
 	 * @return array Hierarchical array of menu items
 	 */

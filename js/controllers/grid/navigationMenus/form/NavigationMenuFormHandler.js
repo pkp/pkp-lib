@@ -26,8 +26,7 @@
 	 *
 	 * @extends $.pkp.controllers.form.AjaxFormHandler
 	 *
-	 * @param {jQueryObject} $formElement A wrapped HTML element that
-	 *  represents the approved proof form interface element.
+	 * @param {jQueryObject} $formElement The form element
 	 * @param {Object} options Modal options.
 	 */
 	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuFormHandler =
@@ -250,7 +249,7 @@
 	 * Show the submenu link warning message
 	 */
 	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuFormHandler
-			.prototype.showSubmenuWarning = function(e) {
+			.prototype.showSubmenuWarning = function() {
 
 		var opts = {
 			title: this.warningModalTitle_,

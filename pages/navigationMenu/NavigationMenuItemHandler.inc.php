@@ -24,9 +24,6 @@ class NavigationMenuItemHandler extends Handler {
 	 * @copydoc Handler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
-		// import('lib.pkp.classes.security.authorization.ContextRequiredPolicy');
-		// $this->addPolicy(new ContextRequiredPolicy($request));
-
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 
@@ -111,7 +108,6 @@ class NavigationMenuItemHandler extends Handler {
 		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
 
 		$navigationMenuItem = $navigationMenuItemDao->getByPath($contextId, $path);
-
 
 		if (isset($navigationMenuItem)) {
 			$templateMgr->assign('title', $navigationMenuItem->getLocalizedTitle());

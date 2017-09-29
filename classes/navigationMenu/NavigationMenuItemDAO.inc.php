@@ -76,6 +76,7 @@ class NavigationMenuItemDAO extends DAO {
 
 	/**
 	 * Retrieve items by menu id
+	 * @param $menuId int
 	 */
 	public function getByMenuId($menuId) {
 		$params = array((int) $menuId);
@@ -93,6 +94,9 @@ class NavigationMenuItemDAO extends DAO {
 
 	/**
 	 * Retrieve items by menuItemType and setting_name = titleLocaleKey
+	 * @param $contextId int
+	 * @param $menuItemType string
+	 * @param $menuItemTitleLocaleKey string
 	 */
 	public function getByTypeAndTitleLocaleKey($contextId, $menuItemType, $menuItemTitleLocaleKey) {
 		$params = array(
@@ -145,7 +149,6 @@ class NavigationMenuItemDAO extends DAO {
 		$navigationMenuItem = $this->newDataObject();
 		$navigationMenuItem->setId($row['navigation_menu_item_id']);
 		$navigationMenuItem->setContextId($row['context_id']);
-		$navigationMenuItem->setDefault($row['is_default']);
 		$navigationMenuItem->setUrl($row['url']);
 		$navigationMenuItem->setType($row['type']);
 		$navigationMenuItem->setPath($row['path']);
@@ -173,12 +176,11 @@ class NavigationMenuItemDAO extends DAO {
 	function insertObject($navigationMenuItem) {
 		$this->update(
 				'INSERT INTO navigation_menu_items
-				(path, is_default, context_id, url, type)
+				(path, context_id, url, type)
 				VALUES
-				(?, ?, ?, ?, ?)',
+				(?, ?, ?, ?)',
 			array(
 				$navigationMenuItem->getPath(),
-				(int) $navigationMenuItem->getDefault(),
 				(int) $navigationMenuItem->getContextId(),
 				$navigationMenuItem->getUrl(),
 				$navigationMenuItem->getType(),
@@ -199,14 +201,12 @@ class NavigationMenuItemDAO extends DAO {
 				'UPDATE navigation_menu_items
 				SET
 					path = ?,
-					is_default = ?,
 					context_id = ?,
 					url = ?,
 					type = ?
 				WHERE navigation_menu_item_id = ?',
 			array(
 				$navigationMenuItem->getPath(),
-				(int) $navigationMenuItem->getDefault(),
 				(int) $navigationMenuItem->getContextId(),
 				$navigationMenuItem->getUrl(),
 				$navigationMenuItem->getType(),
@@ -299,8 +299,11 @@ class NavigationMenuItemDAO extends DAO {
 
 	/**
 	 * Load a XML node to DB
-	 * @param $contextId
+	 * @param $contextId int
 	 * @param $node
+	 * @param $navigationMenuId int
+	 * @param $navigationMenuItemParentId int
+	 * @param $seq int
 	 * @param $checkChildren bool Optional
 	 * @return boolean true === success
 	 */

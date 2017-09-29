@@ -535,20 +535,16 @@
 	<!-- Navigation Menus -->
 	<message key="manager.navigationMenus.form.title">Title</message>
 	<message key="manager.navigationMenus.form.path">Path</message>
-	<message key="manager.navigationMenus.form.navigationMenuRequired">A selected navigation menu is required</message>
 	<message key="manager.navigationMenus">Navigation Menus</message>
-	<message key="manager.navigationMenus.form.menuItemEnabled">Enabled</message>
-	<message key="manager.navigationMenus.form.parentNavigationMenu">Select Parent navigation Menu</message>
-	<message key="manager.navigationMenus.form.parentNavigationMenuItem">Select Parent navigation Menu item</message>
 	<message key="manager.navigationMenus.form.viewInstructions"><![CDATA[<p>This page will be accessible at: <blockquote>{$pagesPath}</blockquote>...where %PATH% is the path entered above. <strong>Note:</strong> No two pages can have the same path. Using paths that are built into the system may cause you to lose access to important functions.</p>]]></message>
 	<message key="manager.navigationMenus.form.content">Content</message>
 	<message key="manager.navigationMenus.form.pathRegEx">The path field must contain only alphanumeric characters plus '.', '/', '-', and '_'.</message>
 	<message key="manager.navigationMenus.form.duplicatePath">This path already exists for another navigation menu item.</message>
-	<message key="manager.navigationMenus.form.duplicateTitle">This titles already exists for another navigation menu.</message>
+	<message key="manager.navigationMenus.form.duplicateTitles">This titles already exists for another navigation menu.</message>
+	<message key="manager.navigationMenus.form.titleRequired">The title is required</message>
 	<message key="manager.navigationMenuItems">Navigation Menu Items</message>
 	<message key="manager.navigationMenus.assignedMenuItems">Assigned Menu Items</message>
 	<message key="manager.navigationMenus.unassignedMenuItems">Unassigned Menu Items</message>
-	<message key="manager.navigationMenus.form.parentNMICantBeChild">The selected parent navigation menu item can't be selected because it is child of another navigation menu item</message>
 	<message key="manager.navigationMenus.form.navigationMenuArea">Active Theme Navigation Areas</message>
 	<message key="manager.navigationMenus.form.navigationMenuAreaMessage">Select a navigation area</message>
 

@@ -40,8 +40,6 @@ class NavigationMenusGridHandler extends GridHandler {
 	 * @copydoc GridHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
-		//import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
-		//$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 		$context = $request->getContext();
 
 		$contextId = CONTEXT_ID_NONE;

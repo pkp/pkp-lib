@@ -291,7 +291,6 @@ class PKPTemplateManager extends Smarty {
 					ServicesContainer::instance()
 						->get('navigationMenu')
 						->getMenuTree($navigationMenu);
-					// $navigationMenu->getMenuTree();
 				}
 
 				$this->assign('navigationMenus', $navigationMenusArray);
@@ -1533,7 +1532,7 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
-	 * Smarty usage: {load_menu name=$areaName path=$declaredMenuTemplatePath navClass=$navClass ulClass=$ulClass liClass=$liClass}
+	 * Smarty usage: {load_menu name=$areaName path=$declaredMenuTemplatePath id=$id ulClass=$ulClass liClass=$liClass}
 	 *
 	 * Custom Smarty function for printing navigation menu areas attached to a context.
 	 * @param $params array associative array
@@ -1571,7 +1570,6 @@ class PKPTemplateManager extends Smarty {
 			'id' => $params['id'],
 			'ulClass' => $params['ulClass'],
 			'liClass' => $params['liClass'],
-			'navClass' => $navClass
 		));
 
 		$output = $this->fetch($menuTemplatePath);

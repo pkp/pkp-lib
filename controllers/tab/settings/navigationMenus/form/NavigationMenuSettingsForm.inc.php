@@ -21,17 +21,10 @@ class NavigationMenuSettingsForm extends ContextSettingsForm {
 	 * Constructor.
 	 */
 	function __construct($wizardMode = false) {
-		$settings = array(
-		);
+		$settings = array();
 
 		parent::__construct($settings, 'controllers/tab/settings/navigationMenus/form/navigationMenuSettingsForm.tpl', $wizardMode);
 	}
-
-
-	//
-	// Implement template methods from Form.
-	//
-
 
 	//
 	// Implement template methods from ContextSettingsForm.

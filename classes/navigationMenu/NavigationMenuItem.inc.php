@@ -37,7 +37,7 @@ class NavigationMenuItem extends DataObject {
 	/** @var $navigationMenuItems array The navigationMenuItems underneath this navigationMenuItem */
 	var $navigationMenuItems = array();
 
-	var $_isDispayed = true;
+	var $_isDisplayed = true;
 
 	//
 	// Get/set methods
@@ -57,70 +57,6 @@ class NavigationMenuItem extends DataObject {
 	 */
 	function getPath() {
 		return $this->getData('path');
-	}
-
-	/**
-	 * Set page handler name for this navigation menu item.
-	 * @param $page string
-	 */
-	function setPage($page) {
-		$this->setData('page', $page);
-	}
-
-	/**
-	 * Get page handler name for this navigation menu item.
-	 * @return string
-	 */
-	function getPage() {
-		return $this->getData('page');
-	}
-
-	/**
-	 * Set page's op handler name for this navigation menu item.
-	 * @param $op string
-	 */
-	function setOp($op) {
-		$this->setData('op', $op);
-	}
-
-	/**
-	 * Get page's op handler name for this navigation menu item.
-	 * @return string
-	 */
-	function getOp() {
-		return $this->getData('op');
-	}
-
-	/**
-	 * Get is_default for this navigation menu item.
-	 * @return int
-	 */
-	function getDefault() {
-		return $this->getData('is_default');
-	}
-
-	/**
-	 * Set is_default for this navigation menu item.
-	 * @param $default int
-	 */
-	function setDefault($default) {
-		$this->setData('is_default', $default);
-	}
-
-	/**
-	 * Get defaultId of this NavigationMenuItem
-	 * @return int
-	 */
-	function getDefaultId() {
-		return $this->getData('default_id');
-	}
-
-	/**
-	 * Set defaultId of this NavigationMenuItem
-	 * @param $defaultId int
-	 */
-	function setDefaultId($defaultId) {
-		$this->setData('default_id', $defaultId);
 	}
 
 	/**
@@ -160,7 +96,7 @@ class NavigationMenuItem extends DataObject {
 	 * @return int
 	 */
 	function getContextId() {
-		return $this->getData('context_id');
+		return $this->getData('contextId');
 	}
 
 	/**
@@ -168,7 +104,7 @@ class NavigationMenuItem extends DataObject {
 	 * @param $contextId int
 	 */
 	function setContextId($contextId) {
-		$this->setData('context_id', $contextId);
+		$this->setData('contextId', $contextId);
 	}
 
 	/**
@@ -244,7 +180,7 @@ class NavigationMenuItem extends DataObject {
 	 * @return boolean
 	 */
 	function getIsDisplayed() {
-		return $this->_isDispayed;
+		return $this->_isDisplayed;
 	}
 
 	/**
@@ -252,7 +188,7 @@ class NavigationMenuItem extends DataObject {
 	 * @param $isDisplayed boolean
 	 */
 	function setIsDisplayed($isDisplayed) {
-		$this->_isDispayed = $isDisplayed;
+		$this->_isDisplayed = $isDisplayed;
 	}
 }
 

@@ -16,7 +16,6 @@
 import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 import('lib.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
-import('lib.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemAssignmentsForm');
 
 class NavigationMenuItemsGridHandler extends GridHandler {
 
@@ -32,7 +31,6 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 				'addNavigationMenuItem', 'editNavigationMenuItem',
 				'updateNavigationMenuItem',
 				'deleteNavigationMenuItem', 'saveSequence',
-				'editNavigationMenuItemAssignment', 'updateNavigationMenuItemAssignment',
 			)
 		);
 	}
@@ -44,8 +42,6 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 	 * @copydoc GridHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
-		//import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
-		//$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 		$context = $request->getContext();
 
 		$contextId = CONTEXT_ID_NONE;
@@ -96,16 +92,11 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
 
-
-		$actionArgs = array(
-
-		);
-
 		$this->addAction(
 			new LinkAction(
 				'addNavigationMenuItem',
 				new AjaxModal(
-					$router->url($request, null, null, 'addNavigationMenuItem', null, $actionArgs),
+					$router->url($request, null, null, 'addNavigationMenuItem', null, null),
 					__('grid.action.addNavigationMenuItem'),
 					'modal_add_item',
 					true
@@ -144,7 +135,7 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 	// Public grid actions.
 	//
 	/**
-	 * Load and fetch the navigation menu items form in read-only mode.
+	 * Update NavigationMenuItem
 	 * @param $args array
 	 * @param $request Request
 	 * @return JSONMessage JSON object
@@ -209,7 +200,7 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 	}
 
 	/**
-	 * Load and fetch the navigation menu item form in read-only mode.
+	 * Add NavigationMenuItem
 	 * @param $args array
 	 * @param $request Request
 	 * @return JSONMessage JSON object
@@ -239,7 +230,7 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 	 */
 	function deleteNavigationMenuItem($args, $request) {
 		$navigationMenuItemId = (int) $request->getUserVar('navigationMenuItemId');
-		//$navigationMenuIdParent = (int) $request->getUserVar('navigationMenuIdParent');
+
 		$context = $request->getContext();
 		$contextId = CONTEXT_ID_NONE;
 		if ($context) {
@@ -248,7 +239,7 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 
 		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
 		$navigationMenuItem = $navigationMenuItemDao->getById($navigationMenuItemId, $contextId);
-		if ($navigationMenuItem && $request->checkCSRF()) {
+		if ($navigationMenuItem) {
 			$navigationMenuItemDao->deleteObject($navigationMenuItem);
 
 			// Create notification.
@@ -260,66 +251,6 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 		}
 
 		return new JSONMessage(false);
-	}
-
-	// NavigationMenuItemAssignments
-	/**
-	 * update NavigationMenuItemAssignment mode.
-	 * @param $args array
-	 * @param $request Request
-	 * @return JSONMessage JSON object
-	 */
-	function updateNavigationMenuItemAssignment($args, $request) {
-		$navigationMenuItemAssignmentId = (int)$request->getUserVar('navigationMenuItemId');
-		$context = $request->getContext();
-		$contextId = CONTEXT_ID_NONE;
-		if ($context) {
-			$contextId = $context->getId();
-		}
-
-		import('lib.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemAssignmentsForm');
-		$navigationMenuItemAssignmentsForm = new NavigationMenuItemAssignmentsForm($contextId, $navigationMenuItemAssignmentId);
-
-		$navigationMenuItemAssignmentsForm->readInputData();
-
-		if ($navigationMenuItemAssignmentsForm->validate()) {
-			$navigationMenuItemAssignmentsForm->execute($request);
-
-			if ($navigationMenuItemAssignmentId) {
-				// Successful edit of an existing $navigationMenuItemAssignment.
-				$notificationLocaleKey = 'notification.editedNavigationMenuItemAssignment';
-			}
-
-			// Record the notification to user.
-			$notificationManager = new NotificationManager();
-			$user = $request->getUser();
-			$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __($notificationLocaleKey)));
-
-			// Prepare the grid row data.
-			return DAO::getDataChangedEvent($navigationMenuItemAssignmentId);
-		} else {
-			return new JSONMessage(false);
-		}
-	}
-
-	/**
-	 * Display form to edit a navigation menu item assignment object.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function editNavigationMenuItemAssignment($args, $request) {
-		$navigationMenuItemAssignmentId = (int) $request->getUserVar('navigationMenuItemAssignmentId');
-		$context = $request->getContext();
-		$contextId = CONTEXT_ID_NONE;
-		if ($context) {
-			$contextId = $context->getId();
-		}
-
-		$navigationMenuItemAssignmentForm = new NavigationMenuItemAssignmentsForm($contextId, $navigationMenuItemAssignmentId);
-		$navigationMenuItemAssignmentForm->initData($args, $request);
-
-		return new JSONMessage(true, $navigationMenuItemAssignmentForm->fetch($request));
 	}
 }
 

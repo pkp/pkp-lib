@@ -42,12 +42,6 @@ class NavigationMenuItemsForm extends Form {
 	//
 	// Getters and setters.
 	//
-	/**
-	 * Return if this form is read only or not.
-	 */
-	function isReadOnly() {
-		return $this->_readOnly;
-	}
 
 	/**
 	 * Get the current context id.
@@ -153,7 +147,6 @@ class NavigationMenuItemsForm extends Form {
 		$navigationMenuItem->setPath($this->getData('path'));
 		$navigationMenuItem->setTitle($this->getData('title'), null); // Localized
 		$navigationMenuItem->setContent($this->getData('content'), null); // Localized
-		$navigationMenuItem->setDefault($navigationMenuItem->getDefault());
 		$navigationMenuItem->setContextId($this->getContextId());
 		$navigationMenuItem->setUrl($this->getData('url'));
 		$navigationMenuItem->setType($this->getData('menuItemType'));

@@ -65,7 +65,7 @@ class NavigationMenuDAO extends DAO {
 	}
 
 	/**
-	 * Retrieve a navigation menu by navigation menu ID.
+	 * Retrieve a navigation menu by navigation menu area.
 	 * @param $contextId int Context Id
 	 * @param $areaName string Template Area name
 	 * @return NavigationMenu
@@ -110,9 +110,10 @@ class NavigationMenuDAO extends DAO {
 
 	/**
 	 * Check if a navigationMenu exists with the given title.
-	 * @param $title int
 	 * @param $contextId int
-	 * @return boolean
+	 * @param $title int
+	 *
+	 * @return ADORecordSet
 	 */
 	function navigationMenuExistsByTitle($contextId, $title) {
 		$result = $this->retrieve(
@@ -150,7 +151,6 @@ class NavigationMenuDAO extends DAO {
 		$navigationMenu->setTitle($row['title']);
 		$navigationMenu->setAreaName($row['area_name']);
 		$navigationMenu->setContextId($row['context_id']);
-		$navigationMenu->setDefault($row['is_default']);
 
 		return $navigationMenu;
 	}
@@ -163,14 +163,13 @@ class NavigationMenuDAO extends DAO {
 	function insertObject($navigationMenu) {
 		$this->update(
 				'INSERT INTO navigation_menus
-				(title, area_name, context_id, is_default)
+				(title, area_name, context_id)
 				VALUES
-				(?, ?, ?, ?)',
+				(?, ?, ?)',
 			array(
 				$navigationMenu->getTitle(),
 				$navigationMenu->getAreaName(),
 				(int) $navigationMenu->getContextId(),
-				(int) $navigationMenu->getDefault(),
 			)
 		);
 		$navigationMenu->setId($this->getInsertId());
@@ -188,14 +187,12 @@ class NavigationMenuDAO extends DAO {
 			'UPDATE	navigation_menus
 			SET	title = ?,
 				area_name = ?,
-				context_id = ?,
-				is_default = ?
+				context_id = ?
 			WHERE	navigation_menu_id = ?',
 			array(
 				$navigationMenu->getTitle(),
 				$navigationMenu->getAreaName(),
 				(int) $navigationMenu->getContextId(),
-				(int) $navigationMenu->getDefault(),
 				(int) $navigationMenu->getId(),
 			)
 		);
@@ -205,7 +202,6 @@ class NavigationMenuDAO extends DAO {
 
 	/**
 	 * Delete a NavigationMenu.
-	 * TODO::defstat - What whould we do with NavigationMenuItems having the deleted NavigationMenu as parent
 	 * @param $navigationMenu NavigationMenu
 	 * @return boolean
 	 */

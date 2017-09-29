@@ -21,7 +21,7 @@ class NavigationMenuForm extends Form {
 	/** @var int Context ID */
 	var $_contextId;
 
-	/** @var $navigationMenu NavigationMenu The menu being edited */
+	/** @var $_navigationMenuId int The menu id being edited */
 	var $_navigationMenuId;
 
 	/**
@@ -35,7 +35,7 @@ class NavigationMenuForm extends Form {
 
 		parent::__construct('controllers/grid/navigationMenus/form/navigationMenuForm.tpl');
 
-		$this->addCheck(new FormValidator($this, 'title', 'required', 'manager.announcementTypes.form.typeNameRequired'));
+		$this->addCheck(new FormValidator($this, 'title', 'required', 'manager.navigationMenus.form.titleRequired'));
 
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
@@ -92,14 +92,6 @@ class NavigationMenuForm extends Form {
 			return $a->getId() - $b->getId();
 		});
 
-		if ($this->_navigationMenuId) {
-			$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
-			$navigationMenu = $navigationMenuDao->getById($this->_navigationMenuId);
-			$navigationMenuIsDefault = $navigationMenu->getDefault();
-		} else {
-			$navigationMenuIsDefault = 0;
-		}
-
 		import('classes.core.ServicesContainer');
 		$navigationMenuItemTypes = ServicesContainer::instance()
 			->get('navigationMenu')
@@ -116,9 +108,8 @@ class NavigationMenuForm extends Form {
 			'unassignedItems' => $unassignedItems,
 			'navigationMenuId' => $this->_navigationMenuId,
 			'title' => $this->getData('title'),
-			'navigationMenuArea' => $this->getData('area_name'),
+			'navigationMenuArea' => $this->getData('areaName'),
 			'menuTree' => $this->getData('menuTree'),
-			'navigationMenuIsDefault' => $navigationMenuIsDefault,
 			'navigationMenuItemTypes' => $navigationMenuItemTypes,
 			'navigationMenuItemTypeConditionalWarnings' => json_encode($typeConditionalWarnings),
 		));
@@ -157,7 +148,7 @@ class NavigationMenuForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('title', 'navigationMenuId', 'area_name', 'menuTree'));
+		$this->readUserVars(array('title', 'navigationMenuId', 'areaName', 'menuTree'));
 
 	}
 
@@ -178,7 +169,7 @@ class NavigationMenuForm extends Form {
 
 		$navigationMenu->setContextId($this->_contextId);
 		$navigationMenu->setTitle($this->getData('title'));
-		$navigationMenu->setAreaName($this->getData('area_name'));
+		$navigationMenu->setAreaName($this->getData('areaName'));
 
 		// Update or insert NavigationMenu
 		if ($navigationMenu->getId() != null) {

@@ -380,9 +380,10 @@
 
 	<!-- editor decisions -->
 	<message key="editor.submission.decision">Décision</message>
+	<message key="editor.submission.decision.accept">Envoyer en révision</message>
 	<message key="editor.submission.decision.requestRevisions">Demande de révisions</message>
 	<message key="editor.submission.decision.resubmit">Resoumettre pour évaluation</message>
-	<message key="editor.submission.decision.decline">Refus de la soumission</message>
+	<message key="editor.submission.decision.decline">Refuser la soumission</message>
 	<message key="editor.submission.decision.sendToProduction">Envoyer pour publication</message>
 	<message key="editor.submission.decision.sendInternalReview">Envoyer à l'évaluateur interne</message>
 	<message key="editor.submission.decision.sendExternalReview">Envoyer à l'évaluateur externe</message>

@@ -178,7 +178,7 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
 		$navigationMenuItem = $navigationMenuItemDao->getById($assignment->getMenuItemId());
 
-		$assignment->setTitle($navigationMenuItem->getTitle(), null);
+		$assignment->setTitle($navigationMenuItem->getTitle(null), null);
 
 		$assignment->setId($this->getInsertId());
 		$this->updateLocaleFields($assignment);

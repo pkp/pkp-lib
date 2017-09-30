@@ -286,7 +286,6 @@ class NavigationMenuDAO extends DAO {
 				$navigationMenu->setTitle($title);
 				$navigationMenu->setContextId($contextId);
 				$navigationMenu->setAreaName($area);
-				$navigationMenu->setDefault(true);
 
 				// insert the navigationMenu into the DB
 				$navigationMenuId = $this->insertObject($navigationMenu);

@@ -79,10 +79,10 @@
 	/**
 	 * The warning message to display about submenus
 	 * @private
-	 * @type {?string}
+	 * @type {string|undefined}
 	 */
 	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuFormHandler
-			.prototype.submenuWarning_ = null;
+			.prototype.submenuWarning_ = undefined;
 
 
 	/**
@@ -135,17 +135,17 @@
 						if (!$(this).find(
 								'> .item > .item_buttons .btnSubmenuWarning').length) {
 							$(this).find('> .item > .item_buttons').prepend(
-								$('<button></button>')
-								.addClass('btnSubmenuWarning')
-								.append(
+									$('<button></button>')
+									.addClass('btnSubmenuWarning')
+									.append(
 									$('<span></span>')
 									.addClass('fa fa-exclamation-triangle')
-								)
-								.append(
+									)
+									.append(
 									$('<span></span>')
 									.addClass('-screenReader')
 									.text(self.submenuWarning_)
-								)
+									)
 							);
 						}
 					}
@@ -223,30 +223,32 @@
 
 	/**
 	 * Show the conditional display warning message
+	 * @param {jQueryObject} htmlElement The html element
+	 * @return {boolean}
 	 */
 	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuFormHandler
 			.prototype.showConditionalDisplayWarning = function(htmlElement) {
-		var itemType = $(htmlElement).closest('li').data('type');
+		var itemType = $(htmlElement).closest('li').data('type'),
+				opts = {
+					title: this.warningModalTitle_,
+					okButton: this.okButton_,
+					cancelButton: false,
+					dialogText: this.itemTypeConditionalWarnings_[itemType]
+				};
 
 		if (this.itemTypeConditionalWarnings_[itemType] !== null) {
-			var opts = {
-				title: this.warningModalTitle_,
-				okButton: this.okButton_,
-				cancelButton: false,
-				dialogText: this.itemTypeConditionalWarnings_[itemType]
-			};
-
 			$('<div id="' + $.pkp.classes.Helper.uuid() + '" ' +
 					'class="pkp_modal pkpModalWrapper" tabindex="-1"></div>')
-				.pkpHandler('$.pkp.controllers.modal.ConfirmationModalHandler', opts);
+					.pkpHandler('$.pkp.controllers.modal.ConfirmationModalHandler', opts);
 		}
 
 		return false;
-	}
+	};
 
 
 	/**
 	 * Show the submenu link warning message
+	 * @return {boolean}
 	 */
 	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuFormHandler
 			.prototype.showSubmenuWarning = function() {
@@ -260,11 +262,9 @@
 
 		$('<div id="' + $.pkp.classes.Helper.uuid() + '" ' +
 				'class="pkp_modal pkpModalWrapper" tabindex="-1"></div>')
-			.pkpHandler('$.pkp.controllers.modal.ConfirmationModalHandler', opts);
+				.pkpHandler('$.pkp.controllers.modal.ConfirmationModalHandler', opts);
 
 		return false;
-	}
-
-
+	};
 /** @param {jQuery} $ jQuery closure. */
 }(jQuery));

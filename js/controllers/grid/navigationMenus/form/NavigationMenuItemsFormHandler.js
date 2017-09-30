@@ -33,7 +33,7 @@
 
 		$('#previewButton', $formElement).click(this.callbackWrapper(
 				this.showPreview_))
-			.hide();
+				.hide();
 
 		$('#menuItemType', $formElement).change(this.callbackWrapper(this.setType));
 		$('#menuItemType', $formElement).trigger('change');
@@ -58,6 +58,7 @@
 	$.pkp.controllers.grid.navigationMenus.form.
 			NavigationMenuItemsFormHandler.prototype.previewUrl_ = null;
 
+
 	/**
 	 * Descriptions for each item type.
 	 * @private
@@ -66,13 +67,15 @@
 	$.pkp.controllers.grid.navigationMenus.form.
 			NavigationMenuItemsFormHandler.prototype.itemTypeDescriptions_ = null;
 
+
 	/**
 	 * Warnings about the conditions of display for each item type.
 	 * @private
 	 * @type {?Object}
 	 */
 	$.pkp.controllers.grid.navigationMenus.form.
-			NavigationMenuItemsFormHandler.prototype.itemTypeConditionalWarnings_ = null;
+			NavigationMenuItemsFormHandler.prototype
+			.itemTypeConditionalWarnings_ = null;
 
 
 	/**
@@ -109,9 +112,9 @@
 	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsFormHandler.
 			prototype.setType = function() {
 		var itemType = $('#menuItemType', this.getHtmlElement()).val(),
-			$customPageEls = $('#customPageOptions, #previewButton'),
-			$remoteUrlEls = $('#remoteUrlTarget'),
-			$descriptionEl = $('#menuItemTypeSection [for="menuItemType"]');
+				$customPageEls = $('#customPageOptions, #previewButton'),
+				$remoteUrlEls = $('#remoteUrlTarget'),
+				$descriptionEl = $('#menuItemTypeSection [for="menuItemType"]');
 
 		$customPageEls.hide();
 		$remoteUrlEls.hide();

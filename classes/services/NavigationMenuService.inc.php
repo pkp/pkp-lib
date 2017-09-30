@@ -126,7 +126,6 @@ class NavigationMenuService {
 
 			$templateReplaceTitle = $templateMgr->get_template_vars($titleRepl);
 				if ($templateReplaceTitle) {
-					$navigationMenuItem->setTitle();
 					$navigationMenuItem->setTitle($templateReplaceTitle, \AppLocale::getLocale());
 			}
 		}

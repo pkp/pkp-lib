@@ -246,23 +246,23 @@ class CategoryGridHandler extends GridHandler {
 
 
 	/**
-	 * @see GridHandler::getJSHandler()
+	 * @copydoc GridHandler::getJSHandler()
 	 */
 	public function getJSHandler() {
 		return '$.pkp.controllers.grid.CategoryGridHandler';
 	}
 
 	/**
-	 * @see GridHandler::setUrls()
+	 * @copydoc GridHandler::setUrls()
 	 */
-	function setUrls($request) {
+	function setUrls($request, $extraUrls = array()) {
 		$router = $request->getRouter();
-		$url = array('fetchCategoryUrl' => $router->url($request, null, null, 'fetchCategory', null, $this->getRequestArgs()));
-		parent::setUrls($request, $url);
+		$extraUrls['fetchCategoryUrl'] = $router->url($request, null, null, 'fetchCategory', null, $this->getRequestArgs());
+		parent::setUrls($request, $extraUrls);
 	}
 
 	/**
-	 * @see GridHandler::getRowsSequence()
+	 * @copydoc GridHandler::getRowsSequence()
 	 */
 	protected function getRowsSequence($request) {
 		return array_keys($this->getGridCategoryDataElements($request, $this->getCurrentCategoryId()));

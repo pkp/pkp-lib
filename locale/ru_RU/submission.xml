@@ -314,7 +314,8 @@
 	<message key="submission.history.submissionNotes">Заметки к материалу</message>
 	<message key="submission.history.viewLog">Просмотреть журнал</message>
 	<message key="submission.howToCite">Как цитировать</message>
-	<message key="submission.howToCite.citationFormats">Форматы библиографических ссылок</message>
+	<message key="submission.howToCite.citationFormats">Другие форматы библиографических ссылок</message>
+	<message key="submission.howToCite.downloadCitation">Скачать ссылку</message>
 	<message key="submission.indexing">Индексирование</message>
 	<message key="submission.initiated">Начата</message>
 
@@ -521,6 +522,9 @@
 	<message key="editor.submission.roundStatus.reviewsReady">Новые рецензии были отправлены.</message>
 	<message key="editor.submission.roundStatus.reviewsCompleted">Все рецензии пришли, нужно принять решение.</message>
 	<message key="editor.submission.roundStatus.reviewOverdue">Срок рецензии прошел.</message>
+	<message key="editor.submission.roundStatus.pendingRecommendations">Ожидает рекомендаций от редакторов.</message>
+	<message key="editor.submission.roundStatus.recommendationsReady">Новые рекомендации редакторов были отправлены.</message>
+	<message key="editor.submission.roundStatus.recommendationsCompleted">Все рекомендации пришли, нужно принять решение.</message>
 
 	<!-- Участники -->
 	<message key="editor.submission.stageParticipants">Участники</message>
@@ -548,6 +552,17 @@
 	<message key="editor.submission.decision.approveProofs">Одобрить корректуры</message>
 	<message key="editor.submission.decision.disapproveProofsDescription">Этот файл корректуры больше не будет доступен для скачивания или покупки. Вы хотите отменить его одобрение?</message>
 	<message key="editor.submission.decision.noDecisionsAvailable">Назначить редактора, чтобы включить решения редакции для этого этапа.</message>
+	<!--  рекомендации редактора -->
+	<message key="editor.submission.makeRecommendation">Дать рекомендацию</message>
+	<message key="editor.submission.changeRecommendation">Изменить рекомендацию</message>
+	<message key="editor.submission.recommendation.display">Рекомендация: {$recommendation}</message>
+	<message key="editor.submission.allRecommendations.display">Рекомендации: {$recommendations}</message>
+	<message key="editor.submission.recommendation">Рекомендация</message>
+	<message key="editor.submission.recommendation.description">Рекомендовать решение редакции для этого материала.</message>
+	<message key="editor.submission.recordedRecommendations">Записанные рекомендации</message>
+	<message key="editor.submission.decision.nextButton">Далее: Выбрать файлы для {$stageName}</message>
+	<message key="editor.submission.decision.selectFiles">Выберите файлы: которые вы хотите отправить на этап «{$stageName}».</message>
+	<message key="editor.submission.decision.previousAuthorNotification">Назад: Уведомление автора</message>
 
 	<!-- ключи навигации рабочего потока -->
 	<message key="submission.currentStage">Текущий этап</message>
@@ -576,6 +591,7 @@
 	<message key="submission.description">Описание</message>
 	<message key="submission.stageNotInitiated">Этап не начался.</message>
 	<message key="submission.documents">Документы отправленного материала</message>
+	<message key="notification.type.editorAssign">Вы были назначены редактором для материала «{$title}».</message>
 	<message key="notification.type.copyeditorRequest">Вас попросили выполнить литературное редактирование для «{$title}».</message>
 	<message key="notification.type.layouteditorRequest">Вас попросили выполнить верстку для «{$title}».</message>
 	<message key="notification.type.indexRequest">Вас попросили сделать индекс для «{$title}».</message>
@@ -590,6 +606,7 @@
 
 	<message key="notification.type.editorAssignment">Редактор должен быть назначен до начала рецензирования. Пожалуйста, добавьте редактора с помощью списка «Участники».</message>
 	<message key="grid.reviewAttachments.title">Файлы, прикрепленные рецензентом</message>
+	<message key="grid.reviewAttachments.send.title">Выбрать файлы рецензии для отправки автору(авторам)</message>
 	<message key="submission.productionReady">Книга доступна</message>
 	<message key="submission.review.uploadRevisionToRound">Загрузить новую версию файла</message>
 	<message key="log.review.reviewerAssigned">Рецензент {$reviewerName} был назначен на рецензирование материала «{$submissionId}» (раунд рецензирования — {$round}).</message>
@@ -644,7 +661,7 @@
 
 	<!-- Запросы отправки -->
 	<message key="submission.queries.submission">Обсуждения до рецензирования</message>
-	<message key="submission.queries.review">Обсуждения рецензирования</message>
+	<mцessage key="submission.queries.review">Обсуждения рецензирования</message>
 	<message key="submission.queries.editorial">Обсуждения литературного редактирования</message>
 	<message key="submission.queries.production">Обсуждения публикации</message>
 	<message key="submission.query.subject">Тема</message>
@@ -673,9 +690,13 @@
 	<message key="submission.list.filterRemove">Сбросить фильтр: {$filterTitle}</message>
 	<message key="submission.list.itemOrdererUp">Поднять вверх «{$itemTitle}»</message>
 	<message key="submission.list.itemOrdererDown">Опустить вниз «{$itemTitle}»</message>
+	<message key="submission.list.viewSubmission">Показать материал</message>
 	<message key="submission.list.clearSearch">Очистить фразу поиска</message>
-	<message key="submission.list.reviewsCompleted">Завершено рецензий</message>
+	<message key="submission.list.reviewsCompleted">Завершено назначенных рецензий</message>
+	<message key="submission.list.revisionsSubmitted">Отправлено новых версий</message>
+	<message key="submission.list.copyeditsSubmitted">Отправлено файлов, прошедших литературное редактирование</message>
+	<message key="submission.list.galleysCreated">Создано гранок</message>
 	<message key="submission.list.filesPrepared">Подготовлено файлов</message>
-	<message key="submission.list.discussions">Обсуждения</message>
+	<message key="submission.list.discussions">Открытых обсуждений</message>
 	<message key="submission.list.incompleteSubmissionNotice">Этот материал должен быть завершен до того, как редактор будет его рецензировать.</message>
 </locale>

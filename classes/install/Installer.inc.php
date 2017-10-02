@@ -754,6 +754,17 @@ class Installer {
 		$installer->setError(INSTALLER_ERROR_GENERAL, $attr['message']);
 		return false;
 	}
+
+	/**
+	 * Install default Site-level navigation Menus
+	 * @return boolean
+	 */
+	function installDefaultNavigationMenus() {
+		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+		$navigationMenuDao->installSettings(CONTEXT_ID_NONE, 'registry/navigationMenus.xml');
+
+		return true;
+	}
 }
 
 ?>

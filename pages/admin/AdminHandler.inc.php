@@ -85,7 +85,7 @@ class AdminHandler extends Handler {
 	 * @param $args array
 	 */
 	function initialize($request, $args = null) {
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN, LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_APP_ADMIN, LOCALE_COMPONENT_APP_COMMON);
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN, LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_APP_ADMIN, LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_MANAGER);
 		return parent::initialize($request, $args);
 	}
 }

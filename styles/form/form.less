@@ -584,6 +584,131 @@ a[id^="publicIdentifiersForm-clearObjectsPubIds-button"] {
 	}
 }
 
+// Navigation Menu drag-and-drop
+.pkp_nav_management {
+	.pkp_helpers_clear;
+	position: relative;
+	border: @bg-border;
+}
+
+.pkp_nav_assigned,
+.pkp_nav_unassigned {
+	float: left;
+	width: 50%;
+
+	ul {
+		.pkp_unstyled_list;
+
+		ul {
+			margin-left: @double;
+		}
+	}
+
+	> ul {
+		padding-bottom: @double * 2;
+	}
+}
+
+.pkp_nav_management .item {
+	position: relative;
+	margin: @base;
+	border: @bg-border;
+	padding: @half @base;
+	cursor: pointer;
+
+	.item_title {
+		padding-left: @base * 2;
+
+		.fa {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: @double;
+			height: 100%;
+			border-right: @bg-border;
+			line-height: @double + @half;
+			text-align: center;
+		}
+	}
+
+	.item_buttons {
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 100%;
+		line-height: @double + @half;
+
+		button {
+			margin-right: 0.5em;
+			padding: 0 0.5em;
+			border: none;
+			background: transparent;
+			line-height: @double + @half;
+			color: @primary;
+			cursor: pointer;
+		}
+	}
+}
+
+.pkp_nav_item_placeholder,
+.pkp_nav_assigned .pkp_is_sorting .ui-sortable:empty {
+	margin: @base;
+	border: 1px dashed @bg-border-color-light;
+	padding: @half @base @half (@base * 3);
+	min-height: @double + @half;
+}
+
+.pkp_nav_item_placeholder {
+	border-color: @bg-border-color;
+}
+
+.pkp_nav_assigned .pkp_is_sorting .ui-sortable:empty {
+	margin-left: @double + @base;
+	margin-right: @base;
+}
+
+// Hide slots nested two levels deep
+.pkp_nav_assigned .pkp_is_sorting ul .ui-sortable {
+	display: none;
+}
+
+.pkp_nav_assigned {
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 50%;
+		height: 100%;
+		border-right: @bg-border;
+	}
+}
+
+.pkp_nav_management_header {
+	padding: @half @base;
+	border-bottom: @bg-border;
+	font-weight: @bold;
+}
+
+.pkp_nav_unassigned {
+
+	.item {
+		color: @text-light;
+		border-color: @bg-border-color-light;
+
+		.item_title {
+
+			.fa {
+				border-right-color: @bg-border-color-light;
+			}
+		}
+
+		.item_buttons .fa {
+			color: @text-light;
+		}
+	}
+}
+
 .pkp_form {
 
 	// @todo all below

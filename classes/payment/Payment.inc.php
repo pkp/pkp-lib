@@ -20,7 +20,7 @@
  */
 
 /** DOES NOT inherit from DataObject for the sake of concise serialization */
-abstract class Payment {
+class Payment {
 	/** @var int payment id */
 	var $paymentId;
 
@@ -100,12 +100,6 @@ abstract class Payment {
 	function getCurrencyCode() {
 		return $this->currencyCode;
 	}
-
-	/**
-	 * Get the name of the transaction.
-	 * @return string
-	 */
-	abstract function getName();
 
 	/**
 	 * Set the user ID of the customer.

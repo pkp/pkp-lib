@@ -61,7 +61,6 @@ class NavigationMenuItemHandler extends Handler {
 		$navigationMenuItem->setContent((array) $request->getUserVar('content'), null);
 		$navigationMenuItem->setTitle((array) $request->getUserVar('title'), null);
 
-
 		$templateMgr->assign('title', $navigationMenuItem->getLocalizedTitle());
 
 		$vars = array();

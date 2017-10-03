@@ -182,8 +182,8 @@
 	<message key="manager.roles">Roller</message>
 	<message key="manager.statistics"><![CDATA[Statistik &amp; Rapporter]]></message>
 	<message key="manager.statistics.defaultMetricDescription">
-		{$contextObjectName} är konfigurerad för att registrera mer än ett användningsmått. Användningsstatistiken kommer att presenteras i flera sammanhang.
-		Det finns fall där endast ett användningsmått måste användas, t.ex. för att visa en sorterad lista över de mest använda bidragen eller för
+		{$contextObjectName} är konfigurerad för att registrera mer än ett mått på användning. Användningsstatistiken kommer att presenteras i flera sammanhang.
+		Det finns fall där endast ett mått på användning måste användas, t.ex. för att visa en sorterad lista över de mest använda bidragen eller för
 		att rangordna sökresultat. Välj ett av de konfigurerade värdena som standard.
 	</message>
 	<message key="manager.statistics.city">Stad</message>

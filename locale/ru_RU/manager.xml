@@ -118,6 +118,7 @@
 	<message key="manager.languages.supportedLocalesInstructions">Выберите все языки, которые будут поддерживаться на сайте через меню выбора языка, появляющееся на каждой странице. Это меню будет отображаться только в том случае, если будет выбрано несколько языков.</message>
 	<message key="manager.masthead.title">Выходные данные</message>
 	<message key="manager.payment.timestamp">Дата/Время</message>
+	<message key="manager.people.existingUserRequired">Нужно ввести существующего пользователя.</message>
 	<message key="manager.people.authSource">Источник аутентификации</message>
 	<message key="manager.people.confirmUnenroll">Отменить назначение этого пользователя?</message>
 	<message key="manager.people.createUser">Создать нового пользователя</message>
@@ -425,6 +426,7 @@
 	<message key="settings.roles.roleOptions">Параметры роли</message>
 	<message key="settings.roles.showTitles">Показать название роли в списке участников</message>
 	<message key="settings.roles.permitSelfRegistration">Разрешить самостоятельную регистрацию пользователя</message>
+	<message key="settings.roles.recommendOnly">Эта роль позволяет только рекомендовать решение рецензента, запись итогового решения требует участия редактора с соответствующими правами.</message>
 	<message key="settings.roles.roleName">Название роли</message>
 	<message key="settings.roles.roleAbbrev">Аббревиатура</message>
 	<message key="settings.roles.assignedStages">Назначенные этапы</message>

@@ -78,6 +78,6 @@
 		<p>2. En katalog för att lagra uppladdade filer behöver skapas och göras skrivbar (se "Filinställningar" nedan).</p>]]>
 	</message>
 	<message key="installer.configureXSLMessage"><![CDATA[<p>Din PHP-installation har inte XSL-modulen aktiverat. Aktivera den eller konfigurera xslt_command-parametern i din config.inc.php-fil.</p>]]></message>
-	<message key="installer.beacon">Beacon</message>
-	<message key="installer.beacon.enable">Före PKP med ett unikt ID för webbplatsen och bas-URL:en för OAI (bara för statistik och säkerhetsvarningar).</message>
+	<message key="installer.beacon">Identifikationssignal</message>
+	<message key="installer.beacon.enable">Förse PKP med ett unikt ID för webbplatsen och bas-URL:en för OAI (bara för statistik och säkerhetsvarningar).</message>
 </locale>

@@ -121,6 +121,7 @@
 	<message key="common.default">Standard</message>
 	<message key="common.declined">Nekat</message>
 	<message key="common.delete">Radera</message>
+	<message key="common.deleting">Raderar</message>
 	<message key="common.deleteSelection">Radera markerad(e)</message>
 	<message key="common.designation">Benämning</message>
 	<message key="common.description">Beskrivning</message>
@@ -151,6 +152,8 @@
 	<message key="common.fileSize">Filstorlek</message>
 	<message key="common.fileType">Filtyp</message>
 	<message key="common.fileUploaderError">Systemets filuppladdningsverktyg laddas in. Om det inte dyker upp är det förmodligen så att den här webbläsaren inte stödjer några av dess runtimes. Vänligen kontakta din administratör för support.</message>
+	<message key="common.from">Från</message>
+	<message key="common.until">Till</message>
 	<message key="common.go">Fortsätt</message>
 	<message key="common.height">Höjd</message>
 	<message key="common.homepageNavigationLabel">Hem</message>
@@ -229,6 +232,7 @@
 	<message key="common.saveAndContinue">Spara och fortsätt</message>
 	<message key="common.saveAndEmail">Spara och skicka e-postmeddelande</message>
 	<message key="common.save">Spara</message>
+	<message key="common.saving">Sparar</message>
 	<message key="common.search">Sök</message>
 	<message key="common.searchQuery">Sökfråga</message>
 	<message key="common.second">Sekund(er)</message>
@@ -357,9 +361,7 @@
 	<message key="informationCenter.editorialHistory">Redaktionell historik</message>
 	<message key="informationCenter.addNote">Lägg till en anteckning</message>
 	<message key="informationCenter.noNotes">Det finns inga anteckningar att visa.</message>
-	<message key="informationCenter.currentNotes">Aktuella anteckningar om bearbetning</message>
 	<message key="informationCenter.pastNotes">Tidigare anteckningar om bearbetning</message>
-	<message key="informationCenter.lastUpdated">Senast uppdaterad</message>
 	<message key="informationCenter.deleteConfirm">Är du säker på att du vill ta bort den här anteckningen?</message>
 	<message key="informationCenter.currentHistory">Aktuell version</message>
 	<message key="informationCenter.pastHistory">Tidigare versioner</message>
@@ -372,12 +374,15 @@
 	<message key="stageParticipants.notify.chooseMessage">Välj ett fördefinierat meddelande att använda eller fyll i formuläret nedan.</message>
 	<message key="stageParticipants.notify.message">Meddelande</message>
 	<message key="stageParticipants.notify.warning">Vänligen se till att du har fyllt i meddelandefältet och valt minst en mottagare.</message>
-
+	<message key="stageParticipants.options">Assignment privileges</message>
+	<message key="stageParticipants.recommendOnly">Den här deltagaren tillåts endast rekommendera ett redaktörsbeslut, en behörig redaktör krävs för att registrera redaktörsbeslut.</message>
+	
 	<message key="locale.primary">Primärt språk</message>
 	<message key="locale.supported">Språk som stöds</message>
 	<message key="navigation.access"><![CDATA[Användare &amp; Roller]]></message>
 	<message key="navigation.about">Om</message>
 	<message key="navigation.admin">Administration</message>
+	<message key="navigation.archives">Arkiv</message>
 	<message key="navigation.breadcrumbLabel">Här är du:</message>
 	<message key="navigation.breadcrumbSeparator">/</message>
 	<message key="navigation.tools">Verktyg</message>
@@ -418,6 +423,7 @@
 	<message key="notification.removedAuditor">Manusgranskare borttagen.</message>
 	<message key="notification.addedQuery">Diskussion tillagd.</message>
 	<message key="notification.reviewAcknowledged">Granskning markerad som godkänd. Inget e-postmeddelande skickat.</message>
+	<message key="notification.reviewerThankedEmail">E-postmeddelande med tack skickat till granskare.</message>
 	<message key="notification.updatedReviewFiles">Granskningsfiler uppdaterade.</message>
 	<message key="notification.allow">Aktivera den här sortens aviseringar.</message>
 	<message key="notification.addedAnnouncementType">Meddelandetyp tillagd.</message>
@@ -460,6 +466,7 @@
 	<message key="notification.unsubscribeError">Det uppstod ett fel när din prenumeration skulle avslutas. Vänligen dubbelkolla att du använder korrekt URL, som den stod i e-postmeddelandet med aviseringen.</message>
 	<message key="notification.unsubscribeSuccess">Din prenumeration avslutades utan problem.</message>
 	<message key="notification.savedSubmissionMetadata">Metadata för bidrag sparat.</message>
+	<message key="notification.sendNotificationConfirmation">Skicka e-postmeddelande med avisering till alla registrerade användare.</message>
 	<message key="search.author">Författare</message>
 	<message key="search.abstract">Sammanfattning</message>
 	<message key="search.advancedFilters">Avancerade filter</message>
@@ -536,12 +543,21 @@
 	<message key="user.authorization.submissionFile">Aktuell användare har inte behörighet att få tillgång till den specificerade bidragsfilen.</message>
 	<message key="user.authorization.invalidSubmission">Ogiltigt bidrag.</message>
 	<message key="user.authorization.invalidRepresentation">Ogiltig representation.</message>
-	<message key="navigation.archives">Arkiv</message>
 	<message key="user.authorization.authorRoleMissing">I nuläget har du inte tillräcklig behörighet för att se bidraget. Vänligen se över din profil för att säkerställa att du har fått alla roller du behöver under "Registrera som".</message> <!-- fixme find corresponding string in roles block -->
 	<message key="user.authorization.submissionAuthor">Aktuell användare är inte författare till det begärda bidraget. Vänligen kontrollera att du är inloggad på rätt användarkonto.</message>
 	<message key="notification.type.queryActivity">Diskussionsaktivitet.</message>
 	<message key="notification.type.queryAdded">Diskussion tillagd.</message>
-	<message key="notification.type.assignCopyeditors">Tilldela en manusredigerare genom Lägg till-länken i Deltagar-listan.</message>
+	<message key="notification.type.assignCopyeditors">Tilldela en manusredigerare genom Tilldela-länken i Deltagar-listan.</message>
 	<message key="notification.type.awaitingCopyedits">Väntar på manusredigeringar.</message>
 	<message key="notification.type.roundStatusTitle">Status för omgång {$round}</message>
+
+	<message key="semicolon">{$label}:</message>
+
+	<!-- Navigation Menus -->
+	<message key="notification.editedNavigationMenuItem">Objekt i navigationsmeny uppdaterat.</message>
+	<message key="notification.removedNavigationMenuItem">Objekt i navigationsmeny borttaget.</message>
+	<message key="notification.addedNavigationMenuItem">Objekt i navigationsmeny tillagt.</message>
+	<message key="notification.addedNavigationMenu">Navigationsmeny tillagd.</message>
+	<message key="notification.editedNavigationMenu">Navigationsmeny uppdaterad.</message>
+	<message key="notification.removedNavigationMenu">Navigationsmeny borttagen.</message>
 </locale>

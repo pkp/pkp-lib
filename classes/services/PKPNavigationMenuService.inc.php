@@ -344,8 +344,6 @@ class PKPNavigationMenuService {
 		$prefix = '{$';
 		$postfix = '}';
 
-		$titleRepl = $title;
-
 		$prefixPos = strpos($title, $prefix);
 		$postfixPos = strpos($title, $postfix);
 

@@ -266,4 +266,10 @@
 	<!-- Сетки «Список поступивших материалов» -->
 	<message key="grid.submission.itemTitle">Автор; Название</message>
 	<message key="grid.submission.active.selectOrphaned">Включать неполные материалы, не отправленные автором.</message>
+
+	<!-- Меню навигации -->
+	<message key="grid.action.addNavigationMenu">Добавить меню</message>
+	<message key="grid.action.addNavigationMenuItem">Добавить элемент</message>
+	<message key="grid.navigationMenus.navigationMenuItems.noneExist">Элементы меню навигации отсутствуют</message>
+	<message key="grid.navigationMenus.navigationMenu.noneExist">Меню навигации отсутствуют</message>
 </locale>

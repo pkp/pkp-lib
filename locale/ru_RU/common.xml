@@ -383,6 +383,7 @@
 	<message key="navigation.access"><![CDATA[Пользователи и роли]]></message>
 	<message key="navigation.about">О нас</message>
 	<message key="navigation.admin">Администрирование</message>
+	<message key="navigation.archives">Архивы</message>
 	<message key="navigation.breadcrumbLabel">Вы здесь:</message>
 	<message key="navigation.breadcrumbSeparator">/</message>
 	<message key="navigation.tools">Инструменты</message>
@@ -543,7 +544,6 @@
 	<message key="user.authorization.submissionFile">Данному пользователю не разрешен доступ к файлу указанного материала.</message>
 	<message key="user.authorization.invalidSubmission">Неправильный материал.</message>
 	<message key="user.authorization.invalidRepresentation">Неправильное представление.</message>
-	<message key="navigation.archives">Архивы</message>
 	<message key="user.authorization.authorRoleMissing">В данный момент у Вас не достаточно прав для просмотра материала. Пожалуйста, отредактируйте ваш профиль, чтобы убедиться в том, что Вам предоставлены соответствующие роли в разделе «Регистрация как».</message>
 	<message key="user.authorization.submissionAuthor">Данный пользователь не является автором запрошенного материала. Пожалуйста, проверьте, что вы вошли в систему с правильной учетной записью пользователя.</message>
 	<message key="notification.type.queryActivity">Активность обсуждений.</message>
@@ -553,4 +553,12 @@
 	<message key="notification.type.roundStatusTitle">Статус раунда {$round}</message>
 
 	<message key="semicolon">{$label}:</message>
+
+	<!-- Меню навигации -->
+	<message key="notification.editedNavigationMenuItem">Элемент меню навигации был успешно обновлен</message>
+	<message key="notification.removedNavigationMenuItem">Элемент меню навигации был успешно удален</message>
+	<message key="notification.addedNavigationMenuItem">Элемент меню навигации был успешно добавлен</message>
+	<message key="notification.addedNavigationMenu">Меню навигации было успешно добавлено</message>
+	<message key="notification.editedNavigationMenu">Меню навигации было успешно обновлено</message>
+	<message key="notification.removedNavigationMenu">Меню навигации было успешно удалено</message>
 </locale>

@@ -540,7 +540,7 @@
 	<message key="manager.navigationMenus.form.content">Content</message>
 	<message key="manager.navigationMenus.form.pathRegEx">The path field must contain only alphanumeric characters plus '.', '/', '-', and '_'.</message>
 	<message key="manager.navigationMenus.form.duplicatePath">This path already exists for another navigation menu item.</message>
-	<message key="manager.navigationMenus.form.duplicateTitles">This titles already exists for another navigation menu.</message>
+	<message key="manager.navigationMenus.form.duplicateTitles">This title already exists for another navigation menu.</message>
 	<message key="manager.navigationMenus.form.titleRequired">The title is required</message>
 	<message key="manager.navigationMenuItems">Navigation Menu Items</message>
 	<message key="manager.navigationMenus.assignedMenuItems">Assigned Menu Items</message>
@@ -574,7 +574,7 @@
 	<message key="manager.navigationMenus.dashboard.description">Link to the editorial dashboard.</message>
 	<message key="manager.navigationMenus.profile.description">Link to the user profile page.</message>
 	<message key="manager.navigationMenus.administration.description">Link to the site-wide administration tools.</message>
-	<message key="manager.navigationMenus.administration.conditionalWarning">This will link only be displayed to administrative users.</message>
+	<message key="manager.navigationMenus.administration.conditionalWarning">This link will only be displayed to administrative users.</message>
 	<message key="manager.navigationMenus.logOut.description">A link that will log the user out.</message>
 	<message key="manager.navigationMenus.loggedOut.conditionalWarning">This link will only be displayed when the visitor is logged in.</message>
 	<message key="manager.navigationMenus.loggedIn.conditionalWarning">This link will only be displayed when the visitor is not logged in.</message>

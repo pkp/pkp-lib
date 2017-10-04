@@ -189,7 +189,7 @@
 	<message key="grid.roles.add">Skapa ny roll</message>
 	<message key="grid.roles.stageAssignment">Tilldelning av steg</message>
 
-		<!-- Users -->
+	<!-- Users -->
 	<message key="grid.user.currentUsers">Nuvarande användare</message>
 	<message key="grid.user.currentEnrollment">Nuvarande roller</message>
 	<message key="grid.user.allRoles">Alla roller</message>
@@ -229,12 +229,8 @@
 	<message key="grid.user.mergeUsers">Slå ihop användare</message>
 	<message key="grid.user.mergeUsers.mergeUser">Slå ihop användare</message>
 	<message key="grid.user.mergeUsers.mergeIntoUser">Slå ihop med den här användaren</message>
-	<message key="grid.user.mergeUsers.into.description">Nu behöver du välja en användare som den tidigare användarens författarskap, redaktionsuppgifter, etc. blir knutna till.</message>
-	<message key="grid.user.mergeUsers.from.description">Välj en användare som ska slås ihop med ett annat användarkonto (t.ex. när någon har två användarkonton). Det först valda kontot kommer att raderas och alla bidrag, uppdrag, etc. kommer att knytas till det andra kontot.</message>
 	<message key="grid.user.mergeUsers.allUsers">Alla registrerade användare</message>
-	<message key="grid.user.mergeUsers.mergeUserSelect.confirm">Är du säker på att du vill slå ihop den här användaren med en annan? På nästa sida får du välja den andra användaren.</message>
 	<message key="grid.user.mergeUsers.confirm">Är du säker på att du vill slå ihop kontot med användarnamnet "{$oldUsername}" med kontot med användarnamnet "{$newUsername}"? Kontot med användarnamnet "{$oldUsername}" kommer inte längre att existera efteråt. Åtgärden kan inte ångras.</message>
-	<message key="grid.user.mergeUsers.noneEnrolled">Det finns inga användare med den rollen.</message>
 
 	<!-- Prepared emails -->
 	<message key="grid.preparedEmails.title">Färdiga e-postmallar</message>
@@ -269,4 +265,10 @@
 	<!-- Submission list grids -->
 	<message key="grid.submission.itemTitle">Författare; Titel</message>
 	<message key="grid.submission.active.selectOrphaned">Inkludera ofullständiga bidrag som inte skickats in av författaren.</message>
+	
+	<!-- Navigation Menus -->
+	<message key="grid.action.addNavigationMenu">Lägg till meny</message>
+	<message key="grid.action.addNavigationMenuItem">Lägg till objekt</message>
+	<message key="grid.navigationMenus.navigationMenuItems.noneExist">Inga objekt i navigationsmenyn</message>
+	<message key="grid.navigationMenus.navigationMenu.noneExist">Inga navigationsmenyer</message>
 </locale>

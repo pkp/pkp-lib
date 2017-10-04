@@ -530,6 +530,54 @@
 	<message key="plugins.importexport.common.error.temporaryFileFailed">Временный файл {$dest} не может быть создан из {$source}</message>
 	<message key="plugins.importexport.common.error.filesizeMismatch">Указанный размер файла «{$expected}» и фактический размер «{$actual}» не совпадают</message>
 	<message key="plugins.importexport.common.error.duplicateRevisionForSubmission">Новая версия «{$revisionId}» для файла «{$fileId}» создаст дублирующую запись</message>
-	<!-- native importexport keys -->
+	<!-- родные ключи импорта/экспорта -->
 	<message key="plugins.importexport.native.error.submissionFileImportFailed">Файл материала не может быть импортирован</message>
+
+	<!-- Меню навигации -->
+	<message key="manager.navigationMenus.form.title">Название</message>
+	<message key="manager.navigationMenus.form.path">Путь</message>
+	<message key="manager.navigationMenus">Меню навигации</message>
+	<message key="manager.navigationMenus.form.viewInstructions"><![CDATA[<p>Эта страница будет доступна по адресу: <blockquote>{$pagesPath}</blockquote>...где %PATH% — путь, введенный выше. <strong>Обратите внимание:</strong> Путь к каждой странице должен быть уникальным. Использование путей, встроенных в систему, может привести к потере доступа к важным функциям.</p>]]></message>
+	<message key="manager.navigationMenus.form.content">Контент</message>
+	<message key="manager.navigationMenus.form.pathRegEx">Поле с путем должно содержать только буквы, цифры, «.», «/», «-» и «_».</message>
+	<message key="manager.navigationMenus.form.duplicatePath">Этот путь уже задан для другого элемента навигационного меню.</message>
+	<message key="manager.navigationMenus.form.duplicateTitles">Это название уже существует в другом навигационном меню.</message>
+	<message key="manager.navigationMenus.form.titleRequired">Название обязательно</message>
+	<message key="manager.navigationMenuItems">Элементы навигационного меню</message>
+	<message key="manager.navigationMenus.assignedMenuItems">Назначенные элементы меню</message>
+	<message key="manager.navigationMenus.unassignedMenuItems">Неназначенные элементы меню</message>
+	<message key="manager.navigationMenus.form.navigationMenuArea">Области навигации активной темы</message>
+	<message key="manager.navigationMenus.form.navigationMenuAreaMessage">Выберите область навигации</message>
+
+	<message key="manager.navigationMenus.form.url">URL</message>
+	<message key="manager.navigationMenus.form.customUrlError">Необходимо ввести URL-адрес</message>
+
+	<message key="manager.navigationMenus.form.conditionalDisplay">Узнать больше, когда этот элемент меню будет показан или скрыт.</message>
+	<message key="manager.navigationMenus.form.submenuWarning">Когда элемент меню открывает подменю, не на всех устройствах можно перейти по ссылке в нем. Например, если у вас есть элемент «О журнале», который открывает подменю с «Контакты» и «Редакция», ссылка «О журнале» может быть доступна не на всех устройствах. В меню по умолчанию это обрабатывается путем создания второго элемента меню «Об этом журнале», который появляется в подменю.</message>
+
+	<message key="manager.navigationMenus.form.navigationMenuItemType">Тип меню навигации</message>
+	<message key="manager.navigationMenus.form.navigationMenuItemTypeMessage">Выберите тип меню навигации или вариант «Пользовательский», чтобы создать свой собственный тип</message>
+	<message key="manager.navigationMenus.customPage">Пользовательская страница</message>
+	<message key="manager.navigationMenus.customPage.description">Создать свою собственную страницу на вашем сайте и добавить ссылку на нее в меню навигации.</message>
+	<message key="manager.navigationMenus.remoteUrl">Внешний URL</message>
+	<message key="manager.navigationMenus.remoteUrl.description">Ссылка на любой URL на другом сайте, например, http://pkp.sfu.ca.</message>
+	<message key="manager.navigationMenus.about.description">Ссылка на страницу, отображающую контент «О журнале» в  Настройки > Журнал</message>
+	<message key="manager.navigationMenus.about.conditionalWarning">Эта ссылка будет показываться только в случае, если вы заполнили раздел «О журнале» в Настройки > Журнал.</message>
+	<message key="manager.navigationMenus.editorialTeam.description">Ссылка на страницу, отображающую контент «Выходные данные» в Настройки > Журнал.</message>
+	<message key="manager.navigationMenus.editorialTeam.conditionalWarning">Эта ссылка будет показываться только в случае, если вы заполнили раздел «Редакция» в Настройки > Журнал.</message>
+	<message key="manager.navigationMenus.submissions.description">Ссылка на страницу, отображающую инструкции по отправке.</message>
+	<message key="manager.navigationMenus.current.description">Ссылка на текущий выпуск.</message>
+	<message key="manager.navigationMenus.archives.description">Ссылка на архив выпусков.</message>
+	<message key="manager.navigationMenus.announcements.description">Ссылка на страницу, отображающую объявления.</message>
+	<message key="manager.navigationMenus.announcements.conditionalWarning">Эта ссылка будет показываться только в случае, если вы включите объявления в Настройки > Веб-сайт.</message>
+	<message key="manager.navigationMenus.login.description">Ссылка на страницу входа в систему.</message>
+	<message key="manager.navigationMenus.register.description">Ссылка на страницу регистрации пользователя.</message>
+	<message key="manager.navigationMenus.dashboard.description">Ссылка на личный кабинет редакции.</message>
+	<message key="manager.navigationMenus.profile.description">Ссылка на страницу профиля пользователя.</message>
+	<message key="manager.navigationMenus.administration.description">Ссылка на инструменты администрирования всего сайта.</message>
+	<message key="manager.navigationMenus.administration.conditionalWarning">Эта ссылка будет показываться только пользователям с правами администраторов.</message>
+	<message key="manager.navigationMenus.logOut.description">Ссылка для выхода пользователя из системы.</message>
+	<message key="manager.navigationMenus.loggedOut.conditionalWarning">Эта ссылка будет показываться только в случае, когда посетитель уже вошел в систему.</message>
+	<message key="manager.navigationMenus.loggedIn.conditionalWarning">Эта ссылка будет показываться только в случае, когда посетитель еще не вошел в систему.</message>
+
 </locale>

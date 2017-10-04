@@ -94,6 +94,7 @@ class PKPNavigationMenuService {
 	function getDisplayStatus(&$navigationMenuItem) {
 		$request = \Application::getRequest();
 		$dispatcher = $request->getDispatcher();
+		$templateMgr = \TemplateManager::getManager(\Application::getRequest());
 
 		$isUserLoggedIn = \Validation::isLoggedIn();
 		$isUserLoggedInAs = \Validation::isLoggedInAs();
@@ -103,24 +104,7 @@ class PKPNavigationMenuService {
 		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 
 		// Transform an item title if the title includes a {$variable}
-		$templateMgr = \TemplateManager::getManager(\Application::getRequest());
-		$title = $navigationMenuItem->getLocalizedTitle();
-		$prefix = '{$';
-		$postfix = '}';
-
-		$titleRepl = $title;
-
-		$prefixPos = strpos($title, $prefix);
-		$postfixPos = strpos($title, $postfix);
-
-		if ($prefixPos !== false && $postfixPos !== false && ($postfixPos - $prefixPos) > 0){
-			$titleRepl = substr($title, $prefixPos + strlen($prefix), $postfixPos - $prefixPos - strlen($prefix));
-
-			$templateReplaceTitle = $templateMgr->get_template_vars($titleRepl);
-				if ($templateReplaceTitle) {
-					$navigationMenuItem->setTitle($templateReplaceTitle, \AppLocale::getLocale());
-			}
-		}
+		$this->transformNavMenuItemTitle($templateMgr, $navigationMenuItem);
 
 		$menuItemType = $navigationMenuItem->getType();
 
@@ -300,7 +284,7 @@ class PKPNavigationMenuService {
 
 	/**
 	 * Get a tree of NavigationMenuItems assigned to this menu
-	 * @param $navigationMenu \NavigationMenu 
+	 * @param $navigationMenu \NavigationMenu
 	 *
 	 * @return array Hierarchical array of menu items
 	 */
@@ -344,6 +328,33 @@ class PKPNavigationMenuService {
 			$assignmentId = $navigationMenu->menuTree[$i]->getMenuItemId();
 			if (isset($children[$assignmentId])) {
 				$navigationMenu->menuTree[$i]->children = $children[$assignmentId];
+			}
+		}
+	}
+
+	/**
+	 * Change NavigationMenuItem title according to template parameters if possible
+	 * @param $templateMgr \TemplateManager
+	 * @param $navigationMenu \NavigationMenu 
+	 */
+	public function transformNavMenuItemTitle($templateMgr, &$navigationMenuItem) {
+		// Transform an item title if the title includes a {$variable}
+
+		$title = $navigationMenuItem->getLocalizedTitle();
+		$prefix = '{$';
+		$postfix = '}';
+
+		$titleRepl = $title;
+
+		$prefixPos = strpos($title, $prefix);
+		$postfixPos = strpos($title, $postfix);
+
+		if ($prefixPos !== false && $postfixPos !== false && ($postfixPos - $prefixPos) > 0){
+			$titleRepl = substr($title, $prefixPos + strlen($prefix), $postfixPos - $prefixPos - strlen($prefix));
+
+			$templateReplaceTitle = $templateMgr->get_template_vars($titleRepl);
+			if ($templateReplaceTitle) {
+				$navigationMenuItem->setTitle($templateReplaceTitle, \AppLocale::getLocale());
 			}
 		}
 	}

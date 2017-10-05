@@ -661,7 +661,7 @@
 
 	<!-- Запросы отправки -->
 	<message key="submission.queries.submission">Обсуждения до рецензирования</message>
-	<mцessage key="submission.queries.review">Обсуждения рецензирования</message>
+	<message key="submission.queries.review">Обсуждения рецензирования</message>
 	<message key="submission.queries.editorial">Обсуждения литературного редактирования</message>
 	<message key="submission.queries.production">Обсуждения публикации</message>
 	<message key="submission.query.subject">Тема</message>

@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/services/NavigationMenuService.inc.php
+ * @file classes/services/PKPNavigationMenuService.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class NavigationMenuService
+ * @class PKPNavigationMenuService
  * @ingroup services
  *
  * @brief Helper class that encapsulates NavigationMenu business logic
@@ -15,7 +15,7 @@
 
 namespace PKP\Services;
 
-class NavigationMenuService {
+class PKPNavigationMenuService {
 
 	/**
 	 * Return all default navigationMenuItemTypes.
@@ -45,14 +45,6 @@ class NavigationMenuService {
 			NMI_TYPE_SUBMISSIONS => array(
 				'title' => __('navigation.submissions'),
 				'description' => __('manager.navigationMenus.submissions.description'),
-			),
-			NMI_TYPE_CURRENT => array(
-				'title' => __('editor.issues.currentIssue'),
-				'description' => __('manager.navigationMenus.current.description'),
-			),
-			NMI_TYPE_ARCHIVES => array(
-				'title' => __('navigation.archives'),
-				'description' => __('manager.navigationMenus.archives.description'),
 			),
 			NMI_TYPE_ANNOUNCEMENTS => array(
 				'title' => __('announcement.announcements'),
@@ -102,6 +94,7 @@ class NavigationMenuService {
 	function getDisplayStatus(&$navigationMenuItem) {
 		$request = \Application::getRequest();
 		$dispatcher = $request->getDispatcher();
+		$templateMgr = \TemplateManager::getManager(\Application::getRequest());
 
 		$isUserLoggedIn = \Validation::isLoggedIn();
 		$isUserLoggedInAs = \Validation::isLoggedInAs();
@@ -111,24 +104,7 @@ class NavigationMenuService {
 		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 
 		// Transform an item title if the title includes a {$variable}
-		$templateMgr = \TemplateManager::getManager(\Application::getRequest());
-		$title = $navigationMenuItem->getLocalizedTitle();
-		$prefix = '{$';
-		$postfix = '}';
-
-		$titleRepl = $title;
-
-		$prefixPos = strpos($title, $prefix);
-		$postfixPos = strpos($title, $postfix);
-
-		if ($prefixPos !== false && $postfixPos !== false && ($postfixPos - $prefixPos) > 0){
-			$titleRepl = substr($title, $prefixPos + strlen($prefix), $postfixPos - $prefixPos - strlen($prefix));
-
-			$templateReplaceTitle = $templateMgr->get_template_vars($titleRepl);
-				if ($templateReplaceTitle) {
-					$navigationMenuItem->setTitle($templateReplaceTitle, \AppLocale::getLocale());
-			}
-		}
+		$this->transformNavMenuItemTitle($templateMgr, $navigationMenuItem);
 
 		$menuItemType = $navigationMenuItem->getType();
 
@@ -136,10 +112,6 @@ class NavigationMenuService {
 		switch ($menuItemType) {
 			case NMI_TYPE_ANNOUNCEMENTS:
 				$navigationMenuItem->setIsDisplayed($context && $context->getSetting('enableAnnouncements'));
-				break;
-			case NMI_TYPE_CURRENT:
-			case NMI_TYPE_ARCHIVES:
-				$navigationMenuItem->setIsDisplayed($context && $context->getSetting('publishingMode') != PUBLISHING_MODE_NONE);
 				break;
 			case NMI_TYPE_EDITORIAL_TEAM:
 				$navigationMenuItem->setIsDisplayed($context && $context->getLocalizedSetting('masthead'));
@@ -197,26 +169,6 @@ class NavigationMenuService {
 						null,
 						'about',
 						null,
-						null
-					));
-					break;
-				case NMI_TYPE_CURRENT:
-					$navigationMenuItem->setUrl($dispatcher->url(
-						$request,
-						ROUTE_PAGE,
-						null,
-						'issue',
-						'current',
-						null
-					));
-					break;
-				case NMI_TYPE_ARCHIVES:
-					$navigationMenuItem->setUrl($dispatcher->url(
-						$request,
-						ROUTE_PAGE,
-						null,
-						'issue',
-						'archive',
 						null
 					));
 					break;
@@ -332,7 +284,7 @@ class NavigationMenuService {
 
 	/**
 	 * Get a tree of NavigationMenuItems assigned to this menu
-	 * @param $navigationMenu \NavigationMenu 
+	 * @param $navigationMenu \NavigationMenu
 	 *
 	 * @return array Hierarchical array of menu items
 	 */
@@ -376,6 +328,29 @@ class NavigationMenuService {
 			$assignmentId = $navigationMenu->menuTree[$i]->getMenuItemId();
 			if (isset($children[$assignmentId])) {
 				$navigationMenu->menuTree[$i]->children = $children[$assignmentId];
+			}
+		}
+	}
+
+	/**
+	 * Transform an item title if the title includes a {$variable}
+	 * @param $templateMgr \TemplateManager
+	 * @param $navigationMenu \NavigationMenu
+	 */
+	public function transformNavMenuItemTitle($templateMgr, &$navigationMenuItem) {
+		$title = $navigationMenuItem->getLocalizedTitle();
+		$prefix = '{$';
+		$postfix = '}';
+
+		$prefixPos = strpos($title, $prefix);
+		$postfixPos = strpos($title, $postfix);
+
+		if ($prefixPos !== false && $postfixPos !== false && ($postfixPos - $prefixPos) > 0){
+			$titleRepl = substr($title, $prefixPos + strlen($prefix), $postfixPos - $prefixPos - strlen($prefix));
+
+			$templateReplaceTitle = $templateMgr->get_template_vars($titleRepl);
+			if ($templateReplaceTitle) {
+				$navigationMenuItem->setTitle($templateReplaceTitle, \AppLocale::getLocale());
 			}
 		}
 	}

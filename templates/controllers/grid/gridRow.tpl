@@ -28,13 +28,9 @@
 	{assign var="row_class" value=$row_class|cat:' has_extras'}
 {/if}
 
+{assign var="categoryLabelColumnSpan" value=1}
 <tr {if $rowId}id="{$rowId|escape}" {/if} class="{$row_class}">
 	{foreach name=columnLoop from=$columns key=columnId item=column}
-
-		{* @todo indent columns should be killed at their source *}
-		{if $column->hasFlag('indent')}
-			{php}continue;{/php}
-		{/if}
 
 		{assign var=col_class value=""}
 		{if $column->hasFlag('firstColumn')}
@@ -46,7 +42,11 @@
 			{assign var="col_class" value=$col_class|cat:$column->getFlag('alignment')}
 		{/if}
 
-		<td{if $col_class} class="{$col_class}"{/if}>
+		{if is_a($column, 'ItemSelectionGridColumn') && is_a($row, 'GridCategoryRow')}
+			{assign var="categoryLabelColumnSpan" value=$categoryLabelColumnSpan+1}
+		{/if}
+
+		<td{if $col_class} class="{$col_class}"{/if}{if $categoryLabelColumnSpan > 1} colspan="{$categoryLabelColumnSpan}"{/if}>
 			{if $row->hasActions() && $column->hasFlag('firstColumn')}
 				{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
 					<a href="#" class="show_extras">
@@ -71,11 +71,16 @@
 				{/if}
 			{/if}
 		</td>
+
+		{* Reset the colspan *}
+		{if $categoryLabelColumnSpan > 1}
+			{assign var="categoryLabelColumnSpan" value=1}
+		{/if}
 	{/foreach}
 </tr>
 {if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
 	<tr id="{$rowId|escape}-control-row" class="row_controls{if is_a($row, 'GridCategoryRow')} category_controls{/if}">
-		<td colspan="{$grid->getColumnsCount('indent')}">
+		<td>
 			{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
 				{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT) item=action}
 					{include file="linkAction/linkAction.tpl" action=$action contextId=$rowId}

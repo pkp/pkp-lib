@@ -10,13 +10,9 @@
 
 <colgroup>
 	{foreach from=$columns item=column}
-		{* @todo indent columns should be killed at their source *}
-		{if $column->hasFlag('indent')}
-			{php}continue;{/php}
-		{/if}
 		<col class="grid-column column-{$column->getId()}"
 		{if $column->hasFlag('width')}
-			style="width: {$column->getFlag('width')}%;"
+			style="width: {$column->getFlag('width')}{if strpos($column->getFlag('width'), 'em') === false}%{/if};"
 		{/if} />
 	{/foreach}
 </colgroup>

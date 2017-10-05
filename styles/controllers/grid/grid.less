@@ -129,8 +129,14 @@
 
 	// Grid rows
 	table {
+		table-layout: fixed; /* Prevents width expansion and supports word-wrap. See #2815 */
 		width: 100%;
 		border-collapse: collapse;
+	}
+
+	/* Wraps long unbroken strings in the grid cells. See #2815 */
+	.gridCellContainer {
+		word-wrap: break-word;
 	}
 
 	tr {

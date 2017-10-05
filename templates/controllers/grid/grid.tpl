@@ -40,10 +40,6 @@
 			{** build the column headers **}
 			<tr>
 				{foreach name=columns from=$columns item=column}
-					{* @todo indent columns should be killed at their source *}
-					{if $column->hasFlag('indent')}
-						{php}continue;{/php}
-					{/if}
 					{if $column->hasFlag('alignment')}
 						{assign var=alignment value=$column->getFlag('alignment')}
 					{else}
@@ -83,7 +79,7 @@
 				so that we can restore it if the user deletes all rows.
 			**}
 			<tr>
-				<td colspan="{$grid->getColumnsCount('indent')}">{translate key=$grid->getEmptyRowText()}</td>
+				<td>{translate key=$grid->getEmptyRowText()}</td>
 			</tr>
 		</tbody>
 	</table>

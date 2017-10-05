@@ -1141,22 +1141,13 @@ class GridHandler extends PKPHandler {
 		// Second case, width higher than 100 and all columns width specified.
 		if ($width > 100) {
 			if ($noSpecifiedWidthCount == 0) {
-				// We need to remove width from all columns equally.
-				$columnsToModify = $columns;
-				foreach ($columns as $key => $column) {
-					// We don't want to change the indent column widht, so avoid it.
-					if ($column->getId() == 'indent') {
-						unset($columnsToModify[$key]);
-					}
-				}
-
 				// Calculate the value to remove from all columns.
 				$difference = $width - 100;
-				$columnsCount = count($columnsToModify);
+				$columnsCount = count($columns);
 				$removeValue = round($difference/$columnsCount);
-				foreach ($columnsToModify as $column) {
+				foreach ($columns as $column) {
 					$modifyColumn = $this->getColumn($column->getId());
-					if (end($columnsToModify) === $column) {
+					if (end($columns) === $column) {
 						// Handle rounding problems.
 						$totalWidth = $width - ($removeValue * $columnsCount);
 						if ($totalWidth < 100) {

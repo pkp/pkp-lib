@@ -217,13 +217,17 @@ class Form {
 	}
 
 	/**
-	 * Set the value of a form field.
-	 * @param $key
-	 * @param $value
+	 * Set the value of one or several form fields.
+	 * @param $key string|array If a string, then set a single field. If an associative array, then set many.
+	 * @param $value mixed
 	 */
 	function setData($key, $value) {
-		if (is_string($value)) $value = Core::cleanVar($value);
-		$this->_data[$key] = $value;
+		if (is_array($key)) foreach($key as $aKey => $aValue) {
+			$this->setData($aKey, $aValue);
+		} else {
+			if (is_string($value)) $value = Core::cleanVar($value);
+			$this->_data[$key] = $value;
+		}
 	}
 
 	/**

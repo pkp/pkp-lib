@@ -15,7 +15,7 @@
  *
  */
 
-class PaymentManager {
+abstract class PaymentManager {
 	/** @var PKPRequest */
 	var $request;
 
@@ -49,10 +49,7 @@ class PaymentManager {
 	 * Abstract method for fetching the payment plugin
 	 * @return object
 	 */
-	function getPaymentPlugin() {
-		// Abstract method; subclasses should implement.
-		assert(false);
-	}
+	abstract function getPaymentPlugin();
 
 	/**
 	 * Check if there is a payment plugin and if is configured
@@ -65,14 +62,13 @@ class PaymentManager {
 	}
 
 	/**
-	 * Call the payment plugin's display method
-	 * @param $queuedPaymentId int
-	 * @param $queuedPayment object
-	 * @return boolean
+	 * Get the payment form for the configured payment plugin and specified payment.
+	 * @param $queuedPayment QueuedPayment
+	 * @return Form
 	 */
-	function displayPaymentForm($queuedPaymentId, &$queuedPayment) {
+	function getPaymentForm($queuedPayment) {
 		$paymentPlugin = $this->getPaymentPlugin();
-		if ($paymentPlugin !== null && $paymentPlugin->isConfigured()) return $paymentPlugin->displayPaymentForm($queuedPaymentId, $queuedPayment, $this->request);
+		if ($paymentPlugin !== null && $paymentPlugin->isConfigured()) return $paymentPlugin->getPaymentForm($this->request->getContext(), $queuedPayment);
 		return false;
 	}
 
@@ -91,9 +87,9 @@ class PaymentManager {
 	 * @param $queuedPaymentId int
 	 * @return QueuedPayment
 	 */
-	function &getQueuedPayment($queuedPaymentId) {
+	function getQueuedPayment($queuedPaymentId) {
 		$queuedPaymentDao = DAORegistry::getDAO('QueuedPaymentDAO');
-		$queuedPayment =& $queuedPaymentDao->getQueuedPayment($queuedPaymentId);
+		$queuedPayment = $queuedPaymentDao->getQueuedPayment($queuedPaymentId);
 		return $queuedPayment;
 	}
 
@@ -103,10 +99,7 @@ class PaymentManager {
 	 * @param $queuedPayment QueuedPayment
 	 * @return boolean success/failure
 	 */
-	function fulfillQueuedPayment($request, &$queuedPayment) {
-		// must be implemented by sub-classes
-		assert(false);
-	}
+	abstract function fulfillQueuedPayment($request, $queuedPayment);
 }
 
 ?>

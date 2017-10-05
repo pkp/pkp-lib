@@ -333,13 +333,11 @@ class PKPNavigationMenuService {
 	}
 
 	/**
-	 * Change NavigationMenuItem title according to template parameters if possible
+	 * Transform an item title if the title includes a {$variable}
 	 * @param $templateMgr \TemplateManager
-	 * @param $navigationMenu \NavigationMenu 
+	 * @param $navigationMenu \NavigationMenu
 	 */
 	public function transformNavMenuItemTitle($templateMgr, &$navigationMenuItem) {
-		// Transform an item title if the title includes a {$variable}
-
 		$title = $navigationMenuItem->getLocalizedTitle();
 		$prefix = '{$';
 		$postfix = '}';

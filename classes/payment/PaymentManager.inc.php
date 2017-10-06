@@ -40,7 +40,7 @@ abstract class PaymentManager {
 		$queuedPaymentId = $queuedPaymentDao->insertObject($queuedPayment, $expiryDate);
 
 		// Perform periodic cleanup
-		if (time() % 100 == 0) $queuedPaymentDao->deleteExpiredQueuedPayments();
+		if (time() % 100 == 0) $queuedPaymentDao->deleteExpired();
 
 		return $queuedPaymentId;
 	}
@@ -89,7 +89,7 @@ abstract class PaymentManager {
 	 */
 	function getQueuedPayment($queuedPaymentId) {
 		$queuedPaymentDao = DAORegistry::getDAO('QueuedPaymentDAO');
-		$queuedPayment = $queuedPaymentDao->getQueuedPayment($queuedPaymentId);
+		$queuedPayment = $queuedPaymentDao->getById($queuedPaymentId);
 		return $queuedPayment;
 	}
 

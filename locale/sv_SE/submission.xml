@@ -288,7 +288,6 @@
 	<message key="submission.event.participantAdded">{$name} tilldelades det här bidraget i egenskap av {$userGroupName}.</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Granskningsuppdrag accepterat via mellanhand</message>
 	<message key="submission.event.reviewer.reviewAccepted">Granskningsuppdrag accepterat</message>
-	<message key="submission.event.reviewer.reviewCancelled">Granskningsuppdrag avbrutet</message>
 	<message key="submission.event.reviewer.reviewDeclined">Granskningsuppdrag nekat</message>
 	<message key="submission.event.reviewer.reviewDueDate">Deadline för granskning ändrad</message>
 	<message key="submission.event.reviewer.reviewerAssigned">Bidrag tilldelat granskare</message>
@@ -314,7 +313,8 @@
 	<message key="submission.history.submissionNotes">Bidragsanteckningar</message>
 	<message key="submission.history.viewLog">Visa logg</message>
 	<message key="submission.howToCite">Referera så här</message>
-	<message key="submission.howToCite.citationFormats">Referensstilar</message>
+	<message key="submission.howToCite.citationFormats">Fler referensstilar</message>
+	<message key="submission.howToCite.downloadCitation">Ladda ned referens</message>
 	<message key="submission.indexing">Indexering</message>
 	<message key="submission.initiated">Påbörjad</message>
 
@@ -410,7 +410,7 @@
 	<message key="submissions.noSubmissions">Inga bidrag</message>
 	<message key="submissions.queuedEditing">Redigering pågår</message>
 	<message key="submissions.queued">I kö</message>
-	<message key="submissions.queuedUnassigned">Avvaktar tilldelning</message>
+	<message key="submissions.queuedUnassigned">Bidraget har inte blivit tilldelad någon redaktör.</message>
 	<message key="submissions.ruling">Utslag</message>
 	<message key="submission.source">Källa</message>
 	<message key="submission.source.tip">Härstammar det här bidraget från en annan resurs? Om ja, mata in en URL eller en beskriving av den resursen.</message>
@@ -511,14 +511,19 @@
 
 	<!-- Review Round Status Keys -->
 	<message key="editor.submission.roundStatus.revisionsRequested">Bearbetningar begärda.</message>
+	<message key="editor.submission.roundStatus.revisionsSubmitted">Bearbetningar har skickats in.</message>
 	<message key="editor.submission.roundStatus.resubmitted">Bidraget har skickats in för granskning på nytt.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">Skickat för extern granskning.</message>
 	<message key="editor.submission.roundStatus.accepted">Bidrag accepterat.</message>
 	<message key="editor.submission.roundStatus.declined">Bidrag refuserat.</message>
-	<message key="editor.submission.roundStatus.pendingReviewers">Väntar på val av granskare.</message>
+	<message key="editor.submission.roundStatus.pendingReviewers">Väntar på tilldelning av granskare.</message>
 	<message key="editor.submission.roundStatus.pendingReviews">Väntar på svar från granskare.</message>
 	<message key="editor.submission.roundStatus.reviewsReady">Nya granskningar har inkommit.</message>
-	<message key="editor.submission.roundStatus.reviewsCompleted">Granskningar avslutade.</message>
+	<message key="editor.submission.roundStatus.reviewsCompleted">Alla granskningar har inkommit och nu behövs ett redaktörsbeslut.</message>
+	<message key="editor.submission.roundStatus.reviewOverdue">En granskning är försenad.</message>
+	<message key="editor.submission.roundStatus.pendingRecommendations">Väntar på rekommendationer från redaktörer.</message>
+	<message key="editor.submission.roundStatus.recommendationsReady">Det har registrerats nya redaktionsrekommendationer.</message>
+	<message key="editor.submission.roundStatus.recommendationsCompleted">Alla rekommendationer har inkommit och nu behövs ett redaktörsbeslut.</message>
 	
 	<!-- Participants -->
 	<message key="editor.submission.stageParticipants">Deltagare</message>
@@ -546,6 +551,17 @@
 	<message key="editor.submission.decision.approveProofs">Godkänn korrektur</message>
 	<message key="editor.submission.decision.disapproveProofsDescription">Den här korrekturfilen kommer inte längre vara publikt tillgänglig för nedladdning eller köp. Vill du avslå det?</message>
 	<message key="editor.submission.decision.noDecisionsAvailable">Tilldela bidraget en redaktör för att möjliggöra redaktionella beslut i det här steget.</message>
+	<!--  editor recommendations -->
+	<message key="editor.submission.makeRecommendation">Rekommendation</message>
+	<message key="editor.submission.changeRecommendation">Ändra rekommendation</message>
+	<message key="editor.submission.recommendation.display">Rekommendation: {$recommendation}</message>
+	<message key="editor.submission.allRecommendations.display">Rekommendationer: {$recommendations}</message>
+	<message key="editor.submission.recommendation">Rekommendation</message>
+	<message key="editor.submission.recommendation.description">Rekommendera ett redaktörsbeslut för det här bidraget.</message>
+	<message key="editor.submission.recordedRecommendations">Registrerade rekommendationer</message>
+	<message key="editor.submission.decision.nextButton">Nästa: Välj filer för {$stageName}</message>
+	<message key="editor.submission.decision.selectFiles">Välj filer som du vill föra vidare till{$stageName}-steget.</message>
+	<message key="editor.submission.decision.previousAuthorNotification">Tidigare: Författaravisering</message>
 
 	<!-- workflow navigation keys -->
 	<message key="submission.currentStage">Nuvarande steg</message>
@@ -574,6 +590,7 @@
 	<message key="submission.description">Beskrivning</message>
 	<message key="submission.stageNotInitiated">Steget inte påbörjat.</message>
 	<message key="submission.documents">Dokument för bidrag</message>
+	<message key="notification.type.editorAssign">Du har blivit tilldelad rollen som redaktör för bidraget "{$title}".</message>
 	<message key="notification.type.copyeditorRequest">Du har blivit ombedd att granska manusredigeringen av "{$title}".</message>
 	<message key="notification.type.layouteditorRequest">Du har blivit ombedd att granska layouten av "{$title}".</message>
 	<message key="notification.type.indexRequest">Du har blivit ombedd att skapa ett index "{$title}".</message>
@@ -586,11 +603,20 @@
 	<message key="notification.type.editorDecisionSendToProduction">Produktionsprocessen påbörjad.</message>
 	<message key="notification.uploadedResponse">Svar uppladdat.</message>
 
-	<message key="notification.type.editorAssignment">En redaktör måste tilldelas bidrag innan granskningsprocessen kan påbörjas. Lägg till en redaktör med hjälp av Deltagare-länken ovan.</message>
+	<message key="notification.type.editorAssignment">En redaktör måste tilldelas bidraget innan granskningsprocessen kan påbörjas. Lägg till en redaktör via Deltagarlistan.</message>
 	<message key="grid.reviewAttachments.title">Granskares bifogade filer</message>
+	<message key="grid.reviewAttachments.send.title">Välj granskningsfiler att dela med författaren/författarna</message>
 	<message key="submission.productionReady">Bok tillgänglig</message>
 	<message key="submission.review.uploadRevisionToRound">Ladda upp bearbetad fil</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} har fått uppdraget att granska bidrag {$submissionId}, granskningsomgång {$round}.</message>
+	<message key="submission.review.status.awaitingResponse">Väntar på svar från granskaren.</message>
+	<message key="submission.review.status.declined">Granskaren tackade nej till denna granskningsfrågan.</message>
+	<message key="submission.review.status.responseOverdue">Granskaren har missat deadline för svar.</message>
+	<message key="submission.review.status.reviewOverdue">Granskaren har missat deadline för granskning.</message>
+	<message key="submission.review.status.accepted">Granskningen har accepterats.</message>
+	<message key="submission.review.status.received">Granskaren har skickat in sin granskning.</message>
+	<message key="submission.review.status.complete">Den här granskningen är slutförd.</message>
+	<message key="submission.review.status.thanked">Den här granskningen är slutförd och granskaren har tackats för sin medverkan.</message>
 	<message key="submission.document">Dokument</message>
 	<message key="submission.art">Grafik</message>
 	<message key="submission.supplementary">Extramaterial</message>
@@ -600,8 +626,8 @@
 	<message key="submission.supplementary.sponsor">Bidragsgivare eller sponsororganisation</message>
 	<message key="grid.action.itemWorkflow">Gå till arbetsflödet för det här bidraget</message>
 	<message key="notification.type.editorDecisionSendToProduction">Produktionsprocessen påbörjad.</message>
-	<message key="notification.type.editorAssignmentProduction">En produktionsredaktör måste registreras innan produktionsprocessen kan påbörjas. Lägg till en produktionsredaktör med hjälp av Deltagare-länken ovan.</message>
-	<message key="notification.type.editorAssignmentEditing">En produktionsredaktör måste registreras innan den redaktionella processen kan påbörjas. Lägg till en produktionsredaktör med hjälp av Deltagare-länken ovan.</message>
+	<message key="notification.type.editorAssignmentProduction">En produktionsredaktör måste registreras innan produktionsprocessen kan påbörjas. Lägg till en produktionsredaktör via Deltagarlistan.</message>
+	<message key="notification.type.editorAssignmentEditing">En produktionsredaktör måste registreras innan den redaktionella processen kan påbörjas. Lägg till en produktionsredaktör via Deltagarlistan.</message>
 
 	<!--  peer review -->
 	<message key="submission.reviewForm">Granskningsformulär</message>
@@ -649,4 +675,27 @@
 	<message key="submission.query.new">{$creatorName} startade en diskussion: {$noteTitle}: {$noteContents}</message>
 	<message key="submission.query.activity.contents">Det har varit ny aktivitet i diskussionen med namnet "{$queryTitle}" angående bidraget "{$submissionTitle}".</message>
 	<message key="submission.query.new.contents">Du har blivit tillagd i diskussionen med namnet "{$queryTitle}" angående bidraget "{$submissionTitle}".</message>
+	<message key="submission.query.noParticipantOptions">De måste lägga till minst en deltagare till det här bidraget innan du kan påbörja en diskussion.</message>
+
+	<!-- Submission Lists -->
+	<message key="submission.list.infoCenter">Aktivitetslogg &amp; anteckningar</message>
+	<message key="submission.list.count">{$count} bidrag</message>
+	<message key="submission.list.itemsOfTotal">{$count} av {$total} bidrag</message>
+	<message key="submission.list.responseDue">Deadline för svar</message>
+	<message key="submission.list.reviewDue">Deadline för granskning</message>
+	<message key="submission.list.confirmDelete">Radera bidrag?</message>
+	<message key="submission.list.viewSubmission">Visa {$title}</message>
+	<message key="submission.list.filter">Filter</message>
+	<message key="submission.list.filterRemove">Rensa filter: {$filterTitle}</message>
+	<message key="submission.list.itemOrdererUp">Flytta up {$itemTitle} i listan</message>
+	<message key="submission.list.itemOrdererDown">Flytta ned {$itemTitle} i listan</message>
+	<message key="submission.list.viewSubmission">Visa bidrag</message>
+	<message key="submission.list.clearSearch">Rensa söksträng</message>
+	<message key="submission.list.reviewsCompleted">Tilldelade granskningar slutförda</message>
+	<message key="submission.list.revisionsSubmitted">Bearbetningar insända</message>
+	<message key="submission.list.copyeditsSubmitted">Manusredigerade filer insända</message>
+	<message key="submission.list.galleysCreated">Publiceringsversioner för produktion skapade</message>
+	<message key="submission.list.filesPrepared">Filer förberedda</message>
+	<message key="submission.list.discussions">Öppna diskussioner</message>
+	<message key="submission.list.incompleteSubmissionNotice">Det här bidraget måste vara färdigt innan en redaktör granskar det.</message>
 </locale>

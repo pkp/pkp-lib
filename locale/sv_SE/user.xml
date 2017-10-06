@@ -151,4 +151,8 @@
 	<message key="user.profile.identity">Identitet</message>
 	<message key="user.profile.contact">Kontakt</message>
 	<message key="user.profile.public">Publik</message>
+	<message key="user.apiKey">API-nyckel</message>
+	<message key="user.apiKeyEnabled">Tillåt externa applikationer som har API-nyckeln att få tillgång till det här kontot</message>
+	<message key="user.apiKey.generate">Skapa ny API-nyckel</message>
+	<message key="user.apiKey.generateWarning">Vid skapande av ny API-nyckel blir den nuvarande nyckeln för det här kontot ogiltig.</message>
 </locale>

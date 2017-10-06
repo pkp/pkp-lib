@@ -117,6 +117,7 @@
 	<message key="manager.languages.supportedLocalesInstructions">Välj de språk som ska gå att byta mellan på varje sida på webbplatsen. Språkvalsmenyn kommer bara synas om fler än ett språk valts.</message>
 	<message key="manager.masthead.title">Kolofon</message>
 	<message key="manager.payment.timestamp">Tidsstämpel</message>
+	<message key="manager.people.existingUserRequired">Du måste ange en befintlig användare.</message>
 	<message key="manager.people.authSource">Autentiseringskälla</message>
 	<message key="manager.people.confirmUnenroll">Vill du ta bort den här användaren?</message>
 	<message key="manager.people.createUser">Skapa ny användare</message>
@@ -238,8 +239,6 @@
 		<p>Vi tillhandahåller anslutningar till flera externa databaser där du kan söka efter referenser. Några av dessa databaser kräver registrering eller att ytterligare information fylls i. Vänligen se databasernas respektive webbsida för mer information om hur du registrerar dig. Du kan lägga till en eller flera databaser genom att klicka på knappen "Lägg till objekt" nedan.</p>
 		<p>Du kan ändra eller ta bort en existerande extern databasanslutning genom att klicka på kugghjulet bredvid.</p>
 		<p><strong>Notera:</strong> För att referenskontrollen ska avslutas inom rimlig tid måste <tt>citation_checking_max_processes</tt>-direktivet i din konfigurationsfil vara inställd på ett rimligt värde. Se sektionen General settings i <tt>config.inc.php</tt> för mer information.</p>]]></message>
-	<message key="manager.setup.citationOutput">Referenssystem</message>
-	<message key="manager.setup.citationOutputStyleDescription">Välj det referenssystem som används i din publikations inskickade bidrag. Referensmarkeringsassistenten låter dig jämföra författarens version av referensen med en version från XML-filen du genererar så att du enkelt kan upptäcka fel:</message>
 	<message key="manager.setup.competingInterests">Intressekonflikter</message>
 	<message key="manager.setup.competingInterestsDescription">Granskare kommer att bli ombedda att acceptera policyn för intressekonflikter som du specificerar nedan.</message> <!-- FIXME #6843 (JM): should this just reference reviewers? -->
 	<message key="manager.setup.errorDeletingItem">Ett fel uppstod vid borttagning av detta objekt.</message>
@@ -323,11 +322,8 @@
 	<message key="plugins.categories.auth">Insticksmoduler för auktorisering</message>
 	<message key="plugins.categories.blocks">Insticksmoduler för block</message>
 	<message key="plugins.categories.blocks.description">Block är komponenter av användargränssnittet, t.ex. de olika verktygen i sidomenyn.</message>
-	<message key="plugins.categories.citationFormats">Insticksmoduler för referensformat</message>
 	<message key="plugins.categories.citationLookup">Insticksmoduler för anslutningar till  referensdatabaser</message>
 	<message key="plugins.categories.citationLookup.description">Insticksmoduler för referensdatabaser ansluter till referensdatabaser för att kontrollera referenser, t.ex. vid redigering av referenser.</message>
-	<message key="plugins.categories.citationOutput">Insticksmoduler för referenssystem</message>
-	<message key="plugins.categories.citationOutput.description">Insticksmoduler för referenssystem implementerar system för referenser. Det här ersätter insticksmoduler för referensformat.</message>
 	<message key="plugins.categories.citationParser">Insticksmoduler för referensextrahering</message>
 	<message key="plugins.categories.citationParser.description">Insticksmoduler för referensextrahering extraherar data på fältnivå från oredigerade referenser (t.ex. författare, titel etc.).</message>
 	<message key="plugins.categories.gateways.description">Gateway-insticksmoduler tillhandahåller live-data till externa system.</message>
@@ -429,6 +425,7 @@
 	<message key="settings.roles.roleOptions">Alternativ för roller</message>
 	<message key="settings.roles.showTitles">Visa rollens titel i listan över medarbetare</message>
 	<message key="settings.roles.permitSelfRegistration">Tillåt användare att registrera sig själva</message>
+	<message key="settings.roles.recommendOnly">Den här rollen tillåts bara rekommendera ett granskningsbeslut, en behörig redaktör krävs för att registrera ett slutgiltigt beslut.</message>
 	<message key="settings.roles.roleName">Rollnamn</message>
 	<message key="settings.roles.roleAbbrev">Förkortning</message>
 	<message key="settings.roles.assignedStages">Tilldelade steg</message>
@@ -531,6 +528,55 @@
 	<message key="plugins.importexport.common.error.unknownUploader">Okänd uppladdare {$param}</message>
 	<message key="plugins.importexport.common.error.temporaryFileFailed">Temporär fil {$dest} kunde inte skapas från {$source}</message>
 	<message key="plugins.importexport.common.error.filesizeMismatch">Den angivna filstorleken "{$expected}" och den faktiska filstorleken "{$actual}" stämmer inte överens</message>
+	<message key="plugins.importexport.common.error.duplicateRevisionForSubmission">Bearbetningen "{$revisionId}" för bidragsfil "{$fileId}" skulle skapa en dublettpost</message>
 	<!-- native importexport keys -->
 	<message key="plugins.importexport.native.error.submissionFileImportFailed">Bidragsfilen kunde inte importeras</message>
+
+	<!-- Navigation Menus -->
+	<message key="manager.navigationMenus.form.title">Titel</message>
+	<message key="manager.navigationMenus.form.path">Sökväg</message>
+	<message key="manager.navigationMenus">Navigationsmenyer</message>
+	<message key="manager.navigationMenus.form.viewInstructions"><![CDATA[<p>Den här sidan kommer att bli tillgänglig på: <blockquote>{$pagesPath}</blockquote>...där %PATH% är sökvägen som angivits ovan. <strong>Note:</strong> Fler än en sida kan inte ha samma sökväg. Att använda sökvägar som redan används av systemet kan göra så att du förlorar tillgången till viktiga funktioner.</p>]]></message>
+	<message key="manager.navigationMenus.form.content">Innehåll</message>
+	<message key="manager.navigationMenus.form.pathRegEx">Sökvägsfältet får bara innehålla alfanumeriska tecken samt '.', '/', '-', och '_'.</message>
+	<message key="manager.navigationMenus.form.duplicatePath">Den här sökvägen används redan för ett annat element i navigationsmenyn.</message>
+	<message key="manager.navigationMenus.form.duplicateTitles">Den här titeln används redan för ett annat element i navigationsmenyn.</message>
+	<message key="manager.navigationMenus.form.titleRequired">Titel måste anges.</message>
+	<message key="manager.navigationMenuItems">Element i navigationsmenyn</message>
+	<message key="manager.navigationMenus.assignedMenuItems">Placerade menyelement</message>
+	<message key="manager.navigationMenus.unassignedMenuItems">Menyelement utan placering</message>
+	<message key="manager.navigationMenus.form.navigationMenuArea">Navigationsytor för aktiva teman</message>
+	<message key="manager.navigationMenus.form.navigationMenuAreaMessage">Välj en navigationsyta</message>
+
+	<message key="manager.navigationMenus.form.url">URL</message>
+	<message key="manager.navigationMenus.form.customUrlError">En URL måste anges</message>
+
+	<message key="manager.navigationMenus.form.conditionalDisplay">Läs mer om när det här menyelementet kommer att vara synligt och respektive dolt.</message>
+	<message key="manager.navigationMenus.form.submenuWarning">När ett element i menyn öppnar en undermeny kan inte dess länk ses på alla enheter. Om det till exempel finns ett "Om"-element som öppnar en undermeny med "Kontakt" och "Redaktion" är det inte säkert att "Om"-länken kan ses på alla enheter. I defaultmenyn hanteras detta genom att den skapar ytterligare ett menyelement, "Om tidskriften", som visas i undermenyn.</message>
+
+	<message key="manager.navigationMenus.form.navigationMenuItemType">Typ av navigationsmeny</message>
+	<message key="manager.navigationMenus.form.navigationMenuItemTypeMessage">Välj Typ av navigationsmeny eller Anpassad för att skapa din egen</message>
+	<message key="manager.navigationMenus.customPage">Anpassad sida</message>
+	<message key="manager.navigationMenus.customPage.description">Skapa en anpassad sida på din webbplats och länka till den från en navigationsmeny.</message>
+	<message key="manager.navigationMenus.remoteUrl">Extern URL</message>
+	<message key="manager.navigationMenus.remoteUrl.description">Länka till vilken URL som helst utanför webbplatsen, till exempel http://pkp.sfu.ca.</message>
+	<message key="manager.navigationMenus.about.description">Länka till en sida som visar innehållet i Om tidskriften från Inställningar > Tidskrift</message>
+	<message key="manager.navigationMenus.about.conditionalWarning">Den här länken visas bara om du har fyllt i sektionen Om tidskriften under Inställningar > Tidskrift.</message>
+	<message key="manager.navigationMenus.editorialTeam.description">Länka till en sida som visar innehållet i Redaktionsruta i Inställningar > Tidskrift.</message>
+	<message key="manager.navigationMenus.editorialTeam.conditionalWarning">Den här länken visas bara om du har fyllt i sektionen Redaktionsruta under Inställningar > Tidskrift.</message>
+	<message key="manager.navigationMenus.submissions.description">Länka till sidan som visar instruktioner för att skicka in bidrag.</message>
+	<message key="manager.navigationMenus.current.description">Länka till senaste numret.</message>
+	<message key="manager.navigationMenus.archives.description">Länka till tidskriftsarkivet.</message>
+	<message key="manager.navigationMenus.announcements.description">Länka till en sida som visar era meddelanden.</message>
+	<message key="manager.navigationMenus.announcements.conditionalWarning">Den här länken visas bara om meddelanden är aktiverate under Inställningar > Webbplats.</message>
+	<message key="manager.navigationMenus.login.description">Länka till sidan för användarinloggning.</message>
+	<message key="manager.navigationMenus.register.description">Länka till sidan för användarregistrering.</message>
+	<message key="manager.navigationMenus.dashboard.description">Länka till den redaktionella översikten.</message>
+	<message key="manager.navigationMenus.profile.description">Länka till sidan för användarprofil.</message>
+	<message key="manager.navigationMenus.administration.description">Länka till administrationsverktyg för hela webbplatsen.</message>
+	<message key="manager.navigationMenus.administration.conditionalWarning">Den här länken visas bara för administratörer.</message>
+	<message key="manager.navigationMenus.logOut.description">En länk för att logga ut som användare.</message>
+	<message key="manager.navigationMenus.loggedOut.conditionalWarning">Den här länken visas bara om besökaren är inloggad.</message>
+	<message key="manager.navigationMenus.loggedIn.conditionalWarning">Den här länken visas bara när besökaren inte är inloggad.</message>
+	
 </locale>

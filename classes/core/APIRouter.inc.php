@@ -119,19 +119,8 @@ class APIRouter extends PKPRouter {
 	}
 
 	/**
-	 * Generate a URL into the API.
-	 * FIXME: Unimplemented.
-	 * @param $request PKPRequest
-	 * @param $endpoing string API endpoint
-	 * @param $params array
-	 */
-	function url($request, $endpoint, $params) {
-		fatalError('unimplemented.');
-	}
-
-	/**
 	 * Get the requested operation
-	 * 
+	 *
 	 * @param $request PKPRequest
 	 * @return string
 	 */

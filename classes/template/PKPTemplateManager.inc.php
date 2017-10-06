@@ -1548,6 +1548,21 @@ class PKPTemplateManager extends Smarty {
 			$contextId = $currentContext->getId();
 		}
 
+		// Don't load menus for an area that's not registered by the active theme
+		$themePlugins = PluginRegistry::getPlugins('themes');
+		if (is_null($themePlugins)) {
+			$themePlugins = PluginRegistry::loadCategory('themes', true);
+		}
+		$activeThemeNavigationAreas = array();
+		foreach ($themePlugins as $themePlugin) {
+			if ($themePlugin->isActive()) {
+				$areas = $themePlugin->getMenuAreas();
+				if (!in_array($areaName, $areas)) {
+					return '';
+				}
+			}
+		}
+
 		$menuTemplatePath = 'frontend/components/navigationMenu.tpl';
 		if (isset($declaredMenuTemplatePath)) {
 			$menuTemplatePath = $declaredMenuTemplatePath;

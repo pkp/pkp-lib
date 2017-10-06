@@ -59,22 +59,19 @@ class NavigationMenuForm extends Form {
 		if (is_null($themePlugins)) {
 			$themePlugins = PluginRegistry::loadCategory('themes', true);
 		}
-		$enabledThemes = array();
-		$activeThemeOptions = array();
+
+		$activeThemeNavigationAreas = array();
 		foreach ($themePlugins as $themePlugin) {
-			$enabledThemes[basename($themePlugin->getPluginPath())] = $themePlugin->getDisplayName();
 			if ($themePlugin->isActive()) {
-				$activeThemeOptions = $themePlugin->getOptionsConfig();
+				$areas = $themePlugin->getMenuAreas();
+				foreach ($areas as $area) {
+					$activeThemeNavigationAreas[$area] = $area;
+				}
 			}
 		}
 
-		$activeThemeNavigationAreas = array();
-		if (!count($activeThemeOptions['navigationMenuArea']) == 0) {
+		if (empty($activeThemeNavigationAreas)) {
 			$activeThemeNavigationAreas = array('' => __('common.none'));
-		}
-
-		foreach ($activeThemeOptions['navigationMenuArea'] as $navigationMenuArea) {
-			$activeThemeNavigationAreas[$navigationMenuArea] = $navigationMenuArea;
 		}
 
 		$context = $request->getContext();
@@ -103,7 +100,6 @@ class NavigationMenuForm extends Form {
 		}
 
 		$templateMgr->assign(array(
-			'enabledThemes' => $enabledThemes,
 			'activeThemeNavigationAreas' => $activeThemeNavigationAreas,
 			'unassignedItems' => $unassignedItems,
 			'navigationMenuId' => $this->_navigationMenuId,

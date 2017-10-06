@@ -91,7 +91,7 @@ class QueuedPaymentDAO extends DAO {
 	 * Delete a queued payment.
 	 * @param $queuedPaymentId int
 	 */
-	function deleteObject($queuedPaymentId) {
+	function deleteById($queuedPaymentId) {
 		return $this->update(
 			'DELETE FROM queued_payments WHERE queued_payment_id = ?',
 			array((int) $queuedPaymentId)

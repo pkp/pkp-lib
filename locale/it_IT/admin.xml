@@ -20,7 +20,7 @@
 	<message key="admin.authSources">Autenticazione</message>
 	<message key="admin.clearDataCache">Svuota la cache dei dati</message>
 	<message key="admin.clearTemplateCache">Svuota la cache dei template</message>
-	<message key="admin.configFileUpdatedInstructions"><![CDATA[Il file di configurazione &#x00E8; stato modificato con successo. Da notare che se il sito non dovesse pi&#x00F9; funzionare correttamente dopo queste modifiche sar&#x00E0; necessario sistemare manualmente il file di configurazione <tt>config.inc.php</tt>.]]></message>
+	<message key="admin.configFileUpdatedInstructions"><![CDATA[Il file di configurazione è; stato modificato con successo. Da notare che se il sito non dovesse più; funzionare correttamente dopo queste modifiche sarà; necessario sistemare manualmente il file di configurazione <tt>config.inc.php</tt>.]]></message>
 	<message key="admin.confirmClearTemplateCache">Sei sicuro di voler svuotare la cache dei template compilati?</message>
 	<message key="admin.confirmExpireSessions">Sei sicuro di voler chiudere tutte le sessioni utente? Tutti gli utenti attualmente collegati al sistema saranno costretti ad effettuare di nuovo il log in (te compreso).</message>
 	<message key="admin.contentsOfConfigFile">Contenuti del file di configurazione</message>
@@ -66,7 +66,7 @@
 	<message key="admin.siteAdmin">Amministrazione del sito</message>
 	<message key="admin.siteManagement">Gestione del sito</message>
 	<message key="admin.siteSettings">Impostazioni</message>
-	<message key="admin.systemConfigFileReadError"><![CDATA[Il file di configurazione <tt>config.inc.php</tt> non esiste, non &#x00E8; leggibile o non &#x00E8; valido.]]></message>
+	<message key="admin.systemConfigFileReadError"><![CDATA[Il file di configurazione <tt>config.inc.php</tt> non esiste, non è leggibile o non è valido.]]></message>
 	<message key="admin.systemInformation">Informazioni sul sistema</message>
 	<message key="admin.versionBuild">Compilazione</message>
 	<message key="admin.version.checkForUpdates">Cerca aggiornamenti</message>
@@ -78,7 +78,7 @@
 	<message key="admin.versionMinor">Minore</message>
 	<message key="admin.version.moreInfo">Altre informazioni</message>
 	<message key="admin.versionRevision">Revisione</message>
-	<message key="admin.version.updateAvailable"><![CDATA[&Egrave; disponibile una versione aggiornata]]></message>
+	<message key="admin.version.updateAvailable">È disponibile una versione aggiornata</message>
 	<message key="admin.version.upToDate">Il tuo sistema è aggiornato</message>
 	<message key="admin.version">Versione</message>
 	<message key="admin.settings">Impostazioni</message>
@@ -98,5 +98,8 @@
 	<message key="admin.fileLoader.wrongBasePathLocation">Il path bas {$path} deve essere dentro la cartella dei file public</message>
 	<message key="admin.fileLoader.pathNotAccessible">La cartella {$path} non è esiste o non è scrivibile</message>
 	<message key="admin.fileLoader.moveFileFailed">il file {$filename} non può essere spostato da {$currentFilePath} a {$destinationPath}</message>
+	<message key="admin.fileLoader.fileProcessed">Il file {$filename} è stato lavorato e archiviato.</message>
 	<message key="admin.fileLoader">Caricatore di file</message>
+	<message key="admin.error.utilExecutionProblem">L'esecuzione di "{$utilPath}" ha dato il segunete errore: {$output}</message>
+	<message key="admin.error.executingUtil">Errore: non posso eseguire "{$utilPath}".  Controlla il valore di {$utilVar} nel config.inc.php.</message>
 </locale>

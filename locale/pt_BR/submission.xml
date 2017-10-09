@@ -167,7 +167,7 @@
 	<message key="submission.due">Prazo</message>
 	<message key="submission.editing">Edição</message>
 	<message key="submission.editMetadata">Editar metadados</message>
-	<message key="submission.editorial">Edição de Leiaute</message>
+	<message key="submission.editorial">Edição de Texto</message>
 	<message key="submission.email.backToEmailLog">Voltar para log de e-mail</message>
 	<message key="submission.email.confirmClearLog">Deseja realmente limpar o log de e-mail da submissão?</message>
 	<message key="submission.email.confirmDeleteLogEntry">Deseja realmente excluir esta entrada no log de e-mail?</message>
@@ -194,7 +194,7 @@
 	<message key="submission.event.reviewer.reviewRecommendation">Documento de recomendações do avaliador</message>
 	<message key="submission.event.reviewer.reviewReinitiated">Tarefa de avaliação reiniciada</message>
 	<message key="submission.event.reviewer.reviewResubmitted">Avaliação reenviada</message>
-	<message key="submission.event.reviewer.reviewRevision">Arquivo de revisões do avaliador atualizado</message>
+	<message key="submission.event.reviewer.reviewRevision">Arquivo de avaliações do avaliador atualizado</message>
 	<message key="submission.files">Documentos</message>
 	<message key="submission.galley">Composição Final</message>
 	<message key="submission.history.clearLog">Limpar Log</message>
@@ -389,7 +389,7 @@
 	<message key="submission.createRemote">Criar remoto</message>
 	<message key="submission.form.name">Informe um nome útil para o arquivo</message>
 	<message key="submission.form.replaceExisting">Substituindo um arquivo existente?</message>
-	<message key="reviewer.submission.reviewFiles">Arquivos da avaliação</message>
+	<message key="reviewer.submission.reviewFiles">Arquivos para avaliação</message>
 	<message key="submission.stageNotInitiated">Estágio não iniciado.</message>
 	<message key="notification.type.editorDecisionTitle">Última decisão editorial.</message>
 	<message key="notification.type.editorDecisionAccept">Submissão aceita.</message>
@@ -397,14 +397,14 @@
 	<message key="notification.type.editorDecisionPendingRevisions">Avaliação requerida.</message>
 	<message key="notification.type.editorDecisionResubmit">Enviar novamente para avaliação.</message>
 	<message key="notification.type.editorDecisionDecline">Submissão rejeitada.</message>
-	<message key="notification.type.editorDecisionSendToProduction">Processo de produção iniciado.</message>
+	<message key="notification.type.editorDecisionSendToProduction">Processo de editoração iniciado.</message>
 	<message key="notification.uploadedResponse">Resposta enviada.</message>
 	<message key="notification.type.editorAssignment">Um editor deve ser designado antes de iniciar a avaliação. Inclua um editor usando o link de Participantes acima.</message>
 	<message key="grid.reviewAttachments.title">Anexos do avaliador</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} designado para avaliar a submissão {$submissionId} na rodada de avaliação {$round}.</message>
 	<message key="grid.action.itemWorkflow">Acessar o fluxograma de trabalho desta submissão</message>
-	<message key="notification.type.editorAssignmentProduction">Um editor de produção deve ser designado antes de iniciar o processo de produção. Inclua um editor de produção usando o link de Participantes acima.</message>
-	<message key="notification.type.editorAssignmentEditing">Um editor de produção deve ser designado antes de iniciar o processo editorial. Inclua um editor de produção usando o link de Participantes acima.</message>
+	<message key="notification.type.editorAssignmentProduction">Um editor de leiaute deve ser designado antes de iniciar o processo de editoração. Inclua um editor de leiaute usando o link de Participantes acima.</message>
+	<message key="notification.type.editorAssignmentEditing">Um editor de leiaute deve ser designado antes de iniciar o processo de editoração. Inclua um editor de leiaute usando o link de Participantes acima. </message>
 	<message key="submission.submission">Submissão</message>
 	<message key="submission.copyediting">Edição de Texto</message>
 	<message key="submission.coverage">Informações de Cobertura</message>
@@ -418,7 +418,7 @@
 	<message key="submission.informationCenter.history">Histórico</message>
 	<message key="submission.informationCenter.history.allEvents">Mostrar eventos de versões anteriores</message>
 	<message key="submission.stageParticipants.notify">Notificar</message>
-	<message key="submission.production">Produção</message>
+	<message key="submission.production">Editoração</message>
 	<message key="submission.rights">Direitos</message>
 	<message key="submission.rights.tip">Se desejar, você pode inserir uma breve declaração sobre os direitos de acesso sobre esta submissão.</message>
 	<message key="submission.source">Fonte</message>
@@ -478,7 +478,7 @@
 	<message key="submission.upload.response.description">Depois de analisar o arquivo designado, grave seus comentários no arquivo abaixo, e/ou envie uma cópia anotada do arquivo (ou outro arquivo).</message>
 	<message key="submission.upload.productionReady">Enviar uma Versão Final</message>
 	<message key="submission.upload.noAvailableReviewFiles">Não existem arquivos a serem revisados por você.</message>
-	<message key="editor.submission.roundStatus.revisionsRequested">Revisões foram solicitadas.</message>
+	<message key="editor.submission.roundStatus.revisionsRequested">Avaliações foram solicitadas.</message>
 	<message key="editor.submission.roundStatus.resubmitted">A submissão foi enviada para avaliação.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">Enviada para avaliação externa.</message>
 	<message key="editor.submission.roundStatus.accepted">Submissão aceita.</message>
@@ -500,7 +500,7 @@
 	<message key="editor.submission.decision.requestRevisions">Solicitar Modificações</message>
 	<message key="editor.submission.decision.resubmit">Solicitar Reenvio</message>
 	<message key="editor.submission.decision.decline">Rejeitar Submissão</message>
-	<message key="editor.submission.decision.sendToProduction">Enviar para Produção</message>
+	<message key="editor.submission.decision.sendToProduction">Enviar para Editoração</message>
 	<message key="editor.submission.decision.sendInternalReview">Enviar para Avaliação Interna</message>
 	<message key="editor.submission.decision.approveProofs">Aprovar Versões de Prova</message>
 	<message key="editor.submission.decision.approveProofsDescription">O arquivo de leitura de prova deve ser definido como aprovado para ser disponibilizado. Você quer aprová-lo?</message>
@@ -556,10 +556,10 @@
 	<message key="submission.license.cc.by-sa4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.]]></message>
 
 	<!-- Submission Queries -->
-	<message key="submission.queries.submission">Comentários pre-avaliação</message>
-	<message key="submission.queries.review">Comentários do avaliador</message>
-	<message key="submission.queries.editorial">Comentários da edição de leiaute</message>
-	<message key="submission.queries.production">Comentário da produção</message>
+	<message key="submission.queries.submission">Discussão da pre-avaliação</message>
+	<message key="submission.queries.review">Discussão da avaliação</message>
+	<message key="submission.queries.editorial">Discussão da edição de texto</message>
+	<message key="submission.queries.production">Discussão da Editoração</message>
 	<message key="submission.query.subject">Assunto</message>
 	<message key="submission.query.messages">Mensagens</message>
 	<message key="submission.query.replies">Respostas</message>
@@ -618,7 +618,7 @@
 	<message key="notification.type.layouteditorRequest">Você foi solicitado a avaliar o layout para "{$title}".</message>
 	<message key="notification.type.indexRequest">Você foi solicitado a catalogar o documento "{$title}".</message>
   <message key="submission.authorBiography">Biografia do Autor</message>
-  <message key="submission.authorWithAffiliation">{$author} et al.</message>
+  <message key="submission.authorWithAffiliation">{$author}, {$affiliation}</message>
   <message key="submission.submit.submissionLocaleDescription">Arquivos da Submissão</message>
   <message key="editor.submission.decision.accept">Aceitar Submissão</message>
   <message key="editor.submission.decision.skipReview">Aceitar e Enviar para Avaliação Interna</message>

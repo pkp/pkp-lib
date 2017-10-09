@@ -38,7 +38,7 @@
 	<message key="grid.action.export">Exportar</message>
 	<message key="grid.action.deleteSection">Apagar seção</message>
 	<message key="grid.action.editorialHistory">Histórico Editorial</message>
-	<message key="grid.action.remove">Retirar</message>
+	<message key="grid.action.remove">Remover</message>
 	<message key="grid.action.edit">Editar</message>
 	<message key="grid.action.approve">Aceitar</message>
 	<message key="grid.action.disapprove">Desaprovar</message>
@@ -70,7 +70,7 @@
 	<message key="grid.action.decline">Recusar</message>
 	<message key="grid.action.internalReview">Enviar esta submissão para avaliação interna</message>
 	<message key="grid.action.externalReview">Enviar esta submissão para avaliação externa</message>
-	<message key="grid.action.sendToProduction">Enviar esta submissão para produção</message>
+	<message key="grid.action.sendToProduction">Enviar esta submissão para editoração</message>
 	<message key="grid.action.settings">Configurações</message>
 	<message key="grid.action.importexport">Importar ou exportar conteúdo ou dados do site</message>
 	<message key="grid.action.restoreDefaults">Restaurar padrões</message>
@@ -94,7 +94,7 @@
 	<message key="grid.action.selectCreate">Criar novo avaliador</message>
 	<message key="grid.action.search">Buscar</message>
 	<message key="grid.action.advancedSearch">Busca avançada</message>
-	<message key="grid.action.viewLibrary">Ver biblioteca de documentos</message>
+	<message key="grid.action.viewLibrary">Ver Biblioteca da Revista</message>
 	<message key="grid.action.viewMetadata">Ver dados da submissão</message>
 	<message key="grid.action.sendReminder">Enviar lembrete de tarefa</message>
 	<message key="grid.action.newRound">Criar nova rodada</message>
@@ -170,8 +170,8 @@
 	<message key="grid.libraryFiles.submission.title">Biblioteca de submissão</message>
 	<message key="grid.libraryFiles.editorial.title">Biblioteca editorial</message>
 	<message key="grid.libraryFiles.review.title">Bilbioteca de revisão</message>
-	<message key="grid.libraryFiles.production.title">Biblioteca de produção</message>
-	<message key="grid.libraryFiles.productionTemplate.title">Biblioteca de modelos de produção</message>
+	<message key="grid.libraryFiles.production.title">Biblioteca de editoração</message>
+	<message key="grid.libraryFiles.productionTemplate.title">Biblioteca de modelos de editoração</message>
 
 	<!-- SubmissionChecklist -->
 	<message key="grid.submissionChecklist.title">Diretrizes para submissão</message>

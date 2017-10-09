@@ -60,9 +60,9 @@
 
 	<!-- Publication Process settings -->
 	<message key="manager.publication.submissionStage">Submissão</message>
-	<message key="manager.publication.reviewStage">Revisão</message>
+	<message key="manager.publication.reviewStage">Avaliação</message>
 	<message key="manager.publication.editorialStage">Editorial</message>
-	<message key="manager.publication.productionStage">Produção</message>
+	<message key="manager.publication.productionStage">Editoração</message>
 	<message key="manager.publication.emails">Emails</message>
 	<message key="manager.emails.confirmDelete">Deseja realmente excluir esta mensagem padrão?</message>
 	<message key="manager.emails.confirmReset">Deseja realmente restaurar este e-mail para o padrão original?</message>
@@ -286,7 +286,7 @@ Há casos em que uma única estatística de uso devem ser utilizada, por exemplo
 	<message key="manager.setup.competingInterestsDescription">Os avaliadores serão convidados a cumprir com a política de conflito de interesses especificada abaixo.</message>
 	<message key="manager.setup.groupType">Agrupamento por tipo de arquivo</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Tempo dado para respostas dos avaliadores (semanas)</message>
-	<message key="manager.setup.reviewOptions.numWeeksPerReview">Tempo para término da revisão (semanas)</message>
+	<message key="manager.setup.reviewOptions.numWeeksPerReview">Tempo para término da avaliação (semanas)</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Nunca lembrar</message>
 	<message key="manager.setup.reviewOptions.remindForInvite">Envie um lembrete se um avaliador não responder a um pedido de avaliação dentro do seguinte tempo (dias):</message>
 	<message key="manager.setup.reviewOptions.remindForSubmit">Envie um lembrete se um avaliadores não apresentar um parecer dentro do seguinte tempo (dias):</message>
@@ -436,7 +436,7 @@ Há casos em que uma única estatística de uso devem ser utilizada, por exemplo
 	<message key="manager.reviewFormElements.radiobuttons">Botões rádio (permite escolher apenas uma opção)</message>
 	<message key="manager.reviewFormElements.required">Preenchimento obrigatório para avaliadores</message>
 	<message key="manager.reviewFormElements.smalltextfield">Caixa de texto de uma palavra</message>
-	<message key="manager.reviewFormElements.textarea">Caixa de texto extendida</message>
+	<message key="manager.reviewFormElements.textarea">Caixa de texto estendida</message>
 	<message key="manager.reviewFormElements.textfield">Caixa de texto de uma linha</message>
 	<message key="manager.reviewFormElements.viewable">Visível (para autores)</message>
 	<message key="grid.action.createReviewForm">Criar Novo Formulário de Avaliação</message>
@@ -495,7 +495,7 @@ Há casos em que uma única estatística de uso devem ser utilizada, por exemplo
 	<message key="manager.setup.openAccessPolicy.description">Se proporcionar livre acesso imediato a todo o conteúdo publicado, você pode inserir uma descrição da sua política de acesso aberto.</message>
 	<message key="manager.setup.pageFooter">Rodapé</message>
 	<message key="manager.setup.pageFooterDescription">Insira quaisquer imagens, texto ou código HTML que você gostaria de aparecer na parte inferior do seu site.</message>
-	<message key="manager.setup.peerReview.description">Descreva a política de avaliação por pares e processos para os leitores e autores. Esta descrição inclui muitas vezes o número de avaliadores normalmente utilizados na revisão de uma submissão, os critérios pelos quais os avaliadores são convidados a julgar as inscrições, o tempo de espera necessário para conduzir as avaliações e os princípios usados para selecionar avaliadores.</message>
+	<message key="manager.setup.peerReview.description">Descreva a política de avaliação por pares e processos para os leitores e autores. Esta descrição inclui muitas vezes o número de avaliadores normalmente utilizados na avaliação de uma submissão, os critérios pelos quais os avaliadores são convidados a julgar as inscrições, o tempo de espera necessário para conduzir as avaliações e os princípios usados para selecionar avaliadores.</message>
 	<message key="manager.setup.principalContact">Contato Principal</message>
 	<message key="manager.setup.reviewOptions.noteOnModification">Padrões podem ser modificados para cada avaliação durante o processo editorial.</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Padrão dos Prazos de Avaliação</message>

@@ -121,7 +121,7 @@
 	<message key="common.deleteSelection">Eliminar seleção</message>
 	<message key="common.designation">Designação</message>
 	<message key="common.description">Descrição</message>
-	<message key="common.dimensionsInches"><![CDATA[{$width}"&nbsp;x&nbsp;{$height}" @ {$dpi} DPI/PPI]]></message>
+	<message key="common.dimensionsInches"><![CDATA[{$width}" x {$height}" @ {$dpi} DPI/PPI]]></message>
 	<message key="common.dimensionsPixels">{$width} x {$height} pixels</message>
 	<message key="common.disable">Desabilitar</message>
 	<message key="common.disabled">Desabilitado</message>
@@ -352,7 +352,7 @@
 	<message key="informationCenter.addSubmissionNote">Incluir na submissão</message>
 	<message key="informationCenter.noNotes">Nenhuma nota a ser exibida.</message>
 	<message key="informationCenter.currentNotes">Revisão atual</message>
-	<message key="informationCenter.pastNotes">Revisões anteriores</message>
+	<message key="informationCenter.pastNotes">Avaliações anteriores</message>
 	<message key="informationCenter.lastUpdated">Última atualização</message>
 	<message key="informationCenter.deleteConfirm">Deseja realmente excluir esta nota?</message>
 	<message key="informationCenter.currentHistory">Último evento</message>
@@ -382,7 +382,7 @@
 	<message key="navigation.browseByTitle">Por título</message>
 	<message key="navigation.data">Dados</message>
 	<message key="navigation.home">Capa</message>
-	<message key="navigation.infoForReaders">Para leitores</message>
+	<message key="navigation.infoForReaders">Para Leitores</message>
 	<message key="navigation.infoForReaders.long">Informações para Leitores</message>
 	<message key="navigation.items">{$from} a {$to} de {$total} itens</message>
 	<message key="navigation.items.shownTotal">{$shown} de {$total} itens</message>
@@ -408,7 +408,7 @@
 	<message key="notification.removedAuditor">Auditor excluído.</message>
 	<message key="notification.addedQuery">Discussão Adicionada</message>
 	<message key="notification.reviewAcknowledged">Avaliação marcada como reconhecida. Mensagem não enviada.</message>
-	<message key="notification.updatedReviewFiles">Arquivos de revisão atualizados.</message>
+	<message key="notification.updatedReviewFiles">Arquivos de avaliação atualizados.</message>
 	<message key="notification.allow">Exibir estas notificações no meu canal de notificações</message>
 	<message key="notification.addedAnnouncementType">Tipo de anúncio adicionado.</message>
 	<message key="notification.editedAnnouncementType">Tipo de anúncio editado.</message>
@@ -517,7 +517,7 @@
 	<message key="notification.type.allReviewsIn">Todas as avaliações entregues e aguardando decisão final no estágio {$stage}.</message>
 	<message key="notification.type.allRevisionsIn">Um arquivo revisado foi enviado para avaliação editorial no estágio {$stage}.</message>
 	<message key="notification.type.pendingRevisions">Revisões para consideração no estágio {$stage}.</message>
-	<message key="notification.type.pendingRevisions.title">Revisões enviadas ao estágio {$stage}.</message>
+	<message key="notification.type.pendingRevisions.title">Avaliações enviadas ao estágio {$stage}.</message>
 	<message key="notification.type.roundStatusTitle">Situação da rodada {$round}</message>
 
 
@@ -545,7 +545,7 @@
 	<message key="search.SearchFor">Buscar por</message>
 	<message key="notification.type.assignCopyeditors">Atribua um editor de texto usando o link "Adicionar" na lista Participantes.</message>
 	<message key="notification.type.awaitingCopyedits">Aguardando Textos Revisados</message>
-  <message key="common.captcha.error.missing-input-secret">Informe o código como aparece na imagem.</message>
+  <message key="common.captcha.error.missing-input-secret">A validação captcha não está configurada corretamente. Está faltando a chave secreta. Contate o administrador.</message>
   <message key="common.captcha.error.invalid-input-secret">A configuração do captcha deste site não está configurada corretamente. A chave secreta é inválida.</message>
   <message key="common.downloadPdf">Baixar PDF</message>
   <message key="form.csrfInvalid">O formulário não foi enviado corretamente.</message>
@@ -556,4 +556,5 @@
   <message key="notification.removedSubmission">Submissão removida.</message>
   <message key="notification.addedReviewerNoEmail">{$reviewerName} foi designado para avaliar essa submissão e não recebeu uma notificação por email.</message>
   <message key="common.captcha.error.missing-input-response">Você deve completar a checagem de validação para evitar o envio de SPAM.</message>
+  <message key="common.captcha.error.invalid-input-response">Informe o código como aparece na imagem.</message>
 </locale>

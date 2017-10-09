@@ -24,7 +24,7 @@
 	<message key="user.authorization.restrictedSiteAccess">Seu acesso foi negado. Acesso a esta página está atualmente bloqueado.</message>
 	<message key="user.authorization.roleBasedAccessDenied">O papel atual não possui permissão para realizar esta operação.</message>
 	<message key="user.authorization.userGroupRequired">É necessário definir um grupo de usuário válido para acessar esta operação.</message>
-	<message key="user.authorization.managerRequired">Um usuário com papel de Gerente de Imprensa (Editor de Imprensa ou de Produção, por exemplo) deve ser designado ao estágio antes de proceder.</message>
+	<message key="user.authorization.managerRequired">Um usuário com papel de Gerente (Editor da Revista ou Editor de Leiaute, por exemplo) deve ser designado ao estágio antes de proceder.</message>
 	<message key="user.authorization.accessibleWorkflowStage">Atualmente você não possui acesso a este estágio do fluxo de trabalho.</message>
 	<message key="user.authorization.workflowStageRequired">Um estágio do fluxo de trabalho não foi especificado.</message>
 	<message key="user.authorization.pluginRequired">Um plugin não foi especificado mas é requerido.</message>

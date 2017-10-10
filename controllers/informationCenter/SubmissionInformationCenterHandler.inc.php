@@ -54,7 +54,7 @@ class SubmissionInformationCenterHandler extends InformationCenterHandler {
 			$notesForm->execute($request);
 
 			// Save to event log
-			$this->_logEvent($request, SUBMISSION_LOG_NOTE_POSTED);
+			$this->_logEvent($request, $this->_submission, SUBMISSION_LOG_NOTE_POSTED, 'SubmissionLog');
 
 			$user = $request->getUser();
 			NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.addedNote')));

@@ -69,7 +69,7 @@
 	<message key="rt.admin.searches.createSearch">Skapa sökning</message>
 	<message key="rt.admin.searches.edit.editSearch">Redigera sökning</message>
 	<message key="rt.admin.selectedVersion">Relaterat material</message>
-	<message key="rt.admin.settings.abstract">Sammanfattning (visar materialets sammanfattning).</message>
+	<message key="rt.admin.settings.abstract">Abstract (visar materialets abstract).</message>
 	<message key="rt.admin.settings.viewReviewPolicy">Visa riktlinjer för granskning</message>
 	<message key="rt.admin.settings.authorBio">Om författaren (visar biografisk information som författaren angivit).</message>
 	<message key="rt.admin.settings.captureCite">Så här citerar du materialet (visar bibliografiska detaljer om materialet).</message>
@@ -137,7 +137,7 @@
 	<message key="rt.metadata.dublinCore.title">Titel</message>
 	<message key="rt.metadata.dublinCore.type">Resurstyp</message>
 	<message key="rt.metadata.forThisDocument">Metadata för det här dokumentet</message>
-	<message key="rt.metadata.pkp.abstract">Sammanfattning</message>
+	<message key="rt.metadata.pkp.abstract">Abstract</message>
 	<message key="rt.metadata.pkp.copyright">Upphovsrätt och tillstånd</message>
 	<message key="rt.metadata.pkp.coverage">Geografiskt område/plats, tidsperiod, urval (kön, ålder, etc.)</message>
 	<message key="rt.metadata.pkp.date">(ÅÅÅÅ-MM-DD)</message>

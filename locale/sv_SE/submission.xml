@@ -147,7 +147,7 @@
 	<message key="submission.mySubmissions">Bidrag med mig som författare</message>
 	<message key="submission.addFile">Ladda upp fil</message>
 	<message key="submission.agencies">Organisationer</message>
-	<message key="submission.abstractViews">Visningar av sammanfattning</message>
+	<message key="submission.abstractViews">Visningar av abstract</message>
 	<message key="submission.accepted">Accepterad</message>
 	<message key="submission.acknowledge">Bekräfta</message>
 	<message key="submission.addSuppFile">Bifoga tilläggsfil</message>
@@ -443,7 +443,7 @@
 	<message key="submission.supportingAgencies">Stödorganisationer</message>
 	<message key="submission.currentAgencies">Aktuelle organisationer</message>
 	<message key="submission.indexingInformation">Indexeringsinformation</message>
-	<message key="submission.titleAndAbstract">Titel och sammanfattning</message>
+	<message key="submission.titleAndAbstract">Titel och abstract</message>
 	<message key="submission.type.tip"><![CDATA[Bidragstypen är vanligen någon av 'bild', 'text', eller andra multimedia-typer som 'mjukvara' eller 'interaktiv'. Välj den som är mest relevant för ditt bidrag. Det finns exempel på <a target="_blank" href="http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>]]></message>
 	<message key="submission.underway">På väg</message>
 	<message key="submission.uploadFileTo">Ladda upp fil till</message>

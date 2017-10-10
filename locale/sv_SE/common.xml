@@ -477,7 +477,7 @@
 	<message key="search.cli.rebuildIndex.done">klart</message>
 	<message key="search.cli.rebuildIndex.error">fel</message>
 	<message key="search.cli.rebuildIndex.result">{$numIndexed} artiklar indexerade</message>
-	<message key="search.coverage">Omfång</message>
+	<message key="search.coverage">Täckning</message>
 	<message key="search.date">Publiceringsdatum</message>
 	<message key="search.dateFrom">Publicerad senare än</message>
 	<message key="search.dateTo">Publicerad tidigare än</message>

@@ -262,7 +262,7 @@
 	<message key="submission.copyedited">Manusredigerad</message>
 	<message key="submission.copyediting">Manusredigering</message>
 	<message key="submission.queryNoteFiles">Diskussionsfiler</message>
-	<message key="submission.coverage">Information om omfång</message>
+	<message key="submission.coverage">Information om täckning</message>
 	<message key="submission.done">Klar</message>
 	<message key="submission.dueDate">Deadline</message>
 	<message key="submission.due">Förväntad</message>

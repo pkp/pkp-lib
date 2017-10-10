@@ -231,7 +231,7 @@
 	<message key="manager.setup.authorGuidelines.description">Rekommenderade riktlinjer inkluderar bibliografi- och formateringsstandarder tillsammans med exempel på vanliga referensformat att använda vid inlämning av bidrag.</message>
 	<message key="manager.setup.citations">Referenser</message>
 	<message key="manager.setup.citationAssistant">Verktyget för referensuppmärkning</message>
-	<message key="manager.setup.citationFilterParser">Referensextrahering</message>
+	<message key="manager.setup.citationFilterParser">Extrahering av referenser</message>
 	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>För att hitta och kontrollera referenser i referensdatabaser måste de först delas in i maskinläsbara metadata. Titel, förlag, publiceringsdatum, etc. måste hämtas från författarens originaltext. Anslutningar till externa webbtjänster kan hjälpa till med detta. En eller flera anslutningar kan läggas till genom att klicka på knappen "Lägg till objekt" nedan. Några av dessa anslutningar kan behöva konfigureras; du meddelas om så är fallet.</p>
 		<p>Du kan ändra eller ta bort en existerande anslutning genom att klicka på kugghjulet bredvid.</p>]]></message>
 	<message key="manager.setup.citationFilterLookup">Referenskontrollering</message>
@@ -269,7 +269,7 @@
 	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>Det här extraheringsfiltret använder sig av webbtjänsten <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a>.</p>]]></message>
 	<message key="manager.setup.filter.parser.grid.description.regEx">Extraheringsfiltret RegEx använder en serie reguljära uttryck för att tolka referenser.</message>
 	<message key="manager.setup.filter.parser.grid.loadMessage">Vänta tills referens-parserns konfigurationer har laddat...</message>
-	<message key="manager.setup.filter.parser.grid.title">Tjänster för referensextrahering</message>
+	<message key="manager.setup.filter.parser.grid.title">Tjänster för extrahering av referenser</message>
 	<message key="manager.setup.filter.pleaseSelect">Välj...</message>
 	<message key="manager.setup.groupType">Gruppering av filtyper</message>
 	<message key="manager.setup.homeHeaderImageInvalid">Ogiltigt format för logotyp på förstasidans sidhuvud, eller misslyckad uppladdning. Godkända format är .gif, .jpg, och .png.</message>
@@ -324,8 +324,8 @@
 	<message key="plugins.categories.blocks.description">Block är komponenter av användargränssnittet, t.ex. de olika verktygen i sidomenyn.</message>
 	<message key="plugins.categories.citationLookup">Insticksmoduler för anslutningar till  referensdatabaser</message>
 	<message key="plugins.categories.citationLookup.description">Insticksmoduler för referensdatabaser ansluter till referensdatabaser för att kontrollera referenser, t.ex. vid redigering av referenser.</message>
-	<message key="plugins.categories.citationParser">Insticksmoduler för referensextrahering</message>
-	<message key="plugins.categories.citationParser.description">Insticksmoduler för referensextrahering extraherar data på fältnivå från oredigerade referenser (t.ex. författare, titel etc.).</message>
+	<message key="plugins.categories.citationParser">Plugins för extrahering av referenser</message>
+	<message key="plugins.categories.citationParser.description">Insticksmoduler för extrahering av referenser extraherar data på fältnivå från oredigerade referenser (t.ex. författare, titel etc.).</message>
 	<message key="plugins.categories.gateways.description">Gateway-insticksmoduler tillhandahåller live-data till externa system.</message>
 	<message key="plugins.categories.gateways">Gateway-insticksmoduler</message>
 	<message key="plugins.categories.generic">Allmänna insticksmoduler</message>

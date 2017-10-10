@@ -180,7 +180,7 @@
 	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Välj referensdatabas-tjänster</message>
 	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Inställningar för expert-referenstjänst (klicka för att stänga)</message>
 	<message key="submission.citations.editor.details.editRawCitationExpertSettingsInactive">Inställningar för expert-referenstjänst (klicka för att stänga)</message>
-	<message key="submission.citations.editor.details.editRawCitationExtractionServices">Välj tjänster för referensextrahering:</message>
+	<message key="submission.citations.editor.details.editRawCitationExtractionServices">Välj tjänster för extrahering av referenser:</message>
 	<message key="submission.citations.editor.details.editRawCitationFilterValidationError">Internt fel: ogiltigt filterval. Vänligen buggrapportera.</message>
 	<message key="submission.citations.editor.details.explainImprovementOptions">Om du inte fick tillfredsställande resultat från början har du olika alternativ för att förbättra referensen. Ofta hjälper det att manuellt redigera viktiga fält (t.ex. titel och författare) och sen försöka köra referenstjänsten igen. Om det inte fungerar kan du slå upp i Google Scholar eller fråga författaren efter detaljer</message>
 	<message key="submission.citations.editor.details.googleScholar">Google Scholar</message>

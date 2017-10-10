@@ -20,6 +20,18 @@ import('classes.log.SubmissionEventLogEntry');
 class SubmissionInformationCenterHandler extends InformationCenterHandler {
 
 	/**
+	 * @copydoc InformationCenterHandler::viewInformationCenter()
+	 */
+	function viewInformationCenter($args, $request) {
+		$templateMgr = TemplateManager::getManager($request);
+		$user = $request->getUser();
+		// Do not display the History tab if the user is not a manager or a sub-editor
+		$userHasRole = $user->hasRole(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR), $this->_submission->getContextId());
+		$templateMgr->assign('removeHistoryTab', !$userHasRole);
+		return parent::viewInformationCenter($args, $request);
+	}
+
+	/**
 	 * Display the notes tab.
 	 * @param $args array
 	 * @param $request PKPRequest

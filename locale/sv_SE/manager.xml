@@ -230,7 +230,7 @@
 	<message key="manager.setup.authorGuidelines">Riktlinjer för författare</message>
 	<message key="manager.setup.authorGuidelines.description">Rekommenderade riktlinjer inkluderar bibliografi- och formateringsstandarder tillsammans med exempel på vanliga referensformat att använda vid inlämning av bidrag.</message>
 	<message key="manager.setup.citations">Referenser</message>
-	<message key="manager.setup.citationAssistant">Assistenten för referensuppmärkning</message>
+	<message key="manager.setup.citationAssistant">Verktyget för referensuppmärkning</message>
 	<message key="manager.setup.citationFilterParser">Referensextrahering</message>
 	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>För att hitta och kontrollera referenser i referensdatabaser måste de först delas in i maskinläsbara metadata. Titel, förlag, publiceringsdatum, etc. måste hämtas från författarens originaltext. Anslutningar till externa webbtjänster kan hjälpa till med detta. En eller flera anslutningar kan läggas till genom att klicka på knappen "Lägg till objekt" nedan. Några av dessa anslutningar kan behöva konfigureras; du meddelas om så är fallet.</p>
 		<p>Du kan ändra eller ta bort en existerande anslutning genom att klicka på kugghjulet bredvid.</p>]]></message>
@@ -285,7 +285,7 @@
 	<message key="manager.setup.layout.unselected">Ej vald</message>
 	<message key="manager.setup.loggingAndAuditing">Loggning och revidering</message>
 	<message key="manager.setup.logo">Logotyp</message>
-	<message key="manager.setup.metaCitationsDescription">Kryssa i följande ruta för att aktivera citat- och referensredigering. Det här gör att författare kan inkludera oredigerade referenser till sina bidrag. Redaktörer kommer också att få tillgång till en referensmarkeringsassistent som kan kontrollera oredigerade referenser mot externa databaser, som WorldCat, ISBNdb, PubMed och andra. Godkända referenser kan exporteras till publiceringsversion.</message>
+	<message key="manager.setup.metaCitationsDescription">Kryssa i följande ruta för att aktivera citat- och referensredigering. Det här gör att författare kan inkludera oredigerade referenser till sina bidrag. Redaktörer kommer också att få tillgång till ett verktyg för referensuppmärkning som kan kontrollera oredigerade referenser mot externa databaser, som WorldCat, ISBNdb, PubMed och andra. Godkända referenser kan exporteras till publiceringsversion.</message>
 	<message key="manager.setup.notifications">Avisering om bidrag från författare</message>
 	<message key="manager.setup.notifications.copySpecifiedAddress">Skicka en kopia till den här e-postadressen</message>
 	<message key="manager.setup.notifications.description">Författare får automatiskt ett e-postmeddelande som bekräftar deras inskickade bidrag. Du kan få kopior av detta meddelande skickade till följande:</message>

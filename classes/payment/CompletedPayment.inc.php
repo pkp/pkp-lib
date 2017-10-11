@@ -17,33 +17,11 @@
 import('lib.pkp.classes.payment.Payment');
 
 class CompletedPayment extends Payment {
-	/** @var int Context ID */
-	var $_contextId;
-
 	/** @var string Payment completion timestamp */
 	var $_timestamp;
 
-	/** @var int PAYMENT_TYPE_... */
-	var $_type;
-
 	/** @var string Payment plugin name */
 	var $_paymentPluginName;
-
-	/**
-	 * Get the context ID for the payment.
-	 * @return int
-	 */
-	function getContextId() {
-		return $this->_contextId;
-	}
-
-	/**
-	 * Set the context ID for the payment.
-	 * @param $contextId int
-	 */
-	function setContextId($contextId) {
-		$this->_contextId = $contextId;
-	}
 
 	/**
 	 * Get the payment completion timestamp.
@@ -59,22 +37,6 @@ class CompletedPayment extends Payment {
 	 */
 	function setTimestamp($timestamp) {
 		$this->_timestamp = $timestamp;
-	}
-
-	/**
-	 * Set the payment type.
-	 * @param $type int PAYMENT_TYPE_...
-	 */
-	function setType($type) {
-		$this->_type = $type;
-	}
-
-	/**
-	 * Set the payment type.
-	 * @return $type int PAYMENT_TYPE_...
-	 */
-	function getType() {
-		return $this->_type;
 	}
 
 	/**

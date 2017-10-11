@@ -24,6 +24,9 @@ class Payment {
 	/** @var int payment id */
 	var $paymentId;
 
+	/** @var int Context ID */
+	var $contextId;
+
 	/** @var numeric amount of payment in $currencyCode units */
 	var $amount;
 
@@ -35,6 +38,9 @@ class Payment {
 
 	/** @var int association ID for payment */
 	var $assocId;
+
+	/** @var int PAYMENT_TYPE_... */
+	var $_type;
 
 	/**
 	 * Constructor
@@ -99,6 +105,39 @@ class Payment {
 	 */
 	function getCurrencyCode() {
 		return $this->currencyCode;
+	}
+
+	/**
+	 * Get the context ID for the payment.
+	 * @return int
+	 */
+	function getContextId() {
+		return $this->_contextId;
+	}
+
+	/**
+	 * Set the context ID for the payment.
+	 * @param $contextId int
+	 */
+	function setContextId($contextId) {
+		$this->_contextId = $contextId;
+	}
+
+	/**
+	 * Set the type for this payment (PAYMENT_TYPE_...)
+	 * @param $type int PAYMENT_TYPE_...
+	 * @return int New payment type
+	 */
+	function setType($type) {
+		return $this->type = $type;
+	}
+
+	/**
+	 * Get the type of this payment (PAYMENT_TYPE_...)
+	 * @return int PAYMENT_TYPE_...
+	 */
+	function getType() {
+		return $this->type;
 	}
 
 	/**

@@ -302,35 +302,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 	public function getProperties($submission, $props, $args = null) {
 		\AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION);
 		$values = array();
-		$issueService = \ServicesContainer::instance()->get('issue');
 		$authorService = \ServicesContainer::instance()->get('author');
-		$galleyService = \ServicesContainer::instance()->get('galley');
-		$dispatcher = Application::getRequest()->getDispatcher();
-
-		$request = $args['request'];
-		$context = $request->getContext();
-		$dispatcher = $request->getDispatcher();
-
-		$publishedArticle = null;
-		if ($context) {
-			$publishedArticleDao = DAORegistry::getDAO('PublishedArticleDAO');
-			$publishedArticle = $publishedArticleDao->getPublishedArticleByBestArticleId(
-				(int) $context->getId(),
-				$submission->getId(),
-				true
-			);
-		}
-
-		$issue = null;
-		if ($publishedArticle) {
-			$articleId = $publishedArticle->getId();
-			$issueDao = DAORegistry::getDAO('IssueDAO');
-			$issue = $issueDao->getById(
-				$publishedArticle->getIssueId(),
-				$publishedArticle->getJournalId(),
-				true
-			);
-		}
 
 		foreach ($props as $prop) {
 			switch ($prop) {
@@ -428,16 +400,6 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 				case 'urlWorkflow':
 					$values[$prop] = $this->getWorkflowUrlByUserRoles($submission);
 					break;
-				case 'urlPublished':
-					$values[$prop] = $dispatcher->url(
-						$request,
-						ROUTE_PAGE,
-						$context->getPath(),
-						'article',
-						'view',
-						$submission->getBestArticleId()
-					);
-					break;
 				case '_href':
 					$values[$prop] = null;
 					if (!empty($args['slimRequest'])) {
@@ -445,20 +407,6 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 						$arguments = $route->getArguments();
 						$href = "{$arguments['contextPath']}/api/{$arguments['version']}/submissions/{$submission->getId()}";
 						$values[$prop] = $href;
-					}
-					break;
-				case 'galleys':
-				case 'galleysSummary';
-					$values['galleys'] = null;
-					if ($publishedArticle) {
-						$values['galleys'] = [];
-						$galleyArgs = array_merge($args, array('parent' => $publishedArticle));
-						$galleys = $publishedArticle->getGalleys();
-						foreach ($galleys as $galley) {
-							$values['galleys'][] = ($prop === 'galleys')
-								? $galleyService->getFullProperties($galley, $galleyArgs)
-								: $galleyService->getSummaryProperties($galley, $galleyArgs);
-						}
 					}
 					break;
 				case 'stages':
@@ -473,7 +421,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 			}
 		}
 
-		\HookRegistry::call('Submission::getProperties::values', array(&$values, $submission, $props, $args, $publishedArticle, $issue));
+		\HookRegistry::call('Submission::getProperties::values', array(&$values, $submission, $props, $args));
 
 		return $values;
 	}
@@ -512,7 +460,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 		$currentUser = $request->getUser();
 
 		$props = array (
-			'id','issueSummary','title','subtitle','fullTitle','prefix','abstract','coverImageUrl',
+			'id','title','subtitle','fullTitle','prefix','abstract','coverImageUrl',
 			'coverImageAltText','discipline','subject','type','language','sponsor','pages',
 			'copyrightYear','licenseUrl','locale','dateSubmitted','dateStatusModified','lastModified','datePublished',
 			'status','submissionProgress','urlWorkflow','urlPublished',

@@ -40,10 +40,10 @@
 	<message key="rt.admin.contexts.createContext">Skapa kontext</message>
 	<message key="rt.admin.contexts.edit.editContext">Redigera kontext</message>
 	<message key="rt.admin.contexts.metadata">Metadata</message>
-	<message key="rt.admin.contexts.options.authorTerms">Använd författarnamn som standardsöktermer för att underlätta för användarna att hitta annat material av författaren (t.ex. för en "Andra artiklar"-kontext)</message>
-	<message key="rt.admin.contexts.options.citedBy">Använd förattarnamn som standardsöktermer och beskriv kontexten som en sökning av citeringar av artikeln.</message>
-	<message key="rt.admin.contexts.options.defineTerms"><![CDATA[Använd det ord som läsaren har markerat som standardsökterm eller lämna blankt om inga val har gjorts (t.ex., för en "Definition av termer"-kontext). Valet "Definition av termer" måste då vara aktiverat i <a href="{$settingsUrl}">RST-inställningar</a> för att tillåta att ord ska öppnas den kontexten om man dubbelklickar på dem.]]></message> <!-- FIXME The referenced string "RST Settings" set in plugin locale? -->
-	<message key="rt.admin.contexts.options.geoTerms">Använd geografisk indexeringsinformation som standardsöktermer.</message>
+	<message key="rt.admin.contexts.options.authorTerms">Använd författarnamn som defaultsöktermer för att underlätta för användarna att hitta annat material av författaren (t.ex. för en "Andra artiklar"-kontext)</message>
+	<message key="rt.admin.contexts.options.citedBy">Använd förattarnamn som defaultsöktermer och beskriv kontexten som en sökning av citeringar av artikeln.</message>
+	<message key="rt.admin.contexts.options.defineTerms"><![CDATA[Använd det ord som läsaren har markerat som defaultsökterm eller lämna blankt om inga val har gjorts (t.ex., för en "Definition av termer"-kontext). Valet "Definition av termer" måste då vara aktiverat i <a href="{$settingsUrl}">RST-inställningar</a> för att tillåta att ord ska öppnas den kontexten om man dubbelklickar på dem.]]></message> <!-- FIXME The referenced string "RST Settings" set in plugin locale? -->
+	<message key="rt.admin.contexts.options.geoTerms">Använd geografisk indexeringsinformation som defaultsöktermer.</message>
 	<message key="rt.admin.contexts.options">Alternativ</message>
 	<message key="rt.admin.management">Administration</message>
 
@@ -89,13 +89,13 @@
 	<message key="rt.admin.validateUrls">Validera URL:er för Läsverktyg</message>
 	<message key="rt.admin.validateUrls.validate">Validera</message>
 	<message key="rt.admin.versions.confirmDelete">Är du säker på att du vill radera den här versionen och alla tillhörande kontexter och sökhistorik?</message>
-	<message key="rt.admin.versions.confirmRestore">Är du säker på att du vill återställa alla versioner till deras standardvärden? Om du är säker behöver du välja en aktiv version på Inställningar-sidan.</message>
+	<message key="rt.admin.versions.confirmRestore">Är du säker på att du vill återställa alla versioner till deras defaultvärden? Om du är säker behöver du välja en aktiv version på Inställningar-sidan.</message>
 	<message key="rt.admin.versions.createVersion">Skapa version</message>
 	<message key="rt.admin.versions.edit.editVersion">Redigera version</message>
 	<message key="rt.admin.versions.export">Exportera</message>
 	<message key="rt.admin.versions.importVersion">Importera version</message>
 	<message key="rt.admin.versions.metadata">Metadata</message>
-	<message key="rt.admin.versions.restoreVersions">Återställ versioner till standardvärden</message>
+	<message key="rt.admin.versions.restoreVersions">Återställ versioner till defaultvärden</message>
 	<message key="rt.authorBio">Om författaren</message>
 	<message key="rt.captureCite.format">Citeringsformat</message>
 	<message key="rt.captureCite">Så här citerar du materialet</message>

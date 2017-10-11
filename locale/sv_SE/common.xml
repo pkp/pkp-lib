@@ -118,7 +118,7 @@
 	<message key="common.dateHijri">Hijri-kalender</message>
 	<message key="common.day">Dag</message>
 	<message key="common.deactivate">Avaktivera</message>
-	<message key="common.default">Standard</message>
+	<message key="common.default">Default</message>
 	<message key="common.declined">Refuserad</message>
 	<message key="common.delete">Radera</message>
 	<message key="common.deleting">Raderar</message>
@@ -286,7 +286,7 @@
 	<message key="debug.notes.localeLoad">Laddade språkinställningsfilen "{$localeFile}" från XML</message>
 	<message key="debug.notes.missingLocaleKey">Saknar språkinställnings-kod "{$key}".</message>
 	<message key="debug.notes">Meddelanden:</message>
-	<message key="defaultMetric.title">Standardmått</message>
+	<message key="defaultMetric.title">Defaultmått</message>
 	<message key="defaultMetric.availableMetrics">Tillgängliga mått</message>
 	<message key="editor.submissionReview.uploadFile">Ladda upp granskningsfil</message>
 	<message key="editor.submissionReview.uploadAttachment">Ladda upp fil</message>

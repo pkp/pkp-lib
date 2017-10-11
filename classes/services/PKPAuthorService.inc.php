@@ -40,9 +40,6 @@ class PKPAuthorService extends PKPBaseEntityPropertyService {
 				case 'sequence':
 					$values[$prop] = (int) $author->getSequence();
 					break;
-				case 'name':
-					$values[$prop] = $author->getFullName();
-					break;
 				case 'firstName':
 					$values[$prop] = $author->getFirstName();
 					break;
@@ -54,6 +51,9 @@ class PKPAuthorService extends PKPBaseEntityPropertyService {
 					break;
 				case 'suffix':
 					$values[$prop] = $author->getSuffix();
+					break;
+				case 'fullName':
+					$values[$prop] = $author->getFullName();
 					break;
 				case 'country':
 					$values[$prop] = $author->getCountry();
@@ -84,19 +84,18 @@ class PKPAuthorService extends PKPBaseEntityPropertyService {
 					break;
 				case '_href':
 					$values[$prop] = null;
-					$slimRequest = $args['slimRequest'];
-					if ($slimRequest) {
-						$route = $slimRequest->getAttribute('route');
+					if (!empty($args['slimRequest'])) {
+						$route = $args['slimRequest']->getAttribute('route');
 						$arguments = $route->getArguments();
-						$href = "/{$arguments['contextPath']}/api/{$arguments['version']}/users/".$author->getId();
+						$href = "{$arguments['contextPath']}/api/{$arguments['version']}/users/".$author->getId();
 						$values[$prop] = $href;
 					}
 					break;
-				default:
-					$this->getUnknownProperty($author, $prop, $values);
 			}
+
+			\HookRegistry::call('Author::getProperties::values', array(&$values, $author, $props, $args));
 		}
-		
+
 		return $values;
 	}
 
@@ -105,9 +104,11 @@ class PKPAuthorService extends PKPBaseEntityPropertyService {
 	 */
 	public function getSummaryProperties($author, $args = null) {
 		$props = array (
-			'id','_href','seq','name','firstName','middleName','lastName','suffix','orcid'
+			'id','seq','fullName','orcid',
 		);
-		$props = $this->getSummaryPropertyList($author, $props);
+
+		\HookRegistry::call('Author::getProperties::summaryProperties', array(&$props, $author, $args));
+
 		return $this->getProperties($author, $props, $args);
 	}
 
@@ -116,10 +117,12 @@ class PKPAuthorService extends PKPBaseEntityPropertyService {
 	 */
 	public function getFullProperties($author, $args = null) {
 		$props = array (
-			'id','seq','name','firstName','middleName','lastName','suffix','country','email','url','userGroupId',
-			'isBrowseable','isPrimaryContact','affiliation','biography','orcid'
+			'id','seq','firstName','middleName','lastName','suffix','fullName','country','email','url','userGroupId',
+			'isBrowseable','isPrimaryContact','affiliation','biography','orcid',
 		);
-		$props = $this->getFullPropertyList($author, $props);
+
+		\HookRegistry::call('Author::getProperties::fullProperties', array(&$props, $author, $args));
+
 		return $this->getProperties($author, $props, $args);
 	}
 }

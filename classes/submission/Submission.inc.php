@@ -483,7 +483,15 @@ abstract class Submission extends DataObject {
 	function getFullTitle($locale) {
 		$fullTitle = $this->getTitle($locale);
 
-		if ($subtitle = $this->getSubtitle($locale)) {
+		if (is_array($fullTitle)) {
+			foreach ($fullTitle as $locale => $title) {
+				if ($this->getSubtitle($locale)) {
+					$fullTitle[$locale] = PKPString::concatTitleFields(array($title, $this->getSubtitle($locale)));
+				} else {
+					$fullTitle[$locale] = $title;
+				}
+			}
+		} elseif ($this->getSubtitle($locale)) {
 			$fullTitle = PKPString::concatTitleFields(array($fullTitle, $subtitle));
 		}
 

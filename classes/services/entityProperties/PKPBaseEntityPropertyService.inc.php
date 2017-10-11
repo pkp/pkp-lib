@@ -10,13 +10,12 @@
  * @class PKPBaseEntityPropertyService
  * @ingroup services_entity_properties
  *
- * @brief This is a base class which implements EntityPropertyInterface. 
+ * @brief This is a base class which implements EntityPropertyInterface.
  */
 
 namespace PKP\Services\EntityProperties;
 
 use \PKP\Services\Exceptions\InvalidServiceException;
-use \HookRegistry;
 
 abstract class PKPBaseEntityPropertyService implements EntityPropertyInterface {
 
@@ -33,24 +32,8 @@ abstract class PKPBaseEntityPropertyService implements EntityPropertyInterface {
 		if (!in_array($serviceNamespace, array('PKP\Services', 'OJS\Services'))) {
 			throw new InvalidServiceException();
 		}
-		
+
 		$this->service = $service;
-	}
-
-	public final function getSummaryPropertyList($entity, $props) {
-		$params = array($entity, $props);
-		HookRegistry::call('service::entity-property:summary', $params);
-		return $props;
-	}
-
-	public final function getFullPropertyList($entity, $props) {
-		$params = array($entity, $props);
-		HookRegistry::call('service::entity-property:full', $params);
-		return $props;
-	}
-
-	public final function getUnknownProperty($entity, $prop, &$values) {
-		HookRegistry::call('service::entity-property::value', $entity, $prop, $values);
 	}
 
 	/**

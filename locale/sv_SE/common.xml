@@ -391,7 +391,7 @@
 	<message key="navigation.browse">Bläddra</message>
 	<message key="navigation.browseByAuthor">Per författare</message>
 	<message key="navigation.browseByTitle">Per titel</message>
-	<message key="navigation.dashboard">Översiktspanel</message>
+	<message key="navigation.dashboard">Översikt</message>
 	<message key="navigation.data">Data</message>
 	<message key="navigation.home">Hem</message>
 	<message key="navigation.infoForReaders">För läsare</message>

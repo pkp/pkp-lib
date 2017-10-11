@@ -27,7 +27,7 @@
 	<message key="submission.submit.whatNext.forNow">Nu kan du:</message>
 	<message key="submission.submit.whatNext.review">Granska bidraget</message>
 	<message key="submission.submit.whatNext.create">Skicka in ett nytt bidrag</message>
-	<message key="submission.submit.whatNext.return">Återgå till din översiktspanel</message>
+	<message key="submission.submit.whatNext.return">Återgå till din översikt</message>
 	<message key="submission.submit.extendedMetadata">Ytterligare metadata</message>
 
 	<!-- FIXME: move to meta-data plugins -->

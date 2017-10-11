@@ -23,6 +23,7 @@ class APIHandler extends PKPHandler {
 	protected $_request;
 	protected $_endpoints = array();
 	protected $_slimRequest = null;
+	protected $_apiToken = null;
 
 	/** @var string The endpoint pattern for this handler */
 	protected $_pathPattern;
@@ -36,6 +37,7 @@ class APIHandler extends PKPHandler {
 	public function __construct() {
 		parent::__construct();
 		import('lib.pkp.classes.security.authorization.internal.ApiAuthorizationMiddleware');
+		import('lib.pkp.classes.security.authorization.internal.ApiTokenDecodingMiddleware');
 		$this->_app = new \Slim\App(array(
 			// Load custom response handler
 			'response' => function($c) {
@@ -47,6 +49,7 @@ class APIHandler extends PKPHandler {
 			)
 		));
 		$this->_app->add(new ApiAuthorizationMiddleware($this));
+		$this->_app->add(new ApiTokenDecodingMiddleware($this));
 		// remove trailing slashes
 		$this->_app->add(function ($request, $response, $next) {
 			$uri = $request->getUri();
@@ -96,6 +99,23 @@ class APIHandler extends PKPHandler {
 	 */
 	public function getRequest() {
 		return $this->_request;
+	}
+
+	/**
+	 * Return API token string
+	 *
+	 * @return string|null
+	 */
+	public function getApiToken() {
+		return $this->_apiToken;
+	}
+
+	/**
+	 * Set API token string
+	 *
+	 */
+	public function setApiToken($apiToken) {
+		return $this->_apiToken = $apiToken;
 	}
 
 	/**

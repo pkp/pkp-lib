@@ -52,10 +52,10 @@ class DAOResultFactory extends ItemIterator {
 	 *  identify a result row in the record set.
 	 *  Should be data object _data array key, not database column name
 	 */
-	function __construct(&$records, &$dao, $functionName, $idFields = array()) {
+	function __construct($records, $dao, $functionName, $idFields = array()) {
 		parent::__construct();
 		$this->functionName = $functionName;
-		$this->dao =& $dao;
+		$this->dao = $dao;
 		$this->idFields = $idFields;
 
 		if (!$records || $records->EOF) {
@@ -68,7 +68,7 @@ class DAOResultFactory extends ItemIterator {
 			$this->count = 0;
 			$this->pageCount = 1;
 		} else {
-			$this->records =& $records;
+			$this->records = $records;
 			$this->wasEmpty = false;
 			$this->page = $records->AbsolutePage();
 			$this->isFirst = $records->atFirstPage();
@@ -95,11 +95,11 @@ class DAOResultFactory extends ItemIterator {
 	 * Return the object representing the next row.
 	 * @return object
 	 */
-	function &next() {
+	function next() {
 		if ($this->records == null) return $this->records;
 		if (!$this->records->EOF) {
 			$functionName = $this->functionName;
-			$dao =& $this->dao;
+			$dao = $this->dao;
 			$row = $this->records->getRowAssoc(false);
 			$result = $dao->$functionName($row);
 			if (!$this->records->MoveNext()) $this->close();
@@ -116,7 +116,7 @@ class DAOResultFactory extends ItemIterator {
 	 * @return array ($key, $value)
 	 */
 	function nextWithKey($idField = null) {
-		$result =& $this->next();
+		$result = $this->next();
 		if($idField) {
 			assert(is_a($result, 'DataObject'));
 			$key = $result->getData($idField);
@@ -131,8 +131,7 @@ class DAOResultFactory extends ItemIterator {
 				$key .= (string)$result->getData($idField);
 			}
 		}
-		$returner = array($key, &$result);
-		return $returner;
+		return array($key, $result);
 	}
 
 	/**
@@ -212,7 +211,7 @@ class DAOResultFactory extends ItemIterator {
 	 * Convert this iterator to an array.
 	 * @return array
 	 */
-	function &toArray() {
+	function toArray() {
 		$returner = array();
 		while (!$this->eof()) {
 			$returner[] = $this->next();
@@ -224,11 +223,11 @@ class DAOResultFactory extends ItemIterator {
 	 * Convert this iterator to an associative array by database ID.
 	 * @return array
 	 */
-	function &toAssociativeArray($idField = 'id') {
+	function toAssociativeArray($idField = 'id') {
 		$returner = array();
 		while (!$this->eof()) {
-			$result =& $this->next();
-			$returner[$result->getData($idField)] =& $result;
+			$result = $this->next();
+			$returner[$result->getData($idField)] = $result;
 			unset($result);
 		}
 		return $returner;
@@ -246,11 +245,9 @@ class DAOResultFactory extends ItemIterator {
 	 * Get the RangeInfo representing the last page in the set.
 	 * @return object
 	 */
-	function &getLastPageRangeInfo() {
+	function getLastPageRangeInfo() {
 		import('lib.pkp.classes.db.DBResultRange');
 		$returner = new DBResultRange($this->count, $this->pageCount);
 		return $returner;
 	}
 }
-
-?>

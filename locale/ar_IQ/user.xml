@@ -152,4 +152,8 @@
 	<message key="user.profile.identity">الهوية</message>
 	<message key="user.profile.contact">اسم الاتصال</message>
 	<message key="user.profile.public">عمومي</message>
+	<message key="user.apiKey">مفتاح API</message>
+	<message key="user.apiKeyEnabled">تمكين التطبيقات الخارجية التي تملك مفتاح API هذا الوصول من الوصول إلى هذا الحساب</message>
+	<message key="user.apiKey.generate">توليد مفتاح API جديد</message>
+	<message key="user.apiKey.generateWarning">توليد مفتاح API جديد سيؤدي إلى إبطال أي مفتاح حالي لهذا المستخدم.</message>
 </locale>

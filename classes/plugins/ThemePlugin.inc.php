@@ -43,6 +43,13 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	public $options = array();
 
 	/**
+	 * Theme-specific navigation menu areas
+	 *
+	 * @var $menuAreas array;
+	 */
+	public $menuAreas = array();
+
+	/**
 	 * Parent theme (optional)
 	 *
 	 * @var $parent ThemePlugin
@@ -609,6 +616,50 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 			$fullOptionName = THEME_OPTION_PREFIX . $optionName;
 			$form->setData($fullOptionName, PKPApplication::getRequest()->getUserVar($fullOptionName));
 		}
+	}
+
+	/**
+	 * Register a navigation menu area for this theme
+	 *
+	 * @param $menuAreas string|array One or more menu area names
+	 */
+	public function addMenuArea($menuAreas) {
+
+		if (!is_array($menuAreas)) {
+			$menuAreas = array($menuAreas);
+		}
+
+		$this->menuAreas = array_merge($this->menuAreas, $menuAreas);
+	}
+
+	/**
+	 * Remove a registered navigation menu area
+	 *
+	 * @param $menuArea string The menu area to remove
+	 * @return bool Whether or not the menuArea was found and removed.
+	 */
+	public function removeMenuArea($menuArea) {
+
+		$index = array_search($menuArea, $this->menuAreas);
+		if ($index !== false) {
+			array_splice($this->menuAreas, $index, 1);
+			return true;
+		}
+
+		return $this->parent ? $this->parent->removeMenuArea($menuArea) : false;
+	}
+
+	/**
+	 * Get all menu areas registered by this theme and any parents
+	 *
+	 * @param $existingAreas array Any existing menu areas from child themes
+	 * @return array All menua reas
+	 */
+	public function getMenuAreas($existingAreas = array()) {
+
+		$existingAreas = array_unique(array_merge($this->menuAreas, $existingAreas));
+
+		return $this->parent ? $this->parent->getMenuAreas($existingAreas) : $existingAreas;
 	}
 
 	/**

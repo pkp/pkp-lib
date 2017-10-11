@@ -29,7 +29,7 @@ abstract class PKPBaseEntityPropertyService implements EntityPropertyInterface {
 	 */
 	public function __construct($service) {
 		$serviceNamespace = (new \ReflectionObject($service))->getNamespaceName();
-		if (!in_array($serviceNamespace, array('PKP\Services', 'OJS\Services'))) {
+		if (!in_array($serviceNamespace, array('PKP\Services', 'OJS\Services', 'OMP\Services'))) {
 			throw new InvalidServiceException();
 		}
 

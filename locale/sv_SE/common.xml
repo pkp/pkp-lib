@@ -119,7 +119,7 @@
 	<message key="common.day">Dag</message>
 	<message key="common.deactivate">Avaktivera</message>
 	<message key="common.default">Standard</message>
-	<message key="common.declined">Nekat</message>
+	<message key="common.declined">Refuserad</message>
 	<message key="common.delete">Radera</message>
 	<message key="common.deleting">Raderar</message>
 	<message key="common.deleteSelection">Radera markerad(e)</message>

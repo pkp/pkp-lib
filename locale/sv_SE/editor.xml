@@ -35,8 +35,6 @@
 	<message key="editor.review.enrollReviewer.short">Tilldela befintlig användare</message>
 	<message key="editor.review.unassignReviewer">Ta bort granskare från bidrag</message>
 	<message key="editor.submissionReview.reviewType">Granskningstyp</message>
-	<message key="editor.submissionReview.sendEmail">Skicka e-postmeddelande till författaren/författarna: {$authorName}</message>
-	<message key="editor.submissionReview.sendEmail.editors">Skicka e-postmeddelande till redaktören/redaktörerna: {$editorNames}</message>
 	<message key="editor.submissionReview.skipEmail">Skicka inte e-postmeddelande till författaren</message>
 	<message key="editor.submissionReview.open">Öppen</message>
 	<message key="editor.submissionReview.blind">Anonym</message>
@@ -47,9 +45,12 @@
 	<message key="editor.review.personalMessageToReviewer">E-postmeddelande som kommer att skickas till granskaren</message>
 	<message key="editor.review.importantDates">Viktiga datum</message>
 	<message key="editor.review.uploadRevision">Ladda upp bearbetning</message>
-	<message key="editor.review.newReviewRound">Kräv ny granskningsomgång</message>
+	<message key="editor.review.NotifyAuthorAccept">Meddela författaren att hens bidrag har accepterats.</message>
+	<message key="editor.review.NotifyAuthorDecline">Meddela författaren att hens bidrag har refuserats.</message>
 	<message key="editor.review.NotifyAuthorRevisions">Bearbetning kräver inte ny omgång av sakkunniggranskning.</message>
 	<message key="editor.review.NotifyAuthorResubmit">Bearbetning kommer att sakkunniggranskas på nytt.</message>
+	<message key="editor.review.NotifyAuthorExternal">Meddela författaren om beslutet att påbörja en extern granskning.</message>
+	<message key="editor.review.personalMessageToAuthor">E-postmeddelande att skicka till författaren</message>
 	<message key="editor.review.dateAccepted">Datum för godkännande av granskning</message>
 	<message key="editor.review.reviewsAdded">Granskningar tillagda i meddelandetexten.</message>
 	<message key="editor.review.noReviews">Inga sakkunniggranskningar att importera</message>

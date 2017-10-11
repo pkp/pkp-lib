@@ -570,7 +570,7 @@
 
 	<message key="reviewer.submission.reviewFiles">Granskningsfiler</message>
 	<message key="submission.submit.currentFile">Nuvarande fil</message>
-	<message key="submission.finalDraft">Filer för redigering</message>
+	<message key="submission.finalDraft">Utkastfiler</message>
 
 	<!-- Auditor keys -->
 	<message key="editor.submission.addAuditorError">Det blev ett fel när manusgranskare skulle registreras.</message>

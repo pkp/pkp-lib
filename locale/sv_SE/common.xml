@@ -129,7 +129,7 @@
 	<message key="common.dimensionsPixels"><![CDATA[{$width}&times;{$height} pixlar]]></message>
 	<message key="common.disable">Avaktivera</message>
 	<message key="common.disabled">Avaktiverad</message>
-	<message key="common.discipline">Ämnesområde</message>
+	<message key="common.discipline">Disciplin</message>
 	<message key="common.done">Klar</message>
 	<message key="common.download">Ladda ner</message>
 	<message key="common.downloadPdf">Ladda ned PDF</message>
@@ -374,7 +374,7 @@
 	<message key="stageParticipants.notify.chooseMessage">Välj ett fördefinierat meddelande att använda eller fyll i formuläret nedan.</message>
 	<message key="stageParticipants.notify.message">Meddelande</message>
 	<message key="stageParticipants.notify.warning">Vänligen se till att du har fyllt i meddelandefältet och valt minst en mottagare.</message>
-	<message key="stageParticipants.options">Assignment privileges</message>
+	<message key="stageParticipants.options">Behörigheter</message>
 	<message key="stageParticipants.recommendOnly">Den här deltagaren tillåts endast rekommendera ett redaktörsbeslut, en behörig redaktör krävs för att registrera redaktörsbeslut.</message>
 	
 	<message key="locale.primary">Primärt språk</message>
@@ -482,7 +482,7 @@
 	<message key="search.dateFrom">Publicerad senare än</message>
 	<message key="search.dateTo">Publicerad tidigare än</message>
 	<message key="search.deleteFilter">Ta bort</message>
-	<message key="search.discipline">Ämne(n)</message>
+	<message key="search.discipline">Disciplin(er)</message>
 	<message key="search.fullText">Fulltext</message>
 	<message key="search.indexTerms">Ämnesord</message>
 	<message key="search.indexTermsLong">Alla fält för ämnesord</message>

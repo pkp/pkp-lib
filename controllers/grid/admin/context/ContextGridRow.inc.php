@@ -60,7 +60,6 @@ class ContextGridRow extends GridRow {
 				'delete'
 			)
 		);
-
 		import('lib.pkp.classes.linkAction.request.RedirectAction');
 		$dispatcher = $router->getDispatcher();
 		$this->addAction(
@@ -72,6 +71,20 @@ class ContextGridRow extends GridRow {
 				'wrench'
 			)
 		);
+		$this->addAction(
+			new LinkAction(
+				'users',
+				new AjaxModal(
+					$router->url($request, $element->getPath(), null, 'users', null),
+					__('manager.users'),
+					'modal_edit',
+					true
+				),
+				__('manager.users'),
+				'users'
+			)
+		);
+
 	}
 }
 

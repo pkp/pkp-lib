@@ -130,8 +130,8 @@ class ShibbolethHandler extends Handler {
 		}
 
 		// Try to locate the user by UIN.
-		$userDao =& DAORegistry::getDAO('UserDAO');
-		$user =& $userDao->getUserByAuthStr($uin, true);
+		$userDao = DAORegistry::getDAO('UserDAO');
+		$user = $userDao->getUserByAuthStr($uin, true);
 		if (isset($user)) {
 			syslog(LOG_INFO, "Shibboleth located returning user $uin");
 		} else {
@@ -144,7 +144,7 @@ class ShibbolethHandler extends Handler {
 				Validation::redirectLogin();
 				return false;
 			}
-			$user =& $userDao->getUserByEmail($userEmail);
+			$user = $userDao->getUserByEmail($userEmail);
 
 			if (isset($user)) {
 				syslog(LOG_INFO, "Shibboleth located returning email $userEmail");
@@ -231,7 +231,7 @@ class ShibbolethHandler extends Handler {
 	 * @return ShibbolethAuthPlugin
 	 */
 	function _getPlugin() {
-		$plugin =& PluginRegistry::getPlugin('generic', SHIBBOLETH_PLUGIN_NAME);
+		$plugin = PluginRegistry::getPlugin('generic', SHIBBOLETH_PLUGIN_NAME);
 		return $plugin;
 	}
 
@@ -257,7 +257,7 @@ class ShibbolethHandler extends Handler {
 		$userId = $user->getId();
 		$adminFound = array_search($uin, $admins);
 
-		$userGroupDao =& DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 
 		// should be unique
 		$adminGroup = $userGroupDao->getByRoleId(0, ROLE_ID_SITE_ADMIN)->next();
@@ -365,7 +365,7 @@ class ShibbolethHandler extends Handler {
 		$userPhone = isset($_SERVER[$phoneHeader]) ? $_SERVER[$phoneHeader] : null;
 		$userMailing = isset($_SERVER[$mailingHeader]) ? $_SERVER[$mailingHeader] : null;
 
-		$userDao =& DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $userDao->newDataObject();
 		$user->setAuthStr($uin);
 		$user->setUsername($userEmail);

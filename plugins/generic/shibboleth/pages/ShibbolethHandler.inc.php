@@ -103,8 +103,7 @@ class ShibbolethHandler extends Handler {
 
 		// We rely on these headers being present.
 		if (!isset($_SERVER[$uinHeader])) {
-			syslog(
-				LOG_ERR,
+			errog_log(
 				"Shibboleth plugin enabled, but not properly configured; failed to find $uinHeader"
 			);
 			Validation::logout();
@@ -112,8 +111,7 @@ class ShibbolethHandler extends Handler {
 			return false;
 		}
 		if (!isset($_SERVER[$emailHeader])) {
-			syslog(
-				LOG_ERR,
+			error_log(
 				"Shibboleth plugin enabled, but not properly configured; failed to find $emailHeader"
 			);
 			Validation::logout();
@@ -139,7 +137,9 @@ class ShibbolethHandler extends Handler {
 		} else {
 			// We use the e-mail as a key.
 			if (empty($userEmail)) {
-				syslog(LOG_ERR, "Shibboleth failed to find UIN $uin and no email given.");
+				error_log(
+					"Shibboleth failed to find UIN $uin and no email given."
+				);
 				Validation::logout();
 				Validation::redirectLogin();
 				return false;
@@ -150,8 +150,7 @@ class ShibbolethHandler extends Handler {
 				syslog(LOG_INFO, "Shibboleth located returning email $userEmail");
 
 				if ($user->getAuthStr() != "") {
-					syslog(
-						LOG_ERR,
+					error_log(
 						"Shibboleth user with email $userEmail already has UID"
 					);
 					Validation::logout();
@@ -174,8 +173,7 @@ class ShibbolethHandler extends Handler {
 
 			if (!$success) {
 				// @@@ TODO: present user with disabled reason
-				syslog(
-					LOG_ERR,
+				error_log(
 					"Disabled user $uin attempted Shibboleth login" .
 						(is_null($disabledReason) ? "" : ": $disabledReason")
 				);
@@ -232,7 +230,7 @@ class ShibbolethHandler extends Handler {
 	 * 
 	 * @return ShibbolethAuthPlugin
 	 */
-	function &_getPlugin() {
+	function _getPlugin() {
 		$plugin =& PluginRegistry::getPlugin('generic', SHIBBOLETH_PLUGIN_NAME);
 		return $plugin;
 	}
@@ -275,7 +273,7 @@ class ShibbolethHandler extends Handler {
 		} else {
 			// If they are not in the admin list - then be sure they
 			// are not an admin in the role table
-			syslog(LOG_ERR, "removing admin for $uin");
+			error_log("removing admin for $uin");
 			$userGroupDao->removeUserFromGroup($userId, $adminId, 0);
 		}
 	}
@@ -336,8 +334,7 @@ class ShibbolethHandler extends Handler {
 		// login handler, but we need to check for more headers than
 		// these; better safe than sorry.
 		if (!isset($_SERVER[$uinHeader])) {
-			syslog(
-				LOG_ERR,
+			error_log(
 				"Shibboleth plugin enabled, but not properly configured; failed to find $uinHeader"
 			);
 			Validation::logout();
@@ -345,8 +342,7 @@ class ShibbolethHandler extends Handler {
 			return false;
 		}
 		if (!isset($_SERVER[$emailHeader])) {
-			syslog(
-				LOG_ERR,
+			error_log(
 				"Shibboleth plugin enabled, but not properly configured; failed to find $emailHeader"
 			);
 			Validation::logout();
@@ -361,7 +357,7 @@ class ShibbolethHandler extends Handler {
 		$userLastName = $_SERVER[$lastNameHeader];
 
 		if (empty($uin) || empty($userEmail) || empty($userFirstName) || empty($userLastName)) {
-			syslog(LOG_ERR, "Shibboleth failed to find required fields for new user");
+			error_log("Shibboleth failed to find required fields for new user");
 		}
 
 		// optional values

@@ -153,6 +153,29 @@ abstract class InformationCenterHandler extends Handler {
 		);
 	}
 
+	/**
+	 * Log an event for this file or submission
+	 * @param $request PKPRequest
+	 * @param $object Submission or SubmissionFile
+	 * @param $eventType int SUBMISSION_LOG_...
+	 * @param $logClass SubmissionLog or SubmissionFileLog
+	 */
+	function _logEvent($request, $object, $eventType, $logClass) {
+		// Get the log event message
+		switch($eventType) {
+			case SUBMISSION_LOG_NOTE_POSTED:
+				$logMessage = 'informationCenter.history.notePosted';
+				break;
+			case SUBMISSION_LOG_MESSAGE_SENT:
+				$logMessage = 'informationCenter.history.messageSent';
+				break;
+			default:
+				assert(false);
+		}
+		import('lib.pkp.classes.log.SubmissionFileLog');
+		$logClass::logEvent($request, $object, $eventType, $logMessage);
+	}
+
 	function setupTemplate($request) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION);
 

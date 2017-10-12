@@ -15,8 +15,6 @@
  */
 
 /** types for all default navigationMenuItems */
-define('NMI_TYPE_CURRENT', 'NMI_TYPE_CURRENT');
-define('NMI_TYPE_ARCHIVES',	'NMI_TYPE_ARCHIVES');
 define('NMI_TYPE_ABOUT',	'NMI_TYPE_ABOUT');
 define('NMI_TYPE_SUBMISSIONS',	'NMI_TYPE_SUBMISSIONS');
 define('NMI_TYPE_EDITORIAL_TEAM',	'NMI_TYPE_EDITORIAL_TEAM');

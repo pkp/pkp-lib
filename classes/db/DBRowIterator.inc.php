@@ -102,7 +102,7 @@ class DBRowIterator extends ItemIterator {
 				$key .= (string)$result[$idField];
 			}
 		}
-		return = array($key, $result);
+		return array($key, $result);
 	}
 
 	/**

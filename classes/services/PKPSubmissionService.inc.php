@@ -301,6 +301,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 	 */
 	public function getProperties($submission, $props, $args = null) {
 		\AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION);
+		\PluginRegistry::loadCategory('pubIds', true);
 		$values = array();
 		$authorService = \ServicesContainer::instance()->get('author');
 
@@ -430,6 +431,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 	 * @copydoc \PKP\Services\EntityProperties\EntityPropertyInterface::getSummaryProperties()
 	 */
 	public function getSummaryProperties($submission, $args = null) {
+		\PluginRegistry::loadCategory('pubIds', true);
 		$request = $args['request'];
 		$context = $request->getContext();
 		$currentUser = $request->getUser();
@@ -437,7 +439,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 		$props = array (
 			'id','title','subtitle','fullTitle','prefix',
 			'abstract','coverImageUrl','coverImageAltText','language','pages','datePublished','status',
-			'submissionProgress','urlWorkflow','urlPublished','galleysSummary','doi','_href',
+			'submissionProgress','urlWorkflow','urlPublished','galleysSummary','_href',
 		);
 
 		if ($context && $currentUser->hasRole(array(ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN, ROLE_ID_SUB_EDITOR, ROLE_ID_AUTHOR, ROLE_ID_ASSISTANT), $context->getId())) {
@@ -455,6 +457,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 	 * @copydoc \PKP\Services\EntityProperties\EntityPropertyInterface::getFullProperties()
 	 */
 	public function getFullProperties($submission, $args = null) {
+		\PluginRegistry::loadCategory('pubIds', true);
 		$request = $args['request'];
 		$context = $request->getContext();
 		$currentUser = $request->getUser();
@@ -464,7 +467,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 			'coverImageAltText','discipline','subject','type','language','sponsor','pages',
 			'copyrightYear','licenseUrl','locale','dateSubmitted','dateStatusModified','lastModified','datePublished',
 			'status','submissionProgress','urlWorkflow','urlPublished',
-			'galleys','doi','_href',
+			'galleys','_href',
 		);
 
 		if ($context && $currentUser->hasRole(array(ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN, ROLE_ID_SUB_EDITOR, ROLE_ID_AUTHOR, ROLE_ID_ASSISTANT), $context->getId())) {
@@ -486,6 +489,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 	 * @return array
 	 */
 	public function getBackendListProperties($submission, $args = null) {
+		\PluginRegistry::loadCategory('pubIds', true);
 		$request = $args['request'];
 		$context = $request->getContext();
 		$currentUser = $request->getUser();

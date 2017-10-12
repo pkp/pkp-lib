@@ -82,15 +82,6 @@ class PKPAuthorService extends PKPBaseEntityPropertyService {
 				case 'orcid':
 					$values[$prop] = $author->getOrcid(null);
 					break;
-				case '_href':
-					$values[$prop] = null;
-					if (!empty($args['slimRequest'])) {
-						$route = $args['slimRequest']->getAttribute('route');
-						$arguments = $route->getArguments();
-						$href = "{$arguments['contextPath']}/api/{$arguments['version']}/users/".$author->getId();
-						$values[$prop] = $href;
-					}
-					break;
 			}
 
 			\HookRegistry::call('Author::getProperties::values', array(&$values, $author, $props, $args));

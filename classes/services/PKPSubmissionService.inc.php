@@ -406,8 +406,13 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 					if (!empty($args['slimRequest'])) {
 						$route = $args['slimRequest']->getAttribute('route');
 						$arguments = $route->getArguments();
-						$href = "{$arguments['contextPath']}/api/{$arguments['version']}/submissions/{$submission->getId()}";
-						$values[$prop] = $href;
+						$values[$prop] = $this->getAPIHref(
+							$args['request'],
+							$arguments['contextPath'],
+							$arguments['version'],
+							'submissions',
+							$submission->getId()
+						);
 					}
 					break;
 				case 'stages':

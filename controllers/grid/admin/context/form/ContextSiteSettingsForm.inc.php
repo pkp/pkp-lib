@@ -122,9 +122,6 @@ class ContextSiteSettingsForm extends Form {
 		// Install default user groups
 		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
 		$navigationMenuDao->installSettings($contextId, 'registry/navigationMenus.xml');
-
-		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
-		$navigationMenuItemDao->installSettings($contextId, 'registry/navigationMenuItems.xml');
 	}
 }
 

@@ -32,7 +32,7 @@ define('SUBMISSION_SEARCH_DEFAULT_RESULT_LIMIT', 20);
 
 import('lib.pkp.classes.search.SubmissionSearchIndex');
 
-class SubmissionSearch {
+abstract class SubmissionSearch {
 	/**
 	 * Constructor
 	 */
@@ -288,7 +288,7 @@ class SubmissionSearch {
 
 		// Take the range of results and retrieve the Article, Journal,
 		// and associated objects.
-		$results = $this->formatResults($results);
+		$results = $this->formatResults($results, $request->getUser());
 
 		// Return the appropriate iterator.
 		import('lib.pkp.classes.core.VirtualArrayIterator');
@@ -343,46 +343,37 @@ class SubmissionSearch {
 	 * Note that this function is also called externally to fetch
 	 * results for the title index, and possibly elsewhere.
 	 *
+	 * @param $results array
+	 * @param $user User optional (if availability information is desired)
 	 * @return array
 	 */
-	static function formatResults($results) {
-		assert(false);
-	}
+	abstract function formatResults($results, $user = null);
 
 	/**
 	 * Return the available options for result set ordering.
 	 * @param $request Request
 	 * @return array
 	 */
-	function getResultSetOrderingOptions($request) {
-		assert(false);
-	}
+	abstract function getResultSetOrderingOptions($request);
 
 	/**
 	 * See implementation of retrieveResults for a description of this
 	 * function.
 	 */
-	protected function &getSparseArray(&$unorderedResults, $orderBy, $orderDir, $exclude) {
-		assert(false);
-	}
+	abstract protected function getSparseArray($unorderedResults, $orderBy, $orderDir, $exclude);
 
 	/**
 	 * Return the default order direction.
 	 * @param $orderBy string
 	 * @return string
 	 */
-	protected function getDefaultOrderDir($orderBy) {
-		assert(false);
-	}
+	abstract protected function getDefaultOrderDir($orderBy);
 
 	/**
 	 * Return the search DAO
 	 * @return DAO
 	 */
-	protected function getSearchDao() {
-		assert(false);
-	}
-
+	abstract protected function getSearchDao();
 }
 
 ?>

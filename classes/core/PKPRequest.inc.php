@@ -561,10 +561,20 @@ class PKPRequest {
 	 * @return User
 	 */
 	function &getUser() {
-		PKPRequest::_checkThis();
+		$_this = PKPRequest::_checkThis();
 
-		// Reference required
 		$user =& Registry::get('user', true, null);
+
+		$router = $_this->getRouter();
+		if (is_a($router, 'APIRouter') && !is_null($handler = $router->getHandler()) && !is_null($token = $handler->getApiToken())) {
+			if ($user === null) {
+				$userDao = DAORegistry::getDAO('UserDAO');
+				$user = $userDao->getBySetting('apiKey', $token);
+			}
+			if (!$user->getData('apiKeyEnabled')) return null;
+			return $user;
+		}
+
 		if ($user === null) {
 			$sessionManager = SessionManager::getManager();
 			$session = $sessionManager->getUserSession();
@@ -580,6 +590,16 @@ class PKPRequest {
 	 */
 	function getUserVar($key) {
 		$_this = PKPRequest::_checkThis();
+
+		// special treatment for APIRouter. APIHandler gets to fetch parameter first
+		$router = $_this->getRouter();
+		if (is_a($router, 'APIRouter') && (!is_null($handler = $router->getHandler()))) {
+			$handler = $router->getHandler();
+			$value = $handler->getParameter($key);
+			if (!is_null($value)) {
+				return $value;
+			}
+		}
 
 		// Get all vars (already cleaned)
 		$vars = $_this->getUserVars();

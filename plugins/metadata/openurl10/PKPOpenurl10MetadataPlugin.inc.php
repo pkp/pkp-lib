@@ -44,6 +44,31 @@ class PKPOpenurl10MetadataPlugin extends MetadataPlugin {
 	function getDescription() {
 		return __('plugins.metadata.openurl10.description');
 	}
+
+	/**
+	 * @copydoc MetadataPlugin::supportsFormat()
+	 */
+	public function supportsFormat($format) {
+		return $format === 'openurl10book' || $format === 'openurl10dissertation' || $format === 'openurl10journal';
+	}
+
+	/**
+	 * @copydoc MetadataPlugin::getSchemaObject()
+	 */
+	public function getSchemaObject($format) {
+		assert($this->supportsFormat($format));
+		if ($format === 'openurl10book') {
+			import('lib.pkp.plugins.metadata.openurl10.schema.Openurl10BookSchema');
+			return new Openurl10BookSchema();
+		} elseif ($format === 'openurl10dissertation') {
+			import('lib.pkp.plugins.metadata.openurl10.schema.Openurl10DissertationSchema');
+			return new Openurl10DissertationSchema();
+		} elseif ($format === 'openurl10journal') {
+			import('lib.pkp.plugins.metadata.openurl10.schema.Openurl10JournalSchema');
+			return new Openurl10JournalSchema();
+		}
+		assert(false);
+	}
 }
 
 ?>

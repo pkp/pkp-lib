@@ -266,7 +266,7 @@
 	<message key="submission.event.deleteLogEntry">Borrar entrada de registro</message>
 	<message key="submission.event.submissionSubmitted">Envío inicial completado.</message>
 	<message key="submission.event.fileUploaded">Se cargó el archivo "{$name}" (Id. de archivo {$fileId}-{$revision}).</message>
-	<message key="submission.event.fileRevised">Se cargó la revisión "{$name}" (Id. de archivo {$fileId}-{$revision}).</message>
+	<message key="submission.event.fileRevised">Se cargó la revisión "{$name}" (Id. de archivo {$fileId}-{$fileRevision}).</message>
 	<message key="submission.event.general.metadataUpdated">Metadatos de envío actualizados</message>
 	<message key="submission.event.general.suppFileUpdated">Archivo de envío actualizado</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Asignación de revisión aceptada por poderes</message>
@@ -790,4 +790,8 @@
 	<message key="notification.type.copyeditorRequest">Se le ha pedido que revise las correcciones para "{$title}".</message>
 	<message key="notification.type.layouteditorRequest">Se le ha pedido que revise las galeradas de "{$title}".</message>
 	<message key="notification.type.indexRequest">Se le ha pedido que cree un índice para "{$title}".</message>
+	<message key="submission.event.participantRemoved">"{$name}" ({$username}) se ha eliminado de {$userGroupName}.</message>
+	<message key="editor.submission.decision.accept">Aceptar envío</message>
+	<message key="editor.submission.decision.skipReview">Aceptar y omitir la revisión</message>
+	<message key="editor.submission.decision.noDecisionsAvailable">Asigne un editor/a para habilitar las decisiones editoriales en esta fase.</message>
 </locale>

@@ -217,13 +217,17 @@ class Form {
 	}
 
 	/**
-	 * Set the value of a form field.
-	 * @param $key
-	 * @param $value
+	 * Set the value of one or several form fields.
+	 * @param $key string|array If a string, then set a single field. If an associative array, then set many.
+	 * @param $value mixed
 	 */
 	function setData($key, $value) {
-		if (is_string($value)) $value = Core::cleanVar($value);
-		$this->_data[$key] = $value;
+		if (is_array($key)) foreach($key as $aKey => $aValue) {
+			$this->setData($aKey, $aValue);
+		} else {
+			if (is_string($value)) $value = Core::cleanVar($value);
+			$this->_data[$key] = $value;
+		}
 	}
 
 	/**
@@ -302,17 +306,16 @@ class Form {
 	/**
 	 * Execute the form's action.
 	 * (Note that it is assumed that the form has already been validated.)
-	 * @param $object object The object edited by this form.
-	 * @return $object The same object, potentially changed via hook.
 	 */
-	function execute($object = null) {
+	function execute() {
 		// Call hooks based on the calling entity, assuming
 		// this method is only called by a subclass. Results
 		// in hook calls named e.g. "papergalleyform::execute"
 		// Note that class and function names are always lower
 		// case.
-		HookRegistry::call(strtolower_codesafe(get_class($this) . '::execute'), array($this, &$object));
-		return $object;
+		$returner = null;
+		HookRegistry::call(strtolower_codesafe(get_class($this) . '::execute'), array_merge(array($this), func_get_args(), array(&$returner)));
+		return $returner;
 	}
 
 	/**
@@ -383,22 +386,6 @@ class Form {
 		HookRegistry::call(strtolower_codesafe(get_class($this) . '::readUserVars'), array($this, &$vars));
 		foreach ($vars as $k) {
 			$this->setData($k, Request::getUserVar($k));
-		}
-	}
-
-	/**
-	 * Adds specified user date variables to input data.
-	 * @param $vars array the names of the date variables to read
-	 */
-	function readUserDateVars($vars) {
-		// Call hooks based on the calling entity, assuming
-		// this method is only called by a subclass. Results
-		// in hook calls named e.g. "papergalleyform::readUserDateVars"
-		// Note that class and function names are always lower
-		// case.
-		HookRegistry::call(strtolower_codesafe(get_class($this) . '::readUserDateVars'), array($this, &$vars));
-		foreach ($vars as $k) {
-			$this->setData($k, Request::getUserDateVar($k));
 		}
 	}
 

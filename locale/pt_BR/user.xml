@@ -66,10 +66,11 @@
 	<message key="user.login.registrationComplete.newSubmission">Fazer uma Novo Envio</message>
 	<message key="user.login.registrationComplete.continueBrowsing">Continuar Navegação</message>
 	<message key="user.login.registrationPendingValidation">Registro aguardando verificação</message>
+	<message key="user.login.rememberUsernameAndPassword">Mantenha-me logado</message>
 	<message key="user.login.resetPassword">Nova senha</message>
 	<message key="user.logOut">Sair do sistema</message>
 	<message key="user.logOutAs">Sair como</message>
-	<message key="user.hello">Olá,</message>
+	<message key="user.hello">Olá, </message>
 	<message key="user.mailingAddress">Endereço postal</message>
 	<message key="user.masculine">M</message>
 	<message key="user.middleName">Nome do meio</message>
@@ -78,7 +79,7 @@
 	<message key="user.other">Outro</message>
 	<message key="user.password">Senha</message>
 	<message key="user.repeatPassword">Repetir senha</message>
-	<message key="user.phone">Fone</message>
+	<message key="user.phone">Telefone</message>
 	<message key="user.profile.changePasswordInstructions">Digite as senhas atual e nova para alterar a senha de acesso ao cadastro.</message>
 	<message key="user.profile.editProfile">Editar perfil</message>
 	<message key="user.profile.form.countryRequired">O país é obrigatório.</message>
@@ -144,10 +145,10 @@
 	<message key="user.title">Títulação</message>
 	<message key="user.url">URL</message>
 	<message key="user.userHome">Página do usuário</message>
-	<message key="user.username">Login</message>
+	<message key="user.username">Usuário</message>
 	<message key="user.workingLanguages">Idiomas conhecidos</message>
-	<message key="user.orcid">ORCID</message>
-	<message key="user.orcid.orcidInvalid">O ORCID informado é inválido. Por favor inclua a URL completa (ex. "http://orcid.org/0000-0002-1825-0097").</message>
+	<message key="user.orcid">ORCID iD</message>
+	<message key="user.orcid.orcidInvalid">O ORCID iD informado é inválido. Por favor inclua a URL completa (ex. "http://orcid.org/0000-0002-1825-0097").</message>
 	<message key="user.profile.identity">Identificação</message>
 	<message key="user.profile.contact">Contato</message>
 	<message key="user.profile.public">Público</message>

@@ -30,6 +30,9 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 		$context = $contextDao->getById($notification->getContextId());
 
 		switch ($notification->getType()) {
+			case NOTIFICATION_TYPE_EDITOR_ASSIGN:
+				assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
+				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'workflow', 'access', $notification->getAssocId());
 			case NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT:
 			case NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT:
 			case NOTIFICATION_TYPE_INDEX_ASSIGNMENT:
@@ -110,6 +113,10 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				$reviewAssignment = $reviewAssignmentDao->getById($notification->getAssocId());
 				$submission = $submissionDao->getById($reviewAssignment->getSubmissionId()); /* @var $submission Submission */
 				return __('notification.type.reviewerComment', array('title' => $submission->getLocalizedTitle()));
+			case NOTIFICATION_TYPE_EDITOR_ASSIGN:
+				assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
+				$submission = $submissionDao->getById($notification->getAssocId());
+				return __('notification.type.editorAssign', array('title' => $submission->getLocalizedTitle()));
 			case NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT:
 				assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
 				$submission = $submissionDao->getById($notification->getAssocId());
@@ -369,20 +376,12 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				assert($assocType == ASSOC_TYPE_SUBMISSION && is_numeric($assocId));
 				import('lib.pkp.classes.notification.managerDelegate.PendingRevisionsNotificationManager');
 				return new PendingRevisionsNotificationManager($notificationType);
-			case NOTIFICATION_TYPE_ALL_REVISIONS_IN:
-				assert($assocType == ASSOC_TYPE_REVIEW_ROUND && is_numeric($assocId));
-				import('lib.pkp.classes.notification.managerDelegate.review.AllRevisionsInNotificationManager');
-				return new AllRevisionsInNotificationManager($notificationType);
-			case NOTIFICATION_TYPE_ALL_REVIEWS_IN:
-				assert($assocType == ASSOC_TYPE_REVIEW_ROUND && is_numeric($assocId));
-				import('lib.pkp.classes.notification.managerDelegate.review.AllReviewsInNotificationManager');
-				return new AllReviewsInNotificationManager($notificationType);
 			case NOTIFICATION_TYPE_ASSIGN_COPYEDITOR:
 			case NOTIFICATION_TYPE_AWAITING_COPYEDITS:
 			case NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER:
 			case NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS:
 				assert($assocType == ASSOC_TYPE_SUBMISSION && is_numeric($assocId));
-				import('lib.pkp.classes.notification.managerDelegate.EditingProductionStatusNotificationManager');
+				import('classes.notification.managerDelegate.EditingProductionStatusNotificationManager');
 				return new EditingProductionStatusNotificationManager($notificationType);
 		}
 		return null; // No delegate required, let calling context handle null.

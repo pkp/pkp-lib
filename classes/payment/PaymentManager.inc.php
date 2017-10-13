@@ -15,7 +15,7 @@
  *
  */
 
-class PaymentManager {
+abstract class PaymentManager {
 	/** @var PKPRequest */
 	var $request;
 
@@ -40,7 +40,7 @@ class PaymentManager {
 		$queuedPaymentId = $queuedPaymentDao->insertObject($queuedPayment, $expiryDate);
 
 		// Perform periodic cleanup
-		if (time() % 100 == 0) $queuedPaymentDao->deleteExpiredQueuedPayments();
+		if (time() % 100 == 0) $queuedPaymentDao->deleteExpired();
 
 		return $queuedPaymentId;
 	}
@@ -49,30 +49,26 @@ class PaymentManager {
 	 * Abstract method for fetching the payment plugin
 	 * @return object
 	 */
-	function &getPaymentPlugin() {
-		// Abstract method; subclasses should implement.
-		assert(false);
-	}
+	abstract function getPaymentPlugin();
 
 	/**
 	 * Check if there is a payment plugin and if is configured
 	 * @return bool
 	 */
 	function isConfigured() {
-		$paymentPlugin =& $this->getPaymentPlugin();
+		$paymentPlugin = $this->getPaymentPlugin();
 		if ($paymentPlugin !== null) return $paymentPlugin->isConfigured(PKPApplication::getRequest());
 		return false;
 	}
 
 	/**
-	 * Call the payment plugin's display method
-	 * @param $queuedPaymentId int
-	 * @param $queuedPayment object
-	 * @return boolean
+	 * Get the payment form for the configured payment plugin and specified payment.
+	 * @param $queuedPayment QueuedPayment
+	 * @return Form
 	 */
-	function displayPaymentForm($queuedPaymentId, &$queuedPayment) {
-		$paymentPlugin =& $this->getPaymentPlugin();
-		if ($paymentPlugin !== null && $paymentPlugin->isConfigured()) return $paymentPlugin->displayPaymentForm($queuedPaymentId, $queuedPayment, $this->request);
+	function getPaymentForm($queuedPayment) {
+		$paymentPlugin = $this->getPaymentPlugin();
+		if ($paymentPlugin !== null && $paymentPlugin->isConfigured()) return $paymentPlugin->getPaymentForm($this->request->getContext(), $queuedPayment);
 		return false;
 	}
 
@@ -81,7 +77,7 @@ class PaymentManager {
 	 * @return boolean
 	 */
 	function displayConfigurationForm() {
-		$paymentPlugin =& $this->getPaymentPlugin();
+		$paymentPlugin = $this->getPaymentPlugin();
 		if ($paymentPlugin !== null && $paymentPlugin->isConfigured()) return $paymentPlugin->displayConfigurationForm();
 		return false;
 	}
@@ -91,9 +87,9 @@ class PaymentManager {
 	 * @param $queuedPaymentId int
 	 * @return QueuedPayment
 	 */
-	function &getQueuedPayment($queuedPaymentId) {
+	function getQueuedPayment($queuedPaymentId) {
 		$queuedPaymentDao = DAORegistry::getDAO('QueuedPaymentDAO');
-		$queuedPayment =& $queuedPaymentDao->getQueuedPayment($queuedPaymentId);
+		$queuedPayment = $queuedPaymentDao->getById($queuedPaymentId);
 		return $queuedPayment;
 	}
 
@@ -103,10 +99,7 @@ class PaymentManager {
 	 * @param $queuedPayment QueuedPayment
 	 * @return boolean success/failure
 	 */
-	function fulfillQueuedPayment($request, &$queuedPayment) {
-		// must be implemented by sub-classes
-		assert(false);
-	}
+	abstract function fulfillQueuedPayment($request, $queuedPayment);
 }
 
 ?>

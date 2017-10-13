@@ -30,6 +30,7 @@ zip ${DUMMY_ZIP} ${DUMMY_PDF} # Zip format; add PDF dummy as contents
 
 # Create the database.
 if [[ "$TEST" == "pgsql" ]]; then
+	sudo service postgresql start # Not sure why this isn't already managed by Travis
 	psql -c "CREATE DATABASE \"ojs-ci\";" -U postgres
 	psql -c "CREATE USER \"ojs-ci\" WITH PASSWORD 'ojs-ci';" -U postgres
 	psql -c "GRANT ALL PRIVILEGES ON DATABASE \"ojs-ci\" TO \"ojs-ci\";" -U postgres
@@ -53,9 +54,9 @@ mkdir ${FILESDIR}
 
 # Run data build suite
 if [[ "$TEST" == "mysql" ]]; then
-	./lib/pkp/tools/runAllTests.sh -bH
+	./lib/pkp/tools/runAllTests.sh -bHd
 else
-	./lib/pkp/tools/runAllTests.sh -b
+	./lib/pkp/tools/runAllTests.sh -bd
 fi
 
 # Dump the completed database.
@@ -68,7 +69,7 @@ fi
 # Run test suite.
 sudo rm -f cache/*.php
 if [[ "$DBTYPE" == "MySQL" ]]; then
-	./lib/pkp/tools/runAllTests.sh -CcPpfH
+	./lib/pkp/tools/runAllTests.sh -CcPpfHd
 else
-	./lib/pkp/tools/runAllTests.sh -CcPpf
+	./lib/pkp/tools/runAllTests.sh -CcPpfd
 fi

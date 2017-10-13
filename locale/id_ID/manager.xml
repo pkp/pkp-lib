@@ -154,8 +154,6 @@
 		<p>Kami sediakan konektor ke beberapa database eksternal di mana Anda bisa mencari sitiran. Beberapa databse membutuhkan pendaftaran atau informasi konfigurasi untuk dimasukkan. Lihat website publik database untuk informasi lebih lanjut tentang bagaimana untuk mendaftar. Anda dapat menambah satu atau beberapa database dengan mengklik "Tambah Item" di bawah ini.</p>
 		<p>Anda dapat mengedit atau menghapus koneksi database eksternal yang ada dengan mengklik ikon gear di sampingnya.</p>
 		<p><strong>Catatan:</strong>Agar proses pengecekan sitiran selesai tepat waktu, <tt>citation_checking_max_processes</tt> direktif di file konfigurasi Anda harus diatur ke nilai yang valid. Lihat bagian Pengaturan Umum di <tt>config.inc.php</tt> untuk informasi lebih lanjut.</p>]]></message>
-	<message key="manager.setup.citationOutput">Output Sitiran</message>
-	<message key="manager.setup.citationOutputStyleDescription">Pilih model sitiran yang sedang digunakan di naskah. Bantuan Koreksi Sitiran mengizinkan Anda membandingkan versi sitiran penulis dengan versi yang dihasilkan dari XML sehingga Anda mudah mengenali kesalahan:</message>
 	<message key="manager.setup.errorDeletingItem">Ada kesalahan saat menghapus item ini.</message>
 	<message key="manager.setup.filter.grid.errorDeletingFilter">Eror terjadi saat mencoba memindahkan filter ini. Laporkan ini sebagai bug.</message>
 	<message key="manager.setup.filter.grid.filterDisplayName">Konektor</message>
@@ -199,7 +197,6 @@
 	<message key="plugins.categories.auth">Plugin Otorisasi</message>
 	<message key="plugins.categories.blocks">Plugin Block</message>
 	<message key="plugins.categories.blocks.description">Block Plugins adalah komponen UI yang dapat di-plug, seperti sidebar tool yang bervariasi.</message>
-	<message key="plugins.categories.citationFormats">Plugin Format Sitiran</message>
 	<message key="plugins.categories.gateways.description">Gateway Plugins menyediakan data langsung ke sistem eksternal.</message>
 	<message key="plugins.categories.gateways">Plugin Gateway</message>
 	<message key="plugins.categories.generic">Plugin Generic</message>

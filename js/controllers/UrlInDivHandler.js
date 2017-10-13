@@ -29,6 +29,10 @@
 
 		// Load the contents.
 		this.reload();
+
+		if (options.refreshOn) {
+			this.bindGlobal(options.refreshOn, this.reload);
+		}
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.UrlInDivHandler, $.pkp.classes.Handler);
@@ -98,9 +102,11 @@
 			} else {
 				// See bug #8237.
 				if (! /msie/.test(navigator.userAgent.toLowerCase())) {
-					this.getHtmlElement().hide().html(handledJsonData.content).fadeIn(400);
+					this.getHtmlElement().hide();
+					this.html(handledJsonData.content);
+					this.getHtmlElement().fadeIn(400);
 				} else {
-					this.getHtmlElement().html(handledJsonData.content);
+					this.html(handledJsonData.content);
 				}
 
 				this.trigger('urlInDivLoaded', [this.getHtmlElement().attr('id')]);

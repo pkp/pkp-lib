@@ -43,7 +43,7 @@ class DBRowIterator extends ItemIterator {
 	 * @param $dao object DAO class for factory
 	 * @param $functionName The function to call on $dao to create an object
 	 */
-	function __construct(&$records, $idFields = array()) {
+	function __construct($records, $idFields = array()) {
 		parent::__construct();
 		$this->idFields = $idFields;
 
@@ -58,7 +58,7 @@ class DBRowIterator extends ItemIterator {
 			$this->pageCount = 1;
 		}
 		else {
-			$this->records =& $records;
+			$this->records = $records;
 			$this->wasEmpty = false;
 			$this->page = $records->AbsolutePage();
 			$this->isFirst = $records->atFirstPage();
@@ -72,7 +72,7 @@ class DBRowIterator extends ItemIterator {
 	 * Return the object representing the next row.
 	 * @return object
 	 */
-	function &next() {
+	function next() {
 		if ($this->records == null) return $this->records;
 		if (!$this->records->EOF) {
 			$row = $this->records->getRowAssoc(false);
@@ -89,8 +89,8 @@ class DBRowIterator extends ItemIterator {
 	 * Return the next row, with key.
 	 * @return array ($key, $value)
 	 */
-	function &nextWithKey() {
-		$result =& $this->next();
+	function nextWithKey() {
+		$result = $this->next();
 		if (empty($this->idFields)) {
 			$key = null;
 		} else {
@@ -102,8 +102,7 @@ class DBRowIterator extends ItemIterator {
 				$key .= (string)$result[$idField];
 			}
 		}
-		$returner = array($key, &$result);
-		return $returner;
+		return array($key, $result);
 	}
 
 	/**
@@ -181,7 +180,7 @@ class DBRowIterator extends ItemIterator {
 	 * Convert this iterator to an array.
 	 * @return array
 	 */
-	function &toArray() {
+	function toArray() {
 		$returner = array();
 		while (!$this->eof()) {
 			$returner[] = $this->next();
@@ -189,5 +188,3 @@ class DBRowIterator extends ItemIterator {
 		return $returner;
 	}
 }
-
-?>

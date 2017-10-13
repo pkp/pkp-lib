@@ -369,4 +369,6 @@
 	<message key="common.declined">Відхилені</message>
 	<message key="common.notified">Сповіщені</message>
 	<message key="common.overdue">Прострочені</message>
+
+	<message key="semicolon">{$label}:</message>
 </locale>

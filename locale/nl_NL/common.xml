@@ -369,4 +369,6 @@
 	<message key="common.acknowledged">Erkend</message>
 	<message key="common.notified">Bericht gegeven</message>
 	<message key="common.reset">Herstel</message>
+
+	<message key="semicolon">{$label}:</message>
 </locale>

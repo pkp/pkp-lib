@@ -175,11 +175,11 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$this->createLocalizedNodes($doc, $submissionNode, 'source', $submission->getSource(null));
 		$this->createLocalizedNodes($doc, $submissionNode, 'rights', $submission->getRights(null));
 		if ($submission->getLicenseUrl()) {
-			$this->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'licenseUrl', htmlspecialchars($submission->getLicenseUrl())));
+			$submissionNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'licenseUrl', htmlspecialchars($submission->getLicenseUrl())));
 		}
 		$this->createLocalizedNodes($doc, $submissionNode, 'copyrightHolder', $submission->getCopyrightHolder(null));
 		if ($submission->getCopyrightYear()) {
-			$this->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'copyrightYear', intval($submission->getCopyrightYear())));
+			$submissionNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'copyrightYear', intval($submission->getCopyrightYear())));
 		}
 
 		// add controlled vocabularies
@@ -304,7 +304,8 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 				}
 				assert(is_a($revisionNode, 'DOMElement'));
 				$clone = $doc->importNode($revisionNode, true);
-				$submissionFileNode->appendChild($clone);
+				$firstRevisionChild = $submissionFileNode->firstChild;
+				$submissionFileNode->insertBefore($clone, $firstRevisionChild);
 			}
 		}
 	}

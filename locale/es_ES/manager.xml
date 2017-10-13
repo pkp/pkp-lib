@@ -117,6 +117,7 @@
 	<message key="manager.languages.supportedLocalesInstructions">Seleccione todas las configuraciones regionales que estarán disponibles en el sitio mediante un menú de selección de idiomas que aparecerá en cada página. El menú solo aparecerá si hay más de una configuración regional.</message>
 	<message key="manager.masthead.title">Equipo editorial</message>
 	<message key="manager.payment.timestamp">Fecha operación</message>
+	<message key="manager.people.existingUserRequired">Debe introducirse un usuario existente.</message>
 	<message key="manager.people.authSource">Fuente de autentificación</message>
 	<message key="manager.people.confirmUnenroll">¿Desuscribir a esta/e usuaria/o?</message>
 	<message key="manager.people.createUser">Crear nueva/o usuaria/o</message>
@@ -234,8 +235,6 @@
 		<p>Proporcionamos conectores a varias bases de datos externas donde puede buscar citas. Algunas de estas bases de datos requieren registrarse o información sobre la configuración para acceder a ellas. Dirígase a las páginas web públicas de las bases de datos para más información sobre cómo registrarse. Puede añadir una o varias bases de datos haciendo clic en el botón "Añadir elemento" de abajo.</p>
 		<p>Puede editar o eliminiar una conexión de base de datos externa existente haciendo clic en el icono de ajustes a su lado.</p>
 		<p><strong>Nota:</strong> Para que el proceso de comprobación de citas se pueda completar rápidamente, la directiva <tt>citation_checking_max_processes</tt> en su archivo de configuración debe ajustarse a un valor razonable. Véase la sección de Ajustes generales en <tt>config.inc.php</tt> para obtener más información.</p>]]></message>
-	<message key="manager.setup.citationOutput">Salida de Citas</message>
-	<message key="manager.setup.citationOutputStyleDescription">Elija el estilo de cita que se está usando en sus envíos de publicación. El asistente de marcado de citas le permite comprar la versión del autor de la cita con una versión generada del XML que está creando para que pueda detectar errores más fácilmente:</message>
 	<message key="manager.setup.errorDeletingItem">Ha sucedido un error al borrar este ítem</message>
 	<message key="manager.setup.filter.grid.errorDeletingFilter">Se ha producido un error al intentar eliminar este filtro. Informe de este error.</message>
 	<message key="manager.setup.filter.grid.filterDisplayName">Conector</message>
@@ -285,11 +284,8 @@
 	<message key="plugins.categories.auth">Plugins de autorización</message>
 	<message key="plugins.categories.blocks">Complementos de Bloques</message>
 	<message key="plugins.categories.blocks.description">Los Complementos de Bloques son componentes de la interfaz de usuario, como las barras laterales de herramientas.</message>
-	<message key="plugins.categories.citationFormats">Complementos de Formato de Referencias</message>
 	<message key="plugins.categories.citationLookup">Módulos de conectores de bases de datos de citas</message>
 	<message key="plugins.categories.citationLookup.description">Los módulos de conectores de bases de datos de citas se conectan a la base de datos para buscar citas, p. ej. durante la edición de citas.</message>
-	<message key="plugins.categories.citationOutput">Módulos de salida de citas</message>
-	<message key="plugins.categories.citationOutput.description">Los complementos de generación de citas implementan los estándares de citas. Esto sustituye a los complementos de formato de citas.</message>
 	<message key="plugins.categories.citationParser">Módulos de extracción de citas</message>
 	<message key="plugins.categories.citationParser.description">Los módulos de extracción de citas extraen datos de nivel de campo a partir de las citas en bruto (p. ej. autor/a, título, etc.).</message>
 	<message key="plugins.categories.gateways.description">Los plugins de pasarela proporcionan datos en directo a sistemas externos.</message>
@@ -531,4 +527,9 @@
 	<message key="plugins.importexport.common.error.unknownEncoding">Codificación {$param} desconocida</message>
 	<message key="plugins.importexport.common.error.unknownUserGroup">Grupo de usuario {$param} desconocido</message>
 	<message key="plugins.importexport.common.error.unknownUploader">Cargador {$param} desconocido</message>
+	<message key="plugins.importexport.common.warningsEncountered">Alertas encontradas:</message>
+	<message key="plugins.importexport.common.error.encodingError">El contenido no está codificado como {$param}</message>
+	<message key="plugins.importexport.common.error.temporaryFileFailed">El archivo temporal {$dest} no se ha podido crear desde {$source}</message>
+	<message key="plugins.importexport.common.error.filesizeMismatch">El tamaño de archivo proporcionado "{$expected}" y el tamaño real "{$actual}" no coinciden</message>
+	<message key="plugins.importexport.native.error.submissionFileImportFailed">El archivo de envío no puede ser importado</message>
 </locale>

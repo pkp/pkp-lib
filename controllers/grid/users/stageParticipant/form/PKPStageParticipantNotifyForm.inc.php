@@ -166,7 +166,6 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 		$email = $this->_getMailTemplate($submission, $template, false);
 		$email->setReplyTo($fromUser->getEmail(), $fromUser->getFullName());
 
-		import('lib.pkp.controllers.grid.submissions.SubmissionsListGridCellProvider');
 		$dispatcher = $request->getDispatcher();
 
 		$userDao = DAORegistry::getDAO('UserDAO');
@@ -174,7 +173,9 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 		if (isset($user)) {
 			$email->addRecipient($user->getEmail(), $user->getFullName());
 			$email->setBody($this->getData('message'));
-			$submissionUrl = SubmissionsListGridCellProvider::getUrlByUserRoles($request, $submission, $user->getId());
+
+			import('classes.core.ServicesContainer');
+			$submissionUrl = ServicesContainer::instance()->get('submission')->getWorkflowUrlByUserRoles($submission, $user->getId());
 
 			// Parameters for various emails
 			$email->assignParams(array(
@@ -191,6 +192,9 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 			$email->send($request);
 			// remove the INDEX_ and LAYOUT_ tasks if a user has sent the appropriate _COMPLETE email
 			switch ($template) {
+				case 'EDITOR_ASSIGN':
+					$this->_addAssignmentTaskNotification($request, NOTIFICATION_TYPE_EDITOR_ASSIGN, $user->getId(), $submission->getId());
+					break;
 				case 'COPYEDIT_REQUEST':
 					$this->_addAssignmentTaskNotification($request, NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT, $user->getId(), $submission->getId());
 					break;

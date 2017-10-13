@@ -29,7 +29,7 @@ class AdminFunctionsHandler extends AdminHandler {
 			array(ROLE_ID_SITE_ADMIN),
 			array(
 				'systemInfo', 'editSystemConfig', 'saveSystemConfig', 'phpinfo',
-				'expireSessions', 'clearTemplateCache', 'clearDataCache', 
+				'expireSessions', 'clearTemplateCache', 'clearDataCache',
 				'downloadScheduledTaskLogFile', 'clearScheduledTaskLogFiles'
 			)
 		);
@@ -82,6 +82,7 @@ class AdminFunctionsHandler extends AdminHandler {
 	function clearTemplateCache($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->clearTemplateCache();
+		$templateMgr->clearCssCache();
 		$request->redirect(null, 'admin');
 	}
 
@@ -113,13 +114,13 @@ class AdminFunctionsHandler extends AdminHandler {
 		import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
 		ScheduledTaskHelper::downloadExecutionLog($file);
 	}
-	
+
 	/**
 	 * Clear scheduled tasks execution logs.
 	 */
 	function clearScheduledTaskLogFiles() {
 		import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
-		ScheduledTaskHelper::clearExecutionLogs();	
+		ScheduledTaskHelper::clearExecutionLogs();
 
 		Request::redirect(null, 'admin');
 	}

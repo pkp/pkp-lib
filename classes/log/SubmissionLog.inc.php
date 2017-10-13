@@ -18,6 +18,8 @@
  * @brief Static class for adding / accessing PKP log entries.
  */
 
+import('lib.pkp.classes.log.PKPSubmissionEventLogEntry');
+
 class SubmissionLog {
 
 	/**

@@ -545,4 +545,6 @@
 	<message key="search.SearchFor">Buscar por</message>
 	<message key="notification.type.assignCopyeditors">Atribua um editor de texto usando o link "Adicionar" na lista Participantes.</message>
 	<message key="notification.type.awaitingCopyedits">Aguardando Textos Revisados</message>
+
+	<message key="semicolon">{$label}:</message>
 </locale>

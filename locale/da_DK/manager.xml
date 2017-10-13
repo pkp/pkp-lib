@@ -153,7 +153,6 @@
 	<message key="plugins.categories.auth">Plug-ins til autorisationer</message>
 	<message key="plugins.categories.blocks">Plug-ins til blokke</message>
 	<message key="plugins.categories.blocks.description">Plug-ins til blokke er tilslutningsbare brugergrænsefladekomponenter, f.eks. de forskellige margentekstværktøjer.</message>
-	<message key="plugins.categories.citationFormats">Plug-ins til citatformater</message>
 	<message key="plugins.categories.gateways.description">Plug-ins til gateways leverer live-data til eksterne systemer.</message>
 	<message key="plugins.categories.gateways">Plug-ins til gateways</message>
 	<message key="plugins.categories.generic">Generiske plug-ins</message>
@@ -181,8 +180,6 @@
 		<p>Vi giver dig opkoblinger til adskillige eksterne databaser, hvor du kan søge efter citationer. Nogle af disse databaser kræver registrering, eller at der indtastes konfigurationsinformation. På databasernes offentlige websteder kan du finde yderligere information om, hvordan du registrerer dig. Du kan tilføje en eller flere databaser ved at klikke på knappen "Tilføj element" herunder.</p>
 		<p>Du kan redigere eller slette en eksisterende ekstern databaseforbindelse ved at klikke på tandhjulsikonet.</p>
 		<p><strong>Bemærk:</strong> For at citationskontrolproceduren ikke skal tage for lang tid, skal <tt>citation_checking_max_processes</tt>-direktivet i din konfigurationsfil være indstillet til en rimelig værdi. Se afsnittet Generelle indstillinger i <tt>config.inc.php</tt> for at få mere information.</p>]]></message>
-	<message key="manager.setup.citationOutput">Citations-output</message>
-	<message key="manager.setup.citationOutputStyleDescription">Vælg den referencestandard, der bliver anvendt i forbindelse med forfatteres indlevering af bidrag til dit tidsskrift. Citationsmarkeringsværktøjet gør dig i stand til at sammenligne forfatterens version af referencen med en version, der er genereret ud fra den XML, du genererer, så du nemt kan opdage fejl:</message>
 	<message key="manager.setup.errorDeletingItem">Der opstod en fejl i forbindelse med sletningen af dette element.</message>
 	<message key="manager.setup.filter.grid.errorDeletingFilter">Der opstod en fejl i forbindelse med, at dette filter skulle fjernes. Anmeld dette som en fejl.</message>
 	<message key="manager.setup.filter.grid.filterDisplayName">Opkobling</message>
@@ -230,8 +227,6 @@
 	<message key="plugins.categories.metadata.description">Metadat plug-ins implementerer ekstra metadata standarder.</message>
 	<message key="plugins.categories.citationLookup">Forbindelsesplug-in til citationsdatabaser</message>
 	<message key="plugins.categories.citationLookup.description">Dette citationsplug-in forbinder programmet til citationsdatabaser hvor der søges efter citationer (henvisninger), f.eks. under citationsredigeringen.</message>
-	<message key="plugins.categories.citationOutput">Citation Output Plugins</message>
-	<message key="plugins.categories.citationOutput.description">Citation Output Plugins indsætter referencestandarder. Dette erstatter Citation Format Plugins (Plug-ins til citatformater).</message>
 	<message key="plugins.categories.citationParser">Citation Extraction Plugins</message>
 	<message key="plugins.categories.citationParser.description">Citation Extraction Plugins henter data fra ubearbejdede referencer på feltniveau (f.eks. forfatter, titel osv.)</message>
 	<message key="plugins.categories.oaiMetadataFormats">OAI Metadata Format Plugins</message>

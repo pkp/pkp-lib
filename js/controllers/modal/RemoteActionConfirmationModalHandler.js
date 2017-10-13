@@ -20,8 +20,11 @@
 	 *
 	 * @param {jQueryObject} $handledElement The clickable element
 	 *  the modal will be attached to.
-	 * @param {Object} options Non-default options to configure
-	 *  the modal.
+	 * @param {{
+	 *  remoteAction: string,
+	 *  postData: Object,
+	 *  csrfToken: string
+	 *  }} options Non-default options to configure the modal.
 	 *
 	 *  Options are:
 	 *  - remoteAction string An action to be executed when the confirmation
@@ -40,8 +43,11 @@
 		// the modal closes.
 		this.remoteAction_ = options.remoteAction;
 
-		// Store the CSRF token for inclusion in the request.
-		this.csrfToken_ = options.csrfToken;
+		// Store the data to send with the post request
+		this.postData_ = options.postData || {};
+
+		// Add the CSRF token to the post data
+		this.postData_.csrfToken = options.csrfToken;
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.modal.RemoteActionConfirmationModalHandler,
@@ -62,12 +68,12 @@
 
 
 	/**
-	 * A CSRF token to be included in request parameters.
+	 * Data params to send with the post request
 	 * @private
-	 * @type {?string}
+	 * @type {?Object}
 	 */
 	$.pkp.controllers.modal.RemoteActionConfirmationModalHandler.prototype.
-			csrfToken_ = null;
+			postData_ = null;
 
 
 	//
@@ -107,7 +113,7 @@
 		event.preventDefault();
 
 		$.post(this.remoteAction_,
-				{csrfToken: this.csrfToken_},
+				this.postData_,
 				this.callbackWrapper(this.remoteResponse), 'json');
 	};
 

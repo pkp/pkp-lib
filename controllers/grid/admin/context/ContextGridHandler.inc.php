@@ -24,7 +24,7 @@ class ContextGridHandler extends GridHandler {
 		parent::__construct();
 		$this->addRoleAssignment(array(
 			ROLE_ID_SITE_ADMIN),
-			array('fetchGrid', 'fetchRow', 'createContext', 'editContext', 'updateContext',
+			array('fetchGrid', 'fetchRow', 'createContext', 'editContext', 'updateContext', 'users',
 				'deleteContext', 'saveSequence')
 		);
 	}
@@ -59,6 +59,7 @@ class ContextGridHandler extends GridHandler {
 		AppLocale::requireComponents(
 			LOCALE_COMPONENT_PKP_USER,
 			LOCALE_COMPONENT_APP_MANAGER,
+			LOCALE_COMPONENT_PKP_MANAGER,
 			LOCALE_COMPONENT_PKP_ADMIN,
 			LOCALE_COMPONENT_APP_ADMIN
 		);
@@ -182,6 +183,18 @@ class ContextGridHandler extends GridHandler {
 		return $this->editContext($args, $request);
 	}
 
+	/**
+	 * Display users management grid for the given context.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
+	function users($args, $request) {
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign('oldUserId', (int) $request->getUserVar('oldUserId')); // for merging users.
+		parent::setupTemplate($request);
+		return $templateMgr->fetchJson('core:controllers/tab/settings/users.tpl');
+	}
 
 	//
 	// Protected helper methods.

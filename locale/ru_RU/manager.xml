@@ -118,6 +118,7 @@
 	<message key="manager.languages.supportedLocalesInstructions">Выберите все языки, которые будут поддерживаться на сайте через меню выбора языка, появляющееся на каждой странице. Это меню будет отображаться только в том случае, если будет выбрано несколько языков.</message>
 	<message key="manager.masthead.title">Выходные данные</message>
 	<message key="manager.payment.timestamp">Дата/Время</message>
+	<message key="manager.people.existingUserRequired">Нужно ввести существующего пользователя.</message>
 	<message key="manager.people.authSource">Источник аутентификации</message>
 	<message key="manager.people.confirmUnenroll">Отменить назначение этого пользователя?</message>
 	<message key="manager.people.createUser">Создать нового пользователя</message>
@@ -187,8 +188,8 @@
 		Есть случаи, когда должна быть применена только одна статистика использования, например, чтобы отобразить упорядоченный список наиболее используемых статей или отранжировать
 		результаты поиска. Пожалуйста, выберите одну из настроенных метрик в качестве метрики по умолчанию.
 	</message>
-	<message key="manager.statistics.city">Город</message>	
-	<message key="manager.statistics.region">Регион</message>	
+	<message key="manager.statistics.city">Город</message>
+	<message key="manager.statistics.region">Регион</message>
 	<message key="manager.statistics.reports">Генератор отчетов</message>
 	<message key="manager.statistics.reports.description">Система генерирует отчеты, которые помогают отследить детали, связанные с использованием сайта и материалов за заданный период времени. Отчеты генерируются в формате CSV, который требует для просмотра наличия табличного процессора.</message>
 	<message key="manager.statistics.reports.aggregationColumns">Агрегировать статистику по:</message>
@@ -239,8 +240,6 @@
 		<p>Мы предоставляем модули подключения к нескольким внешним базам данных, в которых вы можете искать библиографические ссылки. Некоторые из этих баз данных требуют регистрации или ввода информации для настройки. Пожалуйста, обратитесь к веб-сайтам баз данных для подробной информации о том, как зарегистрироваться. Вы можете добавить одну или несколько баз данных, щелкнув ниже на кнопке «Добавить элемент».</p>
 		<p>Вы можете отредактировать или удалить существующее подключение к внешней базе данных, щелкнув на значке шестренки рядом с ним.</p>
 		<p><strong>Обратите внимание:</strong> Чтобы процесс проверки библиографических ссылок завершался своевременно, параметр <tt>citation_checking_max_processes</tt> в вашем конфигурационном файле должен иметь приемлемое значение. Смотрите раздел General Settings в <tt>config.inc.php</tt> для получения более подробной информации.</p>]]></message>
-	<message key="manager.setup.citationOutput">Оформление библиографических ссылок</message>
-	<message key="manager.setup.citationOutputStyleDescription">Выберите стиль оформления библиографических ссылок, который используется в ваших публикуемых материалах. Помощник разметки библиографических ссылок позволит вам сравнить авторскую версию оформления библиографической ссылки на источник с версией, построенной на основе сгенерированного вами XML, таким образом вы легко сможете обнаружить ошибки:</message>
 	<message key="manager.setup.competingInterests">Конфликт интересов</message>
 	<message key="manager.setup.competingInterestsDescription">Рецензентов просят следовать Правилам декларирования конфликта интересов, которые вы описали ниже.</message> <!-- FIXME #6843 (JM): should this just reference reviewers? -->
 	<message key="manager.setup.errorDeletingItem">Во время удаления этого объекта возникла ошибка.</message>
@@ -324,11 +323,8 @@
 	<message key="plugins.categories.auth">Модули авторизации</message>
 	<message key="plugins.categories.blocks">Модули блоков</message>
 	<message key="plugins.categories.blocks.description">Модули блоков — подключаемые компоненты пользовательского интерфейса, такие как различные инструменты боковой панели.</message>
-	<message key="plugins.categories.citationFormats">Модули форматирования библиографических ссылок</message>
 	<message key="plugins.categories.citationLookup">Модули подключения к базам данных библиографических ссылок</message>
 	<message key="plugins.categories.citationLookup.description">Модули подключения к базам данных библиографических ссылок подключаются к базам данных библиографических ссылок, чтобы найти ссылку на источник, например, во время редактирования библиографических ссылок.</message>
-	<message key="plugins.categories.citationOutput">Модули оформления библиографических ссылок</message>
-	<message key="plugins.categories.citationOutput.description">Модули оформления библиографических ссылок реализуют стандарты оформления библиографических ссылок. Они заменяют модули форматирования библиографических ссылок.</message>
 	<message key="plugins.categories.citationParser">Модули извлечения библиографических ссылок</message>
 	<message key="plugins.categories.citationParser.description">Модули извлечения библиографических ссылок позволяют извлекать данные для полей из «сырых» библиографических ссылок (например, имя автора, название и т. д.).</message>
 	<message key="plugins.categories.gateways.description">Модули шлюзов предоставляют данные в реальном времени внешним системам.</message>
@@ -430,6 +426,7 @@
 	<message key="settings.roles.roleOptions">Параметры роли</message>
 	<message key="settings.roles.showTitles">Показать название роли в списке участников</message>
 	<message key="settings.roles.permitSelfRegistration">Разрешить самостоятельную регистрацию пользователя</message>
+	<message key="settings.roles.recommendOnly">Эта роль позволяет только рекомендовать решение рецензента, запись итогового решения требует участия редактора с соответствующими правами.</message>
 	<message key="settings.roles.roleName">Название роли</message>
 	<message key="settings.roles.roleAbbrev">Аббревиатура</message>
 	<message key="settings.roles.assignedStages">Назначенные этапы</message>
@@ -532,6 +529,55 @@
 	<message key="plugins.importexport.common.error.unknownUploader">Неизвестный загрузчик {$param}</message>
 	<message key="plugins.importexport.common.error.temporaryFileFailed">Временный файл {$dest} не может быть создан из {$source}</message>
 	<message key="plugins.importexport.common.error.filesizeMismatch">Указанный размер файла «{$expected}» и фактический размер «{$actual}» не совпадают</message>
-	<!-- native importexport keys -->
+	<message key="plugins.importexport.common.error.duplicateRevisionForSubmission">Новая версия «{$revisionId}» для файла «{$fileId}» создаст дублирующую запись</message>
+	<!-- родные ключи импорта/экспорта -->
 	<message key="plugins.importexport.native.error.submissionFileImportFailed">Файл материала не может быть импортирован</message>
+
+	<!-- Меню навигации -->
+	<message key="manager.navigationMenus.form.title">Название</message>
+	<message key="manager.navigationMenus.form.path">Путь</message>
+	<message key="manager.navigationMenus">Меню навигации</message>
+	<message key="manager.navigationMenus.form.viewInstructions"><![CDATA[<p>Эта страница будет доступна по адресу: <blockquote>{$pagesPath}</blockquote>...где %PATH% — путь, введенный выше. <strong>Обратите внимание:</strong> Путь к каждой странице должен быть уникальным. Использование путей, встроенных в систему, может привести к потере доступа к важным функциям.</p>]]></message>
+	<message key="manager.navigationMenus.form.content">Контент</message>
+	<message key="manager.navigationMenus.form.pathRegEx">Поле с путем должно содержать только буквы, цифры, «.», «/», «-» и «_».</message>
+	<message key="manager.navigationMenus.form.duplicatePath">Этот путь уже задан для другого элемента навигационного меню.</message>
+	<message key="manager.navigationMenus.form.duplicateTitles">Это название уже существует в другом навигационном меню.</message>
+	<message key="manager.navigationMenus.form.titleRequired">Название обязательно</message>
+	<message key="manager.navigationMenuItems">Элементы навигационного меню</message>
+	<message key="manager.navigationMenus.assignedMenuItems">Назначенные элементы меню</message>
+	<message key="manager.navigationMenus.unassignedMenuItems">Неназначенные элементы меню</message>
+	<message key="manager.navigationMenus.form.navigationMenuArea">Области навигации активной темы</message>
+	<message key="manager.navigationMenus.form.navigationMenuAreaMessage">Выберите область навигации</message>
+
+	<message key="manager.navigationMenus.form.url">URL</message>
+	<message key="manager.navigationMenus.form.customUrlError">Необходимо ввести URL-адрес</message>
+
+	<message key="manager.navigationMenus.form.conditionalDisplay">Узнать больше, когда этот элемент меню будет показан или скрыт.</message>
+	<message key="manager.navigationMenus.form.submenuWarning">Когда элемент меню открывает подменю, не на всех устройствах можно перейти по ссылке в нем. Например, если у вас есть элемент «О журнале», который открывает подменю с «Контакты» и «Редакция», ссылка «О журнале» может быть доступна не на всех устройствах. В меню по умолчанию это обрабатывается путем создания второго элемента меню «Об этом журнале», который появляется в подменю.</message>
+
+	<message key="manager.navigationMenus.form.navigationMenuItemType">Тип меню навигации</message>
+	<message key="manager.navigationMenus.form.navigationMenuItemTypeMessage">Выберите тип меню навигации или вариант «Пользовательский», чтобы создать свой собственный тип</message>
+	<message key="manager.navigationMenus.customPage">Пользовательская страница</message>
+	<message key="manager.navigationMenus.customPage.description">Создать свою собственную страницу на вашем сайте и добавить ссылку на нее в меню навигации.</message>
+	<message key="manager.navigationMenus.remoteUrl">Внешний URL</message>
+	<message key="manager.navigationMenus.remoteUrl.description">Ссылка на любой URL на другом сайте, например, http://pkp.sfu.ca.</message>
+	<message key="manager.navigationMenus.about.description">Ссылка на страницу, отображающую контент «О журнале» в  Настройки > Журнал</message>
+	<message key="manager.navigationMenus.about.conditionalWarning">Эта ссылка будет показываться только в случае, если вы заполнили раздел «О журнале» в Настройки > Журнал.</message>
+	<message key="manager.navigationMenus.editorialTeam.description">Ссылка на страницу, отображающую контент «Выходные данные» в Настройки > Журнал.</message>
+	<message key="manager.navigationMenus.editorialTeam.conditionalWarning">Эта ссылка будет показываться только в случае, если вы заполнили раздел «Редакция» в Настройки > Журнал.</message>
+	<message key="manager.navigationMenus.submissions.description">Ссылка на страницу, отображающую инструкции по отправке.</message>
+	<message key="manager.navigationMenus.current.description">Ссылка на текущий выпуск.</message>
+	<message key="manager.navigationMenus.archives.description">Ссылка на архив выпусков.</message>
+	<message key="manager.navigationMenus.announcements.description">Ссылка на страницу, отображающую объявления.</message>
+	<message key="manager.navigationMenus.announcements.conditionalWarning">Эта ссылка будет показываться только в случае, если вы включите объявления в Настройки > Веб-сайт.</message>
+	<message key="manager.navigationMenus.login.description">Ссылка на страницу входа в систему.</message>
+	<message key="manager.navigationMenus.register.description">Ссылка на страницу регистрации пользователя.</message>
+	<message key="manager.navigationMenus.dashboard.description">Ссылка на личный кабинет редакции.</message>
+	<message key="manager.navigationMenus.profile.description">Ссылка на страницу профиля пользователя.</message>
+	<message key="manager.navigationMenus.administration.description">Ссылка на инструменты администрирования всего сайта.</message>
+	<message key="manager.navigationMenus.administration.conditionalWarning">Эта ссылка будет показываться только пользователям с правами администраторов.</message>
+	<message key="manager.navigationMenus.logOut.description">Ссылка для выхода пользователя из системы.</message>
+	<message key="manager.navigationMenus.loggedOut.conditionalWarning">Эта ссылка будет показываться только в случае, когда посетитель уже вошел в систему.</message>
+	<message key="manager.navigationMenus.loggedIn.conditionalWarning">Эта ссылка будет показываться только в случае, когда посетитель еще не вошел в систему.</message>
+
 </locale>

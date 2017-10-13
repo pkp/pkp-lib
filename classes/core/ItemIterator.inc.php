@@ -26,9 +26,8 @@ class ItemIterator {
 	 * Return the next item in the iterator.
 	 * @return object
 	 */
-	function &next() {
-		$nullVar = null;
-		return $nullVar;
+	function next() {
+		return null;
 	}
 
 	/**
@@ -99,10 +98,7 @@ class ItemIterator {
 	 * Convert this iterator to an array.
 	 * @return array
 	 */
-	function &toArray() {
-		$returner = array();
-		return $returner;
+	function toArray() {
+		return array();
 	}
 }
-
-?>

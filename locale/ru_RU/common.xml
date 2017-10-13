@@ -20,7 +20,6 @@
 	<message key="about.aboutSite">О сайте</message>
 	<message key="about.contact">Контакты</message>
 	<message key="about.contact.email">E-mail</message>
-	<message key="about.contact.fax">Факс</message>
 	<message key="about.contact.phone">Телефон</message>
 	<message key="about.contact.principalContact">Представитель редакции</message>
 	<message key="about.contact.supportContact">Представитель технической поддержки</message>
@@ -123,6 +122,7 @@
 	<message key="common.default">По умолчанию</message>
 	<message key="common.declined">Отклонен</message>
 	<message key="common.delete">Удалить</message>
+	<message key="common.deleting">Удаление...</message>
 	<message key="common.deleteSelection">Удалить выбранное</message>
 	<message key="common.designation">Назначение</message>
 	<message key="common.description">Описание</message>
@@ -153,6 +153,8 @@
 	<message key="common.fileSize">Размер файла</message>
 	<message key="common.fileType">Тип файла</message>
 	<message key="common.fileUploaderError">Загружается загрузчик файлов в систему. Если он не появляется, скорее всего его запуск не поддерживается этим браузером. Пожалуйста, свяжитесь с администратором сервера для решения проблемы.</message>
+	<message key="common.from">C</message>
+	<message key="common.until">По</message>
 	<message key="common.go">Выполнить</message>
 	<message key="common.height">Высота</message>
 	<message key="common.homepageNavigationLabel">Главная</message>
@@ -231,6 +233,7 @@
 	<message key="common.saveAndContinue">Сохранить и продолжить</message>
 	<message key="common.saveAndEmail">Сохранить и отправить</message>
 	<message key="common.save">Сохранить</message>
+	<message key="common.saving">Сохранение...</message>
 	<message key="common.search">Найти</message>
 	<message key="common.searchQuery">Поисковый запрос</message>
 	<message key="common.second">Секунд</message>
@@ -359,9 +362,7 @@
 	<message key="informationCenter.editorialHistory">Редакционная история</message>
 	<message key="informationCenter.addNote">Добавить заметку</message>
 	<message key="informationCenter.noNotes">Нет заметок для отображения.</message>
-	<message key="informationCenter.currentNotes">Заметки к текущей версии</message>
 	<message key="informationCenter.pastNotes">Заметки к предыдущим версиям</message>
-	<message key="informationCenter.lastUpdated">Последнее обновление</message>
 	<message key="informationCenter.deleteConfirm">Вы уверены, что хотите удалить эту заметку?</message>
 	<message key="informationCenter.currentHistory">Текущая версия</message>
 	<message key="informationCenter.pastHistory">Предыдущие версии</message>
@@ -374,12 +375,15 @@
 	<message key="stageParticipants.notify.chooseMessage">Выберите стандартное сообщение для использования или заполните форму ниже.</message>
 	<message key="stageParticipants.notify.message">Сообщение</message>
 	<message key="stageParticipants.notify.warning">Пожалуйста, убедитесь, что вы заполнили поле сообщения и выбрали хотя бы одного получателя.</message>
+	<message key="stageParticipants.options">Назначенные права</message>
+	<message key="stageParticipants.recommendOnly">Этому участнику разрешено только рекомендовать решение редакции, запись решения редакции требует участия редактора с соответствующими правами.</message>
 
 	<message key="locale.primary">Основной язык</message>
 	<message key="locale.supported">Поддерживаемые языки</message>
 	<message key="navigation.access"><![CDATA[Пользователи и роли]]></message>
 	<message key="navigation.about">О нас</message>
 	<message key="navigation.admin">Администрирование</message>
+	<message key="navigation.archives">Архивы</message>
 	<message key="navigation.breadcrumbLabel">Вы здесь:</message>
 	<message key="navigation.breadcrumbSeparator">/</message>
 	<message key="navigation.tools">Инструменты</message>
@@ -420,6 +424,7 @@
 	<message key="notification.removedAuditor">Аудитор удален.</message>
 	<message key="notification.addedQuery">Добавлено обсуждение</message>
 	<message key="notification.reviewAcknowledged">Рецензия отмечена как принятая. Письмо электронной почты не отправлено.</message>
+	<message key="notification.reviewerThankedEmail">Письмо с благодарностью отправлено рецензенту.</message>
 	<message key="notification.updatedReviewFiles">Файлы рецензии обновлены.</message>
 	<message key="notification.allow">Включить эти типы уведомлений.</message>
 	<message key="notification.addedAnnouncementType">Тип объявлений добавлен.</message>
@@ -462,6 +467,7 @@
 	<message key="notification.unsubscribeError">При отмене Вашей подписки произошла ошибка. Пожалуйста, убедитесь, что вы используете правильный URL-адрес как указано в уведомлении, пришедшем на Ваш адрес электронной почты.</message>
 	<message key="notification.unsubscribeSuccess">Ваша подписка успешно прекращена.</message>
 	<message key="notification.savedSubmissionMetadata">Сохранены метаданные материала.</message>
+	<message key="notification.sendNotificationConfirmation">Отправить уведомление электронной почтой всем зарегистрированным пользователям</message>
 	<message key="search.author">По автору</message>
 	<message key="search.abstract">Аннотация</message>
 	<message key="search.advancedFilters">Расширенные фильтры</message>
@@ -538,12 +544,21 @@
 	<message key="user.authorization.submissionFile">Данному пользователю не разрешен доступ к файлу указанного материала.</message>
 	<message key="user.authorization.invalidSubmission">Неправильный материал.</message>
 	<message key="user.authorization.invalidRepresentation">Неправильное представление.</message>
-	<message key="navigation.archives">Архивы</message>
 	<message key="user.authorization.authorRoleMissing">В данный момент у Вас не достаточно прав для просмотра материала. Пожалуйста, отредактируйте ваш профиль, чтобы убедиться в том, что Вам предоставлены соответствующие роли в разделе «Регистрация как».</message>
 	<message key="user.authorization.submissionAuthor">Данный пользователь не является автором запрошенного материала. Пожалуйста, проверьте, что вы вошли в систему с правильной учетной записью пользователя.</message>
 	<message key="notification.type.queryActivity">Активность обсуждений.</message>
 	<message key="notification.type.queryAdded">Добавлено обсуждение.</message>
-	<message key="notification.type.assignCopyeditors">Назначьте литературного редактора, используя ссылку «Добавить» в списке «Участники».</message>
+	<message key="notification.type.assignCopyeditors">Назначьте литературного редактора, используя ссылку «Назначить» в списке «Участники».</message>
 	<message key="notification.type.awaitingCopyedits">Ожидание литературного редактирование.</message>
 	<message key="notification.type.roundStatusTitle">Статус раунда {$round}</message>
+
+	<message key="semicolon">{$label}:</message>
+
+	<!-- Меню навигации -->
+	<message key="notification.editedNavigationMenuItem">Элемент меню навигации был успешно обновлен</message>
+	<message key="notification.removedNavigationMenuItem">Элемент меню навигации был успешно удален</message>
+	<message key="notification.addedNavigationMenuItem">Элемент меню навигации был успешно добавлен</message>
+	<message key="notification.addedNavigationMenu">Меню навигации было успешно добавлено</message>
+	<message key="notification.editedNavigationMenu">Меню навигации было успешно обновлено</message>
+	<message key="notification.removedNavigationMenu">Меню навигации было успешно удалено</message>
 </locale>

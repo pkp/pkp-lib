@@ -152,7 +152,6 @@
 	<message key="plugins.categories.auth">Programutvidelser for validering</message>
 	<message key="plugins.categories.blocks">Programutvidelser for blokker</message>
 	<message key="plugins.categories.blocks.description">Programutvidelser for blokker er brukergrensesnittkomponenter, som de ulike verktøyene i sidemenyen.</message>
-	<message key="plugins.categories.citationFormats">Plugins for referanseformat</message>
 	<message key="plugins.categories.gateways.description">Programutvidelser for porter gir kontinuerlige data til eksterne systemer.</message>
 	<message key="plugins.categories.gateways">Programutvidelser for porter</message>
 	<message key="plugins.categories.generic">Generiske programutvidelser</message>
@@ -194,8 +193,6 @@
 		<p>Vi tilbyr oppkoblinger til flere eksterne databaser hvor du kan søke etter referanser. Noen av disse databasene krever registrering eller konfigurering. Se informasjon på databasenes nettsider med hensyn til hvordan du kan registrere deg. Du kan legge til en eller flere databaser ved å klikke på "Legg til"-knappen nedenfor.</p>
 		<p>Du kan redigere eller fjerne en eksisterende ekstern database ved å klikke på ikonet ved siden av den.</p>
 		<p><strong>Merk:</strong> For at referansesjekkprosessen skal foregå med ønsket hastighet, må <tt>citation_checking_max_processes</tt>-innstillngen i din konfigurasjonsfil være satt til en fornuftig verdi. Se avsnittet Generelle innstillinger i <tt>config.inc.php</tt> for mer informasjon.</p>]]></message>
-	<message key="manager.setup.citationOutput">Referanse resultat</message>
-	<message key="manager.setup.citationOutputStyleDescription">Velg en referansestil som benyttes i innsendingene til ditt tidsskrift. Referansemarkeringsverktøyet gjør at du kan sammenligne forfatterens versjon av referansen med en versjon som genereres av den XMLen du lager, slik at det blir lett å oppdage forskjellene:</message>
 	<message key="manager.setup.filter.grid.filterDisplayName">Oppkobling</message>
 	<message key="manager.setup.filter.grid.filterSettings">Registreringsinformasjon og oppkoblingsinnstillinger</message>
 	<message key="manager.setup.filter.grid.filterTemplateRequired">Velg en av  omformingene fra nedtrekksmenyen.</message>
@@ -438,8 +435,6 @@
 	<message key="manager.plugins.installedVersionOlder">Programutvidelse allerede installert, men kan bli oppdatert til en nyere versjon.</message>
 	<message key="plugins.categories.citationLookup">Programutvidelse for oppkobling til referansedatabaser</message>
 	<message key="plugins.categories.citationLookup.description">Programutvidelse for oppkobling til referansedatabaser kan brukes til å sjekke referanser, f.eks under referanseredigering.</message>
-	<message key="plugins.categories.citationOutput">Programutvidelse for referanseformatering</message>
-	<message key="plugins.categories.citationOutput.description">Programutvidelse for referanseformatering implementerer referansestandarder. Dette fortrenger programutvidelsen for referanseformat.</message>
 	<message key="plugins.categories.citationParser">Programutvidelse for referanseuthenting</message>
 	<message key="plugins.categories.citationParser.description">Programutvidelser for referanseuthenting trekker ut felt-data fra rå-referanser (f.eks. forfatter, tittel. osv.).</message>
 	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Dette filteret kobler til PubMeds søk på tvers av databaser: <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a> </p> <p>Registrering er ikke obligatorisk, men kan være nødvendig ved oppkoblingsproblemer. Se kapittelet om retningslinjer og krav for bruk i Entrez-dokumentasjonen: <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Usage Guidelines and Requirements</a></p>]]></message>

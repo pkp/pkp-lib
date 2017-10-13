@@ -43,6 +43,13 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	public $options = array();
 
 	/**
+	 * Theme-specific navigation menu areas
+	 *
+	 * @var $menuAreas array;
+	 */
+	public $menuAreas = array();
+
+	/**
 	 * Parent theme (optional)
 	 *
 	 * @var $parent ThemePlugin
@@ -399,7 +406,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		// Retrieve option values if they haven't been loaded yet
 		if (is_null($this->_optionValues)) {
 			$pluginSettingsDAO = DAORegistry::getDAO('PluginSettingsDAO');
-			$context = Request::getContext();
+			$context = PKPApplication::getRequest()->getContext();
 			$contextId = $context ? $context->getId() : 0;
 			$this->_optionValues = $pluginSettingsDAO->getPluginSettings($contextId, $this->getName());
 		}
@@ -497,7 +504,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 
 		$pluginSettingsDAO = DAORegistry::getDAO('PluginSettingsDAO');
 
-		$context = Request::getContext();
+		$context = PKPApplication::getRequest()->getContext();
 		$contextId = empty($context) ? 0 : $context->getId();
 		$values = $pluginSettingsDAO->getPluginSettings($contextId, $this->getName());
 		$values = array_intersect_key($values, $this->options);
@@ -538,7 +545,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		}
 
 		if (is_null($contextId)) {
-			$context = Request::getContext();
+			$context = PKPApplication::getRequest()->getContext();
 			$contextId = $context->getId();
 		}
 
@@ -607,8 +614,52 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 
 		foreach ($options as $optionName => $optionArgs) {
 			$fullOptionName = THEME_OPTION_PREFIX . $optionName;
-			$form->setData($fullOptionName, Request::getUserVar($fullOptionName));
+			$form->setData($fullOptionName, PKPApplication::getRequest()->getUserVar($fullOptionName));
 		}
+	}
+
+	/**
+	 * Register a navigation menu area for this theme
+	 *
+	 * @param $menuAreas string|array One or more menu area names
+	 */
+	public function addMenuArea($menuAreas) {
+
+		if (!is_array($menuAreas)) {
+			$menuAreas = array($menuAreas);
+		}
+
+		$this->menuAreas = array_merge($this->menuAreas, $menuAreas);
+	}
+
+	/**
+	 * Remove a registered navigation menu area
+	 *
+	 * @param $menuArea string The menu area to remove
+	 * @return bool Whether or not the menuArea was found and removed.
+	 */
+	public function removeMenuArea($menuArea) {
+
+		$index = array_search($menuArea, $this->menuAreas);
+		if ($index !== false) {
+			array_splice($this->menuAreas, $index, 1);
+			return true;
+		}
+
+		return $this->parent ? $this->parent->removeMenuArea($menuArea) : false;
+	}
+
+	/**
+	 * Get all menu areas registered by this theme and any parents
+	 *
+	 * @param $existingAreas array Any existing menu areas from child themes
+	 * @return array All menua reas
+	 */
+	public function getMenuAreas($existingAreas = array()) {
+
+		$existingAreas = array_unique(array_merge($this->menuAreas, $existingAreas));
+
+		return $this->parent ? $this->parent->getMenuAreas($existingAreas) : $existingAreas;
 	}
 
 	/**

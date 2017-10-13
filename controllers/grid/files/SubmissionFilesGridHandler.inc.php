@@ -135,7 +135,7 @@ class SubmissionFilesGridHandler extends GridHandler {
 			$this->addAction($dataProvider->getAddFileAction($request));
 		}
 
-		// Test whether the tar binary is available for the export to work, if so, add 'download all' grid action
+		// Test whether an archive tool is available for the export to work, if so, add 'download all' grid action
 		if ($capabilities->canDownloadAll() && $this->hasGridDataElements($request)) {
 			$submission = $this->getSubmission();
 			$stageId = $this->getStageId();

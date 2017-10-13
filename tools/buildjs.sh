@@ -188,7 +188,7 @@ java -jar "$TOOL_PATH/compiler.jar" --language_in=ECMASCRIPT5 --jscomp_warning v
 	| sed "s/^/${TAB}/" >>"$WORKDIR/.compile-warnings.out"
 
 # Only minify when there were no warnings.
-if [ -n "`cat $WORKDIR/.compile-warnings.out | grep '^	'`" ]; then
+if [ -n "`cat $WORKDIR/.compile-warnings.out | grep '^	' | grep -v 'Picked up _JAVA_OPTIONS'`" ]; then
 	# Issue warnings. If interactive, use "less".
 	case "$-" in
 		*i*)	less "$WORKDIR/.compile-warnings.out" ;;

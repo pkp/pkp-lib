@@ -12,7 +12,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @ingroup pages_about
- * @brief Handle requests for about the press functions.
+ * @brief Handle requests for about the context functions.
  *
  */
 

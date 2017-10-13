@@ -139,14 +139,6 @@ class ContextSettingsForm extends Form {
 			}
 		}
 	}
-
-	/**
-	 * Overridden in subclasses.
-	 * @return boolean
-	 */
-	function addValidationChecks() {
-		return true;
-	}
 }
 
 ?>

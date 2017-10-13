@@ -414,4 +414,6 @@
 	<message key="grid.action.markRead">Segna come già letto</message>
 	<message key="review.ensuringBlindReview">Assicurare una revisione cieca</message>
 	<message key="notification.addedStageParticipant">Utente aggiunto ai partecipanti.</message>
+
+	<message key="semicolon">{$label}:</message>
 </locale>

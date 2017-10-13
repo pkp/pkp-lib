@@ -78,7 +78,7 @@
 		padding: 0 1px; // 1px prevents aliased icon from getting clipped at the edge
 
 		&:before {
-			&:extend( .fa );
+			.fa();
 			content: @fa-var-search;
 			margin-right: 0.5em;
 		}
@@ -130,6 +130,7 @@
 	// Grid rows
 	table {
 		width: 100%;
+		border-collapse: collapse;
 	}
 
 	tr {
@@ -218,7 +219,7 @@
 
 	// Ordering items
 	.pkp_linkaction_moveItem {
-		&:extend( .fa );
+		.fa();
 
 		&:before {
 			content: @fa-var-sort;
@@ -291,7 +292,7 @@
 		line-height: @line-sml;
 
 		&:before {
-			&:extend(.fa);
+			.fa();
 			content: @fa-var-file-o;
 			display: block;
 			position: absolute;
@@ -396,7 +397,7 @@
 		right: 0;
 
 		> a {
-			&:extend(.fa);
+			.fa();
 			width: 24px;
 			height: 24px;
 			line-height: 24px;
@@ -447,7 +448,7 @@
 	// Icons
 	.checked,
 	.notChecked {
-		&:extend(.fa);
+		.fa();
 	}
 
 	.checked:after {
@@ -562,7 +563,7 @@
 		.pkp_linkaction_delete {
 
 			&:before {
-				&:extend(.fa);
+				.fa();
 				content: @fa-var-times;
 			}
 		}
@@ -602,6 +603,11 @@
 	thead {
 		background: transparent;
 	}
+}
+
+// Make emails wrap rather than overflow table column in the users grid
+[id^="component-grid-settings-user-usergrid-"] .gridRow td:last-child .label {
+	word-break: break-word;
 }
 
 

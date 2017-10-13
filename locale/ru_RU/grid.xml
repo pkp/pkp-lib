@@ -230,12 +230,8 @@
 	<message key="grid.user.mergeUsers">Объединить пользователей</message>
 	<message key="grid.user.mergeUsers.mergeUser">Объединить пользователя</message>
 	<message key="grid.user.mergeUsers.mergeIntoUser">Объединить в этого пользователя</message>
-	<message key="grid.user.mergeUsers.into.description">Теперь вы должны выбрать пользователя, которому передать авторства предыдущего пользователя, редакционные задания и т. д.</message>
-	<message key="grid.user.mergeUsers.from.description">Выбрать пользователя для объединения в другую учетную запись пользователя (например, когда у кого-то есть две учетных записи пользователя). Учетная запись, выбранная первой, будет удалена и все материалы, назначения и пр. будут переданы второй учетной записи.</message>
 	<message key="grid.user.mergeUsers.allUsers">Все записанные пользователи</message>
-	<message key="grid.user.mergeUsers.mergeUserSelect.confirm">Вы уверены, что хотите объединить этого пользователя с другим? Вы выберете пользователя на следующей странице.</message>
 	<message key="grid.user.mergeUsers.confirm">Вы уверены, что хотите объединить учетную запись с именем пользователя «{$oldUsername}» в учетную запись с именем пользователя «{$newUsername}»? Учетная запись с именем пользователя «{$oldUsername}» перестанет существовать. Это действие нельзя отменить.</message>
-	<message key="grid.user.mergeUsers.noneEnrolled">Нет пользователей с этой ролью.</message>
 
 	<!-- Подготовленные письма электронной почты -->
 	<message key="grid.preparedEmails.title">Подготовленные шаблоны писем электронной почты</message>
@@ -270,4 +266,10 @@
 	<!-- Сетки «Список поступивших материалов» -->
 	<message key="grid.submission.itemTitle">Автор; Название</message>
 	<message key="grid.submission.active.selectOrphaned">Включать неполные материалы, не отправленные автором.</message>
+
+	<!-- Меню навигации -->
+	<message key="grid.action.addNavigationMenu">Добавить меню</message>
+	<message key="grid.action.addNavigationMenuItem">Добавить элемент</message>
+	<message key="grid.navigationMenus.navigationMenuItems.noneExist">Элементы меню навигации отсутствуют</message>
+	<message key="grid.navigationMenus.navigationMenu.noneExist">Меню навигации отсутствуют</message>
 </locale>

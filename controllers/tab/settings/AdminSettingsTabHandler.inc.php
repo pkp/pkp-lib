@@ -40,6 +40,7 @@ class AdminSettingsTabHandler extends SettingsTabHandler {
 			'siteSetup' => 'lib.pkp.controllers.tab.settings.siteSetup.form.SiteSetupForm',
 			'languages' => 'controllers/tab/admin/languages/languages.tpl',
 			'plugins' => 'controllers/tab/admin/plugins/sitePlugins.tpl',
+			'navigationMenus' => 'controllers/tab/settings/navigationMenus/form/navigationMenuSettingsForm.tpl',
 		)));
 	}
 

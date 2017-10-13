@@ -112,6 +112,20 @@ class ContextSiteSettingsForm extends Form {
 			$userGroupDao->assignUserToGroup($userSession->getUserId(), $managerUserGroup->getId());
 		}
 	}
+
+	/**
+	 * Initially populate the navigationMenus and NavigationMenuItems when creating a new context.
+	 * @param $contextId int
+	 */
+	function _loadDefaultNavigationMenus($contextId) {
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_DEFAULT, LOCALE_COMPONENT_PKP_DEFAULT);
+		// Install default user groups
+		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+		$navigationMenuDao->installSettings($contextId, 'registry/navigationMenus.xml');
+
+		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+		$navigationMenuItemDao->installSettings($contextId, 'registry/navigationMenuItems.xml');
+	}
 }
 
 ?>

@@ -305,7 +305,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 		// Check downloaded file type, if any.
 		$file = null;
 		$type = null;
-		if ($assocType == ASSOC_TYPE_SUBMISSION_FILE) {
+		if ($assocType == ASSOC_TYPE_SUBMISSION_FILE || $assocType == ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER) {
 			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 			$file = $submissionFileDao->getLatestRevision($assocId);
 		}

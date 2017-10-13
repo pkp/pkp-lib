@@ -56,32 +56,27 @@ class PKPReviewStageForm extends ContextSettingsForm {
 	/**
 	 * @copydoc ContextSettingsForm::fetch()
 	 */
-	function fetch($request) {
-		$params = array();
-
-		// Ensuring blind review link.
-		import('lib.pkp.classes.linkAction.request.ConfirmationModal');
-		import('lib.pkp.classes.linkAction.LinkAction');
-		$params['ensuringLink'] = new LinkAction(
-			'showReviewPolicy',
-			new ConfirmationModal(
-				__('review.blindPeerReview'),
-				__('review.ensuringBlindReview'), 'modal_information', null, null, true, MODAL_WIDTH_DEFAULT),
-			__('manager.setup.reviewOptions.showBlindReviewLink')
-		);
-
-		$params['scheduledTasksDisabled'] = (Config::getVar('general', 'scheduled_tasks')) ? false : true;
-
+	function fetch($request, $params = array()) {
 		$templateMgr = TemplateManager::getManager($request);
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
 		$templateMgr->assign(array(
 			'numDaysBeforeInviteReminderValues' => array_combine(range(1, 10), range(1, 10)),
-			'numDaysBeforeSubmitReminderValues' => array_combine(range(1, 10), range(1, 10))
+			'numDaysBeforeSubmitReminderValues' => array_combine(range(1, 10), range(1, 10)),
+			'reviewMethodOptions' => $reviewAssignmentDao->getReviewMethodsTranslationKeys(),
 		));
 
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
-		$templateMgr->assign('reviewMethodOptions', $reviewAssignmentDao->getReviewMethodsTranslationKeys());
-
-		return parent::fetch($request, $params);
+		import('lib.pkp.classes.linkAction.request.ConfirmationModal');
+		import('lib.pkp.classes.linkAction.LinkAction');
+		return parent::fetch($request, array_merge($params, array(
+			'ensuringLink' => new LinkAction(
+				'showReviewPolicy',
+				new ConfirmationModal(
+					__('review.blindPeerReview'),
+					__('review.ensuringBlindReview'), 'modal_information', null, null, true, MODAL_WIDTH_DEFAULT),
+				__('manager.setup.reviewOptions.showBlindReviewLink')
+			),
+			'scheduledTasksDisabled' => Config::getVar('general', 'scheduled_tasks') ? false : true,
+		)));
 	}
 }
 

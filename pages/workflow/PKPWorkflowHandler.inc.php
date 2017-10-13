@@ -194,45 +194,130 @@ abstract class PKPWorkflowHandler extends Handler {
 			$actionArgs['reviewRoundId'] = $reviewRoundId;
 			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
 			$lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
+			$reviewRound = $reviewRoundDao->getById($reviewRoundId);
 		}
 
 		// If a review round was specified,
 
 		// If there is an editor assigned, retrieve stage decisions.
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-		if ($stageAssignmentDao->editorAssignedToStage($submission->getId(), $stageId) && (!$reviewRoundId || $reviewRoundId == $lastReviewRound->getId())) {
-			import('classes.workflow.EditorDecisionActionsManager');
-			$decisions = EditorDecisionActionsManager::getStageDecisions($stageId);
-		} else {
-			$decisions = array(); // None available
+		$editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $stageId);
+		$dispatcher = $request->getDispatcher();
+		$user = $request->getUser();
+
+		// If it is a review stage, check if the user can make decisions or recommend only
+		$recommendOnly = $makeDecision = false;
+		if ($reviewRoundId) {
+			// if the user is assigned several times in an editorial role, check his/her assignments permissions i.e.
+			// if the user is assigned with both possibilities: to only recommend as well as make decision
+			foreach ($editorsStageAssignments as $editorsStageAssignment) {
+				if ($editorsStageAssignment->getUserId() == $user->getId()) {
+					if (!$editorsStageAssignment->getRecommendOnly()) {
+						$makeDecision = true;
+					} else {
+						$recommendOnly = true;
+					}
+				}
+			}
 		}
 
-		// Iterate through the editor decisions and create a link action for each decision.
-		$editorActions = array();
-
-		$dispatcher = $request->getDispatcher();
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
-		foreach($decisions as $decision => $action) {
-			$actionArgs['decision'] = $decision;
-			$editorActions[] = new LinkAction(
-				$action['name'],
-				new AjaxModal(
-					$dispatcher->url(
-						$request, ROUTE_COMPONENT, null,
-						'modals.editorDecision.EditorDecisionHandler',
-						$action['operation'], null, $actionArgs
-					),
-					__($action['title']),
-					$action['titleIcon']
-				),
-				__($action['title'])
-			);
+		if (!empty($editorsStageAssignments) && (!$reviewRoundId || $reviewRoundId == $lastReviewRound->getId())) {
+			import('classes.workflow.EditorDecisionActionsManager');
+			$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
+			$recommendationOptions = EditorDecisionActionsManager::getRecommendationOptions($stageId);
+			$editorActions = array();
+			$lastRecommendation = $allRecommendations = null;
+			// If this is a review stage and the user has "recommend only role"
+			if (($stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW) && $recommendOnly) {
+				// Get the made editorial decisions from the current user
+				$editorDecisions = $editDecisionDao->getEditorDecisions($submission->getId(), $stageId, $reviewRound->getRound(), $user->getId());
+				// Get the last recommendation
+				foreach ($editorDecisions as $editorDecision) {
+					if (array_key_exists($editorDecision['decision'], $recommendationOptions)) {
+						if ($lastRecommendation) {
+							if ($editorDecision['dateDecided'] >= $lastRecommendation['dateDecided']) {
+								$lastRecommendation = $editorDecision;
+							}
+						} else {
+							$lastRecommendation = $editorDecision;
+						}
+					}
+				}
+				if ($lastRecommendation) {
+					$lastRecommendation = __($recommendationOptions[$lastRecommendation['decision']]);
+				}
+				// Add the recommend link action.
+				$editorActions[] =
+					new LinkAction(
+						'recommendation',
+						new AjaxModal(
+							$dispatcher->url(
+								$request, ROUTE_COMPONENT, null,
+								'modals.editorDecision.EditorDecisionHandler',
+								'sendRecommendation', null, $actionArgs
+							),
+							$lastRecommendation ? __('editor.submission.changeRecommendation') : __('editor.submission.makeRecommendation'),
+							'review_recommendation'
+						),
+						$lastRecommendation ? __('editor.submission.changeRecommendation') : __('editor.submission.makeRecommendation')
+					);
+			}
+			// If this is not a review stage or the user can make decision
+			if (!($stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW) || $makeDecision) {
+				if ($makeDecision) { // It is a review stage
+					// Get the made editorial decisions from all users
+					$editorDecisions = $editDecisionDao->getEditorDecisions($submission->getId(), $stageId, $reviewRound->getRound());
+					// Get all recommendations
+					$recommendations = array();
+					foreach ($editorDecisions as $editorDecision) {
+						if (array_key_exists($editorDecision['decision'], $recommendationOptions)) {
+							if (array_key_exists($editorDecision['editorId'], $recommendations)) {
+								if ($editorDecision['dateDecided'] >= $recommendations[$editorDecision['editorId']]['dateDecided']) {
+									$recommendations[$editorDecision['editorId']] = array('dateDecided' => $editorDecision['dateDecided'], 'decision' => $editorDecision['decision']);;
+								}
+							} else {
+								$recommendations[$editorDecision['editorId']] = array('dateDecided' => $editorDecision['dateDecided'], 'decision' => $editorDecision['decision']);
+							}
+						}
+					}
+					$i = 0;
+					foreach ($recommendations as $recommendation) {
+						$allRecommendations .= $i == 0 ? __($recommendationOptions[$recommendation['decision']]) : ', ' . __($recommendationOptions[$recommendation['decision']]);
+						$i++;
+					}
+				}
+				// Get the possible editor decisions for this stage
+				$decisions = EditorDecisionActionsManager::getStageDecisions($stageId);
+				// Iterate through the editor decisions and create a link action
+				// for each decision which as an operation associated with it.
+				foreach($decisions as $decision => $action) {
+					if (empty($action['operation'])) {
+						continue;
+					}
+					$actionArgs['decision'] = $decision;
+					$editorActions[] = new LinkAction(
+						$action['name'],
+						new AjaxModal(
+							$dispatcher->url(
+								$request, ROUTE_COMPONENT, null,
+								'modals.editorDecision.EditorDecisionHandler',
+								$action['operation'], null, $actionArgs
+							),
+							__($action['title'])
+						),
+					__($action['title'])
+					);
+				}
+			}
 		}
 
 		// Assign the actions to the template.
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('editorActions', $editorActions);
 		$templateMgr->assign('stageId', $stageId);
+		$templateMgr->assign('lastRecommendation', $lastRecommendation);
+		$templateMgr->assign('allRecommendations', $allRecommendations);
 		return $templateMgr->fetchJson('workflow/editorialLinkActions.tpl');
 	}
 
@@ -395,20 +480,6 @@ abstract class PKPWorkflowHandler extends Handler {
 			$submissionApprovalNotification = $notificationDao->getByAssoc(ASSOC_TYPE_SUBMISSION, $submission->getId(), null, NOTIFICATION_TYPE_APPROVE_SUBMISSION, $contextId);
 			if (!$submissionApprovalNotification->wasEmpty()) {
 				return true;
-			}
-		}
-
-		if ($stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
-			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-			$reviewRounds = $reviewRoundDao->getBySubmissionId($submission->getId(), $stageId);
-			$notificationTypes = array(NOTIFICATION_TYPE_ALL_REVIEWS_IN);
-			while ($reviewRound = $reviewRounds->next()) {
-				foreach ($notificationTypes as $type) {
-					$notifications = $notificationDao->getByAssoc(ASSOC_TYPE_REVIEW_ROUND, $reviewRound->getId(), null, $type, $contextId);
-					if (!$notifications->wasEmpty()) {
-						return true;
-					}
-				}
 			}
 		}
 

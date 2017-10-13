@@ -543,4 +543,6 @@
 	<message key="notification.type.assignCopyeditors">Weisen Sie eine/n Lektor/in über den Hinzufügen-Link in der Teilnehmer/innen-Liste zu.</message>
 	<message key="notification.type.awaitingCopyedits">Warte auf Lektorat.</message>
 	<message key="notification.type.roundStatusTitle">Durchgang {$round} Status</message>
+
+	<message key="semicolon">{$label}:</message>
 </locale>

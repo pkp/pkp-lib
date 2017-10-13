@@ -28,8 +28,8 @@ class MergeCoverageReportTool extends CommandLineTool {
 	 * @param $argv array command-line arguments
 	 *  The first argument must be the file to check
 	 */
-	function MergeCoverageReportTool($argv = array()) {
-		parent::CommandLineTool($argv);
+	function __construct($argv = array()) {
+		parent::__construct($argv);
 
 		// Show the usage screen if explicitly requested or wrong
 		// number of command line arguments.

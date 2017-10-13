@@ -378,7 +378,6 @@
 	<message key="navigation.tools">Værktøjer</message>
 	<message key="navigation.tools.importExport">Importér/Eksportér</message>
 	<message key="navigation.tools.statistics">Statistikker</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="navigation.viewFrontend">Se website</message>
 	<message key="common.upload.addFile">Upload fil</message>
 	<message key="common.upload.changeFile">Skift fil</message>
@@ -425,7 +424,6 @@
 	<message key="editor.submissionReview.uploadAttachment">Upload fil</message>
 	<message key="notification.type.awaitingCopyedits">Afventer redigeret menuskript</message>
 	<message key="common.confirmDelete">Er du sikker på, at du vil slette dette element. Denne handlig kan ikke fortrydes.</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="informationCenter.informationCenter">Informationscenter</message>
 	<message key="informationCenter.currentNotes">Aktuelle revisionsnoter</message>
 	<message key="informationCenter.pastNotes">Tidligere revisionsnoter</message>
@@ -542,4 +540,6 @@
 	<message key="user.authorization.invalidRepresentation">Ugyldig oplysning.</message>
 	<message key="user.authorization.authorRoleMissing">Du har på nuværende tidspunkt ikke tilstrækkelig bemyndigelse til at se indsendelsen. Redigér din profil og sørg for, at du har fået tildelt de passende roller under "Registrér som".</message>
 	<message key="user.authorization.submissionAuthor">Den aktuelle bruger er ikke forfatter til den rekvirerede indsendelse. Kontrollér at du er logget ind med den korrekte brugerkonto.</message>
+
+	<message key="semicolon">{$label}:</message>
 </locale>

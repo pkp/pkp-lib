@@ -46,7 +46,7 @@ class UserSelectGridHandler extends GridHandler {
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 
-	/*
+	/**
 	 * @copydoc GridHandler::initialize()
 	 */
 	function initialize($request, $args = null) {

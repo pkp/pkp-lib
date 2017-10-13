@@ -15,12 +15,6 @@
  */
 (function($) {
 
-	/** @type {Object} */
-	$.pkp.controllers.grid.users.reviewer =
-			$.pkp.controllers.grid.users.reviewer ||
-			{ };
-
-
 
 	/**
 	 * @constructor
@@ -100,7 +94,7 @@
 			prototype.showWarning_ = function() {
 		this.getHtmlElement().find('#noFilesWarning').show(250);
 	};
-	
+
 
 /** @param {jQuery} $ jQuery closure. */
 }(jQuery));

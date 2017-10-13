@@ -352,15 +352,6 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 
 		return $linkAction;
 	}
-
-	/**
-	 * Handle any additional form validation checks.
-	 * (See SettingsTabHandler)
-	 * @return boolean
-	 */
-	function addValidationChecks() {
-		return true;
-	}
 }
 
 ?>

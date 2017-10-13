@@ -121,6 +121,7 @@
 	<message key="common.default">Default</message>
 	<message key="common.declined">Declined</message>
 	<message key="common.delete">Delete</message>
+	<message key="common.deleting">Deleting</message>
 	<message key="common.deleteSelection">Delete Selection</message>
 	<message key="common.designation">Designation</message>
 	<message key="common.description">Description</message>
@@ -151,6 +152,8 @@
 	<message key="common.fileSize">File Size</message>
 	<message key="common.fileType">File Type</message>
 	<message key="common.fileUploaderError">The system file uploader is loading. If it doesn't appear it is likely that none of its runtimes is supported by this browser. Please, contact administration for support.</message>
+	<message key="common.from">From</message>
+	<message key="common.until">Until</message>
 	<message key="common.go">Go</message>
 	<message key="common.height">Height</message>
 	<message key="common.homepageNavigationLabel">Home</message>
@@ -229,6 +232,7 @@
 	<message key="common.saveAndContinue">Save and continue</message>
 	<message key="common.saveAndEmail">Save and email</message>
 	<message key="common.save">Save</message>
+	<message key="common.saving">Saving</message>
 	<message key="common.search">Search</message>
 	<message key="common.searchQuery">Search Query</message>
 	<message key="common.second">Second(s)</message>
@@ -357,9 +361,7 @@
 	<message key="informationCenter.editorialHistory">Editorial History</message>
 	<message key="informationCenter.addNote">Add Note</message>
 	<message key="informationCenter.noNotes">There are no notes to display.</message>
-	<message key="informationCenter.currentNotes">Current Revision Notes</message>
 	<message key="informationCenter.pastNotes">Earlier Revision Notes</message>
-	<message key="informationCenter.lastUpdated">Last Updated</message>
 	<message key="informationCenter.deleteConfirm">Are you sure you wish to delete this note?</message>
 	<message key="informationCenter.currentHistory">Current Revision</message>
 	<message key="informationCenter.pastHistory">Earlier Revisions</message>
@@ -372,12 +374,15 @@
 	<message key="stageParticipants.notify.chooseMessage">Choose a predefined message to use, or fill out the form below.</message>
 	<message key="stageParticipants.notify.message">Message</message>
 	<message key="stageParticipants.notify.warning">Please ensure that you have filled out the message field and selected at least one recipient.</message>
+	<message key="stageParticipants.options">Assignment privileges</message>
+	<message key="stageParticipants.recommendOnly">This participant is only allowed to recommend an editorial decision and will require an authorised editor to record editorial decisions.</message>
 
 	<message key="locale.primary">Primary locale</message>
 	<message key="locale.supported">Supported locales</message>
 	<message key="navigation.access"><![CDATA[Users &amp; Roles]]></message>
 	<message key="navigation.about">About</message>
 	<message key="navigation.admin">Administration</message>
+	<message key="navigation.archives">Archives</message>
 	<message key="navigation.breadcrumbLabel">You are here:</message>
 	<message key="navigation.breadcrumbSeparator">/</message>
 	<message key="navigation.tools">Tools</message>
@@ -418,6 +423,7 @@
 	<message key="notification.removedAuditor">Auditor removed.</message>
 	<message key="notification.addedQuery">Added Discussion</message>
 	<message key="notification.reviewAcknowledged">Review marked as acknowledged. Email not sent.</message>
+	<message key="notification.reviewerThankedEmail">Thank you email sent to reviewer.</message>
 	<message key="notification.updatedReviewFiles">Review files updated.</message>
 	<message key="notification.allow">Enable these types of notifications.</message>
 	<message key="notification.addedAnnouncementType">Announcement type added.</message>
@@ -460,6 +466,7 @@
 	<message key="notification.unsubscribeError">There was an error unsubscribing you.  Please ensure that you are using the correct URL as included in your notification email.</message>
 	<message key="notification.unsubscribeSuccess">You were successfully unsubscribed.</message>
 	<message key="notification.savedSubmissionMetadata">Submission metadata saved.</message>
+	<message key="notification.sendNotificationConfirmation">Send notification email to all registered users</message>
 	<message key="search.author">By Author</message>
 	<message key="search.abstract">Abstract</message>
 	<message key="search.advancedFilters">Advanced filters</message>
@@ -536,12 +543,21 @@
 	<message key="user.authorization.submissionFile">The current user is not authorized to access the specified submission file.</message>
 	<message key="user.authorization.invalidSubmission">Invalid submission.</message>
 	<message key="user.authorization.invalidRepresentation">Invalid representation.</message>
-	<message key="navigation.archives">Archives</message>
 	<message key="user.authorization.authorRoleMissing">You do not currently have sufficient privileges to view the submission. Please edit your profile to ensure that you have been granted the appropriate roles under "Register As".</message>
 	<message key="user.authorization.submissionAuthor">The current user is not the author of the requested submission. Please verify that you are logged in with the correct user account.</message>
 	<message key="notification.type.queryActivity">Discussion activity.</message>
 	<message key="notification.type.queryAdded">Discussion added.</message>
-	<message key="notification.type.assignCopyeditors">Assign a copyeditor using the Add link in the Participants list.</message>
+	<message key="notification.type.assignCopyeditors">Assign a copyeditor using the Assign link in the Participants list.</message>
 	<message key="notification.type.awaitingCopyedits">Awaiting Copyedits.</message>
 	<message key="notification.type.roundStatusTitle">Round {$round} Status</message>
+
+	<message key="semicolon">{$label}:</message>
+
+	<!-- Navigation Menus -->
+	<message key="notification.editedNavigationMenuItem">Navigation menu item was succesfully updated</message>
+	<message key="notification.removedNavigationMenuItem">Navigation menu item was succesfully removed</message>
+	<message key="notification.addedNavigationMenuItem">Navigation menu item was succesfully added</message>
+	<message key="notification.addedNavigationMenu">Navigation menu was succesfully added</message>
+	<message key="notification.editedNavigationMenu">Navigation menu was succesfully updated</message>
+	<message key="notification.removedNavigationMenu">Navigation menu was succesfully removed</message>
 </locale>

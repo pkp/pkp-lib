@@ -25,12 +25,12 @@
 	<message key="manager.announcements.datePublish">Publicerat</message>
 	<message key="manager.announcements.edit">Redigera meddelande</message>
 	<message key="manager.announcements.editTitle">Redigera</message>
-	<message key="manager.announcements.form.dateExpireDayIncompleteDate">Välj år och/eller månad för .</message>
+	<message key="manager.announcements.form.dateExpireDayIncompleteDate">Utöver dag, välj också år och/eller månad för förfallande.</message>
 	<message key="manager.announcements.form.dateExpire">Förfaller den</message>
 	<message key="manager.announcements.form.dateExpireInstructions">Meddelandet kommer att vara publikt till och med detta datum. Lämna blankt om meddelandet ska visas permanent.</message>
-	<message key="manager.announcements.form.dateExpireMonthIncompleteDate">Välj år och/eller dag för förfallande.</message>
+	<message key="manager.announcements.form.dateExpireMonthIncompleteDate">Utöver månad, välj även år och/eller dag för förfallande.</message>
 	<message key="manager.announcements.form.dateExpireValid">Välj ett giltigt datum för meddelandets förfallande.</message>
-	<message key="manager.announcements.form.dateExpireYearIncompleteDate">Välj månad och/eller dag för förfallande.</message>
+	<message key="manager.announcements.form.dateExpireYearIncompleteDate">Utöver år, välj även månad och/eller dag för förfallande.</message>
 	<message key="manager.announcements.form.description">Beskrivning</message>
 	<message key="manager.announcements.form.descriptionInstructions">Hela meddelandet.</message>
 	<message key="manager.announcements.form.descriptionRequired">Beskrivning av meddelandet krävs.</message>

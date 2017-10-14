@@ -117,6 +117,7 @@
 	<message key="manager.languages.supportedLocalesInstructions">إختر كل اللغات التي تريد أن يدعمها الموقع عبر قائمة إختيار اللغة التي تظهر عند كل صفحة. تلك القائمة ستكون ظاهرة فقط عند اختيار أكثر من لغة للموقع.</message>
 	<message key="manager.masthead.title">دفة القيادة</message>
 	<message key="manager.payment.timestamp">بصمة الوقت</message>
+	<message key="manager.people.existingUserRequired">لا بد من إدخال مستخدم مسجل سابقاً.</message>
 	<message key="manager.people.authSource">مصدر المصادقة</message>
 	<message key="manager.people.confirmUnenroll">إزالة الدور من هذا المستخدم؟</message>
 	<message key="manager.people.createUser">إنشاء مستخدم جديد</message>
@@ -424,6 +425,7 @@
 	<message key="settings.roles.roleOptions">خيارات الدور</message>
 	<message key="settings.roles.showTitles">إظهار عنوان الدور في قائمة المشاركين</message>
 	<message key="settings.roles.permitSelfRegistration">إسمح للمستخدمين بتسجيل أنفسهم</message>
+	<message key="settings.roles.recommendOnly">هذا الدور يُسمح له بتقديم توصية بشأن التحكيم ما يعني أنه سيتطلب تدخل محرر مخول لتسجيل القرار النهائي لهيئة التحرير.</message>
 	<message key="settings.roles.roleName">تسمية الدور</message>
 	<message key="settings.roles.roleAbbrev">التلخيص</message>
 	<message key="settings.roles.assignedStages">المراحل المعينة له</message>
@@ -516,10 +518,65 @@
 	<message key="manager.setup.metadata.submission">نموذج تقديم طلب النشر</message>
 	<!--  common importexport keys -->
 	<message key="plugins.importexport.common.validationErrors">أخطاء التحقق:</message>
+	<message key="plugins.importexport.common.warningsEncountered">هناك تحذيرات:</message>
 	<message key="plugins.importexport.common.errorsOccured">حدثت أخطاء:</message>
 	<message key="plugins.importexport.common.error.unknownElement">عنصر مجهول {$param}</message>
 	<message key="plugins.importexport.common.error.unknownGenre">نوع مجهول {$param}</message>
 	<message key="plugins.importexport.common.error.unknownEncoding">ترميز مجهول {$param}</message>
+	<message key="plugins.importexport.common.error.encodingError">إن المحتوى غير مرمز بصيغة {$param}</message>
 	<message key="plugins.importexport.common.error.unknownUserGroup">مجموعة مستخدم مجهولة {$param}</message>
 	<message key="plugins.importexport.common.error.unknownUploader">رافع مجهول {$param}</message>
+	<message key="plugins.importexport.common.error.temporaryFileFailed">تعذر إنشاء الملف المؤقت {$dest} من {$source}</message>
+	<message key="plugins.importexport.common.error.filesizeMismatch">إن حجم الملف المعطى "{$expected}" وحجم الملف الفعلي "{$actual}" لا يتطابقان</message>
+	<message key="plugins.importexport.common.error.duplicateRevisionForSubmission">إن التحكيم "{$revisionId}" لملف التقديم "{$fileId}" سيولد سجلاً مكرراً</message>
+	<!-- native importexport keys -->
+	<message key="plugins.importexport.native.error.submissionFileImportFailed">تعذر استيراد ملف التقديم</message>
+
+	<!-- Navigation Menus -->
+	<message key="manager.navigationMenus.form.title">العنوان</message>
+	<message key="manager.navigationMenus.form.path">المسار</message>
+	<message key="manager.navigationMenus">قوائم التنقل</message>
+	<message key="manager.navigationMenus.form.viewInstructions"><![CDATA[<p>هذه الصفحة ستكون متاحة للوصول عند: <blockquote>{$pagesPath}</blockquote>... حيث أن %PATH% هو المسار المدخل أعلاه. <strong>ملاحظة:</strong> لا يمكن لأكثر من صفحة أن يكون لها نفس المسار. استعمالك لتسميات مسارات مطابقة لمسارات النظام قد يؤدي إلى فقدانك لبعض وظائفه الهامة.</p>]]></message>
+	<message key="manager.navigationMenus.form.content">المحتوى</message>
+	<message key="manager.navigationMenus.form.pathRegEx">حقل المسار ينبغي أن يتضمن فقط حروفاً إنجليزية وأرقاماً فضلاً عن '.'، '/'، '-'، و '_'.</message>
+	<message key="manager.navigationMenus.form.duplicatePath">هذا المسار موجود سابقاً لعنصر قائمة تنقل آخر.</message>
+	<message key="manager.navigationMenus.form.duplicateTitles">هذا العنوان موجود سابقاً لقائمة تنقل أخرى.</message>
+	<message key="manager.navigationMenus.form.titleRequired">العنوان مطلوب حتماً</message>
+	<message key="manager.navigationMenuItems">عناصر قائمة التنقل</message>
+	<message key="manager.navigationMenus.assignedMenuItems">تعيين عناصر القائمة</message>
+	<message key="manager.navigationMenus.unassignedMenuItems">إزالة عناصر القائمة</message>
+	<message key="manager.navigationMenus.form.navigationMenuArea">مساحات تنقل النمط الحالي</message>
+	<message key="manager.navigationMenus.form.navigationMenuAreaMessage">إختر مساحة التنقل</message>
+
+	<message key="manager.navigationMenus.form.url">الرابط</message>
+	<message key="manager.navigationMenus.form.customUrlError">لا بد من توفير الرابط</message>
+
+	<message key="manager.navigationMenus.form.conditionalDisplay">تعرف على المزيد بشأن توقيت ظهور عنصر التنقل هذا واختفائه.</message>
+	<message key="manager.navigationMenus.form.submenuWarning">عندما يؤدي عنصر قائمة إلى فتح قائمة فرعية، فإن رابطه قد لا يكون قابلاً للوصول على جميع الأجهزة. على سبيل المثال، إذا كان لديك عنصر "عن" يؤدي إلى فتح قائمة فرعية تحتوي على "عناوين المراسلة" و "فريق التحرير"، فإن رابط "عن" قد لا يكون صالحاً للتنقل في جميع الأجهزة. في القائمة الإفتراضية، تتم معالجة ذلك عبر إنشاء عنصر قائمة آخر بتسمية "عن المجلة"، والذي يظهر في القائمة الفرعية.</message>
+
+	<message key="manager.navigationMenus.form.navigationMenuItemType">نوع عنصر قائمة التنقل</message>
+	<message key="manager.navigationMenus.form.navigationMenuItemTypeMessage">إختر نوع عنصر قائمة التنقل أو قم بتخصيصه حسب حاجتك</message>
+	<message key="manager.navigationMenus.customPage">صفحة مخصصة</message>
+	<message key="manager.navigationMenus.customPage.description">أنشئ صفحة مخصصة في موقعك وأضف لها رابطاً ضمن قائمة تنقل.</message>
+	<message key="manager.navigationMenus.remoteUrl">رابط خارجي</message>
+	<message key="manager.navigationMenus.remoteUrl.description">إرتبط مع مصدر خارجي من موقع آخر، مثل: http://pkp.sfu.ca.</message>
+	<message key="manager.navigationMenus.about.description">إرتبط بصفحة تعرض محتوى عن المجلة ضمن باب الإعدادات > المجلة</message>
+	<message key="manager.navigationMenus.about.conditionalWarning">هذا الرابط سيظهر فقط لو أنك قمت بتعبئة محتوى عن المجلة ضمن الإعدادات > المجلة.</message>
+	<message key="manager.navigationMenus.editorialTeam.description">إرتبط بصفحة تعرض محتوى دفة القيادة المذكور ضمن الإعدادات > المجلة.</message>
+	<message key="manager.navigationMenus.editorialTeam.conditionalWarning">هذا الرابط سيظهر فقط لو أنك قمت بتعبئة محتوى عن فريق التحرير ضمن الإعدادات > المجلة.</message>
+	<message key="manager.navigationMenus.submissions.description">إرتبط بصفحة تعرض تعليمات تقديم طلب النشر.</message>
+	<message key="manager.navigationMenus.current.description">إرتبط بعددك الحالي.</message>
+	<message key="manager.navigationMenus.archives.description">إرتبط بمحفوظات إصداراتك.</message>
+	<message key="manager.navigationMenus.announcements.description">إرتبط بصفحة تعرض إعلاناتك.</message>
+	<message key="manager.navigationMenus.announcements.conditionalWarning">هذا الرابط سيظهر فقط لو أنك قمت بتمكين الإعلانات ضمن الإعدادات > الموقع.</message>
+	<message key="manager.navigationMenus.login.description">إرتبط بصفحة دخول المستخدم.</message>
+	<message key="manager.navigationMenus.register.description">إرتبط بصفحة تسجيل المستخدم.</message>
+	<message key="manager.navigationMenus.dashboard.description">إرتبط بصفحة قيادة التحرير.</message>
+	<message key="manager.navigationMenus.profile.description">إرتبط بصفحة الملف التعريفي للمستخدم.</message>
+	<message key="manager.navigationMenus.administration.description">إرتبط بصفحة أدوات إدارة الموقع العامة.</message>
+	<message key="manager.navigationMenus.administration.conditionalWarning">هذا الرابط سيظهر حصرياً لمشرفي الموقع.</message>
+	<message key="manager.navigationMenus.logOut.description">الرابط الذي سيؤدي إلى تسجيل خروج المستخدم من الموقع.</message>
+	<message key="manager.navigationMenus.loggedOut.conditionalWarning">هذا الرابط سيظهر فقط إذا كان زائر الموقع قد سجل دخوله.</message>
+	<message key="manager.navigationMenus.loggedIn.conditionalWarning">هذا الرابط سيظهر فقط إذا كان زائر الموقع لم يسجل دخوله بعد.</message>
+
 </locale>

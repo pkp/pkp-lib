@@ -82,7 +82,7 @@
 		<a target="_blank" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
 			<img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png"/>
 		</a>
-		<br/>
+		<br />
 		هذا العمل مرخص ضمن رخصة <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>.
 	]]></message>
 	<message key="common.ccLicense.rt"><![CDATA[
@@ -121,6 +121,7 @@
 	<message key="common.default">الإفتراضي</message>
 	<message key="common.declined">مرفوض</message>
 	<message key="common.delete">حذف</message>
+	<message key="common.deleting">الحذف جارٍ</message>
 	<message key="common.deleteSelection">حذف الاختيار</message>
 	<message key="common.designation">المضمون</message>
 	<message key="common.description">الوصف</message>
@@ -131,6 +132,7 @@
 	<message key="common.discipline">التخصص العلمي</message>
 	<message key="common.done">تم</message>
 	<message key="common.download">تنزيل</message>
+	<message key="common.downloadPdf">تنزيل بصيغة PDF</message>
 	<message key="common.edit">تعديل</message>
 	<message key="common.enable">تمكين</message>
 	<message key="common.enabled">مُمَكَّنة</message>
@@ -150,6 +152,8 @@
 	<message key="common.fileSize">حجم الملف</message>
 	<message key="common.fileType">نوع الملف</message>
 	<message key="common.fileUploaderError">إن برنامج رفع الملفات في النظام يجري تحميله الآن. إن لم يظهر لك، فهذا يعني أن هناك احتمالية كون المتصفح الذي تستعمله لا يدعم متطلبات تشغيله. لطفاً، حاول استحصال الدعم من الإدارة.</message>
+	<message key="common.from">من</message>
+	<message key="common.until">حتى</message>
 	<message key="common.go">إذهب</message>
 	<message key="common.height">الارتفاع</message>
 	<message key="common.homepageNavigationLabel">الرئيسية</message>
@@ -228,6 +232,7 @@
 	<message key="common.saveAndContinue">إحفظ واستمر</message>
 	<message key="common.saveAndEmail">إحفظ وأرسل بالبريد الالكتروني</message>
 	<message key="common.save">إحفظ</message>
+	<message key="common.saving">الحفظ جارٍ</message>
 	<message key="common.search">إبحث</message>
 	<message key="common.searchQuery">استعلام البحث</message>
 	<message key="common.second">ثانية/ثوان</message>
@@ -356,9 +361,7 @@
 	<message key="informationCenter.editorialHistory">تاريخ هيئة التحرير</message>
 	<message key="informationCenter.addNote">أضف ملاحظة</message>
 	<message key="informationCenter.noNotes">ليس هناك ملاحظات لعرضها.</message>
-	<message key="informationCenter.currentNotes">ملاحظات التحكيم الحالية</message>
 	<message key="informationCenter.pastNotes">ملاحظات التحكيم السابقة</message>
-	<message key="informationCenter.lastUpdated">المحدثة أخيراً</message>
 	<message key="informationCenter.deleteConfirm">هل أنت متأكد من رغبتك في حذف هذه الملاحظة؟</message>
 	<message key="informationCenter.currentHistory">التحكيم الحالي</message>
 	<message key="informationCenter.pastHistory">التحكيمات السابقة</message>
@@ -371,12 +374,15 @@
 	<message key="stageParticipants.notify.chooseMessage">إختر رسالة مسبقة التعريف لإرسالها، أو إملأ النموذج أدناه.</message>
 	<message key="stageParticipants.notify.message">الرسالة</message>
 	<message key="stageParticipants.notify.warning">لطفاً، تأكد من أنك قد كتبت شيئاً في حقل الرسالة واخترت جهة واحدة على الأقل لمراسلتها.</message>
+	<message key="stageParticipants.options">صلاحيات التعيين</message>
+	<message key="stageParticipants.recommendOnly">هذا المشارك يُسمح له فقط بتقديم التوصية بشأن قرار التحرير وسيكون بحاجة إلى الاستعانة بمحرر مخول لتسجيل قرارات هيئة التحرير.</message>
 
 	<message key="locale.primary">اللغة الأولية</message>
 	<message key="locale.supported">اللغات المدعومة</message>
 	<message key="navigation.access"><![CDATA[المستخدمون والأدوار]]></message>
 	<message key="navigation.about">عن</message>
 	<message key="navigation.admin">الإدارة</message>
+	<message key="navigation.archives">المحفوظات</message>
 	<message key="navigation.breadcrumbLabel">أنت هنا:</message>
 	<message key="navigation.breadcrumbSeparator">/</message>
 	<message key="navigation.tools">الأدوات</message>
@@ -403,6 +409,9 @@
 	<message key="navigation.settings">الإعدادات</message>
 	<message key="navigation.setup">التهيئة</message>
 	<message key="navigation.sitemap">خارطة الموقع</message>
+	<message key="navigation.skip.main">إقفز إلى المحتوى الرئيسي</message>
+	<message key="navigation.skip.nav">إقفز إلى قائمة التنقل الرئيسية</message>
+	<message key="navigation.skip.footer">إقفز إلى نهاية الموقع</message>
 	<message key="navigation.stepNumber">الخطوة {$step}</message>
 	<message key="navigation.submissions">طلبات النشر</message>
 	<message key="navigation.system">النظام</message>
@@ -414,6 +423,7 @@
 	<message key="notification.removedAuditor">المدقق أزيل.</message>
 	<message key="notification.addedQuery">المحادثة المضافة</message>
 	<message key="notification.reviewAcknowledged">التحكيم مؤشر على أنه مبلغ، لكن الرسالة غير مرسلة.</message>
+	<message key="notification.reviewerThankedEmail">رسالة شكر قد تم إرسالها إلى المحكم.</message>
 	<message key="notification.updatedReviewFiles">الملفات المحكمة حُدِّثت.</message>
 	<message key="notification.allow">قم بتمكين هذا النوع من الإشعارات.</message>
 	<message key="notification.addedAnnouncementType">نوعية الإعلان أضيفت.</message>
@@ -455,7 +465,8 @@
 	<message key="notification.unsubscribe">إلغاء الاشتراك</message>
 	<message key="notification.unsubscribeError">حدث خطأ ما عند إلغاء اشتراكك. لطفاً، تأكد من استعمالك للرابط الصحيح كما هو مذكور في إشعارك البريدي.</message>
 	<message key="notification.unsubscribeSuccess">تم إلغاء اشتراكك بنجاح.</message>
-	<message key="notification.savedSubmissionMetadata">البيانات الوضفية لطلب النشر حُفِظت.</message>
+	<message key="notification.savedSubmissionMetadata">البيانات الوصفية لطلب النشر حُفِظت.</message>
+	<message key="notification.sendNotificationConfirmation">أرسل رسالة إشعار إلى جميع المستخدمين المسجلين</message>
 	<message key="search.author">حسب المؤلف</message>
 	<message key="search.abstract">الملخص</message>
 	<message key="search.advancedFilters">تصفية متقدمة</message>
@@ -515,7 +526,8 @@
 	<message key="submission.task.responseDueDate">تاريخ استيجاب الرد</message>
 	<message key="navigation.goBack">عودة</message>
 
-	<message key="notification.addedReviewer">المحكم أُضيف.</message>
+	<message key="notification.addedReviewer">{$reviewerName} قد تم تكليفه بتحكيم طلب النشر هذا كما قد تمت مراسلته بهذا الشأن.</message>
+	<message key="notification.addedReviewerNoEmail">{$reviewerName} قد تم تكليفه بتحكيم طلب النشر هذا ولكن لم تتم مراسلته بهذا الشأن بعد.</message>
 	<message key="notification.removedReviewer">المحكم أُزيل.</message>
 	<message key="notification.addedStageParticipant">أضيف المستخدم بمثابة مشارك مرحلي.</message>
 	<message key="notification.type.newAnnouncement">إشعار جديد.</message>
@@ -531,14 +543,21 @@
 	<message key="user.authorization.submissionFile">المستخدم الحالي ليس مخولاً بالوصول إلى هذا الملف.</message>
 	<message key="user.authorization.invalidSubmission">طلب نشر خاطئ.</message>
 	<message key="user.authorization.invalidRepresentation">تمثيل خاطئ.</message>
-	<message key="navigation.archives">المحفوظات</message>
 	<message key="user.authorization.authorRoleMissing">ليس لديك حالياً الصلاحيات الكافية لمعاينة طلب النشر. لطفاً، عدل ملفك الشخصي للتأكد من كونك تمتلك الدور المناسب تحت باب "مسجل بصفة".</message>
 	<message key="user.authorization.submissionAuthor">المستخدم الحالي ليس هو مؤلف طلب النشر المطلوب. لطفاً، تأكد من كونك تدخل الموقع بحساب المستخدم الصحيح المقصود.</message>
 	<message key="notification.type.queryActivity">نشاط المناقشة.</message>
 	<message key="notification.type.queryAdded">المناقشة أُضيفت.</message>
-	<message key="notification.type.assignCopyeditors">عيِّن مدققاً مستعملاً رابط الإضافة ضمن قائمة المشاركين.</message>
+	<message key="notification.type.assignCopyeditors">عيِّن مدققاً مستعملاً رابط التعيين ضمن قائمة المشاركين.</message>
 	<message key="notification.type.awaitingCopyedits">التدقيقات قيد الانتظار.</message>
 	<message key="notification.type.roundStatusTitle">حالة الجولة {$round}</message>
 
 	<message key="semicolon">{$label}:</message>
+
+	<!-- Navigation Menus -->
+	<message key="notification.editedNavigationMenuItem">عنصر قائمة التنقل قد تم تعديله بنجاح</message>
+	<message key="notification.removedNavigationMenuItem">عنصر قائمة التنقل قد تمت إزالته بنجاح</message>
+	<message key="notification.addedNavigationMenuItem">عنصر قائمة التنقل قد تمت إضافته بنجاح</message>
+	<message key="notification.addedNavigationMenu">قائمة التنقل قد تمت إضافتها بنجاح</message>
+	<message key="notification.editedNavigationMenu">قائمة التنقل قد تم تعديلها بنجاح</message>
+	<message key="notification.removedNavigationMenu">قائمة التنقل قد تمت إزالتها بنجاح</message>
 </locale>

@@ -20,8 +20,8 @@
 	<message key="about.contact">Kontakt</message>
 	<message key="about.contact.email">E-post</message>
 	<message key="about.contact.phone">Telefon</message>
-	<message key="about.contact.principalContact">Primär kontaktperson</message>
-	<message key="about.contact.supportContact">Teknisk kontaktperson</message>
+	<message key="about.contact.principalContact">Primär kontakt</message>
+	<message key="about.contact.supportContact">Support</message>
 	<message key="about.other">Andra</message>
 	<message key="about.people">Personer</message>
 	<message key="about.policies">Policyer</message>
@@ -504,7 +504,7 @@
 
 	<message key="context.path">Sökväg</message>
 	<message key="review.ensuringBlindReview">Att säkerställa anonym granskning</message>
-	<message key="grid.action.showReviewPolicy">Läs aktuella riktlinjer för granskning</message>
+	<message key="grid.action.showReviewPolicy">Läs aktuell granskningspolicy</message>
 	<message key="grid.action.deleteNotification">Ta bort uppgift</message>
 	<message key="grid.action.markNew">Markera som ny</message>
 	<message key="grid.action.markRead">Markera som läst</message>

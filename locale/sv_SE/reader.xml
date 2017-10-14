@@ -70,7 +70,7 @@
 	<message key="rt.admin.searches.edit.editSearch">Redigera sökning</message>
 	<message key="rt.admin.selectedVersion">Relaterat material</message>
 	<message key="rt.admin.settings.abstract">Abstract (visar materialets abstract).</message>
-	<message key="rt.admin.settings.viewReviewPolicy">Visa riktlinjer för granskning</message>
+	<message key="rt.admin.settings.viewReviewPolicy">Visa granskningspolicy</message>
 	<message key="rt.admin.settings.authorBio">Om författaren (visar biografisk information som författaren angivit).</message>
 	<message key="rt.admin.settings.captureCite">Så här citerar du materialet (visar bibliografiska detaljer om materialet).</message>
 	<message key="rt.admin.settings.defineTerms">Sök på ord (Gör det möjligt för läsare att dubbelklicka på vilket ord som helst i materialet för att slå upp det i ett uppslagsverk).</message>
@@ -157,7 +157,7 @@
 	<message key="rt.printVersion">Utskriftsversion</message>
 	<message key="rt.readingTools">Läsverktyg</message>
 	<message key="rt.relatedItems">Relaterat material</message>
-	<message key="rt.reviewPolicy">Riktlinjer för granskning</message>
+	<message key="rt.reviewPolicy">Granskningspolicy</message>
 	<message key="rt.search.description">Beskrivning</message>
 	<message key="rt.searches">Sökningar</message>
 	<message key="rt.search.order">Ordna</message>

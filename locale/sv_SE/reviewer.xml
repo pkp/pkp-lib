@@ -31,7 +31,7 @@
 	<message key="reviewer.submission.noCompetingInterests">Jag har inga konkurrerande intressen</message>
 	<message key="reviewer.submission.hasCompetingInterests">Jag kanske har konkurrerande intressen (Specificera nedan)</message>
 	<message key="reviewer.submission.competingInterests">Intressekonflikter</message>
-	<message key="reviewer.submission.guidelines">Riktlinjer för granskning</message>
+	<message key="reviewer.submission.guidelines">Riktlinjer för granskare</message>
 	<message key="reviewer.submission.noGuidelines">Utgivaren har inte sammanställt några riktlinjer för granskare.</message>
 	<message key="reviewer.submission.downloadDescription">Klicka på filnamnen nedan för att ladda ner filerna som tillhör detta bidrag.</message>
 	<message key="reviewer.submission.reviewDescription">Fyll i din bedömning av detta bidrag i formuläret nedan.</message>

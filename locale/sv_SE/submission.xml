@@ -27,7 +27,7 @@
 	<message key="submission.submit.whatNext.forNow">Nu kan du:</message>
 	<message key="submission.submit.whatNext.review">Granska bidraget</message>
 	<message key="submission.submit.whatNext.create">Skicka in ett nytt bidrag</message>
-	<message key="submission.submit.whatNext.return">Återgå till din översikt</message>
+	<message key="submission.submit.whatNext.return">Gå tillbaka till din översikt</message>
 	<message key="submission.submit.extendedMetadata">Ytterligare metadata</message>
 
 	<!-- FIXME: move to meta-data plugins -->
@@ -184,7 +184,7 @@
 	<message key="submission.citations.editor.details.editRawCitationFilterValidationError">Internt fel: ogiltigt filterval. Vänligen buggrapportera.</message>
 	<message key="submission.citations.editor.details.explainImprovementOptions">Om du inte fick tillfredsställande resultat från början har du olika alternativ för att förbättra referensen. Ofta hjälper det att manuellt redigera viktiga fält (t.ex. titel och författare) och sen försöka köra referenstjänsten igen. Om det inte fungerar kan du slå upp i Google Scholar eller fråga författaren efter detaljer</message>
 	<message key="submission.citations.editor.details.googleScholar">Google Scholar</message>
-	<message key="submission.citations.editor.details.googleScholarExplanation">Om en matchande referens inte kunde hittas i någon av referenstjänsterna kan du fortfarande söka efter en träff i Google Scholar. Tyvärr kan förser inte Google Scholar oss med ett fältbaserat gränssnitt som vi kan använda, vilket innebär att det inte finns något sätt att automatiskt hämta data till det här verktyget. Det återstår att klippa och klistra information manuellt från Googles resultatsida till dina fält.</message>
+	<message key="submission.citations.editor.details.googleScholarExplanation">Om en matchande referens inte kunde hittas i någon av referenstjänsterna kan du fortfarande söka efter en träff i Google Scholar. Tyvärr förser inte Google Scholar oss med ett fältbaserat gränssnitt som vi kan använda, vilket innebär att det inte finns något sätt att automatiskt hämta data till det här verktyget. Det återstår att klippa och klistra information manuellt från Googles resultatsida till dina fält.</message>
 	<message key="submission.citations.editor.details.manualEditing">Manuell redigering</message>
 	<message key="submission.citations.editor.details.messages">Observera (klicka på meddelandena för att stänga dem)</message>
 	<message key="submission.citations.editor.details.newFieldInfo">... klicka här för att lägga till ett nytt fält ...</message>
@@ -222,7 +222,7 @@
 		<li><p><strong>Att konfigurera verktyget</strong></p>
 		<p>Verktyget för referensuppmärkning konfigureras av tidskriftsansvarig i <a href="{$citationSetupUrl}">Tidskriftsintställingar, steg 3.7: Verktyget för referensuppmärkning</a>. Olika extraherings- och granskningsverktyg kan läggas till, konfigureras och tas bort. För mer information, kontakta tidskriftsansvarig.</p></li>
 		<li><p><strong>Att navigera i verktygets gränssnitt</strong></p>
-		<p>För att byta mellan flikarna <strong>Introduktion</strong>, <strong>Redigera referenser</strong> och <strong>Exportera referenser</strong>, klicka på flikarnas rubriker. För att fälla ut referensgränssnittet, tryck på <strong>Helskärm</strong>-knappen. För att återgå till det vanliga gränssnittet från det utfällda, klicka på <strong>Helskärm av</strong>-knappen. För att ta bort den här introduktionsfliken helt, tryck på knappen nedan.</p></li>
+		<p>För att byta mellan flikarna <strong>Introduktion</strong>, <strong>Redigera referenser</strong> och <strong>Exportera referenser</strong>, klicka på flikarnas rubriker. För att fälla ut referensgränssnittet, tryck på <strong>Helskärm</strong>-knappen. För att gå tillbaka till det vanliga gränssnittet från det utfällda, klicka på <strong>Helskärm av</strong>-knappen. För att ta bort den här introduktionsfliken helt, tryck på knappen nedan.</p></li>
 		<li><p><strong>Att begära referenser</strong></p>
 		<p>Om Verktyget för referensuppmärkning har aktiverats av tidskriftsansvarig kommer författare få en begäran om en referenslista i samband med att de skickar in sitt bidrag. Dessa referenser begärs separat från bidragets själva huvuddokument. Författare kan också när som helst redigera sin referenslista efter inlämningen av bidraget genom att redigera bidragets metadata. Observera att detta skriver över eventuella ändringar som du har gjort med detta verktyg.</p></li>
 		<li><p><strong>Att redigera referenser</strong></p>
@@ -284,7 +284,7 @@
 	<message key="submission.event.fileUploaded">Filen "{$name}" (fil-ID {$fileId}-{$fileRevision}) laddades upp.</message>
 	<message key="submission.event.fileRevised">Bearbetningen "{$name}" (fil-ID {$fileId}-{$fileRevision}) laddas upp.</message>
 	<message key="submission.event.general.metadataUpdated">Bidragets metadata uppdaterade.</message>
-	<message key="submission.event.general.suppFileUpdated">Fil för bidraget uppdaterad.</message>
+	<message key="submission.event.general.suppFileUpdated">Bidragsfil uppdaterad.</message>
 	<message key="submission.event.participantAdded">{$name} tilldelades det här bidraget i egenskap av {$userGroupName}.</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Granskningsuppdrag accepterat via mellanhand</message>
 	<message key="submission.event.reviewer.reviewAccepted">Granskningsuppdrag accepterat</message>
@@ -433,7 +433,7 @@
 	<message key="submission.submit.metadataForm.tip">Lägg till ytterligare information om ditt bidrag. Tryck "enter" efter varje bit.</message>
 	<message key="submission.submit.submissionLocale">Bidragets språk</message>
 	<message key="submission.submit.submissionLocaleDescription">Publikationen accepterar bidrag på olika språk. Välj ett språk i rullisten nedan.</message>
-	<message key="submission.submit.submissionFiles">Inskickade filer</message>
+	<message key="submission.submit.submissionFiles">Bidragsfiler</message>
 	<message key="submission.submit.dependentFiles">Relaterade filer</message>
 	<message key="submission.manageDependentFiles">Hantera relaterade filer</message>
 	<message key="submission.upload.dependent">Ladda upp en relaterad fil</message>
@@ -481,7 +481,7 @@
 	<message key="submission.status.published">Publicerad</message>
 
 	<message key="submission.submit.uploadStep">1. Ladda upp fil</message>
-	<message key="submission.submit.uploadSubmissionFile">Ladda upp fil för bidraget</message>
+	<message key="submission.submit.uploadSubmissionFile">Ladda upp bidragsfil</message>
 	<message key="submission.submit.metadataStep">2. Granska detaljer</message>
 	<message key="submission.submit.finishingUpStep">3. Bekräfta</message>
 	<message key="submission.submit.fileNameRequired">Du måste ge den här filen ett filnamn</message>

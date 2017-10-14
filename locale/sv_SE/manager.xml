@@ -260,7 +260,7 @@
 	<p>Om du har en Worldcat <a href="http://oclc.org/developer/develop/web-services.html" target="_blank">API-nyckel</a> kan du ansluta till WorldCat genom att fylla i den nedan.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.loadMessage">Vänta tills referensdatabasens konfiguration har laddat...</message>
 	<message key="manager.setup.filter.lookup.grid.title">Anslutningar till referensdatabaser</message>
-	<message key="manager.setup.filter.noMoreTemplates">Alla tillgängliga förändringar har redan lagts till. Klicka på 'Avbryt' för att komma tillbaka till sidan för inställningar.</message>
+	<message key="manager.setup.filter.noMoreTemplates">Alla tillgängliga förändringar har redan lagts till. Klicka på 'Avbryt' för att gå tillbaka till sidan för inställningar.</message>
 	<message key="manager.setup.filter.parser.grid.descriptionConfirm">Du har valt att lägga till parsern {$filterDisplayName}. Klicka 'OK' för att bekräfta.</message>
 	<message key="manager.setup.filter.parser.grid.descriptionTemplate">Välj en referens-parser.</message>
 	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>Det här extraheringsfiltret använder webbtjänsten <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a>.</p>]]></message>
@@ -294,8 +294,8 @@
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Ogiltigt format för logotyp på sidhuvudet. Godkända format är .gif, .jpg, och .png.</message>
 	<message key="manager.setup.pageFooter">Sidfot</message>
 	<message key="manager.setup.pageFooterDescription">Lägg till bilder, text eller HTML-kod som du vill ska synas längst ned på din webbplats.</message>
-	<message key="manager.setup.peerReview.description">Sammanfatta sakkunniggranskningens riktlinjer och process för läsare och författare. Den här beskrivningen innehåller ofta antal granskare som normalt används när ett bidrag granskas, kriterier som granskarna ombeds gå efter när de bedömer inskickade bidrag, förväntad tid som krävs för att genomföra granskningar, och principerna som används för att välja granskare.</message>
-	<message key="manager.setup.principalContact">Primär kontaktperson</message>
+	<message key="manager.setup.peerReview.description">Sammanfatta granskningspolicyn och -processen för läsare och författare. Den här beskrivningen innehåller ofta antal granskare som normalt används när ett bidrag granskas, kriterier som granskarna ombeds gå efter när de bedömer inskickade bidrag, förväntad tid som krävs för att genomföra granskningar, och principerna som används för att välja granskare.</message>
+	<message key="manager.setup.principalContact">Primär kontakt</message>
 	<message key="manager.setup.principalContactDescription">Kontaktinformation till ex. primär redaktör, ansvarig redaktör eller administratör, som kan visas på din publika webbplats.</message>
 	<message key="manager.setup.privacyStatement">Sekretesspolicy</message>
 	<message key="manager.setup.privacyStatement.description">Policyn kommer att synas vid inskickande av bidrag och på den publika sidan Om.</message>
@@ -311,7 +311,7 @@
 	<message key="manager.setup.sponsors.note">Sponsorrelation och policybeskrivning</message>
 	<message key="manager.setup.sponsors.description">Exempel: vetenskapliga organisationer, universitetsinstitutioner, kooperativ etc. Sponsorer visas publikt.</message>
 	<message key="manager.setup.styleSheetDescription">Erfarna webbutvecklare kan ladda upp en CSS-fil för att ytterligare anpassa webbplatsens utseende.</message>
-	<message key="manager.setup.technicalSupportContact">Kontaktperson för teknisk support</message>
+	<message key="manager.setup.technicalSupportContact">Kontakt för teknisk support</message>
 	<message key="manager.setup.technicalSupportContactDescription">Kontaktperson som kan assistera redaktörer, författare och granskare vid eventuella problem med inskickande av bidrag, redaktionellt arbete, granskning eller publicering.</message>
 	<message key="manager.siteAccessOptions.siteAccessOptions">Alternativ för tillgång till webbplatsen</message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>

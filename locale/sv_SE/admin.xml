@@ -66,10 +66,10 @@
 	<message key="admin.server.platform">Operativsystem/plattform</message>
 	<message key="admin.settings">Inställningar</message>
 	<message key="admin.settings.aboutDescription">Om webbplatsen</message>
-	<message key="admin.settings.contactEmail">E-postadress till primär kontaktperson</message>
-	<message key="admin.settings.contactName">Namn på primär kontaktperson</message>
-	<message key="admin.settings.form.contactEmailRequired">E-postadress till primär kontaktperson är obligatoriskt.</message>
-	<message key="admin.settings.form.contactNameRequired">Namn på primär kontaktperson är obligatoriskt.</message>
+	<message key="admin.settings.contactEmail">E-postadress till primär kontakt</message>
+	<message key="admin.settings.contactName">Namn på primär kontakt</message>
+	<message key="admin.settings.form.contactEmailRequired">E-postadress till primär kontakt är obligatoriskt.</message>
+	<message key="admin.settings.form.contactNameRequired">Namn på primär kontakt är obligatoriskt.</message>
 	<message key="admin.settings.form.minPasswordLengthRequired">Du måste ange ett lösenord på minst fyra tecken.</message>
 	<message key="admin.settings.form.titleRequired">Du måste ange titel.</message>
 	<message key="admin.settings.defaultMetricDescription">
@@ -128,6 +128,6 @@ Användning (behandla alla filer i en katalog): {$scriptName} sökväg/till/apac
 	<message key="admin.copyAccessLogFileTool.warning.fileAlreadyExists">Varning: Filen {$filePath} existerar redan i användarstatistik-katalogen.</message>
 	<message key="admin.copyAccessLogFileTool.success">Lyckades: {$filePath} till {$destinationPath}</message>
 	<message key="admin.error.utilExecutionProblem">Körningen av "{$utilPath}"-programmet genererade följande fel: {$output}</message>
-	<message key="admin.error.executingUtil">Fel: Kan inte köra "{$utilPath}".  Kolla inställningen {$utilVar} i config.inc.php.</message>
-	<message key="admin.languages.noLocalesToDownload">Det finns inga språkfiler tillgängliga för nedladdning.</message>
+	<message key="admin.error.executingUtil">Fel: Kan inte köra "{$utilPath}". Kolla inställningen {$utilVar} i config.inc.php.</message>
+	<message key="admin.languages.noLocalesToDownload">Det finns inga språk/region-filer tillgängliga för nedladdning.</message>
 </locale>

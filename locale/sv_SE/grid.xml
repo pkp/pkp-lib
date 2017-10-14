@@ -56,7 +56,7 @@
 	<message key="grid.action.extendAll">Förläng alla</message>
 	<message key="grid.action.collapse">Fäll ihop</message>
 	<message key="grid.action.collapseAll">Fäll ihop alla</message>
-	<message key="grid.action.wizard">Inställningsguiden</message>
+	<message key="grid.action.wizard">Inställningsguide</message>
 	<message key="grid.action.moveItem">Flytta objekt</message>
 	<message key="grid.action.downloadAll">Ladda ned samtliga filer som ett arkiv</message>
 	<message key="grid.action.readReview">Läs den här granskningen</message>
@@ -98,7 +98,7 @@
 	<message key="grid.action.viewMetadata">Visa metadata för det här bidraget</message>
 	<message key="grid.action.sendReminder">Skicka en påminnelse om uppdrag till den här användaren</message>
 	<message key="grid.action.newRound">Skapa en ny omgång</message>
-	<message key="grid.action.viewReviewGuidelines">Visa riktlinjerna för granskning</message>
+	<message key="grid.action.viewReviewGuidelines">Visa riktlinjerna för granskare</message>
 	<message key="grid.action.viewCompetingInterestGuidelines">Visa riktlinjer och policy för intressekonflikter</message>
 	<message key="grid.action.thankReviewer">Skicka ett tackmeddelande till den här granskaren</message>
 	<message key="grid.action.uploadFile">Ladda upp en fil</message>

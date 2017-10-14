@@ -91,7 +91,7 @@
 	<message key="editor.submission.editorial.approveCopyeditDescription">Den manusredigerade filen behöver godkännas innan den kan skickas vidare till Produktionssteget. Vill du godkänna den här filen?</message>
 	<message key="editor.submission.editorial.disapproveCopyeditDescription">Om den här manusredigerade filen avslås kommer den inte gå att skicka vidare till Produktionssteget. Vill du avslå den här filen?</message>
 	<message key="editor.submission.addAuditor">Utse manusgranskare</message>
-	<message key="editor.submission.copyedit.manageCopyeditFilesDescription">Alla filer som redan laddats upp i något steg för bidraget can läggas till till listan över Filer för manusredigering genom att kryssa i Inkludera-rutan nedan och trycka på Sök: alla tillgängliga filer kommer att listas och kan väljas. Ytterligare filer, som inte redan laddats upp till ett steg kan läggas till i listan genom att klicka på Ladda upp fil-länken.</message> <!--FIXME cannot find corresponding string for "Copyedit Files" listing, doublecheck -->
+	<message key="editor.submission.copyedit.manageCopyeditFilesDescription">Alla filer som redan laddats upp i något steg för bidraget can läggas till till listan över Filer för manusredigering genom att kryssa i Inkludera-rutan nedan och trycka på Sök: alla tillgängliga filer kommer att listas och kan väljas. Ytterligare filer, som inte redan laddats upp till ett steg kan läggas till i listan genom att klicka på Ladda upp fil-länken.</message>
 	<message key="editor.review">Granskning</message>
 	<message key="editor.review.reviewDetails">Granskningsdetaljer</message>
 	<message key="editor.review.noReviewFilesUploaded">Inga filer uppladdade</message>

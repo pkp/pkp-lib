@@ -108,7 +108,7 @@
 	<message key="rt.context">Kontext</message>
 	<message key="rt.context.defineTermsDescription">Om materialet är en HTML-fil (och inte en PDF) kan man dubbelklicka på valfritt ord i texten för att lägga det i Ord att definiera-rutan. Man kan även skriva eller klistra in ord i fältet manuellt. För ytterligare information om sökresurserna, se OM. De här resurserna är valda utifrån sin relevans och deras öppna (fria) tillgång till delar av eller hela innehållet.</message>
 	<message key="rt.context.description">Beskrivning</message>
-	<message key="rt.context.order">Ordna</message> <!-- FIXME: "To order" or "the order"? -->
+	<message key="rt.context.order">Ordning</message>
 	<message key="rt.contexts">Kontexter</message>
 	<message key="rt.context.searchDescription">Söktermerna är valda av författaren/författarna. De kan ändras eller tas bort av läsaren eftersom två eller tre korta, precisa fraser ger de bästa Booleska (OCH) sökningarna. För ytterligare information om sökresurserna, se OM. De här resurserna är valda utifrån sin relevans och deras öppna (fria) tillgång till delar av eller hela innehållet.</message>
 	<message key="rt.context.searchTerms">Söktermer</message>

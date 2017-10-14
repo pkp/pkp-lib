@@ -197,7 +197,7 @@
 	<message key="grid.user.add">Lägg till användare</message>
 	<message key="grid.user.enroll">Tilldela roll till användare</message>
 	<message key="grid.user.edit">Redigera användare</message>
-	<message key="grid.user.email">Skicka e-postmeddelande</message> <!-- FIXME verify if meaning is "send email" or "email address" -->
+	<message key="grid.user.email">Skicka e-postmeddelande</message>
 	<message key="grid.user.enable">Aktivera</message>
 	<message key="grid.user.disable">Inaktivera</message>
 	<message key="grid.user.disableReason">Anledning till inaktivering av användare</message>

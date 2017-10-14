@@ -64,7 +64,7 @@
 	<message key="user.login.registrationComplete.instructions">Tack för att du registrerat dig! Vad vill du göra härnäst?</message>
 	<message key="user.login.registrationComplete.manageSubmissions">Visa inskickade bidrag</message>
 	<message key="user.login.registrationComplete.newSubmission">Skicka in ett bidrag</message>
-	<message key="user.login.registrationComplete.continueBrowsing">Surfa vidare</message> <!-- FIXME verify "browsing" context -->
+	<message key="user.login.registrationComplete.continueBrowsing">Surfa vidare</message>
 	<message key="user.login.registrationPendingValidation">Avvaktar verifiering</message>
 	<message key="user.login.rememberUsernameAndPassword">Håll mig inloggad</message>
 	<message key="user.login.resetPassword">Återställ lösenord</message>

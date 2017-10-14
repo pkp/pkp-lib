@@ -111,7 +111,7 @@
 	<message key="admin.fileLoader.pathNotAccessible">Mappen {$path} är inte en katalog, eller så är den inte läsbar.</message>
 	<message key="admin.fileLoader.moveFileFailed">Filen {$filename} kunde inte flyttas från {$currentFilePath} till {$destinationPath}</message>
 	<message key="admin.fileLoader.fileProcessed">Filen {$filename} behandlades och arkiverades.</message>
-	<message key="admin.fileLoader.emailSubject">Filladdare</message> <!-- FIXME: check -->
+	<message key="admin.fileLoader.emailSubject">Filladdare</message>
 
 	<message key="admin.copyAccessLogFileTool.usage">Kopiera passerade Apache-loggfil(er), med poster relaterade till den här installationen filtrerade,
 till den aktuella filkatalogen, i stage-katalogen för UsageStatsPlugin. Jobbet måste köras av en användare med behörighet tillräcklig för att läsa Apache-loggfiler.

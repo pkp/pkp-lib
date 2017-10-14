@@ -543,7 +543,7 @@
 	<message key="user.authorization.submissionFile">Aktuell användare har inte behörighet att få tillgång till den specificerade bidragsfilen.</message>
 	<message key="user.authorization.invalidSubmission">Ogiltigt bidrag.</message>
 	<message key="user.authorization.invalidRepresentation">Ogiltig representation.</message>
-	<message key="user.authorization.authorRoleMissing">I nuläget har du inte tillräcklig behörighet för att se bidraget. Vänligen se över din profil för att säkerställa att du har fått alla roller du behöver under "Registrera som".</message> <!-- fixme find corresponding string in roles block -->
+	<message key="user.authorization.authorRoleMissing">I nuläget har du inte tillräcklig behörighet för att se bidraget. Vänligen se över din profil för att säkerställa att du har fått alla roller du behöver under "Registrera som".</message>
 	<message key="user.authorization.submissionAuthor">Aktuell användare är inte författare till det begärda bidraget. Vänligen kontrollera att du är inloggad på rätt användarkonto.</message>
 	<message key="notification.type.queryActivity">Diskussionsaktivitet.</message>
 	<message key="notification.type.queryAdded">Diskussion tillagd.</message>

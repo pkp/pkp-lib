@@ -43,13 +43,13 @@
 	<message key="default.groups.plural.layoutEditor">Layout-redaktörer</message>
 	<message key="default.groups.abbrev.layoutEditor">L.red</message>
 	<message key="default.groups.name.author">Författare</message>
-	<message key="default.groups.plural.author">Författare</message> <!-- FIXME: Funkar det att ha samma sing och plur här? -->
+	<message key="default.groups.plural.author">Författare</message>
 	<message key="default.groups.abbrev.author">Förf</message>
 	<message key="default.groups.name.translator">Översättare</message>
-	<message key="default.groups.plural.translator">Översättare</message> <!-- FIXME: Funkar det att ha samma sing och plur här? -->
+	<message key="default.groups.plural.translator">Översättare</message>
 	<message key="default.groups.abbrev.translator">Övers</message>
 	<message key="default.groups.name.reader">Läsare</message>
-	<message key="default.groups.plural.reader">Läsare</message> <!-- FIXME: Funkar det att ha samma sing och plur här? -->
+	<message key="default.groups.plural.reader">Läsare</message>
 	<message key="default.groups.abbrev.reader">Läs</message>
 
 	<!--  common app genre defaults -->

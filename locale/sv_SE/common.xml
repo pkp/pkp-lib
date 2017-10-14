@@ -59,9 +59,9 @@
 	<message key="common.altTextInstructions">För att förbättra sökmotoroptimeringen och följa Web Content Accessibility Guidelines-standarden (WCAG), vänligen beskriv den information som bilden innehåller och som skulle saknas om webbplatsen visades i en webbläsare med bara text eller med hjälpmedel (t.ex. skärmläsare). Ett exempel: "Vår redaktör talar på PKP#2015-konferensen".</message>
 	<message key="common.and">och</message>
 	<message key="common.applyAction">Verkställ åtgärd</message>
-	<message key="common.assign">Tilldela</message>
-	<message key="common.assigned">Tilldelat</message>
-	<message key="common.assigned.date">Tilldelat: {$dateAssigned}</message>
+	<message key="common.assign">Utse</message>
+	<message key="common.assigned">Utsedd</message>
+	<message key="common.assigned.date">Utsedd: {$dateAssigned}</message>
 	<message key="common.available">Tillgänglig</message>
 	<message key="common.back">Tillbaka</message>
 	<message key="common.between">mellan</message>
@@ -176,7 +176,7 @@
 	<message key="common.modify">Ändra</message>
 	<message key="common.month">Månad</message>
 	<message key="common.more">Fler</message>
-	<message key="common.noneAssigned">Ingen vald</message>
+	<message key="common.noneAssigned">Ingen utsedd</message>
 	<message key="common.none">Ingen</message>
 	<message key="common.no">Nej</message>
 	<message key="common.noComments">Inga kommentarer</message>
@@ -526,8 +526,8 @@
 	<message key="submission.task.responseDueDate">Deadline för svar</message>
 	<message key="navigation.goBack">Gå tillbaka</message>
 
-	<message key="notification.addedReviewer">{$reviewerName} lades till som granskare för det här bidraget och har meddelats via e-post.</message>
-	<message key="notification.addedReviewerNoEmail">{$reviewerName} lades till som granskare för det här bidraget men har inte meddelats via e-post.</message>
+	<message key="notification.addedReviewer">{$reviewerName} har utsetts till granskare för det här bidraget och har meddelats via e-post.</message>
+	<message key="notification.addedReviewerNoEmail">{$reviewerName} har utsetts som granskare för det här bidraget men har inte meddelats via e-post.</message>
 	<message key="notification.removedReviewer">Granskare borttagen.</message>
 	<message key="notification.addedStageParticipant">Användaren tillagd som deltagare i steget.</message>
 	<message key="notification.type.newAnnouncement">Nytt meddelande.</message>
@@ -547,7 +547,7 @@
 	<message key="user.authorization.submissionAuthor">Aktuell användare är inte författare till det begärda bidraget. Vänligen kontrollera att du är inloggad på rätt användarkonto.</message>
 	<message key="notification.type.queryActivity">Diskussionsaktivitet.</message>
 	<message key="notification.type.queryAdded">Diskussion tillagd.</message>
-	<message key="notification.type.assignCopyeditors">Tilldela en manusredigerare genom Tilldela-länken i Deltagar-listan.</message>
+	<message key="notification.type.assignCopyeditors">Utse manusredaktör genom Utse-länken i Deltagar-listan.</message>
 	<message key="notification.type.awaitingCopyedits">Väntar på manusredigeringar.</message>
 	<message key="notification.type.roundStatusTitle">Status för omgång {$round}</message>
 

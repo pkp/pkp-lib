@@ -259,7 +259,7 @@
 	<message key="grid.userGroup.cantRemoveDefaultUserGroup">Rollen {$userGroupName} är en defaultroll och kan inte tas bort.</message>
 	<message key="grid.userGroup.cantRemoveUserGroup">Kan inte ta bort rollen {$userGroupName}. För närvarande har {$usersCount} användare den rollen.</message>
 	<message key="grid.userGroup.removed">Rollen {$userGroupName} borttagen.</message>
-	<message key="grid.userGroup.assignedStage">Rollen {$userGroupName} tilldelad till steg {$stageName}.</message>
+	<message key="grid.userGroup.assignedStage">Rollen {$userGroupName} tilldelad steg {$stageName}.</message>
 	<message key="grid.userGroup.unassignedStage">Rollen {$userGroupName} borttagen från steg {$stageName}.</message>
 
 	<!-- Submission list grids -->

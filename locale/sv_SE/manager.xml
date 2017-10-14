@@ -61,7 +61,7 @@
 	<!-- Publication Process settings -->
 	<message key="manager.publication.submissionStage">Inskickat</message>
 	<message key="manager.publication.reviewStage">Granskning</message>
-	<message key="manager.publication.editorialStage">Redaktion</message>
+	<message key="manager.publication.editorialStage">Redigering</message>
 	<message key="manager.publication.productionStage">Produktion</message>
 	<message key="manager.publication.emails">E-post</message>
 	<message key="manager.emails.confirmDelete">Är du säker på att du vill ta bort e-postmallen?</message>

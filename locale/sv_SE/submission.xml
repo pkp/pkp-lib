@@ -274,8 +274,8 @@
 	<message key="submission.email.confirmDeleteLogEntry">Är du säker på att du vill ta bort den här händelsen ur e-postloggen?</message>
 	<message key="submission.email.deleteLogEntry">Ta bort händelse i logg</message>
 	<message key="submission.emailLog">E-postlogg</message>
-	<message key="submission.event.participantAdded">"{$name}" ({$username}) läggs till som {$userGroupName}.</message>
-	<message key="submission.event.participantRemoved">"{$name}" ({$username}) tas bort som {$userGroupName}.</message>
+	<message key="submission.event.participantAdded">"{$name}" ({$username}) lades till som {$userGroupName}.</message>
+	<message key="submission.event.participantRemoved">"{$name}" ({$username}) togs bort som {$userGroupName}.</message>
 	<message key="submission.event.backToEventLog">Tillbaka till Händelselogg</message>
 	<message key="submission.event.confirmClearLog">Är du säker på att du vill ta bort händelseloggen för det här bidraget?</message>
 	<message key="submission.event.confirmDeleteLogEntry">Är du säker på att du vill ta bort den här händelsen ur loggen?</message>

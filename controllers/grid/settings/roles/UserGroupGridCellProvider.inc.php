@@ -45,7 +45,7 @@ class UserGroupGridCellProvider extends GridCellProvider {
 					// This stage should not be assigned to the user group.
 					$selectDisabled = true;
 				}
-				if ($userGroup->getRoleId(ROLE_ID_MANAGER)) $selectDisabled = true;
+				if ($userGroup->getRoleId() == ROLE_ID_MANAGER) $selectDisabled = true;
 
 				return array('selected' => in_array($columnId, array_keys($assignedStages)),
 					'disabled' => $selectDisabled);

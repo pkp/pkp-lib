@@ -113,9 +113,9 @@
 	<message key="manager.language.submissions">Skicka in bidrag</message>
 	<message key="manager.language.forms">Formulär</message>
 	<message key="manager.language.reloadLocalizedDefaultSettings">Återställ till default</message>
-	<message key="manager.languages.alternateLocaleInstructions">Systemet tillåter att viss viktig information kan fyllas i på flera språk. Välj ytterligare språk och gör inställningar nedan.</message>
-	<message key="manager.languages.supportedLocalesInstructions">Välj de språk som ska gå att byta mellan på varje sida på webbplatsen. Språkvalsmenyn kommer bara synas om fler än ett språk valts.</message>
-	<message key="manager.masthead.title">Kolofon</message>
+	<message key="manager.languages.alternateLocaleInstructions">Systemet tillåter att viss viktig information kan fyllas i på flera språk. Välj ytterligare språk/regioner och gör inställningar nedan.</message>
+	<message key="manager.languages.supportedLocalesInstructions">Välj de språk/regioner som ska gå att byta mellan på varje sida på webbplatsen. Språkvalsmenyn kommer bara synas om fler än ett språk valts.</message>
+	<message key="manager.masthead.title">Allmänt</message>
 	<message key="manager.payment.timestamp">Tidsstämpel</message>
 	<message key="manager.people.existingUserRequired">Du måste ange en befintlig användare.</message>
 	<message key="manager.people.authSource">Autentiseringskälla</message>
@@ -130,7 +130,7 @@
 	<message key="manager.people.emailUsers.emailSelectedUsers">Skicka e-postmeddelande till valda användare</message>
 	<message key="manager.people.emailUsers.emailUsersEnrolledAs">Skicka e-postmeddelande till användare med rollen</message>
 	<message key="manager.people.emailUsers">Skicka e-postmeddelande till användare</message>
-	<message key="manager.people.emailUsers.selectLocale">Välj språk</message>
+	<message key="manager.people.emailUsers.selectLocale">Välj språk/region</message>
 	<message key="manager.people.emailUsers.selectUsers">Välj användare du vill skicka e-postmeddelande till genom att bocka i rutan vid respektive namn</message>
 	<message key="manager.people.enable">Aktivera</message>
 	<message key="manager.people.enroll">Tilldela roll till användare</message>
@@ -160,9 +160,9 @@
 	<message key="manager.plugins.action">Åtgärd:</message>
 	<message key="manager.plugins.disable">Inaktivera </message>
 	<message key="manager.plugins.enable">Aktivera</message>
-	<message key="manager.plugins.pluginManagement">Administration av insticksmoduler</message>
-	<message key="manager.plugins.sitePlugin">Det här är en insticksmodul för hela webbplatsen. Endast webbplatsens administratör har behörighet att hantera den.</message>
-	<message key="manager.plugins">Systeminsticksmoduler</message>
+	<message key="manager.plugins.pluginManagement">Administration av plugins</message>
+	<message key="manager.plugins.sitePlugin">Det här är ett plugin för hela webbplatsen. Endast webbplatsens administratör har behörighet att hantera den.</message>
+	<message key="manager.plugins">Systemplugins</message>
 	<message key="manager.readingTools">Läsverktyg</message>
 	<message key="manager.userSearch.searchByName">Sök användare med namn</message>
 	<message key="manager.reviewerSearch.change">Ändra</message>
@@ -192,7 +192,7 @@
 	<message key="manager.statistics.reports">Rapportgenerator</message>
 	<message key="manager.statistics.reports.description">Systemet genererar rapporter som spårar detaljer kopplade till webbplatsens användande och inskickade bidrag för en given tidsperiod. Rapporterna genereras i CSV-format som kräver ett kalkylbladsprogram för att kunna visas.</message>
 	<message key="manager.statistics.reports.aggregationColumns">Sammanställ statistik för:</message>
-	<message key="manager.statistics.reports.optionalColumns.description">Kursiverade objekt markerade med * representerar data som är valfria för det aktuella sättet att räkna statistik i systemet (metrisk). Du kan eventuellt ha datan, beroende på konfigurationen av din insticksmodul för statistik.</message>
+	<message key="manager.statistics.reports.optionalColumns.description">Kursiverade objekt markerade med * representerar data som är valfria för det aktuella sättet att räkna statistik i systemet (metrisk). Du kan eventuellt ha datan, beroende på konfigurationen av ditt statistikplugin.</message>
 	<message key="manager.statistics.reports.defaultReportTemplates">Rapportmallar, default</message>
 	<message key="manager.statistics.reports.generateReport">Generera anpassad rapport</message>
 	<message key="manager.statistics.reports.advancedOptions">Avancerade alternativ</message>
@@ -279,7 +279,7 @@
 	<message key="manager.setup.homeTitleImageInvalid">Ogiltigt format för titelbild på förstasidans sidhuvud. Godkända format är .gif, .jpg, och .png.</message>
 	<message key="manager.setup.information.descriptionTitle">Beskrivningar</message>
 	<message key="manager.setup.layout.theme">Tema</message>
-	<message key="manager.setup.layout.themeDescription">Nya teman kan installeras från fliken Insticksmoduler högst upp på den här sidan.</message>
+	<message key="manager.setup.layout.themeDescription">Nya teman kan installeras från fliken Plugins högst upp på den här sidan.</message>
 	<message key="manager.setup.layout.blockManagement">Hantering av sidomeny</message>
 	<message key="manager.setup.layout.sidebar">Sidomeny</message>
 	<message key="manager.setup.layout.unselected">Ej vald</message>
@@ -317,30 +317,30 @@
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
 	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} nya)</message>
 	<message key="manager.users">Användare</message>
-	<message key="plugins.categories.metadata">Insticksmoduler för metadata</message>
-	<message key="plugins.categories.metadata.description">Insticksmoduler för metadata implementerar ytterligare metadata-standarder.</message>
-	<message key="plugins.categories.auth">Insticksmoduler för auktorisering</message>
-	<message key="plugins.categories.blocks">Insticksmoduler för block</message>
+	<message key="plugins.categories.metadata">Metadata-plugins</message>
+	<message key="plugins.categories.metadata.description">Metadata-plugins implementerar ytterligare metadatastandarder.</message>
+	<message key="plugins.categories.auth">Autentiserings-plugins</message>
+	<message key="plugins.categories.blocks">Block-plugins</message>
 	<message key="plugins.categories.blocks.description">Block är komponenter av användargränssnittet, t.ex. de olika verktygen i sidomenyn.</message>
-	<message key="plugins.categories.citationLookup">Insticksmoduler för anslutningar till  referensdatabaser</message>
-	<message key="plugins.categories.citationLookup.description">Insticksmoduler för referensdatabaser ansluter till referensdatabaser för att kontrollera referenser, t.ex. vid redigering av referenser.</message>
+	<message key="plugins.categories.citationLookup">Plugins för koppling till referensdatabaser</message>
+	<message key="plugins.categories.citationLookup.description">Plugins för koppling till referensdatabaser ansluter till referensdatabaser för att kontrollera referenser, t.ex. vid redigering av referenser.</message>
 	<message key="plugins.categories.citationParser">Plugins för extrahering av referenser</message>
-	<message key="plugins.categories.citationParser.description">Insticksmoduler för extrahering av referenser extraherar data på fältnivå från oredigerade referenser (t.ex. författare, titel etc.).</message>
+	<message key="plugins.categories.citationParser.description">Plugins för extrahering av referenser extraherar data på fältnivå från oredigerade referenser (t.ex. författare, titel etc.).</message>
 	<message key="plugins.categories.gateways.description">Gateway-insticksmoduler tillhandahåller live-data till externa system.</message>
-	<message key="plugins.categories.gateways">Gateway-insticksmoduler</message>
-	<message key="plugins.categories.generic">Allmänna insticksmoduler</message>
-	<message key="plugins.categories.importexport.description">Insticksmoduler för import/export kan användas för att överföra innehåll från och till andra system.</message>
-	<message key="plugins.categories.importexport">Insticksmoduler för import/export</message>
-	<message key="plugins.categories.paymethod.description">Insticksmoduler för betalningsmetod implementerar stöd för olika sätt att göra betalningar online.</message>
-	<message key="plugins.categories.paymethod">Insticksmoduler för betalningsmetod</message>
-	<message key="plugins.categories.reports.description">Insticksmoduler för rapporter används för att implementera olika typer av rapporter och dataextrahering.</message>
-	<message key="plugins.categories.reports">Insticksmoduler för rapporter</message>
-	<message key="plugins.categories.themes.description">Insticksmoduler för teman kan användas för att ändra systemets utseende.</message>
-	<message key="plugins.categories.themes">Insticksmoduler för teman</message>
-	<message key="plugins.categories.oaiMetadataFormats">Insticksmoduler för OAI-metadataformat</message>
-	<message key="plugins.categories.oaiMetadataFormats.description">De här insticksmodulerna för format exponerar metadata i OAI-baserad kommunikation.</message>
-	<message key="plugins.categories.pubIds">Insticksmoduler för publika identifikatorer</message>
-	<message key="plugins.categories.pubIds.description">De här insticksmodulerna implementerar stöd för en publik identifikator.</message>
+	<message key="plugins.categories.gateways">Gateway-plugins</message>
+	<message key="plugins.categories.generic">Allmänna plugins</message>
+	<message key="plugins.categories.importexport.description">Import/export-plugins kan användas för att överföra innehåll från och till andra system.</message>
+	<message key="plugins.categories.importexport">Import/export-plugins</message>
+	<message key="plugins.categories.paymethod.description">Plugins för betalningsmetod implementerar stöd för olika sätt att göra betalningar online.</message>
+	<message key="plugins.categories.paymethod">Plugins för betalningsmetod</message>
+	<message key="plugins.categories.reports.description">Rapport-plugins används för att implementera olika typer av rapporter och dataextrahering.</message>
+	<message key="plugins.categories.reports">Rapport-plugins</message>
+	<message key="plugins.categories.themes.description">Tema-plugins kan användas för att ändra systemets utseende.</message>
+	<message key="plugins.categories.themes">Tema-plugins</message>
+	<message key="plugins.categories.oaiMetadataFormats">Plugins för OAI-metadataformat</message>
+	<message key="plugins.categories.oaiMetadataFormats.description">De här format-pluginsen exponerar metadata i OAI-baserad kommunikation.</message>
+	<message key="plugins.categories.pubIds">Plugins för publika identifikatorer</message>
+	<message key="plugins.categories.pubIds.description">De här pluginsen implementerar stöd för publika identifikatorer.</message>
 
 	<!-- Plugin management -->
 	<message key="manager.plugins.copyError">Insticksmodulen kopierades inte. Detta kan bero på problem med behörigheter. Se till att webbservern kan skriva till katalogen för insticksmoduler (underkataloger inkluderade) men glöm inte att säkra den igen.</message>
@@ -401,13 +401,13 @@
 	<message key="manager.plugins.versionFileInvalid">version.xml i insticksmodulens katalog innehåller ogiltiga data.</message>
 	<message key="manager.plugins.versionFileNotFound">version.xml hittades inte i insticksmodulens katalog</message>
 
-	<message key="notification.localeEnabled">Språkinställning aktiverad.</message>
-	<message key="notification.localeDisabled">Språkinställning inaktiverad.</message>
-	<message key="notification.primaryLocaleDefined">{$locale} har gjorts till primär språkinställning.</message>
-	<message key="notification.localeInstalled">Alla valda språkinställningar installerade och aktiverade.</message>
-	<message key="notification.localeUninstalled">Språkinställningen {$locale} avinstallerad.</message>
-	<message key="notification.localeReloaded">Språkinställningen {$locale} laddades om.</message>
-	<message key="notification.localeSettingsSaved">Språkinställningar sparade.</message>
+	<message key="notification.localeEnabled">Språk/region aktiverad.</message>
+	<message key="notification.localeDisabled">Språk/region inaktiverad.</message>
+	<message key="notification.primaryLocaleDefined">{$locale} har gjorts till primär språk/region-inställning.</message>
+	<message key="notification.localeInstalled">Alla valda språk/regioner installerade och aktiverade.</message>
+	<message key="notification.localeUninstalled">Språket/regionen {$locale} avinstallerad.</message>
+	<message key="notification.localeReloaded">Språket/regionen {$locale} laddades om.</message>
+	<message key="notification.localeSettingsSaved">Språk/region-inställningar sparade.</message>
 	<message key="notification.editedUser">Användare ändrades.</message>
 
 	<!-- Distribution Process settings -->

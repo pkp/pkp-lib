@@ -172,7 +172,7 @@
 	<message key="rt.suppFiles.viewMetadata">Metadata för indexering</message>
 	<message key="rt.version.description">Beskrivning</message>
 	<message key="rt.version.key">Nyckel</message>
-	<message key="rt.version.locale">Språk</message>
+	<message key="rt.version.locale">Språk/region</message>
 	<message key="rt.versions">Relaterat material</message>
 	<message key="rt.version.title">Titel</message>
 	<message key="rt.version">Version</message>

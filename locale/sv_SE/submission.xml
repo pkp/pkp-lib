@@ -346,7 +346,7 @@
 	<message key="submission.layout.galleyLabelInstructions">Den här etiketten används vanligen för att identifiera filens filformat (t.ex. PDF, HTML, etc.).</message>
 	<message key="submission.layout.galleyLabelRequired">Det krävs en etikett för publiceringsversion är obligatorisk.</message>
 	<message key="submission.layout.galleyLanguageRequired">Det krävs en angivelse om språk för publiceringsversion.</message>
-	<message key="submission.layout.galleyLocaleRequired">Det krävs en regioninställning för publiceringsversionen.</message>
+	<message key="submission.layout.galleyLocaleRequired">Det krävs en angivelse om språk/region för publiceringsversionen.</message>
 	<message key="submission.layout.galleyRemoteURL">Extern URL</message>
 	<message key="submission.layout.galleyRemoteURLValid">Vänligen ange en giltig extern URL (inklusive http://-prefix).</message>
 	<message key="submission.layout.galleyNoImages">Inga bilder</message>

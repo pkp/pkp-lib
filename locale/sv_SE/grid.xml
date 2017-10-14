@@ -132,7 +132,7 @@
 	<message key="grid.columns.institution">Institution</message>
 	<message key="grid.columns.url">URL</message>
 	<message key="grid.columns.auditor">Manusgranskare</message>
-	<message key="grid.columns.locale">Språkinställning</message>
+	<message key="grid.columns.locale">Språk/region</message>
 
 	<!-- Sponsors Grid -->
 	<message key="grid.sponsor.title">Sponsor</message>
@@ -238,7 +238,7 @@
 
 	<!-- Plugins -->
 	<message key="grid.plugin.allCategories">Alla kategorier</message>
-	<message key="grid.plugin.disable">Är du säker på att du vill inaktivera den här insticksmodulen?</message>
+	<message key="grid.plugin.disable">Är du säker på att du vill inaktivera det här pluginet?</message>
 
 	<message key="grid.action.fileUnconsider">Korrekturändringar gjorda. Du kan välja att bortse från den här uppgiften</message>
 

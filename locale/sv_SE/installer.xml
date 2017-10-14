@@ -12,7 +12,7 @@
   -->
 
 <locale name="sv_SE" full_name="Svenska">
-	<message key="installer.additionalLocales">Fler språkinställningar</message>
+	<message key="installer.additionalLocales">Fler språk/regioner</message>
 	<message key="installer.administratorAccount">Administratörskonto</message>
 	<message key="installer.administratorAccountInstructions">Det här användarkontot kommer att bli webbplatsadministratör och kommer att ha full tillgång till systemet. Ytterligare användarkonton kan skapas efter installationen.</message>
 	<message key="installer.checkNo"><![CDATA[<span class="pkp_form_error formError">NEJ</span>]]></message>
@@ -40,7 +40,7 @@
 	<message key="installer.form.databaseNameRequired">Ett namn på databasen måste anges.</message>
 	<message key="installer.form.emailRequired">Det krävs en giltig e-postadress för administratörskontot.</message>
 	<message key="installer.form.filesDirRequired">Det krävs en katalog för lagring av uppladdade filer.</message>
-	<message key="installer.form.localeRequired">En språkinställning måste anges.</message>
+	<message key="installer.form.localeRequired">Språk/region måste anges.</message>
 	<message key="installer.form.passwordRequired">Ett lösenord för administratörskontot måste anges.</message>
 	<message key="installer.form.passwordsDoNotMatch">Administratörens lösenord stämmer inte överens.</message>
 	<message key="installer.form.separateMultiple">Separera flera värden med kommatecken</message>
@@ -55,9 +55,9 @@
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Fel vid inläsning av filen för e-postmallar: <tt>{$file}</tt>.]]></message>
 	<message key="installer.installParseFilterConfigFileError"><![CDATA[Fel vid inläsning av konfigurationsfilen för filter: <tt>{$file}</tt>.]]></message>
 	<message key="installer.unsupportedUpgradeError">Uppgradering stöds inte. Se docs/UPGRADE-UNSUPPORTED för mer detaljer.</message>
-	<message key="installer.locale">Språkinställningar</message>
-	<message key="installer.locale.maybeIncomplete">Valda språkinställningar kan vara ofullständiga.</message>
-	<message key="installer.localeSettings">Språkinställnigar</message>
+	<message key="installer.locale">Språk/region</message>
+	<message key="installer.locale.maybeIncomplete">Valda språk/regioner kan vara ofullständiga.</message>
+	<message key="installer.localeSettings">Språk/region-inställningar</message>
 	<message key="installer.oaiSettings">OAI-inställningar</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[En unik identifikator att använda för att identifiera metadata-poster indexerade från den här webbplatsen genom användandet av <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
 	<message key="installer.oaiRepositoryId">Identifikator för arkiv</message>

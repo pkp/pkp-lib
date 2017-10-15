@@ -114,6 +114,7 @@
 	<message key="manager.people.enrollSyncRole">Synchroniser les rôles</message>
 	<message key="manager.people.enrollSync">Synchroniser l'inscription</message>
 	<message key="manager.people.enrollUserAsDescription">Les utilisateurs peuvent se voir attribuer ou se faire retirer un rôle à n'importe quel moment.</message>
+	<message key="manager.people.existingUserRequired">Vous devez choisir un utilisateur existant.</message>
 	<message key="manager.people.enrollUserAs">Inscrire l'utilisateur en tant que</message>
 	<message key="manager.people.invalidUser">Désolé, l'utilisateur demandé n'existe pas.</message>
 	<message key="manager.people.mergeUser">Fusionner l'utilisateur</message>

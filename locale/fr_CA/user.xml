@@ -82,7 +82,7 @@
 	<message key="user.register.form.emailExists">L'adresse de courriel sélectionnée est déjà utilisée par un autre utilisateur.</message>
 	<message key="user.register.form.passwordLengthRestriction">Le mot de passe doit contenir au moins {$length} caractères.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Les mots de passe ne correspondent pas.</message>
-	<message key="user.register.form.usernameAlphaNumeric">Le nom d'utilisateur peut contenir uniquement des caractères alphanumériques, traits de soulignement, et traits d'union, et doit commencer et se terminer par un caractère alphanumérique.</message>
+	<message key="user.register.form.usernameAlphaNumeric">Le nom d'utilisateur ne peut contenir que des caractères alphanumériques minuscules, traits de soulignement, traits d'union, et doit commencer et se terminer par un caractère alphanumérique. Le caractère espace n'est pas permis.</message>
 	<message key="user.register.form.usernameExists">Le nom d'utilisateur sélectionné est déjà utilisé par un autre utilisateur.</message>
 	<message key="user.register.passwordLengthRestriction">Le mot de passe doit avoir au moins {$length} caractères.</message>
 	<message key="user.register.registerAs">S'inscrire en tant que {$contextName}</message>
@@ -119,8 +119,8 @@
 	<message key="user.role.author">Auteur</message>
 	<message key="user.role.author_s">Auteur(s)</message>
 	<message key="user.role.authors">Auteurs</message>
-	<message key="user.role.editor">Éditeur</message>
-	<message key="user.role.editors">Éditeurs</message>
+	<message key="user.role.editor">Rédacteur</message>
+	<message key="user.role.editors">Rédacteurs</message>
 	<message key="user.suffix">Suffixe</message>
 	<message key="user.authorization.contextRequired">Vous ne pouvez pas appeler cette opération sans spécifier son contexte (presse, journal, conférence, etc.)</message>
 	<message key="user.authorization.loginRequired">Ouverture de session requise.</message>

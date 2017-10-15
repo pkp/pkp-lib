@@ -19,7 +19,7 @@
 	<message key="reviewer.reviewSteps.download"><![CDATA[3. Télécharger & Examiner]]></message>
 	<message key="reviewer.reviewSteps.completion">4. Terminer</message>
 	<message key="reviewer.step1.request">Requête d'examen</message>
-	<message key="reviewer.step1.requestBoilerplate">Vous avez été choisi(e) en tant qu'évaluateur(trice) potentiel(lle) de la soumission suivante. Voici un aperçu de la soumission, ainsi que les échéanciers associés à son examen. Nous espérons que vous pourrez participer au processus d'examen.</message>
+	<message key="reviewer.step1.requestBoilerplate">Vous avez été choisi(e) en tant qu'évaluateur(trice) potentiel(le) de la soumission suivante. Voici un aperçu de la soumission, ainsi que les échéanciers associés à son examen. Nous espérons que vous pourrez participer au processus d'examen.</message>
 	<message key="reviewer.step1.viewAllDetails">Voir tous les détails de la soumission</message>
 	<message key="reviewer.submission.declineReview">Refuser la requête d'examen</message>
 	<message key="reviewer.submission.declineReviewMessage">Vous pouvez indiquer au rédacteur, dans le champ ci-dessous, les raisons pour lesquelles vous refusez de participer à ce processus d'examen.</message>
@@ -27,7 +27,7 @@
 	<message key="reviewer.submission.continueToStepThree">Continuer à l'étape #3</message>
 	<message key="reviewer.submission.submitReview">Soumettre l'examen</message>
 	<message key="reviewer.submission.reviewerGuidelines">Lignes directrices des examinateurs</message>
-	<message key="reviewer.submission.enterCompetingInterests">La maison d'édition a adopté une politique de divulgation des intérêts opposés chez ses examinateurs. Veuillez prendre un moment pour lire cette politique.</message>
+	<message key="reviewer.submission.enterCompetingInterests">La revue a adopté une politique de divulgation des intérêts opposés chez ses évaluateurs. Veuillez prendre un moment pour lire cette politique.</message>
 	<message key="reviewer.submission.noCompetingInterests">Je n'ai pas d'intérêts opposés.</message>
 	<message key="reviewer.submission.hasCompetingInterests">Il est possible que j'aie des intérêts opposés (veuillez spécifier).</message>
 	<message key="reviewer.submission.competingInterests">Intérêts opposés</message>

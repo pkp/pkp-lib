@@ -229,12 +229,8 @@
 	<message key="grid.user.mergeUsers">دمج المستخدمين</message>
 	<message key="grid.user.mergeUsers.mergeUser">دمج المستخدم</message>
 	<message key="grid.user.mergeUsers.mergeIntoUser">إدمجه بهذا المستخدم</message>
-	<message key="grid.user.mergeUsers.into.description">الآن، عليك اختيار مستخدم ما لإلحاق صلاحيات المستخدم السابق به، مع مهام التحرير... وما إلى ذلك.</message>
-	<message key="grid.user.mergeUsers.from.description">إختر مستخدماً ما لدمجه مع حساب مستخدم آخر (أي عندما يكون لأحد المستخدمين حسابين في الموقع). الحساب الذي ستختاره أولاً سيتم حذفه، وكل ما يتصل به من طلبات نشر وتعيينات... وما شابه سيتم إلحاقها بالحساب الثاني.</message>
 	<message key="grid.user.mergeUsers.allUsers">كل المستخدمين الممنوحين أدواراً</message>
-	<message key="grid.user.mergeUsers.mergeUserSelect.confirm">هل أنت متأكد من رغبتك في دمج هذا المستخدم مع مستخدم آخر؟ ستقوم باختيار المستخدم الثاني في النافذة القادمة.</message>
 	<message key="grid.user.mergeUsers.confirm">هل أنت متأكد من رغبتك في دمج هذا الحساب صاحب اسم الدخول "{$oldUsername}" مع الحساب صاحب اسم الدخول "{$newUsername}"؟ إن الحساب ذو الاسم "{$oldUsername}" لن يكون له وجود بعد ذلك. هذا الإجراء لا يمكن التراجع عنه.</message>
-	<message key="grid.user.mergeUsers.noneEnrolled">لا مستخدمين بهذا الدور بعد.</message>
 
 	<!-- Prepared emails -->
 	<message key="grid.preparedEmails.title">قوالب الرسائل الالكترونية المحضرة</message>
@@ -269,4 +265,10 @@
 	<!-- Submission list grids -->
 	<message key="grid.submission.itemTitle">المؤلف؛ العنوان</message>
 	<message key="grid.submission.active.selectOrphaned">إشمل طلبات النشر غير المكتملة التي لم تقدم من قبل أي مؤلف.</message>
+
+	<!-- Navigation Menus -->
+	<message key="grid.action.addNavigationMenu">إضافة قائمة</message>
+	<message key="grid.action.addNavigationMenuItem">إضافة عنصر</message>
+	<message key="grid.navigationMenus.navigationMenuItems.noneExist">لا عناصر في قائمة التنقل بعد</message>
+	<message key="grid.navigationMenus.navigationMenu.noneExist">لا توجد قوائم تنقل بعد</message>
 </locale>

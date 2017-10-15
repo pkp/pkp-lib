@@ -158,6 +158,7 @@ class UserGroupForm extends Form {
 	function execute($request) {
 		$userGroupId = $this->getUserGroupId();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$roleDao = DAORegistry::getDAO('RoleDAO');
 
 		// Check if we are editing an existing user group or creating another one.
 		if ($userGroupId == null) {

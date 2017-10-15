@@ -60,9 +60,9 @@
 
 	<!-- Publication Process settings -->
 	<message key="manager.publication.submissionStage">Submissão</message>
-	<message key="manager.publication.reviewStage">Revisão</message>
+	<message key="manager.publication.reviewStage">Avaliação</message>
 	<message key="manager.publication.editorialStage">Editorial</message>
-	<message key="manager.publication.productionStage">Produção</message>
+	<message key="manager.publication.productionStage">Editoração</message>
 	<message key="manager.publication.emails">Emails</message>
 	<message key="manager.emails.confirmDelete">Deseja realmente excluir esta mensagem padrão?</message>
 	<message key="manager.emails.confirmReset">Deseja realmente restaurar este e-mail para o padrão original?</message>
@@ -279,13 +279,13 @@ Há casos em que uma única estatística de uso devem ser utilizada, por exemplo
 	<message key="manager.statistics.reports.reportUrl.label">A seguinte URL pode ser usado para gerar o relatório com as definições atuais. Basta copiar ela e colar em seu navegador. Você pode usar seus favoritos para armazenar a URL do seu gerador de relatório personalizado.</message>
 	<message key="manager.statistics.reports.filters.byLocation.description">Restringir resultados por país, região e / ou cidade.</message>
 	<message key="manager.setup.competingInterests">Conflito de Interesses</message>
-	<message key="manager.setup.competingInterestsDescription">Os revisores serão convidados a cumprir com a política de conflito de interesses especificada abaixo.</message>
+	<message key="manager.setup.competingInterestsDescription">Os avaliadores serão convidados a cumprir com a política de conflito de interesses especificada abaixo.</message>
 	<message key="manager.setup.groupType">Agrupamento por tipo de arquivo</message>
-	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Tempo dado para respostas dos revisores (semanas)</message>
-	<message key="manager.setup.reviewOptions.numWeeksPerReview">Tempo para término da revisão (semanas)</message>
+	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Tempo dado para respostas dos avaliadores (semanas)</message>
+	<message key="manager.setup.reviewOptions.numWeeksPerReview">Tempo para término da avaliação (semanas)</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Nunca lembrar</message>
-	<message key="manager.setup.reviewOptions.remindForInvite">Envie um lembrete se um revisor não responder a um pedido de revisão dentro do seguinte tempo (dias):</message>
-	<message key="manager.setup.reviewOptions.remindForSubmit">Envie um lembrete se um revisor não apresentar um parecer dentro do seguinte tempo (dias):</message>
+	<message key="manager.setup.reviewOptions.remindForInvite">Envie um lembrete se um avaliador não responder a um pedido de avaliação dentro do seguinte tempo (dias):</message>
+	<message key="manager.setup.reviewOptions.remindForSubmit">Envie um lembrete se um avaliadores não apresentar um parecer dentro do seguinte tempo (dias):</message>
 	<message key="manager.setup.sortableByComponent">Ordenável por componente</message>
 	<message key="manager.setup.sponsors.note">Você pode adicionar uma nota descrevendo sua política e relacionamento com o patrocinador, que irá aparecer junto à lista de patrocinadores na página Sobre.</message>
 	<message key="manager.setup.styleSheetDescription">Você pode fazer upload do arquivo de folha de estilo adicional (CSS) para alterar a aparência.</message>
@@ -432,18 +432,18 @@ Há casos em que uma única estatística de uso devem ser utilizada, por exemplo
 	<message key="manager.reviewFormElements.radiobuttons">Botões rádio (permite escolher apenas uma opção)</message>
 	<message key="manager.reviewFormElements.required">Preenchimento obrigatório para avaliadores</message>
 	<message key="manager.reviewFormElements.smalltextfield">Caixa de texto de uma palavra</message>
-	<message key="manager.reviewFormElements.textarea">Caixa de texto extendida</message>
+	<message key="manager.reviewFormElements.textarea">Caixa de texto estendida</message>
 	<message key="manager.reviewFormElements.textfield">Caixa de texto de uma linha</message>
 	<message key="manager.reviewFormElements.viewable">Visível (para autores)</message>
-	<message key="grid.action.createReviewForm">Create a new Review Form</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Reviewer Competing Interest statement</message>
-	<message key="manager.setup.competingInterests.required">Request a Competing Interest statement during the peer review.</message>
+	<message key="grid.action.createReviewForm">Criar Novo Formulário de Avaliação</message>
+	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Declaração de Conflito de Interesses para Avaliadores</message>
+	<message key="manager.setup.competingInterests.required">Requisitar uma declaração de Conflito de Interesses durante a avaliação por pares.</message>
 
 	<message key="manager.setup.includeCopyrightStatement">Display the copyright statement with content (advisable for asserting an author-held copyright).</message>
 	<message key="manager.setup.includeLicense">Display the license with published work.</message>
-	<message key="manager.setup.licenseURLDescription">Provide URL for license webpage, if available.</message>
+	<message key="manager.setup.licenseURLDescription">Informe a URL da página da licença, se disponível.</message>
 
-	<message key="manager.setup.metadata.submission">Submission Form</message>
+	<message key="manager.setup.metadata.submission">Formulário de Submissão</message>
 	<message key="manager.setup.genres.sortable">Permitir que os arquivos deste tipo para ser classificados por componente (por exemplo, por capítulo)</message>
 	<message key="manager.setup.genres.dependent">Marque os arquivos deste tipo como arquivos dependentes (por exemplo, não submissões primárias)</message>
 
@@ -491,17 +491,32 @@ Há casos em que uma única estatística de uso devem ser utilizada, por exemplo
 	<message key="manager.setup.openAccessPolicy.description">Se proporcionar livre acesso imediato a todo o conteúdo publicado, você pode inserir uma descrição da sua política de acesso aberto.</message>
 	<message key="manager.setup.pageFooter">Rodapé</message>
 	<message key="manager.setup.pageFooterDescription">Insira quaisquer imagens, texto ou código HTML que você gostaria de aparecer na parte inferior do seu site.</message>
-	<message key="manager.setup.peerReview.description">Descreva a política de revisão por pares e processos para os leitores e autores. Esta descrição inclui muitas vezes o número de revisores normalmente utilizados na revisão de uma submissão, os critérios pelos quais os revisores são convidados a julgar as inscrições, o tempo de espera necessário para conduzir as avaliações e os princípios usados para selecionar avaliadores.</message>
+	<message key="manager.setup.peerReview.description">Descreva a política de avaliação por pares e processos para os leitores e autores. Esta descrição inclui muitas vezes o número de avaliadores normalmente utilizados na avaliação de uma submissão, os critérios pelos quais os avaliadores são convidados a julgar as inscrições, o tempo de espera necessário para conduzir as avaliações e os princípios usados para selecionar avaliadores.</message>
 	<message key="manager.setup.principalContact">Contato Principal</message>
 	<message key="manager.setup.reviewOptions.noteOnModification">Padrões podem ser modificados para cada avaliação durante o processo editorial.</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Padrão dos Prazos de Avaliação</message>
 	<message key="manager.setup.reviewOptions.showBlindReviewLink">Apresentar um link para "Garantir uma Avaliação por Pares Cega" durante o carregamento</message>
 	<message key="manager.setup.sponsors.description">Exemplos: associações acadêmicas, departamentos de universidades, cooperativas, etc. Os patrocinadores são exibidos ao público.</message>
 	<message key="manager.setup.technicalSupportContact">Contato de Apoio Técnico</message>
-	<message key="manager.setup.technicalSupportContactDescription">Uma pessoa que pode ajudar editores, autores e revisores com quaisquer problemas que tenham na submissão, edição, revisão e publicação dos documentos.</message>
+	<message key="manager.setup.technicalSupportContactDescription">Uma pessoa que pode ajudar editores, autores e avaliadores com quaisquer problemas que tenham na submissão, edição, avaliação e publicação dos documentos.</message>
 	<message key="manager.setup.principalContactDescription">Digite os detalhes de contato, normalmente para do editor principal, administrador editorial ou pessoal administrativo que pode ser exibido em seu site acessível ao público.</message>
 	<message key="manager.setup.privacyStatement">Declaração de Privacidade</message>
 	<message key="manager.setup.privacyStatement.description">Esta declaração aparecerá durante o envio do manuscrito pelo autor e na página "Sobre" disponível publicamente.</message>
 	<message key="plugins.importexport.common.validationErrors">Erros de validação:</message>
 	<message key="manager.userSearch.searchByName">Buscar Esuário por Nome</message>
+	<message key="manager.setup.layout.sidebar">Barra Lateral</message>
+	<message key="manager.plugins.pluginGallery.certifications.official.description">Este plugin foi desenvolvido e mantido pela equipe do Public Knowledge Project.</message>
+	<message key="manager.plugins.pluginGallery.certifications.reviewed.description">Este plugin foi revisado e aprovado pela equipe do Public Knowledge Project.</message>
+	<message key="manager.plugins.pluginGallery.certifications.partner.description">Este plugin é oferecido por um de nossos desenvolvedores parceiros.</message>
+	<message key="plugins.importexport.common.warningsEncountered">Advertências encontradas:</message>
+	<message key="plugins.importexport.common.errorsOccured">Erros encontrados:</message>
+	<message key="plugins.importexport.common.error.unknownElement">Elemento desconhecido {$param}</message>
+	<message key="plugins.importexport.common.error.unknownGenre">Gênero desconhecido {$param}</message>
+	<message key="plugins.importexport.common.error.unknownEncoding">Codificação desconhecida {$param}</message>
+	<message key="plugins.importexport.common.error.encodingError">O conteúdo não é codificado como {$param}</message>
+	<message key="plugins.importexport.common.error.unknownUserGroup">Grupo de usuário desconhecido {$param}</message>
+	<message key="plugins.importexport.common.error.unknownUploader">Uploader desconhecido {$param}</message>
+	<message key="plugins.importexport.common.error.temporaryFileFailed">Arquivo temporário {$dest} não pode ser criado por {$source}</message>
+	<message key="plugins.importexport.common.error.filesizeMismatch">O tamanho de arquivo informado "{$expected}" e o tamanho real  "{$actual}" não conferem</message>
+	<message key="plugins.importexport.native.error.submissionFileImportFailed">O arquivo da submissão não pode ser importado</message>
 </locale>

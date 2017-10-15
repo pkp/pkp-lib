@@ -66,4 +66,6 @@
 	<message key="plugins.generic.usageStats.statsSum">Somar todos os downloads de arquivos</message>
 	<message key="plugins.generic.usageStats.noStats">Não há dados estatísticos.</message>
 	<message key="plugins.generic.usageStats.monthInitials">Jan Fev Mar Abr Mai Jun Jul Ago Set Out Nov Dez</message>
+  <message key="plugins.generic.usageStats.settings.statsDisplayOptions.contextWide">Mostrar gráfico de estatísticas da submissão para o leitor</message>
+  <message key="plugins.generic.usageStats.downloads">Downloads</message>
 </locale>

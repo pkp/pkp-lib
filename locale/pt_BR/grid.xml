@@ -38,7 +38,7 @@
 	<message key="grid.action.export">Exportar</message>
 	<message key="grid.action.deleteSection">Apagar seção</message>
 	<message key="grid.action.editorialHistory">Histórico Editorial</message>
-	<message key="grid.action.remove">Retirar</message>
+	<message key="grid.action.remove">Remover</message>
 	<message key="grid.action.edit">Editar</message>
 	<message key="grid.action.approve">Aceitar</message>
 	<message key="grid.action.disapprove">Desaprovar</message>
@@ -65,12 +65,12 @@
 	<message key="grid.action.addFile">Incluir arquivo</message>
 	<message key="grid.action.editFile">Editar um arquivo</message>
 	<message key="grid.action.selectFiles">Escolha arquivos para gerenciar</message>
-	<message key="grid.action.requestRevisions">Solicitar revisões a esta submissão</message>
+	<message key="grid.action.requestRevisions">Solicitar alterações nesta submissão</message>
 	<message key="grid.action.accept">Aceitar esta submissão</message>
 	<message key="grid.action.decline">Recusar</message>
 	<message key="grid.action.internalReview">Enviar esta submissão para avaliação interna</message>
-	<message key="grid.action.externalReview">enviar esta submissão para avaliação externa</message>
-	<message key="grid.action.sendToProduction">Enviar esta submissão para produção</message>
+	<message key="grid.action.externalReview">Enviar esta submissão para avaliação externa</message>
+	<message key="grid.action.sendToProduction">Enviar esta submissão para editoração</message>
 	<message key="grid.action.settings">Configurações</message>
 	<message key="grid.action.importexport">Importar ou exportar conteúdo ou dados do site</message>
 	<message key="grid.action.restoreDefaults">Restaurar padrões</message>
@@ -94,8 +94,8 @@
 	<message key="grid.action.selectCreate">Criar novo avaliador</message>
 	<message key="grid.action.search">Buscar</message>
 	<message key="grid.action.advancedSearch">Busca avançada</message>
-	<message key="grid.action.viewLibrary">Ver biblioteca de documentos</message>
-	<message key="grid.action.viewMetadata">Ver metadados</message>
+	<message key="grid.action.viewLibrary">Ver Biblioteca da Revista</message>
+	<message key="grid.action.viewMetadata">Ver dados da submissão</message>
 	<message key="grid.action.sendReminder">Enviar lembrete de tarefa</message>
 	<message key="grid.action.newRound">Criar nova rodada</message>
 	<message key="grid.action.viewReviewGuidelines">Ver diretrizes de avaliação</message>
@@ -151,10 +151,10 @@
 	<message key="grid.action.deleteCategory">Excluir categoria</message>
 
 	<!-- Contributor Grid -->
-	<message key="grid.contributor.title">Contribuidor</message>
-	<message key="grid.action.addContributor">Incluir contribuidor</message>
-	<message key="grid.action.editContributor">Editar contribuidor</message>
-	<message key="grid.action.deleteContributor">Excluir contribuidor</message>
+	<message key="grid.contributor.title">Fontes de Apoio</message>
+	<message key="grid.action.addContributor">Incluir Coautor</message>
+	<message key="grid.action.editContributor">Editar coautor</message>
+	<message key="grid.action.deleteContributor">Excluir Coautor</message>
 
 	<!-- Review Forms Grid -->
 	<message key="grid.reviewForm.title">Formulários de avaliação</message>
@@ -170,8 +170,8 @@
 	<message key="grid.libraryFiles.submission.title">Biblioteca de submissão</message>
 	<message key="grid.libraryFiles.editorial.title">Biblioteca editorial</message>
 	<message key="grid.libraryFiles.review.title">Bilbioteca de revisão</message>
-	<message key="grid.libraryFiles.production.title">Biblioteca de produção</message>
-	<message key="grid.libraryFiles.productionTemplate.title">Biblioteca de modelos de produção</message>
+	<message key="grid.libraryFiles.production.title">Biblioteca de editoração</message>
+	<message key="grid.libraryFiles.productionTemplate.title">Biblioteca de modelos de editoração</message>
 
 	<!-- SubmissionChecklist -->
 	<message key="grid.submissionChecklist.title">Diretrizes para submissão</message>
@@ -204,7 +204,7 @@
 	<message key="grid.user.enableReason">Motivo para habilitar usuário</message>
 	<message key="grid.user.error">Erro encontrado ao gerenciar usuário. Tente novamente.</message>
 	<message key="grid.user.errorEmail">Erro encontrado ao enviar mensagem. Verifique se as configurações do servidor de e-mail estão funcionando e/ou entre em contato com o administrador do sistema.</message>
-	<message key="grid.user.cannotAdminister">Sem permisão para editar usuário.</message>
+	<message key="grid.user.cannotAdminister">Sem permisão para editar usuário. Para editar um usuário você deve ou ser administrador do site ou ser gerente em todas as revistas nas quais o usuário está cadastrado.</message>
 	<message key="grid.user.authSource">Fonte de autenticação</message>
 	<message key="grid.user.mustProvideName">Inforem pelo menos o sobrenome para o usuário.</message>
 	<message key="grid.user.generatePassword">Gerar senha</message>
@@ -216,7 +216,7 @@
 	<message key="grid.user.mustChangePasswordDescriptionOld">Exigir que o usuário mude sua senha ao acessar o sistema da próxima vez.</message>
 	<message key="grid.user.moreDetails">Mais detalhes</message>
 	<message key="grid.user.lessDetails">Menos detalhes</message>
-	<message key="grid.user.userDetails">Detalhes</message>
+	<message key="grid.user.userDetails">Dados Complementares</message>
 	<message key="grid.user.userRoles">Papéis</message>
 	<message key="grid.user.userNoRoles">Este usuário não possui papéis.</message>
 	<message key="grid.user.step1">Passo #1: Preencha os detalhes do perfil</message>
@@ -268,4 +268,5 @@
 
 	<!-- Submission list grids -->
 	<message key="grid.submission.itemTitle">Autor; Título</message>
+  <message key="grid.submission.active.selectOrphaned">Incluir submissões incompletas não enviadas por um autor.</message>
 </locale>

@@ -99,7 +99,7 @@
 	<message key="rt.findingReferences.googleScholar">Google Acadêmico</message>
 	<message key="rt.findingReferences.windowsLiveAcademic">Windows Live Acadêmico</message>
 	<message key="rt.lookUp">Pesquisar palavra</message>
-	<message key="rt.metadata.dublinCore.contributor">Contribuidor</message>
+	<message key="rt.metadata.dublinCore.contributor">Coautor</message>
 	<message key="rt.metadata.dublinCore.coverage">Cobertura</message>
 	<message key="rt.metadata.dublinCore.date">Data</message>
 	<message key="rt.metadata.dublinCore.description">Descrição</message>
@@ -154,7 +154,7 @@
 	<message key="rt.versions">Conjuntos de itens relacionados</message>
 	<message key="rt.version.title">Título</message>
 	<message key="rt.version">Versão</message>
-	<message key="rt.viewMetadata">Exibir metadados</message>
+	<message key="rt.viewMetadata">Catalogação</message>
 	<message key="comments.titleRequired">O título do comentário é obrigatório.</message>
 	<message key="rt.admin.sharing">Compartilhamento</message>
 	<message key="rt.admin.sharing.enabled">Compartilhamento habilitado</message>

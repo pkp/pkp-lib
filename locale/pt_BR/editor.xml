@@ -12,7 +12,7 @@
   -->
 
 <locale name="pt_BR" full_name="Português (Brasil)">	
-	<message key="editor.submissionLibrary">Biblioteca das Submissões</message>
+	<message key="editor.submissionLibrary">Biblioteca da Submissão</message>
 	<message key="editor.review.notInitiated">A avaliação não foi iniciada.</message>
 	<message key="editor.submission.copyediting.personalMessageToUser">Mensagem ao usuário</message>
 	<message key="editor.submission.externalReviewDescription">Selecione os arquivos abaixo a serem enviados a etapa de avaliação.</message>
@@ -77,7 +77,7 @@
 	<message key="editor.submission.fileAuditor.form.messageRequired">Você deve incluir uma mensagem pessoal.</message>
 	<message key="editor.submission.fileAuditor.skipEmail">Não enviar mensagem para o Auditor</message>
 	<message key="editor.submission.review.reviewersDescription"><![CDATA[Use <em>+Adicionar Avaliador</em> para convidar avaliadores para revisar os arquivos da submissão. O ícone do bloco de notas indica que uma avaliação foi submetida, que depois é marcada como <em>Reconhecida</em> após ser consultada. Quando avaliações estiverem fora do prazo, clique no ícone do envelope vermelho para notificar os avaliadores.]]></message>
-	<message key="editor.submission.review.currentFiles">Arquivos da avaliação atual para a rodada {$round}</message>
+	<message key="editor.submission.review.currentFiles">Arquivos para avaiação na rodada {$round}</message>
 	<message key="editor.review.reviewDueDate">Data limite para avaliação</message>
 	<message key="editor.review.errorDeletingReviewer">Ocorreu um erro ao excluir o avaliador. Tente novamente.</message>
 	<message key="editor.review.userGroupSelect">Inscrever usuário neste grupo de usuários avaliadores</message>
@@ -93,11 +93,11 @@
 	<message key="editor.submission.noAuditRequested">Nenhuma auditoria requisitada para este arquivo</message>
 	<message key="editor.submission.personalMessageToUser">Email a ser enviado ao usuário</message>
 	<message key="editor.submission.proof.reminder">Lembrete de prova</message>
-	<message key="editor.submission.editorial.approveCopyeditDescription">O arquivo da edição de texto precisa ser aprovado antes de ser enviado para a etapa de produção. Você deseja aprovar este arquivo?</message>
-	<message key="editor.submission.editorial.disapproveCopyeditDescription">Rejeitar este arquivo da edição de texto tornará o mesmo indisponível para envio à etapa de produção. Você deseja rejeitar este arquivo?</message>
+	<message key="editor.submission.editorial.approveCopyeditDescription">O arquivo da edição de texto precisa ser aprovado antes de ser enviado para a etapa de editoração. Você deseja aprovar este arquivo?</message>
+	<message key="editor.submission.editorial.disapproveCopyeditDescription">Rejeitar este arquivo da edição de texto tornará o mesmo indisponível para envio à etapa de editoração. Você deseja rejeitar este arquivo?</message>
 	<message key="editor.submission.addAuditor">Designar auditor</message>
 	<message key="editor.review">Avaliação</message>
-	<message key="editor.submission.production.productionReadyFiles">Arquivos prontos para a produção</message>
+	<message key="editor.submission.production.productionReadyFiles">Arquivos prontos para o Leiaute</message>
 	<message key="editor.submissionReview.recordDecision">Gravar decisão editorial</message>
 	<message key="editor.submission.createNewRound">Criar nova rodada de avaliação</message>
 	<message key="editor.article.confirmChangeReviewForm">Atenção: Alterar o formulário de avaliação afetará as respostas dadas pelos avaliadores por meio deste formulário. Deseja continuar?</message>
@@ -120,4 +120,5 @@
 	<message key="editor.publicIdentificationNumericNotAllowed">O identificador público '{$publicIdentifier}' não pode ser um número.</message>
 	<message key="editor.submission.findAndSelectUser">Localizar Usuário</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">O padrão {$pattern} não é permitido para o identificador público.</message>
+  <message key="editor.review.reviewsAdded">Sem avaliações por pares para importar</message>
 </locale>

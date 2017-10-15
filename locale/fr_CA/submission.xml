@@ -566,7 +566,9 @@
 	<message key="submission.submit.submissionChecklistDescription">Vous devez lire et reconnaître que vous avez rempli les conditions ci-dessous avant de poursuivre.</message>
 	<message key="submission.submit.copyrightNoticeAgreementLabel">Acceptation du copyright</message>
 	<message key="submission.submit.copyrightNoticeAgree">J'accepte et respecterez les termes de la déclaration de copyright.</message>
+	<message key="submission.authorBiography">Biographie de l'auteur</message>
 	<message key="submission.authorBiographies">Bibliographies de l'auteur</message>
+	<message key="submission.authorWithAffiliation">{$name}, {$affiliation}</message>
 	<message key="submission.shortAuthor">{$author} et al.</message>
 	<message key="submission.changeFile">Modifier le fichier</message>
 	<message key="submission.editorial">Révision</message>

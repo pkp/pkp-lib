@@ -15,8 +15,8 @@
 	<!-- Group defaults -->
 	<message key="default.groups.name.siteAdmin">Administrador do site</message>
 	<message key="default.groups.plural.siteAdmin">Administradores do site</message>
-	<message key="default.groups.name.productionEditor">Editor de produção</message>
-	<message key="default.groups.plural.productionEditor">Editores de produção</message>
+	<message key="default.groups.name.productionEditor">Editor de Leiaute</message>
+	<message key="default.groups.plural.productionEditor">Editores de Leiaute</message>
 	<message key="default.groups.abbrev.productionEditor">EP</message>
 	<message key="default.groups.name.copyeditor">Editor de texto</message>
 	<message key="default.groups.plural.copyeditor">Editores de texto</message>

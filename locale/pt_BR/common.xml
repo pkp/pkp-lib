@@ -495,11 +495,11 @@
 	<message key="dashboard.myQueue">Fila</message>
 
 	<message key="review.blindPeerReview">
-		&lt;p&gt;Para garantir a integridade da avaliação por pares cega para a submissão a esta editora, todo esforço deve ser feito para evitar que as identidades dos autores e revisores seja conhecida um ao outro. Isto envolve os autores , editores e revisores ( que carregam documentos como parte de sua revisão ) verificando se as seguintes medidas foram tomadas em relação ao texto e as propriedades do arquivo : &lt;/ p&gt;
-			&lt;ul&gt;&lt;li&gt;Os autores do documento devem excluir seus nomes do texto, com o literal " Autor" e ano usada nas referências e notas de rodapé, em vez do nome dos autores, título do artigo, etc &lt;/ li&gt;
-			&lt;li&gt;Em documentos do Microsoft Office , a identificação do autor deve igualmente ser removidos das propriedades do arquivo (ver no menu Arquivo no Word), clicando sobre o seguinte, começando com Arquivo no menu principal do aplicativo da Microsoft: Arquivo&gt; Salvar como &gt; Ferramentas (ou Opções no Mac ) &gt; Segurança&gt; Remover informações pessoais das propriedades do arquivo ao salvar &gt; Salvar. &lt;/ li&gt;
-			&lt;li&gt;Com PDFs, os nomes dos autores também devem ser removidos das Propriedades do Documento, encontradas na opção Arquivo no menu principal do Adobe Acrobat. &lt;/ li&gt;
-		&lt;/ul&gt;
+		<![CDATA[<p>Para garantir a integridade da avaliação por pares cega para a submissão a esta editora, todo esforço deve ser feito para evitar que as identidades dos autores e revisores seja conhecida um ao outro. Isto envolve os autores , editores e revisores ( que carregam documentos como parte de sua revisão ) verificando se as seguintes medidas foram tomadas em relação ao texto e as propriedades do arquivo :</p>
+			<ul><li>Os autores do documento devem excluir seus nomes do texto, com o literal " Autor" e ano usada nas referências e notas de rodapé, em vez do nome dos autores, título do artigo, etc</li>
+			<li>Em documentos do Microsoft Office , a identificação do autor deve igualmente ser removidos das propriedades do arquivo (ver no menu Arquivo no Word), clicando sobre o seguinte, começando com Arquivo no menu principal do aplicativo da Microsoft: Arquivo> Salvar como > Ferramentas (ou Opções no Mac ) > Segurança> Remover informações pessoais das propriedades do arquivo ao salvar > Salvar.</li>
+			<li>Com PDFs, os nomes dos autores também devem ser removidos das Propriedades do Documento, encontradas na opção Arquivo no menu principal do Adobe Acrobat.</li>
+		</ul>]]>
 	</message>
 	<message key="reviewer.submission.reviewSchedule">Agenda de avaliação</message>
 	<message key="reviewer.submission.reviewRequestDate">Pedido do editor</message>
@@ -545,7 +545,9 @@
 	<message key="search.SearchFor">Buscar por</message>
 	<message key="notification.type.assignCopyeditors">Atribua um editor de texto usando o link "Adicionar" na lista Participantes.</message>
 	<message key="notification.type.awaitingCopyedits">Aguardando Textos Revisados</message>
+
 	<message key="semicolon">{$label}:</message>
+
 	<message key="common.captcha.error.missing-input-secret">A validação captcha não está configurada corretamente. Está faltando a chave secreta. Contate o administrador.</message>
 	<message key="common.captcha.error.invalid-input-secret">A configuração do captcha deste site não está configurada corretamente. A chave secreta é inválida.</message>
 	<message key="common.downloadPdf">Baixar PDF</message>

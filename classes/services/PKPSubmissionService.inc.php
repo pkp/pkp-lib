@@ -341,12 +341,6 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 				case 'abstract':
 					$values[$prop] = $submission->getAbstract(null);
 					break;
-				case 'coverImageUrl':
-					$values[$prop] = $submission->getCoverImage(null);
-					break;
-				case 'coverImageAltText':
-					$values[$prop] = $submission->getCoverImageAltText(null);
-					break;
 				case 'discipline':
 					$values[$prop] = $submission->getDiscipline(null);
 					break;
@@ -443,7 +437,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 
 		$props = array (
 			'id','title','subtitle','fullTitle','prefix',
-			'abstract','coverImageUrl','coverImageAltText','language','pages','datePublished','status',
+			'abstract','language','pages','datePublished','status',
 			'submissionProgress','urlWorkflow','urlPublished','galleysSummary','_href',
 		);
 
@@ -468,8 +462,8 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 		$currentUser = $request->getUser();
 
 		$props = array (
-			'id','title','subtitle','fullTitle','prefix','abstract','coverImageUrl',
-			'coverImageAltText','discipline','subject','type','language','sponsor','pages',
+			'id','title','subtitle','fullTitle','prefix','abstract',
+			'discipline','subject','type','language','sponsor','pages',
 			'copyrightYear','licenseUrl','locale','dateSubmitted','dateStatusModified','lastModified','datePublished',
 			'status','submissionProgress','urlWorkflow','urlPublished',
 			'galleys','_href',

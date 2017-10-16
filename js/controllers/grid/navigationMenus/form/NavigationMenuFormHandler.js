@@ -98,8 +98,8 @@
 	 * Initialize the .sortable() lists, limit nesting to one level deep and
 	 * ensure lists are formatted properly the CSS styles
 	 */
-	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuFormHandler
-			.prototype.initSorting = function() {
+	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuFormHandler.
+			prototype.initSorting = function() {
 		var self = this;
 
 		// Remove any submenu warning buttons
@@ -185,8 +185,8 @@
 	 * Re-initialize the .sortable() components and generate the form fields
 	 * whenever the list is re-sorted.
 	 */
-	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuFormHandler
-			.prototype.updateSorting = function() {
+	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuFormHandler.
+			prototype.updateSorting = function() {
 		var $navManagement = $('#pkpNavManagement'),
 				seq = 0,
 				parent = null,
@@ -226,8 +226,8 @@
 	 * @param {jQueryObject} htmlElement The html element
 	 * @return {boolean}
 	 */
-	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuFormHandler
-			.prototype.showConditionalDisplayWarning = function(htmlElement) {
+	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuFormHandler.
+			prototype.showConditionalDisplayWarning = function(htmlElement) {
 		var itemType = $(htmlElement).closest('li').data('type'),
 				opts = {
 					title: this.warningModalTitle_,
@@ -250,8 +250,8 @@
 	 * Show the submenu link warning message
 	 * @return {boolean}
 	 */
-	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuFormHandler
-			.prototype.showSubmenuWarning = function() {
+	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuFormHandler.
+			prototype.showSubmenuWarning = function() {
 
 		var opts = {
 			title: this.warningModalTitle_,

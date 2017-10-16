@@ -74,7 +74,7 @@ Uso (procesar todos los archivos de un directorio que empieza con la cadena pasa
 	<message key="admin.serverInformation">Información del servidor</message>
 	<message key="admin.server.phpVersion">Versión PHP</message>
 	<message key="admin.server.platform">Plataforma SO</message>
-	<message key="admin.settings">Preferéncias</message>
+	<message key="admin.settings">Preferencias</message>
 	<message key="admin.settings.aboutDescription">Descripción del sitio</message>
 	<message key="admin.settings.contactEmail">Correo electrónico del contacto principal</message>
 	<message key="admin.settings.contactName">Nombre del contacto principal</message>

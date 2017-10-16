@@ -322,7 +322,7 @@
 	<message key="manager.plugins.wrongName">El archivo version.xml del módulo que ha cargado contiene un nombre que no se ajusta al nombre del módulo actualizado.</message>
 	<message key="manager.plugins.pleaseInstall">El complemento no existe.  Instale el complemento</message>
 	<message key="manager.plugins.pleaseUpgrade">El complemento ya existe, pero es una versión superior a la ya instalada.  Actualice el complemento</message>
-	<message key="manager.plugins.settings">Preferéncias</message>
+	<message key="manager.plugins.settings">Preferencias</message>
 	<message key="manager.plugins.tarCommandNotFound">El comando tar no está disponible. Configúrelo correctamente en su "config.inc.php".</message>
 	<message key="manager.plugins.upgrade">Actualizar módulo</message>
 	<message key="manager.plugins.upgradeDescription">Este formulario le permite actualizar un complemento.  Asegúrese de que el complemento está comprimido como un archivo .tar.gz.</message>

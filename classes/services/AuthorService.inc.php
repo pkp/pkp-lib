@@ -17,7 +17,7 @@ namespace PKP\Services;
 
 use \PKP\Services\EntityProperties\PKPBaseEntityPropertyService;
 
-class PKPAuthorService extends PKPBaseEntityPropertyService {
+class AuthorService extends PKPBaseEntityPropertyService {
 
 	/**
 	 * Constructor

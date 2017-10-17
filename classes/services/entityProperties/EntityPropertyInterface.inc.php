@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * @file classes/services/entityProperties/EntityPropertyInterface.inc.php
@@ -26,17 +26,21 @@ interface EntityPropertyInterface {
 	public function getProperties($entity, $props, $args = null);
 
 	/**
-	 * Returns summary properties for a given entity
-	 * @param object $entity
+	 * Returns summary properties for a submission
+	 * @param Submission $submission
 	 * @param array extra arguments
+	 *		$args['request'] PKPRequest Required
+	 *		$args['slimRequest'] SlimRequest
 	 * @return array
 	 */
 	public function getSummaryProperties($entity, $args = null);
 
 	/**
-	 * Returns full properties for a given entity
-	 * @param object $entity
+	 * Returns full properties for a submission
+	 * @param Submission $submission
 	 * @param array extra arguments
+	 *		$args['request'] PKPRequest Required
+	 *		$args['slimRequest'] SlimRequest
 	 * @return array
 	 */
 	public function getFullProperties($entity, $args = null);

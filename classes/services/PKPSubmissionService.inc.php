@@ -482,10 +482,11 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 	}
 
 	/**
-	 * Returns properties for the backend submissions list
-	 * @param object $entity
+	 * Returns properties for the backend UI SubmissionListPanel component
+	 * @param Submission $submission
 	 * @param array extra arguments
-	 * @return array
+	 *		$args['request'] PKPRequest Required
+	 *		$args['slimRequest'] SlimRequest
 	 */
 	public function getBackendListProperties($submission, $args = null) {
 		\PluginRegistry::loadCategory('pubIds', true);

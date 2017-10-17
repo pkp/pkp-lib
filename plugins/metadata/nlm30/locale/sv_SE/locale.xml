@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * plugins/metadata/nlm30/locale/sv_SE/locale.xml
+  *
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2003-2017 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Swedish_(sv_SE).
+  * Localization strings.
+  -->
+ 
+<locale name="sv_SE" full_name="Svenska">
+	<!-- plug-in -->
+	<message key="plugins.metadata.nlm30.displayName">NLM 3.0-metadata</message>
+	<message key="plugins.metadata.nlm30.description">Lägger till NLM 3.0-scheman och application adapters.</message>
+
+	<!-- citation meta-data adapter -->
+	<message key="plugins.metadata.nlm30.citationAdapter.displayName">NLM 3.0-citerings-adapter</message>
+	<message key="plugins.metadata.nlm30.citationAdapter.description">Extraktion/injektion av metadata från/till referenser.</message>
+
+	<!-- citation parsers (citation extraction services) -->
+	<message key="plugins.metadata.nlm30.citationParsers.displayName">Tjänster för referensextrahering</message>
+	<message key="plugins.metadata.nlm30.citationParsers.description">Konvertera en referens i ren text till NLM 3.0-element-referenskod.</message>
+
+	<!-- citation lookup (citation database/improvement/lookup services) -->
+	<message key="plugins.metadata.nlm30.citationLookup.displayName">Tjänster för referensdatabaser</message>
+	<message key="plugins.metadata.nlm30.citationLookup.description">Förbättra NLM 3.0-element-referenskod, t.ex. genom att kolla upp referenser i externa databaser.</message>
+
+	<!-- citation output -->
+	<message key="plugins.metadata.nlm30.citationOutput.displayName">Tjänster för referens-output</message>
+	<message key="plugins.metadata.nlm30.citationOutput.description">Konvertera NLM 3.0-element-referenskod till en ren text referens-outputstandard.</message>
+	<message key="plugins.metadata.nlm30Xml.citationOutput.displayName">Tjänster för referens-output (XML)</message>
+	<message key="plugins.metadata.nlm30Xml.citationOutput.description">Konvertera NLM 3.0-element-referenskod till en XML referens-outputstandard.</message>
+
+	<!-- NLM 3.0 output -->
+	<message key="plugins.metadata.nlm30.nlm30XmlOutput.displayName">NLM 3.0-output för tidskriftspublicering</message>
+	<message key="plugins.metadata.nlm30.nlm30XmlOutput.description">Konvertera ett bidrag till NLM 3.0.</message>
+
+	<!-- NLM 2.3 output -->
+	<message key="plugins.metadata.nlm30.nlm23XmlOutput.displayName">NLM 2.3-output för tidskriftspublicering</message>
+	<message key="plugins.metadata.nlm30.nlm23XmlOutput.description">Konvertera ett bidrag till NLM 2.3.</message>
+
+	<!-- NLM 3.0 to 2.3 downgrade -->
+	<message key="plugins.metadata.nlm30.nlm30ToNlm23Xml.displayName">NLM 3.0 till 2.3, nedgradering tidskriftspublicering</message>
+	<message key="plugins.metadata.nlm30.nlm30ToNlm23Xml.description">Nedgraderar NLM 3.0 till NLM 2.3.</message>
+
+	<!-- Plain text reference list output -->
+	<message key="plugins.metadata.nlm30.refList.displayName">Generering av referenslista i ren text</message>
+	<message key="plugins.metadata.nlm30.refList.description">Generera en formaterad referenslista i ren text från referenser i ett bidrag från OJS/OCS/OMP</message>
+</locale>

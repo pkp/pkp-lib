@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * plugins/citationLookup/isbndb/locale/en_US/locale.xml
+  *
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2003-2017 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Swedish_(sv_SE).
+  * Localization strings.
+  -->
+
+<locale name="sv_SE" full_name="Svenska">
+	<!-- plug-in -->
+	<message key="plugins.citationLookup.isbndb.displayName">Databasanslutning till ISBNdb</message>
+	<message key="plugins.citationLookup.isbndb.description">Ansluter till ISBNdb:s bibliografiska databas.</message>
+
+	<!-- ISBN lookup and extraction services -->
+	<message key="plugins.citationLookup.isbndbExtraction.displayName">ISBN-extraheringstjänst</message>
+	<message key="plugins.citationLookup.isbndbExtraction.description">Hitta ett ISBN för en angiven NLM 3.0 element-referensbeskrivning.</message>
+	<message key="plugins.citationLookup.isbndbLookup.displayName">ISBN-lookup-tjänst</message>
+	<message key="plugins.citationLookup.isbndbLookup.description">Leta upp en hel NLM 3.0 element-referensbeskrivning med ett angivet ISBN.</message>
+</locale>

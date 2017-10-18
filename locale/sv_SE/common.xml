@@ -8,11 +8,11 @@
   * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Swedish_(sv_SE)
-  * Localization strings. 
+  * Localization strings.
   -->
 
 <locale name="sv_SE" full_name="Svenska">
-  	<message key="common.publicKnowledgeProject">Public Knowledge Project</message>
+  <message key="common.publicKnowledgeProject">Public Knowledge Project</message>
 	<message key="common.currentStyleSheet">Aktuell stilmall</message>
 	<message key="about.description">Beskrivning</message>
 	<message key="about.guidelines">Riktlinjer</message>
@@ -92,7 +92,7 @@
 		<br />
 		Detta verk är licensierat under en <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Erkännande Attribution 3.0-licens</a>.
 	</div>
-	]]></message>	
+	]]></message>
 	<message key="common.changesSaved">Dina ändringar sparades.</message>
 	<message key="common.chooseOne">Välj en</message>
 	<message key="common.close">Stäng</message>
@@ -255,7 +255,7 @@
 	<message key="common.component">Component</message>
 	<message key="common.uninitiated">Ej påbörjad</message>
 	<message key="common.unread">Oläst</message>
-	<message key="common.untitled">Utan titel</message
+	<message key="common.untitled">Utan titel</message>
 	<message key="common.updated">Uppdaterad</message>
 	<message key="common.uploadedDate">Uppladdningsdatum</message>
 	<message key="common.uploadedFile">Uppladdad fil</message>
@@ -368,7 +368,7 @@
 	<message key="informationCenter.history.noItems">Inga händelser loggade.</message>
 	<message key="informationCenter.history.notePosted">Skickade ny anteckning.</message>
 	<message key="informationCenter.history.messageSent">Avisering skickad till användare.</message>
-	
+
 	<!-- Stage Participants -->
 	<message key="stageParticipants.history.messageSent">Avisering skickad till användare.</message>
 	<message key="stageParticipants.notify.chooseMessage">Välj ett fördefinierat meddelande att använda eller fyll i formuläret nedan.</message>
@@ -376,7 +376,7 @@
 	<message key="stageParticipants.notify.warning">Vänligen se till att du har fyllt i meddelandefältet och valt minst en mottagare.</message>
 	<message key="stageParticipants.options">Behörigheter</message>
 	<message key="stageParticipants.recommendOnly">Den här deltagaren tillåts endast rekommendera ett redaktörsbeslut, en behörig redaktör krävs för att registrera redaktörsbeslut.</message>
-	
+
 	<message key="locale.primary">Primärt språk</message>
 	<message key="locale.supported">Språk som stöds</message>
 	<message key="navigation.access"><![CDATA[Användare &amp; Roller]]></message>

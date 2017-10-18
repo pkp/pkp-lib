@@ -229,13 +229,8 @@
 	<message key="grid.user.mergeUsers">Yhdistä käyttäjät</message>
 	<message key="grid.user.mergeUsers.mergeUser">Yhdistä käyttäjä</message>
 	<message key="grid.user.mergeUsers.mergeIntoUser">Yhdistä tähän käyttäjään</message>
-	<message key="grid.user.mergeUsers.into.description">Sinun on valittava käyttäjä, kenelle aiemman käyttäjän kirjoittajahenkilöllisyys, toimitustoimeksiannot jne. siirretään.</message>
-	<message key="grid.user.mergeUsers.from.description">Valitse käyttäjä, joka yhdistetään toiseen käyttäjätiliin (esim. kun jollakulla on kaksi käyttäjätiliä). Ensin valittu tili poistetaan ja sen käsikirjoitukset, toimeksiannot jne. siirretään toiselle tilille.</message>
 	<message key="grid.user.mergeUsers.allUsers">Kaikki käyttäjät, joilla on rooleja</message>
-	<message key="grid.user.mergeUsers.mergeUserSelect.confirm">Haluatko varmasti yhdistää tämän käyttäjän toiseen? Valitset seuraavan käyttäjän seuraavalla näytöllä.</message>
 	<message key="grid.user.mergeUsers.confirm">Haluatko varmasti yhdistää tilin käyttäjätunnuksella "{$oldUsername}" tiliin, jonka käyttäjätunnus on "{$newUsername}"? Tili, jonka käyttäjätunnus on "{$oldUsername}", poistetaan kokonaan. Tätä toimintoa ei voi kumota.</message>
-	<message key="grid.user.mergeUsers.noneEnrolled">Yhdelläkään käyttäjällä ei ole tätä roolia.</message>
-
 	<!-- Prepared emails -->
 	<message key="grid.preparedEmails.title">Valmiit sähköpostipohjat</message>
 	<message key="grid.preparedEmails.currentList">Nykyinen lista</message>
@@ -268,4 +263,9 @@
 
 	<!-- Submission list grids -->
 	<message key="grid.submission.itemTitle">Kirjoittaja; Otsikko</message>
+	<message key="grid.submission.active.selectOrphaned">Sisällytä keskeneräiset käsikirjoitukset, jotka eivät ole kirjoittajan lähettämiä</message>
+	<message key="grid.navigationMenus.navigationMenu.noneExist">Ei valikkoja</message>
+	<message key="grid.navigationMenus.navigationMenuItems.noneExist">Ei kohteita</message>
+	<message key="grid.action.addNavigationMenuItem">Lisää kohde</message>
+	<message key="grid.action.addNavigationMenu">Lisää valikko</message>
 </locale>

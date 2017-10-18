@@ -45,12 +45,8 @@
 	<message key="editor.review.personalMessageToReviewer">Arvioijalle lähetettävä sähköposti</message>
 	<message key="editor.review.importantDates">Tärkeitä päivämääriä</message>
 	<message key="editor.review.uploadRevision">Lataa korjattu versio</message>
-	<message key="editor.review.NotifyAuthorAccept">Ilmoita kirjoittajalle käsikirjoituksen hyväksymisestä.</message>
-	<message key="editor.review.NotifyAuthorDecline">Ilmoita kirjoittajalle käsikirjoituksen hylkäämisestä.</message>
 	<message key="editor.review.NotifyAuthorRevisions">Pyydä kirjoittajalta korjauksia.</message>
 	<message key="editor.review.NotifyAuthorResubmit">Pyydä kirjoittajalta korjaukset, jotka on arvioitava uudelleen.</message>
-	<message key="editor.review.NotifyAuthorExternal">Ilmoita kirjoittajalle päätöksestä aloittaa ulkopuolinen arviointi.</message>
-	<message key="editor.review.personalMessageToAuthor">Kirjoittajalle lähetettävä sähköposti</message>
 	<message key="editor.review.dateAccepted">Arvioinnin hyväksymispäivämäärä</message>
 	<message key="editor.review.noReviews">Ei tuotavia vertaisarviointeja</message>
 	<message key="editor.review.reminder">Muistutus arvioinnista</message>
@@ -119,4 +115,15 @@
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">Kumoa tämän korjausvedoksen hyväksyntä osoittaaksesi, että oikoluku ei ole enää valmis ja tiedosto ei ole valmis julkaistavaksi.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">Julkinen tunnus {$publicIdentifier} ei saa olla numero.</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">Muotoilua {$pattern} ei sallita julkisessa tunnisteessa.</message>
+	<message key="editor.submissionReview.sendEmail">Lähetä sähköposti-ilmoitus kirjoittajalle: {$authorName}</message>
+	<message key="editor.submissionReview.sendEmail.editors">Lähetä sähköposti-ilmoitus toimittajalle:  {$editorNames}</message>
+	<message key="editor.review.newReviewRound">Vaadi uusi arviointikierros</message>
+	<message key="editor.review.reviewsAdded">Arviot lisätty sähköpostiviestiin.</message>
+	<message key="editor.submissionReview.recordRecommendation">Tallenna toimituksellinen suositus</message>
+	<message key="editor.submissionReview.recordRecommendation.notifyEditors">Ilmoita toimittajille</message>
+	<message key=""><![CDATA[]]></message>
+	<message key="editor.submissionReview.recordRecommendation.createDiscussion">Luo keskustelu tästä suosituksesta.</message>
+	<message key=""><![CDATA[]]></message>
+	<message key="editor.submissionReview.recordRecommendation.skipDiscussion">Älä luo keskustelua.</message>
+	<message key="editor.submissionReview.recordRecommendation.skipEmail">Älä lähetä toimittajille sähköpostia.</message>
 </locale>

@@ -144,7 +144,7 @@ jQueryObject.prototype.ajaxSettings = null;
  * @constructor
  * @private
  */
-function tinyMCEObject() {};
+function tinyMCEObject() {}
 
 tinyMCEObject.prototype.PluginManager = {};
 

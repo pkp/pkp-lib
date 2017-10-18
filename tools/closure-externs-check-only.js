@@ -25,13 +25,12 @@
  * @param {string=} eventName the name of the event that triggers the action, default 'click'.
  * @param {string=} form the selector of a form element.
  */
-function ajaxAction(actOnId, callingElement, url, data, eventName, form) {};
-
+function ajaxAction(actOnId, callingElement, url, data, eventName, form) {}
 
 /**
  * @constructor
  */
-function PNotify(param1) {};
+function PNotify(param1) {}
 
 // JQuery externs. These appear to be included in newer versions of Closure --
 // see https://code.google.com/p/closure-compiler/source/browse/externs/es5.js

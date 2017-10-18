@@ -526,7 +526,6 @@
 	<message key="navigation.skip.main">Siirry sisältöalueeseen</message>
 	<message key="navigation.skip.nav">Siirry navigaatioon</message>
 	<message key="navigation.skip.footer">Siirry alatunnisteeseen</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="common.downloadPdf">Lataa PDF</message>
 	<message key="common.from">Alkaen</message>
 	<message key="common.until">Saakka</message>

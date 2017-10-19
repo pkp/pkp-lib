@@ -78,7 +78,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Virheellinen sivuston logon kuvamuoto. Hyväksytyt muodot ovat .gif, .jpg ja .png.</message>
 	<message key="admin.settings.introduction">Esittely</message>
 	<message key="admin.settings.minPasswordLength">Salasanan vähimmäispituus (merkkiä)</message>
-	<message key="admin.settings.oaiRegistration">Rekisteröi sivusto indeksointia varten (metatietojen haravointi)</message>
 	<message key="admin.settings.siteLanguage">Sivuston kieli</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Virheellinen sivuston tyylitiedoston muoto. Hyväksytty muoto on .css.</message>
 	<message key="admin.settings.siteStyleSheet">Sivuston tyylitiedosto</message>
@@ -122,4 +121,5 @@
 	<message key="admin.error.utilExecutionProblem">"{$utilPath}" ohjelman suoritus tuotti seuraavan virheen: {$output}</message>
 	<message key="admin.error.executingUtil">Virhe: ei voi suorittaa "{$utilPath}". Tarkista {$utilVar}-asetuksesi config.inc.php -tiedostosta.</message>
 	<message key="admin.languages.noLocalesToDownload">Kielialueita ei ole ladattavissa.</message>
+	<message key="admin.contexts.confirmDelete">Haluatko varmasti pysyvästi poistaa {$contextName} ja kaikki siihen liittyvät sisällöt?</message>
 </locale>

@@ -10,7 +10,7 @@
   *
   * Localization strings.
   -->
-
+  
 <locale name="fi_FI" full_name="Suomi">
 	<!-- Website settings -->
 	<message key="manager.website.information">Tietoja</message>
@@ -269,13 +269,11 @@
 	<message key="manager.setup.layout.theme">Teema</message>
 	<message key="manager.setup.layout.themeDescription">Uusia teemoja voidaan asentaa sivun yläreunasta löytyvältä Lisäosat-välilehdeltä.</message>
 	<message key="manager.setup.layout.blockManagement">Sivupalkin hallinnointi</message>
-	<message key="manager.setup.layout.leftSidebar">Sivupalkki</message>
 	<message key="manager.setup.layout.unselected">Ei valittu</message>
 	<message key="manager.setup.loggingAndAuditing">Kirjaaminen ja tarkastus</message>
 	<message key="manager.setup.logo">Logo</message>
 	<message key="manager.setup.metaCitationsDescription">Aktivoi seuraava valintaruutu ottaaksesi viittausten ja lähteiden muokkauksen käyttöön. Tämän avulla tekijät voivat liittää käsikirjoituksiin raakaviittauksia. Toimittajat saavat myös pääsyn viittaustenhallintatyökaluun, joka voi tarkastaa raakaviittausten virheettömyyden vertaamalla niitä ulkoisiin tietokantoihin (mm. WorldCat, ISBNdb, PubMed). Hyväksytyt viittaukset voidaan viedä lopullisiin julkaistaviin tiedostoihin.</message>
 	<message key="manager.setup.notifications">Ilmoitus kirjoittajan tekemästä käsikirjoituksen lähetyksestä</message>
-	<message key="manager.setup.notifications.copyPrimaryContact">Lähetä kopio ensisijaiselle yhteyshenkilölle, joka on annettu asetusten ensimmäisessä vaiheessa.</message>
 	<message key="manager.setup.notifications.copySpecifiedAddress">Lähetä kopio tähän sähköpostiosoitteeseen</message>
 	<message key="manager.setup.notifications.description">Kirjoittajille lähetetään automaattisesti sähköposti-ilmoitus käsikirjoituksen vastaanottamisesta. Sinulla saattaa olla kopiot tästä seuraaville henkilöille lähetetystä sähköpostista:</message>
 	<message key="manager.setup.openAccessPolicy">Avoimen saatavuuden periaate</message>
@@ -356,8 +354,7 @@
 	<message key="manager.plugins.pluginGallery.certifications.reviewed">Tarkistettu</message>
 	<message key="manager.plugins.pluginGallery.certifications.partner">Kumppani</message>
 	<message key="manager.plugins.pluginGallery.maintainer">Ylläpitäjä</message>
-	<message key="manager.plugins.pluginGallery.version">Versio: {$version}</message>
-	<message key="manager.plugins.pluginGallery.date">Julkaisupäivämäärä: {$date}</message>
+	<message key="manager.plugins.pluginGallery.version">v{$version} released on {$date}</message>
 	<message key="manager.plugins.pluginGallery.homepage">Etusivu</message>
 	<message key="manager.plugins.pluginGallery.summary">Yhteenveto</message>
 	<message key="manager.plugins.pluginGallery.status">Tila</message>
@@ -504,4 +501,64 @@
 	<message key="manager.setup.metadata.submission">Käsikirjoituksen lähettämislomake</message>
 	<!--  common importexport keys -->
 	<message key="plugins.importexport.common.validationErrors">Vahvistusvirheitä:</message>
+	<message key="manager.setup.layout.sidebar">Sivupalkki</message>
+	<message key="plugins.importexport.common.errorsOccured">Tapahtui virheitä:</message>
+	<message key="plugins.importexport.common.error.unknownElement">Tuntematon kohta {$param}</message>
+	<message key="plugins.importexport.common.error.unknownGenre">Tuntematon osa {$param}</message>
+	<message key="plugins.importexport.common.error.unknownEncoding">Tuntematon merkistökoodaus {$param}</message>
+	<message key="plugins.importexport.common.error.unknownUserGroup">Tuntematon käyttäjäryhmä {$param}</message>
+	<message key="plugins.importexport.common.error.unknownUploader">Tuntematon lataaja {$param}</message>
+	<message key="manager.people.existingUserRequired">Vaaditaan rekisteröity käyttäjä.</message>
+	<message key="manager.plugins.pluginGallery.certifications.official.description">Tätä lisäosaa kehittää ja ylläpitää Public Knowledge Project.</message>
+	<message key="manager.plugins.pluginGallery.certifications.reviewed.description">Tämä lisäosan on tarkistanut ja hyväksynyt Public Knowledge Project.</message>
+	<message key="manager.plugins.pluginGallery.certifications.partner.description">Tämän lisäosan tarjoaa kehitystyökumppani.</message>
+	<message key="plugins.importexport.common.warningsEncountered">Varoituksia:</message>
+	<message key="plugins.importexport.common.error.encodingError">Sisältö on koodattu muotoon {$param}</message>
+	<message key="plugins.importexport.common.error.temporaryFileFailed">Väliaikaista tiedostoa {$dest} ei voitu luoda kohteesta {$source}</message>
+	<message key="plugins.importexport.common.error.filesizeMismatch">Annettu tiedostokoko "{$expected}" ja varsinainen tiedostokoko "{$actual}" eivät täsmää</message>
+	<message key="plugins.importexport.common.error.duplicateRevisionForSubmission">Revisio "{$revisionId}" käsikirjoitustiedostolle "{$fileId}" loisi duplikaatin</message>
+	<message key="plugins.importexport.native.error.submissionFileImportFailed">Käsikirjoitustiedostoa ei voitu tuoda</message>
+	<message key="manager.navigationMenus.form.title">Otsikko</message>
+	<message key="manager.navigationMenus.form.path">Polku</message>
+	<message key="manager.navigationMenus">Navigaatiovalikot</message>
+	<message key="manager.navigationMenus.form.viewInstructions"><![CDATA[<p>Tämä sivu löytyy sijainnista <blockquote>{$pagesPath}</blockquote>...jossa %PATH% on yllä näkyvä polku. <strong>Huomaa:</strong> Kahdella sivulla ei voi olla samaa polkua. Mikäli annat polun, joka on jo järjestelmän käytössä, voi jokin toiminto poistua käytöstä.</p>]]></message>
+	<message key="manager.navigationMenus.form.content">Sisältö</message>
+	<message key="manager.navigationMenus.form.pathRegEx">Polku voi sisältää vain alfanumeerisia merkkejä sekä merkit '.', '/', '-', ja '_'.</message>
+	<message key="manager.navigationMenus.form.duplicatePath">Tämä polku on jo käytössä toisessa valikon kohteessa.</message>
+	<message key="manager.navigationMenus.form.duplicateTitles">Tämä otsikko on jo käytössä toisessa valikossa.</message>
+	<message key="manager.navigationMenus.form.titleRequired">Otsikko vaaditaan</message>
+	<message key="manager.navigationMenuItems">Navigaatiovalikon kohteet</message>
+	<message key="manager.navigationMenus.assignedMenuItems">Käytössä olevat kohteet</message>
+	<message key="manager.navigationMenus.unassignedMenuItems">Pois käytöstä olevat kohteet</message>
+	<message key="manager.navigationMenus.form.navigationMenuArea">Ulkoasuteeman aktiiviset navigaatioalueet</message>
+	<message key="manager.navigationMenus.form.navigationMenuAreaMessage">Valitse navigaatioalue</message>
+	<message key="manager.navigationMenus.form.url">URL</message>
+	<message key="manager.navigationMenus.form.customUrlError">URL vaaditaan</message>
+	<message key="manager.navigationMenus.form.conditionalDisplay">Lisätietoja tämän kohteen näkyvyydestä.</message>
+	<message key="manager.navigationMenus.form.submenuWarning">Kun valikon kohde avaa alavalikon, siinä olevaa linkkiä ei voi seurata kaikilla laitteilla. Esimerkiksi, mikäli sinulla on "Tietoja"-kohde, joka avaa "Yhteistiedot"-kohteen sisältävän alavalikon, ei "Tietoja"-kohteen linkki ole välttämättä avattavissa joillakin laitteilla. Tällöin alavalikkoon voi laittaa toisen kohteen, joka johtaa halutulle sivulle.</message>
+	<message key="manager.navigationMenus.form.navigationMenuItemType">Navigaatiovalikon tyyppi</message>
+	<message key="manager.navigationMenus.form.navigationMenuItemTypeMessage">Valitse navigaatiovalikon tyyppi tai Muokattu oman valikon luomiseksi</message>
+	<message key="manager.navigationMenus.customPage">Muokattu sivu</message>
+	<message key="manager.navigationMenus.customPage.description">Luo muokattu sivu ja lisää siihen johtava linkki navigaatiovalikkoon.</message>
+	<message key="manager.navigationMenus.remoteUrl">Ulkoinen URL</message>
+	<message key="manager.navigationMenus.logOut.description">Linkki, joka kirjaa vierailijan ulos.</message>
+	<message key="manager.navigationMenus.loggedOut.conditionalWarning">Tämä linkki näytetään vain, kun vierailija on kirjautunut sisään.</message>
+	<message key="manager.navigationMenus.loggedIn.conditionalWarning">Tämä linkki näytetään vain, kun vierailija ei ole kirjautuneena sisään.</message>
+	<message key="manager.navigationMenus.dashboard.description">Linkki toimituksen hallintapaneeliin.</message>
+	<message key="manager.navigationMenus.profile.description">Linkki käyttäjän profiiliin.</message>
+	<message key="manager.navigationMenus.administration.description">Linkki sivuston ylläpitoasetuksiin.</message>
+	<message key="manager.navigationMenus.administration.conditionalWarning">Tämä linkki näytetään vain ylläpitäjille.</message>
+	<message key="manager.navigationMenus.remoteUrl.description">Linkki mihin tahansa ulkoiselle sivulle, kuten http://pkp.sfu.ca.</message>
+	<message key="manager.navigationMenus.about.description">Linkki "Tietoja julkaisusta" -sivulle.</message>
+	<message key="manager.navigationMenus.about.conditionalWarning">Tämä linkki näkyy vain mikäli olet täyttänyt "Tietoja julkaisusta"-kohdan lehden asetuksista.</message>
+	<message key="manager.navigationMenus.editorialTeam.description">Linkki "Toimituskunta"-sivulle.</message>
+	<message key="manager.navigationMenus.editorialTeam.conditionalWarning">Tämä linkki näkyy vain mikäli olet täyttänyt "Toimituskunta"-kohdan lehden asetuksista.</message>
+	<message key="manager.navigationMenus.submissions.description">Linkki "Käsikirjoitukset"-sivulle.</message>
+	<message key="manager.navigationMenus.current.description">Linkki uusimpaan numeroon.</message>
+	<message key="manager.navigationMenus.archives.description">Linkki arkistoon.</message>
+	<message key="manager.navigationMenus.announcements.description">Linkki ilmoitusten arkistoon.</message>
+	<message key="manager.navigationMenus.announcements.conditionalWarning">Tämä linkki näkyy vain mikäli olet aktivoinut ilmoitukset lehden asetuksista.</message>
+	<message key="manager.navigationMenus.login.description">Linkki kirjautumissivulle.</message>
+	<message key="manager.navigationMenus.register.description">Linkki rekisteröitymissivulle.</message>
+	<message key="settings.roles.recommendOnly">Tällä roolilla voi tehdä vain toimituksellisia suosituksia. Suosituksen vahvistamiseen vaaditaan varsinainen toimittaja.</message>
 </locale>

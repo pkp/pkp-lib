@@ -152,4 +152,9 @@
 	<message key="user.profile.identity">Henkilöllisyys</message>
 	<message key="user.profile.contact">Yhteystiedot</message>
 	<message key="user.profile.public">Julkinen</message>
+	<message key="user.apiKey.generateWarning">Uuden API-avaimen luominen poistaa käyttäjän aiemman avaimen käytöstä.</message>
+	<message key="user.apiKey.secretRequired">Ennen API-avaimen luomista tarvitsee täyttää config-tiedoston asetus ("api_key_secret")</message>
+	<message key="user.apiKey">API-avain</message>
+	<message key="user.apiKeyEnabled">Anna ulkoisten järjestelmien olla yhteydessä tähän tiliin API-avaimen avulla.</message>
+	<message key="user.apiKey.generate">Luo uusi API-avain</message>
 </locale>

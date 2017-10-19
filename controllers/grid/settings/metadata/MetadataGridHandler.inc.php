@@ -100,7 +100,7 @@ class MetadataGridHandler extends GridHandler {
 			'disciplines' => array('name' => __('rt.metadata.pkp.discipline')),
 			'keywords' => array('name' => __('rt.metadata.pkp.subject')),
 			'agencies' => array('name' => __('submission.supportingAgencies')),
-			'references' => array('name' => __('submission.citations')),
+			'citations' => array('name' => __('submission.citations')),
 		);
 	}
 

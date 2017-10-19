@@ -129,4 +129,5 @@ Benutzung (verarbeite alle Dateien in einem Verzeichnis): {$scriptName} path/to/
 	<message key="admin.error.utilExecutionProblem">Die Ausführung des Programms "{$utilPath}" hat den folgenden Fehler geliefert: {$output}</message>
 	<message key="admin.error.executingUtil">Fehler: Ausführung von "{$utilPath}" nicht möglich. Überprüfen Sie die {$utilVar}-Einstellung in config.inc.php.</message>
 	<message key="admin.languages.noLocalesToDownload">Es sind keine Regionaleinstellungen zum Download verfügbar.</message>
+	<message key="admin.contexts.confirmDelete">Sind Sie sicher, dass Sie {$contextName} und den gesamten Inhalt dauerhaft löschen wollen?</message>
 </locale>

@@ -18,6 +18,6 @@
 	<message key="api.submissions.403.unauthorizedDeleteSubmission">You do not have permission to delete this submission.</message>
 	<message key="api.submissions.404.resourceNotFound">The requested resource was not found.</message>
 	<message key="api.submissions.400.missingRequired">Your request could not be fulfilled because it is missing required information.</message>
+	<message key="api.submissions.400.invalidIssueIdentifiers">The requested volume, number or year is not valid.</message>
 	<message key="api.submissions.unknownError">An unexpected error has occurred. Please reload the page and try again.</message>
-	<message key="api.submissions.400.stageNotValid">Your request could not be fulfilled because the submission stage ID is not valid.</message>
 </locale>

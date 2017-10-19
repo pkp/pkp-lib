@@ -193,6 +193,7 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 
 		// statuses
 		if (!is_null($this->statuses)) {
+			import('lib.pkp.classes.submission.Submission'); // STATUS_ constants
 			if (in_array(STATUS_PUBLISHED, $this->statuses)) {
 				$this->columns[] = 'ps.date_published';
 				$q->leftJoin('published_submissions as ps','ps.submission_id','=','s.submission_id')
@@ -295,7 +296,7 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 		}
 
 		// Add app-specific query statements
-		\HookRegistry::call('Submission::listQueryBuilder::get', array(&$q, $this));
+		\HookRegistry::call('Submission::getSubmissions::queryObject', array(&$q, $this));
 
 		if (!empty($this->countOnly)) {
 			$q->select(Capsule::raw('count(*) as submission_count'));

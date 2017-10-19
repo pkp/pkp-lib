@@ -687,6 +687,8 @@ class PKPTemplateManager extends Smarty {
 		import('lib.pkp.classes.security.Role');
 
 		$app_data = array(
+			'currentLocale' => AppLocale::getLocale(),
+			'primaryLocale' => AppLocale::getPrimaryLocale(),
 			'baseUrl' => $this->_request->getBaseUrl(),
 			'contextPath' => isset($context) ? $context->getPath() : '',
 			'apiBasePath' => '/api/v1',

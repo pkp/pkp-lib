@@ -60,5 +60,5 @@
 	<message key="plugins.generic.usageStats.statsSum">Laske yhteen kaikki tiedostojen lataukset</message>
 	<message key="plugins.generic.usageStats.noStats">Lataustietoja ei ole vielä saatavilla.</message>
 	<message key="plugins.generic.usageStats.monthInitials">Tam Hel Maa Huh Tou Kes Hei Elo Syy Lok Mar Jou</message>
-	<message key="plugins.generic.usageStats.downloads">Lataukset</message> 
+	<message key="plugins.generic.usageStats.downloads">Lataukset</message>
 </locale>

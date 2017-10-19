@@ -62,6 +62,15 @@
 			{/if}
 		</div>
 
+		{if $decisionData.paymentType}
+			{fbvFormSection title="common.payment"}
+				<ul class="checkbox_and_radiobutton">
+					{fbvElement type="radio" id="requestPayment-request" name="requestPayment" value="1" checked=$requestPayment|compare:1 label=$decisionData.requestPaymentText translate=false}
+					{fbvElement type="radio" id="requestPayment-waive" name="requestPayment" value="0" checked=$requestPayment|compare:0 label=$decisionData.waivePaymentText translate=false}
+				</ul>
+			{/fbvFormSection}
+		{/if}
+
 		{** Some decisions can be made before review is initiated (i.e. no attachments). **}
 		{if $reviewRoundId}
 			<div id="attachments">

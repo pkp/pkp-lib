@@ -49,7 +49,7 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 	 * @copydoc Form::initData()
 	 */
 	function initData($args, $request) {
-		$actionLabels = EditorDecisionActionsManager::getActionLabels($this->_getDecisions());
+		$actionLabels = EditorDecisionActionsManager::getActionLabels($request->getContext(), $this->_getDecisions());
 
 		$submission = $this->getSubmission();
 		$this->setData('stageId', $this->getStageId());
@@ -65,7 +65,7 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 		$submission = $this->getSubmission();
 
 		// Get this form decision actions labels.
-		$actionLabels = EditorDecisionActionsManager::getActionLabels($this->_getDecisions());
+		$actionLabels = EditorDecisionActionsManager::getActionLabels($request->getContext(), $this->_getDecisions());
 
 		// Record the decision.
 		$reviewRound = $this->getReviewRound();

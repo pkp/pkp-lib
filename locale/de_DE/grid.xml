@@ -269,4 +269,8 @@
 	<!-- Submission list grids -->
 	<message key="grid.submission.itemTitle">Autor/in; Titel</message>
 	<message key="grid.submission.active.selectOrphaned">Inklusive unfertiger Einreichungen, die nicht durch eine/n Autor/in eingereicht wurden.</message>
+	<message key="grid.action.addNavigationMenu">Navigationsmenü hinzufügen</message>
+	<message key="grid.action.addNavigationMenuItem">Menüeintrag hinzufügen</message>
+	<message key="grid.navigationMenus.navigationMenuItems.noneExist">Keine Einträge im Navigationsmenü</message>
+	<message key="grid.navigationMenus.navigationMenu.noneExist">Keine Navigationsmenüs</message>
 </locale>

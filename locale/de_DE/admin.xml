@@ -25,6 +25,7 @@
 	<message key="admin.confirmClearTemplateCache">Sind Sie sicher, dass Sie den Vorlagenspeicher leeren wollen?</message>
 	<message key="admin.confirmExpireSessions">Sind Sie sicher, dass Sie alle Benutzer/innensitzungen schließen wollen? Alle Benutzer/innen, die gerade arbeiten (auch Sie selbst), müssen sich danach neu einloggen.</message>
 	<message key="admin.contentsOfConfigFile">Inhalt der Konfigurationsdatei</message>
+	<message key="admin.contexts.confirmDelete">Sind Sie sicher, dass Sie {$contextName} und den gesamten zugehörigen Inhalt dauerhaft löschen wollen?</message>
 	<message key="admin.currentVersion">Aktuelle Version</message>
 	<message key="admin.dateInstalled">Installiert am</message>
 	<message key="admin.displayConfigFileInstructions"><![CDATA[Der Inhalt Ihrer aktualisierten Konfiguration wird nachstehend angezeigt. Öffnen Sie <tt>config.inc.php</tt> mit einem geeigneten Texteditor und ersetzen Sie den Inhalt durch den Text im nachstehenden Textfeld.]]></message>
@@ -129,5 +130,4 @@ Benutzung (verarbeite alle Dateien in einem Verzeichnis): {$scriptName} path/to/
 	<message key="admin.error.utilExecutionProblem">Die Ausführung des Programms "{$utilPath}" hat den folgenden Fehler geliefert: {$output}</message>
 	<message key="admin.error.executingUtil">Fehler: Ausführung von "{$utilPath}" nicht möglich. Überprüfen Sie die {$utilVar}-Einstellung in config.inc.php.</message>
 	<message key="admin.languages.noLocalesToDownload">Es sind keine Regionaleinstellungen zum Download verfügbar.</message>
-	<message key="admin.contexts.confirmDelete">Sind Sie sicher, dass Sie {$contextName} und den gesamten Inhalt dauerhaft löschen wollen?</message>
 </locale>

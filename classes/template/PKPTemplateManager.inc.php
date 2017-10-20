@@ -1069,10 +1069,10 @@ class PKPTemplateManager extends Smarty {
 
 		if (isset($params['key'])) {
 			list($key, $value) = $iterator->nextWithKey();
-			$smarty->assign_by_ref($params['item'], $value);
-			$smarty->assign_by_ref($params['key'], $key);
+			$smarty->assign($params['item'], $value);
+			$smarty->assign($params['key'], $key);
 		} else {
-			$smarty->assign_by_ref($params['item'], $iterator->next());
+			$smarty->assign($params['item'], $iterator->next());
 		}
 		return $content;
 	}

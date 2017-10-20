@@ -41,7 +41,7 @@
 	<country name="Benín" code="BJ"/>
 	<country name="Islas Bermudas" code="BM"/>
 	<country name="Bhután" code="BT"/>
-	<country name="Bolivia, Estado plurinacional de" code="BO"/>
+	<country name="Bolivia" code="BO"/>
 	<country name="Islas BES (Caribe Neerlandés)" code="BQ"/>
 	<country name="Bosnia y Herzegovina" code="BA"/>
 	<country name="Botsuana" code="BW"/>
@@ -221,7 +221,7 @@
 	<country name="Islas Salomón" code="SB"/>
 	<country name="Somalia" code="SO"/>
 	<country name="Suráfrica" code="ZA"/>
-	<country name="Georgia del Sur e Islas Sandwitch del Sur" code="GS"/>
+	<country name="Georgia del Sur e Islas Sandwich del Sur" code="GS"/>
 	<country name="Sudán del Sur" code="SS"/>
 	<country name="España" code="ES"/>
 	<country name="Sri Lanka" code="LK"/>
@@ -255,7 +255,7 @@
 	<country name="Uruguay" code="UY"/>
 	<country name="Uzbekistán" code="UZ"/>
 	<country name="Vanuatu" code="VU"/>
-	<country name="Venezuela, República Bolivariana de" code="VE"/>
+	<country name="Venezuela" code="VE"/>
 	<country name="Vietnam" code="VN"/>
 	<country name="Islas Vírgenes, Británicas" code="VG"/>
 	<country name="Islas Vírgenes, de EEUU" code="VI"/>

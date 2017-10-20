@@ -94,12 +94,6 @@ class NavigationMenuItemHandler extends Handler {
 			$contextId = $context->getId();
 		}
 
-		// Ensure that if we're previewing, the current user is a manager or admin.
-		$roles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-		if (count(array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN), $roles))==0) {
-			fatalError('The current user is not permitted to preview.');
-		}
-
 		// Assign the template vars needed and display
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);

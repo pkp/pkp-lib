@@ -23,7 +23,7 @@ class SelectableFinalDraftFilesGridHandler extends SelectableFileListGridHandler
 		import('lib.pkp.controllers.grid.files.final.FinalDraftFilesGridDataProvider');
 		parent::__construct(
 			new FinalDraftFilesGridDataProvider(),
-			WORKFLOW_STAGE_ID_COPYEDIT,
+			WORKFLOW_STAGE_ID_EDITING,
 			FILE_GRID_VIEW_NOTES
 		);
 

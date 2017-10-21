@@ -152,4 +152,9 @@
 	<message key="user.profile.identity">Identität</message>
 	<message key="user.profile.contact">Kontakt</message>
 	<message key="user.profile.public">Öffentlich</message>
+	<message key="user.apiKey">API-Key</message>
+	<message key="user.apiKeyEnabled">Externen Anwendungen mittels des API-Keys ermöglichen, auf diesen Account zuzugreifen</message>
+	<message key="user.apiKey.generate">Neuen API-Key erzeugen</message>
+	<message key="user.apiKey.generateWarning">Das Erzeugen eines neuen API-Keys wird alle existierenden Keys für diese/n Nutzer/in ungültig machen.</message>
+	<message key="user.apiKey.secretRequired">Bevor Sie einen API-Key erzeugen, müssen Sie ein Geheimnis (secret) in der Konfigurationsdatei festlegen ("api_key_secret")</message>
 </locale>

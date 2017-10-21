@@ -314,6 +314,7 @@
 	<message key="submission.history.viewLog">Protokoll anzeigen</message>
 	<message key="submission.howToCite">Zitationsvorschlag</message>
 	<message key="submission.howToCite.citationFormats">Zitationsformate</message>
+	<message key="submission.howToCite.downloadCitation">Bibliografische Angaben herunterladen</message>
 	<message key="submission.indexing">Indizieren</message>
 	<message key="submission.initiated">Begonnen</message>
 
@@ -510,14 +511,19 @@
 
 	<!-- Review Round Status Keys -->
 	<message key="editor.submission.roundStatus.revisionsRequested">Überarbeitungen wurden angefordert.</message>
+	<message key="editor.submission.roundStatus.revisionsSubmitted">Überarbeitungen wurden eingereicht.</message>
 	<message key="editor.submission.roundStatus.resubmitted">Beitrag wurde erneut zur Begutachtung eingereicht.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">Zur externen Begutachtung gesendet.</message>
 	<message key="editor.submission.roundStatus.accepted">Beitrag akzeptiert.</message>
 	<message key="editor.submission.roundStatus.declined">Beitrag abgelehnt.</message>
 	<message key="editor.submission.roundStatus.pendingReviewers">Warte auf Gutachter/innen.</message>
 	<message key="editor.submission.roundStatus.pendingReviews">Warte auf Antworten von Gutachter/innen.</message>
-	<message key="editor.submission.roundStatus.reviewsReady">Neue Gutachten fertig.</message>
+	<message key="editor.submission.roundStatus.reviewsReady">Neue Gutachten wurden eingereicht.</message>
 	<message key="editor.submission.roundStatus.reviewsCompleted">Gutachten abgeschlossen.</message>
+	<message key="editor.submission.roundStatus.reviewOverdue">Ein Gutachten ist überfällig.</message>
+	<message key="editor.submission.roundStatus.pendingRecommendations">Warte auf Empfehlungen von Redakteur/innen.</message>
+	<message key="editor.submission.roundStatus.recommendationsReady">Neue redaktionelle Empfehlungen wurden eingereicht.</message>
+	<message key="editor.submission.roundStatus.recommendationsCompleted">Alle Empfehlungen liegen vor, nun wird eine Entscheidung benötigt.</message>
 
 	<!-- Participants -->
 	<message key="editor.submission.stageParticipants">Beteiligte</message>
@@ -544,6 +550,18 @@
 	<message key="editor.submission.decision.approveProofsDescription">Die Datei der Korrekturfahne muss angenommen werden, um verfügbar gemacht werden zu können. Wollen Sie sie annehmen?</message>
 	<message key="editor.submission.decision.approveProofs">Korrekturfahne akzeptieren</message>
 	<message key="editor.submission.decision.disapproveProofsDescription">Diese Korrekturfahne wird nicht weiter zum Download oder Erwerb zur Verfügung stehen. Wollen Sie sie ablehnen?</message>
+	<message key="editor.submission.decision.noDecisionsAvailable">Weisen Sie eine/n Redakteur/in zu, um redaktionelle Entscheidungen in dieser Phase zu ermöglichen.</message>
+	<!--  editor recommendations -->
+	<message key="editor.submission.makeRecommendation">Empfehlung machen</message>
+	<message key="editor.submission.changeRecommendation">Empfehlung ändern</message>
+	<message key="editor.submission.recommendation.display">Empfehlung: {$recommendation}</message>
+	<message key="editor.submission.allRecommendations.display">Empfehlungen: {$recommendations}</message>
+	<message key="editor.submission.recommendation">Empfehlung</message>
+	<message key="editor.submission.recommendation.description">Eine redaktionelle Entscheidung für diese Einreichung empfehlen.</message>
+	<message key="editor.submission.recordedRecommendations">Festgehaltene Empfehlungen</message>
+	<message key="editor.submission.decision.nextButton">Als nächstes: Dateien für {$stageName} auswählen</message>
+	<message key="editor.submission.decision.selectFiles">Wählen Sie die Dateien aus, die Sie für die Phase {$stageName} weiterleiten möchten.</message>
+	<message key="editor.submission.decision.previousAuthorNotification">Zuvor: Autor/innen-Benachrichtigung</message>
 
 	<!-- workflow navigation keys -->
 	<message key="submission.currentStage">Aktueller Arbeitsschritt</message>
@@ -572,6 +590,7 @@
 	<message key="submission.description">Beschreibung</message>
 	<message key="submission.stageNotInitiated">Arbeitsschritt nicht veranlasst.</message>
 	<message key="submission.documents">Dokumente der Einreichung</message>
+	<message key="notification.type.editorAssign">Sie sind als Redakteur/in für den Beitrag "{$title}" eingeteilt worden.</message>
 	<message key="notification.type.copyeditorRequest">Sie sind gebeten worden, das Lektorat von "{$title}" zu überprüfen.</message>
 	<message key="notification.type.layouteditorRequest">Sie sind gebeten worden, Layouts für "{$title}" zu überprüfen.</message>
 	<message key="notification.type.indexRequest">Sie sind gebeten worden, einen Index für "{$title}" anzulegen.</message>
@@ -586,9 +605,18 @@
 
 	<message key="notification.type.editorAssignment">Ein/e Redakteur/in muss hinzugefügt werden, bevor die Begutachtung veranlasst wird. Verwenden Sie bitte den obigen Beteiligten-Link, um eine/n Redakteur/in hinzuzufügen.</message>
 	<message key="grid.reviewAttachments.title">Gutachter/innen-Anlagen</message>
+	<message key="grid.reviewAttachments.send.title">Begutachtungsdateien auswählen, um sie mit den Autor/innen zu teilen</message>
 	<message key="submission.productionReady">Buch verfügbar</message>
 	<message key="submission.review.uploadRevisionToRound">Überarbeitete Datei hochladen</message>
 	<message key="log.review.reviewerAssigned">Das Manuskript {$submissionId} wurde {$reviewerName} zur Begutachtung im Durchgang {$round} zugewiesen.</message>
+	<message key="submission.review.status.awaitingResponse">Warten auf eine Antwort der Gutachterin/des Gutachters.</message>
+	<message key="submission.review.status.declined">Gutachter/in hat diese Anfrage abgelehnt.</message>
+	<message key="submission.review.status.responseOverdue">Gutachter/in hat nicht in der erbetenen Frist geantwortet.</message>
+	<message key="submission.review.status.reviewOverdue">Gutachter/in hat die Abgabefrist für das Gutachten versäumt.</message>
+	<message key="submission.review.status.accepted">Dieses Gutachten wurde akzeptiert.</message>
+	<message key="submission.review.status.received">Gutachter/in hat ihr/sein Gutachten eingereicht.</message>
+	<message key="submission.review.status.complete">Dieses Gutachten wurde fertiggestellt.</message>
+	<message key="submission.review.status.thanked">Diese Begutachtung ist fertig und der Gutachterin/dem Gutachter wurde für diesen Beitrag gedankt.</message>
 	<message key="submission.document">Dokument</message>
 	<message key="submission.art">Kunstwerk</message>
 	<message key="submission.supplementary">Zusätzliche Inhalte</message>
@@ -647,4 +675,27 @@
 	<message key="submission.query.new">{$creatorName} hat eine neue Diskussion begonnen: {$noteTitle}: {$noteContents}</message>
 	<message key="submission.query.activity.contents">Es gibt eine neue Aktivität in der Diskussion "{$queryTitle}" in Bezug auf das Manuskript "{$submissionTitle}".</message>
 	<message key="submission.query.new.contents">Sie sind zu einer Diskussion unter dem Titel "{$queryTitle}" in Bezug auf das Manuskript "{$submissionTitle}" hinzugefügt worden.</message>
+	<message key="submission.query.noParticipantOptions">You must assign at least one participant to this submission before initiating a discussion.</message>
+
+	<!-- Submission Lists -->
+	<message key="submission.list.infoCenter">Aktivitätsprotokoll &amp; Notizen</message>
+	<message key="submission.list.count">{$count} Einreichungen</message>
+	<message key="submission.list.itemsOfTotal">{$count} von {$total} Einreichungen</message>
+	<message key="submission.list.responseDue">Antwort fällig</message>
+	<message key="submission.list.reviewDue">Gutachten fällig</message>
+	<message key="submission.list.confirmDelete">Einreichung löschen?</message>
+	<message key="submission.list.viewSubmission">{$title} ansehen</message>
+	<message key="submission.list.filter">Filter</message>
+	<message key="submission.list.filterRemove">Filter löschen: {$filterTitle}</message>
+	<message key="submission.list.itemOrdererUp">Position von {$itemTitle} nach oben setzen</message>
+	<message key="submission.list.itemOrdererDown">Position von {$itemTitle} nach unten setzen</message>
+	<message key="submission.list.viewSubmission">Einreichung ansehen</message>
+	<message key="submission.list.clearSearch">Suchbegriffe löschen</message>
+	<message key="submission.list.reviewsCompleted">Zugeteilte Gutachten fertiggestellt</message>
+	<message key="submission.list.revisionsSubmitted">Überarbeitungen eingereicht</message>
+	<message key="submission.list.copyeditsSubmitted">Lektorierte Dateien eingereicht</message>
+	<message key="submission.list.galleysCreated">Fahnen erzeugt</message>
+	<message key="submission.list.filesPrepared">Dateien vorbereitet</message>
+	<message key="submission.list.discussions">Diskussionen öffnen</message>
+	<message key="submission.list.incompleteSubmissionNotice">Diese Einreichung muss vervollständigt werden, bevor sie durch eine/n Redakteur/in begutachtet wird.</message>
 </locale>

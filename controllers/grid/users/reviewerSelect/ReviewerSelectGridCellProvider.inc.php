@@ -46,7 +46,7 @@ class ReviewerSelectGridCellProvider extends DataObjectGridCellProvider {
 			case 'last': // Days since most recently completed review
 				$lastAssigned = $element->getData('lastAssigned');
 				if (!$lastAssigned) return array('label' => '--');
-				$formattedDate = strftime('%b %e', strtotime($lastAssigned));
+				$formattedDate = strftime(Config::getVar('general', 'date_format_short'), strtotime($lastAssigned));
 				return array('label' => $formattedDate);
 
 			case 'active': // How many reviews are currently being considered or underway

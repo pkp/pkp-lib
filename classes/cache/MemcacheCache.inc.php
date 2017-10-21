@@ -91,6 +91,7 @@ class MemcacheCache extends GenericCache {
 		switch (get_class($result)) {
 			case 'memcache_false':
 				$result = false;
+				break;
 			case 'memcache_null':
 				$result = null;
 		}

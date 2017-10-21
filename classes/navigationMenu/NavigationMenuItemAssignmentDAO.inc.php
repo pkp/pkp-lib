@@ -87,12 +87,12 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	}
 
 	/**
-	 * Retrieve items by menu item id and ParentId
+	 * Retrieve items by navigationMenuItemId menu item id and ParentId
 	 * @param $navigationMenuItemId int
 	 * @param $menuId int
 	 * @param $parentId int
 	 */
-	public function getByMenuIdAndParentId($navigationMenuItemId, $menuId, $parentId = null) {
+	public function getByNMIIdAndMenuIdAndParentId($navigationMenuItemId, $menuId, $parentId = null) {
 		$params = array(
 			(int) $menuId,
 			(int) $navigationMenuItemId
@@ -110,10 +110,32 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 
 		$returner = null;
 		if ($result->RecordCount() != 0) {
-				$returner = $this->_fromRow($result->GetRowAssoc(false));
+			$returner = $this->_fromRow($result->GetRowAssoc(false));
 		}
 		$result->Close();
 		return $returner;
+	}
+
+	/**
+	 * Retrieve items by navigationMenuItemId menu item id and ParentId
+	 * @param $menuId int
+	 * @param $parentId int 0 if we want to return NMIAssignments with no parents
+	 */
+	public function getByMenuIdAndParentId($menuId, $parentId) {
+		$params = array(
+			(int) $menuId,
+			(int) $parentId
+		);
+
+		$result = $this->retrieve(
+			'SELECT nmh.*
+				FROM navigation_menu_item_assignments as nmh
+				WHERE nmh.navigation_menu_id = ?
+				AND nmh.parent_id = ?',
+			$params
+		);
+
+		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
 	/**

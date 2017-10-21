@@ -16,7 +16,7 @@
 	<message key="editor.review.notInitiated">El procés de revisió encara no s'ha iniciat.</message>
 	<message key="editor.submission.copyediting.personalMessageToUser">Missatge per a l'usuari/ària</message>
 	<message key="editor.submission.externalReviewDescription">Esteu a punt d'iniciar una avaluació externa per a aquesta tramesa.  Els fitxers que formen part de la tramesa s'enumeren a sota i els podeu seleccionar per revisar-los.</message>
-	<message key="editor.submission.review.reviewFilesDescription"><![CDATA[Aquests són els fitxers que es poden seleccionar per a la revisió, quan s'afegeixin revisors/ores a l'apartat <span class="pkp_help_title">Revisors/ores</span>]]>.</message>
+	<message key="editor.submission.review.reviewFilesDescription"><![CDATA[Aquests són els fitxers que es poden seleccionar per a la revisió, quan s'afegeixin revisors/ores a l'apartat <span class="pkp_help_title">Revisors/ores</span>.]]></message>
 	<!-- Add file or auditor to editor/audit grids -->
 	<message key="editor.submission.fileAuditor.form.fileRequired">Heu de seleccionar almenys un fitxer per assignar a l'usuari/ària.</message>
 	<message key="editor.submission.fileAuditor.form.messageRequired">Heu d'incloure-hi un missatge personal.</message>
@@ -99,4 +99,42 @@
 	<message key="editor.submission.selectPromoteRevisions">Selecciona revisions per utilitzar a la propera fase</message>
 	<message key="editor.submission.noReviewerFilesSelected">No hi ha fitxers seleccionats</message>
 	<message key="editor.submission.noReviewerFilesSelected.details">No heu seleccionat cap fitxer perquè el revisor/a el revisi.</message>
+	<message key="editor.submissionLibrary">Biblioteca de trameses</message>
+	<message key="editor.submission.selectFiles">Seleccionar arxius</message>
+	<message key="editor.submission.findAndSelectReviewer">Trobar un revisor/a</message>
+	<message key="editor.submission.findAndSelectUser">Trobar un usuari/ària</message>
+	<message key="editor.submission.backToSearch">Tornar a la cerca</message>
+	<message key="editor.submissionReview.restrictFiles.hide">Tancar la selecció d'arxiu</message>
+	<message key="editor.submissionReview.editReview">Editar revisió</message>
+	<message key="editor.review.reviewsAdded">Revisions afegides al cos del missatge.</message>
+	<message key="editor.review.readReview">Llegir la revisió</message>
+	<message key="editor.review.readNewReview">Llegir la nova revisió</message>
+	<message key="editor.review.requestSent">Sol·licitud enviada</message>
+	<message key="editor.review.requestAccepted">Sol·licitud acceptada</message>
+	<message key="editor.review.reviewConfirmed">Revisió confirmada</message>
+	<message key="editor.review.reviewSubmitted">Revisió tramesa</message>
+	<message key="editor.review.reviewDetails">Detalls de la revisió</message>
+	<message key="editor.review.noReviewFilesUploaded">Cap arxiu carregat</message>
+	<message key="editor.review.noReviewFilesUploaded.details">No heu carregat cap arxiu de revisió.</message>
+	<message key="editor.review.emailReviewer">Envia un correu electrònic al revisor/a</message>
+	<message key="editor.article.reviewForms">Formularis de revisió</message>
+	<message key="editor.article.selectReviewForm">Seleccionar el formulari de revisió</message>
+	<message key="editor.article.clearReviewForm">Neteja el formulari de revisió</message>
+	<message key="submission.queries.attachedFiles">Arxius adjunts</message>
+	<message key="grid.action.editQuery">Editar discussió</message>
+	<message key="editor.submission.selectedReviewer">Revisor/a seleccionat</message>
+	<message key="editor.submission.proofreading.approveProof">Acceptar la prova</message>
+	<message key="editor.review.responseDue">Resposta prevista: {$date}</message>
+	<message key="editor.review.revertDecision">Revertir la decisió</message>
+	<message key="editor.review.reviewDue">Revisió prevista: {$date}</message>
+	<message key="editor.submission.copyedit.manageCopyeditFilesDescription">Els arxius que ja s'hagin carregat a alguna fase de la tramesa es poden afegir al llistat d'arxius per corregir marcant la casella "Incloure" següent i fent clic a "Cercar": d'aquesta manera tots els arxius disponibles es llistaran i es podran triar per incloure'ls. Els arxius addicionals que encara no s'hagin carregat en cap fase es poden afegir al llistat fent clic en l'opció "Carregar arxiu".</message>
+	<message key="editor.article.confirmChangeReviewForm">Atenció: canviar el formulari de revisió afectarà totes les respostes que els revisors/es hagin fet utilitzant aquest formulari. Segur que voleu continuar?</message>
+	<message key="submission.queries.subjectRequired">Es necessita un tema de discussió.</message>
+	<message key="submission.queries.messageRequired">Es necessita un missatge de discussió.</message>
+	<message key="editor.submission.query.manageQueryNoteFilesDescription">Es poden adjuntar arxius per incloure'ls en aquesta discussió des de la llista següent.</message>
+	<message key="editor.submission.proofreading.revokeProofApproval">Anul·lar l'acceptació de la prova</message>
+	<message key="editor.submission.proofreading.confirmCompletion">Accepta aquesta prova per indicar que la correcció de proves s'ha completat i que l'arxiu està llest per publicar-se.</message>
+	<message key="editor.submission.proofreading.confirmRemoveCompletion">Anul·la l'acceptació d'aquesta prova per indicar que la correcció de proves ja no s'ha completat i que l'arxiu no està llest per publicar-se.</message>
+	<message key="editor.publicIdentificationNumericNotAllowed">L'identificador públic '{$publicIdentifier}' no pot ser un número.</message>
+	<message key="editor.publicIdentificationPatternNotAllowed">El patró {$pattern} no està permès per a l'identificador públic.</message>
 </locale>

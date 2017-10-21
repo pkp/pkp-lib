@@ -20,7 +20,7 @@
 	<message key="grid.action.manageAccess">Administra l'accés</message>
 	<message key="grid.action.sort">Ordena</message>
 	<message key="grid.action.addItem">Afegeix un element</message>
-	<message key="grid.action.addUser">Afegeix usuaris</message>
+	<message key="grid.action.addUser">Afegeix usuaris/àries</message>
 	<message key="grid.action.approveCopyedit">Aprova aquest fitxer corregit per enviar-lo a la propera fase</message>
 	<message key="grid.action.reload">Recarrega</message>
 	<message key="grid.action.delete">Suprimeix</message>
@@ -33,7 +33,7 @@
 	<message key="grid.action.editorialHistory">Historial d'editorial</message>
 	<message key="grid.action.remove">Suprimeix</message>
 	<message key="grid.action.edit">Edita</message>
-	<message key="grid.action.approve">Aprova</message>
+	<message key="grid.action.approve">Accepta</message>
 	<message key="grid.action.moreInformation">Més informació</message>
 	<message key="grid.action.restoreDefaults">Restaura els valors per defecte</message>
 	<message key="grid.action.restoreDefaults.confirm">Esteu segur/a que voleu restaurar els valors per defecte?</message>
@@ -259,4 +259,23 @@
 	<message key="grid.userGroup.removed">S'ha eliminat el rol {$userGroupName}.</message>
 	<message key="grid.userGroup.assignedStage">S'ha assignat el rol {$userGroupName} a la fase de {$stageName}.</message>
 	<message key="grid.userGroup.unassignedStage">El rol {$userGroupName} s'ha desassignat de la fase de {$stageName}.</message>
+	<message key="grid.remotelyHostedItem">Aquest element està allotjat remotament.</message>
+	<message key="grid.action.addNote">Afegeix nota</message>
+	<message key="grid.action.addQuery">Afegeix discussió</message>
+	<message key="grid.action.readQuery">Llegeix la discussió</message>
+	<message key="grid.action.deleteQuery">Elimina la discussió</message>
+	<message key="grid.action.updateQuery">Actualitza la discussió</message>
+	<message key="grid.action.disapprove">No accepta</message>
+	<message key="grid.action.setApproval">Ajustar acceptació</message>
+	<message key="grid.action.search">Cerca</message>
+	<message key="grid.action.activate">Activa</message>
+	<message key="grid.action.deactivate">Desactiva</message>
+	<message key="grid.action.copy">Copia</message>
+	<message key="grid.action.preview">Previsualització</message>
+	<message key="grid.action.install">Instal·la</message>
+	<message key="grid.action.moreItems">Carrega més</message>
+	<message key="grid.submission.itemTitle">Autor/a; Títol</message>
+	<message key="grid.action.unassignReviewer">Cancel·lar l'assignació d'aquest revisor/a</message>
+	<message key="grid.reviewFormElement.responseItems">Opcions de resposta</message>
+	<message key="grid.submission.active.selectOrphaned">Incloure trameses incompletes no enviades per un autor/a.</message>
 </locale>

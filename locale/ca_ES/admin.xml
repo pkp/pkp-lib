@@ -145,4 +145,7 @@ Aquesta eina només copiarà els fitxers que no es trobin al fitxer d'estats d'�
 	<message key="admin.scheduledTask.clearLogs">Neteja els registres d'execució de tasques programats</message>
 	<message key="admin.error.utilExecutionProblem">L'execució del programa "{$utilPath}" ha produït el següent error: {$output}</message>
 	<message key="admin.error.executingUtil">Error: no es pot executar "{$utilPath}". Comprovi la configuració de {$utilVar} a config.inc.php.</message>
+	<message key="admin.contexts.confirmDelete">Segur que voleu eliminar permanentment {$contextName} i tots els seus continguts?</message>
+	<message key="admin.settings.siteLogo">Logotip del lloc</message>
+	<message key="admin.languages.noLocalesToDownload">No hi ha configuracions regionals disponibles per descarregar.</message>
 </locale>

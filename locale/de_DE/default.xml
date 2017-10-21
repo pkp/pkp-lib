@@ -30,9 +30,6 @@
 	<message key="default.groups.name.internalReviewer">Interne/r Gutachter/in</message>
 	<message key="default.groups.plural.internalReviewer">Interne Gutachter/innen</message>
 	<message key="default.groups.abbrev.internalReviewer">IR</message>
-	<message key="default.groups.name.externalReviewer">Externe/r Gutachter/in</message>
-	<message key="default.groups.plural.externalReviewer">Externe Gutachter/innen</message>
-	<message key="default.groups.abbrev.externalReviewer">ER</message>
 	<message key="default.groups.name.marketing">Marketing- und Vertriebkoordinator/in</message>
 	<message key="default.groups.plural.marketing">Marketing- und Vertriebkoordinator/innen</message>
 	<message key="default.groups.abbrev.marketing">MS</message>

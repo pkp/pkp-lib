@@ -4,7 +4,7 @@
 <!--
   * locale/de_DE/common.xml
   *
-  * Copyright (c) 2013-2017 Simon Fraser University
+  * Copyright (c) 2014-2017 Simon Fraser University
   * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization strings for the de_DE (Deutsch (Deutschland)) locale.
@@ -121,6 +121,7 @@
 	<message key="common.default">Standard</message>
 	<message key="common.declined">Abgelehnt</message>
 	<message key="common.delete">Löschen</message>
+	<message key="common.deleting">Lösche</message>
 	<message key="common.deleteSelection">Auswahl löschen</message>
 	<message key="common.designation">Bezeichnung</message>
 	<message key="common.description">Beschreibung</message>
@@ -151,6 +152,8 @@
 	<message key="common.fileSize">Dateigröße</message>
 	<message key="common.fileType">Dateityp</message>
 	<message key="common.fileUploaderError">Der Dateiuploader des Systems wird gestartet. Wenn er nicht erschient, liegt dies vermutlich daran, dass seine Laufzeiten nicht von diesem Browser unterstützt werden. Bitte kontaktieren Sie die Administrator/innen.</message>
+	<message key="common.from">Von</message>
+	<message key="common.until">Bis</message>
 	<message key="common.go">Los</message>
 	<message key="common.height">Höhe</message>
 	<message key="common.homepageNavigationLabel">Home</message>
@@ -229,6 +232,7 @@
 	<message key="common.saveAndContinue">Speichern und fortfahren</message>
 	<message key="common.saveAndEmail">Speichern und versenden</message>
 	<message key="common.save">Speichern</message>
+	<message key="common.saving">Speichere</message>
 	<message key="common.search">Suchen</message>
 	<message key="common.searchQuery">Suchanfrage</message>
 	<message key="common.second">Sekunde(n)</message>
@@ -357,9 +361,7 @@
 	<message key="informationCenter.editorialHistory">Redaktionsverlauf</message>
 	<message key="informationCenter.addNote">Notiz hinzufügen</message>
 	<message key="informationCenter.noNotes">Es gibt keine anzuzeigenden Anmerkungen.</message>
-	<message key="informationCenter.currentNotes">Aktuelle Anmerkungen</message>
 	<message key="informationCenter.pastNotes">Frühere Anmerkungen</message>
-	<message key="informationCenter.lastUpdated">Zuletzt aktualisiert</message>
 	<message key="informationCenter.deleteConfirm">Sind Sie sicher, dass Sie diese Anmerkung löschen wollen?</message>
 	<message key="informationCenter.currentHistory">Aktuelle Version</message>
 	<message key="informationCenter.pastHistory">Frühere Versionen</message>
@@ -372,12 +374,15 @@
 	<message key="stageParticipants.notify.chooseMessage">Bitte wählen Sie eine vordefinierte Nachricht aus oder füllen Sie das Formular unten aus.</message>
 	<message key="stageParticipants.notify.message">Nachricht</message>
 	<message key="stageParticipants.notify.warning">Bitte stellen Sie sicher, dass Sie das Nachrichtenfeld ausgefüllt und mindestens eine/n Empfänger/in ausgewählt haben.</message>
+	<message key="stageParticipants.options">Zuteilungsrechte</message>
+	<message key="stageParticipants.recommendOnly">Diese Person kann nur eine redaktionelle Entscheidung empfehlen und benötigt eine/n autorisierte/n Redakteur/in, um die redaktionelle Entscheidung festzulegen.</message>
 
 	<message key="locale.primary">Primäre Regionaleinstellung</message>
 	<message key="locale.supported">Unterstützte Regionaleinstellungen</message>
 	<message key="navigation.access"><![CDATA[Benutzer/innen &amp; Rollen]]></message>
 	<message key="navigation.about">Über uns</message>
 	<message key="navigation.admin">Leitung</message>
+	<message key="navigation.archives">Archiv</message>
 	<message key="navigation.breadcrumbLabel">Sie sind hier:</message>
 	<message key="navigation.breadcrumbSeparator">/</message>
 	<message key="navigation.tools">Werkzeuge</message>
@@ -418,6 +423,7 @@
 	<message key="notification.removedAuditor">Prüfer/in entfernt.</message>
 	<message key="notification.addedQuery">Diskussion hinzugefügt</message>
 	<message key="notification.reviewAcknowledged">Begutachtung als bestätigt markiert. E-Mail nicht gesendet.</message>
+	<message key="notification.reviewerThankedEmail">Dankes-E-Mail an Gutachter/in geschickt.</message>
 	<message key="notification.updatedReviewFiles">Begutachtungsdateien hochgeladen.</message>
 	<message key="notification.allow">Diese Arten von Benachrichtigungen dürfen in meinem Benachrichtigungs-Feed erscheinen.</message>
 	<message key="notification.addedAnnouncementType">Mitteilungstyp hinzugefügt.</message>
@@ -460,7 +466,8 @@
 	<message key="notification.unsubscribeError">Beim Versuch, Sie auzutragen, ist ein Fehler aufgetreten. Bitte stellen Sie sicher, dass Sie die richtige URL wie in Ihrer Benachrichtigungs-E-Mail angegeben benutzen.</message>
 	<message key="notification.unsubscribeSuccess">Sie wurden erfolgreich ausgetragen.</message>
 	<message key="notification.savedSubmissionMetadata">Metadaten gespeichert.</message>
-	<message key="search.author">Autor/in</message>
+	<message key="notification.sendNotificationConfirmation">Benachrichtigungs-E-Mail an alle angemeldeten Nutzer/innen schicken.</message>
+	<message key="search.author">Nach Autor/in</message>
 	<message key="search.abstract">Abstract</message>
 	<message key="search.advancedFilters">Erweiterte Filter</message>
 	<message key="search.advancedSearchMore">Zusätzliche Suchoptionen (klicken zum Einblenden)</message>
@@ -520,6 +527,7 @@
 	<message key="navigation.goBack">Zurück</message>
 
 	<message key="notification.addedReviewer">Gutachter/in hinzugefügt.</message>
+	<message key="notification.addedReviewerNoEmail">{$reviewerName} war nicht zur Begutachtung dieses Beitrags vorgesehen und hat keine E-Mail-Benachrichtigung erhalten.</message>
 	<message key="notification.removedReviewer">Gutachter/in entfernt.</message>
 	<message key="notification.addedStageParticipant">Benutzer/in als Teilnehmer/in dieser Phase hinzugefügt.</message>
 	<message key="notification.type.newAnnouncement">Neue Ankündigung.</message>
@@ -535,7 +543,6 @@
 	<message key="user.authorization.submissionFile">Der/die aktuelle Nutzer/in ist nicht berechtigt, auf die angegebene eingereichte Datei zuzugreifen.</message>
 	<message key="user.authorization.invalidSubmission">Ungültige Einreichung.</message>
 	<message key="user.authorization.invalidRepresentation">Ungültige Repräsentation</message>
-	<message key="navigation.archives">Archiv</message>
 	<message key="user.authorization.authorRoleMissing">Sie verfügen nicht über ausreichende Rechte, um die Einreichung anzusehen. Bitte überarbeiten Sie Ihr Profil, um zu gewährleisten, dass Sie für die entsprechenden Rollen registriert sind.</message>
 	<message key="user.authorization.submissionAuthor">Der/die aktuelle Nutzer/in ist nicht Autor/in der entsprechenden Einreichung. Bitte stellen Sie sicher, dass Sie mit dem richtigen Benutzer/innenkonto angemeldet sind.</message>
 	<message key="notification.type.queryActivity">Gesprächsaktivität.</message>
@@ -545,4 +552,12 @@
 	<message key="notification.type.roundStatusTitle">Durchgang {$round} Status</message>
 
 	<message key="semicolon">{$label}:</message>
+
+	<!-- Navigation Menus -->
+	<message key="notification.editedNavigationMenuItem">Navigation menu item was succesfully updated</message>
+	<message key="notification.removedNavigationMenuItem">Navigation menu item was succesfully removed</message>
+	<message key="notification.addedNavigationMenuItem">Navigation menu item was succesfully added</message>
+	<message key="notification.addedNavigationMenu">Navigation menu was succesfully added</message>
+	<message key="notification.editedNavigationMenu">Navigation menu was succesfully updated</message>
+	<message key="notification.removedNavigationMenu">Navigation menu was succesfully removed</message>
 </locale>

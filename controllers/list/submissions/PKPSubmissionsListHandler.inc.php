@@ -162,7 +162,7 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 		// Provide required constants
 		import('lib.pkp.classes.submission.reviewRound.ReviewRound');
 		import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignment');
-		import('lib.pkp.classes.services.PKPSubmissionService.php'); // STAGE_STATUS_SUBMISSION_UNASSIGNED
+		import('lib.pkp.classes.services.PKPSubmissionService'); // STAGE_STATUS_SUBMISSION_UNASSIGNED
 		$config['_constants'] = array(
 			'WORKFLOW_STAGE_ID_SUBMISSION' => WORKFLOW_STAGE_ID_SUBMISSION,
 			'WORKFLOW_STAGE_ID_INTERNAL_REVIEW' => WORKFLOW_STAGE_ID_INTERNAL_REVIEW,

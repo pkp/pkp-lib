@@ -147,8 +147,11 @@ class PKPNavigationMenuService {
 					break;
 				case NMI_TYPE_USER_DASHBOARD:
 					$templateMgr->assign('navigationMenuItem', $navigationMenuItem);
-					$displayTitle = $templateMgr->fetch('frontend/components/navigationMenus/dashboardMenuItem.tpl');
-					$navigationMenuItem->setTitle($displayTitle, \AppLocale::getLocale());
+					if ($currentUser->hasRole(array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR), $contextId) || $currentUser->hasRole(array(ROLE_ID_SITE_ADMIN), CONTEXT_SITE)) {
+						$displayTitle = $templateMgr->fetch('frontend/components/navigationMenus/dashboardMenuItem.tpl');
+						$navigationMenuItem->setTitle($displayTitle, \AppLocale::getLocale());
+					}
+
 					break;
 			}
 
@@ -235,7 +238,7 @@ class PKPNavigationMenuService {
 					));
 					break;
 				case NMI_TYPE_USER_DASHBOARD:
-					if ($currentUser->hasRole(array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR, ROLE_ID_SITE_ADMIN), $contextId)) {
+					if ($currentUser->hasRole(array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR), $contextId) || $currentUser->hasRole(array(ROLE_ID_SITE_ADMIN), CONTEXT_SITE)) {
 						$navigationMenuItem->setUrl($dispatcher->url(
 							$request,
 							ROUTE_PAGE,

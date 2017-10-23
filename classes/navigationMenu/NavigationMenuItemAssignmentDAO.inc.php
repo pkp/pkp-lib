@@ -163,6 +163,10 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	 * @return boolean
 	 */
 	function updateObject($navigationMenuItemAssignment) {
+		$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
+		$cache = $navigationMenuDao->_getCache($navigationMenuItemAssignment->getMenuId());
+		if ($cache) $cache->flush();
+
 		$returner = $this->update(
 				'UPDATE navigation_menu_item_assignments
 				SET
@@ -189,6 +193,10 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	 * @return int
 	 */
 	public function insertObject($assignment) {
+		$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
+		$cache = $navigationMenuDao->_getCache($assignment->getMenuId());
+		if ($cache) $cache->flush();
+
 		$this->update(
 				'INSERT INTO navigation_menu_item_assignments
 				(navigation_menu_id, navigation_menu_item_id, parent_id, seq)
@@ -247,6 +255,10 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteObject($navigationMenuItemAssignment) {
+		$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
+		$cache = $navigationMenuDao->_getCache($navigationMenuItemAssignment->getMenuId());
+		if ($cache) $cache->flush();
+
 		return $this->deleteById($navigationMenuItemAssignment->getId());
 	}
 

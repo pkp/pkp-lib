@@ -515,9 +515,6 @@ case "MN":
       break;
   } 
   break;
-case "MO":
-    $timezone = "Asia/Macau";
-    break;
 case "LK":
     $timezone = "Asia/Colombo";
     break;
@@ -2220,39 +2217,6 @@ case "UZ":
       break;
   } 
   break;
-case "SH":
-    $timezone = "Atlantic/St_Helena";
-    break;
-case "CC":
-    $timezone = "Indian/Cocos";
-    break;
-case "TF":
-    $timezone = "Indian/Kerguelen";
-    break;
-case "SJ":
-    $timezone = "Arctic/Longyearbyen";
-    break;
-case "GS":
-    $timezone = "Atlantic/South_Georgia";
-    break;
-case "CX":
-    $timezone = "Indian/Christmas";
-    break;
-case "PN":
-    $timezone = "Pacific/Pitcairn";
-    break;
-case "MF":
-    $timezone = "America/Marigot";
-    break;
-case "BL":
-    $timezone = "America/St_Barthelemy";
-    break;
-case "EH":
-    $timezone = "Africa/El_Aaiun";
-    break;
-case "TL":
-    $timezone = "Asia/Dili";
-    break;
 case "PF":
     $timezone = "Pacific/Marquesas";
     break;

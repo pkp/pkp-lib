@@ -288,7 +288,7 @@ class PKPNavigationMenuService {
 			}
 		}
 
-		\HookRegistry::call('NavigationMenus::displaySettings', array($navigationMenuItem));
+		\HookRegistry::call('NavigationMenus::displaySettings', array($navigationMenuItem, $navigationMenu));
 
 		$templateMgr->assign('navigationMenuItem', $navigationMenuItem);
 	}

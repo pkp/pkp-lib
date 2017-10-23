@@ -70,7 +70,7 @@ abstract class PKPBaseEntityPropertyService implements EntityPropertyInterface {
 
 		$baseUrl = $request->getBaseUrl();
 		if (!$request->isRestfulUrlsEnabled()) {
-			$baseUrl += '/index.php';
+			$baseUrl .= '/index.php';
 		}
 
 		if ($request->isPathInfoEnabled()) {

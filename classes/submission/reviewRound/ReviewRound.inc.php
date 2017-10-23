@@ -125,6 +125,7 @@ class ReviewRound extends DataObject {
 	 * @return int
 	 */
 	public function determineStatus() {
+		import('lib.pkp.classes.submission.SubmissionFile'); // Submission file constants
 
 		// Check if revisions requested or received, if this is latest review round and then check files
 		$roundStatus = $this->getStatus();

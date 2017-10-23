@@ -183,6 +183,9 @@ class NavigationMenuDAO extends DAO {
 	 * @return boolean
 	 */
 	function updateObject($navigationMenu) {
+		$cache = $this->_getCache($navigationMenu->getId());
+		if ($cache) $cache->flush();
+
 		$returner = $this->update(
 			'UPDATE	navigation_menus
 			SET	title = ?,
@@ -214,6 +217,9 @@ class NavigationMenuDAO extends DAO {
 	 * @param $navigationMenuId int
 	 */
 	function deleteById($navigationMenuId) {
+		$cache = $this->_getCache($navigationMenuId);
+		if ($cache) $cache->flush();
+
 		$this->update('DELETE FROM navigation_menus WHERE navigation_menu_id = ?', (int) $navigationMenuId);
 
 		$navigationMenuItemAssignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
@@ -302,6 +308,39 @@ class NavigationMenuDAO extends DAO {
 		}
 
 		return true;
+	}
+
+	/**
+	 * Get the settings cache for a given ID
+	 * @param $id
+	 * @return array|null (Null indicates caching disabled)
+	 */
+	function _getCache($id) {
+		static $navigationMenuCache;
+		if (!isset($navigationMenuCache)) {
+			$navigationMenuCache = array();
+		}
+		if (!isset($navigationMenuCache[$id])) {
+			$cacheManager = \CacheManager::getManager();
+			$navigationMenuCache[$id] = $cacheManager->getCache(
+				'navigationMenu', $id,
+				array($this, '_cacheMiss')
+			);
+		}
+		return $navigationMenuCache[$id];
+	}
+
+	/**
+	 * Callback for a cache miss.
+	 * @param $cache Cache
+	 * @param $id string
+	 * @return mixed
+	 */
+	function _cacheMiss($cache, $id) {
+		$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
+		$navigationMenu = $navigationMenuDao->GetById($cache->getCacheId());
+		$treeMenu = $this->getMenuTree($navigationMenu);
+		return $treeMenu;
 	}
 }
 

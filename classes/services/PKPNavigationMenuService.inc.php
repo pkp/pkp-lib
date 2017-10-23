@@ -14,6 +14,8 @@
  */
 
 namespace PKP\Services;
+import('lib.pkp.classes.navigationMenu.NavigationMenuItemAssignment');
+import('lib.pkp.classes.navigationMenu.NavigationMenuItem');
 
 class PKPNavigationMenuService {
 
@@ -312,16 +314,12 @@ class PKPNavigationMenuService {
 		$templateMgr->assign('navigationMenuItem', $navigationMenuItem);
 	}
 
-	/**
-	 * Get a tree of NavigationMenuItems assigned to this menu
-	 * @param $navigationMenu \NavigationMenu
-	 *
-	 * @return array Hierarchical array of menu items
-	 */
-	public function getMenuTree(&$navigationMenu) {
+	public function loadMenuTree(&$navigationMenu) {
 		$navigationMenuItemDao = \DAORegistry::getDAO('NavigationMenuItemDAO');
 		$items = $navigationMenuItemDao->getByMenuId($navigationMenu->getId())->toArray();
-
+		foreach($items as $item) {
+			$this->getDisplayStatus($item, $navigationMenu);
+		}
 
 		$navigationMenuItemAssignmentDao = \DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
 		$assignments = $navigationMenuItemAssignmentDao->getByMenuId($navigationMenu->getId())
@@ -359,9 +357,76 @@ class PKPNavigationMenuService {
 			}
 		}
 
-		foreach($items as $item) {
-			$this->getDisplayStatus($item, $navigationMenu);
+		$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
+		$cache = $navigationMenuDao->_getCache($navigationMenu->getId());
+		$json = json_encode($navigationMenu);
+		$cache->setEntireCache($json);
+	}
+
+
+
+	/**
+	 * Get a tree of NavigationMenuItems assigned to this menu
+	 * @param $navigationMenu \NavigationMenu
+	 *
+	 * @return array Hierarchical array of menu items
+	 */
+	public function getMenuTree(&$navigationMenu) {
+		$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
+		$cache = $navigationMenuDao->_getCache($navigationMenu->getId());
+		if ($cache->cache) {
+			$navigationMenu = json_decode($cache->cache, true);
+			$navigationMenu = $this->array_to_object('NavigationMenu', $navigationMenu);
+			return;
 		}
+		$this->loadMenuTree($navigationMenu);
+	}
+
+	/**
+	 * Helper function to transform the json_decoded cached NavigationMenu object (stdClass) to the actual NavigationMenu object
+	 * Some changes on the NavigationMenu objects must be reflected here
+	 * @param mixed $class
+	 * @param mixed $array
+	 * @return mixed
+	 */
+	function array_to_object($class, $array) {
+		if ($class == 'NavigationMenu') {
+			$obj = new \NavigationMenu();
+		} else if ($class == 'NavigationMenuItem') {
+			$obj = new \NavigationMenuItem();
+		} else if ($class == 'NavigationMenuItemAssignment') {
+			$obj = new \NavigationMenuItemAssignment();
+		}
+		foreach($array as $k => $v) {
+			if(strlen($k)) {
+				if(is_array($v) && $k == 'menuTree') {
+					$treeChildren = array();
+					foreach($v as $treeChild) {
+						array_push($treeChildren, $this->array_to_object('NavigationMenuItemAssignment', $treeChild));
+					}
+					$obj->{$k} = $treeChildren;
+				} else if(is_array($v) && $k == 'navigationMenuItem') {
+					$obj->{$k} = $this->array_to_object('NavigationMenuItem', $v); //RECURSION
+				} else if(is_array($v) && $k == 'children') {
+					$treeChildren = array();
+					foreach($v as $treeChild) {
+						array_push($treeChildren, $this->array_to_object('NavigationMenuItemAssignment', $treeChild));
+					}
+					$obj->{$k} = $treeChildren;
+				} else {
+					$obj->{$k} = $v;
+				}
+			}
+		}
+
+		// should call transformNavMenuItemTitle because some 
+		// request don't have all template variables in place
+		if ($class == 'NavigationMenuItem') {
+			$templateMgr = \TemplateManager::getManager(\Application::getRequest());
+			$this->transformNavMenuItemTitle($templateMgr, $obj);
+		}
+
+		return $obj;
 	}
 
 	/**

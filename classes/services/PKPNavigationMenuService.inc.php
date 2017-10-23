@@ -120,7 +120,7 @@ class PKPNavigationMenuService {
 				$navigationMenuItem->setIsDisplayed($context && ($context->getSetting('mailingAddress') || $context->getSetting('contactName')));
 				break;
 			case NMI_TYPE_USER_REGISTER:
-				$navigationMenuItem->setIsDisplayed(!$isUserLoggedIn && !$templateMgr->get_template_vars('disableUserReg'));
+				$navigationMenuItem->setIsDisplayed(!$isUserLoggedIn && !($context && $context->getSetting('disableUserReg')));
 				break;
 			case NMI_TYPE_USER_LOGIN:
 				$navigationMenuItem->setIsDisplayed(!$isUserLoggedIn);
@@ -130,7 +130,7 @@ class PKPNavigationMenuService {
 				$navigationMenuItem->setIsDisplayed($isUserLoggedIn);
 				break;
 			case NMI_TYPE_USER_DASHBOARD:
-				$navigationMenuItem->setIsDisplayed($isUserLoggedIn && $currentUser->hasRole(array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR), $contextId));
+				$navigationMenuItem->setIsDisplayed($isUserLoggedIn && $currentUser->hasRole(array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR, ROLE_ID_SITE_ADMIN), $contextId));
 				break;
 			case NMI_TYPE_ADMINISTRATION:
 				$navigationMenuItem->setIsDisplayed($isUserLoggedIn && ($currentUser->hasRole(array(ROLE_ID_SITE_ADMIN), $contextId) || $currentUser->hasRole(array(ROLE_ID_SITE_ADMIN), CONTEXT_SITE)));
@@ -350,7 +350,7 @@ class PKPNavigationMenuService {
 
 	/**
 	 * Populate the navigationMenuItem and the children properties of the NMIAssignment object
-	 * @param $nmiAssignment \NavigationMenuItemAssignment The NMIAssugnment object passed by reference
+	 * @param $nmiAssignment \NavigationMenuItemAssignment The NMIAssignment object passed by reference
 	 */
 	public function populateNMIAssignmentContainedObjects(&$nmiAssignment) {
 		// Set NMI

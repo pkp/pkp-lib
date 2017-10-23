@@ -350,9 +350,9 @@ class NavigationMenuItemDAO extends DAO {
 		// insert into Assignments
 		if ($navigationMenuId) {
 			$navigationMenuItemAssignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
-			$assinmentExists = $navigationMenuItemAssignmentDao->getByNMIIdAndMenuIdAndParentId($navigationMenuItemId, $navigationMenuId, $navigationMenuItemParentId);
+			$assignmentExists = $navigationMenuItemAssignmentDao->getByNMIIdAndMenuIdAndParentId($navigationMenuItemId, $navigationMenuId, $navigationMenuItemParentId);
 
-			if (!isset($assinmentExists)) {
+			if (!isset($assignmentExists)) {
 				$navigationMenuItemAssignment = $navigationMenuItemAssignmentDao->newDataObject();
 
 				$navigationMenuItemAssignment->setMenuItemId($navigationMenuItemId);

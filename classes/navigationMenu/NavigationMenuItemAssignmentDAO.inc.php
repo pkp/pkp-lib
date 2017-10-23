@@ -117,7 +117,7 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	}
 
 	/**
-	 * Retrieve items by navigationMenuItemId menu item id and ParentId
+	 * Retrieve items by navigationMenu id and ParentId
 	 * @param $menuId int
 	 * @param $parentId int 0 if we want to return NMIAssignments with no parents
 	 */

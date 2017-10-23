@@ -225,8 +225,17 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 			$q->where('rr.status', '!=', REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL);
 			$q->where('rr.status', '!=', REVIEW_ROUND_STATUS_ACCEPTED);
 			$q->where('rr.status', '!=', REVIEW_ROUND_STATUS_DECLINED);
-			$q->where('raod.date_due', '<', \Core::getCurrentDate(strtotime('tomorrow')));
-			$q->where('raod.date_response_due', '<', \Core::getCurrentDate(strtotime('tomorrow')));
+			$q->where(function ($q) {
+				$q->where('raod.declined', '<>', 1);
+				$q->where(function ($q) {
+					$q->where('raod.date_due', '<', \Core::getCurrentDate(strtotime('tomorrow')));
+					$q->whereNull('raod.date_completed');
+				});
+				$q->orWhere(function ($q) {
+					$q->where('raod.date_response_due', '<', \Core::getCurrentDate(strtotime('tomorrow')));
+					$q->whereNull('raod.date_confirmed');
+				});
+			});
 		}
 
 		// assigned to

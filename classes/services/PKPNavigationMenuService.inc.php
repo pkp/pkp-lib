@@ -127,10 +127,8 @@ class PKPNavigationMenuService {
 				break;
 			case NMI_TYPE_USER_LOGOUT:
 			case NMI_TYPE_USER_PROFILE:
-				$navigationMenuItem->setIsDisplayed($isUserLoggedIn);
-				break;
 			case NMI_TYPE_USER_DASHBOARD:
-				$navigationMenuItem->setIsDisplayed($isUserLoggedIn && $currentUser->hasRole(array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR, ROLE_ID_SITE_ADMIN), $contextId));
+				$navigationMenuItem->setIsDisplayed($isUserLoggedIn);
 				break;
 			case NMI_TYPE_ADMINISTRATION:
 				$navigationMenuItem->setIsDisplayed($isUserLoggedIn && ($currentUser->hasRole(array(ROLE_ID_SITE_ADMIN), $contextId) || $currentUser->hasRole(array(ROLE_ID_SITE_ADMIN), CONTEXT_SITE)));
@@ -151,13 +149,6 @@ class PKPNavigationMenuService {
 					$templateMgr->assign('navigationMenuItem', $navigationMenuItem);
 					$displayTitle = $templateMgr->fetch('frontend/components/navigationMenus/dashboardMenuItem.tpl');
 					$navigationMenuItem->setTitle($displayTitle, \AppLocale::getLocale());
-					break;
-				case NMI_TYPE_USER_PROFILE:
-					$templateMgr->assign('navigationMenuItem', $navigationMenuItem);
-					if ($this->_hasNMTreeNMIAssignmentWithChildOfNMIType($navigationMenu, $navigationMenuItem, NMI_TYPE_USER_DASHBOARD)) {
-						$displayTitle = $templateMgr->fetch('frontend/components/navigationMenus/dashboardMenuItem.tpl');
-						$navigationMenuItem->setTitle($displayTitle, \AppLocale::getLocale());
-					}
 					break;
 			}
 
@@ -244,14 +235,26 @@ class PKPNavigationMenuService {
 					));
 					break;
 				case NMI_TYPE_USER_DASHBOARD:
-					$navigationMenuItem->setUrl($dispatcher->url(
-						$request,
-						ROUTE_PAGE,
-						null,
-						'submissions',
-						null,
-						null
-					));
+					if ($currentUser->hasRole(array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR, ROLE_ID_SITE_ADMIN), $contextId)) {
+						$navigationMenuItem->setUrl($dispatcher->url(
+							$request,
+							ROUTE_PAGE,
+							null,
+							'submissions',
+							null,
+							null
+						));
+					} else {
+						$navigationMenuItem->setUrl($dispatcher->url(
+							$request,
+							ROUTE_PAGE,
+							null,
+							'user',
+							'profile',
+							null
+						));
+					}
+
 					break;
 				case NMI_TYPE_USER_REGISTER:
 					$navigationMenuItem->setUrl($dispatcher->url(

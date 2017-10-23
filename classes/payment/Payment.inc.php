@@ -112,7 +112,7 @@ class Payment {
 	 * @return int
 	 */
 	function getContextId() {
-		return $this->_contextId;
+		return $this->contextId;
 	}
 
 	/**
@@ -120,7 +120,7 @@ class Payment {
 	 * @param $contextId int
 	 */
 	function setContextId($contextId) {
-		$this->_contextId = $contextId;
+		$this->contextId = $contextId;
 	}
 
 	/**

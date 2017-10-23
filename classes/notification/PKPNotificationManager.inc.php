@@ -57,6 +57,14 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'announcement', 'view', array($notification->getAssocId()));
 			case NOTIFICATION_TYPE_CONFIGURE_PAYMENT_METHOD:
 				return __('notification.type.configurePaymentMethod');
+			case NOTIFICATION_TYPE_PAYMENT_REQUIRED:
+				$context = $contextDao->getById($notification->getContextId());
+				Application::getPaymentManager($context);
+				assert($notification->getAssocType() == ASSOC_TYPE_QUEUED_PAYMENT);
+				$queuedPaymentDao = DAORegistry::getDAO('QueuedPaymentDAO');
+				$queuedPayment = $queuedPaymentDao->getById($notification->getAssocId());
+				$context = $contextDao->getById($queuedPayment->getContextId());
+				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'payment', 'pay', array($queuedPayment->getId()));
 			default:
 				$delegateResult = $this->getByDelegate(
 					$notification->getType(),
@@ -143,6 +151,8 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				$isAuthor = $stageAssignments->getCount()>0;
 				$stageAssignments->close();
 				return __($reviewRound->getStatusKey($isAuthor));
+			case NOTIFICATION_TYPE_PAYMENT_REQUIRED:
+				return __('payment.type.publication.required');
 			default:
 				$delegateResult = $this->getByDelegate(
 					$notification->getType(),
@@ -290,6 +300,9 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 			case NOTIFICATION_TYPE_VISIT_CATALOG:
 			case NOTIFICATION_TYPE_CONFIGURE_PAYMENT_METHOD:
 				$isVisible = true;
+				break;
+			case NOTIFICATION_TYPE_PAYMENT_REQUIRED:
+				$isVisible = false;
 				break;
 			default:
 				$delegateResult = $this->getByDelegate(

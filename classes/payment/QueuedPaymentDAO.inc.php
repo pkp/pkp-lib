@@ -32,6 +32,7 @@ class QueuedPaymentDAO extends DAO {
 		$queuedPayment = null;
 		if ($result->RecordCount() != 0) {
 			$queuedPayment = unserialize($result->fields['payment_data']);
+			$queuedPayment->setId($result->fields['queued_payment_id']);
 		}
 		$result->Close();
 		return $queuedPayment;

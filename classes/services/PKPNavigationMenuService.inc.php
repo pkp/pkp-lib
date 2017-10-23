@@ -306,28 +306,48 @@ class PKPNavigationMenuService {
 	 * @return array Hierarchical array of menu items
 	 */
 	public function getMenuTree(&$navigationMenu) {
-		// Get all navigationMenu's NMIAssignments with no parent NMI
+		$navigationMenuItemDao = \DAORegistry::getDAO('NavigationMenuItemDAO');
+		$items = $navigationMenuItemDao->getByMenuId($navigationMenu->getId())->toArray();
+
+
 		$navigationMenuItemAssignmentDao = \DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
-		$assignments = $navigationMenuItemAssignmentDao->getByMenuIdAndParentId($navigationMenu->getId(), 0)
+		$assignments = $navigationMenuItemAssignmentDao->getByMenuId($navigationMenu->getId())
 				->toArray();
 
 		foreach ($assignments as $assignment) {
-			// For every NMIAssignment, populate its NMI and its children properties
-			$this->populateNMIAssignmentContainedObjects($assignment);
+			foreach($items as $item) {
+				if ($item->getId() === $assignment->getMenuItemId()) {
+					$assignment->setMenuItem($item);
+					break;
+				}
+			}
 		}
 
-		// The menuTree is populated
-		$navigationMenu->menuTree = $assignments;
-
-		// Display status of the NMIs of the menuTree
-		foreach ($navigationMenu->menuTree as $assignment) {
-			// Manage displayStatus of the children NMIAssignment's NMIs
-			foreach ($assignment->children as $assignmentChild) {
-				$this->getDisplayStatus($assignmentChild->getMenuItem(), $navigationMenu);
+		// Create an array of parent items and array of child items sorted by
+		// their parent id as the array key
+		$navigationMenu->menuTree = array();
+		$children = array();
+		foreach ($assignments as $assignment) {
+			if (!$assignment->getParentId()) {
+				$navigationMenu->menuTree[] = $assignment;
+			} else {
+				if (!isset($children[$assignment->getParentId()])) {
+					$children[$assignment->getParentId()] = array();
+				}
+				$children[$assignment->getParentId()][] = $assignment;
 			}
+		}
 
-			// Finally manage the display status of the parent NMIAssignment's NMI
-			$this->getDisplayStatus($assignment->getMenuItem(), $navigationMenu);
+		// Assign child items to parent in array
+		for ($i = 0; $i < count($navigationMenu->menuTree); $i++) {
+			$assignmentId = $navigationMenu->menuTree[$i]->getMenuItemId();
+			if (isset($children[$assignmentId])) {
+				$navigationMenu->menuTree[$i]->children = $children[$assignmentId];
+			}
+		}
+
+		foreach($items as $item) {
+			$this->getDisplayStatus($item, $navigationMenu);
 		}
 	}
 

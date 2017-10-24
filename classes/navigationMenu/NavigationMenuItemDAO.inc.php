@@ -197,14 +197,6 @@ class NavigationMenuItemDAO extends DAO {
 	 * @return boolean
 	 */
 	function updateObject($navigationMenuItem) {
-		$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
-		$navigationMenuItemAssignmentDao = \DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
-		$assignments = $navigationMenuItemAssignmentDao->getByMenuItemId($navigationMenuItem->getId())->toArray();
-		foreach ($assignments as $assignment) {
-			$cache = $navigationMenuDao->_getCache($assignment->getMenuId());
-			if ($cache) $cache->flush();
-		}
-
 		$returner = $this->update(
 				'UPDATE navigation_menu_items
 				SET
@@ -240,14 +232,6 @@ class NavigationMenuItemDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteById($navigationMenuItemId) {
-		$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
-		$navigationMenuItemAssignmentDao = \DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
-		$assignments = $navigationMenuItemAssignmentDao->getByMenuItemId($navigationMenuItemId)->toArray();
-		foreach ($assignments as $assignment) {
-			$cache = $navigationMenuDao->_getCache($assignment->getMenuId());
-			if ($cache) $cache->flush();
-		}
-
 		$this->update('DELETE FROM navigation_menu_item_settings WHERE navigation_menu_item_id = ?', (int) $navigationMenuItemId);
 		$this->update('DELETE FROM navigation_menu_items WHERE navigation_menu_item_id = ?', (int) $navigationMenuItemId);
 

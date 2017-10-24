@@ -290,9 +290,9 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 								$q->whereNull('ra.reviewer_id');
 							}
 							$q->where(function($q) use ($word) {
-								$q->where($disallowReviewers . 'au.first_name', 'LIKE', "%{$word}%");
-								$q->orWhere($disallowReviewers . 'au.middle_name', 'LIKE', "%{$word}%");
-								$q->orWhere($disallowReviewers . 'au.last_name', 'LIKE', "%{$word}%");
+								$q->where('au.first_name', 'LIKE', "%{$word}%");
+								$q->orWhere('au.middle_name', 'LIKE', "%{$word}%");
+								$q->orWhere('au.last_name', 'LIKE', "%{$word}%");
 							});
 						});
 						if (ctype_digit($word)) {

@@ -177,9 +177,13 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 				$notificationMgr = new NotificationManager();
 				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 				$stageAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR, null);
+				$userIds = array();
 				while ($stageAssignment = $stageAssignments->next()) {
-					$notificationMgr->createNotification($request, $stageAssignment->getUserId(), NOTIFICATION_TYPE_PAYMENT_REQUIRED,
-						$context->getId(), ASSOC_TYPE_QUEUED_PAYMENT, $queuedPayment->getId(), NOTIFICATION_LEVEL_TASK);
+					if (!in_array($stageAssignment->getUserId(), $userIds)) {
+						$notificationMgr->createNotification($request, $stageAssignment->getUserId(), NOTIFICATION_TYPE_PAYMENT_REQUIRED,
+							$context->getId(), ASSOC_TYPE_QUEUED_PAYMENT, $queuedPayment->getId(), NOTIFICATION_LEVEL_TASK);
+						$userIds[] = $stageAssignment->getUserId();
+					}
 				}
 			}
 		}

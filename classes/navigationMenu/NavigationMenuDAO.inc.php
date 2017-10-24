@@ -338,7 +338,7 @@ class NavigationMenuDAO extends DAO {
 	 */
 	function _cacheMiss($cache, $id) {
 		$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
-		$navigationMenu = $navigationMenuDao->GetById($cache->getCacheId());
+		$navigationMenu = $navigationMenuDao->getById($cache->getCacheId());
 		$treeMenu = $this->getMenuTree($navigationMenu);
 		return $treeMenu;
 	}

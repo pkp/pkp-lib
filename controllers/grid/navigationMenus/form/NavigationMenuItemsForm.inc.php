@@ -90,7 +90,9 @@ class NavigationMenuItemsForm extends Form {
 
 		$typeConditionalWarnings = array();
 		foreach ($types as $type => $settings) {
-			$typeConditionalWarnings[$type] = $settings['conditionalWarning'];
+			if (array_key_exists('conditionalWarning', $settings)) {
+				$typeConditionalWarnings[$type] = $settings['conditionalWarning'];
+			}
 		}
 
 		$templateMgr->assign(array(
@@ -166,6 +168,7 @@ class NavigationMenuItemsForm extends Form {
 	 * @copydoc Form::validate
 	 */
 	function validate() {
+		import('lib.pkp.classes.navigationMenu.NavigationMenuItem');
 		if ($this->getData('menuItemType') && $this->getData('menuItemType') != "") {
 			if ($this->getData('menuItemType') == NMI_TYPE_CUSTOM) {
 				if (!preg_match('/^[a-zA-Z0-9\/._-]+$/', $this->getData('path'))) {

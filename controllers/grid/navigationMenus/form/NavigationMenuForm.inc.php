@@ -96,7 +96,9 @@ class NavigationMenuForm extends Form {
 
 		$typeConditionalWarnings = array();
 		foreach ($navigationMenuItemTypes as $type => $settings) {
-			$typeConditionalWarnings[$type] = $settings['conditionalWarning'];
+			if (array_key_exists('conditionalWarning', $settings)) {
+				$typeConditionalWarnings[$type] = $settings['conditionalWarning'];
+			}
 		}
 
 		$templateMgr->assign(array(

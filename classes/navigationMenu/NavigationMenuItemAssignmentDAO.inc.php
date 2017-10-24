@@ -87,12 +87,12 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	}
 
 	/**
-	 * Retrieve items by menu item id and ParentId
+	 * Retrieve items by navigationMenuItemId menu item id and ParentId
 	 * @param $navigationMenuItemId int
 	 * @param $menuId int
 	 * @param $parentId int
 	 */
-	public function getByMenuIdAndParentId($navigationMenuItemId, $menuId, $parentId = null) {
+	public function getByNMIIdAndMenuIdAndParentId($navigationMenuItemId, $menuId, $parentId = null) {
 		$params = array(
 			(int) $menuId,
 			(int) $navigationMenuItemId
@@ -110,10 +110,32 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 
 		$returner = null;
 		if ($result->RecordCount() != 0) {
-				$returner = $this->_fromRow($result->GetRowAssoc(false));
+			$returner = $this->_fromRow($result->GetRowAssoc(false));
 		}
 		$result->Close();
 		return $returner;
+	}
+
+	/**
+	 * Retrieve items by navigationMenu id and ParentId
+	 * @param $menuId int
+	 * @param $parentId int 0 if we want to return NMIAssignments with no parents
+	 */
+	public function getByMenuIdAndParentId($menuId, $parentId) {
+		$params = array(
+			(int) $menuId,
+			(int) $parentId
+		);
+
+		$result = $this->retrieve(
+			'SELECT nmh.*
+				FROM navigation_menu_item_assignments as nmh
+				WHERE nmh.navigation_menu_id = ?
+				AND nmh.parent_id = ?',
+			$params
+		);
+
+		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
 	/**
@@ -141,6 +163,10 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	 * @return boolean
 	 */
 	function updateObject($navigationMenuItemAssignment) {
+		$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
+		$cache = $navigationMenuDao->_getCache($navigationMenuItemAssignment->getMenuId());
+		if ($cache) $cache->flush();
+
 		$returner = $this->update(
 				'UPDATE navigation_menu_item_assignments
 				SET
@@ -167,6 +193,10 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	 * @return int
 	 */
 	public function insertObject($assignment) {
+		$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
+		$cache = $navigationMenuDao->_getCache($assignment->getMenuId());
+		if ($cache) $cache->flush();
+
 		$this->update(
 				'INSERT INTO navigation_menu_item_assignments
 				(navigation_menu_id, navigation_menu_item_id, parent_id, seq)
@@ -225,6 +255,10 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteObject($navigationMenuItemAssignment) {
+		$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
+		$cache = $navigationMenuDao->_getCache($navigationMenuItemAssignment->getMenuId());
+		if ($cache) $cache->flush();
+
 		return $this->deleteById($navigationMenuItemAssignment->getId());
 	}
 

@@ -578,5 +578,6 @@
 	<message key="manager.navigationMenus.logOut.description">A link that will log the user out.</message>
 	<message key="manager.navigationMenus.loggedOut.conditionalWarning">This link will only be displayed when the visitor is logged in.</message>
 	<message key="manager.navigationMenus.loggedIn.conditionalWarning">This link will only be displayed when the visitor is not logged in.</message>
-
+	<message key="manager.navigationMenus.contact.description">Link to a page displaying the Contact information under Journal Settings > Contact</message>
+	<message key="manager.navigationMenus.contact.conditionalWarning">This link will only be displayed if you have filled out the Contact information under Journal Settings > Contact.</message>
 </locale>

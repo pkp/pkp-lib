@@ -1438,7 +1438,14 @@ class PKPTemplateManager extends Smarty {
 	 * @return string of HTML
 	 */
 	function smartyCSRF($params, $smarty) {
-		return '<input type="hidden" name="csrfToken" value="' . htmlspecialchars($this->_request->getSession()->getCSRFToken()) . '">';
+		$csrfToken = $this->_request->getSession()->getCSRFToken();
+		switch (isset($params['type'])?$params['type']:null) {
+			case 'raw': return $csrfToken;
+			case 'json': return json_encode($csrfToken);
+			case 'html':
+			default:
+				return '<input type="hidden" name="csrfToken" value="' . htmlspecialchars($csrfToken) . '">';
+		}
 	}
 
 	/**

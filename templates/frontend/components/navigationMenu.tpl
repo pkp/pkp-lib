@@ -24,17 +24,24 @@
 					{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
 				</a>
 				{if !empty($navigationMenuItemAssignment->children)}
-					<ul>
-						{foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
-							{if $childNavigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
-								<li class="{$liClass|escape}">
-									<a href="{$childNavigationMenuItemAssignment->navigationMenuItem->getUrl()}">
-										{$childNavigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
-									</a>
-								</li>
+					{assign var="atLeastOneDisplayableChild" value="0"}
+					{foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
+						{if $childNavigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
+							{if !$atLeastOneDisplayableChild}
+						        <ul>
 							{/if}
-						{/foreach}
-					</ul>
+							<li class="{$liClass|escape}">
+								<a href="{$childNavigationMenuItemAssignment->navigationMenuItem->getUrl()}">
+									{$childNavigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
+								</a>
+							</li>
+							
+							{assign var="atLeastOneDisplayableChild" value="1"}
+						{/if}
+					{/foreach}
+					{if $atLeastOneDisplayableChild}
+						</ul>
+					{/if}
 				{/if}
 			</li>
 		{/foreach}

@@ -298,7 +298,7 @@
 	<message key="manager.setup.principalContact">Primär kontakt</message>
 	<message key="manager.setup.principalContactDescription">Kontaktinformation till ex. primär redaktör, ansvarig redaktör eller administratör, som kan visas på din publika webbplats.</message>
 	<message key="manager.setup.privacyStatement">Sekretesspolicy</message>
-	<message key="manager.setup.privacyStatement.description">Policyn kommer att synas vid inskickande av bidrag och på den publika sidan Om.</message>
+	<message key="manager.setup.privacyStatement.description">Policyn kommer att synas vid insändning av bidrag och på den publika sidan Om.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Antal veckor tillåtna att acceptera eller avböja en granskningsförfrågan.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Antal veckor tillåtna för granskning</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Påminn aldrig</message>
@@ -312,7 +312,7 @@
 	<message key="manager.setup.sponsors.description">Exempel: vetenskapliga organisationer, universitetsinstitutioner, kooperativ etc. Sponsorer visas publikt.</message>
 	<message key="manager.setup.styleSheetDescription">Erfarna webbutvecklare kan ladda upp en CSS-fil för att ytterligare anpassa webbplatsens utseende.</message>
 	<message key="manager.setup.technicalSupportContact">Kontakt för teknisk support</message>
-	<message key="manager.setup.technicalSupportContactDescription">Kontaktperson som kan assistera redaktörer, författare och granskare vid eventuella problem med inskickande av bidrag, redaktionellt arbete, granskning eller publicering.</message>
+	<message key="manager.setup.technicalSupportContactDescription">Kontaktperson som kan assistera redaktörer, författare och granskare vid eventuella problem med insändning av bidrag, redaktionellt arbete, granskning eller publicering.</message>
 	<message key="manager.siteAccessOptions.siteAccessOptions">Alternativ för tillgång till webbplatsen</message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
 	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} nya)</message>
@@ -515,7 +515,7 @@
 
 	<message key="manager.setup.licenseURLDescription">URL till webbsida som beskriver licensen, om en sådan finns tillgänglig.</message>
 
-	<message key="manager.setup.metadata.submission">Formulär för inskickande av bidrag</message>
+	<message key="manager.setup.metadata.submission">Formulär för insändning av bidrag</message>
 	<!--  common importexport keys -->
 	<message key="plugins.importexport.common.validationErrors">Valideringsfel:</message>
 	<message key="plugins.importexport.common.warningsEncountered">Påträffade varningar:</message>

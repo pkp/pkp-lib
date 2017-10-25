@@ -28,7 +28,7 @@
 					{foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
 						{if $childNavigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
 							{if !$atLeastOneDisplayableChild}
-						        <ul>
+								<ul>
 							{/if}
 							<li class="{$liClass|escape}">
 								<a href="{$childNavigationMenuItemAssignment->navigationMenuItem->getUrl()}">

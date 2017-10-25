@@ -183,8 +183,6 @@ class NavigationMenuDAO extends DAO {
 	 * @return boolean
 	 */
 	function updateObject($navigationMenu) {
-		$this->unCache($navigationMenu->getId());
-
 		$returner = $this->update(
 			'UPDATE	navigation_menus
 			SET	title = ?,
@@ -198,6 +196,8 @@ class NavigationMenuDAO extends DAO {
 				(int) $navigationMenu->getId(),
 			)
 		);
+
+		$this->unCache($navigationMenu->getId());
 
 		return $returner;
 	}

@@ -188,6 +188,9 @@ class NavigationMenuItemDAO extends DAO {
 		);
 		$navigationMenuItem->setId($this->getInsertId());
 		$this->updateLocaleFields($navigationMenuItem);
+
+		$this->unCacheRelatedNavigationMenus($navigationMenuItem->getId());
+
 		return $navigationMenuItem->getId();
 	}
 
@@ -197,8 +200,6 @@ class NavigationMenuItemDAO extends DAO {
 	 * @return boolean
 	 */
 	function updateObject($navigationMenuItem) {
-		$this->unCacheRelatedNavigationMenus($navigationMenuItem->getId());
-
 		$returner = $this->update(
 				'UPDATE navigation_menu_items
 				SET
@@ -216,6 +217,9 @@ class NavigationMenuItemDAO extends DAO {
 			)
 		);
 		$this->updateLocaleFields($navigationMenuItem);
+
+		$this->unCacheRelatedNavigationMenus($navigationMenuItem->getId());
+
 		return $returner;
 	}
 

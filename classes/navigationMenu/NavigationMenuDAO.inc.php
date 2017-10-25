@@ -87,6 +87,23 @@ class NavigationMenuDAO extends DAO {
 	}
 
 	/**
+	 * Retrieve all navigation menus by navigation menu area.
+	 * @param $contextId int Context Id
+	 * @param $areaName string Template Area name
+	 * @return NavigationMenu
+	 */
+	function getAllByArea($contextId, $areaName) {
+		$params = array($areaName);
+		$params[] = (int) $contextId;
+		$result = $this->retrieve(
+			'SELECT * FROM navigation_menus WHERE area_name = ? and context_id = ?',
+			$params
+		);
+
+		return new DAOResultFactory($result, $this, '_fromRow');
+	}
+
+	/**
 	 * Retrieve a navigation menu by title
 	 * @param $contextId int Context Id
 	 * @param $title string

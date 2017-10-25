@@ -163,8 +163,6 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	 * @return boolean
 	 */
 	function updateObject($navigationMenuItemAssignment) {
-		$this->unCacheRelatedNavigationMenus($navigationMenuItemAssignment->getId());
-
 		$returner = $this->update(
 				'UPDATE navigation_menu_item_assignments
 				SET
@@ -182,6 +180,9 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 			)
 		);
 		$this->updateLocaleFields($navigationMenuItemAssignment);
+
+		$this->unCacheRelatedNavigationMenus($navigationMenuItemAssignment->getId());
+
 		return $returner;
 	}
 
@@ -191,8 +192,6 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	 * @return int
 	 */
 	public function insertObject($assignment) {
-		$this->unCacheRelatedNavigationMenus($assignment->getId());
-
 		$this->update(
 				'INSERT INTO navigation_menu_item_assignments
 				(navigation_menu_id, navigation_menu_item_id, parent_id, seq)
@@ -214,6 +213,9 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 
 		$assignment->setId($this->getInsertId());
 		$this->updateLocaleFields($assignment);
+
+		$this->unCacheRelatedNavigationMenus($assignment->getId());
+
 		return $assignment->getId();
 	}
 
@@ -251,8 +253,6 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteObject($navigationMenuItemAssignment) {
-		$this->unCacheRelatedNavigationMenus($navigationMenuItemAssignment->getId());
-
 		return $this->deleteById($navigationMenuItemAssignment->getId());
 	}
 
@@ -262,6 +262,8 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteById($navigationMenuItemAssignmentId) {
+		$this->unCacheRelatedNavigationMenus($navigationMenuItemAssignmentId);
+
 		$this->update('DELETE FROM navigation_menu_item_assignment_settings WHERE navigation_menu_item_assignment_id = ?', (int) $navigationMenuItemAssignmentId);
 		$this->update('DELETE FROM navigation_menu_item_assignments WHERE navigation_menu_item_assignment_id = ?', (int) $navigationMenuItemAssignmentId);
 	}

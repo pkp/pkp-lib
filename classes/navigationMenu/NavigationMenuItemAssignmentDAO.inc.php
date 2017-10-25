@@ -163,9 +163,7 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	 * @return boolean
 	 */
 	function updateObject($navigationMenuItemAssignment) {
-		$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
-		$cache = $navigationMenuDao->_getCache($navigationMenuItemAssignment->getMenuId());
-		if ($cache) $cache->flush();
+		$this->unCacheRelatedNavigationMenus($navigationMenuItemAssignment->getId());
 
 		$returner = $this->update(
 				'UPDATE navigation_menu_item_assignments
@@ -193,9 +191,7 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	 * @return int
 	 */
 	public function insertObject($assignment) {
-		$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
-		$cache = $navigationMenuDao->_getCache($assignment->getMenuId());
-		if ($cache) $cache->flush();
+		$this->unCacheRelatedNavigationMenus($assignment->getId());
 
 		$this->update(
 				'INSERT INTO navigation_menu_item_assignments
@@ -255,9 +251,7 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteObject($navigationMenuItemAssignment) {
-		$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
-		$cache = $navigationMenuDao->_getCache($navigationMenuItemAssignment->getMenuId());
-		if ($cache) $cache->flush();
+		$this->unCacheRelatedNavigationMenus($navigationMenuItemAssignment->getId());
 
 		return $this->deleteById($navigationMenuItemAssignment->getId());
 	}
@@ -296,6 +290,17 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 		$this->updateDataObjectSettings('navigation_menu_item_assignment_settings', $navigationMenuItemAssignment, array(
 			'navigation_menu_item_assignment_id' => $navigationMenuItemAssignment->getId()
 		));
+	}
+
+	/**
+	 * Uncache the related NMs to the NMIA with $id
+	 * @param mixed $id
+	 */
+	function unCacheRelatedNavigationMenus($id) {
+		$navigationMenuItemAssignment = $this->getById($id);
+		$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
+		$cache = $navigationMenuDao->getCache($navigationMenuItemAssignment->getMenuId());
+		if ($cache) $cache->flush();
 	}
 }
 

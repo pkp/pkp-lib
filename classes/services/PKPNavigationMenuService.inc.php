@@ -317,9 +317,6 @@ class PKPNavigationMenuService {
 	public function loadMenuTree(&$navigationMenu) {
 		$navigationMenuItemDao = \DAORegistry::getDAO('NavigationMenuItemDAO');
 		$items = $navigationMenuItemDao->getByMenuId($navigationMenu->getId())->toArray();
-		foreach($items as $item) {
-			$this->getDisplayStatus($item, $navigationMenu);
-		}
 
 		$navigationMenuItemAssignmentDao = \DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
 		$assignments = $navigationMenuItemAssignmentDao->getByMenuId($navigationMenu->getId())
@@ -358,7 +355,7 @@ class PKPNavigationMenuService {
 		}
 
 		$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
-		$cache = $navigationMenuDao->_getCache($navigationMenu->getId());
+		$cache = $navigationMenuDao->getCache($navigationMenu->getId());
 		$json = json_encode($navigationMenu);
 		$cache->setEntireCache($json);
 	}
@@ -373,13 +370,28 @@ class PKPNavigationMenuService {
 	 */
 	public function getMenuTree(&$navigationMenu) {
 		$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
-		$cache = $navigationMenuDao->_getCache($navigationMenu->getId());
+		$cache = $navigationMenuDao->getCache($navigationMenu->getId());
 		if ($cache->cache) {
 			$navigationMenu = json_decode($cache->cache, true);
 			$navigationMenu = $this->array_to_object('NavigationMenu', $navigationMenu);
+			$this->loadMenuTreeDisplayState($navigationMenu);
 			return;
 		}
 		$this->loadMenuTree($navigationMenu);
+		$this->loadMenuTreeDisplayState($navigationMenu);
+	}
+
+	private function loadMenuTreeDisplayState(&$navigationMenu) {
+		foreach ($navigationMenu->menuTree as $assignment) {
+			$nmi = $assignment->getMenuItem();
+			if ($assignment->children) {
+				foreach($assignment->children as $childAssignment) {
+					$childNmi = $childAssignment->getMenuItem();
+					$this->getDisplayStatus($childNmi, $navigationMenu);
+				}
+			}
+			$this->getDisplayStatus($nmi, $navigationMenu);
+		}
 	}
 
 	/**
@@ -419,7 +431,7 @@ class PKPNavigationMenuService {
 			}
 		}
 
-		// should call transformNavMenuItemTitle because some 
+		// should call transformNavMenuItemTitle because some
 		// request don't have all template variables in place
 		if ($class == 'NavigationMenuItem') {
 			$templateMgr = \TemplateManager::getManager(\Application::getRequest());

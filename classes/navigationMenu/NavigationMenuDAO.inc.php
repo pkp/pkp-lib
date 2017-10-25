@@ -183,8 +183,7 @@ class NavigationMenuDAO extends DAO {
 	 * @return boolean
 	 */
 	function updateObject($navigationMenu) {
-		$cache = $this->_getCache($navigationMenu->getId());
-		if ($cache) $cache->flush();
+		$this->unCache($navigationMenu->getId());
 
 		$returner = $this->update(
 			'UPDATE	navigation_menus
@@ -217,8 +216,7 @@ class NavigationMenuDAO extends DAO {
 	 * @param $navigationMenuId int
 	 */
 	function deleteById($navigationMenuId) {
-		$cache = $this->_getCache($navigationMenuId);
-		if ($cache) $cache->flush();
+		$this->unCache($navigationMenuId);
 
 		$this->update('DELETE FROM navigation_menus WHERE navigation_menu_id = ?', (int) $navigationMenuId);
 
@@ -311,11 +309,20 @@ class NavigationMenuDAO extends DAO {
 	}
 
 	/**
+	 * unCache the NM with id
+	 * @param int $id
+	 */
+	function unCache($id){
+		$cache = $this->getCache($id);
+		if ($cache) $cache->flush();
+	}
+
+	/**
 	 * Get the settings cache for a given ID
 	 * @param $id
 	 * @return array|null (Null indicates caching disabled)
 	 */
-	function _getCache($id) {
+	function getCache($id) {
 		static $navigationMenuCache;
 		if (!isset($navigationMenuCache)) {
 			$navigationMenuCache = array();
@@ -339,8 +346,12 @@ class NavigationMenuDAO extends DAO {
 	function _cacheMiss($cache, $id) {
 		$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
 		$navigationMenu = $navigationMenuDao->GetById($cache->getCacheId());
-		$treeMenu = $this->getMenuTree($navigationMenu);
-		return $treeMenu;
+		import('classes.core.ServicesContainer');
+		ServicesContainer::instance()
+			->get('navigationMenu')
+			->getMenuTree($navigationMenu);
+
+		return $navigationMenu;
 	}
 }
 

@@ -117,7 +117,6 @@
 	<message key="manager.languages.supportedLocalesInstructions">Wählen Sie alle Regionaleinstellungen aus, die von der Website unterstützt werden sollen und die über ein Sprachenmenü auf jeder Seite ausgewählt werden können. Dieses Menü erscheint nur dann, wenn mehr als eine Regionaleinstellung ausgewählt wird.</message>
 	<message key="manager.masthead.title">Impressum</message>
 	<message key="manager.payment.timestamp">Zeitpunkt</message>
-	<message key="manager.people.allEnrolledUsers">Im Verlag registrierte Benutzer/innen</message>
 	<message key="manager.people.authSource">Authentifizierungsquelle</message>
 	<message key="manager.people.confirmUnenroll">Diese/n Benutzer/in austragen?</message>
 	<message key="manager.people.createUser">Neue/n Benutzer/in erstellen</message>
@@ -579,4 +578,5 @@
 	<message key="manager.navigationMenus.loggedOut.conditionalWarning">Dieser Link wird nur angezeigt, falls die Besucherin/der Besucher eingeloggt ist.</message>
 	<message key="manager.navigationMenus.loggedIn.conditionalWarning">Dieser Link wird nur angezeigt, falls die Besucherin/der Besucher nicht eingeloggt ist.</message>
 
+	<message key="manager.people.existingUserRequired">Die Kennung eines bereits existierenden Benutzers muss eingetragen werden.</message>
 </locale>

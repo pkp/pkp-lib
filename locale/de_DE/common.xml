@@ -526,7 +526,7 @@
 	<message key="submission.task.responseDueDate">Antwort fällig am</message>
 	<message key="navigation.goBack">Zurück</message>
 
-	<message key="notification.addedReviewer">Gutachter/in hinzugefügt.</message>
+	<message key="notification.addedReviewer">Gutachter/in {$reviewerName} wurde mit der Begutachtung dieser Einreichung beauftragt und hat eine Benachrichtigung per E-Mail erhalten.</message>
 	<message key="notification.addedReviewerNoEmail">{$reviewerName} war nicht zur Begutachtung dieses Beitrags vorgesehen und hat keine E-Mail-Benachrichtigung erhalten.</message>
 	<message key="notification.removedReviewer">Gutachter/in entfernt.</message>
 	<message key="notification.addedStageParticipant">Benutzer/in als Teilnehmer/in dieser Phase hinzugefügt.</message>

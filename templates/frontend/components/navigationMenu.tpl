@@ -23,25 +23,18 @@
 				<a href="{$navigationMenuItemAssignment->navigationMenuItem->getUrl()}">
 					{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
 				</a>
-				{if !empty($navigationMenuItemAssignment->children)}
-					{assign var="atLeastOneDisplayableChild" value="0"}
+				{if $navigationMenuItemAssignment->navigationMenuItem->getIsChildVisible()}
+                    <ul>
 					{foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
 						{if $childNavigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
-							{if !$atLeastOneDisplayableChild}
-								<ul>
-							{/if}
 							<li class="{$liClass|escape}">
 								<a href="{$childNavigationMenuItemAssignment->navigationMenuItem->getUrl()}">
 									{$childNavigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
 								</a>
 							</li>
-							
-							{assign var="atLeastOneDisplayableChild" value="1"}
 						{/if}
 					{/foreach}
-					{if $atLeastOneDisplayableChild}
-						</ul>
-					{/if}
+					</ul>
 				{/if}
 			</li>
 		{/foreach}

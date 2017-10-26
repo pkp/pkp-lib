@@ -157,4 +157,5 @@
 	<message key="user.apiKeyEnabled">Разрешить внешним приложениям с ключом API доступ к этой учетной записи</message>
 	<message key="user.apiKey.generate">Сгенерировать новый ключ API</message>
 	<message key="user.apiKey.generateWarning">Генерирование нового ключа API сделает недействительным любой уже существующий ключ для этого пользователя.</message>
+	<message key="user.apiKey.secretRequired">До генерации ключа API администратор вашего сайта должен задать секретный код в файле конфигурации («api_key_secret»).</message>
 </locale>

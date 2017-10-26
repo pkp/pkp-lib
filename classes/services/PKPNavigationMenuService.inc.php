@@ -81,6 +81,11 @@ class PKPNavigationMenuService {
 				'description' => __('manager.navigationMenus.logOut.description'),
 				'conditionalWarning' => __('manager.navigationMenus.loggedOut.conditionalWarning'),
 			),
+			NMI_TYPE_CONTACT => array(
+				'title' => __('about.contact'),
+				'description' => __('manager.navigationMenus.contact.description'),
+				'conditionalWarning' => __('manager.navigationMenus.contact.conditionalWarning'),
+			),
 		);
 
 		\HookRegistry::call('NavigationMenus::itemTypes', array(&$types));

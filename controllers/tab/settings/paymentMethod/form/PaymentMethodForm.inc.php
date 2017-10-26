@@ -28,6 +28,7 @@ class PaymentMethodForm extends ContextSettingsForm {
 	 */
 	function __construct($wizardMode = false) {
 		$settings = array(
+			'paymentsEnabled' => 'bool',
 			'paymentPluginName' => 'string',
 			'currency' => 'string',
 		);

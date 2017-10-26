@@ -505,7 +505,7 @@
 	<message key="manager.navigationMenus.unassignedMenuItems">Unassigned Menu Items</message>
 	<message key="manager.navigationMenus.form.navigationMenuArea">Active Theme Navigation Areas</message>
 	<message key="manager.navigationMenus.form.navigationMenuAreaMessage">Select a navigation area</message>
-	<message key="manager.navigationMenus.form.lastOfArea">You can't unbind this navigation menu from its area. No area can be unbound from every existing navigation menus.</message>
+	<message key="manager.navigationMenus.form.lastOfArea">You can't bind a navigation menu to an area that is bound to another navigation menu.</message>
 
 	<message key="manager.navigationMenus.form.url">URL</message>
 	<message key="manager.navigationMenus.form.customUrlError">A URL must be provided</message>

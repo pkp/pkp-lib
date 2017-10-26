@@ -41,8 +41,10 @@
 	<input type="hidden" name="paymentPluginName" id="paymentPluginName" />
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="paymentMethodFormNotification"}
 	{include file="controllers/tab/settings/wizardMode.tpl" wizardMode=$wizardMode}
-
 		{fbvFormArea id="paymentMethod"}
+			{fbvFormSection title="manager.payment.generalOptions" list=true}
+				{fbvElement type="checkbox" name="paymentsEnabled" id="paymentsEnabled" checked=$paymentsEnabled label="manager.payment.options.enablePayments" value="1"}
+			{/fbvFormSection}
 			{fbvFormSection label="manager.paymentMethod.currency" description="manager.paymentMethod.currency.description"}
 				{fbvElement required="true" type="select" id="currency" from=$currencies selected=$currency translate=false}
 			{/fbvFormSection}

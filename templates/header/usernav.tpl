@@ -23,12 +23,12 @@
 
 <ul id="navigationContextMenu" class="pkp_nav_context pkp_nav_list" role="navigation" aria-label="{translate|escape key="common.navigation.siteContext"}">
 
-	<li {if $multipleContexts}class="submenuOpensBelow"{/if} aria-haspopup="true" aria-expanded="false">
+	<li {if $multipleContexts}class="submenuOpensBelow" aria-haspopup="true" aria-expanded="false"{/if} aria-haspopup="true" aria-expanded="false">
 		<span class="pkp_screen_reader">
 			{translate key="context.current"}
 		</span>
 
-		<a href="#" class="pkp_current_context">
+		<a href="{if $multipleContexts}#{else}{url router=$smarty.const.ROUTE_PAGE page="submissions"}{/if}" class="pkp_current_context">
 			{if $displayPageHeaderTitle && is_string($displayPageHeaderTitle)}
 				{$displayPageHeaderTitle}
 			{elseif $currentContextName}

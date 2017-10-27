@@ -106,7 +106,7 @@
 							</li>
 							{/if}
 							<li>
-								<a href="{url router=$smarty.const.ROUTE_PAGE context="index" page="admin" op="index"}">
+								<a href="{if $multipleContexts}{url router=$smarty.const.ROUTE_PAGE context="index" page="admin" op="index"}{else}{url router=$smarty.const.ROUTE_PAGE page="admin" op="index"}{/if}">
 									{translate key="navigation.admin"}
 								</a>
 							</li>

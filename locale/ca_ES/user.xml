@@ -106,6 +106,7 @@
 	<message key="user.register.registerAs">Registrar-se en {$contextName} com a...</message>
 	<message key="user.register">Registre</message>
 	<message key="user.register.usernameRestriction">El nom d’usuari només pot contenir lletres minúscules, nombres, guionets i ratlles baixes.</message>
+	<message key="user.role.assistant">Ajudant de producció</message>
 	<message key="user.role.author">Autor/a</message>
 	<message key="user.role.author_s">Autors/ores</message>
 	<message key="user.role.authors">Autors/ores</message>

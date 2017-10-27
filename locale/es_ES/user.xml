@@ -107,6 +107,7 @@
 	<message key="user.register.registerAs">Registrarse en {$contextName} como...</message>
 	<message key="user.register">Registrarse</message>
 	<message key="user.register.usernameRestriction">El nombre de usuario debe contener sólo letras en minúscula, números, y guiones/guiones bajos.</message>
+	<message key="user.role.assistant">Ayudante de producción</message>
 	<message key="user.role.author">Autor</message>
 	<message key="user.role.author_s">Autor/a(es/as)</message>
 	<message key="user.role.authors">Autores</message>

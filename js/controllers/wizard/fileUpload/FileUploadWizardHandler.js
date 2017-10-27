@@ -331,6 +331,7 @@
 			if (typeof file[i].storedData === 'undefined') {
 				return;
 			}
+			file[i].storedData.csrfToken = this.csrfToken_;
 			$.post(this.deleteUrl_, file[i].storedData);
 		}
 	};

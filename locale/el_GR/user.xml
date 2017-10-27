@@ -81,6 +81,7 @@
 	<message key="user.register.registerAs">Εγγραφείτε ως</message>
 	<message key="user.register">Εγγραφείτε</message>
 	<message key="user.register.usernameRestriction">Το όνομα χρήστη πρέπει να περιέχει μόνο μικρούς χαρακτήρες, αριθμούς και παύλες(-,_).</message>
+	<message key="user.role.assistant">Βοηθός Εκδόσεων</message>
 	<message key="user.role.reader">Αναγνώστης</message>
 	<message key="user.role.readers">Αναγνώστες</message>
 	<message key="user.role.reviewer">Αξιολογητής</message>

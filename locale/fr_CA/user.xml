@@ -88,6 +88,7 @@
 	<message key="user.register.registerAs">S'inscrire en tant que {$contextName}</message>
 	<message key="user.register">S'inscrire</message>
 	<message key="user.register.usernameRestriction">Le nom d'utilisateur ne doit contenir que des lettres minuscules, chiffres, et traits d'union/de soulignement.</message>
+	<message key="user.role.assistant">Adjoint/Adjointe de presse</message>
 	<message key="user.role.reader">Lecteur</message>
 	<message key="user.role.readers">Lecteurs</message>
 	<message key="user.role.reviewer">Évaluateur</message>

@@ -120,6 +120,7 @@
 	<message key="user.register">Cadastrar</message>
 	<message key="user.register.usernameRestriction">O login deve conter apenas letras minúsculas (a-z), números(0-9), sublinhados(_) e hífens(-).</message>
 	<message key="user.register.registrationCompleted"><![CDATA[Cadastro realizado com sucesso. <a href="{$profileUrl}">Clique aqui</a> para completar seu perfil.]]></message>
+	<message key="user.role.assistant">Assistente de Adição</message>
 	<message key="user.role.author">Autor</message>
 	<message key="user.role.author_s">Autor(es)</message>
 	<message key="user.role.authors">Autores</message>

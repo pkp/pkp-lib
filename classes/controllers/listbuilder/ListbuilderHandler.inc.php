@@ -49,8 +49,10 @@ class ListbuilderHandler extends GridHandler {
 	function initialize($request, $args = null) {
 		parent::initialize($request, $args);
 
-		import('lib.pkp.classes.linkAction.request.NullAction');
-		$this->addAction($this->getAddItemLinkAction(new NullAction()));
+		if ($this->canAddItems()) {
+			import('lib.pkp.classes.linkAction.request.NullAction');
+			$this->addAction($this->getAddItemLinkAction(new NullAction()));
+		}
 	}
 
 
@@ -213,7 +215,7 @@ class ListbuilderHandler extends GridHandler {
 				$optionsCount--;
 				$optionsCount = count($firstColumnOptions, COUNT_RECURSIVE) - $optionsCount;
 			}
-		
+
 			$listElements = $this->getGridDataElements($request);
 			if (count($listElements) < $optionsCount) {
 				$availableOptions = true;
@@ -221,7 +223,7 @@ class ListbuilderHandler extends GridHandler {
 		}
 
 		$templateMgr->assign('availableOptions', $availableOptions);
-	
+
 		return $this->fetchGrid($args, $request);
 	}
 
@@ -313,6 +315,16 @@ class ListbuilderHandler extends GridHandler {
 	function fetchOptions($args, $request) {
 		$options = $this->getOptions($request);
 		return new JSONMessage(true, $options);
+	}
+
+
+	/**
+	 * Can items be added to this list builder?
+	 *
+	 * @return boolean
+	 */
+	public function canAddItems() {
+		return true;
 	}
 
 	//

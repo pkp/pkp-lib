@@ -779,8 +779,7 @@ class PKPTemplateManager extends Smarty {
 		if (!$compile_id) $compile_id = $this->getCompileId($template);
 
 		// Give hooks an opportunity to override
-		$result = null;
-		if ($display == false && HookRegistry::call('TemplateManager::fetch', array($this, $template, $cache_id, $compile_id, &$result))) return $result;
+		HookRegistry::call('TemplateManager::fetch', array($this, &$template));
 
 		return parent::fetch($template, $cache_id, $compile_id, $display);
 	}

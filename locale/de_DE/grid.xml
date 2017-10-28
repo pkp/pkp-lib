@@ -225,14 +225,14 @@
 	<message key="grid.user.addRole">Rolle hinzufügen</message>
 	<message key="grid.user.selectUser">Benutzer/in auswählen</message>
 	<message key="grid.user.pleaseSelectUser">Bitte wählen Sie eine/n Benutzer/in aus.</message>
-	<message key="grid.user.confirmLogInAs">Log in as this user? All actions you perform will be attributed to this user.</message>
+	<message key="grid.user.confirmLogInAs">Einloggen als diesen Benutzer/dieser Benutzerin? Alle Aktionen, die Sie durchführen, werden diesem Benutzer/dieser Benutzerin zugeordnet.</message>
 	<message key="grid.user.mergeUsers">Benutzer/innen zusammenführen</message>
 	<message key="grid.user.mergeUsers.mergeUser">Benutzer/in zusammenführen</message>
-	<message key="grid.user.mergeUsers.mergeIntoUser">Merge into this User</message>
+	<message key="grid.user.mergeUsers.mergeIntoUser">Zu diesem Benutzer/dieser Benutzerin zusammenführen</message>
 	<message key="grid.user.mergeUsers.into.description">Wählen Sie jetzt ein Benutzer/innen-Konto, dem die Autor/innenschaft, die Aufgaben usw. der/des vorherigen Benutzer/in zugeschrieben werden sollen.</message>
 	<message key="grid.user.mergeUsers.from.description">Wählen Sie eine/n Benutzer/in aus, deren/dessen Daten in einem anderen Konto zusammengeführt werden sollen (wenn jemand z.B. zwei Konten hat). Das zuerst ausgewählte Konto wird gelöscht, seine Beiträge, Aufgaben usw. werden dem zweiten Konto zugeschrieben.</message>
 	<message key="grid.user.mergeUsers.allUsers">Alle eingetragenen Benutzer/innen</message>
-	<message key="grid.user.mergeUsers.mergeUserSelect.confirm">Are you sure you wish to merge this user with another one?  You will choose the next user on the following screen.</message>
+	<message key="grid.user.mergeUsers.mergeUserSelect.confirm">Sind Sie sicher, dass Sie diesen Benutzer/diese Benutzerin mit einem anderen/einer anderen zusammenführen möchten? Sie werden den nächsten Benutzer/in im nächsten Schritt wählen.</message>
 	<message key="grid.user.mergeUsers.confirm">Sind Sie sicher, dass Sie das Konto mit dem Benutzer/innen-Namen {$oldUsername} in dem Konto mit dem Benutzer/innen-Namen "{$newUsername}" aufgehen lassen wollen? Das Konto mit dem Benutzer/innen-Namen {$oldUsername} wird dann nicht mehr existieren. Der Vorgang kann nicht rückgängig gemacht werden.</message>
 	<message key="grid.user.mergeUsers.noneEnrolled">Es existiert kein/e Benutzer/in mit dieser Rolle.</message>
 

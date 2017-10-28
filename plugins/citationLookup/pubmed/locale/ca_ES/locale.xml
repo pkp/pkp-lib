@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * plugins/citationLookup/pubmed/locale/ca_ES/locale.xml
+  *
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2003-2017 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+
+<locale name="ca_ES" full_name="Català">
+	<message key="plugins.citationLookup.pubmed.displayName">Connector de la base de dades de PubMed</message>
+	<message key="plugins.citationLookup.pubmed.description">Connectar-se a la base de dades bibliogràfica de PubMed.</message>
+</locale>

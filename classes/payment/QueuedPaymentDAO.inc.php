@@ -32,6 +32,7 @@ class QueuedPaymentDAO extends DAO {
 		$queuedPayment = null;
 		if ($result->RecordCount() != 0) {
 			$queuedPayment = unserialize($result->fields['payment_data']);
+			$queuedPayment->setId($result->fields['queued_payment_id']);
 		}
 		$result->Close();
 		return $queuedPayment;
@@ -92,6 +93,8 @@ class QueuedPaymentDAO extends DAO {
 	 * @param $queuedPaymentId int
 	 */
 	function deleteById($queuedPaymentId) {
+		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao->deleteByAssoc(ASSOC_TYPE_QUEUED_PAYMENT, $queuedPaymentId);
 		return $this->update(
 			'DELETE FROM queued_payments WHERE queued_payment_id = ?',
 			array((int) $queuedPaymentId)

@@ -43,4 +43,5 @@
 	<message key="reviewer.aboutDueDates.text">Toimittaja pyytää, että hyväksyt arvioinnin tai kieltäydyt siitä ennen vastauksen määräpäivää ja suoritat arvioinnin arvioinnin määräpäivään mennessä.</message>
 	<message key="submission.comments.canShareWithAuthor">Kirjoittajalle ja toimittajalle</message>
 	<message key="submission.comments.cannotShareWithAuthor">Vain toimittajalle</message>
+	<message key="user.authorization.submissionReviewer">Nykyinen käyttäjä ei ole pyydetyn dokumentin arvioija.</message>
 </locale>

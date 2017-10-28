@@ -16,15 +16,15 @@
  */
 
 abstract class PaymentManager {
-	/** @var PKPRequest */
-	var $request;
+	/** @var Context */
+	var $_context;
 
 	/**
 	 * Constructor
-	 * @param $request PKPRequest
+	 * @param $context Context
 	 */
-	function __construct($request) {
-		$this->request = $request;
+	function __construct($context) {
+		$this->_context = $context;
 	}
 
 	/**
@@ -57,7 +57,7 @@ abstract class PaymentManager {
 	 */
 	function isConfigured() {
 		$paymentPlugin = $this->getPaymentPlugin();
-		if ($paymentPlugin !== null) return $paymentPlugin->isConfigured(PKPApplication::getRequest());
+		if ($paymentPlugin !== null) return $paymentPlugin->isConfigured($this->_context);
 		return false;
 	}
 
@@ -68,7 +68,7 @@ abstract class PaymentManager {
 	 */
 	function getPaymentForm($queuedPayment) {
 		$paymentPlugin = $this->getPaymentPlugin();
-		if ($paymentPlugin !== null && $paymentPlugin->isConfigured()) return $paymentPlugin->getPaymentForm($this->request->getContext(), $queuedPayment);
+		if ($paymentPlugin !== null && $paymentPlugin->isConfigured($this->_context)) return $paymentPlugin->getPaymentForm($this->_context, $queuedPayment);
 		return false;
 	}
 
@@ -78,7 +78,7 @@ abstract class PaymentManager {
 	 */
 	function displayConfigurationForm() {
 		$paymentPlugin = $this->getPaymentPlugin();
-		if ($paymentPlugin !== null && $paymentPlugin->isConfigured()) return $paymentPlugin->displayConfigurationForm();
+		if ($paymentPlugin !== null && $paymentPlugin->isConfigured($this->_context)) return $paymentPlugin->displayConfigurationForm();
 		return false;
 	}
 

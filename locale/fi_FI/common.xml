@@ -346,9 +346,7 @@
 	<message key="informationCenter.editorialHistory">Toimituksellinen historia</message>
 	<message key="informationCenter.addNote">Lisää muistiinpano</message>
 	<message key="informationCenter.noNotes">Ei näytettäviä muistiinpanoja.</message>
-	<message key="informationCenter.currentNotes">Tämänhetkiset korjauksiin liittyvät muistiinpanot</message>
 	<message key="informationCenter.pastNotes">Aiemmat korjauksiin liittyvät muistiinpanot</message>
-	<message key="informationCenter.lastUpdated">Päivitetty viimeksi</message>
 	<message key="informationCenter.deleteConfirm">Haluatko varmasti poistaa tämän muistiinpanon?</message>
 	<message key="informationCenter.currentHistory">Tämänhetkinen korjattu versio</message>
 	<message key="informationCenter.pastHistory">Aiemmat korjatut versiot</message>
@@ -501,7 +499,7 @@
 	<message key="submission.task.responseDueDate">Vastauksen määräpäivä</message>
 	<message key="navigation.goBack">Mene takaisin</message>
 
-	<message key="notification.addedReviewer">Arvioija lisätty.</message>
+	<message key="notification.addedReviewer">{$reviewerName} valittiin käsikirjoituksen arvioijaksi ja sähköposti-ilmoitus lähetettiin.</message>
 	<message key="notification.removedReviewer">Arvioija poistettu.</message>
 	<message key="notification.addedStageParticipant">Käyttäjä lisätty työvaiheeseen osallistujaksi.</message>
 	<message key="notification.type.newAnnouncement">Uusi ilmoitus.</message>
@@ -525,6 +523,24 @@
 	<message key="notification.type.assignCopyeditors">Valitse tekninen toimittaja Osallistujat-listan Lisää-linkkiä käyttäen.</message>
 	<message key="notification.type.awaitingCopyedits">Odottavat tekniset toimittamiset.</message>
 	<message key="notification.type.roundStatusTitle">Kierroksen {$round} tila</message>
-
+	<message key="navigation.skip.main">Siirry sisältöalueeseen</message>
+	<message key="navigation.skip.nav">Siirry navigaatioon</message>
+	<message key="navigation.skip.footer">Siirry alatunnisteeseen</message>
+	<message key="common.downloadPdf">Lataa PDF</message>
+	<message key="common.from">Alkaen</message>
+	<message key="common.until">Saakka</message>
+	<message key="common.saving">Tallentaa</message>
+	<message key="notification.reviewerThankedEmail">Kiitosviesti lähetetty arvioijalle.</message>
+	<message key="notification.sendNotificationConfirmation">Lähetä ilmoitus kaikille rekisteröityneille käyttäjille</message>
+	<message key="notification.addedReviewerNoEmail">{$reviewerName} valittiin käsikirjoituksen arvioijaksi, mutta sähköposti-ilmoitusta ei lähetetty.</message>
 	<message key="semicolon">{$label}:</message>
+	<message key="notification.editedNavigationMenuItem">Navigaatiovalikko päivitettiin onnistuneesti.</message>
+	<message key="notification.removedNavigationMenuItem">Navigaatiovalikon kohde poistettiin onnistuneesti.</message>
+	<message key="notification.addedNavigationMenuItem">Navigaatiovalikon kohde lisättiin onnistuneesti.</message>
+	<message key="notification.addedNavigationMenu">Navigaatiovalikko lisättiin onnistuneesti</message>
+	<message key="notification.editedNavigationMenu">Navigaatiovalikko päivitettiin onnistuneesti</message>
+	<message key="notification.removedNavigationMenu">Navigaatiovalikko poistettiin onnistuneesti</message>
+	<message key="stageParticipants.options">Oikeudet</message>
+	<message key="stageParticipants.recommendOnly">Tämä käyttäjä voi ainostaan suositella toimituksellista päätöstä ja vaatii toisen toimittajan päätöksen vahvistamiseen.</message>
+	<message key="common.deleting">Poistetaan</message>
 </locale>

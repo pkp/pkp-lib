@@ -44,4 +44,5 @@
 
 	<message key="submission.comments.canShareWithAuthor">Per a l'autor i l'editor</message>
 	<message key="submission.comments.cannotShareWithAuthor">Només per a l'editor</message>
+	<message key="user.authorization.submissionReviewer">L'usuari/ària actual no està assignat com a revisor/a per al document sol·licitat.</message>
 </locale>

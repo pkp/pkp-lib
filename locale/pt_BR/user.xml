@@ -107,6 +107,7 @@
 	<!-- Login -->
 	<message key="user.login.registerNewAccount">Não é um usuário? Registe-se no site</message>
 	<message key="user.login.resetPasswordInstructions"><![CDATA[Por razões de segurança, este sistema envia por e-mail uma nova senha ao usuário cadastrado, em vez de recordar a senha atual. <br/> <br/> Digite seu email abaixo para redefinir sua senha. Uma confirmação será enviada para este endereço de e-mail.]]></message>
+	<message key="user.login.rememberUsernameAndPassword">Mantenha-me conectado</message>
 
 	<message key="user.register.form.emailExists">O endereço de e-mail digitado já está cadastrado.</message>
 	<message key="user.register.form.passwordsDoNotMatch">As senhas não combinam.</message>
@@ -119,6 +120,7 @@
 	<message key="user.register">Cadastrar</message>
 	<message key="user.register.usernameRestriction">O login deve conter apenas letras minúsculas (a-z), números(0-9), sublinhados(_) e hífens(-).</message>
 	<message key="user.register.registrationCompleted"><![CDATA[Cadastro realizado com sucesso. <a href="{$profileUrl}">Clique aqui</a> para completar seu perfil.]]></message>
+	<message key="user.role.assistant">Assistente de Adição</message>
 	<message key="user.role.author">Autor</message>
 	<message key="user.role.author_s">Autor(es)</message>
 	<message key="user.role.authors">Autores</message>
@@ -152,5 +154,9 @@
 	<message key="user.profile.identity">Identificação</message>
 	<message key="user.profile.contact">Contato</message>
 	<message key="user.profile.public">Público</message>
-  <message key="user.login.rememberUsernameAndPassword">Mantenha-me conectado</message>
+	<message key="user.apiKey">Chave da API</message>
+	<message key="user.apiKeyEnabled">Permitir que aplicações externas com a chave da API tenham acesso a esta conta</message>
+	<message key="user.apiKey.generate">Gerar nova chave da API</message>
+	<message key="user.apiKey.generateWarning">Gerar uma nova chave da API irá invalidar qualquer chave já existente para este usuário.</message>
+	<message key="user.apiKey.secretRequired">Antes de gerar uma chave da API, você deve definir um código no arquivo de configuração ("api_key_secret")</message>
 </locale>

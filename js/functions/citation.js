@@ -274,13 +274,13 @@ function updateItem(actType, actOnId, content) {
 			break;
 
 		case 'nothing':
-			updatedItem = null
+			updatedItem = null;
 			break;
 
 		case 'redirect':
 			// redirect to the content
 			$(window.location).attr('href', content);
-			updatedItem = null
+			updatedItem = null;
 			break;
 	}
 

@@ -46,7 +46,7 @@
 	<message key="user.profile.form.profileImageInvalid">El format de la imatge del perfil no és vàlid o la imatge és massa gran. Els formats admesos són .gif, .jpg i .png. i la imatge no ha de superar els 150x150 píxels.</message>
 	<message key="user.login.accountDisabledWithReason">El vostre compte s'ha inhabilitat pel motiu següent: {$reason}</message>
 	<message key="user.login.accountDisabled">El vostre compte s'ha inhabilitat. Per obtenir més informació, poseu-vos en contacte amb l'administrador/a.</message>
-	<message key="user.login.accountNotValidated">La vostra adreça electrònica no s'ha validat. Comproveu el correu electrònic i seguiu les instruccions. Si no heu rebut cap missatge de correu electrònic, poseu-vos en contacte amb l'administrador/a del lloc web per obtenir ajuda.</message>
+	<message key="user.login.accountNotValidated">Li hem enviat un correu electrònic de confirmació a {$email}. Segueixi les instruccions d'aquest correu per activar el seu nou compte. Si no troba aquest correu electrònic, comprovi que no hagi anat a parar a la carpeta de correu brossa.</message>
 	<message key="user.login.activate">Activa el compte</message>
 	<message key="user.login.changePasswordInstructions"><![CDATA[Heu de triar una nova contrasenya abans d'iniciar sessió.<br /><br />Introduïu el vostre nom d'usuari i les vostres contrasenyes nova i antiga a continuació per canviar la contrasenya del vostre compte.]]></message>
 	<message key="user.login.forgotPassword">Heu oblidat la contrasenya?</message>
@@ -103,9 +103,10 @@
 	<message key="user.register.form.emailsDoNotMatch">Els camps de correu electrònic no coincideixen.</message>
 	<message key="user.register.form.usernameExists">Ja hi ha un altre usuari/usuària que utilitza el nom d’usuari seleccionat.</message>
 	<message key="user.register.passwordLengthRestriction">La contrasenya ha de tenir {$length} caràcters com a mínim.</message>
-	<message key="user.register.registerAs">Registra’m com a</message>
+	<message key="user.register.registerAs">Registrar-se en {$contextName} com a...</message>
 	<message key="user.register">Registre</message>
 	<message key="user.register.usernameRestriction">El nom d’usuari només pot contenir lletres minúscules, nombres, guionets i ratlles baixes.</message>
+	<message key="user.role.assistant">Ajudant de producció</message>
 	<message key="user.role.author">Autor/a</message>
 	<message key="user.role.author_s">Autors/ores</message>
 	<message key="user.role.authors">Autors/ores</message>
@@ -135,4 +136,23 @@
 	<message key="user.username">Nom d’usuari</message>
 	<message key="user.workingLanguages">Llengües de treball</message>
 	<message key="user.register.completeForm">Empleneu aquest formulari per registrar-vos en aquesta revista.</message>
+	<message key="user.authorization.accessibleWorkflowStage">Actualment no té accés a aquesta fase del flux de treball.</message>
+	<message key="user.authorization.workflowStageRequired">No s'ha especificat cap fase del flux de treball.</message>
+	<message key="user.authorization.pluginRequired">No s'ha especificat cap mòdul.</message>
+	<message key="user.login.registrationComplete">Registre complet</message>
+	<message key="user.login.registrationComplete.instructions">Gràcies per registrar-se! Què voleu fer ara?</message>
+	<message key="user.login.registrationComplete.manageSubmissions">Veure trameses</message>
+	<message key="user.login.registrationComplete.newSubmission">Fer una tramesa nova</message>
+	<message key="user.login.registrationComplete.continueBrowsing">Continuar navegant</message>
+	<message key="user.login.registrationPendingValidation">Registre pendent de verificació</message>
+	<message key="user.login.rememberUsernameAndPassword">Mantenir-me connectat</message>
+	<message key="user.register.form.userGroupRequired">S'ha de seleccionar un rol com a mínim.</message>
+	<message key="user.register.form.passwordLengthRestriction">La contrasenya ha de tenir almenys {$length} caràcters.</message>
+	<message key="user.orcid">ORCID iD</message>
+	<message key="user.profile.identity">Identitat</message>
+	<message key="user.profile.contact">Contacte</message>
+	<message key="user.profile.public">Públic</message>
+	<message key="user.register.form.usernameAlphaNumeric">El nom d'usuari/ària només pot contenir caràcters alfanumèrics en minúscula, guions i guions baixos, i ha de començar i acabar amb un caràcter alfanumèric.</message>
+	<message key="user.register.registrationCompleted"><![CDATA[S'ha registrat correctament. Faci <a href="{$profileUrl}">clic aquí</a> per completar el seu perfil d'usuari/ària.]]></message>
+	<message key="user.orcid.orcidInvalid">L'identificador ORCID especificat no es vàlid. Inclogui el URI complet (p. ex.: "http://orcid.org/0000-0002-1825-0097"), si us plau.</message>
 </locale>

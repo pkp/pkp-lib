@@ -35,6 +35,7 @@
 		this.parent($wizard, options);
 
 		// Save action urls.
+		this.csrfToken_ = options.csrfToken;
 		this.deleteUrl_ = options.deleteUrl;
 		this.metadataUrl_ = options.metadataUrl;
 		this.finishUrl_ = options.finishUrl;
@@ -54,6 +55,15 @@
 	//
 	// Private properties
 	//
+	/**
+	 * The CSRF token to use with a cancel event.
+	 * @private
+	 * @type {string}
+	 */
+	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
+			prototype.csrfToken_ = '';
+
+
 	/**
 	 * The URL to be called when a cancel event occurs.
 	 * @private
@@ -227,10 +237,10 @@
 	 */
 	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
 			prototype.wizardCancelRequested = function(wizardElement, event) {
-
 		if (this.parent('wizardCancelRequested', wizardElement, event)) {
 			// If the user presses cancel after uploading a file then delete the file.
 			if (this.uploadedFile_) {
+				this.uploadedFile_.csrfToken = this.csrfToken_;
 				$.post(this.deleteUrl_, this.uploadedFile_,
 						$.pkp.classes.Helper.curry(this.wizardCancelSuccess, this,
 								wizardElement, event), 'json');
@@ -321,6 +331,7 @@
 			if (typeof file[i].storedData === 'undefined') {
 				return;
 			}
+			file[i].storedData.csrfToken = this.csrfToken_;
 			$.post(this.deleteUrl_, file[i].storedData);
 		}
 	};

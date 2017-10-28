@@ -119,6 +119,7 @@
 	<message key="user.register">Register</message>
 	<message key="user.register.usernameRestriction">The username must contain only lowercase letters, numbers, and hyphens/underscores.</message>
 	<message key="user.register.registrationCompleted"><![CDATA[You have successfully registered. <a href="{$profileUrl}">Click here</a> to complete your user profile.]]></message>
+	<message key="user.role.assistant">Press Assistant</message>
 	<message key="user.role.author">Author</message>
 	<message key="user.role.author_s">Author(s)</message>
 	<message key="user.role.authors">Authors</message>
@@ -156,5 +157,5 @@
 	<message key="user.apiKeyEnabled">Enable external applications with the API key to access this account</message>
 	<message key="user.apiKey.generate">Generate new API key</message>
 	<message key="user.apiKey.generateWarning">Generating a new API key will invalidate any existing key for this user.</message>
-	<message key="user.apiKey.secretRequired">Before generating an API key, you must set a secret in the config file ("api_key_secret")</message>
+	<message key="user.apiKey.secretRequired">Before generating an API key, your site administrator must set a secret in the config file ("api_key_secret").</message>
 </locale>

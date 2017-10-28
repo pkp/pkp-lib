@@ -72,7 +72,7 @@
 					}
 				} else {
 					// Alert that the remote call failed.
-					$element.trigger('ajaxHtmlError', jsonData.content)
+					$element.trigger('ajaxHtmlError', jsonData.content);
 					alert(jsonData.content);
 				}
 			},

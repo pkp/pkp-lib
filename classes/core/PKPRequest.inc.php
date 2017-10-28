@@ -571,7 +571,7 @@ class PKPRequest {
 				$userDao = DAORegistry::getDAO('UserDAO');
 				$user = $userDao->getBySetting('apiKey', $token);
 			}
-			if (!$user->getData('apiKeyEnabled')) return null;
+			if (is_null($user) || !$user->getData('apiKeyEnabled')) return null;
 			return $user;
 		}
 

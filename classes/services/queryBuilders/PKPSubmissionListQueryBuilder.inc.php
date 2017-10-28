@@ -193,6 +193,7 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 
 		// statuses
 		if (!is_null($this->statuses)) {
+			import('lib.pkp.classes.submission.Submission'); // STATUS_ constants
 			if (in_array(STATUS_PUBLISHED, $this->statuses)) {
 				$this->columns[] = 'ps.date_published';
 				$q->leftJoin('published_submissions as ps','ps.submission_id','=','s.submission_id')
@@ -224,8 +225,17 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 			$q->where('rr.status', '!=', REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL);
 			$q->where('rr.status', '!=', REVIEW_ROUND_STATUS_ACCEPTED);
 			$q->where('rr.status', '!=', REVIEW_ROUND_STATUS_DECLINED);
-			$q->where('raod.date_due', '<', \Core::getCurrentDate(strtotime('tomorrow')));
-			$q->where('raod.date_response_due', '<', \Core::getCurrentDate(strtotime('tomorrow')));
+			$q->where(function ($q) {
+				$q->where('raod.declined', '<>', 1);
+				$q->where(function ($q) {
+					$q->where('raod.date_due', '<', \Core::getCurrentDate(strtotime('tomorrow')));
+					$q->whereNull('raod.date_completed');
+				});
+				$q->orWhere(function ($q) {
+					$q->where('raod.date_response_due', '<', \Core::getCurrentDate(strtotime('tomorrow')));
+					$q->whereNull('raod.date_confirmed');
+				});
+			});
 		}
 
 		// assigned to
@@ -280,9 +290,9 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 								$q->whereNull('ra.reviewer_id');
 							}
 							$q->where(function($q) use ($word) {
-								$q->where($disallowReviewers . 'au.first_name', 'LIKE', "%{$word}%");
-								$q->orWhere($disallowReviewers . 'au.middle_name', 'LIKE', "%{$word}%");
-								$q->orWhere($disallowReviewers . 'au.last_name', 'LIKE', "%{$word}%");
+								$q->where('au.first_name', 'LIKE', "%{$word}%");
+								$q->orWhere('au.middle_name', 'LIKE', "%{$word}%");
+								$q->orWhere('au.last_name', 'LIKE', "%{$word}%");
 							});
 						});
 						if (ctype_digit($word)) {
@@ -295,7 +305,7 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 		}
 
 		// Add app-specific query statements
-		\HookRegistry::call('Submission::listQueryBuilder::get', array(&$q, $this));
+		\HookRegistry::call('Submission::getSubmissions::queryObject', array(&$q, $this));
 
 		if (!empty($this->countOnly)) {
 			$q->select(Capsule::raw('count(*) as submission_count'));

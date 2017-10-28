@@ -10,7 +10,7 @@
  *}
 
 {if $coverageEnabled || $typeEnabled || $sourceEnabled || $rightsEnabled ||
-		$languagesEnabled || $subjectEnabled || $keywordsEnabled || $agenciesEnabled || $referencesEnabled}
+		$languagesEnabled || $subjectEnabled || $keywordsEnabled || $agenciesEnabled || $citationsEnabled}
 	{fbvFormSection title="submission.metadata"}
 		<p class="description">{translate key="submission.metadataDescription"}</p>
 	{/fbvFormSection}
@@ -40,7 +40,7 @@
 	{/fbvFormArea}
 {/if}
 
-{if $languagesEnabled || $subjectEnabled || $keywordsEnabled || $agenciesEnabled || $referencesEnabled || $disciplinesEnabled}
+{if $languagesEnabled || $subjectEnabled || $keywordsEnabled || $agenciesEnabled || $citationsEnabled || $disciplinesEnabled}
 	{fbvFormArea id="tagitFields" title="submission.submit.metadataForm"}
 		{if $languagesEnabled}
 			{$languagesField}
@@ -65,7 +65,7 @@
 				{fbvElement type="keyword" id="agencies" multilingual=true current=$agencies disabled=$readOnly required=$agenciesRequired}
 			{/fbvFormSection}
 		{/if}
-		{if $referencesEnabled}
+		{if $citationsEnabled}
 			{fbvFormSection label="submission.citations"}
 				{fbvElement type="textarea" id="citations" value=$citations disabled=$readOnly required=$citationsRequired}
 			{/fbvFormSection}

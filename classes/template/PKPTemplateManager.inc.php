@@ -175,7 +175,7 @@ class PKPTemplateManager extends Smarty {
 				if (Config::getVar('general', 'enable_cdn')) {
 					$url = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css';
 				} else {
-					$url = $this->_request->getBaseUrl() . '/lib/ui-library/static/fontawesome/fontawesome.css';
+					$url = $this->_request->getBaseUrl() . '/lib/pkp/styles/fontawesome/fontawesome.css';
 				}
 				$this->addStyleSheet(
 					'fontAwesome',
@@ -687,6 +687,8 @@ class PKPTemplateManager extends Smarty {
 		import('lib.pkp.classes.security.Role');
 
 		$app_data = array(
+			'currentLocale' => AppLocale::getLocale(),
+			'primaryLocale' => AppLocale::getPrimaryLocale(),
 			'baseUrl' => $this->_request->getBaseUrl(),
 			'contextPath' => isset($context) ? $context->getPath() : '',
 			'apiBasePath' => '/api/v1',
@@ -1067,10 +1069,10 @@ class PKPTemplateManager extends Smarty {
 
 		if (isset($params['key'])) {
 			list($key, $value) = $iterator->nextWithKey();
-			$smarty->assign_by_ref($params['item'], $value);
-			$smarty->assign_by_ref($params['key'], $key);
+			$smarty->assign($params['item'], $value);
+			$smarty->assign($params['key'], $key);
 		} else {
-			$smarty->assign_by_ref($params['item'], $iterator->next());
+			$smarty->assign($params['item'], $iterator->next());
 		}
 		return $content;
 	}
@@ -1436,7 +1438,14 @@ class PKPTemplateManager extends Smarty {
 	 * @return string of HTML
 	 */
 	function smartyCSRF($params, $smarty) {
-		return '<input type="hidden" name="csrfToken" value="' . htmlspecialchars($this->_request->getSession()->getCSRFToken()) . '">';
+		$csrfToken = $this->_request->getSession()->getCSRFToken();
+		switch (isset($params['type'])?$params['type']:null) {
+			case 'raw': return $csrfToken;
+			case 'json': return json_encode($csrfToken);
+			case 'html':
+			default:
+				return '<input type="hidden" name="csrfToken" value="' . htmlspecialchars($csrfToken) . '">';
+		}
 	}
 
 	/**

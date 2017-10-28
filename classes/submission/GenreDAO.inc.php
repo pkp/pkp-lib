@@ -338,6 +338,7 @@ class GenreDAO extends DAO {
 			}
 
 			if ($genre->getId() > 0) { // existing genre.
+				$genre->setEnabled(1);
 				$this->updateObject($genre);
 			} else {
 				$this->insertObject($genre);

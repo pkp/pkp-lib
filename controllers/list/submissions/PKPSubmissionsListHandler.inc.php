@@ -14,6 +14,7 @@
 import('lib.pkp.controllers.list.ListHandler');
 import('lib.pkp.classes.db.DBResultRange');
 import('lib.pkp.classes.submission.Submission');
+import('classes.core.ServicesContainer');
 
 abstract class PKPSubmissionsListHandler extends ListHandler {
 
@@ -153,6 +154,7 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 			'filesPrepared' => __('submission.list.filesPrepared'),
 			'discussions' => __('submission.list.discussions'),
 			'incompleteSubmissionNotice' => __('submission.list.incompleteSubmissionNotice'),
+			'selectAllLabel' => __('common.selectAll'),
 		);
 
 		// Attach a CSRF token for post requests
@@ -161,6 +163,7 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 		// Provide required constants
 		import('lib.pkp.classes.submission.reviewRound.ReviewRound');
 		import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignment');
+		import('lib.pkp.classes.services.PKPSubmissionService'); // STAGE_STATUS_SUBMISSION_UNASSIGNED
 		$config['_constants'] = array(
 			'WORKFLOW_STAGE_ID_SUBMISSION' => WORKFLOW_STAGE_ID_SUBMISSION,
 			'WORKFLOW_STAGE_ID_INTERNAL_REVIEW' => WORKFLOW_STAGE_ID_INTERNAL_REVIEW,
@@ -195,7 +198,8 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 	 */
 	public function getItems() {
 
-		$context = Application::getRequest()->getContext();
+		$request = Application::getRequest();
+		$context = $request->getContext();
 		$contextId = $context ? $context->getId() : 0;
 
 		$params = array_merge(
@@ -206,10 +210,22 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 			$this->_getParams
 		);
 
-		import('classes.core.ServicesContainer');
-		return ServicesContainer::instance()
-				->get('submission')
-				->getSubmissionList($contextId, $params);
+		$submissionService = ServicesContainer::instance()->get('submission');
+		$submissions = $submissionService->getSubmissions($context->getId(), $params);
+		$items = array();
+		if (!empty($submissions)) {
+			$propertyArgs = array(
+				'request' => $request,
+			);
+			foreach ($submissions as $submission) {
+				$items[] = $submissionService->getBackendListProperties($submission, $propertyArgs);
+			}
+		}
+
+		return array(
+			'items' => $items,
+			'maxItems' => $submissionService->getSubmissionsMaxCount($context->getId(), $params),
+		);
 	}
 
 	/**

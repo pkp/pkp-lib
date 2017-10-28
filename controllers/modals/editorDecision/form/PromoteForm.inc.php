@@ -49,12 +49,23 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 	 * @copydoc Form::initData()
 	 */
 	function initData($args, $request) {
-		$actionLabels = EditorDecisionActionsManager::getActionLabels($this->_getDecisions());
+		$actionLabels = EditorDecisionActionsManager::getActionLabels($request->getContext(), $this->_getDecisions());
 
 		$submission = $this->getSubmission();
 		$this->setData('stageId', $this->getStageId());
 
+		// If payments are enabled for this stage/form, default to requiring them
+		$this->setData('requestPayment', true);
+
 		return parent::initData($args, $request, $actionLabels);
+	}
+
+	/**
+	 * @copydoc Form::readInputData()
+	 */
+	function readInputData() {
+		$this->readUserVars(array('requestPayment'));
+		parent::readInputData();
 	}
 
 	/**
@@ -65,7 +76,7 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 		$submission = $this->getSubmission();
 
 		// Get this form decision actions labels.
-		$actionLabels = EditorDecisionActionsManager::getActionLabels($this->_getDecisions());
+		$actionLabels = EditorDecisionActionsManager::getActionLabels($request->getContext(), $this->_getDecisions());
 
 		// Record the decision.
 		$reviewRound = $this->getReviewRound();
@@ -148,6 +159,33 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 				break;
 			default:
 				fatalError('Unsupported decision!');
+		}
+
+		if ($this->getData('requestPayment')) {
+			$context = $request->getContext();
+			$stageDecisions = EditorDecisionActionsManager::getStageDecisions($context, $this->getStageId());
+			$decisionData = $stageDecisions[$decision];
+			if (isset($decisionData['paymentType'])) {
+				$paymentType = $decisionData['paymentType'];
+
+				// Queue a payment.
+				$paymentManager = Application::getPaymentManager($context);
+				$queuedPayment = $paymentManager->createQueuedPayment($request, $paymentType, $request->getUser()->getId(), $submission->getId(), $decisionData['paymentAmount'], $decisionData['paymentCurrency']);
+				$paymentManager->queuePayment($queuedPayment);
+
+				// Notify any authors that this needs payment.
+				$notificationMgr = new NotificationManager();
+				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+				$stageAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR, null);
+				$userIds = array();
+				while ($stageAssignment = $stageAssignments->next()) {
+					if (!in_array($stageAssignment->getUserId(), $userIds)) {
+						$notificationMgr->createNotification($request, $stageAssignment->getUserId(), NOTIFICATION_TYPE_PAYMENT_REQUIRED,
+							$context->getId(), ASSOC_TYPE_QUEUED_PAYMENT, $queuedPayment->getId(), NOTIFICATION_LEVEL_TASK);
+						$userIds[] = $stageAssignment->getUserId();
+					}
+				}
+			}
 		}
 	}
 

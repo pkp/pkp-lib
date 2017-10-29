@@ -99,29 +99,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 	}
 
 	/**
-	 * @covers PKPComponentRouter::supports
-	 * @covers PKPComponentRouter::getRpcServiceEndpoint
-	 * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
-	 * @covers PKPComponentRouter::_retrieveServiceEndpointParts
-	 * @covers PKPComponentRouter::_validateServiceEndpointParts
-	 */
-	public function testSupportsWithPathinfoUnsuccessfulComponentIsNotAHandler() {
-		$this->markTestSkipped();
-		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
-
-		$_SERVER = array(
-			'PATH_INFO' => '/context1/context2/$$$call$$$/grid/filter/lookup-filter-grid/fetch-grid'
-		);
-		self::assertEquals('grid.filter.LookupFilterGridHandler', $this->router->getRequestedComponent($this->request));
-		self::assertEquals('fetchGrid', $this->router->getRequestedOp($this->request));
-		self::assertFalse($this->router->supports($this->request));
-		self::assertTrue(class_exists('LookupFilterGridHandler'));
-		$testInstance = new LookupFilterGridHandler();
-		self::assertTrue(in_array('fetchGrid', get_class_methods('LookupFilterGridHandler')));
-		self::assertFalse(is_a($testInstance, 'PKPHandler'));
-	}
-
-	/**
 	 * @covers PKPComponentRouter::getRequestedComponent
 	 * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
 	 * @covers PKPComponentRouter::_retrieveServiceEndpointParts

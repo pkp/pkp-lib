@@ -23,7 +23,7 @@
 				<a href="{$navigationMenuItemAssignment->navigationMenuItem->getUrl()}">
 					{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
 				</a>
-				{if !empty($navigationMenuItemAssignment->children)}
+				{if $navigationMenuItemAssignment->navigationMenuItem->getIsChildVisible()}
 					<ul>
 						{foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
 							{if $childNavigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}

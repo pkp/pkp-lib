@@ -342,6 +342,7 @@ class PKPNavigationMenuService {
 				if (!isset($children[$assignment->getParentId()])) {
 					$children[$assignment->getParentId()] = array();
 				}
+
 				$children[$assignment->getParentId()][] = $assignment;
 			}
 		}
@@ -388,6 +389,10 @@ class PKPNavigationMenuService {
 				foreach($assignment->children as $childAssignment) {
 					$childNmi = $childAssignment->getMenuItem();
 					$this->getDisplayStatus($childNmi, $navigationMenu);
+	
+					if ($childNmi->getIsDisplayed()) {
+						$nmi->setIsChildVisible(true);
+					}
 				}
 			}
 			$this->getDisplayStatus($nmi, $navigationMenu);

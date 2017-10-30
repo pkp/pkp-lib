@@ -255,7 +255,8 @@ class UserGroupDAO extends DAO {
 			FROM	user_groups
 			WHERE	context_id = ? AND
 				role_id = ?
-				' . ($default?' AND is_default = ?':''),
+				' . ($default?' AND is_default = ?':'')
+			. ' ORDER BY user_group_id',
 			$params,
 			$dbResultRange
 		);

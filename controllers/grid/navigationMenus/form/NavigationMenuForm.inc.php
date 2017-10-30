@@ -206,11 +206,11 @@ class NavigationMenuForm extends Form {
 			$this->addError('path', __('manager.navigationMenus.form.duplicateTitle'));
 		}
 
-		$navigationMenu = $navigationMenuDao->getById($this->_navigationMenuId);
-
-		$navigationMenusWithArea = $navigationMenuDao->getAllByArea($this->_contextId, $this->getData('areaName'))->toArray();
-		if (count($navigationMenusWithArea) == 1 && $this->getData('areaName') != '' && $navigationMenusWithArea[0]->getId() != $this->_navigationMenuId) {
-			$this->addError('areaName', __('manager.navigationMenus.form.lastOfArea'));
+		if ($this->getData('areaName') != '') {
+			$navigationMenusWithArea = $navigationMenuDao->getAllByArea($this->_contextId, $this->getData('areaName'))->toArray();
+			if (count($navigationMenusWithArea) == 1 && $navigationMenusWithArea[0]->getId() != $this->_navigationMenuId) {
+				$this->addError('areaName', __('manager.navigationMenus.form.lastOfArea'));
+			}
 		}
 
 		return parent::validate();

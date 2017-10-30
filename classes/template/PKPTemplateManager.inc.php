@@ -1588,8 +1588,9 @@ class PKPTemplateManager extends Smarty {
 		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
 
 		$output = '';
-		$navigationMenu = $navigationMenuDao->getByArea($contextId, $areaName);
-		if (isset($navigationMenu)) {
+		$navigationMenus = $navigationMenuDao->getByArea($contextId, $areaName)->toArray();
+		if (isset($navigationMenus[0])) {
+			$navigationMenu = $navigationMenus[0];
 			import('classes.core.ServicesContainer');
 			ServicesContainer::instance()
 				->get('navigationMenu')

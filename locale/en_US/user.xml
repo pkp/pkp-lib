@@ -119,7 +119,7 @@
 	<message key="user.register">Register</message>
 	<message key="user.register.usernameRestriction">The username must contain only lowercase letters, numbers, and hyphens/underscores.</message>
 	<message key="user.register.registrationCompleted"><![CDATA[You have successfully registered. <a href="{$profileUrl}">Click here</a> to complete your user profile.]]></message>
-	<message key="user.role.assistant">Press Assistant</message>
+	<message key="user.role.assistant">Assistant</message>
 	<message key="user.role.author">Author</message>
 	<message key="user.role.author_s">Author(s)</message>
 	<message key="user.role.authors">Authors</message>

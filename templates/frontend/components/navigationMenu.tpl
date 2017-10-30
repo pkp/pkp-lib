@@ -24,16 +24,16 @@
 					{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
 				</a>
 				{if $navigationMenuItemAssignment->navigationMenuItem->getIsChildVisible()}
-                    <ul>
-					{foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
-						{if $childNavigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
-							<li class="{$liClass|escape}">
-								<a href="{$childNavigationMenuItemAssignment->navigationMenuItem->getUrl()}">
-									{$childNavigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
-								</a>
-							</li>
-						{/if}
-					{/foreach}
+					<ul>
+						{foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
+							{if $childNavigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
+								<li class="{$liClass|escape}">
+									<a href="{$childNavigationMenuItemAssignment->navigationMenuItem->getUrl()}">
+										{$childNavigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
+									</a>
+								</li>
+							{/if}
+						{/foreach}
 					</ul>
 				{/if}
 			</li>

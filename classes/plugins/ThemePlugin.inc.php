@@ -83,6 +83,9 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		HookRegistry::register('PluginRegistry::categoryLoaded::themes', array($this, 'themeRegistered'));
 		HookRegistry::register('PluginRegistry::categoryLoaded::themes', array($this, 'initAfter'));
 
+		// Allow themes to override plugin template files
+		HookRegistry::register('TemplateResource::getFilename', array($this, '_overridePluginTemplates'));
+
 		// Save any theme options displayed on the appearance and site settings
 		// forms
 		HookRegistry::register('appearanceform::execute', array($this, 'saveOptionsForm'));

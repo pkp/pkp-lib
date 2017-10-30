@@ -55,7 +55,9 @@ class PKPTemplateResource {
 	 * @return string
 	 */
 	protected function _getFilename($template) {
-		return $this->templateDir . DIRECTORY_SEPARATOR . $template;
+		$filePath = $this->templateDir . DIRECTORY_SEPARATOR . $template;
+		HookRegistry::call('TemplateResource::getFilename', array(&$filePath, $template));
+		return $filePath;
 	}
 
 	/**

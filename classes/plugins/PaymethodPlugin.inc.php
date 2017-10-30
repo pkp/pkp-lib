@@ -30,6 +30,15 @@ abstract class PaymethodPlugin extends LazyLoadPlugin {
 	 * @return Form
 	 */
 	abstract function getPaymentForm($context, $queuedPayment);
+
+	/**
+	 * Check whether this plugin is fully configured and ready for use.
+	 * @param $context Context
+	 * @return boolean
+	 */
+	function isConfigured($context) {
+		return true;
+	}
 }
 
 ?>

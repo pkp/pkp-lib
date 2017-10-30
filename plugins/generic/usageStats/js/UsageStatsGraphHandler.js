@@ -129,7 +129,7 @@
 		chartData = {
 			labels: this.labels_,
 			datasets: datasets
-		}
+		};
 
 		if (this.chart_) {
 			// Make sure we destroy any possible loaded chart.
@@ -142,7 +142,7 @@
 			data: chartData
 		});
 
-	}
+	};
 
 
 	/**
@@ -161,7 +161,7 @@
 		} else {
 			return 'byRepresentation';
 		}
-	}
+	};
 
 
 	/**
@@ -185,7 +185,7 @@
 			for (month in datasetData[year]) {
 				// Make sure we get only the current year data.
 				filteredData.push(datasetData[year][month]);
-			};
+			}
 
 			datasets.push(
 				{
@@ -193,10 +193,10 @@
 					data: filteredData,
 					backgroundColor: 'rgba(' + data[datasetId]['color'] + ', 0.6)'
 				});
-		};
+		}
 
 		return datasets;
-	}
+	};
 
 
 /** @param {jQuery} $ jQuery closure. */

@@ -154,6 +154,7 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 			'filesPrepared' => __('submission.list.filesPrepared'),
 			'discussions' => __('submission.list.discussions'),
 			'incompleteSubmissionNotice' => __('submission.list.incompleteSubmissionNotice'),
+			'selectAllLabel' => __('common.selectAll'),
 		);
 
 		// Attach a CSRF token for post requests

@@ -36,6 +36,7 @@ class NavigationMenuItem extends DataObject {
 	var $navigationMenuItems = array();
 
 	var $_isDisplayed = true;
+	var $_isChildVisible = false;
 
 	//
 	// Get/set methods
@@ -187,6 +188,22 @@ class NavigationMenuItem extends DataObject {
 	 */
 	function setIsDisplayed($isDisplayed) {
 		$this->_isDisplayed = $isDisplayed;
+	}
+
+	/**
+	 * Get $isChildVisible for this navigation menu item.
+	 * @return boolean true if at least one NMI child is visible. It is defined at the Service functionality level
+	 */
+	function getIsChildVisible() {
+		return $this->_isChildVisible;
+	}
+
+	/**
+	 * Set $isChildVisible for this navigation menu item.
+	 * @param $isChildVisible boolean true if at least one NMI child is visible. It is defined at the Service functionality level
+	 */
+	function setIsChildVisible($isChildVisible) {
+		$this->_isChildVisible = $isChildVisible;
 	}
 }
 

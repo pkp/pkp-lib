@@ -311,9 +311,17 @@ class PKPNavigationMenuService {
 	 * @return array Hierarchical array of menu items
 	 */
 	public function getMenuTree(&$navigationMenu) {
+		$this->loadMenuTree($navigationMenu);
+		$this->loadMenuTreeDisplayState($navigationMenu);
+	}
+
+	/**
+	 * Load the NM tree
+	 * @param mixed $navigationMenu
+	 */
+	private function loadMenuTree(&$navigationMenu) {
 		$navigationMenuItemDao = \DAORegistry::getDAO('NavigationMenuItemDAO');
 		$items = $navigationMenuItemDao->getByMenuId($navigationMenu->getId())->toArray();
-
 
 		$navigationMenuItemAssignmentDao = \DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
 		$assignments = $navigationMenuItemAssignmentDao->getByMenuId($navigationMenu->getId())
@@ -350,9 +358,25 @@ class PKPNavigationMenuService {
 				$navigationMenu->menuTree[$i]->children = $children[$assignmentId];
 			}
 		}
+	}
 
-		foreach($items as $item) {
-			$this->getDisplayStatus($item, $navigationMenu);
+	/**
+	 * Using a NM, load the DisplayState of its NMIs
+	 * @param mixed $navigationMenu
+	 */
+	private function loadMenuTreeDisplayState(&$navigationMenu) {
+		foreach ($navigationMenu->menuTree as $assignment) {
+			$nmi = $assignment->getMenuItem();
+			if ($assignment->children) {
+				foreach($assignment->children as $childAssignment) {
+					$childNmi = $childAssignment->getMenuItem();
+					$this->getDisplayStatus($childNmi, $navigationMenu);
+					if ($childNmi->getIsDisplayed()) {
+						$nmi->setIsChildVisible(true);
+					}
+				}
+			}
+			$this->getDisplayStatus($nmi, $navigationMenu);
 		}
 	}
 

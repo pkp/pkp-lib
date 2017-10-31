@@ -311,7 +311,7 @@ class NavigationMenuItemDAO extends DAO {
 		if ($contextId != CONTEXT_ID_NONE) {
 			$contextDao = Application::getContextDAO();
 			$context = $contextDao->getById($contextId);
-			$supportedLocales = $context->getSupportedSubmissionLocales();
+			$supportedLocales = $context->getSupportedLocales();
 		} else {
 			$siteDao = DAORegistry::getDAO('SiteDAO');
 			$site = $siteDao->getSite();
@@ -388,7 +388,7 @@ class NavigationMenuItemDAO extends DAO {
 	 * @param $contextId
 	 */
 	function installLocale($locale, $contextId = null) {
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER, $locale);
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_COMMON, LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER, $locale);
 		$navigationMenuItems = $this->getByContextId($contextId);
 		while ($navigationMenuItem = $navigationMenuItems->next()) {
 			$titleKey = $this->getSetting($navigationMenuItem->getId(), 'titleLocaleKey');

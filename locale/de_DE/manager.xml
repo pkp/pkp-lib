@@ -310,7 +310,7 @@
 	<message key="manager.setup.sortableByComponent">Nach Komponenten sortierbar</message>
 	<message key="manager.setup.sponsors.note">Sie können einen Hinweis hinzufügen, wie Ihr Verhältnis zu Ihren Sponsoren ist; dieser Hinweis wird in der Sponsorenliste auf Ihrer "Über uns"-Seite erscheinen.</message>
 	<message key="manager.setup.sponsors.description">Beispiele: Fachgesellschaften, Fachbereiche, Konsortien etc. Spnsoren werden öffentlich angezeigt.</message>
-	<message key="manager.setup.styleSheetDescription">Sie können eine zusätzliche CSS-Datei hochlade, um das Aussehen anzupassen.</message>
+	<message key="manager.setup.styleSheetDescription">Sie können eine zusätzliche CSS-Datei hochladen, um das Aussehen anzupassen.</message>
 	<message key="manager.setup.technicalSupportContact">Kontakt bei technischen Fragen</message>
 	<message key="manager.setup.technicalSupportContactDescription">Eine Kontaktperson, die Herausgeber/innen, Autor/innen und Gutachter/innen bei allen Problemen unterstützen kann, die sie bei der Einreichung, beim redaktionellen Prozess, bei der Begutachtung oder beim Umgang mit veröffentlichtem Material haben.</message>
 	<message key="manager.siteAccessOptions.siteAccessOptions">Zugriffsoptionen</message>

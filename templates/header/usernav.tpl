@@ -23,7 +23,7 @@
 
 <ul id="navigationContextMenu" class="pkp_nav_context pkp_nav_list" role="navigation" aria-label="{translate|escape key="common.navigation.siteContext"}">
 
-	<li {if $multipleContexts}class="submenuOpensBelow" aria-haspopup="true" aria-expanded="false"{/if} aria-haspopup="true" aria-expanded="false">
+	<li {if $multipleContexts}class="submenuOpensBelow" aria-haspopup="true" aria-expanded="false"{/if}>
 		<span class="pkp_screen_reader">
 			{translate key="context.current"}
 		</span>

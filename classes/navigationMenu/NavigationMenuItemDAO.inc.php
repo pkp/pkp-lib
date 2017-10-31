@@ -325,14 +325,12 @@ class NavigationMenuItemDAO extends DAO {
 		$navigationMenuItemExisting = $this->getByTypeAndTitleLocaleKey($contextId, $type, $titleKey);
 
 		if (!isset($navigationMenuItemExisting)) {
-			// create a role associated with this user group
 			$navigationMenuItem = $this->newDataObject();
 			$navigationMenuItem->setPath($path);
 			$navigationMenuItem->setContextId($contextId);
 
 			$navigationMenuItem->setType($type);
 
-			// insert the group into the DB
 			$navigationMenuItemId = $this->insertObject($navigationMenuItem);
 
 			// add the i18n keys to the settings table so that they
@@ -345,6 +343,13 @@ class NavigationMenuItemDAO extends DAO {
 			}
 		} else {
 			$navigationMenuItemId = $navigationMenuItemExisting->getId();
+
+			$this->updateSetting($navigationMenuItemId, 'titleLocaleKey', $titleKey);
+
+			// install the settings in the current locale for this context
+			foreach ($supportedLocales as $locale) {
+				$this->installLocale($locale, $contextId);
+			}
 		}
 
 		// insert into Assignments

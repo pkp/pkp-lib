@@ -240,7 +240,6 @@
 	<message key="manager.reviewerSearch.form.instructions">Pomocí níže uvedeného formuláře nastavte maximální hodnoty výrazů, které chcete vyhledat. Formulář je předem naplněn vypočtenými průměry těchto polí.</message>
 	<message key="manager.reviewerSearch.form.interests.instructions">Oblasti zájmu o recenze (použijte pro vyhledávání odpovídajících zájmů)</message>
 	<message key="manager.reviewerSearch.form.previousReviewRounds">Recenzenti předchozích kol recenzí pro tento příspěvek</message>
-	<message key="manager.masthead.title">Hlavní titul</message>
 	<message key="manager.setup.licenseURLDescription">URL na webovou stránku,k která popisuje licenci, pokud je dostupná.</message>
 	<message key="manager.setup.metadata.submission">Formulář příspěvku</message>
 	<message key="plugins.importexport.common.validationErrors">Chyby validace:</message>

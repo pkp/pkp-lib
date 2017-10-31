@@ -36,10 +36,6 @@
 	<!-- Sponsors Grid -->
 	<message key="grid.sponsor.title">Sponsor</message>
 
-	<!-- Masthead Grid -->
-	<message key="grid.masthead.title">Dewan Redaksi</message>
-	<message key="grid.masthead.column.groups">Grup</message>
-
 	<!-- Contributor Grid -->
 	<message key="grid.contributor.title">Kontributor</message>
 	<message key="grid.action.addAuthor">Tambah Penulis</message>

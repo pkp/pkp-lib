@@ -219,7 +219,6 @@
 	<message key="manager.emails.enable.message">Masz zamiar włączyć e-mail. Czy chcesz kontynuować?</message>
 	<message key="manager.emails.resetAll.message">Jeżeli zresetujesz wszystkie szablony, wszystkie zmiany zostaną utracone. Czy chcesz kontynuować?</message>
 	<message key="manager.emails.reset.message">Jeżeli usuniesz szablon, wszystkie wiadomości będą zresetowane do swojej domyślnej wartości. Czy chcesz kontynuować?</message>
-	<message key="manager.masthead.title">Stopka redakcyjna</message>
 	<message key="manager.reviewerSearch.searchByName.short">Wyszukaj po imieniu</message>
 	<message key="manager.reviewerSearch.form.instructions">Użyj formularza aby określić maksymalną liczbę wartości dla wyszukiwanych terminów. Formularz sugeruje uśrednione wartości dla pól.</message>
 	<message key="manager.reviewerSearch.form.interests.instructions">Podaj zainteresowania recenzenta, oddzielone przecinkami...</message>

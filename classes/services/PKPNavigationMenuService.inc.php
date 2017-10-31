@@ -119,7 +119,7 @@ class PKPNavigationMenuService {
 				$navigationMenuItem->setIsDisplayed($context && $context->getSetting('enableAnnouncements'));
 				break;
 			case NMI_TYPE_EDITORIAL_TEAM:
-				$navigationMenuItem->setIsDisplayed($context && $context->getLocalizedSetting('masthead'));
+				$navigationMenuItem->setIsDisplayed($context && $context->getLocalizedSetting('editorialTeam'));
 				break;
 			case NMI_TYPE_CONTACT:
 				$navigationMenuItem->setIsDisplayed($context && ($context->getSetting('mailingAddress') || $context->getSetting('contactName')));

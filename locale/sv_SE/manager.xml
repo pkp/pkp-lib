@@ -115,7 +115,6 @@
 	<message key="manager.language.reloadLocalizedDefaultSettings">Återställ till default</message>
 	<message key="manager.languages.alternateLocaleInstructions">Systemet tillåter att viss viktig information kan fyllas i på flera språk. Välj ytterligare språk/regioner och gör inställningar nedan.</message>
 	<message key="manager.languages.supportedLocalesInstructions">Välj de språk/regioner som ska gå att byta mellan på varje sida på webbplatsen. Språkvalsmenyn kommer bara synas om fler än ett språk valts.</message>
-	<message key="manager.masthead.title">Allmänt</message>
 	<message key="manager.payment.timestamp">Tidsstämpel</message>
 	<message key="manager.people.existingUserRequired">Du måste ange en befintlig användare.</message>
 	<message key="manager.people.authSource">Autentiseringskälla</message>

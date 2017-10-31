@@ -266,7 +266,6 @@
 	<message key="manager.language.submissions">Submissões</message>
 	<message key="manager.language.forms">Formulários</message>
 	<message key="manager.language.reloadLocalizedDefaultSettings">Recarregar padrões</message>
-	<message key="manager.masthead.title">Masthead</message>
 	<message key="manager.userSearch.searchByName">Pesquisa por Nome</message>
 	<message key="manager.reviewerSearch.change">Modificar</message>
 	<message key="manager.reviewerSearch.searchByName.short">Pesquisar por Nome</message>

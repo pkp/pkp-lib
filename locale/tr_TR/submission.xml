@@ -129,66 +129,6 @@
 	<message key="submission.backToSubmissionEditing">Gönderi Düzenlemeye Dön</message>
 	<message key="submission.changeComments">ile değiştir</message>
 	<message key="submission.citations">Referanslar</message>
-	<message key="submission.citations.editor.citationlist.deleteCitationConfirmation">Bu atıfı silmek isetediğinizden emin misiniz?</message>
-	<message key="submission.citations.editor.citationlist.errorDeletingCitation">Bu atıfı silmeye çalışırken bir hata oluştu. Lütfen bunu hata mesajı olarak bildiriniz.</message>
-	<message key="submission.citations.editor.citationlist.newCitation">Yeni Atıf</message>
-	<message key="submission.citations.editor.citationlist.title">Atıf Düzenle</message>
-	<message key="submission.citations.editor.clickToEdit">Düzeltme içim tıkla</message>
-	<message key="submission.citations.editor.details.authorQuery">Yazar İstek</message>
-	<message key="submission.citations.editor.details.authorQueryBody">Yazara mesajınız:</message>
-	<message key="submission.citations.editor.details.authorQueryExplanation">Geçerli atıf hakkında daha fazla bilgi için yazara sorabilirsiniz. Aşağıdaki "Gönder" butonuna tıkladığınızda mesajınız yazara e-posta olarak gönderecektir.</message>
-	<message key="submission.citations.editor.details.authorQuerySubject">Konu:</message>
-	<message key="submission.citations.editor.details.cannotSelectDefaultForLabel">Alan etiketini değiştiremezsiniz. Eğer ihtiyaç duymuyorsanız alanı silebilirsiniz.</message>
-	<message key="submission.citations.editor.details.checkInGoogleScholar">Google Akademik'te kontrol et</message>
-	<message key="submission.citations.editor.details.changeFieldInfo">Seçmek için birkaç karakter yaznız ...</message>
-	<message key="submission.citations.editor.details.citationExportPreview">Atıf İhraç Görüntüsü</message>
-	<message key="submission.citations.editor.details.citationImprovementResultsActive">Dahili uzman atıf servisi sonuçları (kapatmak için tıklayınız)</message>
-	<message key="submission.citations.editor.details.citationImprovementResultsInactive">Dahili uzman atıf servisi sonuçları (açmak için tıklayın)</message>
-	<message key="submission.citations.editor.details.citationServices">Atıf Servisleri</message>
-	<message key="submission.citations.editor.details.clickToDismissMessage">Mesajı kapatmak için metne tıklayabilirsiniz.</message>
-	<message key="submission.citations.editor.details.dataSaved">Değişiklikleriniz kayt edildi.</message>
-	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Atıf veri tabanı servisi seçiniz:</message>
-	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Uzman atıf düzeltme ayarları (kapatmak için tıklayınız)</message>
-	<message key="submission.citations.editor.details.editRawCitationExpertSettingsInactive">Uzman atıf düzenleme ayarları (açmak için tıklayınız)</message>
-	<message key="submission.citations.editor.details.editRawCitationExtractionServices">Atıf Çıkarma Servisleri Seçiniz:</message>
-	<message key="submission.citations.editor.details.editRawCitationFilterValidationError">Dahili hata: Hatalı filitre seçimi. Lütfen hata mesajı rapor ediniz.</message>
-	<message key="submission.citations.editor.details.explainImprovementOptions">Varsayılan olarak tatmin edici sonuç alamadıysanız, atıf geliştirmek için çeşitli seçenekleri kullanabilirsiniz. Genellikle manuel olarak önemli alanlarda (örneğin başlık ve yazar), düzenleme yapabilir ve tekrar atıf almaya yardımcı olur. Bu yöntem işe yaramazsa Google Scholar'da sorgulayabilir veya ayrıntılar için yazar sorabilirsiniz.</message>
-	<message key="submission.citations.editor.details.googleScholar">Google Akademik</message>
-	<message key="submission.citations.editor.details.googleScholarExplanation">Bağlı atıf hizmetlerinde eşleşen herhangi bir atıf bulunamamıştır, ancak Google Akademik'te aramaya devam edebilirsiniz. Ne yazık ki, Google Akademik kullanmak istediğimiz veri için alan tabanlı veri göndermeyi desteklemiyor. Bu da yardımcıya otomatik olarak veri göndernin yolu olmadığı anlamına gelir. Google sonuç sayfasındaki bilgileri manuel olarak kopyalayıp yapıştırmak zorundasınız.</message>
-	<message key="submission.citations.editor.details.manualEditing">Elle Düzenleme</message>
-	<message key="submission.citations.editor.details.messages">Lütfen not edin (reddetmek için mesajın üstüne tıklayınız)</message>
-	<message key="submission.citations.editor.details.newFieldInfo">...yeni bir alan eklemek için buraya tıklayınız...</message>
-	<message key="submission.citations.editor.details.queryCitation">Sorgu Tekrarı Atıf Servisleri</message>
-	<message key="submission.citations.editor.details.queryGoogleScholar">Google Akademik'te Arama</message>
-	<message key="submission.citations.editor.details.processRawCitation">Süreç</message>
-	<message key="submission.citations.editor.details.processRawCitationGoAhead">Devam Et</message>
-	<message key="submission.citations.editor.details.processRawCitationTitle">Orijinal Atıf Değiştirme</message>
-	<message key="submission.citations.editor.details.saveAndApprove">Kaydet ve Onayla</message>
-	<message key="submission.citations.editor.details.saveAndRevokeApproval">Onayı Geri Al</message>
-	<message key="submission.citations.editor.details.sendAuthorQuery">Mesaj Gönder</message>
-	<message key="submission.citations.editor.details.sendAuthorQuerySuccess">Mesaj Gönderildi!</message>
-	<message key="submission.citations.editor.details.sourceResultsUse">Kullan</message>
-	<message key="submission.citations.editor.details.sourceResultsUseAll">Tümünü Kullan</message>
-	<message key="submission.citations.editor.details.sourceResultsUseAllExplanation">Alan listenize, bu kaynaktan doğrudan tüm sonuç alanlarını taşımak için tıklayınız.</message>
-	<message key="submission.citations.editor.details.sourceResultsUseExplanation">Alan listenize bu sonucun doğrudan taşınması için tıklayın.</message>
-	<message key="submission.citations.editor.details.rawCitation">Orijinal Atıf Metni</message>
-	<message key="submission.citations.editor.details.rawCitationRequired">Atıf metni gerekli.</message>
-	<message key="submission.citations.editor.details.unsavedChanges">Atıf kaydedilmemiş veri içeriyor. Değişiklikleri saklamak için için "Kaydet" butonuna tıklayınız veya değişiklikleri geri almak için "İptal" butonuna tıklayınız.</message>
-	<message key="submission.citations.editor.details.dontShowMessageAgain">Bu mesajı bir daha gösterme.</message>
-	<message key="submission.citations.editor.edit">Atıfları Düzenle</message>
-	<message key="submission.citations.editor.export">Atıfları İhraç Et</message>
-	<message key="submission.citations.editor.export.exportDescription"><![CDATA[Oluşturulan çıktıların tamamını seçmek için <a id="markForExport" href="">buraya tıklayın</ a>. Daha sonra kopyala ve yapıştır yoluyla dokümanınıza aktarabilirsiniz.]]></message>
-	<message key="submission.citations.editor.export.filterSelectionDescription">Lütfen aşağıdaki ihraç seçeneklerinden birini seçiniz.</message>
-	<message key="submission.citations.editor.export.filterSelectionError">Çıktı seçeneklerinden birini seçmelisiniz.</message>
-	<message key="submission.citations.editor.export.foundUnapprovedCitationsMessage"><![CDATA[<p>You have not yet approved all citations. Please go to the <strong>Edit Citations</strong> tab and make sure you have approved all citations before you try to export them. Approved citations are marked with a dark blue stripe to the left.</p>]]></message>
-	<message key="submission.citations.editor.export.noExportOutput">'{$filterName}' adlı çıkış filtresi bir hata ile karşılaştı. Hata raporu olarak bildiriniz.</message>
-	<message key="submission.citations.editor.export.pleaseSelectXmlFilter">XML çıktı seçenekleri:</message>
-	<message key="submission.citations.editor.export.pleaseSelectPlaintextFilter">Atıf çıktı biçimi (sadece deneme!):</message>
-	<message key="submission.citations.editor.introduction">Giriş</message>
-	<message key="submission.citations.editor.loadMessage">Yüklemek için atıf biçimlendirme yardımcısını bekleyin.</message>
-	<message key="submission.citations.editor.pleaseSelect">Lütfen seçiniz...</message>
-	<message key="submission.citations.editor.unprocessedCitationsButton">Atıf Listesini Yenile</message>
-	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Atıf listesini yenilemek için tıklayınız.</message>
 	<message key="submission.comments.addComment">Yorum ekle</message>
 	<message key="submission.comments.comments">Yorumlar</message>
 	<message key="submission.comments.confirmDelete">Bu yorumu silmek istediğinize emin misiniz?</message>
@@ -342,8 +282,6 @@
 	<message key="submission.nameRequired">Bu madde için bir isim gerekiyor.</message>
 	<message key="submission.date.mmdd">AA-GG</message>
 	<message key="submission.date.yyyymmdd">YYYY-AA-GG</message>
-	<message key="submission.citations.editor.citationlist.approved">Onaylandı</message>
-	<message key="submission.citations.editor.citationlist.notApproved">Onaylanmadı</message>
 	<message key="submission.comments.addReviews">Değerlendirmeleri e-postaya ekle</message>
 	<message key="submission.copyedited">Sayfa Düzenleme</message>
 	<message key="submission.layout.galleyRemoteURL">Uzak URL</message>
@@ -353,31 +291,6 @@
 	<message key="submission.form.name">Bu dosyaya anlamlı bir ad ver</message>
 	<message key="submission.form.replaceExisting">Mevcut Dosya Değiştirilsin mi?</message>
 	<message key="submission.addFile">Dosya Yükle</message>
-	<message key="submission.citations.editor.details.processRawCitationWarning">Özgün atıf metni değiştirmek üzeresiniz. Bunu yaparsanız tüm alanlar yeni oluşturulan değerler ile değiştirilecektir. Bu silme manuel değişiklik yapmış olabilir.</message>
-	<message key="submission.citations.editor.introduction.introductionMessage"><![CDATA[<h4>Welcome to the Citation Markup Assistant!</h4>
-	<p>With this assistant you can mark up author-provided citations for export to NLM 2.3 or 3.0 XML galleys, or alternatively as text-based output. This tool first attempts to automatically extract and recognize citations as they have been provided, but you can step in and edit the results at any time.</p>
-	<ul>
-		<li><p><strong>Configuring the Assistant</strong></p>
-		<p>The Citation Markup Assistant is configured by the journal manager in <a href="{$citationSetupUrl}">Journal Setup Step 3.7: Citation Markup Assistant</a>. Different citation extraction and checking tools can be added, configured, and deleted. For more information, contact the journal manager.</p></li>
-		<li><p><strong>Navigating the Assistant Interface</strong></p>
-		<p>To switch between <strong>Introduction</strong>, <strong>Edit Citations</strong> and <strong>Export Citations</strong> tabs, click the tab titles. To expand the citation interface, click the <strong>Fullscreen</strong> button. To return to a normal interface from the expanded citation interface, click the <strong>Fullscreen Off</strong> button. To remove this introductory tab entirely, click the button below.</p></li>
-		<li><p><strong>Requesting Citations</strong></p>
-		<p>If the Citation Markup Assistant has been enabled by the journal manager, authors will be prompted for a list of references during article submission. These references will be requested separately from the submission document itself. After submission, authors can also modify their list of references at any time by editing the submission's metadata; note that this will overwrite any modifications that you have made to the citations using this tool.</p></li>
-		<li><p><strong>Editing Citations</strong></p>
-		<p>The Citation Markup Assistant will attempt to identify and extract individual citations from the author's list of references. You can systematically check each citation extraction attempt for accuracy against a number of external databases; edit incorrect citation information and add new information; approve or delete citations; and add new citations.</p>
-		<p>All final citations for a submission must be approved before they can be exported.</p></li>
-		<li><p><strong>Exporting Citations</strong></p>
- 		<p>Citations can be exported as XML or text. XML export options currently include <a href="http://dtd.nlm.nih.gov/publishing/">NLM Journal Publishing</a> 2.3 and 3.0 <a href="http://www.ncbi.nlm.nih.gov/pmc/pmcdoc/tagging-guidelines/article/tags.html#el-reflist">ref-list XML</a>. Selecting one of these options outputs an XML-encoded ref-list snippet that can be copied and pasted into an NLM XML galley.</p>
-		<p>Experimental text export options include ABNT, APA, MLA and Vancouver citation output styles. These options provide a text output that can be copied and pasted into a text-based article galley (for example into Microsoft Word or OpenOffice; Adobe InDesign; etc.). Each citation includes an embedded link to automatically search for that citation in Google Scholar.</p></li>
-	</ul>]]></message>
-	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>Bu makale için atıf yoktur.</p><p>Lütfen makalenin <a href="{$articleMetadataUrl}">üst veri sayfasına</a> gidiniz ve bir referans listesi giriniz veya editör öğe ekleme butonunu kullanarak referansları elle ekleyiniz.</p>]]></message>
-	<message key="submission.citations.editor.unprocessedCitations">The citations of this article are still being processed on the server. The current citation list only contains already processed citations. Please click the refresh button to see citations that have been processed in the meantime.</message>
-	<message key="submission.citations.filter.invalidMetadata">An error occurred in {$filterName}: One of the data elements returned from the data source (e.g. a web service) did not conform to the internal meta-data format. Therefore the data source's results were rejected. Please file this as a bug.</message>
-	<message key="submission.citations.filter.noResultFromFilterError">Several citation services did not return any results. You can try to manually edit citation fields and then query citation services again to improve results. If this doesn't help then the citation does not exist in any of the connected databases.</message>
-	<message key="submission.citations.filter.unsupportedPublicationType">Desteklenmeyen veya kayıp yayın türü. Lütfen yayın türünü (kabul edilebilir türler; 'book', 'journal', 'thesis' ve 'conf-proc') giriniz ve atıfı elle ekleyiniz.</message>
-	<message key="submission.citations.filter.webserviceError">The {$filterName}'s web service call has returned an error when called with the following URL: {$webserviceUrl}. It may be that the web service is temporarily unavailable. You'll still be able to work with the remaining services and save your results. You can also try again later. If the error persists then please ask the manager to deactivate this service and open a bug report.</message>
-	<message key="submission.citations.filter.webserviceResultTransformationError">An error occurred in {$filterName}: The transformation of XML results (e.g. from a web service) into field-based meta-data failed. The reason probably is that the web service returned invalid or incomplete data. Please file this as a bug.</message>
-	<message key="submission.citations.metadata.changeWarning">Are you sure you want to update your references list? If you click OK, any changes made by the Editors will be overwritten. If you are not sure whether you should make changes to the references list, please contact the Editor in charge of your submission.</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} {$submissionId} numaralı gönderiyi değerlendirmeyi {$round}. kez kabul etti.</message>
 	<!--  peer review -->
 	<message key="submission.reviewForm">Değerlendirme Formu</message>

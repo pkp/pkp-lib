@@ -228,48 +228,10 @@
 	<message key="manager.setup.authorCopyrightNoticeAgree">يتطلب من المؤلفين الموافقة على بيان الحقوق الفكرية كجزء من عملية التقديم.</message>
 	<message key="manager.setup.authorGuidelines">إرشادات المؤلف</message>
 	<message key="manager.setup.authorGuidelines.description">الإرشادات الموصى بها تتضمن المعايير القياسية للسيرة والتنسيق جنباً إلى جنب مع أمثلة لتنسيقات شائعة من الاقتباسات التي بالإمكان استعمالها في المؤلفات.</message>
-	<message key="manager.setup.citations">الاقتباسات</message>
-	<message key="manager.setup.citationAssistant">مساعد تأشير الاقتباسات</message>
-	<message key="manager.setup.citationFilterParser">استقطاع الاقتباس</message>
-	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>للعثور على الاقتباسات وتدقيقها في قواعد بيانات الاقتباسات، ينبغي أولاً تجزئتها إلى بيانات وصفية ممكننة قابلة للقراءة آلياً: العنوان، الناشر، تأريخ النشر... إلخ. وكل ذلك ينبغي استقطاعه من نص الاقتباس الأصلي الذي أدخله المؤلف. التوصيلات إلى خدمات الإنترنت الخارجية قد تساعد في هذه العملية. يمكنك إضافة واحد أو أكثر من هذه التوصيلات عبر النقر على زر "إضافة فقرة" أدناه. بعض هذه التوصيلات قد يكون بحاجة إلى ضبط إعداداته أولاً. ستتم مطالبتك بهذا لو كان يستدعي الحال ذلك.</p>
-		<p>بإمكانك تعديل أو حذف توصيلة موجودة عبر النقر على إيقونة التروس المجاورة لها.</p>]]></message>
-	<message key="manager.setup.citationFilterLookup">تدقيق الاقتباس</message>
-	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>عليك أيضاً تمكين وتضبيط التوصيلات إلى قواعد بيانات الاقتباسات الخارجية. هذا يساعد في العثور على الأخطاء المحتملة في اقتباسات المؤلف أو إضافة المزيد من المعلومات إليها (مثل: DOIs أو PubMed IDs) وهي مطلوبة للنشر أو الإيداع الالكتروني.</p>
-		<p>نحن نقدم توصيلات لعدة قواعد بيانات خارجية حيث يمكنك عبرها البحث في الاقتباسات. بعض تلك القواعد تتطلب التسجيل أو ضبط الإعدادات مسبقاً. لطفاً، إرجع إلى مواقع الإنترنت لتلك المصادر الخارجية للمزيد من المعلومات عن كيفية التسجيل والتهيئة. يمكنك إضافة واحد أو أكثر من هذه التوصيلات عبر النقر على زر "إضافة فقرة" أدناه.</p>
-		<p>بإمكانك تعديل أو حذف توصيلة لقاعدة بيانات خارجية موجودة عبر النقر على إيقونة التروس المجاورة لها.</p>
-		<p><strong>ملاحظة:</strong> لغرض إكمال عملية تدقيق الاقتباسات في وقت مقبول، ينبغي أن يكون الموجه <tt>citation_checking_max_processes</tt> المتوضع في ملف الإعدادات مضبوطاً على قيمة معقولة. أنظر قسم الإعدادات العامة في الملف <tt>config.inc.php</tt> للمزيد من المعلومات.</p>]]></message>
 	<message key="manager.setup.competingInterests">المصالح المتضاربة</message>
 	<message key="manager.setup.competingInterestsDescription">ستتم مطالبة المحكمين بالإذعان لسياسة الكشف عن المصالح المتضاربة التي تحددها أدناه.</message>
 	<message key="manager.setup.errorDeletingItem">حدث خطأ ما عند حذف هذه الفقرة.</message>
 	<message key="manager.setup.favicon">صيغة الصورة المصغرة خاطئة. الصيغ المدعومة هي: .ico, .png, and .gif.</message>
-	<message key="manager.setup.filter.grid.errorDeletingFilter">حدث خطأ ما أثناء محاولة إزالة هذه التصفية. لطفاً، أبلغ عن الأمر بمثابة خطأ برمجي.</message>
-	<message key="manager.setup.filter.grid.filterDisplayName">التوصيلة</message>
-	<message key="manager.setup.filter.grid.filterSettings">معلومات التسجيل وإعدادات التوصيلة</message>
-	<message key="manager.setup.filter.grid.filterTemplateRequired">لطفاً، إختر أحد التحويلات من القائمة المنسدلة.</message>
-	<message key="manager.setup.filter.grid.confirmDelete">هل تريد حقاً حذف التصفية {$filterName} ؟</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">لقد اخترت أن تضيف قاعدة البيانات {$filterDisplayName}. لطفاً، أنقر على 'موافق' لتأكيد ذلك.</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">إختر قاعدة بيانات للبحث فيها.</message>
-	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>هذه التصفية ترتبط بقاعدة بيانات الكتب والمؤلفات <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a>.</p>
-	<p>إن مفتاح ISBNdb API مطلوب إجبارياً. لمعرفة كيفية توليد مفتاح، أنظر <a href="http://isbndb.com/api/v1/docs/keys" target="_blank">التوثيق عبر الإنترنت</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>هذه التصفية ترتبط بقاعدة بيانات الاقتباسات المتداخلة باستعمال <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">واجهة الاستعلام ذات الرابط المفتوح</a>.</p>
-	<p>لاستعمال هذه التصفية، بإمكانك الاستعانة بحسابك لدى نظام المراجع المتداخلة، أو التسجيل فيها مستعملاً عنواناً بريدياً صحيحاً <a href="http://www.crossref.org/requestaccount/" target="_blank">هنا</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>هذه التصفية ترتبط بمحرك البحث النافذ في قاعدة البيانات PubMed <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a>.</p>
-	<p>توفر عنوان بريد الكتروني لغرض التسجيل ليس أمراً إلزامياً، لكنه قد يكون كذلك إذا واجهتك مشاكل في الاتصال بالخدمة. أنظر القسم الموسوم <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">إرشادات الاستعمال ومتطلباته</a> في أدبيات Entrez للمزيد من المعلومات.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>هذه التصفية ترتبط بخدمات OCLC <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> و <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (إختيارياً).</p>
-	<p>إذا كان لديك مفتاح تسجيل لدى <a href="http://oclc.org/developer/develop/web-services.html" target="_blank">API key</a> فبإمكانك الاتصال بـ Worldcat عبر إدخال المفتاح أدناه.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.loadMessage">لطفاً، إمنح شبكة تعريف قاعدة بيانات الاقتباسات وقتاً للتحميل...</message>
-	<message key="manager.setup.filter.lookup.grid.title">توصيلات قاعدة بيانات الاقتباسات</message>
-	<message key="manager.setup.filter.noMoreTemplates">كل التحويلات المتاحة أضيفت سلفاً. لطفاً، أنقر 'إلغاء' للعودة إلى صفحة التهيئة.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionConfirm">لقد اخترت إضافة المحلل {$filterDisplayName}. لطفاً، أكد ذلك بالنقر على زر 'موافق'.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionTemplate">لطفاً، إختر محلل الاقتباسات.</message>
-	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>تصفية الاستقطاع هذه ترتبط بخدمة الإنترنت <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a>.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>تصفية الاستقطاع هذه تستعمل <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> وحدات Perl لتوفير <a href="http://paracite.eprints.org" target="_blank">ParaCite</a> وهي وظيفة لتحليل الاقتباسات. لتعمل الأمور بشكل صحيح، ينبغي أن يكون لديك برنامج Perl منصباً، فضلاً عن <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> ووحدات <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a> CPAN. عليك أيضاً ضبط موجه <tt>perl</tt> في ملفك التعريفي. هذا الموجه متوضع في قسم الأوامر الخارجية External Commands section للملف <tt>config.inc.php</tt>.</p>
-	<p>بإمكانك أيضاً اختيار وحدة المحلل التي على ParaTools استعمالها. بإمكانك التخير بين الوحدة القياسية، <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a>، ووحدات محلل <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a>.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>تصفية المستقطع هذه ترتبط بخدمة الإنترنت <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a>.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.regEx">إن تصفية المستقطع تستعمل سلسلة من التعابير المنتظمة لتحليل الاقتباسات.</message>
-	<message key="manager.setup.filter.parser.grid.loadMessage">لطفاً، إمنح شبكة تعريف محلل الاقتباسات وقتاً للتحميل...</message>
-	<message key="manager.setup.filter.parser.grid.title">خدمات استقطاع الاقتباسات</message>
-	<message key="manager.setup.filter.pleaseSelect">لطفاً إختر...</message>
 	<message key="manager.setup.groupType">التجميع حسب نوع الملف</message>
 	<message key="manager.setup.homeHeaderImageInvalid">صيغة ملف شعار رأس الصفحة الرئيسية غير صحيحة أو فشل تحميلها. الصيغ المدعومة هي: .gif، .jpg، أو .png.</message>
 	<message key="manager.setup.homepageImage">الصفحة الرئيسية</message>
@@ -284,7 +246,6 @@
 	<message key="manager.setup.layout.unselected">غير محددة</message>
 	<message key="manager.setup.loggingAndAuditing">تسجيل الوقائع والمراجعة</message>
 	<message key="manager.setup.logo">الصورة المصغرة</message>
-	<message key="manager.setup.metaCitationsDescription">قم بتفعيل خانة الاختيار الآتية لتمكين إجراء التعديلات على الاقتباسات والمراجع. هذا الأمر سيتيح للمؤلفين إدراج اقتباسات بشكل خام في مؤلفاتهم. كما سيكون للمحررين إمكانية الاستعانة بمساعد تأشير الاقتباسات الذي يقوم بتدقيق الاقتباسات الخام مستعيناً بقواعد بيانات خارجية، مثل: WorldCat، ISBNdb، PubMed وغيرها لتحقيق الدقة والضبط العاليين. الاقتباسات المصادق عليها يمكن تصديرها في ملفات طباعية نهائية.</message>
 	<message key="manager.setup.notifications">إشعار تقديم المؤلف لطلب نشر</message>
 	<message key="manager.setup.notifications.copySpecifiedAddress">أرسل نسخة إلى هذا العنوان</message>
 	<message key="manager.setup.notifications.description">يحصل المؤلفون تلقائياً على رسالة تبلغهم باستلام طلبهم. يمكنك الحصول على نسخ من هذه الرسالة موجهة إلى العناوين الآتية:</message>
@@ -321,10 +282,6 @@
 	<message key="plugins.categories.auth">إضافات المصادقة</message>
 	<message key="plugins.categories.blocks">إضافات الكتل</message>
 	<message key="plugins.categories.blocks.description">إن إضافات الكتل هي مكونات واجهة مستخدم، مثل أدوات أشرطة التمرير المتنوعة.</message>
-	<message key="plugins.categories.citationLookup">إضافات توصيلات قواعد بيانات الاقتباسات</message>
-	<message key="plugins.categories.citationLookup.description">إن إضافات توصيلات قواعد بيانات الاقتباسات ترتبط بقواعد البيانات للبحث عن الاقتباسات، مثلما يحدث عند تعديل الاقتباس.</message>
-	<message key="plugins.categories.citationParser">إضافات استقطاع الاقتباسات</message>
-	<message key="plugins.categories.citationParser.description">إن إضافات استقطاع الاقتباسات تقوم باستقطاع البيانات على مستوى الحقول من الاقتباسات الخام (أي: المؤلف، العنوان... إلخ).</message>
 	<message key="plugins.categories.gateways.description">الإضافات البوابية تجهز الأنظمة الخارجية آنياً بالبيانات من الموقع.</message>
 	<message key="plugins.categories.gateways">الإضافات البوابية</message>
 	<message key="plugins.categories.generic">إضافات عامة</message>

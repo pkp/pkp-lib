@@ -229,48 +229,10 @@
 	<message key="manager.setup.authorCopyrightNoticeAgree">Требовать от авторов принятия Условий передачи авторских прав в процессе отправки материала.</message>
 	<message key="manager.setup.authorGuidelines">Руководство для авторов</message>
 	<message key="manager.setup.authorGuidelines.description">Рекомендуемые правила оформления, включая стандарты форматирования текста и библиографических ссылок вместе с примерами оформления ссылок, которые часто встречаются в отправляемых материалах.</message>
-	<message key="manager.setup.citations">Библиографические ссылки</message>
-	<message key="manager.setup.citationAssistant">Помощник разметки библиографических ссылок</message>
-	<message key="manager.setup.citationFilterParser">Извлечение библиографических ссылок</message>
-	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>Чтобы найти и проверить библиографические ссылки в базах данных библиографических ссылок, сначала их необходимо преобразовать в читаемые машиной метаданные: название, издатель, дата публикации и т. д. Все эти данные должны быть извлечены из исходного текста библиографической ссылки на источник, предоставленного автором. Помочь в этом процессе могут подключения к внешним веб-сервисам. Один или несколько модулей подключения можно добавить, щелкнув ниже на кнопке «Добавить элемент». Некоторые из этих модулей подключения могут требовать настройки, в этом случае вы увидите сообщение о необходимости настройки модуля.</p>
-		<p>Вы можете отредактировать или удалить существующий модуль подключения, щелкнув на значке шестренки рядом с ним.</p>]]></message>
-	<message key="manager.setup.citationFilterLookup">Проверка библиографических ссылок</message>
-	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>Вы должны включить и настроить модули подключения к внешним базам данных библиографических ссылок. Это поможет вам найти ошибки в библиографических ссылках авторов или добавить дополнительную информацию (например, DOI или PubMed ID), требуемые для электронных публикаций или депонирования.</p>
-		<p>Мы предоставляем модули подключения к нескольким внешним базам данных, в которых вы можете искать библиографические ссылки. Некоторые из этих баз данных требуют регистрации или ввода информации для настройки. Пожалуйста, обратитесь к веб-сайтам баз данных для подробной информации о том, как зарегистрироваться. Вы можете добавить одну или несколько баз данных, щелкнув ниже на кнопке «Добавить элемент».</p>
-		<p>Вы можете отредактировать или удалить существующее подключение к внешней базе данных, щелкнув на значке шестренки рядом с ним.</p>
-		<p><strong>Обратите внимание:</strong> Чтобы процесс проверки библиографических ссылок завершался своевременно, параметр <tt>citation_checking_max_processes</tt> в вашем конфигурационном файле должен иметь приемлемое значение. Смотрите раздел General Settings в <tt>config.inc.php</tt> для получения более подробной информации.</p>]]></message>
 	<message key="manager.setup.competingInterests">Конфликт интересов</message>
 	<message key="manager.setup.competingInterestsDescription">Рецензентов просят следовать Правилам декларирования конфликта интересов, которые вы описали ниже.</message> <!-- FIXME #6843 (JM): should this just reference reviewers? -->
 	<message key="manager.setup.errorDeletingItem">Во время удаления этого объекта возникла ошибка.</message>
 	<message key="manager.setup.favicon">Неправильный формат favicon. Допустимы форматы .ico, .png и .gif.</message>
-	<message key="manager.setup.filter.grid.errorDeletingFilter">При попытке удаления этого фильтра произошла ошибка. Пожалуйста, сообщите об этой ошибке разработчикам.</message>
-	<message key="manager.setup.filter.grid.filterDisplayName">Модуль подключения</message>
-	<message key="manager.setup.filter.grid.filterSettings">Регистрационная информация и настройки модуля подключения</message>
-	<message key="manager.setup.filter.grid.filterTemplateRequired">Пожалуйста, выберите один из способов преобразования в выпадающем меню.</message>
-	<message key="manager.setup.filter.grid.confirmDelete">Вы действительно хотите удалить фильтр «{$filterName}»?</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Вы решили добавить базу данных «{$filterDisplayName}». Пожалуйста, щелкните на «ОК», чтобы потвердить добавление.</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Пожалуйста, выберите базу данных для проверки.</message>
-	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Этот фильтр подключается к базе данных книг и ISBN <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a>.</p>
-	<p>Ключ ISBNdb API является обязательным. Информацию о генерации ключа можно найти в <a href="http://isbndb.com/api/v1/docs/keys" target="_blank">документации на сайте</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Этот фильтр подключается к базе данных библиографических ссылок CrossRef, используя <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL Query Interface</a>.</p>
-	<p>Для использования этого фильтра вы можете использовать вашу учетную запись в системе CrossRef или зарегистрировать правильный адрес электронной почты в CrossRef <a href="http://www.crossref.org/requestaccount/" target="_blank">по этой ссылке</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Этот фильтр подключается к поисковой машине <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a> системы PubMed, работающей с несколькими базами данных.</p>
-	<p>Регистрация адреса электронной почты не является обязательной, но может потребоваться, если вы сталкиваетесь с проблемами соединения с поисковой машиной. Смотрите подробную информацию в разделе <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Usage Guidelines and Requirements</a> документации Entrez.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Этот фильтр подключается к сервисам OCLC <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> и <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (не обязательно).</p>
-	<p>Если у вас есть <a href="http://oclc.org/developer/develop/web-services.html" target="_blank">ключ API</a> Worldcat, вы можете подключиться к Worldcat, введя ключ ниже.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.loadMessage">Пожалуйста, подождите, пока таблица конфигурации баз данных библиографических ссылок будет загружена...</message>
-	<message key="manager.setup.filter.lookup.grid.title">Модули подключения к базам данных библиографических ссылок</message>
-	<message key="manager.setup.filter.noMoreTemplates">Все доступные преобразования уже были добавлены. Пожалуйста, щелкните на «Отмена», чтобы вернуться на страницу настройки.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionConfirm">Вы решили добавить синтаксический анализатор «{$filterDisplayName}». Пожалуйста, щелкните на «ОК», чтобы потвердить добавление.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionTemplate">Пожалуйста, выберите синтаксический анализатор библиографических ссылок.</message>
-	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>Этот фильтр извлечения подключается к веб-сервису <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a>.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>Этот фильтр извлечения использует модули Perl <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> для обеспечения функциональности синтаксического анализа библиографических ссылок <a href="http://paracite.eprints.org" target="_blank">ParaCite</a>. Для работы этого фильтра необходимо, чтобы был установлен Perl, а также модули CPAN <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> и <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a>. Вы также должны настроить параметр <tt>perl</tt> в вашем конфигурационном файле. Этот параметр можно найти в разделе External Commands файла <tt>config.inc.php</tt>.</p>
-	<p>Вы также должны выбрать, какой модуль синтаксического анализа ParaTools использовать. Вы можете выбрать между стандартным модулем синтаксического анализа <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a> и модулем <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a>.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>Этот фильтр извлечения подключается к веб-сервису <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a>.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.regEx">Фильтр извлечения RegEx использует набор регулярных выражений для разбора библиографических ссылок на источники.</message>
-	<message key="manager.setup.filter.parser.grid.loadMessage">Пожалуйста, подождите, пока таблица конфигурации синтаксических анализаторов библиографических ссылок будет загружена...</message>
-	<message key="manager.setup.filter.parser.grid.title">Службы извлечения ссылок</message>
-	<message key="manager.setup.filter.pleaseSelect">Пожалуйста, выберите...</message>
 	<message key="manager.setup.groupType">Группировка типов файлов</message>
 	<message key="manager.setup.homeHeaderImageInvalid">Неверный формат изображения логотипа для верхнего колонтитула домашней страницы или загрузка не удалась. Разрешенные форматы: .gif, .jpg или .png.</message>
 	<message key="manager.setup.homepageImage">Изображение на главной странице</message>
@@ -285,7 +247,6 @@
 	<message key="manager.setup.layout.unselected">Не выбрано</message>
 	<message key="manager.setup.loggingAndAuditing">Ведение журнала и аудит</message>
 	<message key="manager.setup.logo">Логотип</message>
-	<message key="manager.setup.metaCitationsDescription">Поставьте галочку, чтобы включить редактирование библиографических ссылок на источники. Это позволит авторам включать «сырые» библиографические ссылки на источники в отправляемые материалы. Редакторы также будут иметь доступ к Помощнику разметки библиографических ссылок, в котором они могут проверить на точность «сырые» библиографические ссылки с помощью внешних баз данных, таких как WorldCat, ISBNdb, PubMed и других. Одобренные библиографические ссылки могут быть экспортированы в файлы финальных гранок.</message>
 	<message key="manager.setup.notifications">Уведомление об отправке материала автором</message>
 	<message key="manager.setup.notifications.copySpecifiedAddress">Отправить копию на этот адрес электронной почты:</message>
 	<message key="manager.setup.notifications.description">Авторам автоматически отправляется письмо электронной почты с подтверждением отправки их материала. Вы можете отправить копии этого письма электронной почты следующим:</message>
@@ -322,10 +283,6 @@
 	<message key="plugins.categories.auth">Модули авторизации</message>
 	<message key="plugins.categories.blocks">Модули блоков</message>
 	<message key="plugins.categories.blocks.description">Модули блоков — подключаемые компоненты пользовательского интерфейса, такие как различные инструменты боковой панели.</message>
-	<message key="plugins.categories.citationLookup">Модули подключения к базам данных библиографических ссылок</message>
-	<message key="plugins.categories.citationLookup.description">Модули подключения к базам данных библиографических ссылок подключаются к базам данных библиографических ссылок, чтобы найти ссылку на источник, например, во время редактирования библиографических ссылок.</message>
-	<message key="plugins.categories.citationParser">Модули извлечения библиографических ссылок</message>
-	<message key="plugins.categories.citationParser.description">Модули извлечения библиографических ссылок позволяют извлекать данные для полей из «сырых» библиографических ссылок (например, имя автора, название и т. д.).</message>
 	<message key="plugins.categories.gateways.description">Модули шлюзов предоставляют данные в реальном времени внешним системам.</message>
 	<message key="plugins.categories.gateways">Модули шлюзов</message>
 	<message key="plugins.categories.generic">Модули общего назначения</message>

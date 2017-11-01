@@ -145,52 +145,12 @@
 	<message key="manager.reviewerSearch.activeAmount">Liczba aktywnych recenzji: {$current}</message>
 	<message key="manager.reviewerSearch.interests">Zainteresowania badawcze</message>
 	<message key="manager.roles">Role</message>
-	<message key="manager.setup.citationAssistant">Asystent cytowań</message>
-	<message key="manager.setup.citationFilterParser">Wydobywanie cytowań</message>
-	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>Aby sprawdzić poprawność opisów bibliograficznych w zewnętrznych bazach, muszą być one najpierw podane w następującym formacie: tytuł, wydawca, data wydania, etc. i dostarczone niezależnie od tekstu. Połączenia z zewnętrznymi usługami mogą być w tym celu pomocne. Jedno lub wiele połączeń może zostać dodanych przez kliknięcie przycisku "Dodaj pozycję". Niektóre z tych połączeń mogą wymagać konfiguracji. Jeżeli zajdzie taka konieczność - zostaniesz o tym poinformowany(a).</p>
-		<p>Możesz edytować istniejące połączenie poprzez kliknięcie ikony umieszczonej obok nich.</p>]]></message>
-	<message key="manager.setup.citationFilterLookup">Sprawdzanie cytowań</message>
-	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>Musisz również włączyć i skonfigurować połączenia do zewnętrznych baz danych cytowań. Takie działanie pomoże w znalezieniu błędów w cytowaniach oraz uzupełni je o dodatkowe informacje.</p> 
-		<p>Zapewniamy połączenia do zewnętrznych baz danych, gdzie możesz wyszukiwać cytowania. Niektóre z tych baz wymagają rejestracji i konfiguracji. Informacje dotyczące rejestracji w poszczególnych bazach danych znajdują się na stronach internetowych tych baz. Możesz dodać jedną lub więcej baz danych poprzez kliknięcie przycisku "Dodaj pozycję".</p>
-		<p>Możesz edytować istniejącą bazę poprzez kliknięcie ikony umieszczonej obok niej.</p>
-		<p><strong>Nota:</strong> Aby proces sprawdzania cytowań przebiegał w rozsądnym czasie, parametr <tt>citation_checking_max_processes</tt> w pliku konfiguracyjnym powinien posiadać odpowiednią wartość. Więcej informacji dostępnych jest w sekcji General Settings pliku <tt>config.inc.php</tt>.</p>]]></message>
-	<message key="manager.setup.citationOutput">Dane wyjściowe cytowań</message>
-	<message key="manager.setup.citationOutputStyleDescription">Wybierz styl cytowań używany przez autorów czasopisma. Asystent cytowań pozwala na porównanie wersji autora z wersją generowaną w formacie XML, co pozwala w łatwy sposób odnaleźć błędy:</message>
 	<message key="manager.setup.errorDeletingItem">Wystąpił błąd podczas usuwania tego pliku.</message>
-	<message key="manager.setup.filter.grid.errorDeletingFilter">Wystąpił błąd podczas usuwania tego filtra. Proszę zgłośić to jako błąd.</message>
-	<message key="manager.setup.filter.grid.filterDisplayName">Połączenia</message>
-	<message key="manager.setup.filter.grid.filterSettings">Informacje dotyczące rejestracji oraz połączeń</message>
-	<message key="manager.setup.filter.grid.filterTemplateRequired">Proszę wybrać jeden z rodzajów transformacji z listy.</message>
-	<message key="manager.setup.filter.grid.confirmDelete">Czy na pewno usunąć filtr {$filterName}?</message>	
-	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Czy na pewno dodać {$filterDisplayName}? Kliknik 'OK' aby potwierdzić.</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Dodaj bazę wyszukań.</message>
-	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Ten filtr łączy się z <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> bazą książek oraz ISBN.</p>
-	<p>Klucz ISBN jest wymagany. W celu uzyskania informacji o generowaniu kluczy, zapoznaj się z <a href="http://isbndb.com/api/v1/docs/keys" target="_blank">dokumentacją online</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Ten filtr łączy się z bazą cytowań CrossRef wykorzystując <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">interfejs OpenURL</a>.</p> 
-	<p>Aby połączyć się z CrossRef, mozesz wykorzystać swoje konto CrossRef, lub zarejestrować się <a href="http://www.crossref.org/requestaccount/" target="_blank">tutaj</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Ten filtr łączy się systemem <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">PubMed</a> - krzyżową aplikacją przeszukiwania baz danych.</p>
-	<p>E-mail wykorzystany przy rejestracji nie jest obowiązkoway, ale może okazać się niezbęny w przypadku natrafienia na problemy. Więcej informacji dostępnych jest w dokumentacji <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">dokumentacji</a> systemu.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Ten filtr łączy się z usługami OCLC <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> oraz <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (opcjonalnie).</p>
-	<p>Jeżeli posiadasz <a href="http://oclc.org/developer/develop/web-services.html" target="_blank">klucz API Worldcat</a> możesz połączyć się z systemem Worldcat wpisując klucz poniżej.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.loadMessage">Zaczekaj na załadowanie konfiguracji baz danych...</message>
-	<message key="manager.setup.filter.lookup.grid.title">Połączenia baz danych cytowań</message>
-	<message key="manager.setup.filter.noMoreTemplates">Wszystkie dostępne transformacje zostały wybrane. Kliknij "Anuluj", aby wrócić do ekranu konfiguracji.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionConfirm">Czy na pewno dodać parser {$filterDisplayName}. Kliknij 'OK' aby kontynuować.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionTemplate">Wybierz parser cytowań.</message>
-	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>Ten filtr łączy się z usługą <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a>.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>Ten filtr korzysta z modułów <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> w celu wykorzystania parsowania <a href="http://paracite.eprints.org" target="_blank">ParaCite</a>. Wymagana jest instalacja Perla, oraz moduły <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> i <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a>. Niezbędna będzie również konfiguracja <tt>perl</tt> w pliku konfiguracyjnym <tt>config.inc.php</tt>.</p>
-	<p>Możesz również zdecydować z których modułów ParaTools powinien korzystać. Możesz wybrać pomiędzy standardowym, <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a>, oraz <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a>.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>Ten filtr łączy się z usługą <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a> .</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.regEx">Filtr RegEx wykorzystuje wyrażenia regularne do parsowania cytowań.</message>
-	<message key="manager.setup.filter.parser.grid.loadMessage">Zaczekaj na załadowanie sieci parsowania cytowań...</message>
-	<message key="manager.setup.filter.parser.grid.title">Usługi wydobywania cytowań</message>
-	<message key="manager.setup.filter.pleaseSelect">Wybierz...</message>
 	<message key="manager.setup.homeHeaderImageInvalid">Niepoprawny plik obrazu dla logo. Akceptowane formaty to GIF, JPG lub PNG.</message>
 	<message key="manager.setup.homepageImageInvalid">Niepoprawny plik dla obrazu strony głównej. Akceptowane formaty to GIF, JPG lub PNG.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Niepoprawny plik dla obrazu tytułu nagłówka. Akceptowane formaty to GIF, JPG lub PNG.</message>
 	<message key="manager.setup.layout.unselected">Niezaznaczone</message>
 	<message key="manager.setup.loggingAndAuditing">Logowanie i audyt</message>
-	<message key="manager.setup.metaCitationsDescription">Zaznacz pole w celu włączenia edytowania cytowań i źródeł. Umożliwi to autorom dodawanie surowych cytowań. Redaktorzy dostaną również dostęp do asystenta cytowań, co pozwoli im na sprawdzenie dostarczonych, surowych cytowań z zewnętrznymi bazami, takimi jak: WorldCat, ISBNdb, PubMed, itp. Zatwierdzone cytowania mogą być następnie wyeksportowane do plików z pełnymi tekstami.</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Niepoprawny plik obrazu dla logo. Akceptowane formaty to GIF, JPG lub PNG.</message>
 	<message key="manager.statistics"><![CDATA[Statystyki i raporty]]></message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
@@ -199,7 +159,6 @@
 	<message key="plugins.categories.auth">Wtyczki autoryzacji</message>
 	<message key="plugins.categories.blocks">Wtyczki blokowe</message>
 	<message key="plugins.categories.blocks.description">Wtyczki blokowe są elementami interfejsu użytkownika.</message>
-	<message key="plugins.categories.citationFormats">Wtyczki formatu cytowań</message>
 	<message key="plugins.categories.gateways.description">Wtyczki bram udzielają danych dla zewnętrznych systemów.</message>
 	<message key="plugins.categories.gateways">Wtyczki bram</message>
 	<message key="plugins.categories.generic">Wtyczki ogólne</message>
@@ -227,12 +186,6 @@
 	<message key="manager.statistics.region">Region</message>
 	<message key="plugins.categories.metadata">Wtyczki metadanych</message>
 	<message key="plugins.categories.metadata.description">Wtyczki metadanych pozwalają na implementację dodatkowych standardów metadanych.</message>
-	<message key="plugins.categories.citationLookup">Wtyczki baz danych cytowań</message>
-	<message key="plugins.categories.citationLookup.description">Wtyczki baz danych bibliografii umożliwiają łączenie z zewnętrznymi bazami bibliograficznymi w celu przeglądania i wyszukiwania opisów bibliograficznych, co może być pomocne np. podczas edycji danych bibliograficznych.</message>
-	<message key="plugins.categories.citationOutput">Wtyczki wyjścia bibliografii</message>
-	<message key="plugins.categories.citationOutput.description">Wtyczki wyjścia bibliografii implementują standardy cytowań. Zastępują wtyczki formatów cytowań.</message>
-	<message key="plugins.categories.citationParser">Wtyczki eksportu bibliografii</message>
-	<message key="plugins.categories.citationParser.description">Wtyczki eksportu bibliografii pozwalają na wyodrębnianie danych bibliograficznych z surowych źródeł.</message>
 	<message key="manager.website.information">Informacje</message>
 	<message key="manager.website.appearance">Wygląd</message>
 	<message key="manager.website.imageFileRequired">Obraz jest wymagany. Upewnij się, że wybrałeś(aś) i przesłałeś(aś) plik.</message>
@@ -293,7 +246,6 @@
 	<message key="manager.setup.authorCopyrightNoticeAgree">Wymagaj od autorów, aby akceptowali informację o prawach autorskich jako element procesu zgłoszenia tekstu.</message>
 	<message key="manager.setup.authorGuidelines">Wytyczne dla autorów</message>
 	<message key="manager.setup.authorGuidelines.description">Wytyczne powinny zawierać opis standardów formatowania bibliografii oraz ogólnego formatowania tekstu w plikach zgłaszanego tekstu.</message>
-	<message key="manager.setup.citations">Cytowania</message>
 	<message key="manager.setup.competingInterests">Konflikt interesów</message>
 	<message key="manager.setup.competingInterestsDescription">Recenzenci zostaną poproszeni o potwierdzenie, że nie występuje konflikt interesów.</message>
 	<message key="manager.setup.favicon">Nieprawidłowy format favicony. Akceptowane formaty to ICO, PNG oraz GIF.</message>

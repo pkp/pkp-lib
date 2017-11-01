@@ -145,49 +145,11 @@
 	<message key="manager.reviewerSearch.activeAmount">Jumlah review aktif sekarang</message>
 	<message key="manager.reviewerSearch.interests">Minat Mereview</message>
 	<message key="manager.roles">Peran</message>
-	<message key="manager.setup.citationAssistant">Bantuan Koreksi Sitiran</message>
-	<message key="manager.setup.citationFilterParser">Ekstrasi Sitiran</message>
-	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>Untuk mencari dan mengecek sitiran di database ditiran, pertama-tama mereka harus dibagi menjadi metadata yang dapat dibaca mesin: Judul, Penerbit, Tanggal penerbitan, dll. Semua harus diekstrak dari teks sitiran asli yang disediakan oleh penulis. Konektor ke layanan web eksternal dapat membantu di proses ini. Satu konektor atau lebih dapat ditambahkan dengan mengklik tombol "Tambah Item"  bawah ini. Beberapa dari konektor ini mungkin perlu dikonfigurasi; Anda akan diberitahu jika ini terjadi.</p>
-		<p>Anda dapat mengedit atau menghapus konektor yang ada dengan mengklik ikon gear di sampingnya.</p>]]></message>
-	<message key="manager.setup.citationFilterLookup">Pengecekan Sitiran</message>
-	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>Anda juga harus mengaktifkan dan mengkonfigurasi koneksi ke databse sitiran eksternal. Ini membantu Anda untuk menemukan kesalahan di sitiran penulis atau menambah informasi tambahan (contoh: DOIs atau PubMed Ids)  yang dibutuhkan untuk deposit atau penerbitan elektronik.</p>
-		<p>Kami sediakan konektor ke beberapa database eksternal di mana Anda bisa mencari sitiran. Beberapa databse membutuhkan pendaftaran atau informasi konfigurasi untuk dimasukkan. Lihat website publik database untuk informasi lebih lanjut tentang bagaimana untuk mendaftar. Anda dapat menambah satu atau beberapa database dengan mengklik "Tambah Item" di bawah ini.</p>
-		<p>Anda dapat mengedit atau menghapus koneksi database eksternal yang ada dengan mengklik ikon gear di sampingnya.</p>
-		<p><strong>Catatan:</strong>Agar proses pengecekan sitiran selesai tepat waktu, <tt>citation_checking_max_processes</tt> direktif di file konfigurasi Anda harus diatur ke nilai yang valid. Lihat bagian Pengaturan Umum di <tt>config.inc.php</tt> untuk informasi lebih lanjut.</p>]]></message>
 	<message key="manager.setup.errorDeletingItem">Ada kesalahan saat menghapus item ini.</message>
-	<message key="manager.setup.filter.grid.errorDeletingFilter">Eror terjadi saat mencoba memindahkan filter ini. Laporkan ini sebagai bug.</message>
-	<message key="manager.setup.filter.grid.filterDisplayName">Konektor</message>
-	<message key="manager.setup.filter.grid.filterSettings">Informasi Pendaftaran dan Pengaturan Konektor</message>
-	<message key="manager.setup.filter.grid.filterTemplateRequired">Pilih satu dari transformasi ini dari drop-down.</message>
-	<message key="manager.setup.filter.grid.confirmDelete">Apakah Anda benar-benar ingin menghapus filter{$filterName}?</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Anda telah memilih untuk menambah database {$filterDisplayName}. Klik di "OK" untuk mengkonfirmasi.</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Pilih lookup database.</message>
-	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Filter ini terkoneksi ke <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> buku dan database ISBN.</p>
-	<p>Kunci ISBNdb API bersifat mandatori. Untuk informasi tentang menghasilkan kunci, lihat <a href="http://isbndb.com/api/v1/docs/keys" target="_blank">dokumentasi online</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Filter ini terkoneksi ke database sitiran CrossRef dengan menggunakan CrossRef<a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL Query antarmuka</a>.</p>
-	<p>Untuk menggunakan filter ini, Anda dapat menggunakan akun sistem CrossRef Anda, atau mendaftarkan alamat email yang valid dengan CrossRef <a href="http://www.crossref.org/requestaccount/" target="_blank">di sini</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Filter ini terkoneksi ke PubMed <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a> cross-database search engine.</p>
-	<p>Email pendaftaran tidak mandatori secara ketat, tapi mungkin perlu jika Anda menghadapi masalah koneksi. Lihat bagian di  <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Persyaratan dan Petunjuk Penggunaan</a> di dokumentasi Entrez untuk informasi lebih lanjut.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Filter ini terkoneksi ke layanan OCLC <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> and <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (optional).</p>
-	<p>Jika Anda mempunyai Worldcat <a href="http://oclc.org/developer/develop/web-services.html" target="_blank">kunci API</a>Anda dapat terkoneksi dengan Worldcat dengan memasukkan kunci di bawah ini.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.loadMessage">Tunggu hingga grid konfigurasi database sitiran telah dimuat...</message>
-	<message key="manager.setup.filter.lookup.grid.title">Konektor Database Sitiran</message>
-	<message key="manager.setup.filter.noMoreTemplates">Semua transformasi yang tersedia telah ditambahkan. Klik "Batal" untuk kembali ke halaman setup.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionConfirm">Anda telah memilih untuk menambah parser {$filterDisplayName} . Klik "OK" untuk mengkonfirmasi.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionTemplate">Pilih parser sitiran.</message>
-	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>Filter ekstrasi ini terkoneksi ke <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a> web service.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>Filter ekstrasi ini menggunakan <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> Perl modules untuk menyediakan <a href="http://paracite.eprints.org" target="_blank">ParaCite</a> fungsionalitas menguraikan sitiran. Agar dapat bekerja dengan tepat, Anda harus menginstal Per;, bersama dengan <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> dan <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a> CPAN modules. Anda juga harus mengkonfigurasi <tt>perl</tt> directif di file konfigurasi Anda. Direktif ini dapat ditemukan di bagian Perintah Eksternal <tt>config.inc.php</tt>.</p>
-	<p>Anda dapat memilih parser module ParaTools  yang harus digunakan. Anda dapat memilih antara yang standar, <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a>, dan <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a> parser modules.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>Filter ekstrasi ini terkoneksi ke <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a> layanan web.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.regEx">filter ekstrasi RegEx menggunakan serangkaian ekspresi reguler untuk menguraikan sitiran.</message>
-	<message key="manager.setup.filter.parser.grid.loadMessage">Tunggu hingga grid konfigurasi parser sitiran telah dimuat...</message>
-	<message key="manager.setup.filter.parser.grid.title">Layanan Ekstrasi Sitiran</message>
-	<message key="manager.setup.filter.pleaseSelect">Pilih...</message>
 	<message key="manager.setup.homeHeaderImageInvalid">format gambar logo header beranda invalid atau unggahan gagal. Format yang diterima adalah .gif, .jpg, or .png.</message>
 	<message key="manager.setup.homepageImageInvalid">format gambar beranda invalid atau unggahan gagal. Format yang diterima adalah .gif, .jpg, or .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">format gambar judul header beranda invalid atau unggahan gagal. Format yang diterima adalah .gif, .jpg, or .png.</message>
 	<message key="manager.setup.loggingAndAuditing">Proses Login dan Audit</message>
-	<message key="manager.setup.metaCitationsDescription">Aktifkan checkbox berikut untuk memudahkan pengeditan referensi dan sitiran. Ini akan memudahkan penulis untuk memasukkan sitiran kasar dengan naskah. Editor juga akan mempunyai akses ke bantuan Koreksi sitiran yang dapat mengecek sitiran kasar terhadap database eksternal, seperti WorldCat, ISBNdb, PubMed dan lainnya, untuk keakuratan. Sitiran yang disetujui dapat diekspor ke file galley akhir.</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Format gambar logo header halaman invalid atau unggahan gagal. Format yang diterima adalah .gif, .jpg, or .png.</message>
 	<message key="manager.setup.selectOne">Pilih satu</message>
 	<message key="manager.statistics"><![CDATA[Statistik &amp; Laporan]]></message>

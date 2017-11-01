@@ -169,7 +169,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 
 		// roles
 		if (!is_null($this->roleIds)) {
-			$q->whereIn('uug.user_group_id', $this->roleIds);
+			$q->whereIn('ug.role_id', $this->roleIds);
 		}
 
 		// status

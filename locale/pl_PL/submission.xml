@@ -131,91 +131,6 @@
 	<message key="submission.backToSubmissionEditing">Powrót do edycji formularza przesyłania</message>
 	<message key="submission.changeComments">Zmień na</message>
 	<message key="submission.citations">Bibliografia</message>
-	<message key="submission.citations.editor.citationlist.deleteCitationConfirmation">Czy na pewno chcesz usunąć to cytowanie?</message>
-	<message key="submission.citations.editor.citationlist.errorDeletingCitation">Wykryto wewnętrzny błąd podczas próby usunięcia cytowania. Proszę o wysłanie raportu z błędem.</message>
-	<message key="submission.citations.editor.citationlist.newCitation">Nowe cytowanie</message>
-	<message key="submission.citations.editor.citationlist.title">Edycja cytowania</message>
-	<message key="submission.citations.editor.clickToEdit">Kliknij, aby edytować.</message>
-	<message key="submission.citations.editor.details.authorQuery">Zapytaj autora</message>
-	<message key="submission.citations.editor.details.authorQueryBody">Twoja wiadomość do autora:</message>
-	<message key="submission.citations.editor.details.authorQueryExplanation">Możesz zapytać autora o dalsze informacje o cytowaniach. Kliknij "wyślij" (przycisk poniżej), aby wysłać e-mail do autora.</message>
-	<message key="submission.citations.editor.details.authorQuerySubject">Temat:</message>
-	<message key="submission.citations.editor.details.cannotSelectDefaultForLabel">Nie możesz odznaczyć tego pola. Usuń to pole, jeśli go nie potrzebujesz.</message>
-	<message key="submission.citations.editor.details.checkInGoogleScholar">Sprawdź w Google Scholar</message>
-	<message key="submission.citations.editor.details.changeFieldInfo">Wprowadź kilka pierwszych liter, aby wybrać...</message>
-	<message key="submission.citations.editor.details.citationExportPreview">Podgląd eksportu cytowań</message>
-	<message key="submission.citations.editor.details.citationImprovementResultsActive">Wyniki usługi wewnętrznego eksperckiego cytowania (kliknij, aby zamknąć)</message>
-	<message key="submission.citations.editor.details.citationImprovementResultsInactive">Wyniki usługi wewnętrznego eksperckiego cytowania (kliknij, aby otworzyć)</message>
-	<message key="submission.citations.editor.details.citationServices">Usługi dla cytowań</message>
-	<message key="submission.citations.editor.details.clickToDismissMessage">Możesz kliknąć w tekst wiadomości, aby ją usunąć.</message>
-	<message key="submission.citations.editor.details.dataSaved">Twoje zmiany zostały zapisane.</message>
-	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Wybierz bazę bibliograficzną:</message>
-	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Ustawienia edycji cytowań (kliknij, aby zamknąć)</message>
-	<message key="submission.citations.editor.details.editRawCitationExpertSettingsInactive">Ustawienia edycji cytowań (kliknij, aby otworzyć)</message>
-	<message key="submission.citations.editor.details.editRawCitationExtractionServices">Wybierz usługi do ekstrakcji cytowań:</message>
-	<message key="submission.citations.editor.details.editRawCitationFilterValidationError">Wewnętrzny błąd: Niewłaściwy wybór filtra. Proszę o wysłanie raportu z błędem.</message>
-	<message key="submission.citations.editor.details.explainImprovementOptions">Jeżeli nie otrzymałeś(aś) satysfakcjonujących wyników przy ustawieniach domyślnych, możesz wykorzystać inne opcje do zwiększenia wyszukań cytowań. Pomocna może być ręczna edycja istotnych pól (np. tytułu lub autora), a następnie ponowne skorzystanie z usług bibliograficznych. Jeżeli to nie pomoże, wciąż możesz wyszukać cytowanie w Google Scholar lub poprosić autora o szczegóły.</message>
-	<message key="submission.citations.editor.details.googleScholar">Google Scholar</message>
-	<message key="submission.citations.editor.details.googleScholarExplanation">Jeżeli połączone cytowania nie zostały odnalezione w żadnym z połączonych serwisów bibliograficznych możesz wciąż wyszukać je w Google Scholar. Niestety Google Scholar nie dostarcza interfejsu opartego na polach dla danych, które moglibyśmy wykorzystać, co oznacza, że nie ma możliwości ich automatycznego przeniesienia do Asystenta. Będziesz musiał(a)  skopiować i wkleić ręcznie te informacje ze strony z wynikami Google do swoich pól.</message>
-	<message key="submission.citations.editor.details.manualEditing">Ręczna edycja</message>
-	<message key="submission.citations.editor.details.messages">Proszę odnotować (kliknij na wiadomość, aby ją usunąć)</message>
-	<message key="submission.citations.editor.details.newFieldInfo">...kliknij tutaj, aby dodać nowe pole...</message>
-	<message key="submission.citations.editor.details.queryCitation">Usługi cytowań zwrotnych</message>
-	<message key="submission.citations.editor.details.queryGoogleScholar">Wyszukaj w Google Scholar</message>
-	<message key="submission.citations.editor.details.processRawCitation">Proces</message>
-	<message key="submission.citations.editor.details.processRawCitationGoAhead">Przejdź dalej</message>
-	<message key="submission.citations.editor.details.processRawCitationTitle">Zmień oryginalne cytowanie</message>
-	<message key="submission.citations.editor.details.processRawCitationWarning">Zamierzasz zmienić oryginalne cytowanie. Jeżeli je zmienisz, wszystkie pola zostaną zastąpione nowo wygenerowanymi wartościami. Spowoduje to usunięcie ręcznie wprowadzonych zmian.</message>
-	<message key="submission.citations.editor.details.saveAndApprove">Zapisz i potwierdź</message>
-	<message key="submission.citations.editor.details.saveAndRevokeApproval">Cofnij potwierdzenie</message>
-	<message key="submission.citations.editor.details.sendAuthorQuery">Wyślij wiadomość</message>
-	<message key="submission.citations.editor.details.sendAuthorQuerySuccess">Wiadomość wysłana!</message>
-	<message key="submission.citations.editor.details.sourceResultsUse">Użyj</message>
-	<message key="submission.citations.editor.details.sourceResultsUseAll">Użyj wszystkie</message>
-	<message key="submission.citations.editor.details.sourceResultsUseAllExplanation">Kliknij, aby przenieść wszystkie wyniki wprost ze źródła do swoich pól</message>
-	<message key="submission.citations.editor.details.sourceResultsUseExplanation">Kliknij, aby przenieść ten wynik wprost ze źródła do swoich pól</message>
-	<message key="submission.citations.editor.details.rawCitation">Oryginalne cytowanie</message>
-	<message key="submission.citations.editor.details.rawCitationRequired">Cytowanie jest wymagane.</message>
-	<message key="submission.citations.editor.details.unsavedChanges">Cytowanie zawiera niezapisane dane. Proszę o kliknięcie przycisku "Zapisz", w celu zachowania zmian lub "Anuluj" w celu cofnięcia zmian.</message>
-	<message key="submission.citations.editor.details.dontShowMessageAgain">Nie pokazuj ponownie tej wiadomości.</message>
-	<message key="submission.citations.editor.edit">Edytuj cytowania</message>
-	<message key="submission.citations.editor.export">Eksportuj cytowania</message>
-	<message key="submission.citations.editor.export.exportDescription"><![CDATA[<a id="markForExport" href="">Kliknij tutaj</a>, aby wybrać wszystkie wygenerowane wyniki. Następnie możesz je skopiować i wkleić do swojego dokumentu.]]></message>
-	<message key="submission.citations.editor.export.filterSelectionDescription">Proszę o wybranie jednej z poniższych opcji eksportu.</message>
-	<message key="submission.citations.editor.export.filterSelectionError">Nie wybrałeś(aś) jednej opcji wyniku.</message>
-	<message key="submission.citations.editor.export.foundUnapprovedCitationsMessage"><![CDATA[<p>Nie potwierdziłeś(aś) jeszcze wszystkich cytowań. Proszę przejdź do <strong>Edytuj cytowania</strong> i upewnij się, że potwierdziłeś(aś) wszystkie cytowania zanim je wyeksportujesz. Potwierdzone cytowania są zaznaczone na ciemnoniebieskim paskiem znajdującym się po lewej stronie.</p>]]></message>
-	<message key="submission.citations.editor.export.noExportOutput">Filtr '{$filterName}' wygenerował błąd. Proszę o przesłanie raportu z błędem.</message>
-	<message key="submission.citations.editor.export.pleaseSelectXmlFilter">Opcje XML:</message>
-	<message key="submission.citations.editor.export.pleaseSelectPlaintextFilter">Wynik stylu cytowań (opcja eksperymentalna!):</message>
-	<message key="submission.citations.editor.introduction">Wprowadzenie</message>
-	<message key="submission.citations.editor.introduction.introductionMessage"><![CDATA[<h4>Welcome to the Citation Markup Assistant!</h4>
-	<p>With this assistant you can mark up author-provided citations for export to NLM 2.3 or 3.0 XML galleys, or alternatively as text-based output. This tool first attempts to automatically extract and recognize citations as they have been provided, but you can step in and edit the results at any time.</p>
-	<ul>
-		<li><p><strong>Configuring the Assistant</strong></p>
-		<p>The Citation Markup Assistant is configured by the journal manager in <a href="{$citationSetupUrl}">Journal Setup Step 3.7: Citation Markup Assistant</a>. Different citation extraction and checking tools can be added, configured, and deleted. For more information, contact the journal manager.</p></li>
-		<li><p><strong>Navigating the Assistant Interface</strong></p>
-		<p>To switch between <strong>Introduction</strong>, <strong>Edit Citations</strong> and <strong>Export Citations</strong> tabs, click the tab titles. To expand the citation interface, click the <strong>Fullscreen</strong> button. To return to a normal interface from the expanded citation interface, click the <strong>Fullscreen Off</strong> button. To remove this introductory tab entirely, click the button below.</p></li>
-		<li><p><strong>Requesting Citations</strong></p>
-		<p>If the Citation Markup Assistant has been enabled by the journal manager, authors will be prompted for a list of references during article submission. These references will be requested separately from the submission document itself. After submission, authors can also modify their list of references at any time by editing the submission's metadata; note that this will overwrite any modifications that you have made to the citations using this tool.</p></li>
-		<li><p><strong>Editing Citations</strong></p>
-		<p>The Citation Markup Assistant will attempt to identify and extract individual citations from the author's list of references. You can systematically check each citation extraction attempt for accuracy against a number of external databases; edit incorrect citation information and add new information; approve or delete citations; and add new citations.</p>
-		<p>All final citations for a submission must be approved before they can be exported.</p></li>
-		<li><p><strong>Exporting Citations</strong></p>
-		<p>Citations can be exported as XML or text. XML export options currently include <a href="http://dtd.nlm.nih.gov/publishing/">NLM Journal Publishing</a> 2.3 and 3.0 <a href="http://www.ncbi.nlm.nih.gov/pmc/pmcdoc/tagging-guidelines/article/tags.html#el-reflist">ref-list XML</a>. Selecting one of these options outputs an XML-encoded ref-list snippet that can be copied and pasted into an NLM XML galley.</p>
-		<p>Experimental text export options include ABNT, APA, MLA and Vancouver citation output styles. These options provide a text output that can be copied and pasted into a text-based article galley (for example into Microsoft Word or OpenOffice; Adobe InDesign; etc.). Each citation includes an embedded link to automatically search for that citation in Google Scholar.</p></li>
-	</ul>]]></message>
-	<message key="submission.citations.editor.loadMessage">Zaczekaj, aż asystent cytowań się załaduje.</message>
-	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>Brak cytowań dla tego artykułu.</p><p>Proszę o przejście do <a href="{$articleMetadataUrl}">strony z metadanymi</a> i wprowadzenie bibliografii lub dodanie ręcznie opisów bibliograficznych za pomocą przycisku dodawania pozycji bibliograficznych.</p>]]></message>
-	<message key="submission.citations.editor.pleaseSelect">Proszę o wybranie...</message>
-	<message key="submission.citations.editor.unprocessedCitations">The citations of this article are still being processed on the server. The current citation list only contains already processed citations. Please click the refresh button to see citations that have been processed in the meantime.</message>
-	<message key="submission.citations.editor.unprocessedCitationsButton">Odśwież listę cytowań</message>
-	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Kliknij, aby odświeżyć listę cytowań.</message>
-	<message key="submission.citations.filter.invalidMetadata">An error occurred in {$filterName}: One of the data elements returned from the data source (e.g. a web service) did not conform to the internal meta-data format. Therefore the data source's results were rejected. Please file this as a bug.</message>
-	<message key="submission.citations.filter.noResultFromFilterError">Several citation services did not return any results. You can try to manually edit citation fields and then query citation services again to improve results. If this doesn't help then the citation does not exist in any of the connected databases.</message>
-	<message key="submission.citations.filter.unsupportedPublicationType">Niewspierany lub brakujący typ publikacji. Proszę o ręczną edycję cytowania i wprowadzenie typu publikacji (dozwolone typy: książka, czasopismo, dysertacja i materiały konferencyjne).</message>
-	<message key="submission.citations.filter.webserviceError">The {$filterName}'s web service call has returned an error when called with the following URL: {$webserviceUrl}. It may be that the web service is temporarily unavailable. You'll still be able to work with the remaining services and save your results. You can also try again later. If the error persists then please ask the journal manager to deactivate this service and open a bug report.</message>
-	<message key="submission.citations.filter.webserviceResultTransformationError">Wykryto błąd w {$filterName}: Przeniesienie wyników XML (np. ze strony internetowej) do pól z metadanymi zakończyło się niepowodzenie. Możliwą przyczyną są niepoprawne lub niekompletne dane. Proszę o przesłanie raportu z błędem.</message>
-	<message key="submission.citations.metadata.changeWarning">Czy na pewno chcesz zaktualizować bibliografię? Jeżeli klikniesz OK, wszystkie zmiany wprowadzone przez redakcję zostaną nadpisane. Jeżeli nie jesteś pewien(na) czy chcesz dokonać tych zmian, skontaktuj się z redaktorem prowadzącym.</message>
 	<message key="submission.comments.addComment">Dodaj komentarz</message>
 	<message key="submission.comments.comments">Komentarze</message>
 	<message key="submission.comments.confirmDelete">Usunąć komentarz?</message>
@@ -370,8 +285,6 @@
 	<message key="submission.date.mmdd">MM-DD</message>
 	<message key="submission.date.yyyymmdd">RRRR-MM-DD</message>
 	<message key="submission.addFile">Prześlij plik</message>
-	<message key="submission.citations.editor.citationlist.approved">Zatwierdzone</message>
-	<message key="submission.citations.editor.citationlist.notApproved">Niezatwierdzone</message>
 	<message key="submission.comments.addReviews">Dołącz recenzję do wiadomości e-mail</message>
 	<message key="submission.copyedited">Po korekcie</message>
 	<message key="submission.layout.galleyRemoteURL">Zdalny URL</message>

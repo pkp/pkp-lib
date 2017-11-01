@@ -171,25 +171,7 @@
 	<message key="manager.reviewerSearch.lastAmount">自从最后一次审阅的天数</message>
 	<message key="manager.reviewerSearch.activeAmount">当前正在审阅的数量</message>
 	<message key="manager.reviewerSearch.interests">审阅兴趣</message>
-	<message key="manager.setup.citationAssistant">引文标记助理</message>
-	<message key="manager.setup.citationFilterParser">引文提取</message>
-	<message key="manager.setup.citationFilterLookup">引文检查</message>
 	<message key="manager.setup.errorDeletingItem">在删除这个项目过程中发生了一个错误</message>
-	<message key="manager.setup.filter.grid.errorDeletingFilter">当删除这个过滤器的时候发生了一个错误，请将其作为一个BUG报告给我们。</message>
-	<message key="manager.setup.filter.grid.filterDisplayName">连接器</message>
-	<message key="manager.setup.filter.grid.filterSettings">注册信息与连接器设置</message>
-	<message key="manager.setup.filter.grid.filterTemplateRequired">请在下拉菜单里选择一个转换</message>
-	<message key="manager.setup.filter.grid.confirmDelete">您确认要删除{$filterName}过滤器吗？</message>
-	<message key="manager.setup.filter.lookup.grid.title">引文数据库连接器</message>
-	<message key="manager.setup.filter.noMoreTemplates">所有可用的转换已经被添加，请点击取消返回到设置页面</message>
-	<message key="manager.setup.filter.parser.grid.descriptionTemplate">请选择一个引文解析器</message>
-	<message key="manager.setup.filter.pleaseSelect">请选择...</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">您已经选择添加到 {$filterDisplayName}数据库，请点击“OK”确认</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">请选择一个查找数据库</message>
-	<message key="manager.setup.filter.lookup.grid.loadMessage">请等待引文数据库配置网格加载成功...</message>
-	<message key="manager.setup.filter.parser.grid.descriptionConfirm">您已经选择添加 {$filterDisplayName} 解析器，请点击“OK”确认</message>
-	<message key="manager.setup.filter.parser.grid.loadMessage">请等待引文解析器配置已加载...</message>
-	<message key="manager.setup.filter.parser.grid.title">引文提取服务</message>
 	<message key="manager.announcements.datePublish">已出版</message>
 	<message key="manager.emails.addEmail">添加电子邮件模版</message>
 	<message key="manager.emails.details">模板详细</message>
@@ -202,32 +184,8 @@
 	<message key="manager.reviewerSearch.form.interests.instructions">输入审稿兴趣，以逗号分隔...</message>
 	<message key="manager.setup.layout.blockManagement">边栏管理</message>
 	<message key="plugins.categories.metadata">元数据插件</message>
-	<message key="plugins.categories.citationLookup">引文数据库连接器插件</message>
-	<message key="plugins.categories.citationParser">引文提取插件</message>
-	<message key="plugins.categories.citationParser.description">引提取插件提取字段级数据（如作者，标题等）</message>
 	<message key="manager.reviewerSearch.form.instructions">使用下表来设定您希望用来查询术语的最大值。此表已预先填充了这些领域的计算平均值。</message>
-	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>To find and check citations in citation databases they first have to be split into machine readable metadata: title, publisher, publication date, etc. must all be extracted from the original citation text provided by the author. Connectors to external web services can assist in this process. One or several connectors can be added by clicking on the "Add Item" button below. Some of these connectors may need to be configured; you will be prompted if this is the case.</p>
-		<p>You can edit or delete an existing Connector by clicking the gear icon next to it.</p>]]></message>
-	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>您必须还要启动和配置同外部引用数据库的连接。这可以帮助您发现作者引用中的错误或添加电子出版或存档所要求的其他信息（如 DOIs 或PubMed IDs）。</p>
-		<p>我们向您提供多个外部数据库的连接，通过这些数据库您可以搜寻相关引用。其中某些数据库要求注册或输入配置信息。有关如何进行注册的详细信息，请参照数据库的公共网站。您可以通过点击下面的“新增项目”按钮添加一个或多个数据库。</p>
-		<p>您可以点击其旁边的齿轮形状按钮来对已有的外部数据库连接进行编辑或删除。</p>
-		<p><strong>注释：</strong> 为了保证引用检查过程及时有效地完成， <tt>引用_检查_最大值_进程</tt> 您配置文件中的导则必须设置成合理值。更多信息请参阅<tt>config.inc.php</tt>中的常规设置部分。</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>该过滤器连接到<a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> 书和ISBN数据库。</p>
-	<p>ISBNdb API 密匙为强制性的。有关生成密匙的信息，请参阅<a href="http://isbndb.com/api/v1/docs/keys" target="_blank">在线文档</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>该文件连接到CrossRef 引用数据库，采用CrossRef的 <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL 查询界面</a>.</p>
-	<p>您可以使用您的CrossRef系统账户，或注册一个CrossRef有效电子信箱来使用该过滤器<a]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>该过滤器连接到PubMed<a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a>的 跨数据库搜索引擎。</p>
-	<p>注册邮箱不是强制性的，但如果您碰到连接问题的时候会需要它。更多信息请参阅<a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Entrez文档中的</a>使用准则和要求部分。</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>该过滤器连接到OCLC服务上<a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> and <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (optional).</p>
-	<p>如果您有 Worldcat <a href="http://oclc.org/developer/develop/web-services.html" target="_blank">API key</a> 您可以通过输入下列密匙来连接到Worldcat。</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>该提取过滤器连接到<a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a> web服务上。</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>该提取过滤器使用 <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> Perl 模块来提供 <a href="http://paracite.eprints.org" target="_blank">ParaCite</a> 引文分析功能。为了使其恰当运作，您必须安装Perl, 和<a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> 和 <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a> CPAN 模块。您必须还要对您配置文件中的<tt>perl</tt>导则进行配置。该导则可以在<tt>config.inc.php</tt>外部指令部分中找到。</p>
-	<p>您还可以选择使用哪种分析模块。您可以在标准， <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a>, 和 <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a> 间选择分析模块。</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>该提取过滤器连接到<a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a> web服务上。</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.regEx">RegEx提取过滤器使用一系列常规表达式来对引用进行分析。</message>
-	<message key="manager.setup.metaCitationsDescription">激活下面的checkbox来使引用和参考编辑能够进行。这将会允许作者提交包含原始引用的文件。编辑也将可以通过引用标记助理工具来协助其检查比对原始引用和外部数据库，例如WorldCat， ISBNdb，PubMed和其它一些数据库来保证其准确性。审核过的引用可以导入到最终的校样文件中。</message>
 	<message key="plugins.categories.metadata.description">元数据插件采用附加的元数据标准。</message>
-	<message key="plugins.categories.citationLookup.description">引用数据库连接插件，在如引用编辑的过程中，连接到引用数据库中来查询引用。</message>
 	<message key="plugins.categories.oaiMetadataFormats">OAI源数据插件</message>
 	<message key="plugins.categories.oaiMetadataFormats.description">这些格式插件表达OAI通信的元数据.</message>
 	<message key="manager.website">网站</message>

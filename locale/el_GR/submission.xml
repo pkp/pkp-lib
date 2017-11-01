@@ -252,79 +252,6 @@
 	<message key="metadata.property.validationMessage.annotation">Παρακαλούμε εισάγετε έναν έγκυρο υπομνηματισμό</message>
 	<message key="metadata.property.displayName.publication-type">Τύπος Δημοσίευσης</message>
 	<message key="metadata.property.validationMessage.publication-type">Παρακαλούμε σιγουρευτείτε ότι δηλώνετε πάντα τον τύπο δημοσίευσης. Οι τύποι που υποστηρίζονται είναι βιβλίο (για βιβλία ή κεφάλαια βιβλίων) και περιοδικό (για άρθρα περιοδικών). Σε αντίθετη περίπτωση η απόδοση της αναφοράς δεν θα μορφοποιηθεί σωστά.</message>
-	<message key="submission.citations.editor.citationlist.deleteCitationConfirmation">Είστε σίγουροι ότι επιθυμείτε να διαγράψετε αυτή την αναφορά;</message>
-	<message key="submission.citations.editor.citationlist.errorDeletingCitation">Παρουσιάστηκε σφάλμα κατά την διαγραφή της αναφοράς. Παρακαλούμε αναφέρατε το πρόβλημα.</message>
-	<message key="submission.citations.editor.citationlist.newCitation">Νέα αναφορά</message>
-	<message key="submission.citations.editor.citationlist.title">Διαμόρφωση αναφοράς</message>
-	<message key="submission.citations.editor.clickToEdit">Πατήστε για διαμόρφωση</message>
-	<message key="submission.citations.editor.details.authorQuery">Ρωτήστε τον Συγγραφέα</message>
-	<message key="submission.citations.editor.details.authorQueryBody">Το μήνυμά σας προς τον συγγραφέα:</message>
-	<message key="submission.citations.editor.details.authorQueryExplanation">Μπορείτε να ζητήσετε από τον συγγραφέα περισσότερες πληροφορίες για την συγκεκριμένη αναφορά. Πατώντας το κουμπί "Αποστολή" παρακάτω το μήνυμά σας θα αποσταλεί με email στον συγγραφέα.</message>
-	<message key="submission.citations.editor.details.authorQuerySubject">Θέμα:</message>
-	<message key="submission.citations.editor.details.cannotSelectDefaultForLabel">Δεν μπορείτε να διαμορφώσετε την ετικέτα ενός πεδίου. Παρακαλούμε διαγράψτε το πεδίο αν δεν το χρειάζεστε.</message>
-	<message key="submission.citations.editor.details.checkInGoogleScholar">Ελέγξτε στο Google Scholar</message>
-	<message key="submission.citations.editor.details.changeFieldInfo">Πληκτρολογήστε τα πρώτα γράμματα για να επιλέξετε...</message>
-	<message key="submission.citations.editor.details.citationExportPreview">Προεπισκόπηση Εξαγωγής Αναφοράς</message>
-	<message key="submission.citations.editor.details.citationImprovementResultsActive">Έξειδικευμένα αποτελέσματα εσωτερικής υπηρεσίας αναφορών (πατήστε για να κλείσει)</message>
-	<message key="submission.citations.editor.details.citationImprovementResultsInactive">Έξειδικευμένα αποτελέσματα εσωτερικής υπηρεσίας αναφορών (πατήστε για να ανοίξει)</message>
-	<message key="submission.citations.editor.details.citationServices">Υπηρεσίες Αναφορών</message>
-	<message key="submission.citations.editor.details.clickToDismissMessage">Μπορείτε να πατήσετε το κείμενο ενός μηνύματος για να το απορρίψετε.</message>
-	<message key="submission.citations.editor.details.dataSaved">Οι αλλαγές σας έχουν αποθηκευτεί.</message>
-	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Επιλέξετε Υπηρεσίες Βάσεων Δεδομένων Αναφορών:</message>
-	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Προωθημένες ρυθμίσεις διαμόρφωσης αναφορών (Πατήστε για κλείσιμο)</message>
-	<message key="submission.citations.editor.details.editRawCitationExpertSettingsInactive">Προωθημένες ρυθμίσεις διαμόρφωσης αναφορών (Πατήστε για άνοιγμα)</message>
-	<message key="submission.citations.editor.details.editRawCitationExtractionServices">Επιλέξτε Υπηρεσίας Εξαγωγής Αναφορών:</message>
-	<message key="submission.citations.editor.details.editRawCitationFilterValidationError">Εσωτερικό σφάλμα: Μη έγκυρη επιλογή φίλτρου. Παρακαλούμε αναφέρατε το πρόβλημα.</message>
-	<message key="submission.citations.editor.details.explainImprovementOptions">Αν δεν έχετε ικανοποιητικά αποτελέσματα εξ'ορισμού, τότε έχετε διάφορες επιλογές για να βελτίώσετε την αναφορά. Πολύ συχνά είναι καλύτερα να διαρθώσετε σημαντικά πεδία (π.χ. τίτλος και συγγραφέας) χειρωνακτικά και μετά να προσπαθήσετε να χρησιμοποιήσετε τις υπηρεσίες αναφορών ξανά. Αν ούτε αυτό σας βοηθήσει μπορείτε ακόμα να χρησιμοποιήσετε το Google Scholar ή να ζητήσετε λεπτομέρειες από τον συγγραφέα.</message>
-	<message key="submission.citations.editor.details.googleScholar">Google Scholar</message>
-	<message key="submission.citations.editor.details.googleScholarExplanation">Αν καμιά ταιριαστή αναφορά δεν βρέθηκε σε καμιά από τις συνδεδεμένες υπηρεσίες αναφορών μπορείτε ακόμα να χρησιμοποιήσετε το Google Scholar. Δυστυχώς το Google Shcolar δεν διαθέτει διεπαφή με πεδία για τα δεδομένα, το οποίο σημαίνει ότι δεν υπάρχει τρόπος αυτόματης εισαγωγής δεδομένων στον Βοηθό. Θα πρέπει να αντιγράψετε και να επικολλήσετε τις πληροφορίες χειρωνακτικά από τα αποτελέσματα του Google στα πεδία σας.</message>
-	<message key="submission.citations.editor.details.manualEditing">Χειρανακτική Διαμόρφωση</message>
-	<message key="submission.citations.editor.details.messages">Παρακαλούμε προσέξτε (πατήστε στα μηνύματα για να τα απορρίψετε)</message>
-	<message key="submission.citations.editor.details.newFieldInfo">...πατήσετε εδώ για να δημιουργήσετε ένα νέο πεδίο...</message>
-	<message key="submission.citations.editor.details.queryCitation">Υπηρεσία Επαναζήτησης Αναφορών</message>
-	<message key="submission.citations.editor.details.queryGoogleScholar">Αναζητήστε στο Google Scholar</message>
-	<message key="submission.citations.editor.details.processRawCitation">Διαδικασία</message>
-	<message key="submission.citations.editor.details.processRawCitationGoAhead">Προχωρήστε</message>
-	<message key="submission.citations.editor.details.processRawCitationTitle">Αλλαγή της πρωτότυπης αναφοράς</message>
-	<message key="submission.citations.editor.details.processRawCitationWarning">Πρόκειται να αλλάξετε το κείμενο της πρωτότυπης αναφοράς. Αν προχωρήσετε όλα τα πεδία θα αλλάξουν με τις νέες τιμές. Αυτό θα διαγράψει όλες τις αλλαγές που είχατε κάνει χειρωνακτικά.</message>
-	<message key="submission.citations.editor.details.saveAndApprove">Αποθήκευση και Έγκριση</message>
-	<message key="submission.citations.editor.details.saveAndRevokeApproval">Ανάκληση Έγκρισης</message>
-	<message key="submission.citations.editor.details.sendAuthorQuery">Αποστολή Μηνύματος</message>
-	<message key="submission.citations.editor.details.sendAuthorQuerySuccess">Το μήνυμά στάλθηκε!</message>
-	<message key="submission.citations.editor.details.sourceResultsUse">Χρήση</message>
-	<message key="submission.citations.editor.details.sourceResultsUseAll">Χρήση Όλων</message>
-	<message key="submission.citations.editor.details.sourceResultsUseAllExplanation">Πατήστε για να μεταφέρετε όλα τα πεδία των αποτελεσμάτων αυτής της πηγής κατευθείαν στη δική σας λίστα πεδίων.</message>
-	<message key="submission.citations.editor.details.sourceResultsUseExplanation">Πατήστε για να μεταφέρετε αυτό το πεδίο στη δική σας λίστα πεδίων.</message>
-	<message key="submission.citations.editor.details.rawCitation">Πρωτότυπο Κείμενο Αναφοράς</message>
-	<message key="submission.citations.editor.details.rawCitationRequired">Απαιτείται κείμενο για την αναφορά.</message>
-	<message key="submission.citations.editor.details.unsavedChanges">Η αναφορά περιέχει μη αποθηκευμένες πληροφορίες. Παρακαλούμε πατήστε το κουμπί "Αποθήκευση" για να διατηρήσετε τις αλλαγές ή το κουμπί "Ακύρωση" για να τις αναιρέσετε.</message>
-	<message key="submission.citations.editor.details.dontShowMessageAgain">Μην προβάλετε αυτό το μήνυμα ξανά.</message>
-	<message key="submission.citations.editor.edit">Επεξεργασία Αναφορών</message>
-	<message key="submission.citations.editor.export">Εξαγωγή Αναφορών</message>
-	<message key="submission.citations.editor.export.exportDescription"><![CDATA[<a id="markForExport" href="">Πατήστε εδώ</a> για να επιλέξετε όλο το περιεχόμενο που αναπαράγατε. Μετά μπορείτε να το αντιγράψετε και να το επικολλήσετε στο έγγραφό σας.]]></message>
-	<message key="submission.citations.editor.export.filterSelectionDescription">Παρακαλούμε επιλέξετε μια από τις παρακάτω επιλογές εξαγωγής.</message>
-	<message key="submission.citations.editor.export.filterSelectionError">Δεν επιλέξατε κάποια από τις επιλογές εξαγωγής.</message>
-	<message key="submission.citations.editor.export.foundUnapprovedCitationsMessage"><![CDATA[<p>Δεν έχετε εγκρίνει ακόμα όλες τις αναφορές. Παρακαλούμε πηγαίνετε στο μενού <strong>Επεξεργασία Αναφορών</strong> και σιγουρευτείτε ότι έχετε εγκρίνει όλες τις αναφορές πριν προσπαθήσετε να τις εξάγετε. Οι εγκεκριμένες αναφορές σημαίνονται με με μια σκούρα μπλέ γραμμή στα αριστερά.</p>]]></message>
-	<message key="submission.citations.editor.export.noExportOutput">Η απόδοση του φίλτρου '{$filterName}' παρήγαγε ένα σφάλμα. Παρακαλούμε αναφέρατε το πρόβλημα.</message>
-	<message key="submission.citations.editor.export.pleaseSelectXmlFilter">Επιλογές απόδοσης XML:</message>
-	<message key="submission.citations.editor.export.pleaseSelectPlaintextFilter">Απόδοση μορφής Αναφοράς (πειραματικό στάδιο!):</message>
-	<message key="submission.citations.editor.introduction">Εισαγωγή</message>
-	<message key="submission.citations.editor.introduction.introductionMessage"><![CDATA[<h4>Καλώς Ορίσατε στον Βοηθό Σήμανσης Παραπομπών!</h4>
-	<p>Με αυτό τον βοηθό μπορείτε να σημαίνετε αναφορές που εισάγονται από τους συγγραφείς για εξαγωγή σε μορφή NLM 2.3 ή 3.0 XML , ή εναλλακτικά σε μορφή κειμένου. Το εργαλείο αυτό πρώτα προσπαθεί να εξάγει αυτόματα και να αναγνωρίζει αναφορές/παραπομπές όπως αυτές εισάγονται στο σύστημα, ενώ μπορείτε πάντα να επεξεργαστείτε και να διορεθώσετε τα δεδομένα των αναφορών οποιαδήποτε στιγμή.</p>
-	<ul>
-		<li><p><strong>Ρυθμίζοντας τον Βοηθό </strong></p>
-		<p>Ο Βοηθός Σήμανσης Παραπομπών ρυθμίζεται από τον Διαχειριστή του περιοδικού στο <a href="{$citationSetupUrl}">Στήσιμο περιοδικού Βήμα 3.7: Βοηθός Σήμανσης Παραπομπών </a>. Διαφορετικά εργασλεία εξαγωγής και ελέγχου αναφορών μπορούν να προστεθούν  και να διαγραφούν. Για περισσότερες πληροφορίες, επικοινωνήστε με τον Διαχειριστή του περιοδικού.</p></li>
-		<li><p><strong>Πλοήγηση στο περιβάλλον του Βοηθού </strong></p>
-		<p>Για εναλλαγή μεταξύ των καρτελλών <strong>Εισαγωγή</strong>, <strong>Επεξεργασία Αναφορών </strong> και  <strong>Εξαγωγή Αναφορών </strong> απλά πατήστε τον τίτλο κάθε καρτέλλας.Για να μεγενθύνετε την προβολή της αναφοράς πατήστε το κουμπί <strong>Πλήρης Οθόνη</strong>. Για να επιστρέψετε σε κανονική προβολής πατήστε το κουμπί <strong>Πλήρης Οθόνη Off</strong>. Για να απομακρύνετε αυτή την εισαγωγική καρτέλλα εντελώς, πατήστες το κουμπί παρακάτω.</p></li>
-		<li><p><strong>Αιτήσεις Αναφορών</strong></p>
-		<p>Αν ο Βοηθός Σήμανσης Παραπομπών έχει ενεργοποιηθεί από τον Διαχειριστή του περιοδικού, οι συγγραφείς θα πρέπει να υποβάλλουν μαζί με το άρθρο τους και μια λίστα αναφορών/παραπομπών. Αυτές  οι  Αναφορές ζητούνται χωριστά από το αρχείο του άρθρου. Μετά την υποβολή, οι συγγραφείς μπορούν να αλλάξουν αυτή τη λίστα οποιαδήποτε στιγμή μέσα από την επεξεργασία των μεταδεδομένων της υποβολής. Σημειώστε ότι αυτό θα έχει ως αποτέλεσμα να διαγραφούν όλες οι αλλαγές που έχετε κάνει στις αναφορές με την χρήση αυτού του εργαλείου.</p></li>
-		<li><p><strong>Επεξεργασία Αναφορών</strong></p>
-		<p>Ο Βοηθός Σήμανσης Παραπομπών θα προσπαθήσει να αναγνωρίσει και να εξάγει μεμονωμένες αναφοράς από τη σχετική λίστα που έχει υποβάλλει ο συγγραφέας. Εσείς μπορείτε να ελέγξετε συστηματικά την εγκυρότητα κάθε αναφοράς με τη χρήση ενός αριθμού εξωτερικών βάσεων δεδομένων, να διορθώσετε λανθασμένες αναφορές, να προσθέσετε περισσότερες πληροφορίες, να εγκρίνετε ή να διαγράψετε αναφορές και τέλος να προσθέσετε νέες.</p>
-		<p>Όλες οι τελικές αναφορές μιας υποβολής πρέπει να εγκριθούν πριν εξαχθούν.</p></li>
-		<li><p><strong>Εξαγωγή Αναφορών</strong></p>
- 		<p>Οι αναφορές μπορούν να εξαχθούν σε μορφή XML ή απλού κειμένου. Οι επιλογές XML περιλαμβάνουν μέχρι στιγμής  <a href="http://dtd.nlm.nih.gov/publishing/">NLM Journal Publishing</a> 2.3 και 3.0 <a href="http://www.ncbi.nlm.nih.gov/pmc/pmcdoc/tagging-guidelines/article/tags.html#el-reflist">ref-list XML</a>. Επιλέγοντας μια από αυτές τις επιλογές  παράγεται ένα XML-encoded απόσπασμα λίστας αναφορών το οποίο μπορεί να αντιγραφεί και να επικολληθεί σε ένα NLM XML galley.</p>
-		<p>Οι επιλογές εξαγωγής σε κείμενο  περιλαμβάνουν τις μορφές ABNT, APA, MLA και Vancouver. Οι επιλογές αυτές παράγουν ένα κείμενου που μπορεί να αντιγραφεί και επικολληθεί σε ένα δοκίμιο άρθρου σε μοργή κειμένου (π.χ. σε αρχεία Microsoft Word  ή  OpenOffice,  Adobe InDesign κλπ).Κάθε αναφορέ περιέχει έναν σύνδεσμο για αυτόματη αναζήτηση της αναφοράς στο Google Scholar.</p></li>
-	</ul>]]></message>
 	<message key="metadata.property.displayName.title-type">Τύπος τίτλου</message>
 	<message key="metadata.property.validationMessage.title-type">Παρακαλούμε σιγουρευτείρε ότι έχετε επιλέξει έναν έγκυρο τύπο τίτλου. Οι τύπου που υποστηρίζονται είναι "συντομευμένος", "μεταφρασμένος","εναλλακτικός" ή "ενιαίος".</message>
 	<message key="metadata.property.displayName.nonSort">Μέρος του τίτλου αγνοήθηκε κατά την τακτοποίηση</message>
@@ -339,17 +266,6 @@
 	<message key="metadata.property.validationMessage.partName">Παρακαλούμε εισάγετε  ένα έγκυρο όνομα τμήματος</message>
 	<message key="metadata.property.displayName.name-type">Τύπος ονόματος</message>
 	<message key="metadata.property.validationMessage.name-type">Παρακαλούμε σιγουρευτείρε ότι έχετε επιλέξει έναν έγκυρο τύπο ονόματος. Οι τύποι που υποστηρίζονται είναι "προσωπικό", "επιχείρηση" και "συνέδριο".</message>
-	<message key="submission.citations.editor.loadMessage">Παρακαλούμε περιμένετε να φορτωθεί ο Βοηθός σήμανσης παραπομπών</message>
-	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>Δεν υπάρχουν αναφορές για αυτό το άρθρο.</p><p>Παρακαλούμε πηγαίνετε <a href="{$articleMetadataUrl}">στην σελίδα με τα μεταδεδομένα του άρθρου</a> και εισάγετε μια λίστα αναφορών ή εισάγετε αναφορές χειρωνακτικά.</p>]]></message>
-	<message key="submission.citations.editor.pleaseSelect">Παρακαλούμε περιμένετε...</message>
-	<message key="submission.citations.editor.unprocessedCitations">Οι παραπομπές αυτού του άρθρου επεξεργάζονται ακόμα από τον εξυπηρετητή. Η υφιστάμενη λίστα παραπομπών περιέχει αναφορές των οποίων η επεξεργασία έχει ήδη ολοκληρωθεί. Παρακαλούμε πατήστε το κουμπί ανανέωσης για να δείτε όσες αναφορές έχουν ολοκληρωθεί ενδιάμεσα.</message>
-	<message key="submission.citations.editor.unprocessedCitationsButton">Ανανέωση λίστας παραπομπών</message>
-	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Πατήστε για να ανανεώσετε την λίστα παραπομπών</message>
-	<message key="submission.citations.filter.invalidMetadata">Παρουσιάστηκε σφάλμα {$filterName}: Ένα από τα στοιχεία δεδομένων που επιστράφη από την πηγή (π.χ. βάση δεδομένων) δεν είναι συμβατό με το εσωτερικό σχήμα μεταδεδομένων.</message>
-	<message key="submission.citations.filter.noResultFromFilterError">Πολλές από τις υπηρεσίες αναφορών δεν επέστρεψαν κανένα αποτέλεσμα. Μπορείτε να προσπαθήσετε να επεξεργαστείτε τις αναφορές χειρωνακτικά και μετά να προσπαθήσετε να αναζητήσετε σχετικές πληροφορίες στις υπηρεσίες αναφορών για να βελτιώσετε τα στοιχεία τους.Αν αυτό δεν βοηθάει τότε η αναφορά δεν υπάρχει σε καμία από τις συνδεδεμένες βάσεις δεδομένων.</message>
-	<message key="submission.citations.filter.unsupportedPublicationType">Ο τύπους δημοσίευσης λείπει ή δεν υποστηρίζεται. Παρακαλούμε επεξεργαστείτε την αναφορά και εισάγετε τον τύπο δημοσίευσης (επιτρεπόμενοι τύποι είναι "book", "journal", "thesis" και "conf-proc").</message>
-	<message key="submission.citations.filter.webserviceResultTransformationError">Παρουσιάστηκε σφάλμα στο {$filterName}: Η μετατροπή των αποτελεσμάτων XML (π.χ. από μια βάση δεδομένων) στο σχήμα μεταδεδομένων απέτυχε. Αυτό μπορεί να οφείλεται στο ότι η βάση δεδομένων επέστρεψε μη έγκυρα ή μη ολοκληρωμένα αποτελέσματα. Παρακαλούμε αναφέρατε το πρόβλημα.</message>
-	<message key="submission.citations.metadata.changeWarning">Είστε σίγουροι ότι θέλετε να ενημερώσετε την λίστα παραπομπών σας; Αν πατήσετε ΟΚ, όλες οι αλλαγές που έχουν γίνει από τους επιμελητές θα διαγραφούν. Αν δεν είστε σίγουρος για αλλαγές στη λίστα, παρακαλούμε επικοινωνήστε με τον επιμελητή που είναι υπεύθυνος για την υποβολή σας.</message>
 	<message key="submission.page.citations">#{$id} Αναφορές</message>
 	<message key="submission.currentAgencies">Υφιστάμενες Υπηρεσίες</message>
 	<message key="submission.indexingInformation">Πληροφορίες Ευρετηρίασης</message>

@@ -208,15 +208,6 @@
 	<message key="metadata.property.displayName.publisher-loc">Lieu de l'éditeur</message>
 	<message key="metadata.property.displayName.publisher-name">Nom de l'éditeur</message>
 	<message key="metadata.property.displayName.publisher-id">ID de publication personnalisé</message>
-	<message key="submission.citations.editor.citationlist.title">Éditer les références</message>
-	<message key="submission.citations.editor.details.rawCitation">Texte de la référence</message>
-	<message key="submission.citations.editor.details.rawCitationRequired">Le texte de la référence est obligatoire.</message>
-	<message key="submission.citations.editor.citationlist.errorDeletingCitation">Une erreur est survenue lors de la suppression de la référence.</message>
-	<message key="submission.citations.editor.loadMessage">Veuillez patienter pendant le chargement de l'éditeur de références.</message>
-	<message key="submission.citations.editor.details.explainImprovementOptions">Veuillez améliorer manuellement la référence et tenter de nouveau une validation.</message>
-	<message key="submission.citations.filter.noResultFromFilterError">L'opération d'analyse ou de consultation n'a retourné aucun résultat. Essayer peut-être d'éditer manuellement le texte de la référence pour améliorer les résultats.</message>
-	<message key="submission.citations.filter.unsupportedPublicationType">Type de publication non supporté ou manquant.</message>
-	<message key="submission.citations.editor.export.exportDescription">Veuillez copier le contenu de cette fenêtre de dialogue et le coller dans votre document.</message>
 	<message key="metadata.property.displayName.conf-sponsor">Commanditaire de la conférence</message>
 	<message key="metadata.property.displayName.pmid">PMID</message>
 	<message key="metadata.property.displayName.uri">Lien vers la publication</message>
@@ -228,22 +219,6 @@
 	<message key="submission.loadMessage">Veuillez patienter pendant le téléchargement de votre fichier sur le serveur.</message>
 	<message key="submission.fileDetails">Détails du fichier</message>
 	<message key="submission.currentAgencies">Organismes actuels</message>
-	<message key="submission.citations.editor.introduction.introductionMessage"><![CDATA[<h4>Bienvenue dans l'Assistant au balisage de références!</h4>
-	<p>Avec cet assistant vous pouvez baliser les références fournies par l'auteur pour fins d'exportation dans des épreuves XML NLM 2.3 ou 3.0, ou encore dans un format de sortie texte. Cet outil tente d'abord d'extraire et de reconnaître automatiquement les références tel que fournies, mais vous pouvez intervenir et modifier le résultat à n'importe quel moment.</p>
-	<ul>
-		<li><p><strong>Configurer l'assistant</strong></p>
-		<p>L'Assistant au balisage de références est configuré par le directeur de la revue dans l'<a href="{$citationSetupUrl}">Étape 3.7 de la configuration de la revue : Assistant au balisage des références</a>. Différents outils d'extraction et de vérification de références peuvent être ajoutés, configurés, et supprimés. Pour plus d'information, communiquer avec le directeur de la revue.</p></li>
-		<li><p><strong>Naviguer dans l'interface de l'assistant</strong></p>
-		<p>Pour basculer entre les onglets <strong>Introduction</strong>, <strong>Modifier les références</strong> et <strong>Exporter les références</strong>, cliquer sur les titres des onglets. Pour agrandir l'interface des références, cliquer sur le bouton <strong>Plein écran</strong>. Pour revenir à une interface normale à partir de l'interface agrandie, cliquer sur le bouton <strong>Fermer le Plein écran</strong>. Pour supprimer cet onglet d'introduction complètement, cliquer sur le bouton ci-dessous.</p></li>
-		<li><p><strong>Demander des références</strong></p>
-		<p>Si l'Assistant au balisage des références a été activé par le directeur de la revue, les auteurs seront invités à fournir une liste de références lors de la soumission d'un article. Ces références seront demandées séparément de la soumission du document lui-même. Après la soumission, les auteurs peuvent également modifier leur liste de références à n'importe quel moment en modifiant les métadonnées de leur soumission; à noter que ça écrasera toutes les modifications que vous avez appliquées aux références, en utilisant cet outil.</p></li>
-		<li><p><strong>Modifier les références</strong></p>
-		<p>L'Assistant au balisage de références tentera d'identifier et d'extraire chaque référence individuellement, à partir de la liste de référence de l'auteur. Vous pouvez systématiquement vérifier chaque tentative d'extraction de référence pour en vérifier l'exactitude par rapport à plusieurs bases de données externes; modifier les informations incorrectes des références et ajouter de nouvelles informations; approuver ou supprimer des références; et ajouter de nouvelles références.</p>
-		<p>Toutes les références finales pour une soumission doivent être approuvées avant de pouvoir être exportées.</p></li>
-		<li><p><strong>Exporter les références</strong></p>
- 		<p>Les références peuvent être exportées en XML ou en texte. Les options d'exportation XML inclut présentement <a href="http://dtd.nlm.nih.gov/publishing/">NLM Journal Publishing</a> 2.3 et 3.0 <a href="http://www.ncbi.nlm.nih.gov/pmc/pmcdoc/tagging-guidelines/article/tags.html#el-reflist">ref-list XML</a>. Sélectionner une de ces options générera une sortie ref-list XML qui peut être copiée et collée à l'intérieur d'une épreuve XML NLM.</p>
-		<p>Les options d'exportation texte expérimentales incluent les styles de références ABNT, APA, MLA et Vancouver. Ces options fournissent une sortie texte qui peut être copiée et collée à l'intérieur d'une épreuve d'article de type texte (par exemple, Microsoft Word ou OpenOffce; Adobe InDesign, etc.). Chaque référence inclut un lien incorporé qui permet d'effectuer automatiquement la recherche de cette référence dans Google Scholar.</p></li>
-	</ul>]]></message>
 	<message key="metadata.filters.crossref.settings.email.displayName">Courriel d'inscription CrossRef</message>
 	<message key="metadata.filters.crossref.settings.email.validationMessage">Veuillez saisir un courriel d'inscription CrossRef valide. Vous pouvez inscrire votre courriel gratuitement sur le site Web de CrossRef.</message>
 	<message key="metadata.filters.isbndb.settings.apiKey.displayName">Clé API ISBNdb</message>
@@ -291,66 +266,6 @@
 	<message key="metadata.property.validationMessage.comment">Veuillez saisir un commentaire valide.</message>
 	<message key="metadata.property.validationMessage.annotation">Veuillez saisir une annotation valide.</message>
 	<message key="metadata.property.validationMessage.publication-type">Veuillez vous assurer de toujours sélectionner un type de publication. Les valeurs présentement prises en charge sont 'livre' (pour les livres et chapitres de livre) et 'revue' (pour les articles de revue). Autrement, le formatage de la référence ne s'effectuera pas correctement.</message>
-	<message key="submission.citations.editor.citationlist.deleteCitationConfirmation">Êtes-vous certain de vouloir supprimer cette référence?</message>
-	<message key="submission.citations.editor.citationlist.newCitation">Nouvelle référence</message>
-	<message key="submission.citations.editor.clickToEdit">Cliquer pour modifier.</message>
-	<message key="submission.citations.editor.details.authorQuery">Demander à l'auteur</message>
-	<message key="submission.citations.editor.details.authorQueryBody">Votre message à l'auteur :</message>
-	<message key="submission.citations.editor.details.authorQueryExplanation">Vous pouvez demander à l'auteur pour plus d'information à propos de la référence courante. Cliquer sur le bouton "Envoyer" ci-dessous enverra votre message comme courriel à l'auteur.</message>
-	<message key="submission.citations.editor.details.authorQuerySubject">Objet :</message>
-	<message key="submission.citations.editor.details.cannotSelectDefaultForLabel">Vous ne pouvez pas retirer l'étiquette d'un champ. Veuillez supprimer le champ si vous n'en avez pas besoin</message>
-	<message key="submission.citations.editor.details.checkInGoogleScholar">Vérifier dans Google Scholar</message>
-	<message key="submission.citations.editor.details.changeFieldInfo">Tapper les premières lettres pour sélectionner...</message>
-	<message key="submission.citations.editor.details.citationExportPreview">Prévisualisation de l'exportation de références</message>
-	<message key="submission.citations.editor.details.citationImprovementResultsActive">Résultat du service spécialisé de références interne (cliquer pour fermer)</message>
-	<message key="submission.citations.editor.details.citationImprovementResultsInactive">Résultat du service spécialisé de références interne (cliquer pour ouvrir)</message>
-	<message key="submission.citations.editor.details.citationServices">Services de références</message>
-	<message key="submission.citations.editor.details.clickToDismissMessage">Vous pouvez cliquer sur le texte d'un message pour le rejeter.</message>
-	<message key="submission.citations.editor.details.dataSaved">Les changements apportés ont été enregistrés.</message>
-	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Sélectionner les services de bases de données de références :</message>
-	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Paramètres d'édition avancée de références (Cliquer pour fermer)</message>
-	<message key="submission.citations.editor.details.editRawCitationExpertSettingsInactive">Paramètres d'édition avancée de références (Cliquer pour ouvrir)</message>
-	<message key="submission.citations.editor.details.editRawCitationExtractionServices">Sélectionner les services d'extraction de références :</message>
-	<message key="submission.citations.editor.details.editRawCitationFilterValidationError">Erreur interne : sélection de filtre invalide. Veuillez soumettre un rapport d'erreur.</message>
-	<message key="submission.citations.editor.details.googleScholar">Google Scholar</message>
-	<message key="submission.citations.editor.details.googleScholarExplanation">Si une référence compatible n'a été trouvé dans aucune des services de références connectés, vous pouvez toujours chercher une correspondance dans Google Scholar. Mlaheureusement, Google Scholar ne fournit pas une interface avec champs pour ces données que nous pourrions utiliser, ce qui a pour conséquence qu'il n'existe aucune façon de reporter automatiquement les données dans l'Assistant. Vous devrez donc copier/coller l'information manuellement à partir de la page de résultats Google Scholar dans vos champs.</message>
-	<message key="submission.citations.editor.details.manualEditing">Édition manuelle</message>
-	<message key="submission.citations.editor.details.messages">Veuillez noter (cliquer sur les messages pour les écarter)</message>
-	<message key="submission.citations.editor.details.newFieldInfo">...cliquer ici pour ajouter un nouveau champ...</message>
-	<message key="submission.citations.editor.details.queryCitation">Services de ré-interrogation de références</message>
-	<message key="submission.citations.editor.details.queryGoogleScholar">Chercher dans Google Scholar</message>
-	<message key="submission.citations.editor.details.processRawCitation">Traiter</message>
-	<message key="submission.citations.editor.details.processRawCitationGoAhead">Aller de l'avant</message>
-	<message key="submission.citations.editor.details.processRawCitationTitle">Modifier la référence originale</message>
-	<message key="submission.citations.editor.details.processRawCitationWarning">Vous êtes sur le point de modifier le texte de la référence originale. Si vous procéder, tous les champs seront remplacés par les nouvelles valeurs générées. Cela supprimera les modifications manuelles que vous pourriez avoir déjà effectuées.</message>
-	<message key="submission.citations.editor.details.saveAndApprove">Enregistrer et approuver</message>
-	<message key="submission.citations.editor.export.foundUnapprovedCitationsMessage"><![CDATA[<p>Vous n'avez pas encore approuvé toutes les références. Veuillez aller dans l'onglet <strong>Modifier les références</strong> et assurez-vous d'avoir approuvé toutes les références avant de tenter de les exporter. Les références approuvées sont identifiées à l'aide d'une bande bleue foncée à leur gauche.</p>]]></message>
-	<message key="submission.citations.editor.details.saveAndRevokeApproval">Révoquer l'approbation</message>
-	<message key="submission.citations.editor.details.sendAuthorQuery">Envoyer le message</message>
-	<message key="submission.citations.editor.details.sendAuthorQuerySuccess">Message envoyé!</message>
-	<message key="submission.citations.editor.details.sourceResultsUse">Utiliser</message>
-	<message key="submission.citations.editor.details.sourceResultsUseAll">Les utiliser tous</message>
-	<message key="submission.citations.editor.details.sourceResultsUseAllExplanation">Cliquer pour déplacer tous les champs résultats de cette source directement dans votre liste de champs.</message>
-	<message key="submission.citations.editor.details.sourceResultsUseExplanation">Cliquer pour déplacer ce champ résultat directement dans votre liste de champs</message>
-	<message key="submission.citations.editor.details.unsavedChanges">Cette référence contient des données non enregistrées. Veuillez cliquer sur le bouton "Enregistrer" pour conserver les modifications ou le bouton "Annuler" pour annuler les modifications.</message>
-	<message key="submission.citations.editor.details.dontShowMessageAgain">Ne plus afficher ce message.</message>
-	<message key="submission.citations.editor.edit">Modfier les références</message>
-	<message key="submission.citations.editor.export">Exporter les références</message>
-	<message key="submission.citations.editor.export.filterSelectionDescription">Veuillez sélectionner l'une des options d'exportation suivantes.</message>
-	<message key="submission.citations.editor.export.filterSelectionError">Vous n'avez pas sélectionner l'une des options d'exportation.</message>
-	<message key="submission.citations.editor.export.noExportOutput">Le filtre de sortie '{$filterName}' a généré une erreur. Veuillez produire un rapport de bogue.</message>
-	<message key="submission.citations.editor.export.pleaseSelectXmlFilter">Options de sortie XML :</message>
-	<message key="submission.citations.editor.export.pleaseSelectPlaintextFilter">Style de sortie des références (expérimental seulement!) :</message>
-	<message key="submission.citations.editor.introduction">Introduction</message>
-	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>Il n'y a aucune référence pour cet article.</p><p>Veuillez aller à la <a href="{$articleMetadataUrl}">page des métadonnées</a> de l'article pour saisir une liste de références ou ajouter manuellement des références à l'aide du bouton 'Ajouter un élément' de l'éditeur.</p>]]></message>
-	<message key="submission.citations.editor.pleaseSelect">Veuillez sélectionner...</message>
-	<message key="submission.citations.editor.unprocessedCitations">Les références de cet article sont encore en traitement sur le serveur. La liste de références actuelle ne contient que les références déjà traitées. Veuillez cliquer sur le bouton Actualiser pour voir les références qui ont été traitées entre-temps.</message>
-	<message key="submission.citations.editor.unprocessedCitationsButton">Actualiser la liste de références</message>
-	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Cliquer pour actualiser la liste de références.</message>
-	<message key="submission.citations.filter.invalidMetadata">Une erreur est survenue dans {$filterName} : un des éléments de données provenant de la source de données (par ex., un service Web) ne se conforme par au format interne de métadonnées. Par conséquent, les résultats de la source de données ont été rejetés. Veuillez le rapporter comme un bogue.</message>
-	<message key="submission.citations.filter.webserviceError">L'appel {$filterName} du service Web a retourné une erreur lorsqu'appelé à partir de l'URL suivante : {$webserviceUrl}.  Il est possible que le service Web ne soit pas disponible temporairement. Vous serez tout de même en mesure de travailler avec les services restants et d'enregistrer vos résultats. Vous pouvez également essayer de nouveau plus tard. Si le problème persiste, veuillez alors demander au directeur de désactiver ce service et d'ouvrir un rapport de bogue.</message>
-	<message key="submission.citations.filter.webserviceResultTransformationError">Une erreur est survenue dans {$filterName} : la transformation des résultats XML ( par ex., à partir d'un service Web) dans des métadonnées par champ a échoué. La raison en est probablement que le service Web a retourné des données invalides ou incomplètes. Veuillez le consigner comme un bogue.</message>
-	<message key="submission.citations.metadata.changeWarning">Êtes-vous certain de vouloir mettre à jour votre liste de références? Si vous cliquer sur OK, toute modification effectuée par les Rédacteurs sera écrasée. Si vous n'êtes pas certain de devoir effectuer les modifications à la liste de références, veuillez communiquer avec le Rédacteur responsable de votre soumission.</message>
 	<message key="submission.artworkFileDetails">Détails du fichier de la maquette</message>
 	<message key="submission.nameRequired">Le nom est obligatoire pour cet élément.</message>
 	<message key="submission.date.mmdd">MM-JJ</message>
@@ -468,8 +383,6 @@
 	<message key="metadata.property.validationMessage.name-type">Assurez-vous de choisir un type de nom valide. Les valeurs acceptées sont "personnel", "corporatif" et "conférence".</message>
 	<message key="common.queue.long.submissionsArchived">Sousmissions archivées</message>
 	<message key="submission.addFile">Transférer le fichier</message>
-	<message key="submission.citations.editor.citationlist.approved">Approuvé</message>
-	<message key="submission.citations.editor.citationlist.notApproved">Non approuvé</message>
 	<message key="submission.contributors">Liste des contributeurs</message>
 	<message key="submission.rights">Droits</message>
 	<message key="submission.submission">Soumission</message>

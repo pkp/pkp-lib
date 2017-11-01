@@ -66,6 +66,22 @@ class InterestEntryDAO extends ControlledVocabEntryDAO {
 
 		return new DAOResultFactory($result, $this, '_fromRow');
 	}
+
+	/**
+	 * Retrieve controlled vocab entries matching a list of vocab entry IDs
+	 *
+	 * @param $entryIds array
+	 * @return DAOResultFactory
+	 */
+	public function getByIds($entryIds) {
+		$entryString = join(',', array_map('intval', $entryIds));
+
+		$result = $this->retrieve(
+			'SELECT * FROM controlled_vocab_entries WHERE controlled_vocab_entry_id IN (' . $entryString . ')'
+		);
+
+		return new DAOResultFactory($result, $this, '_fromRow');
+	}
 }
 
 ?>

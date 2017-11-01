@@ -80,16 +80,21 @@ class PKPSectionForm extends Form {
 	 * @return array
 	 */
 	public function _getAssignedSubEditorIds($sectionId, $contextId) {
-		$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO');
-		$subEditors = $subEditorsDao->getBySectionId($sectionId, $contextId);
+		import('classes.core.ServicesContainer');
+		$subEditors = ServicesContainer::instance()
+			->get('user')
+			->getUsers($contextId, array(
+				'roleIds' => ROLE_ID_SUB_EDITOR,
+				'assignedToSection' => $sectionId,
+			));
 
 		if (empty($subEditors)) {
 			return array();
 		}
 
-		$subEditorIds = array_values(array_map(function($subEditor) {
-			return $subEditor->getId();
-		}, $subEditors));
+		$subEditorIds = array_map(function($subEditor) {
+			return (int) $subEditor->getId();
+		}, $subEditors);
 
 		return $subEditorIds;
 	}
@@ -98,22 +103,30 @@ class PKPSectionForm extends Form {
 	 * Compile data for a subeditors SelectListPanel
 	 *
 	 * @param $contextId int
+	 * @param $request Request
 	 * @return array
 	 */
-	public function _getSubEditorsListPanelData($contextId) {
-		$roleDao = DAORegistry::getDAO('RoleDAO');
-		$allSubEditors = $roleDao->getUsersByRoleId(ROLE_ID_SUB_EDITOR, $contextId);
+	public function _getSubEditorsListPanelData($contextId, $request) {
+		import('classes.core.ServicesContainer');
+		$userService = ServicesContainer::instance()->get('user');
+		$allSubEditors = $userService->getUsers($contextId, array(
+				'roleIds' => ROLE_ID_SUB_EDITOR,
+			));
 
-		if (empty($allSubEditors)) {
-			$subEditorsList = array();
-		} else {
-			$subEditorsList = array_map(function($user) {
-				return [
-					'id' => $user->getId(),
-					'title' => $user->getFullName(),
-				];
-			}, $allSubEditors->toArray());
+		$subEditorsList = array();
+		if (!empty($allSubEditors)) {
+			foreach ($allSubEditors as $subEditor) {
+				$subEditorsList[] = $userService->getSummaryProperties($subEditor, array(
+					'request' => $request,
+				));
+			}
 		}
+
+		// Assign the fullName to the title, so SelectListPanel can find it
+		$subEditorsList = array_map(function($subEditor) {
+			$subEditor['title'] = $subEditor['fullName'];
+			return $subEditor;
+		}, $subEditorsList);
 
 		$subEditorsListData = array(
 			'inputName' => 'subEditors[]',

@@ -111,15 +111,8 @@ abstract class Plugin {
 		HookRegistry::register ('Installer::postInstall', array($this, 'installFilters'));
 
 		// Register template paths
-		if ($this->getEnabled() && (!is_a($this, 'ThemePlugin') || $this->isActive())) {
-			$templateMgr = TemplateManager::getManager();
-			$pluginTemplateResource = new PKPTemplateResource($this->getPluginPath());
-			$templateMgr->register_resource($this->getTemplateResourceName(), array(
-				array($pluginTemplateResource, 'fetch'),
-				array($pluginTemplateResource, 'fetchTimestamp'),
-				array($pluginTemplateResource, 'getSecure'),
-				array($pluginTemplateResource, 'getTrusted')
-			));
+		if ($this->getEnabled()) {
+			$this->registerTemplateResource();
 		}
 		return true;
 	}
@@ -344,6 +337,20 @@ abstract class Plugin {
 	}
 
 	/**
+	 * Register this plugin's templates as a template resource
+	 */
+	public function registerTemplateResource() {
+		$templateMgr = TemplateManager::getManager();
+		$pluginTemplateResource = new PKPTemplateResource($this->getPluginPath());
+		$templateMgr->register_resource($this->getTemplateResourceName(), array(
+			array($pluginTemplateResource, 'fetch'),
+			array($pluginTemplateResource, 'fetchTimestamp'),
+			array($pluginTemplateResource, 'getSecure'),
+			array($pluginTemplateResource, 'getTrusted')
+		));
+	}
+
+	/**
 	 * Call this method when an enabled plugin is registered in order to override
 	 * template files in other plugins. Any plugin which calls this method can
 	 * override template files by adding their own templates to:
@@ -355,14 +362,13 @@ abstract class Plugin {
 	 *			override template.
 	 *		@option string Template file requested
 	 * ]
-	 * @return string New template file location
 	 */
 	public function _overridePluginTemplates($hookName, $args) {
 		$filePath =& $args[0];
 		$template = $args[1];
 
 		if (strpos($filePath, PLUGIN_TEMPLATE_RESOURCE_PREFIX) !== 0) {
-			return;
+			return false;
 		}
 
 		$checkPath = sprintf('%s/templates/%s', $this->getPluginPath(), $filePath);

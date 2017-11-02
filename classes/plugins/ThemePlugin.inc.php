@@ -683,6 +683,15 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	}
 
 	/**
+	 * @copydoc Plugin::registerTemplateResource()
+	 */
+	public function registerTemplateResource() {
+		if ($this->isActive) {
+			parent::registerTemplateResource();
+		}
+	}
+
+	/**
 	 * Register directories to search for template files
 	 *
 	 * @return null

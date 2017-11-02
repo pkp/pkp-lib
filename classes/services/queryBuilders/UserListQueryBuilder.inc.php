@@ -39,6 +39,9 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	/** @var int submission ID */
 	protected $assignedToSubmissionId = null;
 
+	/** @var int submission stage ID */
+	protected $assignedToSubmissionStageId = null;
+
 	/** @var int section ID */
 	protected $assignedToSectionId = null;
 
@@ -112,8 +115,11 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	 *
 	 * @return \PKP\Services\QueryBuilders\UserListQueryBuilder
 	 */
-	public function assignedToSubmission($submissionId) {
+	public function assignedToSubmission($submissionId, $submissionStage) {
 		$this->assignedToSubmissionId = $submissionId;
+		if ($submissionStage && $this->assignedToSubmissionId) {
+			$this->assignedToSubmissionStageId = $submissionStage;
+		}
 		return $this;
 	}
 
@@ -191,6 +197,13 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 			});
 
 			$q->whereNotNull('sa.stage_assignment_id');
+
+			if (!is_null($this->assignedToSubmissionStageId)) {
+				$stageId = $this->assignedToSubmissionStageId;
+
+				$q->leftJoin('user_group_stage as ugs', 'sa.user_group_id', '=', 'ugs.user_group_id');
+				$q->where('ugs.stage_id', '=', Capsule::raw((int) $stageId));
+			}
 		}
 
 		// assigned to section

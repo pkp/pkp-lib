@@ -110,10 +110,6 @@ abstract class Plugin {
 
 		HookRegistry::register ('Installer::postInstall', array($this, 'installFilters'));
 
-		// Register template paths
-		if ($this->getEnabled()) {
-			$this->registerTemplateResource();
-		}
 		return true;
 	}
 
@@ -339,7 +335,7 @@ abstract class Plugin {
 	/**
 	 * Register this plugin's templates as a template resource
 	 */
-	public function registerTemplateResource() {
+	public function _registerTemplateResource() {
 		$templateMgr = TemplateManager::getManager();
 		$pluginTemplateResource = new PKPTemplateResource($this->getPluginPath());
 		$templateMgr->register_resource($this->getTemplateResourceName(), array(
@@ -375,6 +371,8 @@ abstract class Plugin {
 		if (file_exists($checkPath)) {
 			$filePath = $checkPath;
 		}
+
+		return false;
 	}
 
 	/**

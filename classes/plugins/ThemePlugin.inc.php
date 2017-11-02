@@ -93,6 +93,11 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		HookRegistry::register('sitesetupform::execute', array($this, 'saveOptionsForm'));
 		HookRegistry::register('sitesetupform::readuservars', array($this, 'readOptionsFormUserVars'));
 
+		// Register template paths
+		if ($this->getEnabled() && $this->isActive()) {
+			$this->_registerTemplateResource();
+		}
+
 		return true;
 	}
 
@@ -680,15 +685,6 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 
 		$this->parent = $parent;
 		$this->parent->init();
-	}
-
-	/**
-	 * @copydoc Plugin::registerTemplateResource()
-	 */
-	public function registerTemplateResource() {
-		if ($this->isActive) {
-			parent::registerTemplateResource();
-		}
 	}
 
 	/**

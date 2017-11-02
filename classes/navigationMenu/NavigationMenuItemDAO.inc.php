@@ -397,13 +397,15 @@ class NavigationMenuItemDAO extends DAO {
 		$navigationMenuItems = $this->getByContextId($contextId);
 		while ($navigationMenuItem = $navigationMenuItems->next()) {
 			$titleKey = $this->getSetting($navigationMenuItem->getId(), 'titleLocaleKey');
-			$this->updateSetting($navigationMenuItem->getId(),
-				'title',
-				array($locale => __($titleKey, null, $locale)),
-				'string',
-				$locale,
-				true
-			);
+			if (!$navigationMenuItem->getTitle($locale) || $navigationMenuItem->getTitle($locale) == $titleKey) {
+				$this->updateSetting($navigationMenuItem->getId(),
+					'title',
+					array($locale => __($titleKey, null, $locale)),
+					'string',
+					$locale,
+					true
+				);
+			}
 		}
 	}
 

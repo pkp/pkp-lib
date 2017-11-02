@@ -501,10 +501,13 @@ class NavigationMenuItemDAO extends DAO {
 	function unCacheRelatedNavigationMenus($id) {
 		$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
 		$navigationMenuItemAssignmentDao = \DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
-		$assignments = $navigationMenuItemAssignmentDao->getByMenuItemId($id)->toArray();
-		foreach ($assignments as $assignment) {
-			$cache = $navigationMenuDao->getCache($assignment->getMenuId());
-			if ($cache) $cache->flush();
+		$assignments = $navigationMenuItemAssignmentDao->getByMenuItemId($id);
+		if ($assignments) {
+			$assignmentsArray = $assignments->toArray();
+			foreach ($assignmentsArray as $assignment) {
+				$cache = $navigationMenuDao->getCache($assignment->getMenuId());
+				if ($cache) $cache->flush();
+			}
 		}
 	}
 }

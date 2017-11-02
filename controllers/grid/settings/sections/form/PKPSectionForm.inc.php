@@ -107,39 +107,17 @@ class PKPSectionForm extends Form {
 	 * @return array
 	 */
 	public function _getSubEditorsListPanelData($contextId, $request) {
-		import('classes.core.ServicesContainer');
-		$userService = ServicesContainer::instance()->get('user');
-		$allSubEditors = $userService->getUsers($contextId, array(
-				'roleIds' => ROLE_ID_SUB_EDITOR,
-			));
-
-		$subEditorsList = array();
-		if (!empty($allSubEditors)) {
-			foreach ($allSubEditors as $subEditor) {
-				$subEditorsList[] = $userService->getSummaryProperties($subEditor, array(
-					'request' => $request,
-				));
-			}
-		}
-
-		// Assign the fullName to the title, so SelectListPanel can find it
-		$subEditorsList = array_map(function($subEditor) {
-			$subEditor['title'] = $subEditor['fullName'];
-			return $subEditor;
-		}, $subEditorsList);
-
-		$subEditorsListData = array(
+		import('lib.pkp.controllers.list.users.SelectUserListHandler');
+		$data = new SelectUserListHandler(array(
+			'title' => 'user.role.subEditors',
 			'inputName' => 'subEditors[]',
 			'selected' => $this->getData('subEditors'),
-			'collection' => array(
-				'items' => $subEditorsList,
+			'getParams' => array(
+				'roleIds' => ROLE_ID_SUB_EDITOR,
 			),
-			'i18n' => array(
-				'title' => __('user.role.subEditors'),
-			),
-		);
+		));
 
-		return $subEditorsListData;
+		return $data->getConfig();
 	}
 
 	/**

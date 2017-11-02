@@ -54,7 +54,7 @@ abstract class ListHandler extends PKPHandler {
 	 * Retrieve the configuration data to be used when initializing this
 	 * handler on the frontend
 	 *
-	 * return array Configuration data
+	 * @return array Configuration data
 	 */
 	abstract function getConfig();
 }

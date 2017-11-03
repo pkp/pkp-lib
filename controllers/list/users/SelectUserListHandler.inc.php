@@ -1,16 +1,15 @@
 <?php
 /**
- * @file controllers/list/SelectListHandler.inc.php
+ * @file controllers/list/SelectUserListHandler.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2000-2016 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class SelectListHandler
+ * @class SelectUserListHandler
  * @ingroup classes_controllers_list
  *
- * @brief A base class for list selection handlers. This defines the structure
- *  that will be used by handlers which need to select from a list of items.
+ * @brief A class for building SelectListHandler components for users.
  */
 import('lib.pkp.controllers.list.SelectListHandler');
 import('classes.core.ServicesContainer');
@@ -39,7 +38,7 @@ class SelectUserListHandler extends SelectListHandler {
 
 
 	/**
-	 * @copydoc SelectListHandler::getItemms()
+	 * @copydoc SelectListHandler::getItems()
 	 */
 	public function getItems() {
 		$request = Application::getRequest();

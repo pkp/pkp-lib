@@ -68,7 +68,8 @@ class SelectListHandler extends PKPHandler {
 		}
 
 		$data = array(
-			'inputName' => 'subEditors[]',
+			'inputName' => $this->_inputName,
+			'inputType' => $this->_inputType,
 			'selected' => $this->_selected,
 			'collection' => array(
 				'items' => $this->_items,

@@ -20,11 +20,21 @@ class SelectUserListHandler extends SelectListHandler {
 	public $_getParams = null;
 
 	/**
+	 * A callback function to determine what the item title should be.
+	 *
+	 * SelectListPanel will display the item.title key in the input label
+	 *
+	 * @var function
+	 */
+	public $_setItemTitleCallback = null;
+
+	/**
 	 * @copydoc SelectListHandler::init()
 	 */
 	public function init($args = array()) {
 		parent::init($args);
 		$this->_getParams = !empty($args['getParams']) ? $args['getParams'] : $this->_getParams;
+		$this->_setItemTitleCallback = !empty($args['setItemTitleCallback']) ? $args['setItemTitleCallback'] : $this->_setItemTitleCallback;
 	}
 
 
@@ -37,17 +47,21 @@ class SelectUserListHandler extends SelectListHandler {
 		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 
 		$userService = ServicesContainer::instance()->get('user');
-		$allSubEditors = $userService->getUsers($contextId, $this->_getParams);
+		$allUsers = $userService->getUsers($contextId, $this->_getParams);
 
 		$items = array();
-		if (!empty($allSubEditors)) {
-			foreach ($allSubEditors as $subEditor) {
-				$subEditorProps = $userService->getSummaryProperties($subEditor, array(
+		if (!empty($allUsers)) {
+			foreach ($allUsers as $user) {
+				$userProps = $userService->getSummaryProperties($user, array(
 					'request' => $request,
 				));
-				// Assign the fullName to the title, so SelectListPanel can find it
-				$subEditorProps['title'] = $subEditorProps['fullName'];
-				$items[] = $subEditorProps;
+				// Assign the item title so SelectListPanel can find it
+				if (is_callable($this->_setItemTitleCallback)) {
+					$userProps['title'] = call_user_func($this->_setItemTitleCallback, $user, $userProps);
+				} else {
+					$userProps['title'] = $userProps['fullName'];
+				}
+				$items[] = $userProps;
 			}
 		}
 

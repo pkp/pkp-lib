@@ -245,7 +245,7 @@ class UserService extends PKPBaseEntityPropertyService {
 						$values[$prop] = array();
 						while ($userGroup = $userGroups->next()) {
 							$values[$prop][] = array(
-								'id' => $userGroup->getId(),
+								'id' => (int) $userGroup->getId(),
 								'name' => $userGroup->getName(null),
 								'abbrev' => $userGroup->getAbbrev(null),
 								'roleId' => (int) $userGroup->getRoleId(),

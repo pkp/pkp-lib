@@ -126,7 +126,9 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 	function execute($request) {
 		$submissionDao = Application::getSubmissionDAO();
 		$submission = $submissionDao->getById($this->_submissionId);
-		$this->sendMessage((int) $this->getData('userId'), $submission, $request);
+		if ($this->getData('message')) {
+			$this->sendMessage((int) $this->getData('userId'), $submission, $request);
+		}
 		return parent::execute($request);
 	}
 

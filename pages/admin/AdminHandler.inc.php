@@ -63,8 +63,6 @@ class AdminHandler extends Handler {
 	function index($args, $request) {
 		$this->setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
-		$workingContexts = $this->getWorkingContexts($request);
-		$templateMgr->assign('multipleContexts', $workingContexts->getCount() > 1);
 		$templateMgr->display('admin/index.tpl');
 	}
 

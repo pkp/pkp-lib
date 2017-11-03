@@ -389,6 +389,14 @@ class PKPTemplateManager extends Smarty {
 					'initialHelpState' => (int) $user->getInlineHelp(),
 				));
 			}
+
+			$multipleContexts = false;
+			$contextDao = Application::getContextDAO();
+			$workingContexts = $contextDao->getAvailable($user?$user->getId():null);
+			if ($workingContexts && $workingContexts->getCount() > 1) {
+				$multipleContexts = true;
+			}
+			$this->assign('multipleContexts', $multipleContexts);
 		}
 
 		// Load enabled block plugins and setup active sidebar variables

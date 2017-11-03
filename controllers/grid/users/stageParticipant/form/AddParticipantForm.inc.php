@@ -30,10 +30,8 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 		$this->_stageId = $stageId;
 
 		// add checks in addition to anything that the Notification form may apply.
+		// FIXME: should use a custom validator to check that the userId belongs to this group.
 		$this->addCheck(new FormValidator($this, 'userGroupId', 'required', 'editor.submission.addStageParticipant.form.userGroupRequired'));
-		// FIXME: should use a custom validator to check that the user belongs to this group.
-		// validating in validate method for now.
-		$this->addCheck(new FormValidator($this, 'userId', 'required', 'editor.submission.addStageParticipant.form.userRequired'));
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
 	}
@@ -137,11 +135,11 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 	}
 
 	/**
-	 * whether or not to include the Notify Users listbuilder  true, by default.
+	 * whether or not to require a message field
 	 * @return boolean
 	 */
-	function includeNotifyUsersListbuilder() {
-		return false; // use whoever is assigned to the stage when the form is submitted instead.
+	function isMessageRequired() {
+		return false;
 	}
 }
 

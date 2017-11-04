@@ -155,4 +155,5 @@
 	<message key="user.apiKeyEnabled">Tillåt externa applikationer som har API-nyckeln att få tillgång till det här kontot</message>
 	<message key="user.apiKey.generate">Skapa ny API-nyckel</message>
 	<message key="user.apiKey.generateWarning">Vid skapande av ny API-nyckel blir den nuvarande nyckeln för det här kontot ogiltig.</message>
+	<message key="user.apiKey.secretRequired">Innan det är möjligt att skapa en API-nyckel måste administratören för webbplatsen ange något i fältet "api_key_secret" i konfigurationsfilen.</message>
 </locale>

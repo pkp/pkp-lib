@@ -35,8 +35,8 @@ class UserGroupGridCellProvider extends GridCellProvider {
 		switch ($columnId) {
 			case 'name':
 				return array('label' => $userGroup->getLocalizedName());
-			case 'abbrev':
-				return array('label' => $userGroup->getLocalizedAbbrev());
+			case 'roleId':
+				return array('label' => __(array_shift(Application::getRoleNames(false, array($userGroup->getRoleId())))));
 			case in_array($columnId, $workflowStages):
 				// Set the state of the select element that will
 				// be used to assign the stage to the user group.
@@ -45,7 +45,6 @@ class UserGroupGridCellProvider extends GridCellProvider {
 					// This stage should not be assigned to the user group.
 					$selectDisabled = true;
 				}
-				if ($userGroup->getRoleId() == ROLE_ID_MANAGER) $selectDisabled = true;
 
 				return array('selected' => in_array($columnId, array_keys($assignedStages)),
 					'disabled' => $selectDisabled);

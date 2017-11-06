@@ -558,7 +558,7 @@
 	<message key="manager.navigationMenus.customPage">Anpassad sida</message>
 	<message key="manager.navigationMenus.customPage.description">Skapa en anpassad sida på din webbplats och länka till den från en navigationsmeny.</message>
 	<message key="manager.navigationMenus.remoteUrl">Extern URL</message>
-	<message key="manager.navigationMenus.remoteUrl.description">Länka till vilken URL som helst utanför webbplatsen, till exempel http://pkp.sfu.ca.</message>
+	<message key="manager.navigationMenus.remoteUrl.description">Länka till vilken URL som helst utanför webbplatsen, till exempel https://pkp.sfu.ca.</message>
 	<message key="manager.navigationMenus.about.description">Länka till en sida som visar innehållet i Om tidskriften från Inställningar > Tidskrift</message>
 	<message key="manager.navigationMenus.about.conditionalWarning">Den här länken visas bara om du har fyllt i sektionen Om tidskriften under Inställningar > Tidskrift.</message>
 	<message key="manager.navigationMenus.editorialTeam.description">Länka till en sida som visar innehållet i Redaktionsruta i Inställningar > Tidskrift.</message>

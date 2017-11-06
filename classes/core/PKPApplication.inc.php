@@ -84,7 +84,7 @@ interface iPKPApplicationInfoProvider {
 	 * This is necessary to prevent a column name mismatch during
 	 * the upgrade process when the codebase and the database are out
 	 * of sync.
-	 * See:  http://pkp.sfu.ca/bugzilla/show_bug.cgi?id=8265
+	 * See:  https://pkp.sfu.ca/bugzilla/show_bug.cgi?id=8265
 	 *
 	 * The 'generic' category of plugin is loaded before the schema
 	 * is reconciled.  Subclasses of PKPApplication perform a check
@@ -535,7 +535,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	/**
 	 * Main entry point for PKP statistics reports.
 	 *
-	 * @see <http://pkp.sfu.ca/wiki/index.php/OJSdeStatisticsConcept#Input_and_Output_Formats_.28Aggregation.2C_Filters.2C_Metrics_Data.29>
+	 * @see <https://pkp.sfu.ca/wiki/index.php/OJSdeStatisticsConcept#Input_and_Output_Formats_.28Aggregation.2C_Filters.2C_Metrics_Data.29>
 	 * for a full specification of the input and output format of this method.
 	 *
 	 * @param $metricType null|string|array metrics selection

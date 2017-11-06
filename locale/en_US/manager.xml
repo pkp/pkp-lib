@@ -558,7 +558,7 @@
 	<message key="manager.navigationMenus.customPage">Custom Page</message>
 	<message key="manager.navigationMenus.customPage.description">Create a custom page on your site and link to it from a navigation menu.</message>
 	<message key="manager.navigationMenus.remoteUrl">Remote URL</message>
-	<message key="manager.navigationMenus.remoteUrl.description">Link to any URL on another site, like http://pkp.sfu.ca.</message>
+	<message key="manager.navigationMenus.remoteUrl.description">Link to any URL on another site, like https://pkp.sfu.ca.</message>
 	<message key="manager.navigationMenus.about.description">Link to a page displaying the About the Journal content in Settings > Journal</message>
 	<message key="manager.navigationMenus.about.conditionalWarning">This link will only be displayed if you have filled out the About the Journal section under Settings > Journal.</message>
 	<message key="manager.navigationMenus.editorialTeam.description">Link to a page displaying the Masthead content in Settings > Journal.</message>

@@ -558,7 +558,7 @@
 	<message key="manager.navigationMenus.customPage">صفحة مخصصة</message>
 	<message key="manager.navigationMenus.customPage.description">أنشئ صفحة مخصصة في موقعك وأضف لها رابطاً ضمن قائمة تنقل.</message>
 	<message key="manager.navigationMenus.remoteUrl">رابط خارجي</message>
-	<message key="manager.navigationMenus.remoteUrl.description">إرتبط مع مصدر خارجي من موقع آخر، مثل: http://pkp.sfu.ca.</message>
+	<message key="manager.navigationMenus.remoteUrl.description">إرتبط مع مصدر خارجي من موقع آخر، مثل: https://pkp.sfu.ca.</message>
 	<message key="manager.navigationMenus.about.description">إرتبط بصفحة تعرض محتوى عن المجلة ضمن باب الإعدادات > المجلة</message>
 	<message key="manager.navigationMenus.about.conditionalWarning">هذا الرابط سيظهر فقط لو أنك قمت بتعبئة محتوى عن المجلة ضمن الإعدادات > المجلة.</message>
 	<message key="manager.navigationMenus.editorialTeam.description">إرتبط بصفحة تعرض محتوى دفة القيادة المذكور ضمن الإعدادات > المجلة.</message>

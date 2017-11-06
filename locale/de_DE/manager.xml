@@ -558,7 +558,7 @@
 	<message key="manager.navigationMenus.customPage">Eigene Seite</message>
 	<message key="manager.navigationMenus.customPage.description">Erzeugen Sie eine eigene Seite und verlinken sie über das Navigationsmenü.</message>
 	<message key="manager.navigationMenus.remoteUrl">Remote-URL</message>
-	<message key="manager.navigationMenus.remoteUrl.description">Link zu einer beliebigen URL einer anderen Website, z.B. http://pkp.sfu.ca.</message>
+	<message key="manager.navigationMenus.remoteUrl.description">Link zu einer beliebigen URL einer anderen Website, z.B. https://pkp.sfu.ca.</message>
 	<message key="manager.navigationMenus.about.description"><![CDATA[Link zur Seite, welche den Inhalt von Über uns aus den Einstellungen > Zeitschrift anzeigt.]]></message>
 	<message key="manager.navigationMenus.about.conditionalWarning"><![CDATA[Dieser Link wird nur angezeigt, falls Sie den Abschnitt Über uns in den Einstellungen > Zeitschrift ausgefüllt haben.]]></message>
 	<message key="manager.navigationMenus.editorialTeam.description"><![CDATA[Link zur Seite, welche den Inhalt des Impressums aus den Einstellungen > Zeitschrift anzeigt.]]></message>

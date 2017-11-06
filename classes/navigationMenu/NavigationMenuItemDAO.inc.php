@@ -188,6 +188,9 @@ class NavigationMenuItemDAO extends DAO {
 		);
 		$navigationMenuItem->setId($this->getInsertId());
 		$this->updateLocaleFields($navigationMenuItem);
+
+		$this->unCacheRelatedNavigationMenus($navigationMenuItem->getId());
+
 		return $navigationMenuItem->getId();
 	}
 
@@ -214,6 +217,9 @@ class NavigationMenuItemDAO extends DAO {
 			)
 		);
 		$this->updateLocaleFields($navigationMenuItem);
+
+		$this->unCacheRelatedNavigationMenus($navigationMenuItem->getId());
+
 		return $returner;
 	}
 
@@ -232,6 +238,8 @@ class NavigationMenuItemDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteById($navigationMenuItemId) {
+		$this->unCacheRelatedNavigationMenus($navigationMenuItemId);
+
 		$this->update('DELETE FROM navigation_menu_item_settings WHERE navigation_menu_item_id = ?', (int) $navigationMenuItemId);
 		$this->update('DELETE FROM navigation_menu_items WHERE navigation_menu_item_id = ?', (int) $navigationMenuItemId);
 
@@ -484,6 +492,23 @@ class NavigationMenuItemDAO extends DAO {
 	 */
 	function deleteSettingsByLocale($locale) {
 		return $this->update('DELETE FROM navigation_menu_item_settings WHERE locale = ?', $locale);
+	}
+
+	/**
+	 * Uncache the related NMs to the NMI with $id
+	 * @param mixed $id
+	 */
+	function unCacheRelatedNavigationMenus($id) {
+		$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
+		$navigationMenuItemAssignmentDao = \DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
+		$assignments = $navigationMenuItemAssignmentDao->getByMenuItemId($id);
+		if ($assignments) {
+			$assignmentsArray = $assignments->toArray();
+			foreach ($assignmentsArray as $assignment) {
+				$cache = $navigationMenuDao->getCache($assignment->getMenuId());
+				if ($cache) $cache->flush();
+			}
+		}
 	}
 }
 

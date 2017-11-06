@@ -516,7 +516,7 @@
 	<message key="manager.navigationMenus.customPage">Пользовательская страница</message>
 	<message key="manager.navigationMenus.customPage.description">Создать свою собственную страницу на вашем сайте и добавить ссылку на нее в меню навигации.</message>
 	<message key="manager.navigationMenus.remoteUrl">Внешний URL</message>
-	<message key="manager.navigationMenus.remoteUrl.description">Ссылка на любой URL на другом сайте, например, http://pkp.sfu.ca.</message>
+	<message key="manager.navigationMenus.remoteUrl.description">Ссылка на любой URL на другом сайте, например, https://pkp.sfu.ca.</message>
 	<message key="manager.navigationMenus.about.description">Ссылка на страницу, отображающую контент «О журнале» в  Настройки > Журнал</message>
 	<message key="manager.navigationMenus.about.conditionalWarning">Эта ссылка будет показываться только в случае, если вы заполнили раздел «О журнале» в Настройки > Журнал.</message>
 	<message key="manager.navigationMenus.editorialTeam.description">Ссылка на страницу, отображающую контент «Выходные данные» в Настройки > Журнал.</message>

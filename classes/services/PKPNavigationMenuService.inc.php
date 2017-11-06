@@ -373,7 +373,7 @@ class PKPNavigationMenuService {
 		$cache = $navigationMenuDao->getCache($navigationMenu->getId());
 		if ($cache->cache) {
 			$navigationMenu = json_decode($cache->cache, true);
-			$navigationMenu = $this->array_to_object('NavigationMenu', $navigationMenu);
+			$navigationMenu = $this->arrayToObject('NavigationMenu', $navigationMenu);
 			$this->loadMenuTreeDisplayState($navigationMenu);
 			return;
 		}
@@ -401,7 +401,7 @@ class PKPNavigationMenuService {
 	 * @param mixed $array
 	 * @return mixed
 	 */
-	function array_to_object($class, $array) {
+	function arrayToObject($class, $array) {
 		if ($class == 'NavigationMenu') {
 			$obj = new \NavigationMenu();
 		} else if ($class == 'NavigationMenuItem') {
@@ -414,15 +414,15 @@ class PKPNavigationMenuService {
 				if(is_array($v) && $k == 'menuTree') {
 					$treeChildren = array();
 					foreach($v as $treeChild) {
-						array_push($treeChildren, $this->array_to_object('NavigationMenuItemAssignment', $treeChild));
+						array_push($treeChildren, $this->arrayToObject('NavigationMenuItemAssignment', $treeChild));
 					}
 					$obj->{$k} = $treeChildren;
 				} else if(is_array($v) && $k == 'navigationMenuItem') {
-					$obj->{$k} = $this->array_to_object('NavigationMenuItem', $v); //RECURSION
+					$obj->{$k} = $this->arrayToObject('NavigationMenuItem', $v); //RECURSION
 				} else if(is_array($v) && $k == 'children') {
 					$treeChildren = array();
 					foreach($v as $treeChild) {
-						array_push($treeChildren, $this->array_to_object('NavigationMenuItemAssignment', $treeChild));
+						array_push($treeChildren, $this->arrayToObject('NavigationMenuItemAssignment', $treeChild));
 					}
 					$obj->{$k} = $treeChildren;
 				} else {

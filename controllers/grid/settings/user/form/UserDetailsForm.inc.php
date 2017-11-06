@@ -127,6 +127,8 @@ class UserDetailsForm extends UserForm {
 		foreach($data as $key => $value) {
 			$this->setData($key, $value);
 		}
+
+		parent::initData($args, $request);
 	}
 
 	/**
@@ -166,7 +168,7 @@ class UserDetailsForm extends UserForm {
 			$templateMgr->assign('authSourceOptions', $authSourceOptions);
 		}
 
-		return $this->fetch($request);
+		return parent::display($args, $request);
 	}
 
 
@@ -226,7 +228,7 @@ class UserDetailsForm extends UserForm {
 	 * @param $request PKPRequest
 	 */
 	function &execute($args, $request) {
-		parent::execute($request);
+		parent::execute($args, $request);
 
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$context = $request->getContext();

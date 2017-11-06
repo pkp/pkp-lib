@@ -55,12 +55,9 @@ class PKPCreateUsersTest extends WebTestCase {
 			$this->waitJQuery();
 
 			// Roles
+			$this->waitForElementPresent('css=input[name^=userGroupIds]');
 			foreach ($data['roles'] as $role) {
-				$this->waitForElementPresent('css=[id^=component-listbuilder-users-userusergrouplistbuilder-addItem-button-]');
-				$this->clickAt('css=[id^=component-listbuilder-users-userusergrouplistbuilder-addItem-button-]', '10,10');
-				$this->waitForElementPresent('//select[@name=\'newRowId[name]\']//option[text()=\'' . $role . '\']');
-				$this->select('name=newRowId[name]', $role);
-				$this->waitJQuery();
+				$this->clickAt('css=label[text()=\'' . $role . '\']');
 			}
 
 			$this->click('//button[text()=\'Save\']');

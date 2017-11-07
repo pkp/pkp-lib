@@ -15,14 +15,21 @@
 	<!-- Author Submission -->
 	<message key="author.submit.userGroupRequired">Su cuenta no dispone actualmente con un rol que permita nuevos envíos, como Autor/a. Vuelva a comprobar su cuenta. Es posible que tenga que añadir un rol apropiado editando su perfil.</message>
 	<message key="author.submit.submissionCitations">Proporcione una lista de referencias con formato de las obras citadas en este envío. Separe cada referencia con una línea en blanco.</message>
+	<message key="author.submission.roundStatus.reviewsReady">Se han enviado nuevas revisiones y están siendo consideradas por el editor/a.</message>
+	<message key="submission.confirm.message">Se ha subido su envío y ya está listo para ser enviado. Puede volver atrás para revisar y ajustar la información que desee antes de continuar. Cuando esté listo haga clic en "Finalizar envío".</message>
+	<message key="submission.submit.submissionChecklist">Requisitos de envío</message>
+	<message key="submission.submit.submissionChecklistDescription">Antes de continuar debe leer y confirmar que ha completado los requisitos siguientes.</message>
 	<message key="submission.submit.submissionComplete">Envío completo</message>
 	<message key="submission.submit.submissionCompleteThanks">Gracias por su interés por publicar con {$contextName}.</message>
+	<message key="submission.submit.copyrightNoticeAgreementLabel">Aceptar la declaración de derechos de autor</message>
+	<message key="submission.submit.copyrightNoticeAgree">Estoy de acuerdo en cumplir los términos de la declaración de derechos de autor.</message>
 	<message key="submission.submit.whatNext">¿Y ahora qué?</message>
 	<message key="submission.submit.whatNext.forNow">Por ahora, usted puede:</message>
 	<message key="submission.submit.whatNext.review">Revisar este envío</message>
 	<message key="submission.submit.whatNext.create">Crear un nuevo envío</message>
 	<message key="submission.submit.whatNext.return">Volver al escritorio</message>
 	<message key="submission.submit.extendedMetadata">Metadatos ampliados</message>
+	
 	<!-- FIXME: move to meta-data plug-ins -->
 	<!-- messages used by meta-data filters -->
 	<message key="metadata.filters.crossref.settings.email.displayName">Correo electrónico de registro de CrossRef</message>
@@ -133,8 +140,12 @@
 	<message key="common.queue.long.myAssigned">Mis envíos asignados</message>
 	<message key="common.queue.long.submissionsArchived">Envíos archivados</message>
 	<message key="submission.authors">Autores</message>
+	<message key="submission.authorBiography">Biografía del autor/a</message>
+	<message key="submission.authorBiographies">Biografía del autor</message>
+	<message key="submission.authorWithAffiliation">{$name}, {$affiliation}</message>
+	<message key="submission.shortAuthor">{$author} et al.</message>
 	<message key="submission.mySubmissions">Mis envíos de autoría</message>
-	<message key="submission.addFile">Subir fichero</message>
+	<message key="submission.addFile">Subir archivo</message>
 	<message key="submission.agencies">Agencias</message>
 	<message key="submission.abstractViews">Consultas del resumen</message>
 	<message key="submission.accepted">Aceptado</message>
@@ -144,6 +155,7 @@
 	<message key="submission.attachedFile">Archivo adjunto</message>
 	<message key="submission.backToSubmissionEditing">Volver a la edición del envío</message>
 	<message key="submission.changeComments">Cambiar a</message>
+	<message key="submission.changeFile">Cambia el archivo</message>
 	<message key="submission.citations">Citas</message>
 	<message key="submission.citations.editor.citationlist.approved">Aprobado</message>
 	<message key="submission.citations.editor.citationlist.deleteCitationConfirmation">¿Seguro que deseas borrar esta cita?</message>
@@ -238,6 +250,7 @@
 	<message key="submission.comments.corrections">Correcciones</message>
 	<message key="submission.comments.editComment">Editar comentario</message>
 	<message key="submission.comments.importPeerReviews">Importar revisiones por pares</message>
+	<message key="submission.comments.addReviews">Añade las revisiones al correo electrónico</message>
 	<message key="submission.comments.importPeerReviews.reviewerLetter">Revisor {$reviewerLetter}:</message>
 	<message key="submission.comments.noComments">No hay comentarios</message>
 	<message key="submission.comments.noReviews">No hay revisiones</message>
@@ -248,6 +261,7 @@
 	<message key="submission.contributors">Lista de colaboradores</message>
 	<message key="submission.copyedited">Corregido</message>
 	<message key="submission.copyediting">Corrección de originales</message>
+	<message key="submission.queryNoteFiles">Archivos de discusión</message>
 	<message key="submission.coverage">Información de cobertura</message>
 	<message key="submission.done">Hecho</message>
 	<message key="submission.dueDate">Fecha límite</message>
@@ -260,6 +274,8 @@
 	<message key="submission.email.confirmDeleteLogEntry">¿Seguro que quieres borrar esta entrada de registro de correo electrónico?</message>
 	<message key="submission.email.deleteLogEntry">Borrar entrada de registro</message>
 	<message key="submission.emailLog">Registro de correo electrónico</message>
+	<message key="submission.event.participantAdded">Se añadió a "{$name}" ({$username}) como {$userGroupName}.</message>
+	<message key="submission.event.participantRemoved">"{$name}" ({$username}) se ha eliminado de {$userGroupName}.</message>
 	<message key="submission.event.backToEventLog">Volver a registro de eventos</message>
 	<message key="submission.event.confirmClearLog">¿Seguro que quieres limpiar el registro de eventos de este envío?</message>
 	<message key="submission.event.confirmDeleteLogEntry">¿Seguro que quieres borrar esta entrada del registro de eventos?</message>
@@ -271,7 +287,6 @@
 	<message key="submission.event.general.suppFileUpdated">Archivo de envío actualizado</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Asignación de revisión aceptada por poderes</message>
 	<message key="submission.event.reviewer.reviewAccepted">Asignación de revisión aceptada</message>
-	<message key="submission.event.reviewer.reviewCancelled">Asignación de revisión cancelada</message>
 	<message key="submission.event.reviewer.reviewDeclined">Asignación de revisión rechazada</message>
 	<message key="submission.event.reviewer.reviewDueDate">Plazo de revisión modificado</message>
 	<message key="submission.event.reviewer.reviewerAssigned">Se ha asignado un revisor a la propuesta</message>
@@ -283,6 +298,8 @@
 	<message key="submission.event.reviewer.reviewReinitiated">Asignación de revisión reiniciada</message>
 	<message key="submission.event.reviewer.reviewResubmitted">Revisión reenviada</message>
 	<message key="submission.event.reviewer.reviewRevision">Archivo de revisiones actualizado</message>
+	<message key="submission.event.subjectPrefix">Se ha enviado un correo electrónico:</message>
+	<message key="submission.event.viewEmail">Ver correo electrónico</message>
 	<message key="submission.files">Archivos</message>
 	<message key="submission.files.downloadAll">Descargar todos los archivos</message>
 	<message key="submission.galley">Galerada</message>
@@ -294,8 +311,15 @@
 	<message key="submission.history.submissionEventLog">Registro de evento</message>
 	<message key="submission.history.submissionNotes">Notas de envío</message>
 	<message key="submission.history.viewLog">Ver registro</message>
+	<message key="submission.howToCite">Cómo citar</message>
+	<message key="submission.howToCite.citationFormats">Formatos de citación</message>
+	<message key="submission.howToCite.downloadCitation">Descargar Referencia</message>
 	<message key="submission.indexing">Indexación</message>
 	<message key="submission.initiated">Iniciado</message>
+
+	<!-- Identifiers -->
+	<message key="submission.identifiers">Identificadores</message>
+	<message key="submission.publisherId">Identificador público de la URL</message>
 
 	<!-- Information Center -->
 	<message key="submission.informationCenter.submissionInfo">Información del envío</message>
@@ -314,7 +338,6 @@
 	<message key="submission.layout.confirmDeleteSupplementaryFile">¿Seguro que quieres eliminar este archivo adicional de forma permanente?</message>
 	<message key="submission.layout.deleteGalleyStylesheet">Eliminar esta hoja de estilo.</message>
 	<message key="submission.layout.editGalley">Editar una galerada de maquetación</message>
-	<message key="submission.layout.galleyFileData">Información de archivo de galerada</message>
 	<message key="submission.layout.galleyFormat">Formato de galerada</message>
 	<message key="submission.layout.galleyHTMLData">Archivos de galerada HTML</message>
 	<message key="submission.layout.galleyImages">Imágenes</message>
@@ -393,6 +416,7 @@
 	<message key="submissions.submit">Enviar</message>
 	<message key="submissions.submitted">Enviado</message>
 	<message key="submission.submission">Propuesta</message>
+	<message key="submission.submissionTitle">Título del envío:</message>	
 	<message key="submission.start">Comenzar</message>
 	<message key="submission.submissionHistory">Historial de envío</message>
 	<message key="submission.submissionManuscript">Texto completo de envío</message>
@@ -407,10 +431,12 @@
 	<message key="submission.submit.metadataForm">Mejoras adicionales</message>
 	<message key="submission.submit.metadataForm.tip">Añada más información al envío.  Pulse "Intro" después de cada término.</message>
 	<message key="submission.submit.submissionLocale">Idioma del envío</message>
+	<message key="submission.submit.submissionLocaleDescription">Se aceptan envíos en varios idiomas. Elija el idioma principal del envío desde el menú desplegable de abajo.</message>
 	<message key="submission.submit.submissionFiles">Archivos de envío</message>
 	<message key="submission.submit.dependentFiles">Archivos dependientes</message>
 	<message key="submission.manageDependentFiles">Gestionar los archivos dependientes</message>
 	<message key="submission.upload.dependent">Subir un archivo dependiente</message>
+	<message key="submission.upload.query">Sube un archivo de discusión</message>
 	<message key="submission.summary">Resumen</message>
 	<message key="submission.supplementaryFiles">Archivos complementarios</message>
 	<message key="submission.supportingAgencies">Agencias de apoyo</message>
@@ -423,6 +449,17 @@
 	<message key="submission.createRemote">Crear remoto</message>
 	<message key="submission.viewMetadata">Ver metadatos</message>
 	<message key="submission.views">Consultas</message>
+
+	<message key="submission.uploadSuccessful">Tu archivo ha sido subido.</message>
+	<message key="submission.loadMessage">Por favor, espera mientras se almacena tu archivo en el servidor.</message>
+	<message key="submission.artworkFileDetails">Detalles del archivo de artwork</message>
+	<message key="submission.fileDetails">Detalles del archivo</message>
+	<message key="submission.nameRequired">Se requiere un nombre para este elemento.</message>
+	<message key="submission.date.mmdd">DD-MM</message>
+	<message key="submission.date.yyyymmdd">AAAA-MM-DD</message>
+	<message key="submission.submit.selectPrincipalContact">Contacto principal para la correspondencia editorial.</message>
+	<message key="submission.submit.contributorRole">Rol del colaborador</message>
+	<message key="submission.submit.addAuthor">Añadir colaborador</message>
 
 	<!-- Author Submission -->
 	<message key="author.submit.submissionCitations">Proporcionar una lista de referencias formateada para trabajos citados en esta propuesta. Por favor, separa referencias individuales con una línea en blanco.</message>
@@ -472,10 +509,7 @@
 	<message key="submission.page.citations">#{$id} Citas</message>
 	<message key="submission.currentAgencies">Agencias</message>
 	<message key="submission.indexingInformation">Información de indexado</message>
-	<message key="submission.uploadSuccessful">Tu archivo ha sido subido.</message>
-	<message key="submission.loadMessage">Por favor, espera mientras se almacena tu archivo en el servidor.</message>
-	<message key="submission.artworkFileDetails">Detalles del fichero de artwork</message>
-	<message key="submission.fileDetails">Detalles del archivo</message>
+
 	<message key="submission.citations.filter.noResultFromFilterError">La operación de búsqueda no ha devuelto ningún resultado. Puedes editar manualmente los campos de citas e intentarlo de nuevo para mejorar los resultados. Si esto no da resultado, la cita no existe en ninguna base de datos asociada.</message>
 	<message key="metadata.filters.crossref.settings.email.displayName">Correo electrónico de registro de CrossRef</message>
 	<message key="metadata.filters.crossref.settings.email.validationMessage">Por favor, introduce un correo electrónico de registro de CrossRef válido. Puedes registrar tu correo electrónico de manera gratuita en el sitio web de CrossRef.</message>
@@ -579,13 +613,6 @@
 	<message key="submission.citations.editor.pleaseSelect">Selecciona...</message>
 	<message key="submission.citations.editor.unprocessedCitationsButton">Refrescar la lista de citas</message>
 	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Haz clic para refrescar la lista de citas.</message>
-	<message key="submission.artworkFileDetails">Detalles del archivo de artwork</message>
-	<message key="submission.nameRequired">Se requiere un nombre para este elemento.</message>
-	<message key="submission.date.mmdd">DD-MM</message>
-	<message key="submission.date.yyyymmdd">AAAA-MM-DD</message>
-	<message key="submission.submit.selectPrincipalContact">Contacto principal para la correspondencia editorial.</message>
-	<message key="submission.submit.contributorRole">Rol del colaborador</message>
-	<message key="submission.submit.addAuthor">Añadir colaborador</message>
 
 	<!-- Submission file upload form elements -->
 	<message key="submission.form.name">Dar un nombre al archivo (p. ej., Envío Pérez, Tabla 1 Pérez)</message>
@@ -630,6 +657,7 @@
 	<message key="submission.upload.uploadFiles">Subir archivos</message>
 	<message key="submission.upload.response.description">Tras revisar el archivo asignado, registre los comentarios en el archivo de abajo o suba una copia del archivo (u otro archivo) con comentarios.</message>
 	<message key="submission.upload.productionReady">Subir un archivo listo para producción</message>
+	<message key="submission.upload.proof">Subir un archivo listo para publicación</message>
 	<message key="submission.upload.noAvailableReviewFiles">No tiene archivos para revisar en este momento.</message>
 
 	<!-- Review Round Status Keys -->
@@ -657,14 +685,17 @@
 
 	<!--  editor decisions -->
 	<message key="editor.submission.decision">Decisión</message>
+	<message key="editor.submission.decision.accept">Aceptar envío</message>
 	<message key="editor.submission.decision.requestRevisions">Solicitar revisiones</message>
 	<message key="editor.submission.decision.resubmit">Reevaluable</message>
 	<message key="editor.submission.decision.decline">No publicable</message>
 	<message key="editor.submission.decision.sendToProduction">Enviar a producción</message>
+	<message key="editor.submission.decision.skipReview">Aceptar y omitir la revisión</message>
 	<message key="editor.submission.decision.sendInternalReview">Enviar para revisión interna</message>
 	<message key="editor.submission.decision.approveProofs">Aprobar pruebas</message>
 	<message key="editor.submission.decision.approveProofsDescription">El archivo de compaginadas debe marcarse como "aprobado" para que esté disponible. ¿Quiere aprobarlo?</message>
 	<message key="editor.submission.decision.disapproveProofsDescription">Esta compaginada ya no estará disponible públicamente para su descarga o compra. ¿Quiere rechazarlo?</message>
+	<message key="editor.submission.decision.noDecisionsAvailable">Asigne un editor/a para habilitar las decisiones editoriales en esta fase.</message>
 
 	<!-- workflow navigation keys -->
 	<message key="submission.currentStage">Fase actual</message>
@@ -693,6 +724,10 @@
 	<message key="submission.description">Descripción</message>
 	<message key="submission.stageNotInitiated">Fase no iniciada.</message>
 	<message key="submission.documents">Documentos del envío</message>
+	<message key="notification.type.editorAssign">Usted ha sido asignado como editor al envío "{$title}".</message>
+	<message key="notification.type.copyeditorRequest">Se le ha pedido que revise las correcciones para "{$title}".</message>
+	<message key="notification.type.layouteditorRequest">Se le ha pedido que revise las galeradas de "{$title}".</message>
+	<message key="notification.type.indexRequest">Se le ha pedido que cree un índice para "{$title}".</message>
 	<message key="notification.type.editorDecisionTitle">Última decisión del editor/a.</message>
 	<message key="notification.type.editorDecisionAccept">Envío aceptado.</message>
 	<message key="notification.type.editorDecisionExternalReview">Comenzó el proceso de revisión externa.</message>
@@ -704,25 +739,29 @@
  	<!-- Read/Upload/Perform Signoff -->
 	<message key="notification.type.editorAssignment">Debe asignarse a un editor/a para que pueda comenzar la revisión. Añada a un editor/a utilizando el enlace Participantes que figura arriba.</message>
 	<message key="grid.reviewAttachments.title">Archivos adjuntos del revisor/a</message>
+	<message key="grid.reviewAttachments.send.title">Seleccione los archivos de revisión para compartir con el/los autor(es)</message>
 	<message key="submission.productionReady">Libro disponible</message>
 	<message key="submission.review.uploadRevisionToRound">Subir archivo revisado</message>
 	<message key="log.review.reviewerAssigned">Se asignó a {$reviewerName} para la revisión del envío {$submissionId} de la ronda de revisión {$round}.</message>
+	<message key="submission.review.status.awaitingResponse">Esperando una respuesta del revisor.</message>
+	<message key="submission.review.status.declined">El revisor rechazó esta solicitud de revisión.</message>
+	<message key="submission.review.status.responseOverdue">El revisor ha pasado la fecha límite de respuesta.</message>
+	<message key="submission.review.status.reviewOverdue">El revisor ha pasado la fecha de revisión.</message>
+	<message key="submission.review.status.accepted">Esta revisión ha sido aceptada.</message>
+	<message key="submission.review.status.received">El revisor ha enviado su opinión.</message>
+	<message key="submission.review.status.complete">Esta revisión ha sido completada.</message>
+	<message key="submission.review.status.thanked">Esta revisión está completa y se agradeció al revisor por su contribución.</message>
 	<message key="submission.document">Documento</message>
 	<message key="submission.art">Archivo de ilustración</message>
 	<message key="grid.action.itemWorkflow">Ir al circuito de publicación de este envío</message>
 	<message key="notification.type.editorDecisionSendToProduction">Comenzó el proceso de producción.</message>
 	<message key="notification.type.editorAssignmentProduction">Debe asignarse un jefe/a de producción para que pueda comenzar el proceso de producción. Añada un jefe/a de producción a través del enlace Participantes que aparece arriba.</message>
 	<message key="notification.type.editorAssignmentEditing">Debe asignarse un editor/a para que pueda comenzar el proceso editorial. Añada a un jefe/a de producción a través del enlace Participantes que aparece arriba.</message>
-	<message key="submission.confirm.message">Se ha subido su envío y ya está listo para ser enviado. Puede volver atrás para revisar y ajustar la información que desee antes de continuar. Cuando esté listo haga clic en "Finalizar envío".</message>
-	<message key="submission.submit.copyrightNoticeAgree">Estoy de acuerdo en cumplir los términos de la declaración de derechos de autor.</message>
-	<message key="submission.shortAuthor">{$author} et al.</message>
-	<message key="submission.comments.addReviews">Añade las revisiones al correo electrónico</message>
-	<message key="submission.queryNoteFiles">Archivos de discusión</message>
-	<message key="submission.event.subjectPrefix">Se ha enviado un correo electrónico:</message>
-	<message key="submission.event.viewEmail">Ver correo electrónico</message>
+	
+	
+	
 	<message key="submission.metadataDescription">Las especificaciones de los metadatos se basan en ONIX para libros, que es un estándar internacional usado por la industria editorial para la comunicación de la información de sus productos.</message>
-	<message key="submission.submissionTitle">Título del envío:</message>
-	<message key="submission.upload.query">Sube un archivo de discusión</message>
+
 	<message key="workflow.stage.any">Cualquier fase</message>
 	<message key="workflow.stage">Fase</message>
 	<message key="editor.submission.addStageParticipant.userGroup">Los usuarios son asignados a las diferentes fases del proceso de trabajo según su grupo. Cualquier usuario asignado a esta fase será automáticamente asignado a las otras fases en que su grupo usuario haya sido asignado. Esto normalmente está reservado a los editores, autores y traductores.</message>
@@ -756,6 +795,8 @@
 	<message key="submission.license.cc.by-nd4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><br />Esta obra está bajo licencia internacional <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Reconocimiento-SinObrasDerivadas 4.0</a>.]]></message>
 	<message key="submission.license.cc.by4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />Esta obra está bajo licencia internacional <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Reconocimiento 4.0</a>.]]></message>
 	<message key="submission.license.cc.by-sa4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />Esta obra está bajo licencia internacional <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Reconocimiento-CompartirIgual 4.0</a>.]]></message>
+	
+	<!-- Submission Queries -->
 	<message key="submission.queries.submission">Discusiones prerrevisión</message>
 	<message key="submission.queries.review">Revisa las discusiones</message>
 	<message key="submission.queries.editorial">Discusiones de corrección</message>
@@ -772,26 +813,27 @@
 	<message key="submission.query.new">{$creatorName} inició una discusión: {$noteTitle}: {$noteContents}</message>
 	<message key="submission.query.activity.contents">Hay actividad nueva en la conversación titulada "{$queryTitle}" que hace referencia al envío "{$submissionTitle}".</message>
 	<message key="submission.query.new.contents">Ha sido añadido a la conversación titulada "{$queryTitle}" que hace referencia al envío "{$submissionTitle}".</message>
-	<message key="submission.submit.submissionChecklist">Requisitos de envío</message>
-	<message key="submission.submit.submissionChecklistDescription">Antes de continuar debe leer y confirmar que ha completado los requisitos siguientes.</message>
-	<message key="submission.authorBiographies">Biografía del autor</message>
-	<message key="submission.changeFile">Cambia el archivo</message>
-	<message key="submission.identifiers">Identificadores</message>
-	<message key="submission.publisherId">Identificador público de la URL</message>
-	<message key="author.submission.roundStatus.reviewsReady">Se han enviado nuevas revisiones y están siendo consideradas por el editor/a.</message>
-	<message key="submission.submit.copyrightNoticeAgreementLabel">Aceptar la declaración de derechos de autor</message>
-	<message key="submission.authorBiography">Biografía del autor/a</message>
-	<message key="submission.authorWithAffiliation">{$name}, {$affiliation}</message>
-	<message key="submission.event.participantAdded">Se añadió a "{$name}" ({$username}) como {$userGroupName}.</message>
-	<message key="submission.howToCite">Cómo citar</message>
-	<message key="submission.howToCite.citationFormats">Formatos de citación</message>
-	<message key="submission.submit.submissionLocaleDescription">Se aceptan envíos en varios idiomas. Elija el idioma principal del envío desde el menú desplegable de abajo.</message>
-	<message key="submission.upload.proof">Subir un archivo listo para publicación</message>
-	<message key="notification.type.copyeditorRequest">Se le ha pedido que revise las correcciones para "{$title}".</message>
-	<message key="notification.type.layouteditorRequest">Se le ha pedido que revise las galeradas de "{$title}".</message>
-	<message key="notification.type.indexRequest">Se le ha pedido que cree un índice para "{$title}".</message>
-	<message key="submission.event.participantRemoved">"{$name}" ({$username}) se ha eliminado de {$userGroupName}.</message>
-	<message key="editor.submission.decision.accept">Aceptar envío</message>
-	<message key="editor.submission.decision.skipReview">Aceptar y omitir la revisión</message>
-	<message key="editor.submission.decision.noDecisionsAvailable">Asigne un editor/a para habilitar las decisiones editoriales en esta fase.</message>
+	<message key="submission.query.noParticipantOptions">Debe asignar al menos un participante a este envío antes de iniciar una discusión.</message>
+	
+<!-- Submission Lists -->
+	<message key="submission.list.count">{$count} envíos</message>
+	<message key="submission.list.itemsOfTotal">{$count} de {$total} envíos</message>
+	<message key="submission.list.confirmDelete">Borrar envío?</message>
+	<message key="submission.list.viewSubmission">Ver envío</message>
+	<message key="submission.list.filter">Filtros</message>
+	<message key="submission.list.filterRemove">Limpiar filtro: {$filterTitle}</message>
+	<message key="submission.list.clearSearch">Borrar frase de búsqueda</message>
+	<message key="submission.list.reviewsCompleted">Revisiones asignadas completas</message>
+	<message key="submission.list.revisionsSubmitted">Revisiones enviadas</message>
+	<message key="submission.list.copyeditsSubmitted">Archivos corregidos enviados</message>
+	<message key="submission.list.galleysCreated">Galeradas de producción creadas</message>
+	<message key="submission.list.filesPrepared">Archivos preparados</message>
+	<message key="submission.list.discussions">Discusiones abiertas</message>
+	<message key="submission.list.incompleteSubmissionNotice">Este envío debe completarse antes de que un editor lo revise.</message>
+	<message key="submission.list.infoCenter">Historial de Actividad y Notas</message>
+
+
+	<!-- Missed lines compared with English version -->
+	<message key="submission.event.reviewer.reviewCancelled">Asignación de revisión cancelada</message>
+	<message key="submission.layout.galleyFileData">Información de archivo de galerada</message>
 </locale>

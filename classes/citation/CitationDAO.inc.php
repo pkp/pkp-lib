@@ -23,7 +23,7 @@ class CitationDAO extends DAO {
 	 * @param $citation Citation
 	 * @return integer the new citation id
 	 */
-	function insertObject(&$citation) {
+	function insertObject($citation) {
 		$seq = $citation->getSequence();
 		if (!(is_numeric($seq) && $seq > 0)) {
 			// Find the latest sequence number
@@ -68,7 +68,7 @@ class CitationDAO extends DAO {
 	 * @param $citationId integer
 	 * @return Citation
 	 */
-	function &getObjectById($citationId) {
+	function getObjectById($citationId) {
 		$result = $this->retrieve(
 			'SELECT * FROM citations WHERE citation_id = ?', $citationId
 		);
@@ -80,6 +80,45 @@ class CitationDAO extends DAO {
 		$result->Close();
 
 		return $citation;
+	}
+
+	/**
+	 * Import citations from a raw citation list to the object
+	 * described by the given association type and id.
+	 * @param $assocType int
+	 * @param $assocId int
+	 * @param $rawCitationList string
+	 */
+	function importCitations($assocType, $assocId, $rawCitationList) {
+		assert(is_numeric($assocType) && is_numeric($assocId));
+		$assocType = (int) $assocType;
+		$assocId = (int) $assocId;
+
+		// Remove existing citations.
+		$this->deleteObjectsByAssocId($assocType, $assocId);
+
+		// Tokenize raw citations
+		import('lib.pkp.classes.citation.CitationListTokenizerFilter');
+		$citationTokenizer = new CitationListTokenizerFilter();
+		$citationStrings = $citationTokenizer->execute($rawCitationList);
+
+		// Instantiate and persist citations
+		if (is_array($citationStrings)) foreach($citationStrings as $seq => $citationString) {
+			$citation = new Citation($citationString);
+
+			// Initialize the citation with the raw
+			// citation string.
+			$citation->setRawCitation($citationString);
+
+			// Set the object association
+			$citation->setAssocType($assocType);
+			$citation->setAssocId($assocId);
+
+			// Set the counter
+			$citation->setSequence($seq+1);
+
+			$this->insertObject($citation);
+		}
 	}
 
 	/**
@@ -110,7 +149,7 @@ class CitationDAO extends DAO {
 	 * Update an existing citation.
 	 * @param $citation Citation
 	 */
-	function updateObject(&$citation) {
+	function updateObject($citation) {
 		// Update the citation and release the lock
 		// on it (if one is present).
 		$returner = $this->update(
@@ -139,7 +178,7 @@ class CitationDAO extends DAO {
 	 * @param $citation Citation
 	 * @return boolean
 	 */
-	function deleteObject(&$citation) {
+	function deleteObject($citation) {
 		return $this->deleteObjectById($citation->getId());
 	}
 
@@ -218,7 +257,7 @@ class CitationDAO extends DAO {
 	 * Update the citation meta-data
 	 * @param $citation Citation
 	 */
-	function _updateObjectMetadata(&$citation) {
+	function _updateObjectMetadata($citation) {
 		// Persist citation meta-data
 		$this->updateDataObjectSettings('citation_settings', $citation,
 				array('citation_id' => $citation->getId()));

@@ -44,6 +44,7 @@ class PublicationEntryTabHandler extends Handler {
 			array(
 				'submissionMetadata',
 				'saveForm',
+				'citations', 'updateCitations',
 			)
 		);
 	}
@@ -134,7 +135,6 @@ class PublicationEntryTabHandler extends Handler {
 		return $this->_tabPosition;
 	}
 
-
 	/**
 	 * Save the forms handled by this Handler.
 	 * @param $request Request
@@ -181,6 +181,47 @@ class PublicationEntryTabHandler extends Handler {
 		} else {
 			fatalError('Unknown or unassigned format id!');
 		}
+	}
+
+	/**
+	 * Edit citations.
+	 * @param $args array
+	 * @param $request Request
+	 * @return JSONMessage JSON object
+	 */
+	function citations($args, $request) {
+		import('lib.pkp.controllers.tab.publicationEntry.form.CitationsForm');
+		$submission = $this->getSubmission();
+		$stageId = $this->getStageId();
+		$citationsForm = new CitationsForm($submission, $stageId, $this->getTabPosition(), array('displayedInContainer' => true));
+		$citationsForm->initData();
+		return new JSONMessage(true, $citationsForm->fetch($request));
+	}
+
+	/**
+	 * Parse and store submission citations.
+	 * @param $args array
+	 * @param $request Request
+	 * @return JSONMessage JSON object
+	 */
+	function updateCitations($args, $request) {
+		import('lib.pkp.controllers.tab.publicationEntry.form.CitationsForm');
+		$submission = $this->getSubmission();
+		$stageId = $this->getStageId();
+		$citationsForm = new CitationsForm($submission, $stageId, $this->getTabPosition(), array('displayedInContainer' => true));
+		$citationsForm->readInputData();
+		if ($citationsForm->validate($request)) {
+			$citationsForm->execute($request);
+		}
+		$json = new JSONMessage(true);
+		if ($request->getUserVar('displayedInContainer')) {
+			$router = $request->getRouter();
+			$dispatcher = $router->getDispatcher();
+			$url = $dispatcher->url($request, ROUTE_COMPONENT, null, $this->_getHandlerClassPath(), 'fetch', null, array('submissionId' => $submission->getId(), 'stageId' => $stageId, 'tabPos' => $this->getTabPosition(), 'hideHelp' => true));
+			$json->setAdditionalAttributes(array('reloadContainer' => true, 'tabsUrl' => $url));
+			$json->setContent(true); // prevents modal closure
+		}
+		return $json;
 	}
 
 	/**

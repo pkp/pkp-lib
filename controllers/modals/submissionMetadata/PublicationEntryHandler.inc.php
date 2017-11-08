@@ -110,6 +110,11 @@ class PublicationEntryHandler extends Handler {
 			'selectedTab' => (int) $this->getTabPosition(),
 			'hideHelp' => (boolean) $request->getUserVar('hideHelp'),
 		));
+		// Tell the template if citation field is enabled
+		$context = $request->getContext();
+		$templateMgr->assign(array(
+			'citationsEnabled' => $context->getSetting('citationsEnabledWorkflow'),
+		));
 		$this->setupTemplate($request);
 	}
 

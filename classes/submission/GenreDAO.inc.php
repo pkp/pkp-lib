@@ -342,6 +342,40 @@ class GenreDAO extends DAO {
 	}
 
 	/**
+	 * Get default keys.
+	 * @return array List of default keys
+	 */
+	function getDefaultKeys() {
+		$defaultKeys = array();
+		$xmlDao = new XMLDAO();
+		$data = $xmlDao->parseStruct('registry/genres.xml', array('genre'));
+		if (isset($data['genre'])) foreach ($data['genre'] as $entry) {
+			$attrs = $entry['attributes'];
+			$defaultKeys[] = $attrs['key'];
+		}
+		return $defaultKeys;
+	}
+
+	/**
+	 * If a key exists for a context.
+	 * @param $key string
+	 * @param $contextId int
+	 * @param $genreId int (optional) Current genre to be ignored
+	 * @return boolean
+	 */
+	function keyExists($key, $contextId, $genreId = null) {
+		$params = array($key, (int) $contextId);
+		if ($genreId) $params[] = (int) $genreId;
+		$result = $this->retrieveRange(
+			'SELECT COUNT(*) FROM genres WHERE entry_key = ? AND context_id = ?' . (isset($genreId) ? ' AND genre_id <> ?' : ''),
+			$params
+		);
+		$returner = isset($result->fields[0]) && $result->fields[0] == 1 ? true : false;
+		$result->Close();
+		return $returner;
+	}
+
+	/**
 	 * Remove all settings associated with a locale
 	 * @param $locale string Locale code
 	 */

@@ -157,6 +157,16 @@ class Genre extends DataObject {
 	function setSupplementary($supplementary) {
 		$this->setData('supplementary', $supplementary);
 	}
+
+	/**
+	 * Is this a default genre.
+	 * @return bool
+	 */
+	function isDefault() {
+		$genreDao = DAORegistry::getDAO('GenreDAO');
+		$defaultKeys = $genreDao->getDefaultKeys();
+		return in_array($this->getKey(), $defaultKeys);
+	}
 }
 
 ?>

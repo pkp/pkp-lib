@@ -43,8 +43,15 @@ class GenreForm extends Form {
 		$this->setGenreId($genreId);
 		parent::__construct('controllers/grid/settings/genre/form/genreForm.tpl');
 
+		$request = Application::getRequest();
+		$context = $request->getContext();
+
+		$genreDao = DAORegistry::getDAO('GenreDAO');
+
 		// Validation checks for this form
 		$this->addCheck(new FormValidatorLocale($this, 'name', 'required', 'manager.setup.form.genre.nameRequired'));
+		$this->addCheck(new FormValidatorCustom($this, 'key', 'optional', 'manager.setup.genres.key.exists', create_function('$key,$genreDao,$contextId,$genreId', 'return $key == \'\' || !$genreDao->keyExists($key, $contextId, $genreId);'), array($genreDao, $context->getId(), $this->getGenreId())));
+		$this->addCheck(new FormValidatorRegExp($this, 'key', 'optional', 'manager.setup.genres.key.alphaNumeric', '/^[a-z0-9]+([\-_][a-z0-9]+)*$/i'));
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
 	}
@@ -70,6 +77,8 @@ class GenreForm extends Form {
 				'category' => $genre->getCategory(),
 				'dependent' => $genre->getDependent(),
 				'supplementary' => $genre->getSupplementary(),
+				'key' => $genre->getKey(),
+				'keyReadOnly' => $genre->isDefault(),
 			);
 		} else {
 			$this->_data = array(
@@ -104,7 +113,7 @@ class GenreForm extends Form {
 	 * @see Form::readInputData()
 	 */
 	function readInputData() {
-		$this->readUserVars(array('genreId', 'name', 'category', 'dependent', 'supplementary', 'gridId', 'rowId'));
+		$this->readUserVars(array('genreId', 'name', 'category', 'dependent', 'supplementary', 'gridId', 'rowId', 'key'));
 	}
 
 	/**
@@ -128,6 +137,10 @@ class GenreForm extends Form {
 		$genre->setCategory($this->getData('category'));
 		$genre->setDependent($this->getData('dependent'));
 		$genre->setSupplementary($this->getData('supplementary'));
+
+		if (!$genre->isDefault()) {
+			$genre->setKey($this->getData('key'));
+		}
 
 		if (!$this->getGenreId()) {
 			$this->setGenreId($genreDao->insertObject($genre));

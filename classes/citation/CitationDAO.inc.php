@@ -47,13 +47,12 @@ class CitationDAO extends DAO {
 
 		$this->update(
 			sprintf('INSERT INTO citations
-				(assoc_type, assoc_id, citation_state, raw_citation, seq)
+				(assoc_type, assoc_id, raw_citation, seq)
 				VALUES
-				(?, ?, ?, ?, ?)'),
+				(?, ?, ?, ?)'),
 			array(
 				(integer)$citation->getAssocType(),
 				(integer)$citation->getAssocId(),
-				(integer)$citation->getCitationState(),
 				$citation->getRawCitation(),
 				(integer)$seq
 			)
@@ -125,23 +124,18 @@ class CitationDAO extends DAO {
 	 * Retrieve an array of citations matching a particular association id.
 	 * @param $assocType int
 	 * @param $assocId int
-	 * @param $minCitationState int one of the CITATION_* constants,
-	 *  leaving this unset will show all citation states.
-	 * @param $maxCitationState int one of the CITATION_* constants,
-	 *  leaving this unset will show all citation states.
 	 * @param $dbResultRange DBResultRange the desired range
 	 * @return DAOResultFactory containing matching Citations
 	 */
-	function getObjectsByAssocId($assocType, $assocId, $minCitationState = 0, $maxCitationState = CITATION_APPROVED, $rangeInfo = null) {
+	function getObjectsByAssocId($assocType, $assocId, $rangeInfo = null) {
 		$result = $this->retrieveRange(
 			'SELECT *
 			FROM citations
-			WHERE assoc_type = ? AND assoc_id = ? AND citation_state >= ? AND citation_state <= ?
+			WHERE assoc_type = ? AND assoc_id = ?
 			ORDER BY seq, citation_id',
-			array((int)$assocType, (int)$assocId, (int)$minCitationState, (int)$maxCitationState),
+			array((int)$assocType, (int)$assocId),
 			$rangeInfo
 		);
-
 		return new DAOResultFactory($result, $this, '_fromRow', array('id'));
 	}
 
@@ -150,21 +144,16 @@ class CitationDAO extends DAO {
 	 * @param $citation Citation
 	 */
 	function updateObject($citation) {
-		// Update the citation and release the lock
-		// on it (if one is present).
 		$returner = $this->update(
 			'UPDATE	citations
 			SET	assoc_type = ?,
 				assoc_id = ?,
-				citation_state = ?,
 				raw_citation = ?,
 				seq = ?,
-				lock_id = NULL
 			WHERE	citation_id = ?',
 			array(
 				(integer)$citation->getAssocType(),
 				(integer)$citation->getAssocId(),
-				(integer)$citation->getCitationState(),
 				$citation->getRawCitation(),
 				(integer)$citation->getSequence(),
 				(integer)$citation->getId()
@@ -244,7 +233,6 @@ class CitationDAO extends DAO {
 		$citation->setId((integer)$row['citation_id']);
 		$citation->setAssocType((integer)$row['assoc_type']);
 		$citation->setAssocId((integer)$row['assoc_id']);
-		$citation->setCitationState($row['citation_state']);
 		$citation->setRawCitation($row['raw_citation']);
 		$citation->setSequence((integer)$row['seq']);
 

@@ -17,26 +17,9 @@
  * @brief Class representing a citation (bibliographic reference)
  */
 
-
-define('CITATION_RAW', 0x01);
-define('CITATION_CHECKED', 0x02);
-define('CITATION_PARSED', 0x03);
-define('CITATION_LOOKED_UP', 0x04);
-define('CITATION_APPROVED', 0x05);
-
 import('lib.pkp.classes.core.DataObject');
 
 class Citation extends DataObject {
-	/** @var int citation state (raw, edited, parsed, looked-up) */
-	var $_citationState = CITATION_RAW;
-
-	/**
-	 * @var array errors that occurred while
-	 *  checking or filtering the citation.
-	 */
-	var $_errors = array();
-
-
 	/**
 	 * Constructor.
 	 * @param $rawCitation string an unparsed citation string
@@ -49,23 +32,6 @@ class Citation extends DataObject {
 	//
 	// Getters and Setters
 	//
-	/**
-	 * Get the citationState
-	 * @return integer
-	 */
-	function getCitationState() {
-		return $this->_citationState;
-	}
-
-	/**
-	 * Set the citationState
-	 * @param $citationState integer
-	 */
-	function setCitationState($citationState) {
-		assert(in_array($citationState, Citation::_getSupportedCitationStates()));
-		$this->_citationState = $citationState;
-	}
-
 	/**
 	 * Get the association type
 	 * @return integer
@@ -99,23 +65,6 @@ class Citation extends DataObject {
 	}
 
 	/**
-	 * Add a checking error
-	 * @param $errorMessage string
-	 */
-	function addError($errorMessage) {
-		$this->_errors[] = $errorMessage;
-	}
-
-	/**
-	 * Get all checking errors
-	 * @return array
-	 */
-	function getErrors() {
-		return $this->_errors;
-	}
-
-
-	/**
 	 * Get the rawCitation
 	 * @return string
 	 */
@@ -129,7 +78,6 @@ class Citation extends DataObject {
 	 */
 	function setRawCitation($rawCitation) {
 		$rawCitation = $this->_cleanCitationString($rawCitation);
-
 		$this->setData('rawCitation', $rawCitation);
 	}
 
@@ -152,21 +100,6 @@ class Citation extends DataObject {
 	//
 	// Private methods
 	//
-	/**
-	 * Return supported citation states
-	 * @return array supported citation states
-	 */
-	static function _getSupportedCitationStates() {
-		static $_supportedCitationStates = array(
-			CITATION_RAW,
-			CITATION_CHECKED,
-			CITATION_PARSED,
-			CITATION_LOOKED_UP,
-			CITATION_APPROVED
-		);
-		return $_supportedCitationStates;
-	}
-
 	/**
 	 * Take a citation string and clean/normalize it
 	 * @param $citationString string

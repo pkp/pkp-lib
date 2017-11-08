@@ -13,9 +13,11 @@
 		// Attach the form handler.
 		$('#userGroupForm').pkpHandler(
 			'$.pkp.controllers.grid.settings.roles.form.UserGroupFormHandler', {ldelim}
-			selfRegistrationRoleIds: {$selfRegistrationRoleIds|@json_encode},
-			recommendOnlyRoleIds: {$recommendOnlyRoleIds|@json_encode},
+			groupOptionRestrictions: {$groupOptionRestrictions|@json_encode},
 			roleForbiddenStagesJSON: {$roleForbiddenStagesJSON},
+			{if $appFormHandlerOptions}
+				{$appFormHandlerOptions}
+			{/if}
 			stagesSelector: '[id^="assignedStages"]'
 		{rdelim});
 	{rdelim});
@@ -54,6 +56,9 @@
 				{fbvElement type="checkbox" name="showTitle" id="showTitle" checked=$showTitle label="settings.roles.showTitles"}
 				{fbvElement type="checkbox" name="permitSelfRegistration" id="permitSelfRegistration" checked=$permitSelfRegistration label="settings.roles.permitSelfRegistration"}
 				{fbvElement type="checkbox" name="recommendOnly" id="recommendOnly" checked=$recommendOnly label="settings.roles.recommendOnly"}
+				{if $appUserGroupOptions}
+					{$appUserGroupOptions}
+				{/if}
 			{/fbvFormSection}
 		{/fbvFormArea}
 	</div>

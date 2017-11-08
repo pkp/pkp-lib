@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file controllers/grid/users/author/AuthorGridHandler.inc.php
+ * @file controllers/grid/users/author/PKPAuthorGridHandler.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class AuthorGridHandler
+ * @class PKPAuthorGridHandler
  * @ingroup controllers_grid_users_author
  *
  * @brief base PKP class to handle author grid requests.
@@ -21,7 +21,7 @@ import('lib.pkp.controllers.grid.users.author.AuthorGridRow');
 // Link action & modal classes
 import('lib.pkp.classes.linkAction.request.AjaxModal');
 
-class AuthorGridHandler extends GridHandler {
+class PKPAuthorGridHandler extends GridHandler {
 	/** @var boolean */
 	var $_readOnly;
 
@@ -126,7 +126,7 @@ class AuthorGridHandler extends GridHandler {
 				null,
 				null,
 				$cellProvider,
-				array('width' => 40, 'alignment' => COLUMN_ALIGNMENT_LEFT)
+				array('width' => 30, 'alignment' => COLUMN_ALIGNMENT_LEFT)
 			)
 		);
 		$this->addColumn(
@@ -152,7 +152,7 @@ class AuthorGridHandler extends GridHandler {
 				'principalContact',
 				'author.users.contributor.principalContact',
 				null,
-				'controllers/grid/users/author/primaryContact.tpl',
+				'controllers/grid/common/cell/checkMarkCell.tpl',
 				$cellProvider
 			)
 		);
@@ -161,7 +161,7 @@ class AuthorGridHandler extends GridHandler {
 				'includeInBrowse',
 				'author.users.contributor.includeInBrowse',
 				null,
-				'controllers/grid/users/author/includeInBrowse.tpl',
+				'controllers/grid/common/cell/checkMarkCell.tpl',
 				$cellProvider
 			)
 		);
@@ -287,8 +287,7 @@ class AuthorGridHandler extends GridHandler {
 		$author = $authorDao->getById($authorId, $submission->getId());
 
 		// Form handling
-		import('lib.pkp.controllers.grid.users.author.form.AuthorForm');
-		$authorForm = new AuthorForm($submission, $author, 'submissionId');
+		$authorForm = $this->getAuthorForm($submission, $author, 'submissionId');
 		$authorForm->initData();
 
 		return new JSONMessage(true, $authorForm->fetch($request));
@@ -309,8 +308,7 @@ class AuthorGridHandler extends GridHandler {
 		$author = $authorDao->getById($authorId, $submission->getId());
 
 		// Form handling
-		import('lib.pkp.controllers.grid.users.author.form.AuthorForm');
-		$authorForm = new AuthorForm($submission, $author, 'submissionId');
+		$authorForm = $this->getAuthorForm($submission, $author, 'submissionId');
 		$authorForm->readInputData();
 		if ($authorForm->validate()) {
 			$authorId = $authorForm->execute();

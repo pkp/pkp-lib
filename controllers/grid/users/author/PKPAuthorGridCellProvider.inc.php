@@ -39,9 +39,9 @@ class PKPAuthorGridCellProvider extends DataObjectGridCellProvider {
 			case 'email':
 				return parent::getTemplateVarsFromRowColumn($row, $column);
 			case 'principalContact':
-				return array('isPrincipalContact' => $element->getPrimaryContact());
+				return array('isChecked' => $element->getPrimaryContact());
 			case 'includeInBrowse':
-				return array('includeInBrowse' => $element->getIncludeInBrowse());
+				return array('isChecked' => $element->getIncludeInBrowse());
 		}
 	}
 }

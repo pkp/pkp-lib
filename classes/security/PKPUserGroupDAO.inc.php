@@ -1,24 +1,22 @@
 <?php
 
 /**
- * @file classes/security/UserGroupDAO.inc.php
+ * @file classes/security/PKPUserGroupDAO.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class UserGroupDAO
+ * @class PKPUserGroupDAO
  * @ingroup security
  * @see UserGroup
  *
  * @brief Operations for retrieving and modifying User Groups and user group assignments
  */
-
-
-import('lib.pkp.classes.security.UserGroup');
+import('lib.pkp.classes.security.PKPUserGroup');
 import('lib.pkp.classes.workflow.WorkflowStageDAO');
 
-class UserGroupDAO extends DAO {
+class PKPUserGroupDAO extends DAO {
 	/** @var a shortcut to get the UserDAO **/
 	var $userDao;
 
@@ -39,7 +37,7 @@ class UserGroupDAO extends DAO {
 	 * (allows DAO to be subclassed)
 	 */
 	function newDataObject() {
-		return new UserGroup();
+		return new PKPUserGroup();
 	}
 
 	/**

@@ -44,21 +44,33 @@ class ReviewAssignmentAccessPolicy extends AuthorizationPolicy {
 	function effect() {
 		// Get the user
 		$user = $this->_request->getUser();
-		if (!is_a($user, 'PKPUser')) return AUTHORIZATION_DENY;
+		if (!is_a($user, 'PKPUser')) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Get the submission
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		if (!is_a($submission, 'Submission')) return AUTHORIZATION_DENY;
+		if (!is_a($submission, 'Submission')) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_BAD_REQUEST);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Check if a review assignment exists between the submission and the user
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		$reviewAssignment = $reviewAssignmentDao->getLastReviewRoundReviewAssignmentByReviewer($submission->getId(), $user->getId());
 
 		// Ensure a valid review assignment was fetched from the database
-		if (!is_a($reviewAssignment, 'ReviewAssignment')) return AUTHORIZATION_DENY;
+		if (!is_a($reviewAssignment, 'ReviewAssignment')) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Ensure that the assignment isn't declined, unless that's permitted
-		if (!$this->_permitDeclined && $reviewAssignment->getDeclined()) return AUTHORIZATION_DENY;
+		if (!$this->_permitDeclined && $reviewAssignment->getDeclined()) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Save the review assignment to the authorization context.
 		$this->addAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);

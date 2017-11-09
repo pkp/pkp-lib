@@ -239,6 +239,26 @@ class Dispatcher {
 	}
 
 	/**
+	 * Handle a 400 error (bad request).
+	 */
+	function handle400() {
+		PKPRequest::_checkThis();
+
+		header('HTTP/1.0 400 Bad Request');
+		fatalError('400 Bad Request');
+	}
+
+	/**
+	 * Handle a 403 error (Forbidden).
+	 */
+	function handle403() {
+		PKPRequest::_checkThis();
+
+		header('HTTP/1.0 403 Forbidden');
+		fatalError('403 Forbidden');
+	}
+
+	/**
 	 * Handle a 404 error (page not found).
 	 */
 	function handle404() {

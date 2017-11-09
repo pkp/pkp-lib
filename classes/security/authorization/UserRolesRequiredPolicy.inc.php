@@ -41,6 +41,7 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy {
 		$user = $request->getUser();
 
 		if (!is_a($user, 'User')) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
 			return AUTHORIZATION_DENY;
 		}
 

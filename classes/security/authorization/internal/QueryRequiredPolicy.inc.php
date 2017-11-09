@@ -34,19 +34,32 @@ class QueryRequiredPolicy extends DataObjectRequiredPolicy {
 	 */
 	function dataObjectEffect() {
 		$queryId = (int)$this->getDataObjectId();
-		if (!$queryId) return AUTHORIZATION_DENY;
+		if (!$queryId) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_BAD_REQUEST);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Make sure the query belongs to the submission.
 		$queryDao = DAORegistry::getDAO('QueryDAO');
 		$query = $queryDao->getById($queryId);
-		if (!is_a($query, 'Query')) return AUTHORIZATION_DENY;
+		if (!is_a($query, 'Query')) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_NOT_FOUND);
+			return AUTHORIZATION_DENY;
+		}
 		switch ($query->getAssocType()) {
 			case ASSOC_TYPE_SUBMISSION:
 				$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-				if (!is_a($submission, 'Submission')) return AUTHORIZATION_DENY;
-				if ($query->getAssocId() != $submission->getId()) return AUTHORIZATION_DENY;
+				if (!is_a($submission, 'Submission')) {
+					$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_BAD_REQUEST);
+					return AUTHORIZATION_DENY;
+				}
+				if ($query->getAssocId() != $submission->getId()) {
+					$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
+					return AUTHORIZATION_DENY;
+				}
 				break;
 			default:
+				$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_BAD_REQUEST);
 				return AUTHORIZATION_DENY;
 		}
 

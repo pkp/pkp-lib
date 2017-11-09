@@ -40,7 +40,10 @@ class UserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy {
 		$context = $request->getContext();
 		$contextId = $context->getId();
 		$user = $request->getUser();
-		if (!is_a($user, 'User')) return AUTHORIZATION_DENY;
+		if (!is_a($user, 'User')) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
+			return AUTHORIZATION_DENY;
+		}
 
 		$userId = $user->getId();
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
@@ -57,6 +60,7 @@ class UserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy {
 		}
 
 		if (empty($accessibleWorkflowStages)) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
 			return AUTHORIZATION_DENY;
 		} else {
 			$this->addAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES, $accessibleWorkflowStages);

@@ -140,11 +140,24 @@ class APIRouter extends PKPRouter {
 	}
 
 	/**
-	 * @copydoc PKPRouter::handleAuthorizationFailure()
+	 * Handle an authorization failure.
+	 * @param $request Request
+	 * @param $authorizationMessage string a translation key with the authorization
+	 *  failure message.
+	 * @param $authorizationErrorCode int Error code associated to authorization denial
 	 */
-	function handleAuthorizationFailure($request, $authorizationMessage) {
+	function handleAuthorizationFailure($request, $authorizationMessage, $authorizationErrorCode) {
 		$dispatcher = $this->getDispatcher();
-		$dispatcher->handle404();
+		switch ($authorizationErrorCode) {
+			case AUTHORIZATION_ERROR_BAD_REQUEST:
+				$dispatcher->handle400();
+
+			case AUTHORIZATION_ERROR_FORBIDDEN:
+				$dispatcher->handle403();
+
+			default:
+				$dispatcher->handle404();
+		}
 	}
 
 }

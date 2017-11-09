@@ -164,15 +164,6 @@
 	<message key="submission.viewMetadata">Ikusi metadatuak</message>
 	<message key="submission.views">Ikuspegiak</message>
 	<message key="submission.citations">Erreferentziak</message>
-	<message key="submission.citations.editor.citationlist.title">Aipuak editatu</message>
-	<message key="submission.citations.editor.details.rawCitation">Aipu-testua</message>
-	<message key="submission.citations.editor.details.rawCitationRequired">Aipu-testua behar da.</message>
-	<message key="submission.citations.editor.citationlist.errorDeletingCitation">Errorea aipua ezabatzen saiatzean.</message>
-	<message key="submission.citations.editor.loadMessage">Itxaron aipuen editorea kargatu bitartean.</message>
-	<message key="submission.citations.editor.details.explainImprovementOptions">Hobetu aipua eskuz eta ondoren saiatu aipua berriro balidatzen.</message>
-	<message key="submission.citations.filter.noResultFromFilterError">Analisi edo bilaketa eragiketak ez du emaitzarik izan. Aipu-testua eskuz editatzen saiatu al zaitezke emaitzak hobetzeko?</message>
-	<message key="submission.citations.filter.unsupportedPublicationType">Publikazio-mota ez da onartu edo ez da aurkitu.</message>
-	<message key="submission.citations.editor.export.exportDescription">Kopiatu elkarrizketa-leiho honen edukia eta itsatsi zure dokumentuan.</message>
 	<message key="metadata.property.displayName.author">Egileak</message>
 	<message key="metadata.property.displayName.editor">Editoreak</message>
 	<message key="metadata.property.displayName.article-title">Artikuluaren titulua</message>
@@ -262,89 +253,12 @@
 	<message key="metadata.property.validationMessage.comment">Mesedez, idatzi baliozko iruzkina.</message>
 	<message key="metadata.property.validationMessage.annotation">Mesedez, idatzi baliozko oharra.</message>
 	<message key="metadata.property.validationMessage.publication-type">Mesedez, egiaztatu argitalpen mota beti ezartzen duzula. Orain, onartutako balioak liburua (liburuentzat edo liburuetako kapituluentzat) eta aldizkaria (aldizkarietako artikuluentzat) dira. Bestela, aipuen irteera-formatuak ez du behar bezala funtzionatuko.</message>
-	<message key="submission.citations.editor.citationlist.deleteCitationConfirmation">Ziur zaude aipua ezabatu nahi al duzula?</message>
-	<message key="submission.citations.editor.citationlist.newCitation">Aipu berria</message>
-	<message key="submission.citations.editor.clickToEdit">Egin klik editatzeko.</message>
-	<message key="submission.citations.editor.details.authorQuery">Galdetu egileari</message>
-	<message key="submission.citations.editor.details.authorQueryBody">Egilearentzako mezua:</message>
-	<message key="submission.citations.editor.details.authorQueryExplanation">Aipu horri buruzko informazio gehiago izateko, egileari galdetu diezaiokezu. Beheko “Bidali” botoian klik eginez gero, egileari posta elektroniko gisa iritsiko zaio zure mezua.</message>
-	<message key="submission.citations.editor.details.authorQuerySubject">Gaia:</message>
-	<message key="submission.citations.editor.details.cannotSelectDefaultForLabel">Ezin duzu eremuaren etiketa desezarri. Mesedez, ezabatu eremua, behar ez baduzu.</message>
-	<message key="submission.citations.editor.details.checkInGoogleScholar">Arakatu Google Scholar</message>
-	<message key="submission.citations.editor.details.changeFieldInfo">Idatzi lehenengo hizkiak hautatzeko…</message>
-	<message key="submission.citations.editor.details.citationExportPreview">Aipuen Esportazioaren Aurrebista</message>
-	<message key="submission.citations.editor.details.citationImprovementResultsActive">Aipuen barneko zerbitzu adituen emaitzak (egin klik ixteko).</message>
-	<message key="submission.citations.editor.details.citationImprovementResultsInactive">Aipuen barneko zerbitzu adituen emaitzak (egin klik irekitzeko)</message>
-	<message key="submission.citations.editor.details.citationServices">Aipuen Zerbitzuak</message>
-	<message key="submission.citations.editor.details.clickToDismissMessage">Mezu bat baztertzeko, haren testuan klik egin dezakezu.</message>
-	<message key="submission.citations.editor.details.dataSaved">Zure aldaketak gorde dira.</message>
-	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Aukeratu Aipuen Datu-baseen Zerbitzuak:</message>
-	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Aipuak editatzeko adituen ezarpenak (egin klik ixteko)</message>
-	<message key="submission.citations.editor.details.editRawCitationExpertSettingsInactive">Aipuak editatzeko adituen ezarpenak (egin klik irekitzeko)</message>
-	<message key="submission.citations.editor.details.editRawCitationExtractionServices">Aukeratu Aipuak Erauzteko Zerbitzuak:</message>
-	<message key="submission.citations.editor.details.editRawCitationFilterValidationError">Barneko errorea: aukeratutako iragazkia baliogabea da. Mesedez, bidali errorearen txostena.</message>
-	<message key="submission.citations.editor.details.googleScholar">Google Scholar</message>
-	<message key="submission.citations.editor.details.googleScholarExplanation">Bat datorren aipuren bat konektatutako aipuen zerbitzuetan aurkitu ezean, Google Scholar-en bila dezakezu bat etortzeren bat. Zoritxarrez, Google Scholar-ek ez du ematen eremuan oinarritutako interfazerik bere datuentzat (guk erabil genitzakeneenentzat); beraz, ez dago laguntzaile horretara datuak automatikoki itzultzeko modurik. Google-ek emandako emaitzen orritik eskuz kopiatu eta itsatsi beharko duzu informazioa zure eremuetan.</message>
-	<message key="submission.citations.editor.details.manualEditing">Eskuz editatzea</message>
-	<message key="submission.citations.editor.details.messages">Mesedez, kontuan izan (klik egin mezuetan, horiek baztertzeko)</message>
-	<message key="submission.citations.editor.details.newFieldInfo">…eremu berria gehitzeko, egin klik hemen…</message>
-	<message key="submission.citations.editor.details.queryCitation">Berriz Kontsultatu Aipuen Zerbitzuak</message>
-	<message key="submission.citations.editor.details.queryGoogleScholar">Bilatu Google Scholar-en</message>
-	<message key="submission.citations.editor.details.processRawCitation">Prozesua</message>
-	<message key="submission.citations.editor.details.processRawCitationGoAhead">Joan aurrera</message>
-	<message key="submission.citations.editor.details.processRawCitationTitle">Jatorrizko aipua aldatzen</message>
-	<message key="submission.citations.editor.details.processRawCitationWarning">Aipuaren jatorrizko testua aldatzeko zorian zaude. Testua aldatuz gero, eremu guztiak balio sortu berriz ordezkatuko dira. Horrek eskuz egin dituzun aldaketak ezabatuko ditu.</message>
-	<message key="submission.citations.editor.details.saveAndApprove">Gorde eta Onartu</message>
-	<message key="submission.citations.editor.details.saveAndRevokeApproval">Onarpena errebokatu</message>
-	<message key="submission.citations.editor.details.sendAuthorQuery">Bidali mezua</message>
-	<message key="submission.citations.editor.details.sendAuthorQuerySuccess">Mezua bidali da!</message>
-	<message key="submission.citations.editor.details.sourceResultsUse">Erabili</message>
-	<message key="submission.citations.editor.details.sourceResultsUseAll">Erabili guztiak</message>
-	<message key="submission.citations.editor.details.sourceResultsUseAllExplanation">Egin klik iturri honetako emaitza-eremu guztiak zuzenean zure eremuen zerrendara eramateko.</message>
-	<message key="submission.citations.editor.details.sourceResultsUseExplanation">Egin klik emaitza-eremu hau zuzenean zure eremuen zerrendara eramateko.</message>
-	<message key="submission.citations.editor.details.unsavedChanges">Aipuak gorde gabe dauden datuak ditu. Mesedez, egin klik “Gorde” botoian aldaketak gordetzeko, edo “Ezeztatu” botoia aldaketak desegiteko.</message>
-	<message key="submission.citations.editor.details.dontShowMessageAgain">Ez erakutsi mezu hau berriro.</message>
-	<message key="submission.citations.editor.edit">Aipuak editatu</message>
-	<message key="submission.citations.editor.export">Aipuak esportatu</message>
-	<message key="submission.citations.editor.export.filterSelectionDescription">Mesedez, hautatu esportatzeko aukeretako bat.</message>
-	<message key="submission.citations.editor.export.filterSelectionError">Ez duzu hautatu irteera-aukeretako bat.</message>
-	<message key="submission.citations.editor.export.foundUnapprovedCitationsMessage"><![CDATA[<p> Oraindik ez dituzu aipu guztiak onartu. Mesedez, joan zaitez <strong>Aipuak editatu</strong> fitxara, eta ziurtatu aipu guztiak onartu dituzula, horiek esportatzen saiatu baino lehen. Onartutako aipuak marra urdin ilunez markatuta daude ezkerraldean. </p>]]></message>
-	<message key="submission.citations.editor.export.noExportOutput">'{$filterName}' irteera-iragazkiak errore bat sortu du. Mesedez, artxibatu errorea.</message>
-	<message key="submission.citations.editor.export.pleaseSelectXmlFilter">XML irteera-aukerak:</message>
-	<message key="submission.citations.editor.export.pleaseSelectPlaintextFilter">Aipuaren irteera-estiloa (esperimentala soilik!):</message>
-	<message key="submission.citations.editor.introduction">Sarrera</message>
-	<message key="submission.citations.editor.introduction.introductionMessage"><![CDATA[<h4>Ongi etorri aipuak markatzeko laguntzailera! </h4>
-	<p> Laguntzaile honekin egilearen aipuak marka ditzakezu NLM 2.3 edo 3.0 XML galeradatara esportatzeko, edo, bestela, testuan oinarritutako irteera gisa. Tresna hori aipuak eman diren moduan automatikoki ateratzen eta ezagutzen saiatzen da, baina esku hartu eta emaitzak edozein unetan editatu ditzakezu. </p>
-	<ul>
-		<li><p><strong>Laguntzailea konfiguratzea</strong></p>
-		<p>Aipuak Markatzeko Laguntzailea aldizkariaren kudeatzaileak konfiguratzen du <a href="{$citationSetupUrl}">Aldizkaria Konfiguratzea 3.7 urratsa: Aipuak Markatzeko Laguntzailea</a>. Aipuak ateratzeko eta egiaztatzeko hainbat tresna gehitu, konfiguratu eta ezabatu daitezke. Informazio gehiago izateko, jar zaitez harremanetan aldizkariaren kudeatzailearekin. </p></li>
-		<li><p><strong>Laguntzailearen interfazean nabigatzea </strong></p>
-		<p><strong>Sarrera</strong>, <strong>Aipuak editatzea</strong> eta <strong>Aipuak esportatzea</strong> fitxak aldatzeko, egin klik fitxen tituluetan. Aipuaren interfazea hedatzeko, egin klik <strong>Pantaila osoa</strong> botoian. Aipuaren interfaze hedatutik interfaze normalera itzultzeko, egin klik <strong>Kendu pantaila osoa</strong> botoian. Sarrerako fitxa hori osorik kentzeko, egin klik beheko botoian. </p></li>
-		<li><p><strong>Aipuak eskatzea </strong></p>
-		<p>Aldizkariaren kudeatzaileak Aipuak Markatzeko Laguntzailea gaitu badu, egileei erreferentzien zerrenda bat egiteko eskatuko zaie, artikulua aurkeztu bitartean. Erreferentzia horiek eta aurkeztuko den dokumentua ez dira batera eskatuko. Dokumentua aurkeztuko ondoren, egileek ere beren erreferentzia-zerrendak alda ditzakete edozein unetan, aurkezpenaren metadatuak editatuz; kontuan izan tresna hau erabiliz aipuetan egin dituzun aldaketa guztiak gainidatziko direla. </p></li>
-		<li><p><strong>Aipuak editatzea</strong></p>
-<p>Aipuak Markatzeko Laguntzailea egilearen erreferentzien zerrendako banakako aipuak identifikatzen eta ateratzen saiatuko da. Ateratako aipu bakoitza eta kanpoko zenbait datu-base egiaztatu ditzakezu automatikoki zehaztasun gehiago izateko; aipuei buruzko informazio okerra editatu dezakezu, eta horiei buruzko informazioa gehitu dezakezu; aipuak onartu edo ezabatu ditzakezu; baita aipu berriak gehitu ere. /p>
-<p>Aurkezpenaren azken aipu guztiak onartu egin behar dira esportatu baino lehen.</p></li>
-<li><p><strong>Aipuak esportatzea</strong></p>
-<p>Aipuak XML edo testu gisa esportatu daitezke. Orain, XML gisa esportatzeko aukeren artean<a href="http://dtd.nlm.nih.gov/publishing/">NLM Aldizkaria Argitaratzea </a> 2.3 eta 3.0 <a href="http://www.ncbi.nlm.nih.gov/pmc/pmcdoc/tagging-guidelines/article/tags.html#el-reflist"> XML erreferentzia-zerrenda </a> daude. Aukera horietako bat hautatuz gero, XML kodedun erreferentzien zerrendaren mozkina aurkezten du, eta, hori kopiatu ondoren, NLM XML galerada batean itsatsi daiteke. </p>
-		<p>Testu-esportazio esperimentalaren aukeren artean ABNT, APA, MLA eta Vancouver aipuen irteera-estiloak daude. Aukera horiek kopiatu eta testuan oinarritutako artikulu-galerada batean itsasteko testu-irteera eskaintzen du (adib., Microsoft Word edo OpenOffice; Adobe InDesing, etab.). Aipu bakoitzak kapsulatutako esteka dauka, aipu hori automatikoki Google Scholar-en bilatzeko</p></li>
-	</ul>]]></message>
-	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>Ez dago aipurik artikulu honentzat.</p><p>Mesedez, joan zaitez artikuluaren href="{$articleMetadataUrl}">metadatuen orrira</a> eta sartu erreferentzien zerrenda edo gehitu eskuz erreferentziak, editatzailearen “Gehitu elementua” botoia erabiliz.</p>]]></message>
-	<message key="submission.citations.editor.pleaseSelect">Mesedez, hautatu…</message>
-	<message key="submission.citations.editor.unprocessedCitations">Artikulu honetako aipuak zerbitzarian prozesatzen ari dira oraindik. Aipuen zerrenda honek dagoeneko prozesatuta dauden aipuak ditu soilik. Oraindik prozesatu gabe dauden aipuak ikusteko, egin klik “berritu” botoian, mesedez.</message>
-	<message key="submission.citations.editor.unprocessedCitationsButton">Berritu aipuen zerrenda</message>
-	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Egin klik aipuen zerrenda berritzeko.</message>
-	<message key="submission.citations.filter.invalidMetadata">Errore bat gertatu da {$filterName} iragazkian: datuen iturritik (adib. web zerbitzu bat) itzulitako datu-elementu batek ez du barneko metadatuen formatua betetzen. Hortaz, datuen iturriko emaitzak baztertu egin dira. Mesedez, artxibatu errore gisa.</message>
-	<message key="submission.citations.filter.webserviceResultTransformationError">Errore bat gertatu da  {$filterName} iragazkian: XML emaitzak (adib., web zerbitzu batekoak) eremuan oinarritutako metadatuetan eraldatzeak huts egin du. Ziurrenik web zerbitzua baliogabea bihurtu da edo datuak osatu gabe daude. Mesedez, artxibatu hori errore gisa.</message>
-	<message key="submission.citations.metadata.changeWarning">Ziur al zaude zure erreferentzien zerrenda eguneratu nahi duzula? “OK” botoian klik egiten baduzu, editoreek egindako aldaketa guztiak gainidatziko dira. Ez badakizu erreferentzien zerrendan aldaketak egin behar den edo ez, jar zaitez harremanetan dagokizun editorearekin.</message>
 	<message key="submission.artworkFileDetails">Artelanen Artxiboaren Xehetasunak</message>
 	<message key="submission.nameRequired">Elementu honek izena behar du.</message>
 	<message key="submission.date.mmdd">HH-EE</message>
 	<message key="submission.date.yyyymmdd">UUUU-HH-EE</message>
 	<message key="metadata.property.displayName.name-type">Izen mota</message>
 	<message key="submission.addFile">Kargatu fitxategia</message>
-	<message key="submission.citations.editor.citationlist.approved">Onartua</message>
-	<message key="submission.citations.editor.citationlist.notApproved">Ez onartua</message>
 	<message key="submission.layout.galleyRemoteURL">Urruneko URL</message>
 	<message key="submission.reviewed">Berrikusia</message>
 	<message key="metadata.property.displayName.title-type">Titulu mota</message>

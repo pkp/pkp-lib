@@ -170,36 +170,15 @@
 	<message key="manager.reviewerSearch.lastAmount">Dager siden siste vurdering: {$current}</message>
 	<message key="manager.reviewerSearch.activeAmount">Antall pågående vurderinger: {$current}</message>
 	<message key="manager.setup.errorDeletingItem">Det oppstod en feil ved sletting.</message>
-	<message key="manager.setup.filter.grid.errorDeletingFilter">Det oppstod en feil ved forsøket på å fjerne dette filteret. Vennligst rapporter dette som en programfeil.</message>
-	<message key="manager.setup.filter.grid.confirmDelete">Vil du virkelig slette {$filterName}-filteret?</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Vennligst velg en database å slå opp i</message>
 	<message key="manager.announcements.datePublish">Publisert</message>
 	<message key="manager.emails.addEmail">Legg til e-postmal</message>
 	<message key="manager.emails.details">Maldetaljer</message>
 	<message key="manager.reviewerSearch.searchByName.short">Søk etter navn</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Du har valgt å legge til databasen {$filterDisplayName}. Klikk 'OK' for å bekrefte.</message>
 	<message key="manager.emails.data">Malmeldingsdata</message>
 	<message key="manager.emails.disable.message">Du er i ferd med å deaktivere denne e-postmalen. Om det finnes systemprosesser som benytter denne malen, vil de ikke bruke den mer. Ønsker du å bekrefte deaktivering?</message>
 	<message key="manager.emails.enable.message">Du er i ferd med å aktivere denne e-posten. Ønsker du å bekrefte denne aktiveringen?</message>
 	<message key="manager.emails.resetAll.message">Om du tilbakestiller alle maler vil alle endringer som er gjort i e-postmalene bli borte. Ønsker du å bekrefte tilbakestillingen?</message>
 	<message key="manager.emails.reset.message">Om du tilbakestiller denne malen, vil alle data i meldingen bli tilbakestilt til standardverdier og alle endringer vil bli borte. Vil du bekrefte denne tilbakestillingen?</message>
-	<message key="manager.setup.citationAssistant">Referansemarkeringshjelper</message>
-	<message key="manager.setup.citationFilterParser">Referanseuthenting</message>
-	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>For å finne og kontrollere referanser i referansedatabaser må de først splittes opp i maskinlesbare metadata: tittel, utgiver, publiseringsdato osv. må alle hentes ut av den originale referanseteksten som forfatteren har oppgitt den. Oppkobling til eksterne nettjenester kan hjelpe med dette arbeidet. En eller flere oppkoblinger kan legges til ved å klikke på "Legg til"-knappen nedenfor. Noen oppkoblinger må konfigureres, du vil bli spurt hvis så er tilfelle.</p>
-		<p>Du kan redigere eller slette en eksisterende oppkobling ved å klikke på ikonet ved siden av den.</p>]]></message>
-	<message key="manager.setup.citationFilterLookup">Referansesjekking</message>
-	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>Du må også tillate og konfigurere tilknytninger til eksterne referansedatabaser. Dette vil hjelpe til med å finne feil i forfatternes referanser eller legge til manglende informasjon (f.eks. DOIer eller PubMed-IDer) som er nødvendig for elektronsik publisering eller avgivelse.</p>
-		<p>Vi tilbyr oppkoblinger til flere eksterne databaser hvor du kan søke etter referanser. Noen av disse databasene krever registrering eller konfigurering. Se informasjon på databasenes nettsider med hensyn til hvordan du kan registrere deg. Du kan legge til en eller flere databaser ved å klikke på "Legg til"-knappen nedenfor.</p>
-		<p>Du kan redigere eller fjerne en eksisterende ekstern database ved å klikke på ikonet ved siden av den.</p>
-		<p><strong>Merk:</strong> For at referansesjekkprosessen skal foregå med ønsket hastighet, må <tt>citation_checking_max_processes</tt>-innstillngen i din konfigurasjonsfil være satt til en fornuftig verdi. Se avsnittet Generelle innstillinger i <tt>config.inc.php</tt> for mer informasjon.</p>]]></message>
-	<message key="manager.setup.filter.grid.filterDisplayName">Oppkobling</message>
-	<message key="manager.setup.filter.grid.filterSettings">Registreringsinformasjon og oppkoblingsinnstillinger</message>
-	<message key="manager.setup.filter.grid.filterTemplateRequired">Velg en av  omformingene fra nedtrekksmenyen.</message>
-	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Dette filteret kobler til <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a>s bok- og ISBN-database.</p>
-	<p>En ISBNdb API-nøkkel er nødvendig. For informasjon om hvordan generere en slik nøkkel, se <a href="http://isbndb.com/api/v1/docs/keys" target="_blank">dokumentasjon på nett</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Dette filteret kobler til CrossRefs referansedatabase ved bruk av CrossRefs <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL Query Interface</a>.</p>
-	<p>For å benytte dette filteret kan du bruke din system-konto hos CrossRef, eller registrere en gyldig e-postadresse hos CrossRef <a href="http://www.crossref.org/requestaccount/" target="_blank">her</a>.</p>]]></message>
-	<message key="manager.setup.filter.pleaseSelect">Vennligst velg...</message>
 	<message key="plugins.categories.metadata">Programutvidelser for metadata</message>
 	<message key="plugins.categories.oaiMetadataFormats">Programtillegg for OAI metadata-format</message>
 	<message key="plugins.categories.oaiMetadataFormats.description">Disse format-programtilleggene tilgjengeliggjør metadata i OAI-kommunikasjon.</message>
@@ -304,7 +283,6 @@
 	<message key="manager.setup.authorCopyrightNoticeAgree">Krev at forfatterne aksepterer opphavsrettsnotisen.</message>
 	<message key="manager.setup.authorGuidelines">Forfatterinstruks</message>
 	<message key="manager.setup.authorGuidelines.description">Forfatterinstruksen bør inneholde format- og bibliografistandarder i tillegg til eksempler på vanlige referansestiler som skal brukes i manuskriptet.</message>
-	<message key="manager.setup.citations">Referanser</message>
 	<message key="manager.setup.competingInterests">Interessekonflikter</message>
 	<message key="manager.setup.competingInterestsDescription">Fagfeller vil bli bedt om å akseptere erklæringen om interessekonflikter som blir spesifisert under.</message>
 	<message key="manager.setup.favicon">Ugyldig favicon-format. Aksepterte format er .ico, .png og .gif.</message>
@@ -432,24 +410,7 @@
 	<message key="manager.plugins.noCompatibleVersion">Det er for øyeblikket ingen kompatible versjoner av programutvidelsen tilgjengelig.</message>
 	<message key="manager.plugins.installedVersionNewer">Programutvidelse allerede installert, og er nyere enn versjonen som er tilgjengelig i listen over programutvidelser.</message>
 	<message key="manager.plugins.installedVersionOlder">Programutvidelse allerede installert, men kan bli oppdatert til en nyere versjon.</message>
-	<message key="plugins.categories.citationLookup">Programutvidelse for oppkobling til referansedatabaser</message>
-	<message key="plugins.categories.citationLookup.description">Programutvidelse for oppkobling til referansedatabaser kan brukes til å sjekke referanser, f.eks under referanseredigering.</message>
-	<message key="plugins.categories.citationParser">Programutvidelse for referanseuthenting</message>
-	<message key="plugins.categories.citationParser.description">Programutvidelser for referanseuthenting trekker ut felt-data fra rå-referanser (f.eks. forfatter, tittel. osv.).</message>
-	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Dette filteret kobler til PubMeds søk på tvers av databaser: <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a> </p> <p>Registrering er ikke obligatorisk, men kan være nødvendig ved oppkoblingsproblemer. Se kapittelet om retningslinjer og krav for bruk i Entrez-dokumentasjonen: <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Usage Guidelines and Requirements</a></p>]]></message>
 	<message key="plugins.categories.metadata.description">Programutvidelser for metadata implementerer ytterligere metadata-standarder</message>
-	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Dette filteret kobler til OCLCs tjenester <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> og <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (valgfritt).</p> <p>Om du har en Worldcat <a href="http://oclc.org/developer/develop/web-services.html" target="_blank">API-nøkkel</a> kan du koble til Worldcat ved å skrive inn nøkkelen under.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.loadMessage">Vennligst vent til konfigurasjonen for referansedatabasen har blitt lastet inn...</message>
-	<message key="manager.setup.filter.lookup.grid.title">Oppkoblinger til referansedatabaser</message>
-	<message key="manager.setup.filter.noMoreTemplates">Alle tilgjengelige tilpasninger har allerede blitt lagt til. Vennligst klikk "Avbryt" for å returnere til administrasjonssiden.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionConfirm">Du har valgt å legge til fortolkeren {$filterDisplayName}. Vennligst klikk på "OK" for å bekrefte.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionTemplate">Vennligst velg en referansefortolker.</message>
-	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>Dette uthentingsfilteret kobler seg til vevtjenesten <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a>.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>Dette uthentingsfilteret bruker Perl modulen <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> for å tilby <a href="http://paracite.eprints.org" target="_blank">ParaCite</a> en funksjonalitet for referansefortolking. For at dette skal fungere, må Perl være installert, i tillegg til <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> og <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a> CPAN-moduler. Du må også konfigurere <tt>perl</tt>-oppsettet i din konfigurasjon. Dette oppsettet finner du i "External Commands section" av <tt>config.inc.php</tt>.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>Dette uthentingsfilteret kobler seg til <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a>-vevtjenesten.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.regEx">RegEX-uthentingsfilteret bruker en serie av regulære uttrykk for å fortolke referanser.</message>
-	<message key="manager.setup.filter.parser.grid.loadMessage">Vennligst vent til konfigurasjonen for referansefortolkeren har blitt lastet inn...</message>
-	<message key="manager.setup.filter.parser.grid.title">Tjenester for uthenting av referanser</message>
 	<message key="manager.setup.groupType">Gruppering av filtyper</message>
 	<message key="manager.setup.homepageImage">Hjemmesidebilde</message>
 	<message key="manager.setup.homepageImageDescription">Last opp et bilde som skal vises på hjemmesiden.</message>
@@ -458,7 +419,6 @@
 	<message key="manager.setup.layout.themeDescription">Nye tema kan bli installert fra fanen for programutvidelser på toppen av denne siden.</message>
 	<message key="manager.setup.layout.blockManagement">Administrasjon av sidespalter</message>
 	<message key="manager.setup.logo">Logo</message>
-	<message key="manager.setup.metaCitationsDescription">Aktiver følgende avkryssingsboks for å muliggjøre redigering av siteringer og referanser. Det vil gi forfattere mulighet til å inkludere uformaterte referanser i manuskriptet. Redaktører vil også få tilgang til en referansemarkeringshjelper som kan sjekke uformaterte referanser mot eksterne databaser, f.eks. WorldCat, ISBNdb, PubMed og andre. Godkjente referanser kan bli eksportert til de endelige sideoppsettfilene.</message>
 	<message key="manager.setup.notifications">Melding om innsendt manuskript</message>
 	<message key="manager.setup.notifications.copyPrimaryContact">Send en kopi til tidsskriftets hovedkontakt, som ble oppgitt i Oppsett trinn 1</message>
 	<message key="manager.setup.notifications.copySpecifiedAddress">Send en kopi til denne e-postadressen</message>

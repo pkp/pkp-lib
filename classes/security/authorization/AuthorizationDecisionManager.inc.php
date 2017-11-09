@@ -82,7 +82,7 @@ class AuthorizationDecisionManager {
 
 	/**
 	 * Set last authorization denial error code
-	 * @param $message string
+	 * @param $errorCode int
 	 */
 	function setAuthorizationDenialErrorCode($errorCode) {
 		$this->_authorizationDenialErrorCode = $errorCode;

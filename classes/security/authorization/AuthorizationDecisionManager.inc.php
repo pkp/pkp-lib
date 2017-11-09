@@ -32,7 +32,7 @@ class AuthorizationDecisionManager {
 	var $_rootPolicySet;
 
 	/** @var int Error code associated to AUTHORIZATION_DENY */
-	var $_authorizationDenialErrorCode;
+	var $_authorizationDenialErrorCode = null;
 
 	/** @var array */
 	var $_authorizationMessages = array();

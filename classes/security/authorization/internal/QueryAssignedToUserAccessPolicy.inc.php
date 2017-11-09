@@ -37,17 +37,24 @@ class QueryAssignedToUserAccessPolicy extends AuthorizationPolicy {
 	function effect() {
 		// A query should already be in the context.
 		$query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
-		if (!is_a($query, 'Query')) return AUTHORIZATION_DENY;
+		if (!is_a($query, 'Query')) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_BAD_REQUEST);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Check that there is a currently logged in user.
 		$user = $this->_request->getUser();
-		if (!is_a($user, 'User')) return AUTHORIZATION_DENY;
+		if (!is_a($user, 'User')) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Determine if the query is assigned to the user.
 		$queryDao = DAORegistry::getDAO('QueryDAO');
 		if ($queryDao->getParticipantIds($query->getId(), $user->getId())) return AUTHORIZATION_PERMIT;
 
 		// Otherwise, deny.
+		$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
 		return AUTHORIZATION_DENY;
 	}
 }

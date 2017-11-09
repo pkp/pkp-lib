@@ -38,7 +38,10 @@ class WorkflowStageRequiredPolicy extends AuthorizationPolicy {
 	function effect() {
 		// Check the stage id.
 		$validAppStages = Application::getApplicationStages();
-		if (!in_array($this->_stageId, array_values($validAppStages))) return AUTHORIZATION_DENY;
+		if (!in_array($this->_stageId, array_values($validAppStages))) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_BAD_REQUEST);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Save the workflow stage to the authorization context.
 		$this->addAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE, $this->_stageId);

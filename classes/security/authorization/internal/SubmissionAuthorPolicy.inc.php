@@ -39,11 +39,17 @@ class SubmissionAuthorPolicy extends AuthorizationPolicy {
 	function effect() {
 		// Get the user
 		$user = $this->_request->getUser();
-		if (!is_a($user, 'PKPUser')) return AUTHORIZATION_DENY;
+		if (!is_a($user, 'PKPUser')) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Get the submission
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		if (!is_a($submission, 'Submission')) return AUTHORIZATION_DENY;
+		if (!is_a($submission, 'Submission')) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_NOT_FOUND);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Check authorship of the submission. Any ROLE_ID_AUTHOR assignment will do.
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
@@ -55,6 +61,7 @@ class SubmissionAuthorPolicy extends AuthorizationPolicy {
 				return AUTHORIZATION_PERMIT;
 			}
 		}
+		$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
 		return AUTHORIZATION_DENY;
 	}
 }

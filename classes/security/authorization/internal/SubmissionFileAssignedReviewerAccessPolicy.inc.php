@@ -37,11 +37,17 @@ class SubmissionFileAssignedReviewerAccessPolicy extends SubmissionFileBaseAcces
 
 		// Get the user
 		$user = $request->getUser();
-		if (!is_a($user, 'PKPUser')) return AUTHORIZATION_DENY;
+		if (!is_a($user, 'PKPUser')) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Get the submission file
 		$submissionFile = $this->getSubmissionFile($request);
-		if (!is_a($submissionFile, 'SubmissionFile')) return AUTHORIZATION_DENY;
+		if (!is_a($submissionFile, 'SubmissionFile')) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_NOT_FOUND);
+			return AUTHORIZATION_DENY;
+		}
 
 		$context = $request->getContext();
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
@@ -60,6 +66,7 @@ class SubmissionFileAssignedReviewerAccessPolicy extends SubmissionFileBaseAcces
 		}
 
 		// If a pass condition wasn't found above, deny access.
+		$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
 		return AUTHORIZATION_DENY;
 	}
 }

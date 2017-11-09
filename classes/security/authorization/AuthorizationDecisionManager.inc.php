@@ -31,6 +31,9 @@ class AuthorizationDecisionManager {
 	/** @var PolicySet the root policy set */
 	var $_rootPolicySet;
 
+	/** @var int Error code associated to AUTHORIZATION_DENY */
+	var $_authorizationDenialErrorCode;
+
 	/** @var array */
 	var $_authorizationMessages = array();
 
@@ -78,11 +81,27 @@ class AuthorizationDecisionManager {
 	}
 
 	/**
+	 * Set last authorization denial error code
+	 * @param $message string
+	 */
+	function setAuthorizationDenialErrorCode($errorCode) {
+		$this->_authorizationDenialErrorCode = $errorCode;
+	}
+
+	/**
 	 * Return all authorization messages
 	 * @return array
 	 */
 	function getAuthorizationMessages() {
 		return $this->_authorizationMessages;
+	}
+
+	/**
+	 * Return authorization denial error code
+	 * @return int
+	 */
+	function getAuthorizationDenialErrorCode() {
+		return $this->_authorizationDenialErrorCode;
 	}
 
 	/**
@@ -216,6 +235,7 @@ class AuthorizationDecisionManager {
 			if (is_a($policy, 'AuthorizationPolicy') && $effect == AUTHORIZATION_DENY
 					&& $policy->hasAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE)) {
 				$this->addAuthorizationMessage($policy->getAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE));
+				$this->setAuthorizationDenialErrorCode($policy->getAuthorizationDenialErrorCode());
 			}
 
 			// Process the effect.

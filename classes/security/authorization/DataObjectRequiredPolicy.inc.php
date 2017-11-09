@@ -87,6 +87,7 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy {
 	 */
 	function dataObjectEffect() {
 		// Deny by default. Must be implemented by subclass.
+		$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_BAD_REQUEST);
 		return AUTHORIZATION_DENY;
 	}
 

@@ -59,10 +59,19 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy {
 		// assigned. If that's the case we'll permit access.
 		// Get user roles grouped by context.
 		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-		if (empty($userRoles)) return AUTHORIZATION_DENY;
+		if (empty($userRoles)) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
+			return AUTHORIZATION_DENY;
+		}
 
-		if (!$this->_checkUserRoleAssignment($userRoles)) return AUTHORIZATION_DENY;
-		if (!$this->_checkOperationWhitelist()) return AUTHORIZATION_DENY;
+		if (!$this->_checkUserRoleAssignment($userRoles)) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
+			return AUTHORIZATION_DENY;
+		}
+		if (!$this->_checkOperationWhitelist()) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
+			return AUTHORIZATION_DENY;
+		}
 
 		return AUTHORIZATION_PERMIT;
 	}

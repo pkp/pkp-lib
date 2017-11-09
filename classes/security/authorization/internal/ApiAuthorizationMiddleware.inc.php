@@ -44,9 +44,10 @@ class ApiAuthorizationMiddleware {
 			return true;
 		} else {
 			$authorizationMessage = $this->_handler->getLastAuthorizationMessage();
+			$authorizationErrorCode = $this->_handler->getLastAuthorizationDenialErrorCode();
 			if ($authorizationMessage == '') $authorizationMessage = 'user.authorization.accessDenied';
 			$router = $request->getRouter();
-			$result = $router->handleAuthorizationFailure($request, $authorizationMessage);
+			$result = $router->handleAuthorizationFailure($request, $authorizationMessage, $authorizationErrorCode);
 			switch(1) {
 				case is_string($result): return $result;
 				case is_a($result, 'JSONMessage'): return $result->getString();

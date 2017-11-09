@@ -38,6 +38,7 @@ class PKPPublicAccessPolicy extends HandlerOperationPolicy {
 		if ($this->_checkOperationWhitelist()) {
 			return AUTHORIZATION_PERMIT;
 		} else {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
 			return AUTHORIZATION_DENY;
 		}
 	}

@@ -37,16 +37,23 @@ class SubmissionFileUploaderAccessPolicy extends SubmissionFileBaseAccessPolicy 
 
 		// Get the user
 		$user = $request->getUser();
-		if (!is_a($user, 'PKPUser')) return AUTHORIZATION_DENY;
+		if (!is_a($user, 'PKPUser')) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Get the submission file
 		$submissionFile = $this->getSubmissionFile($request);
-		if (!is_a($submissionFile, 'SubmissionFile')) return AUTHORIZATION_DENY;
+		if (!is_a($submissionFile, 'SubmissionFile')) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_NOT_FOUND);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Check if the uploader is the current user.
 		if ($submissionFile->getUploaderUserId() == $user->getId()) {
 			return AUTHORIZATION_PERMIT;
 		} else {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
 			return AUTHORIZATION_DENY;
 		}
 	}

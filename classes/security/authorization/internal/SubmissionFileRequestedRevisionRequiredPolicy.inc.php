@@ -40,34 +40,53 @@ class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAc
 
 		// Get the submission file.
 		$submissionFile = $this->getSubmissionFile($request);
-		if (!is_a($submissionFile, 'SubmissionFile')) return AUTHORIZATION_DENY;
+		if (!is_a($submissionFile, 'SubmissionFile')) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_NOT_FOUND);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Make sure the file is part of a review round
 		// with a requested revision decision.
 		$reviewRound = $reviewRoundDao->getBySubmissionFileId($submissionFile->getFileId());
-		if (!is_a($reviewRound, 'ReviewRound')) return AUTHORIZATION_DENY;
+		if (!is_a($reviewRound, 'ReviewRound')) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_BAD_REQUEST);
+			return AUTHORIZATION_DENY;
+		}
 		import('classes.workflow.EditorDecisionActionsManager');
 		if (!EditorDecisionActionsManager::getEditorTakenActionInReviewRound($request->getContext(), $reviewRound, array(SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS))) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
 			return AUTHORIZATION_DENY;
 		}
 
 		// Make sure that it's in the review stage.
 		$reviewRound = $reviewRoundDao->getBySubmissionFileId($submissionFile->getFileId());
-		if (!is_a($reviewRound, 'ReviewRound')) return AUTHORIZATION_DENY;
+		if (!is_a($reviewRound, 'ReviewRound')) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Make sure review round stage is the same of the current stage in request.
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
-		if ($reviewRound->getStageId() != $stageId) return AUTHORIZATION_DENY;
+		if ($reviewRound->getStageId() != $stageId) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
+			return AUTHORIZATION_DENY;
+		}
 
 		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 
 		// Make sure that the last review round editor decision is request revisions.
 		$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /* @var $editDecisionDao EditDecisionDAO */
 		$reviewRoundDecisions = $editDecisionDao->getEditorDecisions($submissionFile->getSubmissionId(), $reviewRound->getStageId(), $reviewRound->getRound());
-		if (empty($reviewRoundDecisions)) return AUTHORIZATION_DENY;
+		if (empty($reviewRoundDecisions)) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
+			return AUTHORIZATION_DENY;
+		}
 
 		$lastEditorDecision = array_pop($reviewRoundDecisions);
-		if ($lastEditorDecision['decision'] != SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS) return AUTHORIZATION_DENY;
+		if ($lastEditorDecision['decision'] != SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Made it through -- permit access.
 		return AUTHORIZATION_PERMIT;

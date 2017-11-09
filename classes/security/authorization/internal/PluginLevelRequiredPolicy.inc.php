@@ -39,12 +39,28 @@ class PluginLevelRequiredPolicy extends AuthorizationPolicy {
 	function effect() {
 		// Get the plugin.
 		$plugin = $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN);
-		if (!is_a($plugin, 'Plugin')) return AUTHORIZATION_DENY;
+		if (!is_a($plugin, 'Plugin')) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_BAD_REQUEST);
+			return AUTHORIZATION_DENY;
+		}
 
 		if (!$this->_contextPresent) { // Site context
-			return $plugin->isSitePlugin()?AUTHORIZATION_PERMIT:AUTHORIZATION_DENY;
+			if ($plugin->isSitePlugin()) {
+				return AUTHORIZATION_PERMIT;;
+			}
+			else {
+				$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
+				return AUTHORIZATION_DENY;
+			}
 		}
-		return $plugin->isSitePlugin()?AUTHORIZATION_DENY:AUTHORIZATION_PERMIT;
+
+		if ($plugin->isSitePlugin()) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
+			return AUTHORIZATION_DENY;
+		}
+		else {
+			return AUTHORIZATION_PERMIT;
+		}
 	}
 }
 

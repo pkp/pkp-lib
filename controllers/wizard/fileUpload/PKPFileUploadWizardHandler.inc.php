@@ -378,9 +378,13 @@ class PKPFileUploadWizardHandler extends Handler {
 		// Validate the form and revise the file.
 		if ($confirmationForm->validate($request)) {
 			if (is_a($uploadedFile = $confirmationForm->execute($request), 'SubmissionFile')) {
+
+				$this->_attachEntities($uploadedFile);
+
 				// Go to the meta-data editing step.
 				return new JSONMessage(true, '', '0', $this->_getUploadedFileInfo($uploadedFile));
 			} else {
+
 				return new JSONMessage(false, __('common.uploadFailed'));
 			}
 		} else {
@@ -457,7 +461,7 @@ class PKPFileUploadWizardHandler extends Handler {
 		// file stage matches the given file name.
 		$possibleRevisedFileId = null;
 		$matchedPercentage = 0;
-		foreach ($submissionFiles as $submissionFile) { /* @var $submissionFile SubmissionFile */
+		foreach ((array) $submissionFiles as $submissionFile) { /* @var $submissionFile SubmissionFile */
 			// Do not consider the uploaded file itself.
 			if ($uploadedFile->getFileId() == $submissionFile->getFileId()) continue;
 

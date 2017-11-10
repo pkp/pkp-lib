@@ -222,12 +222,12 @@ abstract class PKPWorkflowHandler extends Handler {
 		}
 
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
+		$editorActions = array();
+		$lastRecommendation = $allRecommendations = null;
 		if (!empty($editorsStageAssignments) && (!$reviewRoundId || $reviewRoundId == $lastReviewRound->getId())) {
 			import('classes.workflow.EditorDecisionActionsManager');
 			$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
 			$recommendationOptions = EditorDecisionActionsManager::getRecommendationOptions($stageId);
-			$editorActions = array();
-			$lastRecommendation = $allRecommendations = null;
 			// If this is a review stage and the user has "recommend only role"
 			if (($stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW) && $recommendOnly) {
 				// Get the made editorial decisions from the current user
@@ -314,10 +314,12 @@ abstract class PKPWorkflowHandler extends Handler {
 
 		// Assign the actions to the template.
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('editorActions', $editorActions);
-		$templateMgr->assign('stageId', $stageId);
-		$templateMgr->assign('lastRecommendation', $lastRecommendation);
-		$templateMgr->assign('allRecommendations', $allRecommendations);
+		$templateMgr->assign(array(
+			'editorActions' => $editorActions,
+			'stageId' => $stageId,
+			'lastRecommendation' => $lastRecommendation,
+			'allRecommendations' => $allRecommendations,
+		));
 		return $templateMgr->fetchJson('workflow/editorialLinkActions.tpl');
 	}
 

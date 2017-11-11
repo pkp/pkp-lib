@@ -243,14 +243,14 @@ abstract class SubmissionSearch {
 
 		// Check whether a search plug-in jumps in to provide ranked search results.
 		$totalResults = null;
-		$results = HookRegistry::call(
+		$hookResult = HookRegistry::call(
 			'SubmissionSearch::retrieveResults',
-			array(&$context, &$keywords, $publishedFrom, $publishedTo, $orderBy, $orderDir, $exclude, $page, $itemsPerPage, &$totalResults, &$error)
+			array(&$context, &$keywords, $publishedFrom, $publishedTo, $orderBy, $orderDir, $exclude, $page, $itemsPerPage, &$totalResults, &$error, &$results)
 		);
 
 		// If no search plug-in is activated then fall back to the
 		// default database search implementation.
-		if ($results === false) {
+		if ($hookResult === false) {
 			// Parse the query.
 			foreach($keywords as $searchType => $query) {
 				$keywords[$searchType] = $this->_parseQuery($query);

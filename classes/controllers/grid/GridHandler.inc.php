@@ -30,7 +30,7 @@
  * There are several subclasses of GridHandler that provide generalized grids
  * of particular forms, such as CategoryGridHandler and ListbuilderHandler.
  *
- * The JavaScript front-end is described at <http://pkp.sfu.ca/wiki/index.php?title=JavaScript_widget_controllers#Grids>.
+ * The JavaScript front-end is described at <https://pkp.sfu.ca/wiki/index.php?title=JavaScript_widget_controllers#Grids>.
  *
  * For a concrete example of a grid handler (and related classes), see
  * AnnouncementTypeGridHandler.

@@ -71,12 +71,16 @@ class SubmissionFilesUploadConfirmationForm extends SubmissionFilesUploadBaseFor
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		$submissionId = $this->getData('submissionId');
 		$fileStage = $this->getData('fileStage');
+		$newFileLatestRevision = $submissionFileDao->getLatestRevision($uploadedFileId, $fileStage, $submissionId);
 		if ($revisedFileId) {
+			import('controllers.api.file.ManageFileApiHandler');
+			$mangeFileApiHandler = new ManageFileApiHandler();
+			$mangeFileApiHandler->detachEntities($newFileLatestRevision, $newFileLatestRevision->getSubmissionId(), $this->getStageId());
 			// The file was revised; update revision information
 			return $submissionFileDao->setAsLatestRevision($revisedFileId, $uploadedFileId, $submissionId, $fileStage);
 		} else {
 			// This is a new upload, not a revision; don't do anything.
-			return $submissionFileDao->getLatestRevision($uploadedFileId, $fileStage, $submissionId);
+			return $newFileLatestRevision;
 		}
 	}
 }

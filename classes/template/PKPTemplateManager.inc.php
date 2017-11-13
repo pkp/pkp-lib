@@ -100,6 +100,8 @@ class PKPTemplateManager extends Smarty {
 		$this->assign('defaultCharset', Config::getVar('i18n', 'client_charset'));
 		$this->assign('basePath', $this->request->getBasePath());
 		$this->assign('baseUrl', $this->request->getBaseUrl());
+		$this->assign('requestedPage', $this->request->getRequestedPage());
+		$this->assign('requestedOp', $this->request->getRequestedOp());
 		$this->assign('requiresFormRequest', $this->request->isPost());
 		if (is_a($router, 'PKPPageRouter')) $this->assign('requestedPage', $router->getRequestedPage($this->request));
 		$this->assign('currentUrl', $this->request->getCompleteUrl());

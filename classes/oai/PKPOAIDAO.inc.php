@@ -56,6 +56,7 @@ class PKPOAIDAO extends DAO {
 			$this->getRecordJoinClause(null, $setIds) . ' ' .
 			$this->getAccessibleRecordWhereClause() . 
 			'ORDER BY the_date',
+			$params
 		);
 
 		if (isset($result->fields[0])) {

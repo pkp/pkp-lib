@@ -20,5 +20,6 @@
 	{fbvElement label="common.subtitle.tip" type="text" multilingual=true name="subtitle" id="subtitle" value=$subtitle readonly=$readOnly}
 {/fbvFormSection}
 {fbvFormSection title="common.abstract" for="abstract" required=$abstractsRequired}
+	{if $wordNo}<p class="pkp_help">{translate key="submission.abstract.wordNo.description" wordNo=$wordNo}{/if}
 	{fbvElement type="textarea" multilingual=true name="abstract" id="abstract" value=$abstract rich="extended" readonly=$readOnly}
 {/fbvFormSection}

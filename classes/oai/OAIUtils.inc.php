@@ -75,7 +75,7 @@ class OAIUtils {
 	 * @param $data mixed request parameter(s)
 	 * @return mixed cleaned request parameter(s)
 	 */
-	static function prepInput($data) {
+	static function prepInput(&$data) {
 		if (!is_array($data)) {
 			$data = urldecode($data);
 
@@ -97,7 +97,7 @@ class OAIUtils {
 	 * @param $data mixed output parameter(s)
 	 * @return mixed cleaned output parameter(s)
 	 */
-	static function prepOutput($data) {
+	static function prepOutput(&$data) {
 		if (!is_array($data)) {
 			$data = htmlspecialchars($data);
 

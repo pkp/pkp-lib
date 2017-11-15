@@ -28,9 +28,16 @@ define ('AUTHORIZATION_DENY', 0x02);
 define ('AUTHORIZATION_ADVICE_DENY_MESSAGE', 0x01);
 define ('AUTHORIZATION_ADVICE_CALL_ON_DENY', 0x02);
 
+define('AUTHORIZATION_ERROR_BAD_REQUEST', 400);
+define('AUTHORIZATION_ERROR_FORBIDDEN', 403);
+define('AUTHORIZATION_ERROR_NOT_FOUND', 404);
+
 class AuthorizationPolicy {
 	/** @var array advice to be returned to the decision point */
 	var $_advice = array();
+
+	/** @var int Error code associated to latest authorization denial */
+	var $_authorizationDenialErrorCode = AUTHORIZATION_ERROR_NOT_FOUND;
 
 	/**
 	 * @var array a list of authorized context objects that should be
@@ -81,6 +88,22 @@ class AuthorizationPolicy {
 			$nullVar = null;
 			return $nullVar;
 		}
+	}
+
+	/**
+	 * Get the error code associated to the latest authorization denial.
+	 * @return int
+	 */
+	function &getAuthorizationDenialErrorCode() {
+		return $this->_authorizationDenialErrorCode;
+	}
+
+	/**
+	 * Set the error code associated to the latest authorization denial.
+	 * @param $errorCode integer
+	 */
+	function setAuthorizationDenialErrorCode($errorCode) {
+		return $this->_authorizationDenialErrorCode = $errorCode;
 	}
 
 	/**
@@ -151,6 +174,7 @@ class AuthorizationPolicy {
 	 */
 	function effect() {
 		// Deny by default.
+		$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_BAD_REQUEST);
 		return AUTHORIZATION_DENY;
 	}
 }

@@ -39,6 +39,7 @@ class UserRequiredPolicy extends AuthorizationPolicy {
 		if ($this->_request->getUser()) {
 			return AUTHORIZATION_PERMIT;
 		} else {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
 			return AUTHORIZATION_DENY;
 		}
 	}

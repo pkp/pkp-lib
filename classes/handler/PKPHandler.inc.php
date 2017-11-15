@@ -167,6 +167,15 @@ class PKPHandler {
 	}
 
 	/**
+	 * Retrieve the last authorization denial error code from the decision manager.
+	 * @return int
+	 */
+	function getLastAuthorizationDenialErrorCode() {
+		assert(is_a($this->_authorizationDecisionManager, 'AuthorizationDecisionManager'));
+		return $this->_authorizationDecisionManager->getAuthorizationDenialErrorCode();
+	}
+
+	/**
 	 * Add role - operation assignments to the handler.
 	 *
 	 * @param $roleIds integer|array one or more of the ROLE_ID_*
@@ -284,6 +293,9 @@ class PKPHandler {
 		if ($decision == AUTHORIZATION_PERMIT) {
 			return true;
 		} else {
+			$authorizationMessage = 'user.authorization.accessDenied';
+			$this->_authorizationDecisionManager->addAuthorizationMessage($authorizationMessage);
+			$this->_authorizationDecisionManager->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
 			return false;
 		}
 	}

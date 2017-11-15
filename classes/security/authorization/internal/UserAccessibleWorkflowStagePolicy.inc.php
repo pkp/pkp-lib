@@ -39,7 +39,10 @@ class UserAccessibleWorkflowStagePolicy extends AuthorizationPolicy {
 	 */
 	function effect() {
 		$userAccessibleStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
-		if (empty($userAccessibleStages)) return AUTHORIZATION_DENY;
+		if (empty($userAccessibleStages)) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
+			return AUTHORIZATION_DENY;
+		}
 
 		$stageId = $this->_stageId;
 
@@ -47,6 +50,7 @@ class UserAccessibleWorkflowStagePolicy extends AuthorizationPolicy {
 			return AUTHORIZATION_PERMIT;
 		}
 
+		$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
 		return AUTHORIZATION_DENY;
 	}
 }

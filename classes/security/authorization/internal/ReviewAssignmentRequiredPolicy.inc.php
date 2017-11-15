@@ -34,21 +34,33 @@ class ReviewAssignmentRequiredPolicy extends DataObjectRequiredPolicy {
 	 */
 	function dataObjectEffect() {
 		$reviewId = (int)$this->getDataObjectId();
-		if (!$reviewId) return AUTHORIZATION_DENY;
+		if (!$reviewId) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_BAD_REQUEST);
+			return AUTHORIZATION_DENY;
+		}
 
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		$reviewAssignment = $reviewAssignmentDao->getById($reviewId);
-		if (!is_a($reviewAssignment, 'ReviewAssignment')) return AUTHORIZATION_DENY;
+		if (!is_a($reviewAssignment, 'ReviewAssignment')) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_NOT_FOUND);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Ensure that the review assignment actually belongs to the
 		// authorized submission.
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		assert(is_a($submission, 'Submission'));
-		if ($reviewAssignment->getSubmissionId() != $submission->getId()) AUTHORIZATION_DENY;
+		if ($reviewAssignment->getSubmissionId() != $submission->getId()) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Ensure that the review assignment is for this workflow stage
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
-		if ($reviewAssignment->getStageId() != $stageId) return AUTHORIZATION_DENY;
+		if ($reviewAssignment->getStageId() != $stageId) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Save the review Assignment to the authorization context.
 		$this->addAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);

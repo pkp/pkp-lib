@@ -39,16 +39,23 @@ class ManagerRequiredPolicy extends AuthorizationPolicy {
 	function effect() {
 		// Get the submission
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		if (!is_a($submission, 'Submission')) return AUTHORIZATION_DENY;
+		if (!is_a($submission, 'Submission')) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_BAD_REQUEST);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Get the stage
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
-		if (!is_numeric($stageId)) return AUTHORIZATION_DENY;
+		if (!is_numeric($stageId)) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_BAD_REQUEST);
+			return AUTHORIZATION_DENY;
+		}
 
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 		if ($stageAssignmentDao->editorAssignedToStage($submission->getId(), $stageId)) {
 			return AUTHORIZATION_PERMIT;
 		} else {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
 			return AUTHORIZATION_DENY;
 		}
 	}

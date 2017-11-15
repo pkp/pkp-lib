@@ -12,6 +12,6 @@
 {help file="users-and-roles.md" section="roles" class="pkp_help_tab"}
 
 <div id="userGroupsContainer">
-	{url|assign:rolesUrl router=$smarty.const.ROUTE_COMPONENT component="grid.settings.roles.UserGroupGridHandler" op="fetchGrid" escape=false}
+	{url|assign:rolesUrl router=$smarty.const.ROUTE_COMPONENT component="grid.settings.roles.PKPUserGroupGridHandler" op="fetchGrid" escape=false}
 	{load_url_in_div id="roleGridContainer" url=$rolesUrl}
 </div>

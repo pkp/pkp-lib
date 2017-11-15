@@ -19,7 +19,7 @@
 			{translate key="manager.plugins.pluginGallery.latestCompatible"}
 		</div>
 
-		{if $statusClass == 'older' || $statusClass == 'notinstalled'}
+		{if $installAction && ($statusClass == 'older' || $statusClass == 'notinstalled')}
 			<div class="action_button">
 				{include file="linkAction/linkAction.tpl" action=$installAction contextId="pluginGallery"}
 			</div>

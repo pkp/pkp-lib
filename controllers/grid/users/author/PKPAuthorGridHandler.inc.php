@@ -390,6 +390,18 @@ class PKPAuthorGridHandler extends GridHandler {
 			return new JSONMessage(true, $userForm->display($args, $request));
 		}
 	}
+
+	/**
+	 * Retrieve the author form
+	 *
+	 * @param Submission $submission
+	 * @param Author $author
+	 * @param string $submissionIdFieldName
+	 */
+	public function getAuthorForm($submission, $author, $submissionIdFieldName) {
+		import('controllers.grid.users.author.form.PKPAuthorForm');
+		return new PKPAuthorForm($submission, $author, $submissionIdFieldName);
+	}
 }
 
 ?>

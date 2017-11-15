@@ -207,6 +207,12 @@
 			tinyMCEObject.settings.readonly = true;
 		}
 
+		if (target.attr('wordCount') && target.attr('wordCount') > 0) {
+			tinyMCEObject.settings.plugins =
+					tinyMCEObject.settings.plugins + ',wordcount';
+			tinyMCEObject.settings.statusbar = true;
+		}
+
 		// Set height based on textarea rows
 		height = target.attr('rows') || 10; // default: 10
 		height *= 20; // 20 pixels per row

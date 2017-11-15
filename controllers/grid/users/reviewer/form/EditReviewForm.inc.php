@@ -63,11 +63,15 @@ class EditReviewForm extends Form {
 	 */
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+
 		$templateMgr->assign(array(
 			'stageId' => $this->_reviewAssignment->getStageId(),
 			'reviewRoundId' => $this->_reviewRound->getId(),
 			'submissionId' => $this->_reviewAssignment->getSubmissionId(),
 			'reviewAssignmentId' => $this->_reviewAssignment->getId(),
+			'reviewMethod' => $this->_reviewAssignment->getReviewMethod(),
+			'reviewMethods' => $reviewAssignmentDao->getReviewMethodsTranslationKeys(),
 		));
 		return parent::fetch($request);
 	}
@@ -81,6 +85,7 @@ class EditReviewForm extends Form {
 			'selectedFiles',
 			'responseDueDate',
 			'reviewDueDate',
+			'reviewMethod',
 		));
 	}
 
@@ -108,6 +113,7 @@ class EditReviewForm extends Form {
 		$reviewAssignment = $reviewAssignmentDao->getReviewAssignment($this->_reviewRound->getId(), $this->_reviewAssignment->getReviewerId(), $this->_reviewRound->getRound(), $this->_reviewRound->getStageId());
 		$reviewAssignment->setDateDue($this->getData('reviewDueDate'));
 		$reviewAssignment->setDateResponseDue($this->getData('responseDueDate'));
+		$reviewAssignment->setReviewMethod($this->getData('reviewMethod'));
 		$reviewAssignmentDao->updateObject($reviewAssignment);
 	}
 }

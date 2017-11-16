@@ -20,4 +20,7 @@
 	<message key="api.submissions.400.missingRequired">Your request could not be fulfilled because it is missing required information.</message>
 	<message key="api.submissions.400.invalidIssueIdentifiers">The requested volume, number or year is not valid.</message>
 	<message key="api.submissions.unknownError">An unexpected error has occurred. Please reload the page and try again.</message>
+	<message key="api.authorization.error.400">400 Bad Request'</message>
+	<message key="api.authorization.error.403">403 Forbidden</message>
+	<message key="api.authorization.error.404">404 Not Found</message>
 </locale>

@@ -30,6 +30,9 @@ class Dispatcher {
 	/** @var PKPRequest Used for a callback hack - NOT GENERALLY SET. */
 	var $_requestCallbackHack;
 
+	/** @var Closure Custom handler for authorization denial */
+	var $_authorizationDenialCustomHandler = null;
+
 	/**
 	 * Get the application
 	 * @return PKPApplication
@@ -239,13 +242,26 @@ class Dispatcher {
 	}
 
 	/**
+	 * Set custom authorization denial handler
+	 * @param $callback Closure callback function
+	 */
+	function setAuthorizationDenialCustomHandler(Closure $callback) {
+		$this->_authorizationDenialCustomHandler = $callback;
+	}
+
+	/**
 	 * Handle a 400 error (bad request).
 	 */
 	function handle400() {
 		PKPRequest::_checkThis();
 
-		header('HTTP/1.0 400 Bad Request');
-		fatalError('400 Bad Request');
+		if (!is_null($this->_authorizationDenialCustomHandler)) {
+			call_user_func($this->_authorizationDenialCustomHandler, AUTHORIZATION_ERROR_BAD_REQUEST);
+		}
+		else {
+			header('HTTP/1.0 400 Bad Request');
+			fatalError('400 Bad Request');
+		}
 	}
 
 	/**
@@ -254,8 +270,13 @@ class Dispatcher {
 	function handle403() {
 		PKPRequest::_checkThis();
 
-		header('HTTP/1.0 403 Forbidden');
-		fatalError('403 Forbidden');
+		if (!is_null($this->_authorizationDenialCustomHandler)) {
+			call_user_func($this->_authorizationDenialCustomHandler, AUTHORIZATION_ERROR_FORBIDDEN);
+		}
+		else {
+			header('HTTP/1.0 403 Forbidden');
+			fatalError('403 Forbidden');
+		}
 	}
 
 	/**
@@ -264,8 +285,13 @@ class Dispatcher {
 	function handle404() {
 		PKPRequest::_checkThis();
 
-		header('HTTP/1.0 404 Not Found');
-		fatalError('404 Not Found');
+		if (!is_null($this->_authorizationDenialCustomHandler)) {
+			call_user_func($this->_authorizationDenialCustomHandler, AUTHORIZATION_ERROR_NOT_FOUND);
+		}
+		else {
+			header('HTTP/1.0 404 Not Found');
+			fatalError('404 Not Found');
+		}
 	}
 }
 

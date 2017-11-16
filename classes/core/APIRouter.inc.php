@@ -96,8 +96,30 @@ class APIRouter extends PKPRouter {
 
 		$sourceFile = sprintf('api/%s/%s/index.php', $this->getVersion(), $this->getEntity());
 
+		$dispatcher = $this->getDispatcher();
+		$dispatcher->setAuthorizationDenialCustomHandler(function($authorizationErrorCode) {
+			$msg = '';
+			switch ($authorizationErrorCode) {
+				case AUTHORIZATION_ERROR_BAD_REQUEST:
+					$msg = 'api.authorization.error.400';
+					break;
+				case AUTHORIZATION_ERROR_FORBIDDEN:
+					$msg = 'api.authorization.error.403';
+					break;
+				default:
+					$msg = 'api.authorization.error.404';
+			}
+			$content = array(
+				'error' => $msg,
+				'errorMessage' => __($msg),
+			);
+			$response = new JSONMessage(true, $content);
+			http_response_code($authorizationErrorCode);
+			echo $response->getString();
+			die;
+		});
+
 		if (!file_exists($sourceFile)) {
-			$dispatcher = $this->getDispatcher();
 			$dispatcher->handle404();
 		}
 

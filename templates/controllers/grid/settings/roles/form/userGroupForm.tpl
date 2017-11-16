@@ -1,3 +1,4 @@
+
 {**
  * templates/controllers/grid/settings/roles/form/userGroupForm.tpl
  *
@@ -23,7 +24,10 @@
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="userGroupForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.roles.UserGroupGridHandler" op="updateUserGroup"}">
+{if !$userGroupFormComponent}
+	{assign var="userGroupFormComponent" value="grid.settings.roles.PKPUserGroupGridHandler"}
+{/if}
+<form class="pkp_form" id="userGroupForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component=$userGroupFormComponent op="updateUserGroup"}">
 	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="userGroupFormNotification"}
 

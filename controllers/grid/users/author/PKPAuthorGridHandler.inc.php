@@ -399,7 +399,7 @@ class PKPAuthorGridHandler extends GridHandler {
 	 * @param string $submissionIdFieldName
 	 */
 	public function getAuthorForm($submission, $author, $submissionIdFieldName) {
-		import('controllers.grid.users.author.form.PKPAuthorForm');
+		import('lib.pkp.controllers.grid.users.author.form.PKPAuthorForm');
 		return new PKPAuthorForm($submission, $author, $submissionIdFieldName);
 	}
 }

@@ -33,6 +33,11 @@ class RegistrationHandler extends UserHandler {
 	 * @param $request PKPRequest
 	 */
 	function register($args, $request) {
+		if (Config::getVar('security', 'force_login_ssl') && $request->getProtocol() != 'https') {
+			// Force SSL connections for registration
+			$request->redirectSSL();
+		}
+
 		// If the user is logged in, show them the registration success page
 		if (Validation::isLoggedIn()) {
 			$this->setupTemplate($request);

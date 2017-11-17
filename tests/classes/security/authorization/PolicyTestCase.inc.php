@@ -16,7 +16,7 @@
  */
 
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.security.UserGroup');
+import('lib.pkp.classes.security.PKPUserGroup');
 import('lib.pkp.classes.core.PKPRequest');
 
 define('ROLE_ID_TEST', 0x9999);
@@ -80,7 +80,7 @@ abstract class PolicyTestCase extends PKPTestCase {
 		// Add a user group to the authorized context
 		// of the authorization context manipulation policy.
 		$policy = $this->getAuthorizationContextManipulationPolicy();
-		$userGroup = new UserGroup();
+		$userGroup = new PKPUserGroup();
 		$userGroup->setRoleId(ROLE_ID_TEST);
 		$policy->addAuthorizedContextObject(ASSOC_TYPE_USER_GROUP, $userGroup);
 

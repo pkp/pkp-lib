@@ -169,6 +169,7 @@
 	<message key="common.language">Language</message>
 	<message key="common.languages">Languages</message>
 	<message key="common.less">Less</message>
+	<message key="common.listSeparator">, </message>
 	<message key="common.manage">Manage</message>
 	<message key="common.mailingAddress">Mailing Address</message>
 	<message key="common.billingAddress">Billing address (if different)</message>

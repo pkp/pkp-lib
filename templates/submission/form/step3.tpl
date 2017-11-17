@@ -28,7 +28,10 @@
 
 	{fbvFormArea id="contributors"}
 		<!--  Contributors -->
-		{url|assign:authorGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.users.author.AuthorGridHandler" op="fetchGrid" submissionId=$submissionId escape=false}
+		{if !$authorGridHandler}
+			{assign var="authorGridHandler" value="grid.users.author.PKPAuthorGridHandler"}
+		{/if}
+		{url|assign:authorGridUrl router=$smarty.const.ROUTE_COMPONENT component=$authorGridHandler op="fetchGrid" submissionId=$submissionId escape=false}
 		{load_url_in_div id="authorsGridContainer" url=$authorGridUrl}
 
 		{$additionalContributorsFields}

@@ -14,7 +14,7 @@
  * @brief Describes user roles within the system and the associated permissions.
  */
 
-import('lib.pkp.classes.security.UserGroup');
+import('lib.pkp.classes.security.PKPUserGroup');
 
 class UserGroupAssignment extends DataObject {
 	/** @var the UserGroup object associated with this assignment **/

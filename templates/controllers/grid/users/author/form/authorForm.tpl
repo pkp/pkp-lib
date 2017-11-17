@@ -10,10 +10,13 @@
  *}
 
 <script>
-	// Attach the Information Center handler.
 	$(function() {ldelim}
 		$('#editAuthor').pkpHandler(
-			'$.pkp.controllers.form.AjaxFormHandler'
+			{if $appJSFormHandler}
+				{$appJSFormHandler}
+			{else}
+				'$.pkp.controllers.form.AjaxFormHandler'
+			{/if}
 		);
 	{rdelim});
 </script>
@@ -50,6 +53,9 @@
 		{fbvFormSection list="true"}
 			{fbvElement type="checkbox" label="submission.submit.selectPrincipalContact" id="primaryContact" checked=$primaryContact}
 			{fbvElement type="checkbox" label="submission.submit.includeInBrowse" id="includeInBrowse" checked=$includeInBrowse}
+			{if $appAuthorCheckboxes}
+				{$appAuthorCheckboxes}
+			{/if}
 		{/fbvFormSection}
 	{/fbvFormArea}
 

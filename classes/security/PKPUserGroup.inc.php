@@ -1,15 +1,15 @@
 <?php
 
 /**
- * @file classes/security/UserGroup.inc.php
+ * @file classes/security/PKPUserGroup.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class UserGroup
+ * @class PKPUserGroup
  * @ingroup security
- * @see UserGroupDAO
+ * @see PKPUserGroupDAO
  *
  * @brief Describes user groups
  */
@@ -17,7 +17,7 @@
 // Bring in role constants.
 import('lib.pkp.classes.security.Role');
 
-class UserGroup extends DataObject {
+class PKPUserGroup extends DataObject {
 
 	/**
 	 * Get the role ID

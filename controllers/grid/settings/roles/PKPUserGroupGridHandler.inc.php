@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file controllers/grid/settings/roles/UserGroupGridHandler.inc.php
+ * @file controllers/grid/settings/roles/PKPUserGroupGridHandler.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class UserGroupGridHandler
+ * @class PKPUserGroupGridHandler
  * @ingroup controllers_grid_settings
  *
  * @brief Handle operations for user group management operations.
@@ -21,7 +21,7 @@ import('lib.pkp.classes.workflow.WorkflowStageDAO');
 // Link action & modal classes
 import('lib.pkp.classes.linkAction.request.AjaxModal');
 
-class UserGroupGridHandler extends GridHandler {
+class PKPUserGroupGridHandler extends GridHandler {
 
 	/** @var integer Context id. */
 	private $_contextId;
@@ -394,21 +394,21 @@ class UserGroupGridHandler extends GridHandler {
 	 * @param $request Request
 	 * @return UserGroupForm
 	 */
-	private function _getUserGroupForm($request) {
+	public function _getUserGroupForm($request) {
 		// Get the user group Id.
 		$userGroupId = (int) $request->getUserVar('userGroupId');
 
 		// Instantiate the files form.
-		import('lib.pkp.controllers.grid.settings.roles.form.UserGroupForm');
+		import('lib.pkp.controllers.grid.settings.roles.form.PKPUserGroupForm');
 		$contextId = $this->_getContextId();
-		return new UserGroupForm($contextId, $userGroupId);
+		return new PKPUserGroupForm($contextId, $userGroupId);
 	}
 
 	/**
 	 * Get context id.
 	 * @return int
 	 */
-	private function _getContextId() {
+	public function _getContextId() {
 		return $this->_contextId;
 	}
 }

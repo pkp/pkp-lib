@@ -1,3 +1,4 @@
+
 {**
  * templates/controllers/grid/settings/roles/form/userGroupForm.tpl
  *
@@ -13,15 +14,20 @@
 		// Attach the form handler.
 		$('#userGroupForm').pkpHandler(
 			'$.pkp.controllers.grid.settings.roles.form.UserGroupFormHandler', {ldelim}
-			selfRegistrationRoleIds: {$selfRegistrationRoleIds|@json_encode},
-			recommendOnlyRoleIds: {$recommendOnlyRoleIds|@json_encode},
+			groupOptionRestrictions: {$groupOptionRestrictions|@json_encode},
 			roleForbiddenStagesJSON: {$roleForbiddenStagesJSON},
+			{if $appFormHandlerOptions}
+				{$appFormHandlerOptions}
+			{/if}
 			stagesSelector: '[id^="assignedStages"]'
 		{rdelim});
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="userGroupForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.roles.UserGroupGridHandler" op="updateUserGroup"}">
+{if !$userGroupFormComponent}
+	{assign var="userGroupFormComponent" value="grid.settings.roles.PKPUserGroupGridHandler"}
+{/if}
+<form class="pkp_form" id="userGroupForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component=$userGroupFormComponent op="updateUserGroup"}">
 	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="userGroupFormNotification"}
 
@@ -54,6 +60,9 @@
 				{fbvElement type="checkbox" name="showTitle" id="showTitle" checked=$showTitle label="settings.roles.showTitles"}
 				{fbvElement type="checkbox" name="permitSelfRegistration" id="permitSelfRegistration" checked=$permitSelfRegistration label="settings.roles.permitSelfRegistration"}
 				{fbvElement type="checkbox" name="recommendOnly" id="recommendOnly" checked=$recommendOnly label="settings.roles.recommendOnly"}
+				{if $appUserGroupOptions}
+					{$appUserGroupOptions}
+				{/if}
 			{/fbvFormSection}
 		{/fbvFormArea}
 	</div>

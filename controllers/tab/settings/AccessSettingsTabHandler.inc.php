@@ -24,8 +24,8 @@ class AccessSettingsTabHandler extends ManagerSettingsTabHandler {
 	function __construct() {
 		parent::__construct();
 		$this->setPageTabs(array(
-			'users' => 'core:controllers/tab/settings/users.tpl',
-			'roles' => 'core:controllers/tab/settings/roles.tpl',
+			'users' => 'controllers/tab/settings/users.tpl',
+			'roles' => 'controllers/tab/settings/roles.tpl',
 			'siteAccessOptions' => 'controllers.tab.settings.siteAccessOptions.form.SiteAccessOptionsForm',
 		));
 	}

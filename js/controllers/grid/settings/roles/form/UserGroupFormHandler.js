@@ -28,7 +28,7 @@
 	 *
 	 * @param {jQueryObject} $form the wrapped HTML form element.
 	 * @param {{
-	 *   selfRegistrationRoleIds: Array,
+	 *   groupOptionRestrictions: Array,
 	 *   roleForbiddenStagesJSON: Object.<string, *>,
 	 *   stagesSelector: string
 	 *   }} options form options.
@@ -40,34 +40,19 @@
 
 		this.parent($form, options);
 
-		// Set the role IDs for which the self-registration checkbox
-		// is relevant.
-		if (options.selfRegistrationRoleIds) {
-			this.selfRegistrationRoleIds_ = options.selfRegistrationRoleIds;
-		}
-
-		// Set the role IDs for which the recommendOnly checkbox
-		// is relevant.
-		if (options.recommendOnlyRoleIds) {
-			this.recommendOnlyRoleIds_ = options.recommendOnlyRoleIds;
+		if (options.groupOptionRestrictions) {
+			this.groupOptionRestrictions_ = options.groupOptionRestrictions;
 		}
 
 		this.roleForbiddenStages_ = options.roleForbiddenStagesJSON.content;
 		this.stagesSelector_ = options.stagesSelector;
 
-		// Initialize the "permit self register" checkbox disabled
-		// state based on the form's current selection
-		this.updatePermitSelfRegistration(
-				/** @type {string} */ ($roleId.val()));
+		this.updateGroupOptionRestrictions(
+			/** @type {string} */ ($roleId.val()));
 
 		// ...also initialize the stage options, disabling the ones
 		// that are forbidden for the current role.
 		this.updateStageOptions(
-				/** @type {string} */ ($roleId.val()));
-
-		// ...also initialize the recommendOnly option, disabling it
-		// if it is forbidden for the current role.
-		this.updateRecommendOnly(
 				/** @type {string} */ ($roleId.val()));
 
 		// ...and make sure both it's updated when changing roles.
@@ -87,7 +72,7 @@
 	 * @type {Object?}
 	 */
 	$.pkp.controllers.grid.settings.roles.form.
-			UserGroupFormHandler.prototype.selfRegistrationRoleIds_ = null;
+			UserGroupFormHandler.prototype.groupOptionRestrictions_ = null;
 
 
 	/**
@@ -120,49 +105,46 @@
 
 		var dropDownValue = $(dropdown).val(); /** @type {string} */
 
-		this.updatePermitSelfRegistration((dropDownValue));
+		this.updateGroupOptionRestrictions(/** @type {string} */ (dropdownValue));
 
 		// Also update the stages options.
 		this.updateStageOptions(/** @type {string} */ (dropDownValue));
-
-		this.updateRecommendOnly(/** @type {string} */ (dropDownValue));
 
 	};
 
 
 	/**
-	 * Update the enabled/disabled state of the permitSelfRegistration
-	 * checkbox.
+	 * Update the enabled/disabled state of group options based on the selected
+	 * role
 	 * @param {number|string} roleId The role ID to select.
 	 */
 	$.pkp.controllers.grid.settings.roles.form.UserGroupFormHandler.prototype.
-			updatePermitSelfRegistration = function(roleId) {
+			updateGroupOptionRestrictions = function(roleId) {
 
-		// JQuerify the element
-		var $checkbox = $('[id^="permitSelfRegistration"]'),
-				$form = this.getHtmlElement(),
+		var $form = this.getHtmlElement(),
+				$checkbox,
 				i,
-				found = false;
+				r;
 
-		for (i = 0; i < this.selfRegistrationRoleIds_.length; i++) {
-			if (this.selfRegistrationRoleIds_[i] == roleId) {
-				found = true;
+		roleId = typeof roleId === 'string' ? parseInt(roleId, 10) : roleId;
 
+		for (i in this.groupOptionRestrictions_) {
+			$checkbox = $('[id^="' + i + '"]', $form);
+			if ($checkbox.length) {
+				if (this.groupOptionRestrictions_[i].indexOf(roleId) > -1) {
+					$checkbox.removeAttr('disabled');
+				} else {
+					$checkbox.attr('disabled', 'disabled');
+					$checkbox.removeAttr('checked');
+				}
 			}
-		}
-
-		if (found) {
-			$checkbox.removeAttr('disabled');
-		} else {
-			$checkbox.attr('disabled', 'disabled');
-			$checkbox.removeAttr('checked');
 		}
 	};
 
 
 	/**
 	 * Update the stage options.
-	 * @param {number|string} roleId The role ID to select.
+	 * @param {number} roleId The role ID to select.
 	 */
 	$.pkp.controllers.grid.settings.roles.form.UserGroupFormHandler.prototype.
 			updateStageOptions = function(roleId) {
@@ -191,33 +173,6 @@
 		} else {
 			$stageContainer.show('slow');
 			$('#showTitle').removeAttr('disabled');
-		}
-	};
-
-
-	/**
-	 * Update the enabled/disabled state of the recommendOnly checkbox.
-	 * @param {number|string} roleId The role ID to select.
-	 */
-	$.pkp.controllers.grid.settings.roles.form.UserGroupFormHandler.prototype.
-			updateRecommendOnly = function(roleId) {
-
-		// JQuerify the element
-		var $checkbox = $('[id^=\'recommendOnly\']', this.getHtmlElement()),
-				i,
-				found = false;
-
-		for (i = 0; i < this.recommendOnlyRoleIds_.length; i++) {
-			if (this.recommendOnlyRoleIds_[i] == roleId) {
-				found = true;
-			}
-		}
-
-		if (found) {
-			$checkbox.removeAttr('disabled');
-		} else {
-			$checkbox.attr('disabled', 'disabled');
-			$checkbox.removeAttr('checked');
 		}
 	};
 

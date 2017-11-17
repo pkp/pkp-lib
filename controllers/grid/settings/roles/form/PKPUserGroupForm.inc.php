@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file controllers/grid/settings/roles/form/UserGroupForm.inc.php
+ * @file controllers/grid/settings/roles/form/PKPUserGroupForm.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class UserGroupForm
+ * @class PKPUserGroupForm
  * @ingroup controllers_grid_settings_roles_form
  *
  * @brief Form to add/edit user group.
@@ -16,7 +16,7 @@
 import('lib.pkp.classes.form.Form');
 import('lib.pkp.classes.workflow.WorkflowStageDAO');
 
-class UserGroupForm extends Form {
+class PKPUserGroupForm extends Form {
 
 	/** @var Id of the user group being edited */
 	var $_userGroupId;
@@ -130,10 +130,26 @@ class UserGroupForm extends Form {
 		// userGroupId is 0 for new User Groups because it is cast to int in UserGroupGridHandler.
 		$disableRoleSelect = ($this->getUserGroupId() > 0) ? true : false;
 		$templateMgr->assign('disableRoleSelect', $disableRoleSelect);
-		$templateMgr->assign('selfRegistrationRoleIds', $this->getPermitSelfRegistrationRoles());
-		$templateMgr->assign('recommendOnlyRoleIds', $this->getRecommendOnlyRoles());
+		$templateMgr->assign('groupOptionRestrictions', $this->getGroupOptionRestrictions());
 
 		return parent::fetch($request);
+	}
+
+	/**
+	 * Get an array of group options which should be restricted based on which
+	 * role is selected
+	 *
+	 * The array keys must match the field IDs in the form, so that
+	 * UserGroupFormHandler.js knows which fields to disable when the role
+	 * selection is changed.
+	 *
+	 * @return array
+	 */
+	public function getGroupOptionRestrictions() {
+		return array(
+			'permitSelfRegistration' => $this->getPermitSelfRegistrationRoles(),
+			'recommendOnly' => $this->getRecommendOnlyRoles(),
+		);
 	}
 
 	/**
@@ -183,6 +199,8 @@ class UserGroupForm extends Form {
 		if ($this->getData('assignedStages')) {
 			$this->_assignStagesToUserGroup($userGroupId, $this->getData('assignedStages'));
 		}
+
+		$this->_userGroupId = $userGroupId;
 	}
 
 

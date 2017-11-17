@@ -698,7 +698,11 @@
 				// Set the extended toolbar, if requested
 				if ($(this).hasClass('extendedRichContent')) {
 					settings.toolbar = settings.richToolbar;
-				} else {
+				} 
+				else if ($(this).hasClass('onelineRichContent')){
+					settings.toolbar = settings.onelineToolbar;
+				}
+				else {
 					settings.toolbar = settings.defaultToolbar;
 				}
 

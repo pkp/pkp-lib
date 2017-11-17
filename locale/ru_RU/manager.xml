@@ -535,5 +535,6 @@
 	<message key="manager.navigationMenus.logOut.description">Ссылка для выхода пользователя из системы.</message>
 	<message key="manager.navigationMenus.loggedOut.conditionalWarning">Эта ссылка будет показываться только в случае, когда посетитель уже вошел в систему.</message>
 	<message key="manager.navigationMenus.loggedIn.conditionalWarning">Эта ссылка будет показываться только в случае, когда посетитель еще не вошел в систему.</message>
-
+	<message key="manager.navigationMenus.contact.description">Ссылка на страницу, отображающую вашу контактную информацию.</message>
+	<message key="manager.navigationMenus.contact.conditionalWarning">Эта ссылка будет показываться только в случае, если вы заполнили раздел «Контактная информация» в Настройки > Контакт.</message>
 </locale>

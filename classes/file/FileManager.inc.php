@@ -248,6 +248,7 @@ class FileManager {
 			// Stream the file to the end user.
 			header("Content-Type: $mediaType");
 			header('Content-Length: ' . filesize($filePath));
+			header('Accept-Ranges: none');
 			header('Content-Disposition: ' . ($inline ? 'inline' : 'attachment') . "; filename=\"$fileName\"");
 			header('Cache-Control: private'); // Workarounds for IE weirdness
 			header('Pragma: public');

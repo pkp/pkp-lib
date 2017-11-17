@@ -48,6 +48,7 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 			'reviewAssignment' => $reviewAssignment,
 			'reviewRoundId' => $reviewAssignment->getReviewRoundId(),
 			'restrictReviewerFileAccess' => $context->getSetting('restrictReviewerFileAccess'),
+			'reviewMethod' => __($reviewAssignment->getReviewMethodKey()),
 		));
 
 		// Add reviewer request text.

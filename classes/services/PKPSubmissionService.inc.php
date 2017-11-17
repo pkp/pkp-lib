@@ -297,6 +297,50 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 	}
 
 	/**
+	 * Is this user allowed to view the author details?
+	 *
+	 * - Anyone can view published submission authors
+	 * - Reviewers can only view authors in open reviews
+	 * - Managers and admins can view authors of any submission
+	 * - Subeditors, authors and assistants can only view authors in assigned subs
+	 *
+	 * @param $user User
+	 * @param $submission Submission
+	 * @return boolean
+	 */
+	public function canUserViewAuthor($user, $submission) {
+
+		if ($submission->getDatePublished()) {
+			return true;
+		}
+
+		$reviewAssignments = $this->getReviewAssignments($submission);
+		foreach ($reviewAssignments as $reviewAssignment) {
+			if ($user->getId() == $reviewAssignment->getReviewerId()) {
+				return $reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_OPEN ? true : false;
+			}
+		}
+
+		$contextId = $submission->getContextId();
+
+		if ($user->hasRole(array(ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN), $contextId)) {
+			return true;
+		}
+
+		if ($user->hasRole(array(ROLE_ID_SUB_EDITOR, ROLE_ID_AUTHOR, ROLE_ID_ASSISTANT), $contextId)) {
+			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+			$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId());
+			while ($stageAssignment = $stageAssignments->next()) {
+				if ($user->getId() == $stageAssignment->getUserId()) {
+					return true;
+				}
+			}
+		}
+
+		return false;
+	}
+
+	/**
 	 * @copydoc \PKP\Services\EntityProperties\EntityPropertyInterface::getProperties()
 	 */
 	public function getProperties($submission, $props, $args = null) {
@@ -441,7 +485,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 			'submissionProgress','urlWorkflow','urlPublished','galleysSummary','_href',
 		);
 
-		if ($context && $currentUser->hasRole(array(ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN, ROLE_ID_SUB_EDITOR, ROLE_ID_AUTHOR, ROLE_ID_ASSISTANT), $context->getId())) {
+		if ($this->canUserViewAuthor($currentUser, $submission)) {
 			$props[] = 'authorString';
 			$props[] = 'shortAuthorString';
 			$props[] = 'authorsSummary';
@@ -469,7 +513,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 			'galleys','_href',
 		);
 
-		if ($context && $currentUser->hasRole(array(ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN, ROLE_ID_SUB_EDITOR, ROLE_ID_AUTHOR, ROLE_ID_ASSISTANT), $context->getId())) {
+		if ($this->canUserViewAuthor($currentUser, $submission)) {
 			$props[] = 'authorString';
 			$props[] = 'shortAuthorString';
 			$props[] = 'authors';
@@ -499,7 +543,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 			'urlWorkflow','urlPublished','_href',
 		);
 
-		if ($context && $currentUser->hasRole(array(ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN, ROLE_ID_SUB_EDITOR, ROLE_ID_AUTHOR, ROLE_ID_ASSISTANT), $context->getId())) {
+		if ($this->canUserViewAuthor($currentUser, $submission)) {
 			$props[] = 'authorString';
 		}
 

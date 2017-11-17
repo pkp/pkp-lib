@@ -120,6 +120,7 @@
 	<message key="user.register">Регистрация</message>
 	<message key="user.register.usernameRestriction">Имя пользователя должно содержать только строчные латинские буквы, цифры и дефисы/подчеркивания.</message>
 	<message key="user.register.registrationCompleted"><![CDATA[Вы успешно зарегистрировались. <a href="{$profileUrl}">Щелкните здесь</a>, чтобы заполнить свой профиль пользователя.]]></message>
+	<message key="user.role.assistant">Ассистент по изданию</message>
 	<message key="user.role.author">Автор</message>
 	<message key="user.role.author_s">Автор(ы)</message>
 	<message key="user.role.authors">Авторы</message>

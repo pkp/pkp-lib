@@ -117,6 +117,30 @@ class ReviewerGridRow extends GridRow {
 					'more_info'
 				)
 			);
+			
+			$user = $request->getUser();
+			$reviewAssignment = $this->getData();
+			if (
+				!Validation::isLoggedInAs() &&
+				$user->getId() != $rowId &&
+				Validation::canAdminister($rowId, $user->getId())
+			) {
+				$dispatcher = $router->getDispatcher();
+				import('lib.pkp.classes.linkAction.request.RedirectConfirmationModal');
+				$this->addAction(
+					new LinkAction(
+						'logInAs',
+						new RedirectConfirmationModal(
+							__('grid.user.confirmLogInAs'),
+							__('grid.action.logInAs'),
+							$dispatcher->url($request, ROUTE_PAGE, null, 'login', 'signInAsUser', $reviewAssignment->getReviewerId())
+						),
+						__('grid.action.logInAs'),
+						'enroll_user'
+					)
+				);
+			}
+			
 		}
 	}
 }

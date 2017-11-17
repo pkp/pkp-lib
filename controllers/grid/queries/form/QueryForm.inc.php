@@ -187,6 +187,7 @@ class QueryForm extends Form {
 
 		$query = $this->getQuery();
 		$headNote = $query->getHeadNote();
+		$user = $request->getUser();
 
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 		$assignments = $stageAssignmentDao->getBySubmissionAndStageId($query->getAssocId(), $query->getStageId());
@@ -195,12 +196,35 @@ class QueryForm extends Form {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$participantOptions = array();
+		
 		foreach ($assignments->toArray() as $assignment) {
+			
+			# TODO: If current user is reviewer and review not open, remove authors from list			
+			
 			$participantOptions[] = array(
 				'user' => $userDao->getById($assignment->getUserId()),
 				'userGroup' => $userGroupDao->getById($assignment->getUserGroupId()),
 				'isParticipant' => in_array($assignment->getUserId(), $currentParticipants),
 			);
+		}
+
+		# In review stage, list reviewers as possible participants 
+		if ($query->getStageId() == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
+			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+			$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($query->getAssocId());
+				
+			foreach ($reviewAssignments as $reviewAssignment) {				
+				# If open review, show for all in review stage; else show only for editors
+				if ($reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_OPEN || $user->hasRole(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR), $request->getContext()->getId())) {
+					# userGroup is now hard coded, because reviewAssignment does not have userGroupId!
+					$reviewerUserGroup = $userGroupDao->getByRoleId($request->getContext()->getId(), ROLE_ID_REVIEWER)->toArray();
+					$participantOptions[] = array(
+						'user' => $userDao->getById($reviewAssignment->getReviewerId()),
+						'userGroup' => $reviewerUserGroup[0],
+						'isParticipant' => in_array($reviewAssignment->getReviewerId(), $currentParticipants),
+					);					
+				}
+			}
 		}
 
 		$templateMgr = TemplateManager::getManager($request);

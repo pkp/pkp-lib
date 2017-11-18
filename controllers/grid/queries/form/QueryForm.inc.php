@@ -196,35 +196,57 @@ class QueryForm extends Form {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$participantOptions = array();
-		
+
 		foreach ($assignments->toArray() as $assignment) {
-			
-			# TODO: If current user is reviewer and review not open, remove authors from list			
-			
+			$userGroup = $userGroupDao->getById($assignment->getUserGroupId());
 			$participantOptions[] = array(
 				'user' => $userDao->getById($assignment->getUserId()),
-				'userGroup' => $userGroupDao->getById($assignment->getUserGroupId()),
+				'userGroup' => $userGroup,
 				'isParticipant' => in_array($assignment->getUserId(), $currentParticipants),
+				'userId' => $assignment->getUserId(),
+				'roleId' => $userGroup->getRoleId(),
 			);
 		}
 
-		# In review stage, list reviewers as possible participants 
+		# In review stage, add reviewers as possible participants 
 		if ($query->getStageId() == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
 			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
 			$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($query->getAssocId());
-				
+
 			foreach ($reviewAssignments as $reviewAssignment) {				
-				# If open review, show for all in review stage; else show only for editors
-				if ($reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_OPEN || $user->hasRole(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR), $request->getContext()->getId())) {
+
+				# Check if current user is blind reviewer
+				if ($user->getId() == $reviewAssignment->getReviewerId() && $reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_OPEN){ $isBlindReviewer = true;}
+
+				# If open review, show for all in review stage; else show only for editors; always include active reviewer
+				if ($reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_OPEN || $user->hasRole(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR), $request->getContext()->getId()) || $user->getId() == $reviewAssignment->getReviewerId()) {
+
 					# userGroup is now hard coded, because reviewAssignment does not have userGroupId!
 					$reviewerUserGroup = $userGroupDao->getByRoleId($request->getContext()->getId(), ROLE_ID_REVIEWER)->toArray();
 					$participantOptions[] = array(
 						'user' => $userDao->getById($reviewAssignment->getReviewerId()),
 						'userGroup' => $reviewerUserGroup[0],
 						'isParticipant' => in_array($reviewAssignment->getReviewerId(), $currentParticipants),
-					);					
+						'userId' => $reviewAssignment->getReviewerId(),
+						'roleId' => ROLE_ID_REVIEWER,
+					);
+
 				}
 			}
+
+			# If current user is blind reviewer, filter authors and other reviewers 
+			if ($isBlindReviewer){
+
+				$filteredParticipantOptions = array();
+
+				foreach ($participantOptions as $participantOption){
+					if (!in_array($participantOption['roleId'], array(ROLE_ID_REVIEWER, ROLE_ID_AUTHOR)) || $participantOption['userId'] == $user->getId()){
+						$filteredParticipantOptions[] = $participantOption;
+					}
+				}
+				$participantOptions = $filteredParticipantOptions;
+			}
+
 		}
 
 		$templateMgr = TemplateManager::getManager($request);

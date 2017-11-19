@@ -48,7 +48,11 @@
 				{fbvFormSection title="manager.navigationMenus.form.path" for="path" required="true"}
 					{fbvElement type="text" id="path" value=$path required="true"}
 					<p>
-						{url|replace:"REPLACEME":"%PATH%"|assign:"exampleUrl" router=$smarty.const.ROUTE_PAGE context=$currentContext->getPath() page="navigationMenu" op="view" path="REPLACEME"}
+                        {if $currentContext}
+                            {url|replace:"REPLACEME":"%PATH%"|assign:"exampleUrl" router=$smarty.const.ROUTE_PAGE context=$currentContext->getPath() page="navigationMenu" op="view" path="REPLACEME"}
+                        {else}
+                            {url|replace:"REPLACEME":"%PATH%"|assign:"exampleUrl" router=$smarty.const.ROUTE_PAGE page="navigationMenu" op="view" path="REPLACEME"}
+                        {/if}
 						{translate key="manager.navigationMenus.form.viewInstructions" pagesPath=$exampleUrl}
 					</p>
 				{/fbvFormSection}

@@ -1,16 +1,16 @@
 <?php
 
 /**
- * @file controllers/grid/users/reviewer/ReviewerGridCellProvider.inc.php
+ * @file controllers/grid/users/reviewer/AuthorReviewerGridCellProvider.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class ReviewerGridCellProvider
+ * @class AuthorReviewerGridCellProvider
  * @ingroup controllers_grid_users_reviewer
  *
- * @brief Base class for a cell provider that can retrieve labels for reviewer grid rows
+ * @brief Base class for a cell provider that can retrieve labels for reviewer grid rows in author workflow
  */
 
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
@@ -18,7 +18,7 @@ import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 import('lib.pkp.classes.linkAction.request.AjaxModal');
 import('lib.pkp.classes.linkAction.request.AjaxAction');
 
-class ReviewerGridCellProvider extends DataObjectGridCellProvider {
+class AuthorReviewerGridCellProvider extends DataObjectGridCellProvider {
 
 	//
 	// Template methods from GridCellProvider
@@ -96,24 +96,14 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider {
 		$columnId = $column->getId();
 		if ($columnId == 'actions') {
 			switch($this->getCellState($row, $column)) {
-				case REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE:
-				case REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE:
-					import('lib.pkp.controllers.api.task.SendReminderLinkAction');
-					return array(new SendReminderLinkAction($request, 'editor.review.reminder', $actionArgs));
 				case REVIEW_ASSIGNMENT_STATUS_COMPLETE:
-					import('lib.pkp.controllers.api.task.SendThankYouLinkAction');
-					import('lib.pkp.controllers.review.linkAction.UnconsiderReviewLinkAction');
-					return array(
-						new SendThankYouLinkAction($request, 'editor.review.thankReviewer', $actionArgs),
-						new UnconsiderReviewLinkAction($request, $reviewAssignment, $submission),
-					);
 				case REVIEW_ASSIGNMENT_STATUS_THANKED:
-					import('lib.pkp.controllers.review.linkAction.UnconsiderReviewLinkAction');
-					return array(new UnconsiderReviewLinkAction($request, $reviewAssignment, $submission));
 				case REVIEW_ASSIGNMENT_STATUS_RECEIVED:
 					$user = $request->getUser();
 					import('lib.pkp.controllers.review.linkAction.ReviewNotesLinkAction');
-					return array(new ReviewNotesLinkAction($request, $reviewAssignment, $submission, $user, 'grid.users.reviewer.ReviewerGridHandler', true));
+					return array(new ReviewNotesLinkAction($request, $reviewAssignment, $submission, $user, 'grid.users.reviewer.AuthorReviewerGridHandler', true));
+				default:
+					return null;
 			}
 
 		}

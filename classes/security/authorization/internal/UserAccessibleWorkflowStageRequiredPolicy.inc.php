@@ -87,6 +87,7 @@ class UserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy {
 					// Context managers have access to all submission stages.
 					$accessibleStageRoles[] = $roleId;
 					break;
+
 				case ROLE_ID_ASSISTANT:
 				case ROLE_ID_SUB_EDITOR:
 				case ROLE_ID_AUTHOR:

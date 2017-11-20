@@ -15,8 +15,6 @@
 
 import('lib.pkp.classes.controllers.grid.GridRow');
 
-
-
 class ReviewerGridRow extends GridRow {
 
 	//

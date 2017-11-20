@@ -35,8 +35,8 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider {
 		assert(is_a($reviewAssignment, 'DataObject') && !empty($columnId));
 		switch ($columnId) {
 			case 'name':
-			case 'type':
-				return '';	
+			case 'method':
+				return '';
 			case 'considered':
 			case 'actions':
 				return $reviewAssignment->getStatus();
@@ -58,8 +58,8 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider {
 			case 'name':
 				return array('label' => $element->getReviewerFullName());
 
-			case 'type':
-				return array('label' => $this->_getTypeText($element->getReviewMethod(), $row));
+			case 'method':
+				return array('label' => __($element->getReviewMethodKey()));
 
 			case 'considered':
 				return array('label' => $this->_getStatusText($this->getCellState($row, $column), $row));
@@ -119,25 +119,6 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider {
 		}
 		return parent::getCellActions($request, $row, $column, $position);
 	}
-
-	/**
-	 * Provide meaningful locale keys for the review types.
-	 * @param string $method
-	 * @param $row GridRow
-	 * @return string
-	 */
-	function _getTypeText($method, $row) {
-		switch ($method) {
-			case SUBMISSION_REVIEW_METHOD_OPEN:
-				return __('editor.submissionReview.open');
-			case SUBMISSION_REVIEW_METHOD_BLIND:
-				return __('editor.submissionReview.blind');
-			case SUBMISSION_REVIEW_METHOD_DOUBLEBLIND:
-				return __('editor.submissionReview.doubleBlind');
-			default:
-				return '';
-		}
-	}	
 
 	/**
 	 * Provide meaningful locale keys for the various grid status states.

@@ -147,17 +147,6 @@ class PKPReviewerGridHandler extends GridHandler {
 			)
 		);
 
-		// Add a column for the type of the review.
-		$this->addColumn(
-			new GridColumn(
-				'type',
-				'common.type',
-				null,
-				null,
-				$cellProvider
-			)
-		);
-
 		// Add a column for the status of the review.
 		$this->addColumn(
 			new GridColumn(
@@ -169,6 +158,17 @@ class PKPReviewerGridHandler extends GridHandler {
 				array('anyhtml' => true)
 			)
 		);
+
+		// Add a column for the review method
+		$this->addColumn(
+			new GridColumn(
+				'method',
+				'common.type',
+				null,
+				null,
+				$cellProvider
+			)
+		);		
 
 		// Add a column for the status of the review.
 		$this->addColumn(

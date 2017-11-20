@@ -1665,7 +1665,8 @@ class PKPTemplateManager extends Smarty {
 		// The variable to assign the result to.
 		if (empty($params['assign'])) {
 			error_log('Smarty: {pluck_files} function called without required `assign` param. Called in ' . __FILE__ . ':' . __LINE__);
-			return "";
+			$smarty->assign($params['assign'], array());
+			return;
 		}
 
 		// $params['files'] should be an array of SubmissionFile objects

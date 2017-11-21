@@ -63,9 +63,6 @@ abstract class PKPManageFileApiHandler extends Handler {
 		$noteDao = DAORegistry::getDAO('NoteDAO');
 		$noteDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getFileId());
 
-		// Detach any dependent entities to this file deletion.
-		$this->detachEntities($submissionFile, $submission->getId(), $stageId);
-
 		// Retrieve the review round so it can be updated after the file is
 		// deleted
 		if ($submissionFile->getFileStage() == SUBMISSION_FILE_REVIEW_REVISION) {
@@ -73,6 +70,9 @@ abstract class PKPManageFileApiHandler extends Handler {
 			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
 			$reviewRound = $reviewRoundDao->getBySubmissionFileId($submissionFile->getFileId());
 		}
+
+		// Detach any dependent entities to this file deletion.
+		$this->detachEntities($submissionFile, $submission->getId(), $stageId);
 
 		// Delete the submission file.
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */

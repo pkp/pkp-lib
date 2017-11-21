@@ -267,7 +267,6 @@
 	<message key="manager.setup.reviewOptions.remindForSubmit">Eine Erinnerung schicken, wenn ein/e Gutachter/in nicht innerhalb der genannten Zeit eine Empfehlung eingereicht hat (Tage):</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Standard-Fristen für Begutachtung</message>
 	<message key="manager.setup.reviewOptions.showBlindReviewLink">Einen Link zu "blinde Begutachtung gewährleisten" während des Uploads anzeigen</message>
-	<message key="manager.setup.sortableByComponent">Nach Komponenten sortierbar</message>
 	<message key="manager.setup.sponsors.note">Sie können einen Hinweis hinzufügen, wie Ihr Verhältnis zu Ihren Sponsoren ist; dieser Hinweis wird in der Sponsorenliste auf Ihrer "Über uns"-Seite erscheinen.</message>
 	<message key="manager.setup.sponsors.description">Beispiele: Fachgesellschaften, Fachbereiche, Konsortien etc. Spnsoren werden öffentlich angezeigt.</message>
 	<message key="manager.setup.styleSheetDescription">Sie können eine zusätzliche CSS-Datei hochladen, um das Aussehen anzupassen.</message>
@@ -411,7 +410,6 @@
 	<message key="grid.action.editGenre">Dieses Genre bearbeiten</message>
 	<message key="grid.action.deleteGenre">Dieses Genre entfernen</message>
 	<message key="grid.action.restoreGenres">Genres auf Standard zurücksetzen</message>
-	<message key="manager.setup.genres.sortable">Dateien dieses Typs können nach Komponenten sortiert werden (z.B. nach Kapitel)</message>
 	<message key="manager.setup.genres.dependent">Dateien dieses Typs als abhängige Dateien markieren (z.B. nicht Primärveröffentlichungen)</message>
 	<message key="manager.setup.genres.supplementary">Dateien dieses Typs als Zusatzdateien markieren (z.B. kein primärer Beitragsinhalt)</message>
 	<message key="manager.settings.wizard">Einstellungs-Wizard</message>

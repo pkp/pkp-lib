@@ -267,7 +267,6 @@
 	<message key="manager.setup.reviewOptions.remindForSubmit">أرسل تذكيراً إذا لم يرسل المحكم توصيته بعد مرور فترة (بالأيام) من انقضاء فترة التحكيم:</message>
 	<message key="manager.setup.reviewOptions.reviewTime">المواعيد النهائية للتحكيم إفتراضياً</message>
 	<message key="manager.setup.reviewOptions.showBlindReviewLink">أضف رابطاً عن "ضمان التحكيم السري" خلال رفع الملفات</message>
-	<message key="manager.setup.sortableByComponent">قابل للفرز حسب المكونات</message>
 	<message key="manager.setup.sponsors.note">وصف علاقة الجهة الراعية وسياستها</message>
 	<message key="manager.setup.sponsors.description">أمثلة: الرابطات الطلابية، أقسام الجامعات، جهات متعاونة... وما شابه. يتم عرض هذه الجهات علانية في الموقع.</message>
 	<message key="manager.setup.styleSheetDescription">مطورو مواقع الإنترنت ذوو الخبرة بإمكانهم رفع ملف أنماط بصيغة CSS لمزيد من التحكم بمظهر الموقع.</message>
@@ -411,7 +410,6 @@
 	<message key="grid.action.editGenre">تعديل هذا المكون</message>
 	<message key="grid.action.deleteGenre">حذف هذا المكون</message>
 	<message key="grid.action.restoreGenres">استعادة الإعدادات الإفتراضية لهذا المكون</message>
-	<message key="manager.setup.genres.sortable">إسمح للملفات من هذا النوع أن تترتب حسب الفصل</message>
 	<message key="manager.setup.genres.dependent">إعتبر الملفات من هذا النوع ملفات مستقلة (أي، لا يتم إدراجها مع المحتوى المنشور)</message>
 	<message key="manager.setup.genres.supplementary">إعتبر الملفات من هذا النوع ملفات تكميلية (أي، ليست ملفات طلب نشر أساسية)</message>
 	<message key="manager.settings.wizard">برنامج الإعدادات</message>

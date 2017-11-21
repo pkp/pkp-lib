@@ -268,7 +268,6 @@
 	<message key="manager.setup.reviewOptions.remindForSubmit">Отправить напоминание, если рецензент не отправил рекомендацию в течение следующего количества дней, после того как срок отправки рецензии прошел:</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Сроки рецензирования по умолчанию</message>
 	<message key="manager.setup.reviewOptions.showBlindReviewLink">Добавить ссылку на «Обеспечение слепого рецензирования» во время загрузки</message>
-	<message key="manager.setup.sortableByComponent">Можно сортировать по компонентам</message>
 	<message key="manager.setup.sponsors.note">Описание правил и отношений со спонсорами</message>
 	<message key="manager.setup.sponsors.description">Примеры: общества ученых, подразделения университетов, объединения и т.д. Спонсоры показываются в открытом доступе на сайте.</message>
 	<message key="manager.setup.styleSheetDescription">Опытные веб-разработчики могут загрузить файл CSS для дополнительной модификации внешнего вида сайта.</message>
@@ -412,7 +411,6 @@
 	<message key="grid.action.editGenre">Редактировать этот компонент</message>
 	<message key="grid.action.deleteGenre">Удалить этот компонент</message>
 	<message key="grid.action.restoreGenres">Вернуть компоненты к настройкам по умолчанию</message>
-	<message key="manager.setup.genres.sortable">Разрешить файлы этого типа сортировать по главам</message>
 	<message key="manager.setup.genres.dependent">Отметить файлы этого типа как зависимые файлы (например, не показываемые с опубликованным контентом)</message>
 	<message key="manager.setup.genres.supplementary">Отметить файлы этого типа как дополнительные файлы (например, не относящиеся к основному контенту материала)</message>
 	<message key="manager.settings.wizard">Мастер настроек</message>

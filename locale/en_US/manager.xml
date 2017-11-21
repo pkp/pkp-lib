@@ -267,7 +267,6 @@
 	<message key="manager.setup.reviewOptions.remindForSubmit">Send a reminder if a reviewer has not submitted a recommendation within the following time (days) after review's due date:</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Default Review Deadlines</message>
 	<message key="manager.setup.reviewOptions.showBlindReviewLink">Present a link to "Ensuring a Blind Review" during upload</message>
-	<message key="manager.setup.sortableByComponent">Sortable by component</message>
 	<message key="manager.setup.sponsors.note">Sponsor Relationship and Policy Description</message>
 	<message key="manager.setup.sponsors.description">Examples: scholarly associations, university departments, cooperatives, etc. Sponsors are displayed publicly.</message>
 	<message key="manager.setup.styleSheetDescription">Experienced web developers can upload a CSS file to further customize the website's appearance.</message>
@@ -411,7 +410,6 @@
 	<message key="grid.action.editGenre">Edit this Component</message>
 	<message key="grid.action.deleteGenre">Delete this Component</message>
 	<message key="grid.action.restoreGenres">Restore the components to the default settings</message>
-	<message key="manager.setup.genres.sortable">Allow files of this type to be sorted by chapter</message>
 	<message key="manager.setup.genres.dependent">Mark files of this type as dependent files (e.g. not to be listed with published content)</message>
 	<message key="manager.setup.genres.supplementary">Mark files of this type as supplementary files (e.g. not primary submission content)</message>
 	<message key="manager.settings.wizard">Settings Wizard</message>

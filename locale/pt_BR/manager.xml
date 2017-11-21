@@ -243,7 +243,6 @@ Há casos em que uma única estatística de uso devem ser utilizada, por exemplo
 	<message key="manager.setup.reviewOptions.neverSendReminder">Nunca lembrar</message>
 	<message key="manager.setup.reviewOptions.remindForInvite">Envie um lembrete se um avaliador não responder a um pedido de avaliação dentro do seguinte tempo (dias):</message>
 	<message key="manager.setup.reviewOptions.remindForSubmit">Envie um lembrete se um avaliadores não apresentar um parecer dentro do seguinte tempo (dias):</message>
-	<message key="manager.setup.sortableByComponent">Ordenável por componente</message>
 	<message key="manager.setup.sponsors.note">Você pode adicionar uma nota descrevendo sua política e relacionamento com o patrocinador, que irá aparecer junto à lista de patrocinadores na página Sobre.</message>
 	<message key="manager.setup.styleSheetDescription">Você pode fazer upload do arquivo de folha de estilo adicional (CSS) para alterar a aparência.</message>
 	<message key="manager.setup.layout.theme">Tema</message>
@@ -400,7 +399,6 @@ Há casos em que uma única estatística de uso devem ser utilizada, por exemplo
 	<message key="manager.setup.licenseURLDescription">Informe a URL da página da licença, se disponível.</message>
 
 	<message key="manager.setup.metadata.submission">Formulário de Submissão</message>
-	<message key="manager.setup.genres.sortable">Permitir que os arquivos deste tipo para ser classificados por componente (por exemplo, por capítulo)</message>
 	<message key="manager.setup.genres.dependent">Marque os arquivos deste tipo como arquivos dependentes (por exemplo, não submissões primárias)</message>
 
 	<message key="manager.reviewerSearch.change">Mudar</message>

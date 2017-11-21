@@ -414,7 +414,6 @@
 	<message key="manager.reviewForms.confirmCopy">Да ли сте сигурни д желите да креирате копију овог рецензентског обрасца?</message>
 	<message key="manager.users.roleRequired">Морате одабрати барем једну улогу да је додате овом кориснику.</message>
 	<message key="manager.reviewForms.confirmActivate">Да ли сте сигурни да желите да активирате овај рецензентски образац? Кад му доделите рецензију нећете моћи да га деактивирате.</message>
-	<message key="manager.setup.genres.sortable">Дозволите да се фајлови овог типа сортирају по поглављу</message>
 	<message key="manager.setup.genres.dependent">Означите фајлове овог типа као зависне фајлове (они неће бити излистани са објављеним садржајем)</message>
 	<message key="manager.setup.genres.supplementary">Означите фајлове овог типа као допунске фајлове (не примарно као садржај пријављеног чланка)</message>
 	<message key="settings.libraryFiles.fileRequired">Фајл библиотека је неопходан. Проверите да ли сте одабрали и на сервер поставили фајл.</message>
@@ -427,7 +426,6 @@
 	<message key="manager.plugins.deleteError">Додатак "{$pluginName}" није могао бити обрисан са сервера. Проблем може бити због недостатка довољних дозвола. Обезбедите да  web сервер може уписивати у директориј за додатке (укључујући и поддиректорије), али не заборавите касније да да поново осигурате.</message>
 	<message key="manager.plugins.wrongCategory">Постављени додатак не припада категорији надогађеног додатка.</message>
 	<message key="manager.plugins.copyError">Додатак није успешно копиран. Проблем може бити због недостатка довољних дозвола. Обезбедите да web сервер може уписивати у директориј за додатке (укључујући и поддиректорије), али не заборавите касније да да поново осигурате.</message>
-	<message key="manager.setup.sortableByComponent">Може се сортирати по компоненти</message>
 	<message key="manager.setup.sponsors.note">Однос са спонзором и опис политике</message>
 	<message key="manager.setup.sponsors.description">Примери: академске асоцијације, универзитетска одељења, кооперативе итд. Спонзори су јавно приказани.</message>
 	<message key="manager.setup.styleSheetDescription">Искусни web програмери могу поставити CSS фајл за даље прилагођавање изгледа сајта.</message>

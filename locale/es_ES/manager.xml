@@ -220,7 +220,6 @@
 	<message key="manager.setup.reviewOptions.neverSendReminder">No recordar más</message>
 	<message key="manager.setup.reviewOptions.remindForInvite">Envíe un recordatorio si el revisor/a no responde a una solicitud de revisión (días):</message>
 	<message key="manager.setup.reviewOptions.remindForSubmit">Envíe un recordatorio si el revisor/a no entrega una recomendación (días):</message>
-	<message key="manager.setup.sortableByComponent">Clasificar por componente</message>
 	<message key="manager.setup.sponsors.note">Puede añadir una nota para describir su política y su relación con el patrocinador, esta aparecerá junto con la lista del patrocinador en su página Acerca de.</message>
 	<message key="manager.setup.contributors.note">Puede añadir una nota para describir su política y su relación entre usted y sus fuentes de soporte, esta aparecerá con la lista de Fuentes de Soporte en su página Acerca de.</message>
 	<message key="manager.setup.styleSheetDescription">Puede subir un hoja de estilo en cascada (CSS) adicional para cambiar la apariencia.</message>
@@ -343,7 +342,6 @@
 	<message key="grid.action.editGenre">Editar este género</message>
 	<message key="grid.action.deleteGenre">Eliminar este género</message>
 	<message key="grid.action.restoreGenres">Restaurar todos los géneros a la configuración por defecto</message>
-	<message key="manager.setup.genres.sortable">Permitir que los archivos de este tipo se ordenen por complemento, por ejemplo, por capítulo</message>
 	<message key="manager.setup.genres.dependent">Marcar los archivos de este tipo como archivos dependientes</message>
 	<message key="manager.settings.wizard">Asistente de ajustes</message>
 	<message key="manager.users.roleRequired">Tiene que seleccionar al menos un rol para asociarlo a este usuario.</message>

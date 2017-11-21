@@ -335,7 +335,6 @@
 	<message key="manager.setup.reviewOptions.remindForSubmit">Enviar um lembrete se um revisor não tiver enviado uma recomendação dentro do prazo (dias) após a data de vencimento da revisão:</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Prazos de Revisão Padrão</message>
 	<message key="manager.setup.reviewOptions.showBlindReviewLink">Indicar um link para "Garantir uma revisão cega" durante o upload</message>
-	<message key="manager.setup.sortableByComponent">Classificável por componente</message>
 	<message key="plugins.categories.metadata">Plugins Metadados</message>
 	<message key="plugins.categories.metadata.description">Os plugins de metadados implementam padrões adicionais de metadados.</message>
 	<message key="manager.setup.sponsors.note">Relações com Patrocinadores e Descrição de Política</message>
@@ -444,7 +443,6 @@
 	<message key="grid.action.editGenre">Editar este Componente</message>
 	<message key="grid.action.deleteGenre">Eliminar este Componente</message>
 	<message key="grid.action.restoreGenres">Restaurar os componentes para as configurações padrão</message>
-	<message key="manager.setup.genres.sortable">Permitir que os ficheiros deste tipo sejam classificados por capítulo</message>
 	<message key="manager.setup.genres.dependent">Marcar ficheiros deste tipo como ficheiros dependentes (por exemplo, não para serem listados com conteúdo publicado)</message>
 	<message key="manager.setup.genres.supplementary">Marcar ficheiros deste tipo como ficheiros suplementares (por exemplo, não conteúdo de submissão principal)</message>
 	<message key="manager.settings.wizard">Assistente de configurações</message>

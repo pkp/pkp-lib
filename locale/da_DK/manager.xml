@@ -229,7 +229,6 @@
 	<message key="manager.publication.reviewStage">Bedømmelse</message>
 	<message key="manager.publication.emails">E-mails</message>
 	<message key="grid.action.addGenre">Tilføj materialetype</message>
-	<message key="manager.setup.genres.sortable">Tillad at denne filtype sorteres efter kapitel</message>
 	<message key="manager.setup.genres.dependent">Registrer disse filtyper som underordnede filer (f.eks. hvis de ikke skal indgå som en del af det publicerede materiale)</message>
 	<message key="manager.setup.genres.supplementary">Registrer disse filtyper som supplerende filer (f.eks. når det ikke er en del af det primære indsendelsesmateriale - artikeltekst)</message>
 	<message key="manager.setup.groupType">Gruppering af filtyper</message>
@@ -306,7 +305,6 @@
 	<message key="manager.setup.privacyStatement">Erklæring om beskyttelse af personlige oplysninger</message>
 	<message key="manager.setup.privacyStatement.description">Denne erklæring vises når forfatteren indsender sit manuskript og på siden 'Om'.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Antal uger afsat til at færdiggøre bedømmelsen</message>
-	<message key="manager.setup.sortableByComponent">Sortable by component</message>
 	<message key="manager.setup.sponsors.note">Beskrivelse af sponsorpolitik</message>
 	<message key="manager.setup.sponsors.description">Eksempler: Videnskabelige organisationer, universitetsafdelinger, andelsforetagender osv, Navnene på sponsorerne vises på hjemmesiden.</message>
 	<message key="manager.plugins.delete">Slet plug-in</message>

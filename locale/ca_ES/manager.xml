@@ -226,7 +226,6 @@
 	<message key="manager.setup.reviewOptions.neverSendReminder">No m'ho recordis</message>
 	<message key="manager.setup.reviewOptions.remindForInvite">Envia un recordatori si el revisor/a no ha respost a una sol·licitud de revisió en el període següent (dies):</message>
 	<message key="manager.setup.reviewOptions.remindForSubmit">Envia un recordatori si el revisor/a no ha tramès una recomanació en el període següent (dies):</message>
-	<message key="manager.setup.sortableByComponent">Classificable per component</message>
 	<message key="manager.setup.dependentGenre">Gèneres dependents</message>
 	<message key="manager.setup.sponsors">Organitzacions patrocinadores</message>
 	<message key="manager.setup.sponsors.note">Podeu afegir una nota per descriure la vostra política i relació de patrocini, que apareixerà amb la llista de patrocinadors/ores a la vostra pàgina d'Informació personal.</message>
@@ -389,7 +388,6 @@
 	<message key="grid.action.editGenre">Edita aquest gènere</message>
 	<message key="grid.action.deleteGenre">Elimina aquest gènere</message>
 	<message key="grid.action.restoreGenres">Restableix els gèneres a la configuració per defecte</message>
-	<message key="manager.setup.genres.sortable">Permet que els fitxers d'aquest tipus es puguin classificar per component (p. ex., per capítol)</message>
 	<message key="manager.setup.genres.dependent">Marca els fitxers d'aquest tipus com a fitxers dependents (p. ex., tramesa no principal)</message>
 	<message key="manager.settings.wizard">Assistent de configuració</message>
 	<message key="manager.users.roleRequired">Heu d'associar com a mínim un rol a aquest usuari.</message>

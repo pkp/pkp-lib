@@ -113,22 +113,6 @@ class Genre extends DataObject {
 	}
 
 	/**
-	 * Get sortable flag of the context type
-	 * @return bool
-	 */
-	function getSortable() {
-		return $this->getData('sortable');
-	}
-
-	/**
-	 * Set sortable flag of the context type
-	 * @param $sortable bool
-	 */
-	function setSortable($sortable) {
-		$this->setData('sortable', $sortable);
-	}
-
-	/**
 	 * Get context file category (e.g. artwork or document)
 	 * @return int GENRE_CATEGORY_...
 	 */

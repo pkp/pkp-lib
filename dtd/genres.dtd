@@ -12,7 +12,6 @@
 <!ELEMENT genre EMPTY>
 	<!ATTLIST genre
 		key CDATA #REQUIRED
-		sortable CDATA #REQUIRED
 		category CDATA #REQUIRED
 		dependent CDATA #REQUIRED
 		supplementary CDATA #REQUIRED

@@ -194,7 +194,6 @@ class GenreDAO extends DAO {
 		$genre->setId($row['genre_id']);
 		$genre->setKey($row['entry_key']);
 		$genre->setContextId($row['context_id']);
-		$genre->setSortable($row['sortable']);
 		$genre->setCategory($row['category']);
 		$genre->setDependent($row['dependent']);
 		$genre->setSupplementary($row['supplementary']);
@@ -216,13 +215,12 @@ class GenreDAO extends DAO {
 	function insertObject($genre) {
 		$this->update(
 			'INSERT INTO genres
-				(entry_key, seq, sortable, context_id, category, dependent, supplementary)
+				(entry_key, seq, context_id, category, dependent, supplementary)
 			VALUES
-				(?, ?, ?, ?, ?, ?, ?)',
+				(?, ?, ?, ?, ?, ?)',
 			array(
 				$genre->getKey(),
 				(float) $genre->getSequence(),
-				$genre->getSortable() ? 1 : 0,
 				(int) $genre->getContextId(),
 				(int) $genre->getCategory(),
 				$genre->getDependent() ? 1 : 0,
@@ -244,7 +242,6 @@ class GenreDAO extends DAO {
 			'UPDATE genres
 			SET	entry_key = ?,
 				seq = ?,
-				sortable = ?,
 				dependent = ?,
 				supplementary = ?,
 				enabled = ?,
@@ -253,7 +250,6 @@ class GenreDAO extends DAO {
 			array(
 				$genre->getKey(),
 				(float) $genre->getSequence(),
-				$genre->getSortable() ? 1 : 0,
 				$genre->getDependent() ? 1 : 0,
 				$genre->getSupplementary() ? 1 : 0,
 				$genre->getEnabled() ? 1 : 0,
@@ -328,7 +324,6 @@ class GenreDAO extends DAO {
 			if (!$genre) $genre = $this->newDataObject();
 			$genre->setContextId($contextId);
 			$genre->setKey($attrs['key']);
-			$genre->setSortable($attrs['sortable']);
 			$genre->setCategory($attrs['category']);
 			$genre->setDependent($attrs['dependent']);
 			$genre->setSupplementary($attrs['supplementary']);

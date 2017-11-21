@@ -247,7 +247,7 @@ class PKPInstall extends Installer {
 		$user->setUsername($this->getParam('adminUsername'));
 		$user->setPassword(Validation::encryptCredentials($this->getParam('adminUsername'), $this->getParam('adminPassword'), $this->getParam('encryption')));
 		$user->setFirstName($user->getUsername());
-		$user->setLastName('');
+		$user->setLastName($user->getUsername());
 		$user->setEmail($this->getParam('adminEmail'));
 		$user->setInlineHelp(1);
 		if (!$userDao->insertObject($user)) {

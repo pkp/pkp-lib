@@ -323,7 +323,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 
 		$contextId = $submission->getContextId();
 
-		if ($user->hasRole(array(ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN), $contextId)) {
+		if ($user->hasRole(array(ROLE_ID_MANAGER), $contextId) || $user->hasRole(array(ROLE_ID_SITE_ADMIN), CONTEXT_ID_NONE)) {
 			return true;
 		}
 

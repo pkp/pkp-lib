@@ -317,7 +317,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 		$reviewAssignments = $this->getReviewAssignments($submission);
 		foreach ($reviewAssignments as $reviewAssignment) {
 			if ($user->getId() == $reviewAssignment->getReviewerId()) {
-				return $reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_OPEN ? true : false;
+				return $reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_DOUBLEBLIND ? false : true;
 			}
 		}
 

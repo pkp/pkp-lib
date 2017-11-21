@@ -48,7 +48,7 @@
 	 */
 	$.pkp.controllers.RevealMoreHandler.prototype.revealMore =
 			function(revealMoreButton, event) {
-		this.getHtmlElement().removeClass('isHidden').css('max-height', 'auto');
+		this.getHtmlElement().removeClass('isHidden').removeAttr('style');
 		event.preventDefault();
 		event.stopPropagation();
 	};

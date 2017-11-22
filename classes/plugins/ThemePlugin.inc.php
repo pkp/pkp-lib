@@ -83,6 +83,10 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		HookRegistry::register('PluginRegistry::categoryLoaded::themes', array($this, 'themeRegistered'));
 		HookRegistry::register('PluginRegistry::categoryLoaded::themes', array($this, 'initAfter'));
 
+		// Enable themes to override templates from plugins
+		HookRegistry::register('TemplateManager::fetch', array($this, '_overridePluginTemplates'));
+
+
 		// Save any theme options displayed on the appearance and site settings
 		// forms
 		HookRegistry::register('appearanceform::execute', array($this, 'saveOptionsForm'));
@@ -794,6 +798,52 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	public function _getBaseDir($path = '') {
 		$path = empty($path) ? '' : DIRECTORY_SEPARATOR . $path;
 		return Core::getBaseDir() . DIRECTORY_SEPARATOR . $this->getPluginPath() . $path;
+	}
+
+	/**
+	 * Allow the active theme (and parents) to override templates from plugins
+	 *
+	 * @param $hookName string TemplateManager::fetch
+	 * @param $args array [
+	 *		@option TemplateManager
+	 *		@option string Template file
+	 * ]
+	 */
+	public function _overridePluginTemplates($hookName, $args) {
+		$template =& $args[1];
+		$basePath = Core::getBaseDir();
+
+		$partialPluginPath = '';
+		if (strpos($template, "file:$basePath/plugins") == 0) {
+			$partialPluginPath = substr($template, strlen("file:$basePath"));
+		} elseif (strpos($template, "file:$basePath/lib/pkp/plugins") !== 0) {
+			$partialPluginPath = substr($template, strlen("file:$basePath/lib/pkp"));
+		}
+
+		if (!$partialPluginPath) {
+			return;
+		}
+
+		$targetPaths = $this->_buildParentTemplatePaths($partialPluginPath);
+
+		foreach ($targetPaths as $targetPath) {
+			if (file_exists($targetPath)) {
+				$template = $targetPath;
+				return;
+			}
+		}
+	}
+
+	/**
+	 * Build an array of template paths for this theme and any parent themes
+	 *
+	 * @param $path string
+	 * @param $return array List of paths
+	 * @return array
+	 */
+	public function _buildParentTemplatePaths($path, $return = array()) {
+		$return[] = $this->_getBaseDir('templates') . $path;
+		return $this->parent ? $this->parent->_buildParentTemplatePaths($path, $return) : $return;
 	}
 
 	/**

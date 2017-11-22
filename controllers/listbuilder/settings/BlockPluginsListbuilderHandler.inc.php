@@ -65,6 +65,13 @@ class BlockPluginsListbuilderHandler extends MultipleListsListbuilderHandler {
 		$this->addColumn($nameColumn);
 	}
 
+	/**
+	 * @copydoc ListbuilderHandler::canAddItems()
+	 */
+	public function canAddItems() {
+		return false;
+	}
+
 
 	//
 	// Overridden template methods

@@ -320,7 +320,6 @@ výsledků vyhledávání. Zvolte jednu z nakonfigurovaných metrik jako výchoz
 	<message key="manager.distribution">Distribuce</message>
 	<message key="manager.distribution.title">Nastavení distribuce.</message>
 	<message key="manager.reviewForms.confirmActivate">Jste si jisti, že chcete povolit tento formulář recenzenta? Jakmile bude přiřazen k jakékoliv recenzi, nebude možné ho zakázat.</message>
-	<message key="manager.setup.genres.sortable">Dovolit, aby byly soubory tohoto typu řazeny podle kapitol</message>
 	<message key="manager.setup.genres.dependent">Označte soubory tohoto typu jako závislé soubory (např. nezobrazované s publikovaným obsahem)</message>
 	<message key="manager.setup.genres.supplementary">Označit soubory tohoto typu jako doplňkové soubory (např. ty, co neobsahují primární obsah článku)</message>
 	<message key="manager.settings.wizard">Průvodce nastavením</message>
@@ -394,7 +393,6 @@ výsledků vyhledávání. Zvolte jednu z nakonfigurovaných metrik jako výchoz
 	<message key="manager.setup.reviewOptions.remindForSubmit">Poslat připomenutí, pokud recenzent neodevzdal hotovou recenzi během následujícího času (počtu dnů) po stanoveném datu:</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Výchozí termín pro recenze</message>
 	<message key="manager.setup.reviewOptions.showBlindReviewLink">Zobrazit odkaz na "Zajištění anonymních recenzí" během nahrávání příspěvku</message>
-	<message key="manager.setup.sortableByComponent">Tříditelné podle komponent</message>
 	<message key="manager.setup.sponsors.note">Popis vztahu ke sponzory a popis zásad</message>
 	<message key="manager.setup.sponsors.description">Příklady: vědecké asociace, univerzitní oddělení, družstva atd. Sponzoři jsou veřejně zobrazováni.</message>
 	<message key="manager.setup.styleSheetDescription">Zkušení vývojáři webu mohou nahrát soubor css a přizpůsobit tak vzhled webu.</message>

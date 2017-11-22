@@ -67,7 +67,6 @@ class GenreForm extends Form {
 			$this->_data = array(
 				'genreId' => $this->getGenreId(),
 				'name' => $genre->getName(null),
-				'sortable' => $genre->getSortable(),
 				'category' => $genre->getCategory(),
 				'dependent' => $genre->getDependent(),
 				'supplementary' => $genre->getSupplementary(),
@@ -105,7 +104,7 @@ class GenreForm extends Form {
 	 * @see Form::readInputData()
 	 */
 	function readInputData() {
-		$this->readUserVars(array('genreId', 'name', 'sortable', 'category', 'dependent', 'supplementary', 'gridId', 'rowId'));
+		$this->readUserVars(array('genreId', 'name', 'category', 'dependent', 'supplementary', 'gridId', 'rowId'));
 	}
 
 	/**
@@ -126,7 +125,6 @@ class GenreForm extends Form {
 		}
 
 		$genre->setData('name', $this->getData('name'), null); // Localized
-		$genre->setSortable($this->getData('sortable'));
 		$genre->setCategory($this->getData('category'));
 		$genre->setDependent($this->getData('dependent'));
 		$genre->setSupplementary($this->getData('supplementary'));

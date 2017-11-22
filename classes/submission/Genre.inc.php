@@ -18,8 +18,6 @@ define('GENRE_CATEGORY_DOCUMENT', 1);
 define('GENRE_CATEGORY_ARTWORK', 2);
 define('GENRE_CATEGORY_SUPPLEMENTARY', 3);
 
-define('GENRE_SORTABLE_DESIGNATION', '##');
-
 class Genre extends DataObject {
 
 	/**
@@ -110,22 +108,6 @@ class Genre extends DataObject {
 	 */
 	function getLocalizedName() {
 		return $this->getLocalizedData('name');
-	}
-
-	/**
-	 * Get sortable flag of the context type
-	 * @return bool
-	 */
-	function getSortable() {
-		return $this->getData('sortable');
-	}
-
-	/**
-	 * Set sortable flag of the context type
-	 * @param $sortable bool
-	 */
-	function setSortable($sortable) {
-		$this->setData('sortable', $sortable);
 	}
 
 	/**

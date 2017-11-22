@@ -28,10 +28,6 @@
 		<field name="seq" type="I8">
 			<!-- NOTNULL --><!-- For upgrades; see bug #8585 -->
 		</field>
-		<field name="sortable" type="I1">
-			<NOTNULL/>
-			<DEFAULT VALUE="1"/>
-		</field>
 		<field name="enabled" type="I1">
 			<NOTNULL/>
 			<DEFAULT VALUE="1"/>

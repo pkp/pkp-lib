@@ -414,7 +414,6 @@
 	<message key="manager.reviewForms.confirmCopy">Da li ste sigurni d želite da kreirate kopiju ovog recenzentskog obrasca?</message>
 	<message key="manager.users.roleRequired">Morate odabrati barem jednu ulogu da je dodate ovom korisniku.</message>
 	<message key="manager.reviewForms.confirmActivate">Da li ste sigurni da želite da aktivirate ovaj recenzentski obrazac? Kad mu dodelite recenziju nećete moći da ga deaktivirate.</message>
-	<message key="manager.setup.genres.sortable">Dozvolite da se fajlovi ovog tipa sortiraju po poglavlju</message>
 	<message key="manager.setup.genres.dependent">Označite fajlove ovog tipa kao zavisne fajlove (oni neće biti izlistani sa objavljenim sadržajem)</message>
 	<message key="manager.setup.genres.supplementary">Označite fajlove ovog tipa kao dopunske fajlove (ne primarno kao sadržaj prijavljenog članka)</message>
 	<message key="settings.libraryFiles.fileRequired">Fajl biblioteka je neophodan. Proverite da li ste odabrali i na server postavili fajl.</message>
@@ -427,7 +426,6 @@
 	<message key="manager.plugins.deleteError">Dodatak "{$pluginName}" nije mogao biti obrisan sa servera. Problem može biti zbog nedostatka dovoljnih dozvola. Obezbedite da  web server može upisivati u direktorij za dodatke (uključujući i poddirektorije), ali ne zaboravite kasnije da da ponovo osigurate.</message>
 	<message key="manager.plugins.wrongCategory">Postavljeni dodatak ne pripada kategoriji nadogađenog dodatka.</message>
 	<message key="manager.plugins.copyError">Dodatak nije uspešno kopiran. Problem može biti zbog nedostatka dovoljnih dozvola. Obezbedite da web server može upisivati u direktorij za dodatke (uključujući i poddirektorije), ali ne zaboravite kasnije da da ponovo osigurate.</message>
-	<message key="manager.setup.sortableByComponent">Može se sortirati po komponenti</message>
 	<message key="manager.setup.sponsors.note">Odnos sa sponzorom i opis politike</message>
 	<message key="manager.setup.sponsors.description">Primeri: akademske asocijacije, univerzitetska odeljenja, kooperative itd. Sponzori su javno prikazani.</message>
 	<message key="manager.setup.styleSheetDescription">Iskusni web programeri mogu postaviti CSS fajl za dalje prilagođavanje izgleda sajta.</message>

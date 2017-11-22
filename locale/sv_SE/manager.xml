@@ -267,7 +267,6 @@
 	<message key="manager.setup.reviewOptions.remindForSubmit">Skicka en påminnelse om granskaren inte har lämnat en rekommendation inom följande antal dagar efter deadline:</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Default-deadlines för granskning</message>
 	<message key="manager.setup.reviewOptions.showBlindReviewLink">Visa en länk till "Att garantera anonym granskning" vid uppladdning</message>
-	<message key="manager.setup.sortableByComponent">Kan sorteras efter komponent</message>
 	<message key="manager.setup.sponsors.note">Sponsorrelation och policybeskrivning</message>
 	<message key="manager.setup.sponsors.description">Exempel: vetenskapliga organisationer, universitetsinstitutioner, kooperativ etc. Sponsorer visas publikt.</message>
 	<message key="manager.setup.styleSheetDescription">Erfarna webbutvecklare kan ladda upp en CSS-fil för att ytterligare anpassa webbplatsens utseende.</message>
@@ -411,7 +410,6 @@
 	<message key="grid.action.editGenre">Ändra kompontenten</message>
 	<message key="grid.action.deleteGenre">Ta bort kompontenten</message>
 	<message key="grid.action.restoreGenres">Återställ komponenterna till defaultinställningar</message>
-	<message key="manager.setup.genres.sortable">Tillåt filer av den här typen att sorteras efter kapitel</message>
 	<message key="manager.setup.genres.dependent">Markera filer av den här typen som underordnade (t.ex. för att inte listas med publicerat innehåll)</message>
 	<message key="manager.setup.genres.supplementary">Markera filer av den här typen som kompletterande filer (t.ex. inte primärt bidrag)</message>
 	<message key="manager.settings.wizard">Inställningsguide</message>

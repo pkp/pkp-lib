@@ -24,7 +24,6 @@
 	{fbvElement type="text" multilingual="true" id="name" value=$name maxlength="80" required="true"}
 {/fbvFormSection}
 {fbvFormSection list="true" title="common.options"}
-	{fbvElement type="checkbox" id="sortable" checked=$sortable label="manager.setup.genres.sortable"}
 	{fbvElement type="checkbox" id="dependent" checked=$dependent label="manager.setup.genres.dependent"}
 	{fbvElement type="checkbox" id="supplementary" checked=$supplementary label="manager.setup.genres.supplementary"}
 {/fbvFormSection}

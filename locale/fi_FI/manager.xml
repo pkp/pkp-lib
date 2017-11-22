@@ -263,7 +263,6 @@
 	<message key="manager.setup.reviewOptions.remindForSubmit">Lähetä muistutus jos arvioija ei ole lähettänyt suositusta seuraavan ajan (pv) kuluttua arvioinnin määräpäivästä:</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Arvioinnin oletusmääräajat</message>
 	<message key="manager.setup.reviewOptions.showBlindReviewLink">Näytä linkki “Sokkoarvioinnin varmistaminen” -kohtaan lataamisen yhteydessä</message>
-	<message key="manager.setup.sortableByComponent">Lajiteltavissa osan mukaan</message>
 	<message key="manager.setup.sponsors.note">Tukijasuhteiden ja -periaatteiden kuvaus</message>
 	<message key="manager.setup.sponsors.description">Esimerkkejä: tieteelliset yhdistykset, yliopistojen laitokset, osuuskunnat jne. Tukijat näytetään julkisesti.</message>
 	<message key="manager.setup.styleSheetDescription">Kokeneet www-kehittäjät voivat ladata CSS-tiedoston mukauttaakseen sivuston ulkoasua pidemmälle.</message>
@@ -403,7 +402,6 @@
 	<message key="grid.action.editGenre">Muokkaa tätä osaa</message>
 	<message key="grid.action.deleteGenre">Poista tämä osa</message>
 	<message key="grid.action.restoreGenres">Palauta osien oletusasetukset</message>
-	<message key="manager.setup.genres.sortable">Salli tämäntyyppisten tiedostojen lajittelu luvun mukaan</message>
 	<message key="manager.setup.genres.dependent">Merkitse tämäntyyppiset tiedostot riippuviksi tiedostoiksi (esim. ei luetteloida julkaistun sisällön kanssa)</message>
 	<message key="manager.setup.genres.supplementary">Merkitse tämäntyyppiset tiedostot liitetiedostoiksi (esim. ei ensisijainen käsikirjoituksen sisältö)</message>
 	<message key="manager.settings.wizard">Ohjattu asetusten luonti</message>

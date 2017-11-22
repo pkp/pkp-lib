@@ -322,7 +322,6 @@
 	<message key="grid.action.editGenre">Rediger denne komponenten</message>
 	<message key="grid.action.deleteGenre">Slett denne komponenten</message>
 	<message key="grid.action.restoreGenres">Gjenopprett komponentene til standardoppsettet</message>
-	<message key="manager.setup.genres.sortable">Tillat at filer av denne typen blir sortert etter kapittel</message>
 	<message key="manager.setup.genres.dependent">Marker filer av denne typen som sekundærfiler (dvs. skal ikke bli vist sammen med publisert innhold)</message>
 	<message key="manager.setup.genres.supplementary">Marker filer av denne typen som tilleggsfiler (dvs. ikke hovedmanuskript)</message>
 	<message key="manager.settings.wizard">Veiviser for instillinger</message>
@@ -440,7 +439,6 @@
 	<message key="manager.setup.reviewOptions.remindForSubmit">Send en påminnelse om en fagfelle ikke har sendt inn en anbefaling innen en tid (dager) etter oppdragets frist.</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Standardfrist for fagfellevurdering</message>
 	<message key="manager.setup.reviewOptions.showBlindReviewLink">Vis en lenke til "Sikre en anonym fagfellevurdering" under opplasting</message>
-	<message key="manager.setup.sortableByComponent">Kan sorteres etter komponenter</message>
 	<message key="manager.setup.sponsors.note">Beskrivelse av relasjon til sponsorer og retningslinjer</message>
 	<message key="manager.setup.sponsors.description">Eksempler: vitenskapelige foreninger, institutter, organisasjoner osv. Sponsorer blir vist offentlig.</message>
 	<message key="manager.setup.styleSheetDescription">Erfarne nettutviklere kan laste opp en CSS-fil for videre å tilpasse nettsidens utseende.</message>

@@ -277,7 +277,6 @@
 	<message key="manager.setup.reviewOptions.remindForSubmit">Wyślij przypomnienie, jeśli recenzent nie przesłał rekomendacji przekraczając termin o liczbę dni:</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Domyślne ustawienia czasu na wykonanie recenzji</message>
 	<message key="manager.setup.reviewOptions.showBlindReviewLink">Wyświetl link do "Zapewnienie ślepej recenzji" podczas przesyłania</message>
-	<message key="manager.setup.sortableByComponent">Sortowanie wg elementów</message>
 	<message key="manager.setup.sponsors.note">Instytucje finansujące oraz warunki</message>
 	<message key="manager.setup.sponsors.description">Przykłady: koła naukowe, działy uczelni, instytucje współpracując itp. Instytucje finansujące są widoczne publicznie.</message>
 	<message key="manager.setup.styleSheetDescription">Doświadczeni developerzy mogą przesłać plik CSS, aby wprowadzić zmiany w widoku strony niedostępne z poziomu OJS.</message>
@@ -386,7 +385,6 @@
 	<message key="grid.action.editGenre">Edytuj element</message>
 	<message key="grid.action.deleteGenre">Usuń element</message>
 	<message key="grid.action.restoreGenres">Przywróć elementy do ich ustawień domyślnych</message>
-	<message key="manager.setup.genres.sortable">Włącz sortowanie plików wg rozdziału</message>
 	<message key="manager.setup.genres.dependent">Oznacz pliki tego typu jako zależne (np. aby nie były widoczne razem z opublikowaną treścią)</message>
 	<message key="manager.setup.genres.supplementary">Oznacz pliki tego typu jako dodatkowe (np. nie będące główną zawartością zgłoszenia)</message>
 	<message key="manager.settings.wizard">Kreator ustawień</message>

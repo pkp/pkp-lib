@@ -26,20 +26,16 @@
 	<input type="hidden" name="tab" value="citations" />
 	{csrf}
 
-	{fbvFormArea id="citationsFiled"}
-		{fbvFormSection label="submission.citations" description="submission.citations.description"}
-			{fbvElement type="textarea" id="citations" value=$citations disabled=$readOnly required=$citationsRequired}
-		{/fbvFormSection}
-	{/fbvFormArea}
+	{fbvFormSection label="submission.citations" description="submission.citations.description"}
+		{fbvElement type="textarea" id="citations" value=$citations disabled=$readOnly required=$citationsRequired}
+	{/fbvFormSection}
 
 	{if $parsedCitations->getCount()}
-		{fbvFormArea id="parsedCitations" title="submission.parsedCitations"}
-			{fbvFormSection description="submission.parsedCitations.description"}
-				{iterate from=parsedCitations item=parsedCitation}
-					<p>{$parsedCitation->getRawCitation()|escape}</p>
-				{/iterate}
-			{/fbvFormSection}
-		{/fbvFormArea}
+		{fbvFormSection label="submission.parsedCitations" description="submission.parsedCitations.description"}
+			{iterate from=parsedCitations item=parsedCitation}
+				<p>{$parsedCitation->getRawCitation()|escape}</p>
+			{/iterate}
+		{/fbvFormSection}
 	{/if}
 
 	{fbvFormButtons submitText="submission.parsedAndSaveCitations" cancelText="common.cancel"}

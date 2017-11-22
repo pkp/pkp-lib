@@ -10,9 +10,9 @@
  *}
 
 {if $citationsEnabled && array_intersect(array(ROLE_ID_REVIEWER, ROLE_ID_AUTHOR), (array)$userRoles)}
-{assign var=citationsEnabled value=true}
+	{assign var=citationsEnabled value=true}
 {else}
-{assign var=citationsEnabled value=false}
+	{assign var=citationsEnabled value=false}
 {/if}
 {if $coverageEnabled || $typeEnabled || $sourceEnabled || $rightsEnabled ||
 		$languagesEnabled || $subjectEnabled || $keywordsEnabled || $agenciesEnabled || $citationsEnabled}

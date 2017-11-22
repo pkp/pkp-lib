@@ -44,7 +44,7 @@ class CitationsParsingTool extends CommandLineTool {
 	}
 
 	/**
-	 * Delete submission data and associated files
+	 * Parse citations
 	 */
 	function execute() {
 		$submissionDao = Application::getSubmissionDAO();
@@ -58,7 +58,7 @@ class CitationsParsingTool extends CommandLineTool {
 					$submissions = $submissionDao->getByContextId($context->getId());
 					while ($submission = $submissions->next()) {
 						$rawCitationList = $submission->getCitations();
-						$citationDao->importCitations(ASSOC_TYPE_SUBMISSION, $submission->getId(), $rawCitationList);
+						$citationDao->importCitations($submission->getId(), $rawCitationList);
 					}
 				}
 				break;
@@ -72,7 +72,7 @@ class CitationsParsingTool extends CommandLineTool {
 					$submissions = $submissionDao->getByContextId($contextId);
 					while ($submission = $submissions->next()) {
 						$rawCitationList = $submission->getCitations();
-						$citationDao->importCitations(ASSOC_TYPE_SUBMISSION, $submission->getId(), $rawCitationList);
+						$citationDao->importCitations($submission->getId(), $rawCitationList);
 					}
 				}
 				break;
@@ -84,7 +84,7 @@ class CitationsParsingTool extends CommandLineTool {
 						continue;
 					}
 					$rawCitationList = $submission->getCitations();
-					$citationDao->importCitations(ASSOC_TYPE_SUBMISSION, $submission->getId(), $rawCitationList);
+					$citationDao->importCitations($submission->getId(), $rawCitationList);
 				}
 				break;
 			default:

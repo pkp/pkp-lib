@@ -33,35 +33,19 @@ class Citation extends DataObject {
 	// Getters and Setters
 	//
 	/**
-	 * Get the association type
+	 * Get the submission id
 	 * @return integer
 	 */
-	function getAssocType() {
-		return $this->getData('assocType');
+	function getSubmissionId() {
+		return $this->getData('submissionId');
 	}
 
 	/**
-	 * Set the association type
-	 * @param $assocType integer
+	 * Set the submission id
+	 * @param $submissionId integer
 	 */
-	function setAssocType($assocType) {
-		$this->setData('assocType', $assocType);
-	}
-
-	/**
-	 * Get the association id
-	 * @return integer
-	 */
-	function getAssocId() {
-		return $this->getData('assocId');
-	}
-
-	/**
-	 * Set the association id
-	 * @param $assocId integer
-	 */
-	function setAssocId($assocId) {
-		$this->setData('assocId', $assocId);
+	function setSubmissionId($submissionId) {
+		$this->setData('submissionId', $submissionId);
 	}
 
 	/**

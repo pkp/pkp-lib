@@ -17,9 +17,6 @@ import('lib.pkp.classes.form.Form');
 
 class CitationsForm extends Form {
 
-	/** @var int The context id */
-	var $_contextId;
-
 	/** @var Submission */
 	var $_submission;
 
@@ -47,9 +44,8 @@ class CitationsForm extends Form {
 		$this->_tabPos = $tabPos;
 		$this->_formParams = $formParams;
 
-		$request = Application::getRequest();
-		$context = $request->getContext();
-		$this->_contextId = $context->getId();
+		$contextDao = Application::getContextDAO();
+		$context = $contextDao->getById($this->_submission->getContextId());
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_EDITOR);
 
@@ -58,34 +54,6 @@ class CitationsForm extends Form {
 		}
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
-	}
-
-	/**
-	 * @copydoc Form::fetch()
-	 */
-	function fetch($request) {
-		$submission = $this->getSubmission();
-		$context = $request->getContext();
-		$citationDao = DAORegistry::getDAO('CitationDAO');
-		$parsedCitations = $citationDao->getObjectsByAssocId(ASSOC_TYPE_SUBMISSION, $submission->getId());
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign(array(
-			'submission' => $this->getSubmission(),
-			'stageId' => $this->getStageId(),
-			'tabPos' => $this->getTabPosition(),
-			'formParams' => $this->getFormParams(),
-			'citationsRequired' => $context->getSetting('citationsRequired'),
-			'parsedCitations' => $parsedCitations,
-		));
-		return parent::fetch($request);
-	}
-
-	/**
-	 * @copydoc Form::initData()
-	 */
-	function initData() {
-		$submission = $this->getSubmission();
-		$this->setData('citations', $submission->getCitations());
 	}
 
 	//
@@ -116,14 +84,6 @@ class CitationsForm extends Form {
 	}
 
 	/**
-	 * Get the context id
-	 * @return integer
-	 */
-	function getContextId() {
-		return $this->_contextId;
-	}
-
-	/**
 	 * Get the extra form parameters.
 	 * @return array
 	 */
@@ -131,10 +91,37 @@ class CitationsForm extends Form {
 		return $this->_formParams;
 	}
 
-
 	//
 	// Form methods
 	//
+	/**
+	 * @copydoc Form::fetch()
+	 */
+	function fetch($request) {
+		$submission = $this->getSubmission();
+		$context = $request->getContext();
+		$citationDao = DAORegistry::getDAO('CitationDAO');
+		$parsedCitations = $citationDao->getBySubmissionId($submission->getId());
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign(array(
+			'submission' => $this->getSubmission(),
+			'stageId' => $this->getStageId(),
+			'tabPos' => $this->getTabPosition(),
+			'formParams' => $this->getFormParams(),
+			'citationsRequired' => $context->getSetting('citationsRequired'),
+			'parsedCitations' => $parsedCitations,
+		));
+		return parent::fetch($request);
+	}
+
+	/**
+	 * @copydoc Form::initData()
+	 */
+	function initData() {
+		$submission = $this->getSubmission();
+		$this->setData('citations', $submission->getCitations());
+	}
+
 	/**
 	 * @copydoc Form::readInputData()
 	 */
@@ -152,7 +139,7 @@ class CitationsForm extends Form {
 
 		$rawCitationList = $this->getData('citations');
 		$citationDao = DAORegistry::getDAO('CitationDAO');
-		$citationDao->importCitations(ASSOC_TYPE_SUBMISSION, $submission->getId(), $rawCitationList);
+		$citationDao->importCitations($submission->getId(), $rawCitationList);
 
 		$submission->setCitations($rawCitationList);
 		$submissionDao = Application::getSubmissionDAO();

@@ -122,6 +122,7 @@ class PluginHelper {
 			if(!is_file($installFile)) $installFile = Core::getBaseDir() . '/' . PKP_LIB_PATH . '/xml/defaultPluginInstall.xml';
 			assert(is_file($installFile));
 			$params = $this->_getConnectionParams();
+			$params['locale'] = LOCALE_DEFAULT;
 			$installer = new Install($params, $installFile, true);
 			$installer->setCurrentVersion($pluginVersion);
 			if (!$installer->execute()) {

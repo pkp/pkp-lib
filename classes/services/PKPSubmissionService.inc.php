@@ -297,6 +297,18 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 	}
 
 	/**
+	 * Is this submission public?
+	 *
+	 * @param $submission Submission
+	 * @return boolean
+	 */
+	public function isPublic($submission) {
+		$isPublic = false;
+		\HookRegistry::call('Submission::isPublic', array(&$isPublic, $submission));
+		return $isPublic;
+	}
+
+	/**
 	 * Is this user allowed to view the author details?
 	 *
 	 * - Anyone can view published submission authors
@@ -310,7 +322,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 	 */
 	public function canUserViewAuthor($user, $submission) {
 
-		if ($submission->getDatePublished()) {
+		if ($this->isPublic($submission)) {
 			return true;
 		}
 

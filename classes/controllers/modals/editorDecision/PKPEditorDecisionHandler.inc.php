@@ -217,6 +217,11 @@ class PKPEditorDecisionHandler extends Handler {
 						$body .= PKPString::stripUnsafeHtml($comment->getComments());
 					}
 				}
+
+				// Add reviewer recommendation
+				$recommendation = $reviewAssignment->getLocalizedRecommendation();
+				$body .= __('reviewer.article.recommendation') . ': ' . $recommendation . "<br>\n";
+
 				$body .= "<br>$textSeparator<br><br>";
 
 				if ($reviewFormId = $reviewAssignment->getReviewFormId()) {

@@ -56,7 +56,7 @@ class Citation extends DataObject {
 		$citation = $this->getRawCitation();
 		if (stripos($citation, '<a href=') === false) {
 			$citation = preg_replace(
-				'#((https?|ftp)://(\S*?\.\S*?))([\s)\[\]{},;"\':<>]|\.\s|$)#i',
+				'#((https?|ftp)://(\S*?\.\S*?))(([\s)\[\]{},;"\':<>])?(\.)?(\s|$))#i',
 				'<a href="$1">$1</a>$4',
 				$citation
 			);

@@ -49,6 +49,22 @@ class Citation extends DataObject {
 	}
 
 	/**
+	 * Replace URLs through HTML links, if the citation does not already contain HTML links
+	 * @return string
+	 */
+	function getCitationWithLinks() {
+		$citation = $this->getRawCitation();
+		if (stripos($citation, '<a href=') === false) {
+			$citation = preg_replace(
+				'#((https?|ftp)://(\S*?\.\S*?))([\s)\[\]{},;"\':<>]|\.\s|$)#i',
+				'<a href=\"$1\">$1</a>$4',
+				$citation
+			);
+		}
+		return $citation;
+	}
+
+	/**
 	 * Get the rawCitation
 	 * @return string
 	 */

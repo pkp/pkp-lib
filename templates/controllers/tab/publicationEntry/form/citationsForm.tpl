@@ -33,7 +33,7 @@
 	{if $parsedCitations->getCount()}
 		{fbvFormSection label="submission.parsedCitations" description="submission.parsedCitations.description"}
 			{iterate from=parsedCitations item=parsedCitation}
-				<p>{$parsedCitation->getRawCitation()|escape}</p>
+				<p>{$parsedCitation->getCitationWithLinks()|strip_unsafe_html}</p>
 			{/iterate}
 		{/fbvFormSection}
 	{/if}

@@ -23,16 +23,15 @@ class CitationDAO extends DAO {
 	 * @param $citation Citation
 	 * @return integer the new citation id
 	 */
-	function insertObject(&$citation) {
+	function insertObject($citation) {
 		$seq = $citation->getSequence();
 		if (!(is_numeric($seq) && $seq > 0)) {
 			// Find the latest sequence number
 			$result = $this->retrieve(
 				'SELECT MAX(seq) AS lastseq FROM citations
-				 WHERE assoc_type = ? AND assoc_id = ?',
+				 WHERE submission_id = ?',
 				array(
-					(integer)$citation->getAssocType(),
-					(integer)$citation->getAssocId(),
+					(integer)$citation->getSubmissionId(),
 				)
 			);
 
@@ -47,13 +46,11 @@ class CitationDAO extends DAO {
 
 		$this->update(
 			sprintf('INSERT INTO citations
-				(assoc_type, assoc_id, citation_state, raw_citation, seq)
+				(submission_id, raw_citation, seq)
 				VALUES
-				(?, ?, ?, ?, ?)'),
+				(?, ?, ?)'),
 			array(
-				(integer)$citation->getAssocType(),
-				(integer)$citation->getAssocId(),
-				(integer)$citation->getCitationState(),
+				(integer)$citation->getSubmissionId(),
 				$citation->getRawCitation(),
 				(integer)$seq
 			)
@@ -68,7 +65,7 @@ class CitationDAO extends DAO {
 	 * @param $citationId integer
 	 * @return Citation
 	 */
-	function &getObjectById($citationId) {
+	function getById($citationId) {
 		$result = $this->retrieve(
 			'SELECT * FROM citations WHERE citation_id = ?', $citationId
 		);
@@ -83,26 +80,48 @@ class CitationDAO extends DAO {
 	}
 
 	/**
-	 * Retrieve an array of citations matching a particular association id.
-	 * @param $assocType int
-	 * @param $assocId int
-	 * @param $minCitationState int one of the CITATION_* constants,
-	 *  leaving this unset will show all citation states.
-	 * @param $maxCitationState int one of the CITATION_* constants,
-	 *  leaving this unset will show all citation states.
+	 * Import citations from a raw citation list of the particular submission.
+	 * @param $submissionId int
+	 * @param $rawCitationList string
+	 */
+	function importCitations($submissionId, $rawCitationList) {
+		assert(is_numeric($submissionId));
+		$submissionId = (int) $submissionId;
+
+		// Remove existing citations.
+		$this->deleteBySubmissionId($submissionId);
+
+		// Tokenize raw citations
+		import('lib.pkp.classes.citation.CitationListTokenizerFilter');
+		$citationTokenizer = new CitationListTokenizerFilter();
+		$citationStrings = $citationTokenizer->execute($rawCitationList);
+
+		// Instantiate and persist citations
+		if (is_array($citationStrings)) foreach($citationStrings as $seq => $citationString) {
+			$citation = new Citation($citationString);
+			// Set the submission
+			$citation->setSubmissionId($submissionId);
+			// Set the counter
+			$citation->setSequence($seq+1);
+			$this->insertObject($citation);
+		}
+	}
+
+	/**
+	 * Retrieve an array of citations matching a particular submission id.
+	 * @param $submissionId int
 	 * @param $dbResultRange DBResultRange the desired range
 	 * @return DAOResultFactory containing matching Citations
 	 */
-	function getObjectsByAssocId($assocType, $assocId, $minCitationState = 0, $maxCitationState = CITATION_APPROVED, $rangeInfo = null) {
+	function getBySubmissionId($submissionId, $rangeInfo = null) {
 		$result = $this->retrieveRange(
 			'SELECT *
 			FROM citations
-			WHERE assoc_type = ? AND assoc_id = ? AND citation_state >= ? AND citation_state <= ?
+			WHERE submission_id = ?
 			ORDER BY seq, citation_id',
-			array((int)$assocType, (int)$assocId, (int)$minCitationState, (int)$maxCitationState),
+			array((int)$submissionId),
 			$rangeInfo
 		);
-
 		return new DAOResultFactory($result, $this, '_fromRow', array('id'));
 	}
 
@@ -110,22 +129,15 @@ class CitationDAO extends DAO {
 	 * Update an existing citation.
 	 * @param $citation Citation
 	 */
-	function updateObject(&$citation) {
-		// Update the citation and release the lock
-		// on it (if one is present).
+	function updateObject($citation) {
 		$returner = $this->update(
 			'UPDATE	citations
-			SET	assoc_type = ?,
-				assoc_id = ?,
-				citation_state = ?,
+			SET	submission_id = ?,
 				raw_citation = ?,
 				seq = ?,
-				lock_id = NULL
 			WHERE	citation_id = ?',
 			array(
-				(integer)$citation->getAssocType(),
-				(integer)$citation->getAssocId(),
-				(integer)$citation->getCitationState(),
+				(integer)$citation->getSubmissionId(),
 				$citation->getRawCitation(),
 				(integer)$citation->getSequence(),
 				(integer)$citation->getId()
@@ -139,8 +151,8 @@ class CitationDAO extends DAO {
 	 * @param $citation Citation
 	 * @return boolean
 	 */
-	function deleteObject(&$citation) {
-		return $this->deleteObjectById($citation->getId());
+	function deleteObject($citation) {
+		return $this->deleteById($citation->getId());
 	}
 
 	/**
@@ -148,7 +160,7 @@ class CitationDAO extends DAO {
 	 * @param $citationId int
 	 * @return boolean
 	 */
-	function deleteObjectById($citationId) {
+	function deleteById($citationId) {
 		assert(!empty($citationId));
 
 		// Delete citation
@@ -158,15 +170,14 @@ class CitationDAO extends DAO {
 	}
 
 	/**
-	 * Delete all citations matching a particular association id.
-	 * @param $assocType int
-	 * @param $assocId int
+	 * Delete all citations matching a particular submission id.
+	 * @param $submissionId int
 	 * @return boolean
 	 */
-	function deleteObjectsByAssocId($assocType, $assocId) {
-		$citations = $this->getObjectsByAssocId($assocType, $assocId);
+	function deleteBySubmissionId($submissionId) {
+		$citations = $this->getBySubmissionId($submissionId);
 		while ($citation = $citations->next()) {
-			$this->deleteObjectById($citation->getId());
+			$this->deleteById($citation->getId());
 		}
 		return true;
 	}
@@ -203,9 +214,7 @@ class CitationDAO extends DAO {
 	function _fromRow($row) {
 		$citation = $this->_newDataObject();
 		$citation->setId((integer)$row['citation_id']);
-		$citation->setAssocType((integer)$row['assoc_type']);
-		$citation->setAssocId((integer)$row['assoc_id']);
-		$citation->setCitationState($row['citation_state']);
+		$citation->setSubmissionId((integer)$row['submission_id']);
 		$citation->setRawCitation($row['raw_citation']);
 		$citation->setSequence((integer)$row['seq']);
 
@@ -218,7 +227,7 @@ class CitationDAO extends DAO {
 	 * Update the citation meta-data
 	 * @param $citation Citation
 	 */
-	function _updateObjectMetadata(&$citation) {
+	function _updateObjectMetadata($citation) {
 		// Persist citation meta-data
 		$this->updateDataObjectSettings('citation_settings', $citation,
 				array('citation_id' => $citation->getId()));

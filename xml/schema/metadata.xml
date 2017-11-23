@@ -22,16 +22,9 @@
 			<KEY />
 			<AUTOINCREMENT/>
 		</field>
-		<field name="assoc_type" type="I8">
+		<field name="submission_id" type="I8">
 			<NOTNULL/>
 			<DEFAULT VALUE="0"/>
-		</field>
-		<field name="assoc_id" type="I8">
-			<NOTNULL/>
-			<DEFAULT VALUE="0"/>
-		</field>
-		<field name="citation_state" type="I8">
-			<NOTNULL/>
 		</field>
 		<field name="raw_citation" type="X">
 			<NOTNULL/>
@@ -40,15 +33,12 @@
 			<NOTNULL/>
 			<DEFAULT VALUE="0"/>
 		</field>
-		<field name="lock_id" type="C2" size="23" />
 		<descr>Citations</descr>
-		<index name="citations_assoc">
-			<col>assoc_type</col>
-			<col>assoc_id</col>
+		<index name="citations_submission">
+			<col>submission_id</col>
 		</index>
-		<index name="citations_assoc_seq">
-			<col>assoc_type</col>
-			<col>assoc_id</col>
+		<index name="citations_submission_seq">
+			<col>submission_id</col>
 			<col>seq</col>
 			<UNIQUE/>
 		</index>

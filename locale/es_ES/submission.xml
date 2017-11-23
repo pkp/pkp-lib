@@ -8,7 +8,7 @@
   * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Credits: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Spanish_(es_ES)
-  * Localization strings.
+  * Localization strings (contrib)
   -->
 
 <locale name="es_ES" full_name="Español (España)">
@@ -643,4 +643,26 @@
 	<message key="editor.submission.decision.accept">Aceptar envío</message>
 	<message key="editor.submission.decision.skipReview">Aceptar y omitir la revisión</message>
 	<message key="editor.submission.decision.noDecisionsAvailable">Asigne un editor/a para habilitar las decisiones editoriales en esta fase.</message>
+	
+	<!-- Submission Lists -->
+	<message key="submission.list.infoCenter">Registro de Actividad &amp; Notas</message>
+	<message key="submission.list.count">{$count} envíos</message>
+	<message key="submission.list.itemsOfTotal">{$count} de {$total} envíos</message>
+	<message key="submission.list.responseDue">Respuesta esperada</message>
+	<message key="submission.list.reviewDue">Revisión esperada</message>
+	<message key="submission.list.confirmDelete">Borrar envío?</message>
+	<message key="submission.list.viewSubmission">Ver {$title}</message>
+	<message key="submission.list.filter">Filtros</message>
+	<message key="submission.list.filterRemove">Limpiar filtros: {$filterTitle}</message>
+	<message key="submission.list.itemOrdererUp">Incrementar posición de {$itemTitle}</message>
+	<message key="submission.list.itemOrdererDown">Decrementar posición de {$itemTitle}</message>
+	<message key="submission.list.viewSubmission">Ver Envío</message>
+	<message key="submission.list.clearSearch">Limpiar frase de búsqueda</message>
+	<message key="submission.list.reviewsCompleted">Revisiones asignadas completadas</message>
+	<message key="submission.list.revisionsSubmitted">Revisiones enviadas</message>
+	<message key="submission.list.copyeditsSubmitted">Archivos corregidos enviados</message>
+	<message key="submission.list.galleysCreated">Galeradas creadas</message>
+	<message key="submission.list.filesPrepared">Archivos preparados</message>
+	<message key="submission.list.discussions">Discusiones abiertas</message>
+	<message key="submission.list.incompleteSubmissionNotice">El envío debe completarse antes de que un editor lo revise.</message>
 </locale>

@@ -21,7 +21,7 @@
 	<message key="manager.announcements.confirmDelete">¿Seguro que quiere borrar este anuncio permanentemente?</message>
 	<message key="manager.announcements.create">Crear nuevo anuncio</message>
 	<message key="manager.announcements.createTitle">Crear</message>
-	<message key="manager.announcements.dateExpire">Caducidadº</message>
+	<message key="manager.announcements.dateExpire">Caducidad</message>
 	<message key="manager.announcements.datePublish">Publicado</message>
 	<message key="manager.announcements.edit">Editar anuncio</message>
 	<message key="manager.announcements.editTitle">Editar</message>
@@ -86,9 +86,9 @@
 	<message key="manager.emails.form.subjectRequired">Es necesario el asunto del correo-e.</message>
 	<message key="manager.emails">Plantillas de correos-e</message>
 	<message key="manager.emails.resetAll">Restaurar todas las plantillas</message>
-	<message key="manager.emails.resetAll.message">Si restablece todas las plantillas, se perderán todas las modificaciones realizadas en las plantillas de correo electrónico.  ¿Desea confirmar esta operación?</message>
+	<message key="manager.emails.resetAll.message">Si restaura todas las plantillas, se perderán todas las modificaciones realizadas en las plantillas de correo electrónico.  ¿Desea confirmar esta operación?</message>
 	<message key="manager.emails.reset">Restaurar</message>
-	<message key="manager.emails.reset.message">Si restablece esta plantilla, todos los datos de mensaje se restablecerán a sus valores predeterminados y se perderán todas las modificaciones.  ¿Desea confirmar esta operación?</message>
+	<message key="manager.emails.reset.message">Si restarua esta plantilla, todos los datos de mensaje se restaurarán a sus valores predeterminados y se perderán todas las modificaciones.  ¿Desea confirmar esta operación?</message>
 	<message key="manager.emails.resetToDefault">Restaurar valores por defecto</message>
 	<message key="manager.filesBrowser">Navegación de ficheros</message>
 	<message key="manager.files.confirmDelete">¿Seguro que desea eliminar este archivo o directorio? Tenga en cuenta que el directorio debe estar vacío antes de eliminarlo.</message>
@@ -110,9 +110,9 @@
 	<message key="manager.groups.title">Título</message>
 	<message key="manager.importExport">Importar/exportar información</message>
 	<message key="manager.language.ui">IU</message>
-	<message key="manager.language.submissions">Propuestas</message>
+	<message key="manager.language.submissions">Envíos</message>
 	<message key="manager.language.forms">Formularios</message>
-	<message key="manager.language.reloadLocalizedDefaultSettings">Restablecer valores predeterminados</message>
+	<message key="manager.language.reloadLocalizedDefaultSettings">Restaurar valores predeterminados</message>
 	<message key="manager.languages.alternateLocaleInstructions">Este sistema permite introducir cierta información crítica en varios idiomas adicionales de forma opcional. Para utilizar esta función, seleccione configuraciones regionales alternativas y elija entre las opciones mostradas a continuación.</message>
 	<message key="manager.languages.supportedLocalesInstructions">Seleccione todas las configuraciones regionales que estarán disponibles en el sitio mediante un menú de selección de idiomas que aparecerá en cada página. El menú solo aparecerá si hay más de una configuración regional.</message>
 	<message key="manager.payment.timestamp">Fecha operación</message>
@@ -134,7 +134,7 @@
 	<message key="manager.people.enable">Activar</message>
 	<message key="manager.people.enroll">Inscribir usuaria/o</message>
 	<message key="manager.people.enrollment">Inscripción</message>
-	<message key="manager.people.enrollSelected">Suscribir usuarias/os seleccionados</message>
+	<message key="manager.people.enrollSelected">Inscribir usuarias/os seleccionados</message>
 	<message key="manager.people.enrollSyncRole">Sincronizar papel</message>
 	<message key="manager.people.enrollSync">Sincronizar el alta</message>
 	<message key="manager.people.enrollUserAsDescription">Una persona puede ser asignada o eliminada de un rol concreto en cualquier momento.</message>
@@ -153,7 +153,7 @@
 	<message key="manager.people.signInAs">Identifíquese como</message>
 	<message key="manager.people.signInAsUser">Identifíquese como usuaria/o</message>
 	<message key="manager.people.syncUsers">Sincronizar el alta de usuarias/os</message>
-	<message key="manager.people.unenroll">Desuscripción</message>
+	<message key="manager.people.unenroll">Cancelar inscripción</message>
 	<message key="manager.people.userCreatedSuccessfully">Usuaria/o creado.</message>
 	<message key="manager.people.userMustChangePassword">Solicitarle que cambie su contraseña la próxima vez que se identifique en el sistema.</message>
 	<message key="manager.plugins.action">Acción:</message>

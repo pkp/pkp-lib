@@ -84,9 +84,9 @@
 	<message key="metadata.property.displayName.size">Número de páginas</message>
 	<message key="metadata.property.validationMessage.size">Por favor, introduce un número de páginas total válido (debe ser un valor numérico).</message>
 	<message key="metadata.property.displayName.publisher-loc">Ubicación del editor</message>
-	<message key="metadata.property.validationMessage.publisher-loc">Por favor, introduce una localización del editor válida.</message>
+	<message key="metadata.property.validationMessage.publisher-loc">Por favor, introduce una localización del editor/a válida.</message>
 	<message key="metadata.property.displayName.publisher-name">Nombre del editor</message>
-	<message key="metadata.property.validationMessage.publisher-name">Por favor, introduce un nombre de editor válido.</message>
+	<message key="metadata.property.validationMessage.publisher-name">Por favor, introduce un nombre de editor/a válido.</message>
 	<message key="metadata.property.displayName.isbn">ISBN</message>
 	<message key="metadata.property.validationMessage.isbn">Por favor, introduce un ISBN válido (9 o 13 dígitos)</message>
 	<message key="metadata.property.displayName.issn">Imprimir ISSN</message>
@@ -134,7 +134,7 @@
 	<message key="common.queue.long.submissionsArchived">Envíos archivados</message>
 	<message key="submission.authors">Autores</message>
 	<message key="submission.mySubmissions">Mis envíos de autoría</message>
-	<message key="submission.addFile">Subir fichero</message>
+	<message key="submission.addFile">Subir archivo</message>
 	<message key="submission.agencies">Agencias</message>
 	<message key="submission.abstractViews">Consultas del resumen</message>
 	<message key="submission.accepted">Aceptado</message>
@@ -151,11 +151,11 @@
 	<message key="submission.comments.corrections">Correcciones</message>
 	<message key="submission.comments.editComment">Editar comentario</message>
 	<message key="submission.comments.importPeerReviews">Importar revisiones por pares</message>
-	<message key="submission.comments.importPeerReviews.reviewerLetter">Revisor {$reviewerLetter}:</message>
+	<message key="submission.comments.importPeerReviews.reviewerLetter">Revisor/a {$reviewerLetter}:</message>
 	<message key="submission.comments.noComments">No hay comentarios</message>
 	<message key="submission.comments.noReviews">No hay revisiones</message>
 	<message key="submission.comments.review">Revisión</message>
-	<message key="submission.comments.sendDecisionToReviewers">Enviar decisión de revisores y editorial</message>
+	<message key="submission.comments.sendDecisionToReviewers">Enviar decisión de revisores/as y editorial</message>
 	<message key="submission.comments.subject">Materia</message>
 	<message key="submission.complete">Completado</message>
 	<message key="submission.contributors">Lista de colaboradores</message>
@@ -187,9 +187,9 @@
 	<message key="submission.event.reviewer.reviewCancelled">Asignación de revisión cancelada</message>
 	<message key="submission.event.reviewer.reviewDeclined">Asignación de revisión rechazada</message>
 	<message key="submission.event.reviewer.reviewDueDate">Plazo de revisión modificado</message>
-	<message key="submission.event.reviewer.reviewerAssigned">Se ha asignado un revisor a la propuesta</message>
+	<message key="submission.event.reviewer.reviewerAssigned">Se ha asignado un revisor/a a la propuesta</message>
 	<message key="submission.event.reviewer.reviewerRated">Valoración de revisión enviada</message>
-	<message key="submission.event.reviewer.reviewerUnassigned">Se ha desasignado un revisor a la propuesta</message>
+	<message key="submission.event.reviewer.reviewerUnassigned">Se ha desasignado un revisor/a a la propuesta</message>
 	<message key="submission.event.reviewer.reviewFile">Archivo de revisión actualizado</message>
 	<message key="submission.event.reviewer.reviewInitiated">Asignación de revisión iniciada</message>
 	<message key="submission.event.reviewer.reviewRecommendation">Archivo de recomendaciones de revisión</message>
@@ -305,7 +305,7 @@
 	<message key="submission.source.tip">¿Se deriva este envío de otro recurso? Si es así, puede introducir una URL o una descripción del recurso.</message>
 	<message key="submissions.submit">Enviar</message>
 	<message key="submissions.submitted">Enviado</message>
-	<message key="submission.submission">Propuesta</message>
+	<message key="submission.submission">Envío</message>
 	<message key="submission.start">Comenzar</message>
 	<message key="submission.submissionHistory">Historial de envío</message>
 	<message key="submission.submissionManuscript">Texto completo de envío</message>
@@ -379,7 +379,7 @@
 	<message key="submission.indexingInformation">Información de indexado</message>
 	<message key="submission.uploadSuccessful">Tu archivo ha sido subido.</message>
 	<message key="submission.loadMessage">Por favor, espera mientras se almacena tu archivo en el servidor.</message>
-	<message key="submission.artworkFileDetails">Detalles del fichero de artwork</message>
+	<message key="submission.artworkFileDetails">Detalles del archivo de artwork</message>
 	<message key="submission.fileDetails">Detalles del archivo</message>
 	<message key="metadata.filters.crossref.settings.email.displayName">Correo electrónico de registro de CrossRef</message>
 	<message key="metadata.filters.crossref.settings.email.validationMessage">Por favor, introduce un correo electrónico de registro de CrossRef válido. Puedes registrar tu correo electrónico de manera gratuita en el sitio web de CrossRef.</message>
@@ -414,8 +414,8 @@
 	<message key="metadata.property.validationMessage.fpage">Por favor, introduce una primera página válida (debe ser un valor numérico).</message>
 	<message key="metadata.property.validationMessage.lpage">Por favor, introduce una última página válida (debe ser un valor numérico).</message>
 	<message key="metadata.property.validationMessage.size">Por favor, introduce un número de páginas total válido (debe ser un valor numérico).</message>
-	<message key="metadata.property.validationMessage.publisher-loc">Por favor, introduce una localización del editor válida.</message>
-	<message key="metadata.property.validationMessage.publisher-name">Por favor, introduce un nombre de editor válido.</message>
+	<message key="metadata.property.validationMessage.publisher-loc">Por favor, introduce una localización del editor/a válida.</message>
+	<message key="metadata.property.validationMessage.publisher-name">Por favor, introduce un nombre de editor/a válido.</message>
 	<message key="metadata.property.validationMessage.isbn">Por favor, introduce un ISBN válido (9 o 13 dígitos)</message>
 	<message key="metadata.property.validationMessage.issn">Por favor, introduce un ISSN de versión impresaválido.</message>
 	<message key="metadata.property.validationMessage.eissn">Por favor, introduce un ISSN electrónico válido.</message>
@@ -489,7 +489,7 @@
 	<message key="editor.submission.roundStatus.declined">Envío rechazado.</message>
 	<message key="editor.submission.roundStatus.pendingReviewers">Esperando a los revisores/as.</message>
 	<message key="editor.submission.roundStatus.pendingReviews">Esperando las respuestas de los revisores/as.</message>
-	<message key="editor.submission.roundStatus.reviewsReady">Los revisores nuevos están listos.</message>
+	<message key="editor.submission.roundStatus.reviewsReady">Los revisores/as nuevos están listos.</message>
 	<message key="editor.submission.roundStatus.reviewsCompleted">Revisiones completadas.</message>
 
 	<!-- Participants -->
@@ -664,5 +664,5 @@
 	<message key="submission.list.galleysCreated">Galeradas creadas</message>
 	<message key="submission.list.filesPrepared">Archivos preparados</message>
 	<message key="submission.list.discussions">Discusiones abiertas</message>
-	<message key="submission.list.incompleteSubmissionNotice">El envío debe completarse antes de que un editor lo revise.</message>
+	<message key="submission.list.incompleteSubmissionNotice">El envío debe completarse antes de que un editor/a lo revise.</message>
 </locale>

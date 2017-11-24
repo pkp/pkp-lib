@@ -39,10 +39,10 @@
 	<message key="metadata.filters.settings.isOptional.validationMessage">Error interno. Se ha publicado un valor no válido en la configuración del "filtro opcional". Informe de este error.</message>
 
 	<!-- messages shared between MD schemas -->
-	<message key="metadata.property.displayName.author">Autores</message>
-	<message key="metadata.property.validationMessage.author">Para obtener los mejores resultados, los autores deben ser introducidos en el siguiente formato: Coleman Jr, D. (Ralf) Dr.</message>
-	<message key="metadata.property.displayName.editor">Editores</message>
-	<message key="metadata.property.validationMessage.editor">Para obtener los mejores resultados, los editores deben ser introducidos en el siguiente formato: Coleman Jr, D. (Ralf) Dr.</message>
+	<message key="metadata.property.displayName.author">Autores/as</message>
+	<message key="metadata.property.validationMessage.author">Para obtener los mejores resultados, los autores/as deben ser introducidos en el siguiente formato: Coleman Jr, D. (Ralf) Dr.</message>
+	<message key="metadata.property.displayName.editor">Editores/as</message>
+	<message key="metadata.property.validationMessage.editor">Para obtener los mejores resultados, los editores/as deben ser introducidos en el siguiente formato: Coleman Jr, D. (Ralf) Dr.</message>
 
 	<!-- NLM-specific messages -->
 	<message key="metadata.property.displayName.article-title">Título del artículo</message>
@@ -393,8 +393,8 @@
 	<message key="metadata.filters.paracite.settings.citationModule.validationMessage">Por favor, selecciona uno de los módulos de citas que se muestran.</message>
 	<message key="metadata.filters.settings.isOptional.displayName">No usar por defecto (todavía estarán disponibles para el editor)</message>
 	<message key="metadata.filters.settings.isOptional.validationMessage">Error interno. Se ha introducido un valor no válido para el ajuste 'filtro opcional'. Por favor, notifica este fallo.</message>
-	<message key="metadata.property.validationMessage.author">Para obtener los mejores resultados, los autores deben ser introducidos en el siguiente formato: Coleman Jr, D. (Ralf) Dr.</message>
-	<message key="metadata.property.validationMessage.editor">Para obtener los mejores resultados, los editores deben ser introducidos en el siguiente formato: Coleman Jr, D. (Ralf) Dr.</message>
+	<message key="metadata.property.validationMessage.author">Para obtener los mejores resultados, los autores/as deben ser introducidos en el siguiente formato: Coleman Jr, D. (Ralf) Dr.</message>
+	<message key="metadata.property.validationMessage.editor">Para obtener los mejores resultados, los editores/as deben ser introducidos en el siguiente formato: Coleman Jr, D. (Ralf) Dr.</message>
 	<message key="metadata.property.validationMessage.article-title">Por favor, introduce un título válido para el artículo/trabajo.</message>
 	<message key="metadata.property.validationMessage.source">Por favor, introduce un título válido para la publicación.</message>
 	<message key="metadata.property.validationMessage.date">Por favor, introduce una fecha válida de publicación (formato: AAAA-MM-DD).</message>
@@ -574,7 +574,7 @@
 	<message key="submission.upload.query">Sube un archivo de discusión</message>
 	<message key="workflow.stage.any">Cualquier fase</message>
 	<message key="workflow.stage">Fase</message>
-	<message key="editor.submission.addStageParticipant.userGroup">Los usuarios son asignados a las diferentes fases del proceso de trabajo según su grupo. Cualquier usuario asignado a esta fase será automáticamente asignado a las otras fases en que su grupo usuario haya sido asignado. Esto normalmente está reservado a los editores, autores y traductores.</message>
+	<message key="editor.submission.addStageParticipant.userGroup">Los usuarios son asignados a las diferentes fases del proceso de trabajo según su grupo. Cualquier usuario asignado a esta fase será automáticamente asignado a las otras fases en que su grupo usuario haya sido asignado. Esto normalmente está reservado a los editores/as, autores/as y traductores/as.</message>
 	<message key="submission.supplementary">Contenido complementario</message>
 	<message key="submission.supplementary.creator">Creador (o propietario) del archivo</message>
 	<message key="submission.supplementary.subject">Materia</message>

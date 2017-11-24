@@ -30,6 +30,9 @@
 {fbvFormSection title="manager.setup.groupType" for="category"}
 	{fbvElement type="select" id="category" from=$submissionFileCategories selected=$category translate=false}
 {/fbvFormSection}
+{fbvFormSection label="manager.setup.genres.key" description="manager.setup.genres.key.description" for="key"}
+	{fbvElement type="text" id="key" value=$key maxlength="30" readonly=$keyReadOnly size=$fbvStyles.size.SMALL}
+{/fbvFormSection}
 {/fbvFormArea}
 
 {if $gridId}

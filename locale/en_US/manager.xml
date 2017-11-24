@@ -412,6 +412,10 @@
 	<message key="grid.action.restoreGenres">Restore the components to the default settings</message>
 	<message key="manager.setup.genres.dependent">Mark files of this type as dependent files (e.g. not to be listed with published content)</message>
 	<message key="manager.setup.genres.supplementary">Mark files of this type as supplementary files (e.g. not primary submission content)</message>
+	<message key="manager.setup.genres.key">Key</message>
+	<message key="manager.setup.genres.key.description">An optional short symbolic identifer for this genre.</message>
+	<message key="manager.setup.genres.key.exists">The key already exists.</message>
+	<message key="manager.setup.genres.key.alphaNumeric">The key can contain only alphanumeric characters, underscores, and hyphens, and must begin and end with an alphanumeric character.</message>
 	<message key="manager.settings.wizard">Settings Wizard</message>
 	<message key="manager.users.roleRequired">You need to select at least one role to be associated with this user.</message>
 	<message key="manager.website">Website</message>

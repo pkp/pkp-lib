@@ -597,7 +597,6 @@
 	<message key="submission.list.responseDue">Antwort fällig</message>
 	<message key="submission.list.reviewDue">Gutachten fällig</message>
 	<message key="submission.list.confirmDelete">Einreichung löschen?</message>
-	<message key="submission.list.viewSubmission">{$title} ansehen</message>
 	<message key="submission.list.filter">Filter</message>
 	<message key="submission.list.filterRemove">Filter löschen: {$filterTitle}</message>
 	<message key="submission.list.itemOrdererUp">Position von {$itemTitle} nach oben setzen</message>

@@ -597,7 +597,6 @@
 	<message key="submission.list.responseDue">موعد الإجابة</message>
 	<message key="submission.list.reviewDue">استيجاب التحكيم</message>
 	<message key="submission.list.confirmDelete">أتريد حذف الطلب؟</message>
-	<message key="submission.list.viewSubmission">معاينة {$title}</message>
 	<message key="submission.list.filter">التصفيات</message>
 	<message key="submission.list.filterRemove">تصفير التصفية: {$filterTitle}</message>
 	<message key="submission.list.itemOrdererUp">زيادة موقع {$itemTitle}</message>

@@ -643,7 +643,6 @@
 	<message key="submission.list.responseDue">Réponse en attente</message>
 	<message key="submission.list.reviewDue">Rapport en attente</message>
 	<message key="submission.list.confirmDelete">Supprimer la soumission ?</message>
-	<message key="submission.list.viewSubmission">{$title}</message>
 	<message key="submission.list.filter">Filtres</message>
 	<message key="submission.list.filterRemove">Supprimer le filtre : {$filterTitle}</message>
 	<message key="submission.list.itemOrdererUp">Remonter {$itemTitle}</message>

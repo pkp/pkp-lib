@@ -684,7 +684,6 @@
 	<message key="submission.list.responseDue">Deadline för svar</message>
 	<message key="submission.list.reviewDue">Deadline för granskning</message>
 	<message key="submission.list.confirmDelete">Radera bidrag?</message>
-	<message key="submission.list.viewSubmission">Visa {$title}</message>
 	<message key="submission.list.filter">Filter</message>
 	<message key="submission.list.filterRemove">Rensa filter: {$filterTitle}</message>
 	<message key="submission.list.itemOrdererUp">Flytta up {$itemTitle} i listan</message>

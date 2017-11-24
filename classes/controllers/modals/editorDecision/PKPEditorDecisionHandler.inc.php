@@ -220,7 +220,7 @@ class PKPEditorDecisionHandler extends Handler {
 
 				// Add reviewer recommendation
 				$recommendation = $reviewAssignment->getLocalizedRecommendation();
-				$body .= __('reviewer.article.recommendation') . ': ' . $recommendation . "<br>\n";
+				$body .= __('submission.recommendation', array('recommendation' => $recommendation)) . "<br>\n";
 
 				$body .= "<br>$textSeparator<br><br>";
 

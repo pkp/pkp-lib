@@ -482,8 +482,9 @@
 	<message key="submission.upload.noAvailableReviewFiles">No tiene archivos para revisar en este momento.</message>
 
 	<!-- Review Round Status Keys -->
-	<message key="editor.submission.roundStatus.revisionsRequested">Se solicitaron las revisiones.</message>
-	<message key="editor.submission.roundStatus.resubmitted">Se reenvió el archivo para su revisión.</message>
+	<message key="editor.submission.roundStatus.revisionsRequested">Revisiones solicitadas.</message>
+	<message key="editor.submission.roundStatus.revisionsSubmitted">Revisiones enviadas.</message>
+	<message key="editor.submission.roundStatus.resubmitted">Archivo reenviado para su revisión.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">Enviado para revisión externa.</message>
 	<message key="editor.submission.roundStatus.accepted">Envío aceptado.</message>
 	<message key="editor.submission.roundStatus.declined">Envío rechazado.</message>
@@ -491,7 +492,11 @@
 	<message key="editor.submission.roundStatus.pendingReviews">Esperando las respuestas de los revisores/as.</message>
 	<message key="editor.submission.roundStatus.reviewsReady">Los revisores/as nuevos están listos.</message>
 	<message key="editor.submission.roundStatus.reviewsCompleted">Revisiones completadas.</message>
-
+	<message key="editor.submission.roundStatus.reviewOverdue">Una revisión ha vencido.</message>
+	<message key="editor.submission.roundStatus.pendingRecommendations">Esperando recomendaciones de los editores/as.</message>
+	<message key="editor.submission.roundStatus.recommendationsReady">Enviada la nueva recomendación editorial.</message>
+	<message key="editor.submission.roundStatus.recommendationsCompleted">Recomendaciones recibidas y se requiere una Decisión.</message>	
+	
 	<!-- Participants -->
 	<message key="editor.submission.stageParticipants">Participantes</message>
 

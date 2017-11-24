@@ -510,7 +510,7 @@
 	<message key="grid.action.markRead">Marcar leído</message>
 	<message key="common.tasks.titleAndTask">{$acronym}: "{$title}": {$task}</message>
 	<message key="dashboard.myQueue">Mi lista</message>
-	<message key="notification.type.newAnnouncement">Nuevo anuncio.</message>
+	<message key="notification.type.newAnnouncement">Nuevo aviso.</message>
 	<message key="notification.type.metadataModified">Los metadatos de "{$title}" han sido modificados.</message>
 	<message key="notification.type.reviewerComment">Un revisor ha hecho comentarios acerca de "{$title}".</message>
 	<message key="user.authorization.invalidRepresentation">Representación inválida.</message>

@@ -347,7 +347,7 @@
 	<message key="manager.setup.genres.dependent">Marcar los archivos de este tipo como archivos dependientes</message>
 	<message key="manager.settings.wizard">Asistente de ajustes</message>
 	<message key="manager.users.roleRequired">Tiene que seleccionar al menos un rol para asociarlo a este usuario.</message>
-	<message key="manager.website">Página web</message>
+	<message key="manager.website">Sitio web</message>
 	<message key="manager.website.title">Ajustes del sitio web</message>
 	<message key="manager.workflow">Flujo de trabajo</message>
 	<message key="manager.workflow.title">Configuración de flujo de trabajo</message>
@@ -487,4 +487,53 @@
 	<message key="plugins.importexport.common.error.temporaryFileFailed">El archivo temporal {$dest} no se ha podido crear desde {$source}</message>
 	<message key="plugins.importexport.common.error.filesizeMismatch">El tamaño de archivo proporcionado "{$expected}" y el tamaño real "{$actual}" no coinciden</message>
 	<message key="plugins.importexport.native.error.submissionFileImportFailed">El archivo de envío no puede ser importado</message>
+	
+	<!-- Navigation Menus -->
+	<message key="manager.navigationMenus.form.title">Título</message>
+	<message key="manager.navigationMenus.form.path">Camino</message>
+	<message key="manager.navigationMenus">Menus de navegación</message>
+	<message key="manager.navigationMenus.form.viewInstructions"><![CDATA[<p>Esta página será accesible en: <blockquote>{$pagesPath}</blockquote>...donde %PATH% es el camino que ha introducido antes. <strong>Nota:</strong> Dos páginas no pueden tener el mismo camino. Emplear caminos del sistema puede hacer que se pierda el acceso a funciones importantes.</p>]]></message>
+	<message key="manager.navigationMenus.form.content">Contenido</message>
+	<message key="manager.navigationMenus.form.pathRegEx">El campo camino solo admite carácteres alfanuméricos, as como '.', '/', '-', y '_'.</message>
+	<message key="manager.navigationMenus.form.duplicatePath">Este camino ya existe para otro ítem de menú de navegación.</message>
+	<message key="manager.navigationMenus.form.duplicateTitles">Este título ya existe en otro menú de navegación.</message>
+	<message key="manager.navigationMenus.form.titleRequired">Es necesario un título</message>
+	<message key="manager.navigationMenuItems">Ítems del Menú de navegación</message>
+	<message key="manager.navigationMenus.assignedMenuItems">Ítems asignados al Menu</message>
+	<message key="manager.navigationMenus.unassignedMenuItems">Ítems no asignados al Menu</message>
+	<message key="manager.navigationMenus.form.navigationMenuArea">Áreas de navegación del Tema activo</message>
+	<message key="manager.navigationMenus.form.navigationMenuAreaMessage">Escoja una área de navegación</message>
+
+	<message key="manager.navigationMenus.form.url">URL</message>
+	<message key="manager.navigationMenus.form.customUrlError">Debe proporcionar una URL</message>
+
+	<message key="manager.navigationMenus.form.conditionalDisplay">Aprenda más sobre cuándo de mostrará y esconderá este ítem de menú.</message>
+	<message key="manager.navigationMenus.form.submenuWarning">Cuando un ítem abre un submenu, ese enlace podría no funcionar en todos los dispositivos. Por ejemplo, si tiene un ítem "Acerca de" que abre un submenú "Contacto" y "Equipo editorial", el enlace "Acerca de" puede no ser accesible en todos los dispositivos. En el menú por defecto, se corrige este problema creando un segundo ítem de menú "Acerca de la revista", que aparece en el submenu.</message>
+
+	<message key="manager.navigationMenus.form.navigationMenuItemType">Tipo de menu de navegación</message>
+	<message key="manager.navigationMenus.form.navigationMenuItemTypeMessage">Escoja un Tipo de menú de navegación o Personalizado, para crear el suyo</message>
+	<message key="manager.navigationMenus.customPage">Página personalizada</message>
+	<message key="manager.navigationMenus.customPage.description">Crear una página personalizada en su OJS y enlacela desde un menu de navegación.</message>
+	<message key="manager.navigationMenus.remoteUrl">URL remota</message>
+	<message key="manager.navigationMenus.remoteUrl.description">Enlace a cualquier URL en otro sitio web, como por ejemplo https://pkp.sfu.ca.</message>
+	<message key="manager.navigationMenus.about.description">Enlace a una página mostrando el contenido de Acerca de la revista en Preferencias > Revista</message>
+	<message key="manager.navigationMenus.about.conditionalWarning">Este enlace solo se mostrará si ha completado la sección Acerca de esta revista bajo Preferencias > Revista.</message>
+	<message key="manager.navigationMenus.editorialTeam.description">Enlace a una página mostrándo el contenido de la Cabecera en Preferencias > Revista</message>
+	<message key="manager.navigationMenus.editorialTeam.conditionalWarning">Este enlace solo se mostrará si ha completado la sección Equipo editorial bajo Preferencias > Revista.</message>
+	<message key="manager.navigationMenus.submissions.description">Enlace a las Instrucciones de envío.</message>
+	<message key="manager.navigationMenus.current.description">Enlace al Número actual.</message>
+	<message key="manager.navigationMenus.archives.description">Enlace al Archivo de números anteriores.</message>
+	<message key="manager.navigationMenus.announcements.description">Enlace a la página de Avisos.</message>
+	<message key="manager.navigationMenus.announcements.conditionalWarning">Este enlace solo se mostrará si ha activado los Avisos bajo Preferencias > Sitio Web.</message>
+	<message key="manager.navigationMenus.login.description">Enlace a la Página de acceso.</message>
+	<message key="manager.navigationMenus.register.description">Enlace a la Página de registro.</message>
+	<message key="manager.navigationMenus.dashboard.description">Enlace al Panel editorial.</message>
+	<message key="manager.navigationMenus.profile.description">Enlace a la página del perfil del usuario.</message>
+	<message key="manager.navigationMenus.administration.description">Enlace a las Herramientas de administración de todo el sitio.</message>
+	<message key="manager.navigationMenus.administration.conditionalWarning">Este enlace solo se mostrará a usuarios/as administradores/as.</message>
+	<message key="manager.navigationMenus.logOut.description">Enlace para cerrar la sessión del usuario/a.</message>
+	<message key="manager.navigationMenus.loggedOut.conditionalWarning">Este enlace solo se mostrará cuando el usuario/a haya iniciado la sesión.</message>
+	<message key="manager.navigationMenus.loggedIn.conditionalWarning">Este enlace solo se mostrará cuando el usuario/a NO haya iniciado la sesión.</message>
+	<message key="manager.navigationMenus.contact.description">Enlace a la página de Información de contacto.</message>
+	<message key="manager.navigationMenus.contact.conditionalWarning">Este enlace solo se mostrará si ha completado la sección Información de contacto bajo Preferencias > Contacto.</message>	
 </locale>

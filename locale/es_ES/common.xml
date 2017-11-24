@@ -26,13 +26,13 @@
 	<message key="about.people">Personas</message>
 	<message key="about.policies">Políticas</message>
 	<message key="about.siteMap">Mapa del sitio</message>
-	<message key="announcement.announcements">Anuncios</message>
-	<message key="announcement.announcementsHome">Anuncios</message>
-	<message key="announcement.moreAnnouncements">Mas Anuncios...</message>
-	<message key="announcement.noneExist">Ningún anuncio ha sido publicado.</message>
+	<message key="announcement.announcements">Avisos</message>
+	<message key="announcement.announcementsHome">Avisos</message>
+	<message key="announcement.moreAnnouncements">Mas avisos...</message>
+	<message key="announcement.noneExist">Ningún aviso ha sido publicado.</message>
 	<message key="announcement.posted">Enviado</message>
 	<message key="announcement.postedOn">Publicado el {$postDate}</message>
-	<message key="announcement.view">Ver Anuncio</message>
+	<message key="announcement.view">Ver Aviso</message>
 	<message key="common.tasks">Tareas</message>
 	<message key="common.list">Lista</message>
 	<message key="common.grid">Cuadrícula</message>
@@ -165,7 +165,7 @@
 	<message key="common.ok">Aceptar</message>
 	<message key="common.options">Opciones</message>
 	<message key="common.order">Orden</message>
-	<message key="common.originalFileName">Nombre del fichero original</message>
+	<message key="common.originalFileName">Nombre del archivo original</message>
 	<message key="common.or">o</message>
 	<message key="common.other">Otro</message>
 	<message key="common.overdue">Vencido</message>
@@ -189,7 +189,7 @@
 	<message key="common.remove">Eliminar</message>
 	<message key="common.removeSelection">Eliminar selección</message>
 	<message key="common.replaced">Sustituido</message>
-	<message key="common.replaceFile">Reemplazar fichero</message>
+	<message key="common.replaceFile">Reemplazar archivo</message>
 	<message key="common.requiredField">* Campos obligatorios</message>
 	<message key="common.required">Obligatorio</message>
 	<message key="common.reset">Restaurar</message>
@@ -331,8 +331,8 @@
 	<message key="stageParticipants.notify.message">Mensaje</message>
 	<message key="stageParticipants.notify.warning">Asegúrese de que ha rellenado el campo del mensaje y seleccione al menos un destinatario/a.</message>
 
-	<message key="locale.primary">Locale primario</message>
-	<message key="locale.supported">Locales soportados</message>
+	<message key="locale.primary">Idioma primario</message>
+	<message key="locale.supported">Idiomas soportados</message>
 	<message key="navigation.access"><![CDATA[Usuarios/as y roles]]></message>
 	<message key="navigation.about">Acerca de</message>
 	<message key="navigation.admin">Administración</message>
@@ -359,7 +359,7 @@
 	<message key="navigation.setup">Configuración</message>
 	<message key="navigation.sitemap">Mapa del sitio</message>
 	<message key="navigation.stepNumber">Paso {$step}</message>
-	<message key="navigation.submissions">Propuestas</message>
+	<message key="navigation.submissions">Envíos</message>
 	<message key="navigation.system">Sistema</message>
 	<message key="navigation.userHome">Inicio</message>
 	<message key="navigation.user">Usuario/a</message>
@@ -539,9 +539,9 @@
 	<message key="common.downloadPdf">Descargar PDF</message>
 	<message key="form.csrfInvalid">El formulario no se envió correctamente.</message>
 	<message key="informationCenter.addNote">Añadir nota</message>
-	<message key="navigation.skip.main">Saltar al contenido principal</message>
-	<message key="navigation.skip.nav">Saltar al menú de navegación principal</message>
-	<message key="navigation.skip.footer">Saltar al pie de página del sitio</message>
+	<message key="navigation.skip.main">Ir al contenido principal</message>
+	<message key="navigation.skip.nav">Ir al menú de navegación principal</message>
+	<message key="navigation.skip.footer">Ir al pie de página del sitio</message>
 	<message key="notification.removedSubmission">Envío eliminado.</message>
 	<message key="notification.type.assignCopyeditors">Asigne un corrector/a mediante la opción Añadir del panel de participantes.</message>
 	<message key="notification.type.awaitingCopyedits">Esperando correcciones.</message>

@@ -118,7 +118,6 @@
 	<message key="manager.languages.supportedLocalesInstructions">Seleccioneu totes les configuracions regionals que seran compatibles amb el lloc web mitjançant un menú de selecció de llengua que apareixerà a totes les pàgines. Aquest menú només es mostrarà si heu seleccionat més d'una configuració regional.</message>
 	<message key="manager.navigation">Navegació</message>
 	<message key="manager.payment.timestamp">Data i hora</message>
-	<message key="manager.people.allEnrolledUsers">Usuaris/àries donats d’alta en aquesta publicació</message>
 	<message key="manager.people.authSource">Font d’autenticació</message>
 	<message key="manager.people.confirmUnenroll">Voleu donar de baixa aquest usuari/usuària?</message>
 	<message key="manager.people.createUser">Crea un usuari/usuària nou</message>

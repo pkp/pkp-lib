@@ -158,6 +158,10 @@
 	<message key="submission.changeComments">Заменить на</message>
 	<message key="submission.changeFile">Изменить файл</message>
 	<message key="submission.citations">Литература</message>
+	<message key="submission.citations.description">Введите каждую ссылку на новой строке, чтобы их можно было потом извлечь.</message>
+	<message key="submission.parsedCitations">Извлеченные ссылки</message>
+	<message key="submission.parsedCitations.description">Следующие ссылки были извлечены и будут связаны с метаданными материала.</message>
+	<message key="submission.parsedAndSaveCitations">Извлечь и сохранить ссылки</message>
 	<message key="submission.comments.addComment">Добавить комментарий</message>
 	<message key="submission.comments.comments">Комментарии</message>
 	<message key="submission.comments.confirmDelete">Вы уверены, что хотите удалить этот комментарий?</message>

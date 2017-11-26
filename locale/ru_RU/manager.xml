@@ -415,6 +415,10 @@
 	<message key="manager.setup.genres.sortable">Разрешить файлы этого типа сортировать по главам</message>
 	<message key="manager.setup.genres.dependent">Отметить файлы этого типа как зависимые файлы (например, не показываемые с опубликованным контентом)</message>
 	<message key="manager.setup.genres.supplementary">Отметить файлы этого типа как дополнительные файлы (например, не относящиеся к основному контенту материала)</message>
+	<message key="manager.setup.genres.key">Ключ</message>
+	<message key="manager.setup.genres.key.description">Необязательный короткий символьный идентификатор для этого жанра.</message>
+	<message key="manager.setup.genres.key.exists">Ключ уже существует.</message>
+	<message key="manager.setup.genres.key.alphaNumeric">Ключ может содержать только буквы, цифры, подчеркивания, дефисы; должен начинаться и заканчиваться буквой или цифрой.</message>
 	<message key="manager.settings.wizard">Мастер настроек</message>
 	<message key="manager.users.roleRequired">Вам нужно выбрать как минимум одну роль, которая должна быть связана с этим пользователем.</message>
 	<message key="manager.website">Веб-сайт</message>

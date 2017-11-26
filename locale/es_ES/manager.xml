@@ -17,13 +17,13 @@
 	<message key="manager.website.appearance">Apariencia</message>
 	<message key="manager.website.imageFileRequired">Se necesita un archivo de imagen. Asegúrese de que ha elegido y cargado un archivo.</message>
 
-	<message key="manager.announcements">Anuncios</message>
-	<message key="manager.announcements.confirmDelete">¿Seguro que quiere borrar este anuncio permanentemente?</message>
-	<message key="manager.announcements.create">Crear nuevo anuncio</message>
+	<message key="manager.announcements">Avisos</message>
+	<message key="manager.announcements.confirmDelete">¿Seguro que quiere borrar este aviso permanentemente?</message>
+	<message key="manager.announcements.create">Crear nuevo aviso</message>
 	<message key="manager.announcements.createTitle">Crear</message>
-	<message key="manager.announcements.dateExpire">Caducidadº</message>
+	<message key="manager.announcements.dateExpire">Caducidad</message>
 	<message key="manager.announcements.datePublish">Publicado</message>
-	<message key="manager.announcements.edit">Editar anuncio</message>
+	<message key="manager.announcements.edit">Editar aviso</message>
 	<message key="manager.announcements.editTitle">Editar</message>
 	<message key="manager.announcements.form.dateExpireDayIncompleteDate">Aparte del día de caducidad, por favor elija un mes y/o un año.</message>
 	<message key="manager.announcements.form.dateExpire">Fecha de caducidad</message>
@@ -32,34 +32,34 @@
 	<message key="manager.announcements.form.dateExpireValid">Por favor elija una fecha de caducidad valida.</message>
 	<message key="manager.announcements.form.dateExpireYearIncompleteDate">Aparte del año de caducidad, por favor elija un mes y/o un día.</message>
 	<message key="manager.announcements.form.description">Descripción</message>
-	<message key="manager.announcements.form.descriptionInstructions">Texto completo del anuncio.</message>
-	<message key="manager.announcements.form.descriptionRequired">Se necesita una descripción del anuncio.</message>
-	<message key="manager.announcements.form.descriptionShortInstructions">Descripción breve que aparezca con el título del anuncio.</message>
-	<message key="manager.announcements.form.descriptionShortRequired">Se necesita una descripción corta del anuncio.</message>
+	<message key="manager.announcements.form.descriptionInstructions">Texto completo del aviso.</message>
+	<message key="manager.announcements.form.descriptionRequired">Se necesita una descripción del aviso.</message>
+	<message key="manager.announcements.form.descriptionShortInstructions">Descripción breve que aparezca con el título del aviso.</message>
+	<message key="manager.announcements.form.descriptionShortRequired">Se necesita una descripción corta del aviso.</message>
 	<message key="manager.announcements.form.descriptionShort">Descripción corta</message>
 	<message key="manager.announcements.form.saveAndCreateAnother">Guardar y crear otra/o</message>
-	<message key="manager.announcements.form.titleRequired">Se necesita un título para el anuncio.</message>
+	<message key="manager.announcements.form.titleRequired">Se necesita un título para el aviso.</message>
 	<message key="manager.announcements.form.title">Título</message>
 	<message key="manager.announcements.form.typeId">Tipo</message>
-	<message key="manager.announcements.form.typeIdValid">Seleccione un tipo de anuncio valido.</message>
-	<message key="manager.announcements.noneCreated">No se ha creado ningún anuncio.</message>
+	<message key="manager.announcements.form.typeIdValid">Seleccione un tipo de aviso valido.</message>
+	<message key="manager.announcements.noneCreated">No se ha creado ningún aviso.</message>
 	<message key="manager.announcements.title">Título</message>
 	<message key="manager.announcements.type">Tipo</message>
-	<message key="manager.announcementTypes">Tipo de Anuncios</message>
+	<message key="manager.announcementTypes">Tipo de avisos</message>
 	<message key="manager.announcementTypes.confirmDelete">¡Advertencia! Se eliminarán todos los avisos con este tipo de aviso. ¿Seguro que desea continuar y eliminar este tipo de aviso?</message>
-	<message key="manager.announcementTypes.create">Crear Tipo de Anuncio</message>
+	<message key="manager.announcementTypes.create">Crear tipo de aviso</message>
 	<message key="manager.announcementTypes.createTitle">Crear</message>
-	<message key="manager.announcementTypes.edit">Editar Tipo de Anuncio</message>
+	<message key="manager.announcementTypes.edit">Editar tipo de aviso</message>
 	<message key="manager.announcementTypes.editTitle">Editar</message>
 	<message key="manager.announcementTypes.form.saveAndCreateAnother">Guardar y crear otra/o</message>
-	<message key="manager.announcementTypes.form.typeNameExists">Un anuncio con este nombre y de este tipo ya existe.</message>
+	<message key="manager.announcementTypes.form.typeNameExists">Un aviso con este nombre y de este tipo ya existe.</message>
 	<message key="manager.announcementTypes.form.typeName">Nombre</message>
-	<message key="manager.announcementTypes.form.typeNameRequired">Se necesita un tipo de anuncio.</message>
-	<message key="manager.announcementTypes.noneCreated">Ningún tipo de anuncio se ha creado.</message>
-	<message key="manager.announcementTypes.typeName">Tipo de Anuncio</message>
+	<message key="manager.announcementTypes.form.typeNameRequired">Se necesita un tipo de aviso.</message>
+	<message key="manager.announcementTypes.noneCreated">Ningún tipo de aviso se ha creado.</message>
+	<message key="manager.announcementTypes.typeName">Tipo de aviso</message>
 
 	<!-- Publication Process settings -->
-	<message key="manager.publication.submissionStage">Propuesta</message>
+	<message key="manager.publication.submissionStage">Envío</message>
 	<message key="manager.publication.reviewStage">Revisión</message>
 	<message key="manager.publication.editorialStage">Editorial</message>
 	<message key="manager.publication.productionStage">Producción</message>
@@ -86,9 +86,9 @@
 	<message key="manager.emails.form.subjectRequired">Es necesario el asunto del correo-e.</message>
 	<message key="manager.emails">Plantillas de correos-e</message>
 	<message key="manager.emails.resetAll">Restaurar todas las plantillas</message>
-	<message key="manager.emails.resetAll.message">Si restablece todas las plantillas, se perderán todas las modificaciones realizadas en las plantillas de correo electrónico.  ¿Desea confirmar esta operación?</message>
+	<message key="manager.emails.resetAll.message">Si restaura todas las plantillas, se perderán todas las modificaciones realizadas en las plantillas de correo electrónico.  ¿Desea confirmar esta operación?</message>
 	<message key="manager.emails.reset">Restaurar</message>
-	<message key="manager.emails.reset.message">Si restablece esta plantilla, todos los datos de mensaje se restablecerán a sus valores predeterminados y se perderán todas las modificaciones.  ¿Desea confirmar esta operación?</message>
+	<message key="manager.emails.reset.message">Si restarua esta plantilla, todos los datos de mensaje se restaurarán a sus valores predeterminados y se perderán todas las modificaciones.  ¿Desea confirmar esta operación?</message>
 	<message key="manager.emails.resetToDefault">Restaurar valores por defecto</message>
 	<message key="manager.filesBrowser">Navegación de ficheros</message>
 	<message key="manager.files.confirmDelete">¿Seguro que desea eliminar este archivo o directorio? Tenga en cuenta que el directorio debe estar vacío antes de eliminarlo.</message>
@@ -110,9 +110,9 @@
 	<message key="manager.groups.title">Título</message>
 	<message key="manager.importExport">Importar/exportar información</message>
 	<message key="manager.language.ui">IU</message>
-	<message key="manager.language.submissions">Propuestas</message>
+	<message key="manager.language.submissions">Envíos</message>
 	<message key="manager.language.forms">Formularios</message>
-	<message key="manager.language.reloadLocalizedDefaultSettings">Restablecer valores predeterminados</message>
+	<message key="manager.language.reloadLocalizedDefaultSettings">Restaurar valores predeterminados</message>
 	<message key="manager.languages.alternateLocaleInstructions">Este sistema permite introducir cierta información crítica en varios idiomas adicionales de forma opcional. Para utilizar esta función, seleccione configuraciones regionales alternativas y elija entre las opciones mostradas a continuación.</message>
 	<message key="manager.languages.supportedLocalesInstructions">Seleccione todas las configuraciones regionales que estarán disponibles en el sitio mediante un menú de selección de idiomas que aparecerá en cada página. El menú solo aparecerá si hay más de una configuración regional.</message>
 	<message key="manager.payment.timestamp">Fecha operación</message>
@@ -134,7 +134,7 @@
 	<message key="manager.people.enable">Activar</message>
 	<message key="manager.people.enroll">Inscribir usuaria/o</message>
 	<message key="manager.people.enrollment">Inscripción</message>
-	<message key="manager.people.enrollSelected">Suscribir usuarias/os seleccionados</message>
+	<message key="manager.people.enrollSelected">Inscribir usuarias/os seleccionados</message>
 	<message key="manager.people.enrollSyncRole">Sincronizar papel</message>
 	<message key="manager.people.enrollSync">Sincronizar el alta</message>
 	<message key="manager.people.enrollUserAsDescription">Una persona puede ser asignada o eliminada de un rol concreto en cualquier momento.</message>
@@ -153,7 +153,7 @@
 	<message key="manager.people.signInAs">Identifíquese como</message>
 	<message key="manager.people.signInAsUser">Identifíquese como usuaria/o</message>
 	<message key="manager.people.syncUsers">Sincronizar el alta de usuarias/os</message>
-	<message key="manager.people.unenroll">Desuscripción</message>
+	<message key="manager.people.unenroll">Cancelar inscripción</message>
 	<message key="manager.people.userCreatedSuccessfully">Usuaria/o creado.</message>
 	<message key="manager.people.userMustChangePassword">Solicitarle que cambie su contraseña la próxima vez que se identifique en el sistema.</message>
 	<message key="manager.plugins.action">Acción:</message>
@@ -345,7 +345,7 @@
 	<message key="manager.setup.genres.dependent">Marcar los archivos de este tipo como archivos dependientes</message>
 	<message key="manager.settings.wizard">Asistente de ajustes</message>
 	<message key="manager.users.roleRequired">Tiene que seleccionar al menos un rol para asociarlo a este usuario.</message>
-	<message key="manager.website">Página web</message>
+	<message key="manager.website">Sitio web</message>
 	<message key="manager.website.title">Ajustes del sitio web</message>
 	<message key="manager.workflow">Flujo de trabajo</message>
 	<message key="manager.workflow.title">Configuración de flujo de trabajo</message>
@@ -485,4 +485,53 @@
 	<message key="plugins.importexport.common.error.temporaryFileFailed">El archivo temporal {$dest} no se ha podido crear desde {$source}</message>
 	<message key="plugins.importexport.common.error.filesizeMismatch">El tamaño de archivo proporcionado "{$expected}" y el tamaño real "{$actual}" no coinciden</message>
 	<message key="plugins.importexport.native.error.submissionFileImportFailed">El archivo de envío no puede ser importado</message>
+	
+	<!-- Navigation Menus -->
+	<message key="manager.navigationMenus.form.title">Título</message>
+	<message key="manager.navigationMenus.form.path">Camino</message>
+	<message key="manager.navigationMenus">Menus de navegación</message>
+	<message key="manager.navigationMenus.form.viewInstructions"><![CDATA[<p>Esta página será accesible en: <blockquote>{$pagesPath}</blockquote>...donde %PATH% es el camino que ha introducido antes. <strong>Nota:</strong> Dos páginas no pueden tener el mismo camino. Emplear caminos del sistema puede hacer que se pierda el acceso a funciones importantes.</p>]]></message>
+	<message key="manager.navigationMenus.form.content">Contenido</message>
+	<message key="manager.navigationMenus.form.pathRegEx">El campo camino solo admite carácteres alfanuméricos, as como '.', '/', '-', y '_'.</message>
+	<message key="manager.navigationMenus.form.duplicatePath">Este camino ya existe para otro ítem de menú de navegación.</message>
+	<message key="manager.navigationMenus.form.duplicateTitles">Este título ya existe en otro menú de navegación.</message>
+	<message key="manager.navigationMenus.form.titleRequired">Es necesario un título</message>
+	<message key="manager.navigationMenuItems">Ítems del Menú de navegación</message>
+	<message key="manager.navigationMenus.assignedMenuItems">Ítems asignados al Menu</message>
+	<message key="manager.navigationMenus.unassignedMenuItems">Ítems no asignados al Menu</message>
+	<message key="manager.navigationMenus.form.navigationMenuArea">Áreas de navegación del Tema activo</message>
+	<message key="manager.navigationMenus.form.navigationMenuAreaMessage">Escoja una área de navegación</message>
+
+	<message key="manager.navigationMenus.form.url">URL</message>
+	<message key="manager.navigationMenus.form.customUrlError">Debe proporcionar una URL</message>
+
+	<message key="manager.navigationMenus.form.conditionalDisplay">Aprenda más sobre cuándo de mostrará y esconderá este ítem de menú.</message>
+	<message key="manager.navigationMenus.form.submenuWarning">Cuando un ítem abre un submenu, ese enlace podría no funcionar en todos los dispositivos. Por ejemplo, si tiene un ítem "Acerca de" que abre un submenú "Contacto" y "Equipo editorial", el enlace "Acerca de" puede no ser accesible en todos los dispositivos. En el menú por defecto, se corrige este problema creando un segundo ítem de menú "Acerca de la revista", que aparece en el submenu.</message>
+
+	<message key="manager.navigationMenus.form.navigationMenuItemType">Tipo de menu de navegación</message>
+	<message key="manager.navigationMenus.form.navigationMenuItemTypeMessage">Escoja un Tipo de menú de navegación o Personalizado, para crear el suyo</message>
+	<message key="manager.navigationMenus.customPage">Página personalizada</message>
+	<message key="manager.navigationMenus.customPage.description">Crear una página personalizada en su OJS y enlacela desde un menu de navegación.</message>
+	<message key="manager.navigationMenus.remoteUrl">URL remota</message>
+	<message key="manager.navigationMenus.remoteUrl.description">Enlace a cualquier URL en otro sitio web, como por ejemplo https://pkp.sfu.ca.</message>
+	<message key="manager.navigationMenus.about.description">Enlace a una página mostrando el contenido de Acerca de la revista en Preferencias > Revista</message>
+	<message key="manager.navigationMenus.about.conditionalWarning">Este enlace solo se mostrará si ha completado la sección Acerca de esta revista bajo Preferencias > Revista.</message>
+	<message key="manager.navigationMenus.editorialTeam.description">Enlace a una página mostrándo el contenido de la Cabecera en Preferencias > Revista</message>
+	<message key="manager.navigationMenus.editorialTeam.conditionalWarning">Este enlace solo se mostrará si ha completado la sección Equipo editorial bajo Preferencias > Revista.</message>
+	<message key="manager.navigationMenus.submissions.description">Enlace a las Instrucciones de envío.</message>
+	<message key="manager.navigationMenus.current.description">Enlace al Número actual.</message>
+	<message key="manager.navigationMenus.archives.description">Enlace al Archivo de números anteriores.</message>
+	<message key="manager.navigationMenus.announcements.description">Enlace a la página de Avisos.</message>
+	<message key="manager.navigationMenus.announcements.conditionalWarning">Este enlace solo se mostrará si ha activado los Avisos bajo Preferencias > Sitio Web.</message>
+	<message key="manager.navigationMenus.login.description">Enlace a la Página de acceso.</message>
+	<message key="manager.navigationMenus.register.description">Enlace a la Página de registro.</message>
+	<message key="manager.navigationMenus.dashboard.description">Enlace al Panel editorial.</message>
+	<message key="manager.navigationMenus.profile.description">Enlace a la página del perfil del usuario.</message>
+	<message key="manager.navigationMenus.administration.description">Enlace a las Herramientas de administración de todo el sitio.</message>
+	<message key="manager.navigationMenus.administration.conditionalWarning">Este enlace solo se mostrará a usuarios/as administradores/as.</message>
+	<message key="manager.navigationMenus.logOut.description">Enlace para cerrar la sessión del usuario/a.</message>
+	<message key="manager.navigationMenus.loggedOut.conditionalWarning">Este enlace solo se mostrará cuando el usuario/a haya iniciado la sesión.</message>
+	<message key="manager.navigationMenus.loggedIn.conditionalWarning">Este enlace solo se mostrará cuando el usuario/a NO haya iniciado la sesión.</message>
+	<message key="manager.navigationMenus.contact.description">Enlace a la página de Información de contacto.</message>
+	<message key="manager.navigationMenus.contact.conditionalWarning">Este enlace solo se mostrará si ha completado la sección Información de contacto bajo Preferencias > Contacto.</message>	
 </locale>

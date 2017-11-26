@@ -104,7 +104,6 @@
 	<message key="manager.languages.alternateLocaleInstructions">O sistema permite opcionalmente informar conteúdo crítico em vários idiomas adicionais. Para utilizar esta ferramenta, habilite idiomas alternativos e escolha uma das opções a seguir.</message>
 	<message key="manager.languages.supportedLocalesInstructions">Escolha, da lista de idiomas que será exibida em todas as páginas, todos os aqueles que serão suportados. A lista aparecerá caso seja escolhido mais de um idioma.</message>
 	<message key="manager.payment.timestamp">Data de emissão</message>
-	<message key="manager.people.allEnrolledUsers">Usuários cadadstrados nesta editora</message>
 	<message key="manager.people.authSource">Fonte de autenticação</message>
 	<message key="manager.people.confirmUnenroll">Remover o usuário deste papel?</message>
 	<message key="manager.people.createUser">Incluir novo usuário</message>

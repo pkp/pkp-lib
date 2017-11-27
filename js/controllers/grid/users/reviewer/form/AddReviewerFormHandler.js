@@ -107,12 +107,14 @@
 					function(formElement, jsonData) {
 
 		var $form = this.getHtmlElement(),
-				processedJsonData = this.handleJson(jsonData);
+				processedJsonData = this.handleJson(jsonData),
+				$textarea = $form.find('textarea[name="personalMessage"]'),
+				editor =
+				tinyMCE.EditorManager.get(/** @type {string} */ ($textarea.attr('id')));
 
 		if (processedJsonData !== false) {
 			if (processedJsonData.content !== '') {
-				$form.find('textarea[name="personalMessage"]')
-						.val(processedJsonData.content);
+				editor.setContent(processedJsonData.content);
 			}
 		}
 		return processedJsonData.status;

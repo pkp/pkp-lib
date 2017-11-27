@@ -297,12 +297,11 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			$request = $this->getRequest();
 			$router = $request->getRouter();
 
-			if (is_null($mainContextId)) {
-				// Try to identify the main context (e.g. journal, conference, press),
-				// will be null if none found.
-				$mainContext = $router->getContext($request, 1);
-				if ($mainContext) $mainContextId = $mainContext->getId();
-			}
+			// Try to identify the main context (e.g. journal, conference, press),
+			// will be null if none found.
+			$mainContext = $router->getContext($request, 1);
+			if ($mainContext) $mainContextId = $mainContext->getId();
+			else $mainContextId = CONTEXT_SITE;
 		}
 		if (!isset($this->enabledProducts[$mainContextId])) {
 			$settingContext = array();

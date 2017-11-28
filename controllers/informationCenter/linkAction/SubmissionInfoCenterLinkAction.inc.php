@@ -38,7 +38,7 @@ class SubmissionInfoCenterLinkAction extends LinkAction {
 			}
 		}
 
-		$title = (isset($primaryAuthor)) ? implode(', ', array($primaryAuthor->getLastName(), $submission->getLocalizedTitle())) : $submission->getLocalizedTitle();
+		$title = (isset($primaryAuthor)) ? implode(', ', array($primaryAuthor->getLocalizedLastName(), $submission->getLocalizedTitle())) : $submission->getLocalizedTitle();
 
 		$dispatcher = $request->getDispatcher();
 		import('lib.pkp.classes.linkAction.request.AjaxModal');

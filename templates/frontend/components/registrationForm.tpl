@@ -30,7 +30,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="text" name="firstName" id="firstName" value="{$firstName|escape}" maxlength="40" required>
+				<input type="text" name="firstName[{$primaryLocale|escape}]" id="firstName" value="{$firstName.$primaryLocale|escape}" maxlength="40" required>
 			</label>
 		</div>
 		<div class="middle_name">
@@ -38,7 +38,7 @@
 				<span class="label">
 					{translate key="user.middleName"}
 				</span>
-				<input type="text" name="middleName" value="{$middleName|escape}" maxlength="40">
+				<input type="text" name="middleName[{$primaryLocale|escape}]" value="{$middleName.$primaryLocale|escape}" maxlength="40">
 			</label>
 		</div>
 		<div class="last_name">
@@ -50,7 +50,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="text" name="lastName" id="lastName" value="{$lastName|escape}" maxlength="40" required>
+				<input type="text" name="lastName[{$primaryLocale|escape}]" id="lastName" value="{$lastName.$primaryLocale|escape}" maxlength="40" required>
 			</label>
 		</div>
 		<div class="affiliation">

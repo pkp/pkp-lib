@@ -27,9 +27,9 @@
 
 {fbvFormArea id="userDetails"}
 	{fbvFormSection title="user.name"}
-		{fbvElement type="text" label="user.firstName" required="true" id="firstName" value=$firstName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
-		{fbvElement type="text" label="user.middleName" id="middleName" value=$middleName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
-		{fbvElement type="text" label="user.lastName" required="true" id="lastName" value=$lastName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
+		{fbvElement type="text" label="user.firstName" multilingual="true" required="true" id="firstName" value=$firstName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
+		{fbvElement type="text" label="user.middleName" multilingual="true" id="middleName" value=$middleName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
+		{fbvElement type="text" label="user.lastName" multilingual="true" required="true" id="lastName" value=$lastName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
 	{/fbvFormSection}
 
 	{if !$disableUserNameSection}

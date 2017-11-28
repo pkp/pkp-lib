@@ -57,8 +57,8 @@ class RoleDAO extends DAO {
 		$searchSql = '';
 
 		$searchTypeMap = array(
-			USER_FIELD_FIRSTNAME => 'u.first_name',
-			USER_FIELD_LASTNAME => 'u.last_name',
+			IDENTITY_SETTING_FIRSTNAME => 'usf.setting_value',
+			IDENTITY_SETTING_LASTNAME => 'usl.setting_value',
 			USER_FIELD_USERNAME => 'u.username',
 			USER_FIELD_EMAIL => 'u.email',
 			USER_FIELD_INTERESTS => 'cves.setting_value'
@@ -86,15 +86,17 @@ class RoleDAO extends DAO {
 				$paramArray[] = $search;
 				break;
 			case USER_FIELD_INITIAL:
-				$searchSql = 'AND LOWER(u.last_name) LIKE LOWER(?)';
+				$searchSql = 'AND LOWER(usl.setting_value) LIKE LOWER(?)';
 				$paramArray[] = $search . '%';
 				break;
 		}
 
-		$searchSql .= ' ORDER BY u.last_name, u.first_name'; // FIXME Add "sort field" parameter?
+		$searchSql .= ' ORDER BY usl.setting_value, usf.setting_value'; // FIXME Add "sort field" parameter?
 
 		$result = $this->retrieveRange(
 			'SELECT DISTINCT u.* FROM users AS u LEFT JOIN controlled_vocabs cv ON (cv.assoc_type = ? AND cv.assoc_id = u.user_id AND cv.symbolic = ?)
+			LEFT JOIN user_settings usf ON (usf.user_id = u.user_id AND usf.setting_name = \''.IDENTITY_SETTING_FIRSTNAME.'\' AND usf.locale = \''.AppLocale::getLocale().'\')
+			LEFT JOIN user_settings usl ON (usl.user_id = u.user_id AND usl.setting_name = \''.IDENTITY_SETTING_LASTNAME.'\' AND usl.locale = \''.AppLocale::getLocale().'\')
 			LEFT JOIN controlled_vocab_entries cve ON (cve.controlled_vocab_id = cv.controlled_vocab_id)
 			LEFT JOIN controlled_vocab_entry_settings cves ON (cves.controlled_vocab_entry_id = cve.controlled_vocab_entry_id),
 			user_groups AS ug, user_user_groups AS uug
@@ -185,7 +187,7 @@ class RoleDAO extends DAO {
 	function getSortMapping($heading) {
 		switch ($heading) {
 			case 'username': return 'u.username';
-			case 'name': return 'u.last_name';
+			case 'name': return 'usl.setting_value';
 			case 'email': return 'u.email';
 			case 'id': return 'u.user_id';
 			default: return null;

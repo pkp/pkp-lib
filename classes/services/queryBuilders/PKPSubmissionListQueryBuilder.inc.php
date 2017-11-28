@@ -299,7 +299,20 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 			$words = explode(' ', $this->searchPhrase);
 			if (count($words)) {
 				$q->leftJoin('submission_settings as ss','s.submission_id','=','ss.submission_id')
-					->leftJoin('authors as au','s.submission_id','=','au.submission_id');
+					->leftJoin('authors as au','s.submission_id','=','au.submission_id')
+						->leftJoin('author_settings as asf',function($table) use ($assigneeId) {
+							$table->on('au.author_id', '=', 'asf.author_id');
+							$table->on('asf.setting_name', '=', IDENTITY_SETTING_FIRSTNAME );
+							$table->on('asf.locale', '=', AppLocale::getLocale() );
+					})	->leftJoin('author_settings as asm',function($table) use ($assigneeId) {
+							$table->on('au.author_id', '=', 'asm.author_id');
+							$table->on('asm.setting_name', '=', IDENTITY_SETTING_MIDDLENAME );
+							$table->on('asm.locale', '=', AppLocale::getLocale() );
+					})	->leftJoin('author_settings as asl',function($table) use ($assigneeId) {
+							$table->on('au.author_id', '=', 'asl.author_id');
+							$table->on('asl.setting_name', '=', IDENTITY_SETTING_LASTNAME );
+							$table->on('asl.locale', '=', AppLocale::getLocale() );
+					});
 
 				foreach ($words as $word) {
 					$q->where(function($q) use ($word, $isAssignedOnly)  {
@@ -313,9 +326,9 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 								$q->whereNull('ra.reviewer_id');
 							}
 							$q->where(function($q) use ($word) {
-								$q->where('au.first_name', 'LIKE', "%{$word}%");
-								$q->orWhere('au.middle_name', 'LIKE', "%{$word}%");
-								$q->orWhere('au.last_name', 'LIKE', "%{$word}%");
+								$q->where('asf.setting_value', 'LIKE', "%{$word}%");
+								$q->orWhere('asm.setting_value', 'LIKE', "%{$word}%");
+								$q->orWhere('asl.setting_value', 'LIKE', "%{$word}%");
 							});
 						});
 						if (ctype_digit($word)) {

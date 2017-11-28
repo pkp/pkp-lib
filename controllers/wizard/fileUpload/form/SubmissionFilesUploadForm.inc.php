@@ -21,32 +21,25 @@ class SubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 	/** @var array */
 	var $_uploaderRoles;
 
-	/** @var array */
-	var $_uploaderGroupIds;
-
 
 	/**
 	 * Constructor.
 	 * @param $request Request
 	 * @param $submissionId integer
-	 * @param $uploaderRoles array
-	 * @param $uploaderGroupIds array|null
 	 * @param $stageId integer One of the WORKFLOW_STAGE_ID_* constants.
+	 * @param $uploaderRoles array
 	 * @param $fileStage integer
 	 * @param $revisionOnly boolean
 	 * @param $stageId integer
 	 * @param $reviewRound ReviewRound
 	 * @param $revisedFileId integer
 	 */
-	function __construct($request, $submissionId, $stageId, $uploaderRoles, $uploaderGroupIds, $fileStage,
+	function __construct($request, $submissionId, $stageId, $uploaderRoles, $fileStage,
 			$revisionOnly = false, $reviewRound = null, $revisedFileId = null, $assocType = null, $assocId = null) {
 
 		// Initialize class.
 		assert(is_null($uploaderRoles) || (is_array($uploaderRoles) && count($uploaderRoles) >= 1));
 		$this->_uploaderRoles = $uploaderRoles;
-
-		assert(is_null($uploaderGroupIds) || (is_array($uploaderGroupIds) && count($uploaderGroupIds) >= 1));
-		$this->_uploaderGroupIds = $uploaderGroupIds;
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
 
@@ -72,14 +65,6 @@ class SubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 	function getUploaderRoles() {
 		assert(!is_null($this->_uploaderRoles));
 		return $this->_uploaderRoles;
-	}
-
-	/**
-	 * Get the uploader group IDs.
-	 * @return array|null
-	 */
-	function getUploaderGroupIds() {
-		return $this->_uploaderGroupIds;
 	}
 
 
@@ -163,17 +148,12 @@ class SubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 		// user is assigned to the current submission as a sub
 		// editor, see #6000.
 		$uploaderRoles = $this->getUploaderRoles();
-		$uploaderUserGroups = $this->getUploaderGroupIds();
 		$uploaderUserGroupOptions = array();
 		$highestAuthorityUserGroupId = null;
 		$highestAuthorityRoleId = null;
 		while($userGroup = $assignedUserGroups->next()) { /* @var $userGroup UserGroup */
 			// Exclude groups outside of the uploader roles.
 			if (!in_array($userGroup->getRoleId(), $uploaderRoles)) continue;
-
-			// If a specific subset of user groups was specified
-			// and the current one is outside the set, exclude it.
-			if ($uploaderUserGroups !== null && !in_array($userGroup->getId(), $uploaderUserGroups)) continue;
 
 			$uploaderUserGroupOptions[$userGroup->getId()] = $userGroup->getLocalizedName();
 
@@ -215,8 +195,8 @@ class SubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 			// If we didn't find a corresponding stage assignment then
 			// use the user group with the highest authority as default.
 			if (is_null($defaultUserGroupId)) $defaultUserGroupId = $highestAuthorityUserGroupId;
+			$this->setData('defaultUserGroupId', $defaultUserGroupId);
 		}
-		$this->setData('defaultUserGroupId', $defaultUserGroupId);
 
 		return parent::fetch($request);
 	}

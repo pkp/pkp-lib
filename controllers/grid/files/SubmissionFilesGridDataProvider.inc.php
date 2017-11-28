@@ -116,8 +116,7 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider {
 		$submission = $this->getSubmission();
 		return new AddFileLinkAction(
 			$request, $submission->getId(),
-			$this->getStageId(), $this->getUploaderRoles(),
-			$this->getUploaderGroupIds(), $this->getFileStage()
+			$this->getStageId(), $this->getUploaderRoles(), $this->getFileStage()
 		);
 	}
 

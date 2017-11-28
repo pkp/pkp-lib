@@ -101,7 +101,7 @@ class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 		import('lib.pkp.controllers.api.file.linkAction.AddFileLinkAction');
 		return new AddFileLinkAction(
 			$request, $submission->getId(), $this->getStageId(),
-			$this->getUploaderRoles(), null, $this->getFileStage(),
+			$this->getUploaderRoles(), $this->getFileStage(),
 			ASSOC_TYPE_NOTE, $this->_noteId
 		);
 	}

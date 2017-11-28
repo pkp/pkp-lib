@@ -61,6 +61,25 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 	}
 
 	/**
+	 * Copy a submission file.
+	 * @param $filePath string the path of the file on the file system
+	 * @param $fileStage int submission file workflow stage
+	 * @param $copyUserId int The id of the user that originates the file copy
+	 * @param $copyUserGroupId int The id of the user group that the user is acting in
+	 *  when copying the file
+	 * @param $revisedFileId int
+	 * @param $genreId int (e.g. Manuscript, Appendix, etc.)
+	 * @return SubmissionFile
+	 */
+	function copySubmissionFile($filePath, $fileStage, $copyUserId,
+			$copyUserGroupId, $revisedFileId = null, $genreId = null, $assocType = null, $assocId = null) {
+		return $this->_handleCopy(
+			$filePath, $fileStage, $copyUserId,
+			$copyUserGroupId, $revisedFileId, $genreId, $assocType, $assocId
+		);
+	}
+
+	/**
 	 * Delete a file.
 	 * @param $fileId integer
 	 * @param $revisionId integer
@@ -249,6 +268,48 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 		// persist its meta-data to the database.
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		return $submissionFileDao->insertObject($submissionFile, $fileName, true);
+	}
+
+	/**
+	 * Copy a file and add it to the database.
+	 * @param $filePath string full path to file on the file system
+	 * @param $fileStage int submission file stage (one of the SUBMISSION_FILE_* constants)
+	 * @param $copyUserId int The id of the user that is copying the file.
+	 * @param $copyUserGroupId int The id of the user group that the user acted in
+	 *  when copying the file.
+	 * @param $revisedFileId int ID of an existing file to revise
+	 * @param $genreId int foreign key into genres table (e.g. manuscript, etc.)
+	 * @param $assocType int
+	 * @param $assocId int
+	 * @return SubmissionFile the submission file or null if an error occured.
+	 */
+	function _handleCopy($filePath, $fileStage, $copyUserId, $copyUserGroupId,
+			$revisedFileId = null, $genreId = null, $assocType = null, $assocId = null) {
+
+		// Ensure that the file exists on the file system
+		if (!$this->fileExists($filePath)) return null;
+
+		// Instantiate and pre-populate a new submission file object.
+		$submissionFile = $this->_instantiateSubmissionFile($filePath, $fileStage, $revisedFileId, $genreId, $assocType, $assocId);
+		if (is_null($submissionFile)) return null;
+
+		// Retrieve and copy the file type of the uploaded file.
+		$fileType = PKPString::mime_content_type($filePath);
+		assert($fileType !== false);
+		$submissionFile->setFileType($fileType);
+
+		// Retrieve the file name from the file path
+		$originalFileName = basename($filePath);
+		assert($originalFileName !== false);
+		$submissionFile->setOriginalFileName($this->truncateFileName($originalFileName));
+
+		// Set the user and user group id for the copied file
+		$submissionFile->setUploaderUserId($copyUserId);
+		$submissionFile->setUserGroupId($copyUserGroupId);
+
+		// Save the submission file to the database.
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+		return $submissionFileDao->insertObject($submissionFile, $filePath, false);
 	}
 
 	/**

@@ -39,8 +39,8 @@
 	<message key="reviewer.complete">Examen envoyé</message>
 	<message key="reviewer.confirmSubmit">Vous voulez vraiment envoyer cet examen?</message>
 	<message key="reviewer.aboutDueDates">À propos des dates d'échéance</message>
-	<message key="reviewer.complete.whatNext">Merci d'avoir examiné cette soumission. Votre examen a bien été reçu. Nous apprécions votre contribution à la qualité du travail que nous publions. L'éditeur pourrait vous contacter à nouveau pour obtenir d'autres renseignements, le cas échéant.</message>
-	<message key="reviewer.aboutDueDates.text">L'éditeur demande que vous acceptiez ou refusiez d'examiner la soumission avant la date d'échéance, et complétiez l'examen avant la date d'échéance.</message>
+	<message key="reviewer.complete.whatNext">Merci d'avoir examiné cette soumission. Votre examen a bien été reçu. Nous apprécions votre contribution à la qualité du travail que nous publions. Le rédacteur pourrait vous contacter à nouveau pour obtenir d'autres renseignements, le cas échéant.</message>
+	<message key="reviewer.aboutDueDates.text">Le rédacteur demande que vous acceptiez ou refusiez d'examiner la soumission avant la date d'échéance, et complétiez l'examen avant la date d'échéance.</message>
 	<message key="submission.comments.canShareWithAuthor">Ce texte sera transmis à l'auteur et au rédacteur</message>
 	<message key="submission.comments.cannotShareWithAuthor">Ce texte sera transmis au rédacteur</message>
 	<message key="user.authorization.submissionReviewer">L'utilisateur courant n'est pas assigné comme rapporteur pour le document demandé.</message>

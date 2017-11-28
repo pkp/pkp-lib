@@ -131,59 +131,9 @@
 	<message key="submission.backToSubmissionEditing">Povratak na uređivanje prijave</message>
 	<message key="submission.changeComments">Promeni u</message>
 	<message key="submission.citations">Reference</message>
-	<message key="submission.citations.editor.citationlist.deleteCitationConfirmation">Da li ste sigurni da želite da obrišete sve citate?</message>
-	<message key="submission.citations.editor.citationlist.errorDeletingCitation">Došlo je do greške prilikom brisanja citata. Prijavite ovo kao grešku „bug“.</message>
-	<message key="submission.citations.editor.citationlist.newCitation">Novo citiranje</message>
-	<message key="submission.citations.editor.citationlist.title">Izmeni citiranja</message>
-	<message key="submission.citations.editor.clickToEdit">Klikni za izmenu.</message>
-	<message key="submission.citations.editor.details.authorQuery">Pitaj autora</message>
-	<message key="submission.citations.editor.details.authorQueryBody">Vaša poruka autoru:</message>
-	<message key="submission.citations.editor.details.authorQueryExplanation">Možete pitati autora za više informacija o citatu. Klikom na "Pošalji" vaša poruka će biti poslata na autorovu imejl adresu.</message>
-	<message key="submission.citations.editor.details.authorQuerySubject">Tema:</message>
-	<message key="submission.citations.editor.details.cannotSelectDefaultForLabel">Ukoliko vam polje oznaka ne treba, obrišite ga.</message>
-	<message key="submission.citations.editor.details.checkInGoogleScholar">Proveri u Google Scholar</message>
-	<message key="submission.citations.editor.details.changeFieldInfo">Upišite prvih par slova da biste selektovali...</message>
-	<message key="submission.citations.editor.details.citationExportPreview">Prikaz izvoza citata</message>
-	<message key="submission.citations.editor.details.citationImprovementResultsActive">Rezultati Expert internal citation servisa (кklikni da zatvoriš)</message>
-	<message key="submission.citations.editor.details.citationImprovementResultsInactive">Rezultati Expert internal citation servisa (klikni da otvoriš)</message>
-	<message key="submission.citations.editor.details.citationServices">Servis citata</message>
-	<message key="submission.citations.editor.details.clickToDismissMessage">Možete da kliknete na tekst da poništite.</message>
-	<message key="submission.citations.editor.details.dataSaved">Vaše izmene su sačuvane.</message>
-	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Odaberite servis baze citata:</message>
-	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Podešavanja Expert citation editing (Klikni da zatvoriš)</message>
-	<message key="submission.citations.editor.details.editRawCitationExpertSettingsInactive">Podešavanja Expert citation editing (Klikni da otvoriš)</message>
-	<message key="submission.citations.editor.details.editRawCitationExtractionServices">Odaberite servis za ekstrakciju citata</message>
-	<message key="submission.citations.editor.details.editRawCitationFilterValidationError">Unutrašnja greška: Neispravan filter selekcije. Molimo da prijavite grešku  „bug“.</message>
-	<message key="submission.citations.editor.details.explainImprovementOptions">Ukoliko niste dobili zadovoljavajuće rezultate, imate mogućnosti da unapredite citatnost. Često pomaže ručno uređivanje bitnih polja kao što su naslov ili autor.</message>
-	<message key="submission.citations.editor.details.googleScholar">Google Scholar</message>
-	<message key="submission.citations.editor.details.googleScholarExplanation">Ukoliko niste pronašli citat ni na jednom ponuđenom servisu možete da potražite na Google Scholar. Na žalost, Google Scholar ne nudi automatski interfejs tako da ne postoji mogućnost automatskog povlačenja podataka već je potrebno ručno kopirati podatke.</message>
-	<message key="submission.citations.editor.details.manualEditing">Ručne izmene</message>
-	<message key="submission.citations.editor.details.messages">Imajte na umu (kliknite na poruke da ih sklonite)</message>
-	<message key="submission.citations.editor.details.newFieldInfo">...kliknite ovde da dodate novo polje...</message>
-	<message key="submission.citations.editor.details.queryCitation">Ponovo potraži citatni servis</message>
-	<message key="submission.citations.editor.details.queryGoogleScholar">Potražite u Google Scholar</message>
-	<message key="submission.citations.editor.details.processRawCitation">Proces</message>
-	<message key="submission.citations.editor.details.processRawCitationGoAhead">Nastavi</message>
-	<message key="submission.citations.editor.details.processRawCitationTitle">Izmeni originalno citiranje</message>
-	<message key="submission.citations.editor.details.saveAndApprove">Sačuvaj i odobri</message>
-	<message key="submission.citations.editor.details.saveAndRevokeApproval">Opozovi odobrenje</message>
-	<message key="submission.citations.editor.details.sendAuthorQuery">Pošalji poruku</message>
-	<message key="submission.citations.editor.details.sendAuthorQuerySuccess">Poruka poslata!</message>
-	<message key="submission.citations.editor.details.sourceResultsUse">Koristi</message>
-	<message key="submission.citations.editor.details.sourceResultsUseAll">Koristi sve</message>
-	<message key="submission.citations.editor.details.sourceResultsUseAllExplanation">Klikni za transportovanje svih rezultata iz ovog izvora u listu</message>
-	<message key="submission.citations.editor.details.sourceResultsUseExplanation">Klikni da transportuješ ovo polje rezultata u svoju listu</message>
-	<message key="submission.citations.editor.details.rawCitation">Originalni tekst citata</message>
-	<message key="submission.citations.editor.details.rawCitationRequired">Tekst citata je obavezan.</message>
-	<message key="submission.citations.editor.details.unsavedChanges">Citat sadrži podatke koji nisu sačuvani. Kliknite "Sačuvaj" da biste sačuvali izmene ili "Odustani" da biste se vratili na stare postavke.</message>
-	<message key="submission.citations.editor.details.dontShowMessageAgain">Ne prikazuj više ovu poruku.</message>
-	<message key="submission.citations.editor.edit">Izmeni citate</message>
-	<message key="submission.citations.editor.export">Izvezi citate</message>
 	<message key="submission.date.mmdd">DD.MM</message>
 	<message key="submission.date.yyyymmdd">DD.MM.GGGG.</message>
 	<message key="submission.addFile">Dodaj fajl</message>
-	<message key="submission.citations.editor.citationlist.approved">Odobreno</message>
-	<message key="submission.citations.editor.citationlist.notApproved">Nije odobreno</message>
 	<message key="submission.comments.addReviews">Dodaj recenzije u imejl</message>
 	<message key="submission.layout.galleyRemoteURL">Udaljeni URL</message>
 	<message key="submission.layout.galleyRemoteURLValid">Molimo dodajte ispravan URL (uključujući http://).</message>
@@ -359,13 +309,6 @@
 	<message key="submission.authors">Autori</message>
 	<message key="submission.authorBiographies">Biografije autora</message>
 	<message key="submission.shortAuthor">{$author} i drugi.</message>
-	<message key="submission.citations.editor.export.filterSelectionDescription">Odaberite jednu od opcija izvoza.</message>
-	<message key="submission.citations.editor.export.filterSelectionError">Niste odabrali jednu od opcija izvoza.</message>
-	<message key="submission.citations.editor.export.pleaseSelectXmlFilter">XML opcije izvoza:</message>
-	<message key="submission.citations.editor.introduction">Uvod</message>
-	<message key="submission.citations.editor.pleaseSelect">Odaberite...</message>
-	<message key="submission.citations.editor.unprocessedCitationsButton">Osveži listu citata</message>
-	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Kliknite da osvežite listu citata.</message>
 	<message key="submission.comments.addComment">Dodaj komentar</message>
 	<message key="submission.comments.comments">Komentari</message>
 	<message key="submission.comments.confirmDelete">Da li ste sigurni da želite da obrišete komentar?</message>
@@ -466,27 +409,14 @@
 	<message key="submission.submit.whatNext.create">Prijavite novi članak</message>
 	<message key="submission.submit.whatNext.return">Vratite se na kontrolnu tablu</message>
 	<message key="submission.submit.extendedMetadata">Prošireni metapodaci</message>
-	<message key="submission.citations.editor.details.processRawCitationWarning">Vi hoćete da promenite originalan tekst citata. Ako to uradite sva polja će biti zamenjena novim generisanim vrednostima. ovo će izbrisati izmene koje ste možda ručno uradili.</message>
-	<message key="submission.citations.editor.export.exportDescription"><![CDATA[<a id="markForExport" href="">Klikni ovde</a> da bi odabrali generisani izvod. Možete ga tada kopirati i staviti u vaš dokument.]]></message>
-	<message key="submission.citations.editor.export.foundUnapprovedCitationsMessage"><![CDATA[<p>Još uvek niste odobrili sve citate. Pređite na karticu <strong>Uredi citate</strong> i proverite da li ste odobrili sve citate pre nego ih izvezete. Odobreni citati su označeni tamno plavom linijom na levo.</p>]]></message>
-	<message key="submission.citations.editor.export.noExportOutput">Filter '{$filterName}' je napravio grešku.  Prijavite ovo kao grešku.</message>
 	<message key="submission.upload.userGroupDescription">Ako prijavljujete Uređeni volumen/svesku morate postaviti na server svako poglavlje posebno u vašoj ulozi urednika volumena/sveske.</message>
 	<message key="submission.upload.fairCopy">Postavi na server ispravnu kopiju</message>
 	<message key="submission.upload.response.description">Nakon recenzije dodeljenog fajla, zabeležite  niže komentare na fajl i/ili postavite kopiju sa beleškama fajla (ili drugi fajl).</message>
 	<message key="submission.upload.possibleRevisionDescription">Ime postavljenog fajlа podseća na ime prethodno postavljenog fajla "{$revisedFileName}.". Da li je to fajl koji treba da zameni "{$revisedFileName}"? Ako jeste odaberite fajl ispod. AKo nije odaberite "Ovo nije revizija postojećeg fajla" pre nego što nastavite.</message>
-	<message key="submission.citations.editor.export.pleaseSelectPlaintextFilter">Izvod citatnog stila ( u eksperimentalnoj fazi!):</message>
-	<message key="submission.citations.editor.unprocessedCitations">Citati za ovaj članak su još u obradi na serveru. Trenutna lista citata sadrži samo obrađene citate. Kliknite na Osveži dugme da bi videli citate koji su u međuvremenu obrađeni.</message>
 	<message key="submission.comments.sendDecisionToReviewers">Pošalji recenzentima urednikovu odluku</message>
 	<message key="submission.coverage">Informacija o široj oblasti</message>
 	<message key="submission.email.confirmClearLog">Da li ste sigurni da želite obrisati log za poruke za ovaj prijavljeni članak?</message>
 	<message key="submission.type.tip">Tip prijavljenog dela je obično 'slika', 'tekst', ili drugi multimedijalni tip uključujući i 'kompjuterski program' ili 'interaktivno'.</message>
-	<message key="submission.citations.editor.introduction.introductionMessage"><![CDATA[<h4>Dobro došli u pomoćmik za označavanje citata!</h4><p>U ovom pomoćniku možete označiti citate koje je autor naveo za izvoz u NLM 2.3 ili 3.0 XML kopije, ili alternativno kao tekstualni citatni izvod. Ovaj alat će najpre pokušati da automatski ekstrahira i prepozna citate onako kako su dati, ali vi možete u bilo koje vreme ispraviti rezultate. </p>
-	<ul><li><p><strong>Konfiguracija pomoćnika</strong></p><p>Pomoćnik za označavanje citata konfiguriše upravnik časopisa u <a href="{$citationSetupUrl}">podešavanje časopisa, korak 3.7: Pomoćnik za označavanje citata</a>. Tu se mogu dodati, konfigurisati ili obrisati razni alati za ekstrakciju i proveru citata. Za više informacija kontaktirajte upravnika časopisa.</p></li><li><p><strong>Navigacija kroz interfejs pomoćnika</strong>, <p> Da bi prešli iz <strong>Uvod</strong> u <strong>Uredi citate</strong> ili <strong>Izvezi citate</strong> kliknite na nazive tih kartica.  Da bi proširili interfejs citata kliknite na  <strong>Pun ekran</strong> dugme. Ako želite da se vratite na interfejs normalne veličine kliknite na <strong>Isključi pun ekran</strong> dugme. Ako želite da uklonite ovu uvodnu karticu kliknite na dugme ispod. </p></li> <li><p><strong> Zahtevati citate</strong></p><p> Ako je Pomoćnik za označavanje citata bio omogućen od strane upravnika časopisa, autori će biti upoznati da se traži lista referenci u toku prijave članka. Ove reference će biti zatražene odvojeno od samog prijavljenog dokumenta. Nakon prijave autori mogu da modifikuju listu referenci u bilo koje vreme uređivanjem metapodataka prijave. IMajte na umu da će ovo poništiti izmene koje ste uneli u citatima upotrebom ovog alata.</p></li><li><p><strong>Uređivanje citata</strong></p><p>Pomoćnik za označavanje citata će najpre pokušati da identifikuje i ekstrahira  citate  iz autorove liste referenci. Možete sistematično pregledati tačnost za sve citate  prema brojnim eksternim citatnim bazama podataka, urediti netačne informacije i dodti nove informacije, odobriti ili obrisati citate, dodati nove citate.</p>
-		<p> Svi finalni citati moraju biti odobreni pre nego se mogu izvesti.</p></li>
-		<li><p><strong>Izvoz citata</strong></p>
- 		<p>Citati mogu biti izvezeni  kao XML ili tekst. Mogućnosti izvoza u XML uključuju <a href="http://dtd.nlm.nih.gov/publishing/">NLM Journal Publishing</a> 2.3 and 3.0 <a href="http://www.ncbi.nlm.nih.gov/pmc/pmcdoc/tagging-guidelines/article/tags.html#el-reflist">ref-list XML</a>. Odabirom jedne od ovih opcija se stvara izvod koji je XML-kodirana lista referenci koja može biti kopirana i stavljena u NLM XML kopiju članka.</p>
-		<p>Eksperimentalne opcije izvoza u tekstualnom obliku uključuju ABNT, APA, MLA i Vancouver stilove citiranja. Ove opcije omogućavaju tekstualni rezultat izvod koji može biti kopiran i postavljen u tekstualne kopije članka (na primer u Microsoft Word ili LibreOffice; Adobe InDesign; itd.). Svaki citat uključuje ugrađenu poveznicu za automatsku pretragu u Google Scholar.</p></li>
-	</ul>]]></message>
 	<message key="submission.submit.metadataForm.tip">Dodajte dodatne informacije z vaš prijavljen članak. Pritisnite 'enter' nakon svakog termina.</message>
 	<message key="submission.source.tip">Da li jevaj prijavljeni članak izveden iz drugog izvora? AKo jeste, možete upisati URL ili opisati taj izvor.</message>
 	<message key="submission.submit.includeInBrowse">Dodati ovog koautora u listu za pretragu?</message>
@@ -584,11 +514,4 @@
 	<message key="submission.history.submissionEmailLog">Log email poruka</message>
 	<message key="submission.history.submissionEventLog">Log događaja</message>
 	<message key="submission.history.submissionNotes">Beleške o prijavljenom članku</message>
-	<message key="submission.citations.filter.webserviceResultTransformationError">Pojavila se greška u {$filterName}:  Transformacija XML rezultata (od web  usluge) u polja metapodataka nije uspela. Verovatno je razlog što je web usluga vratila neispravne ili nekompletne podatke. Molimo vas da ovo prijavite kao grešku.</message>
-	<message key="submission.citations.metadata.changeWarning">Da li ste sigurni da želite da ažurirate vašu listu referenci? Ako kliknete na OK biće uklonjene sve promene koje je urednik prethodno uneo. Ako niste sigurni da li želite izmeniti vašu listu referenci kontkriajte urednika koji je zadužen za vaš prijavljeni članak.</message>
-	<message key="submission.citations.filter.noResultFromFilterError">Nekoliko citatnih usluga nije vratilo nikakav rezultat. Možete pokušati da uredite citatna polja i ponovo pretražiti citatne usluge da bi poboljšali rezultate. Ako to ne pomogne to znači da taj citat ne postoji ni u jednoj spojenoj bazi podataka.</message>
-	<message key="submission.citations.filter.webserviceError">Usluga {$filterName} je vratila poruku o greški kad je bila u vezi sa sledećim URL: {$webserviceUrl}.  Može biti da je web usluga trenutno nedostupna. Možete nastaviti da radite s ostalim uslugama i sačuvati dobijene rezultate. Možete opet pokušati kasnije. AKo se greška nastavi zamolite upravnika da onemogući ovu uslugu i da prijavi grešku.</message>
-	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>Nema citata za ovaj članak.</p><p>Otiđite na <a href="{$articleMetadataUrl}">stranicu metapodataka</a> za ovaj članak i unesite listu referenci ili dodajte reference ručno koristeći dugme za dodavanje u editoru.</p>]]></message>
-	<message key="submission.citations.filter.invalidMetadata">Pojavila se greška u {$filterName}: Jedan od elemenata podataka koji se vratio iz izvora podataka (web usluga) ne podleže internom formatu meta podataka. Zbog toga su rezultati izvora podataka odbijeni. Molimo vas da ovo prijavite kao grešku.</message>
-	<message key="submission.citations.filter.unsupportedPublicationType">Tip publikacije nedostaje ili nije podržan. Molimo vas da ručno ureditet citat i uneste tip publikacije (dozvoljeni tipovi su 'knjiga', 'časopis', 'teza' i 'zbornik radova').</message>
 </locale>

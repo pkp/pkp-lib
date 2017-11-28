@@ -146,51 +146,13 @@
 	<message key="manager.reviewerSearch.activeAmount">Број тренутно активних рецензија: {$current}</message>
 	<message key="manager.reviewerSearch.interests">Рецензентски интереси</message>
 	<message key="manager.roles">Улоге</message>
-	<message key="manager.setup.citationAssistant">Помоћник за означавање цитата</message>
-	<message key="manager.setup.citationFilterParser">Екстракција цитата</message>
-	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>Да бисте пронашли и проверили цитате у цитатним базама они прво морају бити подељени на машински читљиве метаподатке: наслов, издавач, датум издавања, итд. морају бити издвојени из оригиналног цитатног текста који аутор доставља. Конектори за спољне web сервисе могу да помогну у том процесу. Један или више конектора се могу додати кликом на"Додај ставку" дугме испод. Неке од ових конектора потребно је конфигурисати; од Вас ће то бити затражено ако је то случај</p>.
-<p>Можете да измените или обришете неки постојећи конектор кликом на икону зупчаника поред њега </ p >.]]></message>
-	<message key="manager.setup.citationFilterLookup">Провера цитата</message>
-	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>Такође морате да омогућите и подесите везу са спољним цитатним базама података . Ово вам помаже да пронађете грешке у цитатима аутора или додате додатне информације (нпр. Dois ili CrossRef IDS) потребне за електронско издаваштво или депоновање.</p>
-<p>Понуђени су конекторе на неколико екстерних база података у којима можете да тражите цитате. Неке од ових база података захтевају регистрацију или конфигурацију да бисте им приступили. Молимо Вас да погледате на јавним веб сајтовима базама података за више информација о томе како да се региструјете . Можете додати једну или више база података тако што ћете кликнути на " Додај ставку " дугме испод.</p>
-<p>Можете да измените или обришете неку постојећу екстерну конекцију базе података тако што ћете кликнути на икону зупчаника поред ње.</p>
-<p>Напомена:</strong> Да би се процес цитирања завршио благовремено, у <tt>citation_checking_max_processes</tt> директива у конфигурационом фајлу мора бити подешен на разумну вредност. Види General Settings одељак у <tt>config.inc.php</tt> за више информација.</p>]]></message>
 	<message key="manager.setup.errorDeletingItem">Дошло је до грешке приликом брисања ставке.</message>
-	<message key="manager.setup.filter.grid.errorDeletingFilter">Дошло је до грешке приликом брисања овог филтера. Молимо вас да ово пријавите као грешку "bug".</message>
-	<message key="manager.setup.filter.grid.filterDisplayName">Конектор</message>
-	<message key="manager.setup.filter.grid.filterSettings">Информације о регистрацији и подешавања конектора</message>
-	<message key="manager.setup.filter.grid.filterTemplateRequired">Молимо вас да одаберете једну од трансформација из падајућег менија</message>
-	<message key="manager.setup.filter.grid.confirmDelete">Да ли заиста желите да обришете {$filterName} филтер?</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Изабрали сте да додате {$filterDisplayName} базу података. Кликните на "ОК" да бисте потврдили..</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Изаберите базу за проналажење података.</message>
-	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Овај филтер се повезује са <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> базом података књига и ISBN-ова.</p>
-<p>ISBNdb API кључ је обавезан. За информације о генерисању кључа, погледајте <a href="http://isbndb.com/api/v1/docs/keys" target="_blank">онлине документацију</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Овај филтер се повезује са CrossRef базом цитата користећi CrossRef <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL Query Interface</a>.</p>
-<p>Да бисте користили овај филтер, можете да користите свој налог CrossRef sistema, или да региструјте важећу имејл адресу на CrossRef <a href="http://www.crossref.org/requestaccount/" target="_blank">овде</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Овај филтер се повезује са PubMed <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a> базом за претрагу цитата.</p>
-	<p>Регистрациони имејл није обавезан, али може бити неопходан уколико наиђете на проблеме са конекцијом. Погледајте секцију <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Упутство за коришћење и системски захтеви</a> у Entrez документацији за више информација.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Овај филтер се повезује на OCLC сервис <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> i <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (opciono).</p>
-	<p>Уколико имате Worldcat <a href="http://oclc.org/developer/develop/web-services.html" target="_blank">API ključ</a> можете се повезати на Worldcat уносом кључа испод.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.loadMessage">Молимо сачекајте док се конфигурација базе учита...</message>
-	<message key="manager.setup.filter.lookup.grid.title">Конектори базе цитата</message>
-	<message key="manager.setup.filter.noMoreTemplates">Све могуће трансформације су додате. Кликните "Одустани" да бисте се вратили на страницу подешавања.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionConfirm">Одлучили сте да додате {$filterDisplayName} рашчлањивач. Кликните 'ОК' за потврду.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionTemplate">Одаберите рашчлањивач цитата.</message>
-	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>Овај филтер за екстракцију повезује се са <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a> web сервисом.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>Овај филтер за екстракцију користи <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> Perl модуле да би обезбедио <a href="http://paracite.eprints.org" target="_blank">ParaCite</a> функционалност рашчлањивања цитата. Да би ово радило морате имати инсталиран Perl, заједно са <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> и <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a> CPAN модулима. Такође морате конфигурисати <tt>perl</tt> direktive u konfiguracionom fajlu. Ове директиве могу се пронаћи у External Commands секцији у <tt>config.inc.php</tt>.</p>
-	<p>Takođe možete odlučiti koji modul raščlanjivača ParaTools треба користити. Можете бирати између стандардног, <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a>, и <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a> модула.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>Овај филтер за екстракцију повезује се на <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a> web сервис.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.regEx">RegEx филтер за екстракцију користи серију регуларних експресија да би рашчланио цитате.</message>
-	<message key="manager.setup.filter.parser.grid.loadMessage">Сачекајте док се конфигурациона мрежа рашчлањивача цитата учита...</message>
-	<message key="manager.setup.filter.parser.grid.title">Сервис екстракције цитата</message>
-	<message key="manager.setup.filter.pleaseSelect">Одаберите...</message>
 	<message key="manager.setup.homeHeaderImageInvalid">Неисправан формат логоа хедера почетне стране или слање није успело. Прихватљиви формати су .gif, .jpg, или .png.</message>
 	<message key="manager.setup.homepageImageInvalid">Неисправан формат слике хедера почетне стране или слање није успело. Прихватљиви формати су .gif, .jpg, или .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Неисправан формат слике наслова хедера почетне стране или слање није успело. Прихватљиви формати су .gif, .jpg, или .png.</message>
 	<message key="manager.setup.layout.leftSidebar">Леви бочни мени</message>
 	<message key="manager.setup.layout.unselected">Није обележено</message>
 	<message key="manager.setup.loggingAndAuditing">Евидентирање и ревизија</message>
-	<message key="manager.setup.metaCitationsDescription">Активирајте следеће поље за потврду да бисте омогућили уређивање цитата и референци. Ово ће омогућити да аутори укључују сирове цитате приликом предаје радова. Уредници ће такође имати приступ помоћнику цитата који може да провери сирове цитате преко спољних база података као што су WorldCat, ISBNdb, PubMed и друге, за тачност. Одобрени цитати се могу извозити у финализоване фајлове за приказ.</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Неисправан формат логоа хедера стране или слање није успело. Прихватљиви формати су .gif, .jpg, или .png.</message>
 	<message key="manager.statistics">Статистике и Извештаји</message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
@@ -218,14 +180,11 @@
 	<message key="manager.emails.enable.message">Да ли сте сигурни да желите да укључите овај шаблон?</message>
 	<message key="manager.emails.resetAll.message">Уколико ресетујете све шаблоне, све модификације које сте урадили биће изгубљене, да ли сте сигурни да желите да наставите?</message>
 	<message key="manager.emails.reset.message">Уколико ресетујете овај шаблон, сви подаци биће враћени на почетне вредности, а све промене ће бити изгубљене, да ли желите да наставите?</message>
-	<message key="manager.masthead.title">Управа</message>
 	<message key="manager.reviewerSearch.searchByName.short">Претражи по имену</message>
 	<message key="manager.reviewerSearch.form.interests.instructions">Интереси рецензената (унесите да пронађете интересе).</message>
 	<message key="manager.setup.layout.blockManagement">Управљач бочног менија</message>
 	<message key="plugins.categories.metadata">Додаци метаподатака</message>
 	<message key="plugins.categories.metadata.description">Додаци метаподатака имплементирају додатне стандарде мета података.</message>
-	<message key="plugins.categories.citationLookup">Додаци веза база података цитата</message>
-	<message key="plugins.categories.citationParser">Додаци за екстракцију цитата</message>
 	<message key="plugins.categories.oaiMetadataFormats">Додатак OAI формата метаподатака</message>
 	<message key="plugins.categories.oaiMetadataFormats.description">Овај додатак приказује метаподатке у формату OAI комуникације</message>
 	<message key="manager.website">Сајт</message>
@@ -259,7 +218,6 @@
 	<message key="manager.affiliationAndSupport">Спонзор</message>
 	<message key="manager.setup.additionalContent">Додатни садржај</message>
 	<message key="manager.setup.authorGuidelines">Упутства ауторима</message>
-	<message key="manager.setup.citations">Цитати</message>
 	<message key="manager.setup.competingInterests">Сукоби интереса</message>
 	<message key="manager.setup.homepageImage">Слика насловне стране</message>
 	<message key="manager.setup.logo">Лого</message>
@@ -468,8 +426,6 @@
 	<message key="manager.plugins.pluginGallery.maintainer">Особа за одржавање</message>
 	<message key="manager.plugins.deleteError">Додатак "{$pluginName}" није могао бити обрисан са сервера. Проблем може бити због недостатка довољних дозвола. Обезбедите да  web сервер може уписивати у директориј за додатке (укључујући и поддиректорије), али не заборавите касније да да поново осигурате.</message>
 	<message key="manager.plugins.wrongCategory">Постављени додатак не припада категорији надогађеног додатка.</message>
-	<message key="plugins.categories.citationLookup.description">Додаци за конекцију са цитатним базама података се спајају са цитатним базама података за претрагу цитата у току уређивања цитата.</message>
-	<message key="plugins.categories.citationParser.description">Додатак за екстракцију цитата врши екстракцију података на нивоу поља из сирових цитата (нпр. аутор, наслов и сл.)</message>
 	<message key="manager.plugins.copyError">Додатак није успешно копиран. Проблем може бити због недостатка довољних дозвола. Обезбедите да web сервер може уписивати у директориј за додатке (укључујући и поддиректорије), али не заборавите касније да да поново осигурате.</message>
 	<message key="manager.setup.sortableByComponent">Може се сортирати по компоненти</message>
 	<message key="manager.setup.sponsors.note">Однос са спонзором и опис политике</message>

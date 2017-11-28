@@ -115,7 +115,6 @@
 	<message key="manager.language.reloadLocalizedDefaultSettings">Återställ till default</message>
 	<message key="manager.languages.alternateLocaleInstructions">Systemet tillåter att viss viktig information kan fyllas i på flera språk. Välj ytterligare språk/regioner och gör inställningar nedan.</message>
 	<message key="manager.languages.supportedLocalesInstructions">Välj de språk/regioner som ska gå att byta mellan på varje sida på webbplatsen. Språkvalsmenyn kommer bara synas om fler än ett språk valts.</message>
-	<message key="manager.masthead.title">Allmänt</message>
 	<message key="manager.payment.timestamp">Tidsstämpel</message>
 	<message key="manager.people.existingUserRequired">Du måste ange en befintlig användare.</message>
 	<message key="manager.people.authSource">Autentiseringskälla</message>
@@ -229,48 +228,10 @@
 	<message key="manager.setup.authorCopyrightNoticeAgree">Kräv att författare godkänner upphovsrättsdeklarationen när bidrag skickas in.</message>
 	<message key="manager.setup.authorGuidelines">Riktlinjer för författare</message>
 	<message key="manager.setup.authorGuidelines.description">Rekommenderade riktlinjer inkluderar bibliografi- och formateringsstandarder tillsammans med exempel på vanliga referensformat att använda vid inlämning av bidrag.</message>
-	<message key="manager.setup.citations">Referenser</message>
-	<message key="manager.setup.citationAssistant">Verktyget för referensuppmärkning</message>
-	<message key="manager.setup.citationFilterParser">Extrahering av referenser</message>
-	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>För att hitta och kontrollera referenser i referensdatabaser måste de först delas in i maskinläsbara metadata. Titel, förlag, publiceringsdatum, etc. måste hämtas från författarens originaltext. Anslutningar till externa webbtjänster kan hjälpa till med detta. En eller flera anslutningar kan läggas till genom att klicka på knappen "Lägg till objekt" nedan. Några av dessa anslutningar kan behöva konfigureras; du meddelas om så är fallet.</p>
-		<p>Du kan ändra eller ta bort en existerande anslutning genom att klicka på kugghjulet bredvid.</p>]]></message>
-	<message key="manager.setup.citationFilterLookup">Referenskontrollering</message>
-	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>Du måste också aktivera och konfigurera anslutningar till externa referensdatabaser. Det hjälper dig att hitta fel i författarens referenser eller lägga till ytterligare information (t.ex. DOI eller PubMed-ID) som krävs för elektronisk publicering eller arkivering.</p>
-		<p>Vi tillhandahåller anslutningar till flera externa databaser där du kan söka efter referenser. Några av dessa databaser kräver registrering eller att ytterligare information fylls i. Vänligen se databasernas respektive webbsida för mer information om hur du registrerar dig. Du kan lägga till en eller flera databaser genom att klicka på knappen "Lägg till objekt" nedan.</p>
-		<p>Du kan ändra eller ta bort en existerande extern databasanslutning genom att klicka på kugghjulet bredvid.</p>
-		<p><strong>Notera:</strong> För att referenskontrollen ska avslutas inom rimlig tid måste <tt>citation_checking_max_processes</tt>-direktivet i din konfigurationsfil vara inställd på ett rimligt värde. Se sektionen General settings i <tt>config.inc.php</tt> för mer information.</p>]]></message>
 	<message key="manager.setup.competingInterests">Intressekonflikter</message>
 	<message key="manager.setup.competingInterestsDescription">Granskare kommer att bli ombedda att acceptera policyn för intressekonflikter som du specificerar nedan.</message> <!-- FIXME #6843 (JM): should this just reference reviewers? -->
 	<message key="manager.setup.errorDeletingItem">Ett fel uppstod vid borttagning av detta objekt.</message>
 	<message key="manager.setup.favicon">Ogiltigt format för addressikon. Format som accepteras är .ico, .png, and .gif.</message>
-	<message key="manager.setup.filter.grid.errorDeletingFilter">Ett fel uppstod när filtret skulle tas bort. Rapportera gärna detta som en bugg.</message>
-	<message key="manager.setup.filter.grid.filterDisplayName">Anslutning</message>
-	<message key="manager.setup.filter.grid.filterSettings">Registreringsinformation och anslutningsinställningar</message>
-	<message key="manager.setup.filter.grid.filterTemplateRequired">Vänligen välj en av förändringarna från rullgardinsmenyn.</message>
-	<message key="manager.setup.filter.grid.confirmDelete">Vill du verkligen ta bort filtret {$filterName}?</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Du har valt att lägga till databasen {$filterDisplayName}. Tryck 'OK' för att bekräfta.</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Välj en uppslagsdatabas.</message>
-	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Det här filtret är kopplat till <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a>s ISBN-databas.</p>
-	<p>En ISBNdb API-nyckel krävs. För information om generering av nyckel, se <a href="http://isbndb.com/api/v1/docs/keys" target="_blank"></a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Det här filtret är kopplat till referensdatabasen CrossRef med hjälp av CrossRefs <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL Query Interface</a>.</p>
-	<p>För att använda detta filter, använd ditt CrossRef-konto eller registrera en giltig e-postadress hos CrossRef <a href="http://www.crossref.org/requestaccount/" target="_blank">här</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Det här filtret är kopplat till PubMeds <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a> cross-database söktjänst.</p>
-	<p>En registrerad e-post är inte obligatoriskt, men kan vara nödvändigt om du får anslutningsproblem. Se sektionen <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Usage Guidelines and Requirements</a> i Entrez dokumentation för mer information.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Det här filtret är kopplat till OCLCs tjänster <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> och <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (valfritt).</p>
-	<p>Om du har en Worldcat <a href="http://oclc.org/developer/develop/web-services.html" target="_blank">API-nyckel</a> kan du ansluta till WorldCat genom att fylla i den nedan.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.loadMessage">Vänta tills referensdatabasens konfiguration har laddat...</message>
-	<message key="manager.setup.filter.lookup.grid.title">Anslutningar till referensdatabaser</message>
-	<message key="manager.setup.filter.noMoreTemplates">Alla tillgängliga förändringar har redan lagts till. Klicka på 'Avbryt' för att gå tillbaka till sidan för inställningar.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionConfirm">Du har valt att lägga till parsern {$filterDisplayName}. Klicka 'OK' för att bekräfta.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionTemplate">Välj en referens-parser.</message>
-	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>Det här extraheringsfiltret använder webbtjänsten <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a>.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>Det här extraheringsfiltret använder <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> Perl-moduler för att tillhandahålla <a href="http://paracite.eprints.org" target="_blank">ParaCite</a> referensparsing-funktionalitet. För att det ska fungera korrekt måste du ha Perl installerat, tillsammans med <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> och <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a> CPAN-moduler. Du behöver också ha konfigurerat <tt>perl</tt> direktivet i din konfigurationsfil. Direktivet hittas i sektionen External Commands i <tt>config.inc.php</tt>.</p>
-	<p>Du kan också välja vilken parser-modul ParaTools ska använda. Du kan välja mellan standard, <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a>, och <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a> parser-moduler.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>Det här extraheringsfiltret använder sig av webbtjänsten <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a>.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.regEx">Extraheringsfiltret RegEx använder en serie reguljära uttryck för att tolka referenser.</message>
-	<message key="manager.setup.filter.parser.grid.loadMessage">Vänta tills referens-parserns konfigurationer har laddat...</message>
-	<message key="manager.setup.filter.parser.grid.title">Tjänster för extrahering av referenser</message>
-	<message key="manager.setup.filter.pleaseSelect">Välj...</message>
 	<message key="manager.setup.groupType">Gruppering av filtyper</message>
 	<message key="manager.setup.homeHeaderImageInvalid">Ogiltigt format för logotyp på förstasidans sidhuvud, eller misslyckad uppladdning. Godkända format är .gif, .jpg, och .png.</message>
 	<message key="manager.setup.homepageImage">Bild på förstasidan</message>
@@ -285,7 +246,6 @@
 	<message key="manager.setup.layout.unselected">Ej vald</message>
 	<message key="manager.setup.loggingAndAuditing">Loggning och revidering</message>
 	<message key="manager.setup.logo">Logotyp</message>
-	<message key="manager.setup.metaCitationsDescription">Kryssa i följande ruta för att aktivera citat- och referensredigering. Det här gör att författare kan inkludera oredigerade referenser till sina bidrag. Redaktörer kommer också att få tillgång till ett verktyg för referensuppmärkning som kan kontrollera oredigerade referenser mot externa databaser, som WorldCat, ISBNdb, PubMed och andra. Godkända referenser kan exporteras till publiceringsversion.</message>
 	<message key="manager.setup.notifications">Avisering om bidrag från författare</message>
 	<message key="manager.setup.notifications.copySpecifiedAddress">Skicka en kopia till den här e-postadressen</message>
 	<message key="manager.setup.notifications.description">Författare får automatiskt ett e-postmeddelande som bekräftar deras inskickade bidrag. Du kan få kopior av detta meddelande skickade till följande:</message>
@@ -298,7 +258,7 @@
 	<message key="manager.setup.principalContact">Primär kontakt</message>
 	<message key="manager.setup.principalContactDescription">Kontaktinformation till ex. primär redaktör, ansvarig redaktör eller administratör, som kan visas på din publika webbplats.</message>
 	<message key="manager.setup.privacyStatement">Sekretesspolicy</message>
-	<message key="manager.setup.privacyStatement.description">Policyn kommer att synas vid inskickande av bidrag och på den publika sidan Om.</message>
+	<message key="manager.setup.privacyStatement.description">Policyn kommer att synas vid insändning av bidrag och på den publika sidan Om.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Antal veckor tillåtna att acceptera eller avböja en granskningsförfrågan.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Antal veckor tillåtna för granskning</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Påminn aldrig</message>
@@ -312,7 +272,7 @@
 	<message key="manager.setup.sponsors.description">Exempel: vetenskapliga organisationer, universitetsinstitutioner, kooperativ etc. Sponsorer visas publikt.</message>
 	<message key="manager.setup.styleSheetDescription">Erfarna webbutvecklare kan ladda upp en CSS-fil för att ytterligare anpassa webbplatsens utseende.</message>
 	<message key="manager.setup.technicalSupportContact">Kontakt för teknisk support</message>
-	<message key="manager.setup.technicalSupportContactDescription">Kontaktperson som kan assistera redaktörer, författare och granskare vid eventuella problem med inskickande av bidrag, redaktionellt arbete, granskning eller publicering.</message>
+	<message key="manager.setup.technicalSupportContactDescription">Kontaktperson som kan assistera redaktörer, författare och granskare vid eventuella problem med insändning av bidrag, redaktionellt arbete, granskning eller publicering.</message>
 	<message key="manager.siteAccessOptions.siteAccessOptions">Alternativ för tillgång till webbplatsen</message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
 	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} nya)</message>
@@ -322,10 +282,6 @@
 	<message key="plugins.categories.auth">Autentiserings-plugins</message>
 	<message key="plugins.categories.blocks">Block-plugins</message>
 	<message key="plugins.categories.blocks.description">Block är komponenter av användargränssnittet, t.ex. de olika verktygen i sidomenyn.</message>
-	<message key="plugins.categories.citationLookup">Plugins för koppling till referensdatabaser</message>
-	<message key="plugins.categories.citationLookup.description">Plugins för koppling till referensdatabaser ansluter till referensdatabaser för att kontrollera referenser, t.ex. vid redigering av referenser.</message>
-	<message key="plugins.categories.citationParser">Plugins för extrahering av referenser</message>
-	<message key="plugins.categories.citationParser.description">Plugins för extrahering av referenser extraherar data på fältnivå från oredigerade referenser (t.ex. författare, titel etc.).</message>
 	<message key="plugins.categories.gateways.description">Gateway-insticksmoduler tillhandahåller live-data till externa system.</message>
 	<message key="plugins.categories.gateways">Gateway-plugins</message>
 	<message key="plugins.categories.generic">Allmänna plugins</message>
@@ -515,7 +471,7 @@
 
 	<message key="manager.setup.licenseURLDescription">URL till webbsida som beskriver licensen, om en sådan finns tillgänglig.</message>
 
-	<message key="manager.setup.metadata.submission">Formulär för inskickande av bidrag</message>
+	<message key="manager.setup.metadata.submission">Formulär för insändning av bidrag</message>
 	<!--  common importexport keys -->
 	<message key="plugins.importexport.common.validationErrors">Valideringsfel:</message>
 	<message key="plugins.importexport.common.warningsEncountered">Påträffade varningar:</message>
@@ -559,7 +515,7 @@
 	<message key="manager.navigationMenus.customPage">Anpassad sida</message>
 	<message key="manager.navigationMenus.customPage.description">Skapa en anpassad sida på din webbplats och länka till den från en navigationsmeny.</message>
 	<message key="manager.navigationMenus.remoteUrl">Extern URL</message>
-	<message key="manager.navigationMenus.remoteUrl.description">Länka till vilken URL som helst utanför webbplatsen, till exempel http://pkp.sfu.ca.</message>
+	<message key="manager.navigationMenus.remoteUrl.description">Länka till vilken URL som helst utanför webbplatsen, till exempel https://pkp.sfu.ca.</message>
 	<message key="manager.navigationMenus.about.description">Länka till en sida som visar innehållet i Om tidskriften från Inställningar > Tidskrift</message>
 	<message key="manager.navigationMenus.about.conditionalWarning">Den här länken visas bara om du har fyllt i sektionen Om tidskriften under Inställningar > Tidskrift.</message>
 	<message key="manager.navigationMenus.editorialTeam.description">Länka till en sida som visar innehållet i Redaktionsruta i Inställningar > Tidskrift.</message>

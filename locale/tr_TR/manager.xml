@@ -147,51 +147,13 @@
 	<message key="manager.reviewerSearch.activeAmount">Aktif değerlendirme sayısı</message>
 	<message key="manager.reviewerSearch.interests">İlgi Alanı</message>
 	<message key="manager.roles">Görevler</message>
-	<message key="manager.setup.citationAssistant">Atıf Biçimlendirme Yardımcısı</message>
-	<message key="manager.setup.citationFilterParser">Atıf Alma</message>
-	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>To find and check citations in citation databases they first have to be split into machine readable metadata: title, publisher, publication date, etc. must all be extracted from the original citation text provided by the author. Connectors to external web services can assist in this process. One or several connectors can be added by clicking on the "Add Item" button below. Some of these connectors may need to be configured; you will be prompted if this is the case.</p>
-		<p>You can edit or delete an existing Connector by clicking the gear icon next to it.</p>]]></message>
-	<message key="manager.setup.citationFilterLookup">Atıf Kontrolü</message>
-	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>You must also enable and configure connections to external citation databases. This helps you to find errors in authors' citations or add additional information (e.g. DOIs or PubMed IDs) required for electronic publishing or deposit.</p>
-		<p>We provide connectors to several external databases in which you can search for citations. Some of these databases require registration or configuration information to be entered. Please refer to the public websites of the databases for further information on how to register. You can add one or several databases by clicking on the "Add Item" button below.</p>
-		<p>You can edit or delete an existing external database connection by clicking the gear icon next to it.</p>
-		<p><strong>Note:</strong> In order for the citation checking process to complete in a timely manner, the <tt>citation_checking_max_processes</tt> directive in your configuration file must be set to a reasonable value. See the General Settings section in <tt>config.inc.php</tt> for more information.</p>]]></message>
 	<message key="manager.setup.errorDeletingItem">Bu öğe silinirken bir hata oluştu.</message>
-	<message key="manager.setup.filter.grid.errorDeletingFilter">Bu filtreyi kaldırırken bir hata oluştu. Lütfen hata mesajı olarak bildiriniz.</message>
-	<message key="manager.setup.filter.grid.filterDisplayName">Bağlayıcı</message>
-	<message key="manager.setup.filter.grid.filterSettings">Kayıt Bilgisi ve Bağlayıcı Ayarları</message>
-	<message key="manager.setup.filter.grid.filterTemplateRequired">Lütfen açılır menüden dönüşümlerden birini seçiniz.</message>
-	<message key="manager.setup.filter.grid.confirmDelete">{$filterName} adlı filitreyi silmek istediğinizden emin misiniz?</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Seçiminiz {$filterDisplayName} adlı veri tabanına eklendi. Lütfen onaylamak için "TAMAM"ı tıklayınız.</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Arama için bir veri tabanı seçiniz.</message>
-	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> adlı bu filitre bağlantısı kitap ve ISBN veri tabanı içindir.
-	<p>ISBNdb API anahtarı zorunludur. Bir anahtar oluşturmak için <a href="http://isbndb.com/api/v1/docs/keys" target="_blank">çevrimiçi dokümana</a> bakınız.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Bu filtre CrossRef'i kullanarak <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL Sorgu Arayüzü</ a> CrossRef atıf veri tabanına bağlanır.</p>
-	</p>Bu filtreyi kullanmak için, CrossRef sistem hesabını kullanabilir veya CrossRef'e  geçerli bir e-posta adresi ile <a href="http://www.crossref.org/requestaccount/" target="_blank">buraya tıklayarak</ a> kayıt olabilirsiniz.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Bu filitre çapraz veritabanı arama motoru ile PubMed'e <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank"> Giriş</ a> yapar.</ p>
-</ p>Kayıt için e-posta adresi zorunlu değildir, ancak bağlantı sorunlarının giderilmesinde gerekli olabilir. Daha fazla bilgi için giriş dokümanında <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Kullanım Yönergeleri ve Gereksinimler</ a> bölümüne  bakınız. </ p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Bu filitre  <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> ve <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> seçenekleriyle OCLC servisine bağlanır.</ p>
-	</ p>Eğer bir Worldcad <a href="http://oclc.org/developer/develop/web-services.html" target="_blank">API anahtarı</a>nız varsa, bu anahtarla Wolrdcat'e aşağıdaki girişten bağlantı kurabilirsiniz.</ p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.loadMessage">Atıf veritabanı yapılandırma şebekesi yüklenene kadar bekleyin ...</message>
-	<message key="manager.setup.filter.lookup.grid.title">Atıf Veritabanı Bağlayıcıları</message>
-	<message key="manager.setup.filter.noMoreTemplates">Kullanılabilir tüm dönüşümler zaten eklenmiş. Kurulum sayfasına dönmek için 'İptal'e tıklayınız.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionConfirm">{$filterDisplayName} adlı ayrıştırıcıyı/derleyiciyi eklemek için seçtiniz. Onaylamak için 'TAMAM' tuşuna tıklayınız.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionTemplate">Lütfen bir atıf ayrıştırıcı seçiniz.</message>
-	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>Bu çıkarma filitresi <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a>web servisine bağlantı kurar.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>Bu çıkarma filitresi <a href="http://paracite.eprints.org" target="_blank">ParaCite</ a> atıf ayrıştırma fonksiyonlarına işlevsellik sağlamak için Perl modüllerince desteklenen <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</ a>u kullanır. Fonksiyonun düzgün çalışması için <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> ve <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a> CPAN modülleri ile birlikte Perl yüklü olmalıdır. Konfigürasyon dosyanızda <tt>perl</tt> direktiflerini düzenlemelisiniz. Bu direktifler <tt>config.inc.php</tt> dosyasının Dış Komutlar (External Commands) bölümünde bulunabilir.</ p>
-</ p>Ayrıca <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a> ve <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a> standart ayrıştırıcı modülleri arasında seçim yapabilirsiniz.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>Bu ihraç filtresi <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a> web servisine bağlanır.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.regEx">Atıf ayrıştırıcı ifadeler bir dizi düzenli RegEx ihraç filitresi kullanır.</message>
-	<message key="manager.setup.filter.parser.grid.loadMessage">Lütfen atıf ayrıştırıcı yapılandırma şebekesi yüklenene kadar bekleyin ...</message>
-	<message key="manager.setup.filter.parser.grid.title">Atıf Alma Servisi</message>
-	<message key="manager.setup.filter.pleaseSelect">Lütfen Seçiniz...</message>
 	<message key="manager.setup.homeHeaderImageInvalid">Giriş sayfası başlık logosu için geçersiz dosya biçimi. Desteklenen dosya biçimleri .gif, .jpg, veya .png biçimleridir.</message>
 	<message key="manager.setup.homepageImageInvalid">Giriş sayfası şekli için geçersiz dosya biçimi. Desteklenen dosya biçimleri .gif, .jpg, veya .png biçimleridir.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Giriş sayfası şekli için geçersiz dosya biçimi. Desteklenen dosya biçimleri .gif, .jpg, veya .png biçimleridir.</message>
 	<message key="manager.setup.layout.unselected">Seçilmemiş</message>
 	<message key="manager.setup.loggingAndAuditing">Giriş ve Denetim</message>
 	<message key="manager.setup.homeHeaderImageInvalid">Giriş sayfası başlık logosu için geçersiz dosya biçimi. Desteklenen dosya biçimleri .gif, .jpg, veya .png biçimleridir.</message>
-	<message key="manager.setup.metaCitationsDescription">Atıf ve referans düzenlemeyi etkinleştirmek için aşağıdaki onay kutusunu çek ediniz. Bu kabul yazarların ham gönderileri için alıntı yapmalarını sağlayacaktır. Editörler de doğruluk için, WorldCat, ISBNdb, PubMed gibi veri tabanlarından kontrol edebileceklerdir. Onaylı alıntılar dizgi tablası dosyaları içine import edilebilecektir.</message>
 	<message key="manager.setup.homepageImageInvalid">Giriş sayfası şekli için geçersiz dosya biçimi. Desteklenen dosya biçimleri .gif, .jpg, veya .png biçimleridir.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Giriş sayfası şekli için geçersiz dosya biçimi. Desteklenen dosya biçimleri .gif, .jpg, veya .png biçimleridir.</message>
 	<message key="manager.setup.selectOne">Birini seçin</message>
@@ -221,7 +183,6 @@
 	<message key="manager.emails.enable.message">You are about to enable this email.  Do you want to confirm this operation?</message>
 	<message key="manager.emails.resetAll.message">If you reset all templates, all modifications to the email templates will be lost.  Do you want to confirm this operation?</message>
 	<message key="manager.emails.reset.message">If you reset this template, all message data will be reset to its default value, losing all modifications.  Do you want to confirm this operation?</message>
-	<message key="manager.masthead.title">Yönetici Listesi</message>
 	<message key="manager.reviewerSearch.searchByName.short">Ada Göre Ara</message>
 	<message key="manager.reviewerSearch.form.instructions">Use the form below to set the maximum values for the terms you wish to search for.  The form is pre-populated with the calculated averages of those fields.</message>
 	<message key="manager.reviewerSearch.form.interests.instructions">Enter reviewer interests, separated by commas...</message>
@@ -229,10 +190,6 @@
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Hatalı sayfa logo görseli veya hatalı yükleme. Kabul edilebilir biçimler: .gif, .jpg veya .png.</message>
 	<message key="plugins.categories.metadata">Üst Veri Eklentileri</message>
 	<message key="plugins.categories.metadata.description">Metadata Plugins implement additional meta-data standards.</message>
-	<message key="plugins.categories.citationLookup">Atıf Veri Tabanı Bağlantı Eklentileri</message>
-	<message key="plugins.categories.citationLookup.description">Citation Database Connector Plugins connect to citation databases to look up citations, e.g. during citation editing.</message>
-	<message key="plugins.categories.citationParser">Atıf Ayıklama Eklentileri</message>
-	<message key="plugins.categories.citationParser.description">Citation Extraction Plugins extract field-level data from raw citations (e.g. author, title, etc.).</message>
 	<message key="plugins.categories.oaiMetadataFormats">OAI Üst Veri Eklentileri</message>
 	<message key="plugins.categories.oaiMetadataFormats.description">Bu biçim eklentileri OAI iletişiminde hızlı üst veri sağlar.</message>
 	<message key="manager.website">Web Sitesi</message>

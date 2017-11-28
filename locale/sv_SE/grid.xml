@@ -51,8 +51,8 @@
 	<message key="grid.action.deleteAuthor">Ta bort författare</message>
 	<message key="grid.action.addAuditor">Tilldela manusgranskare</message>
 	<message key="grid.action.upgrade">Uppgradera</message>
-	<message key="grid.action.order">Beställ</message>
-	<message key="grid.action.cancelOrdering">Avbryt beställning</message>
+	<message key="grid.action.order">Ordna</message>
+	<message key="grid.action.cancelOrdering">Avbryt ordna</message>
 	<message key="grid.action.extendAll">Förläng alla</message>
 	<message key="grid.action.collapse">Fäll ihop</message>
 	<message key="grid.action.collapseAll">Fäll ihop alla</message>

@@ -116,10 +116,8 @@
 	<message key="manager.language.reloadLocalizedDefaultSettings">Torna a carregar els valors predeterminats</message>
 	<message key="manager.languages.alternateLocaleInstructions">Aquest sistema permet introduir determinades informacions crítiques en diverses llengües addicionals. Per utilitzar aquesta característica, seleccioneu configuracions regionals alternatives i trieu alguna de les opcions que es mostren a continuació.</message>
 	<message key="manager.languages.supportedLocalesInstructions">Seleccioneu totes les configuracions regionals que seran compatibles amb el lloc web mitjançant un menú de selecció de llengua que apareixerà a totes les pàgines. Aquest menú només es mostrarà si heu seleccionat més d'una configuració regional.</message>
-	<message key="manager.masthead.title">Capçalera</message>
 	<message key="manager.navigation">Navegació</message>
 	<message key="manager.payment.timestamp">Data i hora</message>
-	<message key="manager.people.allEnrolledUsers">Usuaris/àries donats d’alta en aquesta publicació</message>
 	<message key="manager.people.authSource">Font d’autenticació</message>
 	<message key="manager.people.confirmUnenroll">Voleu donar de baixa aquest usuari/usuària?</message>
 	<message key="manager.people.createUser">Crea un usuari/usuària nou</message>
@@ -233,45 +231,7 @@
 	<message key="manager.setup.sponsors.note">Podeu afegir una nota per descriure la vostra política i relació de patrocini, que apareixerà amb la llista de patrocinadors/ores a la vostra pàgina d'Informació personal.</message>
 	<message key="manager.setup.contributors.note">Podeu afegir una nota per descriure la política i la relació que heu establert amb les vostres fonts de finançament, que apareixerà amb la llista de Fonts de finançament a la vostra pàgina d'Informació personal.</message>
 	<message key="manager.setup.styleSheetDescription">Podeu carregar un fitxer de full d'estil en cascada (CSS) addicional per canviar l'aparença.</message>
-	<message key="manager.setup.citations">Citacions</message>
-	<message key="manager.setup.citationAssistant">Assistent de marcatge de citacions</message>
-	<message key="manager.setup.citationFilterParser">Extracció de citacions</message>
-	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>Per poder trobar i comprovar les citacions en bases de dades de citacions, han d'estar dividides en metadades llegibles per la màquina: el títol, la institució publicadora, la data de publicació, etc., són dades que s'han d'extreure del text de la citació original proporcionat per l'autor. Els mòduls per als serveis web externs poden ajudar en aquest procés. Es poden afegir un o més mòduls fent clic al botó «Afegeix un element» que hi ha a continuació. És possible que calgui configurar alguns d'aquests mòduls. Rebreu un avís si és el cas.</p>
-		<p>Podeu editar o eliminar un mòdul existent fent clic a la icona que té al costat.</p>]]></message>
-	<message key="manager.setup.citationFilterLookup">Comprovació de citacions</message>
-	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>També heu d'activar i configurar les connexions de les bases de dades de citacions externes. Això us permet trobar errors en les citacions dels autors/ores o afegir iformació addicional (p. ex., DOI o ID de PubMed) necessària per fer publicacions electròniques o per al dipòsit.</p>
-		<p>Proporcionem mòduls a diverses bases de dades externes en les quals podeu buscar citacions. Per entrar en algunes d'aquestes bases de dades, us hi haureu de registrar o configurar la informació. Consulteu els llocs web públics de les bases de dades per obtenir més informació sobre com registrar-s'hi. Podeu afegir una o més bases de dades fent clic al botó «Afegeix un element» que hi ha a continuació.</p>
-		<p>Podeu editar o eliminar una base de dades externa existent fent clic a la icona que té al costat.</p>
-		<p><strong>Nota:</strong> per permetre que el procés de comprovació de les citacions es completi al més aviat possible, heu d'establir el directiu <tt>citation_checking_max_processes</tt> del vostre fitxer de configuració en un valor raonable. Consulteu la secció Configuració general a <tt>config.inc.php</tt> por obtenir-ne més informació.</p>]]></message>
 	<message key="manager.setup.errorDeletingItem">S’ha produït un error en suprimir aquest element.</message>
-	<message key="manager.setup.filter.grid.errorDeletingFilter">S'ha produït un error en eliminar aquest filtre. Informeu d'aquest error.</message>
-	<message key="manager.setup.filter.grid.filterDisplayName">Mòdul</message>
-	<message key="manager.setup.filter.grid.filterSettings">Informació de registre i Configuració dels connectors</message>
-	<message key="manager.setup.filter.grid.filterTemplateRequired">Seleccioneu una de les transformacions de la llista desplegable.</message>
-	<message key="manager.setup.filter.grid.confirmDelete">Esteu segur/a que voleu eliminar el filtre {$filterName}?</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Heu decidit afegir la base de dades {$filterDisplayName}. Feu clic a «Accepta» per confirmar-ho.</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Seleccioneu una base de dades per fer la cerca.</message>
-	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Aquest filtre es connecta al llibre <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> i amb la base de dades bibliogràfica d'ISBNdb.</p>
-	<p>Heu d'introduir-hi una clau API d'ISBNdb. Per otenir més informació sobre com generar una clau, consulteu la <a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">documentació en línia</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Aquest filtre es connecta a la base de dades de citacions de CrossRef i utilitza la <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">Interfície de conulta OpenURL</a> de CrossRef.</p>
-	<p>Per utilitzar aquest filtre, podeu utilitzar un compte del sistema CrossRef o registrar una adreça electrònica vàlida de CrossRef <a href="http://www.crossref.org/requestaccount/" target="_blank">aquí</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Aquest filtre es connecta al motor de cerca de PubMed <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a> de bases de dades creuades.</p>
-	<p>No és estrictament necessari un correu electrònic de registre, però ho pot ser si us trobeu amb problemes de connexió. Consulteu la secció <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Directrius i requisits d'ús</a> en la documentació d'Entrez por obtenir-ne més informació.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Aquest filtre es connecta als serveis d'OCLC <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> i <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (opcional).</p>
-	<p>Si teniu una <a href="http://www.worldcat.org/devnet/wiki/SearchAPIWhoCanUse" target="_blank">clau API</a> de Worldcat, us podeu connectar a Worldcat introduïnt la clau següent.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.loadMessage">Espereu fins que s’hagi carregat la graella de configuració de la base de dades de citacions...</message>
-	<message key="manager.setup.filter.lookup.grid.title">Connectors de la base de dades de citacions</message>
-	<message key="manager.setup.filter.noMoreTemplates">Ja s'han afegit totes les transformacions disponibles. Feu clic a «Cancel·la» per tornar a la pàgina de configuració.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionConfirm">Heu decidit afegir l'analitzador de citacions {$filterDisplayName}. Feu clic a «Accepta» per confirmar-ho.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionTemplate">Seleccioneu un analitzador de citacions.</message>
-	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>Aquest filtre d'extracció es connecta al servei web <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a>.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>Aquest filtre d'extracció utilitza els mòduls Perl <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> per proporcionar la funció <a href="http://paracite.eprints.org" target="_blank">ParaCite</a> d'anàlisi de citacions. Perquè funcioni correctament, he de tenir el Perl instal·lat, a més dels mòduls CPAN <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> i <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a>. També heu de configurar el directiu de <tt>perl</tt> en el vostre fitxer de configuració. Podeu trobar aquest directiu a la secció d'Ordres externes de <tt>config.inc.php</tt>.</p>
-	<p>També podeu triar quin mòdul d'anàlisis ParaTools voleu utilitzar. Podeu triar entre un mòdul d'anàlisis estàndard, <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a> i <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a>.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>Aquest filtre d'extracció es connecta al servei web <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a>.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.regEx">El filtre d’extracció RegEx utilitza expressions regulars per analitzar les citacions.</message>
-	<message key="manager.setup.filter.parser.grid.loadMessage">Espereu fins que s’hagi carregat la graella de configuració de l'analitzador de citacions...</message>
-	<message key="manager.setup.filter.parser.grid.title">Serveis d’extracció de citacions</message>
-	<message key="manager.setup.filter.pleaseSelect">Seleccioneu...</message>
 	<message key="manager.setup.homeHeaderImageInvalid">Ha fallat la càrrega de la imatge utilitzada com a logotip per a la capçalera de la pàgina inicial, o bé el format no és vàlid. Els formats acceptats són .gif, .jpg i .png.</message>
 	<message key="manager.setup.homepageImageInvalid">Ha fallat la càrrega de la imatge per a la capçalera de la pàgina inicial, o bé el format no és vàlid. Els formats acceptats són .gif, .jpg i .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Ha fallat la càrrega de la imatge del títol per a la capçalera de la pàgina inicial, o bé el format no és vàlid. Els formats acceptats són .gif, .jpg i .png.</message>
@@ -280,7 +240,6 @@
 	<message key="manager.setup.layout.blockManagement">Administració de la barra lateral</message>
 	<message key="manager.setup.layout.unselected">No seleccionada</message>
 	<message key="manager.setup.loggingAndAuditing">Registre i control</message>
-	<message key="manager.setup.metaCitationsDescription">Activeu la casella de selecció següent per activar l'edició de citacions i referències.  D'aquesta manera els autors/ores podran incloure a les seves trameses citacions sense processar. Els editors/ores també tindran accés a l'assistent de marcatge de citacions, que comprova les citacions sense processar amb bases de dades externes com WorldCat, ISBNdb, PubMed, etc. per aconseguir més precisió. Les citacions aprovades es poden exportar als fitxers de galerades finals.</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Ha fallat la càrrega de la imatge utilitzada com a logotip per a la capçalera de la pàgina, o bé el format no és vàlid. Els formats acceptats són .gif, .jpg i .png.</message>
 	<message key="manager.setup.pageHeaderTitleImageInvalid">Ha fallat la càrrega de la imatge del títol per a la capçalera de la pàgina inicial, o bé el format no és vàlid. Els formats acceptats són .gif, .jpg i .png.</message>
 	<message key="manager.setup.selectOne">Seleccioneu una de les opcions següents:</message>
@@ -293,10 +252,6 @@
 	<message key="plugins.categories.auth">Connectors d’autorització</message>
 	<message key="plugins.categories.blocks">Connectors de bloc</message>
 	<message key="plugins.categories.blocks.description">Els connectors de bloc són components connectables de la interfície d’usuari/usuària, com ara les eines de les barres laterals.</message>
-	<message key="plugins.categories.citationLookup">Mòduls de la base de dades de citacions</message>
-	<message key="plugins.categories.citationLookup.description">Els mòduls de la base de dades de citacions es connecten a bases de dades de citacions per cercar citacions, p. ex. durant l'edició de les citacions.</message>
-	<message key="plugins.categories.citationParser">Mòduls d'extracció de citacions</message>
-	<message key="plugins.categories.citationParser.description">Els mòduls d'extracció de la citacions extreuen dades a nivell de camp des de citacions sense processar (p. ex. autor/a, títol, etc.).</message>
 	<message key="plugins.categories.gateways.description">Els connectors de passarel·la proporcionen dades actives als sistemes externs.</message>
 	<message key="plugins.categories.gateways">Connectors de passarel·la</message>
 	<message key="plugins.categories.generic">Connectors genèrics</message>

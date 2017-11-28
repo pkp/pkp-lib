@@ -120,6 +120,7 @@
 	<message key="user.register">Регистрация</message>
 	<message key="user.register.usernameRestriction">Имя пользователя должно содержать только строчные латинские буквы, цифры и дефисы/подчеркивания.</message>
 	<message key="user.register.registrationCompleted"><![CDATA[Вы успешно зарегистрировались. <a href="{$profileUrl}">Щелкните здесь</a>, чтобы заполнить свой профиль пользователя.]]></message>
+	<message key="user.role.assistant">Ассистент</message>
 	<message key="user.role.author">Автор</message>
 	<message key="user.role.author_s">Автор(ы)</message>
 	<message key="user.role.authors">Авторы</message>
@@ -157,4 +158,5 @@
 	<message key="user.apiKeyEnabled">Разрешить внешним приложениям с ключом API доступ к этой учетной записи</message>
 	<message key="user.apiKey.generate">Сгенерировать новый ключ API</message>
 	<message key="user.apiKey.generateWarning">Генерирование нового ключа API сделает недействительным любой уже существующий ключ для этого пользователя.</message>
+	<message key="user.apiKey.secretRequired">До генерации ключа API администратор вашего сайта должен задать секретный код в файле конфигурации («api_key_secret»).</message>
 </locale>

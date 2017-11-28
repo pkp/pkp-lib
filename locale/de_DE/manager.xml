@@ -115,9 +115,7 @@
 	<message key="manager.language.reloadLocalizedDefaultSettings">Standard wiederherstellen</message>
 	<message key="manager.languages.alternateLocaleInstructions">Dieses System bietet die Möglichkeit, wichtige Informationen in verschiedenen zusätzlichen Sprachen einzutragen. Dazu wählen Sie bitte aus der nachstehenden Liste eine andere Regionaleinstellung aus.</message>
 	<message key="manager.languages.supportedLocalesInstructions">Wählen Sie alle Regionaleinstellungen aus, die von der Website unterstützt werden sollen und die über ein Sprachenmenü auf jeder Seite ausgewählt werden können. Dieses Menü erscheint nur dann, wenn mehr als eine Regionaleinstellung ausgewählt wird.</message>
-	<message key="manager.masthead.title">Impressum</message>
 	<message key="manager.payment.timestamp">Zeitpunkt</message>
-	<message key="manager.people.allEnrolledUsers">Im Verlag registrierte Benutzer/innen</message>
 	<message key="manager.people.authSource">Authentifizierungsquelle</message>
 	<message key="manager.people.confirmUnenroll">Diese/n Benutzer/in austragen?</message>
 	<message key="manager.people.createUser">Neue/n Benutzer/in erstellen</message>
@@ -229,48 +227,10 @@
 	<message key="manager.setup.authorCopyrightNoticeAgree">Autor/innen müssen im Einreichungsverfahren der Lizenz zustimmen.</message>
 	<message key="manager.setup.authorGuidelines">Autor/innen-Richtlinien</message>
 	<message key="manager.setup.authorGuidelines.description">Für die Richtlinien werden Standards für Bibliografie und Format sowie Beispiele für gängige Zitierformate, die in Einreichungen benutzt werden sollen, vorgeschlagen.</message>
-	<message key="manager.setup.citations">Zitationen</message>
-	<message key="manager.setup.citationAssistant">Zitationsauszeichnungsassistent</message>
-	<message key="manager.setup.citationFilterParser">Zitationsextraktion</message>
-	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>Um Zitationen in Zitationsdatenbanken zu finden und zu überprüfen, müssen Sie erstens in maschinenlesbare Metadaten aufgetrennt werden: Titel, Verlag, Veröffentlichungsdatum etc. müssen aus dem originalen Zitationstext, den der/die Autor/in geliefert hat, entnommen werden. Verknüpfungen zu externen Webdiensten können in diesem Prozess hilfreich sein. Eine oder mehrere Verknüpfungen können durch Klicken des "Eintrag hinzufügen"-Knopfes unten. Einige dieser Verknüpfungen könnten konfiguriert werden müssen; Sie werden in diesem Fall dazu aufgefordert werden.</p>
-		<p>Sie können existierende Verknüpfungen bearbeiten oder löschen, indem Sie das Symbol daneben anklicken.</p>]]></message>
-	<message key="manager.setup.citationFilterLookup">Zitationsprüfung</message>
-	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>Sie müssen auch Verknüpfungen zu externen Zitationsdatenbanken aktivieren und konfigurieren. Dies hilft Ihnen dabei, Fehler in den Autor/innen-Zitationen zu finden oder zusätzliche Informationen (z.B. DOI- oder PubMed-ID), die für elektronisches Publizieren oder Archivieren nötig sind, hinzuzufügen.</p>
-		<p>Wir liefern Verknüpfungen zu verschiedenen externen Datenbanken, in denen Sie nach Zitationen suchen können. Einige dieser Datenbanken erfordern die Eingabe von Informationen zur Registrierung oder zu den Einstellungen. Bitte überprüfen Sie die öffentlichen Webseiten der Datenbanken für weitere Informationen über die Registrierung. Sie können eine oder mehrere Datenbanken hinzufügen, indem Sie den "Eintrag hinzufügen"-Knopf unten drücken.</p>
-		<p>Sie können eine existierende Datenbankverknüpfung bearbeiten oder löschen, indem Sie das zugehörige Symbol klicken.</p>
-		<p><strong>Hinweis:</strong> Damit die Zitationsprüfung in vertretbarer Zeit abgeschlossen werden kann, muss die <tt>citation_checking_max_processes</tt>-Direktive in Ihrer Konfigurationsdatei auf einen vernünftigen Wert gesetzt sein. Für weitere Informationen vgl. den General-Settings-Abschnitt in <tt>config.inc.php</tt>.]]></message>
 	<message key="manager.setup.competingInterests">Interessenkonflikte</message>
 	<message key="manager.setup.competingInterestsDescription">Gutachter/innen werden aufgefordert, den Richtlinien zur Offenlegung von Interessenkonflikten zu entsprechen, die Sie unten angeben.</message> <!-- FIXME #6843 (JM): should this just reference reviewers? -->
 	<message key="manager.setup.errorDeletingItem">Es gab einen Fehler beim Löschen dieses Eintrags.</message>
 	<message key="manager.setup.favicon">Ungültiges Favicon-Format. Zulässige Formate sind .ico, .png und .gif.</message>
-	<message key="manager.setup.filter.grid.errorDeletingFilter">Es ist ein Fehler beim Versuch, diesen Filter zu löschen, aufgetreten. Bitte melden Sie dies als einen Bug.</message>
-	<message key="manager.setup.filter.grid.filterDisplayName">Verknüpfung</message>
-	<message key="manager.setup.filter.grid.filterSettings">Registrierungsinformationen und Verknüpfungseinstellungen</message>
-	<message key="manager.setup.filter.grid.filterTemplateRequired">Bitte wählen Sie eine der Transformationen aus dem Auswahlmenü.</message>
-	<message key="manager.setup.filter.grid.confirmDelete">Möchten Sie den {$filterName}-Filter wirklich löschen?</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Sie haben sich dafür entschieden, die {$filterDisplayName}-Datenbank hinzuzufügen. Bitte klicken Sie auf 'OK' zur Bestätigung.</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Bitte wählen Sie eine Nachschlagedatenbank aus.</message>
-	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Dieser Filter ist mit der  <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> Buch-und-ISBN-Datenbank verknüpft.</p>
-	<p>Ein ISBNdb API key wird benötigt. Vgl. die <a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">Online-Dokumentation</a> für Informationen zum Erzeugen eines Schlüssels.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Dieser Filter ist mit der CrossRef-Zitationsdatenbenk über CrossRefs <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL Query Interface</a> verknüpft.</p>
-	<p>Um diesen Filter zu benutzen, können Sie Ihren CrossRef-Account benutzen, oder Sie registrieren eine gültige E-Mail-Adresse bei CrossRef <a href="http://www.crossref.org/requestaccount/" target="_blank">hier</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Dieser Filter ist mit PubMeds <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a> Metasuchmaschine verknüpft.</p>
-	<p>Eine Registrierungs-E-Mail ist nicht unbedingt erforderlich, könnte aber nötig werden, wenn Sie auf Verbindungsprobleme stoßen. Vgl. für weitere Informationen den Abschnitt <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Usage Guidelines and Requirements</a> in der Entrez-Dokumentation.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Dieser Filter ist mit den OCLC-Diensten <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> und <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (optional) verknüpft.</p>
-	<p>Wenn Sie einen Worldcat <a href="http://www.worldcat.org/devnet/wiki/SearchAPIWhoCanUse" target="_blank">API key</a> besitzen, können Sie auf Worldcat zugreifen, in dem Sie den Schlüssel unten eingeben.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.loadMessage">Bitte warten Sie, bis das Raster zur Konfiguration der Zitationsdatenbank geladen worden ist…</message>
-	<message key="manager.setup.filter.lookup.grid.title">Verknüpfungen zu Zitationsdatenbanken</message>
-	<message key="manager.setup.filter.noMoreTemplates">Alle verfügbaren Transformationen sind bereits hinzugefügt worden. Bitte klicken Sie 'Abbrechen' um zur Setupseite zurückzukehren.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionConfirm">Sie haben sich dafür entschieden, den {$filterDisplayName}-Parser hinzuzufügen. Bitten klicken Sie auf 'OK' zur Bestätigung.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionTemplate">Bitte wählen Sie einen Zitationsparser aus.</message>
-	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>Dieser Extraktionsfilter verbindet sich zum <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a> Webangebot.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>Dieser Extraktionsfilter ist mit den <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> Perl-Modulen verknüpft, um die <a href="http://paracite.eprints.org" target="_blank">ParaCite</a> Zitationsanalyse zu ermöglichen. Damit dies richtig funktioniert, müssen Sie Perl zusammen mit den CPAN-Modulen <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> und <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a> installiert haben. Sie müssen außerdem die <tt>perl</tt>-Anweisung in Ihrer Konfigurationsdatei einstellen. Diese Anweisung befindet sich im Abschnitt External Commands von <tt>config.inc.php</tt>.</p>
-	<p>Sie können auch auswählen, welches Analysemodul ParaTools benutzen soll. Sie können wählen zwischen dem Standard, <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a> und <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a>.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>Dieser Extraktionsfilter ist mit dem <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a> Webdienst verknüpft.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.regEx">Der RegEx-Extraktionsfilter benutzt eine Reihe regulärer Ausdrücke, um Zitationen zu analysieren.</message>
-	<message key="manager.setup.filter.parser.grid.loadMessage">Bitte warten Sie, bis das Raster zur Konfiguration der Zitationsdatenbank geladen worden ist…</message>
-	<message key="manager.setup.filter.parser.grid.title">Zitationsextraktionsdienste</message>
-	<message key="manager.setup.filter.pleaseSelect">Bitte wählen Sie aus…</message>
 	<message key="manager.setup.groupType">Dateitypgruppierung</message>
 	<message key="manager.setup.homeHeaderImageInvalid">Das Format des Logos in der Kopfzeile der Startseite ist ungültig. Gültige Formate sind .gif, .jpg und .png.</message>
 	<message key="manager.setup.homepageImage">Startseitengrafik</message>
@@ -285,7 +245,6 @@
 	<message key="manager.setup.layout.unselected">Nicht ausgewählt</message>
 	<message key="manager.setup.loggingAndAuditing">Protokollieren und prüfen</message>
 	<message key="manager.setup.logo">Logo</message>
-	<message key="manager.setup.metaCitationsDescription">Aktivieren Sie die folgende Auswahlbox, um Zitationsbearbeitung zu ermöglichen. Dies wird es Autor/innen ermöglichen, unbearbeitete Zitationen mit ihren Beiträgen einzureichen. Redakteur/innen werden ebenfalls Zugriff auf einen Zitationsauszeichnungsassistenten haben, der unbearbeitete Zitationen mit externen Datenbanken wie WorldCat, ISBNdb, PubMed u.a. abgleichen kann. Bestätigte Zitationen können in die endgültigen Fahnendateien exportiert werden.</message>
 	<message key="manager.setup.notifications">Bestätigung der Beitragseinreichung durch die Autor/innen</message>
 	<message key="manager.setup.notifications.copySpecifiedAddress">Eine Kopie an diese E-Mail-Adresse schicken.</message>
 	<message key="manager.setup.notifications.description">Autor/innen erhalten automatisch eine E-Mail, die ihnen den Eingang ihrer Einreichung bestätigt. Darüber hinaus können Kopien der Bestätigungs-E-Mail an die folgenden Adressen verschickt werden:</message>
@@ -310,7 +269,7 @@
 	<message key="manager.setup.sortableByComponent">Nach Komponenten sortierbar</message>
 	<message key="manager.setup.sponsors.note">Sie können einen Hinweis hinzufügen, wie Ihr Verhältnis zu Ihren Sponsoren ist; dieser Hinweis wird in der Sponsorenliste auf Ihrer "Über uns"-Seite erscheinen.</message>
 	<message key="manager.setup.sponsors.description">Beispiele: Fachgesellschaften, Fachbereiche, Konsortien etc. Spnsoren werden öffentlich angezeigt.</message>
-	<message key="manager.setup.styleSheetDescription">Sie können eine zusätzliche CSS-Datei hochlade, um das Aussehen anzupassen.</message>
+	<message key="manager.setup.styleSheetDescription">Sie können eine zusätzliche CSS-Datei hochladen, um das Aussehen anzupassen.</message>
 	<message key="manager.setup.technicalSupportContact">Kontakt bei technischen Fragen</message>
 	<message key="manager.setup.technicalSupportContactDescription">Eine Kontaktperson, die Herausgeber/innen, Autor/innen und Gutachter/innen bei allen Problemen unterstützen kann, die sie bei der Einreichung, beim redaktionellen Prozess, bei der Begutachtung oder beim Umgang mit veröffentlichtem Material haben.</message>
 	<message key="manager.siteAccessOptions.siteAccessOptions">Zugriffsoptionen</message>
@@ -322,10 +281,6 @@
 	<message key="plugins.categories.auth">Plugins für Zugangsberechtigungen</message>
 	<message key="plugins.categories.blocks">Block-Plugins</message>
 	<message key="plugins.categories.blocks.description">Block-Plugins sind ein- und ausschaltbare Designelemente, z.B. die verschiedenen Instrumente für die Seitenleiste.</message>
-	<message key="plugins.categories.citationLookup">Plugins für Verbindungen zu Zitationsdatenbanken</message>
-	<message key="plugins.categories.citationLookup.description">Plugins für Verbindungen zu Zitationsdatenbanken verbinden sich zu Zitationsdatenbank, um Zitationen nachzuschlagen, z.B. während der Bearbeitung der Literaturliste.</message>
-	<message key="plugins.categories.citationParser">Plugins zum Auslesen von Zitationen</message>
-	<message key="plugins.categories.citationParser.description">Plugins zum Auslesen von Zitationen extrahieren aus rohen Literaturlisten Daten auf Feldebene (z.B. Autor/in, Titel etc.).</message>
 	<message key="plugins.categories.gateways.description">Gateways stellen externen Systemen Daten zur Verfügung.</message>
 	<message key="plugins.categories.gateways">Gateways</message>
 	<message key="plugins.categories.generic">Generische Plugins</message>
@@ -559,7 +514,7 @@
 	<message key="manager.navigationMenus.customPage">Eigene Seite</message>
 	<message key="manager.navigationMenus.customPage.description">Erzeugen Sie eine eigene Seite und verlinken sie über das Navigationsmenü.</message>
 	<message key="manager.navigationMenus.remoteUrl">Remote-URL</message>
-	<message key="manager.navigationMenus.remoteUrl.description">Link zu einer beliebigen URL einer anderen Website, z.B. http://pkp.sfu.ca.</message>
+	<message key="manager.navigationMenus.remoteUrl.description">Link zu einer beliebigen URL einer anderen Website, z.B. https://pkp.sfu.ca.</message>
 	<message key="manager.navigationMenus.about.description"><![CDATA[Link zur Seite, welche den Inhalt von Über uns aus den Einstellungen > Zeitschrift anzeigt.]]></message>
 	<message key="manager.navigationMenus.about.conditionalWarning"><![CDATA[Dieser Link wird nur angezeigt, falls Sie den Abschnitt Über uns in den Einstellungen > Zeitschrift ausgefüllt haben.]]></message>
 	<message key="manager.navigationMenus.editorialTeam.description"><![CDATA[Link zur Seite, welche den Inhalt des Impressums aus den Einstellungen > Zeitschrift anzeigt.]]></message>
@@ -579,4 +534,5 @@
 	<message key="manager.navigationMenus.loggedOut.conditionalWarning">Dieser Link wird nur angezeigt, falls die Besucherin/der Besucher eingeloggt ist.</message>
 	<message key="manager.navigationMenus.loggedIn.conditionalWarning">Dieser Link wird nur angezeigt, falls die Besucherin/der Besucher nicht eingeloggt ist.</message>
 
+	<message key="manager.people.existingUserRequired">Ein existierender Benutzer/eine existierende Benutzerin muss eingetragen werden.</message>
 </locale>

@@ -158,93 +158,10 @@
 	<message key="submission.changeComments">Заменить на</message>
 	<message key="submission.changeFile">Изменить файл</message>
 	<message key="submission.citations">Литература</message>
-	<message key="submission.citations.editor.citationlist.approved">Одобрена</message>
-	<message key="submission.citations.editor.citationlist.deleteCitationConfirmation">Вы уверены, что хотите удалить эту библиографическую ссылку?</message>
-	<message key="submission.citations.editor.citationlist.errorDeletingCitation">Произошла ошибка при попытке удаления этой библиографической ссылки. Пожалуйста, сообщите об этой ошибке разработчикам.</message>
-	<message key="submission.citations.editor.citationlist.newCitation">Новая библиографическая ссылка</message>
-	<message key="submission.citations.editor.citationlist.notApproved">Не одобрена</message>
-	<message key="submission.citations.editor.citationlist.title">Редактировать библиографические ссылки</message>
-	<message key="submission.citations.editor.clickToEdit">Щелкните для редактирования.</message>
-	<message key="submission.citations.editor.details.authorQuery">Спросить автора</message>
-	<message key="submission.citations.editor.details.authorQueryBody">Ваше сообщение автору:</message>
-	<message key="submission.citations.editor.details.authorQueryExplanation">Вы можете запросить у автора дополнительную информацию о библиографической ссылке на данный источник. Щелкнув внизу на кнопке «Отправить», вы отправите электронной почтой ваше сообщение автору.</message>
-	<message key="submission.citations.editor.details.authorQuerySubject">Тема:</message>
-	<message key="submission.citations.editor.details.cannotSelectDefaultForLabel">Вы не можете отменить метку поля. Пожалуйста, удалите поле, если оно вам не нужно</message>
-	<message key="submission.citations.editor.details.checkInGoogleScholar">Проверить в Академии Google</message>
-	<message key="submission.citations.editor.details.changeFieldInfo">Введите несколько первых букв для выбора...</message>
-	<message key="submission.citations.editor.details.citationExportPreview">Предварительный просмотр библиографической ссылки для экспорта</message>
-	<message key="submission.citations.editor.details.citationImprovementResultsActive">Результаты встроенной службы библиографических ссылок (щелкните для закрытия)</message>
-	<message key="submission.citations.editor.details.citationImprovementResultsInactive">Результаты встроенной службы библиографических ссылок (щелкните для открытия)</message>
-	<message key="submission.citations.editor.details.citationServices">Службы библиографических ссылок</message>
-	<message key="submission.citations.editor.details.clickToDismissMessage">Вы можете щелкнуть на тексте сообщения, чтобы оно исчезло.</message>
-	<message key="submission.citations.editor.details.dataSaved">Ваши изменения были сохранены.</message>
-	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Выберите службы баз данных библиографических ссылок на источники:</message>
-	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Настройки редактирования библиографических ссылок (щелкните для закрытия)</message>
-	<message key="submission.citations.editor.details.editRawCitationExpertSettingsInactive">Настройки редактирования библиографических ссылок (щелкните для открытия)</message>
-	<message key="submission.citations.editor.details.editRawCitationExtractionServices">Выберите службы извлечения библиографических ссылок:</message>
-	<message key="submission.citations.editor.details.editRawCitationFilterValidationError">Внутренняя ошибка: неправильный выбор фильтра. Пожалуйста, отправьте отчет об ошибке разработчикам.</message>
-	<message key="submission.citations.editor.details.explainImprovementOptions">Если вы не получили удовлетворительных результатов по умолчанию, то у вас есть различные способы улучшить библиографическую ссылку. Зачастую стоит отредактировать важные поля вручную (например, название и автор), а затем снова воспользоваться службами библиографических ссылок. Если это не помогает, вы можете обратиться с запросом к Академии Google или попросить автора уточнить детали.</message>
-	<message key="submission.citations.editor.details.googleScholar">Академия Google</message>
-	<message key="submission.citations.editor.details.googleScholarExplanation">Если библиографическая ссылка не была найдена ни в одной из подключенных служб библиографических ссылок, вы можете попробовать найти ее в Академии Google. К сожалению, Академия Google не предоставляет интерфейса с полями для данных, которые мы могли бы использовать, поэтому мы не можем автоматически передать данные в этот Помощник. Вам нужно будет вручную скопировать информацию со страницы результата Google и вставить ее в ваши поля.</message>
-	<message key="submission.citations.editor.details.manualEditing">Ручное редактирование</message>
-	<message key="submission.citations.editor.details.messages">Пожалуйста, обратите внимание (щелкните на сообщениях, чтобы они исчезли)</message>
-	<message key="submission.citations.editor.details.newFieldInfo">...щелкните здесь для добавления нового поля...</message>
-	<message key="submission.citations.editor.details.queryCitation">Повторный запрос к службам библиографических ссылок</message>
-	<message key="submission.citations.editor.details.queryGoogleScholar">Поиск в Академии Google</message>
-	<message key="submission.citations.editor.details.processRawCitation">Обработать</message>
-	<message key="submission.citations.editor.details.processRawCitationGoAhead">Перейти к следующей</message>
-	<message key="submission.citations.editor.details.processRawCitationTitle">Изменение исходной ссылки</message>
-	<message key="submission.citations.editor.details.processRawCitationWarning">Вы собираетесь изменить текст исходной библиографической ссылки. Если вы это сделаете, то все поля будут заменены заново сгенерированными значениями. Это приведет к удалению тех изменений вручную, которые вы уже могли сделать.</message>
-	<message key="submission.citations.editor.details.saveAndApprove">Сохранить и одобрить</message>
-	<message key="submission.citations.editor.details.saveAndRevokeApproval">Отменить одобрение</message>
-	<message key="submission.citations.editor.details.sendAuthorQuery">Отправить сообщение</message>
-	<message key="submission.citations.editor.details.sendAuthorQuerySuccess">Сообщение отправлено!</message>
-	<message key="submission.citations.editor.details.sourceResultsUse">Использовать</message>
-	<message key="submission.citations.editor.details.sourceResultsUseAll">Использовать все</message>
-	<message key="submission.citations.editor.details.sourceResultsUseAllExplanation">Щелкните, чтобы передать все результирующие поля из этого источника напрямую в ваш список полей</message>
-	<message key="submission.citations.editor.details.sourceResultsUseExplanation">Щелкните, чтобы передать это результирующее поле напрямую в ваш список полей</message>
-	<message key="submission.citations.editor.details.rawCitation">Текст исходной ссылки</message>
-	<message key="submission.citations.editor.details.rawCitationRequired">Текст библиографической ссылки обязателен.</message>
-	<message key="submission.citations.editor.details.unsavedChanges">Библиографическая ссылка содержит несохраненные данные. Пожалуйста, щелкните на кнопке «Сохранить», чтобы сохранить изменения, или на кнопке «Отменить», чтобы отменить изменения.</message>
-	<message key="submission.citations.editor.details.dontShowMessageAgain">Не показывать это сообщение снова.</message>
-	<message key="submission.citations.editor.edit">Редактирование ссылок</message>
-	<message key="submission.citations.editor.export">Экспорт ссылок</message>
-	<message key="submission.citations.editor.export.exportDescription"><![CDATA[<a id="markForExport" href="">Щелкните здесь</a>, чтобы выделить весь сгенерированный вывод. Вы затем сможете скопировать и вставить его в ваш документ.]]></message>
-	<message key="submission.citations.editor.export.filterSelectionDescription">Пожалуйста, выберите один из следующих вариантов экспорта.</message>
-	<message key="submission.citations.editor.export.filterSelectionError">Вы не выбрали один из вариантов вывода.</message>
-	<message key="submission.citations.editor.export.foundUnapprovedCitationsMessage"><![CDATA[<p>Вы еще не одобрили все библиографические ссылки. Пожалуйста, перейдите к вкладке <strong>Редактирование ссылок</strong> и убедитесь, что вы одобрили все библиографические ссылки, прежде чем экспортировать их. Одобренные библиографические ссылки отмечаются темно-синей полосой слева.</p>]]></message>
-	<message key="submission.citations.editor.export.noExportOutput">Фильтр вывода «{$filterName}» выдал ошибку. Пожалуйста, отправьте отчет об ошибке разработчикам.</message>
-	<message key="submission.citations.editor.export.pleaseSelectXmlFilter">Варианты вывода в XML:</message>
-	<message key="submission.citations.editor.export.pleaseSelectPlaintextFilter">Вывод библиографических ссылок в соответствии со стилем (экспериментальная функция!):</message>
-	<message key="submission.citations.editor.introduction">Начало</message>
-	<message key="submission.citations.editor.introduction.introductionMessage"><![CDATA[<h4>Добро пожаловать в Помощник разметки библиографических ссылок!</h4>
-	<p>Используя этот помощник, вы можете разметить библиографические ссылки, предоставленные автором, для экспорта в XML-гранки NLM 2.3 или 3.0, или выгрузки в текстовом виде. Этот инструмент сначала пробует автоматически извлечь и распознать библиографические ссылки в том виде, в каком они были представлены, но в любой момент вы можете вмешаться и отредактировать результаты.</p>
-	<ul>
-		<li><p><strong>Настройка Помощника</strong></p>
-		<p>Помощник разметки библиографических ссылок настраивается управляющим журналом на <a href="{$citationSetupUrl}">шаге 3.7 настройки журнала: Помощник разметки библиографических ссылок</a>. Различные инструменты извлечения и проверки библиографических ссылок можно добавлять, настраивать и удалять. Для получения дополнительной информации свяжитесь с управляющим журналом.</p></li>
-		<li><p><strong>Навигация по интерфейсу Помощника</strong></p>
-		<p>Чтобы переключиться между вкладками <strong>Начало</strong>, <strong>Редактирование ссылок</strong> и <strong>Экспорт ссылок</strong>, щелкните на названии вкладки. Чтобы развернуть интерфейс библиографических ссылок, щелкните на кнопке <strong>Полноэкранный режим</strong>. Чтобы вернуться к нормальному интерфейсу, щелкните на кнопке <strong>Выйти из полноэкранного режима</strong>. Чтобы полностью убрать эту вводную вкладку, щелкните на кнопке ниже.</p></li>
-		<li><p><strong>Запрос библиографических ссылок</strong></p>
-		<p>Если Помощник разметки библиографических ссылок был включен управляющим журналом, авторам будет предлагаться ввести список литературы в процесе отправки статьи. Эти ссылки будут запрашиваться отдельно от самого отправляемого документа. После отправки, авторы также могут в любой момент менять свой список ссылок при редактировании метаданных материала. Обратите внимание, что это приведет к перезаписи всех изменений, которые вы сделали в библиографических ссылках, используя этот инструмент.</p></li>
-		<li><p><strong>Редактирование ссылок</strong></p>
-		<p>Помощник разметки библиографических ссылок пытается определить и извлечь отдельные библиографические ссылки из списка библиографических ссылок, указанного автором. Вы можете систематически проверять каждую извлеченную ссылку на точность во внешних базах данных, редактировать неверную информацию в библиографической ссылке и добавлять новую информацию, одобрять или удалять библиографические ссылки, а также добавлять новые библиографические ссылки.</p>
-		<p>Все библиографические ссылки из итогового списка для материала должны быть одобрены, прежде чем они будут экспортированы.</p></li>
-		<li><p><strong>Экспорт ссылок</strong></p>
-		<p>Библиографические ссылки могут быть экспортированы как XML или текст. Варианты экспорта в XML на текущий момент включают <a href="http://dtd.nlm.nih.gov/publishing/">NLM Journal Publishing</a> 2.3 и 3.0 <a href="http://www.ncbi.nlm.nih.gov/pmc/pmcdoc/tagging-guidelines/article/tags.html#el-reflist">ref-list XML</a>. Выбор одного из этих вариантов выводит список библиографических ссылок в виде фрагмента в формате XML, который может быть скопирован и вставлен в XML-гранки NLM.</p>
-		<p>Экспериментальные варианты экспорта в текстовом формате включают стили оформления библиографических ссылок ABNT, APA, MLA и Vancouver. Эти варианты обеспечивают вывод текста, который может быть скопирован и вставлен в текстовые гранки статьи (например, в Microsoft Word, OpenOffice, Adobe InDesign и т.д.). Каждая библиографическая ссылка включает встроенную гиперссылку для автоматического поиска этого источника в Академии Google.</p></li>
-	</ul>]]></message>
-	<message key="submission.citations.editor.loadMessage">Пожалуйста, подождите пока загрузится помощник разметки библиографических ссылок.</message>
-	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>Нет библиографических ссылок для этой статьи.</p><p>Пожалуйста, перейдите на <a href="{$articleMetadataUrl}">страницу метаданных</a> статьи и введите список литературы или добавьте библиографические ссылки вручную, используя кнопку добавления элементов в редакторе.</p>]]></message>
-	<message key="submission.citations.editor.pleaseSelect">Пожалуйста, выберите...</message>
-	<message key="submission.citations.editor.unprocessedCitations">Библиографические ссылки из этой статьи все еще обрабатываются сервером. Текущий список библиографических ссылок содержит только уже обработанные ссылки. Пожалуйста, щелкните на кнопке «Обновить», чтобы увидеть библиографические ссылки, которые были обработаны за это время.</message>
-	<message key="submission.citations.editor.unprocessedCitationsButton">Обновить список ссылок</message>
-	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Щелкните, чтобы обновить список библиографических ссылок.</message>
-	<message key="submission.citations.filter.invalidMetadata">Произошла ошибка в фильтре «{$filterName}»: один из элементов данных, возвращенный источником данных (например, веб-службой), не соответствует внутреннему формату метаданных. По этой причине результаты, полученные из этого источника данных, были отклонены. Пожалуйста, сообщите об этой ошибке разработчикам.</message>
-	<message key="submission.citations.filter.noResultFromFilterError">Несколько служб библиографических ссылок не вернули никаких результатов. Вы можете попробовать вручную отредактировать поля библиографической ссылки и снова отправить запрос в службы библиографических ссылок, чтобы улучшить результаты. Если это не помогло, то такой источник не существует ни в одной из подключенных баз данных библиографических ссылок на источники.</message>
-	<message key="submission.citations.filter.unsupportedPublicationType">Тип публикации не указан или не поддерживается. Пожалуйста, отредактируйте библиографическую ссылку вручную и укажите тип публикации (разрешенные типы: book, journal, thesis и conf-proc).</message>
-	<message key="submission.citations.filter.webserviceError">Вызов веб-службы фильтра «{$filterName}» вернул ошибку при вызове со следующим URL-адресом: {$webserviceUrl}. Возможно, эта веб-служба временно недоступна. Вы можете продолжить работу с остальными службами и сохранить ваши результаты. Вы также можете попробовать обратиться к этой службе позже. Если ошибка продолжает повторяться, попросите управляющего деактивировать эту службу и сообщить об ошибке разработчикам.</message>
-	<message key="submission.citations.filter.webserviceResultTransformationError">Произошла ошибка в фильтре «{$filterName}»: преобразование XML-результатов (например, от веб-службы) в поля метаданных потерпело неудачу. Вероятная причина в том, что веб-служба вернула неправильные или неполные данные. Пожалуйста, сообщите об этой ошибке разработчикам.</message>
-	<message key="submission.citations.metadata.changeWarning">Вы уверены, что хотит обновить ваш список библиографических ссылок? Если вы щелкните на «ОК», все изменения, сделанные редакторами, будут перезаписаны. Если вы не уверены в том, что вам нужно внести изменения в список библиографических ссылок, пожалуйста, свяжитесь с редактором, занимающимся вашим материалом.</message>
+	<message key="submission.citations.description">Введите каждую ссылку на новой строке, чтобы их можно было потом извлечь.</message>
+	<message key="submission.parsedCitations">Извлеченные ссылки</message>
+	<message key="submission.parsedCitations.description">Следующие ссылки были извлечены и будут связаны с метаданными материала.</message>
+	<message key="submission.parsedAndSaveCitations">Извлечь и сохранить ссылки</message>
 	<message key="submission.comments.addComment">Добавить комментарий</message>
 	<message key="submission.comments.comments">Комментарии</message>
 	<message key="submission.comments.confirmDelete">Вы уверены, что хотите удалить этот комментарий?</message>

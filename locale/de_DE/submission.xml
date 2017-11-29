@@ -157,6 +157,10 @@
 	<message key="submission.changeComments">Ändern in</message>
 	<message key="submission.changeFile">Datei ändern</message>
 	<message key="submission.citations">Literaturhinweise</message>
+	<message key="submission.citations.description">Geben Sie jeden Eintrag in einer neuen Zeile ein, damit er ausgelesen werden kann.</message>
+	<message key="submission.parsedCitations">Ausgelesene Literaturhinweise</message>
+	<message key="submission.parsedCitations.description">Die folgenden Literaturhinweise wurden ausgelesen und werden mit den Metadaten der Einreichung verknüpft.</message>
+	<message key="submission.parsedAndSaveCitations">Literaturhinweise auslesen und speichern</message>
 	<message key="submission.comments.addComment">Kommentar hinzufügen</message>
 	<message key="submission.comments.comments">Kommentare</message>
 	<message key="submission.comments.confirmDelete">Sind Sie sicher, dass Sie diesen Kommentar löschen wollen?</message>
@@ -345,7 +349,7 @@
 	<message key="submission.submit.metadataForm">Zusätzliche Verfeinerung</message>
 	<message key="submission.submit.metadataForm.tip">Fügen Sie zusätzliche Informationen für Ihre Einreichung hinzu. Drücken Sie 'Enter' nach jedem Begriff.</message>
 	<message key="submission.submit.submissionLocale">Beitragssprache</message>
-	<message key="submission.submit.submissionLocaleDescription">Es werden Einreichungen in verschiedenen Sprachen akzeptiert. Wählen Sie die Hauptsprache der Einreichung im Pulldown-Menü unten aus.</message>
+	<message key="submission.submit.submissionLocaleDescription">Es werden Einreichungen in verschiedenen Sprachen akzeptiert. Wählen Sie die Hauptsprache der Einreichung im Pulldown-Menü oben aus.</message>
 	<message key="submission.submit.submissionFiles">Beitragsdateien</message>
 	<message key="submission.submit.dependentFiles">Abhängige Dateien</message>
 	<message key="submission.manageDependentFiles">Abhängige Dateien verwalten</message>

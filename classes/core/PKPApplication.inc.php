@@ -113,7 +113,7 @@ interface iPKPApplicationInfoProvider {
 }
 
 abstract class PKPApplication implements iPKPApplicationInfoProvider {
-	var $enabledProducts;
+	var $enabledProducts = array();
 	var $allProducts;
 
 	/**
@@ -292,35 +292,34 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * @return array
 	 */
 	function &getEnabledProducts($category = null, $mainContextId = null) {
-		if (is_null($this->enabledProducts) || !is_null($mainContextId)) {
-			$contextDepth = $this->getContextDepth();
+		$contextDepth = $this->getContextDepth();
+		if (is_null($mainContextId)) {
+			$request = $this->getRequest();
+			$router = $request->getRouter();
 
+			// Try to identify the main context (e.g. journal, conference, press),
+			// will be null if none found.
+			$mainContext = $router->getContext($request, 1);
+			if ($mainContext) $mainContextId = $mainContext->getId();
+			else $mainContextId = CONTEXT_SITE;
+		}
+		if (!isset($this->enabledProducts[$mainContextId])) {
 			$settingContext = array();
 			if ($contextDepth > 0) {
-				$request = $this->getRequest();
-				$router = $request->getRouter();
-
-				if (is_null($mainContextId)) {
-					// Try to identify the main context (e.g. journal, conference, press),
-					// will be null if none found.
-					$mainContext = $router->getContext($request, 1);
-					if ($mainContext) $mainContextId = $mainContext->getId();
-				}
-
 				// Create the context for the setting if found
-				if (!is_null($mainContextId)) $settingContext[] = $mainContextId;
+				$settingContext[] = $mainContextId;
 				$settingContext = array_pad($settingContext, $contextDepth, 0);
 				$settingContext = array_combine($this->getContextList(), $settingContext);
 			}
 
 			$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
-			$this->enabledProducts = $versionDao->getCurrentProducts($settingContext);
+			$this->enabledProducts[$mainContextId] = $versionDao->getCurrentProducts($settingContext);
 		}
 
 		if (is_null($category)) {
-			return $this->enabledProducts;
-		} elseif (isset($this->enabledProducts[$category])) {
-			return $this->enabledProducts[$category];
+			return $this->enabledProducts[$mainContextId];
+		} elseif (isset($this->enabledProducts[$mainContextId][$category])) {
+			return $this->enabledProducts[$mainContextId][$category];
 		} else {
 			$returner = array();
 			return $returner;

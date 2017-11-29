@@ -350,7 +350,7 @@
 	<message key="submission.submit.metadataForm">Дополнительные уточнения</message>
 	<message key="submission.submit.metadataForm.tip">Добавьте дополнительную информацию для вашего материала. Нажимвйте «Enter» после каждого термина.</message>
 	<message key="submission.submit.submissionLocale">Язык материала</message>
-	<message key="submission.submit.submissionLocaleDescription">Принимаются материалы на нескольких языках. Выберите основной язык отправляемого материала из выпадающего меню ниже.</message>
+	<message key="submission.submit.submissionLocaleDescription">Принимаются материалы на нескольких языках. Выберите основной язык отправляемого материала из выпадающего меню выше.</message>
 	<message key="submission.submit.submissionFiles">Файлы материала</message>
 	<message key="submission.submit.dependentFiles">Зависимые файлы</message>
 	<message key="submission.manageDependentFiles">Управление зависимыми файлами</message>

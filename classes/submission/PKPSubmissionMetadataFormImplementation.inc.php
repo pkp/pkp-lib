@@ -67,6 +67,13 @@ class PKPSubmissionMetadataFormImplementation {
 			if ($context->getSetting($key . 'Required')) switch(1) {
 				case in_array($key, $this->getLocaleFieldNames()):
 					$this->_parentForm->addCheck(new FormValidatorLocale($this->_parentForm, $key, 'required', 'common.required', $submission->getLocale()));
+				case $key == 'citations':
+					$request = Application::getRequest();
+					$user = $request->getUser();
+					if ($user->hasRole(ROLE_ID_AUTHOR, $context->getId())) {
+						$this->_parentForm->addCheck(new FormValidator($this->_parentForm, $key, 'required', 'common.required'));
+					}
+					break;
 				default:
 					$this->_parentForm->addCheck(new FormValidator($this->_parentForm, $key, 'required', 'common.required'));
 			}

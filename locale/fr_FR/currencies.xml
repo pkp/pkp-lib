@@ -12,7 +12,7 @@
   *
   -->
 
-<currencies locale="fr_CA">
+<currencies locale="fr_FR">
 	<currency name="Dollar des États-Unis d'Amérique" code_alpha="USD" code_numeric="840" />
 	<currency name="Euro" code_alpha="EUR" code_numeric="978" />
 	<currency name="Dollar canadien" code_alpha="CAD" code_numeric="124" />

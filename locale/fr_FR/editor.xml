@@ -31,7 +31,7 @@
 	<message key="editor.submission.fileList.includeAllStages">Inclure tous les fichiers de toutes les étapes de production accessibles.</message>
 	<message key="editor.submission.review.currentFiles">{$round}e série d'évaluation des fichiers.</message>
 	<message key="editor.submission.backToSearch">Revenir en mode de recherche simple</message>
-	<message key="editor.review.createReviewer">Créer un nouvel rapporteur</message>
+	<message key="editor.review.createReviewer">Créer un nouveau rapporteur</message>
 	<message key="editor.review.enrollReviewer.short">Enregistrer un rapporteur actuel</message>
 	<message key="editor.submissionReview.reviewType">Type d'évaluation</message>
 	<message key="editor.submissionReview.skipEmail">Ne pas envoyer un courriel à l'auteur</message>
@@ -135,4 +135,12 @@
 	<message key="editor.publicIdentificationNumericNotAllowed">Le public identifié comme '{$publicIdentifier}' ne peut être un numéro.</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">Le modèle {$pattern} ne peut pas être utilisé comme public identifié.</message>
 	<message key="editor.review.reviewsAdded">Les rapports ont été ajoutés au corps du mail</message>
+	<message key="editor.submissionReview.sendEmail">Envoyer un mail aux auteurs : {$authorName}</message>
+	<message key="editor.submissionReview.sendEmail.editors">Envoyer un mail aux rédacteurs : {$editorNames}</message>
+	<message key="editor.review.newReviewRound">Nécessite un nouveau cycle d'évaluation</message>
+	<message key="editor.submissionReview.recordRecommendation">Enregistrement de la recommandation éditoriale</message>
+	<message key="editor.submissionReview.recordRecommendation.notifyEditors">Notifier les rédacteurs</message>
+	<message key="editor.submissionReview.recordRecommendation.skipEmail">Ne pas envoyer de mail aux rédacteurs.</message>
+	<message key="editor.submissionReview.recordRecommendation.createDiscussion">Créer une discussion sur cette recommandation.</message>
+	<message key="editor.submissionReview.recordRecommendation.skipDiscussion">Ne pas créer une discussion sur cette recommandation.</message>
 </locale>

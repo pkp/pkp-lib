@@ -147,8 +147,8 @@
 	<message key="common.fullscreenOff">Выйти из полноэкранного режима</message>
 	<message key="common.false">Ложь</message>
 	<message key="common.file">Файл</message>
-	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
-	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
+	<message key="common.file.namingPattern">{$username}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$genre}, {$originalFilename}</message>
 	<message key="common.fileName">Имя файла</message>
 	<message key="common.fileSize">Размер файла</message>
 	<message key="common.fileType">Тип файла</message>

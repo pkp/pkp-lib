@@ -391,8 +391,8 @@
 	<message key="common.dimensionsInches"><![CDATA[{$width}&Prime;&times;{$height}&Prime; przy {$dpi} DPI/PPI]]></message>
 	<message key="common.dimensionsPixels"><![CDATA[{$width}&times;{$height} pikseli]]></message>
 	<message key="common.downloadPdf">Pobierz PDF</message>
-	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
-	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
+	<message key="common.file.namingPattern">{$username}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$genre}, {$originalFilename}</message>
 	<message key="common.fileUploaderError">Narzędzie do przesyłania plików jest ładowane. Jeżeli nie pojawi się po dłuższej chwili istnieje prawdopodobieństwo, że nie jest wspierane przez Twoją przeglądarkę. Gdyby tak się stało, skontaktuj się z administratorem w celu uzyskania pomocy.</message>
 	<message key="common.homepageNavigationLabel">Strona domowa</message>
 	<message key="common.itemsPerPage">Elementów na stronę</message>

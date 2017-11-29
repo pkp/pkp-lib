@@ -57,7 +57,6 @@ class SubmissionFileDAODelegate extends DAO {
 			(int)$submissionFile->getFileStage(),
 			(boolean)$submissionFile->getViewable() ? 1 : 0,
 			is_null($submissionFile->getUploaderUserId()) ? null : (int)$submissionFile->getUploaderUserId(),
-			is_null($submissionFile->getUserGroupId()) ? null : (int)$submissionFile->getUserGroupId(),
 			is_null($submissionFile->getAssocType()) ? null : (int)$submissionFile->getAssocType(),
 			is_null($submissionFile->getAssocId()) ? null : (int)$submissionFile->getAssocId(),
 			is_null($submissionFile->getGenreId()) ? null : (int)$submissionFile->getGenreId(),
@@ -71,9 +70,9 @@ class SubmissionFileDAODelegate extends DAO {
 
 		$this->update(
 			sprintf('INSERT INTO submission_files
-				(' . ($fileId ? 'file_id, ' : '') . 'revision, submission_id, source_file_id, source_revision, file_type, file_size, original_file_name, file_stage, date_uploaded, date_modified, viewable, uploader_user_id, user_group_id, assoc_type, assoc_id, genre_id, direct_sales_price, sales_type)
+				(' . ($fileId ? 'file_id, ' : '') . 'revision, submission_id, source_file_id, source_revision, file_type, file_size, original_file_name, file_stage, date_uploaded, date_modified, viewable, uploader_user_id, assoc_type, assoc_id, genre_id, direct_sales_price, sales_type)
 				VALUES
-				(' . ($fileId ? '?, ' : '') . '?, ?, ?, ?, ?, ?, ?, ?, %s, %s, ?, ?, ?, ?, ?, ?, ?, ?)',
+				(' . ($fileId ? '?, ' : '') . '?, ?, ?, ?, ?, ?, ?, ?, %s, %s, ?, ?, ?, ?, ?, ?, ?)',
 				$this->datetimeToDB($submissionFile->getDateUploaded()), $this->datetimeToDB($submissionFile->getDateModified())),
 			$params
 		);
@@ -152,7 +151,6 @@ class SubmissionFileDAODelegate extends DAO {
 					date_modified = %s,
 					viewable = ?,
 					uploader_user_id = ?,
-					user_group_id = ?,
 					assoc_type = ?,
 					assoc_id = ?,
 					genre_id = ?,
@@ -172,7 +170,6 @@ class SubmissionFileDAODelegate extends DAO {
 				$submissionFile->getFileStage(),
 				(boolean)$submissionFile->getViewable() ? 1 : 0,
 				is_null($submissionFile->getUploaderUserId()) ? null : (int)$submissionFile->getUploaderUserId(),
-				is_null($submissionFile->getUserGroupId()) ? null : (int)$submissionFile->getUserGroupId(),
 				is_null($submissionFile->getAssocType()) ? null : (int)$submissionFile->getAssocType(),
 				is_null($submissionFile->getAssocId()) ? null : (int)$submissionFile->getAssocId(),
 				is_null($submissionFile->getGenreId()) ? null : (int)$submissionFile->getGenreId(),
@@ -267,7 +264,6 @@ class SubmissionFileDAODelegate extends DAO {
 		$submissionFile->setGenreId(is_null($row['genre_id']) ? null : (int)$row['genre_id']);
 		$submissionFile->setFileSize((int)$row['file_size']);
 		$submissionFile->setUploaderUserId(is_null($row['uploader_user_id']) ? null : (int)$row['uploader_user_id']);
-		$submissionFile->setUserGroupId(is_null($row['user_group_id']) ? null : (int)$row['user_group_id']);
 		$submissionFile->setViewable((boolean)$row['viewable']);
 		$submissionFile->setDateUploaded($this->datetimeFromDB($row['date_uploaded']));
 		$submissionFile->setDateModified($this->datetimeFromDB($row['date_modified']));

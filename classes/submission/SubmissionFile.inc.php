@@ -420,22 +420,6 @@ class SubmissionFile extends PKPFile {
 	}
 
 	/**
-	 * Set the uploader's user group id
-	 * @param $userGroupId int
-	 */
-	function setUserGroupId($userGroupId) {
-		$this->setData('userGroupId', $userGroupId);
-	}
-
-	/**
-	 * Get the uploader's user group id
-	 * @return int
-	 */
-	function getUserGroupId() {
-		return $this->getData('userGroupId');
-	}
-
-	/**
 	 * Get type that is associated with this file.
 	 * @return int
 	 */
@@ -602,8 +586,6 @@ class SubmissionFile extends PKPFile {
 	function _generateName($anonymous = false) {
 		$genreDao = DAORegistry::getDAO('GenreDAO');
 		$genre = $genreDao->getById($this->getGenreId());
-		$userGroupDAO = DAORegistry::getDAO('UserGroupDAO');
-		$userGroup = $userGroupDAO->getById($this->getUserGroupId());
 		$userDAO = DAORegistry::getDAO('UserDAO');
 		$user = $userDAO->getById($this->getUploaderUserId());
 
@@ -614,7 +596,6 @@ class SubmissionFile extends PKPFile {
 		if ($genre) {
 			$genreName = $genre->getName($submissionLocale) ? $genre->getName($submissionLocale) : $genre->getLocalizedName();
 		}
-		$userGroupName = $userGroup->getName($submissionLocale) ? $userGroup->getName($submissionLocale) : $userGroup->getLocalizedName();
 
 		$localeKey = $anonymous ? 'common.file.anonymousNamingPattern' : 'common.file.namingPattern';
 		return __($localeKey,
@@ -623,7 +604,6 @@ class SubmissionFile extends PKPFile {
 				'docType'          => $this->getDocumentType(),
 				'originalFilename' => $this->getOriginalFilename(),
 				'username'         => $user->getUsername(),
-				'userGroup'        => $userGroupName,
 			),
 			$submissionLocale
 		);

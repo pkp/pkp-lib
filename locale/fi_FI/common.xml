@@ -134,8 +134,8 @@
 	<message key="common.fullscreenOff">Koko näyttö pois</message>
 	<message key="common.false">Väärä</message>
 	<message key="common.file">Tiedosto</message>
-	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
-	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
+	<message key="common.file.namingPattern">{$username}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$genre}, {$originalFilename}</message>
 	<message key="common.fileName">Tiedostonimi</message>
 	<message key="common.fileSize">Tiedoston koko</message>
 	<message key="common.fileType">Tiedostotyyppi</message>

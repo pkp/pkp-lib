@@ -162,12 +162,7 @@
 			prepareFileUploadRequest = function(caller, pluploader) {
 
 		var $uploadForm = this.getHtmlElement(),
-				multipartParams = { },
-				// Add the uploader user group id.
-				$uploaderUserGroupId = $uploadForm.find('#uploaderUserGroupId');
-
-		$uploaderUserGroupId.attr('disabled', 'disabled');
-		multipartParams.uploaderUserGroupId = $uploaderUserGroupId.val();
+				multipartParams = {};
 
 		// Add the revised file to the upload message.
 		if (this.hasFileSelector_) {

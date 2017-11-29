@@ -104,8 +104,8 @@
 	<message key="common.fileName">Име фајла</message>
 	<message key="common.fileSize">Величина фајла</message>
 	<message key="common.fileType">Тип фајла</message>
-	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
-	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
+	<message key="common.file.namingPattern">{$username}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$genre}, {$originalFilename}</message>
 	<message key="common.height">Висина</message>
 	<message key="common.homePageHeaderLogo.altText">Лого заглавља насловне стране</message>
 	<message key="common.hour">Сат</message>

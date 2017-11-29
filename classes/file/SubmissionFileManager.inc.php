@@ -138,38 +138,6 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 	}
 
 	/**
-	 * Copy a temporary file to a submission file.
-	 * @param $temporaryFile SubmissionFile
-	 * @param $fileStage integer
-	 * @param $uploaderUserId integer
-	 * @param $revisedFileId integer
-	 * @param $genreId integer
-	 * @param $assocType integer
-	 * @param $assocId integer
-	 * @return integer the file ID (false if upload failed)
-	 */
-	function temporaryFileToSubmissionFile($temporaryFile, $fileStage, $uploaderUserId, $revisedFileId, $genreId, $assocType, $assocId) {
-		// Instantiate and pre-populate the new target submission file.
-		$sourceFile = $temporaryFile->getFilePath();
-		$submissionFile = $this->_instantiateSubmissionFile($sourceFile, $fileStage, $revisedFileId, $genreId, $assocType, $assocId);
-
-		// Transfer data from the temporary file to the submission file.
-		$submissionFile->setFileType($temporaryFile->getFileType());
-		$submissionFile->setOriginalFileName($temporaryFile->getOriginalFileName());
-
-		// Set the user and user group ids
-		$submissionFile->setUploaderUserId($uploaderUserId);
-
-		// Copy the temporary file to its final destination and persist
-		// its metadata to the database.
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-		if (!$submissionFileDao->insertObject($submissionFile, $sourceFile)) return false;
-
-		// Return the new file id.
-		return $submissionFile->getFileId();
-	}
-
-	/**
 	 * Copies an existing ArticleFile and renames it.
 	 * @param $sourceFileId int
 	 * @param $sourceRevision int

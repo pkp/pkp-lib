@@ -18,6 +18,7 @@
 	<message key="grid.noAuditors">No Auditors</message>
 	<message key="grid.remotelyHostedItem">This item is remotely hosted.</message>
 
+	<message key="grid.action.uninstall">Uninstall</message>
 	<message key="grid.action.manageAccess">Manage Access</message>
 	<message key="grid.action.sort">Sort</message>
 	<message key="grid.action.addItem">Add Item</message>

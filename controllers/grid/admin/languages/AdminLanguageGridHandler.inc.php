@@ -418,8 +418,42 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 	// Helper methods.
 	//
 	/**
+	 * Update the locale support state (enabled or disabled).
+	 * @param $request Request
+	 * @param $rowId string The locale row id.
+	 * @param $enable boolean Enable locale flag.
+	 */
+	protected function _updateLocaleSupportState($request, $rowId, $enable) {
+		$newSupportedLocales = array();
+		$gridData = $this->getGridDataElements($request);
+
+		foreach ($gridData as $locale => $data) {
+			if ($data['supported']) {
+				array_push($newSupportedLocales, $locale);
+			}
+		}
+
+		if (AppLocale::isLocaleValid($rowId)) {
+			if ($enable) {
+				array_push($newSupportedLocales, $rowId);
+			} else {
+				$key = array_search($rowId, $newSupportedLocales);
+				if ($key !== false) unset($newSupportedLocales[$key]);
+			}
+		}
+
+		$site = $request->getSite();
+		$site->setSupportedLocales($newSupportedLocales);
+
+		$siteDao = DAORegistry::getDAO('SiteDAO');
+		$siteDao->updateObject($site);
+
+		$this->_updateContextLocaleSettings($request);
+	}
+
+	/**
 	 * Helper function to update locale settings in all
-	 * installed journals, based on site locale settings.
+	 * installed contexts, based on site locale settings.
 	 * @param $request object
 	 */
 	protected function _updateContextLocaleSettings($request) {
@@ -433,16 +467,16 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 			foreach (array('supportedLocales', 'supportedFormLocales', 'supportedSubmissionLocales') as $settingName) {
 				$localeList = $context->getSetting($settingName);
 
-				if (isset($primaryLocale) && !in_array($primaryLocale, $siteSupportedLocales)) {
-					$context->setPrimaryLocale($site->getPrimaryLocale());
-					$this->updateContext($context);
-				}
-
 				if (is_array($localeList)) {
 					$localeList = array_intersect($localeList, $siteSupportedLocales);
 					$context->updateSetting($settingName, $localeList, 'object');
 				}
 			}
+			if (!in_array($primaryLocale, $siteSupportedLocales)) {
+				$context->setPrimaryLocale($site->getPrimaryLocale());
+				$contextDao->updateObject($context);
+			}
+
 		}
 	}
 

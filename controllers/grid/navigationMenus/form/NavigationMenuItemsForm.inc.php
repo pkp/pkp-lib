@@ -119,12 +119,7 @@ class NavigationMenuItemsForm extends Form {
 				'menuItemType' => $navigationMenuItem->getType(),
 			);
 			$this->setData('content', $navigationMenuItem->getContent(null)); // Localized
-		} else {
-			$this->navigationMenuItemId = null;
-			$this->setData('content', "");
-		}
-
-
+		} 
 	}
 
 	/**

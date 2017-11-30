@@ -60,7 +60,7 @@
 	{/fbvFormArea}
 
 	{fbvFormSection class="formButtons"}
-		{fbvElement type="submit" class="submitFormButton pkp_helpers_align_left pkp_button_primary" id=$buttonId label="common.save"}
+		{fbvElement type="submit" class="submitFormButton pkp_helpers_align_left pkp_button_primary" id="saveButton" label="common.save"}
 		{assign var=buttonId value="submitFormButton"|concat:"-"|uniqid}
 		{fbvElement type="button" class="pkp_button_link" id="previewButton" label="common.preview"}
 	{/fbvFormSection}

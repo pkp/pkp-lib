@@ -16,7 +16,6 @@
 	<message key="user.affiliation">Affiliation</message>
 	<message key="user.affiliations">Affiliations</message>
 	<message key="user.biography">Note biographique</message>
-	<message key="user.biography.description">(Par ex., département et position)</message>
 	<message key="user.changeMyPassword">Modifier mon mot de passe</message>
 	<message key="user.changePassword">Modifier le mot de passe</message>
 	<message key="user.dateLastLogin">Dernière connexion</message>
@@ -78,13 +77,11 @@
 	<message key="user.profile.public">Profil public</message>
 	<message key="user.profile.publicProfile">Profil utilisateur</message>
 	<message key="user.profile.repeatNewPassword">Saisir de nouveau le nouveau mot de passe</message>
-	<message key="user.register.completeForm">Compléter ce formulaire pour vous inscrire à cette revue.</message>
 	<message key="user.register.form.emailExists">L'adresse de courriel sélectionnée est déjà utilisée par un autre utilisateur.</message>
 	<message key="user.register.form.passwordLengthRestriction">Le mot de passe doit contenir au moins {$length} caractères.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Les mots de passe ne correspondent pas.</message>
 	<message key="user.register.form.usernameAlphaNumeric">Le nom d'utilisateur peut contenir uniquement des caractères alphanumériques, traits de soulignement, et traits d'union, et doit commencer et se terminer par un caractère alphanumérique.</message>
 	<message key="user.register.form.usernameExists">Le nom d'utilisateur sélectionné est déjà utilisé par un autre utilisateur.</message>
-	<message key="user.register.passwordLengthRestriction">Le mot de passe doit avoir au moins {$length} caractères.</message>
 	<message key="user.register.registerAs">S'inscrire en tant que {$contextName}</message>
 	<message key="user.register">S'inscrire</message>
 	<message key="user.register.usernameRestriction">Le nom d'utilisateur ne doit contenir que des lettres minuscules, chiffres, et traits d'union/de soulignement.</message>
@@ -119,8 +116,8 @@
 	<message key="user.role.author">Auteur</message>
 	<message key="user.role.author_s">Auteur(s)</message>
 	<message key="user.role.authors">Auteurs</message>
-	<message key="user.role.editor">Éditeur</message>
-	<message key="user.role.editors">Éditeurs</message>
+	<message key="user.role.editor">Rédacteur</message>
+	<message key="user.role.editors">Rédacteurs</message>
 	<message key="user.suffix">Suffixe</message>
 	<message key="user.authorization.contextRequired">Vous ne pouvez pas appeler cette opération sans spécifier son contexte (presse, journal, conférence, etc.)</message>
 	<message key="user.authorization.loginRequired">Ouverture de session requise.</message>
@@ -141,8 +138,8 @@
 	<message key="user.role.copyeditors">Réviseurs</message>
 	<message key="user.role.proofreader">Correcteur d'épreuve</message>
 	<message key="user.role.proofreaders">Correcteurs d'épreuve</message>
-	<message key="user.role.layoutEditor">Éditeur de topologie</message>
-	<message key="user.role.layoutEditors">Éditeurs de topologie</message>
+	<message key="user.role.layoutEditor">Maquettiste</message>
+	<message key="user.role.layoutEditors">Maquettistes</message>
 	<message key="user.authorization.accessibleWorkflowStage">Vous n'avez pas actuellement accès à cette étape du processus éditorial.</message>
 	<message key="user.authorization.workflowStageRequired">Une étape du processus éditorial n'est pas spécifiée</message>
 	<message key="user.authorization.pluginRequired">Un plugiciel requis n'a pas été sélectionné</message>
@@ -159,4 +156,6 @@
 	<message key="user.apiKeyEnabled">Autoriser les applications externes avec l'API key d'accéder à ce compte</message>
 	<message key="user.apiKey.generate">Générer une nouvelle API Key</message>
 	<message key="user.apiKey.generateWarning">Générer une nouvelle API Key invalidera toutes les clés existantes pour cet utilisateur.</message>
+	<message key="user.role.assistant">Assistant</message>
+	<message key="user.apiKey.secretRequired">Avant de générer une clé pour l'API, vous devez mettre un secret dans le fichier de configuration  ("api_key_secret")</message>
 </locale>

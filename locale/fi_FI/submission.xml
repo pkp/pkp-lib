@@ -194,7 +194,7 @@
 	<message key="submission.event.fileRevised">Korjaus "{$name}" (tiedoston tunniste {$fileId}-{$fileRevision}) ladattiin.</message>
 	<message key="submission.event.general.metadataUpdated">Käsikirjoituksen metatiedot päivitetty</message>
 	<message key="submission.event.general.suppFileUpdated">Käsikirjoitustiedosto päivitetty</message>
-	<message key="submission.event.participantAdded">{$name} valittiin tämän käsikirjoituksen {$userGroupName}ksi.</message>
+	<message key="submission.event.participantAdded">"{$name}" ({$username}) valittiin tämän käsikirjoituksen {$userGroupName}ksi.</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Arviointitoimeksianto hyväksytty valtuutetun välityksellä</message>
 	<message key="submission.event.reviewer.reviewAccepted">Arviointitoimeksianto hyväksytty</message>
 	<message key="submission.event.reviewer.reviewDeclined">Arviointitoimeksiannosta kieltäydytty</message>

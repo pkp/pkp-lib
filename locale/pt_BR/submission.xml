@@ -626,7 +626,6 @@
 	<message key="submission.publisherId">URL de Identificação Pública</message>
 	<message key="author.submission.roundStatus.reviewsReady">Novas avaliações foram enviados e estão sendo considerados pelo editor.</message>
 	<message key="submission.submit.copyrightNoticeAgreementLabel">Aceitar a declaração de direitos autorais</message>
-	<message key="submission.event.participantAdded">"{$name}" ({$username}) foi incluído no grupo de {$userGroupName}.</message>
 	<message key="submission.howToCite">Como Citar</message>
 	<message key="submission.howToCite.citationFormats">Fomatos de Citação</message>
 	<message key="submission.upload.proof">Fazer upload de um arquivo pronto para publicação</message>

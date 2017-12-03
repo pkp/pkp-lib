@@ -349,7 +349,7 @@
 	<message key="submission.event.submissionSubmitted">Úvodní odeslání zakončeno.</message>
 	<message key="submission.event.fileUploaded">Soubor "{$originalFileName}" byl nahrán pro příspěvek {$submissionId} uživatelem {$username}.</message>
 	<message key="submission.event.fileRevised">Oprava "{$name}" (file ID {$fileId}-{$revision}) byla nahrána.</message>
-	<message key="submission.event.participantAdded">Uživatel {$name} byl přiřazen k příspěvku jako {$userGroupName}.</message>
+	<message key="submission.event.participantAdded">Uživatel "{$name}" ({$username}) byl přiřazen k příspěvku jako {$userGroupName}.</message>
 	<message key="submission.event.subjectPrefix">Email byl odeslán:</message>
 	<message key="submission.event.viewEmail">Zobrazit email</message>
 	<message key="submission.files.downloadAll">Stáhnout všechny soubory</message>

@@ -202,7 +202,6 @@
 	<message key="submission.event.fileRevised">Revisionsdatei "{$name}" (Datei-ID {$fileId}-{$fileRevision}) wurde hochgeladen.</message>
 	<message key="submission.event.general.metadataUpdated">Metadaten des Beitrags aktualisiert</message>
 	<message key="submission.event.general.suppFileUpdated">Anlagedatei aktualisiert</message>
-	<message key="submission.event.participantAdded">{$name} wurde dieser Einreichung als {$userGroupName} hinzugefügt.</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Gutachter/innenzuteilung in Vertretung akzeptiert</message>
 	<message key="submission.event.reviewer.reviewAccepted">Gutachter/innenzuteilung akzeptiert</message>
 	<message key="submission.event.reviewer.reviewDeclined">Begutachtung abgelehnt</message>

@@ -289,6 +289,9 @@ class FormBuilderVocabulary {
 			case 'text':
 				$content = $this->_smartyFBVTextInput($params, $smarty);
 				break;
+			case 'url':
+				$content = $this->_smartyFBVTextInput($params, $smarty);
+				break;
 			case 'textarea':
 				$content = $this->_smartyFBVTextArea($params, $smarty);
 				break;
@@ -414,6 +417,7 @@ class FormBuilderVocabulary {
 		$params['subLabelTranslate'] = isset($params['subLabelTranslate']) ? (boolean) $params['subLabelTranslate'] : true;
 		$params['uniqId'] = uniqid();
 		$smarty->assign('FBV_isPassword', isset($params['password']) ? true : false);
+		$smarty->assign('FBV_isTypeURL', ($params['type'] === 'url') ? true : false);
 
 		$textInputParams = '';
 		$smarty->clear_assign(array('FBV_disabled', 'FBV_readonly', 'FBV_multilingual', 'FBV_name', 'FBV_value', 'FBV_label_content', 'FBV_uniqId'));
@@ -424,6 +428,12 @@ class FormBuilderVocabulary {
 				case 'size': break;
 				case 'inline': break;
 				case 'subLabelTranslate': break;
+				case 'urlValidationErrorMsg':
+					if ($params['type'] === 'url') {
+						$smarty->assign('FBV_urlValidationErrorMessage', __($value));
+					}
+					break;
+				case 'placeholder': $textInputParams .= 'placeholder="' . htmlspecialchars(__($value), ENT_QUOTES, LOCALE_ENCODING) . '" '; break;
 				case 'disabled':
 				case 'readonly':
 				case 'multilingual':

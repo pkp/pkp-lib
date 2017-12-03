@@ -20,7 +20,7 @@
 	</script>
 	{* This is a multilingual control. Enable popover display. *}
 	<span id="{$FBV_id|escape}-localization-popover-container{$uniqId}" class="localization_popover_container">
-		<input type="{if $FBV_isPassword}password{else}text{/if}"
+		<input type="{if $FBV_isPassword}password{elseif $FBV_isTypeURL}url{else}text{/if}"
 			{$FBV_textInputParams}
 			class="localizable {if $FBV_class}{$FBV_class|escape}{/if}{if $FBV_validation} {$FBV_validation}{/if}{if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}"
 			{if $FBV_disabled} disabled="disabled"{/if}
@@ -52,7 +52,7 @@
 	</span>
 {else}
 	{* This is not a multilingual control or there is only one locale available *}
-	<input	type="{if $FBV_isPassword}password{else}text{/if}"
+	<input	type="{if $FBV_isPassword}password{elseif $FBV_isTypeURL}url{else}text{/if}"
 		{$FBV_textInputParams}
 		class="field text{if $FBV_class} {$FBV_class|escape}{/if}{if $FBV_validation} {$FBV_validation}{/if}"
 		{if $FBV_disabled} disabled="disabled"{/if}
@@ -62,6 +62,7 @@
 		id="{$FBV_id|escape}{$uniqId}"
 		{if $FBV_tabIndex} tabindex="{$FBV_tabIndex|escape}"{/if}
 		{if $FBV_required} required aria-required="true"{/if}
+		{if $FBV_urlValidationErrorMessage} data-msg-url="{$FBV_urlValidationErrorMessage|escape}"{/if}
 	/>
 
 	{if $FBV_class|strstr:"datepicker"} 

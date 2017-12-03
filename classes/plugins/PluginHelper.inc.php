@@ -121,7 +121,11 @@ class PluginHelper {
 			$installFile = $pluginDest . '/' . PLUGIN_INSTALL_FILE;
 			if(!is_file($installFile)) $installFile = Core::getBaseDir() . '/' . PKP_LIB_PATH . '/xml/defaultPluginInstall.xml';
 			assert(is_file($installFile));
+			$siteDao = DAORegistry::getDAO('SiteDAO');
+			$site = $siteDao->getSite();
 			$params = $this->_getConnectionParams();
+			$params['locale'] = $site->getPrimaryLocale();
+			$params['additionalLocales'] = $site->getSupportedLocales();
 			$installer = new Install($params, $installFile, true);
 			$installer->setCurrentVersion($pluginVersion);
 			if (!$installer->execute()) {
@@ -240,7 +244,11 @@ class PluginHelper {
 
 			$upgradeFile = $pluginDest . '/' . PLUGIN_UPGRADE_FILE;
 			if($fileManager->fileExists($upgradeFile)) {
+				$siteDao = DAORegistry::getDAO('SiteDAO');
+				$site = $siteDao->getSite();
 				$params = $this->_getConnectionParams();
+				$params['locale'] = $site->getPrimaryLocale();
+				$params['additionalLocales'] = $site->getSupportedLocales();
 				$installer = new Upgrade($params, $upgradeFile, true);
 
 				if (!$installer->execute()) {

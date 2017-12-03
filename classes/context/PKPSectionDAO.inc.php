@@ -51,7 +51,7 @@ abstract class PKPSectionDAO extends DAO {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return array('title');
+		return array_merge(parent::getLocaleFieldNames(), array('title'));
 	}
 
 	/**

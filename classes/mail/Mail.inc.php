@@ -480,7 +480,7 @@ class Mail extends DataObject {
 		}
 		$mailer->CharSet = Config::getVar('i18n', 'client_charset');
 		if (($t = $this->getContentType()) != null) $mailer->ContentType = $t;
-		$mailer->XMailer = 'Public Knowledge Project Suite v2';
+		$mailer->XMailer = 'Public Knowledge Project Suite v3';
 		$mailer->WordWrap = MAIL_WRAP;
 		foreach ((array) $this->getHeaders() as $header) {
 			$mailer->AddCustomHeader($header['key'], $mailer->SecureHeader($header['content']));

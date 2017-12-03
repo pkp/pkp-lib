@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file controllers/grid/admin/languages/PKPAdminLanguageGridHandler.inc.php
+ * @file controllers/grid/admin/languages/AdminLanguageGridHandler.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University
  * Copyright (c) 2000-2017 John Willinsky
@@ -19,7 +19,7 @@ import('lib.pkp.controllers.grid.languages.LanguageGridHandler');
 import('lib.pkp.controllers.grid.languages.LanguageGridRow');
 import('lib.pkp.controllers.grid.languages.form.InstallLanguageForm');
 
-class PKPAdminLanguageGridHandler extends LanguageGridHandler {
+class AdminLanguageGridHandler extends LanguageGridHandler {
 	/**
 	 * Constructor
 	 */
@@ -43,7 +43,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	/**
 	 * @copydoc GridHandler::authorize()
 	 */
-	function authorize($request, &$args, $roleAssignments) {
+	public function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PolicySet');
 		$rolePolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
 
@@ -59,13 +59,14 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	/**
 	 * @copydoc PKPHandler::initialize()
 	 */
-	function initialize($request) {
+	public function initialize($request) {
 		parent::initialize($request);
 
 		AppLocale::requireComponents(
 			LOCALE_COMPONENT_PKP_ADMIN,
 			LOCALE_COMPONENT_PKP_MANAGER,
-			LOCALE_COMPONENT_APP_MANAGER
+			LOCALE_COMPONENT_APP_MANAGER,
+			LOCALE_COMPONENT_APP_ADMIN
 		);
 
 		// Grid actions.
@@ -182,7 +183,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
 	 */
-	function installLocale($args, $request) {
+	public function installLocale($args, $request) {
 		// Form handling.
 		$installLanguageForm = new InstallLanguageForm();
 		$installLanguageForm->initData($request);
@@ -196,7 +197,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
 	 */
-	function saveInstallLocale($args, $request) {
+	public function saveInstallLocale($args, $request) {
 		$installLanguageForm = new InstallLanguageForm();
 		$installLanguageForm->readInputData($request);
 
@@ -220,7 +221,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	 * @param $request object
 	 * @return JSONMessage JSON object
 	 */
-	function downloadLocale($args, $request) {
+	public function downloadLocale($args, $request) {
 		$this->setupTemplate($request, true);
 		$locale = $request->getUserVar('locale');
 
@@ -263,7 +264,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	 * @param $request Request
 	 * @return JSONMessage JSON object
 	 */
-	function uninstallLocale($args, $request) {
+	public function uninstallLocale($args, $request) {
 		$site = $request->getSite();
 		$locale = $request->getUserVar('rowId');
 		$gridData = $this->getGridDataElements($request);
@@ -304,7 +305,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	 * @param $request Request
 	 * @return JSONMessage JSON object
 	 */
-	function enableLocale($args, $request) {
+	public function enableLocale($args, $request) {
 		$rowId = $request->getUserVar('rowId');
 		$gridData = $this->getGridDataElements($request);
 
@@ -328,7 +329,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	 * @param $request Request
 	 * @return JSONMessage JSON object
 	 */
-	function disableLocale($args, $request) {
+	public function disableLocale($args, $request) {
 		$locale = $request->getUserVar('rowId');
 		$gridData = $this->getGridDataElements($request);
 		$notificationManager = new NotificationManager();
@@ -360,7 +361,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	 * @param $request Request
 	 * @return JSONMessage JSON object
 	 */
-	function reloadLocale($args, $request) {
+	public function reloadLocale($args, $request) {
 		$site = $request->getSite();
 		$locale = $request->getUserVar('rowId');
 
@@ -386,7 +387,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	 * @param $request Request
 	 * @return JSONMessage JSON object
 	 */
-	function setPrimaryLocale($args, $request) {
+	public function setPrimaryLocale($args, $request) {
 		$rowId = $request->getUserVar('rowId');
 		$gridData = $this->getGridDataElements($request);
 		$localeData = $gridData[$rowId];
@@ -422,7 +423,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	 * @param $rowId string The locale row id.
 	 * @param $enable boolean Enable locale flag.
 	 */
-	function _updateLocaleSupportState($request, $rowId, $enable) {
+	protected function _updateLocaleSupportState($request, $rowId, $enable) {
 		$newSupportedLocales = array();
 		$gridData = $this->getGridDataElements($request);
 
@@ -455,8 +456,28 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	 * installed contexts, based on site locale settings.
 	 * @param $request object
 	 */
-	function _updateContextLocaleSettings($request) {
-		assert(false); // Must be implemented by subclasses
+	protected function _updateContextLocaleSettings($request) {
+		$site = $request->getSite();
+		$siteSupportedLocales = $site->getSupportedLocales();
+
+		$contextDao = Application::getContextDAO();
+		$contexts = $contextDao->getAll();
+		while ($context = $contexts->next()) {
+			$primaryLocale = $context->getPrimaryLocale();
+			foreach (array('supportedLocales', 'supportedFormLocales', 'supportedSubmissionLocales') as $settingName) {
+				$localeList = $context->getSetting($settingName);
+
+				if (is_array($localeList)) {
+					$localeList = array_intersect($localeList, $siteSupportedLocales);
+					$context->updateSetting($settingName, $localeList, 'object');
+				}
+			}
+			if (!in_array($primaryLocale, $siteSupportedLocales)) {
+				$context->setPrimaryLocale($site->getPrimaryLocale());
+				$contextDao->updateObject($context);
+			}
+
+		}
 	}
 
 	/**
@@ -465,8 +486,12 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	 * @param $request Request
 	 * @return boolean
 	 */
-	function _canManage($request) {
-		assert(false); // Must be implemented by subclasses
+	protected function _canManage($request) {
+		$contextDao = Application::getContextDAO();
+		$contexts = $contextDao->getAll();
+		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+		$context = $request->getContext();
+		return ($contexts->getCount() == 1 && $context && in_array(ROLE_ID_MANAGER, $userRoles));
 	}
 }
 

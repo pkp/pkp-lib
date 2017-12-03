@@ -132,6 +132,10 @@ class SettingsTabHandler extends Handler {
 					$user = $request->getUser();
 					$notificationManager->createTrivialNotification($user->getId());
 				}
+
+				if (is_a($result, 'JSONMessage')) {
+					return $result;
+				}
 			} else {
 				return new JSONMessage(true);
 			}

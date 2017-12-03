@@ -48,7 +48,7 @@
 				{fbvFormSection title="manager.navigationMenus.form.path" for="path" required="true"}
 					{fbvElement type="text" id="path" value=$path required="true"}
 					<p>
-						{url|replace:"REPLACEME":"%PATH%"|assign:"exampleUrl" router=$smarty.const.ROUTE_PAGE context=$currentContext->getPath() page="navigationMenu" op="view" path="REPLACEME"}
+						{url|replace:"REPLACEME":"%PATH%"|assign:"exampleUrl" router=$smarty.const.ROUTE_PAGE page="navigationMenu" op="view" path="REPLACEME"}
 						{translate key="manager.navigationMenus.form.viewInstructions" pagesPath=$exampleUrl}
 					</p>
 				{/fbvFormSection}
@@ -60,7 +60,7 @@
 	{/fbvFormArea}
 
 	{fbvFormSection class="formButtons"}
-		{fbvElement type="submit" class="submitFormButton pkp_helpers_align_left pkp_button_primary" id=$buttonId label="common.save"}
+		{fbvElement type="submit" class="submitFormButton pkp_helpers_align_left pkp_button_primary" id="saveButton" label="common.save"}
 		{assign var=buttonId value="submitFormButton"|concat:"-"|uniqid}
 		{fbvElement type="button" class="pkp_button_link" id="previewButton" label="common.preview"}
 	{/fbvFormSection}

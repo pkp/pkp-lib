@@ -183,7 +183,7 @@
 	<message key="submission.query.subject">Тема</message>
 	<message key="submission.query.messages">Поруке</message>
 	<message key="submission.query.replies">Одговори</message>
-	<message key="submission.event.participantAdded">{$name} је додељен предаји као {$userGroupName}.</message>
+	<message key="submission.event.participantAdded">"{$name}" ({$username}) је додељен предаји као {$userGroupName}.</message>
 	<message key="submission.stageParticipants.notify">Обавести</message>
 	<message key="editor.submission.stageParticipants">Сарадници</message>
 	<message key="notification.type.editorAssignmentEditing">Уредник продукције мора бити додељен часопису пре него што уреднички процес може бити започет. Додајте уредника продукције користећи линк "Сарадници".</message>

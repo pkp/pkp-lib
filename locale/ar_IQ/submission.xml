@@ -198,7 +198,6 @@
 	<message key="submission.event.fileRevised">التنقيح "{$name}" (رمز الملف {$fileId}-{$fileRevision}) قد رُفع إلى الموقع.</message>
 	<message key="submission.event.general.metadataUpdated">البيانات الوصفية للمؤلَّف تم تحديثها</message>
 	<message key="submission.event.general.suppFileUpdated">ملف المؤلَّف تم تحديثه</message>
-	<message key="submission.event.participantAdded">{$name} قد عُيِّن لطلب النشر هذا بصفة {$userGroupName}.</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">مهمة التحكيم قُبلت من قبل الوكيل</message>
 	<message key="submission.event.reviewer.reviewAccepted">مهمة التحكيم قُبلت</message>
 	<message key="submission.event.reviewer.reviewDeclined">مهمة التحكيم رُفضت</message>

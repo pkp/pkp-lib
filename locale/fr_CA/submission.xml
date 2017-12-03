@@ -490,7 +490,6 @@
 	<message key="submission.changeFile">Modifier le fichier</message>
 	<message key="submission.editorial">Révision</message>
 	<message key="submission.queryNoteFiles">Fichier(s) de discussion</message>
-	<message key="submission.event.participantAdded">{$name} a été ajouté à cette soumission en tant que {$userGroupName}.</message>
 	<message key="submission.event.subjectPrefix">Un courriel a été envoyé:</message>
 	<message key="submission.event.viewEmail">Voir le courriel</message>
 	<message key="submission.howToCite">Comment citer</message>

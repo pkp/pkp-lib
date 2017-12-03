@@ -198,7 +198,6 @@
 	<message key="submission.event.fileRevised">Bearbetningen "{$name}" (fil-ID {$fileId}-{$fileRevision}) laddas upp.</message>
 	<message key="submission.event.general.metadataUpdated">Bidragets metadata uppdaterade.</message>
 	<message key="submission.event.general.suppFileUpdated">Bidragsfil uppdaterad.</message>
-	<message key="submission.event.participantAdded">{$name} tilldelades det här bidraget i egenskap av {$userGroupName}.</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Granskningsuppdrag accepterat via mellanhand</message>
 	<message key="submission.event.reviewer.reviewAccepted">Granskningsuppdrag accepterat</message>
 	<message key="submission.event.reviewer.reviewDeclined">Granskningsuppdrag nekat</message>

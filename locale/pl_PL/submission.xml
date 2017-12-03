@@ -325,7 +325,7 @@
 	<message key="submission.event.submissionSubmitted">Zakończono wstępne zgłoszenie.</message>
 	<message key="submission.event.fileUploaded">Plik "{$originalFileName}" został przesłany do zgłoszenia {$submissionId} przez {$username}.</message>
 	<message key="submission.event.fileRevised">Wersja "{$name}" (ID pliku {$fileId}-{$revision}) została przesłana.</message>
-	<message key="submission.event.participantAdded">{$name} został przypisany do zgłoszenia jako {$userGroupName}.</message>
+	<message key="submission.event.participantAdded">"{$name}" ({$username}) został przypisany do zgłoszenia jako {$userGroupName}.</message>
 	<message key="submission.event.subjectPrefix">E-mail został wysłany:</message>
 	<message key="submission.event.viewEmail">Wyświetl e-mail</message>
 	<message key="submission.files.downloadAll">Pobierz wszystkie pliki</message>

@@ -206,6 +206,10 @@ class QueryForm extends Form {
 				'userId' => $assignment->getUserId(),
 				'roleId' => $userGroup->getRoleId(),
 			);
+
+			# Check if current user is author
+			if ($user->getId() == $assignment->getUserId() && $assignment->getUserGroupId() == ROLE_ID_AUTHOR){ $isAuthor = true;}
+
 		}
 
 		# In review stage, add reviewers as possible participants 
@@ -214,6 +218,9 @@ class QueryForm extends Form {
 			$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($query->getAssocId());
 
 			foreach ($reviewAssignments as $reviewAssignment) {				
+
+				# If current user is author, only show open reviews that have confirmed the request
+				if ($isAuthor && !$reviewAssignment->getDateConfirmed()) { continue; }
 
 				# Check if current user is blind reviewer
 				if ($user->getId() == $reviewAssignment->getReviewerId() && $reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_OPEN){ $isBlindReviewer = true;}
@@ -230,7 +237,6 @@ class QueryForm extends Form {
 						'userId' => $reviewAssignment->getReviewerId(),
 						'roleId' => ROLE_ID_REVIEWER,
 					);
-
 				}
 			}
 

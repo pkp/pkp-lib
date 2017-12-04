@@ -150,9 +150,6 @@ abstract class PKPAuthorDAO extends DAO {
 		$author = $this->newDataObject();
 		$author->setId($row['author_id']);
 		$author->setSubmissionId($row['submission_id']);
-		$author->setFirstName($row['first_name']);
-		$author->setMiddleName($row['middle_name']);
-		$author->setLastName($row['last_name']);
 		$author->setSuffix($row['suffix']);
 		$author->setCountry($row['country']);
 		$author->setEmail($row['email']);
@@ -209,17 +206,14 @@ abstract class PKPAuthorDAO extends DAO {
 
 		$this->update(
 			'INSERT INTO authors (
-				submission_id, first_name, middle_name, last_name, suffix, country,
+				submission_id, suffix, country,
 				email, url, user_group_id, primary_contact, seq, include_in_browse
 			) VALUES (
-				?, ?, ?, ?, ?, ?,
+				?, ?, ?, 
 				?, ?, ?, ?, ?, ?
 			)',
 				array(
 						(int) $author->getSubmissionId(),
-						$author->getFirstName(),
-						$author->getMiddleName() . '', // make non-null
-						$author->getLastName(),
 						$author->getSuffix() . '',
 						$author->getCountry(),
 						$author->getEmail(),

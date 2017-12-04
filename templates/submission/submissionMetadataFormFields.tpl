@@ -10,7 +10,7 @@
  *}
 
 {if $coverageEnabled || $typeEnabled || $sourceEnabled || $rightsEnabled ||
-		$languagesEnabled || $subjectEnabled || $keywordsEnabled || $agenciesEnabled || $citationsEnabled}
+		$languagesEnabled || $subjectEnabled || $keywordsEnabled || $agenciesEnabled || $citationsEnabled || $disciplinesEnabled}
 	{fbvFormSection title="submission.metadata"}
 		<p class="description">{translate key="submission.metadataDescription"}</p>
 	{/fbvFormSection}

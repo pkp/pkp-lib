@@ -67,6 +67,10 @@ class PKPSubmissionMetadataFormImplementation {
 			if ($context->getSetting($key . 'Required')) switch(1) {
 				case in_array($key, $this->getLocaleFieldNames()):
 					$this->_parentForm->addCheck(new FormValidatorLocale($this->_parentForm, $key, 'required', 'common.required', $submission->getLocale()));
+					break;
+				case in_array($key, $this->getTagitFieldNames()):
+					$this->_parentForm->addCheck(new FormValidatorCustom($this->_parentForm, $key, 'required', 'common.required', create_function('$key,$form,$name', '$data = $form->getData(\'keywords\'); return array_key_exists($name, $data);'), array($this->_parentForm, $submission->getLocale().'-'.$key)));
+					break;
 				default:
 					$this->_parentForm->addCheck(new FormValidator($this->_parentForm, $key, 'required', 'common.required'));
 			}
@@ -130,6 +134,14 @@ class PKPSubmissionMetadataFormImplementation {
 	 */
 	function getLocaleFieldNames() {
 		return array('title', 'prefix', 'subtitle', 'abstract', 'coverage', 'type', 'source', 'rights');
+	}
+
+	/**
+	 * Get the names of fields for which tagit is used
+	 * @return array
+	 */
+	function getTagitFieldNames() {
+		return array('subjects', 'keywords', 'disciplines', 'agencies', 'languages');
 	}
 
 	/**

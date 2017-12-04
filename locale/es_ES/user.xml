@@ -35,7 +35,7 @@
 	<message key="user.feminine">F</message>
 	<message key="user.firstName">Nombre</message>
 	<message key="user.gender">Sexo</message>
-	<message key="user.initialsExample">Luz Ruiz Plasencia = LRP</message>
+	<message key="user.initialsExample">Juan Anselmo Seguí = JAS</message>
 	<message key="user.initials">Iniciales</message>
 	<message key="user.interests">Intereses de revisión</message>
 	<message key="user.interests.description">(Para separar los intereses pulse la tecla Intro o de coma)</message>
@@ -149,4 +149,9 @@
         <message key="user.register.form.passwordLengthRestriction">La contraseña debe tener como mínimo {$length} caracteres.</message>
         <message key="user.register.form.usernameAlphaNumeric">El nombre de usuario/a debe contener únicamente letras minúsculas, números y guiones/guiones bajos.</message>
         <message key="user.login.rememberUsernameAndPassword">Recordar Usuario</message>
+	<message key="user.apiKey">Llave API</message>
+	<message key="user.apiKeyEnabled">Permite el acceso a esta cuenta a aplicaciones externas con la llave API (API Key)</message>
+	<message key="user.apiKey.generate">Generar una nueva llave API</message>
+	<message key="user.apiKey.generateWarning">Generando una nueva llave API va a invalidar cualquier otra llave existente de este usuario.</message>
+	<message key="user.apiKey.secretRequired">Antes de generar una llave API, el administrador del sitio web ha de definir un secreto en el archivo de configuración ("api_key_secret").</message>
 </locale>

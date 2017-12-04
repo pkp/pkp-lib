@@ -33,7 +33,7 @@
 	<message key="user.editMyProfile">Editar mi perfil</message>
 	<message key="user.email">Correo electrónico</message>
 	<message key="user.firstName">Nombre</message>
-	<message key="user.initialsExample">Luz Ruiz Plasencia = LRP</message>
+	<message key="user.initialsExample">Juan Anselmo Seguí = JAS</message>
 	<message key="user.initials">Iniciales</message>
 	<message key="user.interests">Intereses de revisión</message>
 	<message key="user.interests.description">(Para separar los intereses pulse la tecla Intro o de coma)</message>
@@ -152,5 +152,10 @@
 	<message key="user.login.registrationPendingValidation">Registro pendiente de verificación</message>
 	<message key="user.login.rememberUsernameAndPassword">Mantenerme conectado</message>
 	<message key="user.register.form.usernameAlphaNumeric">El nombre de usuario sólo puede contener caracteres alfanuméricos en minúsculas, subrayados y guiones, y debe comenzar y finalizar con un carácter alfanumérico.</message>
+	<message key="user.apiKey">Llave API</message>
+	<message key="user.apiKeyEnabled">Permite el acceso a esta cuenta a aplicaciones externas con la llave API (API Key)</message>
+	<message key="user.apiKey.generate">Generar una nueva llave API</message>
+	<message key="user.apiKey.generateWarning">Generando una nueva llave API va a invalidar cualquier otra llave existente de este usuario.</message>
+	<message key="user.apiKey.secretRequired">Antes de generar una llave API, el administrador del sitio web ha de definir un secreto en el archivo de configuración ("api_key_secret").</message>
 </locale>
 

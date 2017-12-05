@@ -279,16 +279,16 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 					->leftJoin('authors as au','s.submission_id','=','au.submission_id')
 						->leftJoin('author_settings as asf',function($table) use ($assigneeId) {
 							$table->on('au.author_id', '=', 'asf.author_id');
-							$table->on('asf.setting_name', '=', AUTHOR_FIELD_FIRSTNAME ));
-							$table->on('asf.locale', '=', AppLocale::getLocale() ));
+							$table->on('asf.setting_name', '=', AUTHOR_FIELD_FIRSTNAME );
+							$table->on('asf.locale', '=', AppLocale::getLocale() );
 					})	->leftJoin('author_settings as asm',function($table) use ($assigneeId) {
 							$table->on('au.author_id', '=', 'asm.author_id');
-							$table->on('asm.setting_name', '=', AUTHOR_FIELD_MIDDLENAME ));
-							$table->on('asm.locale', '=', AppLocale::getLocale() ));
+							$table->on('asm.setting_name', '=', AUTHOR_FIELD_MIDDLENAME );
+							$table->on('asm.locale', '=', AppLocale::getLocale() );
 					})	->leftJoin('author_settings as asl',function($table) use ($assigneeId) {
 							$table->on('au.author_id', '=', 'asl.author_id');
-							$table->on('asl.setting_name', '=', AUTHOR_FIELD_LASTNAME ));
-							$table->on('asl.locale', '=', AppLocale::getLocale() ));
+							$table->on('asl.setting_name', '=', AUTHOR_FIELD_LASTNAME );
+							$table->on('asl.locale', '=', AppLocale::getLocale() );
 					});
 
 				foreach ($words as $word) {

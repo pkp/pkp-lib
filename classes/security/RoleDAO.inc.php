@@ -95,11 +95,11 @@ class RoleDAO extends DAO {
 
 		$result = $this->retrieveRange(
 			'SELECT DISTINCT u.* FROM users AS u LEFT JOIN controlled_vocabs cv ON (cv.assoc_type = ? AND cv.assoc_id = u.user_id AND cv.symbolic = ?)
+			LEFT JOIN user_settings usf ON (usf.user_id = u.user_id AND usf.setting_name = \''.USER_FIELD_FIRSTNAME.'\' AND usf.locale = \''.AppLocale::getLocale().'\')
+			LEFT JOIN user_settings usl ON (usl.user_id = u.user_id AND usl.setting_name = \''.USER_FIELD_LASTNAME.'\' AND usl.locale = \''.AppLocale::getLocale().'\')
 			LEFT JOIN controlled_vocab_entries cve ON (cve.controlled_vocab_id = cv.controlled_vocab_id)
 			LEFT JOIN controlled_vocab_entry_settings cves ON (cves.controlled_vocab_entry_id = cve.controlled_vocab_entry_id),
 			user_groups AS ug, user_user_groups AS uug
-			LEFT JOIN user_settings usf ON (usf.user_id = u.user_id AND usf.setting_name = \''.USER_FIELD_FIRSTNAME.'\' AND usf.locale = \''.AppLocale::getLocale().'\')
-			LEFT JOIN user_settings usl ON (usl.user_id = u.user_id AND usl.setting_name = \''.USER_FIELD_LASTNAME.'\' AND usl.locale = \''.AppLocale::getLocale().'\')
 			WHERE ug.user_group_id = uug.user_group_id AND u.user_id = uug.user_id' . (isset($roleId) ? ' AND ug.role_id = ?' : '') . (isset($contextId) ? ' AND ug.context_id = ?' : '') . ' ' . $searchSql,
 			$paramArray,
 			$dbResultRange

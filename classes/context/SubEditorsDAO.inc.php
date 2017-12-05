@@ -63,9 +63,11 @@ class SubEditorsDAO extends DAO {
 			'SELECT	u.user_id
 			FROM	section_editors e
 				JOIN users u ON (e.user_id = u.user_id)
+				LEFT JOIN user_settings usf ON (usf.user_id = u.user_id AND usf.setting_name = \''.USER_FIELD_FIRSTNAME.'\' AND usf.locale = \''.AppLocale::getLocale().'\')
+				LEFT JOIN user_settings usl ON (usl.user_id = u.user_id AND usl.setting_name = \''.USER_FIELD_LASTNAME.'\' AND usl.locale = \''.AppLocale::getLocale().'\')
 			WHERE	e.context_id = ? AND
 				e.section_id = ?
-			ORDER BY u.last_name, u.first_name',
+			ORDER BY usl.setting_value, usf.setting_value',
 			array((int) $contextId, (int) $sectionId)
 		);
 
@@ -95,8 +97,10 @@ class SubEditorsDAO extends DAO {
 				JOIN user_user_groups uug ON (u.user_id = uug.user_id)
 				JOIN user_groups ug ON (uug.user_group_id = ug.user_group_id AND ug.role_id = ? AND ug.context_id = ?)
 				LEFT JOIN section_editors e ON (e.user_id = u.user_id AND e.context_id = ug.context_id AND e.section_id = ?)
+				LEFT JOIN user_settings usf ON (usf.user_id = u.user_id AND usf.setting_name = \''.USER_FIELD_FIRSTNAME.'\' AND usf.locale = \''.AppLocale::getLocale().'\')
+				LEFT JOIN user_settings usl ON (usl.user_id = u.user_id AND usl.setting_name = \''.USER_FIELD_LASTNAME.'\' AND usl.locale = \''.AppLocale::getLocale().'\')
 			WHERE	e.section_id IS NULL
-			ORDER BY u.last_name, u.first_name',
+			ORDER BY usl.setting_value, usf.setting_value',
 			array(ROLE_ID_SUB_EDITOR, (int) $contextId, (int) $sectionId)
 		);
 

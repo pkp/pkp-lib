@@ -455,7 +455,10 @@ class UserGroupDAO extends DAO {
 	 * @return DAOResultFactory
 	 */
 	function getUsersNotInRole($roleId, $contextId = null, $search = null, $rangeInfo = null) {
-		$params = array((int) $roleId);
+		$params = array(	USER_FIELD_FIRSTNAME, AppLocale::getLocale(),
+							USER_FIELD_MIDDLENAME, AppLocale::getLocale(),
+							USER_FIELD_LASTNAME, AppLocale::getLocale(),
+							(int) $roleId);
 		if ($contextId) $params[] = (int) $contextId;
 		if(isset($search)) $params = array_merge($params, array_pad(array(), 5, '%' . $search . '%'));
 
@@ -465,12 +468,15 @@ class UserGroupDAO extends DAO {
 			WHERE	u.user_id NOT IN (
 				SELECT	DISTINCT u.user_id
 				FROM	users u, user_user_groups uug, user_groups ug
+				LEFT JOIN user_settings usf ON (usf.user_id = u.user_id AND usf.setting_name = ? AND usf.locale = ?)
+				LEFT JOIN user_settings usm ON (usf.user_id = u.user_id AND usm.setting_name = ? AND usm.locale = ?)
+				LEFT JOIN user_settings usl ON (usl.user_id = u.user_id AND usl.setting_name = ? AND usl.locale = ?)
 				WHERE	u.user_id = uug.user_id
 					AND ug.user_group_id = uug.user_group_id
 					AND ug.role_id = ?' .
 					($contextId ? ' AND ug.context_id = ?' : '') .
 				')' .
-				(isset($search) ? ' AND (u.first_name LIKE ? OR u.middle_name LIKE ? OR u.last_name LIKE ? OR u.email LIKE ? OR u.username LIKE ?)' : ''),
+				(isset($search) ? ' AND (usf.setting_value LIKE ? OR usm.setting_value LIKE ? OR usl.setting_value LIKE ? OR u.email LIKE ? OR u.username LIKE ?)' : ''),
 			$params,
 			$rangeInfo
 		);
@@ -502,6 +508,9 @@ class UserGroupDAO extends DAO {
 				LEFT JOIN controlled_vocab_entry_settings cves ON (ui.controlled_vocab_entry_id = cves.controlled_vocab_entry_id)
 				LEFT JOIN user_user_groups uug ON (uug.user_id = u.user_id)
 				LEFT JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id)
+				LEFT JOIN user_settings usf ON (usf.user_id = u.user_id AND usf.setting_name = \'firstName\' AND usf.locale = \''.AppLocale::getLocale().'\' )
+				LEFT JOIN user_settings usl ON (usl.user_id = u.user_id AND usl.setting_name = \'lastName\' AND usl.locale = \''.AppLocale::getLocale().'\')
+
 			WHERE	1=1 ' .
 				($contextId?'AND ug.context_id = ? ':'') .
 				($userGroupId?'AND ug.user_group_id = ? ':'') .
@@ -794,8 +803,8 @@ class UserGroupDAO extends DAO {
 	 */
 	function _getSearchSql($searchType, $search, $searchMatch, &$params) {
 		$searchTypeMap = array(
-			USER_FIELD_FIRSTNAME => 'u.first_name',
-			USER_FIELD_LASTNAME => 'u.last_name',
+			USER_FIELD_FIRSTNAME => 'usf.setting_value',
+			USER_FIELD_LASTNAME => 'usl.setting_value',
 			USER_FIELD_USERNAME => 'u.username',
 			USER_FIELD_EMAIL => 'u.email',
 			USER_FIELD_AFFILIATION => 'us.setting_value',
@@ -806,7 +815,7 @@ class UserGroupDAO extends DAO {
 		if (!empty($search)) {
 
 			if (!isset($searchTypeMap[$searchType])) {
-				$str = $this->concat('u.first_name', 'u.last_name', 'u.email', 'COALESCE(us.setting_value,\'\')');
+				$str = $this->concat('usf.setting_value', 'usl.setting_value', 'u.email', 'COALESCE(us.setting_value,\'\')');
 				$concatFields = ' ( LOWER(' . $str . ') LIKE ? OR LOWER(cves.setting_value) LIKE ? ) ';
 
 				$search = strtolower($search);
@@ -844,12 +853,12 @@ class UserGroupDAO extends DAO {
 					$searchSql = 'AND u.user_id = ?';
 					break;
 				case USER_FIELD_INITIAL:
-					$searchSql = 'AND LOWER(u.last_name) LIKE LOWER(?)';
+					$searchSql = 'AND LOWER(usl.setting_value) LIKE LOWER(?)';
 					break;
 			}
 		}
 
-		$searchSql .= ' ORDER BY u.last_name, u.first_name'; // FIXME Add "sort field" parameter?
+		$searchSql .= ' ORDER BY usl.setting_value, usf.setting_value'; // FIXME Add "sort field" parameter?
 
 		return $searchSql;
 	}

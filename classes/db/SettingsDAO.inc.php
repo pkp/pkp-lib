@@ -269,13 +269,13 @@ class SettingsDAO extends DAO {
 	 * @return string
 	 */
 	function _performLocalizedReplacement($rawInput, $paramArray = array(), $locale = null) {
+		// this only translates from the following locale files
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_DEFAULT, LOCALE_COMPONENT_PKP_COMMON, $locale);
 		$value = preg_replace_callback(
 			'{{translate key="([^"]+)"}}',
-			// this only translates from mail locale file
 			create_function(
 				'$matches',
-				'$locale = "' . $locale . '";'.'$localeFileName = AppLocale::getMainLocaleFilename($locale);' .
-				'$localeFile = new LocaleFile($locale, $localeFileName);'.'return $localeFile->translate($matches[1]);'
+				'$locale = "' . $locale . '"; return __($matches[1], array(), $locale);'
 			),
 			$rawInput
 		);

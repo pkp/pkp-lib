@@ -63,7 +63,7 @@
 				{translate key="about.copyrightNotice"}
 				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="distribution" anchor="permissions" sectionTitleKey="about.copyrightNotice"}
 			</h2>
-			{$currentContext->getLocalizedSetting('copyrightNotice')|nl2br}
+			{$currentContext->getLocalizedSetting('copyrightNotice')}
 		</div>
 	{/if}
 

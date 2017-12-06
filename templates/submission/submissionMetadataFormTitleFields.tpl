@@ -21,7 +21,6 @@
 {/fbvFormSection}
 {fbvFormSection title="common.abstract" for="abstract" required=$abstractsRequired}
 	{if $wordCount}
-		<input type="hidden" name="wordCount" value="{$wordCount|escape}" />
 		<p class="pkp_help">{translate key="submission.abstract.wordCount.description" wordCount=$wordCount}
 	{/if}
 	{fbvElement type="textarea" multilingual=true name="abstract" id="abstract" value=$abstract rich="extended" readonly=$readOnly wordCount=$wordCount}

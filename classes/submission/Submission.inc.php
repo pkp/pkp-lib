@@ -304,16 +304,13 @@ abstract class Submission extends DataObject {
 	 * @return string
 	 */
 	function getShortAuthorString() {
-		$primaryAuthor = $this->getPrimaryAuthor();
 		$authors = $this->getAuthors();
-		if (!isset($primaryAuthor)) {
-			if (sizeof($authors) > 0) {
-				$primaryAuthor = $authors[0];
-			}
+		if (sizeof($authors) > 0) {
+			$firstAuthor = $authors[0];
 		}
-		if (!$primaryAuthor) return '';
+		if (!$firstAuthor) return '';
 
-		$authorString = $primaryAuthor->getLastName();
+		$authorString = $firstAuthor->getLastName();
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
 		if (count($authors) > 1) $authorString = __('submission.shortAuthor', array('author' => $authorString));
 		return $authorString;

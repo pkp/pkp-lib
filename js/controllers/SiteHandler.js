@@ -134,6 +134,8 @@
 					'/plugins/generic/tinymce/plugins/justboil.me/plugin.js');
 			tinyMCE.PluginManager.load('pkpTags', $.pkp.app.baseUrl +
 					'/plugins/generic/tinymce/plugins/pkpTags/plugin.js');
+			tinyMCE.PluginManager.load('pkpwordcount', $.pkp.app.baseUrl +
+					'/plugins/generic/tinymce/plugins/pkpWordcount/plugin.js');
 
 			var tinymceParams, tinymceParamDefaults = {
 				width: '100%',
@@ -209,7 +211,7 @@
 
 		if (target.attr('wordCount') && target.attr('wordCount') > 0) {
 			tinyMCEObject.settings.plugins =
-					tinyMCEObject.settings.plugins + ',wordcount';
+					tinyMCEObject.settings.plugins + ',pkpwordcount';
 			tinyMCEObject.settings.statusbar = true;
 		}
 

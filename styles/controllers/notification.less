@@ -140,3 +140,15 @@
 .notifySuccess .ui-pnotify-text {
 	background: @yes;
 }
+
+// in-place notifications that appear above the main page content
+// example: upgrade notices
+.pkp_structure_main .pkp_notification {
+	padding: 0 @double @double;
+	background: @bg;
+
+	> div {
+		margin-bottom: 0;
+		background: @lift;
+	}
+}

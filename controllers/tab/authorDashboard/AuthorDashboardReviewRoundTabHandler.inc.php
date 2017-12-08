@@ -84,10 +84,23 @@ class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler {
 		// Editor has taken an action and sent an email; Display the email
 		import('classes.workflow.EditorDecisionActionsManager');
 		if(EditorDecisionActionsManager::getEditorTakenActionInReviewRound($request->getContext(), $reviewRound)) {
-			$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
-			$user = $request->getUser();
+                    $editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
+                    $editorDecisions = $editDecisionDao->getEditorDecisions($reviewRound->getSubmissionId(), $reviewRound->getStageId(), $reviewRound->getRound());
+                    $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+                    $user = $request->getUser();
+                    
+                    $decisionEmail = false;
+                    foreach ($editorDecisions as $editorDecision) {
+                        $date = $editorDecision['dateDecided'] ;
+                        $submissionEmails = $submissionEmailLogDao->getByEventTypeAndDate($submission->getId(), SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR, $user->getId(),$date);
+                        if ($submissionEmails->getCount() )  
+                        {
+                            $decisionEmails = $submissionEmails;
+                        }
+                    }
+                    
 			$templateMgr->assign(array(
-				'submissionEmails' => $submissionEmailLogDao->getByEventType($submission->getId(), SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR, $user->getId()),
+				'submissionEmails' => $decisionEmails,
 				'showReviewAttachments' => true,
 			));
 		}

@@ -311,7 +311,7 @@ class NavigationMenuItemDAO extends DAO {
 		if ($contextId != CONTEXT_ID_NONE) {
 			$contextDao = Application::getContextDAO();
 			$context = $contextDao->getById($contextId);
-			$supportedLocales = $context->getSupportedSubmissionLocales();
+			$supportedLocales = $context->getSupportedLocales();
 		} else {
 			$siteDao = DAORegistry::getDAO('SiteDAO');
 			$site = $siteDao->getSite();
@@ -325,14 +325,12 @@ class NavigationMenuItemDAO extends DAO {
 		$navigationMenuItemExisting = $this->getByTypeAndTitleLocaleKey($contextId, $type, $titleKey);
 
 		if (!isset($navigationMenuItemExisting)) {
-			// create a role associated with this user group
 			$navigationMenuItem = $this->newDataObject();
 			$navigationMenuItem->setPath($path);
 			$navigationMenuItem->setContextId($contextId);
 
 			$navigationMenuItem->setType($type);
 
-			// insert the group into the DB
 			$navigationMenuItemId = $this->insertObject($navigationMenuItem);
 
 			// add the i18n keys to the settings table so that they
@@ -345,6 +343,13 @@ class NavigationMenuItemDAO extends DAO {
 			}
 		} else {
 			$navigationMenuItemId = $navigationMenuItemExisting->getId();
+
+			$this->updateSetting($navigationMenuItemId, 'titleLocaleKey', $titleKey);
+
+			// install the settings in the current locale for this context
+			foreach ($supportedLocales as $locale) {
+				$this->installLocale($locale, $contextId);
+			}
 		}
 
 		// insert into Assignments
@@ -388,17 +393,19 @@ class NavigationMenuItemDAO extends DAO {
 	 * @param $contextId
 	 */
 	function installLocale($locale, $contextId = null) {
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER, $locale);
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_COMMON, LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER, $locale);
 		$navigationMenuItems = $this->getByContextId($contextId);
 		while ($navigationMenuItem = $navigationMenuItems->next()) {
 			$titleKey = $this->getSetting($navigationMenuItem->getId(), 'titleLocaleKey');
-			$this->updateSetting($navigationMenuItem->getId(),
-				'title',
-				array($locale => __($titleKey, null, $locale)),
-				'string',
-				$locale,
-				true
-			);
+			if (!$navigationMenuItem->getTitle($locale) || $navigationMenuItem->getTitle($locale) == $titleKey) {
+				$this->updateSetting($navigationMenuItem->getId(),
+					'title',
+					array($locale => __($titleKey, null, $locale)),
+					'string',
+					$locale,
+					true
+				);
+			}
 		}
 	}
 

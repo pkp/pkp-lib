@@ -47,6 +47,8 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 	 * 		@option string searchPhrase
 	 * 		@option int count
 	 * 		@option int offset
+	 *		@option string returnObject Whether to return submission or published
+	 *			objects. Options: submission, published. Default: submisssion.
 	 * }
 	 *
 	 * @return array
@@ -55,9 +57,12 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 		$submissionListQB = $this->_buildGetSubmissionsQueryObject($contextId, $args);
 		$submissionListQO = $submissionListQB->get();
 		$range = new DBResultRange($args['count'], null, $args['offset']);
-		$submissionDao = Application::getSubmissionDAO();
-		$result = $submissionDao->retrieveRange($submissionListQO->toSql(), $submissionListQO->getBindings(), $range);
-		$queryResults = new DAOResultFactory($result, $submissionDao, '_fromRow');
+		$dao = Application::getSubmissionDAO();
+		if (!empty($args['returnObject']) && $args['returnObject'] === 'published') {
+			$dao = Application::getPublishedSubmissionDAO();
+		}
+		$result = $dao->retrieveRange($submissionListQO->toSql(), $submissionListQO->getBindings(), $range);
+		$queryResults = new DAOResultFactory($result, $dao, '_fromRow');
 
 		return $queryResults->toArray();
 	}
@@ -72,9 +77,12 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 		$submissionListQB = $this->_buildGetSubmissionsQueryObject($contextId, $args);
 		$countQO = $submissionListQB->countOnly()->get();
 		$countRange = new DBResultRange($args['count'], 1);
-		$submissionDao = Application::getSubmissionDAO();
-		$countResult = $submissionDao->retrieveRange($countQO->toSql(), $countQO->getBindings(), $countRange);
-		$countQueryResults = new DAOResultFactory($countResult, $submissionDao, '_fromRow');
+		$dao = Application::getSubmissionDAO();
+		if (!empty($args['returnObject']) && $args['returnObject'] === 'published') {
+			$dao = Application::getPublishedSubmissionDAO();
+		}
+		$countResult = $dao->retrieveRange($countQO->toSql(), $countQO->getBindings(), $countRange);
+		$countQueryResults = new DAOResultFactory($countResult, $dao, '_fromRow');
 
 		return (int) $countQueryResults->getCount();
 	}
@@ -98,6 +106,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 			'offset' => 0,
 			'isIncomplete' => false,
 			'isOverdue' => false,
+			'returnObject' => 'submission',
 		);
 
 		$args = array_merge($defaultArgs, $args);
@@ -110,7 +119,8 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 			->filterByStageIds($args['stageIds'])
 			->filterByIncomplete($args['isIncomplete'])
 			->filterByOverdue($args['isOverdue'])
-			->searchPhrase($args['searchPhrase']);
+			->searchPhrase($args['searchPhrase'])
+			->returnObject($args['returnObject']);
 
 		\HookRegistry::call('Submission::getSubmissions::queryBuilder', array($submissionListQB, $contextId, $args));
 

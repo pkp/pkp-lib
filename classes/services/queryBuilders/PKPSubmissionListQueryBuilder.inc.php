@@ -43,6 +43,9 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 	/** @var string search phrase */
 	protected $searchPhrase = null;
 
+	/** @var string return a Submission or PublishedArticle\PublishedMonograph */
+	protected $returnObject = null;
+
 	/** @var bool whether to return only a count of results */
 	protected $countOnly = null;
 
@@ -161,6 +164,18 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 	}
 
 	/**
+	 * Return Submission or PublishedArticle|PublishedMonograph objects
+	 *
+	 * @param string $returnObject
+	 *
+	 * @return \OJS\Services\QueryBuilders\SubmissionListQueryBuilder
+	 */
+	public function returnObject($returnObject) {
+		$this->returnObject = $returnObject;
+		return $this;
+	}
+
+	/**
 	 * Whether to return only a count of results
 	 *
 	 * @param bool $enable
@@ -191,10 +206,18 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 			$q->groupBy('st.setting_value');
 		}
 
+		// return object
+		if ($this->returnObject === 'published') {
+			$this->columns[] = 'ps.*';
+			$q->leftJoin('published_submissions as ps','ps.submission_id','=','s.submission_id')
+				->groupBy('ps.date_published');
+			$q->whereNotNull('ps.pub_id');
+		}
+
 		// statuses
 		if (!is_null($this->statuses)) {
 			import('lib.pkp.classes.submission.Submission'); // STATUS_ constants
-			if (in_array(STATUS_PUBLISHED, $this->statuses)) {
+			if (in_array(STATUS_PUBLISHED, $this->statuses) && $this->returnObject !== 'published') {
 				$this->columns[] = 'ps.date_published';
 				$q->leftJoin('published_submissions as ps','ps.submission_id','=','s.submission_id')
 					->groupBy('ps.date_published');

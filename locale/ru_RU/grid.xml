@@ -19,6 +19,7 @@
 	<message key="grid.noAuditors">Нет аудиторов</message>
 	<message key="grid.remotelyHostedItem">Этот элемент размещается на удаленном сервере.</message>
 
+	<message key="grid.action.uninstall">Удалить</message>
 	<message key="grid.action.manageAccess">Управлять доступом</message>
 	<message key="grid.action.sort">Сортировать</message>
 	<message key="grid.action.addItem">Добавить элемент</message>

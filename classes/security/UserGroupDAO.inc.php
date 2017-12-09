@@ -508,8 +508,8 @@ class UserGroupDAO extends DAO {
 				LEFT JOIN controlled_vocab_entry_settings cves ON (ui.controlled_vocab_entry_id = cves.controlled_vocab_entry_id)
 				LEFT JOIN user_user_groups uug ON (uug.user_id = u.user_id)
 				LEFT JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id)
-				LEFT JOIN user_settings usf ON (usf.user_id = u.user_id AND usf.setting_name = \'firstName\' AND usf.locale = \''.AppLocale::getLocale().'\' )
-				LEFT JOIN user_settings usl ON (usl.user_id = u.user_id AND usl.setting_name = \'lastName\' AND usl.locale = \''.AppLocale::getLocale().'\')
+				LEFT JOIN user_settings usf ON (usf.user_id = u.user_id AND usf.setting_name = \''.USER_FIELD_FIRSTNAME.'\' AND usf.locale = \''.AppLocale::getLocale().'\' )
+				LEFT JOIN user_settings usl ON (usl.user_id = u.user_id AND usl.setting_name = \''.USER_FIELD_LASTNAME.'\' AND usl.locale = \''.AppLocale::getLocale().'\')
 
 			WHERE	1=1 ' .
 				($contextId?'AND ug.context_id = ? ':'') .

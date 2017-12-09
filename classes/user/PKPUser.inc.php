@@ -166,17 +166,6 @@ class PKPUser extends Identity {
 	}
 
 	/**
-	 * Get the user's reviewing interests as an array. DEPRECATED in favour of direct interaction with the InterestManager.
-	 * @return array
-	 */
-	function getUserInterests() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		import('lib.pkp.classes.user.InterestManager');
-		$interestManager = new InterestManager();
-		return $interestManager->getInterestsForUser($this);
-	}
-
-	/**
 	 * Get the user's interests displayed as a comma-separated string
 	 * @return string
 	 */

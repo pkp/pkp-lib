@@ -509,9 +509,9 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				' . ($author?' LEFT JOIN authors au ON (s.submission_id = au.submission_id)':'') . '
 				' . $this->getFetchJoins() . '
 				' . ($subEditorId?' ' . $this->getSubEditorJoin():'') . '
-				LEFT JOIN author_settings asf ON (asf.author_id = au.author_id AND asf.setting_name = \''.AUTHOR_FIELD_FIRSTNAME.'\' AND asf.locale = \''.AppLocale::getLocale().'\' )
-				LEFT JOIN author_settings asm ON (asm.author_id = au.author_id AND asm.setting_name = \''.AUTHOR_FIELD_MIDDLENAME.'\' AND asm.locale = \''.AppLocale::getLocale().'\' )
-				LEFT JOIN author_settings asl ON (asl.author_id = au.author_id AND asl.setting_name = \''.AUTHOR_FIELD_LASTNAME.'\' AND asl.locale = \''.AppLocale::getLocale().'\')
+				LEFT JOIN author_settings asf ON (asf.author_id = au.author_id AND asf.setting_name = \''.IDENTITY_SETTING_FIRSTNAME.'\' AND asf.locale = \''.AppLocale::getLocale().'\' )
+				LEFT JOIN author_settings asm ON (asm.author_id = au.author_id AND asm.setting_name = \''.IDENTITY_SETTING_MIDDLENAME.'\' AND asm.locale = \''.AppLocale::getLocale().'\' )
+				LEFT JOIN author_settings asl ON (asl.author_id = au.author_id AND asl.setting_name = \''.IDENTITY_SETTING_LASTNAME.'\' AND asl.locale = \''.AppLocale::getLocale().'\')
 				WHERE	s.date_submitted IS NOT NULL AND
 				s.context_id = ? AND
 				(SELECT COUNT(sa.stage_assignment_id) FROM stage_assignments sa LEFT JOIN user_groups g ON sa.user_group_id = g.user_group_id WHERE
@@ -574,9 +574,9 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				$this->getCompletionJoins() .
 				($title||$searchWhere?' LEFT JOIN submission_settings ss ON (s.submission_id = ss.submission_id)':'') .
 				($searchWhere?' LEFT JOIN authors au ON (s.submission_id = au.submission_id)
-								LEFT JOIN author_settings asf ON (asf.author_id = au.author_id AND asf.setting_name = \''.AUTHOR_FIELD_FIRSTNAME.'\' AND asf.locale = \''.AppLocale::getLocale().'\' )
-								LEFT JOIN author_settings asm ON (asm.author_id = au.author_id AND asm.setting_name = \''.AUTHOR_FIELD_MIDDLENAME.'\' AND asm.locale = \''.AppLocale::getLocale().'\' )
-								LEFT JOIN author_settings asl ON (asl.author_id = au.author_id AND asl.setting_name = \''.AUTHOR_FIELD_LASTNAME.'\' AND asl.locale = \''.AppLocale::getLocale().'\')
+								LEFT JOIN author_settings asf ON (asf.author_id = au.author_id AND asf.setting_name = \''.IDENTITY_SETTING_FIRSTNAME.'\' AND asf.locale = \''.AppLocale::getLocale().'\' )
+								LEFT JOIN author_settings asm ON (asm.author_id = au.author_id AND asm.setting_name = \''.IDENTITY_SETTING_MIDDLENAME.'\' AND asm.locale = \''.AppLocale::getLocale().'\' )
+								LEFT JOIN author_settings asl ON (asl.author_id = au.author_id AND asl.setting_name = \''.IDENTITY_SETTING_LASTNAME.'\' AND asl.locale = \''.AppLocale::getLocale().'\')
 				':'') .
 				$this->getFetchJoins() .
 			'WHERE	s.submission_id IN (SELECT asa.submission_id FROM stage_assignments asa, user_groups aug WHERE asa.user_group_id = aug.user_group_id AND aug.role_id = ? AND asa.user_id = ?)' .
@@ -638,9 +638,9 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				' . ($author?' LEFT JOIN authors au ON (s.submission_id = au.submission_id)':'')
 				. $this->getFetchJoins() .
 			' 
-				LEFT JOIN author_settings asf ON (asf.author_id = au.author_id AND asf.setting_name = \''.AUTHOR_FIELD_FIRSTNAME.'\' AND asf.locale = \''.AppLocale::getLocale().'\' )
-				LEFT JOIN author_settings asm ON (asm.author_id = au.author_id AND asm.setting_name = \''.AUTHOR_FIELD_MIDDLENAME.'\' AND asm.locale = \''.AppLocale::getLocale().'\' )
-				LEFT JOIN author_settings asl ON (asl.author_id = au.author_id AND asl.setting_name = \''.AUTHOR_FIELD_LASTNAME.'\' AND asl.locale = \''.AppLocale::getLocale().'\')
+				LEFT JOIN author_settings asf ON (asf.author_id = au.author_id AND asf.setting_name = \''.IDENTITY_SETTING_FIRSTNAME.'\' AND asf.locale = \''.AppLocale::getLocale().'\' )
+				LEFT JOIN author_settings asm ON (asm.author_id = au.author_id AND asm.setting_name = \''.IDENTITY_SETTING_MIDDLENAME.'\' AND asm.locale = \''.AppLocale::getLocale().'\' )
+				LEFT JOIN author_settings asl ON (asl.author_id = au.author_id AND asl.setting_name = \''.IDENTITY_SETTING_LASTNAME.'\' AND asl.locale = \''.AppLocale::getLocale().'\')
 			WHERE ra2.review_id IS NULL AND ra.review_id IS NOT NULL
 				AND (SELECT COUNT(ra3.review_id) FROM review_assignments ra3
 					WHERE s.submission_id = ra3.submission_id AND ra3.reviewer_id = ? AND ra3.declined = 0) = 0
@@ -715,15 +715,15 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				:'') .
 				($title||$searchWhere?' LEFT JOIN submission_settings ss ON (s.submission_id = ss.submission_id)':'') . '
 				' . ($author||$searchWhere?' LEFT JOIN authors au ON (s.submission_id = au.submission_id)
-											LEFT JOIN author_settings asf ON (asf.author_id = au.author_id AND asf.setting_name = \''.AUTHOR_FIELD_FIRSTNAME.'\' AND asf.locale = \''.AppLocale::getLocale().'\' )
-											LEFT JOIN author_settings asm ON (asm.author_id = au.author_id AND asm.setting_name = \''.AUTHOR_FIELD_MIDDLENAME.'\' AND asm.locale = \''.AppLocale::getLocale().'\' )
-											LEFT JOIN author_settings asl ON (asl.author_id = au.author_id AND asl.setting_name = \''.AUTHOR_FIELD_LASTNAME.'\' AND asl.locale = \''.AppLocale::getLocale().'\')
+											LEFT JOIN author_settings asf ON (asf.author_id = au.author_id AND asf.setting_name = \''.IDENTITY_SETTING_FIRSTNAME.'\' AND asf.locale = \''.AppLocale::getLocale().'\' )
+											LEFT JOIN author_settings asm ON (asm.author_id = au.author_id AND asm.setting_name = \''.IDENTITY_SETTING_MIDDLENAME.'\' AND asm.locale = \''.AppLocale::getLocale().'\' )
+											LEFT JOIN author_settings asl ON (asl.author_id = au.author_id AND asl.setting_name = \''.IDENTITY_SETTING_LASTNAME.'\' AND asl.locale = \''.AppLocale::getLocale().'\')
 				':'') .
 				$this->getFetchJoins() .
 			'
-				LEFT JOIN author_settings asf ON (asf.author_id = au.author_id AND asf.setting_name = \''.AUTHOR_FIELD_FIRSTNAME.'\' AND asf.locale = \''.AppLocale::getLocale().'\' )
-				LEFT JOIN author_settings asm ON (asm.author_id = au.author_id AND asm.setting_name = \''.AUTHOR_FIELD_MIDDLENAME.'\' AND asm.locale = \''.AppLocale::getLocale().'\' )
-				LEFT JOIN author_settings asl ON (asl.author_id = au.author_id AND asl.setting_name = \''.AUTHOR_FIELD_LASTNAME.'\' AND asl.locale = \''.AppLocale::getLocale().'\')
+				LEFT JOIN author_settings asf ON (asf.author_id = au.author_id AND asf.setting_name = \''.IDENTITY_SETTING_FIRSTNAME.'\' AND asf.locale = \''.AppLocale::getLocale().'\' )
+				LEFT JOIN author_settings asm ON (asm.author_id = au.author_id AND asm.setting_name = \''.IDENTITY_SETTING_MIDDLENAME.'\' AND asm.locale = \''.AppLocale::getLocale().'\' )
+				LEFT JOIN author_settings asl ON (asl.author_id = au.author_id AND asl.setting_name = \''.IDENTITY_SETTING_LASTNAME.'\' AND asl.locale = \''.AppLocale::getLocale().'\')
 				WHERE
 				s.status IN  (' . join(',', array_map(array($this,'_arrayWalkIntCast'), (array) $status)) . ')
 				' . ($contextId?' AND s.context_id IN  (' . join(',', array_map(array($this,'_arrayWalkIntCast'), (array) $contextId)) . ')':'')
@@ -791,9 +791,9 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				LEFT JOIN review_assignments ra ON (s.submission_id = ra.submission_id AND ra.declined = 0 AND ra.reviewer_id = ?)
 				' . ($title||$searchWhere?' LEFT JOIN submission_settings ss ON (s.submission_id = ss.submission_id)':'') . '
 				' . ($author||$searchWhere?' LEFT JOIN authors au ON (s.submission_id = au.submission_id)
-				LEFT JOIN author_settings asf ON (asf.author_id = au.author_id AND asf.setting_name = \''.AUTHOR_FIELD_FIRSTNAME.'\' AND asf.locale = \''.AppLocale::getLocale().'\' )
-				LEFT JOIN author_settings asm ON (asm.author_id = au.author_id AND asm.setting_name = \''.AUTHOR_FIELD_MIDDLENAME.'\' AND asm.locale = \''.AppLocale::getLocale().'\' )
-				LEFT JOIN author_settings asl ON (asl.author_id = au.author_id AND asl.setting_name = \''.AUTHOR_FIELD_LASTNAME.'\' AND asl.locale = \''.AppLocale::getLocale().'\')
+				LEFT JOIN author_settings asf ON (asf.author_id = au.author_id AND asf.setting_name = \''.IDENTITY_SETTING_FIRSTNAME.'\' AND asf.locale = \''.AppLocale::getLocale().'\' )
+				LEFT JOIN author_settings asm ON (asm.author_id = au.author_id AND asm.setting_name = \''.IDENTITY_SETTING_MIDDLENAME.'\' AND asm.locale = \''.AppLocale::getLocale().'\' )
+				LEFT JOIN author_settings asl ON (asl.author_id = au.author_id AND asl.setting_name = \''.IDENTITY_SETTING_LASTNAME.'\' AND asl.locale = \''.AppLocale::getLocale().'\')
 				':'')
 				. $this->getFetchJoins() .
 			' 	
@@ -862,9 +862,9 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				' . $this->getCompletionJoins()
 				. ($title||$searchWhere?' LEFT JOIN submission_settings ss ON (s.submission_id = ss.submission_id)':'')
 				. ($author||$searchWhere?' LEFT JOIN authors au ON (s.submission_id = au.submission_id)
-				LEFT JOIN author_settings asf ON (asf.author_id = au.author_id AND asf.setting_name = \''.AUTHOR_FIELD_FIRSTNAME.'\' AND asf.locale = \''.AppLocale::getLocale().'\' )
-				LEFT JOIN author_settings asm ON (asm.author_id = au.author_id AND asm.setting_name = \''.AUTHOR_FIELD_MIDDLENAME.'\' AND asm.locale = \''.AppLocale::getLocale().'\' )
-				LEFT JOIN author_settings asl ON (asl.author_id = au.author_id AND asl.setting_name = \''.AUTHOR_FIELD_LASTNAME.'\' AND asl.locale = \''.AppLocale::getLocale().'\')
+				LEFT JOIN author_settings asf ON (asf.author_id = au.author_id AND asf.setting_name = \''.IDENTITY_SETTING_FIRSTNAME.'\' AND asf.locale = \''.AppLocale::getLocale().'\' )
+				LEFT JOIN author_settings asm ON (asm.author_id = au.author_id AND asm.setting_name = \''.IDENTITY_SETTING_MIDDLENAME.'\' AND asm.locale = \''.AppLocale::getLocale().'\' )
+				LEFT JOIN author_settings asl ON (asl.author_id = au.author_id AND asl.setting_name = \''.IDENTITY_SETTING_LASTNAME.'\' AND asl.locale = \''.AppLocale::getLocale().'\')
 				':'')
 				. ($editor?' LEFT JOIN stage_assignments sa ON (s.submission_id = sa.submission_id)
 						LEFT JOIN user_groups g ON (sa.user_group_id = g.user_group_id)

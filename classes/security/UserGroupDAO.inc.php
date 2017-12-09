@@ -455,9 +455,9 @@ class UserGroupDAO extends DAO {
 	 * @return DAOResultFactory
 	 */
 	function getUsersNotInRole($roleId, $contextId = null, $search = null, $rangeInfo = null) {
-		$params = array(	USER_FIELD_FIRSTNAME, AppLocale::getLocale(),
-							USER_FIELD_MIDDLENAME, AppLocale::getLocale(),
-							USER_FIELD_LASTNAME, AppLocale::getLocale(),
+		$params = array(	IDENTITY_SETTING_FIRSTNAME, AppLocale::getLocale(),
+							IDENTITY_SETTING_MIDDLENAME, AppLocale::getLocale(),
+							IDENTITY_SETTING_LASTNAME, AppLocale::getLocale(),
 							(int) $roleId);
 		if ($contextId) $params[] = (int) $contextId;
 		if(isset($search)) $params = array_merge($params, array_pad(array(), 5, '%' . $search . '%'));
@@ -508,8 +508,8 @@ class UserGroupDAO extends DAO {
 				LEFT JOIN controlled_vocab_entry_settings cves ON (ui.controlled_vocab_entry_id = cves.controlled_vocab_entry_id)
 				LEFT JOIN user_user_groups uug ON (uug.user_id = u.user_id)
 				LEFT JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id)
-				LEFT JOIN user_settings usf ON (usf.user_id = u.user_id AND usf.setting_name = \''.USER_FIELD_FIRSTNAME.'\' AND usf.locale = \''.AppLocale::getLocale().'\' )
-				LEFT JOIN user_settings usl ON (usl.user_id = u.user_id AND usl.setting_name = \''.USER_FIELD_LASTNAME.'\' AND usl.locale = \''.AppLocale::getLocale().'\')
+				LEFT JOIN user_settings usf ON (usf.user_id = u.user_id AND usf.setting_name = \''.IDENTITY_SETTING_FIRSTNAME.'\' AND usf.locale = \''.AppLocale::getLocale().'\' )
+				LEFT JOIN user_settings usl ON (usl.user_id = u.user_id AND usl.setting_name = \''.IDENTITY_SETTING_LASTNAME.'\' AND usl.locale = \''.AppLocale::getLocale().'\')
 
 			WHERE	1=1 ' .
 				($contextId?'AND ug.context_id = ? ':'') .
@@ -803,8 +803,8 @@ class UserGroupDAO extends DAO {
 	 */
 	function _getSearchSql($searchType, $search, $searchMatch, &$params) {
 		$searchTypeMap = array(
-			USER_FIELD_FIRSTNAME => 'usf.setting_value',
-			USER_FIELD_LASTNAME => 'usl.setting_value',
+			IDENTITY_SETTING_FIRSTNAME => 'usf.setting_value',
+			IDENTITY_SETTING_LASTNAME => 'usl.setting_value',
 			USER_FIELD_USERNAME => 'u.username',
 			USER_FIELD_EMAIL => 'u.email',
 			USER_FIELD_AFFILIATION => 'us.setting_value',

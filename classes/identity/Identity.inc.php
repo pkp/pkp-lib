@@ -17,7 +17,9 @@
  *
  * @brief Basic class providing common functionality for users and authors in the system.
  */
-
+define('IDENTITY_SETTING_FIRSTNAME', 'firstName');
+define('IDENTITY_SETTING_MIDDLENAME', 'middleName');
+define('IDENTITY_SETTING_LASTNAME', 'lastName');
 class Identity extends DataObject {
 
 	/**
@@ -47,7 +49,7 @@ class Identity extends DataObject {
 	 * @param $locale string
 	 */
 	function getFirstName($locale = null) {
-		return $this->getData('firstName',$locale);
+		return $this->getData(IDENTITY_SETTING_FIRSTNAME,$locale);
 	}
 
 	/**
@@ -56,7 +58,7 @@ class Identity extends DataObject {
 	 * @param $locale string
 	 */
         function setFirstName($firstName, $locale = null) {
-                $this->setData('firstName', $firstName, $locale);
+                $this->setData(IDENTITY_SETTING_FIRSTNAME, $firstName, $locale);
         }
 
 
@@ -66,7 +68,7 @@ class Identity extends DataObject {
 	 * @param $locale string
 	 */
 	function getMiddleName($locale = null) {
-		return $this->getData('middleName',$locale);
+		return $this->getData(IDENTITY_SETTING_MIDDLENAME,$locale);
 	}
 
 	/**
@@ -75,7 +77,7 @@ class Identity extends DataObject {
 	 * @param $locale string
 	 */
         function setMiddleName($middleName, $locale = null) {
-                $this->setData('middleName', $middleName, $locale);
+                $this->setData(IDENTITY_SETTING_MIDDLENAME, $middleName, $locale);
         }
 
 	/**
@@ -84,7 +86,7 @@ class Identity extends DataObject {
 	 * @return string
 	 */
 	function getLastName($locale = null) {
-		return $this->getData('lastName',$locale);
+		return $this->getData(IDENTITY_SETTING_LASTNAME,$locale);
 	}
 
 	/**
@@ -93,7 +95,7 @@ class Identity extends DataObject {
 	 * @param $locale string
 	 */
         function setLastName($lastName, $locale = null) {
-                $this->setData('lastName', $lastName, $locale);
+                $this->setData(IDENTITY_SETTING_LASTNAME, $lastName, $locale);
         }
 
 	/**
@@ -281,7 +283,7 @@ class Identity extends DataObject {
          * @return string
          */
         function getLocalizedFirstName() {
-                return $this->getLocalizedData('firstName');
+                return $this->getLocalizedData(IDENTITY_SETTING_FIRSTNAME);
         }
 	
 	/**
@@ -289,7 +291,7 @@ class Identity extends DataObject {
          * @return string
          */
         function getLocalizedMiddleName() {
-                return $this->getLocalizedData('middleName');
+                return $this->getLocalizedData(IDENTITY_SETTING_MIDDLENAME);
         }
 	
 	/**
@@ -297,7 +299,7 @@ class Identity extends DataObject {
          * @return string
          */
         function getLocalizedLastName() {
-                return $this->getLocalizedData('lastName');
+                return $this->getLocalizedData(IDENTITY_SETTING_LASTNAME);
         }
 }
 

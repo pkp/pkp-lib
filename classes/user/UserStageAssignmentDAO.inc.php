@@ -80,9 +80,9 @@ class UserStageAssignmentDAO extends UserDAO {
 				LEFT JOIN user_user_groups uug ON (u.user_id = uug.user_id)
 				LEFT JOIN stage_assignments s ON (s.user_id = uug.user_id AND s.user_group_id = uug.user_group_id AND s.submission_id = ?)
 				JOIN user_group_stage ugs ON (uug.user_group_id = ugs.user_group_id AND ugs.stage_id = ?)
-				LEFT JOIN user_settings usl ON (usl.user_id = u.user_id AND usl.setting_name = \''.USER_FIELD_LASTNAME.'\' AND usl.locale = \''.AppLocale::getLocale().'\')
-				LEFT JOIN user_settings usf ON (usf.user_id = u.user_id AND usf.setting_name = \''.USER_FIELD_FIRSTNAME.'\' AND usf.locale = \''.AppLocale::getLocale().'\')
-				LEFT JOIN user_settings usm ON (usm.user_id = u.user_id AND usm.setting_name = \''.USER_FIELD_MIDDLENAME.'\' AND usm.locale = \''.AppLocale::getLocale().'\')
+				LEFT JOIN user_settings usl ON (usl.user_id = u.user_id AND usl.setting_name = \''.IDENTITY_SETTING_LASTNAME.'\' AND usl.locale = \''.AppLocale::getLocale().'\')
+				LEFT JOIN user_settings usf ON (usf.user_id = u.user_id AND usf.setting_name = \''.IDENTITY_SETTING_FIRSTNAME.'\' AND usf.locale = \''.AppLocale::getLocale().'\')
+				LEFT JOIN user_settings usm ON (usm.user_id = u.user_id AND usm.setting_name = \''.IDENTITY_SETTING_MIDDLENAME.'\' AND usm.locale = \''.AppLocale::getLocale().'\')
 
 			WHERE	uug.user_group_id = ? AND
 				s.user_group_id IS NULL'

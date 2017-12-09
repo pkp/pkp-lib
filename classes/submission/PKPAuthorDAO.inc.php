@@ -13,9 +13,6 @@
  *
  * @brief Operations for retrieving and modifying PKPAuthor objects.
  */
-define('AUTHOR_FIELD_FIRSTNAME', 'firstName');
-define('AUTHOR_FIELD_MIDDLENAME', 'middleName');
-define('AUTHOR_FIELD_LASTNAME', 'lastName');
 
 import('lib.pkp.classes.submission.PKPAuthor');
 

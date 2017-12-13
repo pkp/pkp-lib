@@ -122,7 +122,9 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 				$temporaryFilePath = $temporaryFile->getFilePath();
 				libxml_use_internal_errors(true);
 				$users = $this->importUsers(file_get_contents($temporaryFilePath), $context, $user);
-				$validationErrors = array_filter(libxml_get_errors(), create_function('$a', 'return $a->level == LIBXML_ERR_ERROR ||  $a->level == LIBXML_ERR_FATAL;'));
+				$validationErrors = array_filter(libxml_get_errors(), function($a) {
+					return $a->level == LIBXML_ERR_ERROR || $a->level == LIBXML_ERR_FATAL;
+				});
 				$templateMgr->assign('validationErrors', $validationErrors);
 				libxml_clear_errors();
 				$templateMgr->assign('users', $users);

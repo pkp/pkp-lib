@@ -88,7 +88,9 @@ class InterestDAO extends ControlledVocabDAO {
 
 		// Sort by name.
 		$interests = $iterator->toArray();
-		usort($interests, create_function('$s1, $s2', 'return strcmp($s1->getInterest(), $s2->getInterest());'));
+		usort($interests, function($s1, $s2) {
+			return strcmp($s1->getInterest(), $s2->getInterest());
+		});
 
 		// Turn back into an iterator.
 		import('lib.pkp.classes.core.ArrayItemIterator');

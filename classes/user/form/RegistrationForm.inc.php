@@ -36,12 +36,15 @@ class RegistrationForm extends Form {
 		parent::__construct('frontend/pages/userRegister.tpl');
 
 		// Validation checks for this form
+		$form = $this;
 		$this->addCheck(new FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', array(DAORegistry::getDAO('UserDAO'), 'userExistsByUsername'), array(), true));
 		$this->addCheck(new FormValidator($this, 'username', 'required', 'user.profile.form.usernameRequired'));
 		$this->addCheck(new FormValidator($this, 'password', 'required', 'user.profile.form.passwordRequired'));
 		$this->addCheck(new FormValidatorUsername($this, 'username', 'required', 'user.register.form.usernameAlphaNumeric'));
 		$this->addCheck(new FormValidatorLength($this, 'password', 'required', 'user.register.form.passwordLengthRestriction', '>=', $site->getMinPasswordLength()));
-		$this->addCheck(new FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordsDoNotMatch', create_function('$password,$form', 'return $password == $form->getData(\'password2\');'), array(&$this)));
+		$this->addCheck(new FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordsDoNotMatch', function($password) use ($form) {
+			return $password == $form->getData('password2');
+		}));
 
 		$this->addCheck(new FormValidator($this, 'firstName', 'required', 'user.profile.form.firstNameRequired'));
 		$this->addCheck(new FormValidator($this, 'lastName', 'required', 'user.profile.form.lastNameRequired'));
@@ -59,7 +62,10 @@ class RegistrationForm extends Form {
 		$authDao = DAORegistry::getDAO('AuthSourceDAO');
 		$this->defaultAuth = $authDao->getDefaultPlugin();
 		if (isset($this->defaultAuth)) {
-			$this->addCheck(new FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', create_function('$username,$form,$auth', 'return (!$auth->userExists($username) || $auth->authenticate($username, $form->getData(\'password\')));'), array(&$this, $this->defaultAuth)));
+			$auth = $this->defaultAuth;
+			$this->addCheck(new FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', function($username) use ($form, $auth) {
+				return (!$auth->userExists($username) || $auth->authenticate($username, $form->getData('password')));
+			}));
 		}
 
 		$this->addCheck(new FormValidatorPost($this));

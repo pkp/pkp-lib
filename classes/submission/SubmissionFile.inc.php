@@ -336,24 +336,6 @@ class SubmissionFile extends PKPFile {
 	}
 
 	/**
-	 * Get type of the file.
-	 * @return int
-	 */
-	function getType() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getFileStage();
-	}
-
-	/**
-	 * Set type of the file.
-	 * @param $type int
-	 */
-	function setType($type) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->setFileStage($type);
-	}
-
-	/**
 	 * Get file stage of the file.
 	 * @return int SUBMISSION_FILE_...
 	 */

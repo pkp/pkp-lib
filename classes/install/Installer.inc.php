@@ -383,8 +383,11 @@ class Installer {
 				$condition = isset($action['attr']['condition'])?$action['attr']['condition']:null;
 				$includeAction = true;
 				if ($condition) {
-					$funcName = create_function('$installer,$action', $condition);
-					$includeAction = $funcName($this, $action);
+					// Create a new scope to evaluate the condition
+					$evalFunction = function($installer, $action) use ($condition) {
+						return eval($condition);
+					};
+					$includeAction = $evalFunction($this, $action);
 				}
 				$this->log('data: ' . $action['file'] . ($includeAction?'':' (skipped)'));
 				if (!$includeAction) break;
@@ -400,8 +403,11 @@ class Installer {
 				$condition = isset($action['attr']['condition'])?$action['attr']['condition']:null;
 				$includeAction = true;
 				if ($condition) {
-					$funcName = create_function('$installer,$action', $condition);
-					$includeAction = $funcName($this, $action);
+					// Create a new scope to evaluate the condition
+					$evalFunction = function($installer, $action) use ($condition) {
+						return eval($condition);
+					};
+					$includeAction = $evalFunction($this, $action);
 				}
 				$this->log(sprintf('code: %s %s::%s' . ($includeAction?'':' (skipped)'), isset($action['file']) ? $action['file'] : 'Installer', isset($action['attr']['class']) ? $action['attr']['class'] : 'Installer', $action['attr']['function']));
 				if (!$includeAction) return true; // Condition not met; skip the action.

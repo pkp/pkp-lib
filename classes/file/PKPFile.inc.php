@@ -19,24 +19,6 @@ class PKPFile extends DataObject {
 	// Get/set methods
 	//
 	/**
-	 * Get ID of file.
-	 * @return int
-	 */
-	function getFileId() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getId();
-	}
-
-	/**
-	 * Set ID of file.
-	 * @param $fileId int
-	 */
-	function setFileId($fileId) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->setId($fileId);
-	}
-
-	/**
 	 * Get server-side file name of the file.
 	 * @param return string
 	 */

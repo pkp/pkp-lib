@@ -495,7 +495,7 @@ abstract class PKPSubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @return integer the number of deleted file revisions
 	 */
 	function deleteLatestRevisionById($fileId, $fileStage= null, $submissionId = null) {
-		return $this->_deleteInternally($submissionId, $fileStage, $fileId, null, null, null, null, null, null, true);
+		return $this->_deleteInternally($submissionId, $fileStage, $fileId, null, null, null, null, null, true);
 	}
 
 	/**

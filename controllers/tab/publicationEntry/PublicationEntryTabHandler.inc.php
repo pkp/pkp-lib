@@ -159,18 +159,18 @@ class PublicationEntryTabHandler extends Handler {
 				$notificationManager = new NotificationManager();
 				$user = $request->getUser();
 				$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __($notificationKey)));
+
+				if ($request->getUserVar('displayedInContainer')) {
+					$router = $request->getRouter();
+					$dispatcher = $router->getDispatcher();
+					$url = $dispatcher->url($request, ROUTE_COMPONENT, null, $this->_getHandlerClassPath(), 'fetch', null, array('submissionId' => $submission->getId(), 'stageId' => $stageId, 'tabPos' => $this->getTabPosition(), 'hideHelp' => true));
+					$json->setAdditionalAttributes(array('reloadContainer' => true, 'tabsUrl' => $url));
+					$json->setContent(true); // prevents modal closure
+				}
 			} else {
 				// Could not validate; redisplay the form.
 				$json->setStatus(true);
 				$json->setContent($form->fetch($request));
-			}
-
-			if ($request->getUserVar('displayedInContainer')) {
-				$router = $request->getRouter();
-				$dispatcher = $router->getDispatcher();
-				$url = $dispatcher->url($request, ROUTE_COMPONENT, null, $this->_getHandlerClassPath(), 'fetch', null, array('submissionId' => $submission->getId(), 'stageId' => $stageId, 'tabPos' => $this->getTabPosition(), 'hideHelp' => true));
-				$json->setAdditionalAttributes(array('reloadContainer' => true, 'tabsUrl' => $url));
-				$json->setContent(true); // prevents modal closure
 			}
 
 			// Pass a global event to indicate the submission has changed

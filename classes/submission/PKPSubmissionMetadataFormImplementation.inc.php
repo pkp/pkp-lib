@@ -51,9 +51,7 @@ class PKPSubmissionMetadataFormImplementation {
 			$this->_parentForm->addCheck(new FormValidatorLocale($this->_parentForm, 'abstract', 'required', 'submission.submit.form.abstractRequired', $submission->getLocale()));
 		}
 
-		// Validates that at least one author has been added. (Note that authors are
-		// in grid, so Form does not directly see the authors value. Hence the $ignore
-		// parameter.)
+		// Validates that at least one author has been added.
 		$this->_parentForm->addCheck(new FormValidatorCustom(
 			$this->_parentForm, 'authors', 'required', 'submission.submit.form.authorRequired',
 			function() use ($submission) {

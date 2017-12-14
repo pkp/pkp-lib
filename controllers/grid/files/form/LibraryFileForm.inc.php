@@ -34,11 +34,10 @@ class LibraryFileForm extends Form {
 		parent::__construct($template);
 		$this->libraryFileManager = $libraryFileManager = new LibraryFileManager($contextId);
 
-		$form = $this;
 		$this->addCheck(new FormValidatorLocale($this, 'libraryFileName', 'required', 'settings.libraryFiles.nameRequired'));
 		$this->addCheck(new FormValidatorCustom(
 			$this, 'fileType', 'required', 'settings.libraryFiles.typeRequired',
-			function($type) use ($form, $libraryFileManager) {
+			function($type) use ($libraryFileManager) {
 				return is_numeric($type) && $libraryFileManager->getNameFromType($type);
 			}
 		));

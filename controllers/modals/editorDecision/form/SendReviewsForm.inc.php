@@ -123,7 +123,7 @@ class SendReviewsForm extends EditorDecisionWithEmailForm {
 				break;
 
 			case SUBMISSION_EDITOR_DECISION_DECLINE:
-				$emailKey = 'SUBMISSION_UNSUITABLE';
+				$emailKey = 'EDITOR_DECISION_DECLINE';
 				$status = REVIEW_ROUND_STATUS_DECLINED;
 				break;
 

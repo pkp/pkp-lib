@@ -42,7 +42,7 @@ define('CSS_FILENAME_SUFFIX', 'css');
 
 import('lib.pkp.classes.template.PKPTemplateResource');
 
-class PKPTemplateManager extends Smarty {
+class PKPTemplateManager extends SmartyBC {
 	/** @var array of URLs to stylesheets */
 	private $_styleSheets = array();
 
@@ -60,6 +60,12 @@ class PKPTemplateManager extends Smarty {
 
 	/** @var PKPRequest */
 	private $_request;
+
+	/** @var string path to the application templates */
+	private $app_template_dir;
+
+	/** @var string path to the pkp-lib shared templates */
+	private $core_template_dir;
 
 	/**
 	 * Constructor.
@@ -288,42 +294,42 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		// Register custom functions
-		$this->register_modifier('translate', array('AppLocale', 'translate'));
-		$this->register_modifier('strip_unsafe_html', array('PKPString', 'stripUnsafeHtml'));
-		$this->register_modifier('String_substr', array('PKPString', 'substr'));
-		$this->register_modifier('dateformatPHP2JQueryDatepicker', array('PKPString', 'dateformatPHP2JQueryDatepicker'));
-		$this->register_modifier('to_array', array($this, 'smartyToArray'));
-		$this->register_modifier('compare', array($this, 'smartyCompare'));
-		$this->register_modifier('concat', array($this, 'smartyConcat'));
-		$this->register_modifier('strtotime', array($this, 'smartyStrtotime'));
-		$this->register_modifier('explode', array($this, 'smartyExplode'));
-		$this->register_modifier('assign', array($this, 'smartyAssign'));
-		$this->register_modifier('escape', array(&$this, 'smartyEscape'));
-		$this->register_function('csrf', array($this, 'smartyCSRF'));
-		$this->register_function('translate', array($this, 'smartyTranslate'));
-		$this->register_function('null_link_action', array($this, 'smartyNullLinkAction'));
-		$this->register_function('help', array($this, 'smartyHelp'));
-		$this->register_function('flush', array($this, 'smartyFlush'));
-		$this->register_function('call_hook', array($this, 'smartyCallHook'));
-		$this->register_function('html_options_translate', array($this, 'smartyHtmlOptionsTranslate'));
-		$this->register_block('iterate', array($this, 'smartyIterate'));
-		$this->register_function('page_links', array($this, 'smartyPageLinks'));
-		$this->register_function('page_info', array($this, 'smartyPageInfo'));
-		$this->register_function('pluck_files', array($this, 'smartyPluckFiles'));
+		$this->registerPlugin('modifier', 'translate', array('AppLocale', 'translate'));
+		$this->registerPlugin('modifier','strip_unsafe_html', array('PKPString', 'stripUnsafeHtml'));
+		$this->registerPlugin('modifier','String_substr', array('PKPString', 'substr'));
+		$this->registerPlugin('modifier','dateformatPHP2JQueryDatepicker', array('PKPString', 'dateformatPHP2JQueryDatepicker'));
+		$this->registerPlugin('modifier','to_array', array($this, 'smartyToArray'));
+		$this->registerPlugin('modifier','compare', array($this, 'smartyCompare'));
+		$this->registerPlugin('modifier','concat', array($this, 'smartyConcat'));
+		$this->registerPlugin('modifier','strtotime', array($this, 'smartyStrtotime'));
+		$this->registerPlugin('modifier','explode', array($this, 'smartyExplode'));
+		$this->registerPlugin('modifier','assign', array($this, 'smartyAssign'));
+		$this->registerPlugin('modifier','escape', array(&$this, 'smartyEscape'));
+		$this->registerPlugin('function','csrf', array($this, 'smartyCSRF'));
+		$this->registerPlugin('function', 'translate', array($this, 'smartyTranslate'));
+		$this->registerPlugin('function','null_link_action', array($this, 'smartyNullLinkAction'));
+		$this->registerPlugin('function','help', array($this, 'smartyHelp'));
+		$this->registerPlugin('function','flush', array($this, 'smartyFlush'));
+		$this->registerPlugin('function','call_hook', array($this, 'smartyCallHook'));
+		$this->registerPlugin('function','html_options_translate', array($this, 'smartyHtmlOptionsTranslate'));
+		$this->registerPlugin('block','iterate', array($this, 'smartyIterate'));
+		$this->registerPlugin('function','page_links', array($this, 'smartyPageLinks'));
+		$this->registerPlugin('function','page_info', array($this, 'smartyPageInfo'));
+		$this->registerPlugin('function','pluck_files', array($this, 'smartyPluckFiles'));
 
 		// Modified vocabulary for creating forms
 		$fbv = $this->getFBV();
-		$this->register_block('fbvFormSection', array($fbv, 'smartyFBVFormSection'));
-		$this->register_block('fbvFormArea', array($fbv, 'smartyFBVFormArea'));
-		$this->register_function('fbvFormButtons', array($fbv, 'smartyFBVFormButtons'));
-		$this->register_function('fbvElement', array($fbv, 'smartyFBVElement'));
+		$this->registerPlugin('block', 'fbvFormSection', array($fbv, 'smartyFBVFormSection'));
+		$this->registerPlugin('block', 'fbvFormArea', array($fbv, 'smartyFBVFormArea'));
+		$this->registerPlugin('function', 'fbvFormButtons', array($fbv, 'smartyFBVFormButtons'));
+		$this->registerPlugin('function', 'fbvElement', array($fbv, 'smartyFBVElement'));
 		$this->assign('fbvStyles', $fbv->getStyles());
 
-		$this->register_function('fieldLabel', array($fbv, 'smartyFieldLabel'));
+		$this->registerPlugin('function', 'fieldLabel', array($fbv, 'smartyFieldLabel'));
 
 		// register the resource name "core"
 		$coreResource = new PKPTemplateResource($this->core_template_dir);
-		$this->register_resource('core', array(
+		$this->registerResource('core', array(
 			array($coreResource, 'fetch'),
 			array($coreResource, 'fetchTimestamp'),
 			array($coreResource, 'getSecure'),
@@ -331,25 +337,25 @@ class PKPTemplateManager extends Smarty {
 		));
 
 		$appResource = new PKPTemplateResource($this->app_template_dir);
-		$this->register_resource('app', array(
+		$this->registerResource('app', array(
 			array($appResource, 'fetch'),
 			array($appResource, 'fetchTimestamp'),
 			array($appResource, 'getSecure'),
 			array($appResource, 'getTrusted')
 		));
 
-		$this->register_function('url', array($this, 'smartyUrl'));
+		$this->registerPlugin('function', 'url', array($this, 'smartyUrl'));
 		// ajax load into a div or any element
-		$this->register_function('load_url_in_el', array($this, 'smartyLoadUrlInEl'));
-		$this->register_function('load_url_in_div', array($this, 'smartyLoadUrlInDiv'));
+		$this->registerPlugin('function', 'load_url_in_el', array($this, 'smartyLoadUrlInEl'));
+		$this->registerPlugin('function', 'load_url_in_div', array($this, 'smartyLoadUrlInDiv'));
 
 		// load stylesheets/scripts/headers from a given context
-		$this->register_function('load_stylesheet', array($this, 'smartyLoadStylesheet'));
-		$this->register_function('load_script', array($this, 'smartyLoadScript'));
-		$this->register_function('load_header', array($this, 'smartyLoadHeader'));
+		$this->registerPlugin('function', 'load_stylesheet', array($this, 'smartyLoadStylesheet'));
+		$this->registerPlugin('function', 'load_script', array($this, 'smartyLoadScript'));
+		$this->registerPlugin('function', 'load_header', array($this, 'smartyLoadHeader'));
 
 		// load NavigationMenu Areas from context
-		$this->register_function('load_menu', array($this, 'smartyLoadNavigationMenuArea'));
+		$this->registerPlugin('function', 'load_menu', array($this, 'smartyLoadNavigationMenuArea'));
 
 		/**
 		 * Kludge to make sure no code that tries to connect to the
@@ -397,16 +403,6 @@ class PKPTemplateManager extends Smarty {
 		));
 	}
 
-	/**
-	 * Override the Smarty {include ...} function to allow hooks to be
-	 * called.
-	 */
-	function _smarty_include($params) {
-		if (!HookRegistry::call('TemplateManager::include', array($this, &$params))) {
-			return parent::_smarty_include($params);
-		}
-		return false;
-	}
 
 	/**
 	 * Flag the page as cacheable (or not).
@@ -1050,7 +1046,6 @@ class PKPTemplateManager extends Smarty {
 			$params['values'] = array_map(array('AppLocale', 'translate'), $params['values']);
 		}
 
-		require_once($this->_get_plugin_filepath('function','html_options'));
 		return smarty_function_html_options($params, $smarty);
 	}
 
@@ -1063,11 +1058,11 @@ class PKPTemplateManager extends Smarty {
 	 *  - key: (optional) Name of variable to receive index of current item
 	 */
 	function smartyIterate($params, $content, $smarty, &$repeat) {
-		$iterator =& $smarty->get_template_vars($params['from']);
+		$iterator = $smarty->getTemplateVars($params['from']);
 
 		if (isset($params['key'])) {
 			if (empty($content)) $smarty->assign($params['key'], 1);
-			else $smarty->assign($params['key'], $smarty->get_template_vars($params['key'])+1);
+			else $smarty->assign($params['key'], $smarty->getTemplateVars($params['key'])+1);
 		}
 
 		// If the iterator is empty, we're finished.
@@ -1101,7 +1096,7 @@ class PKPTemplateManager extends Smarty {
 		if (isset($params['itemsPerPage'])) {
 			$itemsPerPage = $params['itemsPerPage'];
 		} else {
-			$itemsPerPage = $smarty->get_template_vars('itemsPerPage');
+			$itemsPerPage = $smarty->getTemplateVars('itemsPerPage');
 			if (!is_numeric($itemsPerPage)) $itemsPerPage=25;
 		}
 
@@ -1264,7 +1259,7 @@ class PKPTemplateManager extends Smarty {
 		unset($params['iterator']);
 		unset($params['name']);
 
-		$numPageLinks = $smarty->get_template_vars('numPageLinks');
+		$numPageLinks = $smarty->getTemplateVars('numPageLinks');
 		if (!is_numeric($numPageLinks)) $numPageLinks=10;
 
 		$page = $iterator->getPage();
@@ -1631,9 +1626,9 @@ class PKPTemplateManager extends Smarty {
 			$matches = $resources[$context];
 		}
 
-		$page = $this->get_template_vars('requestedPage');
+		$page = $this->getTemplateVars('requestedPage');
 		$page = empty( $page ) ? 'index' : $page;
-		$op = $this->get_template_vars('requestedOp');
+		$op = $this->getTemplateVars('requestedOp');
 		$op = empty( $op ) ? 'index' : $op;
 
 		$contexts = array(

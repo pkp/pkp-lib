@@ -32,11 +32,16 @@ class LibraryFileForm extends Form {
 		$this->contextId = $contextId;
 
 		parent::__construct($template);
-		$this->libraryFileManager = new LibraryFileManager($contextId);
+		$this->libraryFileManager = $libraryFileManager = new LibraryFileManager($contextId);
 
+		$form = $this;
 		$this->addCheck(new FormValidatorLocale($this, 'libraryFileName', 'required', 'settings.libraryFiles.nameRequired'));
-		$this->addCheck(new FormValidatorCustom($this, 'fileType', 'required', 'settings.libraryFiles.typeRequired',
-				create_function('$type, $form, $libraryFileManager', 'return is_numeric($type) && $libraryFileManager->getNameFromType($type);'), array($this, $this->libraryFileManager)));
+		$this->addCheck(new FormValidatorCustom(
+			$this, 'fileType', 'required', 'settings.libraryFiles.typeRequired',
+			function($type) use ($form, $libraryFileManager) {
+				return is_numeric($type) && $libraryFileManager->getNameFromType($type);
+			}
+		));
 
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));

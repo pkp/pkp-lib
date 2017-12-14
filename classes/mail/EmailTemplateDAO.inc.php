@@ -494,8 +494,9 @@ class EmailTemplateDAO extends DAO {
 		$result->Close();
 
 		// Sort all templates by email key.
-		$compare = create_function('$t1, $t2', 'return strcmp($t1->getEmailKey(), $t2->getEmailKey());');
-		usort ($emailTemplates, $compare);
+		usort ($emailTemplates, function($t1, $t2) {
+			return strcmp($t1->getEmailKey(), $t2->getEmailKey());
+		});
 
 		return $emailTemplates;
 	}

@@ -31,10 +31,14 @@ class ContextSiteSettingsForm extends Form {
 		$this->contextId = isset($contextId) ? (int) $contextId : null;
 
 		// Validation checks for this form
+		$form = $this;
 		$this->addCheck(new FormValidatorLocale($this, 'name', 'required', 'admin.contexts.form.titleRequired'));
 		$this->addCheck(new FormValidator($this, 'path', 'required', 'admin.contexts.form.pathRequired'));
 		$this->addCheck(new FormValidatorRegExp($this, 'path', 'required', 'admin.contexts.form.pathAlphaNumeric', '/^[a-z0-9]+([\-_][a-z0-9]+)*$/i'));
-		$this->addCheck(new FormValidatorCustom($this, 'path', 'required', 'admin.contexts.form.pathExists', create_function('$path,$form,$contextDao', 'return !$contextDao->existsByPath($path) || ($form->getData(\'oldPath\') != null && $form->getData(\'oldPath\') == $path);'), array(&$this, Application::getContextDAO())));
+		$this->addCheck(new FormValidatorCustom($this, 'path', 'required', 'admin.contexts.form.pathExists', function($path) use ($form) {
+			$contextDao = Application::getContextDAO();
+			return !$contextDao->existsByPath($path) || ($form->getData('oldPath') != null && $form->getData('oldPath') == $path);
+		}));
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
 	}

@@ -44,7 +44,9 @@ class PKPDistributionSettingsTabHandler extends ManagerSettingsTabHandler {
 		// Expose names of payment plugins to template.
 		$pluginNames = array(__('manager.paymentMethod.none'));
 		$pluginNames += array_map(
-			create_function('$a', 'return $a->getDisplayName();'),
+			function($a) {
+				return $a->getDisplayName();
+			},
 			PluginRegistry::loadCategory('paymethod')
 		);
 		return new JSONMessage(true, $pluginNames);

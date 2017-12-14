@@ -112,34 +112,28 @@ class SubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 			!$revisedFileId
 		) {
 			// Add an additional check for the genre to the form.
-			$this->addCheck(
-				new FormValidatorCustom(
-					$this, 'genreId', FORM_VALIDATOR_REQUIRED_VALUE,
-					'submission.upload.noGenre',
-					create_function(
-						'$genreId,$genreDao,$context',
-						'return is_a($genreDao->getById($genreId, $context->getId()), "Genre");'
-					),
-					array(DAORegistry::getDAO('GenreDAO'), $context)
-				)
-			);
+			$this->addCheck(new FormValidatorCustom(
+				$this, 'genreId', FORM_VALIDATOR_REQUIRED_VALUE,
+				'submission.upload.noGenre',
+				function($genreId) use ($context) {
+					$genreDao = DAORegistry::getDAO('GenreDAO');
+					return is_a($genreDao->getById($genreId, $context->getId()), 'Genre');
+				}
+			));
 		}
 
 		// Validate the uploader's user group.
 		$uploaderUserGroupId = $this->getData('uploaderUserGroupId');
 		if ($uploaderUserGroupId) {
 			$user = $request->getUser();
-			$this->addCheck(
-				new FormValidatorCustom(
-					$this, 'uploaderUserGroupId', FORM_VALIDATOR_REQUIRED_VALUE,
-					'submission.upload.invalidUserGroup',
-					create_function(
-						'$userGroupId,$userGroupDao,$userId',
-						'return $userGroupDao->userInGroup($userId, $userGroupId);'
-					),
-					array(DAORegistry::getDAO('UserGroupDAO'), $user->getId(), $context)
-				)
-			);
+			$this->addCheck(new FormValidatorCustom(
+				$this, 'uploaderUserGroupId', FORM_VALIDATOR_REQUIRED_VALUE,
+				'submission.upload.invalidUserGroup',
+				function($userGroupId) use ($user) {
+					$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+					return $userGroupDao->userInGroup($user->getId(), $userGroupId);
+				}
+			));
 		}
 
 		return parent::validate();

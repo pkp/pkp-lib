@@ -271,14 +271,9 @@ class SettingsDAO extends DAO {
 	function _performLocalizedReplacement($rawInput, $paramArray = array(), $locale = null) {
 		// this only translates from the following locale files
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_DEFAULT, LOCALE_COMPONENT_PKP_COMMON, $locale);
-		$value = preg_replace_callback(
-			'{{translate key="([^"]+)"}}',
-			create_function(
-				'$matches',
-				'$locale = "' . $locale . '"; return __($matches[1], array(), $locale);'
-			),
-			$rawInput
-		);
+		$value = preg_replace_callback('{{translate key="([^"]+)"}}', function($matches) use ($locale) {
+			return __($matches[1], array(), $locale);
+		}, $rawInput);
 
 		foreach ($paramArray as $pKey => $pValue) {
 			$value = str_replace('{$' . $pKey . '}', $pValue, $value);

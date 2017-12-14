@@ -139,7 +139,9 @@ abstract class PKPSubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 		$file = null;
 		if ($fileId != '') $file = $this->getByPubId('publisher-id', $fileId, $submissionId);
 		if (!isset($file)) {
-			list($fileId, $revision) = array_map(create_function('$a', 'return (int) $a;'), preg_split('/-/', $fileId));
+			list($fileId, $revision) = array_map(function($a) {
+				return (int) $a;
+			}, preg_split('/-/', $fileId));
 			$file = $this->getRevision($fileId, $revision, null, $submissionId);
 		}
 		if ($file && $file->getFileStage() == SUBMISSION_FILE_PROOF) return $file;

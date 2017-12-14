@@ -71,8 +71,10 @@ class SubmissionSearchIndex {
 			// Load stopwords only once per request
 			$searchStopwords = array_count_values(
 				array_filter(
-					file(SEARCH_STOPWORDS_FILE),
-					create_function('&$a', 'return ($a = trim($a)) && !empty($a) && $a[0] != \'#\';')
+					array_map('trim', file(SEARCH_STOPWORDS_FILE)),
+					function($a) {
+						return !empty($a) && $a[0] != '#';
+					}
 				)
 			);
 			$searchStopwords[''] = 1;

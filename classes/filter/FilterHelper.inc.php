@@ -153,7 +153,7 @@ class FilterHelper {
 			foreach($filterBSubfilters as $filterBSubfilter) { /* @var $filterBSubfilter PersistableFilter */
 				$seq = $filterBSubfilter->getSequence();
 				$filterASubfilter =& $filterA->getFilter($seq);
-				if (get_class($filterASubfilter) != get_class($filterBSubfilter)) {
+				if (!$filterASubfilter || !$filterBSubfilter || get_class($filterASubfilter) != get_class($filterBSubfilter)) {
 					return false;
 				}
 

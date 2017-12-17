@@ -209,11 +209,11 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 			$authorDescription->addStatement('[@type]', $authorType);
 
 			// Family Name
-			$authorDescription->addStatement('namePart[@type="family"]', $author->getLastName());
+			$authorDescription->addStatement('namePart[@type="family"]', $author->getLocalizedLastName());
 
 			// Given Names
-			$firstName = (string)$author->getFirstName();
-			$middleName = (string)$author->getMiddleName();
+			$firstName = (string)$author->getLocalizedFirstName();
+			$middleName = (string)$author->getLocalizedMiddleName();
 			$givenNames = trim($firstName.' '.$middleName);
 			if (!empty($givenNames)) {
 				$authorDescription->addStatement('namePart[@type="given"]', $givenNames);

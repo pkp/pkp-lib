@@ -110,9 +110,9 @@ class AuthorForm extends Form {
 		if ($author) {
 			$this->_data = array(
 				'authorId' => $author->getId(),
-				'firstName' => $author->getFirstName(),
-				'middleName' => $author->getMiddleName(),
-				'lastName' => $author->getLastName(),
+				'firstName' => $author->getFirstName(null),
+				'middleName' => $author->getMiddleName(null),
+				'lastName' => $author->getLastName(null),
 				'suffix' => $author->getSuffix(),
 				'affiliation' => $author->getAffiliation(null), // Localized
 				'country' => $author->getCountry(),

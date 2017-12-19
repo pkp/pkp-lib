@@ -78,11 +78,11 @@ class UsageStatsOptoutBlockPlugin extends BlockPlugin {
 	}
 
 	/**
-	 * @copydoc PKPPlugin::getSeq()
+	 * @copydoc BlockPlugin::getSeq()
 	 */
-	function getSeq() {
+	function getSeq($contextId = null) {
 		// Identify the position of the faceting block.
-		$seq = parent::getSeq();
+		$seq = parent::getSeq($contextId);
 
 		// If nothing has been configured then show the privacy
 		// block after all other blocks in the context.

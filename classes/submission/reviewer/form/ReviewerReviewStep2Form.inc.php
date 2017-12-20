@@ -52,6 +52,8 @@ class ReviewerReviewStep2Form extends ReviewerReviewForm {
 	function execute() {
 		// Set review to next step.
 		$this->updateReviewStepAndSaveSubmission($this->getReviewerSubmission());
+
+		parent::execute();
 	}
 
 }

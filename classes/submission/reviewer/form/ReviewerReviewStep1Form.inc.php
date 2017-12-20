@@ -126,6 +126,8 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 			$reviewerAction = new ReviewerAction();
 			$reviewerAction->confirmReview($this->request, $reviewAssignment, $reviewerSubmission, false);
 		}
+
+		parent::execute();
 	}
 }
 

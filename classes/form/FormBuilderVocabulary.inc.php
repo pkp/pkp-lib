@@ -303,20 +303,6 @@ class FormBuilderVocabulary {
 
 		unset($params['type']);
 
-		$parent = $smarty->_tag_stack[count($smarty->_tag_stack)-1];
-		$group = false;
-
-		if ($parent) {
-			$form = $this->getForm();
-			if (isset($form) && isset($form->errorFields[$params['id']])) {
-				array_push($form->formSectionErrors, $form->errorsArray[$params['id']]);
-			}
-
-			if (isset($parent[1]['group']) && $parent[1]['group']) {
-				$group = true;
-			}
-		}
-
 		return $content;
 	}
 

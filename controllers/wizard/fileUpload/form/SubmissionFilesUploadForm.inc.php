@@ -21,32 +21,25 @@ class SubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 	/** @var array */
 	var $_uploaderRoles;
 
-	/** @var array */
-	var $_uploaderGroupIds;
-
 
 	/**
 	 * Constructor.
 	 * @param $request Request
 	 * @param $submissionId integer
-	 * @param $uploaderRoles array
-	 * @param $uploaderGroupIds array|null
 	 * @param $stageId integer One of the WORKFLOW_STAGE_ID_* constants.
+	 * @param $uploaderRoles array
 	 * @param $fileStage integer
 	 * @param $revisionOnly boolean
 	 * @param $stageId integer
 	 * @param $reviewRound ReviewRound
 	 * @param $revisedFileId integer
 	 */
-	function __construct($request, $submissionId, $stageId, $uploaderRoles, $uploaderGroupIds, $fileStage,
+	function __construct($request, $submissionId, $stageId, $uploaderRoles, $fileStage,
 			$revisionOnly = false, $reviewRound = null, $revisedFileId = null, $assocType = null, $assocId = null) {
 
 		// Initialize class.
 		assert(is_null($uploaderRoles) || (is_array($uploaderRoles) && count($uploaderRoles) >= 1));
 		$this->_uploaderRoles = $uploaderRoles;
-
-		assert(is_null($uploaderGroupIds) || (is_array($uploaderGroupIds) && count($uploaderGroupIds) >= 1));
-		$this->_uploaderGroupIds = $uploaderGroupIds;
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
 
@@ -74,14 +67,6 @@ class SubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 		return $this->_uploaderRoles;
 	}
 
-	/**
-	 * Get the uploader group IDs.
-	 * @return array|null
-	 */
-	function getUploaderGroupIds() {
-		return $this->_uploaderGroupIds;
-	}
-
 
 	//
 	// Implement template methods from Form
@@ -90,7 +75,7 @@ class SubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {
-		$this->readUserVars(array('genreId', 'uploaderUserGroupId'));
+		$this->readUserVars(array('genreId'));
 		return parent::readInputData();
 	}
 
@@ -122,20 +107,6 @@ class SubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 			));
 		}
 
-		// Validate the uploader's user group.
-		$uploaderUserGroupId = $this->getData('uploaderUserGroupId');
-		if ($uploaderUserGroupId) {
-			$user = $request->getUser();
-			$this->addCheck(new FormValidatorCustom(
-				$this, 'uploaderUserGroupId', FORM_VALIDATOR_REQUIRED_VALUE,
-				'submission.upload.invalidUserGroup',
-				function($userGroupId) use ($user) {
-					$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-					return $userGroupDao->userInGroup($user->getId(), $userGroupId);
-				}
-			));
-		}
-
 		return parent::validate();
 	}
 
@@ -146,77 +117,6 @@ class SubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 		// Retrieve available submission file genres.
 		$genreList = $this->_retrieveGenreList($request);
 		$this->setData('submissionFileGenres', $genreList);
-
-		// Retrieve the current context.
-		$router = $request->getRouter();
-		$context = $router->getContext($request);
-		assert(is_a($context, 'Context'));
-
-		// Retrieve the user's user groups.
-		$user = $request->getUser();
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-		$assignedUserGroups = $userGroupDao->getByUserId($user->getId(), $context->getId());
-
-		// Check which of these groups make sense in the context
-		// from which the uploader was instantiated.
-		// FIXME: The sub editor role may only be displayed if the
-		// user is assigned to the current submission as a sub
-		// editor, see #6000.
-		$uploaderRoles = $this->getUploaderRoles();
-		$uploaderUserGroups = $this->getUploaderGroupIds();
-		$uploaderUserGroupOptions = array();
-		$highestAuthorityUserGroupId = null;
-		$highestAuthorityRoleId = null;
-		while($userGroup = $assignedUserGroups->next()) { /* @var $userGroup UserGroup */
-			// Exclude groups outside of the uploader roles.
-			if (!in_array($userGroup->getRoleId(), $uploaderRoles)) continue;
-
-			// If a specific subset of user groups was specified
-			// and the current one is outside the set, exclude it.
-			if ($uploaderUserGroups !== null && !in_array($userGroup->getId(), $uploaderUserGroups)) continue;
-
-			$uploaderUserGroupOptions[$userGroup->getId()] = $userGroup->getLocalizedName();
-
-			// Identify the first of the user groups that belongs
-			// to the role with the lowest role id (=highest authority
-			// level). We'll need this information to identify the default
-			// selection, see below.
-			if (is_null($highestAuthorityUserGroupId) || $userGroup->getRoleId() <= $highestAuthorityRoleId) {
-				$highestAuthorityRoleId = $userGroup->getRoleId();
-				if (is_null($highestAuthorityUserGroupId) || $userGroup->getId() < $highestAuthorityUserGroupId) {
-					$highestAuthorityUserGroupId = $userGroup->getId();
-				}
-			}
-		}
-		if (empty($uploaderUserGroupOptions)) fatalError('Invalid uploader roles!');
-		$this->setData('uploaderUserGroupOptions', $uploaderUserGroupOptions);
-
-		// Identify the default user group (only required when there is
-		// more than one group).
-		$defaultUserGroupId = null;
-		if (count($uploaderUserGroupOptions) > 1) {
-			// See whether the current user has been assigned as
-			// a workflow stage participant.
-			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
-			$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId(
-				$this->getData('submissionId'),
-				$this->getStageId(),
-				null,
-				$user->getId()
-			);
-
-			while ($stageAssignment = $stageAssignments->next()) {
-				if (isset($uploaderUserGroupOptions[$stageAssignment->getUserGroupId()])) {
-					$defaultUserGroupId = $stageAssignment->getUserGroupId();
-					break;
-				}
-			}
-
-			// If we didn't find a corresponding stage assignment then
-			// use the user group with the highest authority as default.
-			if (is_null($defaultUserGroupId)) $defaultUserGroupId = $highestAuthorityUserGroupId;
-		}
-		$this->setData('defaultUserGroupId', $defaultUserGroupId);
 
 		return parent::fetch($request);
 	}
@@ -238,10 +138,6 @@ class SubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 			$fileGenre = $this->getData('genreId') ? (int)$this->getData('genreId') : null;
 		}
 
-		// Retrieve the uploader's user group.
-		$uploaderUserGroupId = $this->getData('uploaderUserGroupId');
-		if (!$uploaderUserGroupId) fatalError('Invalid uploader user group!');
-
 		// Identify the uploading user.
 		$user = $request->getUser();
 		assert(is_a($user, 'User'));
@@ -258,7 +154,7 @@ class SubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 		);
 		$submissionFile = $submissionFileManager->uploadSubmissionFile(
 			'uploadedFile', $fileStage, $user->getId(),
-			$uploaderUserGroupId, $revisedFileId, $fileGenre, $assocType, $assocId
+			$revisedFileId, $fileGenre, $assocType, $assocId
 		);
 		if (!$submissionFile) return null;
 

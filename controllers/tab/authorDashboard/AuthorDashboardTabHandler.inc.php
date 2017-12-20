@@ -82,7 +82,7 @@ class AuthorDashboardTabHandler extends Handler {
 				import('lib.pkp.controllers.api.file.linkAction.AddFileLinkAction');
 				$templateMgr->assign('uploadFileAction', new AddFileLinkAction(
 					$request, $submission->getId(), $currentStage,
-					array(ROLE_ID_AUTHOR), null, $fileStage, null, null, $lastReviewRound->getId()));
+					array(ROLE_ID_AUTHOR), $fileStage, null, null, $lastReviewRound->getId()));
 			}
 		}
 

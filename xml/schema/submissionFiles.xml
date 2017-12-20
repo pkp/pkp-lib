@@ -50,7 +50,6 @@
 		<field name="date_modified" type="T">
 			<NOTNULL/>
 		</field>
-		<field name="user_group_id" type="I8" />
 		<field name="uploader_user_id" type="I8" />
 		<field name="assoc_type" type="I8"/>
 		<field name="assoc_id" type="I8"/>

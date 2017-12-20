@@ -65,7 +65,7 @@
 	<message key="common.available">متوافر</message>
 	<message key="common.back">رجوع</message>
 	<message key="common.between">بين</message>
-	<message key="common.cancel">إلغاء</message>	
+	<message key="common.cancel">إلغاء</message>
 	<message key="common.cancelled">ملغى</message>
 	<message key="common.warning">تحذير</message>
 	<message key="common.error">خطأ</message>
@@ -146,8 +146,8 @@
 	<message key="common.fullscreenOff">إلغاء ملء الشاشة</message>
 	<message key="common.false">خطأ</message>
 	<message key="common.file">الملف</message>
-	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
-	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
+	<message key="common.file.namingPattern">{$username}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$genre}, {$originalFilename}</message>
 	<message key="common.fileName">اسم الملف</message>
 	<message key="common.fileSize">حجم الملف</message>
 	<message key="common.fileType">نوع الملف</message>
@@ -498,7 +498,7 @@
 	<message key="search.titleIndex">استعرض فهرس العناوين</message>
 	<message key="search.title">العنوان</message>
 	<message key="search.typeMethodApproach">النوع (طريقة/نهج)</message>
-		
+
 	<!-- Common -->
 	<message key="grid.action.downloadFile">تنزيل هذا الملف</message>
 

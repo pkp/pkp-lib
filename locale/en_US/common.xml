@@ -146,8 +146,8 @@
 	<message key="common.fullscreenOff">Fullscreen Off</message>
 	<message key="common.false">False</message>
 	<message key="common.file">File</message>
-	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
-	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
+	<message key="common.file.namingPattern">{$username}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$genre}, {$originalFilename}</message>
 	<message key="common.fileName">File Name</message>
 	<message key="common.fileSize">File Size</message>
 	<message key="common.fileType">File Type</message>

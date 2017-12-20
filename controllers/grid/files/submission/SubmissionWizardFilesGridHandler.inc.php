@@ -36,24 +36,6 @@ class SubmissionWizardFilesGridHandler extends FileListGridHandler {
 		// Set grid title.
 		$this->setTitle('submission.submit.submissionFiles');
 	}
-
-	/**
-	 * @copydoc PKPHandler::initialize()
-	 */
-	function initialize($request) {
-		// Determine whether to force the user group ID submitted
-		// on step 1 of the submission wizard during upload
-		$submission = $this->getSubmission();
-		$authors = $submission->getAuthors();
-		if (count($authors)==1) {
-			// Force the author's user group. (#8302)
-			$author = array_shift($authors);
-			$dataProvider = $this->getDataProvider();
-			$dataProvider->setUploaderGroupIds(array($author->getUserGroupId()));
-		}
-
-		return parent::initialize($request);
-	}
 }
 
 ?>

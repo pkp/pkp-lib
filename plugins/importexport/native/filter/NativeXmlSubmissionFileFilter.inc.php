@@ -173,7 +173,6 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		}
 
 		$uploaderUsername = $node->getAttribute('uploader');
-		$uploaderUserGroup = $node->getAttribute('user_group_ref');
 		if (!$uploaderUsername) {
 			$user = $deployment->getUser();
 		} else {
@@ -185,45 +184,6 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 			$submissionFile->setUploaderUserId($user->getId());
 		} else {
 			$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownUploader', array('param' => $uploaderUsername)));
-			$errorOccured = true;
-		}
-
-		// Determine the user group.
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		if ($user && !$uploaderUserGroup) {
-			// We have a user, but no group specified in the import.  Select a default group.
-			// We will prefer any group that has access to the submission's stage; find these
-			$stageUserGroups = $userGroupDao->getUserGroupsByStage($context->getId(), $stageId);
-			$stageUserGroupLookup = array();
-			while ($userGroup = $stageUserGroups->next()) {
-				$stageUserGroupLookup[] = $userGroup->getId();
-			}
-			// Check all user groups from this user
-			$userUserGroups = $userGroupDao->getByUserId($user->getId(), $context->getId());
-			$lastUserGroup = null;
-			while ($userGroup = $userUserGroups->next()) {
-				// If the user's user group has access to this stage, select it.
-				$lastUserGroup = $userGroup->getId();
-				if (in_array($lastUserGroup, $stageUserGroupLookup, true)) {
-					break;
-				}
-			}
-			// Select the best match user group (might just be the last one we saw, if none had access to this stage).
-			if ($lastUserGroup) {
-				$submissionFile->setUserGroupId($lastUserGroup);
-			}
-		} else {
-			// Determine the user group based on the user_group_ref element.
-			$userGroups = $userGroupDao->getByContextId($context->getId());
-			while ($userGroup = $userGroups->next()) {
-				if (in_array($uploaderUserGroup, $userGroup->getName(null))) {
-					$submissionFile->setUserGroupId($userGroup->getId());
-					break;
-				}
-			}
-		}
-		if (!$submissionFile->getUserGroupId()) {
-			$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownUserGroup', array('param' => $uploaderUserGroup)));
 			$errorOccured = true;
 		}
 

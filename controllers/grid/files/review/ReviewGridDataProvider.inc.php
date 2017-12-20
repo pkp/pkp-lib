@@ -90,7 +90,7 @@ class ReviewGridDataProvider extends SubmissionFilesGridDataProvider {
 
 		return new AddFileLinkAction(
 			$request, $submission->getId(), $this->getStageId(),
-			$this->getUploaderRoles(), null, $this->getFileStage(),
+			$this->getUploaderRoles(), $this->getFileStage(),
 			null, null, $reviewRound->getId()
 		);
 	}

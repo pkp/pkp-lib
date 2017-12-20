@@ -239,6 +239,8 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 			$reviewAssignment->getReviewerId(),
 			NOTIFICATION_TYPE_REVIEW_ASSIGNMENT
 		);
+
+		parent::execute();
 	}
 }
 

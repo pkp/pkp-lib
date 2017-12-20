@@ -573,7 +573,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 	 */
 	private function _getCounterRobotListFile() {
 		$file = null;
-		$dir = PKP_LIB_PATH . DIRECTORY_SEPARATOR . $this->_plugin->getPluginPath() . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'counter';
+		$dir = PKP_LIB_PATH . DIRECTORY_SEPARATOR . $this->_plugin->getPluginPath() . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'counterBots' .  DIRECTORY_SEPARATOR . 'generated';
 
 		// We only expect one file inside the directory.
 		$fileCount = 0;

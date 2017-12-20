@@ -43,7 +43,7 @@ class PKPTemplateResource {
 	 * @return boolean
 	 */
 	function fetchTimestamp($template, &$templateTimestamp, $smarty) {
-		$filename = $this->_getFilename($name);
+		$filename = $this->_getFilename($template);
 		if (!file_exists($filename)) return false;
 		$templateTimestamp = filemtime($filename);
 		return true;

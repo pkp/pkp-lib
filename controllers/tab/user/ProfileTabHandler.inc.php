@@ -104,7 +104,7 @@ class ProfileTabHandler extends Handler {
 			$notificationMgr->createTrivialNotification($request->getUser()->getId());
 			return new JSONMessage(true);
 		}
-		return new JSONMessage(false, $contactForm->fetch($request));
+		return new JSONMessage(true, $contactForm->fetch($request));
 	}
 
 	/**

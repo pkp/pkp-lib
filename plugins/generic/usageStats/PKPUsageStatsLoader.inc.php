@@ -16,7 +16,7 @@
 import('lib.pkp.classes.task.FileLoader');
 
 /** These are rules defined by the COUNTER project.
- * See http://www.projectcounter.org/code_practice.htmlcode */
+ * See https://www.projectcounter.org/code-of-practice-sections/data-processing/#returncodesandtimefilters */
 define('COUNTER_DOUBLE_CLICK_TIME_FILTER_SECONDS_HTML', 10);
 define('COUNTER_DOUBLE_CLICK_TIME_FILTER_SECONDS_OTHER', 30);
 
@@ -28,8 +28,8 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 	/** @var $_plugin Plugin */
 	var $_plugin;
 
-	/** @var $_counterRobotsListFile string */
-	var $_counterRobotsListFile;
+	/** @var $_counterRobotsListFile mixed string (file exists), false (file does not exist), null (file not checked yet) */
+	var $_counterRobotsListFile = null;
 
 	/** @var $_contextsByPath array */
 	var $_contextsByPath;
@@ -84,8 +84,6 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 			$statsDao = new UsageStatsTemporaryRecordDAO();
 			DAORegistry::registerDAO('UsageStatsTemporaryRecordDAO', $statsDao);
 
-			$this->_counterRobotsListFile = $this->_getCounterRobotListFile();
-
 			$contextDao = Application::getContextDAO(); /* @var $contextDao ContextDAO */
 			$contextFactory = $contextDao->getAll(); /* @var $contextFactory DAOResultFactory */
 			$contextsByPath = array();
@@ -117,8 +115,8 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 			return false;
 		}
 
-		if (!$this->_counterRobotsListFile || !file_exists($this->_counterRobotsListFile)) {
-			$this->addExecutionLogEntry(__('plugins.generic.usageStats.noCounterBotList', array('botlist' => $this->_counterRobotsListFile)), SCHEDULED_TASK_MESSAGE_TYPE_WARNING);
+		if (!$this->getCounterRobotListFile() || !file_exists($this->getCounterRobotListFile())) {
+			$this->addExecutionLogEntry(__('plugins.generic.usageStats.noCounterBotList', array('botlist' => $this->getCounterRobotListFile())), SCHEDULED_TASK_MESSAGE_TYPE_WARNING);
 			return false;
 		}
 
@@ -139,6 +137,8 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 
 	/**
 	 * @copydoc FileLoader::processFile()
+	 * The file must be a log file parsable by the regex in _getDataFromLogEntry()
+	 * and the file's entries must be ordered by date-time to successfully identify double-clicks
 	 */
 	protected function processFile($filePath) {
 		$fhandle = fopen($filePath, 'r');
@@ -175,7 +175,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 			if (!in_array($entryData['returnCode'], $sucessfulReturnCodes)) continue;
 
 			// Avoid bots.
-			if (Core::isUserAgentBot($entryData['userAgent'], $this->_counterRobotsListFile)) continue;
+			if (Core::isUserAgentBot($entryData['userAgent'], $this->getCounterRobotListFile())) continue;
 
 			list($assocType, $contextPaths, $page, $op, $args) = $this->_getUrlMatches($entryData['url'], $filePath, $lineNumber);
 			if ($assocType && $contextPaths && $page && $op) {
@@ -571,7 +571,11 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 	 * Get the COUNTER robot list file.
 	 * @return mixed string or false in case of error.
 	 */
-	private function _getCounterRobotListFile() {
+	function getCounterRobotListFile() {
+		// Return cache of prior results, if possible
+		if ($this->_counterRobotsListFile !== null) {
+			return $this->_counterRobotsListFile;
+		}
 		$file = null;
 		$dir = PKP_LIB_PATH . DIRECTORY_SEPARATOR . $this->_plugin->getPluginPath() . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'counterBots' .  DIRECTORY_SEPARATOR . 'generated';
 
@@ -581,10 +585,12 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 			$fileCount++;
 		}
 		if (!$file || $fileCount !== 1) {
-			return false;
+			$this->_counterRobotsListFile = false;
+		} else {
+			$this->_counterRobotsListFile = $file;
 		}
 
-		return $file;
+		return $this->_counterRobotsListFile;
 	}
 }
 ?>

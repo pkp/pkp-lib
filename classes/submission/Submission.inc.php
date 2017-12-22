@@ -982,7 +982,7 @@ abstract class Submission extends DataObject {
 	 * @param $datePublished date
 	 */
 	function setDatePublished($datePublished) {
-		return $this->SetData('datePublished', $datePublished);
+		return $this->setData('datePublished', $datePublished);
 	}
 
 	/**

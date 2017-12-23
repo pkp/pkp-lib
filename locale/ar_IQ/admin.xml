@@ -53,7 +53,7 @@
 	<message key="admin.server.apacheVersion">رقم نسخة Apache</message>
 	<message key="admin.server.dbDriver">مشغل قاعدة البيانات</message>
 	<message key="admin.server.dbVersion">رقم نسخة ملقم قاعدة البيانات</message>
-	<message key="admin.serverInformationDescription"><![CDATA[نظام التشغيل الأساسي ونسخ برامجيات الملقم. Click on <span class="highlight">معلومات PHP الإضافية</span> لمعاينة تفاصيل إضافية عن إعدادات PHP لهذا الملقم.]]></message>
+	<message key="admin.serverInformationDescription"><![CDATA[نظام التشغيل الأساسي ونسخ برامجيات الملقم. أنقر على <span class="highlight">معلومات PHP الإضافية</span> لمعاينة تفاصيل إضافية عن إعدادات PHP لهذا الملقم.]]></message>
 	<message key="admin.serverInformation">معلومات الملقم</message>
 	<message key="admin.server.phpVersion">رقم نسخة PHP</message>
 	<message key="admin.server.platform">منصة نظام التشغيل</message>

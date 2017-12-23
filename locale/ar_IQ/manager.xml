@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/ar_IQ/manager.xml
+  *
+  * Copyright (c) 2013-2017 Simon Fraser University
+  * Copyright (c) 2000-2016 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the ar_IQ (العربية) locale.
+  *
+  -->
+
+<locale name="ar_IQ" full_name="العربية">
+	<message key="manager.announcements">الإعلانات</message>
+	<message key="manager.announcements.confirmDelete">هل أنت متأكد من رغبتك في حذف هذا الإعلان نهائياً؟</message>
+	<message key="manager.announcements.create">إنشاء إعلان جديد</message>
+	<message key="manager.announcements.createTitle">إنشاء</message>
+	<message key="manager.announcements.dateExpire">انتهاء الصلاحية</message>
+	<message key="manager.announcements.datePublish">منشور</message>
+	<message key="manager.announcements.edit">تعديل الإعلان</message>
+	<message key="manager.announcements.editTitle">تعديل</message>
+	<message key="manager.announcements.form.dateExpireDayIncompleteDate">لطفاً، إختر السنة و/أو الشهر فضلاً عن يوم انتهاء الصلاحية.</message>
+	<message key="manager.announcements.form.dateExpire">تأريخ انتهاء الصلاحية</message>
+	<message key="manager.announcements.form.dateExpireInstructions">سيتم عرض الإعلان للقراء حتى هذا التاريخ. أتركه فارغاً لعرضه إلى أجل غير مسمى.</message>
+	<message key="manager.announcements.form.dateExpireMonthIncompleteDate">لطفاً، إختر السنة و/أو اليوم فضلاً عن شهر انتهاء الصلاحية.</message>
+	<message key="manager.announcements.form.dateExpireValid">لطفاً، إختر يوماً صحيحاً لانتهاء صلاحية الإعلان.</message>
+	<message key="manager.announcements.form.dateExpireYearIncompleteDate">لطفاً، إختر اليوم و/أو الشهر فضلاً عن سنة انتهاء الصلاحية.</message>
+	<message key="manager.announcements.form.description">الوصف</message>
+	<message key="manager.announcements.form.descriptionInstructions">النص الكامل للإعلان.</message>
+	<message key="manager.announcements.form.descriptionRequired">وصف الإعلان مطلوب حتماً.</message>
+	<message key="manager.announcements.form.descriptionShortInstructions">وصف موجز سيظهر مرافقاً لعنوان الإعلان.</message>
+	<message key="manager.announcements.form.descriptionShortRequired">وصف الإعلان الموجز مطلوب حتماً.</message>
+	<message key="manager.announcements.form.descriptionShort">وصف موجز</message>
+	<message key="manager.announcements.form.notificationToggle">أرسل إشعاراً</message>
+	<message key="manager.announcements.form.notificationToggleInstructions">أنشئ إشعاراً جديداً بمجرد حفظ هذا الإعلان.</message>
+	<message key="manager.announcements.form.saveAndCreateAnother">إحفظ وأنشئ واحداً آخر</message>
+	<message key="manager.announcements.form.titleRequired">عنوان الإعلان مطلوب حتماً.</message>
+	<message key="manager.announcements.form.title">العنوان</message>
+	<message key="manager.announcements.form.typeId">النوع</message>
+	<message key="manager.announcements.form.typeIdValid">لطفاً إختر نوعية صحيحة للإعلان.</message>
+	<message key="manager.announcements.noneCreated">لم يتم إنشاء أية إعلانات بعد.</message>
+	<message key="manager.announcements.title">العنوان</message>
+	<message key="manager.announcements.type">النوع</message>
+	<message key="manager.announcementTypes">أنواع الإعلانات</message>
+	<message key="manager.announcementTypes.confirmDelete">تحذير! كل الإعلانات المرتبطة بهذه النوعية سيتم حذفها أيضاً. هل أنت متأكد من رغبتك في المتابعة وحذف هذا النوع من الإعلانات؟</message>
+	<message key="manager.announcementTypes.create">إنشاء نوعية إعلان</message>
+	<message key="manager.announcementTypes.createTitle">إنشاء</message>
+	<message key="manager.announcementTypes.edit">تعديل نوعية إعلان</message>
+	<message key="manager.announcementTypes.editTitle">تعديل</message>
+	<message key="manager.announcementTypes.form.saveAndCreateAnother">إحفظ وأنشئ واحداً آخر</message>
+	<message key="manager.announcementTypes.form.typeNameExists">نوعية إعلان بهذا الاسم موجودة مسبقاً.</message>
+	<message key="manager.announcementTypes.form.typeName">الاسم</message>
+	<message key="manager.announcementTypes.form.typeNameRequired">اسم نوعيةالإعلان مطلوب حتماً.</message>
+	<message key="manager.announcementTypes.noneCreated">لم يتم إنشاء أنواع للإعلانات بعد.</message>
+	<message key="manager.announcementTypes.typeName">نوع الإعلان</message>
+	<message key="manager.emails.confirmDelete">هل أنت متأكد من رغبتك في حذف قالب البريد الالكتروني هذا؟</message>
+	<message key="manager.emails.confirmReset">هل أنت متأكد من رغبتك في استعادة إفتراضات قالب البريد الالكتروني هذا؟</message>
+	<message key="manager.emails.addEmail">أضف قالب بريد الالكتروني</message>
+	<message key="manager.emails.createEmail">إنشاء بريد الالكتروني</message>
+	<message key="manager.emails.data">بيانات رسالة القالب</message>
+	<message key="manager.emails.details">تفاصيل القالب</message>
+	<message key="manager.emails.disable">تعطيل</message>
+	<message key="manager.emails.disable.message">أنت على وشك تعطيل قالب البريد الالكتروني هذا. إذا كانت هناك عمليات للنظام تستعمل هذا القالب، فلن تستعمله من الآن فصاعداً. هل تؤكد رغبتك في تعطيله؟</message>
+	<message key="manager.emails.editEmail">تعديل البريد الالكتروني</message>
+	<message key="manager.emails.editTestExample">تعديل نموذج إختبار القالب</message>
+	<message key="manager.emails.emailKey">مفتاح البريد الالكتروني</message>
+	<message key="manager.emails.emailKeyExists">هناك بريد الالكتروني بنفس المفتاح موجود مسبقاً. على تلك المفاتيح أن تكون قيمها فريدة.</message>
+	<message key="manager.emails.emailTemplate">قالب البريد الالكتروني</message>
+	<message key="manager.emails.emailTemplates">قوالب البريد الالكتروني</message>
+	<message key="manager.emails.enabled">تمكين قالب البريد الالكتروني هذا</message>
+	<message key="manager.emails.enable">تمكين</message>
+	<message key="manager.emails.enable.message">هل أنت متأكد من رغبتك في تمكين هذا القالب البريدي. هل تؤكد هذا العمل؟</message>
+	<message key="manager.emails.form.emailKeyRequired">مفتاح رقمي فريد مطلوب حتماً لهذا القالب البريدي.</message>
+	<message key="manager.emails.form.bodyRequired">متن الرسالة مطلوب حتماً.</message>
+	<message key="manager.emails.form.subjectRequired">موضوع البريد مطلوب حتماً.</message>
+	<message key="manager.emails">رسائل البريد الالكتروني المحضرة</message>
+	<message key="manager.emails.resetAll">إعادة إفتراضات كل القوالب</message>
+	<message key="manager.emails.resetAll.message">إذا أعدت ضبط كل القوالب، فإن أي تعديلات عليها ستفقد. هل تؤكد هذا الإجراء؟</message>
+	<message key="manager.emails.reset">إعادة الضبط</message>
+	<message key="manager.emails.reset.message">إذا أعدت ضبط هذا القالب، فإن بيانات كل الرسائل المرتبطة به ستتغير إلى القيم الافتراضية، مما يزيل أية تعديلات. هل تريد تأكيد هذا الإجراء؟</message>
+	<message key="manager.emails.resetToDefault">إعادة الإفتراضات</message>
+    <message key="manager.emails.exportXML">قم بتصدير قوالب الرسائل المنتخبة بشكل ملفات XML</message>
+    <message key="manager.emails.uploadXML">رفع ملف XML</message>
+    <message key="manager.emails.uploadSuccess">قوالب الرسائل المنتخبة تم تحديثها بنجاح</message>
+    <message key="manager.emails.uploadError">فشل رفع الملف</message>
+    <message key="manager.filesBrowser">مستعرض الملفات</message>
+	<message key="manager.files.confirmDelete">أتريد حذف هذا الملف أو الدليل؟ لاحظ أن الدليل ينبغي أن يكون فارغاً قبل أن يكون متاحاً للحذف.</message>
+	<message key="manager.files.createDir">إنشاء حافظة ملفات (دليل)</message>
+	<message key="manager.files.emptyDir">لا توجد ملفات في هذا الدليل.</message>
+	<message key="manager.files.indexOfDir">فهرس الدليل {$dir}</message>
+	<message key="manager.files.parentDir">الدليل الأصل</message>
+	<message key="manager.files.uploadedFiles">الملفات المرفوعة</message>
+	<message key="manager.files.uploadFile">رفع الملف</message>
+	<message key="manager.groups.confirmDelete">هل أنت متأكد من رغبتك في حذف هذه المجموعة؟</message>
+	<message key="manager.groups.createTitle">إنشاء عنوان</message>
+	<message key="manager.groups.editTitle">تعديل العنوان</message>
+	<message key="manager.groups.form.groupTitleRequired">عنوان المجموعة مطلوب حتماً.</message>
+	<message key="manager.groups.membership.addMember">أضف عضواً</message>
+	<message key="manager.groups.membership.confirmDelete">هل أنت متأكد من رغبتك في حذف هذه العضوية من المجموعة؟</message>
+	<message key="manager.groups.membership">العضوية</message>
+	<message key="manager.groups.membership.noneCreated">لا تضم هذه المجموعة أعضاءً بعد.</message>
+	<message key="manager.groups.membership.noUsers">لا مستخدمين.</message>
+	<message key="manager.groups.title">العنوان</message>
+	<message key="manager.importExport">استيراد/تصدير البيانات</message>
+	<message key="manager.languages.alternateLocaleInstructions">هذا النظام يتيح إختيارياً إدخال بعض المعلومات الحرجة بعدة لغات أخرى. لاستعمال هذه الميزة، إختر لغاب بديلة وحددها من قائمة الاختيارات أدناه.</message>
+	<message key="manager.languages.supportedLocalesInstructions">إختر كل اللغات التي تريد أن يدعمها الموقع عبر قائمة إختيار اللغة التي تظهر عند كل صفحة. تلك القائمة ستكون ظاهرة فقط عند اختيار أكثر من لغة للموقع.</message>
+	<message key="manager.masthead.title">دفة القيادة</message>
+	<message key="manager.navigation">التنقل</message>
+	<message key="manager.payment.timestamp">بصمة الوقت</message>
+	<message key="manager.people.authSource">مصدر المصادقة</message>
+	<message key="manager.people.confirmUnenroll">إزالة الدور من هذا المستخدم؟</message>
+	<message key="manager.people.createUser">إنشاء مستخدم جديد</message>
+	<message key="manager.people.createUserGeneratePassword">إنشاء كلمة مرور عشوائية.</message>
+	<message key="manager.people.createUserSendNotify">أرسل للمستخدم رسالة ترحيبية تتضمن اسم الدخول وكلمة المرور الخاصين به.</message>
+	<message key="manager.people.disable">تعطيل</message>
+	<message key="manager.people.doNotEnroll">بلا دور</message>
+	<message key="manager.people.editProfile">تعديل الملف الشخصي</message>
+	<message key="manager.people.editUser">تعديل المستخدم</message>
+	<message key="manager.people.emailUsers.emailSelectedUsers">مراسلة المستخدمين المنتخبين</message>
+	<message key="manager.people.emailUsers.emailUsersEnrolledAs">مراسلة المستخدمين ذوي دور</message>
+	<message key="manager.people.emailUsers">مراسلة المستخدمين</message>
+	<message key="manager.people.emailUsers.selectLocale">إختر اللغة</message>
+	<message key="manager.people.emailUsers.selectUsers">إختر المستخدمين الذين تريد مراسلتهم عبر تأشير الخانات المجاورة لأسمائهم</message>
+	<message key="manager.people.enable">تمكين</message>
+	<message key="manager.people.enroll">منح الدور للمستخدم</message>
+	<message key="manager.people.enrollment">منح الأدوار</message>
+	<message key="manager.people.enrollSelected">إمنح الدور للمستخدمين المنتخبين</message>
+	<message key="manager.people.enrollSyncRole">مزامنة الدور</message>
+	<message key="manager.people.enrollSync">مزامنة منح الأدوار</message>
+	<message key="manager.people.enrollUserAsDescription">يمكن منح المستخدمين دوراً أو إخراجهم منه في أي وقت.</message>
+	<message key="manager.people.enrollUserAs">إمنح المستخدم دور</message>
+	<message key="manager.people.invalidUser">عذراً، المستخدم المطلوب غير موجود.</message>
+	<message key="manager.people.mergeUser">دمج المستخدمين</message>
+	<message key="manager.people.mergeUsers.confirm">هل أنت متأكد من رغبتك في دمج {$oldAccountCount}  حساب/حسابات مع الحساب ذو اسم الدخول "{$newUsername}"؟ الحساب/الحسابات البالغ عددها {$oldAccountCount} لن يكون لها وجود بعد ذلك. هذا الإجراء غير قابل للتراجع.</message>
+	<message key="manager.people.mergeUsers">دمج المستخدمين</message>
+	<message key="manager.people.mustChooseRole">لطفاً، إختر أحد الأدوار من أعلى الصفحة قبل النقر على  "منح الدور للمستخدم".</message>
+	<message key="manager.people.mustProvideName">لطفاً، أدرج الاسم الأخير للمستخدم على الأقل.</message>
+	<message key="manager.people.noMatchingUsers">لا مستخدمين مطابقين</message>
+	<message key="manager.people.noneEnrolled">لا مستخدمين بهذا الدور</message>
+	<message key="manager.people">الأشخاص</message>
+	<message key="manager.people.remove">إزالة</message>
+	<message key="manager.people.saveAndCreateAnotherUser">إحفظ وأنشئ واحداً آخر</message>
+	<message key="manager.people.signInAs">الدخول باسم</message>
+	<message key="manager.people.signInAsUser">الدخول بصفة مستخدم</message>
+	<message key="manager.people.syncUsers">مزامنة أدوار المستخدمين</message>
+	<message key="manager.people.unenroll">إزالة الدور</message>
+	<message key="manager.people.userCreatedSuccessfully">تم إنشاء المستخدم بنجاح.</message>
+	<message key="manager.people.userMustChangePassword">يتطلب من المستخدم تغيير كلمة مروره عند دخوله الموقع المرة القادمة.</message>
+	<message key="manager.plugins.action">إجراء:</message>
+	<message key="manager.plugins.disable">تعطيل</message>
+	<message key="manager.plugins.enable">تمكين</message>
+	<message key="manager.plugins.pluginManagement">إدارة الوظائف الاضافية</message>
+	<message key="manager.plugins.sitePlugin">هذه وظيفة إضافية على مستوى كل الموقع. يمكن تعديلها من قبل مدير الموقع حصراً.</message>
+	<message key="manager.plugins">الوظائف الإضافية للنظام</message>
+	<message key="manager.readingTools">أدوات القراءة</message>
+	<message key="manager.reviewerSearch.advancedSearch">البحث المتقدم عن المحكم</message>
+	<message key="manager.reviewerSearch.advancedSearch.short">البحث المتقدم</message>
+	<message key="manager.reviewerSearch.searchByName">البحث عن المحكم بالاسم</message>
+	<message key="manager.reviewerSearch.searchByName.short">البحث بالاسم</message>
+	<message key="manager.reviewerSearch.doneAmount">التحكيمات مكتملة</message>
+	<message key="manager.reviewerSearch.avgAmount">معدل أيام الإكمال</message>
+	<message key="manager.reviewerSearch.lastAmount">أيام منذ آخر تحكيم</message>
+	<message key="manager.reviewerSearch.activeAmount">التحكيمات النشطة حالياً</message>
+	<message key="manager.reviewerSearch.interests">إهتمامات التحكيم</message>
+	<message key="manager.reviewerSearch.form.instructions">استعمل النموذج أدناه لضبط القيم العليا للمصطلحات التي تريد البحث عنها. سيتم قبل نشر النموذج إلحاقه بالمعدلات المحسوبة لتلك الحقول.</message>
+	<message key="manager.reviewerSearch.form.interests.instructions">أدخل إهتمامات المحكم بعبارات تفصلها الفارزة الإنجليزية...</message>
+	<message key="manager.roles">الأدوار</message>
+	<message key="manager.setup.citationAssistant">مساعد تأشير الاقتباسات</message>
+	<message key="manager.setup.citationFilterParser">استقطاع الاقتباس</message>
+	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>للعثور على الاقتباسات وتدقيقها في قواعد بيانات الاقتباسات، ينبغي أولاً تجزئتها إلى بيانات وصفية ممكننة قابلة للقراءة آلياً: العنوان، الناشر، تأريخ النشر... إلخ. وكل ذلك ينبغي استقطاعه من نص الاقتباس الأصلي الذي أدخله المؤلف. التوصيلات إلى خدمات الإنترنت الخارجية قد تساعد في هذه العملية. يمكنك إضافة واحد أو أكثر من هذه التوصيلات عبر النقر على زر "إضافة فقرة" أدناه. بعض هذه التوصيلات قد يكون بحاجة إلى ضبط إعداداته أولاً. ستتم مطالبتك بهذا لو كان يستدعي الحال ذلك.</p>
+		<p>بإمكانك تعديل أو حذف توصيلة موجودة عبر النقر على إيقونة التروس المجاورة لها.</p>]]></message>
+	<message key="manager.setup.citationFilterLookup">تدقيق الاقتباس</message>
+	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>عليك أيضاً تمكين وتضبيط التوصيلات إلى قواعد بيانات الاقتباسات الخارجية. هذا يساعد في العثور على الأخطاء المحتملة في اقتباسات المؤلف أو إضافة المزيد من المعلومات إليها (مثل: DOIs أو PubMed IDs) وهي مطلوبة للنشر أو الإيداع الالكتروني.</p>
+		<p>نحن نقدم توصيلات لعدة قواعد بيانات خارجية حيث يمكنك عبرها البحث في الاقتباسات. بعض تلك القواعد تتطلب التسجيل أو ضبط الإعدادات مسبقاً. لطفاً، إرجع إلى مواقع الإنترنت لتلك المصادر الخارجية للمزيد من المعلومات عن كيفية التسجيل والتهيئة. يمكنك إضافة واحد أو أكثر من هذه التوصيلات عبر النقر على زر "إضافة فقرة" أدناه.</p>
+		<p>بإمكانك تعديل أو حذف توصيلة لقاعدة بيانات خارجية موجودة عبر النقر على إيقونة التروس المجاورة لها.</p>
+		<p><strong>ملاحظة:</strong> لغرض إكمال عملية تدقيق الاقتباسات في وقت مقبول، ينبغي أن يكون الموجه <tt>citation_checking_max_processes</tt> المتوضع في ملف الإعدادات مضبوطاً على قيمة معقولة. أنظر قسم الإعدادات العامة في الملف <tt>config.inc.php</tt> للمزيد من المعلومات.</p>]]></message>
+	<message key="manager.setup.citationOutput">مخرجات الاقتباس</message>
+	<message key="manager.setup.citationOutputStyleDescription">إختر نمط الاقتباس الذي ترغب باعتماده في منشورات مجلتك. مساعد تأشير الاقتباسات يمكنك من مقارنة نسخة المؤلف من الاقتباس مع نسخة مولدة من ملف XML الذي تولده أنت، بحيث يمكنك تشخيص الأخطاء ومعالجتها بسهولة:</message>
+	<message key="manager.setup.errorDeletingItem">حدث خطأ ما عند حذف هذه الفقرة.</message>
+	<message key="manager.setup.filter.grid.errorDeletingFilter">حدث خطأ ما أثناء محاولة إزالة هذه التصفية. لطفاً، أبلغ عن الأمر بمثابة خطأ برمجي.</message>
+	<message key="manager.setup.filter.grid.filterDisplayName">التوصيلة</message>
+	<message key="manager.setup.filter.grid.filterSettings">معلومات التسجيل وإعدادات التوصيلة</message>
+	<message key="manager.setup.filter.grid.filterTemplateRequired">لطفاً، إختر أحد التحويلات من القائمة المنسدلة.</message>
+	<message key="manager.setup.filter.grid.confirmDelete">هل تريد حقاً حذف التصفية {$filterName} ؟</message>
+	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">لقد اخترت أن تضيف قاعدة البيانات {$filterDisplayName}. لطفاً، أنقر على 'موافق' لتأكيد ذلك.</message>
+	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">إختر قاعدة بيانات للبحث فيها.</message>
+	<message key="manager.setup.filter.lookup.grid.description.iSBNdb">
+        <![CDATA[<p>هذه التصفية ترتبط بقاعدة بيانات الكتب والمؤلفات <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a>.</p>
+	<p>إن مفتاح ISBNdb API مطلوب إجبارياً. لمعرفة كيفية توليد مفتاح، أنظر <a href="http://isbndb.com/api/v1/docs/keys" target="_blank">التوثيق عبر الإنترنت</a>.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>هذه التصفية ترتبط بقاعدة بيانات الاقتباسات المتداخلة باستعمال <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">واجهة الاستعلام ذات الرابط المفتوح</a>.</p>
+	<p>لاستعمال هذه التصفية، بإمكانك الاستعانة بحسابك لدى نظام المراجع المتداخلة، أو التسجيل فيها مستعملاً عنواناً بريدياً صحيحاً <a href="http://www.crossref.org/requestaccount/" target="_blank">هنا</a>.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>هذه التصفية ترتبط بمحرك البحث النافذ في قاعدة البيانات PubMed <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a>.</p>
+	<p>توفر عنوان بريد الكتروني لغرض التسجيل ليس أمراً إلزامياً، لكنه قد يكون كذلك إذا واجهتك مشاكل في الاتصال بالخدمة. أنظر القسم الموسوم <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">إرشادات الاستعمال ومتطلباته</a> في أدبيات Entrez للمزيد من المعلومات.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>هذه التصفية ترتبط بخدمات OCLC <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> و <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (إختيارياً).</p>
+	<p>إذا كان لديك مفتاح تسجيل لدى <a href="http://oclc.org/developer/develop/web-services.html" target="_blank">Worldcat</a> فبإمكانك الاتصال بـ Worldcat عبر إدخال المفتاح أدناه.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.loadMessage">لطفاً، إمنح شبكة تعريف قاعدة بيانات الاقتباسات وقتاً للتحميل...</message>
+	<message key="manager.setup.filter.lookup.grid.title">توصيلات قاعدة بيانات الاقتباسات</message>
+	<message key="manager.setup.filter.noMoreTemplates">كل التحويلات المتاحة أضيفت سلفاً. لطفاً، أنقر 'إلغاء' للعودة إلى صفحة التهيئة.</message>
+	<message key="manager.setup.filter.parser.grid.descriptionConfirm">لقد اخترت إضافة المحلل {$filterDisplayName}. لطفاً، أكد ذلك بالنقر على زر 'موافق'.</message>
+	<message key="manager.setup.filter.parser.grid.descriptionTemplate">لطفاً، إختر محلل الاقتباسات.</message>
+	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>تصفية الاستقطاع هذه ترتبط بخدمة الإنترنت <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a>.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>تصفية الاستقطاع هذه تستعمل <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> وحدات Perl لتوفير <a href="http://paracite.eprints.org" target="_blank">ParaCite</a> وهي وظيفة لتحليل الاقتباسات. لتعمل الأمور بشكل صحيح، ينبغي أن يكون لديك برنامج Perl منصباً، فضلاً عن <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> ووحدات <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a> CPAN. عليك أيضاً ضبط موجه <tt>perl</tt> في ملفك التعريفي. هذا الموجه متوضع في قسم الأوامر الخارجية External Commands section للملف <tt>config.inc.php</tt>.</p>
+	<p>بإمكانك أيضاً اختيار وحدة المحلل التي على ParaTools استعمالها. بإمكانك التخير بين الوحدة القياسية، <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a>، ووحدات محلل <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a>.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>تصفية المستقطع هذه ترتبط بخدمة الإنترنت <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a>.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.regEx">إن تصفية المستقطع تستعمل سلسلة من التعابير المنتظمة لتحليل الاقتباسات.</message>
+	<message key="manager.setup.filter.parser.grid.loadMessage">لطفاً، إمنح شبكة تعريف محلل الاقتباسات وقتاً للتحميل...</message>
+	<message key="manager.setup.filter.parser.grid.title">خدمات استقطاع الاقتباسات</message>
+	<message key="manager.setup.filter.pleaseSelect">لطفاً إختر...</message>
+	<message key="manager.setup.homeHeaderImageInvalid">صيغة ملف شعار رأس الصفحة الرئيسية غير صحيحة أو فشل تحميلها. الصيغ المدعومة هي: .gif، .jpg، أو .png.</message>
+	<message key="manager.setup.homepageImageInvalid">صيغة ملف صورة الصفحة الرئيسية غير صحيحة أو فشل تحميلها. الصيغ المدعومة هي: .gif، .jpg، أو .png.</message>
+	<message key="manager.setup.homeTitleImageInvalid">صيغة ملف صورة عنوان رأس الصفحة الرئيسية غير صحيحة أو فشل تحميلها. الصيغ المدعومة هي: .gif، .jpg، أو .png.</message>
+	<message key="manager.setup.layout.blockManagement">إدارة شريط التمرير الجانبي</message>
+	<message key="manager.setup.layout.leftSidebar">شريط التمرير الأيسر</message>
+	<message key="manager.setup.layout.rightSidebar">شريط التمرير الأيمن</message>
+	<message key="manager.setup.layout.unselected">غير محددة</message>
+	<message key="manager.setup.loggingAndAuditing">تسجيل الوقائع والمراجعة</message>
+	<message key="manager.setup.metaCitationsDescription">قم بتفعيل خانة الاختيار الآتية لتمكين إجراء التعديلات على الاقتباسات والمراجع. هذا الأمر سيتيح للمؤلفين إدراج اقتباسات بشكل خام في مؤلفاتهم. كما سيكون للمحررين إمكانية الاستعانة بمساعد تأشير الاقتباسات الذي يقوم بتدقيق الاقتباسات الخام مستعيناً بقواعد بيانات خارجية، مثل: WorldCat، ISBNdb، PubMed وغيرها لتحقيق الدقة والضبط العاليين. الاقتباسات المصادق عليها يمكن تصديرها في ملفات طباعية نهائية.</message>
+	<message key="manager.setup.pageHeaderLogoImageInvalid">صيغة ملف شعار رأس الصفحة غير صحيحة أو فشل تحميلها. الصيغ المدعومة هي: .gif، .jpg، أو .png.</message>
+	<message key="manager.setup.pageHeaderTitleImageInvalid">صيغة ملف صورة عنوان رأس الصفحة غير صحيحة أو فشل تحميلها. الصيغ المدعومة هي: .gif، .jpg، أو .png.</message>
+	<message key="manager.setup.selectOne">إختر واحداً</message>
+	<message key="manager.statistics"><![CDATA[إحصائيات وتقارير]]></message>
+	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
+	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} جديد)</message>
+	<message key="manager.statistics.city">مدينة</message>	
+	<message key="manager.statistics.region">إقليم</message>	
+	<message key="manager.users">مستخدمون</message>
+	<message key="plugins.categories.metadata">إضافات البيانات الوصفية</message>
+	<message key="plugins.categories.metadata.description">إن إضافات البيانات الوصفية تطبق معايير إضافية للبيانات الوصفية.</message>
+	<message key="plugins.categories.auth">إضافات المصادقة</message>
+	<message key="plugins.categories.blocks">إضافات الكتل</message>
+	<message key="plugins.categories.blocks.description">إن إضافات الكتل هي مكونات واجهة مستخدم، مثل أدوات أشرطة التمرير المتنوعة.</message>
+	<message key="plugins.categories.citationFormats">إضافات تنسيق الاقتباسات</message>
+	<message key="plugins.categories.citationLookup">إضافات توصيلات قواعد بيانات الاقتباسات</message>
+	<message key="plugins.categories.citationLookup.description">إن إضافات توصيلات قواعد بيانات الاقتباسات ترتبط بقواعد البيانات للبحث عن الاقتباسات، مثلما يحدث عند تعديل الاقتباس.</message>
+	<message key="plugins.categories.citationOutput">إضافات مخرجات الاقتباسات</message>
+	<message key="plugins.categories.citationOutput.description">إن إضافات مخرجات الاقتباسات تقوم بتطبيق المعايير القياسية في الاقتباسات. ذلك يحل محل إضافات تنسيق الاقتباسات.</message>
+	<message key="plugins.categories.citationParser">إضافات استقطاع الاقتباسات</message>
+	<message key="plugins.categories.citationParser.description">إن إضافات استقطاع الاقتباسات تقوم باستقطاع البيانات على مستوى الحقول من الاقتباسات الخام (أي: المؤلف، العنوان... إلخ).</message>
+	<message key="plugins.categories.gateways.description">الإضافات البوابية تجهز الأنظمة الخارجية آنياً بالبيانات من الموقع.</message>
+	<message key="plugins.categories.gateways">الإضافات البوابية</message>
+	<message key="plugins.categories.generic">إضافات عامة</message>
+	<message key="plugins.categories.importexport.description">إضافات الاستيراد/التصدير يمكن استعمالها لنقل المحتوى من وإلى الأنظمة الأخرى.</message>
+	<message key="plugins.categories.importexport">إضافات الاستيراد/التصدير</message>
+	<message key="plugins.categories.paymethod.description">إضافات الدفع تقدم الدعم للطرق المتعددة المستعملة في معالجة المدفوعات على الإنترنت.</message>
+	<message key="plugins.categories.paymethod">إضافات الدفع</message>
+	<message key="plugins.categories.reports.description">إضافات التقارير تستعمل لتفعيل أنواع متعددة من التقارير واستقطاعات البيانات.</message>
+	<message key="plugins.categories.reports">إضافات التقارير</message>
+	<message key="plugins.categories.themes.description">إضافات النمط يمكن استعمالها لتغيير مظهر النظام.</message>
+	<message key="plugins.categories.themes">إضافات النمط</message>
+</locale>

@@ -158,7 +158,7 @@
 	<message key="submission.comments.sendDecisionToReviewers">Enviar decisión de revisores/as y editorial</message>
 	<message key="submission.comments.subject">Materia</message>
 	<message key="submission.complete">Completado</message>
-	<message key="submission.contributors">Lista de colaboradores</message>
+	<message key="submission.contributors">Autoría y colaboradores/as</message>
 	<message key="submission.copyedited">Corregido</message>
 	<message key="submission.copyediting">Corrección de originales</message>
 	<message key="submission.coverage">Información de cobertura</message>
@@ -433,8 +433,8 @@
 	<message key="submission.date.mmdd">DD-MM</message>
 	<message key="submission.date.yyyymmdd">AAAA-MM-DD</message>
 	<message key="submission.submit.selectPrincipalContact">Contacto principal para la correspondencia editorial.</message>
-	<message key="submission.submit.contributorRole">Rol del colaborador</message>
-	<message key="submission.submit.addAuthor">Añadir colaborador</message>
+	<message key="submission.submit.contributorRole">Rol del colaborador/a</message>
+	<message key="submission.submit.addAuthor">Añadir colaborador/a</message>
 
 	<!-- Submission file upload form elements -->
 	<message key="submission.form.name">Dar un nombre al archivo (p. ej., Envío Pérez, Tabla 1 Pérez)</message>

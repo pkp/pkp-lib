@@ -27,7 +27,7 @@
 	<message key="user.authorization.managerRequired">En ansvarig användare (t.ex. produktionsredaktör) måste tilldelas steget innan du kan fortsätta.</message>
 	<message key="user.authorization.accessibleWorkflowStage">Du har för närvarande inte tillgång till det här steget i arbetsflödet.</message>
 	<message key="user.authorization.workflowStageRequired">Steg i arbetsflödet krävs.</message>
-	<message key="user.authorization.pluginRequired">Insticksmodul krävs.</message>
+	<message key="user.authorization.pluginRequired">Plugin krävs.</message>
 	<message key="user.biography">Biografiska upplysningar (t.ex. institution och position)</message>
 	<message key="user.changeMyPassword">Ändra mitt lösenord</message>
 	<message key="user.changePassword">Ändra lösenord</message>

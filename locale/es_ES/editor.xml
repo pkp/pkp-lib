@@ -28,7 +28,7 @@
 	<message key="editor.submission.review.currentFiles">Archivos de revisión en ronda actuales {$round}</message>
 	<message key="editor.submission.backToSearch">Volver a la búsqueda simple</message>
 	<message key="editor.review.createReviewer">Crear nuevo revisor</message>
-	<message key="editor.review.enrollReviewer.short">Inscribir ususario ya existente</message>
+	<message key="editor.review.enrollReviewer.short">Inscribir usuario ya existente</message>
 	<message key="editor.review.unassignReviewer">Desasignar revisor</message>
 	<message key="editor.submissionReview.reviewType">Tipo de revisión</message>
 	<message key="editor.submissionReview.skipEmail">No enviar correo electrónico de autor</message>
@@ -69,7 +69,7 @@
 	<message key="editor.submission.selectReviewer">Seleccionar revisor</message>
 	<message key="editor.submission.taskDueDate">Fecha de vencimiento de la tarea</message>
 	<message key="editor.submission.taskSchedule">Planificación de tareas</message>
-	<message key="editor.review.enrollReviewer">Inscribir ususario ya existente como revisor</message>
+	<message key="editor.review.enrollReviewer">Inscribir usuario ya existente como revisor</message>
 	<message key="editor.submission.noAuditRequested">No se requiere auditoría para este archivo</message>
 	<message key="editor.submission.personalMessageToUser">Envío del correo electrónico al usuario</message>
 	<message key="editor.submission.proof.reminder">Recordatorio de corrección</message>

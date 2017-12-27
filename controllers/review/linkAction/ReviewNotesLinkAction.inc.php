@@ -26,7 +26,7 @@ class ReviewNotesLinkAction extends LinkAction {
 	 * @param $user User The user.
 	 * @param $isUnread bool Has a review been read
 	 */
-	function __construct($request, $reviewAssignment, $submission, $user, $isUnread = null) {
+	function __construct($request, $reviewAssignment, $submission, $user, $handler, $isUnread = null) {
 		// Instantiate the information center modal.
 		$router = $request->getRouter();
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
@@ -39,11 +39,11 @@ class ReviewNotesLinkAction extends LinkAction {
 		$ajaxModal = new AjaxModal(
 			$router->url(
 				$request, null,
-				'grid.users.reviewer.ReviewerGridHandler', 'readReview',
+				$handler, 'readReview',
 				null, $actionArgs
 			),
 			__('editor.review') . ': ' . $submission->getLocalizedTitle(),
-			'modal_information'
+			'modal_information' 
 		);
 
 		$viewsDao = DAORegistry::getDAO('ViewsDAO');

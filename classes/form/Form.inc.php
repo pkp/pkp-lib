@@ -221,7 +221,7 @@ class Form {
 	 * @param $key string|array If a string, then set a single field. If an associative array, then set many.
 	 * @param $value mixed
 	 */
-	function setData($key, $value) {
+	function setData($key, $value = null) {
 		if (is_array($key)) foreach($key as $aKey => $aValue) {
 			$this->setData($aKey, $aValue);
 		} else {

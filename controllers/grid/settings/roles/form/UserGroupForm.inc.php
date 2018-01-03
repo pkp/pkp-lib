@@ -152,12 +152,13 @@ class UserGroupForm extends Form {
 		return array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR);
 	}
 
-/**
+	/**
 	 * @copydoc Form::execute()
 	 */
 	function execute($request) {
 		$userGroupId = $this->getUserGroupId();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$roleDao = DAORegistry::getDAO('RoleDAO');
 
 		// Check if we are editing an existing user group or creating another one.
 		if ($userGroupId == null) {
@@ -180,8 +181,11 @@ class UserGroupForm extends Form {
 		}
 
 		// After we have created/edited the user group, we assign/update its stages.
-		if ($this->getData('assignedStages')) {
-			$this->_assignStagesToUserGroup($userGroupId, $this->getData('assignedStages'));
+		$assignedStages = $this->getData('assignedStages');
+		// Always set all stages active for some permission levels.
+		if (in_array($userGroup->getRoleId(), $roleDao->getAlwaysActiveStages())) $assignedStages = array_keys(WorkflowStageDAO::getWorkflowStageTranslationKeys());
+		if ($assignedStages) {
+			$this->_assignStagesToUserGroup($userGroupId, $assignedStages);
 		}
 	}
 
@@ -208,11 +212,11 @@ class UserGroupForm extends Form {
 		foreach ($userAssignedStages as $stageId) {
 
 			// Make sure we don't assign forbidden stages based on
-			// user groups role id.
+			// user groups role id. Override in case of some permission levels.
 			$roleId = $this->getData('roleId');
 			$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 			$forbiddenStages = $roleDao->getForbiddenStages($roleId);
-			if (in_array($stageId, $forbiddenStages)) {
+			if (in_array($stageId, $forbiddenStages) && !in_array($roleId, $roleDao->getAlwaysActiveStages())) {
 				continue;
 			}
 

@@ -199,6 +199,10 @@ class RoleDAO extends DAO {
 	 */
 	function getForbiddenStages($roleId = null) {
 		$forbiddenStages = array(
+			ROLE_ID_MANAGER => array(
+				// Journal managers should always have all stage selections locked by default.
+				WORKFLOW_STAGE_ID_SUBMISSION, WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, WORKFLOW_STAGE_ID_EDITING, WORKFLOW_STAGE_ID_PRODUCTION,
+			),		
 			ROLE_ID_REVIEWER => array(
 				// Reviewer user groups should only have review stage assignments.
 				WORKFLOW_STAGE_ID_SUBMISSION, WORKFLOW_STAGE_ID_EDITING, WORKFLOW_STAGE_ID_PRODUCTION,
@@ -218,6 +222,15 @@ class RoleDAO extends DAO {
 		} else {
 			return $forbiddenStages;
 		}
+	}
+
+	/**
+	 *  All stages are always active for these permission levels.
+	 * @return array array(ROLE_ID_MANAGER...);
+	 */
+	function getAlwaysActiveStages() {
+		$alwaysActiveStages = array(ROLE_ID_MANAGER);
+		return $alwaysActiveStages;
 	}
 }
 

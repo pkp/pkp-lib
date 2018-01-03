@@ -272,14 +272,14 @@
 	<message key="common.re">Re:</message>
 	<message key="common.ccLicense"><![CDATA[<br /><br />
 		<a target="_new" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
-			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
+			<img alt="Creative Commons License" style="border-width:0" src="//licensebuttons.net/l/by/3.0/80x15.png"/>
 		</a>
 		<br/>
 		Questa rivista è pubblicata sotto una licenza
  <a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0</a>.]]></message>
 	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
 		<br />
-		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new"><img alt="Creative Commons License" style="border-width:0" src="//licensebuttons.net/l/by/3.0/80x15.png" /></a>
 		<br />
 		Questa rivista è pubblicata sotto una licenza <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new">Creative Commons Attribution 3.0</a>.
 	</div>]]></message>

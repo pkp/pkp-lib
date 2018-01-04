@@ -7,7 +7,7 @@
  *
  * an autocomplete input
  *}
-{translate|assign:"jLabelText" key="common.startTyping"}
+{capture assign="jLabelText"}{translate key="common.startTyping"}{/capture}
 <script>
 	$(function() {ldelim}
 		$('#{$FBV_id}_container').pkpHandler('$.pkp.controllers.AutocompleteHandler',

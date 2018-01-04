@@ -27,8 +27,7 @@
 
 	{fbvFormArea id="type"}
 		{fbvFormSection title="common.type" required=true}
-			{translate|assign:"defaultLabel" key="common.chooseOne"}
-			{fbvElement type="select" from=$fileTypes id="fileType" selected=$libraryFile->getType() defaultValue="" defaultLabel=$defaultLabel required=true}
+			{fbvElement type="select" from=$fileTypes id="fileType" selected=$libraryFile->getType() defaultValue="" defaultLabel="common.chooseOne"|translate required=true}
 		{/fbvFormSection}
 	{/fbvFormArea}
 
@@ -52,10 +51,10 @@
 	{/fbvFormArea}
 
 	{fbvFormSection list="true" translate=false}
-		{translate|assign:"enablePublicAccess" key="common.publicAccess"}
+		{capture assign=enablePublicAccess}{translate key="common.publicAccess"}{/capture}
 		{fbvElement type="checkbox" id="publicAccess" value="1" checked=$publicAccess label=$enablePublicAccess translate=false}
 		<p>
-			{url|assign:"downloadUrl" router=$smarty.const.ROUTE_PAGE page="libraryFiles" op="downloadPublic" path=$libraryFile->getId()}
+			{capture assign=downloadUrl}{url router=$smarty.const.ROUTE_PAGE page="libraryFiles" op="downloadPublic" path=$libraryFile->getId()}{/capture}
 			{translate key="settings.libraryFiles.public.viewInstructions" downloadUrl=$downloadUrl}
 		</p>
 	{/fbvFormSection}

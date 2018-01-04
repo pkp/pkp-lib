@@ -48,7 +48,7 @@
 				{fbvFormSection title="manager.navigationMenus.form.path" for="path" required="true"}
 					{fbvElement type="text" id="path" value=$path required="true"}
 					<p>
-						{url|replace:"REPLACEME":"%PATH%"|assign:"exampleUrl" router=$smarty.const.ROUTE_PAGE page="REPLACEME"}
+						{capture assign=exampleUrl}{url|replace:"REPLACEME":"%PATH%" router=$smarty.const.ROUTE_PAGE page="REPLACEME"}{/capture}
 						{translate key="manager.navigationMenus.form.viewInstructions" pagesPath=$exampleUrl}
 					</p>
 				{/fbvFormSection}

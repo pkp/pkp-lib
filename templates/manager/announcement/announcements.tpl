@@ -8,18 +8,14 @@
  * Display list of announcements in management.
  *
  *}
-{strip}
-{assign var="pageTitle" value="manager.announcements"}
-{assign var="pageId" value="manager.announcements"}
-{include file="common/header.tpl"}
-{/strip}
+{include file="common/header.tpl" pageTitle="manager.announcements" pageId="manager.announcements"}
 
 <ul class="menu">
 	<li class="current"><a href="{url op="announcements"}">{translate key="manager.announcements"}</a></li>
 	<li><a href="{url op="announcementTypes"}">{translate key="manager.announcementTypes"}</a></li>
 </ul>
 
-{url|assign:announcementGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.announcements.ManageAnnouncementGridHandler" op="fetchGrid" escape=false}
+{capture assign=announcementGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.announcements.ManageAnnouncementGridHandler" op="fetchGrid" escape=false}{/capture}
 {load_url_in_div id="announcementGridContainer" url=$announcementGridUrl}
 
 {include file="common/footer.tpl"}

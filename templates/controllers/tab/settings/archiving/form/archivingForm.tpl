@@ -36,7 +36,7 @@
 				{translate key="manager.setup.plnDescription"}             
 
 				{fbvFormSection list="true" translate=false}
-					{translate|assign:"enablePLNArchivingLabel" key="manager.setup.plnPluginEnable"}
+					{capture assign="enablePLNArchivingLabel"}{translate key="manager.setup.plnPluginEnable"}{/capture}
 					{fbvElement type="checkbox" id="enablePln" value="1" checked=$isPLNPluginEnabled label=$enablePLNArchivingLabel translate=false}
 				{/fbvFormSection}
 			{/fbvFormArea}
@@ -50,7 +50,7 @@
 				{/fbvFormSection}
 
 				{fbvFormSection translate=false}
-					{url|assign:depositsGridUrl component="plugins.generic.pln.controllers.grid.PLNStatusGridHandler" op="fetchGrid" escape=false}
+					{capture assign=depositsGridUrl}{url component="plugins.generic.pln.controllers.grid.PLNStatusGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="depositsGridContainer" url=$depositsGridUrl}
 				{/fbvFormSection}
 			{/if}
@@ -69,8 +69,8 @@
 			{translate key="manager.setup.lockssDescription"}
 			
 			{fbvFormSection list="true" translate=false}
-				{url|assign:"lockssUrl" router=$smarty.const.ROUTE_PAGE page="gateway" op="lockss"}
-				{translate|assign:"enableLockssLabel" key="manager.setup.lockssEnable" lockssUrl=$lockssUrl}
+				{capture assign="lockssUrl"}{url router=$smarty.const.ROUTE_PAGE page="gateway" op="lockss"}{/capture}
+				{capture assign="enableLockssLabel"}{translate key="manager.setup.lockssEnable" lockssUrl=$lockssUrl}{/capture}
 				{fbvElement type="checkbox" id="enableLockss" value="1" checked=$enableLockss label=$enableLockssLabel translate=false}
 			{/fbvFormSection}
 		{/fbvFormArea}
@@ -79,8 +79,8 @@
 			{translate key="manager.setup.clockssDescription"}
 			
 			{fbvFormSection list="true" translate=false}
-				{url|assign:"clockssUrl" router=$smarty.const.ROUTE_PAGE page="gateway" op="clockss"}
-				{translate|assign:"enableClockssLabel" key="manager.setup.clockssEnable" clockssUrl=$clockssUrl}
+				{capture assign="clockssUrl"}{url router=$smarty.const.ROUTE_PAGE page="gateway" op="clockss"}{/capture}
+				{capture assign="enableClockssLabel"}{translate key="manager.setup.clockssEnable" clockssUrl=$clockssUrl}{/capture}
 				{fbvElement type="checkbox" id="enableClockss" value="1" checked=$enableClockss label=$enableClockssLabel translate=false}
 			{/fbvFormSection}
 		{/fbvFormArea}
@@ -90,7 +90,7 @@
 				{translate key="manager.setup.porticoDescription"}
 
 				{fbvFormSection list="true" translate=false}
-					{translate|assign:"enablePorticoLabel" key="manager.setup.porticoEnable"}
+					{capture assign="enablePorticoLabel"}{translate key="manager.setup.porticoEnable"}{/capture}
 					{fbvElement type="checkbox" id="enablePortico" value="1" checked=$enablePortico label=$enablePorticoLabel translate=false}
 				{/fbvFormSection}
 			{/fbvFormArea}

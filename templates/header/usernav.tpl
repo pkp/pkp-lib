@@ -7,11 +7,13 @@
  *
  * Site-Wide Navigation Bar
  *}
-{if $currentContext}
-	{url|assign:"homeUrl" page="index" router=$smarty.const.ROUTE_PAGE}
-{elseif $multipleContexts}
-	{url|assign:"homeUrl" context="index" router=$smarty.const.ROUTE_PAGE}
-{/if}
+{capture assign="homeUrl"}
+	{if $currentContext}
+		{url page="index" router=$smarty.const.ROUTE_PAGE}
+	{elseif $multipleContexts}
+		{url context="index" router=$smarty.const.ROUTE_PAGE}
+	{/if}
+{/capture}
 
 <script type="text/javascript">
 	// Attach the JS file tab handler.
@@ -65,7 +67,7 @@
 		{rdelim});
 	</script>
 	<ul id="navigationTasks" class="pkp_nav_tasks pkp_nav_list" role="navigation" aria-label="{translate|escape key="common.tasks"}">
-		{url|assign:fetchTaskUrl router=$smarty.const.ROUTE_COMPONENT component="page.PageHandler" op="tasks" escape=false}
+		{capture assign=fetchTaskUrl}{url router=$smarty.const.ROUTE_COMPONENT component="page.PageHandler" op="tasks" escape=false}{/capture}
 		{capture assign="tasksNavPlaceholder"}
 			<a href="#">
 				{translate key="common.tasks"}

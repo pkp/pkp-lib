@@ -174,7 +174,7 @@
 
 		{if $showGenreSelector}
 			{fbvFormSection title="submission.upload.fileContents" required=true}
-				{translate|assign:"defaultLabel" key="submission.upload.selectComponent"}
+				{capture assign="defaultLabel"}{translate key="submission.upload.selectComponent"}{/capture}
 				{fbvElement type="select" name="genreId" id="genreId" from=$submissionFileGenres translate=false defaultLabel=$defaultLabel defaultValue="" required="true" selected=$genreId required=true}
 			{/fbvFormSection}
 		{/if}

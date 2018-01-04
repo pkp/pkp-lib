@@ -27,5 +27,5 @@
 	</ul>
 </div>
 
-{url|assign:submissionProgressBarUrl op="submissionProgressBar" submissionId=$submission->getId() stageId=$stageId contextId="submission" escape=false}
+{capture assign=submissionProgressBarUrl}{url op="submissionProgressBar" submissionId=$submission->getId() stageId=$stageId contextId="submission" escape=false}{/capture}
 {load_url_in_div id="submissionProgressBarDiv" url=$submissionProgressBarUrl}

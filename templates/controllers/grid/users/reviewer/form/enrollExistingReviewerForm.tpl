@@ -36,7 +36,7 @@
 		{fbvElement type="select" name="userGroupId" id="userGroupId" from=$userGroups translate=false label="editor.review.userGroupSelect" required="true"}
 	{/fbvFormSection}
 	{fbvFormSection}
-		{url|assign:autocompleteUrl op="getUsersNotAssignedAsReviewers" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}
+		{capture assign=autocompleteUrl}{url op="getUsersNotAssignedAsReviewers" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
 		{fbvElement type="autocomplete" disableSync="true" required="true" autocompleteUrl=$autocompleteUrl id="userId" label="manager.reviewerSearch.searchByName.short" value=$userNameString}
 	{/fbvFormSection}
 

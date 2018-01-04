@@ -17,5 +17,5 @@
 {/if}
 {help file="settings.md" section="workflow-library" class=$helpClass}
 
-{url|assign:libraryGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.settings.library.LibraryFileAdminGridHandler" op="fetchGrid" canEdit=$canEdit escape=false}
+{capture assign=libraryGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.library.LibraryFileAdminGridHandler" op="fetchGrid" canEdit=$canEdit escape=false}{/capture}
 {load_url_in_div id="libraryGridDiv" url=$libraryGridUrl}

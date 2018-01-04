@@ -38,7 +38,7 @@
 		<input type="hidden" name="userGroupId" value="" />
 		<input type="hidden" name="userIdSelected" value="" />
 
-		{url|assign:userSelectGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.users.userSelect.UserSelectGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId escape=false}
+		{capture assign=userSelectGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.users.userSelect.UserSelectGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId escape=false}{/capture}
 		{load_url_in_div id='userSelectGridContainer' url=$userSelectGridUrl}
 
 		{fbvFormSection title="stageParticipants.options" list="true" class="recommendOnlyWrapper"}

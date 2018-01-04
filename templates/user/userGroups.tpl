@@ -12,7 +12,7 @@
 
 {fbvFormArea id="userGroups" title="user.roles" class=border}
 	{if $currentContext}
-		{translate|assign:"userGroupSectionLabel" key="user.register.registerAs" contextName=$currentContext->getLocalizedName()}
+		{capture assign="userGroupSectionLabel"}{translate key="user.register.registerAs" contextName=$currentContext->getLocalizedName()}{/capture}
 		{fbvFormSection label=$userGroupSectionLabel translate=false list=true}
 			{include file="user/userGroupSelfRegistration.tpl" context=$currentContext authorUserGroups=$authorUserGroups reviewerUserGroups=$reviewerUserGroups readerUserGroups=$readerUserGroups}
 		{/fbvFormSection}

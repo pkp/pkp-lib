@@ -53,7 +53,7 @@
 		{/fbvFormArea}
 
 		{fbvFormArea id="queryNoteFilesArea"}
-			{url|assign:queryNoteFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.query.QueryNoteFilesGridHandler" op="fetchGrid" params=$actionArgs queryId=$queryId noteId=$noteId escape=false}
+			{capture assign=queryNoteFilesGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.files.query.QueryNoteFilesGridHandler" op="fetchGrid" params=$actionArgs queryId=$queryId noteId=$noteId escape=false}{/capture}
 			{load_url_in_div id="queryNoteFilesGrid" url=$queryNoteFilesGridUrl}
 		{/fbvFormArea}
 

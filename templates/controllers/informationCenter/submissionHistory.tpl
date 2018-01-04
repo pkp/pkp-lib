@@ -10,5 +10,5 @@
 
 {help file="editorial-workflow.md" section="editorial-history" class="pkp_help_tab"}
 
-{url|assign:submissionHistoryGridUrl params=$gridParameters router=$smarty.const.ROUTE_COMPONENT component="grid.eventLog.SubmissionEventLogGridHandler" op="fetchGrid" escape=false}
+{capture assign=submissionHistoryGridUrl}{url params=$gridParameters router=$smarty.const.ROUTE_COMPONENT component="grid.eventLog.SubmissionEventLogGridHandler" op="fetchGrid" escape=false}{/capture}
 {load_url_in_div id="submissionHistoryGridContainer" url=$submissionHistoryGridUrl}

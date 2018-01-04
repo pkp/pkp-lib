@@ -28,7 +28,7 @@
 
 	{fbvFormArea id="contributors"}
 		<!--  Contributors -->
-		{url|assign:authorGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.users.author.AuthorGridHandler" op="fetchGrid" submissionId=$submissionId escape=false}
+		{capture assign=authorGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.users.author.AuthorGridHandler" op="fetchGrid" submissionId=$submissionId escape=false}{/capture}
 		{load_url_in_div id="authorsGridContainer" url=$authorGridUrl}
 
 		{$additionalContributorsFields}

@@ -93,6 +93,8 @@ class PKPTemplateManager extends SmartyBC {
 		$this->cache_dir = $cachePath . DIRECTORY_SEPARATOR . 't_cache';
 
 		$this->_cacheability = CACHEABILITY_NO_STORE; // Safe default
+
+		$this->error_reporting = E_ALL & ~E_NOTICE;
 	}
 
 	/**
@@ -303,7 +305,6 @@ class PKPTemplateManager extends SmartyBC {
 		$this->registerPlugin('modifier','concat', array($this, 'smartyConcat'));
 		$this->registerPlugin('modifier','strtotime', array($this, 'smartyStrtotime'));
 		$this->registerPlugin('modifier','explode', array($this, 'smartyExplode'));
-		$this->registerPlugin('modifier','assign', array($this, 'smartyAssign'));
 		$this->registerPlugin('modifier','escape', array(&$this, 'smartyEscape'));
 		$this->registerPlugin('function','csrf', array($this, 'smartyCSRF'));
 		$this->registerPlugin('function', 'translate', array($this, 'smartyTranslate'));
@@ -1342,16 +1343,6 @@ class PKPTemplateManager extends SmartyBC {
 	 */
 	function smartyExplode($string, $separator) {
 		return explode($separator, $string);
-	}
-
-	/**
-	 * Assign a value to a template variable.
-	 */
-	function smartyAssign($value, $varName, $passThru = false) {
-		if (isset($varName)) {
-			$this->assign($varName, $value);
-		}
-		if ($passThru) return $value;
 	}
 
 	/**

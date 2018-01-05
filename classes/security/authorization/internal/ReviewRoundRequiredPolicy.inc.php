@@ -35,21 +35,33 @@ class ReviewRoundRequiredPolicy extends DataObjectRequiredPolicy {
 	function dataObjectEffect() {
 		// Get the review round id.
 		$reviewRoundId = $this->getDataObjectId();
-		if ($reviewRoundId === false) return AUTHORIZATION_DENY;
+		if ($reviewRoundId === false) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_BAD_REQUEST);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Validate the review round id.
 		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
 		$reviewRound = $reviewRoundDao->getById($reviewRoundId);
-		if (!is_a($reviewRound, 'ReviewRound')) return AUTHORIZATION_DENY;
+		if (!is_a($reviewRound, 'ReviewRound')) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_NOT_FOUND);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Ensure that the review round actually belongs to the
 		// authorized submission.
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		if ($reviewRound->getSubmissionId() != $submission->getId()) AUTHORIZATION_DENY;
+		if ($reviewRound->getSubmissionId() != $submission->getId()) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Ensure that the review round is for this workflow stage
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
-		if ($reviewRound->getStageId() != $stageId) return AUTHORIZATION_DENY;
+		if ($reviewRound->getStageId() != $stageId) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Save the review round to the authorization context.
 		$this->addAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND, $reviewRound);

@@ -37,28 +37,47 @@ class SubmissionFileAssignedQueryAccessPolicy extends SubmissionFileBaseAccessPo
 
 		// Get the user
 		$user = $request->getUser();
-		if (!is_a($user, 'PKPUser')) return AUTHORIZATION_DENY;
+		if (!is_a($user, 'PKPUser')) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Get the submission file
 		$submissionFile = $this->getSubmissionFile($request);
-		if (!is_a($submissionFile, 'SubmissionFile')) return AUTHORIZATION_DENY;
+		if (!is_a($submissionFile, 'SubmissionFile')) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_NOT_FOUND);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Check if it's associated with a note.
-		if ($submissionFile->getAssocType() != ASSOC_TYPE_NOTE) return AUTHORIZATION_DENY;
+		if ($submissionFile->getAssocType() != ASSOC_TYPE_NOTE) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
+			return AUTHORIZATION_DENY;
+		}
 
 		$noteDao = DAORegistry::getDAO('NoteDAO');
 		$note = $noteDao->getById($submissionFile->getAssocId());
-		if (!is_a($note, 'Note')) return AUTHORIZATION_DENY;
+		if (!is_a($note, 'Note')) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_NOT_FOUND);
+			return AUTHORIZATION_DENY;
+		}
 
-		if ($note->getAssocType() != ASSOC_TYPE_QUERY) return AUTHORIZATION_DENY;
+		if ($note->getAssocType() != ASSOC_TYPE_QUERY) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_BAD_REQUEST);
+			return AUTHORIZATION_DENY;
+		}
 		$queryDao = DAORegistry::getDAO('QueryDAO');
 		$query = $queryDao->getById($note->getAssocId());
-		if (!$query) return AUTHORIZATION_DENY;
+		if (!$query) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_NOT_FOUND);
+			return AUTHORIZATION_DENY;
+		}
 
 		if ($queryDao->getParticipantIds($note->getAssocId(), $user->getId())) {
 			return AUTHORIZATION_PERMIT;
 		}
 
+		$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
 		return AUTHORIZATION_DENY;
 	}
 }

@@ -50,6 +50,7 @@ class HttpsPolicy extends AuthorizationPolicy {
 		if ($this->_request->getProtocol() == 'https') {
 			return AUTHORIZATION_PERMIT;
 		} else {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_BAD_REQUEST);
 			return AUTHORIZATION_DENY;
 		}
 	}

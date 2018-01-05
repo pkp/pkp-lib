@@ -48,14 +48,23 @@ class SubmissionFileStageRequiredPolicy extends SubmissionFileBaseAccessPolicy {
 
 		// Get the submission file.
 		$submissionFile = $this->getSubmissionFile($request);
-		if (!is_a($submissionFile, 'SubmissionFile')) return AUTHORIZATION_DENY;
+		if (!is_a($submissionFile, 'SubmissionFile')) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_NOT_FOUND);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Make sure that it's in the required stage
-		if ($submissionFile->getFileStage() != $this->_fileStage) return AUTHORIZATION_DENY;
+		if ($submissionFile->getFileStage() != $this->_fileStage) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
+			return AUTHORIZATION_DENY;
+		}
 
 		if ($this->_viewable) {
 			// Make sure the file is visible.
-			if (!$submissionFile->getViewable()) return AUTHORIZATION_DENY;
+			if (!$submissionFile->getViewable()) {
+				$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
+				return AUTHORIZATION_DENY;
+			}
 		}
 
 		// Made it through -- permit access.

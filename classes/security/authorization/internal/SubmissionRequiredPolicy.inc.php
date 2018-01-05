@@ -41,16 +41,25 @@ class SubmissionRequiredPolicy extends DataObjectRequiredPolicy {
 	function dataObjectEffect() {
 		// Get the submission id.
 		$submissionId = $this->getDataObjectId();
-		if ($submissionId === false) return AUTHORIZATION_DENY;
+		if ($submissionId === false) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_BAD_REQUEST);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Validate the submission id.
 		$submissionDao = Application::getSubmissionDAO();
 		$submission = $submissionDao->getById($submissionId);
-		if (!is_a($submission, 'Submission')) return AUTHORIZATION_DENY;
+		if (!is_a($submission, 'Submission')) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_NOT_FOUND);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Validate that this submission belongs to the current context.
 		$context = $this->_request->getContext();
-		if ($context->getId() !== $submission->getContextId()) return AUTHORIZATION_DENY;
+		if ($context->getId() !== $submission->getContextId()) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Save the submission to the authorization context.
 		$this->addAuthorizedContextObject(ASSOC_TYPE_SUBMISSION, $submission);

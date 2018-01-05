@@ -34,16 +34,25 @@ class RepresentationRequiredPolicy extends DataObjectRequiredPolicy {
 	 */
 	function dataObjectEffect() {
 		$representationId = (int)$this->getDataObjectId();
-		if (!$representationId) return AUTHORIZATION_DENY;
+		if (!$representationId) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_BAD_REQUEST);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Need a valid submission in request.
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		if (!is_a($submission, 'Submission')) return AUTHORIZATION_DENY;
+		if (!is_a($submission, 'Submission')) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_NOT_FOUND);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Make sure the representation belongs to the submission.
 		$representationDao = Application::getRepresentationDAO();
 		$representation = $representationDao->getById($representationId, $submission->getId());
-		if (!is_a($representation, 'Representation')) return AUTHORIZATION_DENY;
+		if (!is_a($representation, 'Representation')) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_FORBIDDEN);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Save the representation to the authorization context.
 		$this->addAuthorizedContextObject(ASSOC_TYPE_REPRESENTATION, $representation);

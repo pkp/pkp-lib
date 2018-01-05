@@ -40,6 +40,7 @@ class ContextRequiredPolicy extends AuthorizationPolicy {
 		if (is_object($router->getContext($this->_request))) {
 			return AUTHORIZATION_PERMIT;
 		} else {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_BAD_REQUEST);
 			return AUTHORIZATION_DENY;
 		}
 	}

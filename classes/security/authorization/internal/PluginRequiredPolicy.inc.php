@@ -49,7 +49,10 @@ class PluginRequiredPolicy extends AuthorizationPolicy {
 				break;
 			}
 		}
-		if (!is_a($foundPlugin, 'Plugin')) return AUTHORIZATION_DENY;
+		if (!is_a($foundPlugin, 'Plugin')) {
+			$this->setAuthorizationDenialErrorCode(AUTHORIZATION_ERROR_BAD_REQUEST);
+			return AUTHORIZATION_DENY;
+		}
 
 		// Add the plugin to the authorized context.
 		$this->addAuthorizedContextObject(ASSOC_TYPE_PLUGIN, $foundPlugin);

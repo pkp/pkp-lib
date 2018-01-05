@@ -993,7 +993,7 @@ class PKPString {
 	 * Create a new UUID (version 4)
 	 * @return string
 	 */
-	function generateUUID() {
+	static function generateUUID() {
 		mt_srand((double)microtime()*10000);
 		$charid = strtoupper(md5(uniqid(rand(), true)));
 		$hyphen = '-';
@@ -1011,7 +1011,7 @@ class PKPString {
 	 * @param $phpFormat string
 	 * @return string
 	 */
-	function dateformatPHP2JQueryDatepicker($phpFormat) {
+	static function dateformatPHP2JQueryDatepicker($phpFormat) {
 		$symbols = array(
 			// Day
 			'a' => 'D',	// date() format 'D'

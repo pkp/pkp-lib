@@ -57,7 +57,7 @@ class PKPCreateUsersTest extends WebTestCase {
 			// Roles
 			$this->waitForElementPresent('css=input[name^=userGroupIds]');
 			foreach ($data['roles'] as $role) {
-				$this->clickAt('css=label[text()=\'' . $role . '\']');
+				$this->click('//label[normalize-space(text())=\'' . $role . '\']');
 			}
 
 			$this->click('//button[text()=\'Save\']');

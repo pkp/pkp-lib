@@ -207,7 +207,7 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 		}
 
 		// return object
-		if ($this->returnObject === 'published') {
+		if ($this->returnObject === SUBMISSION_RETURN_PUBLISHED) {
 			$this->columns[] = 'ps.*';
 			$q->leftJoin('published_submissions as ps','ps.submission_id','=','s.submission_id')
 				->groupBy('ps.date_published');
@@ -217,7 +217,7 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 		// statuses
 		if (!is_null($this->statuses)) {
 			import('lib.pkp.classes.submission.Submission'); // STATUS_ constants
-			if (in_array(STATUS_PUBLISHED, $this->statuses) && $this->returnObject !== 'published') {
+			if (in_array(STATUS_PUBLISHED, $this->statuses) && $this->returnObject !== SUBMISSION_RETURN_PUBLISHED) {
 				$this->columns[] = 'ps.date_published';
 				$q->leftJoin('published_submissions as ps','ps.submission_id','=','s.submission_id')
 					->groupBy('ps.date_published');

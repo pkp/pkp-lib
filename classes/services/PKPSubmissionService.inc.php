@@ -25,6 +25,8 @@ use \PKP\Services\EntityProperties\PKPBaseEntityPropertyService;
 import('lib.pkp.classes.db.DBResultRange');
 
 define('STAGE_STATUS_SUBMISSION_UNASSIGNED', 1);
+define('SUBMISSION_RETURN_SUBMISSION', 0);
+define('SUBMISSION_RETURN_PUBLISHED', 1);
 
 abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 
@@ -48,7 +50,8 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 	 * 		@option int count
 	 * 		@option int offset
 	 *		@option string returnObject Whether to return submission or published
-	 *			objects. Options: submission, published. Default: submisssion.
+	 *			objects. SUBMISSION_RETURN_SUBMISSION or SUBMISSION_RETURN_PUBLISHED.
+	 *			Default: SUBMISSION_RETURN_SUBMISSION.
 	 * }
 	 *
 	 * @return array
@@ -58,7 +61,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 		$submissionListQO = $submissionListQB->get();
 		$range = new DBResultRange($args['count'], null, $args['offset']);
 		$dao = Application::getSubmissionDAO();
-		if (!empty($args['returnObject']) && $args['returnObject'] === 'published') {
+		if (!empty($args['returnObject']) && $args['returnObject'] === SUBMISSION_RETURN_PUBLISHED) {
 			$dao = Application::getPublishedSubmissionDAO();
 		}
 		$result = $dao->retrieveRange($submissionListQO->toSql(), $submissionListQO->getBindings(), $range);
@@ -78,7 +81,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 		$countQO = $submissionListQB->countOnly()->get();
 		$countRange = new DBResultRange($args['count'], 1);
 		$dao = Application::getSubmissionDAO();
-		if (!empty($args['returnObject']) && $args['returnObject'] === 'published') {
+		if (!empty($args['returnObject']) && $args['returnObject'] === SUBMISSION_RETURN_PUBLISHED) {
 			$dao = Application::getPublishedSubmissionDAO();
 		}
 		$countResult = $dao->retrieveRange($countQO->toSql(), $countQO->getBindings(), $countRange);
@@ -106,7 +109,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 			'offset' => 0,
 			'isIncomplete' => false,
 			'isOverdue' => false,
-			'returnObject' => 'submission',
+			'returnObject' => SUBMISSION_RETURN_SUBMISSION,
 		);
 
 		$args = array_merge($defaultArgs, $args);

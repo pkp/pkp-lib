@@ -19,7 +19,7 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 
 abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 
-	/** @var int Context ID */
+	/** @var int|null Context ID */
 	protected $contextId = null;
 
 	/** @var array list of columns for query */
@@ -31,28 +31,28 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 	/** @var string order by direction */
 	protected $orderDirection = 'DESC';
 
-	/** @var array list of statuses */
+	/** @var array|null list of statuses */
 	protected $statuses = null;
 
-	/** @var array list of stage ids */
+	/** @var array|null list of stage ids */
 	protected $stageIds = null;
 
-	/** @var int user ID */
+	/** @var int|null user ID */
 	protected $assigneeId = null;
 
-	/** @var string search phrase */
+	/** @var string|null search phrase */
 	protected $searchPhrase = null;
 
-	/** @var string return a Submission or PublishedArticle\PublishedMonograph */
+	/** @var string|null return a Submission or PublishedArticle\PublishedMonograph */
 	protected $returnObject = null;
 
-	/** @var bool whether to return only a count of results */
+	/** @var bool|null whether to return only a count of results */
 	protected $countOnly = null;
 
 	/** @var bool whether to return only incomplete results */
 	protected $isIncomplete = false;
 
-	/** @var bool whether to return only submissions with overdue review assignments */
+	/** @var bool|null whether to return only submissions with overdue review assignments */
 	protected $isOverdue = false;
 
 	/**

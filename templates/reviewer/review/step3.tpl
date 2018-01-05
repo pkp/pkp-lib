@@ -36,10 +36,10 @@
 			{include file="reviewer/review/reviewFormResponse.tpl"}
 		{else}
 			{fbvFormSection}
-				{fbvElement type="textarea" id="comments" name="comments" value=$comment readonly=$reviewIsComplete label=submission.comments.canShareWithAuthor rich=true}
+				{fbvElement type="textarea" id="comments" name="comments" value=$comment readonly=$reviewIsComplete label="submission.comments.canShareWithAuthor" rich=true}
 			{/fbvFormSection}
 			{fbvFormSection}
-				{fbvElement type="textarea" id="commentsPrivate" name="commentsPrivate" value=$commentPrivate readonly=$reviewIsComplete label=submission.comments.cannotShareWithAuthor rich=true}
+				{fbvElement type="textarea" id="commentsPrivate" name="commentsPrivate" value=$commentPrivate readonly=$reviewIsComplete label="submission.comments.cannotShareWithAuthor" rich=true}
 			{/fbvFormSection}
 		{/if}
 	{/fbvFormSection}

@@ -12,7 +12,7 @@
  *
  * @brief Base request API handler
  */
-AppLocale::requireComponents(LOCALE_COMPONENT_PKP_API);
+AppLocale::requireComponents(LOCALE_COMPONENT_PKP_API, LOCALE_COMPONENT_APP_API);
 import('lib.pkp.classes.handler.PKPHandler');
 
 use \Slim\App;

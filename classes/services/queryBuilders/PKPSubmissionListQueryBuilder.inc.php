@@ -19,7 +19,7 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 
 abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 
-	/** @var int Context ID */
+	/** @var int|null Context ID */
 	protected $contextId = null;
 
 	/** @var array list of columns for query */
@@ -31,25 +31,28 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 	/** @var string order by direction */
 	protected $orderDirection = 'DESC';
 
-	/** @var array list of statuses */
+	/** @var array|null list of statuses */
 	protected $statuses = null;
 
-	/** @var array list of stage ids */
+	/** @var array|null list of stage ids */
 	protected $stageIds = null;
 
-	/** @var int user ID */
+	/** @var int|null user ID */
 	protected $assigneeId = null;
 
-	/** @var string search phrase */
+	/** @var string|null search phrase */
 	protected $searchPhrase = null;
 
-	/** @var bool whether to return only a count of results */
+	/** @var string|null return a Submission or PublishedArticle\PublishedMonograph */
+	protected $returnObject = null;
+
+	/** @var bool|null whether to return only a count of results */
 	protected $countOnly = null;
 
 	/** @var bool whether to return only incomplete results */
 	protected $isIncomplete = false;
 
-	/** @var bool whether to return only submissions with overdue review assignments */
+	/** @var bool|null whether to return only submissions with overdue review assignments */
 	protected $isOverdue = false;
 
 	/**
@@ -161,6 +164,18 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 	}
 
 	/**
+	 * Return Submission or PublishedArticle|PublishedMonograph objects
+	 *
+	 * @param string $returnObject
+	 *
+	 * @return \OJS\Services\QueryBuilders\SubmissionListQueryBuilder
+	 */
+	public function returnObject($returnObject) {
+		$this->returnObject = $returnObject;
+		return $this;
+	}
+
+	/**
 	 * Whether to return only a count of results
 	 *
 	 * @param bool $enable
@@ -191,10 +206,18 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 			$q->groupBy('st.setting_value');
 		}
 
+		// return object
+		if ($this->returnObject === SUBMISSION_RETURN_PUBLISHED) {
+			$this->columns[] = 'ps.*';
+			$q->leftJoin('published_submissions as ps','ps.submission_id','=','s.submission_id')
+				->groupBy('ps.date_published');
+			$q->whereNotNull('ps.pub_id');
+		}
+
 		// statuses
 		if (!is_null($this->statuses)) {
 			import('lib.pkp.classes.submission.Submission'); // STATUS_ constants
-			if (in_array(STATUS_PUBLISHED, $this->statuses)) {
+			if (in_array(STATUS_PUBLISHED, $this->statuses) && $this->returnObject !== SUBMISSION_RETURN_PUBLISHED) {
 				$this->columns[] = 'ps.date_published';
 				$q->leftJoin('published_submissions as ps','ps.submission_id','=','s.submission_id')
 					->groupBy('ps.date_published');

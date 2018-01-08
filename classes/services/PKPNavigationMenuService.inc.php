@@ -494,7 +494,7 @@ class PKPNavigationMenuService {
 		if ($prefixPos !== false && $postfixPos !== false && ($postfixPos - $prefixPos) > 0){
 			$titleRepl = substr($title, $prefixPos + strlen($prefix), $postfixPos - $prefixPos - strlen($prefix));
 
-			$templateReplaceTitle = $templateMgr->get_template_vars($titleRepl);
+			$templateReplaceTitle = $templateMgr->getTemplateVars($titleRepl);
 			if ($templateReplaceTitle) {
 				$navigationMenuItem->setTitle($templateReplaceTitle, \AppLocale::getLocale());
 			}

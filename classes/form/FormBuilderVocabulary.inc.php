@@ -727,7 +727,7 @@ class FormBuilderVocabulary {
 		$params['uniqId'] = uniqid();
 
 		$smarty->clearAssign(array('FBV_id', 'FBV_label', 'FBV_label_content', 'FBV_currentKeywords', 'FBV_multilingual', 'FBV_sourceUrl', 'FBV_uniqId', 'FBV_disabled'));
-		$emptyFormLocaleMap = array_fill_keys(array_keys($smarty->get_template_vars('formLocales')), array());
+		$emptyFormLocaleMap = array_fill_keys(array_keys($smarty->getTemplateVars('formLocales')), array());
 		$smarty->assign('FBV_availableKeywords', $emptyFormLocaleMap);
 		foreach ($params as $key => $value) {
 			switch ($key) {

@@ -41,10 +41,10 @@ class PKPUsageStatsLoaderTest extends PKPTestCase {
 	// Unit tests
 	//
 	/**
-	 * @covers PKPUsageStatsLoader::_getCounterRobotListFile()
+	 * @covers PKPUsageStatsLoader::getCounterRobotListFile()
 	 */
 	public function testGetCounterRobotListFile() {
-	
+
 		// The getCounterRobotListFile() method will call $this->_plugin->getPluginPath()
 		// Mock this cal
 		$this->mockPlugin = $this->getMockBuilder('PKPUsageStatsPlugin')
@@ -63,4 +63,3 @@ class PKPUsageStatsLoaderTest extends PKPTestCase {
 	}
 }
 ?>
-

@@ -10,7 +10,7 @@
  *}
 {include file="common/header.tpl" pageTitle="installer.appInstallation"}
 
-{capture assign="writable_config"}{if is_writeable('config.inc.php')}{translate key="installer.checkYes"}{else}{translate key="installer.checkNo"}{/capture}{/if}{/capture}
+{capture assign="writable_config"}{if is_writeable('config.inc.php')}{translate key="installer.checkYes"}{else}{translate key="installer.checkNo"}{/if}{/capture}
 {capture assign="writable_cache"}{if is_writeable('cache')}{translate key="installer.checkYes"}{else}{translate key="installer.checkNo"}{/if}{/capture}
 {capture assign="writable_public"}{if is_writeable('public')}{translate key="installer.checkYes"}{else}{translate key="installer.checkNo"}{/if}{/capture}
 {capture assign="writable_db_cache"}{if is_writeable('cache/_db')}{translate key="installer.checkYes"}{else}{translate key="installer.checkNo"}{/if}{/capture}

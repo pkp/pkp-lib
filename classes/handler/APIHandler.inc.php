@@ -38,6 +38,17 @@ class APIHandler extends PKPHandler {
 		parent::__construct();
 		import('lib.pkp.classes.security.authorization.internal.ApiAuthorizationMiddleware');
 		import('lib.pkp.classes.security.authorization.internal.ApiTokenDecodingMiddleware');
+
+		$parts = null;
+		$pathInfoEnabled = Config::getVar('general', 'disable_path_info') ? false : true;
+		$query = parse_url($_SERVER['REQUEST_URI'],PHP_URL_QUERY);
+		parse_str($query, $parts);
+		if (!$pathInfoEnabled && in_array('endpoint', array_keys($parts)) && !empty($parts['endpoint'])) {
+			$endpoint = trim($parts['endpoint'], '/');
+			$requestUri = str_replace('/index.php', "/index.php/{$endpoint}", $_SERVER['REQUEST_URI']);
+			$_SERVER['REQUEST_URI'] = $requestUri;
+		}
+
 		$this->_app = new \Slim\App(array(
 			// Load custom response handler
 			'response' => function($c) {
@@ -46,6 +57,8 @@ class APIHandler extends PKPHandler {
 			'settings' => array(
 				// we need access to route within middleware
 				'determineRouteBeforeAppMiddleware' => true,
+				'displayErrorDetails' => true,
+				'error' => true,
 			)
 		));
 		$this->_app->add(new ApiAuthorizationMiddleware($this));
@@ -62,28 +75,6 @@ class APIHandler extends PKPHandler {
 				}
 				else {
 					return $next($request->withUri($uri), $response);
-				}
-			}
-			return $next($request, $response);
-		});
-		// if pathinfo is disabled, rewrite URI to match Slim's expectation
-		$app = $this->getApp();
-		$this->_app->add(function ($request, $response, $next) use($app) {
-			$uri = $request->getUri();
-			$endpoint = trim($request->getQueryParam('endpoint'));
-			$pathInfoEnabled = Config::getVar('general', 'disable_path_info') ? false : true;
-			$path = $uri->getPath();
-			if (!$pathInfoEnabled && !is_null($endpoint) && !isset($_SERVER['PATH_INFO']) && ($path == '/')) {
-				$basePath = $uri->getBasePath();
-				if($request->getMethod() == 'GET') {
-					$uri = $uri->withPath($basePath . $endpoint);
-					return $response->withRedirect((string)$uri, 301);
-				}
-				else {
-					// because the route is calculated before any middleware is executed
-					// we need to call App::process because the URI changed so that dispatch happens again
-					$uri = $uri->withPath($endpoint);
-					return $app->process($request->withUri($uri), $response);
 				}
 			}
 			return $next($request, $response);

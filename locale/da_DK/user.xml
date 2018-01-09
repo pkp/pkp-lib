@@ -149,4 +149,12 @@
 	<message key="user.role.layoutEditor">Layoutredaktør</message>
 	<message key="user.role.layoutEditors">Layoutredaktører</message>
 	<message key="user.logOutAs">Log ud som</message>
+	<message key="user.login.rememberUsernameAndPassword">Forbliv logget ind</message>
+	<message key="user.register.form.usernameAlphaNumeric">Brugernavnet må kun indeholde små bogstaver og tal (alfanumeriske tegn), understregningstegn og bindestreger. Det skal begynde og slutte med et alfanumerisk tegn.</message>
+	<message key="user.role.assistant">Assistent</message>
+	<message key="user.apiKey">API Key</message>
+	<message key="user.apiKeyEnabled">Enable external applications with the API key to access this account</message>
+	<message key="user.apiKey.generate">Generate new API key</message>
+	<message key="user.apiKey.generateWarning">Generating a new API key will invalidate any existing key for this user.</message>
+	<message key="user.apiKey.secretRequired">Before generating an API key, your site administrator must set a secret in the config file ("api_key_secret").</message>
 </locale>

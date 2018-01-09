@@ -42,4 +42,5 @@
 	<message key="reviewer.submission.downloadDescription">Klik på filnavnene nedenfor for at downloade de filer, der er knyttet til denne indsendelse.</message>
 	<message key="submission.comments.canShareWithAuthor">Til forfatter og redaktør</message>
 	<message key="submission.comments.cannotShareWithAuthor">Kun til redaktør</message>
+	<message key="user.authorization.submissionReviewer">Den nuværende bruger er ikke tildelt rollen som bedømmer på det ønskede dokument.</message>
 </locale>

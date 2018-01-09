@@ -414,7 +414,7 @@
 	<message key="search.advancedSearchMore">Flere søgemuligheder</message>
 	<message key="submission.task.responseDueDate">Svar senest</message>
 	<message key="editor.submissionReview.uploadFile">Upload bedømmelsesfil</message>
-	<message key="notification.addedReviewer">Bedømmer tilføjet</message>
+	<message key="notification.addedReviewer">{$reviewerName} blev tilføjet som bedømmer på denne indsendelse og har fået besked via mail.</message>
 	<message key="reviewer.submission.reviewSchedule">Tidsplan for bedømmelse</message>
 	<message key="reviewer.submission.reviewRequestDate">Redaktørs forespørgsel</message>
 	<message key="reviewer.submission.responseDueDate">Svar senest</message>
@@ -541,4 +541,23 @@
 	<message key="user.authorization.submissionAuthor">Den aktuelle bruger er ikke forfatter til den rekvirerede indsendelse. Kontrollér at du er logget ind med den korrekte brugerkonto.</message>
 
 	<message key="semicolon">{$label}:</message>
+	<message key="common.deleting">Sletter</message>
+	<message key="common.downloadPdf">Download PDF</message>
+	<message key="common.from">Fra</message>
+	<message key="common.until">Indtil</message>
+	<message key="common.saving">Gemmer</message>
+	<message key="stageParticipants.options">Assignment privileges</message>
+	<message key="stageParticipants.recommendOnly">Denne aktør har kun tilladelse til anbefale en redaktionel beslutning . Det vil kræve en autoriseret redaktør for at registrere beslutninger.</message>
+	<message key="navigation.skip.main">Spring til hovedindhold</message>
+	<message key="navigation.skip.nav">Spring til hovednavigations-menu</message>
+	<message key="navigation.skip.footer">Spring til footer</message>
+	<message key="notification.addedReviewerNoEmail">{$reviewerName} blev tilføjet som bedømmer på denne indsendelse og har ikke fået besked via mail.</message>
+	<message key="notification.reviewerThankedEmail">Tak, e-mail er nu sendt til bedømmer.</message>
+	<message key="notification.sendNotificationConfirmation">Send meddelelse via mail til alle registrerede brugere</message>
+	<message key="notification.editedNavigationMenuItem">Navigation menu item was succesfully updated</message>
+	<message key="notification.removedNavigationMenuItem">Navigation menu item was succesfully removed</message>
+	<message key="notification.addedNavigationMenuItem">Navigation menu item was succesfully added</message>
+	<message key="notification.addedNavigationMenu">Navigation menu was succesfully added</message>
+	<message key="notification.editedNavigationMenu">Navigation menu was succesfully updated</message>
+	<message key="notification.removedNavigationMenu">Navigation menu was succesfully removed</message>
 </locale>

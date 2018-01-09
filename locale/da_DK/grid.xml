@@ -253,4 +253,10 @@
 	<message key="grid.userGroup.removed">{$userGroupName} rolle er fjernet.</message>
 	<message key="grid.userGroup.assignedStage">{$userGroupName} rolle knyttet til {$stageName} trin.</message>
 	<message key="grid.userGroup.unassignedStage">{$userGroupName} rolle fjernet fra {$stageName} trin.</message>
+	<message key="grid.user.mergeUsers.confirm">Er du sikker på, at du vil flette denne konto med brugernavnet "{$oldUsername}" ind under kontoen med brugernavnet "{$newUsername}"? Kontoen med brugernavnet "{$oldUsername}" ophører herefter. Handlingen kan ikke fortrydes.</message>
+	<message key="grid.submission.active.selectOrphaned">Indkluder ukomplette indsendelser, der ikke er indsendt af en forfatter.</message>
+	<message key="grid.action.addNavigationMenu">Tilføj menu</message>
+	<message key="grid.action.addNavigationMenuItem">Tilføj element</message>
+	<message key="grid.navigationMenus.navigationMenuItems.noneExist">No Navigation Menu Items</message>
+	<message key="grid.navigationMenus.navigationMenu.noneExist">No Navigation Menus</message>
 </locale>

@@ -61,12 +61,6 @@ class PKPTemplateManager extends SmartyBC {
 	/** @var PKPRequest */
 	private $_request;
 
-	/** @var string path to the application templates */
-	private $app_template_dir;
-
-	/** @var string path to the pkp-lib shared templates */
-	private $core_template_dir;
-
 	/**
 	 * Constructor.
 	 * Initialize template engine and assign basic template variables.
@@ -82,17 +76,17 @@ class PKPTemplateManager extends SmartyBC {
 		$baseDir = Core::getBaseDir();
 		$cachePath = CacheManager::getFileCachePath();
 
-		// Set the default template dir (app's template dir)
-		$this->app_template_dir = $baseDir . DIRECTORY_SEPARATOR . 'templates';
-		// Set fallback template dir (core's template dir)
-		$this->core_template_dir = $baseDir . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR . 'templates';
-
-		$this->template_dir = array($this->app_template_dir, $this->core_template_dir);
 		$this->compile_dir = $cachePath . DIRECTORY_SEPARATOR . 't_compile';
 		$this->config_dir = $cachePath . DIRECTORY_SEPARATOR . 't_config';
 		$this->cache_dir = $cachePath . DIRECTORY_SEPARATOR . 't_cache';
 
 		$this->_cacheability = CACHEABILITY_NO_STORE; // Safe default
+
+
+		// Register the template resources.
+		$this->registerResource('core', new PKPTemplateResource($coreTemplateDir = 'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR . 'templates'));
+		$this->registerResource('app', new PKPTemplateResource(array('templates', $coreTemplateDir)));
+		$this->default_resource_type = 'app';
 
 		$this->error_reporting = E_ALL & ~E_NOTICE;
 	}
@@ -327,23 +321,6 @@ class PKPTemplateManager extends SmartyBC {
 		$this->assign('fbvStyles', $fbv->getStyles());
 
 		$this->registerPlugin('function', 'fieldLabel', array($fbv, 'smartyFieldLabel'));
-
-		// register the resource name "core"
-		$coreResource = new PKPTemplateResource($this->core_template_dir);
-		$this->registerResource('core', array(
-			array($coreResource, 'fetch'),
-			array($coreResource, 'fetchTimestamp'),
-			array($coreResource, 'getSecure'),
-			array($coreResource, 'getTrusted')
-		));
-
-		$appResource = new PKPTemplateResource($this->app_template_dir);
-		$this->registerResource('app', array(
-			array($appResource, 'fetch'),
-			array($appResource, 'fetchTimestamp'),
-			array($appResource, 'getSecure'),
-			array($appResource, 'getTrusted')
-		));
 
 		$this->registerPlugin('function', 'url', array($this, 'smartyUrl'));
 		// ajax load into a div or any element

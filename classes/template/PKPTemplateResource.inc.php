@@ -13,71 +13,57 @@
  * @brief Representation for a PKP template resource (template directory).
  */
 
-class PKPTemplateResource {
-	var $templateDir;
+class PKPTemplateResource extends Smarty_Resource_Custom {
+	/** @var array|string Template path or list of paths */
+	protected $_templateDir;
 
 	/**
 	 * Constructor
-	 * @param $templateDir Template directory
+	 * @param $templateDir string|array Template directory
 	 */
 	function __construct($templateDir) {
-		$this->templateDir = $templateDir;
+		if (is_string($templateDir)) $this->_templateDir = array($templateDir);
+		else $this->_templateDir = $templateDir;
 	}
 
 	/**
 	 * Resource function to get a template.
-	 * @param $template string
-	 * @param $templateSource string reference
-	 * @param $smarty Smarty
+	 * @param $name string Template name
+	 * @param $source string Reference to variable receiving fetched Smarty source
+	 * @param $mtime Modification time
 	 * @return boolean
 	 */
-	function fetch($template, &$templateSource, $smarty) {
-		$templateSource = file_get_contents($this->_getFilename($template));
-		return ($templateSource !== false);
+	function fetch($name, &$source, &$mtime) {
+		$filename = $this->_getFilename($name);
+		$mtime = filemtime($filename);
+		if ($mtime === false) return false;
+
+		$source = file_get_contents($filename);
+		return ($source !== false);
 	}
 
 	/**
 	 * Get the timestamp for the specified template.
-	 * @param $template string Filename
-	 * @param $templateTimestamp int reference
-	 * @return boolean
+	 * @param $name string Template name
+	 * @return int|boolean
 	 */
-	function fetchTimestamp($template, &$templateTimestamp, $smarty) {
-		$filename = $this->_getFilename($template);
-		if (!file_exists($filename)) return false;
-		$templateTimestamp = filemtime($filename);
-		return true;
+	protected function fetchTimestamp($name) {
+		return filemtime($this->_getFilename($name));
 	}
 
 	/**
-	 * Get the complete template filename including path.
-	 * @param $template Template filename.
-	 * @return string
+	 * Get the complete template path and filename.
+	 * @param $name Template name.
+	 * @return string|null
 	 */
 	protected function _getFilename($template) {
-		$filePath = $this->templateDir . DIRECTORY_SEPARATOR . $template;
+		$filePath = null;
+		foreach ($this->_templateDir as $path) {
+			$filePath = $path . DIRECTORY_SEPARATOR . $template;
+			if (file_exists($filePath)) break;
+		}
 		HookRegistry::call('TemplateResource::getFilename', array(&$filePath, $template));
 		return $filePath;
-	}
-
-	/**
-	 * Get secure status
-	 * @return boolean
-	 */
-	function getSecure() {
-		return true;
-	}
-
-	/**
-	 * Get trusted status
-	 */
-	function getTrusted() {
-		// From <http://www.smarty.net/docsv2/en/plugins.resources.tpl>:
-		// "This function is used for only for PHP script components
-		// requested by {include_php} tag or {insert} tag with the src
-		// attribute. However, it should still be defined even for
-		// template resources."
-		// a.k.a. OK not to implement.
 	}
 }
 

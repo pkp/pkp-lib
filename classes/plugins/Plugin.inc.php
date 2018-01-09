@@ -46,6 +46,7 @@
 
 // Define the well-known file name for filter configuration data.
 define('PLUGIN_FILTER_DATAFILE', 'filterConfig.xml');
+define('PLUGIN_TEMPLATE_RESOURCE_PREFIX', 'plugins');
 
 abstract class Plugin {
 	/** @var string Path name to files for this plugin */
@@ -108,6 +109,7 @@ abstract class Plugin {
 		}
 
 		HookRegistry::register ('Installer::postInstall', array($this, 'installFilters'));
+
 		return true;
 	}
 
@@ -305,6 +307,19 @@ abstract class Plugin {
 	}
 
 	/**
+	 * Return the Resource Name for templates in this plugin.
+	 *
+	 * @return string
+	 */
+	public function getTemplateResourceName() {
+		$pluginPath = $this->getPluginPath();
+		$plugin = basename($pluginPath);
+		$category = basename(dirname($pluginPath));
+
+		return join('/', array(PLUGIN_TEMPLATE_RESOURCE_PREFIX, $pluginPath, $category, $plugin));
+	}
+
+	/**
 	 * Return the canonical template path of this plug-in
 	 * @param $inCore Return the core template path if true.
 	 * @return string
@@ -315,6 +330,49 @@ abstract class Plugin {
 			$basePath = $basePath . DIRECTORY_SEPARATOR . PKP_LIB_PATH;
 		}
 		return "file:$basePath" . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR;
+	}
+
+	/**
+	 * Register this plugin's templates as a template resource
+	 */
+	public function _registerTemplateResource() {
+		$templateMgr = TemplateManager::getManager();
+		$pluginTemplateResource = new PKPTemplateResource($this->getPluginPath());
+		$templateMgr->register_resource($this->getTemplateResourceName(), array(
+			array($pluginTemplateResource, 'fetch'),
+			array($pluginTemplateResource, 'fetchTimestamp'),
+			array($pluginTemplateResource, 'getSecure'),
+			array($pluginTemplateResource, 'getTrusted')
+		));
+	}
+
+	/**
+	 * Call this method when an enabled plugin is registered in order to override
+	 * template files in other plugins. Any plugin which calls this method can
+	 * override template files by adding their own templates to:
+	 * <overridingPlugin>/templates/plugins/<category>/<originalPlugin>/<path>.tpl
+	 *
+	 * @param $hookName string TemplateResource::getFilename
+	 * @param $args array [
+	 *		@option string File path to preferred template. Leave as-is to not
+	 *			override template.
+	 *		@option string Template file requested
+	 * ]
+	 */
+	public function _overridePluginTemplates($hookName, $args) {
+		$filePath =& $args[0];
+		$template = $args[1];
+
+		if (strpos($filePath, PLUGIN_TEMPLATE_RESOURCE_PREFIX) !== 0) {
+			return false;
+		}
+
+		$checkPath = sprintf('%s/templates/%s', $this->getPluginPath(), $filePath);
+		if (file_exists($checkPath)) {
+			$filePath = $checkPath;
+		}
+
+		return false;
 	}
 
 	/**

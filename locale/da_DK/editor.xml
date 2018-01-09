@@ -117,4 +117,15 @@
 	<message key="editor.submission.proofreading.confirmCompletion">Godkend denne korrektur for at markere, at korrekturlæsningen er afsluttet og filen er klar til at blive publiceret.</message>
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">Tilbagekald denne godkendelse af korrekturen for at markere, at korrekturlæsningen ikke længere er afsluttet og at filen ikke er klar til publicering.</message>
 
+	<message key="editor.submissionReview.sendEmail">Send en  besked via e-mail til forfatteren: {$authorName}</message>
+	<message key="editor.submissionReview.sendEmail.editors">Send en  besked via e-mail til redaktøren: {$editorNames}</message>
+	<message key="editor.review.newReviewRound">Forlang en ny bedømmelsesrunde</message>
+	<message key="editor.review.reviewsAdded">Bedømmelser er tilføjet mailbesked</message>
+	<message key="editor.submissionReview.recordRecommendation">Registrér redaktionel anbefaling</message>
+	<message key="editor.submissionReview.recordRecommendation.notifyEditors">Meddel redaktører</message>
+	<message key="editor.submissionReview.recordRecommendation.skipEmail">Send ikke en e-mail til redaktørerne.</message>
+	<message key="editor.submissionReview.recordRecommendation.createDiscussion">Opret i forbindelse med denne anbefaling en debat (drøftelse) under bedømmelsen.</message>
+	<message key="editor.submissionReview.recordRecommendation.skipDiscussion">Opret ikke en debat (drøftelse) under bedømmelsen.</message>
+	<message key="editor.publicIdentificationNumericNotAllowed">The public identifier '{$publicIdentifier}' must not be a number.</message>
+	<message key="editor.publicIdentificationPatternNotAllowed">The pattern {$pattern} is not allowed for the public identifier.</message>
 </locale>

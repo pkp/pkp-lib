@@ -103,4 +103,29 @@
 	<message key="admin.scheduledTask.reviewReminder">Påmindelse om bedømmelse</message>
 	<message key="admin.scheduledTask.subscriptionExpiryReminder">Påmindelse om abonnementsophør</message>
 
+	<message key="admin.systemInfo.settingName">Setting Name</message>
+	<message key="admin.systemInfo.settingValue">Setting Value</message>
+	<message key="admin.contexts.confirmDelete">Er du sikker på, at du vil slette {$contextName} og alt indhold permanent?</message>
+	<message key="admin.languages.download">Download Locale</message>
+	<message key="admin.languages.downloadLocales">Download Locales</message>
+	<message key="admin.languages.download.cannotOpen">Cannot open language descriptor from PKP web site.</message>
+	<message key="admin.languages.download.cannotModifyRegistry">Cannot add the new locale to the locale registry file, typically "registry/locales.xml".</message>
+	<message key="admin.scheduledTask.clearLogs">Clear Scheduled Task Execution Logs</message>
+	<message key="admin.settings.defaultMetricDescription">Your installation is configured to record more than one usage metric. Usage statistics will be displayed in several contexts.
+		There are cases where a single usage statistic must be used, e.g. to display an ordered list of most-used submissions or to rank
+		search results. Please select one of the configured metrics as a default.</message>
+	<message key="admin.fileLoader.wrongBasePathLocation">Base path {$path} must be inside the public files directory.</message>
+	<message key="admin.fileLoader.pathNotAccessible">Folder {$path} is not a directory or is not readable.</message>
+	<message key="admin.fileLoader.moveFileFailed">File {$filename} could not be moved from {$currentFilePath} to {$destinationPath}</message>
+	<message key="admin.fileLoader.fileProcessed">File {$filename} was processed and archived.</message>
+	<message key="admin.fileLoader.emailSubject">File loader</message>
+	<message key="admin.copyAccessLogFileTool.usage">Copy the passed apache access log file(s), filtering the entries related with this installation,
+to the current files directory, inside the UsageStatsPlugin stage directory. Must run under user with enough privilegies to read access apache log files.
+
+This tool will only copy files that aren't already inside the usageStats file loader directories (stage, processing, archive, reject).
+
+Usage: {$scriptName} path/to/apache/log/file.log
+Usage (processing all files inside a directory): {$scriptName} path/to/apache/directory</message>
+	<message key="admin.copyAccessLogFileTool.warning.fileAlreadyExists">Warning: file {$filePath} already exists inside the usage stats directory.</message>
+	<message key="admin.copyAccessLogFileTool.success">Success: {$filePath} to {$destinationPath}</message>
 </locale>

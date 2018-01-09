@@ -57,55 +57,6 @@ class PKPSectionForm extends Form {
 	}
 
 	/**
-	 * Persist a section editor association
-	 * @see ListbuilderHandler::insertEntry
-	 */
-	function insertSubEditorEntry($request, $newRowId) {
-		$context = $request->getContext();
-		$userId = array_shift($newRowId);
-
-		$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO');
-
-		// Make sure the membership doesn't already exist
-		if ($subEditorsDao->editorExists($context->getId(), $this->getSectionId(), $userId)) {
-			return false;
-		}
-
-		// Otherwise, insert the row.
-		$subEditorsDao->insertEditor($context->getId(), $this->getSectionId(), $userId);
-		return true;
-	}
-
-	/**
-	 * Delete a section editor association with this section.
-	 * @see ListbuilderHandler::deleteEntry
-	 * @param $request PKPRequest
-	 * @param $rowId int
-	 * @return boolean Success
-	 */
-	function deleteSubEditorEntry($request, $rowId) {
-		$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO');
-		$context = $request->getContext();
-
-		$subEditorsDao->deleteEditor($context->getId(), $this->getSectionId(), $rowId);
-		return true;
-	}
-
-	/**
-	 * Update a section editor association with this section.
-	 * @see ListbuilderHandler::deleteEntry
-	 * @param $request PKPRequest
-	 * @param $rowId int the old section editor
-	 * @param $newRowId array the new section editor
-	 * @return boolean Success
-	 */
-	function updateSubEditorEntry($request, $rowId, $newRowId) {
-		$this->deleteSubEditorEntry($request, $rowId);
-		$this->insertSubEditorEntry($request, $newRowId);
-		return true;
-	}
-
-	/**
 	 * Get the section ID for this section.
 	 * @return int
 	 */
@@ -120,6 +71,74 @@ class PKPSectionForm extends Form {
 	function setSectionId($sectionId) {
 		$this->_sectionId = $sectionId;
 	}
+
+	/**
+	 * Get a list of all subeditor IDs assigned to this section
+	 *
+	 * @param $sectionId int
+	 * @param $contextId int
+	 * @return array
+	 */
+	public function _getAssignedSubEditorIds($sectionId, $contextId) {
+		import('classes.core.ServicesContainer');
+		$subEditors = ServicesContainer::instance()
+			->get('user')
+			->getUsers($contextId, array(
+				'roleIds' => ROLE_ID_SUB_EDITOR,
+				'assignedToSection' => $sectionId,
+			));
+
+		if (empty($subEditors)) {
+			return array();
+		}
+
+		$subEditorIds = array_map(function($subEditor) {
+			return (int) $subEditor->getId();
+		}, $subEditors);
+
+		return $subEditorIds;
+	}
+
+	/**
+	 * Compile data for a subeditors SelectListPanel
+	 *
+	 * @param $contextId int
+	 * @param $request Request
+	 * @return array
+	 */
+	public function _getSubEditorsListPanelData($contextId, $request) {
+		import('lib.pkp.controllers.list.users.SelectUserListHandler');
+		$data = new SelectUserListHandler(array(
+			'title' => 'user.role.subEditors',
+			'inputName' => 'subEditors[]',
+			'selected' => $this->getData('subEditors'),
+			'getParams' => array(
+				'roleIds' => ROLE_ID_SUB_EDITOR,
+			),
+		));
+
+		return $data->getConfig();
+	}
+
+	/**
+	 * Save changes to subeditors
+	 *
+	 * @param $contextId int
+	 */
+	public function _saveSubEditors($contextId) {
+		$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO');
+		$subEditorsDao->deleteBySectionId($this->getSectionId(), $contextId);
+		$subEditors = $this->getData('subEditors');
+		if (!empty($subEditors)) {
+			$roleDao = DAORegistry::getDAO('RoleDAO');
+			foreach ($subEditors as $subEditor) {
+				if ($roleDao->userHasRole($contextId, $subEditor, ROLE_ID_SUB_EDITOR)) {
+					$subEditorsDao->insertEditor($contextId, $this->getSectionId(), $subEditor);
+				}
+			}
+		}
+	}
+
 }
 
 ?>

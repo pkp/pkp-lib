@@ -14,6 +14,7 @@
  */
 
 import('lib.pkp.classes.form.Form');
+import('classes.core.ServicesContainer');
 
 abstract class PKPStageParticipantNotifyForm extends Form {
 	/** @var int The file/submission ID this form is for */
@@ -46,12 +47,12 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 			$this->_submissionId = $submissionFile->getSubmissionId();
 		}
 
-		// Some other forms (e.g. the Add Participant form) subclass this form and do not have the list builder
-		// or may not enforce the sending of an email.  Only include checks if the list builder is included.
-		if ($this->includeNotifyUsersListbuilder()) {
-			$this->addCheck(new FormValidatorListbuilder($this, 'users', 'stageParticipants.notify.warning'));
+		// Some other forms (e.g. the Add Participant form) subclass this form and
+		// may not enforce the sending of an email.
+		if ($this->isMessageRequired()) {
 			$this->addCheck(new FormValidator($this, 'message', 'required', 'stageParticipants.notify.warning'));
 		}
+		$this->addCheck(new FormValidator($this, 'userId', 'required', 'stageParticipants.notify.warning'));
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
 	}
@@ -95,13 +96,19 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 		$templateMgr->assign(array(
 			'templates' => $templates,
 			'stageId' => $currentStageId,
-			'includeNotifyUsersListbuilder' => $this->includeNotifyUsersListbuilder(),
 			'submissionId' => $this->_submissionId,
 			'itemId' => $this->_itemId,
-			// check to see if we were handed a userId from the stage participants grid. If
-			// so, pass that in so the listbuilder can pre-populate. Listbuilder validates.
-			'userId' => (int) $request->getUserVar('userId'),
 		));
+
+		if ($request->getUserVar('userId')) {
+			$user = ServicesContainer::instance()->get('user')->getUser($request->getUserVar('userId'));
+			if ($user) {
+				$templateMgr->assign(array(
+					'userId' => $user->getId(),
+					'userFullName' => $user->getFullName(),
+				));
+			}
+		}
 
 		return parent::fetch($request);
 	}
@@ -110,12 +117,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 	 * @copydoc Form::readInputData()
 	 */
 	function readInputData($request) {
-		$this->readUserVars(array('message', 'users', 'template'));
-		import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
-
-		$this->setData('userIds', array($request->getUserVar('userId')));
-		$userData = $this->getData('users');
-		ListbuilderHandler::unpack($request, $userData, array($this, 'deleteEntry'), array($this, 'insertEntry'), array($this, 'updateEntry'));
+		$this->readUserVars(array('message', 'userId', 'template'));
 	}
 
 	/**
@@ -124,32 +126,10 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 	function execute($request) {
 		$submissionDao = Application::getSubmissionDAO();
 		$submission = $submissionDao->getById($this->_submissionId);
-		foreach ((array) $this->getData('userIds') as $userId) {
-			$this->sendMessage($userId, $submission, $request);
+		if ($this->getData('message')) {
+			$this->sendMessage((int) $this->getData('userId'), $submission, $request);
 		}
 		return parent::execute($request);
-	}
-
-	/**
-	 * @copydoc ListbuilderHandler::insertEntry()
-	 */
-	function insertEntry($request, $newRowId) {
-
-		$userDao = DAORegistry::getDAO('UserDAO');
-		$application = Application::getApplication();
-		$request = $application->getRequest(); // need to do this because the method version is null.
-
-		$submissionDao = Application::getSubmissionDAO();
-		$submission = $submissionDao->getById($this->_submissionId);
-
-		$this->setData('userIds', array_merge($this->getData('userIds'), $newRowId));
-	}
-
-	/**
-	 * @copydoc ListbuilderHandler::deleteEntry
-	 */
-	function deleteEntry($request, $rowId) {
-		$this->setData('userIds', array_diff($this->getData('userIds'), array($rowId)));
 	}
 
 	/**
@@ -322,7 +302,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 	 * whether or not to include the Notify Users listbuilder  true, by default.
 	 * @return boolean
 	 */
-	function includeNotifyUsersListbuilder() {
+	function isMessageRequired() {
 		return true;
 	}
 

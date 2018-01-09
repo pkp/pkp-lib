@@ -191,7 +191,7 @@ class QueryDAO extends DAO {
 		$userIds = array();
 		while (!$result->EOF) {
 			$row = $result->getRowAssoc(false);
-			$userIds[] = $row['user_id'];
+			$userIds[] = (int) $row['user_id'];
 			$result->MoveNext();
 		}
 		$result->Close();

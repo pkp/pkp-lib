@@ -47,12 +47,14 @@
 		}
 
 		{if $userId}
-			<div id="userRoles" class="full left">
-				<div id="userRolesContainer" class="full left">
-					{url|assign:userRolesUrl router=$smarty.const.ROUTE_COMPONENT component="listbuilder.users.UserUserGroupListbuilderHandler" op="fetch" userId=$userId title="grid.user.userRoles" escape=false}
-					{load_url_in_div id="userRolesContainer" url=$userRolesUrl}
+			{fbvFormSection}
+				{assign var="uuid" value=""|uniqid|escape}
+				<div id="userGroups-{$uuid}">
+					<script type="text/javascript">
+						pkp.registry.init('userGroups-{$uuid}', 'SelectListPanel', {$selectUserListData});
+					</script>
 				</div>
-			</div>
+			{/fbvFormSection}
 		{/if}
 		<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 		{fbvFormButtons}

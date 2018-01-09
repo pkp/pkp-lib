@@ -22,9 +22,14 @@
 
 		<input type="hidden" id="userId" name="userId" value="{$userId|escape}" />
 
-		<div id="userRolesContainer" class="full left">
-			{url|assign:userRolesUrl router=$smarty.const.ROUTE_COMPONENT component="listbuilder.users.UserUserGroupListbuilderHandler" op="fetch" userId=$userId title="grid.user.addRoles" escape=false}
-			{load_url_in_div id="userRolesContainer" url=$userRolesUrl}
-		</div>
+		{fbvFormSection}
+			{assign var="uuid" value=""|uniqid|escape}
+			<div id="userGroups-{$uuid}">
+				<script type="text/javascript">
+					pkp.registry.init('userGroups-{$uuid}', 'SelectListPanel', {$selectUserListData});
+				</script>
+			</div>
+		{/fbvFormSection}
+
 		{fbvFormButtons submitText="common.save"}
 </form>

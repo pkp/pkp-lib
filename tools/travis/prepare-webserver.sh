@@ -2,8 +2,8 @@
 
 # @file tools/travis/prepare-webserver.sh
 #
-# Copyright (c) 2014-2017 Simon Fraser University
-# Copyright (c) 2010-2016 John Willinsky
+# Copyright (c) 2014-2018 Simon Fraser University
+# Copyright (c) 2010-2018 John Willinsky
 # Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
 #
 # Script to prepare the webserver for Travis testing.

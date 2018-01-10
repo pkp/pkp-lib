@@ -64,12 +64,8 @@ class PKPTemplateManager extends SmartyBC {
 	/**
 	 * Constructor.
 	 * Initialize template engine and assign basic template variables.
-	 * @param $request PKPRequest
 	 */
-	function __construct($request) {
-		assert(is_a($request, 'PKPRequest'));
-		$this->_request = $request;
-
+	function __construct() {
 		parent::__construct();
 
 		// Set up Smarty configuration
@@ -82,7 +78,6 @@ class PKPTemplateManager extends SmartyBC {
 
 		$this->_cacheability = CACHEABILITY_NO_STORE; // Safe default
 
-
 		// Register the template resources.
 		$this->registerResource('core', new PKPTemplateResource($coreTemplateDir = 'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR . 'templates'));
 		$this->registerResource('app', new PKPTemplateResource(array('templates', $coreTemplateDir)));
@@ -93,21 +88,25 @@ class PKPTemplateManager extends SmartyBC {
 
 	/**
 	 * Initialize the template manager.
+	 * @param $request PKPRequest
 	 */
-	function initialize() {
+	function initialize($request) {
+		assert(is_a($request, 'PKPRequest'));
+		$this->_request = $request;
+
 		$locale = AppLocale::getLocale();
 		$application = PKPApplication::getApplication();
-		$router = $this->_request->getRouter();
+		$router = $request->getRouter();
 		assert(is_a($router, 'PKPRouter'));
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_COMMON);
-		$currentContext = $this->_request->getContext();
+		$currentContext = $request->getContext();
 
 		$this->assign(array(
 			'defaultCharset' => Config::getVar('i18n', 'client_charset'),
-			'baseUrl' => $this->_request->getBaseUrl(),
-			'requiresFormRequest' => $this->_request->isPost(),
-			'currentUrl' => $this->_request->getCompleteUrl(),
+			'baseUrl' => $request->getBaseUrl(),
+			'requiresFormRequest' => $request->isPost(),
+			'currentUrl' => $request->getCompleteUrl(),
 			'dateFormatTrunc' => Config::getVar('general', 'date_format_trunc'),
 			'dateFormatShort' => Config::getVar('general', 'date_format_short'),
 			'dateFormatLong' => Config::getVar('general', 'date_format_long'),
@@ -122,8 +121,8 @@ class PKPTemplateManager extends SmartyBC {
 
 		if (is_a($router, 'PKPPageRouter')) {
 			$this->assign(array(
-				'requestedPage' => $router->getRequestedPage($this->_request),
-				'requestedOp' => $router->getRequestedOp($this->_request),
+				'requestedPage' => $router->getRequestedPage($request),
+				'requestedOp' => $router->getRequestedOp($request),
 			));
 
 			// Register the jQuery script
@@ -132,8 +131,8 @@ class PKPTemplateManager extends SmartyBC {
 				$jquery = '//ajax.googleapis.com/ajax/libs/jquery/' . CDN_JQUERY_VERSION . '/jquery' . $min . '.js';
 				$jqueryUI = '//ajax.googleapis.com/ajax/libs/jqueryui/' . CDN_JQUERY_UI_VERSION . '/jquery-ui' . $min . '.js';
 			} else {
-				$jquery = $this->_request->getBaseUrl() . '/lib/pkp/lib/components/jquery/jquery' . $min . '.js';
-				$jqueryUI = $this->_request->getBaseUrl() . '/lib/pkp/lib/components/jquery-ui/jquery-ui' . $min . '.js';
+				$jquery = $request->getBaseUrl() . '/lib/pkp/lib/components/jquery/jquery' . $min . '.js';
+				$jqueryUI = $request->getBaseUrl() . '/lib/pkp/lib/components/jquery-ui/jquery-ui' . $min . '.js';
 			}
 			$this->addJavaScript(
 				'jquery',
@@ -171,13 +170,13 @@ class PKPTemplateManager extends SmartyBC {
 			}
 
 			// Register the backend app stylesheets
-			if ($dispatcher = $this->_request->getDispatcher()) {
+			if ($dispatcher = $request->getDispatcher()) {
 
 				// FontAwesome - http://fontawesome.io/
 				if (Config::getVar('general', 'enable_cdn')) {
 					$url = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css';
 				} else {
-					$url = $this->_request->getBaseUrl() . '/lib/pkp/styles/fontawesome/fontawesome.css';
+					$url = $request->getBaseUrl() . '/lib/pkp/styles/fontawesome/fontawesome.css';
 				}
 				$this->addStyleSheet(
 					'fontAwesome',
@@ -191,7 +190,7 @@ class PKPTemplateManager extends SmartyBC {
 				// Stylesheet compiled from Vue.js single-file components
 				$this->addStyleSheet(
 					'build',
-					$this->_request->getBaseUrl() . '/styles/build.css',
+					$request->getBaseUrl() . '/styles/build.css',
 					array(
 						'priority' => STYLE_SEQUENCE_CORE,
 						'contexts' => 'backend',
@@ -201,7 +200,7 @@ class PKPTemplateManager extends SmartyBC {
 				// The legacy stylesheet for the backend
 				$this->addStyleSheet(
 					'pkpLib',
-					$dispatcher->url($this->_request, ROUTE_COMPONENT, null, 'page.PageHandler', 'css'),
+					$dispatcher->url($request, ROUTE_COMPONENT, null, 'page.PageHandler', 'css'),
 					array(
 						'priority' => STYLE_SEQUENCE_CORE,
 						'contexts' => 'backend',
@@ -216,7 +215,7 @@ class PKPTemplateManager extends SmartyBC {
 			if (($localeStyleSheet = AppLocale::getLocaleStyleSheet($locale)) != null) {
 				$this->addStyleSheet(
 					'pkpLibLocale',
-					$this->_request->getBaseUrl() . '/' . $localeStyleSheet,
+					$request->getBaseUrl() . '/' . $localeStyleSheet,
 					array(
 						'contexts' => array('frontend', 'backend'),
 					)
@@ -226,14 +225,14 @@ class PKPTemplateManager extends SmartyBC {
 			// Register colour picker assets on the appearance page
 			$this->addJavaScript(
 				'spectrum',
-				$this->_request->getBaseUrl() . '/lib/pkp/js/lib/jquery/plugins/spectrum/spectrum.js',
+				$request->getBaseUrl() . '/lib/pkp/js/lib/jquery/plugins/spectrum/spectrum.js',
 				array(
 					'contexts' => array('backend-management-settings', 'backend-admin-settings', 'backend-admin-contexts'),
 				)
 			);
 			$this->addStyleSheet(
 				'spectrum',
-				$this->_request->getBaseUrl() . '/lib/pkp/js/lib/jquery/plugins/spectrum/spectrum.css',
+				$request->getBaseUrl() . '/lib/pkp/js/lib/jquery/plugins/spectrum/spectrum.css',
 				array(
 					'contexts' => array('backend-management-settings', 'backend-admin-settings', 'backend-admin-contexts'),
 				)
@@ -252,7 +251,7 @@ class PKPTemplateManager extends SmartyBC {
 
 			// Register meta tags
 			if (Config::getVar('general', 'installed')) {
-				if (($this->_request->getRequestedPage()=='' || $this->_request->getRequestedPage() == 'index') && $currentContext && $currentContext->getLocalizedSetting('searchDescription')) {
+				if (($request->getRequestedPage()=='' || $request->getRequestedPage() == 'index') && $currentContext && $currentContext->getLocalizedSetting('searchDescription')) {
 					$this->addHeader('searchDescription', '<meta name="description" content="' . $currentContext->getLocalizedSetting('searchDescription') . '">');
 				}
 
@@ -348,7 +347,7 @@ class PKPTemplateManager extends SmartyBC {
 				'numPageLinks' => Config::getVar('interface', 'page_links'),
 			));
 
-			$user = $this->_request->getUser();
+			$user = $request->getUser();
 			$hasSystemNotifications = false;
 			if ($user) {
 				$notificationDao = DAORegistry::getDAO('NotificationDAO');
@@ -879,12 +878,12 @@ class PKPTemplateManager extends SmartyBC {
 		$instance =& Registry::get('templateManager', true, null); // Reference required
 
 		if ($instance === null) {
-			$instance = new TemplateManager($request);
+			$instance = new TemplateManager();
 			$themes = PluginRegistry::getPlugins('themes');
 			if (is_null($themes)) {
 				$themes = PluginRegistry::loadCategory('themes', true);
 			}
-			$instance->initialize();
+			$instance->initialize($request);
 		}
 
 		return $instance;

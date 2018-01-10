@@ -115,6 +115,8 @@ abstract class Plugin {
 
 		HookRegistry::register ('Installer::postInstall', array($this, 'installFilters'));
 
+		$this->_registerTemplateResource();
+
 		return true;
 	}
 
@@ -330,22 +332,27 @@ abstract class Plugin {
 	/**
 	 * Return the canonical template path of this plug-in
 	 * @param $inCore Return the core template path if true.
-	 * @return string
+	 * @return string|null
 	 */
 	function getTemplatePath($inCore = false) {
 		$basePath = Core::getBaseDir();
 		if ($inCore) {
 			$basePath .= DIRECTORY_SEPARATOR . PKP_LIB_PATH;
 		}
-		return "$basePath" . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR;
+		$templatePath = $basePath . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR . 'templates';
+		if (is_dir($templatePath)) return $templatePath;
+		return null;
 	}
 
 	/**
 	 * Register this plugin's templates as a template resource
 	 */
-	public function _registerTemplateResource($inCore = false) {
-		$pluginTemplateResource = new PKPTemplateResource($this->getPluginPath());
-		$templateMgr->registerResource($this->getTemplateResourceName($inCore), $pluginTemplateResource);
+	protected function _registerTemplateResource($inCore = false) {
+		if ($templatePath = $this->getTemplatePath()) {
+			$templateMgr = TemplateManager::getManager();
+			$pluginTemplateResource = new PKPTemplateResource($this->getTemplatePath());
+			$templateMgr->registerResource($thing = $this->getTemplateResourceName($inCore), $pluginTemplateResource);
+		}
 	}
 
 	/**

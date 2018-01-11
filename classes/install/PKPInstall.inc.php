@@ -211,7 +211,7 @@ class PKPInstall extends Installer {
 				'general' => array(
 					'installed' => 'On',
 					'base_url' => Request::getBaseUrl(),
-					'enable_beacon' => $this->getParam('enableBeacon'),
+					'enable_beacon' => $this->getParam('enableBeacon')?'On':'Off',
 				),
 				'database' => array(
 					'driver' => $this->getParam('databaseDriver'),

@@ -29,24 +29,15 @@ class ReviewFormGridCellProvider extends GridCellProvider {
 		assert(is_a($element, 'ReviewForm') && !empty($columnId));
 		switch ($columnId) {
 			case 'name':
-				$label = $element->getLocalizedTitle();
-				return array('label' => $label);
-				break;
+				return array('label' => $element->getLocalizedTitle());
 			case 'inReview':
-				$label = $element->getIncompleteCount();
-				return array('label' => $label);
-				break;
+				return array('label' => $element->getIncompleteCount());
 			case 'completed':
-				$label = $element->getCompleteCount();
-				return array('label' => $label);
-				break;
+				return array('label' => $element->getCompleteCount());
 			case 'active':
-				$selected = $element->getActive();
-				return array('selected' => $selected);
-				break;
-			default:
-				break;
+				return array('selected' => $element->getActive());
 		}
+		return parent::getTemplateVarsFromRowColumn($row, $column);
 	}
 
 	/**

@@ -57,24 +57,9 @@ class ReviewFormElements extends Form {
 			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
 			$reviewForm = $reviewFormDao->getById($this->reviewFormId, ASSOC_TYPE_JOURNAL, $this->contextId);
 
-			/***
-			$completeCounts = $reviewFormDao->getUseCounts(ASSOC_TYPE_JOURNAL, $journal->getId(), true);
-			$incompleteCounts = $reviewFormDao->getUseCounts(ASSOC_TYPE_JOURNAL, $journal->getId(), false);
-
-			if (!isset($reviewForm) || $completeCounts[$reviewFormId] != 0 || $incompleteCounts[$reviewFormId] != 0) {
-				Request::redirect(null, null, 'reviewForms');
-			}
-			***/
-
 			// Get review form elements
-			//$rangeInfo = $this->getRangeInfo('reviewFormElements'); 
-			//FIXME getRange Info is in classes/handler/PKPHandler.inc.php (line 374) 
 			$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
-			//$reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewFormId, $rangeInfo);
 			$reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewFormId, null);
-
-			// Get titles of unused review forms
-			$unusedReviewFormTitles = $reviewFormDao->getTitlesByAssocId(ASSOC_TYPE_JOURNAL, $this->contextId, 0);
 
 			// Set data
 			$this->setData('reviewFormId', $reviewFormId);

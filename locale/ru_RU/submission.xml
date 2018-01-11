@@ -377,8 +377,18 @@
 	<message key="submission.submit.selectPrincipalContact">Контактное лицо для переписки с редакцией.</message>
 	<message key="submission.submit.contributorRole">Роль автора</message>
 	<message key="submission.submit.addAuthor">Добавить автора</message>
+	<message key="submission.submit.form.languagesRequired">Пожалуйста, укажите язык.</message>
+	<message key="submission.submit.form.subjectRequired">Пожалуйста, укажите тему.</message>
+	<message key="submission.submit.form.disciplinesRequired">Пожалуйста, укажите предмет.</message>
+	<message key="submission.submit.form.keywordsRequired">Пожалуйста, укажите ключевое слово.</message>
+	<message key="submission.submit.form.agenciesRequired">Пожалуйста, укажите спонсоров.</message>
+	<message key="submission.submit.form.coverageRequired">Пожалуйста, укаэите информацию об охвате.</message>
+	<message key="submission.submit.form.typeRequired">Пожалуйста, укажите тип.</message>
+	<message key="submission.submit.form.sourceRequired">Пожалуйста, укажите источник.</message>
+	<message key="submission.submit.form.rightsRequired">Пожалуйста, укажите права на материал.</message>
+	<message key="submission.submit.form.citaionsRequired">Пожалуйста, укажите библиографические ссылки.</message>
 
-	<!-- Элменты формы загрузки файла материала -->
+	<!-- Элементы формы загрузки файла материала -->
 	<message key="submission.form.name">Назовите файл (например, Рукопись; Таблица 1)</message>
 	<message key="submission.form.replaceExisting">Заменить существующий файл?</message>
 
@@ -592,6 +602,7 @@
 	<message key="submission.query.new">Пользователь «{$creatorName}» начал обсуждение «{$noteTitle}»: {$noteContents}</message>
 	<message key="submission.query.activity.contents">Есть новая активность в обсуждении с названием «{$queryTitle}», относящимся к материалу «{$submissionTitle}».</message>
 	<message key="submission.query.new.contents">Вы были добавлены к обсуждению с названием «{$queryTitle}», относящимся к материалу «{$submissionTitle}».</message>
+	<message key="submission.query.participantTitle">{$fullName}, {$userGroup}</message>
 	<message key="submission.query.noParticipantOptions">До начала обсуждения вы должны назначить хотя бы одного участника в этот материал.</message>
 
 	<!-- Списки материалов -->

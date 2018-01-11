@@ -314,11 +314,12 @@ abstract class Plugin {
 	}
 
 	/**
-	 * Return the Resource Name for templates in this plugin.
-	 *
+	 * Return the Resource Name for templates in this plugin, or if specified, the full resource locator
+	 * for a specific template.
+	 * @param $template Template path/filename, if desired
 	 * @return string
 	 */
-	public function getTemplateResourceName($inCore = false) {
+	public function getTemplateResource($template = null, $inCore = false) {
 		$pluginPath = $this->getPluginPath();
 		if ($inCore) {
 			$pluginPath = PKP_LIB_PATH . DIRECTORY_SEPARATOR . $pluginPath;
@@ -326,7 +327,8 @@ abstract class Plugin {
 		$plugin = basename($pluginPath);
 		$category = basename(dirname($pluginPath));
 		// Slash characters (/) are not allowed in resource names, so use dashes (-) instead.
-		return strtr(join('/', array(PLUGIN_TEMPLATE_RESOURCE_PREFIX, $pluginPath, $category, $plugin)),'/','-');
+		$resourceName = strtr(join('/', array(PLUGIN_TEMPLATE_RESOURCE_PREFIX, $pluginPath, $category, $plugin)),'/','-');
+		return $resourceName . ($template!==null?":$template":'');
 	}
 
 	/**
@@ -350,8 +352,8 @@ abstract class Plugin {
 	protected function _registerTemplateResource($inCore = false) {
 		if ($templatePath = $this->getTemplatePath()) {
 			$templateMgr = TemplateManager::getManager();
-			$pluginTemplateResource = new PKPTemplateResource($this->getTemplatePath());
-			$templateMgr->registerResource($thing = $this->getTemplateResourceName($inCore), $pluginTemplateResource);
+			$pluginTemplateResource = new PKPTemplateResource($templatePath);
+			$templateMgr->registerResource($thing = $this->getTemplateResource(null, $inCore), $pluginTemplateResource);
 		}
 	}
 

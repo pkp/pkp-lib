@@ -160,7 +160,7 @@ abstract class BlockPlugin extends LazyLoadPlugin {
 	function getContents($templateMgr, $request = null) {
 		$blockTemplateFilename = $this->getBlockTemplateFilename();
 		if ($blockTemplateFilename === null) return '';
-		return $templateMgr->fetch($this->getTemplateResourceName() . ':' . $blockTemplateFilename);
+		return $templateMgr->fetch($this->getTemplateResource($blockTemplateFilename));
 	}
 
 	/**

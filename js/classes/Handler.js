@@ -695,10 +695,14 @@
 						classes, i, editor,
 						settings = tinyMCE.EditorManager.settings;
 
-				// Set the extended toolbar, if requested
+				// Set the requested toolbar
 				if ($(this).hasClass('extendedRichContent')) {
 					settings.toolbar = settings.richToolbar;
-				} else {
+				}
+				else if ($(this).hasClass('onelineRichContent')){
+					settings.toolbar = settings.onelineToolbar;
+				}
+				else {
 					settings.toolbar = settings.defaultToolbar;
 				}
 

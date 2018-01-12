@@ -486,6 +486,7 @@ class FormBuilderVocabulary {
 				case 'height':
 					$styles = $this->getStyles();
 					switch($value) {
+						case $styles['height']['ONELINE']: $smarty->assign('FBV_height', 'oneline'); break;
 						case $styles['height']['SHORT']: $smarty->assign('FBV_height', 'short'); break;
 						case $styles['height']['MEDIUM']: $smarty->assign('FBV_height', 'medium'); break;
 						case $styles['height']['TALL']: $smarty->assign('FBV_height', 'tall'); break;

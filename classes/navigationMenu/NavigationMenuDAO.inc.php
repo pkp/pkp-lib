@@ -78,12 +78,7 @@ class NavigationMenuDAO extends DAO {
 			$params
 		);
 
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
+		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
 	/**

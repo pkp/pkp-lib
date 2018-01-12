@@ -61,6 +61,9 @@ class NavigationMenuForm extends Form {
 		}
 
 		$activeThemeNavigationAreas = array();
+
+		$activeThemeNavigationAreas = array('' => __('common.none'));
+
 		foreach ($themePlugins as $themePlugin) {
 			if ($themePlugin->isActive()) {
 				$areas = $themePlugin->getMenuAreas();
@@ -68,10 +71,6 @@ class NavigationMenuForm extends Form {
 					$activeThemeNavigationAreas[$area] = $area;
 				}
 			}
-		}
-
-		if (empty($activeThemeNavigationAreas)) {
-			$activeThemeNavigationAreas = array('' => __('common.none'));
 		}
 
 		$context = $request->getContext();
@@ -205,6 +204,13 @@ class NavigationMenuForm extends Form {
 		$navigationMenu = $navigationMenuDao->getByTitle($this->_contextId, $this->getData('title'));
 		if (isset($navigationMenu) && $navigationMenu->getId() != $this->_navigationMenuId) {
 			$this->addError('path', __('manager.navigationMenus.form.duplicateTitle'));
+		}
+
+		if ($this->getData('areaName') != '') {
+			$navigationMenusWithArea = $navigationMenuDao->getByArea($this->_contextId, $this->getData('areaName'))->toArray();
+			if (count($navigationMenusWithArea) == 1 && $navigationMenusWithArea[0]->getId() != $this->_navigationMenuId) {
+				$this->addError('areaName', __('manager.navigationMenus.form.menuAssigned'));
+			}
 		}
 
 		return parent::validate();

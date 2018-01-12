@@ -24,7 +24,7 @@
 			<textarea id="{$FBV_id|escape}-{$formLocale|escape}{$uniqId}" {$FBV_textAreaParams}
 				rows="{$FBV_rows|escape}"
 				cols="{$FBV_cols|escape}"
-				class="localizable {$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}{if $FBV_rich && !$FBV_disabled} richContent{if $FBV_rich==="extended"} extendedRichContent{/if}{/if}"
+				class="localizable {$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}{if $FBV_rich && !$FBV_disabled} richContent{if $FBV_rich==="extended"} extendedRichContent{/if}{if $FBV_rich==="oneline"} onelineRichContent{/if}{/if}"
 				{if $FBV_disabled} disabled="disabled"{/if}
 				{if $FBV_readonly} readonly="readonly"{/if}
 				{if $FBV_wordCount} wordCount="{$FBV_wordCount|escape}"{/if}
@@ -43,7 +43,7 @@
 				<label for="{$FBV_id|escape}-{$thisFormLocale|escape}{$uniqId}" class="locale_textarea">{$thisFormLocaleName|escape}</label>
 				<textarea id="{$FBV_id|escape}-{$thisFormLocale|escape}{$uniqId}" {$FBV_textAreaParams}
 					placeholder="{$thisFormLocaleName|escape}"
-					class="flag flag_{$thisFormLocale|escape} {$FBV_class} {$FBV_height}{if $FBV_rich && !$FBV_disabled} richContent{if $FBV_rich==="extended"} extendedRichContent{/if}{/if}"
+					class="flag flag_{$thisFormLocale|escape} {$FBV_class} {$FBV_height}{if $FBV_rich && !$FBV_disabled} richContent{if $FBV_rich==="extended"} extendedRichContent{/if}{if $FBV_rich==="oneline"} onelineRichContent{/if}{/if}"
 					{if $FBV_disabled} disabled="disabled"{/if}
 					{if $FBV_readonly} readonly="readonly"{/if}
 					{if $FBV_wordCount} wordCount="{$FBV_wordCount|escape}"{/if}
@@ -62,7 +62,7 @@
 		{if $FBV_multilingual}{$FBV_value[$formLocale]|strip_unsafe_html}{else}{$FBV_value|strip_unsafe_html}{/if}
 	{else}
 		<textarea {$FBV_textAreaParams}
-			class="{$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $FBV_rich && !$FBV_disabled} richContent{if $FBV_rich==="extended"} extendedRichContent{/if}{/if}"
+			class="{$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $FBV_rich && !$FBV_disabled} richContent{if $FBV_rich==="extended"} extendedRichContent{/if}{if $FBV_rich==="oneline"} onelineRichContent{/if}{/if}"
 			{if $FBV_disabled} disabled="disabled"{/if}
 			{if $FBV_readonly} readonly="readonly"{/if}
 			{if $FBV_wordCount} wordCount="{$FBV_wordCount|escape}"{/if}

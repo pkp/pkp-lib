@@ -153,6 +153,8 @@
 				richToolbar: 'copy paste | bold italic underline | bullist numlist | ' +
 						'superscript subscript | link unlink code fullscreen | ' +
 						'jbimages | pkpTags',
+				onelineToolbar: 'bold italic underline' +
+						'superscript subscript',
 				statusbar: false,
 				content_css: $.pkp.app.baseUrl +
 						'/plugins/generic/tinymce/styles/content.css'

@@ -141,7 +141,7 @@
 				resize: 'both',
 				entity_encoding: 'raw',
 				plugins: 'paste,fullscreen,link,lists,code,' +
-								'-jbimages,-pkpTags,noneditable',
+						'-jbimages,-pkpTags,noneditable',
 				convert_urls: false,
 				forced_root_block: 'p',
 				paste_auto_cleanup_on_paste: true,

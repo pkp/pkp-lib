@@ -237,7 +237,8 @@
 		}
 	}
 
-	.localization_popover_container_focus {
+	.localization_popover_container_focus,
+	.localization_popover_container_focus_forced {
 		display: block;
 		padding: @half;
 		background-color: @bg;
@@ -263,6 +264,13 @@
 		z-index: 99;
 		padding: @half;
 		background-color: @bg;
+	}
+
+	.localization_popover_container_focus_forced .localization_popover {
+		display: block;
+		position: relative;
+		margin-top: @half;
+		padding: 0;
 	}
 
 	// Position locale label off-screen but accessible to screen readers

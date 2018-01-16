@@ -141,7 +141,7 @@
 				resize: 'both',
 				entity_encoding: 'raw',
 				plugins: 'paste,fullscreen,link,lists,code,' +
-						'-jbimages,-pkpTags,noneditable',
+								'-jbimages,-pkpTags,noneditable',
 				convert_urls: false,
 				forced_root_block: 'p',
 				paste_auto_cleanup_on_paste: true,
@@ -149,7 +149,7 @@
 				theme: 'modern',
 				toolbar: 'copy paste | bold italic underline | link unlink ' +
 						'code fullscreen | jbimages | pkpTags',
-				onelineToolbar: 'bold italic underline superscript subscript',		
+				onelineToolbar: 'italic superscript subscript',		
 				richToolbar: 'copy paste | bold italic underline | bullist numlist | ' +
 						'superscript subscript | link unlink code fullscreen | ' +
 						'jbimages | pkpTags',
@@ -283,6 +283,15 @@
 			});
 			e.content = $content.html();
 		});
+
+		// Disable enter key for single line inputs		
+		if (target.hasClass('oneline')) {
+			tinyMCEObject.on('keydown', function(e) {
+				if (e.keyCode == 13) {
+					e.preventDefault();
+				}
+			});
+		}
 
 		// In fullscreen mode, also present the toolbar.
 		tinyMCEObject.on('FullscreenStateChanged init', function(e) {

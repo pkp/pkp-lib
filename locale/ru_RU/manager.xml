@@ -506,6 +506,7 @@
 	<message key="manager.navigationMenus.unassignedMenuItems">Неназначенные элементы меню</message>
 	<message key="manager.navigationMenus.form.navigationMenuArea">Области навигации активной темы</message>
 	<message key="manager.navigationMenus.form.navigationMenuAreaMessage">Выберите область навигации</message>
+	<message key="manager.navigationMenus.form.menuAssigned">Этой области уже назначено навигационное меню.</message>
 
 	<message key="manager.navigationMenus.form.url">URL</message>
 	<message key="manager.navigationMenus.form.customUrlError">Необходимо ввести URL-адрес</message>

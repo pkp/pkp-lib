@@ -207,51 +207,65 @@ class QueryForm extends Form {
 				'roleId' => $userGroup->getRoleId(),
 			);
 
-			# Check if current user is author
-			if ($user->getId() == $assignment->getUserId() && $assignment->getUserGroupId() == ROLE_ID_AUTHOR){ $isAuthor = true;}
-
+			# Check the assignment of the current user
+			if ($user->getId() == $assignment->getUserId()){ $userAssignment = $assignment->getUserGroupId(); }
 		}
 
-		# In review stage, add reviewers as possible participants 
+		# In review stage, add reviewers as possible participants
 		if ($query->getStageId() == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
 			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
 			$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($query->getAssocId());
 
 			foreach ($reviewAssignments as $reviewAssignment) {				
 
-				# If current user is author, only show open reviews that have confirmed the request
-				if ($isAuthor && !$reviewAssignment->getDateConfirmed()) { continue; }
+				# Check if current user is a reviewer
+				if ($user->getId() == $reviewAssignment->getReviewerId()){ $userAssignment = ROLE_ID_REVIEWER; }
 
-				# Check if current user is blind reviewer
-				if ($user->getId() == $reviewAssignment->getReviewerId() && $reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_OPEN){ $isBlindReviewer = true;}
+				# Check if review is open and confirmed
+				$openReview = false;
+				if ($reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_OPEN && !$reviewAssignment->getDateConfirmed()) { $openReview = true; }
 
-				# If open review, show for all in review stage; else show only for editors; always include active reviewer
-				if ($reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_OPEN || $user->hasRole(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR), $request->getContext()->getId()) || $user->getId() == $reviewAssignment->getReviewerId()) {
-
-					# userGroup is now hard coded, because reviewAssignment does not have userGroupId!
-					$reviewerUserGroup = $userGroupDao->getByRoleId($request->getContext()->getId(), ROLE_ID_REVIEWER)->toArray();
-					$participantOptions[] = array(
-						'user' => $userDao->getById($reviewAssignment->getReviewerId()),
-						'userGroup' => $reviewerUserGroup[0],
-						'isParticipant' => in_array($reviewAssignment->getReviewerId(), $currentParticipants),
-						'userId' => $reviewAssignment->getReviewerId(),
-						'roleId' => ROLE_ID_REVIEWER,
-					);
-				}
+				# ALEC! userGroup is now hard coded, because reviewAssignment does not have userGroupId!
+				# I think it should, because there could be other reviewer roles as well (custom roles)?
+				$reviewerUserGroup = $userGroupDao->getByRoleId($request->getContext()->getId(), ROLE_ID_REVIEWER)->toArray();
+				$participantOptions[] = array(
+					'user' => $userDao->getById($reviewAssignment->getReviewerId()),
+					'userGroup' => $reviewerUserGroup[0],
+					'isParticipant' => in_array($reviewAssignment->getReviewerId(), $currentParticipants),
+					'userId' => $reviewAssignment->getReviewerId(),
+					'roleId' => ROLE_ID_REVIEWER,
+					'reviewOpen' => $openReview,
+				);
+				
 			}
+			
+			// Filter the reviewers depending on the current user and review types
+			$filteredParticipantOptions = array();
 
-			# If current user is blind reviewer, filter authors and other reviewers 
-			if ($isBlindReviewer){
+			foreach ($participantOptions as $participantOption){
 
-				$filteredParticipantOptions = array();
-
-				foreach ($participantOptions as $participantOption){
-					if (!in_array($participantOption['roleId'], array(ROLE_ID_REVIEWER, ROLE_ID_AUTHOR)) || $participantOption['userId'] == $user->getId()){
+				// If current user is an author... 
+				if ($userAssignment == ROLE_ID_AUTHOR){
+					// ...filter out all reviewers that are not confirmed open reviewers
+					if (!participantOption['roleId'] != ROLE_ID_REVIEWER && $participantOption['reviewOpen'] != true){
 						$filteredParticipantOptions[] = $participantOption;
 					}
 				}
-				$participantOptions = $filteredParticipantOptions;
+				// If current user is a reviewer...
+				else if ($userAssignment == ROLE_ID_REVIEWER){
+					// ... filter out all blind reviewers and unconfirmed open reviewers, but never the current user
+					if ($participantOption['roleId'] != ROLE_ID_REVIEWER && !$participantOption['reviewOpen'] != true && $user->getId() !=  $participantOption['userId']){						
+						$filteredParticipantOptions[] = $participantOption;
+					}
+				}
+				// Else the current user has to be an editorial staff that can access the review stage...
+				else {
+					// ... so filter nothing
+					$filteredParticipantOptions[] = $participantOption;
+				}
 			}
+
+			$participantOptions = $filteredParticipantOptions;
 
 		}
 

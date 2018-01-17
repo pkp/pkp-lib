@@ -37,7 +37,7 @@
 						<label for="{$inputId}">
 							<input type="checkbox" name="users[]" id="{$inputId}" value="{$participantOption.user->getId()}"{if $participantOption.isParticipant} checked="checked"{/if}>
 							<span class="name">{$participantOption.user->getFullName()}</span>
-							<span class="role">{$participantOption.userGroup->getLocalizedName()}</span>
+							<span class="role">{$participantOption.userGroup}</span>
 						</label>
 					</li>
 				{/foreach}

@@ -201,7 +201,7 @@ class QueryForm extends Form {
 			$userGroup = $userGroupDao->getById($assignment->getUserGroupId());
 			$participantOptions[] = array(
 				'user' => $userDao->getById($assignment->getUserId()),
-				'userGroup' => $userGroup,
+				'userGroup' => $userGroup->getLocalizedName(),
 				'isParticipant' => in_array($assignment->getUserId(), $currentParticipants),
 				'userId' => $assignment->getUserId(),
 				'roleId' => $userGroup->getRoleId(),
@@ -209,7 +209,7 @@ class QueryForm extends Form {
 			);
 
 			# Check the assignment of the current user
-			if ($user->getId() == $assignment->getUserId()){ $userAssignment = $assignment->getUserGroupId(); }
+			if ($user->getId() == $assignment->getUserId()){ $userAssignment = $userGroup->getRoleId(); }
 		}
 
 		# In review stage, add reviewers as possible participants
@@ -227,14 +227,16 @@ class QueryForm extends Form {
 
 				# Check if review is open and confirmed
 				$openReview = false;
-				if ($reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_OPEN && !$reviewAssignment->getDateConfirmed()) { $openReview = true; }
+				if ($reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_OPEN && $reviewAssignment->getDateConfirmed()) { $openReview = true; }
 
 				# ALEC! userGroup is now hard coded, because reviewAssignment does not have userGroupId!
 				# I think it should, because there could be other reviewer roles as well (custom roles)?
 				$reviewerUserGroup = $userGroupDao->getByRoleId($request->getContext()->getId(), ROLE_ID_REVIEWER)->toArray();
+				$userGroup = $reviewerUserGroup[0]->getLocalizedName() . ' (' . __($reviewAssignment->getReviewMethodKey()) . ')';
+
 				$participantOptions[] = array(
 					'user' => $userDao->getById($reviewAssignment->getReviewerId()),
-					'userGroup' => $reviewerUserGroup[0],
+					'userGroup' => $userGroup,
 					'isParticipant' => in_array($reviewAssignment->getReviewerId(), $currentParticipants),
 					'userId' => $reviewAssignment->getReviewerId(),
 					'roleId' => ROLE_ID_REVIEWER,
@@ -242,7 +244,7 @@ class QueryForm extends Form {
 				);
 
 			}
-			
+
 			// Filter the reviewers depending on the current user and review types
 			$filteredParticipantOptions = array();
 
@@ -250,22 +252,26 @@ class QueryForm extends Form {
 
 				// If current user is an author... 
 				if ($userAssignment == ROLE_ID_AUTHOR){
+
 					// ...filter out all reviewers that are not confirmed open reviewers
-					if (participantOption['roleId'] == ROLE_ID_REVIEWER && $participantOption['reviewOpen'] != true){ continue; }
-										
+					if ($participantOption['roleId'] == ROLE_ID_REVIEWER && $participantOption['reviewOpen'] != true){ continue; }
+
 					// ...leave editorial staff, confirmed open reviewers and authors
 					$filteredParticipantOptions[] = $participantOption;
-					
+
 				}
 				// If current user is a reviewer...
 				else if ($userAssignment == ROLE_ID_REVIEWER){
-					
-					// ... filter out authors, if the current user is a blind reviewer
-					if (participantOption['roleId'] == ROLE_ID_AUTHOR && $isBlindReviewer) { continue; }
-					
-					// ...filter out all reviewers that are not confirmed open reviewers, but never the active reviewer
-					if (participantOption['roleId'] == ROLE_ID_REVIEWER && $participantOption['reviewOpen'] != true && $user->getId() != $participantOption['userId']){ continue; }
-					
+
+					// ... always add the active reviewer
+					if ($user->getId() == $participantOption['userId']) { $filteredParticipantOptions[] = $participantOption; continue;}
+
+					// ... filter out authors and other reviewers if the current user is a blind reviewer
+					if ($isBlindReviewer && ($participantOption['roleId'] == ROLE_ID_AUTHOR || $participantOption['roleId'] == ROLE_ID_REVIEWER)) { continue; }
+
+					// ...filter out all reviewers that are not confirmed open reviewers
+					if ($participantOption['roleId'] == ROLE_ID_REVIEWER && $participantOption['reviewOpen'] != true){ continue; }
+
 					// ... leave editorial staff, open reviewers
 					$filteredParticipantOptions[] = $participantOption;
 				}

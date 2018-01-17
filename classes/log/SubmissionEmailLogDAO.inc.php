@@ -40,7 +40,7 @@ class SubmissionEmailLogDAO extends EmailLogDAO {
 		return parent::_getByEventType(ASSOC_TYPE_SUBMISSION, $submissionId, $eventType, $userId);
 	}
 
-        /**
+	/**
 	 * Get submission email log entries by submission ID and event type
 	 * @param $submissionId int
 	 * @param $eventType SUBMISSION_EMAIL_...
@@ -52,9 +52,8 @@ class SubmissionEmailLogDAO extends EmailLogDAO {
 				(int) ASSOC_TYPE_SUBMISSION,
 				(int) $submissionId,
 				(int) $eventType,
-                                $date
-                        );
-                                
+				$date
+			);
 		if ($userId) $params[] = $userId;
 
 		$result = $this->retrieveRange(
@@ -64,7 +63,7 @@ class SubmissionEmailLogDAO extends EmailLogDAO {
 			' WHERE	e.assoc_type = ? AND
 				e.assoc_id = ? AND
 				e.event_type = ? AND
-                                e.date_sent = ? ' .
+				e.date_sent = ? ' .
 				($userId ? ' AND u.user_id = ?' : ''),
 			$params,
 			$rangeInfo
@@ -73,7 +72,7 @@ class SubmissionEmailLogDAO extends EmailLogDAO {
 		return new DAOResultFactory($result, $this, 'build');
 	}
 
-        
+
 	/**
 	 * Get submission email log entries by submission ID
 	 * @param $submissionId int

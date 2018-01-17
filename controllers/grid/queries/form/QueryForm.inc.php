@@ -205,6 +205,7 @@ class QueryForm extends Form {
 				'isParticipant' => in_array($assignment->getUserId(), $currentParticipants),
 				'userId' => $assignment->getUserId(),
 				'roleId' => $userGroup->getRoleId(),
+				'reviewOpen' => false,
 			);
 
 			# Check the assignment of the current user
@@ -218,8 +219,11 @@ class QueryForm extends Form {
 
 			foreach ($reviewAssignments as $reviewAssignment) {				
 
-				# Check if current user is a reviewer
-				if ($user->getId() == $reviewAssignment->getReviewerId()){ $userAssignment = ROLE_ID_REVIEWER; }
+				# Check if current user is a reviewer, and if the used method is blind
+				if ($user->getId() == $reviewAssignment->getReviewerId()){ 
+					$userAssignment = ROLE_ID_REVIEWER;
+					if ($reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_OPEN) { $isBlindReviewer = true; }
+				}
 
 				# Check if review is open and confirmed
 				$openReview = false;
@@ -236,7 +240,7 @@ class QueryForm extends Form {
 					'roleId' => ROLE_ID_REVIEWER,
 					'reviewOpen' => $openReview,
 				);
-				
+
 			}
 			
 			// Filter the reviewers depending on the current user and review types
@@ -247,16 +251,23 @@ class QueryForm extends Form {
 				// If current user is an author... 
 				if ($userAssignment == ROLE_ID_AUTHOR){
 					// ...filter out all reviewers that are not confirmed open reviewers
-					if (!participantOption['roleId'] != ROLE_ID_REVIEWER && $participantOption['reviewOpen'] != true){
-						$filteredParticipantOptions[] = $participantOption;
-					}
+					if (participantOption['roleId'] == ROLE_ID_REVIEWER && $participantOption['reviewOpen'] != true){ continue; }
+										
+					// ...leave editorial staff, confirmed open reviewers and authors
+					$filteredParticipantOptions[] = $participantOption;
+					
 				}
 				// If current user is a reviewer...
 				else if ($userAssignment == ROLE_ID_REVIEWER){
-					// ... filter out all blind reviewers and unconfirmed open reviewers, but never the current user
-					if ($participantOption['roleId'] != ROLE_ID_REVIEWER && !$participantOption['reviewOpen'] != true && $user->getId() !=  $participantOption['userId']){						
-						$filteredParticipantOptions[] = $participantOption;
-					}
+					
+					// ... filter out authors, if the current user is a blind reviewer
+					if (participantOption['roleId'] == ROLE_ID_AUTHOR && $isBlindReviewer) { continue; }
+					
+					// ...filter out all reviewers that are not confirmed open reviewers, but never the active reviewer
+					if (participantOption['roleId'] == ROLE_ID_REVIEWER && $participantOption['reviewOpen'] != true && $user->getId() != $participantOption['userId']){ continue; }
+					
+					// ... leave editorial staff, open reviewers
+					$filteredParticipantOptions[] = $participantOption;
 				}
 				// Else the current user has to be an editorial staff that can access the review stage...
 				else {

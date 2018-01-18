@@ -300,8 +300,6 @@ class PKPNavigationMenuService {
 							$request,
 							ROUTE_PAGE,
 							null,
-							'navigationMenu',
-							'view',
 							$navigationMenuItem->getPath()
 						));
 					}
@@ -370,6 +368,8 @@ class PKPNavigationMenuService {
 	 * @return array Hierarchical array of menu items
 	 */
 	public function getMenuTree(&$navigationMenu) {
+		//\HookRegistry::register('LoadHandler', array($this, '_callbackHandleCustomNavigationMenuItems'));
+
 		$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
 		$cache = $navigationMenuDao->getCache($navigationMenu->getId());
 		if ($cache->cache) {
@@ -389,7 +389,7 @@ class PKPNavigationMenuService {
 				foreach($assignment->children as $childAssignment) {
 					$childNmi = $childAssignment->getMenuItem();
 					$this->getDisplayStatus($childNmi, $navigationMenu);
-	
+
 					if ($childNmi->getIsDisplayed()) {
 						$nmi->setIsChildVisible(true);
 					}
@@ -514,6 +514,43 @@ class PKPNavigationMenuService {
 			}
 		}
 
+		return false;
+	}
+
+	public function _callbackHandleCustomNavigationMenuItems($hookName, $args) {
+		$request = \Application::getRequest();
+
+		$page =& $args[0];
+		$op =& $args[1];
+
+		// Construct a path to look for
+		$path = $page;
+		if ($op !== 'index') $path .= "/$op";
+		if ($ops = $request->getRequestedArgs()) $path .= '/' . implode('/', $ops);
+
+		// Look for a static page with the given path
+		$navigationMenuItemDao = \DAORegistry::getDAO('NavigationMenuItemDAO');
+
+		$context = $request->getContext();
+		$contextId = $context?$context->getId():CONTEXT_ID_NONE;
+		$customNMI = $navigationMenuItemDao->getByPath($contextId, $path);
+
+
+		// Check if this is a request for a static page or preview.
+		if ($customNMI) {
+			// Trick the handler into dealing with it normally
+			$page = 'pages';
+			$op = 'view';
+
+
+			// It is -- attach the static pages handler.
+			define('HANDLER_CLASS', 'NavigationMenuItemHandler');
+			import('lib.pkp.pages.navigationMenu.NavigationMenuItemHandler');
+
+			\NavigationMenuItemHandler::setPage($customNMI);
+
+			return true;
+		}
 		return false;
 	}
 }

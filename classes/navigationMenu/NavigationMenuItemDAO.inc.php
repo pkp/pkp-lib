@@ -45,9 +45,9 @@ class NavigationMenuItemDAO extends DAO {
 	 * @return NavigationMenuItem
 	 */
 	function getByPath($contextId, $path) {
-		$params = array($path, (int) $contextId);
+		$params = array($path, (int) $contextId, 'NMI_TYPE_CUSTOM');
 		$result = $this->retrieve(
-			'SELECT	* FROM navigation_menu_items WHERE path = ? and context_id = ?',
+			'SELECT	* FROM navigation_menu_items WHERE path = ? and context_id = ? and type= ?',
 			$params
 		);
 

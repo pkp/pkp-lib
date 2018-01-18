@@ -17,6 +17,9 @@ import('classes.handler.Handler');
 
 class NavigationMenuItemHandler extends Handler {
 
+	/** @var NavigationMenuItem The nmi to view */
+	static $nmi;
+
 	//
 	// Implement methods from Handler.
 	//
@@ -102,8 +105,8 @@ class NavigationMenuItemHandler extends Handler {
 
 		$navigationMenuItem = $navigationMenuItemDao->getByPath($contextId, $path);
 
-		if (isset($navigationMenuItem)) {
-			$templateMgr->assign('title', $navigationMenuItem->getLocalizedTitle());
+		if (isset(self::$nmi)) {
+			$templateMgr->assign('title', self::$nmi->getLocalizedTitle());
 
 			$vars = array();
 			if ($context) $vars = array(
@@ -113,13 +116,30 @@ class NavigationMenuItemHandler extends Handler {
 				'{$supportPhone}' => $context->getSetting('supportPhone'),
 				'{$supportEmail}' => $context->getSetting('supportEmail'),
 			);
-			$templateMgr->assign('content', strtr($navigationMenuItem->getLocalizedContent(), $vars));
+			$templateMgr->assign('content', strtr(self::$nmi->getLocalizedContent(), $vars));
 
 			$templateMgr->display('frontend/pages/navigationMenuItemViewContent.tpl');
 		} else {
 			return false;
 		}
 
+	}
+
+	/**
+	 * Handle index request (redirect to "view")
+	 * @param $args array Arguments array.
+	 * @param $request PKPRequest Request object.
+	 */
+	function index($args, $request) {
+		$request->redirect(null, null, 'view', $request->getRequestedOp());
+	}
+
+	/**
+	 * Set a $nmi to view.
+	 * @param $nmi NavigationMenuItem
+	 */
+	static function setPage($nmi) {
+		self::$nmi = $nmi;
 	}
 }
 

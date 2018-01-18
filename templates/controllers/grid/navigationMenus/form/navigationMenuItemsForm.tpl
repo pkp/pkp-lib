@@ -36,7 +36,7 @@
 		{/fbvFormSection}
 
 		{fbvFormSection id="menuItemTypeSection" title="manager.navigationMenus.form.navigationMenuItemType" for="menuItemType"}
-			{fbvElement type="select" id="menuItemType" from=$navigationMenuItemTypeTitles selected=$menuItemType label="manager.navigationMenus.form.navigationMenuItemTypeMessage" translate=false}
+			{fbvElement type="select" id="menuItemType" required=true from=$navigationMenuItemTypeTitles selected=$menuItemType label="manager.navigationMenus.form.navigationMenuItemTypeMessage" translate=false}
 		{/fbvFormSection}
 
 		{fbvFormSection id="remoteUrlTarget" title="manager.navigationMenus.form.url" for="url" list=true required="true"}

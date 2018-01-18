@@ -539,4 +539,5 @@
 	<message key="manager.navigationMenus.loggedIn.conditionalWarning">This link will only be displayed when the visitor is not logged in.</message>
 	<message key="manager.navigationMenus.contact.description">Link to a page displaying your contact information.</message>
 	<message key="manager.navigationMenus.contact.conditionalWarning">This link will only be displayed if you have filled out the Contact information under Settings > Contact.</message>
+	<message key="manager.navigationMenus.form.typeMissing">Please select a navigation menu type.</message>
 </locale>

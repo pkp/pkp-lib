@@ -222,6 +222,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 		if (!empty($this->searchPhrase)) {
 			$words = explode(' ', $this->searchPhrase);
 			if (count($words)) {
+				$q->leftJoin('user_settings as us', 'u.user_id', '=', 'us.user_id');
 				foreach ($words as $word) {
 					$q->where('u.username', 'LIKE', "%{$word}%")
 						->orWhere('u.salutation', 'LIKE', "%{$word}%")
@@ -230,7 +231,19 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 						->orWhere('u.last_name', 'LIKE', "%{$word}%")
 						->orWhere('u.suffix', 'LIKE', "%{$word}%")
 						->orWhere('u.initials', 'LIKE', "%{$word}%")
-						->orWhere('u.email', 'LIKE', "%{$word}%");
+						->orWhere('u.email', 'LIKE', "%{$word}%")
+						->orWhere(function($q) use ($word) {
+							$q->where('us.setting_name', 'affiliation');
+							$q->where('us.setting_value', 'LIKE', "%{$word}%");
+						})
+						->orWhere(function($q) use ($word) {
+							$q->where('us.setting_name', 'biography');
+							$q->where('us.setting_value', 'LIKE', "%{$word}%");
+						})
+						->orWhere(function($q) use ($word) {
+							$q->where('us.setting_name', 'orcid');
+							$q->where('us.setting_value', 'LIKE', "%{$word}%");
+						});
 				}
 			}
 		}

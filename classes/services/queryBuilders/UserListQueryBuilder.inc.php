@@ -239,26 +239,28 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 			if (count($words)) {
 				$q->leftJoin('user_settings as us', 'u.user_id', '=', 'us.user_id');
 				foreach ($words as $word) {
-					$q->where('u.username', 'LIKE', "%{$word}%")
-						->orWhere('u.salutation', 'LIKE', "%{$word}%")
-						->orWhere('u.first_name', 'LIKE', "%{$word}%")
-						->orWhere('u.middle_name', 'LIKE', "%{$word}%")
-						->orWhere('u.last_name', 'LIKE', "%{$word}%")
-						->orWhere('u.suffix', 'LIKE', "%{$word}%")
-						->orWhere('u.initials', 'LIKE', "%{$word}%")
-						->orWhere('u.email', 'LIKE', "%{$word}%")
-						->orWhere(function($q) use ($word) {
-							$q->where('us.setting_name', 'affiliation');
-							$q->where('us.setting_value', 'LIKE', "%{$word}%");
-						})
-						->orWhere(function($q) use ($word) {
-							$q->where('us.setting_name', 'biography');
-							$q->where('us.setting_value', 'LIKE', "%{$word}%");
-						})
-						->orWhere(function($q) use ($word) {
-							$q->where('us.setting_name', 'orcid');
-							$q->where('us.setting_value', 'LIKE', "%{$word}%");
-						});
+					$q->where(function($q) use ($word) {
+						$q->where('u.username', 'LIKE', "%{$word}%")
+							->orWhere('u.salutation', 'LIKE', "%{$word}%")
+							->orWhere('u.first_name', 'LIKE', "%{$word}%")
+							->orWhere('u.middle_name', 'LIKE', "%{$word}%")
+							->orWhere('u.last_name', 'LIKE', "%{$word}%")
+							->orWhere('u.suffix', 'LIKE', "%{$word}%")
+							->orWhere('u.initials', 'LIKE', "%{$word}%")
+							->orWhere('u.email', 'LIKE', "%{$word}%")
+							->orWhere(function($q) use ($word) {
+								$q->where('us.setting_name', 'affiliation');
+								$q->where('us.setting_value', 'LIKE', "%{$word}%");
+							})
+							->orWhere(function($q) use ($word) {
+								$q->where('us.setting_name', 'biography');
+								$q->where('us.setting_value', 'LIKE', "%{$word}%");
+							})
+							->orWhere(function($q) use ($word) {
+								$q->where('us.setting_name', 'orcid');
+								$q->where('us.setting_value', 'LIKE', "%{$word}%");
+							});
+					});
 				}
 			}
 		}
@@ -267,7 +269,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 		if (!empty($this->getReviewerData)) {
 			$q->leftJoin('review_assignments as ra', 'u.user_id', '=', 'ra.reviewer_id');
 			$this->columns[] = Capsule::raw('MAX(ra.date_assigned) as last_assigned');
-			$this->columns[] = Capsule::raw('SUM(CASE WHEN ra.date_completed IS NOT NULL THEN 0 ELSE 1 END) as incomplete_count');
+			$this->columns[] = Capsule::raw('SUM(CASE WHEN ra.date_completed IS NULL THEN 1 ELSE 0 END) as incomplete_count');
 			$this->columns[] = Capsule::raw('SUM(CASE WHEN ra.date_completed IS NOT NULL THEN 1 ELSE 0 END) as complete_count');
 			switch (\Config::getVar('database', 'driver')) {
 				case 'mysql':

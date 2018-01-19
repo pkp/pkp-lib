@@ -338,9 +338,9 @@ class PKPUserDAO extends DAO {
 	function _returnUserFromRowWithReviewerStats($row) {
 		$user = $this->_returnUserFromRowWithData($row, false);
 		$user->setData('lastAssigned', $row['last_assigned']);
-		$user->setData('incompleteCount', $row['incomplete_count']);
-		$user->setData('completeCount', $row['complete_count']);
-		$user->setData('averageTime', $row['average_time']);
+		$user->setData('incompleteCount', (int) $row['incomplete_count']);
+		$user->setData('completeCount', (int) $row['complete_count']);
+		$user->setData('averageTime', (int) $row['average_time']);
 		HookRegistry::call('UserDAO::_returnUserFromRowWithReviewerStats', array(&$user, &$row));
 
 		return $user;

@@ -77,9 +77,9 @@ class UserService extends PKPBaseEntityPropertyService {
 	}
 
 	/**
-	 * Build the submission query object for getSubmissions requests
+	 * Build the user query object for getUsers requests
 	 *
-	 * @see self::getSubmissions()
+	 * @see self::getUsers()
 	 * @return object Query object
 	 */
 	private function _buildGetUsersQueryObject($contextId, $args = array()) {
@@ -111,6 +111,52 @@ class UserService extends PKPBaseEntityPropertyService {
 		\HookRegistry::call('User::getUsers::queryBuilder', array($userListQB, $contextId, $args));
 
 		return $userListQB;
+	}
+
+	/**
+	 * Get reviewers
+	 *
+	 * @see self::getUsers()
+	 */
+	public function getReviewers($contextId, $args = array()) {
+		$userListQB = $this->_buildGetReviewersQueryObject($contextId, $args);
+		$userListQO = $userListQB->get();
+		$range = new DBResultRange($args['count'], null, $args['offset']);
+		$userDao = DAORegistry::getDAO('UserDAO');
+		$result = $userDao->retrieveRange($userListQO->toSql(), $userListQO->getBindings(), $range);
+		$queryResults = new DAOResultFactory($result, $userDao, '_returnUserFromRowWithReviewerStats');
+
+		return $queryResults->toArray();
+	}
+
+	/**
+	 * Get max count of reviewers matching a query request
+	 *
+	 * @see self::getUsersMaxCount()
+	 */
+	public function getReviewersMaxCount($contextId, $args = array()) {
+		$userListQB = $this->_buildGetReviewersQueryObject($contextId, $args);
+		$countQO = $userListQB->countOnly()->get();
+		$countRange = new DBResultRange($args['count'], 1);
+		$userDao = DAORegistry::getDAO('UserDAO');
+		$countResult = $userDao->retrieveRange($countQO->toSql(), $countQO->getBindings(), $countRange);
+		$countQueryResults = new DAOResultFactory($countResult, $userDao, '_returnUserFromRowWithReviewerStatsc');
+
+		return (int) $countQueryResults->getCount();
+	}
+
+	/**
+	 * Build the reviewers query object for getReviewers requests
+	 *
+	 * @see self::_buildGetUsersQueryObject()
+	 */
+	private function _buildGetReviewersQueryObject($contextId, $args = array()) {
+		$reviewerListQB = $this->_buildGetUsersQueryObject($contextId, $args);
+		$reviewerListQB->getReviewerData(true);
+
+		\HookRegistry::call('User::getReviewers::queryBuilder', array($reviewerListQB, $contextId, $args));
+
+		return $reviewerListQB;
 	}
 
 	/**
@@ -200,6 +246,18 @@ class UserService extends PKPBaseEntityPropertyService {
 					break;
 				case 'gossip':
 					$values[$prop] = $user->getGossip();
+					break;
+				case 'reviewsActive':
+					$values[$prop] = $user->getData('incompleteCount');
+					break;
+				case 'reviewsCompleted':
+					$values[$prop] = $user->getData('completeCount');
+					break;
+				case 'averageReviewCompletionDays':
+					$values[$prop] = $user->getData('averageTime');
+					break;
+				case 'dateLastReviewAssignment':
+					$values[$prop] = $user->getData('lastAssigned');
 					break;
 				case 'disabled':
 					$values[$prop] = (boolean) $user->getDisabled();
@@ -300,12 +358,32 @@ class UserService extends PKPBaseEntityPropertyService {
 	public function getFullProperties($user, $args = null) {
 		$props = array (
 			'id','userName','fullName','firstName','middleName','lastName','initials','salutation',
-			'suffix','affiliaton','country','email','url','orcid','groups','interests','biograpy','signature','authId',
-			'authString','phone','mailingAddress','billingAddress','gossip','disabled',
-			'disabledReason','dateRegistered','dateValidated','dateLastLogin','mustChangePassword',
+			'suffix','affiliaton','country','email','url','orcid','groups','interests','biography','signature','authId',
+			'authString','phone','mailingAddress','billingAddress','gossip','disabled','disabledReason',
+			'dateRegistered','dateValidated','dateLastLogin','mustChangePassword',
 		);
 
 		\HookRegistry::call('User::getProperties::fullProperties', array(&$props, $user, $args));
+
+		return $this->getProperties($user, $props, $args);
+	}
+
+	/**
+	 * Returns summary properties for a reviewer
+	 * @param User $user
+	 * @param array extra arguments
+	 *		$args['request'] PKPRequest Required
+	 *		$args['slimRequest'] SlimRequest
+	 * @return array
+	 */
+	public function getReviewerSummaryProperties($user, $args = null) {
+		$props = array (
+			'id','_href','userName','fullName','affiliaton','groups','interests','gossip',
+			'reviewsActive','reviewsCompleted','averageReviewCompletionDays',
+			'dateLastReviewAssignment','disabled',
+		);
+
+		\HookRegistry::call('User::getProperties::reviewerSummaryProperties', array(&$props, $user, $args));
 
 		return $this->getProperties($user, $props, $args);
 	}

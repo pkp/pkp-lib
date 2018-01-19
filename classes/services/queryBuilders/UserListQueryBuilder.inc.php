@@ -51,6 +51,9 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	/** @var bool whether to return only a count of results */
 	protected $countOnly = null;
 
+	/** @var bool whether to return reviewer activity data */
+	protected $getReviewerData = null;
+
 	/**
 	 * Constructor
 	 *
@@ -160,6 +163,18 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	}
 
 	/**
+	 * Whether to return reviewer activity data
+	 *
+	 * @param bool $enable
+	 *
+	 * @return \PKP\Services\QueryBuilders\UserListQueryBuilder
+	 */
+	public function getReviewerData($enable = true) {
+		$this->getReviewerData = $enable;
+		return $this;
+	}
+
+	/**
 	 * Execute query builder
 	 *
 	 * @return object Query object
@@ -246,6 +261,23 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 						});
 				}
 			}
+		}
+
+		// reviewer data
+		if (!empty($this->getReviewerData)) {
+			$q->leftJoin('review_assignments as ra', 'u.user_id', '=', 'ra.reviewer_id');
+			$this->columns[] = Capsule::raw('MAX(ra.date_assigned) as last_assigned');
+			$this->columns[] = Capsule::raw('SUM(CASE WHEN ra.date_completed IS NOT NULL THEN 0 ELSE 1 END) as incomplete_count');
+			$this->columns[] = Capsule::raw('SUM(CASE WHEN ra.date_completed IS NOT NULL THEN 1 ELSE 0 END) as complete_count');
+			switch (\Config::getVar('database', 'driver')) {
+				case 'mysql':
+				case 'mysqli':
+					$dateDiffClause = 'DATEDIFF(ra.date_completed, ra.date_notified)';
+					break;
+				default:
+					$dateDiffClause = 'DATE_PART(\'day\', ra.date_completed - ra.date_notified)';
+			}
+			$this->columns[] = Capsule::raw('AVG(' . $dateDiffClause . ') as average_time');
 		}
 
 		// Add app-specific query statements

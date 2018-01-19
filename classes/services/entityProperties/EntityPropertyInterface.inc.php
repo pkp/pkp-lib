@@ -26,8 +26,8 @@ interface EntityPropertyInterface {
 	public function getProperties($entity, $props, $args = null);
 
 	/**
-	 * Returns summary properties for a submission
-	 * @param Submission $submission
+	 * Returns summary properties for an entity
+	 * @param object $entity
 	 * @param array extra arguments
 	 *		$args['request'] PKPRequest Required
 	 *		$args['slimRequest'] SlimRequest
@@ -36,8 +36,8 @@ interface EntityPropertyInterface {
 	public function getSummaryProperties($entity, $args = null);
 
 	/**
-	 * Returns full properties for a submission
-	 * @param Submission $submission
+	 * Returns full properties for an entity
+	 * @param object $entity
 	 * @param array extra arguments
 	 *		$args['request'] PKPRequest Required
 	 *		$args['slimRequest'] SlimRequest

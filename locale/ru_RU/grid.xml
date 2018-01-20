@@ -273,4 +273,5 @@
 	<message key="grid.action.addNavigationMenuItem">Добавить элемент</message>
 	<message key="grid.navigationMenus.navigationMenuItems.noneExist">Элементы меню навигации отсутствуют</message>
 	<message key="grid.navigationMenus.navigationMenu.noneExist">Меню навигации отсутствуют</message>
+	<message key="grid.navigationMenus.navigationMenu.selectType">Выберите тип...</message>
 </locale>

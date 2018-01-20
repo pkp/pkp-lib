@@ -540,4 +540,5 @@
 	<message key="manager.navigationMenus.loggedIn.conditionalWarning">Эта ссылка будет показываться только в случае, когда посетитель еще не вошел в систему.</message>
 	<message key="manager.navigationMenus.contact.description">Ссылка на страницу, отображающую вашу контактную информацию.</message>
 	<message key="manager.navigationMenus.contact.conditionalWarning">Эта ссылка будет показываться только в случае, если вы заполнили раздел «Контактная информация» в Настройки > Контакт.</message>
+	<message key="manager.navigationMenus.form.typeMissing">Пожалуйста выберите тип навигационного меню.</message>
 </locale>

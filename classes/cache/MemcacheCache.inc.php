@@ -17,7 +17,6 @@
 
 import('lib.pkp.classes.cache.GenericCache');
 
-// FIXME This should use connection pooling
 // WARNING: This cache MUST be loaded in batch, or else many cache
 // misses will result.
 
@@ -48,9 +47,11 @@ class MemcacheCache extends GenericCache {
 	 */
 	function __construct($context, $cacheId, $fallback, $hostname, $port) {
 		parent::__construct($context, $cacheId, $fallback);
-		$this->connection = new Memcache;
+		$this->connection = new Memcached;
 
-		if (!$this->connection->connect($hostname, $port)) {
+		// FIXME This should use connection pooling
+		// XXX check whether memcached server is usable
+		if (!$this->connection->addServer($hostname, $port)) {
 			$this->connection = null;
 		}
 
@@ -85,7 +86,7 @@ class MemcacheCache extends GenericCache {
 	 */
 	function getCache($id) {
 		$result = $this->connection->get($this->getContext() . ':' . $this->getCacheId() . ':' . $id);
-		if ($result === false) {
+		if ($this->connection->getResultCode() == Memcached::RES_NOTFOUND) {
 			return $this->cacheMiss;
 		}
 		switch (get_class($result)) {
@@ -109,14 +110,14 @@ class MemcacheCache extends GenericCache {
 		} elseif ($value === null) {
 			$value = new memcache_null;
 		}
-		return ($this->connection->set($this->getContext() . ':' . $this->getCacheId() . ':' . $id, $value, $this->flag, $this->expire));
+		return ($this->connection->set($this->getContext() . ':' . $this->getCacheId() . ':' . $id, $value, $this->expire));
 	}
 
 	/**
 	 * Close the cache and free resources.
 	 */
 	function close() {
-		$this->connection->close();
+		$this->connection->quit();
 		unset ($this->connection);
 		$this->contextChecked = false;
 	}

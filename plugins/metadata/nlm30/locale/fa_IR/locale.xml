@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+<!--
+  * plugins/metadata/nlm30/locale/fa_IR/locale.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Translated By: Alireza Sokhandan
+  -->
+<locale name="fa_IR" full_name="فارسی">
+	<!-- plug-in -->
+	<message key="plugins.metadata.nlm30.displayName"> فراداده NLM 3.0</message>
+	<message key="plugins.metadata.nlm30.description">شماتیک و برنامه NLM 3.0</message>
+	<!-- citation meta-data adapter -->
+	<message key="plugins.metadata.nlm30.citationAdapter.displayName">آداپتور ارجاع NLM 3.0</message>
+	<message key="plugins.metadata.nlm30.citationAdapter.description">استخراج/تزریق فراداده به ارجاعات</message>
+	<!-- citation parsers (citation extraction services) -->
+	<message key="plugins.metadata.nlm30.citationParsers.displayName">سرویس استخراج ارجاع</message>
+	<message key="plugins.metadata.nlm30.citationParsers.description">تبدیل متن ارجاع به فرمت NLM 3.0</message>
+	<!-- citation lookup (citation database/improvement/lookup services) -->
+	<message key="plugins.metadata.nlm30.citationLookup.displayName">سرویس پایگاه داده ارجاع</message>
+	<message key="plugins.metadata.nlm30.citationLookup.description">بهبود داده های NLM 3.0 با جستجو در پایگاه داده های ارجاع</message>
+	<!-- citation output -->
+	<message key="plugins.metadata.nlm30.citationOutput.displayName">سرویس خروجی ارجاع</message>
+	<message key="plugins.metadata.nlm30.citationOutput.description">تبدیل فرمت NLM 3.0 به خروجی متن ساده</message>
+	<message key="plugins.metadata.nlm30Xml.citationOutput.displayName">سرویس خروجی ارجاع (XML)</message>
+	<message key="plugins.metadata.nlm30Xml.citationOutput.description">تبدیل فرمت NLM 3.0 به فرمت XML</message>
+	<!-- NLM 3.0 output -->
+	<message key="plugins.metadata.nlm30.nlm30XmlOutput.displayName">تبدیل مجله به NLM 3.0</message>
+	<message key="plugins.metadata.nlm30.nlm30XmlOutput.description">تبدیل مقالات ارسالی به NLM 3.0</message>
+	<!-- NLM 2.3 output -->
+	<message key="plugins.metadata.nlm30.nlm23XmlOutput.displayName">تبدیل مجله به NLM 2.3</message>
+	<message key="plugins.metadata.nlm30.nlm23XmlOutput.description">تبدیل مقالات ارسالی به NLM 2.3</message>
+	<!-- NLM 3.0 to 2.3 downgrade -->
+	<message key="plugins.metadata.nlm30.nlm30ToNlm23Xml.displayName">تبدیل NLM 3.0 به 2.3 </message>
+	<message key="plugins.metadata.nlm30.nlm30ToNlm23Xml.description">تبدیل NLM 3.0 به 2.3 </message>
+	<!-- Plain text reference list output -->
+	<message key="plugins.metadata.nlm30.refList.displayName">تولید لیست ارجاعات به فرمت متن ساده</message>
+	<message key="plugins.metadata.nlm30.refList.description">تولید لیست ارجاعات به فرمت متن ساده از ارجاعات مقالات ثبت شده.</message>
+</locale>

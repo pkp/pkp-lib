@@ -279,24 +279,6 @@ class PKPTemplateManager extends Smarty {
 					)
 				);
 			}
-
-			// Register Navigation Menus
-			if (Config::getVar('general', 'installed')) {
-				if ($currentContext) {
-					$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
-					$navigationMenus = $navigationMenuDao->getByContextId($currentContext->getId(), null);
-					$navigationMenusArray = $navigationMenus->toAssociativeArray();
-
-					foreach ($navigationMenusArray as $navigationMenu) {
-						import('classes.core.ServicesContainer');
-						ServicesContainer::instance()
-							->get('navigationMenu')
-							->getMenuTree($navigationMenu);
-					}
-
-					$this->assign('navigationMenus', $navigationMenusArray);
-				}
-			}
 		}
 
 		// Register custom functions

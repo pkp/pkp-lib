@@ -425,7 +425,9 @@
 	<!-- Review Round Status Keys -->
 	<message key="editor.submission.roundStatus.revisionsRequested">Revisions have been requested.</message>
 	<message key="editor.submission.roundStatus.revisionsSubmitted">Revisions have been submitted.</message>
-	<message key="editor.submission.roundStatus.resubmitted">Submission has been resubmitted for review.</message>
+	<message key="editor.submission.roundStatus.submissionRequested">New version of submission has been requested.</message>
+	<message key="editor.submission.roundStatus.submissionResubmitted">Submission has been resubmitted for review.</message>
+
 	<message key="editor.submission.roundStatus.sentToExternal">Sent to external review.</message>
 	<message key="editor.submission.roundStatus.accepted">Submission accepted.</message>
 	<message key="editor.submission.roundStatus.declined">Submission declined.</message>

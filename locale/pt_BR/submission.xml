@@ -204,9 +204,9 @@
 	<message key="submission.history.submissionEventLog">Log de eventos</message>
 	<message key="submission.history.submissionNotes">Notas sobre a submissão</message>
 	<message key="submission.history.viewLog">Ver log</message>
-        <message key="submission.howToCite">Como Citar</message>
+	<message key="submission.howToCite">Como Citar</message>
 	<message key="submission.howToCite.citationFormats">Mais Formatos de Citação</message>
-        <message key="submission.howToCite.downloadCitation">Baixar Citação</message>
+	<message key="submission.howToCite.downloadCitation">Baixar Citação</message>
 	<message key="submission.indexing">Indexação</message>
 	<message key="submission.initiated">Iniciado</message>
 	<message key="submission.lastModified">Última alteração</message>
@@ -403,8 +403,8 @@
 	<message key="notification.uploadedResponse">Resposta enviada.</message>
 	<message key="notification.type.editorAssignment">Um editor deve ser designado antes de iniciar a avaliação. Inclua um editor usando o link de Participantes acima.</message>
 	<message key="grid.reviewAttachments.title">Anexos do avaliador</message>
-	<message key="log.review.reviewerAssigned">{$reviewerName} designado para avaliar a submissão {$submissionId} na rodada de avaliação {$round}.</message>        
-        <message key="submission.review.status.awaitingResponse">Esperando uma resposta do avaliador.</message>
+	<message key="log.review.reviewerAssigned">{$reviewerName} designado para avaliar a submissão {$submissionId} na rodada de avaliação {$round}.</message>	
+	<message key="submission.review.status.awaitingResponse">Esperando uma resposta do avaliador.</message>
 	<message key="submission.review.status.declined">O avaliador recusou a proposta de avaliação.</message>
 	<message key="submission.review.status.responseOverdue">O avaliador perdeu o prazo de resposta.</message>
 	<message key="submission.review.status.reviewOverdue">O avaliador perdeu o prazo de avaliação.</message>
@@ -412,8 +412,8 @@
 	<message key="submission.review.status.received">O avaliador enviou seu parecer.</message>
 	<message key="submission.review.status.complete">Esta avaliação está completa.</message>
 	<message key="submission.review.status.thanked">Esta avaliação está completa e os agradecimentos enviados ao avaliador.</message>
-        
-        
+	
+	
 	<message key="grid.action.itemWorkflow">Acessar o fluxograma de trabalho desta submissão</message>
 	<message key="notification.type.editorAssignmentProduction">Um editor de leiaute deve ser designado antes de iniciar o processo de editoração. Inclua um editor de leiaute usando o link de Participantes acima.</message>
 	<message key="notification.type.editorAssignmentEditing">Um editor de leiaute deve ser designado antes de iniciar o processo de editoração. Inclua um editor de leiaute usando o link de Participantes acima. </message>
@@ -452,9 +452,9 @@
 	<message key="submission.submit.selectPrincipalContact">Contato principal para correspondência editorial.</message>
 	<message key="submission.submit.contributorRole">Papel do colaborador</message>
 	<message key="submission.submit.addAuthor">Adicionar Colaborador</message>
-        
+	
       
-        
+	
 
 		<!-- Workflow keys -->
 	<message key="workflow.review.internalReview">Avaliação interna</message>
@@ -494,7 +494,7 @@
 	<message key="submission.upload.productionReady">Enviar uma Versão Final</message>
 	<message key="submission.upload.noAvailableReviewFiles">Não existem arquivos a serem revisados por você.</message>
 	<message key="editor.submission.roundStatus.revisionsRequested">Avaliações foram solicitadas.</message>
-        <message key="editor.submission.roundStatus.reviewOverdue">Uma avaliação está atrasada.</message>
+	<message key="editor.submission.roundStatus.reviewOverdue">Uma avaliação está atrasada.</message>
 	<message key="editor.submission.roundStatus.resubmitted">A submissão foi enviada para avaliação.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">Enviada para avaliação externa.</message>
 	<message key="editor.submission.roundStatus.accepted">Submissão aceita.</message>
@@ -632,27 +632,27 @@
 	<message key="notification.type.copyeditorRequest">Você foi convidado a avaliar a versão de texto revisado para "{$title}".</message>
 	<message key="notification.type.layouteditorRequest">Você foi solicitado a avaliar o layout para "{$title}".</message>
 	<message key="notification.type.indexRequest">Você foi solicitado a catalogar o documento "{$title}".</message>
-        <message key="submission.authorBiography">Biografia do Autor</message>
-        <message key="submission.authorWithAffiliation">{$name}, {$affiliation}</message>
-        <message key="submission.submit.submissionLocaleDescription">Arquivos da Submissão</message>
-        <message key="editor.submission.decision.accept">Aceitar Submissão</message>
-        <message key="editor.submission.decision.skipReview">Aceitar e Enviar para Edição de Texto</message>
-        <message key="editor.submission.decision.noDecisionsAvailable">Designe um editor para habilitar as decisões editoriais nesse estágio.</message>
-        
-        
-        <!--  editor recommendations -->
-        <message key="editor.submission.makeRecommendation">Fazer Recomendação</message>
-        <message key="editor.submission.changeRecommendation">Mudar Recomendação</message>
-        <message key="editor.submission.recommendation.display">Recomendação: {$recommendation}</message>
+	<message key="submission.authorBiography">Biografia do Autor</message>
+	<message key="submission.authorWithAffiliation">{$name}, {$affiliation}</message>
+	<message key="submission.submit.submissionLocaleDescription">Arquivos da Submissão</message>
+	<message key="editor.submission.decision.accept">Aceitar Submissão</message>
+	<message key="editor.submission.decision.skipReview">Aceitar e Enviar para Edição de Texto</message>
+	<message key="editor.submission.decision.noDecisionsAvailable">Designe um editor para habilitar as decisões editoriais nesse estágio.</message>
+	
+	
+	<!--  editor recommendations -->
+	<message key="editor.submission.makeRecommendation">Fazer Recomendação</message>
+	<message key="editor.submission.changeRecommendation">Mudar Recomendação</message>
+	<message key="editor.submission.recommendation.display">Recomendação: {$recommendation}</message>
 	<message key="editor.submission.allRecommendations.display">Recomendações: {$recommendations}</message>
 	<message key="editor.submission.recommendation">Recomendações</message>
 	<message key="editor.submission.recommendation.description">Recomendar uma decisão editorial para essa submissão.</message>
 	<message key="editor.submission.recordedRecommendations">Recomendações Registradas</message>
-        <message key="editor.submission.decision.nextButton">Próximo: Selecionar Arquivos para {$stageName}</message>
+	<message key="editor.submission.decision.nextButton">Próximo: Selecionar Arquivos para {$stageName}</message>
 	<message key="editor.submission.decision.selectFiles">Selecione os arquivos que gostaria de encaminhar para o estágio de {$stageName}.</message>
 	<message key="editor.submission.decision.previousAuthorNotification">Anterior: Notificação do Autor</message>
-        
-        <!-- Submission Lists -->
+	
+	<!-- Submission Lists -->
 	<message key="submission.list.infoCenter">Log de Atividades e Anotações</message>
 	<message key="submission.list.count">{$count} submissões</message>
 	<message key="submission.list.itemsOfTotal">{$count} de {$total} submissões</message>

@@ -88,6 +88,10 @@ class PKPNavigationMenuService {
 				'description' => __('manager.navigationMenus.contact.description'),
 				'conditionalWarning' => __('manager.navigationMenus.contact.conditionalWarning'),
 			),
+			NMI_TYPE_SEARCH => array(
+				'title' => __('common.search'),
+				'description' => __('manager.navigationMenus.search.description'),
+			),
 		);
 
 		\HookRegistry::call('NavigationMenus::itemTypes', array(&$types));
@@ -139,6 +143,9 @@ class PKPNavigationMenuService {
 				break;
 			case NMI_TYPE_ADMINISTRATION:
 				$navigationMenuItem->setIsDisplayed($isUserLoggedIn && ($currentUser->hasRole(array(ROLE_ID_SITE_ADMIN), $contextId) || $currentUser->hasRole(array(ROLE_ID_SITE_ADMIN), CONTEXT_SITE)));
+				break;
+			case NMI_TYPE_SEARCH:
+				$navigationMenuItem->setIsDisplayed($context);
 				break;
 		}
 
@@ -303,6 +310,16 @@ class PKPNavigationMenuService {
 							$navigationMenuItem->getPath()
 						));
 					}
+					break;
+				case NMI_TYPE_SEARCH:
+					$navigationMenuItem->setUrl($dispatcher->url(
+						$request,
+						ROUTE_PAGE,
+						null,
+						'search',
+						'search',
+						null
+					));
 					break;
 			}
 		}

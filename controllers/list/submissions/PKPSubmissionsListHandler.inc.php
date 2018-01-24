@@ -139,6 +139,7 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 			'yes' => __('common.yes'),
 			'no' => __('common.no'),
 			'deleting' => __('common.deleting'),
+			'currentStage' => __('submission.list.currentStage'),
 			'confirmDelete' => __('submission.list.confirmDelete'),
 			'responseDue' => __('submission.list.responseDue'),
 			'reviewDue' => __('submission.list.reviewDue'),
@@ -155,6 +156,8 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 			'discussions' => __('submission.list.discussions'),
 			'incompleteSubmissionNotice' => __('submission.list.incompleteSubmissionNotice'),
 			'selectAllLabel' => __('common.selectAll'),
+			'viewMore' => __('submission.list.viewMore'),
+			'viewLess' => __('submission.list.viewLess'),
 		);
 
 		// Attach a CSRF token for post requests

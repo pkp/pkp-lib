@@ -15,7 +15,7 @@
 		type CDATA #REQUIRED
 		site CDATA #IMPLIED>
 
-<!ELEMENT navigationMenus (navigationMenu+)>
+<!ELEMENT navigationMenus (navigationMenu*, navigationMenuItem*)>
 <!ELEMENT navigationMenu (navigationMenuItem*)>
 	<!ATTLIST navigationMenu
 		title CDATA #REQUIRED

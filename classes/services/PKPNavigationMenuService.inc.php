@@ -365,11 +365,8 @@ class PKPNavigationMenuService {
 	 * Get a tree of NavigationMenuItems assigned to this menu
 	 * @param $navigationMenu \NavigationMenu
 	 *
-	 * @return array Hierarchical array of menu items
 	 */
 	public function getMenuTree(&$navigationMenu) {
-		//\HookRegistry::register('LoadHandler', array($this, '_callbackHandleCustomNavigationMenuItems'));
-
 		$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
 		$cache = $navigationMenuDao->getCache($navigationMenu->getId());
 		if ($cache->cache) {
@@ -499,7 +496,7 @@ class PKPNavigationMenuService {
 	 */
 	private function _hasNMTreeNMIAssignmentWithChildOfNMIType($navigationMenu, $navigationMenuItem, $nmiType, $isDisplayed = true) {
 		foreach($navigationMenu->menuTree as $nmiAssignment) {
-			$nmi = $nmiAssignment->getMenuItem();
+				$nmi = $nmiAssignment->getMenuItem();
 			if(isset($nmi) && $nmi->getId() == $navigationMenuItem->getId()) {
 				foreach($nmiAssignment->children as $childNmiAssignment){
 					$childNmi = $childNmiAssignment->getMenuItem();
@@ -517,6 +514,13 @@ class PKPNavigationMenuService {
 		return false;
 	}
 
+	/**
+	 * Callback to be registered from PKPTemplateManager for the LoadHandler hook.
+	 * Used by the Custom NMI to point their URL target to [context]/[path] 
+	 * @param mixed $hookName
+	 * @param mixed $args
+	 * @return boolean true if the callback has handled the request. 
+	 */
 	public function _callbackHandleCustomNavigationMenuItems($hookName, $args) {
 		$request = \Application::getRequest();
 
@@ -526,7 +530,7 @@ class PKPNavigationMenuService {
 		// Construct a path to look for
 		$path = $page;
 		if ($op !== 'index') $path .= "/$op";
-		if ($ops = $request->getRequestedArgs()) $path .= '/' . implode('/', $ops);
+		if ($arguments = $request->getRequestedArgs()) $path .= '/' . implode('/', $arguments);
 
 		// Look for a static page with the given path
 		$navigationMenuItemDao = \DAORegistry::getDAO('NavigationMenuItemDAO');
@@ -535,15 +539,14 @@ class PKPNavigationMenuService {
 		$contextId = $context?$context->getId():CONTEXT_ID_NONE;
 		$customNMI = $navigationMenuItemDao->getByPath($contextId, $path);
 
-
-		// Check if this is a request for a static page or preview.
+		// Check if a custom NMI with the requested path existes 
 		if ($customNMI) {
 			// Trick the handler into dealing with it normally
 			$page = 'pages';
 			$op = 'view';
 
 
-			// It is -- attach the static pages handler.
+			// It is -- attach the custom NMI handler.
 			define('HANDLER_CLASS', 'NavigationMenuItemHandler');
 			import('lib.pkp.pages.navigationMenu.NavigationMenuItemHandler');
 
@@ -551,6 +554,7 @@ class PKPNavigationMenuService {
 
 			return true;
 		}
+
 		return false;
 	}
 }

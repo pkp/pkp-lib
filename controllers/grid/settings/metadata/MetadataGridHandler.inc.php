@@ -95,7 +95,7 @@ class MetadataGridHandler extends GridHandler {
 			'languages' => array('name' => __('rt.metadata.dublinCore.language')),
 			'rights' => array('name' => __('rt.metadata.dublinCore.rights')),
 			'source' => array('name' => __('rt.metadata.dublinCore.source')),
-			'subject' => array('name' => __('rt.metadata.dublinCore.subject')),
+			'subjects' => array('name' => __('rt.metadata.dublinCore.subject')),
 			'type' => array('name' => __('rt.metadata.dublinCore.type')),
 			'disciplines' => array('name' => __('rt.metadata.pkp.discipline')),
 			'keywords' => array('name' => __('rt.metadata.pkp.subject')),

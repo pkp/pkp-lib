@@ -377,7 +377,7 @@
 	<message key="submission.submit.contributorRole">Contributor's role</message>
 	<message key="submission.submit.addAuthor">Add Contributor</message>
 	<message key="submission.submit.form.languagesRequired">Please enter a language.</message>
-	<message key="submission.submit.form.subjectRequired">Please enter a subject.</message>
+	<message key="submission.submit.form.subjectsRequired">Please enter a subject.</message>
 	<message key="submission.submit.form.disciplinesRequired">Please enter a discipline.</message>
 	<message key="submission.submit.form.keywordsRequired">Please enter a keyword.</message>
 	<message key="submission.submit.form.agenciesRequired">Please enter a supporting agency.</message>

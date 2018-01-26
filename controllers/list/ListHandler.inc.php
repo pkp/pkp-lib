@@ -19,9 +19,6 @@ abstract class ListHandler extends PKPHandler {
 	/** @var bool Whether to pre-populate the UI component with list data or wait until the page has loaded to request the data. */
 	public $_lazyLoad = false;
 
-	/** @var array Endpoints which can be requested by a URL. Defined by ::setRoutes() */
-	public $_routes = array();
-
 	/**
 	 * Constructor
 	 */

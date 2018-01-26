@@ -215,7 +215,7 @@ class NavigationMenusGridHandler extends GridHandler {
 		$context = $request->getContext();
 
 		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
-		$navigationMenu = $navigationMenuDao->getById($navigationMenuId, $context->getId());
+		$navigationMenu = $navigationMenuDao->getById($navigationMenuId, $context?$context->getId():CONTEXT_SITE);
 		if ($navigationMenu && $request->checkCSRF()) {
 			$navigationMenuDao->deleteObject($navigationMenu);
 

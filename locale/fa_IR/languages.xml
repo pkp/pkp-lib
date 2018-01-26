@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE languages SYSTEM "../../dtd/languages.dtd">
+<!--
+  * locale/fa_IR/languages.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localized list of common languages. Based on ISO 639-1:2002.
+  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Farsi_(fa_IR)
+  -->
+<languages>
+	<language code="ab" name="آبخازی"/>
+	<language code="aa" name="عفار"/>
+	<language code="af" name="آفریکانس"/>
+	<language code="ak" name="اکانی"/>
+	<language code="sq" name="آلبانیایی"/>
+	<language code="am" name="امهری"/>
+	<language code="ar" name="عربی"/>
+	<language code="an" name="آراگونی"/>
+	<language code="hy" name="ارمنی"/>
+	<language code="as" name="آسامی"/>
+	<language code="av" name="آواری"/>
+	<language code="ae" name="اوستایی"/>
+	<language code="ay" name="آیمارا"/>
+	<language code="az" name="آذری"/>
+	<language code="bm" name="بامبارایی"/>
+	<language code="ba" name="باشقیری"/>
+	<language code="eu" name="باسکی"/>
+	<language code="be" name="بلاروسی"/>
+	<language code="bn" name="بنگالی"/>
+	<language code="bh" name="بیهاری"/>
+	<language code="bi" name="بیسلاما"/>
+	<language code="bs" name="بوسنیایی"/>
+	<language code="br" name="برتون"/>
+	<language code="bg" name="بلغاری"/>
+	<language code="my" name="برمه‌ای"/>
+	<language code="ca" name="کاتالان "/>
+	<language code="ch" name="چامورو"/>
+	<language code="ce" name="چچنی"/>
+	<language code="ny" name="چوایی	"/>
+	<language code="zh" name="‌های چینی"/>
+	<language code="cv" name="چوواشی"/>
+	<language code="kw" name="کورنی"/>
+	<language code="co" name="کرسی"/>
+	<language code="cr" name="کری"/>
+	<language code="hr" name="کرواتی"/>
+	<language code="cs" name="چکی"/>
+	<language code="da" name="دانمارکی"/>
+	<language code="dv" name="دیوهی"/>
+	<language code="nl" name="هلندی"/>
+	<language code="dz" name="دزونگخا"/>
+	<language code="en" name="انگلیسی"/>
+	<language code="eo" name="اسپرانتو"/>
+	<language code="et" name="استونیایی"/>
+	<language code="ee" name="اوه ای"/>
+	<language code="fo" name="فاروئی"/>
+	<language code="fj" name="فیجیایی"/>
+	<language code="fi" name="فنلاندی"/>
+	<language code="fr" name="فرانسوی"/>
+	<language code="ff" name="فولا"/>
+	<language code="gl" name="گالیسی"/>
+	<language code="ka" name="گرجی"/>
+	<language code="de" name="آلمانی"/>
+	<language code="el" name="یونانی"/>
+	<language code="gn" name="گوارانی"/>
+	<language code="gu" name="گجراتی"/>
+	<language code="ht" name="کریول آییسینی"/>
+	<language code="ha" name="هوسه"/>
+	<language code="he" name="عبری "/>
+	<language code="hz" name="هررو"/>
+	<language code="hi" name="هندی"/>
+	<language code="ho" name="هیری موتو"/>
+	<language code="hu" name="مجاری"/>
+	<language code="ia" name="اینترلینگوا"/>
+	<language code="id" name="اندونزیایی"/>
+	<language code="ie" name="غربی"/>
+	<language code="ga" name="ایرلندی"/>
+	<language code="ig" name="ایگبو"/>
+	<language code="ik" name="اینوپیات"/>
+	<language code="io" name="ایدو"/>
+	<language code="is" name="ایسلندی"/>
+	<language code="it" name="ایتالیایی"/>
+	<language code="iu" name="اینوکتیتوت"/>
+	<language code="ja" name="ژاپنی"/>
+	<language code="jv" name="جاوه‌ای"/>
+	<language code="kl" name="گرینلندی"/>
+	<language code="kn" name="کانارا"/>
+	<language code="kr" name="کنوری"/>
+	<language code="ks" name="کشمیری"/>
+	<language code="kk" name="قزاقی"/>
+	<language code="km" name="خمر"/>
+	<language code="ki" name="کیکویو"/>
+	<language code="rw" name="رواندایی"/>
+	<language code="ky" name="قرقیزی"/>
+	<language code="kv" name="کومی"/>
+	<language code="kg" name="کونگوئی"/>
+	<language code="ko" name="کره‌ای"/>
+	<language code="ku" name="کردی"/>
+	<language code="kj" name="کوانیاما"/>
+	<language code="la" name="لاتین"/>
+	<language code="lb" name="لوکزامبورگی"/>
+	<language code="lg" name="لوگاندا"/>
+	<language code="li" name="لیمبورخی"/>
+	<language code="ln" name="لینگالایی"/>
+	<language code="lo" name="لائو"/>
+	<language code="lt" name="لیتوانیایی"/>
+	<language code="lu" name="لوبا-کاسای"/>
+	<language code="lv" name="لتونیایی"/>
+	<language code="gv" name="مانکس"/>
+	<language code="mk" name="مقدونی"/>
+	<language code="mg" name="مالاگاسی"/>
+	<language code="ms" name="مالایی"/>
+	<language code="ml" name="مالایالم"/>
+	<language code="mt" name="مالتی"/>
+	<language code="mi" name="مائوری"/>
+	<language code="mr" name="مرآتی"/>
+	<language code="mh" name="مارشالی"/>
+	<language code="mn" name="مغولی"/>
+	<language code="na" name="نائورویی"/>
+	<language code="nv" name="ناواهو"/>
+	<language code="nb" name="بوکمال"/>
+	<language code="nd" name="اندبل شمالی"/>
+	<language code="ne" name="نپالی"/>
+	<language code="ng" name="اندونگا"/>
+	<language code="nn" name="نروژی نو"/>
+	<language code="no" name="نروژی"/>
+	<language code="ii" name="نوسو"/>
+	<language code="nr" name="اندبل جنوبی"/>
+	<language code="oc" name="اکسیتان"/>
+	<language code="oj" name="اجیبو"/>
+	<language code="cu" name="اسلاوی کلیسایی باستان"/>
+	<language code="om" name="اورومو"/>
+	<language code="or" name="اوریه"/>
+	<language code="os" name="آسی"/>
+	<language code="pa" name="پنجابی"/>
+	<language code="pi" name="پالی"/>
+	<language code="fa" name="فارسی"/>
+	<language code="pl" name="لهستانی"/>
+	<language code="ps" name="پشتو"/>
+	<language code="pt" name="پرتغالی"/>
+	<language code="qu" name="کچوا"/>
+	<language code="rm" name="رومانش"/>
+	<language code="rn" name="روندی"/>
+	<language code="ro" name="رومانیایی"/>
+	<language code="ru" name="روسی"/>
+	<language code="sa" name="سانسکریت"/>
+	<language code="sc" name="ساردنیایی"/>
+	<language code="sd" name="سندی"/>
+	<language code="se" name="سامی شمالی"/>
+	<language code="sm" name="ساموآیی"/>
+	<language code="sg" name="سانگو"/>
+	<language code="sr" name="صربی"/>
+	<language code="gd" name="گیلیک اسکاتلندی"/>
+	<language code="sn" name="شونا"/>
+	<language code="si" name="سینهالی"/>
+	<language code="sk" name="اسلواکیایی"/>
+	<language code="sl" name="اسلونیایی"/>
+	<language code="so" name="سومالیایی"/>
+	<language code="st" name="سوتو"/>
+	<language code="es" name="اسپانیایی"/>
+	<language code="su" name="سوندایی"/>
+	<language code="sw" name="سواحلی"/>
+	<language code="ss" name="سوازی"/>
+	<language code="sv" name="سوئدی"/>
+	<language code="ta" name="تامیلی"/>
+	<language code="te" name="تلگو"/>
+	<language code="tg" name="فارسی تاجیکی"/>
+	<language code="th" name="تای"/>
+	<language code="ti" name="تیگرینیا"/>
+	<language code="bo" name="تبتی"/>
+	<language code="tk" name="ترکمنی"/>
+	<language code="tl" name="تاگالوگ"/>
+	<language code="tn" name="تسوانا"/>
+	<language code="to" name="تونگایی "/>
+	<language code="tr" name="ترکی استانبولی"/>
+	<language code="ts" name="شنگانی"/>
+	<language code="tt" name="تاتاری"/>
+	<language code="tw" name="اکانی"/>
+	<language code="ty" name="تاهیتیایی"/>
+	<language code="ug" name="اویغوری"/>
+	<language code="uk" name="اوکراینی"/>
+	<language code="ur" name="اردو"/>
+	<language code="uz" name="ازبکی"/>
+	<language code="ve" name="وندا"/>
+	<language code="vi" name="ویتنامی"/>
+	<language code="vo" name="ولاپوک"/>
+	<language code="wa" name="والونی"/>
+	<language code="cy" name="ویلزی"/>
+	<language code="wo" name="ولوف"/>
+	<language code="fy" name="فریسکی"/>
+	<language code="xh" name="خوسایی"/>
+	<language code="yi" name="ییدیش"/>
+	<language code="yo" name="یوروبایی"/>
+	<language code="za" name="جوانگ"/>
+	<language code="zu" name="زولو"/>
+</languages>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+<!--
+  * plugins/generic/acron/locale/fa_IR/locale.xml
+  *
+  * Copyright (c) 2013-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Farsi_(fa_IR)
+  -->
+<locale name="fa_IR" full_name="فارسی">
+	<message key="plugins.generic.acron.name">افزونه Acron</message>
+	<message key="plugins.generic.acron.description">این افزونه تلاش داد تا وابستگی سامانه به ابزارهای انجام فعالیت‌های زمان‌بندی شده مانند "cron" را کاهش دهد.</message>
+	<message key="plugins.generic.acron.enabled">افزونه Acron فعال شد.</message>
+	<message key="plugins.generic.acron.disabled">افزونه Acron غیرفعال شد.</message>
+	<message key="plugins.generic.acron.reloadedCronTab">تب Cron با موفقیت بارگذاری شد</message>
+	<message key="plugins.generic.acron.reload">بارگذاری وظایف زمان‌بندی شده</message>
+	<message key="plugins.generic.acron.tasksReloaded">وظایف زمان‌بندی شده بارگذاری شد.</message>
+</locale>

@@ -7,7 +7,7 @@
   *
   * localized list of BIC 2.1 Subject Qualifiers
   * Reference:  http://www.bic.org.uk/7/BIC-Standard-Subject-Categories
-  * Translated By: Alireza Sokhandan
+  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Farsi_(fa_IR)
   -->
 <qualifiers>
 	<qualifier code="1D" text="اروپا" />

@@ -13,7 +13,7 @@
   * the ISO 3166 files of Debian's iso-codes package
   * (https://packages.debian.org/sid/all/iso-codes) using the
   * tools/poToCountries.php tool.
-  * Translated By: Alireza Sokhandan
+  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Farsi_(fa_IR)
   -->
 
 <countries>

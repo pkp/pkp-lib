@@ -21,29 +21,20 @@ class SelectReviewerListHandler extends SelectListHandler {
 		'roleIds' => array(ROLE_ID_REVIEWER),
 	);
 
-	/**
-	 * API endpoint path
-	 *
-	 * Used to generate URLs to API endpoints for this component.
-	 *
-	 * @param string
-	 */
+	/** @var string Used to generate URLs to API endpoints for this component. */
 	public $_apiPath = 'users/reviewers';
 
 	/**
-	 * Retrieve the configuration data to be used when initializing this
-	 * handler on the frontend
-	 *
-	 * @return array Configuration data
+	 * @copydoc SelectListHandler::getConfig()
 	 */
 	public function getConfig() {
 
-		$data = parent::getConfig();
+		$config = parent::getConfig();
 
-		$data['apiPath'] = $this->_apiPath;
-		$data['collection'] = $this->_items;
+		$config['apiPath'] = $this->_apiPath;
+		$config['itemsMax'] = $this->getItemsMax();
 
-		$data['i18n'] = array_merge($data['i18n'], array(
+		$config['i18n'] = array_merge($config['i18n'], array(
 			'search' => __('common.search'),
 			'clearSearch' => __('common.clearSearch'),
 			'itemsOfTotal' => __('reviewer.list.itemsOfTotal'),
@@ -70,31 +61,22 @@ class SelectReviewerListHandler extends SelectListHandler {
 		));
 
 		if ($this->_notice) {
-			$data['i18n']['notice'] = __($this->_notice);
+			$config['i18n']['notice'] = __($this->_notice);
 		}
 
-		return $data;
+		return $config;
 	}
 
 	/**
-	 * @copydoc ListPanel::getItems()
+	 * @copydoc SelectListHandler::getItems()
 	 */
 	public function getItems() {
-
 		$request = Application::getRequest();
 		$context = $request->getContext();
 		$contextId = $context ? $context->getId() : 0;
 
-		$params = array_merge(
-			array(
-				'count' => $this->_count,
-				'offset' => 0,
-			),
-			$this->_getParams
-		);
-
 		$userService = ServicesContainer::instance()->get('user');
-		$reviewers = $userService->getReviewers($context->getId(), $params);
+		$reviewers = $userService->getReviewers($context->getId(), $this->_getItemsParams());
 		$items = array();
 		if (!empty($reviewers)) {
 			$propertyArgs = array(
@@ -105,9 +87,32 @@ class SelectReviewerListHandler extends SelectListHandler {
 			}
 		}
 
-		return array(
-			'items' => $items,
-			'maxItems' => $userService->getReviewersMaxCount($context->getId(), $params),
+		return $items;
+	}
+
+	/**
+	 * @copydoc SelectListHandler::getItemsMax()
+	 */
+	public function getItemsMax() {
+		$request = Application::getRequest();
+		$context = $request->getContext();
+		$contextId = $context ? $context->getId() : 0;
+
+		return ServicesContainer::instance()
+			->get('user')
+			->getReviewersMaxCount($context->getId(), $this->_getItemsParams());
+	}
+
+	/**
+	 * @copydoc SelectListHandler::_getItemsParams()
+	 */
+	protected function _getItemsParams() {
+		return array_merge(
+			array(
+				'count' => $this->_count,
+				'offset' => 0,
+			),
+			$this->_getParams
 		);
 	}
 }

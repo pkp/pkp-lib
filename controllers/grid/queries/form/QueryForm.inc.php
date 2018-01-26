@@ -197,7 +197,7 @@ class QueryForm extends Form {
 		));
 
 		// Queryies only support ASSOC_TYPE_SUBMISSION so far
-		if ($query->getAssocType() === ASSOC_TYPE_SUBMISSION) {
+		if ($query->getAssocType() == ASSOC_TYPE_SUBMISSION) {
 
 			$queryDao = DAORegistry::getDAO('QueryDAO');
 			$selectedParticipants = $query->getId() ? $queryDao->getParticipantIds($query->getId()) : array();
@@ -239,7 +239,7 @@ class QueryForm extends Form {
 			$queryParticipantsListData = $queryParticipantsList->getConfig();
 
 			$templateMgr->assign(array(
-				'hasParticipants' => count($queryParticipantsListData['collection']['items']),
+				'hasParticipants' => count($queryParticipantsListData['items']),
 				'queryParticipantsListData' => json_encode($queryParticipantsListData),
 			));
 		}

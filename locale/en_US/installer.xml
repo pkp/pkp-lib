@@ -80,4 +80,5 @@
 	<message key="installer.configureXSLMessage"><![CDATA[<p>Your PHP installation does not have the XSL module enabled. Either enable it, or configure the xslt_command parameter in your config.inc.php file.</p>]]></message>
 	<message key="installer.beacon">Beacon</message>
 	<message key="installer.beacon.enable">Provide a unique site ID and OAI base URL to PKP for statistics and security alert purposes only.</message>
+	<message key="installer.unsupportedPhpError">Your server's PHP version is not supported by this software. Double-check the installation requirements in docs/README.</message>
 </locale>

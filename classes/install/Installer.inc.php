@@ -763,6 +763,7 @@ class Installer {
 
 	/**
 	 * For 3.1.0 upgrade.  DefaultMenus Defaults
+	 * @return boolean Success/failure
 	 */
 	function installDefaultNavigationMenus() {
 		$contextDao = Application::getContextDAO();
@@ -776,6 +777,17 @@ class Installer {
 		$navigationMenuDao->installSettings(CONTEXT_ID_NONE, 'registry/navigationMenus.xml');
 
 		return true;
+	}
+
+	/**
+	 * Check that the environment meets minimum PHP requirements.
+	 * @return boolean Success/failure
+	 */
+	function checkPhpVersion() {
+		if (version_compare(PHP_REQUIRED_VERSION, PHP_VERSION) != 1) return true;
+
+		$this->setError(INSTALLER_ERROR_GENERAL, 'installer.unsupportedPhpError');
+		return false;
 	}
 }
 

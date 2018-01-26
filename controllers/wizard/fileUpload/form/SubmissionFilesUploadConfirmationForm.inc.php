@@ -72,10 +72,11 @@ class SubmissionFilesUploadConfirmationForm extends SubmissionFilesUploadBaseFor
 		$submissionId = $this->getData('submissionId');
 		$fileStage = $this->getData('fileStage');
 		$newFileLatestRevision = $submissionFileDao->getLatestRevision($uploadedFileId, $fileStage, $submissionId);
+		// detach the latest attached revision, because the file returned here will then be attached
+		import('controllers.api.file.ManageFileApiHandler');
+		$mangeFileApiHandler = new ManageFileApiHandler();
+		$mangeFileApiHandler->detachEntities($newFileLatestRevision, $newFileLatestRevision->getSubmissionId(), $this->getStageId());
 		if ($revisedFileId) {
-			import('controllers.api.file.ManageFileApiHandler');
-			$mangeFileApiHandler = new ManageFileApiHandler();
-			$mangeFileApiHandler->detachEntities($newFileLatestRevision, $newFileLatestRevision->getSubmissionId(), $this->getStageId());
 			// The file was revised; update revision information
 			return $submissionFileDao->setAsLatestRevision($revisedFileId, $uploadedFileId, $submissionId, $fileStage);
 		} else {

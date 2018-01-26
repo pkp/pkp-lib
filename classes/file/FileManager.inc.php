@@ -228,7 +228,8 @@ class FileManager {
 	 * Outputs HTTP headers and file content for download
 	 * @param $filePath string the location of the file to be sent
 	 * @param $mediaType string the MIME type of the file, optional
-	 * @param $inline print file as inline instead of attachment, optional
+	 * @param $inline boolean print file as inline instead of attachment, optional
+	 * @param $fileName string Optional filename to use on the client side
 	 * @return boolean
 	 */
 	function downloadFile($filePath, $mediaType = null, $inline = false, $fileName = null) {

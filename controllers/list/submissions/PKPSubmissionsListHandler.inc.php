@@ -18,33 +18,17 @@ import('classes.core.ServicesContainer');
 
 abstract class PKPSubmissionsListHandler extends ListHandler {
 
-	/**
-	 * Count of items to retrieve in initial page/request
-	 *
-	 * @param int
-	 */
+	/** @var int Count of items to retrieve in initial page/request */
 	public $_count = 20;
 
-	/**
-	 * Query parameters to pass with every GET request
-	 *
-	 * @param array
-	 */
+	/** @var array Query parameters to pass with every GET request */
 	public $_getParams = array();
 
-	/**
-	 * API endpoint path
-	 *
-	 * Used to generate URLs to API endpoints for this component.
-	 *
-	 * @param string
-	 */
+	/** @var string Used to generate URLs to API endpoints for this component. */
 	public $_apiPath = '_submissions';
 
 	/**
-	 * Initialize the handler with config parameters
-	 *
-	 * @param array $args Configuration params
+	 * @copydoc ListHandler::init()
 	 */
 	public function init( $args = array() ) {
 		parent::init($args);
@@ -54,10 +38,7 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 	}
 
 	/**
-	 * Retrieve the configuration data to be used when initializing this
-	 * handler on the frontend
-	 *
-	 * @return array Configuration data
+	 * @copydoc ListHandler::getConfig()
 	 */
 	public function getConfig() {
 
@@ -68,7 +49,8 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 		if ($this->_lazyLoad) {
 			$config['lazyLoad'] = true;
 		} else {
-			$config['collection'] = $this->getItems();
+			$config['items'] = $this->getItems();
+			$config['itemsMax'] = $this->getItemsMax();
 		}
 
 		// URL to add a new submission
@@ -197,26 +179,15 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 	}
 
 	/**
-	 * Helper function to retrieve items
-	 *
-	 * @return array Items requested
+	 * @copydoc ListHandler::getItems()
 	 */
 	public function getItems() {
-
 		$request = Application::getRequest();
 		$context = $request->getContext();
 		$contextId = $context ? $context->getId() : 0;
 
-		$params = array_merge(
-			array(
-				'count' => $this->_count,
-				'offset' => 0,
-			),
-			$this->_getParams
-		);
-
 		$submissionService = ServicesContainer::instance()->get('submission');
-		$submissions = $submissionService->getSubmissions($context->getId(), $params);
+		$submissions = $submissionService->getSubmissions($context->getId(), $this->_getItemsParams());
 		$items = array();
 		if (!empty($submissions)) {
 			$propertyArgs = array(
@@ -227,9 +198,32 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 			}
 		}
 
-		return array(
-			'items' => $items,
-			'maxItems' => $submissionService->getSubmissionsMaxCount($context->getId(), $params),
+		return $items;
+	}
+
+	/**
+	 * @copydoc ListHandler::getItemsMax()
+	 */
+	public function getItemsMax() {
+		$request = Application::getRequest();
+		$context = $request->getContext();
+		$contextId = $context ? $context->getId() : 0;
+
+		return ServicesContainer::instance()
+			->get('submission')
+			->getSubmissionsMaxCount($context->getId(), $this->_getItemsParams());
+	}
+
+	/**
+	 * @copydoc ListHandler::_getItemsParams()
+	 */
+	protected function _getItemsParams() {
+		return array_merge(
+			array(
+				'count' => $this->_count,
+				'offset' => 0,
+			),
+			$this->_getParams
 		);
 	}
 

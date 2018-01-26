@@ -96,6 +96,7 @@
 	]]></message>
 	<message key="common.changesSaved">Ваши изменения были сохранены.</message>
 	<message key="common.chooseOne">Выберите одно</message>
+	<message key="common.clearSearch">Очистить фразу поиска</message>
 	<message key="common.close">Закрыть</message>
 	<message key="common.closePanel">Закрыть панель</message>
 	<message key="common.closeWindow">Закрыть окно</message>
@@ -153,6 +154,8 @@
 	<message key="common.fileSize">Размер файла</message>
 	<message key="common.fileType">Тип файла</message>
 	<message key="common.fileUploaderError">Загружается загрузчик файлов в систему. Если он не появляется, скорее всего его запуск не поддерживается этим браузером. Пожалуйста, свяжитесь с администратором сервера для решения проблемы.</message>
+	<message key="common.filter">Фильтры</message>
+	<message key="common.filterRemove">Сбросить фильтр: {$filterTitle}</message>
 	<message key="common.from">C</message>
 	<message key="common.until">По</message>
 	<message key="common.go">Выполнить</message>
@@ -290,7 +293,7 @@
 	<message key="debug.notes.missingLocaleKey">В языковом файле отсутствует ключ «{$key}».</message>
 	<message key="debug.notes">Примечания:</message>
 	<message key="defaultMetric.title">Метрика по умолчанию</message>
-	<message key="defaultMetric.availableMetrics">Доступные метрики</message>	
+	<message key="defaultMetric.availableMetrics">Доступные метрики</message>
 	<message key="editor.submissionReview.uploadFile">Загрузить файл рецензии</message>
 	<message key="editor.submissionReview.uploadAttachment">Загрузить файл</message>
 	<message key="email.addAttachment">Добавить вложение</message>

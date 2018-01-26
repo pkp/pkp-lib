@@ -85,6 +85,7 @@
 	]]></message>
 	<message key="common.changesSaved">Tekemäsi muutokset on tallennettu.</message>
 	<message key="common.chooseOne">Valitse yksi</message>
+	<message key="common.clearSearch">Tyhjennä hakulauseke</message>
 	<message key="common.close">Sulje</message>
 	<message key="common.closePanel">Sulje paneeli</message>
 	<message key="common.closeWindow">Sulje ikkuna</message>
@@ -140,6 +141,8 @@
 	<message key="common.fileSize">Tiedoston koko</message>
 	<message key="common.fileType">Tiedostotyyppi</message>
 	<message key="common.fileUploaderError">Järjestelmän tiedostojen latausohjelma käynnistyy. Jos se ei ilmesty näkyviin, on todennäköistä, että tämä selain ei tue sen ajoaikoja. Ota yhteys ylläpitoon.</message>
+	<message key="common.filter">Suodattimet</message>
+	<message key="common.filterRemove">Poista suodatin: {$filterTitle}</message>
 	<message key="common.go">Mene</message>
 	<message key="common.height">Korkeus</message>
 	<message key="common.homepageNavigationLabel">Etusivu</message>

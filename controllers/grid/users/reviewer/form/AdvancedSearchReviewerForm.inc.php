@@ -59,6 +59,15 @@ class AdvancedSearchReviewerForm extends ReviewerForm {
 
 		$this->setReviewerFormAction($advancedSearchAction);
 
+		import('lib.pkp.controllers.list.users.SelectReviewerListHandler');
+		$selectReviewerListHandler = new SelectReviewerListHandler(array(
+			'title' => 'editor.submission.findAndSelectReviewer',
+			'inputName' => 'reviewerId',
+			'inputType' => 'radio',
+		));
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign('selectReviewerListData', json_encode($selectReviewerListHandler->getConfig()));
+
 		// Only add actions to forms where user can operate.
 		if (array_intersect($this->getUserRoles(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR))) {
 			$actionArgs['selectionType'] = REVIEWER_SELECT_CREATE;

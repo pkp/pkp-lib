@@ -559,7 +559,6 @@
 	<message key="submission.authorWithAffiliation">{$name}, {$affiliation}</message>
 	<message key="submission.event.participantRemoved">"{$name}" ({$username}) poistettiin roolista {$userGroupName}.</message>
 	<message key="submission.howToCite.downloadCitation">Lataa sitaatti</message>
-	<message key="submission.list.clearSearch">Tyhjennä hakulauseke</message>
 	<message key="submission.list.reviewsCompleted">Arviot valmiina</message>
 	<message key="submission.list.revisionsSubmitted">Uusia versioita lähetetty</message>
 	<message key="submission.list.copyeditsSubmitted">Teknisesti toimitetut tiedostot lähetetty</message>
@@ -571,8 +570,6 @@
 	<message key="submission.list.itemOrdererUp">Siirrä {$itemTitle} ylös</message>
 	<message key="submission.list.confirmDelete">Poista käsikirjoitus?</message>
 	<message key="submission.list.viewSubmission">Katso käsikirjoitusta</message>
-	<message key="submission.list.filter">Suodattimet</message>
-	<message key="submission.list.filterRemove">Poista suodatin: {$filterTitle}</message>
 	<message key="submission.list.itemsOfTotal">{$count} / {$total} käsikirjoitusta</message>
 	<message key="submission.list.responseDue">Vastausaika umpeutunut</message>
 	<message key="submission.list.reviewDue">Arviointiaika umpeutunut</message>

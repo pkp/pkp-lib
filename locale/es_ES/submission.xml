@@ -495,8 +495,8 @@
 	<message key="editor.submission.roundStatus.reviewOverdue">Una revisión ha vencido.</message>
 	<message key="editor.submission.roundStatus.pendingRecommendations">Esperando recomendaciones de los editores/as.</message>
 	<message key="editor.submission.roundStatus.recommendationsReady">Enviada la nueva recomendación editorial.</message>
-	<message key="editor.submission.roundStatus.recommendationsCompleted">Recomendaciones recibidas y se requiere una Decisión.</message>	
-	
+	<message key="editor.submission.roundStatus.recommendationsCompleted">Recomendaciones recibidas y se requiere una Decisión.</message>
+
 	<!-- Participants -->
 	<message key="editor.submission.stageParticipants">Participantes</message>
 
@@ -648,7 +648,7 @@
 	<message key="editor.submission.decision.accept">Aceptar envío</message>
 	<message key="editor.submission.decision.skipReview">Aceptar y omitir la revisión</message>
 	<message key="editor.submission.decision.noDecisionsAvailable">Asigne un editor/a para habilitar las decisiones editoriales en esta fase.</message>
-	
+
 	<!-- Submission Lists -->
 	<message key="submission.list.infoCenter">Registro de Actividad &amp; Notas</message>
 	<message key="submission.list.count">{$count} envíos</message>
@@ -657,12 +657,9 @@
 	<message key="submission.list.reviewDue">Revisión esperada</message>
 	<message key="submission.list.confirmDelete">Borrar envío?</message>
 	<message key="submission.list.viewSubmission">Ver {$title}</message>
-	<message key="submission.list.filter">Filtros</message>
-	<message key="submission.list.filterRemove">Limpiar filtros: {$filterTitle}</message>
 	<message key="submission.list.itemOrdererUp">Incrementar posición de {$itemTitle}</message>
 	<message key="submission.list.itemOrdererDown">Decrementar posición de {$itemTitle}</message>
 	<message key="submission.list.viewSubmission">Ver Envío</message>
-	<message key="submission.list.clearSearch">Limpiar frase de búsqueda</message>
 	<message key="submission.list.reviewsCompleted">Revisiones asignadas completadas</message>
 	<message key="submission.list.revisionsSubmitted">Revisiones enviadas</message>
 	<message key="submission.list.copyeditsSubmitted">Archivos corregidos enviados</message>

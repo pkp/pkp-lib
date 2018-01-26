@@ -140,7 +140,7 @@ class UserService extends PKPBaseEntityPropertyService {
 		$countRange = new DBResultRange($args['count'], 1);
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$countResult = $userDao->retrieveRange($countQO->toSql(), $countQO->getBindings(), $countRange);
-		$countQueryResults = new DAOResultFactory($countResult, $userDao, '_returnUserFromRowWithReviewerStatsc');
+		$countQueryResults = new DAOResultFactory($countResult, $userDao, '_returnUserFromRowWithReviewerStats');
 
 		return (int) $countQueryResults->getCount();
 	}
@@ -361,7 +361,7 @@ class UserService extends PKPBaseEntityPropertyService {
 	public function getFullProperties($user, $args = null) {
 		$props = array (
 			'id','userName','fullName','firstName','middleName','lastName','initials','salutation',
-			'suffix','affiliaton','country','email','url','orcid','groups','interests','biography','signature','authId',
+			'suffix','affiliation','country','email','url','orcid','groups','interests','biography','signature','authId',
 			'authString','gender','phone','mailingAddress','billingAddress','gossip','disabled','disabledReason',
 			'dateRegistered','dateValidated','dateLastLogin','mustChangePassword',
 		);
@@ -381,7 +381,7 @@ class UserService extends PKPBaseEntityPropertyService {
 	 */
 	public function getReviewerSummaryProperties($user, $args = null) {
 		$props = array (
-			'id','_href','userName','fullName','affiliaton','groups','interests','gossip',
+			'id','_href','userName','fullName','affiliation','groups','interests','gossip',
 			'reviewsActive','reviewsCompleted','averageReviewCompletionDays',
 			'dateLastReviewAssignment','disabled',
 		);

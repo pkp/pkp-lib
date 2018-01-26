@@ -48,7 +48,7 @@
 	<message key="common.altTextInstructions">Veuillez fournir un texte alternatif pour cette image afin d'assurer l'accessibilité aux utilisateurs de navigateurs textuels ou d'appareils et accessoires fonctionnels.</message>
 	<message key="common.and">et</message>
 	<message key="common.applyAction">Appliquer l'action</message>
-	<message key="common.assign">Assigner</message>
+	<message key="common.assign">Ajouter</message>
 	<message key="common.assigned">Assigné</message>
 	<message key="common.assigned.date">Assigné: {$dateAssigned}</message>
 	<message key="common.back">Précédent</message>
@@ -381,7 +381,7 @@
 	<message key="stageParticipants.notify.message">Message</message>
 	<message key="stageParticipants.notify.warning">Assurez-vous d'avoir rempli le champ Message et d'avoir choisi au moins un destinataire.</message>
 
-	<message key="notification.addedReviewer">Un évaluateur a été ajouté.</message>
+	<message key="notification.addedReviewer">{$reviewerName} a été assigné comme évaluateur pour cette soumission et un courriel d'avis lui a été envoyé.</message>
 	<message key="notification.removedReviewer">L'évaluateur a été supprimé.</message>
 	<message key="notification.addedStageParticipant">L'utilisateur a été ajouté à titre de participant.</message>
 	<message key="notification.addedQuery">Discussion ajoutée</message>
@@ -391,7 +391,7 @@
 	<message key="notification.type.allReviewsIn">Toutes les évaluations ont été soumises. Il faut prendre une décision à l'étape {$stage}.</message>
 	<message key="notification.type.allRevisionsIn">Un fichier révisé a été téléchargé dans {$stage} afin que vous puissiez l'évaluer.</message>
 	<message key="notification.type.assignCopyeditors">Affectez un réviseur à l'aide du lien "Ajouter" dans la liste "Participants".</message>
-	<message key="notification.type.awaitingCopyedits">En attente de copies.</message>
+	<message key="notification.type.awaitingCopyedits">En attente des modifications.</message>
 	<message key="notification.type.metadataModified">Les metadata de "{$title}" ont été modifiées.</message>
 	<message key="notification.type.newAnnouncement">Nouvelle annonce.</message>
 	<message key="notification.type.pendingRevisions">Vous devez tenir compte des révisions à cette étape: {$stage}.</message>
@@ -535,16 +535,16 @@
 	<message key="search.advancedSearchMore">Options de recherche supplémentaires (cliquer pour afficher)</message>
 	<message key="search.searchAgain">Recherché à nouveau</message>
 	<message key="search.SearchFor">Recherche pour</message>
-	<message key="review.ensuringBlindReview">Assurer un examen aveugle</message>
+	<message key="review.ensuringBlindReview">Assurer une évaluation anonyme</message>
 	<message key="grid.action.showReviewPolicy">Lire la politique actuelle concernant la révision</message>
 	<message key="user.authorization.invalidRepresentation">Représentation invalide.</message>
 	<message key="user.authorization.submissionFile">L'utilisateur actuel n'a pas accès au fichier de soumission spécifié.</message>
 	<message key="user.authorization.submissionAuthor">L'utilisateur actuel n'est pas l'auteur de la soumission demandée. Veuillez vous assurer d'avoir ouvert une session avec le compte d'utilisateur approprié.</message>
-	<message key="review.blindPeerReview"><![CDATA[<p>Afin d'assurer l'intégrité de l'examen en aveugle des soumissions envoyées à cette presse, il faut faire tous les efforts possibles pour éviter que l'on révèle l'identité des auteurs et des examinateurs. Pour ce faire, les auteurs, les réviseurs et les examinateurs (qui téléchargent les documents dans le cadre de l'examen) doivent s'assurer de suivre les étapes suivantes en ce qui concerne les propriétés du texte et du fichier:</p>
+	<message key="review.blindPeerReview"><![CDATA[<p>Afin d'assurer l'intégrité de l'examen en aveugle des soumissions envoyées à cette presse, il faut faire tous les efforts possibles pour éviter de révéler l'identité des auteurs et des évaluateurs. Pour ce faire, les auteurs, les rédacteurs et les évaluateurs (qui téléchargent les documents dans le cadre de l'évaluation) doivent s'assurer de suivre les étapes suivantes en ce qui concerne les propriétés du texte et du fichier:</p>
 
 <ul><li>Supprimer le nom de l'auteur du texte. Dans la bibliographie et dans les notes en bas de page, on utilise le mot "Auteur" et l'année au lieu du nom de l'auteur, du titre de l'article, etc.</li>
 
-<li>En ce qui concerne les documents de type Microsoft Office, l'identification de l'auteur ne doit plus apparaitre dans les propriétés du fichier (voir le menu principal Fichier dans Word). Vous devez cliquer: Fichier &gt; Enregistrer sous &gt; Outils (ou Options sur le Mac) &gt; Sécurité &gt; Éliminer les renseignements personnels des propriétés du fichier au moment de la sauvegarde &gt; Sauvegarder.</li>
+<li>En ce qui concerne les documents de type Microsoft Office, l'identification de l'auteur ne doit plus apparaître dans les propriétés du fichier (voir le menu principal Fichier dans Word). Vous devez cliquer: Fichier &gt; Enregistrer sous &gt; Outils (ou Options sur le Mac) &gt; Sécurité &gt; Éliminer les renseignements personnels des propriétés du fichier au moment de la sauvegarde &gt; Sauvegarder.</li>
 
 <li>Pour les fichiers PDF, le nom de l'auteur doit être enlevé des propriétés du document dans le menu Fichier, du menu principal d'Adobe Acrobat.</li>
 
@@ -559,4 +559,19 @@
 	<message key="common.downloadPdf">Télécharger le PDF</message>
 
 	<message key="semicolon">{$label}:</message>
+	<message key="notification.addedReviewerNoEmail">{$reviewerName} a été assigné(e) à l'évaluation de cette soumission sans que ne lui soit envoyé un courriel d'avis.</message>
+	<message key="common.deleting">Supprimer</message>
+	<message key="common.from">De</message>
+	<message key="common.until">À</message>
+	<message key="common.saving">Enregistrer</message>
+	<message key="stageParticipants.options">Privilèges</message>
+	<message key="stageParticipants.recommendOnly">Ce participant est seulement autorisé à recommander une décision éditoriale. Un Rédacteur autorisé devra enregistrer la décision.</message>
+	<message key="notification.reviewerThankedEmail">Courriel de remerciement envoyé à l'évaluateur.</message>
+	<message key="notification.editedNavigationMenuItem">L'élément du menu de navigation a été correctement mis à jour.</message>
+	<message key="notification.removedNavigationMenuItem">L'élément du menu de navigation a été correctement retiré</message>
+	<message key="notification.addedNavigationMenuItem">L'élément du menu de navigation a été correctement ajouté</message>
+	<message key="notification.addedNavigationMenu">Le menu de navigation a été correctement ajouté</message>
+	<message key="notification.editedNavigationMenu">Le menu de navigation a été correctement mis à jour.</message>
+	<message key="notification.removedNavigationMenu">Le menu de navigation a été correctement retiré</message>
+	<message key="notification.sendNotificationConfirmation">Envoyer un courriel d'avis à tous les utilisateurs enregistrés</message>
 </locale>

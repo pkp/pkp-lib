@@ -44,7 +44,7 @@
 	<message key="admin.scheduledTask.startTime">Début du processus.</message>
 	<message key="admin.scheduledTask.stopTime">Arrêt du processus.</message>
 	<message key="admin.scheduledTask.noLog">La tâche n'a produit aucun journal d'événement.</message>
-	<message key="admin.scheduledTask.reviewReminder">Rappel d'examen</message>
+	<message key="admin.scheduledTask.reviewReminder">Rappel d'évaluation</message>
 	<message key="admin.scheduledTask.subscriptionExpiryReminder">Rappel d'expiration d'abonnement</message>
 	<message key="admin.server.apacheVersion">Version Apache</message>
 	<message key="admin.server.dbDriver">Pilote de base de données</message>
@@ -143,4 +143,5 @@ Vous devez parfois utiliser une seule statistique d'utilisation pour, par exempl
 	<message key="admin.scheduledTask.clearLogs">Supprimer le journal d'exécution des tâches planifiées</message>
 	<message key="admin.error.utilExecutionProblem">L'exécution de "{$utilPath}" s'est terminée avec l'erreur suivante: {$output}</message>
 	<message key="admin.error.executingUtil">Erreur: impossible de lancer "{$utilPath}". Veuillez vérifier la configuration de {$utilVar} dans le fichier config.inc.php</message>
+	<message key="admin.contexts.confirmDelete">Êtes-vous certain de vouloir supprimer définitivement {$contextName}, ainsi que tous ses contenus?</message>
 </locale>

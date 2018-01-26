@@ -61,6 +61,7 @@
 	<message key="common.captchaField">Validation</message>
 	<message key="common.changesSaved">Les changements effectués ont été enregistrés.</message>
 	<message key="common.chooseOne">En choisir un(e)</message>
+	<message key="common.clearSearch">RAZ de la recherche</message>
 	<message key="common.close">Fermer</message>
 	<message key="common.closePanel">Fermer le panneau</message>
 	<message key="common.closeWindow">Fermer la fenêtre</message>
@@ -100,6 +101,8 @@
 	<message key="common.fileType">Type de fichier</message>
 	<message key="common.file.namingPattern">{$username}, {$originalFilename}</message>
 	<message key="common.file.anonymousNamingPattern">{$genre}, {$originalFilename}</message>
+	<message key="common.filter">Filtres</message>
+	<message key="common.filterRemove">Supprimer le filtre : {$filterTitle}</message>
 	<message key="common.height">Hauteur</message>
 	<message key="common.homePageHeaderLogo.altText">Logo de l'en-tête de la page d'accueil</message>
 	<message key="common.hour">Heure</message>

@@ -613,12 +613,9 @@
 	<message key="submission.list.responseDue">Response Due</message>
 	<message key="submission.list.reviewDue">Review Due</message>
 	<message key="submission.list.confirmDelete">Delete submission?</message>
-	<message key="submission.list.filter">Filters</message>
-	<message key="submission.list.filterRemove">Clear filter: {$filterTitle}</message>
 	<message key="submission.list.itemOrdererUp">Increase position of {$itemTitle}</message>
 	<message key="submission.list.itemOrdererDown">Decrease position of {$itemTitle}</message>
 	<message key="submission.list.viewSubmission">View Submission</message>
-	<message key="submission.list.clearSearch">Clear search phrase</message>
 	<message key="submission.list.reviewsCompleted">Assigned reviews completed</message>
 	<message key="submission.list.revisionsSubmitted">Revisions submitted</message>
 	<message key="submission.list.copyeditsSubmitted">Copyedited files submitted</message>

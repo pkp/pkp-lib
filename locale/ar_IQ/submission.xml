@@ -376,7 +376,7 @@
 	<!-- Submission file upload form elements -->
 	<message key="submission.form.name">أعط هذا الملف اسماً يساعد على التعرف عليه</message>
 	<message key="submission.form.replaceExisting">أتريد استبدال الملف الموجود؟</message>
-	
+
 	<!-- Workflow keys -->
 	<message key="workflow.review.internalReview">التحكيم الداخلي</message>
 	<message key="workflow.stage.any">أية مرحلة</message>
@@ -595,12 +595,9 @@
 	<message key="submission.list.responseDue">موعد الإجابة</message>
 	<message key="submission.list.reviewDue">استيجاب التحكيم</message>
 	<message key="submission.list.confirmDelete">أتريد حذف الطلب؟</message>
-	<message key="submission.list.filter">التصفيات</message>
-	<message key="submission.list.filterRemove">تصفير التصفية: {$filterTitle}</message>
 	<message key="submission.list.itemOrdererUp">زيادة موقع {$itemTitle}</message>
 	<message key="submission.list.itemOrdererDown">تقليل موقع {$itemTitle}</message>
 	<message key="submission.list.viewSubmission">معاينة الطلب</message>
-	<message key="submission.list.clearSearch">تصفير عبارة البحث</message>
 	<message key="submission.list.reviewsCompleted">مهام التحكيم مكتملة</message>
 	<message key="submission.list.revisionsSubmitted">التحكيمات مسلَّمة</message>
 	<message key="submission.list.copyeditsSubmitted">ملفات التدقيق مسلَّمة</message>

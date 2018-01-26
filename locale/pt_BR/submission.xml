@@ -403,7 +403,9 @@
 	<message key="notification.uploadedResponse">Resposta enviada.</message>
 	<message key="notification.type.editorAssignment">Um editor deve ser designado antes de iniciar a avaliação. Inclua um editor usando o link de Participantes acima.</message>
 	<message key="grid.reviewAttachments.title">Anexos do avaliador</message>
-	<message key="log.review.reviewerAssigned">{$reviewerName} designado para avaliar a submissão {$submissionId} na rodada de avaliação {$round}.</message>	
+	<message key="log.review.reviewerAssigned">{$reviewerName} designado para avaliar a submissão {$submissionId} na rodada de avaliação {$round}.</message>
+	<message key="submission.review.status.awaitingResponse">Esperando uma resposta do avaliador.</message>
+	<message key="log.review.reviewerAssigned">{$reviewerName} designado para avaliar a submissão {$submissionId} na rodada de avaliação {$round}.</message>
 	<message key="submission.review.status.awaitingResponse">Esperando uma resposta do avaliador.</message>
 	<message key="submission.review.status.declined">O avaliador recusou a proposta de avaliação.</message>
 	<message key="submission.review.status.responseOverdue">O avaliador perdeu o prazo de resposta.</message>
@@ -412,8 +414,6 @@
 	<message key="submission.review.status.received">O avaliador enviou seu parecer.</message>
 	<message key="submission.review.status.complete">Esta avaliação está completa.</message>
 	<message key="submission.review.status.thanked">Esta avaliação está completa e os agradecimentos enviados ao avaliador.</message>
-	
-	
 	<message key="grid.action.itemWorkflow">Acessar o fluxograma de trabalho desta submissão</message>
 	<message key="notification.type.editorAssignmentProduction">Um editor de leiaute deve ser designado antes de iniciar o processo de editoração. Inclua um editor de leiaute usando o link de Participantes acima.</message>
 	<message key="notification.type.editorAssignmentEditing">Um editor de leiaute deve ser designado antes de iniciar o processo de editoração. Inclua um editor de leiaute usando o link de Participantes acima. </message>
@@ -452,9 +452,6 @@
 	<message key="submission.submit.selectPrincipalContact">Contato principal para correspondência editorial.</message>
 	<message key="submission.submit.contributorRole">Papel do colaborador</message>
 	<message key="submission.submit.addAuthor">Adicionar Colaborador</message>
-	
-      
-	
 
 		<!-- Workflow keys -->
 	<message key="workflow.review.internalReview">Avaliação interna</message>
@@ -465,7 +462,7 @@
 	<message key="submission.status.production">Em Leitura de Prova</message>
 	<message key="submission.status.review">Em Avaliação</message>
 	<message key="submission.status.submission">Aguardando Decisão do Avaliador</message>
-	<message key="submission.status.unassigned">Não Designado</message>      
+	<message key="submission.status.unassigned">Não Designado</message>
 	<message key="submission.status.declined">Rejeitado</message>
 	<message key="submission.status.published">Publicado</message>
 	<message key="submission.submit.uploadStep">1. Enviar Submissão</message>
@@ -637,8 +634,8 @@
 	<message key="editor.submission.decision.accept">Aceitar Submissão</message>
 	<message key="editor.submission.decision.skipReview">Aceitar e Enviar para Edição de Texto</message>
 	<message key="editor.submission.decision.noDecisionsAvailable">Designe um editor para habilitar as decisões editoriais nesse estágio.</message>
-	
-	
+
+
 	<!--  editor recommendations -->
 	<message key="editor.submission.makeRecommendation">Fazer Recomendação</message>
 	<message key="editor.submission.changeRecommendation">Mudar Recomendação</message>
@@ -650,7 +647,7 @@
 	<message key="editor.submission.decision.nextButton">Próximo: Selecionar Arquivos para {$stageName}</message>
 	<message key="editor.submission.decision.selectFiles">Selecione os arquivos que gostaria de encaminhar para o estágio de {$stageName}.</message>
 	<message key="editor.submission.decision.previousAuthorNotification">Anterior: Notificação do Autor</message>
-	
+
 	<!-- Submission Lists -->
 	<message key="submission.list.infoCenter">Log de Atividades e Anotações</message>
 	<message key="submission.list.count">{$count} submissões</message>
@@ -659,12 +656,9 @@
 	<message key="submission.list.reviewDue">Prazo de Avaliação</message>
 	<message key="submission.list.confirmDelete">Apagar submissão?</message>
 	<message key="submission.list.viewSubmission">Ver {$title}</message>
-	<message key="submission.list.filter">Filtros </message>
-	<message key="submission.list.filterRemove">Limpar filtro: {$filterTitle}</message>
 	<message key="submission.list.itemOrdererUp">Aumentar posição de {$itemTitle}</message>
 	<message key="submission.list.itemOrdererDown">Diminuir posição de {$itemTitle}</message>
 	<message key="submission.list.viewSubmission">Ver Submissão</message>
-	<message key="submission.list.clearSearch">Limpar palavras da busca</message>
 	<message key="submission.list.reviewsCompleted">Avaliações completadas</message>
 	<message key="submission.list.revisionsSubmitted">Avaliações enviadas</message>
 	<message key="submission.list.copyeditsSubmitted">Arquivos da edição de texto enviados</message>

@@ -92,6 +92,7 @@
 	]]></message>
 	<message key="common.changesSaved">Alterações salvas com sucesso.</message>
 	<message key="common.chooseOne">Escolha uma opção</message>
+	<message key="common.clearSearch">Limpar palavras da busca</message>
 	<message key="common.close">Fechar</message>
 	<message key="common.closePanel">Fechar Painel</message>
 	<message key="common.closeWindow">Fechar Janela</message>
@@ -145,6 +146,8 @@
 	<message key="common.fileSize">Tamanho do documento</message>
 	<message key="common.fileType">Tipo do Documento</message>
 	<message key="common.fileUploaderError">O gerenciador de arquivos está carregando. Se ele não aparecer seu navegador não oferece o ambiente adequado para sua execução. Por favor, contacte o administrador para apoio.</message>
+	<message key="common.filter">Filtros </message>
+	<message key="common.filterRemove">Limpar filtro: {$filterTitle}</message>
 	<message key="common.go">Ir</message>
 	<message key="common.height">Altura</message>
 	<message key="common.homepageNavigationLabel">Início</message>

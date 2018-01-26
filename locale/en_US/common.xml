@@ -152,6 +152,9 @@
 	<message key="common.fileSize">File Size</message>
 	<message key="common.fileType">File Type</message>
 	<message key="common.fileUploaderError">The system file uploader is loading. If it doesn't appear it is likely that none of its runtimes is supported by this browser. Please, contact administration for support.</message>
+	<message key="common.filter">Filters</message>
+	<message key="common.filterAdd">Add filter: {$filterTitle}</message>
+	<message key="common.filterRemove">Clear filter: {$filterTitle}</message>
 	<message key="common.from">From</message>
 	<message key="common.until">Until</message>
 	<message key="common.go">Go</message>
@@ -169,6 +172,7 @@
 	<message key="common.language">Language</message>
 	<message key="common.languages">Languages</message>
 	<message key="common.less">Less</message>
+	<message key="common.listSeparator">, </message>
 	<message key="common.manage">Manage</message>
 	<message key="common.mailingAddress">Mailing Address</message>
 	<message key="common.billingAddress">Billing address (if different)</message>
@@ -237,6 +241,7 @@
 	<message key="common.saving">Saving</message>
 	<message key="common.search">Search</message>
 	<message key="common.searchQuery">Search Query</message>
+	<message key="common.clearSearch">Clear search phrase</message>
 	<message key="common.second">Second(s)</message>
 	<message key="common.selectAll">Select All</message>
 	<message key="common.selectNone">Select None</message>

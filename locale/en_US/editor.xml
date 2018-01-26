@@ -123,4 +123,21 @@
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">Revoke approval for this proof to indicate proofreading is no longer complete and the file is not ready to be published.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">The public identifier '{$publicIdentifier}' must not be a number.</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">The pattern {$pattern} is not allowed for the public identifier.</message>
+
+	<!-- Reviewer selection lists -->
+	<message key="reviewer.list.count">{$count} reviewers</message>
+	<message key="reviewer.list.itemsOfTotal">{$count} of {$total} reviewers</message>
+	<message key="reviewer.list.viewMore">Show more details about {$name}</message>
+	<message key="reviewer.list.viewLess">Hide expanded details about {$name}</message>
+	<message key="reviewer.list.filterRating">Rated at least</message>
+	<message key="reviewer.list.activeReviews">{$count} active</message>
+	<message key="reviewer.list.activeReviewsDescription">Active reviews currently assigned</message>
+	<message key="reviewer.list.completedReviews">Reviews completed</message>
+	<message key="reviewer.list.reviewerRating">Reviewer rating: {$rating}</message>
+	<message key="reviewer.list.daysSinceLastAssignment">{$days} days ago</message>
+	<message key="reviewer.list.daySinceLastAssignment">{$day} day ago</message>
+	<message key="reviewer.list.daysSinceLastAssignmentDescription">Days since last review assigned</message>
+	<message key="reviewer.list.averageCompletion">Average days to complete review</message>
+	<message key="reviewer.list.neverAssigned">Never assigned</message>
+	<message key="reviewer.list.reviewInterests">Reviewing Interests</message>
 </locale>

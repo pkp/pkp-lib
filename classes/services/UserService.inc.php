@@ -312,7 +312,7 @@ class UserService extends PKPBaseEntityPropertyService {
 					}
 					break;
 				case 'interests':
-					$values[$prop] = null;
+					$values[$prop] = [];
 					if ($context) {
 						import('lib.pkp.classes.user.InterestDAO');
 						$interestDao = DAORegistry::getDAO('InterestDAO');

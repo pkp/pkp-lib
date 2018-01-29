@@ -45,6 +45,8 @@ class SelectReviewerListHandler extends SelectListHandler {
 			'filterAdd' => __('common.filterAdd'),
 			'filterRemove' => __('common.filterRemove'),
 			'filterRating' => __('reviewer.list.filterRating'),
+			'lessThan' => __('common.lessThan'),
+			'moreThan' => __('common.moreThan'),
 			'activeReviews' => __('reviewer.list.activeReviews'),
 			'activeReviewsDescription' => __('reviewer.list.activeReviewsDescription'),
 			'completedReviews' => __('reviewer.list.completedReviews'),

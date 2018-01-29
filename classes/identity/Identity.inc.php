@@ -131,7 +131,7 @@ class Identity extends DataObject {
 	 * @param $locale string
 	 * @return string
 	 */
-	function getAffiliation($locale) {
+	function getAffiliation($locale = null) {
 		return $this->getData('affiliation', $locale);
 	}
 

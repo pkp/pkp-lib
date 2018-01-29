@@ -151,8 +151,22 @@ class UserService extends PKPBaseEntityPropertyService {
 	 * @see self::_buildGetUsersQueryObject()
 	 */
 	private function _buildGetReviewersQueryObject($contextId, $args = array()) {
+
+		$defaultArgs = array(
+			'reviewsCompleted' => null,
+			'reviewsActive' => null,
+			'daysSinceLastAssignment' => null,
+			'averageCompletion' => null,
+		);
+
+		$args = array_merge($defaultArgs, $args);
+
 		$reviewerListQB = $this->_buildGetUsersQueryObject($contextId, $args);
-		$reviewerListQB->getReviewerData(true);
+		$reviewerListQB->getReviewerData(true)
+			->filterByReviewsCompleted($args['reviewsCompleted'])
+			->filterByReviewsActive($args['reviewsActive'])
+			->filterByDaysSinceLastAssignment($args['daysSinceLastAssignment'])
+			->filterByAverageCompletion($args['averageCompletion']);
 
 		\HookRegistry::call('User::getReviewers::queryBuilder', array($reviewerListQB, $contextId, $args));
 

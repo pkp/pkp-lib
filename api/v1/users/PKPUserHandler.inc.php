@@ -133,10 +133,7 @@ class PKPUserHandler extends APIHandler {
 			return $response->withStatus(404)->withJsonError('api.submissions.404.resourceNotFound');
 		}
 
-		$params = $this->_buildListRequestParams($slimRequest);
-
-		// Restrict role IDs to reviewer roles
-		$params['roleIds'] = array(ROLE_ID_REVIEWER);
+		$params = $this->_buildReviewerListRequestParams($slimRequest);
 
 		$items = array();
 		$users = $userService->getReviewers($context->getId(), $params);
@@ -234,6 +231,42 @@ class PKPUserHandler extends APIHandler {
 		}
 
 		\HookRegistry::call('API::users::params', array(&$returnParams, $slimRequest));
+
+		return $returnParams;
+	}
+
+	/**
+	 * Add reviewer-specific params
+	 *
+	 * @param $slimRequest Request Slim request object
+	 * @return array
+	 */
+	private function _buildReviewerListRequestParams($slimRequest) {
+
+		$returnParams = $this->_buildListRequestParams($slimRequest);
+		$requestParams = $slimRequest->getQueryParams();
+
+		foreach ($requestParams as $param => $val) {
+			switch ($param) {
+
+				case 'reviewsCompleted':
+				case 'reviewsActive':
+				case 'daysSinceLastAssignment':
+				case 'averageCompletion':
+					if (strpos($val, '-') !== false) {
+						$val = array_map('intval', explode('-', $val));
+					} else {
+						$val = (int) $val;
+					}
+					$returnParams[$param] = $val;
+					break;
+			}
+		}
+
+		// Restrict role IDs to reviewer roles
+		$returnParams['roleIds'] = array(ROLE_ID_REVIEWER);
+
+		\HookRegistry::call('API::users::reviewers::params', array(&$returnParams, $slimRequest));
 
 		return $returnParams;
 	}

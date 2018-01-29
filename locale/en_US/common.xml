@@ -172,6 +172,7 @@
 	<message key="common.language">Language</message>
 	<message key="common.languages">Languages</message>
 	<message key="common.less">Less</message>
+	<message key="common.lessThan">{$value} or less</message>
 	<message key="common.listSeparator">, </message>
 	<message key="common.manage">Manage</message>
 	<message key="common.mailingAddress">Mailing Address</message>
@@ -180,6 +181,7 @@
 	<message key="common.modify">Modify</message>
 	<message key="common.month">Month</message>
 	<message key="common.more">More</message>
+	<message key="common.moreThan">{$value} or more</message>
 	<message key="common.noneAssigned">None assigned</message>
 	<message key="common.none">None</message>
 	<message key="common.no">No</message>

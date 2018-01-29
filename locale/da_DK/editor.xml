@@ -34,7 +34,6 @@
 	<message key="editor.review.NotifyAuthorAccept">Underret forfatteren om, at indsendelsen er blevet accepteret.</message>
 	<message key="editor.review.NotifyAuthorDecline">Underret forfatteren om, at indsendelsen er blevet afvist.</message>
 	<message key="editor.submission.findAndSelectReviewer">Find en bedømmer</message>
-	<message key="editor.review.days">Antal dage i gennemsnit</message>
 	<message key="editor.submission.selectReviewer">Vælg bedømmer</message>
 	<message key="editor.review.createReviewer">Opret ny bedømmer</message>
 	<message key="editor.review.enrollReviewer.short">Tilmeld en allerede registreret bruger</message>

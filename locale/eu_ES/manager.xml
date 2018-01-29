@@ -167,10 +167,6 @@
 	<message key="manager.emails.form.emailKeyRequired">Posta elektronikoko gako bakarra behar da posta elektronikorako.</message>
 	<message key="manager.setup.errorDeletingItem">Errorea elementu hau ezabatzean.</message>
 	<message key="manager.reviewerSearch.searchByName">Ebaluatzailea izenez bilatu</message>
-	<message key="manager.reviewerSearch.doneAmount">Amaitutako ebaluazio kopurua</message>
-	<message key="manager.reviewerSearch.avgAmount">Ebaluazioa egiteko egunak</message>
-	<message key="manager.reviewerSearch.lastAmount">Azken ebaluaziotik igarotako egunak</message>
-	<message key="manager.reviewerSearch.activeAmount">Ebaluazio aktiboen kopurua</message>
 	<message key="manager.reviewerSearch.interests">Interesak ebaluatzen</message>
 	<message key="manager.announcements.datePublish">Argitaratua</message>
 	<message key="manager.emails.addEmail">Erantsi helbide elektronikoaren txantiloia</message>
@@ -182,7 +178,6 @@
 	<message key="manager.emails.reset.message">Txantiloi hau berrezartzen baduzu, mezuko datu guztiak berrezarriko dira lehenetsitako balioetan, eta aldaketa guztiak galduko dira. Eragiketa baieztatu nahi duzu?</message>
 	<message key="manager.reviewerSearch.searchByName.short">Izenaren araberako bilaketa</message>
 	<message key="manager.reviewerSearch.form.instructions">Erabili beheko inprimakia bilatu nahi dituzun hitzentzako gehienezko balioak ezartzeko. Inprimakiak eremu horietako batez besteko kalkulatuak ditu.</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">Sartu berrikuslearen interesak, komek bananduta...</message>
 	<message key="plugins.categories.metadata">Metadatuen pluginak</message>
 	<message key="plugins.categories.metadata.description">Metadatuen pluginek metadatu estandar gehigarriak inplementatzen dituzte,</message>
 	<message key="manager.setup.layout.blockManagement">Alboko barraren kudeaketa</message>

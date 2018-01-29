@@ -56,7 +56,6 @@
 	<message key="editor.review.reviewDueDate">Fecha límite de la revisión</message>
 	<message key="editor.review.reviewCompleted">Revisión completa</message>
 	<message key="editor.review.reviewerComments">Comentarios del revisor</message>
-	<message key="editor.review.days">Promedio de días</message>
 	<message key="editor.review.mustSelect">Debes seleccionar un revisor</message>
 	<message key="editor.review.errorAddingReviewer">Ha ocurrido un error al añadir el revisor. Por favor, inténtalo de nuevo.</message>
 	<message key="editor.review.errorDeletingReviewer">Ha ocurrido un error al eliminar el revisor. Por favor, inténtalo de nuevo.</message>

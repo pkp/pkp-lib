@@ -140,10 +140,6 @@
 	<message key="manager.plugins">Системски додаци</message>
 	<message key="manager.readingTools">Алатке за читање</message>
 	<message key="manager.reviewerSearch.searchByName">Пронађи рецензента по имену</message>
-	<message key="manager.reviewerSearch.doneAmount">Број завршених рецензија: {$current}</message>
-	<message key="manager.reviewerSearch.avgAmount">Просечан број дана за завршавање рецензија: {$current}</message>
-	<message key="manager.reviewerSearch.lastAmount">Дана од последње рецензије: {$current}</message>
-	<message key="manager.reviewerSearch.activeAmount">Број тренутно активних рецензија: {$current}</message>
 	<message key="manager.reviewerSearch.interests">Рецензентски интереси</message>
 	<message key="manager.roles">Улоге</message>
 	<message key="manager.setup.errorDeletingItem">Дошло је до грешке приликом брисања ставке.</message>
@@ -181,7 +177,6 @@
 	<message key="manager.emails.resetAll.message">Уколико ресетујете све шаблоне, све модификације које сте урадили биће изгубљене, да ли сте сигурни да желите да наставите?</message>
 	<message key="manager.emails.reset.message">Уколико ресетујете овај шаблон, сви подаци биће враћени на почетне вредности, а све промене ће бити изгубљене, да ли желите да наставите?</message>
 	<message key="manager.reviewerSearch.searchByName.short">Претражи по имену</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">Интереси рецензената (унесите да пронађете интересе).</message>
 	<message key="manager.setup.layout.blockManagement">Управљач бочног менија</message>
 	<message key="plugins.categories.metadata">Додаци метаподатака</message>
 	<message key="plugins.categories.metadata.description">Додаци метаподатака имплементирају додатне стандарде мета података.</message>
@@ -230,11 +225,6 @@
 	<message key="manager.language.submissions">Предаје чланака</message>
 	<message key="manager.language.forms">Обрасци</message>
 	<message key="manager.language.reloadLocalizedDefaultSettings">Учитај почетне вредности</message>
-	<message key="manager.reviewerSearch.doneAmountToggle">Омогући/онемогући филтер за завршене рецензије.</message>
-	<message key="manager.reviewerSearch.avgAmountToggle">Омогући/онемогући филтер за просечан број дана за завршетак рецензије.</message>
-	<message key="manager.reviewerSearch.lastAmountToggle">Омогући/онемогући филтер за број дана од последње рецензије.</message>
-	<message key="manager.reviewerSearch.activeAmountToggle">Омогући/онемогући филтер за тренутно активне рецензије.</message>
-	<message key="manager.reviewerSearch.form.previousReviewRounds">Рецензенти из предходних кругова рецензирања овог рада</message>
 	<message key="manager.statistics.reports">Генератор извештаја</message>
 	<message key="manager.statistics.reports.aggregationColumns">Сакупи статистике по:</message>
 	<message key="manager.statistics.reports.defaultReportTemplates">Предефинисани шаблони извештаја</message>

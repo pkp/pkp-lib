@@ -139,10 +139,6 @@
 	<message key="manager.plugins">Sistem Plugins</message>
 	<message key="manager.readingTools">Alat Membaca</message>
 	<message key="manager.reviewerSearch.searchByName">Cari Reviewer dengan Nama</message>
-	<message key="manager.reviewerSearch.doneAmount">Jumlah review yang selesai</message>
-	<message key="manager.reviewerSearch.avgAmount">Jumlah hari rata-rata per review</message>
-	<message key="manager.reviewerSearch.lastAmount">Hari sejak review terakhir</message>
-	<message key="manager.reviewerSearch.activeAmount">Jumlah review aktif sekarang</message>
 	<message key="manager.reviewerSearch.interests">Minat Mereview</message>
 	<message key="manager.roles">Peran</message>
 	<message key="manager.setup.errorDeletingItem">Ada kesalahan saat menghapus item ini.</message>

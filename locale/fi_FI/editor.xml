@@ -67,7 +67,6 @@
 	<message key="editor.review.reviewConfirmed">Arviointi vahvistettu</message>
 	<message key="editor.review.reviewSubmitted">Arviointi lähetetty</message>
 	<message key="editor.review.reviewerComments">Arvioijan kommentit</message>
-	<message key="editor.review.days">Päiviä keskimäärin</message>
 	<message key="editor.review.mustSelect">Sinun on valittava arvioija</message>
 	<message key="editor.review.errorAddingReviewer">Arvioijaa lisättäessä tapahtui virhe. Yritä uudelleen.</message>
 	<message key="editor.review.errorDeletingReviewer">Arvioijaa poistettaessa tapahtui virhe. Yritä uudelleen.</message>

@@ -72,7 +72,6 @@
 	<message key="editor.review.reviewConfirmed">Рецензия подтверждена</message>
 	<message key="editor.review.reviewSubmitted">Рецензия отправлена</message>
 	<message key="editor.review.reviewerComments">Комментарии рецензента</message>
-	<message key="editor.review.days">Среднее число дней</message>
 	<message key="editor.review.mustSelect">Вы должны выбрать рецензента</message>
 	<message key="editor.review.errorAddingReviewer">Произошла ошибка при добавлении рецензента. Пожалуйста, попробуйте снова.</message>
 	<message key="editor.review.errorDeletingReviewer">Произошла ошибка при удалении рецензента. Пожалуйста, попробуйте снова.</message>

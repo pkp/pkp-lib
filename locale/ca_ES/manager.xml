@@ -168,13 +168,8 @@
 	<message key="manager.reviewerSearch.advancedSearch.short">Cerca avançada</message>
 	<message key="manager.reviewerSearch.searchByName">Cerca un revisor/a pel nom</message>
 	<message key="manager.reviewerSearch.searchByName.short">Cerca per nom</message>
-	<message key="manager.reviewerSearch.doneAmount">Revisions completades</message>
-	<message key="manager.reviewerSearch.avgAmount">Mitjana de dies per la compleció</message>
-	<message key="manager.reviewerSearch.lastAmount">Dies des de l’última revisió</message>
-	<message key="manager.reviewerSearch.activeAmount">Revisions actives actualment</message>
 	<message key="manager.reviewerSearch.interests">Interessos de revisió</message>
 	<message key="manager.reviewerSearch.form.instructions">Utilitzeu el formulari següent per establir els valors màxims per als termes que voleu cercar.  El formulari està precompletat amb les mitjanes calculades de cada camp.</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">Introduïu els vostres interessos de revisió, separats per comes...</message>
 	<message key="manager.roles">Rols</message>
 	<message key="manager.statistics"><![CDATA[Estadístiques i informes]]></message>
 	<message key="manager.statistics.defaultMetricDescription">

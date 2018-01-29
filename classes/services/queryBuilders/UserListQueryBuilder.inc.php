@@ -54,6 +54,18 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	/** @var bool whether to return reviewer activity data */
 	protected $getReviewerData = null;
 
+	/** @var int|array reviews completed by user */
+	protected $reviewsCompleted = null;
+
+	/** @var int|array active review assignments for user */
+	protected $reviewsActive = null;
+
+	/** @var int|array days since last review assignment */
+	protected $daysSinceLastAssignment = null;
+
+	/** @var int|array average days to complete a review */
+	protected $averageCompletion = null;
+
 	/**
 	 * Constructor
 	 *
@@ -175,6 +187,68 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	}
 
 	/**
+	 * Limit results to those who have completed at least this many reviews
+	 *
+	 * @param int|array $reviewsCompleted
+	 *
+	 * @return \PKP\Services\QueryBuilders\UserListQueryBuilder
+	 */
+	public function filterByReviewsCompleted($reviewsCompleted = null) {
+		if (!is_null($reviewsCompleted)) {
+			$this->reviewsCompleted = $reviewsCompleted;
+		}
+
+		return $this;
+	}
+
+	/**
+	 * Limit results to those who have at least this many active review assignments
+	 *
+	 * @param int|array $reviewsActive
+	 *
+	 * @return \PKP\Services\QueryBuilders\UserListQueryBuilder
+	 */
+	public function filterByReviewsActive($reviewsActive = null) {
+		if (!is_null($reviewsActive)) {
+			$this->reviewsActive = $reviewsActive;
+		}
+
+		return $this;
+	}
+
+	/**
+	 * Limit results to those who's last review assignment was at least this many
+	 * days ago.
+	 *
+	 * @param int|array $daysSinceLastAssignment
+	 *
+	 * @return \PKP\Services\QueryBuilders\UserListQueryBuilder
+	 */
+	public function filterByDaysSinceLastAssignment($daysSinceLastAssignment = null) {
+		if (!is_null($daysSinceLastAssignment)) {
+			$this->daysSinceLastAssignment = $daysSinceLastAssignment;
+		}
+
+		return $this;
+	}
+
+	/**
+	 * Limit results to those who complete a review on average less than this many
+	 * days after their assignment.
+	 *
+	 * @param int|array $averageCompletion
+	 *
+	 * @return \PKP\Services\QueryBuilders\UserListQueryBuilder
+	 */
+	public function filterByAverageCompletion($averageCompletion = null) {
+		if (!is_null($averageCompletion)) {
+			$this->averageCompletion = $averageCompletion;
+		}
+
+		return $this;
+	}
+
+	/**
 	 * Execute query builder
 	 *
 	 * @return object Query object
@@ -280,6 +354,46 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 					$dateDiffClause = 'DATE_PART(\'day\', ra.date_completed - ra.date_notified)';
 			}
 			$this->columns[] = Capsule::raw('AVG(' . $dateDiffClause . ') as average_time');
+
+			// completed reviews
+			if (!empty($this->reviewsCompleted)) {
+				$doneMin = is_array($this->reviewsCompleted) ? $this->reviewsCompleted[0] : $this->reviewsCompleted;
+				$q->havingRaw('SUM(CASE WHEN ra.date_completed IS NOT NULL THEN 1 ELSE 0 END) >= ' . (int) $doneMin);
+				if (is_array($this->reviewsCompleted) && !empty($this->reviewsCompleted[1])) {
+					$doneMax = $this->reviewsCompleted[1];
+					$q->havingRaw('SUM(CASE WHEN ra.date_completed IS NOT NULL THEN 1 ELSE 0 END) <= ' . (int) $doneMax);
+				}
+			}
+
+			// active reviews
+			if (!empty($this->reviewsActive)) {
+				$activeMin = is_array($this->reviewsActive) ? $this->reviewsActive[0] : $this->reviewsActive;
+				$q->havingRaw('SUM(CASE WHEN ra.date_completed IS NULL THEN 1 ELSE 0 END) >= ' . (int) $activeMin);
+				if (is_array($this->reviewsActive) && !empty($this->reviewsActive[1])) {
+					$activeMax = $this->reviewsActive[1];
+					$q->havingRaw('SUM(CASE WHEN ra.date_completed IS NULL THEN 1 ELSE 0 END) <= ' . (int) $activeMax);
+				}
+			}
+
+			// days since last review assignment
+			if (!empty($this->daysSinceLastAssignment)) {
+				$daysSinceMin = is_array($this->daysSinceLastAssignment) ? $this->daysSinceLastAssignment[0] : $this->daysSinceLastAssignment;
+				$userDao = \DAORegistry::getDAO('UserDAO');
+				$dbTimeMin = $userDao->dateTimeToDB(time() - ((int) $daysSinceMin * 86400));
+				$q->havingRaw('MAX(ra.date_assigned) <= ' . $dbTimeMin);
+				if (is_array($this->daysSinceLastAssignment) && !empty($this->daysSinceLastAssignment[1])) {
+					$daysSinceMax = $this->daysSinceLastAssignment[1];
+					// Subtract an extra day so that our outer bound rounds "up". This accounts
+					// for the UI rounding "down" in the string "X days ago".
+					$dbTimeMax = $userDao->dateTimeToDB(time() - ((int) $daysSinceMax * 86400) - 84600);
+					$q->havingRaw('MAX(ra.date_assigned) >= ' . $dbTimeMax);
+				}
+			}
+
+			// average days to complete review
+			if (!empty($this->averageCompletion)) {
+				$q->havingRaw('AVG(' . $dateDiffClause . ') <= ' . (int) $this->averageCompletion);
+			}
 		}
 
 		// Add app-specific query statements

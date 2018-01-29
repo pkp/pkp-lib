@@ -187,7 +187,7 @@ class PKPUser extends Identity {
 	 * @param $locale string
 	 * @return string
 	 */
-	function getGossip($locale) {
+	function getGossip($locale = null) {
 		return $this->getData('gossip', $locale);
 	}
 

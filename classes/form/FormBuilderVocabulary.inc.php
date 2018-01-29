@@ -280,9 +280,6 @@ class FormBuilderVocabulary {
 				$content = $this->_smartyFBVRadioButton($params, $smarty);
 				unset($params['label']);
 				break;
-			case 'rangeslider':
-				$content = $this->_smartyFBVRangeSlider($params, $smarty);
-				break;
 			case 'select':
 				$content = $this->_smartyFBVSelect($params, $smarty);
 				break;
@@ -369,27 +366,6 @@ class FormBuilderVocabulary {
 
 		$smarty->assign('FBV_id', $autocompleteId);
 		return $smarty->fetch('form/autocompleteInput.tpl');
-	}
-
-	/**
-	 * Range slider input.
-	 * parameters: min, max
-	 * @param $params array
-	 * @param $smarty object
-	 */
-	function _smartyFBVRangeSlider($params, &$smarty) {
-		// Make sure our required fields are included
-		assert(isset($params['min']) && isset($params['max']));
-		$smarty->assign(array(
-			'FBV_min' => $params['min'],
-			'FBV_max' => $params['max'],
-			'FBV_value_min' => isset($params['valueMin']) ? $params['valueMin'] : $params['min'],
-			'FBV_value_max' => isset($params['valueMax']) ? $params['valueMax'] : $params['max'],
-			'FBV_toggleable' => isset($params['toggleable']) ? $params['toggleable'] : false,
-			'FBV_toggleable_label' => isset($params['toggleable_label']) ? $params['toggleable_label'] : '',
-			'FBV_enabled' => isset($params['enabled']) ? $params['enabled'] : false,
-		));
-		return $smarty->fetch('form/rangeSlider.tpl');
 	}
 
 	/**

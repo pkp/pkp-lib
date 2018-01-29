@@ -72,7 +72,6 @@
 	<message key="editor.review.reviewConfirmed">Granskning bekräftad</message>
 	<message key="editor.review.reviewSubmitted">Granskning inkommen</message>
 	<message key="editor.review.reviewerComments">Granskares kommentarer</message>
-	<message key="editor.review.days">Antal dagar i genomsnitt</message>
 	<message key="editor.review.mustSelect">Du måste välja en granskare</message>
 	<message key="editor.review.errorAddingReviewer">Ett fel uppstod när granskaren skulle läggas till. Försök igen.</message>
 	<message key="editor.review.errorDeletingReviewer">Ett fel uppstod när granskaren skulle tas bort. Försök igen.</message>

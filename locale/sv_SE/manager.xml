@@ -167,18 +167,8 @@
 	<message key="manager.reviewerSearch.change">Ändra</message>
 	<message key="manager.reviewerSearch.searchByName">Sök granskare med namn</message>
 	<message key="manager.reviewerSearch.searchByName.short">Sök med namn</message>
-	<message key="manager.reviewerSearch.doneAmount">Slutförda granskningar: {$current}</message>
-	<message key="manager.reviewerSearch.doneAmountToggle">Aktivera/inaktivera filtret för slutförda granskningar.</message>
-	<message key="manager.reviewerSearch.avgAmount">Genomsnittligt antal dagar att slutföra granskning: {$current}</message>
-	<message key="manager.reviewerSearch.avgAmountToggle">Aktivera/inaktivera filtret för genomsnittligt antal dagar att slutföra granskning.</message>
-	<message key="manager.reviewerSearch.lastAmount">Dagar sedan senaste granskning: {$current}</message>
-	<message key="manager.reviewerSearch.lastAmountToggle">Aktivera/inaktivera filtret för dagar sedan senaste granskning.</message>
-	<message key="manager.reviewerSearch.activeAmount">Aktiva granskningar: {$current}</message>
-	<message key="manager.reviewerSearch.activeAmountToggle">Aktivera/inaktivera filtret för aktiva granskningar.</message>
 	<message key="manager.reviewerSearch.interests">Intresseområden för granskning</message>
 	<message key="manager.reviewerSearch.form.instructions">Använd formuläret nedan för att välja maxvärde för termerna du vill söka efter. Formuläret är förifyllt med beräknat medel för respektive fält.</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">Granskares intressen (skriv för att söka efter matchande intressen)</message>
-	<message key="manager.reviewerSearch.form.previousReviewRounds">Granskare från det här bidragets tidigare granskningsomgångar</message>
 	<message key="manager.roles">Roller</message>
 	<message key="manager.statistics"><![CDATA[Statistik &amp; Rapporter]]></message>
 	<message key="manager.statistics.defaultMetricDescription">
@@ -420,7 +410,7 @@
 	<message key="manager.workflow.title">Inställningar för arbetsflöde</message>
 	<message key="manager.distribution">Distribution</message>
 	<message key="manager.distribution.title">Inställningar för distribution</message>
-	
+
 	<!-- Review forms -->
 	<message key="manager.reviewForms">Granskningsformulär</message>
 	<message key="manager.reviewForms.confirmActivate">Är du säker på att du vill aktivera det här granskningsformuläret? När ett granskningsuppdrag tilldelats det kommer du inte längre kunna inaktivera det.</message>
@@ -532,5 +522,5 @@
 	<message key="manager.navigationMenus.logOut.description">En länk för att logga ut som användare.</message>
 	<message key="manager.navigationMenus.loggedOut.conditionalWarning">Den här länken visas bara om besökaren är inloggad.</message>
 	<message key="manager.navigationMenus.loggedIn.conditionalWarning">Den här länken visas bara när besökaren inte är inloggad.</message>
-	
+
 </locale>

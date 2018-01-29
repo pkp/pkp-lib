@@ -71,7 +71,6 @@
 	<message key="editor.review.reviewConfirmed">Gutachten bestätigt</message>
 	<message key="editor.review.reviewSubmitted">Gutachten eingereicht</message>
 	<message key="editor.review.reviewerComments">Begutachtungskommentare</message>
-	<message key="editor.review.days">Durchschnittliche Dauer (Tage)</message>
 	<message key="editor.review.mustSelect">Sie müssen eine/n Gutachter/in auswählen</message>
 	<message key="editor.review.errorAddingReviewer">Es gab einen Fehler beim Hinzufügen des/der Gutachter/in. Bitte versuchen Sie es erneut.</message>
 	<message key="editor.review.errorDeletingReviewer">Es gab einen Fehler beim Entfernen des/der Gutachter/in. Bitte versuchen Sie es erneut.</message>

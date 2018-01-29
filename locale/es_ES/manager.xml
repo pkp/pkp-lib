@@ -165,13 +165,8 @@
 	<message key="manager.readingTools">Herramientas de lectura</message>
 	<message key="manager.reviewerSearch.searchByName">Buscar Revisor por Nombre</message>
 	<message key="manager.reviewerSearch.searchByName.short">Buscar por nombre</message>
-	<message key="manager.reviewerSearch.doneAmount">Revisiones completadas: {$current}</message>
-	<message key="manager.reviewerSearch.avgAmount">Promedio de días para completar una revisión: {$current}</message>
-	<message key="manager.reviewerSearch.lastAmount">Días desde la última revisión: {$current}</message>
-	<message key="manager.reviewerSearch.activeAmount">Revisiones activas actualmente: {$current}</message>
 	<message key="manager.reviewerSearch.interests">Intereses de Revisión</message>
 	<message key="manager.reviewerSearch.form.instructions">Use el siguiente formulario para configurar los valores máximos de los términos que desee buscar.  El formulario se ha rellenado previamente con los promedios calculados de esos campos.</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">Introduzca los intereses de revisión separados por comas</message>
 	<message key="manager.roles">Tareas</message>
 	<message key="manager.statistics"><![CDATA[Stats &amp; Reports]]></message>
 	<message key="manager.statistics.defaultMetricDescription">
@@ -352,9 +347,6 @@
 	<message key="manager.distribution">Distribución</message>
 	<message key="manager.distribution.title">Ajustes de distribución</message>
 	<message key="manager.reviewerSearch.change">Cambia</message>
-	<message key="manager.reviewerSearch.doneAmountToggle">Activa/desactiva el filtro para las revisiones completadas.</message>
-	<message key="manager.reviewerSearch.avgAmountToggle">Activa/desactiva el filtro de promedio de días para completar una revisión.</message>
-	<message key="manager.reviewerSearch.lastAmountToggle">Activa/desactiva el filtro de días desde la última revisión.</message>
 	<message key="manager.statistics.reports.optinoalColumns.description">Los elementos en cursiva marcados con un asterisco (*) son datos opcionales para el actual sistema de recuento de estadísticas (tipo métrico). Puede tener estos datos o no, dependiendo de la configuración de su módulo de estadísticas.</message>
 	<message key="manager.statistics.reports.advancedOptions.hide">Ocultar las opciones avanzadas</message>
 	<message key="manager.statistics.reports.objectNotFound">Objeto no encontrado en la base de datos</message>
@@ -392,7 +384,6 @@
 	<message key="grid.action.installPlugin">Instala o actualiza este módulo</message>
 	<message key="manager.plugins.description">Esta página permite al administrador revisar y configurar potencialmente los módulos actualmente instalados. Los módulos se dividen en categorías según su función. Las categorías se enumeran a continuación, y dentro de cada categoría aparecen sus actuales paquetes de módulos.</message>
 	<message key="manager.plugins.upload">Cargar un nuevo módulo</message>
-	<message key="manager.reviewerSearch.activeAmountToggle">Activa/desactiva el filtro para las revisiones activas actualmente.</message>
 	<message key="manager.setup.peerReview.description">Describa la política de revisión por pares y los procesos para lectores/as y autores/as. Esta descripción a menudo incluye el número de revisores utilizados habitualmente para la revisión de los envíos, los criterios en los que se tienen que basar para juzgarlos, el tiempo esperado para llevar a cabo las revisiones y los principios usados para seleccionar a los revisores.</message>
 	<message key="manager.plugins.uploadDescription">Este formulario le permite subir e instalar un nuevo módulo. Por favor, asegúrese que el módulo está comprimido como un fichero .tar.gz.</message>
 	<message key="manager.plugins.uploadFailed">Asegúrese de que ha seleccionado un fichero para su carga.</message>
@@ -466,7 +457,6 @@
 	<message key="manager.setup.metadata.submission">Formulario de envío</message>
 	<message key="manager.reviewForms.list.description">Los formularios de revisión por pares creados aquí se presentarán a los revisores para completarlos en vez del formulario por defecto, que consiste en dos cajas de texto abierto, la primera para "autor y editor" y la segunda para el "editor". Los formularios de revisión se pueden asignar a una sección editorial específica y los editores tendrán la opción de elegir qué formulario utilizarán para cada una. En todos los casos los editores tendrán la opción de incluir las revisiones en la correspondencia con el autor.</message>
 	<message key="manager.reviewForms.noneChosen">Formulario de revisión libre</message>
-	<message key="manager.reviewerSearch.form.previousReviewRounds">Revisores de este envío en las rondas previas</message>
 	<message key="manager.statistics.reports.optionalColumns.description">Los ítems en cursiva y señalados con un asterisco (*) son datos opcionales para el actual método de cálculo de estadísticas en el sistema (tipo métrico). Puede tener estos datos o no, según su configuración del módulo de estadísticas.</message>
 	<message key="manager.userSearch.searchByName">Buscar usuario/a por nombre</message>
 	<message key="manager.setup.layout.sidebar">Barra lateral</message>
@@ -485,7 +475,7 @@
 	<message key="plugins.importexport.common.error.temporaryFileFailed">El archivo temporal {$dest} no se ha podido crear desde {$source}</message>
 	<message key="plugins.importexport.common.error.filesizeMismatch">El tamaño de archivo proporcionado "{$expected}" y el tamaño real "{$actual}" no coinciden</message>
 	<message key="plugins.importexport.native.error.submissionFileImportFailed">El archivo de envío no puede ser importado</message>
-	
+
 	<!-- Navigation Menus -->
 	<message key="manager.navigationMenus.form.title">Título</message>
 	<message key="manager.navigationMenus.form.path">Camino</message>
@@ -533,5 +523,5 @@
 	<message key="manager.navigationMenus.loggedOut.conditionalWarning">Este enlace solo se mostrará cuando el usuario/a haya iniciado la sesión.</message>
 	<message key="manager.navigationMenus.loggedIn.conditionalWarning">Este enlace solo se mostrará cuando el usuario/a NO haya iniciado la sesión.</message>
 	<message key="manager.navigationMenus.contact.description">Enlace a la página de Información de contacto.</message>
-	<message key="manager.navigationMenus.contact.conditionalWarning">Este enlace solo se mostrará si ha completado la sección Información de contacto bajo Preferencias > Contacto.</message>	
+	<message key="manager.navigationMenus.contact.conditionalWarning">Este enlace solo se mostrará si ha completado la sección Información de contacto bajo Preferencias > Contacto.</message>
 </locale>

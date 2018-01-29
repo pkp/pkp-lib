@@ -70,7 +70,6 @@
 	<message key="editor.review.reviewConfirmed">Recenzija potvrđena</message>
 	<message key="editor.review.reviewSubmitted">Recenzija predata</message>
 	<message key="editor.review.reviewerComments">Komentari recenzenata</message>
-	<message key="editor.review.days">Prosečno dana</message>
 	<message key="editor.review.mustSelect">Morate odabrati recenzenta</message>
 	<message key="editor.review.errorAddingReviewer">Došlo je do greške prilikom dodavanja recenzenta, pokušajte ponovo.</message>
 

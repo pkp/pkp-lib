@@ -71,7 +71,6 @@
 	<message key="editor.review.reviewConfirmed">Review Confirmed</message>
 	<message key="editor.review.reviewSubmitted">Review Submitted</message>
 	<message key="editor.review.reviewerComments">Reviewer Comments</message>
-	<message key="editor.review.days">Average Days</message>
 	<message key="editor.review.mustSelect">You must select a reviewer</message>
 	<message key="editor.review.errorAddingReviewer">There was an error adding the reviewer.  Please try again.</message>
 	<message key="editor.review.errorDeletingReviewer">There was an error deleting the reviewer.  Please try again.</message>

@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="pt_BR" full_name="Português (Brasil)">	
+<locale name="pt_BR" full_name="Português (Brasil)">
 	<message key="editor.submissionLibrary">Biblioteca da Submissão</message>
 	<message key="editor.review.notInitiated">A avaliação não foi iniciada.</message>
 	<message key="editor.submission.copyediting.personalMessageToUser">Mensagem ao usuário</message>
@@ -64,7 +64,6 @@
 	<message key="editor.review.reviewConfirmed">Avaliação Confirmada</message>
 	<message key="editor.review.reviewSubmitted">Avaliação Enviada</message>
 	<message key="editor.review.reviewerComments">Comentários do Avaliador</message>
-	<message key="editor.review.days">Médias de Dias</message>
 	<message key="editor.review.mustSelect">Você deve selecionar um avaliador</message>
 	<message key="editor.review.errorAddingReviewer">Houve um erro ao adicionar um avaliador. Por favor tente novamente.</message>
 	<message key="editor.submission.newRound">Nova Rodada de Avaliação</message>

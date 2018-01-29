@@ -70,7 +70,6 @@
 	<message key="editor.review.reviewConfirmed">Revisão Confirmada</message>
 	<message key="editor.review.reviewSubmitted">Revisão Submetida</message>
 	<message key="editor.review.reviewerComments">Comentários Revisor</message>
-	<message key="editor.review.days">Média Dias</message>
 	<message key="editor.review.mustSelect">Tem de seleccionar um revisor</message>
 	<message key="editor.review.errorAddingReviewer">Ocorreu um erro ao adicionar o revisor. Por favor, tente novamente.</message>
 	<message key="editor.review.errorDeletingReviewer">Ocorreu um erro ao eliminar o revisor. Por favor, tente novamente.</message>

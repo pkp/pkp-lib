@@ -140,4 +140,5 @@
 	<message key="reviewer.list.neverAssigned">Never assigned</message>
 	<message key="reviewer.list.currentlyAssigned">This reviewer has already been assigned to review this submission.</message>
 	<message key="reviewer.list.reviewInterests">Reviewing Interests</message>
+	<message key="reviewer.list.biography">Biography</message>
 </locale>

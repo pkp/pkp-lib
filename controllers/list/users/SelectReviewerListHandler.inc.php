@@ -70,6 +70,7 @@ class SelectReviewerListHandler extends SelectListHandler {
 			'neverAssigned' => __('reviewer.list.neverAssigned'),
 			'currentlyAssigned' => __('reviewer.list.currentlyAssigned'),
 			'reviewInterests' => __('reviewer.list.reviewInterests'),
+			'biography' => __('reviewer.list.biography'),
 			'listSeparator' => __('common.listSeparator'),
 			'viewMore' => __('review.list.viewMore'),
 			'viewLess' => __('review.list.viewLess'),

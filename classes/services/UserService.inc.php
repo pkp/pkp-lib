@@ -392,7 +392,7 @@ class UserService extends PKPBaseEntityPropertyService {
 	 */
 	public function getReviewerSummaryProperties($user, $args = null) {
 		$props = array (
-			'id','_href','userName','fullName','affiliation','groups','interests','gossip',
+			'id','_href','userName','fullName','affiliation','biography','groups','interests','gossip',
 			'reviewsActive','reviewsCompleted','averageReviewCompletionDays',
 			'dateLastReviewAssignment','orcid','disabled',
 		);

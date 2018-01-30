@@ -106,9 +106,10 @@ class LoginHandler extends Handler {
 			} else {
 				$source = $request->getUserVar('source');
 				$redirectNonSsl = Config::getVar('security', 'force_login_ssl') && !Config::getVar('security', 'force_ssl');
-				if (isset($source) && !empty($source)) {
+				if (preg_match('#^/\w#', $source) === 1) {
 					$request->redirectUrl($source);
-				} elseif ($redirectNonSsl) {
+				}
+				if ($redirectNonSsl) {
 					$request->redirectNonSSL();
 				} else {
 					$this->_redirectAfterLogin($request);

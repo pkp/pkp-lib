@@ -138,5 +138,6 @@
 	<message key="reviewer.list.daysSinceLastAssignmentDescription">Days since last review assigned</message>
 	<message key="reviewer.list.averageCompletion">Average days to complete review</message>
 	<message key="reviewer.list.neverAssigned">Never assigned</message>
+	<message key="reviewer.list.currentlyAssigned">This reviewer has already been assigned to review this submission.</message>
 	<message key="reviewer.list.reviewInterests">Reviewing Interests</message>
 </locale>

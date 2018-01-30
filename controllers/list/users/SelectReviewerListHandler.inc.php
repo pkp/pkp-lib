@@ -24,6 +24,17 @@ class SelectReviewerListHandler extends SelectListHandler {
 	/** @var string Used to generate URLs to API endpoints for this component. */
 	public $_apiPath = 'users/reviewers';
 
+	/** @var array List of user IDs already assigned as a reviewer to this submission */
+	public $_currentlyAssigned = array();
+
+	/**
+	 * @copydoc ListHandler::init()
+	 */
+	public function init($args = array()) {
+		parent::init($args);
+		$this->_currentlyAssigned = !empty($args['currentlyAssigned']) ? $args['currentlyAssigned'] : $this->_currentlyAssigned;
+	}
+
 	/**
 	 * @copydoc SelectListHandler::getConfig()
 	 */
@@ -33,6 +44,7 @@ class SelectReviewerListHandler extends SelectListHandler {
 
 		$config['apiPath'] = $this->_apiPath;
 		$config['itemsMax'] = $this->getItemsMax();
+		$config['currentlyAssigned'] = $this->_currentlyAssigned;
 
 		$config['i18n'] = array_merge($config['i18n'], array(
 			'search' => __('common.search'),
@@ -56,6 +68,7 @@ class SelectReviewerListHandler extends SelectListHandler {
 			'daysSinceLastAssignmentDescription' => __('reviewer.list.daysSinceLastAssignmentDescription'),
 			'averageCompletion' => __('reviewer.list.averageCompletion'),
 			'neverAssigned' => __('reviewer.list.neverAssigned'),
+			'currentlyAssigned' => __('reviewer.list.currentlyAssigned'),
 			'reviewInterests' => __('reviewer.list.reviewInterests'),
 			'listSeparator' => __('common.listSeparator'),
 			'viewMore' => __('review.list.viewMore'),

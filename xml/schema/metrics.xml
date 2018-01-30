@@ -61,6 +61,11 @@
 			<col>submission_id</col>
 			<col>assoc_type</col>
 		</index>
-		<!-- TODO: more indexes, depending on use cases. -->
+		<index name="metrics_metric_type_submission_id_assoc">
+			<col>metric_type</col>
+			<col>context_id</col>
+			<col>assoc_type</col>
+			<col>assoc_id</col>
+		</index>
 	</table>
 </schema>

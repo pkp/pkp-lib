@@ -134,7 +134,7 @@
 	<message key="reviewer.list.completedReviews">Reviews completed</message>
 	<message key="reviewer.list.reviewerRating">Reviewer rating: {$rating}</message>
 	<message key="reviewer.list.daysSinceLastAssignment">{$days} days ago</message>
-	<message key="reviewer.list.daySinceLastAssignment">{$day} day ago</message>
+	<message key="reviewer.list.daySinceLastAssignment">Yesterday</message>
 	<message key="reviewer.list.daysSinceLastAssignmentDescription">Days since last review assigned</message>
 	<message key="reviewer.list.averageCompletion">Average days to complete review</message>
 	<message key="reviewer.list.neverAssigned">Never assigned</message>

@@ -394,7 +394,7 @@ class UserService extends PKPBaseEntityPropertyService {
 		$props = array (
 			'id','_href','userName','fullName','affiliation','groups','interests','gossip',
 			'reviewsActive','reviewsCompleted','averageReviewCompletionDays',
-			'dateLastReviewAssignment','disabled',
+			'dateLastReviewAssignment','orcid','disabled',
 		);
 
 		\HookRegistry::call('User::getProperties::reviewerSummaryProperties', array(&$props, $user, $args));

@@ -215,7 +215,7 @@ class PKPUserHandler extends APIHandler {
 					break;
 
 				case 'searchPhrase':
-					$returnParams[$param] = $val;
+					$returnParams[$param] = trim($val);
 					break;
 
 				// Enforce a maximum count to prevent the API from crippling the

@@ -312,6 +312,8 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 			$words = explode(' ', $this->searchPhrase);
 			if (count($words)) {
 				$q->leftJoin('user_settings as us', 'u.user_id', '=', 'us.user_id');
+				$q->leftJoin('user_interests as ui', 'u.user_id', '=', 'ui.user_id');
+				$q->leftJoin('controlled_vocab_entry_settings as cves', 'ui.controlled_vocab_entry_id', '=', 'cves.controlled_vocab_entry_id');
 				foreach ($words as $word) {
 					$q->where(function($q) use ($word) {
 						$q->where('u.username', 'LIKE', "%{$word}%")
@@ -333,7 +335,8 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 							->orWhere(function($q) use ($word) {
 								$q->where('us.setting_name', 'orcid');
 								$q->where('us.setting_value', 'LIKE', "%{$word}%");
-							});
+							})
+							->orWhere('cves.setting_value', 'LIKE', "%{$word}%");
 					});
 				}
 			}
@@ -343,8 +346,8 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 		if (!empty($this->getReviewerData)) {
 			$q->leftJoin('review_assignments as ra', 'u.user_id', '=', 'ra.reviewer_id');
 			$this->columns[] = Capsule::raw('MAX(ra.date_assigned) as last_assigned');
-			$this->columns[] = Capsule::raw('SUM(CASE WHEN ra.date_completed IS NULL THEN 1 ELSE 0 END) as incomplete_count');
-			$this->columns[] = Capsule::raw('SUM(CASE WHEN ra.date_completed IS NOT NULL THEN 1 ELSE 0 END) as complete_count');
+			$this->columns[] = Capsule::raw('(SELECT SUM(CASE WHEN ra.date_completed IS NULL THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as incomplete_count');
+			$this->columns[] = Capsule::raw('(SELECT SUM(CASE WHEN ra.date_completed IS NOT NULL THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as complete_count');
 			switch (\Config::getVar('database', 'driver')) {
 				case 'mysql':
 				case 'mysqli':
@@ -358,20 +361,20 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 			// completed reviews
 			if (!empty($this->reviewsCompleted)) {
 				$doneMin = is_array($this->reviewsCompleted) ? $this->reviewsCompleted[0] : $this->reviewsCompleted;
-				$q->havingRaw('SUM(CASE WHEN ra.date_completed IS NOT NULL THEN 1 ELSE 0 END) >= ' . (int) $doneMin);
+				$subqueryStatement = '(SELECT SUM(CASE WHEN ra.date_completed IS NOT NULL THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id)';
+				$q->having(Capsule::raw($subqueryStatement), '>=', $doneMin);
 				if (is_array($this->reviewsCompleted) && !empty($this->reviewsCompleted[1])) {
-					$doneMax = $this->reviewsCompleted[1];
-					$q->havingRaw('SUM(CASE WHEN ra.date_completed IS NOT NULL THEN 1 ELSE 0 END) <= ' . (int) $doneMax);
+					$q->having(Capsule::raw($subqueryStatement), '<=', $this->reviewsCompleted[1]);
 				}
 			}
 
 			// active reviews
 			if (!empty($this->reviewsActive)) {
 				$activeMin = is_array($this->reviewsActive) ? $this->reviewsActive[0] : $this->reviewsActive;
-				$q->havingRaw('SUM(CASE WHEN ra.date_completed IS NULL THEN 1 ELSE 0 END) >= ' . (int) $activeMin);
+				$subqueryStatement = '(SELECT SUM(CASE WHEN ra.date_completed IS NULL THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id)';
+				$q->having(Capsule::raw($subqueryStatement), '>=', $activeMin);
 				if (is_array($this->reviewsActive) && !empty($this->reviewsActive[1])) {
-					$activeMax = $this->reviewsActive[1];
-					$q->havingRaw('SUM(CASE WHEN ra.date_completed IS NULL THEN 1 ELSE 0 END) <= ' . (int) $activeMax);
+					$q->having(Capsule::raw($subqueryStatement), '<=', $this->reviewsActive[1]);
 				}
 			}
 

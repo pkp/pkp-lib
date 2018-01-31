@@ -53,10 +53,18 @@ class NavigationMenusGridCellProvider extends GridCellProvider {
 		assert(is_a($navigationMenu, 'NavigationMenu') && !empty($columnId));
 
 		switch ($columnId) {
-		    case 'title':
-		        return array('label' => '');
-		    default:
-		        break;
+				case 'title':
+						return array('label' => '');
+				case 'nmis':
+						$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+						$items = $navigationMenuItemDao->getByMenuId($navigationMenu->getId())->toArray();
+						$navigationMenusTitles = '';
+						foreach ($items as $item) {
+								$navigationMenusTitles = $navigationMenusTitles.$item->getLocalizedTitle().', ';
+						}
+						return array('label' => $navigationMenusTitles);
+				default:
+						break;
 		}
 
 		return parent::getTemplateVarsFromRowColumn($row, $column);

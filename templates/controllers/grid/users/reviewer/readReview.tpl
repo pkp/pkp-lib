@@ -89,16 +89,14 @@
 
 		{$reviewerRecommendations}
 
-		{if $currentJournal->getData('rateReviewerOnQuality')}
-			{fbvFormSection label="editor.review.rateReviewer" description="editor.review.rateReviewer.description"}
+		{fbvFormSection label="editor.review.rateReviewer" description="editor.review.rateReviewer.description"}
 			{foreach from=$reviewerRatingOptions item="stars" key="value"}
 				<label class="pkp_star_selection">
 					<input type="radio" name="quality" value="{$value|escape}"{if $value == $reviewAssignment->getQuality()} checked{/if}>
 					{$stars}
 				</label>
 			{/foreach}
-			{/fbvFormSection}
-		{/if}
+		{/fbvFormSection}
 
 		{fbvFormButtons id="closeButton" hideCancel=false submitText="common.confirm"}
 	{/fbvFormArea}

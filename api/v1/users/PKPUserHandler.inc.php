@@ -249,6 +249,10 @@ class PKPUserHandler extends APIHandler {
 		foreach ($requestParams as $param => $val) {
 			switch ($param) {
 
+				case 'reviewerRating':
+					$returnParams[$param] = (int) $val;
+					break;
+
 				case 'reviewsCompleted':
 				case 'reviewsActive':
 				case 'daysSinceLastAssignment':

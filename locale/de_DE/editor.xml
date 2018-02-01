@@ -59,6 +59,7 @@
 	<message key="editor.review.thankReviewerError">Fehler beim Versenden des Dankes an Gutachter/in</message>
 	<message key="editor.review.skipEmail">E-Mail nicht an Gutachter/in schicken</message>
 	<message key="editor.review.sendReminder">Erinnerung senden</message>
+	<message key="editor.review.rateReviewer">Gutachter/in bewerten</message>
 	<message key="editor.review.readReview">Gutachten lesen</message>
 	<message key="editor.review.readNewReview">Neues Gutachen lesen</message>
 	<message key="editor.review.responseDue">Antwort fällig: {$date}</message>

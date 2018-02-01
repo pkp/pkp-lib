@@ -58,11 +58,6 @@
 	{load_url_in_div id="reviewFormGridContainer" url=$reviewFormsUrl}
 
 	{fbvFormArea id="reviewProcessDetails" class=$wizardClass}
-		{* https://github.com/pkp/pkp-lib/issues/372
-			{fbvFormSection for="rateReviewerOnQuality" label="manager.setup.reviewOptions.reviewerRatings" list=true}
-				{fbvElement type="checkbox" id="rateReviewerOnQuality" value="1" checked=$rateReviewerOnQuality label="manager.setup.reviewOptions.onQuality"}
-			{/fbvFormSection}
-		*}
 		{capture assign="ensureLink"}{include file="linkAction/linkAction.tpl" action=$ensuringLink contextId="uploadForm"}{/capture}
 		{fbvFormSection for="showEnsuringLink" label="manager.setup.reviewOptions.blindReview" list=true}
 			{fbvElement type="checkbox" id="showEnsuringLink" value="1" checked=$showEnsuringLink label=$ensureLink translate=false keepLabelHtml=true}

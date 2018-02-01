@@ -70,6 +70,7 @@
 	<message key="editor.review.reviewConfirmed">Рецензија потврђена</message>
 	<message key="editor.review.reviewSubmitted">Рецензија предата</message>
 	<message key="editor.review.reviewerComments">Коментари рецензената</message>
+	<message key="editor.review.rateReviewer">Рангирање рецензента</message>
 	<message key="editor.review.mustSelect">Морате одабрати рецензента</message>
 	<message key="editor.review.errorAddingReviewer">Дошло је до грешке приликом додавања рецензента, покушајте поново.</message>
 	<message key="editor.review.errorDeletingReviewer">Дошло је до грешке приликом брисања рецензента, покушајте поново.</message>

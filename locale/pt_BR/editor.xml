@@ -64,6 +64,7 @@
 	<message key="editor.review.reviewConfirmed">Avaliação Confirmada</message>
 	<message key="editor.review.reviewSubmitted">Avaliação Enviada</message>
 	<message key="editor.review.reviewerComments">Comentários do Avaliador</message>
+	<message key="editor.review.rateReviewer">Classificação do avaliador</message>
 	<message key="editor.review.mustSelect">Você deve selecionar um avaliador</message>
 	<message key="editor.review.errorAddingReviewer">Houve um erro ao adicionar um avaliador. Por favor tente novamente.</message>
 	<message key="editor.submission.newRound">Nova Rodada de Avaliação</message>

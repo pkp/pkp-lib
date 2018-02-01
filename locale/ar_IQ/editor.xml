@@ -71,6 +71,7 @@
 	<message key="editor.review.reviewConfirmed">التحكيم مؤكد</message>
 	<message key="editor.review.reviewSubmitted">التحكيم مسلَّم</message>
 	<message key="editor.review.reviewerComments">تعليقات المحكم</message>
+	<message key="editor.review.rateReviewer">تقييم المحكم</message>
 	<message key="editor.review.mustSelect">عليك أن تختار محكماً</message>
 	<message key="editor.review.errorAddingReviewer">حدث خطأ عند إضافة المحكم. لطفاً، حاول مرة أخرى.</message>
 	<message key="editor.review.errorDeletingReviewer">حدث خطأ عند إزالة المحكم. لطفاً، حاول مرة أخرى.</message>

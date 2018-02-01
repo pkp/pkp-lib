@@ -54,16 +54,19 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	/** @var bool whether to return reviewer activity data */
 	protected $getReviewerData = null;
 
-	/** @var int|array reviews completed by user */
+	/** @var int filter by minimum reviewer rating */
+	protected $reviewerRating = null;
+
+	/** @var int|array filter by reviews completed by user */
 	protected $reviewsCompleted = null;
 
-	/** @var int|array active review assignments for user */
+	/** @var int|array filter by active review assignments for user */
 	protected $reviewsActive = null;
 
-	/** @var int|array days since last review assignment */
+	/** @var int|array filter by days since last review assignment */
 	protected $daysSinceLastAssignment = null;
 
-	/** @var int|array average days to complete a review */
+	/** @var int|array filter by average days to complete a review */
 	protected $averageCompletion = null;
 
 	/**
@@ -183,6 +186,21 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	 */
 	public function getReviewerData($enable = true) {
 		$this->getReviewerData = $enable;
+		return $this;
+	}
+
+	/**
+	 * Limit results to those who have a minimum reviewer rating
+	 *
+	 * @param int $reviewerRating
+	 *
+	 * @return \PKP\Services\QueryBuilders\UserListQueryBuilder
+	 */
+	public function filterByReviewerRating($reviewerRating = null) {
+		if (!is_null($reviewerRating)) {
+			$this->reviewerRating = $reviewerRating;
+		}
+
 		return $this;
 	}
 
@@ -357,6 +375,12 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 					$dateDiffClause = 'DATE_PART(\'day\', ra.date_completed - ra.date_notified)';
 			}
 			$this->columns[] = Capsule::raw('AVG(' . $dateDiffClause . ') as average_time');
+			$this->columns[] = Capsule::raw('(SELECT AVG(ra.quality) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id AND ra.quality IS NOT NULL) as reviewer_rating');
+
+			// reviewer rating
+			if (!empty($this->reviewerRating)) {
+				$q->havingRaw('(SELECT AVG(ra.quality) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id AND ra.quality IS NOT NULL) >= ' . (int) $this->reviewerRating);
+			}
 
 			// completed reviews
 			if (!empty($this->reviewsCompleted)) {

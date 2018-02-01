@@ -55,6 +55,7 @@
 	<message key="editor.review.thankReviewerError">Virhe lähetettäessä kiitosviestiä arvioijalle</message>
 	<message key="editor.review.skipEmail">Älä lähetä sähköpostia arvioijalle.</message>
 	<message key="editor.review.sendReminder">Lähetä muistutus</message>
+	<message key="editor.review.rateReviewer">Arvioijan arvostelu</message>
 	<message key="editor.review.readReview">Lue arviointi</message>
 	<message key="editor.review.readNewReview">Lue uusi arviointi</message>
 	<message key="editor.review.responseDue">Vastauksen määräpäivä: {$date}</message>

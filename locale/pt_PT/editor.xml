@@ -76,6 +76,7 @@
 	<message key="editor.review.userGroupSelect">Inscrever o utilizador neste grupo de revisores</message>
 	<message key="editor.review.unconsiderReviewText">Deseja marcar esta revisão como não considerada? O histórico de revisão será preservado.</message>
 	<message key="editor.review.unconsiderReview">Não considerar esta revisão</message>
+	<message key="editor.review.rateReviewer">Classificação do revisor</message>
 	<message key="editor.review.readConfirmation">Assim que esta revisão seja lida, pressione "Confirmar" para indicar que o processo de revisão pode prosseguir. Se o revisor apresentou a sua revisão noutra etapa, pode carregar o ficheiro abaixo e depois pressionar "Confirmar" para prosseguir.</message>
 	<message key="editor.submission.selectCopyedingFiles">Ficheiros de Edição de Cópia</message>
 	<message key="editor.submission.selectReviewer">Seleccionar Revisor</message>

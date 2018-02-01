@@ -102,7 +102,6 @@
 	<message key="editor.submission.createNewRound">Utwórz nową rundę recenzji</message>
 	<message key="editor.article.reviewForms">Formularze recenzji</message>
 	<message key="editor.article.selectReviewForm">Wybierz formularz recenzji</message>
-	<message key="editor.article.clearReviewForm">Wyczyść formularz recenzji</message>
 	<message key="editor.article.confirmChangeReviewForm">Uwaga: Wprowadzenie zmian w formularzu recenzji będzie miało wpływ na odpowiedzi, które recenzenci już złożyli korzystając z tego formularza. Czy na pewno chcesz kontynuować?</message>
 	<message key="editor.submission.noReviewerFilesSelected">Nie wybrano plików</message>
 	<message key="editor.submission.noReviewerFilesSelected.details">Nie wybrałeś(aś) żadnego pliku do wykonania recenzji.</message>

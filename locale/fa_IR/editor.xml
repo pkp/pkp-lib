@@ -106,7 +106,6 @@
 	<message key="editor.submission.createNewRound">ایجاد دور جدید داوری</message>
 	<message key="editor.article.reviewForms">فرم‌های داوری</message>
 	<message key="editor.article.selectReviewForm">انتخاب فرم داوری</message>
-	<message key="editor.article.clearReviewForm">پاک کردن فرم داوری</message>
 	<message key="editor.article.confirmChangeReviewForm">اخطار: تغییر در فرم داوری باعث تأثیر در تمام فرم‌های داوری که پیشتر بر اساس این فرم ایجاد شده‌اند خواهد شد. آیا مطمئنید که می‌خواهید ادامه دهید؟</message>
 	<message key="editor.submission.noReviewerFilesSelected">هیچ فایلی انتخاب نشده است.</message>
 	<message key="editor.submission.noReviewerFilesSelected.details">هیچ فایلی برای داور مشخص نشده است.</message>

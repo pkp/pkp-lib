@@ -119,7 +119,6 @@
 	<message key="editor.review.emailReviewer">Envia un correu electrònic al revisor/a</message>
 	<message key="editor.article.reviewForms">Formularis de revisió</message>
 	<message key="editor.article.selectReviewForm">Seleccionar el formulari de revisió</message>
-	<message key="editor.article.clearReviewForm">Neteja el formulari de revisió</message>
 	<message key="submission.queries.attachedFiles">Arxius adjunts</message>
 	<message key="grid.action.editQuery">Editar discussió</message>
 	<message key="editor.submission.selectedReviewer">Revisor/a seleccionat</message>

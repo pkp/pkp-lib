@@ -14,6 +14,5 @@
 <locale name="el_GR" full_name="ελληνικά">
 	<message key="editor.article.reviewForms">Φόρμες Αξιολόγησης</message>
 	<message key="editor.article.selectReviewForm">Επιλέξτε Φόρμα Αξιολόγησης</message>
-	<message key="editor.article.clearReviewForm">Καθαρισμός Φόρμας Αξιολόγησης</message>
 	<message key="editor.article.confirmChangeReviewForm">Προσοχή: Η αλλαγή της φόρμας αξιολόγησης θα επηρεάσει όλες τις απαντήσεις των αξιολογητών που έχουν γίνει με την χρήση αυτής της φόρμας. Είστε σίγουροι ότι επιθυμείτε να συνεχίσετε?</message>
 </locale>

@@ -84,7 +84,6 @@
 	<message key="editor.submission.createNewRound">Crear nueva ronda de revisión</message>
 	<message key="editor.article.reviewForms">Formularios de Revisión</message>
 	<message key="editor.article.selectReviewForm">Escoger Formulario de Revisión</message>
-	<message key="editor.article.clearReviewForm">Limpiar Formulario de Revisión</message>
 	<message key="editor.submissionLibrary">Biblioteca de envío</message>
 	<message key="editor.submission.selectFiles">Selecciona archivos</message>
 	<message key="editor.submission.findAndSelectReviewer">Encuentra un revisor</message>

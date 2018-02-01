@@ -71,7 +71,6 @@
 	<message key="editor.submission.newRoundDescription">You are about to create a new review round for this submission.  Files that have not been used in other review rounds are listed below.  By default, the reviewers from the previous review round have been selected to participate in this new review round.</message>
 	<message key="editor.article.reviewForms">Formulários de Avaliação</message>
 	<message key="editor.article.selectReviewForm">Selecionar Formulário de Avaliação</message>
-	<message key="editor.article.clearReviewForm">Limpar Formulário de Avaliação</message>
 	<message key="grid.action.editQuery">Editar Comentários</message>
 	<message key="editor.submission.fileAuditor.form.fileRequired">Você deve selecionar ao menos um arquivo para designar o usuário.</message>
 	<message key="editor.submission.fileAuditor.form.messageRequired">Você deve incluir uma mensagem pessoal.</message>

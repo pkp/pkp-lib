@@ -97,7 +97,6 @@
 	<message key="editor.submission.newRoundDescription">Vous êtes sur le point de créer une nouvelle ronde d'évaluation pour cette soumission. Les fichiers qui n'ont pas été utilisés dans les autres rondes d'évaluation sont indiqués ci-dessous. Par défaut, les évaluateurs de la ronde d'évaluation précédente ont été sélectionnés pour participer à cette nouvelle ronde.</message>
 	<message key="editor.article.reviewForms">Formulaires d'évaluation</message>
 	<message key="editor.article.selectReviewForm">Sélectionner un formulaire d'évaluation</message>
-	<message key="editor.article.clearReviewForm">Réinitialiser le formulaire d'évaluation</message>
 	<message key="editor.submission.selectedReviewer">Evaluateur sélectionné</message>
 	<message key="editor.submissionLibrary">Bibliothèque de soumission</message>
 	<message key="editor.submission.selectFiles">Sélectionner les fichiers</message>

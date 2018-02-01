@@ -109,7 +109,6 @@
 	<message key="editor.submission.createNewRound">Создать новый раунд рецензирования</message>
 	<message key="editor.article.reviewForms">Формы рецензии</message>
 	<message key="editor.article.selectReviewForm">Выбрать форму рецензии</message>
-	<message key="editor.article.clearReviewForm">Очистить форму рецензии</message>
 	<message key="editor.article.confirmChangeReviewForm">Предупреждение: Изменение формы рецензии повлияет на все рецензии, которые уже сделали рецензенты с помощью этой формы. Вы уверены, что хотите продолжить?</message>
 	<message key="editor.submission.noReviewerFilesSelected">Файлы не выбраны</message>
 	<message key="editor.submission.noReviewerFilesSelected.details">Вы не выбрали ни одного файла для рецензирования рецензентом.</message>

@@ -96,7 +96,6 @@
 	<message key="editor.submission.createNewRound">Napravi novi krug recenziranja</message>
 	<message key="editor.article.reviewForms">Obrasci recenzije</message>
 	<message key="editor.article.selectReviewForm">Odaberi obrazac recenzije</message>
-	<message key="editor.article.clearReviewForm">Očisti obrazac recenzije</message>
 	<message key="editor.submission.noReviewerFilesSelected">Nema odabranih fajlova</message>
 	<message key="editor.submission.noReviewerFilesSelected.details">Niste odabrali ni jedan fajl koji bi recenzent pogledao.</message>
 	<message key="submission.queries.subjectRequired">Tema diskusije je neophodan.</message>

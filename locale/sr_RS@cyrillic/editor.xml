@@ -95,7 +95,6 @@
 	<message key="editor.submission.createNewRound">Направи нови круг рецензирања</message>
 	<message key="editor.article.reviewForms">Обрасци рецензије</message>
 	<message key="editor.article.selectReviewForm">Одабери образац рецензије</message>
-	<message key="editor.article.clearReviewForm">Очисти образац рецензије</message>
 	<message key="editor.submission.noReviewerFilesSelected">Нема одабраних фајлова</message>
 	<message key="editor.submission.noReviewerFilesSelected.details">Нисте одабрали ни један фајл који би рецензент погледао.</message>
 	<message key="submission.queries.subjectRequired">Тема дискусије је неопходан.</message>

@@ -73,6 +73,8 @@ class UserDetailsForm extends UserForm {
 	 * @param $request PKPRequest
 	 */
 	function initData($args, $request) {
+		$context = $request->getContext();
+		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 
 		$data = array();
 
@@ -104,6 +106,13 @@ class UserDetailsForm extends UserForm {
 				'interests' => $interestManager->getInterestsForUser($user),
 				'userLocales' => $user->getLocales(),
 			);
+
+			import('classes.core.ServicesContainer');
+			$userService = ServicesContainer::instance()->get('user');
+			$data['canCurrentUserGossip'] = $userService->canCurrentUserGossip($user->getId());
+			if ($data['canCurrentUserGossip']) {
+				$data['gossip'] = $user->getGossip();
+			}
 		} else if (isset($this->author)) {
 			$author = $this->author;
 			$data = array(
@@ -196,6 +205,7 @@ class UserDetailsForm extends UserForm {
 			'mailingAddress',
 			'country',
 			'biography',
+			'gossip',
 			'interests',
 			'userLocales',
 			'generatePassword',
@@ -257,6 +267,7 @@ class UserDetailsForm extends UserForm {
 		$user->setBiography($this->getData('biography'), null); // Localized
 		$user->setMustChangePassword($this->getData('mustChangePassword') ? 1 : 0);
 		$user->setAuthId((int) $this->getData('authId'));
+		$user->setGossip($this->getData('gossip'));
 
 		$site = $request->getSite();
 		$availableLocales = $site->getSupportedLocales();

@@ -51,6 +51,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		$assistantOperations = array_flip($allOperations);
 		unset($assistantOperations['createReviewer']);
 		unset($assistantOperations['enrollReviewer']);
+		unset($assistantOperations['gossip']);
 		$assistantOperations = array_flip($assistantOperations);
 
 		$this->addRoleAssignment(
@@ -664,6 +665,47 @@ class PKPReviewerGridHandler extends GridHandler {
 
 
 	/**
+	 * Displays a modal containing the gossip values for a reviewer
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
+	function gossip($args, $request) {
+		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
+		$userDao = DAORegistry::getDAO('UserDAO');
+		$user = $userDao->getById($reviewAssignment->getReviewerId());
+
+		// Check that the current user is specifically allowed to access gossip for
+		// this user
+		import('classes.core.ServicesContainer');
+		$canCurrentUserGossip = ServicesContainer::instance()
+			->get('user')
+			->canCurrentUserGossip($user->getId());
+		if (!$canCurrentUserGossip) {
+			return new JSONMessage(false, __('user.authorization.roleBasedAccessDenied'));
+		}
+
+		$requestArgs = array_merge($this->getRequestArgs(), array('reviewAssignmentId' => $reviewAssignment->getId()));
+		import('lib.pkp.controllers.grid.users.reviewer.form.ReviewerGossipForm');
+		$reviewerGossipForm = new ReviewerGossipForm($user, $requestArgs);
+
+		// View form
+		if (!$request->isPost()) {
+			return new JSONMessage(true, $reviewerGossipForm->fetch($request));
+		}
+
+		// Execute form
+		$reviewerGossipForm->readInputData();
+		if ($reviewerGossipForm->validate()) {
+			$reviewerGossipForm->execute();
+			return new JSONMessage(true);
+		}
+
+		return new JSONMessage(false, __('user.authorization.roleBasedAccessDenied'));
+	}
+
+
+	/**
 	 * Fetches an email template's message body and returns it via AJAX.
 	 * @param $args array
 	 * @param $request PKPRequest
@@ -734,7 +776,7 @@ class PKPReviewerGridHandler extends GridHandler {
 	 */
 	function _getReviewAssignmentOps() {
 		// Define operations that need a review assignment policy.
-		return array('readReview', 'reviewHistory', 'reviewRead', 'editThankReviewer', 'thankReviewer', 'editReminder', 'sendReminder', 'unassignReviewer', 'updateUnassignReviewer', 'sendEmail', 'unconsiderReview', 'editReview', 'updateReview');
+		return array('readReview', 'reviewHistory', 'reviewRead', 'editThankReviewer', 'thankReviewer', 'editReminder', 'sendReminder', 'unassignReviewer', 'updateUnassignReviewer', 'sendEmail', 'unconsiderReview', 'editReview', 'updateReview', 'gossip');
 
 	}
 

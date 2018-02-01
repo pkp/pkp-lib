@@ -117,6 +117,27 @@ class ReviewerGridRow extends GridRow {
 					'more_info'
 				)
 			);
+
+			// Add gossip action when appropriate
+			$reviewAssignment = $this->getData();
+			import('classes.core.ServicesContainer');
+			$canCurrentUserGossip = ServicesContainer::instance()
+				->get('user')
+				->canCurrentUserGossip($reviewAssignment->getReviewerId());
+			if ($canCurrentUserGossip) {
+				$this->addAction(
+					new LinkAction(
+						'gossip',
+						new AjaxModal(
+							$router->url($request, null, null, 'gossip', null, $actionArgs),
+							__('user.gossip'),
+							'modal_information'
+						),
+						__('user.gossip'),
+						'more_info'
+					)
+				);
+			}
 		}
 	}
 }

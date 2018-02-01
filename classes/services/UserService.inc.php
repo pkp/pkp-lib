@@ -261,7 +261,9 @@ class UserService extends PKPBaseEntityPropertyService {
 					$values[$prop] = $user->getBillingAddress();
 					break;
 				case 'gossip':
-					$values[$prop] = $user->getGossip();
+					if ($this->canCurrentUserGossip($user->getId())) {
+						$values[$prop] = $user->getGossip();
+					}
 					break;
 				case 'reviewsActive':
 					$values[$prop] = $user->getData('incompleteCount');
@@ -405,5 +407,53 @@ class UserService extends PKPBaseEntityPropertyService {
 		\HookRegistry::call('User::getProperties::reviewerSummaryProperties', array(&$props, $user, $args));
 
 		return $this->getProperties($user, $props, $args);
+	}
+
+	/**
+	 * Does a user have a role?
+	 *
+	 * @param int $userId
+	 * @param int|array $roleIds ROLE_ID_...
+	 * @param int $contextId
+	 * @return boolean
+	 */
+	public function userHasRole($userId, $roleIds, $contextId) {
+		$roleDao = DAORegistry::getDAO('RoleDAO');
+		return $roleDao->userHasRole($contextId, $userId, $roleIds);
+	}
+
+	/**
+	 * Can the current user view and edit the gossip field for a user
+	 *
+	 * @param int $userId The user who's gossip field should be accessed
+	 * @return boolean
+	 */
+	public function canCurrentUserGossip($userId) {
+		$request = Application::getRequest();
+		$context = $request->getContext();
+		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
+		$currentUser = $request->getUser();
+
+		// Logged out users can never view gossip fields
+		if (!$currentUser) {
+			return false;
+		}
+
+		// Users can never view their own gossip fields
+		if ($currentUser->getId() === $userId) {
+			return false;
+		}
+
+		// Only reviewers have gossip fields
+		if (!$this->userHasRole($userId, ROLE_ID_REVIEWER, $contextId)) {
+			return false;
+		}
+
+		// Only admins, editors and subeditors can view gossip fields
+		if (!$this->userHasRole($currentUser->getId(), array(ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN, ROLE_ID_SUB_EDITOR), $contextId)) {
+			return false;
+		}
+
+		return true;
 	}
 }

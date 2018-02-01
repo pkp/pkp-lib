@@ -108,7 +108,6 @@
 	<message key="editor.submission.createNewRound">Neue Begutachtungsrunde anlegen</message>
 	<message key="editor.article.reviewForms">Begutachtungsformulare</message>
 	<message key="editor.article.selectReviewForm">Begutachtungsformular auswählen</message>
-	<message key="editor.article.clearReviewForm">Begutachtungsformular leeren</message>
 	<message key="editor.article.confirmChangeReviewForm">Achtung: Ein Wechsel des Begutachtungsformular wird alle Antworten, die Gutachter/innen bisher mittels des Formulars eingetragen haben, beeinflussen. Sind Sie sicher, dass Sie fortfahren möchten?</message>
 	<message key="editor.submission.noReviewerFilesSelected">Keine Dateien ausgewählt</message>
 	<message key="editor.submission.noReviewerFilesSelected.details">Sie haben keine Dateien ausgewählt, die der/die Gutachter/in begutachten soll.</message>

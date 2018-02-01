@@ -102,7 +102,6 @@
 	<message key="editor.submission.createNewRound">Criar Nova Ronda Revisão</message>
 	<message key="editor.article.reviewForms">Formulários Revisão</message>
 	<message key="editor.article.selectReviewForm">Seleccionar Formulário Revisão</message>
-	<message key="editor.article.clearReviewForm">Limpar Formulário Revisão</message>
 	<message key="editor.article.confirmChangeReviewForm">Aviso: alterar o formulário de revisão afectará qualquer resposta que os revisores tenham feito usando este formulário. Tem certeza que deseja continuar?</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">O padrão {$pattern} não é permitido para o identificador público.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">O identificador público '{$publicIdentifier}' não pode ser um número.</message>

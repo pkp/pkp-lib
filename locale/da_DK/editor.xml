@@ -105,7 +105,6 @@
 	<message key="editor.review.emailReviewer">Send bedømmer en e-mail</message>
 	<message key="editor.article.reviewForms">Bedømmelsesformular</message>
 	<message key="editor.article.selectReviewForm">Vælg bedømmelsesformular</message>
-	<message key="editor.article.clearReviewForm">Ryd bedømmelsesformular</message>
 	<message key="editor.article.confirmChangeReviewForm">Advarsel: Ved at ændre bedømmelsesformularen påvirkes alle de svar, hvor bedømmeren har anvendt denne formular. Er du sikker på, at du vil fortsætte?</message>
 	<message key="editor.submission.noReviewerFilesSelected">Ingen fil er valgt</message>
 	<message key="editor.submission.noReviewerFilesSelected.details">Du har ikke valgt nogen fil til bedømmelse.</message>

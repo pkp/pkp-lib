@@ -108,7 +108,6 @@
 	<message key="editor.submission.createNewRound">إنشاء جولة تحكيم جديدة</message>
 	<message key="editor.article.reviewForms">نماذج التحكيم</message>
 	<message key="editor.article.selectReviewForm">إختر نموذج التحكيم</message>
-	<message key="editor.article.clearReviewForm">إزالة نموذج التحكيم</message>
 	<message key="editor.article.confirmChangeReviewForm">تحذير: تغيير نموذج التحكيم سيؤثر على الإجابات التي قدمها المحكمون مستعملين هذا النموذج. هل أنت متأكد من رغبتك في المتابعة؟</message>
 	<message key="editor.submission.noReviewerFilesSelected">لم يتم اختيار أي ملفات بعد</message>
 	<message key="editor.submission.noReviewerFilesSelected.details">لم تم باختيار أي ملفات لتطلب من المحكم تحكيمها.</message>

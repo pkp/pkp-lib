@@ -109,7 +109,6 @@
 	<message key="editor.submission.createNewRound">Skapa ny granskningsomgång</message>
 	<message key="editor.article.reviewForms">Granskningsformulär</message>
 	<message key="editor.article.selectReviewForm">Välj granskningsformulär</message>
-	<message key="editor.article.clearReviewForm">Rensa granskningsformulär</message>
 	<message key="editor.article.confirmChangeReviewForm">Varning: Genom att ändra granskningsformuläret påverkas alla svar granskare redan matat in med hjälp av det här formuläret. Vill du verkligen fortsätta?</message>
 	<message key="editor.submission.noReviewerFilesSelected">Inga filer valda.</message>
 	<message key="editor.submission.noReviewerFilesSelected.details">Du har inte valt några filer som granskaren ska granska.</message>

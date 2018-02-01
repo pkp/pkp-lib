@@ -99,7 +99,6 @@
 	<message key="editor.submission.createNewRound">Luo uusi arviointikierros</message>
 	<message key="editor.article.reviewForms">Arviointilomakkeet</message>
 	<message key="editor.article.selectReviewForm">Valitse arviointilomake</message>
-	<message key="editor.article.clearReviewForm">Tyhjennä arviointilomake</message>
 	<message key="editor.article.confirmChangeReviewForm">Varoitus: Arviointilomakkeen vaihtaminen vaikuttaa kaikkiin vastauksiin, joita arvioijat ovat jo antaneet tätä lomaketta käyttäen. Haluatko varmasti jatkaa?</message>
 	<message key="editor.submission.noReviewerFilesSelected">Ei valittuja tiedostoja</message>
 	<message key="editor.submission.noReviewerFilesSelected.details">Et ole valinnut yhtään tiedostoa arvioijan arvioitavaksi.</message>

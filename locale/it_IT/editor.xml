@@ -35,7 +35,7 @@
 	<message key="editor.review.reviewDueDate">Scadenza per inviare la revisione</message>
 	<message key="editor.review.reviewSubmitted">Revisione ricevuta</message>
 	<message key="editor.review.readConfirmation">Una volta letto il parere, cliccare "Conferma" per indicare che il processo di revisione può continuare. Se il revisore ha inviato il proprio parere in altro modo, puoi caricare il file qui sotto e cliccare "Conferma" per procedere.</message>
-	<message key="editor.article.rateReviewer">Valutazione del revisore</message>
+	<message key="editor.review.rateReviewer">Valutazione del revisore</message>
 	<message key="editor.submission.selectReviewer">Seleziona revisore</message>
 	<message key="editor.review.emailReviewer">Scrivi una email al revisore</message>
 	<message key="editor.submission.production.productionReadyFiles">File pronti per la produzione</message>

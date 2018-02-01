@@ -314,6 +314,7 @@ class PKPUserDAO extends DAO {
 		$user->setAuthId($row['auth_id']);
 		$user->setAuthStr($row['auth_str']);
 		$user->setInlineHelp($row['inline_help']);
+		$user->setGossip($row['gossip']);
 
 		if ($callHook) HookRegistry::call('UserDAO::_returnUserFromRow', array(&$user, &$row));
 
@@ -333,9 +334,9 @@ class PKPUserDAO extends DAO {
 		}
 		$this->update(
 			sprintf('INSERT INTO users
-				(username, password, salutation, first_name, middle_name, initials, last_name, suffix, gender, email, url, phone, mailing_address, billing_address, country, locales, date_last_email, date_registered, date_validated, date_last_login, must_change_password, disabled, disabled_reason, auth_id, auth_str, inline_help)
+				(username, password, salutation, first_name, middle_name, initials, last_name, suffix, gender, email, url, phone, mailing_address, billing_address, country, locales, date_last_email, date_registered, date_validated, date_last_login, must_change_password, disabled, disabled_reason, auth_id, auth_str, inline_help, gossip)
 				VALUES
-				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, ?, ?, ?, ?, ?, ?)',
+				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, ?, ?, ?, ?, ?, ?, ?)',
 				$this->datetimeToDB($user->getDateLastEmail()), $this->datetimeToDB($user->getDateRegistered()), $this->datetimeToDB($user->getDateValidated()), $this->datetimeToDB($user->getDateLastLogin())),
 			array(
 				$user->getUsername(),
@@ -360,6 +361,7 @@ class PKPUserDAO extends DAO {
 				$user->getAuthId()=='' ? null : (int) $user->getAuthId(),
 				$user->getAuthStr(),
 				(int) $user->getInlineHelp(),
+				$user->getGossip(),
 			)
 		);
 
@@ -372,7 +374,7 @@ class PKPUserDAO extends DAO {
 	 * @copydoc DAO::getLocaleFieldNames
 	 */
 	function getLocaleFieldNames() {
-		return array('biography', 'signature', 'gossip', 'affiliation');
+		return array('biography', 'signature', 'affiliation');
 	}
 
 	/**
@@ -432,7 +434,8 @@ class PKPUserDAO extends DAO {
 					disabled_reason = ?,
 					auth_id = ?,
 					auth_str = ?,
-					inline_help = ?
+					inline_help = ?,
+					gossip = ?
 				WHERE	user_id = ?',
 				$this->datetimeToDB($user->getDateLastEmail()), $this->datetimeToDB($user->getDateValidated()), $this->datetimeToDB($user->getDateLastLogin())),
 			array(
@@ -458,6 +461,7 @@ class PKPUserDAO extends DAO {
 				$user->getAuthId()=='' ? null : (int) $user->getAuthId(),
 				$user->getAuthStr(),
 				(int) $user->getInlineHelp(),
+				$user->getGossip(),
 				(int) $user->getId(),
 			)
 		);

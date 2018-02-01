@@ -173,18 +173,20 @@
 	{/fbvFormArea}
 {/capture}
 
-{if $extraContentSectionUnfolded}
-	{fbvFormSection title="grid.user.userDetails"}
-		{$extraContent}
-	{/fbvFormSection}
-{else}
-	<div id="userExtraFormFields" class="left full">
-		{include file="controllers/extrasOnDemand.tpl"
-			id="userExtras"
-			widgetWrapper="#userExtraFormFields"
-			moreDetailsText="grid.user.moreDetails"
-			lessDetailsText="grid.user.lessDetails"
-			extraContent=$extraContent
-		}
-	</div>
-{/if}
+{fbvFormSection}
+	{if $extraContentSectionUnfolded}
+		{fbvFormSection title="grid.user.userDetails"}
+			{$extraContent}
+		{/fbvFormSection}
+	{else}
+		<div id="userExtraFormFields" class="left full">
+			{include file="controllers/extrasOnDemand.tpl"
+				id="userExtras"
+				widgetWrapper="#userExtraFormFields"
+				moreDetailsText="grid.user.moreDetails"
+				lessDetailsText="grid.user.lessDetails"
+				extraContent=$extraContent
+			}
+		</div>
+	{/if}
+{/fbvFormSection}

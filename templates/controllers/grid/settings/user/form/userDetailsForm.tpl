@@ -46,6 +46,12 @@
 			disableSendNotifySection=$disableSendNotifySection
 		}
 
+		{if $canCurrentUserGossip}
+			{fbvFormSection label="user.gossip" description="user.gossip.description"}
+				{fbvElement type="textarea" name="gossip" id="gossip" rich=true value=$gossip}
+			{/fbvFormSection}
+		{/if}
+
 		{if $userId}
 			{fbvFormSection}
 				{assign var="uuid" value=""|uniqid|escape}

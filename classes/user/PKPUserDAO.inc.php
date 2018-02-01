@@ -252,6 +252,12 @@ class PKPUserDAO extends DAO {
 		$user->setData('incompleteCount', (int) $row['incomplete_count']);
 		$user->setData('completeCount', (int) $row['complete_count']);
 		$user->setData('averageTime', (int) $row['average_time']);
+
+		// 0 values should return null. They represent a reviewer with no ratings
+		if ($row['reviewer_rating']) {
+			$user->setData('reviewerRating', max(1, round($row['reviewer_rating'])));
+		}
+
 		HookRegistry::call('UserDAO::_returnUserFromRowWithReviewerStats', array(&$user, &$row));
 
 		return $user;

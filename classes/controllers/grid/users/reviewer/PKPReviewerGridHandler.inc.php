@@ -430,11 +430,20 @@ class PKPReviewerGridHandler extends GridHandler {
 		// Retrieve review assignment.
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /* @var $reviewAssignment ReviewAssignment */
 
+		// Rate the reviewer's performance on this assignment
+		$quality = $request->getUserVar('quality');
+		if ($quality) {
+			$reviewAssignment->setQuality((int) $quality);
+			$reviewAssignment->setDateRated(Core::getCurrentDate());
+		} else {
+			$reviewAssignment->setQuality(null);
+			$reviewAssignment->setDateRated(null);
+		}
+
 		// Mark the latest read date of the review by the editor.
 		$user = $request->getUser();
 		$viewsDao = DAORegistry::getDAO('ViewsDAO');
 		$viewsDao->recordView(ASSOC_TYPE_REVIEW_RESPONSE, $reviewAssignment->getId(), $user->getId());
-
 
 		// if the review assignment had been unconsidered, update the flag.
 		if ($reviewAssignment->getUnconsidered() == REVIEW_ASSIGNMENT_UNCONSIDERED) {
@@ -492,10 +501,19 @@ class PKPReviewerGridHandler extends GridHandler {
 	function readReview($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
+		$starHtml = '<span class="fa fa-star"></span>';
 		$templateMgr->assign(array(
 			'submission' => $this->getSubmission(),
 			'reviewAssignment' => $reviewAssignment,
-			'reviewerRecommendationOptions' =>ReviewAssignment::getReviewerRecommendationOptions(),
+			'reviewerRatingOptions' => array(
+				0 => __('editor.review.reviewerRating.none'),
+				SUBMISSION_REVIEWER_RATING_VERY_GOOD => str_repeat($starHtml, SUBMISSION_REVIEWER_RATING_VERY_GOOD),
+				SUBMISSION_REVIEWER_RATING_GOOD => str_repeat($starHtml, SUBMISSION_REVIEWER_RATING_GOOD),
+				SUBMISSION_REVIEWER_RATING_AVERAGE => str_repeat($starHtml, SUBMISSION_REVIEWER_RATING_AVERAGE),
+				SUBMISSION_REVIEWER_RATING_POOR => str_repeat($starHtml, SUBMISSION_REVIEWER_RATING_POOR),
+				SUBMISSION_REVIEWER_RATING_VERY_POOR => str_repeat($starHtml, SUBMISSION_REVIEWER_RATING_VERY_POOR),
+			),
+			'reviewerRecommendationOptions' => ReviewAssignment::getReviewerRecommendationOptions(),
 		));
 
 		if ($reviewAssignment->getReviewFormId()) {

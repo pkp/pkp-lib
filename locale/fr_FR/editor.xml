@@ -86,6 +86,7 @@
 	<message key="editor.review.thankReviewer">Remercier le rapporteur</message>
 	<message key="editor.review.thankReviewerError">Erreur d'envoi du remerciement au rapporteur</message>
 	<message key="editor.review.reviewerComments">Commentaires du rapporteur</message>
+	<message key="editor.review.rateReviewer">Notation du rapporteur</message>
 	<message key="editor.review.mustSelect">Vous devez sélectionner un rapporteur</message>
 	<message key="editor.review.errorAddingReviewer">Il y a eu une erreur au moment d'ajouter le rapporteur. Essayez de nouveau.</message>
 	<message key="editor.review.errorDeletingReviewer">Il y a eu une erreur au moment de supprimer le rapporteur. Essayez de nouveau.</message>

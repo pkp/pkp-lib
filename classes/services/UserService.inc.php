@@ -157,12 +157,14 @@ class UserService extends PKPBaseEntityPropertyService {
 			'reviewsActive' => null,
 			'daysSinceLastAssignment' => null,
 			'averageCompletion' => null,
+			'reviewerRating' => null,
 		);
 
 		$args = array_merge($defaultArgs, $args);
 
 		$reviewerListQB = $this->_buildGetUsersQueryObject($contextId, $args);
 		$reviewerListQB->getReviewerData(true)
+			->filterByReviewerRating($args['reviewerRating'])
 			->filterByReviewsCompleted($args['reviewsCompleted'])
 			->filterByReviewsActive($args['reviewsActive'])
 			->filterByDaysSinceLastAssignment($args['daysSinceLastAssignment'])
@@ -272,6 +274,9 @@ class UserService extends PKPBaseEntityPropertyService {
 					break;
 				case 'dateLastReviewAssignment':
 					$values[$prop] = $user->getData('lastAssigned');
+					break;
+				case 'reviewerRating':
+					$values[$prop] = $user->getData('reviewerRating');
 					break;
 				case 'disabled':
 					$values[$prop] = (boolean) $user->getDisabled();
@@ -394,7 +399,7 @@ class UserService extends PKPBaseEntityPropertyService {
 		$props = array (
 			'id','_href','userName','fullName','affiliation','biography','groups','interests','gossip',
 			'reviewsActive','reviewsCompleted','averageReviewCompletionDays',
-			'dateLastReviewAssignment','orcid','disabled',
+			'dateLastReviewAssignment','reviewerRating', 'orcid','disabled',
 		);
 
 		\HookRegistry::call('User::getProperties::reviewerSummaryProperties', array(&$props, $user, $args));

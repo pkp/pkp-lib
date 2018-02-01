@@ -63,6 +63,7 @@
 	<message key="editor.review.reviewDueDate">Data de venciment de la revisió</message>
 	<message key="editor.review.reviewCompleted">S'ha completat la revisió</message>
 	<message key="editor.review.reviewerComments">Comentaris del revisor/a</message>
+	<message key="editor.review.rateReviewer">Puntuació del revisor/a</message>
 	<message key="editor.review.mustSelect">Heu de seleccionar un revisor/a</message>
 	<message key="editor.review.errorAddingReviewer">Hi ha hagut un error en afegir un revisor/a.  Torneu-ho a intentar.</message>
 	<message key="editor.review.errorDeletingReviewer">Hi ha hagut un error en eliminar un revisor/a.  Torneu-ho a intentar.</message>

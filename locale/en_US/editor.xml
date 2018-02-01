@@ -71,6 +71,9 @@
 	<message key="editor.review.reviewConfirmed">Review Confirmed</message>
 	<message key="editor.review.reviewSubmitted">Review Submitted</message>
 	<message key="editor.review.reviewerComments">Reviewer Comments</message>
+	<message key="editor.review.rateReviewer">Reviewer rating</message>
+	<message key="editor.review.rateReviewer.description">Rate the quality of the review provided. This rating is not shared with the reviewer.</message>
+	<message key="editor.review.reviewerRating.none">No rating</message>
 	<message key="editor.review.mustSelect">You must select a reviewer</message>
 	<message key="editor.review.errorAddingReviewer">There was an error adding the reviewer.  Please try again.</message>
 	<message key="editor.review.errorDeletingReviewer">There was an error deleting the reviewer.  Please try again.</message>

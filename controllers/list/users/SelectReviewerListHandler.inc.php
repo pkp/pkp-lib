@@ -16,6 +16,9 @@ import('classes.core.ServicesContainer');
 
 class SelectReviewerListHandler extends SelectListHandler {
 
+	/** @var int Count of items to retrieve in initial page/request */
+	public $_count = 15;
+
 	/** @var array Query parameters to pass with every GET request */
 	public $_getParams = array(
 		'roleIds' => array(ROLE_ID_REVIEWER),
@@ -32,6 +35,7 @@ class SelectReviewerListHandler extends SelectListHandler {
 	 */
 	public function init($args = array()) {
 		parent::init($args);
+		$this->_count = isset($args['count']) ? (int) $args['count'] : $this->_count;
 		$this->_currentlyAssigned = !empty($args['currentlyAssigned']) ? $args['currentlyAssigned'] : $this->_currentlyAssigned;
 	}
 
@@ -44,6 +48,7 @@ class SelectReviewerListHandler extends SelectListHandler {
 
 		$config['apiPath'] = $this->_apiPath;
 		$config['itemsMax'] = $this->getItemsMax();
+		$config['count'] = $this->_count;
 		$config['currentlyAssigned'] = $this->_currentlyAssigned;
 
 		$config['i18n'] = array_merge($config['i18n'], array(

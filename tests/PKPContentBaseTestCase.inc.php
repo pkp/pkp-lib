@@ -332,7 +332,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 
 		// Use an xpath concat to permit apostrophes to appear in titles
 		// http://kushalm.com/the-perils-of-xpath-expressions-specifically-escaping-quotes
-		$xpath = '//div[contains(text(),' . $this->quoteXPath($title) . ')]';
+		$xpath = '//div[normalize-space(text())=' . $this->quoteXPath($title) . ']';
 		$this->waitForElementPresent($xpath);
 		$this->click($xpath);
 

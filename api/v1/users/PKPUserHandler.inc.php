@@ -79,7 +79,7 @@ class PKPUserHandler extends APIHandler {
 		}
 
 		$data = array(
-			'maxItems' => $userService->getUsersMaxCount($context->getId(), $params),
+			'itemsMax' => $userService->getUsersMaxCount($context->getId(), $params),
 			'items' => $items,
 		);
 
@@ -148,7 +148,7 @@ class PKPUserHandler extends APIHandler {
 		}
 
 		$data = array(
-			'maxItems' => $userService->getReviewersMaxCount($context->getId(), $params),
+			'itemsMax' => $userService->getReviewersMaxCount($context->getId(), $params),
 			'items' => $items,
 		);
 

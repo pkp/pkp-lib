@@ -151,7 +151,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 		}
 		$data = array(
 			'items' => $items,
-			'maxItems' => $submissionService->getSubmissionsMaxCount($context->getId(), $params),
+			'itemsMax' => $submissionService->getSubmissionsMaxCount($context->getId(), $params),
 		);
 
 		return $response->withJson($data);

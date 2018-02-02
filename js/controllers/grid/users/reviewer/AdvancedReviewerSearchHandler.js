@@ -53,7 +53,7 @@
 	//
 	/**
 	 * Currently selected reviewer
-	 * @type {?object}
+	 * @type {Object}
 	 */
 	$.pkp.controllers.grid.users.reviewer.AdvancedReviewerSearchHandler.
 			prototype.selectedReviewer = null;
@@ -65,13 +65,13 @@
 	/**
 	 * Callback that is triggered when a reviewer option is selected (but not
 	 * confirmed by pressing the button)
-	 * @param {?object} sourceComponent The Vue component which fired the original event
-	 * @param {array} selectedReviewers
+	 * @param {Object} sourceComponent Vue component that fired the event
+	 * @param {Array} selectedReviewers
 	 */
 	$.pkp.controllers.grid.users.reviewer.AdvancedReviewerSearchHandler.prototype.
 			updateReviewerSelection = function(sourceComponent, selectedReviewers) {
 		var id = '',
-			name = '';
+				name = '';
 
 		if (!selectedReviewers.length) {
 			this.selectedReviewer = null;

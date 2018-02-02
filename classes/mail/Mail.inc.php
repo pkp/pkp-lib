@@ -462,6 +462,7 @@ class Mail extends DataObject {
 
 		$mailer = new PHPMailer();
 		$mailer->IsHTML(true);
+		$mailer->Encoding = 'base64';
 		if (Config::getVar('email', 'smtp')) {
 			$mailer->IsSMTP();
 			$mailer->Port = Config::getVar('email', 'smtp_port');
@@ -472,7 +473,6 @@ class Mail extends DataObject {
 			$mailer->Host = Config::getVar('email', 'smtp_server');
 			$mailer->Username = Config::getVar('email', 'smtp_username');
 			$mailer->Password = Config::getVar('email', 'smtp_password');
-			$mailer->Encoding = 'base64';
 			if (Config::getVar('debug', 'show_stacktrace')) {
 				// debug level 3 represents client and server interaction, plus initial connection debugging
 				$mailer->SMTPDebug = 3;

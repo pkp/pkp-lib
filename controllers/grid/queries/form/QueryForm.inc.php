@@ -196,6 +196,7 @@ class QueryForm extends Form {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$participantOptions = array();
+		$userAssignment = null;
 
 		foreach ($assignments->toArray() as $assignment) {
 			$userGroup = $userGroupDao->getById($assignment->getUserGroupId());
@@ -208,29 +209,29 @@ class QueryForm extends Form {
 				'reviewOpen' => false,
 			);
 
-			# Check the assignment of the current user
+			// Check the assignment of the current user
 			if ($user->getId() == $assignment->getUserId()){ $userAssignment = $userGroup->getRoleId(); }
 		}
 
-		# In review stage, add reviewers as possible participants
-		if ($query->getStageId() == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
+		// In review stage, add reviewers as possible participants
+		if ($query->getStageId() == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $query->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW) {
 			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
 			$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($query->getAssocId());
 
 			foreach ($reviewAssignments as $reviewAssignment) {				
 
-				# Check if current user is a reviewer, and if the used method is blind
+				// Check if current user is a reviewer, and if the used method is blind
 				if ($user->getId() == $reviewAssignment->getReviewerId()){ 
 					$userAssignment = ROLE_ID_REVIEWER;
 					if ($reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_OPEN) { $isBlindReviewer = true; }
 				}
 
-				# Check if review is open and confirmed
+				// Check if review is open and confirmed
 				$openReview = false;
 				if ($reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_OPEN && $reviewAssignment->getDateConfirmed()) { $openReview = true; }
 
-				# ALEC! userGroup is now hard coded, because reviewAssignment does not have userGroupId!
-				# I think it should, because there could be other reviewer roles as well (custom roles)?
+				// ALEC! userGroup is now hard coded, because reviewAssignment does not have userGroupId!
+				// I think it should, because there could be other reviewer roles as well (custom roles)?
 				$reviewerUserGroup = $userGroupDao->getByRoleId($request->getContext()->getId(), ROLE_ID_REVIEWER)->toArray();
 				$userGroup = $reviewerUserGroup[0]->getLocalizedName() . ' (' . __($reviewAssignment->getReviewMethodKey()) . ')';
 

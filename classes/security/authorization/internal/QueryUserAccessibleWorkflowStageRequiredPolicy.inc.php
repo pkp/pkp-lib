@@ -16,13 +16,6 @@
 import('lib.pkp.classes.security.authorization.internal.UserAccessibleWorkflowStageRequiredPolicy');
 
 class QueryUserAccessibleWorkflowStageRequiredPolicy extends UserAccessibleWorkflowStageRequiredPolicy {
-	
-	/**
-	 * Constructor
-	 */
-	function __construct($request) {
-		parent::__construct($request);
-	}
 
 	//
 	// Private helper methods.

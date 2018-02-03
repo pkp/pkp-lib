@@ -15,12 +15,12 @@
  * Added permissions for Reviewers, 2017-11-05
  *
  *	ROLE
- *  TASK       MANAGER   SUB EDITOR  ASSISTANT  AUTHOR		REVIEWER
- *  Create Q   Yes       Yes	     Yes        Yes			Yes
- *  Edit Q     All       All         If Creator If Creator	if Creator
- *  List/View  All       All	     Assigned   Assigned	Assigned
- *  Open/close All       All	     Assigned   No			No
- *  Delete Q   All       All	     If Blank	If Blank	If Blank
+ *  TASK       MANAGER   SUB EDITOR  ASSISTANT  AUTHOR      REVIEWER
+ *  Create Q   Yes       Yes	     Yes        Yes         Yes
+ *  Edit Q     All       All         If Creator If Creator  if Creator
+ *  List/View  All       All	     Assigned   Assigned    Assigned
+ *  Open/close All       All	     Assigned   No          No
+ *  Delete Q   All       All	     If Blank	If Blank    If Blank
  */
 
 class QueriesAccessHelper {

@@ -585,7 +585,7 @@ class ReviewAssignment extends DataObject {
 	/**
 	 * Get the translation key for the review method
 	 *
-	 * @param int $method Optionally pass a method to retrieve a specific key.
+	 * @param $method int|null Optionally pass a method to retrieve a specific key.
 	 *  Default will return the key for the current review method
 	 * @return string
 	 */

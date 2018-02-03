@@ -24,6 +24,7 @@ class ReviewNotesLinkAction extends LinkAction {
 	 * to show information about.
 	 * @param $submission Submission The reviewed submission.
 	 * @param $user User The user.
+	 * @param $handler string name of the gridhandler.
 	 * @param $isUnread bool Has a review been read
 	 */
 	function __construct($request, $reviewAssignment, $submission, $user, $handler, $isUnread = null) {
@@ -43,7 +44,7 @@ class ReviewNotesLinkAction extends LinkAction {
 				null, $actionArgs
 			),
 			__('editor.review') . ': ' . $submission->getLocalizedTitle(),
-			'modal_information' 
+			'modal_information'
 		);
 
 		$viewsDao = DAORegistry::getDAO('ViewsDAO');

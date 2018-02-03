@@ -33,7 +33,7 @@
 	{/fbvFormSection}
 
 	{fbvFormSection label="editor.submissionReview.reviewType"}
-		{$reviewMethod}
+		{$reviewMethod|escape}
 	{/fbvFormSection}
 	
 	{if !$restrictReviewerFileAccess}

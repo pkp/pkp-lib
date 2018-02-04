@@ -69,6 +69,9 @@ class NavigationMenusGridCellProvider extends GridCellProvider {
 						->transformNavMenuItemTitle($templateMgr, $item);
 					$navigationMenusTitles = $navigationMenusTitles.$item->getLocalizedTitle().', ';
 				}
+
+				$navigationMenusTitles = trim($navigationMenusTitles, ', ');
+
 				return array('label' => $navigationMenusTitles);
 			default:
 				break;

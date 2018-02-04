@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/reviewer/AuthorReviewerGridHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AuthorReviewerGridHandler
@@ -13,30 +13,14 @@
  * @brief Handle reviewer grid requests from author workflow in open reviews
  */
 
-/*
-- Kustomoi periaate, jolla sisällöt listautuvat: vain hyväksytyt ja avoimet arvioinnit loadData
-*/ 
-
 // import grid base classes
-import('lib.pkp.classes.controllers.grid.GridHandler');
+import('lib.pkp.classes.controllers.grid.users.reviewer.PKPReviewerGridHandler');
 
 // import reviewer grid specific classes
 import('lib.pkp.controllers.grid.users.reviewer.AuthorReviewerGridCellProvider');
-import('lib.pkp.controllers.grid.users.reviewer.ReviewerGridRow');
+import('lib.pkp.controllers.grid.users.reviewer.AuthorReviewerGridRow');
 
-// Reviewer selection types
-define('REVIEWER_SELECT_ADVANCED_SEARCH',		0x00000001);
-define('REVIEWER_SELECT_CREATE',			0x00000002);
-define('REVIEWER_SELECT_ENROLL_EXISTING',		0x00000003);
-
-class AuthorReviewerGridHandler extends GridHandler {
-
-	/** @var Submission */
-	var $_submission;
-
-	/** @var integer */
-	var $_stageId;
-
+class AuthorReviewerGridHandler extends PKPReviewerGridHandler {
 
 	/**
 	 * Constructor
@@ -45,65 +29,28 @@ class AuthorReviewerGridHandler extends GridHandler {
 		parent::__construct();
 
 		$this->addRoleAssignment(
-			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_AUTHOR),
+			array(ROLE_ID_AUTHOR),
 			array('fetchGrid', 'fetchRow', 'readReview', 'reviewRead')
 		);
 
 	}
-	
-	//
-	// Getters and Setters
-	//
-	/**
-	 * Get the authorized submission.
-	 * @return Submission
-	 */
-	function getSubmission() {
-		return $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-	}
-
-	/**
-	 * Get the review stage id.
-	 * @return integer
-	 */
-	function getStageId() {
-		return $this->_stageId;
-	}
-
-	/**
-	 * Get review round object.
-	 * @return ReviewRound
-	 */
-	function getReviewRound() {
-		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
-		if (is_a($reviewRound, 'ReviewRound')) {
-			return $reviewRound;
-		} else {
-			$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
-			$reviewRoundId = $reviewAssignment->getReviewRoundId();
-			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-			$reviewRound = $reviewRoundDao->getById($reviewRoundId);
-			return $reviewRound;
-		}
-	}	
 
 	//
 	// Overridden methods from PKPHandler
 	//
+	/**
+	 * @see GridHandler::getRowInstance()
+	 * @return ReviewerGridRow
+	 */
+	protected function getRowInstance() {
+		return new AuthorReviewerGridRow();
+	}
+
+	/**
+	 * @copydoc GridHandler::initialize()
+	 */	
 	function initialize($request, $args = null) {
 		parent::initialize($request, $args);
-
-		// Load submission-specific translations
-		AppLocale::requireComponents(
-			LOCALE_COMPONENT_PKP_SUBMISSION,
-			LOCALE_COMPONENT_PKP_MANAGER,
-			LOCALE_COMPONENT_PKP_USER,
-			LOCALE_COMPONENT_PKP_EDITOR,
-			LOCALE_COMPONENT_PKP_REVIEWER,
-			LOCALE_COMPONENT_APP_EDITOR
-		);
-
-		$this->setTitle('user.role.reviewers');
 
 		// Columns
 		$cellProvider = new AuthorReviewerGridCellProvider();

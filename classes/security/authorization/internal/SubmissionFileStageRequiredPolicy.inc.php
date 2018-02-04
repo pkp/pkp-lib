@@ -54,8 +54,19 @@ class SubmissionFileStageRequiredPolicy extends SubmissionFileBaseAccessPolicy {
 		if ($submissionFile->getFileStage() != $this->_fileStage) return AUTHORIZATION_DENY;
 
 		if ($this->_viewable) {
-			// Make sure the file is visible.
-			if (!$submissionFile->getViewable()) return AUTHORIZATION_DENY;
+			// Make sure the file is visible. Unless file is included in an open review.
+			if (!$submissionFile->getViewable()){
+				if ($submissionFile->getAssocType() === ASSOC_TYPE_REVIEW_ASSIGNMENT){
+					$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+					$reviewAssignment = $reviewAssignmentDao->getById((int) $submissionFile->getAssocId());
+					if ($reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_OPEN){
+						return AUTHORIZATION_DENY;
+					}
+				}
+				else{
+					return AUTHORIZATION_DENY;
+				}
+			}
 		}
 
 		// Made it through -- permit access.

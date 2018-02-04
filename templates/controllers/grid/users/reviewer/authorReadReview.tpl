@@ -50,4 +50,11 @@
 		{include file="controllers/notification/inPlaceNotificationContent.tpl" notificationId=noFilesWarningContent notificationStyleClass=notifyWarning notificationTitle="editor.review.noReviewFilesUploaded"|translate notificationContents="editor.review.noReviewFilesUploaded.details"|translate}
 	</div>
 
+	{fbvFormArea id="readReview"}
+		{fbvFormSection title="reviewer.submission.reviewerFiles"}
+			{url|assign:reviewAttachmentsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.attachment.AuthorOpenReviewAttachmentsGridHandler" op="fetchGrid" submissionId=$submission->getId() reviewId=$reviewAssignment->getId() stageId=$reviewAssignment->getStageId() reviewRoundId=$reviewAssignment->getReviewRoundId() escape=false}
+			{load_url_in_div id="readReviewAttachmentsGridContainer" url=$reviewAttachmentsGridUrl}
+		{/fbvFormSection}
+	{/fbvFormArea}
+
 </form>

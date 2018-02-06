@@ -310,8 +310,9 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->waitForElementPresent('css=div.pkpListPanel--selectReviewer');
 		$this->type('css=div.pkpListPanel--selectReviewer input.pkpListPanel__searchInput', $username);
 		$this->waitJQuery();
-		$this->waitForElementPresent($selector = 'css=div.pkpListPanel--selectReviewer div.pkpListPanelItem__selectItem input');
-		$this->click($selector);
+		$xpath = '//div[contains(text(),' . $this->quoteXPath($username) . ')]';
+		$this->waitForElementPresent($xpath);
+		$this->click($xpath);
 		$this->click('css=[id^=selectReviewerButton]');
 
 		$this->click('//button[text()=\'Add Reviewer\']');

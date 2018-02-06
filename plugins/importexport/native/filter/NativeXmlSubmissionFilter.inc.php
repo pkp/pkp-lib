@@ -184,6 +184,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 	 * @param $submission Submission
 	 */
 	function parseIdentifier($element, $submission) {
+		$deployment = $this->getDeployment();
 		$advice = $element->getAttribute('advice');
 		switch ($element->getAttribute('type')) {
 			case 'internal':
@@ -197,6 +198,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 				break;
 			default:
 				if ($advice == 'update') {
+					$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $deployment->getContext()->getId());
 					$submission->setStoredPubId($element->getAttribute('type'), $element->textContent);
 				}
 		}

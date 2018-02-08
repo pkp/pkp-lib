@@ -84,6 +84,15 @@ class NavigationMenusGridHandler extends GridHandler {
 			)
 		);
 
+		$this->addColumn(
+			new GridColumn('nmis',
+				'manager.navigationMenuItems',
+				null,
+				null,
+				$navigationMenuCellProvider
+			)
+		);
+
 		// Load language components
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
 

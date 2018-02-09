@@ -222,13 +222,13 @@ abstract class PKPWorkflowHandler extends Handler {
 		}
 
 		// If user is not assigned to the submission,
-		// see if the user is manager or sub-editor, and
+		// see if the user is manager, and
 		// if the group is recommendOnly
 		if (!$recommendOnly && !$makeDecision) {
 			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 			$userGroups = $userGroupDao->getByUserId($user->getId(), $request->getContext()->getId());
 			while ($userGroup = $userGroups->next()) {
-				if (in_array($userGroup->getRoleId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR))) {
+				if (in_array($userGroup->getRoleId(), array(ROLE_ID_MANAGER))) {
 					if (!$userGroup->getRecommendOnly()) {
 						$makeDecision = true;
 					} else {

@@ -348,7 +348,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		return array(
 				'keywords' => array('SubmissionKeywordDAO', 'getKeywords', 'keyword'),
 				'agencies' => array('SubmissionAgencyDAO', 'getAgencies', 'agency'),
-				'disciplines' => array('SubmissionDisciplineDAO', 'getDisciplines', 'disciplin'),
+				'disciplines' => array('SubmissionDisciplineDAO', 'getDisciplines', 'discipline'),
 				'subjects' => array('SubmissionSubjectDAO', 'getSubjects', 'subject'),
 		);
 	}

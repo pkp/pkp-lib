@@ -236,7 +236,6 @@
 	<message key="editor.submission.decision.resubmit">Поново пошаљи на рецензирање</message>
 	<message key="submission.upload.noAvailableReviewFiles">Немате докумената за ревидирање.</message>
 	<message key="editor.submission.roundStatus.revisionsRequested">Захтева се ревизија.</message>
-	<message key="editor.submission.roundStatus.resubmitted">Предаја је поново предата на рецензирање.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">Послато на спољашње рецензирање.</message>
 	<message key="editor.submission.roundStatus.accepted">Предаја је прихваћена</message>
 	<message key="editor.submission.roundStatus.declined">Предаја је одбијена.</message>

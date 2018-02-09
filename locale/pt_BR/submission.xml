@@ -495,7 +495,6 @@
 	<message key="submission.upload.noAvailableReviewFiles">Não existem arquivos a serem revisados por você.</message>
 	<message key="editor.submission.roundStatus.revisionsRequested">Avaliações foram solicitadas.</message>
 	<message key="editor.submission.roundStatus.reviewOverdue">Uma avaliação está atrasada.</message>
-	<message key="editor.submission.roundStatus.resubmitted">A submissão foi enviada para avaliação.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">Enviada para avaliação externa.</message>
 	<message key="editor.submission.roundStatus.accepted">Submissão aceita.</message>
 	<message key="editor.submission.roundStatus.declined">Submissão rejeitada.</message>

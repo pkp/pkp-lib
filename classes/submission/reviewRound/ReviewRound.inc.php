@@ -31,7 +31,8 @@ define('REVIEW_ROUND_STATUS_PENDING_REVIEWS', 7); // Waiting for reviews to be s
 define('REVIEW_ROUND_STATUS_REVIEWS_READY', 8); // One or more reviews is ready for an editor to view
 define('REVIEW_ROUND_STATUS_REVIEWS_COMPLETED', 9); // All assigned reviews have been confirmed by an editor
 define('REVIEW_ROUND_STATUS_REVIEWS_OVERDUE', 10); // One or more reviews is overdue
-// The following status is set by controllers/grid/files/review/AuthorReviewRevisionsGridHandler/sendRevisions
+// The following status is calculated when the round is in REVIEW_ROUND_STATUS_REVISIONS_REQUESTED and
+// at least one revision file has been uploaded.
 define('REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED', 11);
 
 // The following statuses are calculated based on the statuses of recommendOnly EditorAssignments
@@ -39,13 +40,15 @@ define('REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED', 11);
 define('REVIEW_ROUND_STATUS_PENDING_RECOMMENDATIONS', 12); // Waiting for recommendations to be submitted by recommendOnly editors
 define('REVIEW_ROUND_STATUS_RECOMMENDATIONS_READY', 13); // One or more recommendations are ready for an editor to view
 define('REVIEW_ROUND_STATUS_RECOMMENDATIONS_COMPLETED', 14); // All assigned recommendOnly editors have made a recommendation
-// The following status is set by controllers/grid/files/review/AuthorReviewRevisionsGridHandler/sendRevisions
+
+// The following status is calculated when the round is in REVIEW_ROUND_STATUS_RESUBMITTED and
+// at least one revision file has been uploaded.
 define('REVIEW_ROUND_STATUS_SUBMISSION_RESUBMITTED', 15);
 
 class ReviewRound extends DataObject {
+
 	//
 	// Get/set methods
-
 	//
 
 	/**
@@ -124,19 +127,38 @@ class ReviewRound extends DataObject {
 	 */
 	public function determineStatus() {
 		import('lib.pkp.classes.submission.SubmissionFile'); // Submission file constants
+
 		// Check if revisions requested or received, if this is latest review round and then check files
 		$roundStatus = $this->getStatus();
 
+		// If revisions have been requested, check to see if any have been
+		// submitted
+		if ($this->getStatus() == REVIEW_ROUND_STATUS_REVISIONS_REQUESTED || $this->getStatus() == REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED) {
+			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+			$submissionFiles = $submissionFileDao->getRevisionsByReviewRound($this, SUBMISSION_FILE_REVIEW_REVISION);
+			if (empty($submissionFiles)) {
+				return REVIEW_ROUND_STATUS_REVISIONS_REQUESTED;
+			}
+			return REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED;
+		}
+
+		// If revisions have been requested for re-submission, check to see if any have been
+		// submitted
+		if ($this->getStatus() == REVIEW_ROUND_STATUS_RESUBMITTED || $this->getStatus() == REVIEW_ROUND_STATUS_SUBMISSION_RESUBMITTED) {
+			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+			$submissionFiles = $submissionFileDao->getRevisionsByReviewRound($this, SUBMISSION_FILE_REVIEW_REVISION);
+			if (empty($submissionFiles)) {
+				return REVIEW_ROUND_STATUS_RESUBMITTED;
+			}
+			return REVIEW_ROUND_STATUS_SUBMISSION_RESUBMITTED;
+		}
+
 		$statusFinished = in_array(
-				$this->getStatus(), array(
-			REVIEW_ROUND_STATUS_REVISIONS_REQUESTED,
-			REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED,
-			REVIEW_ROUND_STATUS_RESUBMITTED,
-			REVIEW_ROUND_STATUS_SUBMISSION_RESUBMITTED,
-			REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL,
-			REVIEW_ROUND_STATUS_ACCEPTED,
-			REVIEW_ROUND_STATUS_DECLINED
-				)
+			$this->getStatus(), array(
+				REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL,
+				REVIEW_ROUND_STATUS_ACCEPTED,
+				REVIEW_ROUND_STATUS_DECLINED
+			)
 		);
 		if ($statusFinished) {
 			return $this->getStatus();
@@ -231,7 +253,9 @@ class ReviewRound extends DataObject {
 			case REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED:
 				return 'editor.submission.roundStatus.revisionsSubmitted';
 			case REVIEW_ROUND_STATUS_RESUBMITTED:
-				return 'editor.submission.roundStatus.submissionRequested';
+				return 'editor.submission.roundStatus.resubmitted';
+			case REVIEW_ROUND_STATUS_SUBMISSION_RESUBMITTED:
+				return 'editor.submission.roundStatus.submissionResubmitted';
 			case REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL:
 				return 'editor.submission.roundStatus.sentToExternal';
 			case REVIEW_ROUND_STATUS_ACCEPTED:
@@ -254,9 +278,6 @@ class ReviewRound extends DataObject {
 				return 'editor.submission.roundStatus.recommendationsReady';
 			case REVIEW_ROUND_STATUS_RECOMMENDATIONS_COMPLETED:
 				return 'editor.submission.roundStatus.recommendationsCompleted';
-			case REVIEW_ROUND_STATUS_SUBMISSION_RESUBMITTED:
-				return 'editor.submission.roundStatus.submissionResubmitted';
-
 			default: return null;
 		}
 	}

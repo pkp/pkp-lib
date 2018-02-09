@@ -476,9 +476,6 @@
 	<message key="defaultMetric.title">Métrique (par défaut)</message>
 	<message key="defaultMetric.availableMetrics">Mesures disponibles</message>
 	<message key="editor.submissionReview.uploadFile">Transférer le fichier de révision</message>
-        <message key="editor.submissionReview.sendRevisions">Avertir que les révisions sont disponibles</message>
-        <message key="editor.submissionReview.confirmSendRevisions">Voulez-vous avertir les rédacteurs que vous avez déposé une nouvelle version ?</message>
-        
 	<message key="editor.submissionReview.uploadAttachment">Transférer le fichier</message>
 	<message key="email.subjectRequired">Veuillez indiquer le sujet du courriel.</message>
 	<message key="email.bodyRequired">Veuillez ajouter le texte du courriel.</message>

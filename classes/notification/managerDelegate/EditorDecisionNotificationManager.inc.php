@@ -103,7 +103,7 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate {
 			$this->_getNotificationTaskLevel($this->getNotificationType()),
 			null,
 			true // suppressEmail
-			);
+		);
 	}
 
 	/**

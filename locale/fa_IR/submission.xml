@@ -478,7 +478,6 @@
 	<!-- Review Round Status Keys -->
 	<message key="editor.submission.roundStatus.revisionsRequested">نیازمند انجام اصلاحات</message>
 	<message key="editor.submission.roundStatus.revisionsSubmitted">اصلاحات ثبت شد.</message>
-	<message key="editor.submission.roundStatus.resubmitted">مقاله ارسالی برای داوری ثبت دوباره شد.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">ارسال به داور خارجی</message>
 	<message key="editor.submission.roundStatus.accepted">مقاله ارسالی پذیرش شد.</message>
 	<message key="editor.submission.roundStatus.declined">مقاله ارسالی پذیرش نشد.</message>

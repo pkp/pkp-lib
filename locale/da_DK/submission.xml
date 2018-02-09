@@ -375,7 +375,6 @@
 	<message key="submission.event.participantAdded">"{$name}" ({$username}) blev tilknyttet denne indsendelse som {$userGroupName}.</message>
 	<message key="submission.event.fileRevised">Revision "{$name}" (file ID {$fileId}-{$fileRevision}) blev uploadet.</message>
 	<message key="submission.event.lastRevisionDeleted">En fil "{$title}" fik seneste revision fjernet af {$username}.</message>
-	<message key="editor.submission.roundStatus.resubmitted">Indsendelsen er blevet genindsendt til bedømmelse</message>
 	<message key="editor.submission.roundStatus.reviewsReady">Nye bedømmelser er indsendt.</message>
 	<message key="submission.upload.copyeditedVersion">Upload manuskriptredigeret fil</message>
 	<message key="submission.submit.submissionLocale">Sprog</message>

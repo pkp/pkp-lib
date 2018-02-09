@@ -321,7 +321,7 @@
 	<element name="disciplines">
 		<complexType>
 			<sequence>
-				<element name="disciplin" type="string" minOccurs="1" maxOccurs="unbounded" />
+				<element name="discipline" type="string" minOccurs="1" maxOccurs="unbounded" />
 			</sequence>
 			<attribute name="locale" type="string" />
 		</complexType>

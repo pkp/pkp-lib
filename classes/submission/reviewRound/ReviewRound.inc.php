@@ -43,7 +43,7 @@ define('REVIEW_ROUND_STATUS_RECOMMENDATIONS_COMPLETED', 14); // All assigned rec
 
 // The following status is calculated when the round is in REVIEW_ROUND_STATUS_RESUBMITTED and
 // at least one revision file has been uploaded.
-define('REVIEW_ROUND_STATUS_SUBMISSION_RESUBMITTED', 15);
+define('REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED', 15);
 
 class ReviewRound extends DataObject {
 
@@ -144,13 +144,13 @@ class ReviewRound extends DataObject {
 
 		// If revisions have been requested for re-submission, check to see if any have been
 		// submitted
-		if ($this->getStatus() == REVIEW_ROUND_STATUS_RESUBMITTED || $this->getStatus() == REVIEW_ROUND_STATUS_SUBMISSION_RESUBMITTED) {
+		if ($this->getStatus() == REVIEW_ROUND_STATUS_RESUBMITTED || $this->getStatus() == REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED) {
 			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 			$submissionFiles = $submissionFileDao->getRevisionsByReviewRound($this, SUBMISSION_FILE_REVIEW_REVISION);
 			if (empty($submissionFiles)) {
 				return REVIEW_ROUND_STATUS_RESUBMITTED;
 			}
-			return REVIEW_ROUND_STATUS_SUBMISSION_RESUBMITTED;
+			return REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED;
 		}
 
 		$statusFinished = in_array(
@@ -254,7 +254,7 @@ class ReviewRound extends DataObject {
 				return 'editor.submission.roundStatus.revisionsSubmitted';
 			case REVIEW_ROUND_STATUS_RESUBMITTED:
 				return 'editor.submission.roundStatus.resubmitted';
-			case REVIEW_ROUND_STATUS_SUBMISSION_RESUBMITTED:
+			case REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED:
 				return 'editor.submission.roundStatus.submissionResubmitted';
 			case REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL:
 				return 'editor.submission.roundStatus.sentToExternal';

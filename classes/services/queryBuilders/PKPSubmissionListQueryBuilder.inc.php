@@ -244,7 +244,7 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 				});
 			// Only get overdue assignments on active review rounds
 			import('lib.pkp.classes.submission.reviewRound.ReviewRound');
-			$q->where('rr.status', '!=', REVIEW_ROUND_STATUS_RESUBMITTED);
+			$q->where('rr.status', '!=', REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW);
 			$q->where('rr.status', '!=', REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL);
 			$q->where('rr.status', '!=', REVIEW_ROUND_STATUS_ACCEPTED);
 			$q->where('rr.status', '!=', REVIEW_ROUND_STATUS_DECLINED);

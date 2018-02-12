@@ -19,7 +19,7 @@
 // The first four statuses are set explicitly by EditorDecisions, which override
 // the current status.
 define('REVIEW_ROUND_STATUS_REVISIONS_REQUESTED', 1);
-define('REVIEW_ROUND_STATUS_RESUBMITTED', 2);
+define('REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW', 2);
 define('REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL', 3);
 define('REVIEW_ROUND_STATUS_ACCEPTED', 4);
 define('REVIEW_ROUND_STATUS_DECLINED', 5);
@@ -41,7 +41,7 @@ define('REVIEW_ROUND_STATUS_PENDING_RECOMMENDATIONS', 12); // Waiting for recomm
 define('REVIEW_ROUND_STATUS_RECOMMENDATIONS_READY', 13); // One or more recommendations are ready for an editor to view
 define('REVIEW_ROUND_STATUS_RECOMMENDATIONS_COMPLETED', 14); // All assigned recommendOnly editors have made a recommendation
 
-// The following status is calculated when the round is in REVIEW_ROUND_STATUS_RESUBMITTED and
+// The following status is calculated when the round is in REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW and
 // at least one revision file has been uploaded.
 define('REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED', 15);
 
@@ -144,11 +144,11 @@ class ReviewRound extends DataObject {
 
 		// If revisions have been requested for re-submission, check to see if any have been
 		// submitted
-		if ($this->getStatus() == REVIEW_ROUND_STATUS_RESUBMITTED || $this->getStatus() == REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED) {
+		if ($this->getStatus() == REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW || $this->getStatus() == REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED) {
 			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 			$submissionFiles = $submissionFileDao->getRevisionsByReviewRound($this, SUBMISSION_FILE_REVIEW_REVISION);
 			if (empty($submissionFiles)) {
-				return REVIEW_ROUND_STATUS_RESUBMITTED;
+				return REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW;
 			}
 			return REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED;
 		}
@@ -252,8 +252,8 @@ class ReviewRound extends DataObject {
 				return 'editor.submission.roundStatus.revisionsRequested';
 			case REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED:
 				return 'editor.submission.roundStatus.revisionsSubmitted';
-			case REVIEW_ROUND_STATUS_RESUBMITTED:
-				return 'editor.submission.roundStatus.resubmitted';
+			case REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW:
+				return 'editor.submission.roundStatus.resubmitForReview';
 			case REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED:
 				return 'editor.submission.roundStatus.submissionResubmitted';
 			case REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL:

@@ -101,16 +101,24 @@ class PKPRequest {
 
 	/**
 	 * Redirect to the current URL, forcing the HTTPS protocol to be used.
+	 * @param $ssl boolean Use SSL
+	 */
+	function _redirectProtocol($ssl = false) {
+		// Note that we are intentionally skipping PKP processing of REQUEST_URI and QUERY_STRING for a protocol redirect
+		// This processing is deferred to the redirected (target) URI
+		$url = 'http'.($ssl ? 's' : '').'://' . $this->getServerHost() . $_SERVER['REQUEST_URI'];
+		// The $_SERVER['REQUEST_URI'] may or may not already contain the QUERY_STRING, depending on server configuration
+		$queryString = parse_url($url, PHP_URL_QUERY);
+		if (empty($queryString) && !empty($_SERVER['QUERY_STRING'])) $url .= "?$".$_SERVER['QUERY_STRING'];
+		$this->redirectUrl($url);
+	}
+
+	/**
+	 * Redirect to the current URL, forcing the HTTPS protocol to be used.
 	 */
 	function redirectSSL() {
 		$_this =& PKPRequest::_checkThis();
-
-		// Note that we are intentionally skipping PKP processing of REQUEST_URI and QUERY_STRING for a protocol redirect
-		// This processing is deferred to the redirected (target) URI
-		$url = 'https://' . $_this->getServerHost() . $_SERVER['REQUEST_URI'];
-		$queryString = $_SERVER['QUERY_STRING'];
-		if (!empty($queryString)) $url .= "?$queryString";
-		$_this->redirectUrl($url);
+		$_this->_redirectProtocol(true);
 	}
 
 	/**
@@ -118,13 +126,7 @@ class PKPRequest {
 	 */
 	function redirectNonSSL() {
 		$_this =& PKPRequest::_checkThis();
-
-		// Note that we are intentionally skipping PKP processing of REQUEST_URI and QUERY_STRING for a protocol redirect
-		// This processing is deferred to the redirected (target) URI
-		$url = 'http://' . $_this->getServerHost() . $_SERVER['REQUEST_URI'];
-		$queryString = $_SERVER['QUERY_STRING'];
-		if (!empty($queryString)) $url .= "?$queryString";
-		$_this->redirectUrl($url);
+		$_this->_redirectProtocol(false);
 	}
 
 	/**

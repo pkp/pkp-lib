@@ -269,7 +269,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			$author->setCountry($user->getCountry());
 			$author->setEmail($user->getEmail());
 			$author->setUrl($user->getUrl());
-			$author->setBiography($user->getBiography(null), null);
+			$author->setBiography($user->getBiography(), null);
 			$author->setPrimaryContact(1);
 			$author->setIncludeInBrowse(1);
 			$author->setOrcid($user->getOrcid());

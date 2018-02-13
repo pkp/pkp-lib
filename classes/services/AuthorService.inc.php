@@ -74,7 +74,7 @@ class AuthorService extends PKPBaseEntityPropertyService {
 					$values[$prop] = (bool) $author->getPrimaryContact();
 					break;
 				case 'biography':
-					$values[$prop] = $author->getBiography(null);
+					$values[$prop] = $author->getBiography();
 					break;
 				case 'affiliation':
 					$values[$prop] = $author->getAffiliation(null);

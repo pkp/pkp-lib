@@ -120,7 +120,7 @@ class AuthorForm extends Form {
 				'userUrl' => $author->getUrl(),
 				'orcid' => $author->getOrcid(),
 				'userGroupId' => $author->getUserGroupId(),
-				'biography' => $author->getBiography(null),
+				'biography' => $author->getBiography(),
 				'primaryContact' => $author->getPrimaryContact(),
 				'includeInBrowse' => $author->getIncludeInBrowse(),
 			);

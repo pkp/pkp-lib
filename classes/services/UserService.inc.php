@@ -240,7 +240,7 @@ class UserService extends PKPBaseEntityPropertyService {
 					$values[$prop] = $user->getOrcid(null);
 					break;
 				case 'biography':
-					$values[$prop] = $user->getBiography();
+					$values[$prop] = $user->getBiography(null);
 					break;
 				case 'signature':
 					$values[$prop] = $user->getSignature();

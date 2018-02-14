@@ -108,7 +108,7 @@ class NavigationMenuDAO extends DAO {
 	 * @param $contextId int
 	 * @param $title int
 	 *
-	 * @return ADORecordSet
+	 * @return boolean True if a NM exists by that title
 	 */
 	function navigationMenuExistsByTitle($contextId, $title) {
 		$result = $this->retrieve(
@@ -275,6 +275,15 @@ class NavigationMenuDAO extends DAO {
 				$area = $navigationMenuNode->getAttribute('area');
 
 				$navigationMenu = null;
+
+				// Check if the given area has a NM attached.
+				// If it does the NM is not being processed and a warning is being thrown
+				$navigationMenusWithArea = $this->getByArea($contextId, $area)->toArray();
+				if (count($navigationMenusWithArea) != 0) {
+					error_log("WARNING: The NavigationMenu (ContextId: $contextId, Title: $title, Area: $area) will be skipped because the specified area has already a NavigationMenu attached.");
+					continue;
+				}
+
 				if ($this->navigationMenuExistsByTitle($contextId, $title)) {
 					$navigationMenu = $this->getByTitle($contextId, $title);
 					$navigationMenu->setAreaName($area);

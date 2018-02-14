@@ -265,38 +265,43 @@ class NavigationMenuDAO extends DAO {
 		}
 
 		foreach ($tree->getChildren() as $navigationMenuNode) {
-			$title = $navigationMenuNode->getAttribute('title');
-			$area = $navigationMenuNode->getAttribute('area');
 			$site = $navigationMenuNode->getAttribute('site');
-
 			if ($contextId == CONTEXT_ID_NONE && !$site) {
 				continue;
 			}
 
-			$navigationMenu = null;
-			if ($this->navigationMenuExistsByTitle($contextId, $title)) {
-				$navigationMenu = $this->getByTitle($contextId, $title);
-				$navigationMenu->setAreaName($area);
+			if ($navigationMenuNode->name == 'navigationMenu') {
+				$title = $navigationMenuNode->getAttribute('title');
+				$area = $navigationMenuNode->getAttribute('area');
 
-				// update the navigationMenu into the DB
-				$navigationMenuId = $this->updateObject($navigationMenu);
-			} else {
-				$navigationMenu = $this->newDataObject();
-				$navigationMenu->setTitle($title);
-				$navigationMenu->setContextId($contextId);
-				$navigationMenu->setAreaName($area);
+				$navigationMenu = null;
+				if ($this->navigationMenuExistsByTitle($contextId, $title)) {
+					$navigationMenu = $this->getByTitle($contextId, $title);
+					$navigationMenu->setAreaName($area);
 
-				// insert the navigationMenu into the DB
-				$navigationMenuId = $this->insertObject($navigationMenu);
-				$navigationMenu->setId($navigationMenuId);
-			}
+					// update the navigationMenu into the DB
+					$navigationMenuId = $this->updateObject($navigationMenu);
+				} else {
+					$navigationMenu = $this->newDataObject();
+					$navigationMenu->setTitle($title);
+					$navigationMenu->setContextId($contextId);
+					$navigationMenu->setAreaName($area);
 
-			$seq = 0;
-			foreach ($navigationMenuNode->getChildren() as $navigationMenuItemFirstLevelNode) {
+					// insert the navigationMenu into the DB
+					$navigationMenuId = $this->insertObject($navigationMenu);
+					$navigationMenu->setId($navigationMenuId);
+				}
+
+				$seq = 0;
+				foreach ($navigationMenuNode->getChildren() as $navigationMenuItemFirstLevelNode) {
+					$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+					$navigationMenuItemDao->installNodeSettings($contextId, $navigationMenuItemFirstLevelNode, $navigationMenu->getId(), null, $seq, true);
+
+					$seq++;
+				}
+			} elseif ($navigationMenuNode->name == 'navigationMenuItem') {
 				$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
-				$navigationMenuItemDao->installNodeSettings($contextId, $navigationMenuItemFirstLevelNode, $navigationMenu->getId(), null, $seq, true);
-
-				$seq++;
+				$navigationMenuItemDao->installNodeSettings($contextId, $navigationMenuNode, null, null, 0, true);
 			}
 		}
 

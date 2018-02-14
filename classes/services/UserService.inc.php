@@ -225,7 +225,7 @@ class UserService extends PKPBaseEntityPropertyService {
 					$values[$prop] = $user->getSuffix();
 					break;
 				case 'affiliation':
-					$values[$prop] = $user->getAffiliation();
+					$values[$prop] = $user->getAffiliation(null);
 					break;
 				case 'country':
 					$values[$prop] = $user->getCountry();

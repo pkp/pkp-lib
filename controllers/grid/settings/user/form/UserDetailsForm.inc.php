@@ -102,7 +102,7 @@ class UserDetailsForm extends UserForm {
 				'orcid' => $user->getOrcid(),
 				'mailingAddress' => $user->getMailingAddress(),
 				'country' => $user->getCountry(),
-				'biography' => $user->getBiography(), // Localized
+				'biography' => $user->getBiography(null), // Localized
 				'interests' => $interestManager->getInterestsForUser($user),
 				'userLocales' => $user->getLocales(),
 			);
@@ -125,7 +125,7 @@ class UserDetailsForm extends UserForm {
 				'userUrl' => $author->getUrl(),
 				'orcid' => $author->getOrcid(),
 				'country' => $author->getCountry(),
-				'biography' => $author->getBiography(), // Localized
+				'biography' => $author->getBiography(null), // Localized
 			);
 		} else {
 			$data = array(

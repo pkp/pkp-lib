@@ -43,7 +43,7 @@ class PublicProfileForm extends BaseProfileForm {
 		$this->_data = array(
 			'orcid' => $user->getOrcid(),
 			'userUrl' => $user->getUrl(),
-			'biography' => $user->getBiography(), // Localized
+			'biography' => $user->getBiography(null), // Localized
 		);
 	}
 

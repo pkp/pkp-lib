@@ -254,10 +254,11 @@ class Identity extends DataObject {
 
 	/**
 	 * Get author biography.
+	 * @param $locale string
 	 * @return string
 	 */
-	function getBiography() {
-		return $this->getData('biography');
+	function getBiography($locale) {
+		return $this->getData('biography', $locale);
 	}
 
 	/**

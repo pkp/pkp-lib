@@ -571,4 +571,8 @@
 	<message key="notification.addedNavigationMenu">Navigation menu was succesfully added</message>
 	<message key="notification.editedNavigationMenu">Navigation menu was succesfully updated</message>
 	<message key="notification.removedNavigationMenu">Navigation menu was succesfully removed</message>
+
+	<!-- List Handlers -->
+	<message key="list.viewMore">Show more details about {$name}</message>
+	<message key="list.viewLess">Hide expanded details about {$name}</message>
 </locale>

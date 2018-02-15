@@ -622,6 +622,4 @@
 	<message key="submission.list.discussions">Open discussions</message>
 	<message key="submission.list.incompleteSubmissionNotice">This submission must be completed before an editor will review it.</message>
 	<message key="submission.list.currentStage">Currently in the {$stage} stage.</message>
-	<message key="submission.list.viewMore">View more details about this submission</message>
-	<message key="submission.list.viewLess">Hide expanded details about this submission</message>
 </locale>

@@ -31,7 +31,7 @@ abstract class ListHandler extends PKPHandler {
 	/**
 	 * Initialize the handler with config parameters
 	 *
-	 * @param array $args Configuration params
+	 * @param $args array Configuration params
 	 */
 	public function init($args = array()) {
 		$this->setId(!empty($args['id']) ? $args['id'] : get_class($this));

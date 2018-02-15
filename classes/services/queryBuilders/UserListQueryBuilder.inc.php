@@ -82,8 +82,8 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	/**
 	 * Set result order column and direction
 	 *
-	 * @param string $column
-	 * @param string $direction
+	 * @param $column string
+	 * @param $direction string
 	 *
 	 * @return \PKP\Services\QueryBuilders\UserListQueryBuilder
 	 */
@@ -102,7 +102,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	/**
 	 * Set status filter
 	 *
-	 * @param string $status
+	 * @param $status string
 	 *
 	 * @return \PKP\Services\QueryBuilders\UserListQueryBuilder
 	 */
@@ -114,7 +114,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	/**
 	 * Set roles filter
 	 *
-	 * @param int|array $roleIds
+	 * @param $roleIds int|array
 	 *
 	 * @return \PKP\Services\QueryBuilders\UserListQueryBuilder
 	 */
@@ -129,7 +129,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	/**
 	 * Limit results to users assigned to this submission
 	 *
-	 * @param int $submissionId
+	 * @param $submissionId int
 	 *
 	 * @return \PKP\Services\QueryBuilders\UserListQueryBuilder
 	 */
@@ -144,7 +144,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	/**
 	 * Limit results to users assigned as editors to this section
 	 *
-	 * @param int $sectionId
+	 * @param $sectionId int
 	 *
 	 * @return \PKP\Services\QueryBuilders\UserListQueryBuilder
 	 */
@@ -156,7 +156,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	/**
 	 * Set query search phrase
 	 *
-	 * @param string $phrase
+	 * @param $phrase string
 	 *
 	 * @return \PKP\Services\QueryBuilders\UserListQueryBuilder
 	 */
@@ -168,7 +168,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	/**
 	 * Whether to return only a count of results
 	 *
-	 * @param bool $enable
+	 * @param $enable bool
 	 *
 	 * @return \PKP\Services\QueryBuilders\UserListQueryBuilder
 	 */
@@ -180,7 +180,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	/**
 	 * Whether to return reviewer activity data
 	 *
-	 * @param bool $enable
+	 * @param $enable bool
 	 *
 	 * @return \PKP\Services\QueryBuilders\UserListQueryBuilder
 	 */
@@ -192,7 +192,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	/**
 	 * Limit results to those who have a minimum reviewer rating
 	 *
-	 * @param int $reviewerRating
+	 * @param $reviewerRating int
 	 *
 	 * @return \PKP\Services\QueryBuilders\UserListQueryBuilder
 	 */
@@ -207,7 +207,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	/**
 	 * Limit results to those who have completed at least this many reviews
 	 *
-	 * @param int|array $reviewsCompleted
+	 * @param $reviewsCompleted int|array
 	 *
 	 * @return \PKP\Services\QueryBuilders\UserListQueryBuilder
 	 */
@@ -222,7 +222,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	/**
 	 * Limit results to those who have at least this many active review assignments
 	 *
-	 * @param int|array $reviewsActive
+	 * @param $reviewsActive int|array
 	 *
 	 * @return \PKP\Services\QueryBuilders\UserListQueryBuilder
 	 */
@@ -238,7 +238,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	 * Limit results to those who's last review assignment was at least this many
 	 * days ago.
 	 *
-	 * @param int|array $daysSinceLastAssignment
+	 * @param $daysSinceLastAssignment int|array
 	 *
 	 * @return \PKP\Services\QueryBuilders\UserListQueryBuilder
 	 */
@@ -254,7 +254,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	 * Limit results to those who complete a review on average less than this many
 	 * days after their assignment.
 	 *
-	 * @param int|array $averageCompletion
+	 * @param $averageCompletion int|array
 	 *
 	 * @return \PKP\Services\QueryBuilders\UserListQueryBuilder
 	 */

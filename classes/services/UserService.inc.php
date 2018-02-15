@@ -391,8 +391,8 @@ class UserService extends PKPBaseEntityPropertyService {
 
 	/**
 	 * Returns summary properties for a reviewer
-	 * @param User $user
-	 * @param array extra arguments
+	 * @param $user User
+	 * @param $args array
 	 *		$args['request'] PKPRequest Required
 	 *		$args['slimRequest'] SlimRequest
 	 * @return array
@@ -412,9 +412,9 @@ class UserService extends PKPBaseEntityPropertyService {
 	/**
 	 * Does a user have a role?
 	 *
-	 * @param int $userId
-	 * @param int|array $roleIds ROLE_ID_...
-	 * @param int $contextId
+	 * @param $userId int
+	 * @param $roleIds int|array ROLE_ID_...
+	 * @param $contextId int
 	 * @return boolean
 	 */
 	public function userHasRole($userId, $roleIds, $contextId) {
@@ -425,7 +425,7 @@ class UserService extends PKPBaseEntityPropertyService {
 	/**
 	 * Can the current user view and edit the gossip field for a user
 	 *
-	 * @param int $userId The user who's gossip field should be accessed
+	 * @param $userId int The user who's gossip field should be accessed
 	 * @return boolean
 	 */
 	public function canCurrentUserGossip($userId) {

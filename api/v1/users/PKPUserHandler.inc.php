@@ -51,7 +51,7 @@ class PKPUserHandler extends APIHandler {
 	 * Get a collection of users
 	 * @param $slimRequest Request Slim request object
 	 * @param $response Response object
-	 * @param array $args arguments
+	 * @param $args array arguments
 	 *
 	 * @return Response
 	 */
@@ -90,13 +90,12 @@ class PKPUserHandler extends APIHandler {
 	 * Get a single user
 	 * @param $slimRequest Request Slim request object
 	 * @param $response Response object
-	 * @param array $args arguments
+	 * @param $args array arguments
 	 *
 	 * @return Response
 	 */
 	public function getUser($slimRequest, $response, $args) {
 		$request = $this->getRequest();
-		$dispatcher = $request->getDispatcher();
 		$context = $request->getContext();
 		$userService = ServicesContainer::instance()->get('user');
 
@@ -120,7 +119,7 @@ class PKPUserHandler extends APIHandler {
 	 * Get a collection of reviewers
 	 * @param $slimRequest Request Slim request object
 	 * @param $response Response object
-	 * @param array $args arguments
+	 * @param $args array arguments
 	 *
 	 * @return Response
 	 */

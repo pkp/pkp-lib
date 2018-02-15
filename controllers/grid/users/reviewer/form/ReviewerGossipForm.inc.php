@@ -20,8 +20,8 @@ class ReviewerGossipForm extends Form {
 	/** @var User The user to gossip about */
 	var $_user;
 
-		/** @var $requestArgs array Arguments used to route the form op */
-		var $_requestArgs;
+	/** @var array Arguments used to route the form op */
+	var $_requestArgs;
 
 	/**
 	 * Constructor.

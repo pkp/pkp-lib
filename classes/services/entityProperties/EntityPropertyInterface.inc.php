@@ -18,17 +18,17 @@ namespace PKP\Services\EntityProperties;
 interface EntityPropertyInterface {
 	/**
 	 * Returns values given a list of properties of en entity
-	 * @param object $entity
-	 * @param array $props
-	 * @param array extra arguments
+	 * @param $entity object
+	 * @param $props array
+	 * @param $args array extra arguments
 	 * @return array
 	 */
 	public function getProperties($entity, $props, $args = null);
 
 	/**
 	 * Returns summary properties for an entity
-	 * @param object $entity
-	 * @param array extra arguments
+	 * @param $entity object
+	 * @param $args array extra arguments
 	 *		$args['request'] PKPRequest Required
 	 *		$args['slimRequest'] SlimRequest
 	 * @return array
@@ -37,8 +37,8 @@ interface EntityPropertyInterface {
 
 	/**
 	 * Returns full properties for an entity
-	 * @param object $entity
-	 * @param array extra arguments
+	 * @param $entity object
+	 * @param $args array extra arguments
 	 *		$args['request'] PKPRequest Required
 	 *		$args['slimRequest'] SlimRequest
 	 * @return array

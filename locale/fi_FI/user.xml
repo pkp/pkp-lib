@@ -35,9 +35,7 @@
 	<message key="user.dateRegistered">Rekisteröitymispäivämäärä</message>
 	<message key="user.editMyProfile">Muokkaa profiilia</message>
 	<message key="user.email">Sähköposti</message>
-	<message key="user.feminine">N</message>
 	<message key="user.firstName">Etunimi</message>
-	<message key="user.gender">Sukupuoli</message>
 	<message key="user.initialsExample">Maija Liisa Meikäläinen = MLM</message>
 	<message key="user.initials">Nimikirjaimet</message>
 	<message key="user.interests">Kiinnostavat arviointiaiheet</message>
@@ -72,11 +70,9 @@
 	<message key="user.logOutAs">Kirjaudu ulos käyttäjänä</message>
 	<message key="user.hello">Hei, </message>
 	<message key="user.mailingAddress">Postiosoite</message>
-	<message key="user.masculine">M</message>
 	<message key="user.middleName">Toinen nimi</message>
 	<message key="user.myAccount">Oma tilini</message>
 	<message key="user.name">Nimi</message>
-	<message key="user.other">Muu</message>
 	<message key="user.password">Salasana</message>
 	<message key="user.repeatPassword">Anna salasana uudelleen</message>
 	<message key="user.phone">Puhelin</message>

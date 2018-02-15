@@ -13,7 +13,6 @@
  *   $disableAuthSourceSection: Disable Auth section
  *   $disablePasswordSection: Disable Password section
  *   $disableSendNotifySection: Disable SendNotify section
- *   $disableGenderSection: Disable Gender section
  *   $disableSalutationSection: Disable Salutation section
  *   $disableInitialsSection: Disable Initials section
  *   $disablePhoneSection: Disable Phone section
@@ -112,9 +111,6 @@
 {capture assign="extraContent"}
 	{fbvFormArea id="userFormExtendedLeft"}
 		{fbvFormSection}
-			{if !$disableGenderSection}
-				{fbvElement type="select" label="user.gender" name="gender" id="gender" defaultLabel="" defaultValue="" from=$genderOptions translate="true" selected=$gender inline=true size=$fbvStyles.size.SMALL}
-			{/if}
 			{if !$disableSalutationSection}
 				{fbvElement type="text" label="user.salutation" name="salutation" id="salutation" value=$salutation maxlength="40" inline=true size=$fbvStyles.size.SMALL}
 			{/if}

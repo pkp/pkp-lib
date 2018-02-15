@@ -22,9 +22,7 @@
 	<message key="user.dateRegistered">Date d'inscription</message>
 	<message key="user.editMyProfile">Modifier mon profil</message>
 	<message key="user.email">Courriel</message>
-	<message key="user.feminine">F</message>
 	<message key="user.firstName">Prénom</message>
-	<message key="user.gender">Genre</message>
 	<message key="user.initialsExample">Joan Alice Smith = JAS</message>
 	<message key="user.initials">Initiales</message>
 	<message key="user.interests">Intérêts pour les évaluations</message>
@@ -47,7 +45,6 @@
 	<message key="user.login.resetPassword">Réinitialiser le mot de passe</message>
 	<message key="user.logOut">Se déconnecter</message>
 	<message key="user.mailingAddress">Adresse postale</message>
-	<message key="user.masculine">M</message>
 	<message key="user.middleName">Second prénom</message>
 	<message key="user.myAccount">Mon compte</message>
 	<message key="user.name">Nom</message>
@@ -102,7 +99,6 @@
 	<message key="user.username">Nom d'utilisateur</message>
 	<message key="user.workingLanguages">Langues de travail</message>
 	<message key="user.profile.form.profileImageInvalid">Format d'image du profil invalide ou image trop grande. Les formats acceptés sont .gif, .jpg, or .png, et l'image ne doit pas dépasser 150x150 pixels.</message>
-	<message key="user.other">Autre</message>
 	<message key="user.profile.form.affiliationRequired">L'affiliation est obligatoire.</message>
 	<message key="user.affiliation.description">(Votre institution, par ex., "Université de Montréal")</message>
 	<message key="user.gossip">Notes privées</message>

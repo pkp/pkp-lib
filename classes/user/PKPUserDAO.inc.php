@@ -379,7 +379,6 @@ class PKPUserDAO extends DAO {
 		$user->setInitials($row['initials']);
 		$user->setLastName($row['last_name']);
 		$user->setSuffix($row['suffix']);
-		$user->setGender($row['gender']);
 		$user->setEmail($row['email']);
 		$user->setUrl($row['url']);
 		$user->setPhone($row['phone']);
@@ -416,9 +415,9 @@ class PKPUserDAO extends DAO {
 		}
 		$this->update(
 			sprintf('INSERT INTO users
-				(username, password, salutation, first_name, middle_name, initials, last_name, suffix, gender, email, url, phone, mailing_address, billing_address, country, locales, date_last_email, date_registered, date_validated, date_last_login, must_change_password, disabled, disabled_reason, auth_id, auth_str, inline_help)
+				(username, password, salutation, first_name, middle_name, initials, last_name, suffix, email, url, phone, mailing_address, billing_address, country, locales, date_last_email, date_registered, date_validated, date_last_login, must_change_password, disabled, disabled_reason, auth_id, auth_str, inline_help)
 				VALUES
-				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, ?, ?, ?, ?, ?, ?)',
+				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, ?, ?, ?, ?, ?, ?)',
 				$this->datetimeToDB($user->getDateLastEmail()), $this->datetimeToDB($user->getDateRegistered()), $this->datetimeToDB($user->getDateValidated()), $this->datetimeToDB($user->getDateLastLogin())),
 			array(
 				$user->getUsername(),
@@ -429,7 +428,6 @@ class PKPUserDAO extends DAO {
 				$user->getInitials(),
 				$user->getLastName(),
 				$user->getSuffix(),
-				$user->getGender(),
 				$user->getEmail(),
 				$user->getUrl(),
 				$user->getPhone(),
@@ -499,7 +497,6 @@ class PKPUserDAO extends DAO {
 					initials = ?,
 					last_name = ?,
 					suffix = ?,
-					gender = ?,
 					email = ?,
 					url = ?,
 					phone = ?,
@@ -527,7 +524,6 @@ class PKPUserDAO extends DAO {
 				$user->getInitials(),
 				$user->getLastName(),
 				$user->getSuffix(),
-				$user->getGender(),
 				$user->getEmail(),
 				$user->getUrl(),
 				$user->getPhone(),
@@ -740,19 +736,6 @@ class PKPUserDAO extends DAO {
 	 */
 	function getInsertId() {
 		return $this->_getInsertId('users', 'user_id');
-	}
-
-	/**
-	 * Return a list of gender names for use in the user profile.
-	 * @return array
-	 */
-	function getGenderOptions() {
-		return array(
-			'' => '',
-			'M' => 'user.masculine',
-			'F' => 'user.feminine',
-			'O' => 'user.other',
-		);
 	}
 }
 

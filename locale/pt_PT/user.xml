@@ -21,9 +21,7 @@
 	<message key="user.dateRegistered">Data do Registo</message>
 	<message key="user.editMyProfile">Editar Perfil</message>
 	<message key="user.email">E-mail</message>
-	<message key="user.feminine">F</message>
 	<message key="user.firstName">Nome</message>
-	<message key="user.gender">Género</message>
 	<message key="user.initialsExample">José Castro Silva = JCS</message>
 	<message key="user.initials">Iniciais</message>
 	<message key="user.interests">Área de Interesse para Revisão</message>
@@ -45,7 +43,6 @@
 	<message key="user.login.resetPassword">Nova Senha</message>
 	<message key="user.logOut">Sair do Sistema</message>
 	<message key="user.mailingAddress">Endereço Postal</message>
-	<message key="user.masculine">M</message>
 	<message key="user.middleName">Nome do Meio</message>
 	<message key="user.myAccount">Minha Conta</message>
 	<message key="user.name">Nome</message>
@@ -94,7 +91,6 @@
 	<message key="user.username">Nome de utilizador</message>
 	<message key="user.workingLanguages">Idiomas Conhecidos</message>
 	<message key="user.profile.form.profileImageInvalid">Formato ou tamanho de imagem inválido para o perfil. Formatos aceites são .gif, .jpg, ou .png, e a imagem não pode exceder 150x150 pixels.</message>
-	<message key="user.other">Outro</message>
 	<message key="user.affiliation.description">(A sua instituição, e.g. "ISPA - Instituto Universitário")</message>
 	<message key="user.gossip">Notas Privadas</message>
 	<message key="user.profile.form.affiliationRequired">Obrigatório inserir uma afiliação.</message>

@@ -102,22 +102,6 @@ class PKPUser extends Identity {
 	}
 
 	/**
-	 * Get user gender.
-	 * @return string
-	 */
-	function getGender() {
-		return $this->getData('gender');
-	}
-
-	/**
-	 * Set user gender.
-	 * @param $gender string
-	 */
-	function setGender($gender) {
-		$this->setData('gender', $gender);
-	}
-
-	/**
 	 * Get phone number.
 	 * @return string
 	 */

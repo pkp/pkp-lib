@@ -36,9 +36,7 @@
 	<message key="user.dateRegistered">Дата регистрации</message>
 	<message key="user.editMyProfile">Редактировать мой профиль</message>
 	<message key="user.email">Адрес (E-mail)</message>
-	<message key="user.feminine">Ж</message>
 	<message key="user.firstName">Имя</message>
-	<message key="user.gender">Пол</message>
 	<message key="user.initialsExample">Алексей Алексеевич Бородин = ААБ</message>
 	<message key="user.initials">Инициалы</message>
 	<message key="user.interests">Интересы как рецензента</message>
@@ -73,11 +71,9 @@
 	<message key="user.logOutAs">Выйти из системы как</message>
 	<message key="user.hello">Добро пожаловать, </message>
 	<message key="user.mailingAddress">Почтовый адрес</message>
-	<message key="user.masculine">М</message>
 	<message key="user.middleName">Отчество</message>
 	<message key="user.myAccount">Мой профиль</message>
 	<message key="user.name">Фамилия</message>
-	<message key="user.other">Иное</message>
 	<message key="user.password">Пароль</message>
 	<message key="user.repeatPassword">Повторите пароль</message>
 	<message key="user.phone">Телефон</message>

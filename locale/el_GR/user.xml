@@ -23,9 +23,7 @@
 	<message key="user.dateRegistered">Ημερομηνία εγγραφής</message>
 	<message key="user.editMyProfile">Επεξεργασία του Προφίλ μου</message>
 	<message key="user.email">Email</message>
-	<message key="user.feminine">Θ</message>
 	<message key="user.firstName">Όνομα</message>
-	<message key="user.gender">Φύλο</message>
 	<message key="user.initialsExample">Ιωάννης Ανδρέα Παπαδόπουλος = ΙΑΠ</message>
 	<message key="user.initials">Αρχικά</message>
 	<message key="user.interests">Αναθεώρηση ενδιαφερόντων</message>
@@ -47,7 +45,6 @@
 	<message key="user.login.resetPassword">Αλλαγή του προσωπικού σας Κωδικού Πρόσβασης</message>
 	<message key="user.logOut">Αποσυνδεθείτε</message>
 	<message key="user.mailingAddress">Ταχυδρομική Διεύθυνση</message>
-	<message key="user.masculine">Α</message>
 	<message key="user.middleName">Μεσαίο/Πατρικό όνομα</message>
 	<message key="user.myAccount">Ο Λογαριασμός μου</message>
 	<message key="user.name">Όνομα</message>
@@ -99,7 +96,6 @@
 	<message key="user.username">Username</message>
 	<message key="user.workingLanguages">Γλώσσες εργασίας</message>
 	<message key="user.profile.form.profileImageInvalid">Μη έγκυρη μορφή αρχείου εικόνας ή πολύ μεγάλη εικόνα. Επιτρεπτές μορφές αρχείων είναι .gif, .jpg, .png, και το μέγεθος της εικόνας να μην υπερβαίνει τα 150x150 pixels.</message>
-	<message key="user.other">Άλλα</message>
 	<message key="user.affiliation.description">(Το ίδρυμά σας, π.χ. "Πανεπιστήμιο Πατρών")</message>
 	<message key="user.authorization.accessDenied">Η πρόσβαση δεν είναι δυνατή</message>
 	<message key="user.authorization.processAuthenticationTokenRequired">Η διαδικασία ταυτοποίησης λείπει ή δεν είναι έγκυρη.</message>

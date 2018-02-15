@@ -35,9 +35,7 @@
 	<message key="user.dateRegistered">تأريخ التسجيل</message>
 	<message key="user.editMyProfile">تعديل ملفي الشخصي</message>
 	<message key="user.email">البريد الالكتروني</message>
-	<message key="user.feminine">أنثى</message>
 	<message key="user.firstName">الاسم الأول</message>
-	<message key="user.gender">الجنس</message>
 	<message key="user.initialsExample">Mohammed Kamil Najeeb = MKN</message>
 	<message key="user.initials">الحروف الأولى</message>
 	<message key="user.interests">إهتمامات التحكيم</message>
@@ -72,11 +70,9 @@
 	<message key="user.logOutAs">الخروج كأنني</message>
 	<message key="user.hello">مرحباً </message>
 	<message key="user.mailingAddress">عنوان المراسلة</message>
-	<message key="user.masculine">ذكر</message>
 	<message key="user.middleName">الاسم الأوسط</message>
 	<message key="user.myAccount">حسابي</message>
 	<message key="user.name">الاسم</message>
-	<message key="user.other">آخر</message>
 	<message key="user.password">كلمة المرور</message>
 	<message key="user.repeatPassword">أعد كلمة المرور</message>
 	<message key="user.phone">الهاتف</message>

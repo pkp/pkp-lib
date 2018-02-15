@@ -27,9 +27,7 @@
 	<message key="user.dateRegistered">Datum registracije</message>
 	<message key="user.editMyProfile">Uredi moj profil</message>
 	<message key="user.email">Imejl</message>
-	<message key="user.feminine">Ž</message>
 	<message key="user.firstName">Ime</message>
-	<message key="user.gender">Pol</message>
 	<message key="user.initialsExample">Jovan Milenko Grčić = JGM</message>
 	<message key="user.initials">Inicijali</message>
 	<message key="user.interests">Recenzentski interesi</message>
@@ -50,11 +48,9 @@
 	<message key="user.login.resetPassword">Promeni lozinku</message>
 	<message key="user.logOut">Odjavi se</message>
 	<message key="user.mailingAddress">Poštanska adresa</message>
-	<message key="user.masculine">M</message>
 	<message key="user.middleName">Srednje ime</message>
 	<message key="user.myAccount">Moj nalog</message>
 	<message key="user.name">Ime</message>
-	<message key="user.other">Drugo</message>
 	<message key="user.password">Lozinka</message>
 	<message key="user.repeatPassword">Ponovi lozinku</message>
 	<message key="user.phone">Telefon</message>

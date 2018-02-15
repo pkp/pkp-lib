@@ -40,9 +40,6 @@
 			{fbvElement type="text" label="user.initials" name="initials" id="initials" value=$initials maxlength="5" inline=true size=$fbvStyles.size.SMALL}
 			{fbvElement type="text" label="user.suffix" id="suffix" value=$suffix inline=true size=$fbvStyles.size.SMALL}
 		{/fbvFormSection}
-		{fbvFormSection}
-			{fbvElement type="select" label="user.gender" name="gender" id="gender" from=$genderOptions translate="true" selected=$gender size=$fbvStyles.size.SMALL}
-		{/fbvFormSection}
 	{/fbvFormArea}
 
 	{fbvFormButtons hideCancel=true submitText="common.save"}

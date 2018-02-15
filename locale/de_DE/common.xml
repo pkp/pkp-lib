@@ -95,6 +95,7 @@
 	]]></message>
 	<message key="common.changesSaved">Ihre Änderungen wurden gespeichert.</message>
 	<message key="common.chooseOne">Bitte wählen Sie aus.</message>
+	<message key="common.clearSearch">Suchbegriffe löschen</message>
 	<message key="common.close">Schließen</message>
 	<message key="common.closePanel">Panel schließen</message>
 	<message key="common.closeWindow">Fenster schließen</message>
@@ -152,6 +153,8 @@
 	<message key="common.fileSize">Dateigröße</message>
 	<message key="common.fileType">Dateityp</message>
 	<message key="common.fileUploaderError">Der Dateiuploader des Systems wird gestartet. Wenn er nicht erschient, liegt dies vermutlich daran, dass seine Laufzeiten nicht von diesem Browser unterstützt werden. Bitte kontaktieren Sie die Administrator/innen.</message>
+	<message key="common.filter">Filter</message>
+	<message key="common.filterRemove">Filter löschen: {$filterTitle}</message>
 	<message key="common.from">Von</message>
 	<message key="common.until">Bis</message>
 	<message key="common.go">Los</message>

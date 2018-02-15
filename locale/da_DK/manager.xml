@@ -166,10 +166,6 @@
 	<message key="plugins.categories.themes">Plug-ins til temaer</message>
 	<message key="manager.emails.form.emailKeyRequired">Denne e-mail kræver en unik e-mail-nøgle.</message>
 	<message key="manager.reviewerSearch.searchByName">Søg efter bedømmer ud fra navn</message>
-	<message key="manager.reviewerSearch.doneAmount">Bedømmelser afsluttet: {$current}</message>
-	<message key="manager.reviewerSearch.avgAmount">Gennemsnitligt antal dage pr. bedømmelse: {$current}</message>
-	<message key="manager.reviewerSearch.lastAmount">Dage siden seneste bedømmelse: {$current}</message>
-	<message key="manager.reviewerSearch.activeAmount">Antal aktive bedømmelser: {$current}</message>
 	<message key="manager.reviewerSearch.interests">Bedømmers interesser</message>
 	<message key="manager.setup.errorDeletingItem">Der opstod en fejl i forbindelse med sletningen af dette element.</message>
 	<message key="manager.announcements.datePublish">Udgivet</message>
@@ -182,7 +178,6 @@
 	<message key="manager.emails.reset.message">Hvis du nulstiller denne skabelon, vil alle data blive erstattet af standardinstillingerne, og evt. tilretninger vil gå tabt. Vil du bekræfte denne handling?</message>
 	<message key="manager.reviewerSearch.searchByName.short">Søg efter navn</message>
 	<message key="manager.reviewerSearch.form.instructions">Brug nedenstående felt til at angive det maksimale antal ord, du ønsker at søge efter. Feltet er forudindstillet til at beregne et gennemsnit for formularens felter.</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">Anfør bedømmelsesinteresser, adskilt med kommaer....</message>
 	<message key="manager.setup.layout.blockManagement">Sidebar management</message>
 	<message key="plugins.categories.metadata">Metadata plug-ins</message>
 	<message key="plugins.categories.metadata.description">Metadat plug-ins implementerer ekstra metadata standarder.</message>
@@ -293,11 +288,6 @@
 	<message key="manager.language.submissions">Indsendelser</message>
 	<message key="manager.language.forms">Formularer</message>
 	<message key="manager.language.reloadLocalizedDefaultSettings">Genindlæs standardindstillinger</message>
-	<message key="manager.reviewerSearch.doneAmountToggle">Aktivér/deaktivér filter til 'Bedømmelser afsluttet'.</message>
-	<message key="manager.reviewerSearch.avgAmountToggle">Aktiver/deaktivér filteret til 'Gennemsnitligt antal dage pr. bedømmelse'.</message>
-	<message key="manager.reviewerSearch.lastAmountToggle">Aktivér/deaktivér filter til 'Dage siden seneste bedømmelse'.</message>
-	<message key="manager.reviewerSearch.activeAmountToggle">Aktiver/deaktivér filteret til 'Antal aktive bedømmelser'</message>
-	<message key="manager.reviewerSearch.form.previousReviewRounds">Bedømmere til denne indsendelses tidligere bedømmelsesrunder.</message>
 	<message key="manager.affiliationAndSupport">Sponsor</message>
 	<message key="manager.setup.openAccessPolicy">Open Access politik</message>
 	<message key="manager.setup.openAccessPolicy.description">Hvis tidskriftet vil give læsere øjeblikkelig gratis adgang til alt publiceret indhold, kan du indsætte en beskrivelse af jeres Open Access politik.</message>

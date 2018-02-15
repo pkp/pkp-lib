@@ -303,6 +303,16 @@
 	.is_wizard_mode {
 		display: none;
 	}
+
+	// Star selection in radio buttons
+	.pkp_star_selection {
+		font-size: @font-sml;
+		font-weight: @normal;
+
+		.fa {
+			color: @star-on;
+		}
+	}
 }
 
 // Row of buttons
@@ -715,6 +725,15 @@ a[id^="publicIdentifiersForm-clearObjectsPubIds-button"] {
 		.item_buttons .fa {
 			color: @text-light;
 		}
+	}
+}
+
+// Override form styles that are effecting reviewer selection grid filters
+.pkp_form {
+
+	.pkpListPanel__filterInputLabel {
+		font-size: @font-sml;
+		font-weight: @normal;
 	}
 }
 

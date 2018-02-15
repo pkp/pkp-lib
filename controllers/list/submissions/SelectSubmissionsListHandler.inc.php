@@ -15,15 +15,11 @@ import('controllers.list.submissions.SubmissionsListHandler');
 
 class SelectSubmissionsListHandler extends SubmissionsListHandler {
 
-	/**
-	 * Name to use for the checkbox input field when selecting submissions
-	 *
-	 * @param int
-	 */
+	/** @var int Name to use for the checkbox input field when selecting submissions */
 	public $_inputName = 'selectedSubmissions';
 
 	/**
-	 * @copydoc SubmissionsListHandler
+	 * @copydoc SubmissionsListHandler::init()
 	 */
 	public function init( $args = array() ) {
 		parent::init($args);
@@ -31,7 +27,7 @@ class SelectSubmissionsListHandler extends SubmissionsListHandler {
 	}
 
 	/**
-	 * @copydoc SubmissionsListHandler
+	 * @copydoc SubmissionsListHandler::getConfig()
 	 */
 	public function getConfig() {
 		$config = parent::getConfig();

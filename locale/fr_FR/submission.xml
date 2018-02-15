@@ -555,11 +555,8 @@
 	<message key="submission.list.responseDue">Réponse en attente</message>
 	<message key="submission.list.reviewDue">Rapport en attente</message>
 	<message key="submission.list.confirmDelete">Supprimer la soumission ?</message>
-	<message key="submission.list.filter">Filtres</message>
-	<message key="submission.list.filterRemove">Supprimer le filtre : {$filterTitle}</message>
 	<message key="submission.list.itemOrdererUp">Remonter {$itemTitle}</message>
 	<message key="submission.list.itemOrdererDown">Descendre {$itemTitle}</message>
-	<message key="submission.list.clearSearch">RAZ de la recherche</message>
 	<message key="submission.list.reviewsCompleted">Rapports effectués</message>
 	<message key="submission.list.filesPrepared">Fichiers prêts</message>
 	<message key="submission.list.discussions">Discussions</message>

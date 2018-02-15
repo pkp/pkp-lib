@@ -152,6 +152,8 @@
 	<message key="common.fileSize">حجم الملف</message>
 	<message key="common.fileType">نوع الملف</message>
 	<message key="common.fileUploaderError">إن برنامج رفع الملفات في النظام يجري تحميله الآن. إن لم يظهر لك، فهذا يعني أن هناك احتمالية كون المتصفح الذي تستعمله لا يدعم متطلبات تشغيله. لطفاً، حاول استحصال الدعم من الإدارة.</message>
+	<message key="common.filter">التصفيات</message>
+	<message key="common.filterRemove">تصفير التصفية: {$filterTitle}</message>
 	<message key="common.from">من</message>
 	<message key="common.until">حتى</message>
 	<message key="common.go">إذهب</message>
@@ -235,6 +237,7 @@
 	<message key="common.saving">الحفظ جارٍ</message>
 	<message key="common.search">إبحث</message>
 	<message key="common.searchQuery">استعلام البحث</message>
+	<message key="common.clearSearch">تصفير عبارة البحث</message>
 	<message key="common.second">ثانية/ثوان</message>
 	<message key="common.selectAll">إختر الكل</message>
 	<message key="common.selectNone">لا تختر شيئاً</message>

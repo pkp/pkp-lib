@@ -59,6 +59,25 @@ class AdvancedSearchReviewerForm extends ReviewerForm {
 
 		$this->setReviewerFormAction($advancedSearchAction);
 
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($this->getSubmissionId(), $this->getReviewRound()->getId());
+		$currentlyAssigned = array();
+		if (!empty($reviewAssignments)) {
+			foreach ($reviewAssignments as $reviewAssignment) {
+				$currentlyAssigned[] = (int) $reviewAssignment->getReviewerId();
+			}
+		}
+
+		import('lib.pkp.controllers.list.users.SelectReviewerListHandler');
+		$selectReviewerListHandler = new SelectReviewerListHandler(array(
+			'title' => 'editor.submission.findAndSelectReviewer',
+			'inputName' => 'reviewerId',
+			'inputType' => 'radio',
+			'currentlyAssigned' => $currentlyAssigned,
+		));
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign('selectReviewerListData', json_encode($selectReviewerListHandler->getConfig()));
+
 		// Only add actions to forms where user can operate.
 		if (array_intersect($this->getUserRoles(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR))) {
 			$actionArgs['selectionType'] = REVIEWER_SELECT_CREATE;

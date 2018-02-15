@@ -51,6 +51,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		$assistantOperations = array_flip($allOperations);
 		unset($assistantOperations['createReviewer']);
 		unset($assistantOperations['enrollReviewer']);
+		unset($assistantOperations['gossip']);
 		$assistantOperations = array_flip($assistantOperations);
 
 		$this->addRoleAssignment(
@@ -430,11 +431,20 @@ class PKPReviewerGridHandler extends GridHandler {
 		// Retrieve review assignment.
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /* @var $reviewAssignment ReviewAssignment */
 
+		// Rate the reviewer's performance on this assignment
+		$quality = $request->getUserVar('quality');
+		if ($quality) {
+			$reviewAssignment->setQuality((int) $quality);
+			$reviewAssignment->setDateRated(Core::getCurrentDate());
+		} else {
+			$reviewAssignment->setQuality(null);
+			$reviewAssignment->setDateRated(null);
+		}
+
 		// Mark the latest read date of the review by the editor.
 		$user = $request->getUser();
 		$viewsDao = DAORegistry::getDAO('ViewsDAO');
 		$viewsDao->recordView(ASSOC_TYPE_REVIEW_RESPONSE, $reviewAssignment->getId(), $user->getId());
-
 
 		// if the review assignment had been unconsidered, update the flag.
 		if ($reviewAssignment->getUnconsidered() == REVIEW_ASSIGNMENT_UNCONSIDERED) {
@@ -492,10 +502,19 @@ class PKPReviewerGridHandler extends GridHandler {
 	function readReview($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
+		$starHtml = '<span class="fa fa-star"></span>';
 		$templateMgr->assign(array(
 			'submission' => $this->getSubmission(),
 			'reviewAssignment' => $reviewAssignment,
-			'reviewerRecommendationOptions' =>ReviewAssignment::getReviewerRecommendationOptions(),
+			'reviewerRatingOptions' => array(
+				0 => __('editor.review.reviewerRating.none'),
+				SUBMISSION_REVIEWER_RATING_VERY_GOOD => str_repeat($starHtml, SUBMISSION_REVIEWER_RATING_VERY_GOOD),
+				SUBMISSION_REVIEWER_RATING_GOOD => str_repeat($starHtml, SUBMISSION_REVIEWER_RATING_GOOD),
+				SUBMISSION_REVIEWER_RATING_AVERAGE => str_repeat($starHtml, SUBMISSION_REVIEWER_RATING_AVERAGE),
+				SUBMISSION_REVIEWER_RATING_POOR => str_repeat($starHtml, SUBMISSION_REVIEWER_RATING_POOR),
+				SUBMISSION_REVIEWER_RATING_VERY_POOR => str_repeat($starHtml, SUBMISSION_REVIEWER_RATING_VERY_POOR),
+			),
+			'reviewerRecommendationOptions' => ReviewAssignment::getReviewerRecommendationOptions(),
 		));
 
 		if ($reviewAssignment->getReviewFormId()) {
@@ -646,6 +665,47 @@ class PKPReviewerGridHandler extends GridHandler {
 
 
 	/**
+	 * Displays a modal containing the gossip values for a reviewer
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
+	function gossip($args, $request) {
+		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
+		$userDao = DAORegistry::getDAO('UserDAO');
+		$user = $userDao->getById($reviewAssignment->getReviewerId());
+
+		// Check that the current user is specifically allowed to access gossip for
+		// this user
+		import('classes.core.ServicesContainer');
+		$canCurrentUserGossip = ServicesContainer::instance()
+			->get('user')
+			->canCurrentUserGossip($user->getId());
+		if (!$canCurrentUserGossip) {
+			return new JSONMessage(false, __('user.authorization.roleBasedAccessDenied'));
+		}
+
+		$requestArgs = array_merge($this->getRequestArgs(), array('reviewAssignmentId' => $reviewAssignment->getId()));
+		import('lib.pkp.controllers.grid.users.reviewer.form.ReviewerGossipForm');
+		$reviewerGossipForm = new ReviewerGossipForm($user, $requestArgs);
+
+		// View form
+		if (!$request->isPost()) {
+			return new JSONMessage(true, $reviewerGossipForm->fetch($request));
+		}
+
+		// Execute form
+		$reviewerGossipForm->readInputData();
+		if ($reviewerGossipForm->validate()) {
+			$reviewerGossipForm->execute();
+			return new JSONMessage(true);
+		}
+
+		return new JSONMessage(false, __('user.authorization.roleBasedAccessDenied'));
+	}
+
+
+	/**
 	 * Fetches an email template's message body and returns it via AJAX.
 	 * @param $args array
 	 * @param $request PKPRequest
@@ -716,7 +776,7 @@ class PKPReviewerGridHandler extends GridHandler {
 	 */
 	function _getReviewAssignmentOps() {
 		// Define operations that need a review assignment policy.
-		return array('readReview', 'reviewHistory', 'reviewRead', 'editThankReviewer', 'thankReviewer', 'editReminder', 'sendReminder', 'unassignReviewer', 'updateUnassignReviewer', 'sendEmail', 'unconsiderReview', 'editReview', 'updateReview');
+		return array('readReview', 'reviewHistory', 'reviewRead', 'editThankReviewer', 'thankReviewer', 'editReminder', 'sendReminder', 'unassignReviewer', 'updateUnassignReviewer', 'sendEmail', 'unconsiderReview', 'editReview', 'updateReview', 'gossip');
 
 	}
 

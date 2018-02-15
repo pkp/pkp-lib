@@ -167,10 +167,6 @@
 	<message key="manager.setup.errorDeletingItem">Er is een fout opgetreden bij het verwijderen van dit onderdeel.</message>
 	<message key="manager.emails.form.emailKeyRequired">Er is een unieke e-mail sleutel nodig voor de e-mail</message>
 	<message key="manager.reviewerSearch.searchByName">Zoek een reviewer op naam</message>
-	<message key="manager.reviewerSearch.doneAmount">Aantal voltooide reviews</message>
-	<message key="manager.reviewerSearch.avgAmount">Gemiddeld aantal dagen per review</message>
-	<message key="manager.reviewerSearch.lastAmount">Dagen sinds laatste review</message>
-	<message key="manager.reviewerSearch.activeAmount">Aantal actieve reviews</message>
 	<message key="manager.reviewerSearch.interests">Review interesses</message>
 	<message key="manager.announcements.datePublish">Gepubliceerd</message>
 	<message key="manager.emails.addEmail">Voeg e-mail sjabloon toe</message>
@@ -184,7 +180,6 @@
 	<message key="manager.emails.data">Sjabloon berichtinhoud</message>
 	<message key="manager.emails.reset.message">Als u dit sjabloon herstelt, wordt de inhoud teruggezet naar de standaardwaarde. Al uw aanpassingen gaan verloren. Wilt u deze bewerking bevestigen?</message>
 	<message key="manager.reviewerSearch.form.instructions">Gebruik het formulier hieronder om de maximumwaarden op te geven voor de termen waar u op wilt zoeken. Het formulier wordt vooraf gevuld met de gemiddelden voor die velden.</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">Geef de reviewer interesses, gescheiden door komma's</message>
 	<message key="plugins.categories.metadata.description">Metadata Plugins implementeren aanvullende metadata standaards</message>
 	<message key="plugins.categories.oaiMetadataFormats">OAI Metadata formaat plugins</message>
 	<message key="subscriptions.individualDescription">Bij individuele abonnementen is inloggen nodig om teogang te krijgen tot de inhoud.</message>

@@ -95,6 +95,7 @@
 	]]></message>
 	<message key="common.changesSaved">Dina ändringar sparades.</message>
 	<message key="common.chooseOne">Välj en</message>
+  <message key="common.clearSearch">Rensa söksträng</message>
 	<message key="common.close">Stäng</message>
 	<message key="common.closePanel">Stäng panel</message>
 	<message key="common.closeWindow">Stäng fönster</message>
@@ -152,6 +153,8 @@
 	<message key="common.fileSize">Filstorlek</message>
 	<message key="common.fileType">Filtyp</message>
 	<message key="common.fileUploaderError">Systemets filuppladdningsverktyg laddas in. Om det inte dyker upp är det förmodligen så att den här webbläsaren inte stödjer några av dess runtimes. Vänligen kontakta din administratör för support.</message>
+	<message key="common.filter">Filter</message>
+	<message key="common.filterRemove">Rensa filter: {$filterTitle}</message>
 	<message key="common.from">Från</message>
 	<message key="common.until">Till</message>
 	<message key="common.go">Fortsätt</message>

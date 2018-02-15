@@ -55,6 +55,7 @@
 	<message key="editor.review.thankReviewerError">Virhe lähetettäessä kiitosviestiä arvioijalle</message>
 	<message key="editor.review.skipEmail">Älä lähetä sähköpostia arvioijalle.</message>
 	<message key="editor.review.sendReminder">Lähetä muistutus</message>
+	<message key="editor.review.rateReviewer">Arvioijan arvostelu</message>
 	<message key="editor.review.readReview">Lue arviointi</message>
 	<message key="editor.review.readNewReview">Lue uusi arviointi</message>
 	<message key="editor.review.responseDue">Vastauksen määräpäivä: {$date}</message>
@@ -67,7 +68,6 @@
 	<message key="editor.review.reviewConfirmed">Arviointi vahvistettu</message>
 	<message key="editor.review.reviewSubmitted">Arviointi lähetetty</message>
 	<message key="editor.review.reviewerComments">Arvioijan kommentit</message>
-	<message key="editor.review.days">Päiviä keskimäärin</message>
 	<message key="editor.review.mustSelect">Sinun on valittava arvioija</message>
 	<message key="editor.review.errorAddingReviewer">Arvioijaa lisättäessä tapahtui virhe. Yritä uudelleen.</message>
 	<message key="editor.review.errorDeletingReviewer">Arvioijaa poistettaessa tapahtui virhe. Yritä uudelleen.</message>

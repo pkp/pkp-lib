@@ -242,95 +242,6 @@ class PKPUserDAO extends DAO {
 	}
 
 	/**
-	 * Given the ranges selected by the editor, produce a filtered list of reviewers
-	 * @param $contextId int
-	 * @param $stageId int WORKFLOW_STAGE_ID_...
-	 * @param $name string|null Partial string match with reviewer name
-	 * @param $doneMin int|null # of reviews completed int
-	 * @param $doneMax int|null
-	 * @param $avgMin int|null Average period of time in days to complete a review int
-	 * @param $avgMax int|null
-	 * @param $lastMin int|null Days since most recently completed review int
-	 * @param $lastMax int|null
-	 * @param $activeMin int|null How many reviews are currently being considered or underway int
-	 * @param $activeMax int|null
-	 * @param $interests array
-	 * @param $submissionId int This parameter is in conjunction with the next two parameters i.e. reviewRoundId and reviewRound
-	 * @param $reviewRoundId int Exclude users assigned to this round of the given submission
-	 * @param $reviewRound int Filter users assigned to previous rounds of the given submission
-	 * @param $rangeInfo|null object The desired range of results to return
-	 * @return DAOResultFactory Iterator for matching users
-	 */
-	function getFilteredReviewers($contextId, $stageId, $name = null, $doneMin = null, $doneMax = null, $avgMin = null, $avgMax = null, $lastMin = null, $lastMax = null, $activeMin = null, $activeMax = null, $interests = array(), $submissionId = null, $reviewRoundId = null, $reviewRound = null, $rangeInfo = null) {
-		// Timestamp math appears not to work in seconds in MySQL. Issue #1167.
-		switch (Config::getVar('database', 'driver')) {
-			case 'mysql':
-			case 'mysqli':
-				$dateDiffClause = 'DATEDIFF(rac.date_completed, rac.date_notified)';
-				break;
-			default:
-				$dateDiffClause = 'DATE_PART(\'day\', rac.date_completed - rac.date_notified)';
-		}
-		$result = $this->retrieveRange(
-			'SELECT	u.*,
-				COUNT(DISTINCT rac.review_id) AS complete_count,
-				AVG(' . $dateDiffClause . ') AS average_time,
-				MAX(raf.date_assigned) AS last_assigned,
-				COUNT(DISTINCT rai.review_id) AS incomplete_count
-			FROM	users u
-				JOIN user_user_groups uug ON (uug.user_id = u.user_id)
-				JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id AND ug.role_id = ? AND ug.context_id = ?)
-				JOIN user_group_stage ugs ON (ugs.user_group_id = ug.user_group_id AND ugs.stage_id = ?)
-				LEFT JOIN review_assignments ras ON (ras.submission_id = ? AND ras.stage_id = ? AND ras.review_round_id = ? AND ras.reviewer_id=u.user_id)
-				LEFT JOIN review_assignments rac ON (rac.reviewer_id = u.user_id AND rac.date_notified IS NOT NULL AND rac.date_completed IS NOT NULL)
-				LEFT JOIN review_assignments raf ON (raf.reviewer_id = u.user_id)
-				LEFT JOIN review_assignments ran ON (ran.reviewer_id = u.user_id AND ran.review_id > raf.review_id)
-				LEFT JOIN review_assignments rai ON (rai.reviewer_id = u.user_id AND rai.date_notified IS NOT NULL AND rai.date_completed IS NULL AND rai.declined = 0 AND rai.replaced = 0)
-			WHERE	ras.review_id IS NULL
-				AND ran.review_id IS NULL' .
-				($reviewRound !== null ? ' AND rac.submission_id = ? AND rac.stage_id = ? AND rac.round < ?':'') .
-				str_repeat(' AND u.user_id IN (SELECT ui.user_id FROM user_interests ui JOIN controlled_vocab_entry_settings cves ON (ui.controlled_vocab_entry_id = cves.controlled_vocab_entry_id) WHERE cves.setting_name = \'interest\' AND LOWER(cves.setting_value) = ?)', count($interests)) .
-				($name !== null?' AND (u.first_name LIKE ? OR u.middle_name LIKE ? OR u.last_name LIKE ? OR u.username LIKE ? OR u.email LIKE ?)':'') . '
-			GROUP BY u.user_id
-			HAVING 1=1' .
-				($doneMin !== null?' AND COUNT(DISTINCT rac.review_id) >= ?':'') .
-				($doneMax !== null?' AND COUNT(DISTINCT rac.review_id) <= ?':'') .
-				($avgMin !== null?" AND AVG($dateDiffClause) >= ?":'') .
-				($avgMax !== null?" AND AVG($dateDiffClause) <= ?":'') .
-				($activeMin !== null?' AND COUNT(DISTINCT rai.review_id) >= ?':'') .
-				($activeMax !== null?' AND COUNT(DISTINCT rai.review_id) <= ?':'') .
-				($lastMin !== null?' AND MAX(raf.date_assigned) <= ' . ($this->datetimeToDB(time() - ((int) $lastMin * 86400))):'') .
-				($lastMax !== null?' AND MAX(raf.date_assigned) >= ' . ($this->datetimeToDB(time() - ((int) $lastMax * 86400))):'') .
-			' ORDER BY last_name, first_name',
-			array_merge(
-				array(
-					ROLE_ID_REVIEWER,
-					(int) $contextId,
-					(int) $stageId,
-					(int) $submissionId, // null gets cast to 0 which doesn't exist
-					(int) $stageId,
-					(int) $reviewRoundId,
-				),
-				$reviewRound !== null?array((int) $submissionId, (int) $stageId, (int) $reviewRound):array(),
-				array_map(array('PKPString', 'strtolower'), $interests),
-				$name !== null?array('%'.(string) $name.'%'):array(),
-				$name !== null?array('%'.(string) $name.'%'):array(),
-				$name !== null?array('%'.(string) $name.'%'):array(),
-				$name !== null?array('%'.(string) $name.'%'):array(),
-				$name !== null?array('%'.(string) $name.'%'):array(),
-				$doneMin !== null?array((int) $doneMin):array(),
-				$doneMax !== null?array((int) $doneMax):array(),
-				$avgMin !== null?array((int) $avgMin):array(),
-				$avgMax !== null?array((int) $avgMax):array(),
-				$activeMin !== null?array((int) $activeMin):array(),
-				$activeMax !== null?array((int) $activeMax):array()
-			),
-			$rangeInfo
-		);
-		return new DAOResultFactory($result, $this, '_returnUserFromRowWithReviewerStats');
-	}
-
-	/**
 	 * Return a user object from a DB row, including dependent data and reviewer stats.
 	 * @param $row array
 	 * @return User
@@ -338,9 +249,15 @@ class PKPUserDAO extends DAO {
 	function _returnUserFromRowWithReviewerStats($row) {
 		$user = $this->_returnUserFromRowWithData($row, false);
 		$user->setData('lastAssigned', $row['last_assigned']);
-		$user->setData('incompleteCount', $row['incomplete_count']);
-		$user->setData('completeCount', $row['complete_count']);
-		$user->setData('averageTime', $row['average_time']);
+		$user->setData('incompleteCount', (int) $row['incomplete_count']);
+		$user->setData('completeCount', (int) $row['complete_count']);
+		$user->setData('averageTime', (int) $row['average_time']);
+
+		// 0 values should return null. They represent a reviewer with no ratings
+		if ($row['reviewer_rating']) {
+			$user->setData('reviewerRating', max(1, round($row['reviewer_rating'])));
+		}
+
 		HookRegistry::call('UserDAO::_returnUserFromRowWithReviewerStats', array(&$user, &$row));
 
 		return $user;
@@ -397,6 +314,7 @@ class PKPUserDAO extends DAO {
 		$user->setAuthId($row['auth_id']);
 		$user->setAuthStr($row['auth_str']);
 		$user->setInlineHelp($row['inline_help']);
+		$user->setGossip($row['gossip']);
 
 		if ($callHook) HookRegistry::call('UserDAO::_returnUserFromRow', array(&$user, &$row));
 
@@ -416,9 +334,9 @@ class PKPUserDAO extends DAO {
 		}
 		$this->update(
 			sprintf('INSERT INTO users
-				(username, password, salutation, first_name, middle_name, initials, last_name, suffix, gender, email, url, phone, mailing_address, billing_address, country, locales, date_last_email, date_registered, date_validated, date_last_login, must_change_password, disabled, disabled_reason, auth_id, auth_str, inline_help)
+				(username, password, salutation, first_name, middle_name, initials, last_name, suffix, gender, email, url, phone, mailing_address, billing_address, country, locales, date_last_email, date_registered, date_validated, date_last_login, must_change_password, disabled, disabled_reason, auth_id, auth_str, inline_help, gossip)
 				VALUES
-				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, ?, ?, ?, ?, ?, ?)',
+				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, ?, ?, ?, ?, ?, ?, ?)',
 				$this->datetimeToDB($user->getDateLastEmail()), $this->datetimeToDB($user->getDateRegistered()), $this->datetimeToDB($user->getDateValidated()), $this->datetimeToDB($user->getDateLastLogin())),
 			array(
 				$user->getUsername(),
@@ -443,6 +361,7 @@ class PKPUserDAO extends DAO {
 				$user->getAuthId()=='' ? null : (int) $user->getAuthId(),
 				$user->getAuthStr(),
 				(int) $user->getInlineHelp(),
+				$user->getGossip(),
 			)
 		);
 
@@ -455,7 +374,7 @@ class PKPUserDAO extends DAO {
 	 * @copydoc DAO::getLocaleFieldNames
 	 */
 	function getLocaleFieldNames() {
-		return array('biography', 'signature', 'gossip', 'affiliation');
+		return array('biography', 'signature', 'affiliation');
 	}
 
 	/**
@@ -515,7 +434,8 @@ class PKPUserDAO extends DAO {
 					disabled_reason = ?,
 					auth_id = ?,
 					auth_str = ?,
-					inline_help = ?
+					inline_help = ?,
+					gossip = ?
 				WHERE	user_id = ?',
 				$this->datetimeToDB($user->getDateLastEmail()), $this->datetimeToDB($user->getDateValidated()), $this->datetimeToDB($user->getDateLastLogin())),
 			array(
@@ -541,6 +461,7 @@ class PKPUserDAO extends DAO {
 				$user->getAuthId()=='' ? null : (int) $user->getAuthId(),
 				$user->getAuthStr(),
 				(int) $user->getInlineHelp(),
+				$user->getGossip(),
 				(int) $user->getId(),
 			)
 		);

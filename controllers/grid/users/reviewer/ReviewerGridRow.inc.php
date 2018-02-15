@@ -119,7 +119,6 @@ class ReviewerGridRow extends GridRow {
 			);
 
 			// Add gossip action when appropriate
-			$reviewAssignment = $this->getData();
 			import('classes.core.ServicesContainer');
 			$canCurrentUserGossip = ServicesContainer::instance()
 				->get('user')

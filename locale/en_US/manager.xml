@@ -541,6 +541,6 @@
 	<message key="manager.navigationMenus.contact.conditionalWarning">This link will only be displayed if you have filled out the Contact information under Settings > Contact.</message>
 	<message key="manager.navigationMenus.form.typeMissing">Please select a navigation menu type.</message>
 	<message key="manager.navigationMenus.subscriptions.conditionalWarning">This link will only be displayed if payments are enabled under Settings > Distribution > Payments.</message>
-	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning">This link will only be displayed if the visitor is logged in, payments are enabled under Settings > Distribution > Payments and subsriptions are required under Settings > Distribution > Access.</message>
+	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning">This link will only be displayed if the visitor is logged in, payments are enabled under Settings > Distribution > Payments and subscriptions are required under Settings > Distribution > Access.</message>
 	<message key="manager.navigationMenus.search.description">Link to the search page.</message>
 </locale>

@@ -541,4 +541,7 @@
 	<message key="manager.navigationMenus.contact.description">Ссылка на страницу, отображающую вашу контактную информацию.</message>
 	<message key="manager.navigationMenus.contact.conditionalWarning">Эта ссылка будет показываться только в случае, если вы заполнили раздел «Контактная информация» в Настройки > Контакт.</message>
 	<message key="manager.navigationMenus.form.typeMissing">Пожалуйста выберите тип навигационного меню.</message>
+	<message key="manager.navigationMenus.subscriptions.conditionalWarning">Эта ссылка будет показываться только в случае, если включены платежи в Настройки > Распространение > Платежи.</message>
+	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning">Эта ссылка будет показываться только в случае, если посетитель зашел в систему, включены платежи в Настройки > Распространение > Платежи и обязательны подписки в Настройки > Распространение > Доступ.</message>
+	<message key="manager.navigationMenus.search.description">Ссылка на страницу поиска.</message>
 </locale>

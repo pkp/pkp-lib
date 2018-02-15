@@ -78,8 +78,8 @@ class SelectReviewerListHandler extends SelectListHandler {
 			'gossip' => __('user.gossip'),
 			'biography' => __('reviewer.list.biography'),
 			'listSeparator' => __('common.listSeparator'),
-			'viewMore' => __('review.list.viewMore'),
-			'viewLess' => __('review.list.viewLess'),
+			'viewMore' => __('list.viewMore'),
+			'viewLess' => __('list.viewLess'),
 		));
 
 		if ($this->_notice) {

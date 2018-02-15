@@ -129,8 +129,6 @@
 	<!-- Reviewer selection lists -->
 	<message key="reviewer.list.count">{$count} reviewers</message>
 	<message key="reviewer.list.itemsOfTotal">{$count} of {$total} reviewers</message>
-	<message key="reviewer.list.viewMore">Show more details about {$name}</message>
-	<message key="reviewer.list.viewLess">Hide expanded details about {$name}</message>
 	<message key="reviewer.list.filterRating">Rated at least</message>
 	<message key="reviewer.list.activeReviews">{$count} active</message>
 	<message key="reviewer.list.activeReviewsDescription">Active reviews currently assigned</message>

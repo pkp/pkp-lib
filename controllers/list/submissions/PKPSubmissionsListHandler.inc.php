@@ -138,8 +138,8 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 			'discussions' => __('submission.list.discussions'),
 			'incompleteSubmissionNotice' => __('submission.list.incompleteSubmissionNotice'),
 			'selectAllLabel' => __('common.selectAll'),
-			'viewMore' => __('submission.list.viewMore'),
-			'viewLess' => __('submission.list.viewLess'),
+			'viewMore' => __('list.viewMore'),
+			'viewLess' => __('list.viewLess'),
 		);
 
 		// Attach a CSRF token for post requests

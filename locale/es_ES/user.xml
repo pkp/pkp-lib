@@ -32,9 +32,7 @@
 	<message key="user.dateRegistered">Fecha de registro</message>
 	<message key="user.editMyProfile">Editar mi perfil</message>
 	<message key="user.email">Correo electrónico</message>
-	<message key="user.feminine">F</message>
 	<message key="user.firstName">Nombre</message>
-	<message key="user.gender">Sexo</message>
 	<message key="user.initialsExample">Luz Ruiz Plasencia = LRP</message>
 	<message key="user.initials">Iniciales</message>
 	<message key="user.interests">Intereses de revisión</message>
@@ -63,11 +61,9 @@
 	<message key="user.logOutAs">Cerrar sesión como</message>
 	<message key="user.hello">Hola: </message>
 	<message key="user.mailingAddress">Dirección postal</message>
-	<message key="user.masculine">M</message>
 	<message key="user.middleName">Segundo Nombre</message>
 	<message key="user.myAccount">Mi cuenta</message>
 	<message key="user.name">Nombre</message>
-	<message key="user.other">Otro</message>
 	<message key="user.password">Contraseña</message>
 	<message key="user.repeatPassword">Repita la contraseña</message>
 	<message key="user.phone">Teléfono</message>

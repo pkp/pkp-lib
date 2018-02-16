@@ -27,9 +27,7 @@
 	<message key="user.dateRegistered">Датум регистрације</message>
 	<message key="user.editMyProfile">Уреди мој профил</message>
 	<message key="user.email">Имејл</message>
-	<message key="user.feminine">Ж</message>
 	<message key="user.firstName">Име</message>
-	<message key="user.gender">Пол</message>
 	<message key="user.initialsExample">Јован Миленко Грчић = ЈГМ</message>
 	<message key="user.initials">Иницијали</message>
 	<message key="user.interests">Рецензентски интереси</message>
@@ -50,11 +48,9 @@
 	<message key="user.login.resetPassword">Промени лозинку</message>
 	<message key="user.logOut">Одјави се</message>
 	<message key="user.mailingAddress">Поштанска адреса</message>
-	<message key="user.masculine">M</message>
 	<message key="user.middleName">Средње име</message>
 	<message key="user.myAccount">Мој налог</message>
 	<message key="user.name">Име</message>
-	<message key="user.other">Друго</message>
 	<message key="user.password">Лозинка</message>
 	<message key="user.repeatPassword">Понови лозинку</message>
 	<message key="user.phone">Телефон</message>

@@ -34,9 +34,7 @@
 	<message key="user.dateRegistered">Дата реєстрації</message>
 	<message key="user.editMyProfile">Редагувати мій профіль</message>
 	<message key="user.email">Email</message>
-	<message key="user.feminine">Ж</message>
 	<message key="user.firstName">Ім'я</message>
-	<message key="user.gender">Стать</message>
 	<message key="user.initialsExample">Іван Васильович Петренко = ІВП</message>
 	<message key="user.initials">Ініціали</message>
 	<message key="user.interests">Наукові інтереси</message>
@@ -61,11 +59,9 @@
 	<message key="user.login.resetPassword">Скинути пароль</message>
 	<message key="user.logOut">Вийти</message>
 	<message key="user.mailingAddress">Поштова адреса</message>
-	<message key="user.masculine">Ч</message>
 	<message key="user.middleName">По батькові</message>
 	<message key="user.myAccount">Мій обліковий запис</message>
 	<message key="user.name">Ім'я</message>
-	<message key="user.other">Інше</message>
 	<message key="user.password">Пароль</message>
 	<message key="user.repeatPassword">Повторіть пароль</message>
 	<message key="user.phone">Телефон</message>

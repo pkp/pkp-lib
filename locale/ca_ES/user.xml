@@ -32,9 +32,7 @@
 	<message key="user.dateRegistered">Data de registre</message>
 	<message key="user.editMyProfile">Edita el meu perfil</message>
 	<message key="user.email">Adreça electrònica</message>
-	<message key="user.feminine">Dona</message>
 	<message key="user.firstName">Nom</message>
-	<message key="user.gender">Sexe</message>
 	<message key="user.initialsExample">Pere Martí Valls = PMV</message>
 	<message key="user.initials">Inicials</message>
 	<message key="user.interests">Interessos de revisió</message>
@@ -62,11 +60,9 @@
 	<message key="user.logOutAs">Surt de la sessió com a</message>
 	<message key="user.hello">Hola, </message>
 	<message key="user.mailingAddress">Adreça postal</message>
-	<message key="user.masculine">Home</message>
 	<message key="user.middleName">Segon nom</message>
 	<message key="user.myAccount">El meu compte</message>
 	<message key="user.name">Nom</message>
-	<message key="user.other">Altres</message>
 	<message key="user.password">Contrasenya</message>
 	<message key="user.repeatPassword">Repetiu la contrasenya</message>
 	<message key="user.phone">Telèfon</message>

@@ -119,7 +119,6 @@ class PKPUserUserXmlFilter extends NativeExportFilter {
 		$this->createOptionalNode($doc, $userNode, 'salutation', $user->getSalutation());
 		$this->createOptionalNode($doc, $userNode, 'initials', $user->getInitials());
 		$this->createOptionalNode($doc, $userNode, 'suffix', $user->getSuffix());
-		$this->createOptionalNode($doc, $userNode, 'gender', $user->getGender());
 		$this->createOptionalNode($doc, $userNode, 'date_registered', $user->getDateRegistered());
 		$this->createOptionalNode($doc, $userNode, 'date_last_login', $user->getDateLastLogin());
 		$this->createOptionalNode($doc, $userNode, 'date_last_email', $user->getDateLastEmail());

@@ -35,9 +35,7 @@
 	<message key="user.dateRegistered">Datum för registrering</message>
 	<message key="user.editMyProfile">Redigera min profil</message>
 	<message key="user.email">E-post</message>
-	<message key="user.feminine">K</message>
 	<message key="user.firstName">Förnamn</message>
-	<message key="user.gender">Kön</message>
 	<message key="user.initialsExample">Lars Erik Johansson = LEJ</message>
 	<message key="user.initials">Initialer</message>
 	<message key="user.interests">Intresseområden för granskning</message>
@@ -72,11 +70,9 @@
 	<message key="user.logOutAs">Logga ut som</message>
 	<message key="user.hello">Hejsan, </message>
 	<message key="user.mailingAddress">Postadress</message>
-	<message key="user.masculine">M</message>
 	<message key="user.middleName">Mellannamn</message>
 	<message key="user.myAccount">Mitt användarkonto</message>
 	<message key="user.name">Namn</message>
-	<message key="user.other">Annat</message>
 	<message key="user.password">Lösenord</message>
 	<message key="user.repeatPassword">Upprepa lösenord</message>
 	<message key="user.phone">Telefon</message>

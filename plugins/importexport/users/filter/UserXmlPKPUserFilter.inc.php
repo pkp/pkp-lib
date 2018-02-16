@@ -85,7 +85,6 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 			case 'initials': $user->setInitials($n->textContent); break;
 			case 'salutation': $user->setSalutation($n->textContent); break;
 			case 'suffix': $user->setSuffix($n->textContent); break;
-			case 'gender': $user->setGender($n->textContent); break;
 			case 'affiliation': $user->setAffiliation($n->textContent, $n->getAttribute('locale')); break;
 			case 'country': $user->setCountry($n->textContent); break;
 			case 'email': $user->setEmail($n->textContent); break;

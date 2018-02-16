@@ -23,9 +23,7 @@
 	<message key="user.dateRegistered">Datum registracije</message>
 	<message key="user.editMyProfile">Uređivanje mog profila</message>
 	<message key="user.email">E-pošta</message>
-	<message key="user.feminine">Ž</message>
 	<message key="user.firstName">Ime</message>
-	<message key="user.gender">Spol</message>
 	<message key="user.initialsExample">Ivan Goran Kovačić = IGK</message>
 	<message key="user.initials">Inicijali</message>
 	<message key="user.interests">Recenzentski interesi</message>
@@ -46,7 +44,6 @@
 	<message key="user.login.resetPassword">Izdaj novu lozinku</message>
 	<message key="user.logOut">Odjava</message>
 	<message key="user.mailingAddress">Adresa</message>
-	<message key="user.masculine">M</message>
 	<message key="user.middleName">Srednje ime</message>
 	<message key="user.myAccount">Moji podaci</message>
 	<message key="user.name">Ime</message>

@@ -35,9 +35,7 @@
 	<message key="user.dateRegistered">Date registered</message>
 	<message key="user.editMyProfile">Edit My Profile</message>
 	<message key="user.email">Email</message>
-	<message key="user.feminine">F</message>
 	<message key="user.firstName">First Name</message>
-	<message key="user.gender">Gender</message>
 	<message key="user.initialsExample">Joan Alice Smith = JAS</message>
 	<message key="user.initials">Initials</message>
 	<message key="user.interests">Reviewing interests</message>
@@ -72,11 +70,9 @@
 	<message key="user.logOutAs">Logout as</message>
 	<message key="user.hello">Hello, </message>
 	<message key="user.mailingAddress">Mailing Address</message>
-	<message key="user.masculine">M</message>
 	<message key="user.middleName">Middle Name</message>
 	<message key="user.myAccount">My Account</message>
 	<message key="user.name">Name</message>
-	<message key="user.other">Other</message>
 	<message key="user.password">Password</message>
 	<message key="user.repeatPassword">Repeat password</message>
 	<message key="user.phone">Phone</message>

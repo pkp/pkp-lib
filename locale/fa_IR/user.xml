@@ -33,9 +33,7 @@
 	<message key="user.dateRegistered">تاریخ ثبت‌نام</message>
 	<message key="user.editMyProfile">ویرایش پروفایل</message>
 	<message key="user.email">ایمیل</message>
-	<message key="user.feminine">مونث</message>
 	<message key="user.firstName">نام</message>
-	<message key="user.gender">جنسیت</message>
 	<message key="user.initialsExample">مجید سمیعی = م.س</message>
 	<message key="user.initials">اختصار</message>
 	<message key="user.interests">زمینه های داوری</message>
@@ -70,11 +68,9 @@
 	<message key="user.logOutAs">خروج از</message>
 	<message key="user.hello">سلام، </message>
 	<message key="user.mailingAddress">آدرس پستی</message>
-	<message key="user.masculine">مذکر</message>
 	<message key="user.middleName">نام تعمیدی</message>
 	<message key="user.myAccount">حساب کاربری من</message>
 	<message key="user.name">نام</message>
-	<message key="user.other">غیره</message>
 	<message key="user.password">رمز ورود</message>
 	<message key="user.repeatPassword">تکرار رمز عبور</message>
 	<message key="user.phone">تلفن</message>

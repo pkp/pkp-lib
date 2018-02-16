@@ -189,9 +189,6 @@ class UserService extends PKPBaseEntityPropertyService {
 				case 'authString':
 					$values[$prop] = $user->getAuthStr();
 					break;
-				case 'gender':
-					$values[$prop] = $user->getGender();
-					break;
 				case 'phone':
 					$values[$prop] = $user->getPhone();
 					break;
@@ -304,7 +301,7 @@ class UserService extends PKPBaseEntityPropertyService {
 		$props = array (
 			'id','userName','fullName','firstName','middleName','lastName','initials','salutation',
 			'suffix','affiliaton','country','email','url','orcid','groups','interests','biograpy','signature','authId',
-			'authString','gender','phone','mailingAddress','billingAddress','gossip','disabled',
+			'authString','phone','mailingAddress','billingAddress','gossip','disabled',
 			'disabledReason','dateRegistered','dateValidated','dateLastLogin','mustChangePassword',
 		);
 

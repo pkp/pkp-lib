@@ -25,9 +25,7 @@
 	<message key="user.dateRegistered">Datum registrace</message>
 	<message key="user.editMyProfile">Upravit můj profil</message>
 	<message key="user.email">E-mail</message>
-	<message key="user.feminine">Ž</message>
 	<message key="user.firstName">Jméno</message>
-	<message key="user.gender">Pohlaví</message>
 	<message key="user.initialsExample">Jan Novák = JN</message>
 	<message key="user.initials">Iniciály</message>
 	<message key="user.interests">Zájem o recenzování</message>
@@ -52,11 +50,9 @@
 	<message key="user.login.resetPassword">Resetovat heslo</message>
 	<message key="user.logOut">Odhlásit</message>
 	<message key="user.mailingAddress">Poštovní adresa</message>
-	<message key="user.masculine">M</message>
 	<message key="user.middleName">Druhé jméno</message>
 	<message key="user.myAccount">Můj účet</message>
 	<message key="user.name">Jméno</message>
-	<message key="user.other">Jiný</message>
 	<message key="user.password">Heslo</message>
 	<message key="user.phone">Telefon</message>
 	<message key="user.profile.changePasswordInstructions">Pro změnu hesla k Vašemu účtu vložte níže Vaše současné a nové heslo.</message>

@@ -23,9 +23,7 @@
 	<message key="user.dateRegistered">Registreringsdato</message>
 	<message key="user.editMyProfile">Rediger min profil</message>
 	<message key="user.email">E-mail</message>
-	<message key="user.feminine">K</message>
 	<message key="user.firstName">Fornavn</message>
-	<message key="user.gender">Køn</message>
 	<message key="user.initialsExample">Jens Peter Skov = JPS</message>
 	<message key="user.initials">Initialer</message>
 	<message key="user.interests">Bedømmelsesinteresser</message>
@@ -47,7 +45,6 @@
 	<message key="user.login.resetPassword">Nulstil adgangskode</message>
 	<message key="user.logOut">Log af</message>
 	<message key="user.mailingAddress">Postadresse</message>
-	<message key="user.masculine">M</message>
 	<message key="user.middleName">Mellemnavn</message>
 	<message key="user.myAccount">Min konto</message>
 	<message key="user.name">Navn</message>
@@ -108,7 +105,6 @@
 	<message key="user.authorization.userGroupRequired">Du skal oprette en gyldig brugergruppe for at få adgang til denne handling.</message>
 	<message key="user.gossip">Private bemærkninger</message>
 	<message key="user.profile.form.profileImageInvalid">Profilbilledets format er ugyldigt, eller også er billedet for stort. De accepterede formater er .gif, .jpg og .png, og billedet må ikke overskrive 150 x 150 pixler.</message>
-	<message key="user.other">Andet</message>
 	<message key="user.repeatPassword">Gentag adgangskode</message>
 	<message key="user.profile.form.affiliationRequired">Kræver et tilhørsforhold.</message>
 	<message key="user.register.form.emailsDoNotMatch">Felterne for e-mail-adresse stemmer ikke overens.</message>

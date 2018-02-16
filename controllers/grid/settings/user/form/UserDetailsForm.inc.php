@@ -93,7 +93,6 @@ class UserDetailsForm extends UserForm {
 				'suffix' => $user->getSuffix(),
 				'signature' => $user->getSignature(null), // Localized
 				'initials' => $user->getInitials(),
-				'gender' => $user->getGender(),
 				'affiliation' => $user->getAffiliation(null), // Localized
 				'email' => $user->getEmail(),
 				'userUrl' => $user->getUrl(),
@@ -142,7 +141,6 @@ class UserDetailsForm extends UserForm {
 		$userDao = DAORegistry::getDAO('UserDAO');
 
 		$templateMgr->assign(array(
-			'genderOptions' => $userDao->getGenderOptions(),
 			'minPasswordLength' => $site->getMinPasswordLength(),
 			'source' => $request->getUserVar('source'),
 			'userId' => $this->userId,
@@ -188,7 +186,6 @@ class UserDetailsForm extends UserForm {
 			'middleName',
 			'lastName',
 			'suffix',
-			'gender',
 			'initials',
 			'signature',
 			'affiliation',
@@ -249,7 +246,6 @@ class UserDetailsForm extends UserForm {
 		$user->setLastName($this->getData('lastName'));
 		$user->setSuffix($this->getData('suffix'));
 		$user->setInitials($this->getData('initials'));
-		$user->setGender($this->getData('gender'));
 		$user->setAffiliation($this->getData('affiliation'), null); // Localized
 		$user->setSignature($this->getData('signature'), null); // Localized
 		$user->setEmail($this->getData('email'));

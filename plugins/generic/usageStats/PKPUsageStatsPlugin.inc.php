@@ -58,14 +58,14 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 	// Implement methods from PKPPlugin.
 	//
 	/**
-	 * @see LazyLoadPlugin::register()
+	 * @copydoc Plugin::register()
 	 */
-	function register($category, $path) {
-		$success = parent::register($category, $path);
+	function register($category, $path, $mainContextId = null) {
+		$success = parent::register($category, $path, $mainContextId);
 
 		HookRegistry::register('AcronPlugin::parseCronTab', array($this, 'callbackParseCronTab'));
 
-		if ($this->getEnabled() && $success) {
+		if ($this->getEnabled($mainContextId) && $success) {
 			// Register callbacks.
 			HookRegistry::register('PluginRegistry::loadCategory', array($this, 'callbackLoadCategory'));
 			HookRegistry::register('LoadHandler', array($this, 'callbackLoadHandler'));

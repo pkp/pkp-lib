@@ -19,10 +19,10 @@ import('lib.pkp.classes.plugins.ReportPlugin');
 abstract class PKPUsageStatsReportPlugin extends ReportPlugin {
 
 	/**
-	 * @see PKPPlugin::register()
+	 * @copydoc Plugin::register()
 	 */
-	function register($category, $path) {
-		$success = parent::register($category, $path);
+	function register($category, $path, $mainContextId = null) {
+		$success = parent::register($category, $path, $mainContextId);
 		$this->addLocaleData();
 		return $success;
 	}

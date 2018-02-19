@@ -98,9 +98,9 @@ class UsageStatsOptoutBlockPlugin extends BlockPlugin {
 	/**
 	 * @see LazyLoadPlugin::getEnabled()
 	 */
-	function getEnabled() {
+	function getEnabled($contextId = null) {
 		$plugin =& $this->_getPlugin();
-		return $plugin->getEnabled();
+		return $plugin->getEnabled($contextId);
 	}
 
 

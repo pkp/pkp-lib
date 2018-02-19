@@ -69,8 +69,8 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	/**
 	 * @copydoc Plugin::register
 	 */
-	function register($category, $path) {
-		if (!parent::register($category, $path)) return false;
+	function register($category, $path, $mainContextId = null) {
+		if (!parent::register($category, $path, $mainContextId)) return false;
 
 		// Don't perform any futher operations if theme is not currently active
 		if (!$this->isActive()) {

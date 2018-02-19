@@ -436,7 +436,7 @@
 	<message key="notification.editedAuthor">Autor/in bearbeitet.</message>
 	<message key="notification.confirmError">Es gab einen Fehler beim Bestätigen Ihrer Registrierung.</message>
 	<message key="notification.confirmSuccess">Sie haben sich erfolreich registriert.</message>
-	<message key="notification.email">Bitte eine E-Mail über diese Arten von Benachrichtigungen zuschicken.</message>
+	<message key="notification.email">Bitte keine E-Mail über diese Arten von Benachrichtigungen zuschicken.</message>
 	<message key="notification.location">Gehe zu URL</message>
 	<message key="notification.mailList">Benachrichtigungs-Mailingliste</message>
 	<message key="notification.mailList.emailInvalid">Bitte geben Sie eine gültige E-Mail-Adresse ein.</message>

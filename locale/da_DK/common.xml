@@ -301,7 +301,6 @@
 	<message key="notification.allow">Tillad, at meddelelser af disse typer vises i min meddelelses-feed</message>
 	<message key="notification.confirmError">Der opstod en fejl i forbindelse med bekræftelsen af dit abonnement.</message>
 	<message key="notification.confirmSuccess">Din oprettelse som abonnent er gennemført.</message>
-	<message key="notification.email">Send mig en e-mail vedrørende meddelelser af disse typer.</message>
 	<message key="notification.location">Gå til webadressen</message>
 	<message key="notification.mailList">Meddelelses-mailingliste</message>
 	<message key="notification.mailList.emailInvalid">Indtast en gyldig e-mail-adresse.</message>

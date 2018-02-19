@@ -278,7 +278,6 @@
 	<message key="notification.allow">Дозволити ці сповіщення у моїй стрічці сповіщень.</message>
 	<message key="notification.confirmError">Під час підтвердження вашої передплати сталася помилка.</message>
 	<message key="notification.confirmSuccess">Ви успішно підтвердили передплату.</message>
-	<message key="notification.email">Надсилати мені листи для цих сповіщень.</message>
 	<message key="notification.location">Перейти за посиланням</message>
 	<message key="notification.mailList">Список розсилання сповіщень</message>
 	<message key="notification.mailList.emailInvalid">Будь ласка, введіть коректну адресу email.</message>

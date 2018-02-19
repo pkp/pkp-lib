@@ -263,7 +263,6 @@
 	<message key="notification.allow">Pozwól aby ten rodzaj powiadomień wyświetlał się w moim czytniku powiadomień.</message>
 	<message key="notification.confirmError">Wystąpił błąd podczas potwierdzania twojej subskrypcji.</message>
 	<message key="notification.confirmSuccess">Zostałeś zasubskrybowany(a).</message>
-	<message key="notification.email">Wyślij e-mail dla tych rodzajów powiadomień.</message>
 	<message key="notification.location">Idź do URL</message>
 	<message key="notification.mailList">Lista mailingowa</message>
 	<message key="notification.mailList.emailInvalid">Podaj poprawny adres e-mail.</message>

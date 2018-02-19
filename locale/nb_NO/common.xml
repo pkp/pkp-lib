@@ -296,7 +296,6 @@
 	<message key="notification.allow">Disse varslingstypene skal vises i mine varslinger.</message>
 	<message key="notification.confirmError">Det oppstod en feil i behandlingen av ditt varslingsabonnement.</message>
 	<message key="notification.confirmSuccess">Ditt varslingsabonnement er nå i orden.</message>
-	<message key="notification.email">Send meg en e-post for disse varslingstypene.</message>
 	<message key="notification.location">Gå til nettadresse (URL)</message>
 	<message key="notification.mailList">E-postliste for varslinger</message>
 	<message key="notification.mailList.emailInvalid">Skriv inn en gyldig e-postadresse.</message>

@@ -272,7 +272,6 @@
 	<message key="notification.allow">Dozvoli da mi stižu ove vrste obaveštenja.</message>
 	<message key="notification.confirmError">Došlo je do greške prilikom potvrđivanja vaše pretplate.</message>
 	<message key="notification.confirmSuccess">Uspešno ste se pretplatili.</message>
-	<message key="notification.email">Pošalji mi imejl za ove vrste obaveštenja.</message>
 	<message key="notification.location">Idi na URL</message>
 	<message key="notification.mailList">Mejling lista obaveštenja</message>
 	<message key="notification.mailList.emailInvalid">Unesite ispravnu imejl adresu.</message>

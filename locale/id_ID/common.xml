@@ -283,7 +283,6 @@
 	<message key="notification.allow">Izinkan semua tipe notifikasi ini untuk ditampilkan di fees notifikasi saya.</message>
 	<message key="notification.confirmError">Ada kesalahan saat mengkonfirmasi langganan Anda.</message>
 	<message key="notification.confirmSuccess">Anda telah berlangganan dengan sukses.</message>
-	<message key="notification.email">Kirimi saya email untuk tipe notifikasi ini.</message>
 	<message key="notification.location">Pergi ke URL</message>
 	<message key="notification.mailList">Daftar surat menyurat notifikasi</message>
 	<message key="notification.mailList.emailInvalid">Masukkan alamat email yang valid.</message>

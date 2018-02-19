@@ -293,7 +293,6 @@
 	<message key="notification.allow">Onartu horrelako jakinarazpenak nire jakinarazpen barran agertzea.</message>
 	<message key="notification.confirmError">Errorea harpidetza baieztatzean.</message>
 	<message key="notification.confirmSuccess">Harpidetza burutu da.</message>
-	<message key="notification.email">Bidali posta elektronikoa horrelako jakinarazpenentzat.</message>
 	<message key="notification.location">Joan URLra</message>
 	<message key="notification.mailList">Posta-zerrendaren jakinarazpena</message>
 	<message key="notification.mailList.emailInvalid">Idatzi posta elaktronikoko baliozko helbide bat.</message>

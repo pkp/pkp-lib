@@ -271,7 +271,7 @@
 	<message key="notification.allow">Exibir estas notificações no meu canal de notificações</message>
 	<message key="notification.confirmError">Ocorreu um erro ao confirmar a sua subscrição.</message>
 	<message key="notification.confirmSuccess">Subscrição realizada com sucesso.</message>
-	<message key="notification.email">Enviar e-mail para este tipo de notificações.</message>
+	<message key="notification.email">No enviar e-mail para este tipo de notificações.</message>
 	<message key="notification.location">Ir para o URL</message>
 	<message key="notification.mailList">Lista de correio de notificações</message>
 	<message key="notification.mailList.emailInvalid">Indique um endereço de e-mail válido.</message>

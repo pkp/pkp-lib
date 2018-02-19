@@ -420,7 +420,6 @@
 	<message key="notification.editedAuthor">Autor editado.</message>
 	<message key="notification.confirmError">Ocorreu um erro ao confirmar sua assinatura.</message>
 	<message key="notification.confirmSuccess">Assinatura realizada com sucesso.</message>
-	<message key="notification.email">Enviar e-mail para estes tipos de notificações.</message>
 	<message key="notification.location">Ir para a URL</message>
 	<message key="notification.mailList">Lista de correio de notificações</message>
 	<message key="notification.mailList.emailInvalid">Informe um endereço de e-mail válido.</message>

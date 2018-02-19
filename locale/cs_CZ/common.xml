@@ -257,7 +257,6 @@
 	<message key="notification.allow">Povolit, aby se tento typ události zobrazoval v mém seznamu oznámení.</message>
 	<message key="notification.confirmError">Vyskytla se chyba při potvrzování vašeho přihlášení.</message>
 	<message key="notification.confirmSuccess">Byl jste úspěšně přihlášen.</message>
-	<message key="notification.email">Posílejte mi email s těmito typy oznámení.</message>
 	<message key="notification.location">Přejít na URL</message>
 	<message key="notification.mailList">Zasílací seznam oznámení</message>
 	<message key="notification.mailList.emailInvalid">Vložte prosím platnou emailovou adresu.</message>

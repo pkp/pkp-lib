@@ -276,7 +276,6 @@
 	<message key="notification.allow">Toon deze soorten attenderingen in uw attenderingenlijst</message>
 	<message key="notification.confirmError">Er is een fout opgetreden bij het bevestigen van uw abonnement.</message>
 	<message key="notification.confirmSuccess">U bent met succes geabonneerd</message>
-	<message key="notification.email">Stuur me een e-mail voor deze soorten attenderingen.</message>
 	<message key="notification.location">Ga naar URL</message>
 	<message key="notification.mailList">Attenderingsverzendlijst</message>
 	<message key="notification.mailList.emailInvalid">Voer een geldig e-mail adres in.</message>

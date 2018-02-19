@@ -417,7 +417,6 @@
 	<message key="notification.editedAuthor">نویسنده ویرایش شد</message>
 	<message key="notification.confirmError">بروز خطا هنگام تأیید اشتراک شما</message>
 	<message key="notification.confirmSuccess">اشتراک شما فعال شد</message>
-	<message key="notification.email">جهت این‌گونه اطلاع‌رسانی برایم ایمیل بفرست</message>
 	<message key="notification.location">برو به آدرس</message>
 	<message key="notification.mailList">لیست‌ ایمیلی‌های اطلاع‌رسانی</message>
 	<message key="notification.mailList.emailInvalid">لطفاً یک ایمیل معتبر وارد کنید</message>

@@ -266,7 +266,6 @@
 	<message key="notification.allow">允许这些类型的通知出现在我的通知Feed.</message>
 	<message key="notification.confirmError">确认您的订阅的时候发生一个错误.</message>
 	<message key="notification.confirmSuccess">Y您已成功订阅.</message>
-	<message key="notification.email">发送给我的一封关于这种类型通知的电子邮件.</message>
 	<message key="notification.location">跳转到URL</message>
 	<message key="notification.mailList">通知的邮件列表</message>
 	<message key="notification.mailList.emailInvalid">请输入一个有效的电子邮件地址.</message>

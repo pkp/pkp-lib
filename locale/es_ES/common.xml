@@ -379,7 +379,7 @@
 	<message key="notification.editedAuthor">Autor/a editado.</message>
 	<message key="notification.confirmError">Ha habido un error confirmándo tu suscripción.</message>
 	<message key="notification.confirmSuccess">Ha sido correctamente suscrito.</message>
-	<message key="notification.email">Enviarme un email para ese tipo de notificaciones.</message>
+	<message key="notification.email">No enviarme un email para ese tipo de notificaciones.</message>
 	<message key="notification.location">Ir a la web</message>
 	<message key="notification.mailList">Lista de correo de notificaciones</message>
 	<message key="notification.mailList.emailInvalid">Introduce una dirección de correo válida.</message>

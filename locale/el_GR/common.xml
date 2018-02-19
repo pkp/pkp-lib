@@ -292,7 +292,6 @@
 	<message key="notification.allow">Εμφάνιση αυτών των τύπων ειδοποιήσεων στην προσωπική μου ροή ειδοποιήσεων</message>
 	<message key="notification.confirmError">Παρουσίαστηκε ένα σφάλμα κατά την επιβεβαίωση της συνδρομής σας.</message>
 	<message key="notification.confirmSuccess">Η συνδρομή σας δημιουργήθηκε επιτυχώς.</message>
-	<message key="notification.email">Στείλτε μου ένα email για αυτού του είδους τις ειδοποιήσεις.</message>
 	<message key="notification.location">Πηγαίνετε στο URL</message>
 	<message key="notification.mailList">Λίστα ειδοποιήσεων</message>
 	<message key="notification.mailList.emailInvalid">Σας παρακαλούμε εισάγετε μια έγκυρη διεύθυνση ηλεκτρονικού ταχυδρομείου.</message>

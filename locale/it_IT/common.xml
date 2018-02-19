@@ -290,7 +290,7 @@
 	<message key="notification.allow">Notificami questo tipo di evento nel feed RSS.</message>
 	<message key="notification.confirmError">Errore nella conferma.</message>
 	<message key="notification.confirmSuccess">Sei stato iscritto con successo.</message>
-	<message key="notification.email">Notificami questo tipo di evento per email</message>
+	<message key="notification.email">Non notificami questo tipo di evento per email</message>
 	<message key="notification.location">Vai all'URL</message>
 	<message key="notification.mailList">Mailing list per le notifiche</message>
 	<message key="notification.mailList.emailInvalid">Inserisci un indirizzo email valido.</message>

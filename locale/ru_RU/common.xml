@@ -441,7 +441,6 @@
 	<message key="notification.editedAuthor">Автор отредактирован.</message>
 	<message key="notification.confirmError">При подверждении вашей подписки возникла ошибка.</message>
 	<message key="notification.confirmSuccess">Вы были успешно подписаны.</message>
-	<message key="notification.email">Не отправлять мне письмо по электронной почте для следующих типов уведомлений.</message>
 	<message key="notification.location">Перейти по ссылке</message>
 	<message key="notification.mailList">Список рассылки уведомлений</message>
 	<message key="notification.mailList.emailInvalid">Пожалуйста, введите правильный адрес электронной почты.</message>

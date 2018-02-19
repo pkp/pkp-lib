@@ -553,7 +553,6 @@
 	<message key="submission.upload.productionReady">Téléverser un fichier prêt pour la production</message>
 	<message key="submission.upload.noAvailableReviewFiles">Vous n'avez aucun fichier à évaluer pour le moment.</message>
 	<message key="editor.submission.roundStatus.revisionsRequested">Les révisions ont été demandées.</message>
-	<message key="editor.submission.roundStatus.resubmitted">La soumission a été présentée de nouveau pour évaluation.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">Envoyé à un évaluateur externe.</message>
 	<message key="editor.submission.roundStatus.accepted">Soumission acceptée.</message>
 	<message key="editor.submission.roundStatus.declined">Soumission refusée.</message>

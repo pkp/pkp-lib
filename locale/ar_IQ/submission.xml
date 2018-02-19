@@ -424,7 +424,6 @@
 	<!-- Review Round Status Keys -->
 	<message key="editor.submission.roundStatus.revisionsRequested">تم التماس التحكيمات.</message>
 	<message key="editor.submission.roundStatus.revisionsSubmitted">تم تسليم التحكيمات.</message>
-	<message key="editor.submission.roundStatus.resubmitted">المؤلَّف قد أعيد تقديمه للتحكيم.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">أُرسل للتحكيم الخارجي.</message>
 	<message key="editor.submission.roundStatus.accepted">المؤلَّف مقبول.</message>
 	<message key="editor.submission.roundStatus.declined">المؤلَّف مرفوض.</message>

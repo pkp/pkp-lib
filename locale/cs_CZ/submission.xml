@@ -399,7 +399,6 @@
 	<message key="submission.upload.proof">Nahrát soubor připravený k publikování</message>
 	<message key="submission.upload.noAvailableReviewFiles">Nejsou pro vás dostupné žádné soubory ke recenzi.</message>
 	<message key="editor.submission.roundStatus.revisionsRequested">Byly vyžádány recenze.</message>
-	<message key="editor.submission.roundStatus.resubmitted">Příspěvek byl znovu podán k recenzi.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">Odesláno k externí recenzi.</message>
 	<message key="editor.submission.roundStatus.accepted">Příspěvek přijat.</message>
 	<message key="editor.submission.roundStatus.declined">Příspěvek odmítnut.</message>

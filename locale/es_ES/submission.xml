@@ -484,7 +484,6 @@
 	<!-- Review Round Status Keys -->
 	<message key="editor.submission.roundStatus.revisionsRequested">Revisiones solicitadas.</message>
 	<message key="editor.submission.roundStatus.revisionsSubmitted">Revisiones enviadas.</message>
-	<message key="editor.submission.roundStatus.resubmitted">Archivo reenviado para su revisión.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">Enviado para revisión externa.</message>
 	<message key="editor.submission.roundStatus.accepted">Envío aceptado.</message>
 	<message key="editor.submission.roundStatus.declined">Envío rechazado.</message>

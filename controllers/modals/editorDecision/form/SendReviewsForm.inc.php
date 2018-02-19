@@ -119,7 +119,7 @@ class SendReviewsForm extends EditorDecisionWithEmailForm {
 
 			case SUBMISSION_EDITOR_DECISION_RESUBMIT:
 				$emailKey = 'EDITOR_DECISION_RESUBMIT';
-				$status = REVIEW_ROUND_STATUS_RESUBMITTED;
+				$status = REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW;
 				break;
 
 			case SUBMISSION_EDITOR_DECISION_DECLINE:

@@ -393,7 +393,6 @@
 	<message key="submission.upload.proof">Upload ficheiro pronto para produção</message>
 	<message key="submission.upload.noAvailableReviewFiles">Não há artigos para rever neste momento.</message>
 	<message key="editor.submission.roundStatus.revisionsRequested">Foram solicitadas revisões.</message>
-	<message key="editor.submission.roundStatus.resubmitted">A submissão foi reenviada para revisão.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">Enviado para revisão externa.</message>
 	<message key="editor.submission.roundStatus.accepted">Submissão aceita.</message>
 	<message key="editor.submission.roundStatus.declined">Submissão rejeitada.</message>

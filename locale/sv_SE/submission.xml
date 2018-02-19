@@ -424,7 +424,6 @@
 	<!-- Review Round Status Keys -->
 	<message key="editor.submission.roundStatus.revisionsRequested">Bearbetningar begärda.</message>
 	<message key="editor.submission.roundStatus.revisionsSubmitted">Bearbetningar har skickats in.</message>
-	<message key="editor.submission.roundStatus.resubmitted">Bidraget har skickats in för granskning på nytt.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">Skickat för extern granskning.</message>
 	<message key="editor.submission.roundStatus.accepted">Bidrag accepterat.</message>
 	<message key="editor.submission.roundStatus.declined">Bidrag refuserat.</message>

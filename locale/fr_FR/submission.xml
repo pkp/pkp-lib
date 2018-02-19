@@ -462,7 +462,6 @@
 	<message key="submission.upload.productionReady">Transférer un fichier prêt pour la production</message>
 	<message key="submission.upload.noAvailableReviewFiles">Vous n'avez aucun fichier à examiner pour le moment.</message>
 	<message key="editor.submission.roundStatus.revisionsRequested">Les révisions ont été demandées.</message>
-	<message key="editor.submission.roundStatus.resubmitted">La soumission a été présentée de nouveau pour un autre examen.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">Envoyé à un rapporteur externe.</message>
 	<message key="editor.submission.roundStatus.accepted">Soumission acceptée.</message>
 	<message key="editor.submission.roundStatus.declined">Soumission refusée.</message>

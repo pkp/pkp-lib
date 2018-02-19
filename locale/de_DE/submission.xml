@@ -428,7 +428,6 @@
 	<!-- Review Round Status Keys -->
 	<message key="editor.submission.roundStatus.revisionsRequested">Überarbeitungen wurden angefordert.</message>
 	<message key="editor.submission.roundStatus.revisionsSubmitted">Überarbeitungen wurden eingereicht.</message>
-	<message key="editor.submission.roundStatus.resubmitted">Beitrag wurde erneut zur Begutachtung eingereicht.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">Zur externen Begutachtung gesendet.</message>
 	<message key="editor.submission.roundStatus.accepted">Beitrag akzeptiert.</message>
 	<message key="editor.submission.roundStatus.declined">Beitrag abgelehnt.</message>

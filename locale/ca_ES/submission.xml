@@ -413,7 +413,6 @@
 
 	<!-- Review Round Status Keys -->
 	<message key="editor.submission.roundStatus.revisionsRequested">S'han sol·licitat les revisions.</message>
-	<message key="editor.submission.roundStatus.resubmitted">La tramesa s'ha tornat a enviar per a la revisió.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">S'ha enviat per a la revisió externa.</message>
 	<message key="editor.submission.roundStatus.accepted">S'ha acceptat la tramesa.</message>
 	<message key="editor.submission.roundStatus.declined">S'ha rebutjat la tramesa.</message>

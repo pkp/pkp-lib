@@ -419,7 +419,6 @@
 
 	<!-- Review Round Status Keys -->
 	<message key="editor.submission.roundStatus.revisionsRequested">Korjauksia on pyydetty.</message>
-	<message key="editor.submission.roundStatus.resubmitted">Käsikirjoitus on lähetetty uudelleen arvioitavaksi.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">Lähetetty ulkopuoliseen arviointiin.</message>
 	<message key="editor.submission.roundStatus.accepted">Käsikirjoitus hyväksytty.</message>
 	<message key="editor.submission.roundStatus.declined">Käsikirjoitus hylätty.</message>

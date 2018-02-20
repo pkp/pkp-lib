@@ -260,4 +260,8 @@
 	<message key="grid.userGroup.unassignedStage">Le rôle {$userGroupName} est désassigner de l'étape {$stageName}.</message>
 	<message key="grid.submission.itemTitle">Auteur; Titre</message>
 	<message key="grid.submission.active.selectOrphaned">Inclu les soumissions incomplètes qui n'ont pas été soumises par un auteur.</message>
+	<message key="grid.action.addNavigationMenu">Ajouter un menu</message>
+	<message key="grid.action.addNavigationMenuItem">Ajouter un élément de menu</message>
+	<message key="grid.navigationMenus.navigationMenuItems.noneExist">Aucun élément de menu</message>
+	<message key="grid.navigationMenus.navigationMenu.noneExist">Aucun menu</message>
 </locale>

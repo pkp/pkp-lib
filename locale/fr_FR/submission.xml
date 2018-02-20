@@ -14,7 +14,7 @@
 
 <locale name="fr_FR" full_name="Français (France)">
 	<message key="common.queue.long.submissionsUnassigned">Soumissions non assignées</message>
-	<message key="common.queue.long.myAssigned">Les soumissions m'ayant été assignées</message>
+	<message key="common.queue.long.myAssigned">Soumissions en cours</message>
 	<message key="submission.authors">Auteurs</message>
 	<message key="submission.mySubmissions">Mes soumissions</message>
 	<message key="submission.agencies">Organismes</message>
@@ -596,4 +596,5 @@
 	<message key="editor.submission.decision.previousAuthorNotification">Précédemment : Avertir l'auteur</message>
 	<message key="editor.submission.roundStatus.recommendationsReady">Nouvelles recommandations ont été soumises.</message>
 	<message key="editor.submission.roundStatus.recommendationsCompleted">Une décision éditoriale est attendue.</message>
+	<message key="submission.list.viewSubmission">Voir la soumission</message>
 </locale>

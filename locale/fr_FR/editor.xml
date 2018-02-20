@@ -76,8 +76,8 @@
 	<message key="editor.review.uploadRevision">Transférer la révision</message>
 	<message key="editor.review.NotifyAuthorAccept">Avertir l'auteur de l'acceptation:</message>
 	<message key="editor.review.NotifyAuthorDecline">Avertir l'auteur que sa soumission a été refusée:</message>
-	<message key="editor.review.NotifyAuthorRevisions">Avertir l'auteur que la soumission doit être révisée:</message>
-	<message key="editor.review.NotifyAuthorResubmit">Avertir l'auteur que la soumission doit être révisée et examinée à nouveau:</message>
+	<message key="editor.review.NotifyAuthorRevisions">Avertir l'auteur que la soumission doit être révisée</message>
+	<message key="editor.review.NotifyAuthorResubmit">Avertir l'auteur que la soumission doit être révisée et examinée à nouveau</message>
 	<message key="editor.review.NotifyAuthorExternal">Avertir l'auteur que l'on a décidé de mener un examen externe:</message>
 	<message key="editor.review.personalMessageToAuthor">Envoyer un courriel à l'auteur</message>
 	<message key="editor.review.dateAccepted">Date d'acceptation de la révision</message>

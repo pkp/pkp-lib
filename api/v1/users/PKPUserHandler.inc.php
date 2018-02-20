@@ -1,14 +1,14 @@
 <?php
 
 /**
- * @file api/v1/user/PKPUserHandler.inc.php
+ * @file api/v1/users/PKPUserHandler.inc.php
  *
  * Copyright (c) 2014-2018 Simon Fraser University
  * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPUserHandler
- * @ingroup api_v1_user
+ * @ingroup api_v1_users
  *
  * @brief Base class to handle API requests for user operations.
  *

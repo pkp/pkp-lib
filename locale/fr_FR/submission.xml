@@ -334,7 +334,7 @@
 	<message key="notification.type.editorDecisionTitle">Dernière décision du rédacteur en chef.</message>
 	<message key="notification.type.editorDecisionAccept">Soumission acceptée.</message>
 	<message key="notification.type.editorDecisionExternalReview">Le processus d'évaluation externe a débuté.</message>
-	<message key="notification.type.editorDecisionPendingRevisions">Demande d'évaluation.</message>
+	<message key="notification.type.editorDecisionPendingRevisions">En attente de révisions.</message>
 	<message key="notification.type.editorDecisionResubmit">Soumettre à nouveau pour l'évaluation.</message>
 	<message key="notification.type.editorDecisionDecline">Soumission refusée.</message>
 	<message key="notification.type.editorDecisionSendToProduction">Le processus de production a débuté.</message>
@@ -461,13 +461,14 @@
 	<message key="submission.upload.response.description">Après avoir examiné le fichier assigné, saisissez vos commentaires sur le fichier ci-dessous, et/ou transférez une copie annotée du fichier (ou un autre fichier).</message>
 	<message key="submission.upload.productionReady">Transférer un fichier prêt pour la production</message>
 	<message key="submission.upload.noAvailableReviewFiles">Vous n'avez aucun fichier à examiner pour le moment.</message>
-	<message key="editor.submission.roundStatus.revisionsRequested">Les révisions ont été demandées.</message>
-	<message key="editor.submission.roundStatus.resubmitted">La soumission a été présentée de nouveau pour un autre examen.</message>
+	<message key="editor.submission.roundStatus.revisionsRequested">Accepté en attente de corrections.</message>
+	<message key="editor.submission.roundStatus.submissionRequested">En attente de révisions.</message>
+        <message key="editor.submission.roundStatus.submissionResubmitted">Nouvelle version de la soumission déposée.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">Envoyé à un rapporteur externe.</message>
 	<message key="editor.submission.roundStatus.accepted">Soumission acceptée.</message>
 	<message key="editor.submission.roundStatus.declined">Soumission refusée.</message>
-	<message key="editor.submission.roundStatus.pendingReviewers">En attente de rapporteurs.</message>
-	<message key="editor.submission.roundStatus.pendingReviews">En attente des réponses des rapporteurs.</message>
+	<message key="editor.submission.roundStatus.pendingReviewers">En attente de l'assignation de rapporteurs</message>
+	<message key="editor.submission.roundStatus.pendingReviews">Analyse en cours.</message>
 	<message key="editor.submission.roundStatus.reviewsReady">Les nouveaux rapports sont prêts.</message>
 	<message key="editor.review.personalMessageFromEditor">Message du rapporteur.</message>
 	<message key="submission.reviewForm">Formulaire d'évaluation</message>

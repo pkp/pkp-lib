@@ -103,7 +103,7 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate {
 			$this->_getNotificationTaskLevel($this->getNotificationType()),
 			null,
 			true // suppressEmail
-		);
+			);
 	}
 
 	/**
@@ -154,6 +154,7 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate {
 	function _getNotificationTaskLevel($type) {
 		switch ($type) {
 			case NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS:
+			case NOTIFICATION_TYPE_EDITOR_DECISION_RESUBMIT:
 				return NOTIFICATION_LEVEL_TASK;
 			default:
 				return NOTIFICATION_LEVEL_NORMAL;

@@ -86,7 +86,6 @@
 	<message key="editor.review.thankReviewer">Remercier l'évaluateur</message>
 	<message key="editor.review.thankReviewerError">Erreur d'envoi du remerciement à l'évaluateur</message>
 	<message key="editor.review.reviewerComments">Commentaires de l'évaluateur</message>
-	<message key="editor.review.days">Moyenne des jours</message>
 	<message key="editor.review.mustSelect">Vous devez sélectionner un évaluateur</message>
 	<message key="editor.review.errorAddingReviewer">Il y a eu une erreur au moment d'ajouter l'évaluateur. Essayez de nouveau.</message>
 	<message key="editor.review.errorDeletingReviewer">Il y a eu une erreur au moment de supprimer l'évaluateur. Essayez de nouveau.</message>

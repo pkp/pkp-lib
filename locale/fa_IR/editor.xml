@@ -69,7 +69,6 @@
 	<message key="editor.review.reviewConfirmed">داوری تأیید شد.</message>
 	<message key="editor.review.reviewSubmitted">داوری ارسال شد.</message>
 	<message key="editor.review.reviewerComments">نظرات داور</message>
-	<message key="editor.review.days">متوسط زمان</message>
 	<message key="editor.review.mustSelect">باید یک داور انتخاب کنید.</message>
 	<message key="editor.review.errorAddingReviewer">در افزودن داور خطایی رخ داد. لطفاً دوباره تلاش کنید.</message>
 	<message key="editor.review.errorDeletingReviewer">در حذف داور خطایی رخ داد. لطفاً دوباره تلاش کنید.</message>

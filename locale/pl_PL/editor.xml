@@ -70,7 +70,6 @@
 	<message key="editor.review.reviewConfirmed">Recenzja potwierdzona</message>
 	<message key="editor.review.reviewSubmitted">Recenzja przesłana</message>
 	<message key="editor.review.reviewerComments">Komentarze recenzenta</message>
-	<message key="editor.review.days">Średni czas recenzji (dni)</message>
 	<message key="editor.review.mustSelect">Musisz wybrać recenzenta</message>
 	<message key="editor.review.errorAddingReviewer">Wystąpił błąd podczas dodawania recenzenta. Spróbuj ponownie później.</message>
 	<message key="editor.review.errorDeletingReviewer">Wystąpił błąd podczas usuwania recenzenta. Spróbuj ponownie później.</message>

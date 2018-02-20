@@ -405,8 +405,6 @@
 	<message key="grid.reviewAttachments.title">Anexos do avaliador</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} designado para avaliar a submissão {$submissionId} na rodada de avaliação {$round}.</message>
 	<message key="submission.review.status.awaitingResponse">Esperando uma resposta do avaliador.</message>
-	<message key="log.review.reviewerAssigned">{$reviewerName} designado para avaliar a submissão {$submissionId} na rodada de avaliação {$round}.</message>
-	<message key="submission.review.status.awaitingResponse">Esperando uma resposta do avaliador.</message>
 	<message key="submission.review.status.declined">O avaliador recusou a proposta de avaliação.</message>
 	<message key="submission.review.status.responseOverdue">O avaliador perdeu o prazo de resposta.</message>
 	<message key="submission.review.status.reviewOverdue">O avaliador perdeu o prazo de avaliação.</message>

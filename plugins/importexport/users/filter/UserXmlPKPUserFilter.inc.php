@@ -94,7 +94,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 			case 'billing_address': $user->setBillingAddress($n->textContent); break;
 			case 'mailing_address': $user->setMailingAddress($n->textContent); break;
 			case 'biography': $user->setBiography($n->textContent, $n->getAttribute('locale')); break;
-			case 'gossip': $user->setGossip($n->textContent, $n->getAttribute('locale')); break;
+			case 'gossip': $user->setGossip($n->textContent); break;
 			case 'signature': $user->setSignature($n->textContent, $n->getAttribute('locale')); break;
 			case 'date_registered': $user->setDateRegistered($n->textContent); break;
 			case 'date_last_login': $user->setDateLastLogin($n->textContent); break;

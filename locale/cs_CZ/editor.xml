@@ -71,7 +71,7 @@
 	<message key="editor.review.reviewConfirmed">Recenze potvrzena</message>
 	<message key="editor.review.reviewSubmitted">Recenze odeslána</message>
 	<message key="editor.review.reviewerComments">Recenzentovy komentáře</message>
-	<message key="editor.review.days">Průměrný počet dnů</message>
+	<message key="editor.review.rateReviewer">Ohodnocení recenzenta</message>
 	<message key="editor.review.mustSelect">Je třeba vybrat recenzenta</message>
 	<message key="editor.review.errorAddingReviewer">Při vybírání recenzenta došlo k chybě. Zkuste to, prosím, znovu.</message>
 	<message key="editor.review.errorDeletingReviewer">Při odebírání recenzenta došlo k chybě. Zkuste to, prosím, znovu.</message>

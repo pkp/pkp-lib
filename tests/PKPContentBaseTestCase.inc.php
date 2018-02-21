@@ -301,17 +301,17 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 
 	/**
 	 * Assign a reviewer.
-	 * @param $username string
 	 * @param $name string
 	 */
-	function assignReviewer($username, $name) {
+	function assignReviewer($name) {
 		$this->waitForElementPresent('css=[id^=component-grid-users-reviewer-reviewergrid-addReviewer-button-]');
 		$this->click('css=[id^=component-grid-users-reviewer-reviewergrid-addReviewer-button-]');
-		$this->waitForElementPresent('css=[id^=name-]');
-		$this->type('css=[id^=name-]', $username);
-		$this->click('css=[id=submitFilter]');
+		$this->waitForElementPresent('css=div.pkpListPanel--selectReviewer');
+		$this->type('css=div.pkpListPanel--selectReviewer input.pkpListPanel__searchInput', $name);
 		$this->waitJQuery();
-		$this->click('css=[id^=reviewer_]');
+		$xpath = '//div[contains(text(),' . $this->quoteXPath($name) . ')]';
+		$this->waitForElementPresent($xpath);
+		$this->click($xpath);
 		$this->click('css=[id^=selectReviewerButton]');
 
 		$this->click('//button[text()=\'Add Reviewer\']');
@@ -332,7 +332,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 
 		// Use an xpath concat to permit apostrophes to appear in titles
 		// http://kushalm.com/the-perils-of-xpath-expressions-specifically-escaping-quotes
-		$xpath = '//div[contains(text(),' . $this->quoteXPath($title) . ')]';
+		$xpath = '//div[normalize-space(text())=' . $this->quoteXPath($title) . ']';
 		$this->waitForElementPresent($xpath);
 		$this->click($xpath);
 

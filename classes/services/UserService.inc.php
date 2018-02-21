@@ -77,9 +77,9 @@ class UserService extends PKPBaseEntityPropertyService {
 	}
 
 	/**
-	 * Build the submission query object for getSubmissions requests
+	 * Build the user query object for getUsers requests
 	 *
-	 * @see self::getSubmissions()
+	 * @see self::getUsers()
 	 * @return object Query object
 	 */
 	private function _buildGetUsersQueryObject($contextId, $args = array()) {
@@ -111,6 +111,68 @@ class UserService extends PKPBaseEntityPropertyService {
 		\HookRegistry::call('User::getUsers::queryBuilder', array($userListQB, $contextId, $args));
 
 		return $userListQB;
+	}
+
+	/**
+	 * Get reviewers
+	 *
+	 * @see self::getUsers()
+	 */
+	public function getReviewers($contextId, $args = array()) {
+		$userListQB = $this->_buildGetReviewersQueryObject($contextId, $args);
+		$userListQO = $userListQB->get();
+		$range = new DBResultRange($args['count'], null, $args['offset']);
+		$userDao = DAORegistry::getDAO('UserDAO');
+		$result = $userDao->retrieveRange($userListQO->toSql(), $userListQO->getBindings(), $range);
+		$queryResults = new DAOResultFactory($result, $userDao, '_returnUserFromRowWithReviewerStats');
+
+		return $queryResults->toArray();
+	}
+
+	/**
+	 * Get max count of reviewers matching a query request
+	 *
+	 * @see self::getUsersMaxCount()
+	 */
+	public function getReviewersMaxCount($contextId, $args = array()) {
+		$userListQB = $this->_buildGetReviewersQueryObject($contextId, $args);
+		$countQO = $userListQB->countOnly()->get();
+		$countRange = new DBResultRange($args['count'], 1);
+		$userDao = DAORegistry::getDAO('UserDAO');
+		$countResult = $userDao->retrieveRange($countQO->toSql(), $countQO->getBindings(), $countRange);
+		$countQueryResults = new DAOResultFactory($countResult, $userDao, '_returnUserFromRowWithReviewerStats');
+
+		return (int) $countQueryResults->getCount();
+	}
+
+	/**
+	 * Build the reviewers query object for getReviewers requests
+	 *
+	 * @see self::_buildGetUsersQueryObject()
+	 */
+	private function _buildGetReviewersQueryObject($contextId, $args = array()) {
+
+		$defaultArgs = array(
+			'reviewsCompleted' => null,
+			'reviewsActive' => null,
+			'daysSinceLastAssignment' => null,
+			'averageCompletion' => null,
+			'reviewerRating' => null,
+		);
+
+		$args = array_merge($defaultArgs, $args);
+
+		$reviewerListQB = $this->_buildGetUsersQueryObject($contextId, $args);
+		$reviewerListQB->getReviewerData(true)
+			->filterByReviewerRating($args['reviewerRating'])
+			->filterByReviewsCompleted($args['reviewsCompleted'])
+			->filterByReviewsActive($args['reviewsActive'])
+			->filterByDaysSinceLastAssignment($args['daysSinceLastAssignment'])
+			->filterByAverageCompletion($args['averageCompletion']);
+
+		\HookRegistry::call('User::getReviewers::queryBuilder', array($reviewerListQB, $contextId, $args));
+
+		return $reviewerListQB;
 	}
 
 	/**
@@ -163,7 +225,7 @@ class UserService extends PKPBaseEntityPropertyService {
 					$values[$prop] = $user->getSuffix();
 					break;
 				case 'affiliation':
-					$values[$prop] = $user->getAffiliation();
+					$values[$prop] = $user->getAffiliation(null);
 					break;
 				case 'country':
 					$values[$prop] = $user->getCountry();
@@ -178,7 +240,7 @@ class UserService extends PKPBaseEntityPropertyService {
 					$values[$prop] = $user->getOrcid(null);
 					break;
 				case 'biography':
-					$values[$prop] = $user->getBiography();
+					$values[$prop] = $user->getBiography(null);
 					break;
 				case 'signature':
 					$values[$prop] = $user->getSignature();
@@ -199,7 +261,24 @@ class UserService extends PKPBaseEntityPropertyService {
 					$values[$prop] = $user->getBillingAddress();
 					break;
 				case 'gossip':
-					$values[$prop] = $user->getGossip();
+					if ($this->canCurrentUserGossip($user->getId())) {
+						$values[$prop] = $user->getGossip();
+					}
+					break;
+				case 'reviewsActive':
+					$values[$prop] = $user->getData('incompleteCount');
+					break;
+				case 'reviewsCompleted':
+					$values[$prop] = $user->getData('completeCount');
+					break;
+				case 'averageReviewCompletionDays':
+					$values[$prop] = $user->getData('averageTime');
+					break;
+				case 'dateLastReviewAssignment':
+					$values[$prop] = $user->getData('lastAssigned');
+					break;
+				case 'reviewerRating':
+					$values[$prop] = $user->getData('reviewerRating');
 					break;
 				case 'disabled':
 					$values[$prop] = (boolean) $user->getDisabled();
@@ -254,7 +333,7 @@ class UserService extends PKPBaseEntityPropertyService {
 					}
 					break;
 				case 'interests':
-					$values[$prop] = null;
+					$values[$prop] = [];
 					if ($context) {
 						import('lib.pkp.classes.user.InterestDAO');
 						$interestDao = DAORegistry::getDAO('InterestDAO');
@@ -300,13 +379,81 @@ class UserService extends PKPBaseEntityPropertyService {
 	public function getFullProperties($user, $args = null) {
 		$props = array (
 			'id','userName','fullName','firstName','middleName','lastName','initials','salutation',
-			'suffix','affiliaton','country','email','url','orcid','groups','interests','biograpy','signature','authId',
-			'authString','phone','mailingAddress','billingAddress','gossip','disabled',
-			'disabledReason','dateRegistered','dateValidated','dateLastLogin','mustChangePassword',
+			'suffix','affiliation','country','email','url','orcid','groups','interests','biography','signature','authId',
+			'authString','phone','mailingAddress','billingAddress','gossip','disabled','disabledReason',
+			'dateRegistered','dateValidated','dateLastLogin','mustChangePassword',
 		);
 
 		\HookRegistry::call('User::getProperties::fullProperties', array(&$props, $user, $args));
 
 		return $this->getProperties($user, $props, $args);
+	}
+
+	/**
+	 * Returns summary properties for a reviewer
+	 * @param $user User
+	 * @param $args array
+	 *		$args['request'] PKPRequest Required
+	 *		$args['slimRequest'] SlimRequest
+	 * @return array
+	 */
+	public function getReviewerSummaryProperties($user, $args = null) {
+		$props = array (
+			'id','_href','userName','fullName','affiliation','biography','groups','interests','gossip',
+			'reviewsActive','reviewsCompleted','averageReviewCompletionDays',
+			'dateLastReviewAssignment','reviewerRating', 'orcid','disabled',
+		);
+
+		\HookRegistry::call('User::getProperties::reviewerSummaryProperties', array(&$props, $user, $args));
+
+		return $this->getProperties($user, $props, $args);
+	}
+
+	/**
+	 * Does a user have a role?
+	 *
+	 * @param $userId int
+	 * @param $roleIds int|array ROLE_ID_...
+	 * @param $contextId int
+	 * @return boolean
+	 */
+	public function userHasRole($userId, $roleIds, $contextId) {
+		$roleDao = DAORegistry::getDAO('RoleDAO');
+		return $roleDao->userHasRole($contextId, $userId, $roleIds);
+	}
+
+	/**
+	 * Can the current user view and edit the gossip field for a user
+	 *
+	 * @param $userId int The user who's gossip field should be accessed
+	 * @return boolean
+	 */
+	public function canCurrentUserGossip($userId) {
+		$request = Application::getRequest();
+		$context = $request->getContext();
+		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
+		$currentUser = $request->getUser();
+
+		// Logged out users can never view gossip fields
+		if (!$currentUser) {
+			return false;
+		}
+
+		// Users can never view their own gossip fields
+		if ($currentUser->getId() === $userId) {
+			return false;
+		}
+
+		// Only reviewers have gossip fields
+		if (!$this->userHasRole($userId, ROLE_ID_REVIEWER, $contextId)) {
+			return false;
+		}
+
+		// Only admins, editors and subeditors can view gossip fields
+		if (!$this->userHasRole($currentUser->getId(), array(ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN, ROLE_ID_SUB_EDITOR), $contextId)) {
+			return false;
+		}
+
+		return true;
 	}
 }

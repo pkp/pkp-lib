@@ -243,7 +243,7 @@
 
 	<!-- Stage Participants -->
 	<message key="submission.stageParticipants.notify">Meddela</message>
-	
+
 	<message key="submission.lastModified">Senast ändrad</message>
 	<message key="submission.layout.addGalley">Lägg till en layout-publiceringsversion</message>
 	<message key="submission.layout.confirmDeleteGalley">Är du säker på att du vill ta bort den här publiceringsversionen permanent?</message>
@@ -382,7 +382,7 @@
 	<message key="workflow.stage.any">Vilket steg som helst</message>
 	<message key="workflow.stage">Steg</message>
 
-	
+
 	<!-- Submission status -->
 	<message key="submission.status.editorial">Under manusredigering</message>
 	<message key="submission.status.production">Under korrekturläsning</message>
@@ -435,7 +435,7 @@
 	<message key="editor.submission.roundStatus.pendingRecommendations">Väntar på rekommendationer från redaktörer.</message>
 	<message key="editor.submission.roundStatus.recommendationsReady">Det har registrerats nya redaktionsrekommendationer.</message>
 	<message key="editor.submission.roundStatus.recommendationsCompleted">Alla rekommendationer har inkommit och nu behövs ett redaktörsbeslut.</message>
-	
+
 	<!-- Participants -->
 	<message key="editor.submission.stageParticipants">Deltagare</message>
 
@@ -595,12 +595,9 @@
 	<message key="submission.list.responseDue">Deadline för svar</message>
 	<message key="submission.list.reviewDue">Deadline för granskning</message>
 	<message key="submission.list.confirmDelete">Radera bidrag?</message>
-	<message key="submission.list.filter">Filter</message>
-	<message key="submission.list.filterRemove">Rensa filter: {$filterTitle}</message>
 	<message key="submission.list.itemOrdererUp">Flytta up {$itemTitle} i listan</message>
 	<message key="submission.list.itemOrdererDown">Flytta ned {$itemTitle} i listan</message>
 	<message key="submission.list.viewSubmission">Visa bidrag</message>
-	<message key="submission.list.clearSearch">Rensa söksträng</message>
 	<message key="submission.list.reviewsCompleted">Tilldelade granskningar slutförda</message>
 	<message key="submission.list.revisionsSubmitted">Bearbetningar insända</message>
 	<message key="submission.list.copyeditsSubmitted">Manusredigerade filer insända</message>

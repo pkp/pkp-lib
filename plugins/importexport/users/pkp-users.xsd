@@ -46,7 +46,7 @@
 			<extension base="pkp:identity">
 				<sequence>
 					<element name="username" type="string" minOccurs="1" maxOccurs="1" />
-					<element name="gossip" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+					<element name="gossip" type="string" minOccurs="0" maxOccurs="1" />
 					<element name="signature" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 					<element name="password" type="pkp:password" minOccurs="1" maxOccurs="1" />
 					<element name="salutation" type="string" minOccurs="0" maxOccurs="1" />

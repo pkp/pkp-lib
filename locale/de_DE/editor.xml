@@ -59,6 +59,7 @@
 	<message key="editor.review.thankReviewerError">Fehler beim Versenden des Dankes an Gutachter/in</message>
 	<message key="editor.review.skipEmail">E-Mail nicht an Gutachter/in schicken</message>
 	<message key="editor.review.sendReminder">Erinnerung senden</message>
+	<message key="editor.review.rateReviewer">Gutachter/in bewerten</message>
 	<message key="editor.review.readReview">Gutachten lesen</message>
 	<message key="editor.review.readNewReview">Neues Gutachen lesen</message>
 	<message key="editor.review.responseDue">Antwort fällig: {$date}</message>
@@ -71,7 +72,6 @@
 	<message key="editor.review.reviewConfirmed">Gutachten bestätigt</message>
 	<message key="editor.review.reviewSubmitted">Gutachten eingereicht</message>
 	<message key="editor.review.reviewerComments">Begutachtungskommentare</message>
-	<message key="editor.review.days">Durchschnittliche Dauer (Tage)</message>
 	<message key="editor.review.mustSelect">Sie müssen eine/n Gutachter/in auswählen</message>
 	<message key="editor.review.errorAddingReviewer">Es gab einen Fehler beim Hinzufügen des/der Gutachter/in. Bitte versuchen Sie es erneut.</message>
 	<message key="editor.review.errorDeletingReviewer">Es gab einen Fehler beim Entfernen des/der Gutachter/in. Bitte versuchen Sie es erneut.</message>

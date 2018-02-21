@@ -160,28 +160,19 @@ class PKPUser extends Identity {
 	}
 
 	/**
-	 * Get localized user gossip.
-	 */
-	function getLocalizedGossip() {
-		return $this->getLocalizedData('gossip');
-	}
-
-	/**
 	 * Get user gossip.
-	 * @param $locale string
 	 * @return string
 	 */
-	function getGossip($locale) {
-		return $this->getData('gossip', $locale);
+	function getGossip() {
+		return $this->getData('gossip');
 	}
 
 	/**
 	 * Set user gossip.
 	 * @param $gossip string
-	 * @param $locale string
 	 */
-	function setGossip($gossip, $locale) {
-		$this->setData('gossip', $gossip, $locale);
+	function setGossip($gossip) {
+		$this->setData('gossip', $gossip);
 	}
 
 	/**

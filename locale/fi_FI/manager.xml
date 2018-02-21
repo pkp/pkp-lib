@@ -10,7 +10,7 @@
   *
   * Localization strings.
   -->
-  
+
 <locale name="fi_FI" full_name="Suomi">
 	<!-- Website settings -->
 	<message key="manager.website.information">Tietoja</message>
@@ -166,18 +166,8 @@
 	<message key="manager.reviewerSearch.change">Muuta</message>
 	<message key="manager.reviewerSearch.searchByName">Hae arvioijia nimen mukaan</message>
 	<message key="manager.reviewerSearch.searchByName.short">Hae nimen mukaan</message>
-	<message key="manager.reviewerSearch.doneAmount">Suoritettujen arviointien määrä: {$current}</message>
-	<message key="manager.reviewerSearch.doneAmountToggle">Ota käyttöön / Poista käytöstä suoritettujen arviointien suodatin.</message>
-	<message key="manager.reviewerSearch.avgAmount">Arvioinnin keskimääräinen kesto (pv): {$current}</message>
-	<message key="manager.reviewerSearch.avgAmountToggle">Ota käyttöön / Poista käytöstä arvioinnin keskimääräisen keston suodatin.</message>
-	<message key="manager.reviewerSearch.lastAmount">Aikaa viimeisimmästä arvioinnista (pv): {$current}</message>
-	<message key="manager.reviewerSearch.lastAmountToggle">Ota käyttöön / Poista käytöstä “aikaa viimeisimmästä arvioinnista” -suodatin.</message>
-	<message key="manager.reviewerSearch.activeAmount">Tällä hetkellä aktiivisten arviointien määrä: {$current}</message>
-	<message key="manager.reviewerSearch.activeAmountToggle">Ota käyttöön / Poista käytöstä tällä hetkellä aktiivisten arviointien suodatin.</message>
 	<message key="manager.reviewerSearch.interests">Kiinnostavat arviointiaiheet</message>
 	<message key="manager.reviewerSearch.form.instructions">Käytä alla olevaa lomaketta asettaaksesi maksimiarvot termeille, joita haluat hakea. Lomakkeeseen on esitäytetty kyseisten kenttien laskennalliset keskiarvot.</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">Arvioijaa kiinnostavat aiheet (kirjoita hakeaksesi arvioijia, joita kiinnostavat samat aiheet)</message>
-	<message key="manager.reviewerSearch.form.previousReviewRounds">Tämän käsikirjoituksen edellisten arviointikierrosten arvioijat</message>
 	<message key="manager.roles">Roolit</message>
 	<message key="manager.statistics"><![CDATA[Tilastot &amp; Raportit]]></message>
 	<message key="manager.statistics.defaultMetricDescription">

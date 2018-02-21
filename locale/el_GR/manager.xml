@@ -168,10 +168,6 @@
 	<message key="plugins.categories.themes">Θεματικά (Theme) Plugins</message>
 	<message key="manager.emails.form.emailKeyRequired">Απαιτείτα ένα μοναδικό κλειδί email για το email.</message>
 	<message key="manager.reviewerSearch.searchByName">Αναζήτηση Αξιολογητή κατά Όνομα</message>
-	<message key="manager.reviewerSearch.doneAmount">Αριθμός ολοκληρωμένης αξιολογήσεων</message>
-	<message key="manager.reviewerSearch.avgAmount">Μέσος αριθμός ημερών ανά αξιολόγηση</message>
-	<message key="manager.reviewerSearch.lastAmount">Ημέρες από την τελευταία αξιολόγηση</message>
-	<message key="manager.reviewerSearch.activeAmount">Αριθμός τρεχόντων ενεργών αξιολογήσεων</message>
 	<message key="manager.reviewerSearch.interests">Ενδιαφέροντα Αξιολόγησης</message>
 	<message key="manager.setup.errorDeletingItem">Παρουσιάστηκε σφάλμα κατά την διαγραφή του φίλτρου</message>
 	<message key="plugins.categories.oaiMetadataFormats">OAI Metadata Format Plugins</message>

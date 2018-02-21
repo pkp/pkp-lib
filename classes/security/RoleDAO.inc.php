@@ -110,14 +110,15 @@ class RoleDAO extends DAO {
 	 * Validation check to see if a user belongs to any group that has a given role
 	 * @param $contextId int
 	 * @param $userId int
-	 * @param $roleId int ROLE_ID_...
+	 * @param $roleId int|array ROLE_ID_...
 	 * @return bool True iff at least one such role exists
 	 */
 	function userHasRole($contextId, $userId, $roleId) {
+		$roleId = is_array($roleId) ? join(',', array_map('intval', $roleId)) : (int) $roleId;
 		$result = $this->retrieve(
 			'SELECT count(*) FROM user_groups ug JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-			WHERE ug.context_id = ? AND uug.user_id = ? AND ug.role_id = ?',
-			array((int) $contextId, (int) $userId, (int) $roleId)
+			WHERE ug.context_id = ? AND uug.user_id = ? AND ug.role_id IN (' . $roleId . ')',
+			array((int) $contextId, (int) $userId)
 		);
 
 		// > 0 because user could belong to more than one user group with this role
@@ -202,7 +203,7 @@ class RoleDAO extends DAO {
 			ROLE_ID_MANAGER => array(
 				// Journal managers should always have all stage selections locked by default.
 				WORKFLOW_STAGE_ID_SUBMISSION, WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, WORKFLOW_STAGE_ID_EDITING, WORKFLOW_STAGE_ID_PRODUCTION,
-			),		
+			),
 			ROLE_ID_REVIEWER => array(
 				// Reviewer user groups should only have review stage assignments.
 				WORKFLOW_STAGE_ID_SUBMISSION, WORKFLOW_STAGE_ID_EDITING, WORKFLOW_STAGE_ID_PRODUCTION,

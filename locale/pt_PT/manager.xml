@@ -167,10 +167,6 @@
 	<message key="manager.emails.form.emailKeyRequired">É obrigatória uma única chave para o e-mail.</message>
 	<message key="manager.setup.errorDeletingItem">Ocorreu um erro ao eliminar este item.</message>
 	<message key="manager.reviewerSearch.searchByName">Pesquisar por nome do avaliador</message>
-	<message key="manager.reviewerSearch.doneAmount">Revisões concluídas: {$current}</message>
-	<message key="manager.reviewerSearch.avgAmount">Média dias para concluir: {$current}</message>
-	<message key="manager.reviewerSearch.lastAmount">Dias desde a última revisão: {$current}</message>
-	<message key="manager.reviewerSearch.activeAmount">Revisões activas: {$current}</message>
 	<message key="manager.reviewerSearch.interests">Interesses de Revisão</message>
 	<message key="plugins.categories.oaiMetadataFormats">Plugins de Formatos de Metadados OAI</message>
 	<message key="plugins.categories.oaiMetadataFormats.description">Estes plugins de formato geram metadados para comunicações via OAI.</message>
@@ -230,13 +226,7 @@
 	<message key="manager.userSearch.searchByName">Pesquisa por Nome</message>
 	<message key="manager.reviewerSearch.change">Modificar</message>
 	<message key="manager.reviewerSearch.searchByName.short">Pesquisar por Nome</message>
-	<message key="manager.reviewerSearch.doneAmountToggle">Activar/desactivar este filtro para as revisões concluídas.</message>
-	<message key="manager.reviewerSearch.avgAmountToggle">Activar/desactivar este filtro para a media de dias para concluir a revisão.</message>
-	<message key="manager.reviewerSearch.lastAmountToggle">Activar/desactivar este filtro para os dias desde a última revisão.</message>
-	<message key="manager.reviewerSearch.activeAmountToggle">Actiavar/desactivar este filtro para as revisões activas.</message>
 	<message key="manager.reviewerSearch.form.instructions">Use o formulário abaixo para definir os valores máximos para os termos que deseja pesquisar. O formulário é pré-preenchido com as médias calculadas para estes campos.</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">Interesses de Revisão (insira para procurar interesses correspondentes)</message>
-	<message key="manager.reviewerSearch.form.previousReviewRounds">Os revisores das rondas anteriores desta submissão</message>
 	<message key="manager.statistics.defaultMetricDescription">O {$contextObjectName} está configurada para gravar mais de uma métrica de uso. As estatísticas de uso serão exibidas em vários contextos.
 		Existem casos em que uma estatística de uso único deve ser usada, e.g. para exibir uma lista ordenada de submissões mais utilizadas ou para classificar
 		resultados da pesquisa. Selecione uma das métricas configuradas como padrão.</message>

@@ -139,10 +139,6 @@
 	<message key="manager.plugins">Wtyczki systemowe</message>
 	<message key="manager.readingTools">Narzędzia czytelnicze</message>
 	<message key="manager.reviewerSearch.searchByName">Wyszukaj recenzenta po nazwie</message>
-	<message key="manager.reviewerSearch.doneAmount">Wykonanych recenzji: {$current}</message>
-	<message key="manager.reviewerSearch.avgAmount">Średnia długość procesu recenzowania (dni): {$current}</message>
-	<message key="manager.reviewerSearch.lastAmount">Dni od ostatniej recenzji: {$current}</message>
-	<message key="manager.reviewerSearch.activeAmount">Liczba aktywnych recenzji: {$current}</message>
 	<message key="manager.reviewerSearch.interests">Zainteresowania badawcze</message>
 	<message key="manager.roles">Role</message>
 	<message key="manager.setup.errorDeletingItem">Wystąpił błąd podczas usuwania tego pliku.</message>
@@ -180,7 +176,6 @@
 	<message key="manager.emails.reset.message">Jeżeli usuniesz szablon, wszystkie wiadomości będą zresetowane do swojej domyślnej wartości. Czy chcesz kontynuować?</message>
 	<message key="manager.reviewerSearch.searchByName.short">Wyszukaj po imieniu</message>
 	<message key="manager.reviewerSearch.form.instructions">Użyj formularza aby określić maksymalną liczbę wartości dla wyszukiwanych terminów. Formularz sugeruje uśrednione wartości dla pól.</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">Podaj zainteresowania recenzenta, oddzielone przecinkami...</message>
 	<message key="manager.setup.layout.blockManagement">Zarządzanie paskiem bocznym</message>
 	<message key="manager.statistics.city">Miasto</message>
 	<message key="manager.statistics.region">Region</message>
@@ -200,11 +195,6 @@
 	<message key="manager.language.reloadLocalizedDefaultSettings">Przeładuj ustawienia domyślne</message>
 	<message key="manager.userSearch.searchByName">Szukaj wg imienia i nazwiska</message>
 	<message key="manager.reviewerSearch.change">Zmień</message>
-	<message key="manager.reviewerSearch.doneAmountToggle">Włącz/wyłącz filtr dla wykonanych recenzji.</message>
-	<message key="manager.reviewerSearch.avgAmountToggle">Włącz/wyłącz filtr dla średniej długości procesu recenzowania.</message>
-	<message key="manager.reviewerSearch.lastAmountToggle">Włącz/wyłącz filtr dla dni od ostatniej recenzji.</message>
-	<message key="manager.reviewerSearch.activeAmountToggle">Włącz/wyłącz filtr dla aktywnych recenzji.</message>
-	<message key="manager.reviewerSearch.form.previousReviewRounds">Poprzednie rundy recenzji dla recenzentów tego zgłoszenia</message>
 	<message key="manager.statistics.defaultMetricDescription">Twój {$contextObjectName} jest skonfigurowany tak, aby uwzględniać więcej niż jedną metrykę. Statystyki zostaną wyświetlone w wielu kontekstach. Istnieją przypadki, w których jedna metryka musi zostać wykorzystana, np. do wyświetlenia listy najczęściej otwieranych zgłoszeń lub w celu stopniowania wyników wyszukiwania. Wybierz jedną ze skonfigurowanych metryk jako domyślną.</message>
 	<message key="manager.statistics.reports">Generator raportów</message>
 	<message key="manager.statistics.reports.description">System generuje raporty zawierające statystyki wykorzystania strony oraz zgłoszeń przez zadany okres czasu. Raporty są generowane w postaci plików CSV które można otworzyć za pomocą programu obsługującego arkusze kalkulacyjne.</message>
@@ -312,7 +302,6 @@
 	<message key="manager.plugins.pluginGallery.certifications.partner">Zewnętrzna</message>
 	<message key="manager.plugins.pluginGallery.maintainer">Zarządzający</message>
 	<message key="manager.plugins.pluginGallery.version">Wersja: {$version}</message>
-	<message key="manager.plugins.pluginGallery.date">Data opublikowania: {$date}</message>
 	<message key="manager.plugins.pluginGallery.homepage">Strona autora</message>
 	<message key="manager.plugins.pluginGallery.summary">Podsumowanie</message>
 	<message key="manager.plugins.pluginGallery.status">Status</message>

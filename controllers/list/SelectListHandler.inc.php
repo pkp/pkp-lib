@@ -12,10 +12,9 @@
  * @brief A base class for list selection handlers. This defines the structure
  *  that will be used by handlers which need to select from a list of items.
  */
-class SelectListHandler extends PKPHandler {
-	/** @var string Title (expects a translation key) */
-	public $_title = '';
+import('lib.pkp.controllers.list.ListHandler');
 
+class SelectListHandler extends ListHandler {
 	/** @var string A notice to display above items (expects translation key) */
 	public $_notice = '';
 
@@ -32,22 +31,10 @@ class SelectListHandler extends PKPHandler {
 	public $_items = null;
 
 	/**
-	 * Constructor
-	 */
-	function __construct($args = array()) {
-		parent::__construct();
-
-		$this->init($args);
-	}
-
-	/**
-	 * Initialize the handler with config parameters
-	 *
-	 * @param array $args Configuration params
+	 * @copydoc ListHandler::init()
 	 */
 	public function init($args = array()) {
-		$this->setId(!empty($args['id']) ? $args['id'] : get_class($this));
-		$this->_title = !empty($args['title']) ? $args['title'] : $this->_title;
+		parent::init($args);
 		$this->_notice = !empty($args['notice']) ? $args['notice'] : $this->_notice;
 		$this->_inputName = !empty($args['inputName']) ? $args['inputName'] : $this->_inputName;
 		$this->_inputType = !empty($args['inputType']) ? $args['inputType'] : $this->_inputType;
@@ -56,10 +43,7 @@ class SelectListHandler extends PKPHandler {
 	}
 
 	/**
-	 * Retrieve the configuration data to be used when initializing this
-	 * handler on the frontend
-	 *
-	 * @return array Configuration data
+	 * @copydoc ListHandler::getConfig()
 	 */
 	public function getConfig() {
 
@@ -67,31 +51,20 @@ class SelectListHandler extends PKPHandler {
 			$this->_items = $this->getItems();
 		}
 
-		$data = array(
+		$config = array(
 			'inputName' => $this->_inputName,
 			'inputType' => $this->_inputType,
 			'selected' => $this->_selected,
-			'collection' => array(
-				'items' => $this->_items,
-			),
+			'items' => $this->_items,
 			'i18n' => array(
 				'title' => __($this->_title),
 			),
 		);
 
 		if ($this->_notice) {
-			$data['i18n']['notice'] = __($this->_notice);
+			$config['i18n']['notice'] = __($this->_notice);
 		}
 
-		return $data;
-	}
-
-	/**
-	 * Helper function to retrieve items
-	 *
-	 * @return array Items requested
-	 */
-	public function getItems() {
-		fatalError('SelectListHandler must be instantiated with items or child classes must implement getItems().');
+		return $config;
 	}
 }

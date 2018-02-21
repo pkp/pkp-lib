@@ -26,7 +26,7 @@
 	<message key="editor.submission.fileAuditor.form.userRequired">Vous devez choisir un utilisateur à qui l'ouvrage sera attribué.</message>
 	<message key="editor.submission.revisions">Révisions</message>
 	<message key="editor.submission.revisionsDescription">Les fichiers révisés de la soumission sont affichés ici. L'icône Ouvrir le dossier indique qui a téléchargé le fichier.</message>
-	<message key="editor.submission.review.reviewersDescription"><![CDATA[Utilisez <em>Ajouter un rapporteur</em> pour inviter des lecteurs à examiner les fichiers soumis. L'icône en forme de carnet indique qu'on a soumis un fichier pour l'évaluation. Celui-ci indiquera <em>Considéré</em> lorsqu'il aura été consulté. Si les évaluations sont en retard, l'icône d'une enveloppe rouge s'affichera à titre de rappel pour les rapporteurs.]]></message>	
+	<message key="editor.submission.review.reviewersDescription"><![CDATA[Utilisez <em>Ajouter un rapporteur</em> pour inviter des lecteurs à examiner les fichiers soumis. L'icône en forme de carnet indique qu'on a soumis un fichier pour l'évaluation. Celui-ci indiquera <em>Considéré</em> lorsqu'il aura été consulté. Si les évaluations sont en retard, l'icône d'une enveloppe rouge s'affichera à titre de rappel pour les rapporteurs.]]></message>
 	<message key="editor.submission.addReviewer">Ajouter un rapporteur</message>
 	<message key="editor.submission.fileList.includeAllStages">Inclure tous les fichiers de toutes les étapes de production accessibles.</message>
 	<message key="editor.submission.review.currentFiles">{$round}e série d'évaluation des fichiers.</message>
@@ -86,7 +86,7 @@
 	<message key="editor.review.thankReviewer">Remercier le rapporteur</message>
 	<message key="editor.review.thankReviewerError">Erreur d'envoi du remerciement au rapporteur</message>
 	<message key="editor.review.reviewerComments">Commentaires du rapporteur</message>
-	<message key="editor.review.days">Moyenne des jours</message>
+	<message key="editor.review.rateReviewer">Notation du rapporteur</message>
 	<message key="editor.review.mustSelect">Vous devez sélectionner un rapporteur</message>
 	<message key="editor.review.errorAddingReviewer">Il y a eu une erreur au moment d'ajouter le rapporteur. Essayez de nouveau.</message>
 	<message key="editor.review.errorDeletingReviewer">Il y a eu une erreur au moment de supprimer le rapporteur. Essayez de nouveau.</message>

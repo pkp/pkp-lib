@@ -126,26 +126,27 @@
 		return processedJsonData.status;
 	};
 
+
 	/**
 	 * Add reviewerName to Email template editor
 	 * @protected
 	 */
 	$.pkp.controllers.grid.users.reviewer.form.AddReviewerFormHandler.
-		prototype.addReviewerNameToMailEditor = function () {
-			var firstName = $('[name="firstName"]').val();
-			var lastName = $('[name="lastName"]').val();
+			prototype.addReviewerNameToMailEditor = function() {
+		var firstName = $('[name="firstName"]').val(),
+				lastName = $('[name="lastName"]').val(),
+				reviewerName = firstName + ' ' + lastName;
 
-			var reviewerName = firstName + " " + lastName;
-
-			$('[name^="personalMessage"]').val().replace('{$reviewerName}', reviewerName);
-			$("iframe[id^='personalMessage']")
+		$('[name^="personalMessage"]').val()
+				.replace('{$reviewerName}', reviewerName);
+		$("iframe[id^='personalMessage']")
 				.contents()
 				.find('[data-symbolic="reviewerName"]')
-				.each(function () {
+				.each(function() {
 					$(this).html(reviewerName);
 					$(this).attr('class', '');
 				});
-		};
+	};
 
 /** @param {jQuery} $ jQuery closure. */
 }(jQuery));

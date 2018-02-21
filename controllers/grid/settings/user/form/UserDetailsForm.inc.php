@@ -106,7 +106,6 @@ class UserDetailsForm extends UserForm {
 				'interests' => $interestManager->getInterestsForUser($user),
 				'userLocales' => $user->getLocales(),
 			);
-
 			import('classes.core.ServicesContainer');
 			$userService = ServicesContainer::instance()->get('user');
 			$data['canCurrentUserGossip'] = $userService->canCurrentUserGossip($user->getId());
@@ -267,7 +266,12 @@ class UserDetailsForm extends UserForm {
 		$user->setBiography($this->getData('biography'), null); // Localized
 		$user->setMustChangePassword($this->getData('mustChangePassword') ? 1 : 0);
 		$user->setAuthId((int) $this->getData('authId'));
-		$user->setGossip($this->getData('gossip'));
+		// Users can never view/edit their own gossip fields
+		import('classes.core.ServicesContainer');
+		$userService = ServicesContainer::instance()->get('user');
+		if ($userService->canCurrentUserGossip($user->getId())) {
+			$user->setGossip($this->getData('gossip'));
+		}
 
 		$site = $request->getSite();
 		$availableLocales = $site->getSupportedLocales();

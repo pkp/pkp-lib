@@ -439,6 +439,9 @@
 	<!-- Ключи статуса раунда рецензирования -->
 	<message key="editor.submission.roundStatus.revisionsRequested">Новые версии были запрошены.</message>
 	<message key="editor.submission.roundStatus.revisionsSubmitted">Новые версии были отправлены.</message>
+	<message key="editor.submission.roundStatus.resubmitForReview">Материал нужно повторно отправить на рецензирование.</message>
+	<message key="editor.submission.roundStatus.submissionResubmitted">Материал был повторно отправлен на рецензирование.</message>
+
 	<message key="editor.submission.roundStatus.sentToExternal">Отправлен на внешнее рецензирование.</message>
 	<message key="editor.submission.roundStatus.accepted">Материал принят.</message>
 	<message key="editor.submission.roundStatus.declined">Материал отклонен.</message>
@@ -621,4 +624,5 @@
 	<message key="submission.list.filesPrepared">Подготовлено файлов</message>
 	<message key="submission.list.discussions">Открытых обсуждений</message>
 	<message key="submission.list.incompleteSubmissionNotice">Этот материал должен быть завершен до того, как редактор будет его рецензировать.</message>
+	<message key="submission.list.currentStage">Сейчас на этапе «{$stage}».</message>
 </locale>

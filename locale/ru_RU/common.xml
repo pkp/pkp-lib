@@ -96,7 +96,6 @@
 	]]></message>
 	<message key="common.changesSaved">Ваши изменения были сохранены.</message>
 	<message key="common.chooseOne">Выберите одно</message>
-	<message key="common.clearSearch">Очистить фразу поиска</message>
 	<message key="common.close">Закрыть</message>
 	<message key="common.closePanel">Закрыть панель</message>
 	<message key="common.closeWindow">Закрыть окно</message>
@@ -155,6 +154,7 @@
 	<message key="common.fileType">Тип файла</message>
 	<message key="common.fileUploaderError">Загружается загрузчик файлов в систему. Если он не появляется, скорее всего его запуск не поддерживается этим браузером. Пожалуйста, свяжитесь с администратором сервера для решения проблемы.</message>
 	<message key="common.filter">Фильтры</message>
+	<message key="common.filterAdd">Добавить фильтр: {$filterTitle}</message>
 	<message key="common.filterRemove">Сбросить фильтр: {$filterTitle}</message>
 	<message key="common.from">C</message>
 	<message key="common.until">По</message>
@@ -173,6 +173,8 @@
 	<message key="common.language">Язык</message>
 	<message key="common.languages">Языки</message>
 	<message key="common.less">Меньше</message>
+	<message key="common.lessThan">{$value} или меньше</message>
+	<message key="common.listSeparator">, </message>
 	<message key="common.manage">Настроить</message>
 	<message key="common.mailingAddress">Почтовый адрес</message>
 	<message key="common.billingAddress">Адрес для отправки счета (если отличается)</message>
@@ -180,6 +182,7 @@
 	<message key="common.modify">Изменить</message>
 	<message key="common.month">Месяц</message>
 	<message key="common.more">Больше</message>
+	<message key="common.moreThan">{$value} или больше</message>
 	<message key="common.noneAssigned">Никто не назначен</message>
 	<message key="common.none">Нет</message>
 	<message key="common.no">Нет</message>
@@ -241,6 +244,7 @@
 	<message key="common.saving">Сохранение...</message>
 	<message key="common.search">Найти</message>
 	<message key="common.searchQuery">Поисковый запрос</message>
+	<message key="common.clearSearch">Очистить фразу поиска</message>
 	<message key="common.second">Секунд</message>
 	<message key="common.selectAll">Выбрать все</message>
 	<message key="common.selectNone">Отменить выбор</message>
@@ -567,4 +571,8 @@
 	<message key="notification.addedNavigationMenu">Меню навигации было успешно добавлено</message>
 	<message key="notification.editedNavigationMenu">Меню навигации было успешно обновлено</message>
 	<message key="notification.removedNavigationMenu">Меню навигации было успешно удалено</message>
+
+	<!-- Обработчики списков -->
+	<message key="list.viewMore">Показать подробности о {$name}</message>
+	<message key="list.viewLess">Скрыть подробности о {$name}</message>
 </locale>

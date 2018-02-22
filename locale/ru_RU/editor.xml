@@ -72,13 +72,15 @@
 	<message key="editor.review.reviewConfirmed">Рецензия подтверждена</message>
 	<message key="editor.review.reviewSubmitted">Рецензия отправлена</message>
 	<message key="editor.review.reviewerComments">Комментарии рецензента</message>
+	<message key="editor.review.rateReviewer">Рейтинг рецензента</message>
+	<message key="editor.review.rateReviewer.description">Оцените качество представленной рецензии. Этот рейтинг не будет показан рецензенту.</message>
+	<message key="editor.review.reviewerRating.none">Нет рейтинга</message>
 	<message key="editor.review.mustSelect">Вы должны выбрать рецензента</message>
 	<message key="editor.review.errorAddingReviewer">Произошла ошибка при добавлении рецензента. Пожалуйста, попробуйте снова.</message>
 	<message key="editor.review.errorDeletingReviewer">Произошла ошибка при удалении рецензента. Пожалуйста, попробуйте снова.</message>
 	<message key="editor.review.userGroupSelect">Записать пользователя в эту группу рецензентов</message>
 	<message key="editor.review.unconsiderReviewText">Вы хотите отметить эту рецензию как не рассмотренную? История рецензирования будет сохранена.</message>
 	<message key="editor.review.unconsiderReview">Отметить рецензию как не рассмотренную</message>
-	<message key="editor.review.rateReviewer">Рейтинг рецензента</message>
 	<message key="editor.review.readConfirmation">Прочитав рецензию, нажмите «Подтвердить», чтобы показать, что процесс рецензирования может продолжаться дальше. Если рецензент отправил рецензию каким-то другим образом, вы можете загрузить файл ниже и нажать «Подтвердить», чтобы продолжить.</message>
 	<message key="editor.submission.selectCopyedingFiles">Файлы для литературного редактирования</message>
 	<message key="editor.submission.selectReviewer">Выбрать рецензента</message>
@@ -124,4 +126,21 @@
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">Отменить одобрение этой корректуры, чтобы отметить, что корректура еще не завершена и файл не готов к публикации.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">Открытый идентификатор «{$publicIdentifier}» не может быть числом.</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">Шаблон «{$pattern}» не разрешен для открытого идентификатора.</message>
+
+	<!-- Списки выбора рецензента -->
+	<message key="reviewer.list.count">Рецензентов: {$count}</message>
+	<message key="reviewer.list.itemsOfTotal">Рецензентов: {$count} из {$total}</message>
+	<message key="reviewer.list.filterRating">Рейтинг не менее</message>
+	<message key="reviewer.list.activeReviews">Рецензий в работе: {$count}</message>
+	<message key="reviewer.list.activeReviewsDescription">Число рецензий в работе</message>
+	<message key="reviewer.list.completedReviews">Завершено рецензий</message>
+	<message key="reviewer.list.reviewerRating">Рейтинг рецензента: {$rating}</message>
+	<message key="reviewer.list.daysSinceLastAssignment">{$days} дней назад</message>
+	<message key="reviewer.list.daySinceLastAssignment">Вчера</message>
+	<message key="reviewer.list.daysSinceLastAssignmentDescription">Дней с последней рецензии</message>
+	<message key="reviewer.list.averageCompletion">Средне число дней на рецензию</message>
+	<message key="reviewer.list.neverAssigned">Никогда не назначали рецензентом</message>
+	<message key="reviewer.list.currentlyAssigned">Этот рецензент уже был назначен рецензентом этого материала.</message>
+	<message key="reviewer.list.reviewInterests">Интересы как рецензента</message>
+	<message key="reviewer.list.biography">Биография</message>
 </locale>

@@ -624,4 +624,5 @@
 	<message key="submission.list.filesPrepared">Подготовлено файлов</message>
 	<message key="submission.list.discussions">Открытых обсуждений</message>
 	<message key="submission.list.incompleteSubmissionNotice">Этот материал должен быть завершен до того, как редактор будет его рецензировать.</message>
+	<message key="submission.list.currentStage">Сейчас на этапе «{$stage}».</message>
 </locale>

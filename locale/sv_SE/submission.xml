@@ -556,12 +556,12 @@
 	<message key="submission.copyrightStatement">Copyright (c) {$copyrightYear} {$copyrightHolder}</message>
 	<message key="submission.licenseURLValid">Ange en giltig extern URL (inklusive http://).</message>
 	<message key="submission.licenseURL">Licens-URL</message>
-	<message key="submission.license.cc.by-nc-nd4">CC Erkännande-Icke-Kommersiell-IngaBearbetningar 4.0</message>
-	<message key="submission.license.cc.by-nc4">CC Erkännande-Icke-Kommersiell 4.0</message>
-	<message key="submission.license.cc.by-nc-sa4">CC Erkännande-Icke-Kommersiell-DelaPåSammaVillkor 4.0</message>
+	<message key="submission.license.cc.by-nc-nd4">CC Erkännande-IckeKommersiell-IngaBearbetningar 4.0</message>
+	<message key="submission.license.cc.by-nc4">CC Erkännande-IckeKommersiell 4.0</message>
+	<message key="submission.license.cc.by-nc-sa4">CC Erkännande-IckeKommersiell-DelaLika 4.0</message>
 	<message key="submission.license.cc.by-nd4">CC Erkännande-IngaBearbetningar 4.0</message>
 	<message key="submission.license.cc.by4">CC Erkännande 4.0</message>
-	<message key="submission.license.cc.by-sa4">CC Erkännande-DelaPåSammaVillkor 4.0</message>
+	<message key="submission.license.cc.by-sa4">CC Erkännande-DelaLika 4.0</message>
 	<message key="submission.license.cc.by-nc-nd4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons-licens" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>Detta verk är licensierat under en <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Erkännande-Ickekommersiell-IngaBearbetningar 4.0 Internationell-licens</a>.</p>]]></message>
 	<message key="submission.license.cc.by-nc4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons-licens" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>Detta verk är licensierat under en <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons-licens" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />Detta verk är licensierat under en <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Erkännande-IckeKommersiell 4.0 Internationell-licens</a>.</p>]]></message>
 	<message key="submission.license.cc.by-nc-sa4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons-licens" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>Detta verk är licensierat under en <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Erkännande-IckeKommersiell-DelaLika 4.0 Internationell Licens</a>.</p>]]></message>

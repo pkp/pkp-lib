@@ -13,5 +13,5 @@
 
 <locale name="da_DK" full_name="Dansk">
 	<message key="plugins.citationParser.freecite.displayName">FreeCite Citation Extractor</message>
-	<message key="plugins.citationParser.freecite.description">Extracts fields from plain text citations via the FreeCite service.</message>
+	<message key="plugins.citationParser.freecite.description">Udtager felter fra almindelige tekstcitater via FreeCite-tjenesten.</message>
 </locale>

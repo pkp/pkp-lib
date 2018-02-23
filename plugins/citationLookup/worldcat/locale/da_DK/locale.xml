@@ -13,5 +13,5 @@
 
 <locale name="da_DK" full_name="Dansk">
 	<message key="plugins.citationLookup.worldcat.displayName">WorldCat Database Connector</message>
-	<message key="plugins.citationLookup.worldcat.description">Connects to the WorldCat bibliographic database.</message>
+	<message key="plugins.citationLookup.worldcat.description">Opretter forbindelse til WorldCat's bibliografiske database.</message>
 </locale>

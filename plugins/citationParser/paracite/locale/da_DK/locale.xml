@@ -13,5 +13,5 @@
 
 <locale name="da_DK" full_name="Dansk">
 	<message key="plugins.citationParser.paracite.displayName">ParaCite Citation Extractor</message>
-	<message key="plugins.citationParser.paracite.description">Extracts fields from plain text citations via the ParaCite service.</message>
+	<message key="plugins.citationParser.paracite.description">Udtager felter fra almindelige tekstcitater via ParaCite-tjenesten.</message>
 </locale>

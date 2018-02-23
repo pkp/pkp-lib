@@ -13,5 +13,5 @@
 
 <locale name="da_DK" full_name="Dansk">
 	<message key="plugins.oaiMetadata.dc.displayName">DC Metadata Format</message>
-	<message key="plugins.oaiMetadata.dc.description">Structures metadata in a way that is consistent with the Dublin Core format.</message>
+	<message key="plugins.oaiMetadata.dc.description">Strukturerer metadata på en måde, der er i overensstemmelse med Dublin Core-formatet.</message>
 </locale>

@@ -504,7 +504,7 @@
 	<message key="submission.authorBiography">Forfatterbiografi</message>
 	<message key="submission.authorWithAffiliation">{$name}, {$affiliation}</message>
 	<message key="submission.howToCite.downloadCitation">Download henvisninger</message>
-	<message key="submission.event.participantRemoved">"{$name}" ({$username}) is removed as a {$userGroupName}.</message>
+	<message key="submission.event.participantRemoved">"{$name}" ({$username}) blev fjernet som en {$userGroupName}.</message>
 	<message key="editor.submission.roundStatus.revisionsSubmitted">Rettelserne er blevet indsendt.</message>
 	<message key="editor.submission.roundStatus.reviewOverdue">En bedømmelse er forfalden.</message>
 	<message key="editor.submission.roundStatus.pendingRecommendations">Afventer anbefalinger fra redaktører.</message>
@@ -534,7 +534,7 @@
 	<message key="submission.review.status.complete">Denne bedømmelse er afsluttet.</message>
 	<message key="submission.review.status.thanked">Denne bedømmelse er afsluttet og bedømmeren har modtaget tak for deltagelse.</message>
 	<message key="submission.query.noParticipantOptions">Der skal udpeges mindst én deltager i forbindelse med denne indsendelse før en drøftelse kan påbegyndes.</message>
-	<message key="submission.list.infoCenter"><![CDATA[Activity Log & Notes]]></message>
+	<message key="submission.list.infoCenter"><![CDATA[Historik & Noter]]></message>
 	<message key="submission.list.count">{$count} indsendelser</message>
 	<message key="submission.list.itemsOfTotal">{$count} ud af {$total} indsendelser</message>
 	<message key="submission.list.responseDue">Svar forfalden</message>

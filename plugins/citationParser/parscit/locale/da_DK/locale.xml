@@ -13,5 +13,5 @@
 
 <locale name="da_DK" full_name="Dansk">
 	<message key="plugins.citationParser.parscit.displayName">ParsCit Citation Extractor</message>
-	<message key="plugins.citationParser.parscit.description">Extracts fields from plain text citations via the ParsCit service.</message>
+	<message key="plugins.citationParser.parscit.description">Udtager felter fra almindelige tekstcitater via ParsCit-tjenesten.</message>
 </locale>

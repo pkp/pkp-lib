@@ -13,7 +13,7 @@
 
 <locale name="da_DK" full_name="Dansk">
 	<message key="plugins.metadata.mods34.displayName">MODS 3.4 meta-data</message>
-	<message key="plugins.metadata.mods34.description">Contributes MODS 3.4 schemas and application adapters.</message>
+	<message key="plugins.metadata.mods34.description">Understøtter MODS 3.4 database- og applikationstilpasninger.</message>
 	<message key="plugins.metadata.mods34.mods34XmlOutput.displayName">MODS 3.4 Output</message>
-	<message key="plugins.metadata.mods34.mods34XmlOutput.description">Convert a MODS 3.4 meta-data description to its XML binding.</message>
+	<message key="plugins.metadata.mods34.mods34XmlOutput.description">Konverter en MODS 3.4 metadata-beskrivelse til dets XML-binding.</message>
 </locale>

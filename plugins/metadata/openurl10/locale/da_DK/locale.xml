@@ -13,5 +13,5 @@
 
 <locale name="da_DK" full_name="Dansk">
 	<message key="plugins.metadata.openurl10.displayName">OpenURL 1.0 meta-data</message>
-	<message key="plugins.metadata.openurl10.description">Contributes OpenURL 1.0 schemas and application adapters.</message>
+	<message key="plugins.metadata.openurl10.description">Understøtter OpenURL 1.0 database- og applikationstilpasninger.</message>
 </locale>

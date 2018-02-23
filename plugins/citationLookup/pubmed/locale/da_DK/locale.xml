@@ -13,5 +13,5 @@
 
 <locale name="da_DK" full_name="Dansk">
 	<message key="plugins.citationLookup.pubmed.displayName">PubMed Database Connector</message>
-	<message key="plugins.citationLookup.pubmed.description">Connects to the PubMed bibliographic database.</message>
+	<message key="plugins.citationLookup.pubmed.description">Opretter forbindelse til PubMed's bibliografiske database.</message>
 </locale>

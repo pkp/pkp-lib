@@ -46,7 +46,7 @@
 	<message key="editor.submissionReview.restrictFiles">Filer, der skal bedømmes</message>
 	<message key="editor.submissionReview.reviewType">Form for bedømmelse (review)</message>
 	<message key="editor.review.enrollReviewer">Tilføj en allerede registreret bruger som bedømmer</message>
-	<message key="editor.review.userGroupSelect">Enroll the user with this reviewer user group</message>
+	<message key="editor.review.userGroupSelect">Tilmeld brugeren denne bedømmer-brugergruppe</message>
 	<message key="editor.review.requestSent">Anmodning sendt</message>
 	<message key="editor.review.responseDue">Svar senest: {$date}</message>
 	<message key="editor.submission.review.currentFiles">Gældende bedømmelsesfiler for runde {$round}</message>
@@ -58,9 +58,9 @@
 	<message key="editor.submission.copyediting.personalMessageToUser">Besked til bruger</message>
 	<message key="editor.submission.fileAuditor.form.fileRequired">Vælg mindst én fil, der skal tildeles brugeren.</message>
 	<message key="editor.submission.fileAuditor.form.messageRequired">Personlig besked skal inkluderes.</message>
-	<message key="editor.submission.fileAuditor.skipEmail">Send ikke e-mail til auditøren</message>
-	<message key="editor.submission.fileAuditor.form.userRequired">For at tildele skal der vælges bruger.</message>
-	<message key="editor.submission.review.reviewersDescription"><![CDATA[Brug <em>+Tilføj bedømmer</em> for at invitere læsere til at bedømme indsendelsesfilerne. Notebook-ikonet indikerer, at der er indløbet en bedømmelse, som efterfølgende bliver markeret <em>Godtaget</em> efter det er blevet inddraget. Når bedømmelserne er forfalden fremkommer et rødt brevikon for at rykke bedømmerne.]]></message>
+	<message key="editor.submission.fileAuditor.skipEmail">Send ikke e-mail til auditor</message>
+	<message key="editor.submission.fileAuditor.form.userRequired">For at tildele skal der vælges en bruger.</message>
+	<message key="editor.submission.review.reviewersDescription"><![CDATA[Brug <em>+Tilføj bedømmer</em> for at invitere læsere til at bedømme indsendelsesfilerne. Notesbog-ikonet indikerer, at der er indløbet en bedømmelse, som efterfølgende bliver markeret <em>Godtaget</em> efter det er blevet inddraget. Når bedømmelserne er forfalden fremkommer et rødt brevikon for at rykke bedømmerne.]]></message>
 	<message key="editor.review.unassignReviewer">Fjern bedømmer</message>
 	<message key="editor.submissionReview.restrictFiles.hide">Luk filvalg</message>
 	<message key="editor.submissionReview.editReview">Redigér bedømmelse</message>
@@ -85,8 +85,8 @@
 	<message key="editor.review.mustSelect">Bedømmer skal udvælges</message>
 	<message key="editor.review.errorAddingReviewer">En fejl indtrådte i forbindelse med valg af bedømmer. Prøv igen.</message>
 	<message key="editor.review.errorDeletingReviewer">En fejl indtrådte i forbindelse med fjernelse af bedømmer. Prøv igen.</message>
-	<message key="editor.review.unconsiderReviewText">Ønsker du at markere denne bedømmelse som værende tilsidesat? Bedømmelsesforløbet bliver gemt.</message>
-	<message key="editor.review.unconsiderReview">Tilsidesæt denne bedømmelse</message>
+	<message key="editor.review.unconsiderReviewText">Ønsker du at markere denne bedømmelse som værende afvist? Bedømmelsesforløbet bliver gemt.</message>
+	<message key="editor.review.unconsiderReview">Afvis denne bedømmelse</message>
 	<message key="editor.review.readConfirmation">Klik "Bekræft" efter at have læst denne bedømmelse for at markere at bedømmelsesprocessen kan fortsætte. Hvis bedømmeren har indsendt sin bedømmelse andetsteds, kan du uploade filen nedenfor og dernæst klikke "Bekræft" for at fortsætte.</message>
 	<message key="editor.submission.selectCopyedingFiles">Manuskriptredigerede filer</message>
 	<message key="editor.submission.taskDueDate">Opgavens forfaldsdato</message>
@@ -96,7 +96,7 @@
 	<message key="editor.submission.proof.reminder">Påmindelse om korrektur</message>
 	<message key="editor.submission.editorial.approveCopyeditDescription">Den manuskriptredigerede fil skal godkendes før den kan blive sendt til produktions-trinnet. Ønsker du at godkende denne fil?</message>
 	<message key="editor.submission.editorial.disapproveCopyeditDescription">En afvisning af den manuskriptredigerede fil vil forhindre den i at blive sendt til produktionstrinnet. Ønsker du at afvise denne fil?</message>
-	<message key="editor.submission.addAuditor">Tilføj auditør</message>
+	<message key="editor.submission.addAuditor">Tilføj auditor</message>
 	<message key="editor.submission.copyedit.manageCopyeditFilesDescription">Enhver fil, der allerede er blevet uploadet til et af indsendelsestrinnene kan tilføjes manuskriptredigeringslisten ved nedenfor at markere afkrydsningsfeltet ud for 'Inkludér' og klikke 'Søg': Alle tilgængelige filer vil stå opført og kan tilvælges. Ekstra filer, der ikke allerede er uplodet til et af trinnene, kan tilføjes listen ved at klikke på linket 'Upload fil'.</message>
 	<message key="editor.review">Bedømmelse</message>
 	<message key="editor.review.reviewDetails">Bedømmelsesdetaljer</message>
@@ -113,8 +113,19 @@
 	<message key="submission.queries.messageRequired">En besked skal tilføjes indlægget.</message>
 	<message key="grid.action.editQuery">Redigér indlægget</message>
 	<message key="editor.submission.proofreading.approveProof">Godkend korrekturen</message>
-	<message key="editor.submission.proofreading.revokeProofApproval">Tilbagekaldt godkendelse af korrektur</message>
+	<message key="editor.submission.proofreading.revokeProofApproval">Tilbagekald godkendelse af korrektur</message>
 	<message key="editor.submission.proofreading.confirmCompletion">Godkend denne korrektur for at markere, at korrekturlæsningen er afsluttet og filen er klar til at blive publiceret.</message>
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">Tilbagekald denne godkendelse af korrekturen for at markere, at korrekturlæsningen ikke længere er afsluttet og at filen ikke er klar til publicering.</message>
 
+	<message key="editor.submissionReview.sendEmail">Send en  besked via e-mail til forfatteren: {$authorName}</message>
+	<message key="editor.submissionReview.sendEmail.editors">Send en  besked via e-mail til redaktøren: {$editorNames}</message>
+	<message key="editor.review.newReviewRound">Forlang en ny bedømmelsesrunde</message>
+	<message key="editor.review.reviewsAdded">Bedømmelser er tilføjet mailbesked</message>
+	<message key="editor.submissionReview.recordRecommendation">Registrér redaktionel anbefaling</message>
+	<message key="editor.submissionReview.recordRecommendation.notifyEditors">Meddel redaktører</message>
+	<message key="editor.submissionReview.recordRecommendation.skipEmail">Send ikke en e-mail til redaktørerne.</message>
+	<message key="editor.submissionReview.recordRecommendation.createDiscussion">Opret i forbindelse med denne anbefaling en debat (drøftelse) under bedømmelsen.</message>
+	<message key="editor.submissionReview.recordRecommendation.skipDiscussion">Opret ikke en debat (drøftelse) under bedømmelsen.</message>
+	<message key="editor.publicIdentificationNumericNotAllowed">Public identifier '{$publicIdentifier}' må ikke være et nummer.</message>
+	<message key="editor.publicIdentificationPatternNotAllowed">Mønsteret {$pattern} er ikke tilladt i forbindelse med en 'public identifier'.</message>
 </locale>

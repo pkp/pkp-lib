@@ -32,7 +32,7 @@
 	<message key="admin.languages.confirmReload">Er du sikker på, at du vil genindlæse denne landestandard? Denne handling sletter alle eksisterende landestandardspecifikke data, f.eks. tilpassede e-mail-skabeloner.</message>
 	<message key="admin.languages.installedLocales">Installerede landestandarder</message>
 	<message key="admin.languages.installLanguages">Administrer landestandarder</message>
-	<message key="admin.languages.installLocales">Installer</message>
+	<message key="admin.languages.installLocales">Installér</message>
 	<message key="admin.languages.installNewLocales">Installer nye landestandarder</message>
 	<message key="admin.languages.languageSettings">Sprogindstillinger</message>
 	<message key="admin.languages.noLocalesAvailable">Der findes ingen yderligere landestandarder, som skal installeres.</message>
@@ -42,7 +42,6 @@
 	<message key="admin.server.apacheVersion">Apache-version</message>
 	<message key="admin.server.dbDriver">Databasedriver</message>
 	<message key="admin.server.dbVersion">Version af databaseserver</message>
-	<message key="admin.serverInformationDescription"><![CDATA[Basisoperativsystem og serversoftwareversioner. Klik på <span class="highlight">Detaljerede oplysninger om PHP</span> for at få vist detaljerede oplysninger om denne servers PHP-konfiguration.]]></message>
 	<message key="admin.serverInformation">Serveroplysninger</message>
 	<message key="admin.server.phpVersion">PHP-version</message>
 	<message key="admin.server.platform">Operativsystemplatform</message>
@@ -53,11 +52,10 @@
 	<message key="admin.settings.form.contactNameRequired">Navnet på den primære kontaktperson er påkrævet.</message>
 	<message key="admin.settings.form.minPasswordLengthRequired">Du skal angive en adgangskode, der består af mindst 4 tegn.</message>
 	<message key="admin.settings.form.titleRequired">En titel er påkrævet.</message>
-	<message key="admin.settings.homeHeaderImage.altText">Site logo</message>
-	<message key="admin.settings.homeHeaderImageInvalid">Ugyldigt billedformat for webstedslogo. De accepterede formater er .gif, .jpg eller .png.</message>
+	<message key="admin.settings.homeHeaderImage.altText">Websteds-logo</message>
+	<message key="admin.settings.homeHeaderImageInvalid">Ugyldigt billedformat for webstedslogo. De accepterede formater er .jpg eller .png.</message>
 	<message key="admin.settings.introduction">Introduktion</message>
 	<message key="admin.settings.minPasswordLength">Minimumlængde for adgangskode</message>
-	<message key="admin.settings.passwordCharacters">tegn</message>
 	<message key="admin.settings.siteLanguage">Sprog på websted</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Ugyldigt format for typografiark til websted. Det accepterede format er .css.</message>
 	<message key="admin.settings.siteStyleSheet">Typografiark til websted</message>
@@ -67,7 +65,7 @@
 	<message key="admin.siteSettings">Indstillinger for websted</message>
 	<message key="admin.systemConfigFileReadError"><![CDATA[Konfigurationsfilen <tt>config.inc.php</tt> findes ikke, kan ikke læses eller er ugyldig.]]></message>
 	<message key="admin.systemInformation">Systemoplysninger</message>
-	<message key="admin.versionBuild">Build</message>
+	<message key="admin.versionBuild">Byg</message>
 	<message key="admin.version.checkForUpdates">Søg efter opdateringer</message>
 	<message key="admin.version.downloadPackage">Hent</message>
 	<message key="admin.version.downloadPatch">Hent programrettelse</message>
@@ -103,29 +101,28 @@
 	<message key="admin.scheduledTask.reviewReminder">Påmindelse om bedømmelse</message>
 	<message key="admin.scheduledTask.subscriptionExpiryReminder">Påmindelse om abonnementsophør</message>
 
-	<message key="admin.systemInfo.settingName">Setting Name</message>
-	<message key="admin.systemInfo.settingValue">Setting Value</message>
+	<message key="admin.systemInfo.settingName">Indsættelse af navn</message>
+	<message key="admin.systemInfo.settingValue">Indsættelse af værdi</message>
 	<message key="admin.contexts.confirmDelete">Er du sikker på, at du vil slette {$contextName} og alt indhold permanent?</message>
-	<message key="admin.languages.download">Download Locale</message>
-	<message key="admin.languages.downloadLocales">Download Locales</message>
-	<message key="admin.languages.download.cannotOpen">Cannot open language descriptor from PKP web site.</message>
-	<message key="admin.languages.download.cannotModifyRegistry">Cannot add the new locale to the locale registry file, typically "registry/locales.xml".</message>
+	<message key="admin.languages.download">Download landestandard</message>
+	<message key="admin.languages.downloadLocales">Download landestandarder</message>
+	<message key="admin.languages.download.cannotOpen">Kan ikke åbne sprogbeskrivelse fra PKPs websted.</message>
+	<message key="admin.languages.download.cannotModifyRegistry">Kan ikke tilføje den nye lokalitet til den lokale registreringsfil, typisk "registry/locales.xml".</message>
 	<message key="admin.scheduledTask.clearLogs">Clear Scheduled Task Execution Logs</message>
-	<message key="admin.settings.defaultMetricDescription">Your installation is configured to record more than one usage metric. Usage statistics will be displayed in several contexts.
-		There are cases where a single usage statistic must be used, e.g. to display an ordered list of most-used submissions or to rank
-		search results. Please select one of the configured metrics as a default.</message>
+	<message key="admin.settings.defaultMetricDescription">Din installation er konfigureret til at optage mere end én brugsparameter. Brugsstatistikker vises i flere sammenhænge.
+Der er tilfælde, hvor en enkelt brugsstatistik skal anvendes, f.eks. en visning af en ordnet liste over mest viste indlæg eller en rangering af søgeresultater. Vælg venligst en af de konfigurerede beregninger som standard.</message>
 	<message key="admin.fileLoader.wrongBasePathLocation">Base path {$path} must be inside the public files directory.</message>
 	<message key="admin.fileLoader.pathNotAccessible">Folder {$path} is not a directory or is not readable.</message>
 	<message key="admin.fileLoader.moveFileFailed">File {$filename} could not be moved from {$currentFilePath} to {$destinationPath}</message>
 	<message key="admin.fileLoader.fileProcessed">File {$filename} was processed and archived.</message>
 	<message key="admin.fileLoader.emailSubject">File loader</message>
-	<message key="admin.copyAccessLogFileTool.usage">Copy the passed apache access log file(s), filtering the entries related with this installation,
-to the current files directory, inside the UsageStatsPlugin stage directory. Must run under user with enough privilegies to read access apache log files.
+	<message key="admin.copyAccessLogFileTool.usage">Kopier de(n) godkendte apache-adgangslogfil(er), der har filtreret de poster, som er relateret til denne installation,
+til det aktuelle fil-katalog, inde i UsageStatsPlugin-kartoteket. Skal gennemføres af bruger med tilstrækkelige rettigheder til at læse adgangs-apache logfiler.
 
-This tool will only copy files that aren't already inside the usageStats file loader directories (stage, processing, archive, reject).
+Dette værktøj kopierer kun filer, der ikke allerede er inde i usageStats-fil-indlæsningskatalogerne (trin, behandling, arkivering, afvisning).
 
-Usage: {$scriptName} path/to/apache/log/file.log
-Usage (processing all files inside a directory): {$scriptName} path/to/apache/directory</message>
-	<message key="admin.copyAccessLogFileTool.warning.fileAlreadyExists">Warning: file {$filePath} already exists inside the usage stats directory.</message>
-	<message key="admin.copyAccessLogFileTool.success">Success: {$filePath} to {$destinationPath}</message>
+Anvendelse: {$scriptName} path/to/apache/log/file.log
+Anvendelse (databehandling af alle filer inde i et indeks): {$ scriptName} path/to/apache/directory</message>
+	<message key="admin.copyAccessLogFileTool.warning.fileAlreadyExists">Advarsel: filen {$filePath} eksisterer allerede inde i brugerstatistik-indekset</message>
+	<message key="admin.copyAccessLogFileTool.success">Succes: {$filePath} til {$destinationPath}</message>
 </locale>

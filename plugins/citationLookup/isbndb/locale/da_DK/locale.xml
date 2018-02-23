@@ -4,8 +4,8 @@
 <!--
   * locale/da_DK/locale.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2003-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -13,9 +13,9 @@
 
 <locale name="da_DK" full_name="Dansk">
 	<message key="plugins.citationLookup.isbndb.displayName">ISBNdb Database Connector</message>
-	<message key="plugins.citationLookup.isbndb.description">Connects to the ISBNdb bibliographic database.</message>
+	<message key="plugins.citationLookup.isbndb.description">Opretter forbindelse til ISBNdb bibliografiske database.</message>
 	<message key="plugins.citationLookup.isbndbExtraction.displayName">ISBN extraction service</message>
-	<message key="plugins.citationLookup.isbndbExtraction.description">Find an ISBN for a given NLM 3.0 element-citation description.</message>
+	<message key="plugins.citationLookup.isbndbExtraction.description">Find et ISBN for en given NLM 3.0 citations-beskrivelse.</message>
 	<message key="plugins.citationLookup.isbndbLookup.displayName">ISBN lookup service</message>
-	<message key="plugins.citationLookup.isbndbLookup.description">Look up a full NLM 3.0 element-citation description with a given ISBN.</message>
+	<message key="plugins.citationLookup.isbndbLookup.description">Fremfind en komplet NLM 3.0 citations-beskrivelse med et givent ISBN.</message>
 </locale>

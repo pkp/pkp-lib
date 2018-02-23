@@ -58,7 +58,7 @@
 	<message key="user.profile.form.lastNameRequired">Et efternavn er påkrævet.</message>
 	<message key="user.profile.form.newPasswordRequired">Du skal angive din nye adgangskode.</message>
 	<message key="user.profile.form.oldPasswordInvalid">Den aktuelle adgangskode, du har angivet, er forkert.</message>
-	<message key="user.profile.form.openAccessNotifications">E-mail-beskeder om Open Access til udgave</message>
+	<message key="user.profile.form.openAccessNotifications">E-mail-beskeder om Open Access til nummer</message>
 	<message key="user.profile.form.passwordRequired">En adgangskode er påkrævet.</message>
 	<message key="user.profile.form.profileImage">Profilbillede</message>
 	<message key="user.profile.form.publishedNotifications">E-mail-beskeder om publicering af ny udgave</message>
@@ -104,7 +104,8 @@
 	<message key="user.authorization.roleBasedAccessDenied">Den nuværende rolle har ikke adgang til denne handling.</message>
 	<message key="user.authorization.userGroupRequired">Du skal oprette en gyldig brugergruppe for at få adgang til denne handling.</message>
 	<message key="user.gossip">Private bemærkninger</message>
-	<message key="user.profile.form.profileImageInvalid">Profilbilledets format er ugyldigt, eller også er billedet for stort. De accepterede formater er .gif, .jpg og .png, og billedet må ikke overskrive 150 x 150 pixler.</message>
+	<message key="user.profile.form.profileImageInvalid">Profilbilledets format er ugyldigt, eller også er billedet for stort. De accepterede formater er .jpg og .png, og billedet må ikke overskrive 150 x 150 pixler.</message>
+	<message key="user.other">Andet</message>
 	<message key="user.repeatPassword">Gentag adgangskode</message>
 	<message key="user.profile.form.affiliationRequired">Kræver et tilhørsforhold.</message>
 	<message key="user.register.form.emailsDoNotMatch">Felterne for e-mail-adresse stemmer ikke overens.</message>
@@ -128,11 +129,11 @@
 	<message key="user.role.author_s">Forfatter(e)</message>
 	<message key="user.role.authors">Forfattere</message>
 	<message key="user.orcid">ORCID iD</message>
-	<message key="user.orcid.orcidInvalid">Den ORCID iD du angav er ikke gyldig. Husk at inkludere den hele URI (e.g. "http://orcid.org/0000-0002-1825-0097").</message>
+	<message key="user.orcid.orcidInvalid">Det ORCID iD du angav er ikke gyldig. Husk at inkludere den hele URI (e.g. "http://orcid.org/0000-0002-1825-0097").</message>
 	<message key="user.login.registerNewAccount">Registrér</message>
 	<message key="user.authorization.accessibleWorkflowStage">Du har på nuværende tidspunkt ikke adgang til dette workflow-trin.</message>
 	<message key="user.authorization.workflowStageRequired">Der blev ikke angivet et workflow-trin.</message>
-	<message key="user.authorization.pluginRequired">Der mangler at blive anvist et plug-in.</message>
+	<message key="user.authorization.pluginRequired">Der mangler at blive anvist en plug-in.</message>
 	<message key="user.login.registrationComplete">Registrering fuldført</message>
 	<message key="user.login.registrationComplete.instructions">Tak for registreringen! Hvad ønsker du at foretage dig efterfølgende?</message>
 	<message key="user.login.registrationComplete.manageSubmissions">Se indsendelser</message>
@@ -152,9 +153,9 @@
 	<message key="user.login.rememberUsernameAndPassword">Forbliv logget ind</message>
 	<message key="user.register.form.usernameAlphaNumeric">Brugernavnet må kun indeholde små bogstaver og tal (alfanumeriske tegn), understregningstegn og bindestreger. Det skal begynde og slutte med et alfanumerisk tegn.</message>
 	<message key="user.role.assistant">Assistent</message>
-	<message key="user.apiKey">API Key</message>
-	<message key="user.apiKeyEnabled">Enable external applications with the API key to access this account</message>
-	<message key="user.apiKey.generate">Generate new API key</message>
-	<message key="user.apiKey.generateWarning">Generating a new API key will invalidate any existing key for this user.</message>
-	<message key="user.apiKey.secretRequired">Before generating an API key, your site administrator must set a secret in the config file ("api_key_secret").</message>
+	<message key="user.apiKey">API-nøgle</message>
+	<message key="user.apiKeyEnabled">Aktivér eksterne applikationer med API-nøglen for at få adgang til denne konto</message>
+	<message key="user.apiKey.generate">Generer ny API-nøgle</message>
+	<message key="user.apiKey.generateWarning">Generering af en ny API-nøgle vil ugyldiggøre enhver eksisterende nøgle til denne bruger.</message>
+	<message key="user.apiKey.secretRequired">Før du genererer en API-nøgle, skal din webstedsadministrator angive en skjult i config-filen ("api_key_secret").</message>
 </locale>

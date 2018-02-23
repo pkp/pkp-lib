@@ -53,9 +53,9 @@
 	<message key="rt.admin.selectedVersion">Relaterede elementer</message>
 	<message key="rt.admin.settings.abstract">Resumé (præsenterer et resumé af elementet).</message>
 	<message key="rt.admin.settings.authorBio">Om forfatteren (viser de biografierklæringer, der er angivet af forfatteren).</message>
-	<message key="rt.admin.settings.captureCite">Sådan citeres et element (indeholder bibliografiske oplysninger for element).</message>
+	<message key="rt.admin.settings.captureCite">Sådan citeres manuskriptet (indeholder bibliografiske oplysninger om manuskriptet).</message>
 	<message key="rt.admin.settings.defineTerms">Slå ord op (gør det muligt for læsere at dobbeltklikke på et ord i et element og sende ordet til en ordbog).</message>
-	<message key="rt.admin.settings.disableRelatedItems">Deaktiver relaterede elementer</message>
+	<message key="rt.admin.settings.disableRelatedItems">Deaktivér relaterede elementer</message>
 	<message key="rt.admin.settings.emailAuthor">Send e-mail til forfatter (går til en e-mail-skabelon med forfatterens e-mail-adresse).</message>
 	<message key="rt.admin.settings.emailOthers">Underret kollega (går til en e-mail-skabelon med et link til elementet).</message>
 	<message key="rt.admin.settings.findingReferences">Find referencer</message>
@@ -78,7 +78,7 @@
 	<message key="rt.admin.versions.restoreVersions">Gendan versioner til standardindstillinger</message>
 	<message key="rt.authorBio">Om forfatteren</message>
 	<message key="rt.captureCite.format">Citatformat</message>
-	<message key="rt.captureCite">Sådan citeres et element</message>
+	<message key="rt.captureCite">Sådan citeres manuskript</message>
 	<message key="rt.captureCite.online">Online</message>
 	<message key="rt.colleague">Underret kollega</message>
 	<message key="rt.context.abbrev">Forkortelse</message>

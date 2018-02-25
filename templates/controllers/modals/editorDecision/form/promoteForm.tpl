@@ -78,6 +78,11 @@
 				{load_url_in_div id="reviewAttachmentsGridContainer" url=$reviewAttachmentsGridUrl}
 			</div>
 		{/if}
+
+		<div id="libraryFileAttachments">
+			{url|assign:libraryAttachmentsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.SelectableLibraryFileGridHandler" op="fetchGrid" submissionId=$submissionId escape=false}
+			{load_url_in_div id="libraryFilesAttachmentsGridContainer" url=$libraryAttachmentsGridUrl}
+		</div>
 	</div>
 
 	<div id="promoteForm-step2">

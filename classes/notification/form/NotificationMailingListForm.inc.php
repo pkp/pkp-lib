@@ -34,8 +34,9 @@ class NotificationMailingListForm extends Form {
 		parent::Form('notification/maillist.tpl');
 
 		import('lib.pkp.classes.captcha.CaptchaManager');
+		import('lib.pkp.lib.recaptcha.recaptchalib');
 		$captchaManager = new CaptchaManager();
-		$this->captchaEnabled = ($captchaManager->isEnabled() && Config::getVar('captcha', 'captcha_on_mailinglist'))?true:false;		
+		$this->captchaEnabled = ($captchaManager->isEnabled() && Config::getVar('captcha', 'captcha_on_mailinglist'))?true:false;
 		$this->recaptchaEnabled = Config::getVar('captcha', 'captcha_on_mailinglist') && Config::getVar('captcha', 'recaptcha');
 
 		// Validation checks for this form
@@ -45,8 +46,8 @@ class NotificationMailingListForm extends Form {
 			} else { 
 				$host = '';
 			}
-			$reCaptchaVersion = intval(Config::getVar('captcha', 'recaptcha_version', 0));
-			$this->addCheck(new FormValidatorReCaptcha($this, 'recaptcha_challenge_field', ($reCaptchaVersion === 1 ? 'recaptcha_response_field' : 'g-recaptcha-response'), Request::getRemoteAddr(), 'common.captchaField.badCaptcha', $host));
+			$reCaptchaVersion = intval(Config::getVar('captcha', 'recaptcha_version', RECAPTCHA_VERSION_LEGACY));
+			$this->addCheck(new FormValidatorReCaptcha($this, 'recaptcha_challenge_field', ($reCaptchaVersion === RECAPTCHA_VERSION_LEGACY ? 'recaptcha_response_field' : 'g-recaptcha-response'), Request::getRemoteAddr(), 'common.captchaField.badCaptcha', $host));
 		} elseif ($this->captchaEnabled) {
 			$this->addCheck(new FormValidatorCaptcha($this, 'captcha', 'captchaId', 'common.captchaField.badCaptcha'));
 		}
@@ -62,9 +63,9 @@ class NotificationMailingListForm extends Form {
 		$userVars = array('email', 'confirmEmail');
 		
 		if ($this->captchaEnabled) {
-			if ($this->reCaptchaEnabled) {
-				$reCaptchaVersion = intval(Config::getVar('captcha', 'recaptcha_version', 0));
-				if ($reCaptchaVersion === 0) {
+			if ($this->recaptchaEnabled) {
+				$reCaptchaVersion = intval(Config::getVar('captcha', 'recaptcha_version', RECAPTCHA_VERSION_LEGACY));
+				if ($reCaptchaVersion === RECAPTCHA_VERSION_LEGACY) {
 					$userVars[] = 'recaptcha_challenge_field';
 					$userVars[] = 'recaptcha_response_field';
 				} else {
@@ -88,7 +89,7 @@ class NotificationMailingListForm extends Form {
 		
 		if ($this->captchaEnabled && $this->recaptchaEnabled) {
 			import('lib.pkp.lib.recaptcha.recaptchalib');
-			$reCaptchaVersion = intval(Config::getVar('captcha', 'recaptcha_version', 0));
+			$reCaptchaVersion = intval(Config::getVar('captcha', 'recaptcha_version', RECAPTCHA_VERSION_LEGACY));
 			$publicKey = Config::getVar('captcha', 'recaptcha_public_key');
 			$useSSL = Config::getVar('security', 'force_ssl')||Request::getProtocol()=='https'?true:false;
 			$reCaptchaHtml = recaptcha_versioned_get_html($reCaptchaVersion, $publicKey, null, $useSSL);

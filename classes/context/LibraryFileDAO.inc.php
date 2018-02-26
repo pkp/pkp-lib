@@ -27,7 +27,7 @@ class LibraryFileDAO extends DAO {
 	 */
 	function getById($fileId) {
 		$result = $this->retrieve(
-			'SELECT file_id, context_id, file_name, original_file_name, file_type, file_size, type, date_uploaded, submission_id FROM library_files WHERE file_id = ?',
+			'SELECT file_id, context_id, file_name, original_file_name, file_type, file_size, type, date_uploaded, submission_id, public_access FROM library_files WHERE file_id = ?',
 			array((int) $fileId)
 		);
 
@@ -126,6 +126,7 @@ class LibraryFileDAO extends DAO {
 		$libraryFile->setType($row['type']);
 		$libraryFile->setDateUploaded($this->datetimeFromDB($row['date_uploaded']));
 		$libraryFile->setSubmissionId($row['submission_id']);
+		$libraryFile->setPublicAccess($row['public_access']);
 
 		$this->getDataObjectSettings('library_file_settings', 'file_id', $row['file_id'], $libraryFile);
 
@@ -148,15 +149,16 @@ class LibraryFileDAO extends DAO {
 			(int) $libraryFile->getFileSize(),
 			(int) $libraryFile->getType(),
 			(int) $libraryFile->getSubmissionId(),
+			(int) $libraryFile->getPublicAccess()
 		);
 
 		if ($libraryFile->getId()) $params[] = (int) $libraryFile->getId();
 
 		$this->update(
 			sprintf('INSERT INTO library_files
-				(context_id, file_name, original_file_name, file_type, file_size, type, submission_id, date_uploaded, date_modified' . ($libraryFile->getId()?', file_id':'') . ')
+				(context_id, file_name, original_file_name, file_type, file_size, type, submission_id, public_access, date_uploaded, date_modified' . ($libraryFile->getId()?', file_id':'') . ')
 				VALUES
-				(?, ?, ?, ?, ?, ?, ?, %s, %s' . ($libraryFile->getId()?', ?':'') . ')',
+				(?, ?, ?, ?, ?, ?, ?, ?, %s, %s' . ($libraryFile->getId()?', ?':'') . ')',
 				$this->datetimeToDB($libraryFile->getDateUploaded()),
 				$this->datetimeToDB($libraryFile->getDateModified())
 			),
@@ -184,6 +186,7 @@ class LibraryFileDAO extends DAO {
 					file_size = ?,
 					type = ?,
 					submission_id = ?,
+					public_access = ?,
 					date_uploaded = %s
 				WHERE	file_id = ?',
 				$this->datetimeToDB($libraryFile->getDateUploaded())
@@ -195,6 +198,7 @@ class LibraryFileDAO extends DAO {
 				(int) $libraryFile->getFileSize(),
 				(int) $libraryFile->getType(),
 				(int) $libraryFile->getSubmissionId(),
+				(int) $libraryFile->getPublicAccess(),
 				(int) $libraryFile->getId()
 			)
 		);

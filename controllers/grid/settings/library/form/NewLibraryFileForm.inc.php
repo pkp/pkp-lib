@@ -56,6 +56,7 @@ class NewLibraryFileForm extends LibraryFileForm {
 		$libraryFile->setContextId($this->contextId);
 		$libraryFile->setName($this->getData('libraryFileName'), null); // Localized
 		$libraryFile->setType($this->getData('fileType'));
+		$libraryFile->setPublicAccess($this->getData('publicAccess'));
 
 		$fileId = $libraryFileDao->insertObject($libraryFile);
 

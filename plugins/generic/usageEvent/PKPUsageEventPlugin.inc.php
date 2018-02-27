@@ -27,10 +27,10 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 	// Implement methods from PKPPlugin.
 	//
 	/**
-	* @copydoc LazyLoadPlugin::register()
-	*/
-	function register($category, $path) {
-		$success = parent::register($category, $path);
+	 * @copydoc Plugin::register()
+	 */
+	function register($category, $path, $mainContextId = null) {
+		$success = parent::register($category, $path, $mainContextId);
 
 		if ($success) {
 			$eventHooks = $this->getEventHooks();

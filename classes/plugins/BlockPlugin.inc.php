@@ -27,9 +27,9 @@ abstract class BlockPlugin extends LazyLoadPlugin {
 	/**
 	 * @copydoc Plugin::register()
 	 */
-	function register($category, $path) {
-		$success = parent::register($category, $path);
-		if ($success && $this->getEnabled()) {
+	function register($category, $path, $mainContextId = null) {
+		$success = parent::register($category, $path, $mainContextId);
+		if ($success && $this->getEnabled($mainContextId)) {
 			$contextMap = $this->getContextMap();
 			$blockContext = $this->getBlockContext();
 			if (isset($contextMap[$blockContext])) {

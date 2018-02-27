@@ -23,9 +23,9 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 	/**
 	 * @copydoc Plugin::register()
 	 */
-	function register($category, $path) {
-		if (!parent::register($category, $path)) return false;
-		if ($this->getEnabled()) {
+	function register($category, $path, $mainContextId = null) {
+		if (!parent::register($category, $path, $mainContextId)) return false;
+		if ($this->getEnabled($mainContextId)) {
 			// Enable storage of additional fields.
 			foreach($this->getDAOs() as $publicObjectType => $dao) {
 				HookRegistry::register(strtolower_codesafe(get_class($dao)).'::getAdditionalFieldNames', array($this, 'getAdditionalFieldNames'));

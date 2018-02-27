@@ -79,10 +79,15 @@ abstract class Plugin {
 	 *
 	 * @param $category String Name of category plugin was registered to
 	 * @param $path String The path the plugin was found in
+	 * @param $mainContextId integer To identify if the plugin is enabled
+	 *  we need a context. This context is usually taken from the
+	 *  request but sometimes there is no context in the request
+	 *  (e.g. when executing CLI commands). Then the main context
+	 *  can be given as an explicit ID.
 	 * @return boolean True iff plugin registered successfully; if false,
 	 * 	the plugin will not be executed.
 	 */
-	function register($category, $path) {
+	function register($category, $path, $mainContextId = null) {
 		$this->pluginPath = $path;
 		$this->pluginCategory = $category;
 		if ($this->getInstallSchemaFile()) {

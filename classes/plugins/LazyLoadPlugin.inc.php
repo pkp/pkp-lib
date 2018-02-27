@@ -24,8 +24,8 @@ abstract class LazyLoadPlugin extends Plugin {
 	/**
 	 * @copydoc Plugin::register()
 	 */
-	function register($category, $path) {
-		if (!parent::register($category, $path)) return false;
+	function register($category, $path, $mainContextId = null) {
+		if (!parent::register($category, $path, $mainContextId)) return false;
 		$this->addLocaleData();
 		return true;
 	}
@@ -51,12 +51,19 @@ abstract class LazyLoadPlugin extends Plugin {
 	//
 	/**
 	 * Determine whether or not this plugin is currently enabled.
+	 * @param $contextId integer To identify if the plugin is enabled
+	 *  we need a context. This context is usually taken from the
+	 *  request but sometimes there is no context in the request
+	 *  (e.g. when executing CLI commands). Then the main context
+	 *  can be given as an explicit ID.
 	 * @return boolean
 	 */
-	function getEnabled() {
-		$contextId = $this->getCurrentContextId();
-		if ($this->isSitePlugin()) {
-			$contextId = 0;
+	function getEnabled($contextId = null) {
+		if ($contextId == null) {
+			$contextId = $this->getCurrentContextId();
+			if ($this->isSitePlugin()) {
+				$contextId = 0;
+			}
 		}
 		return $this->getSetting($contextId, 'enabled');
 	}

@@ -29,10 +29,10 @@ class PKPAcronPlugin extends GenericPlugin {
 	var $_tasksToRun;
 
 	/**
-	 * @copydoc LazyLoadPlugin::register()
+	 * @copydoc Plugin::register()
 	 */
-	function register($category, $path) {
-		$success = parent::register($category, $path);
+	function register($category, $path, $mainContextId = null) {
+		$success = parent::register($category, $path, $mainContextId);
 		HookRegistry::register('Installer::postInstall', array(&$this, 'callbackPostInstall'));
 
 		if (!Config::getVar('general', 'installed') || defined('RUNNING_UPGRADE')) return $success;

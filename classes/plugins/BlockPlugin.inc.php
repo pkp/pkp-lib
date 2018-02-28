@@ -34,7 +34,7 @@ abstract class BlockPlugin extends LazyLoadPlugin {
 			$blockContext = $this->getBlockContext();
 			if (isset($contextMap[$blockContext])) {
 				$hookName = $contextMap[$blockContext];
-				HookRegistry::register($hookName, array($this, 'callback'));
+				HookRegistry::register($hookName, array($this, 'callback'), HOOK_SEQUENCE_NORMAL + $this->getSeq());
 			}
 			$this->_registerTemplateResource();
 		}

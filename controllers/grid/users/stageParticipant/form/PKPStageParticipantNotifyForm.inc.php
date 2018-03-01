@@ -128,6 +128,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 		$submission = $submissionDao->getById($this->_submissionId);
 		if ($this->getData('message')) {
 			$this->sendMessage((int) $this->getData('userId'), $submission, $request);
+			$this->_logEventAndCreateNotification($request, $submission);
 		}
 		return parent::execute($request);
 	}
@@ -296,6 +297,21 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 				NOTIFICATION_LEVEL_TASK
 			);
 		}
+	}
+
+	/**
+	 * Convenience function for logging the message sent event and creating the notification.
+	 * @param $request PKPRequest
+	 * @param $submission Submission
+	 */
+	function _logEventAndCreateNotification($request, $submission) {
+		import('lib.pkp.classes.log.SubmissionLog');
+		SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_MESSAGE_SENT, 'informationCenter.history.messageSent');
+
+		// Create trivial notification.
+		$currentUser = $request->getUser();
+		$notificationMgr = new NotificationManager();
+		$notificationMgr->createTrivialNotification($currentUser->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('stageParticipants.history.messageSent')));
 	}
 
 	/**

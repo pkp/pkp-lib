@@ -369,7 +369,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 		if ($request->checkCSRF() && array_key_exists($locale, $gridData)) {
 			AppLocale::reloadLocale($locale);
 			$settingsDao = Application::getContextSettingsDAO();
-			$settingsDao->reloadLocalizedDefaultContextSettings($request, $locale);
+			if ($request->getContext()) $settingsDao->reloadLocalizedDefaultContextSettings($request, $locale);
 			$notificationManager = new NotificationManager();
 			$user = $request->getUser();
 			$notificationManager->createTrivialNotification(

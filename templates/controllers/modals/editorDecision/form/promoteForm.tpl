@@ -79,9 +79,16 @@
 			</div>
 		{/if}
 
-		<div id="libraryFileAttachments">
+		<div id="libraryFileAttachments" class="pkp_user_group_other_contexts">
 			{url|assign:libraryAttachmentsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.SelectableLibraryFileGridHandler" op="fetchGrid" submissionId=$submissionId escape=false}
-			{load_url_in_div id="libraryFilesAttachmentsGridContainer" url=$libraryAttachmentsGridUrl}
+			{load_url_in_div|assign:libraryAttachmentsGrid id="libraryFilesAttachmentsGridContainer" url=$libraryAttachmentsGridUrl}
+			{include file="controllers/extrasOnDemand.tpl"
+				id="libraryFileAttachmentsExtras"
+				widgetWrapper="#libraryFileAttachments"
+				moreDetailsText="settings.libraryFiles.public.selectLibraryFiles"
+				lessDetailsText="settings.libraryFiles.public.selectLibraryFiles"
+				extraContent=$libraryAttachmentsGrid
+			}
 		</div>
 	</div>
 

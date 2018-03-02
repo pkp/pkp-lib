@@ -199,7 +199,6 @@
 	<message key="submission.event.confirmDeleteLogEntry">Вы уверены, что хотите удалить эту запись из журнала событий?</message>
 	<message key="submission.event.deleteLogEntry">Удалить запись журнала</message>
 	<message key="submission.event.submissionSubmitted">Первоначальная отправка материала завершена.</message>
-	<message key="submission.event.fileUploaded">Файл «{$name}» (ID файла {$fileId}-{$fileRevision}) был загружен.</message>
 	<message key="submission.event.fileRevised">Версия «{$name}» (ID файла {$fileId}-{$fileRevision}) была загружена.</message>
 	<message key="submission.event.general.metadataUpdated">Метаданные материала обновлены</message>
 	<message key="submission.event.general.suppFileUpdated">Файл материала обновлен</message>
@@ -529,7 +528,6 @@
 	<message key="notification.type.editorDecisionPendingRevisions">Требуется новая версия материала.</message>
 	<message key="notification.type.editorDecisionResubmit">Повторно отправить а рецензирование.</message>
 	<message key="notification.type.editorDecisionDecline">Материал отклонен.</message>
-	<message key="notification.type.editorDecisionSendToProduction">Начат процесс публикации.</message>
 	<message key="notification.uploadedResponse">Загружен ответ.</message>
 
 	<message key="notification.type.editorAssignment">Редактор должен быть назначен до начала рецензирования. Пожалуйста, добавьте редактора с помощью списка «Участники».</message>

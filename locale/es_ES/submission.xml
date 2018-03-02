@@ -178,7 +178,6 @@
 	<message key="submission.event.confirmDeleteLogEntry">¿Seguro que quieres borrar esta entrada del registro de eventos?</message>
 	<message key="submission.event.deleteLogEntry">Borrar entrada de registro</message>
 	<message key="submission.event.submissionSubmitted">Envío inicial completado.</message>
-	<message key="submission.event.fileUploaded">Se cargó el archivo "{$name}" (Id. de archivo {$fileId}-{$revision}).</message>
 	<message key="submission.event.fileRevised">Se cargó la revisión "{$name}" (Id. de archivo {$fileId}-{$fileRevision}).</message>
 	<message key="submission.event.general.metadataUpdated">Metadatos de envío actualizados</message>
 	<message key="submission.event.general.suppFileUpdated">Archivo de envío actualizado</message>
@@ -552,7 +551,6 @@
 	<message key="notification.type.editorDecisionPendingRevisions">Se necesita revisión.</message>
 	<message key="notification.type.editorDecisionResubmit">Reenviar para revisión.</message>
 	<message key="notification.type.editorDecisionDecline">Envío rechazado.</message>
-	<message key="notification.type.editorDecisionSendToProduction">Comenzó el proceso de producción.</message>
 	<message key="notification.uploadedResponse">Respuesta subida.</message>
  	<!-- Read/Upload/Perform Signoff -->
 	<message key="notification.type.editorAssignment">Debe asignarse a un editor/a para que pueda comenzar la revisión. Añada a un editor/a utilizando el enlace Participantes que figura arriba.</message>

@@ -259,7 +259,6 @@
 	<message key="submission.event.confirmDeleteLogEntry">آیا میخواهید این سابقه رویداد را از لیست حذف کنید؟</message>
 	<message key="submission.event.deleteLogEntry">حذف سابقه</message>
 	<message key="submission.event.submissionSubmitted">مقاله اراسل شد.</message>
-	<message key="submission.event.fileUploaded">فایل «{$originalFileName}» توسط {$username} برای مقاله شماره  {$submissionId} آپلود شد.</message>
 	<message key="submission.event.fileRevised">اصلاحات "{$name}" (با شناسه فایل {$fileId}-{$fileRevision}) آپلود شد.</message>
 	<message key="submission.event.general.metadataUpdated">فراداده ارسال شده به روز رسانی شد.</message>
 	<message key="submission.event.general.suppFileUpdated">فایل ارسال شده به روز رسانی شد.</message>
@@ -558,7 +557,6 @@
 	<message key="notification.type.editorDecisionPendingRevisions">نیازمند اصلاحات</message>
 	<message key="notification.type.editorDecisionResubmit">ارسال دوباره برای داوری</message>
 	<message key="notification.type.editorDecisionDecline">مقاله ارسالی رد شد.</message>
-	<message key="notification.type.editorDecisionSendToProduction">پروسه انتشار آغاز شد.</message>
 	<message key="notification.uploadedResponse">پاسخ آپلود شد</message>
 	<message key="notification.type.editorAssignment">باید قبل از آغاز روند داوری سردبیر مشخص شود. لطفاً با استفاده از گزینه بالا یک سردبیر بی افزایید.</message>
 	<message key="grid.reviewAttachments.title">فایل‌های ضمیمه داوری </message>

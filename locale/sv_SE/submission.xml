@@ -194,7 +194,6 @@
 	<message key="submission.event.confirmDeleteLogEntry">Är du säker på att du vill ta bort den här händelsen ur loggen?</message>
 	<message key="submission.event.deleteLogEntry">Ta bort händelse i logg</message>
 	<message key="submission.event.submissionSubmitted">Bidraget har skickats in.</message>
-	<message key="submission.event.fileUploaded">Filen "{$name}" (fil-ID {$fileId}-{$fileRevision}) laddades upp.</message>
 	<message key="submission.event.fileRevised">Bearbetningen "{$name}" (fil-ID {$fileId}-{$fileRevision}) laddas upp.</message>
 	<message key="submission.event.general.metadataUpdated">Bidragets metadata uppdaterade.</message>
 	<message key="submission.event.general.suppFileUpdated">Bidragsfil uppdaterad.</message>
@@ -511,7 +510,6 @@
 	<message key="notification.type.editorDecisionPendingRevisions">Ändringar krävs.</message>
 	<message key="notification.type.editorDecisionResubmit">Skicka in för granskning på nytt.</message>
 	<message key="notification.type.editorDecisionDecline">Bidrag refuserat.</message>
-	<message key="notification.type.editorDecisionSendToProduction">Produktionsprocessen påbörjad.</message>
 	<message key="notification.uploadedResponse">Svar uppladdat.</message>
 
 	<message key="notification.type.editorAssignment">En redaktör måste tilldelas bidraget innan granskningsprocessen kan påbörjas. Lägg till en redaktör via Deltagarlistan.</message>

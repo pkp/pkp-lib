@@ -198,7 +198,6 @@
 	<message key="submission.event.confirmDeleteLogEntry">Sind Sie sicher, dass Sie diesen Eintrag im Ereignisprotokoll löschen wollen</message>
 	<message key="submission.event.deleteLogEntry">Eintrag löschen </message>
 	<message key="submission.event.submissionSubmitted">Ersteinreichung abgeschlossen.</message>
-	<message key="submission.event.fileUploaded">Datei "{$name}" (Datei-ID {$fileId}-{$fileRevision}) wurde hochgeladen.</message>
 	<message key="submission.event.fileRevised">Revisionsdatei "{$name}" (Datei-ID {$fileId}-{$fileRevision}) wurde hochgeladen.</message>
 	<message key="submission.event.general.metadataUpdated">Metadaten des Beitrags aktualisiert</message>
 	<message key="submission.event.general.suppFileUpdated">Anlagedatei aktualisiert</message>
@@ -515,7 +514,6 @@
 	<message key="notification.type.editorDecisionPendingRevisions">Überarbeitung angefordert.</message>
 	<message key="notification.type.editorDecisionResubmit">Erneut zur Begutachtung einreichen.</message>
 	<message key="notification.type.editorDecisionDecline">Beitrag abgelehnt.</message>
-	<message key="notification.type.editorDecisionSendToProduction">Produktionsprozess gestartet.</message>
 	<message key="notification.uploadedResponse">Antwort hochgeladen.</message>
 
 	<message key="notification.type.editorAssignment">Ein/e Redakteur/in muss hinzugefügt werden, bevor die Begutachtung veranlasst wird. Verwenden Sie bitte den obigen Beteiligten-Link, um eine/n Redakteur/in hinzuzufügen.</message>

@@ -45,7 +45,7 @@ class EditLibraryFileForm extends LibraryFileForm {
 		$this->_data = array(
 			'libraryFileName' => $this->libraryFile->getName(null), // Localized
 			'libraryFile' => $this->libraryFile, // For read-only info
-			'publicAccess' => $this->libraryFile->getPublicAccess() ? true : false
+			'publicAccess' => $this->libraryFile->getPublicAccess() ? true : false,
 		);
 	}
 

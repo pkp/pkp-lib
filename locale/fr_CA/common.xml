@@ -309,7 +309,7 @@
 	<message key="notification.allow">Permettre à ces types d'avis d'apparaître dans mon flux d'avis.</message>
 	<message key="notification.confirmError">Il s'est produit une erreur lors de la confirmation de votre abonnement.</message>
 	<message key="notification.confirmSuccess">Vous vous êtes abonné avec succès.</message>
-	<message key="notification.email">M'envoyer un courriel pour ces types d'avis.</message>
+	<message key="notification.email">Ne pas envoyer de courriel pour ces types d'avis.</message>
 	<message key="notification.location">Aller à l'URL</message>
 	<message key="notification.mailList">Liste de diffusion d'avis</message>
 	<message key="notification.mailList.emailInvalid">Veuillez entrer une adresse de courriel valide.</message>

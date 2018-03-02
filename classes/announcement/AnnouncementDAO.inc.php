@@ -181,6 +181,9 @@ class AnnouncementDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteById($announcementId) {
+		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao->deleteByAssoc(ASSOC_TYPE_ANNOUNCEMENT, $announcementId);
+
 		$this->update('DELETE FROM announcement_settings WHERE announcement_id = ?', (int) $announcementId);
 		return $this->update('DELETE FROM announcements WHERE announcement_id = ?', (int) $announcementId);
 	}

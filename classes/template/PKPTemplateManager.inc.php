@@ -285,9 +285,6 @@ class PKPTemplateManager extends Smarty {
 			$nmService = ServicesContainer::instance()->get('navigationMenu');
 
 			\HookRegistry::register('LoadHandler', array($nmService, '_callbackHandleCustomNavigationMenuItems'));
-
-			// Register Public library files handler
-			\HookRegistry::register('LoadHandler', array($this, 'setPublicLibraryFilesHandler'));
 		}
 
 		// Register custom functions
@@ -1741,28 +1738,6 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		$smarty->assign($params['assign'], $matching_files);
-	}
-
-	/**
-	 * Route requests for the public library files to custom page handler
-	 *
-	 * @see PKPPageRouter::route()
-	 * @param $hookName string
-	 * @param $params array
-	 */
-	public function setPublicLibraryFilesHandler($hookName, $params) {
-		// Check the page.
-		$page = $params[0];
-		if ($page !== 'publicLibrary') return false;
-
-		// Check the operation.
-		$availableOps = array('downloadLibraryFile');
-		$op = $params[1];
-		if (!in_array($op, $availableOps)) return false;
-
-		import('lib.pkp.pages.publicLibraryFiles.PublicLibraryFileHandler');
-		define('HANDLER_CLASS', 'PublicLibraryFileHandler');
-		return true;
 	}
 }
 

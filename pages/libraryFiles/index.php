@@ -13,9 +13,10 @@
  */
 
 switch ($op) {
+	case 'downloadPublic':
 	case 'downloadLibraryFile':
-		define('HANDLER_CLASS', 'PublicLibraryFileHandler');
-		import('lib.pkp.pages.publicLibraryFiles.PublicLibraryFileHandler');
+		define('HANDLER_CLASS', 'LibraryFileHandler');
+		import('lib.pkp.pages.libraryFiles.LibraryFileHandler');
 		break;
 }
 

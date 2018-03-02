@@ -55,7 +55,7 @@
 		{translate|assign:"enablePublicAccess" key="common.publicAccess"}
 		{fbvElement type="checkbox" id="publicAccess" value="1" checked=$publicAccess label=$enablePublicAccess translate=false}
 		<p>
-			{url|assign:"downloadUrl" router=$smarty.const.ROUTE_PAGE page="publicLibrary" op="downloadLibraryFile" path=$libraryFile->getId()}
+			{url|assign:"downloadUrl" router=$smarty.const.ROUTE_PAGE page="libraryFiles" op="downloadPublic" path=$libraryFile->getId()}
 			{translate key="settings.libraryFiles.public.viewInstructions" downloadUrl=$downloadUrl}
 		</p>
 	{/fbvFormSection}

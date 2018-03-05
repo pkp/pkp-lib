@@ -219,7 +219,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	/**
 	 * @copydoc PKPPubIdPluginDAO::pubIdExists()
 	 */
-	function pubIdExists($pubIdType, $pubId, $submissionId, $contextId) {
+	function pubIdExists($pubIdType, $pubId, $excludePubObjectId, $contextId) {
 		$result = $this->retrieve(
 			'SELECT COUNT(*)
 			FROM submission_settings sst
@@ -228,7 +228,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 			array(
 				'pub-id::'.$pubIdType,
 				$pubId,
-				(int) $submissionId,
+				(int) $excludePubObjectId,
 				(int) $contextId
 			)
 		);
@@ -240,12 +240,12 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	/**
 	 * @copydoc PKPPubIdPluginDAO::changePubId()
 	 */
-	function changePubId($submissionId, $pubIdType, $pubId) {
+	function changePubId($pubObjectId, $pubIdType, $pubId) {
 		$idFields = array(
 			'submission_id', 'locale', 'setting_name'
 		);
 		$updateArray = array(
-			'submission_id' => (int) $submissionId,
+			'submission_id' => (int) $pubObjectId,
 			'locale' => '',
 			'setting_name' => 'pub-id::'.$pubIdType,
 			'setting_type' => 'string',
@@ -258,13 +258,13 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	/**
 	 * @copydoc PKPPubIdPluginDAO::deletePubId()
 	 */
-	function deletePubId($submissionId, $pubIdType) {
+	function deletePubId($pubObjectId, $pubIdType) {
 		$settingName = 'pub-id::'.$pubIdType;
 		$this->update(
 			'DELETE FROM submission_settings WHERE setting_name = ? AND submission_id = ?',
 			array(
 				$settingName,
-				(int)$submissionId
+				(int)$pubObjectId
 			)
 		);
 		$this->flushCache();
@@ -274,18 +274,17 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @copydoc PKPPubIdPluginDAO::deleteAllPubIds()
 	 */
 	function deleteAllPubIds($contextId, $pubIdType) {
-		$contextId = (int) $contextId;
 		$settingName = 'pub-id::'.$pubIdType;
 
 		$submissions = $this->getByContextId($contextId);
 		while ($submission = $submissions->next()) {
 			$this->update(
-					'DELETE FROM submission_settings WHERE setting_name = ? AND submission_id = ?',
-					array(
-							$settingName,
-							(int)$submission->getId()
-					)
-					);
+				'DELETE FROM submission_settings WHERE setting_name = ? AND submission_id = ?',
+				array(
+					$settingName,
+					(int)$submission->getId()
+				)
+			);
 		}
 		$this->flushCache();
 	}

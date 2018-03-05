@@ -53,7 +53,7 @@ class UsageStatsHandler extends Handler {
 		$templateMgr->assign('usageStatsDisplayPrivacyInfo', true);
 		$templateMgr->assign('hasOptedOut', ($request->getCookieVar('usageStats-opt-out') ? true : false));
 		$templateMgr->assign('privacyStatementUrl', $privacyStatementUrl);
-		$templateMgr->display($plugin->getTemplateResourceName() . ':templates/privacyInformation.tpl');
+		$templateMgr->display($plugin->getTemplateResourceName(true) . ':templates/privacyInformation.tpl');
 	}
 
 	//

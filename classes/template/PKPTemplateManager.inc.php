@@ -24,6 +24,9 @@ define('SMARTY_DIR', Core::getBaseDir() . '/lib/pkp/lib/vendor/smarty/smarty/lib
 
 require_once('./lib/pkp/lib/vendor/smarty/smarty/libs/plugins/modifier.escape.php'); // Seems to be needed?
 
+/* SCSS compiler */
+use Leafo\ScssPhp\Compiler as Compiler;
+
 define('CACHEABILITY_NO_CACHE',		'no-cache');
 define('CACHEABILITY_NO_STORE',		'no-store');
 define('CACHEABILITY_PUBLIC',		'public');

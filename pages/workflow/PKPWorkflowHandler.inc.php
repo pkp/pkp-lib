@@ -197,26 +197,21 @@ abstract class PKPWorkflowHandler extends Handler {
 			$reviewRound = $reviewRoundDao->getById($reviewRoundId);
 		}
 
-		// If a review round was specified,
-
 		// If there is an editor assigned, retrieve stage decisions.
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 		$editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $stageId);
 		$dispatcher = $request->getDispatcher();
 		$user = $request->getUser();
 
-		// If it is a review stage, check if the user can make decisions or recommend only
 		$recommendOnly = $makeDecision = false;
-		if ($reviewRoundId) {
-			// if the user is assigned several times in an editorial role, check his/her assignments permissions i.e.
-			// if the user is assigned with both possibilities: to only recommend as well as make decision
-			foreach ($editorsStageAssignments as $editorsStageAssignment) {
-				if ($editorsStageAssignment->getUserId() == $user->getId()) {
-					if (!$editorsStageAssignment->getRecommendOnly()) {
-						$makeDecision = true;
-					} else {
-						$recommendOnly = true;
-					}
+		// if the user is assigned several times in an editorial role, check his/her assignments permissions i.e.
+		// if the user is assigned with both possibilities: to only recommend as well as make decision
+		foreach ($editorsStageAssignments as $editorsStageAssignment) {
+			if ($editorsStageAssignment->getUserId() == $user->getId()) {
+				if (!$editorsStageAssignment->getRecommendOnly()) {
+					$makeDecision = true;
+				} else {
+					$recommendOnly = true;
 				}
 			}
 		}
@@ -303,31 +298,27 @@ abstract class PKPWorkflowHandler extends Handler {
 					}
 				}
 			}
-			// In non-review stages, the user have to be able to make decisions,
-			// in order for editor actions to be displayed/available
-			if ($makeDecision) {
-				// Get the possible editor decisions for this stage
-				$decisions = EditorDecisionActionsManager::getStageDecisions($request->getContext(), $stageId);
-				// Iterate through the editor decisions and create a link action
-				// for each decision which as an operation associated with it.
-				foreach($decisions as $decision => $action) {
-					if (empty($action['operation'])) {
-						continue;
-					}
-					$actionArgs['decision'] = $decision;
-					$editorActions[] = new LinkAction(
-						$action['name'],
-						new AjaxModal(
-							$dispatcher->url(
-								$request, ROUTE_COMPONENT, null,
-								'modals.editorDecision.EditorDecisionHandler',
-								$action['operation'], null, $actionArgs
-							),
-							__($action['title'])
-						),
-					__($action['title'])
-					);
+			// Get the possible editor decisions for this stage
+			$decisions = EditorDecisionActionsManager::getStageDecisions($request->getContext(), $stageId, $makeDecision);
+			// Iterate through the editor decisions and create a link action
+			// for each decision which as an operation associated with it.
+			foreach($decisions as $decision => $action) {
+				if (empty($action['operation'])) {
+					continue;
 				}
+				$actionArgs['decision'] = $decision;
+				$editorActions[] = new LinkAction(
+					$action['name'],
+					new AjaxModal(
+						$dispatcher->url(
+							$request, ROUTE_COMPONENT, null,
+							'modals.editorDecision.EditorDecisionHandler',
+							$action['operation'], null, $actionArgs
+						),
+						__($action['title'])
+					),
+				__($action['title'])
+				);
 			}
 		}
 

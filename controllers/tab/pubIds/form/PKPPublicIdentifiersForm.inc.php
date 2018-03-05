@@ -22,7 +22,7 @@ class PKPPublicIdentifiersForm extends Form {
 	var $_contextId;
 
 	/** @var object The pub object the identifiers are edited of
-	 * 	Submission, Representation, SubmissionFile + OJS Issue
+	 * 	Submission, Representation, SubmissionFile, OJS Issue and OMP Chapter
 	 */
 	var $_pubObject;
 

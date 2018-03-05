@@ -16,6 +16,7 @@
 import('lib.pkp.classes.plugins.LazyLoadPlugin');
 
 define('LESS_FILENAME_SUFFIX', '.less');
+define('SCSS_FILENAME_SUFFIX', '.scss');
 define('THEME_OPTION_PREFIX', 'themeOption_');
 
 abstract class ThemePlugin extends LazyLoadPlugin {
@@ -180,7 +181,8 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	public function addStyle($name, $style, $args = array()) {
 
 		// Pass a file path for LESS files
-		if (substr($style, (strlen(LESS_FILENAME_SUFFIX) * -1)) === LESS_FILENAME_SUFFIX) {
+		if (substr($style, (strlen(LESS_FILENAME_SUFFIX) * -1)) === LESS_FILENAME_SUFFIX ||
+			substr($style, (strlen(SCSS_FILENAME_SUFFIX) * -1)) === SCSS_FILENAME_SUFFIX) {
 			$args['style'] = $this->_getBaseDir($style);
 
 		// Pass a URL for other files
@@ -727,7 +729,8 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 			}
 
 			// Compile LESS files
-			if ($dispatcher && substr($data['style'], (strlen(LESS_FILENAME_SUFFIX) * -1)) == LESS_FILENAME_SUFFIX) {
+			if ($dispatcher && substr($data['style'], (strlen(LESS_FILENAME_SUFFIX) * -1)) == LESS_FILENAME_SUFFIX ||
+				$dispatcher && substr($data['style'], (strlen(SCSS_FILENAME_SUFFIX) * -1)) == SCSS_FILENAME_SUFFIX) {
 				$styles = $dispatcher->url(
 					$request,
 					ROUTE_COMPONENT,

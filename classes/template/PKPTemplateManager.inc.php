@@ -417,46 +417,60 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
-	 * Compile a LESS stylesheet
+	 * Compile a LESS and SCSS stylesheets
 	 *
-	 * @param $name string Unique name for this LESS stylesheet
-	 * @param $lessFile string Path to the LESS file to compile
+	 * @param $name string Unique name for this LESS or SCSS stylesheet
+	 * @param $lessFile string Path to the LESS or SCSS file to compile
 	 * @param $args array Optional arguments. SUpports:
 	 *   'baseUrl': Base URL to use when rewriting URLs in the LESS file.
 	 *   'addLess': Array of additional LESS files to parse before compiling
 	 * @return string Compiled CSS styles
 	 */
 	public function compileLess($name, $lessFile, $args = array()) {
-		$less = new Less_Parser(array(
-			'relativeUrls' => false,
-			'compress' => true,
-		));
+		$pathinfo = pathinfo($lessFile);
+		$compiledCss = null;
+		// compile LESS
+		if ($pathinfo['extension'] == 'less') {
+			$less = new Less_Parser(array(
+				'relativeUrls' => false,
+				'compress' => true,
+			));
 
-		$request = $this->_request;
+			$request = $this->_request;
 
-		// Allow plugins to intervene
-		HookRegistry::call('PageHandler::compileLess', array(&$less, &$lessFile, &$args, $name, $request));
+			// Allow plugins to intervene
+			HookRegistry::call('PageHandler::compileLess', array(&$less, &$lessFile, &$args, $name, $request));
 
-		// Read the stylesheet
-		$less->parseFile($lessFile);
+			// Read the stylesheet
+			$less->parseFile($lessFile);
 
-		// Add extra LESS files before compiling
-		if (isset($args['addLess']) && is_array($args['addLess'])) {
-			foreach ($args['addLess'] as $addless) {
-				$less->parseFile($addless);
+			// Add extra LESS files before compiling
+			if (isset($args['addLess']) && is_array($args['addLess'])) {
+				foreach ($args['addLess'] as $addless) {
+					$less->parseFile($addless);
+				}
 			}
+
+			// Add extra LESS variables before compiling
+			if (isset($args['addLessVariables'])) {
+				$less->parse($args['addLessVariables']);
+			}
+
+			// Set the @baseUrl variable
+			$baseUrl = !empty($args['baseUrl']) ? $args['baseUrl'] : $request->getBaseUrl(true);
+			$less->parse("@baseUrl: '$baseUrl';");
+
+			$compiledCss = $compiledCss . $less->getCSS();
+		// compile SCSS
+		} elseif ($pathinfo['extension'] == 'scss') {
+			$scss = new Compiler();
+
+			$scss->setFormatter('Leafo\ScssPhp\Formatter\Compressed');
+
+			$compiledCss = $compiledCss . $scss->compile('@import "' . $lessFile . '";');
 		}
-
-		// Add extra LESS variables before compiling
-		if (isset($args['addLessVariables'])) {
-			$less->parse($args['addLessVariables']);
-		}
-
-		// Set the @baseUrl variable
-		$baseUrl = !empty($args['baseUrl']) ? $args['baseUrl'] : $request->getBaseUrl(true);
-		$less->parse("@baseUrl: '$baseUrl';");
-
-		return $less->getCSS();
+		
+		return $compiledCss;
 	}
 
 	/**

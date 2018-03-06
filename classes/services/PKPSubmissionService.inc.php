@@ -552,7 +552,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 
 		$props = array (
 			'id','fullTitle','status','submissionProgress','stages','reviewRounds','reviewAssignments',
-			'urlWorkflow','urlPublished','_href',
+			'locale', 'urlWorkflow','urlPublished','_href',
 		);
 
 		if ($this->canUserViewAuthor($currentUser, $submission)) {

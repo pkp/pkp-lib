@@ -65,18 +65,34 @@
 
 		var $header = this.getHtmlElement(),
 				$popover = $header.find('#notificationsPopover'),
-				$listElement = $header.find('li.notificationsLinkContainer'),
 				$toggle = $header.find('#notificationsToggle');
 
 		$popover.toggle();
-		$listElement.toggleClass('expandedIndicator');
 		$toggle.toggleClass('expandedIndicator');
 
-		if ($listElement.hasClass('expandedIndicator')) {
+		if ($toggle.hasClass('expandedIndicator')) {
 			this.trigger('callWhenClickOutside', [{
-				container: $popover.add($listElement),
+				container: $header,
 				callback: this.callbackWrapper(this.appendToggleIndicator_)
 			}]);
+			setTimeout(this.callbackWrapper(this.setPopoverSize_), 500);
+		} else {
+			$popover.css('height', '').css('overflow-y', '');
+		}
+	};
+
+
+	/**
+	 * Resize the popover if it is too big for the screen when opened
+	 * @private
+	 */
+	$.pkp.pages.header.TasksHandler.prototype.setPopoverSize_ = function() {
+
+		var $popover = this.getHtmlElement().find('#notificationsPopover'),
+				maxHeight = $(window).height() - 60;
+
+		if (maxHeight < $popover.height()) {
+			$popover.height(maxHeight).css('overflow-y', 'scroll');
 		}
 	};
 

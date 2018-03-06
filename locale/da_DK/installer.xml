@@ -34,14 +34,12 @@
 	<message key="installer.databasePassword">Adgangskode</message>
 	<message key="installer.databaseSettings">Databaseindstillinger</message>
 	<message key="installer.databaseUsername">Brugernavn</message>
-	<message key="installer.encryption">Algoritme til kryptering af adgangskode</message>
 	<message key="installer.filesDir">Mappe til overførsler</message>
 	<message key="installer.fileSettings">Filindstillinger</message>
 	<message key="installer.form.clientCharsetRequired">Der skal vælges et klienttegnsæt.</message>
 	<message key="installer.form.databaseDriverRequired">Der skal vælges en databasedriver.</message>
 	<message key="installer.form.databaseNameRequired">Databasenavnet er påkrævet.</message>
 	<message key="installer.form.emailRequired">Der kræves en gyldig e-mail-adresse til administratorkontoen.</message>
-	<message key="installer.form.encryptionRequired">Der skal vælges en algoritme, som skal bruges til kryptering af brugeradgangskoder.</message>
 	<message key="installer.form.filesDirRequired">Der kræves en mappe, som skal bruges til lagring af overførte filer.</message>
 	<message key="installer.form.localeRequired">Der skal vælges en landestandard.</message>
 	<message key="installer.form.passwordRequired">Der kræves en adgangskode til administratorkontoen.</message>
@@ -61,7 +59,6 @@
 	<message key="installer.oaiRepositoryId">Id til OAI-lager</message>
 	<message key="installer.publicFilesDirError">Den offentlige filmappe findes ikke eller er ikke skrivbar.</message>
 	<message key="installer.releaseNotes">Produktbemærkninger</message>
-	<message key="installer.securitySettings">Sikkerhedsindstillinger</message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Fejl ved parsing af e-mail-skabelonfil <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale.maybeIncomplete">De markerede landestandarder kan være ufuldstændige.</message>
 	<message key="installer.installParseFilterConfigFileError"><![CDATA[Fejl ved parsing af filter-skabelonfil <tt>{$file}</tt>.]]></message>

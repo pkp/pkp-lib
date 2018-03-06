@@ -13,5 +13,5 @@
 
 <locale name="da_DK" full_name="Dansk">
 	<message key="plugins.generic.usageEvent.displayName">Brugshændelse</message>
-	<message key="plugins.generic.usageEvent.description">Opretter en 'hook', der leverer brugshændelse i et defineret format.</message>
+	<message key="plugins.generic.usageEvent.description">Opretter en 'hook' (overstyringsfunktion), der leverer brugshændelse i et defineret format.</message>
 </locale>

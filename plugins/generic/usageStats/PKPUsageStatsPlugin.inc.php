@@ -88,7 +88,7 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 				$request->setCookieVar('usageStats-opt-out', true, time() + 60*60*24*365);
 			}
 
-			$this->_registerTemplateResource();
+			$this->_registerTemplateResource(true);
 
 			$this->displayReaderStatistics();
 		}
@@ -500,7 +500,7 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 		$smarty->assign('chartType', $chartType);
 		$datasetMaxCount = $this->_getPluginSetting($context, 'datasetMaxCount');
 		$smarty->assign('datasetMaxCount', $datasetMaxCount);
-		$metricsHTML = $smarty->fetch($this->getTemplateResourceName() . ':templates/outputBackend.tpl');
+		$metricsHTML = $smarty->fetch($this->getTemplateResourceName(true) . ':templates/outputBackend.tpl');
 		$output .= $metricsHTML;
 
 		return false;

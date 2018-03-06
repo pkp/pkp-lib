@@ -316,8 +316,11 @@ abstract class Plugin {
 	 *
 	 * @return string
 	 */
-	public function getTemplateResourceName() {
+	public function getTemplateResourceName($inCore = false) {
 		$pluginPath = $this->getPluginPath();
+		if ($inCore) {
+			$pluginPath = PKP_LIB_PATH . DIRECTORY_SEPARATOR . $pluginPath;
+		}
 		$plugin = basename($pluginPath);
 		$category = basename(dirname($pluginPath));
 
@@ -332,7 +335,7 @@ abstract class Plugin {
 	function getTemplatePath($inCore = false) {
 		$basePath = Core::getBaseDir();
 		if ($inCore) {
-			$basePath = $basePath . DIRECTORY_SEPARATOR . PKP_LIB_PATH;
+			$basePath += DIRECTORY_SEPARATOR . PKP_LIB_PATH;
 		}
 		return "file:$basePath" . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR;
 	}
@@ -340,10 +343,14 @@ abstract class Plugin {
 	/**
 	 * Register this plugin's templates as a template resource
 	 */
-	public function _registerTemplateResource() {
+	public function _registerTemplateResource($inCore = false) {
 		$templateMgr = TemplateManager::getManager();
-		$pluginTemplateResource = new PKPTemplateResource($this->getPluginPath());
-		$templateMgr->register_resource($this->getTemplateResourceName(), array(
+		$pluginPath = $this->getPluginPath();
+		if ($inCore) {
+			$pluginPath = PKP_LIB_PATH . DIRECTORY_SEPARATOR . $pluginPath;
+		}
+		$pluginTemplateResource = new PKPTemplateResource($pluginPath);
+		$templateMgr->register_resource($this->getTemplateResourceName($inCore), array(
 			array($pluginTemplateResource, 'fetch'),
 			array($pluginTemplateResource, 'fetchTimestamp'),
 			array($pluginTemplateResource, 'getSecure'),

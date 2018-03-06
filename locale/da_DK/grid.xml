@@ -17,7 +17,7 @@
 	<message key="grid.noItems">Intet element</message>
 	<message key="grid.settings">Indstillinger</message>
 
-	<message key="grid.action.sort">Sort</message>
+	<message key="grid.action.sort">Sortér</message>
 	<message key="grid.action.addItem">Tilføj element</message>
 	<message key="grid.action.delete">Slet</message>
 	<message key="grid.action.remove">Fjern</message>
@@ -80,7 +80,6 @@
 	<message key="grid.action.wizard">Indstillingsguide</message>
 	<message key="grid.action.editMedia">Rediger medie</message>
 	<message key="grid.action.moveItem">Flyt element</message>
-	<message key="grid.action.downloadFile">Download denne fil</message>
 	<message key="grid.action.downloadAll">Download alle filer som arkiv</message>
 	<message key="grid.action.readReview">Læs denne bedømmelse</message>
 	<message key="grid.action.email">Send e-mail</message>
@@ -89,7 +88,6 @@
 	<message key="grid.action.editFile">Rediger en fil</message>
 	<message key="grid.action.selectFiles">Vælg de filer, der skal behandles</message>
 	<message key="grid.action.requestRevisions">Anmod om revidering af dette manuskript</message>
-	<message key="grid.action.resubmit">Anmod om at dette manuskript bliver genfremsendt</message>
 	<message key="grid.action.accept">Accepter dette manuskript</message>
 	<message key="grid.action.internalReview">Send dette manuskript til intern bedømmelse</message>
 	<message key="grid.action.externalReview">Send dette manuskript til ekstern bedømmelse</message>
@@ -146,8 +144,6 @@
 	<message key="grid.action.addContributor">Tilføj bidragyder</message>
 	<message key="grid.action.editContributor">Rediger bidragyder</message>
 	<message key="grid.action.deleteContributor">Slet bidragyder</message>
-	<message key="grid.genres.title">Genre</message>
-	<message key="grid.genres.description">Genrene bruges ved tildeling af filnavn og fremvises i en drop-down-menu under upload af filer. De udvalgte genre ## tillader brugeren at forbinde filen med enten hele bogen 99Z eller et specifikt kapitel med nummer (f.eks. 02).</message>
 	<message key="grid.noFiles">Ingen filer</message>
 	<message key="grid.roles.currentRoles">Nuværende roller</message>
 	<message key="grid.roles.add">Tilføj rolle</message>
@@ -186,7 +182,6 @@
 	<message key="grid.user.selectUser">Vælg bruger</message>
 	<message key="grid.user.pleaseSelectUser">Vælg en bruger</message>
 	<message key="grid.preparedEmails.title">Forberedte e-mail-skabeloner</message>
-	<message key="grid.preparedEmails.description">Pressen letter workflow-kommunikationen via brugen af forudformulerede e-mail-beskeder. Standardformuleringerne i disse e-mails-skabeloner kan let tilrettes nedenfor.</message>
 	<message key="grid.preparedEmails.currentList">Aktuel liste</message>
 	<message key="grid.plugin.allCategories">Alle kategorier</message>
 	<message key="grid.plugin.disable">Er du sikker på, at du vil deaktivere dette plug-in?</message>
@@ -231,11 +226,7 @@
 	<message key="grid.user.allPermissionLevels">Alle adgangsniveauer</message>
 	<message key="grid.user.mergeUsers">Flet brugere</message>
 	<message key="grid.user.mergeUsers.mergeIntoUser">Flet ind under denne bruger</message>
-	<message key="grid.user.mergeUsers.into.description">Du skal nu vælge en bruger hvorunder den tidligere brugers forfatterskab, redaktionelle arbejdsopgaver osv. tilskrives.</message>
-	<message key="grid.user.mergeUsers.from.description">Vælg en bruger, som skal flettes til en anden brugerkonto (f.eks. hvis en person har to brugerkonti). Den først valgte konto slettes, og dens manuskripter, tildelinger osv. tilskrives den anden konto.</message>
 	<message key="grid.user.mergeUsers.allUsers">Alle registrerede brugere</message>
-	<message key="grid.user.mergeUsers.mergeUserSelect.confirm">Er du sikker på at du vil flette denne bruger med en anden? Du skal vælge den næste bruger på efterfølgende skærmbillede.</message>
-	<message key="grid.user.mergeUsers.noneEnrolled">Der er ingen bruger med denne rolle.</message>
 	<message key="grid.action.fileUnconsider">Korrekturtilretninger gennemført. Du kan ignorer denne opgave.</message>
 	<message key="grid.artworkFile.caption">Overskrift</message>
 	<message key="grid.artworkFile.credit">Kildeangivelse</message>

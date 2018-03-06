@@ -27,12 +27,9 @@
 	<message key="editor.submission.addReviewer">Tilføj bedømmer</message>
 	<message key="editor.submission.revisions">Revisioner</message>
 	<message key="editor.review.NotifyAuthorRevisions">Anmod om revision fra forfatteren.</message>
-	<message key="editor.review.personalMessageToAuthor">E-mail, der skal sendes til forfatteren</message>
 	<message key="editor.submissionReview.skipEmail">Spring e-mail over</message>
 	<message key="editor.submissionReview.recordDecision">Registrér beslutning</message>
 	<message key="editor.review.NotifyAuthorResubmit">Anmod forfatteren om at sende manuskripttilretninger, der efterfølgende vil undergå yderligere bedømmelse.</message>
-	<message key="editor.review.NotifyAuthorAccept">Underret forfatteren om, at indsendelsen er blevet accepteret.</message>
-	<message key="editor.review.NotifyAuthorDecline">Underret forfatteren om, at indsendelsen er blevet afvist.</message>
 	<message key="editor.submission.findAndSelectReviewer">Find en bedømmer</message>
 	<message key="editor.submission.selectReviewer">Vælg bedømmer</message>
 	<message key="editor.review.createReviewer">Opret ny bedømmer</message>
@@ -64,7 +61,6 @@
 	<message key="editor.submissionReview.restrictFiles.hide">Luk filvalg</message>
 	<message key="editor.submissionReview.editReview">Redigér bedømmelse</message>
 	<message key="editor.review.uploadRevision">Upload revision</message>
-	<message key="editor.review.NotifyAuthorExternal">Giv forfatteren besked om afgørelsen for at påbegynde en ekstern bedømmelse.</message>
 	<message key="editor.review.dateAccepted">Dato for accept af bedømmelse</message>
 	<message key="editor.review.noReviews">Ingen peer reviews at importere</message>
 	<message key="editor.review.reminder">Påmindelse til bedømmer</message>

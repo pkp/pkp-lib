@@ -82,7 +82,6 @@
 	<message key="submission.layout.confirmDeleteSupplementaryFile">Er du sikker på, at du vil slette denne supplerende fil permanent?</message>
 	<message key="submission.layout.deleteGalleyStylesheet">Slet dette typografiark.</message>
 	<message key="submission.layout.editGalley">Rediger et layoutsatsskib</message>
-	<message key="submission.layout.galleyFileData">Oplysninger om satsskibsfil</message>
 	<message key="submission.layout.galleyFormat">Publiceringsversion</message>
 	<message key="submission.layout.galleyHTMLData">HTML-satsskibsfiler</message>
 	<message key="submission.layout.galleyImages">Billeder</message>
@@ -200,7 +199,7 @@
 	<message key="metadata.property.validationMessage.edition">Indtast en gyldig udgave.</message>
 	<message key="metadata.property.displayName.series">Serie</message>
 	<message key="metadata.property.validationMessage.series">Indtast en gyldig serie.</message>
-	<message key="metadata.property.displayName.supplement">Supplement</message>
+	<message key="metadata.property.displayName.supplement">Tillæg</message>
 	<message key="metadata.property.validationMessage.supplement">Indtast et gyldigt supplement.</message>
 	<message key="metadata.property.displayName.conf-date">Konferencedato</message>
 	<message key="metadata.property.validationMessage.conf-date">Indtast en gyldig konferencedato (format: ÅÅÅÅ-MM-DD).</message>

@@ -343,7 +343,7 @@
 	<message key="navigation.admin">Administration</message>
 	<message key="navigation.browseByAuthor">Efter forfatter</message>
 	<message key="navigation.data">Data</message>
-	<message key="navigation.publicMenu">Public Menu</message>
+	<message key="navigation.publicMenu">Offentlig menu</message>
 	<message key="navigation.settings">Indstillinger</message>
 	<message key="navigation.setup">Opsætning</message>
 	<message key="navigation.sitemap">Sitemap</message>
@@ -375,7 +375,7 @@
 	<message key="navigation.items.shownTotal">{$shown} af {$total} elementer</message>
 	<message key="review.ensuringBlindReview">Sikring af blind review</message>
 	<message key="common.prefix">Præfiks</message>
-	<message key="common.prefixAndTitle.tip">Examples: A, The</message>
+	<message key="common.prefixAndTitle.tip">Eksempler: A, The</message>
 	<message key="common.subtitle.tip">Undertitlen kan eventuelt indskrives med et kolon indsat efter hovedtitlen.</message>
 	<message key="common.subtitle">Undertitel</message>
 	<message key="common.abstract">Resumé</message>
@@ -436,7 +436,7 @@
 	<message key="common.navigation.site">Websteds-navigation</message>
 	<message key="common.navigation.siteContext">Websteds kontekst-navigation</message>
 	<message key="common.navigation.user">Bruger-navigation</message>
-	<message key="common.list">List</message>
+	<message key="common.list">Liste</message>
 	<message key="common.grid">Raster</message>
 	<message key="common.assigned.date">Tildelt: {$dateAssigned}</message>
 	<message key="common.available">Tilgængelig</message>
@@ -526,18 +526,18 @@
 	<message key="common.from">Fra</message>
 	<message key="common.until">Indtil</message>
 	<message key="common.saving">Gemmer</message>
-	<message key="stageParticipants.options">Assignment privileges</message>
+	<message key="stageParticipants.options">Tildelingsrettigheder</message>
 	<message key="stageParticipants.recommendOnly">Denne aktør har kun tilladelse til anbefale en redaktionel beslutning . Det vil kræve en autoriseret redaktør for at registrere beslutninger.</message>
 	<message key="navigation.skip.main">Spring til hovedindhold</message>
 	<message key="navigation.skip.nav">Spring til hovednavigations-menu</message>
-	<message key="navigation.skip.footer">Spring til footer</message>
+	<message key="navigation.skip.footer">Spring til bundtekst</message>
 	<message key="notification.addedReviewerNoEmail">{$reviewerName} blev tilføjet som bedømmer på denne indsendelse og har ikke fået besked via mail.</message>
 	<message key="notification.reviewerThankedEmail">Tak, e-mail er nu sendt til bedømmer.</message>
 	<message key="notification.sendNotificationConfirmation">Send meddelelse via mail til alle registrerede brugere</message>
 	<message key="notification.editedNavigationMenuItem">Navigationsmenu-elementerne blev opdateret</message>
 	<message key="notification.removedNavigationMenuItem">Navigationsmenu-elementerne blev fjernet</message>
 	<message key="notification.addedNavigationMenuItem">Navigationsmenu-elementerne blev tilføjet</message>
-	<message key="notification.addedNavigationMenu">Navigation menu was succesfully added</message>
+	<message key="notification.addedNavigationMenu">Navigationsmenuen blev tilføjet</message>
 	<message key="notification.editedNavigationMenu">Navigationsmenu blev opdateret</message>
 	<message key="notification.removedNavigationMenu">Navigationsmenu blev fjernet</message>
 </locale>

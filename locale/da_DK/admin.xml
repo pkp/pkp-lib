@@ -108,14 +108,14 @@
 	<message key="admin.languages.downloadLocales">Download landestandarder</message>
 	<message key="admin.languages.download.cannotOpen">Kan ikke åbne sprogbeskrivelse fra PKPs websted.</message>
 	<message key="admin.languages.download.cannotModifyRegistry">Kan ikke tilføje den nye lokalitet til den lokale registreringsfil, typisk "registry/locales.xml".</message>
-	<message key="admin.scheduledTask.clearLogs">Clear Scheduled Task Execution Logs</message>
+	<message key="admin.scheduledTask.clearLogs">Ryd 'Scheduled Task Execution Logs'</message>
 	<message key="admin.settings.defaultMetricDescription">Din installation er konfigureret til at optage mere end én brugsparameter. Brugsstatistikker vises i flere sammenhænge.
 Der er tilfælde, hvor en enkelt brugsstatistik skal anvendes, f.eks. en visning af en ordnet liste over mest viste indlæg eller en rangering af søgeresultater. Vælg venligst en af de konfigurerede beregninger som standard.</message>
-	<message key="admin.fileLoader.wrongBasePathLocation">Base path {$path} must be inside the public files directory.</message>
-	<message key="admin.fileLoader.pathNotAccessible">Folder {$path} is not a directory or is not readable.</message>
-	<message key="admin.fileLoader.moveFileFailed">File {$filename} could not be moved from {$currentFilePath} to {$destinationPath}</message>
-	<message key="admin.fileLoader.fileProcessed">File {$filename} was processed and archived.</message>
-	<message key="admin.fileLoader.emailSubject">File loader</message>
+	<message key="admin.fileLoader.wrongBasePathLocation">Basisstien {$path} skal ligge under den offentligt tilgængelige filmappe</message>
+	<message key="admin.fileLoader.pathNotAccessible">Mappen {$path} er ikke et fil-katalog, eller også er mappen ikke læsbar.</message>
+	<message key="admin.fileLoader.moveFileFailed">Filen {$filename} kunne ikke flyttes fra {$currentFilePath} til {$destinationPath}</message>
+	<message key="admin.fileLoader.fileProcessed">Filen {$filename} blev færdigbehandlet og arkiveret.</message>
+	<message key="admin.fileLoader.emailSubject">Fillæser</message>
 	<message key="admin.copyAccessLogFileTool.usage">Kopier de(n) godkendte apache-adgangslogfil(er), der har filtreret de poster, som er relateret til denne installation,
 til det aktuelle fil-katalog, inde i UsageStatsPlugin-kartoteket. Skal gennemføres af bruger med tilstrækkelige rettigheder til at læse adgangs-apache logfiler.
 

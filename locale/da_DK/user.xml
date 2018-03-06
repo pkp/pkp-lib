@@ -16,7 +16,6 @@
 	<message key="user.affiliation">Tilhørsforhold</message>
 	<message key="user.affiliations">Tilhørsforhold</message>
 	<message key="user.biography">Biografierklæring</message>
-	<message key="user.biography.description">(f.eks. afdeling og rang)</message>
 	<message key="user.changeMyPassword">Rediger min adgangskode</message>
 	<message key="user.changePassword">Skift adgangskode</message>
 	<message key="user.dateLastLogin">Seneste logon</message>
@@ -70,11 +69,9 @@
 	<message key="user.profile">Profil</message>
 	<message key="user.profile.publicProfile">Brugerprofil</message>
 	<message key="user.profile.repeatNewPassword">Gentag ny adgangskode</message>
-	<message key="user.register.completeForm">Udfyld denne formular for at registrere hos dette tidsskrift.</message>
 	<message key="user.register.form.emailExists">Den valgte e-mail-adresse benyttes allerede af en anden bruger.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Adgangskoderne stemmer ikke overens.</message>
 	<message key="user.register.form.usernameExists">Det valgte brugernavn benyttes allerede af en anden bruger.</message>
-	<message key="user.register.passwordLengthRestriction">Adgangskoden skal bestå af mindst {$length} tegn.</message>
 	<message key="user.register.registerAs">Registrer i {$contextName} som...</message>
 	<message key="user.register">Registrer</message>
 	<message key="user.register.usernameRestriction">Brugernavnet må kun indeholde små bogstaver, tal og bindestreger/understregningstegn.</message>
@@ -106,7 +103,6 @@
 	<message key="user.gossip">Private bemærkninger</message>
 	<message key="user.profile.form.profileImageInvalid">Profilbilledets format er ugyldigt, eller også er billedet for stort. De accepterede formater er .jpg og .png, og billedet må ikke overskrive 150 x 150 pixler.</message>
 	<message key="user.other">Andet</message>
-	<message key="user.repeatPassword">Gentag adgangskode</message>
 	<message key="user.profile.form.affiliationRequired">Kræver et tilhørsforhold.</message>
 	<message key="user.register.form.emailsDoNotMatch">Felterne for e-mail-adresse stemmer ikke overens.</message>
 	<message key="user.accountInformation">Kontoinformation</message>

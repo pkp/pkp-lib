@@ -125,6 +125,25 @@ class NavigationMenuItemDAO extends DAO {
 	}
 
 	/**
+	 * Retrieve the menu items with the specified type.
+	 * @param $type int NMI_TYPE_...
+	 * @param $contextId int
+	 * @return DAOResultFactory containing matching NavigatinMenuItems
+	 */
+	function getByType($type, $contextId = null) {
+		$params = array($type);
+		if ($contextId) {
+			$params[] = $contextId;
+		}
+		$result = $this->retrieve(
+			'SELECT	* FROM navigation_menu_items WHERE type = ?' .
+			($contextId ? ' AND context_id = ?' : ''),
+			$params
+		);
+		return new DAOResultFactory($result, $this, '_fromRow');
+	}
+
+	/**
 	 * Get the list of localized field names for this table
 	 * @return array
 	 */

@@ -49,6 +49,9 @@
 		<field name="submission_id" type="I8">
 			<NOTNULL/>
 		</field>
+		<field name="public_access" type="I1">
+				<DEFAULT VALUE="0"/>
+		</field>
 		<descr>Library files for a context</descr>
 		<index name="library_files_context_id">
 			<col>press_id</col>

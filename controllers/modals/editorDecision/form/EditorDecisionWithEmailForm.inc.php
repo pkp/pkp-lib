@@ -110,7 +110,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {
-		$this->readUserVars(array('personalMessage', 'selectedAttachments', 'skipEmail'));
+		$this->readUserVars(array('personalMessage', 'selectedAttachments', 'skipEmail', 'selectedLibraryFiles'));
 		parent::readInputData();
 	}
 
@@ -273,6 +273,26 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 					$submissionFile->setViewable(true);
 					$submissionFileDao->updateObject($submissionFile);
 				}
+			}
+		}
+
+		// Attach the selected Library files as attachments to the email.
+		import('classes.file.LibraryFileManager');
+		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /* @var $libraryFileDao LibraryFileDAO */
+		$selectedLibraryFilesAttachments = $this->getData('selectedLibraryFiles');
+		if(is_array($selectedLibraryFilesAttachments)) {
+			foreach ($selectedLibraryFilesAttachments as $fileId) {
+				// Retrieve the Library file.
+				$libraryFile = $libraryFileDao->getById($fileId);
+				assert(is_a($libraryFile, 'LibraryFile'));
+
+				$libraryFileManager = new LibraryFileManager($libraryFile->getContextId());
+
+				// Add the attachment to the email.
+				$email->addAttachment(
+					$libraryFileManager->getBasePath() .  $libraryFile->getOriginalFileName(),
+					$libraryFile->getOriginalFileName()
+				);
 			}
 		}
 

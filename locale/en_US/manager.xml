@@ -394,6 +394,8 @@
 	<message key="settings.libraryFiles.category.permissions">Permissions</message>
 	<message key="settings.libraryFiles.category.reports">Reports</message>
 	<message key="settings.libraryFiles.category.other">Other</message>
+	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>This library file can be accessible for download, if "Public Access" is enabled, at: <blockquote>{$downloadUrl}</blockquote></p>]]></message>
+	<message key="settings.libraryFiles.public.selectLibraryFiles">Select Library Files to attach</message>
 
 	<!--  Genre grid settings -->
 	<message key="grid.action.addGenre">Add a Component</message>

@@ -225,6 +225,22 @@ class LibraryFile extends DataObject {
 		$fileManager = new FileManager();
 		return $fileManager->getDocumentType($this->getFileType());
 	}
+
+	/**
+	 * Get public access indication
+	 * @return boolean
+	 */
+	function getPublicAccess() {
+		return $this->getData('publicAccess');
+	}
+
+	/**
+	 * Set public access indication
+	 * @param $publicAccess boolean
+	 */
+	function setPublicAccess($publicAccess) {
+		$this->setData('publicAccess', $publicAccess);
+	}
 }
 
 ?>

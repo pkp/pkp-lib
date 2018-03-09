@@ -128,16 +128,16 @@ class NavigationMenuItemDAO extends DAO {
 	 * Retrieve the menu items with the specified type.
 	 * @param $type int NMI_TYPE_...
 	 * @param $contextId int
-	 * @return DAOResultFactory containing matching NavigatinMenuItems
+	 * @return DAOResultFactory containing matching NavigationMenuItems
 	 */
 	function getByType($type, $contextId = null) {
 		$params = array($type);
-		if ($contextId) {
+		if ($contextId == null) {
 			$params[] = $contextId;
 		}
 		$result = $this->retrieve(
 			'SELECT	* FROM navigation_menu_items WHERE type = ?' .
-			($contextId ? ' AND context_id = ?' : ''),
+			($contextId == null ? ' AND context_id = ?' : ''),
 			$params
 		);
 		return new DAOResultFactory($result, $this, '_fromRow');

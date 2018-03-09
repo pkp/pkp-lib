@@ -50,7 +50,6 @@
 			<NOTNULL/>
 		</field>
 		<field name="public_access" type="I1">
-				<NOTNULL/>
 				<DEFAULT VALUE="0"/>
 		</field>
 		<descr>Library files for a context</descr>

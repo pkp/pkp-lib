@@ -31,6 +31,10 @@
 		{fbvFormSection label="manager.setup.customTags" description="manager.setup.customTagsDescription"}
 			{fbvElement type="textarea" multilingual="true" id="customHeaders" name="customHeaders" value=$customHeaders}
 		{/fbvFormSection}
+		{fbvFormSection label="manager.setup.searchEngineIndexing.sitemap"}
+			{url|assign:"sitemapPath" router=$smarty.const.ROUTE_PAGE page="sitemap"}
+			<label class="description">{translate key="manager.setup.searchEngineIndexing.sitemapDescription" path=$sitemapPath}</label>
+		{/fbvFormSection}
 	{/fbvFormArea}
 
 	{if !$wizardMode}

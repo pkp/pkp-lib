@@ -34,8 +34,8 @@ class LibraryFileHandler extends Handler {
 
 		$publicFileId = $args[0];
 
-		$libraryFile = $libraryFileDao->getById($publicFileId);
-		if ($libraryFile && $libraryFile->getPublicAccess() && $libraryFile->getContextId() == $context->getId()) {
+		$libraryFile = $libraryFileDao->getById($publicFileId, $context->getId());
+		if ($libraryFile && $libraryFile->getPublicAccess()) {
 			$filePath = $libraryFileManager->getBasePath() .  $libraryFile->getOriginalFileName();
 			$libraryFileManager->downloadFile($filePath);
 		} else {
@@ -55,7 +55,7 @@ class LibraryFileHandler extends Handler {
 		$context = $request->getContext();
 		$libraryFileManager = new LibraryFileManager($context->getId());
 		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO');
-		$libraryFile = $libraryFileDao->getById($request->getUserVar('libraryFileId'));
+		$libraryFile = $libraryFileDao->getById($request->getUserVar('libraryFileId'), $context->getId());
 		if ($libraryFile) {
 
 			// If this file has a submission ID, ensure that the current

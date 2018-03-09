@@ -21,14 +21,18 @@ class LibraryFileDAO extends DAO {
 	/**
 	 * Retrieve a library file by ID.
 	 * @param $fileId int
-	 * @param $revision int optional, if omitted latest revision is used
-	 * @param $libraryId int optional
+	 * @param $contextId int optional
 	 * @return LibraryFile
 	 */
-	function getById($fileId) {
+	function getById($fileId, $contextId = null) {
+
+		$params = array((int) $fileId);
+		if ($contextId) $params[] = (int) $contextId;
+
 		$result = $this->retrieve(
-			'SELECT file_id, context_id, file_name, original_file_name, file_type, file_size, type, date_uploaded, submission_id, public_access FROM library_files WHERE file_id = ?',
-			array((int) $fileId)
+			'SELECT file_id, context_id, file_name, original_file_name, file_type, file_size, type, date_uploaded, submission_id, public_access FROM library_files WHERE file_id = ?'
+			. ($contextId ? ' AND context_id = ?' : ''),
+			$params
 		);
 
 		$returner = null;

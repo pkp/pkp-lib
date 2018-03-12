@@ -257,6 +257,8 @@
 	<message key="manager.setup.reviewOptions.remindForSubmit">Send a reminder if a reviewer has not submitted a recommendation within the following time (days) after review's due date:</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Default Review Deadlines</message>
 	<message key="manager.setup.reviewOptions.showBlindReviewLink">Present a link to "Ensuring a Blind Review" during upload</message>
+	<message key="manager.setup.searchEngineIndexing.sitemap">Sitemap</message>
+	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[A XML sitemap is available for submitting to search engines at <a href="{$path}" target="_blank">{$path}</a>]]></message>
 	<message key="manager.setup.sponsors.note">Sponsor Relationship and Policy Description</message>
 	<message key="manager.setup.sponsors.description">Examples: scholarly associations, university departments, cooperatives, etc. Sponsors are displayed publicly.</message>
 	<message key="manager.setup.styleSheetDescription">Experienced web developers can upload a CSS file to further customize the website's appearance.</message>

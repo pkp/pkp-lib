@@ -15,7 +15,7 @@
 
 import('classes.handler.Handler');
 
-define('SITEMAP_XSD_URL', 'http://www.sitemaps.org/schemas/sitemap/0.9');
+define('SITEMAP_XSD_URL', 'https://www.sitemaps.org/schemas/sitemap/0.9');
 
 class PKPSitemapHandler extends Handler {
 	/**
@@ -57,7 +57,7 @@ class PKPSitemapHandler extends Handler {
 		while ($context = $contexts->next()) {
 			$sitemapUrl = $request->url($context->getPath(), 'sitemap');
 			$sitemap = $doc->createElement('sitemap');
-			$sitemap->appendChild($doc->createElement('loc', $sitemapUrl));
+			$sitemap->appendChild($doc->createElement('loc', htmlspecialchars($sitemapUrl, ENT_COMPAT, 'UTF-8')));
 			$root->appendChild($sitemap);
 		}
 
@@ -80,7 +80,7 @@ class PKPSitemapHandler extends Handler {
 		$root->setAttribute('xmlns', SITEMAP_XSD_URL);
 
 		// Context home
-		$root->appendChild($this->_createUrlTree($doc, $request->url($context->getPath(),'index','index')));
+		$root->appendChild($this->_createUrlTree($doc, $request->url($context->getPath())));
 		// User register
 		if ($context->getSetting('disableUserReg') != 1) {
 			$root->appendChild($this->_createUrlTree($doc, $request->url($context->getPath(), 'user', 'register')));
@@ -134,7 +134,7 @@ class PKPSitemapHandler extends Handler {
 	 */
 	protected function _createUrlTree($doc, $loc, $lastmod = null, $changefreq = null, $priority = null) {
 		$url = $doc->createElement('url');
-		$url->appendChild($doc->createElement('loc', $loc));
+		$url->appendChild($doc->createElement('loc', htmlspecialchars($loc, ENT_COMPAT, 'UTF-8')));
 		if ($lastmod) {
 			$url->appendChild($doc->createElement('lastmod', $lastmod));
 		}

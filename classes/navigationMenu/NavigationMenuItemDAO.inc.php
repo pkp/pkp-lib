@@ -132,12 +132,12 @@ class NavigationMenuItemDAO extends DAO {
 	 */
 	function getByType($type, $contextId = null) {
 		$params = array($type);
-		if ($contextId == null) {
+		if ($contextId !== null) {
 			$params[] = $contextId;
 		}
 		$result = $this->retrieve(
 			'SELECT	* FROM navigation_menu_items WHERE type = ?' .
-			($contextId == null ? ' AND context_id = ?' : ''),
+			($contextId !== null ? ' AND context_id = ?' : ''),
 			$params
 		);
 		return new DAOResultFactory($result, $this, '_fromRow');

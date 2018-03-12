@@ -33,7 +33,7 @@
 		{/fbvFormSection}
 		{fbvFormSection label="manager.setup.searchEngineIndexing.sitemap"}
 			{url|assign:"sitemapPath" router=$smarty.const.ROUTE_PAGE page="sitemap"}
-			<label class="description">{translate key="manager.setup.searchEngineIndexing.sitemapDescription" path=$sitemapPath}</label>
+			<div class="description">{translate key="manager.setup.searchEngineIndexing.sitemapDescription" path=$sitemapPath}</div>
 		{/fbvFormSection}
 	{/fbvFormArea}
 

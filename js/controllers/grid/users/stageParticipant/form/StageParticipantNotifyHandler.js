@@ -118,7 +118,9 @@
 				editor =
 				tinyMCE.EditorManager.get(/** @type {string} */ ($textarea.attr('id')));
 
-		$textarea.attr('data-variables', JSON.stringify(jsonDataContent.variables));
+		if (jsonDataContent.variables) {
+			$textarea.attr('data-variables', JSON.stringify(jsonDataContent.variables));
+		}
 		editor.setContent(jsonDataContent.body);
 
 		return processedJsonData.status;

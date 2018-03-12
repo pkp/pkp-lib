@@ -170,9 +170,8 @@
 	<!-- An identity (e.g. user, author) -->
 	<complexType name="identity" abstract="true">
 		<sequence>
-			<element name="firstname" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
-			<element name="middlename" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
-			<element name="lastname" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+			<element name="givenname" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
+			<element name="familyname" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 			<element name="affiliation" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 			<element name="country" type="string" minOccurs="0" maxOccurs="1" />
 			<element name="email" type="string" />

@@ -59,20 +59,22 @@ class SubEditorsDAO extends DAO {
 	 * @return array matching Users
 	 */
 	function getBySectionId($sectionId, $contextId) {
+		$userDao = DAORegistry::getDAO('UserDAO');
+		$params = array((int) $contextId, (int) $sectionId);
+		$params = array_merge($userDao->getFetchParameters(), $params);
 		$result = $this->retrieve(
-			'SELECT	u.user_id
+			'SELECT	u.user_id,
+			' . $userDao->getFetchColumns() . '
 			FROM	section_editors e
 				JOIN users u ON (e.user_id = u.user_id)
-				LEFT JOIN user_settings usf ON (usf.user_id = u.user_id AND usf.setting_name = \''.IDENTITY_SETTING_FIRSTNAME.'\' AND usf.locale = \''.AppLocale::getLocale().'\')
-				LEFT JOIN user_settings usl ON (usl.user_id = u.user_id AND usl.setting_name = \''.IDENTITY_SETTING_LASTNAME.'\' AND usl.locale = \''.AppLocale::getLocale().'\')
+				' . $userDao->getFetchJoins() . '
 			WHERE	e.context_id = ? AND
 				e.section_id = ?
-			ORDER BY usl.setting_value, usf.setting_value',
-			array((int) $contextId, (int) $sectionId)
+			' . $userDao->getOrderBy(),
+			$params
 		);
 
 		$users = array();
-		$userDao = DAORegistry::getDAO('UserDAO');
 		while (!$result->EOF) {
 			$row = $result->GetRowAssoc(false);
 			$user = $userDao->getById($row['user_id']);
@@ -91,20 +93,22 @@ class SubEditorsDAO extends DAO {
 	 * @return array matching Users
 	 */
 	function getEditorsNotInSection($contextId, $sectionId) {
+		$userDao = DAORegistry::getDAO('UserDAO');
+		$params = array(ROLE_ID_SUB_EDITOR, (int) $contextId, (int) $sectionId);
+		$params = array_merge($params, $userDao->getFetchParameters());
 		$result = $this->retrieve(
-			'SELECT	u.user_id
+			'SELECT	u.user_id,
+			' . $userDao->getFetchColumns() . '
 			FROM	users u
 				JOIN user_user_groups uug ON (u.user_id = uug.user_id)
 				JOIN user_groups ug ON (uug.user_group_id = ug.user_group_id AND ug.role_id = ? AND ug.context_id = ?)
 				LEFT JOIN section_editors e ON (e.user_id = u.user_id AND e.context_id = ug.context_id AND e.section_id = ?)
-				LEFT JOIN user_settings usf ON (usf.user_id = u.user_id AND usf.setting_name = \''.IDENTITY_SETTING_FIRSTNAME.'\' AND usf.locale = \''.AppLocale::getLocale().'\')
-				LEFT JOIN user_settings usl ON (usl.user_id = u.user_id AND usl.setting_name = \''.IDENTITY_SETTING_LASTNAME.'\' AND usl.locale = \''.AppLocale::getLocale().'\')
+				' . $userDao->getFetchJoins() . '
 			WHERE	e.section_id IS NULL
-			ORDER BY usl.setting_value, usf.setting_value',
-			array(ROLE_ID_SUB_EDITOR, (int) $contextId, (int) $sectionId)
+			' . $userDao->getOrderBy(),
+			$params
 		);
 
-		$userDao = DAORegistry::getDAO('UserDAO');
 		$users = array();
 		while (!$result->EOF) {
 			$row = $result->GetRowAssoc(false);

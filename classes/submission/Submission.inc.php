@@ -249,14 +249,15 @@ abstract class Submission extends DataObject {
 
 	/**
 	 * Return first author
-	 * @param $lastOnly boolean return lastname only (default false)
+	 * @param $familyOnly boolean return family name only (default false)
 	 * @return string
 	 */
-	function getFirstAuthor($lastOnly = false) {
+	function getFirstAuthor($familyOnly = false) {
 		$authors = $this->getAuthors();
 		if (is_array($authors) && !empty($authors)) {
 			$author = $authors[0];
-			return $lastOnly ? $author->getLastName() : $author->getFullName();
+			$familyName = $author->getLocalizedFamilyName();
+			return ($familyOnly && !empty($familyName)) ? $familyName : $author->getFullName();
 		} else {
 			return null;
 		}
@@ -264,12 +265,12 @@ abstract class Submission extends DataObject {
 
 	/**
 	 * Return string of author names, separated by the specified token
-	 * @param $lastOnly boolean return list of lastnames only (default false)
+	 * @param $familyOnly boolean return list of family names only (default false)
 	 * @param $nameSeparator string Separator for names (default comma+space)
 	 * @param $userGroupSeparator string Separator for user groups (default semicolon+space)
 	 * @return string
 	 */
-	function getAuthorString($lastOnly = false, $nameSeparator = ', ', $userGroupSeparator = '; ') {
+	function getAuthorString($familyOnly = false, $nameSeparator = ', ', $userGroupSeparator = '; ') {
 		$authors = $this->getAuthors(true);
 
 		$str = '';
@@ -286,7 +287,8 @@ abstract class Submission extends DataObject {
 					$str .= $nameSeparator;
 				}
 			}
-			$str .= $lastOnly ? $author->getLastName() : $author->getFullName();
+			$familyName = $author->getLocalizedFamilyName();
+			$str .= ($familyOnly && !empty($familyName)) ? $familyName : $author->getFullName();
 			$lastUserGroupId = $author->getUserGroupId();
 		}
 
@@ -310,7 +312,8 @@ abstract class Submission extends DataObject {
 		}
 		if (!$firstAuthor) return '';
 
-		$authorString = $firstAuthor->getLastName();
+		$familyName = $firstAuthor->getLocalizedFamilyName();
+		$authorString = (!empty($familyName)) ? $familyName : $firstAuthor->getLocalizedGivenName();
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
 		if (count($authors) > 1) $authorString = __('submission.shortAuthor', array('author' => $authorString));
 		return $authorString;

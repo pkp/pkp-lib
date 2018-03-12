@@ -347,15 +347,21 @@ class Validation {
 
 	/**
 	 * Suggest a username given the first and last names.
+	 * @param $givenName string
+	 * @param $familyName string
 	 * @return string
 	 */
-	static function suggestUsername($firstName, $lastName) {
-		$initial = PKPString::substr($firstName, 0, 1);
-
+	static function suggestUsername($givenName, $familyName = null) {
 		import('lib.pkp.classes.core.Transcoder');
 		$transcoder = new Transcoder('UTF-8', 'ASCII', true);
 
-		$suggestion = PKPString::regexp_replace('/[^a-zA-Z0-9_-]/', '', $transcoder->trans(PKPString::strtolower($initial . $lastName)));
+		$name = $givenName;
+		if (!empty($familyName)) {
+			$initial = PKPString::substr($givenName, 0, 1);
+			$name = $initial . $familyName;
+		}
+
+		$suggestion = PKPString::regexp_replace('/[^a-zA-Z0-9_-]/', '', $transcoder->trans(PKPString::strtolower($name)));
 		$userDao = DAORegistry::getDAO('UserDAO');
 		for ($i = ''; $userDao->userExistsByUsername($suggestion . $i); $i++);
 		return $suggestion . $i;

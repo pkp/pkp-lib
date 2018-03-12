@@ -35,7 +35,10 @@ class UserDetailsForm extends UserForm {
 			$this->author = null;
 		}
 
+		// the users register for the site, thus
+		// the site primary locale is the required default locale
 		$site = $request->getSite();
+		$this->addSupportedFormLocale($site->getPrimaryLocale());
 
 		// Validation checks for this form
 		$form = $this;
@@ -57,8 +60,16 @@ class UserDetailsForm extends UserForm {
 				return $password == $form->getData('password2');
 			}));
 		}
-		$this->addCheck(new FormValidator($this, 'firstName', 'required', 'user.profile.form.firstNameRequired'));
-		$this->addCheck(new FormValidator($this, 'lastName', 'required', 'user.profile.form.lastNameRequired'));
+		$this->addCheck(new FormValidatorLocale($this, 'givenName', 'required', 'user.profile.form.givenNameRequired', $site->getPrimaryLocale()));
+		$this->addCheck(new FormValidatorCustom($this, 'familyName', 'optional', 'user.profile.form.givenNameRequired.locale', function($familyName) use ($form) {
+			$givenNames = $form->getData('givenName');
+			foreach ($familyName as $locale => $value) {
+				if (!empty($value) && empty($givenNames[$locale])) {
+					return false;
+				}
+			}
+			return true;
+		}));
 		$this->addCheck(new FormValidatorUrl($this, 'userUrl', 'optional', 'user.profile.form.urlInvalid'));
 		$this->addCheck(new FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
 		$this->addCheck(new FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', array(DAORegistry::getDAO('UserDAO'), 'userExistsByEmail'), array($this->userId, true), true));
@@ -88,13 +99,9 @@ class UserDetailsForm extends UserForm {
 			$data = array(
 				'authId' => $user->getAuthId(),
 				'username' => $user->getUsername(),
-				'salutation' => $user->getSalutation(),
-				'firstName' => $user->getFirstName(),
-				'middleName' => $user->getMiddleName(),
-				'lastName' => $user->getLastName(),
-				'suffix' => $user->getSuffix(),
+				'givenName' => $user->getGivenName(null), // Localized
+				'familyName' => $user->getFamilyName(null), // Localized
 				'signature' => $user->getSignature(null), // Localized
-				'initials' => $user->getInitials(),
 				'affiliation' => $user->getAffiliation(null), // Localized
 				'email' => $user->getEmail(),
 				'userUrl' => $user->getUrl(),
@@ -115,10 +122,8 @@ class UserDetailsForm extends UserForm {
 		} else if (isset($this->author)) {
 			$author = $this->author;
 			$data = array(
-				'salutation' => $author->getSalutation(),
-				'firstName' => $author->getFirstName(),
-				'middleName' => $author->getMiddleName(),
-				'lastName' => $author->getLastName(),
+				'givenName' => $author->getGivenName(null), // Localized
+				'familyName' => $author->getFamilyName(null), // Localized
 				'affiliation' => $author->getAffiliation(null), // Localized
 				'email' => $author->getEmail(),
 				'userUrl' => $author->getUrl(),
@@ -152,6 +157,7 @@ class UserDetailsForm extends UserForm {
 			'minPasswordLength' => $site->getMinPasswordLength(),
 			'source' => $request->getUserVar('source'),
 			'userId' => $this->userId,
+			'sitePrimaryLocale' => $site->getPrimaryLocale(),
 		));
 
 		if (isset($this->userId)) {
@@ -189,12 +195,8 @@ class UserDetailsForm extends UserForm {
 			'authId',
 			'password',
 			'password2',
-			'salutation',
-			'firstName',
-			'middleName',
-			'lastName',
-			'suffix',
-			'initials',
+			'givenName',
+			'familyName',
 			'signature',
 			'affiliation',
 			'email',
@@ -249,12 +251,8 @@ class UserDetailsForm extends UserForm {
 			$user->setInlineHelp(1); // default new users to having inline help visible
 		}
 
-		$user->setSalutation($this->getData('salutation'));
-		$user->setFirstName($this->getData('firstName'));
-		$user->setMiddleName($this->getData('middleName'));
-		$user->setLastName($this->getData('lastName'));
-		$user->setSuffix($this->getData('suffix'));
-		$user->setInitials($this->getData('initials'));
+		$user->setGivenName($this->getData('givenName'), null); // Localized
+		$user->setFamilyName($this->getData('familyName'), null); // Localized
 		$user->setAffiliation($this->getData('affiliation'), null); // Localized
 		$user->setSignature($this->getData('signature'), null); // Localized
 		$user->setEmail($this->getData('email'));

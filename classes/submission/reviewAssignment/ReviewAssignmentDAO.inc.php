@@ -16,6 +16,7 @@
 
 
 import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignment');
+
 class ReviewAssignmentDAO extends DAO {
 	var $userDao;
 
@@ -122,16 +123,11 @@ class ReviewAssignmentDAO extends DAO {
 		$reviewRoundJoinString = $this->getReviewRoundJoin();
 		if ($reviewRoundJoinString) {
 			$result = $this->retrieve(
-				'SELECT	r.*, r2.review_revision, usf.setting_value, usl.setting_value
+				'SELECT	r.*, r2.review_revision
 				FROM	review_assignments r
-					LEFT JOIN users u ON (r.reviewer_id = u.user_id)
-					LEFT JOIN user_settings usf ON (usf.user_id = u.user_id AND usf.setting_name = ? AND usf.locale = ? )
-                		        LEFT JOIN user_settings usl ON (usl.user_id = u.user_id AND usl.setting_name = ? AND usl.locale = ?)
 					LEFT JOIN review_rounds r2 ON (' . $reviewRoundJoinString . ')
 				WHERE	r.review_id = ?',
-				array(	IDENTITY_SETTING_FIRSTNAME, AppLocale::getLocale(),
-					IDENTITY_SETTING_LASTNAME, AppLocale::getLocale(),
-					(int) $reviewId)
+				(int) $reviewId
 			);
 
 			$returner = null;
@@ -156,16 +152,11 @@ class ReviewAssignmentDAO extends DAO {
 		$reviewRoundJoinString = $this->getReviewRoundJoin();
 		if ($reviewRoundJoinString) {
 			$result = $this->retrieve(
-				'SELECT	r.*, r2.review_revision, usf.setting_value, usl.setting_value
+				'SELECT	r.*, r2.review_revision
 				FROM	review_assignments r
-					LEFT JOIN users u ON (r.reviewer_id = u.user_id)
-					LEFT JOIN user_settings usf ON (usf.user_id = u.user_id AND usf.setting_name = ? AND usf.locale = ? )
-                                        LEFT JOIN user_settings usl ON (usl.user_id = u.user_id AND usl.setting_name = ? AND usl.locale = ?)
 					LEFT JOIN review_rounds r2 ON (' . $reviewRoundJoinString . ')
 				WHERE' . $this->getIncompleteReviewAssignmentsWhereString() .
-				' ORDER BY r.submission_id',
-                                array(  IDENTITY_SETTING_FIRSTNAME, AppLocale::getLocale(),
-                                        IDENTITY_SETTING_LASTNAME, AppLocale::getLocale())
+				' ORDER BY r.submission_id'
 			);
 
 			while (!$result->EOF) {
@@ -237,18 +228,12 @@ class ReviewAssignmentDAO extends DAO {
 
 		if ($reviewRoundJoinString) {
 			$result = $this->retrieve(
-				'SELECT	r.*, r2.review_revision, usf.setting_value, usl.setting_value
+				'SELECT	r.*, r2.review_revision
 				FROM	review_assignments r
-					LEFT JOIN users u ON (r.reviewer_id = u.user_id)
-					LEFT JOIN user_settings usf ON (usf.user_id = u.user_id AND usf.setting_name = ? AND usf.locale = ?)
-					LEFT JOIN user_settings usl ON (usl.user_id = u.user_id AND usl.setting_name = ? AND usl.locale = ?)
 					LEFT JOIN review_rounds r2 ON (' . $reviewRoundJoinString . ')
 				WHERE	r.reviewer_id = ?
 				ORDER BY round, review_id',
-				array(  IDENTITY_SETTING_FIRSTNAME, AppLocale::getLocale(),
-					IDENTITY_SETTING_LASTNAME, AppLocale::getLocale(),
-					(int) $userId
-				)
+			(int) $userId
 			);
 
 			while (!$result->EOF) {
@@ -295,19 +280,12 @@ class ReviewAssignmentDAO extends DAO {
 
 		if ($reviewRoundJoinString) {
 			$result = $this->retrieve(
-				'SELECT	r.*, r2.review_revision, usf.setting_value, usl.setting_value
+				'SELECT	r.*, r2.review_revision
 				FROM	review_assignments r
-					LEFT JOIN users u ON (r.reviewer_id = u.user_id)
-					LEFT JOIN user_settings usf ON (usf.user_id = u.user_id AND usf.setting_name = ? AND usf.locale = ?)
-					LEFT JOIN user_settings usl ON (usl.user_id = u.user_id AND usl.setting_name = ? AND usl.locale = ?)
 					LEFT JOIN review_rounds r2 ON (' . $reviewRoundJoinString . ')
 				WHERE	r.review_form_id = ?
 				ORDER BY round, review_id',
-				array(  IDENTITY_SETTING_FIRSTNAME, AppLocale::getLocale(),
-					IDENTITY_SETTING_LASTNAME, AppLocale::getLocale(),
-					(int) $reviewFormId
-                                )
-
+				(int) $reviewFormId
 			);
 
 			while (!$result->EOF) {
@@ -494,11 +472,12 @@ class ReviewAssignmentDAO extends DAO {
 	 */
 	function _fromRow($row) {
 		$reviewAssignment = $this->newDataObject();
+		$user = $this->userDao->getById($row['reviewer_id']);
 
 		$reviewAssignment->setId($row['review_id']);
 		$reviewAssignment->setSubmissionId($row['submission_id']);
 		$reviewAssignment->setReviewerId($row['reviewer_id']);
-		$reviewAssignment->setReviewerFullName($row['first_name'].' '.$row['last_name']);
+		$reviewAssignment->setReviewerFullName($user->getFullName());
 		$reviewAssignment->setCompetingInterests($row['competing_interests']);
 		$reviewAssignment->setRecommendation($row['recommendation']);
 		$reviewAssignment->setDateAssigned($this->datetimeFromDB($row['date_assigned']));
@@ -638,11 +617,8 @@ class ReviewAssignmentDAO extends DAO {
 	 * @return string
 	 */
 	function _getSelectQuery() {
-		return 'SELECT r.*, r2.review_revision, usf.setting_value, usl.setting_value FROM review_assignments r
-		LEFT JOIN users u ON (r.reviewer_id = u.user_id)
-		LEFT JOIN user_settings usf ON (usf.user_id = u.user_id AND usf.setting_name = \'' . IDENTITY_SETTING_FIRSTNAME . '\' AND usf.locale = \'' . AppLocale::getLocale() . '\')
-		LEFT JOIN user_settings usl ON (usl.user_id = u.user_id AND usl.setting_name = \'' . IDENTITY_SETTING_LASTNAME . '\' AND usl.locale = \'' . AppLocale::getLocale() . '\')
-		LEFT JOIN review_rounds r2 ON (r.review_round_id = r2.review_round_id)';
+		return 'SELECT r.*, r2.review_revision FROM review_assignments r
+			LEFT JOIN review_rounds r2 ON (r.review_round_id = r2.review_round_id)';
 	}
 }
 

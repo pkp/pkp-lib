@@ -47,7 +47,8 @@ class RoleDAO extends DAO {
 	 * @return array matching Users
 	 */
 	function getUsersByRoleId($roleId = null, $contextId = null, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null) {
-		$paramArray = array(ASSOC_TYPE_USER, 'interest');
+		$paramArray = array(ASSOC_TYPE_USER, 'interest', IDENTITY_SETTING_GIVENNAME, IDENTITY_SETTING_FAMILYNAME);
+		$paramArray = array_merge($paramArray, $this->userDao->getFetchParameters());
 		if (isset($roleId)) $paramArray[] = (int) $roleId;
 		if (isset($contextId)) $paramArray[] = (int) $contextId;
 		// For security / resource usage reasons, a role or context ID
@@ -57,8 +58,8 @@ class RoleDAO extends DAO {
 		$searchSql = '';
 
 		$searchTypeMap = array(
-			IDENTITY_SETTING_FIRSTNAME => 'usf.setting_value',
-			IDENTITY_SETTING_LASTNAME => 'usl.setting_value',
+			IDENTITY_SETTING_GIVENNAME => 'usgs.setting_value',
+			IDENTITY_SETTING_FAMILYNAME => 'usfs.setting_value',
 			USER_FIELD_USERNAME => 'u.username',
 			USER_FIELD_EMAIL => 'u.email',
 			USER_FIELD_INTERESTS => 'cves.setting_value'
@@ -85,22 +86,23 @@ class RoleDAO extends DAO {
 				$searchSql = 'AND u.user_id=?';
 				$paramArray[] = $search;
 				break;
-			case USER_FIELD_INITIAL:
-				$searchSql = 'AND LOWER(usl.setting_value) LIKE LOWER(?)';
-				$paramArray[] = $search . '%';
-				break;
 		}
 
-		$searchSql .= ' ORDER BY usl.setting_value, usf.setting_value'; // FIXME Add "sort field" parameter?
+		$searchSql .= ' ' . $this->userDao->getOrderBy(); // FIXME Add "sort field" parameter?
 
 		$result = $this->retrieveRange(
-			'SELECT DISTINCT u.* FROM users AS u LEFT JOIN controlled_vocabs cv ON (cv.assoc_type = ? AND cv.assoc_id = u.user_id AND cv.symbolic = ?)
-			LEFT JOIN user_settings usf ON (usf.user_id = u.user_id AND usf.setting_name = \''.IDENTITY_SETTING_FIRSTNAME.'\' AND usf.locale = \''.AppLocale::getLocale().'\')
-			LEFT JOIN user_settings usl ON (usl.user_id = u.user_id AND usl.setting_name = \''.IDENTITY_SETTING_LASTNAME.'\' AND usl.locale = \''.AppLocale::getLocale().'\')
+			'SELECT DISTINCT u.*,
+			' . $this->userDao->getFetchColumns() . '
+			FROM users AS u
+			LEFT JOIN user_user_groups uug ON (uug.user_id = u.user_id)
+			LEFT JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id)
+			LEFT JOIN controlled_vocabs cv ON (cv.assoc_type = ? AND cv.assoc_id = u.user_id AND cv.symbolic = ?)
+			LEFT JOIN user_settings usgs ON (usgs.user_id = u.user_id AND usgs.setting_name = ?)
+			LEFT JOIN user_settings usfs ON (usfs.user_id = u.user_id AND usfs.setting_name = ?)
 			LEFT JOIN controlled_vocab_entries cve ON (cve.controlled_vocab_id = cv.controlled_vocab_id)
-			LEFT JOIN controlled_vocab_entry_settings cves ON (cves.controlled_vocab_entry_id = cve.controlled_vocab_entry_id),
-			user_groups AS ug, user_user_groups AS uug
-			WHERE ug.user_group_id = uug.user_group_id AND u.user_id = uug.user_id' . (isset($roleId) ? ' AND ug.role_id = ?' : '') . (isset($contextId) ? ' AND ug.context_id = ?' : '') . ' ' . $searchSql,
+			LEFT JOIN controlled_vocab_entry_settings cves ON (cves.controlled_vocab_entry_id = cve.controlled_vocab_entry_id)
+			' . $this->userDao->getFetchJoins() . '
+			WHERE ' . (isset($roleId) ? 'ug.role_id = ? AND ' : '') . (isset($contextId) ? 'ug.context_id = ? ' : '') . ' ' . $searchSql,
 			$paramArray,
 			$dbResultRange
 		);
@@ -177,21 +179,6 @@ class RoleDAO extends DAO {
 		}
 
 		return $roles;
-	}
-
-	/**
-	 * Map a column heading value to a database value for sorting
-	 * @param string
-	 * @return string
-	 */
-	function getSortMapping($heading) {
-		switch ($heading) {
-			case 'username': return 'u.username';
-			case 'name': return 'usl.setting_value';
-			case 'email': return 'u.email';
-			case 'id': return 'u.user_id';
-			default: return null;
-		}
 	}
 
 	/**

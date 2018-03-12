@@ -18,6 +18,54 @@ import('lib.pkp.classes.identity.Identity');
 
 class PKPAuthor extends Identity {
 
+	/**
+	 * Get a piece of data for this object, localized to the current
+	 * locale if possible.
+	 * @param $key string
+	 * @param $preferredLocale string
+	 * @return mixed
+	 */
+	function &getLocalizedData($key, $preferredLocale = null) {
+		if (is_null($preferredLocale)) $preferredLocale = AppLocale::getLocale();
+		$localePrecedence = array($preferredLocale);
+		// the submission locale is the default locale
+		if (!in_array($this->getSubmissionLocale(), $localePrecedence)) $localePrecedence[] = $this->getSubmissionLocale();
+		// for settings other than givenName, familyName and affiliation (that are required)
+		// consider also the application primary locale
+		if (!in_array(AppLocale::getPrimaryLocale(), $localePrecedence)) $localePrecedence[] = AppLocale::getPrimaryLocale();
+		foreach ($localePrecedence as $locale) {
+			if (empty($locale)) continue;
+			$value =& $this->getData($key, $locale);
+			if (!empty($value)) return $value;
+			unset($value);
+		}
+
+		// Fallback: Get the first available piece of data.
+		$data =& $this->getData($key, null);
+		foreach ((array) $data as $dataValue) {
+			if (!empty($dataValue)) return $dataValue;
+		}
+
+		// No data available; return null.
+		unset($data);
+		$data = null;
+		return $data;
+	}
+
+	/**
+	 * @copydoc Identity::getLocalizedFamilyName()
+	 */
+	function getLocalizedFamilyName($defaultLocale = null) {
+		return parent::getLocalizedFamilyName($this->getSubmissionLocale());
+	}
+
+	/**
+	 * @copydoc Identity::getFullName()
+	 */
+	function getFullName($familyFirst = false, $defaultLocale =  null) {
+		return parent::getFullName($familyFirst, $this->getSubmissionLocale());
+	}
+
 	//
 	// Get/set methods
 	//
@@ -36,6 +84,22 @@ class PKPAuthor extends Identity {
 	 */
 	function setSubmissionId($submissionId) {
 		$this->setData('submissionId', $submissionId);
+	}
+
+	/**
+	 * Get submission locale.
+	 * @return string
+	 */
+	function getSubmissionLocale() {
+		return $this->getData('submissionLocale');
+	}
+
+	/**
+	 * Set submission locale.
+	 * @param $submissionLocale string
+	 */
+	function setSubmissionLocale($submissionLocale) {
+		return $this->setData('submissionLocale', $submissionLocale);
 	}
 
 	/**

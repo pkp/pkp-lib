@@ -40,7 +40,8 @@ class DataObjectGridCellProvider extends GridCellProvider {
 	 * @return string
 	 */
 	function getLocale() {
-		return AppLocale::getLocale();
+		if (empty($this->_locale)) return AppLocale::getLocale();
+		return $this->_locale;
 	}
 
 

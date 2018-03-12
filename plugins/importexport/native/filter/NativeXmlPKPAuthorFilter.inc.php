@@ -90,20 +90,15 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter {
 
 		// Handle metadata in subelements
 		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) if (is_a($n, 'DOMElement')) switch($n->tagName) {
-			case 'firstname':
+			case 'givenname':
 				$locale = $n->getAttribute('locale');
 				if (empty($locale)) $locale = $submission->getLocale();
-				$author->setFirstName($n->textContent, $locale);
+				$author->setGivenName($n->textContent, $locale);
 				break;
-			case 'middlename':
+			case 'familyname':
 				$locale = $n->getAttribute('locale');
 				if (empty($locale)) $locale = $submission->getLocale();
-				$author->setMiddleName($n->textContent, $locale);
-				break;
-			case 'lastname':
-				$locale = $n->getAttribute('locale');
-				if (empty($locale)) $locale = $submission->getLocale();
-				$author->setLastName($n->textContent, $locale);
+				$author->setFamilyName($n->textContent, $locale);
 				break;
 			case 'affiliation':
 				$locale = $n->getAttribute('locale');
@@ -121,6 +116,9 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter {
 				break;
 		}
 
+		if (empty($author->getGivenName($submission->getLocale()))) {
+			$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.missingGivenName', array('param' => $author->getLocalizedGivenName())));
+		}
 		$authorDao->insertObject($author);
 		return $author;
 	}

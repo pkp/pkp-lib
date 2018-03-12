@@ -25,9 +25,24 @@ class IdentityForm extends BaseProfileForm {
 	function __construct($user) {
 		parent::__construct('user/identityForm.tpl', $user);
 
+		// the users register for the site, thus
+		// the site primary locale is the required default locale
+		$siteDao = DAORegistry::getDAO('SiteDAO');
+		$site = $siteDao->getSite();
+		$this->addSupportedFormLocale($site->getPrimaryLocale());
+
 		// Validation checks for this form
-		$this->addCheck(new FormValidator($this, 'firstName', 'required', 'user.profile.form.firstNameRequired'));
-		$this->addCheck(new FormValidator($this, 'lastName', 'required', 'user.profile.form.lastNameRequired'));
+		$form = $this;
+		$this->addCheck(new FormValidatorLocale($this, 'givenName', 'required', 'user.profile.form.givenNameRequired', $site->getPrimaryLocale()));
+		$this->addCheck(new FormValidatorCustom($this, 'familyName', 'optional', 'user.profile.form.givenNameRequired.locale', function($familyName) use ($form) {
+			$givenNames = $form->getData('givenName');
+			foreach ($familyName as $locale => $value) {
+				if (!empty($value) && empty($givenNames[$locale])) {
+					return false;
+				}
+			}
+			return true;
+		}));
 	}
 
 	/**
@@ -54,12 +69,8 @@ class IdentityForm extends BaseProfileForm {
 		$user = $this->getUser();
 
 		$this->_data = array(
-			'salutation' => $user->getSalutation(),
-			'firstName' => $user->getFirstName(),
-			'middleName' => $user->getMiddleName(),
-			'initials' => $user->getInitials(),
-			'lastName' => $user->getLastName(),
-			'suffix' => $user->getSuffix(),
+			'givenName' => $user->getGivenName(null),
+			'familyName' => $user->getFamilyName(null),
 		);
 	}
 
@@ -70,7 +81,7 @@ class IdentityForm extends BaseProfileForm {
 		parent::readInputData();
 
 		$this->readUserVars(array(
-			'salutation', 'firstName', 'middleName', 'initials', 'lastName', 'suffix',
+			'givenName', 'familyName',
 		));
 	}
 
@@ -80,12 +91,8 @@ class IdentityForm extends BaseProfileForm {
 	function execute($request) {
 		$user = $request->getUser();
 
-		$user->setSalutation($this->getData('salutation'));
-		$user->setFirstName($this->getData('firstName'));
-		$user->setMiddleName($this->getData('middleName'));
-		$user->setInitials($this->getData('initials'));
-		$user->setLastName($this->getData('lastName'));
-		$user->setSuffix($this->getData('suffix'));
+		$user->setGivenName($this->getData('givenName'), null);
+		$user->setFamilyName($this->getData('familyName'), null);
 
 		parent::execute($request, $user);
 	}

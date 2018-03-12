@@ -28,10 +28,10 @@ abstract class PKPAuthorDAO extends DAO {
 		$params = array((int) $authorId);
 		if ($submissionId !== null) $params[] = (int) $submissionId;
 		$result = $this->retrieve(
-			'SELECT a.*,
-				ug.show_title
+			'SELECT a.*, ug.show_title, s.locale
 			FROM	authors a
 				JOIN user_groups ug ON (a.user_group_id=ug.user_group_id)
+				JOIN submissions s ON (s.submission_id = a.submission_id)
 			WHERE	a.author_id = ?'
 				. ($submissionId !== null?' AND a.submission_id = ?':''),
 			$params
@@ -59,9 +59,10 @@ abstract class PKPAuthorDAO extends DAO {
 		if ($useIncludeInBrowse) $params[] = 1;
 
 		$result = $this->retrieve(
-			'SELECT	a.*, ug.show_title
+			'SELECT	a.*, ug.show_title, s.locale
 			FROM	authors a
 				JOIN user_groups ug ON (a.user_group_id=ug.user_group_id)
+				JOIN submissions s ON (s.submission_id = a.submission_id)
 			WHERE	a.submission_id = ? ' .
 			($useIncludeInBrowse ? ' AND a.include_in_browse = ?' : '')
 			. ' ORDER BY seq',
@@ -123,7 +124,7 @@ abstract class PKPAuthorDAO extends DAO {
 		$author = $this->newDataObject();
 		$author->setId($row['author_id']);
 		$author->setSubmissionId($row['submission_id']);
-		$author->setSuffix($row['suffix']);
+		$author->setSubmissionLocale($row['locale']);
 		$author->setCountry($row['country']);
 		$author->setEmail($row['email']);
 		$author->setUrl($row['url']);
@@ -140,32 +141,6 @@ abstract class PKPAuthorDAO extends DAO {
 	}
 
 	/**
-	 * Internal function to return an Author object from a row. Simplified
-	 * not to include object settings.
-	 * @param $row array
-	 * @return Author
-	 */
-	function _returnSimpleAuthorFromRow($row) {
-		$author = $this->newDataObject();
-		$author->setId($row['author_id']);
-		$author->setSubmissionId($row['submission_id']);
-		$author->setSuffix($row['suffix']);
-		$author->setCountry($row['country']);
-		$author->setEmail($row['email']);
-		$author->setUrl($row['url']);
-		$author->setUserGroupId($row['user_group_id']);
-		$author->setPrimaryContact($row['primary_contact']);
-		$author->setSequence($row['seq']);
-		$author->setIncludeInBrowse($row['include_in_browse'] == 1 ? true : false);
-
-		$author->setAffiliation($row['affiliation_l'], $row['locale']);
-		$author->setAffiliation($row['affiliation_pl'], $row['primary_locale']);
-
-		HookRegistry::call('AuthorDAO::_returnSimpleAuthorFromRow', array(&$author, &$row));
-		return $author;
-	}
-
-	/**
 	 * Get a new data object
 	 * @return DataObject
 	 */
@@ -176,7 +151,7 @@ abstract class PKPAuthorDAO extends DAO {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return array('biography', 'competingInterests', 'affiliation', 'firstName', 'lastName', 'middleName');
+		return array('biography', 'competingInterests', 'affiliation', IDENTITY_SETTING_GIVENNAME, IDENTITY_SETTING_FAMILYNAME);
 	}
 
 	/**
@@ -205,22 +180,19 @@ abstract class PKPAuthorDAO extends DAO {
 
 		$this->update(
 			'INSERT INTO authors (
-				submission_id, suffix, country,
-				email, url, user_group_id, primary_contact, seq, include_in_browse
+				submission_id, country, email, url, user_group_id, primary_contact, seq, include_in_browse
 			) VALUES (
-				?, ?, ?, 
-				?, ?, ?, ?, ?, ?
+				?, ?, ?, ?, ?, ?, ?, ?
 			)',
 				array(
-						(int) $author->getSubmissionId(),
-						$author->getSuffix() . '',
-						$author->getCountry(),
-						$author->getEmail(),
-						$author->getUrl(),
-						(int) $author->getUserGroupId(),
-						(int) $author->getPrimaryContact(),
-						(float) $author->getSequence(),
-						(int) $author->getIncludeInBrowse() ? 1 : 0,
+					(int) $author->getSubmissionId(),
+					$author->getCountry(),
+					$author->getEmail(),
+					$author->getUrl(),
+					(int) $author->getUserGroupId(),
+					(int) $author->getPrimaryContact(),
+					(float) $author->getSequence(),
+					(int) $author->getIncludeInBrowse() ? 1 : 0,
 				)
 		);
 
@@ -242,8 +214,7 @@ abstract class PKPAuthorDAO extends DAO {
 
 		$returner = $this->update(
 			'UPDATE	authors
-			SET	suffix = ?,
-				country = ?,
+			SET	country = ?,
 				email = ?,
 				url = ?,
 				user_group_id = ?,
@@ -252,7 +223,6 @@ abstract class PKPAuthorDAO extends DAO {
 				include_in_browse = ?
 			WHERE	author_id = ?',
 			array(
-				$author->getSuffix() . '',
 				$author->getCountry(),
 				$author->getEmail(),
 				$author->getUrl(),
@@ -323,10 +293,11 @@ abstract class PKPAuthorDAO extends DAO {
 	 */
 	function getPrimaryContact($submissionId) {
 		$result = $this->retrieve(
-			'SELECT a.*, ug.show_title
-				FROM authors a
-			JOIN user_groups ug ON (a.user_group_id=ug.user_group_id)
-			WHERE submission_id = ? AND primary_contact = 1',
+			'SELECT a.*, ug.show_title, s.locale
+			FROM authors a
+				JOIN user_groups ug ON (a.user_group_id=ug.user_group_id)
+				JOIN submissions s ON (s.submission_id = a.submission_id)
+			WHERE a.submission_id = ? AND a.primary_contact = 1',
 			(int) $submissionId
 		);
 
@@ -372,6 +343,49 @@ abstract class PKPAuthorDAO extends DAO {
 			$this->deleteObject($author);
 		}
 	}
+
+	/**
+	 * Return a list of extra parameters to bind to the author fetch queries.
+	 * @return array
+	 */
+	function getFetchParameters() {
+		$locale = AppLocale::getLocale();
+		return array(
+			IDENTITY_SETTING_GIVENNAME, $locale,
+			IDENTITY_SETTING_GIVENNAME,
+			IDENTITY_SETTING_FAMILYNAME, $locale,
+			IDENTITY_SETTING_FAMILYNAME,
+		);
+	}
+
+	/**
+	 * Return a SQL snippet of extra columns to fetch during author fetch queries.
+	 * @return string
+	 */
+	function getFetchColumns() {
+		return 'COALESCE(agl.setting_value, agpl.setting_value) AS author_given,
+			CASE WHEN agl.setting_value <> \'\' THEN afl.setting_value ELSE afpl.setting_value END AS author_family';
+	}
+
+	/**
+	 * Return a SQL snippet of extra joins to include during author fetch queries.
+	 * @return string
+	 */
+	function getFetchJoins() {
+		return 'LEFT JOIN author_settings agl ON (a.author_id = agl.author_id AND agl.setting_name = ? AND agl.locale = ?)
+			LEFT JOIN author_settings agpl ON (a.author_id = agpl.author_id AND agpl.setting_name = ? AND agpl.locale = s.locale)
+			LEFT JOIN author_settings afl ON (a.author_id = afl.author_id AND afl.setting_name = ? AND afl.locale = ?)
+			LEFT JOIN author_settings afpl ON (a.author_id = afpl.author_id AND afpl.setting_name = ? AND afpl.locale = s.locale)';
+	}
+
+	/**
+	 * Return a default sorting.
+	 * @return string
+	 */
+	function getOrderBy() {
+		return 'ORDER BY author_family, author_given';
+	}
+
 }
 
 ?>

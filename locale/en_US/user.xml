@@ -38,7 +38,7 @@
 	<message key="user.dateRegistered">Date registered</message>
 	<message key="user.editMyProfile">Edit My Profile</message>
 	<message key="user.email">Email</message>
-	<message key="user.firstName">First Name</message>
+	<message key="user.givenName">Given Name</message>
 	<message key="user.initialsExample">Joan Alice Smith = JAS</message>
 	<message key="user.initials">Initials</message>
 	<message key="user.interests">Reviewing interests</message>
@@ -46,7 +46,7 @@
 	<message key="user.gossip">Editorial Notes</message>
 	<message key="user.gossip.description">Record notes about this reviewer that you would like to make visible to other administrators, managers and all editors. Notes will be visible for future review assignments.</message>
 	<message key="user.group">User Group</message>
-	<message key="user.lastName">Last Name</message>
+	<message key="user.familyName">Family Name</message>
 	<message key="user.profile.form.profileImageInvalid">Invalid profile image format or image too big. Accepted formats are .gif, .jpg, or .png, and the image must not exceed 150x150 pixels.</message>
 	<message key="user.login.accountDisabledWithReason">Your account has been disabled for the following reason: {$reason}</message>
 	<message key="user.login.accountDisabled">Your account has been disabled. Please contact the administrator for more information.</message>
@@ -85,7 +85,8 @@
 	<message key="user.profile.form.countryRequired">A country is required.</message>
 	<message key="user.profile.form.emailRequired">A valid email address is required.</message>
 	<message key="user.profile.form.affiliationRequired">An affiliation is required.</message>
-	<message key="user.profile.form.firstNameRequired">A first name is required.</message>
+	<message key="user.profile.form.givenNameRequired">A first name is required.</message>
+	<message key="user.profile.form.givenNameRequired.locale">A first name is required for a locale in which only the last name exists.</message>
 	<message key="user.profile.form.lastNameRequired">A last name is required.</message>
 	<message key="user.profile.form.mailingAddressRequired">A mailing address is required.</message>
 	<message key="user.profile.form.newPasswordRequired">You must enter your new password.</message>

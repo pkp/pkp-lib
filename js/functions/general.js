@@ -43,16 +43,6 @@ function openWindow(url) {
 }
 
 /**
- * Open window for reading tools.
- */
-function openRTWindow(url) {
-	window.open(url, 'RT', 'width=700,height=500,screenX=100,screenY=100,toolbar=0,resizable=1,scrollbars=1');
-}
-function openRTWindowWithToolbar(url) {
-	window.open(url, 'RT', 'width=700,height=500,screenX=100,screenY=100,toolbar=1,resizable=1,scrollbars=1');
-}
-
-/**
  * browser object availability detection
  * @param objectId string of object needed
  * @param style int (0 or 1) if style object is needed

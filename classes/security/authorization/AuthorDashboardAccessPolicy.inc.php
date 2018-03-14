@@ -34,7 +34,7 @@ class AuthorDashboardAccessPolicy extends ContextPolicy {
 		// Check if the user has an stage assignment with the submission in request.
 		// Any workflow stage assignment is sufficient to access the author dashboard.
 		import('lib.pkp.classes.security.authorization.internal.UserAccessibleWorkflowStageRequiredPolicy');
-		$authorDashboardPolicy->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request));
+		$authorDashboardPolicy->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request, WORKFLOW_TYPE_AUTHOR));
 
 		$this->addPolicy($authorDashboardPolicy);
 	}

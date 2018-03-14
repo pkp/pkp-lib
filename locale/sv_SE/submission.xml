@@ -451,7 +451,7 @@
 	<!--  editor decisions -->
 	<message key="editor.submission.decision">Beslut</message>
 	<message key="editor.submission.decision.accept">Acceptera bidrag</message>
-	<message key="editor.submission.decision.requestRevisions">Ändringar begärda</message>
+	<message key="editor.submission.decision.requestRevisions">Begär bearbetningar</message>
 	<message key="editor.submission.decision.resubmit">Skicka in för granskning på nytt</message>
 	<message key="editor.submission.decision.decline">Refusera bidrag</message>
 	<message key="editor.submission.decision.sendToProduction">Skicka till Produktion</message>

@@ -107,7 +107,9 @@ class PKPAppearanceForm extends ContextSettingsForm {
 		$enabledThemes = array();
 		$activeThemeOptions = array();
 		foreach ($themePlugins as $themePlugin) {
-			$enabledThemes[basename($themePlugin->getPluginPath())] = $themePlugin->getDisplayName();
+			if ($themePlugin->getEnabled()) {
+  				$enabledThemes[basename($themePlugin->getPluginPath())] = $themePlugin->getDisplayName();
+			}
 			if ($themePlugin->isActive()) {
 				$activeThemeOptions = $themePlugin->getOptionsConfig();
 				$activeThemeOptionsValues = $themePlugin->getOptionValues();

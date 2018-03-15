@@ -33,6 +33,9 @@ class PKPReviewerGridHandler extends GridHandler {
 	/** @var integer */
 	var $_stageId;
 
+	/** @var boolean Is the current user assigned as an author to this submission */
+	var $_isCurrentUserAssignedAuthor;
+
 
 	/**
 	 * Constructor
@@ -58,6 +61,42 @@ class PKPReviewerGridHandler extends GridHandler {
 			array(ROLE_ID_ASSISTANT),
 			$assistantOperations
 		);
+	}
+
+	/**
+	 * @copydoc PKPHandler::authorize()
+	 */
+	function authorize($request, &$args, $roleAssignments) {
+		$success = parent::authorize($request, $args, $roleAssignments);
+
+		// Prevent authors from accessing review details, even if they are also
+		// assigned as an editor, sub-editor or assistant.
+		$userAssignedRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+		$this->_isCurrentUserAssignedAuthor = false;
+		foreach ($userAssignedRoles as $stageId => $roles) {
+			if (in_array(ROLE_ID_AUTHOR, $roles)) {
+				$this->_isCurrentUserAssignedAuthor = true;
+				break;
+			}
+		}
+
+		if ($this->_isCurrentUserAssignedAuthor) {
+			$operation = $request->getRouter()->getRequestedOp($request);
+
+			if (in_array($operation, $this->_getAuthorDeniedOps())) {
+				return false;
+			}
+
+			if (in_array($operation, $this->_getAuthorDeniedBlindOps())) {
+				$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
+				if ($reviewAssignment && in_array($reviewAssignment->getReviewMethod(), array(SUBMISSION_REVIEW_METHOD_BLIND, SUBMISSION_REVIEW_METHOD_DOUBLEBLIND))) {
+						return false;
+					}
+				}
+			}
+		}
+
+		return $success;
 	}
 
 
@@ -120,24 +159,26 @@ class PKPReviewerGridHandler extends GridHandler {
 		$this->setTitle('user.role.reviewers');
 
 		// Grid actions
-		import('lib.pkp.classes.linkAction.request.AjaxModal');
-		$router = $request->getRouter();
-		$actionArgs = array_merge($this->getRequestArgs(), array('selectionType' => REVIEWER_SELECT_ADVANCED_SEARCH));
-		$this->addAction(
-			new LinkAction(
-				'addReviewer',
-				new AjaxModal(
-					$router->url($request, null, null, 'showReviewerForm', null, $actionArgs),
-					__('editor.submission.addReviewer'),
-					'modal_add_user'
+		if (!$this->_isCurrentUserAssignedAuthor) {
+			import('lib.pkp.classes.linkAction.request.AjaxModal');
+			$router = $request->getRouter();
+			$actionArgs = array_merge($this->getRequestArgs(), array('selectionType' => REVIEWER_SELECT_ADVANCED_SEARCH));
+			$this->addAction(
+				new LinkAction(
+					'addReviewer',
+					new AjaxModal(
+						$router->url($request, null, null, 'showReviewerForm', null, $actionArgs),
+						__('editor.submission.addReviewer'),
+						'modal_add_user'
 					),
-				__('editor.submission.addReviewer'),
-				'add_user'
-				)
-			);
+					__('editor.submission.addReviewer'),
+					'add_user'
+					)
+				);
+		}
 
 		// Columns
-		$cellProvider = new ReviewerGridCellProvider();
+		$cellProvider = new ReviewerGridCellProvider($this->_isCurrentUserAssignedAuthor);
 		$this->addColumn(
 			new GridColumn(
 				'name',
@@ -181,7 +222,7 @@ class PKPReviewerGridHandler extends GridHandler {
 	 * @return ReviewerGridRow
 	 */
 	protected function getRowInstance() {
-		return new ReviewerGridRow();
+		return new ReviewerGridRow($this->_isCurrentUserAssignedAuthor);
 	}
 
 	/**
@@ -791,6 +832,47 @@ class PKPReviewerGridHandler extends GridHandler {
 			'createReviewer', 'enrollReviewer', 'updateReviewer',
 			'getUsersNotAssignedAsReviewers',
 			'fetchTemplateBody'
+		);
+	}
+
+	/**
+	 * Get operations that an author is not allowed to access regardless of review
+	 * type.
+	 * @return array
+	 */
+	function _getAuthorDeniedOps() {
+		return array(
+			'showReviewerForm',
+			'reloadReviewerForm',
+			'createReviewer',
+			'enrollReviewer',
+			'updateReviewer',
+			'getUsersNotAssignedAsReviewers',
+			'fetchTemplateBody',
+			'editThankReviewer',
+			'thankReviewer',
+			'editReminder',
+			'sendReminder',
+			'unassignReviewer',
+			'updateUnassignReviewer',
+			'unconsiderReview',
+			'editReview',
+			'updateReview',
+		);
+	}
+
+	/**
+	 * Get additional operations that an author is not allowed to access when the
+	 * review type is blind or double-blind.
+	 * @return array
+	 */
+	function _getAuthorDeniedBlindOps() {
+		return array(
+			'readReview',
+			'reviewHistory',
+			'reviewRead',
+			'sendEmail',
+			'gossip',
 		);
 	}
 }

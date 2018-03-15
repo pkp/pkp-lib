@@ -17,6 +17,19 @@ import('lib.pkp.classes.controllers.grid.GridRow');
 
 class ReviewerGridRow extends GridRow {
 
+	/** @var boolean Is the current user assigned as an author to this submission */
+	public $_isCurrentUserAssignedAuthor;
+
+	/**
+	 * Constructor
+	 * @param boolean $isCurrentUserAssignedAuthor Is the current user assigned as an
+	 *  author to this submission?
+	 */
+	public function __construct($isCurrentUserAssignedAuthor) {
+		parent::__construct();
+		$this->_isCurrentUserAssignedAuthor = $isCurrentUserAssignedAuthor;
+	}
+
 	//
 	// Overridden methods from GridRow
 	//
@@ -33,6 +46,13 @@ class ReviewerGridRow extends GridRow {
 		$submissionId = (int) $request->getUserVar('submissionId');
 		$stageId = (int) $request->getUserVar('stageId');
 		$round = (int) $request->getUserVar('round');
+
+		// Authors can't perform any actions on blind reviews
+		$reviewAssignment = $this->getData();
+		$isAuthorBlind = in_array($reviewAssignment->getReviewMethod(), array(SUBMISSION_REVIEW_METHOD_BLIND, SUBMISSION_REVIEW_METHOD_DOUBLEBLIND));
+		if ($this->_isCurrentUserAssignedAuthor && $isAuthorBlind) {
+			return;
+		}
 
 		// Is this a new row or an existing row?
 		$rowId = $this->getId();
@@ -75,34 +95,36 @@ class ReviewerGridRow extends GridRow {
 				)
 			);
 
-			$this->addAction(
-				new LinkAction(
-					'manageAccess',
-					new AjaxModal(
-						$router->url($request, null, null, 'editReview', null, $actionArgs),
-						__('editor.submissionReview.editReview'),
-						'modal_add_file'
-					),
-					__('common.edit'),
-					'edit'
-				)
-			);
-
-			$reviewAssignment = $this->getData();
-			// Only assign this action if the reviewer has not acknowledged yet.
-			if (!$reviewAssignment->getDateConfirmed()) {
+			if (!$this->_isCurrentUserAssignedAuthor) {
 				$this->addAction(
 					new LinkAction(
-						'unassignReviewer',
+						'manageAccess',
 						new AjaxModal(
-							$router->url($request, null, null, 'unassignReviewer', null, $actionArgs),
-							__('editor.review.unassignReviewer'),
-							'modal_delete'
+							$router->url($request, null, null, 'editReview', null, $actionArgs),
+							__('editor.submissionReview.editReview'),
+							'modal_add_file'
 						),
-					__('editor.review.unassignReviewer'),
-					'delete'
+						__('common.edit'),
+						'edit'
 					)
 				);
+
+				$reviewAssignment = $this->getData();
+				// Only assign this action if the reviewer has not acknowledged yet.
+				if (!$reviewAssignment->getDateConfirmed()) {
+					$this->addAction(
+						new LinkAction(
+							'unassignReviewer',
+							new AjaxModal(
+								$router->url($request, null, null, 'unassignReviewer', null, $actionArgs),
+								__('editor.review.unassignReviewer'),
+								'modal_delete'
+							),
+						__('editor.review.unassignReviewer'),
+						'delete'
+						)
+					);
+				}
 			}
 
 			$this->addAction(
@@ -123,7 +145,7 @@ class ReviewerGridRow extends GridRow {
 			$canCurrentUserGossip = ServicesContainer::instance()
 				->get('user')
 				->canCurrentUserGossip($reviewAssignment->getReviewerId());
-			if ($canCurrentUserGossip) {
+			if ($canCurrentUserGossip && (!$this->_isCurrentUserAssignedAuthor || !$isAuthorBlind)) {
 				$this->addAction(
 					new LinkAction(
 						'gossip',

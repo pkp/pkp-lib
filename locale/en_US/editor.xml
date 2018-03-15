@@ -44,6 +44,7 @@
 	<message key="editor.submissionReview.restrictFiles">Files To Be Reviewed</message>
 	<message key="editor.submissionReview.restrictFiles.hide">Close File Selection</message>
 	<message key="editor.submissionReview.editReview">Edit Review</message>
+	<message key="editor.review.anonymousReviewer">Anonymous Reviewer</message>
 	<message key="editor.review.personalMessageToReviewer">Email to be sent to reviewer</message>
 	<message key="editor.review.importantDates">Important Dates</message>
 	<message key="editor.review.uploadRevision">Upload Revision</message>

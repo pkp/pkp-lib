@@ -197,7 +197,12 @@ class EventLogEntry extends DataObject {
 					}
 				}
 				if (isset($params['username']) && $blindAuthor) {
-					$params['username'] = __('editor.review.anonymousReviewer');
+					if (isset($params['username'])) {
+						$params['username'] = __('editor.review.anonymousReviewer');
+					}
+					if (isset($params['originalFileName'])) {
+						$params['originalFileName'] = '';
+					}
 				}
 			}
 		}

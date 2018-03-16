@@ -158,7 +158,8 @@
 				$self = this.getHtmlElement(),
 				sendEmail = false,
 				createDiscussion = false,
-				$discussionToggles;
+				$discussionToggles,
+				$attachementDiv = $('#libraryFileAttachments');
 
 		$('#skipEmail-send, #skipEmail-skip', $self).each(function() {
 			if ($(this).attr('id') === 'skipEmail-send' && $(this).prop('checked')) {
@@ -184,8 +185,10 @@
 
 		if (!sendEmail && !createDiscussion) {
 			$emailDiv.fadeOut();
+			$attachementDiv.fadeOut();
 		} else {
 			$emailDiv.fadeIn();
+			$attachementDiv.fadeIn();
 		}
 	};
 

@@ -85,6 +85,18 @@ class PKPReviewRoundTabHandler extends Handler {
 		);
 		$templateMgr->assign('reviewRoundNotificationRequestOptions', $notificationRequestOptions);
 
+		// If a user is also assigned as an author to this submission, they
+		// shouldn't see any editorial actions
+		if ($stageId === WORKFLOW_STAGE_ID_INTERNAL_REVIEW || $stageId === WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
+			$userAccessibleStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+			foreach ($userAccessibleStages as $stageId => $roles) {
+				if (in_array(ROLE_ID_AUTHOR, $roles)) {
+					$templateMgr->assign('isAssignedAsAuthor', true);
+					break;
+				}
+			}
+		}
+
 		return $templateMgr->fetchJson('workflow/reviewRound.tpl');
 	}
 }

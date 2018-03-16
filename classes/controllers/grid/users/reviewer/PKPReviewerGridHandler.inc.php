@@ -90,8 +90,7 @@ class PKPReviewerGridHandler extends GridHandler {
 			if (in_array($operation, $this->_getAuthorDeniedBlindOps())) {
 				$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
 				if ($reviewAssignment && in_array($reviewAssignment->getReviewMethod(), array(SUBMISSION_REVIEW_METHOD_BLIND, SUBMISSION_REVIEW_METHOD_DOUBLEBLIND))) {
-						return false;
-					}
+					return false;
 				}
 			}
 		}

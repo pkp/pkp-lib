@@ -28,6 +28,9 @@ class SubmissionEventLogGridHandler extends GridHandler {
 	/** @var Submission */
 	var $_submission;
 
+	/** @var boolean Is the current user assigned as an author to this submission */
+	var $_isCurrentUserAssignedAuthor;
+
 	/**
 	 * Constructor
 	 */
@@ -72,7 +75,21 @@ class SubmissionEventLogGridHandler extends GridHandler {
 	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
 		$this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
-		return parent::authorize($request, $args, $roleAssignments);
+
+		$success = parent::authorize($request, $args, $roleAssignments);
+
+		// Prevent authors from accessing review details, even if they are also
+		// assigned as an editor, sub-editor or assistant.
+		$userAssignedRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+		$this->_isCurrentUserAssignedAuthor = false;
+		foreach ($userAssignedRoles as $stageId => $roles) {
+			if (in_array(ROLE_ID_AUTHOR, $roles)) {
+				$this->_isCurrentUserAssignedAuthor = true;
+				break;
+			}
+		}
+
+		return $success;
 	}
 
 	/**
@@ -88,11 +105,13 @@ class SubmissionEventLogGridHandler extends GridHandler {
 		// Load submission-specific translations
 		AppLocale::requireComponents(
 			LOCALE_COMPONENT_APP_SUBMISSION,
-			LOCALE_COMPONENT_PKP_SUBMISSION
+			LOCALE_COMPONENT_PKP_SUBMISSION,
+			LOCALE_COMPONENT_APP_EDITOR,
+			LOCALE_COMPONENT_PKP_EDITOR
 		);
 
 		// Columns
-		$cellProvider = new EventLogGridCellProvider();
+		$cellProvider = new EventLogGridCellProvider($this->_isCurrentUserAssignedAuthor);
 		$this->addColumn(
 			new GridColumn(
 				'date',
@@ -135,7 +154,7 @@ class SubmissionEventLogGridHandler extends GridHandler {
 	 * @return EventLogGridRow
 	 */
 	protected function getRowInstance() {
-		return new EventLogGridRow($this->getSubmission());
+		return new EventLogGridRow($this->getSubmission(), $this->_isCurrentUserAssignedAuthor);
 	}
 
 	/**

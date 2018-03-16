@@ -366,7 +366,7 @@ class SubmissionFile extends PKPFile {
 	 */
 
 	function setDateModified($dateModified) {
-		return $this->SetData('dateModified', $dateModified);
+		return $this->setData('dateModified', $dateModified);
 	}
 
 	/**
@@ -383,7 +383,7 @@ class SubmissionFile extends PKPFile {
 	 * @param $round int
 	 */
 	function setRound($round) {
-		return $this->SetData('round', $round);
+		return $this->setData('round', $round);
 	}
 
 	/**
@@ -400,7 +400,7 @@ class SubmissionFile extends PKPFile {
 	 * @param $viewable boolean
 	 */
 	function setViewable($viewable) {
-		return $this->SetData('viewable', $viewable);
+		return $this->setData('viewable', $viewable);
 	}
 
 	/**

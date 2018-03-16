@@ -17,6 +17,19 @@ import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 
 class EventLogGridCellProvider extends DataObjectGridCellProvider {
 
+	/** @var boolean Is the current user assigned as an author to this submission */
+	var $_isCurrentUserAssignedAuthor;
+
+	/**
+	 * Constructor
+	 * @param boolean $isCurrentUserAssignedAuthor Is the current user assigned
+	 *  as an author to this submission?
+	 */
+	public function __construct($isCurrentUserAssignedAuthor = false) {
+		parent::__construct();
+		$this->_isCurrentUserAssignedAuthor = $isCurrentUserAssignedAuthor;
+	}
+
 	//
 	// Template methods from GridCellProvider
 	//
@@ -35,7 +48,7 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider {
 			case 'date':
 				return array('label' => is_a($element, 'EventLogEntry') ? $element->getDateLogged() : $element->getDateSent());
 			case 'event':
-				return array('label' => is_a($element, 'EventLogEntry') ? $element->getTranslatedMessage() : $element->getPrefixedSubject());
+				return array('label' => is_a($element, 'EventLogEntry') ? $element->getTranslatedMessage(null, $this->_isCurrentUserAssignedAuthor) : $element->getPrefixedSubject());
 			case 'user':
 				return array('label' => is_a($element, 'EventLogEntry') ? $element->getUserFullName() : $element->getSenderFullName());
 			default:

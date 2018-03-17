@@ -29,6 +29,7 @@
 <form class="pkp_form pkp_controllers_grid_files" id="uploadForm"
 		action="{url op="confirmRevision" submissionId=$submissionId stageId=$stageId fileStage=$fileStage uploadedFileId=$uploadedFile->getFileId() reviewRoundId=$reviewRoundId}"
 		method="post">
+	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="uploadFormNotification"}
 	{csrf}
 	{fbvFormArea id="file"}
 		<div id="possibleRevision" class="pkp_controllers_grid_files_possibleRevision" style="display:none;">

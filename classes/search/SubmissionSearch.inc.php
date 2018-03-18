@@ -46,7 +46,7 @@ abstract class SubmissionSearch {
 	 * @return array of the form ('+' => <required>, '' => <optional>, '-' => excluded)
 	 */
 	function _parseQuery($query) {
-		$count = preg_match_all('/(\+|\-|)("[^"]+"|\(|\)|[^\s\)]+)/', $query, $matches);
+		$count = PKPString::regexp_match_all('/(\+|\-|)("[^"]+"|\(|\)|[^\s\)]+)/', $query, $matches);
 		$pos = 0;
 		return $this->_parseQueryInternal($matches[1], $matches[2], $pos, $count);
 	}

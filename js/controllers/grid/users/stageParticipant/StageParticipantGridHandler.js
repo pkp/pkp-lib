@@ -37,7 +37,7 @@
 			this.refreshGridHandler();
 			$(['#submissionEditorDecisionsDiv',
 				'#copyeditingEditorDecisionsDiv',
-				'[id^=reviewDecisionsDiv'].join(','))
+				'[id^=reviewDecisionsDiv]'].join(','))
 					.each(function() {
 						$.pkp.classes.Handler.getHandler($(this)).reload();
 					});

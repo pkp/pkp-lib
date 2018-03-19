@@ -433,4 +433,30 @@ class Validation {
 		// There were no conflicting roles. Permit administration.
 		return true;
 	}
+
+	/**
+	 * Validation process for imported passwords
+	 * @param $userToImport User ByRef. The user that is being imported. 
+	 * @param $encryption string null, sha1, md5 (or any other encryption algorithm defined)
+	 * @return string if a new password is generated, the function returns it.
+	 */
+	function importUserPasswordValidation(&$userToImport, $encryption) {
+		$passwordHash = $userToImport->getPassword();
+		$password = null;
+		if (!$encryption) {
+			$userToImport->setPassword(Validation::encryptCredentials($userToImport->getUsername(), $passwordHash));
+		} else {
+			if (password_needs_rehash($passwordHash, PASSWORD_BCRYPT)) {
+
+				$password = Validation::generatePassword();
+				$userToImport->setPassword(Validation::encryptCredentials($userToImport->getUsername(), $password));
+
+				$userToImport->setMustChangePassword(true);
+			} else {
+				$userToImport->setPassword($passwordHash);
+			}
+		}
+
+		return $password;
+	}
 }

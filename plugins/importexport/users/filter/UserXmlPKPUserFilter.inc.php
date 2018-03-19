@@ -76,6 +76,9 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $userDao->newDataObject();
 
+		// Password encryption
+		$encryption = null;
+
 		// Handle metadata in subelements
 		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) if (is_a($n, 'DOMElement')) switch($n->tagName) {
 			case 'username': $user->setUsername($n->textContent); break;
@@ -105,14 +108,19 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 			case 'auth_string': $user->setAuthString($n->textContent); break;
 			case 'disabled_reason': $user->setDisabledReason($n->textContent); break;
 			case 'locales': $user->setLocales(preg_split('/:/', $n->textContent)); break;
-
 			case 'password':
 				if ($n->getAttribute('must_change') == 'true') {
 					$user->setMustChangePassword(true);
 				}
+
 				if ($n->getAttribute('is_disabled') == 'true') {
 					$user->setIsDisabled(true);
 				}
+
+				if ($n->getAttribute('encryption')) {
+					$encryption = $n->getAttribute('encryption');
+				}
+
 				$passwordValueNodeList = $n->getElementsByTagNameNS($deployment->getNamespace(), 'value');
 				if ($passwordValueNodeList->length == 1) {
 					$password = $passwordValueNodeList->item(0);
@@ -120,8 +128,12 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 				} else {
 					fatalError("User has no password.  Check your import XML format.");
 				}
+
 				break;
 		}
+
+		// Password Import Validation
+		$password = Validation::importUserPasswordValidation($user, $encryption);
 
 		$userByUsername = $userDao->getByUsername($user->getUsername(), false);
 		$userByEmail = $userDao->getUserByEmail($user->getEmail(), false);
@@ -163,6 +175,16 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 				}
 			}
 		}
+
+		if ($password) {
+			import('lib.pkp.classes.mail.MailTemplate');
+			$mail = new MailTemplate('USER_REGISTER');
+			$mail->setReplyTo($context->getSetting('contactEmail'), $context->getSetting('contactName'));
+			$mail->assignParams(array('username' => $user->getUsername(), 'password' => $password, 'userFullName' => $user->getFullName()));
+			$mail->addRecipient($user->getEmail(), $user->getFullName());
+			$mail->send();
+		}
+
 		return $user;
 	}
 

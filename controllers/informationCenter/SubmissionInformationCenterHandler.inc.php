@@ -30,12 +30,19 @@ class SubmissionInformationCenterHandler extends InformationCenterHandler {
 
 		// Prevent users from accessing history unless they are assigned to an
 		// appropriate role in this submission
-		$userAssignedRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
 		$this->_isCurrentUserAssignedEditor = false;
-		foreach ($userAssignedRoles as $stageId => $roles) {
-			if (array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR), $roles)) {
+		$userAssignedRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+		if (!empty($userAssignedRoles)) {
+			foreach ($userAssignedRoles as $stageId => $roles) {
+				if (array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR), $roles)) {
+					$this->_isCurrentUserAssignedEditor = true;
+					break;
+				}
+			}
+		} else {
+			$userGlobalRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+			if (array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), $userGlobalRoles)) {
 				$this->_isCurrentUserAssignedEditor = true;
-				break;
 			}
 		}
 

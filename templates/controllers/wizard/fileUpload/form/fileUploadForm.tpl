@@ -145,6 +145,7 @@
 </script>
 
 <form class="pkp_form" id="uploadForm" action="#" method="post">
+	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="uploadFormNotification"}
 	{csrf}
 	{fbvFormArea id="file"}
 		{if $assocType && $assocId}

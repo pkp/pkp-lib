@@ -92,6 +92,7 @@
 	$.pkp.controllers.grid.users.stageParticipant.form.
 			StageParticipantNotifyHandler.prototype.templateUrl_ = null;
 
+
 	/**
 	 * A list of user IDs which are already assigned blind reviews for this
 	 * submission.
@@ -101,6 +102,7 @@
 	$.pkp.controllers.grid.users.stageParticipant.form.
 			StageParticipantNotifyHandler.prototype.blindReviewerIds_ = null;
 
+
 	/**
 	 * A warning message to display when a blind reviewer is selected to be
 	 * added as a recipient
@@ -109,6 +111,7 @@
 	 */
 	$.pkp.controllers.grid.users.stageParticipant.form.
 			StageParticipantNotifyHandler.prototype.blindReviewerWarning_ = null;
+
 
 	/**
 	 * The OK button language for the blind reviewer warning message
@@ -214,6 +217,7 @@
 		}
 	};
 
+
 	/**
 	 * Update the enabled/disabled and checked state of the recommendOnly checkbox.
 	 * @param {HTMLElement} sourceElement The element that
@@ -224,24 +228,24 @@
 			StageParticipantNotifyHandler.prototype.maybeTriggerReviewerWarning =
 			function(sourceElement, event) {
 
-		var userId = $(sourceElement).val();
+		var userId = $(sourceElement).val(),
+			opts;
 
 		if (!userId || this.blindReviewerIds_.indexOf(userId) < 0) {
 			return;
 		}
 
-		var opts = {
+		opts = {
 			title: '',
 			okButton: this.blindReviewerWarningOk_,
 			cancelButton: false,
-			dialogText: this.blindReviewerWarning_,
+			dialogText: this.blindReviewerWarning_
 		};
 
 		$('<div id="' + $.pkp.classes.Helper.uuid() + '" ' +
 				'class="pkp_modal pkpModalWrapper" tabindex="-1"></div>')
-			.pkpHandler('$.pkp.controllers.modal.ConfirmationModalHandler', opts);
+				.pkpHandler('$.pkp.controllers.modal.ConfirmationModalHandler', opts);
 	};
-
 
 
 	/**

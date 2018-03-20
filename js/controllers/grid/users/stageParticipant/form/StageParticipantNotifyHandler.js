@@ -50,10 +50,26 @@
 			this.recommendOnlyUserGroupIds_ = options.recommendOnlyUserGroupIds;
 		}
 
+		if (options.blindReviewerIds) {
+			this.blindReviewerIds_ = options.blindReviewerIds;
+		}
+
+		if (options.blindReviewerWarning) {
+			this.blindReviewerWarning_ = options.blindReviewerWarning;
+		}
+
+		if (options.blindReviewerWarningOk) {
+			this.blindReviewerWarningOk_ = options.blindReviewerWarningOk;
+		}
+
 		// Update the recommendOnly option display when user group changes
 		// or user is selected
 		$('input[name=\'userGroupId\'], input[name=\'userIdSelected\']', $form)
 				.change(this.callbackWrapper(this.updateRecommendOnly));
+
+		// Trigger a warning message if a blind reviewer is selected
+		$('input[name=\'userIdSelected\']', $form)
+				.change(this.callbackWrapper(this.maybeTriggerReviewerWarning));
 
 		// Attach form elements events.
 		$form.find('#template').change(
@@ -75,6 +91,32 @@
 	 */
 	$.pkp.controllers.grid.users.stageParticipant.form.
 			StageParticipantNotifyHandler.prototype.templateUrl_ = null;
+
+	/**
+	 * A list of user IDs which are already assigned blind reviews for this
+	 * submission.
+	 * @private
+	 * @type {array?}
+	 */
+	$.pkp.controllers.grid.users.stageParticipant.form.
+			StageParticipantNotifyHandler.prototype.blindReviewerIds_ = null;
+
+	/**
+	 * A warning message to display when a blind reviewer is selected to be
+	 * added as a recipient
+	 * @private
+	 * @type {string?}
+	 */
+	$.pkp.controllers.grid.users.stageParticipant.form.
+			StageParticipantNotifyHandler.prototype.blindReviewerWarning_ = null;
+
+	/**
+	 * The OK button language for the blind reviewer warning message
+	 * @private
+	 * @type {string?}
+	 */
+	$.pkp.controllers.grid.users.stageParticipant.form.
+			StageParticipantNotifyHandler.prototype.blindReviewerWarningOk_ = null;
 
 
 	//
@@ -171,6 +213,35 @@
 			}
 		}
 	};
+
+	/**
+	 * Update the enabled/disabled and checked state of the recommendOnly checkbox.
+	 * @param {HTMLElement} sourceElement The element that
+	 *  issued the event.
+	 * @param {Event} event The triggering event.
+	 */
+	$.pkp.controllers.grid.users.stageParticipant.form.
+			StageParticipantNotifyHandler.prototype.maybeTriggerReviewerWarning =
+			function(sourceElement, event) {
+
+		var userId = $(sourceElement).val();
+
+		if (!userId || this.blindReviewerIds_.indexOf(userId) < 0) {
+			return;
+		}
+
+		var opts = {
+			title: '',
+			okButton: this.blindReviewerWarningOk_,
+			cancelButton: false,
+			dialogText: this.blindReviewerWarning_,
+		};
+
+		$('<div id="' + $.pkp.classes.Helper.uuid() + '" ' +
+				'class="pkp_modal pkpModalWrapper" tabindex="-1"></div>')
+			.pkpHandler('$.pkp.controllers.modal.ConfirmationModalHandler', opts);
+	};
+
 
 
 	/**

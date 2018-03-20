@@ -82,13 +82,15 @@ abstract class PKPWorkflowHandler extends Handler {
 
 		$currentStageId = $submission->getStageId();
 		$accessibleWorkflowStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+		$workflowRoles = Application::getWorkflowTypeRoles();
+		$editorialWorkflowRoles = $workflowRoles[WORKFLOW_TYPE_EDITORIAL];
 
 		// Get the closest workflow stage that user has an assignment.
 		$stagePath = null;
 		$workingStageId = null;
 
 		for ($workingStageId = $currentStageId; $workingStageId >= WORKFLOW_STAGE_ID_SUBMISSION; $workingStageId--) {
-			if (array_key_exists($workingStageId, $accessibleWorkflowStages)) {
+			if (isset($accessibleWorkflowStages[$workingStageId]) && array_intersect($editorialWorkflowRoles, $accessibleWorkflowStages[$workingStageId])) {
 				break;
 			}
 		}
@@ -97,7 +99,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		// submission. Try to get the closest future workflow stage.
 		if ($workingStageId == null) {
 			for ($workingStageId = $currentStageId; $workingStageId <= WORKFLOW_STAGE_ID_PRODUCTION; $workingStageId++) {
-				if (array_key_exists($workingStageId, $accessibleWorkflowStages)) {
+				if (isset($accessibleWorkflowStages[$workingStageId]) && array_intersect($editorialWorkflowRoles, $accessibleWorkflowStages[$workingStageId])) {
 					break;
 				}
 			}

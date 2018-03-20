@@ -373,6 +373,17 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 		\PluginRegistry::loadCategory('pubIds', true);
 		$values = array();
 		$authorService = \ServicesContainer::instance()->get('author');
+		$request = \Application::getRequest();
+		$dispatcher = $request->getDispatcher();
+
+		// Retrieve the submission's context for properties that require it
+		if (array_intersect(array('urlAuthorWorkflow', 'urlEditorialWorkflow'), $props)) {
+			$submissionContext = $request->getContext();
+			if (!$submissionContext || $submissionContext->getId() != $submission->getContextId()) {
+				$contextDao = Application::getContextDAO();
+				$submissionContext = $contextDao->getById($submission->getContextId());
+			}
+		}
 
 		foreach ($props as $prop) {
 			switch ($prop) {
@@ -463,6 +474,26 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 					break;
 				case 'urlWorkflow':
 					$values[$prop] = $this->getWorkflowUrlByUserRoles($submission);
+					break;
+				case 'urlAuthorWorkflow':
+					$values[$prop] = $dispatcher->url(
+						$request,
+						ROUTE_PAGE,
+						$submissionContext->getPath(),
+						'authorDashboard',
+						'submission',
+						$submission->getId()
+					);
+					break;
+				case 'urlEditorialWorkflow':
+					$values[$prop] = $dispatcher->url(
+						$request,
+						ROUTE_PAGE,
+						$submissionContext->getPath(),
+						'workflow',
+						$stageName?$stageName:'access',
+						$submission->getId()
+					);
 					break;
 				case '_href':
 					$values[$prop] = null;
@@ -565,7 +596,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 
 		$props = array (
 			'id','fullTitle','status','submissionProgress','stages','reviewRounds','reviewAssignments',
-			'locale', 'urlWorkflow','urlPublished','_href',
+			'locale', 'urlWorkflow','urlAuthorWorkflow','urlEditorialWorkflow','urlPublished','_href',
 		);
 
 		if ($this->canUserViewAuthor($currentUser, $submission)) {
@@ -673,6 +704,10 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 			$stageIds = array($stageIds);
 		}
 
+		$currentUser = \Application::getRequest()->getUser();
+		$context = \Application::getRequest()->getContext();
+		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
+
 		$stages = array();
 		foreach ($stageIds as $stageId) {
 
@@ -707,11 +742,22 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 				);
 			}
 
+			$currentUserAssignedRoles = array();
+			if ($currentUser) {
+				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+				$stageAssignmentsResult = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submission->getId(), $currentUser->getId(), $stageId);
+				$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+				while ($stageAssignment = $stageAssignmentsResult->next()) {
+					$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId(), $contextId);
+					$currentUserAssignedRoles[] = (int) $userGroup->getRoleId();
+				}
+			}
+			$stage['currentUserAssignedRoles'] = array_unique($currentUserAssignedRoles);
+
 			// Stage-specific statuses
 			switch ($stageId) {
 
 				case WORKFLOW_STAGE_ID_SUBMISSION:
-					import('lib.pkp.classes.stageAssignment/StageAssignmentDAO');
 					$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 					$assignedEditors = $stageAssignmentDao->editorAssignedToStage($submission->getId(), $stageId);
 					if (!$assignedEditors) {
@@ -727,7 +773,6 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 
 				case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
 				case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
-					import('lib.pkp.classes.submission.reviewRound.ReviewRoundDAO');
 					$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
 					$reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
 					if ($reviewRound) {
@@ -735,7 +780,6 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 						$stage['status'] = __($reviewRound->getStatusKey());
 
 						// Revision files in this round.
-						import('lib.pkp.classes.submission.SubmissionFile'); // Import constants
 						$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 						$submissionFiles = $submissionFileDao->getRevisionsByReviewRound($reviewRound, SUBMISSION_FILE_REVIEW_REVISION);
 						$stage['files'] = array(
@@ -762,7 +806,6 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 				// Review rounds are handled separately in the review stage below.
 				case WORKFLOW_STAGE_ID_EDITING:
 				case WORKFLOW_STAGE_ID_PRODUCTION:
-					import('lib.pkp.classes.submission.SubmissionFile'); // Import constants
 					$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 					$fileStageIId = $stageId === WORKFLOW_STAGE_ID_EDITING ? SUBMISSION_FILE_COPYEDIT : SUBMISSION_FILE_PROOF;
 					$submissionFiles = $submissionFileDao->getLatestRevisions($submission->getId(), $fileStageIId);

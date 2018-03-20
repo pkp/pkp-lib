@@ -136,6 +136,7 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 			'galleysCreated' => __('submission.list.galleysCreated'),
 			'filesPrepared' => __('submission.list.filesPrepared'),
 			'discussions' => __('submission.list.discussions'),
+			'dualWorkflowLinks' => __('submission.list.dualWorkflowLinks'),
 			'incompleteSubmissionNotice' => __('submission.list.incompleteSubmissionNotice'),
 			'selectAllLabel' => __('common.selectAll'),
 			'viewMore' => __('list.viewMore'),

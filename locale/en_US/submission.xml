@@ -620,6 +620,7 @@
 	<message key="submission.list.galleysCreated">Production galleys created</message>
 	<message key="submission.list.filesPrepared">Files prepared</message>
 	<message key="submission.list.discussions">Open discussions</message>
+	<message key="submission.list.dualWorkflowLinks"><![CDATA[You have been assigned multiple roles for this submission. Would you like to access the <a href="{$urlAuthorWorkflow}">Author's workflow</a>  or the <a href="{$urlEditorialWorkflow}">Editorial workflow</a>?]]></message>
 	<message key="submission.list.incompleteSubmissionNotice">This submission must be completed before an editor will review it.</message>
 	<message key="submission.list.currentStage">Currently in the {$stage} stage.</message>
 </locale>

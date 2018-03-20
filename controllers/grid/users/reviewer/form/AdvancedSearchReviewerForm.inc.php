@@ -68,12 +68,33 @@ class AdvancedSearchReviewerForm extends ReviewerForm {
 			}
 		}
 
+		// Get user IDs already assigned to this submission, and global admins and
+		// managers, who may have access to author identities and can not guarantee
+		// blind reviews
+		$warnOnAssignment = array();
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+		$stageAssignmentResults = $stageAssignmentDao->getBySubmissionAndStageId($this->getSubmissionId());
+		while ($stageAssignment = $stageAssignmentResults->next()) {
+			$warnOnAssignment[] = $stageAssignment->getUserId();
+		}
+		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$managerUsersResults = $roleDao->getUsersByRoleId(ROLE_ID_MANAGER, $this->getSubmission()->getContextId());
+		while ($manager = $managerUsersResults->next()) {
+			$warnOnAssignment[] = $manager->getId();
+		}
+		$adminUsersResults = $roleDao->getUsersByRoleId(ROLE_ID_SITE_ADMIN, $this->getSubmission()->getContextId());
+		while ($admin = $adminUsersResults->next()) {
+			$warnOnAssignment[] = $admin->getId();
+		}
+		$warnOnAssignment = array_map('intval', array_values(array_unique($warnOnAssignment)));
+
 		import('lib.pkp.controllers.list.users.SelectReviewerListHandler');
 		$selectReviewerListHandler = new SelectReviewerListHandler(array(
 			'title' => 'editor.submission.findAndSelectReviewer',
 			'inputName' => 'reviewerId',
 			'inputType' => 'radio',
 			'currentlyAssigned' => $currentlyAssigned,
+			'warnOnAssignment' => $warnOnAssignment,
 		));
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('selectReviewerListData', json_encode($selectReviewerListHandler->getConfig()));

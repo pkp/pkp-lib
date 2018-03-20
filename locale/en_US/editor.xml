@@ -141,6 +141,8 @@
 	<message key="reviewer.list.averageCompletion">Average days to complete review</message>
 	<message key="reviewer.list.neverAssigned">Never assigned</message>
 	<message key="reviewer.list.currentlyAssigned">This reviewer has already been assigned to review this submission.</message>
+	<message key="reviewer.list.warnOnAssign">This reviewer is locked because they have been assigned a role which allows them to view the author's identity. Blind peer review can not be guaranteed. Would you like to unlock this reviewer anyway?</message>
+	<message key="reviewer.list.warnOnAssignUnlock">Unlock</message>
 	<message key="reviewer.list.reviewInterests">Reviewing Interests</message>
 	<message key="reviewer.list.biography">Biography</message>
 </locale>

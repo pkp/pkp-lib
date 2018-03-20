@@ -258,6 +258,8 @@
 	<message key="manager.setup.reviewOptions.remindForSubmit">Отправить напоминание, если рецензент не отправил рекомендацию в течение следующего количества дней, после того как срок отправки рецензии прошел:</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Сроки рецензирования по умолчанию</message>
 	<message key="manager.setup.reviewOptions.showBlindReviewLink">Добавить ссылку на «Обеспечение слепого рецензирования» во время загрузки</message>
+	<message key="manager.setup.searchEngineIndexing.sitemap">Карта сайта</message>
+	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[Карта сайта в формате XML доступна для отправки поисковым машинам по адресу <a href="{$path}" target="_blank">{$path}</a>]]></message>
 	<message key="manager.setup.sponsors.note">Описание правил и отношений со спонсорами</message>
 	<message key="manager.setup.sponsors.description">Примеры: общества ученых, подразделения университетов, объединения и т.д. Спонсоры показываются в открытом доступе на сайте.</message>
 	<message key="manager.setup.styleSheetDescription">Опытные веб-разработчики могут загрузить файл CSS для дополнительной модификации внешнего вида сайта.</message>

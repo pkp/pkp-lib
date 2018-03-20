@@ -34,12 +34,13 @@ export default {
 			roles = [roles];
 		}
 
+		var hasRole = false;
 		roles.forEach((role) => {
 			if ($.pkp.currentUser.accessRoles.indexOf(role) > -1) {
-				return true;
+				hasRole = true;
 			}
 		});
 
-		return false;
+		return hasRole;
 	},
 };

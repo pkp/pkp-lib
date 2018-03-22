@@ -71,6 +71,11 @@ class LanguageGridHandler extends GridHandler {
 			if (AppLocale::isLocaleValid($locale) && array_key_exists($locale, $availableLocales)) {
 				if ($settingValue) {
 					array_push($currentSettingValue, $locale);
+					if ($settingName == 'supportedFormLocales') {
+						// reload localized default context settings
+						$settingsDao = Application::getContextSettingsDAO();
+						$settingsDao->reloadLocalizedDefaultContextSettings($request, $locale);
+					}
 				} else {
 					$key = array_search($locale, $currentSettingValue);
 					if ($key !== false) unset($currentSettingValue[$key]);

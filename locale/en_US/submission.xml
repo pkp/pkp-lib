@@ -611,6 +611,7 @@
 	<message key="submission.list.itemsOfTotal">{$count} of {$total} submissions</message>
 	<message key="submission.list.responseDue">Response Due</message>
 	<message key="submission.list.reviewDue">Review Due</message>
+	<message key="submission.list.reviewComplete">Review Submitted</message>
 	<message key="submission.list.confirmDelete">Delete submission?</message>
 	<message key="submission.list.itemOrdererUp">Increase position of {$itemTitle}</message>
 	<message key="submission.list.itemOrdererDown">Decrease position of {$itemTitle}</message>
@@ -622,6 +623,7 @@
 	<message key="submission.list.filesPrepared">Files prepared</message>
 	<message key="submission.list.discussions">Open discussions</message>
 	<message key="submission.list.dualWorkflowLinks"><![CDATA[You have been assigned multiple roles for this submission. Would you like to access the <a href="{$urlAuthorWorkflow}">Author's workflow</a>  or the <a href="{$urlEditorialWorkflow}">Editorial workflow</a>?]]></message>
+	<message key="submission.list.reviewerWorkflowLink"><![CDATA[You have been assigned an editorial role for this submission. Would you like to access the <a href="{$urlEditorialWorkflow}">Editorial workflow</a>?]]></message>
 	<message key="submission.list.incompleteSubmissionNotice">This submission must be completed before an editor will review it.</message>
 	<message key="submission.list.currentStage">Currently in the {$stage} stage.</message>
 </locale>

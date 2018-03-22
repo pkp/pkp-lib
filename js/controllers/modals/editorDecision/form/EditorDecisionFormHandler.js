@@ -139,7 +139,6 @@
 
 		if (processedJsonData !== false) {
 			// Add the peer review text to the personal message to the author.
-			currentContent = $textArea.val();
 			editor.setContent(
 					currentContent + processedJsonData.content + '<br>');
 		}

@@ -97,7 +97,7 @@
 	 * A list of user IDs which are already assigned blind reviews for this
 	 * submission.
 	 * @private
-	 * @type {array?}
+	 * @type {?Array<number>}
 	 */
 	$.pkp.controllers.grid.users.stageParticipant.form.
 			StageParticipantNotifyHandler.prototype.blindReviewerIds_ = null;

@@ -36,7 +36,7 @@ class PKPEditorDecisionHandler extends Handler {
 
 		// Prevent editors who are also assigned as authors from accessing the
 		// review stage operations
-		$operation = $request->getRouter()->getRequestedOp();
+		$operation = $request->getRouter()->getRequestedOp($request);
 		if (in_array($operation, $reviewRoundOps)) {
 			$userAccessibleStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
 			foreach ($userAccessibleStages as $stageId => $roles) {

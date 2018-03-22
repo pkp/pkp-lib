@@ -140,11 +140,10 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 	 *
 	 * @param $submission Submission
 	 * @param $userId an optional user id
-	 * @param $stageName string An optional suggested stage name
 	 * @return string|false URL; false if the user does not exist or an
 	 *   appropriate access URL could not be determined
 	 */
-	public function getWorkflowUrlByUserRoles($submission, $userId = null, $stageName = null) {
+	public function getWorkflowUrlByUserRoles($submission, $userId = null) {
 
 		$request = Application::getRequest();
 
@@ -226,7 +225,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 			ROUTE_PAGE,
 			$submissionContext->getPath(),
 			'workflow',
-			$stageName?$stageName:'access',
+			'access',
 			$submission->getId()
 		);
 	}
@@ -491,7 +490,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 						ROUTE_PAGE,
 						$submissionContext->getPath(),
 						'workflow',
-						$stageName?$stageName:'access',
+						'access',
 						$submission->getId()
 					);
 					break;

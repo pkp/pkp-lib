@@ -97,7 +97,7 @@
 	 * A list of user IDs which are already assigned blind reviews for this
 	 * submission.
 	 * @private
-	 * @type {?Array<number>}
+	 * @type {Array}
 	 */
 	$.pkp.controllers.grid.users.stageParticipant.form.
 			StageParticipantNotifyHandler.prototype.blindReviewerIds_ = null;
@@ -229,7 +229,7 @@
 			function(sourceElement, event) {
 
 		var userId = $(sourceElement).val(),
-			opts;
+				opts;
 
 		if (!userId || this.blindReviewerIds_.indexOf(userId) < 0) {
 			return;

@@ -67,6 +67,24 @@ class PKPReviewerGridHandler extends GridHandler {
 	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
+		$stageId = $request->getUserVar('stageId'); // This is being validated in WorkflowStageAccessPolicy
+
+		// Not all actions need a stageId. Some work off the reviewAssignment which has the type and round.
+		$this->_stageId = (int)$stageId;
+
+		// Get the stage access policy
+		import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
+		$workflowStageAccessPolicy = new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId, WORKFLOW_TYPE_EDITORIAL);
+
+		// Add policy to ensure there is a review round id.
+		import('lib.pkp.classes.security.authorization.internal.ReviewRoundRequiredPolicy');
+		$workflowStageAccessPolicy->addPolicy(new ReviewRoundRequiredPolicy($request, $args, 'reviewRoundId', $this->_getReviewRoundOps()));
+
+		// Add policy to ensure there is a review assignment for certain operations.
+		import('lib.pkp.classes.security.authorization.internal.ReviewAssignmentRequiredPolicy');
+		$workflowStageAccessPolicy->addPolicy(new ReviewAssignmentRequiredPolicy($request, $args, 'reviewAssignmentId', $this->_getReviewAssignmentOps()));
+		$this->addPolicy($workflowStageAccessPolicy);
+
 		$success = parent::authorize($request, $args, $roleAssignments);
 
 		// Prevent authors from accessing review details, even if they are also
@@ -839,7 +857,7 @@ class PKPReviewerGridHandler extends GridHandler {
 	 * type.
 	 * @return array
 	 */
-	function _getAuthorDeniedOps() {
+	protected function _getAuthorDeniedOps() {
 		return array(
 			'showReviewerForm',
 			'reloadReviewerForm',
@@ -865,7 +883,7 @@ class PKPReviewerGridHandler extends GridHandler {
 	 * review type is blind or double-blind.
 	 * @return array
 	 */
-	function _getAuthorDeniedBlindOps() {
+	protected function _getAuthorDeniedBlindOps() {
 		return array(
 			'readReview',
 			'reviewHistory',

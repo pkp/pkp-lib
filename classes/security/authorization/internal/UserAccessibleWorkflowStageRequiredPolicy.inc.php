@@ -32,9 +32,7 @@ class UserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy {
 	function __construct($request, $workflowType = null) {
 		parent::__construct('user.authorization.accessibleWorkflowStage');
 		$this->_request = $request;
-		if (!is_null($workflowType)) {
-			$this->_workflowType = $workflowType;
-		}
+		$this->_workflowType = $workflowType;
 	}
 
 	//

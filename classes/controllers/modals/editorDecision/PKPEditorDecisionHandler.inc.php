@@ -32,7 +32,7 @@ class PKPEditorDecisionHandler extends Handler {
 		import('lib.pkp.classes.security.authorization.internal.ReviewRoundRequiredPolicy');
 		$this->addPolicy(new ReviewRoundRequiredPolicy($request, $args, 'reviewRoundId', $reviewRoundOps));
 
-		$success = parent::authorize($request, $args, $roleAssignments);
+		if (!parent::authorize($request, $args, $roleAssignments)) return false;
 
 		// Prevent editors who are also assigned as authors from accessing the
 		// review stage operations
@@ -46,7 +46,7 @@ class PKPEditorDecisionHandler extends Handler {
 			}
 		}
 
-		return $success;
+		return true;
 	}
 
 	/**

@@ -758,6 +758,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 			switch ($stageId) {
 
 				case WORKFLOW_STAGE_ID_SUBMISSION:
+					import('lib.pkp.classes.stageAssignment/StageAssignmentDAO');
 					$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 					$assignedEditors = $stageAssignmentDao->editorAssignedToStage($submission->getId(), $stageId);
 					if (!$assignedEditors) {
@@ -773,6 +774,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 
 				case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
 				case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
+					import('lib.pkp.classes.submission.reviewRound.ReviewRoundDAO');
 					$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
 					$reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
 					if ($reviewRound) {
@@ -780,6 +782,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 						$stage['status'] = __($reviewRound->getStatusKey());
 
 						// Revision files in this round.
+						import('lib.pkp.classes.submission.SubmissionFile');
 						$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 						$submissionFiles = $submissionFileDao->getRevisionsByReviewRound($reviewRound, SUBMISSION_FILE_REVIEW_REVISION);
 						$stage['files'] = array(
@@ -806,6 +809,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 				// Review rounds are handled separately in the review stage below.
 				case WORKFLOW_STAGE_ID_EDITING:
 				case WORKFLOW_STAGE_ID_PRODUCTION:
+					import('lib.pkp.classes.submission.SubmissionFile'); // Import constants
 					$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 					$fileStageIId = $stageId === WORKFLOW_STAGE_ID_EDITING ? SUBMISSION_FILE_COPYEDIT : SUBMISSION_FILE_PROOF;
 					$submissionFiles = $submissionFileDao->getLatestRevisions($submission->getId(), $fileStageIId);

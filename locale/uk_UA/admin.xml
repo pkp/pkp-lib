@@ -7,9 +7,8 @@
   * Copyright (c) 2014-2018 Simon Fraser University
   * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  *
+  * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Ukrainian_(uk_UA)
   * Localization strings for the uk_UA (Українська) locale.
-  *
   -->
 
 <locale name="uk_UA" full_name="Українська">
@@ -131,8 +130,4 @@
 	<message key="admin.error.utilExecutionProblem">Виконання програми «{$utilPath}» завершилось такою помилкою: {$output}</message>
 	<message key="admin.error.executingUtil">Помилка: не можу виконати «{$utilPath}». Перевірте ваші налаштування {$utilVar} у файлі config.inc.php.</message>
 	<message key="admin.languages.noLocalesToDownload">Відсутні мови для завантаження.</message>
-
-	<!-- Not in English anymore-->
-	<message key="admin.serverInformationDescription"><![CDATA[Базова операційна система та версії серверного програмного забезпечення. Посилання <span class="highlight">Розширена інформація про PHP</span> дає змогу переглянути деталізовані дані щодо конфігурації PHP на даному сервері.]]></message>
-	<message key="admin.settings.passwordCharacters">символів</message>
 </locale>

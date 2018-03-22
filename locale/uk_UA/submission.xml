@@ -7,9 +7,8 @@
   * Copyright (c) 2014-2018 Simon Fraser University
   * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  *
+  * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Ukrainian_(uk_UA)
   * Localization strings for the uk_UA (Українська) locale.
-  *
   -->
 
 <locale name="uk_UA" full_name="Українська">
@@ -32,7 +31,7 @@
 	<message key="submission.submit.extendedMetadata">Розширені метадані</message>
 
 	<!-- FIXME: move to meta-data plug-ins -->
-	<!-- messages used by meta-data filters, мої переклади -->
+	<!-- messages used by meta-data filters -->
 	<message key="metadata.filters.crossref.settings.email.displayName">Email реєстрації у CrossRef</message>
 	<message key="metadata.filters.crossref.settings.email.validationMessage">Будь ласка, введіть працездатну адресу email, з якою був зареєстрований обліковий запис у CrossRef. Ви можете безкоштовно зареєструвати ваш email на веб-сайті CrossRef.</message>
 	<message key="metadata.filters.isbndb.settings.apiKey.displayName">Ключ API ISBNdb</message>
@@ -199,7 +198,6 @@
 	<message key="submission.event.confirmDeleteLogEntry">Ви впевнені, що хочете видалити цей запис з журналу подій?</message>
 	<message key="submission.event.deleteLogEntry">Видалити запис журналу</message>
 	<message key="submission.event.submissionSubmitted">Початкове надсилання подання завершено.</message>
-
 	<message key="submission.event.fileRevised">Версія "{$name}" (file ID {$fileId}-{$fileRevision}) була завантажена.</message>
 	<message key="submission.event.general.metadataUpdated">Метадані подання оновлені</message>
 	<message key="submission.event.general.suppFileUpdated">Супровідний файл подання оновлений</message>
@@ -529,7 +527,6 @@
 	<message key="notification.type.editorDecisionPendingRevisions">Необхідна нова версія.</message>
 	<message key="notification.type.editorDecisionResubmit">Повторно надіслати на рецензування.</message>
 	<message key="notification.type.editorDecisionDecline">Подання відхилено.</message>
-
 	<message key="notification.uploadedResponse">Відповідь завантажено.</message>
 
 	<message key="notification.type.editorAssignment">Редактор повинен бути призначений перед початком рецензування. Будь ласка, додайте редактора, використовуючи список "Учасники".</message>
@@ -625,117 +622,4 @@
 	<message key="submission.list.discussions">Відкритих обговорень</message>
 	<message key="submission.list.incompleteSubmissionNotice">Це подання необхідно завершити, перш ніж редактор рецензуватиме його.</message>
 	<message key="submission.list.currentStage">Зараз на етапі {$stage}.</message>
-
-	<!-- Not in English anymore -->
-	<message key="workflow.review.externalReview">Рецензування</message>
-
-	<message key="submission.citations.editor.citationlist.deleteCitationConfirmation">Ви впевнені, що хочете видалити цю цитату?</message>
-	<message key="submission.citations.editor.citationlist.errorDeletingCitation">Під час видалення цитати сталася помилка. Будь ласка, повідомте про цю помилку розробникам.</message>
-	<message key="submission.citations.editor.citationlist.newCitation">Нова цитата</message>
-	<message key="submission.citations.editor.citationlist.title">Редагувати цитати</message>
-	<message key="submission.citations.editor.clickToEdit">Натисніть для редагування.</message>
-	<message key="submission.citations.editor.details.authorQuery">Запитати автора</message>
-	<message key="submission.citations.editor.details.authorQueryBody">Ваше повідомлення автору:</message>
-	<message key="submission.citations.editor.details.authorQueryExplanation">Ви можете запитати у автора додаткову інформацію про цю цитату. Ваше повідомлення буде надіслане автору електронною поштою після натискання кнопки "Надіслати" нижче.</message>
-	<message key="submission.citations.editor.details.authorQuerySubject">Тема:</message>
-	<message key="submission.citations.editor.details.cannotSelectDefaultForLabel">Ви не можете скинути мітку вибору поля. Якщо це поле непотрібне, будь ласка, видаліть його</message>
-	<message key="submission.citations.editor.details.checkInGoogleScholar">Перевірити у Google Академії</message>
-	<message key="submission.citations.editor.details.changeFieldInfo">Для вибору введіть перші кілька літер...</message>
-	<message key="submission.citations.editor.details.citationExportPreview">Попередній перегляд експорту цитати</message>
-	<message key="submission.citations.editor.details.citationImprovementResultsActive">Результати експертної служби внутрішніх цитувань (натисніть для закриття)</message>
-	<message key="submission.citations.editor.details.citationImprovementResultsInactive">Результати експертної служби внутрішніх цитувань (натисніть для відкриття)</message>
-	<message key="submission.citations.editor.details.citationServices">Служби цитувань</message>
-	<message key="submission.citations.editor.details.clickToDismissMessage">Ви можете натиснути на тексті повідомлення, щоб очистити його.</message>
-	<message key="submission.citations.editor.details.dataSaved">Ваші зміни були збережені.</message>
-	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Виберіть бази даних цитованості:</message>
-	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Експертні налаштування редагування цитат (натисніть для закриття)</message>
-	<message key="submission.citations.editor.details.editRawCitationExpertSettingsInactive">Експертні налаштування редагування цитат (натисніть для відкриття)</message>
-	<message key="submission.citations.editor.details.editRawCitationExtractionServices">Виберіть служби екстракції цитат:</message>
-	<message key="submission.citations.editor.details.editRawCitationFilterValidationError">Внутрішня помилка: Невдалий вибір фільтру. Будь ласка, надішліть розробникам звіт про помилку.</message>
-	<message key="submission.citations.editor.details.explainImprovementOptions">Якщо за замовчуванням ви отримали незадовільні результати, все одно існує декілька шляхів покращення цитати. Часто допомагає ручне редагування важливих полів (таких як назва й автор) та повторний запит до баз даних цитованості. Якщо і це не допомагає, ви можете спробувати здійснити пошук у Google Академії або звернутися до автора для уточнення цитати.</message>
-	<message key="submission.citations.editor.details.googleScholar">Google Академія</message>
-	<message key="submission.citations.editor.details.googleScholarExplanation">Якщо необхідна цитата не була знайдена у жодній з підключених баз даних цитованості, ви можете спробувати знайти цю цитату у Google Академії. На жаль, Google Академія не має інтерфейсу для експорту комплектів метаданих знайдених документів; це означає, що неможливо автоматично завантажити дані відповіді у цей Помічник. Вам прийдеться вручну копіювати та вставляти у відповідні поля дані зі сторінки Google.</message>
-	<message key="submission.citations.editor.details.manualEditing">Ручне редагування</message>
-	<message key="submission.citations.editor.details.messages">Будь ласка, зауважте (повідомлення очищуються насисканням на них)</message>
-	<message key="submission.citations.editor.details.newFieldInfo">...натисніть сюди, щоб додати нове поле...</message>
-	<message key="submission.citations.editor.details.queryCitation">Повторний запит до служб цитованості</message>
-	<message key="submission.citations.editor.details.queryGoogleScholar">Пошук у Google Академії</message>
-	<message key="submission.citations.editor.details.processRawCitation">Опрацювати</message>
-	<message key="submission.citations.editor.details.processRawCitationGoAhead">Вперед</message>
-	<message key="submission.citations.editor.details.processRawCitationTitle">Зміна оригінальної цитати</message>
-	<message key="submission.citations.editor.details.processRawCitationWarning">Ви намагаєтеся змінити оригінальний текст цитати. Якщо ви зробите це, в усі поля будуть підставлені щойно згенеровані значення. Це знищить ручні зміни, які можливо ви вже зробили.</message>
-	<message key="submission.citations.editor.details.saveAndApprove">Записати та підтвердити</message>
-	<message key="submission.citations.editor.details.saveAndRevokeApproval">Анулювати підтвердження</message>
-	<message key="submission.citations.editor.details.sendAuthorQuery">Надіслати повідомлення</message>
-	<message key="submission.citations.editor.details.sendAuthorQuerySuccess">Повідомлення надіслано!</message>
-	<message key="submission.citations.editor.details.sourceResultsUse">Використати</message>
-	<message key="submission.citations.editor.details.sourceResultsUseAll">Використати все</message>
-	<message key="submission.citations.editor.details.sourceResultsUseAllExplanation">Натисніть для того, щоб перемістити весь зміст полів безпосередньо до вашого списку полів</message>
-	<message key="submission.citations.editor.details.sourceResultsUseExplanation">Натисніть для того, щоб перемістити зміст цього поля безпосередньо до вашого списку полів</message>
-	<message key="submission.citations.editor.details.rawCitation">Оригінальний текст цитати</message>
-	<message key="submission.citations.editor.details.rawCitationRequired">Необхідно ввести текст цитати.</message>
-	<message key="submission.citations.editor.details.unsavedChanges">Цитата містить незбережені дані. Будь ласка, натисніть кнопку "Записати" для того, щоб зберегти зміни або кнопку "Скасувати", щоб відмінити правку.</message>
-	<message key="submission.citations.editor.details.dontShowMessageAgain">Більше не показувати це повідомлення.</message>
-	<message key="submission.citations.editor.edit">Редагування цитат</message>
-	<message key="submission.citations.editor.export">Експорт цитат</message>
-	<message key="submission.citations.editor.export.exportDescription"><![CDATA[<a id="markForExport" href="">Натисніть сюди</a>, щоб відмітити весь згенерований зміст. Потім ви зможете скопіювати та вставити його у свій документ.]]></message>
-	<message key="submission.citations.editor.export.filterSelectionDescription">Будь ласка, виберіть одне з наступних налаштувань експорту.</message>
-	<message key="submission.citations.editor.export.filterSelectionError">Ви не вибрали одне з налаштувань експорту.</message>
-	<message key="submission.citations.editor.export.foundUnapprovedCitationsMessage"><![CDATA[<p>Ви поки не підтвердили всі цитати. Будь ласка, перш ніж намагатися експортувати цитати, перейдіть до вкладки <strong>Редагування цитат</strong> та переконайтеся, що всі цитати підтверджені. Підтверджені цитати позначаються темно-синьою смугою зліва.</p>]]></message>
-	<message key="submission.citations.editor.export.noExportOutput">Фільтр виводу '{$filterName}' повідомив про помилку. Будь ласка, надішліть звіт про помилку розробникам.</message>
-	<message key="submission.citations.editor.export.pleaseSelectXmlFilter">Налаштування виводу XML:</message>
-	<message key="submission.citations.editor.export.pleaseSelectPlaintextFilter">Вихідний формат цитування (поки тестується!):</message>
-	<message key="submission.citations.editor.introduction">Вступ</message>
-	<message key="submission.citations.editor.introduction.introductionMessage"><![CDATA[<h4>Вас вітає Помічник розмітки цитат!</h4>
-	<p>Цей помічник допомагає розмічати цитати, надані автором, для їх подальшого експорту у XML-гранки NLM 2.3 або 3.0, чи оформлення як текстових блоків. Інструмент робить спробу автоматичної екстракції та розпізнавання цитат у тому вигляді, як вони надані автором. Але ви можете редагувати отримані результати у будь-який час.</p>
-	<ul>
-		<li><p><strong>Конфігурація помічника</strong></p>
-		<p>Помічник розмітки цитат конфігурує менеджер журналу під час налаштування журналу: <a href="{$citationSetupUrl}">Крок 3.7: Помічник розмітки цитат</a>. Він має змогу додавати, конфігурувати або видаляти різноманітні служби та інструменти для екстракції та перевірки цитат. Для отримання більшої інформації щодо конфігурації, контактуйте з менеджером журналу.</p></li>
-		<li><p><strong>Пояснення інтерфейсу</strong></p>
-		<p>Для зміни вкладки натисніть потрібний заголовок: <strong>Вступ</strong>, <strong>Редагування цитат</strong> або <strong>Експорт цитат</strong>. Щоб максимізувати інтерфейс натисніть кнопку <strong>Повноекранний режим</strong>. Щоб повернутися з повноекранного режиму до нормального інтерфейсу натисніть кнопку <strong>Вихід з повноекранного режиму</strong>. Для того, щоб назавжди прибрати цю вкладку привітання натисніть кнопку нижче.</p></li>
-		<li><p><strong>Запит цитат</strong></p>
-		<p>Якщо менеджер журналу увімкнув Помічник розмітки цитат, автори матимуть змогу в процесі подання рукопису надсилати списки пристатейної бібліографії власних робіт. Ці списки будуть надсилатися окремо від файлів з текстами статей. Автори можуть редагувати ці списки (як і інші метадані) навіть після завершення процесу подання рукопису. Зауважте, що в цьому випадку будуть змінені всі редагування, зроблені вами за допомогою цього інструменту.</p></li>
-		<li><p><strong>Редагування цитат</strong></p>
-		<p>Помічник розмітки цитат робить спробу ідентифікувати та розпізнати кожну окрему цитату з авторського списку пристатейної бібліографії. Ви можете перевіряти коректність екстрагованих цитат у численних зовнішніх базах даних; редагувати некоректну бібліографічну інформацію; підтверджувати або видаляти цитати; та додавати нові цитати.</p>
-		<p>Всі цитати подання мають бути підтверджені перш ніж вони зможуть бути експортовані.</p></li>
-		<li><p><strong>Експорт цитат</strong></p>
- 		<p>Цитати можуть експортуватися як XML або як текст. Наразі налаштування експорту XML включають підтримку елементу <a href="http://www.ncbi.nlm.nih.gov/pmc/pmcdoc/tagging-guidelines/article/tags.html#el-reflist">ref-list XML</a> формату <a href="http://dtd.nlm.nih.gov/publishing/">NLM Journal Publishing</a> версій 2.3 та 3.0. Вибір одного з цих варіантів забезпечує виведення XML-кодованого фрагменту ref-list, який можна копіювати та вставити у гранку NLM XML.</p>
-		<p>Експериментальна опція експорту цитат як тексту включає підтримку форматів цитування ABNT, APA, MLA та Vancouver. В цьому випадку ви отримаєте текстовий блок, який можна копіювати та вставити у текстову гранку статті (наприклад, у файл Microsoft Word або OpenOffice; Adobe InDesign тощо). Кожна цитата має вбудоване посилання для автоматичного пошуку посилань у Google Академії.</p></li>
-	</ul>]]></message>
-	<message key="submission.citations.editor.loadMessage">Будь ласка, зачекайте поки завантажиться Помічник розмітки цитат.</message>
-	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>Ця стаття не має цитат.</p><p>Будь ласка, перейдіть до <a href="{$articleMetadataUrl}">сторінки метаданих</a> статті та введіть список пристатейної бібліографії або вручну додайте посилання, скориставшись кнопкою "Нова цитата" цього редактора.</p>]]></message>
-	<message key="submission.citations.editor.pleaseSelect">Будь ласка, оберіть...</message>
-	<message key="submission.citations.editor.unprocessedCitations">Цитати цієї статті все ще обробляються на сервері. Поточний список цитат містить лише ті цитати, які наразі вже оброблені. Для оновлення цього списку використовуйте відповідну кнопку.</message>
-	<message key="submission.citations.editor.unprocessedCitationsButton">Оновити список цитат</message>
-	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Натисніть, щоб оновити список цитат.</message>
-	<message key="submission.citations.filter.invalidMetadata">У фільтрі {$filterName} сталася помилка: Один з елементів даних, що надійшли з джерела даних (наприклад, від веб-сервісу), не відповідає внутрішньому формату метаданих. Тому результати, отримані з джерела даних, були відхилені. Будь ласка, повідомте про цю помилку розробникам.</message>
-	<message key="submission.citations.filter.noResultFromFilterError">Служби цитування не повернули жодних результатів. Щоб покращити результати спробуйте вручну відредагувати поля цитати, а потім знову надішліть запит службам цитування. Якщо це не допомогло, це означає, що цитати не існує у жодній з підключених баз даних.</message>
-	<message key="submission.citations.filter.unsupportedPublicationType">Тип публікації не вірно вказаний або не підтримується. Будь ласка, вручну відредагуйте цитату та введіть тип публікації (дозволені типи 'book', 'journal', 'thesis' та 'conf-proc').</message>
-	<message key="submission.citations.filter.webserviceResultTransformationError">У фільтрі {$filterName} сталася помилка: Не вдалася трансформація результатів XML (наприклад, від веб-сервісу) у поля метаданих. Напевно, веб-сервіс повернув помилкові або неповні дані. Будь ласка, повідомте розробників про цю помилку.</message>
-	<message key="submission.citations.metadata.changeWarning">Ви справді хочете оновити список посилань? Якщо ви натиснете OK всі зміни, зроблені редакторами, будуть перезаписані. Якщо ви не впевнені, що ваше редагування справді потрібне, будь ласка, зв'яжіться з редактором, відповідальним за ваше подання.</message>
-
-	<message key="submission.event.reviewer.reviewCancelled">Призначення рецензента відмінене</message>
-
-	<message key="submission.layout.galleyFileData">Інформація про файл гранки</message>
-
-	<message key="submission.citations.editor.citationlist.approved">Підтверджені</message>
-	<message key="submission.citations.editor.citationlist.notApproved">Непідтверджені</message>
-	<message key="submission.issueEntry">Метадані</message>
-	<message key="editor.submissionLibrary">Бібліотека статей</message>
-	<message key="editor.submission.production.productionReadyFiles">Файли готові до верстки</message>
-	<message key="common.name">Назва</message>
-	<message key="grid.action.addQuery">Додати обговорення</message>
-	<message key="editor.submission.findAndSelectUser">Знайти користувача</message>
-	<message key="manager.userSearch.searchByName">Знайти користувача за ім'ям</message>
-	<message key="stageParticipants.notify.chooseMessage">Використати спеціальну форму або заповнити нову</message>
-	<message key="stageParticipants.notify.message">Повідомлення</message>
-	<message key="submission.issueEntry.publicationMetadata">Публікація</message>
-	<message key="editor.submission.decision.sendExternalReview">Направити на рецензування</message>
-	<message key="editor.review.notInitiated">Процес рецензування ще не розпочинався</message>
-	<message key="editor.submission.uploadSelectFiles">Завантажити/вибрати файли</message>
-	
-	<message key="editor.submission.fileList.includeAllStages">Показати файли зі всіх доступних стадій</message>
-	<message key="submission.queries.attachedFiles">Прикріплені файли</message>
-	<message key="editor.submission.selectFiles">Вибрати файли</message>
-	<message key="grid.action.updateQuery">Оновити обговорення</message>
 </locale>

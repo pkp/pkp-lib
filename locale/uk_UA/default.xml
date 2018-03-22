@@ -7,12 +7,12 @@
   * Copyright (c) 2014-2018 Simon Fraser University
   * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  *
+  * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Ukrainian_(uk_UA)
   * Localization strings for the uk_UA (Українська) locale.
-  *
   -->
 
 <locale name="uk_UA" full_name="Українська">
+	<!-- Group defaults -->
 	<message key="default.groups.name.siteAdmin">Адміністратор сайту</message>
 	<message key="default.groups.plural.siteAdmin">Адміністратори сайту</message>
 	<message key="default.groups.name.productionEditor">Випусковий редактор</message>

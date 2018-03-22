@@ -2,12 +2,12 @@
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * locale/en_US/editor.xml
+  * locale/uk_UA/editor.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University Library
+  * Copyright (c) 2014-2018 Simon Fraser University
   * Copyright (c) 2003-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  *
+  * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Ukrainian_(uk_UA)
   * Localization strings for the uk_UA (Українська) locale.
   -->
 
@@ -142,13 +142,4 @@
 	<message key="reviewer.list.currentlyAssigned">Цей рецензент уже був призначений для рецензування цього матеріалу.</message>
 	<message key="reviewer.list.reviewInterests">Наукові інтереси рецензента</message>
 	<message key="reviewer.list.biography">Біографія</message>
-
-	<!-- Not in English anymore-->
-	<message key="editor.review.NotifyAuthorAccept">Повідомити автору, що його матеріал був прийнятий.</message>
-	<message key="editor.review.NotifyAuthorDecline">Повідомити автору, що його матеріал був відхилений.</message>
-	<message key="editor.review.NotifyAuthorExternal">Повідомити автора про рішення розпочати зовнішнє рецензування.</message>
-	<message key="editor.review.personalMessageToAuthor">Електронний лист для надсилання автору</message>
-	<message key="editor.review.days">Середня кількість днів</message>
-	<message key="editor.article.clearReviewForm">Очистити форму рецензії</message>	
-	<message key="editor.publicIdentificationExistsForTheSameType">Відкритий ідентифікатор '{$publicIdentifier}' уже існує для іншого об'єкта цього ж типу. Будь ласка, обирайте унікальні ідентифікатори для об'єктів однакового типу у вашому журналі.</message>	
 </locale>

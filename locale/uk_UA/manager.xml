@@ -7,9 +7,8 @@
   * Copyright (c) 2014-2018 Simon Fraser University
   * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  *
+  * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Ukrainian_(uk_UA)
   * Localization strings for the uk_UA (Українська) locale.
-  *
   -->
 
 <locale name="uk_UA" full_name="Українська">
@@ -538,70 +537,4 @@
 	<message key="manager.navigationMenus.subscriptions.conditionalWarning">Це посилання відображатиметься лише в разі активації платежів у Налаштування > Розповсюдження > Платежі.</message>
 	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning">Це посилання відображатиметься, лише якщо відвідувач увійшов у систему, платежі увімкнені в розділі Налаштування> Розповсюдження> Платежі та обов'язкові підписки в Налаштування > Розповсюдження > Доступ.</message>
 	<message key="manager.navigationMenus.search.description">Посилання на сторінку пошуку.</message>
-
-	<!-- Not in English anymore -->
-	<message key="manager.reviewerSearch.doneAmount">Кількість завершених рецензій</message>
-	<message key="manager.reviewerSearch.doneAmountToggle">Увімкнути/вимкнути фільтр для завершених рецензій.</message>
-	<message key="manager.reviewerSearch.avgAmount">Середня тривалість рецензування (діб): {$current}</message>
-	<message key="manager.reviewerSearch.avgAmountToggle">Увімкнути/вимкнути фільтр за середньою кількістю днів на завершення рецензії.</message>	<message key="manager.reviewerSearch.lastAmount">Днів після останньої рецензії</message>
-	<message key="manager.reviewerSearch.lastAmount">Днів після останньої рецензії: {$current}</message>
-	<message key="manager.reviewerSearch.lastAmountToggle">Увімкунти/вимкнути фільтр за кількістю днів після останньої рецензії.</message>
-	<message key="manager.reviewerSearch.activeAmount">Кількість активних рецензій: {$current}</message>
-	<message key="manager.reviewerSearch.activeAmountToggle">Увімкнути/вимкнути фільтр за кількістю поточних активних рецензій.</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">Наукові інтереси рецензента(введіть для пошуку спільних інтересів)</message>
-	<message key="manager.reviewerSearch.form.previousReviewRounds">Рецензенти з попередніх раундів рецензування цього подання</message>
-
-		<message key="manager.setup.citationAssistant">Помічник розмітки цитат</message>
-	<message key="manager.setup.citationFilterParser">Екстракція цитат</message>
-	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>Для того, щоб знайти і перевірити за базою даних коректність цитат, спочатку їх потрібно розбити на фрагменти машиночитаних метаданих: з цитат у тексті, отриманому від автора, повинні бути екстраговані такі поля, як назва, видавець, дата публікації тощо. У цьому процесі можуть допомогти шлюзи до зовнішніх веб-сервісів. Ви можете додати один або декілька шлюзів засобами розміщеної нижче кнопки "Додати об'єкт". Деякі з цих шлюзів можуть потребувати додаткових налаштувань; ви будете повідомлені, якщо це так.</p>
-		<p>Для редагування або видалення шлюзу потрібно натиснути на зображення шестерінки поруч з ним.</p>]]></message>
-	<message key="manager.setup.citationFilterLookup">Перевірка цитат</message>
-	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>Також ви повинні дозволити і налаштувати шлюзи до зовнішніх баз даних цитованості. Це допоможе вам знаходити помилки у цитатах авторів та додавати відсутню у оригінальних цитатах, але необхідну для електронного видання, інформацію (наприклад, ідентифікатори DOI або PubMed).</p>
-		<p>Ми забезпечуємо шлюзи до кількох зовнішніх баз даних, у яких може проводитись пошук цитат. Деякі з цих баз даних вимагають реєстрації або налаштування. Для того, щоб отримати додаткову інформацію щодо реєстрації, користуйтеся публічними веб-сайтами відповідних баз даних. Ви можете додати одну або декілька баз даних засобами розміщеної нижче кнопки "Додати об'єкт".</p>
-		<p>Для редагування або видалення шлюзу до зовнішньої бази даних потрібно натиснути на зображення шестерінки поруч з ним.</p>
-		<p><strong>Примітка:</strong> Для того, щоб процес перевірки цитат не займав занадто багато часу, вкажіть помірне значення директиви <tt>citation_checking_max_processes</tt> у вашому файлі конфігурації. Для більш детальної інформації з цього приводу див. розділ General Settings у файлі <tt>config.inc.php</tt>.</p>]]></message>
-	<message key="manager.setup.citationOutput">Вихідний формат цитат</message>
-	<message key="manager.setup.citationOutputStyleDescription">Оберіть стиль цитат, який буде використовуватись у авторських поданнях цього журналу. Ви зможете легко знаходити помилки, оскільки Помічник розмітки цитат дозволяє порівнювати авторську версію цитати з версією, згенерованою з XML:</message>
-
-	<message key="manager.setup.filter.grid.errorDeletingFilter">Під час спроби видалення цього фільтру виникла помилка. Будь ласка, повідомте про цей випадок розробників.</message>
-	<message key="manager.setup.filter.grid.filterDisplayName">Шлюз</message>
-	<message key="manager.setup.filter.grid.filterSettings">Реєстраційна інформацію та параметри шлюзу</message>
-	<message key="manager.setup.filter.grid.filterTemplateRequired">Будь ласка, виберіть зі спадаючого меню один з типів трансформації.</message>
-	<message key="manager.setup.filter.grid.confirmDelete">Ви справді хочете видалити фільтр {$filterName}?</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Ви вибрали додавання бази даних {$filterDisplayName}. Для підтвердження, будь ласка, натисніть 'OK'.</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Будь ласка, виберіть базу даних для пошуку.</message>
-	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Цей фільтр забезпечує зв'язок з базою даних книжок та ISBN <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a>.</p>
-	<p>Ключ ISBNdb API обов'язковий. Для отримання інформації щодо генерації ключа див. <a href="http://isbndb.com/api/v1/docs/keys" target="_blank">онлайнову документацію</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Цей фільтр забезпечує зв'язок з базою даних цитованості CrossRef через <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">інтерфейс запитів OpenURL</a> CrossRef.</p>
-	<p>Для використання цього фільтру ви можете використовувати свій обліковий запис CrossRef або за <a href="http://www.crossref.org/requestaccount/" target="_blank">цим посиланням</a> зареєструватися у CrossRef з працездатною адресою e-mail.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Цей фільтр забезпечує зв'язок з інструментом федеративного пошуку PubMed <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a>.</p>
-	<p>Реєстраційний e-mail не є вкрай важливим, але він може знадобитись, якщо у вас виникнуть проблеми з'єднання. Для отримання більш детальної інформації щодо цієї теми див. розділ <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Вимоги та керівництва з використання</a> у документації Entrez.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Цей фільтр забезпечує зв'язок зі службами OCLC <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> та <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (за вибором).</p>
-	<p>Якщо ви маєте <a href="http://oclc.org/developer/develop/web-services.html" target="_blank">ключ API</a> Worldcat, ви можете з'єднатися з Worldcat, ввівши ключ нижче.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.loadMessage">Завантажується конфігурація бази даних цитованості. Будь ласка, зачекайте...</message>
-	<message key="manager.setup.filter.lookup.grid.title">Шлюзи баз даних цитованості</message>
-	<message key="manager.setup.filter.noMoreTemplates">Вже додані всі доступні трансформації. Для повернення до сторінки налаштувань, будь ласка, натисніть 'Скасувати'.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionConfirm">Ви вибрали додавання синтаксичного аналізатора {$filterDisplayName}. Для підтвердження, будь ласка, натисніть 'OK'.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionTemplate">Будь ласка, виберіть синтаксичний аналізатор цитат.</message>
-	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>Цей фільтр екстракції забезпечує зв'язок з веб-сервісом <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a>.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>Цей фільтр екстракції використовує Perl-модулі <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> для синтаксичного аналізу цитат з використанням функціональності <a href="http://paracite.eprints.org" target="_blank">ParaCite</a>. Для того, щоб цей фільтр працював коректно, у вас повинен бути встановлений Perl, а також модулі CPAN <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> та <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a>. Ви повинні також налаштувати директиву <tt>perl</tt> у вашому файлі конфігурації. Ця директива знаходиться у розділі External Commands файлу <tt>config.inc.php</tt>.</p>
-	<p>Також ви повинні визначити, який модуль синтаксичного аналізатора ParaTools має використовуватись. Ви можете вибрати стандартний модуль, <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a> або <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a>.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>Цей фільтр екстракції забезпечує зв'язок з веб-сервісом <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a>.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.regEx">Фільтр екстракції RegEx для синтаксичного аналізу цитат використовує серії регулярних виразів.</message>
-	<message key="manager.setup.filter.parser.grid.loadMessage">Завантажується конфігурація синтаксичного аналізатора цитат. Будь ласка, зачекайте...</message>
-	<message key="manager.setup.filter.parser.grid.title">Служби екстракції цитат</message>
-	<message key="manager.setup.filter.pleaseSelect">Будь ласка, оберіть...</message>
-	<message key="manager.setup.layout.leftSidebar">Ліва бічна панель</message>
-	<message key="manager.setup.layout.rightSidebar">Права бічна панель</message>
-	<message key="manager.setup.metaCitationsDescription">Для того, щоб включити функціональність для редагування пристатейної бібліографії, активуйте прапорець нижче. Це дозволить авторам включати до подань оригінальні списки пристатейної бібліографії. Крім того, редакторам буде надана можливість використовувати помічник розмітки цитат, який дає змогу перевіряти коректність і точність оригінальних цитат шляхом зв'язку з зовнішніми базами даних, такими як WorldCat, ISBNdb, PubMed та інші. Підтверджені цитати можуть експортуватися у файли фінальних гранок.</message>
-	<message key="manager.setup.selectOne">Оберіть одне з наступного</message>
-	<message key="plugins.categories.citationFormats">Модулі форматів цитування</message>
-	<message key="plugins.categories.citationLookup">Модулі шлюзів до баз даних цитованості</message>
-	<message key="plugins.categories.citationLookup.description">Модулі шлюзів до баз даних цитованості дозволяють зв'язок з базами даних цитованості для пошуку посилань, наприклад, під час редагування пристатейної бібліографії.</message>
-	<message key="plugins.categories.citationOutput">Модулі відображення цитат</message>
-	<message key="plugins.categories.citationOutput.description">Модулі відображення цитат дозволяють відображати цитати за правилами різних бібліографічних стандартів. Ці модулі раніше називалися "Модулі форматів цитування".</message>
-	<message key="plugins.categories.citationParser">Модулі екстракції цитат</message>
-	<message key="plugins.categories.citationParser.description">Модулі екстракції цитат дозволяють видобувати з оригінальних цитат бібліографічну інформацію (наприклад, імена авторів, назви статей тощо).</message>
-	<message key="manager.masthead.title">Вихідні дані</message>
-	
 </locale>

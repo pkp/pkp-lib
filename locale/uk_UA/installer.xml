@@ -7,9 +7,8 @@
   * Copyright (c) 2014-2018 Simon Fraser University
   * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  *
+  * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Ukrainian_(uk_UA)
   * Localization strings for the uk_UA (Українська) locale.
-  *
   -->
 
 <locale name="uk_UA" full_name="Українська">
@@ -65,7 +64,8 @@
 	<message key="installer.publicFilesDirError">Каталог, визначений для збереження файлів, не існує або захищений від запису.</message>
 	<message key="installer.releaseNotes">Примітки версії</message>
 	<message key="installer.preInstallationInstructionsTitle">Кроки підготовки до встановлення</message>
-	<message key="installer.preInstallationInstructions"><![CDATA[<p>1. Наступні файли і каталоги (та їх вміст) потрібно зробити доступними для запису:</p>
+	<message key="installer.preInstallationInstructions"><![CDATA[
+		<p>1. Наступні файли і каталоги (та їх вміст) потрібно зробити доступними для запису:</p>
 		<ul>
 			<li><tt>config.inc.php</tt> доступний для запису (не обов'язково): {$writable_config}</li>
 			<li><tt>public/</tt> доступний для запису: {$writable_public}</li>
@@ -80,9 +80,4 @@
 	<message key="installer.beacon">Маяк</message>
 	<message key="installer.beacon.enable">Задати унікальний ID сайту і базовий URL OAI для PKP, які будуть використовуватися лише для збору статистики та попереджень про небезпеку.</message>
 	<message key="installer.unsupportedPhpError">Версія PHP вашого сервера не підтримується цим програмним забезпеченням. Уважно перевірте вимоги до встановлення у docs/README.</message>
-	
-	<!-- Not in English anymore -->
-	<message key="installer.encryption">Алгоритм шифрування паролів</message>
-	<message key="installer.form.encryptionRequired">Необхідно вказати алгоритм, який буде використовуватись для шифрування паролів користувачів.</message>
-	<message key="installer.securitySettings">Налаштування безпеки</message>
-	</locale>
+</locale>

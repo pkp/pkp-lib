@@ -7,9 +7,8 @@
   * Copyright (c) 2014-2018 Simon Fraser University
   * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  *
+  * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Ukrainian_(uk_UA)
   * Localization strings for the uk_UA (Українська) locale.
-  *
   -->
 
 <locale name="uk_UA" full_name="Українська">
@@ -273,16 +272,4 @@
 	<message key="grid.navigationMenus.navigationMenuItems.noneExist">Немає пунктів меню навігації</message>
 	<message key="grid.navigationMenus.navigationMenu.noneExist">Немає меню навігації</message>
 	<message key="grid.navigationMenus.navigationMenu.selectType">Оберіть тип...</message>
-
-	<!-- Not in English anymore -->
-	<message key="grid.action.downloadFile">Завантажити цей файл</message>
-	<message key="grid.action.addContributor">Додати джерело підтримки</message>
-	<message key="grid.preparedEmails.description">Видавництво може значно полегшити процеси комунікації шляхом використання шаблонів типових листів. Нижче подані засоби для легкого редагування змісту цих шаблонів.</message>
-	<message key="grid.action.resubmit">Вимагати, щоб це подання було повторно надіслане для додаткового рецензування</message>
-	<message key="grid.genres.title">Жанри</message>
-	<message key="grid.genres.description">Ці жанри використовуються для іменування файлів, вони відображаються у спадаючому меню вивантаження файлів. Жанри, вказані як ## дозволяють користувачу асоціювати файл з цілою книжкою 99Z або з конкретною її нумерованою частиною (наприклад, 02).</message>
-	<message key="grid.user.mergeUsers.into.description">Тепер ви повинні вибрати користувача, якому слід передати авторство попереднього користувача, редакційні завдання тощо.</message>
-	<message key="grid.user.mergeUsers.from.description">Виберіть користувача для об'єднання в інший обліковий запис користувача (наприклад, коли хтось має два облікові записи). Обліковий запис, обраний першим буде видалений, а його матеріали, призначення та інше будуть передані другому обліковому запису.</message>
-	<message key="grid.user.mergeUsers.mergeUserSelect.confirm">Ви впевнені, що хочете об'єднати цього користувача з іншим? Ви виберете наступного користувача на наступній сторінці.</message>
-	<message key="grid.user.mergeUsers.noneEnrolled">Немає жодного користувача з цією роллю.</message>
 </locale>

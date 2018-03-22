@@ -7,13 +7,12 @@
   * Copyright (c) 2014-2018 Simon Fraser University
   * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  *
+  * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Ukrainian_(uk_UA)
   * Localization strings for the uk_UA (Українська) locale.
-  *
   -->
 
 <locale name="uk_UA" full_name="Українська">
-	<message key="user.accountInformation">Інформація облікового запису</message>	<message key="user.affiliation">Місце роботи</message>
+	<message key="user.accountInformation">Інформація облікового запису</message>
 	<message key="user.affiliation">Місце роботи</message>
 	<message key="user.affiliation.description">(Ваше місце роботи, наприклад, "Київський національний університет імені Тараса Шевченка")</message>
 	<message key="user.affiliations">Місця роботи</message>
@@ -42,6 +41,7 @@
 	<message key="user.interests">Наукові інтереси</message>
 	<message key="user.interests.description">(вказуйте кожний інтерес з нового рядку або розділяйте їх комами)</message>
 	<message key="user.gossip">Приватні нотатки</message>
+	<message key="user.gossip.description">Нотатки, додані сюди, будуть відображені тільки лоя адміністраторів, менеджерів жураналу та редакторам.</message>
 	<message key="user.group">Група користувачів</message>
 	<message key="user.lastName">Прізвище</message>
 	<message key="user.profile.form.profileImageInvalid">Неприпустимий формат фото або зображення занадто великого розміру. Припустимими форматами є .gif, .jpg, або .png, розмір зображення не повинен бути більшим 150x150 пікселів.</message>
@@ -111,6 +111,7 @@
 	<message key="user.register.form.usernameAlphaNumeric">Ім'я користувача може містити лише цифри, маленькі латинські літери, символи підкреслення та дефіси, а також має починатися і закінчуватися літерою або цифрою.</message>
 	<message key="user.register.form.userGroupRequired">Необхідно вибрати принаймні одну роль.</message>
 	<message key="user.register.form.usernameExists">Вказане ім'я користувача вже використовується в іншому обліковому записі.</message>
+	<message key="user.register.form.passwordLengthRestriction">Пароль має складатися хоча б із {$length} знаків.</message>
 	<message key="user.register.registerAs">Зареєструватися в {$contextName} як</message>
 	<message key="user.register">Зареєструватися</message>
 	<message key="user.register.usernameRestriction">Ім'я користувача може складатися лише з рядкових літер, цифр та тире/символів підкреслення.</message>
@@ -154,9 +155,4 @@
 	<message key="user.apiKey.generate">Згенерувати новий ключ API</message>
 	<message key="user.apiKey.generateWarning">Створення нового ключа API призведе до того, що існуючий ключ стане недійсним для цього користувача.</message>
 	<message key="user.apiKey.secretRequired">Перед створенням ключа API адміністратор вашого сайту повинен встановити таємний код у файлі конфігурації ("api_key_secret").</message>
-
-	<!-- Not in English anymore-->
-	<message key="user.biography.description">(наприклад, відділ та посада)</message>
-	<message key="user.register.completeForm">Щоб зареєструватися у цьому журналі заповніть форму нижче.</message>
-	<message key="user.register.passwordLengthRestriction">Пароль повинен бути не менше {$length} символів.</message>
 </locale>

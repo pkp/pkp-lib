@@ -7,7 +7,7 @@
   * Copyright (c) 2014-2018 Simon Fraser University
   * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  *
+  * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Ukrainian_(uk_UA)
   * Localization strings for the uk_UA (Українська) locale.
   -->
 
@@ -146,8 +146,8 @@
 	<message key="common.fullscreenOff">Відключення повноекранного режиму</message>
 	<message key="common.false">Хиба</message>
 	<message key="common.file">Файл</message>
-	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
-	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
+	<message key="common.file.namingPattern">{$username}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$genre}, {$originalFilename}</message>
 	<message key="common.fileName">Ім'я файлу</message>
 	<message key="common.fileSize">Розмір файлу</message>
 	<message key="common.fileType">Тип файлу</message>
@@ -576,31 +576,4 @@
 	<!-- List Handlers -->
 	<message key="list.viewMore">Показати подробиці щодо {$name}</message>
 	<message key="list.viewLess">Приховати подробиці щодо {$name}</message>
-	
-	<!-- Мої додатки-->
-	
-	<message key="informationCenter.lastUpdated">Останнє оновлення</message>
-	
-
-	<!-- Not in the original English-->
-	<message key="announcement.viewLink">Детальніше...</message>
-	<message key="common.captchaField.altText">Зображення для перевірки</message>
-	<message key="common.captchaField.badCaptcha">Введені вами символи не збігаються з символами на зображенні. Будь ласка, спробуйте знову.</message>
-	<message key="help.contents">Зміст</message>
-	<message key="help.helpIndex">Зміст допомоги</message>
-	<message key="help.matchesFound">Знайдено {$matches} результатів</message>
-	<message key="help.noMatchingTopics">Не знайдено жодних довідкових матеріалів.</message>
-	<message key="help.relatedTopics">Споріднені теми</message>
-	<message key="help.searchFor">Шукати довідкові матеріали, що містять</message>
-	<message key="help.searchResultsFor">Результати для</message>
-	<message key="help.searchResults">Результати пошуку</message>
-	<message key="help.search">Пошук довідкових матеріалів</message>
-	<message key="search.reviseSearch">Змінити умови пошуку</message>
-	<message key="search.searchAllCategories">Шукати в усіх полях</message>
-	<message key="search.searchCategories">Пошукові поля</message>
-	<!-- Not exist in the original file -->
-	<message key="common.confirm">Підтвердити</message>
-	<message key="common.signoff">Вийти</message>
-	<message key="common.fileUpload.maxFileSizeStatus"><![CDATA[Цей сервер дозволяє завантажувати файли розміром не більше {$fileSize}.  Якщо потрібно, будь ласка, зверніться за допомогою до <a href="mailto:{$supportEmail}">{$supportName}</a>.]]></message>
-	<message key="common.element">Елемент</message>
 </locale>

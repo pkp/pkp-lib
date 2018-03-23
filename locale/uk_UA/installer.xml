@@ -33,7 +33,7 @@
 	<message key="installer.databasePassword">Пароль</message>
 	<message key="installer.databaseSettings">Налаштування бази даних</message>
 	<message key="installer.databaseUsername">Ім'я користувача</message>
-+	<message key="installer.filesDir">Каталог для завантаження файлів</message>
+	<message key="installer.filesDir">Каталог для завантаження файлів</message>
 	<message key="installer.fileSettings">Параметри файлів</message>
 	<message key="installer.form.clientCharsetRequired">Необхідно вказати таблицю кодування браузера.</message>
 	<message key="installer.form.databaseDriverRequired">Необхідно вказати драйвер бази даних.</message>

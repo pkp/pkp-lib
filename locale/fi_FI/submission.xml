@@ -600,4 +600,22 @@
 	<message key="editor.submission.roundStatus.recommendationsCompleted">Kaikki suositukset ovat valmiina ja päätöstä tarvitaan.</message>
 	<message key="notification.type.editorAssign">Sinut on lisätty toimittajaksi käsikirjoitukseen "{$title}".</message>
 	<message key="editor.submission.decision.skipReview">Hyväksy ja ohita arviointi</message>
+	<message key="submission.citations.description">Anna jokainen viite omalla rivillään.</message>
+	<message key="submission.parsedCitations">Erotellut viitteet</message>
+	<message key="submission.parsedCitations.description">Seuraavat viitteet eroteltiin ja ne liitetään käsikirjoituksen kuvailutietoihin.</message>
+	<message key="submission.parsedAndSaveCitations">Erottele ja tallenna viitteitä</message>
+	<message key="submission.submit.form.languagesRequired">Anna kieli</message>
+	<message key="submission.submit.form.subjectsRequired">Anna aihe</message>
+	<message key="submission.submit.form.disciplinesRequired">Anna tieteenala</message>
+	<message key="submission.submit.form.keywordsRequired">Anna avainsana</message>
+	<message key="submission.submit.form.agenciesRequired">Anna kannattajajärjestö</message>
+	<message key="submission.submit.form.coverageRequired">Anna kattavuustiedot</message>
+	<message key="submission.submit.form.typeRequired">Anna tyyppi</message>
+	<message key="submission.submit.form.sourceRequired">Anna lähde</message>
+	<message key="submission.submit.form.rightsRequired">Anna oikeudet</message>
+	<message key="submission.submit.form.citaionsRequired">Anna viitteet</message>
+	<message key="editor.submission.roundStatus.resubmitForReview">Käsikirjoitus pitää lähettää uudelle arviointikierrokselle</message>
+	<message key="editor.submission.roundStatus.submissionResubmitted">Käsikirjoitus on lähetetty uudelle arviointikierrokselle</message>
+	<message key="submission.query.participantTitle">{$fullName}, {$userGroup}</message>
+	<message key="submission.list.currentStage">Vaiheessa {$stage} .</message>
 </locale>

@@ -153,4 +153,6 @@
 	<message key="user.apiKey">API-avain</message>
 	<message key="user.apiKeyEnabled">Anna ulkoisten järjestelmien olla yhteydessä tähän tiliin API-avaimen avulla.</message>
 	<message key="user.apiKey.generate">Luo uusi API-avain</message>
+	<message key="user.gossip.description">Tähän annetut muistiinpanot näkyvät vain ylläpitäjille, julkaisun hallinnoijille, toimittajille ja osastotoimittajille.</message>
+	<message key="user.role.assistant">Avustaja</message>
 </locale>

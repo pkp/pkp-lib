@@ -22,7 +22,7 @@ class ReviewerGridRow extends GridRow {
 
 	/**
 	 * Constructor
-	 * @param boolean $isCurrentUserAssignedAuthor Is the current user assigned as an
+	 * @param $isCurrentUserAssignedAuthor boolean Is the current user assigned as an
 	 *  author to this submission?
 	 */
 	public function __construct($isCurrentUserAssignedAuthor) {
@@ -145,7 +145,7 @@ class ReviewerGridRow extends GridRow {
 			$canCurrentUserGossip = ServicesContainer::instance()
 				->get('user')
 				->canCurrentUserGossip($reviewAssignment->getReviewerId());
-			if ($canCurrentUserGossip && (!$this->_isCurrentUserAssignedAuthor || !$isAuthorBlind)) {
+			if ($canCurrentUserGossip && !$isAuthorBlind) {
 				$this->addAction(
 					new LinkAction(
 						'gossip',

@@ -25,7 +25,7 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider {
 
 	/**
 	 * Constructor
-	 * @param boolean $isCurrentUserAssignedAuthor Is the current user assigned
+	 * @param $isCurrentUserAssignedAuthor boolean Is the current user assigned
 	 *  as an author to this submission?
 	 */
 	public function __construct($isCurrentUserAssignedAuthor) {

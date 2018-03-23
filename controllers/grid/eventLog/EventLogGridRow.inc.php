@@ -30,8 +30,8 @@ class EventLogGridRow extends GridRow {
 
 	/**
 	 * Constructor
-	 * @param Submission $submission
-	 * @param boolean $isCurrentUserAssignedAuthor Is the current user assigned
+	 * @param $submission Submission
+	 * @param $isCurrentUserAssignedAuthor boolean Is the current user assigned
 	 *  as an author to this submission?
 	 */
 	function __construct($submission, $isCurrentUserAssignedAuthor) {

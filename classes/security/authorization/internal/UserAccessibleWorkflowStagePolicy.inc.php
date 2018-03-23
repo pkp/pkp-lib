@@ -55,7 +55,7 @@ class UserAccessibleWorkflowStagePolicy extends AuthorizationPolicy {
 		// Does user have access to this stage in the requested workflow?
 		} elseif (!is_null($this->_workflowType)) {
 			$workflowTypeRoles = Application::getWorkflowTypeRoles();
-			if (array_intersect($workflowTypeRoles[$this->_workflowType], $userAccessibleStages[$this->_stageId])) {
+			if (array_key_exists($this->_stageId, $userAccessibleStages) && array_intersect($workflowTypeRoles[$this->_workflowType], $userAccessibleStages[$this->_stageId])) {
 				return AUTHORIZATION_PERMIT;
 			}
 			return AUTHORIZATION_DENY;

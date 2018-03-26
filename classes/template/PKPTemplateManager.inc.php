@@ -691,6 +691,7 @@ class PKPTemplateManager extends Smarty {
 			'contextPath' => isset($context) ? $context->getPath() : '',
 			'apiBasePath' => '/api/v1',
 			'pathInfoEnabled' => Config::getVar('general', 'disable_path_info') ? false : true,
+			'restfulUrlsEnabled' => Config::getVar('general', 'restful_urls') ? true : false,
 			'accessRoles' => array(
 				'manager' => ROLE_ID_MANAGER,
 				'siteAdmin' => ROLE_ID_SITE_ADMIN,

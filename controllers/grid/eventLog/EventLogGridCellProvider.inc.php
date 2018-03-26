@@ -25,7 +25,7 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider {
 	 * @param boolean $isCurrentUserAssignedAuthor Is the current user assigned
 	 *  as an author to this submission?
 	 */
-	public function __construct($isCurrentUserAssignedAuthor = false) {
+	public function __construct($isCurrentUserAssignedAuthor) {
 		parent::__construct();
 		$this->_isCurrentUserAssignedAuthor = $isCurrentUserAssignedAuthor;
 	}

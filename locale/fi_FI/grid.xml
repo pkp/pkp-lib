@@ -268,4 +268,6 @@
 	<message key="grid.navigationMenus.navigationMenuItems.noneExist">Ei kohteita</message>
 	<message key="grid.action.addNavigationMenuItem">Lisää kohde</message>
 	<message key="grid.action.addNavigationMenu">Lisää valikko</message>
+	<message key="grid.action.uninstall">Poista asennus</message>
+	<message key="grid.navigationMenus.navigationMenu.selectType">Valitse tyyppi...</message>
 </locale>

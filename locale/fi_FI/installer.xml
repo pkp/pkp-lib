@@ -70,4 +70,5 @@
 	<message key="installer.configureXSLMessage"><![CDATA[<p>PHP-asennuksellasi ei ole XSL-moduulia käytössä.]]><![CDATA[ ]]><![CDATA[Ota se käyttöön tai määritä xslt_command -parametri config.inc.php -tiedostossa.</p>]]></message>
 	<message key="installer.beacon">Jäljite</message>
 	<message key="installer.beacon.enable">Anna yksilöivä sivuston tunniste ja OAI:n perus-URL-osoite PKP:lle ainoastaan tilastointia ja suojavaroitustarkoituksia varten.</message>
+	<message key="installer.unsupportedPhpError">Tämä ohjelmisto ei tue palvelimesi PHP-versiota. Tarkista vaatimukset docs/README-tiedostosta.</message>
 </locale>

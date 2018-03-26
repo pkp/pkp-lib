@@ -17,6 +17,7 @@
 	<message key="grid.settings">Inställningar</message>
 	<message key="grid.noAuditors">Inga manusgranskare</message>
 	<message key="grid.remotelyHostedItem">Det här objektet lagras externt.</message>
+	
 	<message key="grid.action.uninstall">Avinstallera</message>
 	<message key="grid.action.manageAccess">Hantera tillgänglighet</message>
 	<message key="grid.action.sort">Ordna</message>

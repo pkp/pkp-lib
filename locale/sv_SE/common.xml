@@ -95,7 +95,6 @@
 	]]></message>
 	<message key="common.changesSaved">Dina ändringar sparades.</message>
 	<message key="common.chooseOne">Välj en</message>
-  <message key="common.clearSearch">Rensa söksträng</message>
 	<message key="common.close">Stäng</message>
 	<message key="common.closePanel">Stäng panel</message>
 	<message key="common.closeWindow">Stäng fönster</message>
@@ -120,7 +119,7 @@
 	<message key="common.day">Dag</message>
 	<message key="common.deactivate">Avaktivera</message>
 	<message key="common.default">Default</message>
-	<message key="common.declined">Refuserad</message>
+	<message key="common.declined">Avböjd</message>
 	<message key="common.delete">Radera</message>
 	<message key="common.deleting">Raderar</message>
 	<message key="common.deleteSelection">Radera markerad(e)</message>
@@ -154,6 +153,7 @@
 	<message key="common.fileType">Filtyp</message>
 	<message key="common.fileUploaderError">Systemets filuppladdningsverktyg laddas in. Om det inte dyker upp är det förmodligen så att den här webbläsaren inte stödjer några av dess runtimes. Vänligen kontakta din administratör för support.</message>
 	<message key="common.filter">Filter</message>
+	<message key="common.filterAdd">Lägg till filter: {$filterTitle}</message>
 	<message key="common.filterRemove">Rensa filter: {$filterTitle}</message>
 	<message key="common.from">Från</message>
 	<message key="common.until">Till</message>
@@ -172,6 +172,8 @@
 	<message key="common.language">Språk</message>
 	<message key="common.languages">Språk</message>
 	<message key="common.less">Färre</message>
+	<message key="common.lessThan">{$value} eller färre</message>
+	<message key="common.listSeparator">, </message>
 	<message key="common.manage">Administrera</message>
 	<message key="common.mailingAddress">Adress</message>
 	<message key="common.billingAddress">Faktureringsadress (om annan)</message>
@@ -179,6 +181,7 @@
 	<message key="common.modify">Ändra</message>
 	<message key="common.month">Månad</message>
 	<message key="common.more">Fler</message>
+	<message key="common.moreThan">{$value} or fler</message>
 	<message key="common.noneAssigned">Ingen utsedd</message>
 	<message key="common.none">Ingen</message>
 	<message key="common.no">Nej</message>
@@ -201,6 +204,8 @@
 	<message key="common.or">eller</message>
 	<message key="common.other">Annat</message>
 	<message key="common.overdue">Försenad</message>
+	<message key="common.pagination">{$start}-{$end} av {$total}</message>
+	<message key="common.pagination.label">Bläddra bland ytterligare sidor</message>
 	<message key="common.pageNumber">Sida {$pageNumber}</message>
 	<message key="common.pageHeaderLogo.altText">Logotyp sidhuvud</message>
 	<message key="common.percentage">{$percentage}%</message>
@@ -238,6 +243,7 @@
 	<message key="common.saving">Sparar</message>
 	<message key="common.search">Sök</message>
 	<message key="common.searchQuery">Sökfråga</message>
+	<message key="common.clearSearch">Rensa sökfråga</message>
 	<message key="common.second">Sekund(er)</message>
 	<message key="common.selectAll">Välj alla</message>
 	<message key="common.selectNone">Välj ingen</message>
@@ -282,6 +288,7 @@
 	<message key="common.plugins">Plugins</message>
 	<message key="common.metric">Mått</message>
 	<message key="common.count">Antal</message>
+	<message key="common.publicAccess">Publik tillgång</message>
 	<message key="debug.databaseQueries">Antal databasfrågor</message>
 	<message key="debug.executionTime">Sidan genererad på</message>
 	<message key="debug.memoryUsage">Minnesanvändning</message>
@@ -374,6 +381,8 @@
 
 	<!-- Stage Participants -->
 	<message key="stageParticipants.history.messageSent">Avisering skickad till användare.</message>
+	<message key="stageParticipants.notify.startDiscussion">Påbörja diskussion</message>
+	<message key="stageParticipants.notify.startDiscussion.description">Påbörja en diskussion mellan dig själv och {$userFullName}.</message>
 	<message key="stageParticipants.notify.chooseMessage">Välj ett fördefinierat meddelande att använda eller fyll i formuläret nedan.</message>
 	<message key="stageParticipants.notify.message">Meddelande</message>
 	<message key="stageParticipants.notify.warning">Vänligen se till att du har fyllt i meddelandefältet och valt minst en mottagare.</message>
@@ -563,4 +572,8 @@
 	<message key="notification.addedNavigationMenu">Navigationsmeny tillagd.</message>
 	<message key="notification.editedNavigationMenu">Navigationsmeny uppdaterad.</message>
 	<message key="notification.removedNavigationMenu">Navigationsmeny borttagen.</message>
+	
+	<!-- List Handlers -->
+	<message key="list.viewMore">Visa mer detaljer om {$name}</message>
+	<message key="list.viewLess">Göm visade detaljer om {$name}</message>
 </locale>

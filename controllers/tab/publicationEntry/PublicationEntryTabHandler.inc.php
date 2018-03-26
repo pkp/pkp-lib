@@ -82,7 +82,7 @@ class PublicationEntryTabHandler extends Handler {
 		$this->_stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
 		$this->_tabPosition = (int) $request->getUserVar('tabPos');
 
-		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_APP_SUBMISSION);
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION);
 		$this->setupTemplate($request);
 	}
 

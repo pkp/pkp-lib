@@ -87,6 +87,7 @@ class PKPPublicIdentifiersForm extends Form {
 		$this->setData('publisherId', $pubObject->getStoredPubId('publisher-id'));
 		$pubIdPluginHelper = new PKPPubIdPluginHelper();
 		$pubIdPluginHelper->init($this->getContextId(), $this, $pubObject);
+		return parent::initData();
 	}
 
 

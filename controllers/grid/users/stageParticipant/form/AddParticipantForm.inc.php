@@ -90,7 +90,7 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 			$blindReviewMethods = array(SUBMISSION_REVIEW_METHOD_BLIND, SUBMISSION_REVIEW_METHOD_DOUBLEBLIND);
 			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
 			$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($this->getSubmission()->getId());
-			$blindReviews = array_filter($reviewAssignments, function($reviewAssignment) use ($userId, $blindReviewMethods) {
+			$blindReviews = array_filter($reviewAssignments, function($reviewAssignment) use ($blindReviewMethods) {
 				return in_array($reviewAssignment->getReviewMethod(), $blindReviewMethods) && !$reviewAssignment->getDeclined();
 			});
 			$blindReviewerIds = array_map(function($reviewAssignment) {

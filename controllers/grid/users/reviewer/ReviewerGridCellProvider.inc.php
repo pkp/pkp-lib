@@ -20,6 +20,19 @@ import('lib.pkp.classes.linkAction.request.AjaxAction');
 
 class ReviewerGridCellProvider extends DataObjectGridCellProvider {
 
+	/** @var boolean Is the current user assigned as an author to this submission */
+	public $_isCurrentUserAssignedAuthor;
+
+	/**
+	 * Constructor
+	 * @param $isCurrentUserAssignedAuthor boolean Is the current user assigned
+	 *  as an author to this submission?
+	 */
+	public function __construct($isCurrentUserAssignedAuthor) {
+		parent::__construct();
+		$this->_isCurrentUserAssignedAuthor = $isCurrentUserAssignedAuthor;
+	}
+
 	//
 	// Template methods from GridCellProvider
 	//
@@ -55,6 +68,10 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider {
 		assert(is_a($element, 'DataObject') && !empty($columnId));
 		switch ($columnId) {
 			case 'name':
+				$isAuthorBlind = in_array($element->getReviewMethod(), array(SUBMISSION_REVIEW_METHOD_BLIND, SUBMISSION_REVIEW_METHOD_DOUBLEBLIND));
+				if ($this->_isCurrentUserAssignedAuthor && $isAuthorBlind) {
+					return array('label' => __('editor.review.anonymousReviewer'));
+				}
 				return array('label' => $element->getReviewerFullName());
 
 			case 'considered':
@@ -76,6 +93,12 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider {
 	 */
 	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
 		$reviewAssignment = $row->getData();
+
+		// Authors can't perform action on reviews
+		if ($this->_isCurrentUserAssignedAuthor) {
+			return array();
+		}
+
 		$actionArgs = array(
 			'submissionId' => $reviewAssignment->getSubmissionId(),
 			'reviewAssignmentId' => $reviewAssignment->getId(),

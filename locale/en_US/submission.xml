@@ -464,6 +464,7 @@
 	<message key="editor.submission.removeStageParticipant.description"><![CDATA[You are about to remove this participant from <strong>all</strong> stages. If the user also have pending auditor tasks, they will be removed too.]]></message>
 	<message key="editor.submission.addStageParticipant.form.userGroupRequired">You must select a user group.</message>
 	<message key="editor.submission.addStageParticipant.form.userRequired">You must select a user for the specified user group.</message>
+	<message key="editor.submission.addStageParticipant.form.reviewerWarning">The participant you selected has been assigned to conduct a blind review. If you assign them as a participant, they will have access to the author's identity. You are encouraged not to assign this participant unless you can independently ensure the integrity of the peer review process.</message>
 
 	<!--  editor decisions -->
 	<message key="editor.submission.decision">Decision</message>
@@ -610,6 +611,7 @@
 	<message key="submission.list.itemsOfTotal">{$count} of {$total} submissions</message>
 	<message key="submission.list.responseDue">Response Due</message>
 	<message key="submission.list.reviewDue">Review Due</message>
+	<message key="submission.list.reviewComplete">Review Submitted</message>
 	<message key="submission.list.confirmDelete">Delete submission?</message>
 	<message key="submission.list.itemOrdererUp">Increase position of {$itemTitle}</message>
 	<message key="submission.list.itemOrdererDown">Decrease position of {$itemTitle}</message>
@@ -620,6 +622,8 @@
 	<message key="submission.list.galleysCreated">Production galleys created</message>
 	<message key="submission.list.filesPrepared">Files prepared</message>
 	<message key="submission.list.discussions">Open discussions</message>
+	<message key="submission.list.dualWorkflowLinks"><![CDATA[You have been assigned multiple roles for this submission. Would you like to access the <a href="{$urlAuthorWorkflow}">Author's workflow</a>  or the <a href="{$urlEditorialWorkflow}">Editorial workflow</a>?]]></message>
+	<message key="submission.list.reviewerWorkflowLink"><![CDATA[You have been assigned an editorial role for this submission. Would you like to access the <a href="{$urlEditorialWorkflow}">Editorial workflow</a>?]]></message>
 	<message key="submission.list.incompleteSubmissionNotice">This submission must be completed before an editor will review it.</message>
 	<message key="submission.list.currentStage">Currently in the {$stage} stage.</message>
 </locale>

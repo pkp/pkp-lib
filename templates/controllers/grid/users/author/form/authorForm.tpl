@@ -10,7 +10,6 @@
  *}
 
 <script>
-	// Attach the Information Center handler.
 	$(function() {ldelim}
 		$('#editAuthor').pkpHandler(
 			'$.pkp.controllers.form.AjaxFormHandler'

@@ -42,10 +42,10 @@ abstract class PKPWorkflowHandler extends Handler {
 			// Otherwise it will build an authorized object with all accessible
 			// workflow stages and authorize user operation access.
 			import('lib.pkp.classes.security.authorization.internal.UserAccessibleWorkflowStageRequiredPolicy');
-			$this->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request));
+			$this->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request, WORKFLOW_TYPE_EDITORIAL));
 		} else {
 			import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
-			$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->identifyStageId($request, $args)));
+			$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->identifyStageId($request, $args), WORKFLOW_TYPE_EDITORIAL));
 		}
 
 		return parent::authorize($request, $args, $roleAssignments);
@@ -82,13 +82,15 @@ abstract class PKPWorkflowHandler extends Handler {
 
 		$currentStageId = $submission->getStageId();
 		$accessibleWorkflowStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+		$workflowRoles = Application::getWorkflowTypeRoles();
+		$editorialWorkflowRoles = $workflowRoles[WORKFLOW_TYPE_EDITORIAL];
 
 		// Get the closest workflow stage that user has an assignment.
 		$stagePath = null;
 		$workingStageId = null;
 
 		for ($workingStageId = $currentStageId; $workingStageId >= WORKFLOW_STAGE_ID_SUBMISSION; $workingStageId--) {
-			if (array_key_exists($workingStageId, $accessibleWorkflowStages)) {
+			if (isset($accessibleWorkflowStages[$workingStageId]) && array_intersect($editorialWorkflowRoles, $accessibleWorkflowStages[$workingStageId])) {
 				break;
 			}
 		}
@@ -97,7 +99,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		// submission. Try to get the closest future workflow stage.
 		if ($workingStageId == null) {
 			for ($workingStageId = $currentStageId; $workingStageId <= WORKFLOW_STAGE_ID_PRODUCTION; $workingStageId++) {
-				if (array_key_exists($workingStageId, $accessibleWorkflowStages)) {
+				if (isset($accessibleWorkflowStages[$workingStageId]) && array_intersect($editorialWorkflowRoles, $accessibleWorkflowStages[$workingStageId])) {
 					break;
 				}
 			}
@@ -392,6 +394,7 @@ abstract class PKPWorkflowHandler extends Handler {
 
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+		$accessibleWorkflowStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
 
 		// Construct array with workflow stages data.
 		$workflowStages = WorkflowStageDAO::getWorkflowStageKeysAndPaths();
@@ -406,17 +409,21 @@ abstract class PKPWorkflowHandler extends Handler {
 		$templateMgr->assign('submissionStageId', $submission->getStageId());
 		$templateMgr->assign('workflowStages', $workflowStages);
 
-		import('controllers.modals.submissionMetadata.linkAction.SubmissionEntryLinkAction');
-		$templateMgr->assign(
-			'submissionEntryAction',
-			new SubmissionEntryLinkAction($request, $submission->getId(), $stageId)
-		);
+		if (isset($accessibleWorkflowStages[$stageId]) && array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT), $accessibleWorkflowStages[$stageId])) {
+			import('controllers.modals.submissionMetadata.linkAction.SubmissionEntryLinkAction');
+			$templateMgr->assign(
+				'submissionEntryAction',
+				new SubmissionEntryLinkAction($request, $submission->getId(), $stageId)
+			);
+		}
 
-		import('lib.pkp.controllers.informationCenter.linkAction.SubmissionInfoCenterLinkAction');
-		$templateMgr->assign(
-			'submissionInformationCenterAction',
-			new SubmissionInfoCenterLinkAction($request, $submission->getId())
-		);
+		if (isset($accessibleWorkflowStages[$stageId]) && array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR), $accessibleWorkflowStages[$stageId])) {
+			import('lib.pkp.controllers.informationCenter.linkAction.SubmissionInfoCenterLinkAction');
+			$templateMgr->assign(
+				'submissionInformationCenterAction',
+				new SubmissionInfoCenterLinkAction($request, $submission->getId())
+			);
+		}
 
 		import('lib.pkp.controllers.modals.documentLibrary.linkAction.SubmissionLibraryLinkAction');
 		$templateMgr->assign(

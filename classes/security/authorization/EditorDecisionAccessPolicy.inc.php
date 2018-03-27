@@ -28,7 +28,7 @@ class EditorDecisionAccessPolicy extends ContextPolicy {
 
 		// A decision can only be made if there is a valid workflow stage
 		import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
-		$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, $submissionParameterName, $stageId));
+		$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, $submissionParameterName, $stageId, WORKFLOW_TYPE_EDITORIAL));
 
 		// An editor decision can only be made if there is an editor assigned to the stage
 		import('lib.pkp.classes.security.authorization.internal.ManagerRequiredPolicy');

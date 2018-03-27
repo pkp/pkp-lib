@@ -77,6 +77,7 @@ class ReviewerAction {
 				$decline?SUBMISSION_LOG_REVIEW_DECLINE:SUBMISSION_LOG_REVIEW_ACCEPT,
 				$decline?'log.review.reviewDeclined':'log.review.reviewAccepted',
 				array(
+					'reviewAssignmentId' => $reviewAssignment->getId(),
 					'reviewerName' => $reviewer->getFullName(),
 					'submissionId' => $reviewAssignment->getSubmissionId(),
 					'round' => $reviewAssignment->getRound()

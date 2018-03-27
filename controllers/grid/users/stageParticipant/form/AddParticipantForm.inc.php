@@ -82,6 +82,28 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 		// assign the vars required for the request
 		$templateMgr->assign('submissionId', $this->getSubmission()->getId());
 
+		// If submission is in review, add a list of reviewer Ids that should not be
+		// assigned as participants because they have blind peer reviews in progress
+		import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignment');
+		$blindReviewerIds = array();
+		if (in_array($this->getSubmission()->getStageId(), array(WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW))) {
+			$blindReviewMethods = array(SUBMISSION_REVIEW_METHOD_BLIND, SUBMISSION_REVIEW_METHOD_DOUBLEBLIND);
+			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+			$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($this->getSubmission()->getId());
+			$blindReviews = array_filter($reviewAssignments, function($reviewAssignment) use ($userId, $blindReviewMethods) {
+				return in_array($reviewAssignment->getReviewMethod(), $blindReviewMethods) && !$reviewAssignment->getDeclined();
+			});
+			$blindReviewerIds = array_map(function($reviewAssignment) {
+				return $reviewAssignment->getReviewerId();
+			}, $blindReviews);
+
+		}
+		$templateMgr->assign(array(
+			'blindReviewerIds' => array_values(array_unique($blindReviewerIds)),
+			'blindReviewerWarning' => __('editor.submission.addStageParticipant.form.reviewerWarning'),
+			'blindReviewerWarningOk' => __('common.ok'),
+		));
+
 		return parent::fetch($request);
 	}
 

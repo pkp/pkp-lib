@@ -65,6 +65,18 @@ class StageAssignmentDAO extends DAO {
 		return $this->_getByIds(null, null, null, $userId);
 	}
 
+
+	/**
+	 * Retrieve StageAssignments by submission and user IDs
+	 * @param $submissionId int Submission ID
+	 * @param $userId int User ID
+	 * @param $stageId int optional WORKFLOW_STAGE_ID_...
+	 * @return DAOResultFactory StageAssignment
+	 */
+	function getBySubmissionAndUserIdAndStageId($submissionId, $userId, $stageId = null) {
+		return $this->_getByIds($submissionId, $stageId, null, $userId);
+	}
+
 	/**
 	 * Get editor stage assignments.
 	 * @param $submissionId int

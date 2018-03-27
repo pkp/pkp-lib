@@ -25,21 +25,22 @@ export default {
 	/**
 	 * Helper function to determine if the current user has a role
 	 *
-	 * @param string|array role The key name of the role to check for
+	 * @param int|array roles The role ID to look for (pkp.const.ROLE_ID...)
 	 * @return bool
 	 */
-	userHasRole: function (role) {
+	userHasRole: function (roles) {
 
-		if (typeof role === 'string') {
-			role = [role];
+		if (!Array.isArray(roles)) {
+			roles = [roles];
 		}
 
-		for (var r in role) {
-			if ($.pkp.currentUser.accessRoles.indexOf($.pkp.app.accessRoles[role[r]]) > -1) {
-				return true;
+		var hasRole = false;
+		roles.forEach((role) => {
+			if ($.pkp.currentUser.accessRoles.indexOf(role) > -1) {
+				hasRole = true;
 			}
-		}
+		});
 
-		return false;
+		return hasRole;
 	},
 };

@@ -29,6 +29,14 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 	 */
 	function __construct() {
 		parent::__construct();
+		$this->addRoleAssignment(
+			array(ROLE_ID_ASSISTANT),
+			array(
+				'viewInformationCenter',
+				'viewHistory',
+				'viewNotes', 'listNotes', 'saveNote', 'deleteNote',
+			)
+		);
 	}
 
 	/**

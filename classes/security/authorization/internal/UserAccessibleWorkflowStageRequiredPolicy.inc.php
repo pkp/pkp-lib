@@ -20,13 +20,19 @@ class UserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy {
 	/** @var PKPRequest */
 	var $_request;
 
+	/** @var string Workflow type. One of WORKFLOW_TYPE_... **/
+	var $_workflowType;
+
 	/**
 	 * Constructor
 	 * @param $request PKPRequest
+	 * @param $workflowType string Which workflow the stage access must be granted
+	 *  for. One of WORKFLOW_TYPE_*.
 	 */
-	function __construct($request) {
+	function __construct($request, $workflowType = null) {
 		parent::__construct('user.authorization.accessibleWorkflowStage');
 		$this->_request = $request;
+		$this->_workflowType = $workflowType;
 	}
 
 	//
@@ -45,23 +51,33 @@ class UserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy {
 		$userId = $user->getId();
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 
-		$workflowStages = WorkflowStageDAO::getWorkflowStageTranslationKeys();
-
 		$accessibleWorkflowStages = array();
-
-		foreach ($workflowStages as $stageId => $translationKey) {
+		$workflowStages = Application::getApplicationStages();
+		foreach ($workflowStages as $stageId) {
 			$accessibleStageRoles = $this->_getAccessibleStageRoles($userId, $contextId, $submission, $stageId);
 			if (!empty($accessibleStageRoles)) {
 				$accessibleWorkflowStages[$stageId] = $accessibleStageRoles;
 			}
 		}
 
-		if (empty($accessibleWorkflowStages)) {
+		$this->addAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES, $accessibleWorkflowStages);
+
+		// Does the user have a role which matches the requested workflow?
+		if (!is_null($this->_workflowType)) {
+			$workflowTypeRoles = Application::getWorkflowTypeRoles();
+			foreach ($accessibleWorkflowStages as $stageId => $roles) {
+				if (array_intersect($workflowTypeRoles[$this->_workflowType], $roles)) {
+					return AUTHORIZATION_PERMIT;
+				}
+			}
 			return AUTHORIZATION_DENY;
-		} else {
-			$this->addAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES, $accessibleWorkflowStages);
+
+		// User has at least one role in any stage in any workflow
+		} elseif (!empty($accessibleWorkflowStages)) {
 			return AUTHORIZATION_PERMIT;
 		}
+
+		return AUTHORIZATION_DENY;
 	}
 
 
@@ -78,30 +94,25 @@ class UserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy {
 	 */
 	function _getAccessibleStageRoles($userId, $contextId, &$submission, $stageId) {
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
-		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+		$stageAssignmentsResult = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submission->getId(), $userId, $stageId);
 
 		$accessibleStageRoles = array();
-		foreach ($userRoles as $roleId) {
-			switch ($roleId) {
-				case ROLE_ID_MANAGER:
-					// Context managers have access to all submission stages.
-					$accessibleStageRoles[] = $roleId;
-					break;
 
-				case ROLE_ID_ASSISTANT:
-				case ROLE_ID_SUB_EDITOR:
-				case ROLE_ID_AUTHOR:
-					// The requested workflow stage has been assigned to them
-					// in the requested submission.
-					$stageAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), $roleId, $stageId, $userId);
-					if(!$stageAssignments->wasEmpty()) {
-						$accessibleStageRoles[] = $roleId;
-					}
-					break;
-				default:
-					break;
+		// If unassigned, only managers and admins have access
+		if ($stageAssignmentsResult->wasEmpty()) {
+			$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+			$accessibleStageRoles = array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN), $userRoles);
+
+		// Assigned users have access based on their assignment
+		} else {
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+			while ($stageAssignment = $stageAssignmentsResult->next()) {
+				$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId(), $contextId);
+				$accessibleStageRoles[] = $userGroup->getRoleId();
 			}
+			$accessibleStageRoles = array_unique($accessibleStageRoles);
 		}
+
 		return $accessibleStageRoles;
 	}
 }

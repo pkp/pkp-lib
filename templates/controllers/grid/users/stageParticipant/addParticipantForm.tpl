@@ -19,6 +19,9 @@
 			{ldelim}
 				possibleRecommendOnlyUserGroupIds: {$possibleRecommendOnlyUserGroupIds|@json_encode},
 				recommendOnlyUserGroupIds: {$recommendOnlyUserGroupIds|@json_encode},
+				blindReviewerIds: {$blindReviewerIds|@json_encode},
+				blindReviewerWarning: {$blindReviewerWarning|@json_encode},
+				blindReviewerWarningOk: {$blindReviewerWarningOk|@json_encode},
 				templateUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT component='grid.users.stageParticipant.StageParticipantGridHandler' op='fetchTemplateBody' stageId=$stageId submissionId=$submissionId escape=false}
 			{rdelim}
 		);

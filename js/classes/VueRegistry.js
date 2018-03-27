@@ -10,7 +10,7 @@
  *
  * @brief Registry and initialization class for Vue.js handlers
  */
-var VueRegistry = {
+export default {
 
 	/**
 	 * Registry of all active vue instances
@@ -62,5 +62,3 @@ var VueRegistry = {
 		});
 	},
 };
-
-export default VueRegistry;

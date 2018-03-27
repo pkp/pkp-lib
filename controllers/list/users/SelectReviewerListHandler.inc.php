@@ -30,6 +30,9 @@ class SelectReviewerListHandler extends SelectListHandler {
 	/** @var array List of user IDs already assigned as a reviewer to this submission */
 	public $_currentlyAssigned = array();
 
+	/** @var array List of user IDs which may not be suitable for blind review because of existing access to author details */
+	public $_warnOnAssignment = array();
+
 	/**
 	 * @copydoc ListHandler::init()
 	 */
@@ -37,6 +40,7 @@ class SelectReviewerListHandler extends SelectListHandler {
 		parent::init($args);
 		$this->_count = isset($args['count']) ? (int) $args['count'] : $this->_count;
 		$this->_currentlyAssigned = !empty($args['currentlyAssigned']) ? $args['currentlyAssigned'] : $this->_currentlyAssigned;
+		$this->_warnOnAssignment = !empty($args['warnOnAssignment']) ? $args['warnOnAssignment'] : $this->_warnOnAssignment;
 	}
 
 	/**
@@ -50,6 +54,7 @@ class SelectReviewerListHandler extends SelectListHandler {
 		$config['itemsMax'] = $this->getItemsMax();
 		$config['count'] = $this->_count;
 		$config['currentlyAssigned'] = $this->_currentlyAssigned;
+		$config['warnOnAssignment'] = $this->_warnOnAssignment;
 
 		$config['i18n'] = array_merge($config['i18n'], array(
 			'search' => __('common.search'),
@@ -74,6 +79,8 @@ class SelectReviewerListHandler extends SelectListHandler {
 			'averageCompletion' => __('reviewer.list.averageCompletion'),
 			'neverAssigned' => __('reviewer.list.neverAssigned'),
 			'currentlyAssigned' => __('reviewer.list.currentlyAssigned'),
+			'warnOnAssign' => __('reviewer.list.warnOnAssign'),
+			'warnOnAssignUnlock' => __('reviewer.list.warnOnAssignUnlock'),
 			'reviewInterests' => __('reviewer.list.reviewInterests'),
 			'gossip' => __('user.gossip'),
 			'biography' => __('reviewer.list.biography'),

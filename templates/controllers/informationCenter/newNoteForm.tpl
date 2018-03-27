@@ -9,7 +9,7 @@
  *}
 
 <script type="text/javascript">
-	// Attach the Information Center handler.
+	// Attach the Notes handler.
 	$(function() {ldelim}
 		$('#newNoteForm').pkpHandler(
 			'$.pkp.controllers.form.AjaxFormHandler',

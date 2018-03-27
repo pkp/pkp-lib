@@ -465,7 +465,7 @@
 	<message key="notification.notification">Avisering</message>
 	<message key="notification.notifications">Aviseringar</message>
 	<message key="notification.notificationsNew">({$numNew} nytt)</message>
-	<message key="notification.notificationsDescription">Du har {$unreadCount} olästa aviseringar och {$readCount} lästa aviseringar.<![CDATA[  <a href="{$settingsUrl}">Klicka här</a> för att ändra dina inställnigar för aviseringar.]]></message>
+	<message key="notification.notificationsDescription">Du har {$unreadCount} olästa aviseringar och {$readCount} lästa aviseringar.<![CDATA[  <a href="{$settingsUrl}">Klicka här</a> för att ändra dina inställningar för aviseringar.]]></message>
 	<message key="notification.sentNotification">Avisering skickad.</message>
 	<message key="notification.settings">Inställningar för aviseringar</message>
 	<message key="notification.settingsDescription">Välj de systemhändelser som du vill bli aviserad om. Om du kryssar ur en händelse dyker inga aviseringar för den händelsen upp i systemet eller via e-post. Ikryssade händelser dyker upp i systemet och du kan välja om du vill få aviseringen även via e-post eller inte.</message>

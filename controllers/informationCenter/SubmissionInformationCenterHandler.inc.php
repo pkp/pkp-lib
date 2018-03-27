@@ -47,10 +47,7 @@ class SubmissionInformationCenterHandler extends InformationCenterHandler {
 		}
 
 		if (!$this->_isCurrentUserAssignedEditor) {
-			$operation = $request->getRouter()->getRequestedOp($request);
-			if ($operation === 'viewHistory') {
-				return false;
-			}
+			return false;
 		}
 
 		return $success;

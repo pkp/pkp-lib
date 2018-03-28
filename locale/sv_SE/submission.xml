@@ -464,6 +464,7 @@
 	<message key="editor.submission.removeStageParticipant.description"><![CDATA[Du håller på att ta bort den här deltagaren från <strong>alla</strong> steg. Om användaren också har utestående manusgranskningar kommer dessa också att tas bort.]]></message>
 	<message key="editor.submission.addStageParticipant.form.userGroupRequired">Du måste välja en användargrupp.</message>
 	<message key="editor.submission.addStageParticipant.form.userRequired">Du måste välja en användare för den specificerade användargruppen.</message>
+	<message key="editor.submission.addStageParticipant.form.reviewerWarning">Deltagaren du valt har blivit utsedd att utföra en anonym granskning. Om du lägger till hen som deltagare kommer hen att kunna se författarens identitet. Vi uppmanar dig att inte utse den här deltagaren om du inte oavsett kan garantera integriteten i sakkunniggranskningsprocessen.</message>
 
 	<!--  editor decisions -->
 	<message key="editor.submission.decision">Beslut</message>
@@ -610,6 +611,7 @@
 	<message key="submission.list.itemsOfTotal">{$count} av {$total} bidrag</message>
 	<message key="submission.list.responseDue">Deadline för svar</message>
 	<message key="submission.list.reviewDue">Deadline för granskning</message>
+	<message key="submission.list.reviewComplete">Granskning inskickad</message>
 	<message key="submission.list.confirmDelete">Radera bidrag?</message>
 	<message key="submission.list.itemOrdererUp">Flytta up {$itemTitle} i listan</message>
 	<message key="submission.list.itemOrdererDown">Flytta ned {$itemTitle} i listan</message>
@@ -620,6 +622,8 @@
 	<message key="submission.list.galleysCreated">Publiceringsversioner för produktion skapade</message>
 	<message key="submission.list.filesPrepared">Filer förberedda</message>
 	<message key="submission.list.discussions">Öppna diskussioner</message>
+	<message key="submission.list.dualWorkflowLinks"><![CDATA[Du har blivit tilldelad flera olika roller för det här bidraget. Vill du ha tillgång till <a href="{$urlAuthorWorkflow}">arbetsflödet för författare</a> eller <a href="{$urlEditorialWorkflow}">arbetsflödet för redaktionen?</a>?]]></message>
+	<message key="submission.list.reviewerWorkflowLink"><![CDATA[Du har blivit tilldelad en redaktörsroll för det här bidraget. Vill du gå till <a href="{$urlEditorialWorkflow}">det redaktionella arbetsflödet</a>?]]></message>
 	<message key="submission.list.incompleteSubmissionNotice">Det här bidraget måste vara färdigt innan en redaktör granskar det.</message>
 	<message key="submission.list.currentStage">För närvarande i {$stage}-steget.</message>
 </locale>

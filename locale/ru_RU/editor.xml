@@ -45,6 +45,7 @@
 	<message key="editor.submissionReview.restrictFiles">Файлы для рецензирования</message>
 	<message key="editor.submissionReview.restrictFiles.hide">Закрыть выбор файла</message>
 	<message key="editor.submissionReview.editReview">Редактировать рецензию</message>
+	<message key="editor.review.anonymousReviewer">Анонимный рецензент</message>
 	<message key="editor.review.personalMessageToReviewer">Письмо электронной почты для отправки рецензенту</message>
 	<message key="editor.review.importantDates">Важные даты</message>
 	<message key="editor.review.uploadRevision">Загрузить новую версию</message>
@@ -141,6 +142,8 @@
 	<message key="reviewer.list.averageCompletion">Средне число дней на рецензию</message>
 	<message key="reviewer.list.neverAssigned">Никогда не назначали рецензентом</message>
 	<message key="reviewer.list.currentlyAssigned">Этот рецензент уже был назначен рецензентом этого материала.</message>
+	<message key="reviewer.list.warnOnAssign">Этот рецензент заблокирован, поскольку ему назначена роль, позволяющая видеть информацию об авторе. В данном случае невозможно гарантировать «слепое» рецензирование. Вы действительно хотите разблокировать этого рецензента?</message>
+	<message key="reviewer.list.warnOnAssignUnlock">Разблокировать</message>
 	<message key="reviewer.list.reviewInterests">Интересы как рецензента</message>
 	<message key="reviewer.list.biography">Биография</message>
 </locale>

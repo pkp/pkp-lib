@@ -141,7 +141,7 @@
 	<message key="reviewer.list.averageCompletion">Genomsnittligt antal dagar för färdigställande av granskning</message>
 	<message key="reviewer.list.neverAssigned">Aldrig tilldelad något granskningsuppdrag</message>
 	<message key="reviewer.list.currentlyAssigned">Den här granskaren har redan fått i uppdrag att granska det här bidraget.</message>
-	<message key="reviewer.list.warnOnAssign">Den här granskaren är låst, då hen har blivit tilldelad en roll som kan se författarens identitet. Anonym granskning kan inte garanteras. Vill du trots detta låsa upp den här granskaren?</message>
+	<message key="reviewer.list.warnOnAssign">Den här granskaren är låst eftersom hen har blivit tilldelad en roll som kan se författarens identitet. Anonym granskning kan inte garanteras. Vill du trots detta låsa upp den här granskaren?</message>
 	<message key="reviewer.list.warnOnAssignUnlock">Lås upp</message>
 	<message key="reviewer.list.reviewInterests">Granskningsintressen</message>
 	<message key="reviewer.list.biography">Biografi</message>

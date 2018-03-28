@@ -469,19 +469,19 @@ class ReviewAssignment extends DataObject {
 		if ($this->getDeclined()) {
 			return REVIEW_ASSIGNMENT_STATUS_DECLINED;
 		} elseif (!$this->getDateCompleted()) {
-			$responseDueTime = strtotime($this->getDateResponseDue());
-			$reviewDueTime = strtotime($this->getDateDue());
-			$yesterdayTime = strtotime('-1 day');
+			// Overdue when 24 hours passed due date
+			$responseDueTime = strtotime($this->getDateResponseDue()) + 86400;
+			$reviewDueTime = strtotime($this->getDateDue()) + 86400;
 			if (!$this->getDateConfirmed()){ // no response
-				if($responseDueTime < $yesterdayTime) { // response overdue
+				if($responseDueTime < time()) { // response overdue
 					return REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE;
-				} elseif ($reviewDueTime < $yesterdayTime) { // review overdue but not response
+				} elseif ($reviewDueTime < time()) { // review overdue but not response
 					return REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE;
 				} else { // response not due yet
 					return REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE;
 				}
 			} else { // response given
-				if ($reviewDueTime < $yesterdayTime) { // review due
+				if ($reviewDueTime < time()) { // review due
 					return REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE;
 				} else {
 					return REVIEW_ASSIGNMENT_STATUS_ACCEPTED;

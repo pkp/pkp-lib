@@ -465,6 +465,7 @@
 	<message key="editor.submission.removeStageParticipant.description"><![CDATA[Вы собираетесь удалить этого участника со <strong>всех</strong> этапов. Если у пользователя также есть приостановленные задачи аудитора, они также будут удалены.]]></message>
 	<message key="editor.submission.addStageParticipant.form.userGroupRequired">Вы должны выбрать группу пользователей.</message>
 	<message key="editor.submission.addStageParticipant.form.userRequired">Вы должны выбрать пользователя для указанной группы пользователей.</message>
+	<message key="editor.submission.addStageParticipant.form.reviewerWarning">Выбранный вами пользователь назначен проводить «слепое» рецензирование. Если вы назначите его участником, он получит доступ к информации об авторе. Рекомендуем вам не назначать этого участника, если вы не уверены в том, что удастся сохранить независимость процесса «слепого» рецензирования.</message>
 
 	<!--  решения редакции -->
 	<message key="editor.submission.decision">Решение</message>
@@ -611,6 +612,7 @@
 	<message key="submission.list.itemsOfTotal">{$count} из {$total} материалов</message>
 	<message key="submission.list.responseDue">Срок ответа на запрос</message>
 	<message key="submission.list.reviewDue">Срок сдачи рецензии</message>
+	<message key="submission.list.reviewComplete">Рецензия отправлена</message>
 	<message key="submission.list.confirmDelete">Удалить материал?</message>
 	<message key="submission.list.itemOrdererUp">Поднять вверх «{$itemTitle}»</message>
 	<message key="submission.list.itemOrdererDown">Опустить вниз «{$itemTitle}»</message>
@@ -621,6 +623,8 @@
 	<message key="submission.list.galleysCreated">Создано гранок</message>
 	<message key="submission.list.filesPrepared">Подготовлено файлов</message>
 	<message key="submission.list.discussions">Открытых обсуждений</message>
+	<message key="submission.list.dualWorkflowLinks"><![CDATA[Вам назначили несколько ролей для этого материала. Вы хотите воспользоваться <a href="{$urlAuthorWorkflow}">Рабочим потоком автора</a>  или <a href="{$urlEditorialWorkflow}">Рабочим потоком редакции</a>?]]></message>
+	<message key="submission.list.reviewerWorkflowLink"><![CDATA[Вам назначена роль в редакции для этого материала. Вы хотите воспользоваться <a href="{$urlEditorialWorkflow}">Рабочим потоком редакции</a>?]]></message>
 	<message key="submission.list.incompleteSubmissionNotice">Этот материал должен быть завершен до того, как редактор будет его рецензировать.</message>
 	<message key="submission.list.currentStage">Сейчас на этапе «{$stage}».</message>
 </locale>

@@ -618,7 +618,6 @@
 	<message key="editor.submission.roundStatus.submissionResubmitted">Käsikirjoitus on lähetetty uudelle arviointikierrokselle</message>
 	<message key="submission.query.participantTitle">{$fullName}, {$userGroup}</message>
 	<message key="submission.list.currentStage">Vaiheessa {$stage} .</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="submission.list.dualWorkflowLinks"><![CDATA[Sinulla on käsikirjoituksessa useita rooleja. Haluatko katsoa <a href="{$urlAuthorWorkflow}">kirjoittajan työnkulkua</a>  vai <a href="{$urlEditorialWorkflow}">toimittajan työnkulkua</a>?]]></message>
 	<message key="submission.list.reviewerWorkflowLink"><![CDATA[Sinulla on käsikirjoituksessa toimituksellinen rooli. Haluatko katsoa <a href="{$urlEditorialWorkflow}">toimittajan työnkulkua</a>?]]></message>
 	<message key="submission.list.reviewComplete">Arvio lähetetty</message>

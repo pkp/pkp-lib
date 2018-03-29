@@ -78,7 +78,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			$templateMgr->assign('copyrightNoticeAgree', true);
 		}
 
-		// Get list of user's author user groups.  If its more than one, we'll need to display an author user group selector
+		// Get list of user's author user groups.  If its more than one, we'll need to display an author user group selector. If there are none, we need to assign one or give the user an opportunity to do so.
 		$userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO');
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$authorUserGroupAssignments = $userGroupAssignmentDao->getByUserId($user->getId(), $this->context->getId(), ROLE_ID_AUTHOR);
@@ -92,15 +92,24 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			}
 			$templateMgr->assign('authorUserGroupOptions', $userGroupNames);
 		} else {
-			// The user doesn't have any author user group assignments.  They should be either a manager.
+			// The user doesn't have any author user group assignments.
 			// Add all manager user groups
 			$managerUserGroupAssignments = $userGroupAssignmentDao->getByUserId($user->getId(), $this->context->getId(), ROLE_ID_MANAGER);
-			if($managerUserGroupAssignments) while($managerUserGroupAssignment = $managerUserGroupAssignments->next()) {
-				$managerUserGroup = $userGroupDao->getById($managerUserGroupAssignment->getUserGroupId());
-				$userGroupNames[$managerUserGroup->getId()] = $managerUserGroup->getLocalizedName();
-			}
+			if(!$managerUserGroupAssignments->wasEmpty()){ 
+				while($managerUserGroupAssignment = $managerUserGroupAssignments->next()) {
+					$managerUserGroup = $userGroupDao->getById($managerUserGroupAssignment->getUserGroupId());
+					$userGroupNames[$managerUserGroup->getId()] = $managerUserGroup->getLocalizedName();
+				}
+				$templateMgr->assign('authorUserGroupOptions', $userGroupNames);
 
-			$templateMgr->assign('authorUserGroupOptions', $userGroupNames);
+			} else{
+				// The user has no author user group or manager user group
+				// add default author group automatically
+				$authorGroup = $userGroupDao->getDefaultByRoleId($this->context->getId(), ROLE_ID_AUTHOR);
+				$userGroupDao->assignUserToGroup($user->getId(), $authorGroup->getId());
+				$userGroupNames[$authorGroup->getId()] = $authorGroup->getLocalizedName();
+				$templateMgr->assign('authorUserGroupOptions', $userGroupNames);
+			}
 		}
 
 		return parent::fetch($request);

@@ -30,10 +30,6 @@
 	{elseif count($authorUserGroupOptions) == 1}
 		{foreach from=$authorUserGroupOptions key="key" item="authorUserGroupName"}{assign var=authorUserGroupId value=$key}{/foreach}
 		{fbvElement type="hidden" id="authorUserGroupId" value=$authorUserGroupId}
-	{else}
-		<div class="pkp_notification">
-			{include file="controllers/notification/inPlaceNotificationContent.tpl" notificationId=submit notificationStyleClass=notifyError notificationTitle="common.warning"|translate notificationContents="author.submit.userGroupRequired"|translate}
-		</div>
 	{/if}
 
 	{if $copyrightNoticeAgree}

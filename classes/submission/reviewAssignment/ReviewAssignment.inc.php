@@ -469,9 +469,15 @@ class ReviewAssignment extends DataObject {
 		if ($this->getDeclined()) {
 			return REVIEW_ASSIGNMENT_STATUS_DECLINED;
 		} elseif (!$this->getDateCompleted()) {
-			// Overdue when 24 hours passed due date
-			$responseDueTime = strtotime($this->getDateResponseDue()) + 86400;
-			$reviewDueTime = strtotime($this->getDateDue()) + 86400;
+			$dueTimes = array_map(function($dateTime) {
+					// If no due time, set it to the end of the day
+					if (substr($dateTime, 11) === '00:00:00') {
+						$dateTime = substr($dateTime, 0, 11) . '23:59:59';
+					}
+					return strtotime($dateTime);
+				}, array($this->getDateResponseDue(), $this->getDateResponseDue()));
+			$responseDueTime = $dueTimes[0];
+			$reviewDueTime = $dueTimes[1];
 			if (!$this->getDateConfirmed()){ // no response
 				if($responseDueTime < time()) { // response overdue
 					return REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE;

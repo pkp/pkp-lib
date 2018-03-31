@@ -166,7 +166,7 @@
 
 		// Track current values in the tinyMCE control
 		if (this.getHtmlElement().find('.richContent').length) {
-			$popover.find('textarea').each(function() {
+			$popover.find('.richContent').each(function() {
 				var id = $(this).attr('id'),
 						tinymce;
 
@@ -217,7 +217,7 @@
 
 		var htmlElement = this.getHtmlElement(),
 				tinyMCEObject = tinyMCE.EditorManager.get(/** @type {string} */(
-				htmlElement.find('textarea').first().attr('id')));
+				htmlElement.find('.richContent').first().attr('id')));
 
 		tinyMCEObject.on('focus', this.callbackWrapper(function() {
 			// We need also to close the multilingual popover when user clicks

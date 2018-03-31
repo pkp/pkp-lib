@@ -9,6 +9,11 @@
  *}
 
 {assign var="uniqId" value="-"|concat:$FBV_uniqId|escape}
+{if $FBV_rich==="oneline"}
+	{capture assign="textareaElement"}div{/capture}
+{else}
+	{capture assign="textareaElement"}textarea{/capture}
+{/if}
 <div{if $FBV_layoutInfo} class="{$FBV_layoutInfo}"{/if}>
 {if $FBV_multilingual && count($formLocales) > 1}
 	<script>
@@ -21,10 +26,11 @@
 	{* This is a multilingual control. Enable popover display. *}
 	<span id="{$FBV_name|escape}-localization-popover-container{$uniqId}" class="localization_popover_container">
 		{strip}
-			<textarea id="{$FBV_id|escape}-{$formLocale|escape}{$uniqId}" {$FBV_textAreaParams}
+			<{$textareaElement} id="{$FBV_id|escape}-{$formLocale|escape}{$uniqId}" {$FBV_textAreaParams}
 				rows="{$FBV_rows|escape}"
 				cols="{$FBV_cols|escape}"
-				class="localizable {$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}{if $FBV_rich && !$FBV_disabled} richContent{if $FBV_rich==="extended"} extendedRichContent{/if}{/if}"
+				class="localizable {$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}{if $FBV_rich && !$FBV_disabled} richContent{if $FBV_rich==="extended"} extendedRichContent{/if}{if $FBV_rich==="oneline"} onelineRichContent{/if}{/if}"
+ 				{if $FBV_disabled} disabled="disabled"{/if}
 				{if $FBV_disabled} disabled="disabled"{/if}
 				{if $FBV_readonly} readonly="readonly"{/if}
 				{if $FBV_wordCount} wordCount="{$FBV_wordCount|escape}"{/if}
@@ -32,7 +38,7 @@
 				{if $FBV_variablesType} data-variablesType="{$FBV_variablesType|@json_encode|escape:"url"}"{/if}
 				{if $FBV_required} required aria-required="true"{/if}
 				name="{$FBV_name|escape}[{$formLocale|escape}]">{$FBV_value[$formLocale]|escape}
-			</textarea>
+			</{$textareaElement}>
 		{/strip}
 
 		{$FBV_label_content}
@@ -41,9 +47,9 @@
 			{foreach from=$formLocales key=thisFormLocale item=thisFormLocaleName}{if $formLocale != $thisFormLocale}
 				{strip}
 				<label for="{$FBV_id|escape}-{$thisFormLocale|escape}{$uniqId}" class="locale_textarea">{$thisFormLocaleName|escape}</label>
-				<textarea id="{$FBV_id|escape}-{$thisFormLocale|escape}{$uniqId}" {$FBV_textAreaParams}
+				<{$textareaElement} id="{$FBV_id|escape}-{$thisFormLocale|escape}{$uniqId}" {$FBV_textAreaParams}
 					placeholder="{$thisFormLocaleName|escape}"
-					class="flag flag_{$thisFormLocale|escape} {$FBV_class} {$FBV_height}{if $FBV_rich && !$FBV_disabled} richContent{if $FBV_rich==="extended"} extendedRichContent{/if}{/if}"
+					class="flag flag_{$thisFormLocale|escape} {$FBV_class} {$FBV_height}{if $FBV_rich && !$FBV_disabled} richContent{if $FBV_rich==="extended"} extendedRichContent{/if}{if $FBV_rich==="oneline"} onelineRichContent{/if}{/if}"
 					{if $FBV_disabled} disabled="disabled"{/if}
 					{if $FBV_readonly} readonly="readonly"{/if}
 					{if $FBV_wordCount} wordCount="{$FBV_wordCount|escape}"{/if}
@@ -51,7 +57,7 @@
 					{if $FBV_variablesType} data-variablesType="{$FBV_variablesType|@json_encode|escape:"url"}"{/if}
 					{if $FBV_required} required aria-required="true"{/if}
 					name="{$FBV_name|escape}[{$thisFormLocale|escape}]">{$FBV_value[$thisFormLocale]|escape}
-				</textarea>
+				</{$textareaElement}>
 				{/strip}
 			{/if}{/foreach}
 		</div>
@@ -61,8 +67,8 @@
 	{if $FBV_rich && $FBV_disabled}
 		{if $FBV_multilingual}{$FBV_value[$formLocale]|strip_unsafe_html}{else}{$FBV_value|strip_unsafe_html}{/if}
 	{else}
-		<textarea {$FBV_textAreaParams}
-			class="{$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $FBV_rich && !$FBV_disabled} richContent{if $FBV_rich==="extended"} extendedRichContent{/if}{/if}"
+		<{$textareaElement} {$FBV_textAreaParams}
+			class="{$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $FBV_rich && !$FBV_disabled} richContent{if $FBV_rich==="extended"} extendedRichContent{/if}{if $FBV_rich==="oneline"} onelineRichContent{/if}{/if}"
 			{if $FBV_disabled} disabled="disabled"{/if}
 			{if $FBV_readonly} readonly="readonly"{/if}
 			{if $FBV_wordCount} wordCount="{$FBV_wordCount|escape}"{/if}
@@ -72,7 +78,7 @@
 			name="{$FBV_name|escape}{if $FBV_multilingual}[{$formLocale|escape}]{/if}"
 			rows="{$FBV_rows|escape}"
 			cols="{$FBV_cols|escape}"
-			id="{$FBV_id|escape}{$uniqId}">{if $FBV_multilingual}{$FBV_value[$formLocale]|escape}{else}{$FBV_value|escape}{/if}</textarea>
+			id="{$FBV_id|escape}{$uniqId}">{if $FBV_multilingual}{$FBV_value[$formLocale]|escape}{else}{$FBV_value|escape}{/if}</{$textareaElement}>
 	{/if}
 		<span>{$FBV_label_content}</span>
 {/if}

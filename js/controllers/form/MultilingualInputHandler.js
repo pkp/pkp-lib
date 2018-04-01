@@ -236,7 +236,6 @@
 				container: this.getHtmlElement(),
 				callback: this.callbackWrapper(this.hidePopover_)
 			});
-
 			this.showPopover_();
 		}));
 
@@ -247,6 +246,7 @@
 			// html source, for example (both actions open a new window).
 			if ($(tinyMCEObject.getContainer()).find('iframe').attr('id') ==
 					$(document.activeElement).attr('id')) {
+				$(document.activeElement).find('div.mce-tinymce-inline').hide();
 				return false;
 			}
 

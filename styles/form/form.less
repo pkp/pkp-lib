@@ -111,14 +111,21 @@
 		line-height: @line-sml;
 	}
 
-	// Textarea size modifiers
 	.onelineRichContent{
 		border: @bg-border;
-		padding: 0.5em;
-		background: #fff;
-		font-size: 1.1em;
+		padding: 0 0.25em;
+		background: @lift;
+		font-size: @font-sml;
+		line-height: @double;
+		outline: 0;
+
+		&:focus {
+			outline: 0;
+		}
+
 	}
 
+	// Textarea size modifiers
 	.short {
 		height: 6em;
 	}

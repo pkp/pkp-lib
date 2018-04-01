@@ -292,15 +292,6 @@
 			e.content = $content.html();
 		});
 
-		// Disable enter key for single line inputs		
-		if (target.hasClass('onelineRichContent')) {
-			tinyMCEObject.on('keydown', function(e) {
-				if (e.keyCode == 13) {
-					e.preventDefault();
-				}
-			});
-		}
-
 		// In fullscreen mode, also present the toolbar.
 		tinyMCEObject.on('FullscreenStateChanged init', function(e) {
 			var target = e.target, $container = $(target.editorContainer);
@@ -312,6 +303,16 @@
 				}
 			}
 		});
+
+		// Disable enter key for single line inputs		
+		if (target.hasClass('onelineRichContent')) {
+			tinyMCEObject.on('keydown', function(e) {
+				if (e.keyCode == 13) {
+					e.preventDefault();
+				}
+			});
+		}
+
 	};
 
 

@@ -28,6 +28,18 @@
 		{fbvElement type="text" id="reviewDueDate" name="reviewDueDate" label="editor.review.reviewDueDate" value=$reviewDueDate|date_format:$dateFormatShort inline=true size=$fbvStyles.size.MEDIUM class="datepicker"}
 	{/fbvFormSection}
 
+	{fbvFormSection list=true title="editor.submissionReview.reviewType"}
+		{foreach from=$reviewMethods key=methodId item=methodTranslationKey}
+			{assign var=elementId value="reviewMethod"|concat:"-"|concat:$methodId}
+			{if $reviewMethod == $methodId}
+				{assign var=elementChecked value=true}
+			{else}
+				{assign var=elementChecked value=false}
+			{/if}
+			{fbvElement type="radio" name="reviewMethod" id=$elementId value=$methodId checked=$elementChecked label=$methodTranslationKey}
+		{/foreach}
+	{/fbvFormSection}
+
 	{include file="controllers/grid/users/reviewer/form/noFilesWarning.tpl"}
 
 	<h3>{translate key="editor.submissionReview.restrictFiles"}</h3>

@@ -63,11 +63,15 @@ class EditReviewForm extends Form {
 	 */
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+
 		$templateMgr->assign(array(
 			'stageId' => $this->_reviewAssignment->getStageId(),
 			'reviewRoundId' => $this->_reviewRound->getId(),
 			'submissionId' => $this->_reviewAssignment->getSubmissionId(),
 			'reviewAssignmentId' => $this->_reviewAssignment->getId(),
+			'reviewMethod' => $this->_reviewAssignment->getReviewMethod(),
+			'reviewMethods' => $reviewAssignmentDao->getReviewMethodsTranslationKeys(),
 		));
 		return parent::fetch($request);
 	}
@@ -81,6 +85,7 @@ class EditReviewForm extends Form {
 			'selectedFiles',
 			'responseDueDate',
 			'reviewDueDate',
+			'reviewMethod',
 		));
 	}
 
@@ -106,9 +111,43 @@ class EditReviewForm extends Form {
 
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
 		$reviewAssignment = $reviewAssignmentDao->getReviewAssignment($this->_reviewRound->getId(), $this->_reviewAssignment->getReviewerId(), $this->_reviewRound->getRound(), $this->_reviewRound->getStageId());
+		
+		// Send notification to reviewer if details have changed.
+		if ($reviewAssignment->getDateDue != $this->getData('reviewDueDate') || $reviewAssignment->getDateResponseDue != $this->getData('responseDueDate') || $reviewAssignment->getReviewMethod != $this->getData('reviewMethod')){
+			$notificationManager = new NotificationManager();		
+			$request = Application::getRequest();
+			$context = $request->getContext();
+			$userIds[] = $reviewAssignment->getReviewerId();
+
+			// Also notify the author, if review assignment already accepted
+			if ($reviewAssignment->getDateConfirmed()){
+				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDao');
+				$submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($reviewAssignment->getSubmissionId(), ROLE_ID_AUTHOR);
+				while ($assignment = $submitterAssignments->next()) {
+					$userIds[] = $assignment->getUserId();
+				}
+			}
+
+			$notificationManager->createNotification(
+				$request,
+				$userIds,
+				NOTIFICATION_TYPE_REVIEW_ASSIGNMENT_UPDATED,
+				$context->getId(),
+				ASSOC_TYPE_REVIEW_ASSIGNMENT,
+				$reviewAssignment->getId(),
+				NOTIFICATION_LEVEL_TASK
+			);
+			
+			
+			
+			
+		}
+		
 		$reviewAssignment->setDateDue($this->getData('reviewDueDate'));
 		$reviewAssignment->setDateResponseDue($this->getData('responseDueDate'));
+		$reviewAssignment->setReviewMethod($this->getData('reviewMethod'));
 		$reviewAssignmentDao->updateObject($reviewAssignment);
+		
 	}
 }
 

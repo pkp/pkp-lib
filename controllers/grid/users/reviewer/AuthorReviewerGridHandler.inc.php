@@ -52,6 +52,9 @@ class AuthorReviewerGridHandler extends PKPReviewerGridHandler {
 	function initialize($request, $args = null) {
 		parent::initialize($request, $args);
 
+		// Reset actions
+		unset($this->_actions[GRID_ACTION_POSITION_ABOVE]);
+
 		// Columns
 		$cellProvider = new AuthorReviewerGridCellProvider();
 		$this->addColumn(
@@ -121,8 +124,8 @@ class AuthorReviewerGridHandler extends PKPReviewerGridHandler {
 		$workflowStageAccessPolicy->addPolicy(new ReviewAssignmentRequiredPolicy($request, $args, 'reviewAssignmentId', array('readReview', 'reviewRead') ));
 		$this->addPolicy($workflowStageAccessPolicy);
 
-		return parent::authorize($request, $args, $roleAssignments);
-	}	
+		return GridHandler::authorize($request, $args, $roleAssignments);
+	}
 
 	//
 	// Overridden methods from GridHandler

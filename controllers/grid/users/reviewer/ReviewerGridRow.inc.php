@@ -109,7 +109,6 @@ class ReviewerGridRow extends GridRow {
 					)
 				);
 
-				$reviewAssignment = $this->getData();
 				// Only assign this action if the reviewer has not acknowledged yet.
 				if (!$reviewAssignment->getDateConfirmed()) {
 					$this->addAction(
@@ -140,6 +139,28 @@ class ReviewerGridRow extends GridRow {
 				)
 			);
 
+			$user = $request->getUser();
+			if (
+				!Validation::isLoggedInAs() &&
+				$user->getId() != $reviewAssignment->getReviewerId() &&
+				Validation::canAdminister($reviewAssignment->getReviewerId(), $user->getId())
+			) {
+				$dispatcher = $router->getDispatcher();
+				import('lib.pkp.classes.linkAction.request.RedirectConfirmationModal');
+				$this->addAction(
+					new LinkAction(
+						'logInAs',
+						new RedirectConfirmationModal(
+							__('grid.user.confirmLogInAs'),
+							__('grid.action.logInAs'),
+							$dispatcher->url($request, ROUTE_PAGE, null, 'login', 'signInAsUser', $reviewAssignment->getReviewerId())
+						),
+						__('grid.action.logInAs'),
+						'enroll_user'
+					)
+				);
+			}
+
 			// Add gossip action when appropriate
 			import('classes.core.ServicesContainer');
 			$canCurrentUserGossip = ServicesContainer::instance()
@@ -156,29 +177,6 @@ class ReviewerGridRow extends GridRow {
 						),
 						__('user.gossip'),
 						'more_info'
-					)
-				);
-			}
-
-			$user = $request->getUser();
-			$reviewAssignment = $this->getData();
-			if (
-				!Validation::isLoggedInAs() &&
-				$user->getId() != $rowId &&
-				Validation::canAdminister($rowId, $user->getId())
-			) {
-				$dispatcher = $router->getDispatcher();
-				import('lib.pkp.classes.linkAction.request.RedirectConfirmationModal');
-				$this->addAction(
-					new LinkAction(
-						'logInAs',
-						new RedirectConfirmationModal(
-							__('grid.user.confirmLogInAs'),
-							__('grid.action.logInAs'),
-							$dispatcher->url($request, ROUTE_PAGE, null, 'login', 'signInAsUser', $reviewAssignment->getReviewerId())
-						),
-						__('grid.action.logInAs'),
-						'enroll_user'
 					)
 				);
 			}

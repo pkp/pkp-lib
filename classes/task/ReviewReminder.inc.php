@@ -144,9 +144,9 @@ class ReviewReminder extends ScheduledTask {
 				// Avoid review assignments without submission in database.
 				if (!$submission) continue;
 
-				if ($submission->getStatus() != STATUS_QUEUED) continue;
-
 			}
+
+			if ($submission->getStatus() != STATUS_QUEUED) continue;
 
 			// Fetch the context
 			if ($context == null || $context->getId() != $submission->getContextId()) {

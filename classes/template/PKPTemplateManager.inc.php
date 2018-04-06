@@ -428,6 +428,8 @@ class PKPTemplateManager extends Smarty {
 	 */
 	public function compileLess($name, $lessFile, $args = array()) {
 		$less = new Less_Parser(array(
+			'sourceMap' => true,
+			'sourceMapWriteTo' => $this->getCachedLessFilePath($name) . '.map',
 			'relativeUrls' => false,
 			'compress' => true,
 		));

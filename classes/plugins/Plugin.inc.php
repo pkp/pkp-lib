@@ -335,7 +335,7 @@ abstract class Plugin {
 	function getTemplatePath($inCore = false) {
 		$basePath = Core::getBaseDir();
 		if ($inCore) {
-			$basePath += DIRECTORY_SEPARATOR . PKP_LIB_PATH;
+			$basePath .= DIRECTORY_SEPARATOR . PKP_LIB_PATH;
 		}
 		return "file:$basePath" . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR;
 	}

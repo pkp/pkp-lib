@@ -30,7 +30,6 @@
 				rows="{$FBV_rows|escape}"
 				cols="{$FBV_cols|escape}"
 				class="localizable {$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}{if $FBV_rich && !$FBV_disabled} richContent{if $FBV_rich==="extended"} extendedRichContent{/if}{if $FBV_rich==="oneline"} onelineRichContent{/if}{/if}"
- 				{if $FBV_disabled} disabled="disabled"{/if}
 				{if $FBV_disabled} disabled="disabled"{/if}
 				{if $FBV_readonly} readonly="readonly"{/if}
 				{if $FBV_wordCount} wordCount="{$FBV_wordCount|escape}"{/if}

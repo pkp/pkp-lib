@@ -385,7 +385,7 @@
 	<message key="submission.submit.form.typeRequired">Пожалуйста, укажите тип.</message>
 	<message key="submission.submit.form.sourceRequired">Пожалуйста, укажите источник.</message>
 	<message key="submission.submit.form.rightsRequired">Пожалуйста, укажите права на материал.</message>
-	<message key="submission.submit.form.citaionsRequired">Пожалуйста, укажите библиографические ссылки.</message>
+	<message key="submission.submit.form.citationsRequired">Пожалуйста, укажите библиографические ссылки.</message>
 
 	<!-- Элементы формы загрузки файла материала -->
 	<message key="submission.form.name">Назовите файл (например, Рукопись; Таблица 1)</message>

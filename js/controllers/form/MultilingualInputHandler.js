@@ -41,6 +41,8 @@
 		// Bind to the blur of any of the inputs to check if we should close.
 		$popover.find(':input').
 				blur(this.callbackWrapper(this.blurHandler_));
+		$popover.find('.onelineRichContent').
+				blur(this.callbackWrapper(this.blurHandler_));		
 
 		this.publishEvent('tinyMCEInitialized');
 
@@ -166,7 +168,7 @@
 
 		// Track current values in the tinyMCE control
 		if (this.getHtmlElement().find('.richContent').length) {
-			$popover.find('.richContent').each(function() {
+			$popover.find('textarea').each(function() {
 				var id = $(this).attr('id'),
 						tinymce;
 
@@ -231,7 +233,7 @@
 			// editor when set content will only trigger the focus handler that
 			// we attach here, but will not move the cursor inside the tinyMCE
 			// editor). Then, if user clicks outside the popover, it will not
-			// close because no blur event will be triggered.			
+			// close because no blur event will be triggered.
 			// Prevent oneline richtext from being closed when applying styling
 			if (!$(document.activeElement).hasClass('oneline')){
 				this.trigger('callWhenClickOutside', {

@@ -475,7 +475,7 @@ class ReviewAssignment extends DataObject {
 						$dateTime = substr($dateTime, 0, 11) . '23:59:59';
 					}
 					return strtotime($dateTime);
-				}, array($this->getDateResponseDue(), $this->getDateResponseDue()));
+				}, array($this->getDateResponseDue(), $this->getDateDue()));
 			$responseDueTime = $dueTimes[0];
 			$reviewDueTime = $dueTimes[1];
 			if (!$this->getDateConfirmed()){ // no response

@@ -41,7 +41,6 @@
 	<message key="admin.server.apacheVersion">Versão do Apache</message>
 	<message key="admin.server.dbDriver">Driver da Base de Dados</message>
 	<message key="admin.server.dbVersion">Versão do Servidor de Base de Dados</message>
-	<message key="admin.serverInformationDescription"><![CDATA[Versão de software do Sistema Operativo Básico e do Servidor. Clique em <span class="highlight">Informações do PHP</span> para ver detalhes das suas configurações neste servidor.]]></message>
 	<message key="admin.serverInformation">Informações do Servidor</message>
 	<message key="admin.server.phpVersion">Versão do PHP</message>
 	<message key="admin.server.platform">Sistema Operativo</message>
@@ -56,7 +55,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Formato de imagem inválido. Formatos aceites são .gif, .jpg ou .png.</message>
 	<message key="admin.settings.introduction">Introdução</message>
 	<message key="admin.settings.minPasswordLength">Tamanho mínimo de senha</message>
-	<message key="admin.settings.passwordCharacters">caracteres</message>
 	<message key="admin.settings.siteLanguage">Idioma do Portal</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Formato de folha de estilos inválido. Formato aceite é .css.</message>
 	<message key="admin.settings.siteStyleSheet">Folha de Estilos do Portal (CSS)</message>
@@ -124,4 +122,5 @@ Uso (processando todos os ficheiros dentro de uma pasta): {$scriptName} caminho/
 	<message key="admin.error.utilExecutionProblem">A "{$utilPath}" execução do programa devolveu o seguinte erro: {$output}</message>
 	<message key="admin.error.executingUtil">Erro: não foi possível executar "{$utilPath}".  Verifique {$utilVar} as configurações em config.inc.php.</message>
 	<message key="admin.languages.noLocalesToDownload">Não estão disponíveis idiomas para download.</message>
+	<message key="admin.contexts.confirmDelete">Confirma que pretende apagar {$contextName} e todo o seu conteúdo?</message>
 </locale>

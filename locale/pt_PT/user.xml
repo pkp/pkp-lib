@@ -147,4 +147,11 @@
 	<message key="user.role.layoutEditor">Editor Layout</message>
 	<message key="user.authorization.pluginRequired">Não foi especificado um plugin e é obrigatório.</message>
 	<message key="user.role.layoutEditors">Editores Layout</message>
+	<message key="user.gossip.description">As notas aqui introduzidas só serão visíveis aos administradores, gestões de revista, editores e sub-editores.</message>
+	<message key="user.role.assistant">Assistente</message>
+	<message key="user.apiKey">Chave da API</message>
+	<message key="user.apiKeyEnabled">Ative aplicações externas com a chave da API para aceder a esta conta</message>
+	<message key="user.apiKey.generate">Gerar uma nova chave da API</message>
+	<message key="user.apiKey.generateWarning">A geração de uma nova chave de API irá invalidar qualquer chave existente para este utilizador.</message>
+	<message key="user.apiKey.secretRequired">Antes de gerar uma chave da API, o seu administrador terá de criar um "segredo" no ficheiro de configuração ("api_key_secret").</message>
 </locale>

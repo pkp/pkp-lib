@@ -613,7 +613,7 @@
 	<message key="submission.submit.form.typeRequired">Anna tyyppi</message>
 	<message key="submission.submit.form.sourceRequired">Anna lähde</message>
 	<message key="submission.submit.form.rightsRequired">Anna oikeudet</message>
-	<message key="submission.submit.form.citaionsRequired">Anna viitteet</message>
+	<message key="submission.submit.form.citationsRequired">Anna viitteet</message>
 	<message key="editor.submission.roundStatus.resubmitForReview">Käsikirjoitus pitää lähettää uudelle arviointikierrokselle</message>
 	<message key="editor.submission.roundStatus.submissionResubmitted">Käsikirjoitus on lähetetty uudelle arviointikierrokselle</message>
 	<message key="submission.query.participantTitle">{$fullName}, {$userGroup}</message>

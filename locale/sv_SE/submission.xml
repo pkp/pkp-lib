@@ -384,7 +384,7 @@
 	<message key="submission.submit.form.typeRequired">Vänligen ange typ.</message>
 	<message key="submission.submit.form.sourceRequired">Vänligen ange källa.</message>
 	<message key="submission.submit.form.rightsRequired">Vänligen ange rättigheter.</message>
-	<message key="submission.submit.form.citaionsRequired">Vänligen ange referenser.</message>
+	<message key="submission.submit.form.citationsRequired">Vänligen ange referenser.</message>
 
 	<!-- Submission file upload form elements -->
 	<message key="submission.form.name">Namnge filen (t.ex. Manus; Tabell 1)</message>

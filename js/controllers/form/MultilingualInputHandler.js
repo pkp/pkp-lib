@@ -231,11 +231,13 @@
 			// editor when set content will only trigger the focus handler that
 			// we attach here, but will not move the cursor inside the tinyMCE
 			// editor). Then, if user clicks outside the popover, it will not
-			// close because no blur event will be triggered.
-			this.trigger('callWhenClickOutside', {
-				container: this.getHtmlElement(),
-				callback: this.callbackWrapper(this.hidePopover_)
-			});
+			// Prevent oneline richtext from being closed when applying styling
+			if (!$(document.activeElement).hasClass('oneline')){
+				this.trigger('callWhenClickOutside', {
+					container: this.getHtmlElement(),
+					callback: this.callbackWrapper(this.hidePopover_)
+				});
+			}
 			this.showPopover_();
 		}));
 

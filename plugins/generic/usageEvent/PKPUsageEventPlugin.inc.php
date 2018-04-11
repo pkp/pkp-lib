@@ -73,7 +73,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 	/**
 	 * @copydoc LazyLoadPlugin::getEnabled()
 	 */
-	function getEnabled() {
+	function getEnabled($contextId = null) {
 		return true;
 	}
 

@@ -41,7 +41,7 @@
 	<message key="user.interests">Reviewing interests</message>
 	<message key="user.interests.description">(Separate interests by pressing the enter or comma key)</message>
 	<message key="user.gossip">Editorial Notes</message>
-	<message key="user.gossip.description">Notes entered here will only be visible to administrators, journal managers, editors, and subeditors.</message>
+	<message key="user.gossip.description">Record notes about this reviewer that you would like to make visible to other administrators, journal managers, editors, and subeditors. Notes will be visible for future review assignments.</message>
 	<message key="user.group">User Group</message>
 	<message key="user.lastName">Last Name</message>
 	<message key="user.profile.form.profileImageInvalid">Invalid profile image format or image too big. Accepted formats are .gif, .jpg, or .png, and the image must not exceed 150x150 pixels.</message>

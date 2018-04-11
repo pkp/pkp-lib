@@ -384,7 +384,7 @@
 	<message key="submission.submit.form.typeRequired">Please enter the type.</message>
 	<message key="submission.submit.form.sourceRequired">Please enter the source.</message>
 	<message key="submission.submit.form.rightsRequired">Please enter the rights.</message>
-	<message key="submission.submit.form.citaionsRequired">Please enter the references.</message>
+	<message key="submission.submit.form.citationsRequired">Please enter the references.</message>
 
 	<!-- Submission file upload form elements -->
 	<message key="submission.form.name">Name the file (e.g., Manuscript; Table 1)</message>

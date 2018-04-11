@@ -384,7 +384,7 @@
 	<message key="submission.submit.form.typeRequired">Будь ласка, вкажіть тип.</message>
 	<message key="submission.submit.form.sourceRequired">Будь ласка, вкажіть джерело.</message>
 	<message key="submission.submit.form.rightsRequired">Будь ласка, вкажіть авторські права.</message>
-	<message key="submission.submit.form.citaionsRequired">Будь ласка, вкажіть посилання.</message>
+	<message key="submission.submit.form.citationsRequired">Будь ласка, вкажіть посилання.</message>
 
 	<!-- Елементи форми завантаження подання -->
 	<message key="submission.form.name">Дайте цьому файлу зручну назву</message>

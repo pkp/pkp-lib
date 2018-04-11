@@ -112,6 +112,7 @@
 	<message key="manager.language.ui">UI</message>
 	<message key="manager.language.submissions">Submissions</message>
 	<message key="manager.language.forms">Forms</message>
+	<message key="manager.language.mails">Mails</message>
 	<message key="manager.language.reloadLocalizedDefaultSettings">Reload defaults</message>
 	<message key="manager.languages.alternateLocaleInstructions">This system optionally allows certain critical information to be entered in several additional languages. To use this feature, select alternate locales and choose from the options listed below.</message>
 	<message key="manager.languages.supportedLocalesInstructions">Select all locales to support on the site via a language select menu to appear on each page. The menu will only appear if more than one locale is selected.</message>

@@ -651,24 +651,48 @@ class PKPReviewerGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
 	 */
+	/**
+	 * @copydoc PKPReviewerGridHandler::fetchTemplateBody()
+	 */
 	function fetchTemplateBody($args, $request) {
-		import('lib.pkp.classes.mail.SubmissionMailTemplate');
-		$template = new SubmissionMailTemplate($this->getSubmission(), $request->getUserVar('template'));
-		if (!$template) return;
+			$templateLocale = $request->getUserVar('templateLocale');
+			$templateId = $request->getUserVar('template_'.$templateLocale);
+			if (strlen($templateLocale) < 2 ) { 
+				$templateLocale = NULL;
+				}
+			import('lib.pkp.classes.mail.SubmissionMailTemplate');
+			$template = new SubmissionMailTemplate($this->getSubmission(), $templateId, $templateLocale);
+			if ($template) {
+				$user = $request->getUser();
+				$dispatcher = $request->getDispatcher();
+				$context = $request->getContext();
+				$template->assignParams(array(
+					'contextUrl' => $dispatcher->url($request, ROUTE_PAGE, $context->getPath()),
+					'editorialContactSignature' => $user->getContactSignature(),
+					'signatureFullName' => $user->getFullname(),
+					'passwordResetUrl' => $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'login', 'lostPassword'),
+					'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
+					'abstractTermIfEnabled' => ($this->getSubmission()->getLocalizedAbstract() == '' ? '' : __('common.abstract')), // Deprecated; for OJS 2.x templates
+					// submissionReviewUrl -> we can't prepopulate, it depends if oneclick is enabled
+				));
+				$template->replaceParams();
 
-		$user = $request->getUser();
-		$dispatcher = $request->getDispatcher();
-		$context = $request->getContext();
-
-		$template->assignParams(array(
-			'editorialContactSignature' => $user->getContactSignature(),
-			'signatureFullName' => $user->getFullname(),
-		));
-
-		return new JSONMessage(true, $template->getBody());
+				return new JSONMessage(
+					true,
+					array(
+						'body' => $template->getBody(),
+						'variables' => array(
+							'reviewerName' => __('user.name'),
+							'responseDueDate' => __('reviewer.submission.responseDueDate'),
+							'reviewDueDate' => __('reviewer.submission.reviewDueDate'),
+							'submissionReviewUrl' => __('common.url'),
+							'reviewerUserName' => __('user.username'),
+						)
+					)
+				);
+			}
 	}
-
-
+	
 	//
 	// Private helper methods
 	//

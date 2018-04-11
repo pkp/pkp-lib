@@ -31,9 +31,18 @@
 			this.templateUrl_ = options.templateUrl;
 		}
 
+		// Attach locale select events
+		$form.find('#templateLocale').change(
+				this.callbackWrapper(this.selectLocaleHandler_));
 		// Attach form elements events.
-		$form.find('#template').change(
+		$form.find('.template').change(
 				this.callbackWrapper(this.selectTemplateHandler_));
+
+		// Change the NAME placeholder in the mail editor
+		$('[name="firstName"]').keyup(
+				this.callbackWrapper(this.addReviewerNameToMailEditor));
+		$('[name="lastName"]').keyup(
+				this.callbackWrapper(this.addReviewerNameToMailEditor));
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.grid.users.reviewer.form.
@@ -89,10 +98,30 @@
 					function(sourceElement, event) {
 
 		var $form = this.getHtmlElement();
-		$.post(this.templateUrl_, $form.find('#template').serialize(),
+		var localeSelected = $('#templateLocale').val();
+		var templateID = '#template_'+localeSelected;
+		var data = $form.find(templateID+', #templateLocale').serialize();
+		$.post(this.templateUrl_, data,
 				this.callbackWrapper(this.updateTemplate), 'json');
 	};
 
+	/**
+	 * Respond to an "locale change" call by triggering a published event.
+	 *
+	 * @param {HTMLElement} sourceElement The element that
+	 *  issued the event.
+	 * @param {Event} event The triggering event.
+	 * @private
+	 */
+	$.pkp.controllers.grid.users.reviewer.form.
+			AddReviewerFormHandler.prototype.selectLocaleHandler_ =
+					function(sourceElement, event) {
+		var localeSelected = sourceElement.value;
+		$('.template').hide();
+		$('#template_'+localeSelected).removeClass("pkp_helpers_display_none").show();
+		this.selectTemplateHandler_(sourceElement, event);
+	};
+		
 
 	/**
 	 * Internal callback to replace the textarea with the contents of the
@@ -108,16 +137,35 @@
 
 		var $form = this.getHtmlElement(),
 				processedJsonData = this.handleJson(jsonData),
+				jsonDataContent = (jsonData.content),
 				$textarea = $form.find('textarea[name="personalMessage"]'),
-				editor =
-				tinyMCE.EditorManager.get(/** @type {string} */ ($textarea.attr('id')));
+				editor = tinyMCE.EditorManager.get($textarea.attr('id'));
 
-		if (processedJsonData !== false) {
-			if (processedJsonData.content !== '') {
-				editor.setContent(processedJsonData.content);
-			}
-		}
+				$textarea.attr('data-variables', JSON.stringify(jsonDataContent.variables));
+				editor.setContent(jsonDataContent.body);
+				this.addReviewerNameToMailEditor();
 		return processedJsonData.status;
+	};
+
+
+	/**
+	 * Add reviewerName to Email template editor
+	 * @protected
+	 */
+	$.pkp.controllers.grid.users.reviewer.form.AddReviewerFormHandler.
+			prototype.addReviewerNameToMailEditor = function() {
+			var reviewerName = $('[id^="selectedReviewerName"]').html();
+			$('[name^="personalMessage"]').val()
+					.replace('<span class="" data-symbolic="reviewerName" contenteditable="false" data-mce-selected="1">{$reviewerName}</span>', reviewerName);
+	
+			$("iframe[id^='personalMessage']")
+					.contents()
+					.find('[data-symbolic="reviewerName"]')
+					.each(function() {
+						$(this).html(reviewerName);
+						$(this).attr('class', '');
+						$(this).removeAttr('contenteditable');
+					});
 	};
 
 /** @param {jQuery} $ jQuery closure. */

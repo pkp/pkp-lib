@@ -118,6 +118,22 @@ class EmailTemplateDAO extends DAO {
 	function getEmailTemplate($emailKey, $locale, $contextId) {
 		$primaryLocale = AppLocale::getPrimaryLocale();
 
+//		$context = $request->getContext();
+//
+//		propose tous les templates si mail settings language est ok
+//		AIE, visiblement on ne peut retourner un seul mail settings
+//		
+//		$permittedSettings = array('supportedFormLocales', 'supportedSubmissionLocales', 'supportedLocales','supportedMailLocales');
+//		if (in_array($settingName, $permittedSettings) && $locale) {
+//			$currentSettingValue = (array) $context->getSetting($settingName);
+//			if (AppLocale::isLocaleValid($locale) && array_key_exists($locale, $availableLocales)) {
+//				if ($settingValue) {
+//					array_push($currentSettingValue, $locale);
+//					if ($settingName == 'supportedFormLocales') {
+//						// reload localized default context settings
+//		
+//		
+		
 		$result = $this->retrieve(
 			'SELECT	COALESCE(edl.subject, ddl.subject, edpl.subject, ddpl.subject) AS subject,
 				COALESCE(edl.body, ddl.body, edpl.body, ddpl.body) AS body,

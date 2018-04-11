@@ -263,10 +263,21 @@ class ReviewerForm extends Form {
 			}
 		}
 
-		foreach ($templateKeys as $templateKey) {
-			$template = new SubmissionMailTemplate($submission, $templateKey, null, null, null, false);
-			$template->assignParams(array());
-			$templates[$templateKey] = $template->getSubject();
+		
+		$supportedMailLocales = $context->getSetting('supportedMailLocales');
+		if (empty($supportedMailLocales)) $supportedMailLocales = array($context->getPrimaryLocale());
+		$supportedMailLocaleNames = array_flip(array_intersect(
+							array_flip(AppLocale::getAllLocales()),				
+					$supportedMailLocales ));
+		$templateMgr->assign('supportedMailLocaleNames',$supportedMailLocaleNames);
+		
+		
+		foreach (array_keys($supportedMailLocaleNames) as $localeKey) {
+			foreach ($templateKeys as $templateKey) {
+				$template = new SubmissionMailTemplate($submission, $templateKey, $localeKey, null, null, false);
+				$template->assignParams(array());
+				$templates[$localeKey][$templateKey] = $template->getSubject();
+			}
 		}
 
 		$templateMgr->assign('templates', $templates);

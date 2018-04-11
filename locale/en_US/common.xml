@@ -371,6 +371,7 @@
 
 	<!-- Stage Participants -->
 	<message key="stageParticipants.history.messageSent">Notification sent to users.</message>
+	<message key="stageParticipants.notify.chooseLocale">Select language for predefined message.</message>
 	<message key="stageParticipants.notify.chooseMessage">Choose a predefined message to use, or fill out the form below.</message>
 	<message key="stageParticipants.notify.message">Message</message>
 	<message key="stageParticipants.notify.warning">Please ensure that you have filled out the message field and selected at least one recipient.</message>

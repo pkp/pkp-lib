@@ -9,16 +9,40 @@
  *
  *}
 <div id="reviewerFormFooter" class="reviewerFormFooterContainer">
-	<!--  message template choice -->
-	{if $templates|@count == 1}
-		{foreach from=$templates item=template key=templateKey}
-			<input type="hidden" name="template" value="{$templateKey|escape}"/>
+	<!--  message locale template choice -->
+			
+	{if $supportedMailLocaleNames|@count == 1}
+		{foreach from=$supportedMailLocaleNames item=localeName key=localeKey}
+			<input type="hidden" name="templateLocale" value="{$localeKey|escape}" id="templateLocale" />
 		{/foreach}
 	{else}
-		{fbvFormSection title="stageParticipants.notify.chooseMessage" for="template" size=$fbvStyles.size.medium}
-			{fbvElement type="select" from=$templates translate=false id="template"}
+		{fbvFormSection title="stageParticipants.notify.chooseLocale" for="templatelocale" size=$fbvStyles.size.medium}
+			{fbvElement type="select" from=$supportedMailLocaleNames translate=false id="templateLocale"}
 		{/fbvFormSection}
 	{/if}
+	
+	<!--  message template choice -->
+	
+	
+		{*{if $localizedTemplates|@count == 1}
+			{foreach from=$localizedTemplates item=template key=templateKey}
+					<input type="hidden" name="template" value="{$templateKey|escape}"/>
+			{/foreach}
+			{else}*}
+			
+				{fbvFormSection title="stageParticipants.notify.chooseMessage" for="template" size=$fbvStyles.size.medium}
+				{foreach from=$templates item=localizedTemplates key=localeKey name=foo}
+					{if $smarty.foreach.foo.first}
+						{fbvElement type="select" from=$localizedTemplates translate=false id="template_$localeKey" class="template"}
+					{else}
+						{fbvElement type="select" from=$localizedTemplates translate=false id="template_$localeKey" class="template pkp_helpers_display_none"}
+					{/if}
+				{/foreach}
+				{/fbvFormSection}
+			
+		{*{/if}*}
+	
+
 
 	<!--  Message to reviewer textarea -->
 	{fbvFormSection title="editor.review.personalMessageToReviewer" for="personalMessage"}

@@ -50,6 +50,9 @@ class LanguageGridCellProvider extends GridCellProvider {
 			case 'formLocale';
 				return array('selected' => $element['supportedFormLocales'],
 					'disabled' => !$element['supported']);
+			case 'mailLocale';
+				return array('selected' => $element['supportedMailLocales'],
+					'disabled' => !$element['supported']);
 			default:
 				assert(false);
 				break;
@@ -117,6 +120,12 @@ class LanguageGridCellProvider extends GridCellProvider {
 				$action = 'setFormLocale-' . $row->getId();
 				$actionArgs['setting'] = 'supportedFormLocales';
 				$actionArgs['value'] = !$element['supportedFormLocales'];
+				$actionRequest = new AjaxAction($router->url($request, null, null, 'saveLanguageSetting', null, $actionArgs));
+				break;
+			case 'mailLocale':
+				$action = 'setMailLocale-' . $row->getId();
+				$actionArgs['setting'] = 'supportedMailLocales';
+				$actionArgs['value'] = !$element['supportedMailLocales'];
 				$actionRequest = new AjaxAction($router->url($request, null, null, 'saveLanguageSetting', null, $actionArgs));
 				break;
 		}

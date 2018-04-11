@@ -49,8 +49,8 @@ class ReviewerGridRow extends GridRow {
 
 		// Authors can't perform any actions on blind reviews
 		$reviewAssignment = $this->getData();
-		$isAuthorBlind = in_array($reviewAssignment->getReviewMethod(), array(SUBMISSION_REVIEW_METHOD_BLIND, SUBMISSION_REVIEW_METHOD_DOUBLEBLIND));
-		if ($this->_isCurrentUserAssignedAuthor && $isAuthorBlind) {
+		$isReviewBlind = in_array($reviewAssignment->getReviewMethod(), array(SUBMISSION_REVIEW_METHOD_BLIND, SUBMISSION_REVIEW_METHOD_DOUBLEBLIND));
+		if ($this->_isCurrentUserAssignedAuthor && $isReviewBlind) {
 			return;
 		}
 
@@ -145,7 +145,7 @@ class ReviewerGridRow extends GridRow {
 			$canCurrentUserGossip = ServicesContainer::instance()
 				->get('user')
 				->canCurrentUserGossip($reviewAssignment->getReviewerId());
-			if ($canCurrentUserGossip && !$isAuthorBlind) {
+			if ($canCurrentUserGossip) {
 				$this->addAction(
 					new LinkAction(
 						'gossip',

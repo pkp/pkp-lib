@@ -73,7 +73,7 @@
 		<field name="setting_name" type="C2" size="255">
 			<NOTNULL />
 		</field>
-		<field name="setting_value" type="X"/>
+		<field name="setting_value" type="XL"/>
 		<field name="setting_type" type="C2" size="6">
 			<NOTNULL/>
 			<descr>(bool|int|float|string|object)</descr>
@@ -154,7 +154,7 @@
 		<field name="comment_title" type="X">
 			<NOTNULL/>
 		</field>
-		<field name="comments" type="X"/>
+		<field name="comments" type="XL"/>
 		<field name="date_posted" type="T"/>
 		<field name="date_modified" type="T"/>
 		<field name="viewable" type="I1" />

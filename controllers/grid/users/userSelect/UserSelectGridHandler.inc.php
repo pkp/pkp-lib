@@ -133,11 +133,12 @@ class UserSelectGridHandler extends GridHandler {
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
 
+		$keys = array_keys($this->_userGroupOptions);
 		$allFilterData = array_merge(
 			$filterData,
 			array(
 				'userGroupOptions' => $this->_userGroupOptions,
-				'selectedUserGroupId' => reset(array_keys($this->_userGroupOptions)),
+				'selectedUserGroupId' => reset($keys),
 				'gridId' => $this->getId(),
 				'submissionId' => $submission->getId(),
 				'stageId' => $stageId,
@@ -201,7 +202,8 @@ class UserSelectGridHandler extends GridHandler {
 		if (isset($filter['filterUserGroupId']) && $filter['filterUserGroupId']) {
 			$filterUserGroupId = $filter['filterUserGroupId'];
 		} else {
-			$filterUserGroupId = reset(array_keys($this->_userGroupOptions));
+		    $keys = array_keys($this->_userGroupOptions);
+			$filterUserGroupId = reset($keys);
 		}
 		if (isset($filter['name']) && $filter['name']) {
 			$name = $filter['name'];

@@ -51,7 +51,7 @@ class UserService extends PKPBaseEntityPropertyService {
 	public function getUsers($contextId, $args = array()) {
 		$userListQB = $this->_buildGetUsersQueryObject($contextId, $args);
 		$userListQO = $userListQB->get();
-		$range = new DBResultRange($args['count'], null, isset($args['offset'])?$args['offset']:0);
+		$range = new DBResultRange(isset($args['count']) ? $args['count'] : null, null, isset($args['offset'])?$args['offset']:0);
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$result = $userDao->retrieveRange($userListQO->toSql(), $userListQO->getBindings(), $range);
 		$queryResults = new DAOResultFactory($result, $userDao, '_returnUserFromRowWithData');

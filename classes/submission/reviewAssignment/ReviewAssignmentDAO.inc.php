@@ -573,11 +573,13 @@ class ReviewAssignmentDAO extends DAO {
 				(int) $reviewerId
 		);
 
+		$isSqlServer = Config::getVar('database', 'ms_sql');
 		$result = $this->retrieve(
 				$this->_getSelectQuery() .
 				' WHERE	r.submission_id = ? AND
 				r.reviewer_id = ?
-				ORDER BY r2.stage_id DESC, r2.round DESC LIMIT 1',
+				ORDER BY r2.stage_id DESC, r2.round DESC
+				' . ($isSqlServer ? 'OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY' : 'LIMIT 1'),
 				$params
 		);
 

@@ -279,13 +279,14 @@ class AnnouncementDAO extends DAO {
 	 * @return object DAOResultFactory containing matching Announcements
 	 */
 	function getAnnouncementsNotExpiredByAssocId($assocType, $assocId, $rangeInfo = null) {
+	    $isSqlServer = Config::getVar('database', 'ms_sql');
 		$result = $this->retrieveRange(
 			'SELECT *
 			FROM announcements
 			WHERE assoc_type = ?
 				AND assoc_id = ?
-				AND (date_expire IS NULL OR DATE(date_expire) > CURRENT_DATE)
-				AND (DATE(date_posted) <= CURRENT_DATE)
+				AND (date_expire IS NULL OR ' . ($isSqlServer ? 'date_expire > GETDATE()' : ' DATE(date_expire) > CURRENT_DATE') . ')
+				AND (' . ($isSqlServer ? 'date_posted <= GETDATE()' : 'DATE(date_posted) <= CURRENT_DATE') . ')
 			ORDER BY date_posted DESC',
 			array((int) $assocType, (int) $assocId),
 			$rangeInfo
@@ -303,14 +304,15 @@ class AnnouncementDAO extends DAO {
 	 * @return object DAOResultFactory containing matching Announcements
 	 */
 	function getNumAnnouncementsNotExpiredByAssocId($assocType, $assocId, $numAnnouncements, $rangeInfo = null) {
+	    $isSqlServer = Config::getVar('database', 'ms_sql');
 		$result = $this->retrieveRange(
 			'SELECT *
 			FROM announcements
 			WHERE assoc_type = ?
 				AND assoc_id = ?
-				AND (date_expire IS NULL OR DATE(date_expire) > CURRENT_DATE)
-				AND (DATE(date_posted) <= CURRENT_DATE)
-			ORDER BY date_posted DESC LIMIT ?',
+				AND (date_expire IS NULL OR ' . ($isSqlServer ? 'date_expire > GETDATE()' : ' DATE(date_expire) > CURRENT_DATE') . ')
+				AND (' . ($isSqlServer ? 'date_posted <= GETDATE()' : 'DATE(date_posted) <= CURRENT_DATE') . ')
+			ORDER BY date_posted DESC ' . ($isSqlServer ? 'OFFSET 0 ROWS FETCH NEXT CAST(? AS int) ROWS ONLY' : 'LIMIT ?'),
 			array((int) $assocType, (int) $assocId, (int) $numAnnouncements),
 			$rangeInfo
 		);

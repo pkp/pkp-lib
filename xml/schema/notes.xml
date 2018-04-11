@@ -36,7 +36,7 @@
 		</field>
 		<field name="date_modified" type="T" />
 		<field name="title" type="C2" size="255" />
-		<field name="contents" type="X"/>
+		<field name="contents" type="XL"/>
 		<index name="notes_assoc">
 			<col>assoc_type</col>
 			<col>assoc_id</col>

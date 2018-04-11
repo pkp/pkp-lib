@@ -70,7 +70,8 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 		// assign the user groups options
 		$templateMgr->assign('userGroupOptions', $userGroupOptions);
 		// assigned the first element as selected
-		$templateMgr->assign('selectedUserGroupId', array_shift(array_keys($userGroupOptions)));
+		$keys = array_keys($userGroupOptions);
+		$templateMgr->assign('selectedUserGroupId', array_shift($keys));
 		// assign all user group IDs with ROLE_ID_MANAGER or ROLE_ID_SUB_EDITOR
 		$managerGroupIds = $userGroupDao->getUserGroupIdsByRoleId(ROLE_ID_MANAGER, $request->getContext()->getId());
 		$subEditorGroupIds = $userGroupDao->getUserGroupIdsByRoleId(ROLE_ID_SUB_EDITOR, $request->getContext()->getId());

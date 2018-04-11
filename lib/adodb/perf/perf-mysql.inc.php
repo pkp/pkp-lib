@@ -1,6 +1,8 @@
 <?php
 /*
-V5.18 3 Sep 2012  (c) 2000-2012 John Lim (jlim#natsoft.com). All rights reserved.
+@version   v5.20.12  30-Mar-2018
+@copyright (c) 2000-2013 John Lim (jlim#natsoft.com). All rights reserved.
+@copyright (c) 2014      Damien Regad, Mark Newnham and the ADOdb community
   Released under both BSD license and Lesser GPL library license.
   Whenever there is any discrepancy between the two licenses,
   the BSD license will take precedence. See License.txt.
@@ -81,7 +83,7 @@ class perf_mysql extends adodb_perf{
 		false
 	);
 
-	function perf_mysql(&$conn)
+	function __construct(&$conn)
 	{
 		$this->conn = $conn;
 	}
@@ -269,6 +271,7 @@ class perf_mysql extends adodb_perf{
 			if (isset($_SESSION['INNODB_HIT_PCT'])) return $_SESSION['INNODB_HIT_PCT'];
 			return 0;
 		}
+		return 0;
 	}
 
 	function GetKeyHitRatio()
@@ -311,4 +314,3 @@ class perf_mysql extends adodb_perf{
      }
     // end hack
 }
-?>

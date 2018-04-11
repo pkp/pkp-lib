@@ -105,6 +105,7 @@ class NewContextImageFileForm extends SettingsFileUploadForm {
 
 				$value = $context->getSetting($this->getFileSettingName());
 				$imageAltText = $this->getData('imageAltText');
+				$localizedImageAltText = isset($imageAltText[$locale]) ? $imageAltText[$locale] : null;
 
 				$value[$locale] = array(
 					'name' => $temporaryFile->getOriginalFileName(),
@@ -112,7 +113,7 @@ class NewContextImageFileForm extends SettingsFileUploadForm {
 					'width' => $width,
 					'height' => $height,
 					'dateUploaded' => Core::getCurrentDate(),
-					'altText' => $imageAltText[$locale]
+					'altText' => $localizedImageAltText
 				);
 
 				$settingsDao = $context->getSettingsDAO();

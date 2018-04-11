@@ -15,6 +15,7 @@
 namespace PKP\Services\QueryBuilders;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use \Config;
 
 class UserListQueryBuilder extends BaseQueryBuilder {
 
@@ -277,8 +278,15 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 					->leftJoin('user_user_groups as uug', 'uug.user_id', '=', 'u.user_id')
 					->leftJoin('user_groups as ug', 'ug.user_group_id', '=', 'uug.user_group_id')
 					->where('ug.context_id','=', $this->contextId)
-					->orderBy($this->orderColumn, $this->orderDirection)
-					->groupBy('u.user_id');
+					->orderBy($this->orderColumn, $this->orderDirection);
+
+		$isSqlServer = Config::getVar('database', 'ms_sql');
+		if ($isSqlServer) {
+			$q->groupBy('u.user_id', 'u.username', 'u.password', 'u.salutation', 'u.first_name', 'u.middle_name', 'u.last_name', 'u.suffix', 'u.initials', 'u.email', 'u.url', 'u.phone', 'u.mailing_address', 'u.billing_address', 'u.country', 'u.locales', 'u.gossip', 'u.date_last_email', 'u.date_registered', 'u.date_validated', 'u.date_last_login', 'u.must_change_password', 'u.auth_id', 'u.auth_str', 'u.disabled', 'u.disabled_reason', 'u.inline_help');
+		}
+		else {
+		    $q->groupBy('u.user_id');
+		}
 
 		// roles
 		if (!is_null($this->roleIds)) {
@@ -370,6 +378,9 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 				case 'mysql':
 				case 'mysqli':
 					$dateDiffClause = 'DATEDIFF(ra.date_completed, ra.date_notified)';
+					break;
+				case 'pdo_sqlsrv':
+					$dateDiffClause = 'DATEPART(day, DATEDIFF(s, ra.date_notified, ra.date_completed))';
 					break;
 				default:
 					$dateDiffClause = 'DATE_PART(\'day\', ra.date_completed - ra.date_notified)';

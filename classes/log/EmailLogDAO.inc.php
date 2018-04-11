@@ -64,14 +64,15 @@ class EmailLogDAO extends DAO {
 				(int) $eventType);
 		if ($userId) $params[] = $userId;
 
+		$isSqlServer = Config::getVar('database', 'ms_sql');
 		$result = $this->retrieveRange(
 			'SELECT	e.*
 			FROM	email_log e' .
 			($userId ? ' LEFT JOIN email_log_users u ON e.log_id = u.email_log_id' : '') .
 			' WHERE	e.assoc_type = ? AND
 				e.assoc_id = ? AND
-				e.event_type = ?' .
-				($userId ? ' AND u.user_id = ?' : ''),
+				e.event_type = ?'
+				. ($userId && !$isSqlServer ? ' AND u.user_id = ?' : ''),
 			$params,
 			$rangeInfo
 		);

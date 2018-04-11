@@ -39,7 +39,7 @@ class VersionDAO extends DAO {
 		$returner = null;
 		if (!$isPlugin) {
 			$result = $this->retrieve(
-				'SELECT * FROM versions WHERE current = 1'
+				'SELECT * FROM versions WHERE actual = 1'
 			);
 			// If we only have one current version then this must be
 			// the application version before the introduction of products
@@ -55,7 +55,7 @@ class VersionDAO extends DAO {
 			// From here on we can assume that we have the product type
 			// and product columns available in the versions table.
 			$result = $this->retrieve(
-				'SELECT * FROM versions WHERE current = 1 AND product_type = ? AND product = ?',
+				'SELECT * FROM versions WHERE actual = 1 AND product_type = ? AND product = ?',
 				array($productType, $product)
 			);
 			$versionCount = $result->RecordCount();
@@ -111,7 +111,7 @@ class VersionDAO extends DAO {
 			$row['revision'],
 			$row['build'],
 			$this->datetimeFromDB($row['date_installed']),
-			$row['current'],
+			$row['actual'],
 			(isset($row['product_type']) ? $row['product_type'] : null),
 			(isset($row['product']) ? $row['product'] : null),
 			(isset($row['product_class_name']) ? $row['product_class_name'] : ''),
@@ -146,7 +146,7 @@ class VersionDAO extends DAO {
 				} elseif ($version->compare($oldVersion) == 1) {
 					// Version to insert is newer than the existing version entry.
 					// We reset existing entry.
-					$this->update('UPDATE versions SET current = 0 WHERE current = 1 AND product = ?', $version->getProduct());
+					$this->update('UPDATE versions SET actual = 0 WHERE actual = 1 AND product = ?', $version->getProduct());
 				} else {
 					// We do not support downgrades.
 					fatalError('You are trying to downgrade the product "'.$version->getProduct().'" from version ['.$oldVersion->getVersionString(false).'] to version ['.$version->getVersionString(false).']. Downgrades are not supported.');
@@ -164,7 +164,7 @@ class VersionDAO extends DAO {
 			// Insert new version entry
 			return $this->update(
 				sprintf('INSERT INTO versions
-					(major, minor, revision, build, date_installed, current, product_type, product, product_class_name, lazy_load, sitewide)
+					(major, minor, revision, build, date_installed, actual, product_type, product, product_class_name, lazy_load, sitewide)
 					VALUES
 					(?, ?, ?, ?, %s, ?, ?, ?, ?, ?, ?)',
 					$this->datetimeToDB($version->getDateInstalled())),
@@ -184,7 +184,7 @@ class VersionDAO extends DAO {
 		} else {
 			// Update existing version entry
 			return $this->update(
-				'UPDATE versions SET current = ?, product_class_name = ?, lazy_load = ?, sitewide = ?
+				'UPDATE versions SET actual = ?, product_class_name = ?, lazy_load = ?, sitewide = ?
 					WHERE product_type = ? AND product = ? AND major = ? AND minor = ? AND revision = ? AND build = ?',
 				array(
 					(int) $version->getCurrent(),
@@ -222,13 +222,15 @@ class VersionDAO extends DAO {
 			$contextWhereClause = '';
 		}
 
+		$isSqlServer = Config::getVar('database', 'ms_sql');
 		$result = $this->retrieve(
 			'SELECT v.*
 			FROM versions v LEFT JOIN plugin_settings ps ON
 				lower(v.product_class_name) = ps.plugin_name
 				AND ps.setting_name = \'enabled\' '.$contextWhereClause.'
-			WHERE v.current = 1 AND (ps.setting_value = \'1\' OR v.lazy_load <> 1)',
-			$context, false
+			WHERE v.actual = 1 AND (ps.setting_value = \'1\' OR v.lazy_load <> 1)',
+            $isSqlServer ? array_values($context) : $context,
+            false
 		);
 
 		$productArray = array();
@@ -248,7 +250,7 @@ class VersionDAO extends DAO {
 	 */
 	function disableVersion($productType, $product) {
 		$this->update(
-			'UPDATE versions SET current = 0 WHERE current = 1 AND product_type = ? AND product = ?',
+			'UPDATE versions SET actual = 0 WHERE actual = 1 AND product_type = ? AND product = ?',
 			array($productType, $product)
 		);
 	}

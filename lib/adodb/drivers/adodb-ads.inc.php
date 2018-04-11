@@ -1,6 +1,6 @@
 <?php
 /*
-  (c) 2000-2007 John Lim (jlim#natsoft.com.my). All rights reserved.
+  (c) 2000-2014 John Lim (jlim#natsoft.com.my). All rights reserved.
   Portions Copyright (c) 2007-2009, iAnywhere Solutions, Inc.
   All rights reserved. All unpublished rights reserved.
 
@@ -66,7 +66,7 @@ class ADODB_ads extends ADOConnection {
   var $uCaseTables = true; // for meta* functions, uppercase table names
 
 
-  function ADODB_ads()
+  function __construct()
   {
     $this->_haserrorfunctions = ADODB_PHPVER >= 0x4050;
     $this->_has_stupid_odbc_fetch_api_change = ADODB_PHPVER >= 0x4200;
@@ -75,17 +75,15 @@ class ADODB_ads extends ADOConnection {
   // returns true or false
   function _connect($argDSN, $argUsername, $argPassword, $argDatabasename)
   {
-          global $php_errormsg;
-
     if (!function_exists('ads_connect')) return null;
 
     if ($this->debug && $argDatabasename && $this->databaseType != 'vfp') {
       ADOConnection::outp("For Advantage Connect(), $argDatabasename is not used. Place dsn in 1st parameter.");
     }
-    if (isset($php_errormsg)) $php_errormsg = '';
+    $last_php_error = $this->resetLastError();
     if ($this->curmode === false) $this->_connectionID = ads_connect($argDSN,$argUsername,$argPassword);
     else $this->_connectionID = ads_connect($argDSN,$argUsername,$argPassword,$this->curmode);
-    $this->_errorMsg = isset($php_errormsg) ? $php_errormsg : '';
+    $this->_errorMsg = $this->getChangedErrorMsg($last_php_error);
     if (isset($this->connectStmt)) $this->Execute($this->connectStmt);
 
     return $this->_connectionID != false;
@@ -94,12 +92,10 @@ class ADODB_ads extends ADOConnection {
   // returns true or false
   function _pconnect($argDSN, $argUsername, $argPassword, $argDatabasename)
   {
-  global $php_errormsg;
-
     if (!function_exists('ads_connect')) return null;
 
-    if (isset($php_errormsg)) $php_errormsg = '';
-    $this->_errorMsg = isset($php_errormsg) ? $php_errormsg : '';
+    $last_php_error = $this->resetLastError();
+    $this->_errorMsg = '';
     if ($this->debug && $argDatabasename) {
             ADOConnection::outp("For PConnect(), $argDatabasename is not used. Place dsn in 1st parameter.");
     }
@@ -107,7 +103,7 @@ class ADODB_ads extends ADOConnection {
     if ($this->curmode === false) $this->_connectionID = ads_connect($argDSN,$argUsername,$argPassword);
     else $this->_connectionID = ads_pconnect($argDSN,$argUsername,$argPassword,$this->curmode);
 
-    $this->_errorMsg = isset($php_errormsg) ? $php_errormsg : '';
+    $this->_errorMsg = $this->getChangedErrorMsg($last_php_error);
     if ($this->_connectionID && $this->autoRollback) @ads_rollback($this->_connectionID);
     if (isset($this->connectStmt)) $this->Execute($this->connectStmt);
 
@@ -136,7 +132,7 @@ class ADODB_ads extends ADOConnection {
 
 
         // returns true or false
-        function CreateSequence( $seqname,$start=1)
+        function CreateSequence($seqname = 'adodbseq', $start = 1)
   {
                 $res =  $this->Execute("CREATE TABLE $seqname ( ID autoinc( 1 ) ) IN DATABASE");
                 if(!$res){
@@ -149,7 +145,7 @@ class ADODB_ads extends ADOConnection {
         }
 
         // returns true or false
-        function DropSequence($seqname)
+        function DropSequence($seqname = 'adodbseq')
   {
                 $res = $this->Execute("DROP TABLE $seqname");
                 if(!$res){
@@ -164,7 +160,7 @@ class ADODB_ads extends ADOConnection {
   // returns the generated ID or false
         // checks if the table already exists, else creates the table and inserts a record into the table
         // and gets the ID number of the last inserted record.
-        function GenID($seqname,$start=1)
+        function GenID($seqname = 'adodbseq', $start = 1)
         {
                 $go = $this->Execute("select * from $seqname");
                 if (!$go){
@@ -254,7 +250,7 @@ class ADODB_ads extends ADOConnection {
 
   // Returns tables,Views or both on succesfull execution. Returns
         // tables by default on succesfull execustion.
-  function &MetaTables($ttype)
+  function &MetaTables($ttype = false, $showSchema = false, $mask = false)
   {
           $recordSet1 = $this->Execute("select * from system.tables");
                 if(!$recordSet1){
@@ -294,7 +290,7 @@ class ADODB_ads extends ADOConnection {
 
   }
 
-        function &MetaPrimaryKeys($table)
+        function &MetaPrimaryKeys($table, $owner = false)
   {
           $recordSet = $this->Execute("select table_primary_key from system.tables where name='$table'");
                 if(!$recordSet){
@@ -378,7 +374,7 @@ See http://msdn.microsoft.com/library/default.asp?url=/library/en-us/odbc/htm/od
     }
   }
 
-  function &MetaColumns($table)
+  function &MetaColumns($table, $normalize = true)
   {
   global $ADODB_FETCH_MODE;
 
@@ -486,7 +482,7 @@ See http://msdn.microsoft.com/library/default.asp?url=/library/en-us/odbc/htm/od
   }
 
         // Returns an array of columns names for a given table
-        function &MetaColumnNames($table)
+        function &MetaColumnNames($table, $numIndexes = false, $useattnum = false)
         {
                 $recordSet = $this->Execute("select name from system.columns where parent='$table'");
                 if(!$recordSet){
@@ -519,9 +515,8 @@ See http://msdn.microsoft.com/library/default.asp?url=/library/en-us/odbc/htm/od
   /* returns queryID or false */
   function _query($sql,$inputarr=false)
   {
-  GLOBAL $php_errormsg;
-    if (isset($php_errormsg)) $php_errormsg = '';
-    $this->_error = '';
+    $last_php_error = $this->resetLastError();
+    $this->_errorMsg = '';
 
                 if ($inputarr) {
       if (is_array($sql)) {
@@ -530,7 +525,7 @@ See http://msdn.microsoft.com/library/default.asp?url=/library/en-us/odbc/htm/od
         $stmtid = ads_prepare($this->_connectionID,$sql);
 
         if ($stmtid == false) {
-          $this->_errorMsg = isset($php_errormsg) ? $php_errormsg : '';
+          $this->_errorMsg = $this->getChangedErrorMsg($last_php_error);
           return false;
         }
       }
@@ -563,8 +558,7 @@ See http://msdn.microsoft.com/library/default.asp?url=/library/en-us/odbc/htm/od
 
                 $this->_lastAffectedRows = 0;
 
-    if ($stmtid)
-                {
+    if ($stmtid) {
 
       if (@ads_num_fields($stmtid) == 0) {
         $this->_lastAffectedRows = ads_num_rows($stmtid);
@@ -578,22 +572,19 @@ See http://msdn.microsoft.com/library/default.asp?url=/library/en-us/odbc/htm/od
 
       }
 
-      if ($this->_haserrorfunctions)
-                        {
-
+      if ($this->_haserrorfunctions) {
         $this->_errorMsg = '';
         $this->_errorCode = 0;
+      } else {
+          $this->_errorMsg = $this->getChangedErrorMsg($last_php_error);
       }
-                        else
-        $this->_errorMsg = isset($php_errormsg) ? $php_errormsg : '';
-    }
-                else
-                {
+    } else {
       if ($this->_haserrorfunctions) {
         $this->_errorMsg = ads_errormsg();
         $this->_errorCode = ads_error();
-      } else
-        $this->_errorMsg = isset($php_errormsg) ? $php_errormsg : '';
+      } else {
+          $this->_errorMsg = $this->getChangedErrorMsg($last_php_error);
+      }
     }
 
     return $stmtid;
@@ -611,10 +602,11 @@ See http://msdn.microsoft.com/library/default.asp?url=/library/en-us/odbc/htm/od
    */
   function UpdateBlob($table,$column,$val,$where,$blobtype='BLOB')
   {
+                $last_php_error = $this->resetLastError();
                 $sql = "UPDATE $table SET $column=? WHERE $where";
                 $stmtid = ads_prepare($this->_connectionID,$sql);
                 if ($stmtid == false){
-                  $this->_errorMsg = isset($php_errormsg) ? $php_errormsg : '';
+                  $this->_errorMsg = $this->getChangedErrorMsg($last_php_error);
                   return false;
           }
                 if (! ads_execute($stmtid,array($val),array(SQL_BINARY) )){
@@ -654,7 +646,7 @@ class ADORecordSet_ads extends ADORecordSet {
   var $useFetchArray;
   var $_has_stupid_odbc_fetch_api_change;
 
-  function ADORecordSet_ads($id,$mode=false)
+  function __construct($id,$mode=false)
   {
     if ($mode === false) {
       global $ADODB_FETCH_MODE;
@@ -667,7 +659,7 @@ class ADORecordSet_ads extends ADORecordSet {
     // the following is required for mysql odbc driver in 4.3.1 -- why?
     $this->EOF = false;
     $this->_currentRow = -1;
-    //$this->ADORecordSet($id);
+    //parent::__construct($id);
   }
 
 
@@ -731,7 +723,7 @@ class ADORecordSet_ads extends ADORecordSet {
     $this->fetchMode = $savem;
 
     if ($this->fetchMode & ADODB_FETCH_ASSOC) {
-      $this->fields =& $this->GetRowAssoc(ADODB_ASSOC_CASE);
+      $this->fields =& $this->GetRowAssoc();
     }
 
     $results = array();
@@ -749,18 +741,8 @@ class ADORecordSet_ads extends ADORecordSet {
   {
     if ($this->_numOfRows != 0 && !$this->EOF) {
       $this->_currentRow++;
-
-      if ($this->_has_stupid_odbc_fetch_api_change)
-        $rez = @ads_fetch_into($this->_queryID,$this->fields);
-      else {
-        $row = 0;
-        $rez = @ads_fetch_into($this->_queryID,$row,$this->fields);
-      }
-      if ($rez) {
-        if ($this->fetchMode & ADODB_FETCH_ASSOC) {
-          $this->fields =& $this->GetRowAssoc(ADODB_ASSOC_CASE);
-        }
-        return true;
+      if( $this->_fetch() ) {
+          return true;
       }
     }
     $this->fields = false;
@@ -770,7 +752,7 @@ class ADORecordSet_ads extends ADORecordSet {
 
   function _fetch()
   {
-
+    $this->fields = false;
     if ($this->_has_stupid_odbc_fetch_api_change)
       $rez = @ads_fetch_into($this->_queryID,$this->fields);
     else {
@@ -779,11 +761,10 @@ class ADORecordSet_ads extends ADORecordSet {
     }
     if ($rez) {
       if ($this->fetchMode & ADODB_FETCH_ASSOC) {
-        $this->fields =& $this->GetRowAssoc(ADODB_ASSOC_CASE);
+        $this->fields =& $this->GetRowAssoc();
       }
       return true;
     }
-    $this->fields = false;
     return false;
   }
 
@@ -793,4 +774,3 @@ class ADORecordSet_ads extends ADORecordSet {
   }
 
 }
-?>

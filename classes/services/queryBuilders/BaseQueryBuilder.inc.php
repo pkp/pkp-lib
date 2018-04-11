@@ -37,7 +37,9 @@ abstract class BaseQueryBuilder {
 
 		// Map valid OJS3 config options to Illuminate database drivers
 		$driver = strtolower(Config::getVar('database', 'driver'));
-		if (substr($driver, 0, 8) === 'postgres') {
+		if (strpos($driver, 'sqlsrv') !== false) {
+		    $driver = 'sqlsrv';
+		} elseif (substr($driver, 0, 8) === 'postgres') {
 			$driver = 'pgsql';
 		} else {
 			$driver = 'mysql';

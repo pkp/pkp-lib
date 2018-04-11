@@ -68,14 +68,17 @@ class SubmissionFileDAODelegate extends DAO {
 			array_unshift($params, (int) $fileId);
 		}
 
-		$this->update(
-			sprintf('INSERT INTO submission_files
-				(' . ($fileId ? 'file_id, ' : '') . 'revision, submission_id, source_file_id, source_revision, file_type, file_size, original_file_name, file_stage, date_uploaded, date_modified, viewable, uploader_user_id, assoc_type, assoc_id, genre_id, direct_sales_price, sales_type)
-				VALUES
-				(' . ($fileId ? '?, ' : '') . '?, ?, ?, ?, ?, ?, ?, ?, %s, %s, ?, ?, ?, ?, ?, ?, ?)',
-				$this->datetimeToDB($submissionFile->getDateUploaded()), $this->datetimeToDB($submissionFile->getDateModified())),
-			$params
-		);
+		$isSqlServer = Config::getVar('database', 'ms_sql');
+		$sql = sprintf(($fileId && $isSqlServer ? 'SET IDENTITY_INSERT submission_files ON;' : '') .
+					   'INSERT INTO submission_files (' .
+					   ($fileId ? 'file_id, ' : '') .
+					   'revision, submission_id, source_file_id, source_revision, file_type, file_size, original_file_name, file_stage, date_uploaded, date_modified, viewable, uploader_user_id, assoc_type, assoc_id, genre_id, direct_sales_price, sales_type) VALUES (' .
+					   ($fileId ? '?, ' : '') .
+					   '?, ?, ?, ?, ?, ?, ?, ?, %s, %s, ?, ?, ?, ?, ?, ?, ?)' .
+					   ($fileId && $isSqlServer ? ';SET IDENTITY_INSERT submission_files OFF;' : ''),
+					   $this->datetimeToDB($submissionFile->getDateUploaded()), $this->datetimeToDB($submissionFile->getDateModified()));
+
+		$this->update($sql, $params);
 
 		if (!$fileId) {
 			$submissionFile->setFileId($this->_getInsertId('submission_files', 'file_id'));
@@ -134,11 +137,35 @@ class SubmissionFileDAODelegate extends DAO {
 	 * @return boolean
 	 */
 	function updateObject($submissionFile, $previousFile) {
+		$isSqlServer = Config::getVar('database', 'ms_sql');
+
+		$params = array((int)$submissionFile->getRevision(),
+						(int)$submissionFile->getSubmissionId(),
+						is_null($submissionFile->getSourceFileId()) ? null : (int)$submissionFile->getSourceFileId(),
+						is_null($submissionFile->getSourceRevision()) ? null : (int)$submissionFile->getSourceRevision(),
+						$submissionFile->getFileType(),
+						$submissionFile->getFileSize(),
+						$submissionFile->getOriginalFileName(),
+						$submissionFile->getFileStage(),
+						(boolean)$submissionFile->getViewable() ? 1 : 0,
+						is_null($submissionFile->getUploaderUserId()) ? null : (int)$submissionFile->getUploaderUserId(),
+						is_null($submissionFile->getAssocType()) ? null : (int)$submissionFile->getAssocType(),
+						is_null($submissionFile->getAssocId()) ? null : (int)$submissionFile->getAssocId(),
+						is_null($submissionFile->getGenreId()) ? null : (int)$submissionFile->getGenreId(),
+						$submissionFile->getDirectSalesPrice(),
+						$submissionFile->getSalesType(),
+						(int)$previousFile->getFileId(),
+						(int)$previousFile->getRevision()
+					);
+
+		if (!$isSqlServer) {
+			array_unshift($params, (int)$submissionFile->getFileId());
+		}
+
 		// Update the file in the database.
 		$this->update(
 			sprintf('UPDATE submission_files
-				SET
-					file_id = ?,
+				SET' . ($isSqlServer ? '' : ' file_id = ?,') . '
 					revision = ?,
 					submission_id = ?,
 					source_file_id = ?,
@@ -158,26 +185,7 @@ class SubmissionFileDAODelegate extends DAO {
 					sales_type = ?
 				WHERE file_id = ? AND revision = ?',
 				$this->datetimeToDB($submissionFile->getDateUploaded()), $this->datetimeToDB($submissionFile->getDateModified())),
-			array(
-				(int)$submissionFile->getFileId(),
-				(int)$submissionFile->getRevision(),
-				(int)$submissionFile->getSubmissionId(),
-				is_null($submissionFile->getSourceFileId()) ? null : (int)$submissionFile->getSourceFileId(),
-				is_null($submissionFile->getSourceRevision()) ? null : (int)$submissionFile->getSourceRevision(),
-				$submissionFile->getFileType(),
-				$submissionFile->getFileSize(),
-				$submissionFile->getOriginalFileName(),
-				$submissionFile->getFileStage(),
-				(boolean)$submissionFile->getViewable() ? 1 : 0,
-				is_null($submissionFile->getUploaderUserId()) ? null : (int)$submissionFile->getUploaderUserId(),
-				is_null($submissionFile->getAssocType()) ? null : (int)$submissionFile->getAssocType(),
-				is_null($submissionFile->getAssocId()) ? null : (int)$submissionFile->getAssocId(),
-				is_null($submissionFile->getGenreId()) ? null : (int)$submissionFile->getGenreId(),
-				$submissionFile->getDirectSalesPrice(),
-				$submissionFile->getSalesType(),
-				(int)$previousFile->getFileId(),
-				(int)$previousFile->getRevision(),
-			)
+			$params
 		);
 
 		$this->updateLocaleFields($submissionFile);

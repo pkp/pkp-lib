@@ -311,7 +311,7 @@ abstract class PKPSubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 
 		// If the updated file does not have the correct target type then we'll have
 		// to retrieve it again from the database to cast it to the right type (downcast).
-		if (strtolower_codesafe(get_class($insertedFile)) != $targetImplementation) {
+		if ($insertedFile && strtolower_codesafe(get_class($insertedFile)) != $targetImplementation) {
 			$insertedFile = $this->_castToDatabase($insertedFile);
 		}
 		return $insertedFile;

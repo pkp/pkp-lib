@@ -28,13 +28,14 @@ class EditDecisionDAO extends DAO {
 	 */
 	function updateEditorDecision($submissionId, $editorDecision, $stageId = null, $reviewRound = null) {
 		if ($editorDecision['editDecisionId'] == null) {
-			$this->update(
-				sprintf(
-					'INSERT INTO edit_decisions
+			$sqlUpdate = sprintf(
+				'INSERT INTO edit_decisions
 					(submission_id, review_round_id, stage_id, round, editor_id, decision, date_decided)
 					VALUES (?, ?, ?, ?, ?, ?, %s)',
-					$this->datetimeToDB($editorDecision['dateDecided'])
-				),
+				$this->datetimeToDB($editorDecision['dateDecided'])
+			);
+			$this->update(
+				$sqlUpdate,
 				array(
 					(int) $submissionId,
 					is_a($reviewRound, 'ReviewRound') ? (int) $reviewRound->getId() : 0,

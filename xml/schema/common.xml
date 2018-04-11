@@ -41,7 +41,7 @@
 		<field name="date_installed" type="T">
 			<NOTNULL/>
 		</field>
-		<field name="current" type="I1">
+		<field name="actual" type="I1">
 			<NOTNULL/>
 			<DEFAULT VALUE="0"/>
 			<descr>1 iff the version entry being described is currently active. This permits the table to store past installation history for forensic purposes.</descr>
@@ -193,7 +193,7 @@
 		<field name="billing_address" type="C2" size="255"/>
 		<field name="country" type="C2" size="90"/>
 		<field name="locales" type="C2" size="255"/>
-		<field name="gossip" type="X"/>
+		<field name="gossip" type="XL"/>
 		<field name="date_last_email" type="T"/>
 		<field name="date_registered" type="T">
 			<NOTNULL/>
@@ -246,7 +246,7 @@
 			<!-- Not null not specified for sake of upgrade. -->
 			<DEFAULT VALUE="0"/>
 		</field>
-		<field name="setting_value" type="X"/>
+		<field name="setting_value" type="XL"/>
 		<field name="setting_type" type="C2" size="6">
 			<NOTNULL/>
 		</field>
@@ -521,7 +521,7 @@
 		<field name="subject" type="C2" size="120">
 			<NOTNULL/>
 		</field>
-		<field name="body" type="X"/>
+		<field name="body" type="XL"/>
 		<field name="description" type="X"/>
 		<descr>Default data for email templates.</descr>
 		<index name="email_templates_default_data_pkey">
@@ -595,7 +595,7 @@
 		<field name="subject" type="C2" size="120">
 			<NOTNULL/>
 		</field>
-		<field name="body" type="X"/>
+		<field name="body" type="XL"/>
 		<descr>Data for email templates.</descr>
 		<index name="email_templates_data_pkey">
 			<col>email_key</col>

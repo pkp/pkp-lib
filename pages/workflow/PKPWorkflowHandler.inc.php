@@ -90,7 +90,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		$workingStageId = null;
 
 		for ($workingStageId = $currentStageId; $workingStageId >= WORKFLOW_STAGE_ID_SUBMISSION; $workingStageId--) {
-			if (isset($accessibleWorkflowStages[$workingStageId]) && array_intersect($editorialWorkflowRoles, $accessibleWorkflowStages[$workingStageId])) {
+			if (array_key_exists($workingStageId, $accessibleWorkflowStages)) {
 				break;
 			}
 		}
@@ -198,6 +198,9 @@ abstract class PKPWorkflowHandler extends Handler {
 			$lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
 			$reviewRound = $reviewRoundDao->getById($reviewRoundId);
 		}
+		else {
+		    $lastReviewRound = null;
+		}
 
 		// If there is an editor assigned, retrieve stage decisions.
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
@@ -238,7 +241,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
 		$editorActions = array();
 		$lastRecommendation = $allRecommendations = null;
-		if (!empty($editorsStageAssignments) && (!$reviewRoundId || $reviewRoundId == $lastReviewRound->getId())) {
+		if (!empty($editorsStageAssignments) && (!$reviewRoundId || ($lastReviewRound && $reviewRoundId == $lastReviewRound->getId()))) {
 			import('classes.workflow.EditorDecisionActionsManager');
 			$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
 			$recommendationOptions = EditorDecisionActionsManager::getRecommendationOptions($stageId);

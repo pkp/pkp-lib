@@ -105,7 +105,7 @@
 		<field name="cc_recipients" type="X"/>
 		<field name="bcc_recipients" type="X"/>
 		<field name="subject" type="C2" size="255"/>
-		<field name="body" type="X"/>
+		<field name="body" type="XL"/>
 		<descr>A log of all emails sent out related to an object.</descr>
 		<index name="email_log_assoc">
 			<col>assoc_type</col>

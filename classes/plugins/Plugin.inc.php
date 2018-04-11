@@ -705,7 +705,12 @@ abstract class Plugin {
 
 		$schemaXMLParser = new adoSchema($installer->dbconn);
 		$dict =& $schemaXMLParser->dict;
-		$dict->SetCharSet($installer->dbconn->charSet);
+
+		$isSqlServer = Config::getVar('database', 'ms_sql');
+		if (!$isSqlServer) {
+            $dict->SetCharSet($installer->dbconn->charSet);
+		}
+
 		$sql = $schemaXMLParser->parseSchema($this->getInstallSchemaFile());
 		if ($sql) {
 			$result = $installer->executeSQL($sql);

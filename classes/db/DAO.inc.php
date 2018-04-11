@@ -160,7 +160,20 @@ class DAO {
 		$start = Core::microtime();
 		$dataSource = $this->getDataSource();
 		$result = $dataSource->selectLimit($sql, $numRows === false ? -1 : $numRows, $offset === false ? -1 : $offset, $params !== false && !is_array($params) ? array($params) : $params);
-		if ($dataSource->errorNo()) {
+
+		// For MS SQL, this error can be misinterpreted.
+		$isSqlServer = Config::getVar('database', 'ms_sql');
+		$errorNo = $dataSource->errorNo();
+		if ($isSqlServer && $errorNo === 'IMSSP') {
+			$errorInfo  = $dataSource->_stmt->errorInfo();
+			$errorId = $errorInfo ? $errorInfo[1] : null;
+
+			if ($errorId === -15) {
+				return $result;
+			}
+		}
+
+		if ($errorNo) {
 			fatalError('DB Error: ' . $dataSource->errorMsg());
 		}
 		return $result;
@@ -226,10 +239,26 @@ class DAO {
 		$start = Core::microtime();
 		$dataSource = $this->getDataSource();
 		$dataSource->execute($sql, $params !== false && !is_array($params) ? array($params) : $params);
-		if ($dieOnError && $dataSource->errorNo()) {
+
+		$errorNo = $dataSource->errorNo();
+
+		// For MS SQL (on an update), the statement query is trying to fetch a
+		// non existing row and this action is throwing the exception code -15.
+		// This should not be interpreted as an exception at this point.
+		$isSqlServer = Config::getVar('database', 'ms_sql');
+		if ($isSqlServer && $errorNo === 'IMSSP') {
+			$errorInfo  = $dataSource->_stmt->errorInfo();
+			$errorId = $errorInfo ? $errorInfo[1] : null;
+
+			if ($errorId === -15) {
+				return true;
+			}
+		}
+
+		if ($dieOnError && $errorNo) {
 			fatalError('DB Error: ' . $dataSource->errorMsg());
 		}
-		return $dataSource->errorNo() == 0 ? true : false;
+		return $errorNo == 0 ? true : false;
 	}
 
 	/**

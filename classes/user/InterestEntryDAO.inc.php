@@ -51,6 +51,7 @@ class InterestEntryDAO extends ControlledVocabEntryDAO {
 			$params[] = $filter . '%';
 		}
 
+		$isSqlServer = Config::getVar('database', 'ms_sql');
 		$result = $this->retrieveRange(
 			'SELECT	cve.*
 			FROM	controlled_vocab_entries cve
@@ -58,7 +59,7 @@ class InterestEntryDAO extends ControlledVocabEntryDAO {
 				' . ($filter?'JOIN controlled_vocab_entry_settings cves ON (cves.controlled_vocab_entry_id = cve.controlled_vocab_entry_id)':'') . '
 			WHERE cve.controlled_vocab_id = ?
 			' . ($filter?'AND cves.setting_name=? AND LOWER(cves.setting_value) LIKE LOWER(?)':'') . '
-			GROUP BY cve.controlled_vocab_entry_id
+			GROUP BY cve.controlled_vocab_entry_id' . ($isSqlServer ? ', cve.controlled_vocab_id, cve.seq' : '') . '
 			ORDER BY seq',
 			$params,
 			$rangeInfo

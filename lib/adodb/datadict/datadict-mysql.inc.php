@@ -1,7 +1,9 @@
 <?php
 
 /**
-  V5.18 3 Sep 2012  (c) 2000-2012 John Lim (jlim#natsoft.com). All rights reserved.
+  @version   v5.20.12  30-Mar-2018
+  @copyright (c) 2000-2013 John Lim (jlim#natsoft.com). All rights reserved.
+  @copyright (c) 2014      Damien Regad, Mark Newnham and the ADOdb community
   Released under both BSD license and Lesser GPL library license.
   Whenever there is any discrepancy between the two licenses,
   the BSD license will take precedence.
@@ -178,57 +180,4 @@ class ADODB2_mysql extends ADODB_DataDict {
 
 		return $sql;
 	}
-
-	// Character encoding support for CREATE DATABASE / CREATE TABLE
-	// Added 2004-06-20 by Kevin Jamieson (https://pkp.sfu.ca/)
-	// NOTE: If a character set is specified, assumes the database server supports this
-	function CreateDatabase($dbname,$options=false)
-	{
-		$options = $this->_Options($options);
-		$sql = array();
-
-		$s = 'CREATE DATABASE ' . $this->NameQuote($dbname);
-		if (isset($options[$this->upperName]))
-			$s .= ' '.$options[$this->upperName];
-		if ($this->charSet)
-			$s .= sprintf(' DEFAULT CHARACTER SET %s', $this->charSet);
-		$sql[] = $s;
-		return $sql;
-	}
-
-	function _TableSQL($tabname,$lines,$pkey,$tableoptions)
-	{
-		$sql = array();
-
-		if (isset($tableoptions['REPLACE']) || isset ($tableoptions['DROP'])) {
-			$sql[] = sprintf($this->dropTable,$tabname);
-			if ($this->autoIncrement) {
-				$sInc = $this->_DropAutoIncrement($tabname);
-				if ($sInc) $sql[] = $sInc;
-			}
-			if ( isset ($tableoptions['DROP']) ) {
-				return $sql;
-			}
-		}
-		$s = "CREATE TABLE $tabname (\n";
-		$s .= implode(",\n", $lines);
-		if (sizeof($pkey)>0) {
-			$s .= ",\n                 PRIMARY KEY (";
-			$s .= implode(", ",$pkey).")";
-		}
-		if (isset($tableoptions['CONSTRAINTS']))
-			$s .= "\n".$tableoptions['CONSTRAINTS'];
-
-		if (isset($tableoptions[$this->upperName.'_CONSTRAINTS']))
-			$s .= "\n".$tableoptions[$this->upperName.'_CONSTRAINTS'];
-
-		$s .= "\n)";
-		if (isset($tableoptions[$this->upperName])) $s .= $tableoptions[$this->upperName];
-		if ($this->charSet)
-			$s .= sprintf(' DEFAULT CHARACTER SET %s', $this->charSet);
-		$sql[] = $s;
-
-		return $sql;
-	}
 }
-?>

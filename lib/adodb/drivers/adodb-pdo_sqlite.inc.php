@@ -1,14 +1,16 @@
 <?php
 
-/* 
- V5.18 3 Sep 2012  (c) 2000-2012 John Lim (jlim#natsoft.com). All rights reserved.
-  Released under both BSD license and Lesser GPL library license. 
-  Whenever there is any discrepancy between the two licenses, 
-  the BSD license will take precedence. See License.txt. 
+/*
+ @version   v5.20.12  30-Mar-2018
+ @copyright (c) 2000-2013 John Lim (jlim#natsoft.com). All rights reserved.
+ @copyright (c) 2014      Damien Regad, Mark Newnham and the ADOdb community
+  Released under both BSD license and Lesser GPL library license.
+  Whenever there is any discrepancy between the two licenses,
+  the BSD license will take precedence. See License.txt.
   Set tabs to 4 for best viewing.
-  
+
   Latest version is available at http://adodb.sourceforge.net
-  
+
   Thanks Diogo Toscano (diogo#scriptcase.net) for the code.
 	And also Sid Dunayer [sdunayer#interserv.com] for extensive fixes.
 */
@@ -28,7 +30,7 @@ class ADODB_pdo_sqlite extends ADODB_pdo {
 	var $concat_operator = '||';
     var $pdoDriver       = false;
 	var $random='abs(random())';
-    
+
 	function _init($parentDriver)
 	{
 		$this->pdoDriver = $parentDriver;
@@ -49,16 +51,18 @@ class ADODB_pdo_sqlite extends ADODB_pdo {
 
 		return $arr;
 	}
-	
-	function SelectLimit($sql,$nrows=-1,$offset=-1,$inputarr=false,$secs2cache=0) 
+
+	function SelectLimit($sql,$nrows=-1,$offset=-1,$inputarr=false,$secs2cache=0)
 	{
+		$nrows = (int) $nrows;
+		$offset = (int) $offset;
 		$parent = $this->pdoDriver;
 		$offsetStr = ($offset >= 0) ? " OFFSET $offset" : '';
 		$limitStr  = ($nrows >= 0)  ? " LIMIT $nrows" : ($offset >= 0 ? ' LIMIT 999999999' : '');
-	  	if ($secs2cache)
-	   		$rs = $parent->CacheExecute($secs2cache,$sql."$limitStr$offsetStr",$inputarr);
-	  	else
-	   		$rs = $parent->Execute($sql."$limitStr$offsetStr",$inputarr);
+		if ($secs2cache)
+			$rs = $parent->CacheExecute($secs2cache,$sql."$limitStr$offsetStr",$inputarr);
+		else
+			$rs = $parent->Execute($sql."$limitStr$offsetStr",$inputarr);
 
 		return $rs;
 	}
@@ -111,33 +115,33 @@ class ADODB_pdo_sqlite extends ADODB_pdo {
 	}
 
 	function BeginTrans()
-	{	
+	{
 		$parent = $this->pdoDriver;
-		if ($parent->transOff) return true; 
+		if ($parent->transOff) return true;
 		$parent->transCnt += 1;
 		$parent->_autocommit = false;
 		return $parent->Execute("BEGIN {$parent->_transmode}");
 	}
-	
-	function CommitTrans($ok=true) 
-	{ 
+
+	function CommitTrans($ok=true)
+	{
 		$parent = $this->pdoDriver;
-		if ($parent->transOff) return true; 
+		if ($parent->transOff) return true;
 		if (!$ok) return $parent->RollbackTrans();
 		if ($parent->transCnt) $parent->transCnt -= 1;
 		$parent->_autocommit = true;
-		
+
 		$ret = $parent->Execute('COMMIT');
 		return $ret;
 	}
-	
+
 	function RollbackTrans()
 	{
 		$parent = $this->pdoDriver;
-		if ($parent->transOff) return true; 
+		if ($parent->transOff) return true;
 		if ($parent->transCnt) $parent->transCnt -= 1;
 		$parent->_autocommit = true;
-		
+
 		$ret = $parent->Execute('ROLLBACK');
 		return $ret;
 	}
@@ -156,7 +160,7 @@ class ADODB_pdo_sqlite extends ADODB_pdo {
 	  $rs = $parent->Execute("PRAGMA table_info('$tab')");
 	  if (isset($savem)) $parent->SetFetchMode($savem);
 	  if (!$rs) {
-	    $ADODB_FETCH_MODE = $save; 
+	    $ADODB_FETCH_MODE = $save;
 	    return $false;
 	  }
 	  $arr = array();
@@ -174,7 +178,7 @@ class ADODB_pdo_sqlite extends ADODB_pdo {
 	    $fld->primary_key = $r['pk'];
 	    $fld->default_value = $r['dflt_value'];
 	    $fld->scale = 0;
-	    if ($save == ADODB_FETCH_NUM) $arr[] = $fld;	
+	    if ($save == ADODB_FETCH_NUM) $arr[] = $fld;
 	    else $arr[strtoupper($fld->name)] = $fld;
 	  }
 	  $rs->Close();
@@ -185,19 +189,18 @@ class ADODB_pdo_sqlite extends ADODB_pdo {
 	function MetaTables($ttype=false,$showSchema=false,$mask=false)
 	{
 		$parent = $this->pdoDriver;
-		
+
 		if ($mask) {
 			$save = $this->metaTablesSQL;
 			$mask = $this->qstr(strtoupper($mask));
 			$this->metaTablesSQL .= " AND name LIKE $mask";
 		}
-		
+
 		$ret = $parent->GetCol($this->metaTablesSQL);
-		
+
 		if ($mask) {
 			$this->metaTablesSQL = $save;
 		}
 		return $ret;
    }
 }
-?>

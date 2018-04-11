@@ -146,6 +146,12 @@ class PKPLocale {
 		date_default_timezone_set($timeZone);
 
 		if (Config::getVar('general', 'installed')) {
+		    $isSqlServer = Config::getVar('database', 'ms_sql');
+		    if ($isSqlServer) {
+		        // Set the time zone directly on the instance running MS SQL.
+		        return;
+		    }
+
 			// Set the time zone for DB
 			// Get the offset from UTC
 			$now = new DateTime();

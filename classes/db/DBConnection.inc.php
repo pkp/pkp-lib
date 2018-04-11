@@ -113,7 +113,8 @@ class DBConnection {
 	function initConn() {
 		require_once('lib/pkp/lib/adodb/adodb.inc.php');
 
-		$this->dbconn = ADONewConnection($this->driver);
+		$isSqlServer = Config::getVar('database', 'ms_sql');
+		$this->dbconn = ADONewConnection($isSqlServer ? 'pdo' : $this->driver);
 
 		if ($this->connectOnInit) {
 			return $this->connect();

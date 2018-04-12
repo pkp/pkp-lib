@@ -140,7 +140,8 @@
 				processedJsonData = this.handleJson(jsonData),
 				jsonDataContent = (jsonData.content),
 				$textarea = $form.find('textarea[name="personalMessage"]'),
-				editor = tinyMCE.EditorManager.get($textarea.attr('id'));
+				editor = 
+				tinyMCE.EditorManager.get(/** @type {string} */ $textarea.attr('id'));
 
 		$textarea.attr('data-variables', JSON.stringify(jsonDataContent.variables));
 		editor.setContent(jsonDataContent.body);

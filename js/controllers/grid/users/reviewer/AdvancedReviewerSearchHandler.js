@@ -81,8 +81,10 @@
 			$('#regularReviewerForm').show();
 
 			// Change the NAME placeholder in the mail editor
-			$('[name^="personalMessage"]').val()
-					.replace('<span class="" data-symbolic="reviewerName" contenteditable="false" data-mce-selected="1">{$reviewerName}</span>', reviewerName);
+			$('[name^="personalMessage"]').val().replace(
+					'<span class="" data-symbolic="reviewerName" ' +
+					'contenteditable="false" data-mce-selected="1">{$reviewerName}</span>',
+					reviewerName);
 			$("iframe[id^='personalMessage']")
 					.contents()
 					.find('[data-symbolic="reviewerName"]')

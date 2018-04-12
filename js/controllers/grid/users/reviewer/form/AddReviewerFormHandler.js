@@ -97,13 +97,13 @@
 			AddReviewerFormHandler.prototype.selectTemplateHandler_ =
 					function(sourceElement, event) {
 
-		var $form = this.getHtmlElement();
-		var localeSelected = $('#templateLocale').val();
-		var templateID = '#template_'+localeSelected;
-		var data = $form.find(templateID+', #templateLocale').serialize();
+		var $form = this.getHtmlElement(), localeSelected = $('#templateLocale')
+				.val(), templateID = '#template_' + localeSelected,
+				data = $form.find(templateID + ', #templateLocale').serialize();
 		$.post(this.templateUrl_, data,
 				this.callbackWrapper(this.updateTemplate), 'json');
 	};
+
 
 	/**
 	 * Respond to an "locale change" call by triggering a published event.
@@ -118,10 +118,11 @@
 					function(sourceElement, event) {
 		var localeSelected = sourceElement.value;
 		$('.template').hide();
-		$('#template_'+localeSelected).removeClass("pkp_helpers_display_none").show();
+		$('#template_' + localeSelected).removeClass('pkp_helpers_display_none')
+				.show();
 		this.selectTemplateHandler_(sourceElement, event);
 	};
-		
+
 
 	/**
 	 * Internal callback to replace the textarea with the contents of the
@@ -141,9 +142,9 @@
 				$textarea = $form.find('textarea[name="personalMessage"]'),
 				editor = tinyMCE.EditorManager.get($textarea.attr('id'));
 
-				$textarea.attr('data-variables', JSON.stringify(jsonDataContent.variables));
-				editor.setContent(jsonDataContent.body);
-				this.addReviewerNameToMailEditor();
+		$textarea.attr('data-variables', JSON.stringify(jsonDataContent.variables));
+		editor.setContent(jsonDataContent.body);
+		this.addReviewerNameToMailEditor();
 		return processedJsonData.status;
 	};
 
@@ -154,18 +155,20 @@
 	 */
 	$.pkp.controllers.grid.users.reviewer.form.AddReviewerFormHandler.
 			prototype.addReviewerNameToMailEditor = function() {
-			var reviewerName = $('[id^="selectedReviewerName"]').html();
-			$('[name^="personalMessage"]').val()
-					.replace('<span class="" data-symbolic="reviewerName" contenteditable="false" data-mce-selected="1">{$reviewerName}</span>', reviewerName);
+
+		var reviewerName = $('[id^="selectedReviewerName"]').html();
+		$('[name^="personalMessage"]').val().replace(
+				'<span class="" data-symbolic="reviewerName" ' +
+				'contenteditable="false" data-mce-selected="1">{$reviewerName}</span>',
+				reviewerName);
 	
-			$("iframe[id^='personalMessage']")
-					.contents()
-					.find('[data-symbolic="reviewerName"]')
-					.each(function() {
-						$(this).html(reviewerName);
-						$(this).attr('class', '');
-						$(this).removeAttr('contenteditable');
-					});
+		$("iframe[id^='personalMessage']").contents()
+				.find('[data-symbolic="reviewerName"]')
+				.each(function() {
+					$(this).html(reviewerName);
+					$(this).attr('class', '');
+					$(this).removeAttr('contenteditable');
+				});
 	};
 
 /** @param {jQuery} $ jQuery closure. */

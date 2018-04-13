@@ -221,17 +221,15 @@ class QueryForm extends Form {
 					$usersAssignments = $stageAssignmentDao->getBySubmissionAndStageId($query->getAssocId(), $query->getStageId(), null, $user->getId())->toArray();
 					$userRoles = '';
 					foreach ($usersAssignments as $assignment) {
-						if ($assignment->getUserId() === $user->getId()) {
-							foreach ($userProps['groups'] as $userGroup) {
-								if ($userGroup['id'] === (int) $assignment->getUserGroupId() && isset($userGroup['name'][AppLocale::getLocale()])) {
-									$userRoles .= $userGroup['name'][AppLocale::getLocale()] . ", ";
-								}
+						foreach ($userProps['groups'] as $userGroup) {
+							if ($userGroup['id'] === (int) $assignment->getUserGroupId() && isset($userGroup['name'][AppLocale::getLocale()])) {
+								$userRoles .= $userGroup['name'][AppLocale::getLocale()] . ", ";
 							}
 						}
 					}
 					$title =  __('submission.query.participantTitle', array(
-								'fullName' => $user->getFullName(),
-								'userGroup' => rtrim($userRoles, ", "),
+						'fullName' => $user->getFullName(),
+						'userGroup' => rtrim($userRoles, ", "),
 					));
 					return $title;
 				},

@@ -200,11 +200,9 @@ class QueryForm extends Form {
 		if ($query->getAssocType() == ASSOC_TYPE_SUBMISSION) {
 
 			$queryDao = DAORegistry::getDAO('QueryDAO');
-			$selectedParticipants = $query->getId() ? $queryDao->getParticipantIds($query->getId()) : array();
-
 			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-			$assignments = $stageAssignmentDao->getBySubmissionAndStageId($query->getAssocId(), $query->getStageId())
-				->toArray();
+
+			$selectedParticipants = $query->getId() ? $queryDao->getParticipantIds($query->getId()) : array();
 
 			import('lib.pkp.controllers.list.users.SelectUserListHandler');
 			$queryParticipantsList = new SelectUserListHandler(array(
@@ -218,20 +216,23 @@ class QueryForm extends Form {
 					'assignedToSubmissionStage' => $query->getStageId(),
 				),
 				// Include the full name and role in this submission in the item title
-				'setItemTitleCallback' => function($user, $userProps) use ($assignments) {
+				'setItemTitleCallback' => function($user, $userProps) use ($stageAssignmentDao, $query) {
 					$title = $user->getFullName();
-					foreach ($assignments as $assignment) {
+					$usersAssignments = $stageAssignmentDao->getBySubmissionAndStageId($query->getAssocId(), $query->getStageId(), null, $user->getId())->toArray();
+					$userRoles = '';
+					foreach ($usersAssignments as $assignment) {
 						if ($assignment->getUserId() === $user->getId()) {
 							foreach ($userProps['groups'] as $userGroup) {
 								if ($userGroup['id'] === (int) $assignment->getUserGroupId() && isset($userGroup['name'][AppLocale::getLocale()])) {
-									$title =  __('submission.query.participantTitle', array(
-										'fullName' => $user->getFullName(),
-										'userGroup' => $userGroup['name'][AppLocale::getLocale()],
-									));
+									$userRoles .= $userGroup['name'][AppLocale::getLocale()] . ", ";
 								}
 							}
 						}
 					}
+					$title =  __('submission.query.participantTitle', array(
+								'fullName' => $user->getFullName(),
+								'userGroup' => rtrim($userRoles, ", "),
+					));
 					return $title;
 				},
 			));

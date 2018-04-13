@@ -362,7 +362,10 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 
 		// reviewer data
 		if (!empty($this->getReviewerData)) {
-			$q->leftJoin('review_assignments as ra', 'u.user_id', '=', 'ra.reviewer_id');
+			$q->leftJoin('review_assignments as ra', function($table) {
+				$table->on('u.user_id', '=', 'ra.reviewer_id');
+				$table->on('ra.declined', '<>', Capsule::raw(1));
+			});
 			$this->columns[] = Capsule::raw('MAX(ra.date_assigned) as last_assigned');
 			$this->columns[] = Capsule::raw('(SELECT SUM(CASE WHEN ra.date_completed IS NULL THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as incomplete_count');
 			$this->columns[] = Capsule::raw('(SELECT SUM(CASE WHEN ra.date_completed IS NOT NULL THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as complete_count');

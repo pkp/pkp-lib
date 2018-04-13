@@ -285,7 +285,9 @@ class PKPTemplateManager extends SmartyBC {
 			import('classes.core.ServicesContainer');
 			$nmService = ServicesContainer::instance()->get('navigationMenu');
 
-			\HookRegistry::register('LoadHandler', array($nmService, '_callbackHandleCustomNavigationMenuItems'));
+			if (Config::getVar('general', 'installed')) {
+				\HookRegistry::register('LoadHandler', array($nmService, '_callbackHandleCustomNavigationMenuItems'));
+			}
 		}
 
 		// Register custom functions

@@ -31,7 +31,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		if ((boolean) $context->getSetting('copyrightNoticeAgree')) {
 			$this->addCheck(new FormValidator($this, 'copyrightNoticeAgree', 'required', 'submission.submit.copyrightNoticeAgreeRequired'));
 		}
-		$this->addCheck(new FormValidator($this, 'authorUserGroupId', 'required', 'author.submit.userGroupRequired'));
+		$this->addCheck(new FormValidator($this, 'userGroupId', 'required', 'submission.submit.availableUserGroupsDescription'));
 
 		foreach ((array) $context->getLocalizedSetting('submissionChecklist') as $key => $checklistItem) {
 			$this->addCheck(new FormValidator($this, "checklist-$key", 'required', 'submission.submit.checklistErrors'));
@@ -45,8 +45,8 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	function validate() {
 		if (!parent::validate()) return false;
 
-		// Ensure that the user is in the specified authorUserGroupId
-		$authorUserGroupId = $this->getData('authorUserGroupId');
+		// Ensure that the user is in the specified userGroupId or trying to enroll an allowed role
+		$userGroupId = (int) $this->getData('userGroupId');
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$request = Application::getRequest();
 		$context = $request->getContext();
@@ -55,8 +55,13 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 
 		$userGroups = $userGroupDao->getByUserId($user->getId(), $context->getId());
 		while ($userGroup = $userGroups->next()) {
-			if ($userGroup->getId() == $authorUserGroupId) return true;
+			if ($userGroup->getId() == $userGroupId) return true;
 		}
+		$userGroup = $userGroupDao->getById($userGroupId, $context->getId());
+		if ($userGroup->getPermitSelfRegistration()){
+			return true;
+		}
+
 		return false;
 	}
 
@@ -78,39 +83,53 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			$templateMgr->assign('copyrightNoticeAgree', true);
 		}
 
-		// Get list of user's author user groups.  If its more than one, we'll need to display an author user group selector. If there are none, we need to assign one or give the user an opportunity to do so.
 		$userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO');
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$authorUserGroupAssignments = $userGroupAssignmentDao->getByUserId($user->getId(), $this->context->getId(), ROLE_ID_AUTHOR);
 		$userGroupNames = array();
-		if (!$authorUserGroupAssignments->wasEmpty()) {
-			while($authorUserGroupAssignment = $authorUserGroupAssignments->next()) {
-				$authorUserGroup = $userGroupDao->getById($authorUserGroupAssignment->getUserGroupId());
-				if ($userGroupDao->userGroupAssignedToStage($authorUserGroup->getId(), WORKFLOW_STAGE_ID_SUBMISSION)) {
-					$userGroupNames[$authorUserGroup->getId()] = $authorUserGroup->getLocalizedName();
-				}
-			}
-			$templateMgr->assign('authorUserGroupOptions', $userGroupNames);
-		} else {
-			// The user doesn't have any author user group assignments.
-			// Add all manager user groups
-			$managerUserGroupAssignments = $userGroupAssignmentDao->getByUserId($user->getId(), $this->context->getId(), ROLE_ID_MANAGER);
-			if(!$managerUserGroupAssignments->wasEmpty()){ 
-				while($managerUserGroupAssignment = $managerUserGroupAssignments->next()) {
-					$managerUserGroup = $userGroupDao->getById($managerUserGroupAssignment->getUserGroupId());
-					$userGroupNames[$managerUserGroup->getId()] = $managerUserGroup->getLocalizedName();
-				}
-				$templateMgr->assign('authorUserGroupOptions', $userGroupNames);
 
-			} else{
-				// The user has no author user group or manager user group
-				// add default author group automatically
-				$authorGroup = $userGroupDao->getDefaultByRoleId($this->context->getId(), ROLE_ID_AUTHOR);
-				$userGroupDao->assignUserToGroup($user->getId(), $authorGroup->getId());
-				$userGroupNames[$authorGroup->getId()] = $authorGroup->getLocalizedName();
-				$templateMgr->assign('authorUserGroupOptions', $userGroupNames);
+		// List existing user roles
+		$managerUserGroupAssignments = $userGroupAssignmentDao->getByUserId($user->getId(), $this->context->getId(), ROLE_ID_MANAGER);
+		$authorUserGroupAssignments = $userGroupAssignmentDao->getByUserId($user->getId(), $this->context->getId(), ROLE_ID_AUTHOR);
+
+		// List available author roles
+		$availableAuthorUserGroups = $userGroupDao->getUserGroupsByStage($this->context->getId(), WORKFLOW_STAGE_ID_SUBMISSION, ROLE_ID_AUTHOR);
+		while($authorUserGroup = $availableAuthorUserGroups->next()) {
+			if ($authorUserGroup->getPermitSelfRegistration()){
+				$availableUserGroupNames[$authorUserGroup->getId()] = $authorUserGroup->getLocalizedName();
 			}
 		}
+
+		// Set default group to default author group
+		$defaultGroup = $userGroupDao->getDefaultByRoleId($this->context->getId(), ROLE_ID_AUTHOR);
+		$noExistingRoles = false;
+
+		// If the user has manager roles, add manager roles and available author roles to selection
+		if (!$managerUserGroupAssignments->wasEmpty()) {
+			while($managerUserGroupAssignment = $managerUserGroupAssignments->next()) {
+				$managerUserGroup = $userGroupDao->getById($managerUserGroupAssignment->getUserGroupId());
+				$userGroupNames[$managerUserGroup->getId()] = $managerUserGroup->getLocalizedName();
+			}
+			$userGroupNames = array_replace($userGroupNames, $availableUserGroupNames); 
+
+			// Set default group to default manager group
+			$defaultGroup = $userGroupDao->getDefaultByRoleId($this->context->getId(), ROLE_ID_MANAGER);
+		}
+		// else if the user only has existing author roles, add to selection
+		else if (!$authorUserGroupAssignments->wasEmpty()) {
+			while($authorUserGroupAssignment = $authorUserGroupAssignments->next()) {
+				$authorUserGroup = $userGroupDao->getById($authorUserGroupAssignment->getUserGroupId());
+				$userGroupNames[$authorUserGroup->getId()] = $authorUserGroup->getLocalizedName();
+			}
+		}
+		// else the user has no roles, only add available author roles to selection
+		else {
+			$userGroupNames = $availableUserGroupNames;
+			$noExistingRoles = true;
+		}
+
+		$templateMgr->assign('userGroupOptions', $userGroupNames);
+		$templateMgr->assign('defaultGroup', $defaultGroup);
+		$templateMgr->assign('noExistingRoles', $noExistingRoles);
 
 		return parent::fetch($request);
 	}
@@ -151,7 +170,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 */
 	function readInputData() {
 		$vars = array(
-			'authorUserGroupId', 'locale', 'copyrightNoticeAgree', 'commentsToEditor',
+			'userGroupId', 'locale', 'copyrightNoticeAgree', 'commentsToEditor',
 		);
 		foreach ((array) $this->context->getLocalizedSetting('submissionChecklist') as $key => $checklistItem) {
 			$vars[] = "checklist-$key";
@@ -240,7 +259,15 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 */
 	function execute($args, $request) {
 		$submissionDao = Application::getSubmissionDAO();
+		$context = $request->getContext();
 		$user = $request->getUser();
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+
+		// Enroll user if needed 
+		$userGroupId = (int) $this->getData('userGroupId');
+		if (!$userGroupDao->userInGroup($user->getId(), $userGroupId)) {
+			$userGroupDao->assignUserToGroup($user->getId(), $userGroupId);
+		}
 
 		if (isset($this->submission)) {
 			// Update existing submission
@@ -284,15 +311,14 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			$author->setOrcid($user->getOrcid());
 
 			// Get the user group to display the submitter as
-			$authorUserGroupId = (int) $this->getData('authorUserGroupId');
-			$author->setUserGroupId($authorUserGroupId);
+			$author->setUserGroupId($userGroupId);
 
 			$author->setSubmissionId($this->submissionId);
 			$authorDao->insertObject($author);
 
 			// Assign the user author to the stage
 			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-			$stageAssignmentDao->build($this->submissionId, $authorUserGroupId, $user->getId());
+			$stageAssignmentDao->build($this->submissionId, $userGroupId, $user->getId());
 
 			// Add comments to editor
 			if ($this->getData('commentsToEditor')){

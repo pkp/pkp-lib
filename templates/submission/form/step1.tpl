@@ -22,14 +22,27 @@
 {include file="controllers/notification/inPlaceNotification.tpl" notificationId="submitStep1FormNotification"}
 
 {fbvFormArea id="submissionStep1"}
-	<!-- Author user group selection (only appears if user has > 1 author user groups) -->
-	{if count($authorUserGroupOptions) > 1}
-		{fbvFormSection label="submission.submit.userGroup" description="submission.submit.userGroupDescription"}
-			{fbvElement type="select" id="authorUserGroupId" from=$authorUserGroupOptions translate=false size=$fbvStyles.size.SMALL}
+	<!-- If no existing roles, show available author roles to choose from -->
+	{if $noExistingRoles}
+		{fbvFormSection label="submission.submit.availableUserGroups" description="submission.submit.availableUserGroupsDescription" list=true required=true}
+			{foreach from=$userGroupOptions key="userGroupId" item="userGroupName"}
+				{if $defaultGroup->getId() == $userGroupId}{assign var="checked" value=true}{else}{assign var="checked" value=false}{/if}
+				{fbvElement type="radio" id="userGroup"|concat:$userGroupId name="userGroupId" value=$userGroupId checked=$checked label=$userGroupName translate=false}
+			{/foreach}
 		{/fbvFormSection}
-	{elseif count($authorUserGroupOptions) == 1}
-		{foreach from=$authorUserGroupOptions key="key" item="authorUserGroupName"}{assign var=authorUserGroupId value=$key}{/foreach}
-		{fbvElement type="hidden" id="authorUserGroupId" value=$authorUserGroupId}
+	<!-- If user has existing roles, show available roles or automatically select single role -->	
+	{else}
+		{if count($userGroupOptions) > 1}
+			{fbvFormSection label="submission.submit.userGroup" description="submission.submit.userGroupDescription" list=true required=true}
+				{foreach from=$userGroupOptions key="userGroupId" item="userGroupName"}
+					{if $defaultGroup->getId() == $userGroupId}{assign var="checked" value=true}{else}{assign var="checked" value=false}{/if}
+					{fbvElement type="radio" id="userGroup"|concat:$userGroupId name="userGroupId" value=$userGroupId checked=$checked label=$userGroupName translate=false}
+				{/foreach}
+			{/fbvFormSection}
+		{elseif count($userGroupOptions) == 1}
+			{foreach from=$userGroupOptions key="userGroupId" item="authorUserGroupName"}{assign var=userGroupId value=$userGroupId}{/foreach}
+			{fbvElement type="hidden" id="userGroupId" value=$userGroupId}
+		{/if}
 	{/if}
 
 	{if $copyrightNoticeAgree}

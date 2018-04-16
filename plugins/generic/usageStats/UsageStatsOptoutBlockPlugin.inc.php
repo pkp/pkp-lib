@@ -16,15 +16,15 @@
 import('lib.pkp.classes.plugins.BlockPlugin');
 
 class UsageStatsOptoutBlockPlugin extends BlockPlugin {
-	/** @var UsageStatsPlugin Parent plugin */
-	protected $_parentPlugin;
+	/** @var UsageStatsPlugin */
+	protected $_usageStatsPlugin;
 
 	/**
 	 * Constructor
-	 * @param $parentPlugin UsageStatsPlugin
+	 * @param $usageStatsPlugin UsageStatsPlugin
 	 */
-	function __construct($parentPlugin) {
-		$this->_parentPlugin = $parentPlugin;
+	function __construct($usageStatsPlugin) {
+		$this->_usageStatsPlugin = $usageStatsPlugin;
 		parent::__construct();
 	}
 
@@ -67,14 +67,14 @@ class UsageStatsOptoutBlockPlugin extends BlockPlugin {
 	 * @copydoc Plugin::getPluginPath()
 	 */
 	public function getPluginPath() {
-		return $this->_parentPlugin->getPluginPath();
+		return $this->_usageStatsPlugin->getPluginPath();
 	}
 
 	/**
 	 * @copydoc BlockPlugin::getEnabled()
 	 */
 	function getEnabled($contextId = null) {
-		return $this->_parentPlugin->getEnabled($contextId);
+		return $this->_usageStatsPlugin->getEnabled($contextId);
 	}
 
 	/**

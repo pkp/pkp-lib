@@ -25,10 +25,6 @@
 	{url|assign:reviewFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.review.ReviewerReviewFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$reviewAssignment->getStageId() reviewRoundId=$reviewRoundId reviewAssignmentId=$reviewAssignment->getId() escape=false}
 	{load_url_in_div id="reviewFilesStep3" url=$reviewFilesGridUrl}
 
-	<!-- Display queries grid -->
-	{url|assign:queriesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$smarty.const.WORKFLOW_STAGE_ID_EXTERNAL_REVIEW escape=false}
-	{load_url_in_div id="queriesGrid" url=$queriesGridUrl}
-
 	{if $viewGuidelinesAction}
 		{fbvFormSection title="reviewer.submission.reviewerGuidelines"}
 			<div id="viewGuidelines">
@@ -55,7 +51,11 @@
 		{load_url_in_div id="reviewAttachmentsGridContainer" url=$reviewAttachmentsGridUrl}
 	{/fbvFormSection}
 
-	{$additionalFormFields}
+	<!-- Display queries grid -->
+	{url|assign:queriesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$smarty.const.WORKFLOW_STAGE_ID_EXTERNAL_REVIEW escape=false}
+	{load_url_in_div id="queriesGrid" url=$queriesGridUrl}	
+
+	{$additionalFormFields}	
 
 	{url|assign:cancelUrl page="reviewer" op="submission" path=$submission->getId() step=2 escape=false}
 	{fbvFormButtons submitText="reviewer.submission.submitReview" confirmSubmit="reviewer.confirmSubmit" cancelText="navigation.goBack" cancelUrl=$cancelUrl cancelUrlTarget="_self" submitDisabled=$reviewIsComplete}

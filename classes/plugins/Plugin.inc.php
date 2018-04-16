@@ -353,7 +353,7 @@ abstract class Plugin {
 		if ($templatePath = $this->getTemplatePath()) {
 			$templateMgr = TemplateManager::getManager();
 			$pluginTemplateResource = new PKPTemplateResource($templatePath);
-			$templateMgr->registerResource($thing = $this->getTemplateResource(null, $inCore), $pluginTemplateResource);
+			$templateMgr->registerResource($this->getTemplateResource(null, $inCore), $pluginTemplateResource);
 		}
 	}
 

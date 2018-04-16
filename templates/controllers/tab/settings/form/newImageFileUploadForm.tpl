@@ -20,7 +20,7 @@
 					baseUrl: {$baseUrl|json_encode},
 					filters: {ldelim}
 						mime_types : [
-							{ldelim} title : "Image files", extensions : "jpg,jpeg,png,svg" {rdelim}
+							{ldelim} title : "Image files", extensions : "jpg,jpeg,png,svg,gif" {rdelim}
 						]
 					{rdelim}
 				{rdelim}

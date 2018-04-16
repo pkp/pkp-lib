@@ -243,10 +243,10 @@ class QueryForm extends Form {
 						}
 					}
 				}
-				# if current user is author, add open reviewers
+				# if current user is author, add open reviewers who have accepted the request
 				if (array_intersect(array(ROLE_ID_AUTHOR), $userRoles)) {
 					foreach ($reviewAssignments as $reviewAssignment) {
-						if ($reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_OPEN){
+						if ($reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_OPEN && $reviewAssignment->getDateConfirmed()){
 							$includeUsers[] = $reviewAssignment->getReviewerId();
 						}
 					}

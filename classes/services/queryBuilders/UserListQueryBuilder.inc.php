@@ -45,6 +45,12 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	/** @var int section ID */
 	protected $assignedToSectionId = null;
 
+	/** @var array user IDs */
+	protected $includeUsers = null;
+
+	/** @var array user IDs */
+	protected $excludeUsers = null;	
+
 	/** @var string search phrase */
 	protected $searchPhrase = null;
 
@@ -152,6 +158,30 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 		$this->assignedToSectionId = $sectionId;
 		return $this;
 	}
+
+	/**
+	 * Include selected users
+	 *
+	 * @param $sectionId int
+	 *
+	 * @return \PKP\Services\QueryBuilders\UserListQueryBuilder
+	 */
+	public function includeUsers($userIds) {
+		$this->includeUsers = $userIds;
+		return $this;
+	}
+
+	/**
+	 * Exclude selected users
+	 *
+	 * @param $sectionId int
+	 *
+	 * @return \PKP\Services\QueryBuilders\UserListQueryBuilder
+	 */
+	public function excludeUsers($userIds) {
+		$this->excludeUsers = $userIds;
+		return $this;
+	}	
 
 	/**
 	 * Set query search phrase
@@ -285,6 +315,11 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 			$q->whereIn('ug.role_id', $this->roleIds);
 		}
 
+		// Exclude users
+		if (!is_null($this->excludeUsers)) {
+			$excludeUsers = $this->excludeUsers;
+			$q->whereNotIn('u.user_id', $excludeUsers);
+		}
 		// status
 		if (!is_null($this->status)) {
 			if ($this->status === 'disabled') {
@@ -421,6 +456,12 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 			if (!empty($this->averageCompletion)) {
 				$q->havingRaw('AVG(' . $dateDiffClause . ') <= ' . (int) $this->averageCompletion);
 			}
+		}
+
+		// Include users
+		if (!is_null($this->includeUsers)) {
+			$includeUsers = $this->includeUsers;
+			$q->orWhereIn('u.user_id', $includeUsers);
 		}
 
 		// Add app-specific query statements

@@ -34,8 +34,7 @@ class TemporaryFileDAO extends DAO {
 
 		$returner = null;
 		if (isset($result) && $result->RecordCount() != 0) {
-		    $tempReturner = $this->_returnTemporaryFileFromRow($result->GetRowAssoc(false));
-			$returner =& $tempReturner;
+			$returner = $this->_returnTemporaryFileFromRow($result->GetRowAssoc(false));
 		}
 
 		$result->Close();

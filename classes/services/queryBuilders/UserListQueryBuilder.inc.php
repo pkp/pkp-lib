@@ -277,8 +277,10 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 		$q = Capsule::table('users as u')
 					->leftJoin('user_user_groups as uug', 'uug.user_id', '=', 'u.user_id')
 					->leftJoin('user_groups as ug', 'ug.user_group_id', '=', 'uug.user_group_id')
-					->where('ug.context_id','=', $this->contextId)
-					->orderBy($this->orderColumn, $this->orderDirection);
+					->where('ug.context_id','=', $this->contextId);
+		if (empty($this->countOnly)) {
+			$q->orderBy($this->orderColumn, $this->orderDirection);
+		}
 
 		$isSqlServer = Config::getVar('database', 'ms_sql');
 		if ($isSqlServer) {

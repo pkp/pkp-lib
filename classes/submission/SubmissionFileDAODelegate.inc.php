@@ -70,14 +70,15 @@ class SubmissionFileDAODelegate extends DAO {
 
 		$isSqlServer = Config::getVar('database', 'ms_sql');
 		$sql = sprintf(($fileId && $isSqlServer ? 'SET IDENTITY_INSERT submission_files ON;' : '') .
-					   'INSERT INTO submission_files (' .
-					   ($fileId ? 'file_id, ' : '') .
-					   'revision, submission_id, source_file_id, source_revision, file_type, file_size, original_file_name, file_stage, date_uploaded, date_modified, viewable, uploader_user_id, assoc_type, assoc_id, genre_id, direct_sales_price, sales_type) VALUES (' .
-					   ($fileId ? '?, ' : '') .
-					   '?, ?, ?, ?, ?, ?, ?, ?, %s, %s, ?, ?, ?, ?, ?, ?, ?)' .
-					   ($fileId && $isSqlServer ? ';SET IDENTITY_INSERT submission_files OFF;' : ''),
-					   $this->datetimeToDB($submissionFile->getDateUploaded()), $this->datetimeToDB($submissionFile->getDateModified()));
+						'INSERT INTO submission_files (' .
+						($fileId ? 'file_id, ' : '') .
+						'revision, submission_id, source_file_id, source_revision, file_type, file_size, original_file_name, file_stage, date_uploaded, date_modified, viewable, uploader_user_id, assoc_type, assoc_id, genre_id, direct_sales_price, sales_type) VALUES (' .
+						($fileId ? '?, ' : '') .
+						'?, ?, ?, ?, ?, ?, ?, ?, %s, %s, ?, ?, ?, ?, ?, ?, ?)' .
+						($fileId && $isSqlServer ? ';SET IDENTITY_INSERT submission_files OFF;' : ''),
+						$this->datetimeToDB($submissionFile->getDateUploaded()), $this->datetimeToDB($submissionFile->getDateModified()));
 
+		// Correct the identity insert errors of MS SQL
 		$this->update($sql, $params);
 
 		if (!$fileId) {
@@ -137,6 +138,7 @@ class SubmissionFileDAODelegate extends DAO {
 	 * @return boolean
 	 */
 	function updateObject($submissionFile, $previousFile) {
+		// MS SQL doesn't accept the UPDATE on a primary key IDENTITY
 		$isSqlServer = Config::getVar('database', 'ms_sql');
 
 		$params = array((int)$submissionFile->getRevision(),

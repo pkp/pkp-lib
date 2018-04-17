@@ -48,8 +48,7 @@ class TemporaryFileManager extends PrivateFileManager {
 	 * @param $fileId int
 	 */
 	function deleteFile($fileId, $userId) {
-	    $file = $this->getFile($fileId, $userId);
-		$temporaryFile =& $file;
+		$temporaryFile = $this->getFile($fileId, $userId);
 
 		parent::deleteFile($this->getBasePath() . $temporaryFile->getServerFileName());
 
@@ -64,8 +63,7 @@ class TemporaryFileManager extends PrivateFileManager {
 	 * @return boolean
 	 */
 	function downloadFile($fileId, $userId, $inline = false) {
-	    $file = $this->getFile($fileId, $userId);
-		$temporaryFile =& $file;
+		$temporaryFile = $this->getFile($fileId, $userId);
 		if (isset($temporaryFile)) {
 			$filePath = $this->getBasePath() . $temporaryFile->getServerFileName();
 			return parent::downloadFile($filePath, null, $inline);

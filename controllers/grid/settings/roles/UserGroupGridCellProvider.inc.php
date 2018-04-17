@@ -36,7 +36,7 @@ class UserGroupGridCellProvider extends GridCellProvider {
 			case 'name':
 				return array('label' => $userGroup->getLocalizedName());
 			case 'roleId':
-			    $roleNames = Application::getRoleNames(false, array($userGroup->getRoleId()));
+				$roleNames = Application::getRoleNames(false, array($userGroup->getRoleId()));
 				return array('label' => __(array_shift($roleNames)));
 			case in_array($columnId, $workflowStages):
 				// Set the state of the select element that will

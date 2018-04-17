@@ -56,8 +56,9 @@ class ReviewerAction {
 			if ($emailText) $email->setBody($emailText);
 			$email->send($request);
 
+			$currentDate = Core::getCurrentDate();
 			$reviewAssignment->setDeclined($decline);
-			$reviewAssignment->setDateConfirmed(Core::getCurrentDate());
+			$reviewAssignment->setDateConfirmed($currentDate);
 			$reviewAssignment->stampModified();
 			$reviewAssignmentDao->updateObject($reviewAssignment);
 

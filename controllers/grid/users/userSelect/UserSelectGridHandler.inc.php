@@ -202,7 +202,7 @@ class UserSelectGridHandler extends GridHandler {
 		if (isset($filter['filterUserGroupId']) && $filter['filterUserGroupId']) {
 			$filterUserGroupId = $filter['filterUserGroupId'];
 		} else {
-		    $keys = array_keys($this->_userGroupOptions);
+			$keys = array_keys($this->_userGroupOptions);
 			$filterUserGroupId = reset($keys);
 		}
 		if (isset($filter['name']) && $filter['name']) {

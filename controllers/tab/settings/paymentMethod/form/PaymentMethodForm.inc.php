@@ -107,7 +107,7 @@ class PaymentMethodForm extends ContextSettingsForm {
 	 * @copydoc Form::validate
 	 */
 	function validate() {
-	    $settingsForm = $this->settingsForm;
+		$settingsForm = $this->settingsForm;
 		if ($settingsForm && !$settingsForm->validate()) {
 			foreach ($this->settingsForm->getErrorsArray() as $field => $message) {
 				$this->addError($field, $message);

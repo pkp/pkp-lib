@@ -180,7 +180,6 @@ class ReviewerGridRow extends GridRow {
 					)
 				);
 			}
-
 		}
 	}
 }

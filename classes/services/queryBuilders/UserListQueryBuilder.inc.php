@@ -162,7 +162,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	/**
 	 * Include selected users
 	 *
-	 * @param $sectionId int
+	 * @param $userIds array
 	 *
 	 * @return \PKP\Services\QueryBuilders\UserListQueryBuilder
 	 */
@@ -174,7 +174,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	/**
 	 * Exclude selected users
 	 *
-	 * @param $sectionId int
+	 * @param $userIds array
 	 *
 	 * @return \PKP\Services\QueryBuilders\UserListQueryBuilder
 	 */

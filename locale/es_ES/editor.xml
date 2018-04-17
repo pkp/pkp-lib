@@ -101,7 +101,7 @@
 	<message key="editor.review.reviewDetails">Revisar detalles</message>
 	<message key="editor.review.noReviewFilesUploaded">No hay ningún archivo subido</message>
 	<message key="editor.review.noReviewFilesUploaded.details">No ha subido ningún archivo de revisión.</message>
-	<message key="editor.review.emailReviewer">Revisor de correo electrónico</message>
+	<message key="editor.review.emailReviewer">Correo electrónico al revisor</message>
 	<message key="editor.article.confirmChangeReviewForm">Atención: Cambiar el formulario de revisión afectará a cualquier comentario hecho por los revisores que hayan utilizado este formulario. ¿Está seguro de que desea continuar?</message>
 	<message key="editor.submission.noReviewerFilesSelected">No hay ningún archivo seleccionado</message>
 	<message key="editor.submission.noReviewerFilesSelected.details">No ha seleccionado ningún archivo para enviar al revisor.</message>

@@ -16,130 +16,91 @@
 import('lib.pkp.classes.plugins.BlockPlugin');
 
 class UsageStatsOptoutBlockPlugin extends BlockPlugin {
-
-	/** @var string */
-	var $_parentPluginName;
-
+	/** @var UsageStatsPlugin */
+	protected $_usageStatsPlugin;
 
 	/**
 	 * Constructor
-	 * @param $parentPluginName string
+	 * @param $usageStatsPlugin UsageStatsPlugin
 	 */
-	function __construct($parentPluginName) {
-		$this->_parentPluginName = $parentPluginName;
+	function __construct($usageStatsPlugin) {
+		$this->_usageStatsPlugin = $usageStatsPlugin;
 		parent::__construct();
 	}
 
-
-	//
-	// Implement template methods from PKPPlugin.
-	//
 	/**
-	 * @see PKPPlugin::getHideManagement()
+	 * @copydoc PKPPlugin::getHideManagement()
 	 */
 	function getHideManagement() {
 		return true;
 	}
 
 	/**
-	 * @see PKPPlugin::getName()
+	 * @copydoc PKPPlugin::getName()
 	 */
 	function getName() {
 		return 'UsageStatsOptoutBlockPlugin';
 	}
 
 	/**
-	 * @see PKPPlugin::getDisplayName()
+	 * @copydoc PKPPlugin::getDisplayName()
 	 */
 	function getDisplayName() {
 		return __('plugins.reports.usageStats.optout.displayName');
 	}
 
 	/**
-	 * @see PKPPlugin::getDescription()
+	 * @copydoc PKPPlugin::getDescription()
 	 */
 	function getDescription() {
 		return __('plugins.generic.usageStats.optout.description');
 	}
 
 	/**
-	* @copydoc PKPPlugin::isSitePlugin()
-	*/
+	 * @copydoc PKPPlugin::isSitePlugin()
+	 */
 	function isSitePlugin() {
 		return false;
 	}
 
 	/**
-	 * @copydoc PKPPlugin::getTemplatePath()
+	 * @copydoc Plugin::getPluginPath()
 	 */
-	function getTemplatePath($inCore = false) {
-		$plugin =& $this->_getPlugin();
-		return $plugin->getTemplatePath(true); // FIXME Should we be forcing $inCore?
+	public function getPluginPath() {
+		return $this->_usageStatsPlugin->getPluginPath();
 	}
 
 	/**
-	 * @copydoc BlockPlugin::getSeq()
-	 */
-	function getSeq($contextId = null) {
-		// Identify the position of the faceting block.
-		$seq = parent::getSeq($contextId);
-
-		// If nothing has been configured then show the privacy
-		// block after all other blocks in the context.
-		if (!is_numeric($seq)) $seq = 99;
-
-		return $seq;
-	}
-
-
-	//
-	// Implement template methods from LazyLoadPlugin
-	//
-	/**
-	 * @see LazyLoadPlugin::getEnabled()
+	 * @copydoc BlockPlugin::getEnabled()
 	 */
 	function getEnabled($contextId = null) {
-		$plugin =& $this->_getPlugin();
-		return $plugin->getEnabled($contextId);
+		return $this->_usageStatsPlugin->getEnabled($contextId);
 	}
 
-
-	//
-	// Implement template methods from BlockPlugin
-	//
 	/**
-	 * @see BlockPlugin::getBlockContext()
+	 * @copydoc BlockPlugin::getContents()
+	 */
+	function getContents($templateMgr, $request = null) {
+		return $templateMgr->fetch($this->getTemplateResourceName(true) . ':templates/' . $this->getBlockTemplateFilename());
+	}
+
+	/**
+	 * @copydoc BlockPlugin::getBlockContext()
 	 */
 	function getBlockContext() {
-		$blockContext = parent::getBlockContext();
-
-		// Place the block on the right by default.
-		if (!in_array($blockContext, $this->getSupportedContexts())) {
-			$blockContext = BLOCK_CONTEXT_SIDEBAR;
-		}
-
-		return $blockContext;
+		// if enabled, this block has to be in the sidebar
+		return BLOCK_CONTEXT_SIDEBAR;
 	}
 
 	/**
-	 * @see BlockPlugin::getBlockTemplateFilename()
+	 * copydoc BlockPlugin::getBlockTemplateFilename()
 	 */
 	function getBlockTemplateFilename() {
 		// Return the opt-out template.
 		return 'optoutBlock.tpl';
 	}
 
-	//
-	// Private helper methods
-	//
-	/**
-	 * Get the plugin object
-	 * @return OasPlugin
-	 */
-	function &_getPlugin() {
-		$plugin =& PluginRegistry::getPlugin('generic', $this->_parentPluginName);
-		return $plugin;
-	}
+
 }
 
 ?>

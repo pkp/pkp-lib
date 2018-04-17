@@ -66,15 +66,6 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 		HookRegistry::register('AcronPlugin::parseCronTab', array($this, 'callbackParseCronTab'));
 
 		if ($this->getEnabled($mainContextId) && $success) {
-			// Register callbacks.
-			HookRegistry::register('PluginRegistry::loadCategory', array($this, 'callbackLoadCategory'));
-			HookRegistry::register('LoadHandler', array($this, 'callbackLoadHandler'));
-
-			// If the plugin will provide the access logs,
-			// register to the usage event hook provider.
-			if ($this->getSetting(CONTEXT_ID_NONE, 'createLogFiles')) {
-				HookRegistry::register('UsageEventPlugin::getUsageEvent', array(&$this, 'logUsageEvent'));
-			}
 
 			$this->_dataPrivacyOn = $this->getSetting(CONTEXT_ID_NONE, 'dataPrivacyOption');
 			$this->_saltpath = $this->getSetting(CONTEXT_ID_NONE, 'saltFilepath');
@@ -86,6 +77,24 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 			if ($this->_optedOut) {
 				// Renew the Opt-Out cookie if present.
 				$request->setCookieVar('usageStats-opt-out', true, time() + 60*60*24*365);
+			}
+
+			if ($this->_dataPrivacyOn) {
+				$this->import('UsageStatsOptoutBlockPlugin');
+				$blockPlugin = new UsageStatsOptoutBlockPlugin($this);
+				PluginRegistry::register('blocks', $blockPlugin, $this->getPluginPath());
+			}
+
+			$reportPlugin = $this->getReportPlugin();
+			PluginRegistry::register('reports', $reportPlugin, $this->getPluginPath());
+
+			// Register callbacks.
+			HookRegistry::register('LoadHandler', array($this, 'callbackLoadHandler'));
+
+			// If the plugin will provide the access logs,
+			// register to the usage event hook provider.
+			if ($this->getSetting(CONTEXT_ID_NONE, 'createLogFiles')) {
+				HookRegistry::register('UsageEventPlugin::getUsageEvent', array(&$this, 'logUsageEvent'));
 			}
 
 			$this->_registerTemplateResource(true);
@@ -204,32 +213,6 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 	//
 	// Hook implementations.
 	//
-	/**
-	 * @see PluginRegistry::loadCategory()
-	 */
-	function callbackLoadCategory($hookName, $args) {
-		// Instantiate report plugin.
-		$plugin = null;
-		$category = $args[0];
-		if ($category == 'reports') {
-			$plugin = $this->getReportPlugin();
-		}
-		if ($category == 'blocks' && $this->_dataPrivacyOn) {
-			$this->import('UsageStatsOptoutBlockPlugin');
-			$plugin = new UsageStatsOptoutBlockPlugin($this->getName());
-		}
-
-		// Register report plugin (by reference).
-		if ($plugin) {
-			$seq = $plugin->getSeq();
-			$plugins =& $args[1];
-			if (!isset($plugins[$seq])) $plugins[$seq] = array();
-			$plugins[$seq][$this->getPluginPath()] = $plugin;
-		}
-
-		return false;
-	}
-
 	/**
  	 * @see PKPPageRouter::route()
 	 */

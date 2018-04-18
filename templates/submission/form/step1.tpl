@@ -33,7 +33,7 @@
 	<!-- If user has existing roles, show available roles or automatically select single role -->	
 	{else}
 		{if count($userGroupOptions) > 1}
-				{fbvFormSection label="submission.submit.availableUserGroups" list=true required=true}
+			{fbvFormSection label="submission.submit.availableUserGroups" list=true required=true}
 				{if $managerGroups}
 					{translate key='submission.submit.userGroupDescriptionManagers' managerGroups=$managerGroups}
 				{else}

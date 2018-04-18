@@ -38,7 +38,7 @@ class EmailTemplatesForm extends ContextSettingsForm {
 	/**
 	 * @copydoc ContextSettingsForm::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $params = null) {
 		$context = $request->getContext();
 		$dispatcher = $request->getDispatcher();
 		return parent::fetch($request, array(

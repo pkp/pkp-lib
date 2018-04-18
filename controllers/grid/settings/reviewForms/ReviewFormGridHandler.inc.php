@@ -155,11 +155,9 @@ class ReviewFormGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see GridHandler::loadData()
-	 * @param $request PKPRequest
-	 * @return array Grid data.
+	 * @copydoc GridHandler::loadData()
 	 */
-	protected function loadData($request) {
+	protected function loadData($request, $filter = null) {
 		// Get all review forms.
 		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
 		$context = $request->getContext();

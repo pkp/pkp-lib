@@ -84,7 +84,7 @@ class PKPAppearanceForm extends ContextSettingsForm {
 	/**
 	 * @copydoc ContextSettingsForm::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $params = null) {
 		// Get all upload form image link actions.
 		$uploadImageLinkActions = array();
 		foreach ($this->getImagesSettingsName() as $settingName => $altText) {

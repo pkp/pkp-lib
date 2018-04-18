@@ -49,7 +49,7 @@ class AnnouncementSettingsForm extends ContextSettingsForm {
 	/**
 	 * @copydoc ContextSettingsForm::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $params = null) {
 		for($x = 1; $x < 11; $x++) {
 			$numAnnouncementsHomepageOptions[$x] = $x;
 		}

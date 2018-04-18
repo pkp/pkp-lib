@@ -53,7 +53,7 @@ class PaymentMethodForm extends ContextSettingsForm {
 	/**
 	 * @copydoc ContextSettingsForm::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $params = null) {
 		$templateMgr = TemplateManager::getManager($request);
 		$currencyDao = DAORegistry::getDAO('CurrencyDAO');
 		$currencies = array();
@@ -61,7 +61,7 @@ class PaymentMethodForm extends ContextSettingsForm {
 			$currencies[$currency->getCodeAlpha()] = $currency->getName();
 		}
 		$templateMgr->assign('currencies', $currencies);
-		return parent::fetch($request);
+		return parent::fetch($request, $params);
 	}
 
 	/**
@@ -106,13 +106,13 @@ class PaymentMethodForm extends ContextSettingsForm {
 	 * Validate the form.
 	 * @copydoc Form::validate
 	 */
-	function validate() {
+	function validate($callHooks = true) {
 		if (!$this->settingsForm->validate()) {
 			foreach ($this->settingsForm->getErrorsArray() as $field => $message) {
 				$this->addError($field, $message);
 			}
 		}
-		return parent::validate();
+		return parent::validate($callHooks);
 	}
 }
 

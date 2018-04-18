@@ -823,6 +823,35 @@ abstract class Plugin {
 	function getJavascriptNameSpace() {
 		return '$.pkp.plugins.' . strtolower(get_class($this));
 	}
+
+	/**
+	 * Register the help index file
+	 *
+	 * @param indexFile
+	 */
+	function registerHelp($index = "index.md") {
+		$this->helpIndex = $index;
+		HookRegistry::register ('Help::Plugins', array($this, 'pluginHelp'));
+	}
+
+	/**
+	 * Callback to return the help index
+	 *
+	 * @param $hookName string
+	 * @param $args array
+	 *
+	 * @return boolean
+	 */
+	function pluginHelp($hookName, $args) {
+		$pluginHelpChapters =& $args[0];
+		$pluginHelpChapters[] = array(
+			'label' => $this->getDisplayName(),
+			'file' => $this->helpIndex,
+			'path' => $this->getPluginPath() . DIRECTORY_SEPARATOR . 'help'
+		);
+
+		return false;
+	}
 }
 
 ?>

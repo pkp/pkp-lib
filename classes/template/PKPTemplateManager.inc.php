@@ -988,14 +988,29 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
-	 * Smarty usage: {help file="someFile.md" section="someSection" textKey="some.text.key"}
+	 * Smarty usage: {help file="someFile.md" plugin="pluginPath" section="someSection" textKey="some.text.key"}
 	 *
 	 * Custom Smarty function for displaying a context-sensitive help link.
 	 * @param $smarty Smarty
 	 * @return string the HTML for the generated link action
 	 */
 	function smartyHelp($params, $smarty) {
-		assert(isset($params['file']));
+		$plugin = (isset($params['plugin'])) ? $params['plugin'] : null;
+
+		if ($plugin != null) {
+			$file = join(DIRECTORY_SEPARATOR, array("plugins", $plugin, "help", AppLocale::getIso1FromLocale(AppLocale::getLocale()), ""));
+
+			// When no file name was passed fall back to the default index.md
+			if (!isset($params['file'])) {
+				$file .= "index.md";
+			} else{
+				$file .= $params['file'];
+			}
+		} else {
+			$file = $params['file'];
+		}
+
+		assert(isset($file));
 
 		$params = array_merge(
 			array(
@@ -1009,7 +1024,7 @@ class PKPTemplateManager extends Smarty {
 		);
 
 		$this->assign(array(
-			'helpFile' => $params['file'],
+			'helpFile' => $file,
 			'helpSection' => $params['section'],
 			'helpTextKey' => $params['textKey'],
 			'helpText' => $params['text'],

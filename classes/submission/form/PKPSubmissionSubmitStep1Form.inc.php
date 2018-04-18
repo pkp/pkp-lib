@@ -102,6 +102,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		// Set default group to default author group
 		$defaultGroup = $userGroupDao->getDefaultByRoleId($this->context->getId(), ROLE_ID_AUTHOR);
 		$noExistingRoles = false;
+		$managerGroups = false;
 
 		// If the user has manager roles, add manager roles and available author roles to selection
 		if (!$managerUserGroupAssignments->wasEmpty()) {
@@ -109,6 +110,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 				$managerUserGroup = $userGroupDao->getById($managerUserGroupAssignment->getUserGroupId());
 				$userGroupNames[$managerUserGroup->getId()] = $managerUserGroup->getLocalizedName();
 			}
+			$managerGroups = join(__('common.listSeparator'), $userGroupNames);
 			$userGroupNames = array_replace($userGroupNames, $availableUserGroupNames); 
 
 			// Set default group to default manager group
@@ -127,6 +129,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			$noExistingRoles = true;
 		}
 
+		$templateMgr->assign('managerGroups', $managerGroups);
 		$templateMgr->assign('userGroupOptions', $userGroupNames);
 		$templateMgr->assign('defaultGroup', $defaultGroup);
 		$templateMgr->assign('noExistingRoles', $noExistingRoles);

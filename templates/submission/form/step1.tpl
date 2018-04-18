@@ -33,7 +33,12 @@
 	<!-- If user has existing roles, show available roles or automatically select single role -->	
 	{else}
 		{if count($userGroupOptions) > 1}
-			{fbvFormSection label="submission.submit.userGroup" description="submission.submit.userGroupDescription" list=true required=true}
+				{fbvFormSection label="submission.submit.availableUserGroups" list=true required=true}
+				{if $managerGroups}
+					{translate key='submission.submit.userGroupDescriptionManagers' managerGroups=$managerGroups}
+				{else}
+					{translate key='submission.submit.userGroupDescription'}
+				{/if}
 				{foreach from=$userGroupOptions key="userGroupId" item="userGroupName"}
 					{if $defaultGroup->getId() == $userGroupId}{assign var="checked" value=true}{else}{assign var="checked" value=false}{/if}
 					{fbvElement type="radio" id="userGroup"|concat:$userGroupId name="userGroupId" value=$userGroupId checked=$checked label=$userGroupName translate=false}

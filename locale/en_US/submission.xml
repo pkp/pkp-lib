@@ -18,6 +18,7 @@
 	<message key="submission.confirm.message">Your submission has been uploaded and is ready to be sent. You may go back to review and adjust any of the information you have entered before continuing. When you are ready, click "Finish Submission".</message>
 	<message key="submission.submit.availableUserGroups">Select a role</message>
 	<message key="submission.submit.availableUserGroupsDescription">Your account does not currently have a role permitting new submissions, such as Author. Please select the role you wish to be enrolled as.</message>
+	<message key="submission.submit.userGroupDescriptionManagers">Submit in any of the following roles if you would like to publish this submission yourself without assistance from another editor: {$managerGroups}</message>
 	<message key="submission.submit.submissionChecklist">Submission Requirements</message>
 	<message key="submission.submit.submissionChecklistDescription">You must read and acknowledge that you've completed the requirements below before proceeding.</message>
 	<message key="submission.submit.submissionComplete">Submission complete</message>

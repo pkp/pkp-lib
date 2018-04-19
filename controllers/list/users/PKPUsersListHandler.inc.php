@@ -63,6 +63,24 @@ class PKPUsersListHandler extends ListHandler {
 
 		$config['getParams'] = $this->_getParams;
 
+		$config['filters'] = array(
+			'status' => array(
+				'heading' => __('common.status'),
+				'filters' => array(
+					array(
+						'param' => 'status',
+						'val' => 'active',
+						'title' => __('common.active'),
+					),
+					array(
+						'param' => 'status',
+						'val' => 'disabled',
+						'title' => __('common.disabled'),
+					),
+				),
+			),
+		);
+
 		$config['addUserUrl'] = $request->getDispatcher()->url(
 			$request,
 			ROUTE_COMPONENT,
@@ -166,6 +184,8 @@ class PKPUsersListHandler extends ListHandler {
 			'viewLess' => __('list.viewLess'),
 			'addUser' => __('grid.user.add'),
 			'disabled' => __('common.disabled'),
+			'filter' => __('common.filter'),
+			'filterRemove' => __('common.filterRemove'),
 			'orcid' => __('plugins.generic.orcidProfile.fieldset'),
 			'loginAs' => __('grid.action.logInAs'),
 			'logoutAs' => __('user.logOutAs'),

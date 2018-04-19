@@ -12,6 +12,7 @@
  * @brief Instantiates and manages a UI component to list users.
  */
 import('lib.pkp.controllers.list.ListHandler');
+import('lib.pkp.classes.db.DAORegistry');
 import('classes.user.User');
 import('classes.core.ServicesContainer');
 
@@ -46,6 +47,8 @@ class PKPUsersListHandler extends ListHandler {
 	public function getConfig() {
 
 		$request = Application::getRequest();
+		$context = $request->getContext();
+		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 
 		$config = array();
 
@@ -63,6 +66,16 @@ class PKPUsersListHandler extends ListHandler {
 
 		$config['getParams'] = $this->_getParams;
 
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupsResult = $userGroupDao->getByContextId($contextId);
+		$userGroups = array();
+		while ($userGroup = $userGroupsResult->next()) {
+			$userGroups[] = array(
+				'param' => 'userGroupIds',
+				'val' => (int) $userGroup->getId(),
+				'title' => $userGroup->getLocalizedName(),
+			);
+		}
 		$config['filters'] = array(
 			'status' => array(
 				'heading' => __('common.status'),
@@ -78,6 +91,10 @@ class PKPUsersListHandler extends ListHandler {
 						'title' => __('common.disabled'),
 					),
 				),
+			),
+			'userGroups' => array(
+				'heading' => __('user.roles'),
+				'filters' => $userGroups,
 			),
 		);
 

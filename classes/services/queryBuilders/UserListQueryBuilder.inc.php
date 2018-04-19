@@ -36,6 +36,9 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	/** @var array list of role ids */
 	protected $roleIds = null;
 
+	/** @var array list of user group ids */
+	protected $userGroupIds = null;
+
 	/** @var int submission ID */
 	protected $assignedToSubmissionId = null;
 
@@ -123,6 +126,21 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 			$roleIds = array($roleIds);
 		}
 		$this->roleIds = $roleIds;
+		return $this;
+	}
+
+	/**
+	 * Set roles filter
+	 *
+	 * @param $userGroupIds int|array
+	 *
+	 * @return \PKP\Services\QueryBuilders\UserListQueryBuilder
+	 */
+	public function filterByUserGroupIds($userGroupIds) {
+		if (!is_null($userGroupIds) && !is_array($userGroupIds)) {
+			$userGroupIds = array($userGroupIds);
+		}
+		$this->userGroupIds = $userGroupIds;
 		return $this;
 	}
 
@@ -283,6 +301,11 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 		// roles
 		if (!is_null($this->roleIds)) {
 			$q->whereIn('ug.role_id', $this->roleIds);
+		}
+
+		// user groups
+		if (!is_null($this->userGroupIds)) {
+			$q->whereIn('ug.user_group_id', $this->userGroupIds);
 		}
 
 		// status

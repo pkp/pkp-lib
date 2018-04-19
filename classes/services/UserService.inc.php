@@ -89,6 +89,7 @@ class UserService extends PKPBaseEntityPropertyService {
 			'orderBy' => 'id',
 			'orderDirection' => 'DESC',
 			'roleIds' => null,
+			'userGroupIds' => null,
 			'assignedToSubmission' => null,
 			'assignedToSubmissionStage' => null,
 			'assignedToSection' => null,
@@ -104,6 +105,7 @@ class UserService extends PKPBaseEntityPropertyService {
 		$userListQB
 			->orderBy($args['orderBy'], $args['orderDirection'])
 			->filterByRoleIds($args['roleIds'])
+			->filterByUserGroupIds($args['userGroupIds'])
 			->assignedToSubmission($args['assignedToSubmission'], $args['assignedToSubmissionStage'])
 			->assignedToSection($args['assignedToSection'])
 			->filterByStatus($args['status'])

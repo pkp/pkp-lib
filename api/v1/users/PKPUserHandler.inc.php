@@ -197,8 +197,9 @@ class PKPUserHandler extends APIHandler {
 					}
 					break;
 
-				// Always convert roleIds to array
+				// Always convert roleIds and userGroupIds to array
 				case 'roleIds':
+				case 'userGroupIds':
 					if (is_string($val) && strpos($val, ',') > -1) {
 						$val = explode(',', $val);
 					} elseif (!is_array($val)) {

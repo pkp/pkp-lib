@@ -59,8 +59,8 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 	/**
 	 * @copydoc PKPHandler::initialize()
 	 */
-	public function initialize($request) {
-		parent::initialize($request);
+	public function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 
 		AppLocale::requireComponents(
 			LOCALE_COMPONENT_PKP_ADMIN,

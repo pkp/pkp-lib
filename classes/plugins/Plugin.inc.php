@@ -337,20 +337,17 @@ abstract class Plugin {
 	 * @return string|null
 	 */
 	function getTemplatePath($inCore = false) {
-		$basePath = Core::getBaseDir();
-		if ($inCore) {
-			$basePath .= DIRECTORY_SEPARATOR . PKP_LIB_PATH;
-		}
-		$templatePath = $basePath . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR . 'templates';
+		$templatePath = ($inCore?PKP_LIB_PATH . DIRECTORY_SEPARATOR:'') . $this->getPluginPath() . DIRECTORY_SEPARATOR . 'templates';
 		if (is_dir($templatePath)) return $templatePath;
 		return null;
 	}
 
 	/**
 	 * Register this plugin's templates as a template resource
+	 * @param $inCore boolean True iff this is a core resource.
 	 */
 	protected function _registerTemplateResource($inCore = false) {
-		if ($templatePath = $this->getTemplatePath()) {
+		if ($templatePath = $this->getTemplatePath($inCore)) {
 			$templateMgr = TemplateManager::getManager();
 			$pluginTemplateResource = new PKPTemplateResource($templatePath);
 			$templateMgr->registerResource($this->getTemplateResource(null, $inCore), $pluginTemplateResource);
@@ -361,7 +358,7 @@ abstract class Plugin {
 	 * Call this method when an enabled plugin is registered in order to override
 	 * template files in other plugins. Any plugin which calls this method can
 	 * override template files by adding their own templates to:
-	 * <overridingPlugin>/templates/plugins/<category>/<originalPlugin>/<path>.tpl
+	 * <overridingPlugin>/templates/plugins/<category>/<originalPlugin>/templates/<path>.tpl
 	 *
 	 * @param $hookName string TemplateResource::getFilename
 	 * @param $args array [
@@ -373,12 +370,11 @@ abstract class Plugin {
 	public function _overridePluginTemplates($hookName, $args) {
 		$filePath =& $args[0];
 		$template = $args[1];
-
 		if (strpos($filePath, PLUGIN_TEMPLATE_RESOURCE_PREFIX) !== 0) {
 			return false;
 		}
 
-		$checkPath = sprintf('%s/templates/%s', $this->getPluginPath(), $filePath);
+		$checkPath = sprintf('%s/%s', $this->getPluginPath(), $filePath);
 		if (file_exists($checkPath)) {
 			$filePath = $checkPath;
 		}

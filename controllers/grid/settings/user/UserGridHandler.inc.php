@@ -19,6 +19,8 @@ import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 import('lib.pkp.controllers.grid.settings.user.UserGridRow');
 import('lib.pkp.controllers.grid.settings.user.form.UserDetailsForm');
 
+import('classes.core.ServicesContainer');
+
 class UserGridHandler extends GridHandler {
 	/** integer user id for the user to remove */
 	var $_oldUserId;
@@ -317,7 +319,10 @@ class UserGridHandler extends GridHandler {
 				import('lib.pkp.controllers.grid.settings.user.form.UserRoleForm');
 				$userRoleForm = new UserRoleForm($user->getId(), $user->getFullName());
 				$userRoleForm->initData($args, $request);
-				return new JSONMessage(true, $userRoleForm->display($args, $request));
+				$json = new JSONMessage(true, $userRoleForm->display($args, $request));
+				$userService = ServicesContainer::instance()->get('user');
+				$json->setGlobalEvent('userAdded', $userService->getSummaryProperties($user, array('request' => $request)));
+				return $json;
 			} else {
 
 				// Successful edit of an existing user.
@@ -326,7 +331,11 @@ class UserGridHandler extends GridHandler {
 				$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.editedUser')));
 
 				// Prepare the grid row data.
-				return DAO::getDataChangedEvent($userId);
+				$json = DAO::getDataChangedEvent($userId);
+				$userService = ServicesContainer::instance()->get('user');
+				$updatedUser = $userService->getUser((int) $userId);
+				$json->setGlobalEvent('userUpdated', $userService->getSummaryProperties($updatedUser, array('request' => $request)));
+				return $json;
 			}
 		} else {
 			return new JSONMessage(false);
@@ -359,7 +368,11 @@ class UserGridHandler extends GridHandler {
 			$userRoleForm->execute($args, $request);
 
 			// Successfully managed newly created user's roles.
-			return DAO::getDataChangedEvent($userId);
+			$json = DAO::getDataChangedEvent($userId);
+			$userService = ServicesContainer::instance()->get('user');
+			$updatedUser = $userService->getUser((int) $userId);
+			$json->setGlobalEvent('userUpdated', $userService->getSummaryProperties($updatedUser, array('request' => $request)));
+			return $json;
 		} else {
 			return new JSONMessage(false);
 		}
@@ -426,8 +439,11 @@ class UserGridHandler extends GridHandler {
 
 			// Successful enable/disable of an existing user.
 			// Update grid data.
-			return DAO::getDataChangedEvent($userId);
-
+			$json = DAO::getDataChangedEvent($userId);
+			$userService = ServicesContainer::instance()->get('user');
+			$updatedUser = $userService->getUser((int) $userId);
+			$json->setGlobalEvent('userUpdated', $userService->getSummaryProperties($updatedUser, array('request' => $request)));
+			return $json;
 		} else {
 			return new JSONMessage(false, $userForm->display($args, $request));
 		}
@@ -461,7 +477,11 @@ class UserGridHandler extends GridHandler {
 			return new JSONMessage(false, __('grid.user.userNoRoles'));
 		} else {
 			$userGroupDao->deleteAssignmentsByContextId($context->getId(), $userId);
-			return DAO::getDataChangedEvent($userId);
+			$json = DAO::getDataChangedEvent($userId);
+			$userService = ServicesContainer::instance()->get('user');
+			$updatedUser = $userService->getUser((int) $userId);
+			$json->setGlobalEvent('userUpdated', $userService->getSummaryProperties($updatedUser, array('request' => $request)));
+			return $json;
 		}
 	}
 

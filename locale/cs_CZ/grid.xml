@@ -86,7 +86,6 @@
 	<message key="grid.action.deleteSection">Smazat sekci</message>
 	<message key="grid.action.approveCopyedit">Potvrďte tuto redakční úpravu souboru, aby mohl být odeslán do další fáze</message>
 	<message key="grid.action.editorialHistory">Historie úprav</message>
-	<message key="grid.action.remove">Odebrat</message>
 	<message key="grid.action.approve">Potvrdit</message>
 	<message key="grid.action.disapprove">Odebrat potvrzení</message>
 	<message key="grid.action.setApproval">Nastavit potvrzení</message>

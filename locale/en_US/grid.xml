@@ -39,7 +39,6 @@
 	<message key="grid.action.export">Export</message>
 	<message key="grid.action.deleteSection">Delete Section</message>
 	<message key="grid.action.editorialHistory">Editorial History</message>
-	<message key="grid.action.remove">Remove</message>
 	<message key="grid.action.edit">Edit</message>
 	<message key="grid.action.approve">Approve</message>
 	<message key="grid.action.disapprove">Disapprove</message>
@@ -225,7 +224,7 @@
 	<message key="grid.user.addRole">Add Role</message>
 	<message key="grid.user.selectUser">Select User</message>
 	<message key="grid.user.pleaseSelectUser">Please select a user</message>
-	<message key="grid.user.confirmLogInAs">Log in as this user? All actions you perform will be attributed to this user.</message>
+	<message key="grid.user.confirmLogInAs">You can login as {$userName}. While logged in, all actions you perform will be attributed to this user.</message>
 	<message key="grid.user.mergeUsers">Merge Users</message>
 	<message key="grid.user.mergeUsers.mergeUser">Merge User</message>
 	<message key="grid.user.mergeUsers.mergeIntoUser">Merge into this User</message>

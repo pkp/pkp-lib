@@ -64,7 +64,7 @@ class StageParticipantGridRow extends GridRow {
 						$router->url($request, null, null, 'deleteParticipant', null, $this->getRequestArgs()),
 						'modal_delete'
 						),
-					__('grid.action.remove'),
+					__('common.remove'),
 					'delete'
 				)
 			);

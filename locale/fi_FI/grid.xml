@@ -38,7 +38,6 @@
 	<message key="grid.action.export">Vie</message>
 	<message key="grid.action.deleteSection">Poista osasto</message>
 	<message key="grid.action.editorialHistory">Toimituksellinen historia</message>
-	<message key="grid.action.remove">Poista</message>
 	<message key="grid.action.edit">Muokkaa</message>
 	<message key="grid.action.approve">Hyväksy</message>
 	<message key="grid.action.disapprove">Älä hyväksy</message>

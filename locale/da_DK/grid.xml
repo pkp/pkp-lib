@@ -20,7 +20,6 @@
 	<message key="grid.action.sort">Sortér</message>
 	<message key="grid.action.addItem">Tilføj element</message>
 	<message key="grid.action.delete">Slet</message>
-	<message key="grid.action.remove">Fjern</message>
 	<message key="grid.action.edit">Redigér</message>
 	<message key="grid.action.approve">Godkend</message>
 	<message key="grid.action.decline">Afvis denne indsendelse</message>

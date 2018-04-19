@@ -20,7 +20,6 @@
 	<message key="grid.action.sort">Sırala</message>
 	<message key="grid.action.addItem">Öğe Ekle</message>
 	<message key="grid.action.delete">Sil</message>
-	<message key="grid.action.remove">Kaldır</message>
 	<message key="grid.action.edit">Düzelt</message>
 	<message key="grid.action.approve">Onayla</message>
 	<message key="grid.action.decline">Bu  Gönderiyi Geri Çevir</message>

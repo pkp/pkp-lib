@@ -151,7 +151,6 @@
 	<message key="grid.submissionChecklist.column.checklistItem">Item de la lista de comprobación</message>
 
 	<!-- Submission Contributors -->
-	<message key="grid.action.remove">Eliminar</message>
 	<message key="grid.action.approve">Aprobar</message>
 	<message key="grid.action.decline">Declinar</message>
 	<message key="grid.action.moreInformation">Más información</message>

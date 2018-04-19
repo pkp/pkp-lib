@@ -33,7 +33,6 @@
 	<!-- Contributor Grid -->
 	<message key="grid.contributor.title">Bidragsyter</message>
 	<message key="grid.settings">Innstillinger</message>
-	<message key="grid.action.remove">Fjern</message>
 	<message key="grid.action.approve">Godkjenn</message>
 	<message key="grid.action.decline">Avslå</message>
 	<message key="grid.action.moreInformation">Mer informasjon</message>

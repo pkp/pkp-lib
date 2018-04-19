@@ -39,7 +39,6 @@
 	<message key="grid.action.export">Експортувати</message>
 	<message key="grid.action.deleteSection">Видалити розділ</message>
 	<message key="grid.action.editorialHistory">Редакційна історія</message>
-	<message key="grid.action.remove">Видалити</message>
 	<message key="grid.action.edit">Редагувати</message>
 	<message key="grid.action.approve">Схвалити</message>
 	<message key="grid.action.disapprove">Скасувати схвалення</message>
@@ -231,11 +230,11 @@
 	<message key="grid.user.mergeUsers.mergeIntoUser">Об'єднати в цього користувача</message>
 	<message key="grid.user.mergeUsers.allUsers">Усі зареєстровані користувачі</message>
 	<message key="grid.user.mergeUsers.confirm">Ви впевнені, що хочете об'єднати обліковий запис з іменем користувача "{$oldUsername}" в обліковий запис з ім'ям користувача "{$newUsername}"? Обліковий запис з ім'ям користувача "{$oldUsername}" зникне. Цю дію неможливо відмінити.</message>
-	
+
 	<!-- Підготовлені електронні листи -->
 	<message key="grid.preparedEmails.title">Шаблони підготовлених електронних листів</message>
 	<message key="grid.preparedEmails.currentList">Поточний список</message>
-	
+
 	<!-- Модулі -->
 	<message key="grid.plugin.allCategories">Усі категорії</message>
 	<message key="grid.plugin.disable">Ви впевнені, що хочете відключити цей модуль?</message>

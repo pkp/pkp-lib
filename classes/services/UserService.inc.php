@@ -19,6 +19,7 @@ use \DBResultRange;
 use \DAOResultFactory;
 use \DAORegistry;
 use \PKP\Services\EntityProperties\PKPBaseEntityPropertyService;
+use \Validation;
 
 class UserService extends PKPBaseEntityPropertyService {
 
@@ -298,6 +299,13 @@ class UserService extends PKPBaseEntityPropertyService {
 				case 'mustChangePassword':
 					$values[$prop] = (boolean) $user->getMustChangePassword();
 					break;
+				case 'currentUserCanAdminister':
+					$values[$prop] = false;
+					$currentUser = $request->getUser();
+					if ($currentUser) {
+						$values[$prop] = Validation::canAdminister($user->getId(), $currentUser->getId());
+					}
+					break;
 				case '_href':
 					$values[$prop] = null;
 					if (!empty($args['slimRequest'])) {
@@ -365,7 +373,7 @@ class UserService extends PKPBaseEntityPropertyService {
 	 */
 	public function getSummaryProperties($user, $args = null) {
 		$props = array (
-			'id','_href','userName','email','fullName','orcid','groups','disabled',
+			'id','_href','userName','email','fullName','orcid','groups','disabled','currentUserCanAdminister',
 		);
 
 		\HookRegistry::call('User::getProperties::summaryProperties', array(&$props, $user, $args));

@@ -37,6 +37,16 @@ class AccessSettingsTabHandler extends ManagerSettingsTabHandler {
 	function setupTemplate($request) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('oldUserId', (int) $request->getUserVar('oldUserId')); // for merging users.
+
+		$tab = $request->getUserVar('tab');
+		if ($tab === 'users') {
+				import('lib.pkp.controllers.list.users.PKPUsersListHandler');
+				$usersListHandler = new PKPUsersListHandler(array(
+					'title' => 'manager.users',
+				));
+				$usersListData = $usersListHandler->getConfig();
+				$templateMgr->assign('usersListData', json_encode($usersListData));
+		}
 		parent::setupTemplate($request);
 	}
 }

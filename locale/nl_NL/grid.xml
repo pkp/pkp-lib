@@ -20,7 +20,6 @@
 	<message key="grid.action.sort">Sorteren</message>
 	<message key="grid.action.addItem">Onderdeel toevoegen</message>
 	<message key="grid.action.delete">Verwijderen</message>
-	<message key="grid.action.remove">Weghalen</message>
 	<message key="grid.action.edit">Bewerken</message>
 	<message key="grid.action.approve">Goedkeuren</message>
 	<message key="grid.action.decline">Afwijzen</message>

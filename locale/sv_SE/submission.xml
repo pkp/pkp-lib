@@ -626,4 +626,5 @@
 	<message key="submission.list.reviewerWorkflowLink"><![CDATA[Du har blivit tilldelad en redaktörsroll för det här bidraget. Vill du gå till <a href="{$urlEditorialWorkflow}">det redaktionella arbetsflödet</a>?]]></message>
 	<message key="submission.list.incompleteSubmissionNotice">Det här bidraget måste vara färdigt innan en redaktör granskar det.</message>
 	<message key="submission.list.currentStage">För närvarande i {$stage}-steget.</message>
+	<message key="submission.list.assignEditor">Tilldela redaktör</message>
 </locale>

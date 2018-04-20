@@ -17,6 +17,17 @@ import('classes.handler.Handler');
 
 class LibraryFileHandler extends Handler {
 
+	/** @var Handler the Handler that calls the LibraryFileHandler functions */
+	var $_callingHandler = null;
+
+	/**
+	 * Constructor.
+	 * @param $callingHandler Handler
+	 */
+	function __construct($callingHandler) {
+		$this->_callingHandler = $callingHandler;
+	}
+
 	//
 	// Public handler methods
 	//
@@ -64,8 +75,10 @@ class LibraryFileHandler extends Handler {
 				$allowedAccess = false;
 
 				// Managers are always allowed access.
-				$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-				if (array_intersect($userRoles, array(ROLE_ID_MANAGER))) $allowedAccess = true;
+				if ($this->_callingHandler) {
+					$userRoles = $this->_callingHandler->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+					if (array_intersect($userRoles, array(ROLE_ID_MANAGER))) $allowedAccess = true;
+				}
 
 				// Check for specific assignments.
 				$user = $request->getUser();

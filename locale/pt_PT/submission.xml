@@ -518,7 +518,7 @@
 	<message key="submission.submit.form.typeRequired">Introduza o tipo.</message>
 	<message key="submission.submit.form.sourceRequired">Introduza a fonte.</message>
 	<message key="submission.submit.form.rightsRequired">Introduza os direitos.</message>
-	<message key="submission.submit.form.citaionsRequired">Introduza as referências.</message>
+	<message key="submission.submit.form.citationsRequired">Introduza as referências.</message>
 	<message key="editor.submission.roundStatus.revisionsSubmitted">Revisões foram submetidas.</message>
 	<message key="editor.submission.roundStatus.resubmitForReview">A submissão deve ser objeto de nova ronda de revisão.</message>
 	<message key="editor.submission.roundStatus.submissionResubmitted">A submissão foi enviada para uma nova ronda de revisão.</message>

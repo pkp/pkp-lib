@@ -217,9 +217,11 @@ class PKPAppearanceForm extends ContextSettingsForm {
 	/**
 	 * @copydoc ContextSettingsForm::execute()
 	 */
-	function execute($request) {
+	function execute() {
 
 		// Clear the template cache if theme has changed
+		$application = PKPApplication::getApplication();
+		$request = $application->getRequest();
 		$context = $request->getContext();
 		if ($this->getData('themePluginPath') != $context->getSetting('themePluginPath')) {
 			$templateMgr = TemplateManager::getManager($request);
@@ -227,7 +229,7 @@ class PKPAppearanceForm extends ContextSettingsForm {
 			$templateMgr->clearCssCache();
 		}
 
-		parent::execute($request);
+		parent::execute();
 
 		// Save block plugins context positions.
 		import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');

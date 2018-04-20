@@ -39,10 +39,11 @@ class PaymentMethodForm extends ContextSettingsForm {
 
 	/**
 	 * @copydoc Form::initData()
-	 * @param $request Request
 	 */
-	function initData($request) {
-		parent::initData($request);
+	function initData() {
+		parent::initData();
+		$application = PKPApplication::getApplication();
+		$request = $application->getRequest();
 		$paymentPluginName = $this->getData('paymentPluginName');
 		if (!isset($this->paymentPlugins[$paymentPluginName])) return;
 		$plugin = $this->paymentPlugins[$paymentPluginName];
@@ -67,9 +68,11 @@ class PaymentMethodForm extends ContextSettingsForm {
 	/**
 	 * @copydoc ContextSettingsForm::readInputData()
 	 */
-	function readInputData($request) {
-		parent::readInputData($request);
+	function readInputData() {
+		parent::readInputData();
 
+		$application = PKPApplication::getApplication();
+		$request = $application->getRequest();
 		$paymentPluginName = $this->getData('paymentPluginName');
 		if (!isset($this->paymentPlugins[$paymentPluginName])) return false;
 		$plugin = $this->paymentPlugins[$paymentPluginName];
@@ -80,7 +83,9 @@ class PaymentMethodForm extends ContextSettingsForm {
 	/**
 	 * @copydoc ContextSettingsForm::execute()
 	 */
-	function execute($request) {
+	function execute() {
+		$application = PKPApplication::getApplication();
+		$request = $application->getRequest();
 		$context = $request->getContext();
 
 		// Get the selected payment plugin
@@ -99,7 +104,7 @@ class PaymentMethodForm extends ContextSettingsForm {
 				$context->getId(), $context->getAssocType(), $context->getId(), NOTIFICATION_LEVEL_NORMAL);
 		}
 
-		return parent::execute($request);
+		return parent::execute();
 	}
 
 	/**

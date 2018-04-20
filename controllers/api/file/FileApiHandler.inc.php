@@ -102,7 +102,7 @@ class FileApiHandler extends Handler {
 	 */
 	function downloadLibraryFile($args, $request) {
 		import('lib.pkp.pages.libraryFiles.LibraryFileHandler');
-		$libraryFileHandler = new LibraryFileHandler();
+		$libraryFileHandler = new LibraryFileHandler($this);
 		return $libraryFileHandler->downloadLibraryFile($args, $request);
 	}
 

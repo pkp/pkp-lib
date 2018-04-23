@@ -133,7 +133,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 		}
 
 		// Password Import Validation
-		$password = Validation::importUserPasswordValidation($user, $encryption);
+		$password = $this->importUserPasswordValidation($user, $encryption);
 
 		$userByUsername = $userDao->getByUsername($user->getUsername(), false);
 		$userByEmail = $userDao->getUserByEmail($user->getEmail(), false);
@@ -219,6 +219,32 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 			default:
 				fatalError('Unknown element ' . $n->tagName);
 		}
+	}
+
+	/**
+	 * Validation process for imported passwords
+	 * @param $userToImport User ByRef. The user that is being imported.
+	 * @param $encryption string null, sha1, md5 (or any other encryption algorithm defined)
+	 * @return string if a new password is generated, the function returns it.
+	 */
+	function importUserPasswordValidation(&$userToImport, $encryption) {
+		$passwordHash = $userToImport->getPassword();
+		$password = null;
+		if (!$encryption) {
+			$userToImport->setPassword(Validation::encryptCredentials($userToImport->getUsername(), $passwordHash));
+		} else {
+			if (password_needs_rehash($passwordHash, PASSWORD_BCRYPT)) {
+
+				$password = Validation::generatePassword();
+				$userToImport->setPassword(Validation::encryptCredentials($userToImport->getUsername(), $password));
+
+				$userToImport->setMustChangePassword(true);
+			} else {
+				$userToImport->setPassword($passwordHash);
+			}
+		}
+
+		return $password;
 	}
 }
 

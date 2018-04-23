@@ -20,6 +20,8 @@ use \DAOResultFactory;
 use \DAORegistry;
 use \PKP\Services\EntityProperties\PKPBaseEntityPropertyService;
 
+define('DEFAULT_USER_COUNT', 100);
+
 class UserService extends PKPBaseEntityPropertyService {
 
 	/**

@@ -264,8 +264,10 @@
 			function(formElement, jsonData) {
 
 		// Reload the query grid to show the newly created query.
-		$.pkp.classes.Handler.getHandler($('#queriesGrid .pkp_controllers_grid'))
-				.trigger('dataChanged');
+		var $queries = $('#queriesGrid .pkp_controllers_grid');
+		if ($.pkp.classes.Handler.hasHandler($queries)) {
+			$.pkp.classes.Handler.getHandler($queries).trigger('dataChanged');
+		}
 
 		return /** @type {boolean} */ (this.parent(
 				'handleResponse', formElement, jsonData));

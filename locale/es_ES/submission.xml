@@ -664,4 +664,5 @@
 	<message key="submission.list.filesPrepared">Archivos preparados</message>
 	<message key="submission.list.discussions">Discusiones abiertas</message>
 	<message key="submission.list.incompleteSubmissionNotice">El envío debe completarse antes de que un editor/a lo revise.</message>
+	<message key="submission.howToCite.downloadCitation">Descargar Cita</message>
 </locale>

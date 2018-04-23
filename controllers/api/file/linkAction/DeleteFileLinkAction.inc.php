@@ -28,14 +28,14 @@ class DeleteFileLinkAction extends FileLinkAction {
 		$router = $request->getRouter();
 		import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 		$modal = new RemoteActionConfirmationModal(
-            $request->getSession(),
-            __('common.confirmDelete'), __('common.delete'),
-            $router->url(
-                $request, null, 'api.file.ManageFileApiHandler',
-                'deleteFile', null, $this->getActionArgs($submissionFile, $stageId)
-            ),
-            'modal_delete'
-        );
+			$request->getSession(),
+			__('common.confirmDelete'), __('common.delete'),
+			$router->url(
+				$request, null, 'api.file.ManageFileApiHandler',
+				'deleteFile', null, $this->getActionArgs($submissionFile, $stageId)
+			),
+			'modal_delete'
+		);
 		parent::__construct(
 			'deleteFile',
 			$modal,

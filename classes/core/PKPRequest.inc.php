@@ -421,7 +421,7 @@ class PKPRequest {
 	 * Get the remote IP address of the current request.
 	 * @return string
 	 */
-	static function getRemoteAddr() {
+	function getRemoteAddr() {
 		PKPRequest::_checkThis();
 
 		$ipaddr =& Registry::get('remoteIpAddr'); // Reference required.
@@ -560,7 +560,7 @@ class PKPRequest {
 	 * Get the user associated with the current request.
 	 * @return User
 	 */
-	static function &getUser() {
+	function &getUser() {
 		$_this = PKPRequest::_checkThis();
 
 		$user =& Registry::get('user', true, null);
@@ -588,7 +588,7 @@ class PKPRequest {
 	 * Get the value of a GET/POST variable.
 	 * @return mixed
 	 */
-	static function getUserVar($key) {
+	function getUserVar($key) {
 		$_this = PKPRequest::_checkThis();
 
 		// special treatment for APIRouter. APIHandler gets to fetch parameter first
@@ -815,11 +815,10 @@ class PKPRequest {
 	 *
 	 * @return PKPRequest
 	 */
-	static function &_checkThis() {
-		// Probably not a good fix, but this is working as expected.
-/*		if (isset($this) && is_a($this, 'PKPRequest')) {
+	function &_checkThis() {
+		if (isset($this) && is_a($this, 'PKPRequest')) {
 			return $this;
-		} else {*/
+		} else {
 			// This call is deprecated. We don't trigger a
 			// deprecation error, though, as there are so
 			// many instances of this error that it has a
@@ -831,7 +830,7 @@ class PKPRequest {
 			$instance =& Registry::get('request');
 			assert(!is_null($instance));
 			return $instance;
-/*		}*/
+		}
 	}
 
 	/**

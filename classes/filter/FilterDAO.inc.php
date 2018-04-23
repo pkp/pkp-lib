@@ -312,9 +312,7 @@ class FilterDAO extends DAO {
 		//    result set that comply with the current runtime
 		//    environment.
 		$matchingFilters = array();
-		$isSqlServer = Config::getVar('database', 'ms_sql');
-		$rows = $isSqlServer ? $result->GetRows() : $result->GetAssoc();
-		foreach($rows as $filterRow) {
+		foreach($result->GetRows() as $filterRow) {
 			$filterInstance = $this->_fromRow($filterRow);
 			if (!$checkRuntimeEnvironment || $filterInstance->isCompatibleWithRuntimeEnvironment()) {
 				$matchingFilters[$filterInstance->getId()] = $filterInstance;

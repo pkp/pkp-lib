@@ -300,21 +300,20 @@ class AnnouncementDAO extends DAO {
 	 * @param $assocType int ASSOC_TYPE_...
 	 * @param $assocId int
 	 * @param $numAnnouncements Maximum number of announcements to include
-	 * @param $rangeInfo DBResultRange (optional)
 	 * @return object DAOResultFactory containing matching Announcements
 	 */
-	function getNumAnnouncementsNotExpiredByAssocId($assocType, $assocId, $numAnnouncements, $rangeInfo = null) {
+	function getNumAnnouncementsNotExpiredByAssocId($assocType, $assocId, $numAnnouncements) {
 	    $isSqlServer = Config::getVar('database', 'ms_sql');
-		$result = $this->retrieveRange(
+		$result = $this->retrieveLimit(
 			'SELECT *
 			FROM announcements
 			WHERE assoc_type = ?
 				AND assoc_id = ?
 				AND (date_expire IS NULL OR ' . ($isSqlServer ? 'date_expire > GETDATE()' : ' DATE(date_expire) > CURRENT_DATE') . ')
 				AND (' . ($isSqlServer ? 'date_posted <= GETDATE()' : 'DATE(date_posted) <= CURRENT_DATE') . ')
-			ORDER BY date_posted DESC ' . ($isSqlServer ? 'OFFSET 0 ROWS FETCH NEXT CAST(? AS int) ROWS ONLY' : 'LIMIT ?'),
-			array((int) $assocType, (int) $assocId, (int) $numAnnouncements),
-			$rangeInfo
+			ORDER BY date_posted DESC',
+			array((int) $assocType, (int) $assocId),
+			(int) $numAnnouncements
 		);
 
 		return new DAOResultFactory($result, $this, '_fromRow');

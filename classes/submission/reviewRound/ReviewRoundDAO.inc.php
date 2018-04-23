@@ -218,15 +218,14 @@ class ReviewRoundDAO extends DAO {
 	function getLastReviewRoundBySubmissionId($submissionId, $stageId = null) {
 		$params = array((int)$submissionId);
 		if ($stageId) $params[] = (int) $stageId;
-		$isSqlServer = Config::getVar('database', 'ms_sql');
-		$result = $this->retrieve(
+		$result = $this->retrieveLimit(
 			'SELECT	*
 			FROM	review_rounds
 			WHERE	submission_id = ?
 			' . ($stageId ? ' AND stage_id = ?' : '') . '
-			ORDER BY stage_id DESC, round DESC
-			' . ($isSqlServer ? 'OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY' : 'LIMIT 1'),
-			$params
+			ORDER BY stage_id DESC, round DESC',
+			$params,
+			1
 		);
 
 		$returner = null;

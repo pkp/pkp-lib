@@ -192,9 +192,6 @@
 	 */
 	$.pkp.controllers.modal.ModalHandler.prototype.modalOpen =
 			function($handledElement) {
-		if (!$handledElement) {
-			return;
-		}
 
 		// The $handledElement must be attached to the DOM before events will
 		// bubble up to SiteHandler

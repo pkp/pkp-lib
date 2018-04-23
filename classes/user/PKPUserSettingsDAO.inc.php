@@ -25,7 +25,7 @@ class PKPUserSettingsDAO extends DAO {
 	 * @param $assocId int
 	 * @return mixed
 	 */
-	function &getSetting($userId, $name, $assocType = null, $assocId = null) {
+	function &_getSetting($userId, $name, $assocType = null, $assocId = null) {
 		$result = $this->retrieve(
 			'SELECT	setting_value,
 				setting_type
@@ -61,7 +61,7 @@ class PKPUserSettingsDAO extends DAO {
 	 * @param $assocId int
 	 * @return DAOResultFactory matching Users
 	 */
-	function &getUsersBySetting($name, $value, $type = null, $assocType = null, $assocId = null) {
+	function &_getUsersBySetting($name, $value, $type = null, $assocType = null, $assocId = null) {
 		$userDao = DAORegistry::getDAO('UserDAO');
 
 		$value = $this->convertToDB($value, $type);
@@ -121,7 +121,7 @@ class PKPUserSettingsDAO extends DAO {
 	 * @param $assocType int
 	 * @param $assocId int
 	 */
-	function updateSetting($userId, $name, $value, $type = null, $assocType = null, $assocId = null) {
+	function _updateSetting($userId, $name, $value, $type = null, $assocType = null, $assocId = null) {
 		$result = $this->retrieve(
 			'SELECT	COUNT(*)
 			FROM	user_settings
@@ -179,7 +179,7 @@ class PKPUserSettingsDAO extends DAO {
 	 * @param $assocType int
 	 * @param $assocId int
 	 */
-	function deleteSetting($userId, $name, $assocType = null, $assocId = null) {
+	function _deleteSetting($userId, $name, $assocType = null, $assocId = null) {
 		return $this->update(
 			'DELETE FROM user_settings WHERE user_id = ? AND setting_name = ? AND assoc_type = ? AND assoc_id = ?',
 			array((int) $userId, $name, (int) $assocType, (int) $assocId)

@@ -276,7 +276,7 @@ class PKPFileUploadWizardHandler extends Handler {
 		// If no revised file id was given then try out whether
 		// the user maybe accidentally didn't identify this file as a revision.
 		if (!$uploadForm->getRevisedFileId()) {
-		    $files = $uploadForm->getSubmissionFiles();
+			$files = $uploadForm->getSubmissionFiles();
 			$revisedFileId = $this->_checkForRevision($uploadedFile, $files);
 			if ($revisedFileId) {
 				// Instantiate the revision confirmation form.

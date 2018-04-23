@@ -220,8 +220,7 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 		}
 
 		// Set review to next step.
-		$reviewerSubmission = $this->getReviewerSubmission();
-		$this->updateReviewStepAndSaveSubmission($reviewerSubmission);
+		$this->updateReviewStepAndSaveSubmission($this->getReviewerSubmission());
 
 		// Mark the review assignment as completed.
 		$reviewAssignment->setDateCompleted(Core::getCurrentDate());

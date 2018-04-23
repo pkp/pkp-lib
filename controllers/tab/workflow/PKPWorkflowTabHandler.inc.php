@@ -101,20 +101,20 @@ abstract class PKPWorkflowTabHandler extends Handler {
 					import('lib.pkp.classes.linkAction.request.AjaxModal');
 					$submissionId = $submission->getId();
 					$url = $dispatcher->url(
-                        $request, ROUTE_COMPONENT, null,
-                        'modals.editorDecision.EditorDecisionHandler',
-                        'newReviewRound', null, array(
-                            'submissionId' => $submissionId,
-                            'decision' => SUBMISSION_EDITOR_DECISION_RESUBMIT,
-                            'stageId' => $selectedStageId,
-                            'reviewRoundId' => $lastReviewRoundId
-                        )
-                    );
+						$request, ROUTE_COMPONENT, null,
+						'modals.editorDecision.EditorDecisionHandler',
+						'newReviewRound', null, array(
+							'submissionId' => $submissionId,
+							'decision' => SUBMISSION_EDITOR_DECISION_RESUBMIT,
+							'stageId' => $selectedStageId,
+							'reviewRoundId' => $lastReviewRoundId
+						)
+					);
 					$ajaxModal = new AjaxModal(
-                        $url,
-                        __('editor.submission.newRound'),
-                        'modal_add_item'
-                    );
+						$url,
+						__('editor.submission.newRound'),
+						'modal_add_item'
+					);
 					$newRoundAction = new LinkAction(
 						'newRound',
 						$ajaxModal,

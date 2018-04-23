@@ -146,12 +146,6 @@ class PKPLocale {
 		date_default_timezone_set($timeZone);
 
 		if (Config::getVar('general', 'installed')) {
-		    $isSqlServer = Config::getVar('database', 'ms_sql');
-		    if ($isSqlServer) {
-		        // Set the time zone directly on the instance running MS SQL.
-		        return;
-		    }
-
 			// Set the time zone for DB
 			// Get the offset from UTC
 			$now = new DateTime();
@@ -167,14 +161,34 @@ class PKPLocale {
 			switch($conn->getDriver()) {
 				case 'mysql':
 				case 'mysqli':
+					$offset = PKPLocale::getDateOffset();
 					$dbconn->execute('SET time_zone = \''.$offset.'\'');
 					break;
 				case 'postgres':
+					$offset = PKPLocale::getDateOffset();
 					$dbconn->execute('SET TIME ZONE INTERVAL \''.$offset.'\' HOUR TO MINUTE');
+					break;
+				case 'pdo_sqlsrv':
 					break;
 				default: assert(false);
 			}
 		}
+	}
+
+	/**
+	 * Get the offset from UTC
+ 	 * @return string
+	 */
+	static function getDateOffset() {
+		$now = new DateTime();
+		$mins = $now->getOffset() / 60;
+		$sgn = ($mins < 0 ? -1 : 1);
+		$mins = abs($mins);
+		$hrs = floor($mins / 60);
+		$mins -= $hrs * 60;
+		$offset = sprintf('%+d:%02d', $hrs*$sgn, $mins);
+
+		return $offset;
 	}
 
 	/**

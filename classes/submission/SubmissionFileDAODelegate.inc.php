@@ -68,6 +68,7 @@ class SubmissionFileDAODelegate extends DAO {
 			array_unshift($params, (int) $fileId);
 		}
 
+		// Correct the identity insert errors of MS SQL.
 		$isSqlServer = Config::getVar('database', 'ms_sql');
 		$sql = sprintf(($fileId && $isSqlServer ? 'SET IDENTITY_INSERT submission_files ON;' : '') .
 						'INSERT INTO submission_files (' .
@@ -78,7 +79,6 @@ class SubmissionFileDAODelegate extends DAO {
 						($fileId && $isSqlServer ? ';SET IDENTITY_INSERT submission_files OFF;' : ''),
 						$this->datetimeToDB($submissionFile->getDateUploaded()), $this->datetimeToDB($submissionFile->getDateModified()));
 
-		// Correct the identity insert errors of MS SQL
 		$this->update($sql, $params);
 
 		if (!$fileId) {
@@ -138,9 +138,6 @@ class SubmissionFileDAODelegate extends DAO {
 	 * @return boolean
 	 */
 	function updateObject($submissionFile, $previousFile) {
-		// MS SQL doesn't accept the UPDATE on a primary key IDENTITY
-		$isSqlServer = Config::getVar('database', 'ms_sql');
-
 		$params = array((int)$submissionFile->getRevision(),
 						(int)$submissionFile->getSubmissionId(),
 						is_null($submissionFile->getSourceFileId()) ? null : (int)$submissionFile->getSourceFileId(),
@@ -160,15 +157,10 @@ class SubmissionFileDAODelegate extends DAO {
 						(int)$previousFile->getRevision()
 					);
 
-		if (!$isSqlServer) {
-			array_unshift($params, (int)$submissionFile->getFileId());
-		}
-
 		// Update the file in the database.
 		$this->update(
 			sprintf('UPDATE submission_files
-				SET' . ($isSqlServer ? '' : ' file_id = ?,') . '
-					revision = ?,
+				SET revision = ?,
 					submission_id = ?,
 					source_file_id = ?,
 					source_revision = ?,
@@ -186,7 +178,8 @@ class SubmissionFileDAODelegate extends DAO {
 					direct_sales_price = ?,
 					sales_type = ?
 				WHERE file_id = ? AND revision = ?',
-				$this->datetimeToDB($submissionFile->getDateUploaded()), $this->datetimeToDB($submissionFile->getDateModified())),
+				$this->datetimeToDB($submissionFile->getDateUploaded()),
+				$this->datetimeToDB($submissionFile->getDateModified())),
 			$params
 		);
 

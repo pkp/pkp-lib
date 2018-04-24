@@ -67,53 +67,61 @@ class PKPReviewerGridHandler extends GridHandler {
 	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
-		$stageId = $request->getUserVar('stageId'); // This is being validated in WorkflowStageAccessPolicy
 
-		// Not all actions need a stageId. Some work off the reviewAssignment which has the type and round.
-		$this->_stageId = (int)$stageId;
+		if (!$this->isAuthorGrid) {
 
-		// Get the stage access policy
-		import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
-		$workflowStageAccessPolicy = new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId, WORKFLOW_TYPE_EDITORIAL);
+			$stageId = $request->getUserVar('stageId'); // This is being validated in WorkflowStageAccessPolicy
 
-		// Add policy to ensure there is a review round id.
-		import('lib.pkp.classes.security.authorization.internal.ReviewRoundRequiredPolicy');
-		$workflowStageAccessPolicy->addPolicy(new ReviewRoundRequiredPolicy($request, $args, 'reviewRoundId', $this->_getReviewRoundOps()));
+			// Not all actions need a stageId. Some work off the reviewAssignment which has the type and round.
+			$this->_stageId = (int)$stageId;
 
-		// Add policy to ensure there is a review assignment for certain operations.
-		import('lib.pkp.classes.security.authorization.internal.ReviewAssignmentRequiredPolicy');
-		$workflowStageAccessPolicy->addPolicy(new ReviewAssignmentRequiredPolicy($request, $args, 'reviewAssignmentId', $this->_getReviewAssignmentOps()));
-		$this->addPolicy($workflowStageAccessPolicy);
+			// Get the stage access policy
+			import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
+			$workflowStageAccessPolicy = new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId, WORKFLOW_TYPE_EDITORIAL);
 
-		$success = parent::authorize($request, $args, $roleAssignments);
+			// Add policy to ensure there is a review round id.
+			import('lib.pkp.classes.security.authorization.internal.ReviewRoundRequiredPolicy');
+			$workflowStageAccessPolicy->addPolicy(new ReviewRoundRequiredPolicy($request, $args, 'reviewRoundId', $this->_getReviewRoundOps()));
 
-		// Prevent authors from accessing review details, even if they are also
-		// assigned as an editor, sub-editor or assistant.
-		$userAssignedRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
-		$this->_isCurrentUserAssignedAuthor = false;
-		foreach ($userAssignedRoles as $stageId => $roles) {
-			if (in_array(ROLE_ID_AUTHOR, $roles)) {
-				$this->_isCurrentUserAssignedAuthor = true;
-				break;
-			}
-		}
+			// Add policy to ensure there is a review assignment for certain operations.
+			import('lib.pkp.classes.security.authorization.internal.ReviewAssignmentRequiredPolicy');
+			$workflowStageAccessPolicy->addPolicy(new ReviewAssignmentRequiredPolicy($request, $args, 'reviewAssignmentId', $this->_getReviewAssignmentOps()));
+			$this->addPolicy($workflowStageAccessPolicy);
 
-		if ($this->_isCurrentUserAssignedAuthor) {
-			$operation = $request->getRouter()->getRequestedOp($request);
+			$success = parent::authorize($request, $args, $roleAssignments);
 
-			if (in_array($operation, $this->_getAuthorDeniedOps())) {
-				return false;
-			}
-
-			if (in_array($operation, $this->_getAuthorDeniedBlindOps())) {
-				$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
-				if ($reviewAssignment && in_array($reviewAssignment->getReviewMethod(), array(SUBMISSION_REVIEW_METHOD_BLIND, SUBMISSION_REVIEW_METHOD_DOUBLEBLIND))) {
-					return false;
+			// Prevent authors from accessing review details, even if they are also
+			// assigned as an editor, sub-editor or assistant.
+			$userAssignedRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+			$this->_isCurrentUserAssignedAuthor = false;
+			foreach ($userAssignedRoles as $stageId => $roles) {
+				if (in_array(ROLE_ID_AUTHOR, $roles)) {
+					$this->_isCurrentUserAssignedAuthor = true;
+					break;
 				}
 			}
+
+			if ($this->_isCurrentUserAssignedAuthor) {
+				$operation = $request->getRouter()->getRequestedOp($request);
+
+				if (in_array($operation, $this->_getAuthorDeniedOps())) {
+					return false;
+				}
+
+				if (in_array($operation, $this->_getAuthorDeniedBlindOps())) {
+					$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
+					if ($reviewAssignment && in_array($reviewAssignment->getReviewMethod(), array(SUBMISSION_REVIEW_METHOD_BLIND, SUBMISSION_REVIEW_METHOD_DOUBLEBLIND))) {
+						return false;
+					}
+				}
+			}
+
+			return $success;
+
+		} else {
+			return parent::authorize($request, $args, $roleAssignments);
 		}
 
-		return $success;
 	}
 
 

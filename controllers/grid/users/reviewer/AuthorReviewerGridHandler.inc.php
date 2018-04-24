@@ -106,6 +106,9 @@ class AuthorReviewerGridHandler extends PKPReviewerGridHandler {
 	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
+
+		$this->isAuthorGrid = true;
+
 		$stageId = $request->getUserVar('stageId'); // This is being validated in WorkflowStageAccessPolicy
 
 		// Not all actions need a stageId. Some work off the reviewAssignment which has the type and round.
@@ -124,7 +127,7 @@ class AuthorReviewerGridHandler extends PKPReviewerGridHandler {
 		$workflowStageAccessPolicy->addPolicy(new ReviewAssignmentRequiredPolicy($request, $args, 'reviewAssignmentId', array('readReview', 'reviewRead') ));
 		$this->addPolicy($workflowStageAccessPolicy);
 
-		return GridHandler::authorize($request, $args, $roleAssignments);
+		return parent::authorize($request, $args, $roleAssignments);
 	}
 
 	//

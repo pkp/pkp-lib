@@ -61,6 +61,8 @@ class PKPReviewerGridHandler extends GridHandler {
 			array(ROLE_ID_ASSISTANT),
 			$assistantOperations
 		);
+
+		$this->isAuthorGrid = false;
 	}
 
 	/**

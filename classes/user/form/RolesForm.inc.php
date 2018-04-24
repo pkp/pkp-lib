@@ -89,8 +89,8 @@ class RolesForm extends BaseProfileForm {
 	 * Save roles settings.
 	 * @param $request PKPRequest
 	 */
-	function execute($request) {
-		$user = $request->getUser();
+	function execute() {
+		$user = $this->getUser();
 
 		// Save the roles
 		import('lib.pkp.classes.user.form.UserFormHelper');
@@ -102,7 +102,7 @@ class RolesForm extends BaseProfileForm {
 		$interestManager = new InterestManager();
 		$interestManager->setInterestsForUser($user, $this->getData('interests'));
 
-		parent::execute($request, $user);
+		parent::execute();
 	}
 }
 

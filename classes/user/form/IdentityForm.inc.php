@@ -80,8 +80,8 @@ class IdentityForm extends BaseProfileForm {
 	/**
 	 * Save identity settings.
 	 */
-	function execute($request) {
-		$user = $request->getUser();
+	function execute() {
+		$user = $this->getUser();
 
 		$user->setSalutation($this->getData('salutation'));
 		$user->setFirstName($this->getData('firstName'));
@@ -90,7 +90,7 @@ class IdentityForm extends BaseProfileForm {
 		$user->setLastName($this->getData('lastName'));
 		$user->setSuffix($this->getData('suffix'));
 
-		parent::execute($request, $user);
+		parent::execute();
 	}
 }
 

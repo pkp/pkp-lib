@@ -155,10 +155,12 @@ class AuthorReviewerGridHandler extends PKPReviewerGridHandler {
 		$templateMgr = TemplateManager::getManager($request);
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
 
+		if ($reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_OPEN) return false;
+
 		$templateMgr->assign(array(
 			'submission' => $this->getSubmission(),
 			'reviewAssignment' => $reviewAssignment,
-			'reviewerRecommendationOptions' =>ReviewAssignment::getReviewerRecommendationOptions(),
+			'reviewerRecommendationOptions' => ReviewAssignment::getReviewerRecommendationOptions(),
 		));
 
 		if ($reviewAssignment->getReviewFormId()) {

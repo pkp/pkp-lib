@@ -137,17 +137,13 @@ class EditReviewForm extends Form {
 				$reviewAssignment->getId(),
 				NOTIFICATION_LEVEL_TASK
 			);
-			
-			
-			
-			
+
 		}
-		
+
 		$reviewAssignment->setDateDue($this->getData('reviewDueDate'));
 		$reviewAssignment->setDateResponseDue($this->getData('responseDueDate'));
 		$reviewAssignment->setReviewMethod($this->getData('reviewMethod'));
 		$reviewAssignmentDao->updateObject($reviewAssignment);
-		
 	}
 }
 

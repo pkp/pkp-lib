@@ -19,11 +19,15 @@ class ReviewAssignmentRequiredPolicy extends DataObjectRequiredPolicy {
 	 * Constructor
 	 * @param $request PKPRequest
 	 * @param $args array request parameters
-	 * @param $submissionParameterName string the request parameter we
+	 * @param $parameterName string the request parameter we
 	 *  expect the submission id in.
+	 * @param $operations array|string either a single operation or a list of operations that
+	 *  this policy is targeting.
+	 * @param @reviewMethod array limit the policy to specific review methods
 	 */
-	function __construct($request, &$args, $parameterName = 'reviewAssignmentId', $operations = null) {
-		parent::__construct($request, $args, $parameterName, 'user.authorization.invalidReviewAssignment', $operations);
+	function __construct($request, &$args, $parameterName = 'reviewAssignmentId', $operations = null, $reviewMethod = null) {
+		parent::__construct($request, $args, $parameterName, 'user.authorization.invalidReviewAssignment', $operations, $reviewMethod);
+		$this->_reviewMethod = $reviewMethod;
 	}
 
 	//
@@ -40,11 +44,18 @@ class ReviewAssignmentRequiredPolicy extends DataObjectRequiredPolicy {
 		$reviewAssignment = $reviewAssignmentDao->getById($reviewId);
 		if (!is_a($reviewAssignment, 'ReviewAssignment')) return AUTHORIZATION_DENY;
 
+		// If reviewMethod is defined, check that the assignment uses the defined method(s) 
+		if ($this->_reviewMethod){
+			if (!in_array($reviewAssignment->getReviewMethod(), $this->_reviewMethod)){
+				return AUTHORIZATION_DENY;
+			}
+		}
+
 		// Ensure that the review assignment actually belongs to the
 		// authorized submission.
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		assert(is_a($submission, 'Submission'));
-		if ($reviewAssignment->getSubmissionId() != $submission->getId()) AUTHORIZATION_DENY;
+		if ($reviewAssignment->getSubmissionId() != $submission->getId()) return AUTHORIZATION_DENY;
 
 		// Ensure that the review assignment is for this workflow stage
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);

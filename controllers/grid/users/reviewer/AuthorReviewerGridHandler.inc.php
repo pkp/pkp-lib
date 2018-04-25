@@ -124,7 +124,7 @@ class AuthorReviewerGridHandler extends PKPReviewerGridHandler {
 
 		// Add policy to ensure there is a review assignment for certain operations.
 		import('lib.pkp.classes.security.authorization.internal.ReviewAssignmentRequiredPolicy');
-		$workflowStageAccessPolicy->addPolicy(new ReviewAssignmentRequiredPolicy($request, $args, 'reviewAssignmentId', array('readReview', 'reviewRead') ));
+		$workflowStageAccessPolicy->addPolicy(new ReviewAssignmentRequiredPolicy($request, $args, 'reviewAssignmentId', array('readReview', 'reviewRead'), array(SUBMISSION_REVIEW_METHOD_OPEN)));
 		$this->addPolicy($workflowStageAccessPolicy);
 
 		return parent::authorize($request, $args, $roleAssignments);
@@ -154,8 +154,6 @@ class AuthorReviewerGridHandler extends PKPReviewerGridHandler {
 	function readReview($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
-
-		if ($reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_OPEN) return false;
 
 		$templateMgr->assign(array(
 			'submission' => $this->getSubmission(),

@@ -18,8 +18,11 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 
 class UserListQueryBuilder extends BaseQueryBuilder {
 
-	/** @var int Context ID */
-	protected $contextId = null;
+	/** @var int Context ID, the context making the request */
+	protected $contextId = array();
+
+	/** @var array Context IDs, filter by users assigned user groups in these contexts */
+	protected $contextIds = array();
 
 	/** @var array list of columns for query */
 	protected $columns = array();
@@ -36,7 +39,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	/** @var array list of role ids */
 	protected $roleIds = null;
 
-	/** @var array list of user group ids */
+	/** @var array|boolean list of user group ids */
 	protected $userGroupIds = null;
 
 	/** @var int submission ID */
@@ -103,6 +106,18 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	}
 
 	/**
+	 * Set contexts filter
+	 *
+	 * @param $contextIds string
+	 *
+	 * @return \PKP\Services\QueryBuilders\UserListQueryBuilder
+	 */
+	public function filterByContextIds($contextIds) {
+		$this->contextIds = $contextIds;
+		return $this;
+	}
+
+	/**
 	 * Set status filter
 	 *
 	 * @param $status string
@@ -132,12 +147,12 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	/**
 	 * Set roles filter
 	 *
-	 * @param $userGroupIds int|array
+	 * @param $userGroupIds int|boolean|array
 	 *
 	 * @return \PKP\Services\QueryBuilders\UserListQueryBuilder
 	 */
 	public function filterByUserGroupIds($userGroupIds) {
-		if (!is_null($userGroupIds) && !is_array($userGroupIds)) {
+		if (!is_null($userGroupIds) && $userGroupIds !== false && !is_array($userGroupIds)) {
 			$userGroupIds = array($userGroupIds);
 		}
 		$this->userGroupIds = $userGroupIds;
@@ -294,9 +309,15 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 		$q = Capsule::table('users as u')
 					->leftJoin('user_user_groups as uug', 'uug.user_id', '=', 'u.user_id')
 					->leftJoin('user_groups as ug', 'ug.user_group_id', '=', 'uug.user_group_id')
-					->where('ug.context_id','=', $this->contextId)
 					->orderBy($this->orderColumn, $this->orderDirection)
 					->groupBy('u.user_id');
+
+		// context
+		if (!empty($this->contextIds)) {
+			$q->whereIn('ug.context_id', $this->contextIds);
+		} elseif (!empty($this->contextId)) {
+			$q->where('ug.context_id', '=', $this->contextId);
+		}
 
 		// roles
 		if (!is_null($this->roleIds)) {
@@ -305,7 +326,11 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 
 		// user groups
 		if (!is_null($this->userGroupIds)) {
-			$q->whereIn('ug.user_group_id', $this->userGroupIds);
+			if ($this->userGroupIds === false) {
+				$q->whereNull('ug.user_group_id');
+			} else {
+				$q->whereIn('ug.user_group_id', $this->userGroupIds);
+			}
 		}
 
 		// status

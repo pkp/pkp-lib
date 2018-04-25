@@ -48,6 +48,22 @@ class PKPUserHandler extends APIHandler {
 	}
 
 	/**
+	 * @copydoc PKPHandler::authorize()
+	 */
+	public function authorize($request, &$args, $roleAssignments) {
+
+		// Only allow site admins to access site-wide endpoints
+		if (!$request->getContext()) {
+			$currentUser = $request->getUser();
+			if (!$currentUser || !$currentUser->hasRole(ROLE_ID_SITE_ADMIN, CONTEXT_ID_NONE)) {
+				return false;
+			}
+		}
+
+		return parent::authorize($request, $args, $roleAssignments);
+	}
+
+	/**
 	 * Get a collection of users
 	 * @param $slimRequest Request Slim request object
 	 * @param $response Response object
@@ -58,16 +74,13 @@ class PKPUserHandler extends APIHandler {
 	public function getUsers($slimRequest, $response, $args) {
 		$request = $this->getRequest();
 		$context = $request->getContext();
+		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 		$userService = ServicesContainer::instance()->get('user');
-
-		if (!$context) {
-			return $response->withStatus(404)->withJsonError('api.submissions.404.resourceNotFound');
-		}
 
 		$params = $this->_buildListRequestParams($slimRequest);
 
 		$items = array();
-		$users = $userService->getUsers($context->getId(), $params);
+		$users = $userService->getUsers($contextId, $params);
 		if (!empty($users)) {
 			$propertyArgs = array(
 				'request' => $request,
@@ -79,7 +92,7 @@ class PKPUserHandler extends APIHandler {
 		}
 
 		$data = array(
-			'itemsMax' => $userService->getUsersMaxCount($context->getId(), $params),
+			'itemsMax' => $userService->getUsersMaxCount($contextId, $params),
 			'items' => $items,
 		);
 
@@ -96,7 +109,6 @@ class PKPUserHandler extends APIHandler {
 	 */
 	public function getUser($slimRequest, $response, $args) {
 		$request = $this->getRequest();
-		$context = $request->getContext();
 		$userService = ServicesContainer::instance()->get('user');
 
 		if (!empty($args['userId'])) {
@@ -126,16 +138,13 @@ class PKPUserHandler extends APIHandler {
 	public function getReviewers($slimRequest, $response, $args) {
 		$request = $this->getRequest();
 		$context = $request->getContext();
+		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 		$userService = ServicesContainer::instance()->get('user');
-
-		if (!$context) {
-			return $response->withStatus(404)->withJsonError('api.submissions.404.resourceNotFound');
-		}
 
 		$params = $this->_buildReviewerListRequestParams($slimRequest);
 
 		$items = array();
-		$users = $userService->getReviewers($context->getId(), $params);
+		$users = $userService->getReviewers($contextId, $params);
 		if (!empty($users)) {
 			$propertyArgs = array(
 				'request' => $request,
@@ -147,7 +156,7 @@ class PKPUserHandler extends APIHandler {
 		}
 
 		$data = array(
-			'itemsMax' => $userService->getReviewersMaxCount($context->getId(), $params),
+			'itemsMax' => $userService->getReviewersMaxCount($contextId, $params),
 			'items' => $items,
 		);
 
@@ -162,10 +171,6 @@ class PKPUserHandler extends APIHandler {
 	 * @return array
 	 */
 	private function _buildListRequestParams($slimRequest) {
-
-		$request = $this->getRequest();
-		$currentUser = $request->getUser();
-		$context = $request->getContext();
 
 		// Merge query params over default params
 		$defaultParams = array(
@@ -197,15 +202,18 @@ class PKPUserHandler extends APIHandler {
 					}
 					break;
 
-				// Always convert roleIds and userGroupIds to array
+				// Always convert contextIds, roleIds and userGroupIds to array
+				case 'contextIds':
 				case 'roleIds':
 				case 'userGroupIds':
-					if (is_string($val) && strpos($val, ',') > -1) {
+					if ($param === 'userGroupIds' && !$val) {
+						$val = false;
+					} elseif (is_string($val) && strpos($val, ',') > -1) {
 						$val = explode(',', $val);
 					} elseif (!is_array($val)) {
 						$val = array($val);
 					}
-					$returnParams[$param] = array_map('intval', $val);
+					$returnParams[$param] = $val === false ? $val : array_map('intval', $val);
 					break;
 
 				case 'assignedToSubmissionStage':
@@ -229,6 +237,8 @@ class PKPUserHandler extends APIHandler {
 					break;
 			}
 		}
+
+		$returnParams = $this->_restrictContextIds($returnParams);
 
 		\HookRegistry::call('API::users::params', array(&$returnParams, $slimRequest));
 
@@ -270,7 +280,24 @@ class PKPUserHandler extends APIHandler {
 		// Restrict role IDs to reviewer roles
 		$returnParams['roleIds'] = array(ROLE_ID_REVIEWER);
 
+		$returnParams = $this->_restrictContextIds($returnParams);
+
 		\HookRegistry::call('API::users::reviewers::params', array(&$returnParams, $slimRequest));
+
+		return $returnParams;
+	}
+
+	/**
+	 * Prevents use of the `contextIds` param except in site-wide requests
+	 *
+	 * @param $returnParams array The accepted params
+	 * @return array
+	 */
+	private function _restrictContextIds($returnParams) {
+
+		if ($this->getRequest()->getContext()) {
+			unset($returnParams['contextIds']);
+		}
 
 		return $returnParams;
 	}

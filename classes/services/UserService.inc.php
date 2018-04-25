@@ -86,6 +86,7 @@ class UserService extends PKPBaseEntityPropertyService {
 	private function _buildGetUsersQueryObject($contextId, $args = array()) {
 
 		$defaultArgs = array(
+			'contextIds' => null,
 			'orderBy' => 'id',
 			'orderDirection' => 'DESC',
 			'roleIds' => null,
@@ -104,6 +105,7 @@ class UserService extends PKPBaseEntityPropertyService {
 		$userListQB = new QueryBuilders\UserListQueryBuilder($contextId);
 		$userListQB
 			->orderBy($args['orderBy'], $args['orderDirection'])
+			->filterByContextIds($args['contextIds'])
 			->filterByRoleIds($args['roleIds'])
 			->filterByUserGroupIds($args['userGroupIds'])
 			->assignedToSubmission($args['assignedToSubmission'], $args['assignedToSubmissionStage'])
@@ -196,6 +198,7 @@ class UserService extends PKPBaseEntityPropertyService {
 	public function getProperties($user, $props, $args = null) {
 		$request = $args['request'];
 		$context = $request->getContext();
+		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 
 		$values = array();
 		foreach ($props as $prop) {
@@ -324,41 +327,38 @@ class UserService extends PKPBaseEntityPropertyService {
 					break;
 				case 'groups':
 					$values[$prop] = null;
-					if ($context) {
-						import('lib.pkp.classes.security.UserGroupDAO');
-						$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-						$userGroups = $userGroupDao->getByUserId($user->getId(), $context->getId());
-						$values[$prop] = array();
-						while ($userGroup = $userGroups->next()) {
-							$values[$prop][] = array(
-								'id' => (int) $userGroup->getId(),
-								'name' => $userGroup->getName(null),
-								'abbrev' => $userGroup->getAbbrev(null),
-								'roleId' => (int) $userGroup->getRoleId(),
-								'showTitle' => (boolean) $userGroup->getShowTitle(),
-								'permitSelfRegistration' => (boolean) $userGroup->getPermitSelfRegistration(),
-								'recommendOnly' => (boolean) $userGroup->getRecommendOnly(),
-							);
-						}
+					import('lib.pkp.classes.security.UserGroupDAO');
+					$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+					$userGroups = $userGroupDao->getByUserId($user->getId(), $contextId);
+					$values[$prop] = array();
+					while ($userGroup = $userGroups->next()) {
+						$values[$prop][] = array(
+							'id' => (int) $userGroup->getId(),
+							'name' => $userGroup->getName(null),
+							'abbrev' => $userGroup->getAbbrev(null),
+							'roleId' => (int) $userGroup->getRoleId(),
+							'showTitle' => (boolean) $userGroup->getShowTitle(),
+							'permitSelfRegistration' => (boolean) $userGroup->getPermitSelfRegistration(),
+							'recommendOnly' => (boolean) $userGroup->getRecommendOnly(),
+							'contextId' => (int) $userGroup->getContextId(),
+						);
 					}
 					break;
 				case 'interests':
 					$values[$prop] = [];
-					if ($context) {
-						import('lib.pkp.classes.user.InterestDAO');
-						$interestDao = DAORegistry::getDAO('InterestDAO');
-						$interestEntryIds = $interestDao->getUserInterestIds($user->getId());
-						if (!empty($interestEntryIds)) {
-							import('lib.pkp.classes.user.InterestEntryDAO');
-							$interestEntryDao = DAORegistry::getDAO('InterestEntryDAO');
-							$results = $interestEntryDao->getByIds($interestEntryIds);
-							$values[$prop] = array();
-							while ($interest = $results->next()) {
-								$values[$prop][] = array(
-									'id' => (int) $interest->getId(),
-									'interest' => $interest->getInterest(),
-								);
-							}
+					import('lib.pkp.classes.user.InterestDAO');
+					$interestDao = DAORegistry::getDAO('InterestDAO');
+					$interestEntryIds = $interestDao->getUserInterestIds($user->getId());
+					if (!empty($interestEntryIds)) {
+						import('lib.pkp.classes.user.InterestEntryDAO');
+						$interestEntryDao = DAORegistry::getDAO('InterestEntryDAO');
+						$results = $interestEntryDao->getByIds($interestEntryIds);
+						$values[$prop] = array();
+						while ($interest = $results->next()) {
+							$values[$prop][] = array(
+								'id' => (int) $interest->getId(),
+								'interest' => $interest->getInterest(),
+							);
 						}
 					}
 					break;

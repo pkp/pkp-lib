@@ -31,9 +31,11 @@ class InstallLanguageForm extends Form {
 	/**
 	 * @copydoc Form::initData()
 	 */
-	function initData($request) {
-		parent::initData($request);
+	function initData() {
+		parent::initData();
 
+		$application = PKPApplication::getApplication();
+		$request = $application->getRequest();
 		$site = $request->getSite();
 		$this->setData('installedLocales', $site->getInstalledLocales());
 	}
@@ -41,7 +43,7 @@ class InstallLanguageForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$site = $request->getSite();
 		$allLocales = AppLocale::getAllLocales();
 		$installedLocales = $this->getData('installedLocales');
@@ -69,15 +71,17 @@ class InstallLanguageForm extends Form {
 			$templateMgr->assign('downloadableLocaleLinks', $downloadableLocaleLinks);
 		}
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
 	 * @copydoc Form::readInputData()
 	 */
-	function readInputData($request) {
-		parent::readInputData($request);
+	function readInputData() {
+		parent::readInputData();
 
+		$application = PKPApplication::getApplication();
+		$request = $application->getRequest();
 		$localesToInstall = $request->getUserVar('localesToInstall');
 		$this->setData('localesToInstall', $localesToInstall);
 	}
@@ -85,7 +89,9 @@ class InstallLanguageForm extends Form {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute($request) {
+	function execute() {
+		$application = PKPApplication::getApplication();
+		$request = $application->getRequest();
 		$site = $request->getSite();
 		$localesToInstall = $this->getData('localesToInstall');
 

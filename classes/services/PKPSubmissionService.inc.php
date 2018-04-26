@@ -85,9 +85,8 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 			$dao = Application::getPublishedSubmissionDAO();
 		}
 		$countResult = $dao->retrieveRange($countQO->toSql(), $countQO->getBindings(), $countRange);
-		$countQueryResults = new DAOResultFactory($countResult, $dao, '_fromRow');
 
-		return (int) $countQueryResults->getCount();
+		return (int) $countResult->GetRows()[0][0];
 	}
 
 	/**

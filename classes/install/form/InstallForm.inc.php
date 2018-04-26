@@ -79,7 +79,7 @@ class InstallForm extends MaintenanceForm {
 			'informix' => array('ifx', 'Informix'),
 			'sybase' => array('sybase', 'Sybase'),
 			'odbc' => array('odbc', 'ODBC'),
-			'pdo_sqlsrv' => array('pdo_sqlsrv', 'PDO SQL Server')
+			'pdo_mssql' => array('pdo_mssql', 'PDO MS SQL Server')
 		);
 
 		// Validation checks for this form

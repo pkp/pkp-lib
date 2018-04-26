@@ -279,16 +279,16 @@ class AnnouncementDAO extends DAO {
 	 * @return object DAOResultFactory containing matching Announcements
 	 */
 	function getAnnouncementsNotExpiredByAssocId($assocType, $assocId, $rangeInfo = null) {
-	    $isSqlServer = Config::getVar('database', 'ms_sql');
+		$currentDate = $this->getNextDay();
 		$result = $this->retrieveRange(
 			'SELECT *
 			FROM announcements
 			WHERE assoc_type = ?
 				AND assoc_id = ?
-				AND (date_expire IS NULL OR ' . ($isSqlServer ? 'date_expire > GETDATE()' : ' DATE(date_expire) > CURRENT_DATE') . ')
-				AND (' . ($isSqlServer ? 'date_posted <= GETDATE()' : 'DATE(date_posted) <= CURRENT_DATE') . ')
+				AND (date_expire IS NULL OR date_expire > ?)
+				AND date_posted < ?
 			ORDER BY date_posted DESC',
-			array((int) $assocType, (int) $assocId),
+			array((int) $assocType, (int) $assocId, $currentDate, $currentDate),
 			$rangeInfo
 		);
 
@@ -303,20 +303,31 @@ class AnnouncementDAO extends DAO {
 	 * @return object DAOResultFactory containing matching Announcements
 	 */
 	function getNumAnnouncementsNotExpiredByAssocId($assocType, $assocId, $numAnnouncements) {
-	    $isSqlServer = Config::getVar('database', 'ms_sql');
+		$currentDate = $this->getNextDay();
 		$result = $this->retrieveLimit(
 			'SELECT *
 			FROM announcements
 			WHERE assoc_type = ?
 				AND assoc_id = ?
-				AND (date_expire IS NULL OR ' . ($isSqlServer ? 'date_expire > GETDATE()' : ' DATE(date_expire) > CURRENT_DATE') . ')
-				AND (' . ($isSqlServer ? 'date_posted <= GETDATE()' : 'DATE(date_posted) <= CURRENT_DATE') . ')
+				AND (date_expire IS NULL OR date_expire > ?)
+				AND date_posted < ?
 			ORDER BY date_posted DESC',
-			array((int) $assocType, (int) $assocId),
+			array((int) $assocType, (int) $assocId, $currentDate, $currentDate),
 			(int) $numAnnouncements
 		);
 
 		return new DAOResultFactory($result, $this, '_fromRow');
+	}
+
+	/**
+	 * Retrieve the current date plus one day.
+	 * @return string
+	 */
+	function getNextDay() {
+		$currentDate = new DateTime(date('Y-m-d', time()));
+		$currentDate->modify('+1 day');
+
+		return $currentDate = $currentDate->format('Y-m-d');
 	}
 
 	/**

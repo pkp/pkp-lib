@@ -137,6 +137,28 @@ class DAO {
 	}
 
 	/**
+	 * Look if the current exception should be considered or not with SQL server.
+	 * @param $dataSource
+	 * @return bool
+	 */
+	function isSqlServerFakeError($dataSource) {
+		// For MS SQL (on an update), the statement query is trying to fetch a
+		// non existing row and this action is throwing the exception code -15.
+		// This should not be interpreted as an exception at this point.
+		$isSqlServer = Config::getVar('database', 'ms_sql');
+		if ($isSqlServer && $dataSource->errorNo() === 'IMSSP') {
+			$errorInfo  = $dataSource->_stmt->errorInfo();
+			$errorId = $errorInfo ? $errorInfo[1] : null;
+
+			if ($errorId === -15) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
 	 * Execute a SELECT SQL statement with LIMIT on the rows returned.
 	 * @param $sql string the SQL statement
 	 * @param $params array parameters for the SQL statement
@@ -161,19 +183,11 @@ class DAO {
 		$dataSource = $this->getDataSource();
 		$result = $dataSource->selectLimit($sql, $numRows === false ? -1 : $numRows, $offset === false ? -1 : $offset, $params !== false && !is_array($params) ? array($params) : $params);
 
-		// For MS SQL, this error can be misinterpreted.
-		$isSqlServer = Config::getVar('database', 'ms_sql');
-		$errorNo = $dataSource->errorNo();
-		if ($isSqlServer && $errorNo === 'IMSSP') {
-			$errorInfo  = $dataSource->_stmt->errorInfo();
-			$errorId = $errorInfo ? $errorInfo[1] : null;
-
-			if ($errorId === -15) {
-				return $result;
-			}
+		if ($this->isSqlServerFakeError($dataSource)) {
+			return $result;
 		}
 
-		if ($errorNo) {
+		if ($dataSource->errorNo()) {
 			fatalError('DB Error: ' . $dataSource->errorMsg());
 		}
 		return $result;
@@ -204,19 +218,11 @@ class DAO {
 		$dataSource = $this->getDataSource();
 		$result = $dataSource->selectLimit($sql, $numRows === false ? -1 : $numRows, $offset === false ? -1 : $offset, $params !== false && !is_array($params) ? array($params) : $params, $secsToCache);
 
-		// For MS SQL, this error can be misinterpreted.
-		$isSqlServer = Config::getVar('database', 'ms_sql');
-		$errorNo = $dataSource->errorNo();
-		if ($isSqlServer && $errorNo === 'IMSSP') {
-			$errorInfo  = $dataSource->_stmt->errorInfo();
-			$errorId = $errorInfo ? $errorInfo[1] : null;
-
-			if ($errorId === -15) {
-				return $result;
-			}
+		if ($this->isSqlServerFakeError($dataSource)) {
+			return $result;
 		}
 
-		if ($errorNo) {
+		if ($dataSource->errorNo()) {
 			fatalError('DB Error: ' . $dataSource->errorMsg());
 		}
 		return $result;
@@ -283,21 +289,11 @@ class DAO {
 		$dataSource = $this->getDataSource();
 		$dataSource->execute($sql, $params !== false && !is_array($params) ? array($params) : $params);
 
-		$errorNo = $dataSource->errorNo();
-
-		// For MS SQL (on an update), the statement query is trying to fetch a
-		// non existing row and this action is throwing the exception code -15.
-		// This should not be interpreted as an exception at this point.
-		$isSqlServer = Config::getVar('database', 'ms_sql');
-		if ($isSqlServer && $errorNo === 'IMSSP') {
-			$errorInfo  = $dataSource->_stmt->errorInfo();
-			$errorId = $errorInfo ? $errorInfo[1] : null;
-
-			if ($errorId === -15) {
-				return true;
-			}
+		if ($this->isSqlServerFakeError($dataSource)) {
+			return true;
 		}
 
+		$errorNo = $dataSource->errorNo();
 		if ($dieOnError && $errorNo) {
 			fatalError('DB Error: ' . $dataSource->errorMsg());
 		}

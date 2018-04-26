@@ -140,9 +140,8 @@ class UserService extends PKPBaseEntityPropertyService {
 		$countRange = new DBResultRange($args['count'], 1);
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$countResult = $userDao->retrieveRange($countQO->toSql(), $countQO->getBindings(), $countRange);
-		$countQueryResults = new DAOResultFactory($countResult, $userDao, '_returnUserFromRowWithReviewerStats');
 
-		return (int) $countQueryResults->getCount();
+		return (int) $countResult->GetRows()[0][0];
 	}
 
 	/**

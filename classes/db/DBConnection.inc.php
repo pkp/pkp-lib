@@ -111,10 +111,15 @@ class DBConnection {
 	 * @return boolean
 	 */
 	function initConn() {
-		require_once('lib/pkp/lib/adodb/adodb.inc.php');
+		require_once('lib/pkp/lib/vendor/adodb/adodb-php/adodb.inc.php');
 
-		$isSqlServer = Config::getVar('database', 'ms_sql');
-		$this->dbconn = ADONewConnection($isSqlServer ? 'pdo' : $this->driver);
+		// It looks like ADO can't take any composed driver. i.e. pdo_mysql, pdo_mssql...
+		$driver = $this->driver;
+		if (strpos($driver, 'pdo') !== -1) {
+			$driver = 'pdo';
+		}
+
+		$this->dbconn = ADONewConnection($driver);
 
 		if ($this->connectOnInit) {
 			return $this->connect();

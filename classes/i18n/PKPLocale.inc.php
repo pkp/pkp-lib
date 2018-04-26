@@ -149,7 +149,14 @@ class PKPLocale {
 			// Set the time zone for DB
 			$conn = DBConnection::getInstance();
 			$dbconn =& $conn->getDBConn();
-			switch($conn->getDriver()) {
+
+			// It looks like ADO can't take any composed driver. i.e. pdo_mysql, pdo_mssql...
+			$driver = $conn->getDriver();
+			if (strpos($driver, 'pdo') !== -1) {
+				$driver = 'pdo';
+			}
+
+			switch($driver) {
 				case 'mysql':
 				case 'mysqli':
 					$offset = PKPLocale::getDateOffset();
@@ -159,7 +166,9 @@ class PKPLocale {
 					$offset = PKPLocale::getDateOffset();
 					$dbconn->execute('SET TIME ZONE INTERVAL \''.$offset.'\' HOUR TO MINUTE');
 					break;
-				case 'pdo_sqlsrv':
+				case 'mssql':
+				case 'sqlsrv':
+				case 'pdo':
 					break;
 				default: assert(false);
 			}

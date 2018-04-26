@@ -219,14 +219,15 @@ class EmailLogDAO extends DAO {
 	 */
 	function _insertLogUserIds($entry) {
 		$recipients = $entry->getRecipients();
-
-		// We can use a simple regex to get emails, since we don't want to validate it.
-		$pattern = '/(?<=\<)[^\>]*(?=\>)/';
-		preg_match_all($pattern, $recipients, $matches);
-		if (!isset($matches[0])) return;
+		$emails = preg_split('/,\s*/', $recipients);
 
 		$userDao = DAORegistry::getDAO('UserDAO');
-		foreach ($matches[0] as $emailAddress) {
+		foreach ($emails as $emailAddress) {
+			// We can use a simple regex to get emails, since we don't want to validate it.
+			preg_match_all('/(?<=\<)[^\>]*(?=\>)/', $emailAddress, $matches);
+			if (isset($matches[0]) && isset($matches[0][0])) {
+				$emailAddress = $matches[0][0];
+			}
 			$user = $userDao->getUserByEmail($emailAddress);
 			if (is_a($user, 'User')) {
 				// We use replace here to avoid inserting duplicated entries

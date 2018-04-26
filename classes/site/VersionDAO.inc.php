@@ -222,14 +222,13 @@ class VersionDAO extends DAO {
 			$contextWhereClause = '';
 		}
 
-		$isSqlServer = Config::getVar('database', 'ms_sql');
 		$result = $this->retrieve(
 			'SELECT v.*
 			FROM versions v LEFT JOIN plugin_settings ps ON
 				lower(v.product_class_name) = ps.plugin_name
 				AND ps.setting_name = \'enabled\' '.$contextWhereClause.'
 			WHERE v.actual = 1 AND (ps.setting_value = \'1\' OR v.lazy_load <> 1)',
-            $isSqlServer ? array_values($context) : $context,
+            array_values($context),
             false
 		);
 

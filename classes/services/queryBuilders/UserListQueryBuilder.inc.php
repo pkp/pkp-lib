@@ -278,16 +278,10 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 					->leftJoin('user_user_groups as uug', 'uug.user_id', '=', 'u.user_id')
 					->leftJoin('user_groups as ug', 'ug.user_group_id', '=', 'uug.user_group_id')
 					->where('ug.context_id','=', $this->contextId);
-		if (empty($this->countOnly)) {
-			$q->orderBy($this->orderColumn, $this->orderDirection);
-		}
 
-		$isSqlServer = Config::getVar('database', 'ms_sql');
-		if ($isSqlServer) {
-			$q->groupBy('u.user_id', 'u.username', 'u.password', 'u.salutation', 'u.first_name', 'u.middle_name', 'u.last_name', 'u.suffix', 'u.initials', 'u.email', 'u.url', 'u.phone', 'u.mailing_address', 'u.billing_address', 'u.country', 'u.locales', 'u.gossip', 'u.date_last_email', 'u.date_registered', 'u.date_validated', 'u.date_last_login', 'u.must_change_password', 'u.auth_id', 'u.auth_str', 'u.disabled', 'u.disabled_reason', 'u.inline_help');
-		}
-		else {
-		    $q->groupBy('u.user_id');
+		if (empty($this->countOnly)) {
+			$q->distinct();
+			$q->orderBy($this->orderColumn, $this->orderDirection);
 		}
 
 		// roles
@@ -372,46 +366,82 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 
 		// reviewer data
 		if (!empty($this->getReviewerData)) {
-			$q->leftJoin('review_assignments as ra', 'u.user_id', '=', 'ra.reviewer_id');
-			$this->columns[] = Capsule::raw('MAX(ra.date_assigned) as last_assigned');
-			$this->columns[] = Capsule::raw('(SELECT SUM(CASE WHEN ra.date_completed IS NULL THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as incomplete_count');
-			$this->columns[] = Capsule::raw('(SELECT SUM(CASE WHEN ra.date_completed IS NOT NULL THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as complete_count');
-			switch (\Config::getVar('database', 'driver')) {
+			// It looks like ADO can't take any composed driver. i.e. pdo_mysql, pdo_mssql...
+			$driver = \Config::getVar('database', 'driver');
+			if (strpos($driver, 'pdo') !== -1) {
+				$driver = 'pdo';
+			}
+
+			switch ($driver) {
 				case 'mysql':
 				case 'mysqli':
 					$dateDiffClause = 'DATEDIFF(ra.date_completed, ra.date_notified)';
 					break;
-				case 'pdo_sqlsrv':
+				case 'mssql':
+				case 'sqlsrv':
+				case 'pdo':
 					$dateDiffClause = 'DATEPART(day, DATEDIFF(s, ra.date_notified, ra.date_completed))';
 					break;
 				default:
 					$dateDiffClause = 'DATE_PART(\'day\', ra.date_completed - ra.date_notified)';
 			}
-			$this->columns[] = Capsule::raw('AVG(' . $dateDiffClause . ') as average_time');
-			$this->columns[] = Capsule::raw('(SELECT AVG(ra.quality) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id AND ra.quality IS NOT NULL) as reviewer_rating');
+
+			$this->columns[] = 'aggregation.incomplete_count';
+			$this->columns[] = 'aggregation.complete_count';
+			$this->columns[] = 'aggregation_quality.reviewer_rating';
+			$this->columns[] = 'aggregation.declined_count';
+			$this->columns[] = 'aggregation.last_assigned';
+			$this->columns[] = 'aggregation.average_time';
+
+			$q->leftJoin(Capsule::raw("(
+											SELECT ra.reviewer_id,
+												SUM(CASE WHEN ra.date_completed IS NULL AND ra.declined <> 1 THEN 1 ELSE 0 END) AS incomplete_count,
+												SUM(CASE WHEN ra.date_completed IS NOT NULL THEN 1 ELSE 0 END) AS complete_count,
+												SUM(ra.declined) AS declined_count,
+												MAX(ra.date_assigned) AS last_assigned,
+												AVG(" . $dateDiffClause . ") AS average_time
+											FROM review_assignments AS ra
+											WHERE ra.quality IS NOT NULL AND ra.quality != 0
+											GROUP BY ra.reviewer_id
+										) AS aggregation"),
+						function($join) {
+							$join->on('u.user_id', '=', 'aggregation.reviewer_id');
+						}
+			);
+			$q->leftJoin(Capsule::raw("(
+											SELECT ra.reviewer_id,
+												AVG(ra.quality) AS reviewer_rating
+											FROM review_assignments AS ra
+												" . ($localOnly ? "LEFT JOIN submissions AS su ON ra.submission_id = su.submission_id" : "") . "
+											WHERE ra.quality IS NOT NULL AND ra.quality != 0
+												" . ($localOnly ? "AND su.context_id = " . $this->contextId : "") . "
+											GROUP BY ra.reviewer_id
+										) AS aggregation_quality"),
+						function($join) {
+							$join->on('u.user_id', '=', 'aggregation_quality.reviewer_id');
+						}
+			);
 
 			// reviewer rating
 			if (!empty($this->reviewerRating)) {
-				$q->havingRaw('(SELECT AVG(ra.quality) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id AND ra.quality IS NOT NULL) >= ' . (int) $this->reviewerRating);
+				$q->where('aggregation_quality.reviewer_rating', '>=', (int) $this->reviewerRating);
 			}
 
 			// completed reviews
 			if (!empty($this->reviewsCompleted)) {
 				$doneMin = is_array($this->reviewsCompleted) ? $this->reviewsCompleted[0] : $this->reviewsCompleted;
-				$subqueryStatement = '(SELECT SUM(CASE WHEN ra.date_completed IS NOT NULL THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id)';
-				$q->having(Capsule::raw($subqueryStatement), '>=', $doneMin);
+				$q->where('aggregation.complete_count', ">=", $doneMin);
 				if (is_array($this->reviewsCompleted) && !empty($this->reviewsCompleted[1])) {
-					$q->having(Capsule::raw($subqueryStatement), '<=', $this->reviewsCompleted[1]);
+					$q->where('aggregation.complete_count', "<=", $this->reviewsCompleted[1]);
 				}
 			}
 
 			// active reviews
 			if (!empty($this->reviewsActive)) {
 				$activeMin = is_array($this->reviewsActive) ? $this->reviewsActive[0] : $this->reviewsActive;
-				$subqueryStatement = '(SELECT SUM(CASE WHEN ra.date_completed IS NULL THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id)';
-				$q->having(Capsule::raw($subqueryStatement), '>=', $activeMin);
+				$q->where('aggregation.incomplete_count', '>=', $activeMin);
 				if (is_array($this->reviewsActive) && !empty($this->reviewsActive[1])) {
-					$q->having(Capsule::raw($subqueryStatement), '<=', $this->reviewsActive[1]);
+					$q->where('aggregation.incomplete_count', '<=', $this->reviewsActive[1]);
 				}
 			}
 
@@ -420,19 +450,21 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 				$daysSinceMin = is_array($this->daysSinceLastAssignment) ? $this->daysSinceLastAssignment[0] : $this->daysSinceLastAssignment;
 				$userDao = \DAORegistry::getDAO('UserDAO');
 				$dbTimeMin = $userDao->dateTimeToDB(time() - ((int) $daysSinceMin * 86400));
-				$q->havingRaw('MAX(ra.date_assigned) <= ' . $dbTimeMin);
+				$min = preg_replace('/\'/', '', $dbTimeMin);
+				$q->where('aggregation.last_assigned', '<=', $min);
 				if (is_array($this->daysSinceLastAssignment) && !empty($this->daysSinceLastAssignment[1])) {
 					$daysSinceMax = $this->daysSinceLastAssignment[1];
 					// Subtract an extra day so that our outer bound rounds "up". This accounts
 					// for the UI rounding "down" in the string "X days ago".
 					$dbTimeMax = $userDao->dateTimeToDB(time() - ((int) $daysSinceMax * 86400) - 84600);
-					$q->havingRaw('MAX(ra.date_assigned) >= ' . $dbTimeMax);
+					$max = preg_replace('/\'/', '', $dbTimeMax);
+					$q->where('aggregation.last_assigned', '>=', $max);
 				}
 			}
 
 			// average days to complete review
 			if (!empty($this->averageCompletion)) {
-				$q->havingRaw('AVG(' . $dateDiffClause . ') <= ' . (int) $this->averageCompletion);
+				$q->where('aggregation.average_time', '<=', (int) $this->averageCompletion);
 			}
 		}
 

@@ -196,15 +196,10 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 	public function get() {
 		$this->columns[] = 's.*';
 		$q = Capsule::table('submissions as s')
-					->where('s.context_id','=', $this->contextId)
-					->orderBy($this->orderColumn, $this->orderDirection);
+					->where('s.context_id','=', $this->contextId);
 
-		$isSqlServer = Config::getVar('database', 'ms_sql');
-		if ($isSqlServer) {
-			$q->groupBy('s.submission_id', 's.locale', 's.context_id', 's.section_id', 's.language', 's.citations', 's.date_submitted', 's.last_modified', 's.date_status_modified', 's.status', 's.submission_progress', 's.pages', 's.hide_author', 's.stage_id');
-		}
-		else {
-			$q->groupBy('s.submission_id');
+		if (empty($this->countOnly)) {
+			$q->orderBy($this->orderColumn, $this->orderDirection);
 		}
 
 		// order by title
@@ -218,14 +213,6 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 		if ($this->returnObject === SUBMISSION_RETURN_PUBLISHED) {
 			$this->columns[] = 'ps.*';
 			$q->leftJoin('published_submissions as ps','ps.submission_id','=','s.submission_id');
-
-			if ($isSqlServer) {
-				$q->groupBy('ps.published_submission_id', 'ps.submission_id', 'ps.issue_id', 'ps.date_published', 'ps.seq', 'ps.access_status');
-			}
-			else {
-				$q->groupBy('ps.date_published');
-			}
-
 			$q->whereNotNull('ps.pub_id');
 		}
 
@@ -234,8 +221,7 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 			import('lib.pkp.classes.submission.Submission'); // STATUS_ constants
 			if (in_array(STATUS_PUBLISHED, $this->statuses) && $this->returnObject !== SUBMISSION_RETURN_PUBLISHED) {
 				$this->columns[] = 'ps.date_published';
-				$q->leftJoin('published_submissions as ps','ps.submission_id','=','s.submission_id')
-					->groupBy('ps.date_published');
+				$q->leftJoin('published_submissions as ps','ps.submission_id','=','s.submission_id');
 			}
 			$q->whereIn('s.status', $this->statuses);
 		}

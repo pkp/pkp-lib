@@ -33,15 +33,19 @@ class ReviewFormDAO extends DAO {
 			$params[] = (int) $assocId;
 		}
 
-		$isSqlServer = Config::getVar('database', 'ms_sql');
 		$result = $this->retrieve (
 			'SELECT	rf.*,
-				SUM(CASE WHEN ra.date_completed IS NOT NULL THEN 1 ELSE 0 END) AS complete_count,
-				SUM(CASE WHEN ra.review_id IS NOT NULL AND ra.date_completed IS NULL THEN 1 ELSE 0 END) AS incomplete_count
-			FROM	review_forms rf
-				LEFT JOIN review_assignments ra ON (ra.review_form_id = rf.review_form_id)
-			WHERE	rf.review_form_id = ? AND rf.assoc_type = ? AND rf.assoc_id = ?
-			GROUP BY rf.review_form_id' . ($isSqlServer ? ', rf.seq, rf.assoc_type, rf.assoc_id, rf.is_active' : ''),
+				aggregation.complete_count,
+				aggregation.incomplete_count
+			FROM review_forms rf
+				LEFT JOIN (
+					SELECT ra.review_form_id,
+						SUM(CASE WHEN ra.date_completed IS NOT NULL THEN 1 ELSE 0 END) AS complete_count,
+						SUM(CASE WHEN ra.review_id IS NOT NULL AND ra.date_completed IS NULL THEN 1 ELSE 0 END) AS incomplete_count
+					FROM review_assignments ra
+					GROUP BY ra.review_form_id
+				) as aggregation ON rf.review_form_id = aggregation.review_form_id
+			WHERE rf.review_form_id = ? AND rf.assoc_type = ? AND rf.assoc_id = ?',
 			$params
 		);
 
@@ -212,15 +216,19 @@ class ReviewFormDAO extends DAO {
 	 * @return DAOResultFactory containing matching ReviewForms
 	 */
 	function getByAssocId($assocType, $assocId, $rangeInfo = null) {
-	    $isSqlServer = Config::getVar('database', 'ms_sql');
 		$result = $this->retrieveRange(
-			'SELECT rf.*,
-				SUM(CASE WHEN ra.date_completed IS NOT NULL THEN 1 ELSE 0 END) AS complete_count,
-				SUM(CASE WHEN ra.review_id IS NOT NULL AND ra.date_completed IS NULL THEN 1 ELSE 0 END) AS incomplete_count
-			FROM	review_forms rf
-				LEFT JOIN review_assignments ra ON (ra.review_form_id = rf.review_form_id)
-			WHERE   rf.assoc_type = ? AND rf.assoc_id = ?
-			GROUP BY rf.review_form_id' . ($isSqlServer ? ', rf.seq, rf.assoc_type, rf.assoc_id, rf.is_active' : '') . '
+			'SELECT	rf.*,
+				aggregation.complete_count,
+				aggregation.incomplete_count
+			FROM review_forms rf
+				LEFT JOIN (
+					SELECT ra.review_form_id,
+						SUM(CASE WHEN ra.date_completed IS NOT NULL THEN 1 ELSE 0 END) AS complete_count,
+						SUM(CASE WHEN ra.review_id IS NOT NULL AND ra.date_completed IS NULL THEN 1 ELSE 0 END) AS incomplete_count
+					FROM review_assignments ra
+					GROUP BY ra.review_form_id
+				) as aggregation ON rf.review_form_id = aggregation.review_form_id
+			WHERE rf.assoc_type = ? AND rf.assoc_id = ?
 			ORDER BY rf.seq',
 			array((int) $assocType, (int) $assocId), $rangeInfo
 		);
@@ -236,15 +244,19 @@ class ReviewFormDAO extends DAO {
 	 * @return DAOResultFactory containing matching ReviewForms
 	 */
 	function getActiveByAssocId($assocType, $assocId, $rangeInfo = null) {
-	    $isSqlServer = Config::getVar('database', 'ms_sql');
 		$result = $this->retrieveRange(
 			'SELECT	rf.*,
-				SUM(CASE WHEN ra.date_completed IS NOT NULL THEN 1 ELSE 0 END) AS complete_count,
-				SUM(CASE WHEN ra.review_id IS NOT NULL AND ra.date_completed IS NULL THEN 1 ELSE 0 END) AS incomplete_count
-			FROM	review_forms rf
-				LEFT JOIN review_assignments ra ON (ra.review_form_id = rf.review_form_id)
-			WHERE	rf.assoc_type = ? AND rf.assoc_id = ? AND rf.is_active = 1
-			GROUP BY rf.review_form_id' . ($isSqlServer ? ', rf.seq, rf.assoc_type, rf.assoc_id, rf.is_active' : '') . '
+				aggregation.complete_count,
+				aggregation.incomplete_count
+			FROM review_forms rf
+				LEFT JOIN (
+					SELECT ra.review_form_id,
+						SUM(CASE WHEN ra.date_completed IS NOT NULL THEN 1 ELSE 0 END) AS complete_count,
+						SUM(CASE WHEN ra.review_id IS NOT NULL AND ra.date_completed IS NULL THEN 1 ELSE 0 END) AS incomplete_count
+					FROM review_assignments ra
+					GROUP BY ra.review_form_id
+				) as aggregation ON rf.review_form_id = aggregation.review_form_id
+			WHERE rf.assoc_type = ? AND rf.assoc_id = ? AND rf.is_active = 1
 			ORDER BY rf.seq',
 			array((int) $assocType, (int) $assocId), $rangeInfo
 		);

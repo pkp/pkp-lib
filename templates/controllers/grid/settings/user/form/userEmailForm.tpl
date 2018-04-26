@@ -30,6 +30,6 @@
 		{fbvElement type="textarea" id="message" value=$message rich=true required="true"}
 	{/fbvFormSection}
 
+	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 	{fbvFormButtons submitText="common.sendEmail"}
 </form>
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>

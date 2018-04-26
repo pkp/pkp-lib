@@ -52,12 +52,12 @@
 			{/fbvFormSection}
 		{/if}
 
-		{if $userId}
+		{if $userId && $selectRoleListData}
 			{fbvFormSection}
 				{assign var="uuid" value=""|uniqid|escape}
 				<div id="userGroups-{$uuid}">
 					<script type="text/javascript">
-						pkp.registry.init('userGroups-{$uuid}', 'SelectListPanel', {$selectUserListData});
+						pkp.registry.init('userGroups-{$uuid}', 'SelectListPanel', {$selectRoleListData});
 					</script>
 				</div>
 			{/fbvFormSection}

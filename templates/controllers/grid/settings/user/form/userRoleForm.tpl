@@ -20,16 +20,21 @@
 
 	<h3>{translate key="grid.user.step2" userFullName=$userFullName}</h3>
 
-		<input type="hidden" id="userId" name="userId" value="{$userId|escape}" />
+	<input type="hidden" id="userId" name="userId" value="{$userId|escape}" />
 
-		{fbvFormSection}
-			{assign var="uuid" value=""|uniqid|escape}
-			<div id="userGroups-{$uuid}">
-				<script type="text/javascript">
-					pkp.registry.init('userGroups-{$uuid}', 'SelectListPanel', {$selectUserListData});
-				</script>
-			</div>
-		{/fbvFormSection}
+	{if $contextId}
+		<input type="hidden" id="contextId" name="contextId" value="{$contextId|escape}">
+	{/if}
 
-		{fbvFormButtons submitText="common.save"}
+
+	{fbvFormSection}
+		{assign var="uuid" value=""|uniqid|escape}
+		<div id="userGroups-{$uuid}">
+			<script type="text/javascript">
+				pkp.registry.init('userGroups-{$uuid}', 'SelectListPanel', {$selectRoleListData});
+			</script>
+		</div>
+	{/fbvFormSection}
+
+	{fbvFormButtons submitText="common.save"}
 </form>

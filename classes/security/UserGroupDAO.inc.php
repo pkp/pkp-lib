@@ -537,7 +537,7 @@ class UserGroupDAO extends DAO {
 	 * @param int $contextId
 	 * @param int $userId
 	 */
-	function deleteAssignmentsByContextId($contextId, $userId = null) {
+	function deleteAssignmentsByContextId($contextId = null, $userId = null) {
 		$this->userGroupAssignmentDao->deleteAssignmentsByContextId($contextId, $userId);
 	}
 

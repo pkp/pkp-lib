@@ -160,4 +160,5 @@
 	<!-- User Lists -->
 	<message key="user.list.count">{$count} users</message>
 	<message key="user.list.itemsOfTotal">{$count} of {$total} users</message>
+	<message key="user.list.assignUser">Assign Roles</message>
 </locale>

@@ -46,8 +46,13 @@ class UserGridHandler extends GridHandler {
 	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
-		import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
-		$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+
+		// Allow site admin to access this grid without a context
+		$currentUser = $request->getUser();
+		if ($request->getContext() || !$currentUser || !$currentUser->hasRole(ROLE_ID_SITE_ADMIN, CONTEXT_ID_NONE)) {
+			import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
+			$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+		}
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 
@@ -316,13 +321,24 @@ class UserGridHandler extends GridHandler {
 
 			// If this is a newly created user, show role management form.
 			if (!$userId) {
-				import('lib.pkp.controllers.grid.settings.user.form.UserRoleForm');
-				$userRoleForm = new UserRoleForm($user->getId(), $user->getFullName());
-				$userRoleForm->initData($args, $request);
-				$json = new JSONMessage(true, $userRoleForm->display($args, $request));
-				$userService = ServicesContainer::instance()->get('user');
-				$json->setGlobalEvent('userAdded', $userService->getSummaryProperties($user, array('request' => $request)));
-				return $json;
+				// If this is from the site admin, we need to show context form first
+				if (!$request->getContext()) {
+					import('lib.pkp.controllers.grid.settings.user.form.UserRoleContextForm');
+					$userRoleContextForm = new UserRoleContextForm($user->getId());
+					$userRoleContextForm->initData($args, $request);
+					$json = new JSONMessage(true, $userRoleContextForm->fetch($request));
+					$userService = ServicesContainer::instance()->get('user');
+					$json->setGlobalEvent('userAdded', $userService->getSummaryProperties($user, array('request' => $request)));
+					return $json;
+				} else {
+					import('lib.pkp.controllers.grid.settings.user.form.UserRoleForm');
+					$userRoleForm = new UserRoleForm($user->getId(), $user->getFullName());
+					$userRoleForm->initData($args, $request);
+					$json = new JSONMessage(true, $userRoleForm->display($args, $request));
+					$userService = ServicesContainer::instance()->get('user');
+					$json->setGlobalEvent('userAdded', $userService->getSummaryProperties($user, array('request' => $request)));
+					return $json;
+				}
 			} else {
 
 				// Successful edit of an existing user.
@@ -343,6 +359,61 @@ class UserGridHandler extends GridHandler {
 	}
 
 	/**
+	 * Display the context selection form
+	 *
+	 * Used to determine what context user group assignment should occur in.
+	 *
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
+	function showRoleContextSelection($args, $request) {
+		$currentUser = $request->getUser();
+		$userId = $request->getUserVar('userId');
+
+		if (!$userId || !Validation::canAdminister($userId, $currentUser->getId())) {
+			return new JSONMessage(false, __('grid.user.cannotAdminister'));
+		}
+
+		import('lib.pkp.controllers.grid.settings.user.form.UserRoleContextForm');
+		$userRoleContextForm = new UserRoleContextForm($userId);
+
+		return new JSONMessage(true, $userRoleContextForm->fetch($request));
+	}
+
+	/**
+	 * Retrieve a user role form when a context selection has been made
+	 *
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
+	function selectRoleContext($args, $request) {
+		$currentUser = $request->getUser();
+		$userId = $request->getUserVar('userId');
+		$contextId = $request->getUserVar('contextId');
+
+		if (!$userId || !Validation::canAdminister($userId, $currentUser->getId())) {
+			return new JSONMessage(false, __('grid.user.cannotAdminister'));
+		}
+
+		$userDao = DAORegistry::getDAO('UserDAO');
+		$user = $userDao->getById($userId);
+
+		import('lib.pkp.controllers.grid.settings.user.form.UserRoleContextForm');
+		$userRoleContextForm = new UserRoleContextForm($userId);
+		$userRoleContextForm->readInputData();
+		if ($userRoleContextForm->validate()) {
+			$contextId = $userRoleContextForm->getData('contextId');
+			import('lib.pkp.controllers.grid.settings.user.form.UserRoleForm');
+			$userRoleForm = new UserRoleForm($user->getId(), $user->getFullName(), $contextId);
+			$userRoleForm->initData($args, $request);
+			return new JSONMessage(true, $userRoleForm->display($args, $request));
+		}
+		return new JSONMessage(false);
+	}
+
+	/**
 	 * Update a newly created user's roles
 	 * @param $args array
 	 * @param $request PKPRequest
@@ -351,8 +422,8 @@ class UserGridHandler extends GridHandler {
 	function updateUserRoles($args, $request) {
 		$user = $request->getUser();
 
-		// Identify the user Id.
 		$userId = $request->getUserVar('userId');
+		$contextId = $request->getUserVar('contextId');
 
 		if ($userId !== null && !Validation::canAdminister($userId, $user->getId())) {
 			// We don't have administrative rights over this user.
@@ -361,7 +432,7 @@ class UserGridHandler extends GridHandler {
 
 		// Form handling.
 		import('lib.pkp.controllers.grid.settings.user.form.UserRoleForm');
-		$userRoleForm = new UserRoleForm($userId, $user->getFullName());
+		$userRoleForm = new UserRoleForm($userId, $user->getFullName(), $contextId);
 		$userRoleForm->readInputData();
 
 		if ($userRoleForm->validate()) {
@@ -459,6 +530,7 @@ class UserGridHandler extends GridHandler {
 		if (!$request->checkCSRF()) return new JSONMessage(false);
 
 		$context = $request->getContext();
+		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 		$user = $request->getUser();
 
 		// Identify the user Id.
@@ -473,10 +545,10 @@ class UserGridHandler extends GridHandler {
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 
 		// Check if this user has any user group assignments for this context.
-		if (!$userGroupDao->userInAnyGroup($userId, $context->getId())) {
+		if (!$userGroupDao->userInAnyGroup($userId, $contextId)) {
 			return new JSONMessage(false, __('grid.user.userNoRoles'));
 		} else {
-			$userGroupDao->deleteAssignmentsByContextId($context->getId(), $userId);
+			$userGroupDao->deleteAssignmentsByContextId($contextId, $userId);
 			$json = DAO::getDataChangedEvent($userId);
 			$userService = ServicesContainer::instance()->get('user');
 			$updatedUser = $userService->getUser((int) $userId);

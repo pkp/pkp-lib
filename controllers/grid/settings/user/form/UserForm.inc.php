@@ -20,18 +20,29 @@ class UserForm extends Form {
 	/** @var Id of the user being edited */
 	var $userId;
 
+	/** @var Context for which to edit user roles */
+	var $contextId;
+
 	/**
 	 * Constructor.
 	 * @param $request PKPRequest
 	 * @param $userId int optional
-	 * @param $author Author optional
+	 * @param $contextId int optional
 	 */
-	function __construct($template, $userId = null) {
+	function __construct($template, $userId = null, $contextId = null) {
 		parent::__construct($template);
 
-		$this->userId = isset($userId) ? (int) $userId : null;
+		$request = Application::getRequest();
 
-		if (!is_null($userId)) {
+		if (!$contextId) {
+			$context = $request->getContext();
+			$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
+		}
+
+		$this->userId = isset($userId) ? (int) $userId : null;
+		$this->contextId = $contextId;
+
+		if (!is_null($userId) && $request->getContext()) {
 			$this->addCheck(new FormValidator($this, 'userGroupIds', 'required', 'manager.users.roleRequired'));
 		}
 	}
@@ -42,14 +53,15 @@ class UserForm extends Form {
 	 * @param $request PKPRequest
 	 */
 	public function initData($args, $request) {
-
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$userGroups = $userGroupDao->getByUserId($this->userId);
-		$userGroupIds = array();
-		while ($userGroup = $userGroups->next()) {
-			$userGroupIds[] = $userGroup->getId();
+		if ($this->contextId) {
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+			$userGroups = $userGroupDao->getByUserId($this->userId, $this->contextId);
+			$userGroupIds = array();
+			while ($userGroup = $userGroups->next()) {
+				$userGroupIds[] = $userGroup->getId();
+			}
+			$this->setData('userGroupIds', $userGroupIds);
 		}
-		$this->setData('userGroupIds', $userGroupIds);
 	}
 
 	/**
@@ -66,20 +78,22 @@ class UserForm extends Form {
 	 * @param $request PKPRequest
 	 */
 	public function display($args, $request) {
-		$context = $request->getContext();
-		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 		$templateMgr = TemplateManager::getManager($request);
 
-		import('lib.pkp.controllers.list.users.SelectRoleListHandler');
-		$selectRoleList = new SelectRoleListHandler(array(
-			'contextId' => $contextId,
-			'title' => 'grid.user.userRoles',
-			'inputName' => 'userGroupIds[]',
-			'selected' => $this->getData('userGroupIds'),
-		));
-		$templateMgr->assign(array(
-			'selectUserListData' => json_encode($selectRoleList->getConfig()),
-		));
+		if ($this->contextId) {
+			import('lib.pkp.controllers.list.users.SelectRoleListHandler');
+			$selectRoleList = new SelectRoleListHandler(array(
+				'contextId' => $this->contextId,
+				'title' => 'grid.user.userRoles',
+				'inputName' => 'userGroupIds[]',
+				'selected' => $this->getData('userGroupIds'),
+			));
+			$templateMgr->assign(array(
+				'contextId' => $this->contextId,
+				'selectRoleListData' => json_encode($selectRoleList->getConfig()),
+			));
+		}
+
 
 		return $this->fetch($request);
 	}
@@ -89,10 +103,10 @@ class UserForm extends Form {
 	 */
 	function execute($args, $request) {
 
-		if (isset($this->userId)) {
+		if (isset($this->userId) && $this->contextId) {
 			import('lib.pkp.classes.security.UserGroupAssignmentDAO');
 			$userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO');
-			$userGroupAssignmentDao->deleteAssignmentsByContextId($request->getContext()->getId(), $this->userId);
+			$userGroupAssignmentDao->deleteAssignmentsByContextId($this->contextId, $this->userId);
 			if ($this->getData('userGroupIds')) {
 				$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 				foreach ($this->getData('userGroupIds') as $userGroupId) {

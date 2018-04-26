@@ -64,9 +64,9 @@
 		{/foreach}
 	{/fbvFormSection}
 
-	{if count($reviewForms)>1}{* There will always be a "none" entry *}
+	{if count($reviewForms)>0}
 		{fbvFormSection title="submission.reviewForm"}
-			{fbvElement type="select" name="reviewFormId" id="reviewFormId" translate=false from=$reviewForms selected=$reviewFormId}
+			{fbvElement type="select" name="reviewFormId" id="reviewFormId" defaultLabel="manager.reviewForms.noneChosen"|translate defaultValue="0" translate=false from=$reviewForms selected=$reviewFormId}
 		{/fbvFormSection}
 	{/if}
 

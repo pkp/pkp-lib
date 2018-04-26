@@ -108,6 +108,11 @@ class PKPAdminUsersListHandler extends ListHandler {
 				'heading' => __('user.roles'),
 				'filters' => array(
 					array(
+						'param' => 'userGroupIds',
+						'val' => 0,
+						'title' => __('user.roles.noneAssigned'),
+					),
+					array(
 						'param' => 'roleIds',
 						'val' => ROLE_ID_SITE_ADMIN,
 						'title' => __('default.groups.name.siteAdmin'),

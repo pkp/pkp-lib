@@ -39,7 +39,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	/** @var array list of role ids */
 	protected $roleIds = null;
 
-	/** @var array|boolean list of user group ids */
+	/** @var array list of user group ids */
 	protected $userGroupIds = null;
 
 	/** @var int submission ID */
@@ -152,7 +152,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	 * @return \PKP\Services\QueryBuilders\UserListQueryBuilder
 	 */
 	public function filterByUserGroupIds($userGroupIds) {
-		if (!is_null($userGroupIds) && $userGroupIds !== false && !is_array($userGroupIds)) {
+		if (!is_null($userGroupIds) && !is_array($userGroupIds)) {
 			$userGroupIds = array($userGroupIds);
 		}
 		$this->userGroupIds = $userGroupIds;
@@ -326,7 +326,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 
 		// user groups
 		if (!is_null($this->userGroupIds)) {
-			if ($this->userGroupIds === false) {
+			if (in_array(0, $this->userGroupIds)) {
 				$q->whereNull('ug.user_group_id');
 			} else {
 				$q->whereIn('ug.user_group_id', $this->userGroupIds);

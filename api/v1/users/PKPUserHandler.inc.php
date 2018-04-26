@@ -206,9 +206,7 @@ class PKPUserHandler extends APIHandler {
 				case 'contextIds':
 				case 'roleIds':
 				case 'userGroupIds':
-					if ($param === 'userGroupIds' && !$val) {
-						$val = false;
-					} elseif (is_string($val) && strpos($val, ',') > -1) {
+					if (is_string($val) && strpos($val, ',') > -1) {
 						$val = explode(',', $val);
 					} elseif (!is_array($val)) {
 						$val = array($val);

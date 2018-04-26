@@ -232,12 +232,14 @@ class ReviewerForm extends Form {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('reviewMethods', $reviewMethods);
 		$templateMgr->assign('reviewerActions', $this->getReviewerFormActions());
+
 		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
-		$reviewForms = array(0 => __('editor.article.selectReviewForm'));
 		$reviewFormsIterator = $reviewFormDao->getActiveByAssocId(Application::getContextAssocType(), $context->getId());
+		$reviewForms = array();
 		while ($reviewForm = $reviewFormsIterator->next()) {
 			$reviewForms[$reviewForm->getId()] = $reviewForm->getLocalizedTitle();
 		}
+
 		$templateMgr->assign('reviewForms', $reviewForms);
 		$templateMgr->assign('emailVariables', array(
 			'reviewerName' => __('user.name'),

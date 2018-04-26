@@ -83,7 +83,6 @@ class EditReviewForm extends Form {
 			'reviewRoundId' => $this->_reviewRound->getId(),
 			'submissionId' => $this->_reviewAssignment->getSubmissionId(),
 			'reviewAssignmentId' => $this->_reviewAssignment->getId(),
-			'reviewFormId' => $this->_reviewAssignment->getReviewFormId(),
 		));
 		return parent::fetch($request);
 	}

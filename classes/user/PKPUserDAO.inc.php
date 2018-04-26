@@ -237,31 +237,6 @@ class PKPUserDAO extends DAO {
 	}
 
 	/**
-	 * Retrieve a list of all reviewers in a context.
-	 * @param $contextId int
-	 * @return array matching Users
-	 */
-	function getAllReviewers($contextId) {
-		$params = array((int) $contextId, ROLE_ID_REVIEWER);
-		$params = array_merge($this->getFetchParameters(), $params);
-
-		$result = $this->retrieve(
-			'SELECT	u.*,
-			' . $this->getFetchColumns() . '
-			FROM	users u
-			LEFT JOIN user_user_groups uug ON (uug.user_id = u.user_id)
-			LEFT JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id)
-			' . $this->getFetchJoins() . '
-			WHERE	ug.context_id = ? AND
-			ug.role_id = ?
-			' .$this->getOrderBy(),
-			$params
-		);
-
-		return new DAOResultFactory($result, $this, '_returnUserFromRowWithData');
-	}
-
-	/**
 
 	 * Return a user object from a DB row, including dependent data and reviewer stats.
 	 * @param $row array

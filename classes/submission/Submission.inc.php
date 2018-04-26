@@ -248,22 +248,6 @@ abstract class Submission extends DataObject {
 	}
 
 	/**
-	 * Return first author
-	 * @param $familyOnly boolean return family name only (default false)
-	 * @return string
-	 */
-	function getFirstAuthor($familyOnly = false) {
-		$authors = $this->getAuthors();
-		if (is_array($authors) && !empty($authors)) {
-			$author = $authors[0];
-			$familyName = $author->getLocalizedFamilyName();
-			return ($familyOnly && !empty($familyName)) ? $familyName : $author->getFullName();
-		} else {
-			return null;
-		}
-	}
-
-	/**
 	 * Return string of author names, separated by the specified token
 	 * @param $familyOnly boolean return list of family names only (default false)
 	 * @param $nameSeparator string Separator for names (default comma+space)

@@ -87,41 +87,6 @@ class SubEditorsDAO extends DAO {
 	}
 
 	/**
-	 * Retrieve a list of all section editors not assigned to the specified section.
-	 * @param $contextId int
-	 * @param $sectionId int
-	 * @return array matching Users
-	 */
-	function getEditorsNotInSection($contextId, $sectionId) {
-		$userDao = DAORegistry::getDAO('UserDAO');
-		$params = array(ROLE_ID_SUB_EDITOR, (int) $contextId, (int) $sectionId);
-		$params = array_merge($params, $userDao->getFetchParameters());
-		$result = $this->retrieve(
-			'SELECT	u.user_id,
-			' . $userDao->getFetchColumns() . '
-			FROM	users u
-				JOIN user_user_groups uug ON (u.user_id = uug.user_id)
-				JOIN user_groups ug ON (uug.user_group_id = ug.user_group_id AND ug.role_id = ? AND ug.context_id = ?)
-				LEFT JOIN section_editors e ON (e.user_id = u.user_id AND e.context_id = ug.context_id AND e.section_id = ?)
-				' . $userDao->getFetchJoins() . '
-			WHERE	e.section_id IS NULL
-			' . $userDao->getOrderBy(),
-			$params
-		);
-
-		$users = array();
-		while (!$result->EOF) {
-			$row = $result->GetRowAssoc(false);
-			$user = $userDao->getById($row['user_id']);
-			$users[$user->getId()] = $user;
-			$result->MoveNext();
-		}
-
-		$result->Close();
-		return $users;
-	}
-
-	/**
 	 * Delete all section editors for a specified section in a context.
 	 * @param $sectionId int
 	 * @param $contextId int

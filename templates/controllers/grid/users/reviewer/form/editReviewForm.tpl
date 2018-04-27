@@ -34,5 +34,13 @@
 	{url|assign:limitReviewFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.review.LimitReviewFilesGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId reviewAssignmentId=$reviewAssignmentId escape=false}
 	{load_url_in_div id="limitReviewFilesGrid" url=$limitReviewFilesGridUrl}
 
+	{if $reviewForms}
+		{if count($reviewForms)>0}
+			{fbvFormSection title="submission.reviewForm"}
+				{fbvElement type="select" name="reviewFormId" id="reviewFormId" defaultLabel="manager.reviewForms.noneChosen"|translate defaultValue="0" translate=false from=$reviewForms selected=$reviewFormId}
+			{/fbvFormSection}
+		{/if}
+	{/if}
+
 	{fbvFormButtons}
 </form>

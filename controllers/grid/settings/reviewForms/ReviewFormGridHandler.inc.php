@@ -213,7 +213,7 @@ class ReviewFormGridHandler extends GridHandler {
 
 		$previewReviewForm = new PreviewReviewForm($reviewFormId);
 		$previewReviewForm->initData($request);
-		return new JSONMessage(true, $previewReviewForm->fetch($args, $request));
+		return new JSONMessage(true, $previewReviewForm->fetch($request));
 	}
 
 	/**

@@ -38,7 +38,7 @@ class PreviewReviewForm extends Form {
 	/**
 	 * Display the form.
 	 */
-	function fetch($args, $request) {
+	function fetch($request) {
 		$json = new JSONMessage();
 
 		$templateMgr = TemplateManager::getManager($request);

@@ -77,6 +77,7 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 	/*
 	 * Configure the grid
 	 * @param $request PKPRequest
+	 * @param $args array optional
 	 */
 	function initialize($request, $args = null) {
 		parent::initialize($request, $args);

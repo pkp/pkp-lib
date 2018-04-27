@@ -20,6 +20,8 @@ import('lib.pkp.classes.controllers.grid.users.reviewer.PKPReviewerGridHandler')
 import('lib.pkp.controllers.grid.users.reviewer.AuthorReviewerGridCellProvider');
 import('lib.pkp.controllers.grid.users.reviewer.AuthorReviewerGridRow');
 
+import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignment');
+
 class AuthorReviewerGridHandler extends PKPReviewerGridHandler {
 
 	/**
@@ -107,6 +109,7 @@ class AuthorReviewerGridHandler extends PKPReviewerGridHandler {
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 
+		// Bypass the parent authorization checks
 		$this->isAuthorGrid = true;
 
 		$stageId = $request->getUserVar('stageId'); // This is being validated in WorkflowStageAccessPolicy

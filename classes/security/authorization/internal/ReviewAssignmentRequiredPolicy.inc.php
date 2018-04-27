@@ -15,6 +15,10 @@
 import('lib.pkp.classes.security.authorization.DataObjectRequiredPolicy');
 
 class ReviewAssignmentRequiredPolicy extends DataObjectRequiredPolicy {
+
+	/** @var Allowed review methods */
+	var $_reviewMethods = array();
+
 	/**
 	 * Constructor
 	 * @param $request PKPRequest
@@ -23,11 +27,11 @@ class ReviewAssignmentRequiredPolicy extends DataObjectRequiredPolicy {
 	 *  expect the submission id in.
 	 * @param $operations array|string either a single operation or a list of operations that
 	 *  this policy is targeting.
-	 * @param @reviewMethod array limit the policy to specific review methods
+	 * @param $reviewMethods array limit the policy to specific review methods
 	 */
-	function __construct($request, &$args, $parameterName = 'reviewAssignmentId', $operations = null, $reviewMethod = null) {
-		parent::__construct($request, $args, $parameterName, 'user.authorization.invalidReviewAssignment', $operations, $reviewMethod);
-		$this->_reviewMethod = $reviewMethod;
+	function __construct($request, &$args, $parameterName = 'reviewAssignmentId', $operations = null, $reviewMethods = null) {
+		parent::__construct($request, $args, $parameterName, 'user.authorization.invalidReviewAssignment', $operations, $reviewMethods);
+		$this->_reviewMethods = $reviewMethods;
 	}
 
 	//
@@ -44,9 +48,9 @@ class ReviewAssignmentRequiredPolicy extends DataObjectRequiredPolicy {
 		$reviewAssignment = $reviewAssignmentDao->getById($reviewId);
 		if (!is_a($reviewAssignment, 'ReviewAssignment')) return AUTHORIZATION_DENY;
 
-		// If reviewMethod is defined, check that the assignment uses the defined method(s) 
-		if ($this->_reviewMethod){
-			if (!in_array($reviewAssignment->getReviewMethod(), $this->_reviewMethod)){
+		// If reviewMethods is defined, check that the assignment uses the defined method(s) 
+		if ($this->_reviewMethods) {
+			if (!in_array($reviewAssignment->getReviewMethod(), $this->_reviewMethods)) {
 				return AUTHORIZATION_DENY;
 			}
 		}

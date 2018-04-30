@@ -36,15 +36,11 @@
 	<message key="user.editMyProfile">Uredi svoj račun</message>
 	<message key="user.email">E-pošta</message>
 	<message key="user.feminine">Ž</message>
-	<message key="user.firstName">Ime</message>
 	<message key="user.gender">Spol</message>
-	<message key="user.initialsExample">Ana Novak = AN</message>
-	<message key="user.initials">Začetnice</message>
 	<message key="user.interests">Interesi recenzentov</message>
 	<message key="user.interests.description">(vnose ločite s tipko "enter" ali vejico)</message>
 	<message key="user.gossip">Opombe</message>
 	<message key="user.group">Uporabniška skupina</message>
-	<message key="user.lastName">Priimek</message>
 	<message key="user.profile.form.profileImageInvalid">Neveljaven format prikazne slike ali pa je slika prevelika. Dovoljeni formati so .gif, .jpg ali .png, slika pa ne sme presegati velikosti 150×150 pikslov.</message>
 	<message key="user.login.accountDisabledWithReason">Vaš račun je bil onemogočen zaradi naslednjega razloga: {$reason}</message>
 	<message key="user.login.accountDisabled">Vaš račun je bil onemogočen. Za več informacij se obrnite na administratorja.</message>
@@ -73,7 +69,6 @@
 	<message key="user.hello">Pozdravljeni, </message>
 	<message key="user.mailingAddress">Poštni naslov</message>
 	<message key="user.masculine">M</message>
-	<message key="user.middleName">Drugo ime</message>
 	<message key="user.myAccount">Moj račun</message>
 	<message key="user.name">Ime</message>
 	<message key="user.other">Drugo</message>
@@ -85,8 +80,6 @@
 	<message key="user.profile.form.countryRequired">Vpisati morati državo.</message>
 	<message key="user.profile.form.emailRequired">Vpišite e-poštni naslov.</message>
 	<message key="user.profile.form.affiliationRequired">Vpišite institucijo, kateri pripadate.</message>
-	<message key="user.profile.form.firstNameRequired">Vpišite svoje ime.</message>
-	<message key="user.profile.form.lastNameRequired">Vpišite svoj priimek.</message>
 	<message key="user.profile.form.mailingAddressRequired">Vpišite svoj e-poštni naslov.</message>
 	<message key="user.profile.form.newPasswordRequired">Vpisati morate svoje novo geslo.</message>
 	<message key="user.profile.form.oldPasswordInvalid">Vpisano geslo je nepravilno.</message>
@@ -137,11 +130,9 @@
 	<message key="user.role.layoutEditor">Tehnični urednik</message>
 	<message key="user.role.layoutEditors">Tehnični uredniki</message>
 	<message key="user.roles">Vloge</message>
-	<message key="user.salutation">Pozdrav</message>
 	<message key="user.sendPassword">Potrditev</message>
 	<message key="user.sendPassword.description">Pošlji mi potrditveno e-pošto, vključno z mojim uporabniškim imenom in geslom</message>
 	<message key="user.signature">Podpis</message>
-	<message key="user.suffix">Pripona</message>
 	<message key="user.title">Naslov</message>
 	<message key="user.url">URL</message>
 	<message key="user.userHome">Dom uporabnika</message>

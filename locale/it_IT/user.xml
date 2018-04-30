@@ -22,11 +22,7 @@
 	<message key="user.dateRegistered">Data di iscrizione</message>
 	<message key="user.editMyProfile">Modifica il mio profilo</message>
 	<message key="user.email">Email</message>
-	<message key="user.firstName">Nome</message>
-	<message key="user.initialsExample">Mario Carlo Rossi = MCR</message>
-	<message key="user.initials">Iniziali</message>
 	<message key="user.interests">Argomenti di interesse per le revisioni</message>
-	<message key="user.lastName">Cognome</message>
 	<message key="user.login.accountDisabledWithReason">Il tuo account è stato disattivato per la seguente ragione: {$reason}</message>
 	<message key="user.login.accountDisabled">Il tuo account è stato disattivato. Contatta l'amministratore per maggiori informazioni.</message>
 	<message key="user.login.accountNotValidated">Il tuo indirizzo email non è stato validato. Per favore controlla la tua email e segui le istruzioni fornite. Se non hai ricevuto una email,  potresti aver bisogno di contattare l'amministratore del sito per assistenza.</message>
@@ -45,7 +41,6 @@
 	<message key="user.login.resetPassword">Reimposta la password</message>
 	<message key="user.logOut">Esci</message>
 	<message key="user.mailingAddress">Indirizzo postale</message>
-	<message key="user.middleName">Secondo nome</message>
 	<message key="user.myAccount">Il mio account</message>
 	<message key="user.name">Nome</message>
 	<message key="user.password">Password</message>
@@ -54,8 +49,6 @@
 	<message key="user.profile.changePasswordInstructions">Per cambiare la password del tuo account, inserisci qui sotto la tua vecchia password e poi quella nuova.</message>
 	<message key="user.profile.editProfile">Modifica il profilo</message>
 	<message key="user.profile.form.emailRequired">Inserire un indirizzo email valido.</message>
-	<message key="user.profile.form.firstNameRequired">Inserire il nome.</message>
-	<message key="user.profile.form.lastNameRequired">Inserire il cognome.</message>
 	<message key="user.profile.form.newPasswordRequired">Inserire la nuova password.</message>
 	<message key="user.profile.form.oldPasswordInvalid">La password inserita non è corretta.</message>
 	<message key="user.profile.form.openAccessNotifications">Notifica email di nuove uscite open access</message>
@@ -85,7 +78,6 @@
 	<message key="user.role.siteAdmin">Amministratore del sito</message>
 	<message key="user.role.siteAdmins">Amministratori del sito</message>
 	<message key="user.roles">Ruoli</message>
-	<message key="user.salutation">Titolo (Ing., Dott. ecc.)</message>
 	<message key="user.sendPassword">Conferma</message>
 	<message key="user.sendPassword.description">Inviami un'email di conferma con il mio nome utente e password</message>
 	<message key="user.signature">Firma</message>
@@ -109,7 +101,6 @@
 	<message key="user.authorization.userGroupRequired">Devi selezionare un gruppo valido per accedere a questa operazione</message>
 	<message key="user.hello">Salve,</message>
 	<message key="user.profile.form.countryRequired">Inserire un Paese.</message>
-	<message key="user.suffix">Suffisso</message>
 	<message key="user.authorization.accessDenied">Accesso negato.</message>
 	<message key="user.accountInformation">Informazioni account</message>
 	<message key="user.authorization.managerRequired">Prima di procedere è necessario assegnare un utente con ruolo di Manager di stampa (ad es. Editor di stampa o di produzione).</message>

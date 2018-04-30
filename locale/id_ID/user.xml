@@ -31,13 +31,9 @@
 	<message key="user.dateRegistered">Tanggal Terdaftar</message>
 	<message key="user.editMyProfile">Edit Profil Saya</message>
 	<message key="user.email">Email</message>
-	<message key="user.firstName">Nama Depan</message>
-	<message key="user.initialsExample"><![CDATA[Ratih Keumala Sari = RKS atau <a href=http://slametriyanto.net>Slamet Riyanto = SLM</a>]]></message>
-	<message key="user.initials">Inisial</message>
 	<message key="user.interests">Bidang Minat Review</message>
 	<message key="user.interests.description">(Pisahkan masing-masing bidang dengan spasi atau koma)</message>
 	<message key="user.gossip">Catatan Tambahan</message>
-	<message key="user.lastName">Nama Belakang</message>
 	<message key="user.profile.form.profileImageInvalid">Format gambar profil invalid atau gambar terlalu besar. Format yang diterima adalah .gif, .jpg, atau .png, dan gambar tidak boleh melebih 150x150 pixel.</message>
 	<message key="user.login.accountDisabledWithReason">Akun Anda tidak bisa karena alasan berikut ini: {$reason}</message>
 	<message key="user.login.accountDisabled">Akun Anda tidak bisa. Hubungi administrator untuk informasi lebih lanjut.</message>
@@ -57,7 +53,6 @@
 	<message key="user.login.resetPassword">Atur ulang kata sandi</message>
 	<message key="user.logOut">Log Out</message>
 	<message key="user.mailingAddress">Alamat Surat Menyurat</message>
-	<message key="user.middleName">Nama Tengah</message>
 	<message key="user.myAccount">Akun Saya</message>
 	<message key="user.name">Nama</message>
 	<message key="user.password">Kata Sandi</message>
@@ -67,8 +62,6 @@
 	<message key="user.profile.editProfile">Edit Profil</message>
 	<message key="user.profile.form.emailRequired">Alamat email yang valid diperlukan.</message>
 	<message key="user.profile.form.affiliationRequired">Afiliasi diperlukan.</message>
-	<message key="user.profile.form.firstNameRequired">Nama depan diperlukan.</message>
-	<message key="user.profile.form.lastNameRequired">Nama belakang diperlukan.</message>
 	<message key="user.profile.form.newPasswordRequired">Anda harus memasukkan kata sandi baru.</message>
 	<message key="user.profile.form.oldPasswordInvalid">Kata sandi yang sekarang Anda masukkan salah.</message>
 	<message key="user.profile.form.openAccessNotifications">Notifikasi emal akses terbuka terbitan</message>
@@ -98,7 +91,6 @@
 	<message key="user.role.siteAdmin">Administrasi Situs</message>
 	<message key="user.role.siteAdmins">Administrasi Situs</message>
 	<message key="user.roles">Peran</message>
-	<message key="user.salutation">Sapaan</message>
 	<message key="user.sendPassword">Konfirmasi</message>
 	<message key="user.sendPassword.description">Kirimi saya email konfirmasi termasuk nama pengguna dan kata sandi saya</message>
 	<message key="user.signature">Signature</message>

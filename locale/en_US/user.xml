@@ -39,8 +39,6 @@
 	<message key="user.editMyProfile">Edit My Profile</message>
 	<message key="user.email">Email</message>
 	<message key="user.givenName">Given Name</message>
-	<message key="user.initialsExample">Joan Alice Smith = JAS</message>
-	<message key="user.initials">Initials</message>
 	<message key="user.interests">Reviewing interests</message>
 	<message key="user.interests.description">(Separate interests by pressing the enter or comma key)</message>
 	<message key="user.gossip">Editorial Notes</message>
@@ -74,7 +72,6 @@
 	<message key="user.logOutAs">Logout as</message>
 	<message key="user.hello">Hello, </message>
 	<message key="user.mailingAddress">Mailing Address</message>
-	<message key="user.middleName">Middle Name</message>
 	<message key="user.myAccount">My Account</message>
 	<message key="user.name">Name</message>
 	<message key="user.password">Password</message>
@@ -87,7 +84,6 @@
 	<message key="user.profile.form.affiliationRequired">An affiliation is required.</message>
 	<message key="user.profile.form.givenNameRequired">A first name is required.</message>
 	<message key="user.profile.form.givenNameRequired.locale">A first name is required for a locale in which only the last name exists.</message>
-	<message key="user.profile.form.lastNameRequired">A last name is required.</message>
 	<message key="user.profile.form.mailingAddressRequired">A mailing address is required.</message>
 	<message key="user.profile.form.newPasswordRequired">You must enter your new password.</message>
 	<message key="user.profile.form.oldPasswordInvalid">The current password you entered was incorrect.</message>
@@ -142,11 +138,9 @@
 	<message key="user.role.layoutEditor">Layout Editor</message>
 	<message key="user.role.layoutEditors">Layout Editors</message>
 	<message key="user.roles">Roles</message>
-	<message key="user.salutation">Salutation</message>
 	<message key="user.sendPassword">Confirmation</message>
 	<message key="user.sendPassword.description">Send me a confirmation email including my username and password</message>
 	<message key="user.signature">Signature</message>
-	<message key="user.suffix">Suffix</message>
 	<message key="user.title">Title</message>
 	<message key="user.url">URL</message>
 	<message key="user.userHome">User Home</message>

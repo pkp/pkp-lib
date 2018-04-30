@@ -30,13 +30,9 @@
 	<message key="user.dateRegistered">Kayıt tarihi</message>
 	<message key="user.editMyProfile">Profilimi Düzenle</message>
 	<message key="user.email">E-posta</message>
-	<message key="user.firstName">İlk Adı</message>
-	<message key="user.initialsExample">Aytuğ Sefa ÇELİK = ASÇ</message>
-	<message key="user.initials">İlk Harfler</message>
 	<message key="user.interests">Uzmanlık Alanı</message>
 	<message key="user.interests.description">(Eğer aradığınız terim listede yoksa yazdıktan sonra "enter" veya "virgül" tuşuna basınız)</message>
 	<message key="user.gossip">Özel notlar</message>
-	<message key="user.lastName">Soyad</message>
 	<message key="user.profile.form.profileImageInvalid">Hatalı görsel formatı ya da büyük görsel. Görseller .gif, .jpg veya .png biçimlerinden biri olmalıdır ve boyutları en fazla 150X150 ebadında olmamalıdır.</message>
 	<message key="user.login.accountDisabledWithReason">Hesabınız aşağıda belirtilen nedenden dolayı pasifleştirilmiştir: {$reason}</message>
 	<message key="user.login.accountDisabled">Hesabınız pasifleştirilmiştir. Daha fazla bilgi için lütfen yönetici ile temasa geçiniz.</message>
@@ -55,7 +51,6 @@
 	<message key="user.login.resetPassword">Şifreyi Sıfırla</message>
 	<message key="user.logOut">Çıkış</message>
 	<message key="user.mailingAddress">Posta Adresi</message>
-	<message key="user.middleName">İkinci adı</message>
 	<message key="user.myAccount">Hesabım</message>
 	<message key="user.name">Ad</message>
 	<message key="user.password">Şifre</message>
@@ -65,8 +60,6 @@
 	<message key="user.profile.editProfile">Profil Düzenle</message>
 	<message key="user.profile.form.emailRequired">Geçerli bir e-posta adresi gerekli.</message>
 	<message key="user.profile.form.affiliationRequired">Kurum adı girmeniz gerekli.</message>
-	<message key="user.profile.form.firstNameRequired">İlk isimi girmeniz gerekli.</message>
-	<message key="user.profile.form.lastNameRequired">Soyadı girmeniz gerekli.</message>
 	<message key="user.profile.form.newPasswordRequired">Yeni şifrenizi girmeniz gerekli.</message>
 	<message key="user.profile.form.oldPasswordInvalid">Girdiğiniz şifre hatalı.</message>
 	<message key="user.profile.form.openAccessNotifications">Açık erişim e-posta bildirimleri</message>
@@ -96,7 +89,6 @@
 	<message key="user.role.siteAdmin">Site Yöneticisi</message>
 	<message key="user.role.siteAdmins">Site Yöneticileri</message>
 	<message key="user.roles">Roller</message>
-	<message key="user.salutation">Ünvan</message>
 	<message key="user.sendPassword">Doğrulama</message>
 	<message key="user.sendPassword.description">Kullanıcı adı ve şifremi içeren bir doğrulama e-postası gönder.</message>
 	<message key="user.signature">İmza (kurum ve iletişim bilgisi)</message>
@@ -112,7 +104,6 @@
 	<message key="user.profile.form.countryRequired">Bir ülke gerekli.</message>
 	<message key="user.profile.form.mailingAddressRequired">Bir e-posta adresi gerekli</message>
 	<message key="user.profile.form.usergroupRequired">Bir üye grubu gerekli</message>
-	<message key="user.suffix">Son Ek</message>
 	<message key="user.accountInformation">Hesap Bilgisi</message>
 	<message key="user.profile.form.passwordSameAsOld">Yeni şifreniz eski şifrenizle aynıdır.</message>
 </locale>

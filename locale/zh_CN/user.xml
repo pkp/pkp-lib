@@ -23,11 +23,7 @@
 	<message key="user.dateRegistered">注册时间</message>
 	<message key="user.editMyProfile">编辑我的信息</message>
 	<message key="user.email">电子邮件</message>
-	<message key="user.firstName">名</message>
-	<message key="user.initialsExample">张三 = ZS</message>
-	<message key="user.initials">声母</message>
 	<message key="user.interests">回顾利益</message>
-	<message key="user.lastName">姓氏</message>
 	<message key="user.profile.form.profileImageInvalid">无效的照片格式或者文件太大，可接受的格式有 .gif, .jpg, or .png, 而且图片不能超过 150x150 pixels.</message>
 	<message key="user.login.accountDisabledWithReason">您的帐户已被禁用，原因如下: {$reason}</message>
 	<message key="user.login.accountDisabled">您的帐户已被禁用。需要更多帮助，请联系管理员.</message>
@@ -46,7 +42,6 @@
 	<message key="user.login.resetPassword">重置密码</message>
 	<message key="user.logOut">登出</message>
 	<message key="user.mailingAddress">通信地址</message>
-	<message key="user.middleName">中间名</message>
 	<message key="user.myAccount">我的帐户</message>
 	<message key="user.name">名</message>
 	<message key="user.password">密码</message>
@@ -54,8 +49,6 @@
 	<message key="user.profile.changePasswordInstructions">在下面输入您当前的密码和新密码，以修改帐户密码.</message>
 	<message key="user.profile.editProfile">编辑帐户信息</message>
 	<message key="user.profile.form.emailRequired">有效的电子邮件地址.</message>
-	<message key="user.profile.form.firstNameRequired">名是必须的.</message>
-	<message key="user.profile.form.lastNameRequired">姓氏是必须的.</message>
 	<message key="user.profile.form.newPasswordRequired">您必须输入您新的密码.</message>
 	<message key="user.profile.form.oldPasswordInvalid">您输入的密码是不正确的.</message>
 	<message key="user.profile.form.openAccessNotifications">刊期的开放存取电子邮件通知</message>
@@ -84,7 +77,6 @@
 	<message key="user.role.siteAdmin">站点管理员</message>
 	<message key="user.role.siteAdmins">站点管理员</message>
 	<message key="user.roles">角色</message>
-	<message key="user.salutation">招呼</message>
 	<message key="user.sendPassword">确认</message>
 	<message key="user.sendPassword.description">发送给我一个包含我的用户名与密码的确认邮件</message>
 	<message key="user.signature">签名</message>
@@ -99,7 +91,6 @@
 	<message key="user.register.form.emailsDoNotMatch">电子邮件地址不匹配</message>
 	<message key="user.authorization.loginRequired">需要登陆</message>
 	<message key="user.accountInformation">帐户信息</message>
-	<message key="user.suffix">后缀</message>
 	<message key="user.authorization.accessDenied">拒绝读取</message>
 	<message key="user.affiliation.description">（您的所在机构，如“西蒙.弗雷泽大学”）</message>
 	<message key="user.authorization.processAuthenticationTokenRequired">过程认证令牌丢失或无效。</message>

@@ -27,13 +27,9 @@
 	<message key="user.dateRegistered">Датум регистрације</message>
 	<message key="user.editMyProfile">Уреди мој профил</message>
 	<message key="user.email">Имејл</message>
-	<message key="user.firstName">Име</message>
-	<message key="user.initialsExample">Јован Миленко Грчић = ЈГМ</message>
-	<message key="user.initials">Иницијали</message>
 	<message key="user.interests">Рецензентски интереси</message>
 	<message key="user.interests.description">(одвојите интересе притиском на ентер или зарезом)</message>
 	<message key="user.gossip">Приватне напомене</message>
-	<message key="user.lastName">Презиме</message>
 	<message key="user.profile.form.profileImageInvalid">Неисправан формат слике или је слика превелика. Дозвољени формати су .gif, .jpg, или .png, а величина не сме прелазити 150x150 пиксела.</message>
 	<message key="user.login.accountDisabledWithReason">Ваш налог је блокиран из следећих разлога: {$reason}</message>
 	<message key="user.login.accountDisabled">Ваш налог је блокиран. Контактирајте администратора за више информација.</message>
@@ -48,7 +44,6 @@
 	<message key="user.login.resetPassword">Промени лозинку</message>
 	<message key="user.logOut">Одјави се</message>
 	<message key="user.mailingAddress">Поштанска адреса</message>
-	<message key="user.middleName">Средње име</message>
 	<message key="user.myAccount">Мој налог</message>
 	<message key="user.name">Име</message>
 	<message key="user.password">Лозинка</message>
@@ -58,8 +53,6 @@
 	<message key="user.profile.editProfile">Измени профил</message>
 	<message key="user.profile.form.emailRequired">Исправна иејл адреса је неопходна.</message>
 	<message key="user.profile.form.affiliationRequired">Афилијација је неопходна.</message>
-	<message key="user.profile.form.firstNameRequired">Име је неопходно.</message>
-	<message key="user.profile.form.lastNameRequired">Презиме је неопходно.</message>
 	<message key="user.profile.form.newPasswordRequired">Морате унети нову лозинку.</message>
 	<message key="user.profile.form.oldPasswordInvalid">Тренутна лозинка коју сте унели је неисправна.</message>
 	<message key="user.profile.form.openAccessNotifications">Обавештења о отвореном приступу бројевима</message>
@@ -87,7 +80,6 @@
 	<message key="user.role.siteAdmin">Администратор сајта</message>
 	<message key="user.role.siteAdmins">Администратори сајта</message>
 	<message key="user.roles">Улоге</message>
-	<message key="user.salutation">Ословљавање</message>
 	<message key="user.sendPassword">Потврда</message>
 	<message key="user.sendPassword.description">Пошаљи ми поруку потврде који укључује моје корисничко име и лозинку.</message>
 	<message key="user.signature">Потпис</message>
@@ -104,7 +96,6 @@
 	<message key="user.profile.form.mailingAddressRequired">Поштанска адреса је неопходна.</message>
 	<message key="user.profile.form.passwordSameAsOld">Ваша нова лозинка је иста као стара.</message>
 	<message key="user.profile.form.usergroupRequired">Група корисника је неопходна.</message>
-	<message key="user.suffix">Суфикс</message>
 	<message key="user.register.form.userGroupRequired">Барем једна улога мора бити означена</message>
 	<message key="user.register.form.passwordLengthRestriction">Лозинка мора имати најмање {$length} карактера</message>
 	<message key="user.register.registrationCompleted"><![CDATA[Успешно сте се регистровали. Кликните <a href="{$profileUrl}">овде</a> да уредите ваш кориснички профил.]]></message>

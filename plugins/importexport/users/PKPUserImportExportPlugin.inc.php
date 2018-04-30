@@ -117,13 +117,16 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 				}
 				$temporaryFilePath = $temporaryFile->getFilePath();
 				libxml_use_internal_errors(true);
-				$users = $this->importUsers(file_get_contents($temporaryFilePath), $context, $user);
+				$importFilter = $this->importUsers(file_get_contents($temporaryFilePath), $context, $user);
 				$validationErrors = array_filter(libxml_get_errors(), function($a) {
 					return $a->level == LIBXML_ERR_ERROR || $a->level == LIBXML_ERR_FATAL;
 				});
 				$templateMgr->assign('validationErrors', $validationErrors);
 				libxml_clear_errors();
-				$templateMgr->assign('users', $users);
+				if ($importFilter->hasErrors()) {
+					$templateMgr->assign('filterErrors', $importFilter->getErrors());
+				}
+				$templateMgr->assign('users', $importFilter->getLastOutput());	
 				$json = new JSONMessage(true, $templateMgr->fetch($this->getTemplatePath() . 'results.tpl'));
 				return $json->getString();
 			case 'export':
@@ -213,7 +216,8 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 		$importFilter = array_shift($userImportFilters);
 		$importFilter->setDeployment(new PKPUserImportExportDeployment($context, $user));
 
-		return $importFilter->execute($importXml);
+		$importFilter->execute($importXml);
+		return $importFilter;
 	}
 }
 

@@ -126,7 +126,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 					$password = $passwordValueNodeList->item(0);
 					$user->setPassword($password->textContent);
 				} else {
-					fatalError("User has no password.  Check your import XML format.");
+					$this->addError(__('plugins.importexport.user.error.userHasNoPassword', array('username' => $user->getUsername())));
 				}
 
 				break;
@@ -227,11 +227,17 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 	 * @param $encryption string null, sha1, md5 (or any other encryption algorithm defined)
 	 * @return string if a new password is generated, the function returns it.
 	 */
-	function importUserPasswordValidation(&$userToImport, $encryption) {
+	function importUserPasswordValidation($userToImport, $encryption) {
 		$passwordHash = $userToImport->getPassword();
 		$password = null;
 		if (!$encryption) {
-			$userToImport->setPassword(Validation::encryptCredentials($userToImport->getUsername(), $passwordHash));
+			$siteDao = DAORegistry::getDAO('SiteDAO');
+			$site = $siteDao->getSite();
+			if (strlen($passwordHash) >= $site->getMinPasswordLength()) {
+				$userToImport->setPassword(Validation::encryptCredentials($userToImport->getUsername(), $passwordHash));
+			} else {
+				$this->addError(__('plugins.importexport.user.error.plainPasswordNotValid', array('username' => $userToImport->getUsername())));
+			}
 		} else {
 			if (password_needs_rehash($passwordHash, PASSWORD_BCRYPT)) {
 
@@ -239,6 +245,8 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 				$userToImport->setPassword(Validation::encryptCredentials($userToImport->getUsername(), $password));
 
 				$userToImport->setMustChangePassword(true);
+
+				$this->addError(__('plugins.importexport.user.error.passwordHasBeenChanged', array('username' => $userToImport->getUsername())));
 			} else {
 				$userToImport->setPassword($passwordHash);
 			}

@@ -471,7 +471,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			'common.ok',
 			'common.error',
 			'search.noKeywordError',
-			'api.submissions.unknownError',
+			'api.unknownError',
 		);
 	}
 

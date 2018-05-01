@@ -18,6 +18,7 @@ use \Application;
 use \DBResultRange;
 use \DAOResultFactory;
 use \DAORegistry;
+use \HookRegistry;
 use \PKP\Services\EntityProperties\PKPBaseEntityPropertyService;
 use \Validation;
 
@@ -465,5 +466,138 @@ class UserService extends PKPBaseEntityPropertyService {
 		}
 
 		return true;
+	}
+
+	/**
+	 * Merge two user accounts, including attributed articles and all associated
+	 * information.
+	 *
+	 * @param $user User The user to merge from. This user will no longer exist
+	 *  when this operation is done.
+	 * @param $mergeIntoUser User The user to merge into. This user will contain
+	 *  all data from $user when this operation is done.
+	 */
+	function mergeUsers($user, $mergeIntoUser) {
+		$userId = $user->getId();
+		$mergeIntoUserId = $mergeIntoUser->getId();
+
+		HookRegistry::call('User::mergeUsers', array(&$userId, &$mergeIntoUserId));
+
+		$noteDao = DAORegistry::getDAO('NoteDAO');
+		$notes = $noteDao->getByUserId($userId);
+		while ($note = $notes->next()) {
+			$note->setUserId($mergeIntoUserId);
+			$noteDao->updateObject($note);
+		}
+
+		$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
+		$editDecisionDao->transferEditorDecisions($userId, $mergeIntoUserId);
+
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		foreach ($reviewAssignmentDao->getByUserId($userId) as $reviewAssignment) {
+			$reviewAssignment->setReviewerId($mergeIntoUserId);
+			$reviewAssignmentDao->updateObject($reviewAssignment);
+		}
+
+		$articleEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+		$articleEmailLogDao->changeUser($userId, $mergeIntoUserId);
+		$articleEventLogDao = DAORegistry::getDAO('SubmissionEventLogDAO');
+		$articleEventLogDao->changeUser($userId, $mergeIntoUserId);
+
+		$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');
+		$submissionComments = $submissionCommentDao->getByUserId($userId);
+
+		while ($submissionComment = $submissionComments->next()) {
+			$submissionComment->setAuthorId($mergeIntoUserId);
+			$submissionCommentDao->updateObject($submissionComment);
+		}
+
+		$accessKeyDao = DAORegistry::getDAO('AccessKeyDAO');
+		$accessKeyDao->transferAccessKeys($userId, $mergeIntoUserId);
+
+		// Transfer old user's individual subscriptions for each journal if new user
+		// does not have a valid individual subscription for a given journal.
+		$individualSubscriptionDao = DAORegistry::getDAO('IndividualSubscriptionDAO');
+		$oldUserSubscriptions = $individualSubscriptionDao->getByUserId($userId);
+
+		while ($oldUserSubscription = $oldUserSubscriptions->next()) {
+			$subscriptionJournalId = $oldUserSubscription->getJournalId();
+			$oldUserValidSubscription = $individualSubscriptionDao->isValidIndividualSubscription($userId, $subscriptionJournalId);
+			if ($oldUserValidSubscription) {
+				// Check if new user has a valid subscription for current journal
+				$newUserSubscription = $individualSubscriptionDao->getByUserId($mergeIntoUserId, $subscriptionJournalId);
+				if (!$newUserSubscription) {
+					// New user does not have this subscription, transfer old user's
+					$oldUserSubscription->setUserId($mergeIntoUserId);
+					$individualSubscriptionDao->updateObject($oldUserSubscription);
+				} elseif (!$individualSubscriptionDao->isValidIndividualSubscription($mergeIntoUserId, $subscriptionJournalId)) {
+					// New user has a subscription but it's invalid. Delete it and
+					// transfer old user's valid one
+					$individualSubscriptionDao->deleteByUserIdForJournal($mergeIntoUserId, $subscriptionJournalId);
+					$oldUserSubscription->setUserId($mergeIntoUserId);
+					$individualSubscriptionDao->updateObject($oldUserSubscription);
+				}
+			}
+		}
+
+		// Delete any remaining old user's subscriptions not transferred to new user
+		$individualSubscriptionDao->deleteByUserId($userId);
+
+		// Transfer all old user's institutional subscriptions for each journal to
+		// new user. New user now becomes the contact person for these.
+		$institutionalSubscriptionDao = DAORegistry::getDAO('InstitutionalSubscriptionDAO');
+		$oldUserSubscriptions = $institutionalSubscriptionDao->getByUserId($userId);
+
+		while ($oldUserSubscription = $oldUserSubscriptions->next()) {
+			$oldUserSubscription->setUserId($mergeIntoUserId);
+			$institutionalSubscriptionDao->updateObject($oldUserSubscription);
+		}
+
+		// Transfer completed payments.
+		$paymentDao = DAORegistry::getDAO('OJSCompletedPaymentDAO');
+		$paymentFactory = $paymentDao->getByUserId($userId);
+		while ($payment = next($paymentFactory)) {
+			$payment->setUserId($mergeIntoUserId);
+			$paymentDao->updateObject($payment);
+		}
+
+		// Delete the old user and associated info.
+		$sessionDao = DAORegistry::getDAO('SessionDAO');
+		$sessionDao->deleteByUserId($userId);
+		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO');
+		$temporaryFileDao->deleteByUserId($userId);
+		$userSettingsDao = DAORegistry::getDAO('UserSettingsDAO');
+		$userSettingsDao->deleteSettings($userId);
+		$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO');
+		$subEditorsDao->deleteByUserId($userId);
+
+		// Transfer old user's roles
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroups = $userGroupDao->getByUserId($userId);
+		while(!$userGroups->eof()) {
+			$userGroup = $userGroups->next();
+			if (!$userGroupDao->userInGroup($mergeIntoUserId, $userGroup->getId())) {
+				$userGroupDao->assignUserToGroup($mergeIntoUserId, $userGroup->getId());
+			}
+		}
+		$userGroupDao->deleteAssignmentsByUserId($userId);
+
+		// Transfer stage assignments.
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+		$stageAssignments = $stageAssignmentDao->getByUserId($userId);
+		while ($stageAssignment = $stageAssignments->next()) {
+			$duplicateAssignments = $stageAssignmentDao->getBySubmissionAndStageId($stageAssignment->getSubmissionId(), null, $stageAssignment->getUserGroupId(), $mergeIntoUserId);
+			if (!$duplicateAssignments->next()) {
+				// If no similar assignments already exist, transfer this one.
+				$stageAssignment->setUserId($mergeIntoUserId);
+				$stageAssignmentDao->updateObject($stageAssignment);
+			} else {
+				// There's already a stage assignment for the new user; delete.
+				$stageAssignmentDao->deleteObject($stageAssignment);
+			}
+		}
+
+		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao->deleteUserById($userId);
 	}
 }

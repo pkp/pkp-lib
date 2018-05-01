@@ -31,6 +31,9 @@ class PKPUsersListHandler extends ListHandler {
 	/** @var string Used to generate URLs to API endpoints for this component. */
 	public $_apiPath = 'users';
 
+	/** @var int User ID to merge into another user. */
+	public $_mergeUserSourceId = 0;
+
 	/**
 	 * @copydoc ListHandler::init()
 	 */
@@ -39,6 +42,7 @@ class PKPUsersListHandler extends ListHandler {
 
 		$this->_count = isset($args['count']) ? (int) $args['count'] : $this->_count;
 		$this->_getParams = isset($args['getParams']) ? $args['getParams'] : $this->_getParams;
+		$this->_mergeUserSourceId = isset($args['mergeUserSourceId']) ? $args['mergeUserSourceId'] : $this->_mergeUserSourceId;
 	}
 
 	/**
@@ -65,6 +69,8 @@ class PKPUsersListHandler extends ListHandler {
 		$config['page'] = 1;
 
 		$config['getParams'] = $this->_getParams;
+
+		$config['mergeUserSourceId'] = $this->_mergeUserSourceId;
 
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroupsResult = $userGroupDao->getByContextId($contextId);
@@ -218,6 +224,7 @@ class PKPUsersListHandler extends ListHandler {
 			'confirm' => __('common.ok'),
 			'cancel' => __('common.cancel'),
 			'mergeUser' => __('grid.user.mergeUsers.mergeUser'),
+			'mergeIntoUser' => __('grid.user.mergeUsers.mergeIntoUser'),
 		);
 
 		return $config;

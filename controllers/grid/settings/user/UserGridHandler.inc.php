@@ -612,37 +612,24 @@ class UserGridHandler extends GridHandler {
 	}
 
 	/**
-	 * Allow user account merging, including attributed submissions etc.
+	 * Display list to select user to merge into.
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
 	 */
 	function mergeUsers($args, $request) {
 
-		$newUserId =  (int) $request->getUserVar('newUserId');
 		$oldUserId = (int) $request->getUserVar('oldUserId');
-		$user = $request->getUser();
 
-		// if there is a $newUserId, this is the second time through, so merge the users.
-		if ($newUserId > 0 && $oldUserId > 0 && Validation::canAdminister($oldUserId, $user->getId())) {
-			if (!$request->checkCSRF()) return new JSONMessage(false);
-			import('classes.user.UserAction');
-			$userAction = new UserAction();
-			$userAction->mergeUsers($oldUserId, $newUserId);
-			$json = new JSONMessage(true);
-			$json->setGlobalEvent('userMerged', array(
-				'oldUserId' => $oldUserId,
-				'newUserId' => $newUserId,
-			));
-			return $json;
+		import('lib.pkp.controllers.list.users.PKPUsersListHandler');
+		$mergeUsersListHandler = new PKPUsersListHandler(array(
+			'title' => 'grid.user.mergeUsers.mergeIntoUser',
+			'mergeUserSourceId' => $oldUserId,
+		));
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign('mergeUsersListData', json_encode($mergeUsersListHandler->getConfig()));
 
-		// Otherwise present the grid for selecting the user to merge into
-		} else {
-			$userGrid = new UserGridHandler();
-			$userGrid->initialize($request);
-			$userGrid->setTitle('grid.user.mergeUsers.mergeIntoUser');
-			return $userGrid->fetchGrid($args, $request);
-		}
+		return new JSONMessage(true, $templateMgr->fetch('controllers/grid/settings/user/form/mergeUser.tpl'));
 	}
 
 	/**

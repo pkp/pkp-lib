@@ -43,6 +43,13 @@ class PKPUserHandler extends APIHandler {
 					'roles' => $roles
 				),
 			),
+			'POST' => array(
+				array(
+					'pattern' => $this->getEndpointPattern() . '/{userId}/merge',
+					'handler' => array($this, 'mergeUser'),
+					'roles' => array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER),
+				),
+			),
 		);
 		parent::__construct();
 	}
@@ -116,7 +123,7 @@ class PKPUserHandler extends APIHandler {
 		}
 
 		if (!$user) {
-			return $response->withStatus(404)->withJsonError('api.submissions.404.resourceNotFound');
+			return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
 		}
 
 		$data = $userService->getFullProperties($user, array(
@@ -158,6 +165,53 @@ class PKPUserHandler extends APIHandler {
 		$data = array(
 			'itemsMax' => $userService->getReviewersMaxCount($contextId, $params),
 			'items' => $items,
+		);
+
+		return $response->withJson($data, 200);
+	}
+
+	/**
+	 * Merge a user into another
+	 * @param $slimRequest Request Slim request object
+	 * @param $response Response object
+	 * @param $args array arguments
+	 *
+	 * @return Response
+	 */
+	public function mergeUser($slimRequest, $response, $args) {
+		$request = $this->getRequest();
+		$currentUser = $request->getUser();
+		$userService = ServicesContainer::instance()->get('user');
+		$params = $slimRequest->getParsedBody();
+
+		if (!empty($args['userId'])) {
+			$user = $userService->getUser((int) $args['userId']);
+		}
+
+		if (!empty($params['mergeIntoUserId'])) {
+			$mergeIntoUser = $userService->getUser((int) $params['mergeIntoUserId']);
+		}
+
+		if (empty($user) || empty($mergeIntoUser)) {
+			return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+		}
+
+		if (!$request->checkCSRF()) {
+			return $response->withStatus(403)->withJsonError('api.403.csrfTokenFailure');
+		}
+
+		if (!Validation::canAdminister($user->getId(), $currentUser->getId())) {
+			return $response->withStatus(403)->withJsonError('api.users.403.unauthorizedAdminUser');
+		}
+
+		$userService->mergeUsers($user, $mergeIntoUser);
+
+		$data = $userService->getFullProperties(
+			$userService->getUser($mergeIntoUser->getId()),
+			array(
+				'request' => $request,
+				'slimRequest' => $slimRequest
+			)
 		);
 
 		return $response->withJson($data, 200);

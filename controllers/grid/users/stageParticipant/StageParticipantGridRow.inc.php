@@ -79,8 +79,8 @@ class StageParticipantGridRow extends GridRow {
 			$user = $request->getUser();
 			if (
 				!Validation::isLoggedInAs() &&
-				$user->getId() != $rowId &&
-				Validation::canAdminister($rowId, $user->getId())
+				$user->getId() != $userId &&
+				Validation::canAdminister($userId, $user->getId())
 			) {
 				$dispatcher = $router->getDispatcher();
 				import('lib.pkp.classes.linkAction.request.RedirectConfirmationModal');

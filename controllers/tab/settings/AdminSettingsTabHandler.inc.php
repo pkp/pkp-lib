@@ -69,10 +69,11 @@ class AdminSettingsTabHandler extends SettingsTabHandler {
 	 */
 	function showTab($args, $request) {
 		if ($args['tab'] === 'siteUsers') {
-			import('lib.pkp.controllers.list.users.PKPAdminUsersListHandler');
-			$usersListHandler = new PKPAdminUsersListHandler(array(
+			import('lib.pkp.controllers.list.users.PKPUsersListHandler');
+			$usersListHandler = new PKPUsersListHandler(array(
 				'title' => 'manager.users',
 				'apiContextPath' => CONTEXT_ID_NONE_API,
+				'isSiteAdmin' => true,
 			));
 			$usersListData = $usersListHandler->getConfig();
 			$templateMgr = TemplateManager::getManager($request);

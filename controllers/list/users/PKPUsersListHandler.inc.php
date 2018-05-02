@@ -31,8 +31,17 @@ class PKPUsersListHandler extends ListHandler {
 	/** @var string Used to generate URLs to API endpoints for this component. */
 	public $_apiPath = 'users';
 
+	/** @var null|string Used to generate URLs to API endpoints for this component. */
+	public $_apiContextPath = null;
+
+	/** @var null|string Context ID for which to load this component. */
+	public $_contextId = null;
+
 	/** @var int User ID to merge into another user. */
 	public $_mergeUserSourceId = 0;
+
+	/** @var boolean Is this user list for the site-wide admin area */
+	public $_isSiteAdmin = false;
 
 	/**
 	 * @copydoc ListHandler::init()
@@ -43,6 +52,20 @@ class PKPUsersListHandler extends ListHandler {
 		$this->_count = isset($args['count']) ? (int) $args['count'] : $this->_count;
 		$this->_getParams = isset($args['getParams']) ? $args['getParams'] : $this->_getParams;
 		$this->_mergeUserSourceId = isset($args['mergeUserSourceId']) ? $args['mergeUserSourceId'] : $this->_mergeUserSourceId;
+		$this->_apiContextPath = isset($args['apiContextPath']) ? $args['apiContextPath'] : $this->_apiContextPath;
+		$this->_isSiteAdmin = isset($args['isSiteAdmin']) ? $args['isSiteAdmin'] : $this->_isSiteAdmin;
+
+		if ($this->_apiContextPath === CONTEXT_ID_NONE_API) {
+			$this->_contextId = CONTEXT_ID_NONE;
+		} else {
+			$context = Application::getRequest()->getContext();
+			if (!is_null($this->_apiContextPath) && $this->_apiContextPath !== $context->getPath()) {
+				$contextDao = Application::getContextDAO();
+				$context = $contextDao->getByPath($this->_apiContextPath);
+				assert(is_a($context, 'Context'));
+			}
+			$this->_contextId = $context->getId();
+		}
 	}
 
 	/**
@@ -50,9 +73,11 @@ class PKPUsersListHandler extends ListHandler {
 	 */
 	public function getConfig() {
 
-		$request = Application::getRequest();
-		$context = $request->getContext();
-		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID);
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_DEFAULT);
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_DEFAULT);
 
 		$config = array();
 
@@ -64,24 +89,16 @@ class PKPUsersListHandler extends ListHandler {
 		}
 
 		$config['apiPath'] = $this->_apiPath;
+		if (!empty($this->_apiContextPath)) {
+			$config['apiContextPath'] = $this->_apiContextPath;
+		}
 
 		$config['count'] = $this->_count;
 		$config['page'] = 1;
-
 		$config['getParams'] = $this->_getParams;
 
+		$config['isSiteAdmin'] = $this->_isSiteAdmin;
 		$config['mergeUserSourceId'] = $this->_mergeUserSourceId;
-
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$userGroupsResult = $userGroupDao->getByContextId($contextId);
-		$userGroups = array();
-		while ($userGroup = $userGroupsResult->next()) {
-			$userGroups[] = array(
-				'param' => 'userGroupIds',
-				'val' => (int) $userGroup->getId(),
-				'title' => $userGroup->getLocalizedName(),
-			);
-		}
 
 		$config['filters'] = array(
 			'status' => array(
@@ -99,11 +116,93 @@ class PKPUsersListHandler extends ListHandler {
 					),
 				),
 			),
-			'userGroups' => array(
+		);
+
+		if ($this->_contextId) {
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+			$userGroupsResult = $userGroupDao->getByContextId($this->_contextId);
+			$userGroups = array();
+			while ($userGroup = $userGroupsResult->next()) {
+				$userGroups[] = array(
+					'param' => 'userGroupIds',
+					'val' => (int) $userGroup->getId(),
+					'title' => $userGroup->getLocalizedName(),
+				);
+			}
+			$config['filters']['userGroups'] = array(
 				'heading' => __('user.roles'),
 				'filters' => $userGroups,
-			),
-		);
+			);
+		} else {
+			$config['filters']['roles'] = array(
+				'heading' => __('user.roles'),
+				'filters' => array(
+					array(
+						'param' => 'userGroupIds',
+						'val' => 0,
+						'title' => __('user.roles.noneAssigned'),
+					),
+					array(
+						'param' => 'roleIds',
+						'val' => ROLE_ID_SITE_ADMIN,
+						'title' => __('default.groups.name.siteAdmin'),
+					),
+					array(
+						'param' => 'roleIds',
+						'val' => ROLE_ID_MANAGER,
+						'title' => __('default.groups.plural.manager'),
+					),
+					array(
+						'param' => 'roleIds',
+						'val' => ROLE_ID_SUB_EDITOR,
+						'title' => __('admin.roles.subeditors'),
+					),
+					array(
+						'param' => 'roleIds',
+						'val' => ROLE_ID_ASSISTANT,
+						'title' => __('admin.roles.assistants'),
+					),
+					array(
+						'param' => 'roleIds',
+						'val' => ROLE_ID_SUBSCRIPTION_MANAGER,
+						'title' => __('default.groups.plural.subscriptionManager'),
+					),
+					array(
+						'param' => 'roleIds',
+						'val' => ROLE_ID_AUTHOR,
+						'title' => __('default.groups.plural.author'),
+					),
+					array(
+						'param' => 'roleIds',
+						'val' => ROLE_ID_REVIEWER,
+						'title' => __('user.role.reviewers'),
+					),
+					array(
+						'param' => 'roleIds',
+						'val' => ROLE_ID_READER,
+						'title' => __('user.role.readers'),
+					),
+				),
+			);
+
+			$contextDao = Application::getContextDAO();
+			$contextsResult = $contextDao->getAll();
+			$config['filters']['contextIds'] = array(
+				'heading' => __('journal.journals'),
+				'filters' => array(),
+				'isAutoSuggest' => true,
+			);
+			while ($context = $contextsResult->next()) {
+				$config['filters']['contextIds']['filters'][] = array(
+					'param' => 'contextIds',
+					'val' => (int) $context->getId(),
+					'title' => $context->getLocalizedName(),
+					'acronym' => $context->getLocalizedAcronym(),
+				);
+			}
+		}
+
+		$request = Application::getRequest();
 
 		$config['addUserUrl'] = $request->getDispatcher()->url(
 			$request,
@@ -191,11 +290,6 @@ class PKPUsersListHandler extends ListHandler {
 			array('rowId' => '__id__', 'oldUserId' => '__id__')
 		);
 
-		// Load grid localisation files
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID);
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
-
 		$config['i18n'] = array(
 			'title' => __($this->_title),
 			'search' => __('common.search'),
@@ -234,19 +328,14 @@ class PKPUsersListHandler extends ListHandler {
 	 * @copydoc ListHandler::getItems()
 	 */
 	public function getItems() {
-		$request = Application::getRequest();
-		$context = $request->getContext();
-		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
-
 		$userService = ServicesContainer::instance()->get('user');
-		$users = $userService->getUsers($contextId, $this->_getItemsParams());
+		$users = $userService->getUsers($this->_contextId, $this->_getItemsParams());
 		$items = array();
 		if (!empty($users)) {
-			$propertyArgs = array(
-				'request' => $request,
-			);
 			foreach ($users as $user) {
-				$items[] = $userService->getSummaryProperties($user, $propertyArgs);
+				$items[] = $userService->getSummaryProperties($user, array(
+					'request' => Application::getRequest(),
+				));
 			}
 		}
 
@@ -257,12 +346,9 @@ class PKPUsersListHandler extends ListHandler {
 	 * @copydoc ListHandler::getItemsMax()
 	 */
 	public function getItemsMax() {
-		$context = Application::getRequest()->getContext();
-		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
-
 		return ServicesContainer::instance()
 			->get('user')
-			->getUsersMaxCount($contextId, $this->_getItemsParams());
+			->getUsersMaxCount($this->_contextId, $this->_getItemsParams());
 	}
 
 	/**

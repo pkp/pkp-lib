@@ -76,6 +76,9 @@ class StageParticipantGridRow extends GridRow {
 			$userId = $stageAssignment->getUserId();
 			$this->addAction(new NotifyLinkAction($request, $submission, $stageId, $userId));
 
+			import('classes.core.ServicesContainer');
+			$rowUser = ServicesContainer::instance()->get('user')->getUser($userId);
+
 			$user = $request->getUser();
 			if (
 				!Validation::isLoggedInAs() &&
@@ -88,7 +91,7 @@ class StageParticipantGridRow extends GridRow {
 					new LinkAction(
 						'logInAs',
 						new RedirectConfirmationModal(
-							__('grid.user.confirmLogInAs'),
+							__('grid.user.confirmLogInAs', array('userName' => $rowUser->getFullName())),
 							__('grid.action.logInAs'),
 							$dispatcher->url($request, ROUTE_PAGE, null, 'login', 'signInAsUser', $userId)
 						),

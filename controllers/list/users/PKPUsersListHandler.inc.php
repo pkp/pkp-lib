@@ -251,6 +251,16 @@ class PKPUsersListHandler extends ListHandler {
 			array('rowId' => '__id__')
 		);
 
+		$config['assignUserUrl'] = $request->getDispatcher()->url(
+			$request,
+			ROUTE_COMPONENT,
+			null,
+			'grid.settings.user.UserGridHandler',
+			'showRoleContextSelection',
+			null,
+			array('userId' => '__id__')
+		);
+
 		$config['enableUserUrl'] = $request->getDispatcher()->url(
 			$request,
 			ROUTE_COMPONENT,
@@ -312,10 +322,11 @@ class PKPUsersListHandler extends ListHandler {
 			'listSeparator' => __('common.listSeparator'),
 			'sendEmail' => __('common.sendEmail'),
 			'editUser' => __('grid.user.edit'),
+			'assignUser' => __('user.list.assignUser'),
 			'enableUser' => __('common.enable'),
 			'disableUser' => __('grid.user.disable'),
-			'removeUser' => __('common.remove'),
-			'removeUserConfirmation' => __('manager.people.confirmRemove'),
+			'removeUser' => $this->_contextId ? __('common.remove') : __('user.list.removeRolesAll'),
+			'removeUserConfirmation' => $this->_contextId ? __('manager.people.confirmRemove') : __('manager.people.confirmRemoveAll'),
 			'confirm' => __('common.ok'),
 			'cancel' => __('common.cancel'),
 			'mergeUser' => __('grid.user.mergeUsers.mergeUser'),

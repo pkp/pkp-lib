@@ -131,5 +131,4 @@ Usage (processing all files inside a directory): {$scriptName} path/to/apache/di
 	<message key="admin.error.executingUtil">Error: can't execute "{$utilPath}".  Check your {$utilVar} setting in config.inc.php.</message>
 	<message key="admin.languages.noLocalesToDownload">There are no locales available for download.</message>
 	<message key="admin.roles.subeditors">Subeditors</message>
-	<message key="admin.roles.assistants">Assistants</message>
 </locale>

@@ -190,9 +190,17 @@ class ContextGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function users($args, $request) {
+
+		import('lib.pkp.controllers.list.users.PKPUsersListHandler');
+		$usersListHandler = new PKPUsersListHandler(array(
+			'title' => 'manager.users',
+			'isSiteAdmin' => true,
+			'apiContextPath' => $request->getContext()->getPath(),
+		));
+		$usersListData = $usersListHandler->getConfig();
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('oldUserId', (int) $request->getUserVar('oldUserId')); // for merging users.
-		parent::setupTemplate($request);
+		$templateMgr->assign('usersListData', json_encode($usersListData));
+
 		return $templateMgr->fetchJson('core:controllers/tab/settings/users.tpl');
 	}
 

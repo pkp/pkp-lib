@@ -73,11 +73,12 @@ class PKPUsersListHandler extends ListHandler {
 	 */
 	public function getConfig() {
 
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_DEFAULT);
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID);
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_DEFAULT);
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_DEFAULT);
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_USER);
 
 		$config = array();
 

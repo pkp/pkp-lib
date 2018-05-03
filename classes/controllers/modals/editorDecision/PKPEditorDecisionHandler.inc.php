@@ -3,8 +3,8 @@
 /**
  * @file controllers/modals/editorDecision/EditorDecisionHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class EditorDecisionHandler
@@ -32,7 +32,21 @@ class PKPEditorDecisionHandler extends Handler {
 		import('lib.pkp.classes.security.authorization.internal.ReviewRoundRequiredPolicy');
 		$this->addPolicy(new ReviewRoundRequiredPolicy($request, $args, 'reviewRoundId', $reviewRoundOps));
 
-		return parent::authorize($request, $args, $roleAssignments);
+		if (!parent::authorize($request, $args, $roleAssignments)) return false;
+
+		// Prevent editors who are also assigned as authors from accessing the
+		// review stage operations
+		$operation = $request->getRouter()->getRequestedOp($request);
+		if (in_array($operation, $reviewRoundOps)) {
+			$userAccessibleStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+			foreach ($userAccessibleStages as $stageId => $roles) {
+				if (in_array(ROLE_ID_AUTHOR, $roles)) {
+					return false;
+				}
+			}
+		}
+
+		return true;
 	}
 
 	/**
@@ -42,6 +56,7 @@ class PKPEditorDecisionHandler extends Handler {
 		AppLocale::requireComponents(
 			LOCALE_COMPONENT_APP_COMMON,
 			LOCALE_COMPONENT_APP_EDITOR,
+			LOCALE_COMPONENT_APP_SUBMISSION,
 			LOCALE_COMPONENT_PKP_EDITOR,
 			LOCALE_COMPONENT_PKP_SUBMISSION
 		);

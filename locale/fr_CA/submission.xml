@@ -4,8 +4,8 @@
 <!--
   * locale/fr_CA/submission.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the fr_CA (Français (Canada)) locale.
@@ -553,7 +553,6 @@
 	<message key="submission.upload.productionReady">Téléverser un fichier prêt pour la production</message>
 	<message key="submission.upload.noAvailableReviewFiles">Vous n'avez aucun fichier à évaluer pour le moment.</message>
 	<message key="editor.submission.roundStatus.revisionsRequested">Les révisions ont été demandées.</message>
-	<message key="editor.submission.roundStatus.resubmitted">La soumission a été présentée de nouveau pour évaluation.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">Envoyé à un évaluateur externe.</message>
 	<message key="editor.submission.roundStatus.accepted">Soumission acceptée.</message>
 	<message key="editor.submission.roundStatus.declined">Soumission refusée.</message>
@@ -674,11 +673,8 @@
 	<message key="submission.list.reviewDue">Évaluation due</message>
 	<message key="submission.list.confirmDelete">Supprimer la soumission?</message>
 	<message key="submission.list.viewSubmission">Voir la soumission</message>
-	<message key="submission.list.filter">Filtres</message>
-	<message key="submission.list.filterRemove">Retirer le filtre: {$filterTitle}</message>
 	<message key="submission.list.itemOrdererUp">Avancer la position de {$itemTitle}</message>
 	<message key="submission.list.itemOrdererDown">Reculer la position de {$itemTitle}</message>
-	<message key="submission.list.clearSearch">Effacer la requête</message>
 	<message key="submission.list.reviewsCompleted">Assigner les évaluations complétées</message>
 	<message key="submission.list.revisionsSubmitted">Révisions soumises</message>
 	<message key="submission.list.copyeditsSubmitted">Les modifications ont été soumises</message>

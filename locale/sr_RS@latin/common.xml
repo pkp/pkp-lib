@@ -4,8 +4,8 @@
 <!--
   * locale/sr_RS@latin/common.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Serbian_(sr_RS)
   * Localization strings for the sr_RS@latin (Srpski) locale.
@@ -272,7 +272,6 @@
 	<message key="notification.allow">Dozvoli da mi stižu ove vrste obaveštenja.</message>
 	<message key="notification.confirmError">Došlo je do greške prilikom potvrđivanja vaše pretplate.</message>
 	<message key="notification.confirmSuccess">Uspešno ste se pretplatili.</message>
-	<message key="notification.email">Pošalji mi imejl za ove vrste obaveštenja.</message>
 	<message key="notification.location">Idi na URL</message>
 	<message key="notification.mailList">Mejling lista obaveštenja</message>
 	<message key="notification.mailList.emailInvalid">Unesite ispravnu imejl adresu.</message>

@@ -4,8 +4,8 @@
 <!--
   * locale/id_ID/manager.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2003-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -139,10 +139,6 @@
 	<message key="manager.plugins">Sistem Plugins</message>
 	<message key="manager.readingTools">Alat Membaca</message>
 	<message key="manager.reviewerSearch.searchByName">Cari Reviewer dengan Nama</message>
-	<message key="manager.reviewerSearch.doneAmount">Jumlah review yang selesai</message>
-	<message key="manager.reviewerSearch.avgAmount">Jumlah hari rata-rata per review</message>
-	<message key="manager.reviewerSearch.lastAmount">Hari sejak review terakhir</message>
-	<message key="manager.reviewerSearch.activeAmount">Jumlah review aktif sekarang</message>
 	<message key="manager.reviewerSearch.interests">Minat Mereview</message>
 	<message key="manager.roles">Peran</message>
 	<message key="manager.setup.errorDeletingItem">Ada kesalahan saat menghapus item ini.</message>

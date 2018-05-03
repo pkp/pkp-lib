@@ -2,8 +2,8 @@
 /**
  * @file classes/security/authorization/EditorDecisionAccessPolicy.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class EditorDecisionAccessPolicy
@@ -28,7 +28,7 @@ class EditorDecisionAccessPolicy extends ContextPolicy {
 
 		// A decision can only be made if there is a valid workflow stage
 		import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
-		$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, $submissionParameterName, $stageId));
+		$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, $submissionParameterName, $stageId, WORKFLOW_TYPE_EDITORIAL));
 
 		// An editor decision can only be made if there is an editor assigned to the stage
 		import('lib.pkp.classes.security.authorization.internal.ManagerRequiredPolicy');

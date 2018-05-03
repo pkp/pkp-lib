@@ -4,8 +4,8 @@
 <!--
   * locale/pt_BR/manager.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Locale information: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Portuguese_(pt_BR)
   * Localization strings.
@@ -175,10 +175,6 @@
 	<message key="manager.emails.form.emailKeyRequired">É necessária uma chave única para o e-mail.</message>
 	<message key="manager.setup.errorDeletingItem">Ocorreu um erro ao tentar excluir o item.</message>
 	<message key="manager.reviewerSearch.searchByName">Buscar por Nome do Avaliador</message>
-	<message key="manager.reviewerSearch.doneAmount">Avaliações concluídas: {$current}</message>
-	<message key="manager.reviewerSearch.avgAmount">Média de dias para avaliar: {$current}</message>
-	<message key="manager.reviewerSearch.lastAmount">Dias desde a última avaliação: {$current}</message>
-	<message key="manager.reviewerSearch.activeAmount">Total de avalições ativas: {$current}</message>
 	<message key="manager.reviewerSearch.interests">Área de interesse para avaliação</message>
 	<message key="manager.announcements.datePublish">Publicado</message>
 	<message key="manager.emails.addEmail">Incluir modelo de mensagem</message>
@@ -190,7 +186,6 @@
 	<message key="manager.emails.reset.message">Caso restaure este modelo, todos os dados da mensagem retornarão ao valor original, perdendo todas as alterações. Deseja confirmar esta operação?</message>
 	<message key="manager.reviewerSearch.searchByName.short">Buscar por Nome</message>
 	<message key="manager.reviewerSearch.form.instructions">Use o formulário a seguir para definir os valores máximos para os termos pelos quais deseja buscar. O formulário está preenchido previamente com médias calculadas dos campos.</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">Informe as áreas de interesse para avaliação, separadas por vírgula...</message>
 	<message key="manager.setup.layout.blockManagement">Gerenciamento da barra lateral</message>
 	<message key="plugins.categories.metadata">Plugins de metadados</message>
 	<message key="plugins.categories.metadata.description">Plugins de metadados implementam padrões adicionais de metadados.</message>
@@ -401,17 +396,12 @@ Há casos em que uma única estatística de uso devem ser utilizada, por exemplo
 	<message key="manager.setup.genres.dependent">Marque os arquivos deste tipo como arquivos dependentes (por exemplo, não submissões primárias)</message>
 
 	<message key="manager.reviewerSearch.change">Mudar</message>
-	<message key="manager.reviewerSearch.doneAmountToggle">Habilitar/desabilitar o filtro para avaliações concluídas.</message>
-	<message key="manager.reviewerSearch.avgAmountToggle">Habilitar/desabilitar o filtro para média de dias para completar uma avaliação.</message>
 	<message key="manager.setup.genres.supplementary">Marcar arquivos deste tipo como arquivos suplementares (por exemplo conteúdos que não sejam primários à submissão)</message>
 	<message key="manager.reviewForms.confirmActivate">Ter certeza que deseja ativar este formulário de avaliação? Uma vez designado a um avaliador você não poderá mais desativa-lo.</message>
 	<message key="manager.reviewForms.confirmDeactivate">Ter certeza que deseja desativar este formulário de avaliação? Ele não estará mais disponível para novas avaliações.</message>
 	<message key="manager.reviewForms.confirmCopy">Tem certeza que deseja criar uma cópia desse formulário de avaliação?</message>
 	<message key="manager.reviewForms.confirmDelete">Tem certeza que deseja apagar este formulário de avaliação?</message>
 	<message key="manager.reviewFormElements.included">Incluído na mensagem ao autor</message>
-	<message key="manager.reviewerSearch.lastAmountToggle">Habilitar/desabilitar o filtro para dias desde a última avaliação.</message>
-	<message key="manager.reviewerSearch.activeAmountToggle">Habilitar/desabilitar o filtro para avaliações atualmente ativas.</message>
-	<message key="manager.reviewerSearch.form.previousReviewRounds">Avaliadores desta submissão em rodadas anteriores</message>
 	<message key="manager.statistics.reports.advancedOptions.hide">Ocultar Opções Avançadas</message>
 	<message key="manager.statistics.reports.objectNotFound">Objeto não encontrado na base de dados</message>
 	<message key="manager.statistics.reports.yesterday">Ontem</message>

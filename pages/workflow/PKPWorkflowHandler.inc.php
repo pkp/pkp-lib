@@ -3,8 +3,8 @@
 /**
  * @file pages/workflow/PKPWorkflowHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class WorkflowHandler
@@ -42,10 +42,10 @@ abstract class PKPWorkflowHandler extends Handler {
 			// Otherwise it will build an authorized object with all accessible
 			// workflow stages and authorize user operation access.
 			import('lib.pkp.classes.security.authorization.internal.UserAccessibleWorkflowStageRequiredPolicy');
-			$this->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request));
+			$this->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request, WORKFLOW_TYPE_EDITORIAL));
 		} else {
 			import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
-			$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->identifyStageId($request, $args)));
+			$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->identifyStageId($request, $args), WORKFLOW_TYPE_EDITORIAL));
 		}
 
 		return parent::authorize($request, $args, $roleAssignments);
@@ -82,13 +82,15 @@ abstract class PKPWorkflowHandler extends Handler {
 
 		$currentStageId = $submission->getStageId();
 		$accessibleWorkflowStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+		$workflowRoles = Application::getWorkflowTypeRoles();
+		$editorialWorkflowRoles = $workflowRoles[WORKFLOW_TYPE_EDITORIAL];
 
 		// Get the closest workflow stage that user has an assignment.
 		$stagePath = null;
 		$workingStageId = null;
 
 		for ($workingStageId = $currentStageId; $workingStageId >= WORKFLOW_STAGE_ID_SUBMISSION; $workingStageId--) {
-			if (array_key_exists($workingStageId, $accessibleWorkflowStages)) {
+			if (isset($accessibleWorkflowStages[$workingStageId]) && array_intersect($editorialWorkflowRoles, $accessibleWorkflowStages[$workingStageId])) {
 				break;
 			}
 		}
@@ -97,7 +99,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		// submission. Try to get the closest future workflow stage.
 		if ($workingStageId == null) {
 			for ($workingStageId = $currentStageId; $workingStageId <= WORKFLOW_STAGE_ID_PRODUCTION; $workingStageId++) {
-				if (array_key_exists($workingStageId, $accessibleWorkflowStages)) {
+				if (isset($accessibleWorkflowStages[$workingStageId]) && array_intersect($editorialWorkflowRoles, $accessibleWorkflowStages[$workingStageId])) {
 					break;
 				}
 			}
@@ -197,38 +199,33 @@ abstract class PKPWorkflowHandler extends Handler {
 			$reviewRound = $reviewRoundDao->getById($reviewRoundId);
 		}
 
-		// If a review round was specified,
-
 		// If there is an editor assigned, retrieve stage decisions.
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 		$editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $stageId);
 		$dispatcher = $request->getDispatcher();
 		$user = $request->getUser();
 
-		// If it is a review stage, check if the user can make decisions or recommend only
 		$recommendOnly = $makeDecision = false;
-		if ($reviewRoundId) {
-			// if the user is assigned several times in an editorial role, check his/her assignments permissions i.e.
-			// if the user is assigned with both possibilities: to only recommend as well as make decision
-			foreach ($editorsStageAssignments as $editorsStageAssignment) {
-				if ($editorsStageAssignment->getUserId() == $user->getId()) {
-					if (!$editorsStageAssignment->getRecommendOnly()) {
-						$makeDecision = true;
-					} else {
-						$recommendOnly = true;
-					}
+		// if the user is assigned several times in an editorial role, check his/her assignments permissions i.e.
+		// if the user is assigned with both possibilities: to only recommend as well as make decision
+		foreach ($editorsStageAssignments as $editorsStageAssignment) {
+			if ($editorsStageAssignment->getUserId() == $user->getId()) {
+				if (!$editorsStageAssignment->getRecommendOnly()) {
+					$makeDecision = true;
+				} else {
+					$recommendOnly = true;
 				}
 			}
 		}
 
 		// If user is not assigned to the submission,
-		// see if the user is manager or sub-editor, and
+		// see if the user is manager, and
 		// if the group is recommendOnly
 		if (!$recommendOnly && !$makeDecision) {
 			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 			$userGroups = $userGroupDao->getByUserId($user->getId(), $request->getContext()->getId());
 			while ($userGroup = $userGroups->next()) {
-				if (in_array($userGroup->getRoleId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR))) {
+				if (in_array($userGroup->getRoleId(), array(ROLE_ID_MANAGER))) {
 					if (!$userGroup->getRecommendOnly()) {
 						$makeDecision = true;
 					} else {
@@ -303,31 +300,27 @@ abstract class PKPWorkflowHandler extends Handler {
 					}
 				}
 			}
-			// In non-review stages, the user have to be able to make decisions,
-			// in order for editor actions to be displayed/available
-			if ($makeDecision) {
-				// Get the possible editor decisions for this stage
-				$decisions = EditorDecisionActionsManager::getStageDecisions($request->getContext(), $stageId);
-				// Iterate through the editor decisions and create a link action
-				// for each decision which as an operation associated with it.
-				foreach($decisions as $decision => $action) {
-					if (empty($action['operation'])) {
-						continue;
-					}
-					$actionArgs['decision'] = $decision;
-					$editorActions[] = new LinkAction(
-						$action['name'],
-						new AjaxModal(
-							$dispatcher->url(
-								$request, ROUTE_COMPONENT, null,
-								'modals.editorDecision.EditorDecisionHandler',
-								$action['operation'], null, $actionArgs
-							),
-							__($action['title'])
-						),
-					__($action['title'])
-					);
+			// Get the possible editor decisions for this stage
+			$decisions = EditorDecisionActionsManager::getStageDecisions($request->getContext(), $stageId, $makeDecision);
+			// Iterate through the editor decisions and create a link action
+			// for each decision which as an operation associated with it.
+			foreach($decisions as $decision => $action) {
+				if (empty($action['operation'])) {
+					continue;
 				}
+				$actionArgs['decision'] = $decision;
+				$editorActions[] = new LinkAction(
+					$action['name'],
+					new AjaxModal(
+						$dispatcher->url(
+							$request, ROUTE_COMPONENT, null,
+							'modals.editorDecision.EditorDecisionHandler',
+							$action['operation'], null, $actionArgs
+						),
+						__($action['title'])
+					),
+				__($action['title'])
+				);
 			}
 		}
 
@@ -401,6 +394,7 @@ abstract class PKPWorkflowHandler extends Handler {
 
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+		$accessibleWorkflowStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
 
 		// Construct array with workflow stages data.
 		$workflowStages = WorkflowStageDAO::getWorkflowStageKeysAndPaths();
@@ -415,17 +409,21 @@ abstract class PKPWorkflowHandler extends Handler {
 		$templateMgr->assign('submissionStageId', $submission->getStageId());
 		$templateMgr->assign('workflowStages', $workflowStages);
 
-		import('controllers.modals.submissionMetadata.linkAction.SubmissionEntryLinkAction');
-		$templateMgr->assign(
-			'submissionEntryAction',
-			new SubmissionEntryLinkAction($request, $submission->getId(), $stageId)
-		);
+		if (isset($accessibleWorkflowStages[$stageId]) && array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT), $accessibleWorkflowStages[$stageId])) {
+			import('controllers.modals.submissionMetadata.linkAction.SubmissionEntryLinkAction');
+			$templateMgr->assign(
+				'submissionEntryAction',
+				new SubmissionEntryLinkAction($request, $submission->getId(), $stageId)
+			);
+		}
 
-		import('lib.pkp.controllers.informationCenter.linkAction.SubmissionInfoCenterLinkAction');
-		$templateMgr->assign(
-			'submissionInformationCenterAction',
-			new SubmissionInfoCenterLinkAction($request, $submission->getId())
-		);
+		if (isset($accessibleWorkflowStages[$stageId]) && array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR), $accessibleWorkflowStages[$stageId])) {
+			import('lib.pkp.controllers.informationCenter.linkAction.SubmissionInfoCenterLinkAction');
+			$templateMgr->assign(
+				'submissionInformationCenterAction',
+				new SubmissionInfoCenterLinkAction($request, $submission->getId())
+			);
+		}
 
 		import('lib.pkp.controllers.modals.documentLibrary.linkAction.SubmissionLibraryLinkAction');
 		$templateMgr->assign(

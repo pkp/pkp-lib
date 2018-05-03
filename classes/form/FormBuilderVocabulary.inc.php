@@ -8,8 +8,8 @@
 /**
  * @file classes/form/FormBuilderVocabulary.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Fbv
@@ -280,9 +280,6 @@ class FormBuilderVocabulary {
 				$content = $this->_smartyFBVRadioButton($params, $smarty);
 				unset($params['label']);
 				break;
-			case 'rangeslider':
-				$content = $this->_smartyFBVRangeSlider($params, $smarty);
-				break;
 			case 'select':
 				$content = $this->_smartyFBVSelect($params, $smarty);
 				break;
@@ -372,27 +369,6 @@ class FormBuilderVocabulary {
 	}
 
 	/**
-	 * Range slider input.
-	 * parameters: min, max
-	 * @param $params array
-	 * @param $smarty object
-	 */
-	function _smartyFBVRangeSlider($params, &$smarty) {
-		// Make sure our required fields are included
-		assert(isset($params['min']) && isset($params['max']));
-		$smarty->assign(array(
-			'FBV_min' => $params['min'],
-			'FBV_max' => $params['max'],
-			'FBV_value_min' => isset($params['valueMin']) ? $params['valueMin'] : $params['min'],
-			'FBV_value_max' => isset($params['valueMax']) ? $params['valueMax'] : $params['max'],
-			'FBV_toggleable' => isset($params['toggleable']) ? $params['toggleable'] : false,
-			'FBV_toggleable_label' => isset($params['toggleable_label']) ? $params['toggleable_label'] : '',
-			'FBV_enabled' => isset($params['enabled']) ? $params['enabled'] : false,
-		));
-		return $smarty->fetch('form/rangeSlider.tpl');
-	}
-
-	/**
 	 * Form text input.
 	 * parameters: disabled (optional), name (optional - assigned value of 'id' by default), multilingual (optional)
 	 * @param $params array
@@ -406,7 +382,7 @@ class FormBuilderVocabulary {
 		$smarty->assign('FBV_isTypeURL', ($params['type'] === 'url') ? true : false);
 
 		$textInputParams = '';
-		$smarty->clear_assign(array('FBV_disabled', 'FBV_readonly', 'FBV_multilingual', 'FBV_name', 'FBV_value', 'FBV_label_content', 'FBV_uniqId'));
+		$smarty->clear_assign(array('FBV_disabled', 'FBV_readonly', 'FBV_multilingual', 'FBV_name', 'FBV_value', 'FBV_label_content', 'FBV_uniqId', 'FBV_urlValidationErrorMessage'));
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, $smarty)); break;

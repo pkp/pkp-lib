@@ -4,8 +4,8 @@
 <!--
   * locale/ru_RU/user.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ru_RU (Русский) locale.
@@ -36,14 +36,13 @@
 	<message key="user.dateRegistered">Дата регистрации</message>
 	<message key="user.editMyProfile">Редактировать мой профиль</message>
 	<message key="user.email">Адрес (E-mail)</message>
-	<message key="user.feminine">Ж</message>
 	<message key="user.firstName">Имя</message>
-	<message key="user.gender">Пол</message>
 	<message key="user.initialsExample">Алексей Алексеевич Бородин = ААБ</message>
 	<message key="user.initials">Инициалы</message>
 	<message key="user.interests">Интересы как рецензента</message>
 	<message key="user.interests.description">(Разделяйте интересы запятой или нажимайте «Enter»)</message>
-	<message key="user.gossip">Личные заметки</message>
+	<message key="user.gossip">Заметки редакции</message>
+	<message key="user.gossip.description">Пишите здесь заметки о данном рецензенте, которые вы хотели бы сделать видимыми другим администраторам, менеджерам журнала, редакторам и помощникам редактора. Заметки будут видны при назначениях на рецензию в будущем.</message>
 	<message key="user.group">Группа пользователя</message>
 	<message key="user.lastName">Фамилия</message>
 	<message key="user.profile.form.profileImageInvalid">Неверный формат изображения профиля или изображение слишком большое. Разрешенные форматы — .gif, .jpg, или .png, размер изображения не более 150x150 пикселей.</message>
@@ -73,11 +72,9 @@
 	<message key="user.logOutAs">Выйти из системы как</message>
 	<message key="user.hello">Добро пожаловать, </message>
 	<message key="user.mailingAddress">Почтовый адрес</message>
-	<message key="user.masculine">М</message>
 	<message key="user.middleName">Отчество</message>
 	<message key="user.myAccount">Мой профиль</message>
 	<message key="user.name">Фамилия</message>
-	<message key="user.other">Иное</message>
 	<message key="user.password">Пароль</message>
 	<message key="user.repeatPassword">Повторите пароль</message>
 	<message key="user.phone">Телефон</message>

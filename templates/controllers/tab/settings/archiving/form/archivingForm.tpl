@@ -1,13 +1,16 @@
 {**
  * controllers/tab/settings/archiving/form/archivingForm.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Archiving settings form.
  *
  *}
+
+{* Help Link *}
+{help file="settings.md" section="website" class="pkp_help_tab"}
 
 <script type="text/javascript">
 	$(function() {ldelim}

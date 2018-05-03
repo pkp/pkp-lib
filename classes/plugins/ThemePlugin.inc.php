@@ -3,8 +3,8 @@
 /**
  * @file classes/plugins/ThemePlugin.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ThemePlugin
@@ -69,8 +69,8 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	/**
 	 * @copydoc Plugin::register
 	 */
-	function register($category, $path) {
-		if (!parent::register($category, $path)) return false;
+	function register($category, $path, $mainContextId = null) {
+		if (!parent::register($category, $path, $mainContextId)) return false;
 
 		// Don't perform any futher operations if theme is not currently active
 		if (!$this->isActive()) {

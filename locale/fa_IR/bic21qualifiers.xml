@@ -1,0 +1,954 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE qualifiers SYSTEM "../../dtd/bic21qualifiers.dtd">
+<!--
+  * locale/fa_IR/bic21qualifiers.xml
+  *
+  * Copyright BIC and Nielsen Book Services Ltd 2010
+  *
+  * localized list of BIC 2.1 Subject Qualifiers
+  * Reference:  http://www.bic.org.uk/7/BIC-Standard-Subject-Categories
+  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Farsi_(fa_IR)
+  -->
+<qualifiers>
+	<qualifier code="1D" text="اروپا" />
+	<qualifier code="1DB" text="جزایر بریتانیا" />
+	<qualifier code="1DBK" text="بریتانیا، بریتانیا" />
+	<qualifier code="1DBKE" text="انگلستان" />
+	<qualifier code="1DBKEA" text="شرق انجیلا" />
+	<qualifier code="1DBKEAC" text="کمبریجشرایر" />
+	<qualifier code="1DBKEAL" text="لینکلن شایر" />
+	<qualifier code="1DBKEAN" text="نورفولک" />
+	<qualifier code="1DBKEAS" text="سوفولک" />
+	<qualifier code="1DBKEAX" text="اسکس" />
+	<qualifier code="1DBKEM" text="میدلندز" />
+	<qualifier code="1DBKEMD" text="دبی و ویتنام" />
+	<qualifier code="1DBKEMF" text="هیرفوردشایر" />
+	<qualifier code="1DBKEML" text="لسترشر" />
+	<qualifier code="1DBKEMM" text="نورث‌همپتون‌شر" />
+	<qualifier code="1DBKEMN" text="ناتینگهامشایر" />
+	<qualifier code="1DBKEMP" text="شروشیار" />
+	<qualifier code="1DBKEMR" text="راتلند" />
+	<qualifier code="1DBKEMS" text="استافوردشایر" />
+	<qualifier code="1DBKEMT" text="ووسترشایر" />
+	<qualifier code="1DBKEMW" text="واریک‌شر، غرب میدلندز" />
+	<qualifier code="1DBKEN" text="شمال غربی انگلستان" />
+	<qualifier code="1DBKENC" text="چشایر" />
+	<qualifier code="1DBKENL" text="لنکشایر، منچستر بزرگ، مرسساید" />
+	<qualifier code="1DBKENM" text="کامبریا و منطقه دریاچه" />
+	<qualifier code="1DBKES" text="جنوبی و جنوب شرقی انگلستان" />
+	<qualifier code="1DBKESB" text="برکشایر" />
+	<qualifier code="1DBKESD" text="بدفوردشر" />
+	<qualifier code="1DBKESF" text="آکسفوردشایر" />
+	<qualifier code="1DBKESH" text="همپشایر" />
+	<qualifier code="1DBKESK" text="کنت" />
+	<qualifier code="1DBKESL" text="لندن، بزرگ لندن" />
+	<qualifier code="1DBKESR" text="سوری" />
+	<qualifier code="1DBKEST" text="هرتفوردشایر" />
+	<qualifier code="1DBKESU" text="باکینگهام‌شر" />
+	<qualifier code="1DBKESW" text="جزیره وایت" />
+	<qualifier code="1DBKESX" text="ساسکس" />
+	<qualifier code="1DBKEW" text="جنوب غربی انگلستان" />
+	<qualifier code="1DBKEWC" text="کورنوال" />
+	<qualifier code="1DBKEWD" text="دون" />
+	<qualifier code="1DBKEWG" text="گلاسترشر" />
+	<qualifier code="1DBKEWS" text="سامستز، بریستول" />
+	<qualifier code="1DBKEWT" text="سوراخ" />
+	<qualifier code="1DBKEWW" text="ویلتشایر" />
+	<qualifier code="1DBKEY" text="شمال و شمال شرق انگلستان" />
+	<qualifier code="1DBKEYD" text="دورام" />
+	<qualifier code="1DBKEYK" text="یورکشایر" />
+	<qualifier code="1DBKEYN" text="نورث‌آمبرلند" />
+	<qualifier code="1DBKN" text="ایرلند شمالی" />
+	<qualifier code="1DBKS" text="اسکاتلند" />
+	<qualifier code="1DBKSB" text="اسکاتلند غربی و مرزها" />
+	<qualifier code="1DBKSC" text="اسکاتلند مرکزی" />
+	<qualifier code="1DBKSH" text="اسکاتلند شمالی، شهرستان هایلندز و جزایر" />
+	<qualifier code="1DBKSHF" text="جزایر اورکنی" />
+	<qualifier code="1DBKSHJ" text="جزایر شتلند" />
+	<qualifier code="1DBKSHL" text="جزایر غربی، هبریدهای بیرونی" />
+	<qualifier code="1DBKSHQ" text="جزیره اسکای" />
+	<qualifier code="1DBKW" text="ولز" />
+	<qualifier code="1DBKWC" text="میدللز" />
+	<qualifier code="1DBKWN" text="ولز شمالی" />
+	<qualifier code="1DBKWS" text="جنوب ولز" />
+	<qualifier code="1DBKWV" text="جنوب غربی ولز" />
+	<qualifier code="1DBKX" text="جزایر کانال" />
+	<qualifier code="1DBKZ" text="جزیره من" />
+	<qualifier code="1DBR" text="ایرلند" />
+	<qualifier code="1DD" text="اروپای قاره اروپا" />
+	<qualifier code="1DDB" text="بلژیک" />
+	<qualifier code="1DDF" text="فرانسه" />
+	<qualifier code="1DDFC" text="کرکسا" />
+	<qualifier code="1DDFM" text="موناکو" />
+	<qualifier code="1DDL" text="لوکزامبورگ" />
+	<qualifier code="1DDN" text="هلند" />
+	<qualifier code="1DF" text="اروپای مرکزی" />
+	<qualifier code="1DFA" text="اتریش" />
+	<qualifier code="1DFG" text="آلمان" />
+	<qualifier code="1DFGE" text="شرق آلمان، DDR" />
+	<qualifier code="1DFGW" text="آلمان غربی" />
+	<qualifier code="1DFH" text="سوئیس" />
+	<qualifier code="1DFHA" text="آلپ ها" />
+	<qualifier code="1DFL" text="لیختن اشتاین" />
+	<qualifier code="1DN" text="شمال اروپا، اسکاندیناوی" />
+	<qualifier code="1DNC" text="ایسلند" />
+	<qualifier code="1DND" text="دانمارک" />
+	<qualifier code="1DNDF" text="جزایر فارو" />
+	<qualifier code="1DNF" text="فنلاند" />
+	<qualifier code="1DNN" text="نروژ" />
+	<qualifier code="1DNS" text="سوئد" />
+	<qualifier code="1DS" text="اروپای جنوبی" />
+	<qualifier code="1DSE" text="اسپانیا" />
+	<qualifier code="1DSEB" text="جزایر بالئاریک" />
+	<qualifier code="1DSEP" text="پیرنه ها" />
+	<qualifier code="1DSG" text="جبل الطارق" />
+	<qualifier code="1DSM" text="مالت" />
+	<qualifier code="1DSN" text="آندورا" />
+	<qualifier code="1DSP" text="کشور پرتغال" />
+	<qualifier code="1DST" text="ایتالیا" />
+	<qualifier code="1DSTA" text="ساردینیا" />
+	<qualifier code="1DSTC" text="سیسیل" />
+	<qualifier code="1DSU" text="سان مارینو" />
+	<qualifier code="1DSV" text="واتیکان" />
+	<qualifier code="1DV" text="اروپای شرقی" />
+	<qualifier code="1DVC" text="قبرس" />
+	<qualifier code="1DVG" text="یونان" />
+	<qualifier code="1DVGS" text="جزایر یونانی" />
+	<qualifier code="1DVGSC" text="کرت" />
+	<qualifier code="1DVH" text="مجارستان" />
+	<qualifier code="1DVK" text="چکسلواکی سابق" />
+	<qualifier code="1DVKC" text="جمهوری چک" />
+	<qualifier code="1DVKS" text="اسلواکی" />
+	<qualifier code="1DVP" text="لهستان" />
+	<qualifier code="1DVT" text="بوقلمون" />
+	<qualifier code="1DVU" text="اتحاد جماهیر شوروی سابق، اتحاد جماهیر شوروی (اروپا)" />
+	<qualifier code="1DVUA" text="روسیه" />
+	<qualifier code="1DVUAC" text="چچن" />
+	<qualifier code="1DVUB" text="بلاروس (بلاروس)" />
+	<qualifier code="1DVUC" text="لتونی" />
+	<qualifier code="1DVUE" text="استونی" />
+	<qualifier code="1DVUF" text="لیتوانی" />
+	<qualifier code="1DVUG" text="جورجیا" />
+	<qualifier code="1DVUK" text="اوکراین" />
+	<qualifier code="1DVUM" text="مولداوی (مولداوی)" />
+	<qualifier code="1DVUR" text="ارمنستان" />
+	<qualifier code="1DVUZ" text="آذربایجان" />
+	<qualifier code="1DVW" text="جنوب شرقی اروپا" />
+	<qualifier code="1DVWA" text="آلبانی" />
+	<qualifier code="1DVWB" text="بلغارستان" />
+	<qualifier code="1DVWR" text="رومانی" />
+	<qualifier code="1DVWY" text="یوگسلاوی و یوگسلاوی سابق" />
+	<qualifier code="1DVWYB" text="بوسنی و هرزگوین" />
+	<qualifier code="1DVWYC" text="کرواسی" />
+	<qualifier code="1DVWYK" text="کوزوو" />
+	<qualifier code="1DVWYM" text="مقدونیه" />
+	<qualifier code="1DVWYN" text="مونته نگرو" />
+	<qualifier code="1DVWYS" text="صربستان" />
+	<qualifier code="1DVWYV" text="اسلوونی" />
+	<qualifier code="1F" text="آسیا" />
+	<qualifier code="1FB" text="خاورمیانه" />
+	<qualifier code="1FBH" text="اسرائيل" />
+	<qualifier code="1FBJ" text="اردن" />
+	<qualifier code="1FBL" text="لبنان" />
+	<qualifier code="1FBN" text="ایران" />
+	<qualifier code="1FBP" text="فلسطین" />
+	<qualifier code="1FBQ" text="عراق" />
+	<qualifier code="1FBS" text="سوریه" />
+	<qualifier code="1FBX" text="شبه جزیره عربی" />
+	<qualifier code="1FBXB" text="بحرین" />
+	<qualifier code="1FBXK" text="کویت" />
+	<qualifier code="1FBXM" text="عمان" />
+	<qualifier code="1FBXQ" text="قطر" />
+	<qualifier code="1FBXS" text="عربستان سعودی" />
+	<qualifier code="1FBXU" text="امارات متحده عربی" />
+	<qualifier code="1FBXY" text="یمن" />
+	<qualifier code="1FC" text="آسیای مرکزی" />
+	<qualifier code="1FCA" text="افغانستان" />
+	<qualifier code="1FCD" text="تاجیکستان (تاجیکستان)" />
+	<qualifier code="1FCK" text="قرقیزستان (قرقیزستان، قرقیزستان)" />
+	<qualifier code="1FCS" text="سیبری" />
+	<qualifier code="1FCT" text="ترکمنستان" />
+	<qualifier code="1FCU" text="ازبکستان" />
+	<qualifier code="1FCZ" text="قزاقستان" />
+	<qualifier code="1FK" text="زیر قاره هند" />
+	<qualifier code="1FKA" text="هندوستان" />
+	<qualifier code="1FKAH" text="هیمالیا" />
+	<qualifier code="1FKAS" text="جزایر اندام و نیکوبار" />
+	<qualifier code="1FKB" text="بنگلادش" />
+	<qualifier code="1FKH" text="بوتان" />
+	<qualifier code="1FKN" text="نپال" />
+	<qualifier code="1FKP" text="پاکستان" />
+	<qualifier code="1FKS" text="سریلانکا (سیلان)" />
+	<qualifier code="1FM" text="جنوب شرقی آسیا" />
+	<qualifier code="1FMB" text="میانمار (برمه)" />
+	<qualifier code="1FMC" text="کامبوج" />
+	<qualifier code="1FML" text="لائوس" />
+	<qualifier code="1FMM" text="مالزی" />
+	<qualifier code="1FMN" text="اندونزی" />
+	<qualifier code="1FMNB" text="بالی" />
+	<qualifier code="1FMNT" text="تیمور شرقی" />
+	<qualifier code="1FMNX" text="بورنئو" />
+	<qualifier code="1FMP" text="فیلیپین" />
+	<qualifier code="1FMR" text="برونئی" />
+	<qualifier code="1FMS" text="سنگاپور" />
+	<qualifier code="1FMT" text="تایلند" />
+	<qualifier code="1FMV" text="ویتنام" />
+	<qualifier code="1FP" text="شرق آسیا، شرق دور" />
+	<qualifier code="1FPC" text="چين" />
+	<qualifier code="1FPCH" text="هنگ کنگ" />
+	<qualifier code="1FPCM" text="ماکائو" />
+	<qualifier code="1FPCT" text="تبت" />
+	<qualifier code="1FPCW" text="تایوان" />
+	<qualifier code="1FPJ" text="ژاپن" />
+	<qualifier code="1FPK" text="کشور کره" />
+	<qualifier code="1FPKN" text="کره شمالی" />
+	<qualifier code="1FPKS" text="کره جنوبی" />
+	<qualifier code="1FPM" text="مغولستان" />
+	<qualifier code="1H" text="آفریقا" />
+	<qualifier code="1HB" text="شمال آفریقا" />
+	<qualifier code="1HBA" text="الجزایر" />
+	<qualifier code="1HBC" text="چاد" />
+	<qualifier code="1HBE" text="مصر" />
+	<qualifier code="1HBEN" text="رود نیل" />
+	<qualifier code="1HBES" text="کانال سوئز" />
+	<qualifier code="1HBL" text="لیبی" />
+	<qualifier code="1HBM" text="مراکش" />
+	<qualifier code="1HBMA" text="کوه های اطلس" />
+	<qualifier code="1HBS" text="سودان" />
+	<qualifier code="1HBT" text="تونس" />
+	<qualifier code="1HBW" text="صحرای غربی" />
+	<qualifier code="1HBX" text="صحرا" />
+	<qualifier code="1HF" text="جنوب صحرای آفریقا" />
+	<qualifier code="1HFD" text="غرب آفریقا" />
+	<qualifier code="1HFDA" text="موریتانی" />
+	<qualifier code="1HFDB" text="بنین" />
+	<qualifier code="1HFDE" text="سیرا لئون" />
+	<qualifier code="1HFDF" text="بورکینافاسو" />
+	<qualifier code="1HFDG" text="گامبیا" />
+	<qualifier code="1HFDH" text="غنا" />
+	<qualifier code="1HFDL" text="لیبریا" />
+	<qualifier code="1HFDM" text="مالزی" />
+	<qualifier code="1HFDN" text="نیجریه" />
+	<qualifier code="1HFDR" text="نیجر" />
+	<qualifier code="1HFDS" text="سنگال" />
+	<qualifier code="1HFDT" text="رفتن" />
+	<qualifier code="1HFDU" text="گینه" />
+	<qualifier code="1HFDV" text="کیپ ورد" />
+	<qualifier code="1HFDX" text="گینه بیسائو" />
+	<qualifier code="1HFDY" text="ساحل عاج" />
+	<qualifier code="1HFG" text="آفریقای شرقی" />
+	<qualifier code="1HFGA" text="اتیوپی" />
+	<qualifier code="1HFGD" text="جیبوتی" />
+	<qualifier code="1HFGE" text="اریتره" />
+	<qualifier code="1HFGK" text="کنیا" />
+	<qualifier code="1HFGQ" text="بوروندی" />
+	<qualifier code="1HFGR" text="رواندا" />
+	<qualifier code="1HFGS" text="سومالی" />
+	<qualifier code="1HFGSR" text="جمهوری سومالیالند" />
+	<qualifier code="1HFGT" text="تانزانیا" />
+	<qualifier code="1HFGU" text="اوگاندا" />
+	<qualifier code="1HFJ" text="آفریقای مرکزی" />
+	<qualifier code="1HFJA" text="کامرون" />
+	<qualifier code="1HFJC" text="کنگو" />
+	<qualifier code="1HFJG" text="گابن" />
+	<qualifier code="1HFJQ" text="گینه استوایی" />
+	<qualifier code="1HFJR" text="جمهوری آفریقای مرکزی" />
+	<qualifier code="1HFJS" text="سائوتومه و پرنسیپه" />
+	<qualifier code="1HFJZ" text="جمهوری دموکراتیک کنگو (زئیر)" />
+	<qualifier code="1HFM" text="آفریقای جنوبی" />
+	<qualifier code="1HFMA" text="آنگولا" />
+	<qualifier code="1HFMB" text="بوتسوانا" />
+	<qualifier code="1HFMK" text="سوازیلند" />
+	<qualifier code="1HFML" text="لسوتو" />
+	<qualifier code="1HFMM" text="مالاوی" />
+	<qualifier code="1HFMN" text="نامیبیا" />
+	<qualifier code="1HFMQ" text="موزامبیک" />
+	<qualifier code="1HFMQZ" text="رودخانه زامبزی" />
+	<qualifier code="1HFMS" text="آفریقای جنوبی" />
+	<qualifier code="1HFMW" text="زیمبابوه" />
+	<qualifier code="1HFMZ" text="زامبیا" />
+	<qualifier code="1HS" text="جزایر اقیانوس هند جنوبی" />
+	<qualifier code="1HSC" text="کومور" />
+	<qualifier code="1HSM" text="ماداگاسکار" />
+	<qualifier code="1HSU" text="موریس" />
+	<qualifier code="1HSV" text="مالدیو" />
+	<qualifier code="1HSY" text="سیشل" />
+	<qualifier code="1K" text="آمریکایی ها" />
+	<qualifier code="1KB" text="آمریکای شمالی" />
+	<qualifier code="1KBB" text="ایالات متحده آمریکا" />
+	<qualifier code="1KBBE" text="شمال شرقی و شمالی اقیانوس اطلس" />
+	<qualifier code="1KBBEC" text="کانتیکت" />
+	<qualifier code="1KBBEH" text="نیوهمپشایر" />
+	<qualifier code="1KBBEJ" text="نیوجرسی" />
+	<qualifier code="1KBBEN" text="مین" />
+	<qualifier code="1KBBEP" text="پنسیلوانیا" />
+	<qualifier code="1KBBER" text="رود آیلند" />
+	<qualifier code="1KBBES" text="ماساچوست" />
+	<qualifier code="1KBBEV" text="ورمونت" />
+	<qualifier code="1KBBEY" text="نیویورک" />
+	<qualifier code="1KBBF" text="کشورهای جنوب شرقی و جنوب آتلانتیک" />
+	<qualifier code="1KBBFC" text="ناحیه کلمبیا (واشنگتن دی سی)" />
+	<qualifier code="1KBBFD" text="دلاور" />
+	<qualifier code="1KBBFG" text="جورجیا" />
+	<qualifier code="1KBBFL" text="فلوریدا" />
+	<qualifier code="1KBBFM" text="مریلند" />
+	<qualifier code="1KBBFN" text="کارولینای شمالی" />
+	<qualifier code="1KBBFS" text="کارولینای جنوبی" />
+	<qualifier code="1KBBFV" text="ویرجینیا" />
+	<qualifier code="1KBBFW" text="ویرجینیای غربی" />
+	<qualifier code="1KBBN" text="کشورهای مرکزی مرکزی و میانه غرب" />
+	<qualifier code="1KBBNC" text="ایلینوی" />
+	<qualifier code="1KBBND" text="ایندیانا" />
+	<qualifier code="1KBBNF" text="آیوا" />
+	<qualifier code="1KBBNG" text="میشیگان" />
+	<qualifier code="1KBBNH" text="اوهایو" />
+	<qualifier code="1KBBNK" text="کانزاس" />
+	<qualifier code="1KBBNN" text="نبراسکا" />
+	<qualifier code="1KBBNR" text="داکوتای شمالی" />
+	<qualifier code="1KBBNS" text="داکوتای جنوبی" />
+	<qualifier code="1KBBNT" text="مینه سوتا" />
+	<qualifier code="1KBBNU" text="میسوری" />
+	<qualifier code="1KBBNW" text="ویسکانسین" />
+	<qualifier code="1KBBS" text="ایالات جنوبی مرکزی" />
+	<qualifier code="1KBBSB" text="آلاباما" />
+	<qualifier code="1KBBSH" text="اوکلاهما" />
+	<qualifier code="1KBBSK" text="کنتاکی" />
+	<qualifier code="1KBBSL" text="لوئیزیانا" />
+	<qualifier code="1KBBSM" text="می سی سی پی" />
+	<qualifier code="1KBBSN" text="تنسی" />
+	<qualifier code="1KBBSR" text="آرکانزاس" />
+	<qualifier code="1KBBSX" text="تگزاس" />
+	<qualifier code="1KBBW" text="کشورهای ساحلی غرب و اقیانوس آرام" />
+	<qualifier code="1KBBWC" text="کلرادو" />
+	<qualifier code="1KBBWD" text="آیداهو" />
+	<qualifier code="1KBBWF" text="کالیفرنیا" />
+	<qualifier code="1KBBWK" text="آلاسکا" />
+	<qualifier code="1KBBWM" text="مونتانا" />
+	<qualifier code="1KBBWN" text="نوادا" />
+	<qualifier code="1KBBWR" text="اورگان" />
+	<qualifier code="1KBBWS" text="ایالت واشنگتن" />
+	<qualifier code="1KBBWU" text="یوتا" />
+	<qualifier code="1KBBWX" text="نیومکزیکو" />
+	<qualifier code="1KBBWY" text="وایومینگ" />
+	<qualifier code="1KBBWZ" text="آریزونا" />
+	<qualifier code="1KBC" text="کانادا" />
+	<qualifier code="1KBCB" text="بریتیش کلمبیا" />
+	<qualifier code="1KBCF" text="نیوفاندلند" />
+	<qualifier code="1KBCL" text="آلبرتا" />
+	<qualifier code="1KBCM" text="مانیتوبا" />
+	<qualifier code="1KBCN" text="نوناووت" />
+	<qualifier code="1KBCO" text="انتاریو" />
+	<qualifier code="1KBCP" text="جزیره پرنس ادوارد" />
+	<qualifier code="1KBCQ" text="کبک" />
+	<qualifier code="1KBCR" text="نیوبرانزویک" />
+	<qualifier code="1KBCS" text="ساسکاچوان" />
+	<qualifier code="1KBCV" text="نوا اسکوشیا" />
+	<qualifier code="1KBCW" text="سرزمینهای شمال غربی" />
+	<qualifier code="1KBCY" text="قلمرو یوکان" />
+	<qualifier code="1KBG" text="دریاچه های بزرگ" />
+	<qualifier code="1KJ" text="جزایر کارائیب" />
+	<qualifier code="1KJC" text="کوبا" />
+	<qualifier code="1KJD" text="جمهوری دومینیکن" />
+	<qualifier code="1KJH" text="هائیتی" />
+	<qualifier code="1KJM" text="جزایر کیمن" />
+	<qualifier code="1KJP" text="پورتوریکو" />
+	<qualifier code="1KJW" text="هند غربی" />
+	<qualifier code="1KJWB" text="باهاما" />
+	<qualifier code="1KJWJ" text="جامائیکا" />
+	<qualifier code="1KJWT" text="جزایر ترکس و کایکوس" />
+	<qualifier code="1KJWV" text="جزایر کمبریج" />
+	<qualifier code="1KJWVA" text="آنگویلا" />
+	<qualifier code="1KJWVB" text="آنتیگوا و باربودا" />
+	<qualifier code="1KJWVG" text="گوادلوپ" />
+	<qualifier code="1KJWVK" text="سنت کیتس-نویس" />
+	<qualifier code="1KJWVM" text="مونتسرات" />
+	<qualifier code="1KJWVV" text="جزایر ویرجین" />
+	<qualifier code="1KJWVVK" text="جزایر ویرجین (بریتانیا)" />
+	<qualifier code="1KJWVVS" text="جزایر ویرجین (ایالات متحده آمریکا)" />
+	<qualifier code="1KJWW" text="جزایر پایدار" />
+	<qualifier code="1KJWWB" text="باربادوس" />
+	<qualifier code="1KJWWD" text="دومینیکا" />
+	<qualifier code="1KJWWG" text="گرانادا" />
+	<qualifier code="1KJWWL" text="سنت لوسیا" />
+	<qualifier code="1KJWWM" text="مارتینیک" />
+	<qualifier code="1KJWWT" text="ترینیداد و توباگو" />
+	<qualifier code="1KJWWV" text="سنت وینسنت" />
+	<qualifier code="1KJX" text="آنتیل های کوچک" />
+	<qualifier code="1KJXA" text="آروبا" />
+	<qualifier code="1KJXN" text="آنتیل هلند" />
+	<qualifier code="1KL" text="آمریکای لاتین" />
+	<qualifier code="1KLC" text="آمریکای مرکزی" />
+	<qualifier code="1KLCB" text="بلیز" />
+	<qualifier code="1KLCG" text="گواتمالا" />
+	<qualifier code="1KLCH" text="هندوراس" />
+	<qualifier code="1KLCM" text="مکزیک" />
+	<qualifier code="1KLCN" text="نیکاراگوئه" />
+	<qualifier code="1KLCP" text="پاناما" />
+	<qualifier code="1KLCPC" text="کانال پاناما" />
+	<qualifier code="1KLCR" text="کاستاریکا" />
+	<qualifier code="1KLCS" text="السالوادور" />
+	<qualifier code="1KLS" text="آمریکای جنوبی" />
+	<qualifier code="1KLSA" text="آرژانتین" />
+	<qualifier code="1KLSB" text="برزیل" />
+	<qualifier code="1KLSBZ" text="رودخانه آمازون" />
+	<qualifier code="1KLSC" text="کلمبیا" />
+	<qualifier code="1KLSE" text="اکوادور" />
+	<qualifier code="1KLSEG" text="جزایر گالاپاگوس" />
+	<qualifier code="1KLSF" text="گویان فرانسه" />
+	<qualifier code="1KLSG" text="گایانا" />
+	<qualifier code="1KLSH" text="شیلی" />
+	<qualifier code="1KLSL" text="بولیوی" />
+	<qualifier code="1KLSP" text="پاراگوئه" />
+	<qualifier code="1KLSR" text="پرو" />
+	<qualifier code="1KLSS" text="سورینام (سورینام)" />
+	<qualifier code="1KLSU" text="اروگوئه" />
+	<qualifier code="1KLSV" text="ونزوئلا" />
+	<qualifier code="1KLSX" text="آندز" />
+	<qualifier code="1M" text="استرالیا، اقیانوسیه و دیگر مناطق زمین" />
+	<qualifier code="1MB" text="استرالیا" />
+	<qualifier code="1MBF" text="استرالیا" />
+	<qualifier code="1MBFC" text="قلمرو سرمایه ای استرالیا (ACT)" />
+	<qualifier code="1MBFN" text="نیو ساوت ولز" />
+	<qualifier code="1MBFQ" text="کوئینزلند" />
+	<qualifier code="1MBFS" text="استرالیای جنوبی" />
+	<qualifier code="1MBFT" text="تاسمانی" />
+	<qualifier code="1MBFV" text="ویکتوریا" />
+	<qualifier code="1MBFW" text="استرالیای غربی" />
+	<qualifier code="1MBFX" text="قلمرو شمالی" />
+	<qualifier code="1MBN" text="نیوزیلند" />
+	<qualifier code="1MK" text="اقیانوسیه" />
+	<qualifier code="1MKC" text="میکرونزی" />
+	<qualifier code="1MKCB" text="بلون (پالائو)" />
+	<qualifier code="1MKCC" text="جزایر کارولین" />
+	<qualifier code="1MKCF" text="ایالت فدرال میکرونزی" />
+	<qualifier code="1MKCG" text="جزایر گیلبرت" />
+	<qualifier code="1MKCM" text="جزایر مارشال" />
+	<qualifier code="1MKCN" text="نائورو" />
+	<qualifier code="1MKCU" text="گوام" />
+	<qualifier code="1MKCV" text="ماریانای شمالی" />
+	<qualifier code="1MKL" text="ملانسی" />
+	<qualifier code="1MKLF" text="فیجی" />
+	<qualifier code="1MKLN" text="کالدونیای جدید" />
+	<qualifier code="1MKLP" text="پاپوآ گینه نو" />
+	<qualifier code="1MKLS" text="جزایر سلیمان" />
+	<qualifier code="1MKLV" text="وانواتو" />
+	<qualifier code="1MKP" text="پلینزی" />
+	<qualifier code="1MKPC" text="جزایر کوک" />
+	<qualifier code="1MKPCR" text="راراتنگا" />
+	<qualifier code="1MKPE" text="جزیره ایستر" />
+	<qualifier code="1MKPF" text="پلینزی فرانسه" />
+	<qualifier code="1MKPFT" text="تاهیتی" />
+	<qualifier code="1MKPH" text="هاوایی" />
+	<qualifier code="1MKPK" text="کیریباتی" />
+	<qualifier code="1MKPN" text="نیو" />
+	<qualifier code="1MKPP" text="جزیره پیتکارین" />
+	<qualifier code="1MKPR" text="ساموآ" />
+	<qualifier code="1MKPRA" text="ساموای آمریکایی" />
+	<qualifier code="1MKPRW" text="غربی ساموآ" />
+	<qualifier code="1MKPT" text="تونگا" />
+	<qualifier code="1MKPV" text="توووالو" />
+	<qualifier code="1MKPW" text="والیس و فوتونا" />
+	<qualifier code="1MT" text="مناطق دیگر زمین" />
+	<qualifier code="1MTA" text="جزایر اقیانوس اطلس" />
+	<qualifier code="1MTAN" text="جزایر اقیانوس اطلس شمالی" />
+	<qualifier code="1MTANB" text="برمودا" />
+	<qualifier code="1MTANC" text="جزایر قناری" />
+	<qualifier code="1MTANM" text="مادیرا" />
+	<qualifier code="1MTANZ" text="آزور" />
+	<qualifier code="1MTAS" text="جزایر اقیانوس اطلس جنوبی" />
+	<qualifier code="1MTASC" text="جزیره معبد" />
+	<qualifier code="1MTASF" text="فالکلند" />
+	<qualifier code="1MTASG" text="جنوب گرجستان" />
+	<qualifier code="1MTASH" text="سنت هلنا" />
+	<qualifier code="1MTAST" text="تریستان دا کونا" />
+	<qualifier code="1MTN" text="مناطق قطب شمال" />
+	<qualifier code="1MTNG" text="گرینلند" />
+	<qualifier code="1MTS" text="قطب جنوب" />
+	<qualifier code="1Q" text="سایر گروه های جغرافیایی، اقیانوس ها و دریاها" />
+	<qualifier code="1QD" text="امپراتوری ها و دولت های تاریخی" />
+	<qualifier code="1QDA" text="جهان باستان" />
+	<qualifier code="1QDAA" text="آشور" />
+	<qualifier code="1QDAB" text="بابل" />
+	<qualifier code="1QDAE" text="مصر باستان" />
+	<qualifier code="1QDAG" text="یونان باستان" />
+	<qualifier code="1QDAK" text="آمریکا قبل از کلمبیا" />
+	<qualifier code="1QDAL" text="اسرائیل باستان / کتاب مقدس" />
+	<qualifier code="1QDAM" text="بین النهرین" />
+	<qualifier code="1QDAP" text="امپراطوری فارسی" />
+	<qualifier code="1QDAR" text="رم باستان" />
+	<qualifier code="1QDAS" text="سومریا" />
+	<qualifier code="1QDAZ" text="امپراطوری بیزانس" />
+	<qualifier code="1QDB" text="امپراطوری بریتانیا" />
+	<qualifier code="1QDH" text="امپراطوری روم مقدس" />
+	<qualifier code="1QDM" text="امپراطوری مغول" />
+	<qualifier code="1QDT" text="امپراطوری عثمانی" />
+	<qualifier code="1QDU" text="امپراتوری اتریش-مجارستان" />
+	<qualifier code="1QF" text="گروه های سیاسی، اجتماعی و اقتصادی و استراتژیک" />
+	<qualifier code="1QFC" text="مشترک المنافع" />
+	<qualifier code="1QFE" text="اتحادیه اروپا (اتحادیه اروپا)" />
+	<qualifier code="1QFG" text="کشورهای در حال توسعه" />
+	<qualifier code="1QFH" text="کشورهای صنعتی / توسعه یافته" />
+	<qualifier code="1QFM" text="کشورهای اسلامی" />
+	<qualifier code="1QFN" text="ناتو" />
+	<qualifier code="1QFP" text="اوپک" />
+	<qualifier code="1QFS" text="آسه آن" />
+	<qualifier code="1QFW" text="پیمان ورشو، بلوک شرق" />
+	<qualifier code="1QM" text="مناطق آب و هوایی" />
+	<qualifier code="1QMP" text="مناطق قطبی" />
+	<qualifier code="1QMT" text="گرمسیری" />
+	<qualifier code="1QR" text="گروه بندی های مرتبط با دریاها" />
+	<qualifier code="1QRM" text="کشورهای مدیترانه ای" />
+	<qualifier code="1QRP" text="کشورهای حاشیه اقیانوس آرام" />
+	<qualifier code="1QS" text="اقیانوس ها و دریاها" />
+	<qualifier code="1QSA" text="اقیانوس اطلس" />
+	<qualifier code="1QSAN" text="آتلانتیک شمالی" />
+	<qualifier code="1QSAS" text="اقیانوس اطلس" />
+	<qualifier code="1QSB" text="دریای بالتیک" />
+	<qualifier code="1QSC" text="دریای کارائیب" />
+	<qualifier code="1QSD" text="خلیج مکزیک" />
+	<qualifier code="1QSE" text="دریای ایرلندی" />
+	<qualifier code="1QSF" text="دریای شمال" />
+	<qualifier code="1QSG" text="کانال انگلیسی" />
+	<qualifier code="1QSH" text="دریای آدریاتیک" />
+	<qualifier code="1QSJ" text="دریای خزر" />
+	<qualifier code="1QSK" text="دریای سیاه" />
+	<qualifier code="1QSL" text="دریای سرخ" />
+	<qualifier code="1QSM" text="دریای مدیترانه" />
+	<qualifier code="1QSN" text="اقیانوس هند" />
+	<qualifier code="1QSP" text="اقیانوس آرام" />
+	<qualifier code="1QSPN" text="اقیانوس آرام شمالی" />
+	<qualifier code="1QSPS" text="اقیانوس آرام جنوبی" />
+	<qualifier code="1QSR" text="اقیانوس قطب شمال" />
+	<qualifier code="1QSS" text="اقیانوس جنوبی" />
+	<qualifier code="1QST" text="دریای تاسمان" />
+	<qualifier code="2A" text="زبانهای هندو اروپایی" />
+	<qualifier code="2AB" text="انگلیسی" />
+	<qualifier code="2ABA" text="آنگلوساکسون" />
+	<qualifier code="2ABC" text="انگلیسی متوسط" />
+	<qualifier code="2ABM" text="انگلیسی آمریکایی" />
+	<qualifier code="2ABU" text="انگلیسی استرالیا" />
+	<qualifier code="2AC" text="زبانهای آلمانی و اسکاندیناوی" />
+	<qualifier code="2ACC" text="اسکاتلندی ها (لالانز، داری)" />
+	<qualifier code="2ACCU" text="اولستر اسکاتلند (اولنس)" />
+	<qualifier code="2ACD" text="هلندی" />
+	<qualifier code="2ACF" text="فلامیش" />
+	<qualifier code="2ACG" text="آلمانی" />
+	<qualifier code="2ACK" text="آفریکانس" />
+	<qualifier code="2ACS" text="زبان اسکاندیناوی" />
+	<qualifier code="2ACSC" text="ایسلندی" />
+	<qualifier code="2ACSD" text="دانمارکی" />
+	<qualifier code="2ACSF" text="فاروئی" />
+	<qualifier code="2ACSJ" text="یهودیان" />
+	<qualifier code="2ACSN" text="نروژی" />
+	<qualifier code="2ACSW" text="سوئدی" />
+	<qualifier code="2ACSX" text="قدیمی نروژ" />
+	<qualifier code="2ACY" text="ییدیش" />
+	<qualifier code="2ACZ" text="سایر زبانهای گوتیک و گویش" />
+	<qualifier code="2AD" text="رمانتیک، زبان ایتالیایی و راتو-رومانیایی" />
+	<qualifier code="2ADC" text="کاتالان" />
+	<qualifier code="2ADF" text="فرانسوی" />
+	<qualifier code="2ADFP" text="پروانکتال" />
+	<qualifier code="2ADH" text="کورسی" />
+	<qualifier code="2ADL" text="لاتین" />
+	<qualifier code="2ADP" text="پرتغالی" />
+	<qualifier code="2ADPB" text="پرتغالی برزیل" />
+	<qualifier code="2ADQ" text="گالیسی (گالگو، گرجی)" />
+	<qualifier code="2ADR" text="رومانیایی" />
+	<qualifier code="2ADS" text="اسپانیایی" />
+	<qualifier code="2ADSL" text="لاتین- آمریکایی اسپانیایی" />
+	<qualifier code="2ADT" text="ایتالیایی" />
+	<qualifier code="2ADV" text="ساردینیا" />
+	<qualifier code="2AF" text="زبان سلتیک" />
+	<qualifier code="2AFB" text="برتون" />
+	<qualifier code="2AFC" text="کورنیش" />
+	<qualifier code="2AFG" text="گالیم" />
+	<qualifier code="2AFM" text="مانکس" />
+	<qualifier code="2AFR" text="گالیک ایرلندی" />
+	<qualifier code="2AFS" text="گالیک اسکاتلندی" />
+	<qualifier code="2AFW" text="ویلز" />
+	<qualifier code="2AG" text="زبان اسلاوی (اسلاوی)" />
+	<qualifier code="2AGB" text="بلغاری" />
+	<qualifier code="2AGC" text="کلیسای اسلاوی" />
+	<qualifier code="2AGK" text="اسلواکی" />
+	<qualifier code="2AGL" text="بلاروس (بلاروس)" />
+	<qualifier code="2AGM" text="مقدونی" />
+	<qualifier code="2AGP" text="لهستانی" />
+	<qualifier code="2AGR" text="روسی" />
+	<qualifier code="2AGS" text="سروو کرواتی" />
+	<qualifier code="2AGSC" text="کرواتی" />
+	<qualifier code="2AGSS" text="صربستان" />
+	<qualifier code="2AGU" text="اوکراین" />
+	<qualifier code="2AGV" text="اسلوونیایی" />
+	<qualifier code="2AGW" text="وندیش (لوسیتانی، صربی)" />
+	<qualifier code="2AGZ" text="کشور چک" />
+	<qualifier code="2AH" text="زبانهای یونانی" />
+	<qualifier code="2AHA" text="یونانی باستان (کلاسیک)" />
+	<qualifier code="2AHB" text="یونانی کتاب مقدس" />
+	<qualifier code="2AHM" text="یونانی مدرن" />
+	<qualifier code="2AJ" text="بالتیک و دیگر زبانهای هندو اروپایی" />
+	<qualifier code="2AJB" text="زبان های بالتیک" />
+	<qualifier code="2AJBL" text="لیتوانیایی" />
+	<qualifier code="2AJBV" text="لاتین " />
+	<qualifier code="2AJK" text="دیگر زبانهای هندو اروپایی" />
+	<qualifier code="2AJKL" text="آلبانیایی" />
+	<qualifier code="2AJKR" text="ارمنی" />
+	<qualifier code="2B" text=" زبان های هندی-آریای، هندی-اروپایی و زبان‌های دراویدی" />
+	<qualifier code="2BB" text="زبانهای پیشین هندو" />
+	<qualifier code="2BBA" text="سانسکریت" />
+	<qualifier code="2BBP" text="پالی" />
+	<qualifier code="2BM" text="زبان های مدرن هندوآریایی" />
+	<qualifier code="2BMB" text="بنگالی" />
+	<qualifier code="2BMD" text="مراتی" />
+	<qualifier code="2BMG" text="گجراتی" />
+	<qualifier code="2BMH" text="هندی" />
+	<qualifier code="2BMJ" text="راجستانی" />
+	<qualifier code="2BMK" text="کشمیری" />
+	<qualifier code="2BMN" text="نپالی" />
+	<qualifier code="2BMP" text="پنجابی" />
+	<qualifier code="2BMR" text="رومی" />
+	<qualifier code="2BMS" text="زبان سینهالی" />
+	<qualifier code="2BMSM" text="مالدیو" />
+	<qualifier code="2BMU" text="اردو" />
+	<qualifier code="2BR" text="زبانهای دراویدی" />
+	<qualifier code="2BRB" text="براهوی" />
+	<qualifier code="2BRK" text="کانادا (کانارس)" />
+	<qualifier code="2BRL" text="زبان تلوگو" />
+	<qualifier code="2BRM" text="مالایالام" />
+	<qualifier code="2BRT" text="تامیل" />
+	<qualifier code="2BX" text="زبانهای هند و ایران" />
+	<qualifier code="2BXF" text="فارسی (فارسی)" />
+	<qualifier code="2BXK" text="کردی" />
+	<qualifier code="2BXL" text="پشتو (پوشتو، افغانستان)" />
+	<qualifier code="2BXZ" text="زند آستان" />
+	<qualifier code="2C" text="زبانهای آفریقایی آسیایی" />
+	<qualifier code="2CS" text="زبانهای سامی" />
+	<qualifier code="2CSA" text="آرامی" />
+	<qualifier code="2CSB" text="زبانهای آشوری-بابلی (اککدی)" />
+	<qualifier code="2CSJ" text="عبری" />
+	<qualifier code="2CSM" text="مالتی" />
+	<qualifier code="2CSR" text="عربی" />
+	<qualifier code="2CSS" text="سیراک" />
+	<qualifier code="2CST" text="اتیوپی" />
+	<qualifier code="2CSTA" text="امهری" />
+	<qualifier code="2CSTT" text="تیگرینا" />
+	<qualifier code="2CX" text="زبان های غير سمی آفریقاي آسیائی" />
+	<qualifier code="2CXB" text="بربر " />
+	<qualifier code="2CXC" text="قبطی" />
+	<qualifier code="2CXG" text="مصری" />
+	<qualifier code="2CXH" text="هسا" />
+	<qualifier code="2CXS" text="سومالی" />
+	<qualifier code="2CXSR" text="اورومو" />
+	<qualifier code="2F" text="زبانهای اورال-آلتایی" />
+	<qualifier code="2FC" text="زبانهای فنلاندی" />
+	<qualifier code="2FCD" text="استونیایی" />
+	<qualifier code="2FCF" text="فنلاندی (سوئدی)" />
+	<qualifier code="2FCL" text="لاپیکس (سامی)" />
+	<qualifier code="2FCM" text="مجارستانی (مجاری)" />
+	<qualifier code="2FM" text="زبان ترکی" />
+	<qualifier code="2FMC" text="ترکی" />
+	<qualifier code="2FMH" text="قرقیزستان" />
+	<qualifier code="2FMK" text="قزاقستان" />
+	<qualifier code="2FMN" text="ترکمن ها" />
+	<qualifier code="2FMU" text="ازبک" />
+	<qualifier code="2FMZ" text="آذربایجان" />
+	<qualifier code="2FV" text="مغولی" />
+	<qualifier code="2FW" text="زبانهای تنگگری" />
+	<qualifier code="2FWK" text="اونوکی" />
+	<qualifier code="2FWM" text="مانچو" />
+	<qualifier code="2FX" text="زبان‌های دیرین سیبری" />
+	<qualifier code="2G" text="زبان های شرقی و جنوب شرقی آسیا" />
+	<qualifier code="2GD" text="زبانهای چین و تبتی" />
+	<qualifier code="2GDB" text="برمه" />
+	<qualifier code="2GDC" text="چینی ها" />
+	<qualifier code="2GDCC" text="کانتونی" />
+	<qualifier code="2GDCK" text="هکین" />
+	<qualifier code="2GDCM" text="ماندارین" />
+	<qualifier code="2GDCW" text="وو" />
+	<qualifier code="2GDCY" text="باشه" />
+	<qualifier code="2GDK" text="کارن" />
+	<qualifier code="2GDT" text="تبتی" />
+	<qualifier code="2GJ" text="ژاپنی" />
+	<qualifier code="2GK" text="کره ای" />
+	<qualifier code="2GR" text="دیگر زبانهای آسیای جنوب شرقی، زبانهای اتریشی" />
+	<qualifier code="2GRH" text="کامبوج (خمر)" />
+	<qualifier code="2GRL" text="لائو" />
+	<qualifier code="2GRM" text="همونگ (مایائو)" />
+	<qualifier code="2GRS" text="تایلندی (سامی)" />
+	<qualifier code="2GRV" text="ویتنامی" />
+	<qualifier code="2H" text="زبانهای آفریقایی" />
+	<qualifier code="2HC" text="زبان نیجر و کنگو" />
+	<qualifier code="2HCB" text="زبان های بانت" />
+	<qualifier code="2HCBA" text="زبان‌های بانتو" />
+	<qualifier code="2HCBB" text="زبانهای بانت مرکزی" />
+	<qualifier code="2HCBBC" text="چچوا (چوا)" />
+	<qualifier code="2HCBBF" text="چیلمو (لوموند)" />
+	<qualifier code="2HCBBH" text="چینیانا (چینیانجا، بینجا)" />
+	<qualifier code="2HCBBJ" text="چیتونگا (تونگا)" />
+	<qualifier code="2HCBBL" text="زبان تومبوکا" />
+	<qualifier code="2HCBBN" text="زبان یاوو" />
+	<qualifier code="2HCBBP" text="اتیبمبا (بمبا)" />
+	<qualifier code="2HCBBQ" text="زبان کاوونده" />
+	<qualifier code="2HCBBR" text="کنگو" />
+	<qualifier code="2HCBBS" text="لندا" />
+	<qualifier code="2HCBBU" text="زبان لواله" />
+	<qualifier code="2HCBD" text="کیویائیلی (سواحیلی)" />
+	<qualifier code="2HCBH" text="زبان هررو" />
+	<qualifier code="2HCBK" text="کیکویو" />
+	<qualifier code="2HCBL" text="گروه " />
+	<qualifier code="2HCBLG" text="لوگندا (گاندا)" />
+	<qualifier code="2HCBLR" text="نیانکره" />
+	<qualifier code="2HCBM" text="فنگ (یونده-فنگ)" />
+	<qualifier code="2HCBN" text="دوالا" />
+	<qualifier code="2HCBP" text="گروه شیوندا و وندا" />
+	<qualifier code="2HCBQ" text="شونا" />
+	<qualifier code="2HCBS" text="گروه سوتو-سوآنا" />
+	<qualifier code="2HCBSA" text="سسوتو" />
+	<qualifier code="2HCBSB" text="سوتو شمالی" />
+	<qualifier code="2HCBSD" text="سوآنا" />
+	<qualifier code="2HCBSF" text="سیلوسی" />
+	<qualifier code="2HCBV" text="سئنگا" />
+	<qualifier code="2HCBW" text="سوازی" />
+	<qualifier code="2HCBX" text="خوسو" />
+	<qualifier code="2HCBY" text="اندنبل" />
+	<qualifier code="2HCBZ" text="زولو" />
+	<qualifier code="2HCW" text="زبانهای غرب آتلانتیک و ولتا کنگو" />
+	<qualifier code="2HCWF" text="فولانی (فوله)" />
+	<qualifier code="2HCWV" text="زبانهای ولتا کنگو" />
+	<qualifier code="2HCWVB" text="ایبو (ایگبو)" />
+	<qualifier code="2HCWVD" text="داگبنی (داگومبا)" />
+	<qualifier code="2HCWVE" text="جو" />
+	<qualifier code="2HCWVG" text="جا" />
+	<qualifier code="2HCWVN" text="فانته" />
+	<qualifier code="2HCWVS" text="آسانته" />
+	<qualifier code="2HCWVT" text="آکواپیم" />
+	<qualifier code="2HCWVY" text="یوروبا" />
+	<qualifier code="2HK" text="زبان خویسان" />
+	<qualifier code="2HN" text="زبانهای نیلوفران و چری نیل " />
+	<qualifier code="2HND" text="دینکا" />
+	<qualifier code="2HNM" text="ماسایی" />
+	<qualifier code="2HNR" text="نوبانی" />
+	<qualifier code="2HNT" text="تسو " />
+	<qualifier code="2HX" text="سایر زبانهای آفریقایی" />
+	<qualifier code="2J" text="زبان بومی آمریکا" />
+	<qualifier code="2JN" text="زبان بومی شمال و مرکزی آمریکا" />
+	<qualifier code="2JNA" text="آلوت" />
+	<qualifier code="2JNB" text="اینویت" />
+	<qualifier code="2JNC" text="زبانهای آلگونکیان" />
+	<qualifier code="2JND" text="زبانهای نه-دنه و آساپاکیان" />
+	<qualifier code="2JNG" text="زبان ایروکوئی و سوییان" />
+	<qualifier code="2JNM" text="مایان" />
+	<qualifier code="2JNN" text="زبانهای یوتا آزتکان" />
+	<qualifier code="2JNZ" text="زونی" />
+	<qualifier code="2JS" text="زبانهای بومی آمریکای جنوبی و کارائیب" />
+	<qualifier code="2JSC" text="کاربی (کارائیب)" />
+	<qualifier code="2JSG" text="گوارانی" />
+	<qualifier code="2JSQ" text="کوچهوان" />
+	<qualifier code="2P" text="زبان اقیانوسی و اتریشی" />
+	<qualifier code="2PB" text="زبانهای بومی استرالیا" />
+	<qualifier code="2PBA" text="آراندا (آرنتا)" />
+	<qualifier code="2PBG" text="مورنگین" />
+	<qualifier code="2PBJ" text="پیتجانجاتجارا" />
+	<qualifier code="2PBL" text="آلوارور" />
+	<qualifier code="2PBM" text="وارومونگو" />
+	<qualifier code="2PBP" text="پینتپی" />
+	<qualifier code="2PBR" text="آررنتا" />
+	<qualifier code="2PBT" text="پرتام" />
+	<qualifier code="2PBU" text="لوریتا" />
+	<qualifier code="2PBW" text="جنگجو" />
+	<qualifier code="2PBY" text="یانکونیتجاتجارا" />
+	<qualifier code="2PC" text="زبانهای پاپوآمیک" />
+	<qualifier code="2PCS" text="سوسوآمی" />
+	<qualifier code="2PG" text="زبان‌های مالایو-پلی‌نزیایی" />
+	<qualifier code="2PGB" text="فرموزان (تایوان)" />
+	<qualifier code="2PGG" text="ماداگاسکار" />
+	<qualifier code="2PGJ" text="تاگالوگ (فیلیپینی)" />
+	<qualifier code="2PGN" text="زبان اندونزیایی" />
+	<qualifier code="2PGNA" text="اندونزیایی (بهائی اندونزی)" />
+	<qualifier code="2PGNC" text="بالایی" />
+	<qualifier code="2PGND" text="جاوایی" />
+	<qualifier code="2PGNM" text="مالایی (بهااسا مالزی)" />
+	<qualifier code="2PGP" text="زبان اقیانوسی و پلینزی" />
+	<qualifier code="2PGPA" text="موری" />
+	<qualifier code="2PGPF" text="فیجیان" />
+	<qualifier code="2PGPG" text="تونگن" />
+	<qualifier code="2PGPH" text="تاهیتان" />
+	<qualifier code="2PGPR" text="راروتونگان" />
+	<qualifier code="2PGPS" text="ساموئل" />
+	<qualifier code="2PGPW" text="هاوایی" />
+	<qualifier code="2PGPX" text="دیگر زبانهای اقیانوسی" />
+	<qualifier code="2PGPXK" text="موکیلس" />
+	<qualifier code="2PGPXM" text="مارشال" />
+	<qualifier code="2PGPXN" text="پوناپین" />
+	<qualifier code="2PGPXP" text="پالاوان" />
+	<qualifier code="2PGPXT" text="توکلون" />
+	<qualifier code="2Z" text="زبان های دیگر" />
+	<qualifier code="2ZB" text="باسک" />
+	<qualifier code="2ZC" text="زبانهای قفقازی" />
+	<qualifier code="2ZCG" text="گرجستان" />
+	<qualifier code="2ZM" text="سومری" />
+	<qualifier code="2ZP" text="پدیگین ها و کریول ها" />
+	<qualifier code="2ZPT" text="توکس پیزین" />
+	<qualifier code="2ZX" text="زبان مصنوعی" />
+	<qualifier code="2ZXA" text="افریلی" />
+	<qualifier code="2ZXC" text="اوسیدنتال" />
+	<qualifier code="2ZXP" text="اسپرانتو" />
+	<qualifier code="2ZXT" text="اینترلیانگوا" />
+	<qualifier code="3B" text="تاریخ انقضا" />
+	<qualifier code="3D" text="پیش از میلاد تا 500 میلادی" />
+	<qualifier code="3F" text="500 تا 1000 میلادی" />
+	<qualifier code="3H" text="1000 تا 1500 میلادی" />
+	<qualifier code="3J" text="دوره مدرن، 1500 میلادی به بعد" />
+	<qualifier code="3JB" text="1500 تا 1600 میلادی" />
+	<qualifier code="3JD" text="1600 تا 1700 میلادی" />
+	<qualifier code="3JF" text="1700 تا 1800 میلادی" />
+	<qualifier code="3JH" text="1800 تا 1900 میلادی" />
+	<qualifier code="3JJ" text="قرن بیست و یکم" />
+	<qualifier code="3JJC" text="1900 تا 1914 میلادی" />
+	<qualifier code="3JJF" text=" 1914 تا 1918 (جنگ چهانی اول)" />
+	<qualifier code="3JJG" text=" 1918 تا 1939 (بین 2 جنگ جهانی)" />
+	<qualifier code="3JJH" text=" 1939 تا 1945 (جنگ جهانی دوم)" />
+	<qualifier code="3JJP" text=" 1945 تا  2000 (دوره پس از جنگ)" />
+	<qualifier code="3JJPG" text="1945 تا 1960 میلادی" />
+	<qualifier code="3JJPK" text="1960 تا 1970 میلادی" />
+	<qualifier code="3JJPL" text="1970 تا 1980 میلادی" />
+	<qualifier code="3JJPN" text="1980 تا 1990 میلادی" />
+	<qualifier code="3JJPR" text="1990 تا 2000 میلادی" />
+	<qualifier code="3JM" text="قرن 21 ام" />
+	<qualifier code="3JMC" text="2000 تا 2010 میلادی" />
+	<qualifier code="3JMG" text="2010 تا 2020 میلادی" />
+	<qualifier code="4E" text="امتحانات و گواهینامه های ELT" />
+	<qualifier code="4EA" text="تست های انگلیسی زبان آموزان جوان کمبریج" />
+	<qualifier code="4EAA" text="تست های انگلیسی زبان آموزان جوان کمبریج: آزمون سطح 1 " />
+	<qualifier code="4EAM" text="تست های انگلیسی زبان آموزان جوان کمبریج : آزمون سطح 2 " />
+	<qualifier code="4EAY" text="تست های انگلیسی زبان آموزان جوان کمبریج : آزمون سطح 3" />
+	<qualifier code="4EB" text="کمبریج سطح 1 کلید آزمون انگلیسی (KET)" />
+	<qualifier code="4EC" text="کمبریج سطح 2 آزمون اولیه انگلیسی (PET)" />
+	<qualifier code="4ED" text="مدارک ابتدایی کمبریج 3 در انگلیسی (FCE)" />
+	<qualifier code="4EF" text="کمبریج سطح 4 گواهینامه در پیشرفته انگلیسی (CAE)" />
+	<qualifier code="4EG" text="کمبریج سطح 5 گواهی مهارت در زبان انگلیسی (CPE)" />
+	<qualifier code="4EL" text="سیستم تست زبان انگلیسی بین المللی کمبریج (IELTS)" />
+	<qualifier code="4EN" text="آزمون انگلیسی به عنوان یک زبان خارجی (TOEFL)" />
+	<qualifier code="4EQ" text="گواهینامه مهارتهای ارتباطی به زبان انگلیسی (CCSE)" />
+	<qualifier code="4EX" text="آزمونهای ELT به زبان انگلیسی برای اهداف خاص" />
+	<qualifier code="4EXB" text="گواهی کسب و کار انگلیسی (BEC)" />
+	<qualifier code="4EXC" text="گواهی انگلیسی برای تجارت و تجارت بین المللی (CEIBT)" />
+	<qualifier code="4EXJ" text="گواهینامه بین المللی بازرگانی انگلیسی آکسفورد (OIBEC)" />
+	<qualifier code="4EXK" text="آزمون کمبریج به زبان انگلیسی برای معلمان زبان (CEELT)" />
+	<qualifier code="4EXM" text="تست انگلیسی برای ارتباطات بین المللی (TOEIC)" />
+	<qualifier code="4EZ" text="سایر آزمون های ELT" />
+	<qualifier code="4K" text="طراحی شده و مناسب برای برنامه های تحصیلی و امتحانات UK" />
+	<qualifier code="4KD" text="آزمونهای تحصیلی انگلستان" />
+	<qualifier code="4KDP" text="آزمون استانداردی آموزشی" />
+	<qualifier code="4KDQ" text="آزمون غیر استاندارد شده آموزشی" />
+	<qualifier code="4KH" text="طراحی / مناسب برای برنامه درسی ملی" />
+	<qualifier code="4KHA" text="برای برنامه درسی ملی سالهای اولیه" />
+	<qualifier code="4KHF" text="برای مرحله کلیدی برنامه درسی ملی 1" />
+	<qualifier code="4KHJ" text="برای مرحله کلیدی برنامه درسی ملی 2" />
+	<qualifier code="4KHN" text="برای مرحله کلیدی برنامه درسی ملی 3" />
+	<qualifier code="4KHT" text="برای برنامه درسی کلیدی مرحله 4 و GCSE" />
+	<qualifier code="4KL" text="طراحی شده مناسب برای سطح A و AS" />
+	<qualifier code="4KLR" text="A / AS سطح مطالعه و راهنمای بازنگری" />
+	<qualifier code="4KM" text="طراحی شده برای مهارت های کلیدی" />
+	<qualifier code="4KMC" text="طراحی شده برای مهارت های کلیدی: ارتباطات" />
+	<qualifier code="4KMN" text="طراحی شده برای مهارت های کلیدی: کاربرد شماره" />
+	<qualifier code="4KMT" text="طراحی شده برای مهارت های کلیدی: فناوری اطلاعات (IT)" />
+	<qualifier code="4KS" text="طراحی / مناسب برای امتحانات و نمرات اسکاتلند" />
+	<qualifier code="4KSC" text="برای P1-P3 (اسکاتلندی)" />
+	<qualifier code="4KSD" text="برای P4-P6 (اسکاتلندی)" />
+	<qualifier code="4KSF" text="برای P7-S2 (اسکاتلندی)" />
+	<qualifier code="4KSL" text="برای دسترسی 3 (اسکاتلندی)" />
+	<qualifier code="4KSM" text="برای متوسطه 2 (اسکاتلندی)" />
+	<qualifier code="4KSN" text="برای متوسطه 1 (اسکاتلندی)" />
+	<qualifier code="4KSS" text="برای درجه استاندارد (اسکاتلندی)" />
+	<qualifier code="4KST" text="برای درجه عالی (اسکاتلندی)" />
+	<qualifier code="4KSV" text="برای پیشرفته درجه عالی (اسکاتلندی)" />
+	<qualifier code="4KT" text="طراحی شده مناسب / مناسب برای سطح مقدماتی تحصیلات تکمیلی اسکاتلند (CfE)" />
+	<qualifier code="4KTB" text="برای سطح ابتدایی CfE (اسکاتلندی)" />
+	<qualifier code="4KTG" text="برای سطح اول CfE (اسکاتلندی)" />
+	<qualifier code="4KTJ" text="برای سطح دوم CfE (اسکاتلندی)" />
+	<qualifier code="4KTP" text="برای سطح سوم CfE (اسکاتلندی)" />
+	<qualifier code="4KTR" text="برای CfE چهارم (اسکاتلندی)" />
+	<qualifier code="4KV" text="طراحی / مناسب برای مدارک حرفه ای انگلستان" />
+	<qualifier code="4KVC" text="برای NVQ / SVQ (مدارک تحصیلی ملی / اسکاتلند)" />
+	<qualifier code="4KVCR" text="برای NVQ / SVQ 1" />
+	<qualifier code="4KVCS" text="برای NVQ / SVQ 2" />
+	<qualifier code="4KVCT" text="برای NVQ / SVQ 3" />
+	<qualifier code="4KVCU" text="برای NVQ / SVQ 4" />
+	<qualifier code="4KVN" text="برای GNVQ (عمومی حرفه ای حرفه ای)" />
+	<qualifier code="4KVNF" text="برای بنیاد GNVQ" />
+	<qualifier code="4KVNN" text="برای GNVQ متوسط" />
+	<qualifier code="4KVNV" text="برای GNVQ پیشرفته" />
+	<qualifier code="4KVS" text="برای GSVQ (عمومی صلاحیت حرفه ای اسکاتلند)" />
+	<qualifier code="4KVSF" text="برای بنیاد GSVQ" />
+	<qualifier code="4KVSN" text="برای QSVQ متوسط" />
+	<qualifier code="4KVSV" text="برای QSVQ پیشرفته" />
+	<qualifier code="4KVT" text="برای BTEC (شورای آموزش و پرورش کسب و کار و فناوری)" />
+	<qualifier code="4KVTA" text="BTEC مقدماتی - گواهینامه سطح 1" />
+	<qualifier code="4KVTB" text="دیپلم مقدماتی BTEC - مدارک سطح 1" />
+	<qualifier code="4KVTF" text=" گواهینامه اول BTEC- سطح 2 صلاحیت" />
+	<qualifier code="4KVTG" text="دیپلم اول BTEC - رتبه دوم" />
+	<qualifier code="4KVTJ" text="جایزه ملی BTEC - سطح 3 صلاحیت" />
+	<qualifier code="4KVTK" text="گواهی ملی BTEC - سطح 3 صلاحیت" />
+	<qualifier code="4KVTL" text="دیپلم ملی BTEC - مدارک سطح 3" />
+	<qualifier code="4KVTQ" text="دیپلم BTEC در هنر و طراحی" />
+	<qualifier code="4KVTX" text="BTEC بالاترین گواهی ملی" />
+	<qualifier code="4KVTY" text="دیپلم عالی BTEC" />
+	<qualifier code="4M" text="برنامه درسی بین المللی و امتحانات" />
+	<qualifier code="4MB" text="دیپلم بین المللی مدرک کارشناسی (IB)" />
+	<qualifier code="4MG" text="GCSE بین المللی (IGCSE)" />
+	<qualifier code="4P" text="طراحی / مناسب برای سایر برنامه های درسی (غیر انگلیس) و امتحانات" />
+	<qualifier code="4PC" text="طراحی / مناسب برای امتحانات ایرلندی و سطوح آموزشی" />
+	<qualifier code="4PCJ" text="برای مدرک گواهی (ایرلندی)" />
+	<qualifier code="4PCN" text="برای سال گذار (ایرلندی)" />
+	<qualifier code="4PCR" text="برای اخذ گواهی (ایرلندی)" />
+	<qualifier code="4PCV" text="برای گواهی پست بعد (ایرلندی)" />
+	<qualifier code="4PZ" text="طراحی و مناسب برای امتحانات و سطح تحصیلات آفریقای جنوبی" />
+	<qualifier code="4PZC" text="برای آموزش عمومی و آموزش (GET) (آفریقای جنوبی)" />
+	<qualifier code="4PZCB" text="پذیرش / درجه پیشرفت تحصیلی R یا درجه 0 (آفریقای جنوبی)" />
+	<qualifier code="4PZCD" text="فاز فاز درجه 1 (آفریقای جنوبی)" />
+	<qualifier code="4PZCF" text="فاز پایه درجه 2 (آفریقای جنوبی)" />
+	<qualifier code="4PZCH" text="فاز فاز درجه 3 (آفریقای جنوبی)" />
+	<qualifier code="4PZCJ" text="فاز متوسط ​​درجه 4 (آفریقای جنوبی)" />
+	<qualifier code="4PZCL" text="فاز فاز درجه 5 (آفریقای جنوبی)" />
+	<qualifier code="4PZCN" text="فاز فاز درجه 6 (آفریقای جنوبی)" />
+	<qualifier code="4PZCP" text="کلاس درجه یک درجه 7 (آفریقای جنوبی)" />
+	<qualifier code="4PZCR" text="کلاس فاز درجه 8 (آفریقای جنوبی)" />
+	<qualifier code="4PZCT" text="رتبه اول فاز 9 (آفریقای جنوبی)" />
+	<qualifier code="4PZF" text="برای آموزش و تربیت بیشتر (FET): نمرات تحصیلی (آفریقای جنوبی)" />
+	<qualifier code="4PZFG" text="FET درجه 10 (آفریقای جنوبی)" />
+	<qualifier code="4PZFK" text="FET درجه 11 (آفریقای جنوبی)" />
+	<qualifier code="4PZFM" text="FET Grade 12 (آفریقای جنوبی)" />
+	<qualifier code="4PZT" text="برای FET: فنی و حرفه ای نمرات (آفریقای جنوبی)" />
+	<qualifier code="4PZTQ" text="FET کلاس N1 (آفریقای جنوبی)" />
+	<qualifier code="4PZTS" text="FET Grade N2 (آفریقای جنوبی)" />
+	<qualifier code="4PZTV" text="FET کلاس N3 (آفریقای جنوبی)" />
+	<qualifier code="4W" text="طراحی شده برای یادگیری متمایز" />
+	<qualifier code="4Y" text="طراحی شده برای یادگیری خانه" />
+	<qualifier code="5A" text="سن / سطح علاقه" />
+	<qualifier code="5AB" text="برای کودکان 0-2 سالگی" />
+	<qualifier code="5AC" text="سن قانونی: از 3 سالگی" />
+	<qualifier code="5AD" text="سن قانونی: از 4 سالگی" />
+	<qualifier code="5AF" text="سن قانونی: از 5 سالگی" />
+	<qualifier code="5AG" text="سن قانونی: از 6 سالگی" />
+	<qualifier code="5AH" text="سن قانونی: از 7 سالگی" />
+	<qualifier code="5AJ" text="سن قانونی: از 8 سالگی" />
+	<qualifier code="5AK" text="سن قانونی: از 9 سالگی" />
+	<qualifier code="5AL" text="سن قانونی: از 10 سالگی" />
+	<qualifier code="5AM" text="سن قانونی: از 11 سالگی" />
+	<qualifier code="5AN" text="سن قانونی: از 12 سالگی" />
+	<qualifier code="5AP" text="سن قانونی: از 13 سالگی" />
+	<qualifier code="5AQ" text="سن قانونی: از 14 سالگی" />
+	<qualifier code="5AR" text="برای خوانندگان تمایلی (کودکان)" />
+	<qualifier code="5AX" text="برای خوانندگان اورژانس (بزرگسالان)" />
+	<qualifier code="5H" text="تعطیلات و علاقه فصلی" />
+	<qualifier code="5HC" text="کریسمس" />
+	<qualifier code="5HE" text="عید پاک" />
+	<qualifier code="5HF" text="روز پدر" />
+	<qualifier code="5HH" text="هالووین" />
+	<qualifier code="5HM" text="روز مادر" />
+	<qualifier code="5HV" text="روز ولنتاین" />
+	<qualifier code="5S" text="از علاقه جنسی گی و لزبین" />
+	<qualifier code="5SG" text="از علاقه جنسی گی" />
+	<qualifier code="5SL" text="از علاقه جنسی لزبین" />
+	<qualifier code="5X" text="شامل مواد صریح است" />
+</qualifiers>

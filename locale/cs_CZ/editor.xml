@@ -4,8 +4,8 @@
 <!--
   * locale/cs_CZ/editor.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2003-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -71,7 +71,7 @@
 	<message key="editor.review.reviewConfirmed">Recenze potvrzena</message>
 	<message key="editor.review.reviewSubmitted">Recenze odeslána</message>
 	<message key="editor.review.reviewerComments">Recenzentovy komentáře</message>
-	<message key="editor.review.days">Průměrný počet dnů</message>
+	<message key="editor.review.rateReviewer">Ohodnocení recenzenta</message>
 	<message key="editor.review.mustSelect">Je třeba vybrat recenzenta</message>
 	<message key="editor.review.errorAddingReviewer">Při vybírání recenzenta došlo k chybě. Zkuste to, prosím, znovu.</message>
 	<message key="editor.review.errorDeletingReviewer">Při odebírání recenzenta došlo k chybě. Zkuste to, prosím, znovu.</message>
@@ -103,7 +103,6 @@
 	<message key="editor.submission.createNewRound">Vytvořit nové kolo recenzí</message>
 	<message key="editor.article.reviewForms">Recenzní formuláře</message>
 	<message key="editor.article.selectReviewForm">Vybrat recenzní formulář</message>
-	<message key="editor.article.clearReviewForm">Vymazat recenzní formulář</message>
 	<message key="editor.article.confirmChangeReviewForm">Upozornění: Změna recenzního formuláře  ovlivní všechny odpovědi, které recenzenti provedli pomocí tohoto formuláře. Opravdu chcete pokračovat?</message>
 	<message key="editor.submission.noReviewerFilesSelected">Nebyly vybrány žádné soubory</message>
 	<message key="editor.submission.noReviewerFilesSelected.details">Nevybrali jste žádné soubory pro recenzenta k recenzi.</message>

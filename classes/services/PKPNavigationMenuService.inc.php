@@ -3,8 +3,8 @@
 /**
  * @file classes/services/PKPNavigationMenuService.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPNavigationMenuService
@@ -88,6 +88,10 @@ class PKPNavigationMenuService {
 				'description' => __('manager.navigationMenus.contact.description'),
 				'conditionalWarning' => __('manager.navigationMenus.contact.conditionalWarning'),
 			),
+			NMI_TYPE_SEARCH => array(
+				'title' => __('common.search'),
+				'description' => __('manager.navigationMenus.search.description'),
+			),
 		);
 
 		\HookRegistry::call('NavigationMenus::itemTypes', array(&$types));
@@ -139,6 +143,9 @@ class PKPNavigationMenuService {
 				break;
 			case NMI_TYPE_ADMINISTRATION:
 				$navigationMenuItem->setIsDisplayed($isUserLoggedIn && ($currentUser->hasRole(array(ROLE_ID_SITE_ADMIN), $contextId) || $currentUser->hasRole(array(ROLE_ID_SITE_ADMIN), CONTEXT_SITE)));
+				break;
+			case NMI_TYPE_SEARCH:
+				$navigationMenuItem->setIsDisplayed($context);
 				break;
 		}
 
@@ -300,11 +307,19 @@ class PKPNavigationMenuService {
 							$request,
 							ROUTE_PAGE,
 							null,
-							'navigationMenu',
-							'view',
 							$navigationMenuItem->getPath()
 						));
 					}
+					break;
+				case NMI_TYPE_SEARCH:
+					$navigationMenuItem->setUrl($dispatcher->url(
+						$request,
+						ROUTE_PAGE,
+						null,
+						'search',
+						'search',
+						null
+					));
 					break;
 			}
 		}
@@ -367,7 +382,6 @@ class PKPNavigationMenuService {
 	 * Get a tree of NavigationMenuItems assigned to this menu
 	 * @param $navigationMenu \NavigationMenu
 	 *
-	 * @return array Hierarchical array of menu items
 	 */
 	public function getMenuTree(&$navigationMenu) {
 		$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
@@ -389,7 +403,7 @@ class PKPNavigationMenuService {
 				foreach($assignment->children as $childAssignment) {
 					$childNmi = $childAssignment->getMenuItem();
 					$this->getDisplayStatus($childNmi, $navigationMenu);
-	
+
 					if ($childNmi->getIsDisplayed()) {
 						$nmi->setIsChildVisible(true);
 					}
@@ -499,7 +513,7 @@ class PKPNavigationMenuService {
 	 */
 	private function _hasNMTreeNMIAssignmentWithChildOfNMIType($navigationMenu, $navigationMenuItem, $nmiType, $isDisplayed = true) {
 		foreach($navigationMenu->menuTree as $nmiAssignment) {
-			$nmi = $nmiAssignment->getMenuItem();
+				$nmi = $nmiAssignment->getMenuItem();
 			if(isset($nmi) && $nmi->getId() == $navigationMenuItem->getId()) {
 				foreach($nmiAssignment->children as $childNmiAssignment){
 					$childNmi = $childNmiAssignment->getMenuItem();
@@ -512,6 +526,50 @@ class PKPNavigationMenuService {
 					}
 				}
 			}
+		}
+
+		return false;
+	}
+
+	/**
+	 * Callback to be registered from PKPTemplateManager for the LoadHandler hook.
+	 * Used by the Custom NMI to point their URL target to [context]/[path] 
+	 * @param mixed $hookName
+	 * @param mixed $args
+	 * @return boolean true if the callback has handled the request. 
+	 */
+	public function _callbackHandleCustomNavigationMenuItems($hookName, $args) {
+		$request = \Application::getRequest();
+
+		$page =& $args[0];
+		$op =& $args[1];
+
+		// Construct a path to look for
+		$path = $page;
+		if ($op !== 'index') $path .= "/$op";
+		if ($arguments = $request->getRequestedArgs()) $path .= '/' . implode('/', $arguments);
+
+		// Look for a static page with the given path
+		$navigationMenuItemDao = \DAORegistry::getDAO('NavigationMenuItemDAO');
+
+		$context = $request->getContext();
+		$contextId = $context?$context->getId():CONTEXT_ID_NONE;
+		$customNMI = $navigationMenuItemDao->getByPath($contextId, $path);
+
+		// Check if a custom NMI with the requested path existes 
+		if ($customNMI) {
+			// Trick the handler into dealing with it normally
+			$page = 'pages';
+			$op = 'view';
+
+
+			// It is -- attach the custom NMI handler.
+			define('HANDLER_CLASS', 'NavigationMenuItemHandler');
+			import('lib.pkp.pages.navigationMenu.NavigationMenuItemHandler');
+
+			\NavigationMenuItemHandler::setPage($customNMI);
+
+			return true;
 		}
 
 		return false;

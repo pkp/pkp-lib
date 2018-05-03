@@ -4,13 +4,13 @@
 <!--
   * locale/fi_FI/manager.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
   -->
-  
+
 <locale name="fi_FI" full_name="Suomi">
 	<!-- Website settings -->
 	<message key="manager.website.information">Tietoja</message>
@@ -166,18 +166,8 @@
 	<message key="manager.reviewerSearch.change">Muuta</message>
 	<message key="manager.reviewerSearch.searchByName">Hae arvioijia nimen mukaan</message>
 	<message key="manager.reviewerSearch.searchByName.short">Hae nimen mukaan</message>
-	<message key="manager.reviewerSearch.doneAmount">Suoritettujen arviointien määrä: {$current}</message>
-	<message key="manager.reviewerSearch.doneAmountToggle">Ota käyttöön / Poista käytöstä suoritettujen arviointien suodatin.</message>
-	<message key="manager.reviewerSearch.avgAmount">Arvioinnin keskimääräinen kesto (pv): {$current}</message>
-	<message key="manager.reviewerSearch.avgAmountToggle">Ota käyttöön / Poista käytöstä arvioinnin keskimääräisen keston suodatin.</message>
-	<message key="manager.reviewerSearch.lastAmount">Aikaa viimeisimmästä arvioinnista (pv): {$current}</message>
-	<message key="manager.reviewerSearch.lastAmountToggle">Ota käyttöön / Poista käytöstä “aikaa viimeisimmästä arvioinnista” -suodatin.</message>
-	<message key="manager.reviewerSearch.activeAmount">Tällä hetkellä aktiivisten arviointien määrä: {$current}</message>
-	<message key="manager.reviewerSearch.activeAmountToggle">Ota käyttöön / Poista käytöstä tällä hetkellä aktiivisten arviointien suodatin.</message>
 	<message key="manager.reviewerSearch.interests">Kiinnostavat arviointiaiheet</message>
 	<message key="manager.reviewerSearch.form.instructions">Käytä alla olevaa lomaketta asettaaksesi maksimiarvot termeille, joita haluat hakea. Lomakkeeseen on esitäytetty kyseisten kenttien laskennalliset keskiarvot.</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">Arvioijaa kiinnostavat aiheet (kirjoita hakeaksesi arvioijia, joita kiinnostavat samat aiheet)</message>
-	<message key="manager.reviewerSearch.form.previousReviewRounds">Tämän käsikirjoituksen edellisten arviointikierrosten arvioijat</message>
 	<message key="manager.roles">Roolit</message>
 	<message key="manager.statistics"><![CDATA[Tilastot &amp; Raportit]]></message>
 	<message key="manager.statistics.defaultMetricDescription">
@@ -524,4 +514,19 @@
 	<message key="manager.navigationMenus.login.description">Linkki kirjautumissivulle.</message>
 	<message key="manager.navigationMenus.register.description">Linkki rekisteröitymissivulle.</message>
 	<message key="settings.roles.recommendOnly">Tällä roolilla voi tehdä vain toimituksellisia suosituksia. Suosituksen vahvistamiseen vaaditaan varsinainen toimittaja.</message>
+	<message key="manager.setup.searchEngineIndexing.sitemap">Sivustokartta</message>
+	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[Hakukoneille ilmoitettava XML-sivustokartta löytyy osoitteesta <a href="{$path}" target="_blank">{$path}</a>]]></message>
+	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>Jos "Julkinen saatavuus" on valittuna, tiedosto on ladattavissa osoitteesta: <blockquote>{$downloadUrl}</blockquote></p>]]></message>
+	<message key="settings.libraryFiles.public.selectLibraryFiles">Valitse liitettävät tiedostot</message>
+	<message key="manager.setup.genres.key">Avain</message>
+	<message key="manager.setup.genres.key.description">Vapaaehtoinen lyhyt tunniste genrelle</message>
+	<message key="manager.setup.genres.key.exists">Avain on jo käytössä</message>
+	<message key="manager.setup.genres.key.alphaNumeric">Avain voi sisältää vain alfanumeerisia merkkejä, alaviivoja ja väliviivoja ja sen pitää alkaa ja loppua alfanumeeriseen merkkiin.</message>
+	<message key="manager.navigationMenus.form.menuAssigned">Tälle alueelle on jo osoitettu navigaatiovalikko.</message>
+	<message key="manager.navigationMenus.contact.description">Linkki yhteystiedosto-sivulle.</message>
+	<message key="manager.navigationMenus.contact.conditionalWarning"><![CDATA[Tämä linkki näkyy vain, jos olet täyttänyt asetukset kohdasta Asetukset > Yhteystiedot.]]></message>
+	<message key="manager.navigationMenus.form.typeMissing">Valitse navigaatiovalikon tyyppi.</message>
+	<message key="manager.navigationMenus.subscriptions.conditionalWarning"><![CDATA[Tämä linkki näkyy vain, jos olet ottanut maksut käyttöön kohdasta Asetukset > Jakelu > Maksut.]]></message>
+	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning"><![CDATA[Tämä linkki näkyy vain, jos käyttäjä on kirjautunut sisään, maksut on otettu käyttöön kohdasta Asetukset > Jakelu > Maksut ja lehti on ottanut käyttöön embargon kohdasta Asetukset > Jakelu > Saatavuus.]]></message>
+	<message key="manager.navigationMenus.search.description">Linkki hakusivulle.</message>
 </locale>

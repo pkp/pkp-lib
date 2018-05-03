@@ -3,8 +3,8 @@
 /**
  * @file controllers/tab/publicationEntry/PublicationEntryTabHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PublicationEntryTabHandler
@@ -82,7 +82,7 @@ class PublicationEntryTabHandler extends Handler {
 		$this->_stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
 		$this->_tabPosition = (int) $request->getUserVar('tabPos');
 
-		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_APP_SUBMISSION);
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION);
 		$this->setupTemplate($request);
 	}
 
@@ -169,6 +169,20 @@ class PublicationEntryTabHandler extends Handler {
 				}
 			} else {
 				// Could not validate; redisplay the form.
+				// Provide entered tagit fields values
+				$tagitKeywords = $form->getData('keywords');
+				if (is_array($tagitKeywords)) {
+					$tagitFieldNames = $form->_metadataFormImplem->getTagitFieldNames();
+					$locales = array_keys($form->supportedLocales);
+					$formTagitData = array();
+					foreach ($tagitFieldNames as $tagitFieldName) {
+						foreach ($locales as $locale) {
+							$formTagitData[$locale] = array_key_exists($locale . "-$tagitFieldName", $tagitKeywords) ? $tagitKeywords[$locale . "-$tagitFieldName"] : array();
+						}
+						$form->setData($tagitFieldName, $formTagitData);
+					}
+				}
+
 				$json->setStatus(true);
 				$json->setContent($form->fetch($request));
 			}

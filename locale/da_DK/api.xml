@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/da_DK/locale.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+
+<locale name="da_DK" full_name="Dansk">
+	<message key="api.submissions.403.csrfTokenFailure">Din anmodning blev ikke accepteret. Det kan skyldes, at dit login er udløbet. Prøv at genindlæse siden og prøv igen.</message>
+	<message key="api.submissions.403.requestedOthersUnpublishedSubmissions">Du kan kun se de ikke-publicerede indlæg, som du er blevet tildelt.</message>
+	<message key="api.submissions.403.deleteSubmissionOutOfContext">Du kan ikke slette en indsendelse, der ikke er indsat i denne kontekst.</message>
+	<message key="api.submissions.403.unauthorizedDeleteSubmission">Du har ikke tilladelse til at slette denne indsendelse.</message>
+	<message key="api.submissions.404.resourceNotFound">Den ønskede ressource blev ikke fundet.</message>
+	<message key="api.submissions.400.missingRequired">Din anmodning kunne ikke imødekommes, da de nødvendige oplysninger mangler.</message>
+	<message key="api.submissions.400.invalidIssueIdentifiers">Den ønskede årgang, nummer eller år er ikke gyldigt.</message>
+	<message key="api.submissions.unknownError">En uventet fejl opstod. Genindlæs siden og prøv igen.</message>
+</locale>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+<!--
+  * locale/fa_IR/user.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Farsi_(fa_IR)
+  -->
+<locale name="fa_IR" full_name="فارسی">
+	<message key="user.accountInformation">اطلاعات حساب کاربری</message>
+	<message key="user.affiliation">وابستگی</message>
+	<message key="user.affiliation.description">نام مؤسسه، مانند دانشگاه تهران</message>
+	<message key="user.affiliations">وابستگی ها</message>
+	<message key="user.authorization.accessDenied">دسترسی رد شد.</message>
+	<message key="user.authorization.processAuthenticationTokenRequired">اطلاعات مربوط به روند احراز هویت نامعتبر بوده یا موجود نیست.</message>
+	<message key="user.authorization.contextRequired">بدون مشخص کردن یک محتوا امکان فراخوانی این عمل وجود ندارد (مجله، کنفرانس، کتاب و ...).</message>
+	<message key="user.authorization.loginRequired">نیازمند ورود به سیستم</message>
+	<message key="user.authorization.privateOperation">عملیاتی که مایل به دسترسی به آن هستید، خصوصی است و یا وجود ندارد.</message>
+	<message key="user.authorization.restrictedSiteAccess">دسترسی شما رد شد. دسترسی به این وب‌سایت محدود شده است.</message>
+	<message key="user.authorization.roleBasedAccessDenied">نقش کاربر کنونی اجازه دسترسی به این عملیات ندارد.</message>
+	<message key="user.authorization.userGroupRequired">برای دسترسی به این عملیات باید عضو گروه کاربری معتبر باشید</message>
+	<message key="user.authorization.managerRequired">کاربری با دسترسی مدیر (برای مثال دبیر تولید) قبل از شروع باید به این مرحله انتساب یابد</message>
+	<message key="user.authorization.accessibleWorkflowStage">شما اجازه دسترسی به این مرحله از جریان کاری را ندارید.</message>
+	<message key="user.authorization.workflowStageRequired">مراحل گردش کار مشخص نشده است.</message>
+	<message key="user.authorization.pluginRequired">افزونه مشخص نشده است و الزامی است.</message>
+	<message key="user.biography">رزومه علمی</message>
+	<message key="user.changeMyPassword">تغییر کلمه رمز ورود</message>
+	<message key="user.changePassword">تغییر رمز ورود</message>
+	<message key="user.dateLastLogin">تاریخ آخرین ورود</message>
+	<message key="user.dateRegistered">تاریخ ثبت‌نام</message>
+	<message key="user.editMyProfile">ویرایش پروفایل</message>
+	<message key="user.email">ایمیل</message>
+	<message key="user.firstName">نام</message>
+	<message key="user.initialsExample">مجید سمیعی = م.س</message>
+	<message key="user.initials">اختصار</message>
+	<message key="user.interests">زمینه های داوری</message>
+	<message key="user.interests.description">(زمینه های داوری خود را با اینتر یا کاما از هم جدا کنید)</message>
+	<message key="user.gossip">یادداشت خصوصی</message>
+	<message key="user.group">گروه کاربری</message>
+	<message key="user.lastName">نام خانوادگی</message>
+	<message key="user.profile.form.profileImageInvalid">فرمت نامناسب تصویر پروفایل و یا تصویر بسیار بزرگ. فرمت‌های قابل قبول عبارتند از .gif, .jpg, or .png و اندازه تصویر نباید از ۱۵۰ × ۱۵۰ پیکسل بیشتر باشد.</message>
+	<message key="user.login.accountDisabledWithReason">حساب شما به دلیل زیر غیرفعال شده است: {$reason}</message>
+	<message key="user.login.accountDisabled">حساب شما غیرفعال شده است. لطفا برای اطلاعات بیشتر با مدیر سایت تماس بگیرید</message>
+	<message key="user.login.accountNotValidated">یک لیمیل فعال سازی به آدرس {$email} ارسال شده است. لطفا ایمیل خود را چک کنید و دستوراتی که در ایمیلی که برایتان فرستاده ایم را دنبال کنید. چنانچه ایمیلی دریافت نکرده اید ممکن است لازم باشد که با مدیر سایت تماس بگیرید.</message>
+	<message key="user.login.activate">فعال کردن حساب کاربری</message>
+	<message key="user.login.activated">از اینکه حساب خود را فعال کرده اید متشکریم. اکنون میتوانید با استفاده از نام کاربری و رمز ورود خود وارد شوید</message>
+	<message key="user.login.changePasswordInstructions"><![CDATA[قبل از اینکه بتوانید کاملا وارد سایت شوید میبایست یک رمز عبور جدید برای خود انتخاب کنید. <br /><br />لطفا نام کاربری و رمز عبور جاری خود را وارد کرده و سپس رمز عبور جدیدی را دو بار وارد کنید.]]></message>
+	<message key="user.login.forgotPassword">رمز عبور خود را فراموش کرده اید؟</message>
+	<message key="user.login.loginError">نام کاربری یا رمز عبور غلط است. لطفا از نو وارد کنید.</message>
+	<message key="user.login">ورود</message>
+	<message key="user.login.lostPassword.confirmationSent">یک نامه تاییدیه به آدرس ایمیل شما ارسال شد.  لطفا دستورات مندرج در آن را بدقت اجرا کنید تا رمز عبورتان به روز شود.</message>
+	<message key="user.login.lostPassword.invalidHash">متأسفانه لینکی که شما بر روی آن کلیک کرده اید تاریخ آن منقضی شده است یا دیگر وجود ندارد. برای دریافت رمز عبور از نو اقدام کنید.</message>
+	<message key="user.login.lostPassword.invalidUser">هیچ کاربری با این ایمیل وجود ندارد.</message>
+	<message key="user.login.lostPassword.passwordSent">یک رمز عبور جدید به آدرس ایمیل شما ارسال گردید. با این رمز عبور جدید هم اکنون میتوانید وارد سایت شوید.</message>
+	<message key="user.login.registeredEmail">ایمیل کاربر ثبت‌نام کرده</message>
+	<message key="user.login.registrationComplete"> تکمیل ثبت‌نام</message>
+	<message key="user.login.registrationComplete.instructions"> ضمن تشکر از ثبت‌نام شما ، حال می توانید به قسمت های زیر مراجعه فرمایید: </message>
+	<message key="user.login.registrationComplete.manageSubmissions">مشاهده مقالات ارسال شده </message>
+	<message key="user.login.registrationComplete.newSubmission"> ارسال مقاله جدید </message>
+	<message key="user.login.registrationComplete.continueBrowsing"> برگشت به صفحه اصلی</message>
+	<message key="user.login.registrationPendingValidation">ثبت‌نام منتظر تایید است</message>
+	<message key="user.login.rememberUsernameAndPassword">به خاطر سپاری نام کاربری و رمز عبور</message>
+	<message key="user.login.resetPassword">باز نشانی رمز عبور</message>
+	<message key="user.logOut">خروج</message>
+	<message key="user.logOutAs">خروج از</message>
+	<message key="user.hello">سلام، </message>
+	<message key="user.mailingAddress">آدرس پستی</message>
+	<message key="user.middleName">نام تعمیدی</message>
+	<message key="user.myAccount">حساب کاربری من</message>
+	<message key="user.name">نام</message>
+	<message key="user.password">رمز ورود</message>
+	<message key="user.repeatPassword">تکرار رمز عبور</message>
+	<message key="user.phone">تلفن</message>
+	<message key="user.profile.changePasswordInstructions">برای تغییر رمز عبور، رمز عبور فعلی و جدید  را در قسمت های زیر وارد کنید</message>
+	<message key="user.profile.editProfile">ویرایش پروفایل</message>
+	<message key="user.profile.form.countryRequired">انتخاب کشور الزامی است</message>
+	<message key="user.profile.form.emailRequired">وارد کردن آدرس ایمیل معتبر الزامی است</message>
+	<message key="user.profile.form.affiliationRequired">وابستگی سازمانی لازم است</message>
+	<message key="user.profile.form.firstNameRequired">وارد کردن نام الزامی است</message>
+	<message key="user.profile.form.lastNameRequired">وارد کردن نام خانوادگی الزامی است</message>
+	<message key="user.profile.form.mailingAddressRequired">آدرس ایمیل الزامی است</message>
+	<message key="user.profile.form.newPasswordRequired">رمز عبور جدید را وارد کنید</message>
+	<message key="user.profile.form.oldPasswordInvalid">رمز عبور وارد شده صحیح نمی باشد</message>
+	<message key="user.profile.form.openAccessNotifications">اطلاع‌رسانی درباره شماره های دسترسی آزاد</message>
+	<message key="user.profile.form.passwordRequired">وارد کردن رمزعبور الزامی است</message>
+	<message key="user.profile.form.passwordSameAsOld">رمز ورودی جدید مشابه با رمز قبلی است</message>
+	<message key="user.profile.form.profileImage">تصویر پروفایل</message>
+	<message key="user.profile.form.publishedNotifications">اطلاع‌رسانی درباره انتشار شماره جدید</message>
+	<message key="user.profile.form.urlInvalid">آدرس وارد شده بی‌اعتبار است. پس از بررسی دوباره امتحان کنید. (نکته: http:// را به ابتدای آدرس بیافزائید.)</message>
+	<message key="user.profile.form.usergroupRequired">وارد کردن گروه کاربری الزامی است.</message>
+	<message key="user.profile.form.usernameRequired">وارد کردن شناسه ی کاربری الزامی است</message>
+	<message key="user.profile.leavePasswordBlank">برای حفظ رمز عبور فعلی قسمت مربوط به رمز عبور را خالی بگذارید</message>
+	<message key="user.profile.newPassword">رمز عبور جدید</message>
+	<message key="user.profile.oldPassword">رمز عبور فعلی</message>
+	<message key="user.profile">پروفایل</message>
+	<message key="user.profile.publicProfile">پروفایل کابر</message>
+	<message key="user.profile.repeatNewPassword">تکرار رمز عبور جدید</message>
+	<!-- Login -->
+	<message key="user.login.registerNewAccount">ثبت‌نام</message>
+	<message key="user.login.resetPasswordInstructions">لطفا ایمیلی را که با آن در این سامانه ثبت کرده اید را در کادر زیر وارد کنید</message>
+	<message key="user.register.form.emailExists">قبلا با آدرس ایمیل وارد شده، کاربری در این سامانه ثبت‌نام کرده است. (ممکن است قبلا ثبت‌نام کرده باشید!)</message>
+	<message key="user.register.form.passwordsDoNotMatch">رمز عبور با تکرار آن یکسان نیست</message>
+	<message key="user.register.form.emailsDoNotMatch">فیلدهای حاوی آدرس ایمیل مطابقت ندارند</message>
+	<message key="user.register.form.usernameAlphaNumeric">نام کاربری فقط میتواند شامل حروف، اعداد، خط فاصله زیرین و خط فاصله باشد و میبایست با یک حرف یا عدد شروع و به یک حرف یا عدد ختم شود.</message>
+	<message key="user.register.form.userGroupRequired">حداقل یک گروه کاربری باید انتخاب شود.</message>
+	<message key="user.register.form.usernameExists">نام کاربری انتخاب شده در سامانه موجود می باشد</message>
+	<message key="user.register.form.passwordLengthRestriction">کلمه ی عبور باید حداقل دارای {$length} کاراکتر باشد</message>
+	<message key="user.register.registerAs">ثبت‌نام در {$contextName} به عنوان</message>
+	<message key="user.register">ثبت‌نام</message>
+	<message key="user.register.usernameRestriction">نام کاربری فقط میتواند دارای حروف کوچک، اعداد، خط فاصله و خط فاصله زیرین باشد.</message>
+	<message key="user.register.registrationCompleted"><![CDATA[ ثبت‌نام شما انجام شد. برای مشاهده و تکمیل پروفایل خود بر روی این <a href="{$profileUrl}">لینک</a> کلیک کنید.]]></message>
+	<message key="user.role.author">نویسنده</message>
+	<message key="user.role.author_s">نویسنده(گان)</message>
+	<message key="user.role.authors">نویسندگان</message>
+	<message key="user.role.editor">دبیر</message>
+	<message key="user.role.editors">دبیران</message>
+	<message key="user.role.reader">خواننده</message>
+	<message key="user.role.readers">خوانندگان</message>
+	<message key="user.role.reviewer">داور</message>
+	<message key="user.role.reviewers">داوران</message>
+	<message key="user.role.siteAdmin">مدیر سایت</message>
+	<message key="user.role.siteAdmins">مدیر های سایت</message>
+	<message key="user.role.copyeditor">ویراستیار</message>
+	<message key="user.role.copyeditors">ویراستیاران</message>
+	<message key="user.role.proofreader">بازبین نهایی</message>
+	<message key="user.role.proofreaders">بازبینهای نهایی</message>
+	<message key="user.role.layoutEditor">صفحه‌آرا</message>
+	<message key="user.role.layoutEditors">صفحه‌آرا</message>
+	<message key="user.roles">نقش ها</message>
+	<message key="user.salutation">عنوان</message>
+	<message key="user.sendPassword">ارسال رمز ورود</message>
+	<message key="user.sendPassword.description">یک ایمیل تاییدیه برایم بفرست و در آن نام کاربری و رمز ورود مرا ذکر کن</message>
+	<message key="user.signature">امضا</message>
+	<message key="user.suffix">پسوند</message>
+	<message key="user.title">عنوان</message>
+	<message key="user.url">URL</message>
+	<message key="user.userHome">صفحه خانگی کاربر</message>
+	<message key="user.username">نام کاربری</message>
+	<message key="user.workingLanguages">زبان‌های کاربردی</message>
+	<message key="user.orcid">شناسه ی نویسندگان/پژوهشگران</message>
+	<message key="user.orcid.orcidInvalid">شناسه ORCID وارد شده معتبر نیست. لطفاً آدرس کامل را وارد کنید (برای مثال:"http://orcid.org/0000-0002-1825-0097").</message>
+	<message key="user.profile.identity">مشخصات فردی</message>
+	<message key="user.profile.contact">اطلاعات تماس</message>
+	<message key="user.profile.public">مشخصات عمومی</message>
+	<message key="user.apiKey">کلید API</message>
+	<message key="user.apiKeyEnabled">فعال‌سازی امکان دسترسی نرم‌افزارهای خارجی به این حساب کاربری از طریق کلید API</message>
+	<message key="user.apiKey.generate">ایجاد یک کلید جدید API</message>
+	<message key="user.apiKey.generateWarning">ایجاد یک کلید جدید API باعث نامعتبر شدن کلیدهای قبلی ایجاد شده برای این کاربر خواهد شد.</message>
+	<message key="user.apiKey.secretRequired">قبل از ایجاد کلید API، باید کد مخفی در فایل پیکربندی وارد شود (api_key_secret)</message>
+</locale>

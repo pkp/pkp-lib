@@ -4,8 +4,8 @@
 <!--
   * locale/pt_BR/user.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Locale information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Portuguese_(pt_BR)
   * Localization strings.
@@ -35,9 +35,7 @@
 	<message key="user.dateRegistered">Data de cadastro</message>
 	<message key="user.editMyProfile">Editar meu perfil</message>
 	<message key="user.email">E-mail</message>
-	<message key="user.feminine">F</message>
 	<message key="user.firstName">Nome</message>
-	<message key="user.gender">Sexo</message>
 	<message key="user.initialsExample">Joan Alice Smith = JAS</message>
 	<message key="user.initials">Iniciais</message>
 	<message key="user.interests">Área de interesse para avaliação</message>
@@ -72,11 +70,9 @@
 	<message key="user.logOutAs">Sair como</message>
 	<message key="user.hello">Olá, </message>
 	<message key="user.mailingAddress">Endereço postal</message>
-	<message key="user.masculine">M</message>
 	<message key="user.middleName">Nome do meio</message>
 	<message key="user.myAccount">Mesclar cadastro</message>
 	<message key="user.name">Nome</message>
-	<message key="user.other">Outro</message>
 	<message key="user.password">Senha</message>
 	<message key="user.repeatPassword">Repetir senha</message>
 	<message key="user.phone">Telefone</message>

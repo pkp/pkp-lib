@@ -3,8 +3,8 @@
 /**
  * @file controllers/informationCenter/InformationCenterHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class InformationCenterHandler
@@ -27,7 +27,7 @@ abstract class InformationCenterHandler extends Handler {
 	function __construct() {
 		parent::__construct();
 		$this->addRoleAssignment(
-			array(ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER, ROLE_ID_ASSISTANT),
+			array(ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER),
 			array(
 				'viewInformationCenter',
 				'viewHistory',

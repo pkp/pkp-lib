@@ -4,8 +4,8 @@
 <!--
   * locale/fi_FI/submission.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -190,7 +190,6 @@
 	<message key="submission.event.confirmDeleteLogEntry">Haluatko varmasti poistaa tämän tapahtumalokin merkinnän?</message>
 	<message key="submission.event.deleteLogEntry">Poista lokimerkintä</message>
 	<message key="submission.event.submissionSubmitted">Käsikirjoituksen ensimmäinen lähetys suoritettu.</message>
-	<message key="submission.event.fileUploaded">Tiedosto "{$name}" (tiedoston tunniste {$fileId}-{$revision}) ladattiin.</message>
 	<message key="submission.event.fileRevised">Korjaus "{$name}" (tiedoston tunniste {$fileId}-{$fileRevision}) ladattiin.</message>
 	<message key="submission.event.general.metadataUpdated">Käsikirjoituksen metatiedot päivitetty</message>
 	<message key="submission.event.general.suppFileUpdated">Käsikirjoitustiedosto päivitetty</message>
@@ -419,7 +418,6 @@
 
 	<!-- Review Round Status Keys -->
 	<message key="editor.submission.roundStatus.revisionsRequested">Korjauksia on pyydetty.</message>
-	<message key="editor.submission.roundStatus.resubmitted">Käsikirjoitus on lähetetty uudelleen arvioitavaksi.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">Lähetetty ulkopuoliseen arviointiin.</message>
 	<message key="editor.submission.roundStatus.accepted">Käsikirjoitus hyväksytty.</message>
 	<message key="editor.submission.roundStatus.declined">Käsikirjoitus hylätty.</message>
@@ -489,7 +487,6 @@
 	<message key="notification.type.editorDecisionPendingRevisions">Korjattu versio vaaditaan.</message>
 	<message key="notification.type.editorDecisionResubmit">Lähetä uudelleen arvioitavaksi.</message>
 	<message key="notification.type.editorDecisionDecline">Käsikirjoitus hylätty.</message>
-	<message key="notification.type.editorDecisionSendToProduction">Tuotantoprosessi aloitettu.</message>
 	<message key="notification.uploadedResponse">Vastaus ladattu.</message>
 
 	<message key="notification.type.editorAssignment">Toimittaja on valittava, ennen kuin arviointi aloitetaan. Lisää toimittaja yllä olevaa Osallistujat-linkkiä käyttäen.</message>
@@ -559,7 +556,6 @@
 	<message key="submission.authorWithAffiliation">{$name}, {$affiliation}</message>
 	<message key="submission.event.participantRemoved">"{$name}" ({$username}) poistettiin roolista {$userGroupName}.</message>
 	<message key="submission.howToCite.downloadCitation">Lataa sitaatti</message>
-	<message key="submission.list.clearSearch">Tyhjennä hakulauseke</message>
 	<message key="submission.list.reviewsCompleted">Arviot valmiina</message>
 	<message key="submission.list.revisionsSubmitted">Uusia versioita lähetetty</message>
 	<message key="submission.list.copyeditsSubmitted">Teknisesti toimitetut tiedostot lähetetty</message>
@@ -571,8 +567,6 @@
 	<message key="submission.list.itemOrdererUp">Siirrä {$itemTitle} ylös</message>
 	<message key="submission.list.confirmDelete">Poista käsikirjoitus?</message>
 	<message key="submission.list.viewSubmission">Katso käsikirjoitusta</message>
-	<message key="submission.list.filter">Suodattimet</message>
-	<message key="submission.list.filterRemove">Poista suodatin: {$filterTitle}</message>
 	<message key="submission.list.itemsOfTotal">{$count} / {$total} käsikirjoitusta</message>
 	<message key="submission.list.responseDue">Vastausaika umpeutunut</message>
 	<message key="submission.list.reviewDue">Arviointiaika umpeutunut</message>
@@ -606,4 +600,26 @@
 	<message key="editor.submission.roundStatus.recommendationsCompleted">Kaikki suositukset ovat valmiina ja päätöstä tarvitaan.</message>
 	<message key="notification.type.editorAssign">Sinut on lisätty toimittajaksi käsikirjoitukseen "{$title}".</message>
 	<message key="editor.submission.decision.skipReview">Hyväksy ja ohita arviointi</message>
+	<message key="submission.citations.description">Anna jokainen viite omalla rivillään.</message>
+	<message key="submission.parsedCitations">Erotellut viitteet</message>
+	<message key="submission.parsedCitations.description">Seuraavat viitteet eroteltiin ja ne liitetään käsikirjoituksen kuvailutietoihin.</message>
+	<message key="submission.parsedAndSaveCitations">Erottele ja tallenna viitteitä</message>
+	<message key="submission.submit.form.languagesRequired">Anna kieli</message>
+	<message key="submission.submit.form.subjectsRequired">Anna aihe</message>
+	<message key="submission.submit.form.disciplinesRequired">Anna tieteenala</message>
+	<message key="submission.submit.form.keywordsRequired">Anna avainsana</message>
+	<message key="submission.submit.form.agenciesRequired">Anna kannattajajärjestö</message>
+	<message key="submission.submit.form.coverageRequired">Anna kattavuustiedot</message>
+	<message key="submission.submit.form.typeRequired">Anna tyyppi</message>
+	<message key="submission.submit.form.sourceRequired">Anna lähde</message>
+	<message key="submission.submit.form.rightsRequired">Anna oikeudet</message>
+	<message key="submission.submit.form.citationsRequired">Anna viitteet</message>
+	<message key="editor.submission.roundStatus.resubmitForReview">Käsikirjoitus pitää lähettää uudelle arviointikierrokselle</message>
+	<message key="editor.submission.roundStatus.submissionResubmitted">Käsikirjoitus on lähetetty uudelle arviointikierrokselle</message>
+	<message key="submission.query.participantTitle">{$fullName}, {$userGroup}</message>
+	<message key="submission.list.currentStage">Vaiheessa {$stage} .</message>
+	<message key="submission.list.dualWorkflowLinks"><![CDATA[Sinulla on käsikirjoituksessa useita rooleja. Haluatko katsoa <a href="{$urlAuthorWorkflow}">kirjoittajan työnkulkua</a>  vai <a href="{$urlEditorialWorkflow}">toimittajan työnkulkua</a>?]]></message>
+	<message key="submission.list.reviewerWorkflowLink"><![CDATA[Sinulla on käsikirjoituksessa toimituksellinen rooli. Haluatko katsoa <a href="{$urlEditorialWorkflow}">toimittajan työnkulkua</a>?]]></message>
+	<message key="submission.list.reviewComplete">Arvio lähetetty</message>
+	<message key="editor.submission.addStageParticipant.form.reviewerWarning">Valitsemasi käyttäjä tekee käsikirjoituksessa sokkoarviointia. Mikäli lisäät hänet osallistujaksi, käyttäjä näkee kirjoittajan nimen.</message>
 </locale>

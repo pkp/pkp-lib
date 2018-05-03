@@ -3,8 +3,8 @@
 /**
  * @file classes/notification/PKPNotificationOperationManager.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPNotificationOperationManager
@@ -169,7 +169,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 
 			// Send notification emails
 			if ($notification->getLevel() != NOTIFICATION_LEVEL_TRIVIAL && !$suppressEmail) {
-				$notificationEmailSettings = $this->getUserBlockedNotifications($userId, $contextId);
+				$notificationEmailSettings = $this->getUserBlockedEmailedNotifications($userId, $contextId);
 
 				if(!in_array($notificationType, $notificationEmailSettings)) {
 					$this->sendNotificationEmail($request, $notification);

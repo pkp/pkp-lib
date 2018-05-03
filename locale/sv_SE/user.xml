@@ -4,8 +4,8 @@
 <!--
   * locale/sv_SE/user.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Swedish_(sv_SE)
   * Localization strings.
@@ -35,14 +35,13 @@
 	<message key="user.dateRegistered">Datum för registrering</message>
 	<message key="user.editMyProfile">Redigera min profil</message>
 	<message key="user.email">E-post</message>
-	<message key="user.feminine">K</message>
 	<message key="user.firstName">Förnamn</message>
-	<message key="user.gender">Kön</message>
 	<message key="user.initialsExample">Lars Erik Johansson = LEJ</message>
 	<message key="user.initials">Initialer</message>
 	<message key="user.interests">Intresseområden för granskning</message>
 	<message key="user.interests.description">(Separera intressen genom att trycka enter eller komma)</message>
-	<message key="user.gossip">Privata anteckningar</message>
+	<message key="user.gossip">Redaktionella anteckningar</message>
+	<message key="user.gossip.description">Mata in anteckningar om den här granskaren som du vill göra synliga för andra administratörer, tidskriftsansvariga, redaktörer och underredaktörer. Anteckningarna blir synliga för framtida granskningsuppdrag.</message>
 	<message key="user.group">Användargrupp</message>
 	<message key="user.lastName">Efternamn</message>
 	<message key="user.profile.form.profileImageInvalid">Ogiltigt format för profilbild, eller för stor bild. Godkända format är  .gif, .jpg, och .png, och bilden får inte ara större än 150x150 pixlar.</message>
@@ -72,11 +71,9 @@
 	<message key="user.logOutAs">Logga ut som</message>
 	<message key="user.hello">Hejsan, </message>
 	<message key="user.mailingAddress">Postadress</message>
-	<message key="user.masculine">M</message>
 	<message key="user.middleName">Mellannamn</message>
 	<message key="user.myAccount">Mitt användarkonto</message>
 	<message key="user.name">Namn</message>
-	<message key="user.other">Annat</message>
 	<message key="user.password">Lösenord</message>
 	<message key="user.repeatPassword">Upprepa lösenord</message>
 	<message key="user.phone">Telefon</message>
@@ -118,6 +115,8 @@
 	<message key="user.register.registerAs">Registrera dig hos {$contextName} som...</message>
 	<message key="user.register">Registrera dig</message>
 	<message key="user.register.usernameRestriction">Användarnamnet får bara innehålla gemener, siffror, och under-/bindestreck.</message>
+	<message key="user.register.registrationCompleted"><![CDATA[Du har registrerat dig. <a href="{$profileUrl}">Klicka här</a> för att färdigställa din användarprofil.]]></message>
+	<message key="user.role.assistant">Assistent</message>
 	<message key="user.role.author">Författare</message>
 	<message key="user.role.author_s">Författare</message>
 	<message key="user.role.authors">Författare</message>

@@ -4,8 +4,8 @@
 <!--
   * locale/nl_NL/user.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the nl_NL (Nederlands) locale.
@@ -23,9 +23,7 @@
 	<message key="user.dateRegistered">Datum registratie</message>
 	<message key="user.editMyProfile">Profiel bewerken</message>
 	<message key="user.email">E-mail</message>
-	<message key="user.feminine">V</message>
 	<message key="user.firstName">Voornaam</message>
-	<message key="user.gender">Geslacht</message>
 	<message key="user.initialsExample">Joan Alice Smith = JAS</message>
 	<message key="user.initials">Initialen</message>
 	<message key="user.interests">Review-interesses</message>
@@ -47,7 +45,6 @@
 	<message key="user.login.resetPassword">Wachtwoord terugzetten</message>
 	<message key="user.logOut">Uitloggen</message>
 	<message key="user.mailingAddress">Postadres</message>
-	<message key="user.masculine">M</message>
 	<message key="user.middleName">Tweede voornaam</message>
 	<message key="user.myAccount">Mijn gegevens</message>
 	<message key="user.name">Naam</message>
@@ -97,7 +94,6 @@
 	<message key="user.userHome">Gebruiker</message>
 	<message key="user.username">Gebruikersnaam</message>
 	<message key="user.workingLanguages">Talen</message>
-	<message key="user.other">Overig</message>
 	<message key="user.profile.form.profileImageInvalid">Ongeldig formaat voor de profielafbeelding of te grote afbeelding. Geaccepteerde formaten zijn .gif, .jpg en .png. De afbeelding mag niet groter zijn dan 150x150 pixels.</message>
 	<message key="user.register.form.emailsDoNotMatch">De e-mailadresvelden komen niet overeen</message>
 	<message key="user.affiliation.description">(Uw instituut, bv. "Simon Fraser University")</message>

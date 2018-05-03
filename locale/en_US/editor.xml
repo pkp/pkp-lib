@@ -4,8 +4,8 @@
 <!--
   * locale/en_US/editor.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2003-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -44,6 +44,7 @@
 	<message key="editor.submissionReview.restrictFiles">Files To Be Reviewed</message>
 	<message key="editor.submissionReview.restrictFiles.hide">Close File Selection</message>
 	<message key="editor.submissionReview.editReview">Edit Review</message>
+	<message key="editor.review.anonymousReviewer">Anonymous Reviewer</message>
 	<message key="editor.review.personalMessageToReviewer">Email to be sent to reviewer</message>
 	<message key="editor.review.importantDates">Important Dates</message>
 	<message key="editor.review.uploadRevision">Upload Revision</message>
@@ -71,7 +72,9 @@
 	<message key="editor.review.reviewConfirmed">Review Confirmed</message>
 	<message key="editor.review.reviewSubmitted">Review Submitted</message>
 	<message key="editor.review.reviewerComments">Reviewer Comments</message>
-	<message key="editor.review.days">Average Days</message>
+	<message key="editor.review.rateReviewer">Reviewer rating</message>
+	<message key="editor.review.rateReviewer.description">Rate the quality of the review provided. This rating is not shared with the reviewer.</message>
+	<message key="editor.review.reviewerRating.none">No rating</message>
 	<message key="editor.review.mustSelect">You must select a reviewer</message>
 	<message key="editor.review.errorAddingReviewer">There was an error adding the reviewer.  Please try again.</message>
 	<message key="editor.review.errorDeletingReviewer">There was an error deleting the reviewer.  Please try again.</message>
@@ -108,7 +111,6 @@
 	<message key="editor.submission.createNewRound">Create New Review Round</message>
 	<message key="editor.article.reviewForms">Review Forms</message>
 	<message key="editor.article.selectReviewForm">Select Review Form</message>
-	<message key="editor.article.clearReviewForm">Clear Review Form</message>
 	<message key="editor.article.confirmChangeReviewForm">Warning: Changing the review form will affect any answers reviewers have made using this form. Are you sure you wish to continue?</message>
 	<message key="editor.submission.noReviewerFilesSelected">No Files Selected</message>
 	<message key="editor.submission.noReviewerFilesSelected.details">You have not selected any files for the reviewer to review.</message>
@@ -124,4 +126,23 @@
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">Revoke approval for this proof to indicate proofreading is no longer complete and the file is not ready to be published.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">The public identifier '{$publicIdentifier}' must not be a number.</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">The pattern {$pattern} is not allowed for the public identifier.</message>
+
+	<!-- Reviewer selection lists -->
+	<message key="reviewer.list.count">{$count} reviewers</message>
+	<message key="reviewer.list.itemsOfTotal">{$count} of {$total} reviewers</message>
+	<message key="reviewer.list.filterRating">Rated at least</message>
+	<message key="reviewer.list.activeReviews">{$count} active</message>
+	<message key="reviewer.list.activeReviewsDescription">Active reviews currently assigned</message>
+	<message key="reviewer.list.completedReviews">Reviews completed</message>
+	<message key="reviewer.list.reviewerRating">Reviewer rating: {$rating}</message>
+	<message key="reviewer.list.daysSinceLastAssignment">{$days} days ago</message>
+	<message key="reviewer.list.daySinceLastAssignment">Yesterday</message>
+	<message key="reviewer.list.daysSinceLastAssignmentDescription">Days since last review assigned</message>
+	<message key="reviewer.list.averageCompletion">Average days to complete review</message>
+	<message key="reviewer.list.neverAssigned">Never assigned</message>
+	<message key="reviewer.list.currentlyAssigned">This reviewer has already been assigned to review this submission.</message>
+	<message key="reviewer.list.warnOnAssign">This reviewer is locked because they have been assigned a role which allows them to view the author's identity. Blind peer review can not be guaranteed. Would you like to unlock this reviewer anyway?</message>
+	<message key="reviewer.list.warnOnAssignUnlock">Unlock</message>
+	<message key="reviewer.list.reviewInterests">Reviewing Interests</message>
+	<message key="reviewer.list.biography">Biography</message>
 </locale>

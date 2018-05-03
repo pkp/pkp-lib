@@ -1,8 +1,8 @@
 {**
  * templates/submission/submissionMetadataFormFields.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Submission's metadata form fields. To be included in any form that wants to handle
@@ -15,7 +15,7 @@
 	{assign var=citationsEnabled value=false}
 {/if}
 {if $coverageEnabled || $typeEnabled || $sourceEnabled || $rightsEnabled ||
-		$languagesEnabled || $subjectEnabled || $keywordsEnabled || $agenciesEnabled || $citationsEnabled || $disciplinesEnabled}
+		$languagesEnabled || $subjectsEnabled || $keywordsEnabled || $agenciesEnabled || $citationsEnabled || $disciplinesEnabled}
 	{fbvFormSection title="submission.metadata"}
 		<p class="description">{translate key="submission.metadataDescription"}</p>
 	{/fbvFormSection}
@@ -45,12 +45,12 @@
 	{/fbvFormArea}
 {/if}
 
-{if $languagesEnabled || $subjectEnabled || $keywordsEnabled || $agenciesEnabled || $citationsEnabled || $disciplinesEnabled}
+{if $languagesEnabled || $subjectsEnabled || $keywordsEnabled || $agenciesEnabled || $citationsEnabled || $disciplinesEnabled}
 	{fbvFormArea id="tagitFields" title="submission.submit.metadataForm"}
 		{if $languagesEnabled}
 			{$languagesField}
 		{/if}
-		{if $subjectEnabled}
+		{if $subjectsEnabled}
 			{fbvFormSection label="common.subjects"}
 				{fbvElement type="keyword" id="subjects" multilingual=true current=$subjects disabled=$readOnly required=$subjectsRequired}
 			{/fbvFormSection}

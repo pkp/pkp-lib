@@ -3,8 +3,8 @@
 /**
  * @file classes/core/PKPApplication.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPApplication
@@ -56,6 +56,10 @@ define('WORKFLOW_STAGE_PATH_INTERNAL_REVIEW', 'internalReview');
 define('WORKFLOW_STAGE_PATH_EXTERNAL_REVIEW', 'externalReview');
 define('WORKFLOW_STAGE_PATH_EDITING', 'editorial');
 define('WORKFLOW_STAGE_PATH_PRODUCTION', 'production');
+
+// Constant used to distinguish between editorial and author workflows
+define('WORKFLOW_TYPE_EDITORIAL', 'editorial');
+define('WORKFLOW_TYPE_AUTHOR', 'author');
 
 interface iPKPApplicationInfoProvider {
 	/**
@@ -700,6 +704,18 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		if (!empty($roleIds)) $roleNames = array_intersect_key($roleNames, array_flip($roleIds));
 
 		return $roleNames;
+	}
+
+	/**
+	 * Get a mapping of roles allowed to access particular workflows
+	 * @return array
+	 */
+	static function getWorkflowTypeRoles() {
+		$workflowTypeRoles = array(
+			WORKFLOW_TYPE_EDITORIAL => array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT),
+			WORKFLOW_TYPE_AUTHOR => array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_AUTHOR),
+		);
+		return $workflowTypeRoles;
 	}
 }
 

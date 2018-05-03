@@ -3,8 +3,8 @@
 /**
  * @file classes/navigationMenu/NavigationMenuItem.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NavigationMenuItem
@@ -30,6 +30,7 @@ define('NMI_TYPE_ADMINISTRATION',	'NMI_TYPE_ADMINISTRATION');
 define('NMI_TYPE_USER_DASHBOARD',	'NMI_TYPE_USER_DASHBOARD');
 define('NMI_TYPE_USER_REGISTER',	'NMI_TYPE_USER_REGISTER');
 define('NMI_TYPE_USER_LOGIN',	'NMI_TYPE_USER_LOGIN');
+define('NMI_TYPE_SEARCH',	'NMI_TYPE_SEARCH');
 
 class NavigationMenuItem extends DataObject {
 	/** @var $navigationMenuItems array The navigationMenuItems underneath this navigationMenuItem */

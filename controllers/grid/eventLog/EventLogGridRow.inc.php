@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/eventLog/EventLogGridRow.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class EventLogGridRow
@@ -25,11 +25,18 @@ class EventLogGridRow extends GridRow {
 	/** @var Submission **/
 	var $_submission;
 
+	/** @var boolean Is the current user assigned as an author to this submission */
+	var $_isCurrentUserAssignedAuthor;
+
 	/**
 	 * Constructor
+	 * @param $submission Submission
+	 * @param $isCurrentUserAssignedAuthor boolean Is the current user assigned
+	 *  as an author to this submission?
 	 */
-	function __construct($submission) {
+	function __construct($submission, $isCurrentUserAssignedAuthor) {
 		$this->_submission = $submission;
+		$this->_isCurrentUserAssignedAuthor = $isCurrentUserAssignedAuthor;
 		parent::__construct();
 	}
 
@@ -53,7 +60,20 @@ class EventLogGridRow extends GridRow {
 				case SUBMISSION_LOG_FILE_REVISION_UPLOAD:
 				case SUBMISSION_LOG_FILE_UPLOAD:
 					$submissionFile = $submissionFileDao->getRevision($params['fileId'], $params['fileRevision']);
-					if ($submissionFile) $this->addAction(new DownloadFileLinkAction($request, $submissionFile, null, __('common.download')));
+					if ($submissionFile) {
+						$blindAuthor = false;
+						$maybeBlindAuthor = $this->_isCurrentUserAssignedAuthor && $submissionFile->getFileStage() === SUBMISSION_FILE_REVIEW_ATTACHMENT;
+						if ($maybeBlindAuthor && $submissionFile->getAssocType() === ASSOC_TYPE_REVIEW_ASSIGNMENT) {
+							$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+							$reviewAssignment = $reviewAssignmentDao->getById($submissionFile->getAssocId());
+							if ($reviewAssignment && in_array($reviewAssignment->getReviewMethod(), array(SUBMISSION_REVIEW_METHOD_BLIND, SUBMISSION_REVIEW_METHOD_DOUBLEBLIND))) {
+								$blindAuthor = true;
+							}
+						}
+						if (!$blindAuthor) {
+							$this->addAction(new DownloadFileLinkAction($request, $submissionFile, null, __('common.download')));
+						}
+					}
 					break;
 			}
 

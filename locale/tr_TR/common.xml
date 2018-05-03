@@ -4,8 +4,8 @@
 <!--
   * locale/tr_TR/common.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the tr_TR (Türkçe) locale.
@@ -279,7 +279,6 @@
 	<message key="notification.allow">Bu tür bildirimlerin görüntülenmesine izin ver.</message>
 	<message key="notification.confirmError">Abonelik doğrulamanızda bir hata var.</message>
 	<message key="notification.confirmSuccess">Başarılı bir şekilde üye oldunuz.</message>
-	<message key="notification.email">Bu tür bildirimler için bana e-posta gönder.</message>
 	<message key="notification.location">URL'e git</message>
 	<message key="notification.mailList">Bildirim Gönderi Listesi</message>
 	<message key="notification.mailList.emailInvalid">Lütfen geçerli bir e-posta adresi giriniz.</message>

@@ -3,8 +3,8 @@
 /**
  * @file classes/mail/EmailTemplateDAO.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class EmailTemplateDAO
@@ -668,6 +668,10 @@ class EmailTemplateDAO extends DAO {
 			if ($emailKey && $emailKey != $attrs['key']) continue;
 			if ($skipExisting && $this->templateExistsByKey($attrs['key'])) continue;
 			$dataSource = $this->getDataSource();
+			$sql[] = 'DELETE FROM email_templates_default WHERE email_key = ' . $dataSource->qstr($attrs['key']);
+			if (!$returnSql) {
+				$this->update(array_shift($sql));
+			}
 			$sql[] = 'INSERT INTO email_templates_default
 				(email_key, can_disable, can_edit, from_role_id, to_role_id)
 				VALUES

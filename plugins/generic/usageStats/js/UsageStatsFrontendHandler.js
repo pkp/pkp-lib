@@ -1,8 +1,8 @@
 /**
  * @file plugins/generic/usageStats/js/UsageStatsFrontendHandler.js
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @package plugins.generic.usageStats
@@ -123,15 +123,31 @@
 		graphData = pkpUsageStats.data[objectType][objectId];
 
 		// Turn the data set into an array
-		var dataArray = [], currentYear = new Date().getFullYear();
-		for(month in graphData.data[currentYear]) {
-			dataArray.push(graphData.data[currentYear][month]);
+		var dataArray = [], labelsArray = [], currentDate = new Date(),
+			currentYear = currentDate.getFullYear(), currentMonth = currentDate.getMonth();
+		// Get the data from the last year
+		for (month = currentMonth + 1; month <= 11; month++) {
+			if (!(currentYear - 1 in graphData.data)) {
+				dataArray.push(0);
+			} else {
+				dataArray.push(graphData.data[currentYear - 1][month+1]);
+			}
+			labelsArray.push(pkpUsageStats.locale.months[month]);
+		}
+		// Get the data from the current year
+		for (month = 0; month <= currentMonth; month++) {
+			if (!(currentYear in graphData.data)) {
+				dataArray.push(0);
+			} else {
+				dataArray.push(graphData.data[currentYear][month+1]);
+			}
+			labelsArray.push(pkpUsageStats.locale.months[month]);
 		}
 
 		pkpUsageStats.charts[objectType + '_' + objectId] = new Chart(graph, {
 			type: pkpUsageStats.config.chartType,
 			data: {
-				labels: pkpUsageStats.locale.months,
+				labels: labelsArray,
 				datasets: [{
 					label: graphData.label,
 					data: dataArray,

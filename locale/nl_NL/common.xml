@@ -4,8 +4,8 @@
 <!--
   * locale/nl_NL/common.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the nl_NL (Nederlands) locale.
@@ -276,7 +276,6 @@
 	<message key="notification.allow">Toon deze soorten attenderingen in uw attenderingenlijst</message>
 	<message key="notification.confirmError">Er is een fout opgetreden bij het bevestigen van uw abonnement.</message>
 	<message key="notification.confirmSuccess">U bent met succes geabonneerd</message>
-	<message key="notification.email">Stuur me een e-mail voor deze soorten attenderingen.</message>
 	<message key="notification.location">Ga naar URL</message>
 	<message key="notification.mailList">Attenderingsverzendlijst</message>
 	<message key="notification.mailList.emailInvalid">Voer een geldig e-mail adres in.</message>

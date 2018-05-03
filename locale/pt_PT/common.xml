@@ -4,8 +4,8 @@
 <!--
   * locale/pt_PT/common.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -221,7 +221,7 @@
 	<message key="navigation.home">Capa</message>
 	<message key="navigation.infoForReaders">Para Leitores</message>
 	<message key="navigation.infoForReaders.long">Informação para Leitores</message>
-	<message key="navigation.items">{$from} a {$to} de {$total} Itens</message>
+	<message key="navigation.items">{$from} - {$to} de {$total} Itens</message>
 	<message key="navigation.login">Acesso</message>
 	<message key="navigation.nextPage"><![CDATA[&gt;&gt;]]></message>
 	<message key="navigation.nextStep">Avançar</message>
@@ -271,7 +271,7 @@
 	<message key="notification.allow">Exibir estas notificações no meu canal de notificações</message>
 	<message key="notification.confirmError">Ocorreu um erro ao confirmar a sua subscrição.</message>
 	<message key="notification.confirmSuccess">Subscrição realizada com sucesso.</message>
-	<message key="notification.email">Enviar e-mail para este tipo de notificações.</message>
+	<message key="notification.email">No enviar e-mail para este tipo de notificações.</message>
 	<message key="notification.location">Ir para o URL</message>
 	<message key="notification.mailList">Lista de correio de notificações</message>
 	<message key="notification.mailList.emailInvalid">Indique um endereço de e-mail válido.</message>
@@ -307,7 +307,7 @@
 	<message key="common.pluginEnabled">O Plugin "{$pluginName}" foi activado.</message>
 	<message key="common.pluginDisabled">O Plugin "{$pluginName}" foi desactivado.</message>
 	<message key="common.refresh">Actualizar</message>
-	<message key="common.loading">Carregando ...</message>
+	<message key="common.loading">A carregar</message>
 	<message key="common.publicKnowledgeProject">Public Knowledge Project</message>
 	<message key="common.currentStyleSheet">Folha de Estilos Actual</message>
 	<message key="about.guidelines">Directrizes</message>
@@ -416,9 +416,7 @@
 	<message key="informationCenter.editorialHistory">Historial Edição</message>
 	<message key="informationCenter.addNote">Adicionar Nota</message>
 	<message key="informationCenter.noNotes">Não há notas para mostrar.</message>
-	<message key="informationCenter.currentNotes">Notas de Revisão Actuais</message>
 	<message key="informationCenter.pastNotes">Notas de Revisão Anteriores</message>
-	<message key="informationCenter.lastUpdated">Última Actualização</message>
 	<message key="informationCenter.deleteConfirm">Tem a certeza que pretende eliminar esta nota?</message>
 	<message key="informationCenter.currentHistory">Revisão Actual</message>
 	<message key="informationCenter.pastHistory">Revisões Anteriores</message>
@@ -438,7 +436,7 @@
 	<message key="navigation.tools.statistics">Estatísticas</message>
 	<message key="navigation.data">Dados</message>
 	<message key="navigation.browseByAuthor">Por Autor</message>
-	<message key="navigation.items.shownTotal">{$shown} de {$total} artigos</message>
+	<message key="navigation.items.shownTotal">{$shown} de {$total} itens</message>
 	<message key="navigation.publicMenu">Menu Público</message>
 	<message key="navigation.settings">Configurações</message>
 	<message key="navigation.setup">Configurar</message>
@@ -500,7 +498,7 @@
 	<message key="reviewer.submission.reviewDueDate">Prazo da Revisão</message>
 	<message key="submission.task.responseDueDate">Prazo da Resposta</message>
 	<message key="navigation.goBack">Voltar</message>
-	<message key="notification.addedReviewer">Adicionado revisor</message>
+	<message key="notification.addedReviewer">{$reviewerName} foi indicado para rever esta submissão e foi enviado um email de notificação</message>
 	<message key="notification.removedReviewer">Removido revisor</message>
 	<message key="notification.addedStageParticipant">Utilizador adicionado como participante da etapa.</message>
 	<message key="notification.type.newAnnouncement">Nova notícia</message>
@@ -526,4 +524,33 @@
 	<message key="notification.type.roundStatusTitle">Estado Ronda {$round}</message>
 
 	<message key="semicolon">{$label}:</message>
+	<message key="common.deleting">A apagar</message>
+	<message key="common.filter">Filtros</message>
+	<message key="common.filterAdd">Adicionar filtro: {$filterTitle}</message>
+	<message key="common.filterRemove">Limpar filtro: {$filterTitle}</message>
+	<message key="common.from">De</message>
+	<message key="common.until">Até</message>
+	<message key="common.lessThan">{$value} ou menos</message>
+	<message key="common.listSeparator">,</message>
+	<message key="common.moreThan">{$value} ou mais</message>
+	<message key="common.pagination">{$start}-{$end} de {$total}</message>
+	<message key="common.pagination.label">Visitar páginas adicionais</message>
+	<message key="common.saving">A guardar</message>
+	<message key="common.clearSearch">Limpar frase de pesquisa</message>
+	<message key="common.publicAccess">Acesso Público</message>
+	<message key="stageParticipants.notify.startDiscussion">Iniciar Discussão</message>
+	<message key="stageParticipants.notify.startDiscussion.description">Iniciar uma discussão entre si e {$userFullName}.</message>
+	<message key="stageParticipants.options">Atribuição de privilégios</message>
+	<message key="stageParticipants.recommendOnly">Este participante só tem permissão para recomendar uma decisão editorial e será necessário um editor autorizado para registar as decisões editoriais.</message>
+	<message key="notification.reviewerThankedEmail">Email de agradecimento enviado ao revisor.</message>
+	<message key="notification.sendNotificationConfirmation">Enviar email de notificação a todos os utilizadores registados</message>
+	<message key="notification.addedReviewerNoEmail">{$reviewerName} foi indicado para rever esta submissão mas não foi enviado um email de notificação.</message>
+	<message key="notification.editedNavigationMenuItem">Item do menu de navegação atualizado com sucesso</message>
+	<message key="notification.removedNavigationMenuItem">Item do menu de navegação removido com sucesso</message>
+	<message key="notification.addedNavigationMenuItem">Item do menu de navegação foi adicionado com sucesso</message>
+	<message key="notification.addedNavigationMenu">Menu de navegação foi adicionado com sucesso</message>
+	<message key="notification.editedNavigationMenu">Menu de navegação foi atualizado com sucesso</message>
+	<message key="notification.removedNavigationMenu">Menu de navegação foi removido com sucesso</message>
+	<message key="list.viewMore">Apresentar mais detalhes sobre {$name}</message>
+	<message key="list.viewLess">Esconder detalhes de {$name}</message>
 </locale>

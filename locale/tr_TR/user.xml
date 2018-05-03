@@ -4,8 +4,8 @@
 <!--
   * locale/tr_TR/user.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization strings for the tr_TR (Türkçe) locale.
   -->
@@ -30,9 +30,7 @@
 	<message key="user.dateRegistered">Kayıt tarihi</message>
 	<message key="user.editMyProfile">Profilimi Düzenle</message>
 	<message key="user.email">E-posta</message>
-	<message key="user.feminine">F</message>
 	<message key="user.firstName">İlk Adı</message>
-	<message key="user.gender">Cinsiyet</message>
 	<message key="user.initialsExample">Aytuğ Sefa ÇELİK = ASÇ</message>
 	<message key="user.initials">İlk Harfler</message>
 	<message key="user.interests">Uzmanlık Alanı</message>
@@ -57,11 +55,9 @@
 	<message key="user.login.resetPassword">Şifreyi Sıfırla</message>
 	<message key="user.logOut">Çıkış</message>
 	<message key="user.mailingAddress">Posta Adresi</message>
-	<message key="user.masculine">M</message>
 	<message key="user.middleName">İkinci adı</message>
 	<message key="user.myAccount">Hesabım</message>
 	<message key="user.name">Ad</message>
-	<message key="user.other">Diğer</message>
 	<message key="user.password">Şifre</message>
 	<message key="user.repeatPassword">Şifre tekrarı</message>
 	<message key="user.phone">Tel</message>

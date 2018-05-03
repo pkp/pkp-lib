@@ -3,8 +3,8 @@
 /**
  * @file plugins/generic/acron/PKPAcronPlugin.inc.php
  *
- * Copyright (c) 2013-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2013-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPAcronPlugin
@@ -29,10 +29,10 @@ class PKPAcronPlugin extends GenericPlugin {
 	var $_tasksToRun;
 
 	/**
-	 * @copydoc LazyLoadPlugin::register()
+	 * @copydoc Plugin::register()
 	 */
-	function register($category, $path) {
-		$success = parent::register($category, $path);
+	function register($category, $path, $mainContextId = null) {
+		$success = parent::register($category, $path, $mainContextId);
 		HookRegistry::register('Installer::postInstall', array(&$this, 'callbackPostInstall'));
 
 		if (!Config::getVar('general', 'installed') || defined('RUNNING_UPGRADE')) return $success;

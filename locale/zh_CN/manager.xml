@@ -4,8 +4,8 @@
 <!--
   * locale/zh_CN/manager.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the en_US (English) locale.
@@ -166,10 +166,6 @@
 	<message key="plugins.categories.themes.description">主题插件用户更改系统显示样式.</message>
 	<message key="plugins.categories.themes">主题插件</message>
 	<message key="manager.reviewerSearch.searchByName">使用名字检索审稿人</message>
-	<message key="manager.reviewerSearch.doneAmount">已完成审阅的数量</message>
-	<message key="manager.reviewerSearch.avgAmount">同行评议的平均天数</message>
-	<message key="manager.reviewerSearch.lastAmount">自从最后一次审阅的天数</message>
-	<message key="manager.reviewerSearch.activeAmount">当前正在审阅的数量</message>
 	<message key="manager.reviewerSearch.interests">审阅兴趣</message>
 	<message key="manager.setup.errorDeletingItem">在删除这个项目过程中发生了一个错误</message>
 	<message key="manager.announcements.datePublish">已出版</message>
@@ -181,7 +177,6 @@
 	<message key="manager.emails.enable.message">你是即将启用此电子邮件。你要确认此操作？</message>
 	<message key="manager.emails.resetAll.message">如果您重置所有模板，所有的电子邮件模板的修改都将丢失。你要确认此操作？</message>
 	<message key="manager.emails.reset.message">如果重置这个模板，所有的消息数据将被重置为其默认值，失去了所有的修改。你要确认此操作？</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">输入审稿兴趣，以逗号分隔...</message>
 	<message key="manager.setup.layout.blockManagement">边栏管理</message>
 	<message key="plugins.categories.metadata">元数据插件</message>
 	<message key="manager.reviewerSearch.form.instructions">使用下表来设定您希望用来查询术语的最大值。此表已预先填充了这些领域的计算平均值。</message>

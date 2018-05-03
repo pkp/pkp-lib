@@ -4,8 +4,8 @@
 <!--
   * locale/ru_RU/manager.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ru_RU (Русский) locale.
@@ -168,18 +168,8 @@
 	<message key="manager.reviewerSearch.change">Изменить</message>
 	<message key="manager.reviewerSearch.searchByName">Поиск рецензента по имени</message>
 	<message key="manager.reviewerSearch.searchByName.short">Поиск по имени</message>
-	<message key="manager.reviewerSearch.doneAmount">Выполненых рецензий: {$current}</message>
-	<message key="manager.reviewerSearch.doneAmountToggle">Включить/выключить фильтр по выполненным рецензиям.</message>
-	<message key="manager.reviewerSearch.avgAmount">Средний срок выполнения рецензии: {$current}</message>
-	<message key="manager.reviewerSearch.avgAmountToggle">Включить/выключить фильтр по среднему числу дней на выполнение рецензии.</message>
-	<message key="manager.reviewerSearch.lastAmount">Дней после последней рецензии: {$current}</message>
-	<message key="manager.reviewerSearch.lastAmountToggle">Включить/выключить фильтр по количеству дней после последней рецензии.</message>
-	<message key="manager.reviewerSearch.activeAmount">Над сколькими рецензиями работает сейчас: {$current}</message>
-	<message key="manager.reviewerSearch.activeAmountToggle">Включить/выключить фильтр по количеству активных рецензий в настоящий момент.</message>
 	<message key="manager.reviewerSearch.interests">Интересы рецензента</message>
 	<message key="manager.reviewerSearch.form.instructions">Используйте форму ниже, чтобы задать максимум значений для терминов, по которым вы хотите произвести поиск. Эта форма предварительно заполняется средними значениями, вычисленными для этих полей.</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">Интересы рецензента (введите для поиска совпадающих интересов)</message>
-	<message key="manager.reviewerSearch.form.previousReviewRounds">Рецензенты с предыдущих раундов рецензирования этого материала</message>
 	<message key="manager.roles">Роли</message>
 	<message key="manager.statistics"><![CDATA[Статистика и отчеты]]></message>
 	<message key="manager.statistics.defaultMetricDescription">
@@ -268,6 +258,8 @@
 	<message key="manager.setup.reviewOptions.remindForSubmit">Отправить напоминание, если рецензент не отправил рекомендацию в течение следующего количества дней, после того как срок отправки рецензии прошел:</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Сроки рецензирования по умолчанию</message>
 	<message key="manager.setup.reviewOptions.showBlindReviewLink">Добавить ссылку на «Обеспечение слепого рецензирования» во время загрузки</message>
+	<message key="manager.setup.searchEngineIndexing.sitemap">Карта сайта</message>
+	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[Карта сайта в формате XML доступна для отправки поисковым машинам по адресу <a href="{$path}" target="_blank">{$path}</a>]]></message>
 	<message key="manager.setup.sponsors.note">Описание правил и отношений со спонсорами</message>
 	<message key="manager.setup.sponsors.description">Примеры: общества ученых, подразделения университетов, объединения и т.д. Спонсоры показываются в открытом доступе на сайте.</message>
 	<message key="manager.setup.styleSheetDescription">Опытные веб-разработчики могут загрузить файл CSS для дополнительной модификации внешнего вида сайта.</message>
@@ -405,6 +397,8 @@
 	<message key="settings.libraryFiles.category.permissions">Разрешения</message>
 	<message key="settings.libraryFiles.category.reports">Отчеты</message>
 	<message key="settings.libraryFiles.category.other">Другое</message>
+	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>Если включен «Открытый доступ», этот файл библиотеки может быть доступен для скачивания по адресу: <blockquote>{$downloadUrl}</blockquote></p>]]></message>
+	<message key="settings.libraryFiles.public.selectLibraryFiles">Выберите файлы библиотеки для присоединения</message>
 
 	<!--  Настройка сетки «Жанры» -->
 	<message key="grid.action.addGenre">Добавить компонент</message>
@@ -506,6 +500,7 @@
 	<message key="manager.navigationMenus.unassignedMenuItems">Неназначенные элементы меню</message>
 	<message key="manager.navigationMenus.form.navigationMenuArea">Области навигации активной темы</message>
 	<message key="manager.navigationMenus.form.navigationMenuAreaMessage">Выберите область навигации</message>
+	<message key="manager.navigationMenus.form.menuAssigned">Этой области уже назначено навигационное меню.</message>
 
 	<message key="manager.navigationMenus.form.url">URL</message>
 	<message key="manager.navigationMenus.form.customUrlError">Необходимо ввести URL-адрес</message>
@@ -539,4 +534,8 @@
 	<message key="manager.navigationMenus.loggedIn.conditionalWarning">Эта ссылка будет показываться только в случае, когда посетитель еще не вошел в систему.</message>
 	<message key="manager.navigationMenus.contact.description">Ссылка на страницу, отображающую вашу контактную информацию.</message>
 	<message key="manager.navigationMenus.contact.conditionalWarning">Эта ссылка будет показываться только в случае, если вы заполнили раздел «Контактная информация» в Настройки > Контакт.</message>
+	<message key="manager.navigationMenus.form.typeMissing">Пожалуйста выберите тип навигационного меню.</message>
+	<message key="manager.navigationMenus.subscriptions.conditionalWarning">Эта ссылка будет показываться только в случае, если включены платежи в Настройки > Распространение > Платежи.</message>
+	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning">Эта ссылка будет показываться только в случае, если посетитель зашел в систему, включены платежи в Настройки > Распространение > Платежи и обязательны подписки в Настройки > Распространение > Доступ.</message>
+	<message key="manager.navigationMenus.search.description">Ссылка на страницу поиска.</message>
 </locale>

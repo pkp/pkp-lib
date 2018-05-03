@@ -4,8 +4,8 @@
 <!--
   * locale/ru_RU/common.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ru_RU (Русский) locale.
@@ -153,6 +153,9 @@
 	<message key="common.fileSize">Размер файла</message>
 	<message key="common.fileType">Тип файла</message>
 	<message key="common.fileUploaderError">Загружается загрузчик файлов в систему. Если он не появляется, скорее всего его запуск не поддерживается этим браузером. Пожалуйста, свяжитесь с администратором сервера для решения проблемы.</message>
+	<message key="common.filter">Фильтры</message>
+	<message key="common.filterAdd">Добавить фильтр: {$filterTitle}</message>
+	<message key="common.filterRemove">Сбросить фильтр: {$filterTitle}</message>
 	<message key="common.from">C</message>
 	<message key="common.until">По</message>
 	<message key="common.go">Выполнить</message>
@@ -170,6 +173,8 @@
 	<message key="common.language">Язык</message>
 	<message key="common.languages">Языки</message>
 	<message key="common.less">Меньше</message>
+	<message key="common.lessThan">{$value} или меньше</message>
+	<message key="common.listSeparator">, </message>
 	<message key="common.manage">Настроить</message>
 	<message key="common.mailingAddress">Почтовый адрес</message>
 	<message key="common.billingAddress">Адрес для отправки счета (если отличается)</message>
@@ -177,6 +182,7 @@
 	<message key="common.modify">Изменить</message>
 	<message key="common.month">Месяц</message>
 	<message key="common.more">Больше</message>
+	<message key="common.moreThan">{$value} или больше</message>
 	<message key="common.noneAssigned">Никто не назначен</message>
 	<message key="common.none">Нет</message>
 	<message key="common.no">Нет</message>
@@ -238,6 +244,7 @@
 	<message key="common.saving">Сохранение...</message>
 	<message key="common.search">Найти</message>
 	<message key="common.searchQuery">Поисковый запрос</message>
+	<message key="common.clearSearch">Очистить фразу поиска</message>
 	<message key="common.second">Секунд</message>
 	<message key="common.selectAll">Выбрать все</message>
 	<message key="common.selectNone">Отменить выбор</message>
@@ -282,6 +289,7 @@
 	<message key="common.plugins">Модули</message>
 	<message key="common.metric">Метрика</message>
 	<message key="common.count">Счетчик</message>
+	<message key="common.publicAccess">Открытый доступ</message>
 	<message key="debug.databaseQueries">Количество запросов к БД</message>
 	<message key="debug.executionTime">Страница создана за</message>
 	<message key="debug.memoryUsage">Использование памяти</message>
@@ -290,7 +298,7 @@
 	<message key="debug.notes.missingLocaleKey">В языковом файле отсутствует ключ «{$key}».</message>
 	<message key="debug.notes">Примечания:</message>
 	<message key="defaultMetric.title">Метрика по умолчанию</message>
-	<message key="defaultMetric.availableMetrics">Доступные метрики</message>	
+	<message key="defaultMetric.availableMetrics">Доступные метрики</message>
 	<message key="editor.submissionReview.uploadFile">Загрузить файл рецензии</message>
 	<message key="editor.submissionReview.uploadAttachment">Загрузить файл</message>
 	<message key="email.addAttachment">Добавить вложение</message>
@@ -441,7 +449,6 @@
 	<message key="notification.editedAuthor">Автор отредактирован.</message>
 	<message key="notification.confirmError">При подверждении вашей подписки возникла ошибка.</message>
 	<message key="notification.confirmSuccess">Вы были успешно подписаны.</message>
-	<message key="notification.email">Не отправлять мне письмо по электронной почте для следующих типов уведомлений.</message>
 	<message key="notification.location">Перейти по ссылке</message>
 	<message key="notification.mailList">Список рассылки уведомлений</message>
 	<message key="notification.mailList.emailInvalid">Пожалуйста, введите правильный адрес электронной почты.</message>
@@ -565,4 +572,8 @@
 	<message key="notification.addedNavigationMenu">Меню навигации было успешно добавлено</message>
 	<message key="notification.editedNavigationMenu">Меню навигации было успешно обновлено</message>
 	<message key="notification.removedNavigationMenu">Меню навигации было успешно удалено</message>
+
+	<!-- Обработчики списков -->
+	<message key="list.viewMore">Показать подробности о {$name}</message>
+	<message key="list.viewLess">Скрыть подробности о {$name}</message>
 </locale>

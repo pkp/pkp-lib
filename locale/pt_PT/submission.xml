@@ -4,8 +4,8 @@
 <!--
   * locale/pt_PT/submission.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -311,8 +311,8 @@
 	<message key="submission.editorial">Edição de cópia</message>
 	<message key="submission.event.submissionSubmitted">Submissão inicial concluída.</message>
 	<message key="submission.event.fileUploaded">Um ficheiro "{$originalFileName}" foi submetido {$submissionId} por {$username}.</message>
-	<message key="submission.event.fileRevised">Revisão "{$name}" (file ID {$fileId}-{$revision}) foi carregada.</message>
-	<message key="submission.event.participantAdded">{$name} foi designado a esta submissão como {$userGroupName}.</message>
+	<message key="submission.event.fileRevised">Revisão "{$name}" (file ID {$fileId}-{$fileRevision}) foi carregada.</message>
+	<message key="submission.event.participantAdded">{$name} ({$username}) foi designado para esta submissão como {$userGroupName}.</message>
 	<message key="submission.event.subjectPrefix">Foi enviado um e-mail:</message>
 	<message key="submission.event.viewEmail">Ver E-mail</message>
 	<message key="submission.files.downloadAll">Download Todos Ficheiros</message>
@@ -393,9 +393,8 @@
 	<message key="submission.upload.proof">Upload ficheiro pronto para produção</message>
 	<message key="submission.upload.noAvailableReviewFiles">Não há artigos para rever neste momento.</message>
 	<message key="editor.submission.roundStatus.revisionsRequested">Foram solicitadas revisões.</message>
-	<message key="editor.submission.roundStatus.resubmitted">A submissão foi reenviada para revisão.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">Enviado para revisão externa.</message>
-	<message key="editor.submission.roundStatus.accepted">Submissão aceita.</message>
+	<message key="editor.submission.roundStatus.accepted">Submissão aceite.</message>
 	<message key="editor.submission.roundStatus.declined">Submissão rejeitada.</message>
 	<message key="editor.submission.roundStatus.pendingReviewers">Aguardando seleccção dos revisores.</message>
 	<message key="editor.submission.roundStatus.pendingReviews">Aguardando respostas dos revisores.</message>
@@ -504,4 +503,72 @@
 	<message key="submission.query.new">{$creatorName} começou uma discussion: {$noteTitle}: {$noteContents}</message>
 	<message key="submission.query.activity.contents">Há uma nova discussão com o título "{$queryTitle}" relativa à submission "{$submissionTitle}".</message>
 	<message key="submission.query.new.contents">Foi adicionado à discussão entitulada "{$queryTitle}" relativa à submissão "{$submissionTitle}".</message>
+	<message key="submission.citations.description">Introduza cada referência numa nova linha de forma a que possam ser recolhidas.</message>
+	<message key="submission.parsedCitations">Referências Recolhidas</message>
+	<message key="submission.parsedCitations.description">As seguintes referências foram recolhidas e estarão ligadas aos metadados da submissão.</message>
+	<message key="submission.parsedAndSaveCitations">Recolher e Guardar Referências</message>
+	<message key="submission.event.participantRemoved">{$name} ({$username}) foi removido como {$userGroupName}.</message>
+	<message key="submission.howToCite.downloadCitation">Descarregar Citação</message>
+	<message key="submission.submit.form.languagesRequired">Introduza uma língua.</message>
+	<message key="submission.submit.form.subjectsRequired">Introduza um assunto.</message>
+	<message key="submission.submit.form.disciplinesRequired">Introduza uma Área de Conhecimento.</message>
+	<message key="submission.submit.form.keywordsRequired">Introduza uma palavra-chave.</message>
+	<message key="submission.submit.form.agenciesRequired">Introduza uma agência de suporte.</message>
+	<message key="submission.submit.form.coverageRequired">Introduza a informação de cobertura.</message>
+	<message key="submission.submit.form.typeRequired">Introduza o tipo.</message>
+	<message key="submission.submit.form.sourceRequired">Introduza a fonte.</message>
+	<message key="submission.submit.form.rightsRequired">Introduza os direitos.</message>
+	<message key="submission.submit.form.citationsRequired">Introduza as referências.</message>
+	<message key="editor.submission.roundStatus.revisionsSubmitted">Revisões foram submetidas.</message>
+	<message key="editor.submission.roundStatus.resubmitForReview">A submissão deve ser objeto de nova ronda de revisão.</message>
+	<message key="editor.submission.roundStatus.submissionResubmitted">A submissão foi enviada para uma nova ronda de revisão.</message>
+	<message key="editor.submission.roundStatus.reviewOverdue">Uma revisão ultrapassou o prazo.</message>
+	<message key="editor.submission.roundStatus.pendingRecommendations">À espera de recomendações dos editores.</message>
+	<message key="editor.submission.roundStatus.recommendationsReady">Uma nova recomendação editorial foi submetida.</message>
+	<message key="editor.submission.roundStatus.recommendationsCompleted">Todas as recomendações foram introduzidas, e é necessária uma decisão.</message>
+	<message key="editor.submission.addStageParticipant.form.reviewerWarning">O participante que selecionou foi indicado para realizar uma revisão cega. Se o atribuir como um participante, irá ter acesso à identidade do autor É preferível não atribuir este participante a não ser que possa garantir a integridade do processo de revisão por pares.</message>
+	<message key="editor.submission.decision.skipReview">Aceitar e Saltar Revisão</message>
+	<message key="editor.submission.decision.noDecisionsAvailable">Atribua um editor para permitir a decisão editorial nesta etapa.</message>
+	<message key="editor.submission.makeRecommendation">Realizar Recomendação</message>
+	<message key="editor.submission.changeRecommendation">Alterar Recomendação</message>
+	<message key="editor.submission.recommendation.display">Recomendação: {$recommendation}</message>
+	<message key="editor.submission.allRecommendations.display">Recomendações: {$recommendations}</message>
+	<message key="editor.submission.recommendation">Recomendação</message>
+	<message key="editor.submission.recommendation.description">Recomendar uma decisão editorial para esta submissão.</message>
+	<message key="editor.submission.recordedRecommendations">Recomendações Guardadas</message>
+	<message key="editor.submission.decision.nextButton">Próximo: Selecionar Ficheiros para {$stageName}</message>
+	<message key="editor.submission.decision.selectFiles">Selecione os ficheiros que quer enviar para a etapa {$stageName}.</message>
+	<message key="editor.submission.decision.previousAuthorNotification">Anterior: Notificação a Autores</message>
+	<message key="notification.type.editorAssign">Foi encarregue como editor da submissão "{$title}".</message>
+	<message key="grid.reviewAttachments.send.title">Selecionar ficheiros de revisão a partilhar com o(s) autor(es)</message>
+	<message key="submission.review.status.awaitingResponse">À espera de resposta do revisor.</message>
+	<message key="submission.review.status.declined">O revisor rejeitou este pedido de revisão.</message>
+	<message key="submission.review.status.responseOverdue">O revisor ultrapassou a data limite para a resposta.</message>
+	<message key="submission.review.status.reviewOverdue">O revisor ultrapassou a data limite para a revisão.</message>
+	<message key="submission.review.status.accepted">Esta revisão foi aceite.</message>
+	<message key="submission.review.status.received">O revisor submeteu os seus comentários.</message>
+	<message key="submission.review.status.complete">Esta revisão foi concluída.</message>
+	<message key="submission.review.status.thanked">Esta revisão está concluída e o foi enviado um agradecimento ao revisor pela sua contribuição.</message>
+	<message key="submission.query.participantTitle">{$fullName}, {$userGroup}</message>
+	<message key="submission.query.noParticipantOptions">Tem de atribuir pelo menos um participante a esta submissão antes de iniciar uma discussão.</message>
+	<message key="submission.list.infoCenter"><![CDATA[Registo de Atividade & Notas]]></message>
+	<message key="submission.list.count">{$count} submissões</message>
+	<message key="submission.list.itemsOfTotal">{$count} de {$total} submissões</message>
+	<message key="submission.list.responseDue">Resposta Até</message>
+	<message key="submission.list.reviewDue">Revisão Até</message>
+	<message key="submission.list.reviewComplete">Revisão Enviada</message>
+	<message key="submission.list.confirmDelete">Apagar submissão?</message>
+	<message key="submission.list.itemOrdererUp">Incrementar posição de {$itemTitle}</message>
+	<message key="submission.list.itemOrdererDown">Decrementar posição de {$itemTitle}</message>
+	<message key="submission.list.viewSubmission">Ver Submissão</message>
+	<message key="submission.list.reviewsCompleted">Revisões atribuídas terminadas</message>
+	<message key="submission.list.revisionsSubmitted">Revisões enviadas</message>
+	<message key="submission.list.copyeditsSubmitted">Ficheiros de 'copyediting' enviados</message>
+	<message key="submission.list.galleysCreated">Criadas provas de impressão</message>
+	<message key="submission.list.filesPrepared">Ficheiros preparados</message>
+	<message key="submission.list.discussions">Iniciar discussão</message>
+	<message key="submission.list.dualWorkflowLinks"><![CDATA[Foram-lhe atribuídos vários papeis nesta submissão. Deseja aceder ao  <a href="{$urlAuthorWorkflow}">Processo Autoral</a>  ou ao <a href="{$urlEditorialWorkflow}">Processo Editorial</a>?]]></message>
+	<message key="submission.list.reviewerWorkflowLink"><![CDATA[Foi-lhe atribuído o papel editorial a esta submissão. Deseja aceder ao <a href="{$urlEditorialWorkflow}">Processo Editorial</a>?]]></message>
+	<message key="submission.list.incompleteSubmissionNotice">A submissão deve ser completada antes de um editor a rever.</message>
+	<message key="submission.list.currentStage">Atualmente no estado {$stage}.</message>
 </locale>

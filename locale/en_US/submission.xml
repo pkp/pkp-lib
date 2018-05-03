@@ -4,8 +4,8 @@
 <!--
   * locale/en_US/submission.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -198,7 +198,6 @@
 	<message key="submission.event.confirmDeleteLogEntry">Are you sure you want to delete this event log entry?</message>
 	<message key="submission.event.deleteLogEntry">Delete Log Entry</message>
 	<message key="submission.event.submissionSubmitted">Initial submission completed.</message>
-	<message key="submission.event.fileUploaded">File "{$name}" (file ID {$fileId}-{$fileRevision}) was uploaded.</message>
 	<message key="submission.event.fileRevised">Revision "{$name}" (file ID {$fileId}-{$fileRevision}) was uploaded.</message>
 	<message key="submission.event.general.metadataUpdated">Submission metadata updated</message>
 	<message key="submission.event.general.suppFileUpdated">Submission file updated</message>
@@ -377,7 +376,7 @@
 	<message key="submission.submit.contributorRole">Contributor's role</message>
 	<message key="submission.submit.addAuthor">Add Contributor</message>
 	<message key="submission.submit.form.languagesRequired">Please enter a language.</message>
-	<message key="submission.submit.form.subjectRequired">Please enter a subject.</message>
+	<message key="submission.submit.form.subjectsRequired">Please enter a subject.</message>
 	<message key="submission.submit.form.disciplinesRequired">Please enter a discipline.</message>
 	<message key="submission.submit.form.keywordsRequired">Please enter a keyword.</message>
 	<message key="submission.submit.form.agenciesRequired">Please enter a supporting agency.</message>
@@ -385,7 +384,7 @@
 	<message key="submission.submit.form.typeRequired">Please enter the type.</message>
 	<message key="submission.submit.form.sourceRequired">Please enter the source.</message>
 	<message key="submission.submit.form.rightsRequired">Please enter the rights.</message>
-	<message key="submission.submit.form.citaionsRequired">Please enter the references.</message>
+	<message key="submission.submit.form.citationsRequired">Please enter the references.</message>
 
 	<!-- Submission file upload form elements -->
 	<message key="submission.form.name">Name the file (e.g., Manuscript; Table 1)</message>
@@ -438,7 +437,9 @@
 	<!-- Review Round Status Keys -->
 	<message key="editor.submission.roundStatus.revisionsRequested">Revisions have been requested.</message>
 	<message key="editor.submission.roundStatus.revisionsSubmitted">Revisions have been submitted.</message>
-	<message key="editor.submission.roundStatus.resubmitted">Submission has been resubmitted for review.</message>
+	<message key="editor.submission.roundStatus.resubmitForReview">The submission must be resubmitted for another review round.</message>
+	<message key="editor.submission.roundStatus.submissionResubmitted">Submission has been resubmitted for another review round.</message>
+
 	<message key="editor.submission.roundStatus.sentToExternal">Sent to external review.</message>
 	<message key="editor.submission.roundStatus.accepted">Submission accepted.</message>
 	<message key="editor.submission.roundStatus.declined">Submission declined.</message>
@@ -463,6 +464,7 @@
 	<message key="editor.submission.removeStageParticipant.description"><![CDATA[You are about to remove this participant from <strong>all</strong> stages. If the user also have pending auditor tasks, they will be removed too.]]></message>
 	<message key="editor.submission.addStageParticipant.form.userGroupRequired">You must select a user group.</message>
 	<message key="editor.submission.addStageParticipant.form.userRequired">You must select a user for the specified user group.</message>
+	<message key="editor.submission.addStageParticipant.form.reviewerWarning">The participant you selected has been assigned to conduct a blind review. If you assign them as a participant, they will have access to the author's identity. You are encouraged not to assign this participant unless you can independently ensure the integrity of the peer review process.</message>
 
 	<!--  editor decisions -->
 	<message key="editor.submission.decision">Decision</message>
@@ -526,7 +528,6 @@
 	<message key="notification.type.editorDecisionPendingRevisions">Revision required.</message>
 	<message key="notification.type.editorDecisionResubmit">Resubmit for review.</message>
 	<message key="notification.type.editorDecisionDecline">Submission declined.</message>
-	<message key="notification.type.editorDecisionSendToProduction">Production process started.</message>
 	<message key="notification.uploadedResponse">Response uploaded.</message>
 
 	<message key="notification.type.editorAssignment">An editor must be assigned before review is initiated. Please add editor using the Participants list.</message>
@@ -610,18 +611,20 @@
 	<message key="submission.list.itemsOfTotal">{$count} of {$total} submissions</message>
 	<message key="submission.list.responseDue">Response Due</message>
 	<message key="submission.list.reviewDue">Review Due</message>
+	<message key="submission.list.reviewComplete">Review Submitted</message>
 	<message key="submission.list.confirmDelete">Delete submission?</message>
-	<message key="submission.list.filter">Filters</message>
-	<message key="submission.list.filterRemove">Clear filter: {$filterTitle}</message>
 	<message key="submission.list.itemOrdererUp">Increase position of {$itemTitle}</message>
 	<message key="submission.list.itemOrdererDown">Decrease position of {$itemTitle}</message>
 	<message key="submission.list.viewSubmission">View Submission</message>
-	<message key="submission.list.clearSearch">Clear search phrase</message>
 	<message key="submission.list.reviewsCompleted">Assigned reviews completed</message>
 	<message key="submission.list.revisionsSubmitted">Revisions submitted</message>
 	<message key="submission.list.copyeditsSubmitted">Copyedited files submitted</message>
 	<message key="submission.list.galleysCreated">Production galleys created</message>
 	<message key="submission.list.filesPrepared">Files prepared</message>
 	<message key="submission.list.discussions">Open discussions</message>
+	<message key="submission.list.dualWorkflowLinks"><![CDATA[You have been assigned multiple roles for this submission. Would you like to access the <a href="{$urlAuthorWorkflow}">Author's workflow</a>  or the <a href="{$urlEditorialWorkflow}">Editorial workflow</a>?]]></message>
+	<message key="submission.list.reviewerWorkflowLink"><![CDATA[You have been assigned an editorial role for this submission. Would you like to access the <a href="{$urlEditorialWorkflow}">Editorial workflow</a>?]]></message>
 	<message key="submission.list.incompleteSubmissionNotice">This submission must be completed before an editor will review it.</message>
+	<message key="submission.list.currentStage">Currently in the {$stage} stage.</message>
+	<message key="submission.list.assignEditor">Assign Editor</message>
 </locale>

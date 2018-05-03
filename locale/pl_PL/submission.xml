@@ -4,8 +4,8 @@
 <!--
   * locale/pl_PL/submission.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -400,7 +400,6 @@
 	<message key="submission.upload.proof">Prześlij plik gotowy do publikacji</message>
 	<message key="submission.upload.noAvailableReviewFiles">Brak plików do recenzji.</message>
 	<message key="editor.submission.roundStatus.revisionsRequested">Prośba o wprowadzenie poprawek.</message>
-	<message key="editor.submission.roundStatus.resubmitted">Zgłoszenie zostało przesłane ponownie w celu wykonania recenzji.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">Wyślij do recenzji zewnętrznej.</message>
 	<message key="editor.submission.roundStatus.accepted">Zgłoszenie zaakceptowane.</message>
 	<message key="editor.submission.roundStatus.declined">Zgłoszenie odrzucone.</message>

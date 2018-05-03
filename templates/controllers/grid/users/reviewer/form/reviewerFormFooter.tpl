@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/user/reviewer/form/reviewerFormFooter.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * The non-searching part of the add reviewer form
@@ -64,9 +64,9 @@
 		{/foreach}
 	{/fbvFormSection}
 
-	{if count($reviewForms)>1}{* There will always be a "none" entry *}
+	{if count($reviewForms)>0}
 		{fbvFormSection title="submission.reviewForm"}
-			{fbvElement type="select" name="reviewFormId" id="reviewFormId" translate=false from=$reviewForms selected=$reviewFormId}
+			{fbvElement type="select" name="reviewFormId" id="reviewFormId" defaultLabel="manager.reviewForms.noneChosen"|translate defaultValue="0" translate=false from=$reviewForms selected=$reviewFormId}
 		{/fbvFormSection}
 	{/if}
 

@@ -4,8 +4,8 @@
 <!--
   * locale/fr_FR/manager.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the fr_FR (Français (France)) locale.
@@ -172,10 +172,6 @@
 	<message key="manager.emails.form.emailKeyRequired">Une clé de courriel unique est obligatoire pour le courriel.</message>
 	<message key="manager.setup.errorDeletingItem">Il s'est produit une erreur lors de la suppression de cet élément.</message>
 	<message key="manager.reviewerSearch.searchByName">Chercher un rapporteur par nom</message>
-	<message key="manager.reviewerSearch.doneAmount">Nombre d'évaluations terminée : {$current}</message>
-	<message key="manager.reviewerSearch.avgAmount">Nombre de jours moyen par évaluation: {$current}</message>
-	<message key="manager.reviewerSearch.lastAmount">Jours depuis la dernière évaluation: {$current}</message>
-	<message key="manager.reviewerSearch.activeAmount">Nombre d'évaluations présentement actives: {$current}</message>
 	<message key="manager.reviewerSearch.interests">Intérêts d'évaluation</message>
 	<message key="plugins.categories.oaiMetadataFormats">Plugiciels du format de métadonnées OAI</message>
 	<message key="plugins.categories.oaiMetadataFormats.description">Ces plugiciels de format émettent les métadonnées en communications OAI.</message>
@@ -239,7 +235,6 @@
 	<message key="manager.emails.resetAll.message">Si vous réinitialisez tous les modèles, toutes vos modifications des modèles de courriels seront perdues. Vous souhaitez confirmer cette opération?</message>
 	<message key="manager.emails.reset.message">Si vous réinitialisez ce modèle, toutes les données des messages seront réinitialisées à leur valeur par défaut et vous perdrez toutes les modifications. Vous souhaitez confirmer cette opération?</message>
 	<message key="manager.reviewerSearch.form.instructions">Utilisez le formulaire ci-dessous pour indiquer les valeurs maximales des termes de votre recherche. Le formulaire contient les moyennes calculées de ces champs.</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">Saisir les intérêts des rapporteurs, séparés par des virgules...</message>
 	<message key="manager.statistics.reports.aggregationColumns">Statistiques agrégées par:</message>
 	<message key="manager.statistics.reports.defaultReportTemplates">Modèles de rapport par défaut</message>
 	<message key="manager.statistics.reports.form.columnsRequired">Vous devez choisir au moins une colonne pour produire le rapport.</message>
@@ -254,7 +249,7 @@
 	<message key="manager.setup.sponsors.note">Vous pouvez ajouter une note décrivant votre politique en matière de commandite; celle-ci apparaitra dans la liste des commanditaires sur votre page À propos de.</message>
 	<message key="manager.setup.contributors.note">Vous pouvez ajouter une note décrivant votre rapport et votre politique entre vous et vos bailleurs de fonds; celle-ci apparaitra dans la liste des bailleurs de fonds sur votre page À propos de.</message>
 	<message key="manager.plugins.fileSelectError">Veuillez sélectionner un fichier d'abord</message>
-	<message key="manager.statistics.defaultMetricDescription">Votre {$contextObjectName} a été configuré pour enregistrer plus d'une mesure d'utilisation. Les statistiques d'utilisation seront affichées dans plusieurs contextes. 
+	<message key="manager.statistics.defaultMetricDescription">Votre {$contextObjectName} a été configuré pour enregistrer plus d'une mesure d'utilisation. Les statistiques d'utilisation seront affichées dans plusieurs contextes.
 
 Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, par exemple pour afficher une liste ordonnée des soumissions les plus utilisées ou pour ordonner les résultats de la recherche. Veuillez choisir l'une des mesures configurées à titre de mesure par défaut.</message>
 	<message key="manager.statistics.reports.advancedOptions.label">Personnaliser les colonnes, le filtre et les options de classement. Les changements apportés à ces options pourraient modifier le résultat du modèle de rapport attendu.</message>
@@ -384,11 +379,6 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 
 	<message key="manager.userSearch.searchByName">Rechercher un usager par son nom</message>
 	<message key="manager.reviewerSearch.change">Changé</message>
-	<message key="manager.reviewerSearch.doneAmountToggle">Activer/désactiver le filtre pour évaluations complétées.</message>
-	<message key="manager.reviewerSearch.avgAmountToggle">Activer/désactiver le filtre pour moyenne de jours pour compléter une évaluation.</message>
-	<message key="manager.reviewerSearch.lastAmountToggle">Activer/désactiver le filtre pour les jours depuis la dernière évaluation</message>
-	<message key="manager.reviewerSearch.activeAmountToggle">Activer/désactiver le filtre pour les évaluations présentement actives.</message>
-	<message key="manager.reviewerSearch.form.previousReviewRounds">Rapporteurs des séries précédentes de cette soumission</message>
 	<message key="manager.statistics.reports.optionalColumns.description">Les éléments en italique et marqués d'un astérisque représentent des données facultatives pour le mode actuel de comptage des statistiques dans le système (type métrique). Vous pouvez avoir ces données ou non, dépendamment de la configuration des plugiciels statistiques.</message>
 	<message key="manager.statistics.reports.advancedOptions.hide">Masquer les options avancées</message>
 	<message key="manager.statistics.reports.objectNotFound">Objet introuvable dans la base de données.</message>

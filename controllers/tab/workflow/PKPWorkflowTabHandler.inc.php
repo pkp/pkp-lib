@@ -3,8 +3,8 @@
 /**
  * @file controllers/tab/workflow/PKPWorkflowTabHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPWorkflowTabHandler
@@ -40,7 +40,7 @@ abstract class PKPWorkflowTabHandler extends Handler {
 	function authorize($request, &$args, $roleAssignments) {
 		// Authorize stage id.
 		import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
-		$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->_identifyStageId($request)));
+		$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->_identifyStageId($request), WORKFLOW_TYPE_EDITORIAL));
 
 		return parent::authorize($request, $args, $roleAssignments);
 	}

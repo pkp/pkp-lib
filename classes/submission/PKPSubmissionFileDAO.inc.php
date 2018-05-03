@@ -3,8 +3,8 @@
 /**
  * @file classes/submission/PKPSubmissionFileDAO.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionFileDAO
@@ -698,25 +698,25 @@ abstract class PKPSubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 	/**
 	 * @copydoc PKPPubIdPluginDAO::pubIdExists()
 	 */
-	function pubIdExists($pubIdType, $pubId, $fileId, $contextId) {
+	function pubIdExists($pubIdType, $pubId, $excludePubObjectId, $contextId) {
 		$submissionFileDAODelegate = $this->_getDaoDelegate('submissionfile');
-		return $submissionFileDAODelegate->pubIdExists($pubIdType, $pubId, $fileId, $contextId);
+		return $submissionFileDAODelegate->pubIdExists($pubIdType, $pubId, $excludePubObjectId, $contextId);
 	}
 
 	/**
 	 * @copydoc PKPPubIdPluginDAO::changePubId()
 	 */
-	function changePubId($fileId, $pubIdType, $pubId) {
+	function changePubId($pubObjectId, $pubIdType, $pubId) {
 		$submissionFileDAODelegate = $this->_getDaoDelegate('submissionfile');
-		$submissionFileDAODelegate->changePubId($fileId, $pubIdType, $pubId);
+		$submissionFileDAODelegate->changePubId($pubObjectId, $pubIdType, $pubId);
 	}
 
 	/**
 	 * @copydoc PKPPubIdPluginDAO::deletePubId()
 	 */
-	function deletePubId($fileId, $pubIdType) {
+	function deletePubId($pubObjectId, $pubIdType) {
 		$submissionFileDAODelegate = $this->_getDaoDelegate('submissionfile');
-		$submissionFileDAODelegate->deletePubId($fileId, $pubIdType);
+		$submissionFileDAODelegate->deletePubId($pubObjectId, $pubIdType);
 	}
 
 	/**

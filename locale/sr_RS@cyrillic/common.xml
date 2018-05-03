@@ -4,8 +4,8 @@
 <!--
   * locale/sr_RS@cyrillic/common.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Serbian_(sr_RS)
   * Localization strings for the sr_RS@cyrillic (Cрпски) locale.
@@ -267,7 +267,6 @@
 	<message key="notification.allow">Дозволи да ми стижу ове врсте обавештења.</message>
 	<message key="notification.confirmError">Дошло је до грешке приликом потврђивања ваше претплате.</message>
 	<message key="notification.confirmSuccess">Успешно сте се претплатили.</message>
-	<message key="notification.email">Пошаљи ми имејл за ове врсте обавештења.</message>
 	<message key="notification.location">Иди на URL</message>
 	<message key="notification.mailList">Мејлинг листа обавештења</message>
 	<message key="notification.mailList.emailInvalid">Унесите исправну имејл адресу.</message>

@@ -4,8 +4,8 @@
 <!--
   * locale/pt_PT/editor.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2003-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -37,19 +37,15 @@
 	<message key="editor.submissionReview.skipEmail">Não envie o e-mail do autor</message>
 	<message key="editor.submissionReview.open">Abrir</message>
 	<message key="editor.submissionReview.blind">Cega</message>
-	<message key="editor.submissionReview.doubleBlind">Dupla cega</message>
+	<message key="editor.submissionReview.doubleBlind">Duplamente cega</message>
 	<message key="editor.submissionReview.restrictFiles">Ficheiros a serem revistos</message>
 	<message key="editor.submissionReview.restrictFiles.hide">Fechar selecção de ficheiros</message>
 	<message key="editor.submissionReview.editReview">Editar Revisão</message>
 	<message key="editor.review.personalMessageToReviewer">E-mail a ser enviado ao revisor</message>
 	<message key="editor.review.importantDates">Datas Importantes</message>
-	<message key="editor.review.uploadRevision">Upload Revisão</message>
-	<message key="editor.review.NotifyAuthorAccept">Notificar o autor que a sua submissão foi aceite.</message>
-	<message key="editor.review.NotifyAuthorDecline">Notificar o autor que a sua submissão foi rejeitada.</message>
+	<message key="editor.review.uploadRevision">Upload da Revisão</message>
 	<message key="editor.review.NotifyAuthorRevisions">Solicitar revisões ao autor.</message>
 	<message key="editor.review.NotifyAuthorResubmit">Solicitar revisões ao autor que serão sujeitas a uma revisão posterior.</message>
-	<message key="editor.review.NotifyAuthorExternal">Notificar o autor sobre a decisão para iniciar uma revisão externa.</message>
-	<message key="editor.review.personalMessageToAuthor">E-mail para ser enviado ao autor</message>
 	<message key="editor.review.dateAccepted">Data de aceitação da revisão</message>
 	<message key="editor.review.noReviews">Não há revisões de pares para importar</message>
 	<message key="editor.review.reminder">Lembrete Revisão</message>
@@ -70,13 +66,13 @@
 	<message key="editor.review.reviewConfirmed">Revisão Confirmada</message>
 	<message key="editor.review.reviewSubmitted">Revisão Submetida</message>
 	<message key="editor.review.reviewerComments">Comentários Revisor</message>
-	<message key="editor.review.days">Média Dias</message>
 	<message key="editor.review.mustSelect">Tem de seleccionar um revisor</message>
 	<message key="editor.review.errorAddingReviewer">Ocorreu um erro ao adicionar o revisor. Por favor, tente novamente.</message>
 	<message key="editor.review.errorDeletingReviewer">Ocorreu um erro ao eliminar o revisor. Por favor, tente novamente.</message>
 	<message key="editor.review.userGroupSelect">Inscrever o utilizador neste grupo de revisores</message>
 	<message key="editor.review.unconsiderReviewText">Deseja marcar esta revisão como não considerada? O histórico de revisão será preservado.</message>
 	<message key="editor.review.unconsiderReview">Não considerar esta revisão</message>
+	<message key="editor.review.rateReviewer">Classificação do revisor</message>
 	<message key="editor.review.readConfirmation">Assim que esta revisão seja lida, pressione "Confirmar" para indicar que o processo de revisão pode prosseguir. Se o revisor apresentou a sua revisão noutra etapa, pode carregar o ficheiro abaixo e depois pressionar "Confirmar" para prosseguir.</message>
 	<message key="editor.submission.selectCopyedingFiles">Ficheiros de Edição de Cópia</message>
 	<message key="editor.submission.selectReviewer">Seleccionar Revisor</message>
@@ -102,7 +98,6 @@
 	<message key="editor.submission.createNewRound">Criar Nova Ronda Revisão</message>
 	<message key="editor.article.reviewForms">Formulários Revisão</message>
 	<message key="editor.article.selectReviewForm">Seleccionar Formulário Revisão</message>
-	<message key="editor.article.clearReviewForm">Limpar Formulário Revisão</message>
 	<message key="editor.article.confirmChangeReviewForm">Aviso: alterar o formulário de revisão afectará qualquer resposta que os revisores tenham feito usando este formulário. Tem certeza que deseja continuar?</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">O padrão {$pattern} não é permitido para o identificador público.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">O identificador público '{$publicIdentifier}' não pode ser um número.</message>
@@ -118,5 +113,33 @@
 	<message key="editor.submission.proofreading.revokeProofApproval">Revogar Aprovação Provas</message>
 	<message key="editor.submission.proofreading.confirmCompletion">Aprovar esta prova para indicar que a revisão está completa e o ficheiro está pronto para ser publicado.</message>
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">Revogar a aprovação para esta prova para indicar que a revisão não está completa e o ficheiro não está pronto para ser publicado.</message>
-	<message key="editor.publicIdentificationExistsForTheSameType">O identificador público '{$publicIdentifier}' já existe para outra publicação do mesmo tipo. Escolha identificadores únicos para as publicação do mesmo tipo dentro da sua revista.</message>
+	<message key="editor.submissionReview.sendEmail">Enviar um email de notificação ao(s) autor(es): {$authorName}</message>
+	<message key="editor.submissionReview.sendEmail.editors">Enviar um email de notificação ao(s) editor(es): {$editorNames}</message>
+	<message key="editor.review.anonymousReviewer">Revisor Anónimo</message>
+	<message key="editor.review.newReviewRound">Requerer Nova Ronda de Revisão</message>
+	<message key="editor.review.reviewsAdded">Revisões adicionadas ao corpo da mensagem.</message>
+	<message key="editor.review.rateReviewer.description">Classifique a qualidade da revisão apresentada. Esta classificação não será partilhada com o revisor.</message>
+	<message key="editor.review.reviewerRating.none">Nenhuma classificação</message>
+	<message key="editor.submissionReview.recordRecommendation">Guardar Recomendação Editorial</message>
+	<message key="editor.submissionReview.recordRecommendation.notifyEditors">Notificar Editores</message>
+	<message key="editor.submissionReview.recordRecommendation.skipEmail">Não enviar email aos editores.</message>
+	<message key="editor.submissionReview.recordRecommendation.createDiscussion">Criar uma discussão da revisão sobre esta recomendação.</message>
+	<message key="editor.submissionReview.recordRecommendation.skipDiscussion">Não criar uma discussão sobre a revisão.</message>
+	<message key="reviewer.list.count">{$count} revisões</message>
+	<message key="reviewer.list.itemsOfTotal">{$count} de {$total} revisões</message>
+	<message key="reviewer.list.filterRating">Classificado pelo menos</message>
+	<message key="reviewer.list.activeReviews">{$count} ativos</message>
+	<message key="reviewer.list.activeReviewsDescription">Revisões ativas atualmente atribuídas</message>
+	<message key="reviewer.list.completedReviews">Revisões terminadas</message>
+	<message key="reviewer.list.reviewerRating">Classificação do Revisor: {$rating}</message>
+	<message key="reviewer.list.daysSinceLastAssignment">Há {$days} dias</message>
+	<message key="reviewer.list.daySinceLastAssignment">Ontem</message>
+	<message key="reviewer.list.daysSinceLastAssignmentDescription">Dias desde a última revisão atribuída</message>
+	<message key="reviewer.list.averageCompletion">Número médio de dias para completar a revisão</message>
+	<message key="reviewer.list.neverAssigned">Nunca designado</message>
+	<message key="reviewer.list.currentlyAssigned">Este revisor já foi designado para rever esta submissão.</message>
+	<message key="reviewer.list.warnOnAssign">Este revisor está bloqueado porque tem permissões para ver a identidade do autor. A revisão cega não pode ser garantida. Confirma que pretende desbloquear o revisor?</message>
+	<message key="reviewer.list.warnOnAssignUnlock">Desbloquar</message>
+	<message key="reviewer.list.reviewInterests">Interesses para Revisão</message>
+	<message key="reviewer.list.biography">Bibliografia</message>
 </locale>

@@ -4,8 +4,8 @@
 <!--
   * locale/fi_FI/common.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -85,6 +85,7 @@
 	]]></message>
 	<message key="common.changesSaved">Tekemäsi muutokset on tallennettu.</message>
 	<message key="common.chooseOne">Valitse yksi</message>
+	<message key="common.clearSearch">Tyhjennä hakulauseke</message>
 	<message key="common.close">Sulje</message>
 	<message key="common.closePanel">Sulje paneeli</message>
 	<message key="common.closeWindow">Sulje ikkuna</message>
@@ -140,6 +141,8 @@
 	<message key="common.fileSize">Tiedoston koko</message>
 	<message key="common.fileType">Tiedostotyyppi</message>
 	<message key="common.fileUploaderError">Järjestelmän tiedostojen latausohjelma käynnistyy. Jos se ei ilmesty näkyviin, on todennäköistä, että tämä selain ei tue sen ajoaikoja. Ota yhteys ylläpitoon.</message>
+	<message key="common.filter">Suodattimet</message>
+	<message key="common.filterRemove">Poista suodatin: {$filterTitle}</message>
 	<message key="common.go">Mene</message>
 	<message key="common.height">Korkeus</message>
 	<message key="common.homepageNavigationLabel">Etusivu</message>
@@ -543,4 +546,15 @@
 	<message key="stageParticipants.options">Oikeudet</message>
 	<message key="stageParticipants.recommendOnly">Tämä käyttäjä voi ainostaan suositella toimituksellista päätöstä ja vaatii toisen toimittajan päätöksen vahvistamiseen.</message>
 	<message key="common.deleting">Poistetaan</message>
+	<message key="common.lessThan">{$value} tai vähemmän</message>
+	<message key="common.listSeparator">,</message>
+	<message key="common.moreThan">{$value} tai enemmän</message>
+	<message key="common.pagination">{$start}-{$end} / {$total}</message>
+	<message key="common.pagination.label">Selaa sivuja</message>
+	<message key="common.publicAccess">Julkinen saatavuus</message>
+	<message key="stageParticipants.notify.startDiscussion">Aloita keskustelu</message>
+	<message key="stageParticipants.notify.startDiscussion.description">Aloita keskustelu käyttäjän {$userFullName} kanssa.</message>
+	<message key="list.viewMore">Näytä lisätietoja {$name}</message>
+	<message key="list.viewLess">Piilota lisätiedot {$name}</message>
+	<message key="common.filterAdd">Lisää suodatin: {$filterTitle}</message>
 </locale>

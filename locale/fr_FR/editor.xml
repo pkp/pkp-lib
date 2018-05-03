@@ -4,8 +4,8 @@
 <!--
   * locale/fr_FR/editor.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2003-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -26,7 +26,7 @@
 	<message key="editor.submission.fileAuditor.form.userRequired">Vous devez choisir un utilisateur à qui l'ouvrage sera attribué.</message>
 	<message key="editor.submission.revisions">Révisions</message>
 	<message key="editor.submission.revisionsDescription">Les fichiers révisés de la soumission sont affichés ici. L'icône Ouvrir le dossier indique qui a téléchargé le fichier.</message>
-	<message key="editor.submission.review.reviewersDescription"><![CDATA[Utilisez <em>Ajouter un rapporteur</em> pour inviter des lecteurs à examiner les fichiers soumis. L'icône en forme de carnet indique qu'on a soumis un fichier pour l'évaluation. Celui-ci indiquera <em>Considéré</em> lorsqu'il aura été consulté. Si les évaluations sont en retard, l'icône d'une enveloppe rouge s'affichera à titre de rappel pour les rapporteurs.]]></message>	
+	<message key="editor.submission.review.reviewersDescription"><![CDATA[Utilisez <em>Ajouter un rapporteur</em> pour inviter des lecteurs à examiner les fichiers soumis. L'icône en forme de carnet indique qu'on a soumis un fichier pour l'évaluation. Celui-ci indiquera <em>Considéré</em> lorsqu'il aura été consulté. Si les évaluations sont en retard, l'icône d'une enveloppe rouge s'affichera à titre de rappel pour les rapporteurs.]]></message>
 	<message key="editor.submission.addReviewer">Ajouter un rapporteur</message>
 	<message key="editor.submission.fileList.includeAllStages">Inclure tous les fichiers de toutes les étapes de production accessibles.</message>
 	<message key="editor.submission.review.currentFiles">{$round}e série d'évaluation des fichiers.</message>
@@ -86,7 +86,7 @@
 	<message key="editor.review.thankReviewer">Remercier le rapporteur</message>
 	<message key="editor.review.thankReviewerError">Erreur d'envoi du remerciement au rapporteur</message>
 	<message key="editor.review.reviewerComments">Commentaires du rapporteur</message>
-	<message key="editor.review.days">Moyenne des jours</message>
+	<message key="editor.review.rateReviewer">Notation du rapporteur</message>
 	<message key="editor.review.mustSelect">Vous devez sélectionner un rapporteur</message>
 	<message key="editor.review.errorAddingReviewer">Il y a eu une erreur au moment d'ajouter le rapporteur. Essayez de nouveau.</message>
 	<message key="editor.review.errorDeletingReviewer">Il y a eu une erreur au moment de supprimer le rapporteur. Essayez de nouveau.</message>
@@ -97,7 +97,6 @@
 	<message key="editor.submission.newRoundDescription">Vous êtes sur le point de créer une nouvelle série d'évaluations pour cette soumission. Les fichiers qui n'ont pas été utilisés dans les autres séries d'évaluations sont indiqués ci-dessous. Par défaut, les rapporteurs de la série d'évaluations précédente ont été sélectionnés pour participer à cette nouvelle série.</message>
 	<message key="editor.article.reviewForms">Formulaires d'évaluation</message>
 	<message key="editor.article.selectReviewForm">Sélectionner un formulaire d'évaluation</message>
-	<message key="editor.article.clearReviewForm">Réinitialiser le formulaire d'évaluation</message>
 	<message key="editor.submission.selectedReviewer">Rapporteur sélectionné</message>
 	<message key="editor.submissionLibrary">Bibliothèque de soumission</message>
 	<message key="editor.submission.selectFiles">Sélectionner les fichiers</message>

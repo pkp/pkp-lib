@@ -4,8 +4,8 @@
 <!--
   * locale/sv_SE/editor.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2003-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Swedish_(sv_SE)
   * Localization strings.
@@ -35,6 +35,8 @@
 	<message key="editor.review.enrollReviewer.short">Tilldela befintlig användare</message>
 	<message key="editor.review.unassignReviewer">Ta bort granskare från bidrag</message>
 	<message key="editor.submissionReview.reviewType">Granskningstyp</message>
+	<message key="editor.submissionReview.sendEmail">Skicka en e-postavisering till författaren/-arna: {$authorName}</message>
+	<message key="editor.submissionReview.sendEmail.editors">Skicka en e-postavisering till redaktören/-erna: {$editorNames}</message>
 	<message key="editor.submissionReview.skipEmail">Skicka inte e-postmeddelande till författaren</message>
 	<message key="editor.submissionReview.open">Öppen</message>
 	<message key="editor.submissionReview.blind">Anonym</message>
@@ -42,15 +44,13 @@
 	<message key="editor.submissionReview.restrictFiles">Filer att granska</message>
 	<message key="editor.submissionReview.restrictFiles.hide">Stäng filväljaren</message>
 	<message key="editor.submissionReview.editReview">Redigera granskning</message>
+	<message key="editor.review.anonymousReviewer">Anonym granskare</message>
 	<message key="editor.review.personalMessageToReviewer">E-postmeddelande som kommer att skickas till granskaren</message>
 	<message key="editor.review.importantDates">Viktiga datum</message>
 	<message key="editor.review.uploadRevision">Ladda upp bearbetning</message>
-	<message key="editor.review.NotifyAuthorAccept">Meddela författaren att hens bidrag har accepterats.</message>
-	<message key="editor.review.NotifyAuthorDecline">Meddela författaren att hens bidrag har refuserats.</message>
+	<message key="editor.review.newReviewRound">Kräver ny granskningsomgång</message>
 	<message key="editor.review.NotifyAuthorRevisions">Bearbetning kräver inte ny omgång av sakkunniggranskning.</message>
 	<message key="editor.review.NotifyAuthorResubmit">Bearbetning kommer att sakkunniggranskas på nytt.</message>
-	<message key="editor.review.NotifyAuthorExternal">Meddela författaren om beslutet att påbörja en extern granskning.</message>
-	<message key="editor.review.personalMessageToAuthor">E-postmeddelande att skicka till författaren</message>
 	<message key="editor.review.dateAccepted">Datum för godkännande av granskning</message>
 	<message key="editor.review.reviewsAdded">Granskningar tillagda i meddelandetexten.</message>
 	<message key="editor.review.noReviews">Inga sakkunniggranskningar att importera</message>
@@ -72,7 +72,9 @@
 	<message key="editor.review.reviewConfirmed">Granskning bekräftad</message>
 	<message key="editor.review.reviewSubmitted">Granskning inkommen</message>
 	<message key="editor.review.reviewerComments">Granskares kommentarer</message>
-	<message key="editor.review.days">Antal dagar i genomsnitt</message>
+	<message key="editor.review.rateReviewer">Betygsättning av granskare</message>
+	<message key="editor.review.rateReviewer.description">Betygsätt kvaliteten på den inkomna granskningen. Betyget kommer inte att vara synligt för granskaren.</message>
+	<message key="editor.review.reviewerRating.none">Inget betyg.</message>
 	<message key="editor.review.mustSelect">Du måste välja en granskare</message>
 	<message key="editor.review.errorAddingReviewer">Ett fel uppstod när granskaren skulle läggas till. Försök igen.</message>
 	<message key="editor.review.errorDeletingReviewer">Ett fel uppstod när granskaren skulle tas bort. Försök igen.</message>
@@ -109,7 +111,6 @@
 	<message key="editor.submission.createNewRound">Skapa ny granskningsomgång</message>
 	<message key="editor.article.reviewForms">Granskningsformulär</message>
 	<message key="editor.article.selectReviewForm">Välj granskningsformulär</message>
-	<message key="editor.article.clearReviewForm">Rensa granskningsformulär</message>
 	<message key="editor.article.confirmChangeReviewForm">Varning: Genom att ändra granskningsformuläret påverkas alla svar granskare redan matat in med hjälp av det här formuläret. Vill du verkligen fortsätta?</message>
 	<message key="editor.submission.noReviewerFilesSelected">Inga filer valda.</message>
 	<message key="editor.submission.noReviewerFilesSelected.details">Du har inte valt några filer som granskaren ska granska.</message>
@@ -125,4 +126,23 @@
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">Ta tillbaka godkännandet av det här korrekturet för att markera att korrekturläsningen inte är komplett ännu och att filen inte är klar att publiceras.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">Den publika identifikatorn '{$publicIdentifier}' får inte vara en siffra.</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">Mönstret {$pattern} tillåts inte för den publika identifikatorn.</message>
+
+	<!-- Reviewer selection lists -->
+	<message key="reviewer.list.count">{$count} granskare</message>
+	<message key="reviewer.list.itemsOfTotal">{$count} av {$total} granskare</message>
+	<message key="reviewer.list.filterRating">Med lägsta betyg</message>
+	<message key="reviewer.list.activeReviews">{$count} aktiva</message>
+	<message key="reviewer.list.activeReviewsDescription">Aktiva, pågående granskningsuppdrag</message>
+	<message key="reviewer.list.completedReviews">Färdiga granskningar</message>
+	<message key="reviewer.list.reviewerRating">Betyg på granskare: {$rating}</message>
+	<message key="reviewer.list.daysSinceLastAssignment">{$days} dagar sedan</message>
+	<message key="reviewer.list.daySinceLastAssignment">Igår</message>
+	<message key="reviewer.list.daysSinceLastAssignmentDescription">Dagar sedan tilldelning av senaste granskning</message>
+	<message key="reviewer.list.averageCompletion">Genomsnittligt antal dagar för färdigställande av granskning</message>
+	<message key="reviewer.list.neverAssigned">Aldrig tilldelad något granskningsuppdrag</message>
+	<message key="reviewer.list.currentlyAssigned">Den här granskaren har redan fått i uppdrag att granska det här bidraget.</message>
+	<message key="reviewer.list.warnOnAssign">Den här granskaren är låst eftersom hen har blivit tilldelad en roll som kan se författarens identitet. Anonym granskning kan inte garanteras. Vill du trots detta låsa upp den här granskaren?</message>
+	<message key="reviewer.list.warnOnAssignUnlock">Lås upp</message>
+	<message key="reviewer.list.reviewInterests">Granskningsintressen</message>
+	<message key="reviewer.list.biography">Biografi</message>
 </locale>

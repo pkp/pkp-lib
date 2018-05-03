@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/settings/library/form/editFileForm.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Library Files form for editing an existing file
@@ -50,6 +50,15 @@
 			</table>
 		{/fbvFormSection}
 	{/fbvFormArea}
+
+	{fbvFormSection list="true" translate=false}
+		{translate|assign:"enablePublicAccess" key="common.publicAccess"}
+		{fbvElement type="checkbox" id="publicAccess" value="1" checked=$publicAccess label=$enablePublicAccess translate=false}
+		<p>
+			{url|assign:"downloadUrl" router=$smarty.const.ROUTE_PAGE page="libraryFiles" op="downloadPublic" path=$libraryFile->getId()}
+			{translate key="settings.libraryFiles.public.viewInstructions" downloadUrl=$downloadUrl}
+		</p>
+	{/fbvFormSection}
 
 	{fbvFormButtons}
 </form>

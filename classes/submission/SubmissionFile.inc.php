@@ -3,8 +3,8 @@
 /**
  * @file classes/submission/SubmissionFile.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFile
@@ -366,7 +366,7 @@ class SubmissionFile extends PKPFile {
 	 */
 
 	function setDateModified($dateModified) {
-		return $this->SetData('dateModified', $dateModified);
+		return $this->setData('dateModified', $dateModified);
 	}
 
 	/**
@@ -383,7 +383,7 @@ class SubmissionFile extends PKPFile {
 	 * @param $round int
 	 */
 	function setRound($round) {
-		return $this->SetData('round', $round);
+		return $this->setData('round', $round);
 	}
 
 	/**
@@ -400,7 +400,7 @@ class SubmissionFile extends PKPFile {
 	 * @param $viewable boolean
 	 */
 	function setViewable($viewable) {
-		return $this->SetData('viewable', $viewable);
+		return $this->setData('viewable', $viewable);
 	}
 
 	/**

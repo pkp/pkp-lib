@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+<!--
+  * plugins/generic/usageStats/locale/fa_IR/locale.xml
+  *
+  * Copyright (c) 2013-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Farsi_(fa_IR)
+  -->
+<locale name="fa_IR" full_name="فارسی">
+	<message key="plugins.generic.usageStats.settings.logging">تنظیمات گزارشات دسترسی</message>
+	<message key="plugins.generic.usageStats.settings.createLogFiles">ایجاد فایل گزارش</message>
+	<message key="plugins.generic.usageStats.settings.createLogFiles.description">فعال سازی این گزینه باعث می شود تا افزونه در داخل پوشه فایلها، فایلهای گزارشات دسترسی را ایجاد نماید . این فایل ها باید برای استخراج داده های آماری استفاده شوند. اگر نمیخواهید فایلهای گزارشات دسترسی ایجاد کنید، میتوانید این گزینه را غیرفعال کنید و از گزارشات دسترسی ایجاد شده توسط سرور خودتان، استفاده کنید.</message>
+	<message key="plugins.generic.usageStats.settings.logParseRegex">پردازش عبارت منظم فایلهای گزارشات</message>
+	<message key="plugins.generic.usageStats.settings.logParseRegex.description">عبارت منظم پیش فرض مورد استفاده می تواند گزارشات دسترسی آپاچی و همچنین فایلهای گزارشات افزونه تجزیه و تحلیل کند. اگر فایلهای گزارشات دسترسی به سیستم شما در فرمت های مختلفی باشند، شما مجبور خواهید بود یک عبارت منظم را که بتواند آنها را تجزیه و تحلیل کند و مقادیر مورد انتظار را وارد کند، وارد کنید. برای اطلاعات بیشتر به UsageStatsLoader::_getDataFromLogEntry() مراجعه کنید.</message>
+	<message key="plugins.generic.usageStats.settings.saved">تغییرات افزونه آمار کارکرد ذخیره شد.</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption">تنظیمات حفظ حریم خصوصی</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.saltFilepath">مسیر فایل برای Salt ناشناس</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.saltFilepath.invalid">فایل Salt قابل نوشتن نیست</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.requirements">برای اطمینان از حفط حریم خصوصی، باید یک فایل قابل خواندن و نوشتن برای نگه داری مقدار تصادفی salt، مشخص شود. برای اطمینان از حفاظت از حریم خصوصی، از این فایل نباید نسخه پشتیبانی تهیه شود. مقدار salt به طور تصادفی تولید می شود: یا با استفاده از تابع mcrypt_create_iv، که نیاز به PHP mcrypt؛ توابع openssl_random_pseudo_bytes، که نیاز به PHP openssl؛ فایل /dev/urandom، که تنها در سیستم * nix کار می کند، دارد. یا تابع mt_rand، که از لحاظ رمزنگاری امن نیست. بنابراین، اگر شما از یک سرور ویندوز استفاده می کنید، لطفا اطمینان حاصل کنید که  mcrypt و openssl را فعال کرده اید تا از مقدار salt تولید شده توسط روش اول رمزنگاری استفاده کنید.</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.description">در صورت فعال سازی این گزینه حفظ حریم خصوصی در افزونه در نظر گرفته می شودک به این معنی که  آدرس های IP کدگذاری می شوند و به کاربران در مورد ردیابی و فراهم کردن گزینه اختیاری اطلاع رسانی می شود. توجه: هنگام استفاده از این گزینه نمی توانید از ویژگی های جغرافیایی افزونه استفاده کنید.</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.requiresSalt">فعال کردن حفظ حریم خصوصی نیازمند یک فایل salt است.</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.excludesCity">فعال کردن حفظ حریم خصوصی، اطلاعات "شهر ها" را به عنوان یک آمار اختیاری حذف می کند.</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.excludesRegion">فعال کردن حفظ حریم خصوصی ، اطلاعات "ناحیه ها" را به عنوان یک آمار اختیاری حذف می کند.</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyCheckbox">در نظر گرفتن حفظ حریم خصوصی</message>
+	<message key="plugins.generic.usageStats.settings.optionalColumns">اطلاعات آماری اختیاری</message>
+	<message key="plugins.generic.usageStats.settings.optionalColumns.description">مجموعه ای از اطلاعات اختیاری زیر را فعال یا غیرفعال کنید. که بر روی گزارش های آمار و همچنین بر روی اندازه پایگاه داده اثر می گذارد. در این گزینه ها تغییری اعمال نکنید مگر اینکه کاملا از آنچه انجام می دهید درک درستی دارید.</message>
+	<message key="plugins.generic.usageStats.settings.optionalColumns.cityRequiresRegion">ستون اختیاری "شهر" به ستون اختیاری "منطقه" نیاز دارد.</message>
+	<message key="plugins.generic.usageStats.settings.archives">آرشیو</message>
+	<message key="plugins.generic.usageStats.settings.compressArchives.description">برای فشرده سازی فایل های آرشیو با استفاده از ابزار gzip این گزینه را فعال کنید (شما باید تنظیمات gzip را در داخل config.inc.php پیکربندی کنید). اگر شما سایتی با ترافیک بالا دارید، فعال کردن این گزینه ایده خوبی است، تا در فضای ذخیره سازی صرفه جویی کنید.</message>
+	<message key="plugins.generic.usageStats.settings.compressArchives">فشرده سازی آرشیو</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions">تنظیمات نمایش آمار</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.contextWide">این تنظیمات فقط بر روی اطلاعات آماری کارکرد {$contextName} اعمال می‌شود.</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.display">نمایش نمودار آمار ارسال برای خواننده</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.chartType">نوع نمودار را برای نمایش آمار دانلود انتخاب کنید</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.chartType.bar">بار</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.chartType.line">خط</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.datasetMaxCount">حداکثر تعداد داده ها را برای یک نقطه خاص برای محور x مشخص کنید. مقادیر بالاتر می تواند نمودارهایی تولید کند که درک آنها سختتر است.مقداری بین 3 تا 5 مناسب استاست.</message>
+	<message key="plugins.generic.usageStats.usageStatsLoaderName">وظیفه بارگزار فایل آمار کارکرد</message>
+	<message key="plugins.generic.usageStats.openFileFailed">فایل {$file} نمیتواند باز شود و نادیده گرفته می شود.</message>
+	<message key="plugins.generic.usageStats.invalidLogEntry">خط  {$lineNumber} از فایل {$file} معتبر نبوده نیست و این فایل نادیده گرفته میشود.</message>
+	<message key="plugins.generic.usageStats.removeUrlError">خط {$lineNumber} از فایل {$file} حاوی نشانی اینترنتی است که سیستم نمیتواند آدرس پایه را از آن حذف کند.</message>
+	<message key="plugins.generic.usageStats.loadDataError">داده های استخراج شده از فایل {$file} قابل بارگزاری نیست. فایل دوباره به مرحله منتقل شد.</message>
+	<message key="plugins.generic.usageStats.pluginNotEnabled">افزونه آمار کارکرد غیرفعال است. هیچ فایل گزارشی پردازش نشده است.</message>
+	<message key="plugins.generic.usageStats.processingPathNotEmpty">پوشه {$directory}  خالی نیست. که میتواند ناشی از یک خطا در پردازشهای پیشین یا پردازشهای در حال اجرا باشد. این فایل به صورت خودکار پردازش می شود اگر شما همچنین از scheduledTasksAutoStage.xml استفاده می کنید، در غیر این صورت شما باید تمامی فایل موجود در مسیر پردازش را به صورت دستی به مسیر مرحله انتقال دهید.</message>
+	<message key="plugins.generic.usageStats.noCounterBotList">لیست COUNTER {$botlist} قابل استفاده نیست که ناشی از دو چیز می تواند باشد. بررسی کنید که آیا فایل لیست داخل پوشه 'lib/pkp/plugins/generic/usageStats/lib/counter' است. همچنین مجوزهای دسترسی به پوشه را بررسی کنید و اینکه فقط یک فایل درون آن وجود دارد.</message>
+	<message key="plugins.generic.usageStats.displayName">آمار کارکرد</message>
+	<message key="plugins.generic.usageStats.description">آمار کارکرد داده های موجود. می توانید از فایل های گزارشات دسترسی سرور برای استخراج آمار استفاده کنید.</message>
+	<message key="plugins.reports.usageStats.report.displayName">گزارش آمار کارکرد سامانه</message>
+	<message key="plugins.reports.usageStats.report.description">گزارش پیشفرض آمار کارکرد سامانه</message>
+	<message key="plugins.reports.usageStats.optout.displayName">اطلاعات حریم خصوصی آمار کارکرد</message>
+	<message key="plugins.reports.usageStats.optout.description">اطلاعات حریم خصوصی آمار کارکرد</message>
+	<message key="plugins.generic.usageStats.optout.title">اطلاعات آمار کارکرد</message>
+	<message key="plugins.generic.usageStats.optout.shortDesc"><![CDATA[در این سامانه اطلاعات کارکرد افراد ناشناس نیز ثبت می شود. برای اطلاعات بیشتر <a href="{$privacyInfo}">بیانیه حریم خصوصی</a> را مطالعه کنید.]]></message>
+	<message key="plugins.generic.usageStats.optout.done"><![CDATA[<p> شما از فرایند جمع‌آوری اطلاعات آماری میزان کارکرد کنار گذاشته شدید. و به این معنی است که از عملکرد شما در سامانه هیچ اطلاعات آماری استخراج نمی‌شود.در صورت نیاز به تغییر تصمیم می‌توانید بر روی دکمه زیر کلیک کنید. </p>]]></message>
+	<message key="plugins.generic.usageStats.optin">انتخاب کردن</message>
+	<message key="plugins.generic.usageStats.optout">رد کردن</message>
+	<message key="plugins.generic.usageStats.optout.cookie"><![CDATA[<p>اگر مایل باشید می‌توانید فرایند جمع‌آوریجمع‌آوری داده‌ها را کنار بگذارید. با کلیک کردن بر روی دکمه opt-out در زیر، شما می‌توانید به طور فعال در مورد شرکت در تجزیه و تحلیل آماری تصمیم‌گیری کنید. پس از کلیک کردن بر روی این دکمه، یک <em>کوکی</em> در سیستم شما ایجاد می‌شود تا این تصمیم را ذخیره کند. اگر تنظیمات حریم خصوصی مرورگر شما به صورت خودکار کوکی‌ها را حذف می‌کند، مجدداً در دفعات آتی مراجعه به این سایت دوباره باید opt-out را انتخاب کنید. کوکی فقط برای یک مرورگر معتبر است. اگر از یک مرورگر دیگر استفاده کنید، مجبورید دوباره opt-out را انتخاب کنید. هیچ اطلاعات فردی در این کوکی ذخیره نمی‌شود. این کوکی به مدت یک سال از آخرین دسترسی شما به سایت معتبر خواهد بود. </p> <p>لطفاً توجه داشته باشید که این تصمیم شما در روند گزارش‌گیریگزارش‌گیری سرور تأثیری نخواهد داشت. برای اطلاعات بیشتر در این زمینه لطفاً به <<a href="{$privacyStatementUrl}"> بیانیه حریم خصوصی </a> مراجعه کنید. </p>]]></message>
+	<message key="plugins.reports.usageStats.metricType">OJS/COUNTER</message>
+	<message key="plugins.reports.usageStats.metricType.full">آمار سامانه پروژه دانش عمومی</message>
+	<message key="plugins.generic.usageStats.statsSum">دانلود تمامی فایلها</message>
+	<message key="plugins.generic.usageStats.noStats">هنوز داده ای برای دانلود در دسترس نمی باشد</message>
+	<message key="plugins.generic.usageStats.monthInitials">فروردین اردیبهشت خرداد تیر مرداد شهریور مهر آبان آذر دی بهمن اسفند</message>
+	<message key="plugins.generic.usageStats.downloads">دانلود</message>
+</locale>

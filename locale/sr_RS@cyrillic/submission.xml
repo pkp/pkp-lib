@@ -4,8 +4,8 @@
 <!--
   * locale/sr_RS@cyrillic/submission.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Serbian_(sr_RS)
   * Localization strings for the sr_RS@cyrillic (Cрпски) locale.
@@ -236,7 +236,6 @@
 	<message key="editor.submission.decision.resubmit">Поново пошаљи на рецензирање</message>
 	<message key="submission.upload.noAvailableReviewFiles">Немате докумената за ревидирање.</message>
 	<message key="editor.submission.roundStatus.revisionsRequested">Захтева се ревизија.</message>
-	<message key="editor.submission.roundStatus.resubmitted">Предаја је поново предата на рецензирање.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">Послато на спољашње рецензирање.</message>
 	<message key="editor.submission.roundStatus.accepted">Предаја је прихваћена</message>
 	<message key="editor.submission.roundStatus.declined">Предаја је одбијена.</message>

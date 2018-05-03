@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE locale SYSTEM "../../../../lib/pkp/dtd/locale.dtd">
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
   * locale/sr_RS@latin/locale.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2003-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Serbian_(sr_RS)
   * Localization strings.
@@ -70,7 +70,7 @@
 	<message key="editor.review.reviewConfirmed">Recenzija potvrđena</message>
 	<message key="editor.review.reviewSubmitted">Recenzija predata</message>
 	<message key="editor.review.reviewerComments">Komentari recenzenata</message>
-	<message key="editor.review.days">Prosečno dana</message>
+	<message key="editor.review.rateReviewer">Rangiranje recenzenta</message>
 	<message key="editor.review.mustSelect">Morate odabrati recenzenta</message>
 	<message key="editor.review.errorAddingReviewer">Došlo je do greške prilikom dodavanja recenzenta, pokušajte ponovo.</message>
 
@@ -96,7 +96,6 @@
 	<message key="editor.submission.createNewRound">Napravi novi krug recenziranja</message>
 	<message key="editor.article.reviewForms">Obrasci recenzije</message>
 	<message key="editor.article.selectReviewForm">Odaberi obrazac recenzije</message>
-	<message key="editor.article.clearReviewForm">Očisti obrazac recenzije</message>
 	<message key="editor.submission.noReviewerFilesSelected">Nema odabranih fajlova</message>
 	<message key="editor.submission.noReviewerFilesSelected.details">Niste odabrali ni jedan fajl koji bi recenzent pogledao.</message>
 	<message key="submission.queries.subjectRequired">Tema diskusije je neophodan.</message>

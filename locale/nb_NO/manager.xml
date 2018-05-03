@@ -4,8 +4,8 @@
 <!--
   * locale/nb_NO/manager.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the nb_NO (Norsk bokmål) locale.
@@ -165,10 +165,6 @@
 	<message key="plugins.categories.themes">Programutvidelser for tema</message>
 	<message key="manager.emails.form.emailKeyRequired">En unik e-postnøkkel er påkrevd for e-posten.</message>
 	<message key="manager.reviewerSearch.searchByName">Søk etter fagfelle etter navn</message>
-	<message key="manager.reviewerSearch.doneAmount">Antall fullførte vurderinger: {$current}</message>
-	<message key="manager.reviewerSearch.avgAmount">Gjennomsnittlig antall dager per vurdering: {$current}</message>
-	<message key="manager.reviewerSearch.lastAmount">Dager siden siste vurdering: {$current}</message>
-	<message key="manager.reviewerSearch.activeAmount">Antall pågående vurderinger: {$current}</message>
 	<message key="manager.setup.errorDeletingItem">Det oppstod en feil ved sletting.</message>
 	<message key="manager.announcements.datePublish">Publisert</message>
 	<message key="manager.emails.addEmail">Legg til e-postmal</message>
@@ -232,14 +228,8 @@
 	<message key="manager.language.reloadLocalizedDefaultSettings">Last inn standardverdier på nytt</message>
 	<message key="manager.userSearch.searchByName">Søk etter bruker etter namn</message>
 	<message key="manager.reviewerSearch.change">Endre</message>
-	<message key="manager.reviewerSearch.doneAmountToggle">Slå på/av filteret for fullførte vurderinger.</message>
-	<message key="manager.reviewerSearch.avgAmountToggle">Slå på/av filteret for gjennomsnittlig antall dager per vurdering.</message>
-	<message key="manager.reviewerSearch.lastAmountToggle">Slå på/av filteret for dager siden siste vurdering.</message>
-	<message key="manager.reviewerSearch.activeAmountToggle">Slå på/av filteret</message>
 	<message key="manager.reviewerSearch.interests">Fagfellevurderingsinteresser</message>
 	<message key="manager.reviewerSearch.form.instructions">Bruk skjemaet under for å sette maksverdier for termene du ønsker å søke etter. Skjemaet er forhåndsutfylt med det kalkulerte gjennomsnittet for disse feltene.</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">Fagfelleinteresser (fyll inn for å søke etter sammenfallende interesser)</message>
-	<message key="manager.reviewerSearch.form.previousReviewRounds">Fagfeller fra dette manuskriptets tidligere vurderingsrunder</message>
 	<message key="manager.statistics.defaultMetricDescription">Ditt {$contextObjectName} er konfigurert til å samle mer enn en type brukerstatistikk. Brukerstatistikk vil bli vist i flere ulike kontekster. Det er tilfeller der bare en enkelt brukerstatistikk kan bli brukt, for eksempel ved visning av en liste over de mest brukte manuskript eller for å rangere søkeresultat. Vennligst sett en av de konfigurerte statistikkene som standardverdi.</message>
 	<message key="manager.statistics.city">By</message>
 	<message key="manager.statistics.region">Region</message>

@@ -9,8 +9,8 @@
 /**
  * @file classes/plugins/Plugin.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Plugin
@@ -79,10 +79,15 @@ abstract class Plugin {
 	 *
 	 * @param $category String Name of category plugin was registered to
 	 * @param $path String The path the plugin was found in
+	 * @param $mainContextId integer To identify if the plugin is enabled
+	 *  we need a context. This context is usually taken from the
+	 *  request but sometimes there is no context in the request
+	 *  (e.g. when executing CLI commands). Then the main context
+	 *  can be given as an explicit ID.
 	 * @return boolean True iff plugin registered successfully; if false,
 	 * 	the plugin will not be executed.
 	 */
-	function register($category, $path) {
+	function register($category, $path, $mainContextId = null) {
 		$this->pluginPath = $path;
 		$this->pluginCategory = $category;
 		if ($this->getInstallSchemaFile()) {
@@ -311,8 +316,11 @@ abstract class Plugin {
 	 *
 	 * @return string
 	 */
-	public function getTemplateResourceName() {
+	public function getTemplateResourceName($inCore = false) {
 		$pluginPath = $this->getPluginPath();
+		if ($inCore) {
+			$pluginPath = PKP_LIB_PATH . DIRECTORY_SEPARATOR . $pluginPath;
+		}
 		$plugin = basename($pluginPath);
 		$category = basename(dirname($pluginPath));
 
@@ -327,7 +335,7 @@ abstract class Plugin {
 	function getTemplatePath($inCore = false) {
 		$basePath = Core::getBaseDir();
 		if ($inCore) {
-			$basePath = $basePath . DIRECTORY_SEPARATOR . PKP_LIB_PATH;
+			$basePath .= DIRECTORY_SEPARATOR . PKP_LIB_PATH;
 		}
 		return "file:$basePath" . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR;
 	}
@@ -335,10 +343,14 @@ abstract class Plugin {
 	/**
 	 * Register this plugin's templates as a template resource
 	 */
-	public function _registerTemplateResource() {
+	public function _registerTemplateResource($inCore = false) {
 		$templateMgr = TemplateManager::getManager();
-		$pluginTemplateResource = new PKPTemplateResource($this->getPluginPath());
-		$templateMgr->register_resource($this->getTemplateResourceName(), array(
+		$pluginPath = $this->getPluginPath();
+		if ($inCore) {
+			$pluginPath = PKP_LIB_PATH . DIRECTORY_SEPARATOR . $pluginPath;
+		}
+		$pluginTemplateResource = new PKPTemplateResource($pluginPath);
+		$templateMgr->register_resource($this->getTemplateResourceName($inCore), array(
 			array($pluginTemplateResource, 'fetch'),
 			array($pluginTemplateResource, 'fetchTimestamp'),
 			array($pluginTemplateResource, 'getSecure'),

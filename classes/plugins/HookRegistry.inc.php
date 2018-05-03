@@ -3,8 +3,8 @@
 /**
  * @file classes/plugins/HookRegistry.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class HookRegistry
@@ -13,10 +13,10 @@
  * @brief Class for linking core functionality with plugins
  */
 
-define('HOOK_SEQUENCE_CORE', 0);
-define('HOOK_SEQUENCE_NORMAL', 10);
-define('HOOK_SEQUENCE_LATE', 15);
-define('HOOK_SEQUENCE_LAST', 20);
+define('HOOK_SEQUENCE_CORE', 0x000);
+define('HOOK_SEQUENCE_NORMAL', 0x100);
+define('HOOK_SEQUENCE_LATE', 0x200);
+define('HOOK_SEQUENCE_LAST', 0x300);
 
 class HookRegistry {
 	/**
@@ -101,7 +101,7 @@ class HookRegistry {
 		}
 
 		if (isset($hooks[$hookName])) {
-			ksort($hooks[$hookName]);
+			ksort($hooks[$hookName], SORT_NUMERIC);
 			foreach ($hooks[$hookName] as $priority => $hookList) {
 				foreach ($hookList as $hook) {
 					if ($result = call_user_func($hook, $hookName, $args)) return true;

@@ -4,8 +4,8 @@
 <!--
   * locale/ar_IQ/common.xml
   *
-  * Copyright (c) 2013-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2013-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ar_IQ (العربية) locale.
@@ -152,6 +152,8 @@
 	<message key="common.fileSize">حجم الملف</message>
 	<message key="common.fileType">نوع الملف</message>
 	<message key="common.fileUploaderError">إن برنامج رفع الملفات في النظام يجري تحميله الآن. إن لم يظهر لك، فهذا يعني أن هناك احتمالية كون المتصفح الذي تستعمله لا يدعم متطلبات تشغيله. لطفاً، حاول استحصال الدعم من الإدارة.</message>
+	<message key="common.filter">التصفيات</message>
+	<message key="common.filterRemove">تصفير التصفية: {$filterTitle}</message>
 	<message key="common.from">من</message>
 	<message key="common.until">حتى</message>
 	<message key="common.go">إذهب</message>
@@ -235,6 +237,7 @@
 	<message key="common.saving">الحفظ جارٍ</message>
 	<message key="common.search">إبحث</message>
 	<message key="common.searchQuery">استعلام البحث</message>
+	<message key="common.clearSearch">تصفير عبارة البحث</message>
 	<message key="common.second">ثانية/ثوان</message>
 	<message key="common.selectAll">إختر الكل</message>
 	<message key="common.selectNone">لا تختر شيئاً</message>
@@ -436,7 +439,6 @@
 	<message key="notification.editedAuthor">المؤلف عُدِّل.</message>
 	<message key="notification.confirmError">حدث خطأ لدى تأكيد اشتراكك.</message>
 	<message key="notification.confirmSuccess">لقد اشتركت معنا بنجاح.</message>
-	<message key="notification.email">راسلني بالبريد الالكتروني عن هذه الإنواع من الإشعارات.</message>
 	<message key="notification.location">اتبع الرابط</message>
 	<message key="notification.mailList">قائمة عناوين المراسلة للإشعار</message>
 	<message key="notification.mailList.emailInvalid">لطفاً، أدخل عنواناً بريدياً صحيحاً.</message>

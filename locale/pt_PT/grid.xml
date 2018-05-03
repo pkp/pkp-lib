@@ -4,8 +4,8 @@
 <!--
   * locale/pt_PT/grid.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -91,7 +91,7 @@
 	<message key="grid.action.editSection">Editar Secção</message>
 	<message key="grid.action.export">Exportar</message>
 	<message key="grid.action.deleteSection">Eliminar Secção</message>
-	<message key="grid.action.editorialHistory">Historial Editorial</message>
+	<message key="grid.action.editorialHistory">Histórico Editorial</message>
 	<message key="grid.action.disapprove">Desaprovar</message>
 	<message key="grid.action.setApproval">Definir aprovação</message>
 	<message key="grid.action.restoreDefaults.confirm">Tem certeza de que deseja restaurar os padrões?</message>
@@ -152,7 +152,7 @@
 	<message key="grid.action.addAnnouncement">Adicionar uma Notícia</message>
 	<message key="grid.action.mergeUser">Fundir Utilizador</message>
 	<message key="grid.action.unassignUser">Remover Utilizador</message>
-	<message key="grid.action.history">Consultar Historial</message>
+	<message key="grid.action.history">Consultar Histórico</message>
 	<message key="grid.action.unconsiderReview">Esta revisão está completa, mas pode ignorá-la.</message>
 	<message key="grid.action.enable">Activar</message>
 	<message key="grid.action.bookInfo">Informação sobre Submissão</message>
@@ -216,7 +216,7 @@
 	<message key="grid.user.userDetails">Detalhes Utilizador</message>
 	<message key="grid.user.userRoles">Papéis Utilizador</message>
 	<message key="grid.user.userNoRoles">Este utilizador não tem nenhum papel.</message>
-	<message key="grid.user.step1">Passo 1: Preencher os detalhes do utilizador</message>
+	<message key="grid.user.step1">Passo #1: Preencher os detalhes do utilizador</message>
 	<message key="grid.user.step2">Passo #2: Associar Papéis do Utilizador a {$userFullName}</message>
 	<message key="grid.user.addRoles">Adicionar Papéis</message>
 	<message key="grid.user.addRole">Adicionar Papel</message>
@@ -226,12 +226,8 @@
 	<message key="grid.user.mergeUsers">Fundir Utilizadores</message>
 	<message key="grid.user.mergeUsers.mergeUser">Fundir Utilizador</message>
 	<message key="grid.user.mergeUsers.mergeIntoUser">Fundir-se a este utilizador</message>
-	<message key="grid.user.mergeUsers.into.description">Agora, deve seleccionar um utilizador a quem atribuir as autorizações do utilizador anterior, editar tarefas, etc.</message>
-	<message key="grid.user.mergeUsers.from.description">Seleccione um utilizador para fundor com outra conta de utilizador (por exemplo, quando alguém tiver duas contas de utilizador). A conta seleccionada primeiro será eliminada e as suas submissões, tarefas, etc. serão atribuídas à segunda conta.</message>
 	<message key="grid.user.mergeUsers.allUsers">Todos os Utilizadores Inscritos</message>
-	<message key="grid.user.mergeUsers.mergeUserSelect.confirm">Tem certeza de que deseja fundir este utilizador com outro? Escolherá o próximo utilizador na janela seguinte.</message>
 	<message key="grid.user.mergeUsers.confirm">Tem certeza de que deseja fundir a conta com o nome de utilizador "{$oldUsername}" na conta com o nome de utilizador"{$newUsername}"? A conta com o nome de utilizador "{$oldUsername}" não existirá depois. Esta ação não é reversível.</message>
-	<message key="grid.user.mergeUsers.noneEnrolled">Nenhum utilizador existente com este papel.</message>
 	<message key="grid.preparedEmails.title">Modelos de E-mail</message>
 	<message key="grid.preparedEmails.currentList">Lista Actual</message>
 	<message key="grid.plugin.allCategories">Todas as Categorias</message>
@@ -248,4 +244,10 @@
 	<message key="grid.userGroup.unassignedStage">{$userGroupName} papel não atribuído de {$stageName} etapa.</message>
 	<message key="grid.submission.itemTitle">Autor; Título</message>
 	<message key="grid.submission.active.selectOrphaned">Inclur submissões incompletas não enviadas por um autor.</message>
+	<message key="grid.action.uninstall">Desinstalar</message>
+	<message key="grid.action.addNavigationMenu">Adicionar Menu</message>
+	<message key="grid.action.addNavigationMenuItem">Adicionar Item</message>
+	<message key="grid.navigationMenus.navigationMenuItems.noneExist">Nenhum Item no Menu de Navegação</message>
+	<message key="grid.navigationMenus.navigationMenu.noneExist">Nenhum Menu de Navegação</message>
+	<message key="grid.navigationMenus.navigationMenu.selectType">Selecione um tipo...</message>
 </locale>

@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/settings/user/form/UserDetailsForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class UserDetailsForm
@@ -73,6 +73,8 @@ class UserDetailsForm extends UserForm {
 	 * @param $request PKPRequest
 	 */
 	function initData($args, $request) {
+		$context = $request->getContext();
+		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 
 		$data = array();
 
@@ -93,7 +95,6 @@ class UserDetailsForm extends UserForm {
 				'suffix' => $user->getSuffix(),
 				'signature' => $user->getSignature(null), // Localized
 				'initials' => $user->getInitials(),
-				'gender' => $user->getGender(),
 				'affiliation' => $user->getAffiliation(null), // Localized
 				'email' => $user->getEmail(),
 				'userUrl' => $user->getUrl(),
@@ -105,6 +106,12 @@ class UserDetailsForm extends UserForm {
 				'interests' => $interestManager->getInterestsForUser($user),
 				'userLocales' => $user->getLocales(),
 			);
+			import('classes.core.ServicesContainer');
+			$userService = ServicesContainer::instance()->get('user');
+			$data['canCurrentUserGossip'] = $userService->canCurrentUserGossip($user->getId());
+			if ($data['canCurrentUserGossip']) {
+				$data['gossip'] = $user->getGossip();
+			}
 		} else if (isset($this->author)) {
 			$author = $this->author;
 			$data = array(
@@ -142,7 +149,6 @@ class UserDetailsForm extends UserForm {
 		$userDao = DAORegistry::getDAO('UserDAO');
 
 		$templateMgr->assign(array(
-			'genderOptions' => $userDao->getGenderOptions(),
 			'minPasswordLength' => $site->getMinPasswordLength(),
 			'source' => $request->getUserVar('source'),
 			'userId' => $this->userId,
@@ -188,7 +194,6 @@ class UserDetailsForm extends UserForm {
 			'middleName',
 			'lastName',
 			'suffix',
-			'gender',
 			'initials',
 			'signature',
 			'affiliation',
@@ -199,6 +204,7 @@ class UserDetailsForm extends UserForm {
 			'mailingAddress',
 			'country',
 			'biography',
+			'gossip',
 			'interests',
 			'userLocales',
 			'generatePassword',
@@ -249,7 +255,6 @@ class UserDetailsForm extends UserForm {
 		$user->setLastName($this->getData('lastName'));
 		$user->setSuffix($this->getData('suffix'));
 		$user->setInitials($this->getData('initials'));
-		$user->setGender($this->getData('gender'));
 		$user->setAffiliation($this->getData('affiliation'), null); // Localized
 		$user->setSignature($this->getData('signature'), null); // Localized
 		$user->setEmail($this->getData('email'));
@@ -261,6 +266,12 @@ class UserDetailsForm extends UserForm {
 		$user->setBiography($this->getData('biography'), null); // Localized
 		$user->setMustChangePassword($this->getData('mustChangePassword') ? 1 : 0);
 		$user->setAuthId((int) $this->getData('authId'));
+		// Users can never view/edit their own gossip fields
+		import('classes.core.ServicesContainer');
+		$userService = ServicesContainer::instance()->get('user');
+		if ($userService->canCurrentUserGossip($user->getId())) {
+			$user->setGossip($this->getData('gossip'));
+		}
 
 		$site = $request->getSite();
 		$availableLocales = $site->getSupportedLocales();

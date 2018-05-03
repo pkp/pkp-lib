@@ -4,8 +4,8 @@
 <!--
   * locale/ru_RU/grid.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ru_RU (Русский) locale.
@@ -75,7 +75,6 @@
 	<message key="grid.action.sendToProduction">Отправить этот материал на публикацию</message>
 	<message key="grid.action.settings">Настройки</message>
 	<message key="grid.action.importexport">Импорт/экспорт контента или данных сайта</message>
-	<message key="grid.action.restoreDefaults">Восстановить настройки по умолчанию</message>
 	<message key="grid.action.orderItems">Включить режим упорядочивания</message>
 	<message key="grid.action.editSubmissionChecklist">Редактировать этот элемент контрольного списка</message>
 	<message key="grid.action.deleteSubmissionChecklist">Удалить этот элемент контрольного списка</message>
@@ -273,4 +272,5 @@
 	<message key="grid.action.addNavigationMenuItem">Добавить элемент</message>
 	<message key="grid.navigationMenus.navigationMenuItems.noneExist">Элементы меню навигации отсутствуют</message>
 	<message key="grid.navigationMenus.navigationMenu.noneExist">Меню навигации отсутствуют</message>
+	<message key="grid.navigationMenus.navigationMenu.selectType">Выберите тип...</message>
 </locale>

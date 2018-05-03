@@ -3,8 +3,8 @@
 /**
  * @file classes/navigationMenu/NavigationMenuItemDAO.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NavigationMenuItemDAO
@@ -45,9 +45,9 @@ class NavigationMenuItemDAO extends DAO {
 	 * @return NavigationMenuItem
 	 */
 	function getByPath($contextId, $path) {
-		$params = array($path, (int) $contextId);
+		$params = array($path, (int) $contextId, 'NMI_TYPE_CUSTOM');
 		$result = $this->retrieve(
-			'SELECT	* FROM navigation_menu_items WHERE path = ? and context_id = ?',
+			'SELECT	* FROM navigation_menu_items WHERE path = ? and context_id = ? and type= ?',
 			$params
 		);
 
@@ -122,6 +122,25 @@ class NavigationMenuItemDAO extends DAO {
 		$result->Close();
 
 		return $returner;
+	}
+
+	/**
+	 * Retrieve the menu items with the specified type.
+	 * @param $type int NMI_TYPE_...
+	 * @param $contextId int
+	 * @return DAOResultFactory containing matching NavigationMenuItems
+	 */
+	function getByType($type, $contextId = null) {
+		$params = array($type);
+		if ($contextId !== null) {
+			$params[] = $contextId;
+		}
+		$result = $this->retrieve(
+			'SELECT	* FROM navigation_menu_items WHERE type = ?' .
+			($contextId !== null ? ' AND context_id = ?' : ''),
+			$params
+		);
+		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
 	/**
@@ -516,6 +535,35 @@ class NavigationMenuItemDAO extends DAO {
 				if ($cache) $cache->flush();
 			}
 		}
+	}
+
+	/**
+	 * Port static page as a Custom NMI
+	 * @param StaticPage $staticPage
+	 * @return int The id of the inserted NMI. Null if non is inserted
+	 */
+	function portStaticPage($staticPage) {
+		$path = $staticPage->getPath();
+		$contextId = $staticPage->getContextId();
+
+		$existingNMIWithPath = $this->getByPath($contextId, $path);
+
+		$retNavigationMenuItemId = null;
+
+		if (!isset($existingNMIWithPath)) {
+			$navigationMenuItem = $this->newDataObject();
+
+			$navigationMenuItem->setPath($path);
+			$navigationMenuItem->setContextId($contextId);
+			$navigationMenuItem->setType(NMI_TYPE_CUSTOM);
+
+			$navigationMenuItem->setTitle($staticPage->getTitle(null), null);
+			$navigationMenuItem->setContent($staticPage->getContent(null), null);
+
+			$retNavigationMenuItemId = $this->insertObject($navigationMenuItem);
+		}
+
+		return $retNavigationMenuItemId;
 	}
 }
 

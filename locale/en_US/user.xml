@@ -4,8 +4,8 @@
 <!--
   * locale/en_US/user.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -35,14 +35,13 @@
 	<message key="user.dateRegistered">Date registered</message>
 	<message key="user.editMyProfile">Edit My Profile</message>
 	<message key="user.email">Email</message>
-	<message key="user.feminine">F</message>
 	<message key="user.firstName">First Name</message>
-	<message key="user.gender">Gender</message>
 	<message key="user.initialsExample">Joan Alice Smith = JAS</message>
 	<message key="user.initials">Initials</message>
 	<message key="user.interests">Reviewing interests</message>
 	<message key="user.interests.description">(Separate interests by pressing the enter or comma key)</message>
-	<message key="user.gossip">Private Notes</message>
+	<message key="user.gossip">Editorial Notes</message>
+	<message key="user.gossip.description">Record notes about this reviewer that you would like to make visible to other administrators, journal managers, editors, and subeditors. Notes will be visible for future review assignments.</message>
 	<message key="user.group">User Group</message>
 	<message key="user.lastName">Last Name</message>
 	<message key="user.profile.form.profileImageInvalid">Invalid profile image format or image too big. Accepted formats are .gif, .jpg, or .png, and the image must not exceed 150x150 pixels.</message>
@@ -72,11 +71,9 @@
 	<message key="user.logOutAs">Logout as</message>
 	<message key="user.hello">Hello, </message>
 	<message key="user.mailingAddress">Mailing Address</message>
-	<message key="user.masculine">M</message>
 	<message key="user.middleName">Middle Name</message>
 	<message key="user.myAccount">My Account</message>
 	<message key="user.name">Name</message>
-	<message key="user.other">Other</message>
 	<message key="user.password">Password</message>
 	<message key="user.repeatPassword">Repeat password</message>
 	<message key="user.phone">Phone</message>

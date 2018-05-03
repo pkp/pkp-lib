@@ -4,8 +4,8 @@
 <!--
   * locale/id_ID/common.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2003-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -283,7 +283,6 @@
 	<message key="notification.allow">Izinkan semua tipe notifikasi ini untuk ditampilkan di fees notifikasi saya.</message>
 	<message key="notification.confirmError">Ada kesalahan saat mengkonfirmasi langganan Anda.</message>
 	<message key="notification.confirmSuccess">Anda telah berlangganan dengan sukses.</message>
-	<message key="notification.email">Kirimi saya email untuk tipe notifikasi ini.</message>
 	<message key="notification.location">Pergi ke URL</message>
 	<message key="notification.mailList">Daftar surat menyurat notifikasi</message>
 	<message key="notification.mailList.emailInvalid">Masukkan alamat email yang valid.</message>

@@ -1,0 +1,2700 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE subjects SYSTEM "../../dtd/bic21subjects.dtd">
+<!--
+  * locale/fa_IR/bic21subjects.xml
+  *
+  * Copyright BIC and Nielsen Book Services Ltd 2010
+  *
+  * localized list of BIC 2.1 Subjects
+  * Reference:  http://www.bic.org.uk/7/BIC-Standard-Subject-Categories
+  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Farsi_(fa_IR)
+  -->
+<subjects>
+	<subject code="A" text="هنر" />
+	<subject code="AB" text="هنرها: مسائل عمومی" />
+	<subject code="ABA" text="نظریه هنر" />
+	<subject code="ABC" text="حفاظت، ترمیم و مراقبت از آثار هنری" />
+	<subject code="ABK" text="جعل، جعل و سرقت از آثار هنری" />
+	<subject code="ABQ" text="هنر: جنبه های مالی" />
+	<subject code="AC" text="تاریخ هنر / هنر و سبک طراحی" />
+	<subject code="ACB" text="سبک های هنری توسط تاریخ مشخص نشده است" />
+	<subject code="ACBK" text="هنر بومیان" />
+	<subject code="ACBN" text="هنر نایاب" />
+	<subject code="ACBP" text="هنر شرقی" />
+	<subject code="ACBS" text="هنر استعماری" />
+	<subject code="ACC" text="تاریخ هنر: پیش از تاریخ" />
+	<subject code="ACG" text="تاریخ هنر: هنر باستانی و کلاسیک، پیش از میلاد تا 500 میلادی" />
+	<subject code="ACK" text="تاریخ هنر: هنر بیزانسی و قرون وسطی: 500 تا 1400 میلادی" />
+	<subject code="ACN" text="تاریخ هنر و سبک های طراحی: 1400 تا 1600 میلادی" />
+	<subject code="ACND" text="هنر رنسانس" />
+	<subject code="ACNH" text="سبک های هنری و طراحی: شیوه گرایی" />
+	<subject code="ACQ" text="تاریخ هنر و سبک طراحی: 1600 تا 1800 میلادی" />
+	<subject code="ACQB" text="سبک های هنری و طراحی: باروک" />
+	<subject code="ACQH" text="سبک های هنری و طراحی: کلاسیک" />
+	<subject code="ACV" text="تاریخ هنر و سبک های طراحی: 1800 تا 1900 میلادی" />
+	<subject code="ACVC" text="سبک های هنری و طراحی: رمانتیسم" />
+	<subject code="ACVM" text="سبک های هنری و طراحی: هنر قبل از رافائلیت" />
+	<subject code="ACVN" text="سبک های هنری و طراحی: سبک هنر و صنایع دستی" />
+	<subject code="ACVT" text="سبک های هنری و طراحی: دریافتگری و پست امپرسیونیسم" />
+	<subject code="ACVY" text="سبک های هنری و طراحی: هنر نیو" />
+	<subject code="ACX" text="تاریخ هنر و سبک های طراحی: از سال 1900 تا حال" />
+	<subject code="ACXD" text="سبک های هنری و طراحی: از 1900 تا 1960 میلادی" />
+	<subject code="ACXD1" text="سبک های هنری و طراحی: بیانگرایی" />
+	<subject code="ACXD2" text="سبک های هنری و طراحی: طراحی مدرنیستی و باوهاوس" />
+	<subject code="ACXD3" text="سبک های هنری و طراحی: هنر دکو" />
+	<subject code="ACXD5" text="سبک های هنری و طراحی: کوبیسم" />
+	<subject code="ACXD7" text="سبک های هنری و طراحی: کارشناسان و سورئالیسم و دادا" />
+	<subject code="ACXD9" text="سبک های هنری و طراحی: اصطلاح گرایی خلاصه" />
+	<subject code="ACXJ" text="سبک های هنری و طراحی: از سال 1960" />
+	<subject code="ACXJ1" text="سبک های هنری و طراحی: هنر پاپ" />
+	<subject code="ACXJ4" text="سبک های هنری و طراحی: مینیمالیسم" />
+	<subject code="ACXJ5" text="سبک های هنری و طراحی: هنر مفهومی" />
+	<subject code="ACXJ8" text="سبک های هنری و طراحی: پست مدرن" />
+	<subject code="AF" text="اشکال هنر" />
+	<subject code="AFC" text="نقاشی و نقاشی" />
+	<subject code="AFCC" text="آبرنگ" />
+	<subject code="AFCL" text="روغن" />
+	<subject code="AFF" text="طراحی و نقاشی" />
+	<subject code="AFH" text="چاپ و چاپ" />
+	<subject code="AFJ" text="اشکال دیگر هنر گرافیک" />
+	<subject code="AFJD" text="کلاژ و مونتاژ" />
+	<subject code="AFJG" text="گرافیتی و هنر خیابانی" />
+	<subject code="AFK" text="اشکال هنر غیر گرافیکی" />
+	<subject code="AFKB" text="مجسمه سازی" />
+	<subject code="AFKC" text="حصار: آثار هنری" />
+	<subject code="AFKG" text="فلزات گرانبها، سنگ های قیمتی و جواهرات: آثار هنری و طراحی" />
+	<subject code="AFKN" text="هنر نصب" />
+	<subject code="AFKP" text="هنر اجرا" />
+	<subject code="AFKV" text="الکترونیک، هولوگرافی و هنرهای ویدئویی" />
+	<subject code="AFP" text="هنر سرامیک، سفال، شیشه" />
+	<subject code="AFPC" text="سرامیک: آثار هنری" />
+	<subject code="AFPM" text="موزاییک: آثار هنری" />
+	<subject code="AFPS" text="شیشه ای رنگ آمیزی: آثار هنری" />
+	<subject code="AFT" text="هنرهای تزئینی" />
+	<subject code="AFTB" text="هنر مردمی" />
+	<subject code="AFTC" text="سلتیک هنر و صنایع دستی" />
+	<subject code="AFW" text="آثار هنری نساجی" />
+	<subject code="AFWD" text="آثار هنری نساجی: فرش و فرش" />
+	<subject code="AFWH" text="آثار هنری نساجی: پرده ها، پرده ها و سفال" />
+	<subject code="AFY" text="هنر بدن و خالکوبی" />
+	<subject code="AG" text="درمان های هنر و موضوعات" />
+	<subject code="AGB" text="هنرمندان فردی، نقاشی های هنری" />
+	<subject code="AGC" text="کاتالوگ نمایشگاه و مجموعه های خاص" />
+	<subject code="AGH" text="ارقام انسانی در هنر نشان داده شده است" />
+	<subject code="AGHF" text="پرتره در هنر" />
+	<subject code="AGHN" text="عکس هایی که در هنر دیده می شوند" />
+	<subject code="AGHX" text="هنر عاشقانه" />
+	<subject code="AGK" text="صحنه های کوچک، سکولار و داخلی در هنر" />
+	<subject code="AGN" text="حیوانات و طبیعت در هنر (هنوز هم زندگی، مناظر و منظره ها و غیره)" />
+	<subject code="AGNB" text="هنر گیاه شناسی" />
+	<subject code="AGP" text="اشیای ساخته شده در هنر (نقوش شهر، ماشین آلات و غیره)" />
+	<subject code="AGR" text="موضوعات مذهبی در هنر نشان داده شده است" />
+	<subject code="AGZ" text="تکنیک های هنر و اصول" />
+	<subject code="AJ" text="عکس و عکس" />
+	<subject code="AJB" text="عکاسان فردی" />
+	<subject code="AJC" text="عکس ها: مجموعه ها" />
+	<subject code="AJCP" text="عکس: پرتره" />
+	<subject code="AJCR" text="گزارش تصویری" />
+	<subject code="AJCX" text="عکس عاشقانه و برهنه" />
+	<subject code="AJG" text="تجهیزات و تکنیک های عکاسی" />
+	<subject code="AJR" text="انواع خاصی از عکاسی" />
+	<subject code="AJRD" text="فیلمبرداری، دوربین فیلمبرداری" />
+	<subject code="AJRH" text="عکاسی ویدئویی" />
+	<subject code="AJRK" text="عکاسی هوایی" />
+	<subject code="AK" text="هنر و طراحی صنعتی / تجاری" />
+	<subject code="AKB" text="طراحان شخصی" />
+	<subject code="AKC" text="طراحی گرافیک" />
+	<subject code="AKD" text="تایپوگرافی و حروف الفبا" />
+	<subject code="AKH" text="طراحی کتاب" />
+	<subject code="AKL" text="تصویر و هنر تجاری" />
+	<subject code="AKLB" text="تصویر" />
+	<subject code="AKLC" text="کتاب کمیک و هنر کارتونی" />
+	<subject code="AKLC1" text="رمان گرافیک و آثار هنری مانگا" />
+	<subject code="AKLP" text="هنر پوستر" />
+	<subject code="AKP" text="طراحی محصول" />
+	<subject code="AKR" text="طراحی مبلمان" />
+	<subject code="AKT" text="مد و منسوجات: طراحی" />
+	<subject code="AKTA" text="طراحی مد و تئوری" />
+	<subject code="AKTH" text="تاریخچه مد" />
+	<subject code="AKTX" text="طراحی و تزیین نساجی" />
+	<subject code="AM" text="معماری" />
+	<subject code="AMA" text="نظریه معماری" />
+	<subject code="AMB" text="معماران فردی و شرکت های معماری" />
+	<subject code="AMC" text="ساختار معماری و طراحی" />
+	<subject code="AMCR" text="معماری و طراحی محیط زیست" />
+	<subject code="AMD" text="معماری: تمرین حرفه ای" />
+	<subject code="AMG" text="ساختمان های عمومی: مدنی، تجاری، صنعتی، و غیره" />
+	<subject code="AMGC" text="سالن کنسرت، عرصه، استادیوم" />
+	<subject code="AMGD" text="یادبود ها، آثار تاریخی" />
+	<subject code="AMK" text="ساختمان های مسکونی، ساختمان های داخلی" />
+	<subject code="AMKD" text="خانه ها، آپارتمان ها، آپارتمان ها و ..." />
+	<subject code="AMKH" text="کاخ ها، چادر، خانه های کشور" />
+	<subject code="AMKL" text="قلعه ها و استحکامات" />
+	<subject code="AMN" text="ساختمان های مذهبی" />
+	<subject code="AMR" text="طراحی داخلی حرفه ای" />
+	<subject code="AMV" text="هنر و معماری منظره" />
+	<subject code="AMVD" text="شهر و شهر برنامه ریزی - جنبه های معماری" />
+	<subject code="AMX" text="تاریخ معماری" />
+	<subject code="AN" text="مطالعات تئاتر" />
+	<subject code="ANB" text="تئاتر: بازیگران و مدیران فردی" />
+	<subject code="ANC" text="تکنیک های عمل" />
+	<subject code="ANF" text="جهت و تولید تئاتر" />
+	<subject code="ANH" text="تئاتر: مهارت فنی و فنی" />
+	<subject code="ANS" text="مدیریت تئاتر" />
+	<subject code="AP" text="فیلم، تلویزیون و رادیو" />
+	<subject code="APB" text="بازیگران و بازیگران فردی" />
+	<subject code="APF" text="فیلم، سینما" />
+	<subject code="APFA" text="نظریه فیلم و انتقاد" />
+	<subject code="APFB" text="کارگردانان فیلم مستقل، فیلمسازان" />
+	<subject code="APFD" text="اسکریپت فیلم و فیلمنامه" />
+	<subject code="APFG" text="راهنماهای فیلم و بررسی" />
+	<subject code="APFN" text="فیلم: سبک و ژانرهای" />
+	<subject code="APFR" text="فیلم مستند" />
+	<subject code="APFV" text="فیلم های متحرک" />
+	<subject code="APFX" text="تولید فیلم: مهارت فنی و فنی" />
+	<subject code="APT" text="تلویزیون" />
+	<subject code="APTD" text="اسکریپتهای تلویزیون و فیلمنامه" />
+	<subject code="APTS" text="اپرا صابون تلویزیونی" />
+	<subject code="APTX" text="تولید تلویزیون: مهارت فنی و فنی" />
+	<subject code="APW" text="رادیو" />
+	<subject code="APWD" text="اسکریپت های رادیویی" />
+	<subject code="AS" text="رقص و دیگر هنرهای نمایشی" />
+	<subject code="ASD" text="رقص" />
+	<subject code="ASDC" text="رقص بادی" />
+	<subject code="ASDL" text="باله" />
+	<subject code="ASDR" text="رقص کلاسیک که در سالنهایی مانند سالن اپرا اجرا میشود" />
+	<subject code="ASDT" text="رقص معاصر" />
+	<subject code="ASDX" text="رقص محلی" />
+	<subject code="ASZ" text="سایر هنرهای نمایشی" />
+	<subject code="ASZB" text="هنرهای نمایشی: کمدی" />
+	<subject code="ASZC" text="مایم" />
+	<subject code="ASZD" text="تئاتر خیابانی" />
+	<subject code="ASZG" text="انکار و جادوی" />
+	<subject code="ASZH" text="نشان می دهد تنوع، سالن موسیقی، کاباره" />
+	<subject code="ASZJ" text="جگوگال" />
+	<subject code="ASZM" text="اسباب بازی، مینیاتوری و تئاتر اسباب بازی" />
+	<subject code="ASZP" text="جشنواره ها، نمایش ها، جشنواره ها" />
+	<subject code="ASZW" text="سیرک" />
+	<subject code="ASZX" text="عینک حیوانات" />
+	<subject code="AV" text="موسیقی" />
+	<subject code="AVA" text="نظریه موسیقی و موسیقی شناسی" />
+	<subject code="AVC" text="بررسی موسیقی و انتقاد" />
+	<subject code="AVD" text="دیسکوگرافی و راهنماهای خریدار" />
+	<subject code="AVG" text="موسیقی: سبک ها و ژانرها" />
+	<subject code="AVGC" text="موسیقی غرب «کلاسیک»" />
+	<subject code="AVGC1" text="موسیقی اولیه (تا 1000 میلادی)" />
+	<subject code="AVGC2" text="موسیقی قرون وسطی و رنسانس ( 1000 تا  1600 میلادی)" />
+	<subject code="AVGC3" text="موسیقی باروک (از 1600 تا 1750 متر)" />
+	<subject code="AVGC4" text="موسیقی کلاسیک (از 1750 تا 1830)" />
+	<subject code="AVGC5" text="موسیقی رمانتیک (از 1830 تا 1900)" />
+	<subject code="AVGC6" text="قرن بیستم و موسیقی کلاسیک معاصر" />
+	<subject code="AVGC8" text="موسیقی کورال" />
+	<subject code="AVGC9" text="اپرا" />
+	<subject code="AVGD" text="موسیقی مذهبی و مذهبی" />
+	<subject code="AVGE" text="موسیقی غیر غربی: «سنتی و کلاسیک»" />
+	<subject code="AVGF" text="ارکستر نور و موسیقی باند بزرگ" />
+	<subject code="AVGG" text="گروه برنج، موسیقی نظامی و راهپیمایی" />
+	<subject code="AVGH" text="موسیقی های محلی و سنتی" />
+	<subject code="AVGJ" text="جاز" />
+	<subject code="AVGK" text="بلوز" />
+	<subject code="AVGL" text="موسیقی کشور و غربی" />
+	<subject code="AVGM" text="موزیکال ها" />
+	<subject code="AVGN" text="موسیقی محبوب، گوش دادن آسان" />
+	<subject code="AVGP" text="موسیقی راک و پاپ" />
+	<subject code="AVGQ" text="روح و R 'n' B " />
+	<subject code="AVGR" text="رپ و هیپ هاپ" />
+	<subject code="AVGS" text="رگی" />
+	<subject code="AVGT" text="موسیقی هوی متال" />
+	<subject code="AVGU" text="پانک، موج جدید و هندی" />
+	<subject code="AVGV" text="موسیقی الکترونیکی" />
+	<subject code="AVGW" text="موسیقی جهان" />
+	<subject code="AVGZ" text="موسیقی عامیانه و عصر جدید" />
+	<subject code="AVH" text="آهنگسازان و موسیقیدانهای فردی، گروههای خاص و گروههای خاص" />
+	<subject code="AVQ" text="نمرات موسیقی، اشعار و لیبرتی" />
+	<subject code="AVQS" text="کتاب های صوتی" />
+	<subject code="AVR" text="سازهای موسیقی و گروه های سازنده" />
+	<subject code="AVRB" text="ارکسترها" />
+	<subject code="AVRD" text="مجتمع های اتاق" />
+	<subject code="AVRG" text="ابزار صفحه کلید" />
+	<subject code="AVRJ" text="سازهای کوبه ای" />
+	<subject code="AVRL" text="ابزارهای رشته ای" />
+	<subject code="AVRL1" text="گیتار" />
+	<subject code="AVRN" text="ابزار باد" />
+	<subject code="AVRQ" text="آلات موسیقی مکانیکی" />
+	<subject code="AVRS" text="آلات موسیقی الکترونیک" />
+	<subject code="AVS" text="تکنیک های آموزش موسیقی / موسیقی" />
+	<subject code="AVX" text="ضبط موسیقی و تولید مثل" />
+	<subject code="B" text="بیوگرافی و داستان واقعی" />
+	<subject code="BG" text="بیوگرافی: عمومی" />
+	<subject code="BGA" text="زندگینامه: عمومی" />
+	<subject code="BGB" text="بیوگرافی: کسب و کار و صنعت" />
+	<subject code="BGBA" text="زندگینامه: تجارت و صنعت" />
+	<subject code="BGF" text="بیوگرافی: هنر و سرگرمی" />
+	<subject code="BGFA" text="زندگینامه: هنر و سرگرمی" />
+	<subject code="BGH" text="بیوگرافی: تاریخی، سیاسی و نظامی" />
+	<subject code="BGHA" text="زندگینامه: تاریخی، سیاسی و نظامی" />
+	<subject code="BGL" text="بیوگرافی: ادبی" />
+	<subject code="BGLA" text="زندگینامه: ادبیات" />
+	<subject code="BGR" text="بیوگرافی: خانواده سلطنتی" />
+	<subject code="BGRA" text="زندگینامه: خانواده سلطنتی" />
+	<subject code="BGS" text="بیوگرافی: ورزش" />
+	<subject code="BGSA" text="زندگینامه: ورزش" />
+	<subject code="BGT" text="بیوگرافی: علم، فناوری و پزشکی" />
+	<subject code="BGTA" text="زندگینامه: علم، فناوری و پزشکی" />
+	<subject code="BGX" text="بیوگرافی: مذهبی و معنوی" />
+	<subject code="BGXA" text="زندگینامه: مذهبی و معنوی" />
+	<subject code="BJ" text="خاطرات، نامه ها و نشریات" />
+	<subject code="BK" text="بیوگرافی جمع آوری شده" />
+	<subject code="BM" text="خاطرات" />
+	<subject code="BT" text="داستان های واقعی" />
+	<subject code="BTC" text="جرم و جنایت واقعی" />
+	<subject code="BTH" text="داستان های واقعی: کشف / تاریخی / علمی" />
+	<subject code="BTM" text="داستان جنگ و جنگ واقعی" />
+	<subject code="BTP" text="داستان های واقعی از قهرمانی، استقامت و بقا" />
+	<subject code="BTX" text="اعترافات وابسته به عشق شهوانی و داستان های واقعی" />
+	<subject code="C" text="زبان" />
+	<subject code="CB" text="زبان: مرجع و عمومی" />
+	<subject code="CBD" text="فرهنگ لغت" />
+	<subject code="CBDX" text="فرهنگ لغت دو زبانه و چند زبانه" />
+	<subject code="CBF" text="اصطلاحنامه" />
+	<subject code="CBG" text="دستورالعمل استفاده و دستور زبان" />
+	<subject code="CBP" text="راهنمای سخنرانی عمومی" />
+	<subject code="CBV" text="نوشتن خلاق و راهنمایی نوشتن خلاق" />
+	<subject code="CBVS" text="تکنیک های فیلم برداری" />
+	<subject code="CBW" text="راهنمای نوشتن و ویرایش" />
+	<subject code="CBWJ" text="راهنمای سبک روزنامه نگاری" />
+	<subject code="CBWT" text="نگارش فنی" />
+	<subject code="CBX" text="زبان: تاریخ و کارهای عمومی" />
+	<subject code="CF" text="زبانشناسی" />
+	<subject code="CFA" text="فلسفه زبان" />
+	<subject code="CFB" text="زبان شناسی اجتماعی" />
+	<subject code="CFC" text="سواد آموزی" />
+	<subject code="CFD" text="روان شناسی" />
+	<subject code="CFDC" text="بدست آوردن مهارت زبانی" />
+	<subject code="CFDM" text="دو زبانه و چند زبانه" />
+	<subject code="CFF" text="زبان شناسی تاریخی و مقایسهای" />
+	<subject code="CFFD" text="لهجه، اصطلاحات و اصطلاحات" />
+	<subject code="CFG" text="معناشناسي، تجزيه و تحليل گفتمان و ..." />
+	<subject code="CFGA" text="معانی و عملگرا" />
+	<subject code="CFGR" text="تجزیه و تحلیل گفتمان" />
+	<subject code="CFH" text="فونتیک، واجشناسی" />
+	<subject code="CFK" text="دستور زبان، نحو و مورفولوژی" />
+	<subject code="CFL" text="زمین شناسی (تاریخ نوشتن)" />
+	<subject code="CFLA" text="سیستم های نوشتن، حروف الفبا" />
+	<subject code="CFM" text="فرهنگ لغت" />
+	<subject code="CFP" text="ترجمه و تفسیر" />
+	<subject code="CFX" text="زبانشناسی محاسباتی" />
+	<subject code="CFZ" text="زبان های اشاره، بریل و دیگر ارتباطات زبانی" />
+	<subject code="CJ" text="آموزش و یادگیری زبان (غیر از ELT)" />
+	<subject code="CJA" text="تئوری آموزش زبان و روش ها" />
+	<subject code="CJB" text="آموزش زبان و مواد آموزشی و دوره های آموزشی" />
+	<subject code="CJBG" text="گرامر و واژگان" />
+	<subject code="CJBR" text="خوانندگان زبان" />
+	<subject code="CJBT" text="متون زبان خودآموزی" />
+	<subject code="CJBV" text="یادگیری زبان: صوتی و تصویری و چندرسانه ای" />
+	<subject code="CJC" text="یادگیری زبان: مهارت های خاص" />
+	<subject code="CJCK" text="صحبت کردن / تلفظ مهارت" />
+	<subject code="CJCL" text="مهارت های شنیداری" />
+	<subject code="CJCR" text="مهارت های خواندن" />
+	<subject code="CJCW" text="مهارت های نوشتن" />
+	<subject code="D" text="ادبیات و مطالعات ادبی" />
+	<subject code="DB" text="متون کلاسیک" />
+	<subject code="DC" text="شعر" />
+	<subject code="DCF" text="شعر توسط شاعران انفرادی" />
+	<subject code="DCQ" text="شعرهای شعر (شاعران مختلف)" />
+	<subject code="DD" text="نقس، نمایشنامه" />
+	<subject code="DDS" text="نمایشنامه شکسپیر" />
+	<subject code="DN" text="پروس: غیر داستانی" />
+	<subject code="DNF" text="مقالات ادبی" />
+	<subject code="DNJ" text="گزارش و جمع آوری روزنامه نگاری" />
+	<subject code="DNS" text="سخنرانی ها" />
+	<subject code="DQ" text="متون مقدس (غیر شعر)" />
+	<subject code="DS" text="ادبیات: تاریخ و انتقاد" />
+	<subject code="DSA" text="نظریه ادبی" />
+	<subject code="DSB" text="مطالعات ادبی: عمومی" />
+	<subject code="DSBB" text="مطالعات ادبی: کلاسیک، اوایل و قرون وسطی" />
+	<subject code="DSBD" text="مطالعات ادبی:  1500 تا  1800میلادی" />
+	<subject code="DSBF" text="مطالعات ادبی: از 1800 تا 1900 میلادی" />
+	<subject code="DSBH" text="مطالعات ادبی: از سال 1900 تا حال" />
+	<subject code="DSBH5" text="مطالعات ادبیات: ادبیات پس از استعمار" />
+	<subject code="DSC" text="مطالعات ادبی: شعر و شاعران" />
+	<subject code="DSG" text="مطالعات ادبی: نمایشنامه ها و نمایشنامه نویسان" />
+	<subject code="DSGS" text="مطالعات و انتقادات شکسپیر" />
+	<subject code="DSK" text="مطالعات ادبی: داستان، نویسندگان رمان و نویسندگان" />
+	<subject code="DSR" text="مرجع ادبیات" />
+	<subject code="DSRC" text="همراهان ادبی، بررسی کتابها و راهنماها" />
+	<subject code="DSY" text="مطالعات ادبیات کودکان و نوجوانان" />
+	<subject code="DSYC" text="بررسی و راهنمای کتاب کودکان و نوجوانان" />
+	<subject code="E" text="آموزش زبان انگلیسی (ELT)" />
+	<subject code="EB" text="آموزش زبان انگلیسی:پیس زمینه  و مواد مرجع" />
+	<subject code="EBA" text="آموزش زبان انگلیسی: تئوری و روش تدریس" />
+	<subject code="EBAL" text="آموزش زبان انگلیسی:زبان شناسی کاربردی" />
+	<subject code="EBAR" text="آموزش زبان انگلیسی:کتاب منابع  برای معلمان" />
+	<subject code="EBD" text="آموزش زبان انگلیسی:فرهنگ لغت  و مرجع" />
+	<subject code="EL" text="آموزش زبان انگلیسی: یادگیری مواد و کارهای آموزشی" />
+	<subject code="ELG" text="آموزش زبان انگلیسی: گرامر، واژگان و تلفظ" />
+	<subject code="ELGG" text="آموزش زبان انگلیسی:گرامر " />
+	<subject code="ELGP" text="آموزش زبان انگلیسی: تلفظ" />
+	<subject code="ELGV  " text="آموزش زبان انگلیسی: واژگان" />
+	<subject code="ELH" text="آموزش زبان انگلیسی: درجه خوانندگان" />
+	<subject code="ELHB" text="آموزش زبان انگلیسی: غیر داستانی و خوانندگان پس زمینه" />
+	<subject code="ELHF" text="آموزش زبان انگلیسی: ادبیات و داستان تخیلی " />
+	<subject code="ELM" text="آموزش زبان انگلیسی: موارد و منابع غیر کتابی" />
+	<subject code="ELP" text="آموزش زبان انگلیسی: کتاب های تمرینی و تمرینات" />
+	<subject code="ELS" text="متون خودآموزی ELT" />
+	<subject code="ELV" text="آموزش زبان انگلیسی: آزمون های خودآموز" />
+	<subject code="ELX" text="آموزش زبان انگلیسی: مهارت های خاص" />
+	<subject code="ELXD" text="آموزش زبان انگلیسی: مهارت های صحبت کردن" />
+	<subject code="ELXG" text="آموزش زبان انگلیسی: مهارت گوش دادن" />
+	<subject code="ELXJ" text="آموزش زبان انگلیسی: مهارتهای خواندن" />
+	<subject code="ELXN" text="آموزش زبان انگلیسی: نوشتن مهارت" />
+	<subject code="ES" text="آموزش زبان انگلیسی: انگلیسی برای اهداف خاص" />
+	<subject code="ESB" text="آموزش زبان انگلیسی: انگلیسی برای کسب و کار" />
+	<subject code="ESF" text="آموزش زبان انگلیسی: انگلیسی برای اهداف دانشگاهی" />
+	<subject code="EST" text="آموزش زبان انگلیسی: انگلیسی برای اهداف فنی و علمی" />
+	<subject code="ESV" text="آموزش زبان انگلیسی: انگلیسی برای سفر و ارتباطات" />
+	<subject code="F" text="داستانی و موارد مرتبط" />
+	<subject code="FA" text="داستان های مدرن و معاصر (بعد از 1945)" />
+	<subject code="FC" text="داستان های کلاسیک (قبل از سال 1945)" />
+	<subject code="FF" text="جنایت و رمز و راز" />
+	<subject code="FFC" text="جرم کلاسیک" />
+	<subject code="FFH" text="اسرار تاریخی" />
+	<subject code="FH" text="هیجان انگیز / تعلیق" />
+	<subject code="FHD" text="جاسوسی و هیجان انگیز جاسوسی" />
+	<subject code="FHP" text="هیجان سیاسی / قانونی" />
+	<subject code="FJ" text="ماجراجویی" />
+	<subject code="FJH" text="ماجراجویی تاریخی" />
+	<subject code="FJM" text="جنگ و داستان جنگی" />
+	<subject code="FJMC" text="داستان جنگ ناپلئونی" />
+	<subject code="FJMF" text="داستان جنگ جهانی اول" />
+	<subject code="FJMS" text="داستان جنگ جهانی دوم" />
+	<subject code="FJMV" text="داستان جنگ ویتنام" />
+	<subject code="FJW" text="غربی ها" />
+	<subject code="FK" text="داستان های ترسناک و شبح" />
+	<subject code="FKC" text="داستان وحشتناک و روح کلاسیک" />
+	<subject code="FL" text="علمی تخیلی" />
+	<subject code="FLC" text="علمی تخیلی کلاسیک" />
+	<subject code="FLS" text="اپرا فضایی" />
+	<subject code="FM" text="فانتزی" />
+	<subject code="FMR" text="عاشقانه فانتزی" />
+	<subject code="FP" text="داستان تخیلی وابسته به عشق شهوانی" />
+	<subject code="FQ" text="افسانه ها و افسانه ها به عنوان داستان ها به کار رفته است" />
+	<subject code="FR" text="داستان عاشقانه" />
+	<subject code="FRD" text="عاشقانه بزرگسالان و معاصر" />
+	<subject code="FRH" text="عاشقانه تاریخی" />
+	<subject code="FT" text="سگ ها" />
+	<subject code="FV" text="افسانه تاریخی" />
+	<subject code="FW" text="داستان مذهبی و معنوی" />
+	<subject code="FX" text="رمان های گرافیکی" />
+	<subject code="FXA" text="رمان های گرافیکی: مانگا" />
+	<subject code="FXL" text="رمان های گرافیکی: ادبیات و خاطرات" />
+	<subject code="FXS" text="رمان های گرافیکی: ابرقهرمانان و فوق العاده خائنانی" />
+	<subject code="FXZ" text="رمان های گرافیکی: داستان های واقعی و غیر داستانی" />
+	<subject code="FY" text="داستانی: ویژگی های خاص" />
+	<subject code="FYB" text="داستان های کوتاه" />
+	<subject code="FYT" text="داستانی در ترجمه" />
+	<subject code="FZ" text="موارد مرتبط با داستان" />
+	<subject code="FZC" text="همراهان داستانی" />
+	<subject code="FZG" text="رمان های گرافیکی: تاریخ و انتقاد" />
+	<subject code="G" text="مرجع، اطلاعات و موضوعات بین رشته ای" />
+	<subject code="GB" text="دایره المعارف و مرجع" />
+	<subject code="GBA" text="دایره المعارف عمومی" />
+	<subject code="GBC" text="کارهای مرجع" />
+	<subject code="GBCB" text="واژهنامهها بیوگرافی (چه کسی است)" />
+	<subject code="GBCQ" text="فرهنگ لغت نقل قول" />
+	<subject code="GBCR" text="کتابشناسی، کاتالوگها" />
+	<subject code="GBCS" text="سریال ها، نشریات، خلاصه، شاخص ها" />
+	<subject code="GBCT" text="راهنماها" />
+	<subject code="GBCY" text="سالنامه ها، سال نو، آلمانیا" />
+	<subject code="GBG" text="مرجع جغرافیایی" />
+	<subject code="GBGM" text="نقشه های جهانی اطلس / جهان" />
+	<subject code="GBGP" text="نام و نام خانوادگی" />
+	<subject code="GL" text="کتابخانه و علوم اطلاعاتی" />
+	<subject code="GLC" text="کتابخانه، بایگانی و مدیریت اطلاعات" />
+	<subject code="GLF" text="فناوری اطلاعات، اینترنت و منابع الکترونیکی در کتابخانه ها" />
+	<subject code="GLH" text="جذب و توسعه مجموعه" />
+	<subject code="GLK" text="کنترل کتابشناختی و موضوع" />
+	<subject code="GLM" text="خدمات کتابداری و اطلاع رسانی" />
+	<subject code="GLMA" text="کتابخانه های دانشگاهی و تخصصی" />
+	<subject code="GLMB" text="کتابخانه های عمومی" />
+	<subject code="GLMC" text="کتابخانه های مدرسه و خدمات خوانندگان جوان" />
+	<subject code="GLMG" text="خدمات مرجع" />
+	<subject code="GLML" text="خدمات گردشگری (به عنوان مثال، وام های بین کتابخانه ای)" />
+	<subject code="GLMX" text="خدمات اجتماعی و حمایتی" />
+	<subject code="GLP" text="بایگانی، حفظ و دیجیتال سازی" />
+	<subject code="GM" text="موزهشناسی و مطالعات میراث" />
+	<subject code="GP" text="تحقیق و اطلاعات: به طور کلی" />
+	<subject code="GPF" text="تئوری اطلاعات" />
+	<subject code="GPFC" text="نظریه ساربرنتیک و سیستم" />
+	<subject code="GPH" text="تجزیه و تحلیل داده ها: به طور کلی" />
+	<subject code="GPJ" text="تئوری کدگذاری و رمزنگاری" />
+	<subject code="GPQ" text="نظریه تصمیم: عمومی" />
+	<subject code="GPQD" text="ارزیابی ریسک" />
+	<subject code="GPS" text="روش های تحقیق: به طور کلی" />
+	<subject code="GT" text="مطالعات بین رشته ای" />
+	<subject code="GTB" text="مطالعات منطقه ای" />
+	<subject code="GTC" text="مطالعات ارتباطی" />
+	<subject code="GTE" text="نشانه شناسی " />
+	<subject code="GTF" text="مطالعات توسعه" />
+	<subject code="GTG" text="مطالعات عمومی" />
+	<subject code="GTH" text="پرچم ها، نشان ها، نمادها، آرم ها" />
+	<subject code="GTJ" text="مطالعات صلح و حل منازعات" />
+	<subject code="GTN" text="موسسات و جوامع آموخته: به طور کلی" />
+	<subject code="GTR" text="علوم شناختی" />
+	<subject code="H" text="علوم انسانی" />
+	<subject code="HB" text="تاریخ" />
+	<subject code="HBA" text="تاریخچه: نظریه و روشها" />
+	<subject code="HBAH" text="تاریخنگاری" />
+	<subject code="HBG" text="تاریخ عمومی و جهانی" />
+	<subject code="HBJ" text="تاریخ منطقه ای و ملی" />
+	<subject code="HBJD" text="تاریخ اروپا" />
+	<subject code="HBJD1" text="تاریخ انگلیسی و ایرلندی" />
+	<subject code="HBJF" text="تاریخ آسیا" />
+	<subject code="HBJF1" text="تاریخ خاورمیانه" />
+	<subject code="HBJH" text="تاریخ آفریقا" />
+	<subject code="HBJK" text="تاریخ آمریکا" />
+	<subject code="HBJM" text="تاریخ استرالیا و اقیانوس آرام" />
+	<subject code="HBJQ" text="تاریخچه سرزمین های دیگر" />
+	<subject code="HBL" text="تاریخ: اولین بار تا امروز" />
+	<subject code="HBLA" text="تاریخ باستان: تا 500 میلادی" />
+	<subject code="HBLA1" text="تاریخ کلاسیک / تمدن کلاسیک" />
+	<subject code="HBLC" text="تاریخچه اولیه:  500 تا  1450/1500 میلادی" />
+	<subject code="HBLC1" text="تاریخ قرون وسطی" />
+	<subject code="HBLH" text="تاریخ مدرن پیشین: از 1450/1500 تا 1700 متر" />
+	<subject code="HBLL" text="تاریخ مدرن تا قرن بیستم: از 1700 تا 1900 میلادی" />
+	<subject code="HBLW" text="تاریخ قرن 20th: از 1900 تا 2000 سال" />
+	<subject code="HBLW3" text="تاریخ قرن بیست و یکم پس از جنگ، از سال 1945 تا 2000 میلادی" />
+	<subject code="HBLX" text="تاریخ قرن 21st - از سال 2000 تا حال" />
+	<subject code="HBT" text="تاریخچه: رویدادها و موضوعات خاص" />
+	<subject code="HBTB" text="تاریخ اجتماعی و فرهنگی" />
+	<subject code="HBTD" text="تاریخ شفاهی" />
+	<subject code="HBTG" text="شجره نامه، سرود ملی، نام و افتخارات" />
+	<subject code="HBTK" text="صنعتی سازی و تاریخ صنعتی" />
+	<subject code="HBTM" text="تاریخ دریایی" />
+	<subject code="HBTP" text="جغرافیای تاریخی" />
+	<subject code="HBTP1" text="نقشه ها و اطلس های تاریخی" />
+	<subject code="HBTQ" text="استعمارگرایی و امپریالیسم" />
+	<subject code="HBTR" text="آزادی ملی و استقلال، پس از استعمار" />
+	<subject code="HBTS" text="برده داری و لغو برده داری" />
+	<subject code="HBTV" text="انقلاب ها، قیام ها، شورش ها" />
+	<subject code="HBTV2" text="انقلاب فرانسه" />
+	<subject code="HBTV4" text="انقلاب روسیه" />
+	<subject code="HBTW" text="جنگ سرد" />
+	<subject code="HBTZ" text="نسل کشی و پاکسازی قومی" />
+	<subject code="HBTZ1" text="هلوکاست" />
+	<subject code="HBW" text="تاریخ نظامی" />
+	<subject code="HBWC" text="جنگ های صلیبی" />
+	<subject code="HBWE" text="جنگ داخلی انگلیسی" />
+	<subject code="HBWF" text="جنگ استقلال آمریكا" />
+	<subject code="HBWH" text="جنگ ناپلئونی" />
+	<subject code="HBWJ" text="جنگ داخلی آمریکا" />
+	<subject code="HBWL" text="جنگ کریمه" />
+	<subject code="HBWM" text="جنگ بوئر" />
+	<subject code="HBWN" text="جنگ جهانی اول" />
+	<subject code="HBWP" text="جنگ داخلی اسپانیا" />
+	<subject code="HBWQ" text="جنگ جهانی دوم" />
+	<subject code="HBWS" text="تاریخ نظامی: پس از جنگ جهانی دوم" />
+	<subject code="HBWS1" text="جنگ کره" />
+	<subject code="HBWS2" text="جنگ ویتنام" />
+	<subject code="HBWS3" text="جنگ خلیج فارس" />
+	<subject code="HBWS4" text="جنگ افغانستان" />
+	<subject code="HBWS5" text="جنگ عراق" />
+	<subject code="HD" text="باستان شناسی" />
+	<subject code="HDA" text="نظریه باستان شناسی" />
+	<subject code="HDD" text="باستان شناسی به دوره / منطقه" />
+	<subject code="HDDA" text="باستان شناسی باستان شناسی" />
+	<subject code="HDDC" text="باستان شناسی میانه و نزدیک شرق" />
+	<subject code="HDDG" text="باستان شناسی مصر / مصر شناسی" />
+	<subject code="HDDH" text="باستان شناسی کتاب مقدس" />
+	<subject code="HDDK" text="باستان شناسی یونانی و رومی کلاسیک" />
+	<subject code="HDDM" text="باستان شناسی اروپایی قرون وسطی" />
+	<subject code="HDL" text="باستان شناسی منظره" />
+	<subject code="HDP" text="باستان شناسی محیطی" />
+	<subject code="HDR" text="باستان شناسی زیر آب" />
+	<subject code="HDT" text="باستان شناسی صنعتی" />
+	<subject code="HDW" text="علم، روش شناسی و تکنیک های باستان شناسی" />
+	<subject code="HP" text="فلسفه" />
+	<subject code="HPC" text="تاریخ فلسفه غرب" />
+	<subject code="HPCA" text="فلسفه غرب: باستان تا 500 میلادی" />
+	<subject code="HPCB" text="فلسفه غرب: قرون وسطی و رنسانس،  500 تا  1600 میلادی" />
+	<subject code="HPCD" text="فلسفه غرب:  1600 تا 1900 میلادی" />
+	<subject code="HPCD1" text="فلسفه غرب: روشنگری" />
+	<subject code="HPCF" text="فلسفه غرب، از سال 1900 تا کنون" />
+	<subject code="HPCF3" text="پدیده شناسی و اگزیستانسیالیسم" />
+	<subject code="HPCF5" text="فلسفه تحلیلی و مثبت گرایی منطقی" />
+	<subject code="HPCF7" text="واسازی، ساختارگرایی و پساساختارگرایی" />
+	<subject code="HPD" text="فلسفه غربی غربی" />
+	<subject code="HPDC" text="فلسفه اسلامی و عربی" />
+	<subject code="HPDF" text="فلسفه شرق و هند" />
+	<subject code="HPJ" text="فلسفه: متافیزیک و هستیشناسی" />
+	<subject code="HPK" text="فلسفه: معرفت شناسی و تئوری دانش" />
+	<subject code="HPL" text="فلسفه: منطق" />
+	<subject code="HPM" text="فلسفه ذهن" />
+	<subject code="HPN" text="فلسفه: زیبایی شناسی" />
+	<subject code="HPQ" text="اخلاق و فلسفه اخلاقی" />
+	<subject code="HPS" text="فلسفه اجتماعی و سیاسی" />
+	<subject code="HPX" text="فلسفه محبوب" />
+	<subject code="HR" text="دین و باورها" />
+	<subject code="HRA" text="دین: به طور کلی" />
+	<subject code="HRAB" text="فلسفه دین" />
+	<subject code="HRAB1" text="طبیعت و وجود خدا" />
+	<subject code="HRAC" text="دین مقایسهی" />
+	<subject code="HRAF" text="روابط بین مذهبی" />
+	<subject code="HRAM" text="مسائل مذهبی و بحثها" />
+	<subject code="HRAM1" text="اخلاق دینی" />
+	<subject code="HRAM2" text="دین و سیاست" />
+	<subject code="HRAM3" text="دین و علم" />
+	<subject code="HRAM6" text="بنیادگرایی مذهبی" />
+	<subject code="HRAM7 " text="كفر، خدعه، ارتداد" />
+	<subject code="HRAM9" text="عدم تحمل مذهبی، آزار و اذیت و درگیری" />
+	<subject code="HRAX" text="تاریخ دین" />
+	<subject code="HRC" text="مسیحیت" />
+	<subject code="HRCA" text="مسیحی تاریخی" />
+	<subject code="HRCC" text="کلیساها و مسیحیان مسیحی" />
+	<subject code="HRCC1" text="کلیسای اولیه" />
+	<subject code="HRCC2" text="تاریخ کلیسا" />
+	<subject code="HRCC7" text="کاتولیک رومی، کلیسای کاتولیک رومی" />
+	<subject code="HRCC8" text="کلیساهای ارتدوکس و شرقی" />
+	<subject code="HRCC9" text="پروتستان و کلیساهای پروتستان" />
+	<subject code="HRCC91" text="کلیسای انگلیکان و کلیسای اسقفی، کلیسای انگلستان" />
+	<subject code="HRCC92" text="کلیساهای باپتیست" />
+	<subject code="HRCC93" text="کلیساهای کالوینیست، اصلاح شده و پروتستان" />
+	<subject code="HRCC95" text="کلیساهای متدیست" />
+	<subject code="HRCC96" text="کلیساهای پنطیکاستی" />
+	<subject code="HRCC97" text="کواکرها (انجمن مذهبی دوستان)" />
+	<subject code="HRCC99" text="دیگر کلیساهای غیر انسانی و انجیلی" />
+	<subject code="HRCF" text="کتاب مقدس" />
+	<subject code="HRCF1" text="عهد عتیق" />
+	<subject code="HRCF2" text="عهد جدید" />
+	<subject code="HRCG " text="مطالعات کتاب مقدس و تفسیر" />
+	<subject code="HRCG1 " text="تفسیر کتاب مقدس" />
+	<subject code="HRCG2" text="موافقت نامه های کتاب مقدس" />
+	<subject code="HRCG3 " text="تفسیر کتاب مقدس و هرمنوتیک" />
+	<subject code="HRCG7 " text="مطالعات کتاب مقدس: برای مطالعه گروهی فرد یا کوچک" />
+	<subject code="HRCG9" text="خواندن کتاب مقدس، انتخاب و تفکر" />
+	<subject code="HRCJ" text="اكونومیسم" />
+	<subject code="HRCL" text="مسیحیان، کتاب های عبادت و عبادت" />
+	<subject code="HRCL1" text="کتاب مقدس مسیحی" />
+	<subject code="HRCL2" text="شعرهای مسیحی" />
+	<subject code="HRCM" text="الهیات مسیحی" />
+	<subject code="HRCP" text="خطبه مسیحی" />
+	<subject code="HRCR" text="عبادت مسیحی، آیین ها و مراسم" />
+	<subject code="HRCR1" text="نماز مسیحی" />
+	<subject code="HRCS" text="معنویت مسیحی و تجربه دینی" />
+	<subject code="HRCS1" text="عرفان مسیحی" />
+	<subject code="HRCV" text="زندگی مسیحی و عمل" />
+	<subject code="HRCV1" text="مقدس مسیحی" />
+	<subject code="HRCV2" text="آموزش مسیحی" />
+	<subject code="HRCV3" text="مشاوره مسیحی" />
+	<subject code="HRCV4" text="جنبه های مسیحی جنسیت، جنسیت و روابط" />
+	<subject code="HRCV9" text="شهادت مسیحی شخصی و آثار الهام بخش محبوب" />
+	<subject code="HRCX" text="مؤسسات و سازمان های مسیحی" />
+	<subject code="HRCX1" text="رهبران مسیحی و رهبری" />
+	<subject code="HRCX4" text="وزارت مسیحی و فعالیت های انسانی" />
+	<subject code="HRCX6" text="اندیشه و فعالیت اجتماعی مسیحی" />
+	<subject code="HRCX7" text="مسیحی مسیحی و تبعید" />
+	<subject code="HRCX8" text="جوامع مسیحی و مدینه" />
+	<subject code="HRCZ" text="کتیبه های مسیحی و شبه مسیحی و فرقه ها" />
+	<subject code="HRE" text="بودیسم" />
+	<subject code="HREC" text="عبادت، عهد و تفریح ​​بودایی" />
+	<subject code="HREP" text="زندگی و عمل بودایی" />
+	<subject code="HRES" text="متون مقدس بودایی" />
+	<subject code="HREX" text="بودیسم تبتی" />
+	<subject code="HREZ" text="ذن بودیسم" />
+	<subject code="HRG" text="هندوئیسم" />
+	<subject code="HRGC" text="عبادت هندوها، آیین ها و مراسم" />
+	<subject code="HRGP" text="زندگی و عمل هندو" />
+	<subject code="HRGS" text="متن مقدس هندو" />
+	<subject code="HRH" text="اسلام" />
+	<subject code="HRHC" text="پرستش اسلام، آیین ها و مراسم" />
+	<subject code="HRHP" text="زندگی و عمل اسلامی" />
+	<subject code="HRHS" text="قرآن" />
+	<subject code="HRHT" text="الهیات اسلامی" />
+	<subject code="HRHX" text="عرفان و عرفان اسلامی" />
+	<subject code="HRJ" text="یهودیت" />
+	<subject code="HRJC" text="یهودیت: پرستش، مراسم و مراسم" />
+	<subject code="HRJP" text="یهودیت: زندگی و تمرین" />
+	<subject code="HRJS" text="یهودیت: متون مقدس" />
+	<subject code="HRJT" text="یهودیت: الهیات" />
+	<subject code="HRJX" text="یهودیت: عرفان" />
+	<subject code="HRK" text="دیگر مذاهب غیر مسیحی" />
+	<subject code="HRKB" text="بهائی" />
+	<subject code="HRKJ" text="جینیسم" />
+	<subject code="HRKN" text="ادیان شرقی" />
+	<subject code="HRKN1" text="کنفوسیوس گرایی" />
+	<subject code="HRKN3" text="شینتیزم" />
+	<subject code="HRKN5" text="تائویسم" />
+	<subject code="HRKP" text="ادیان قدیم و اساطیر" />
+	<subject code="HRKP1" text="دین و اساطیر مصر باستان" />
+	<subject code="HRKP2" text="مذهب سلطنتی و اساطیر" />
+	<subject code="HRKP3" text="دین و اساطیر یونان باستان" />
+	<subject code="HRKP4" text="دین و اساطیر رومی" />
+	<subject code="HRKP5" text=" اسطوره شناسی و مذهب شمال" />
+	<subject code="HRKS" text="سیکیزم" />
+	<subject code="HRKT" text="ادیان قبیله ای" />
+	<subject code="HRKZ" text="دین زرتشت" />
+	<subject code="HRL" text="جنبه های دین (غیر مسیحی)" />
+	<subject code="HRLB" text="الهیات" />
+	<subject code="HRLC" text="متون مقدس" />
+	<subject code="HRLC1" text="انتقاد و تفسیر متون مقدس" />
+	<subject code="HRLD" text="نماز و مواد الهی" />
+	<subject code="HRLF" text="عبادت، آیین ها و مراسم" />
+	<subject code="HRLF9" text="نماز" />
+	<subject code="HRLK" text="معنویت و تجربه دینی" />
+	<subject code="HRLK2" text="عرفان" />
+	<subject code="HRLM" text="زندگی مذهبی و عمل" />
+	<subject code="HRLM3" text="آموزش مذهبی" />
+	<subject code="HRLM5" text="مشاوره مذهبی" />
+	<subject code="HRLM7" text="جنبه های مذهبی جنسیت، جنسیت و روابط" />
+	<subject code="HRLP" text="نهادها و سازمانهای مذهبی" />
+	<subject code="HRLP1" text="رهبران مذهبی و معنوی" />
+	<subject code="HRLP5" text="اندیشه و فعالیت اجتماعی و مذهبی مذهبی" />
+	<subject code="HRLP7" text="جوامع مذهبی و مدرنیته" />
+	<subject code="HRQ" text="سیستم های اعتقادی جایگزین" />
+	<subject code="HRQA" text="جایگزین انسانی و سکولار به دین" />
+	<subject code="HRQA5" text="کنش گرایی و بی تفاوتی" />
+	<subject code="HRQC" text="مذاهب مختلف و عقاید عجیب و غریب" />
+	<subject code="HRQC1" text="عرفان شناسی" />
+	<subject code="HRQC5" text="عرفان و حکمت انسانی" />
+	<subject code="HRQM" text="معابد و فرقه های معاصر غیر مسیحی و پارا مسیحی" />
+	<subject code="HRQM2" text="معنویت" />
+	<subject code="HRQX" text="مطالعات محصور" />
+	<subject code="HRQX2" text="سحر و جادو، کیمیاگری و فکر مخفیانه" />
+	<subject code="HRQX5" text="جادوگری" />
+	<subject code="HRQX9" text="شیطان و شیطانی" />
+	<subject code="J" text="جامعه و علوم اجتماعی" />
+	<subject code="JF" text="جامعه و فرهنگ: عمومی" />
+	<subject code="JFC" text="مطالعات فرهنگی" />
+	<subject code="JFCA" text="فرهنگ محبوب" />
+	<subject code="JFCD" text="فرهنگ مادی" />
+	<subject code="JFCK" text="مد و جامعه" />
+	<subject code="JFCV" text="غذا و جامعه" />
+	<subject code="JFCX" text="تاریخچه ایده ها" />
+	<subject code="JFD" text="مطالعات رسانه ای" />
+	<subject code="JFDT" text="تلویزیون و جامعه" />
+	<subject code="JFDV" text="تبلیغات و جامعه" />
+	<subject code="JFF" text="مسائل و فرآیندهای اجتماعی" />
+	<subject code="JFFA" text="فقر و بیکاری" />
+	<subject code="JFFB" text="مسکن و بی خانمانی" />
+	<subject code="JFFC" text="تأثیر اجتماعی بلایای طبیعی" />
+	<subject code="JFFC1" text="قحطی" />
+	<subject code="JFFD" text="پناهندگان و پناهندگان سیاسی" />
+	<subject code="JFFE" text="خشونت در جامعه" />
+	<subject code="JFFE1" text="کودک آزاری" />
+	<subject code="JFFE2" text="سوءاستفاده جنسی و آزار و اذیت" />
+	<subject code="JFFE3" text="خشونت خانگی" />
+	<subject code="JFFG" text="معلولیت: جنبه های اجتماعی" />
+	<subject code="JFFH" text="بیماری و اعتیاد: جنبه های اجتماعی" />
+	<subject code="JFFH1" text="مواد مخدر و مواد مخدر: جنبه های اجتماعی" />
+	<subject code="JFFH2" text="اچ آی وی / ایدز: جنبه های اجتماعی" />
+	<subject code="JFFJ" text="تبعیض اجتماعی و نابرابری" />
+	<subject code="JFFK" text="فمینیسم و ​​تئوری فمینیستی" />
+	<subject code="JFFL" text="صحت سیاسی" />
+	<subject code="JFFM" text="تحرک اجتماعی" />
+	<subject code="JFFN" text="مهاجرت، مهاجرت و مهاجرت" />
+	<subject code="JFFP" text="تعامل اجتماعی" />
+	<subject code="JFFR" text="پیش بینی اجتماعی، مطالعات آینده" />
+	<subject code="JFFS" text="جهانی شدن" />
+	<subject code="JFFT" text="مصرف گرایی" />
+	<subject code="JFFU" text="مسائل مربوط به ایمنی عمومی" />
+	<subject code="JFFX" text="فساد در جامعه" />
+	<subject code="JFFZ" text="حیوانات و جامعه" />
+	<subject code="JFH" text="باورهای محبوب و دانش بحث انگیز" />
+	<subject code="JFHC" text="تئوری های توطئه" />
+	<subject code="JFHF" text="فولکلور، اسطوره ها و افسانه ها" />
+	<subject code="JFHX" text="حقه ها و فریب ها" />
+	<subject code="JFM" text="مسائل اخلاقی و بحث ها" />
+	<subject code="JFMA" text="مسائل اخلاقی: سقط جنین و کنترل تولد" />
+	<subject code="JFMC" text="مسائل اخلاقی: مجازات اعدام" />
+	<subject code="JFMD" text="مسائل اخلاقی: سانسور" />
+	<subject code="JFME" text="مسائل اخلاقی: کشتن از سر ترحم و حق مرگ" />
+	<subject code="JFMG" text="مسائل اخلاقی: تحولات علمی و فناوری" />
+	<subject code="JFMP" text="مسائل اخلاقی: پورنوگرافی و ناخوشایندی" />
+	<subject code="JFMX" text="مسائل اخلاقی: فحشا و صنعت جنسیتی" />
+	<subject code="JFS" text="گروه های اجتماعی" />
+	<subject code="JFSC" text="کلاسهای اجتماعی" />
+	<subject code="JFSF" text="جوامع روستایی" />
+	<subject code="JFSG" text="جوامع شهری" />
+	<subject code="JFSJ" text="مطالعات جنسیتی، گروه های جنسیتی" />
+	<subject code="JFSJ1" text="مطالعات جنسیتی: زنان" />
+	<subject code="JFSJ2" text="مطالعات جنسیتی: مردان" />
+	<subject code="JFSJ5" text="مطالعات جنسى: ترنجو و هرمافردیتىسم" />
+	<subject code="JFSK" text="مطالعات گی و لزبین" />
+	<subject code="JFSK1" text="مطالعات لزبین" />
+	<subject code="JFSK2" text="مطالعات همجنسگرایان (مردان همجنسگرا)" />
+	<subject code="JFSL" text="مطالعات قومی" />
+	<subject code="JFSL1" text="اقلیت های قومی و مطالعات چند فرهنگی" />
+	<subject code="JFSL3" text="مطالعات سیاه و آسیایی" />
+	<subject code="JFSL4" text="مطالعات اسپانیایی و لاتین" />
+	<subject code="JFSL9" text="مردم بومی" />
+	<subject code="JFSP" text="گروه های سنی" />
+	<subject code="JFSP1" text="گروه های سنی: کودکان" />
+	<subject code="JFSP2" text="گروه های سنی: نوجوانان" />
+	<subject code="JFSP3" text="گروه های سنی: بزرگسالان" />
+	<subject code="JFSP31" text="گروه های سنی: سالمندان" />
+	<subject code="JFSR" text="گروه های مذهبی: جنبه های اجتماعی و فرهنگی" />
+	<subject code="JFSR1" text="مطالعات یهودیان" />
+	<subject code="JFSR2" text="مطالعات اسلامی" />
+	<subject code="JFSS" text="شیوه زندگی جایگزین" />
+	<subject code="JFSV" text="گروه های اجتماعی: باشگاه ها و جوامع" />
+	<subject code="JFSV1" text="فراماسونری و جوامع مخفی" />
+	<subject code="JH" text="جامعه شناسی و انسان شناسی" />
+	<subject code="JHB" text="جامعه شناسی" />
+	<subject code="JHBA" text="تئوری اجتماعی" />
+	<subject code="JHBC" text="تحقیق و آمار اجتماعی" />
+	<subject code="JHBD" text="جمعیت و جمعیت شناسی" />
+	<subject code="JHBF" text="جامعه شناسی: تولد" />
+	<subject code="JHBK" text="جامعه شناسی: خانواده و روابط" />
+	<subject code="JHBK5" text="جامعه شناسی: روابط جنسی" />
+	<subject code="JHBL" text="جامعه شناسی: کار و کار" />
+	<subject code="JHBS" text="جامعه شناسی: ورزش و اوقات فراغت" />
+	<subject code="JHBT" text="جامعه شناسی: آداب و رسوم و سنت ها" />
+	<subject code="JHBZ" text="جامعه شناسی: مرگ و مرگ" />
+	<subject code="JHM" text="مردم شناسی" />
+	<subject code="JHMC" text="انسان شناسی اجتماعی و فرهنگی، قوم نگاری" />
+	<subject code="JHMP" text="انسان شناسی فیزیکی" />
+	<subject code="JK" text="خدمات اجتماعی و رفاه، جرم شناسی" />
+	<subject code="JKS" text="رفاه اجتماعی و خدمات اجتماعی" />
+	<subject code="JKSB" text="سیستم های رفاه و سود" />
+	<subject code="JKSB1" text="رفاه کودکان" />
+	<subject code="JKSF" text="تصویب و پرورش" />
+	<subject code="JKSG" text="مراقبت از سالمندان" />
+	<subject code="JKSM" text="مراقبت از بیماران روانی" />
+	<subject code="JKSN" text="کار اجتماعی" />
+	<subject code="JKSN1" text="خیریه ها، خدمات داوطلبانه و بشردوستی" />
+	<subject code="JKSN2" text="مشاوره و مشاوره" />
+	<subject code="JKSR" text="برنامه های کمک و امداد" />
+	<subject code="JKSW" text="خدمات ضروری" />
+	<subject code="JKSW1" text="پلیس و خدمات امنیتی" />
+	<subject code="JKSW2" text="خدمات آتش نشانی" />
+	<subject code="JKSW3" text="خدمات آمبولانس و نجات" />
+	<subject code="JKV" text="جنایت و جرمشناسی" />
+	<subject code="JKVC" text="علل و پیشگیری از جرم و جنایت" />
+	<subject code="JKVF" text="تحقیق و تشخیص جنایی" />
+	<subject code="JKVF1" text="علم قضایی" />
+	<subject code="JKVG" text="تجارت مواد مخدر / قاچاق مواد مخدر" />
+	<subject code="JKVJ" text="جرایم خیابانی / جرم اسلحه" />
+	<subject code="JKVK" text="جرم شرکتی" />
+	<subject code="JKVM" text="جرم سازمان یافته" />
+	<subject code="JKVP" text="مجازات و مجازات" />
+	<subject code="JKVP1" text="زندان ها" />
+	<subject code="JKVQ" text="مجرمین" />
+	<subject code="JKVQ1" text="توانبخشی مجرمان" />
+	<subject code="JKVQ2" text="مجرمان نوجوان" />
+	<subject code="JKVS" text="خدمات تعهد" />
+	<subject code="JM" text="روانشناسی" />
+	<subject code="JMA" text="تئوری روانشناختی و مدارس تفکر" />
+	<subject code="JMAF" text="تئوری روانکاوی (روانشناسی فرویدی)" />
+	<subject code="JMAJ" text="روانشناسی تحلیلی و یونانی" />
+	<subject code="JMAL" text="نظریه رفتاری (روانشناسی)" />
+	<subject code="JMAN" text="روانشناسی انسان گرایانه" />
+	<subject code="JMAQ" text="شناخت شناسی، نظریه شناختی" />
+	<subject code="JMB" text="روش روانشناسی" />
+	<subject code="JMBT" text="تست روانشناختی و اندازه گیری" />
+	<subject code="JMC" text="روانشناسی کودک و رشد" />
+	<subject code="JMD" text="روانشناسی پیری" />
+	<subject code="JMF" text="روانشناسی خانواده" />
+	<subject code="JMG" text="روانشناسی جنسیت" />
+	<subject code="JMH" text="روانشناسی اجتماعی، گروهی یا جمعی" />
+	<subject code="JMJ" text="روانشناسی حرفه ای و صنعتی" />
+	<subject code="JMK" text="روانشناسی جنایی یا قانونی" />
+	<subject code="JML" text="روانشناسی تجربی" />
+	<subject code="JMM" text="فیزیولوژیکی و روانشناسی عصبی، بیوسیکولوژی" />
+	<subject code="JMP" text="روانشناسی غیرعادی" />
+	<subject code="JMQ" text="روانشناسی: احساسات" />
+	<subject code="JMR" text="شناخت و روانشناسی شناختی" />
+	<subject code="JMRL" text="یادگیری" />
+	<subject code="JMRM" text="حافظه" />
+	<subject code="JMRN" text="هوش و استدلال" />
+	<subject code="JMRP" text="ادراک" />
+	<subject code="JMS" text="خود، خود، هویت، شخصیت" />
+	<subject code="JMT" text="ایالت های آگاهی" />
+	<subject code="JMTC" text="آگاه و ناخودآگاه" />
+	<subject code="JMTD" text="خواب و رویاها" />
+	<subject code="JMTH" text="هیپنوتیزم" />
+	<subject code="JMTK" text="ایالات ناشی از مواد مخدر" />
+	<subject code="JMU" text="رفتار جنسی" />
+	<subject code="JMX" text="مطالعات تجربی" />
+	<subject code="JN" text="تحصیلات" />
+	<subject code="JNA" text="فلسفه و نظریه آموزش" />
+	<subject code="JNAM" text="هدف اخلاقی و اجتماعی آموزش و پرورش" />
+	<subject code="JNB" text="تاریخچه تحصیلات" />
+	<subject code="JNC" text="روانشناسی آموزشی" />
+	<subject code="JNF" text="استراتژی های آموزشی و سیاست" />
+	<subject code="JNFD" text="استراتژی سواد آموزی" />
+	<subject code="JNFG" text="استراتژی شمارش" />
+	<subject code="JNFN" text="آموزش جامع / جریان اصلی" />
+	<subject code="JNFR" text="آموزش چند فرهنگی" />
+	<subject code="JNH" text="آموزش و پرورش: مراقبت و مشاوره دانشجویان" />
+	<subject code="JNHB" text="استراتژی های قلدر و ضد قلدری" />
+	<subject code="JNHT" text="راهبردهای رانندگی و ضد رشوه دادن" />
+	<subject code="JNHX" text="محروم کردن / رها کردن از مدرسه" />
+	<subject code="JNK" text="سازمان و مدیریت آموزش و پرورش" />
+	<subject code="JNKA" text="روش های پذیرش" />
+	<subject code="JNKC" text="برنامه ریزی و توسعه برنامه درسی" />
+	<subject code="JNKD" text="امتحانات و ارزیابی" />
+	<subject code="JNKF" text="بازرسی مدارس (و آماده شدن برای بازرسی)" />
+	<subject code="JNKG" text="تامین مالی آموزش و پرورش و امور دانشجویی" />
+	<subject code="JNKH" text="کارکنان آموزش" />
+	<subject code="JNKH1" text="ارزیابی معلم" />
+	<subject code="JNKN" text="کارکنان غیر آموزشی و پشتیبانی" />
+	<subject code="JNKP" text="روابط مدرسه / جامعه و روابط مدرسه / خانه" />
+	<subject code="JNKR" text="مدرسان مدرسه و هیئت مدرسه" />
+	<subject code="JNKS" text="دانشجویان و سازمان های دانشجویی" />
+	<subject code="JNL" text="مدارس" />
+	<subject code="JNLA" text="پیش دبستانی و مهد کودک" />
+	<subject code="JNLB" text="مدارس ابتدایی و متوسطه" />
+	<subject code="JNLC" text="مدارس متوسطه" />
+	<subject code="JNLP" text="مدارس مستقل، آموزش خصوصی" />
+	<subject code="JNLR" text="مدارس دینی (مذهبی)" />
+	<subject code="JNM" text="تحصیلات عالی و تربیتی، آموزش عالی" />
+	<subject code="JNMF" text="کالجهای تحصیلات تکمیلی" />
+	<subject code="JNMH" text="کالجهای تحصیلات عالی" />
+	<subject code="JNMN" text="دانشگاه ها" />
+	<subject code="JNMT" text="آموزش معلمان" />
+	<subject code="JNP" text="آموزش بزرگسالان، یادگیری مداوم" />
+	<subject code="JNQ" text="آموزش باز، یادگیری خانه، آموزش از راه دور" />
+	<subject code="JNR" text="راهنمایی شغلی" />
+	<subject code="JNRV" text="آموزش صنعتی یا حرفه ای" />
+	<subject code="JNS" text="آموزش گروه های خاص و افراد با نیازهای آموزشی خاص" />
+	<subject code="JNSC" text="آموزش دانشجویان معلول فیزیکی" />
+	<subject code="JNSC1" text="آموزش دانش آموزان کم شنوا" />
+	<subject code="JNSC2" text="آموزش دانش آموزان مبتلا به اختلال دید" />
+	<subject code="JNSG" text="آموزش دانش آموزان با مشکلات و نیازهای یادگیری خاص" />
+	<subject code="JNSG1" text="آموزش دانشجویان نارساخوان" />
+	<subject code="JNSG2" text="آموزش دانشجویان اوتیستیک" />
+	<subject code="JNSL" text="آموزش دانش آموزان با مشکلات عاطفی و رفتاری" />
+	<subject code="JNSP" text="آموزش دانش آموزان با استعداد" />
+	<subject code="JNSV" text="آموزش دانشجویان با زبان انگلیسی به عنوان زبان دوم (TESOL)" />
+	<subject code="JNT" text="مهارت ها و تکنیک های آموزشی" />
+	<subject code="JNU" text="آموزش یک موضوع خاص" />
+	<subject code="JNUM" text="منابع و مواد کلاس درس معلمان" />
+	<subject code="JNV" text="تجهیزات آموزشی و فن آوری، یادگیری کامپیوتری (CAL)" />
+	<subject code="JNW" text="فعالیت های فوق برنامه" />
+	<subject code="JNWT" text="بازدید های آموزشی و سفرهای حومه" />
+	<subject code="JNZ" text="مهارت های مطالعه و یادگیری: به طور کلی" />
+	<subject code="JP" text="سیاست و حکومت" />
+	<subject code="JPA" text="علوم سیاسی و نظریه" />
+	<subject code="JPB" text="سیاست مقایسه ای" />
+	<subject code="JPF" text="ایدئولوژی های سیاسی" />
+	<subject code="JPFB" text="آنارشیسم" />
+	<subject code="JPFC" text="مارکسیسم و ​​کمونیسم" />
+	<subject code="JPFF" text="سوسیالیسم و ​​ایدئولوژی های دموکراتیک چپ از مرکز" />
+	<subject code="JPFK" text="لیبرالیسم و ​​مرکز ایدئولوژی های دموکراتیک" />
+	<subject code="JPFM" text="محافظه کاری و ایدئولوژی های دموکراتیک راست مرکز" />
+	<subject code="JPFN" text="ملی گرایی" />
+	<subject code="JPFQ" text="فاشیسم و ​​نازیسم" />
+	<subject code="JPFR" text="ایدئولوژی های مذهبی و دینی" />
+	<subject code="JPH" text="ساختار و فرآیندهای سیاسی" />
+	<subject code="JPHC" text="قانون اساسی: حکومت و دولت" />
+	<subject code="JPHF" text="انتخابات و رفراندوم" />
+	<subject code="JPHL" text="رهبران سیاسی و رهبری" />
+	<subject code="JPHV" text="ساختارهای سیاسی: دموکراسی" />
+	<subject code="JPHX" text="ساختارهای سیاسی: توتالیتاریسم و ​​دیکتاتوری" />
+	<subject code="JPL" text="احزاب سیاسی" />
+	<subject code="JPLM" text="مانیفست سیاسی" />
+	<subject code="JPP" text="مدیریت دولتی" />
+	<subject code="JPQ" text="دولت مرکزی" />
+	<subject code="JPQB" text="سیاست های دولت مرکزی" />
+	<subject code="JPR" text="دولت منطقه ای" />
+	<subject code="JPRB" text="سیاست های منطقه ای دولت" />
+	<subject code="JPS" text="روابط بین الملل" />
+	<subject code="JPSD" text="دیپلماسی" />
+	<subject code="JPSF" text="مذاکره و کنترل اسلحه" />
+	<subject code="JPSH" text="جاسوسی و خدمات مخفی" />
+	<subject code="JPSL" text="ژئوپلیتیک" />
+	<subject code="JPSN" text="موسسات بین المللی" />
+	<subject code="JPSN1" text="سازمان ملل متحد و سازمان ملل متحد" />
+	<subject code="JPSN2" text="موسسات اتحادیه اروپا و اروپا" />
+	<subject code="JPV" text="کنترل سیاسی و آزادی" />
+	<subject code="JPVH" text="حقوق بشر" />
+	<subject code="JPVH1" text="حقوق مدنی و شهروندی" />
+	<subject code="JPVH2" text="آزادی اطلاعات و آزادی بیان" />
+	<subject code="JPVH3" text="حقوق زمین" />
+	<subject code="JPVH4" text="آزادی مذهبی / آزادی پرستش" />
+	<subject code="JPVK" text="نظرسنجی عمومی و نظرسنجی" />
+	<subject code="JPVL" text="مبارزات انتخاباتی و تبلیغات سیاسی" />
+	<subject code="JPVN" text="تبلیغات" />
+	<subject code="JPVR" text="ستم سیاسی و آزار و اذیت" />
+	<subject code="JPW" text="فعال سیاسی" />
+	<subject code="JPWD" text="گروه های فشار و لابی" />
+	<subject code="JPWF" text="تظاهرات و جنبش اعتراضی" />
+	<subject code="JPWH" text="سازمان های غیر دولتی (سازمان های غیر دولتی)" />
+	<subject code="JPWJ" text="انفجار سیاسی" />
+	<subject code="JPWL" text="تروریسم، مبارزه مسلحانه" />
+	<subject code="JPWL1" text="ترور سیاسی" />
+	<subject code="JPWL2" text="حمله تروریستی" />
+	<subject code="JPWQ" text="گروه های انقلابی و جنبش ها" />
+	<subject code="JPWS" text="درگیری های مسلحانه" />
+	<subject code="JPZ" text="فساد سیاسی" />
+	<subject code="JW" text="جنگ و دفاع" />
+	<subject code="JWA" text="نظریه جنگ و علوم نظامی" />
+	<subject code="JWD" text="نیروهای زمینی و جنگ" />
+	<subject code="JWDG" text="نیروهای نامنظم یا چریکی و جنگ" />
+	<subject code="JWF" text="نیروهای دریایی و جنگ" />
+	<subject code="JWG" text="نیروهای هوایی و جنگ" />
+	<subject code="JWH" text="نیروهای ویژه و نخبه" />
+	<subject code="JWJ" text="حکومت نظامی" />
+	<subject code="JWK" text="استراتژی دفاع، برنامه ریزی و پژوهش" />
+	<subject code="JWKF" text="اطلاعات نظامی" />
+	<subject code="JWKT" text="تاکتیک های نظامی" />
+	<subject code="JWKW" text="دفاع غیر نظامی" />
+	<subject code="JWL" text="عملیات جنگی و دفاع" />
+	<subject code="JWLF" text="جنگ و کمپین" />
+	<subject code="JWLP" text="عملیات حفظ صلح" />
+	<subject code="JWM" text="سلاح و تجهیزات" />
+	<subject code="JWMC" text="سلاح های شیمیایی و بیولوژیکی" />
+	<subject code="JWMN" text="سلاح های هسته ای" />
+	<subject code="JWMV" text="وسایل نقلیه نظامی" />
+	<subject code="JWMV1" text="مخازن و وسایل نقلیه زمینی نظامی" />
+	<subject code="JWMV2" text="کشتی های نظامی و دریایی" />
+	<subject code="JWMV3" text="هواپیما نظامی" />
+	<subject code="JWT" text="زندگی و مؤسسات نظامی" />
+	<subject code="JWTR" text="سربازان" />
+	<subject code="JWTU" text="لباس و نشان" />
+	<subject code="JWTY" text="یادبود ها و رولهای افتخاری" />
+	<subject code="JWX" text="سایر مسائل مربوط به جنگ و دفاع" />
+	<subject code="JWXF" text="تجارت اسلحه" />
+	<subject code="JWXK" text="جرائم جنگی" />
+	<subject code="JWXN" text="مزدوران" />
+	<subject code="JWXR" text="اسرای جنگی" />
+	<subject code="JWXT" text="سرزنش" />
+	<subject code="JWXV" text="سربازان نظامی" />
+	<subject code="JWXZ" text="مبارزات / مهارت های دفاع و کتابچه راهنمای" />
+	<subject code="K" text="اقتصاد، امور مالی، کسب و کار و مدیریت" />
+	<subject code="KC" text="اقتصاد" />
+	<subject code="KCA" text="نظریه اقتصادی و فلسفه" />
+	<subject code="KCB" text="اقتصاد کلان" />
+	<subject code="KCBM" text="اقتصاد پولی" />
+	<subject code="KCC" text="اقتصاد میکرو" />
+	<subject code="KCCD" text="تجارت داخلی" />
+	<subject code="KCD" text="اقتصاد سازمان صنعتی" />
+	<subject code="KCF" text="اقتصاد کارگری" />
+	<subject code="KCFM" text="اشتغال و بیکاری" />
+	<subject code="KCG" text="رشد اقتصادی" />
+	<subject code="KCH" text="اقتصاد سنجی" />
+	<subject code="KCHS" text="آمار اقتصادی" />
+	<subject code="KCJ" text="پیش بینی اقتصادی" />
+	<subject code="KCK" text="اقتصاد رفتاری" />
+	<subject code="KCL" text="اقتصاد بین المللی" />
+	<subject code="KCLF" text="امور مالی بین المللی" />
+	<subject code="KCLT" text="تجارت بین المللی" />
+	<subject code="KCLT1" text="توافقنامه تجارت" />
+	<subject code="KCM" text="اقتصاد توسعه و اقتصادهای در حال ظهور" />
+	<subject code="KCN" text="اقتصاد محیطی" />
+	<subject code="KCP" text="اقتصاد سیاسی" />
+	<subject code="KCQ" text="اقتصاد سلامت" />
+	<subject code="KCR" text="اقتصاد رفاه" />
+	<subject code="KCS" text="سیستم های اقتصادی و سازه" />
+	<subject code="KCT" text="اقتصاد کشاورزی" />
+	<subject code="KCU" text="اقتصاد شهری" />
+	<subject code="KCX" text="بحران های اقتصادی و مالی و بلایای طبیعی" />
+	<subject code="KCY" text="اقتصاد محبوب" />
+	<subject code="KCZ" text="تاریخ اقتصادی" />
+	<subject code="KF" text="حسابداری مالی" />
+	<subject code="KFC" text="حسابداری" />
+	<subject code="KFCC" text="حسابداری هزینه" />
+	<subject code="KFCF" text="حسابداری مالی" />
+	<subject code="KFCM" text="حسابداری مدیریت و حسابداری" />
+	<subject code="KFCP" text="حسابداری مالی دولتی" />
+	<subject code="KFCR" text="گزارش مالی، صورتهای مالی" />
+	<subject code="KFCX" text="حسابداری: راهنمای مطالعه و تجدید نظر" />
+	<subject code="KFF" text="امور مالی" />
+	<subject code="KFFD" text="مالیات عمومی" />
+	<subject code="KFFD1" text="مالیات" />
+	<subject code="KFFH" text="امور مالی شرکت" />
+	<subject code="KFFK" text="بانکداری" />
+	<subject code="KFFL" text="موسسات اعتباری و اعتباری" />
+	<subject code="KFFM" text="سرمایه گذاری و اوراق بهادار" />
+	<subject code="KFFM1" text="کالاها" />
+	<subject code="KFFM2" text="سهام و سهام" />
+	<subject code="KFFN" text="بیمه و مطالعات مشروط" />
+	<subject code="KFFP" text="حقوق بازنشستگی" />
+	<subject code="KFFR" text="املاک و مستغلات" />
+	<subject code="KFFX" text="بانکداری و مالی: راهنمای مطالعه و تجدید نظر" />
+	<subject code="KJ" text="مدیریت کسب و کار" />
+	<subject code="KJB" text="مطالعات کسب و کار: به طور کلی" />
+	<subject code="KJBX" text="کسب و کار و مدیریت: راهنمای مطالعه و تجدید نظر" />
+	<subject code="KJC" text="استراتژی کسب و کار" />
+	<subject code="KJD" text="نوآوری کسب و کار" />
+	<subject code="KJE" text="تجارت الکترونیک: جنبه های تجاری" />
+	<subject code="KJF" text="رقابت تجاری" />
+	<subject code="KJG" text="اخلاق تجارت و مسئولیت اجتماعی" />
+	<subject code="KJH" text="کارآفرینی" />
+	<subject code="KJJ" text="کسب و کار و محیط زیست، رویکرد سبز به کسب و کار" />
+	<subject code="KJK" text="تجارت بین المللی" />
+	<subject code="KJL" text="مشاوره و کمک های مالی برای کسب و کار" />
+	<subject code="KJM" text="مدیریت و تکنیک های مدیریت" />
+	<subject code="KJMB" text="مدیریت: رهبری و انگیزه" />
+	<subject code="KJMD" text="تصمیم گیری در مدیریت" />
+	<subject code="KJMP" text="مدیریت پروژه" />
+	<subject code="KJMQ" text="تضمین کیفیت (QA) و مدیریت کیفیت جامع (TQM)" />
+	<subject code="KJMT" text="مدیریت زمان" />
+	<subject code="KJMV" text="مدیریت مناطق خاص" />
+	<subject code="KJMV1" text="بودجه بندی و مدیریت مالی" />
+	<subject code="KJMV2" text="مدیریت منابع انسانی و شخصی" />
+	<subject code="KJMV3" text="مدیریت دانش" />
+	<subject code="KJMV4" text="مدیریت املاک، اموال و کارخانه" />
+	<subject code="KJMV5" text="مدیریت تولید و کنترل کیفیت" />
+	<subject code="KJMV6" text="مدیریت تحقیق و توسعه" />
+	<subject code="KJMV7" text="مدیریت بازاریابی و بازاریابی" />
+	<subject code="KJMV8" text="مدیریت خرید و عرضه" />
+	<subject code="KJMV9" text="مدیریت توزیع و انبارداری" />
+	<subject code="KJN" text="مذاکره تجاری" />
+	<subject code="KJP" text="ارتباطات تجاری و ارائه" />
+	<subject code="KJQ" text="ریاضیات و سیستم های کسب و کار" />
+	<subject code="KJR" text="حاکمیت شرکتی" />
+	<subject code="KJRD" text="هیئت مدیره و مدیر: نقش و مسئولیت ها" />
+	<subject code="KJRS" text="وزیر شرکت: نقش و مسئولیت ها" />
+	<subject code="KJS" text="فروش و بازاریابی" />
+	<subject code="KJSA" text="تبلیغات" />
+	<subject code="KJSM" text="تحقیق بازار" />
+	<subject code="KJSP" text="روابط عمومی" />
+	<subject code="KJSU" text="خدمات مشتری" />
+	<subject code="KJT" text="پژوهش عملیاتی" />
+	<subject code="KJU" text="نظریه سازمان و رفتار" />
+	<subject code="KJV" text="مالکیت و سازماندهی شرکت ها" />
+	<subject code="KJVB" text="تصاحب، ادغام و خرید" />
+	<subject code="KJVD" text="خصوصی سازی" />
+	<subject code="KJVF" text="فرانچایز" />
+	<subject code="KJVG" text="شرکت های چند ملیتی" />
+	<subject code="KJVN" text="مالکیت عمومی / ملی شدن" />
+	<subject code="KJVP" text="انحصارها" />
+	<subject code="KJVS" text="کسب و کارهای کوچک و خود اشتغالی" />
+	<subject code="KJVT" text="برون سپاری" />
+	<subject code="KJVV" text="سرمایه گذاری مشترک" />
+	<subject code="KJVW" text="مالکیت کارکنان و تعاونی ها" />
+	<subject code="KJVX" text="سازمان های غیر انتفاعی" />
+	<subject code="KJW" text="دفتر و محل کار" />
+	<subject code="KJWB" text="مدیریت دفتر" />
+	<subject code="KJWF" text="سیستم های اداری و تجهیزات" />
+	<subject code="KJWS" text="ریاست عمومی، روحانی و اداری" />
+	<subject code="KJWX" text="الگوهای کاری و شیوه های کار" />
+	<subject code="KJZ" text="تاریخچه شرکت های خاص / سابقه شرکت" />
+	<subject code="KN" text="مطالعات صنعتی و صنعتی" />
+	<subject code="KNA" text="صنایع اولیه" />
+	<subject code="KNAC" text="کشاورزی و صنایع وابسته" />
+	<subject code="KNAF" text="شیلات و صنایع وابسته" />
+	<subject code="KNAL" text="جنگلداری و صنایع وابسته" />
+	<subject code="KNAT" text="صنعت معدن" />
+	<subject code="KNB" text="صنایع انرژی و آب و برق" />
+	<subject code="KNBC" text="زغال سنگ و صنایع جامد سوخت" />
+	<subject code="KNBG" text="صنایع گاز" />
+	<subject code="KNBL" text="صنایع برق" />
+	<subject code="KNBN" text="صنایع هسته ای" />
+	<subject code="KNBP" text="صنایع نفت و نفت" />
+	<subject code="KNBT" text="صنایع انرژی جایگزین و تجدید پذیر" />
+	<subject code="KNBW" text="صنایع آب" />
+	<subject code="KND" text="صنایع تولیدی" />
+	<subject code="KNDC" text="صنایع شیمیایی" />
+	<subject code="KNDD" text="صنایع نساجی" />
+	<subject code="KNDF" text="تولید مواد غذایی و صنایع وابسته" />
+	<subject code="KNDF1" text="صنعت دخانیات" />
+	<subject code="KNDH" text="صنایع تولید کننده سلام فن آوری" />
+	<subject code="KNDH1" text="صنایع بیوتکنولوژی" />
+	<subject code="KNDM" text="صنایع مسلح" />
+	<subject code="KNDP" text="صنایع دارویی" />
+	<subject code="KNDR" text="صنعت تولید وسایل نقلیه راه آهن" />
+	<subject code="KNDS" text="صنعت کشتی سازی" />
+	<subject code="KNDV" text="صنعت حمل و نقل هوایی" />
+	<subject code="KNG" text="صنایع حمل و نقل" />
+	<subject code="KNGR" text="صنایع حمل و نقل جاده ای" />
+	<subject code="KNGS" text="صنایع حمل و نقل" />
+	<subject code="KNGT" text="صنایع حمل و نقل ریلی" />
+	<subject code="KNGV" text="صنایع هوا و فضا و حمل و نقل هوایی" />
+	<subject code="KNGV1" text="فرودگاه ها" />
+	<subject code="KNJ" text="ساخت و ساز و صنایع سنگین" />
+	<subject code="KNJC" text="صنعت ساخت و ساز" />
+	<subject code="KNJH" text="آهن، فولاد و فلزات" />
+	<subject code="KNP" text="صنایع توزیع" />
+	<subject code="KNPR" text="بخش خرده فروشی" />
+	<subject code="KNPW" text="بخش عمده فروشی" />
+	<subject code="KNS" text="صنایع خدماتی" />
+	<subject code="KNSG" text="صنعت گردشگری" />
+	<subject code="KNSH" text="صنعت هتلداری" />
+	<subject code="KNSJ" text="صنایع مدیریت رویدادها" />
+	<subject code="KNSP" text="صنایع ورزشی و تفریحی" />
+	<subject code="KNSS" text="خدمات امنیتی" />
+	<subject code="KNSS1" text="خدمات نظارت" />
+	<subject code="KNST" text="صنعت خدمات مالی" />
+	<subject code="KNSX" text="صنایع مد و زیبایی" />
+	<subject code="KNSZ" text="خدمات مراسم تشییع جنازه" />
+	<subject code="KNT" text="رسانه ها، صنایع اطلاعات و ارتباطات" />
+	<subject code="KNTC" text="صنعت سینما" />
+	<subject code="KNTD" text="صنعت رادیو و تلویزیون" />
+	<subject code="KNTF" text="صنعت موسیقی" />
+	<subject code="KNTJ" text="مطبوعات و روزنامه نگاری" />
+	<subject code="KNTP" text="صنعت چاپ و تجارت کتاب" />
+	<subject code="KNTR" text="چاپ، بسته بندی و صنایع چاپی" />
+	<subject code="KNTT" text="صنایع پستی و مخابراتی" />
+	<subject code="KNTX" text="صنایع فناوری اطلاعات" />
+	<subject code="KNTX1" text="اینترنت و  صنایع شبکه جهانی" />
+	<subject code="KNTY" text="صنعت تبلیغات" />
+	<subject code="KNV" text="خدمات عمومي و بخش عمومي" />
+	<subject code="KNX" text="روابط صنعتی، بهداشت و ایمنی" />
+	<subject code="KNXB" text="روابط صنعتی" />
+	<subject code="KNXB1" text="اعتصاب" />
+	<subject code="KNXB2" text="اتحادیه های کارگری" />
+	<subject code="KNXB3" text="داوری صنعتی و مذاکره" />
+	<subject code="KNXC" text="مسائل بهداشتی و ایمنی" />
+	<subject code="L" text="قانون" />
+	<subject code="LA" text="فقه و مسائل عمومی" />
+	<subject code="LAB" text="فقه و فلسفه حقوق" />
+	<subject code="LAF" text="سیستم های حقوقی" />
+	<subject code="LAFC" text="قانون مشترک" />
+	<subject code="LAFD" text="کدهای مدنی / قانون مدنی" />
+	<subject code="LAFR" text="قانون رومی" />
+	<subject code="LAFS" text="قانون اسلامی" />
+	<subject code="LAFX" text="قانون کلیسایی (کانن)" />
+	<subject code="LAM" text="قانون مقایسه ای" />
+	<subject code="LAQ" text="قانون و جامعه" />
+	<subject code="LAQG" text="جنسیت و قانون" />
+	<subject code="LAR" text="جرم شناسی: جنبه های قانونی" />
+	<subject code="LAS" text="مهارت های حقوقی و عمل" />
+	<subject code="LASD" text="دفاع" />
+	<subject code="LASP" text="پارالالگال و پارالگلیسم" />
+	<subject code="LAT" text="حرفه حقوقی: عمومی" />
+	<subject code="LATC" text="اخلاق قانونی و رفتار حرفه ای" />
+	<subject code="LAY" text="قانون آن را به دیگر حرفه ها اعمال می کند" />
+	<subject code="LAZ" text="تاریخ حقوقی" />
+	<subject code="LB" text="قانون بین المللی" />
+	<subject code="LBB" text="قانون بین المللی عمومی" />
+	<subject code="LBBC" text="معاهدات و سایر منابع بین المللی" />
+	<subject code="LBBC1" text="قانون عرفی" />
+	<subject code="LBBD" text="قانون دیپلماتیک" />
+	<subject code="LBBF" text="صلاحیت و مصونیت" />
+	<subject code="LBBJ" text="حقوق بین الملل قلمرو و دولت" />
+	<subject code="LBBK" text="قانون دریا" />
+	<subject code="LBBM" text="قانون بین الملل اقتصادی و تجاری" />
+	<subject code="LBBM1" text="تعرفه ها" />
+	<subject code="LBBM3" text="قراردادهای سرمایه گذاری و اختلافات" />
+	<subject code="LBBP" text="قانون بین المللی محیط زیست" />
+	<subject code="LBBR" text="حقوق بین الملل حقوق بشر" />
+	<subject code="LBBS" text="حقوق بشر بین المللی" />
+	<subject code="LBBU" text="موسسات و سازمان های بین المللی" />
+	<subject code="LBBV" text="مسئولیت دولت ها و نهادهای دیگر" />
+	<subject code="LBBZ" text="قانون کیفری بین المللی" />
+	<subject code="LBD" text="قانون بین المللی حمل و نقل، ارتباطات و تجارت" />
+	<subject code="LBDA" text="فضای بین المللی و قانون هوا فضا" />
+	<subject code="LBDK" text="قانون تجارت بین المللی" />
+	<subject code="LBDM" text="قانون بین المللی دریایی" />
+	<subject code="LBDT" text="ارتباطات بین المللی و قانون مخابرات" />
+	<subject code="LBG" text="قوانین بین المللی خصوصی و تضاد قوانین" />
+	<subject code="LBH" text="حل و فصل اختلافات بین المللی" />
+	<subject code="LBHG" text="دادگاه های بین المللی و مراحل" />
+	<subject code="LBHT" text="داوری بین المللی" />
+	<subject code="LBL" text="گزارش حقوق بین الملل" />
+	<subject code="LN" text="قوانین حاکمیت خاص" />
+	<subject code="LNA" text="سیستم حقوقی: عمومی" />
+	<subject code="LNAA" text="دادگاه ها و روش ها" />
+	<subject code="LNAA1" text="قدرت های قضایی" />
+	<subject code="LNAA2" text="سیستم حقوقی: قانون تحقیر" />
+	<subject code="LNAC" text="پرونده مدنی، دادرسی و حل اختلافات" />
+	<subject code="LNAC1" text="درمان های مدنی" />
+	<subject code="LNAC12" text="بازپرداخت" />
+	<subject code="LNAC14" text="خسارات و جبران خسارت" />
+	<subject code="LNAC16" text="نظم و سایر سفارشات" />
+	<subject code="LNAC3" text="روش مدنی: قانون شواهد" />
+	<subject code="LNAC5" text="داوری، میانجیگری و حل اختلافات جایگزین" />
+	<subject code="LNAF" text="سیستم حقوقی: هزینه ها و بودجه" />
+	<subject code="LNAL" text="مقررات حرفه حقوقی" />
+	<subject code="LNB" text="قانون خصوصی / مدنی: کارهای عمومی" />
+	<subject code="LNC" text="شرکت، قانون تجاری و رقابت" />
+	<subject code="LNCB" text="قانون تجاری" />
+	<subject code="LNCB1" text="قانون فرانشیز" />
+	<subject code="LNCB2" text="قانون تجارت الکترونیک" />
+	<subject code="LNCB3" text="فروش قانون کالا" />
+	<subject code="LNCB4" text="برون سپاری قانون" />
+	<subject code="LNCB5" text="قانون حمل و نقل" />
+	<subject code="LNCB6" text="قانون حمل و نقل هوایی" />
+	<subject code="LNCD" text="قانون شرکت" />
+	<subject code="LNCD1" text="قوانین ادغام و پذیرش" />
+	<subject code="LNCF" text="قانون مشارکت" />
+	<subject code="LNCH" text="قانون رقابت / قانون ضد تراست" />
+	<subject code="LNCJ" text="قانون قرارداد" />
+	<subject code="LNCL" text="قانون آژانس" />
+	<subject code="LNCN" text="قانون تدارکات" />
+	<subject code="LNCQ" text="قانون ساخت و ساز و مهندسی" />
+	<subject code="LNCR" text="قانون انرژی و منابع طبیعی" />
+	<subject code="LND" text="قانون اساسی و اداری" />
+	<subject code="LNDA" text="قانون شهروندی و ملیت" />
+	<subject code="LNDA1" text="قانون مهاجرت" />
+	<subject code="LNDA3" text="قانون پناهندگی" />
+	<subject code="LNDC" text="حقوق بشر و آزادی های مدنی" />
+	<subject code="LNDC2" text="قانون حفظ حریم خصوصی" />
+	<subject code="LNDC4" text="قانون آزادی بیان" />
+	<subject code="LNDF" text="قانون آزادی اطلاعات" />
+	<subject code="LNDH" text="قدرت های دولتی" />
+	<subject code="LNDK" text="قانون نظامی و دفاع" />
+	<subject code="LNDM" text="بررسی قضایی" />
+	<subject code="LNDP" text="جلسه پارلمانی و قانونی" />
+	<subject code="LNDS" text="قانون انتخابات" />
+	<subject code="LNDU" text="قانون دولت محلی" />
+	<subject code="LNF" text="قانون جرم و روش" />
+	<subject code="LNFB" text="قانون عدالت کیفری" />
+	<subject code="LNFG" text="جرایم علیه دولت" />
+	<subject code="LNFJ" text="جرایم علیه شخص" />
+	<subject code="LNFJ1" text="قانون آزار و اذیت" />
+	<subject code="LNFL" text="جرایم علیه اموال" />
+	<subject code="LNFN" text="تقلب" />
+	<subject code="LNFQ" text="قانون کیفری نوجوانان" />
+	<subject code="LNFR" text="جرایم علیه سلامت عمومی، ایمنی، نظم" />
+	<subject code="LNFT" text="قوانین ترافیکی جاده ای، جرایم جادویی" />
+	<subject code="LNFV" text="قانون تروریسم" />
+	<subject code="LNFX" text="روند جنایی" />
+	<subject code="LNFX1" text="محکومیت و مجازات" />
+	<subject code="LNFX3" text="روند جنایی: قانون شواهد" />
+	<subject code="LNFX5" text="روش های پلیس و پلیس" />
+	<subject code="LNH" text="اشتغال و قانون کار" />
+	<subject code="LNHD" text="تبعیض در قانون کار" />
+	<subject code="LNHH" text="قانون سلامت کار و ایمنی" />
+	<subject code="LNHR" text="روابط صنعتی و اتحادیه های کارگری" />
+	<subject code="LNHU" text="قراردادهای کار" />
+	<subject code="LNJ" text="قانون رسانه ها و سرگرمی" />
+	<subject code="LNJD" text="قانون قصاص (لعن و نفرین)" />
+	<subject code="LNJS" text="ورزش و قانون" />
+	<subject code="LNJX" text="قانون تبلیغات، بازاریابی و حمایت مالی" />
+	<subject code="LNK" text="محیط زیست، حمل و نقل و قانون برنامه ریزی" />
+	<subject code="LNKF" text="قانون کشاورزی" />
+	<subject code="LNKG" text="قانون حیوانات" />
+	<subject code="LNKJ" text="قانون محیط زیست" />
+	<subject code="LNKN" text="قانون حفظ طبیعت" />
+	<subject code="LNKT" text="قانون حمل و نقل" />
+	<subject code="LNKV" text="بزرگراه ها" />
+	<subject code="LNKW" text="قانون برنامه ریزی" />
+	<subject code="LNL" text="سهم و اعتماد" />
+	<subject code="LNM" text="قانون خانواده" />
+	<subject code="LNMB" text="قانون خانواده: ازدواج و طلاق" />
+	<subject code="LNMC" text="قانون خانواده: همسر" />
+	<subject code="LNMF" text="قانون خانواده: مشارکت هم جنس" />
+	<subject code="LNMK" text="قانون خانواده: کودکان" />
+	<subject code="LNP" text="قانون مالی" />
+	<subject code="LNPA" text="قانون حسابداری" />
+	<subject code="LNPB" text="قانون بانکداری" />
+	<subject code="LNPC" text="ورشکستگی و ورشکستگی" />
+	<subject code="LNPD" text="بازار سرمایه و قانون اوراق بهادار" />
+	<subject code="LNPF" text="قانون خدمات و خدمات مالی" />
+	<subject code="LNPN" text="قانون بیمه" />
+	<subject code="LNPP" text="حقوق بازنشستگی" />
+	<subject code="LNQ" text="قوانین فناوری اطلاعات و ارتباطات " />
+	<subject code="LNQD" text="قانون حفاظت از اطلاعات" />
+	<subject code="LNR" text="قانون مالکیت معنوی" />
+	<subject code="LNRC" text="قانون کپی رایت" />
+	<subject code="LNRD" text="قانون اختراعات" />
+	<subject code="LNRF" text="علائم تجاری" />
+	<subject code="LNRL" text="قوانین طراحی" />
+	<subject code="LNRV" text="قانون اطلاعات محرمانه" />
+	<subject code="LNS" text="قانون مالکیت" />
+	<subject code="LNSH" text="قانون زمین و املاک و مستغلات" />
+	<subject code="LNSH1" text="حقوق مالکیت و وام مسکن" />
+	<subject code="LNSH3" text="قانون مالک و مستاجر" />
+	<subject code="LNSH5" text="قانون تحویل" />
+	<subject code="LNSH7" text="قانون ارزیابی و ارزیابی" />
+	<subject code="LNSH9" text="قانون مسکن" />
+	<subject code="LNSP" text="قانون مالکیت شخصی" />
+	<subject code="LNT" text="قانون اجتماعی" />
+	<subject code="LNTC" text="قانون خیریه" />
+	<subject code="LNTD" text="آموزش و پرورش و قانون" />
+	<subject code="LNTH" text="امنیت اجتماعی و قانون رفاه" />
+	<subject code="LNTH1" text="قانون بیمه اجتماعی" />
+	<subject code="LNTJ" text="قانون بهداشت عمومی و ایمنی" />
+	<subject code="LNTM" text="قانون پزشکی و بهداشتی" />
+	<subject code="LNTM1" text="قانون سلامت روان" />
+	<subject code="LNTM2" text="مقررات پزشکی و دستگاه های پزشکی" />
+	<subject code="LNTQ" text="معلولیت و قانون" />
+	<subject code="LNTS" text="قانون و افراد مسن" />
+	<subject code="LNTU" text="قانون حمایت از مصرف کننده" />
+	<subject code="LNTX" text="مجوز، قانون بازی و باشگاه" />
+	<subject code="LNU" text="قانون مالیات و حقوق" />
+	<subject code="LNUC" text="مالیات شرکت" />
+	<subject code="LNUP" text="مالیات شخصی" />
+	<subject code="LNUS" text="مالیات بر فروش و مقررات گمرکی" />
+	<subject code="LNUT" text="اعتبارات و مستغلات مالیات" />
+	<subject code="LNV" text="توهین / تهمت" />
+	<subject code="LNVC" text="غفلت" />
+	<subject code="LNVF" text="عصبانیت" />
+	<subject code="LNVJ" text="صدمه شخصی" />
+	<subject code="LNW" text="تعهدات و پرونده / پیروزی" />
+	<subject code="LNZ" text="منابع اصلی قانون" />
+	<subject code="LNZC" text="قانون" />
+	<subject code="LNZL" text="قانون" />
+	<subject code="LR" text="قانون: راهنمای مطالعه و تجدید نظر" />
+	<subject code="M" text="دارو" />
+	<subject code="MB" text="پزشکی: مسائل عمومی" />
+	<subject code="MBD" text="حرفه پزشکی" />
+	<subject code="MBDC" text="اخلاق پزشکی و رفتار حرفه ای" />
+	<subject code="MBDP" text="رابطه پزشک / بیمار" />
+	<subject code="MBF" text="بیوانفورماتیک پزشکی" />
+	<subject code="MBG" text="تجهیزات و تکنیک های پزشکی" />
+	<subject code="MBGL" text="آزمایشگاه آزمایش و آزمایش های پزشکی" />
+	<subject code="MBGR" text="تحقیقات پزشکی" />
+	<subject code="MBGR1" text="آزمایشات بالینی" />
+	<subject code="MBGT" text="تله مدیسین" />
+	<subject code="MBN" text="بهداشت عمومی و داروهای پیشگیرانه" />
+	<subject code="MBNC" text="غربالگری پزشکی" />
+	<subject code="MBNH" text="شخصی و بهداشت عمومی" />
+	<subject code="MBNH1" text="بهداشت" />
+	<subject code="MBNH2" text="فاکتورهای محیطی" />
+	<subject code="MBNH3" text="رژیم غذایی و تغذیه" />
+	<subject code="MBNH4" text="کنترل تولد، جلوگیری از بارداری، برنامه ریزی خانواده" />
+	<subject code="MBNH9" text="روانشناسی بهداشتی" />
+	<subject code="MBNS" text="اپیدمیولوژی و آمار پزشکی" />
+	<subject code="MBP" text="سیستم های بهداشتی و خدمات" />
+	<subject code="MBPC" text="تمرین عمومی" />
+	<subject code="MBPK" text="خدمات بهداشت روان" />
+	<subject code="MBPM" text="مدیریت و مدیریت پزشکی" />
+	<subject code="MBPR" text="بیمه درمانی" />
+	<subject code="MBQ" text="مسائل پزشکی" />
+	<subject code="MBS" text="جامعه شناسی پزشکی" />
+	<subject code="MBX" text="تاریخ پزشکی" />
+	<subject code="MF" text="پزشکی پیش بالینی: علوم پایه" />
+	<subject code="MFC" text="آناتومی" />
+	<subject code="MFCC" text="سیتولوژی" />
+	<subject code="MFCH" text="بافت شناسی" />
+	<subject code="MFCR" text="آناتومی منطقه ای" />
+	<subject code="MFCX" text="انشعاب" />
+	<subject code="MFG" text="فیزیولوژی" />
+	<subject code="MFGC" text="فیزیولوژی سلولی" />
+	<subject code="MFGG" text="فیزیولوژی منطقه ای" />
+	<subject code="MFGM" text="متابولیسم" />
+	<subject code="MFGV" text="بیومکانیک، سینتیک انسان" />
+	<subject code="MFK" text="تولید مثل، رشد و توسعه انسان" />
+	<subject code="MFKC" text="داروهای تولید مثل" />
+	<subject code="MFKC1" text="ناباروری و لقاح" />
+	<subject code="MFKC3" text="جنین شناسی" />
+	<subject code="MFKH" text="رشد و توسعه انسانی" />
+	<subject code="MFKH3" text="بلوغ و پیری" />
+	<subject code="MFN" text="ژنتیک پزشکی" />
+	<subject code="MJ" text="پزشکی بالینی و داخلی" />
+	<subject code="MJA" text="تشخیص پزشکی" />
+	<subject code="MJAD" text="بررسی بیماران" />
+	<subject code="MJC" text="بیماری ها و اختلالات" />
+	<subject code="MJCG" text="بیماری های مادرزادی و اختلالات" />
+	<subject code="MJCG1" text="بیماری های ارثی و اختلالات" />
+	<subject code="MJCJ" text="بیماری های عفونی و مسری" />
+	<subject code="MJCJ1" text="بیماری های ونر" />
+	<subject code="MJCJ2" text="اچ آی وی / ایدز" />
+	<subject code="MJCJ3" text="عفونت های بیمارستان" />
+	<subject code="MJCL" text="انکولوژی" />
+	<subject code="MJCL1" text="رادیوتراپی" />
+	<subject code="MJCL2" text="شیمی درمانی" />
+	<subject code="MJCM" text="ایمونولوژی" />
+	<subject code="MJCM1" text="آلرژی" />
+	<subject code="MJD" text="داروهای قلبی عروقی" />
+	<subject code="MJE" text="اسکلتی عضلانی" />
+	<subject code="MJF" text="هماتولوژی" />
+	<subject code="MJG" text="غدد درون ریز" />
+	<subject code="MJGD" text="دیابت" />
+	<subject code="MJH" text="گوارش" />
+	<subject code="MJJ" text="کبد" />
+	<subject code="MJK" text="پوست" />
+	<subject code="MJL" text="داروهای تنفسی" />
+	<subject code="MJM" text="روماتولوژی" />
+	<subject code="MJN" text="عصب شناسی و نوروفیزیولوژی بالینی" />
+	<subject code="MJNA" text="اوتیسم و ​​سندرم اسپرگر" />
+	<subject code="MJND" text="آلزایمر و زوال عقل" />
+	<subject code="MJP" text="پزشکی گوش و حلق و بینی" />
+	<subject code="MJPD" text="گوش و حلق و بینی" />
+	<subject code="MJQ" text="چشم پزشکی" />
+	<subject code="MJR" text="داروهای کلیوی و نفرولوژی" />
+	<subject code="MJRD" text="همودیالیز" />
+	<subject code="MJS" text="اورولوژی و داروهای تناسلی" />
+	<subject code="MJT" text="زنان و زایمان" />
+	<subject code="MJTF" text="جنین جنین" />
+	<subject code="MJW" text="پزشکی اطفال" />
+	<subject code="MJWN" text="پزشکی نوزادان" />
+	<subject code="MJX" text="طب گیاهی" />
+	<subject code="MJZ" text="ژن درمانی" />
+	<subject code="MM" text="شاخه های دیگر پزشکی" />
+	<subject code="MMB" text="بیهوشی" />
+	<subject code="MMBP" text="کنترل درد و درد" />
+	<subject code="MMC" text="طب سوزنی" />
+	<subject code="MMD" text="دندانپزشکی" />
+	<subject code="MMDS" text="جراحی دهان و فک و صورت" />
+	<subject code="MMF" text="آسيب شناسي" />
+	<subject code="MMFC" text="سیتوپاتولوژی" />
+	<subject code="MMFH" text="هیستوپاتولوژی" />
+	<subject code="MMFM" text="میکروبیولوژی پزشکی و ویروس شناسی" />
+	<subject code="MMFP" text="انگل شناسی پزشکی" />
+	<subject code="MMG" text="فارماکولوژی" />
+	<subject code="MMGT" text="سم شناسی پزشکی" />
+	<subject code="MMGW" text="روانشناسی" />
+	<subject code="MMH" text="روانپزشکی" />
+	<subject code="MMJ" text="روانشناسی بالینی" />
+	<subject code="MMJT" text="روان درمانی" />
+	<subject code="MMJT1" text="درمان رفتاری شناختی" />
+	<subject code="MMK" text="پزشکی حوادث و اورژانس" />
+	<subject code="MMKB" text="تروما و شوک" />
+	<subject code="MMKD" text="می سوزد" />
+	<subject code="MMKL" text="مراقبت های ویژه" />
+	<subject code="MMN" text="پزشکی هسته ای" />
+	<subject code="MMP" text="تصویربرداری پزشکی" />
+	<subject code="MMPF" text="سونوگرافی" />
+	<subject code="MMPG" text="رزونانس مغناطیسی هسته ای (NMR / MRI)" />
+	<subject code="MMPH" text="رادیولوژی" />
+	<subject code="MMPJ" text="توموگرافی" />
+	<subject code="MMQ" text="پزشکی قانونی" />
+	<subject code="MMR" text="پزشکی محیط زیست" />
+	<subject code="MMRB" text="هوانوردی و پزشکی فضایی" />
+	<subject code="MMRD" text="غواصی و داروهای ضد بارداری" />
+	<subject code="MMRP" text="طب کار" />
+	<subject code="MMRT" text="پزشکی گرمسیری" />
+	<subject code="MMS" text="جراحات ورزشی و پزشکی" />
+	<subject code="MMZ" text="درمان و درمان" />
+	<subject code="MMZD" text="اختلالات خوردن و درمان" />
+	<subject code="MMZF" text="چاقی: درمان و درمان" />
+	<subject code="MMZL" text="اختلالات گفتاری و زبان و درمان" />
+	<subject code="MMZR" text="اعتیاد و درمان" />
+	<subject code="MMZS" text="اختلالات خواب و درمان" />
+	<subject code="MN" text="عمل جراحي" />
+	<subject code="MNB" text="تکنیک های جراحی" />
+	<subject code="MNC" text="جراحی عمومی" />
+	<subject code="MNG" text="جراحی دستگاه گوارش و کولورکتال" />
+	<subject code="MNH" text="جراحی قلب و عروق" />
+	<subject code="MNJ" text="جراحی عروق" />
+	<subject code="MNK" text="انکولوژی جراحی" />
+	<subject code="MNL" text="جراحی مراقبت های ویژه" />
+	<subject code="MNN" text="جراحی مغز و اعصاب" />
+	<subject code="MNP" text="جراحی پلاستیک و بازسازی" />
+	<subject code="MNPC" text="جراحی زیبایی" />
+	<subject code="MNQ" text="جراحی پیوند" />
+	<subject code="MNS" text="ارتوپدی و شکستگی" />
+	<subject code="MNZ" text="مراقبت پری عمل" />
+	<subject code="MQ" text="پرستاری و خدمات جانبی" />
+	<subject code="MQC" text="پرستاری" />
+	<subject code="MQCA" text="اصول و مهارتهای پرستاری" />
+	<subject code="MQCB" text="پژوهش و تئوری پرستاری" />
+	<subject code="MQCH" text="رابطه پرستار / بیمار" />
+	<subject code="MQCL" text="پرستاری تخصص" />
+	<subject code="MQCL1" text="پرستاری حوادث و اورژانس" />
+	<subject code="MQCL2" text="پرستاری مراقبتهای ویژه" />
+	<subject code="MQCL3" text="پرستاری کودکان" />
+	<subject code="MQCL4" text="پرستاری حاملگی" />
+	<subject code="MQCL5" text="پرستاری روانپزشکی" />
+	<subject code="MQCL6" text="پرستاری جراحی" />
+	<subject code="MQCL9" text="پرستاری مراقبت از ترمینال" />
+	<subject code="MQCM" text="فارماکولوژی پرستاری" />
+	<subject code="MQCW" text="جامعه شناسی پرستاری" />
+	<subject code="MQCX" text="پرستاری جامعه" />
+	<subject code="MQCZ" text="مدیریت پرستاری و رهبری" />
+	<subject code="MQD" text="مامایی" />
+	<subject code="MQDB" text="روشهای بیوشیمی" />
+	<subject code="MQF" text="کمک های اولیه و خدمات پزشکی" />
+	<subject code="MQH" text="رادیوگرافی" />
+	<subject code="MQK" text="معالجه پزشکی و پدیده" />
+	<subject code="MQP" text="داروسازی / داروسازی" />
+	<subject code="MQR" text="بینایی سنجی / بینایی سنج ها" />
+	<subject code="MQS" text="فیزیوتراپی" />
+	<subject code="MQT" text="کار درمانی" />
+	<subject code="MQTC" text="خلاق درمان (به عنوان مثال هنر، موسیقی، درام)" />
+	<subject code="MQU" text="مشاوره پزشکی" />
+	<subject code="MQV" text="توانبخشی" />
+	<subject code="MQVB" text="توانبخشی: آسیب مغز و ستون فقرات" />
+	<subject code="MQW" text="مهندسی پزشکی" />
+	<subject code="MQWB" text="ارتوپدی" />
+	<subject code="MQWP" text="مصنوعی" />
+	<subject code="MQZ" text="تمرین موروثی" />
+	<subject code="MR" text="مطالعه پزشکی و راهنمای تجدید نظر و مواد مرجع" />
+	<subject code="MRG" text="مطالعه پزشکی و راهنمای تجدید نظر" />
+	<subject code="MRGD" text="کمک های پزشکی تجدید نظر: MRCP" />
+	<subject code="MRGK" text="کمک های پزشکی تجدید نظر: MRCS" />
+	<subject code="MRGL" text="کمک های پزشکی تجدید نظر: PLAB" />
+	<subject code="MRT" text="نمودارهای پزشکی، اطلس رنگ" />
+	<subject code="MX" text="طب مکمل و جایگزین" />
+	<subject code="MXH" text="کایروپراکتیک و استئوپاتی" />
+	<subject code="MZ" text="داروهای دامپزشکی" />
+	<subject code="MZC" text="دامپزشکی: حیوانات کوچک (حیوانات خانگی)" />
+	<subject code="MZD" text="دامپزشکی: حیوانات بزرگ (خانگی / مزرعه)" />
+	<subject code="MZDH" text="دامپزشکی دامپزشکی" />
+	<subject code="MZF" text="دامپزشکی: آزمایشگاه حیوانات" />
+	<subject code="MZG" text="داروهای دامپزشکی: حیوانات عجیب و غریب و باغ وحش" />
+	<subject code="MZH" text="آناتومی و فیزیولوژی دامپزشکی" />
+	<subject code="MZK" text="پاتولوژی و هیستولوژی دامپزشکی" />
+	<subject code="MZL" text="تغذیه دامپزشکی" />
+	<subject code="MZM" text="داروهای دامپزشکی: بیماری های عفونی و درمان" />
+	<subject code="MZMP" text="باکتری شناسی دامپزشکی، ویروس شناسی، انگل شناسی" />
+	<subject code="MZP" text="فارماکولوژی دامپزشکی" />
+	<subject code="MZR" text="رادیولوژی دامپزشکی" />
+	<subject code="MZS" text="جراحی دامپزشکی" />
+	<subject code="MZSN" text="بیحسی موضعی دامپزشکی" />
+	<subject code="MZT" text="دندانپزشکی دامپزشکی" />
+	<subject code="MZV" text="پرستاری دامپزشکی" />
+	<subject code="MZX" text="داروهای تکمیلی برای حیوانات" />
+	<subject code="P" text="ریاضی و علم" />
+	<subject code="PB" text="ریاضیات" />
+	<subject code="PBB" text="فلسفه ریاضیات" />
+	<subject code="PBC" text="پایه های ریاضی" />
+	<subject code="PBCD" text="منطق ریاضی" />
+	<subject code="PBCH" text="نظریه تنظیم" />
+	<subject code="PBCN" text="سیستم های تعداد" />
+	<subject code="PBD" text="ریاضیات گسسته" />
+	<subject code="PBF" text="جبر" />
+	<subject code="PBG" text="گروه ها و نظریه گروه" />
+	<subject code="PBH" text="نظریه شماره" />
+	<subject code="PBJ" text="قبل از محاسبه" />
+	<subject code="PBK" text="حسابداری و تجزیه و تحلیل ریاضی" />
+	<subject code="PBKA" text="حسابداری" />
+	<subject code="PBKB" text="تجزیه و تحلیل واقعی، متغیرهای واقعی" />
+	<subject code="PBKD" text="تجزیه و تحلیل جامع، متغیرهای پیچیده" />
+	<subject code="PBKF" text="تجزیه و تحلیل عملکرد و تبدیل" />
+	<subject code="PBKJ" text="محاسبات دیفرانسیل و معادلات" />
+	<subject code="PBKL" text="معادلات انتگرال و معادلات" />
+	<subject code="PBKQ" text="محاسبه تغییرات" />
+	<subject code="PBKS" text="تحلیل عددی" />
+	<subject code="PBM" text="هندسه" />
+	<subject code="PBMB" text="مثلثات" />
+	<subject code="PBMH" text="هندسه اقلیدسی" />
+	<subject code="PBML" text="هندسه غیر اقلیدسی" />
+	<subject code="PBMP" text="هندسه دیفرانسیل و ریمان" />
+	<subject code="PBMS" text="هندسه تحلیلی" />
+	<subject code="PBMW" text="هندسه جبری" />
+	<subject code="PBMX" text="هندسه فراکتال" />
+	<subject code="PBP" text="توپولوژي" />
+	<subject code="PBPD" text="توپولوژی جبری" />
+	<subject code="PBPH" text="توپولوژی تحلیلی" />
+	<subject code="PBT" text="احتمال و آمار" />
+	<subject code="PBTB" text="استنتاج بیزی" />
+	<subject code="PBU" text="بهينه سازي" />
+	<subject code="PBUD" text="نظریه بازی" />
+	<subject code="PBUH" text="برنامه ریزی خطی" />
+	<subject code="PBV" text="نظریه ترکیبی و گراف" />
+	<subject code="PBW" text="ریاضیات کاربردی" />
+	<subject code="PBWH" text="مدل سازی ریاضی" />
+	<subject code="PBWL" text="تصادفات" />
+	<subject code="PBWR" text="علم غیرخطی" />
+	<subject code="PBWS" text="تئوری هرج و مرج" />
+	<subject code="PBWX" text="نظریه مجموعه فازی" />
+	<subject code="PBX" text="تاریخچه ریاضیات" />
+	<subject code="PD" text="علم: مسائل عمومی" />
+	<subject code="PDA" text="فلسفه علم" />
+	<subject code="PDC" text="نامگذاری علمی و طبقه بندی" />
+	<subject code="PDD" text="استانداردهای علمی" />
+	<subject code="PDDM" text="سیستم های اندازه گیری و اندازه گیری" />
+	<subject code="PDE" text="ریاضی برای دانشمندان" />
+	<subject code="PDG" text="کاربرد صنعتی تحقیقات علمی و نوآوری های تکنولوژیکی" />
+	<subject code="PDK" text="تامین مالی و سیاست" />
+	<subject code="PDN" text="تجهیزات علمی، آزمایش ها و تکنیک ها" />
+	<subject code="PDND" text="میکروسکوپ" />
+	<subject code="PDR" text="تأثیر علم و فناوری بر جامعه" />
+	<subject code="PDX" text="تاریخ علم" />
+	<subject code="PDZ" text="علم محبوب" />
+	<subject code="PDZM" text="ریاضیات محبوب" />
+	<subject code="PG" text="نجوم، فضا و زمان" />
+	<subject code="PGC" text="نجوم نظری و ریاضی" />
+	<subject code="PGG" text="مشاهدات نجومی: رصدخانه ها، تجهیزات و روش ها" />
+	<subject code="PGK" text="کیهان شناسی و جهان" />
+	<subject code="PGM" text="کهکشان ها و ستاره ها" />
+	<subject code="PGS" text="سیستم خورشیدی: خورشید و سیارات" />
+	<subject code="PGT" text="نمودار نجومی و اطلس" />
+	<subject code="PGZ" text="زمان (زمان سنجی)، سیستم های زمان و استانداردها" />
+	<subject code="PH" text="فیزیک" />
+	<subject code="PHD" text="مکانیک کلاسیک" />
+	<subject code="PHDB" text="مکانیک اولیه" />
+	<subject code="PHDD" text="مکانیک تحلیلی" />
+	<subject code="PHDF" text="مکانیک سیالات" />
+	<subject code="PHDS" text="مکانیک موج (ارتعاش و آکوستیک)" />
+	<subject code="PHDT" text="دینامیک و استاتیک" />
+	<subject code="PHDV" text="جاذبه زمین" />
+	<subject code="PHDY" text="انرژی" />
+	<subject code="PHF" text="مواد / حالت ماده" />
+	<subject code="PHFB" text="فیزیک درجه حرارت پایین" />
+	<subject code="PHFC" text="فیزیک ماده چگال (فیزیک حالت مایع و حالت جامد)" />
+	<subject code="PHFC1" text="فیزیک مواد نرم" />
+	<subject code="PHFC2" text="فیزیک مسواسکوپ" />
+	<subject code="PHFG" text="فیزیک گاز" />
+	<subject code="PHFP" text="فیزیک پلاسما" />
+	<subject code="PHH" text="ترمودینامیک و گرما" />
+	<subject code="PHJ" text="فیزیک نوری" />
+	<subject code="PHJL" text="فیزیک لیزری" />
+	<subject code="PHK" text="برق، الکترومغناطیس و مغناطیس" />
+	<subject code="PHM" text="فیزیک اتمی و مولکولی" />
+	<subject code="PHN" text="فیزیک هسته ای" />
+	<subject code="PHP" text="فیزیک ذرات و انرژی بالا" />
+	<subject code="PHQ" text="فیزیک کوانتومی (مکانیک کوانتومی و نظریه میدان کوانتوم)" />
+	<subject code="PHR" text="فیزیک نسبیتی" />
+	<subject code="PHS" text="فیزیک آماری" />
+	<subject code="PHU" text="فیزیک ریاضی" />
+	<subject code="PHV" text="فیزیک کاربردی" />
+	<subject code="PHVB" text="فیزیک نجومی" />
+	<subject code="PHVD" text="فیزیک پزشکی" />
+	<subject code="PHVG" text="ژئوفیزیک" />
+	<subject code="PHVJ" text="فیزیک جوی" />
+	<subject code="PHVN" text="بیوفیزیک" />
+	<subject code="PHVQ" text="فیزیک شیمی" />
+	<subject code="PHVS" text="کریوژنیک" />
+	<subject code="PN" text="علم شیمی" />
+	<subject code="PNF" text="شیمی تجزیه" />
+	<subject code="PNFC" text="کروماتوگرافی" />
+	<subject code="PNFR" text="تشدید مغناطیسی" />
+	<subject code="PNFS" text="تجزیه و تحلیل طیف، اسپکترو شیمی، طیف سنجی جرمی" />
+	<subject code="PNK" text="شیمی معدنی" />
+	<subject code="PNN" text="شیمی ارگانیک" />
+	<subject code="PNND" text="شیمی آلی فلزات" />
+	<subject code="PNNP" text="شیمی پلیمری" />
+	<subject code="PNR" text="شیمی فیزیکی" />
+	<subject code="PNRC" text="شیمی کلوئید" />
+	<subject code="PNRD" text="کاتالیزوری" />
+	<subject code="PNRH" text="الکتروشیمی و مغناطیس شیمی" />
+	<subject code="PNRL" text="شیمی هسته ای، فتو شیمی و اشعه" />
+	<subject code="PNRP" text="شیمی کوانتومی و نظری" />
+	<subject code="PNRS" text="شیمی جامد" />
+	<subject code="PNRW" text="ترمودینامیک حرارتی و شیمیایی" />
+	<subject code="PNRX" text="شیمی در سطح و جذب" />
+	<subject code="PNT" text="بلورشناسی" />
+	<subject code="PNV" text="کانی شناسی و سنگهای قیمتی" />
+	<subject code="PS" text="زیست شناسی، علوم زیستی" />
+	<subject code="PSA" text="علوم زندگی: مسائل عمومی" />
+	<subject code="PSAB" text="طبقه بندی و سیستماتیک" />
+	<subject code="PSAD" text="اخلاق زیستی" />
+	<subject code="PSAF" text="علم محیط زیست، بیوسفر" />
+	<subject code="PSAG" text="ژنوبیوتیک" />
+	<subject code="PSAJ" text="سیر تکاملی" />
+	<subject code="PSAK" text="ژنتیک (غیر پزشکی)" />
+	<subject code="PSAK1" text="DNA و ژنوم" />
+	<subject code="PSAN" text="علوم اعصاب" />
+	<subject code="PSB" text="بیوشیمی" />
+	<subject code="PSBC" text="پروتئین ها" />
+	<subject code="PSBF" text="کربوهیدرات ها" />
+	<subject code="PSBH" text="لیپیدها" />
+	<subject code="PSBM" text="ایمونولوژی بیوشیمیایی" />
+	<subject code="PSBT" text="سم شناسی (غیر پزشکی)" />
+	<subject code="PSBZ" text="فرهنگ لغت" />
+	<subject code="PSC" text="زیست شناسی توسعه" />
+	<subject code="PSD" text="زیست شناسی مولکولی" />
+	<subject code="PSF" text="زیست شناسی سلولی (سیتولوژی)" />
+	<subject code="PSG" text="میکروبیولوژی (غیر پزشکی)" />
+	<subject code="PSGD" text="باکتریولوژی (غیر پزشکی)" />
+	<subject code="PSGH" text="انگل شناسی (غیر پزشکی)" />
+	<subject code="PSGL" text="ویروس شناسی (غیر پزشکی)" />
+	<subject code="PSGN" text="سم زدایی" />
+	<subject code="PSP" text="هیدروبیولوژی" />
+	<subject code="PSPF" text="زیست شناسی آب شیرین" />
+	<subject code="PSPM" text="زیست شناسی دریایی" />
+	<subject code="PSQ" text="قارچ شناسی، قارچ (غیر پزشکی)" />
+	<subject code="PST" text="گیاه شناسی و علوم گیاهی" />
+	<subject code="PSTD" text="فیزیولوژی گیاهی" />
+	<subject code="PSTL" text="تکثیر و پخش گیاهان" />
+	<subject code="PSTP" text="آسیب شناسی گیاهان و بیماری ها" />
+	<subject code="PSTS" text="بوم شناسی گیاه" />
+	<subject code="PSTV" text="گیاه شناسی، جلبک ها و لیسه های گیاهی" />
+	<subject code="PSV" text="زیست شناسی و علوم انسانی" />
+	<subject code="PSVD" text="فیزیولوژی حیوانات" />
+	<subject code="PSVH" text="تولید مثل حیوانات" />
+	<subject code="PSVL" text="آسیب شناسی و بیماری های حیوانات" />
+	<subject code="PSVP" text="رفتار حیوانات" />
+	<subject code="PSVS" text="بوم شناسی حیوانات" />
+	<subject code="PSVT" text="زیستشناسی: بی مهرگان" />
+	<subject code="PSVT3" text="ماهی قزل آلا" />
+	<subject code="PSVT5" text="خشخاش" />
+	<subject code="PSVT6" text="گیاهان دارویی" />
+	<subject code="PSVT7" text="حشرات" />
+	<subject code="PSVW" text="زیستشناسی: مهره داران" />
+	<subject code="PSVW1" text="ماهی " />
+	<subject code="PSVW3" text="دوزیستان" />
+	<subject code="PSVW5" text="خزندگان" />
+	<subject code="PSVW6" text="پرندگان (بوم شناسی)" />
+	<subject code="PSVW7" text="باغ وحش: پستانداران" />
+	<subject code="PSVW71" text="مارشال و مونوترام" />
+	<subject code="PSVW73" text="پستانداران دریایی و آب شیرین" />
+	<subject code="PSVW79" text="مقدماتی" />
+	<subject code="PSX" text="زیست شناسی انسانی" />
+	<subject code="PSXE" text="انسان اولیه" />
+	<subject code="PSXM" text="انسان شناسی پزشکی" />
+	<subject code="R" text="علوم زمین، جغرافیا، محیط زیست، برنامه ریزی" />
+	<subject code="RB" text="علوم زمین" />
+	<subject code="RBC" text="آتشفشان و زلزله شناسی" />
+	<subject code="RBG" text="زمین شناسی و لیتوفان" />
+	<subject code="RBGB" text="علم خاک، رسوب شناسی" />
+	<subject code="RBGD" text="فرآیندهای سطح زمین شناسی (ژئومورفولوژی)" />
+	<subject code="RBGF" text="زمین شناسی تاریخی" />
+	<subject code="RBGG" text="پتروگرافی" />
+	<subject code="RBGH" text="چشمانداز" />
+	<subject code="RBGK" text="ژئوشیمی" />
+	<subject code="RBGL" text="زمین شناسی اقتصادی" />
+	<subject code="RBK" text="هیدرولوژی و هیدروسفر" />
+	<subject code="RBKC" text="اقیانوس شناسی (دریایی)" />
+	<subject code="RBKF" text="لیمولوژی (آب شیرین)" />
+	<subject code="RBP" text="هواشناسی و هواشناسی" />
+	<subject code="RBX" text="پائولو شناسي" />
+	<subject code="RG" text="جغرافیا" />
+	<subject code="RGB" text="جغرافیای فیزیکی و توپوگرافی" />
+	<subject code="RGBA" text="مناطق خشک، بیابان ها" />
+	<subject code="RGBC" text="چمنزارها، چمنزارها، پرپیچهای، تاندرا" />
+	<subject code="RGBF" text="تالاب ها، باتلاق ها، حوضچه ها" />
+	<subject code="RGBL" text="جنگل ها، جنگل های بارانی" />
+	<subject code="RGBP" text="دلتاها، استوا، مناطق ساحلی" />
+	<subject code="RGBR" text="صخره های مرجانی" />
+	<subject code="RGBS" text="کوه ها" />
+	<subject code="RGC" text="جغرافیای انسانی" />
+	<subject code="RGCM" text="جغرافیای اقتصادی" />
+	<subject code="RGCP" text="جغرافیا سیاسی" />
+	<subject code="RGL" text="جغرافیای منطقه ای" />
+	<subject code="RGM" text="بیوگرافی" />
+	<subject code="RGR" text="کشف و کشف جغرافیایی" />
+	<subject code="RGS" text="نقشه های جغرافیایی (متخصص)" />
+	<subject code="RGV" text="نقشه کشی، نقشه برداری و برنامه ریزی" />
+	<subject code="RGW" text="سیستم های اطلاعات جغرافیایی (GIS) و سنجش از راه دور" />
+	<subject code="RGY" text="نقشه برداری و نقشه برداری برای نقشه ها و نمودارها" />
+	<subject code="RN" text="محیط زیست" />
+	<subject code="RNA" text="اندیشه و ایدئولوژی محیط زیست" />
+	<subject code="RNB" text="محیط زیست، حفاظت از محیط زیست و سازمان های سبز" />
+	<subject code="RNC" text="محیط زیست کاربردی" />
+	<subject code="RNCB" text="تنوع زیستی" />
+	<subject code="RND" text="سیاست و پروتکل های محیط زیست" />
+	<subject code="RNF" text="مدیریت زیست محیطی" />
+	<subject code="RNFD" text="خشکسالی و تامین آب" />
+	<subject code="RNFF" text="امنیت و تامین مواد غذایی" />
+	<subject code="RNFY" text="منابع انرژی" />
+	<subject code="RNH" text="مدیریت زباله" />
+	<subject code="RNK" text="حفاظت از محیط زیست" />
+	<subject code="RNKH" text="حفاظت از حیات وحش و زیستگاه" />
+	<subject code="RNKH1" text="گونه های در معرض خطر و انقراض گونه ها" />
+	<subject code="RNP" text="آلودگی و تهدیدات محیط زیست" />
+	<subject code="RNPD" text="جنگل زدایی" />
+	<subject code="RNPG" text="تغییر آب و هوا" />
+	<subject code="RNQ" text="مسائل هسته ای" />
+	<subject code="RNR" text="بلایای طبیعی" />
+	<subject code="RNT" text="تاثیر اجتماعی مسائل زیست محیطی" />
+	<subject code="RNU" text="پایداری" />
+	<subject code="RP" text="برنامه ریزی منطقه ای و منطقه" />
+	<subject code="RPC" text="برنامه ریزی شهری و شهری" />
+	<subject code="RPG" text="برنامه ریزی روستایی" />
+	<subject code="RPT" text="برنامه ریزی حمل و نقل و سیاست" />
+	<subject code="T" text="فناوری، مهندسی، کشاورزی" />
+	<subject code="TB" text="فناوری: مسائل عمومی" />
+	<subject code="TBC" text="مهندسی: عمومی" />
+	<subject code="TBD" text="طراحی فنی" />
+	<subject code="TBDG" text="ارگونومی" />
+	<subject code="TBG" text="گرافیک مهندسی و طراحی فنی" />
+	<subject code="TBJ" text="ریاضی برای مهندسین" />
+	<subject code="TBM" text="ابزار و مهندسی ابزار" />
+	<subject code="TBMM" text="اندازه گیری و کالیبراسیون مهندسی" />
+	<subject code="TBN" text="فناوری نانو" />
+	<subject code="TBR" text="تکنولوژی متوسط" />
+	<subject code="TBX" text="تاریخچه مهندسی و تکنولوژی" />
+	<subject code="TBY" text="اختراعات و مخترعین" />
+	<subject code="TC" text="مهندسی بیوشیمی" />
+	<subject code="TCB" text="بیوتکنولوژی" />
+	<subject code="TCBG" text="مهندسی ژنتیک" />
+	<subject code="TCBS" text="بی حس کننده ها" />
+	<subject code="TD" text="شیمی صنعتی و فن آوری های تولید" />
+	<subject code="TDC" text="شیمی صنعتی" />
+	<subject code="TDCB" text="مهندسی شیمی" />
+	<subject code="TDCC" text="مواد شیمیایی سنگین" />
+	<subject code="TDCD" text="فن آوری مواد شوینده" />
+	<subject code="TDCG" text="تکنولوژی پودر" />
+	<subject code="TDCH" text="تکنولوژی حشره کش و علف کش" />
+	<subject code="TDCJ" text="رنگدانه ها، رنگ ها و تکنولوژی رنگ" />
+	<subject code="TDCJ1" text="تکنولوژی لوازم آرایشی" />
+	<subject code="TDCK" text="تکنولوژی پوشش سطحی" />
+	<subject code="TDCP" text="پلاستیک و پلیمرهای تکنولوژی" />
+	<subject code="TDCQ" text="تکنولوژی سرامیک و شیشه" />
+	<subject code="TDCR" text="تکنولوژی لاستیکی" />
+	<subject code="TDCT" text="فن آوری غذا و نوشیدنی" />
+	<subject code="TDCT1" text="فناوری نوشیدنی" />
+	<subject code="TDCT2" text="تکنولوژی برداشت" />
+	<subject code="TDCW" text="تکنولوژی دارویی" />
+	<subject code="TDG" text="تکنولوژی چرم و خز" />
+	<subject code="TDH" text="تکنولوژی نساجی و فیبر" />
+	<subject code="TDJ" text="چوب و پردازش چوب" />
+	<subject code="TDJP" text="تکنولوژی پالپ و کاغذ" />
+	<subject code="TDM" text="فن آوری فلزات / متالورژی" />
+	<subject code="TDP" text="سایر تکنولوژی های تولید" />
+	<subject code="TDPB" text="ساخت ابزار دقیق" />
+	<subject code="TDPB1" text="ساعت ها، ساعت سنج ها و ساعت ها" />
+	<subject code="TDPD" text="تولید لوازم خانگی" />
+	<subject code="TDPF" text="ساخت مبلمان و مبلمان" />
+	<subject code="TDPH" text="تولید پوشاک و کفش" />
+	<subject code="TDPP" text="چاپ و تکنولوژی چاپ" />
+	<subject code="TG" text="مهندسی مکانیک و مواد" />
+	<subject code="TGB" text="مهندسی مکانیک" />
+	<subject code="TGBF" text="اصطکاک و روانکاری" />
+	<subject code="TGBN" text="موتورها و انتقال قدرت" />
+	<subject code="TGBN1" text="موتور بخار" />
+	<subject code="TGM" text="علم مواد" />
+	<subject code="TGMB" text="ترمودینامیک مهندسی" />
+	<subject code="TGMD" text="مکانیک جامدات" />
+	<subject code="TGMD4" text="دینامیک و ارتعاش" />
+	<subject code="TGMD5" text="استرس و شکستگی" />
+	<subject code="TGMF" text="مکانیک مایعات" />
+	<subject code="TGMF1" text="آیرودینامیک" />
+	<subject code="TGMF2" text="هیدرولیک و پنوماتیک" />
+	<subject code="TGMF3" text="جریان، آشفتگی، ریاضی" />
+	<subject code="TGMT" text="تست مواد" />
+	<subject code="TGMT1" text="آزمایش غیر مخرب" />
+	<subject code="TGP" text="مهندسی تولید" />
+	<subject code="TGPC" text="ساخت کامپيوتر (CAM)" />
+	<subject code="TGPQ" text="کنترل کیفیت صنعتی" />
+	<subject code="TGPR" text="مهندسی اطمینان" />
+	<subject code="TGX" text="مهارت های مهندسی و معاملات" />
+	<subject code="TGXT" text="ساخت ابزار" />
+	<subject code="TGXW" text="جوشکاری" />
+	<subject code="TH" text="فناوری انرژی و مهندسی" />
+	<subject code="THF" text="فن آوری های سوخت فسیلی" />
+	<subject code="THFG" text="تکنولوژی گاز" />
+	<subject code="THFP" text="تکنولوژی نفت" />
+	<subject code="THFS" text="تکنولوژی سوخت جامد" />
+	<subject code="THK" text="انرژی هسته ای و مهندسی" />
+	<subject code="THN" text="فرایندهای انتقال حرارت" />
+	<subject code="THR" text="مهندسی برق" />
+	<subject code="THRB" text="تولید و توزیع برق" />
+	<subject code="THRD" text="شبکه های برق، سیستم ها، ایستگاه ها و گیاهان" />
+	<subject code="THRF" text="استفاده از قدرت و برنامه های کاربردی" />
+	<subject code="THRH" text="تبدیل انرژی و ذخیره سازی" />
+	<subject code="THRM" text="موتورهای الکتریکی" />
+	<subject code="THRS" text="مهارت های برق" />
+	<subject code="THT" text="بهره وری انرژی" />
+	<subject code="THX" text="منابع و فن آوری جایگزین و تجدید پذیر" />
+	<subject code="TJ" text="مهندسی الکترونیک و ارتباطات" />
+	<subject code="TJF" text="مهندسی الکترونیک" />
+	<subject code="TJFC" text="مدارها و قطعات" />
+	<subject code="TJFD" text="وسایل الکترونیکی و مواد" />
+	<subject code="TJFD1" text="میکروپروسسورها" />
+	<subject code="TJFD3" text="ترانزیستورها" />
+	<subject code="TJFD5" text="نیمه هادی ها و ابررساناها" />
+	<subject code="TJFM" text="مهندسی کنترل خودکار" />
+	<subject code="TJFM1" text="روباتیک" />
+	<subject code="TJFN" text="فن آوری مایکروویو" />
+	<subject code="TJK" text="مهندسی ارتباطات / مخابرات" />
+	<subject code="TJKD" text="رادار" />
+	<subject code="TJKR" text="فناوری رادیویی" />
+	<subject code="TJKS" text="ارتباطات ماهواره ای" />
+	<subject code="TJKT" text="فن آوری تلفن" />
+	<subject code="TJKT1" text="فن آوری تلفن همراه" />
+	<subject code="TJKV" text="تکنولوژی تلویزیون" />
+	<subject code="TJKW" text="تکنولوژی WAP (بی سیم)" />
+	<subject code="TN" text="مهندسی عمران، نقشه برداری و ساخت" />
+	<subject code="TNC" text="مهندسی سازه" />
+	<subject code="TNCB" text="نقشه برداری" />
+	<subject code="TNCB1" text="شمارش معکوس" />
+	<subject code="TNCC" text="مکانیک خاک و سنگ" />
+	<subject code="TNCE" text="مهندسی زلزله" />
+	<subject code="TNCJ" text="پل ها" />
+	<subject code="TNF" text="مهندسی هیدرولیک" />
+	<subject code="TNFD" text="سدها و مخازن" />
+	<subject code="TNFH" text="بندرگاه ها و بندرگاه ها" />
+	<subject code="TNFL" text="کنترل سیل" />
+	<subject code="TNFR" text="احیاء زمین و زهکشی" />
+	<subject code="TNH" text="بزرگراه و مهندسی ترافیک" />
+	<subject code="TNK" text="ساخت و ساز ساختمان و مواد" />
+	<subject code="TNKF" text="حفاظت از آتش و ایمنی" />
+	<subject code="TNKH" text="گرمایش، نور، تهویه" />
+	<subject code="TNKS" text="سیستم های امنیتی و هشدار دهنده" />
+	<subject code="TNKX" text="حفاظت از ساختمان ها و مصالح ساختمانی" />
+	<subject code="TNT" text="مهارت ها و معاملات ساختمان" />
+	<subject code="TNTB" text="سنگ آهک و گچ کاری" />
+	<subject code="TNTC" text="نجاری" />
+	<subject code="TNTP" text="لوله کشی" />
+	<subject code="TNTR" text="سقف" />
+	<subject code="TQ" text="علم محیط زیست، مهندسی و تکنولوژی" />
+	<subject code="TQD" text="نظارت بر محیط زیست" />
+	<subject code="TQK" text="کنترل آلودگی" />
+	<subject code="TQS" text="مهندسی بهداشتی و شهری" />
+	<subject code="TQSR" text="درمان و دفع زباله" />
+	<subject code="TQSR1" text="درمان و دفع فاضلاب" />
+	<subject code="TQSR3" text="درمان و دفع زباله های خطرناک" />
+	<subject code="TQSW" text="تامین آب و درمان" />
+	<subject code="TQSW1" text="تصفیه آب و نمک زدایی" />
+	<subject code="TR" text="فناوری حمل و نقل و معاملات" />
+	<subject code="TRC" text="فن آوری خودرو و معاملات" />
+	<subject code="TRCS" text="مهارت های خودرو (مکانیک حرکتی)" />
+	<subject code="TRCT" text="حمل و نقل جاده ای و حمل و نقل" />
+	<subject code="TRF" text="فن آوری راه آهن، مهندسی و معاملات" />
+	<subject code="TRFT" text="معامله های راه آهن" />
+	<subject code="TRL" text="فناوری کشتی سازی، مهندسی و معاملات" />
+	<subject code="TRLD" text="طراحی کشتی و دریایی معماری" />
+	<subject code="TRLN" text="ناوبری و دریانوردی" />
+	<subject code="TRLT" text="دریایی / دریایی معاملات" />
+	<subject code="TRP" text="فناوری هوافضا و هواپیمایی" />
+	<subject code="TRPS" text="مهارت های هواپیما و خلبانی" />
+	<subject code="TRT" text="فناوری سیستم حمل و نقل هوشمند و خودکار" />
+	<subject code="TT" text="فن آوری های دیگر و علوم کاربردی" />
+	<subject code="TTA" text="مهندسی صدا و صدا" />
+	<subject code="TTB" text="اپتیک کاربردی" />
+	<subject code="TTBF" text="فیبر نوری" />
+	<subject code="TTBL" text="تکنولوژی لیزری و هولوگرافی" />
+	<subject code="TTBM" text="سیستم های تصویربرداری و فن آوری" />
+	<subject code="TTBS" text="سیستم های اسکن و تکنولوژی" />
+	<subject code="TTD" text="علوم فضایی" />
+	<subject code="TTDS" text="ستاره شناسی" />
+	<subject code="TTM" text="مهندسی نظامی" />
+	<subject code="TTMW" text="جنگ افزار، فن آوری سلاح" />
+	<subject code="TTP" text="فناوری و مواد منفجره" />
+	<subject code="TTS" text="مهندسی دریا" />
+	<subject code="TTSH" text="مهندسی دریایی" />
+	<subject code="TTSX" text="سونار" />
+	<subject code="TTU" text="تکنولوژی معدن و مهندسی" />
+	<subject code="TTV" text="سایر فنون حرفه ای و معاملات" />
+	<subject code="TTVC" text="هتل و پذیرایی" />
+	<subject code="TTVH" text="آرایش مو و مهارت های سالن" />
+	<subject code="TTVR" text="معامله ها و مهارت های سنتی" />
+	<subject code="TTX" text="تاکسیرمی" />
+	<subject code="TV" text="کشاورزی و کشاورزی" />
+	<subject code="TVB" text="علم کشاورزی" />
+	<subject code="TVD" text="مهندسی کشاورزی و ماشین آلات" />
+	<subject code="TVDR" text="آبیاری" />
+	<subject code="TVF" text="کشاورزی پایدار" />
+	<subject code="TVG" text="کشاورزی ارگانیک" />
+	<subject code="TVH" text="دام پروری" />
+	<subject code="TVHB" text="پرورش حیوانات" />
+	<subject code="TVHF" text="لبنیات کشاورزی" />
+	<subject code="TVHH" text="باغداری (زنبورداری)" />
+	<subject code="TVHP" text="پرورش مرغداری" />
+	<subject code="TVK" text="زراعت و تولید محصول" />
+	<subject code="TVKC" text="محصولات غلات" />
+	<subject code="TVKF" text="کود و کود" />
+	<subject code="TVM" text="Smallholdings" />
+	<subject code="TVP" text="کنترل آفات" />
+	<subject code="TVQ" text="کشاورزی گرمسیری: تمرین و تکنیک" />
+	<subject code="TVR" text="جنگلداری و جنگلداری: تمرین و تکنیک" />
+	<subject code="TVS" text="باغبانی" />
+	<subject code="TVSW" text="صنعت نوشیدنی" />
+	<subject code="TVT" text="آبزی پروری و ماهیگیری: تمرین و تکنیک ها" />
+	<subject code="U" text="محاسبات و فناوری اطلاعات" />
+	<subject code="UB" text="فن آوری اطلاعات: مسائل عمومی" />
+	<subject code="UBH" text="بهداشت و ایمنی جنبه های فناوری اطلاعات" />
+	<subject code="UBJ" text="جنبه های اخلاقی و اجتماعی فناوری اطلاعات" />
+	<subject code="UBL" text="جنبه های حقوقی فناوری اطلاعات" />
+	<subject code="UBW" text="اینترنت: کارهای عمومی" />
+	<subject code="UD" text="شیوه زندگی دیجیتال" />
+	<subject code="UDA" text="نرم افزار و برنامه های سازمان شخصی شخصی" />
+	<subject code="UDB" text="راهنماهای اینترنت و خدمات آنلاین" />
+	<subject code="UDBA" text="خرید آنلاین و مزایده" />
+	<subject code="UDBD" text="جستجوی اینترنتی" />
+	<subject code="UDBG" text="قمار اینترنتی" />
+	<subject code="UDBM" text="مالی و سرمایه گذاری آنلاین" />
+	<subject code="UDBR" text="مرورگرهای اینترنتی" />
+	<subject code="UDBS" text="شبکه اجتماعی" />
+	<subject code="UDBV" text="دنیای مجازی" />
+	<subject code="UDF" text="ایمیل: راهنماهای مصرف کننده / کاربر" />
+	<subject code="UDH" text="دستگاه های قابل حمل و دستی: راهنماهای مصرف کننده / کاربر" />
+	<subject code="UDM" text="موسیقی دیجیتال: راهنماهای مصرف کننده / کاربر" />
+	<subject code="UDP" text="عکاسی دیجیتال: راهنماهای مصرف کننده / کاربر" />
+	<subject code="UDQ" text="ویدئو دیجیتال: راهنماهای مصرف کننده / کاربر" />
+	<subject code="UDT" text="تلفن های همراه: راهنماهای مصرف کننده / کاربر" />
+	<subject code="UDV" text="مراکز دیجیتال و رسانه: راهنماهای مصرف کننده / کاربر" />
+	<subject code="UDX" text="بازی های کامپیوتری / بازی های آنلاین: راهنماهای استراتژی" />
+	<subject code="UF" text="برنامه های کاربردی تجاری" />
+	<subject code="UFB" text="بسته نرم افزاری مجتمع" />
+	<subject code="UFBC" text="مایکروسافت آفیس" />
+	<subject code="UFBF" text="مایکروسافت ورد" />
+	<subject code="UFBL" text="لوتوس سوییت " />
+	<subject code="UFBP" text="OpenOffice" />
+	<subject code="UFBS" text="StarOffice" />
+	<subject code="UFBW" text="iWork" />
+	<subject code="UFC" text="نرم افزار صفحه گسترده" />
+	<subject code="UFCE" text="اکسل" />
+	<subject code="UFCL" text="لوتوس 1-2-3" />
+	<subject code="UFD" text="نرم افزار پردازش کلمه" />
+	<subject code="UFDM" text="مایکروسافت ورد" />
+	<subject code="UFG" text="نرم افزار ارائه گرافیک" />
+	<subject code="UFGP" text="پاورپوینت" />
+	<subject code="UFK" text="نرم افزار حسابداری" />
+	<subject code="UFL" text="نرم افزار سازمانی" />
+	<subject code="UFLS" text="SAP (سیستم ها، برنامه ها و محصولات در پایگاه های داده)" />
+	<subject code="UFM" text="نرم افزار ریاضی و آماری" />
+	<subject code="UFP" text="نرم افزار مدیریت پروژه" />
+	<subject code="UFS" text="همکاری و نرم افزار گروهی" />
+	<subject code="UG" text="برنامه های کاربردی رسانه ای گرافیکی و دیجیتال" />
+	<subject code="UGB" text="گرافیک و طراحی وب" />
+	<subject code="UGC" text="طراحی کامپیوتری (CAD)" />
+	<subject code="UGD" text="نشر رومیزی" />
+	<subject code="UGG " text="طراحی بازی های کامپیوتری" />
+	<subject code="UGK" text="گرافیک 3D و مدل سازی" />
+	<subject code="UGL" text="نرم افزار طراحی و نقاشی" />
+	<subject code="UGM" text="موسیقی دیجیتال: حرفه ای" />
+	<subject code="UGN" text="انیمیشن دیجیتال" />
+	<subject code="UGP" text="ویرایش عکس و تصویر" />
+	<subject code="UGV" text="ویدئو دیجیتال: حرفه ای" />
+	<subject code="UK" text="سخت افزار رایانه" />
+	<subject code="UKC" text="سوپر کامپیوترها" />
+	<subject code="UKD" text="مامورها و مینی کامپیوترها" />
+	<subject code="UKF" text="سرورها" />
+	<subject code="UKG" text="شبکه و محاسبات موازی" />
+	<subject code="UKM" text="سیستم های جاسازی شده" />
+	<subject code="UKN" text="سخت افزار شبکه" />
+	<subject code="UKP" text="کامپیوترهای شخصی" />
+	<subject code="UKPC" text="رایانه های شخصی (رایانه های سازگار با IBM)" />
+	<subject code="UKPM" text="مکینتاش" />
+	<subject code="UKR" text="تعمیر و نگهداری و تعمیرات" />
+	<subject code="UKS" text="رسانه های ذخیره سازی و لوازم جانبی" />
+	<subject code="UKX" text="ابزارهای نرم افزاری و ابزار" />
+	<subject code="UL" text="سیستم های عامل" />
+	<subject code="ULD" text="ویندوز و انواع" />
+	<subject code="ULDF" text="ویندوز 7" />
+	<subject code="ULDG" text="ویندوز ویستا" />
+	<subject code="ULDL" text="ویندوز 2003" />
+	<subject code="ULDP" text="ویندوز اکس پی" />
+	<subject code="ULDT" text="ویندوز 2000" />
+	<subject code="ULDX" text="ویندوز NT" />
+	<subject code="ULH" text="سیستم عامل Macintosh" />
+	<subject code="ULL" text="لینوکس" />
+	<subject code="ULLD" text="دبیان" />
+	<subject code="ULLR" text="کلاه قرمز" />
+	<subject code="ULLS" text="SUSE" />
+	<subject code="ULLU" text="UBUNTU" />
+	<subject code="ULN" text="یونیکس" />
+	<subject code="ULNB" text="BSD / FreeBSD" />
+	<subject code="ULNH" text="HP-UX" />
+	<subject code="ULNM" text="IBM AIX" />
+	<subject code="ULNS" text="سان Solaris" />
+	<subject code="ULP" text="سیستم عامل های دستی" />
+	<subject code="ULQ" text="IBM سیستم عامل مینفریم" />
+	<subject code="ULR" text="سیستم عامل های واقعی" />
+	<subject code="UM" text="برنامه نویسی کامپیوتر / توسعه نرم افزار" />
+	<subject code="UMA" text="مفاهیم برنامه / یادگیری به برنامه" />
+	<subject code="UMB" text="الگوریتم ها و ساختارهای داده" />
+	<subject code="UMC" text="کامپایلرها" />
+	<subject code="UMF" text="برنامه نویسی روزمره" />
+	<subject code="UMG" text="برنامه نویسی معانی / AOP" />
+	<subject code="UMH" text="برنامه ریزی شدید" />
+	<subject code="UMJ" text="برنامه نویسی کاربردی" />
+	<subject code="UMK" text="توسعه بازی و برنامه نویسی" />
+	<subject code="UMKB" text="گرافیک 2D: برنامه نویسی بازی" />
+	<subject code="UMKC" text="گرافیک سه بعدی: برنامه نویسی بازی" />
+	<subject code="UMKL" text="طراحی سطح: برنامه نویسی بازی" />
+	<subject code="UML" text="برنامه نویسی گرافیک" />
+	<subject code="UMN" text="برنامه نویسی شی گرا (OOP)" />
+	<subject code="UMP" text="برنامه نویسی مایکروسافت" />
+	<subject code="UMPN" text="برنامه نویسی .Net" />
+	<subject code="UMPW" text="برنامه نویسی ویندوز" />
+	<subject code="UMQ" text="برنامه نویسی مکینتاش" />
+	<subject code="UMR" text="برنامه نویسی شبکه" />
+	<subject code="UMS" text="برنامه نویسی دستگاه های موبایل و دستی / برنامه نویسی برنامه ها" />
+	<subject code="UMT" text="برنامه نویسی پایگاه داده" />
+	<subject code="UMW" text="برنامه نویسی وب" />
+	<subject code="UMWS" text="خدمات وب" />
+	<subject code="UMX" text="زبان برنامه نویسی و اسکریپت: به طور کلی" />
+	<subject code="UMZ" text="مهندسی نرم افزار" />
+	<subject code="UMZL" text="زبان مدل سازی یکپارچه (UML)" />
+	<subject code="UMZT" text="تست و تایید نرم افزار" />
+	<subject code="UMZW" text="مهندسی نرم افزار شی گرا" />
+	<subject code="UN" text="پایگاه های داده" />
+	<subject code="UNA" text="طراحی پایگاه داده و نظریه" />
+	<subject code="UNAR" text="پایگاه های ارتباطی" />
+	<subject code="UNC" text="گرفتن اطلاعات و تجزیه و تحلیل داده ها" />
+	<subject code="UND" text="انبار داده" />
+	<subject code="UNF" text="داده کاوی" />
+	<subject code="UNH" text="بازیابی اطلاعات" />
+	<subject code="UNJ" text="پایگاه داده های شی گرا" />
+	<subject code="UNK" text="پایگاه های توزیع شده" />
+	<subject code="UNN" text="پایگاه های داده و وب" />
+	<subject code="UNS" text="نرم افزار پایگاه داده" />
+	<subject code="UNSB" text="اوراکل" />
+	<subject code="UNSC" text="دسترسی" />
+	<subject code="UNSF" text="FileMaker" />
+	<subject code="UNSJ" text="SQL Server / MS SQL" />
+	<subject code="UNSK" text="SQLite" />
+	<subject code="UNSM" text="خروجی زیر" />
+	<subject code="UNSP" text="PostgreSQL" />
+	<subject code="UNSX" text="IBM DB2" />
+	<subject code="UNSY" text="Sybase" />
+	<subject code="UQ" text="گواهینامه کامپیوتر" />
+	<subject code="UQF" text="گواهینامه کامپیوتر: مایکروسافت" />
+	<subject code="UQJ" text="گواهینامه کامپیوتر: سیسکو" />
+	<subject code="UQL" text="گواهینامه کامپیوتر: ECDL" />
+	<subject code="UQR" text="گواهینامه کامپیوتر: CompTia" />
+	<subject code="UQT" text="گواهینامه کامپیوتر: CLAiT" />
+	<subject code="UR" text="امنیت رایانه" />
+	<subject code="URD" text="حفاظت از حریم شخصی و اطلاعات" />
+	<subject code="URH" text="تقلب کامپیوتری و هک شدن" />
+	<subject code="URJ" text="ویروس های کامپیوتری، تروجان ها و کرم ها" />
+	<subject code="URQ" text="فایروال" />
+	<subject code="URS" text="هرزنامه ها" />
+	<subject code="URW" text="نرم افزار جاسوسی" />
+	<subject code="URY" text="رمزگذاری داده ها" />
+	<subject code="UT" text="شبکه های کامپیوتری و ارتباطات" />
+	<subject code="UTC" text="پردازش ابری" />
+	<subject code="UTD" text="شبکه کلاینت-سرور" />
+	<subject code="UTF" text="مدیریت شبکه" />
+	<subject code="UTFB" text="سیستم های کامپیوتری پشتیبان گیری و بازیابی اطلاعات" />
+	<subject code="UTG" text="محاسبات شبکه" />
+	<subject code="UTM" text="پست الکترونیک (ایمیل): حرفه ای" />
+	<subject code="UTN" text="امنیت شبکه" />
+	<subject code="UTP" text="استانداردهای شبکه و پروتکل ها" />
+	<subject code="UTR" text="سیستم های توزیع شده" />
+	<subject code="UTS" text="بسته های شبکه" />
+	<subject code="UTV" text="مجازی سازی" />
+	<subject code="UTW" text="شبکه WAP و برنامه های کاربردی" />
+	<subject code="UTX" text="EDI (تبادل اطلاعات الکترونیکی)" />
+	<subject code="UY" text="علوم کامپیوتر" />
+	<subject code="UYA" text="تئوری ریاضی محاسبات" />
+	<subject code="UYAM" text="ریاضی برای دانشمندان کامپیوتر" />
+	<subject code="UYD" text="تجزیه و تحلیل و طراحی سیستم" />
+	<subject code="UYF" text="معماری کامپیوتر و طراحی منطقی" />
+	<subject code="UYFL" text="زبانهای مجمع" />
+	<subject code="UYFP" text="پردازش موازی" />
+	<subject code="UYM" text="مدلسازی و شبیه سازی کامپیوتری" />
+	<subject code="UYQ" text="هوش مصنوعی" />
+	<subject code="UYQE" text="سیستم های حرفه ای / سیستم های مبتنی بر دانش" />
+	<subject code="UYQL" text="زبان طبیعی و ترجمه ماشین" />
+	<subject code="UYQM" text="فراگیری ماشین" />
+	<subject code="UYQN" text="شبکه های عصبی و سیستم های فازی" />
+	<subject code="UYQP" text="الگو شناسی" />
+	<subject code="UYQS" text="تشخیص گفتار" />
+	<subject code="UYQV" text="بینش کامپیوتری" />
+	<subject code="UYS" text="پردازش سیگنال" />
+	<subject code="UYT" text="پردازش تصویر" />
+	<subject code="UYU" text="پردازش صوتی" />
+	<subject code="UYV" text="واقعیت مجازی" />
+	<subject code="UYZ" text="تعامل انسان و کامپیوتر" />
+	<subject code="UYZF" text="تجسم اطلاعات" />
+	<subject code="UYZG" text="طراحی رابط کاربر و قابلیت استفاده" />
+	<subject code="UYZM" text="معماری اطلاعات" />
+	<subject code="V" text="بهداشت و توسعه شخصی" />
+	<subject code="VF" text="خانواده و سلامت" />
+	<subject code="VFB" text="امنیت شخصی" />
+	<subject code="VFD" text="پزشکی محبوب و سلامت" />
+	<subject code="VFDF" text="کمک های اولیه برای خانه" />
+	<subject code="VFDM" text="سلامت مردان" />
+	<subject code="VFDW" text="تندرستی بانوان" />
+	<subject code="VFG" text="مراقبت از خانه و مراقبت" />
+	<subject code="VFJ" text="مقابله با مشکلات شخصی" />
+	<subject code="VFJB" text="مقابله با بیماری و شرایط خاص" />
+	<subject code="VFJD" text="مقابله با ناتوانی" />
+	<subject code="VFJG" text="مقابله با سالخوردگی" />
+	<subject code="VFJJ" text="مقابله با اختلالات خوردن" />
+	<subject code="VFJK" text="مقابله با سوء مصرف مواد مخدر و الکل" />
+	<subject code="VFJP" text="مقابله با اضطراب و ترس ها" />
+	<subject code="VFJS" text="مقابله با استرس" />
+	<subject code="VFJX" text="مقابله با مرگ و رنج" />
+	<subject code="VFL" text="ترک سیگار" />
+	<subject code="VFM" text="تناسب اندام و رژیم غذایی" />
+	<subject code="VFMD" text="رژیم های غذایی و رژیم غذایی" />
+	<subject code="VFMG" text="تمرین و تمرین کتاب" />
+	<subject code="VFMS" text="ماساژ" />
+	<subject code="VFV" text="روابط خانوادگی" />
+	<subject code="VFVC" text="جنسیت و جنسیت، کتابچه های جنسی" />
+	<subject code="VFVG" text="دوستیابی، روابط، زندگی مشترک و ازدواج" />
+	<subject code="VFVK" text="تصویب" />
+	<subject code="VFVS" text="جدایی و طلاق" />
+	<subject code="VFVX" text="روابط بین نسلی" />
+	<subject code="VFX" text="مشاوره در مورد والدین" />
+	<subject code="VFXB" text="بارداری، تولد و مراقبت از کودک" />
+	<subject code="VFXB1" text="نام های کودک" />
+	<subject code="VFXC" text="مراقبت از کودکان و تربیت" />
+	<subject code="VFXC1" text="نوجوانان: توصیه برای والدین" />
+	<subject code="VS" text="خود کمک و توسعه شخصی" />
+	<subject code="VSB" text="امور مالی شخصی" />
+	<subject code="VSC" text="مشاوره در زمینه کار و موفقیت" />
+	<subject code="VSD" text="قانون، شهروندی و حقوق برای شخص نابینا" />
+	<subject code="VSF" text="جاده، رانندگی و کد بزرگراه" />
+	<subject code="VSG" text="مشاوره مصرف کننده" />
+	<subject code="VSH" text="مسکن و اموال برای فرد - خرید / فروش و جنبه های قانونی" />
+	<subject code="VSK" text="مشاوره در مورد آموزش" />
+	<subject code="VSL" text="راهنما و سواد بزرگسالان سواد آموزی" />
+	<subject code="VSN" text="راهنماهای بالغ بر شمارشی و کتابچه راهنمای کاربر" />
+	<subject code="VSP" text="روانشناسی محبوب" />
+	<subject code="VSPM" text="استدلال، انگیزه و عزت نفس" />
+	<subject code="VSPT" text="بهبود حافظه و تکنیک های تفکر" />
+	<subject code="VSPX" text="برنامه نویسی زبانی (NLP)" />
+	<subject code="VSR" text="بازنشستگی" />
+	<subject code="VSW" text="زندگی و کار در خارج از کشور" />
+	<subject code="VSZ" text="شیوه زندگی سبز و خودمختاری" />
+	<subject code="VX" text="ذهن، بدن، روح" />
+	<subject code="VXA" text="ذهن، بدن، روح: فکر و عمل" />
+	<subject code="VXF" text="فورچون و غرور" />
+	<subject code="VXFA" text="طالع بینی" />
+	<subject code="VXFA1" text="علامت های ستاره و طالع بینی" />
+	<subject code="VXFC" text="فال با کارت (فال ورق)" />
+	<subject code="VXFC1" text="تاروت" />
+	<subject code="VXFD" text="من چینگ" />
+	<subject code="VXFG" text="گرافولوژی" />
+	<subject code="VXFJ" text="پالم، فیزیولوژی و فیزیولوژی" />
+	<subject code="VXFN" text="اعداد شمسی" />
+	<subject code="VXFT" text="خلوص و پیش بینی" />
+	<subject code="VXH" text="درمان های تکمیلی، درمان و سلامت" />
+	<subject code="VXHA" text="الکساندر تکنیک" />
+	<subject code="VXHC" text="آروماتراپی و روغنهای ضروری" />
+	<subject code="VXHH" text="هومیوپاتی" />
+	<subject code="VXHJ" text="رفلکسولوژی" />
+	<subject code="VXHK" text="ریکی" />
+	<subject code="VXHT" text="طب سنتی و داروهای گیاهی" />
+	<subject code="VXHT1" text="دارو طب چینی و طب سوزنی" />
+	<subject code="VXHT2" text="درمان آیورودا" />
+	<subject code="VXM" text="ذهن، بدن، روح: مراقبه و تجسم" />
+	<subject code="VXN" text="رویاها و تفسیر آنها" />
+	<subject code="VXP" text="قدرت روانی و پدیده های روانی" />
+	<subject code="VXPC" text="کریستال ها و درمان رنگ" />
+	<subject code="VXPH" text="چاکراها، ارواح و انرژی معنوی" />
+	<subject code="VXPJ" text="طرح ریزی آسترال و تجربیات خارج از بدن" />
+	<subject code="VXPR" text="زندگی پس از مرگ، تکرار و زندگی گذشته" />
+	<subject code="VXPS" text="راهنمای روح، فرشتگان و کانال کردن" />
+	<subject code="VXQ" text="پدیده های ناشناخته / ماوراء الطبیعه" />
+	<subject code="VXQB" text="بشقاب پرنده ها و موجودات فرازمینی" />
+	<subject code="VXQG" text="ارواح و تکفیری ها" />
+	<subject code="VXQM" text="هیولاها و موجودات افسانه ای" />
+	<subject code="VXV" text="فنگ شویی" />
+	<subject code="VXW" text="عرفان، سحر و جادو و مراسم" />
+	<subject code="VXWK" text="کابالا: آثار محبوب" />
+	<subject code="VXWM" text="سحر و جادو، جادوها و کیمیاگری" />
+	<subject code="VXWS" text="شامانی و پاسیفسم" />
+	<subject code="VXWT" text="جادوگر و ویکا" />
+	<subject code="W" text="شیوه زندگی، ورزش و اوقات فراغت" />
+	<subject code="WB" text="آشپزی / غذا و نوشیدنی و غیره" />
+	<subject code="WBA" text="آشپزی عمومی و دستور العمل" />
+	<subject code="WBB" text="تلویزیون آشپزی آشپز مشهور" />
+	<subject code="WBC" text="آشپزی برای یک" />
+	<subject code="WBD" text="آشپزی بودجه" />
+	<subject code="WBF" text="پخت سریع و آسان" />
+	<subject code="WBH" text="سلامتی و آشپزی کامل" />
+	<subject code="WBHS" text="آشپزی برای رژیم های خاص و شرایط" />
+	<subject code="WBJ" text="آشپزی گیاهی" />
+	<subject code="WBN" text="غذاهای ملی و منطقه ای" />
+	<subject code="WBQ" text="آشپزی برای / با کودکان" />
+	<subject code="WBR" text="آشپزی برای احزاب" />
+	<subject code="WBS" text="پخت و پز با اسباب بازی های خاص" />
+	<subject code="WBT" text="آشپزی با عناصر" />
+	<subject code="WBTB" text="پخت و پز با گوشت و بازی" />
+	<subject code="WBTC" text="آشپزی با مرغ و مرغ دیگر" />
+	<subject code="WBTF" text="آشپزی با ماهی و غذاهای دریایی" />
+	<subject code="WBTH" text="پخت و پز با گیاهان و ادویه جات ترشی جات" />
+	<subject code="WBTP" text="ظروف پاستا" />
+	<subject code="WBTR" text="پخت و پز با محصولات لبنی" />
+	<subject code="WBTX" text="پخت و پز با شکلات" />
+	<subject code="WBV" text="غذاهای آشپزی و دوره ها" />
+	<subject code="WBVD" text="سوپ و شروع کننده" />
+	<subject code="WBVG" text="سالاد" />
+	<subject code="WBVM" text="دوره های اصلی" />
+	<subject code="WBVQ" text="دسرها" />
+	<subject code="WBVS" text="کیک، پخت، یخ زدگی و شکر" />
+	<subject code="WBW" text="نگهداری و انجماد" />
+	<subject code="WBX" text="نوشیدنی ها" />
+	<subject code="WBXD" text="نوشیدنی های الکلی" />
+	<subject code="WBXD1" text="شراب" />
+	<subject code="WBXD2" text="آبجو" />
+	<subject code="WBXD3" text="دود و کوکتل" />
+	<subject code="WBXN" text="نوشیدنی های غیر الکلی" />
+	<subject code="WBZ" text="سیگار و سیگار کشیدن" />
+	<subject code="WC" text="عتیقه جات و کالاهای مورد نیاز" />
+	<subject code="WCB" text="عتیقه جات و کالاها: راهنماهای خریدار" />
+	<subject code="WCC" text="مراقبت و ترمیم عتیقه" />
+	<subject code="WCF" text="سکه، اسکناس، مدال، مهر و موم (خزانه)" />
+	<subject code="WCG" text="تمبر، فیلاتینی" />
+	<subject code="WCJ" text="ساعتهای عتیقه، ساعتها، جعبه های موسیقی و اتوماتای" />
+	<subject code="WCK" text="ارتش، سلاح و زره پوش" />
+	<subject code="WCL" text="مجموعه مبلمان عتیقه / مبلمان" />
+	<subject code="WCN" text="عتیقه جات و کالاها: سرامیک و شیشه" />
+	<subject code="WCP" text="عتیقه جات و کالاها: جواهرات" />
+	<subject code="WCR" text="عتیقه جات و کالاها: طلا و نقره (به غیر از جواهرات)" />
+	<subject code="WCS" text="عتیقه جات و کالاهای مورد نیاز: کتاب ها، نسخه های خطی، چاپ و مواد چاپی" />
+	<subject code="WCU" text="عتیقه جات و کالاها: تصاویر، چاپ ها و نقشه ها" />
+	<subject code="WCV" text="عتیقه جات و کالاهای مورد نیاز: فرش، فرش و منسوجات" />
+	<subject code="WCW" text="عتیقه جات و کالاها: اسباب بازی ها، بازی ها و مدل ها" />
+	<subject code="WCX" text="عتیقه جات و کالاها: ابزار علمی و موسیقی" />
+	<subject code="WD" text="سرگرمی ها، امتحانات و بازی ها" />
+	<subject code="WDH" text="سرگرمی" />
+	<subject code="WDHM" text="راه آهن مدل" />
+	<subject code="WDHR" text="مدل های رادیو کنترل" />
+	<subject code="WDHW" text="نقش بازی، بازی های جنگی و ورزش های فانتزی" />
+	<subject code="WDJ" text="تصاویر 3 بعدی و توهمات نوری" />
+	<subject code="WDK" text="پازل و آزمونها" />
+	<subject code="WDKC" text="جدول کلمات متقاطع" />
+	<subject code="WDKN" text="سودوکو و تعداد پازل" />
+	<subject code="WDKX" text="چیزهای بی اهمیت و مسابقه سوالات کتاب" />
+	<subject code="WDM" text="بازی های داخل سالن" />
+	<subject code="WDMC" text="بازی های کارتی" />
+	<subject code="WDMC1" text="پل" />
+	<subject code="WDMC2" text="پوکر" />
+	<subject code="WDMG" text="بازی های تخته ای" />
+	<subject code="WDMG1" text="شطرنج" />
+	<subject code="WDP" text="قمار: نظریه ها و روش ها" />
+	<subject code="WF" text="صنایع دستی، هنرهای تزئینی و صنایع دستی" />
+	<subject code="WFA" text="نقاشی و کتاب های هنری" />
+	<subject code="WFB" text="صنایع دستی و صنایع دستی" />
+	<subject code="WFBC" text="صنایع دستی گلدوزی" />
+	<subject code="WFBL" text="توری و لاک زدن" />
+	<subject code="WFBQ" text="قالبگیری چسبناک، چسبناک و سیب زمینی" />
+	<subject code="WFBS" text="بافندگی و قلاب دوزی" />
+	<subject code="WFBV" text="طراحی روی پارچه و کراوات " />
+	<subject code="WFC" text="طناب، گره و ماکرو" />
+	<subject code="WFF" text="فرش و فرش" />
+	<subject code="WFG" text="ریسندگی و بافندگی" />
+	<subject code="WFH" text="اسباب بازی: ساخت و تزئینات" />
+	<subject code="WFJ" text="جواهرات و اشیای قیمتی" />
+	<subject code="WFK" text="پوشش های تزئینی و سطوح" />
+	<subject code="WFL" text="چوب های تزئینی و فلزکاری" />
+	<subject code="WFLF" text="فریم عکس" />
+	<subject code="WFN" text="سفال، سرامیک و صنایع دستی شیشه ای" />
+	<subject code="WFS" text="حکاکی و مدل سازی، قالب سازی و ریخته گری" />
+	<subject code="WFT" text="صنایع دستی کتاب و صنایع" />
+	<subject code="WFTG" text="کارت تبریک" />
+	<subject code="WFTM" text="اوریگامی و مهندسی کاغذ" />
+	<subject code="WFTS" text="ضبط برگه" />
+	<subject code="WFU" text="نامه و خوشنویسی" />
+	<subject code="WFV" text="صنایع دستی روستایی" />
+	<subject code="WFW" text="تنظیم گل و صنایع دستی گل" />
+	<subject code="WG" text="حمل و نقل: علاقه عمومی" />
+	<subject code="WGC" text="جاده ها و وسایل نقلیه موتوری: علاقه عمومی" />
+	<subject code="WGCB" text="خودروهای برقی: علاقه عمومی" />
+	<subject code="WGCF" text="اتوبوس، تراموا و خودروهای تجاری: علاقه عمومی" />
+	<subject code="WGCK" text="موتور سیکلت: علاقه عمومی" />
+	<subject code="WGCT" text="تراکتور و وسایل نقلیه مزرعه: منافع عمومی" />
+	<subject code="WGCV" text="تعمیر و نگهداری خودرو و کتابچه راهنمای" />
+	<subject code="WGF" text="قطارها و راه آهن: منافع عمومی" />
+	<subject code="WGG" text="کشتی ها و قایق ها: منافع عمومی" />
+	<subject code="WGGN" text="قایقهای اتوبوسی و کانال ها" />
+	<subject code="WGGV" text="قایقرانی و نگهداری" />
+	<subject code="WGM" text="هواپیما: علاقه عمومی" />
+	<subject code="WH" text="شوخ طبعی" />
+	<subject code="WHC" text="کارتون و کمیک استریپ" />
+	<subject code="WHG" text="تلویزیون کراوات در طنز" />
+	<subject code="WHJ" text="جوک ها و معماهای" />
+	<subject code="WHL" text="طنز عامیانه و زبانی" />
+	<subject code="WHP" text="پدیده ها و فریب ها" />
+	<subject code="WHX" text="مجموعه های طنز و مجموعه مقالات" />
+	<subject code="WJ" text="راهنماهای سبک زندگی و شخصی" />
+	<subject code="WJF" text="راهنمای مد و سبک" />
+	<subject code="WJH" text="لوازم آرایشی، مو و زیبایی" />
+	<subject code="WJK" text="طراحی داخلی، دکور و راهنمای سبک" />
+	<subject code="WJS" text="راهنماهای خرید" />
+	<subject code="WJW" text="عروسی، برنامه ریزان عروسی" />
+	<subject code="WJX" text="احزاب، اخلاق و سرگرم کننده" />
+	<subject code="WK" text="تعمیر و نگهداری خانه و خانه" />
+	<subject code="WKD" text="خودآموزی: به طور کلی" />
+	<subject code="WKDM" text="خودآموزی: کتابچه راهنمای تعمیر و نگهداری خانه" />
+	<subject code="WKDW" text="خودآموزی: نجاری و نجاری" />
+	<subject code="WKH" text="نکات خانگی" />
+	<subject code="WKR" text="نوسازی و تمیز کردن خانه" />
+	<subject code="WM" text="باغبانی" />
+	<subject code="WMB" text="باغ (شرح، تاریخ و غیره)" />
+	<subject code="WMD" text="طراحی و برنامه ریزی باغ" />
+	<subject code="WMF" text="گلخانه ها، سالن ها، سالن ها" />
+	<subject code="WMP" text="باغبانی: گیاهان" />
+	<subject code="WMPC" text="باغبانی: گل ها" />
+	<subject code="WMPF" text="باغبانی: رشد میوه و سبزیجات" />
+	<subject code="WMPH" text="باغبانی: گیاهان" />
+	<subject code="WMPM" text="ساکولنت ها و کاکا" />
+	<subject code="WMPS" text="باغبانی: درختچه ها و درختچه ها" />
+	<subject code="WMPX" text="گیاهان آپارتمانی" />
+	<subject code="WMQ" text="روش باغبانی تخصصی" />
+	<subject code="WMQB" text="بونسای" />
+	<subject code="WMQF" text="باغبانی ارگانیک" />
+	<subject code="WMQL" text="باغبانی چشم انداز" />
+	<subject code="WMQN" text="باغبانی طبیعی و وحشی" />
+	<subject code="WMQP" text="باغبانی با گیاهان بومی" />
+	<subject code="WMQR" text="باغبانی کانتینر" />
+	<subject code="WMQW" text="باغ آب، استخر" />
+	<subject code="WMT" text="وظایف" />
+	<subject code="WN" text="تاریخ طبیعی" />
+	<subject code="WNA" text="دایناسورها و جهان ماقبل تاریخ" />
+	<subject code="WNC" text="حیات وحش: علاقه عمومی" />
+	<subject code="WNCB" text="حیات وحش: پرندگان و پرنده ها" />
+	<subject code="WNCF" text="حیات وحش: پستانداران" />
+	<subject code="WNCK" text="حیات وحش: خزندگان و دوزیستان" />
+	<subject code="WNCN" text="حیات وحش: پروانه ها، حشرات دیگر و عنکبوت" />
+	<subject code="WNCS" text="حیات وحش: موجودات آبزی" />
+	<subject code="WNCS1" text="زندگی دریایی و ساحل دریا" />
+	<subject code="WNCS2" text="زندگی آب شیرین" />
+	<subject code="WND" text="حومه شهر، زندگی کشور" />
+	<subject code="WNF" text="مزرعه و حیوانات کار" />
+	<subject code="WNG" text="حیوانات خانگی و حیوانات خانگی" />
+	<subject code="WNGC" text="گربه ها به عنوان حیوانات خانگی" />
+	<subject code="WNGD" text="سگ ها به عنوان حیوانات خانگی" />
+	<subject code="WNGD1" text="اطاعت سگ و آموزش" />
+	<subject code="WNGF" text="ماهی و آکواریوم" />
+	<subject code="WNGH" text="اسب ها و اسب ها" />
+	<subject code="WNGK" text="پرندگان، از جمله پرندگان قفس، به عنوان حیوانات خانگی" />
+	<subject code="WNGR" text="خرگوش و جوندگان به عنوان حیوانات خانگی" />
+	<subject code="WNGS" text="خزندگان و دوزیستان به عنوان حیوانات خانگی" />
+	<subject code="WNGX" text="حشرات و عنکبوت به عنوان حیوانات خانگی" />
+	<subject code="WNH" text="باغ وحش و پارک های حیات وحش" />
+	<subject code="WNP" text="درختان، گلها و گیاهان" />
+	<subject code="WNR" text="سنگها، مواد معدنی و فسیل" />
+	<subject code="WNW" text="زمین: تاریخ طبیعی عمومی" />
+	<subject code="WNWM" text="آب و هوا" />
+	<subject code="WNX" text="نجوم و فضا محبوب" />
+	<subject code="WQ" text="علاقه محلی، سابقه خانوادگی و نوستالژی" />
+	<subject code="WQH" text="تاریخ محلی" />
+	<subject code="WQN" text="نوستالژی: به طور کلی" />
+	<subject code="WQP" text="اماکن در عکس های قدیمی" />
+	<subject code="WQY" text="تاریخچه خانواده، ردیابی اجداد" />
+	<subject code="WS" text="ورزش و تفریح ​​در فضای باز" />
+	<subject code="WSB" text="رویدادهای ورزشی و مدیریت" />
+	<subject code="WSBB" text="بازی های المپیک و پارالمپیک" />
+	<subject code="WSBG" text="ورزش های حاکم" />
+	<subject code="WSBM" text="مدیریت ورزشی و امکانات" />
+	<subject code="WSBT" text="تیم های ورزشی و باشگاه ها" />
+	<subject code="WSBV" text="سالن های ورزشی" />
+	<subject code="WSBX" text="تاریخچه ورزش" />
+	<subject code="WSC" text="ورزش ناتوانی" />
+	<subject code="WSD" text="آموزش و مربیگری ورزشی" />
+	<subject code="WSDF" text="علم ورزشی، تربیت بدنی" />
+	<subject code="WSDP" text="روانشناسی ورزشی" />
+	<subject code="WSDX" text="سوء مصرف مواد در ورزش" />
+	<subject code="WSE" text="ورزش شدید" />
+	<subject code="WSF" text="ورزشهای آبی و تفریحات" />
+	<subject code="WSJ" text="بازیهای با توپ" />
+	<subject code="WSJA" text="فوتبال (فوتبال، فوتبال انجمن)" />
+	<subject code="WSJA1" text="جام جهانی" />
+	<subject code="WSJC" text="کریکت" />
+	<subject code="WSJF" text="فوتبال راگبی" />
+	<subject code="WSJF1" text="اتحاد راگبی" />
+	<subject code="WSJF2" text="لیگ راگبی" />
+	<subject code="WSJG" text="گلف" />
+	<subject code="WSJH" text="هاکی" />
+	<subject code="WSJJ" text="لاكراس" />
+	<subject code="WSJK" text="هارینگ" />
+	<subject code="WSJL" text="فوتبال گلی" />
+	<subject code="WSJM" text="بسکتبال" />
+	<subject code="WSJN" text="نایلون" />
+	<subject code="WSJQ" text="قوانین فوتبال استرالیا" />
+	<subject code="WSJR" text="بازی های راکت" />
+	<subject code="WSJR2" text="تنیس" />
+	<subject code="WSJR3" text="بدمینتون" />
+	<subject code="WSJR4" text="اسکواش و راکت" />
+	<subject code="WSJR5" text="تنیس روی میز" />
+	<subject code="WSJS" text="فوتبال آمریکایی" />
+	<subject code="WSJT" text="بیسبال" />
+	<subject code="WSJV" text="والیبال" />
+	<subject code="WSJY" text="کاسه، بولینگ، پانتانک" />
+	<subject code="WSJZ" text="اسنوکر، بیلیارد، استخر" />
+	<subject code="WSK" text="ورزش و ورزش پیاده روی، دو و میدانی" />
+	<subject code="WSKC" text="ماراتن و مسابقه در حال اجرا" />
+	<subject code="WSKQ" text="ورزش چند جانبه" />
+	<subject code="WSL" text="ژیمناستیک" />
+	<subject code="WSM" text="وزنه برداری" />
+	<subject code="WSN" text="سواری و حیوانات ورزشی" />
+	<subject code="WSNB" text="مسابقه اسب دوانی" />
+	<subject code="WSNF" text="سواری، نمایش و سوارکاری" />
+	<subject code="WSNP" text="مسابقه قایقرانی" />
+	<subject code="WSP" text="موتور ورزش" />
+	<subject code="WSPC" text="مسابقات اتومبیل رانی" />
+	<subject code="WSPC1" text="فرمول 1 و جایزه بزرگ" />
+	<subject code="WSPG" text="تجمع خودرو / رانندگی تجمع" />
+	<subject code="WSPM" text="مسابقه موتور سیکلت" />
+	<subject code="WSQ" text="دوچرخه سواري" />
+	<subject code="WSR" text="ماهیگیری، اسکیت بورد و غیره" />
+	<subject code="WSS" text="ورزش و تفریحات آب" />
+	<subject code="WSSC" text="شنا و غواصی" />
+	<subject code="WSSC1" text="شنا کردن زیر آب" />
+	<subject code="WSSG" text="گشت و گذار، بادسواری، اسکی روی آب" />
+	<subject code="WSSN" text="قایقرانی" />
+	<subject code="WSSN1" text="موتور / قدرت قایقرانی و کروز" />
+	<subject code="WSSN3" text="کشتیرانی" />
+	<subject code="WSSN5" text="قایقرانی و قایقرانی" />
+	<subject code="WSSN7" text="قایقرانی" />
+	<subject code="WST" text="مبارزه با ورزش و دفاع از خود" />
+	<subject code="WSTB" text="بوکس" />
+	<subject code="WSTC" text="کشتی" />
+	<subject code="WSTF" text="نرده" />
+	<subject code="WSTM" text="هنرهای رزمی شرقی" />
+	<subject code="WSU" text="بدن سازی" />
+	<subject code="WSW" text="ورزش های زمستانی" />
+	<subject code="WSWK" text="اسکی" />
+	<subject code="WSWM" text="اسنوبورد" />
+	<subject code="WSWS" text="اسکیت روی یخ" />
+	<subject code="WSWY" text="هاکی روی یخ" />
+	<subject code="WSX" text="میدان ورزش: ماهیگیری، شکار، تیراندازی" />
+	<subject code="WSXF" text="ماهیگیری، ماهیگیری" />
+	<subject code="WSXH" text="شکار یا تیراندازی حیوانات و بازی" />
+	<subject code="WSXR" text="تیراندازی با کمان" />
+	<subject code="WSXS" text="اسلحه کوچک، اسلحه و تجهیزات دیگر" />
+	<subject code="WSXT" text="تیراندازی هدف" />
+	<subject code="WSZ" text="تعقیب در فضای باز" />
+	<subject code="WSZC" text="پیاده روی، پیاده روی، پیاده روی" />
+	<subject code="WSZG" text="صعود و کوهنوردی" />
+	<subject code="WSZK" text="ورزشهای اردویی" />
+	<subject code="WSZN" text="گشتن و پریدن" />
+	<subject code="WSZR" text="کمپینگ و صنایع چوبی" />
+	<subject code="WSZV" text="مهارت های زندگی بیرونی" />
+	<subject code="WT" text="سفر و تعطیلات" />
+	<subject code="WTD" text="نکات سفر و مشاوره: به طور کلی" />
+	<subject code="WTH" text="راهنماهای سفر و تعطیلات" />
+	<subject code="WTHA" text="تعطیلات ماجراجویی" />
+	<subject code="WTHB" text="سفر تجاری" />
+	<subject code="WTHC" text="راهنماهای محیط زیست توریستی" />
+	<subject code="WTHF" text="سفر با تعطیلات کودکان / خانواده" />
+	<subject code="WTHH" text="راهنماهای تعطیلات هتل و تعطیلات" />
+	<subject code="WTHH1" text="راهنمای کاروان و اردوگاه" />
+	<subject code="WTHM" text="موزه، سایت های تاریخی، گالری ها و راهنماهای هنری" />
+	<subject code="WTHR" text="راهنمای رستوران، کافی نت و گشت و گذار" />
+	<subject code="WTHT" text="پارک های تم" />
+	<subject code="WTHX" text="کروز" />
+	<subject code="WTK" text="لغت نامه زبان" />
+	<subject code="WTL" text="سفرنامه" />
+	<subject code="WTLC" text="نوشتن کلاسیک سفر" />
+	<subject code="WTLP" text="سفرها" />
+	<subject code="WTM" text="اماکن و مردم: کارهای عمومی و تصویری" />
+	<subject code="WTR" text="نقشه ها و اطلس سفر" />
+	<subject code="WTRD" text="اطلس جاده ها و نقشه ها" />
+	<subject code="WTRM" text="نقشه های سفر" />
+	<subject code="WTRS" text="نقشه های خیابانی و نقشه های شهر" />
+	<subject code="WZ" text="موارد دیگر" />
+	<subject code="WZG" text="کتاب هدیه" />
+	<subject code="WZS" text="اقلام لوازم التحریر" />
+	<subject code="Y" text="کودکان، نوجوانان و آموزش" />
+	<subject code="YB" text="کتاب های عکس، کتاب های فعالیت و مواد یادگیری زود هنگام" />
+	<subject code="YBC" text="کتاب های تصویری" />
+	<subject code="YBCB" text="کتاب های کودک" />
+	<subject code="YBCH" text="کتاب های تصویری: کتاب های شخصیت" />
+	<subject code="YBCS" text="داستان داستان" />
+	<subject code="YBG" text="کتاب و بسته های تعاملی و فعالیت" />
+	<subject code="YBGC" text="کتاب های رنگ آمیزی و رنگ آمیزی" />
+	<subject code="YBGK" text="کتاب های کت و شلوار را فشار دهید" />
+	<subject code="YBGP" text="کتاب های پاپ آپ و لیفت فلاپ" />
+	<subject code="YBGS" text="تابلوچسبها و تمبرها" />
+	<subject code="YBGT" text="نوآوری، اسباب بازی و کتابهای بریده شده" />
+	<subject code="YBGT1" text="داستان صدا، کتاب پر سر و صدا، کتاب های موسیقی" />
+	<subject code="YBGT3" text="کتاب های لمسی و احساس" />
+	<subject code="YBGT5" text="کتابهای مغناطیسی" />
+	<subject code="YBGT7" text="اره منبت کاری اره مویی" />
+	<subject code="YBL" text="یادگیری ابتدایی / مفاهیم یادگیری اولیه" />
+	<subject code="YBLA" text="یادگیری ابتدایی: کتاب الفبا" />
+	<subject code="YBLA1" text="یادگیری ابتدایی: کتاب اول کلمه" />
+	<subject code="YBLB" text="یادگیری ابتدایی: قافیه و کتاب های ویدئویی" />
+	<subject code="YBLB1" text="یادگیری ابتدایی: آیه و قافیه" />
+	<subject code="YBLC" text="یادگیری ابتدایی: تعداد و شمارش" />
+	<subject code="YBLD" text="یادگیری ابتدایی: رنگ" />
+	<subject code="YBLF" text="یادگیری ابتدایی: مخالفان" />
+	<subject code="YBLH" text="یادگیری ابتدایی: اندازه، اشکال و الگوهای" />
+	<subject code="YBLJ" text="یادگیری ابتدایی: زمان و فصول" />
+	<subject code="YBLJ1" text="یادگیری ابتدایی: گفتن زمان" />
+	<subject code="YBLN" text="یادگیری ابتدایی: اولین تجربیات" />
+	<subject code="YBLN1" text="یادگیری ابتدایی: حواس" />
+	<subject code="YBLP" text="یادگیری ابتدایی: افرادی که به ما کمک می کنند" />
+	<subject code="YBLT" text="یادگیری ابتدایی: چیزهایی که می روند" />
+	<subject code="YD" text="شعر کودکان / نوجوان، متکلمان، سالیانه" />
+	<subject code="YDA" text="یک ساله (کودکان / نوجوانان)" />
+	<subject code="YDC" text="شاعران (کودکان / نوجوانان)" />
+	<subject code="YDP" text="شعر (کودکان / نوجوان)" />
+	<subject code="YF" text="داستان های کودکان و نوجوانان و داستان های واقعی" />
+	<subject code="YFA" text="داستان های کلاسیک (کودکان / نوجوانان)" />
+	<subject code="YFB" text="داستانی عمومی (کودکان / نوجوانان)" />
+	<subject code="YFC" text="داستان های ماجراجویی (کودکان / نوجوانان)" />
+	<subject code="YFCB" text="هیجان انگیز (کودکان و نوجوانان)" />
+	<subject code="YFCF" text="داستان جنایت و رمز و راز (کودکان / نوجوان)" />
+	<subject code="YFD" text="داستان های ترسناک و شبح، چیلرها (کودکان / نوجوانان)" />
+	<subject code="YFG" text="علمی تخیلی (کودکان / نوجوانان)" />
+	<subject code="YFH" text="واقع گرایی فانتزی و جادویی (کودکان / نوجوانان)" />
+	<subject code="YFHR" text="عاشقانه فانتزی (نوجوان)" />
+	<subject code="YFJ" text="داستان های سنتی (کودکان / نوجوانان)" />
+	<subject code="YFM" text="داستان های عاشقانه و روابط (کودکان / نوجوانان)" />
+	<subject code="YFN" text="داستان های خانواده و خانه (کودکان / نوجوانان)" />
+	<subject code="YFP" text="داستان های حیوانی (کودکان / نوجوانان)" />
+	<subject code="YFQ" text="داستان های شگفت انگیز (کودکان / نوجوانان)" />
+	<subject code="YFR" text="داستان های ورزشی (کودکان / نوجوانان)" />
+	<subject code="YFS" text="داستان های مدرسه (کودکان / نوجوانان)" />
+	<subject code="YFT" text="داستان های تاریخی (کودکان / نوجوانان)" />
+	<subject code="YFU" text="داستان های کوتاه (کودکان / نوجوانان)" />
+	<subject code="YFW" text="داستان های کمیک داستان / رمان های گرافیکی (کودکان / نوجوانان)" />
+	<subject code="YFY" text="داستان های واقعی (کودکان / نوجوانان)" />
+	<subject code="YN" text="کودکان / نوجوانان: غیر داستانی عمومی" />
+	<subject code="YNA" text="هنر: منافع عمومی (کودکان / نوجوانان)" />
+	<subject code="YNC" text="موسیقی: علاقه عمومی (کودکان / نوجوانان)" />
+	<subject code="YNCP" text="موسیقی پاپ (کودکان / نوجوانان)" />
+	<subject code="YND" text="درام و اجرای (کودکان / نوجوانان)" />
+	<subject code="YNDB" text="رقص، باله (کودکان / نوجوانان)" />
+	<subject code="YNDS" text="بازیهای ویدئویی (کودکان و نوجوانان)" />
+	<subject code="YNF" text="تلویزیون و فیلم (کودکان / نوجوانان)" />
+	<subject code="YNG" text="دانش عمومی و چیزهای بی اهمیت (کودکان / نوجوانان)" />
+	<subject code="YNGL" text="کتابخانه ها، موزه ها، مدارس (کودکان / نوجوانان)" />
+	<subject code="YNH" text="تاریخ و گذشته: منافع عمومی (کودکان / نوجوانان)" />
+	<subject code="YNJ" text="جنگ، جنگ، نیروهای مسلح (کودکان / نوجوانان)" />
+	<subject code="YNK" text="کار و صنعت / دنیای کار (کودکان / نوجوانان)" />
+	<subject code="YNL" text="ادبیات، کتابها و نویسندگان (کودکان / نوجوانان)" />
+	<subject code="YNM" text="افراد و مکان ها (کودکان / نوجوانان)" />
+	<subject code="YNN" text="تاریخ طبیعی (کودکان / نوجوانان)" />
+	<subject code="YNNA" text="دایناسورها و جهان ماقبل تاریخ (کودکان / نوجوانان)" />
+	<subject code="YNND" text="" />
+	<subject code="YNNF" text="حیوانات مزرعه (کودکان / نوجوانان)" />
+	<subject code="YNNR" text="حیات وحش (کودکان و نوجوانان)" />
+	<subject code="YNP" text="منافع عملی (کودکان / نوجوانان)" />
+	<subject code="YNPC" text="آشپزی و غذا (کودکان / نوجوانان)" />
+	<subject code="YNPG" text="باغبانی (کودکان / نوجوانان)" />
+	<subject code="YNPH" text="صنایع دستی (کودکان / نوجوانان)" />
+	<subject code="YNPK" text="پول (کودکان / نوجوانان)" />
+	<subject code="YNR" text="دین و باورها: منافع عمومی (کودکان / نوجوانان)" />
+	<subject code="YNRB" text="مقالات کتاب مقدس و کتاب مقدس (کودکان و نوجوانان)" />
+	<subject code="YNT" text="علم و فناوری: منافع عمومی (کودکان / نوجوانان)" />
+	<subject code="YNTB" text="ساختمان ها و ساخت و ساز (کودکان / نوجوانان)" />
+	<subject code="YNTR" text="حمل و نقل (کودکان / نوجوانان)" />
+	<subject code="YNTS" text="فضایی (کودکان / نوجوان)" />
+	<subject code="YNU" text="طنز و جوانی (کودکان / نوجوانان)" />
+	<subject code="YNUC" text="کارتون و کمیک استریپ (کودکان / نوجوانان)" />
+	<subject code="YNV" text="سرگرمی ها، آزمون ها و بازی ها (کودکان / نوجوانان)" />
+	<subject code="YNVP" text="کتاب پازل (کودکان / نوجوانان)" />
+	<subject code="YNVU" text="راهنماهای بازی کامپیوتر (کودکان / نوجوانان)" />
+	<subject code="YNW" text="ورزش و تفریحات در فضای باز (کودکان / نوجوانان)" />
+	<subject code="YNWA" text="فوتبال / فوتبال (کودکان / نوجوانان)" />
+	<subject code="YNWB" text="راگبی (کودکان / نوجوانان)" />
+	<subject code="YNWC" text="کریکت (کودکان / نوجوانان)" />
+	<subject code="YNWG" text="دو و میدانی و ژیمناستیک (کودکان / نوجوانان)" />
+	<subject code="YNWW" text="ورزشهای شنا و آب (کودکان / نوجوانان)" />
+	<subject code="YNWY" text="دوچرخه سواری، سوارکاری و اسکیت (کودکان و نوجوانان)" />
+	<subject code="YNX" text="اسرار، فوقالعاده، هیولا و موجودات اساطیری (کودکان / نوجوانان)" />
+	<subject code="YNXF" text="بشقاب پرنده ها و موجودات فرازمینی (کودکان / نوجوانان)" />
+	<subject code="YNXW" text="جادوگران و ارواح (کودکان / نوجوانان)" />
+	<subject code="YQ" text="مواد آموزشی" />
+	<subject code="YQA" text="آموزشی: هنر و طراحی" />
+	<subject code="YQB" text="آموزشی: موسیقی" />
+	<subject code="YQC" text="آموزش: زبان انگلیسی و سواد آموزی" />
+	<subject code="YQCR" text="آموزشی: زبان انگلیسی: خوانندگان و طرح های خواندن" />
+	<subject code="YQCR5" text="آموزش: زبان انگلیسی: خوانندگان و خواندن طرحها: آوازهای مصنوعی" />
+	<subject code="YQCS" text="آموزش: زبان انگلیسی: خواندن و نوشتن مهارت" />
+	<subject code="YQCS1" text="آموزشی: مهارت های نوشتن: دست خط" />
+	<subject code="YQCS5" text="آموزشی: زبان انگلیسی: مهارتهای خواندن: آوازهای مصنوعی" />
+	<subject code="YQD" text="آموزشی: مطالعات درام" />
+	<subject code="YQE" text="آموزش: ادبیات انگلیسی" />
+	<subject code="YQEF" text="نسخه های مدرسه متون داستان های ادبی انگلیسی" />
+	<subject code="YQES" text="نسخه های مدرسه شکسپیر" />
+	<subject code="YQF" text="آموزش: زبانهای غیر از انگلیسی" />
+	<subject code="YQFL" text="آموزشی: ادبیات در زبانهای غیر انگلیسی" />
+	<subject code="YQG" text="آموزشی: جغرافیا" />
+	<subject code="YQH" text="آموزشی: تاریخچه" />
+	<subject code="YQJ" text="آموزش: علوم اجتماعی" />
+	<subject code="YQJP" text="روانشناسی آموزشی" />
+	<subject code="YQM" text="آموزش: ریاضی و حسابداری" />
+	<subject code="YQMT" text="آموزشی: ریاضی و حسابداری: جداول زمان" />
+	<subject code="YQN" text="آموزش: شهروندی و آموزش اجتماعی" />
+	<subject code="YQNP" text="آموزش: آموزش شخصی، اجتماعی و بهداشتی (PSHE)" />
+	<subject code="YQR" text="آموزش: مطالعات مذهبی" />
+	<subject code="YQRA" text="آموزش: مواد آموزشی مونتاژ مدرسه" />
+	<subject code="YQRC" text="آموزش: مطالعات دینی: مسیحیت" />
+	<subject code="YQRN" text="آموزش: مطالعات دینی: ادیان غیر مسیحی" />
+	<subject code="YQRN1" text="آموزش: مطالعات دینی: یهودیت" />
+	<subject code="YQRN2" text="آموزشی: مطالعات دینی: اسلام" />
+	<subject code="YQRN3" text="آموزش: مطالعات دینی: هندوئیسم" />
+	<subject code="YQRN4" text="آموزش: مطالعات دینی: بودیسم" />
+	<subject code="YQS" text="آموزشی: علوم، علوم عمومی" />
+	<subject code="YQSB" text="آموزشی: زیست شناسی" />
+	<subject code="YQSC" text="آموزشی: شیمی" />
+	<subject code="YQSP" text="آموزشی: فیزیک" />
+	<subject code="YQT" text="فناوری آموزشی" />
+	<subject code="YQTD" text="آموزشی: طراحی و تکنولوژی" />
+	<subject code="YQTF" text="آموزشی: فن آوری غذا" />
+	<subject code="YQTU" text="آموزشی: فناوری اطلاعات و ارتباطلات، محاسبات" />
+	<subject code="YQV" text="آموزشی: مطالعات اقتصادی و اقتصاد" />
+	<subject code="YQW" text="آموزش: تربیت بدنی (از جمله رقص)" />
+	<subject code="YQX" text="آموزش: مطالعات عمومی / مهارت های تحصیلی عمومی" />
+	<subject code="YQY" text="آموزشی: افراد حرفه ای" />
+	<subject code="YQZ" text="آموزش: راهنمای مطالعه و تجدید نظر" />
+	<subject code="YR" text="مواد مرجع (کودکان / نوجوانان)" />
+	<subject code="YRD" text="فرهنگ لغت، واژه نامه های مدرسه (کودکان / نوجوانان)" />
+	<subject code="YRDC" text="فرهنگ لغت نامه های کودکان (کودکان / نوجوانان)" />
+	<subject code="YRDL" text="فرهنگ لغت دو زبانه / چند زبانه (کودکان و نوجوانان)" />
+	<subject code="YRE" text="دایره المعارف (کودکان / نوجوانان)" />
+	<subject code="YRG" text="آثار مرجع (کودکان / نوجوانان)" />
+	<subject code="YRW" text="اطلس ها و نقشه ها (کودکان / نوجوانان)" />
+	<subject code="YX" text="مسائل شخصی و اجتماعی (کودکان / نوجوانان)" />
+	<subject code="YXA" text="مسائل شخصی و اجتماعی: بدن و سلامت (کودکان / نوجوانان)" />
+	<subject code="YXAX" text="مسائل شخصی و اجتماعی: آموزش جنسی و حقایق زندگی (کودکان / نوجوانان)" />
+	<subject code="YXC" text="مسائل شخصی و اجتماعی: قلدری، خشونت و سوء استفاده (کودکان / نوجوانان)" />
+	<subject code="YXF" text="مسائل شخصی و اجتماعی: مسائل خانوادگی (کودکان / نوجوانان)" />
+	<subject code="YXFD" text="مسائل شخصی و اجتماعی: طلاق، جدایی، جدایی خانوادگی (کودکان / نوجوانان)" />
+	<subject code="YXFM" text="مسائل شخصی و اجتماعی: خواهران و برادران (کودکان / نوجوانان)" />
+	<subject code="YXFT" text="مسائل شخصی و اجتماعی: حاملگی نوجوانان (کودکان / نوجوانان)" />
+	<subject code="YXG" text="مسائل شخصی و اجتماعی: مرگ و تنفس (کودکان / نوجوانان)" />
+	<subject code="YXJ" text="مسائل شخصی و اجتماعی: مواد مخدر و اعتیاد (کودکان / نوجوانان)" />
+	<subject code="YXK" text="مسائل شخصی و اجتماعی: معلولیت و نیازهای ویژه (کودکان / نوجوانان)" />
+	<subject code="YXL" text="مسائل شخصی و اجتماعی: خودآگاهی و عزت نفس (کودکان / نوجوان)" />
+	<subject code="YXN" text="مسائل شخصی و اجتماعی: نژادپرستی و چند فرهنگی (کودکان / نوجوانان)" />
+	<subject code="YXS" text="مسائل شخصی و اجتماعی: جنسیت و روابط (کودکان / نوجوانان)" />
+	<subject code="YXT" text="مسائل شخصی و اجتماعی: مشکلات رفاهی و مشکلات مدرسه (کودکان / نوجوانان)" />
+	<subject code="YXV" text="مسائل شخصی و اجتماعی: راهنمایی شغلی (نوجوانان)" />
+	<subject code="YXZ" text="مسائل اجتماعی (کودکان / نوجوانان)" />
+	<subject code="YXZG" text="مسائل اجتماعی: محیط زیست و مسائل سبز (کودکان / نوجوانان)" />
+	<subject code="YXZR" text="مسائل اجتماعی: مسائل مذهبی (کودکان / نوجوانان)" />
+	<subject code="YXZW" text="مسائل اجتماعی: مسائل جنگ و درگیری (کودکان / نوجوانان)" />
+	<subject code="YZ" text="لوازم التحریر و موارد دیگر (کودکان و نوجوانان)" />
+</subjects>

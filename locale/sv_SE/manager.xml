@@ -4,8 +4,8 @@
 <!--
   * locale/sv_SE/manager.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Swedish_(sv_SE)
   * Localization strings for the sv_SE (Svenska) locale.
@@ -167,18 +167,8 @@
 	<message key="manager.reviewerSearch.change">Ändra</message>
 	<message key="manager.reviewerSearch.searchByName">Sök granskare med namn</message>
 	<message key="manager.reviewerSearch.searchByName.short">Sök med namn</message>
-	<message key="manager.reviewerSearch.doneAmount">Slutförda granskningar: {$current}</message>
-	<message key="manager.reviewerSearch.doneAmountToggle">Aktivera/inaktivera filtret för slutförda granskningar.</message>
-	<message key="manager.reviewerSearch.avgAmount">Genomsnittligt antal dagar att slutföra granskning: {$current}</message>
-	<message key="manager.reviewerSearch.avgAmountToggle">Aktivera/inaktivera filtret för genomsnittligt antal dagar att slutföra granskning.</message>
-	<message key="manager.reviewerSearch.lastAmount">Dagar sedan senaste granskning: {$current}</message>
-	<message key="manager.reviewerSearch.lastAmountToggle">Aktivera/inaktivera filtret för dagar sedan senaste granskning.</message>
-	<message key="manager.reviewerSearch.activeAmount">Aktiva granskningar: {$current}</message>
-	<message key="manager.reviewerSearch.activeAmountToggle">Aktivera/inaktivera filtret för aktiva granskningar.</message>
 	<message key="manager.reviewerSearch.interests">Intresseområden för granskning</message>
 	<message key="manager.reviewerSearch.form.instructions">Använd formuläret nedan för att välja maxvärde för termerna du vill söka efter. Formuläret är förifyllt med beräknat medel för respektive fält.</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">Granskares intressen (skriv för att söka efter matchande intressen)</message>
-	<message key="manager.reviewerSearch.form.previousReviewRounds">Granskare från det här bidragets tidigare granskningsomgångar</message>
 	<message key="manager.roles">Roller</message>
 	<message key="manager.statistics"><![CDATA[Statistik &amp; Rapporter]]></message>
 	<message key="manager.statistics.defaultMetricDescription">
@@ -267,6 +257,8 @@
 	<message key="manager.setup.reviewOptions.remindForSubmit">Skicka en påminnelse om granskaren inte har lämnat en rekommendation inom följande antal dagar efter deadline:</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Default-deadlines för granskning</message>
 	<message key="manager.setup.reviewOptions.showBlindReviewLink">Visa en länk till "Att garantera anonym granskning" vid uppladdning</message>
+	<message key="manager.setup.searchEngineIndexing.sitemap">Sitemap</message>
+	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[Det finns en XML-sitemap för sökmotorer tillgänglig på <a href="{$path}" target="_blank">{$path}</a>]]></message>
 	<message key="manager.setup.sponsors.note">Sponsorrelation och policybeskrivning</message>
 	<message key="manager.setup.sponsors.description">Exempel: vetenskapliga organisationer, universitetsinstitutioner, kooperativ etc. Sponsorer visas publikt.</message>
 	<message key="manager.setup.styleSheetDescription">Erfarna webbutvecklare kan ladda upp en CSS-fil för att ytterligare anpassa webbplatsens utseende.</message>
@@ -404,7 +396,9 @@
 	<message key="settings.libraryFiles.category.permissions">Behörigheter</message>
 	<message key="settings.libraryFiles.category.reports">Rapporter</message>
 	<message key="settings.libraryFiles.category.other">Övrigt</message>
-
+	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>om "Publik tillgång" aktiveras kan den här biblioteksfilen bli tillgänglig för nedladdning på: <blockquote>{$downloadUrl}</blockquote></p>]]></message>
+	<message key="settings.libraryFiles.public.selectLibraryFiles">Välj biblioteksfiler att bifoga</message>
+	
 	<!--  Genre grid settings -->
 	<message key="grid.action.addGenre">Lägg till komponent</message>
 	<message key="grid.action.editGenre">Ändra kompontenten</message>
@@ -412,6 +406,10 @@
 	<message key="grid.action.restoreGenres">Återställ komponenterna till defaultinställningar</message>
 	<message key="manager.setup.genres.dependent">Markera filer av den här typen som underordnade (t.ex. för att inte listas med publicerat innehåll)</message>
 	<message key="manager.setup.genres.supplementary">Markera filer av den här typen som kompletterande filer (t.ex. inte primärt bidrag)</message>
+	<message key="manager.setup.genres.key">Kod</message>
+	<message key="manager.setup.genres.key.description">En kort symbolisk identifikator för den här genren.</message>
+	<message key="manager.setup.genres.key.exists">Koden finns redan.</message>
+	<message key="manager.setup.genres.key.alphaNumeric">Koden kan innehålla alfanumeriska tecken, understreck och bindestreck. Den måste börja och sluta med ett alfanumeriskt tecken.</message>
 	<message key="manager.settings.wizard">Inställningsguide</message>
 	<message key="manager.users.roleRequired">Du behöver välja åtminstone en roll till den här användaren.</message>
 	<message key="manager.website">Webbplats</message>
@@ -420,7 +418,7 @@
 	<message key="manager.workflow.title">Inställningar för arbetsflöde</message>
 	<message key="manager.distribution">Distribution</message>
 	<message key="manager.distribution.title">Inställningar för distribution</message>
-	
+
 	<!-- Review forms -->
 	<message key="manager.reviewForms">Granskningsformulär</message>
 	<message key="manager.reviewForms.confirmActivate">Är du säker på att du vill aktivera det här granskningsformuläret? När ett granskningsuppdrag tilldelats det kommer du inte längre kunna inaktivera det.</message>
@@ -501,13 +499,14 @@
 	<message key="manager.navigationMenus.unassignedMenuItems">Menyelement utan placering</message>
 	<message key="manager.navigationMenus.form.navigationMenuArea">Navigationsytor för aktiva teman</message>
 	<message key="manager.navigationMenus.form.navigationMenuAreaMessage">Välj en navigationsyta</message>
+	<message key="manager.navigationMenus.form.menuAssigned">Den här ytan har redan en navigationsmeny knuten till sig.</message>
 
 	<message key="manager.navigationMenus.form.url">URL</message>
 	<message key="manager.navigationMenus.form.customUrlError">En URL måste anges</message>
-
+	
 	<message key="manager.navigationMenus.form.conditionalDisplay">Läs mer om när det här menyelementet kommer att vara synligt och respektive dolt.</message>
 	<message key="manager.navigationMenus.form.submenuWarning">När ett element i menyn öppnar en undermeny kan inte dess länk ses på alla enheter. Om det till exempel finns ett "Om"-element som öppnar en undermeny med "Kontakt" och "Redaktion" är det inte säkert att "Om"-länken kan ses på alla enheter. I defaultmenyn hanteras detta genom att den skapar ytterligare ett menyelement, "Om tidskriften", som visas i undermenyn.</message>
-
+	
 	<message key="manager.navigationMenus.form.navigationMenuItemType">Typ av navigationsmeny</message>
 	<message key="manager.navigationMenus.form.navigationMenuItemTypeMessage">Välj Typ av navigationsmeny eller Anpassad för att skapa din egen</message>
 	<message key="manager.navigationMenus.customPage">Anpassad sida</message>
@@ -532,5 +531,10 @@
 	<message key="manager.navigationMenus.logOut.description">En länk för att logga ut som användare.</message>
 	<message key="manager.navigationMenus.loggedOut.conditionalWarning">Den här länken visas bara om besökaren är inloggad.</message>
 	<message key="manager.navigationMenus.loggedIn.conditionalWarning">Den här länken visas bara när besökaren inte är inloggad.</message>
-	
+	<message key="manager.navigationMenus.contact.description">Länka till en sida som visar er kontaktinformation.</message>
+	<message key="manager.navigationMenus.contact.conditionalWarning">Den här länken visas bara om du har fyllt i kontaktinformationen under Inställningar > Kontakt.</message>
+	<message key="manager.navigationMenus.form.typeMissing">Välj en navigationsmeny-typ.</message>
+	<message key="manager.navigationMenus.subscriptions.conditionalWarning">Den här länken visas bara om betalningar är aktiverade under Inställningar > Distribution > Betalningar.</message>
+	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning">Den här länken visas bara om besökaren är inloggad, betalningar är aktiverade under Inställningar > Distribution > Betalningar och prenumerationer krävs enligt Inställningar > Distribution > Tillgång.</message>
+	<message key="manager.navigationMenus.search.description">Länk till söksidan.</message>
 </locale>

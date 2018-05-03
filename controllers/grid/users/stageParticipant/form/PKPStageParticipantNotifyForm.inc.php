@@ -3,8 +3,8 @@
 /**
  * @file lib/pkp/controllers/grid/users/stageParticipant/form/PKPStageParticipantNotifyForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPStageParticipantNotifyForm
@@ -128,6 +128,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 		$submission = $submissionDao->getById($this->_submissionId);
 		if ($this->getData('message')) {
 			$this->sendMessage((int) $this->getData('userId'), $submission, $request);
+			$this->_logEventAndCreateNotification($request, $submission);
 		}
 		return parent::execute($request);
 	}
@@ -296,6 +297,21 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 				NOTIFICATION_LEVEL_TASK
 			);
 		}
+	}
+
+	/**
+	 * Convenience function for logging the message sent event and creating the notification.
+	 * @param $request PKPRequest
+	 * @param $submission Submission
+	 */
+	function _logEventAndCreateNotification($request, $submission) {
+		import('lib.pkp.classes.log.SubmissionLog');
+		SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_MESSAGE_SENT, 'informationCenter.history.messageSent');
+
+		// Create trivial notification.
+		$currentUser = $request->getUser();
+		$notificationMgr = new NotificationManager();
+		$notificationMgr->createTrivialNotification($currentUser->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('stageParticipants.history.messageSent')));
 	}
 
 	/**

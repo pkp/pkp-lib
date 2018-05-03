@@ -4,8 +4,8 @@
 <!--
   * locale/ca_ES/manager.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Credits: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Catalan_(ca_ES)
   * Localization strings.
@@ -168,13 +168,8 @@
 	<message key="manager.reviewerSearch.advancedSearch.short">Cerca avançada</message>
 	<message key="manager.reviewerSearch.searchByName">Cerca un revisor/a pel nom</message>
 	<message key="manager.reviewerSearch.searchByName.short">Cerca per nom</message>
-	<message key="manager.reviewerSearch.doneAmount">Revisions completades</message>
-	<message key="manager.reviewerSearch.avgAmount">Mitjana de dies per la compleció</message>
-	<message key="manager.reviewerSearch.lastAmount">Dies des de l’última revisió</message>
-	<message key="manager.reviewerSearch.activeAmount">Revisions actives actualment</message>
 	<message key="manager.reviewerSearch.interests">Interessos de revisió</message>
 	<message key="manager.reviewerSearch.form.instructions">Utilitzeu el formulari següent per establir els valors màxims per als termes que voleu cercar.  El formulari està precompletat amb les mitjanes calculades de cada camp.</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">Introduïu els vostres interessos de revisió, separats per comes...</message>
 	<message key="manager.roles">Rols</message>
 	<message key="manager.statistics"><![CDATA[Estadístiques i informes]]></message>
 	<message key="manager.statistics.defaultMetricDescription">

@@ -2,8 +2,8 @@
 /**
  * @file classes/security/authorization/internal/SubmissionFileRequestedRevisionRequiredPolicy.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileRequestedRevisionRequiredPolicy
@@ -59,6 +59,9 @@ class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAc
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
 		if ($reviewRound->getStageId() != $stageId) return AUTHORIZATION_DENY;
 
+		// Make sure the file stage is SUBMISSION_FILE_REVIEW_REVISION.
+		if ($submissionFile->getFileStage() != SUBMISSION_FILE_REVIEW_REVISION) return AUTHORIZATION_DENY;
+
 		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 
 		// Make sure that the last review round editor decision is request revisions.
@@ -69,8 +72,6 @@ class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAc
 		$lastEditorDecision = array_pop($reviewRoundDecisions);
 		if ($lastEditorDecision['decision'] != SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS) return AUTHORIZATION_DENY;
 
-		// Made it through -- permit access.
-		return AUTHORIZATION_PERMIT;
 		// Made it through -- permit access.
 		return AUTHORIZATION_PERMIT;
 	}

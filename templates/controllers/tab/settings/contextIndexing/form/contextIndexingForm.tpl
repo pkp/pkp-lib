@@ -1,8 +1,8 @@
 {**
  * controllers/tab/settings/contextIndexing/form/contextIndexingForm.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Indexing management form.
@@ -30,6 +30,10 @@
 		{/fbvFormSection}
 		{fbvFormSection label="manager.setup.customTags" description="manager.setup.customTagsDescription"}
 			{fbvElement type="textarea" multilingual="true" id="customHeaders" name="customHeaders" value=$customHeaders}
+		{/fbvFormSection}
+		{fbvFormSection label="manager.setup.searchEngineIndexing.sitemap"}
+			{url|assign:"sitemapPath" router=$smarty.const.ROUTE_PAGE page="sitemap"}
+			<div class="description">{translate key="manager.setup.searchEngineIndexing.sitemapDescription" path=$sitemapPath}</div>
 		{/fbvFormSection}
 	{/fbvFormArea}
 

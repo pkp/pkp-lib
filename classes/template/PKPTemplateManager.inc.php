@@ -8,8 +8,8 @@
 /**
  * @file classes/template/PKPTemplateManager.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class TemplateManager
@@ -281,20 +281,10 @@ class PKPTemplateManager extends Smarty {
 			}
 
 			// Register Navigation Menus
-			if ($currentContext) {
-				$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
-				$navigationMenus = $navigationMenuDao->getByContextId($currentContext->getId(), null);
-				$navigationMenusArray = $navigationMenus->toAssociativeArray();
+			import('classes.core.ServicesContainer');
+			$nmService = ServicesContainer::instance()->get('navigationMenu');
 
-				foreach ($navigationMenusArray as $navigationMenu) {
-					import('classes.core.ServicesContainer');
-					ServicesContainer::instance()
-						->get('navigationMenu')
-						->getMenuTree($navigationMenu);
-				}
-
-				$this->assign('navigationMenus', $navigationMenusArray);
-			}
+			\HookRegistry::register('LoadHandler', array($nmService, '_callbackHandleCustomNavigationMenuItems'));
 		}
 
 		// Register custom functions
@@ -651,6 +641,28 @@ class PKPTemplateManager extends Smarty {
 			)
 		);
 
+		// Load constants for new component library
+		$const = array(
+			'ROLE_ID_MANAGER' => ROLE_ID_MANAGER,
+			'ROLE_ID_SITE_ADMIN' => ROLE_ID_SITE_ADMIN,
+			'ROLE_ID_AUTHOR' => ROLE_ID_AUTHOR,
+			'ROLE_ID_REVIEWER' => ROLE_ID_REVIEWER,
+			'ROLE_ID_ASSISTANT' => ROLE_ID_ASSISTANT,
+			'ROLE_ID_READER' => ROLE_ID_READER,
+			'ROLE_ID_SUB_EDITOR' => ROLE_ID_SUB_EDITOR,
+			'ROLE_ID_SUBSCRIPTION_MANAGER' => ROLE_ID_SUBSCRIPTION_MANAGER,
+		);
+		$output = 'pkp.const = ' . json_encode($const) . ';';
+		$this->addJavaScript(
+			'pkpAppData',
+			$output,
+			array(
+				'priority' => STYLE_SEQUENCE_LATE,
+				'contexts' => array('backend'),
+				'inline' => true,
+			)
+		);
+
 		// Load minified file if it exists
 		if (Config::getVar('general', 'enable_minified')) {
 			$this->addJavaScript(
@@ -701,15 +713,7 @@ class PKPTemplateManager extends Smarty {
 			'contextPath' => isset($context) ? $context->getPath() : '',
 			'apiBasePath' => '/api/v1',
 			'pathInfoEnabled' => Config::getVar('general', 'disable_path_info') ? false : true,
-			'accessRoles' => array(
-				'manager' => ROLE_ID_MANAGER,
-				'siteAdmin' => ROLE_ID_SITE_ADMIN,
-				'author' => ROLE_ID_AUTHOR,
-				'reviewer' => ROLE_ID_REVIEWER,
-				'assistant' => ROLE_ID_ASSISTANT,
-				'reader' => ROLE_ID_READER,
-				'subeditor' => ROLE_ID_SUB_EDITOR,
-			),
+			'restfulUrlsEnabled' => Config::getVar('general', 'restful_urls') ? true : false,
 		);
 		$output .= '$.pkp.app = ' . json_encode($app_data) . ';';
 
@@ -763,7 +767,7 @@ class PKPTemplateManager extends Smarty {
 					'accessRoles' => $currentUserAccessRoles,
 					'csrfToken' => $this->_request->getSession()->getCSRFToken()
 				);
-				$output .= '$.pkp.currentUser = ' . json_encode($userOutput);
+				$output .= '$.pkp.currentUser = ' . json_encode($userOutput) . ';';
 			}
 		}
 

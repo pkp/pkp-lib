@@ -2,8 +2,8 @@
 /**
  * @file controllers/list/SelectUserListHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SelectUserListHandler
@@ -18,13 +18,7 @@ class SelectUserListHandler extends SelectListHandler {
 	/** @var array Params to populate list of users with UserService */
 	public $_getParams = null;
 
-	/**
-	 * A callback function to determine what the item title should be.
-	 *
-	 * SelectListPanel will display the item.title key in the input label
-	 *
-	 * @var function
-	 */
+	/** @var function A callback function to set the title key for each item */
 	public $_setItemTitleCallback = null;
 
 	/**
@@ -35,7 +29,6 @@ class SelectUserListHandler extends SelectListHandler {
 		$this->_getParams = !empty($args['getParams']) ? $args['getParams'] : $this->_getParams;
 		$this->_setItemTitleCallback = !empty($args['setItemTitleCallback']) ? $args['setItemTitleCallback'] : $this->_setItemTitleCallback;
 	}
-
 
 	/**
 	 * @copydoc SelectListHandler::getItems()

@@ -4,8 +4,8 @@
 /**
  * @file js/controllers/AdvancedReviewerSearchHandler.js
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AdvancedReviewerSearchHandler
@@ -36,11 +36,12 @@
 		$container.find('.button').button();
 
 		$('#selectReviewerButton').click(
-				this.callbackWrapper(this.reviewerSelected));
+				this.callbackWrapper(this.selectReviewer));
 
 		$('#regularReviewerForm').hide();
 
 		this.bind('refreshForm', this.handleRefresh_);
+		this.bindGlobal('reviewersSelected', this.updateReviewerSelection);
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.grid.users.reviewer.AdvancedReviewerSearchHandler,
@@ -48,35 +49,54 @@
 
 
 	//
+	// Public properties
+	//
+	/**
+	 * Currently selected reviewer
+	 * @type {Object}
+	 */
+	$.pkp.controllers.grid.users.reviewer.AdvancedReviewerSearchHandler.
+			prototype.selectedReviewer = null;
+
+
+	//
 	// Public methods
 	//
 	/**
-	 * Callback that is triggered when a reviewer is selected.
+	 * Callback that is triggered when a reviewer option is selected (but not
+	 * confirmed by pressing the button)
+	 * @param {Object} sourceComponent Vue component that fired the event
+	 * @param {Array} selectedReviewers
+	 */
+	$.pkp.controllers.grid.users.reviewer.AdvancedReviewerSearchHandler.prototype.
+			updateReviewerSelection = function(sourceComponent, selectedReviewers) {
+		var id = '',
+				name = '';
+
+		if (!selectedReviewers.length) {
+			this.selectedReviewer = null;
+			id = name = '';
+		} else {
+			// Only supports a single reviewer select at a time fo rnow
+			this.selectedReviewer = selectedReviewers[0];
+			id = this.selectedReviewer.id;
+			name = this.selectedReviewer.fullName;
+		}
+
+		$('#reviewerId', this.getHtmlElement()).val(id);
+		$('[id^="selectedReviewerName"]', this.getHtmlElement()).html(name);
+	};
+
+
+	/**
+	 * Callback that is triggered when the button to select a reviewer is clicked
 	 *
 	 * @param {HTMLElement} button The button element clicked.
 	 */
 	$.pkp.controllers.grid.users.reviewer.AdvancedReviewerSearchHandler.prototype.
-			reviewerSelected = function(button) {
+			selectReviewer = function(button) {
 
-		// Get the selected reviewer's ID
-		var $selectedInput = this.getHtmlElement().
-				find('#reviewerSelectGridContainer')
-						.find('input[name="reviewerId"]:checked'),
-				reviewerId = /** @type {string} */ ($selectedInput.val()),
-				reviewerName;
-
-		if (reviewerId) {
-			reviewerName = $.trim($selectedInput.parent().next().
-					children('span').text());
-
-			// Update the hidden review id input
-			$('#reviewerId').val(reviewerId);
-
-			// Update the selected reviewer name container
-			$('[id^="selectedReviewerName"]', this.getHtmlElement()).
-					html(reviewerName);
-
-			// Hide the grid now
+		if (this.selectedReviewer) {
 			$('#searchGridAndButton').hide();
 			$('#regularReviewerForm').show();
 		}

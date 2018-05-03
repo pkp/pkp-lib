@@ -3,8 +3,8 @@
 /**
  * @file classes/plugins/PKPPubIdPlugin.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPPubIdPlugin
@@ -23,9 +23,9 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 	/**
 	 * @copydoc Plugin::register()
 	 */
-	function register($category, $path) {
-		if (!parent::register($category, $path)) return false;
-		if ($this->getEnabled()) {
+	function register($category, $path, $mainContextId = null) {
+		if (!parent::register($category, $path, $mainContextId)) return false;
+		if ($this->getEnabled($mainContextId)) {
 			// Enable storage of additional fields.
 			foreach($this->getDAOs() as $publicObjectType => $dao) {
 				HookRegistry::register(strtolower_codesafe(get_class($dao)).'::getAdditionalFieldNames', array($this, 'getAdditionalFieldNames'));

@@ -3,8 +3,8 @@
 /**
  * @file plugins/importexport/users/filter/NativeXmlUserGroupFilter.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NativeXmlUserGroupFilter
@@ -71,7 +71,7 @@ class NativeXmlUserGroupFilter extends NativeImportFilter {
 
 		// Extract the name node element to see if this user group exists already.
 		$nodeList = $node->getElementsByTagNameNS($deployment->getNamespace(), 'name');
-		if ($nodeList->length == 1) {
+		if ($nodeList->length > 0) {
 			$content = $this->parseLocalizedContent($nodeList->item(0)); // $content[1] contains the localized name.
 			$userGroups = $userGroupDao->getByContextId($context->getId());
 			while ($testGroup = $userGroups->next()) {

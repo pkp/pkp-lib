@@ -9,8 +9,8 @@
 /**
  * @file classes/file/FileManager.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  * ePUB mime type added  Leah M Root (rootl) SUNY Geneseo
  * @class FileManager
@@ -228,7 +228,8 @@ class FileManager {
 	 * Outputs HTTP headers and file content for download
 	 * @param $filePath string the location of the file to be sent
 	 * @param $mediaType string the MIME type of the file, optional
-	 * @param $inline print file as inline instead of attachment, optional
+	 * @param $inline boolean print file as inline instead of attachment, optional
+	 * @param $fileName string Optional filename to use on the client side
 	 * @return boolean
 	 */
 	function downloadFile($filePath, $mediaType = null, $inline = false, $fileName = null) {

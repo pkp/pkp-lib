@@ -3,8 +3,8 @@
 /**
  * @file pages/login/LoginHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class LoginHandler
@@ -106,9 +106,10 @@ class LoginHandler extends Handler {
 			} else {
 				$source = $request->getUserVar('source');
 				$redirectNonSsl = Config::getVar('security', 'force_login_ssl') && !Config::getVar('security', 'force_ssl');
-				if (isset($source) && !empty($source)) {
+				if (preg_match('#^/\w#', $source) === 1) {
 					$request->redirectUrl($source);
-				} elseif ($redirectNonSsl) {
+				}
+				if ($redirectNonSsl) {
 					$request->redirectNonSSL();
 				} else {
 					$this->_redirectAfterLogin($request);

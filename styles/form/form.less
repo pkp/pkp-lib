@@ -5,8 +5,8 @@
 /**
  * @file styles/form.less
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @ingroup pkp_form
@@ -237,7 +237,8 @@
 		}
 	}
 
-	.localization_popover_container_focus {
+	.localization_popover_container_focus,
+	.localization_popover_container_focus_forced {
 		display: block;
 		padding: @half;
 		background-color: @bg;
@@ -263,6 +264,13 @@
 		z-index: 99;
 		padding: @half;
 		background-color: @bg;
+	}
+
+	.localization_popover_container_focus_forced .localization_popover {
+		display: block;
+		position: relative;
+		margin-top: @half;
+		padding: 0;
 	}
 
 	// Position locale label off-screen but accessible to screen readers
@@ -294,6 +302,16 @@
 	// Hide form elements when in wizard mode
 	.is_wizard_mode {
 		display: none;
+	}
+
+	// Star selection in radio buttons
+	.pkp_star_selection {
+		font-size: @font-sml;
+		font-weight: @normal;
+
+		.fa {
+			color: @star-on;
+		}
 	}
 }
 
@@ -707,6 +725,15 @@ a[id^="publicIdentifiersForm-clearObjectsPubIds-button"] {
 		.item_buttons .fa {
 			color: @text-light;
 		}
+	}
+}
+
+// Override form styles that are effecting reviewer selection grid filters
+.pkp_form {
+
+	.pkpListPanel__filterInputLabel {
+		font-size: @font-sml;
+		font-weight: @normal;
 	}
 }
 

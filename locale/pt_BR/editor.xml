@@ -4,14 +4,14 @@
 <!--
   * locale/pt_BR/editor.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2003-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Locale information: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Portuguese_(pt_BR)
   * Localization strings.
   -->
 
-<locale name="pt_BR" full_name="Português (Brasil)">	
+<locale name="pt_BR" full_name="Português (Brasil)">
 	<message key="editor.submissionLibrary">Biblioteca da Submissão</message>
 	<message key="editor.review.notInitiated">A avaliação não foi iniciada.</message>
 	<message key="editor.submission.copyediting.personalMessageToUser">Mensagem ao usuário</message>
@@ -64,14 +64,13 @@
 	<message key="editor.review.reviewConfirmed">Avaliação Confirmada</message>
 	<message key="editor.review.reviewSubmitted">Avaliação Enviada</message>
 	<message key="editor.review.reviewerComments">Comentários do Avaliador</message>
-	<message key="editor.review.days">Médias de Dias</message>
+	<message key="editor.review.rateReviewer">Classificação do avaliador</message>
 	<message key="editor.review.mustSelect">Você deve selecionar um avaliador</message>
 	<message key="editor.review.errorAddingReviewer">Houve um erro ao adicionar um avaliador. Por favor tente novamente.</message>
 	<message key="editor.submission.newRound">Nova Rodada de Avaliação</message>
 	<message key="editor.submission.newRoundDescription">You are about to create a new review round for this submission.  Files that have not been used in other review rounds are listed below.  By default, the reviewers from the previous review round have been selected to participate in this new review round.</message>
 	<message key="editor.article.reviewForms">Formulários de Avaliação</message>
 	<message key="editor.article.selectReviewForm">Selecionar Formulário de Avaliação</message>
-	<message key="editor.article.clearReviewForm">Limpar Formulário de Avaliação</message>
 	<message key="grid.action.editQuery">Editar Comentários</message>
 	<message key="editor.submission.fileAuditor.form.fileRequired">Você deve selecionar ao menos um arquivo para designar o usuário.</message>
 	<message key="editor.submission.fileAuditor.form.messageRequired">Você deve incluir uma mensagem pessoal.</message>

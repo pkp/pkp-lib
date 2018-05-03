@@ -4,8 +4,8 @@
 <!--
   * locale/fr_FR/submission.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the fr_FR (Français (France)) locale.
@@ -462,7 +462,6 @@
 	<message key="submission.upload.productionReady">Transférer un fichier prêt pour la production</message>
 	<message key="submission.upload.noAvailableReviewFiles">Vous n'avez aucun fichier à examiner pour le moment.</message>
 	<message key="editor.submission.roundStatus.revisionsRequested">Les révisions ont été demandées.</message>
-	<message key="editor.submission.roundStatus.resubmitted">La soumission a été présentée de nouveau pour un autre examen.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">Envoyé à un rapporteur externe.</message>
 	<message key="editor.submission.roundStatus.accepted">Soumission acceptée.</message>
 	<message key="editor.submission.roundStatus.declined">Soumission refusée.</message>
@@ -555,11 +554,8 @@
 	<message key="submission.list.responseDue">Réponse en attente</message>
 	<message key="submission.list.reviewDue">Rapport en attente</message>
 	<message key="submission.list.confirmDelete">Supprimer la soumission ?</message>
-	<message key="submission.list.filter">Filtres</message>
-	<message key="submission.list.filterRemove">Supprimer le filtre : {$filterTitle}</message>
 	<message key="submission.list.itemOrdererUp">Remonter {$itemTitle}</message>
 	<message key="submission.list.itemOrdererDown">Descendre {$itemTitle}</message>
-	<message key="submission.list.clearSearch">RAZ de la recherche</message>
 	<message key="submission.list.reviewsCompleted">Rapports effectués</message>
 	<message key="submission.list.filesPrepared">Fichiers prêts</message>
 	<message key="submission.list.discussions">Discussions</message>

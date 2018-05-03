@@ -4,8 +4,8 @@
 <!--
   * locale/en_US/manager.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -167,18 +167,8 @@
 	<message key="manager.reviewerSearch.change">Change</message>
 	<message key="manager.reviewerSearch.searchByName">Search Reviewers By Name</message>
 	<message key="manager.reviewerSearch.searchByName.short">Search By Name</message>
-	<message key="manager.reviewerSearch.doneAmount">Reviews completed: {$current}</message>
-	<message key="manager.reviewerSearch.doneAmountToggle">Enable/disable the filter for reviews completed.</message>
-	<message key="manager.reviewerSearch.avgAmount">Average days to complete: {$current}</message>
-	<message key="manager.reviewerSearch.avgAmountToggle">Enable/disable the filter for average days to complete a review.</message>
-	<message key="manager.reviewerSearch.lastAmount">Days since last review: {$current}</message>
-	<message key="manager.reviewerSearch.lastAmountToggle">Enable/disable the filter for days since last review.</message>
-	<message key="manager.reviewerSearch.activeAmount">Currently active reviews: {$current}</message>
-	<message key="manager.reviewerSearch.activeAmountToggle">Enable/disable the filter for currently active reviews.</message>
 	<message key="manager.reviewerSearch.interests">Reviewing Interests</message>
 	<message key="manager.reviewerSearch.form.instructions">Use the form below to set the maximum values for the terms you wish to search for.  The form is pre-populated with the calculated averages of those fields.</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">Reviewer Interests (type to search for matching interests)</message>
-	<message key="manager.reviewerSearch.form.previousReviewRounds">Reviewers from this submission previous review rounds</message>
 	<message key="manager.roles">Roles</message>
 	<message key="manager.statistics"><![CDATA[Stats &amp; Reports]]></message>
 	<message key="manager.statistics.defaultMetricDescription">
@@ -267,6 +257,8 @@
 	<message key="manager.setup.reviewOptions.remindForSubmit">Send a reminder if a reviewer has not submitted a recommendation within the following time (days) after review's due date:</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Default Review Deadlines</message>
 	<message key="manager.setup.reviewOptions.showBlindReviewLink">Present a link to "Ensuring a Blind Review" during upload</message>
+	<message key="manager.setup.searchEngineIndexing.sitemap">Sitemap</message>
+	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[A XML sitemap is available for submitting to search engines at <a href="{$path}" target="_blank">{$path}</a>]]></message>
 	<message key="manager.setup.sponsors.note">Sponsor Relationship and Policy Description</message>
 	<message key="manager.setup.sponsors.description">Examples: scholarly associations, university departments, cooperatives, etc. Sponsors are displayed publicly.</message>
 	<message key="manager.setup.styleSheetDescription">Experienced web developers can upload a CSS file to further customize the website's appearance.</message>
@@ -404,6 +396,8 @@
 	<message key="settings.libraryFiles.category.permissions">Permissions</message>
 	<message key="settings.libraryFiles.category.reports">Reports</message>
 	<message key="settings.libraryFiles.category.other">Other</message>
+	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>This library file can be accessible for download, if "Public Access" is enabled, at: <blockquote>{$downloadUrl}</blockquote></p>]]></message>
+	<message key="settings.libraryFiles.public.selectLibraryFiles">Select Library Files to attach</message>
 
 	<!--  Genre grid settings -->
 	<message key="grid.action.addGenre">Add a Component</message>
@@ -539,4 +533,8 @@
 	<message key="manager.navigationMenus.loggedIn.conditionalWarning">This link will only be displayed when the visitor is not logged in.</message>
 	<message key="manager.navigationMenus.contact.description">Link to a page displaying your contact information.</message>
 	<message key="manager.navigationMenus.contact.conditionalWarning">This link will only be displayed if you have filled out the Contact information under Settings > Contact.</message>
+	<message key="manager.navigationMenus.form.typeMissing">Please select a navigation menu type.</message>
+	<message key="manager.navigationMenus.subscriptions.conditionalWarning">This link will only be displayed if payments are enabled under Settings > Distribution > Payments.</message>
+	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning">This link will only be displayed if the visitor is logged in, payments are enabled under Settings > Distribution > Payments and subscriptions are required under Settings > Distribution > Access.</message>
+	<message key="manager.navigationMenus.search.description">Link to the search page.</message>
 </locale>

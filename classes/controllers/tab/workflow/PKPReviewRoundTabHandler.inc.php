@@ -3,8 +3,8 @@
 /**
  * @file controllers/tab/workflow/PKPReviewRoundTabHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewRoundTabHandler
@@ -84,6 +84,16 @@ class PKPReviewRoundTabHandler extends Handler {
 			NOTIFICATION_LEVEL_TRIVIAL => array(),
 		);
 		$templateMgr->assign('reviewRoundNotificationRequestOptions', $notificationRequestOptions);
+
+		// If a user is also assigned as an author to this submission, they
+		// shouldn't see any editorial actions
+		$userAccessibleStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+		foreach ($userAccessibleStages as $accessibleStageId => $roles) {
+			if (in_array(ROLE_ID_AUTHOR, $roles)) {
+				$templateMgr->assign('isAssignedAsAuthor', true);
+				break;
+			}
+		}
 
 		return $templateMgr->fetchJson('workflow/reviewRound.tpl');
 	}

@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/settings/preparedEmails/PreparedEmailsGridCellProvider.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class GridCellProvider
@@ -35,10 +35,12 @@ class PreparedEmailsGridCellProvider extends DataObjectGridCellProvider {
 				return array('label' => ucwords(strtolower(str_replace('_', ' ', $label))));
 			case 'sender':
 				$roleId = $element->getFromRoleId();
+				if (!$roleId) return array('label' => '');
 				$label = Application::getRoleNames(false, array($roleId));
 				return array('label' => __(array_shift($label)));
 			case 'recipient':
 				$roleId = $element->getToRoleId();
+				if (!$roleId) return array('label' => '');
 				$label = Application::getRoleNames(false, array($roleId));
 				return array('label' => __(array_shift($label)));
 			case 'subject':

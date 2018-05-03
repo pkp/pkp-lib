@@ -4,8 +4,8 @@
 <!--
   * locale/pl_PL/user.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -30,9 +30,7 @@
 	<message key="user.dateRegistered">Data rejestracji</message>
 	<message key="user.editMyProfile">Edytuj mój profil</message>
 	<message key="user.email">E-mail</message>
-	<message key="user.feminine">K</message>
 	<message key="user.firstName">Pierwsze imię</message>
-	<message key="user.gender">Płeć</message>
 	<message key="user.initialsExample">Anna Maria Kowalska = AMK</message>
 	<message key="user.initials">Inicjały</message>
 	<message key="user.interests">Przegląd zainteresowań</message>
@@ -58,11 +56,9 @@
 	<message key="user.login.resetPassword">Zmień hasło</message>
 	<message key="user.logOut">Wyloguj się</message>
 	<message key="user.mailingAddress">Adres</message>
-	<message key="user.masculine">M</message>
 	<message key="user.middleName">Drugie imię</message>
 	<message key="user.myAccount">Moje konto</message>
 	<message key="user.name">Nazwa użytkownika (np. jankowalski)</message>
-	<message key="user.other">Inne</message>
 	<message key="user.password">Hasło (dozwolone małe litery i cyfry)</message>
 	<message key="user.repeatPassword">Powtórz hasło</message>
 	<message key="user.phone">Tel.</message>

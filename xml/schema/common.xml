@@ -4,8 +4,8 @@
 <!--
   * xml/schema/common.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Common elements of the PKP database schema in XML.
@@ -183,7 +183,6 @@
 			<NOTNULL/>
 		</field>
 		<field name="suffix" type="C2" size="255"/>
-		<field name="gender" type="C" size="1"/>
 		<field name="initials" type="C2" size="5"/>
 		<field name="email" type="C2" size="255">
 			<NOTNULL/>
@@ -194,6 +193,7 @@
 		<field name="billing_address" type="C2" size="255"/>
 		<field name="country" type="C2" size="90"/>
 		<field name="locales" type="C2" size="255"/>
+		<field name="gossip" type="X"/>
 		<field name="date_last_email" type="T"/>
 		<field name="date_registered" type="T">
 			<NOTNULL/>

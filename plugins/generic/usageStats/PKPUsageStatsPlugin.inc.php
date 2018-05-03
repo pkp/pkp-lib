@@ -3,8 +3,8 @@
 /**
  * @file plugins/generic/usageStats/PKPUsageStatsPlugin.inc.php
  *
- * Copyright (c) 2013-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2013-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPUsageStatsPlugin
@@ -58,23 +58,14 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 	// Implement methods from PKPPlugin.
 	//
 	/**
-	 * @see LazyLoadPlugin::register()
+	 * @copydoc Plugin::register()
 	 */
-	function register($category, $path) {
-		$success = parent::register($category, $path);
+	function register($category, $path, $mainContextId = null) {
+		$success = parent::register($category, $path, $mainContextId);
 
 		HookRegistry::register('AcronPlugin::parseCronTab', array($this, 'callbackParseCronTab'));
 
-		if ($this->getEnabled() && $success) {
-			// Register callbacks.
-			HookRegistry::register('PluginRegistry::loadCategory', array($this, 'callbackLoadCategory'));
-			HookRegistry::register('LoadHandler', array($this, 'callbackLoadHandler'));
-
-			// If the plugin will provide the access logs,
-			// register to the usage event hook provider.
-			if ($this->getSetting(CONTEXT_ID_NONE, 'createLogFiles')) {
-				HookRegistry::register('UsageEventPlugin::getUsageEvent', array(&$this, 'logUsageEvent'));
-			}
+		if ($this->getEnabled($mainContextId) && $success) {
 
 			$this->_dataPrivacyOn = $this->getSetting(CONTEXT_ID_NONE, 'dataPrivacyOption');
 			$this->_saltpath = $this->getSetting(CONTEXT_ID_NONE, 'saltFilepath');
@@ -88,7 +79,25 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 				$request->setCookieVar('usageStats-opt-out', true, time() + 60*60*24*365);
 			}
 
-			$this->_registerTemplateResource();
+			if ($this->_dataPrivacyOn) {
+				$this->import('UsageStatsOptoutBlockPlugin');
+				$blockPlugin = new UsageStatsOptoutBlockPlugin($this);
+				PluginRegistry::register('blocks', $blockPlugin, $this->getPluginPath());
+			}
+
+			$reportPlugin = $this->getReportPlugin();
+			PluginRegistry::register('reports', $reportPlugin, $this->getPluginPath());
+
+			// Register callbacks.
+			HookRegistry::register('LoadHandler', array($this, 'callbackLoadHandler'));
+
+			// If the plugin will provide the access logs,
+			// register to the usage event hook provider.
+			if ($this->getSetting(CONTEXT_ID_NONE, 'createLogFiles')) {
+				HookRegistry::register('UsageEventPlugin::getUsageEvent', array(&$this, 'logUsageEvent'));
+			}
+
+			$this->_registerTemplateResource(true);
 
 			$this->displayReaderStatistics();
 		}
@@ -204,32 +213,6 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 	//
 	// Hook implementations.
 	//
-	/**
-	 * @see PluginRegistry::loadCategory()
-	 */
-	function callbackLoadCategory($hookName, $args) {
-		// Instantiate report plugin.
-		$plugin = null;
-		$category = $args[0];
-		if ($category == 'reports') {
-			$plugin = $this->getReportPlugin();
-		}
-		if ($category == 'blocks' && $this->_dataPrivacyOn) {
-			$this->import('UsageStatsOptoutBlockPlugin');
-			$plugin = new UsageStatsOptoutBlockPlugin($this->getName());
-		}
-
-		// Register report plugin (by reference).
-		if ($plugin) {
-			$seq = $plugin->getSeq();
-			$plugins =& $args[1];
-			if (!isset($plugins[$seq])) $plugins[$seq] = array();
-			$plugins[$seq][$this->getPluginPath()] = $plugin;
-		}
-
-		return false;
-	}
-
 	/**
  	 * @see PKPPageRouter::route()
 	 */
@@ -500,7 +483,7 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 		$smarty->assign('chartType', $chartType);
 		$datasetMaxCount = $this->_getPluginSetting($context, 'datasetMaxCount');
 		$smarty->assign('datasetMaxCount', $datasetMaxCount);
-		$metricsHTML = $smarty->fetch($this->getTemplateResourceName() . ':templates/outputBackend.tpl');
+		$metricsHTML = $smarty->fetch($this->getTemplateResourceName(true) . ':templates/outputBackend.tpl');
 		$output .= $metricsHTML;
 
 		return false;

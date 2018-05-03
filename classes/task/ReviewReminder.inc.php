@@ -3,8 +3,8 @@
 /**
  * @file classes/task/ReviewReminder.inc.php
  *
- * Copyright (c) 2013-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2013-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewReminder
@@ -144,9 +144,9 @@ class ReviewReminder extends ScheduledTask {
 				// Avoid review assignments without submission in database.
 				if (!$submission) continue;
 
-				if ($submission->getStatus() != STATUS_QUEUED) continue;
-
 			}
+
+			if ($submission->getStatus() != STATUS_QUEUED) continue;
 
 			// Fetch the context
 			if ($context == null || $context->getId() != $submission->getContextId()) {

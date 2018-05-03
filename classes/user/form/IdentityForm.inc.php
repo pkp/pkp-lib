@@ -3,8 +3,8 @@
 /**
  * @file classes/user/form/IdentityForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPProfileForm
@@ -42,7 +42,6 @@ class IdentityForm extends BaseProfileForm {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$templateMgr->assign(array(
 			'username' => $user->getUsername(),
-			'genderOptions' => $userDao->getGenderOptions()
 		));
 
 		return parent::fetch($request);
@@ -61,7 +60,6 @@ class IdentityForm extends BaseProfileForm {
 			'initials' => $user->getInitials(),
 			'lastName' => $user->getLastName(),
 			'suffix' => $user->getSuffix(),
-			'gender' => $user->getGender(),
 		);
 	}
 
@@ -72,7 +70,7 @@ class IdentityForm extends BaseProfileForm {
 		parent::readInputData();
 
 		$this->readUserVars(array(
-			'salutation', 'firstName', 'middleName', 'initials', 'lastName', 'suffix', 'gender',
+			'salutation', 'firstName', 'middleName', 'initials', 'lastName', 'suffix',
 		));
 	}
 
@@ -88,7 +86,6 @@ class IdentityForm extends BaseProfileForm {
 		$user->setInitials($this->getData('initials'));
 		$user->setLastName($this->getData('lastName'));
 		$user->setSuffix($this->getData('suffix'));
-		$user->setGender($this->getData('gender'));
 
 		parent::execute($request, $user);
 	}

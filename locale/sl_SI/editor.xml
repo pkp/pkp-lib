@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/sl_SI/editor.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+
+<locale name="sl_SI" full_name="Slovenščina">
+	<message key="editor.submissionLibrary">Knjižnica prispevkov</message>
+	<message key="editor.review.notInitiated">Postopek recenzije se še ni začel.</message>
+	<message key="editor.submission.copyediting.personalMessageToUser">Sporočilo uporabniku</message>
+	<message key="editor.submission.externalReviewDescription">Spodaj izberite datoteke, da bi jih poslali v recenzijo.</message>
+	<!-- Add file or auditor to editor/audit grids -->
+	<message key="editor.submission.fileAuditor.form.fileRequired">Izbrati morate vsaj eno datoteko, ki ji boste dodelili uporabnika.</message>
+	<message key="editor.submission.fileAuditor.form.messageRequired">Dodati morate sporočilo.</message>
+	<message key="editor.submission.fileAuditor.skipEmail">Pregledovalcu ne pošlji e-pošte</message>
+	<message key="editor.submission.fileAuditor.form.userRequired">Izbrati morate uporabnika, ki ga želite dodeliti.</message>
+	<message key="editor.submission.uploadSelectFiles">Naloži/Izberi datoteke</message>
+	<message key="editor.submission.selectFiles">Izberi datoteke</message>
+	<message key="editor.submission.revisions">Popravki</message>
+	<message key="editor.submission.review.reviewersDescription"><![CDATA[Uporabite <em>+Add Reviewer</em> in tako bralce povabite k recenziji datotek s prispevkom. Ikona zvezka nakazuje, da je bila oddana recenzija, obkljukana <em>Acknowledged</em> pa je, ko je pregledana. Če so recenzije zapadle, se kot opomnik za recenzente pojavi ikona rdeče ovojnice.]]></message>
+	<message key="editor.submission.addReviewer">Dodaj recenzenta</message>
+	<message key="editor.submission.findAndSelectReviewer">Najdi recenzenta</message>
+	<message key="editor.submission.findAndSelectUser">Najdi uporabnika</message>
+	<message key="editor.submission.fileList.includeAllStages">Prikaži datoteke iz vseh dostopnih ravni dela.</message>
+	<message key="editor.submission.review.currentFiles">Trenutne recenzentske datoteke v recenzentskem krogu {$round}</message>
+	<message key="editor.submission.backToSearch">Nazaj na iskanje</message>
+	<message key="editor.review.createReviewer">Ustvari novega recenzenta</message>
+	<message key="editor.review.enrollReviewer.short">Vpiši obstoječega uporabnika</message>
+	<message key="editor.review.unassignReviewer">Odstrani recenzenta</message>
+	<message key="editor.submissionReview.reviewType">Vrsta recenzije</message>
+	<message key="editor.submissionReview.skipEmail">Ne pošlji e-pošte avtorju</message>
+	<message key="editor.submissionReview.open">Odprta</message>
+	<message key="editor.submissionReview.blind">Slepa recenzija</message>
+	<message key="editor.submissionReview.doubleBlind">Dvojno slepa recenzija</message>
+	<message key="editor.submissionReview.restrictFiles">Datoteke za recenzijo</message>
+	<message key="editor.submissionReview.restrictFiles.hide">Zapri izbor datotek</message>
+	<message key="editor.submissionReview.editReview">Uredi recenzijo</message>
+	<message key="editor.review.personalMessageToReviewer">E-pošta za recenzenta</message>
+	<message key="editor.review.importantDates">Pomembni datumi</message>
+	<message key="editor.review.uploadRevision">Naloži revizijo</message>
+	<message key="editor.review.NotifyAuthorAccept">Avtorja obvesti, da je bil njegov prispevek sprejet.</message>
+	<message key="editor.review.NotifyAuthorDecline">Avtorja obvesti, da je bil njegov prispevek zavrnjen.</message>
+	<message key="editor.review.NotifyAuthorRevisions">Zahtevaj avtorjeve popravke.</message>
+	<message key="editor.review.NotifyAuthorResubmit">Zahtevaj avtorjeve popravke, ki bodo ponovno pregledani.</message>
+	<message key="editor.review.NotifyAuthorExternal">Obvesti avtorja o začetku zunanje recenzije.</message>
+	<message key="editor.review.personalMessageToAuthor">E-pošta za avtorja</message>
+	<message key="editor.review.dateAccepted">Datum prejema recenzije</message>
+	<message key="editor.review.noReviews">Ni recenzij za uvoz</message>
+	<message key="editor.review.reminder">Opomnik za recenzijo</message>
+	<message key="editor.review.thankReviewer">Zahvali se recenzentu</message>
+	<message key="editor.review.reminderError">Napaka pri pošiljanju opomnika za recenzijo</message>
+	<message key="editor.review.thankReviewerError">Napaka pri pošiljanju zahvale recenzentu</message>
+	<message key="editor.review.skipEmail">Recenzentu ne pošlji e-pošte.</message>
+	<message key="editor.review.sendReminder">Pošlji opomnik</message>
+	<message key="editor.review.readReview">Preberi recenzijo</message>
+	<message key="editor.review.readNewReview">Preberi novo recenzijo</message>
+	<message key="editor.review.responseDue">Rok za odgovor: {$date}</message>
+	<message key="editor.review.requestSent">Prošnja poslana</message>
+	<message key="editor.review.requestAccepted">Prošnja sprejeta</message>
+	<message key="editor.review.revertDecision">Spremeni odločitev</message>
+	<message key="editor.review.reviewDue">Rok za recenzijo: {$date}</message>
+	<message key="editor.review.reviewDueDate">Rok za recenzijo</message>
+	<message key="editor.review.reviewCompleted">Recenzija zaključena</message>
+	<message key="editor.review.reviewConfirmed">Recenzija potrjena</message>
+	<message key="editor.review.reviewSubmitted">Recenzija oddana</message>
+	<message key="editor.review.reviewerComments">Komentarji recenzenta</message>
+	<message key="editor.review.days">Povprečje</message>
+	<message key="editor.review.mustSelect">Izbrati morate recenzenta</message>
+	<message key="editor.review.errorAddingReviewer">Prišlo je do napake pri dodajanju recenzenta. Poskusite znova.</message>
+	<message key="editor.review.errorDeletingReviewer">Prišlo je do napake pri izbrisu recenzenta. Poskusite znova.</message>
+	<message key="editor.review.userGroupSelect">Uporabnika vpiši v to skupino recenzentov</message>
+	<message key="editor.review.unconsiderReviewText">Ste prepričani, da želite to recenzijo označiti kot neupoštevano? Zgodovina recenzij bo ohranjena.</message>
+	<message key="editor.review.unconsiderReview">Ne upoštevaj te recenzije</message>
+	<message key="editor.review.readConfirmation">Ko ste prebrali recenzijo, kliknite "Potrdi", da se lahko postopek recenziranja nadaljuje. Če je recenzent oddal recenzijo kam drugam, lahko datoteko naložite spodaj in nato kliknite "Potrdi" za nadaljevanje.</message>
+	<message key="editor.submission.selectCopyedingFiles">Lektura datotek</message>
+	<message key="editor.submission.selectReviewer">Izberi recenzenta</message>
+	<message key="editor.submission.taskDueDate">Rok oddaje naloge</message>
+	<message key="editor.submission.taskSchedule">Časovnica naloge</message>
+	<message key="editor.review.enrollReviewer">Obstoječemu uporabniku dodaj vlogo recenzenta</message>
+	<message key="editor.submission.noAuditRequested">Za to datoteko pregled ni potreben</message>
+	<message key="editor.submission.personalMessageToUser">E-pošta za uporabnika</message>
+	<message key="editor.submission.proof.reminder">Opomnik za korekturo</message>
+	<message key="editor.submission.editorial.approveCopyeditDescription">Lektorirana datoteka mora biti odobrena, preden jo lahko pošljete v produkcijo. Ali želite odobriti to datoteko?</message>
+	<message key="editor.submission.editorial.disapproveCopyeditDescription">Če ne odobrite te lektorirane datoteke, je ne boste mogli poslati v produkcijo. Ali ne želite odobriti te datoteke?</message>
+	<message key="editor.submission.addAuditor">Dodeli revizorja</message>
+	<message key="editor.submission.copyedit.manageCopyeditFilesDescription">Katero koli datoteko, ki ste jo že naložili v katero koli fazo oddaje, lahko dodate na seznam Datoteke za lekturo tako, da obkljukate ukaz Vključi spodaj in kliknete Išči: vse datoteke, ki so na voljo, bodo na seznamu in jih boste lahko izbrali. Datoteke, ki še niso naložene v nobeno fazo, lahko dodate na seznam tako, da kliknete na ukaz Naloži povezavo datoteke.</message>
+	<message key="editor.review">Recenziranje</message>
+	<message key="editor.review.reviewDetails">Podrobnosti recenziranja</message>
+	<message key="editor.review.noReviewFilesUploaded">Ni naloženih datotek</message>
+	<message key="editor.review.noReviewFilesUploaded.details">Naložili niste nobene recenzentske datoteke.</message>
+	<message key="editor.review.emailReviewer">Recenzentu pošlji e-pošto</message>
+	<message key="editor.submission.production.productionReadyFiles">Datoteke, pripravljene za produkcijo</message>
+	<message key="editor.submission.newRound">Nov recenzentski krog</message>
+	<message key="editor.submissionReview.recordDecision">Zapiši uredniško odločitev</message>
+	<message key="editor.submission.newRoundDescription">Ustvarili boste nov recenzentski krog za ta prispevek. Datoteke, ki niso bile uporabljene v drugih recenzentskih krogih, so na seznamu spodaj.</message>
+	<message key="editor.submission.createNewRound">Ustvari nov recenzentski krog</message>
+	<message key="editor.article.reviewForms">Recenzijski obrazci</message>
+	<message key="editor.article.selectReviewForm">Izberi recenzijski obrazec</message>
+	<message key="editor.article.clearReviewForm">Počisti recenzijski obrazec</message>
+	<message key="editor.article.confirmChangeReviewForm">Pozor: Sprememba recenzijskega obrazca bo vplivala na vse odgovore, ki so jih napisali recenzenti s pomočjo tega obrazca. Ali ste prepričani, da želite nadaljevati?</message>
+	<message key="editor.submission.noReviewerFilesSelected">Nobena datoteka ni izbrana</message>
+	<message key="editor.submission.noReviewerFilesSelected.details">Za recenzijo niste izbrali nobene datoteke.</message>
+	<message key="submission.queries.subjectRequired">Predmed razprave je obvezen.</message>
+	<message key="submission.queries.messageRequired">Sporočilo razprave je obvezno.</message>
+	<message key="submission.queries.attachedFiles">Pripete datoteke</message>
+	<message key="grid.action.editQuery">Uredi razpravo</message>
+	<message key="editor.submission.query.manageQueryNoteFilesDescription">Iz spodnjega seznama lahko pripnete datoteke za razpravo.</message>
+	<message key="editor.submission.selectedReviewer">Izberi recenzenta</message>
+	<message key="editor.submission.proofreading.approveProof">Odobri prvi prelom</message>
+	<message key="editor.submission.proofreading.revokeProofApproval">Prekliči odobritev prvega preloma</message>
+	<message key="editor.submission.proofreading.confirmCompletion">Ta prvi prelom odobrite in tako pokažite, da je zaključen in da je datoteka pripravljena na objavo.</message>
+	<message key="editor.submission.proofreading.confirmRemoveCompletion">Prekličite odobritev prvega preloma in tako pokažite, da ni zaključen in da datoteka ni pripravljena na objavo.</message>
+	<message key="editor.publicIdentificationNumericNotAllowed">Identifikator datoteke '{$publicIdentifier}‘ ne sme biti številka.</message>
+	<message key="editor.publicIdentificationPatternNotAllowed">Vzorec {$pattern} v identifikatorju datoteke ni dovoljen.</message>
+</locale>

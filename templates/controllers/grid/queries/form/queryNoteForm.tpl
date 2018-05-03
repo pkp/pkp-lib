@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/queries/queryNoteForm.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Read a query.
@@ -14,7 +14,7 @@
 		$('#noteForm').pkpHandler(
 			'$.pkp.controllers.form.CancelActionAjaxFormHandler',
 			{ldelim}
-				cancelUrl: {url|json_encode op="deleteNote" params=$actionArgs noteId=$noteId escape=false}
+				cancelUrl: {url|json_encode op="deleteNote" params=$actionArgs csrfToken=$csrfToken noteId=$noteId escape=false}
 			{rdelim}
 		);
 	{rdelim});

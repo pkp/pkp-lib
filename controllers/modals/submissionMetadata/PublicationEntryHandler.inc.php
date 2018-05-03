@@ -3,8 +3,8 @@
 /**
  * @file controllers/modals/submissionMetadata/PublicationEntryHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PublicationEntryHandler
@@ -52,7 +52,7 @@ class PublicationEntryHandler extends Handler {
 		$this->_tabPosition = (int) $request->getUserVar('tabPos');
 
 		// Load grid-specific translations
-		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_APP_SUBMISSION);
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION);
 		$this->setupTemplate($request);
 	}
 

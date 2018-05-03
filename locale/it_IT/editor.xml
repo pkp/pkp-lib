@@ -4,8 +4,8 @@
 <!--
   * locale/it_IT/editor.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2003-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -34,8 +34,8 @@
 	<message key="editor.review.readReview">Leggi il parere</message>
 	<message key="editor.review.reviewDueDate">Scadenza per inviare la revisione</message>
 	<message key="editor.review.reviewSubmitted">Revisione ricevuta</message>
-	<message key="editor.review.days">Giorni impiegati, in media</message>
 	<message key="editor.review.readConfirmation">Una volta letto il parere, cliccare "Conferma" per indicare che il processo di revisione può continuare. Se il revisore ha inviato il proprio parere in altro modo, puoi caricare il file qui sotto e cliccare "Conferma" per procedere.</message>
+	<message key="editor.review.rateReviewer">Valutazione del revisore</message>
 	<message key="editor.submission.selectReviewer">Seleziona revisore</message>
 	<message key="editor.review.emailReviewer">Scrivi una email al revisore</message>
 	<message key="editor.submission.production.productionReadyFiles">File pronti per la produzione</message>

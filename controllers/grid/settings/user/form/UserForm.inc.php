@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/settings/user/form/UserForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class UserForm
@@ -92,7 +92,7 @@ class UserForm extends Form {
 		if (isset($this->userId)) {
 			import('lib.pkp.classes.security.UserGroupAssignmentDAO');
 			$userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO');
-			$userGroupAssignmentDao->deleteByUserId($this->userId);
+			$userGroupAssignmentDao->deleteAssignmentsByContextId($request->getContext()->getId(), $this->userId);
 			if ($this->getData('userGroupIds')) {
 				$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 				foreach ($this->getData('userGroupIds') as $userGroupId) {

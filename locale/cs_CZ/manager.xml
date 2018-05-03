@@ -4,8 +4,8 @@
 <!--
   * locale/cs_CZ/manager.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the cs_CZ (Čeština) locale.
@@ -228,18 +228,8 @@
 	<message key="manager.reviewerSearch.change">Změnit</message>
 	<message key="manager.reviewerSearch.searchByName">Hledat recenzenty podle jména</message>
 	<message key="manager.reviewerSearch.searchByName.short">Hledat podle jména</message>
-	<message key="manager.reviewerSearch.doneAmount">Počet ukončených recenzí: {$current}</message>
-	<message key="manager.reviewerSearch.doneAmountToggle">Povolit/zakázat filtr hotových recenzí.</message>
-	<message key="manager.reviewerSearch.avgAmount">Průměrný počet dnů k ukončení: {$current}</message>
-	<message key="manager.reviewerSearch.avgAmountToggle">Povolit/zákázat filtr pro průměrný počet dnů na dokončení recenze.</message>
-	<message key="manager.reviewerSearch.lastAmount">Počet dnů od poslední recenze: {$current}</message>
-	<message key="manager.reviewerSearch.lastAmountToggle">Povolit/zakázat filtr počtu dnů od poslední recenze.</message>
-	<message key="manager.reviewerSearch.activeAmount">Aktuální počet aktivních recenzentů: {$current}</message>
-	<message key="manager.reviewerSearch.activeAmountToggle">Povolit/zakázat filtr aktuálního počtu aktivních recenzentů.</message>
 	<message key="manager.reviewerSearch.interests">Oblasti zájmu o recenze</message>
 	<message key="manager.reviewerSearch.form.instructions">Pomocí níže uvedeného formuláře nastavte maximální hodnoty výrazů, které chcete vyhledat. Formulář je předem naplněn vypočtenými průměry těchto polí.</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">Oblasti zájmu o recenze (použijte pro vyhledávání odpovídajících zájmů)</message>
-	<message key="manager.reviewerSearch.form.previousReviewRounds">Recenzenti předchozích kol recenzí pro tento příspěvek</message>
 	<message key="manager.setup.licenseURLDescription">URL na webovou stránku,k která popisuje licenci, pokud je dostupná.</message>
 	<message key="manager.setup.metadata.submission">Formulář příspěvku</message>
 	<message key="plugins.importexport.common.validationErrors">Chyby validace:</message>

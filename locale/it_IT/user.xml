@@ -4,8 +4,8 @@
 <!--
   * locale/it_IT/user.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -22,9 +22,7 @@
 	<message key="user.dateRegistered">Data di iscrizione</message>
 	<message key="user.editMyProfile">Modifica il mio profilo</message>
 	<message key="user.email">Email</message>
-	<message key="user.feminine">F</message>
 	<message key="user.firstName">Nome</message>
-	<message key="user.gender">Sesso</message>
 	<message key="user.initialsExample">Mario Carlo Rossi = MCR</message>
 	<message key="user.initials">Iniziali</message>
 	<message key="user.interests">Argomenti di interesse per le revisioni</message>
@@ -47,7 +45,6 @@
 	<message key="user.login.resetPassword">Reimposta la password</message>
 	<message key="user.logOut">Esci</message>
 	<message key="user.mailingAddress">Indirizzo postale</message>
-	<message key="user.masculine">M</message>
 	<message key="user.middleName">Secondo nome</message>
 	<message key="user.myAccount">Il mio account</message>
 	<message key="user.name">Nome</message>
@@ -97,7 +94,6 @@
 	<message key="user.userHome">Cruscotto</message>
 	<message key="user.username">Nome utente</message>
 	<message key="user.workingLanguages">Lingue conosciute</message>
-	<message key="user.other">Altro</message>
 	<message key="user.profile.form.profileImageInvalid">Formato non valido o immagine troppo grande. I formati accettati sono .gif, .jpg, or .png, e le immagini devono essere grandi 150x150 pixel al massimo.</message>
 	<message key="user.profile.form.affiliationRequired">Inserisci un'affiliazione</message>
 	<message key="user.register.form.emailsDoNotMatch">Le email inserite non corrispondono.</message>

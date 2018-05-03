@@ -3,8 +3,8 @@
 /**
  * @file pages/user/RegistrationHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class RegistrationHandler
@@ -100,7 +100,8 @@ class RegistrationHandler extends UserHandler {
 			return $templateMgr->fetch('frontend/pages/error.tpl');
 		}
 
-		if ($source = $request->getUserVar('source')) {
+		$source = $request->getUserVar('source');
+		if (preg_match('#^/\w#', $source) === 1) {
 			return $request->redirectUrl($source);
 		} else {
 			// Make a new request to update cookie details after login

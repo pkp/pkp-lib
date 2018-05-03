@@ -4,8 +4,8 @@
 <!--
   * xml/schema/libraryFiles.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Library files schema in XML.
@@ -48,6 +48,9 @@
 		</field>
 		<field name="submission_id" type="I8">
 			<NOTNULL/>
+		</field>
+		<field name="public_access" type="I1">
+				<DEFAULT VALUE="0"/>
 		</field>
 		<descr>Library files for a context</descr>
 		<index name="library_files_context_id">

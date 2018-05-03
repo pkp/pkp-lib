@@ -4,8 +4,8 @@
 <!--
   * locale/ru_RU/editor.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2003-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ru_RU (Русский) locale.
@@ -45,6 +45,7 @@
 	<message key="editor.submissionReview.restrictFiles">Файлы для рецензирования</message>
 	<message key="editor.submissionReview.restrictFiles.hide">Закрыть выбор файла</message>
 	<message key="editor.submissionReview.editReview">Редактировать рецензию</message>
+	<message key="editor.review.anonymousReviewer">Анонимный рецензент</message>
 	<message key="editor.review.personalMessageToReviewer">Письмо электронной почты для отправки рецензенту</message>
 	<message key="editor.review.importantDates">Важные даты</message>
 	<message key="editor.review.uploadRevision">Загрузить новую версию</message>
@@ -72,7 +73,9 @@
 	<message key="editor.review.reviewConfirmed">Рецензия подтверждена</message>
 	<message key="editor.review.reviewSubmitted">Рецензия отправлена</message>
 	<message key="editor.review.reviewerComments">Комментарии рецензента</message>
-	<message key="editor.review.days">Среднее число дней</message>
+	<message key="editor.review.rateReviewer">Рейтинг рецензента</message>
+	<message key="editor.review.rateReviewer.description">Оцените качество представленной рецензии. Этот рейтинг не будет показан рецензенту.</message>
+	<message key="editor.review.reviewerRating.none">Нет рейтинга</message>
 	<message key="editor.review.mustSelect">Вы должны выбрать рецензента</message>
 	<message key="editor.review.errorAddingReviewer">Произошла ошибка при добавлении рецензента. Пожалуйста, попробуйте снова.</message>
 	<message key="editor.review.errorDeletingReviewer">Произошла ошибка при удалении рецензента. Пожалуйста, попробуйте снова.</message>
@@ -109,7 +112,6 @@
 	<message key="editor.submission.createNewRound">Создать новый раунд рецензирования</message>
 	<message key="editor.article.reviewForms">Формы рецензии</message>
 	<message key="editor.article.selectReviewForm">Выбрать форму рецензии</message>
-	<message key="editor.article.clearReviewForm">Очистить форму рецензии</message>
 	<message key="editor.article.confirmChangeReviewForm">Предупреждение: Изменение формы рецензии повлияет на все рецензии, которые уже сделали рецензенты с помощью этой формы. Вы уверены, что хотите продолжить?</message>
 	<message key="editor.submission.noReviewerFilesSelected">Файлы не выбраны</message>
 	<message key="editor.submission.noReviewerFilesSelected.details">Вы не выбрали ни одного файла для рецензирования рецензентом.</message>
@@ -125,4 +127,23 @@
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">Отменить одобрение этой корректуры, чтобы отметить, что корректура еще не завершена и файл не готов к публикации.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">Открытый идентификатор «{$publicIdentifier}» не может быть числом.</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">Шаблон «{$pattern}» не разрешен для открытого идентификатора.</message>
+
+	<!-- Списки выбора рецензента -->
+	<message key="reviewer.list.count">Рецензентов: {$count}</message>
+	<message key="reviewer.list.itemsOfTotal">Рецензентов: {$count} из {$total}</message>
+	<message key="reviewer.list.filterRating">Рейтинг не менее</message>
+	<message key="reviewer.list.activeReviews">Рецензий в работе: {$count}</message>
+	<message key="reviewer.list.activeReviewsDescription">Число рецензий в работе</message>
+	<message key="reviewer.list.completedReviews">Завершено рецензий</message>
+	<message key="reviewer.list.reviewerRating">Рейтинг рецензента: {$rating}</message>
+	<message key="reviewer.list.daysSinceLastAssignment">{$days} дней назад</message>
+	<message key="reviewer.list.daySinceLastAssignment">Вчера</message>
+	<message key="reviewer.list.daysSinceLastAssignmentDescription">Дней с последней рецензии</message>
+	<message key="reviewer.list.averageCompletion">Средне число дней на рецензию</message>
+	<message key="reviewer.list.neverAssigned">Никогда не назначали рецензентом</message>
+	<message key="reviewer.list.currentlyAssigned">Этот рецензент уже был назначен рецензентом этого материала.</message>
+	<message key="reviewer.list.warnOnAssign">Этот рецензент заблокирован, поскольку ему назначена роль, позволяющая видеть информацию об авторе. В данном случае невозможно гарантировать «слепое» рецензирование. Вы действительно хотите разблокировать этого рецензента?</message>
+	<message key="reviewer.list.warnOnAssignUnlock">Разблокировать</message>
+	<message key="reviewer.list.reviewInterests">Интересы как рецензента</message>
+	<message key="reviewer.list.biography">Биография</message>
 </locale>

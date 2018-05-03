@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/reviewer/form/ReviewerForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewerForm
@@ -232,12 +232,14 @@ class ReviewerForm extends Form {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('reviewMethods', $reviewMethods);
 		$templateMgr->assign('reviewerActions', $this->getReviewerFormActions());
+
 		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
-		$reviewForms = array(0 => __('editor.article.selectReviewForm'));
 		$reviewFormsIterator = $reviewFormDao->getActiveByAssocId(Application::getContextAssocType(), $context->getId());
+		$reviewForms = array();
 		while ($reviewForm = $reviewFormsIterator->next()) {
 			$reviewForms[$reviewForm->getId()] = $reviewForm->getLocalizedTitle();
 		}
+
 		$templateMgr->assign('reviewForms', $reviewForms);
 		$templateMgr->assign('emailVariables', array(
 			'reviewerName' => __('user.name'),

@@ -3,8 +3,8 @@
 /**
  * @file classes/navigationMenu/NavigationMenuDAO.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NavigationMenuDAO
@@ -108,7 +108,7 @@ class NavigationMenuDAO extends DAO {
 	 * @param $contextId int
 	 * @param $title int
 	 *
-	 * @return ADORecordSet
+	 * @return boolean True if a NM exists by that title
 	 */
 	function navigationMenuExistsByTitle($contextId, $title) {
 		$result = $this->retrieve(
@@ -265,38 +265,52 @@ class NavigationMenuDAO extends DAO {
 		}
 
 		foreach ($tree->getChildren() as $navigationMenuNode) {
-			$title = $navigationMenuNode->getAttribute('title');
-			$area = $navigationMenuNode->getAttribute('area');
 			$site = $navigationMenuNode->getAttribute('site');
-
 			if ($contextId == CONTEXT_ID_NONE && !$site) {
 				continue;
 			}
 
-			$navigationMenu = null;
-			if ($this->navigationMenuExistsByTitle($contextId, $title)) {
-				$navigationMenu = $this->getByTitle($contextId, $title);
-				$navigationMenu->setAreaName($area);
+			if ($navigationMenuNode->name == 'navigationMenu') {
+				$title = $navigationMenuNode->getAttribute('title');
+				$area = $navigationMenuNode->getAttribute('area');
 
-				// update the navigationMenu into the DB
-				$navigationMenuId = $this->updateObject($navigationMenu);
-			} else {
-				$navigationMenu = $this->newDataObject();
-				$navigationMenu->setTitle($title);
-				$navigationMenu->setContextId($contextId);
-				$navigationMenu->setAreaName($area);
+				$navigationMenu = null;
 
-				// insert the navigationMenu into the DB
-				$navigationMenuId = $this->insertObject($navigationMenu);
-				$navigationMenu->setId($navigationMenuId);
-			}
+				// Check if the given area has a NM attached.
+				// If it does the NM is not being processed and a warning is being thrown
+				$navigationMenusWithArea = $this->getByArea($contextId, $area)->toArray();
+				if (count($navigationMenusWithArea) != 0) {
+					error_log("WARNING: The NavigationMenu (ContextId: $contextId, Title: $title, Area: $area) will be skipped because the specified area has already a NavigationMenu attached.");
+					continue;
+				}
 
-			$seq = 0;
-			foreach ($navigationMenuNode->getChildren() as $navigationMenuItemFirstLevelNode) {
+				if ($this->navigationMenuExistsByTitle($contextId, $title)) {
+					$navigationMenu = $this->getByTitle($contextId, $title);
+					$navigationMenu->setAreaName($area);
+
+					// update the navigationMenu into the DB
+					$navigationMenuId = $this->updateObject($navigationMenu);
+				} else {
+					$navigationMenu = $this->newDataObject();
+					$navigationMenu->setTitle($title);
+					$navigationMenu->setContextId($contextId);
+					$navigationMenu->setAreaName($area);
+
+					// insert the navigationMenu into the DB
+					$navigationMenuId = $this->insertObject($navigationMenu);
+					$navigationMenu->setId($navigationMenuId);
+				}
+
+				$seq = 0;
+				foreach ($navigationMenuNode->getChildren() as $navigationMenuItemFirstLevelNode) {
+					$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+					$navigationMenuItemDao->installNodeSettings($contextId, $navigationMenuItemFirstLevelNode, $navigationMenu->getId(), null, $seq, true);
+
+					$seq++;
+				}
+			} elseif ($navigationMenuNode->name == 'navigationMenuItem') {
 				$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
-				$navigationMenuItemDao->installNodeSettings($contextId, $navigationMenuItemFirstLevelNode, $navigationMenu->getId(), null, $seq, true);
-
-				$seq++;
+				$navigationMenuItemDao->installNodeSettings($contextId, $navigationMenuNode, null, null, 0, true);
 			}
 		}
 

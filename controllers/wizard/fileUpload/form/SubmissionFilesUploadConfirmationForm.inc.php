@@ -3,8 +3,8 @@
 /**
  * @file controllers/wizard/fileUpload/form/SubmissionFilesUploadConfirmationForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFilesUploadConfirmationForm
@@ -72,10 +72,11 @@ class SubmissionFilesUploadConfirmationForm extends SubmissionFilesUploadBaseFor
 		$submissionId = $this->getData('submissionId');
 		$fileStage = $this->getData('fileStage');
 		$newFileLatestRevision = $submissionFileDao->getLatestRevision($uploadedFileId, $fileStage, $submissionId);
+		// detach the latest attached revision, because the file returned here will then be attached
+		import('controllers.api.file.ManageFileApiHandler');
+		$mangeFileApiHandler = new ManageFileApiHandler();
+		$mangeFileApiHandler->detachEntities($newFileLatestRevision, $newFileLatestRevision->getSubmissionId(), $this->getStageId());
 		if ($revisedFileId) {
-			import('controllers.api.file.ManageFileApiHandler');
-			$mangeFileApiHandler = new ManageFileApiHandler();
-			$mangeFileApiHandler->detachEntities($newFileLatestRevision, $newFileLatestRevision->getSubmissionId(), $this->getStageId());
 			// The file was revised; update revision information
 			return $submissionFileDao->setAsLatestRevision($revisedFileId, $uploadedFileId, $submissionId, $fileStage);
 		} else {

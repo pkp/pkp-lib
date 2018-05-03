@@ -4,8 +4,8 @@
 <!--
   * locale/fi_FI/user.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -35,9 +35,7 @@
 	<message key="user.dateRegistered">Rekisteröitymispäivämäärä</message>
 	<message key="user.editMyProfile">Muokkaa profiilia</message>
 	<message key="user.email">Sähköposti</message>
-	<message key="user.feminine">N</message>
 	<message key="user.firstName">Etunimi</message>
-	<message key="user.gender">Sukupuoli</message>
 	<message key="user.initialsExample">Maija Liisa Meikäläinen = MLM</message>
 	<message key="user.initials">Nimikirjaimet</message>
 	<message key="user.interests">Kiinnostavat arviointiaiheet</message>
@@ -72,11 +70,9 @@
 	<message key="user.logOutAs">Kirjaudu ulos käyttäjänä</message>
 	<message key="user.hello">Hei, </message>
 	<message key="user.mailingAddress">Postiosoite</message>
-	<message key="user.masculine">M</message>
 	<message key="user.middleName">Toinen nimi</message>
 	<message key="user.myAccount">Oma tilini</message>
 	<message key="user.name">Nimi</message>
-	<message key="user.other">Muu</message>
 	<message key="user.password">Salasana</message>
 	<message key="user.repeatPassword">Anna salasana uudelleen</message>
 	<message key="user.phone">Puhelin</message>
@@ -157,4 +153,6 @@
 	<message key="user.apiKey">API-avain</message>
 	<message key="user.apiKeyEnabled">Anna ulkoisten järjestelmien olla yhteydessä tähän tiliin API-avaimen avulla.</message>
 	<message key="user.apiKey.generate">Luo uusi API-avain</message>
+	<message key="user.gossip.description">Tallenna arvioijaa koskevia muistiinpanoja, jotka haluat antaa muiden toimittajien, osastontoimittajien ja julkaisun hallinnoijien tiedoksi. Merkinnät näkyvät myös arvioijan tulevien arviointipyyntöjen yhteydessä.</message>
+	<message key="user.role.assistant">Avustaja</message>
 </locale>

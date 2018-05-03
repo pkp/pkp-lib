@@ -4,8 +4,8 @@
 <!--
   * locale/pt_BR/common.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Locale information: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Portuguese_(pt_BR)
   * Localization strings for the pt_BR (Português (Brasil)) locale.
@@ -92,6 +92,7 @@
 	]]></message>
 	<message key="common.changesSaved">Alterações salvas com sucesso.</message>
 	<message key="common.chooseOne">Escolha uma opção</message>
+	<message key="common.clearSearch">Limpar palavras da busca</message>
 	<message key="common.close">Fechar</message>
 	<message key="common.closePanel">Fechar Painel</message>
 	<message key="common.closeWindow">Fechar Janela</message>
@@ -145,6 +146,8 @@
 	<message key="common.fileSize">Tamanho do documento</message>
 	<message key="common.fileType">Tipo do Documento</message>
 	<message key="common.fileUploaderError">O gerenciador de arquivos está carregando. Se ele não aparecer seu navegador não oferece o ambiente adequado para sua execução. Por favor, contacte o administrador para apoio.</message>
+	<message key="common.filter">Filtros </message>
+	<message key="common.filterRemove">Limpar filtro: {$filterTitle}</message>
 	<message key="common.go">Ir</message>
 	<message key="common.height">Altura</message>
 	<message key="common.homepageNavigationLabel">Início</message>
@@ -420,7 +423,6 @@
 	<message key="notification.editedAuthor">Autor editado.</message>
 	<message key="notification.confirmError">Ocorreu um erro ao confirmar sua assinatura.</message>
 	<message key="notification.confirmSuccess">Assinatura realizada com sucesso.</message>
-	<message key="notification.email">Enviar e-mail para estes tipos de notificações.</message>
 	<message key="notification.location">Ir para a URL</message>
 	<message key="notification.mailList">Lista de correio de notificações</message>
 	<message key="notification.mailList.emailInvalid">Informe um endereço de e-mail válido.</message>

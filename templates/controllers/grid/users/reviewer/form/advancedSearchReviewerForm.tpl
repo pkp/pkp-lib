@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/user/reviewer/form/advancedSearchReviewerForm.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Advanced Search and assignment reviewer form.
@@ -18,9 +18,13 @@
 <div id="advancedReviewerSearch" class="pkp_form pkp_form_advancedReviewerSearch">
 
 	<div id="searchGridAndButton">
-		{** The grid that will display reviewers.  We have a JS handler for handling selections of this grid which will update a hidden element in the form below **}
-		{url|assign:reviewerSelectGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.users.reviewerSelect.ReviewerSelectGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}
-		{load_url_in_div id='reviewerSelectGridContainer' url=$reviewerSelectGridUrl}
+
+		{assign var="uuid" value=""|uniqid|escape}
+		<div id="select-reviewer-list-handler-{$uuid}">
+			<script type="text/javascript">
+				pkp.registry.init('select-reviewer-list-handler-{$uuid}', 'SelectReviewerListPanel', {$selectReviewerListData|@json_encode});
+			</script>
+		</div>
 
 		{** This button will get the reviewer selected in the grid and insert their ID into the form below **}
 		{fbvFormSection class="form_buttons"}

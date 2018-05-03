@@ -1,8 +1,8 @@
 /**
  * functions/general.js
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Site-wide common JavaScript functions.
@@ -40,16 +40,6 @@ function openComments(url) {
  */
 function openWindow(url) {
 	window.open(url, 'Window', 'width=600,height=550,screenX=100,screenY=100,toolbar=0,resizable=1,scrollbars=1');
-}
-
-/**
- * Open window for reading tools.
- */
-function openRTWindow(url) {
-	window.open(url, 'RT', 'width=700,height=500,screenX=100,screenY=100,toolbar=0,resizable=1,scrollbars=1');
-}
-function openRTWindowWithToolbar(url) {
-	window.open(url, 'RT', 'width=700,height=500,screenX=100,screenY=100,toolbar=1,resizable=1,scrollbars=1');
 }
 
 /**

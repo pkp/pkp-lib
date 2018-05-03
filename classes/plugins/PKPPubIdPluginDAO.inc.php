@@ -3,8 +3,8 @@
 /**
  * @file classes/plugins/PKPPubIdPluginDAO.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPPubIdPluginDAO
@@ -22,30 +22,30 @@ interface PKPPubIdPluginDAO {
 	 * 'other::something' if not part of the official NLM list
 	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
 	 * @param $pubId string
-	 * @param $submissionId int An ID to be excluded from the search.
+	 * @param $excludePubObjectId int ID of the pub object to be excluded from the search.
 	 * @param $contextId int
 	 * @return boolean
 	 */
-	function pubIdExists($pubIdType, $pubId, $submissionId, $contextId);
+	function pubIdExists($pubIdType, $pubId, $excludePubObjectId, $contextId);
 
 	/**
 	 * Change the public ID of a submission.
-	 * @param $submissionId int
+	 * @param $pubObjectId int ID of the pub object
 	 * @param $pubIdType string One of the NLM pub-id-type values or
 	 * 'other::something' if not part of the official NLM list
 	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
 	 * @param $pubId string
 	 */
-	function changePubId($submissionId, $pubIdType, $pubId);
+	function changePubId($pubObjectId, $pubIdType, $pubId);
 
 	/**
 	 * Delete the public ID of a submission.
-	 * @param $submissionId int
+	 * @param $pubObjectId int ID of the pub object
 	 * @param $pubIdType string One of the NLM pub-id-type values or
 	 * 'other::something' if not part of the official NLM list
 	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
 	 */
-	function deletePubId($submissionId, $pubIdType);
+	function deletePubId($pubObjectId, $pubIdType);
 
 	/**
 	 * Delete the public IDs of all submissions in this context.

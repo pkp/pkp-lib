@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/navigationMenus/form/NavigationMenuItemsForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NavigationMenuItemsForm
@@ -60,8 +60,9 @@ class NavigationMenuItemsForm extends Form {
 	 * @copydoc Form::fetch()
 	 */
 	function fetch($request) {
-		$templateMgr =& TemplateManager::getManager($request);
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
 
+		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('navigationMenuItemId', $this->navigationMenuItemId);
 
 		$context = $request->getContext();
@@ -72,13 +73,12 @@ class NavigationMenuItemsForm extends Form {
 			'supportPhone' => __('plugins.generic.tinymce.variables.supportContactPhone', array('value' => $context->getSetting('supportPhone'))),
 			'supportEmail' => __('plugins.generic.tinymce.variables.supportContactEmail', array('value' => $context->getSetting('supportEmail'))),
 		));
-
 		import('classes.core.ServicesContainer');
 		$types = ServicesContainer::instance()
 			->get('navigationMenu')
 			->getMenuItemTypes();
 
-		$typeTitles = array();
+		$typeTitles = array(0 => __('grid.navigationMenus.navigationMenu.selectType'));
 		foreach ($types as $type => $settings) {
 			$typeTitles[$type] = $settings['title'];
 		}

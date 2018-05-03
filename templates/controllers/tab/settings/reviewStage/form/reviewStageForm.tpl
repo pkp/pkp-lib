@@ -1,8 +1,8 @@
 {**
  * controllers/tab/settings/reviewStage/form/reviewStageForm.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Review stage management form.
@@ -58,11 +58,6 @@
 	{load_url_in_div id="reviewFormGridContainer" url=$reviewFormsUrl}
 
 	{fbvFormArea id="reviewProcessDetails" class=$wizardClass}
-		{* https://github.com/pkp/pkp-lib/issues/372
-			{fbvFormSection for="rateReviewerOnQuality" label="manager.setup.reviewOptions.reviewerRatings" list=true}
-				{fbvElement type="checkbox" id="rateReviewerOnQuality" value="1" checked=$rateReviewerOnQuality label="manager.setup.reviewOptions.onQuality"}
-			{/fbvFormSection}
-		*}
 		{capture assign="ensureLink"}{include file="linkAction/linkAction.tpl" action=$ensuringLink contextId="uploadForm"}{/capture}
 		{fbvFormSection for="showEnsuringLink" label="manager.setup.reviewOptions.blindReview" list=true}
 			{fbvElement type="checkbox" id="showEnsuringLink" value="1" checked=$showEnsuringLink label=$ensureLink translate=false keepLabelHtml=true}

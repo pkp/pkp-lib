@@ -4,8 +4,8 @@
 <!--
   * locale/eu_ES/user.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the eu_ES (Euskara) locale.
@@ -23,9 +23,7 @@
 	<message key="user.dateRegistered">Erregistratze-data</message>
 	<message key="user.editMyProfile">Editatu nire profila</message>
 	<message key="user.email">Helb. el.</message>
-	<message key="user.feminine">E</message>
 	<message key="user.firstName">Izena</message>
-	<message key="user.gender">Generoa</message>
 	<message key="user.initialsExample">Juan Mari Agirre = JMA</message>
 	<message key="user.initials">Inizialak</message>
 	<message key="user.interests">Ebaluatzeko interesak</message>
@@ -47,7 +45,6 @@
 	<message key="user.login.resetPassword">Berrezarri pasahitza</message>
 	<message key="user.logOut">Amaitu saioa</message>
 	<message key="user.mailingAddress">Posta-helbidea</message>
-	<message key="user.masculine">G</message>
 	<message key="user.middleName">Bigarren izena</message>
 	<message key="user.myAccount">Nire kontua</message>
 	<message key="user.name">Izen-abizenak</message>
@@ -100,7 +97,6 @@
 	<message key="user.affiliation.description">(Zure erakundea, adibidez, "Simon Fraser University")</message>
 	<message key="user.gossip">Ohar pribatuak</message>
 	<message key="user.profile.form.profileImageInvalid">Irudi-formatu profil baliogabea edo irudi handiegia. Formatu onartuak .gif, .jpg, eta .png dira, eta irudiak ezin du 150x150 pixeleko tamaina gainditu.</message>
-	<message key="user.other">Beste batzuk</message>
 	<message key="user.profile.form.affiliationRequired">Afiliatzea behar da.</message>
 	<message key="user.repeatPassword">Errepikatu pasahitza</message>
 	<message key="user.register.form.emailsDoNotMatch">Helbide elektronikoaren eremuak ez datoz bat.</message>

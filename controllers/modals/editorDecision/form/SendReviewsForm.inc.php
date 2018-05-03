@@ -3,8 +3,8 @@
 /**
  * @file controllers/modals/editorDecision/form/SendReviewsForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SendReviewsForm
@@ -119,7 +119,7 @@ class SendReviewsForm extends EditorDecisionWithEmailForm {
 
 			case SUBMISSION_EDITOR_DECISION_RESUBMIT:
 				$emailKey = 'EDITOR_DECISION_RESUBMIT';
-				$status = REVIEW_ROUND_STATUS_RESUBMITTED;
+				$status = REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW;
 				break;
 
 			case SUBMISSION_EDITOR_DECISION_DECLINE:

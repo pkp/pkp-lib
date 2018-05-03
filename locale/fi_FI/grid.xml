@@ -4,8 +4,8 @@
 <!--
   * locale/fi_FI/grid.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -268,4 +268,6 @@
 	<message key="grid.navigationMenus.navigationMenuItems.noneExist">Ei kohteita</message>
 	<message key="grid.action.addNavigationMenuItem">Lisää kohde</message>
 	<message key="grid.action.addNavigationMenu">Lisää valikko</message>
+	<message key="grid.action.uninstall">Poista asennus</message>
+	<message key="grid.navigationMenus.navigationMenu.selectType">Valitse tyyppi...</message>
 </locale>

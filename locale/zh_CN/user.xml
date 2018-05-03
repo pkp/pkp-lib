@@ -4,8 +4,8 @@
 <!--
   * locale/zh_CN/user.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the en_US (English) locale.
@@ -23,9 +23,7 @@
 	<message key="user.dateRegistered">注册时间</message>
 	<message key="user.editMyProfile">编辑我的信息</message>
 	<message key="user.email">电子邮件</message>
-	<message key="user.feminine">F</message>
 	<message key="user.firstName">名</message>
-	<message key="user.gender">性别</message>
 	<message key="user.initialsExample">张三 = ZS</message>
 	<message key="user.initials">声母</message>
 	<message key="user.interests">回顾利益</message>
@@ -48,11 +46,9 @@
 	<message key="user.login.resetPassword">重置密码</message>
 	<message key="user.logOut">登出</message>
 	<message key="user.mailingAddress">通信地址</message>
-	<message key="user.masculine">M</message>
 	<message key="user.middleName">中间名</message>
 	<message key="user.myAccount">我的帐户</message>
 	<message key="user.name">名</message>
-	<message key="user.other">其他</message>
 	<message key="user.password">密码</message>
 	<message key="user.phone">电话</message>
 	<message key="user.profile.changePasswordInstructions">在下面输入您当前的密码和新密码，以修改帐户密码.</message>

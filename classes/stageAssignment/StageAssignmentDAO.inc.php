@@ -3,8 +3,8 @@
 /**
  * @file classes/stageAssignment/StageAssignmentDAO.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class StageAssignmentDAO
@@ -63,6 +63,18 @@ class StageAssignmentDAO extends DAO {
 	 */
 	function getByUserId($userId) {
 		return $this->_getByIds(null, null, null, $userId);
+	}
+
+
+	/**
+	 * Retrieve StageAssignments by submission and user IDs
+	 * @param $submissionId int Submission ID
+	 * @param $userId int User ID
+	 * @param $stageId int optional WORKFLOW_STAGE_ID_...
+	 * @return DAOResultFactory StageAssignment
+	 */
+	function getBySubmissionAndUserIdAndStageId($submissionId, $userId, $stageId = null) {
+		return $this->_getByIds($submissionId, $stageId, null, $userId);
 	}
 
 	/**

@@ -1,8 +1,8 @@
 /**
  * @file js/load.js
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @brief Common configuration for building the Javascript package
@@ -25,21 +25,22 @@ export default {
 	/**
 	 * Helper function to determine if the current user has a role
 	 *
-	 * @param string|array role The key name of the role to check for
+	 * @param int|array roles The role ID to look for (pkp.const.ROLE_ID...)
 	 * @return bool
 	 */
-	userHasRole: function (role) {
+	userHasRole: function (roles) {
 
-		if (typeof role === 'string') {
-			role = [role];
+		if (!Array.isArray(roles)) {
+			roles = [roles];
 		}
 
-		for (var r in role) {
-			if ($.pkp.currentUser.accessRoles.indexOf($.pkp.app.accessRoles[role[r]]) > -1) {
-				return true;
+		var hasRole = false;
+		roles.forEach((role) => {
+			if ($.pkp.currentUser.accessRoles.indexOf(role) > -1) {
+				hasRole = true;
 			}
-		}
+		});
 
-		return false;
+		return hasRole;
 	},
 };

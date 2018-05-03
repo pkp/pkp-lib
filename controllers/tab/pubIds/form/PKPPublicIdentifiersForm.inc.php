@@ -3,8 +3,8 @@
 /**
  * @file controllers/tab/pubIds/form/PKPPublicIdentifiersForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPPublicIdentifiersForm
@@ -22,7 +22,7 @@ class PKPPublicIdentifiersForm extends Form {
 	var $_contextId;
 
 	/** @var object The pub object the identifiers are edited of
-	 * 	Submission, Representation, SubmissionFile + OJS Issue
+	 * 	Submission, Representation, SubmissionFile, OJS Issue and OMP Chapter
 	 */
 	var $_pubObject;
 
@@ -87,6 +87,7 @@ class PKPPublicIdentifiersForm extends Form {
 		$this->setData('publisherId', $pubObject->getStoredPubId('publisher-id'));
 		$pubIdPluginHelper = new PKPPubIdPluginHelper();
 		$pubIdPluginHelper->init($this->getContextId(), $this, $pubObject);
+		return parent::initData();
 	}
 
 

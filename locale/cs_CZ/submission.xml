@@ -4,8 +4,8 @@
 <!--
   * locale/cs_CZ/submission.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the cs_CZ (Čeština) locale.
@@ -399,7 +399,6 @@
 	<message key="submission.upload.proof">Nahrát soubor připravený k publikování</message>
 	<message key="submission.upload.noAvailableReviewFiles">Nejsou pro vás dostupné žádné soubory ke recenzi.</message>
 	<message key="editor.submission.roundStatus.revisionsRequested">Byly vyžádány recenze.</message>
-	<message key="editor.submission.roundStatus.resubmitted">Příspěvek byl znovu podán k recenzi.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">Odesláno k externí recenzi.</message>
 	<message key="editor.submission.roundStatus.accepted">Příspěvek přijat.</message>
 	<message key="editor.submission.roundStatus.declined">Příspěvek odmítnut.</message>

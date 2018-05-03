@@ -4,8 +4,8 @@
 <!--
   * locale/ca_ES/submission.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Credits: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Catalan_(ca_ES)
   * Localization strings.
@@ -189,7 +189,6 @@
 	<message key="submission.event.confirmDeleteLogEntry">Esteu segur/a que voleu suprimir aquesta entrada del registre d’esdeveniments?</message>
 	<message key="submission.event.deleteLogEntry">Suprimeix l’entrada del registre</message>
 	<message key="submission.event.submissionSubmitted">La tramesa inicial s'ha completat.</message>
-	<message key="submission.event.fileUploaded">S'ha carregat el fitxer «{$name}» (amb l'identificador de fitxer {$fileId}-{$fileRevision}).</message>
 	<message key="submission.event.fileRevised">S'ha carregat la revisió «{$name}» (amb l'identificador de fitxer {$fileId}-{$fileRevision}).</message>
 	<message key="submission.event.general.metadataUpdated">Metadades de tramesa actualitzades</message>
 	<message key="submission.event.general.suppFileUpdated">Fitxer de tramesa actualitzat</message>
@@ -413,7 +412,6 @@
 
 	<!-- Review Round Status Keys -->
 	<message key="editor.submission.roundStatus.revisionsRequested">S'han sol·licitat les revisions.</message>
-	<message key="editor.submission.roundStatus.resubmitted">La tramesa s'ha tornat a enviar per a la revisió.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">S'ha enviat per a la revisió externa.</message>
 	<message key="editor.submission.roundStatus.accepted">S'ha acceptat la tramesa.</message>
 	<message key="editor.submission.roundStatus.declined">S'ha rebutjat la tramesa.</message>
@@ -480,7 +478,6 @@
 	<message key="notification.type.editorDecisionPendingRevisions">Calen revisions.</message>
 	<message key="notification.type.editorDecisionResubmit">Torna-ho a trametre per a revisió.</message>
 	<message key="notification.type.editorDecisionDecline">S'ha rebutjat la tramesa.</message>
-	<message key="notification.type.editorDecisionSendToProduction">Ha començat el procés de producció.</message>
 	<message key="notification.type.signoff">Teniu una auditoria pendent.</message>
 	<message key="notification.uploadedResponse">S'ha carregat la resposta.</message>
 	<message key="submission.authorDashboard.description">En cada fase iniciada del circuit de treball que es mostra a continuació, trobareu informació de l'estat de la fase, així com els fitxers de la tramesa associats i la correspondència associada a cada fase. Se us demanarà que carregueu un fitxer revisat en una fase concreta o que auditeu un fitxer que ja es va carregar prèviament; aquestes accions es poden completar dins de la secció de la fase especificada.</message>

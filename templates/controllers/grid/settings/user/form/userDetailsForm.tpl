@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/settings/user/form/userDetailsForm.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Form for creating/editing a user.
@@ -45,6 +45,12 @@
 			disableAuthSourceSection=!$authSourceOptions
 			disableSendNotifySection=$disableSendNotifySection
 		}
+
+		{if $canCurrentUserGossip}
+			{fbvFormSection label="user.gossip" description="user.gossip.description"}
+				{fbvElement type="textarea" name="gossip" id="gossip" rich=true value=$gossip}
+			{/fbvFormSection}
+		{/if}
 
 		{if $userId}
 			{fbvFormSection}

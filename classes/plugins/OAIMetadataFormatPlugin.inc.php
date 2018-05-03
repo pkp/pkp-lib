@@ -3,8 +3,8 @@
 /**
  * @file lib/pkp/classes/plugins/OAIMetadataFormatPlugin.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class OAIMetadataFormatPlugin
@@ -19,13 +19,10 @@ import('lib.pkp.classes.oai.OAIStruct');
 abstract class OAIMetadataFormatPlugin extends Plugin {
 
 	/**
-	 * Called as a plugin is registered to the registry
-	 * @param $category String Name of category plugin was registered to
-	 * @return boolean True if plugin initialized successfully; if false,
-	 * 	the plugin will not be registered.
+	 * @copydoc Plugin::register()
 	 */
-	function register($category, $path) {
-		if (!parent::register($category, $path)) return false;
+	function register($category, $path, $mainContextId = null) {
+		if (!parent::register($category, $path, $mainContextId)) return false;
 		$this->addLocaleData();
 		if ($this->getEnabled()) HookRegistry::register('OAI::metadataFormats', array($this, 'callback_formatRequest'));
 		return true;

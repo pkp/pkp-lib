@@ -4,58 +4,58 @@
 <!--
   * locale/da_DK/grid.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the da_DK (Dansk) locale.
   *
   -->
 
-<locale name="en_US" full_name = "English">
+<locale name="da_DK" full_name="Dansk">
 	<!-- Common -->
-	<message key="grid.noItems">No Items</message>
-	<message key="grid.settings">Settings</message>
+	<message key="grid.noItems">Intet element</message>
+	<message key="grid.settings">Indstillinger</message>
 
-	<message key="grid.action.sort">Sort</message>
-	<message key="grid.action.addItem">Add Item</message>
-	<message key="grid.action.delete">Delete</message>
-	<message key="grid.action.remove">Remove</message>
-	<message key="grid.action.edit">Edit</message>
-	<message key="grid.action.approve">Approve</message>
-	<message key="grid.action.decline">Decline</message>
-	<message key="grid.action.moreInformation">More Information</message>
-	<message key="grid.action.restoreDefaults">Restore Defaults</message>
+	<message key="grid.action.sort">Sortér</message>
+	<message key="grid.action.addItem">Tilføj element</message>
+	<message key="grid.action.delete">Slet</message>
+	<message key="grid.action.remove">Fjern</message>
+	<message key="grid.action.edit">Redigér</message>
+	<message key="grid.action.approve">Godkend</message>
+	<message key="grid.action.decline">Afvis denne indsendelse</message>
+	<message key="grid.action.moreInformation">Mere information</message>
+	<message key="grid.action.restoreDefaults">Gendan standardindstillinger</message>
 
 	<!-- Common Grid Column Titles -->
-	<message key="grid.columns.actions">Actions</message>
+	<message key="grid.columns.actions">Handlinger</message>
 	<message key="grid.columns.institution">Institution</message>
 	<message key="grid.columns.url">URL</message>
 
 	<!-- Sponsors Grid -->
-	<message key="grid.sponsor.title">Sponsors</message>
+	<message key="grid.sponsor.title">Sponsororganisationer</message>
 
 	<!-- Masthead Grid -->
 	<!-- Contributor Grid -->
-	<message key="grid.contributor.title">Contributor</message>
-	<message key="grid.action.addAuthor">Add Author</message>
+	<message key="grid.contributor.title">Bidragyder</message>
+	<message key="grid.action.addAuthor">Tilføj forfatter</message>
 
 	<!-- Review Forms Grid -->
-	<message key="grid.reviewForm.title">Review Forms</message>
+	<message key="grid.reviewForm.title">Bedømmelsesformularer</message>
 
 	<!-- Book File Types Grid -->
 	<!-- Artwork Files Grid -->
 	<!-- Library Files -->
-	<message key="grid.libraryFiles.column.files">Files</message>
-	<message key="grid.libraryFiles.submission.title">Submission Library</message>
-	<message key="grid.libraryFiles.editorial.title">Editorial Library</message>
-	<message key="grid.libraryFiles.review.title">Review Library</message>
-	<message key="grid.libraryFiles.production.title">Production Library</message>
-	<message key="grid.libraryFiles.productionTemplate.title">Production Template Library</message>
+	<message key="grid.libraryFiles.column.files">Filer</message>
+	<message key="grid.libraryFiles.submission.title">Indsendelsesbibliotek</message>
+	<message key="grid.libraryFiles.editorial.title">Redaktionelt bibliotek</message>
+	<message key="grid.libraryFiles.review.title">Bedømmelsesbibliotek</message>
+	<message key="grid.libraryFiles.production.title">Produktionsbibliotek</message>
+	<message key="grid.libraryFiles.productionTemplate.title">Produktionsskabelons-bibliotek</message>
 
 	<!-- SubmissionChecklist -->
-	<message key="grid.submissionChecklist.title">Submission Checklist</message>
-	<message key="grid.submissionChecklist.column.checklistItem">Checklist Item</message>
+	<message key="grid.submissionChecklist.title">Indsendelses-tjekliste</message>
+	<message key="grid.submissionChecklist.column.checklistItem">Tjekliste-element</message>
 
 	<!-- Submission Contributors -->
 	<message key="author.users.contributor.name">Navn</message>
@@ -75,21 +75,19 @@
 	<message key="grid.action.order">Rækkefølge</message>
 	<message key="grid.action.cancelOrdering">Annullér</message>
 	<message key="grid.action.extendAll">Forlæng alle</message>
-	<message key="grid.action.collapse">Collapse</message>
-	<message key="grid.action.collapseAll">Collapse all</message>
+	<message key="grid.action.collapse">Sammenklap</message>
+	<message key="grid.action.collapseAll">Sammenklap alle</message>
 	<message key="grid.action.wizard">Indstillingsguide</message>
 	<message key="grid.action.editMedia">Rediger medie</message>
 	<message key="grid.action.moveItem">Flyt element</message>
-	<message key="grid.action.downloadFile">Download denne fil</message>
 	<message key="grid.action.downloadAll">Download alle filer som arkiv</message>
 	<message key="grid.action.readReview">Læs denne bedømmelse</message>
 	<message key="grid.action.email">Send e-mail</message>
 	<message key="grid.action.addReviewer">Tilføj en bedømmer</message>
 	<message key="grid.action.addFile">Tilføj en fil</message>
 	<message key="grid.action.editFile">Rediger en fil</message>
-	<message key="grid.action.selectFiles">Select files to manage</message>
+	<message key="grid.action.selectFiles">Vælg de filer, der skal behandles</message>
 	<message key="grid.action.requestRevisions">Anmod om revidering af dette manuskript</message>
-	<message key="grid.action.resubmit">Anmod om at dette manuskript bliver genfremsendt</message>
 	<message key="grid.action.accept">Accepter dette manuskript</message>
 	<message key="grid.action.internalReview">Send dette manuskript til intern bedømmelse</message>
 	<message key="grid.action.externalReview">Send dette manuskript til ekstern bedømmelse</message>
@@ -132,7 +130,7 @@
 	<message key="grid.task.status.uploaded">Kolonnetitlen viser hvem der uploadede denne fil</message>
 	<message key="grid.task.status.unfinished">Bedømmelse uafsluttet</message>
 	<message key="grid.task.status.reviewReady">Denne bedømmelse er klar. Klik notat-ikonet til venstre for at læse den.</message>
-	<message key="grid.columns.auditor">Auditor</message>
+	<message key="grid.columns.auditor">Revisor</message>
 	<message key="grid.columns.locale">Landestandard</message>
 	<message key="grid.action.addSponsor">Tilføj sponsor</message>
 	<message key="grid.action.deleteSponsor">Slet sponsor</message>
@@ -146,12 +144,10 @@
 	<message key="grid.action.addContributor">Tilføj bidragyder</message>
 	<message key="grid.action.editContributor">Rediger bidragyder</message>
 	<message key="grid.action.deleteContributor">Slet bidragyder</message>
-	<message key="grid.genres.title">Genre</message>
-	<message key="grid.genres.description">Genrene bruges ved tildeling af filnavn og fremvises i en drop-down-menu under upload af filer. De udvalgte genre ## tillader brugeren at forbinde filen med enten hele bogen 99Z eller et specifikt kapitel med nummer (f.eks. 02).</message>
 	<message key="grid.noFiles">Ingen filer</message>
 	<message key="grid.roles.currentRoles">Nuværende roller</message>
 	<message key="grid.roles.add">Tilføj rolle</message>
-	<message key="grid.roles.stageAssignment">Stage Assignment</message>
+	<message key="grid.roles.stageAssignment">Opgavetrin</message>
 	<message key="grid.user.currentUsers">Nuværende brugere</message>
 	<message key="grid.user.currentEnrollment">Nuværende tilmeldte</message>
 	<message key="grid.user.allRoles">Alle roller</message>
@@ -163,8 +159,8 @@
 	<message key="grid.user.disable">Deaktiver</message>
 	<message key="grid.user.disableReason">Grund til deaktivering af bruger</message>
 	<message key="grid.user.enableReason">Grund til aktivering af bruger</message>
-	<message key="grid.user.error">En fejl blev fundet i forbindelse med behandling af denne bruger. Prøv igen.</message>
-	<message key="grid.user.errorEmail">En fejl blev fundet under fremsendelse af denne e-mail. Tjek venligst din mailserver-konfiguration og/eller kontakt din systemadministrator.</message>
+	<message key="grid.user.error">Der blev fundet en fejl i forbindelse med behandling af denne bruger. Prøv igen.</message>
+	<message key="grid.user.errorEmail">Der blev fundet en fejl under fremsendelse af denne e-mail. Tjek venligst din mailserver-konfiguration og/eller kontakt din systemadministrator.</message>
 	<message key="grid.user.cannotAdminister">Du har ikke tilladelse til at redigere denne bruger</message>
 	<message key="grid.user.authSource">Godkendelseskilde</message>
 	<message key="grid.user.mustProvideName">Tilføj som minimum først brugerens efternavn</message>
@@ -186,12 +182,11 @@
 	<message key="grid.user.selectUser">Vælg bruger</message>
 	<message key="grid.user.pleaseSelectUser">Vælg en bruger</message>
 	<message key="grid.preparedEmails.title">Forberedte e-mail-skabeloner</message>
-	<message key="grid.preparedEmails.description">Pressen letter workflow-kommunikationen via brugen af forudformulerede e-mail-beskeder. Standardformuleringerne i disse e-mails-skabeloner kan let tilrettes nedenfor.</message>
 	<message key="grid.preparedEmails.currentList">Aktuel liste</message>
 	<message key="grid.plugin.allCategories">Alle kategorier</message>
 	<message key="grid.plugin.disable">Er du sikker på, at du vil deaktivere dette plug-in?</message>
 	<message key="grid.submission.itemTitle">Forfatter; Titel</message>
-	<message key="author.users.contributor.includeInBrowse">I browse-list</message>
+	<message key="author.users.contributor.includeInBrowse">I browse-liste</message>
 	<message key="grid.action.restoreDefaults.confirm">Er du sikker på, at du vil genskabe standardinstillingerne?</message>
 	<message key="grid.action.addQuery">Tilføj indlæg</message>
 	<message key="grid.action.viewLibrary">Se dokumentbibliotek</message>
@@ -200,7 +195,7 @@
 	<message key="grid.action.moreItems">Hent flere</message>
 	<message key="grid.user.addRole">Tilføj rolle</message>
 	<message key="grid.user.mergeUsers.mergeUser">Flet bruger</message>
-	<message key="grid.noAuditors">Ingen auditører</message>
+	<message key="grid.noAuditors">Ingen auditorer</message>
 	<message key="grid.remotelyHostedItem">Dette nummer er eksternt hosted.</message>
 	<message key="grid.action.manageAccess">Administrér adgang</message>
 	<message key="grid.action.addNote">Tilføj note</message>
@@ -231,16 +226,12 @@
 	<message key="grid.user.allPermissionLevels">Alle adgangsniveauer</message>
 	<message key="grid.user.mergeUsers">Flet brugere</message>
 	<message key="grid.user.mergeUsers.mergeIntoUser">Flet ind under denne bruger</message>
-	<message key="grid.user.mergeUsers.into.description">Du skal nu vælge en bruger hvorunder den tidligere brugers forfatterskab, redaktionelle arbejdsopgaver osv. tilskrives.</message>
-	<message key="grid.user.mergeUsers.from.description">Vælg en bruger, som skal flettes til en anden brugerkonto (f.eks. hvis en person har to brugerkonti). Den først valgte konto slettes, og dens manuskripter, tildelinger osv. tilskrives den anden konto.</message>
 	<message key="grid.user.mergeUsers.allUsers">Alle registrerede brugere</message>
-	<message key="grid.user.mergeUsers.mergeUserSelect.confirm">Er du sikker på at du vil flette denne bruger med en anden? Du skal vælge den næste bruger på efterfølgende skærmbillede.</message>
-	<message key="grid.user.mergeUsers.noneEnrolled">Der er ingen bruger med denne rolle.</message>
 	<message key="grid.action.fileUnconsider">Korrekturtilretninger gennemført. Du kan ignorer denne opgave.</message>
 	<message key="grid.artworkFile.caption">Overskrift</message>
 	<message key="grid.artworkFile.credit">Kildeangivelse</message>
 	<message key="grid.artworkFile.copyrightOwner">Copyrightindehaver</message>
-	<message key="grid.artworkFile.copyrightContact">Kontakt-info (hvis ikke forfatter/udgiver)</message>
+	<message key="grid.artworkFile.copyrightContact">Kontaktinfo (hvis ikke forfatter/udgiver)</message>
 	<message key="grid.artworkFile.permissionTerms">Godkendelsesbetingelser</message>
 	<message key="grid.artworkFile.placement">Placering i indsendelsen</message>
 	<message key="grid.userGroup.assignStage">Anvis trin</message>
@@ -253,4 +244,10 @@
 	<message key="grid.userGroup.removed">{$userGroupName} rolle er fjernet.</message>
 	<message key="grid.userGroup.assignedStage">{$userGroupName} rolle knyttet til {$stageName} trin.</message>
 	<message key="grid.userGroup.unassignedStage">{$userGroupName} rolle fjernet fra {$stageName} trin.</message>
+	<message key="grid.user.mergeUsers.confirm">Er du sikker på, at du vil flette denne konto med brugernavnet "{$oldUsername}" ind under kontoen med brugernavnet "{$newUsername}"? Kontoen med brugernavnet "{$oldUsername}" ophører herefter. Handlingen kan ikke fortrydes.</message>
+	<message key="grid.submission.active.selectOrphaned">Indkluder ukomplette indsendelser, der ikke er indsendt af en forfatter.</message>
+	<message key="grid.action.addNavigationMenu">Tilføj menu</message>
+	<message key="grid.action.addNavigationMenuItem">Tilføj element</message>
+	<message key="grid.navigationMenus.navigationMenuItems.noneExist">Ingen navigationsmenu-elementer</message>
+	<message key="grid.navigationMenus.navigationMenu.noneExist">Ingen navigationsmenuer</message>
 </locale>

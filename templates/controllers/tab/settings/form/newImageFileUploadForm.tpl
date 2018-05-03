@@ -1,8 +1,8 @@
 {**
  * templates/controllers/tab/settings/form/newImageFileUploadForm.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Image file upload form.
@@ -20,7 +20,7 @@
 					baseUrl: {$baseUrl|json_encode},
 					filters: {ldelim}
 						mime_types : [
-							{ldelim} title : "Image files", extensions : "jpg,jpeg,png,svg" {rdelim}
+							{ldelim} title : "Image files", extensions : "jpg,jpeg,png,svg,gif" {rdelim}
 						]
 					{rdelim}
 				{rdelim}

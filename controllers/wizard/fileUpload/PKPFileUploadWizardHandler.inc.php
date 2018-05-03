@@ -3,8 +3,8 @@
 /**
  * @file controllers/wizard/fileUpload/FileUploadWizardHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FileUploadWizardHandler
@@ -259,7 +259,7 @@ class PKPFileUploadWizardHandler extends Handler {
 
 		// Validate the form and upload the file.
 		if (!$uploadForm->validate($request)) {
-			return new JSONMessage(false, array_pop($uploadForm->getErrorsArray()));
+			return new JSONMessage(true, $uploadForm->fetch($request));
 		}
 
 		$uploadedFile = $uploadForm->execute($request); /* @var $uploadedFile SubmissionFile */
@@ -315,7 +315,7 @@ class PKPFileUploadWizardHandler extends Handler {
 						$authorUserIds[] = $assignment->getUserId();
 					}
 
-					// Update the notifications
+					// Update the task notifications
 					$notificationMgr = new NotificationManager();
 					$notificationMgr->updateNotification(
 						PKPApplication::getRequest(),
@@ -329,6 +329,36 @@ class PKPFileUploadWizardHandler extends Handler {
 					import('lib.pkp.classes.submission.reviewRound.ReviewRoundDAO');
 					$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
 					$reviewRoundDao->updateStatus($reviewRound);
+
+					// Notify editors about the revision upload
+					$submission = $this->getSubmission();
+					$request = Application::getRequest();
+					$router = $request->getRouter();
+					$dispatcher = $router->getDispatcher();
+					$context = $request->getContext();
+					$uploader = $request->getUser();
+					// If the file is uploaded by an author
+					if (in_array($uploader->getId(), $authorUserIds)) {
+						import('lib.pkp.classes.mail.SubmissionMailTemplate');
+						$mail = new SubmissionMailTemplate($submission, 'REVISED_VERSION_NOTIFY');
+						$mail->setReplyTo($context->getSetting('contactEmail'), $context->getSetting('contactName'));
+						// Get editors assigned to the submission, consider also the recommendOnly editors
+						$userDao = DAORegistry::getDAO('UserDAO');
+						$editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $this->getStageId());
+						foreach ($editorsStageAssignments as $editorsStageAssignment) {
+							$editorId = $editorsStageAssignment->getUserId();
+							$editor = $userDao->getById($editorId);
+							$mail->addRecipient($editor->getEmail(), $editor->getFullName());
+						}
+						// Get uploader name
+						$submissionUrl = $dispatcher->url($request, ROUTE_PAGE, null, 'workflow', 'index', array($submission->getId(), $this->getStageId()));
+						$mail->assignParams(array(
+							'authorName' => $uploader->getFullName(),
+							'editorialContactSignature' => $context->getSetting('contactName'),
+							'submissionUrl' => $submissionUrl,
+						));
+						$mail->send();
+					}
 				}
 				break;
 		}
@@ -365,7 +395,7 @@ class PKPFileUploadWizardHandler extends Handler {
 				return new JSONMessage(false, __('common.uploadFailed'));
 			}
 		} else {
-			return new JSONMessage(false, array_pop($confirmationForm->getErrorsArray()));
+			return new JSONMessage(true, $confirmationForm->fetch($request));
 		}
 	}
 

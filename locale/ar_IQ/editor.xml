@@ -4,8 +4,8 @@
 <!--
   * locale/ar_IQ/editor.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2003-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ar_IQ (العربية) locale.
@@ -71,7 +71,7 @@
 	<message key="editor.review.reviewConfirmed">التحكيم مؤكد</message>
 	<message key="editor.review.reviewSubmitted">التحكيم مسلَّم</message>
 	<message key="editor.review.reviewerComments">تعليقات المحكم</message>
-	<message key="editor.review.days">معدل الأيام</message>
+	<message key="editor.review.rateReviewer">تقييم المحكم</message>
 	<message key="editor.review.mustSelect">عليك أن تختار محكماً</message>
 	<message key="editor.review.errorAddingReviewer">حدث خطأ عند إضافة المحكم. لطفاً، حاول مرة أخرى.</message>
 	<message key="editor.review.errorDeletingReviewer">حدث خطأ عند إزالة المحكم. لطفاً، حاول مرة أخرى.</message>
@@ -108,7 +108,6 @@
 	<message key="editor.submission.createNewRound">إنشاء جولة تحكيم جديدة</message>
 	<message key="editor.article.reviewForms">نماذج التحكيم</message>
 	<message key="editor.article.selectReviewForm">إختر نموذج التحكيم</message>
-	<message key="editor.article.clearReviewForm">إزالة نموذج التحكيم</message>
 	<message key="editor.article.confirmChangeReviewForm">تحذير: تغيير نموذج التحكيم سيؤثر على الإجابات التي قدمها المحكمون مستعملين هذا النموذج. هل أنت متأكد من رغبتك في المتابعة؟</message>
 	<message key="editor.submission.noReviewerFilesSelected">لم يتم اختيار أي ملفات بعد</message>
 	<message key="editor.submission.noReviewerFilesSelected.details">لم تم باختيار أي ملفات لتطلب من المحكم تحكيمها.</message>

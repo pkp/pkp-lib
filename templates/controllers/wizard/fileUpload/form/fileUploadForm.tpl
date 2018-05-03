@@ -1,8 +1,8 @@
 {**
  * templates/controllers/wizard/fileUpload/form/fileUploadForm.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Files upload form.
@@ -145,6 +145,7 @@
 </script>
 
 <form class="pkp_form" id="uploadForm" action="#" method="post">
+	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="uploadFormNotification"}
 	{csrf}
 	{fbvFormArea id="file"}
 		{if $assocType && $assocId}

@@ -4,8 +4,8 @@
 <!--
   * locale/es_ES/editor.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2003-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Credits: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Spanish_(es_ES)
   * Localization strings.
@@ -28,7 +28,7 @@
 	<message key="editor.submission.review.currentFiles">Archivos de revisión en ronda actuales {$round}</message>
 	<message key="editor.submission.backToSearch">Volver a la búsqueda simple</message>
 	<message key="editor.review.createReviewer">Crear nuevo revisor</message>
-	<message key="editor.review.enrollReviewer.short">Inscribir ususario ya existente</message>
+	<message key="editor.review.enrollReviewer.short">Inscribir usuario ya existente</message>
 	<message key="editor.review.unassignReviewer">Desasignar revisor</message>
 	<message key="editor.submissionReview.reviewType">Tipo de revisión</message>
 	<message key="editor.submissionReview.skipEmail">No enviar correo electrónico de autor</message>
@@ -56,7 +56,7 @@
 	<message key="editor.review.reviewDueDate">Fecha límite de la revisión</message>
 	<message key="editor.review.reviewCompleted">Revisión completa</message>
 	<message key="editor.review.reviewerComments">Comentarios del revisor</message>
-	<message key="editor.review.days">Promedio de días</message>
+	<message key="editor.review.rateReviewer">Puntuación del revisor/a</message>
 	<message key="editor.review.mustSelect">Debes seleccionar un revisor</message>
 	<message key="editor.review.errorAddingReviewer">Ha ocurrido un error al añadir el revisor. Por favor, inténtalo de nuevo.</message>
 	<message key="editor.review.errorDeletingReviewer">Ha ocurrido un error al eliminar el revisor. Por favor, inténtalo de nuevo.</message>
@@ -69,7 +69,7 @@
 	<message key="editor.submission.selectReviewer">Seleccionar revisor</message>
 	<message key="editor.submission.taskDueDate">Fecha de vencimiento de la tarea</message>
 	<message key="editor.submission.taskSchedule">Planificación de tareas</message>
-	<message key="editor.review.enrollReviewer">Inscribir ususario ya existente como revisor</message>
+	<message key="editor.review.enrollReviewer">Inscribir usuario ya existente como revisor</message>
 	<message key="editor.submission.noAuditRequested">No se requiere auditoría para este archivo</message>
 	<message key="editor.submission.personalMessageToUser">Envío del correo electrónico al usuario</message>
 	<message key="editor.submission.proof.reminder">Recordatorio de corrección</message>
@@ -84,7 +84,6 @@
 	<message key="editor.submission.createNewRound">Crear nueva ronda de revisión</message>
 	<message key="editor.article.reviewForms">Formularios de Revisión</message>
 	<message key="editor.article.selectReviewForm">Escoger Formulario de Revisión</message>
-	<message key="editor.article.clearReviewForm">Limpiar Formulario de Revisión</message>
 	<message key="editor.submissionLibrary">Biblioteca de envío</message>
 	<message key="editor.submission.selectFiles">Selecciona archivos</message>
 	<message key="editor.submission.findAndSelectReviewer">Encuentra un revisor</message>
@@ -102,7 +101,7 @@
 	<message key="editor.review.reviewDetails">Revisar detalles</message>
 	<message key="editor.review.noReviewFilesUploaded">No hay ningún archivo subido</message>
 	<message key="editor.review.noReviewFilesUploaded.details">No ha subido ningún archivo de revisión.</message>
-	<message key="editor.review.emailReviewer">Revisor de correo electrónico</message>
+	<message key="editor.review.emailReviewer">Enviar correo al revisor</message>
 	<message key="editor.article.confirmChangeReviewForm">Atención: Cambiar el formulario de revisión afectará a cualquier comentario hecho por los revisores que hayan utilizado este formulario. ¿Está seguro de que desea continuar?</message>
 	<message key="editor.submission.noReviewerFilesSelected">No hay ningún archivo seleccionado</message>
 	<message key="editor.submission.noReviewerFilesSelected.details">No ha seleccionado ningún archivo para enviar al revisor.</message>

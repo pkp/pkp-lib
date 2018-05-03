@@ -4,8 +4,8 @@
 <!--
   * locale/ca_ES/editor.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2003-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Credits: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Catalan_(ca_ES)
   * Localization strings.
@@ -63,7 +63,7 @@
 	<message key="editor.review.reviewDueDate">Data de venciment de la revisió</message>
 	<message key="editor.review.reviewCompleted">S'ha completat la revisió</message>
 	<message key="editor.review.reviewerComments">Comentaris del revisor/a</message>
-	<message key="editor.review.days">Mitjana de dies</message>
+	<message key="editor.review.rateReviewer">Puntuació del revisor/a</message>
 	<message key="editor.review.mustSelect">Heu de seleccionar un revisor/a</message>
 	<message key="editor.review.errorAddingReviewer">Hi ha hagut un error en afegir un revisor/a.  Torneu-ho a intentar.</message>
 	<message key="editor.review.errorDeletingReviewer">Hi ha hagut un error en eliminar un revisor/a.  Torneu-ho a intentar.</message>
@@ -119,7 +119,6 @@
 	<message key="editor.review.emailReviewer">Envia un correu electrònic al revisor/a</message>
 	<message key="editor.article.reviewForms">Formularis de revisió</message>
 	<message key="editor.article.selectReviewForm">Seleccionar el formulari de revisió</message>
-	<message key="editor.article.clearReviewForm">Neteja el formulari de revisió</message>
 	<message key="submission.queries.attachedFiles">Arxius adjunts</message>
 	<message key="grid.action.editQuery">Editar discussió</message>
 	<message key="editor.submission.selectedReviewer">Revisor/a seleccionat</message>

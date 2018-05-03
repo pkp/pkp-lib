@@ -4,8 +4,8 @@
 <!--
   * locale/de_DE/editor.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2003-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Please contact Marco Tullney, marco.tullney@fu-berlin.de, with any questions regarding this translation.
   * Localization strings.
@@ -59,6 +59,7 @@
 	<message key="editor.review.thankReviewerError">Fehler beim Versenden des Dankes an Gutachter/in</message>
 	<message key="editor.review.skipEmail">E-Mail nicht an Gutachter/in schicken</message>
 	<message key="editor.review.sendReminder">Erinnerung senden</message>
+	<message key="editor.review.rateReviewer">Gutachter/in bewerten</message>
 	<message key="editor.review.readReview">Gutachten lesen</message>
 	<message key="editor.review.readNewReview">Neues Gutachen lesen</message>
 	<message key="editor.review.responseDue">Antwort fällig: {$date}</message>
@@ -71,7 +72,6 @@
 	<message key="editor.review.reviewConfirmed">Gutachten bestätigt</message>
 	<message key="editor.review.reviewSubmitted">Gutachten eingereicht</message>
 	<message key="editor.review.reviewerComments">Begutachtungskommentare</message>
-	<message key="editor.review.days">Durchschnittliche Dauer (Tage)</message>
 	<message key="editor.review.mustSelect">Sie müssen eine/n Gutachter/in auswählen</message>
 	<message key="editor.review.errorAddingReviewer">Es gab einen Fehler beim Hinzufügen des/der Gutachter/in. Bitte versuchen Sie es erneut.</message>
 	<message key="editor.review.errorDeletingReviewer">Es gab einen Fehler beim Entfernen des/der Gutachter/in. Bitte versuchen Sie es erneut.</message>
@@ -108,7 +108,6 @@
 	<message key="editor.submission.createNewRound">Neue Begutachtungsrunde anlegen</message>
 	<message key="editor.article.reviewForms">Begutachtungsformulare</message>
 	<message key="editor.article.selectReviewForm">Begutachtungsformular auswählen</message>
-	<message key="editor.article.clearReviewForm">Begutachtungsformular leeren</message>
 	<message key="editor.article.confirmChangeReviewForm">Achtung: Ein Wechsel des Begutachtungsformular wird alle Antworten, die Gutachter/innen bisher mittels des Formulars eingetragen haben, beeinflussen. Sind Sie sicher, dass Sie fortfahren möchten?</message>
 	<message key="editor.submission.noReviewerFilesSelected">Keine Dateien ausgewählt</message>
 	<message key="editor.submission.noReviewerFilesSelected.details">Sie haben keine Dateien ausgewählt, die der/die Gutachter/in begutachten soll.</message>

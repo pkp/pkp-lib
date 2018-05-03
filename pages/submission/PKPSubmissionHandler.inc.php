@@ -3,8 +3,8 @@
 /**
  * @file pages/submission/PKPSubmissionHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionHandler
@@ -177,6 +177,19 @@ abstract class PKPSubmissionHandler extends Handler {
 				$json->setEvent('setStep', max($step+1, $submission->getSubmissionProgress()));
 				return $json;
 			} else {
+				// Provide entered tagit fields values
+				$tagitKeywords = $submitForm->getData('keywords');
+				if (is_array($tagitKeywords)) {
+					$tagitFieldNames = $submitForm->_metadataFormImplem->getTagitFieldNames();
+					$locales = array_keys($submitForm->supportedLocales);
+					$formTagitData = array();
+					foreach ($tagitFieldNames as $tagitFieldName) {
+						foreach ($locales as $locale) {
+							$formTagitData[$locale] = array_key_exists($locale . "-$tagitFieldName", $tagitKeywords) ? $tagitKeywords[$locale . "-$tagitFieldName"] : array();
+						}
+						$submitForm->setData($tagitFieldName, $formTagitData);
+					}
+				}
 				return new JSONMessage(true, $submitForm->fetch($request));
 			}
 		}

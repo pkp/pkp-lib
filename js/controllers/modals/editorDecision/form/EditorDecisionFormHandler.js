@@ -4,8 +4,8 @@
 /**
  * @file js/controllers/modals/editorDecision/form/EditorDecisionFormHandler.js
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class EditorDecisionFormHandler
@@ -139,7 +139,6 @@
 
 		if (processedJsonData !== false) {
 			// Add the peer review text to the personal message to the author.
-			currentContent = $textArea.val();
 			editor.setContent(
 					currentContent + processedJsonData.content + '<br>');
 		}
@@ -158,7 +157,8 @@
 				$self = this.getHtmlElement(),
 				sendEmail = false,
 				createDiscussion = false,
-				$discussionToggles;
+				$discussionToggles,
+				$attachementDiv = $('#libraryFileAttachments');
 
 		$('#skipEmail-send, #skipEmail-skip', $self).each(function() {
 			if ($(this).attr('id') === 'skipEmail-send' && $(this).prop('checked')) {
@@ -184,8 +184,10 @@
 
 		if (!sendEmail && !createDiscussion) {
 			$emailDiv.fadeOut();
+			$attachementDiv.fadeOut();
 		} else {
 			$emailDiv.fadeIn();
+			$attachementDiv.fadeIn();
 		}
 	};
 

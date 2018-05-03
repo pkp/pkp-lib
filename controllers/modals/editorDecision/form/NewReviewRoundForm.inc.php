@@ -3,8 +3,8 @@
 /**
  * @file controllers/modals/editorDecision/form/NewReviewRoundForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NewReviewRoundForm
@@ -53,7 +53,7 @@ class NewReviewRoundForm extends EditorDecisionForm {
 
 		// Update the review round status.
 		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-		$reviewRoundDao->updateStatus($reviewRound, REVIEW_ROUND_STATUS_RESUBMITTED);
+		$reviewRoundDao->updateStatus($reviewRound, REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW);
 
 		// Create a new review round.
 		$newRound = $this->_initiateReviewRound(

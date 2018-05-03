@@ -4,8 +4,8 @@
 <!--
   * locale/es_ES/common.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Credits: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Spanish_(es_ES)
   * Localization strings.
@@ -78,6 +78,7 @@
 	]]></message>
 	<message key="common.changesSaved">Tus cambios se han guardado.</message>
 	<message key="common.chooseOne">Seleccione uno</message>
+	<message key="common.clearSearch">Limpiar frase de búsqueda</message>
 	<message key="common.close">Cerrar</message>
 	<message key="common.closeWindow">Cerrar ventana</message>
 	<message key="common.complete">Completado</message>
@@ -128,6 +129,8 @@
 	<message key="common.fileSize">Tamaño del fichero</message>
 	<message key="common.fileType">Tipo de fichero</message>
 	<message key="common.fileUploaderError">El cargador de archivos del sistema está cargando. Si no aparece, es probable que ninguno de los tiempos de ejecución sea compatible con este navegador. Contacte con la administración para obtener ayuda.</message>
+	<message key="common.filter">Filtros</message>
+	<message key="common.filterRemove">Limpiar filtros: {$filterTitle}</message>
 	<message key="common.go">Ir</message>
 	<message key="common.height">Altura</message>
 	<message key="common.homePageHeaderLogo.altText">Logo del Título (Página de Inicio)</message>
@@ -379,7 +382,7 @@
 	<message key="notification.editedAuthor">Autor/a editado.</message>
 	<message key="notification.confirmError">Ha habido un error confirmándo tu suscripción.</message>
 	<message key="notification.confirmSuccess">Ha sido correctamente suscrito.</message>
-	<message key="notification.email">Enviarme un email para ese tipo de notificaciones.</message>
+	<message key="notification.email">No enviarme un email para ese tipo de notificaciones.</message>
 	<message key="notification.location">Ir a la web</message>
 	<message key="notification.mailList">Lista de correo de notificaciones</message>
 	<message key="notification.mailList.emailInvalid">Introduce una dirección de correo válida.</message>

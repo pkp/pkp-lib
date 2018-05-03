@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE locale SYSTEM "../../../../lib/pkp/dtd/locale.dtd">
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
   * locale/sr_RS@cyrillic/locale.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2003-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Serbian_(sr_RS)
   * Localization strings.
@@ -70,7 +70,7 @@
 	<message key="editor.review.reviewConfirmed">Рецензија потврђена</message>
 	<message key="editor.review.reviewSubmitted">Рецензија предата</message>
 	<message key="editor.review.reviewerComments">Коментари рецензената</message>
-	<message key="editor.review.days">Просечно дана</message>
+	<message key="editor.review.rateReviewer">Рангирање рецензента</message>
 	<message key="editor.review.mustSelect">Морате одабрати рецензента</message>
 	<message key="editor.review.errorAddingReviewer">Дошло је до грешке приликом додавања рецензента, покушајте поново.</message>
 	<message key="editor.review.errorDeletingReviewer">Дошло је до грешке приликом брисања рецензента, покушајте поново.</message>
@@ -95,7 +95,6 @@
 	<message key="editor.submission.createNewRound">Направи нови круг рецензирања</message>
 	<message key="editor.article.reviewForms">Обрасци рецензије</message>
 	<message key="editor.article.selectReviewForm">Одабери образац рецензије</message>
-	<message key="editor.article.clearReviewForm">Очисти образац рецензије</message>
 	<message key="editor.submission.noReviewerFilesSelected">Нема одабраних фајлова</message>
 	<message key="editor.submission.noReviewerFilesSelected.details">Нисте одабрали ни један фајл који би рецензент погледао.</message>
 	<message key="submission.queries.subjectRequired">Тема дискусије је неопходан.</message>

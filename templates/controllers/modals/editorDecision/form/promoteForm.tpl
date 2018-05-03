@@ -1,8 +1,8 @@
 {**
  * templates/controllers/modals/editorDecision/form/promoteForm.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Form used to send reviews to author
@@ -78,6 +78,18 @@
 				{load_url_in_div id="reviewAttachmentsGridContainer" url=$reviewAttachmentsGridUrl}
 			</div>
 		{/if}
+
+		<div id="libraryFileAttachments" class="pkp_user_group_other_contexts">
+			{url|assign:libraryAttachmentsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.SelectableLibraryFileGridHandler" op="fetchGrid" submissionId=$submissionId escape=false}
+			{load_url_in_div|assign:libraryAttachmentsGrid id="libraryFilesAttachmentsGridContainer" url=$libraryAttachmentsGridUrl}
+			{include file="controllers/extrasOnDemand.tpl"
+				id="libraryFileAttachmentsExtras"
+				widgetWrapper="#libraryFileAttachments"
+				moreDetailsText="settings.libraryFiles.public.selectLibraryFiles"
+				lessDetailsText="settings.libraryFiles.public.selectLibraryFiles"
+				extraContent=$libraryAttachmentsGrid
+			}
+		</div>
 	</div>
 
 	<div id="promoteForm-step2">

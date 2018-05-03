@@ -4,8 +4,8 @@
 <!--
   * locale/sv_SE/locale.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Swedish_(sv_SE)
   * Localization strings.
@@ -16,8 +16,9 @@
 	<message key="grid.noItems">Inga objekt</message>
 	<message key="grid.settings">Inställningar</message>
 	<message key="grid.noAuditors">Inga manusgranskare</message>
-	<message key="grid.remotelyHostedItem">Det här objektet är hyses externt.</message>
+	<message key="grid.remotelyHostedItem">Det här objektet lagras externt.</message>
 	
+	<message key="grid.action.uninstall">Avinstallera</message>
 	<message key="grid.action.manageAccess">Hantera tillgänglighet</message>
 	<message key="grid.action.sort">Ordna</message>
 	<message key="grid.action.addItem">Lägg till objekt</message>
@@ -73,7 +74,6 @@
 	<message key="grid.action.sendToProduction">Skicka det här bidraget till produktion</message>
 	<message key="grid.action.settings">Inställningar</message>
 	<message key="grid.action.importexport">Importera eller exportera innehåll eller webbplats-data</message>
-	<message key="grid.action.restoreDefaults">Återställ till default</message>
 	<message key="grid.action.orderItems">Aktivera ordna-läge</message>
 	<message key="grid.action.editSubmissionChecklist">Redigera det här elementet i checklistan</message>
 	<message key="grid.action.deleteSubmissionChecklist">Ta bort det här elementet från checklistan</message>
@@ -271,4 +271,5 @@
 	<message key="grid.action.addNavigationMenuItem">Lägg till objekt</message>
 	<message key="grid.navigationMenus.navigationMenuItems.noneExist">Inga objekt i navigationsmenyn</message>
 	<message key="grid.navigationMenus.navigationMenu.noneExist">Inga navigationsmenyer</message>
+	<message key="grid.navigationMenus.navigationMenu.selectType">Välj typ...</message>
 </locale>

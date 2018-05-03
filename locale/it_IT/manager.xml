@@ -4,8 +4,8 @@
 <!--
   * locale/it_IT/manager.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -164,12 +164,8 @@
 	<message key="plugins.categories.themes.description">Il plugin del tema può essere usato per cambiare l'aspetto del sistema.</message>
 	<message key="plugins.categories.themes">Temi</message>
 	<message key="manager.emails.form.emailKeyRequired">L'indirizzo email deve essere unico.</message>
-	<message key="manager.reviewerSearch.activeAmount">Numero di revisioni attive</message>
 	<message key="manager.setup.errorDeletingItem">Si è verificato un errore durante l'eliminazione di questo elemento</message>
 	<message key="manager.reviewerSearch.searchByName">Cerca un Revisore per nome</message>
-	<message key="manager.reviewerSearch.doneAmount">Numero di revisioni completate</message>
-	<message key="manager.reviewerSearch.avgAmount">Giorni impiegati per la revisione</message>
-	<message key="manager.reviewerSearch.lastAmount">Giorni trascorsi dall'ultima revisione</message>
 	<message key="manager.reviewerSearch.interests">Interessi per la revisione</message>
 	<message key="manager.announcements.datePublish">Pubblicato</message>
 	<message key="manager.emails.details">Dettagli del template</message>
@@ -181,7 +177,6 @@
 	<message key="manager.emails.resetAll.message">Se resetti tutti i modelli, ogni modifica fatta nel frattempo andrà perduta. Confermi l'operazione?</message>
 	<message key="manager.emails.reset.message">Se resetti questo modello, ogni modifica fatta nel frattempo andrà perduta. Confermi l'operazione?</message>
 	<message key="manager.reviewerSearch.form.instructions">Usa il modulo sottostante per impostare il valore massimo di termini che vuoi cercare. Il modulo è pre-popolato con i valori medi per questi campi.</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">Inserisci ambiti di interesse dei revisori, separati da vigola...</message>
 	<message key="manager.setup.layout.blockManagement">Gestione della barra laterale</message>
 	<message key="plugins.categories.metadata">Plugin per i metadati</message>
 	<message key="plugins.categories.metadata.description">I plugin per i metadati implementano schemi di metadati aggiuntivi</message>

@@ -37,7 +37,7 @@ class PKPCreateUsersTest extends WebTestCase {
 				'roles' => array()
 			), $data);
 
-			$this->waitForElementPresent($selector='button[text()=\'Add User\']');
+			$this->waitForElementPresent($selector='//button[contains(., \'Add User\')]');
 			$this->click($selector);
 			$this->waitForElementPresent('css=[id^=firstName-]');
 

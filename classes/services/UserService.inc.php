@@ -525,7 +525,7 @@ class UserService extends PKPBaseEntityPropertyService {
 			$oldUserValidSubscription = $individualSubscriptionDao->isValidIndividualSubscription($userId, $subscriptionJournalId);
 			if ($oldUserValidSubscription) {
 				// Check if new user has a valid subscription for current journal
-				$newUserSubscription = $individualSubscriptionDao->getByUserId($mergeIntoUserId, $subscriptionJournalId);
+				$newUserSubscription = $individualSubscriptionDao->newUserSubscription($mergeIntoUserId, $subscriptionJournalId);
 				if (!$newUserSubscription) {
 					// New user does not have this subscription, transfer old user's
 					$oldUserSubscription->setUserId($mergeIntoUserId);

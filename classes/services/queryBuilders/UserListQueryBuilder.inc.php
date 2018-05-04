@@ -401,7 +401,6 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 												MAX(ra.date_assigned) AS last_assigned,
 												AVG(" . $dateDiffClause . ") AS average_time
 											FROM review_assignments AS ra
-											WHERE ra.quality IS NOT NULL AND ra.quality != 0
 											GROUP BY ra.reviewer_id
 										) AS aggregation"),
 						function($join) {
@@ -412,9 +411,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 											SELECT ra.reviewer_id,
 												AVG(ra.quality) AS reviewer_rating
 											FROM review_assignments AS ra
-												" . ($localOnly ? "LEFT JOIN submissions AS su ON ra.submission_id = su.submission_id" : "") . "
 											WHERE ra.quality IS NOT NULL AND ra.quality != 0
-												" . ($localOnly ? "AND su.context_id = " . $this->contextId : "") . "
 											GROUP BY ra.reviewer_id
 										) AS aggregation_quality"),
 						function($join) {

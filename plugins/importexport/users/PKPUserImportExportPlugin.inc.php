@@ -117,23 +117,28 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 				}
 				$temporaryFilePath = $temporaryFile->getFilePath();
 				libxml_use_internal_errors(true);
-				$importFilter = $this->importUsers(file_get_contents($temporaryFilePath), $context, $user);
+
+				$filter = $this->getUserImportExportFilter($context, $user);
+				$users = $this->importUsers(file_get_contents($temporaryFilePath), $context, $user, $filter);
 				$validationErrors = array_filter(libxml_get_errors(), function($a) {
 					return $a->level == LIBXML_ERR_ERROR || $a->level == LIBXML_ERR_FATAL;
 				});
 				$templateMgr->assign('validationErrors', $validationErrors);
 				libxml_clear_errors();
-				if ($importFilter->hasErrors()) {
-					$templateMgr->assign('filterErrors', $importFilter->getErrors());
+				if ($filter->hasErrors()) {
+					$templateMgr->assign('filterErrors', $filter->getErrors());
 				}
-				$templateMgr->assign('users', $importFilter->getLastOutput());	
+				$templateMgr->assign('users', $users);
 				$json = new JSONMessage(true, $templateMgr->fetch($this->getTemplatePath() . 'results.tpl'));
 				return $json->getString();
 			case 'export':
+				$filter = $this->getUserImportExportFilter($request->getContext(), $request->getUser(), false);
+
 				$exportXml = $this->exportUsers(
 					(array) $request->getUserVar('selectedUsers'),
 					$request->getContext(),
-					$request->getUser()
+					$request->getUser(),
+					$filter
 				);
 				import('lib.pkp.classes.file.FileManager');
 				$fileManager = new FileManager();
@@ -143,9 +148,12 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 				$fileManager->deleteFile($exportFileName);
 				break;
 			case 'exportAllUsers':
+				$filter = $this->getUserImportExportFilter($request->getContext(), $request->getUser(), false);
+
 				$exportXml = $this->exportAllUsers(
 					$request->getContext(),
-					$request->getUser()
+					$request->getUser(),
+					$filter
 				);
 				import('lib.pkp.classes.file.FileManager');
 				$fileManager = new FileManager();
@@ -164,12 +172,17 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 	 * Get the XML for all of users.
 	 * @param $context Context
 	 * @param $user User
+	 * @param $filter Filter byRef parameter - import/export filter used
 	 * @return string XML contents representing the supplied user IDs.
 	 */
-	function exportAllUsers($context, $user) {
+	function exportAllUsers($context, $user, &$filter) {
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$users = $userGroupDao->getUsersByContextId($context->getId());
-		return $this->exportUsers($users->toArray(), $context, $user);
+		if (!$filter) {
+			$filter = $this->getUserImportExportFilter($context, $user, false);
+		}
+
+		return $this->exportUsers($users->toArray(), $context, $user, $filter);
 	}
 
 	/**
@@ -177,16 +190,17 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 	 * @param $ids array mixed Array of users or user IDs
 	 * @param $context Context
 	 * @param $user User
+	 * @param $filter Filter byRef parameter - import/export filter used
 	 * @return string XML contents representing the supplied user IDs.
 	 */
-	function exportUsers($ids, $context, $user) {
+	function exportUsers($ids, $context, $user, &$filter) {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$xml = '';
-		$filterDao = DAORegistry::getDAO('FilterDAO');
-		$userExportFilters = $filterDao->getObjectsByGroup('user=>user-xml');
-		assert(count($userExportFilters) == 1); // Assert only a single serialization filter
-		$exportFilter = array_shift($userExportFilters);
-		$exportFilter->setDeployment(new PKPUserImportExportDeployment($context, $user));
+
+		if (!$filter) {
+			$filter = $this->getUserImportExportFilter($context, $user, false);
+		}
+
 		$users = array();
 		foreach ($ids as $id) {
 			if (is_a($id, 'User')) {
@@ -196,7 +210,9 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 				if ($user) $users[] = $user;
 			}
 		}
-		$userXml = $exportFilter->execute($users);
+
+
+		$userXml = $filter->execute($users);
 		if ($userXml) $xml = $userXml->saveXml();
 		else fatalError('Could not convert users.');
 		return $xml;
@@ -207,17 +223,38 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 	 * @param $importXml string XML contents to import
 	 * @param $context Context
 	 * @param $user User
+	 * @param $filter Filter byRef parameter - import/export filter used
 	 * @return array Set of imported users
 	 */
-	function importUsers($importXml, $context, $user) {
-		$filterDao = DAORegistry::getDAO('FilterDAO');
-		$userImportFilters = $filterDao->getObjectsByGroup('user-xml=>user');
-		assert(count($userImportFilters) == 1); // Assert only a single unserialization filter
-		$importFilter = array_shift($userImportFilters);
-		$importFilter->setDeployment(new PKPUserImportExportDeployment($context, $user));
+	function importUsers($importXml, $context, $user, &$filter) {
+		if (!$filter) {
+			$filter = $this->getUserImportExportFilter($context, $user);
+		}
 
-		$importFilter->execute($importXml);
-		return $importFilter;
+		return $filter->execute($importXml);
+	}
+
+	/**
+	 * Return user filter for import purposes
+	 * @param $context Context
+	 * @param $user User
+	 * @param $isImport bool return Import Filter if true - export if false
+	 * @return Filter
+	 */
+	function getUserImportExportFilter($context, $user, $isImport = true) {
+		$filterDao = DAORegistry::getDAO('FilterDAO');
+
+		if ($isImport) {
+			$userFilters = $filterDao->getObjectsByGroup('user-xml=>user');
+		} else {
+			$userFilters = $filterDao->getObjectsByGroup('user=>user-xml');
+		}
+
+		assert(count($userFilters) == 1); // Assert only a single unserialization filter
+		$filter = array_shift($userFilters);
+		$filter->setDeployment(new PKPUserImportExportDeployment($context, $user));
+
+		return $filter;
 	}
 }
 

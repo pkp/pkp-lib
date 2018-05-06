@@ -29,6 +29,10 @@
 		{fbvElement type="text" label="user.familyName" multilingual="true" name="familyName" id="familyName" value=$familyName maxlength="255" inline=true size=$fbvStyles.size.MEDIUM}
 	{/fbvFormSection}
 
+	{fbvFormSection for="preferedPublicName" description="user.preferedPublicName.description"}
+		{fbvElement type="text" label="user.preferedPublicName" multilingual="true" name="preferedPublicName" id="preferedPublicName" value=$preferedPublicName inline=true size=$fbvStyles.size.LARGE}
+	{/fbvFormSection}
+
 	{if !$disableUserNameSection}
 		{if !$userId}{capture assign="usernameInstruction"}{translate key="user.register.usernameRestriction"}{/capture}{/if}
 		{fbvFormSection for="username" description=$usernameInstruction translate=false}

@@ -71,6 +71,7 @@ class IdentityForm extends BaseProfileForm {
 		$this->_data = array(
 			'givenName' => $user->getGivenName(null),
 			'familyName' => $user->getFamilyName(null),
+			'preferedPublicName' => $user->getPreferedPublicName(null),
 		);
 	}
 
@@ -81,7 +82,7 @@ class IdentityForm extends BaseProfileForm {
 		parent::readInputData();
 
 		$this->readUserVars(array(
-			'givenName', 'familyName',
+			'givenName', 'familyName', 'preferedPublicName',
 		));
 	}
 
@@ -93,6 +94,7 @@ class IdentityForm extends BaseProfileForm {
 
 		$user->setGivenName($this->getData('givenName'), null);
 		$user->setFamilyName($this->getData('familyName'), null);
+		$user->setPreferedPublicName($this->getData('preferedPublicName'), null);
 
 		parent::execute($request, $user);
 	}

@@ -328,6 +328,19 @@ class PKPLocale {
 	}
 
 	/**
+	 * Determine whether or not a locale uses last name first.
+	 * @param $locale xx_XX symbolic name of locale to check
+	 * @return boolean
+	 */
+	static function isLocaleWithLastFirst($locale) {
+		$contents =& AppLocale::_getAllLocalesCacheContent();
+		if (isset($contents[$locale]) && isset($contents[$locale]['lastFirst']) && $contents[$locale]['lastFirst'] == 'true') {
+			return true;
+		}
+		return false;
+	}
+
+	/**
 	 * Check if the supplied locale is currently installable.
 	 * @param $locale string
 	 * @return boolean

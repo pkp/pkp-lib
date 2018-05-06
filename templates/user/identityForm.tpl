@@ -36,6 +36,10 @@
 		{/fbvFormSection}
 	{/fbvFormArea}
 
+	{fbvFormSection for="preferedPublicName" description="user.preferedPublicName.description"}
+		{fbvElement type="text" label="user.preferedPublicName" multilingual="true" name="preferedPublicName" id="preferedPublicName" value=$preferedPublicName inline=true size=$fbvStyles.size.LARGE}
+	{/fbvFormSection}
+
 	{fbvFormButtons hideCancel=true submitText="common.save"}
 
 	<p>

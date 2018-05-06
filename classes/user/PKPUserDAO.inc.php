@@ -357,7 +357,8 @@ class PKPUserDAO extends DAO {
 	 * @copydoc DAO::getLocaleFieldNames
 	 */
 	function getLocaleFieldNames() {
-		return array('biography', 'signature', 'affiliation', IDENTITY_SETTING_GIVENNAME, IDENTITY_SETTING_FAMILYNAME);
+		return array('biography', 'signature', 'affiliation',
+			IDENTITY_SETTING_GIVENNAME, IDENTITY_SETTING_FAMILYNAME, 'preferedPublicName');
 	}
 
 	/**

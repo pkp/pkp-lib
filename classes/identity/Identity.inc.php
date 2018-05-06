@@ -66,10 +66,15 @@ class Identity extends DataObject {
 	 * @param $familyFirst boolean False / default: Givenname Familyname
 	 * 	If true: Familyname, Givenname
 	 * @param $defaultLocale string
+	 * @param $prefered boolean If the prefered public name should be used, if exist
 	 * @return string
 	 */
-	function getFullName($familyFirst = false, $defaultLocale = null) {
+	function getFullName($familyFirst = false, $defaultLocale = null, $prefered = true) {
 		$locale = AppLocale::getLocale();
+		if ($prefered) {
+			$preferedPublicName = $this->getPreferedPublicName($locale);
+			if (!empty($preferedPublicName)) return $preferedPublicName;
+		}
 		$givenName = $this->getGivenName($locale);
 		if (empty($givenName)) {
 			if (is_null($defaultLocale)) {
@@ -92,8 +97,8 @@ class Identity extends DataObject {
 
 	/**
 	 * Get given name.
-	 * @return string
 	 * @param $locale string
+	 * @return string
 	 */
 	function getGivenName($locale) {
 		return $this->getData(IDENTITY_SETTING_GIVENNAME, $locale);
@@ -155,6 +160,24 @@ class Identity extends DataObject {
 			assert(!empty($this->getGivenName($locale)));
 		}
 		return $this->getFamilyName($locale);
+	}
+
+	/**
+	 * Get prefered public name.
+	 * @param $locale string
+	 * @return string
+	 */
+	function getPreferedPublicName($locale) {
+		return $this->getData('preferedPublicName', $locale);
+	}
+
+	/**
+	 * Set prefered public name.
+	 * @param $preferedPublicName string
+	 * @param $locale string
+	 */
+	function setPreferedPublicName($preferedPublicName, $locale) {
+		$this->setData('preferedPublicName', $preferedPublicName, $locale);
 	}
 
 	/**

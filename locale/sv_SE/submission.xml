@@ -384,7 +384,7 @@
 	<message key="submission.submit.form.typeRequired">Vänligen ange typ.</message>
 	<message key="submission.submit.form.sourceRequired">Vänligen ange källa.</message>
 	<message key="submission.submit.form.rightsRequired">Vänligen ange rättigheter.</message>
-	<message key="submission.submit.form.citaionsRequired">Vänligen ange referenser.</message>
+	<message key="submission.submit.form.citationsRequired">Vänligen ange referenser.</message>
 
 	<!-- Submission file upload form elements -->
 	<message key="submission.form.name">Namnge filen (t.ex. Manus; Tabell 1)</message>
@@ -626,4 +626,5 @@
 	<message key="submission.list.reviewerWorkflowLink"><![CDATA[Du har blivit tilldelad en redaktörsroll för det här bidraget. Vill du gå till <a href="{$urlEditorialWorkflow}">det redaktionella arbetsflödet</a>?]]></message>
 	<message key="submission.list.incompleteSubmissionNotice">Det här bidraget måste vara färdigt innan en redaktör granskar det.</message>
 	<message key="submission.list.currentStage">För närvarande i {$stage}-steget.</message>
+	<message key="submission.list.assignEditor">Tilldela redaktör</message>
 </locale>

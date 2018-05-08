@@ -384,7 +384,7 @@
 	<message key="submission.submit.form.typeRequired">Please enter the type.</message>
 	<message key="submission.submit.form.sourceRequired">Please enter the source.</message>
 	<message key="submission.submit.form.rightsRequired">Please enter the rights.</message>
-	<message key="submission.submit.form.citaionsRequired">Please enter the references.</message>
+	<message key="submission.submit.form.citationsRequired">Please enter the references.</message>
 
 	<!-- Submission file upload form elements -->
 	<message key="submission.form.name">Name the file (e.g., Manuscript; Table 1)</message>
@@ -626,4 +626,5 @@
 	<message key="submission.list.reviewerWorkflowLink"><![CDATA[You have been assigned an editorial role for this submission. Would you like to access the <a href="{$urlEditorialWorkflow}">Editorial workflow</a>?]]></message>
 	<message key="submission.list.incompleteSubmissionNotice">This submission must be completed before an editor will review it.</message>
 	<message key="submission.list.currentStage">Currently in the {$stage} stage.</message>
+	<message key="submission.list.assignEditor">Assign Editor</message>
 </locale>

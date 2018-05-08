@@ -97,7 +97,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm {
 			'warnOnAssignment' => $warnOnAssignment,
 		));
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('selectReviewerListData', json_encode($selectReviewerListHandler->getConfig()));
+		$templateMgr->assign('selectReviewerListData', $selectReviewerListHandler->getConfig());
 
 		// Only add actions to forms where user can operate.
 		if (array_intersect($this->getUserRoles(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR))) {

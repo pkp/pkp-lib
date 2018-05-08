@@ -39,7 +39,7 @@
 	<message key="reviewer.complete">Évaluation envoyée</message>
 	<message key="reviewer.confirmSubmit">Vous voulez vraiment envoyer cette évaluation?</message>
 	<message key="reviewer.aboutDueDates">À propos des dates d'échéance</message>
-	<message key="reviewer.complete.whatNext">Merci d'avoir évaluer cette soumission. Votre évaluation a bien été reçue. Nous apprécions votre contribution à la qualité du travail que nous publions. L'éditeur pourrait vous contacter à nouveau pour obtenir d'autres renseignements, le cas échéant.</message>
+	<message key="reviewer.complete.whatNext">Merci d'avoir évalué cette soumission. Votre évaluation a bien été reçue. Nous apprécions votre contribution à la qualité du travail que nous publions. L'éditeur pourrait vous contacter à nouveau pour obtenir d'autres renseignements, le cas échéant.</message>
 	<message key="reviewer.aboutDueDates.text">L'éditeur demande que vous acceptiez ou refusiez d'évaluer la soumission avant la date d'échéance, et complétiez l'évaluation avant la date d'échéance.</message>
 	<message key="submission.comments.canShareWithAuthor">Ce texte sera transmis à l'auteur et au rédacteur</message>
 	<message key="submission.comments.cannotShareWithAuthor">Ce texte sera transmis au rédacteur</message>

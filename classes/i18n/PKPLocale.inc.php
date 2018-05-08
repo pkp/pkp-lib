@@ -57,7 +57,7 @@ define('LOCALE_COMPONENT_PKP_GRID',		0x00000008);
 define('LOCALE_COMPONENT_PKP_DEFAULT',		0x00000009);
 define('LOCALE_COMPONENT_PKP_EDITOR',		0x0000000A);
 define('LOCALE_COMPONENT_PKP_REVIEWER',		0x0000000B);
-define('LOCALE_COMPONENT_PKP_API',			0x00000107);
+define('LOCALE_COMPONENT_PKP_API',		0x0000000C);
 
 // Application-specific locale components
 define('LOCALE_COMPONENT_APP_COMMON',		0x00000100);
@@ -216,6 +216,7 @@ class PKPLocale {
 	 */
 	static function requireComponents() {
 		$params = func_get_args();
+
 		$paramCount = count($params);
 		if ($paramCount === 0) return;
 

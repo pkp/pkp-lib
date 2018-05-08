@@ -385,7 +385,7 @@
 	<message key="submission.submit.form.typeRequired">Пожалуйста, укажите тип.</message>
 	<message key="submission.submit.form.sourceRequired">Пожалуйста, укажите источник.</message>
 	<message key="submission.submit.form.rightsRequired">Пожалуйста, укажите права на материал.</message>
-	<message key="submission.submit.form.citaionsRequired">Пожалуйста, укажите библиографические ссылки.</message>
+	<message key="submission.submit.form.citationsRequired">Пожалуйста, укажите библиографические ссылки.</message>
 
 	<!-- Элементы формы загрузки файла материала -->
 	<message key="submission.form.name">Назовите файл (например, Рукопись; Таблица 1)</message>
@@ -627,4 +627,5 @@
 	<message key="submission.list.reviewerWorkflowLink"><![CDATA[Вам назначена роль в редакции для этого материала. Вы хотите воспользоваться <a href="{$urlEditorialWorkflow}">Рабочим потоком редакции</a>?]]></message>
 	<message key="submission.list.incompleteSubmissionNotice">Этот материал должен быть завершен до того, как редактор будет его рецензировать.</message>
 	<message key="submission.list.currentStage">Сейчас на этапе «{$stage}».</message>
+	<message key="submission.list.assignEditor">Назначить редактора</message>
 </locale>

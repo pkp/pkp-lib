@@ -33,14 +33,12 @@
 	<message key="installer.databasePassword">Senha para acesso à base de dados</message>
 	<message key="installer.databaseSettings">Configurações de Bases de Dados</message>
 	<message key="installer.databaseUsername">Utilizador da base de dados</message>
-	<message key="installer.encryption">Algoritmo de criptografia de senha</message>
 	<message key="installer.filesDir">Pasta para Envio de Ficheiros</message>
 	<message key="installer.fileSettings">Configurações de Ficheiros</message>
 	<message key="installer.form.clientCharsetRequired">Deve ser definido um conjunto de caracteres do cliente.</message>
 	<message key="installer.form.databaseDriverRequired">É obrigatório o driver de base de dados.</message>
 	<message key="installer.form.databaseNameRequired">É obrigatório o nome da base de dados.</message>
 	<message key="installer.form.emailRequired">É obrigatório um endereço de e-mail válido.</message>
-	<message key="installer.form.encryptionRequired">É obrigatório o algoritmo de criptografia de senha.</message>
 	<message key="installer.form.filesDirRequired">É obrigatório a pasta para envio de ficheiros.</message>
 	<message key="installer.form.localeRequired">Deve ser definido um idioma.</message>
 	<message key="installer.form.passwordRequired">Senha obrigatória.</message>
@@ -56,12 +54,10 @@
 	<message key="installer.installParseDBFileError"><![CDATA[Erro na execução do documento de instalação da base de dados <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Idioma</message>
 	<message key="installer.localeSettings">Configurações de Idioma</message>
-	<message key="installer.miscSettings">Configurações Gerais</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Um identificador único de registos de metadados indexados através do protocolo de Recolha de Metadados do <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a>.]]></message>
 	<message key="installer.oaiRepositoryId">Identificador para repositório OAI</message>
 	<message key="installer.publicFilesDirError">A pasta de documentos públicos não existe ou não possui permissão de escrita.</message>
 	<message key="installer.releaseNotes">Notas da Versão</message>
-	<message key="installer.securitySettings">Configurações de Segurança</message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Erro ao tentar analisar o ficheiro de e-mail padrão <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale.maybeIncomplete">Traduções marcadas podem estar incompletas.</message>
 	<message key="installer.installParseFilterConfigFileError"><![CDATA[Erro ao analisar o ficheiro de configuração do filtro <tt>{$file}</tt>.]]></message>
@@ -82,4 +78,5 @@
 	<message key="installer.configureXSLMessage"><![CDATA[<p>A sua instalação do PHP não possui o módulo XSL activado. Active-o, ou configure o parâmetro xslt_command no ficheiro config.inc.php.</p>]]></message>
 	<message key="installer.beacon">Beacon</message>
 	<message key="installer.beacon.enable">Forneça um ID de site único e URL base OAI para PKP apenas para estatísticas e avisos de segurança.</message>
+	<message key="installer.unsupportedPhpError">A versão de PHP do seu servidor não é suportada por esta aplicação. Verifique os requisitos de instalação no ficheiro docs/README.</message>
 </locale>

@@ -41,7 +41,7 @@
 	<message key="user.interests">Intresseområden för granskning</message>
 	<message key="user.interests.description">(Separera intressen genom att trycka enter eller komma)</message>
 	<message key="user.gossip">Redaktionella anteckningar</message>
-	<message key="user.gossip.description">Anteckningar som matas in här är bara synliga för administratörer, tidskriftsansvariga, redaktörer och underredaktörer.</message>
+	<message key="user.gossip.description">Mata in anteckningar om den här granskaren som du vill göra synliga för andra administratörer, tidskriftsansvariga, redaktörer och underredaktörer. Anteckningarna blir synliga för framtida granskningsuppdrag.</message>
 	<message key="user.group">Användargrupp</message>
 	<message key="user.lastName">Efternamn</message>
 	<message key="user.profile.form.profileImageInvalid">Ogiltigt format för profilbild, eller för stor bild. Godkända format är  .gif, .jpg, och .png, och bilden får inte ara större än 150x150 pixlar.</message>

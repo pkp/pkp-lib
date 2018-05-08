@@ -64,6 +64,20 @@ class EditReviewForm extends Form {
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$context = $request->getContext();
+
+		if (!$this->_reviewAssignment->getDateCompleted()){
+			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
+			$reviewFormsIterator = $reviewFormDao->getActiveByAssocId(Application::getContextAssocType(), $context->getId());
+			$reviewForms = array();
+			while ($reviewForm = $reviewFormsIterator->next()) {
+				$reviewForms[$reviewForm->getId()] = $reviewForm->getLocalizedTitle();
+			}
+			$templateMgr->assign(array(
+				'reviewForms' => $reviewForms,
+				'reviewFormId' => $this->_reviewAssignment->getReviewFormId(),
+			));
+		}
 
 		$templateMgr->assign(array(
 			'stageId' => $this->_reviewAssignment->getStageId(),
@@ -86,6 +100,8 @@ class EditReviewForm extends Form {
 			'responseDueDate',
 			'reviewDueDate',
 			'reviewMethod',
+			'reviewFormId',
+
 		));
 	}
 
@@ -94,6 +110,9 @@ class EditReviewForm extends Form {
 	 * @param $request PKPRequest
 	 */
 	function execute() {
+		$request = Application::getRequest();
+		$context = $request->getContext();
+
 		// Get the list of available files for this review.
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 		import('lib.pkp.classes.submission.SubmissionFile'); // File constants
@@ -143,7 +162,17 @@ class EditReviewForm extends Form {
 		$reviewAssignment->setDateDue($this->getData('reviewDueDate'));
 		$reviewAssignment->setDateResponseDue($this->getData('responseDueDate'));
 		$reviewAssignment->setReviewMethod($this->getData('reviewMethod'));
+
+		if (!$reviewAssignment->getDateCompleted()){
+			// Ensure that the review form ID is valid, if specified
+			$reviewFormId = (int) $this->getData('reviewFormId');
+			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
+			$reviewForm = $reviewFormDao->getById($reviewFormId, Application::getContextAssocType(), $context->getId());
+			$reviewAssignment->setReviewFormId($reviewForm?$reviewFormId:null);
+		}
+
 		$reviewAssignmentDao->updateObject($reviewAssignment);
+
 	}
 }
 

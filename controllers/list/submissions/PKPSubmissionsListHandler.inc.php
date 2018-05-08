@@ -73,6 +73,17 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 			array('submissionId' => '__id__')
 		);
 
+		// URL to assign a participant
+		$config['assignParticipantUrl'] = $request->getDispatcher()->url(
+			$request,
+			ROUTE_COMPONENT,
+			null,
+			'grid.users.stageParticipant.StageParticipantGridHandler',
+			'addParticipant',
+			null,
+			array('submissionId' => '__id__', 'stageId' => '__stageId__')
+		);
+
 		$config['apiPath'] = $this->_apiPath;
 
 		$config['count'] = $this->_count;
@@ -137,6 +148,7 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 			'galleysCreated' => __('submission.list.galleysCreated'),
 			'filesPrepared' => __('submission.list.filesPrepared'),
 			'discussions' => __('submission.list.discussions'),
+			'assignEditor' => __('submission.list.assignEditor'),
 			'dualWorkflowLinks' => __('submission.list.dualWorkflowLinks'),
 			'reviewerWorkflowLink' => __('submission.list.reviewerWorkflowLink'),
 			'incompleteSubmissionNotice' => __('submission.list.incompleteSubmissionNotice'),

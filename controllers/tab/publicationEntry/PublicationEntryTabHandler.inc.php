@@ -169,6 +169,20 @@ class PublicationEntryTabHandler extends Handler {
 				}
 			} else {
 				// Could not validate; redisplay the form.
+				// Provide entered tagit fields values
+				$tagitKeywords = $form->getData('keywords');
+				if (is_array($tagitKeywords)) {
+					$tagitFieldNames = $form->_metadataFormImplem->getTagitFieldNames();
+					$locales = array_keys($form->supportedLocales);
+					$formTagitData = array();
+					foreach ($tagitFieldNames as $tagitFieldName) {
+						foreach ($locales as $locale) {
+							$formTagitData[$locale] = array_key_exists($locale . "-$tagitFieldName", $tagitKeywords) ? $tagitKeywords[$locale . "-$tagitFieldName"] : array();
+						}
+						$form->setData($tagitFieldName, $formTagitData);
+					}
+				}
+
 				$json->setStatus(true);
 				$json->setContent($form->fetch($request));
 			}

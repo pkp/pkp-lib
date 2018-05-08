@@ -52,6 +52,33 @@ class SupplementaryFileDAODelegate extends SubmissionFileDAODelegate {
 	}
 
 	/**
+	 * @see SubmissionFileDAODelegate::update()
+	 * @param $suppFile SupplementaryFile
+	 * @param $previousFile SupplementaryFile
+	 * @return boolean True if success.
+	 */
+	function updateObject($suppFile, $previousFile) {
+		// Update the parent class table first.
+		if (!parent::updateObject($suppFile, $previousFile)) return false;
+
+		// Now update the supplementary file table.
+		$this->update(
+			'UPDATE submission_supplementary_files
+			SET
+				file_id = ?,
+				revision = ?
+			WHERE file_id = ? AND revision = ?',
+			array(
+				(int)$suppFile->getFileId(),
+				(int)$suppFile->getRevision(),
+				(int)$previousFile->getFileId(),
+				(int)$previousFile->getRevision()
+			)
+		);
+		return true;
+	}
+
+	/**
 	 * @copydoc SubmissionFileDAODelegate::deleteObject()
 	 */
 	function deleteObject($submissionFile) {
@@ -100,6 +127,7 @@ class SupplementaryFileDAODelegate extends SubmissionFileDAODelegate {
 	function newDataObject() {
 		return new SupplementaryFile();
 	}
+
 }
 
 ?>

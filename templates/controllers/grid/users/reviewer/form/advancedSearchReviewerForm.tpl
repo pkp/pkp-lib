@@ -22,7 +22,7 @@
 		{assign var="uuid" value=""|uniqid|escape}
 		<div id="select-reviewer-list-handler-{$uuid}">
 			<script type="text/javascript">
-				pkp.registry.init('select-reviewer-list-handler-{$uuid}', 'SelectReviewerListPanel', {$selectReviewerListData});
+				pkp.registry.init('select-reviewer-list-handler-{$uuid}', 'SelectReviewerListPanel', {$selectReviewerListData|@json_encode});
 			</script>
 		</div>
 

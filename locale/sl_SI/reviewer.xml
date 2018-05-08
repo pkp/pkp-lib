@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/sl_SI/reviewer.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings
+  -->
+
+<locale name="sl_SI" full_name="Slovenščina">
+	<!-- Used in submission review -->
+	<message key="reviewer.reviewSteps.request">1. Prošnja</message>
+	<message key="reviewer.reviewSteps.guidelines">2. Smernice</message>
+	<message key="reviewer.reviewSteps.download">3. Prenos in recenzija</message>
+	<message key="reviewer.reviewSteps.completion">4. Dokončaj</message>
+	<message key="reviewer.step1.request">Prošnja za recenzijo</message>
+	<message key="reviewer.step1.requestBoilerplate">Izbrani ste bili za potencialnega recenzenta tega prispevka. Spodaj najdete pregled prispevka in časovni načrt za recenzijo. Upamo, da boste lahko sodelovali.</message>
+	<message key="reviewer.step1.viewAllDetails">Ogled vseh podrobnosti o prispevku</message>
+	<message key="reviewer.submission.reviewerFiles">Datoteke za recenzenta</message>
+	<message key="reviewer.submission.declineReview">Zavrni prošnjo za recenzijo</message>
+	<message key="reviewer.submission.declineReviewMessage">V spodnjem polju lahko uredniku navedete razloge, zakaj ste zavrnili recenzijo.</message>
+	<message key="reviewer.submission.acceptReview">Sprejmi recenzijo in nadaljuj na drugi korak</message>
+	<message key="reviewer.submission.continueToStepThree">Nadaljuj na tretji korak</message>
+	<message key="reviewer.submission.submitReview">Oddaj recenzijo</message>
+	<message key="reviewer.submission.reviewerGuidelines">Smernice za recenzente</message>
+	<message key="reviewer.submission.enterCompetingInterests">Ta založba ima pravilnik o razkritju morebitnih konfliktov interesov svojih recenzentov. Prosimo vas, da si preberete pravilnik.</message>
+	<message key="reviewer.submission.noCompetingInterests">Moje sodelovanje ne bo vodilo v morebitni konflikt interesov</message>
+	<message key="reviewer.submission.hasCompetingInterests">Moje sodelovanje bo morda vodilo v konflikt interesov (opredelite spodaj)</message>
+	<message key="reviewer.submission.competingInterests">Konflikti interesov</message>
+	<message key="reviewer.submission.guidelines">Smernice za recenzijo</message>
+	<message key="reviewer.submission.noGuidelines">Založnik ni postavil nobenih smernic za recenzente.</message>
+	<message key="reviewer.submission.downloadDescription">Kliknite na imena datotek za prenos datotek, povezanih s tem prispevkom.</message>
+	<message key="reviewer.submission.reviewDescription">Recenzijo prispevka vnesite (ali prilepite) v spodnje polje.</message>
+	<message key="reviewer.submission.uploadDescription">Naložite datoteke, za katere želite, da si jih urednik in/ali avtor ogleda, vključno s pregledanimi različicami izvirne recenzentske datoteke.</message>
+	<message key="reviewer.complete">Recenzija je oddana</message>
+	<message key="reviewer.confirmSubmit">Ste prepričani, da želite poslati to recenzijo?</message>
+	<message key="reviewer.complete.whatNext">Hvala, da ste dokončali recenzijo tega prispevka. Recenzija je uspešno oddana. Zahvaljujemo se vam za vaš prispevek h kvaliteti del, ki jih objavljamo; urednik vas bo morda zopet kontaktiral, če bo potreboval dodatne informacije.</message>
+	<message key="reviewer.aboutDueDates">O rokih oddaje</message>
+	<message key="reviewer.aboutDueDates.text">Urednik vas prosi, da sprejmete ali zavrnete recenzijo še pred rokom oddaje odgovora oz. da sprejeto recenzijo dokončate še pred rokom oddaje recenzije.</message>
+	<message key="submission.comments.canShareWithAuthor">Za avtorja in urednika</message>
+	<message key="submission.comments.cannotShareWithAuthor">Le za urednika</message>
+	<message key="user.authorization.submissionReviewer">Trenutnemu uporabniku ni dodeljena vloga recenzenta za ta dokument.</message>
+</locale>

@@ -29,14 +29,12 @@
 	 *
 	 * @param {jQueryObject} $handledElement The clickable element
 	 *  the link action will be attached to.
-	 * @param {{actionRequest, actionRequestOptions, actionResponseOptions}} options
+	 * @param {{actionRequest, actionRequestOptions}} options
 	 *  Configuration of the link action handler. The object must contain the
 	 *  following elements:
 	 *  - actionRequest: The action to be executed when the link
 	 *                   action is being activated.
 	 *  - actionRequestOptions: Configuration of the action request.
-	 *  - actionResponse: The action's response listener.
-	 *  - actionResponseOptions: Options for the response listener.
 	 */
 	$.pkp.controllers.linkAction.LinkActionHandler =
 			function($handledElement, options) {

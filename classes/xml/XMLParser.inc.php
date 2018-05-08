@@ -236,7 +236,7 @@ class XMLParser {
 
 				$data[$key][] = array(
 					'attributes' => isset($values[$index]['attributes']) ? $values[$index]['attributes'] : array(),
-					'value' => isset($values[$index]['value']) ? trim($values[$index]['value']) : ''
+					'value' => isset($values[$index]['value']) ? $values[$index]['value'] : ''
 				);
 			}
 		}

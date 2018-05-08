@@ -54,7 +54,7 @@ class PaymentMethodForm extends ContextSettingsForm {
 	/**
 	 * @copydoc ContextSettingsForm::fetch()
 	 */
-	function fetch($request, $params = null) {
+	function fetch($request, $template = null, $display = false, $params = null) {
 		$templateMgr = TemplateManager::getManager($request);
 		$currencyDao = DAORegistry::getDAO('CurrencyDAO');
 		$currencies = array();
@@ -62,7 +62,7 @@ class PaymentMethodForm extends ContextSettingsForm {
 			$currencies[$currency->getCodeAlpha()] = $currency->getName();
 		}
 		$templateMgr->assign('currencies', $currencies);
-		return parent::fetch($request, $params);
+		return parent::fetch($request, $template, $display, $params);
 	}
 
 	/**

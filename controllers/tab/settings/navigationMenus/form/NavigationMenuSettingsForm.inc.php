@@ -25,16 +25,6 @@ class NavigationMenuSettingsForm extends ContextSettingsForm {
 
 		parent::__construct($settings, 'controllers/tab/settings/navigationMenus/form/navigationMenuSettingsForm.tpl', $wizardMode);
 	}
-
-	//
-	// Implement template methods from ContextSettingsForm.
-	//
-	/**
-	 * @copydoc ContextSettingsForm::fetch()
-	 */
-	function fetch($request, $params = null) {
-		return parent::fetch($request);
-	}
 }
 
 ?>

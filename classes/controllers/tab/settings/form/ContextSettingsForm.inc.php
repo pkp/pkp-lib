@@ -103,13 +103,14 @@ class ContextSettingsForm extends Form {
 	 * @param $template string the template to be rendered, mandatory
 	 *  if no template has been specified on class instantiation.
 	 * @param $display boolean
+	 * @param $params array optional
 	 * @return string the rendered form
 	 */
-	function fetch($request, $template = null, $display = false) {
+	function fetch($request, $template = null, $display = false, $params = null) {
 		$templateMgr = TemplateManager::getManager($request);
 
 		// Insert the wizardMode parameter in params array to pass to template.
-		$params = array('wizardMode' => $this->getWizardMode());
+		$params = array_merge((array)$params, array('wizardMode' => $this->getWizardMode()));
 
 		// Pass the parameters to template.
 		foreach($params as $tplVar => $value) {

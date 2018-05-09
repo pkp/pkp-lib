@@ -111,20 +111,20 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 				$userGroupNames[$managerUserGroup->getId()] = $managerUserGroup->getLocalizedName();
 			}
 			$managerGroups = join(__('common.listSeparator'), $userGroupNames);
-			$userGroupNames = array_replace($userGroupNames, $availableUserGroupNames); 
+			$userGroupNames = array_replace($userGroupNames, $availableUserGroupNames);
 
 			// Set default group to default manager group
 			$defaultGroup = $userGroupDao->getDefaultByRoleId($this->context->getId(), ROLE_ID_MANAGER);
-		}
+
 		// else if the user only has existing author roles, add to selection
-		else if (!$authorUserGroupAssignments->wasEmpty()) {
+		} else if (!$authorUserGroupAssignments->wasEmpty()) {
 			while($authorUserGroupAssignment = $authorUserGroupAssignments->next()) {
 				$authorUserGroup = $userGroupDao->getById($authorUserGroupAssignment->getUserGroupId());
 				$userGroupNames[$authorUserGroup->getId()] = $authorUserGroup->getLocalizedName();
 			}
-		}
+
 		// else the user has no roles, only add available author roles to selection
-		else {
+		} else {
 			$userGroupNames = $availableUserGroupNames;
 			$noExistingRoles = true;
 		}
@@ -265,7 +265,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		$user = $request->getUser();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 
-		// Enroll user if needed 
+		// Enroll user if needed
 		$userGroupId = (int) $this->getData('userGroupId');
 		if (!$userGroupDao->userInGroup($user->getId(), $userGroupId)) {
 			$userGroupDao->assignUserToGroup($user->getId(), $userGroupId);

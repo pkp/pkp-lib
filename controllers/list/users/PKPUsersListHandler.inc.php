@@ -161,7 +161,7 @@ class PKPUsersListHandler extends ListHandler {
 					array(
 						'param' => 'roleIds',
 						'val' => ROLE_ID_ASSISTANT,
-						'title' => __('user.role.journalAssistants'),
+						'title' => __('user.role.assistants'),
 					),
 					array(
 						'param' => 'roleIds',

@@ -117,7 +117,8 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter {
 		}
 
 		if (empty($author->getGivenName($submission->getLocale()))) {
-			$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.missingGivenName', array('param' => $author->getLocalizedGivenName())));
+			$allLocales = AppLocale::getAllLocales();
+			$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.missingGivenName', array('authorName' => $author->getLocalizedGivenName(), 'localeName' => $allLocales[$submission->getLocale()])));
 		}
 		$authorDao->insertObject($author);
 		return $author;

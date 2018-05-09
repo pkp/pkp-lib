@@ -27,8 +27,7 @@ class PKPUserImportExportDeployment extends PKPImportExportDeployment {
 	 */
 	function __construct($context, $user) {
 		parent::__construct($context, $user);
-		$siteDao = DAORegistry::getDAO('SiteDAO');
-		$site = $siteDao->getSite();
+		$site = Application::getRequest()->getSite();
 		$this->setSite($site);
 	}
 

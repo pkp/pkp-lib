@@ -366,12 +366,12 @@ class Form {
 	 * @param $supportedLocale string
 	 */
 	function addSupportedFormLocale($supportedLocale) {
-		$siteDao = DAORegistry::getDAO('SiteDAO');
-		$site = $siteDao->getSite();
-		$siteSupportedLocales = $site->getSupportedLocaleNames();
-		if (array_key_exists($supportedLocale, $siteSupportedLocales) &&
-			!in_array($supportedLocale, $this->supportedLocales)) {
-			$this->supportedLocales[$supportedLocale] = $siteSupportedLocales[$supportedLocale];
+		if (!in_array($supportedLocale, $this->supportedLocales)) {
+			$site = Application::getRequest()->getSite();
+			$siteSupportedLocales = $site->getSupportedLocaleNames();
+			if (array_key_exists($supportedLocale, $siteSupportedLocales)) {
+				$this->supportedLocales[$supportedLocale] = $siteSupportedLocales[$supportedLocale];
+			}
 		}
 	}
 

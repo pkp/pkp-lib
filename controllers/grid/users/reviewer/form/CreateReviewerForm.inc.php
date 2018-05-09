@@ -27,8 +27,7 @@ class CreateReviewerForm extends ReviewerForm {
 
 		// the users register for the site, thus
 		// the site primary locale is the required default locale
-		$siteDao = DAORegistry::getDAO('SiteDAO');
-		$site = $siteDao->getSite();
+		$site = Application::getRequest()->getSite();
 		$this->addSupportedFormLocale($site->getPrimaryLocale());
 
 		$form = $this;

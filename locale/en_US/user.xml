@@ -78,14 +78,14 @@
 	<message key="user.repeatPassword">Repeat password</message>
 	<message key="user.phone">Phone</message>
 	<message key="user.preferedPublicName">Prefered Public Name</message>
-	<message key="user.preferedPublicName.description">The prefered public name will be used ... Middle name, salutation and suffix can also be added here.</message>
+	<message key="user.preferedPublicName.description">How do you prefer to be addressed? Salutations, middle names and suffixes can be added here if you would like.</message>
 	<message key="user.profile.changePasswordInstructions">Enter your current and new passwords below to change the password for your account.</message>
 	<message key="user.profile.editProfile">Edit Profile</message>
 	<message key="user.profile.form.countryRequired">A country is required.</message>
 	<message key="user.profile.form.emailRequired">A valid email address is required.</message>
 	<message key="user.profile.form.affiliationRequired">An affiliation is required.</message>
-	<message key="user.profile.form.givenNameRequired">A first name is required.</message>
-	<message key="user.profile.form.givenNameRequired.locale">A first name is required for a locale in which only the last name exists.</message>
+	<message key="user.profile.form.givenNameRequired">A given name is required.</message>
+	<message key="user.profile.form.givenNameRequired.locale">You have added a family name for a language that is missing the given name. Please add a given name for this language.</message>
 	<message key="user.profile.form.mailingAddressRequired">A mailing address is required.</message>
 	<message key="user.profile.form.newPasswordRequired">You must enter your new password.</message>
 	<message key="user.profile.form.oldPasswordInvalid">The current password you entered was incorrect.</message>

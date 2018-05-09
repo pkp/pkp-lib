@@ -35,8 +35,7 @@ class Identity extends DataObject {
 		$localePrecedence = array($preferredLocale);
 		// the users register for the site, thus
 		// the site primary locale is the default locale
-		$siteDao = DAORegistry::getDAO('SiteDAO');
-		$site = $siteDao->getSite();
+		$site = Application::getRequest()->getSite();
 		if (!in_array($site->getPrimaryLocale(), $localePrecedence)) $localePrecedence[] = $site->getPrimaryLocale();
 		// for settings other than givenName, familyName and affiliation (that are required for registration)
 		// consider also the context primary locale
@@ -80,8 +79,7 @@ class Identity extends DataObject {
 			if (is_null($defaultLocale)) {
 				// the users register for the site, thus
 				// the site primary locale is the default locale
-				$siteDao = DAORegistry::getDAO('SiteDAO');
-				$site = $siteDao->getSite();
+				$site = Application::getRequest()->getSite();
 				$defaultLocale = $site->getPrimaryLocale();
 			}
 			$locale = $defaultLocale;
@@ -152,8 +150,7 @@ class Identity extends DataObject {
 			if (is_null($defaultLocale)) {
 				// the users register for the site, thus
 				// the site primary locale is the default locale
-				$siteDao = DAORegistry::getDAO('SiteDAO');
-				$site = $siteDao->getSite();
+				$site = Application::getRequest()->getSite();
 				$defaultLocale =  $site->getPrimaryLocale();
 			}
 			$locale = $defaultLocale;

@@ -100,8 +100,8 @@
 
 		// Replace dummy values in the URL with entered values
 		fetchUrl = this.fetchUsernameSuggestionUrl_.
-				replace('GIVEN_NAME_DUMMY', givenName).
-				replace('FAMILY_NAME_DUMMY', familyName);
+				replace('GIVEN_NAME_PLACEHOLDER', givenName).
+				replace('FAMILY_NAME_PLACEHOLDER', familyName);
 
 		$.get(fetchUrl, this.callbackWrapper(this.setUsername), 'json');
 	};

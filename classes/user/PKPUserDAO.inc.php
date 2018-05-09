@@ -577,8 +577,7 @@ class PKPUserDAO extends DAO {
 		$locale = AppLocale::getLocale();
 		// the users register for the site, thus
 		// the site primary locale should be the default locale
-		$siteDao = DAORegistry::getDAO('SiteDAO');
-		$site = $siteDao->getSite();
+		$site = Application::getRequest()->getSite();
 		$primaryLocale = $site->getPrimaryLocale();
 		return array(
 			IDENTITY_SETTING_GIVENNAME, $locale,

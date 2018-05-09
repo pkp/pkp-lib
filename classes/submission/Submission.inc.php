@@ -250,11 +250,9 @@ abstract class Submission extends DataObject {
 	/**
 	 * Return string of author names, separated by the specified token
 	 * @param $familyOnly boolean return list of family names only (default false)
-	 * @param $nameSeparator string Separator for names (default comma+space)
-	 * @param $userGroupSeparator string Separator for user groups (default semicolon+space)
 	 * @return string
 	 */
-	function getAuthorString($familyOnly = false, $nameSeparator = ', ', $userGroupSeparator = '; ') {
+	function getAuthorString($familyOnly = false) {
 		$authors = $this->getAuthors(true);
 
 		$str = '';
@@ -266,9 +264,9 @@ abstract class Submission extends DataObject {
 				if ($lastUserGroupId != $author->getUserGroupId()) {
 					$userGroup = $userGroupDao->getById($lastUserGroupId);
 					if ($userGroup->getShowTitle()) $str .= ' (' . $userGroup->getLocalizedName() . ')';
-					$str .= $userGroupSeparator;
+					$str .= __('common.semicolonListSeparator');
 				} else {
-					$str .= $nameSeparator;
+					$str .= __('common.commaListSeparator');
 				}
 			}
 			$familyName = $author->getLocalizedFamilyName();

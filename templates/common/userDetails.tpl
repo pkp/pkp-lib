@@ -30,7 +30,7 @@
 	{/fbvFormSection}
 
 	{fbvFormSection for="preferedPublicName" description="user.preferedPublicName.description"}
-		{fbvElement type="text" label="user.preferedPublicName" multilingual="true" name="preferedPublicName" id="preferedPublicName" value=$preferedPublicName inline=true size=$fbvStyles.size.LARGE}
+		{fbvElement type="text" label="user.preferedPublicName" multilingual="true" name="preferedPublicName" id="preferedPublicName" value=$preferedPublicName size=$fbvStyles.size.LARGE}
 	{/fbvFormSection}
 
 	{if !$disableUserNameSection}

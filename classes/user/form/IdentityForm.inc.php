@@ -27,8 +27,7 @@ class IdentityForm extends BaseProfileForm {
 
 		// the users register for the site, thus
 		// the site primary locale is the required default locale
-		$siteDao = DAORegistry::getDAO('SiteDAO');
-		$site = $siteDao->getSite();
+		$site = Application::getRequest()->getSite();
 		$this->addSupportedFormLocale($site->getPrimaryLocale());
 
 		// Validation checks for this form

@@ -305,12 +305,12 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			// copy the names in default site primary locale for this locale as well
 			$userGivenNames = $user->getGivenName(null);
 			$userFamilyNames = $user->getFamilyName(null);
+			if (is_null($userFamilyNames)) $userFamilyNames = array();
 			if (empty($userGivenNames[$this->submission->getLocale()])) {
-				$siteDao = DAORegistry::getDAO('SiteDAO');
-				$site = $siteDao->getSite();
+				$site = Application::getRequest()->getSite();
 				$userGivenNames[$this->submission->getLocale()] = $userGivenNames[$site->getPrimaryLocale()];
-				// then there should also be no family name for this locale
-				$userFamilyNames[$this->submission->getLocale()] = $userFamilyNames[$site->getPrimaryLocale()];
+				// then there should also be no family name for the submission locale
+				$userFamilyNames[$this->submission->getLocale()] = !empty($userFamilyNames[$site->getPrimaryLocale()]) ? $userFamilyNames[$site->getPrimaryLocale()] : '';
 			}
 			$author->setGivenName($userGivenNames, null);
 			$author->setFamilyName($userFamilyNames, null);

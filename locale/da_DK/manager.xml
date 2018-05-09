@@ -177,7 +177,6 @@
 	<message key="manager.emails.reset.message">Hvis du nulstiller denne skabelon, vil alle data blive erstattet af standardinstillingerne, og evt. tilretninger vil gå tabt. Vil du bekræfte denne handling?</message>
 	<message key="manager.reviewerSearch.searchByName.short">Søg efter navn</message>
 	<message key="manager.reviewerSearch.form.instructions">Brug nedenstående felt til at angive det maksimale antal ord, du ønsker at søge efter. Feltet er forudindstillet til at beregne et gennemsnit for formularens felter.</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">Anfør bedømmelsesinteresser, adskilt med kommaer....</message>
 	<message key="manager.setup.layout.blockManagement">Sidemenu-administration</message>
 	<message key="plugins.categories.metadata">Metadata plug-ins</message>
 	<message key="plugins.categories.metadata.description">Metadata plug-ins implementerer ekstra metadata-standarder.</message>
@@ -287,11 +286,6 @@
 	<message key="manager.language.submissions">Indsendelser</message>
 	<message key="manager.language.forms">Formularer</message>
 	<message key="manager.language.reloadLocalizedDefaultSettings">Genindlæs standardindstillinger</message>
-	<message key="manager.reviewerSearch.doneAmountToggle">Aktivér/deaktivér filter til 'Bedømmelser afsluttet'.</message>
-	<message key="manager.reviewerSearch.avgAmountToggle">Aktivér/deaktivér filteret til 'Gennemsnitligt antal dage pr. bedømmelse'.</message>
-	<message key="manager.reviewerSearch.lastAmountToggle">Aktivér/deaktivér filter til 'Dage siden seneste bedømmelse'.</message>
-	<message key="manager.reviewerSearch.activeAmountToggle">Aktivér/deaktivér filteret til 'Antal aktive bedømmelser'</message>
-	<message key="manager.reviewerSearch.form.previousReviewRounds">Bedømmere til denne indsendelses tidligere bedømmelsesrunder.</message>
 	<message key="manager.affiliationAndSupport">Sponsor</message>
 	<message key="manager.setup.openAccessPolicy">Open Access-politik</message>
 	<message key="manager.setup.openAccessPolicy.description">Hvis tidskriftet vil give læsere øjeblikkelig gratis adgang til alt publiceret indhold, kan du indsætte en beskrivelse af jeres Open Access politik.</message>
@@ -299,7 +293,6 @@
 	<message key="manager.setup.privacyStatement">Erklæring om beskyttelse af personlige oplysninger</message>
 	<message key="manager.setup.privacyStatement.description">Denne erklæring vises, når forfatteren indsender sit manuskript og på siden 'Om'.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Antal uger afsat til at færdiggøre bedømmelsen</message>
-	<message key="manager.setup.sortableByComponent">Sortebar efter komponent</message>
 	<message key="manager.setup.sponsors.note">Beskrivelse af sponsorpolitik</message>
 	<message key="manager.setup.sponsors.description">Eksempler: Videnskabelige organisationer, universitetsafdelinger, andelsforetagender osv. Navnene på sponsorerne vises på hjemmesiden.</message>
 	<message key="manager.plugins.delete">Slet plug-in</message>
@@ -503,4 +496,17 @@
 	<message key="manager.navigationMenus.loggedIn.conditionalWarning">Dette link vil kun blive vist, når den besøgende ikke er logget ind.</message>
 	<message key="manager.navigationMenus.contact.description">Link til side, der indeholder oplysninger om kontaktperson.</message>
 	<message key="manager.navigationMenus.contact.conditionalWarning"><![CDATA[Dette link vil kun blive vist, hvis du har udfyldt informationsfelterne på siden Kontaktperson under Indstillinger > Tidsskrift > Kontaktperson]]></message>
+	<message key="manager.setup.searchEngineIndexing.sitemap">Sitemap</message>
+	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[Et XML-sitemap er tilgængelig til indsendelse til søgemaskiner på <a href="{$path}" target="_blank">{$path}</a>]]></message>
+	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>Denne biblioteksfil kan være tilgængelig til download, hvis "Offentlig adgang" er aktiveret, på: <blockquote>{$downloadUrl}</blockquote></p>]]></message>
+	<message key="settings.libraryFiles.public.selectLibraryFiles">Vælg biblioteksfiler, der skal vedhæftes</message>
+	<message key="manager.setup.genres.key">Nøgle</message>
+	<message key="manager.setup.genres.key.description">En valgfri kort symbolsk identifikator for denne genre.</message>
+	<message key="manager.setup.genres.key.exists">Nøglen eksisterer allerede.</message>
+	<message key="manager.setup.genres.key.alphaNumeric">Nøglen kan kun indeholde alfanumeriske tegn, understregninger og bindestreger, og skal begynde og slutte med et alfanumerisk tegn.</message>
+	<message key="manager.navigationMenus.form.menuAssigned">En navigationsmenu er allerede blevet tildelt dette område.</message>
+	<message key="manager.navigationMenus.form.typeMissing">Vælg en navigationsmenutype.</message>
+	<message key="manager.navigationMenus.subscriptions.conditionalWarning"><![CDATA[Dette link vises kun, hvis betalinger er aktiveret under Indstillinger> Distribuering> Betaling.]]></message>
+	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning"><![CDATA[Dette link vises kun, hvis den besøgende er logget ind, betalinger er aktiveret under Indstillinger> Distribuering> Betalinger, og abonnementer kræves under Indstillinger> Distribution> Adgang.]]></message>
+	<message key="manager.navigationMenus.search.description">Link til søgeside.</message>
 </locale>

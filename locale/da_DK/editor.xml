@@ -123,4 +123,24 @@
 	<message key="editor.submissionReview.recordRecommendation.skipDiscussion">Opret ikke en debat (drøftelse) under bedømmelsen.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">Public identifier '{$publicIdentifier}' må ikke være et nummer.</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">Mønsteret {$pattern} er ikke tilladt i forbindelse med en 'public identifier'.</message>
+	<message key="editor.review.anonymousReviewer">Anonym bedømmer</message>
+	<message key="editor.review.rateReviewer.description">Vurder kvaliteten af den indleverede bedømmelse. Denne vurdering vil ikke blive delt med bedømmeren.</message>
+	<message key="editor.review.reviewerRating.none">Ingen vurdering</message>
+	<message key="reviewer.list.count">{$count} bedømmere</message>
+	<message key="reviewer.list.itemsOfTotal">{$count} af {$total} bedømmere</message>
+	<message key="reviewer.list.filterRating">Vurderet mindst</message>
+	<message key="reviewer.list.activeReviews">{$count} aktive</message>
+	<message key="reviewer.list.activeReviewsDescription">Aktive bedømmelser tilmeldt i øjeblikket</message>
+	<message key="reviewer.list.completedReviews">Bedømmelser afsluttet</message>
+	<message key="reviewer.list.reviewerRating">Bedømmervurdering: {$rating}</message>
+	<message key="reviewer.list.daysSinceLastAssignment">{$days} dage siden</message>
+	<message key="reviewer.list.daySinceLastAssignment">I går</message>
+	<message key="reviewer.list.daysSinceLastAssignmentDescription">Dage siden sidste bedømmelse blev tildelt</message>
+	<message key="reviewer.list.averageCompletion">Det gennemsnitlige antal dage for færdiggørelse af bedømmelse</message>
+	<message key="reviewer.list.neverAssigned">Aldrig tildelt</message>
+	<message key="reviewer.list.currentlyAssigned">Denne bedømmer er allerede blevet tildelt denne indsendelse til bedømmelse.</message>
+	<message key="reviewer.list.warnOnAssign">Denne bedømmer er låst, fordi vedkommende har fået tildelt en rolle, som giver adgang til at se forfatterens identitet. Blind peer review kan ikke garanteres. Vil du alligevel låse op for denne anmelder?</message>
+	<message key="reviewer.list.warnOnAssignUnlock">Lås op</message>
+	<message key="reviewer.list.reviewInterests">Bedømmelsesinteresser</message>
+	<message key="reviewer.list.biography">Biografi</message>
 </locale>

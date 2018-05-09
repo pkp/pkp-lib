@@ -102,7 +102,6 @@
 	<message key="user.authorization.userGroupRequired">Du skal oprette en gyldig brugergruppe for at få adgang til denne handling.</message>
 	<message key="user.gossip">Private bemærkninger</message>
 	<message key="user.profile.form.profileImageInvalid">Profilbilledets format er ugyldigt, eller også er billedet for stort. De accepterede formater er .jpg og .png, og billedet må ikke overskrive 150 x 150 pixler.</message>
-	<message key="user.other">Andet</message>
 	<message key="user.profile.form.affiliationRequired">Kræver et tilhørsforhold.</message>
 	<message key="user.register.form.emailsDoNotMatch">Felterne for e-mail-adresse stemmer ikke overens.</message>
 	<message key="user.accountInformation">Kontoinformation</message>
@@ -154,4 +153,5 @@
 	<message key="user.apiKey.generate">Generer ny API-nøgle</message>
 	<message key="user.apiKey.generateWarning">Generering af en ny API-nøgle vil ugyldiggøre enhver eksisterende nøgle til denne bruger.</message>
 	<message key="user.apiKey.secretRequired">Før du genererer en API-nøgle, skal din webstedsadministrator angive en skjult i config-filen ("api_key_secret").</message>
+	<message key="user.gossip.description">Bemærkninger, der indskrives her vil kun være synlige for administratorer, tidsskriftschefer og redaktører.</message>
 </locale>

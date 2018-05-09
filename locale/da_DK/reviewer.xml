@@ -17,7 +17,7 @@
 	<message key="reviewer.reviewSteps.download"><![CDATA[3. Download & bedømmelse]]></message>
 	<message key="reviewer.reviewSteps.completion">4. Afslutning</message>
 	<message key="reviewer.step1.request">Anmodning om bedømmelse</message>
-	<message key="reviewer.step1.requestBoilerplate">Du er blevet valgt som mulig bedømmer på følgende indsendelse. Nedenfor finder du en oversigt over indsendelsen såvel som tidsplanen for denne bedømmelse. Vi håber, du har mulighed for at medvirke.</message>
+	<message key="reviewer.step1.requestBoilerplate">Du er blevet valgt som mulig bedømmer på medfølgende indsendelse. Nedenfor finder du en oversigt over indsendelsen såvel som tidsplanen for denne bedømmelse. Vi håber, du har mulighed for at medvirke.</message>
 	<message key="reviewer.step1.viewAllDetails">Se alle indsendelsesdetaljer</message>
 	<message key="reviewer.aboutDueDates">Om forfaldsdatoer</message>
 	<message key="reviewer.submission.acceptReview">Acceptér anmodningen, forstsæt til trin #2</message>

@@ -421,7 +421,7 @@
 	<message key="context.path">Sti</message>
 	<message key="help.previous">Forrige</message>
 	<message key="help.next">Næste</message>
-	<message key="notification.type.assignCopyeditors">Tilføj en manuskriptredaktør ved at klikke på linket 'Tilføj' i feltet Deltagere.</message>
+	<message key="notification.type.assignCopyeditors">Tilføj en manuskriptredaktør ved at klikke på linket 'Tildel' i feltet Deltagere.</message>
 	<message key="review.blindPeerReview"><![CDATA[<p>Med henblik på at sikre integriteten i forbindelse med blind peer review af manuskripter til dette tidsskrift skal der gøres alt for at forhindre, at forfatternes og bedømmernes identiteter afsløres for hinanden. Dette indebærer, at forfatterne, redaktørerne og bedømmerne (der overfører dokumenter som en del af deres bedømmelse) kontrollerer, at følgende trin er udført med hensyn til teksten og filegenskaberne:</p>
 			<ul><li>Dokumentets forfattere har slettet deres navne i teksten, og "Forfatter" og år benyttes i referencerne og fodnoterne i stedet for forfatternes navne, artiklens titel osv.</li>
 			<li>I forbindelse med Microsoft Office-dokumenter skal forfatteridentifikationen også fjernes fra filens egenskaber. Se under Filer i topmenuen i Word > Gem som > Funktioner (eller Indstillinger i forbindelse med en Mac) > Sikkerhed > Fjern personlige oplysninger fra filens egenskaber, når den gemmes > Gem</li>
@@ -540,4 +540,19 @@
 	<message key="notification.addedNavigationMenu">Navigationsmenuen blev tilføjet</message>
 	<message key="notification.editedNavigationMenu">Navigationsmenu blev opdateret</message>
 	<message key="notification.removedNavigationMenu">Navigationsmenu blev fjernet</message>
+	<message key="common.filter">Filtre</message>
+	<message key="common.filterAdd">Tilføj filter: {$filterTitle}</message>
+	<message key="common.filterRemove">Fjer filter: {$filterTitle}</message>
+	<message key="common.lessThan">{$value} eller mindre</message>
+	<message key="common.listSeparator">,</message>
+	<message key="common.moreThan">{$value} eller mere</message>
+	<message key="common.pagination">{$start}-{$end} af {$total}</message>
+	<message key="common.pagination.label">Browse ekstra sider</message>
+	<message key="common.clearSearch">Ryd søgetermen</message>
+	<message key="common.publicAccess">Offentlig adgang</message>
+	<message key="stageParticipants.notify.startDiscussion">Påbegynd drøftelse</message>
+	<message key="stageParticipants.notify.startDiscussion.description">Påbegynd en drøftelse mellem dig selv og {$userFullName}.</message>
+	<message key="notification.email">Send mig ikke en e-mail i forbindelse med denne type meddelelser.</message>
+	<message key="list.viewMore">Vis flere detaljer om {$name}</message>
+	<message key="list.viewLess">Skjul flere detaljer om {$name}</message>
 </locale>

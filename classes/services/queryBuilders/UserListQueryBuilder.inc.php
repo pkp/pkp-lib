@@ -19,7 +19,7 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 class UserListQueryBuilder extends BaseQueryBuilder {
 
 	/** @var int Context ID, the context making the request */
-	protected $contextId = array();
+	protected $contextId = int;
 
 	/** @var array Context IDs, filter by users assigned user groups in these contexts */
 	protected $contextIds = array();
@@ -147,7 +147,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	/**
 	 * Set roles filter
 	 *
-	 * @param $userGroupIds int|boolean|array
+	 * @param $userGroupIds int|array
 	 *
 	 * @return \PKP\Services\QueryBuilders\UserListQueryBuilder
 	 */

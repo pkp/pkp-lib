@@ -184,6 +184,10 @@ class PKPUserHandler extends APIHandler {
 		$userService = ServicesContainer::instance()->get('user');
 		$params = $slimRequest->getParsedBody();
 
+		if (!$request->checkCSRF()) {
+			return $response->withStatus(403)->withJsonError('api.403.csrfTokenFailure');
+		}
+
 		if (!empty($args['userId'])) {
 			$user = $userService->getUser((int) $args['userId']);
 		}
@@ -194,10 +198,6 @@ class PKPUserHandler extends APIHandler {
 
 		if (empty($user) || empty($mergeIntoUser)) {
 			return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
-		}
-
-		if (!$request->checkCSRF()) {
-			return $response->withStatus(403)->withJsonError('api.403.csrfTokenFailure');
 		}
 
 		if (!Validation::canAdminister($user->getId(), $currentUser->getId())) {
@@ -265,7 +265,7 @@ class PKPUserHandler extends APIHandler {
 					} elseif (!is_array($val)) {
 						$val = array($val);
 					}
-					$returnParams[$param] = $val === false ? $val : array_map('intval', $val);
+					$returnParams[$param] = array_map('intval', $val);
 					break;
 
 				case 'assignedToSubmissionStage':

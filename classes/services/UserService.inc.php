@@ -574,8 +574,7 @@ class UserService extends PKPBaseEntityPropertyService {
 		// Transfer old user's roles
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroups = $userGroupDao->getByUserId($userId);
-		while(!$userGroups->eof()) {
-			$userGroup = $userGroups->next();
+		while($userGroup = $userGroups->next()) {
 			if (!$userGroupDao->userInGroup($mergeIntoUserId, $userGroup->getId())) {
 				$userGroupDao->assignUserToGroup($mergeIntoUserId, $userGroup->getId());
 			}

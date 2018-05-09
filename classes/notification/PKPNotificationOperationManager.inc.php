@@ -12,7 +12,7 @@
  * @see NotificationDAO
  * @see Notification
  * @brief Base class for notification manager that implements
- * basic notification operations and default notifications info. 
+ * basic notification operations and default notifications info.
  * Subclasses can implement specific information.
  */
 
@@ -21,12 +21,6 @@ import('classes.notification.Notification');
 import('lib.pkp.classes.notification.INotificationInfoProvider');
 
 abstract class PKPNotificationOperationManager implements INotificationInfoProvider {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-	}
-
 
 	//
 	// Implement INotificationInfoProvider with default values.
@@ -326,13 +320,13 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 		}
 
 		$mail = $this->getMailTemplate($template);
-		
+
 		if ($context) {
 			$mail->setReplyTo($context->getContactEmail(), $context->getContactName());
 		} else {
 			$mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 		}
-		
+
 		$mail->assignParams($params);
 		$mail->addRecipient($email);
 		$mail->send();
@@ -453,13 +447,13 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 			$context = $request->getContext();
 			$site = $request->getSite();
 			$mail = $this->getMailTemplate('NOTIFICATION');
-			
+
 			if ($context) {
 				$mail->setReplyTo($context->getContactEmail(), $context->getContactName());
 			} else {
 				$mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 			}
-			
+
 			$mail->assignParams(array(
 				'notificationContents' => $this->getNotificationContents($request, $notification),
 				'url' => $this->getNotificationUrl($request, $notification),

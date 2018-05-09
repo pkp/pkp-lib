@@ -65,6 +65,9 @@ class PKPNotificationSettingsForm extends Form {
 			NOTIFICATION_TYPE_QUERY_ACTIVITY => array('settingName' => 'notificationQueryActivity',
 				'emailSettingName' => 'emailNotificationQueryActivity',
 				'settingKey' => 'notification.type.queryActivity'),
+			NOTIFICATION_TYPE_NEW_ANNOUNCEMENT => array('settingName' => 'notificationNewAnnouncement',
+				'emailSettingName' => 'emailNotificationNewAnnouncement',
+				'settingKey' => 'notification.type.newAnnouncement'),
 		);
 	}
 
@@ -75,6 +78,11 @@ class PKPNotificationSettingsForm extends Form {
 	 */
 	protected function getNotificationSettingCategories() {
 		return array(
+			array('categoryKey' => 'notification.type.public',
+				'settings' => array(
+					NOTIFICATION_TYPE_NEW_ANNOUNCEMENT,
+				)
+			),
 			array('categoryKey' => 'notification.type.submissions',
 				'settings' => array(
 					NOTIFICATION_TYPE_SUBMISSION_SUBMITTED,

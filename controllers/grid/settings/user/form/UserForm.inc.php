@@ -34,7 +34,7 @@ class UserForm extends Form {
 
 		$request = Application::getRequest();
 
-		if (!$contextId) {
+		if (is_null($contextId)) {
 			$context = $request->getContext();
 			$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 		}

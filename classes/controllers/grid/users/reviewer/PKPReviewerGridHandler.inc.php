@@ -717,7 +717,17 @@ class PKPReviewerGridHandler extends GridHandler {
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
 
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('reviewAssignment', $reviewAssignment);
+		$dates = array(
+			'common.assigned' => $reviewAssignment->getDateAssigned(),
+			'common.notified' => $reviewAssignment->getDateNotified(),
+			'common.reminder' => $reviewAssignment->getDateReminded(),
+			'common.confirm' => $reviewAssignment->getDateConfirmed(),
+			'common.completed' => $reviewAssignment->getDateCompleted(),
+			'common.acknowledged' => $reviewAssignment->getDateAcknowledged(),
+		);
+		asort($dates);
+		$templateMgr->assign('dates', $dates);
+
 		return $templateMgr->fetchJson('workflow/reviewHistory.tpl');
 	}
 

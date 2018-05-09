@@ -42,7 +42,9 @@ class NewSiteImageFileForm extends SettingsFileUploadForm {
 
 		$supportedLocales = AppLocale::getSupportedLocales();
 		foreach ($supportedLocales as $key => $locale) {
-			$imageAltText[$key] = $image[$key]['altText'];
+			if (isset($image[$key])) {
+				$imageAltText[$key] = $image[$key]['altText'];
+			}
 		}
 
 		$this->setData('imageAltText', $imageAltText);

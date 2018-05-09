@@ -22,8 +22,6 @@ use \DAORegistry;
 use \ServicesContainer;
 use \PKP\Services\EntityProperties\PKPBaseEntityPropertyService;
 
-import('lib.pkp.classes.db.DBResultRange');
-
 define('STAGE_STATUS_SUBMISSION_UNASSIGNED', 1);
 define('SUBMISSION_RETURN_SUBMISSION', 0);
 define('SUBMISSION_RETURN_PUBLISHED', 1);
@@ -59,7 +57,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 	public function getSubmissions($contextId, $args = array()) {
 		$submissionListQB = $this->_buildGetSubmissionsQueryObject($contextId, $args);
 		$submissionListQO = $submissionListQB->get();
-		$range = new DBResultRange($args['count'], null, $args['offset']);
+		$range = $this->getRangeByArgs($args);
 		$dao = Application::getSubmissionDAO();
 		if (!empty($args['returnObject']) && $args['returnObject'] === SUBMISSION_RETURN_PUBLISHED) {
 			$dao = Application::getPublishedSubmissionDAO();

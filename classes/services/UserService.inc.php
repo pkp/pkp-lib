@@ -127,7 +127,7 @@ class UserService extends PKPBaseEntityPropertyService {
 	public function getReviewers($contextId, $args = array()) {
 		$userListQB = $this->_buildGetReviewersQueryObject($contextId, $args);
 		$userListQO = $userListQB->get();
-		$range = new DBResultRange($args['count'], null, $args['offset']);
+		$range = $this->getRangeByArgs($args);
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$result = $userDao->retrieveRange($userListQO->toSql(), $userListQO->getBindings(), $range);
 		$queryResults = new DAOResultFactory($result, $userDao, '_returnUserFromRowWithReviewerStats');

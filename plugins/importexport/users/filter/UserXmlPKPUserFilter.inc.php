@@ -161,13 +161,16 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 			// if user names do not exists in the site primary locale
 			// copy one of the existing for the default/required site primary locale
 			if (empty($user->getGivenName($site->getPrimaryLocale()))) {
+				// get all user given names, family names and affiliations
 				$userGivenNames = $user->getGivenName(null);
 				$userFamilyNames = $user->getFamilyName(null);
-				$notEmptyGivenNames = array();
-				$notEmptyFamilyNames = array();
+				$userAffiliations = $user->getAffiliation(null);
+				// get just not empty user given names, family names and affiliations
+				$notEmptyGivenNames =  $notEmptyFamilyNames = $notEmptyAffiliations = array();
 				$notEmptyGivenNames = array_filter($userGivenNames, function($a) {
 					return !empty($a);
 				});
+				// if all given names are empty, import fails
 				if (empty($notEmptyGivenNames)) {
 					fatalError("User given name is empty.");
 				}
@@ -176,17 +179,35 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 						return !empty($a);
 					});
 				}
+				if (!empty($userAffiliations)) {
+					$notEmptyAffiliations = array_filter($userAffiliations, function($a) {
+						return !empty($a);
+					});
+				}
 				// see if both, given and family name, exist in the same locale
-				$existingNamesLocales = array_intersect_key($notEmptyGivenNames, $notEmptyFamilyNames);
-				if (empty($existingNamesLocales)) {
-					// if not copy only the given name
+				$commonLocales = array_intersect_key($notEmptyGivenNames, $notEmptyFamilyNames);
+				if (empty($commonLocales)) {
+					// if not: copy only the given name
 					$firstLocale = reset(array_keys($notEmptyGivenNames));
 					$user->setGivenName($notEmptyGivenNames[$firstLocale], $site->getPrimaryLocale());
 				} else {
-					// else copy given and family name
-					$firstLocale = reset(array_keys($existingNamesLocales));
+					// else: take the first common locale for given and family name
+					$firstLocale = reset(array_keys($commonLocales));
+					// see if there is affiliation in a common locale
+					$affiliationCommonLocales = array_intersect_key($notEmptyAffiliations, $commonLocales);
+					if (!empty($affiliationCommonLocales)) {
+						// take the first common locale to all, given name, family name and affiliation
+						$firstLocale = reset(array_keys($affiliationCommonLocales));
+						// copy affiliation
+						if (empty($notEmptyAffiliations[$site->getPrimaryLocale()])) {
+							$user->setAffiliation($notEmptyAffiliations[$firstLocale], $site->getPrimaryLocale());
+						}
+					}
+					//copy given and family name
 					$user->setGivenName($notEmptyGivenNames[$firstLocale], $site->getPrimaryLocale());
-					$user->setFamilyName($notEmptyFamilyNames[$firstLocale], $site->getPrimaryLocale());
+					if (empty($notEmptyFamilyNames[$site->getPrimaryLocale()])) {
+						$user->setFamilyName($notEmptyFamilyNames[$firstLocale], $site->getPrimaryLocale());
+					}
 				}
 			}
 			$userId = $userDao->insertObject($user);

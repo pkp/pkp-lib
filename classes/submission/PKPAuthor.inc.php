@@ -62,9 +62,9 @@ class PKPAuthor extends Identity {
 	/**
 	 * @copydoc Identity::getFullName()
 	 */
-	function getFullName($familyFirst = false, $defaultLocale =  null, $prefered = true) {
+	function getFullName($familyFirst = false, $defaultLocale =  null, $preferred = true) {
 		if (!isset($defaultLocale)) $defaultLocale = $this->getSubmissionLocale();
-		return parent::getFullName($familyFirst, $defaultLocale, $prefered);
+		return parent::getFullName($familyFirst, $defaultLocale, $preferred);
 	}
 
 	//

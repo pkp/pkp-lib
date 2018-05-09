@@ -101,7 +101,7 @@ class UserDetailsForm extends UserForm {
 				'username' => $user->getUsername(),
 				'givenName' => $user->getGivenName(null), // Localized
 				'familyName' => $user->getFamilyName(null), // Localized
-				'preferedPublicName' => $user->getPreferedPublicName(null), // Localized
+				'preferredPublicName' => $user->getPreferredPublicName(null), // Localized
 				'signature' => $user->getSignature(null), // Localized
 				'affiliation' => $user->getAffiliation(null), // Localized
 				'email' => $user->getEmail(),
@@ -126,7 +126,7 @@ class UserDetailsForm extends UserForm {
 				'givenName' => $author->getGivenName(null), // Localized
 				'familyName' => $author->getFamilyName(null), // Localized
 				'affiliation' => $author->getAffiliation(null), // Localized
-				'preferedPublicName' => $author->getPreferedPublicName(null), // Localized
+				'preferredPublicName' => $author->getPreferredPublicName(null), // Localized
 				'email' => $author->getEmail(),
 				'userUrl' => $author->getUrl(),
 				'orcid' => $author->getOrcid(),
@@ -199,7 +199,7 @@ class UserDetailsForm extends UserForm {
 			'password2',
 			'givenName',
 			'familyName',
-			'preferedPublicName',
+			'preferredPublicName',
 			'signature',
 			'affiliation',
 			'email',
@@ -256,7 +256,7 @@ class UserDetailsForm extends UserForm {
 
 		$user->setGivenName($this->getData('givenName'), null); // Localized
 		$user->setFamilyName($this->getData('familyName'), null); // Localized
-		$user->setPreferedPublicName($this->getData('preferedPublicName'), null); // Localized
+		$user->setPreferredPublicName($this->getData('preferredPublicName'), null); // Localized
 		$user->setAffiliation($this->getData('affiliation'), null); // Localized
 		$user->setSignature($this->getData('signature'), null); // Localized
 		$user->setEmail($this->getData('email'));

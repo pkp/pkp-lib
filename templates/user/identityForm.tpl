@@ -36,8 +36,8 @@
 		{/fbvFormSection}
 	{/fbvFormArea}
 
-	{fbvFormSection for="preferedPublicName" description="user.preferedPublicName.description"}
-		{fbvElement type="text" label="user.preferedPublicName" multilingual="true" name="preferedPublicName" id="preferedPublicName" value=$preferedPublicName size=$fbvStyles.size.LARGE}
+	{fbvFormSection for="preferredPublicName" description="user.preferredPublicName.description"}
+		{fbvElement type="text" label="user.preferredPublicName" multilingual="true" name="preferredPublicName" id="preferredPublicName" value=$preferredPublicName size=$fbvStyles.size.LARGE}
 	{/fbvFormSection}
 
 	{fbvFormButtons hideCancel=true submitText="common.save"}

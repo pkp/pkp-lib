@@ -152,7 +152,7 @@ abstract class PKPAuthorDAO extends DAO {
 	 */
 	function getLocaleFieldNames() {
 		return array('biography', 'competingInterests', 'affiliation',
-			IDENTITY_SETTING_GIVENNAME, IDENTITY_SETTING_FAMILYNAME, 'preferedPublicName');
+			IDENTITY_SETTING_GIVENNAME, IDENTITY_SETTING_FAMILYNAME, 'preferredPublicName');
 	}
 
 	/**

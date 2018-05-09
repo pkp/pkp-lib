@@ -124,7 +124,7 @@ class AuthorForm extends Form {
 				'authorId' => $author->getId(),
 				'givenName' => $author->getGivenName(null),
 				'familyName' => $author->getFamilyName(null),
-				'preferedPublicName' => $author->getPreferedPublicName(null),
+				'preferredPublicName' => $author->getPreferredPublicName(null),
 				'affiliation' => $author->getAffiliation(null),
 				'country' => $author->getCountry(),
 				'email' => $author->getEmail(),
@@ -178,7 +178,7 @@ class AuthorForm extends Form {
 			'authorId',
 			'givenName',
 			'familyName',
-			'preferedPublicName',
+			'preferredPublicName',
 			'affiliation',
 			'country',
 			'email',
@@ -213,7 +213,7 @@ class AuthorForm extends Form {
 
 		$author->setGivenName($this->getData('givenName'), null);
 		$author->setFamilyName($this->getData('familyName'), null);
-		$author->setPreferedPublicName($this->getData('preferedPublicName'), null);
+		$author->setPreferredPublicName($this->getData('preferredPublicName'), null);
 		$author->setAffiliation($this->getData('affiliation'), null); // localized
 		$author->setCountry($this->getData('country'));
 		$author->setEmail($this->getData('email'));

@@ -620,7 +620,7 @@ class UserGridHandler extends GridHandler {
 	function mergeUsers($args, $request) {
 
 		$oldUserId = (int) $request->getUserVar('oldUserId');
-		$context = Application::getRequest()->getContext();
+		$context = $request->getContext();
 		$contextPath = $context ? $context->getPath() : CONTEXT_ID_NONE_API;
 
 		import('lib.pkp.controllers.list.users.PKPUsersListHandler');

@@ -23,7 +23,7 @@ class UserRoleContextForm extends Form {
 
 	/**
 	 * Constructor.
-	 * @param int $userId
+	 * @param $userId int
 	 */
 	function __construct($userId) {
 		parent::__construct('controllers/grid/settings/user/form/userRoleContextForm.tpl');

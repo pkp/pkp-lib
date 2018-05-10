@@ -30,15 +30,17 @@
 		{/capture}
 
 		{if $currentContext}
-			<div id="userGroupExtraFormFields" class="pkp_user_group_other_contexts">
-				{include file="controllers/extrasOnDemand.tpl"
-					id="userGroupExtras"
-					widgetWrapper="#userGroupExtraFormFields"
-					moreDetailsText="user.profile.form.showOtherContexts"
-					lessDetailsText="user.profile.form.hideOtherContexts"
-					extraContent=$otherContextContent
-				}
-			</div>
+			{fbvFormSection}
+				<div id="userGroupExtraFormFields" class="pkp_user_group_other_contexts">
+					{include file="controllers/extrasOnDemand.tpl"
+						id="userGroupExtras"
+						widgetWrapper="#userGroupExtraFormFields"
+						moreDetailsText="user.profile.form.showOtherContexts"
+						lessDetailsText="user.profile.form.hideOtherContexts"
+						extraContent=$otherContextContent
+					}
+				</div>
+			{/fbvFormSection}
 		{else}
 			{$otherContextContent}
 		{/if}

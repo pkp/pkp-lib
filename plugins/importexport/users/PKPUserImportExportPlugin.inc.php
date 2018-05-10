@@ -175,7 +175,7 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 	 * @param $filter Filter byRef parameter - import/export filter used
 	 * @return string XML contents representing the supplied user IDs.
 	 */
-	function exportAllUsers($context, $user, &$filter) {
+	function exportAllUsers($context, $user, &$filter = null) {
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$users = $userGroupDao->getUsersByContextId($context->getId());
 		if (!$filter) {
@@ -193,7 +193,7 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 	 * @param $filter Filter byRef parameter - import/export filter used
 	 * @return string XML contents representing the supplied user IDs.
 	 */
-	function exportUsers($ids, $context, $user, &$filter) {
+	function exportUsers($ids, $context, $user, &$filter = null) {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$xml = '';
 
@@ -226,7 +226,7 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 	 * @param $filter Filter byRef parameter - import/export filter used
 	 * @return array Set of imported users
 	 */
-	function importUsers($importXml, $context, $user, &$filter) {
+	function importUsers($importXml, $context, $user, &$filter = null) {
 		if (!$filter) {
 			$filter = $this->getUserImportExportFilter($context, $user);
 		}

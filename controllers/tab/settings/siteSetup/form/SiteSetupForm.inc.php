@@ -38,10 +38,9 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 	//
 	/**
 	 * @see Form::fetch()
-	 * @param $request PKPRequest
 	 * @param $params array
 	 */
-	function fetch($request, $params = null) {
+	function fetch($request, $template = null, $display = false, $params = null) {
 		$site = $request->getSite();
 		$publicFileManager = new PublicFileManager();
 		$contextDao = Application::getContextDAO();
@@ -91,7 +90,7 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 			'activeThemeOptions' => $activeThemeOptions,
 		));
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display, $params);
 	}
 
 

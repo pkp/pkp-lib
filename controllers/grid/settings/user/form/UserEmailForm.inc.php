@@ -48,10 +48,9 @@ class UserEmailForm extends Form {
 
 	/**
 	 * Display the form.
-	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function fetch($args, $request) {
+	function fetch($request) {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $userDao->getById($this->userId);
 

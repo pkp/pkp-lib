@@ -65,9 +65,9 @@ class NewSiteImageFileForm extends SettingsFileUploadForm {
 	/**
 	 * @copydoc SettingsFileUploadForm::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false, $params = null) {
 		$params = array('fileType' => 'image');
-		return parent::fetch($request, $params);
+		return parent::fetch($request, $template, $display, $params);
 	}
 
 

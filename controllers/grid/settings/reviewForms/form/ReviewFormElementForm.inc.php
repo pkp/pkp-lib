@@ -55,10 +55,9 @@ class ReviewFormElementForm extends Form {
 
 	/**
 	 * Display the form.
-	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function fetch($args, $request) {
+	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
 		import('lib.pkp.classes.reviewForm.ReviewFormElement');
 		$templateMgr->assign(array(

@@ -718,6 +718,8 @@ class PKPReviewerGridHandler extends GridHandler {
 				true,
 				$emailReviewerForm->fetch(
 					$request,
+					null,
+					false,
 					$this->getRequestArgs()
 				)
 			);

@@ -51,7 +51,7 @@ class EmailReviewerForm extends Form {
 	 * @param $request PKPRequest
 	 * @param $requestArgs array Request parameters to bounce back with the form submission.
 	 */
-	function fetch($request, $requestArgs = array()) {
+	function fetch($request, $template = null, $display = false, $requestArgs = array()) {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $userDao->getById($this->_reviewAssignment->getReviewerId());
 
@@ -62,7 +62,7 @@ class EmailReviewerForm extends Form {
 			'reviewAssignmentId' => $this->_reviewAssignment->getId(),
 		));
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

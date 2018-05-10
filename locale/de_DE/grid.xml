@@ -38,7 +38,6 @@
 	<message key="grid.action.export">Exportieren</message>
 	<message key="grid.action.deleteSection">Rubrik löschen</message>
 	<message key="grid.action.editorialHistory">Redaktioneller Verlauf</message>
-	<message key="grid.action.remove">Entfernen</message>
 	<message key="grid.action.edit">Bearbeiten</message>
 	<message key="grid.action.approve">Akzeptieren</message>
 	<message key="grid.action.disapprove">Nicht akzeptieren</message>

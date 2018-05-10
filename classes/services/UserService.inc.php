@@ -18,7 +18,9 @@ use \Application;
 use \DBResultRange;
 use \DAOResultFactory;
 use \DAORegistry;
+use \HookRegistry;
 use \PKP\Services\EntityProperties\PKPBaseEntityPropertyService;
+use \Validation;
 
 class UserService extends PKPBaseEntityPropertyService {
 
@@ -85,9 +87,11 @@ class UserService extends PKPBaseEntityPropertyService {
 	private function _buildGetUsersQueryObject($contextId, $args = array()) {
 
 		$defaultArgs = array(
+			'contextIds' => null,
 			'orderBy' => 'id',
 			'orderDirection' => 'DESC',
 			'roleIds' => null,
+			'userGroupIds' => null,
 			'assignedToSubmission' => null,
 			'assignedToSubmissionStage' => null,
 			'assignedToSection' => null,
@@ -102,7 +106,9 @@ class UserService extends PKPBaseEntityPropertyService {
 		$userListQB = new QueryBuilders\UserListQueryBuilder($contextId);
 		$userListQB
 			->orderBy($args['orderBy'], $args['orderDirection'])
+			->filterByContextIds($args['contextIds'])
 			->filterByRoleIds($args['roleIds'])
+			->filterByUserGroupIds($args['userGroupIds'])
 			->assignedToSubmission($args['assignedToSubmission'], $args['assignedToSubmissionStage'])
 			->assignedToSection($args['assignedToSection'])
 			->filterByStatus($args['status'])
@@ -193,6 +199,7 @@ class UserService extends PKPBaseEntityPropertyService {
 	public function getProperties($user, $props, $args = null) {
 		$request = $args['request'];
 		$context = $request->getContext();
+		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 
 		$values = array();
 		foreach ($props as $prop) {
@@ -243,7 +250,7 @@ class UserService extends PKPBaseEntityPropertyService {
 					$values[$prop] = $user->getBiography(null);
 					break;
 				case 'signature':
-					$values[$prop] = $user->getSignature();
+					$values[$prop] = $user->getSignature(null);
 					break;
 				case 'authId':
 					$values[$prop] = $user->getAuthId();
@@ -298,6 +305,13 @@ class UserService extends PKPBaseEntityPropertyService {
 				case 'mustChangePassword':
 					$values[$prop] = (boolean) $user->getMustChangePassword();
 					break;
+				case 'currentUserCanAdminister':
+					$values[$prop] = false;
+					$currentUser = $request->getUser();
+					if ($currentUser) {
+						$values[$prop] = Validation::canAdminister($user->getId(), $currentUser->getId());
+					}
+					break;
 				case '_href':
 					$values[$prop] = null;
 					if (!empty($args['slimRequest'])) {
@@ -314,41 +328,38 @@ class UserService extends PKPBaseEntityPropertyService {
 					break;
 				case 'groups':
 					$values[$prop] = null;
-					if ($context) {
-						import('lib.pkp.classes.security.UserGroupDAO');
-						$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-						$userGroups = $userGroupDao->getByUserId($user->getId(), $context->getId());
-						$values[$prop] = array();
-						while ($userGroup = $userGroups->next()) {
-							$values[$prop][] = array(
-								'id' => (int) $userGroup->getId(),
-								'name' => $userGroup->getName(null),
-								'abbrev' => $userGroup->getAbbrev(null),
-								'roleId' => (int) $userGroup->getRoleId(),
-								'showTitle' => (boolean) $userGroup->getShowTitle(),
-								'permitSelfRegistration' => (boolean) $userGroup->getPermitSelfRegistration(),
-								'recommendOnly' => (boolean) $userGroup->getRecommendOnly(),
-							);
-						}
+					import('lib.pkp.classes.security.UserGroupDAO');
+					$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+					$userGroups = $userGroupDao->getByUserId($user->getId(), $contextId);
+					$values[$prop] = array();
+					while ($userGroup = $userGroups->next()) {
+						$values[$prop][] = array(
+							'id' => (int) $userGroup->getId(),
+							'name' => $userGroup->getName(null),
+							'abbrev' => $userGroup->getAbbrev(null),
+							'roleId' => (int) $userGroup->getRoleId(),
+							'showTitle' => (boolean) $userGroup->getShowTitle(),
+							'permitSelfRegistration' => (boolean) $userGroup->getPermitSelfRegistration(),
+							'recommendOnly' => (boolean) $userGroup->getRecommendOnly(),
+							'contextId' => (int) $userGroup->getContextId(),
+						);
 					}
 					break;
 				case 'interests':
 					$values[$prop] = [];
-					if ($context) {
-						import('lib.pkp.classes.user.InterestDAO');
-						$interestDao = DAORegistry::getDAO('InterestDAO');
-						$interestEntryIds = $interestDao->getUserInterestIds($user->getId());
-						if (!empty($interestEntryIds)) {
-							import('lib.pkp.classes.user.InterestEntryDAO');
-							$interestEntryDao = DAORegistry::getDAO('InterestEntryDAO');
-							$results = $interestEntryDao->getByIds($interestEntryIds);
-							$values[$prop] = array();
-							while ($interest = $results->next()) {
-								$values[$prop][] = array(
-									'id' => (int) $interest->getId(),
-									'interest' => $interest->getInterest(),
-								);
-							}
+					import('lib.pkp.classes.user.InterestDAO');
+					$interestDao = DAORegistry::getDAO('InterestDAO');
+					$interestEntryIds = $interestDao->getUserInterestIds($user->getId());
+					if (!empty($interestEntryIds)) {
+						import('lib.pkp.classes.user.InterestEntryDAO');
+						$interestEntryDao = DAORegistry::getDAO('InterestEntryDAO');
+						$results = $interestEntryDao->getByIds($interestEntryIds);
+						$values[$prop] = array();
+						while ($interest = $results->next()) {
+							$values[$prop][] = array(
+								'id' => (int) $interest->getId(),
+								'interest' => $interest->getInterest(),
+							);
 						}
 					}
 					break;
@@ -365,7 +376,7 @@ class UserService extends PKPBaseEntityPropertyService {
 	 */
 	public function getSummaryProperties($user, $args = null) {
 		$props = array (
-			'id','_href','userName','email','fullName','orcid','groups','disabled',
+			'id','_href','userName','email','fullName','orcid','groups','disabled','currentUserCanAdminister',
 		);
 
 		\HookRegistry::call('User::getProperties::summaryProperties', array(&$props, $user, $args));
@@ -455,5 +466,137 @@ class UserService extends PKPBaseEntityPropertyService {
 		}
 
 		return true;
+	}
+
+	/**
+	 * Merge two user accounts, including attributed articles and all associated
+	 * information.
+	 *
+	 * @param $user User The user to merge from. This user will no longer exist
+	 *  when this operation is done.
+	 * @param $mergeIntoUser User The user to merge into. This user will contain
+	 *  all data from $user when this operation is done.
+	 */
+	function mergeUsers($user, $mergeIntoUser) {
+		$userId = $user->getId();
+		$mergeIntoUserId = $mergeIntoUser->getId();
+
+		HookRegistry::call('User::mergeUsers', array(&$userId, &$mergeIntoUserId));
+
+		$noteDao = DAORegistry::getDAO('NoteDAO');
+		$notes = $noteDao->getByUserId($userId);
+		while ($note = $notes->next()) {
+			$note->setUserId($mergeIntoUserId);
+			$noteDao->updateObject($note);
+		}
+
+		$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
+		$editDecisionDao->transferEditorDecisions($userId, $mergeIntoUserId);
+
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		foreach ($reviewAssignmentDao->getByUserId($userId) as $reviewAssignment) {
+			$reviewAssignment->setReviewerId($mergeIntoUserId);
+			$reviewAssignmentDao->updateObject($reviewAssignment);
+		}
+
+		$articleEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+		$articleEmailLogDao->changeUser($userId, $mergeIntoUserId);
+		$articleEventLogDao = DAORegistry::getDAO('SubmissionEventLogDAO');
+		$articleEventLogDao->changeUser($userId, $mergeIntoUserId);
+
+		$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');
+		$submissionComments = $submissionCommentDao->getByUserId($userId);
+
+		while ($submissionComment = $submissionComments->next()) {
+			$submissionComment->setAuthorId($mergeIntoUserId);
+			$submissionCommentDao->updateObject($submissionComment);
+		}
+
+		$accessKeyDao = DAORegistry::getDAO('AccessKeyDAO');
+		$accessKeyDao->transferAccessKeys($userId, $mergeIntoUserId);
+
+		// Transfer old user's individual subscriptions for each journal if new user
+		// does not have a valid individual subscription for a given journal.
+		$individualSubscriptionDao = DAORegistry::getDAO('IndividualSubscriptionDAO');
+		$oldUserSubscriptions = $individualSubscriptionDao->getByUserId($userId);
+
+		while ($oldUserSubscription = $oldUserSubscriptions->next()) {
+			$subscriptionJournalId = $oldUserSubscription->getJournalId();
+			$oldUserValidSubscription = $individualSubscriptionDao->isValidIndividualSubscription($userId, $subscriptionJournalId);
+			if ($oldUserValidSubscription) {
+				// Check if new user has a valid subscription for current journal
+				$newUserSubscription = $individualSubscriptionDao->getByUserIdForJournal($mergeIntoUserId, $subscriptionJournalId);
+				if (!$newUserSubscription) {
+					// New user does not have this subscription, transfer old user's
+					$oldUserSubscription->setUserId($mergeIntoUserId);
+					$individualSubscriptionDao->updateObject($oldUserSubscription);
+				} elseif (!$individualSubscriptionDao->isValidIndividualSubscription($mergeIntoUserId, $subscriptionJournalId)) {
+					// New user has a subscription but it's invalid. Delete it and
+					// transfer old user's valid one
+					$individualSubscriptionDao->deleteByUserIdForJournal($mergeIntoUserId, $subscriptionJournalId);
+					$oldUserSubscription->setUserId($mergeIntoUserId);
+					$individualSubscriptionDao->updateObject($oldUserSubscription);
+				}
+			}
+		}
+
+		// Delete any remaining old user's subscriptions not transferred to new user
+		$individualSubscriptionDao->deleteByUserId($userId);
+
+		// Transfer all old user's institutional subscriptions for each journal to
+		// new user. New user now becomes the contact person for these.
+		$institutionalSubscriptionDao = DAORegistry::getDAO('InstitutionalSubscriptionDAO');
+		$oldUserSubscriptions = $institutionalSubscriptionDao->getByUserId($userId);
+
+		while ($oldUserSubscription = $oldUserSubscriptions->next()) {
+			$oldUserSubscription->setUserId($mergeIntoUserId);
+			$institutionalSubscriptionDao->updateObject($oldUserSubscription);
+		}
+
+		// Transfer completed payments.
+		$paymentDao = DAORegistry::getDAO('OJSCompletedPaymentDAO');
+		$paymentFactory = $paymentDao->getByUserId($userId);
+		while ($payment = next($paymentFactory)) {
+			$payment->setUserId($mergeIntoUserId);
+			$paymentDao->updateObject($payment);
+		}
+
+		// Delete the old user and associated info.
+		$sessionDao = DAORegistry::getDAO('SessionDAO');
+		$sessionDao->deleteByUserId($userId);
+		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO');
+		$temporaryFileDao->deleteByUserId($userId);
+		$userSettingsDao = DAORegistry::getDAO('UserSettingsDAO');
+		$userSettingsDao->deleteSettings($userId);
+		$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO');
+		$subEditorsDao->deleteByUserId($userId);
+
+		// Transfer old user's roles
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroups = $userGroupDao->getByUserId($userId);
+		while($userGroup = $userGroups->next()) {
+			if (!$userGroupDao->userInGroup($mergeIntoUserId, $userGroup->getId())) {
+				$userGroupDao->assignUserToGroup($mergeIntoUserId, $userGroup->getId());
+			}
+		}
+		$userGroupDao->deleteAssignmentsByUserId($userId);
+
+		// Transfer stage assignments.
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+		$stageAssignments = $stageAssignmentDao->getByUserId($userId);
+		while ($stageAssignment = $stageAssignments->next()) {
+			$duplicateAssignments = $stageAssignmentDao->getBySubmissionAndStageId($stageAssignment->getSubmissionId(), null, $stageAssignment->getUserGroupId(), $mergeIntoUserId);
+			if (!$duplicateAssignments->next()) {
+				// If no similar assignments already exist, transfer this one.
+				$stageAssignment->setUserId($mergeIntoUserId);
+				$stageAssignmentDao->updateObject($stageAssignment);
+			} else {
+				// There's already a stage assignment for the new user; delete.
+				$stageAssignmentDao->deleteObject($stageAssignment);
+			}
+		}
+
+		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao->deleteUserById($userId);
 	}
 }

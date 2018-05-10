@@ -135,6 +135,7 @@
 	<message key="user.role.layoutEditor">Layout Editor</message>
 	<message key="user.role.layoutEditors">Layout Editors</message>
 	<message key="user.roles">Roles</message>
+	<message key="user.roles.noneAssigned">No assigned roles</message>
 	<message key="user.salutation">Salutation</message>
 	<message key="user.sendPassword">Confirmation</message>
 	<message key="user.sendPassword.description">Send me a confirmation email including my username and password</message>
@@ -155,4 +156,10 @@
 	<message key="user.apiKey.generate">Generate new API key</message>
 	<message key="user.apiKey.generateWarning">Generating a new API key will invalidate any existing key for this user.</message>
 	<message key="user.apiKey.secretRequired">Before generating an API key, your site administrator must set a secret in the config file ("api_key_secret").</message>
+
+	<!-- User Lists -->
+	<message key="user.list.count">{$count} users</message>
+	<message key="user.list.itemsOfTotal">{$count} of {$total} users</message>
+	<message key="user.list.assignUser">Assign Roles</message>
+	<message key="user.list.removeRolesAll">Remove Roles</message>
 </locale>

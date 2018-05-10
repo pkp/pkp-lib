@@ -67,6 +67,18 @@ class APIRouter extends PKPRouter {
 	}
 
 	/**
+	 * Get the context path
+	 * @return string
+	 */
+	function getContextPath() {
+		$pathInfoParts = $this->getPathInfoParts();
+		if ($pathInfoParts[0] === CONTEXT_ID_NONE_API) {
+			return $pathInfoParts[0];
+		}
+		return Core::cleanFileVar(isset($pathInfoParts[0]) ? $pathInfoParts[0] : '');
+	}
+
+	/**
 	 * Get the API version
 	 * @return string
 	 */

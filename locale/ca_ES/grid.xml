@@ -31,7 +31,6 @@
 	<message key="grid.action.export">Exporta</message>
 	<message key="grid.action.deleteSection">Elimina la secció</message>
 	<message key="grid.action.editorialHistory">Historial d'editorial</message>
-	<message key="grid.action.remove">Suprimeix</message>
 	<message key="grid.action.edit">Edita</message>
 	<message key="grid.action.approve">Accepta</message>
 	<message key="grid.action.moreInformation">Més informació</message>
@@ -148,7 +147,7 @@
 	<!-- Genres Grid -->
 	<message key="grid.genres.title">Gèneres</message>
 	<message key="grid.genres.description">Aquests gèneres es fan servir per anomenar fitxers i es presenten en un menú desplegable quan carregueu fitxers. Els gèneres designats ## permeten els usuaris/àries associar el fitxer amb un llibre sencer 99Z o amb un capítol concret per número (p. ex. 02).</message>
-	
+
 
 	<!-- Review Forms Grid -->
 	<message key="grid.reviewForm.title">Formularis de revisió</message>
@@ -231,7 +230,7 @@
 	<message key="grid.preparedEmails.title">Plantilles de correu preestablertes</message>
 	<message key="grid.preparedEmails.description">La premsa facilita la comunicació al flux de treball mitjançant l'ús de correus electrònics preparats. El redactat per defecte d'aquestes plantilles de correu es pot modificar fàcilment a continuació.</message>
 	<message key="grid.preparedEmails.currentList">Llista actual</message>
-	
+
 	<!-- Plugins -->
 	<message key="grid.plugin.allCategories">Totes les categories</message>
 	<message key="grid.plugin.disable">Estàs segur/a que vols desactivar aquest connector?</message>
@@ -247,7 +246,7 @@
 	<message key="grid.artworkFile.copyrightContact">Informació de contacte (si no sou un autor/a ni una institució publicadora)</message>
 	<message key="grid.artworkFile.permissionTerms">Condicions de permisos</message>
 	<message key="grid.artworkFile.placement">Col·locació a la tramesa</message>
-	
+
 	<!-- User Group Grid -->
 	<message key="grid.userGroup.assignStage">Fase d'assignació</message>
 	<message key="grid.userGroup.unassignStage">Fase de desassignació</message>

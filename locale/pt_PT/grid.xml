@@ -19,7 +19,6 @@
 	<message key="grid.action.sort">Ordenar</message>
 	<message key="grid.action.addItem">Adicionar Item</message>
 	<message key="grid.action.delete">Eliminar</message>
-	<message key="grid.action.remove">Remover</message>
 	<message key="grid.action.edit">Editar</message>
 	<message key="grid.action.approve">Aprovar</message>
 	<message key="grid.action.decline">Rejeitar</message>

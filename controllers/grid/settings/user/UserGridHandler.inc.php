@@ -19,6 +19,8 @@ import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 import('lib.pkp.controllers.grid.settings.user.UserGridRow');
 import('lib.pkp.controllers.grid.settings.user.form.UserDetailsForm');
 
+import('classes.core.ServicesContainer');
+
 class UserGridHandler extends GridHandler {
 	/** integer user id for the user to remove */
 	var $_oldUserId;
@@ -44,8 +46,13 @@ class UserGridHandler extends GridHandler {
 	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
-		import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
-		$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+
+		// Allow site admin to access this grid without a context
+		$currentUser = $request->getUser();
+		if ($request->getContext() || !$currentUser || !$currentUser->hasRole(ROLE_ID_SITE_ADMIN, CONTEXT_ID_NONE)) {
+			import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
+			$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+		}
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 
@@ -314,10 +321,24 @@ class UserGridHandler extends GridHandler {
 
 			// If this is a newly created user, show role management form.
 			if (!$userId) {
-				import('lib.pkp.controllers.grid.settings.user.form.UserRoleForm');
-				$userRoleForm = new UserRoleForm($user->getId(), $user->getFullName());
-				$userRoleForm->initData($args, $request);
-				return new JSONMessage(true, $userRoleForm->display($args, $request));
+				// If this is from the site admin, we need to show context form first
+				if (!$request->getContext()) {
+					import('lib.pkp.controllers.grid.settings.user.form.UserRoleContextForm');
+					$userRoleContextForm = new UserRoleContextForm($user->getId());
+					$userRoleContextForm->initData($args, $request);
+					$json = new JSONMessage(true, $userRoleContextForm->fetch($request));
+					$userService = ServicesContainer::instance()->get('user');
+					$json->setGlobalEvent('userAdded', $userService->getSummaryProperties($user, array('request' => $request)));
+					return $json;
+				} else {
+					import('lib.pkp.controllers.grid.settings.user.form.UserRoleForm');
+					$userRoleForm = new UserRoleForm($user->getId(), $user->getFullName());
+					$userRoleForm->initData($args, $request);
+					$json = new JSONMessage(true, $userRoleForm->display($args, $request));
+					$userService = ServicesContainer::instance()->get('user');
+					$json->setGlobalEvent('userAdded', $userService->getSummaryProperties($user, array('request' => $request)));
+					return $json;
+				}
 			} else {
 
 				// Successful edit of an existing user.
@@ -326,11 +347,70 @@ class UserGridHandler extends GridHandler {
 				$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.editedUser')));
 
 				// Prepare the grid row data.
-				return DAO::getDataChangedEvent($userId);
+				$json = DAO::getDataChangedEvent($userId);
+				$userService = ServicesContainer::instance()->get('user');
+				$updatedUser = $userService->getUser((int) $userId);
+				$json->setGlobalEvent('userUpdated', $userService->getSummaryProperties($updatedUser, array('request' => $request)));
+				return $json;
 			}
 		} else {
 			return new JSONMessage(false);
 		}
+	}
+
+	/**
+	 * Display the context selection form
+	 *
+	 * Used to determine what context user group assignment should occur in.
+	 *
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
+	function showRoleContextSelection($args, $request) {
+		$currentUser = $request->getUser();
+		$userId = $request->getUserVar('userId');
+
+		if (!$userId || !Validation::canAdminister($userId, $currentUser->getId())) {
+			return new JSONMessage(false, __('grid.user.cannotAdminister'));
+		}
+
+		import('lib.pkp.controllers.grid.settings.user.form.UserRoleContextForm');
+		$userRoleContextForm = new UserRoleContextForm($userId);
+
+		return new JSONMessage(true, $userRoleContextForm->fetch($request));
+	}
+
+	/**
+	 * Retrieve a user role form when a context selection has been made
+	 *
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
+	function selectRoleContext($args, $request) {
+		$currentUser = $request->getUser();
+		$userId = $request->getUserVar('userId');
+		$contextId = $request->getUserVar('contextId');
+
+		if (!$userId || !Validation::canAdminister($userId, $currentUser->getId())) {
+			return new JSONMessage(false, __('grid.user.cannotAdminister'));
+		}
+
+		$userDao = DAORegistry::getDAO('UserDAO');
+		$user = $userDao->getById($userId);
+
+		import('lib.pkp.controllers.grid.settings.user.form.UserRoleContextForm');
+		$userRoleContextForm = new UserRoleContextForm($userId);
+		$userRoleContextForm->readInputData();
+		if ($userRoleContextForm->validate()) {
+			$contextId = $userRoleContextForm->getData('contextId');
+			import('lib.pkp.controllers.grid.settings.user.form.UserRoleForm');
+			$userRoleForm = new UserRoleForm($user->getId(), $user->getFullName(), $contextId);
+			$userRoleForm->initData($args, $request);
+			return new JSONMessage(true, $userRoleForm->display($args, $request));
+		}
+		return new JSONMessage(false);
 	}
 
 	/**
@@ -342,8 +422,8 @@ class UserGridHandler extends GridHandler {
 	function updateUserRoles($args, $request) {
 		$user = $request->getUser();
 
-		// Identify the user Id.
 		$userId = $request->getUserVar('userId');
+		$contextId = $request->getUserVar('contextId');
 
 		if ($userId !== null && !Validation::canAdminister($userId, $user->getId())) {
 			// We don't have administrative rights over this user.
@@ -352,14 +432,18 @@ class UserGridHandler extends GridHandler {
 
 		// Form handling.
 		import('lib.pkp.controllers.grid.settings.user.form.UserRoleForm');
-		$userRoleForm = new UserRoleForm($userId, $user->getFullName());
+		$userRoleForm = new UserRoleForm($userId, $user->getFullName(), $contextId);
 		$userRoleForm->readInputData();
 
 		if ($userRoleForm->validate()) {
 			$userRoleForm->execute($args, $request);
 
 			// Successfully managed newly created user's roles.
-			return DAO::getDataChangedEvent($userId);
+			$json = DAO::getDataChangedEvent($userId);
+			$userService = ServicesContainer::instance()->get('user');
+			$updatedUser = $userService->getUser((int) $userId);
+			$json->setGlobalEvent('userUpdated', $userService->getSummaryProperties($updatedUser, array('request' => $request)));
+			return $json;
 		} else {
 			return new JSONMessage(false);
 		}
@@ -426,8 +510,11 @@ class UserGridHandler extends GridHandler {
 
 			// Successful enable/disable of an existing user.
 			// Update grid data.
-			return DAO::getDataChangedEvent($userId);
-
+			$json = DAO::getDataChangedEvent($userId);
+			$userService = ServicesContainer::instance()->get('user');
+			$updatedUser = $userService->getUser((int) $userId);
+			$json->setGlobalEvent('userUpdated', $userService->getSummaryProperties($updatedUser, array('request' => $request)));
+			return $json;
 		} else {
 			return new JSONMessage(false, $userForm->display($args, $request));
 		}
@@ -443,6 +530,7 @@ class UserGridHandler extends GridHandler {
 		if (!$request->checkCSRF()) return new JSONMessage(false);
 
 		$context = $request->getContext();
+		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 		$user = $request->getUser();
 
 		// Identify the user Id.
@@ -457,11 +545,15 @@ class UserGridHandler extends GridHandler {
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 
 		// Check if this user has any user group assignments for this context.
-		if (!$userGroupDao->userInAnyGroup($userId, $context->getId())) {
+		if (!$userGroupDao->userInAnyGroup($userId, $contextId)) {
 			return new JSONMessage(false, __('grid.user.userNoRoles'));
 		} else {
-			$userGroupDao->deleteAssignmentsByContextId($context->getId(), $userId);
-			return DAO::getDataChangedEvent($userId);
+			$userGroupDao->deleteAssignmentsByContextId($contextId, $userId);
+			$json = DAO::getDataChangedEvent($userId);
+			$userService = ServicesContainer::instance()->get('user');
+			$updatedUser = $userService->getUser((int) $userId);
+			$json->setGlobalEvent('userUpdated', $userService->getSummaryProperties($updatedUser, array('request' => $request)));
+			return $json;
 		}
 	}
 
@@ -520,37 +612,27 @@ class UserGridHandler extends GridHandler {
 	}
 
 	/**
-	 * Allow user account merging, including attributed submissions etc.
+	 * Display list to select user to merge into.
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
 	 */
 	function mergeUsers($args, $request) {
 
-		$newUserId =  (int) $request->getUserVar('newUserId');
 		$oldUserId = (int) $request->getUserVar('oldUserId');
-		$user = $request->getUser();
+		$context = $request->getContext();
+		$contextPath = $context ? $context->getPath() : CONTEXT_ID_NONE_API;
 
-		// if there is a $newUserId, this is the second time through, so merge the users.
-		if ($newUserId > 0 && $oldUserId > 0 && Validation::canAdminister($oldUserId, $user->getId())) {
-			if (!$request->checkCSRF()) return new JSONMessage(false);
-			import('classes.user.UserAction');
-			$userAction = new UserAction();
-			$userAction->mergeUsers($oldUserId, $newUserId);
-			$json = new JSONMessage(true);
-			$json->setGlobalEvent('userMerged', array(
-				'oldUserId' => $oldUserId,
-				'newUserId' => $newUserId,
-			));
-			return $json;
+		import('lib.pkp.controllers.list.users.PKPUsersListHandler');
+		$mergeUsersListHandler = new PKPUsersListHandler(array(
+			'title' => 'grid.user.mergeUsers.mergeIntoUser',
+			'mergeUserSourceId' => $oldUserId,
+			'apiContextPath' => $contextPath,
+		));
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign('mergeUsersListData', json_encode($mergeUsersListHandler->getConfig()));
 
-		// Otherwise present the grid for selecting the user to merge into
-		} else {
-			$userGrid = new UserGridHandler();
-			$userGrid->initialize($request);
-			$userGrid->setTitle('grid.user.mergeUsers.mergeIntoUser');
-			return $userGrid->fetchGrid($args, $request);
-		}
+		return new JSONMessage(true, $templateMgr->fetch('controllers/grid/settings/user/form/mergeUser.tpl'));
 	}
 
 	/**

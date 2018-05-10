@@ -58,7 +58,7 @@ class UserGroupGridRow extends GridRow {
 					null,
 					$router->url($request, null, null, 'removeUserGroup', null, $actionArgs)
 				),
-				__('grid.action.remove'),
+				__('common.remove'),
 				'delete'
 			));
 		}

@@ -38,6 +38,7 @@ class AdminSettingsTabHandler extends SettingsTabHandler {
 		parent::__construct($role);
 		$this->setPageTabs(array_merge($additionalTabs, array(
 			'siteSetup' => 'lib.pkp.controllers.tab.settings.siteSetup.form.SiteSetupForm',
+			'siteUsers' => 'controllers/tab/admin/users.tpl',
 			'languages' => 'controllers/tab/admin/languages/languages.tpl',
 			'plugins' => 'controllers/tab/admin/plugins/sitePlugins.tpl',
 			'navigationMenus' => 'controllers/tab/settings/navigationMenus/form/navigationMenuSettingsForm.tpl',
@@ -61,6 +62,24 @@ class AdminSettingsTabHandler extends SettingsTabHandler {
 			LOCALE_COMPONENT_PKP_MANAGER,
 			LOCALE_COMPONENT_APP_MANAGER
 		);
+	}
+
+	/**
+	 * @copydoc SettingsTabHandler::showTab()
+	 */
+	function showTab($args, $request) {
+		if ($args['tab'] === 'siteUsers') {
+			import('lib.pkp.controllers.list.users.PKPUsersListHandler');
+			$usersListHandler = new PKPUsersListHandler(array(
+				'title' => 'manager.users',
+				'apiContextPath' => CONTEXT_ID_NONE_API,
+				'isSiteAdmin' => true,
+			));
+			$usersListData = $usersListHandler->getConfig();
+			$templateMgr = TemplateManager::getManager($request);
+			$templateMgr->assign('usersListData', json_encode($usersListData));
+		}
+		return parent::showTab($args, $request);
 	}
 
 

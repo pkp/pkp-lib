@@ -93,6 +93,21 @@ class APIHandler extends PKPHandler {
 	}
 
 	/**
+	 * @copydoc PKPHandler::authorize()
+	 */
+	public function authorize($request, &$args, $roleAssignments) {
+
+		$success = parent::authorize($request, $args, $roleAssignments);
+
+		// Only permit accessing site-wide endpoints with the special `*` context
+		if (!$request->getContext() && $request->getRouter()->getContextPath() !== CONTEXT_ID_NONE_API) {
+			return false;
+		}
+
+		return $success;
+	}
+
+	/**
 	 * Return PKP request object
 	 *
 	 * @return PKPRequest

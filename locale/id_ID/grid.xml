@@ -19,7 +19,6 @@
 	<message key="grid.action.sort">Sortir</message>
 	<message key="grid.action.addItem">Tambah Item</message>
 	<message key="grid.action.delete">Hapus</message>
-	<message key="grid.action.remove">Hapus</message>
 	<message key="grid.action.edit">Edit</message>
 	<message key="grid.action.approve">Setujui</message>
 	<message key="grid.action.approveForReview">Serahkan ke Tahap Review</message>

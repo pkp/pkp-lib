@@ -62,7 +62,7 @@ class NavigationMenuItemsGridRow extends GridRow {
 						$router->url($request, null, null, 'deleteNavigationMenuItem', null, $actionArgs),
 						'modal_delete'
 						),
-					__('grid.action.remove'),
+					__('common.remove'),
 					'delete')
 			);
 		}

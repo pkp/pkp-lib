@@ -19,7 +19,6 @@
 	<message key="grid.action.sort">Poređaj</message>
 	<message key="grid.action.addItem">Dodaj stavku</message>
 	<message key="grid.action.delete">Obriši</message>
-	<message key="grid.action.remove">Ukloni</message>
 	<message key="grid.action.edit">Izmeni</message>
 	<message key="grid.action.approve">Odobriti</message>
 	<message key="grid.action.decline">Odbij predaju</message>

@@ -17,7 +17,7 @@
 	<message key="grid.settings">Inställningar</message>
 	<message key="grid.noAuditors">Inga manusgranskare</message>
 	<message key="grid.remotelyHostedItem">Det här objektet lagras externt.</message>
-	
+
 	<message key="grid.action.uninstall">Avinstallera</message>
 	<message key="grid.action.manageAccess">Hantera tillgänglighet</message>
 	<message key="grid.action.sort">Ordna</message>
@@ -39,7 +39,6 @@
 	<message key="grid.action.export">Exportera</message>
 	<message key="grid.action.deleteSection">Ta bort sektion</message>
 	<message key="grid.action.editorialHistory">Redaktionell historik</message>
-	<message key="grid.action.remove">Ta bort</message>
 	<message key="grid.action.edit">Redigera</message>
 	<message key="grid.action.approve">Godkänn</message>
 	<message key="grid.action.disapprove">Avslå</message>
@@ -265,7 +264,7 @@
 	<!-- Submission list grids -->
 	<message key="grid.submission.itemTitle">Författare; Titel</message>
 	<message key="grid.submission.active.selectOrphaned">Inkludera ofullständiga bidrag som inte skickats in av författaren.</message>
-	
+
 	<!-- Navigation Menus -->
 	<message key="grid.action.addNavigationMenu">Lägg till meny</message>
 	<message key="grid.action.addNavigationMenuItem">Lägg till objekt</message>

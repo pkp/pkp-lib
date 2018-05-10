@@ -40,7 +40,6 @@
 	<message key="grid.action.export">Экспортировать</message>
 	<message key="grid.action.deleteSection">Удалить раздел</message>
 	<message key="grid.action.editorialHistory">Редакционная история</message>
-	<message key="grid.action.remove">Удалить</message>
 	<message key="grid.action.edit">Редактировать</message>
 	<message key="grid.action.approve">Одобрить</message>
 	<message key="grid.action.disapprove">Отменить одобрение</message>
@@ -240,7 +239,7 @@
 	<!-- Модули -->
 	<message key="grid.plugin.allCategories">Все категории</message>
 	<message key="grid.plugin.disable">Вы уверены, что хотите отключить этот модуль?</message>
-	
+
 	<message key="grid.action.fileUnconsider">Сделана корректурная правка. Вы можете убрать эту задачу с рассмотрения</message>
 
 	<!-- Сетка «Файлы изображений» -->

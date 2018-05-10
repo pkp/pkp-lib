@@ -64,7 +64,7 @@ class StageParticipantGridRow extends GridRow {
 						$router->url($request, null, null, 'deleteParticipant', null, $this->getRequestArgs()),
 						'modal_delete'
 						),
-					__('grid.action.remove'),
+					__('common.remove'),
 					'delete'
 				)
 			);
@@ -75,6 +75,9 @@ class StageParticipantGridRow extends GridRow {
 			$stageAssignment = $this->getData();
 			$userId = $stageAssignment->getUserId();
 			$this->addAction(new NotifyLinkAction($request, $submission, $stageId, $userId));
+
+			import('classes.core.ServicesContainer');
+			$rowUser = ServicesContainer::instance()->get('user')->getUser($userId);
 
 			$user = $request->getUser();
 			if (
@@ -88,7 +91,7 @@ class StageParticipantGridRow extends GridRow {
 					new LinkAction(
 						'logInAs',
 						new RedirectConfirmationModal(
-							__('grid.user.confirmLogInAs'),
+							__('grid.user.confirmLogInAs', array('userName' => $rowUser->getFullName())),
 							__('grid.action.logInAs'),
 							$dispatcher->url($request, ROUTE_PAGE, null, 'login', 'signInAsUser', $userId)
 						),

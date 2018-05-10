@@ -33,7 +33,6 @@
 	<!-- Contributor Grid -->
 	<message key="grid.contributor.title">合作者</message>
 	<message key="grid.settings">设置</message>
-	<message key="grid.action.remove">删除</message>
 	<message key="grid.action.approve">同意</message>
 	<message key="grid.action.decline">还原</message>
 	<message key="grid.action.moreInformation">更多</message>

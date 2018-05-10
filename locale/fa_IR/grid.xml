@@ -35,7 +35,6 @@
 	<message key="grid.action.export">برون دهی</message>
 	<message key="grid.action.deleteSection">حذف نوع</message>
 	<message key="grid.action.editorialHistory">تاریخچه پردازش مقاله</message>
-	<message key="grid.action.remove">حذف</message>
 	<message key="grid.action.edit">ویرایش</message>
 	<message key="grid.action.approve">تأیید</message>
 	<message key="grid.action.disapprove">عدم پذیرش</message>

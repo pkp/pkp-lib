@@ -25,8 +25,8 @@ class UserRoleForm extends UserForm {
 	 * @param int $userId
 	 * @param string $userFullName
 	 */
-	function __construct($userId, $userFullName) {
-		parent::__construct('controllers/grid/settings/user/form/userRoleForm.tpl', $userId);
+	function __construct($userId, $userFullName, $contextId = null) {
+		parent::__construct('controllers/grid/settings/user/form/userRoleForm.tpl', $userId, $contextId);
 
 		$this->_userFullName = $userFullName;
 		$this->addCheck(new FormValidatorPost($this));

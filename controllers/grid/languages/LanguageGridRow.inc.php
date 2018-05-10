@@ -47,10 +47,10 @@ class LanguageGridRow extends GridRow {
 							new RemoteActionConfirmationModal(
 								$request->getSession(),
 								__('admin.languages.confirmUninstall'),
-								__('grid.action.remove'),
+								__('common.remove'),
 								$router->url($request, null, null, 'uninstallLocale', null, $actionArgs)
 								),
-							__('grid.action.remove'),
+							__('common.remove'),
 							'delete')
 					);
 				}

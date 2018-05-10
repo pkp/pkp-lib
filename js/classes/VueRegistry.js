@@ -41,6 +41,10 @@ export default {
 			delete data._constants;
 		}
 
+		if (!pkp.controllers[type].data) {
+			pkp.controllers[type].data = function () { return {}; };
+		}
+
 		var args = _.extend({}, pkp.controllers[type],
 			{
 				el: '#' + id,

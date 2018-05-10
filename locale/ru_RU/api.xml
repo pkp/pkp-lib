@@ -13,12 +13,12 @@
  -->
 
 <locale name="ru_RU" full_name="Русский">
-	<message key="api.submissions.403.csrfTokenFailure">Ваш запрос был отклонен. Возможно это произошло из-за того, что время доступа к системе истекло. Попробуйте перезагрузить страницу и войти снова.</message>
+	<message key="api.403.csrfTokenFailure">Ваш запрос был отклонен. Возможно это произошло из-за того, что время доступа к системе истекло. Попробуйте перезагрузить страницу и войти снова.</message>
 	<message key="api.submissions.403.requestedOthersUnpublishedSubmissions">Вы можете только просматривать неопубликованные материалы, в которых вы были назначены.</message>
 	<message key="api.submissions.403.deleteSubmissionOutOfContext">Вы не можете удалить материал, который не был назначен этому контексту.</message>
 	<message key="api.submissions.403.unauthorizedDeleteSubmission">У вас нет прав на удаление этого материала.</message>
-	<message key="api.submissions.404.resourceNotFound">Запрошенный ресурс не был найден.</message>
-	<message key="api.submissions.400.missingRequired">Ваш запрос не может быть выполнен, так как в нем отсутствует необходимая информация.</message>
+	<message key="api.404.resourceNotFound">Запрошенный ресурс не был найден.</message>
+	<message key="api.400.missingRequired">Ваш запрос не может быть выполнен, так как в нем отсутствует необходимая информация.</message>
 	<message key="api.submissions.400.invalidIssueIdentifiers">Неправильно указан запрашиваемый том, номер или год.</message>
-	<message key="api.submissions.unknownError">Произошла неожиданная ошибка. Пожалуйста, перезагрузите страницу и попробуйте снова.</message>
+	<message key="api.unknownError">Произошла неожиданная ошибка. Пожалуйста, перезагрузите страницу и попробуйте снова.</message>
 </locale>

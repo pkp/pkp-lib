@@ -74,15 +74,16 @@ class UserGroupAssignmentDAO extends DAO {
 	 * @param int $contextId
 	 * @param int $userId
 	 */
-	function deleteAssignmentsByContextId($contextId, $userId = null) {
-		$params = array((int) $contextId);
+	function deleteAssignmentsByContextId($contextId = null, $userId = null) {
+		if ($contextId) $params[] = (int) $contextId;
 		if ($userId) $params[] = (int) $userId;
 		$result = $this->retrieve(
 			'SELECT	uug.user_group_id, uug.user_id
 			FROM	user_groups ug
 				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-			WHERE	ug.context_id = ?
-				' . ($userId?' AND uug.user_id = ?':''),
+			WHERE '
+				. ($contextId?' ug.context_id = ?':'')
+				. ($userId? ($contextId? ' AND' : '') . ' uug.user_id = ?':''),
 			$params
 		);
 

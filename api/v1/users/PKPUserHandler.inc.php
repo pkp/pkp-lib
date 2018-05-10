@@ -43,8 +43,31 @@ class PKPUserHandler extends APIHandler {
 					'roles' => $roles
 				),
 			),
+			'POST' => array(
+				array(
+					'pattern' => $this->getEndpointPattern() . '/{userId}/merge',
+					'handler' => array($this, 'mergeUser'),
+					'roles' => array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER),
+				),
+			),
 		);
 		parent::__construct();
+	}
+
+	/**
+	 * @copydoc PKPHandler::authorize()
+	 */
+	public function authorize($request, &$args, $roleAssignments) {
+
+		// Only allow site admins to access site-wide endpoints
+		if (!$request->getContext()) {
+			$currentUser = $request->getUser();
+			if (!$currentUser || !$currentUser->hasRole(ROLE_ID_SITE_ADMIN, CONTEXT_ID_NONE)) {
+				return false;
+			}
+		}
+
+		return parent::authorize($request, $args, $roleAssignments);
 	}
 
 	/**
@@ -58,16 +81,13 @@ class PKPUserHandler extends APIHandler {
 	public function getUsers($slimRequest, $response, $args) {
 		$request = $this->getRequest();
 		$context = $request->getContext();
+		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 		$userService = ServicesContainer::instance()->get('user');
-
-		if (!$context) {
-			return $response->withStatus(404)->withJsonError('api.submissions.404.resourceNotFound');
-		}
 
 		$params = $this->_buildListRequestParams($slimRequest);
 
 		$items = array();
-		$users = $userService->getUsers($context->getId(), $params);
+		$users = $userService->getUsers($contextId, $params);
 		if (!empty($users)) {
 			$propertyArgs = array(
 				'request' => $request,
@@ -79,7 +99,7 @@ class PKPUserHandler extends APIHandler {
 		}
 
 		$data = array(
-			'itemsMax' => $userService->getUsersMaxCount($context->getId(), $params),
+			'itemsMax' => $userService->getUsersMaxCount($contextId, $params),
 			'items' => $items,
 		);
 
@@ -96,7 +116,6 @@ class PKPUserHandler extends APIHandler {
 	 */
 	public function getUser($slimRequest, $response, $args) {
 		$request = $this->getRequest();
-		$context = $request->getContext();
 		$userService = ServicesContainer::instance()->get('user');
 
 		if (!empty($args['userId'])) {
@@ -104,7 +123,7 @@ class PKPUserHandler extends APIHandler {
 		}
 
 		if (!$user) {
-			return $response->withStatus(404)->withJsonError('api.submissions.404.resourceNotFound');
+			return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
 		}
 
 		$data = $userService->getFullProperties($user, array(
@@ -126,16 +145,13 @@ class PKPUserHandler extends APIHandler {
 	public function getReviewers($slimRequest, $response, $args) {
 		$request = $this->getRequest();
 		$context = $request->getContext();
+		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 		$userService = ServicesContainer::instance()->get('user');
-
-		if (!$context) {
-			return $response->withStatus(404)->withJsonError('api.submissions.404.resourceNotFound');
-		}
 
 		$params = $this->_buildReviewerListRequestParams($slimRequest);
 
 		$items = array();
-		$users = $userService->getReviewers($context->getId(), $params);
+		$users = $userService->getReviewers($contextId, $params);
 		if (!empty($users)) {
 			$propertyArgs = array(
 				'request' => $request,
@@ -147,8 +163,55 @@ class PKPUserHandler extends APIHandler {
 		}
 
 		$data = array(
-			'itemsMax' => $userService->getReviewersMaxCount($context->getId(), $params),
+			'itemsMax' => $userService->getReviewersMaxCount($contextId, $params),
 			'items' => $items,
+		);
+
+		return $response->withJson($data, 200);
+	}
+
+	/**
+	 * Merge a user into another
+	 * @param $slimRequest Request Slim request object
+	 * @param $response Response object
+	 * @param $args array arguments
+	 *
+	 * @return Response
+	 */
+	public function mergeUser($slimRequest, $response, $args) {
+		$request = $this->getRequest();
+		$currentUser = $request->getUser();
+		$userService = ServicesContainer::instance()->get('user');
+		$params = $slimRequest->getParsedBody();
+
+		if (!$request->checkCSRF()) {
+			return $response->withStatus(403)->withJsonError('api.403.csrfTokenFailure');
+		}
+
+		if (!empty($args['userId'])) {
+			$user = $userService->getUser((int) $args['userId']);
+		}
+
+		if (!empty($params['mergeIntoUserId'])) {
+			$mergeIntoUser = $userService->getUser((int) $params['mergeIntoUserId']);
+		}
+
+		if (empty($user) || empty($mergeIntoUser)) {
+			return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+		}
+
+		if (!Validation::canAdminister($user->getId(), $currentUser->getId())) {
+			return $response->withStatus(403)->withJsonError('api.users.403.unauthorizedAdminUser');
+		}
+
+		$userService->mergeUsers($user, $mergeIntoUser);
+
+		$data = $userService->getFullProperties(
+			$userService->getUser($mergeIntoUser->getId()),
+			array(
+				'request' => $request,
+				'slimRequest' => $slimRequest
+			)
 		);
 
 		return $response->withJson($data, 200);
@@ -162,10 +225,6 @@ class PKPUserHandler extends APIHandler {
 	 * @return array
 	 */
 	private function _buildListRequestParams($slimRequest) {
-
-		$request = $this->getRequest();
-		$currentUser = $request->getUser();
-		$context = $request->getContext();
 
 		// Merge query params over default params
 		$defaultParams = array(
@@ -197,8 +256,10 @@ class PKPUserHandler extends APIHandler {
 					}
 					break;
 
-				// Always convert roleIds to array
+				// Always convert contextIds, roleIds and userGroupIds to array
+				case 'contextIds':
 				case 'roleIds':
+				case 'userGroupIds':
 					if (is_string($val) && strpos($val, ',') > -1) {
 						$val = explode(',', $val);
 					} elseif (!is_array($val)) {
@@ -228,6 +289,8 @@ class PKPUserHandler extends APIHandler {
 					break;
 			}
 		}
+
+		$returnParams = $this->_restrictContextIds($returnParams);
 
 		\HookRegistry::call('API::users::params', array(&$returnParams, $slimRequest));
 
@@ -269,7 +332,24 @@ class PKPUserHandler extends APIHandler {
 		// Restrict role IDs to reviewer roles
 		$returnParams['roleIds'] = array(ROLE_ID_REVIEWER);
 
+		$returnParams = $this->_restrictContextIds($returnParams);
+
 		\HookRegistry::call('API::users::reviewers::params', array(&$returnParams, $slimRequest));
+
+		return $returnParams;
+	}
+
+	/**
+	 * Prevents use of the `contextIds` param except in site-wide requests
+	 *
+	 * @param $returnParams array The accepted params
+	 * @return array
+	 */
+	private function _restrictContextIds($returnParams) {
+
+		if ($this->getRequest()->getContext()) {
+			unset($returnParams['contextIds']);
+		}
 
 		return $returnParams;
 	}

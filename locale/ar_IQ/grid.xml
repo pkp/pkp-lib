@@ -38,7 +38,6 @@
 	<message key="grid.action.export">تصدير</message>
 	<message key="grid.action.deleteSection">حذف المقطع</message>
 	<message key="grid.action.editorialHistory">تاريخ هيئة التحرير</message>
-	<message key="grid.action.remove">إزالة</message>
 	<message key="grid.action.edit">تعديل</message>
 	<message key="grid.action.approve">موافقة</message>
 	<message key="grid.action.disapprove">رفض</message>
@@ -155,10 +154,10 @@
 	<message key="grid.action.addContributor">إضافة مساهم</message>
 	<message key="grid.action.editContributor">تعديل المساهم</message>
 	<message key="grid.action.deleteContributor">حذف المساهم</message>
-	
+
 	<!-- Review Forms Grid -->
 	<message key="grid.reviewForm.title">معاينة النماذج</message>
-	
+
 	<!-- Review Form Element Reponse Items Grid -->
 	<message key="grid.reviewFormElement.responseItems">خيارات الاستجابة</message>
 
@@ -183,7 +182,7 @@
 	<message key="author.users.contributor.role">الدور</message>
 	<message key="author.users.contributor.principalContact">عنوان الاتصال الرئيسي</message>
 	<message key="author.users.contributor.includeInBrowse">ضمن قوائم التصفح</message>
-	
+
 	<!-- Roles -->
 	<message key="grid.roles.currentRoles">الأدوار الحالية</message>
 	<message key="grid.roles.add">إنشاء دور جديد</message>
@@ -235,11 +234,11 @@
 	<!-- Prepared emails -->
 	<message key="grid.preparedEmails.title">قوالب الرسائل الالكترونية المحضرة</message>
 	<message key="grid.preparedEmails.currentList">القائمة الحالية</message>
-	
+
 	<!-- Plugins -->
 	<message key="grid.plugin.allCategories">كل الفئات</message>
 	<message key="grid.plugin.disable">هل أنت متأكد من رغبتك في تعطيل هذا البرنامج الإضافي؟</message>
-	
+
 	<message key="grid.action.fileUnconsider">إجراءات القراءة التصحيحة أنجزت. بإمكانك تجاهل هذه المهمة</message>
 
 	<!-- Artwork Files Grid -->

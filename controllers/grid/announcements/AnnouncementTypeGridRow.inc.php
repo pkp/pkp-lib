@@ -61,7 +61,7 @@ class AnnouncementTypeGridRow extends GridRow {
 						$router->url($request, null, null, 'deleteAnnouncementType', null, $actionArgs),
 						'modal_delete'
 						),
-					__('grid.action.remove'),
+					__('common.remove'),
 					'delete')
 			);
 		}

@@ -38,7 +38,6 @@
 	<message key="grid.action.export">Exportar</message>
 	<message key="grid.action.deleteSection">Apagar seção</message>
 	<message key="grid.action.editorialHistory">Histórico Editorial</message>
-	<message key="grid.action.remove">Remover</message>
 	<message key="grid.action.edit">Editar</message>
 	<message key="grid.action.approve">Aceitar</message>
 	<message key="grid.action.disapprove">Desaprovar</message>

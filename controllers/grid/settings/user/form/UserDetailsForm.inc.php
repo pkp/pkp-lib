@@ -73,8 +73,6 @@ class UserDetailsForm extends UserForm {
 	 * @param $request PKPRequest
 	 */
 	function initData($args, $request) {
-		$context = $request->getContext();
-		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 
 		$data = array();
 

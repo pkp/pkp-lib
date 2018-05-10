@@ -37,7 +37,7 @@ class PKPCreateUsersTest extends WebTestCase {
 				'roles' => array()
 			), $data);
 
-			$this->waitForElementPresent($selector='css=[id^=component-grid-settings-user-usergrid-addUser-button-]');
+			$this->waitForElementPresent($selector='//button[contains(., \'Add User\')]');
 			$this->click($selector);
 			$this->waitForElementPresent('css=[id^=firstName-]');
 

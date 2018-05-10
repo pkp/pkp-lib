@@ -14,9 +14,9 @@
  */
 
 
-import('controllers.wizard.fileUpload.form.SubmissionFilesUploadBaseForm');
+import('lib.pkp.controllers.wizard.fileUpload.form.PKPSubmissionFilesUploadBaseForm');
 
-class SubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
+class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm {
 
 	/** @var array */
 	var $_uploaderRoles;

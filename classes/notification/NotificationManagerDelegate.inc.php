@@ -29,8 +29,6 @@ abstract class NotificationManagerDelegate extends PKPNotificationOperationManag
 	 */
 	function __construct($notificationType) {
 		$this->_notificationType = $notificationType;
-
-		parent::__construct();
 	}
 
 	/**
@@ -52,25 +50,15 @@ abstract class NotificationManagerDelegate extends PKPNotificationOperationManag
 	function updateNotification($request, $userIds, $assocType, $assocId) {
 		return false;
 	}
-	
+
 	/**
-	 * Check if this manager delegate can handle the 
+	 * Check if this manager delegate can handle the
 	 * creation of the passed notification type.
 	 * @copydoc PKPNotificationOperationManager::createNotification()
 	 */
 	function createNotification($request, $userId = null, $notificationType, $contextId = null, $assocType = null, $assocId = null, $level = NOTIFICATION_LEVEL_NORMAL, $params = null, $suppressEmail = false) {
 		assert($notificationType == $this->getNotificationType() || $this->multipleTypesUpdate());
 		return parent::createNotification($request, $userId, $notificationType, $contextId, $assocType, $assocId, $level, $params, $suppressEmail);
-	}
-
-	/**
-	 * Check if the manager delegate can send to mailing list
-	 * the passed type of notification.
-	 * @copydoc PKPNotificationOperationManager::sendToMailingList()
-	 */
-	function sendToMailingList($request, $notification) {
-		assert($notification->getType() !== $this->getNotificationType() || $this->multipleTypesUpdate());
-		parent::sendToMailingList($request, $notification);
 	}
 
 	/**

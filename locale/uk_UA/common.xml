@@ -365,7 +365,7 @@
 	<message key="icon.mail.alt">Mail</message>
 	<message key="icon.unchecked.alt">Не вибрано</message>
 	<message key="icon.view.alt">Подивитися</message>
-	
+
 	<!--Information Center -->
 	<message key="informationCenter.informationCenter">Інформаційний центр</message>
 	<message key="informationCenter.editorialHistory">Історія редагування</message>
@@ -378,7 +378,7 @@
 	<message key="informationCenter.history.noItems">Записів не зареєстровано.</message>
 	<message key="informationCenter.history.notePosted">Опубліковано нову нотатку.</message>
 	<message key="informationCenter.history.messageSent">Повідомлення надіслано до користувача.</message>
-	
+
 	<!-- Stage Participants -->
 	<message key="stageParticipants.history.messageSent">Опубліковано нову нотатку.</message>
 	<message key="stageParticipants.notify.startDiscussion">Почати обговорення</message>
@@ -388,7 +388,7 @@
 	<message key="stageParticipants.notify.warning">Будь ласка, переконайтесь, що ви заповнили поле повідомлення та вибрали хоча б одного одержувача.</message>
 	<message key="stageParticipants.options">Назначення привілеїв</message>
 	<message key="stageParticipants.recommendOnly">Цей учасник має право лише рекомендувати редакційне рішення і необхідно бути авторизованим редактором,щоб записувати редакційні рішення.</message>
-	
+
 	<message key="locale.primary">Основна локалізація</message>
 	<message key="locale.supported">Локалізації, що підтримуються</message>
 	<message key="navigation.access"><![CDATA[Користувачі і ролі]]></message>
@@ -449,14 +449,6 @@
 	<message key="notification.confirmError">Під час підтвердження вашої передплати сталася помилка.</message>
 	<message key="notification.confirmSuccess">Ви успішно підтвердили передплату.</message>
 	<message key="notification.email">Надсилати мені листи для цих сповіщень.</message>
-	<message key="notification.location">Перейти за посиланням</message>
-	<message key="notification.mailList">Список розсилання сповіщень</message>
-	<message key="notification.mailList.emailInvalid">Будь ласка, введіть коректну адресу email.</message>
-	<message key="notification.mailList.privacyProtection">Політика захисту приватності</message>
-	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Передплатити</a> зміст обмеженого доступу.]]></message>
-	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Надіслати</a> статтю]]></message>
-	<message key="notification.mailList.register">Ви можете зареєструватися на сайті, щоб...</message>
-	<message key="notification.mailList.review"><![CDATA[Взяти участь у процесі <a href="{$reviewUrl}">рецензування</a>]]></message>
 	<message key="notification.noneExist">Наразі у вас немає сповіщень.</message>
 	<message key="notification.addedNote">Нотатка опублікована.</message>
 	<message key="notification.removedNote">Нотатка видалена.</message>
@@ -464,19 +456,11 @@
 	<message key="notification.removedSubmission">Подання видалено.</message>
 	<message key="notification.notification">Сповіщення</message>
 	<message key="notification.notifications">Сповіщення</message>
-	<message key="notification.notificationsNew">({$numNew} нових)</message>
-	<message key="notification.notificationsDescription"><![CDATA[Ви маєте {$unreadCount} непрочитаних та {$readCount} прочитаних сповіщень.  <a href="{$settingsUrl}">Натисніть сюди</a>, щоб змінити налаштування сповіщень.]]></message>
 	<message key="notification.sentNotification">Нагадування відправлено.</message>
 	<message key="notification.settings">Налаштування сповіщень</message>
 	<message key="notification.settingsDescription">Оберіть події системи, про які Ви хочете бути сповіщені.  У Вашій стрічці сповіщень не будуть з'являтися події, що відповідають типам, які Ви відключите.</message>
-	<message key="notification.subscribe">Передплатити</message>
-	<message key="notification.subscribeError">На Вашу адресу email вже було оформлено передплату сповіщень.</message>
-	<message key="notification.subscribeSuccess">На зазначену Вами адресу email був надісланий лист.  Для підтвердження себе як передплатника цього списку розсилання, будь ласка, натисніть на відповідне посилання у листі.</message>
 	<message key="notification.reminderError">Під час надсилання паролю сталася помилка. Будь ласка, перевірте коректність введеної вами адреси email.</message>
 	<message key="notification.reminderSent">Ваш новий пароль був надісланий на зазначену Вами адресу email.</message>
-	<message key="notification.unsubscribe">Відмовитися від передплати</message>
-	<message key="notification.unsubscribeError">Під час відмови від передплати сталася помилка.  Будь ласка, перевірте коректність введеної Вами адреси email та пароля.</message>
-	<message key="notification.unsubscribeSuccess">Ваша передплата була успішно скасована.</message>
 	<message key="notification.savedSubmissionMetadata">Метадані подання збережені.</message>
 	<message key="notification.sendNotificationConfirmation">Відправлено сповіщення всім зареєстрованим користувачам</message>
 	<message key="search.author">Автори</message>
@@ -510,7 +494,7 @@
 	<message key="search.titleIndex">Перегляд списку назв робіт</message>
 	<message key="search.title">Назва</message>
 	<message key="search.typeMethodApproach">Методологія</message>
-	
+
 	<!-- Common -->
 	<message key="grid.action.downloadFile">Завантажити цей файл</message>
 
@@ -572,7 +556,7 @@
 	<message key="notification.addedNavigationMenu">Навігаційне меню було успішно додано</message>
 	<message key="notification.editedNavigationMenu">Навігаційне меню було успішно оновлено</message>
 	<message key="notification.removedNavigationMenu">Навігаційне меню було успішно видалено</message>
-	
+
 	<!-- List Handlers -->
 	<message key="list.viewMore">Показати подробиці щодо {$name}</message>
 	<message key="list.viewLess">Приховати подробиці щодо {$name}</message>

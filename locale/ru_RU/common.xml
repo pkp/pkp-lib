@@ -449,34 +449,17 @@
 	<message key="notification.editedAuthor">Автор отредактирован.</message>
 	<message key="notification.confirmError">При подверждении вашей подписки возникла ошибка.</message>
 	<message key="notification.confirmSuccess">Вы были успешно подписаны.</message>
-	<message key="notification.location">Перейти по ссылке</message>
-	<message key="notification.mailList">Список рассылки уведомлений</message>
-	<message key="notification.mailList.emailInvalid">Пожалуйста, введите правильный адрес электронной почты.</message>
-	<message key="notification.mailList.privacyProtection">Правила защиты личной информации</message>
-	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Подписаться</a> на закрытый контент.]]></message>
-	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Отправить</a> статью]]></message>
-	<message key="notification.mailList.register">Вы можете зарегистрироваться на этом сайте, чтобы...</message>
-	<message key="notification.mailList.review"><![CDATA[Участвовать в <a href="{$reviewUrl}">рецензировании</a>]]></message>
-	<message key="notification.noneExist">На текущий момент у Вас нет уведомлений.</message>
 	<message key="notification.addedNote">Заметка опубликована.</message>
 	<message key="notification.removedNote">Заметка удалена.</message>
 	<message key="notification.removedFile">Файл удален.</message>
 	<message key="notification.removedSubmission">Материал удален.</message>
 	<message key="notification.notification">Уведомление</message>
 	<message key="notification.notifications">Уведомления</message>
-	<message key="notification.notificationsNew">({$numNew} новых)</message>
-	<message key="notification.notificationsDescription">У Вас {$unreadCount} непрочитанных уведомлений и {$readCount} прочитанных.<![CDATA[  <a href="{$settingsUrl}">Щелкните здесь</a> для изменения Ваших настроек уведомлений.]]></message>
 	<message key="notification.sentNotification">Уведомление отправлено.</message>
 	<message key="notification.settings">Настройки уведомлений</message>
 	<message key="notification.settingsDescription">Выберите события системы, о которых вы хотите быть уведомлены. Снятие галочки у события приведет к тому, что уведомления об этом событии не будут показываться в системе и отправляться Вам на электронную почту. События, отмеченные галочками, будут отображаться в системе и вы дополнительно можете настроить отправку этого уведомления Вам на электронную почту.</message>
-	<message key="notification.subscribe">Подписаться</message>
-	<message key="notification.subscribeError">Ваш адрес электронной почты уже подписан на получение уведомлений.</message>
-	<message key="notification.subscribeSuccess">На указанный Вами адрес электронной почты было отправлено письмо. Пожалуйста, щелкните на ссылке подтверждения в этом письме, чтобы добавить себя в список рассылки.</message>
 	<message key="notification.reminderError">При отправке Вашего пароля произошла ошибка, пожалуйста, убедитесь, что вы ввели правильный адрес электронной почты.</message>
 	<message key="notification.reminderSent">Ваш новый пароль был отправлен по указанному Вами адресу электронной почты.</message>
-	<message key="notification.unsubscribe">Отписаться</message>
-	<message key="notification.unsubscribeError">При отмене Вашей подписки произошла ошибка. Пожалуйста, убедитесь, что вы используете правильный URL-адрес как указано в уведомлении, пришедшем на Ваш адрес электронной почты.</message>
-	<message key="notification.unsubscribeSuccess">Ваша подписка успешно прекращена.</message>
 	<message key="notification.savedSubmissionMetadata">Сохранены метаданные материала.</message>
 	<message key="notification.sendNotificationConfirmation">Отправить уведомление электронной почтой всем зарегистрированным пользователям</message>
 	<message key="search.author">По автору</message>

@@ -68,6 +68,8 @@ class RegistrationForm extends Form {
 			}));
 		}
 
+		$this->addCheck(new FormValidator($this, 'privacyConsent', 'required', 'user.profile.form.privacyConsentRequired'));
+
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
 	}
@@ -137,6 +139,7 @@ class RegistrationForm extends Form {
 			'country',
 			'interests',
 			'emailConsent',
+			'privacyConsent',
 			'readerGroup',
 			'reviewerGroup',
 		));

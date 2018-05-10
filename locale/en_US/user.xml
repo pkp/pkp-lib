@@ -96,6 +96,7 @@
 	<message key="user.profile.form.urlInvalid">The specified URL is not valid. Please double-check the URL and try again. (Hint: Try adding http:// to the beginning of the URL.)</message>
 	<message key="user.profile.form.usergroupRequired">A user group is required.</message>
 	<message key="user.profile.form.usernameRequired">A username is required.</message>
+	<message key="user.profile.form.privacyConsentRequired">You must agree to the terms of the privacy statement.</message>
 	<message key="user.profile.leavePasswordBlank">Leave the password fields blank to keep the current password.</message>
 	<message key="user.profile.newPassword">New password</message>
 	<message key="user.profile.oldPassword">Current password</message>
@@ -106,6 +107,7 @@
 	<message key="user.login.registerNewAccount">Register</message>
 	<message key="user.login.resetPasswordInstructions">Enter your account email address below and an email will be sent with instructions on how to reset your password.</message>
 
+	<message key="user.register.form.privacyConsent"><![CDATA[Yes, I agree to have my data collected and stored according to the <a href="{$privacyUrl}" target="_blank">Policy Statement</a>.]]></message>
 	<message key="user.register.form.emailConsent">Yes, I would like to be notified of new publications and announcements.</message>
 	<message key="user.register.form.emailExists">The selected email address is already in use by another user.</message>
 	<message key="user.register.form.passwordsDoNotMatch">The passwords do not match.</message>
@@ -157,4 +159,5 @@
 	<message key="user.apiKey.generate">Generate new API key</message>
 	<message key="user.apiKey.generateWarning">Generating a new API key will invalidate any existing key for this user.</message>
 	<message key="user.apiKey.secretRequired">Before generating an API key, your site administrator must set a secret in the config file ("api_key_secret").</message>
+	<message key="user.privacyLink"><![CDATA[Your data is stored in accordance with our <a href="{$privacyUrl}" target="_blank">privacy statement</a>.]]></message>
 </locale>

@@ -91,8 +91,10 @@
 	{/if}
 
 	{* Privacy Statement *}
-	{fbvFormSection for="privacyStatement" title="submission.submit.privacyStatement"}
-		{fbvElement type="textarea" name="privacyStatement" id="privacyStatement" disabled=true value=$currentContext->getLocalizedSetting('privacyStatement') rich=true}
+	{fbvFormSection list="true"}
+		{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}
+		{capture assign="privacyLabel"}{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}{/capture}
+		{fbvElement type="checkbox" id="privacyConsent" required=true value=1 label=$privacyLabel translate=false checked=$privacyConsent}
 	{/fbvFormSection}
 
 	{* Buttons *}

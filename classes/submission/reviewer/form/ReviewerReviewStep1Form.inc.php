@@ -23,6 +23,7 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 	 */
 	function __construct($request, $reviewerSubmission, $reviewAssignment) {
 		parent::__construct($request, $reviewerSubmission, $reviewAssignment, 1);
+		$this->addCheck(new FormValidator($this, 'privacyConsent', 'required', 'user.profile.form.privacyConsentRequired'));
 	}
 
 

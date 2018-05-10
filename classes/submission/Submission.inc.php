@@ -249,10 +249,11 @@ abstract class Submission extends DataObject {
 
 	/**
 	 * Return string of author names, separated by the specified token
+	 * @param $preferred boolean If the preferred public name should be used, if exist
 	 * @param $familyOnly boolean return list of family names only (default false)
 	 * @return string
 	 */
-	function getAuthorString($familyOnly = false) {
+	function getAuthorString($preferred = true, $familyOnly = false) {
 		$authors = $this->getAuthors(true);
 
 		$str = '';
@@ -270,7 +271,7 @@ abstract class Submission extends DataObject {
 				}
 			}
 			$familyName = $author->getLocalizedFamilyName();
-			$str .= ($familyOnly && !empty($familyName)) ? $familyName : $author->getFullName();
+			$str .= ($familyOnly && !empty($familyName)) ? $familyName : $author->getFullName($preferred);
 			$lastUserGroupId = $author->getUserGroupId();
 		}
 

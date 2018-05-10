@@ -62,13 +62,13 @@ class Identity extends DataObject {
 	/**
 	 * Get the identity's localized complete name.
 	 * Includes given name and family name.
+	 * @param $preferred boolean If the preferred public name should be used, if exist
 	 * @param $familyFirst boolean False / default: Givenname Familyname
 	 * 	If true: Familyname, Givenname
 	 * @param $defaultLocale string
-	 * @param $preferred boolean If the preferred public name should be used, if exist
 	 * @return string
 	 */
-	function getFullName($familyFirst = false, $defaultLocale = null, $preferred = true) {
+	function getFullName($preferred = true, $familyFirst = false, $defaultLocale = null) {
 		$locale = AppLocale::getLocale();
 		if ($preferred) {
 			$preferredPublicName = $this->getPreferredPublicName($locale);

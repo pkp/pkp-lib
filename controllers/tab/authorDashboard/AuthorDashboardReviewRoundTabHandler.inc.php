@@ -80,6 +80,11 @@ class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler {
 			),
 		));
 
+		// If open reviews exist, show the reviewers grid
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		if ($reviewAssignmentDao->getOpenReviewsByReviewRoundId($reviewRound->getId())){
+			$templateMgr->assign('showReviewerGrid', true);
+		}
 
 		// Editor has taken an action and sent an email; Display the email
 		import('classes.workflow.EditorDecisionActionsManager');

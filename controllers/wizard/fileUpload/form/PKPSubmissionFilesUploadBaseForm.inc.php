@@ -165,6 +165,30 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 		return $this->_submissionFiles;
 	}
 
+	/**
+	 * Get the submission files possible to select/consider for revision by the given user.
+	 * @param $user User
+	 * @param $uploadedFile uploaded SubmissionFile
+	 * @return array a list of SubmissionFile instances.
+	 */
+	function getRevisionSubmissionFilesSelection($user, $uploadedFile = null) {
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+		$allSubmissionFiles = $this->getSubmissionFiles();
+		$submissionFiles = array();
+		foreach ($allSubmissionFiles as $submissionFile) {
+			// The uploaded file must be excluded from the list of revisable files.
+			if ($uploadedFile && $uploadedFile->getFileId() == $submissionFile->getFileId()) continue;
+			if (
+				($submissionFile->getFileStage() == SUBMISSION_FILE_REVIEW_ATTACHMENT || $submissionFile->getFileStage() == SUBMISSION_FILE_REVIEW_FILE) &&
+				$stageAssignmentDao->getBySubmissionAndRoleId($submissionFile->getSubmissionId(), ROLE_ID_AUTHOR, $this->getStageId(), $user->getId())
+			) {
+				// Authors are not permitted to revise reviewer documents.
+				continue;
+			}
+			$submissionFiles[] = $submissionFile;
+		}
+		return $submissionFiles;
+	}
 
 	//
 	// Implement template methods from Form
@@ -194,7 +218,6 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 		// Retrieve the uploaded file (if any).
 		$uploadedFile = $this->getData('uploadedFile');
 
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 		$user = $request->getUser();
 
 		// Initialize the list with files available for review.
@@ -204,18 +227,9 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 		// Go through all files and build a list of files available for review.
 		$revisedFileId = $this->getRevisedFileId();
 		$foundRevisedFile = false;
-		$submissionFiles = $this->getSubmissionFiles();
+		$submissionFiles = $this->getRevisionSubmissionFilesSelection($user, $uploadedFile);
 
 		foreach ((array) $submissionFiles as $submissionFile) {
-			// The uploaded file must be excluded from the list of revisable files.
-			if ($uploadedFile && $uploadedFile->getFileId() == $submissionFile->getFileId()) continue;
-			if (
-				$submissionFile->getFileStage() == SUBMISSION_FILE_REVIEW_ATTACHMENT &&
-				$stageAssignmentDao->getBySubmissionAndRoleId($submissionFile->getSubmissionId(), ROLE_ID_AUTHOR, $this->_stageId, $user->getId())
-			) {
-				// Authors are not permitted to revise reviewer documents.
-				continue;
-			}
 
 			// Is this the revised file?
 			if ($revisedFileId && $revisedFileId == $submissionFile->getFileId()) {

@@ -42,6 +42,18 @@ class ReviewAssignmentDAO extends DAO {
 	}
 
 	/**
+	 * Retrieve open review assignments for the passed review round id.
+	 * @param $reviewRoundId int
+	 * @return array
+	 */
+	function getOpenReviewsByReviewRoundId($reviewRoundId) {
+		$params = array((int)$reviewRoundId, SUBMISSION_REVIEW_METHOD_OPEN);
+		$query = $this->_getSelectQuery() .
+			' WHERE r.review_round_id = ? AND r.review_method = ? AND r.date_confirmed IS NOT NULL ORDER BY review_id';
+		return $this->_getReviewAssignmentsArray($query, $params);
+	}
+
+	/**
 	 * Retrieve review assignments from table usign the passed
 	 * sql query and parameters.
 	 * @param $query string

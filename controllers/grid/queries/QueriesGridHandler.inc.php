@@ -33,7 +33,7 @@ class QueriesGridHandler extends GridHandler {
 	function __construct() {
 		parent::__construct();
 		$this->addRoleAssignment(
-			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR),
+			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR),
 			array('fetchGrid', 'fetchRow', 'readQuery', 'participants', 'addQuery', 'editQuery', 'updateQuery', 'deleteQuery'));
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT),
@@ -114,8 +114,8 @@ class QueriesGridHandler extends GridHandler {
 			import('lib.pkp.classes.security.authorization.QueryAccessPolicy');
 			$this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, $this->_stageId));
 		} else {
-			import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
-			$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->_stageId));
+			import('lib.pkp.classes.security.authorization.QueryWorkflowStageAccessPolicy');
+			$this->addPolicy(new QueryWorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->_stageId));
 		}
 
 		return parent::authorize($request, $args, $roleAssignments);

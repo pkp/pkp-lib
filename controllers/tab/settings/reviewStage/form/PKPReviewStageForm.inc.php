@@ -66,7 +66,7 @@ class PKPReviewStageForm extends ContextSettingsForm {
 
 		import('lib.pkp.classes.linkAction.request.ConfirmationModal');
 		import('lib.pkp.classes.linkAction.LinkAction');
-		return parent::fetch($request, $template, $display, array_merge($params, array(
+		return parent::fetch($request, $template, $display, array_merge((array)$params, array(
 			'ensuringLink' => new LinkAction(
 				'showReviewPolicy',
 				new ConfirmationModal(

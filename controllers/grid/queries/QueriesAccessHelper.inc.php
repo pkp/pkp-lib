@@ -11,15 +11,16 @@
  * @ingroup controllers_grid_query
  *
  * @brief Implements access rules for queries.
- * Permissions are intended as follows (per UI/UX group, 2015-12-01):
+ * Permissions are intended as follows (per UI/UX group, 2015-12-01)
+ * Added permissions for Reviewers, 2017-11-05
  *
- *	     ROLE
- *  TASK       MANAGER   SUB EDITOR  ASSISTANT  AUTHOR
- *  Create Q   Yes       Yes	     Yes        Yes
- *  Edit Q     All       All         If Creator If Creator
- *  List/View  All       All	     Assigned   Assigned
- *  Open/close All       All	     Assigned   No
- *  Delete Q   All       All	     If Blank	If Blank
+ *	ROLE
+ *  TASK       MANAGER   SUB EDITOR  ASSISTANT  AUTHOR      REVIEWER
+ *  Create Q   Yes       Yes	     Yes        Yes         Yes
+ *  Edit Q     All       All         If Creator If Creator  if Creator
+ *  List/View  All       All	     Assigned   Assigned    Assigned
+ *  Open/close All       All	     Assigned   No          No
+ *  Delete Q   All       All	     If Blank	If Blank    If Blank
  */
 
 class QueriesAccessHelper {
@@ -87,7 +88,7 @@ class QueriesAccessHelper {
 		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
 
 		// Managers, editors, assistants, and authors can create.
-		if (count(array_intersect($userRoles, array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR)))) return true;
+		if (count(array_intersect($userRoles, array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR, ROLE_ID_REVIEWER)))) return true;
 
 		return false;
 	}
@@ -104,7 +105,7 @@ class QueriesAccessHelper {
 		if (count(array_intersect($userRoles, array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR)))) return true;
 
 		// Assistants and authors are allowed, if they created the query
-		if (count(array_intersect($userRoles, array(ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR)))) {
+		if (count(array_intersect($userRoles, array(ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR, ROLE_ID_REVIEWER)))) {
 			$queryDao = DAORegistry::getDAO('QueryDAO');
 			$query = $queryDao->getById($queryId);
 			if ($query && $query->getHeadNote()->getUserId() == $this->_user->getId()) return true;

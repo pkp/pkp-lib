@@ -108,7 +108,7 @@ class PaymentMethodForm extends ContextSettingsForm {
 	 */
 	function validate() {
 		if (!$this->settingsForm->validate()) {
-			foreach ($this->settingsForm->getErrorsArray() as $field => $message) {
+			foreach (isset($this->settingsForm) && $this->settingsForm->getErrorsArray() as $field => $message) {
 				$this->addError($field, $message);
 			}
 		}

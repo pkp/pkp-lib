@@ -276,7 +276,9 @@ class PKPFileUploadWizardHandler extends Handler {
 		// If no revised file id was given then try out whether
 		// the user maybe accidentally didn't identify this file as a revision.
 		if (!$uploadForm->getRevisedFileId()) {
-			$revisedFileId = $this->_checkForRevision($uploadedFile, $uploadForm->getSubmissionFiles());
+			$user = $request->getUser();
+			$revisionSubmissionFilesSelection = $uploadForm->getRevisionSubmissionFilesSelection($user, $uploadedFile);
+			$revisedFileId = $this->_checkForRevision($uploadedFile, $revisionSubmissionFilesSelection);
 			if ($revisedFileId) {
 				// Instantiate the revision confirmation form.
 				import('lib.pkp.controllers.wizard.fileUpload.form.SubmissionFilesUploadConfirmationForm');
@@ -469,14 +471,6 @@ class PKPFileUploadWizardHandler extends Handler {
 		$possibleRevisedFileId = null;
 		$matchedPercentage = 0;
 		foreach ((array) $submissionFiles as $submissionFile) { /* @var $submissionFile SubmissionFile */
-			// Do not consider the uploaded file itself.
-			if ($uploadedFile->getFileId() == $submissionFile->getFileId()) continue;
-
-			// Do not consider files from different publication formats.
-			if ((($uploadedFile->getAssocType() == ASSOC_TYPE_REPRESENTATION &&
-				$submissionFile->getAssocType() == ASSOC_TYPE_REPRESENTATION)) &&
-				$uploadedFile->getAssocId() != $submissionFile->getAssocId()) continue;
-
 			// Test whether the current submission file is similar
 			// to the uploaded file. (Transliterate to ASCII -- the
 			// similar_text function can't handle UTF-8.)

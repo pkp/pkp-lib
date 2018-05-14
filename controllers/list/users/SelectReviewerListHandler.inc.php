@@ -72,6 +72,7 @@ class SelectReviewerListHandler extends SelectListHandler {
 			'activeReviews' => __('reviewer.list.activeReviews'),
 			'activeReviewsDescription' => __('reviewer.list.activeReviewsDescription'),
 			'completedReviews' => __('reviewer.list.completedReviews'),
+			'declinedReviews' => __('reviewer.list.declinedReviews'),
 			'reviewerRating' => __('reviewer.list.reviewerRating'),
 			'daysSinceLastAssignment' => __('reviewer.list.daysSinceLastAssignment'),
 			'daySinceLastAssignment' => __('reviewer.list.daySinceLastAssignment'),

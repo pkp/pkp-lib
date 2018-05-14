@@ -277,6 +277,9 @@ class UserService extends PKPBaseEntityPropertyService {
 				case 'reviewsCompleted':
 					$values[$prop] = $user->getData('completeCount');
 					break;
+				case 'reviewsDeclined':
+					$values[$prop] = $user->getData('declinedCount');
+					break;
 				case 'averageReviewCompletionDays':
 					$values[$prop] = $user->getData('averageTime');
 					break;
@@ -406,7 +409,7 @@ class UserService extends PKPBaseEntityPropertyService {
 	public function getReviewerSummaryProperties($user, $args = null) {
 		$props = array (
 			'id','_href','userName','fullName','affiliation','biography','groups','interests','gossip',
-			'reviewsActive','reviewsCompleted','averageReviewCompletionDays',
+			'reviewsActive','reviewsCompleted','reviewsDeclined','averageReviewCompletionDays',
 			'dateLastReviewAssignment','reviewerRating', 'orcid','disabled',
 		);
 

@@ -106,6 +106,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$this->addAuthors($doc, $submissionNode, $submission);
 		$this->addFiles($doc, $submissionNode, $submission);
 		$this->addRepresentations($doc, $submissionNode, $submission);
+		$this->addReviewAssignments($doc, $submissionNode, $submission);
 
 		return $submissionNode;
 	}
@@ -307,6 +308,29 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 				$firstRevisionChild = $submissionFileNode->firstChild;
 				$submissionFileNode->insertBefore($clone, $firstRevisionChild);
 			}
+		}
+	}
+
+	/**
+	 * Add the reviewAssignment metadata for a submission to its DOM element.
+	 * @param $doc DOMDocument
+	 * @param $submissionNode DOMElement
+	 * @param $submission Submission
+	 */
+	function addReviewAssignments($doc, $submissionNode, $submission) {
+		$filterDao = DAORegistry::getDAO('FilterDAO');
+		$nativeExportFilters = $filterDao->getObjectsByGroup('ReviewAssignments=>native-xml');
+		assert(count($nativeExportFilters)==1); // Assert only a single serialization filter
+		$exportFilter = array_shift($nativeExportFilters);
+		$exportFilter->setDeployment($this->getDeployment());
+
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId());
+
+		$reviewAssignmentsDoc = $exportFilter->execute($reviewAssignments);
+		if ($reviewAssignmentsDoc->documentElement instanceof DOMElement) {
+			$clone = $doc->importNode($reviewAssignmentsDoc->documentElement, true);
+			$submissionNode->appendChild($clone);
 		}
 	}
 

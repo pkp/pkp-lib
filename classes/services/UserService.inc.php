@@ -40,6 +40,8 @@ class UserService extends PKPBaseEntityPropertyService {
 	 * 		@option int assignedToSubmission
 	 * 		@option int assignedToSubmissionStage
 	 * 		@option int assignedToSection
+	 * 		@option array includeUsers
+	 * 		@option array excludeUsers
 	 * 		@option string status
 	 * 		@option string searchPhrase
 	 * 		@option int count
@@ -91,6 +93,8 @@ class UserService extends PKPBaseEntityPropertyService {
 			'assignedToSubmission' => null,
 			'assignedToSubmissionStage' => null,
 			'assignedToSection' => null,
+			'includeUsers' => null,
+			'excludeUsers' => null,
 			'status' => 'active',
 			'searchPhrase' => null,
 			'count' => 20,
@@ -105,6 +109,8 @@ class UserService extends PKPBaseEntityPropertyService {
 			->filterByRoleIds($args['roleIds'])
 			->assignedToSubmission($args['assignedToSubmission'], $args['assignedToSubmissionStage'])
 			->assignedToSection($args['assignedToSection'])
+			->includeUsers($args['includeUsers'])
+			->excludeUsers($args['excludeUsers'])
 			->filterByStatus($args['status'])
 			->searchPhrase($args['searchPhrase']);
 

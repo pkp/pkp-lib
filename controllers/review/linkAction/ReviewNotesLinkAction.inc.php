@@ -24,9 +24,10 @@ class ReviewNotesLinkAction extends LinkAction {
 	 * to show information about.
 	 * @param $submission Submission The reviewed submission.
 	 * @param $user User The user.
+	 * @param $handler string name of the gridhandler.
 	 * @param $isUnread bool Has a review been read
 	 */
-	function __construct($request, $reviewAssignment, $submission, $user, $isUnread = null) {
+	function __construct($request, $reviewAssignment, $submission, $user, $handler, $isUnread = null) {
 		// Instantiate the information center modal.
 		$router = $request->getRouter();
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
@@ -39,7 +40,7 @@ class ReviewNotesLinkAction extends LinkAction {
 		$ajaxModal = new AjaxModal(
 			$router->url(
 				$request, null,
-				'grid.users.reviewer.ReviewerGridHandler', 'readReview',
+				$handler, 'readReview',
 				null, $actionArgs
 			),
 			__('editor.review') . ': ' . $submission->getLocalizedTitle(),

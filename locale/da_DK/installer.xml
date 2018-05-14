@@ -79,4 +79,5 @@
 	<message key="installer.configureXSLMessage"><![CDATA[<p>XSL-modulet er ikke aktiveret på denne PHP-installation. Enten skal den aktiveres eller også skal xslt_command parameteret konfigureres i config.inc.php filen.</p>]]></message>
 	<message key="installer.beacon">Beacon</message>
 	<message key="installer.beacon.enable">Levér et unikt webside-id og OAI-basis-URL til PKP til brug for statistiske og sikkerhedsalarmmæssige formål.</message>
+	<message key="installer.unsupportedPhpError">Din servers PHP-version er ikke understøttet af denne software. Dobbeltklik på installationskravene i docs/README.</message>
 </locale>

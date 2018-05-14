@@ -32,6 +32,10 @@
 		{$submission->getLocalizedAbstract()|strip_unsafe_html}
 	{/fbvFormSection}
 
+	{fbvFormSection label="editor.submissionReview.reviewType"}
+		{$reviewMethod|escape}
+	{/fbvFormSection}
+	
 	{if !$restrictReviewerFileAccess}
 	{url|assign:reviewFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.review.ReviewerReviewFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$reviewAssignment->getStageId() reviewRoundId=$reviewRoundId reviewAssignmentId=$reviewAssignment->getId() escape=false}
 	{load_url_in_div id="reviewFilesStep1" url=$reviewFilesGridUrl}

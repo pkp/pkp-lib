@@ -591,6 +591,33 @@ class ReviewAssignment extends DataObject {
 		return '';
 	}
 
+	/**
+	 * Get the translation key for the review method
+	 *
+	 * @param $method int|null Optionally pass a method to retrieve a specific key.
+	 *  Default will return the key for the current review method
+	 * @return string
+	 */
+	public function getReviewMethodKey($method = null) {
+
+		if (is_null($method)) {
+			$method = $this->getReviewMethod();
+		}
+
+		switch ($method) {
+			case SUBMISSION_REVIEW_METHOD_OPEN:
+				return 'editor.submissionReview.open';
+			case SUBMISSION_REVIEW_METHOD_BLIND:
+				return 'editor.submissionReview.blind';
+			case SUBMISSION_REVIEW_METHOD_DOUBLEBLIND:
+				return 'editor.submissionReview.doubleBlind';
+		}
+
+		assert(false, 'No review method key could be found for ' . get_class($this) . ' on ' . __LINE__);
+
+		return '';
+	}
+
 	//
 	// Files
 	//

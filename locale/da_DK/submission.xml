@@ -538,12 +538,9 @@
 	<message key="submission.list.responseDue">Svar forfalden</message>
 	<message key="submission.list.reviewDue">Bedømmelse forfalden</message>
 	<message key="submission.list.confirmDelete">Slet indsendelse?</message>
-	<message key="submission.list.filter">Filtre</message>
-	<message key="submission.list.filterRemove">Ryd filter: {$filterTitle}</message>
 	<message key="submission.list.itemOrdererUp">Hæv placering af {$itemTitle}</message>
 	<message key="submission.list.itemOrdererDown">Sænk placering af {$itemTitle}</message>
 	<message key="submission.list.viewSubmission">Se indsendelse</message>
-	<message key="submission.list.clearSearch">Ryd søgestreng</message>
 	<message key="submission.list.reviewsCompleted">Angivne bedømmelser afsluttet</message>
 	<message key="submission.list.revisionsSubmitted">Tilretninger indsendt</message>
 	<message key="submission.list.copyeditsSubmitted">Manuskriptredigerede filer indsendt</message>
@@ -551,4 +548,26 @@
 	<message key="submission.list.filesPrepared">Filer klargjort</message>
 	<message key="submission.list.discussions">Påbegynd drøftelser</message>
 	<message key="submission.list.incompleteSubmissionNotice">Denne indsendelse skal afsluttes før en redaktør vil bedømme den.</message>
+	<message key="submission.citations.description">Indsæt hver reference på en ny linje så den kan ekstraheres.</message>
+	<message key="submission.parsedCitations">Ekstraherede referencer</message>
+	<message key="submission.parsedCitations.description">Følgende referencer er blevet ekstraherede og vil blive knyttet til indsendelsesmetadata.</message>
+	<message key="submission.parsedAndSaveCitations">Ekstraher og gem referencer</message>
+	<message key="submission.list.currentStage">I øjeblikket på trin {$stage}</message>
+	<message key="submission.list.dualWorkflowLinks"><![CDATA[Du har fået tildelt flere roller i forbindelse med denne indsendelse. Vil du have adgang til <a href="{$urlAuthorWorkflow}">Forfatter-workflowet</a>  eller til det<a href="{$urlEditorialWorkflow}">Redaktionelle-workflow</a>?]]></message>
+	<message key="submission.query.participantTitle">{$fullName}, {$userGroup}</message>
+	<message key="submission.list.reviewComplete">Bedømmelse indsendt</message>
+	<message key="submission.list.reviewerWorkflowLink"><![CDATA[Du har fået tildelt en redaktionel rolle i forbindelse med denne indsendelse. Vil du have adgang til det <a href="{$urlEditorialWorkflow}">Redaktionelle workflow</a>?]]></message>
+	<message key="editor.submission.addStageParticipant.form.reviewerWarning">Deltageren du valgte er blevet sat til at gennemføre en blind review bedømmelse. Hvis du vælger denne deltager, giver du vedkommende adgang til forfatterens identitet. Du opfordres til ikke at vælge denne deltager, medmindre du kan sikre integriteten i peer review processen</message>
+	<message key="editor.submission.roundStatus.resubmitForReview">Indsendelsen skal fremsendes igen til en ny bedømmelsesrunde.</message>
+	<message key="editor.submission.roundStatus.submissionResubmitted">Indsendelsen er blevet fremsendt igen til en ny bedømmelsesrunde.</message>
+	<message key="submission.submit.form.languagesRequired">Indtast et sprog.</message>
+	<message key="submission.submit.form.subjectsRequired">Indtast et emne.</message>
+	<message key="submission.submit.form.disciplinesRequired">Indtast et fagområde.</message>
+	<message key="submission.submit.form.keywordsRequired">Indtast et nøgleord.</message>
+	<message key="submission.submit.form.agenciesRequired">Indtast en støtteorganisation.</message>
+	<message key="submission.submit.form.coverageRequired">Indtast information om dækning.</message>
+	<message key="submission.submit.form.typeRequired">Indtast en type.</message>
+	<message key="submission.submit.form.sourceRequired">Indtast en kilde.</message>
+	<message key="submission.submit.form.rightsRequired">Indtast rettighederne.</message>
+	<message key="submission.submit.form.citationsRequired">Indtast referencerne.</message>
 </locale>

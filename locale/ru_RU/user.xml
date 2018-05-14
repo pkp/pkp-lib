@@ -29,6 +29,7 @@
 	<message key="user.authorization.accessibleWorkflowStage">Сейчас у вас нет доступа на этот этап рабочего потока.</message>
 	<message key="user.authorization.workflowStageRequired">Этап рабочего потока не указан.</message>
 	<message key="user.authorization.pluginRequired">Модуль обязателен, но не указан.</message>
+	<message key="user.authorization.invalidReviewAssignment">У вас нет доступа к этому заданию на рецензию.</message>
 	<message key="user.biography">Биография (например, кафедра и должность)</message>
 	<message key="user.changeMyPassword">Изменить мой пароль</message>
 	<message key="user.changePassword">Изменить пароль</message>

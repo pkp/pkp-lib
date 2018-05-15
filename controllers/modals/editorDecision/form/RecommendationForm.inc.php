@@ -76,11 +76,11 @@ class RecommendationForm extends Form {
 	// Overridden template methods from Form
 	//
 	/**
-	 * @see Form::initData()
-	 *
-	 * @param $request PKPRequest
+	 * @copydoc Form::initData()
 	 */
-	function initData($request) {
+	function initData() {
+		$application = PKPApplication::getApplication();
+		$request = $application->getRequest();
 		$submission = $this->getSubmission();
 
 		// Get the decision making editors, the e-mail about the recommendation will be send to

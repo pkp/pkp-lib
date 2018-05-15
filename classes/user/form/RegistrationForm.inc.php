@@ -110,11 +110,12 @@ class RegistrationForm extends Form {
 
 	/**
 	 * @copydoc Form::initData()
-	 * @param $request Request
 	 */
-	function initData($request) {
+	function initData() {
 		$userGroupIds = array();
 
+		$application = PKPApplication::getApplication();
+		$request = $application->getRequest();
 		// If a context exists, opt the user into reader and author roles in
 		// that context by default.
 		if (($context = $request->getContext()) && !$context->getSetting('disableUserReg')) {

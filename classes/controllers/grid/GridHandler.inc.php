@@ -839,8 +839,8 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
-	 * Returns a Form object or the path name of a filter template.
-	 * @return Form|string
+	 * Returns the path name of a filter template.
+	 * @return string
 	 */
 	protected function getFilterForm() {
 		return null;
@@ -876,16 +876,6 @@ class GridHandler extends PKPHandler {
 		switch(true) {
 			case $form === null: // No filter form.
 				return '';
-			case is_a($form, 'Form'): // Form object subclass
-				// Only read form data if the clientSubmit flag has been checked
-				$clientSubmit = (boolean) $request->getUserVar('clientSubmit');
-				if($clientSubmit) {
-					$form->readInputData();
-					$form->validate();
-				}
-
-				$form->initData($filterData, $request);
-				return $form->fetch($request);
 			case is_string($form): // HTML mark-up
 				$templateMgr = TemplateManager::getManager($request);
 

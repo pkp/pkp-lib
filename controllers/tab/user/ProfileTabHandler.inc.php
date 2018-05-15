@@ -47,7 +47,7 @@ class ProfileTabHandler extends Handler {
 		$this->setupTemplate($request);
 		import('lib.pkp.classes.user.form.IdentityForm');
 		$identityForm = new IdentityForm($request->getUser());
-		$identityForm->initData($request);
+		$identityForm->initData();
 		return new JSONMessage(true, $identityForm->fetch($request));
 	}
 
@@ -82,7 +82,7 @@ class ProfileTabHandler extends Handler {
 		$this->setupTemplate($request);
 		import('lib.pkp.classes.user.form.ContactForm');
 		$contactForm = new ContactForm($request->getUser());
-		$contactForm->initData($request);
+		$contactForm->initData();
 		return new JSONMessage(true, $contactForm->fetch($request));
 	}
 
@@ -117,7 +117,7 @@ class ProfileTabHandler extends Handler {
 		$this->setupTemplate($request);
 		import('lib.pkp.classes.user.form.RolesForm');
 		$rolesForm = new RolesForm($request->getUser());
-		$rolesForm->initData($request);
+		$rolesForm->initData();
 		return new JSONMessage(true, $rolesForm->fetch($request));
 	}
 
@@ -152,7 +152,7 @@ class ProfileTabHandler extends Handler {
 		$this->setupTemplate($request);
 		import('lib.pkp.classes.user.form.PublicProfileForm');
 		$publicProfileForm = new PublicProfileForm($request->getUser());
-		$publicProfileForm->initData($request);
+		$publicProfileForm->initData();
 		return new JSONMessage(true, $publicProfileForm->fetch($request));
 	}
 
@@ -216,7 +216,7 @@ class ProfileTabHandler extends Handler {
 		$this->setupTemplate($request);
 		import('lib.pkp.classes.user.form.APIProfileForm');
 		$apiProfileForm = new APIProfileForm($request->getUser());
-		$apiProfileForm->initData($request);
+		$apiProfileForm->initData();
 		return new JSONMessage(true, $apiProfileForm->fetch($request));
 	}
 
@@ -251,7 +251,7 @@ class ProfileTabHandler extends Handler {
 		$this->setupTemplate($request);
 		import('lib.pkp.classes.user.form.ChangePasswordForm');
 		$passwordForm = new ChangePasswordForm($request->getUser(), $request->getSite());
-		$passwordForm->initData($args, $request);
+		$passwordForm->initData();
 		return new JSONMessage(true, $passwordForm->fetch($request));
 	}
 

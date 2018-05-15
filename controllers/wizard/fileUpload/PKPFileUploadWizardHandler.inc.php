@@ -235,7 +235,7 @@ class PKPFileUploadWizardHandler extends Handler {
 			$this->getRevisionOnly(), $this->getReviewRound(), $this->getRevisedFileId(),
 			$this->getAssocType(), $this->getAssocId()
 		);
-		$fileForm->initData($args, $request);
+		$fileForm->initData();
 
 		// Render the form.
 		return new JSONMessage(true, $fileForm->fetch($request));
@@ -283,7 +283,7 @@ class PKPFileUploadWizardHandler extends Handler {
 				// Instantiate the revision confirmation form.
 				import('lib.pkp.controllers.wizard.fileUpload.form.SubmissionFilesUploadConfirmationForm');
 				$confirmationForm = new SubmissionFilesUploadConfirmationForm($request, $submission->getId(), $this->getStageId(), $this->getFileStage(), $reviewRound, $revisedFileId, $this->getAssocType(), $this->getAssocId(), $uploadedFile);
-				$confirmationForm->initData($args, $request);
+				$confirmationForm->initData();
 
 				// Render the revision confirmation form.
 				return new JSONMessage(true, $confirmationForm->fetch($request), '0', $uploadedFileInfo);
@@ -410,7 +410,7 @@ class PKPFileUploadWizardHandler extends Handler {
 	 */
 	function editMetadata($args, $request) {
 		$metadataForm = $this->_getMetadataForm($request);
-		$metadataForm->initData($args, $request);
+		$metadataForm->initData();
 		return new JSONMessage(true, $metadataForm->fetch($request));
 	}
 

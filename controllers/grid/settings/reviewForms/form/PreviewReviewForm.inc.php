@@ -38,13 +38,13 @@ class PreviewReviewForm extends Form {
 	/**
 	 * Display the form.
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$json = new JSONMessage();
 
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('reviewFormId', $this->reviewFormId);
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

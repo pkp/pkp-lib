@@ -48,11 +48,10 @@ class ReviewReminderForm extends Form {
 	//
 	/**
 	 * Initialize form data from the associated author.
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function initData($args, $request) {
+	function initData() {
 		$userDao = DAORegistry::getDAO('UserDAO');
+		$request = Application::getRequest();
 		$user = $request->getUser();
 		$context = $request->getContext();
 

@@ -38,10 +38,8 @@ class UserForm extends Form {
 
 	/**
 	 * Initialize form data from current user profile.
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	public function initData($args, $request) {
+	public function initData() {
 
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroups = $userGroupDao->getByUserId($this->userId);

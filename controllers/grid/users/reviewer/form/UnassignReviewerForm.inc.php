@@ -43,11 +43,9 @@ class UnassignReviewerForm extends Form {
 	//
 	/**
 	 * Initialize form data
-	 *
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function initData($args, $request) {
+	function initData() {
+		$request = Application::getRequest();
 		$context = $request->getContext();
 		$submission = $this->getSubmission();
 		$reviewAssignment = $this->getReviewAssignment();

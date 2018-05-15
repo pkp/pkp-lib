@@ -50,10 +50,8 @@ class ManageSubmissionFilesForm extends Form {
 	//
 	/**
 	 * Initialize variables
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function initData($args, $request) {
+	function initData() {
 		$this->setData('submissionId', $this->_submissionId);
 	}
 

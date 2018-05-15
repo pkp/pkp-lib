@@ -310,7 +310,7 @@ class PKPEditorDecisionHandler extends Handler {
 		// Form handling
 		import('lib.pkp.controllers.modals.editorDecision.form.RecommendationForm');
 		$editorRecommendationForm = new RecommendationForm($submission, $stageId, $reviewRound);
-		$editorRecommendationForm->initData($request);
+		$editorRecommendationForm->initData();
 		return new JSONMessage(true, $editorRecommendationForm->fetch($request));
 	}
 
@@ -418,7 +418,7 @@ class PKPEditorDecisionHandler extends Handler {
 
 		// Form handling
 		$editorDecisionForm = $this->_getEditorDecisionForm($formName, $decision);
-		$editorDecisionForm->initData($args, $request);
+		$editorDecisionForm->initData();
 
 		return new JSONMessage(true, $editorDecisionForm->fetch($request));
 	}

@@ -52,7 +52,9 @@ class NewContextImageFileForm extends SettingsFileUploadForm {
 	/**
 	 * @copydoc Form::initData()
 	 */
-	function initData($request) {
+	function initData() {
+		$application = PKPApplication::getApplication();
+		$request = $application->getRequest();
 		$context = $request->getContext();
 		$fileSettingName = $this->getFileSettingName();
 

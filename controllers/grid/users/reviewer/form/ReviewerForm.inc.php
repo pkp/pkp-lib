@@ -129,10 +129,9 @@ class ReviewerForm extends Form {
 	//
 	/**
 	 * Initialize form data from the associated author.
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function initData($args, $request) {
+	function initData() {
+		$request = Application::getRequest();
 		$reviewerId = (int) $request->getUserVar('reviewerId');
 		$context = $request->getContext();
 		$reviewRound = $this->getReviewRound();

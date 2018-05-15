@@ -186,7 +186,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 	public function installLocale($args, $request) {
 		// Form handling.
 		$installLanguageForm = new InstallLanguageForm();
-		$installLanguageForm->initData($request);
+		$installLanguageForm->initData();
 		return new JSONMessage(true, $installLanguageForm->fetch($request));
 
 	}
@@ -253,7 +253,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 
 		// Refresh form.
 		$installLanguageForm = new InstallLanguageForm();
-		$installLanguageForm->initData($request);
+		$installLanguageForm->initData();
 		$json->setEvent('refreshForm', $installLanguageForm->fetch($request));
 		return $json;
 	}

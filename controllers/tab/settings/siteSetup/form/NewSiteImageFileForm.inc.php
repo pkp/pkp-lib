@@ -33,7 +33,9 @@ class NewSiteImageFileForm extends SettingsFileUploadForm {
 	/**
 	 * @copydoc Form::initData()
 	 */
-	function initData($request) {
+	function initData() {
+		$application = PKPApplication::getApplication();
+		$request = $application->getRequest();
 		$site = $request->getSite();
 		$fileSettingName = $this->getFileSettingName();
 

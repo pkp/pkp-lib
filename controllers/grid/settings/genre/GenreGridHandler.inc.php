@@ -175,7 +175,7 @@ class GenreGridHandler extends SetupGridHandler {
 		import('lib.pkp.controllers.grid.settings.genre.form.GenreForm');
 		$genreForm = new GenreForm($genreId);
 
-		$genreForm->initData($args, $request);
+		$genreForm->initData($args);
 
 		return new JSONMessage(true, $genreForm->fetch($request));
 	}

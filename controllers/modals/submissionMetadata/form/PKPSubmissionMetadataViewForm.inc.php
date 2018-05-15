@@ -103,10 +103,8 @@ class PKPSubmissionMetadataViewForm extends Form {
 
 	/**
 	 * Initialize form data with the author name and the submission id.
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function initData($args, $request) {
+	function initData() {
 		AppLocale::requireComponents(
 			LOCALE_COMPONENT_APP_COMMON,
 			LOCALE_COMPONENT_PKP_SUBMISSION,

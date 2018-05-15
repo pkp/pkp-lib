@@ -110,7 +110,7 @@ class PublicationEntryTabHandler extends Handler {
 
 		$publicationEntrySubmissionReviewForm = $this->_getPublicationEntrySubmissionReviewForm();
 
-		$publicationEntrySubmissionReviewForm->initData($args, $request);
+		$publicationEntrySubmissionReviewForm->initData();
 		return new JSONMessage(true, $publicationEntrySubmissionReviewForm->fetch($request));
 	}
 

@@ -55,9 +55,12 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 	// Implement protected template methods from Form
 	//
 	/**
-	 * @copydoc Form::initData()
+	 * @see Form::initData()
+	 * @param $actionLabels array
 	 */
-	function initData($args, $request, $actionLabels) {
+	function initData($actionLabels = array()) {
+		$application = PKPApplication::getApplication();
+		$request = $application->getRequest();
 		$context = $request->getContext();
 		$router = $request->getRouter();
 		$dispatcher = $router->getDispatcher();
@@ -103,7 +106,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 			$this->setData($key, $value);
 		}
 
-		return parent::initData($args, $request);
+		return parent::initData();
 	}
 
 	/**

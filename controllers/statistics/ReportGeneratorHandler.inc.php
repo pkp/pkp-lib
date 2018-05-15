@@ -37,7 +37,7 @@ class ReportGeneratorHandler extends Handler {
 	function fetchReportGenerator($args, $request) {
 		$this->setupTemplate($request);
 		$reportGeneratorForm = $this->_getReportGeneratorForm($request);
-		$reportGeneratorForm->initData($request);
+		$reportGeneratorForm->initData();
 
 		$formContent = $reportGeneratorForm->fetch($request);
 

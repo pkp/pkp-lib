@@ -101,7 +101,7 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 	 * @see Form::readInputData()
 	 */
 	function readInputData() {
-		$this->readUserVars(array('competingInterestOption', 'competingInterestsText'));
+		$this->readUserVars(array('competingInterestOption', 'competingInterestsText', 'privacyConsent'));
 	}
 
 	/**

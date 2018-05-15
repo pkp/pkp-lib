@@ -106,7 +106,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$this->addAuthors($doc, $submissionNode, $submission);
 		$this->addFiles($doc, $submissionNode, $submission);
 		$this->addRepresentations($doc, $submissionNode, $submission);
-		$this->addReviewAssignments($doc, $submissionNode, $submission);
+		$this->addReviewRounds($doc, $submissionNode, $submission);
 
 		return $submissionNode;
 	}
@@ -290,50 +290,52 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 			$exportFilter->setDeployment($this->getDeployment());
 
 			$submissionFileDoc = $exportFilter->execute($submissionFile);
-			$fileId = $submissionFileDoc->documentElement->getAttribute('id');
-			if (!isset($submissionFileNodesByFileId[$fileId])) {
-				$clone = $doc->importNode($submissionFileDoc->documentElement, true);
-				$submissionNode->appendChild($clone);
-				$submissionFileNodesByFileId[$fileId] = $clone;
-			} else {
-				$submissionFileNode = $submissionFileNodesByFileId[$fileId];
-				// Look for a <revision> element
-				$revisionNode = null;
-				foreach ($submissionFileDoc->documentElement->childNodes as $childNode) {
-					if (!is_a($childNode, 'DOMElement')) continue;
-					if ($childNode->tagName == 'revision') $revisionNode = $childNode;
+			if ($submissionFileDoc) {
+				$fileId = $submissionFileDoc->documentElement->getAttribute('id');
+				if (!isset($submissionFileNodesByFileId[$fileId])) {
+					$clone = $doc->importNode($submissionFileDoc->documentElement, true);
+					$submissionNode->appendChild($clone);
+					$submissionFileNodesByFileId[$fileId] = $clone;
+				} else {
+					$submissionFileNode = $submissionFileNodesByFileId[$fileId];
+					// Look for a <revision> element
+					$revisionNode = null;
+					foreach ($submissionFileDoc->documentElement->childNodes as $childNode) {
+						if (!is_a($childNode, 'DOMElement')) continue;
+						if ($childNode->tagName == 'revision') $revisionNode = $childNode;
+					}
+					assert(is_a($revisionNode, 'DOMElement'));
+					$clone = $doc->importNode($revisionNode, true);
+					$firstRevisionChild = $submissionFileNode->firstChild;
+					$submissionFileNode->insertBefore($clone, $firstRevisionChild);
 				}
-				assert(is_a($revisionNode, 'DOMElement'));
-				$clone = $doc->importNode($revisionNode, true);
-				$firstRevisionChild = $submissionFileNode->firstChild;
-				$submissionFileNode->insertBefore($clone, $firstRevisionChild);
 			}
+
 		}
 	}
 
 	/**
-	 * Add the reviewAssignment metadata for a submission to its DOM element.
+	 * Add the addReviewRounds for a submission to its DOM element.
 	 * @param $doc DOMDocument
 	 * @param $submissionNode DOMElement
 	 * @param $submission Submission
 	 */
-	function addReviewAssignments($doc, $submissionNode, $submission) {
+	function addReviewRounds($doc, $submissionNode, $submission) {
 		$filterDao = DAORegistry::getDAO('FilterDAO');
-		$nativeExportFilters = $filterDao->getObjectsByGroup('ReviewAssignments=>native-xml');
+		$nativeExportFilters = $filterDao->getObjectsByGroup('review-round=>native-xml');
 		assert(count($nativeExportFilters)==1); // Assert only a single serialization filter
 		$exportFilter = array_shift($nativeExportFilters);
 		$exportFilter->setDeployment($this->getDeployment());
 
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
-		$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId());
+		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+		$reviewRounds = $reviewRoundDao->getBySubmissionId($submission->getId())->toArray();
 
-		$reviewAssignmentsDoc = $exportFilter->execute($reviewAssignments);
-		if ($reviewAssignmentsDoc->documentElement instanceof DOMElement) {
-			$clone = $doc->importNode($reviewAssignmentsDoc->documentElement, true);
+		$reviewRoundsDoc = $exportFilter->execute($reviewRounds);
+		if ($reviewRoundsDoc->documentElement instanceof DOMElement) {
+			$clone = $doc->importNode($reviewRoundsDoc->documentElement, true);
 			$submissionNode->appendChild($clone);
 		}
 	}
-
 
 	//
 	// Abstract methods for subclasses to implement

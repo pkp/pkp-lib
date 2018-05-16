@@ -523,6 +523,8 @@
 	<message key="manager.navigationMenus.loggedOut.conditionalWarning">Dieser Link wird nur angezeigt, falls die Besucherin/der Besucher eingeloggt ist.</message>
 	<message key="manager.navigationMenus.loggedIn.conditionalWarning">Dieser Link wird nur angezeigt, falls die Besucherin/der Besucher nicht eingeloggt ist.</message>
 	<message key="manager.navigationMenus.form.typeMissing">Bitte wählen Sie einen Navigationsmenü-Typ.</message>
+	<message key="manager.navigationMenus.subscriptions.conditionalWarning">Dieser Link wird nur angezeigt, wenn Zahlungen unter Einstellungen > Vertrieb > Zahlungen aktiviert sind.</message>
+	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning">Dieser Link wird nur angezeigt, wenn die Besucherin/der Besucher eingeloggt ist, Zahlungen unter Einstellungen > Vertrieb > Zahlungen aktiviert sind und ein Abonnement laut Einstellungen > Vertrieb > Zugriff erforderlich ist.</message>
 
 	<message key="manager.people.existingUserRequired">Ein existierender Benutzer/eine existierende Benutzerin muss eingetragen werden.</message>
 </locale>

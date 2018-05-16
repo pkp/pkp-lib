@@ -588,6 +588,7 @@
 	<message key="submission.query.new">{$creatorName} hat eine neue Diskussion begonnen: {$noteTitle}: {$noteContents}</message>
 	<message key="submission.query.activity.contents">Es gibt eine neue Aktivität in der Diskussion "{$queryTitle}" in Bezug auf das Manuskript "{$submissionTitle}".</message>
 	<message key="submission.query.new.contents">Sie sind zu einer Diskussion unter dem Titel "{$queryTitle}" in Bezug auf das Manuskript "{$submissionTitle}" hinzugefügt worden.</message>
+	<message key="submission.query.participantTitle">{$fullName}, {$userGroup}</message>
 	<message key="submission.query.noParticipantOptions">You must assign at least one participant to this submission before initiating a discussion.</message>
 
 	<!-- Submission Lists -->

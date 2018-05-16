@@ -116,6 +116,7 @@
 	<message key="manager.languages.alternateLocaleInstructions">Dieses System bietet die Möglichkeit, wichtige Informationen in verschiedenen zusätzlichen Sprachen einzutragen. Dazu wählen Sie bitte aus der nachstehenden Liste eine andere Regionaleinstellung aus.</message>
 	<message key="manager.languages.supportedLocalesInstructions">Wählen Sie alle Regionaleinstellungen aus, die von der Website unterstützt werden sollen und die über ein Sprachenmenü auf jeder Seite ausgewählt werden können. Dieses Menü erscheint nur dann, wenn mehr als eine Regionaleinstellung ausgewählt wird.</message>
 	<message key="manager.payment.timestamp">Zeitpunkt</message>
+	<message key="manager.people.existingUserRequired">Ein existierender Benutzer/eine existierende Benutzerin muss eingetragen werden.</message>
 	<message key="manager.people.authSource">Authentifizierungsquelle</message>
 	<message key="manager.people.confirmUnenroll">Diese/n Benutzer/in austragen?</message>
 	<message key="manager.people.createUser">Neue/n Benutzer/in erstellen</message>
@@ -256,6 +257,8 @@
 	<message key="manager.setup.reviewOptions.remindForSubmit">Eine Erinnerung schicken, wenn ein/e Gutachter/in nicht innerhalb der genannten Zeit eine Empfehlung eingereicht hat (Tage):</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Standard-Fristen für Begutachtung</message>
 	<message key="manager.setup.reviewOptions.showBlindReviewLink">Einen Link zu "blinde Begutachtung gewährleisten" während des Uploads anzeigen</message>
+	<message key="manager.setup.searchEngineIndexing.sitemap">Sitemap</message>
+	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[Eine XML-Sitemap zur Übermittlung an Suchmaschinen steht unter <a href="{$path}" target="_blank">{$path}</a> zur Verfügung.]]></message>
 	<message key="manager.setup.sponsors.note">Sie können einen Hinweis hinzufügen, wie Ihr Verhältnis zu Ihren Sponsoren ist; dieser Hinweis wird in der Sponsorenliste auf Ihrer "Über uns"-Seite erscheinen.</message>
 	<message key="manager.setup.sponsors.description">Beispiele: Fachgesellschaften, Fachbereiche, Konsortien etc. Spnsoren werden öffentlich angezeigt.</message>
 	<message key="manager.setup.styleSheetDescription">Sie können eine zusätzliche CSS-Datei hochladen, um das Aussehen anzupassen.</message>
@@ -393,6 +396,8 @@
 	<message key="settings.libraryFiles.category.permissions">Rechte</message>
 	<message key="settings.libraryFiles.category.reports">Berichte</message>
 	<message key="settings.libraryFiles.category.other">Anderes</message>
+	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>Diese Bibliotheksdatei kann zum Download bereitgestellt werden, wenn "Öffentlicher Zugang" unter <blockquote>{$downloadUrl}</blockquote> aktiviert ist.</p>]]></message>
+	<message key="settings.libraryFiles.public.selectLibraryFiles">Wählen Sie Bibliotheksdateien aus, um sie anzuhängen.to attach</message>
 
 	<!--  Genre grid settings -->
 	<message key="grid.action.addGenre">Ein Genre hinzufügen</message>
@@ -401,7 +406,11 @@
 	<message key="grid.action.restoreGenres">Genres auf Standard zurücksetzen</message>
 	<message key="manager.setup.genres.dependent">Dateien dieses Typs als abhängige Dateien markieren (z.B. nicht Primärveröffentlichungen)</message>
 	<message key="manager.setup.genres.supplementary">Dateien dieses Typs als Zusatzdateien markieren (z.B. kein primärer Beitragsinhalt)</message>
-	<message key="manager.settings.wizard">Einstellungs-Wizard</message>
+	<message key="manager.setup.genres.key">Schlüssel</message>
+	<message key="manager.setup.genres.key.description">Ein optionales kurzes Kennzeichen für dieses Genre.</message>
+	<message key="manager.setup.genres.key.exists">Dieser Schlüssel existiert bereit.</message>
+	<message key="manager.setup.genres.key.alphaNumeric">Der Schlüssel darf nur alphanumerische Zeichen, Unterstriche und Bindestriche enthalten und muss mit einem alphanumerischen Zeichen beginnen und enden.</message>
+	<message key="manager.settings.wizard">Einstellungs-Assistent</message>
 	<message key="manager.users.roleRequired">Sie müssen wenigstens eine Rolle auswählen, die mit dieser Benutzerin/diesem Benutzer verknüpft wird.</message>
 	<message key="manager.website">Website</message>
 	<message key="manager.website.title">Website-Einstellungen</message>
@@ -490,6 +499,7 @@
 	<message key="manager.navigationMenus.unassignedMenuItems">Nicht zugewiesenen Menüeinträge</message>
 	<message key="manager.navigationMenus.form.navigationMenuArea">Aktiver Navigationsbereich</message>
 	<message key="manager.navigationMenus.form.navigationMenuAreaMessage">Wählen Sie einen Navigationsbereich aus</message>
+	<message key="manager.navigationMenus.form.menuAssigned">Diesem Bereich ist bereits ein Navigationsmenü zugewiesen.</message>
 
 	<message key="manager.navigationMenus.form.url">URL</message>
 	<message key="manager.navigationMenus.form.customUrlError">Eine URL ist erforderlich</message>
@@ -521,6 +531,10 @@
 	<message key="manager.navigationMenus.logOut.description">Über diesen Link loggt sich die Benutzerin/der Benutzer aus.</message>
 	<message key="manager.navigationMenus.loggedOut.conditionalWarning">Dieser Link wird nur angezeigt, falls die Besucherin/der Besucher eingeloggt ist.</message>
 	<message key="manager.navigationMenus.loggedIn.conditionalWarning">Dieser Link wird nur angezeigt, falls die Besucherin/der Besucher nicht eingeloggt ist.</message>
-
-	<message key="manager.people.existingUserRequired">Ein existierender Benutzer/eine existierende Benutzerin muss eingetragen werden.</message>
+	<message key="manager.navigationMenus.contact.description">Link zu einer Seite, die Ihre Kontaktinformationen anzeigt.</message>
+	<message key="manager.navigationMenus.contact.conditionalWarning">Dieser Link wird nur angezeigt, wenn Sie die Kontaktinformationen unter Einstellungen > Kontakt ausgefüllt haben.</message>
+	<message key="manager.navigationMenus.form.typeMissing">Bitte wählen Sie einen Navigationsmenü-Typ.</message>
+	<message key="manager.navigationMenus.subscriptions.conditionalWarning">Dieser Link wird nur angezeigt, wenn Zahlungen unter Einstellungen > Vertrieb > Zahlungen aktiviert sind.</message>
+	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning">Dieser Link wird nur angezeigt, wenn die Besucherin/der Besucher eingeloggt ist, Zahlungen unter Einstellungen > Vertrieb > Zahlungen aktiviert sind und ein Abonnement laut Einstellungen > Vertrieb > Zugriff erforderlich ist.</message>
+	<message key="manager.navigationMenus.search.description">Link zur Suchseite.</message>
 </locale>

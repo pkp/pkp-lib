@@ -522,6 +522,7 @@
 	<message key="manager.navigationMenus.logOut.description">Über diesen Link loggt sich die Benutzerin/der Benutzer aus.</message>
 	<message key="manager.navigationMenus.loggedOut.conditionalWarning">Dieser Link wird nur angezeigt, falls die Besucherin/der Besucher eingeloggt ist.</message>
 	<message key="manager.navigationMenus.loggedIn.conditionalWarning">Dieser Link wird nur angezeigt, falls die Besucherin/der Besucher nicht eingeloggt ist.</message>
+	<message key="manager.navigationMenus.form.typeMissing">Bitte wählen Sie einen Navigationsmenü-Typ.</message>
 
 	<message key="manager.people.existingUserRequired">Ein existierender Benutzer/eine existierende Benutzerin muss eingetragen werden.</message>
 </locale>

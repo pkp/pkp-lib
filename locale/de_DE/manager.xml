@@ -490,6 +490,7 @@
 	<message key="manager.navigationMenus.unassignedMenuItems">Nicht zugewiesenen Menüeinträge</message>
 	<message key="manager.navigationMenus.form.navigationMenuArea">Aktiver Navigationsbereich</message>
 	<message key="manager.navigationMenus.form.navigationMenuAreaMessage">Wählen Sie einen Navigationsbereich aus</message>
+	<message key="manager.navigationMenus.form.menuAssigned">Diesem Bereich ist bereits ein Navigationsmenü zugewiesen.</message>
 
 	<message key="manager.navigationMenus.form.url">URL</message>
 	<message key="manager.navigationMenus.form.customUrlError">Eine URL ist erforderlich</message>

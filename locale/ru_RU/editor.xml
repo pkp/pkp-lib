@@ -135,6 +135,7 @@
 	<message key="reviewer.list.activeReviews">Рецензий в работе: {$count}</message>
 	<message key="reviewer.list.activeReviewsDescription">Число рецензий в работе</message>
 	<message key="reviewer.list.completedReviews">Завершено рецензий</message>
+	<message key="reviewer.list.declinedReviews">Отклонено запросов на рецензию</message>
 	<message key="reviewer.list.reviewerRating">Рейтинг рецензента: {$rating}</message>
 	<message key="reviewer.list.daysSinceLastAssignment">{$days} дней назад</message>
 	<message key="reviewer.list.daySinceLastAssignment">Вчера</message>

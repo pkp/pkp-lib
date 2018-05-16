@@ -201,6 +201,8 @@
 	<message key="common.or">oder</message>
 	<message key="common.other">Andere</message>
 	<message key="common.overdue">Verspätet</message>
+	<message key="common.pagination">{$start}-{$end} von {$total}</message>
+	<message key="common.pagination.label">Zusätzliche Seiten durchstöbern</message>
 	<message key="common.pageNumber">Seite {$pageNumber}</message>
 	<message key="common.pageHeaderLogo.altText">Logo in der Kopfzeile</message>
 	<message key="common.percentage">{$percentage}%</message>
@@ -374,6 +376,8 @@
 
 	<!-- Stage Participants -->
 	<message key="stageParticipants.history.messageSent">Benachrichtigung an Nutzer/innen geschickt.</message>
+	<message key="stageParticipants.notify.startDiscussion">Diskussion starten</message>
+	<message key="stageParticipants.notify.startDiscussion.description">Eine Diskussion zwischen Ihnen und {$userFullName} beginnen.</message>
 	<message key="stageParticipants.notify.chooseMessage">Bitte wählen Sie eine vordefinierte Nachricht aus oder füllen Sie das Formular unten aus.</message>
 	<message key="stageParticipants.notify.message">Nachricht</message>
 	<message key="stageParticipants.notify.warning">Bitte stellen Sie sicher, dass Sie das Nachrichtenfeld ausgefüllt und mindestens eine/n Empfänger/in ausgewählt haben.</message>

@@ -197,7 +197,7 @@ class GenreGridHandler extends SetupGridHandler {
 		$router = $request->getRouter();
 
 		if ($genreForm->validate()) {
-			$genreForm->execute($args, $request);
+			$genreForm->execute();
 			return DAO::getDataChangedEvent($genreForm->getGenreId());
 		} else {
 			return new JSONMessage(false);

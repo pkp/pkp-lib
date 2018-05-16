@@ -321,11 +321,11 @@ class QueryForm extends Form {
 
 	/**
 	 * @copydoc Form::execute()
-	 * @param $request PKPRequest
 	 */
-	function execute($request) {
+	function execute() {
 		$queryDao = DAORegistry::getDAO('QueryDAO');
 		$query = $this->getQuery();
+		$request = Application::getRequest();
 
 		$headNote = $query->getHeadNote();
 		$headNote->setTitle($this->getData('subject'));

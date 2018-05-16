@@ -80,13 +80,11 @@ class ManageReviewFilesForm extends ManageSubmissionFilesForm {
 
 	/**
 	 * Save review round files
-	 * @param $args array
-	 * @param $request PKPRequest
 	 * @stageSubmissionFiles array The files that belongs to a file stage
 	 * that is currently being used by a grid inside this form.
 	 */
-	function execute($args, $request, $stageSubmissionFiles) {
-		parent::execute($args, $request, $stageSubmissionFiles, SUBMISSION_FILE_REVIEW_FILE);
+	function execute($stageSubmissionFiles) {
+		parent::execute($stageSubmissionFiles, SUBMISSION_FILE_REVIEW_FILE);
 	}
 
 	/**

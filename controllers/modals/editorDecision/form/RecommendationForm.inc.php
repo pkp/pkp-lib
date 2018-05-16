@@ -142,11 +142,12 @@ class RecommendationForm extends Form {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute($request) {
+	function execute() {
 		// Record the recommendation.
 		$submission = $this->getSubmission();
 		$reviewRound = $this->getReviewRound();
 		$recommendation = $this->getData('recommendation');
+		$request = Application::getRequest();
 
 		// Record the recommendation
 		import('lib.pkp.classes.submission.action.EditorAction');

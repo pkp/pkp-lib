@@ -47,7 +47,7 @@ class SupplementaryFileMetadataForm extends SubmissionFilesMetadataForm {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute($args, $request) {
+	function execute() {
 		// Update the submission file from form data.
 		$submissionFile = $this->getSubmissionFile();
 		$submissionFile->setSubject($this->getData('subject'), null); // Localized
@@ -60,7 +60,7 @@ class SupplementaryFileMetadataForm extends SubmissionFilesMetadataForm {
 		$submissionFile->setDateCreated($this->getData('dateCreated'));
 
 		// Persist the submission file.
-		parent::execute($args, $request);
+		parent::execute();
 	}
 }
 

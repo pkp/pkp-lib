@@ -162,11 +162,12 @@ class PKPSubmissionMetadataViewForm extends Form {
 
 	/**
 	 * Save changes to submission.
-	 * @param $request PKPRequest
 	 */
-	function execute($request) {
+	function execute() {
+		parent::execute();
+
 		$submission = $this->getSubmission();
-		parent::execute($submission);
+		$request = Application::getRequest();
 		// Execute submission metadata related operations.
 		$this->_metadataFormImplem->execute($submission, $request);
 	}

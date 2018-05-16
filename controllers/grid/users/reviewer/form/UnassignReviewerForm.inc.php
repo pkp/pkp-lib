@@ -79,13 +79,12 @@ class UnassignReviewerForm extends Form {
 	/**
 	 * Deletes the review assignment and notifies the reviewer via email
 	 *
-	 * @param mixed $args
-	 * @param $request PKPRequest
 	 * @return bool whether or not the review assignment was deleted successfully
 	 */
-	function execute($args, $request) {
+	function execute() {
 		$submission = $this->getSubmission();
 		$reviewAssignment = $this->getReviewAssignment();
+		$request = Application::getRequest();
 
 		// Notify the reviewer via email.
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');

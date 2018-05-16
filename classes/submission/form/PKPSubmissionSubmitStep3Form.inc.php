@@ -81,11 +81,11 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 
 	/**
 	 * Save changes to submission.
-	 * @param $args array
-	 * @param $request PKPRequest
 	 * @return int the submission ID
 	 */
-	function execute($args, $request) {
+	function execute() {
+		$request = Application::getRequest();
+
 		// Execute submission metadata related operations.
 		$this->_metadataFormImplem->execute($this->submission, $request);
 
@@ -99,7 +99,7 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 			$submission->stampStatusModified();
 		}
 
-		parent::execute($submission);
+		parent::execute();
 
 		// Save the submission.
 		$submissionDao->updateObject($submission);

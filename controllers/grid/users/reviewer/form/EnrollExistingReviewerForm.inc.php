@@ -50,10 +50,8 @@ class EnrollExistingReviewerForm extends ReviewerForm {
 
 	/**
 	 * Save review assignment
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function execute($args, $request) {
+	function execute() {
 		// Assign a reviewer user group to an existing non-reviewer
 		$userId = (int) $this->getData('userId');
 
@@ -64,7 +62,7 @@ class EnrollExistingReviewerForm extends ReviewerForm {
 		// Set the reviewerId in the Form for the parent class to use
 		$this->setData('reviewerId', $userId);
 
-		return parent::execute($args, $request);
+		return parent::execute();
 	}
 }
 

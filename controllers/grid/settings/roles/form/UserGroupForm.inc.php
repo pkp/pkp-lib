@@ -120,7 +120,7 @@ class UserGroupForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 
 		$roleDao = DAORegistry::getDAO('RoleDAO');
@@ -133,7 +133,7 @@ class UserGroupForm extends Form {
 		$templateMgr->assign('selfRegistrationRoleIds', $this->getPermitSelfRegistrationRoles());
 		$templateMgr->assign('recommendOnlyRoleIds', $this->getRecommendOnlyRoles());
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -155,10 +155,11 @@ class UserGroupForm extends Form {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute($request) {
+	function execute() {
 		$userGroupId = $this->getUserGroupId();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$request = Application::getRequest();
 
 		// Check if we are editing an existing user group or creating another one.
 		if ($userGroupId == null) {

@@ -310,7 +310,7 @@ class UserGridHandler extends GridHandler {
 		$userForm->readInputData();
 
 		if ($userForm->validate()) {
-			$user = $userForm->execute($args, $request);
+			$user = $userForm->execute();
 
 			// If this is a newly created user, show role management form.
 			if (!$userId) {
@@ -356,7 +356,7 @@ class UserGridHandler extends GridHandler {
 		$userRoleForm->readInputData();
 
 		if ($userRoleForm->validate()) {
-			$userRoleForm->execute($args, $request);
+			$userRoleForm->execute();
 
 			// Successfully managed newly created user's roles.
 			return DAO::getDataChangedEvent($userId);
@@ -422,7 +422,7 @@ class UserGridHandler extends GridHandler {
 		$userForm->readInputData();
 
 		if ($userForm->validate()) {
-			$user = $userForm->execute($args, $request);
+			$user = $userForm->execute();
 
 			// Successful enable/disable of an existing user.
 			// Update grid data.
@@ -512,7 +512,7 @@ class UserGridHandler extends GridHandler {
 		$userEmailForm->readInputData();
 
 		if ($userEmailForm->validate()) {
-			$userEmailForm->execute($args, $request);
+			$userEmailForm->execute();
 			return new JSONMessage(true);
 		} else {
 			return new JSONMessage(false, $userEmailForm->fetch($request));

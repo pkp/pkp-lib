@@ -169,7 +169,7 @@ abstract class PKPSubmissionHandler extends Handler {
 
 		if (!HookRegistry::call('SubmissionHandler::saveSubmit', array($step, &$submission, &$submitForm))) {
 			if ($submitForm->validate()) {
-				$submissionId = $submitForm->execute($args, $request);
+				$submissionId = $submitForm->execute();
 				if (!$submission) {
 					return $request->redirectUrlJson($router->url($request, null, null, 'wizard', $step+1, array('submissionId' => $submissionId), 'step-2'));
 				}

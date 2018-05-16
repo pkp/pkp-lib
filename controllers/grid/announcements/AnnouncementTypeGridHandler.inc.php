@@ -170,7 +170,7 @@ class AnnouncementTypeGridHandler extends GridHandler {
 		$announcementTypeForm->readInputData();
 
 		if ($announcementTypeForm->validate()) {
-			$announcementTypeForm->execute($request);
+			$announcementTypeForm->execute();
 
 			if ($announcementTypeId) {
 				// Successful edit of an existing announcement type.

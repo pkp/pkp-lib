@@ -52,10 +52,10 @@ class NotificationMailingListForm extends Form {
 
 	/**
 	 * Save the form
-	 * @param $request PKPRequest
 	 */
-	function execute($request) {
+	function execute() {
 		$userEmail = $this->getData('email');
+		$request = Application::getRequest();
 		$context = $request->getContext();
 
 		$notificationMailListDao = DAORegistry::getDAO('NotificationMailListDAO');

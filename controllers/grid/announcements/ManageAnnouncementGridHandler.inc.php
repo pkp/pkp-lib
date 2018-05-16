@@ -151,7 +151,7 @@ class ManageAnnouncementGridHandler extends AnnouncementGridHandler {
 				$notificationLocaleKey = 'notification.addedAnnouncement';
 			}
 
-			$announcementId = $announcementForm->execute($request);
+			$announcementId = $announcementForm->execute();
 
 			// Record the notification to user.
 			$notificationManager = new NotificationManager();

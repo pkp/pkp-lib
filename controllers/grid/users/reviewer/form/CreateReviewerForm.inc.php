@@ -68,12 +68,11 @@ class CreateReviewerForm extends ReviewerForm {
 
 	/**
 	 * Save review assignment
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function execute($args, $request) {
+	function execute() {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $userDao->newDataObject();
+		$request = Application::getRequest();
 
 		$user->setFirstName($this->getData('firstName'));
 		$user->setMiddleName($this->getData('middleName'));
@@ -129,7 +128,7 @@ class CreateReviewerForm extends ReviewerForm {
 			}
 		}
 
-		return parent::execute($args, $request);
+		return parent::execute();
 	}
 }
 

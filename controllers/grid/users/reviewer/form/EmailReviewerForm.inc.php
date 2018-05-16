@@ -67,12 +67,12 @@ class EmailReviewerForm extends Form {
 
 	/**
 	 * Send the email
-	 * @param $request PKPRequest
 	 * @param $submission Submission
 	 */
-	function execute($request, $submission) {
+	function execute($submission) {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$toUser = $userDao->getById($this->_reviewAssignment->getReviewerId());
+		$request = Application::getRequest();
 		$fromUser = $request->getUser();
 
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');

@@ -79,10 +79,8 @@ class UserDisableForm extends Form {
 
 	/**
 	 * Enable/Disable the user
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function execute($args, $request) {
+	function execute() {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $userDao->getById($this->_userId);
 

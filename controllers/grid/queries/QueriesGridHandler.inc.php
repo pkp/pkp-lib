@@ -485,7 +485,7 @@ class QueriesGridHandler extends GridHandler {
 		$queryForm->readInputData();
 
 		if ($queryForm->validate()) {
-			$queryForm->execute($request);
+			$queryForm->execute();
 
 			if ($this->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
 				$this->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {

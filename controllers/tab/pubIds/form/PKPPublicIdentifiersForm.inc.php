@@ -172,8 +172,8 @@ class PKPPublicIdentifiersForm extends Form {
 	 * Store objects with pub ids.
 	 * @copydoc Form::execute()
 	 */
-	function execute($request) {
-		parent::execute($request);
+	function execute() {
+		parent::execute();
 
 		$pubObject = $this->getPubObject();
 		$pubObject->setStoredPubId('publisher-id', $this->getData('publisherId'));

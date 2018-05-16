@@ -278,7 +278,7 @@ class UserGroupGridHandler extends GridHandler {
 
 		$userGroupForm->readInputData();
 		if($userGroupForm->validate()) {
-			$userGroupForm->execute($request);
+			$userGroupForm->execute();
 			return DAO::getDataChangedEvent();
 		} else {
 			return new JSONMessage(true, $userGroupForm->fetch($request));

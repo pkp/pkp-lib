@@ -227,13 +227,12 @@ class UserDetailsForm extends UserForm {
 
 	/**
 	 * Create or update a user.
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function &execute($args, $request) {
-		parent::execute($args, $request);
+	function execute() {
+		parent::execute();
 
 		$userDao = DAORegistry::getDAO('UserDAO');
+		$request = Application::getRequest();
 		$context = $request->getContext();
 
 		if (isset($this->userId)) {

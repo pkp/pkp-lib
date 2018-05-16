@@ -202,7 +202,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 		$installLanguageForm->readInputData($request);
 
 		if ($installLanguageForm->validate($request)) {
-			$installLanguageForm->execute($request);
+			$installLanguageForm->execute();
 			$this->_updateContextLocaleSettings($request);
 
 			$notificationManager = new NotificationManager();

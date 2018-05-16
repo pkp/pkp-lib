@@ -110,9 +110,9 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 
 	/**
 	 * @see Form::execute()
-	 * @param $request PKPRequest
 	 */
-	function execute($request) {
+	function execute() {
+		$request = Application::getRequest();
 		$reviewAssignment =& $this->getReviewAssignment();
 		$notificationMgr = new NotificationManager();
 		if ($reviewAssignment->getReviewFormId()) {

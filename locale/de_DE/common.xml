@@ -130,7 +130,7 @@
 	<message key="common.dimensionsPixels">{$width} x {$height} Pixel</message>
 	<message key="common.disable">Ausschalten</message>
 	<message key="common.disabled">Deaktiviert</message>
-	<message key="common.discipline">Disziplin</message>
+	<message key="common.discipline">Fachgebiet</message>
 	<message key="common.done">Fertig</message>
 	<message key="common.download">Herunterladen</message>
 	<message key="common.downloadPdf">PDF herunterladen</message>

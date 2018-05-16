@@ -41,14 +41,13 @@ class NotificationMailingListForm extends Form {
 	}
 
 	/**
-	 * Display the form.
-	 * @param $request PKPRequest
+	 * @copydoc Form::display()
 	 */
-	function display($request) {
+	function display($request, $template = null) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('new', true);
 
-		return parent::display();
+		return parent::display($request, $template);
 	}
 
 	/**

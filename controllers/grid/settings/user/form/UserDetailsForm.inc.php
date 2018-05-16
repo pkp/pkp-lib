@@ -138,11 +138,9 @@ class UserDetailsForm extends UserForm {
 	}
 
 	/**
-	 * Display the form.
-	 * @param $args array
-	 * @param $request PKPRequest
+	 * @copydoc UserForm::display()
 	 */
-	function display($args, $request) {
+	function display($request, $template = null) {
 		$site = $request->getSite();
 		$templateMgr = TemplateManager::getManager($request);
 		$userDao = DAORegistry::getDAO('UserDAO');
@@ -173,7 +171,7 @@ class UserDetailsForm extends UserForm {
 			$templateMgr->assign('authSourceOptions', $authSourceOptions);
 		}
 
-		return parent::display($args, $request);
+		return parent::display($request, $template);
 	}
 
 

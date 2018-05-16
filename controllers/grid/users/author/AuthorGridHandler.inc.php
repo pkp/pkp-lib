@@ -389,7 +389,7 @@ class AuthorGridHandler extends GridHandler {
 			$userForm = new UserDetailsForm($request, null, $author);
 			$userForm->initData();
 
-			return new JSONMessage(true, $userForm->display($args, $request));
+			return new JSONMessage(true, $userForm->display($request));
 		}
 	}
 }

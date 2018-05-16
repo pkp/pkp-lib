@@ -68,7 +68,7 @@ class UserDisableForm extends Form {
 	/**
 	 * @copydoc Form::display()
 	 */
-	function display($request, $template = null) {
+	function display($request = null, $template = null) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
 			'userId' => $this->_userId,

@@ -140,7 +140,7 @@ class UserDetailsForm extends UserForm {
 	/**
 	 * @copydoc UserForm::display()
 	 */
-	function display($request, $template = null) {
+	function display($request = null, $template = null) {
 		$site = $request->getSite();
 		$templateMgr = TemplateManager::getManager($request);
 		$userDao = DAORegistry::getDAO('UserDAO');

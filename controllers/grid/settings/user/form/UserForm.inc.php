@@ -61,7 +61,7 @@ class UserForm extends Form {
 	/**
 	 * @copydoc Form::display()
 	 */
-	public function display($request, $template = null) {
+	public function display($request = null, $template = null) {
 		$context = $request->getContext();
 		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 		$templateMgr = TemplateManager::getManager($request);

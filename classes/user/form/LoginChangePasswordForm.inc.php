@@ -40,7 +40,7 @@ class LoginChangePasswordForm extends Form {
 	/**
 	 * @copydoc Form::display()
 	 */
-	function display($request, $template = null) {
+	function display($request = null, $template = null) {
 		$templateMgr = TemplateManager::getManager($request);
 		$site = $request->getSite();
 		$templateMgr->assign('minPasswordLength', $site->getMinPasswordLength());

@@ -80,4 +80,5 @@
 	<message key="installer.configureXSLMessage"><![CDATA[<p>In Ihrer PHP-Installation ist das XSL-Modul nicht freigeschaltet. Entweder schalten Sie es frei, oder konfigurieren Sie das Parameter xsl_command in Ihrer Datei config.inc.php.</p>]]></message>
 	<message key="installer.beacon">Identifikationssignal</message>
 	<message key="installer.beacon.enable">Eine eindeutige Identifikation und die OAI base URL an PKP übermitteln (nur für Statistiken und Sicherheitsbenachrichtigungen).</message>
+	<message key="installer.unsupportedPhpError">Die PHP-Version Ihres Servers wird nicht von dieser Software unterstützt. Bitte überprüfen Sie die Installationsanforderungen in docs/README.</message>
 </locale>

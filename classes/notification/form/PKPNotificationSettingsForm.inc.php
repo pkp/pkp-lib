@@ -113,8 +113,7 @@ class PKPNotificationSettingsForm extends Form {
 	 * @copydoc
 	 */
 	function execute() {
-		$application = PKPApplication::getApplication();
-		$request = $application->getRequest();
+		$request = Application::getRequest();
 		$user = $request->getUser();
 		$userId = $user->getId();
 		$context = $request->getContext();

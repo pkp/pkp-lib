@@ -119,8 +119,7 @@ class PKPSiteSettingsForm extends Form {
 
 		// Clear the template cache if theme has changed
 		if ($this->getData('themePluginPath') != $site->getSetting('themePluginPath')) {
-			$application = PKPApplication::getApplication();
-			$request = $application->getRequest();
+			$request = Application::getRequest();
 			$templateMgr = TemplateManager::getManager($request);
 			$templateMgr->clearTemplateCache();
 			$templateMgr->clearCssCache();

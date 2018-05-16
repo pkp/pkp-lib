@@ -80,8 +80,7 @@ class APIProfileForm extends BaseProfileForm {
 	 * Save user's API key settings form.
 	 */
 	function execute() {
-		$application = PKPApplication::getApplication();
-		$request = $application->getRequest();
+		$request = Application::getRequest();
 		$user = $request->getUser();
 
 		$apiKeyEnabled = (bool) $this->getData('apiKeyEnabled');

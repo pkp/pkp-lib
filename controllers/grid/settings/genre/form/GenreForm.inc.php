@@ -63,8 +63,7 @@ class GenreForm extends Form {
 	 * @param $args array
 	 */
 	function initData($args = null) {
-		$application = PKPApplication::getApplication();
-		$request = $application->getRequest();
+		$request = Application::getRequest();
 		$context = $request->getContext();
 
 		$genreDao = DAORegistry::getDAO('GenreDAO');
@@ -122,8 +121,7 @@ class GenreForm extends Form {
 	 */
 	function execute() {
 		$genreDao = DAORegistry::getDAO('GenreDAO');
-		$application = PKPApplication::getApplication();
-		$request = $application->getRequest();
+		$request = Application::getRequest();
 		$context = $request->getContext();
 
 		// Update or insert genre

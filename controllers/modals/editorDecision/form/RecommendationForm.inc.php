@@ -79,8 +79,7 @@ class RecommendationForm extends Form {
 	 * @copydoc Form::initData()
 	 */
 	function initData() {
-		$application = PKPApplication::getApplication();
-		$request = $application->getRequest();
+		$request = Application::getRequest();
 		$submission = $this->getSubmission();
 
 		// Get the decision making editors, the e-mail about the recommendation will be send to

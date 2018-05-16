@@ -220,8 +220,7 @@ class PKPAppearanceForm extends ContextSettingsForm {
 	function execute() {
 
 		// Clear the template cache if theme has changed
-		$application = PKPApplication::getApplication();
-		$request = $application->getRequest();
+		$request = Application::getRequest();
 		$context = $request->getContext();
 		if ($this->getData('themePluginPath') != $context->getSetting('themePluginPath')) {
 			$templateMgr = TemplateManager::getManager($request);

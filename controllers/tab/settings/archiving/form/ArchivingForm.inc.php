@@ -90,8 +90,7 @@ class ArchivingForm extends ContextSettingsForm {
 	function execute() {
 		parent::execute();
 
-		$application = PKPApplication::getApplication();
-		$request = $application->getRequest();
+		$request = Application::getRequest();
 		$this->enablePlugin($request, 'plugins.generic', 'generic', 'pln', 'enablePln');
 		$this->enablePlugin($request, 'plugins.importexport', 'importexport', 'portico', 'enablePortico');
 

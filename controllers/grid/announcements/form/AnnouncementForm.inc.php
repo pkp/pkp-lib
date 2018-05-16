@@ -198,8 +198,7 @@ class AnnouncementForm extends Form {
 			import('classes.notification.NotificationManager');
 			$notificationManager = new NotificationManager();
 			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-			$application = PKPApplication::getApplication();
-			$request = $application->getRequest();
+			$request = Application::getRequest();
 			$notificationUsers = array();
 			$allUsers = $userGroupDao->getUsersByContextId($contextId);
 			while ($user = $allUsers->next()) {

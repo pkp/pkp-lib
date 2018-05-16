@@ -51,8 +51,7 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 	 * @copydoc EditorDecisionWithEmailForm::initData()
 	 */
 	function initData($actionLabels = array()) {
-		$application = PKPApplication::getApplication();
-		$request = $application->getRequest();
+		$request = Application::getRequest();
 		$actionLabels = EditorDecisionActionsManager::getActionLabels($request->getContext(), $this->_getDecisions());
 
 		$submission = $this->getSubmission();

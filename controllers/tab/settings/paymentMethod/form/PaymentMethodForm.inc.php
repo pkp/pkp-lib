@@ -42,8 +42,7 @@ class PaymentMethodForm extends ContextSettingsForm {
 	 */
 	function initData() {
 		parent::initData();
-		$application = PKPApplication::getApplication();
-		$request = $application->getRequest();
+		$request = Application::getRequest();
 		$paymentPluginName = $this->getData('paymentPluginName');
 		if (!isset($this->paymentPlugins[$paymentPluginName])) return;
 		$plugin = $this->paymentPlugins[$paymentPluginName];
@@ -71,8 +70,7 @@ class PaymentMethodForm extends ContextSettingsForm {
 	function readInputData() {
 		parent::readInputData();
 
-		$application = PKPApplication::getApplication();
-		$request = $application->getRequest();
+		$request = Application::getRequest();
 		$paymentPluginName = $this->getData('paymentPluginName');
 		if (!isset($this->paymentPlugins[$paymentPluginName])) return false;
 		$plugin = $this->paymentPlugins[$paymentPluginName];
@@ -84,8 +82,7 @@ class PaymentMethodForm extends ContextSettingsForm {
 	 * @copydoc ContextSettingsForm::execute()
 	 */
 	function execute() {
-		$application = PKPApplication::getApplication();
-		$request = $application->getRequest();
+		$request = Application::getRequest();
 		$context = $request->getContext();
 
 		// Get the selected payment plugin

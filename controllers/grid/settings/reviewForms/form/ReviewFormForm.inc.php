@@ -46,8 +46,7 @@ class ReviewFormForm extends Form {
 	 */
 	function initData() {
 		if ($this->reviewFormId) {
-			$application = PKPApplication::getApplication();
-			$request = $application->getRequest();
+			$request = Application::getRequest();
 			$context = $request->getContext();
 			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
 			$reviewForm = $reviewFormDao->getById($this->reviewFormId, Application::getContextAssocType(), $context->getId());
@@ -73,8 +72,7 @@ class ReviewFormForm extends Form {
 	 * Save review form.
 	 */
 	function execute() {
-		$application = PKPApplication::getApplication();
-		$request = $application->getRequest();
+		$request = Application::getRequest();
 		$context = $request->getContext();
 		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
 

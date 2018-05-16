@@ -320,7 +320,7 @@ class PKPFileUploadWizardHandler extends Handler {
 					// Update the task notifications
 					$notificationMgr = new NotificationManager();
 					$notificationMgr->updateNotification(
-						PKPApplication::getRequest(),
+						Application::getRequest(),
 						array(NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS, NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS),
 						$authorUserIds,
 						ASSOC_TYPE_SUBMISSION,

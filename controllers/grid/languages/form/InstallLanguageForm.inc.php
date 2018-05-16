@@ -34,8 +34,7 @@ class InstallLanguageForm extends Form {
 	function initData() {
 		parent::initData();
 
-		$application = PKPApplication::getApplication();
-		$request = $application->getRequest();
+		$request = Application::getRequest();
 		$site = $request->getSite();
 		$this->setData('installedLocales', $site->getInstalledLocales());
 	}
@@ -80,8 +79,7 @@ class InstallLanguageForm extends Form {
 	function readInputData() {
 		parent::readInputData();
 
-		$application = PKPApplication::getApplication();
-		$request = $application->getRequest();
+		$request = Application::getRequest();
 		$localesToInstall = $request->getUserVar('localesToInstall');
 		$this->setData('localesToInstall', $localesToInstall);
 	}
@@ -90,8 +88,7 @@ class InstallLanguageForm extends Form {
 	 * @copydoc Form::execute()
 	 */
 	function execute() {
-		$application = PKPApplication::getApplication();
-		$request = $application->getRequest();
+		$request = Application::getRequest();
 		$site = $request->getSite();
 		$localesToInstall = $this->getData('localesToInstall');
 

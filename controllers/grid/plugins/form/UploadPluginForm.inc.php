@@ -68,8 +68,7 @@ class UploadPluginForm extends Form {
 		parent::execute();
 
 		// Retrieve the temporary file.
-		$application = PKPApplication::getApplication();
-		$request = $application->getRequest();
+		$request = Application::getRequest();
 		$user = $request->getUser();
 		$temporaryFileId = $this->getData('temporaryFileId');
 		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO');

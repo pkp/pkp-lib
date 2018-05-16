@@ -84,8 +84,7 @@ class ContextSettingsForm extends Form {
 	 * @copydoc Form::initData()
 	 */
 	function initData() {
-		$application = PKPApplication::getApplication();
-		$request = $application->getRequest();
+		$request = Application::getRequest();
 		$context = $request->getContext();
 		$this->_data = $context->getSettings();
 	}
@@ -125,8 +124,7 @@ class ContextSettingsForm extends Form {
 	 */
 	function execute() {
 		parent::execute();
-		$application = PKPApplication::getApplication();
-		$request = $application->getRequest();
+		$request = Application::getRequest();
 		$context = $request->getContext();
 		$settingsDao = $context->getSettingsDao();
 		$settings = $this->getSettings();

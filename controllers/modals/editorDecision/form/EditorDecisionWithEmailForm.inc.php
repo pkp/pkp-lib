@@ -59,8 +59,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 	 * @param $actionLabels array
 	 */
 	function initData($actionLabels = array()) {
-		$application = PKPApplication::getApplication();
-		$request = $application->getRequest();
+		$request = Application::getRequest();
 		$context = $request->getContext();
 		$router = $request->getRouter();
 		$dispatcher = $router->getDispatcher();

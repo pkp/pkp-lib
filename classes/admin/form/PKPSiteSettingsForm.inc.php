@@ -62,7 +62,7 @@ class PKPSiteSettingsForm extends Form {
 			'dateStyleFileUploaded' => file_exists($siteStyleFilename)?filemtime($siteStyleFilename):null,
 			'siteStyleFileExists' => file_exists($siteStyleFilename),
 		));
-		return parent::display();
+		return parent::display($request, $template);
 	}
 
 	/**

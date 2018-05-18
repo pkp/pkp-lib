@@ -54,10 +54,9 @@ class ReviewFormElementForm extends Form {
 	}
 
 	/**
-	 * Display the form.
-	 * @param $request PKPRequest
+	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		import('lib.pkp.classes.reviewForm.ReviewFormElement');
 		$templateMgr->assign(array(
@@ -67,7 +66,7 @@ class ReviewFormElementForm extends Form {
 			'multipleResponsesElementTypesString' => ';'.implode(';', ReviewFormElement::getMultipleResponsesElementTypes()).';',
 			'reviewFormElementTypeOptions' => ReviewFormElement::getReviewFormElementTypeOptions(),
 		));
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

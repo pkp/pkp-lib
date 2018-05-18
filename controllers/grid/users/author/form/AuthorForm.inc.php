@@ -133,10 +133,9 @@ class AuthorForm extends Form {
 	}
 
 	/**
-	 * Fetch the form.
-	 * @see Form::fetch()
+	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$author = $this->getAuthor();
 
 		$templateMgr = TemplateManager::getManager($request);
@@ -155,7 +154,7 @@ class AuthorForm extends Form {
 		$templateMgr->assign('submissionIdFieldName', $this->getSubmissionIdFieldName());
 		$templateMgr->assign('submissionId', $submission->getId());
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

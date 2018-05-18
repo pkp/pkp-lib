@@ -63,7 +63,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	/**
 	 * Fetch the form.
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$user = $request->getUser();
 		$templateMgr = TemplateManager::getManager($request);
 
@@ -103,7 +103,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			$templateMgr->assign('authorUserGroupOptions', $userGroupNames);
 		}
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

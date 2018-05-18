@@ -76,7 +76,7 @@ class UsageStatsSettingsForm extends Form {
 	/**
 	 * @see Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$chartTypes = array(
 			'bar' => __('plugins.generic.usageStats.settings.statsDisplayOptions.chartType.bar'),
@@ -90,7 +90,7 @@ class UsageStatsSettingsForm extends Form {
 		if (!$this->getData('selectedOptionalColumns')) {
 			$this->setData('selectedOptionalColumns', array());
 		}
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

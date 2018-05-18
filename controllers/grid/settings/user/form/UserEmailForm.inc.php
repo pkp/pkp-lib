@@ -47,10 +47,9 @@ class UserEmailForm extends Form {
 	}
 
 	/**
-	 * Display the form.
-	 * @param $request PKPRequest
+	 * @copydoc Form::Fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $userDao->getById($this->userId);
 
@@ -61,7 +60,7 @@ class UserEmailForm extends Form {
 			'userEmail' => $user->getEmail(),
 		));
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

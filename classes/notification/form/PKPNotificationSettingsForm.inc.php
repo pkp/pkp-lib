@@ -92,7 +92,7 @@ class PKPNotificationSettingsForm extends Form {
 	}
 
 	/**
-	 * @copydoc
+	 * @copydoc Form::fetch()
 	 */
 	function fetch($request, $template = null, $display = false) {
 		$context = $request->getContext();
@@ -110,7 +110,7 @@ class PKPNotificationSettingsForm extends Form {
 	}
 
 	/**
-	 * @copydoc
+	 * @copydoc Form::execute()
 	 */
 	function execute() {
 		$request = Application::getRequest();

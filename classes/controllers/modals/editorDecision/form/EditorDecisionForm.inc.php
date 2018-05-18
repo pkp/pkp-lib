@@ -101,7 +101,7 @@ class EditorDecisionForm extends Form {
 	/**
 	 * @see Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$submission = $this->getSubmission();
 
 		$reviewRound = $this->getReviewRound();
@@ -119,7 +119,7 @@ class EditorDecisionForm extends Form {
 			'submission' => $submission,
 		));
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 

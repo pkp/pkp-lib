@@ -58,7 +58,7 @@ class UploadPluginForm extends Form {
 			'plugin' => $request->getUserVar('plugin'),
 		));
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

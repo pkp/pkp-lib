@@ -97,7 +97,7 @@ class ReviewReminderForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$context = $request->getContext();
 		$user = $request->getUser();
 
@@ -111,7 +111,7 @@ class ReviewReminderForm extends Form {
 			'contextName' => $context->getLocalizedName(),
 			'editorialContactSignature' => $user->getContactSignature(),
 		));
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

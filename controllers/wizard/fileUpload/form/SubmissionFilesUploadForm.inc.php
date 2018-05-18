@@ -113,12 +113,12 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		// Retrieve available submission file genres.
 		$genreList = $this->_retrieveGenreList($request);
 		$this->setData('submissionFileGenres', $genreList);
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

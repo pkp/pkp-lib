@@ -73,7 +73,7 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 			case 'closed':
 				return array(
 					'selected' => $element->getIsClosed(),
-					'disabled' => !$this->_queriesAccessHelper->getCanOpenClose($element->getId()),
+					'disabled' => !$this->_queriesAccessHelper->getCanOpenClose($element),
 				);
 		}
 		return parent::getTemplateVarsFromRowColumn($row, $column);
@@ -91,7 +91,7 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 		$actionArgs = $this->getRequestArgs($row);
 		switch ($column->getId()) {
 			case 'closed':
-				if ($this->_queriesAccessHelper->getCanOpenClose($row->getId())) {
+				if ($this->_queriesAccessHelper->getCanOpenClose($element)) {
 					$enabled = !$element->getIsClosed();
 					if ($enabled) {
 						return array(new LinkAction(

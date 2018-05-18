@@ -188,7 +188,7 @@ class QueriesGridHandler extends GridHandler {
 		);
 
 		$router = $request->getRouter();
-		if ($this->getAccessHelper()->getCanCreate()) $this->addAction(new LinkAction(
+		if ($this->getAccessHelper()->getCanCreate($this->getStageId())) $this->addAction(new LinkAction(
 			'addQuery',
 			new AjaxModal(
 				$router->url($request, null, null, 'addQuery', null, $this->getRequestArgs()),
@@ -209,7 +209,7 @@ class QueriesGridHandler extends GridHandler {
 	 */
 	function initFeatures($request, $args) {
 		$features = parent::initFeatures($request, $args);
-		if ($this->getAccessHelper()->getCanOrder()) {
+		if ($this->getAccessHelper()->getCanOrder($this->getStageId())) {
 			import('lib.pkp.classes.controllers.grid.feature.OrderGridItemsFeature');
 			$features[] = new OrderGridItemsFeature();
 		}
@@ -290,7 +290,7 @@ class QueriesGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function addQuery($args, $request) {
-		if (!$this->getAccessHelper()->getCanCreate()) return new JSONMessage(false);
+		if (!$this->getAccessHelper()->getCanCreate($this->getStageId())) return new JSONMessage(false);
 
 		import('lib.pkp.controllers.grid.queries.form.QueryForm');
 		$queryForm = new QueryForm(
@@ -349,7 +349,7 @@ class QueriesGridHandler extends GridHandler {
 	 */
 	function openQuery($args, $request) {
 		$query = $this->getQuery();
-		if (!$query || !$this->getAccessHelper()->getCanOpenClose($query->getId())) return new JSONMessage(false);
+		if (!$query || !$this->getAccessHelper()->getCanOpenClose($query)) return new JSONMessage(false);
 
 		$queryDao = DAORegistry::getDAO('QueryDAO');
 		$query->setIsClosed(false);
@@ -365,7 +365,7 @@ class QueriesGridHandler extends GridHandler {
 	 */
 	function closeQuery($args, $request) {
 		$query = $this->getQuery();
-		if (!$query || !$this->getAccessHelper()->getCanOpenClose($query->getId())) return new JSONMessage(false);
+		if (!$query || !$this->getAccessHelper()->getCanOpenClose($query)) return new JSONMessage(false);
 
 		$queryDao = DAORegistry::getDAO('QueryDAO');
 		$query->setIsClosed(true);

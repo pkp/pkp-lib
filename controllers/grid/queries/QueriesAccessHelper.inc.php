@@ -141,12 +141,14 @@ class QueriesAccessHelper {
 
 	/**
 	 * Determine whether the current user can list all queries on the submission
+	 * @param $stageId int The stage ID to load discussions for
 	 * @return boolean
 	 */
-	function getCanListAll() {
+	function getCanListAll($stageId) {
+		$accessibleWorkflowStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
 		return (count(array_intersect(
-			$this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES),
-			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR)
+			$accessibleWorkflowStages[$stageId],
+			array(ROLE_ID_MANAGER)
 		))>0);
 	}
 

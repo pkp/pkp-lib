@@ -276,7 +276,7 @@ class QueriesGridHandler extends GridHandler {
 			$this->getAssocType(),
 			$this->getAssocId(),
 			$this->getStageId(),
-			$this->getAccessHelper()->getCanListAll()?null:$request->getUser()->getId()
+			$this->getAccessHelper()->getCanListAll($this->getStageId())?null:$request->getUser()->getId()
 		);
 	}
 

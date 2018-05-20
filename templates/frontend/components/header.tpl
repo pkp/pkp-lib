@@ -71,17 +71,17 @@
 				</div>
 
 				{* Primary site navigation *}
-				{if $currentContext}
-					<nav class="pkp_navigation_primary_row" aria-label="{translate|escape key="common.navigation.site"}">
-						<div class="pkp_navigation_primary_wrapper">
-							{* Primary navigation menu for current application *}
-							{load_menu name="primary" id="navigationPrimary" ulClass="pkp_navigation_primary"}
+				<nav class="pkp_navigation_primary_row" aria-label="{translate|escape key="common.navigation.site"}">
+					<div class="pkp_navigation_primary_wrapper">
+						{* Primary navigation menu for current application *}
+						{load_menu name="primary" id="navigationPrimary" ulClass="pkp_navigation_primary"}
 
+						{if $currentContext}
 							{* Search form *}
 							{include file="frontend/components/searchForm_simple.tpl"}
-						</div>
-					</nav>
-				{/if}
+						{/if}
+					</div>
+				</nav>
 				<nav class="pkp_navigation_user_wrapper" id="navigationUserWrapper" aria-label="{translate|escape key="common.navigation.user"}">
 					{load_menu name="user" id="navigationUser" ulClass="pkp_navigation_user" liClass="profile"}
 				</nav>

@@ -230,6 +230,7 @@
 			<element ref="pkp:authors" minOccurs="1" maxOccurs="1" />
 			<element ref="pkp:submission_file" minOccurs="0" maxOccurs="unbounded" />
 			<element ref="pkp:representation" minOccurs="0" maxOccurs="unbounded" />
+			<element ref="pkp:reviewRounds" minOccurs="0" maxOccurs="1" />
 		</sequence>
 		<attribute name="locale" type="string" use="optional" />
 		<attribute name="language" type="string" use="optional" />
@@ -237,6 +238,38 @@
 		<attribute name="date_published" type="date" use="optional" />
 	</complexType>
 
+	<complexType name="reviewRound">
+		<sequence>
+			<element ref="pkp:reviewAssignments" maxOccurs="1" />
+		</sequence>
+		<attribute name="stage_id" type="int" />
+		<attribute name="round" type="int" />
+		<attribute name="status" type="int" />
+	</complexType>
+
+	<complexType name="reviewAssignment">
+		<attribute name="date_assigned" type="date" use="optional" />
+		<attribute name="date_notified" type="date" use="optional" />
+		<attribute name="date_completed" type="date" use="optional" />
+		<attribute name="date_confirmed" type="date" use="optional" />
+		<attribute name="date_acknowledged" type="date" use="optional" />
+		<attribute name="date_due" type="date" use="optional" />
+		<attribute name="date_response_due" type="date" use="optional" />
+		<attribute name="last_modified" type="date" use="optional" />
+		<attribute name="date_rated" type="date" use="optional" />
+		<attribute name="date_reminded" type="date" use="optional" />
+		<attribute name="reminder_was_automatic" type="int" use="optional" />
+		<attribute name="declined" type="int" use="optional" />
+		<attribute name="unconsidered" type="int" use="optional" />
+		<attribute name="recommendation" type="int" use="optional" />
+
+		<attribute name="competing_interests" type="string" use="optional" />
+		<attribute name="quality" type="int" use="optional" />
+		<attribute name="round" type="int" use="optional" />
+		<attribute name="review_method" type="int" use="optional" />
+		<attribute name="reviewer" type="string" />
+	</complexType>
+	
 	<!-- ************
 	  -  * Elements *
 	  -  ************ -->
@@ -333,5 +366,20 @@
 			<attribute name="locale" type="string" />
 		</complexType>
 	</element>
+	
+	<element name="reviewRounds">
+		<complexType>
+			<sequence>
+				<element name="reviewRound" type="pkp:reviewRound" minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
 
+	<element name="reviewAssignments">
+		<complexType>
+			<sequence>
+				<element name="reviewAssignment" type="pkp:reviewAssignment" minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
 </schema>

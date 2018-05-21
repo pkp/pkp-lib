@@ -186,6 +186,20 @@ class SubmissionFileAccessPolicy extends ContextPolicy {
 			import('lib.pkp.classes.security.authorization.AssignedStageRoleHandlerOperationPolicy');
 			$contextAssistantFileAccessPolicy->addPolicy(new AssignedStageRoleHandlerOperationPolicy($request, ROLE_ID_ASSISTANT, $roleAssignments[ROLE_ID_ASSISTANT], $request->getUserVar('stageId')));
 
+			// 3) ...and if they meet one of the following requirements:
+			$contextAssistantFileAccessOptionsPolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
+
+			// 3a) ...the file not part of a query...
+			import('lib.pkp.classes.security.authorization.internal.SubmissionFileNotQueryAccessPolicy');
+			$contextAssistantFileAccessOptionsPolicy->addPolicy(new SubmissionFileNotQueryAccessPolicy($request, $fileIdAndRevision));
+
+			// 3b) ...or the file is part of a query they are assigned to...
+			import('lib.pkp.classes.security.authorization.internal.SubmissionFileAssignedQueryAccessPolicy');
+			$contextAssistantFileAccessOptionsPolicy->addPolicy(new SubmissionFileAssignedQueryAccessPolicy($request, $fileIdAndRevision));
+
+			// Add the rules from 3
+			$contextAssistantFileAccessPolicy->addPolicy($contextAssistantFileAccessOptionsPolicy);
+
 			$fileAccessPolicy->addPolicy($contextAssistantFileAccessPolicy);
 		}
 

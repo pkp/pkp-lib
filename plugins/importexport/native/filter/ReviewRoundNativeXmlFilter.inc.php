@@ -85,6 +85,7 @@ class ReviewRoundNativeXmlFilter extends NativeExportFilter {
 		$reviewRoundNode->setAttribute('status', $reviewRound->getStatus());
 
 		$this->addReviewAssignments($doc, $reviewRoundNode, $reviewRound);
+		$this->addReviewRoundFiles($doc, $reviewRoundNode, $reviewRound);
 
 		return $reviewRoundNode;
 	}
@@ -110,6 +111,67 @@ class ReviewRoundNativeXmlFilter extends NativeExportFilter {
 			$clone = $doc->importNode($reviewAssignmentsDoc->documentElement, true);
 			$reviewRoundNode->appendChild($clone);
 		}
+	}
+
+	/**
+	 * Add the ReviewRoundFiles for a review round to its DOM element.
+	 * @param $doc DOMDocument
+	 * @param $reviewRoundNode DOMElement
+	 * @param $reviewRound ReviewRound
+	 */
+	function addReviewRoundFiles($doc, $reviewRoundNode, $reviewRound) {
+		$fileDao = DAORegistry::getDAO('SubmissionFileDAO');
+
+		$reviewFiles = $fileDao->getRevisionsByReviewRound($reviewRound);
+
+		$reviewRoundFilesNode = $this->processReviewRoundFiles($reviewFiles, $reviewRound);
+		if ($reviewRoundFilesNode->documentElement instanceof DOMElement) {
+			$clone = $doc->importNode($reviewRoundFilesNode->documentElement, true);
+			$reviewRoundNode->appendChild($clone);
+		}
+	}
+
+	function processReviewRoundFiles($reviewFiles, $reviewRound) {
+		$doc = new DOMDocument('1.0');
+		$doc->preserveWhiteSpace = false;
+		$doc->formatOutput = true;
+		$deployment = $this->getDeployment();
+
+		$rootNode = $doc->createElementNS($deployment->getNamespace(), 'reviewRoundFiles');
+		foreach ($reviewFiles as $reviewFile) {
+			$rootNode->appendChild($this->createReviewRoundFileNode($doc, $reviewFile, $reviewRound));
+		}
+		$doc->appendChild($rootNode);
+		$rootNode->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
+		$rootNode->setAttribute('xsi:schemaLocation', $deployment->getNamespace() . ' ' . $deployment->getSchemaFilename());
+
+		return $doc;
+	}
+
+	/**
+	 * Create and return an reviewAssignment node.
+	 * @param $doc DOMDocument
+	 * @param $reviewFile SubmissionFile
+	 * @param $reviewRound ReviewRound
+	 * @return DOMElement
+	 */
+	function createReviewRoundFileNode($doc, $reviewFile, $reviewRound) {
+		$deployment = $this->getDeployment();
+		$context = $deployment->getContext();
+
+		// Create the reviewAssignment node
+		$reviewRoundFileNode = $doc->createElementNS($deployment->getNamespace(), 'reviewRoundFile');
+		// if ($reviewAssignment->getPrimaryContact()) $reviewAssignmentNode->setAttribute('primary_contact', 'true');
+
+		if ($revision = $reviewFile->getRevision()) {
+			$reviewRoundFileNode->setAttribute('revision', $revision);
+		}
+
+		if ($oldFileId = $reviewFile->getFileId()) {
+			$reviewRoundFileNode->setAttribute('oldFileId', $oldFileId);
+		}
+
+		return $reviewRoundFileNode;
 	}
 }
 

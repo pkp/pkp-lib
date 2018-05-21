@@ -76,6 +76,27 @@ class ReviewFilesDAO extends DAO {
 		$result->Close();
 		return $returner;
 	}
+
+	/**
+	 * Select Review file ids by reviewId
+	 * @param $reviewId integer
+	 * @return array
+	 */
+	function getByReviewId($reviewId) {
+		$result = $this->retrieve(
+			'SELECT review_id, file_id FROM review_files WHERE review_id = ?',
+			array((int) $reviewId)
+		);
+
+		$fileIds = array();
+		while (!$result->EOF) {
+			$row = $result->getRowAssoc(false);
+			$fileIds[] = $row['file_id'];
+			$result->MoveNext();
+		}
+		$result->Close();
+		return $fileIds;
+	}
 }
 
 ?>

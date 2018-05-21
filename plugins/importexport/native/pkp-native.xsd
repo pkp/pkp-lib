@@ -241,6 +241,7 @@
 	<complexType name="reviewRound">
 		<sequence>
 			<element ref="pkp:reviewAssignments" maxOccurs="1" />
+			<element ref="pkp:reviewRoundFiles" maxOccurs="1" />
 		</sequence>
 		<attribute name="stage_id" type="int" />
 		<attribute name="round" type="int" />
@@ -248,6 +249,9 @@
 	</complexType>
 
 	<complexType name="reviewAssignment">
+		<sequence>
+			<element ref="pkp:reviewFiles" minOccurs="0" maxOccurs="1" />
+		</sequence>
 		<attribute name="date_assigned" type="date" use="optional" />
 		<attribute name="date_notified" type="date" use="optional" />
 		<attribute name="date_completed" type="date" use="optional" />
@@ -269,6 +273,15 @@
 		<attribute name="review_method" type="int" use="optional" />
 		<attribute name="step" type="int" use="optional" />
 		<attribute name="reviewer" type="string" />
+	</complexType>
+
+	<complexType name="reviewRoundFile">
+		<attribute name="revision" type="int" />
+		<attribute name="oldFileId" type="int" />
+	</complexType>
+
+	<complexType name="reviewFile">
+		<attribute name="oldFileId" type="int" />
 	</complexType>
 	
 	<!-- ************
@@ -380,6 +393,22 @@
 		<complexType>
 			<sequence>
 				<element name="reviewAssignment" type="pkp:reviewAssignment" minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="reviewRoundFiles">
+		<complexType>
+			<sequence>
+				<element name="reviewRoundFile" type="pkp:reviewRoundFile" minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="reviewFiles">
+		<complexType>
+			<sequence>
+				<element name="reviewFile" type="pkp:reviewFile" minOccurs="0" maxOccurs="unbounded" />
 			</sequence>
 		</complexType>
 	</element>

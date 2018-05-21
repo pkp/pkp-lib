@@ -166,7 +166,65 @@ class ReviewAssignmentNativeXmlFilter extends NativeExportFilter {
 		assert(isset($reviewerUser));
 		$reviewAssignmentNode->setAttribute('reviewer', $reviewerUser->getUsername());
 
+		$this->addReviewFiles($doc, $reviewAssignmentNode, $reviewAssignment);
+
 		return $reviewAssignmentNode;
+	}
+
+	/**
+	 * Add the ReviewRoundFiles for a review round to its DOM element.
+	 * @param $doc DOMDocument
+	 * @param $reviewRoundNode DOMElement
+	 * @param $reviewAssignment ReviewAssignment
+	 */
+	function addReviewFiles($doc, $reviewAssignmentNode, $reviewAssignment) {
+		$fileDao = DAORegistry::getDAO('ReviewFilesDAO');
+
+		$reviewFiles = $fileDao->getByReviewId($reviewAssignment->getId());
+
+		$reviewFilesNode = $this->processReviewFiles($reviewFiles, $reviewAssignment);
+		if ($reviewFilesNode->documentElement instanceof DOMElement) {
+			$clone = $doc->importNode($reviewFilesNode->documentElement, true);
+			$reviewAssignmentNode->appendChild($clone);
+		}
+	}
+
+	function processReviewFiles($reviewFiles, $reviewAssignment) {
+		$doc = new DOMDocument('1.0');
+		$doc->preserveWhiteSpace = false;
+		$doc->formatOutput = true;
+		$deployment = $this->getDeployment();
+
+		$rootNode = $doc->createElementNS($deployment->getNamespace(), 'reviewFiles');
+		foreach ($reviewFiles as $reviewFile) {
+			$rootNode->appendChild($this->createReviewFileNode($doc, $reviewFile, $reviewAssignment));
+		}
+		$doc->appendChild($rootNode);
+		$rootNode->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
+		$rootNode->setAttribute('xsi:schemaLocation', $deployment->getNamespace() . ' ' . $deployment->getSchemaFilename());
+
+		return $doc;
+	}
+
+	/**
+	 * Create and return an reviewAssignment node.
+	 * @param $doc DOMDocument
+	 * @param $reviewFile SubmissionFile
+	 * @param $reviewRound ReviewRound
+	 * @return DOMElement
+	 */
+	function createReviewFileNode($doc, $reviewFileId) {
+		$deployment = $this->getDeployment();
+		$context = $deployment->getContext();
+
+		// Create the reviewAssignment node
+		$reviewFileNode = $doc->createElementNS($deployment->getNamespace(), 'reviewFile');
+
+		if ($reviewFileId) {
+			$reviewFileNode->setAttribute('oldFileId', $reviewFileId);
+		}
+
+		return $reviewFileNode;
 	}
 }
 

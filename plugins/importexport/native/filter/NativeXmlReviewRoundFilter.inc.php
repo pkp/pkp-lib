@@ -85,6 +85,9 @@ class NativeXmlReviewRoundFilter extends NativeImportFilter {
 					case 'reviewAssignments':
 						$this->parseReviewAssignments($n, $reviewRound);
 						break;
+					case 'reviewRoundFiles':
+						$this->parseReviewRoundFiles($n, $reviewRound);
+						break;
 				}
 			}
 		}
@@ -120,6 +123,40 @@ class NativeXmlReviewRoundFilter extends NativeImportFilter {
 		$reviewAssignmentDoc = new DOMDocument();
 		$reviewAssignmentDoc->appendChild($reviewAssignmentDoc->importNode($n, true));
 		return $importFilter->execute($reviewAssignmentDoc);
+	}
+
+	/**
+	 * Parse an reviewAssignments element
+	 * @param $node DOMElement
+	 * @param $reviewRound ReviewRound
+	 */
+	function parseReviewRoundFiles($node, $reviewRound) {
+		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) {
+			if (is_a($n, 'DOMElement')) {
+				assert($n->tagName == 'reviewRoundFile');
+				$this->parseReviewRoundFile($n, $reviewRound);
+			}
+		}
+	}
+
+	/**
+	 * Parse an author and add it to the submission.
+	 * @param $n DOMElement
+	 * @param $reviewRound ReviewRound
+	 */
+	function parseReviewRoundFile($n, $reviewRound) {
+		$deployment = $this->getDeployment();
+		$context = $deployment->getContext();
+		$submission = $deployment->getSubmission();
+		assert(is_a($submission, 'Submission'));
+
+		$oldFileId = $n->getAttribute('oldFileId');
+		$revision = $n->getAttribute('revision');
+
+		$newFileId = $deployment->getFileDBId($oldFileId, $revision);
+
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+		$submissionFileDao->assignRevisionToReviewRound($newFileId, $revision, $reviewRound);
 	}
 }
 

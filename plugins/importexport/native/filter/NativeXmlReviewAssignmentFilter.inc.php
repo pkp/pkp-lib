@@ -173,7 +173,48 @@ class NativeXmlReviewAssignmentFilter extends NativeImportFilter {
 			$reviewAssignmentDao->insertObject($reviewAssignment);
 		}
 
+		// Handle subelements
+		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) {
+			if (is_a($n, 'DOMElement')) {
+				switch($n->tagName) {
+					case 'reviewFiles':
+						$this->parseReviewFiles($n, $reviewAssignment);
+						break;
+				}
+			}
+		}
+
 		return $reviewAssignment;
+	}
+
+	/**
+	 * Parse an reviewAssignments element
+	 * @param $node DOMElement
+	 * @param $reviewRound ReviewRound
+	 */
+	function parseReviewFiles($node, $reviewAssignment) {
+		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) {
+			if (is_a($n, 'DOMElement')) {
+				assert($n->tagName == 'reviewFile');
+				$this->parseReviewFile($n, $reviewAssignment);
+			}
+		}
+	}
+
+	/**
+	 * Parse an author and add it to the submission.
+	 * @param $n DOMElement
+	 * @param $reviewRound ReviewRound
+	 */
+	function parseReviewFile($n, $reviewAssignment) {
+		$deployment = $this->getDeployment();
+
+		$oldFileId = $n->getAttribute('oldFileId');
+
+		$newFileId = $deployment->getFileDBId($oldFileId);
+
+		$reviewFileDao = DAORegistry::getDAO('ReviewFilesDAO');
+		$reviewFileDao->grant($reviewAssignment->getId(), $newFileId);
 	}
 }
 

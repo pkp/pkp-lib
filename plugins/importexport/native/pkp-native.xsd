@@ -262,11 +262,12 @@
 		<attribute name="declined" type="int" use="optional" />
 		<attribute name="unconsidered" type="int" use="optional" />
 		<attribute name="recommendation" type="int" use="optional" />
-
+		<attribute name="stage_id" type="int" use="optional" />
 		<attribute name="competing_interests" type="string" use="optional" />
 		<attribute name="quality" type="int" use="optional" />
 		<attribute name="round" type="int" use="optional" />
 		<attribute name="review_method" type="int" use="optional" />
+		<attribute name="step" type="int" use="optional" />
 		<attribute name="reviewer" type="string" />
 	</complexType>
 	
@@ -382,4 +383,10 @@
 			</sequence>
 		</complexType>
 	</element>
+
+	<!-- Permit "reviewRound" as a root element -->
+	<element name="reviewRound" type="pkp:reviewRound" />
+
+	<!-- Permit "reviewAssignment" as a root element -->
+	<element name="reviewAssignment" type="pkp:reviewAssignment" />
 </schema>

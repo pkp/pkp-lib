@@ -153,26 +153,18 @@ class ReviewAssignmentNativeXmlFilter extends NativeExportFilter {
 			$reviewAssignmentNode->setAttribute('review_method', $reviewMethod);
 		}
 
+		if ($reviewAssignmentStageId = $reviewAssignment->getStageId()) {
+			$reviewAssignmentNode->setAttribute('stage_id', $reviewAssignmentStageId);
+		}
+
+		if ($reviewAssignmentStep = $reviewAssignment->getStep()) {
+			$reviewAssignmentNode->setAttribute('step', $reviewAssignmentStep);
+		}
+
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$reviewerUser = $userDao->getById($reviewAssignment->getReviewerId());
 		assert(isset($reviewerUser));
 		$reviewAssignmentNode->setAttribute('reviewer', $reviewerUser->getUsername());
-
-
-
-
-		//$authorNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'firstname', htmlspecialchars($author->getFirstName(), ENT_COMPAT, 'UTF-8')));
-		//$this->createOptionalNode($doc, $authorNode, 'middlename', $author->getMiddleName());
-		//$authorNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'lastname', htmlspecialchars($author->getLastName(), ENT_COMPAT, 'UTF-8')));
-
-		//$this->createLocalizedNodes($doc, $authorNode, 'affiliation', $author->getAffiliation(null));
-
-		//$this->createOptionalNode($doc, $authorNode, 'country', $author->getCountry());
-		//$authorNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'email', htmlspecialchars($author->getEmail(), ENT_COMPAT, 'UTF-8')));
-		//$this->createOptionalNode($doc, $authorNode, 'url', $author->getUrl());
-		//$this->createOptionalNode($doc, $authorNode, 'orcid', $author->getOrcid());
-
-		//$this->createLocalizedNodes($doc, $authorNode, 'biography', $author->getBiography(null));
 
 		return $reviewAssignmentNode;
 	}

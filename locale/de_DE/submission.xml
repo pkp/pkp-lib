@@ -375,6 +375,16 @@
 	<message key="submission.submit.selectPrincipalContact">Hauptkontakt für die redaktionelle Korrespondenz.</message>
 	<message key="submission.submit.contributorRole">Rolle des Beiträgers/der Beiträgerin</message>
 	<message key="submission.submit.addAuthor">Beiträger/in hinzufügen</message>
+	<message key="submission.submit.form.languagesRequired">Bitte geben Sie eine Sprache ein.</message>
+	<message key="submission.submit.form.subjectsRequired">Bitte geben Sie ein Thema ein.</message>
+	<message key="submission.submit.form.disciplinesRequired">Bitte geben Sie ein Fachgebiet ein.</message>
+	<message key="submission.submit.form.keywordsRequired">Bitte geben Sie ein Schlagwort ein.</message>
+	<message key="submission.submit.form.agenciesRequired">Bitte geben Sie eine unterstützende Organisation ein.</message>
+	<message key="submission.submit.form.coverageRequired">Bitte geben Sie Informationen zum Abdeckungsbereich ein.</message>
+	<message key="submission.submit.form.typeRequired">Bitte geben Sie den Typ ein.</message>
+	<message key="submission.submit.form.sourceRequired">Bitte geben Sie die Quelle ein.</message>
+	<message key="submission.submit.form.rightsRequired">Bitte geben Sie die Rechte ein.</message>
+	<message key="submission.submit.form.citationsRequired">Bitte geben Sie die Literaturnachweise ein.</message>
 
 	<!-- Submission file upload form elements -->
 	<message key="submission.form.name">Bitte geben Sie dieser Datei einen aussagefähigen Namen.</message>
@@ -588,6 +598,7 @@
 	<message key="submission.query.new">{$creatorName} hat eine neue Diskussion begonnen: {$noteTitle}: {$noteContents}</message>
 	<message key="submission.query.activity.contents">Es gibt eine neue Aktivität in der Diskussion "{$queryTitle}" in Bezug auf das Manuskript "{$submissionTitle}".</message>
 	<message key="submission.query.new.contents">Sie sind zu einer Diskussion unter dem Titel "{$queryTitle}" in Bezug auf das Manuskript "{$submissionTitle}" hinzugefügt worden.</message>
+	<message key="submission.query.participantTitle">{$fullName}, {$userGroup}</message>
 	<message key="submission.query.noParticipantOptions">You must assign at least one participant to this submission before initiating a discussion.</message>
 
 	<!-- Submission Lists -->

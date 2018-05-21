@@ -53,7 +53,7 @@ class UserService extends PKPBaseEntityPropertyService {
 	public function getUsers($contextId, $args = array()) {
 		$userListQB = $this->_buildGetUsersQueryObject($contextId, $args);
 		$userListQO = $userListQB->get();
-		$range = new DBResultRange(isset($args['count']) ? $args['count'] : null, null, isset($args['offset'])?$args['offset']:0);
+		$range = new DBResultRange(isset($args['count']) ? $args['count'] : 0, null, isset($args['offset']) ? $args['offset'] : 0);
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$result = $userDao->retrieveRange($userListQO->toSql(), $userListQO->getBindings(), $range);
 		$queryResults = new DAOResultFactory($result, $userDao, '_returnUserFromRowWithData');
@@ -276,6 +276,9 @@ class UserService extends PKPBaseEntityPropertyService {
 				case 'reviewsCompleted':
 					$values[$prop] = $user->getData('completeCount');
 					break;
+				case 'reviewsDeclined':
+					$values[$prop] = $user->getData('declinedCount');
+					break;
 				case 'averageReviewCompletionDays':
 					$values[$prop] = $user->getData('averageTime');
 					break;
@@ -405,7 +408,7 @@ class UserService extends PKPBaseEntityPropertyService {
 	public function getReviewerSummaryProperties($user, $args = null) {
 		$props = array (
 			'id','_href','userName','fullName','affiliation','biography','groups','interests','gossip',
-			'reviewsActive','reviewsCompleted','averageReviewCompletionDays',
+			'reviewsActive','reviewsCompleted','reviewsDeclined','averageReviewCompletionDays',
 			'dateLastReviewAssignment','reviewerRating', 'orcid','disabled',
 		);
 

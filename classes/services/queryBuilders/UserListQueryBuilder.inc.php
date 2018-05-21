@@ -50,7 +50,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	protected $includeUsers = null;
 
 	/** @var array user IDs */
-	protected $excludeUsers = null;	
+	protected $excludeUsers = null;
 
 	/** @var string search phrase */
 	protected $searchPhrase = null;
@@ -182,7 +182,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	public function excludeUsers($userIds) {
 		$this->excludeUsers = $userIds;
 		return $this;
-	}	
+	}
 
 	/**
 	 * Set query search phrase

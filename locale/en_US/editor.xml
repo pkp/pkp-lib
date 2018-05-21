@@ -134,6 +134,7 @@
 	<message key="reviewer.list.activeReviews">{$count} active</message>
 	<message key="reviewer.list.activeReviewsDescription">Active reviews currently assigned</message>
 	<message key="reviewer.list.completedReviews">Reviews completed</message>
+	<message key="reviewer.list.declinedReviews">Review requests declined</message>
 	<message key="reviewer.list.reviewerRating">Reviewer rating: {$rating}</message>
 	<message key="reviewer.list.daysSinceLastAssignment">{$days} days ago</message>
 	<message key="reviewer.list.daySinceLastAssignment">Yesterday</message>

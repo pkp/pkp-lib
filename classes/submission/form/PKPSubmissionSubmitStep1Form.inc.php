@@ -94,6 +94,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 
 		// List available author roles
 		$availableAuthorUserGroups = $userGroupDao->getUserGroupsByStage($this->context->getId(), WORKFLOW_STAGE_ID_SUBMISSION, ROLE_ID_AUTHOR);
+		$availableUserGroupNames = array();
 		while($authorUserGroup = $availableAuthorUserGroups->next()) {
 			if ($authorUserGroup->getPermitSelfRegistration()){
 				$availableUserGroupNames[$authorUserGroup->getId()] = $authorUserGroup->getLocalizedName();

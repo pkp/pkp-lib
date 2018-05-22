@@ -479,6 +479,7 @@
 	<message key="plugins.importexport.common.error.unknownUserGroup">Unknown user group {$param}</message>
 	<message key="plugins.importexport.common.error.missingGivenName">The author {$authorName} does not have a given name in the submission's language, {$localeName}. The submission can not be imported without this information.</message>
 	<message key="plugins.importexport.common.error.unknownUploader">Unknown uploader {$param}</message>
+	<message key="plugins.importexport.common.error.unknownReviewer">Unknown reviewer {$param}</message>
 	<message key="plugins.importexport.common.error.temporaryFileFailed">Temporary file {$dest} could not be created from {$source}</message>
 	<message key="plugins.importexport.common.error.filesizeMismatch">The provided filesize "{$expected}" and the actual filesize "{$actual}" do not match</message>
 	<message key="plugins.importexport.common.error.duplicateRevisionForSubmission">The revision "{$revisionId}" for submission file "{$fileId}" would create a duplicate record</message>

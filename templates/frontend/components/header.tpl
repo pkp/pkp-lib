@@ -71,17 +71,24 @@
 				</div>
 
 				{* Primary site navigation *}
-				<nav class="pkp_navigation_primary_row" aria-label="{translate|escape key="common.navigation.site"}">
-					<div class="pkp_navigation_primary_wrapper">
-						{* Primary navigation menu for current application *}
-						{load_menu name="primary" id="navigationPrimary" ulClass="pkp_navigation_primary"}
+				{capture assign="primaryMenu"}
+					{load_menu name="primary" id="navigationPrimary" ulClass="pkp_navigation_primary"}
+				{/capture}
 
-						{if $currentContext}
-							{* Search form *}
-							{include file="frontend/components/searchForm_simple.tpl"}
-						{/if}
-					</div>
-				</nav>
+				{if !empty(trim($primaryMenu)) || $currentContext}
+					<nav class="pkp_navigation_primary_row" aria-label="{translate|escape key="common.navigation.site"}">
+						<div class="pkp_navigation_primary_wrapper">
+							{* Primary navigation menu for current application *}
+							{$primaryMenu}
+
+							{if $currentContext}
+								{* Search form *}
+								{include file="frontend/components/searchForm_simple.tpl"}
+							{/if}
+						</div>
+					</nav>
+				{/if}
+				
 				<nav class="pkp_navigation_user_wrapper" id="navigationUserWrapper" aria-label="{translate|escape key="common.navigation.user"}">
 					{load_menu name="user" id="navigationUser" ulClass="pkp_navigation_user" liClass="profile"}
 				</nav>

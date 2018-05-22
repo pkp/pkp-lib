@@ -54,9 +54,8 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		$user = $request->getUser();
 		if (!$user) return false;
 
-		$userGroups = $userGroupDao->getByUserId($user->getId(), $context->getId());
-		while ($userGroup = $userGroups->next()) {
-			if ($userGroup->getId() == $userGroupId) return true;
+		if ($userGroupDao->userInGroup($user->getId(), $userGroupId)) {
+			return true;
 		}
 		$userGroup = $userGroupDao->getById($userGroupId, $context->getId());
 		if ($userGroup->getPermitSelfRegistration()){

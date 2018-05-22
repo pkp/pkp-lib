@@ -13,7 +13,6 @@
 
 <locale name="es_ES" full_name="Español (España)">
 	<!-- Author Submission -->
-	<message key="author.submit.userGroupRequired">Su cuenta no dispone actualmente con un rol que permita nuevos envíos, como Autor/a. Vuelva a comprobar su cuenta. Es posible que tenga que añadir un rol apropiado editando su perfil.</message>
 	<message key="author.submit.submissionCitations">Proporcione una lista de referencias con formato de las obras citadas en este envío. Separe cada referencia con una línea en blanco.</message>
 	<message key="submission.submit.submissionComplete">Envío completo</message>
 	<message key="submission.submit.submissionCompleteThanks">Gracias por su interés por publicar con {$contextName}.</message>

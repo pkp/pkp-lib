@@ -11,7 +11,6 @@
   -->
 <locale name="fa_IR" full_name="فارسی">
 	<!-- Author Submission -->
-	<message key="author.submit.userGroupRequired">حساب کاربری شما دارای نقش نویسنده نمی‌باشد. می‌توانید خودتان به سادگی در قسمت تنظیمات این نقش را برای حساب خود بی افزاید.</message>
 	<message key="author.submit.submissionCitations">لیست مرتب شده‌ای از مراجع بکار رفته در این مقاله ارسالی را وارد کنید.</message>
 	<message key="author.submission.roundStatus.reviewsReady">داوری جدید ثبت شده و توسط سردبیر بررسی خواهد شد.</message>
 	<message key="submission.confirm.message">مقاله ی شما با موفقیت بر روی این سامانه بارگذاری گردیده و آماده ی ارسال میباشد . شما میتوانید قبل از عبور از این مرحله برای بازنگری یا اصلاح موارد وارد شده به مراحل قبلی بازگردید</message>

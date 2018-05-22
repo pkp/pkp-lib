@@ -14,9 +14,9 @@
   * (https://packages.debian.org/sid/all/iso-codes) using the
   * tools/poToCountries.php tool.
   -->
-
 <countries>
 	<country name="Afghanistan" code="AF"/>
+	<country name="Åland-Inseln" code="AX"/>
 	<country name="Albanien" code="AL"/>
 	<country name="Algerien" code="DZ"/>
 	<country name="Amerikanisch-Samoa" code="AS"/>
@@ -264,5 +264,4 @@
 	<country name="Jemen" code="YE"/>
 	<country name="Sambia" code="ZM"/>
 	<country name="Simbabwe" code="ZW"/>
-	<country name="Åland-Inseln" code="AX"/>
 </countries>

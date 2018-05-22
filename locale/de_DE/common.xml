@@ -95,7 +95,6 @@
 	]]></message>
 	<message key="common.changesSaved">Ihre Änderungen wurden gespeichert.</message>
 	<message key="common.chooseOne">Bitte wählen Sie aus.</message>
-	<message key="common.clearSearch">Suchbegriffe löschen</message>
 	<message key="common.close">Schließen</message>
 	<message key="common.closePanel">Panel schließen</message>
 	<message key="common.closeWindow">Fenster schließen</message>
@@ -154,6 +153,7 @@
 	<message key="common.fileType">Dateityp</message>
 	<message key="common.fileUploaderError">Der Dateiuploader des Systems wird gestartet. Wenn er nicht erschient, liegt dies vermutlich daran, dass seine Laufzeiten nicht von diesem Browser unterstützt werden. Bitte kontaktieren Sie die Administrator/innen.</message>
 	<message key="common.filter">Filter</message>
+	<message key="common.filterAdd">Filter hinzufügen: {$filterTitle}</message>
 	<message key="common.filterRemove">Filter löschen: {$filterTitle}</message>
 	<message key="common.from">Von</message>
 	<message key="common.until">Bis</message>
@@ -172,6 +172,8 @@
 	<message key="common.language">Sprache</message>
 	<message key="common.languages">Sprachen</message>
 	<message key="common.less">Weniger</message>
+	<message key="common.lessThan">{$value} oder weniger</message>
+	<message key="common.listSeparator">, </message>
 	<message key="common.manage">Verwalten</message>
 	<message key="common.mailingAddress">Adresse</message>
 	<message key="common.billingAddress">Rechnungsadresse (wenn unterschiedlich)</message>
@@ -179,6 +181,7 @@
 	<message key="common.modify">Ändern</message>
 	<message key="common.month">Monat</message>
 	<message key="common.more">Mehr</message>
+	<message key="common.moreThan">{$value} oder mehr</message>
 	<message key="common.noneAssigned">Nicht zugewiesen</message>
 	<message key="common.none">Keine</message>
 	<message key="common.no">Nein</message>
@@ -240,6 +243,7 @@
 	<message key="common.saving">Speichere</message>
 	<message key="common.search">Suchen</message>
 	<message key="common.searchQuery">Suchanfrage</message>
+	<message key="common.clearSearch">Suchtext löschen</message>
 	<message key="common.second">Sekunde(n)</message>
 	<message key="common.selectAll">Alle auswählen</message>
 	<message key="common.selectNone">Auswahl aufheben</message>
@@ -284,6 +288,7 @@
 	<message key="common.plugins">Plugins</message>
 	<message key="common.metric">Metrik</message>
 	<message key="common.count">Anzahl</message>
+	<message key="common.publicAccess">Öffentlicher Zugriff</message>
 	<message key="debug.databaseQueries">Anzahl der Datenbankanfragen</message>
 	<message key="debug.executionTime">Seite erstellt am</message>
 	<message key="debug.memoryUsage">Speicherbelegung:</message>
@@ -539,6 +544,7 @@
 	<message key="notification.addedStageParticipant">Benutzer/in als Teilnehmer/in dieser Phase hinzugefügt.</message>
 	<message key="notification.type.newAnnouncement">Neue Ankündigung.</message>
 	<message key="notification.type.reviewAssignment">Sie haben ein ausstehendes Gutachten.</message>
+	<message key="notification.type.reviewAssignmentUpdated">Begutachtungsbitte aktualisiert.</message>
 	<message key="notification.type.auditorRequest">Sie sind gebeten worden, die Datei "{$file}" zu prüfen.</message>
 	<message key="notification.type.allReviewsIn">Alle Gutachten liegen vor, und eine Entscheidung wird in Phase {$stage} benötigt.</message>
 	<message key="notification.type.allRevisionsIn">Eine überarbeitete Datei ist hochgeladen worden und muss von Ihnen in Phase {$stage} akzeptiert werden.</message>
@@ -561,10 +567,14 @@
 	<message key="semicolon">{$label}:</message>
 
 	<!-- Navigation Menus -->
-	<message key="notification.editedNavigationMenuItem">Navigation menu item was succesfully updated</message>
-	<message key="notification.removedNavigationMenuItem">Navigation menu item was succesfully removed</message>
-	<message key="notification.addedNavigationMenuItem">Navigation menu item was succesfully added</message>
-	<message key="notification.addedNavigationMenu">Navigation menu was succesfully added</message>
-	<message key="notification.editedNavigationMenu">Navigation menu was succesfully updated</message>
-	<message key="notification.removedNavigationMenu">Navigation menu was succesfully removed</message>
+	<message key="notification.editedNavigationMenuItem">Eintrag im Navigationsmenü erfolgreich aktualisiert</message>
+	<message key="notification.removedNavigationMenuItem">Eintrag im Navigationsmenü erfolgreich entfernt</message>
+	<message key="notification.addedNavigationMenuItem">Eintrag im Navigationsmenü erfolgreich hinzugefügt</message>
+	<message key="notification.addedNavigationMenu">Navigationsmenü erfolgreich hinzugefügt</message>
+	<message key="notification.editedNavigationMenu">Navigationsmenü erfolgreich aktualisiert</message>
+	<message key="notification.removedNavigationMenu">Navigationsmenü erfolgreich entfernt</message>
+
+	<!-- List Handlers -->
+	<message key="list.viewMore">Mehr Details über {$name} anzeigen</message>
+	<message key="list.viewLess">Details über {$name} verbergen</message>
 </locale>

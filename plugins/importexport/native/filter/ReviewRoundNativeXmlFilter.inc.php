@@ -1,16 +1,16 @@
 <?php
 
 /**
- * @file plugins/importexport/native/filter/PKPAuthorNativeXmlFilter.inc.php
+ * @file plugins/importexport/native/filter/ReviewRoundNativeXmlFilter.inc.php
  *
  * Copyright (c) 2014-2018 Simon Fraser University
  * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPAuthorNativeXmlFilter
+ * @class ReviewRoundNativeXmlFilter
  * @ingroup plugins_importexport_native
  *
- * @brief Base class that converts a set of authors to a Native XML document
+ * @brief Base class that converts a set of review rounds to a Native XML document
  */
 
 import('lib.pkp.plugins.importexport.native.filter.NativeExportFilter');
@@ -52,7 +52,7 @@ class ReviewRoundNativeXmlFilter extends NativeExportFilter {
 		$doc->formatOutput = true;
 		$deployment = $this->getDeployment();
 
-		// Multiple authors; wrap in a <authors> element
+		// Wrap in a <reviewRounds> element
 		$rootNode = $doc->createElementNS($deployment->getNamespace(), 'reviewRounds');
 		foreach ($reviewRounds as $reviewRound) {
 			$rootNode->appendChild($this->createReviewRoundNode($doc, $reviewRound));
@@ -91,7 +91,7 @@ class ReviewRoundNativeXmlFilter extends NativeExportFilter {
 	}
 
 	/**
-	 * Add the addReviewAssignments for a submission to its DOM element.
+	 * Add the ReviewAssignments for a review round to its DOM element.
 	 * @param $doc DOMDocument
 	 * @param $reviewRoundNode DOMElement
 	 * @param $reviewRound ReviewRound
@@ -131,6 +131,12 @@ class ReviewRoundNativeXmlFilter extends NativeExportFilter {
 		}
 	}
 
+	/**
+	 * Create review round files node
+	 * @param mixed $reviewFiles 
+	 * @param mixed $reviewRound 
+	 * @return DOMDocument
+	 */
 	function processReviewRoundFiles($reviewFiles, $reviewRound) {
 		$doc = new DOMDocument('1.0');
 		$doc->preserveWhiteSpace = false;
@@ -149,7 +155,7 @@ class ReviewRoundNativeXmlFilter extends NativeExportFilter {
 	}
 
 	/**
-	 * Create and return an reviewAssignment node.
+	 * Create and return a review round file node.
 	 * @param $doc DOMDocument
 	 * @param $reviewFile SubmissionFile
 	 * @param $reviewRound ReviewRound
@@ -159,9 +165,7 @@ class ReviewRoundNativeXmlFilter extends NativeExportFilter {
 		$deployment = $this->getDeployment();
 		$context = $deployment->getContext();
 
-		// Create the reviewAssignment node
 		$reviewRoundFileNode = $doc->createElementNS($deployment->getNamespace(), 'reviewRoundFile');
-		// if ($reviewAssignment->getPrimaryContact()) $reviewAssignmentNode->setAttribute('primary_contact', 'true');
 
 		if ($revision = $reviewFile->getRevision()) {
 			$reviewRoundFileNode->setAttribute('revision', $revision);

@@ -74,7 +74,6 @@ class NativeXmlReviewRoundFilter extends NativeImportFilter {
 		$reviewRound->setRound($node->getAttribute('round'));
 		$reviewRound->setStatus($node->getAttribute('status'));
 
-		// $deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownUserGroup', array('param' => $userGroupName)));
 		$reviewRoundInserted = $reviewRoundDao->insertObject($reviewRound);
 		$deployment->addProcessedObjectId(ASSOC_TYPE_REVIEW_ROUND, $reviewRoundInserted->getId());
 
@@ -110,7 +109,7 @@ class NativeXmlReviewRoundFilter extends NativeImportFilter {
 	}
 
 	/**
-	 * Parse an author and add it to the submission.
+	 * Parse a review assignment.
 	 * @param $n DOMElement
 	 * @param $reviewRound ReviewRound
 	 */
@@ -126,7 +125,7 @@ class NativeXmlReviewRoundFilter extends NativeImportFilter {
 	}
 
 	/**
-	 * Parse an reviewAssignments element
+	 * Parse review round files element
 	 * @param $node DOMElement
 	 * @param $reviewRound ReviewRound
 	 */
@@ -140,7 +139,7 @@ class NativeXmlReviewRoundFilter extends NativeImportFilter {
 	}
 
 	/**
-	 * Parse an author and add it to the submission.
+	 * Parse a review round file
 	 * @param $n DOMElement
 	 * @param $reviewRound ReviewRound
 	 */

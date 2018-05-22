@@ -166,8 +166,7 @@ class NativeXmlReviewAssignmentFilter extends NativeImportFilter {
 		}
 
 		if ($errorOccured) {
-			// if error occured, the file cannot be inserted into DB, becase
-			// genre, uploader and user group are required (e.g. at name generation).
+			// if error occured, the file cannot be inserted into DB
 			$reviewAssignment = null;
 		} else {
 			$reviewAssignmentDao->insertObject($reviewAssignment);
@@ -188,9 +187,9 @@ class NativeXmlReviewAssignmentFilter extends NativeImportFilter {
 	}
 
 	/**
-	 * Parse an reviewAssignments element
+	 * Parse a review file element
 	 * @param $node DOMElement
-	 * @param $reviewRound ReviewRound
+	 * @param $reviewAssignment ReviewAssignment
 	 */
 	function parseReviewFiles($node, $reviewAssignment) {
 		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) {
@@ -202,9 +201,9 @@ class NativeXmlReviewAssignmentFilter extends NativeImportFilter {
 	}
 
 	/**
-	 * Parse an author and add it to the submission.
+	 * Parse a review file
 	 * @param $n DOMElement
-	 * @param $reviewRound ReviewRound
+	 * @param $reviewAssignment ReviewAssignment
 	 */
 	function parseReviewFile($n, $reviewAssignment) {
 		$deployment = $this->getDeployment();

@@ -1,16 +1,16 @@
 <?php
 
 /**
- * @file plugins/importexport/native/filter/PKPAuthorNativeXmlFilter.inc.php
+ * @file plugins/importexport/native/filter/ReviewAssignmentNativeXmlFilter.inc.php
  *
  * Copyright (c) 2014-2018 Simon Fraser University
  * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPAuthorNativeXmlFilter
+ * @class ReviewAssignmentNativeXmlFilter
  * @ingroup plugins_importexport_native
  *
- * @brief Base class that converts a set of authors to a Native XML document
+ * @brief Base class that converts a set of review assignments to a Native XML document
  */
 
 import('lib.pkp.plugins.importexport.native.filter.NativeExportFilter');
@@ -21,7 +21,7 @@ class ReviewAssignmentNativeXmlFilter extends NativeExportFilter {
 	 * @param $filterGroup FilterGroup
 	 */
 	function __construct($filterGroup) {
-		$this->setDisplayName('Native XML author export');
+		$this->setDisplayName('Native XML review assignments export');
 		parent::__construct($filterGroup);
 	}
 
@@ -52,7 +52,7 @@ class ReviewAssignmentNativeXmlFilter extends NativeExportFilter {
 		$doc->formatOutput = true;
 		$deployment = $this->getDeployment();
 
-		// Multiple authors; wrap in a <authors> element
+		// Wrap in a <reviewAssignments> element
 		$rootNode = $doc->createElementNS($deployment->getNamespace(), 'reviewAssignments');
 		foreach ($reviewAssignments as $reviewAssignment) {
 			$rootNode->appendChild($this->createReviewAssignmentsNode($doc, $reviewAssignment));
@@ -65,7 +65,7 @@ class ReviewAssignmentNativeXmlFilter extends NativeExportFilter {
 	}
 
 	//
-	// PKPAuthor conversion functions
+	// Conversion functions
 	//
 	/**
 	 * Create and return an reviewAssignment node.
@@ -79,7 +79,6 @@ class ReviewAssignmentNativeXmlFilter extends NativeExportFilter {
 
 		// Create the reviewAssignment node
 		$reviewAssignmentNode = $doc->createElementNS($deployment->getNamespace(), 'reviewAssignment');
-		// if ($reviewAssignment->getPrimaryContact()) $reviewAssignmentNode->setAttribute('primary_contact', 'true');
 
 		if ($dateAssigned = $reviewAssignment->getDateAssigned()) {
 			$reviewAssignmentNode->setAttribute('date_assigned', strftime('%Y-%m-%d', strtotime($dateAssigned)));
@@ -174,7 +173,7 @@ class ReviewAssignmentNativeXmlFilter extends NativeExportFilter {
 	/**
 	 * Add the ReviewRoundFiles for a review round to its DOM element.
 	 * @param $doc DOMDocument
-	 * @param $reviewRoundNode DOMElement
+	 * @param $reviewAssignmentNode DOMElement
 	 * @param $reviewAssignment ReviewAssignment
 	 */
 	function addReviewFiles($doc, $reviewAssignmentNode, $reviewAssignment) {
@@ -189,6 +188,12 @@ class ReviewAssignmentNativeXmlFilter extends NativeExportFilter {
 		}
 	}
 
+	/**
+	 * Create reviewFiles Node
+	 * @param $reviewFiles array of SubmissionFiles
+	 * @param $reviewAssignment ReviewAssignment
+	 * @return DOMDocument
+	 */
 	function processReviewFiles($reviewFiles, $reviewAssignment) {
 		$doc = new DOMDocument('1.0');
 		$doc->preserveWhiteSpace = false;
@@ -207,10 +212,9 @@ class ReviewAssignmentNativeXmlFilter extends NativeExportFilter {
 	}
 
 	/**
-	 * Create and return an reviewAssignment node.
+	 * Create review file node node.
 	 * @param $doc DOMDocument
-	 * @param $reviewFile SubmissionFile
-	 * @param $reviewRound ReviewRound
+	 * @param $reviewFileId int
 	 * @return DOMElement
 	 */
 	function createReviewFileNode($doc, $reviewFileId) {

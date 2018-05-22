@@ -28,6 +28,7 @@
 	<message key="user.authorization.accessibleWorkflowStage">Sie haben momentan keinen Zugriff auf diese Phase des Publikationsprozesses.</message>
 	<message key="user.authorization.workflowStageRequired">Es wurde kein Arbeitsschritt angegeben.</message>
 	<message key="user.authorization.pluginRequired">Es wurde kein Plugin angegeben, obwohl es erforderlich ist.</message>
+	<message key="user.authorization.invalidReviewAssignment">Sie haben keine Berechtigung, auf diese Begutachtungsanfrage zuzugreifen.</message>
 	<message key="user.biography">Angaben zum Lebenslauf</message>
 	<message key="user.changeMyPassword">Mein Passwort ändern</message>
 	<message key="user.changePassword">Passwort ändern</message>
@@ -41,6 +42,7 @@
 	<message key="user.interests">Interessen</message>
 	<message key="user.interests.description">(Trennen Sie Interessen durch die Enter-Taste oder durch Komma.)</message>
 	<message key="user.gossip">Private Notizen</message>
+	<message key="user.gossip.description">Anmerkungen über diese/n Gutachter/in hinzufügen, die Sie mit anderen Administrator/innen, Zeitschriftenverwalter/innen und (Teil-)Redakteur/innen teilen möchten. Die Anmerkungen werden bei künftigen Begutachtungsanfragen berücksichtigt werden können.</message>
 	<message key="user.group">Benutzer/innen-Gruppe</message>
 	<message key="user.lastName">Familienname</message>
 	<message key="user.profile.form.profileImageInvalid">Ungültiges oder zu großes Bildformat für das Nutzer/innenprofil. Gültige Formate sind .gif, .jpg oder .png, und das Bild darf eine Größe von 150x150 Pixel nicht überschreiten.</message>

@@ -99,7 +99,7 @@ class QueriesAccessHelper {
 		}
 
 		// Managers are always allowed
-		if ($this->hasStageRole($query->getStageId(), array(ROLE_ID_MANAGER))) return true;
+		if ($this->hasStageRole($query->getStageId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR))) return true;
 
 		// Otherwise, not allowed.
 		return false;

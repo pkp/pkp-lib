@@ -44,9 +44,9 @@ class PKPSiteSettingsForm extends Form {
 	}
 
 	/**
-	 * Display the form.
+	 * @copydoc Form::display()
 	 */
-	function display() {
+	function display($request = null, $template = null) {
 		$site = Request::getSite();
 		$publicFileManager = new PublicFileManager();
 		$siteStyleFilename = $publicFileManager->getSiteFilesPath() . '/' . $site->getSiteStyleFilename();
@@ -62,7 +62,7 @@ class PKPSiteSettingsForm extends Form {
 			'dateStyleFileUploaded' => file_exists($siteStyleFilename)?filemtime($siteStyleFilename):null,
 			'siteStyleFileExists' => file_exists($siteStyleFilename),
 		));
-		return parent::display();
+		return parent::display($request, $template);
 	}
 
 	/**
@@ -109,7 +109,7 @@ class PKPSiteSettingsForm extends Form {
 	/**
 	 * Save site settings.
 	 */
-	function execute($request) {
+	function execute() {
 		parent::execute();
 		$siteDao = DAORegistry::getDAO('SiteDAO');
 		$site = $siteDao->getSite();
@@ -119,6 +119,7 @@ class PKPSiteSettingsForm extends Form {
 
 		// Clear the template cache if theme has changed
 		if ($this->getData('themePluginPath') != $site->getSetting('themePluginPath')) {
+			$request = Application::getRequest();
 			$templateMgr = TemplateManager::getManager($request);
 			$templateMgr->clearTemplateCache();
 			$templateMgr->clearCssCache();

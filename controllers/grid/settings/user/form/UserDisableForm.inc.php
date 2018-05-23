@@ -39,7 +39,7 @@ class UserDisableForm extends Form {
 	/**
 	 * Initialize form data.
 	 */
-	function initData($args, $request) {
+	function initData() {
 		if ($this->_userId) {
 			$userDao = DAORegistry::getDAO('UserDAO');
 			$user = $userDao->getById($this->_userId);
@@ -66,9 +66,9 @@ class UserDisableForm extends Form {
 	}
 
 	/**
-	 * Display the form.
+	 * @copydoc Form::display()
 	 */
-	function display($args, $request) {
+	function display($request = null, $template = null) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
 			'userId' => $this->_userId,
@@ -79,10 +79,8 @@ class UserDisableForm extends Form {
 
 	/**
 	 * Enable/Disable the user
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function execute($args, $request) {
+	function execute() {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $userDao->getById($this->_userId);
 

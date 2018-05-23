@@ -48,11 +48,10 @@ class ReviewReminderForm extends Form {
 	//
 	/**
 	 * Initialize form data from the associated author.
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function initData($args, $request) {
+	function initData() {
 		$userDao = DAORegistry::getDAO('UserDAO');
+		$request = Application::getRequest();
 		$user = $request->getUser();
 		$context = $request->getContext();
 
@@ -98,7 +97,7 @@ class ReviewReminderForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$context = $request->getContext();
 		$user = $request->getUser();
 
@@ -112,7 +111,7 @@ class ReviewReminderForm extends Form {
 			'contextName' => $context->getLocalizedName(),
 			'editorialContactSignature' => $user->getContactSignature(),
 		));
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -128,12 +127,11 @@ class ReviewReminderForm extends Form {
 
 	/**
 	 * Save review assignment
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function execute($args, $request) {
+	function execute() {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$submissionDao = Application::getSubmissionDAO();
+		$request = Application::getRequest();
 
 		$reviewAssignment = $this->getReviewAssignment();
 		$reviewerId = $reviewAssignment->getReviewerId();

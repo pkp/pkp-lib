@@ -129,10 +129,9 @@ class ReviewerForm extends Form {
 	//
 	/**
 	 * Initialize form data from the associated author.
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function initData($args, $request) {
+	function initData() {
+		$request = Application::getRequest();
 		$reviewerId = (int) $request->getUserVar('reviewerId');
 		$context = $request->getContext();
 		$reviewRound = $this->getReviewRound();
@@ -221,7 +220,7 @@ class ReviewerForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$context = $request->getContext();
 
 		// Get the review method options.
@@ -284,7 +283,7 @@ class ReviewerForm extends Form {
 		}
 
 		$this->setData('userGroups', $userGroups);
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -312,11 +311,10 @@ class ReviewerForm extends Form {
 
 	/**
 	 * Save review assignment
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function execute($args, $request) {
+	function execute() {
 		$submission = $this->getSubmission();
+		$request = Application::getRequest();
 		$context = $request->getContext();
 
 		$currentReviewRound = $this->getReviewRound();

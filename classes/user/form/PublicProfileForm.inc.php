@@ -113,9 +113,12 @@ class PublicProfileForm extends BaseProfileForm {
 	/**
 	 * Fetch the form.
 	 * @param $request PKPRequest
+	 * @param $template string the template to be rendered, mandatory
+	 *  if no template has been specified on class instantiation.
+	 * @param $display boolean
 	 * @return string JSON-encoded form contents.
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 
 		$publicFileManager = new PublicFileManager();
@@ -126,21 +129,20 @@ class PublicProfileForm extends BaseProfileForm {
 			'publicSiteFilesPath' => $publicFileManager->getSiteFilesPath(),
 		));
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
 	 * Save public profile settings.
-	 * @param $request PKPRequest
 	 */
-	function execute($request) {
-		$user = $request->getUser();
+	function execute() {
+		$user = $this->getUser();
 
 		$user->setOrcid($this->getData('orcid'));
 		$user->setUrl($this->getData('userUrl'));
 		$user->setBiography($this->getData('biography'), null); // Localized
 
-		parent::execute($request, $user);
+		parent::execute();
 	}
 }
 

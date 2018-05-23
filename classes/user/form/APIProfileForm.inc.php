@@ -49,9 +49,12 @@ class APIProfileForm extends BaseProfileForm {
 	/**
 	 * Fetch the form to edit user's API key settings.
 	 * @param $request PKPRequest
+	 * @param $template string the template to be rendered, mandatory
+	 *  if no template has been specified on class instantiation.
+	 * @param $display boolean
 	 * @return string JSON-encoded form contents.
 	 */
-	public function fetch($request) {
+	public function fetch($request, $template = null, $display = false) {
 		$user = $request->getUser();
 		$apiKey = $user->getSetting('apiKey');
 		$secret = Config::getVar('security', 'api_key_secret', '');
@@ -70,14 +73,14 @@ class APIProfileForm extends BaseProfileForm {
 			'apiKeyEnabled' => $user->getSetting('apiKeyEnabled'),
 			'apiKey' => $jwt,
 		));
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
 	 * Save user's API key settings form.
-	 * @param $request PKPRequest
 	 */
-	function execute($request) {
+	function execute() {
+		$request = Application::getRequest();
 		$user = $request->getUser();
 
 		$apiKeyEnabled = (bool) $this->getData('apiKeyEnabled');

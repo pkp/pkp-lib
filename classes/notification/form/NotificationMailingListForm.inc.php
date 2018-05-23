@@ -41,22 +41,21 @@ class NotificationMailingListForm extends Form {
 	}
 
 	/**
-	 * Display the form.
-	 * @param $request PKPRequest
+	 * @copydoc Form::display()
 	 */
-	function display($request) {
+	function display($request = null, $template = null) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('new', true);
 
-		return parent::display();
+		return parent::display($request, $template);
 	}
 
 	/**
 	 * Save the form
-	 * @param $request PKPRequest
 	 */
-	function execute($request) {
+	function execute() {
 		$userEmail = $this->getData('email');
+		$request = Application::getRequest();
 		$context = $request->getContext();
 
 		$notificationMailListDao = DAORegistry::getDAO('NotificationMailListDAO');

@@ -87,7 +87,6 @@ class ManageQueryNoteFilesGridHandler extends SelectableSubmissionFileListCatego
 
 		if ($manageQueryNoteFilesForm->validate()) {
 			$manageQueryNoteFilesForm->execute(
-				$args, $request,
 				$this->getGridCategoryDataElements($request, $this->getStageId())
 			);
 

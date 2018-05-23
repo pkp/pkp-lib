@@ -45,12 +45,13 @@ class SendReviewsForm extends EditorDecisionWithEmailForm {
 	// Implement protected template methods from Form
 	//
 	/**
-	 * @copydoc Form::initData()
+	 * @copydoc EditorDecisionWithEmailForm::initData()
 	 */
-	function initData($args, $request) {
+	function initData($actionLabels = array()) {
+		$request = Application::getRequest();
 		$actionLabels = EditorDecisionActionsManager::getActionLabels($request->getContext(), $this->_getDecisions());
 
-		return parent::initData($args, $request, $actionLabels);
+		return parent::initData($actionLabels);
 	}
 
 	/**
@@ -64,7 +65,7 @@ class SendReviewsForm extends EditorDecisionWithEmailForm {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$router = $request->getRouter();
 		$dispatcher = $router->getDispatcher();
@@ -89,15 +90,16 @@ class SendReviewsForm extends EditorDecisionWithEmailForm {
 			'resubmitEmail' => $resubmitEmail->getBody(),
 		));
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute($args, $request) {
+	function execute() {
 		// Retrieve the submission.
 		$submission = $this->getSubmission();
+        $request = Application::getRequest();
 
 		// Get this form decision actions labels.
 		$actionLabels = EditorDecisionActionsManager::getActionLabels($request->getContext(), $this->_getDecisions());

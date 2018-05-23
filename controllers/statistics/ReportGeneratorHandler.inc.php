@@ -37,7 +37,7 @@ class ReportGeneratorHandler extends Handler {
 	function fetchReportGenerator($args, $request) {
 		$this->setupTemplate($request);
 		$reportGeneratorForm = $this->_getReportGeneratorForm($request);
-		$reportGeneratorForm->initData($request);
+		$reportGeneratorForm->initData();
 
 		$formContent = $reportGeneratorForm->fetch($request);
 
@@ -64,7 +64,7 @@ class ReportGeneratorHandler extends Handler {
 		$reportGeneratorForm->readInputData();
 		$json = new JSONMessage(true);
 		if ($reportGeneratorForm->validate()) {
-			$reportUrl = $reportGeneratorForm->execute($request);
+			$reportUrl = $reportGeneratorForm->execute();
 			$json->setAdditionalAttributes(array('reportUrl' => $reportUrl));
 		} else {
 			$json->setStatus(false);

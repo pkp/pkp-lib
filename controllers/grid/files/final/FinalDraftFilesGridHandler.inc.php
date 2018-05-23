@@ -53,7 +53,7 @@ class FinalDraftFilesGridHandler extends FileListGridHandler {
 	function selectFiles($args, $request) {
 		import('lib.pkp.controllers.grid.files.final.form.ManageFinalDraftFilesForm');
 		$manageFinalDraftFilesForm = new ManageFinalDraftFilesForm($this->getSubmission()->getId());
-		$manageFinalDraftFilesForm->initData($args, $request);
+		$manageFinalDraftFilesForm->initData();
 		return new JSONMessage(true, $manageFinalDraftFilesForm->fetch($request));
 	}
 }

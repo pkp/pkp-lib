@@ -36,14 +36,13 @@ class CreateReviewerForm extends ReviewerForm {
 
 
 	/**
-	 * Fetch the form.
-	 * @see Form::fetch()
+	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$advancedSearchAction = $this->getAdvancedSearchAction($request);
 
 		$this->setReviewerFormAction($advancedSearchAction);
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -68,12 +67,11 @@ class CreateReviewerForm extends ReviewerForm {
 
 	/**
 	 * Save review assignment
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function execute($args, $request) {
+	function execute() {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $userDao->newDataObject();
+		$request = Application::getRequest();
 
 		$user->setFirstName($this->getData('firstName'));
 		$user->setMiddleName($this->getData('middleName'));
@@ -129,7 +127,7 @@ class CreateReviewerForm extends ReviewerForm {
 			}
 		}
 
-		return parent::execute($args, $request);
+		return parent::execute();
 	}
 }
 

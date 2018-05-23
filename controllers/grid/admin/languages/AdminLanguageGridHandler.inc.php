@@ -59,8 +59,8 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 	/**
 	 * @copydoc PKPHandler::initialize()
 	 */
-	public function initialize($request) {
-		parent::initialize($request);
+	public function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 
 		AppLocale::requireComponents(
 			LOCALE_COMPONENT_PKP_ADMIN,
@@ -186,7 +186,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 	public function installLocale($args, $request) {
 		// Form handling.
 		$installLanguageForm = new InstallLanguageForm();
-		$installLanguageForm->initData($request);
+		$installLanguageForm->initData();
 		return new JSONMessage(true, $installLanguageForm->fetch($request));
 
 	}
@@ -202,7 +202,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 		$installLanguageForm->readInputData($request);
 
 		if ($installLanguageForm->validate($request)) {
-			$installLanguageForm->execute($request);
+			$installLanguageForm->execute();
 			$this->_updateContextLocaleSettings($request);
 
 			$notificationManager = new NotificationManager();
@@ -253,7 +253,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 
 		// Refresh form.
 		$installLanguageForm = new InstallLanguageForm();
-		$installLanguageForm->initData($request);
+		$installLanguageForm->initData();
 		$json->setEvent('refreshForm', $installLanguageForm->fetch($request));
 		return $json;
 	}

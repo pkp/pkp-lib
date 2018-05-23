@@ -27,11 +27,9 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm {
 
 	/**
 	 * Save changes to submission.
-	 * @param $args array
-	 * @param $request PKPRequest
 	 * @return int the submission ID
 	 */
-	function execute($args, $request) {
+	function execute() {
 		// Update submission
 		$submissionDao = Application::getSubmissionDAO();
 		$submission = $this->submission;

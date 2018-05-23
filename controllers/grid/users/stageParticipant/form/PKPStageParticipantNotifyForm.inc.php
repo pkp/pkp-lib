@@ -60,7 +60,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$submissionDao = Application::getSubmissionDAO();
 		$submission = $submissionDao->getById($this->_submissionId);
 
@@ -110,7 +110,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 			}
 		}
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -123,14 +123,15 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute($request) {
+	function execute() {
 		$submissionDao = Application::getSubmissionDAO();
 		$submission = $submissionDao->getById($this->_submissionId);
+		$request = Application::getRequest();
 		if ($this->getData('message')) {
 			$this->sendMessage((int) $this->getData('userId'), $submission, $request);
 			$this->_logEventAndCreateNotification($request, $submission);
 		}
-		return parent::execute($request);
+		return parent::execute();
 	}
 
 	/**

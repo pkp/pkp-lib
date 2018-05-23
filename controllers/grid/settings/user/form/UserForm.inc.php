@@ -38,10 +38,8 @@ class UserForm extends Form {
 
 	/**
 	 * Initialize form data from current user profile.
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	public function initData($args, $request) {
+	public function initData() {
 
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroups = $userGroupDao->getByUserId($this->userId);
@@ -61,11 +59,9 @@ class UserForm extends Form {
 	}
 
 	/**
-	 * Display the form.
-	 * @param $args array
-	 * @param $request PKPRequest
+	 * @copydoc Form::display()
 	 */
-	public function display($args, $request) {
+	public function display($request = null, $template = null) {
 		$context = $request->getContext();
 		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 		$templateMgr = TemplateManager::getManager($request);
@@ -87,9 +83,10 @@ class UserForm extends Form {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute($args, $request) {
+	function execute() {
 
 		if (isset($this->userId)) {
+			$request = Application::getRequest();
 			import('lib.pkp.classes.security.UserGroupAssignmentDAO');
 			$userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO');
 			$userGroupAssignmentDao->deleteAssignmentsByContextId($request->getContext()->getId(), $this->userId);
@@ -101,7 +98,7 @@ class UserForm extends Form {
 			}
 		}
 
-		parent::execute($request);
+		parent::execute();
 	}
 
 }

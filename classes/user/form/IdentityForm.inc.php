@@ -33,9 +33,12 @@ class IdentityForm extends BaseProfileForm {
 	/**
 	 * Fetch the form.
 	 * @param $request PKPRequest
+	 * @param $template string the template to be rendered, mandatory
+	 *  if no template has been specified on class instantiation.
+	 * @param $display boolean
 	 * @return string JSON-encoded form contents.
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 
 		$user = $this->getUser();
@@ -44,7 +47,7 @@ class IdentityForm extends BaseProfileForm {
 			'username' => $user->getUsername(),
 		));
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -77,8 +80,8 @@ class IdentityForm extends BaseProfileForm {
 	/**
 	 * Save identity settings.
 	 */
-	function execute($request) {
-		$user = $request->getUser();
+	function execute() {
+		$user = $this->getUser();
 
 		$user->setSalutation($this->getData('salutation'));
 		$user->setFirstName($this->getData('firstName'));
@@ -87,7 +90,7 @@ class IdentityForm extends BaseProfileForm {
 		$user->setLastName($this->getData('lastName'));
 		$user->setSuffix($this->getData('suffix'));
 
-		parent::execute($request, $user);
+		parent::execute();
 	}
 }
 

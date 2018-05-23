@@ -33,9 +33,9 @@ class NewContextImageFileForm extends SettingsFileUploadForm {
 	/**
 	 * @copydoc SettingsFileUploadForm::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false, $params = null) {
 		$params = array('fileType' => 'image');
-		return parent::fetch($request, $params);
+		return parent::fetch($request, $template, $display, $params);
 	}
 
 
@@ -52,7 +52,8 @@ class NewContextImageFileForm extends SettingsFileUploadForm {
 	/**
 	 * @copydoc Form::initData()
 	 */
-	function initData($request) {
+	function initData() {
+		$request = Application::getRequest();
 		$context = $request->getContext();
 		$fileSettingName = $this->getFileSettingName();
 
@@ -79,9 +80,9 @@ class NewContextImageFileForm extends SettingsFileUploadForm {
 
 	/**
 	 * Save the new image file.
-	 * @param $request Request.
 	 */
-	function execute($request) {
+	function execute() {
+		$request = Application::getRequest();
 		$temporaryFile = $this->fetchTemporaryFile($request);
 
 		import('classes.file.PublicFileManager');

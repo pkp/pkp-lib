@@ -68,14 +68,17 @@ class ChangePasswordForm extends Form {
 	/**
 	 * Fetch the form.
 	 * @param $request PKPRequest
+	 * @param $template string the template to be rendered, mandatory
+	 *  if no template has been specified on class instantiation.
+	 * @param $display boolean
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager();
 		$templateMgr->assign(array(
 			'minPasswordLength' => $this->getSite()->getMinPasswordLength(),
 			'username' =>  $this->getUser()->getUsername(),
 		));
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

@@ -34,26 +34,22 @@ class UserRoleForm extends UserForm {
 	}
 
 	/**
-	 * Display the form.
-	 * @param $args array
-	 * @param $request PKPRequest
+	 * @copydoc UserForm::display()
 	 */
-	function display($args, $request) {
+	function display($request = null, $template = null) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
 			'userId' => $this->userId,
 			'userFullName' => $this->_userFullName,
 		));
-		return parent::display($args, $request);
+		return parent::display($request, $template);
 	}
 
 	/**
 	 * Update user's roles.
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function execute($args, $request) {
-		parent::execute($args, $request);
+	function execute() {
+		parent::execute();
 
 		// Role management handled by parent form, just return user.
 		$userDao = DAORegistry::getDAO('UserDAO');

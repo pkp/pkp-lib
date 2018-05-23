@@ -54,11 +54,9 @@ class ReviewFormElementForm extends Form {
 	}
 
 	/**
-	 * Display the form.
-	 * @param $args array
-	 * @param $request PKPRequest
+	 * @copydoc Form::fetch()
 	 */
-	function fetch($args, $request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		import('lib.pkp.classes.reviewForm.ReviewFormElement');
 		$templateMgr->assign(array(
@@ -68,15 +66,15 @@ class ReviewFormElementForm extends Form {
 			'multipleResponsesElementTypesString' => ';'.implode(';', ReviewFormElement::getMultipleResponsesElementTypes()).';',
 			'reviewFormElementTypeOptions' => ReviewFormElement::getReviewFormElementTypeOptions(),
 		));
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
 	 * Initialize form data from current review form.
-	 * @param $request PKPRequest
 	 */
-	function initData($request) {
+	function initData() {
 		if ($this->reviewFormElementId) {
+			$request = Application::getRequest();
 			$context = $request->getContext();
 			$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
 			$reviewFormElement = $reviewFormElementDao->getById($this->reviewFormElementId, $this->reviewFormId);
@@ -104,11 +102,11 @@ class ReviewFormElementForm extends Form {
 
 	/**
 	 * Save review form element.
-	 * @param $request PKPRequest
 	 * @return int Review form element ID
 	 */
-	function execute($request) {
+	function execute() {
 		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
+		$request = Application::getRequest();
 
 		if ($this->reviewFormElementId) {
 			$context = $request->getContext();

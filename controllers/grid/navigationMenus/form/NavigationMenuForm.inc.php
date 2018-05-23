@@ -52,7 +52,7 @@ class NavigationMenuForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 
 		$themePlugins = PluginRegistry::getPlugins('themes');
@@ -111,7 +111,7 @@ class NavigationMenuForm extends Form {
 			'navigationMenuItemTypeConditionalWarnings' => json_encode($typeConditionalWarnings),
 		));
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -198,7 +198,7 @@ class NavigationMenuForm extends Form {
 	 * Perform additional validation checks
 	 * @copydoc Form::validate
 	 */
-	function validate() {
+	function validate($callHooks = true) {
 		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
 
 		$navigationMenu = $navigationMenuDao->getByTitle($this->_contextId, $this->getData('title'));
@@ -213,7 +213,7 @@ class NavigationMenuForm extends Form {
 			}
 		}
 
-		return parent::validate();
+		return parent::validate($callHooks);
 	}
 }
 

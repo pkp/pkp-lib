@@ -69,10 +69,9 @@ class UserDetailsForm extends UserForm {
 
 	/**
 	 * Initialize form data from current user profile.
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function initData($args, $request) {
+	function initData() {
+		$request = Application::getRequest();
 		$context = $request->getContext();
 		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 
@@ -135,15 +134,13 @@ class UserDetailsForm extends UserForm {
 			$this->setData($key, $value);
 		}
 
-		parent::initData($args, $request);
+		parent::initData();
 	}
 
 	/**
-	 * Display the form.
-	 * @param $args array
-	 * @param $request PKPRequest
+	 * @copydoc UserForm::display()
 	 */
-	function display($args, $request) {
+	function display($request = null, $template = null) {
 		$site = $request->getSite();
 		$templateMgr = TemplateManager::getManager($request);
 		$userDao = DAORegistry::getDAO('UserDAO');
@@ -174,7 +171,7 @@ class UserDetailsForm extends UserForm {
 			$templateMgr->assign('authSourceOptions', $authSourceOptions);
 		}
 
-		return parent::display($args, $request);
+		return parent::display($request, $template);
 	}
 
 
@@ -230,13 +227,12 @@ class UserDetailsForm extends UserForm {
 
 	/**
 	 * Create or update a user.
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function &execute($args, $request) {
-		parent::execute($args, $request);
+	function execute() {
+		parent::execute();
 
 		$userDao = DAORegistry::getDAO('UserDAO');
+		$request = Application::getRequest();
 		$context = $request->getContext();
 
 		if (isset($this->userId)) {

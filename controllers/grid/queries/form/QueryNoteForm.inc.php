@@ -105,10 +105,10 @@ class QueryNoteForm extends Form {
 
 	/**
 	 * @copydoc Form::execute()
-	 * @param $request PKPRequest
 	 * @return Note The created note object.
 	 */
-	function execute($request) {
+	function execute() {
+		$request = Application::getRequest();
 		$user = $request->getUser();
 
 		// Create a new note.

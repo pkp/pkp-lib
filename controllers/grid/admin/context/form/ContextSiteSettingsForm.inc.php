@@ -46,11 +46,15 @@ class ContextSiteSettingsForm extends Form {
 	/**
 	 * Fetch the form.
 	 * @param $request PKPRequest
+	 * @param $template string the template to be rendered, mandatory
+	 *  if no template has been specified on class instantiation.
+	 * @param $display boolean
+	 * @return string the rendered form
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('contextId', $this->contextId);
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

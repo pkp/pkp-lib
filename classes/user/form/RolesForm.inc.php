@@ -31,9 +31,12 @@ class RolesForm extends BaseProfileForm {
 	/**
 	 * Fetch the form.
 	 * @param $request PKPRequest
+	 * @param $template string the template to be rendered, mandatory
+	 *  if no template has been specified on class instantiation.
+	 * @param $display boolean
 	 * @return string JSON-encoded form contents.
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
@@ -51,7 +54,7 @@ class RolesForm extends BaseProfileForm {
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -86,8 +89,8 @@ class RolesForm extends BaseProfileForm {
 	 * Save roles settings.
 	 * @param $request PKPRequest
 	 */
-	function execute($request) {
-		$user = $request->getUser();
+	function execute() {
+		$user = $this->getUser();
 
 		// Save the roles
 		import('lib.pkp.classes.user.form.UserFormHelper');
@@ -99,7 +102,7 @@ class RolesForm extends BaseProfileForm {
 		$interestManager = new InterestManager();
 		$interestManager->setInterestsForUser($user, $this->getData('interests'));
 
-		parent::execute($request, $user);
+		parent::execute();
 	}
 }
 

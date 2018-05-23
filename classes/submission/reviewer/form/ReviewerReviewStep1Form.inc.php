@@ -32,7 +32,7 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 	/**
 	 * @see Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$context = $request->getContext();
 
@@ -93,7 +93,7 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 		);
 		$templateMgr->assign('declineReviewAction', $declineReviewLinkAction);
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

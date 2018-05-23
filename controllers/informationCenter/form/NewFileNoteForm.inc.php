@@ -57,10 +57,10 @@ class NewFileNoteForm extends NewNoteForm {
 	/**
 	 * @copydoc NewFileNoteForm::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('showEarlierEntries', true);
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 }
 

@@ -179,7 +179,7 @@ class UserGridHandler extends GridHandler {
 	/**
 	 * @copydoc GridHandler::renderFilter()
 	 */
-	function renderFilter($request) {
+	function renderFilter($request, $filterData = null) {
 		$context = $request->getContext();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroups = $userGroupDao->getByContextId($context->getId());
@@ -282,9 +282,9 @@ class UserGridHandler extends GridHandler {
 		} else {
 			// Form handling.
 			$userForm = new UserDetailsForm($request, $userId);
-			$userForm->initData($args, $request);
+			$userForm->initData();
 
-			return new JSONMessage(true, $userForm->display($args, $request));
+			return new JSONMessage(true, $userForm->display($request));
 		}
 	}
 
@@ -310,14 +310,14 @@ class UserGridHandler extends GridHandler {
 		$userForm->readInputData();
 
 		if ($userForm->validate()) {
-			$user = $userForm->execute($args, $request);
+			$user = $userForm->execute();
 
 			// If this is a newly created user, show role management form.
 			if (!$userId) {
 				import('lib.pkp.controllers.grid.settings.user.form.UserRoleForm');
 				$userRoleForm = new UserRoleForm($user->getId(), $user->getFullName());
-				$userRoleForm->initData($args, $request);
-				return new JSONMessage(true, $userRoleForm->display($args, $request));
+				$userRoleForm->initData();
+				return new JSONMessage(true, $userRoleForm->display($request));
 			} else {
 
 				// Successful edit of an existing user.
@@ -356,7 +356,7 @@ class UserGridHandler extends GridHandler {
 		$userRoleForm->readInputData();
 
 		if ($userRoleForm->validate()) {
-			$userRoleForm->execute($args, $request);
+			$userRoleForm->execute();
 
 			// Successfully managed newly created user's roles.
 			return DAO::getDataChangedEvent($userId);
@@ -389,9 +389,9 @@ class UserGridHandler extends GridHandler {
 			import('lib.pkp.controllers.grid.settings.user.form.UserDisableForm');
 			$userForm = new UserDisableForm($userId, $enable);
 
-			$userForm->initData($args, $request);
+			$userForm->initData();
 
-			return new JSONMessage(true, $userForm->display($args, $request));
+			return new JSONMessage(true, $userForm->display($request));
 		}
 	}
 
@@ -422,14 +422,14 @@ class UserGridHandler extends GridHandler {
 		$userForm->readInputData();
 
 		if ($userForm->validate()) {
-			$user = $userForm->execute($args, $request);
+			$user = $userForm->execute();
 
 			// Successful enable/disable of an existing user.
 			// Update grid data.
 			return DAO::getDataChangedEvent($userId);
 
 		} else {
-			return new JSONMessage(false, $userForm->display($args, $request));
+			return new JSONMessage(false, $userForm->display($request));
 		}
 	}
 
@@ -486,7 +486,7 @@ class UserGridHandler extends GridHandler {
 			$userEmailForm = new UserEmailForm($userId);
 			$userEmailForm->initData();
 
-			return new JSONMessage(true, $userEmailForm->fetch($args, $request));
+			return new JSONMessage(true, $userEmailForm->fetch($request));
 		}
 	}
 
@@ -512,10 +512,10 @@ class UserGridHandler extends GridHandler {
 		$userEmailForm->readInputData();
 
 		if ($userEmailForm->validate()) {
-			$userEmailForm->execute($args, $request);
+			$userEmailForm->execute();
 			return new JSONMessage(true);
 		} else {
-			return new JSONMessage(false, $userEmailForm->fetch($args, $request));
+			return new JSONMessage(false, $userEmailForm->fetch($request));
 		}
 	}
 

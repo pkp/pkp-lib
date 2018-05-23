@@ -173,7 +173,7 @@ class NotificationHandler extends Handler {
 		$notificationMailingListForm->readInputData();
 
 		if ($notificationMailingListForm->validate()) {
-			$notificationMailingListForm->execute($request);
+			$notificationMailingListForm->execute();
 			$router = $request->getRouter();
 			$request->redirectUrl($router->url($request, null, 'notification', 'mailListSubscribed', array('success')));
 		} else {

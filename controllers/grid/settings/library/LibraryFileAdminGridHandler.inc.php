@@ -41,12 +41,13 @@ class LibraryFileAdminGridHandler extends LibraryFileGridHandler {
 	/*
 	 * Configure the grid
 	 * @param $request PKPRequest
+	 * @param $args array optional
 	 */
-	function initialize($request) {
+	function initialize($request, $args = null) {
 		// determine if this grid is read only.
 		$this->setCanEdit((boolean) $request->getUserVar('canEdit'));
 
-		parent::initialize($request);
+		parent::initialize($request, $args);
 	}
 
 	/**

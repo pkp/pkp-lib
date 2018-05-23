@@ -192,7 +192,7 @@ class UserGroupGridHandler extends GridHandler {
 	/**
 	* @see GridHandler::renderFilter()
 	*/
-	function renderFilter($request) {
+	function renderFilter($request, $filterData = null) {
 		// Get filter data.
 		$roleDao = DAORegistry::getDAO('RoleDAO');
 		$roleOptions = array(0 => 'grid.user.allPermissionLevels') + Application::getRoleNames(true);
@@ -278,7 +278,7 @@ class UserGroupGridHandler extends GridHandler {
 
 		$userGroupForm->readInputData();
 		if($userGroupForm->validate()) {
-			$userGroupForm->execute($request);
+			$userGroupForm->execute();
 			return DAO::getDataChangedEvent();
 		} else {
 			return new JSONMessage(true, $userGroupForm->fetch($request));

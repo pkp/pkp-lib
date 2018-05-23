@@ -38,20 +38,19 @@ class ReviewFormElements extends Form {
 	/**
 	 * Display the form.
 	 */
-	function fetch($args, $request) {
+	function fetch($request, $template = null, $display = false) {
 		$json = new JSONMessage();
 
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('reviewFormId', $this->reviewFormId);
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
 	 * Initialize form data from current settings.
-	 * @param $reviewForm ReviewForm optional
 	 */
-	function initData($reviewForm = null) {
+	function initData() {
 		if (isset($this->reviewFormId)) {
 			// Get review form
 			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');

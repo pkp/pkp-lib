@@ -228,8 +228,7 @@ class Validation {
 
 		if ($contextId === -1) {
 			// Get context ID from request
-			$application = PKPApplication::getApplication();
-			$request = $application->getRequest();
+			$request = Application::getRequest();
 			$context = $request->getContext();
 			$contextId = $context == null ? 0 : $context->getId();
 		}

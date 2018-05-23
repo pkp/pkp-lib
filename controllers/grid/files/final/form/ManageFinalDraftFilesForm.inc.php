@@ -31,12 +31,10 @@ class ManageFinalDraftFilesForm extends ManageSubmissionFilesForm {
 	//
 	/**
 	 * Save Selection of Final Draft files
-	 * @param $args array
-	 * @param $request PKPRequest
 	 * @return array a list of all submission files marked as "final".
 	 */
-	function execute($args, $request, $stageSubmissionFiles) {
-		parent::execute($args, $request, $stageSubmissionFiles, SUBMISSION_FILE_FINAL);
+	function execute($stageSubmissionFiles) {
+		parent::execute($stageSubmissionFiles, SUBMISSION_FILE_FINAL);
 	}
 }
 

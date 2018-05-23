@@ -59,7 +59,11 @@ class NavigationMenuItemsForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch(
+		$request,
+		$template = 'controllers/grid/navigationMenus/form/navigationMenuItemsForm.tpl',
+		$display = false
+	) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
 
 		$templateMgr = TemplateManager::getManager($request);
@@ -101,7 +105,7 @@ class NavigationMenuItemsForm extends Form {
 			'navigationMenuItemTypeConditionalWarnings' => json_encode($typeConditionalWarnings),
 		));
 
-		return parent::fetch($request, 'controllers/grid/navigationMenus/form/navigationMenuItemsForm.tpl');
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -131,9 +135,8 @@ class NavigationMenuItemsForm extends Form {
 
 	/**
 	 * Save NavigationMenuItem.
-	 * @param $request PKPRequest
 	 */
-	function execute($request) {
+	function execute() {
 		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
 
 		$navigationMenuItem = $navigationMenuItemDao->getById($this->navigationMenuItemId);
@@ -162,7 +165,7 @@ class NavigationMenuItemsForm extends Form {
 	 * Perform additional validation checks
 	 * @copydoc Form::validate
 	 */
-	function validate() {
+	function validate($callHooks = true) {
 		import('lib.pkp.classes.navigationMenu.NavigationMenuItem');
 		if ($this->getData('menuItemType') && $this->getData('menuItemType') != "") {
 			if ($this->getData('menuItemType') == NMI_TYPE_CUSTOM) {
@@ -185,7 +188,7 @@ class NavigationMenuItemsForm extends Form {
 			$this->addError('path', __('manager.navigationMenus.form.typeMissing'));
 		}
 
-		return parent::validate();
+		return parent::validate($callHooks);
 	}
 
 }

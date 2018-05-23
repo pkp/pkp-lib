@@ -54,7 +54,7 @@ class AnnouncementTypeForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('typeId', $this->typeId);
 		return parent::fetch($request, 'controllers/grid/announcements/form/announcementTypeForm.tpl');

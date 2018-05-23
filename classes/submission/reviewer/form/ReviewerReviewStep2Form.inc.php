@@ -31,7 +31,7 @@ class ReviewerReviewStep2Form extends ReviewerReviewForm {
 	/**
 	 * @see Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$context = $this->request->getContext();
 
@@ -42,7 +42,7 @@ class ReviewerReviewStep2Form extends ReviewerReviewForm {
 		}
 		$templateMgr->assign('reviewerGuidelines', $reviewerGuidelines);
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 

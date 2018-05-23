@@ -128,7 +128,7 @@ class AnnouncementGridHandler extends GridHandler {
 		import('lib.pkp.controllers.grid.announcements.form.AnnouncementForm');
 		$announcementForm = new AnnouncementForm($contextId, $announcementId, true);
 
-		$announcementForm->initData($args, $request);
+		$announcementForm->initData();
 
 		return new JSONMessage(true, $announcementForm->fetch($request));
 	}

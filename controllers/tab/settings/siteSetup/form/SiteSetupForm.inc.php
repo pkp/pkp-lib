@@ -38,10 +38,9 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 	//
 	/**
 	 * @see Form::fetch()
-	 * @param $request PKPRequest
 	 * @param $params array
 	 */
-	function fetch($request, $params = null) {
+	function fetch($request, $template = null, $display = false, $params = null) {
 		$site = $request->getSite();
 		$publicFileManager = new PublicFileManager();
 		$contextDao = Application::getContextDAO();
@@ -91,7 +90,7 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 			'activeThemeOptions' => $activeThemeOptions,
 		));
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display, $params);
 	}
 
 
@@ -100,9 +99,9 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 	//
 	/**
 	 * @see PKPSiteSettingsForm::initData()
-	 * @param $request PKPRequest
 	 */
-	function initData($request) {
+	function initData() {
+		$request = Application::getRequest();
 		$site = $request->getSite();
 		$publicFileManager = $publicFileManager = new PublicFileManager();
 		$siteStyleFilename = $publicFileManager->getSiteFilesPath() . '/' . $site->getSiteStyleFilename();
@@ -143,8 +142,9 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 	/**
 	 * Save site settings.
 	 */
-	function execute($request) {
-		parent::execute($request);
+	function execute() {
+		parent::execute();
+		$request = Application::getRequest();
 		$siteDao = DAORegistry::getDAO('SiteDAO');
 		$site = $siteDao->getSite();
 

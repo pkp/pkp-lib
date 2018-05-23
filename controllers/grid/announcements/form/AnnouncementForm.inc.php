@@ -96,7 +96,7 @@ class AnnouncementForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('readOnly', $this->isReadOnly());
 		$templateMgr->assign('selectedTypeId', $this->getData('typeId'));
@@ -151,9 +151,8 @@ class AnnouncementForm extends Form {
 
 	/**
 	 * Save announcement.
-	 * @param $request PKPRequest
 	 */
-	function execute($request) {
+	function execute() {
 		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
 
 		$announcement = $announcementDao->getById($this->announcementId);
@@ -199,6 +198,7 @@ class AnnouncementForm extends Form {
 			import('classes.notification.NotificationManager');
 			$notificationManager = new NotificationManager();
 			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+			$request = Application::getRequest();
 			$notificationUsers = array();
 			$allUsers = $userGroupDao->getUsersByContextId($contextId);
 			while ($user = $allUsers->next()) {

@@ -437,6 +437,9 @@
 	<!-- Review Round Status Keys -->
 	<message key="editor.submission.roundStatus.revisionsRequested">Überarbeitungen wurden angefordert.</message>
 	<message key="editor.submission.roundStatus.revisionsSubmitted">Überarbeitungen wurden eingereicht.</message>
+	<message key="editor.submission.roundStatus.resubmitForReview">Die Einreichung muss wieder eingereicht werden für eine neue Begutachtungsrunde.</message>
+	<message key="editor.submission.roundStatus.submissionResubmitted">Die Einreichung wurde wieder eingereicht für eine neue Begutachtungsrunde.</message>
+
 	<message key="editor.submission.roundStatus.sentToExternal">Zur externen Begutachtung gesendet.</message>
 	<message key="editor.submission.roundStatus.accepted">Beitrag akzeptiert.</message>
 	<message key="editor.submission.roundStatus.declined">Beitrag abgelehnt.</message>
@@ -461,6 +464,7 @@
 	<message key="editor.submission.removeStageParticipant.description"><![CDATA[Sie werden diese Person aus <strong>allen</strong> Phasen entfernen. Wenn der/die Benutzer/in auch ausstehende Prüfaufgaben hat, werden diese ebenfalls entfernt.]]></message>
 	<message key="editor.submission.addStageParticipant.form.userGroupRequired">Sie müssen eine Benutzer/innengruppe auswählen.</message>
 	<message key="editor.submission.addStageParticipant.form.userRequired">Sie müssen eine/n Benutzer/in für die angegebene Benutzer/innengruppe auswählen.</message>
+	<message key="editor.submission.addStageParticipant.form.reviewerWarning">Die/der ausgewählte Beteiligte ist gebeten worden, eine blinde Begutachtung durchzuführen. Wenn Sie sie/ihn als Beteiligte/n hinzufügen, wird sie/er Zugriff auf die Identität der Autorin/des Autors haben. Sie werden gebeten, diese Person nicht als Beteiligte/n hinzuzufügen, solange sie nicht auf anderem Wege die Integrität des Begutachtungsprozesses gewährleisten können.</message>
 
 	<!--  editor decisions -->
 	<message key="editor.submission.decision">Entscheidung</message>
@@ -607,6 +611,7 @@
 	<message key="submission.list.itemsOfTotal">{$count} von {$total} Einreichungen</message>
 	<message key="submission.list.responseDue">Antwort fällig</message>
 	<message key="submission.list.reviewDue">Gutachten fällig</message>
+	<message key="submission.list.reviewComplete">Gutachten eingereicht</message>
 	<message key="submission.list.confirmDelete">Einreichung löschen?</message>
 	<message key="submission.list.itemOrdererUp">Position von {$itemTitle} nach oben setzen</message>
 	<message key="submission.list.itemOrdererDown">Position von {$itemTitle} nach unten setzen</message>
@@ -617,5 +622,9 @@
 	<message key="submission.list.galleysCreated">Fahnen erzeugt</message>
 	<message key="submission.list.filesPrepared">Dateien vorbereitet</message>
 	<message key="submission.list.discussions">Diskussionen öffnen</message>
+	<message key="submission.list.dualWorkflowLinks"><![CDATA[Für diese Einreichung sind Ihnen mehrere Rollen zugewiesen worden. Möchten Sie den <a href="{$urlAuthorWorkflow}">Autor/innenworkflow</a> oder den <a href="{$urlEditorialWorkflow}">Redaktionsworkflow</a> öffnen?]]></message>
+	<message key="submission.list.reviewerWorkflowLink"><![CDATA[Für diese Einreichung ist Ihnen eine redaktionelle Rolle zugewiesen worden. Möchten Sie den <a href="{$urlEditorialWorkflow}">Redaktionsworkflow</a> öffnen?]]></message>
 	<message key="submission.list.incompleteSubmissionNotice">Diese Einreichung muss vervollständigt werden, bevor sie durch eine/n Redakteur/in begutachtet wird.</message>
+	<message key="submission.list.currentStage">Momentan in Phase {$stage}.</message>
+	<message key="submission.list.assignEditor">Redakteur/in zuweisen</message>
 </locale>

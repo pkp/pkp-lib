@@ -62,6 +62,7 @@
 	<language code="fi" name="Finnisch"/>
 	<language code="fr" name="Französisch"/>
 	<language code="ff" name="Fulfulde"/>
+	<language code="gd" name="Schottisch-Gälisch"/>
 	<language code="gl" name="Galicisch"/>
 	<language code="lg" name="Luganda"/>
 	<language code="ka" name="Georgisch"/>
@@ -118,7 +119,6 @@
 	<language code="mi" name="Māori"/>
 	<language code="mr" name="Marathi"/>
 	<language code="mh" name="Marshallesisch"/>
-	<language code="mo" name="Moldauisch"/>
 	<language code="mn" name="Mongolisch"/>
 	<language code="na" name="Nauruisch"/>
 	<language code="nv" name="Navajo; Navaho"/>
@@ -141,18 +141,15 @@
 	<language code="pt" name="Portugiesisch"/>
 	<language code="ps" name="Paschtunisch"/>
 	<language code="qu" name="Quechua"/>
-	<language code="ro" name="Rumänisch"/>
+	<language code="ro" name="Rumänisch; Moldauisch"/>
 	<language code="rm" name="Bündnerromanisch"/>
 	<language code="rn" name="Rundi"/>
 	<language code="ru" name="Russisch"/>
-	<language code="ry" name="Russinisch"/>
 	<language code="sm" name="Samoisch"/>
 	<language code="sg" name="Sango"/>
 	<language code="sa" name="Sanskrit"/>
 	<language code="sc" name="Sardisch"/>
-	<language code="gd" name="Schottisch-Gälisch"/>
 	<language code="sr" name="Serbisch"/>
-	<language code="sh" name="Serbokroatian"/>
 	<language code="sn" name="Shona"/>
 	<language code="ii" name="Nuosu; Sichuan Yi"/>
 	<language code="sd" name="Sindhi"/>

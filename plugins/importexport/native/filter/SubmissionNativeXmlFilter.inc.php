@@ -107,6 +107,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$this->addFiles($doc, $submissionNode, $submission);
 		$this->addRepresentations($doc, $submissionNode, $submission);
 		$this->addReviewRounds($doc, $submissionNode, $submission);
+		$this->addQueries($doc, $submissionNode, $submission);
 
 		return $submissionNode;
 	}
@@ -333,6 +334,29 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$reviewRoundsDoc = $exportFilter->execute($reviewRounds);
 		if ($reviewRoundsDoc->documentElement instanceof DOMElement) {
 			$clone = $doc->importNode($reviewRoundsDoc->documentElement, true);
+			$submissionNode->appendChild($clone);
+		}
+	}
+
+	/**
+	 * Add the Queries for a submission to its DOM element.
+	 * @param $doc DOMDocument
+	 * @param $submissionNode DOMElement
+	 * @param $submission Submission
+	 */
+	function addQueries($doc, $submissionNode, $submission) {
+		$filterDao = DAORegistry::getDAO('FilterDAO');
+		$nativeExportFilters = $filterDao->getObjectsByGroup('query=>native-xml');
+		assert(count($nativeExportFilters)==1); // Assert only a single serialization filter
+		$exportFilter = array_shift($nativeExportFilters);
+		$exportFilter->setDeployment($this->getDeployment());
+
+		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$queries = $queryDao->getByAssoc(ASSOC_TYPE_SUBMISSION, $submission->getId())->toArray();
+
+		$queriesDoc = $exportFilter->execute($queries);
+		if ($queriesDoc->documentElement instanceof DOMElement) {
+			$clone = $doc->importNode($queriesDoc->documentElement, true);
 			$submissionNode->appendChild($clone);
 		}
 	}

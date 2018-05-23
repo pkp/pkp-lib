@@ -231,6 +231,7 @@
 			<element ref="pkp:submission_file" minOccurs="0" maxOccurs="unbounded" />
 			<element ref="pkp:representation" minOccurs="0" maxOccurs="unbounded" />
 			<element ref="pkp:reviewRounds" minOccurs="0" maxOccurs="1" />
+			<element ref="pkp:queries" minOccurs="0" maxOccurs="1" />
 		</sequence>
 		<attribute name="locale" type="string" use="optional" />
 		<attribute name="language" type="string" use="optional" />
@@ -283,6 +284,38 @@
 	<complexType name="reviewFile">
 		<attribute name="oldFileId" type="int" />
 	</complexType>
+
+	<complexType name="query">
+		<sequence>
+			<element ref="pkp:notes" maxOccurs="1" />
+			<element ref="pkp:participants" maxOccurs="1" />
+		</sequence>
+		<attribute name="assoc_type" type="int" />
+		<attribute name="stage_id" type="int" />
+		<attribute name="seq" type="int" />
+		<attribute name="closed" type="int" />
+	</complexType>
+
+	<complexType name="note">
+		<sequence>
+			<element ref="pkp:noteFiles" minOccurs="0" maxOccurs="1" />
+		</sequence>
+		<attribute name="date_created" type="date" use="optional" />
+		<attribute name="date_modified" type="date" use="optional" />
+		<attribute name="assoc_type" type="int" use="optional" />
+		<attribute name="author" type="string" />
+		<attribute name="title" type="string" />
+		<attribute name="contents" type="string" />
+	</complexType>
+
+	<complexType name="participant">
+		<attribute name="username" type="string" />
+	</complexType>
+
+	<complexType name="noteFile">
+		<attribute name="oldFileId" type="int" />
+	</complexType>
+
 	
 	<!-- ************
 	  -  * Elements *
@@ -413,6 +446,38 @@
 		</complexType>
 	</element>
 
+	<element name="queries">
+		<complexType>
+			<sequence>
+				<element name="query" type="pkp:query" minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="notes">
+		<complexType>
+			<sequence>
+				<element name="note" type="pkp:note" minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="noteFiles">
+		<complexType>
+			<sequence>
+				<element name="noteFile" type="pkp:noteFile" minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="participants">
+		<complexType>
+			<sequence>
+				<element name="participant" type="pkp:participant" minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	
 	<!-- Permit "reviewRound" as a root element -->
 	<element name="reviewRound" type="pkp:reviewRound" />
 

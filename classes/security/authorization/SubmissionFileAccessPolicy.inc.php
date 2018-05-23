@@ -71,7 +71,7 @@ class SubmissionFileAccessPolicy extends ContextPolicy {
 		//
 		if (isset($roleAssignments[ROLE_ID_MANAGER])) {
 			// Managers can access all submission files as long as the manager has not
-			// has not been assigned to a lesser role in the stage.
+			// been assigned to a lesser role in the stage.
 			$managerFileAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
 			$managerFileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_MANAGER, $roleAssignments[ROLE_ID_MANAGER]));
 			import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');

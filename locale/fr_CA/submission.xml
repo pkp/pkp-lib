@@ -382,7 +382,7 @@
 
 	<message key="editor.submission.decision.accept">Envoyer en révision</message>
 
-	
+
 
 	<message key="editor.submission.decision.requestRevisions">Demande de révisions</message>
 	<message key="editor.submission.decision.resubmit">Resoumettre pour évaluation</message>
@@ -562,7 +562,6 @@
 	<message key="editor.review.personalMessageFromEditor">Message du rédacteur</message>
 	<message key="submission.reviewForm">Formulaire d'évaluation</message>
 	<message key="submission.reviewFormResponse">Réponse au formulaire d'évaluation</message>
-	<message key="author.submit.userGroupRequired">Votre compte ne dispose pas actuellement d'un rôle permettant de nouvelles soumissions, telles que Auteur. Veuillez vérifier votre compte, vous pourriez peut-être être en mesure d'ajouter le rôle approprié vous-même en éditant votre profil.</message>
 	<message key="author.submission.roundStatus.reviewsReady">De nouvelles évaluations ont été soumises et sont examinées par le rédacteur.</message>
 	<message key="submission.confirm.message">Votre soumission est complète et est prête à être envoyée. Vous pouvez faire une dernière vérification et corriger, s'il y a lieu, les informations que vous avez saisies avant de continuer. Lorsque vous serez prêt, cliquez sur "Terminer la soumission".</message>
 	<message key="submission.submit.submissionChecklist">Liste de vérifications de la soumisssion</message>

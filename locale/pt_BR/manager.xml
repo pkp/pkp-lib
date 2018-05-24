@@ -444,7 +444,6 @@ Há casos em que uma única estatística de uso devem ser utilizada, por exemplo
 	<message key="manager.setup.technicalSupportContactDescription">Uma pessoa que pode ajudar editores, autores e avaliadores com quaisquer problemas que tenham na submissão, edição, avaliação e publicação dos documentos.</message>
 	<message key="manager.setup.principalContactDescription">Digite os detalhes de contato, normalmente para do editor principal, administrador editorial ou pessoal administrativo que pode ser exibido em seu site acessível ao público.</message>
 	<message key="manager.setup.privacyStatement">Declaração de Privacidade</message>
-	<message key="manager.setup.privacyStatement.description">Esta declaração aparecerá durante o envio do manuscrito pelo autor e na página "Sobre" disponível publicamente.</message>
 	<message key="plugins.importexport.common.validationErrors">Erros de validação:</message>
 	<message key="manager.userSearch.searchByName">Buscar Esuário por Nome</message>
 	<message key="manager.setup.layout.sidebar">Barra Lateral</message>

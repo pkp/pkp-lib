@@ -162,8 +162,8 @@
 	<message key="submission.uploadFileTo">Transferir documento</message>
 	<message key="submission.viewMetadata">Ver Metadados</message>
 	<message key="submission.views">Acessos</message>
-	
-	<!-- Author Submission --> 
+
+	<!-- Author Submission -->
 	<message key="author.submit.submissionCitations">Forneça uma lista formatada das referências citadas neste artigo. Por favor, separe as referências individuais através de uma linha em branco.</message>
 	<message key="metadata.property.displayName.author">Autores</message>
 	<message key="metadata.property.displayName.editor">Editores</message>
@@ -260,7 +260,6 @@
 	<message key="log.review.reviewerAssigned">{$reviewerName} designada(o) para a ronda {$round} de revisão da submissão {$submissionId} .</message>
 	<message key="submission.reviewForm">Formulário de revisão</message>
 	<message key="submission.reviewFormResponse">Resposta do formulário de revisão</message>
-	<message key="author.submit.userGroupRequired">Actualmente a sua conta  não tem permissões para submeter, como o Autor. Verifique novamente a sua conta; pode adicionar um novo papel, editando o seu perfil.</message>
 	<message key="author.submission.roundStatus.reviewsReady">Foram enviadas novas revisões e estão a ser analisadas pelo Editor.</message>
 	<message key="submission.layout.galleyRemoteURL">URL remoto</message>
 	<message key="submission.confirm.message">O seu artigo foi carregado e está pronto para ser enviado. Pode voltar a rever e ajustar qualquer informação que inseriu antes de continuar. Quando estiver pronto, clique em "Concluir Submissão".</message>

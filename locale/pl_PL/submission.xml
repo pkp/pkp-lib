@@ -30,13 +30,13 @@
 	<message key="metadata.filters.paracite.settings.citationModule.validationMessage">Proszę wybrać jeden z dostępnych modułów cytowań.</message>
 	<message key="metadata.filters.settings.isOptional.displayName">Nie używaj domyślnie (będzie nadal dostępny dla redaktora)</message>
 	<message key="metadata.filters.settings.isOptional.validationMessage">Wewnętrzny błąd. Niepoprawna wartość wprowadzona do ustawień "opcjonalnego filtra". Proszę o wysłanie raportu z błędem.</message>
-	
+
 	<!-- messages shared between MD schemas -->
 	<message key="metadata.property.displayName.author">Autorzy</message>
 	<message key="metadata.property.validationMessage.author">Dane autora należy zapisać stosując następujący format: Smith Jr, J. (Michael) Dr.</message>
 	<message key="metadata.property.displayName.editor">Redaktorzy</message>
 	<message key="metadata.property.validationMessage.editor">Dane redaktorów należy zapisać stosując następujący format: Smith Jr, D. (Michael)</message>
-	
+
 	<!-- NLM-specific messages -->
 	<message key="metadata.property.displayName.article-title">Tytuł artykułu</message>
 	<message key="metadata.property.validationMessage.article-title">Proszę o podanie tytułu artykułu.</message>
@@ -104,7 +104,7 @@
 	<message key="metadata.property.validationMessage.annotation">Proszę o podanie adnotacji.</message>
 	<message key="metadata.property.displayName.publication-type">Typ publikacji</message>
 	<message key="metadata.property.validationMessage.publication-type">Proszę o upewnienie się, czy został wybrany poprawny typ publikacji. Obecnie wspierane są następujące typy: książka (książka lub rozdział w książce) oraz czasopisma (artykuł w czasopiśmie). W innych przypadkach cytowanie nie będzie poprawne.</message>
-	
+
 	<!-- MODS-specific messages -->
 	<message key="metadata.property.displayName.title-type">Typ tytułu</message>
 	<message key="metadata.property.validationMessage.title-type">Czy na pewno został ustawiony poprawny typ tytułu? Obecnie wspierane są następujące typy: skrócony, przetłumaczony, alternatywny, ujednolicony.</message>
@@ -121,7 +121,7 @@
 	<message key="metadata.property.displayName.name-type">Typ nazwy</message>
 	<message key="metadata.property.validationMessage.name-type">Czy na pewno został ustawiony poprawny typ nazwy. Obecnie wspierane są następujące typy: osobisty, korporacyjny, konferencja.</message>
 	<!-- FIXME: end -->
-	
+
 	<message key="submission.agencies">Instytucje finansujące</message>
 	<message key="submission.abstractViews">Widok abstraktu</message>
 	<message key="submission.accepted">Zaakceptowany</message>
@@ -293,7 +293,6 @@
 	<message key="submission.createRemote">Utwórz zdalne</message>
 	<message key="submission.form.name">Opis pliku</message>
 	<message key="submission.form.replaceExisting">Zamiana istniejącego pliku?</message>
-	<message key="author.submit.userGroupRequired">Twoje konto użytkownika nie posiada aktualnie przydzielonej roli autora, która umożliwia przesyłanie zgłoszeń. Sprawdź zakładkę moje konto - jeżeli administrator strony nie postanowił inaczej, będziesz mógł(ogła) samodzielnie dokonać odpowiednich zmian w swoim profilu.</message>
 	<message key="author.submission.roundStatus.reviewsReady">Nowe recenzje zostały przesłane i są rozpatrywane przez redaktora.</message>
 	<message key="submission.confirm.message">Twoje zgłoszenie zostało umieszczone na serwerze i jest gotowe do wysłania. Możesz ponownie sprawdzić podane dane zanim ukończysz proces zgłaszania tekstu. Jeżeli jesteś gotowy(a), kliknij "Zakończ proces zgłaszania tekstu".</message>
 	<message key="submission.submit.submissionChecklist">Wymagania wobec zgłaszanego tekstu</message>

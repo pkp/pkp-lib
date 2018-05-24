@@ -248,7 +248,6 @@
 	<message key="manager.setup.principalContact">Primär kontakt</message>
 	<message key="manager.setup.principalContactDescription">Kontaktinformation till ex. primär redaktör, ansvarig redaktör eller administratör, som kan visas på din publika webbplats.</message>
 	<message key="manager.setup.privacyStatement">Sekretesspolicy</message>
-	<message key="manager.setup.privacyStatement.description">Policyn kommer att synas vid insändning av bidrag och på den publika sidan Om.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Antal veckor tillåtna att acceptera eller avböja en granskningsförfrågan.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Antal veckor tillåtna för granskning</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Påminn aldrig</message>
@@ -398,7 +397,7 @@
 	<message key="settings.libraryFiles.category.other">Övrigt</message>
 	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>om "Publik tillgång" aktiveras kan den här biblioteksfilen bli tillgänglig för nedladdning på: <blockquote>{$downloadUrl}</blockquote></p>]]></message>
 	<message key="settings.libraryFiles.public.selectLibraryFiles">Välj biblioteksfiler att bifoga</message>
-	
+
 	<!--  Genre grid settings -->
 	<message key="grid.action.addGenre">Lägg till komponent</message>
 	<message key="grid.action.editGenre">Ändra kompontenten</message>
@@ -503,10 +502,10 @@
 
 	<message key="manager.navigationMenus.form.url">URL</message>
 	<message key="manager.navigationMenus.form.customUrlError">En URL måste anges</message>
-	
+
 	<message key="manager.navigationMenus.form.conditionalDisplay">Läs mer om när det här menyelementet kommer att vara synligt och respektive dolt.</message>
 	<message key="manager.navigationMenus.form.submenuWarning">När ett element i menyn öppnar en undermeny kan inte dess länk ses på alla enheter. Om det till exempel finns ett "Om"-element som öppnar en undermeny med "Kontakt" och "Redaktion" är det inte säkert att "Om"-länken kan ses på alla enheter. I defaultmenyn hanteras detta genom att den skapar ytterligare ett menyelement, "Om tidskriften", som visas i undermenyn.</message>
-	
+
 	<message key="manager.navigationMenus.form.navigationMenuItemType">Typ av navigationsmeny</message>
 	<message key="manager.navigationMenus.form.navigationMenuItemTypeMessage">Välj Typ av navigationsmeny eller Anpassad för att skapa din egen</message>
 	<message key="manager.navigationMenus.customPage">Anpassad sida</message>

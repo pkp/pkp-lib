@@ -372,7 +372,6 @@
 	<message key="manager.setup.principalContact">Contacto principal</message>
 	<message key="manager.setup.principalContactDescription">Introduzca los detalles de contacto usuales para el editor principal, el director editorial o el personal administrativo, los cuales se mostrarán en la parte accesible al público general de su sitio web.</message>
 	<message key="manager.setup.privacyStatement">Declaración de privacidad</message>
-	<message key="manager.setup.privacyStatement.description">Esta declaración aparecerá durante el envío del autor y en el apartado "Acerca de" en la parte accesible al público general de su web.</message>
 	<message key="manager.setup.reviewOptions.noteOnModification">Las condiciones predefinidas para cada revisión pueden ser modificadas durante el proceso editorial.</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Fechas límites de revisión por defecto</message>
 	<message key="manager.setup.reviewOptions.showBlindReviewLink">Muestra un enlace para "garantizar una revisión ciega" durante la subida</message>

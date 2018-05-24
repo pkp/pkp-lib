@@ -13,7 +13,6 @@
 
 <locale name="sv_SE" full_name="Svenska">
 	<!-- Author Submission -->
-	<message key="author.submit.userGroupRequired">Ditt konto har för närvarande inte en roll som tillåter dig att skapa nya bidrag, som exempelvis Författare. Vänligen dubbelkolla detaljerna för ditt konto; det kan vara så att du själv har möjlighet att lägga till en lämplig roll genom att redigera din användarprofil.</message>
 	<message key="author.submit.submissionCitations">Lägg till en formaterad lista av referenser för verk som citeras i bidraget. Separera varje referens med blankrad.</message>
 	<message key="author.submission.roundStatus.reviewsReady">Nya granskningar har inkommit och är under övervägande hos redaktör.</message>
 	<message key="submission.confirm.message">Ditt bidrag har laddats upp och kan skickas in. Du kan gå tillbaka för att granska och justera informationen du har lagt in innan du skickar in. När du är färdig, klicka på "Skicka in bidrag".</message>
@@ -439,7 +438,7 @@
 	<message key="editor.submission.roundStatus.revisionsSubmitted">Bearbetningar har skickats in.</message>
 	<message key="editor.submission.roundStatus.resubmitForReview">Bidraget måste sändas in på nytt för en ny granskningsomgäng.</message>
 	<message key="editor.submission.roundStatus.submissionResubmitted">Bidraget har sänts in på nytt för en ny granskningsomgång.</message>
-	
+
 	<message key="editor.submission.roundStatus.sentToExternal">Skickat för extern granskning.</message>
 	<message key="editor.submission.roundStatus.accepted">Bidrag accepterat.</message>
 	<message key="editor.submission.roundStatus.declined">Bidrag refuserat.</message>

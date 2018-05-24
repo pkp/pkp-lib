@@ -244,7 +244,6 @@
 	<message key="manager.setup.principalContact">Pääasiallinen yhteyshenkilö</message>
 	<message key="manager.setup.principalContactDescription">Anna yhteystiedot (yleensä pääasiallisen päätoimittajan, toimituspäällikön tai hallinnollisen työntekijän), jotka näytetään julkisella verkkosivustollasi.</message>
 	<message key="manager.setup.privacyStatement">Tietosuojaseloste</message>
-	<message key="manager.setup.privacyStatement.description">Tämä seloste näkyy kirjoittajan lähettäessä käsikirjoitusta ja julkisella Tietoa-sivulla.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Arviointipyynnön hyväksymiseen tai siitä kieltäytymiseen annettava aika (vk)</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Arvioinnin suorittamiseen annettava aika (vk)</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Älä muistuta koskaan</message>

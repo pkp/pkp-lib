@@ -258,7 +258,6 @@
 	<message key="manager.setup.principalContact">Główny kontakt</message>
 	<message key="manager.setup.principalContactDescription">Wprowadź dane głównej osoby do kontaktu, zwykle do redaktora lub sekretarza. Dane będą wyświetlane na stronie internetowej czasopisma.</message>
 	<message key="manager.setup.privacyStatement">Polityka prywatności</message>
-	<message key="manager.setup.privacyStatement.description">Treść oświadczenia będzie widoczna publicznie oraz dla autorów podczas przesyłania tekstu.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Liczba tygodni na zaakceptowanie lub odrzucenie prośby o recenzję</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Liczba tygodni na ukończenie recenzji</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Nigdy nie przypominaj</message>

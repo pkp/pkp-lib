@@ -286,29 +286,13 @@
 	<message key="notification.allow">Tillad, at meddelelser af disse typer vises i min meddelelses-feed</message>
 	<message key="notification.confirmError">Der opstod en fejl i forbindelse med bekræftelsen af dit abonnement.</message>
 	<message key="notification.confirmSuccess">Din oprettelse som abonnent er gennemført.</message>
-	<message key="notification.location">Gå til webadressen</message>
-	<message key="notification.mailList">Meddelelses-mailingliste</message>
-	<message key="notification.mailList.emailInvalid">Indtast en gyldig e-mail-adresse.</message>
-	<message key="notification.mailList.privacyProtection">Persondatapolitik</message>
-	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Abonnér</a> på beskyttet indhold.]]></message>
-	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Indsend</a> en artikel]]></message>
-	<message key="notification.mailList.register">Du kan registrere dig på dette websted for at …</message>
-	<message key="notification.mailList.review"><![CDATA[Deltag i <a href="{$reviewUrl}">peer review</a>-processen]]></message>
 	<message key="notification.noneExist">Du har ingen nye meddelelser.</message>
 	<message key="notification.notification">Meddelelse</message>
 	<message key="notification.notifications">Meddelelser</message>
-	<message key="notification.notificationsNew">({$numNew} ny(e))</message>
-	<message key="notification.notificationsDescription"><![CDATA[Du har {$unreadCount} ulæst(e) meddelelser og {$readCount} læst(e) meddelelser. <a href="{$settingsUrl}">Klik her</a> for at ændre dine indstillinger for meddelelser.]]></message>
 	<message key="notification.settings">Indstillinger for meddelelser</message>
 	<message key="notification.settingsDescription">Vælg de systemhændelser, som du ønsker at modtage meddelelser om. Hvis du fjerner markeringen fra et element, vil meddelelser vedrørende denne type hændelse ikke blive vist i din meddelelses-feed.</message>
-	<message key="notification.subscribe">Abonnér</message>
-	<message key="notification.subscribeError">Din e-mail-adresse er allerede registreret til at modtage meddelelser.</message>
-	<message key="notification.subscribeSuccess">Der er blevet sendt en e-mail til den adresse, du har angivet. Klik på bekræftelseslinket i e-mailen for at tilføje dig selv til mailinglisten.</message>
 	<message key="notification.reminderError">Der opstod en fejl i forbindelse med afsendelsen af din adgangskode. Kontrollér, at du har indtastet din e-mail-adresse korrekt.</message>
 	<message key="notification.reminderSent">Din nye adgangskode er blevet sendt til den e-mail-adresse, du har angivet.</message>
-	<message key="notification.unsubscribe">Afmeld abonnement</message>
-	<message key="notification.unsubscribeError">Der opstod en fejl i forbindelse med afmeldelsen af dit abonnement. Kontrollér, at e-mail-adresse og adgangskode er korrekte.</message>
-	<message key="notification.unsubscribeSuccess">Din afmelding af abonnementet er gennemført.</message>
 	<message key="announcement.postedOn">Sendt den {$postDate}</message>
 	<message key="common.accepted">Accepteret</message>
 	<message key="common.acknowledged">Anerkendt</message>

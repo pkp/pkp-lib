@@ -248,7 +248,6 @@
 	<message key="manager.setup.principalContact">Hauptkontakt</message>
 	<message key="manager.setup.principalContactDescription">Geben Sie Kontaktinformationen, üblicherweise für eine Hauptredaktion, Redaktionsleitung oder Redaktionsbüro, an, die auf Ihrer öffentlich zugänglichen Webseite angezeigt werden können.</message>
 	<message key="manager.setup.privacyStatement">Erklärung zum Schutz persönlicher Daten</message>
-	<message key="manager.setup.privacyStatement.description">Diese Erklärung wird während der Einreichung durch den/die Autor/in und auf der öffentlich verfügbaren Seite "Über uns" angezeigt.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Zeit für Antwort auf Begutachtungsanfrage (Wochen)</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Zeit für Abschluss des Gutachtens (Wochen)</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Nie erinnern</message>

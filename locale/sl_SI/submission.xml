@@ -13,7 +13,6 @@
 
 <locale name="sl_SI" full_name="Slovenščina">
 	<!-- Author Submission -->
-	<message key="author.submit.userGroupRequired">Vaš račun trenutno nima vloge z dovoljenjem za objavljanje novih publikacij, npr. vloge avtorja. Ponovno preverite svoj račun, morda lahko spremenite nastavitve in si sami dodelite ustrezno vlogo.</message>
 	<message key="author.submit.submissionCitations">Navedite oblikovan seznam literature, citirane v prispevku. Vsako bibliografsko navedbo zapišite v svojo vrstico, ki ji naj sledi prazna vrstica.</message>
 	<message key="author.submission.roundStatus.reviewsReady">Naložene so nove recenzije, ki jih urednik trenutno pregleduje.</message>
 	<message key="submission.confirm.message">Vaš prispevek je naložen in pripravljen na oddajo. Preden nadaljujete, se lahko še vrnete, da pregledate in spremenite podatke, ki ste jih vnesli. Ko končate, kliknite na "Končaj oddajo".</message>

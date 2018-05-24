@@ -13,7 +13,6 @@
 
 <locale name="ca_ES" full_name="Català">
 	<!-- Author Submission -->
-	<message key="author.submit.userGroupRequired">Actualment, el vostre compte no té un rol que permeti noves trameses, a diferència del d'Autor/a. Repasseu el vostre compte per editar el vostre perfil i afegir-vos un rol adequat.</message>
 	<message key="author.submit.submissionCitations">Proporcioneu una llista de referències amb format per als treballs citats en aquesta tramesa. Separeu les referències individuals amb una línia en blanc.</message>
 	<message key="submission.submit.submissionComplete">S'ha completat la tramesa</message>
 	<message key="submission.submit.submissionCompleteThanks">Us agraïm el vostre interès de publicar a {$contextName}.</message>

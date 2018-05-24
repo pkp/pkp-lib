@@ -418,14 +418,6 @@
 	<message key="notification.confirmError">Tilaustasi vahvistettaessa tapahtui virhe.</message>
 	<message key="notification.confirmSuccess">Tilauksesi onnistui.</message>
 	<message key="notification.email">En halua sähköpostia tämäntyyppisistä ilmoituksista.</message>
-	<message key="notification.location">Siirry URL-osoitteeseen</message>
-	<message key="notification.mailList">Ilmoitusten postituslista</message>
-	<message key="notification.mailList.emailInvalid">Anna voimassa oleva sähköpostiosoite.</message>
-	<message key="notification.mailList.privacyProtection">Yksityisyydensuojakäytäntö</message>
-	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Tilata</a> suojattua sisältöä.]]></message>
-	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Lähettää</a> artikkelin]]></message>
-	<message key="notification.mailList.register">Sinun pitää rekisteröityä tähän sivustoon, jotta voit...</message>
-	<message key="notification.mailList.review"><![CDATA[Osallistua <a href="{$reviewUrl}">vertaisarviointi</a>prosessiin]]></message>
 	<message key="notification.noneExist">Sinulle ei ole ilmoituksia tällä hetkellä.</message>
 	<message key="notification.addedNote">Muistiinpano lähetetty.</message>
 	<message key="notification.removedNote">Muistiinpano poistettu.</message>
@@ -433,19 +425,11 @@
 	<message key="notification.removedSubmission">Poistettu käsikirjoitus.</message>
 	<message key="notification.notification">Ilmoitus</message>
 	<message key="notification.notifications">Ilmoitukset</message>
-	<message key="notification.notificationsNew">({$numNew} uutta)</message>
-	<message key="notification.notificationsDescription"><![CDATA[Sinulla on {$unreadCount} lukematonta ja {$readCount} luettua ilmoitusta. Muuta ilmoitusasetuksiasi <a href="{$settingsUrl}">klikkaamalla tästä</a> .]]></message>
 	<message key="notification.sentNotification">Ilmoitus lähetetty.</message>
 	<message key="notification.settings">Ilmoitusten asetukset</message>
 	<message key="notification.settingsDescription">Valitse järjestelmän tapahtumat, joista haluat ilmoituksen. Valinnan poistaminen kohdasta estää tapahtumaan liittyvien ilmoitusten näkymisen järjestelmässä ja niiden lähettämisen sinulle sähköpostitse. Valitut tapahtumat näkyvät järjestelmässä ja lisäksi voit valita haluatko samat ilmoitukset sähköpostitse vai et.</message>
-	<message key="notification.subscribe">Tilaa</message>
-	<message key="notification.subscribeError">Ilmoitukset on jo tilattu sähköpostiosoitteeseesi.</message>
-	<message key="notification.subscribeSuccess">Sähköposti on lähetetty ilmoittamaasi osoitteeseen. Klikkaa vahvistuslinkkiä sähköpostissa lisätäksesi itsesi postituslistalle.</message>
 	<message key="notification.reminderError">Salasanan lähettämisessä tapahtui virhe. Varmista, että kirjoitit sähköpostiosoitteesi oikein.</message>
 	<message key="notification.reminderSent">Uusi salasanasi on lähetetty annettuun sähköpostiosoitteeseen.</message>
-	<message key="notification.unsubscribe">Peruuta tilaus</message>
-	<message key="notification.unsubscribeError">Tilaustasi peruutettaessa tapahtui virhe. Varmista, että käytät oikeaa, ilmoitussähköpostissa annettua URL-osoitetta.</message>
-	<message key="notification.unsubscribeSuccess">Tilauksesi peruutus onnistui.</message>
 	<message key="notification.savedSubmissionMetadata">Käsikirjoituksen metatiedot tallennettu.</message>
 	<message key="search.author">Kirjoittajan mukaan</message>
 	<message key="search.abstract">Abstrakti</message>

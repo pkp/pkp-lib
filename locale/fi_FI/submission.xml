@@ -13,7 +13,6 @@
 
 <locale name="fi_FI" full_name="Suomi">
 	<!-- Author Submission -->
-	<message key="author.submit.userGroupRequired">Tililläsi ei ole tällä hetkellä roolia, kuten kirjoittaja, jolle sallitaan uusien käsikirjoitusten lähettäminen. Tarkista tilisi. Voit ehkä itse lisätä sopivan roolin muokkaamalla profiiliasi.</message>
 	<message key="author.submit.submissionCitations">Anna muotoiltu lähdeluettelo, joka sisältää työt, joihin tässä käsikirjoituksessa viitataan. Erottele lähteet toisistaan yhdellä tyhjällä rivillä.</message>
 	<message key="author.submission.roundStatus.reviewsReady">Uusia arvioita on lähetetty ja ne ovat toimittajan käsittelyssä.</message>
 	<message key="submission.confirm.message">Käsikirjoituksesi on ladattu ja valmis lähetettäväksi. Voit palata tietojen tarkistusvaiheeseen ja muuttaa syöttämiäsi tietoja, ennen kuin jatkat. Kun olet valmis, klikkaa "Suorita lähetys".</message>

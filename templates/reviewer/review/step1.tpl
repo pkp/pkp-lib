@@ -82,6 +82,14 @@
 		{/fbvFormSection}
 	{/if}
 
+	{if !$reviewAssignment->getDeclined() && !$reviewAssignment->getDateConfirmed() && $currentContext->getSetting('privacyStatement')}
+		{fbvFormSection list=true}
+			{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}
+			{capture assign="privacyLabel"}{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}{/capture}
+			{fbvElement type="checkbox" id="privacyConsent" required=true value=1 label=$privacyLabel translate=false checked=$privacyConsent}
+		{/fbvFormSection}
+	{/if}
+
 	{if $reviewAssignment->getDateConfirmed() && !$reviewAssignment->getDeclined()}
 		{fbvFormButtons hideCancel=true submitText="common.saveAndContinue" submitDisabled=$reviewIsComplete}
 	{elseif !$reviewAssignment->getDateConfirmed()}

@@ -248,7 +248,6 @@
 	<message key="manager.setup.principalContact">Контактна особа</message>
 	<message key="manager.setup.principalContactDescription">Введіть контактні дані, як правило, це головний редактор, керуючий редактор чи хтось з адміністрації. Ці дані можуть відображатися на вашому сайті у відкритому доступі.</message>
 	<message key="manager.setup.privacyStatement">Заява про конфіденційність</message>
-	<message key="manager.setup.privacyStatement.description">Ця заява з'явиться під час подання автором матеріалів та на сторінці з описом журналу у відкритому доступі.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Тижнів на згоду або відмову на запит про рецензію</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Тижнів на рецензування</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Ніколи не нагадувати</message>

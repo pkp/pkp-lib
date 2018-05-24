@@ -248,7 +248,6 @@
 	<message key="manager.setup.principalContact">عنوان الاتصال الرئيسي</message>
 	<message key="manager.setup.principalContactDescription">أدخل تفاصيل العنوان التي عادة ما تكون لعضو أساسي في هيئة التحرير أو لرئيس التحرير أو لصاحب منصب إداري رئيسي، إذ أن هذا العنوان سيظهر علانية على موقعك.</message>
 	<message key="manager.setup.privacyStatement">بيان الخصوصية</message>
-	<message key="manager.setup.privacyStatement.description">هذا البيان سيظهر خلال مرحلة تقديم طلب النشر وعلى صفحة (عن المجلة) التي ستكون ظاهرة لجميع زوار الموقع.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">الأسابيع المسموح بها لقبول أو رفض طلب التحكيم</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">الأسابيع المسموح بها لإكمال مهمة التحكيم</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">لا تذكرني مطلقاً</message>

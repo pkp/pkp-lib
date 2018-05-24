@@ -379,7 +379,6 @@
 	<message key="submission.submit.submissionLocale">Sprog</message>
 	<message key="submission.submit.submissionLocaleDescription">Dette tidsskrift accepterer indleverede manuskripter på en række sprog. Vælg det primære sprog for indleveringen i rullemenuen.</message>
 	<message key="notification.type.copyeditorRequest">Du er blevet bedt om at gennemse manuskriptredigeringen af "{$title}".</message>
-	<message key="author.submit.userGroupRequired">Din konto har ikke en rolle tilknyttet, der tillader nye indsendelser, som forfatter. Dobblettjek din konto. Du vil muligvis selv kunne tilføje en passende rolle ved at redigere din profil.</message>
 	<message key="submission.submit.submissionChecklist">Indsendelseskrav</message>
 	<message key="submission.submit.submissionChecklistDescription">Du skal tilkendegive, at du opfylder nedenstående krav inden du fortsætter.</message>
 	<message key="submission.submit.copyrightNoticeAgree">Jeg accepterer at underlægge mig de ophavsretlige betingelserne.</message>

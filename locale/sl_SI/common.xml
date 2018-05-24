@@ -431,14 +431,6 @@
 	<message key="notification.confirmError">Prišlo je do napake pri potrjevanju vaše naročnine.</message>
 	<message key="notification.confirmSuccess">Uspešno ste naročeni.</message>
 	<message key="notification.email">Ne želim prejemati e-pošte za te vrste obvestil.</message>
-	<message key="notification.location">Pojdi na URL</message>
-	<message key="notification.mailList">Poštni seznam za obvestila</message>
-	<message key="notification.mailList.emailInvalid">Vpišite veljaven e-poštni naslov.</message>
-	<message key="notification.mailList.privacyProtection">Politika varovanja zasebnosti</message>
-	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Naroči se</a> na zaščiteno vsebino.]]></message>
-	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Oddaj</a> prispevek]]></message>
-	<message key="notification.mailList.register">Na tem spletišču se lahko se registrirate za...</message>
-	<message key="notification.mailList.review"><![CDATA[Sodelujte v procesu <a href="{$reviewUrl}">recenziranja</a>]]></message>
 	<message key="notification.noneExist">Trenutno nimate obvestil.</message>
 	<message key="notification.addedNote">Opomba je objavljena.</message>
 	<message key="notification.removedNote">Opomba je izbrisana.</message>
@@ -446,19 +438,11 @@
 	<message key="notification.removedSubmission">Prispevek je odstranjen.</message>
 	<message key="notification.notification">Obvestilo</message>
 	<message key="notification.notifications">Obvestila</message>
-	<message key="notification.notificationsNew">({$numNew} novo)</message>
-	<message key="notification.notificationsDescription">Število neprebranih obvestil: {$unreadCount}. Število prebranih obvestil: {$readCount}.<![CDATA[ <a href="{$settingsUrl}">Kliknite tukaj,</a> da spremenite nastavitve obveščanja.]]></message>
 	<message key="notification.sentNotification">Obvestilo je poslano.</message>
 	<message key="notification.settings">Nastavitve obveščanja</message>
 	<message key="notification.settingsDescription">Izberite sistemske dogodke, o katerih boste obveščeni. O dogodkih, ki jih na seznamu ne odkljukate, ne boste obveščeni niti v sistemu samem niti po e-pošti. V sistemu se bodo prikazali odkljukani dogodki. Lahko boste izbrali, ali želite prejeti obvestilo tudi po e-pošti ali ne.</message>
-	<message key="notification.subscribe">Naroči se</message>
-	<message key="notification.subscribeError">Vaš e-poštni naslov je že naročen na obvestila.</message>
-	<message key="notification.subscribeSuccess">Na izbrani naslov je bila poslana e-pošta. Kliknite potrditveno povezavo v e-poštnem sporočilu, da se dodate na poštni seznam.</message>
 	<message key="notification.reminderError">Prišlo je do napake pri pošiljanju vašega gesla. Preverite, ali ste vpisali pravilen e-poštni naslov.</message>
 	<message key="notification.reminderSent">Vaše novo geslo je bilo poslano na e-poštni naslov.</message>
-	<message key="notification.unsubscribe">Odjavi</message>
-	<message key="notification.unsubscribeError">Prišlo je do napake pri odjavi. Preverite, ali ste uporabili URL, ki se nahaja v e-poštnem obvestilu.</message>
-	<message key="notification.unsubscribeSuccess">Uspešno ste se odjavili.</message>
 	<message key="notification.savedSubmissionMetadata">Metapodatki prispevka so bili shranjeni.</message>
 	<message key="search.author">Po avtorju</message>
 	<message key="search.abstract">Povzetek</message>

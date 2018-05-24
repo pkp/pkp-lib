@@ -13,7 +13,6 @@
 
 <locale name="pt_BR" full_name="Português (Brasil)">
 	<!-- Author Submission -->
-	<message key="author.submit.userGroupRequired">Seu usuário não está associado a um papel que permite novos envios, tal como o de Autor. Verifique sua conta, pode ser que você mesmo possa se atribuir esse papel editando seu perfil.</message>
 	<message key="author.submit.submissionCitations">Forneça uma lista formatada de citações incluídas nesta submissão.</message>
 	<message key="submission.confirm.message">Seu envio está no sistema e pronto para ser finalizado. Você pode voltar e ajustar as informações fornecidas antes de continuar. Quando pronto, clique em "Finalizar Submissão".</message>
 	<message key="submission.submit.submissionComplete">Submissão completa</message>

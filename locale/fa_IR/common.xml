@@ -417,14 +417,6 @@
 	<message key="notification.editedAuthor">نویسنده ویرایش شد</message>
 	<message key="notification.confirmError">بروز خطا هنگام تأیید اشتراک شما</message>
 	<message key="notification.confirmSuccess">اشتراک شما فعال شد</message>
-	<message key="notification.location">برو به آدرس</message>
-	<message key="notification.mailList">لیست‌ ایمیلی‌های اطلاع‌رسانی</message>
-	<message key="notification.mailList.emailInvalid">لطفاً یک ایمیل معتبر وارد کنید</message>
-	<message key="notification.mailList.privacyProtection">سیاست حفظ حریم خصوصی</message>
-	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">اشتراک</a> برای محتوای محافظت شده.]]></message>
-	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">ارسال</a> مقاله]]></message>
-	<message key="notification.mailList.register">می‌توانید در این سایت ثبت‌نام کنید تا...</message>
-	<message key="notification.mailList.review"><![CDATA[مشارکت در روند <a href="{$reviewUrl}">داوری مقاله</a>]]></message>
 	<message key="notification.noneExist">هیچ موردی برای اطلاع‌رسانی وجود ندارد</message>
 	<message key="notification.addedNote">یادداشت پست شد</message>
 	<message key="notification.removedNote">یادداشت حذف شد</message>
@@ -432,19 +424,11 @@
 	<message key="notification.removedSubmission">مقاله ارسالی حذف شد.</message>
 	<message key="notification.notification">اطلاع‌رسانی</message>
 	<message key="notification.notifications">اطلاع‌رسانی‌ها</message>
-	<message key="notification.notificationsNew">({$numNew} جدید)</message>
-	<message key="notification.notificationsDescription">شما {$unreadCount} مورد اطلاعیه ناخوانده دارید و {$readCount} مورد خوانده شده.  <![CDATA[  <a href="{$settingsUrl}">Click here</a> to change your notification settings.]]></message>
 	<message key="notification.sentNotification">اطلاع‌رسانی ارسال شد</message>
 	<message key="notification.settings">تنظیمات اطلاع‌رسانی</message>
 	<message key="notification.settingsDescription">لطفاً رویدادی از سیستم را که مایلید در مورد آن به شما اطلاع‌رسانی شود انتخاب نمایید. عدم انتخاب یک رویداد سبب می‌گردد که اطلاع‌رسانی آن در فیلد اطلاع‌رسانی شما ظاهر نشود.</message>
-	<message key="notification.subscribe">مشترک شدن</message>
-	<message key="notification.subscribeError">ایمیل شما قبلاً برای ارسال اطلاع‌رسانی ثبت شده بود.</message>
-	<message key="notification.subscribeSuccess">ایمیلی به آدرس مشخص شده ارسال شد. لطفاً در آن ایمیل بر روی لینک تأیید کلیک کنید تا این ایمیل را به لیست ایمیلی‌های اطلاع‌رسانی اضافه کنید.</message>
 	<message key="notification.reminderError">بروز خطا هنگام ارسال رمز عبور شما، مطمئن شوید که آدرس ایمیل را صحیح وارد کرده‌اید.</message>
 	<message key="notification.reminderSent">رمز عبور جدیدی برایتان به آدرس ایمیلی که وارد کردید ارسال شد.</message>
-	<message key="notification.unsubscribe">لغو اشتراک</message>
-	<message key="notification.unsubscribeError">بروز خطا هنگام لغو اشتراک شما. لطفاً مطمئن شوید که آدرس ایمیل و رمز عبور را صحیح وارد کرده‌اید.</message>
-	<message key="notification.unsubscribeSuccess">لغو اشتراک با موفقیت انجام شد.</message>
 	<message key="notification.savedSubmissionMetadata">فراداده‌های مقاله ارسالی ذخیره شد.</message>
 	<message key="notification.sendNotificationConfirmation">ارسال ایمیل اطلاع‌رسانی به تمامی کاربران ثبت نامی</message>
 	<message key="search.author">نویسندگان</message>

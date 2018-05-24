@@ -397,33 +397,17 @@
 	<message key="notification.confirmError">S’ha produït un error en confirmar la vostra subscripció.</message>
 	<message key="notification.confirmSuccess">Us heu subscrit amb èxit.</message>
 	<message key="notification.email">No m'envïis un correu electrònic per a aquest tipus de notificacions.</message>
-	<message key="notification.location">Vés a l'URL</message>
-	<message key="notification.mailList">Llista de correu per a les notificacions</message>
-	<message key="notification.mailList.emailInvalid">Introduïu un correu electrònic vàlid.</message>
-	<message key="notification.mailList.privacyProtection">Política de protecció de la privacitat</message>
-	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Subscriu-me</a> al contingut protegit.]]></message>
-	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Envia</a> un article]]></message>
-	<message key="notification.mailList.register">Us podeu registrar en aquest lloc web per...</message>
-	<message key="notification.mailList.review"><![CDATA[Participa al procés d'<a href="{$reviewUrl}">avaluació d'experts/ertes</a>]]></message>
 	<message key="notification.noneExist">No teniu cap notificació.</message>
 	<message key="notification.addedNote">S'ha publicat una nota.</message>
 	<message key="notification.removedNote">S'ha eliminat una nota.</message>
 	<message key="notification.removedFile">S'ha eliminat un fitxer.</message>
 	<message key="notification.notification">Notificació</message>
 	<message key="notification.notifications">Notificacions</message>
-	<message key="notification.notificationsNew">({$numNew} nou)</message>
-	<message key="notification.notificationsDescription">Teniu {$unreadCount} notificacions sense llegir i {$readCount} notificacions llegides.<![CDATA[<a href="{$settingsUrl}">Feu clic aquí</a> per canviar les opcions de configuració de les notificacions.]]></message>
 	<message key="notification.sentNotification">S'ha enviat la notificació.</message>
 	<message key="notification.settings">Configuració de les notificacions</message>
 	<message key="notification.settingsDescription">Seleccioneu els esdeveniments del sistema dels quals en voleu rebre notificacions. Si desactiveu un element, evitareu rebre notificacions de l'esdeveniment per correu electrònic i també evitareu veure-les al sistema. Els esdeveniments comprovats apareixeran al sistema i tindreu una opció addicional per rebre o no la mateixa notificació per correu electrònic.</message>
-	<message key="notification.subscribe">Subscriviu-vos</message>
-	<message key="notification.subscribeError">El vostre correu electrònic ja està subscrit al sistema de notificacions.</message>
-	<message key="notification.subscribeSuccess">S'ha enviat un missatge de correu electrònic a l'adreça que heu indicat.  Feu clic al enllaç de confirmació al missatge de correu electrònic per afegir-vos a la llista de correu.</message>
 	<message key="notification.reminderError">S’ha produït un error en enviar la vostra contrasenya. Comproveu que heu introduït correctament el vostre correu electrònic.</message>
 	<message key="notification.reminderSent">S’ha enviat una contrasenya nova al vostre correu electrònic.</message>
-	<message key="notification.unsubscribe">Cancel·la la subscripció</message>
-	<message key="notification.unsubscribeError">Hi ha hagut un error mentre es tramitava la vostra subscripció.  Assegureu-vos que heu utilitzat l'URL correcta que s'ha inclòs a la vostra notificació per correu electrònic.</message>
-	<message key="notification.unsubscribeSuccess">S’ha cancel·lat la vostra subscripció.</message>
 	<message key="notification.savedSubmissionMetadata">S'han desat les metadades de la tramesa.</message>
 	<message key="search.abstract">Resum</message>
 	<message key="search.author">Autors/ores</message>

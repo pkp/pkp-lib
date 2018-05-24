@@ -92,6 +92,11 @@ class PKPNavigationMenuService {
 				'title' => __('common.search'),
 				'description' => __('manager.navigationMenus.search.description'),
 			),
+			NMI_TYPE_PRIVACY => array(
+				'title' => __('manager.setup.privacyStatement'),
+				'description' => __('manager.navigationMenus.privacyStatement.description'),
+				'conditionalWarning' => __('manager.navigationMenus.privacyStatement.conditionalWarning'),
+			),
 		);
 
 		\HookRegistry::call('NavigationMenus::itemTypes', array(&$types));
@@ -146,6 +151,9 @@ class PKPNavigationMenuService {
 				break;
 			case NMI_TYPE_SEARCH:
 				$navigationMenuItem->setIsDisplayed($context);
+				break;
+			case NMI_TYPE_PRIVACY:
+				$navigationMenuItem->setIsDisplayed($context && $context->getLocalizedSetting('privacyStatement'));
 				break;
 		}
 
@@ -318,6 +326,16 @@ class PKPNavigationMenuService {
 						null,
 						'search',
 						'search',
+						null
+					));
+					break;
+				case NMI_TYPE_PRIVACY:
+					$navigationMenuItem->setUrl($dispatcher->url(
+						$request,
+						ROUTE_PAGE,
+						null,
+						'about',
+						'privacy',
 						null
 					));
 					break;
@@ -533,10 +551,10 @@ class PKPNavigationMenuService {
 
 	/**
 	 * Callback to be registered from PKPTemplateManager for the LoadHandler hook.
-	 * Used by the Custom NMI to point their URL target to [context]/[path] 
+	 * Used by the Custom NMI to point their URL target to [context]/[path]
 	 * @param mixed $hookName
 	 * @param mixed $args
-	 * @return boolean true if the callback has handled the request. 
+	 * @return boolean true if the callback has handled the request.
 	 */
 	public function _callbackHandleCustomNavigationMenuItems($hookName, $args) {
 		$request = \Application::getRequest();
@@ -556,7 +574,7 @@ class PKPNavigationMenuService {
 		$contextId = $context?$context->getId():CONTEXT_ID_NONE;
 		$customNMI = $navigationMenuItemDao->getByPath($contextId, $path);
 
-		// Check if a custom NMI with the requested path existes 
+		// Check if a custom NMI with the requested path existes
 		if ($customNMI) {
 			// Trick the handler into dealing with it normally
 			$page = 'pages';

@@ -449,14 +449,6 @@
 	<message key="notification.confirmError">Es gab einen Fehler beim Bestätigen Ihrer Registrierung.</message>
 	<message key="notification.confirmSuccess">Sie haben sich erfolreich registriert.</message>
 	<message key="notification.email">Bitte keine E-Mail über diese Arten von Benachrichtigungen zuschicken.</message>
-	<message key="notification.location">Gehe zu URL</message>
-	<message key="notification.mailList">Benachrichtigungs-Mailingliste</message>
-	<message key="notification.mailList.emailInvalid">Bitte geben Sie eine gültige E-Mail-Adresse ein.</message>
-	<message key="notification.mailList.privacyProtection">Schutz persönlicher Daten</message>
-	<message key="notification.mailList.protectedContent"><![CDATA[Geschützten Inhalt <a href="{$subscribeUrl}">abonnieren</a>.]]></message>
-	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Beitrag einreichen</a>]]></message>
-	<message key="notification.mailList.register">Sie können sich hier registrieren für ...</message>
-	<message key="notification.mailList.review"><![CDATA[Nehmen Sie am <a href="{$reviewUrl}">Begutachtungsprozess</a> teil]]></message>
 	<message key="notification.noneExist">Sie haben zurzeit keine Benachrichtigungen.</message>
 	<message key="notification.addedNote">Anmerkung veröffentlicht.</message>
 	<message key="notification.removedNote">Anmerkung gelöscht.</message>
@@ -464,19 +456,11 @@
 	<message key="notification.removedSubmission">Einreichung entfernt.</message>
 	<message key="notification.notification">Benachrichtigung</message>
 	<message key="notification.notifications">Benachrichtigungen</message>
-	<message key="notification.notificationsNew">({$numNew} neu)</message>
-	<message key="notification.notificationsDescription"><![CDATA[Sie haben {$unreadCount} ungelesene und {$readCount} gelesene Benachrichtigungen.  <a href="{$settingsUrl}">Klicken Sie hier</a>, um Ihre Benachrichtigungseinstellungen zu verändern.]]></message>
 	<message key="notification.sentNotification">Benachrichtigung gesendet.</message>
 	<message key="notification.settings">Benachrichtigungseinstellungen</message>
 	<message key="notification.settingsDescription">Wählen Sie die System-Ereignisse aus, über die Sie benachrichtigt werden wollen. Nicht gewählte Elemente führen dazu, dass die jeweiligen Ereignisse nicht in Ihrem Benachrichtigungs-Feed angezeigt werden.</message>
-	<message key="notification.subscribe">Registrieren</message>
-	<message key="notification.subscribeError">Ihre Mailadresse ist für die Benachrichtigungen bereits registriert.</message>
-	<message key="notification.subscribeSuccess">An die angegebene E-Mail-Adresse wurde eine Mail geschickt. Klicken Sie bitte auf den Bestätigungs-Link, damit Ihre Adresse zur Mailingliste hinzugefügt wird.</message>
 	<message key="notification.reminderError">Das Zusenden des Passworts verursachte einen Fehler; stellen Sie bitte sicher, dass Sie die E-Mail-Adresse richtig eingegeben haben.</message>
 	<message key="notification.reminderSent">Ihr neues Passwort wurde an die angegebene E-Mail-Adresse geschickt</message>
-	<message key="notification.unsubscribe">Austragen</message>
-	<message key="notification.unsubscribeError">Beim Versuch, Sie auzutragen, ist ein Fehler aufgetreten. Bitte stellen Sie sicher, dass Sie die richtige URL wie in Ihrer Benachrichtigungs-E-Mail angegeben benutzen.</message>
-	<message key="notification.unsubscribeSuccess">Sie wurden erfolgreich ausgetragen.</message>
 	<message key="notification.savedSubmissionMetadata">Metadaten gespeichert.</message>
 	<message key="notification.sendNotificationConfirmation">Benachrichtigungs-E-Mail an alle angemeldeten Nutzer/innen schicken.</message>
 	<message key="search.author">Nach Autor/in</message>

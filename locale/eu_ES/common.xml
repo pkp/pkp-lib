@@ -293,29 +293,13 @@
 	<message key="notification.allow">Onartu horrelako jakinarazpenak nire jakinarazpen barran agertzea.</message>
 	<message key="notification.confirmError">Errorea harpidetza baieztatzean.</message>
 	<message key="notification.confirmSuccess">Harpidetza burutu da.</message>
-	<message key="notification.location">Joan URLra</message>
-	<message key="notification.mailList">Posta-zerrendaren jakinarazpena</message>
-	<message key="notification.mailList.emailInvalid">Idatzi posta elaktronikoko baliozko helbide bat.</message>
-	<message key="notification.mailList.privacyProtection">Pribatutasuna babesteko araua</message>
-	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Subscribe</a> babestutako edukira jotzeko.]]></message>
-	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Submit</a> artikulua]]></message>
-	<message key="notification.mailList.register">Gune honen bidez erregistratu zaitezke...</message>
-	<message key="notification.mailList.review"><![CDATA[Parte hartu <a href="{$reviewUrl}">peer review</a> prozesuan]]></message>
 	<message key="notification.noneExist">Une honetan ez duzu jakinarazpenik.</message>
 	<message key="notification.notification">Jakinarazpena</message>
 	<message key="notification.notifications">Jakinarazpenak</message>
-	<message key="notification.notificationsNew">({$numNew} berria)</message>
-	<message key="notification.notificationsDescription"><![CDATA[{$unreadCount} irakurri gabeko jakinarazpenak eta {$readCount} irakurritako jakinarazpenak dituzu.  <a href="{$settingsUrl}">Click here</a> jakinarazpen ezarpenak aldatzeko.]]></message>
 	<message key="notification.settings">Jakinarazpen ezarpenak</message>
 	<message key="notification.settingsDescription">Hautatu sistemako zer gertaerei buruzko informazioa jaso nahi duzun. Elementu bat ezabatuz gero gertaera horri buruzko jakinarazpenik ez da agertuko jakinarazpen barran.</message>
-	<message key="notification.subscribe">Harpidetu</message>
-	<message key="notification.subscribeError">Zure posta elektronikoko helbidea jakinarazpenak jasotzeko harpidetuta dago.</message>
-	<message key="notification.subscribeSuccess">Posta elektroniko bat bidali da zehaztutako helbidera. Egin klik baieztapen estekan posta-zerrendara gehitzeko.</message>
 	<message key="notification.reminderError">Errorea pasahitza bidaltzean, egiaztatu posta elektronikoko helbidea zuzen idatzi duzula.</message>
 	<message key="notification.reminderSent">Pasahitz berria bidali da emandako posta elektronikoko helbidera.</message>
-	<message key="notification.unsubscribe">Harpidetza kendu</message>
-	<message key="notification.unsubscribeError">Errorea harpidetza kentzean. Egiaztatu posta elektronikoko helbidea eta pasahitza zuzenak direla.</message>
-	<message key="notification.unsubscribeSuccess">Harpidetza kentzea lortu duzu.</message>
 	<message key="common.disable">Desgaitu</message>
 	<message key="common.enable">Gaitu</message>
 	<message key="common.fullscreen">Pantaila osoa</message>

@@ -420,7 +420,6 @@
 	<message key="manager.setup.principalContact">Hovedkontakt</message>
 	<message key="manager.setup.principalContactDescription">Skriv inn kontaktinformasjon, vanligvis for en hovedredaktør, redaksjonsleder, eller administrativt personell, som kan vises på den offentlig tilgjengelige nettsiden.</message>
 	<message key="manager.setup.privacyStatement">Personvernopplysninger</message>
-	<message key="manager.setup.privacyStatement.description">Denne erklæringen vil være synlig i løpet av Innsending av manuskript og på den offentlig tilgjengelige Om tidsskriftet-siden.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Uker tillatt for å akseptere eller avslå en vurderingsforespørsel</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Uker tillatt for å ferdigstille fagfellevurderingen.</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Ikke send påminnelse</message>

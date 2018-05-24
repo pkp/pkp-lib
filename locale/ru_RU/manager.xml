@@ -249,7 +249,6 @@
 	<message key="manager.setup.principalContact">Контактное лицо (общие вопросы)</message>
 	<message key="manager.setup.principalContactDescription">Введите данные контактного лица, обычно это главный редактор, ответственный редактор или сотрудник администрации. Эти данные могут отображаться в открытом доступе на сайте.</message>
 	<message key="manager.setup.privacyStatement">Заявление о конфиденциальности</message>
-	<message key="manager.setup.privacyStatement.description">Это Заявление будет отображаться во время отправки материала автором и на странице сайта с информацией в открытом доступе.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Недель на согласие или отказ в ответ на запрос выполнения рецензии</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Недель на выполнение рецензии</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Никогда не напоминать</message>

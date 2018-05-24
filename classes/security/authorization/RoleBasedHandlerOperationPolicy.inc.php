@@ -30,7 +30,7 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy {
 	 *  this policy is targeting.
 	 * @param $message string a message to be displayed if the authorization fails
 	 * @param $allRoles boolean whether all roles must match ("all of") or whether it is
-	 *  enough for only one role to match ("any of").
+	 *  enough for only one role to match ("any of"). Default: false ("any of")
 	 */
 	function __construct($request, $roles, $operations,
 			$message = 'user.authorization.roleBasedAccessDenied',

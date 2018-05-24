@@ -29,11 +29,14 @@ class QueryAccessPolicy extends ContextPolicy {
 		// We need a valid workflow stage.
 		import('lib.pkp.classes.security.authorization.QueryWorkflowStageAccessPolicy');
 		$this->addPolicy(new QueryWorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
-		
 
 		// We need a query matching the submission in the request.
 		import('lib.pkp.classes.security.authorization.internal.QueryRequiredPolicy');
 		$this->addPolicy(new QueryRequiredPolicy($request, $args));
+
+		// The query must be assigned to the current user, with exceptions for Managers
+		import('lib.pkp.classes.security.authorization.internal.QueryAssignedToUserAccessPolicy');
+		$this->addPolicy(new QueryAssignedToUserAccessPolicy($request));
 
 		// Authors, reviewers, context managers and sub editors potentially have
 		// access to queries. We'll have to define
@@ -48,7 +51,6 @@ class QueryAccessPolicy extends ContextPolicy {
 			$queryAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_MANAGER, $roleAssignments[ROLE_ID_MANAGER]));
 		}
 
-
 		//
 		// Assistants
 		//
@@ -61,10 +63,6 @@ class QueryAccessPolicy extends ContextPolicy {
 			// 2) ... but only if they have access to the workflow stage.
 			import('lib.pkp.classes.security.authorization.QueryWorkflowStageAccessPolicy'); // pulled from context-specific class path.
 			$assistantQueryAccessPolicy->addPolicy(new QueryWorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
-
-			// 3) ... and the assistant is assigned to the query.
-			import('lib.pkp.classes.security.authorization.internal.QueryAssignedToUserAccessPolicy');
-			$assistantQueryAccessPolicy->addPolicy(new QueryAssignedToUserAccessPolicy($request));
 
 			$queryAccessPolicy->addPolicy($assistantQueryAccessPolicy);
 		}
@@ -81,10 +79,6 @@ class QueryAccessPolicy extends ContextPolicy {
 			import('lib.pkp.classes.security.authorization.QueryWorkflowStageAccessPolicy');
 			$reviewerQueryAccessPolicy->addPolicy(new QueryWorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
 
-			// 3) ... and the reviewer is assigned to the query.
-			import('lib.pkp.classes.security.authorization.internal.QueryAssignedToUserAccessPolicy');
-			$reviewerQueryAccessPolicy->addPolicy(new QueryAssignedToUserAccessPolicy($request));
-
 			$queryAccessPolicy->addPolicy($reviewerQueryAccessPolicy);
 		}
 
@@ -99,10 +93,6 @@ class QueryAccessPolicy extends ContextPolicy {
 			// 2) ... but only if they are assigned to the workflow stage as an stage participant...
 			import('lib.pkp.classes.security.authorization.QueryWorkflowStageAccessPolicy');
 			$authorQueryAccessPolicy->addPolicy(new QueryWorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
-
-			// 3) ... and the author is assigned to the query.
-			import('lib.pkp.classes.security.authorization.internal.QueryAssignedToUserAccessPolicy');
-			$authorQueryAccessPolicy->addPolicy(new QueryAssignedToUserAccessPolicy($request));
 
 			$queryAccessPolicy->addPolicy($authorQueryAccessPolicy);
 		}

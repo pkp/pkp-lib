@@ -483,4 +483,10 @@
 
 	<!-- Permit "reviewAssignment" as a root element -->
 	<element name="reviewAssignment" type="pkp:reviewAssignment" />
+
+	<!-- Permit "query" as a root element -->
+	<element name="query" type="pkp:query" />
+
+	<!-- Permit "note" as a root element -->
+	<element name="note" type="pkp:note" />
 </schema>

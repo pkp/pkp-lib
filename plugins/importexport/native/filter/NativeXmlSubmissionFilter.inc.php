@@ -172,6 +172,9 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 			case 'reviewRounds':
 				$this->parseReviewRounds($n, $submission);
 				break;
+			case 'queries':
+				$this->parseQueries($n, $submission);
+				break;
 			default:
 				$deployment = $this->getDeployment();
 				$deployment->addWarning(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownElement', array('param' => $n->tagName)));
@@ -280,6 +283,36 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 		$reviewRoundDoc = new DOMDocument();
 		$reviewRoundDoc->appendChild($reviewRoundDoc->importNode($n, true));
 		return $importFilter->execute($reviewRoundDoc);
+	}
+
+	/**
+	 * Parse a queries element
+	 * @param $node DOMElement
+	 * @param $submission Submission
+	 */
+	function parseQueries($node, $submission) {
+		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) {
+			if (is_a($n, 'DOMElement')) {
+				assert($n->tagName == 'query');
+				$this->parseQuery($n, $submission);
+			}
+		}
+	}
+
+	/**
+	 * Parse a query and add it to the submission.
+	 * @param $n DOMElement
+	 * @param $submission Submission
+	 */
+	function parseQuery($n, $submission) {
+		$filterDao = DAORegistry::getDAO('FilterDAO');
+		$importFilters = $filterDao->getObjectsByGroup('native-xml=>query');
+		assert(count($importFilters)==1); // Assert only a single unserialization filter
+		$importFilter = array_shift($importFilters);
+		$importFilter->setDeployment($this->getDeployment());
+		$queryDoc = new DOMDocument();
+		$queryDoc->appendChild($queryDoc->importNode($n, true));
+		return $importFilter->execute($queryDoc);
 	}
 
 	//

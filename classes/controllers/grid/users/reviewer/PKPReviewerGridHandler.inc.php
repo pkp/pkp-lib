@@ -237,7 +237,7 @@ class PKPReviewerGridHandler extends GridHandler {
 				null,
 				$cellProvider
 			)
-		);		
+		);
 
 		// Add a column for the status of the review.
 		$this->addColumn(

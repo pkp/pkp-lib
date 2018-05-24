@@ -61,7 +61,8 @@ class DashboardHandler extends Handler {
 		));
 		$templateMgr->assign('myQueueListData', json_encode($myQueueListHandler->getConfig()));
 
-		if ($currentUser->hasRole(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), $request->getContext()->getId())) {
+		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+		if (!empty(array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), $userRoles))) {
 
 			// Unassigned
 			$unassignedListHandler = new SubmissionsListHandler(array(

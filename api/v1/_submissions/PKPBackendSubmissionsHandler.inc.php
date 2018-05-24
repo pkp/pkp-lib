@@ -75,13 +75,15 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 			'offset' => 0,
 		);
 
-		$params = array_merge($defaultParams, $slimRequest->getQueryParams());
-
 		// Anyone not a manager or site admin can only access their assigned
 		// submissions
-		if (!$currentUser->hasRole(array(ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN), $context->getId())) {
+		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+		$canAccessUnassignedSubmission = !empty(array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), $userRoles));
+		if (!$canAccessUnassignedSubmission) {
 			$defaultParams['assignedTo'] = $currentUser->getId();
 		}
+
+		$params = array_merge($defaultParams, $slimRequest->getQueryParams());
 
 		// Process query params to format incoming data as needed
 		foreach ($params as $param => $val) {
@@ -128,14 +130,13 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 			}
 		}
 
+		\HookRegistry::call('API::_submissions::params', array(&$params, $slimRequest, $response));
+
 		// Prevent users from viewing submissions they're not assigned to,
 		// except for journal managers and admins.
-		if (!$currentUser->hasRole(array(ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN), $context->getId())
-				&& $params['assignedTo'] != $currentUser->getId()) {
+		if (!$canAccessUnassignedSubmission && $params['assignedTo'] != $currentUser->getId()) {
 			return $response->withStatus(403)->withJsonError('api.submissions.403.requestedOthersUnpublishedSubmissions');
 		}
-
-		\HookRegistry::call('API::_submissions::params', array(&$params, $slimRequest, $response));
 
 		$submissionService = ServicesContainer::instance()->get('submission');
 		$submissions = $submissionService->getSubmissions($context->getId(), $params);

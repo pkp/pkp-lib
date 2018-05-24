@@ -316,7 +316,6 @@
 	<message key="manager.setup.principalContact">Contacto Principal</message>
 	<message key="manager.setup.principalContactDescription">Insira os detalhes de contato, geralmente informação sobre o Director, Editor principal, Corpo Editorial e equipa administrativa, que pode ser exibido no site acessível ao público.</message>
 	<message key="manager.setup.privacyStatement">Declaração Privacidade</message>
-	<message key="manager.setup.privacyStatement.description">A declaração aparecerá durante a submissão do autor e na página Sobre.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Semanas permitidas para aceitar ou recusar um pedido de revisão</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Semanas permitidas para concluir uma revisão</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Lembrete</message>

@@ -210,12 +210,6 @@ class AnnouncementForm extends Form {
 					$contextId, ASSOC_TYPE_ANNOUNCEMENT, $announcement->getId()
 				);
 			}
-			$notificationManager->sendToMailingList($request,
-				$notificationManager->createNotification(
-					$request, UNSUBSCRIBED_USER_NOTIFICATION, NOTIFICATION_TYPE_NEW_ANNOUNCEMENT,
-					$contextId, ASSOC_TYPE_ANNOUNCEMENT, $announcement->getId()
-				)
-			);
 		}
 		return $announcement->getId();
 	}

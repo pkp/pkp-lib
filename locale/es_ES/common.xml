@@ -383,33 +383,17 @@
 	<message key="notification.confirmError">Ha habido un error confirmándo tu suscripción.</message>
 	<message key="notification.confirmSuccess">Ha sido correctamente suscrito.</message>
 	<message key="notification.email">No enviarme un email para ese tipo de notificaciones.</message>
-	<message key="notification.location">Ir a la web</message>
-	<message key="notification.mailList">Lista de correo de notificaciones</message>
-	<message key="notification.mailList.emailInvalid">Introduce una dirección de correo válida.</message>
-	<message key="notification.mailList.privacyProtection">Política de protección de privacidad</message>
-	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Suscribirse</a> a contenido protegido.]]></message>
-	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Enviar</a> un artículo]]></message>
-	<message key="notification.mailList.register">Te puedes registrar con este sitio para...</message>
-	<message key="notification.mailList.review"><![CDATA[Participar en el proceso de <a href="{$reviewUrl}">revisión por pares</a>]]></message>
 	<message key="notification.noneExist">No tiene notificaciones en este momento.</message>
 	<message key="notification.addedNote">Nota publicada.</message>
 	<message key="notification.removedNote">Nota eliminada.</message>
 	<message key="notification.removedFile">Archivo eliminado.</message>
 	<message key="notification.notification">Notificación</message>
 	<message key="notification.notifications">Notificaciones</message>
-	<message key="notification.notificationsNew">({$numNew} nuevo)</message>
-	<message key="notification.notificationsDescription">Tiene {$unreadCount} notificaciones sin leer y {$readCount} notificaciones leídas.<![CDATA[<a href="{$settingsUrl}">Haga clic aquí</a> para cambiar la configuración de las notificaciones.]]></message>
 	<message key="notification.sentNotification">Notificación enviada.</message>
 	<message key="notification.settings">Configuración de notificaciones</message>
 	<message key="notification.settingsDescription">Seleccione los eventos del sistema para los que desea recibir notificaciones. Al desmarcar un elemento, las notificaciones del evento no aparecerán en el sistema ni se le enviarán por correo electrónico. Los eventos marcados aparecerán en el sistema y, además, puede elegir si desea recibir o no la misma notificación por correo electrónico.</message>
-	<message key="notification.subscribe">Suscribirse</message>
-	<message key="notification.subscribeError">Tu dirección de correo electrónico ya está suscrita a las notificaciones.</message>
-	<message key="notification.subscribeSuccess">Se envió un correo electrónico a la dirección que especificó.  Haga clic en el enlace de confirmación que aparece en el correo electrónico para suscribirse a la lista de distribución de correo.</message>
 	<message key="notification.reminderError">Ha habido un error enviando tu contraseña, por favor comprueba que has puesto bien tu dirección de correo electrónico.</message>
 	<message key="notification.reminderSent">Tu nueva contraseña ha sido enviada a la dirección de correo electrónico proporcionada.</message>
-	<message key="notification.unsubscribe">Des-suscribirse</message>
-	<message key="notification.unsubscribeError">Se produjo un error al darse de baja.  Asegúrese de que está utilizando la URL correcta que viene en el correo electrónico de notificación.</message>
-	<message key="notification.unsubscribeSuccess">Ha sido correctamente des-suscrito.</message>
 	<message key="notification.savedSubmissionMetadata">Metadatos de envíos guardados.</message>
 	<message key="search.abstract">Resumen</message>
 	<message key="search.author">Autores/as</message>

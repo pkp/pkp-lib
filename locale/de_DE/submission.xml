@@ -13,7 +13,6 @@
 
 <locale name="de_DE" full_name="Deutsch (Deutschland)">
 	<!-- Author Submission -->
-	<message key="author.submit.userGroupRequired">Ihr Account ist momentan keiner Rolle zugeordnet, die neue Beiträge einreichen kann (z.B. Autor/in). Bitte überprüfen Sie Ihren Account, Sie könnten evtl. eine entsprechende Rolle selbst hinzufügen, wenn Sie Ihr Profil bearbeiten.</message>
 	<message key="author.submit.submissionCitations">Stellen Sie bitte ein formatiertes Literaturverzeichnis für die Werke zur Verfügung, die Sie in Ihrem Beitrag zitiert haben. Bitte trennen Sie die einzelnen Verweise durch Leerzeilen.</message>
 	<message key="author.submission.roundStatus.reviewsReady">Neue Gutachten sind eingegangen und werden durch den/die Redakteur/in geprüft.</message>
 	<message key="submission.confirm.message">Eine Einreichung ist hochgeladen worden und kann abgeschickt werden. Sie können noch einmal zurückgehen, um alle eingegebenen Informationen durchzusehen und anzupassen, bevor Sie weitermachen. Wenn Sie fertig sind, klicken Sie "Einreichung abschließen".</message>

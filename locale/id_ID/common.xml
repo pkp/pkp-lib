@@ -283,30 +283,13 @@
 	<message key="notification.allow">Izinkan semua tipe notifikasi ini untuk ditampilkan di fees notifikasi saya.</message>
 	<message key="notification.confirmError">Ada kesalahan saat mengkonfirmasi langganan Anda.</message>
 	<message key="notification.confirmSuccess">Anda telah berlangganan dengan sukses.</message>
-	<message key="notification.location">Pergi ke URL</message>
-	<message key="notification.mailList">Daftar surat menyurat notifikasi</message>
-	<message key="notification.mailList.emailInvalid">Masukkan alamat email yang valid.</message>
-	<message key="notification.mailList.privacyProtection">Kebijakan Perlindungan Privasi</message>
-	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Langganan</a> ke konten yang dilindungi.]]></message>
-	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Kirim</a> artikel]]></message>
-	<message key="notification.mailList.register">Anda dapat mendaftar dengan situs ini ke...</message>
-	<message key="notification.mailList.review"><![CDATA[Berpartisipasi di<a href="{$reviewUrl}">peer review</a> process]]></message>
 	<message key="notification.noneExist">Anda tidak punya notifikasi saat ini.</message>
 	<message key="notification.notification">Notifikasi</message>
 	<message key="notification.notifications">Notifikasi</message>
-	<message key="notification.notificationsNew">({$numNew} new)</message>
-	<message key="notification.notificationsDescription">Anda punya {$unreadCount} notifikasi yang belum dibaca dan  {$readCount} notifikasi yang sudah dibaca .<![CDATA[  <a href="{$settingsUrl}">Klik di sini</a>untuk mengganti pengaturan notifikasi Anda.]]></message>
 	<message key="notification.settings">Pengaturan Notifikasi</message>
 	<message key="notification.settingsDescription">Pilih event sistem yang Anda ingin diberitahu. Melepaskan tanda centang di item akan mencegah notifikasi event dari ditampilkan di feed notifikasi.</message>
-	<message key="notification.subscribe">Langganan</message>
-	<message key="notification.subscribeError">Alamat email Anda telah berlangganan ke notifikasi ini.</message>
-	<message key="notification.subscribeSuccess">Email telah terkirim ke alamat yang dituju. Silahkan klik tautan konfirmasi di email untuk bergabung dalam mailing list.</message>
 	<message key="notification.reminderError">Ada kesalahan saat mengirimkan kata sandi Anda, pastikan Anda memasukkan alamat email dengan benar.</message>
 	<message key="notification.reminderSent">Kata sandi baru Anda telah dikirim ke alamat email yang disediakan.</message>
-	<message key="notification.unsubscribe">Tidak berlangganan</message>
-	<message key="notification.unsubscribeDescription">Masukkan alamat email dan kata sandi Anda untuk tidak berlangganan dari notifikasi email. Jika Anda tidak ingat kata sandi Anda, tinggalkan bidang kata sandi kosong dan yang baru akan dikirimkan melalui email pada alamat email yang diberikan.</message>
-	<message key="notification.unsubscribeError">Ada kesalahan saat proses tidak berlangganan. Pastikan alamat email dan kata sandi Anda benar.</message>
-	<message key="notification.unsubscribeSuccess">Anda telah sukses tidak berlangganan.</message>
 	<message key="search.abstract">Sari</message>
 	<message key="search.author">Penulis</message>
 	<message key="search.coverage">Cakupan</message>

@@ -453,7 +453,6 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.setup.principalContact">Contact principal</message>
 	<message key="manager.setup.principalContactDescription">Entrez les coordonnées d'un rédacteur en chef, d'un membre de la rédaction ou du personnel administratif qui peuvent être affichées sur la version public de votre site Web.</message>
 	<message key="manager.setup.privacyStatement">Déclaration de confidentialité</message>
-	<message key="manager.setup.privacyStatement.description">Cette déclaration apparaîtra lors de la soumission de l'auteur et sur la page accessible au public.</message>
 	<message key="manager.setup.reviewOptions.noteOnModification">Les valeurs par défauts peuvent être modifiées pour chaque évaluation durant le processus éditorial.</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Date limite par défaut des évaluations</message>
 	<message key="manager.setup.reviewOptions.showBlindReviewLink">Présentez un lien "Assurer une évaluation à l'aveugle" lors du téléchargement</message>

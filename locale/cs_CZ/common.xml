@@ -257,29 +257,13 @@
 	<message key="notification.allow">Povolit, aby se tento typ události zobrazoval v mém seznamu oznámení.</message>
 	<message key="notification.confirmError">Vyskytla se chyba při potvrzování vašeho přihlášení.</message>
 	<message key="notification.confirmSuccess">Byl jste úspěšně přihlášen.</message>
-	<message key="notification.location">Přejít na URL</message>
-	<message key="notification.mailList">Zasílací seznam oznámení</message>
-	<message key="notification.mailList.emailInvalid">Vložte prosím platnou emailovou adresu.</message>
-	<message key="notification.mailList.privacyProtection">Pravidla ochrany soukromí</message>
-	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Přihlásit se</a> ke chráněnému obsahu.]]></message>
-	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Odeslat</a> článek]]></message>
-	<message key="notification.mailList.register">Můžete se na těchto stránkách zaregistrovat, abyste...</message>
-	<message key="notification.mailList.review"><![CDATA[Participoval na <a href="{$reviewUrl}">recenzním</a> řízení]]></message>
 	<message key="notification.noneExist">Aktuálně nemáte žádná oznámení.</message>
 	<message key="notification.notification">Oznámení</message>
 	<message key="notification.notifications">Oznámení</message>
-	<message key="notification.notificationsNew">(Nové: {$numNew})</message>
-	<message key="notification.notificationsDescription"><![CDATA[Máte {$unreadCount} nepřečtených oznámení a {$readCount} přečtených oznámení.  <a href="{$settingsUrl}">Klikněte zde</a>, abyste upravili nastavení vašich oznámení.]]></message>
 	<message key="notification.settings">Nastavení oznámení</message>
 	<message key="notification.settingsDescription">Zvolte systémové události, o kterých chcete být informován. Zrušení zaškrtnutí u položky zabrání tomu, aby se oznámení události zobrazovalo ve Vašem seznamu oznámení.</message>
-	<message key="notification.subscribe">Přihlásit</message>
-	<message key="notification.subscribeError">Vaše emailová adresa již je přihlášena k odběru oznámení.</message>
-	<message key="notification.subscribeSuccess">Na uvedenou adresu byl zaslán email. Abyste byl přidán na doručovací seznam, klikněte prosím na potvrzovací odkaz v tomto emailu.</message>
 	<message key="notification.reminderError">Při zasílání hesla se vyskytla chyba. Ujistěte se prosím, že jste uvedl emailovou adresu správně.</message>
 	<message key="notification.reminderSent">Vaše nové heslo bylo odesláno na poskytnutou emailovou adresu.</message>
-	<message key="notification.unsubscribe">Odhlásit</message>
-	<message key="notification.unsubscribeError">Při odhlašování se vyskytla chyba. Ujistěte se prosím, že Vaše emailová adresa a heslo jsou správné.</message>
-	<message key="notification.unsubscribeSuccess">Byl jste úspěšně odhlášen.</message>
 	<message key="search.abstract">Abstrakt</message>
 	<message key="search.author">Autoři</message>
 	<message key="search.coverage">Pokrytí</message>

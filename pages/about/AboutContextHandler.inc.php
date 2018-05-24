@@ -21,7 +21,7 @@ class AboutContextHandler extends Handler {
 	 */
 	function __construct() {
 		parent::__construct();
-		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
+		AppLocale::requireComponents([LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_MANAGER]);
 	}
 
 	/**
@@ -103,6 +103,17 @@ class AboutContextHandler extends Handler {
 			'contactAffiliation' => $context->getLocalizedSetting('contactAffiliation'),
 		));
 		$templateMgr->display('frontend/pages/contact.tpl');
+	}
+
+	/**
+	 * Display privacy policy page.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function privacy($args, $request) {
+		$templateMgr = TemplateManager::getManager($request);
+		$this->setupTemplate($request);
+		$templateMgr->display('frontend/pages/privacy.tpl');
 	}
 }
 

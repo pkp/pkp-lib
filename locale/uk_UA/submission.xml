@@ -13,7 +13,6 @@
 
 <locale name="uk_UA" full_name="Українська">
 	<!-- Надсилання подання автором -->
-	<message key="author.submit.userGroupRequired">У вашому обліковому записі наразі не існує ролі, яка дозволяє надсилати нові матеріали, наприклад ролі Автор. Будь ласка, уважно перевірте свій обліковий запис; можливо ви самостійно додасте відповідну роль, змінивши свій профіль.</message>
 	<message key="author.submit.submissionCitations">Надайте форматований список посилань на роботи, процитовані у цьому рукописі. Будь ласка, відокремлюйте посилання одне від одного пустими рядками.</message>
 	<message key="author.submission.roundStatus.reviewsReady">Нові рецензії були надіслані і розглядаються редактором.</message>
 	<message key="submission.confirm.message">Ваше подання завантажене і готове до надсилання. Ви можете повернутися назад для перегляду та корекції будь-якої інформації, яку ви ввели перед продовженням. Коли будете готові, натисніть "Завершити подання".</message>
@@ -152,7 +151,7 @@
 	<message key="submission.acknowledge">Подяка</message>
 	<message key="submission.addSuppFile">Додати супровідний файл</message>
 	<message key="submission.ask">Запитати</message>
-	<message key="submission.attachedFile">Прикріплений файл</message>	
+	<message key="submission.attachedFile">Прикріплений файл</message>
 	<message key="submission.backToSubmissionEditing">Повернутися до редагування подання</message>
 	<message key="submission.changeComments">Змінити на</message>
 	<message key="submission.changeFile">Змінити файл</message>
@@ -395,7 +394,7 @@
 	<message key="workflow.stage.any">Будь-який етап</message>
 	<message key="workflow.stage">Етап</message>
 
-	
+
 	<!-- Статус подання -->
 	<message key="submission.status.editorial">На редагуванні</message>
 	<message key="submission.status.production">На верстці</message>
@@ -433,7 +432,7 @@
 	<message key="submission.upload.productionReady">Завантажити файл для верстки</message>
 	<message key="submission.upload.proof">Завантажити файл, готовий для верстки</message>
 	<message key="submission.upload.noAvailableReviewFiles">Наразі немає файлів для виправлення.</message>
-	
+
 	<!-- Ключі статуса раунду рецензування -->
 	<message key="editor.submission.roundStatus.revisionsRequested">Запит на нові версії зроблений.</message>
 	<message key="editor.submission.roundStatus.revisionsSubmitted">Нові версії були надіслані.</message>
@@ -455,7 +454,7 @@
 	<!-- Учасники -->
 	<message key="editor.submission.stageParticipants">Учасники</message>
 
-	<!-- Сітка учасників етапу -->	
+	<!-- Сітка учасників етапу -->
 	<message key="editor.submission.noneAssigned">Не призначено</message>
 	<message key="editor.submission.participant">Учасник</message>
 	<message key="editor.submission.addStageParticipant">Додати учасника</message>
@@ -464,7 +463,7 @@
 	<message key="editor.submission.removeStageParticipant.description"><![CDATA[Ви збираєтеся видалити цього учасника з <strong>усіх</strong> етапів. Якщо користувач також має призупинені завдання аудитора, вони також будуть видалені.]]></message>
 	<message key="editor.submission.addStageParticipant.form.userGroupRequired">Ви маєте вибрати групу користувачів.</message>
 	<message key="editor.submission.addStageParticipant.form.userRequired">Ви маєте вибрати користувача для зазначеної групи користувачів.</message>
-	
+
 	<!--  рішення редакції -->
 	<message key="editor.submission.decision">Рішення</message>
 	<message key="editor.submission.decision.accept">Направити на редагування</message>	<message key="editor.submission.decision.requestRevisions">Запросити перегляд</message>
@@ -588,7 +587,7 @@
 	<message key="submission.queries.submission">Обговорення до рецензування</message>
 	<message key="submission.queries.review">Обговорення рецензування</message>
 	<message key="submission.queries.editorial">Обговорення редагування</message>
-	<message key="submission.queries.production">Обговорення подання</message>	
+	<message key="submission.queries.production">Обговорення подання</message>
 	<message key="submission.query.subject">Тема</message>
 	<message key="submission.query.messages">Повідомлення</message>
 	<message key="submission.query.replies">Відповіді</message>

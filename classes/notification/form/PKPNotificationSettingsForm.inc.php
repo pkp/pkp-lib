@@ -65,6 +65,9 @@ class PKPNotificationSettingsForm extends Form {
 			NOTIFICATION_TYPE_QUERY_ACTIVITY => array('settingName' => 'notificationQueryActivity',
 				'emailSettingName' => 'emailNotificationQueryActivity',
 				'settingKey' => 'notification.type.queryActivity'),
+			NOTIFICATION_TYPE_NEW_ANNOUNCEMENT => array('settingName' => 'notificationNewAnnouncement',
+				'emailSettingName' => 'emailNotificationNewAnnouncement',
+				'settingKey' => 'notification.type.newAnnouncement'),
 		);
 	}
 
@@ -73,8 +76,16 @@ class PKPNotificationSettingsForm extends Form {
 	 *  and the notification types under each category
 	 * @return array
 	 */
-	protected function getNotificationSettingCategories() {
+	public function getNotificationSettingCategories() {
 		return array(
+			// Changing the `categoryKey` for public notification types will disrupt
+			// the email notification opt-in/out feature during user registration
+			// @see RegistrationForm::execute()
+			array('categoryKey' => 'notification.type.public',
+				'settings' => array(
+					NOTIFICATION_TYPE_NEW_ANNOUNCEMENT,
+				)
+			),
 			array('categoryKey' => 'notification.type.submissions',
 				'settings' => array(
 					NOTIFICATION_TYPE_SUBMISSION_SUBMITTED,

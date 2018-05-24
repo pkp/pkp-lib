@@ -439,14 +439,6 @@
 	<message key="notification.editedAuthor">المؤلف عُدِّل.</message>
 	<message key="notification.confirmError">حدث خطأ لدى تأكيد اشتراكك.</message>
 	<message key="notification.confirmSuccess">لقد اشتركت معنا بنجاح.</message>
-	<message key="notification.location">اتبع الرابط</message>
-	<message key="notification.mailList">قائمة عناوين المراسلة للإشعار</message>
-	<message key="notification.mailList.emailInvalid">لطفاً، أدخل عنواناً بريدياً صحيحاً.</message>
-	<message key="notification.mailList.privacyProtection">سياسة حماية الخصوصية</message>
-	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">اشترك</a> من أجل المحتوى المحمي.]]></message>
-	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">تقديم</a> مؤلَّف]]></message>
-	<message key="notification.mailList.register">بإمكانك الاشتراك في هذا الموقع من أجل...</message>
-	<message key="notification.mailList.review"><![CDATA[شارك في عملية <a href="{$reviewUrl}">التحكيم المناظر</a>]]></message>
 	<message key="notification.noneExist">ليس لديك أي إشعارات حالياً.</message>
 	<message key="notification.addedNote">الملاحظة طُرحت.</message>
 	<message key="notification.removedNote">الملاحظة حُذفت.</message>
@@ -454,19 +446,11 @@
 	<message key="notification.removedSubmission">طلب النشر المحذوف.</message>
 	<message key="notification.notification">إشعار</message>
 	<message key="notification.notifications">إشعارات</message>
-	<message key="notification.notificationsNew">({$numNew} جديد)</message>
-	<message key="notification.notificationsDescription">لديك {$unreadCount} من الإشعارات غير المقروءة مع {$readCount} إشعار مقروء.<![CDATA[  <a href="{$settingsUrl}">أنقر هنا</a> لتغيير إعدادات الإشعارات عندك.]]></message>
 	<message key="notification.sentNotification">الإشعار أُرسل.</message>
 	<message key="notification.settings">إعدادات الإشعارات</message>
 	<message key="notification.settingsDescription">إختر الأحداث التي تود أن تستلم إشعارات عنها. إزالة التأشير من الفقرة سيمنع ظهورها في مجهز الإشعارات لديك.</message>
-	<message key="notification.subscribe">اشتراك</message>
-	<message key="notification.subscribeError">عنوان بريدك الالكتروني مشترك سابقاً للحصول على الإشعارات.</message>
-	<message key="notification.subscribeSuccess">رسالة الكترونية قد أُرسلت إلى العنوان الذي حددته. لطفاً، اتبع رابط التأكيد في الرسالة لإضافة عنوانك إلى قائمة المراسلة.</message>
 	<message key="notification.reminderError">حدث خطأ ما عند إرسال كلمة مرورك. لطفاً، تأكد من صحة إدخالك لعنوان بريدك .</message>
 	<message key="notification.reminderSent">كلمة مرورك الجديدة قد أرسلت إلى العنوان البريدي الذي حددته.</message>
-	<message key="notification.unsubscribe">إلغاء الاشتراك</message>
-	<message key="notification.unsubscribeError">حدث خطأ ما عند إلغاء اشتراكك. لطفاً، تأكد من استعمالك للرابط الصحيح كما هو مذكور في إشعارك البريدي.</message>
-	<message key="notification.unsubscribeSuccess">تم إلغاء اشتراكك بنجاح.</message>
 	<message key="notification.savedSubmissionMetadata">البيانات الوصفية لطلب النشر حُفِظت.</message>
 	<message key="notification.sendNotificationConfirmation">أرسل رسالة إشعار إلى جميع المستخدمين المسجلين</message>
 	<message key="search.author">حسب المؤلف</message>

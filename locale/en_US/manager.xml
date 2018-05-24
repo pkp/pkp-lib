@@ -248,7 +248,7 @@
 	<message key="manager.setup.principalContact">Principal Contact</message>
 	<message key="manager.setup.principalContactDescription">Enter contact details, typically for a principal editorship, managing editorship, or administrative staff position, which can be displayed on your publicly accessible website.</message>
 	<message key="manager.setup.privacyStatement">Privacy Statement</message>
-	<message key="manager.setup.privacyStatement.description">This statement will appear during Author Submission and on the publicly available About page.</message>
+	<message key="manager.setup.privacyStatement.description">This statement will appear during user registration, author submission, and on the publicly available Privacy page. In some jurisdictions, you are legally required to disclose how you handle user data in this privacy policy.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Weeks allowed to accept or decline a review request</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Weeks allowed for review completion</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Never Remind</message>
@@ -537,4 +537,6 @@
 	<message key="manager.navigationMenus.subscriptions.conditionalWarning">This link will only be displayed if payments are enabled under Settings > Distribution > Payments.</message>
 	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning">This link will only be displayed if the visitor is logged in, payments are enabled under Settings > Distribution > Payments and subscriptions are required under Settings > Distribution > Access.</message>
 	<message key="manager.navigationMenus.search.description">Link to the search page.</message>
+	<message key="manager.navigationMenus.privacyStatement.description">Link to the page displaying your privacy statement.</message>
+	<message key="manager.navigationMenus.privacyStatement.conditionalWarning">This link will only be displayed if you have entered a privacy statement under Settings > Workflow > Submissions.</message>
 </locale>

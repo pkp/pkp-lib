@@ -270,7 +270,6 @@
 	<message key="manager.setup.principalContact">تماس با مدیر</message>
 	<message key="manager.setup.principalContactDescription">اطلاعات تماس دبیران، ویراستاران یا عوامل اجرایی که به صورت عمومی در وب‌سایت در دسترس خواهد بود</message>
 	<message key="manager.setup.privacyStatement">بیانه حریم خصوصی</message>
-	<message key="manager.setup.privacyStatement.description">این بیانیه در زمان ارسال مقاله برای نویسنده قابل مشاهده است و همچنین در صفحه «درباره مجله» به صورت عمومی قابل دسترسی است.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">مهلت زمان (به هفته) قبول یا رد انجام داوری</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">متوسط مهلت داوری</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">هرگز یادآوری نکن</message>

@@ -68,6 +68,8 @@ class RegistrationForm extends Form {
 			}));
 		}
 
+		$this->addCheck(new FormValidator($this, 'privacyConsent', 'required', 'user.profile.form.privacyConsentRequired'));
+
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
 	}
@@ -113,27 +115,9 @@ class RegistrationForm extends Form {
 	 * @param $request Request
 	 */
 	function initData($request) {
-		$userGroupIds = array();
-
-		// If a context exists, opt the user into reader and author roles in
-		// that context by default.
-		if (($context = $request->getContext()) && !$context->getSetting('disableUserReg')) {
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-
-			$readerUserGroups = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_READER);
-			while ($userGroup = $readerUserGroups->next()) {
-				if ($userGroup->getPermitSelfRegistration()) $userGroupIds[] = $userGroup->getId();
-			}
-
-			$authorUserGroups = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_AUTHOR);
-			while ($userGroup = $authorUserGroups->next()) {
-				if ($userGroup->getPermitSelfRegistration()) $userGroupIds[] = $userGroup->getId();
-			}
-		}
-
 		$this->_data = array(
 			'userLocales' => array(),
-			'userGroupIds' => $userGroupIds,
+			'userGroupIds' => array(),
 		);
 	}
 
@@ -154,9 +138,10 @@ class RegistrationForm extends Form {
 			'email',
 			'country',
 			'interests',
-			'reviewerGroup',
-			'authorGroup',
+			'emailConsent',
+			'privacyConsent',
 			'readerGroup',
+			'reviewerGroup',
 		));
 
 		if ($this->captchaEnabled) {
@@ -167,24 +152,9 @@ class RegistrationForm extends Form {
 
 		// Collect the specified user group IDs into a single piece of data
 		$this->setData('userGroupIds', array_merge(
-			array_keys((array) $this->getData('reviewerGroup')),
-			array_keys((array) $this->getData('authorGroup')),
-			array_keys((array) $this->getData('readerGroup'))
+			array_keys((array) $this->getData('readerGroup')),
+			array_keys((array) $this->getData('reviewerGroup'))
 		));
-	}
-
-	/**
-	 * Validate the form
-	 */
-	function validate() {
-		if (	count((array) $this->getData('reviewerGroup')) == 0 &&
-			count((array) $this->getData('authorGroup')) == 0 &&
-			count((array) $this->getData('readerGroup')) == 0
-		) {
-			$this->addError('userGroups', __('user.register.form.userGroupRequired'));
-		}
-
-		return parent::validate();
 	}
 
 	/**
@@ -241,10 +211,39 @@ class RegistrationForm extends Form {
 		$session = $sessionManager->getUserSession();
 		$session->setSessionVar('username', $user->getUsername());
 
-		// Save the roles
-		import('lib.pkp.classes.user.form.UserFormHelper');
-		$userFormHelper = new UserFormHelper();
-		$userFormHelper->saveRoleContent($this, $user);
+		// Save the selected roles or assign the Reader role if none selected
+		if ($request->getContext() && !$this->getData('reviewerGroup')) {
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+			$defaultReaderGroup = $userGroupDao->getDefaultByRoleId($request->getContext()->getId(), ROLE_ID_READER);
+			$userGroupDao->assignUserToGroup($user->getId(), $defaultReaderGroup->getId(), $request->getContext()->getId());
+		} else {
+			import('lib.pkp.classes.user.form.UserFormHelper');
+			$userFormHelper = new UserFormHelper();
+			$userFormHelper->saveRoleContent($this, $user);
+		}
+
+		// Save the email notification preference
+		if ($request->getContext() && !$this->getData('emailConsent')) {
+
+			// Get the public notification types
+			import('classes.notification.form.NotificationSettingsForm');
+			$notificationSettingsForm = new NotificationSettingsForm();
+			$notificationCategories = $notificationSettingsForm->getNotificationSettingCategories();
+			foreach ($notificationCategories as $notificationCategory) {
+				if ($notificationCategory['categoryKey'] === 'notification.type.public') {
+					$publicNotifications = $notificationCategory['settings'];
+				}
+			}
+			if (isset($publicNotifications)) {
+				$notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
+				$notificationSubscriptionSettingsDao->updateNotificationSubscriptionSettings(
+					'blocked_emailed_notification',
+					$publicNotifications,
+					$user->getId(),
+					$request->getContext()->getId()
+				);
+			}
+		}
 
 		// Insert the user interests
 		import('lib.pkp.classes.user.InterestManager');

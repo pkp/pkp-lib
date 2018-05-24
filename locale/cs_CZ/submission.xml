@@ -217,7 +217,6 @@
 
 	<message key="submission.reviewForm">Formulář posudku</message>
 	<message key="submission.reviewFormResponse">Odpovědi na formulář posudku</message>
-	<message key="author.submit.userGroupRequired">Váš účet v současné době nemá roli umožňující nové příspěvky, například Autor. Zkontrolujte nastavení vašeho účtu; pravděpodobně si můžete ve svém profilu sami přidat potřebnou roli.</message>
 	<message key="author.submission.roundStatus.reviewsReady">Byly nahrány nové recenze a autor si je může prohlédnout.</message>
 	<message key="submission.confirm.message">Váš příspěvek byl nahrán a jen připravený k odeslání. Můžete se vrátit zpět a upravit libovolnou informaci, kterou jste zadali v předchozích krocích. Po ukončení úprav klikněnte na "Ukončit podání příspěvku".</message>
 	<message key="submission.submit.submissionChecklist">Požadavky na příspěvek</message>

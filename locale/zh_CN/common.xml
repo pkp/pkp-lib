@@ -266,29 +266,13 @@
 	<message key="notification.allow">允许这些类型的通知出现在我的通知Feed.</message>
 	<message key="notification.confirmError">确认您的订阅的时候发生一个错误.</message>
 	<message key="notification.confirmSuccess">Y您已成功订阅.</message>
-	<message key="notification.location">跳转到URL</message>
-	<message key="notification.mailList">通知的邮件列表</message>
-	<message key="notification.mailList.emailInvalid">请输入一个有效的电子邮件地址.</message>
-	<message key="notification.mailList.privacyProtection">隐私保护政策</message>
-	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">订阅</a> 受保护的内容.]]></message>
-	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">提交</a> 一篇文章]]></message>
-	<message key="notification.mailList.register">你可以将这个网站注册到...</message>
-	<message key="notification.mailList.review"><![CDATA[参与进<a href="{$reviewUrl}">同行评议</a> 流程]]></message>
 	<message key="notification.noneExist">在这个时间你还没有通知.</message>
 	<message key="notification.notification">通知</message>
 	<message key="notification.notifications">通知</message>
-	<message key="notification.notificationsNew">({$numNew} new)</message>
-	<message key="notification.notificationsDescription">您有 {$unreadCount}条未读通知和 {$readCount}条已读通知.<![CDATA[  <a href="{$settingsUrl}">点击这里</a> 来修改您的通知设置.]]></message>
 	<message key="notification.settings">通知设置</message>
 	<message key="notification.settingsDescription">选择您希望被通知的系统事件,取消选择的项目将阻止从您的通知订阅中显示该栏目.</message>
-	<message key="notification.subscribe">订阅</message>
-	<message key="notification.subscribeError">您的电子邮件地址已经订阅到通知</message>
-	<message key="notification.subscribeSuccess">一封电子邮件已经发送到指定的邮箱.请点击在邮件中的确认链接，以便添加你自己到邮件列表.</message>
 	<message key="notification.reminderError">发送您的密码的时候发生一个错误，请确认您已经正确输入电子邮件地址.</message>
 	<message key="notification.reminderSent">您的新密码已经发送到提供的电子邮件地址.</message>
-	<message key="notification.unsubscribe">取消订阅</message>
-	<message key="notification.unsubscribeError">T有一个错误退订, 请确保您的电子邮件地址和密码是正确的.</message>
-	<message key="notification.unsubscribeSuccess">您已成功退订.</message>
 	<message key="search.abstract">摘要</message>
 	<message key="search.author">作者</message>
 	<message key="search.coverage">覆盖</message>

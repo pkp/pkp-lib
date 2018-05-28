@@ -291,7 +291,6 @@
 	<message key="manager.setup.openAccessPolicy.description">Hvis tidskriftet vil give læsere øjeblikkelig gratis adgang til alt publiceret indhold, kan du indsætte en beskrivelse af jeres Open Access politik.</message>
 	<message key="manager.setup.peerReview.description">Skitser tidsskriftets politik og processer i forbindelse med peer review for læsere og forfattere, herunder antallet af bedømmere, der normalt benyttes ved bedømmelse af et manuskript, de kriterier, efter hvilke bedømmerne bliver bedt om at bedømme manuskripter, det normale tidsforbrug i forbindelse med en bedømmelse samt principperne for rekruttering af bedømmere.</message>
 	<message key="manager.setup.privacyStatement">Erklæring om beskyttelse af personlige oplysninger</message>
-	<message key="manager.setup.privacyStatement.description">Denne erklæring vises, når forfatteren indsender sit manuskript og på siden 'Om'.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Antal uger afsat til at færdiggøre bedømmelsen</message>
 	<message key="manager.setup.sponsors.note">Beskrivelse af sponsorpolitik</message>
 	<message key="manager.setup.sponsors.description">Eksempler: Videnskabelige organisationer, universitetsafdelinger, andelsforetagender osv. Navnene på sponsorerne vises på hjemmesiden.</message>

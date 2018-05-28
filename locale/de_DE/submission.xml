@@ -7,13 +7,12 @@
   * Copyright (c) 2014-2018 Simon Fraser University
   * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  * Please contact Marco Tullney, marco.tullney@fu-berlin.de, with any questions regarding this translation.
+  * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_German_(de_DE)
   * Localization strings.
   -->
 
 <locale name="de_DE" full_name="Deutsch (Deutschland)">
 	<!-- Author Submission -->
-	<message key="author.submit.userGroupRequired">Ihr Account ist momentan keiner Rolle zugeordnet, die neue Beiträge einreichen kann (z.B. Autor/in). Bitte überprüfen Sie Ihren Account, Sie könnten evtl. eine entsprechende Rolle selbst hinzufügen, wenn Sie Ihr Profil bearbeiten.</message>
 	<message key="author.submit.submissionCitations">Stellen Sie bitte ein formatiertes Literaturverzeichnis für die Werke zur Verfügung, die Sie in Ihrem Beitrag zitiert haben. Bitte trennen Sie die einzelnen Verweise durch Leerzeilen.</message>
 	<message key="author.submission.roundStatus.reviewsReady">Neue Gutachten sind eingegangen und werden durch den/die Redakteur/in geprüft.</message>
 	<message key="submission.confirm.message">Eine Einreichung ist hochgeladen worden und kann abgeschickt werden. Sie können noch einmal zurückgehen, um alle eingegebenen Informationen durchzusehen und anzupassen, bevor Sie weitermachen. Wenn Sie fertig sind, klicken Sie "Einreichung abschließen".</message>
@@ -437,6 +436,9 @@
 	<!-- Review Round Status Keys -->
 	<message key="editor.submission.roundStatus.revisionsRequested">Überarbeitungen wurden angefordert.</message>
 	<message key="editor.submission.roundStatus.revisionsSubmitted">Überarbeitungen wurden eingereicht.</message>
+	<message key="editor.submission.roundStatus.resubmitForReview">Die Einreichung muss wieder eingereicht werden für eine neue Begutachtungsrunde.</message>
+	<message key="editor.submission.roundStatus.submissionResubmitted">Die Einreichung wurde wieder eingereicht für eine neue Begutachtungsrunde.</message>
+
 	<message key="editor.submission.roundStatus.sentToExternal">Zur externen Begutachtung gesendet.</message>
 	<message key="editor.submission.roundStatus.accepted">Beitrag akzeptiert.</message>
 	<message key="editor.submission.roundStatus.declined">Beitrag abgelehnt.</message>
@@ -461,6 +463,7 @@
 	<message key="editor.submission.removeStageParticipant.description"><![CDATA[Sie werden diese Person aus <strong>allen</strong> Phasen entfernen. Wenn der/die Benutzer/in auch ausstehende Prüfaufgaben hat, werden diese ebenfalls entfernt.]]></message>
 	<message key="editor.submission.addStageParticipant.form.userGroupRequired">Sie müssen eine Benutzer/innengruppe auswählen.</message>
 	<message key="editor.submission.addStageParticipant.form.userRequired">Sie müssen eine/n Benutzer/in für die angegebene Benutzer/innengruppe auswählen.</message>
+	<message key="editor.submission.addStageParticipant.form.reviewerWarning">Die/der ausgewählte Beteiligte ist gebeten worden, eine blinde Begutachtung durchzuführen. Wenn Sie sie/ihn als Beteiligte/n hinzufügen, wird sie/er Zugriff auf die Identität der Autorin/des Autors haben. Sie werden gebeten, diese Person nicht als Beteiligte/n hinzuzufügen, solange sie nicht auf anderem Wege die Integrität des Begutachtungsprozesses gewährleisten können.</message>
 
 	<!--  editor decisions -->
 	<message key="editor.submission.decision">Entscheidung</message>
@@ -607,6 +610,7 @@
 	<message key="submission.list.itemsOfTotal">{$count} von {$total} Einreichungen</message>
 	<message key="submission.list.responseDue">Antwort fällig</message>
 	<message key="submission.list.reviewDue">Gutachten fällig</message>
+	<message key="submission.list.reviewComplete">Gutachten eingereicht</message>
 	<message key="submission.list.confirmDelete">Einreichung löschen?</message>
 	<message key="submission.list.itemOrdererUp">Position von {$itemTitle} nach oben setzen</message>
 	<message key="submission.list.itemOrdererDown">Position von {$itemTitle} nach unten setzen</message>
@@ -617,5 +621,9 @@
 	<message key="submission.list.galleysCreated">Fahnen erzeugt</message>
 	<message key="submission.list.filesPrepared">Dateien vorbereitet</message>
 	<message key="submission.list.discussions">Diskussionen öffnen</message>
+	<message key="submission.list.dualWorkflowLinks"><![CDATA[Für diese Einreichung sind Ihnen mehrere Rollen zugewiesen worden. Möchten Sie den <a href="{$urlAuthorWorkflow}">Autor/innenworkflow</a> oder den <a href="{$urlEditorialWorkflow}">Redaktionsworkflow</a> öffnen?]]></message>
+	<message key="submission.list.reviewerWorkflowLink"><![CDATA[Für diese Einreichung ist Ihnen eine redaktionelle Rolle zugewiesen worden. Möchten Sie den <a href="{$urlEditorialWorkflow}">Redaktionsworkflow</a> öffnen?]]></message>
 	<message key="submission.list.incompleteSubmissionNotice">Diese Einreichung muss vervollständigt werden, bevor sie durch eine/n Redakteur/in begutachtet wird.</message>
+	<message key="submission.list.currentStage">Momentan in Phase {$stage}.</message>
+	<message key="submission.list.assignEditor">Redakteur/in zuweisen</message>
 </locale>

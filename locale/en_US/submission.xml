@@ -13,16 +13,20 @@
 
 <locale name="en_US" full_name="U.S. English">
 	<!-- Author Submission -->
-	<message key="author.submit.userGroupRequired">Your account does not currently have a role permitting new submissions, such as Author. Please double-check your account; you may be able to add a suitable role yourself by editing your profile.</message>
 	<message key="author.submit.submissionCitations">Provide a formatted list of references for works cited in this submission. Please separate individual references with a blank line.</message>
 	<message key="author.submission.roundStatus.reviewsReady">New reviews have been submitted and are being considered by the editor.</message>
 	<message key="submission.confirm.message">Your submission has been uploaded and is ready to be sent. You may go back to review and adjust any of the information you have entered before continuing. When you are ready, click "Finish Submission".</message>
+	<message key="submission.submit.availableUserGroups">Submit As</message>
+	<message key="submission.submit.availableUserGroupsDescription">Select the role that best describes your contribution to this submission.</message>
+	<message key="submission.submit.contactConsent">Corresponding Contact</message>
+	<message key="submission.submit.contactConsentDescription">Yes, I would like to be contacted about this submission.</message>
+	<message key="submission.submit.userGroupDescriptionManagers">Submit in any of the following roles if you would like to be able to edit and publish this submission yourself: {$managerGroups}</message>
 	<message key="submission.submit.submissionChecklist">Submission Requirements</message>
 	<message key="submission.submit.submissionChecklistDescription">You must read and acknowledge that you've completed the requirements below before proceeding.</message>
 	<message key="submission.submit.submissionComplete">Submission complete</message>
 	<message key="submission.submit.submissionCompleteThanks">Thank you for your interest in publishing with {$contextName}.</message>
 	<message key="submission.submit.copyrightNoticeAgreementLabel">Acknowledge the copyright statement</message>
-	<message key="submission.submit.copyrightNoticeAgree">I agree to abide by the terms of the copyright statement.</message>
+	<message key="submission.submit.copyrightNoticeAgree">Yes, I agree to abide by the terms of the copyright statement.</message>
 	<message key="submission.submit.whatNext">What Happens Next?</message>
 	<message key="submission.submit.whatNext.forNow">For now, you can:</message>
 	<message key="submission.submit.whatNext.review">Review this submission</message>

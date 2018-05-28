@@ -366,7 +366,6 @@ výsledků vyhledávání. Zvolte jednu z nakonfigurovaných metrik jako výchoz
 	<message key="manager.setup.principalContact">Hlavní kontakt</message>
 	<message key="manager.setup.principalContactDescription">Zadejte podrobnosti o kontaktech, obvykle na hlavního redaktora, na redakci nebo na administrativní pracovníky, které lze zobrazit na vašem veřejně přístupném webu.</message>
 	<message key="manager.setup.privacyStatement">Zásady zachování soukromí</message>
-	<message key="manager.setup.privacyStatement.description">Toto oznámení se objeví autorovi během procesu podání příspěvku a je veřejně přístupný na stránce "O časopisu".</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Počet týdnu k přijetí či odmítnutí požadavku na recenzi</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Počet týdnů na odevzdání hotové recenze</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Nikdy nepřipomínat</message>

@@ -272,29 +272,13 @@
 	<message key="notification.allow">Dozvoli da mi stižu ove vrste obaveštenja.</message>
 	<message key="notification.confirmError">Došlo je do greške prilikom potvrđivanja vaše pretplate.</message>
 	<message key="notification.confirmSuccess">Uspešno ste se pretplatili.</message>
-	<message key="notification.location">Idi na URL</message>
-	<message key="notification.mailList">Mejling lista obaveštenja</message>
-	<message key="notification.mailList.emailInvalid">Unesite ispravnu imejl adresu.</message>
-	<message key="notification.mailList.privacyProtection">Pravila zaštite privatnosti</message>
-	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Pretplati se</a> na zaštićeni sadržaj.]]></message>
-	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Predaj</a> članak]]></message>
-	<message key="notification.mailList.register">Možete se registrovati da bi...</message>
-	<message key="notification.mailList.review"><![CDATA[Učestvujte u <a href="{$reviewUrl}">profesionalnom recenzentskom</a> procesu]]></message>
 	<message key="notification.noneExist">Nemate obaveštenja.</message>
 	<message key="notification.notification">Obaveštenje</message>
 	<message key="notification.notifications">Obaveštenja</message>
-	<message key="notification.notificationsNew">({$numNew} novo)</message>
-	<message key="notification.notificationsDescription"><![CDATA[Imate {$unreadCount} nepročitanih i {$readCount} pročitanih obaveštenja.  <a href="{$settingsUrl}">Kliknite ovde</a> da promenite podešavanje obaveštavanja.]]></message>
 	<message key="notification.settings">Podešavanje obaveštavanja</message>
 	<message key="notification.settingsDescription">Obeležite sistemska dešavanja o kojima želite da budete obavešteni.</message>
-	<message key="notification.subscribe">Pretplata</message>
-	<message key="notification.subscribeError">Vaša imejl adresa je već pretplaćena na obaveštenja.</message>
-	<message key="notification.subscribeSuccess">Imejl je poslat na adresu koju ste naveli. Kliknite na link za potvrdu kako biste se dodali na mejling listu.</message>
 	<message key="notification.reminderError">Došlo je do greške prilikom slanja lozinke, proverite da li ste uneli ispravno Vašu imejl adresu.</message>
 	<message key="notification.reminderSent">Nova lozinka je poslata na imejl adresu koju ste dali.</message>
-	<message key="notification.unsubscribe">Odjavi se</message>
-	<message key="notification.unsubscribeError">Došlo je do greške prilikom Vaše odjave. Molimo Vas da proverite da li su imejl adresa i lozinka ispravne.</message>
-	<message key="notification.unsubscribeSuccess">Uspešno ste odjavljeni.</message>
 	<message key="search.abstract">Apstrakt</message>
 	<message key="search.author">Autori</message>
 	<message key="search.coverage">Pokrivenost</message>

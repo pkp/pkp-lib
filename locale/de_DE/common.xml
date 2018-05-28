@@ -7,8 +7,8 @@
   * Copyright (c) 2014-2018 Simon Fraser University
   * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  * Localization strings for the de_DE (Deutsch (Deutschland)) locale.
-  * Please contact Marco Tullney, marco.tullney@fu-berlin.de, with any questions regarding this translation.
+  * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_German_(de_DE)
+  * Localization strings.
   -->
 
 <locale name="de_DE" full_name="Deutsch (Deutschland)">
@@ -95,7 +95,6 @@
 	]]></message>
 	<message key="common.changesSaved">Ihre Änderungen wurden gespeichert.</message>
 	<message key="common.chooseOne">Bitte wählen Sie aus.</message>
-	<message key="common.clearSearch">Suchbegriffe löschen</message>
 	<message key="common.close">Schließen</message>
 	<message key="common.closePanel">Panel schließen</message>
 	<message key="common.closeWindow">Fenster schließen</message>
@@ -154,6 +153,7 @@
 	<message key="common.fileType">Dateityp</message>
 	<message key="common.fileUploaderError">Der Dateiuploader des Systems wird gestartet. Wenn er nicht erschient, liegt dies vermutlich daran, dass seine Laufzeiten nicht von diesem Browser unterstützt werden. Bitte kontaktieren Sie die Administrator/innen.</message>
 	<message key="common.filter">Filter</message>
+	<message key="common.filterAdd">Filter hinzufügen: {$filterTitle}</message>
 	<message key="common.filterRemove">Filter löschen: {$filterTitle}</message>
 	<message key="common.from">Von</message>
 	<message key="common.until">Bis</message>
@@ -172,6 +172,8 @@
 	<message key="common.language">Sprache</message>
 	<message key="common.languages">Sprachen</message>
 	<message key="common.less">Weniger</message>
+	<message key="common.lessThan">{$value} oder weniger</message>
+	<message key="common.listSeparator">, </message>
 	<message key="common.manage">Verwalten</message>
 	<message key="common.mailingAddress">Adresse</message>
 	<message key="common.billingAddress">Rechnungsadresse (wenn unterschiedlich)</message>
@@ -179,6 +181,7 @@
 	<message key="common.modify">Ändern</message>
 	<message key="common.month">Monat</message>
 	<message key="common.more">Mehr</message>
+	<message key="common.moreThan">{$value} oder mehr</message>
 	<message key="common.noneAssigned">Nicht zugewiesen</message>
 	<message key="common.none">Keine</message>
 	<message key="common.no">Nein</message>
@@ -240,6 +243,7 @@
 	<message key="common.saving">Speichere</message>
 	<message key="common.search">Suchen</message>
 	<message key="common.searchQuery">Suchanfrage</message>
+	<message key="common.clearSearch">Suchtext löschen</message>
 	<message key="common.second">Sekunde(n)</message>
 	<message key="common.selectAll">Alle auswählen</message>
 	<message key="common.selectNone">Auswahl aufheben</message>
@@ -284,6 +288,7 @@
 	<message key="common.plugins">Plugins</message>
 	<message key="common.metric">Metrik</message>
 	<message key="common.count">Anzahl</message>
+	<message key="common.publicAccess">Öffentlicher Zugriff</message>
 	<message key="debug.databaseQueries">Anzahl der Datenbankanfragen</message>
 	<message key="debug.executionTime">Seite erstellt am</message>
 	<message key="debug.memoryUsage">Speicherbelegung:</message>
@@ -444,14 +449,6 @@
 	<message key="notification.confirmError">Es gab einen Fehler beim Bestätigen Ihrer Registrierung.</message>
 	<message key="notification.confirmSuccess">Sie haben sich erfolreich registriert.</message>
 	<message key="notification.email">Bitte keine E-Mail über diese Arten von Benachrichtigungen zuschicken.</message>
-	<message key="notification.location">Gehe zu URL</message>
-	<message key="notification.mailList">Benachrichtigungs-Mailingliste</message>
-	<message key="notification.mailList.emailInvalid">Bitte geben Sie eine gültige E-Mail-Adresse ein.</message>
-	<message key="notification.mailList.privacyProtection">Schutz persönlicher Daten</message>
-	<message key="notification.mailList.protectedContent"><![CDATA[Geschützten Inhalt <a href="{$subscribeUrl}">abonnieren</a>.]]></message>
-	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Beitrag einreichen</a>]]></message>
-	<message key="notification.mailList.register">Sie können sich hier registrieren für ...</message>
-	<message key="notification.mailList.review"><![CDATA[Nehmen Sie am <a href="{$reviewUrl}">Begutachtungsprozess</a> teil]]></message>
 	<message key="notification.noneExist">Sie haben zurzeit keine Benachrichtigungen.</message>
 	<message key="notification.addedNote">Anmerkung veröffentlicht.</message>
 	<message key="notification.removedNote">Anmerkung gelöscht.</message>
@@ -459,19 +456,11 @@
 	<message key="notification.removedSubmission">Einreichung entfernt.</message>
 	<message key="notification.notification">Benachrichtigung</message>
 	<message key="notification.notifications">Benachrichtigungen</message>
-	<message key="notification.notificationsNew">({$numNew} neu)</message>
-	<message key="notification.notificationsDescription"><![CDATA[Sie haben {$unreadCount} ungelesene und {$readCount} gelesene Benachrichtigungen.  <a href="{$settingsUrl}">Klicken Sie hier</a>, um Ihre Benachrichtigungseinstellungen zu verändern.]]></message>
 	<message key="notification.sentNotification">Benachrichtigung gesendet.</message>
 	<message key="notification.settings">Benachrichtigungseinstellungen</message>
 	<message key="notification.settingsDescription">Wählen Sie die System-Ereignisse aus, über die Sie benachrichtigt werden wollen. Nicht gewählte Elemente führen dazu, dass die jeweiligen Ereignisse nicht in Ihrem Benachrichtigungs-Feed angezeigt werden.</message>
-	<message key="notification.subscribe">Registrieren</message>
-	<message key="notification.subscribeError">Ihre Mailadresse ist für die Benachrichtigungen bereits registriert.</message>
-	<message key="notification.subscribeSuccess">An die angegebene E-Mail-Adresse wurde eine Mail geschickt. Klicken Sie bitte auf den Bestätigungs-Link, damit Ihre Adresse zur Mailingliste hinzugefügt wird.</message>
 	<message key="notification.reminderError">Das Zusenden des Passworts verursachte einen Fehler; stellen Sie bitte sicher, dass Sie die E-Mail-Adresse richtig eingegeben haben.</message>
 	<message key="notification.reminderSent">Ihr neues Passwort wurde an die angegebene E-Mail-Adresse geschickt</message>
-	<message key="notification.unsubscribe">Austragen</message>
-	<message key="notification.unsubscribeError">Beim Versuch, Sie auzutragen, ist ein Fehler aufgetreten. Bitte stellen Sie sicher, dass Sie die richtige URL wie in Ihrer Benachrichtigungs-E-Mail angegeben benutzen.</message>
-	<message key="notification.unsubscribeSuccess">Sie wurden erfolgreich ausgetragen.</message>
 	<message key="notification.savedSubmissionMetadata">Metadaten gespeichert.</message>
 	<message key="notification.sendNotificationConfirmation">Benachrichtigungs-E-Mail an alle angemeldeten Nutzer/innen schicken.</message>
 	<message key="search.author">Nach Autor/in</message>
@@ -539,6 +528,7 @@
 	<message key="notification.addedStageParticipant">Benutzer/in als Teilnehmer/in dieser Phase hinzugefügt.</message>
 	<message key="notification.type.newAnnouncement">Neue Ankündigung.</message>
 	<message key="notification.type.reviewAssignment">Sie haben ein ausstehendes Gutachten.</message>
+	<message key="notification.type.reviewAssignmentUpdated">Begutachtungsbitte aktualisiert.</message>
 	<message key="notification.type.auditorRequest">Sie sind gebeten worden, die Datei "{$file}" zu prüfen.</message>
 	<message key="notification.type.allReviewsIn">Alle Gutachten liegen vor, und eine Entscheidung wird in Phase {$stage} benötigt.</message>
 	<message key="notification.type.allRevisionsIn">Eine überarbeitete Datei ist hochgeladen worden und muss von Ihnen in Phase {$stage} akzeptiert werden.</message>
@@ -561,10 +551,14 @@
 	<message key="semicolon">{$label}:</message>
 
 	<!-- Navigation Menus -->
-	<message key="notification.editedNavigationMenuItem">Navigation menu item was succesfully updated</message>
-	<message key="notification.removedNavigationMenuItem">Navigation menu item was succesfully removed</message>
-	<message key="notification.addedNavigationMenuItem">Navigation menu item was succesfully added</message>
-	<message key="notification.addedNavigationMenu">Navigation menu was succesfully added</message>
-	<message key="notification.editedNavigationMenu">Navigation menu was succesfully updated</message>
-	<message key="notification.removedNavigationMenu">Navigation menu was succesfully removed</message>
+	<message key="notification.editedNavigationMenuItem">Eintrag im Navigationsmenü erfolgreich aktualisiert</message>
+	<message key="notification.removedNavigationMenuItem">Eintrag im Navigationsmenü erfolgreich entfernt</message>
+	<message key="notification.addedNavigationMenuItem">Eintrag im Navigationsmenü erfolgreich hinzugefügt</message>
+	<message key="notification.addedNavigationMenu">Navigationsmenü erfolgreich hinzugefügt</message>
+	<message key="notification.editedNavigationMenu">Navigationsmenü erfolgreich aktualisiert</message>
+	<message key="notification.removedNavigationMenu">Navigationsmenü erfolgreich entfernt</message>
+
+	<!-- List Handlers -->
+	<message key="list.viewMore">Mehr Details über {$name} anzeigen</message>
+	<message key="list.viewLess">Details über {$name} verbergen</message>
 </locale>

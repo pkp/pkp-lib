@@ -61,6 +61,15 @@
 					 </script>
 					<ul id="navigationPrimary" class="pkp_navigation_primary pkp_nav_list" role="navigation" aria-label="{translate|escape key="common.navigation.site"}">
 
+						{* Users with ONLY the reader role *}
+						{if (count((array) $userRoles) === 1 && in_array(ROLE_ID_READER, (array) $userRoles))}
+							<li>
+								<a href="{url router=$smarty.const.ROUTE_PAGE page="submission" op="wizard"}">
+									{translate key="author.submit"}
+								</a>
+							</li>
+						{/if}
+
 						{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR), (array)$userRoles)}
 							<li>
 								<a href="{url router=$smarty.const.ROUTE_PAGE page="submissions"}">

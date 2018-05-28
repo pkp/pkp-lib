@@ -291,29 +291,13 @@
 	<message key="notification.confirmError">Errore nella conferma.</message>
 	<message key="notification.confirmSuccess">Sei stato iscritto con successo.</message>
 	<message key="notification.email">Non notificami questo tipo di evento per email</message>
-	<message key="notification.location">Vai all'URL</message>
-	<message key="notification.mailList">Mailing list per le notifiche</message>
-	<message key="notification.mailList.emailInvalid">Inserisci un indirizzo email valido.</message>
-	<message key="notification.mailList.privacyProtection">Politiche di protezione della privacy</message>
-	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Accedi</a> a contenuti protetti.]]></message>
-	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Proponi</a> un articolo]]></message>
-	<message key="notification.mailList.register">Puoi registrarti a questo sito con...</message>
 	<message key="notification.notification">Notifica</message>
 	<message key="notification.notifications">Notifiche</message>
-	<message key="notification.notificationsNew">({$numNew} nuovi)</message>
 	<message key="notification.settings">Impostazioni delle notifiche</message>
-	<message key="notification.subscribe">Iscriviti</message>
-	<message key="notification.subscribeError">Il tuo indirizzo email è già iscritto.</message>
 	<message key="notification.reminderSent">Abbiamo inviato una nuova password all'indirizzo indicato.</message>
-	<message key="notification.unsubscribe">Cancellati</message>
-	<message key="notification.mailList.review"><![CDATA[Participa alla <a href="{$reviewUrl}">peer review</a>]]></message>
 	<message key="notification.noneExist">Non hai notifiche per ora.</message>
-	<message key="notification.notificationsDescription"><![CDATA[Hai {$unreadCount} nuove notifiche e {$readCount} gi&#224; lette.  <a href="{$settingsUrl}">Clicca qui</a> per modificare le tue impostazioni di notifica.]]></message>
 	<message key="notification.settingsDescription"><![CDATA[Seleziona gli elementi per i quali vuoi ricevere notifiche. Deselezionare un elemento non ti far&#224; ricevere notifiche su quell'elemento specifico.]]></message>
-	<message key="notification.subscribeSuccess">Abbiamo inviato un messaggio all'indirizzo email specificato. Clicca sul link presente nel messaggio ricevuto per confermare la tua iscrizione alla mailing list.</message>
 	<message key="notification.reminderError">L'nvio della password non è andato a buon fine. Controlla di aver inserito l'indirizzo email correttamente.</message>
-	<message key="notification.unsubscribeError">La cancellazione non è avvenuta. Controlla di aver inserito il tuo indirizzo email correttamente</message>
-	<message key="notification.unsubscribeSuccess">Sei stato cancellato dalla lista.</message>
 	<message key="common.disable">Disabilita</message>
 	<message key="common.enable">Abilita</message>
 	<message key="common.fullscreen">Schermo intero</message>

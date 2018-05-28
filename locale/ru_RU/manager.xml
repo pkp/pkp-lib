@@ -249,7 +249,7 @@
 	<message key="manager.setup.principalContact">Контактное лицо (общие вопросы)</message>
 	<message key="manager.setup.principalContactDescription">Введите данные контактного лица, обычно это главный редактор, ответственный редактор или сотрудник администрации. Эти данные могут отображаться в открытом доступе на сайте.</message>
 	<message key="manager.setup.privacyStatement">Заявление о конфиденциальности</message>
-	<message key="manager.setup.privacyStatement.description">Это Заявление будет отображаться во время отправки материала автором и на странице сайта с информацией в открытом доступе.</message>
+	<message key="manager.setup.privacyStatement.description">Это заявление будет появляться во время регистрации пользователя, отправки автором материала и на странице «Конфиденциальность» в открытом доступе. В некоторых странах закон требует, чтобы вы в раскрыли как именно вы обрабатываете данные пользователей в этом Заявлении о конфиденциальности.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Недель на согласие или отказ в ответ на запрос выполнения рецензии</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Недель на выполнение рецензии</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Никогда не напоминать</message>
@@ -538,4 +538,6 @@
 	<message key="manager.navigationMenus.subscriptions.conditionalWarning">Эта ссылка будет показываться только в случае, если включены платежи в Настройки > Распространение > Платежи.</message>
 	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning">Эта ссылка будет показываться только в случае, если посетитель зашел в систему, включены платежи в Настройки > Распространение > Платежи и обязательны подписки в Настройки > Распространение > Доступ.</message>
 	<message key="manager.navigationMenus.search.description">Ссылка на страницу поиска.</message>
+	<message key="manager.navigationMenus.privacyStatement.description">Ссылка на страницу, отображающую ваше Заявление о конфиденциальности.</message>
+	<message key="manager.navigationMenus.privacyStatement.conditionalWarning">Эта ссылка будет показываться только в случае, если вы ввели Заявление о конфиденциальности в Настройки > Рабочий поток > Материалы.</message>
 </locale>

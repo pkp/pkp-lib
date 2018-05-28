@@ -175,6 +175,8 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 			$this->click('//label[contains(., \'' . htmlspecialchars($role) . '\')]');
 		}
 
+		$this->click('//input[@name=\'privacyConsent\']');
+
 		// Save the new user
 		$this->waitForElementPresent($formButtonSelector = '//button[contains(.,\'Register\')]');
 		$this->click($formButtonSelector);

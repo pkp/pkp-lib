@@ -85,6 +85,14 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 			if ($this->getXpathCount("//input[@id='$id' and not(@checked)]")==1) $this->click("id=$id");
 		}
 
+		if (empty($data['submitterRole'])){
+			$this->click('//input[@id=\'userGroupId\']');
+		} else {
+			$this->click('//input[@name=\'userGroupId\'][following-sibling::text()[position()=1][contains(.,\'' . $this->escapeJS($data['submitterRole']) . '\')]]');
+		}
+
+		$this->click('//input[@id=\'privacyConsent\']');
+
 		// Permit the subclass to handle any series/section data
 		$this->_handleStep1($data);
 
@@ -336,7 +344,9 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->waitForElementPresent($xpath);
 		$this->click($xpath);
 
+
 		$this->waitForElementPresent($selector='//button[text()=\'Accept Review, Continue to Step #2\']');
+		$this->click('//input[@id=\'privacyConsent\']');
 		$this->click($selector);
 
 		$this->waitForElementPresent($selector='//button[text()=\'Continue to Step #3\']');

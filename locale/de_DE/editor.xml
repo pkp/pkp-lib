@@ -7,7 +7,7 @@
   * Copyright (c) 2014-2018 Simon Fraser University
   * Copyright (c) 2003-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  * Please contact Marco Tullney, marco.tullney@fu-berlin.de, with any questions regarding this translation.
+  * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_German_(de_DE)
   * Localization strings.
   -->
 
@@ -44,6 +44,7 @@
 	<message key="editor.submissionReview.restrictFiles">Zu begutachtende Dateien</message>
 	<message key="editor.submissionReview.restrictFiles.hide">Dateiauswahl schließen</message>
 	<message key="editor.submissionReview.editReview">Gutachten bearbeiten</message>
+	<message key="editor.review.anonymousReviewer">Anonyme/r Gutachter/in</message>
 	<message key="editor.review.personalMessageToReviewer">E-Mail, die an Gutachter/in geschickt wird</message>
 	<message key="editor.review.importantDates">Wichtige Daten</message>
 	<message key="editor.review.uploadRevision">Überarbeitung hochladen</message>
@@ -59,7 +60,6 @@
 	<message key="editor.review.thankReviewerError">Fehler beim Versenden des Dankes an Gutachter/in</message>
 	<message key="editor.review.skipEmail">E-Mail nicht an Gutachter/in schicken</message>
 	<message key="editor.review.sendReminder">Erinnerung senden</message>
-	<message key="editor.review.rateReviewer">Gutachter/in bewerten</message>
 	<message key="editor.review.readReview">Gutachten lesen</message>
 	<message key="editor.review.readNewReview">Neues Gutachen lesen</message>
 	<message key="editor.review.responseDue">Antwort fällig: {$date}</message>
@@ -72,6 +72,9 @@
 	<message key="editor.review.reviewConfirmed">Gutachten bestätigt</message>
 	<message key="editor.review.reviewSubmitted">Gutachten eingereicht</message>
 	<message key="editor.review.reviewerComments">Begutachtungskommentare</message>
+	<message key="editor.review.rateReviewer">Gutachter/in bewerten</message>
+	<message key="editor.review.rateReviewer.description">Die Qualität des eingereichten Gutachtens bewerten. Diese Bewertung ist nicht für die Gutachterin/den Gutachter sichtbar.</message>
+	<message key="editor.review.reviewerRating.none">Keine Bewertung</message>
 	<message key="editor.review.mustSelect">Sie müssen eine/n Gutachter/in auswählen</message>
 	<message key="editor.review.errorAddingReviewer">Es gab einen Fehler beim Hinzufügen des/der Gutachter/in. Bitte versuchen Sie es erneut.</message>
 	<message key="editor.review.errorDeletingReviewer">Es gab einen Fehler beim Entfernen des/der Gutachter/in. Bitte versuchen Sie es erneut.</message>
@@ -123,4 +126,24 @@
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">Die Freigabe dieser Korrekturfahne zurücknehmen, um zu signalisieren, dass das Korrektorat nicht mehr abgeschlossen ist und dass die Datei noch nicht publiziert werden kann.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">Die öffentliche Kennung '{$publicIdentifier}' darf keine Zahl sein.</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">Das Muster {$pattern} ist für die Bildung der öffentlichen Kennung nicht zulässig.</message>
+
+	<!-- Reviewer selection lists -->
+	<message key="reviewer.list.count">{$count} Gutachter/innen</message>
+	<message key="reviewer.list.itemsOfTotal">{$count} von {$total} Gutachter/innen</message>
+	<message key="reviewer.list.filterRating">Mindestens bewertet</message>
+	<message key="reviewer.list.activeReviews">{$count} aktiv</message>
+	<message key="reviewer.list.activeReviewsDescription">Momentan zugewiesene aktive Gutachten</message>
+	<message key="reviewer.list.completedReviews">Gutachten abgeschlossen</message>
+	<message key="reviewer.list.declinedReviews">Begutachtungsanfragen abgelehnt</message>
+	<message key="reviewer.list.reviewerRating">Gutachter/innenbewertung: {$rating}</message>
+	<message key="reviewer.list.daysSinceLastAssignment">vor {$days} Tagen</message>
+	<message key="reviewer.list.daySinceLastAssignment">Gestern</message>
+	<message key="reviewer.list.daysSinceLastAssignmentDescription">Tage seit der letzten Begutachtungsanfrage</message>
+	<message key="reviewer.list.averageCompletion">Durchschnittliche Dauer (Tage) der Begutachtung</message>
+	<message key="reviewer.list.neverAssigned">Noch nie zugewiesen</message>
+	<message key="reviewer.list.currentlyAssigned">Dieser Gutachterin/diesem Gutachter ist diese Einreichung bereits zur Begutachtung zugewiesen worden.</message>
+	<message key="reviewer.list.warnOnAssign">Diese Gutachterin/dieser Gutachter ist gesperrt, weil sie eine Rolle zugewiesen bekommen haben, ind der sie die Identität der Autorin/des Autors einsehen dürfen. Eine blinde Begutachtung kann nicht garantiert werden. Möchten Sie diese Gutachterin bzw. diesen Gutachter dennoch freischalten?</message>
+	<message key="reviewer.list.warnOnAssignUnlock">Freischalten</message>
+	<message key="reviewer.list.reviewInterests">Begutachtungsinteressen</message>
+	<message key="reviewer.list.biography">Biographie</message>
 </locale>

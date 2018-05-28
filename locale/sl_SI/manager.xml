@@ -296,7 +296,6 @@
 	<message key="manager.setup.principalContact">Glavni kontakt</message>
 	<message key="manager.setup.principalContactDescription">Vnesite kontaktne podatke, predvsem od glavnega uredništva, odgovornega uredništva ali pisarne administrativnega osebja, ki so lahko objavljeni na vašem javno dostopnem spletišču.</message>
 	<message key="manager.setup.privacyStatement">Izjava o zasebnosti</message>
-	<message key="manager.setup.privacyStatement.description">Ta izjava se bo prikazala ob avtorjevi oddaji prispevka, poleg tega pa bo javno dostopna na strani O nas.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Omejitev števila tednov za potrditev ali zavrnitev prošnje za recenzijo</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Omejitev števila tednov za zaključek recenzije</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Nikoli ne opomni</message>

@@ -271,7 +271,6 @@
 	<message key="search.typeMethodApproach">Type (metode/innfallsvinkel)</message>
 	<message key="notification.notification">Varsling</message>
 	<message key="notification.notifications">Varslinger</message>
-	<message key="notification.notificationsNew">({$numNew} nye)</message>
 	<message key="common.ccLicense"><![CDATA[<br /><br />
 		<a target="_blank" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
 			<img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png"/>
@@ -296,26 +295,11 @@
 	<message key="notification.allow">Disse varslingstypene skal vises i mine varslinger.</message>
 	<message key="notification.confirmError">Det oppstod en feil i behandlingen av ditt varslingsabonnement.</message>
 	<message key="notification.confirmSuccess">Ditt varslingsabonnement er nå i orden.</message>
-	<message key="notification.location">Gå til nettadresse (URL)</message>
-	<message key="notification.mailList">E-postliste for varslinger</message>
-	<message key="notification.mailList.emailInvalid">Skriv inn en gyldig e-postadresse.</message>
-	<message key="notification.mailList.privacyProtection">Personvernpolicy</message>
-	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Abonner</a> på beskyttet innhold.]]></message>
-	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Levér</a> en artikkel]]></message>
-	<message key="notification.mailList.register">Du kan registrere deg på dette nettstedet for å ...</message>
-	<message key="notification.mailList.review"><![CDATA[Delta i <a href="{$reviewUrl}">fagfellevurderingsarbeidet</a>]]></message>
 	<message key="notification.noneExist">Du har ingen varslinger for øyeblikket</message>
-	<message key="notification.notificationsDescription"><![CDATA[Du har {$unreadCount} uleste varslinger og {$readCount} leste varslinger.  <a href="{$settingsUrl}">Klikk her</a> for å forandre dine varslingsinnstillinger.]]></message>
 	<message key="notification.settings">Varslingsinnstillinger</message>
 	<message key="notification.settingsDescription">Velg hvilke hendelser du vil bli varslet om. Fjerning av avkryssing vil hindre at du får varsling om en hendelsestype.</message>
-	<message key="notification.subscribe">Abonner</message>
-	<message key="notification.subscribeError">Din e-postadresse mottar allerede varslinger.</message>
-	<message key="notification.subscribeSuccess">En e-post har blitt sendt til den e-postadressen du oppga. Klikk på bekreftelseslenken i e-posten for å bli lagt til på e-postlisten.</message>
 	<message key="notification.reminderError">Det oppstod en feil ved utsendelsen av passord, vennligst forsikre deg om at du har lagt inn e-postadressen din korrekt.</message>
 	<message key="notification.reminderSent">Ditt nye passord har blitt sendt til den e-postadressen du oppgav.</message>
-	<message key="notification.unsubscribe">Avslutt abonnement</message>
-	<message key="notification.unsubscribeError">Det oppstod en feil ved avslutningen av ditt abonnement. Sjekk at din e-postadresse og passord er korrekt angitt.</message>
-	<message key="notification.unsubscribeSuccess">Avslutning av ditt abonnement var vellykket.</message>
 	<message key="common.disable">Slå av</message>
 	<message key="common.enable">Slå på</message>
 	<message key="common.fullscreen">Fullskjerm</message>

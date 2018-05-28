@@ -31,6 +31,7 @@ define('NMI_TYPE_USER_DASHBOARD',	'NMI_TYPE_USER_DASHBOARD');
 define('NMI_TYPE_USER_REGISTER',	'NMI_TYPE_USER_REGISTER');
 define('NMI_TYPE_USER_LOGIN',	'NMI_TYPE_USER_LOGIN');
 define('NMI_TYPE_SEARCH',	'NMI_TYPE_SEARCH');
+define('NMI_TYPE_PRIVACY',	'NMI_TYPE_PRIVACY');
 
 class NavigationMenuItem extends DataObject {
 	/** @var $navigationMenuItems array The navigationMenuItems underneath this navigationMenuItem */

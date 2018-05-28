@@ -144,7 +144,6 @@
 	<message key="log.review.reviewerAssigned">{$reviewerName} je dodeljen(a) kao recenzent predaje {$submissionId} u {$round}. krugu recenzije.</message>
 	<message key="submission.reviewForm">Recenzentski obrazac</message>
 	<message key="submission.reviewFormResponse">Odgovor na recenzentski obrazac</message>
-	<message key="author.submit.userGroupRequired">Vaš nalog trenutno nema ulogu koja ima dozvolu za nove predaje (kao što je autor). Proverite podešavanja vašeg naloga pošto uloge kao što je autorska možete dodeliti sami sebi.</message>
 	<message key="submission.query.from">Od</message>
 	<message key="submission.query.lastReply">Poslednji odgovor</message>
 	<message key="submission.query.closed">Zatvoreno</message>

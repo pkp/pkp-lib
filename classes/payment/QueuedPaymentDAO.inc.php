@@ -15,6 +15,7 @@
  *
  */
 
+import('lib.pkp.classes.payment.QueuedPayment');
 
 class QueuedPaymentDAO extends DAO {
 

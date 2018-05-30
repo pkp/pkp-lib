@@ -178,11 +178,8 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 		// Find out where the file should go.
 		$destPath = $destFile->getFilePath();
 
-		// Copy the file to the new location.
-		$this->copyFile($sourcePath, $destPath);
-
 		// Now insert the row into the DB and get the inserted file id.
-		$insertedFile = $submissionFileDao->insertObject($destFile, $destPath);
+		$insertedFile = $submissionFileDao->insertObject($destFile, $sourcePath);
 
 		return array($insertedFile->getFileId(), $insertedFile->getRevision());
 	}

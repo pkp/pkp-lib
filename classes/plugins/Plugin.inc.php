@@ -317,6 +317,7 @@ abstract class Plugin {
 	 * Return the Resource Name for templates in this plugin, or if specified, the full resource locator
 	 * for a specific template.
 	 * @param $template Template path/filename, if desired
+	 * @param $inCore boolean True if a "core" template should be used.
 	 * @return string
 	 */
 	public function getTemplateResource($template = null, $inCore = false) {

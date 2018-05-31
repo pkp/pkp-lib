@@ -114,7 +114,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 				}
 
 				if ($n->getAttribute('is_disabled') == 'true') {
-					$user->setIsDisabled(true);
+					$user->setDisabled(true);
 				}
 
 				if ($n->getAttribute('encryption')) {

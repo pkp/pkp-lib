@@ -111,7 +111,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 					$user->setMustChangePassword(true);
 				}
 				if ($n->getAttribute('is_disabled') == 'true') {
-					$user->setIsDisabled(true);
+					$user->setDisabled(true);
 				}
 				$passwordValueNodeList = $n->getElementsByTagNameNS($deployment->getNamespace(), 'value');
 				if ($passwordValueNodeList->length == 1) {

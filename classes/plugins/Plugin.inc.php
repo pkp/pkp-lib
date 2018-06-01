@@ -357,7 +357,7 @@ abstract class Plugin {
 
 	/**
 	 * Call this method when an enabled plugin is registered in order to override
-	 * template files in other plugins. Any plugin which calls this method can
+	 * template files. Any plugin which calls this method can
 	 * override template files by adding their own templates to:
 	 * <overridingPlugin>/templates/plugins/<category>/<originalPlugin>/templates/<path>.tpl
 	 *
@@ -371,13 +371,16 @@ abstract class Plugin {
 	public function _overridePluginTemplates($hookName, $args) {
 		$filePath =& $args[0];
 		$template = $args[1];
-		if (strpos($filePath, PLUGIN_TEMPLATE_RESOURCE_PREFIX) !== 0) {
-			return false;
-		}
 
-		$checkPath = sprintf('%s/%s', $this->getPluginPath(), $filePath);
-		if (file_exists($checkPath)) {
-			$filePath = $checkPath;
+		// If there's a lib/pkp/ prefix on the template, test without it.
+		$checkFilePath = $filePath;
+		$libPkpPrefix = 'lib/pkp/';
+		if (strpos($filePath, $libPkpPrefix) === 0) $checkFilePath = substr($filePath, strlen($libPkpPrefix));
+
+		// Check if an overriding plugin exists in the plugin path.
+		$checkPluginPath = sprintf('%s/%s', $this->getPluginPath(), $checkFilePath);
+		if (file_exists($checkPluginPath)) {
+			$filePath = $checkPluginPath;
 		}
 
 		return false;

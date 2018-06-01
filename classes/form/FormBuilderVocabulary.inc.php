@@ -112,7 +112,7 @@ class FormBuilderVocabulary {
 	 * @param $smarty object
 	 * @param $repeat
 	 */
-	function smartyFBVFormArea($params, $content, &$smarty, &$repeat) {
+	function smartyFBVFormArea($params, $content, $smarty, &$repeat) {
 		assert(isset($params['id']));
 		if (!$repeat) {
 			$smarty->assign(array(
@@ -134,7 +134,7 @@ class FormBuilderVocabulary {
 	 * @param $smarty object
 	 * @param $repeat
 	 */
-	function smartyFBVFormSection($params, $content, &$smarty, &$repeat) {
+	function smartyFBVFormSection($params, $content, $smarty, &$repeat) {
 		$form = $this->getForm();
 		if (!$repeat) {
 			$smarty->assign('FBV_required', isset($params['required']) ? $params['required'] : false);
@@ -203,7 +203,7 @@ class FormBuilderVocabulary {
 	 * @param $smarty object
 	 * @param $repeat
 	 */
-	function smartyFBVFormButtons($params, &$smarty) {
+	function smartyFBVFormButtons($params, $smarty) {
 		$smarty->assign(array(
 			'FBV_submitText' => isset($params['submitText']) ? $params['submitText'] : 'common.ok',
 			'FBV_submitDisabled' => isset($params['submitDisabled']) ? (boolean)$params['submitDisabled'] : false,
@@ -223,7 +223,7 @@ class FormBuilderVocabulary {
 	 * @param $params array
 	 * @param $smarty object-
 	 */
-	function smartyFBVElement($params, &$smarty, $content = null) {
+	function smartyFBVElement($params, $smarty, $content = null) {
 		if (!isset($params['type'])) $smarty->trigger_error('FBV: Element type not set');
 		if (!isset($params['id'])) $smarty->trigger_error('FBV: Element ID not set');
 
@@ -313,7 +313,7 @@ class FormBuilderVocabulary {
 	 * @param $params array
 	 * @param $smarty object
 	 */
-	function _smartyFBVButton($params, &$smarty) {
+	function _smartyFBVButton($params, $smarty) {
 		// the type of this button. the default value is 'button' (but could be 'submit')
 
 		$buttonParams = '';
@@ -343,7 +343,7 @@ class FormBuilderVocabulary {
 	 * @param $params array
 	 * @param $smarty object
 	 */
-	function _smartyFBVAutocompleteInput($params, &$smarty) {
+	function _smartyFBVAutocompleteInput($params, $smarty) {
 		assert(isset($params['autocompleteUrl']) && isset($params['id']));
 
 		// This id will be used for the hidden input that should be read by the Form.
@@ -374,7 +374,7 @@ class FormBuilderVocabulary {
 	 * @param $params array
 	 * @param $smarty object
 	 */
-	function _smartyFBVTextInput($params, &$smarty) {
+	function _smartyFBVTextInput($params, $smarty) {
 		$params['name'] = isset($params['name']) ? $params['name'] : $params['id'];
 		$params['subLabelTranslate'] = isset($params['subLabelTranslate']) ? (boolean) $params['subLabelTranslate'] : true;
 		$params['uniqId'] = uniqid();
@@ -425,7 +425,7 @@ class FormBuilderVocabulary {
 	 * @param $params array
 	 * @param $smarty object
 	 */
-	function _smartyFBVTextArea($params, &$smarty) {
+	function _smartyFBVTextArea($params, $smarty) {
 		$params['name'] = isset($params['name']) ? $params['name'] : $params['id'];
 		$params['rows'] = isset($params['rows']) ? $params['rows'] : 10;
 		$params['cols'] = isset($params['cols']) ? $params['cols'] : 80;
@@ -481,7 +481,7 @@ class FormBuilderVocabulary {
 	 * @param $params array
 	 * @param $smarty object
 	 */
-	function _smartyFBVColour($params, &$smarty) {
+	function _smartyFBVColour($params, $smarty) {
 		$params['name'] = isset($params['name']) ? $params['name'] : $params['id'];
 		$params['subLabelTranslate'] = isset($params['subLabelTranslate']) ? (boolean) $params['subLabelTranslate'] : true;
 		$params['uniqId'] = uniqid();
@@ -521,7 +521,7 @@ class FormBuilderVocabulary {
 	 * @param $params array
 	 * @param $smarty object
 	 */
-	function _smartyFBVHiddenInput($params, &$smarty) {
+	function _smartyFBVHiddenInput($params, $smarty) {
 		$params['name'] = isset($params['name']) ? $params['name'] : $params['id'];
 
 		$hiddenInputParams = '';
@@ -551,7 +551,7 @@ class FormBuilderVocabulary {
 	 * @param $params array
 	 * @param $smarty object
 	 */
-	function _smartyFBVSelect($params, &$smarty) {
+	function _smartyFBVSelect($params, $smarty) {
 		$params['name'] = isset($params['name']) ? $params['name'] : $params['id'];
 		$params['translate'] = isset($params['translate']) ? $params['translate'] : true;
 		$params['subLabelTranslate'] = isset($params['subLabelTranslate']) ? (boolean) $params['subLabelTranslate'] : true;
@@ -592,7 +592,7 @@ class FormBuilderVocabulary {
 	 * @param $params array
 	 * @param $smarty object
 	 */
-	function _smartyFBVCheckboxGroup($params, &$smarty) {
+	function _smartyFBVCheckboxGroup($params, $smarty) {
 		$params['name'] = isset($params['name']) ? $params['name'] : $params['id'];
 		$params['translate'] = isset($params['translate']) ? (boolean)$params['translate'] : true;
 		$params['subLabelTranslate'] = isset($params['subLabelTranslate']) ? (boolean) $params['subLabelTranslate'] : true;
@@ -629,7 +629,7 @@ class FormBuilderVocabulary {
 	 * @param $params array
 	 * @param $smarty object
 	 */
-	function _smartyFBVCheckbox($params, &$smarty) {
+	function _smartyFBVCheckbox($params, $smarty) {
 		$params['name'] = isset($params['name']) ? $params['name'] : $params['id'];
 		$params['translate'] = isset($params['translate']) ? (boolean)$params['translate'] : true;
 
@@ -660,7 +660,7 @@ class FormBuilderVocabulary {
 	 * @param $params array
 	 * @param $smarty object
 	 */
-	function _smartyFBVRadioButton($params, &$smarty) {
+	function _smartyFBVRadioButton($params, $smarty) {
 		$params['name'] = isset($params['name']) ? $params['name'] : $params['id'];
 		$params['translate'] = isset($params['translate']) ? $params['translate'] : true;
 
@@ -696,7 +696,7 @@ class FormBuilderVocabulary {
 	 * @param $params array
 	 * @param $smarty object
 	 */
-	function _smartyFBVFileInput($params, &$smarty) {
+	function _smartyFBVFileInput($params, $smarty) {
 		$params['name'] = isset($params['name']) ? $params['name'] : $params['id'];
 		$params['translate'] = isset($params['translate']) ? $params['translate'] : true;
 
@@ -723,7 +723,7 @@ class FormBuilderVocabulary {
 	 * @param $params array
 	 * @param $smarty object
 	 */
-	function _smartyFBVKeywordInput($params, &$smarty) {
+	function _smartyFBVKeywordInput($params, $smarty) {
 		$params['uniqId'] = uniqid();
 
 		$smarty->clearAssign(array('FBV_id', 'FBV_label', 'FBV_label_content', 'FBV_currentKeywords', 'FBV_multilingual', 'FBV_sourceUrl', 'FBV_uniqId', 'FBV_disabled'));
@@ -760,7 +760,7 @@ class FormBuilderVocabulary {
 	 * @param $params array
 	 * @param $smarty object
 	 */
-	function _smartyFBVInterestsInput($params, &$smarty) {
+	function _smartyFBVInterestsInput($params, $smarty) {
 		$smarty->clearAssign(array('FBV_id', 'FBV_label', 'FBV_label_content', 'FBV_interests'));
 		$params['subLabelTranslate'] = isset($params['subLabelTranslate']) ? (boolean) $params['subLabelTranslate'] : true;
 		foreach ($params as $key => $value) {
@@ -782,7 +782,7 @@ class FormBuilderVocabulary {
 	 * @param $params array can contain 'name' (field name/ID), 'required' (required field), 'key' (localization key), 'label' (non-localized label string), 'suppressId' (boolean)
 	 * @param $smarty Smarty
 	 */
-	function _smartyFBVSubLabel($params, &$smarty) {
+	function _smartyFBVSubLabel($params, $smarty) {
 		assert(isset($params['label']));
 
 		$returner = '';
@@ -861,7 +861,7 @@ class FormBuilderVocabulary {
 	 * @param $params array can contain 'name' (field name/ID), 'required' (required field), 'key' (localization key), 'label' (non-localized label string), 'suppressId' (boolean)
 	 * @param $smarty Smarty
 	 */
-	function smartyFieldLabel($params, &$smarty) {
+	function smartyFieldLabel($params, $smarty) {
 		$returner = '';
 		if (isset($params) && !empty($params)) {
 			if (isset($params['key'])) {

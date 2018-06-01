@@ -719,7 +719,7 @@ abstract class Plugin {
 	 * @param $smarty Smarty
 	 * @return string
 	 */
-	function smartyPluginUrl($params, &$smarty) {
+	function smartyPluginUrl($params, $smarty) {
 		$path = array($this->getCategory(), $this->getName());
 		if (is_array($params['path'])) {
 			$params['path'] = array_merge($path, $params['path']);

@@ -1116,7 +1116,7 @@ class PKPTemplateManager extends SmartyBC {
 	 */
 	function smartyCallHook($params, $smarty) {
 		$output = null;
-		HookRegistry::call($params['name'], array(&$params, &$smarty, &$output));
+		HookRegistry::call($params['name'], array(&$params, $smarty, &$output));
 		return $output;
 	}
 

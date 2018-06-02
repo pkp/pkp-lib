@@ -248,6 +248,7 @@
 	<message key="manager.setup.principalContact">Hauptkontakt</message>
 	<message key="manager.setup.principalContactDescription">Geben Sie Kontaktinformationen, üblicherweise für eine Hauptredaktion, Redaktionsleitung oder Redaktionsbüro, an, die auf Ihrer öffentlich zugänglichen Webseite angezeigt werden können.</message>
 	<message key="manager.setup.privacyStatement">Erklärung zum Schutz persönlicher Daten</message>
+	<message key="manager.setup.privacyStatement.description">Diese Erklärung wird während der Registrierung neuer Nutzer/innen, bei Autor/inneneinreichungen und auf der öffentlichen Seite zum Datenschutz angezeigt. In manchen Staaten sind Sie rechtlich verpflichtet, in dieser Erklärung anzugeben, wie Sie mit den Daten der Nutzer/innen verfahren.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Zeit für Antwort auf Begutachtungsanfrage (Wochen)</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Zeit für Abschluss des Gutachtens (Wochen)</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Nie erinnern</message>
@@ -483,6 +484,12 @@
 	<!-- native importexport keys -->
 	<message key="plugins.importexport.native.error.submissionFileImportFailed">Die Einreichungsdatei konnte nicht importiert werden</message>
 
+	<!-- native import user keys -->
+	<message key="plugins.importexport.user.importExportErrors">Import/Export-Fehler:</message>
+	<message key="plugins.importexport.user.error.userHasNoPassword">Importierte/r Nutzer/in "{$username}" besitzt kein Passwort. Bitte überprüfen Sie Ihr Import-XML-Format. Nutzer/in wurde nicht importiert.</message>
+	<message key="plugins.importexport.user.error.passwordHasBeenChanged">Importierte/r Nutzer/in "{$username}" konnte nicht in der vorliegenden Form importiert werden. Ein neues Passwort wird an die E-Mail-Adresse der Nutzerin/des Nutzers geschickt. Nutzer/in wurde importiert.</message>
+	<message key="plugins.importexport.user.error.plainPasswordNotValid">Importierte/r Nutzer/in "{$username}" hat ein ungültiges Klartext-Passwort. Nutzer/in wurde nicht importiert.</message>
+	
 	<!-- Navigation Menus -->
 	<message key="manager.navigationMenus.form.title">Titel</message>
 	<message key="manager.navigationMenus.form.path">Pfad</message>
@@ -536,4 +543,6 @@
 	<message key="manager.navigationMenus.subscriptions.conditionalWarning">Dieser Link wird nur angezeigt, wenn Zahlungen unter Einstellungen > Vertrieb > Zahlungen aktiviert sind.</message>
 	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning">Dieser Link wird nur angezeigt, wenn die Besucherin/der Besucher eingeloggt ist, Zahlungen unter Einstellungen > Vertrieb > Zahlungen aktiviert sind und ein Abonnement laut Einstellungen > Vertrieb > Zugriff erforderlich ist.</message>
 	<message key="manager.navigationMenus.search.description">Link zur Suchseite.</message>
+	<message key="manager.navigationMenus.privacyStatement.description">Link zu der Seite mit der Erklärung zum Schutz persönlicher Daten.</message>
+	<message key="manager.navigationMenus.privacyStatement.conditionalWarning">Dieser Link wird nur angezeigt, wenn Sie eine Erklärung zum Schutz persönlicher Daten unter Einstellungen > Workflow > Einreichungen angegeben haben.</message>
 </locale>

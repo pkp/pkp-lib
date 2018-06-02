@@ -23,12 +23,14 @@
 	<message key="user.authorization.privateOperation">Die Operation, auf die Sie zugreifen wollten, ist entweder privat oder existiert nicht.</message>
 	<message key="user.authorization.restrictedSiteAccess">Ihnen wurde der Zugang verweigert. Der Zugang zu dieser Site ist momentan beschränkt.</message>
 	<message key="user.authorization.roleBasedAccessDenied">Die aktuelle Rolle hat keinen Zugriff auf diese Operation.</message>
+	<message key="user.authorization.assignedStageRoleBasedAccessDenied">Sie sind dieser Einreichung nicht in einer Rolle zugeordnet worden, die auf diese Maßnahme zugreifen kann.</message>
 	<message key="user.authorization.userGroupRequired">Sie müssen eine gültige Benutzer/innen-Gruppe setzen, um auf diese Operation zugreifen zu können.</message>
 	<message key="user.authorization.managerRequired">Ein/e Benutzer/in mit einer Verwalter/innen-Rolle (z.B. Produktionsredakteur/in) muss dem Arbeitsschritt hinzugefügt werden, bevor Sie weitermachen können.</message>
 	<message key="user.authorization.accessibleWorkflowStage">Sie haben momentan keinen Zugriff auf diese Phase des Publikationsprozesses.</message>
 	<message key="user.authorization.workflowStageRequired">Es wurde kein Arbeitsschritt angegeben.</message>
 	<message key="user.authorization.pluginRequired">Es wurde kein Plugin angegeben, obwohl es erforderlich ist.</message>
 	<message key="user.authorization.invalidReviewAssignment">Sie haben keine Berechtigung, auf diese Begutachtungsanfrage zuzugreifen.</message>
+	<message key="user.authorization.submissionQuery">Sie haben keine Berechtigung, auf diese Diskussion zuzugreifen.</message>
 	<message key="user.biography">Angaben zum Lebenslauf</message>
 	<message key="user.changeMyPassword">Mein Passwort ändern</message>
 	<message key="user.changePassword">Passwort ändern</message>
@@ -96,6 +98,7 @@
 	<message key="user.profile.form.urlInvalid">Die angegebene URL ist ungültig. Bitte überprüfen Sie die URL nochmals und versuchen es erneut. (Hinweis: Fügen Sie http:// an den Anfang der URL an.)</message>
 	<message key="user.profile.form.usergroupRequired">Die Angabe einer Benutzer/innen-Gruppe ist erforderlich.</message>
 	<message key="user.profile.form.usernameRequired">Die Angabe eines Benutzer/innen-Namens ist erforderlich.</message>
+	<message key="user.profile.form.privacyConsentRequired">Sie müssen den Bedingungen der Erklärung zum Schutz persönlicher Daten zustimmen.</message>
 	<message key="user.profile.leavePasswordBlank">Wenn Sie Ihr aktuelles Passwort beibehalten wollen, lassen Sie die Passwortfelder frei.</message>
 	<message key="user.profile.newPassword">Neues Passwort</message>
 	<message key="user.profile.oldPassword">Aktuelles Passwort</message>
@@ -106,6 +109,8 @@
 	<message key="user.login.registerNewAccount">Noch kein/e Benutzer/in? Registrieren Sie sich.</message>
 	<message key="user.login.resetPasswordInstructions"><![CDATA[Aus Sicherheitsgründen schickt das System den registrierten Benutzer/innen ein neues Passwort statt des aktuellen Passworts per E-Mail. <br /><br />Tragen Sie zur Wiederherstellung des Passwortes unten Ihre E-Mail-Adresse ein. Eine Bestätigung geht an diese E-Mail-Adresse.]]></message>
 
+	<message key="user.register.form.privacyConsent"><![CDATA[Ja, ich stimme zu, dass meine Daten in Übereinstimmung mit der <a href="{$privacyUrl}" target="_blank">Erklärung zum Schutz persönlicher Daten</a> erfasst und gespeichert werden.]]></message>
+	<message key="user.register.form.emailConsent">Ja, ich möchte über neue Veröffentlichungen und Ankündigungen benachrichtigt werden.</message>
 	<message key="user.register.form.emailExists">Die ausgewählte E-Mail-Adresse wird bereits von einer anderen Benutzerin/einem anderen Benutzer verwendet.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Die Passwörter stimmen nicht überein.</message>
 	<message key="user.register.form.emailsDoNotMatch">Die E-Mail-Adressen stimmen nicht überein.</message>
@@ -156,4 +161,5 @@
 	<message key="user.apiKey.generate">Neuen API-Key erzeugen</message>
 	<message key="user.apiKey.generateWarning">Das Erzeugen eines neuen API-Keys wird alle existierenden Keys für diese/n Nutzer/in ungültig machen.</message>
 	<message key="user.apiKey.secretRequired">Bevor Sie einen API-Key erzeugen, muss Ihr Website-Administrator/Ihre Website-Administratorin die Einstellung "api_key_secret" in der Konfigurationsdatei festlegen.</message>
+	<message key="user.privacyLink"><![CDATA[Ihre Daten werden in Übereinstimmung mit unserer <a href="{$privacyUrl}" target="_blank">Erklärung zum Schutz persönlicher Daten</a> gespeichert.]]></message>
 </locale>

@@ -109,7 +109,7 @@
 	<message key="user.login.registerNewAccount">Register</message>
 	<message key="user.login.resetPasswordInstructions">Enter your account email address below and an email will be sent with instructions on how to reset your password.</message>
 
-	<message key="user.register.form.privacyConsent"><![CDATA[Yes, I agree to have my data collected and stored according to the <a href="{$privacyUrl}" target="_blank">Policy Statement</a>.]]></message>
+	<message key="user.register.form.privacyConsent"><![CDATA[Yes, I agree to have my data collected and stored according to the <a href="{$privacyUrl}" target="_blank">Privacy Policy Statement</a>.]]></message>
 	<message key="user.register.form.emailConsent">Yes, I would like to be notified of new publications and announcements.</message>
 	<message key="user.register.form.emailExists">The selected email address is already in use by another user.</message>
 	<message key="user.register.form.passwordsDoNotMatch">The passwords do not match.</message>

@@ -485,6 +485,12 @@
 	<!-- родные ключи импорта/экспорта -->
 	<message key="plugins.importexport.native.error.submissionFileImportFailed">Файл материала не может быть импортирован</message>
 
+	<!-- родные ключи импорта пользователей -->
+	<message key="plugins.importexport.user.importExportErrors">Ошибки импорта/экспорта:</message>
+	<message key="plugins.importexport.user.error.userHasNoPassword">У импортируемого пользователя «{$username}» нет пароля. Проверьте формат вашего файла XML для импорта. Пользователь не был импортирован.</message>
+	<message key="plugins.importexport.user.error.passwordHasBeenChanged">Пароль импортируемого пользователя «{$username}» не модет быть импортирован в данном виде. Новый пароль был отправлен на адрес электронной почты пользователя. Пользователь был импортирован.</message>
+	<message key="plugins.importexport.user.error.plainPasswordNotValid">У импортируемого пользователя «{$username}» задан простой пароль, не соответствующий требованиям. Пользователь не был импортирован.</message>
+	
 	<!-- Меню навигации -->
 	<message key="manager.navigationMenus.form.title">Название</message>
 	<message key="manager.navigationMenus.form.path">Путь</message>

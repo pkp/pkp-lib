@@ -23,11 +23,14 @@
 	<message key="user.authorization.privateOperation">Funktionen du försökte komma åt är antingen privat eller så finns den inte.</message>
 	<message key="user.authorization.restrictedSiteAccess">Åtkomst nekad. Åtkomst till den här sidan är för närvarande begränsad.</message>
 	<message key="user.authorization.roleBasedAccessDenied">Den nuvarande rollen har inte tillgång till den här funktionen.</message>
+	<message key="user.authorization.assignedStageRoleBasedAccessDenied">Du har inte blivit tilldelad det här bidraget i en roll som tillåter dig att komma åt den här funktionen.</message>
 	<message key="user.authorization.userGroupRequired">En giltig användargrupp behöver anges för att använda den här funktionen.</message>
 	<message key="user.authorization.managerRequired">En ansvarig användare (t.ex. produktionsredaktör) måste tilldelas steget innan du kan fortsätta.</message>
 	<message key="user.authorization.accessibleWorkflowStage">Du har för närvarande inte tillgång till det här steget i arbetsflödet.</message>
 	<message key="user.authorization.workflowStageRequired">Steg i arbetsflödet krävs.</message>
 	<message key="user.authorization.pluginRequired">Plugin krävs.</message>
+	<message key="user.authorization.invalidReviewAssignment">Du har inte åtkomsträttigheter till det här granskningsuppdraget.</message>
+	<message key="user.authorization.submissionQuery">Du har inte åtkomsträttigheter till den här diskussionen.</message>
 	<message key="user.biography">Biografiska upplysningar (t.ex. institution och position)</message>
 	<message key="user.changeMyPassword">Ändra mitt lösenord</message>
 	<message key="user.changePassword">Ändra lösenord</message>
@@ -95,6 +98,7 @@
 	<message key="user.profile.form.urlInvalid">Angiven URL ogiltig. Vänligen kontrollera och försök igen. (Tips: Testa att lägga till http:// i början av URL:en.)</message>
 	<message key="user.profile.form.usergroupRequired">Användargrupp krävs.</message>
 	<message key="user.profile.form.usernameRequired">Användarnamn krävs.</message>
+	<message key="user.profile.form.privacyConsentRequired">Du måste acceptera villkoren i integritetspolicyn.</message>
 	<message key="user.profile.leavePasswordBlank">Lämna lösenordsfälten tomma om du vill behålla det nuvarande lösenordet.</message>
 	<message key="user.profile.newPassword">Nytt lösenord</message>
 	<message key="user.profile.oldPassword">Nuvarande lösenord</message>
@@ -105,6 +109,8 @@
 	<message key="user.login.registerNewAccount">Registrera dig</message>
 	<message key="user.login.resetPasswordInstructions">Fyll i e-postadressen för ditt konto nedan och få ett e-postmeddelande med instruktioner om hur du återställer ditt lösenord.</message>
 
+	<message key="user.register.form.privacyConsent"><![CDATA[Ja, jag accepterar att mina data samlas och lagras enligt <a href="{$privacyUrl}" target="_blank">integritetspolicyn</a>.]]></message>
+	<message key="user.register.form.emailConsent">Ja, jag vill bli kontaktad med information om nya publiceringar och meddelanden.</message>
 	<message key="user.register.form.emailExists">E-postadressen används redan av annan användare.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Lösenorden stämmer inte överens.</message>
 	<message key="user.register.form.emailsDoNotMatch">Fälten för e-postadress stämmer inte överens.</message>

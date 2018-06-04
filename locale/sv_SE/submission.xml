@@ -16,12 +16,17 @@
 	<message key="author.submit.submissionCitations">Lägg till en formaterad lista av referenser för verk som citeras i bidraget. Separera varje referens med blankrad.</message>
 	<message key="author.submission.roundStatus.reviewsReady">Nya granskningar har inkommit och är under övervägande hos redaktör.</message>
 	<message key="submission.confirm.message">Ditt bidrag har laddats upp och kan skickas in. Du kan gå tillbaka för att granska och justera informationen du har lagt in innan du skickar in. När du är färdig, klicka på "Skicka in bidrag".</message>
+	<message key="submission.submit.availableUserGroups">Skicka in som</message>
+	<message key="submission.submit.availableUserGroupsDescription">Välj den roll som bäst beskriver din del i det här bidraget.</message>
+	<message key="submission.submit.contactConsent">Kontaktperson</message>
+	<message key="submission.submit.contactConsentDescription">Ja, jag vil bli kontaktad i frågor angående det här bidraget.</message>
+	<message key="submission.submit.userGroupDescriptionManagers">Skicka in i någon av följande roller för att redigera och publicera det här bidraget själv: {$managerGroups}</message>
   	<message key="submission.submit.submissionChecklist">Kravlista för bidrag</message>
 	<message key="submission.submit.submissionChecklistDescription">Du måste läsa och godkänna nedanstående krav innan du kan fortsätta.</message>
 	<message key="submission.submit.submissionComplete">Bidraget är inskickat</message>
 	<message key="submission.submit.submissionCompleteThanks">Tack för visat intresse av publicering i {$contextName}.</message>
 	<message key="submission.submit.copyrightNoticeAgreementLabel">Acceptera upphovsrättsdeklaration</message>
-	<message key="submission.submit.copyrightNoticeAgree">Jag accepterar villkoren i upphovsrättsdeklarationen.</message>
+	<message key="submission.submit.copyrightNoticeAgree">Ja, jag accepterar att följa villkoren i upphovsrättsdeklarationen.</message>
 	<message key="submission.submit.whatNext">Vad händer nu?</message>
 	<message key="submission.submit.whatNext.forNow">Nu kan du:</message>
 	<message key="submission.submit.whatNext.review">Granska bidraget</message>
@@ -190,7 +195,7 @@
 	<message key="submission.email.confirmDeleteLogEntry">Är du säker på att du vill ta bort den här händelsen ur e-postloggen?</message>
 	<message key="submission.email.deleteLogEntry">Ta bort händelse i logg</message>
 	<message key="submission.emailLog">E-postlogg</message>
-	<message key="submission.event.participantAdded">"{$name}" ({$username}) tilldelades det här bidraget som {$userGroupName}.</message>
+	<message key="submission.event.participantAdded">{$name} ({$username}) tilldelades det här bidraget som {$userGroupName}.</message>
 	<message key="submission.event.participantRemoved">"{$name}" ({$username}) togs bort som {$userGroupName}.</message>
 	<message key="submission.event.backToEventLog">Tillbaka till Händelselogg</message>
 	<message key="submission.event.confirmClearLog">Är du säker på att du vill ta bort händelseloggen för det här bidraget?</message>

@@ -76,6 +76,9 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $userDao->newDataObject();
 
+		// Password encryption
+		$encryption = null;
+
 		// Handle metadata in subelements
 		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) if (is_a($n, 'DOMElement')) switch($n->tagName) {
 			case 'username': $user->setUsername($n->textContent); break;
@@ -105,23 +108,32 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 			case 'auth_string': $user->setAuthString($n->textContent); break;
 			case 'disabled_reason': $user->setDisabledReason($n->textContent); break;
 			case 'locales': $user->setLocales(preg_split('/:/', $n->textContent)); break;
-
 			case 'password':
 				if ($n->getAttribute('must_change') == 'true') {
 					$user->setMustChangePassword(true);
 				}
+
 				if ($n->getAttribute('is_disabled') == 'true') {
-					$user->setIsDisabled(true);
+					$user->setDisabled(true);
 				}
+
+				if ($n->getAttribute('encryption')) {
+					$encryption = $n->getAttribute('encryption');
+				}
+
 				$passwordValueNodeList = $n->getElementsByTagNameNS($deployment->getNamespace(), 'value');
 				if ($passwordValueNodeList->length == 1) {
 					$password = $passwordValueNodeList->item(0);
 					$user->setPassword($password->textContent);
 				} else {
-					fatalError("User has no password.  Check your import XML format.");
+					$this->addError(__('plugins.importexport.user.error.userHasNoPassword', array('username' => $user->getUsername())));
 				}
+
 				break;
 		}
+
+		// Password Import Validation
+		$password = $this->importUserPasswordValidation($user, $encryption);
 
 		$userByUsername = $userDao->getByUsername($user->getUsername(), false);
 		$userByEmail = $userDao->getUserByEmail($user->getEmail(), false);
@@ -163,6 +175,16 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 				}
 			}
 		}
+
+		if ($password) {
+			import('lib.pkp.classes.mail.MailTemplate');
+			$mail = new MailTemplate('USER_REGISTER');
+			$mail->setReplyTo($context->getSetting('contactEmail'), $context->getSetting('contactName'));
+			$mail->assignParams(array('username' => $user->getUsername(), 'password' => $password, 'userFullName' => $user->getFullName()));
+			$mail->addRecipient($user->getEmail(), $user->getFullName());
+			$mail->send();
+		}
+
 		return $user;
 	}
 
@@ -197,6 +219,40 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 			default:
 				fatalError('Unknown element ' . $n->tagName);
 		}
+	}
+
+	/**
+	 * Validation process for imported passwords
+	 * @param $userToImport User ByRef. The user that is being imported.
+	 * @param $encryption string null, sha1, md5 (or any other encryption algorithm defined)
+	 * @return string if a new password is generated, the function returns it.
+	 */
+	function importUserPasswordValidation($userToImport, $encryption) {
+		$passwordHash = $userToImport->getPassword();
+		$password = null;
+		if (!$encryption) {
+			$siteDao = DAORegistry::getDAO('SiteDAO');
+			$site = $siteDao->getSite();
+			if (strlen($passwordHash) >= $site->getMinPasswordLength()) {
+				$userToImport->setPassword(Validation::encryptCredentials($userToImport->getUsername(), $passwordHash));
+			} else {
+				$this->addError(__('plugins.importexport.user.error.plainPasswordNotValid', array('username' => $userToImport->getUsername())));
+			}
+		} else {
+			if (password_needs_rehash($passwordHash, PASSWORD_BCRYPT)) {
+
+				$password = Validation::generatePassword();
+				$userToImport->setPassword(Validation::encryptCredentials($userToImport->getUsername(), $password));
+
+				$userToImport->setMustChangePassword(true);
+
+				$this->addError(__('plugins.importexport.user.error.passwordHasBeenChanged', array('username' => $userToImport->getUsername())));
+			} else {
+				$userToImport->setPassword($passwordHash);
+			}
+		}
+
+		return $password;
 	}
 }
 

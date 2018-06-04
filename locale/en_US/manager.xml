@@ -484,6 +484,12 @@
 	<!-- native importexport keys -->
 	<message key="plugins.importexport.native.error.submissionFileImportFailed">The submission file could not be imported</message>
 
+	<!-- native import user keys -->
+	<message key="plugins.importexport.user.importExportErrors">Import/Export errors:</message>
+	<message key="plugins.importexport.user.error.userHasNoPassword">The imported user "{$username}" has no password. Check your import XML format. The user has not been imported.</message>
+	<message key="plugins.importexport.user.error.passwordHasBeenChanged">The imported user "{$username}" password could not be imported as is. A new password is been send to the user email. The user has been imported.</message>
+	<message key="plugins.importexport.user.error.plainPasswordNotValid">The imported user "{$username}" has a plain password that is not valid. The user has not been imported.</message>
+	
 	<!-- Navigation Menus -->
 	<message key="manager.navigationMenus.form.title">Title</message>
 	<message key="manager.navigationMenus.form.path">Path</message>

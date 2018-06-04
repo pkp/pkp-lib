@@ -23,7 +23,7 @@
 	<message key="admin.clearTemplateCache">Borrar caché de la plantilla</message>
 	<message key="admin.configFileUpdatedInstructions"><![CDATA[El archivo de configuración se ha actualizado con éxito. Es posible que, si su sitio ya no funciona correctamente, tenga que arreglar la configuración de forma manual mediante la edición de <tt>config.inc.php</tt> directamente.]]></message>
 	<message key="admin.confirmClearTemplateCache">¿Seguro que quieres borrar la caché de las plantillas confeccionadas?</message>
-	<message key="admin.confirmExpireSessions">¿Está seguro de que desea que todas las sesiones de los usuarios/as caduquen? Todos los usuarios/as que actualmente estén registrados en el sistema estarán obligados a volver a registrarse (usted incluido).</message>
+	<message key="admin.confirmExpireSessions">¿Está seguro de que desea que todas las sesiones de los usuarios/as caduquen? Todos los usuarios/as que actualmente estén registrados en el sistema estarán obligados a volver a iniciar sesión (usted incluido).</message>
 	<message key="admin.contentsOfConfigFile">Contenidos del fichero de configuración</message>
 	<message key="admin.copyAccessLogFileTool.usage">Copie el archivo o los archivos de acceso de registro apache y filtre las entradas relacionadas con esta instalación en el directorio de archivo actual, dentro del directorio de fase UsageStatsPlugin. Debe ejecutarlo un usuario/a que tenga los permisos necesarios para la lectura de archivos de acceso de registro apache.
 

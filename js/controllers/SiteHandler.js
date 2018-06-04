@@ -137,6 +137,13 @@
 			tinyMCE.PluginManager.load('pkpwordcount', $.pkp.app.baseUrl +
 					'/plugins/generic/tinymce/plugins/pkpWordcount/plugin.js');
 
+			var contentCss = $.pkp.app.baseUrl +
+					'/plugins/generic/tinymce/styles/content.css';
+			if ($.pkp.app.cdnEnabled) {
+				contentCss = contentCss + ', ' + $.pkp.app.baseUrl +
+					'/plugins/generic/tinymce/styles/content-font.css';
+			}
+
 			var tinymceParams, tinymceParamDefaults = {
 				width: '100%',
 				resize: 'both',
@@ -154,8 +161,7 @@
 						'superscript subscript | link unlink code fullscreen | ' +
 						'jbimages | pkpTags',
 				statusbar: false,
-				content_css: $.pkp.app.baseUrl +
-						'/plugins/generic/tinymce/styles/content.css'
+				content_css: contentCss
 			};
 
 			// Allow default params to be overridden

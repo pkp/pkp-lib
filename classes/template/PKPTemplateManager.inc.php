@@ -714,6 +714,7 @@ class PKPTemplateManager extends Smarty {
 			'apiBasePath' => '/api/v1',
 			'pathInfoEnabled' => Config::getVar('general', 'disable_path_info') ? false : true,
 			'restfulUrlsEnabled' => Config::getVar('general', 'restful_urls') ? true : false,
+			'cdnEnabled' => Config::getVar('general', 'enable_cdn') ? true : false,
 		);
 		$output .= '$.pkp.app = ' . json_encode($app_data) . ';';
 

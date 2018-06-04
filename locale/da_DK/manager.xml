@@ -508,4 +508,8 @@
 	<message key="manager.navigationMenus.subscriptions.conditionalWarning"><![CDATA[Dette link vises kun, hvis betalinger er aktiveret under Indstillinger> Distribuering> Betaling.]]></message>
 	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning"><![CDATA[Dette link vises kun, hvis den besøgende er logget ind, betalinger er aktiveret under Indstillinger> Distribuering> Betalinger, og abonnementer kræves under Indstillinger> Distribution> Adgang.]]></message>
 	<message key="manager.navigationMenus.search.description">Link til søgeside.</message>
+	<message key="manager.setup.privacyStatement.description">Denne erklæring vises under brugerregistrering, manuskriptindsendelse og på den offentligt tilgængelige privacy-sider om beskyttelse af personlige oplysninger. 
+I nogle retskredse er du forpligtet til at oplyse, hvordan du håndterer brugerdata i din datapolitik.</message>
+	<message key="manager.navigationMenus.privacyStatement.description">Link til den side, der viser din erklæring om beskyttelse af personlige oplysninger</message>
+	<message key="manager.navigationMenus.privacyStatement.conditionalWarning"><![CDATA[Dette link vil kun blive vist, hvis du har indsat en erklæring om beskyttelse af personlige oplysninger under Indstillinger > Workflow > Indsendelser]]></message>
 </locale>

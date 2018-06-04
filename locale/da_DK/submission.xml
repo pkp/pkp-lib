@@ -569,4 +569,9 @@
 	<message key="submission.submit.form.sourceRequired">Indtast en kilde.</message>
 	<message key="submission.submit.form.rightsRequired">Indtast rettighederne.</message>
 	<message key="submission.submit.form.citationsRequired">Indtast referencerne.</message>
+	<message key="submission.submit.availableUserGroups">Indsend som</message>
+	<message key="submission.submit.availableUserGroupsDescription">Vælg den rolle, som bedst beskriver dit bidrag til denne indsendelse.</message>
+	<message key="submission.submit.contactConsent">Tilhørende kontakt</message>
+	<message key="submission.submit.contactConsentDescription">Ja, jeg vil gerne kontaktes i forbindelse med denne indsendelse.</message>
+	<message key="submission.submit.userGroupDescriptionManagers">Indsend med en af følgende roller, hvis du gerne selv vil kunne redigere og publicere denne indsendelse: {$managerGroups}</message>
 </locale>

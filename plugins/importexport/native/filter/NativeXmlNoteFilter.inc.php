@@ -33,7 +33,7 @@ class NativeXmlNoteFilter extends NativeImportFilter {
 	 * @return string
 	 */
 	function getPluralElementName() {
-		return 'Notes';
+		return 'notes';
 	}
 
 	/**
@@ -41,7 +41,7 @@ class NativeXmlNoteFilter extends NativeImportFilter {
 	 * @return string
 	 */
 	function getSingularElementName() {
-		return 'Note';
+		return 'note';
 	}
 
 	//

@@ -33,7 +33,7 @@ class NativeXmlReviewRoundFilter extends NativeImportFilter {
 	 * @return string
 	 */
 	function getPluralElementName() {
-		return 'review rounds';
+		return 'reviewRounds';
 	}
 
 	/**
@@ -41,7 +41,7 @@ class NativeXmlReviewRoundFilter extends NativeImportFilter {
 	 * @return string
 	 */
 	function getSingularElementName() {
-		return 'review round';
+		return 'reviewRound';
 	}
 
 	//

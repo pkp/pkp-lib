@@ -33,7 +33,7 @@ class NativeXmlQueryFilter extends NativeImportFilter {
 	 * @return string
 	 */
 	function getPluralElementName() {
-		return 'Queries';
+		return 'queries';
 	}
 
 	/**
@@ -41,7 +41,7 @@ class NativeXmlQueryFilter extends NativeImportFilter {
 	 * @return string
 	 */
 	function getSingularElementName() {
-		return 'Query';
+		return 'query';
 	}
 
 	//

@@ -33,7 +33,7 @@ class NativeXmlReviewAssignmentFilter extends NativeImportFilter {
 	 * @return string
 	 */
 	function getPluralElementName() {
-		return 'review assignments';
+		return 'reviewAssignments';
 	}
 
 	/**
@@ -41,7 +41,7 @@ class NativeXmlReviewAssignmentFilter extends NativeImportFilter {
 	 * @return string
 	 */
 	function getSingularElementName() {
-		return 'review assignment';
+		return 'reviewAssignment';
 	}
 
 	//

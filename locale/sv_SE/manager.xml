@@ -59,7 +59,7 @@
 	<message key="manager.announcementTypes.typeName">Meddelandetyp</message>
 
 	<!-- Publication Process settings -->
-	<message key="manager.publication.submissionStage">Inskickat</message>
+	<message key="manager.publication.submissionStage">Bidrag</message>
 	<message key="manager.publication.reviewStage">Granskning</message>
 	<message key="manager.publication.editorialStage">Redigering</message>
 	<message key="manager.publication.productionStage">Produktion</message>
@@ -247,7 +247,8 @@
 	<message key="manager.setup.peerReview.description">Sammanfatta granskningspolicyn och -processen för läsare och författare. Den här beskrivningen innehåller ofta antal granskare som normalt används när ett bidrag granskas, kriterier som granskarna ombeds gå efter när de bedömer inskickade bidrag, förväntad tid som krävs för att genomföra granskningar, och principerna som används för att välja granskare.</message>
 	<message key="manager.setup.principalContact">Primär kontakt</message>
 	<message key="manager.setup.principalContactDescription">Kontaktinformation till ex. primär redaktör, ansvarig redaktör eller administratör, som kan visas på din publika webbplats.</message>
-	<message key="manager.setup.privacyStatement">Sekretesspolicy</message>
+	<message key="manager.setup.privacyStatement">Integritetspolicy</message>
+	<message key="manager.setup.privacyStatement.description">Den här texten kommer att synas vid användarregistrering, när författare skickar in bidrag och på den publika sidan Integritet. I vissa jurisdiktioner är det ett lagkrav att publicera hur man hanterar persondata i en integritetspolicy.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Antal veckor tillåtna att acceptera eller avböja en granskningsförfrågan.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Antal veckor tillåtna för granskning</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Påminn aldrig</message>
@@ -395,7 +396,7 @@
 	<message key="settings.libraryFiles.category.permissions">Behörigheter</message>
 	<message key="settings.libraryFiles.category.reports">Rapporter</message>
 	<message key="settings.libraryFiles.category.other">Övrigt</message>
-	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>om "Publik tillgång" aktiveras kan den här biblioteksfilen bli tillgänglig för nedladdning på: <blockquote>{$downloadUrl}</blockquote></p>]]></message>
+	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>Om "Publik tillgång" aktiveras kan den här biblioteksfilen bli tillgänglig för nedladdning på: <blockquote>{$downloadUrl}</blockquote></p>]]></message>
 	<message key="settings.libraryFiles.public.selectLibraryFiles">Välj biblioteksfiler att bifoga</message>
 
 	<!--  Genre grid settings -->
@@ -483,6 +484,12 @@
 	<!-- native importexport keys -->
 	<message key="plugins.importexport.native.error.submissionFileImportFailed">Bidragsfilen kunde inte importeras</message>
 
+	<!-- native import user keys -->
+	<message key="plugins.importexport.user.importExportErrors">Fel underi mport/export:</message>
+	<message key="plugins.importexport.user.error.userHasNoPassword">Den importerade användaren "{$username}" saknar lösenord. Kolla formatet på din import-XML. Användaren importerades inte.</message>
+	<message key="plugins.importexport.user.error.passwordHasBeenChanged">Lösenordet för den importerade användaren "{$username}" kunde inte importerad i sin befintliga form. Användaren har fått ett nytt vlösenord via e-post. Användaren är importerad.</message>
+	<message key="plugins.importexport.user.error.plainPasswordNotValid">Den importerade användaren "{$username}" har ett okrypterat lösenord, vilket inte är giltigt. Användaren importerades inte.</message>
+	
 	<!-- Navigation Menus -->
 	<message key="manager.navigationMenus.form.title">Titel</message>
 	<message key="manager.navigationMenus.form.path">Sökväg</message>
@@ -536,4 +543,6 @@
 	<message key="manager.navigationMenus.subscriptions.conditionalWarning">Den här länken visas bara om betalningar är aktiverade under Inställningar > Distribution > Betalningar.</message>
 	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning">Den här länken visas bara om besökaren är inloggad, betalningar är aktiverade under Inställningar > Distribution > Betalningar och prenumerationer krävs enligt Inställningar > Distribution > Tillgång.</message>
 	<message key="manager.navigationMenus.search.description">Länk till söksidan.</message>
+	<message key="manager.navigationMenus.privacyStatement.description">Länk till sidan som visar er integritetspolicy.</message>
+	<message key="manager.navigationMenus.privacyStatement.conditionalWarning">Den här länken visas enbart om det finns en integritetspolicy inmatad under Inställningar > Arbetsflöde > Bidrag.</message>
 </locale>

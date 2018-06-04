@@ -528,6 +528,7 @@
 	<message key="notification.addedStageParticipant">Användaren tillagd som deltagare i steget.</message>
 	<message key="notification.type.newAnnouncement">Nytt meddelande.</message>
 	<message key="notification.type.reviewAssignment">Väntar på granskning.</message>
+	<message key="notification.type.reviewAssignmentUpdated">Granskningsuppdrag uppdaterat.</message>
 	<message key="notification.type.auditorRequest">Förfrågan om manusgranskning av "{$file}"</message>
 	<message key="notification.type.allReviewsIn">Alla granskningar har kommit in och ett beslut behövs vid {$stage}.</message>
 	<message key="notification.type.allRevisionsIn">En bearbetad fil har laddats upp för redaktionell bedömning av dig vid {$stage}.</message>

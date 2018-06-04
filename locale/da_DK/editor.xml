@@ -143,4 +143,5 @@
 	<message key="reviewer.list.warnOnAssignUnlock">Lås op</message>
 	<message key="reviewer.list.reviewInterests">Bedømmelsesinteresser</message>
 	<message key="reviewer.list.biography">Biografi</message>
+	<message key="reviewer.list.declinedReviews">Bedømmelsesanmodning afslået</message>
 </locale>

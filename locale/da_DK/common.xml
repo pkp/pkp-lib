@@ -539,4 +539,5 @@
 	<message key="notification.email">Send mig ikke en e-mail i forbindelse med denne type meddelelser.</message>
 	<message key="list.viewMore">Vis flere detaljer om {$name}</message>
 	<message key="list.viewLess">Skjul flere detaljer om {$name}</message>
+	<message key="notification.type.reviewAssignmentUpdated">Bedømmelsestildeling opdateret</message>
 </locale>

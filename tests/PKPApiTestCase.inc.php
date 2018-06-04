@@ -19,14 +19,13 @@
  * NB: PHPUnit 3.x requires PHP 5.2 or later so we can use PHP5 constructs.
  */
 
-// Include PHPUnit
 import('lib.pkp.tests.PKPTestHelper');
 
 abstract class PKPAPiTestCase extends PHPUnit_Framework_TestCase {
 	/** @var \GuzzleHttp\Client Guzzle client */
-	protected $client = null;
+	protected $_client = null;
 	/** @var array configuration array */
-	protected $config = null;
+	protected $_config = null;
 
 	/**
 	 * @copydoc PHPUnit_Framework_TestCase::setUp()
@@ -34,9 +33,12 @@ abstract class PKPAPiTestCase extends PHPUnit_Framework_TestCase {
 	public function setUp()
 	{
 		$configFilePath = dirname(dirname(dirname(dirname(__FILE__)))) . '/tests/api/config.json';
-		$this->config = (array) json_decode(file_get_contents($configFilePath));
-		$this->client = new \GuzzleHttp\Client([
-			'base_uri' => $this->config['host'],
+		if (!file_exists($configFilePath)) {
+			throw new Exception("Could not find \"config.json\" file. Please copy tests/api/config.TEMPLATE.json to tests/api/config.json and set 'apiKey' to continue."); 
+		}
+		$this->_config = (array) json_decode(file_get_contents($configFilePath));
+		$this->_client = new \GuzzleHttp\Client([
+			'base_uri' => $this->_config['host'],
 		]);
 	}
 
@@ -44,7 +46,7 @@ abstract class PKPAPiTestCase extends PHPUnit_Framework_TestCase {
 	 * @copydoc PHPUnit_Framework_TestCase::tearDown()
 	 */
 	public function tearDown() {
-		$this->client = null;
+		$this->_client = null;
 	}
 
 	/**
@@ -53,18 +55,31 @@ abstract class PKPAPiTestCase extends PHPUnit_Framework_TestCase {
 	 * @param $endpoint API endpoint
 	 * @param $params array request parameters
 	 * @param $protected boolean whether the endpoint requires authentication
+	 * @return ResponseInterface
 	 */
-	protected function sendRequest($method, $endpoint, $params = array(), $protected = true) {
+	protected function _sendRequest($method, $endpoint, $params = array(), $protected = true) {
 		if ($protected) {
-			$params['apiToken'] = $this->config['apiKey'];
+			$params['apiToken'] = $this->_config['apiKey'];
 		}
-		$endpoint = trim("{$this->config['prefix']}{$endpoint}", "/");
-		return $this->client->request(
+		$endpoint = trim("{$this->_config['prefix']}{$endpoint}", "/");
+		return $this->_client->request(
 			$method,
 			$endpoint,
 			array(
 				'query' => $params,
 			)
 		);
+	}
+
+	/**
+	 * Extracts data from HTTP request returning JSON
+	 * @param ResponseInterface $response
+	 * @return array
+	 */
+	protected function _getResponseData($response) {
+		$body = $response->getBody();
+		$this->assertJson($body->getContents());
+		$data = (array) json_decode($body);
+		return $data;
 	}
 }

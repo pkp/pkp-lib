@@ -371,17 +371,18 @@ abstract class Plugin {
 	public function _overridePluginTemplates($hookName, $args) {
 		$filePath =& $args[0];
 		$template = $args[1];
+		$checkFilePath = $filePath;
+
+		// If there's a templates/ prefix on the template, clean up the test path.
+		if (strpos($filePath, 'plugins/') === 0) $checkFilePath = 'templates/' . $checkFilePath;
 
 		// If there's a lib/pkp/ prefix on the template, test without it.
-		$checkFilePath = $filePath;
 		$libPkpPrefix = 'lib/pkp/';
-		if (strpos($filePath, $libPkpPrefix) === 0) $checkFilePath = substr($filePath, strlen($libPkpPrefix));
+		if (strpos($checkFilePath, $libPkpPrefix) === 0) $checkFilePath = substr($filePath, strlen($libPkpPrefix));
 
 		// Check if an overriding plugin exists in the plugin path.
 		$checkPluginPath = sprintf('%s/%s', $this->getPluginPath(), $checkFilePath);
-		if (file_exists($checkPluginPath)) {
-			$filePath = $checkPluginPath;
-		}
+		if (file_exists($checkPluginPath)) $filePath = $checkPluginPath;
 
 		return false;
 	}

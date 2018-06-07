@@ -102,6 +102,9 @@ class CitationsForm extends Form {
 		$context = $request->getContext();
 		$citationDao = DAORegistry::getDAO('CitationDAO');
 		$parsedCitations = $citationDao->getBySubmissionId($submission->getId());
+		$actionNames = array(
+			'parse' => __('submission.parsedAndSaveCitations'),
+		);
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
 			'submission' => $this->getSubmission(),
@@ -110,6 +113,7 @@ class CitationsForm extends Form {
 			'formParams' => $this->getFormParams(),
 			'citationsRequired' => $context->getSetting('citationsRequired'),
 			'parsedCitations' => $parsedCitations,
+			'actionNames' => $actionNames,
 		));
 		return parent::fetch($request, $template, $display);
 	}
@@ -135,15 +139,15 @@ class CitationsForm extends Form {
 	 */
 	function execute() {
 		parent::execute();
-		$submission = $this->getSubmission();
-
-		$rawCitationList = $this->getData('citations');
-		$citationDao = DAORegistry::getDAO('CitationDAO');
-		$citationDao->importCitations($submission->getId(), $rawCitationList);
-
-		$submission->setCitations($rawCitationList);
-		$submissionDao = Application::getSubmissionDAO();
-		$submissionDao->updateObject($submission);
+		if ($request->getUserVar('parse')) {
+			$submission = $this->getSubmission();
+			$rawCitationList = $this->getData('citations');
+			$citationDao = DAORegistry::getDAO('CitationDAO');
+			$citationDao->importCitations($submission->getId(), $rawCitationList);
+			$submission->setCitations($rawCitationList);
+			$submissionDao = Application::getSubmissionDAO();
+			$submissionDao->updateObject($submission);
+		}
 	}
 
 }

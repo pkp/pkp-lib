@@ -27,6 +27,8 @@ class WebService {
 	var $_authUsername;
 	/** @var string */
 	var $_authPassword;
+	/** @var int */
+	var $_sslVersion;
 
 	/** @var integer */
 	var $_lastResponseStatus;
@@ -48,6 +50,14 @@ class WebService {
 	 */
 	function setAuthPassword($authPassword) {
 		$this->_authPassword = $authPassword;
+	}
+
+	/**
+	 * Sets an (optional) ssl version.
+	 * @param $sslVersion int CURL_SSLVERSION_...
+	 */
+	function setSslVersion($sslVersion) {
+		$this->_sslVersion = $sslVersion;
 	}
 
 	/**
@@ -323,7 +333,8 @@ class WebService {
 	 */
 	function _checkSSL($ch, $url) {
 		if (substr($url, 0, 6) == 'https:') {
-			curl_setopt($ch, CURLOPT_SSLVERSION, 3);
+			$sslVersion = isset($this->_sslVersion) ? $this->_sslVersion : CURL_SSLVERSION_DEFAULT;
+			curl_setopt($ch, CURLOPT_SSLVERSION, $sslVersion);
 			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		}
 	}

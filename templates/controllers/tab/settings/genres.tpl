@@ -13,6 +13,6 @@
 {help file="settings.md" section="workflow-components" class="pkp_help_tab"}
 
 <div class="genres">
-	{url|assign:genresUrl router=$smarty.const.ROUTE_COMPONENT component="grid.settings.genre.GenreGridHandler" op="fetchGrid" escape=false}
+	{capture assign=genresUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.genre.GenreGridHandler" op="fetchGrid" escape=false}{/capture}
 	{load_url_in_div id="genresContainer" url=$genresUrl}
 </div>

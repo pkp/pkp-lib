@@ -33,7 +33,7 @@
 		</span>
 	</a>
 	<div id="notificationsPopover" class="panel">
-		{url|assign:notificationsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.notifications.TaskNotificationsGridHandler" op="fetchGrid" escape=false}
+		{capture assign=notificationsGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.notifications.TaskNotificationsGridHandler" op="fetchGrid" escape=false}{/capture}
 		{load_url_in_div id="notificationsGrid" url=$notificationsGridUrl}
 	</div>
 </div>

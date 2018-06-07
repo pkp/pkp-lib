@@ -31,7 +31,6 @@ class PageHandler extends Handler {
 			array('userNav', 'userNavBackend', 'tasks', 'css'),
 			SITE_ACCESS_ALL_ROLES
 		));
-		if (!Config::getVar('general', 'installed')) define('SESSION_DISABLE_INIT', true);
 
 		$this->setEnforceRestrictedSite(false);
 		return parent::authorize($request, $args, $roleAssignments);

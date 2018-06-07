@@ -32,7 +32,7 @@
 			{fbvElement type="textarea" multilingual="true" id="customHeaders" name="customHeaders" value=$customHeaders}
 		{/fbvFormSection}
 		{fbvFormSection label="manager.setup.searchEngineIndexing.sitemap"}
-			{url|assign:"sitemapPath" router=$smarty.const.ROUTE_PAGE page="sitemap"}
+			{capture assign=sitemapPath}{url router=$smarty.const.ROUTE_PAGE page="sitemap"}{/capture}
 			<div class="description">{translate key="manager.setup.searchEngineIndexing.sitemapDescription" path=$sitemapPath}</div>
 		{/fbvFormSection}
 	{/fbvFormArea}

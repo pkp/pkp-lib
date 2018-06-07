@@ -483,7 +483,7 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 		$smarty->assign('chartType', $chartType);
 		$datasetMaxCount = $this->_getPluginSetting($context, 'datasetMaxCount');
 		$smarty->assign('datasetMaxCount', $datasetMaxCount);
-		$metricsHTML = $smarty->fetch($this->getTemplateResourceName(true) . ':templates/outputBackend.tpl');
+		$metricsHTML = $smarty->fetch($this->getTemplateResource('outputBackend.tpl'));
 		$output .= $metricsHTML;
 
 		return false;

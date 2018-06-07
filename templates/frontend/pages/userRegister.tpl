@@ -154,7 +154,7 @@
 				{translate key="user.register"}
 			</button>
 
-			{url|assign:"rolesProfileUrl" page="user" op="profile" path="roles"}
+			{capture assign="rolesProfileUrl"}{url page="user" op="profile" path="roles"}{/capture}
 			<a href="{url page="login" source=$rolesProfileUrl}" class="login">{translate key="user.login"}</a>
 		</div>
 	</form>

@@ -151,7 +151,6 @@ class PKPPageRouter extends PKPRouter {
 		// If the application has not yet been installed we only
 		// allow installer pages to be displayed.
 		if (!Config::getVar('general', 'installed')) {
-			define('SESSION_DISABLE_INIT', 1);
 			if (!in_array($page, $this->getInstallationPages())) {
 				// A non-installation page was called although
 				// the system is not yet installed. Redirect to

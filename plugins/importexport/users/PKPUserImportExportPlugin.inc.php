@@ -28,13 +28,6 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 	}
 
 	/**
-	 * @copydoc Plugin::getTemplatePath($inCore)
-	 */
-	function getTemplatePath($inCore = false) {
-		return parent::getTemplatePath($inCore) . 'templates/';
-	}
-
-	/**
 	 * Get the name of this plugin. The name must be unique within
 	 * its category.
 	 * @return String name of plugin
@@ -82,7 +75,7 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 		switch (array_shift($args)) {
 			case 'index':
 			case '':
-				$templateMgr->display($this->getTemplatePath() . 'index.tpl');
+				$templateMgr->display($this->getTemplateResource('index.tpl'));
 				break;
 			case 'uploadImportXML':
 				$user = $request->getUser();
@@ -129,7 +122,7 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 					$templateMgr->assign('filterErrors', $filter->getErrors());
 				}
 				$templateMgr->assign('users', $users);
-				$json = new JSONMessage(true, $templateMgr->fetch($this->getTemplatePath() . 'results.tpl'));
+				$json = new JSONMessage(true, $templateMgr->fetch($this->getTemplateResource('results.tpl')));
 				return $json->getString();
 			case 'export':
 				$filter = $this->getUserImportExportFilter($request->getContext(), $request->getUser(), false);

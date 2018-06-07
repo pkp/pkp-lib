@@ -48,7 +48,7 @@ abstract class AuthPlugin extends Plugin {
 	 * @return string
 	 */
 	function getSettingsTemplate() {
-		return $this->getTemplatePath() . 'settings.tpl';
+		return $this->getTemplateResource('settings.tpl');
 	}
 
 

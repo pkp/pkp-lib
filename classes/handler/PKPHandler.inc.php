@@ -467,9 +467,7 @@ class PKPHandler {
 	 */
 	function getWorkingContexts($request) {
 		// For installation process
-		if (defined('SESSION_DISABLE_INIT') || !Config::getVar('general', 'installed')) {
-			return null;
-		}
+		if (defined('SESSION_DISABLE_INIT')) return null;
 
 		$user = $request->getUser();
 		$contextDao = Application::getContextDAO();

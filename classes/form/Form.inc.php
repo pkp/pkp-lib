@@ -443,7 +443,7 @@ class Form {
 	 * @param $params array
 	 * @param $smarty object
 	 */
-	function smartyFormLanguageChooser($params, &$smarty) {
+	function smartyFormLanguageChooser($params, $smarty) {
 		$returner = '';
 
 		// Print back all non-current language field values so that they

@@ -115,6 +115,8 @@ abstract class Plugin {
 
 		HookRegistry::register ('Installer::postInstall', array($this, 'installFilters'));
 
+		$this->_registerTemplateResource();
+
 		return true;
 	}
 
@@ -312,57 +314,52 @@ abstract class Plugin {
 	}
 
 	/**
-	 * Return the Resource Name for templates in this plugin.
-	 *
+	 * Return the Resource Name for templates in this plugin, or if specified, the full resource locator
+	 * for a specific template.
+	 * @param $template Template path/filename, if desired
+	 * @param $inCore boolean True if a "core" template should be used.
 	 * @return string
 	 */
-	public function getTemplateResourceName($inCore = false) {
+	public function getTemplateResource($template = null, $inCore = false) {
 		$pluginPath = $this->getPluginPath();
 		if ($inCore) {
 			$pluginPath = PKP_LIB_PATH . DIRECTORY_SEPARATOR . $pluginPath;
 		}
 		$plugin = basename($pluginPath);
 		$category = basename(dirname($pluginPath));
-
-		return join('/', array(PLUGIN_TEMPLATE_RESOURCE_PREFIX, $pluginPath, $category, $plugin));
+		// Slash characters (/) are not allowed in resource names, so use dashes (-) instead.
+		$resourceName = strtr(join('/', array(PLUGIN_TEMPLATE_RESOURCE_PREFIX, $pluginPath, $category, $plugin)),'/','-');
+		return $resourceName . ($template!==null?":$template":'');
 	}
 
 	/**
 	 * Return the canonical template path of this plug-in
 	 * @param $inCore Return the core template path if true.
-	 * @return string
+	 * @return string|null
 	 */
 	function getTemplatePath($inCore = false) {
-		$basePath = Core::getBaseDir();
-		if ($inCore) {
-			$basePath .= DIRECTORY_SEPARATOR . PKP_LIB_PATH;
-		}
-		return "file:$basePath" . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR;
+		$templatePath = ($inCore?PKP_LIB_PATH . DIRECTORY_SEPARATOR:'') . $this->getPluginPath() . DIRECTORY_SEPARATOR . 'templates';
+		if (is_dir($templatePath)) return $templatePath;
+		return null;
 	}
 
 	/**
 	 * Register this plugin's templates as a template resource
+	 * @param $inCore boolean True iff this is a core resource.
 	 */
-	public function _registerTemplateResource($inCore = false) {
-		$templateMgr = TemplateManager::getManager();
-		$pluginPath = $this->getPluginPath();
-		if ($inCore) {
-			$pluginPath = PKP_LIB_PATH . DIRECTORY_SEPARATOR . $pluginPath;
+	protected function _registerTemplateResource($inCore = false) {
+		if ($templatePath = $this->getTemplatePath($inCore)) {
+			$templateMgr = TemplateManager::getManager();
+			$pluginTemplateResource = new PKPTemplateResource($templatePath);
+			$templateMgr->registerResource($this->getTemplateResource(null, $inCore), $pluginTemplateResource);
 		}
-		$pluginTemplateResource = new PKPTemplateResource($pluginPath);
-		$templateMgr->register_resource($this->getTemplateResourceName($inCore), array(
-			array($pluginTemplateResource, 'fetch'),
-			array($pluginTemplateResource, 'fetchTimestamp'),
-			array($pluginTemplateResource, 'getSecure'),
-			array($pluginTemplateResource, 'getTrusted')
-		));
 	}
 
 	/**
 	 * Call this method when an enabled plugin is registered in order to override
-	 * template files in other plugins. Any plugin which calls this method can
+	 * template files. Any plugin which calls this method can
 	 * override template files by adding their own templates to:
-	 * <overridingPlugin>/templates/plugins/<category>/<originalPlugin>/<path>.tpl
+	 * <overridingPlugin>/templates/plugins/<category>/<originalPlugin>/templates/<path>.tpl
 	 *
 	 * @param $hookName string TemplateResource::getFilename
 	 * @param $args array [
@@ -374,15 +371,18 @@ abstract class Plugin {
 	public function _overridePluginTemplates($hookName, $args) {
 		$filePath =& $args[0];
 		$template = $args[1];
+		$checkFilePath = $filePath;
 
-		if (strpos($filePath, PLUGIN_TEMPLATE_RESOURCE_PREFIX) !== 0) {
-			return false;
-		}
+		// If there's a templates/ prefix on the template, clean up the test path.
+		if (strpos($filePath, 'plugins/') === 0) $checkFilePath = 'templates/' . $checkFilePath;
 
-		$checkPath = sprintf('%s/templates/%s', $this->getPluginPath(), $filePath);
-		if (file_exists($checkPath)) {
-			$filePath = $checkPath;
-		}
+		// If there's a lib/pkp/ prefix on the template, test without it.
+		$libPkpPrefix = 'lib/pkp/';
+		if (strpos($checkFilePath, $libPkpPrefix) === 0) $checkFilePath = substr($filePath, strlen($libPkpPrefix));
+
+		// Check if an overriding plugin exists in the plugin path.
+		$checkPluginPath = sprintf('%s/%s', $this->getPluginPath(), $checkFilePath);
+		if (file_exists($checkPluginPath)) $filePath = $checkPluginPath;
 
 		return false;
 	}
@@ -723,7 +723,7 @@ abstract class Plugin {
 	 * @param $smarty Smarty
 	 * @return string
 	 */
-	function smartyPluginUrl($params, &$smarty) {
+	function smartyPluginUrl($params, $smarty) {
 		$path = array($this->getCategory(), $this->getName());
 		if (is_array($params['path'])) {
 			$params['path'] = array_merge($path, $params['path']);

@@ -74,14 +74,14 @@
 		{** Some decisions can be made before review is initiated (i.e. no attachments). **}
 		{if $reviewRoundId}
 			<div id="attachments">
-				{url|assign:reviewAttachmentsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.attachment.EditorSelectableReviewAttachmentsGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}
+				{capture assign=reviewAttachmentsGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.files.attachment.EditorSelectableReviewAttachmentsGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
 				{load_url_in_div id="reviewAttachmentsGridContainer" url=$reviewAttachmentsGridUrl}
 			</div>
 		{/if}
 
 		<div id="libraryFileAttachments" class="pkp_user_group_other_contexts">
-			{url|assign:libraryAttachmentsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.SelectableLibraryFileGridHandler" op="fetchGrid" submissionId=$submissionId escape=false}
-			{load_url_in_div|assign:libraryAttachmentsGrid id="libraryFilesAttachmentsGridContainer" url=$libraryAttachmentsGridUrl}
+			{capture assign=libraryAttachmentsGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.files.SelectableLibraryFileGridHandler" op="fetchGrid" submissionId=$submissionId escape=false}{/capture}
+			{capture assign=libraryAttachmentsGrid}{load_url_in_div id="libraryFilesAttachmentsGridContainer" url=$libraryAttachmentsGridUrl}{/capture}
 			{include file="controllers/extrasOnDemand.tpl"
 				id="libraryFileAttachmentsExtras"
 				widgetWrapper="#libraryFileAttachments"
@@ -97,13 +97,13 @@
 		<p>{translate key="editor.submission.decision.selectFiles" stageName=$stageName}</p>
 		{* Show a different grid depending on whether we're in review or before the review stage *}
 		{if $stageId == $smarty.const.WORKFLOW_STAGE_ID_SUBMISSION}
-			{url|assign:filesToPromoteGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.submission.SelectableSubmissionDetailsFilesGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId escape=false}
+			{capture assign=filesToPromoteGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.files.submission.SelectableSubmissionDetailsFilesGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId escape=false}{/capture}
 		{elseif $reviewRoundId}
 			{** a set $reviewRoundId var implies we are INTERNAL_REVIEW or EXTERNAL_REVIEW **}
-			{url|assign:filesToPromoteGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.review.SelectableReviewRevisionsGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}
+			{capture assign=filesToPromoteGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.files.review.SelectableReviewRevisionsGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
 		{elseif $stageId == $smarty.const.WORKFLOW_STAGE_ID_EDITING}
-			{url|assign:filesToPromoteGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.copyedit.SelectableCopyeditFilesGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId escape=false}
-			{url|assign:draftFilesToPromoteGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.final.SelectableFinalDraftFilesGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId escape=false}
+			{capture assign=filesToPromoteGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.files.copyedit.SelectableCopyeditFilesGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId escape=false}{/capture}
+			{capture assign=draftFilesToPromoteGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.files.final.SelectableFinalDraftFilesGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId escape=false}{/capture}
 			{load_url_in_div id="draftFilesToPromoteGridUrl" url=$draftFilesToPromoteGridUrl}
 		{/if}
 		{load_url_in_div id="filesToPromoteGrid" url=$filesToPromoteGridUrl}

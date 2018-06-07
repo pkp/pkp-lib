@@ -39,10 +39,10 @@
 		{/fbvFormSection}
 	{/fbvFormArea}
 
-	{url|assign:announcementTypeGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.announcements.AnnouncementTypeGridHandler" op="fetchGrid" escape=false}
+	{capture assign=announcementTypeGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.announcements.AnnouncementTypeGridHandler" op="fetchGrid" escape=false}{/capture}
 	{load_url_in_div id="announcementTypeGridContainer" url=$announcementTypeGridUrl}
 
-	{url|assign:announcementGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.announcements.ManageAnnouncementGridHandler" op="fetchGrid" escape=false}
+	{capture assign=announcementGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.announcements.ManageAnnouncementGridHandler" op="fetchGrid" escape=false}{/capture}
 	{load_url_in_div id="announcementGridContainer" url=$announcementGridUrl}
 
 	{fbvFormButtons id="announcementSettingsFormSubmit" submitText="common.save" hideCancel=true}

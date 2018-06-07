@@ -163,6 +163,7 @@
 	<message key="submission.citations">References</message>
 	<message key="submission.citations.description">Enter each reference on a new line so that it can be extracted.</message>
 	<message key="submission.parsedCitations">Extracted References</message>
+	<message key="submission.parsedCitations.DOI">DOI</message>
 	<message key="submission.parsedCitations.description">The following references have been extracted and will be linked to the submission metadata.</message>
 	<message key="submission.parsedAndSaveCitations">Extract and Save References</message>
 	<message key="submission.comments.addComment">Add Comment</message>

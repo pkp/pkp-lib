@@ -328,13 +328,13 @@ class PKPLocale {
 	}
 
 	/**
-	 * Determine whether or not a locale uses last name first.
+	 * Determine whether or not a locale uses family name first.
 	 * @param $locale xx_XX symbolic name of locale to check
 	 * @return boolean
 	 */
-	static function isLocaleWithLastFirst($locale) {
+	static function isLocaleWithFamilyFirst($locale) {
 		$contents =& AppLocale::_getAllLocalesCacheContent();
-		if (isset($contents[$locale]) && isset($contents[$locale]['lastFirst']) && $contents[$locale]['lastFirst'] == 'true') {
+		if (isset($contents[$locale]) && isset($contents[$locale]['familyFirst']) && $contents[$locale]['familyFirst'] == 'true') {
 			return true;
 		}
 		return false;

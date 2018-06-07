@@ -18,4 +18,4 @@
 		complete (true | false) #IMPLIED
 		stylesheet CDATA #IMPLIED
 		direction CDATA #IMPLIED
-		lastFirst (true | false) #IMPLIED>
+		familyFirst (true | false) #IMPLIED>

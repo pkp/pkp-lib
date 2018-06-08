@@ -12,7 +12,7 @@
 set -e
 
 if [[ -n "$COVERAGE_UPLOAD_SECRET" ]]; then
-	sudo apt-get install -y --force-yes sshpass
+	sudo apt-get install -q -y --force-yes sshpass
 	export SSHPASS=$COVERAGE_UPLOAD_SECRET
 
 	# Prepare a directory with the contents of the dump

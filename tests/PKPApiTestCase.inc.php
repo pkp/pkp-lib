@@ -26,17 +26,53 @@ abstract class PKPAPiTestCase extends PHPUnit_Framework_TestCase {
 	protected $_client = null;
 	/** @var array configuration array */
 	protected $_config = null;
+	/** @var int ID of an entity not in the system */
+	protected $_invalidId = 99999;
+
+	/**
+	 * Helper method to collect items from endpoint
+	 * @param $endpoint string api endpoint
+	 * @return array
+	 */
+	protected function _getAvailableItemsFromEndpoint($endpoint) {
+		$response = $this->_sendRequest('GET', $endpoint);
+		$this->assertEquals(200, $response->getStatusCode());
+		$data = $this->_getResponseData($response);
+		return $data['items'];
+	}
+
+	/**
+	 * Helper method returning the first entity found
+	 * @throws Exception
+	 * @return stdClass
+	 */
+	protected function _getFirstEntity($endpoint) {
+		$entities = $this->_getAvailableItemsFromEndpoint($endpoint);
+		if (empty($entities)) {
+			throw new Exception('Unable to collect a list available entities for endpoint:' . $endpoint);
+		}
+		$this->assertTrue(is_array($entities));
+		$entity = array_shift($entities);
+		$this->assertObjectHasAttribute('id', $entity);
+		return $entity;
+	}
 
 	/**
 	 * @copydoc PHPUnit_Framework_TestCase::setUp()
 	 */
 	public function setUp()
 	{
-		$configFilePath = dirname(dirname(dirname(dirname(__FILE__)))) . '/tests/api/config.json';
-		if (!file_exists($configFilePath)) {
-			throw new Exception("Could not find \"config.json\" file. Please copy tests/api/config.TEMPLATE.json to tests/api/config.json and set 'apiKey' to continue."); 
+		$host = getenv('BASEURL');
+		$prefix = getenv('APIPREFIX');
+		$apiKey = getenv('APIKEY');
+		if (!$host || !$prefix || !$apiKey) {
+			throw new Exception("Could not load required configuration values. Please define BASEURL, APIPREFIX and APIKEY environment variables to continue."); 
 		}
-		$this->_config = (array) json_decode(file_get_contents($configFilePath));
+		$this->_config = array(
+			'host' => $host,
+			'prefix' => $prefix,
+			'apiKey' => $apiKey,
+		);
 		$this->_client = new \GuzzleHttp\Client([
 			'base_uri' => $this->_config['host'],
 		]);

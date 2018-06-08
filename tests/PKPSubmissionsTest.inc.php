@@ -17,6 +17,31 @@ import('lib.pkp.tests.PKPApiTestCase');
 
 class PKPSubmissionsTest extends PKPApiTestCase {
 	/**
+	 * @copydoc PHPUnit_Framework_TestCase::setUp()
+	 */
+	public function setUp() {
+		parent::setUp();
+		$this->submissionDao = Application::getSubmissionDao();
+	}
+
+	/**
+	 * Search for submissions by title and status
+	 * @param $title string Title
+	 * @param $status int Status
+	 * @return array
+	 */
+	protected function _findSubmissionByTitle($title, $status = STATUS_PUBLISHED) {
+		$submissions = array();
+		$result = $this->submissionDao->getByStatus(
+			$status, null, null, null, $title, null, null, null, null, ""
+		);
+		while ($submission = $result->next()) {
+			$submissions[] = $submission;
+		}
+		return $submissions;
+	}
+
+	/**
 	 * @covers /submissions
 	 * @expectedException GuzzleHttp\Exception\ClientException
 	 */
@@ -41,7 +66,8 @@ class PKPSubmissionsTest extends PKPApiTestCase {
 	 * @expectedException GuzzleHttp\Exception\ClientException
 	 */
 	public function testGetSubmissionByIdWithValidIdWithoutToken() {
-		$response = $this->_sendRequest('GET', '/submissions/25', array(), false);
+		$submission = $this->_getFirstEntity('/submissions');
+		$response = $this->_sendRequest('GET', "/submissions/{$submission->id}", array(), false);
 	}
 
 	/**
@@ -49,7 +75,7 @@ class PKPSubmissionsTest extends PKPApiTestCase {
 	 * @expectedException GuzzleHttp\Exception\ClientException
 	 */
 	public function testGetSubmissionByIdWithInvalidId() {
-		$response = $this->_sendRequest('GET', '/submissions/9999');
+		$response = $this->_sendRequest('GET', "/submissions/{$this->_invalidId}");
 		$this->assertSame(404, $response->getStatusCode());
 	}
 
@@ -57,7 +83,8 @@ class PKPSubmissionsTest extends PKPApiTestCase {
 	 * @covers /submissions/{submissionId}
 	 */
 	public function testGetSubmissionByIdWithValidId() {
-		$response = $this->_sendRequest('GET', '/submissions/25');
+		$submission = $this->_getFirstEntity('/submissions');
+		$response = $this->_sendRequest('GET', "/submissions/{$submission->id}");
 		$this->assertSame(200, $response->getStatusCode());
 
 		$data = $this->_getResponseData($response);
@@ -73,7 +100,8 @@ class PKPSubmissionsTest extends PKPApiTestCase {
 	 * @expectedException GuzzleHttp\Exception\ClientException
 	 */
 	public function testGetSubmissionParticipantsWithoutToken() {
-		$response = $this->_sendRequest('GET', '/submissions/25/participants', array(), false);
+		$submission = $this->_getFirstEntity('/submissions');
+		$response = $this->_sendRequest('GET', "/submissions/{$submission->id}/participants", array(), false);
 		$this->assertSame(404, $response->getStatusCode());
 	}
 
@@ -82,7 +110,7 @@ class PKPSubmissionsTest extends PKPApiTestCase {
 	 * @expectedException GuzzleHttp\Exception\ClientException
 	 */
 	public function testGetSubmissionParticipantsWithInvalidId() {
-		$response = $this->_sendRequest('GET', '/submissions/9999/participants');
+		$response = $this->_sendRequest('GET', "/submissions/{$this->_invalidId}/participants");
 		$this->assertSame(404, $response->getStatusCode());
 	}
 
@@ -90,7 +118,8 @@ class PKPSubmissionsTest extends PKPApiTestCase {
 	 * @covers /submissions/{submissionId}/participants
 	 */
 	public function testGetSubmissionParticipants() {
-		$response = $this->_sendRequest('GET', '/submissions/25/participants');
+		$submission = $this->_getFirstEntity('/submissions');
+		$response = $this->_sendRequest('GET', "/submissions/{$submission->id}/participants");
 		$this->assertSame(200, $response->getStatusCode());
 
 		$data = $this->_getResponseData($response);
@@ -110,7 +139,8 @@ class PKPSubmissionsTest extends PKPApiTestCase {
 	 * @expectedException GuzzleHttp\Exception\ClientException
 	 */
 	public function testGetSubmissionParticipantsAssignedToStageWithoutToken() {
-		$response = $this->_sendRequest('GET', '/submissions/25/participants/1', array(), false);
+		$submission = $this->_getFirstEntity('/submissions');
+		$response = $this->_sendRequest('GET', "/submissions/{$submission->id}/participants/" . WORKFLOW_STAGE_ID_SUBMISSION, array(), false);
 		$this->assertSame(404, $response->getStatusCode());
 	}
 
@@ -118,7 +148,8 @@ class PKPSubmissionsTest extends PKPApiTestCase {
 	 * @covers /submissions/{submissionId}/participants/{stageId}
 	 */
 	public function testGetSubmissionParticipantsAssignedToStage() {
-		$response = $this->_sendRequest('GET', '/submissions/25/participants/1');
+		$submission = $this->_getFirstEntity('/submissions');
+		$response = $this->_sendRequest('GET', "/submissions/{$submission->id}/participants/" . WORKFLOW_STAGE_ID_SUBMISSION);
 		$this->assertSame(200, $response->getStatusCode());
 
 		$data = $this->_getResponseData($response);

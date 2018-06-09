@@ -85,7 +85,7 @@ class SelectReviewerListHandler extends SelectListHandler {
 			'reviewInterests' => __('reviewer.list.reviewInterests'),
 			'gossip' => __('user.gossip'),
 			'biography' => __('reviewer.list.biography'),
-			'listSeparator' => __('common.listSeparator'),
+			'listSeparator' => __('common.commaListSeparator'),
 			'viewMore' => __('list.viewMore'),
 			'viewLess' => __('list.viewLess'),
 		));

@@ -241,13 +241,15 @@ class PKPInstall extends Installer {
 	 * @return boolean
 	 */
 	function createData() {
+		$siteLocale = $this->getParam('locale');
+
 		// Add initial site administrator user
 		$userDao = DAORegistry::getDAO('UserDAO', $this->dbconn);
 		$user = $userDao->newDataObject();
 		$user->setUsername($this->getParam('adminUsername'));
 		$user->setPassword(Validation::encryptCredentials($this->getParam('adminUsername'), $this->getParam('adminPassword'), $this->getParam('encryption')));
-		$user->setFirstName($user->getUsername());
-		$user->setLastName($user->getUsername());
+		$user->setGivenName($user->getUsername(), $siteLocale);
+		$user->setFamilyName($user->getUsername(), $siteLocale);
 		$user->setEmail($this->getParam('adminEmail'));
 		$user->setInlineHelp(1);
 		if (!$userDao->insertObject($user)) {
@@ -277,12 +279,11 @@ class PKPInstall extends Installer {
 		$userGroupDao->assignUserToGroup($user->getId(), $adminUserGroup->getId());
 
 		// Add initial site data
-		$locale = $this->getParam('locale');
 		$siteDao = DAORegistry::getDAO('SiteDAO', $this->dbconn);
 		$site = $siteDao->newDataObject();
 		$site->setRedirect(0);
 		$site->setMinPasswordLength(INSTALLER_DEFAULT_MIN_PASSWORD_LENGTH);
-		$site->setPrimaryLocale($locale);
+		$site->setPrimaryLocale($siteLocale);
 		$site->setInstalledLocales($this->installedLocales);
 		$site->setSupportedLocales($this->installedLocales);
 		if (!$siteDao->insertSite($site)) {

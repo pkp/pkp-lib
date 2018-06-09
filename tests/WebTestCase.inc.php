@@ -141,7 +141,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	protected function register($data) {
 		// Check that the required parameters are provided
 		foreach (array(
-			'username', 'firstName', 'lastName'
+			'username', 'givenName', 'familyName'
 		) as $paramName) {
 			$this->assertTrue(isset($data[$paramName]));
 		}
@@ -160,9 +160,9 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		$this->click($selector);
 
 		// Fill in user data
-		$this->waitForElementPresent('css=[id=firstName]');
-		$this->type('css=[id=firstName]', $data['firstName']);
-		$this->type('css=[id=lastName]', $data['lastName']);
+		$this->waitForElementPresent('css=[id=givenName]');
+		$this->type('css=[id=givenName]', $data['givenName']);
+		$this->type('css=[id=familyName]', $data['familyName']);
 		$this->type('css=[id=username]', $username);
 		$this->type('css=[id=email]', $data['email']);
 		$this->type('css=[id=password]', $data['password']);

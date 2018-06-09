@@ -23,11 +23,7 @@
 	<message key="user.dateRegistered">Datum registracije</message>
 	<message key="user.editMyProfile">Uređivanje mog profila</message>
 	<message key="user.email">E-pošta</message>
-	<message key="user.firstName">Ime</message>
-	<message key="user.initialsExample">Ivan Goran Kovačić = IGK</message>
-	<message key="user.initials">Inicijali</message>
 	<message key="user.interests">Recenzentski interesi</message>
-	<message key="user.lastName">Prezime</message>
 	<message key="user.login.accountDisabledWithReason">Vaš korisnički račun je onemogućen zbog sljedećeg razloga: {$razlog}</message>
 	<message key="user.login.accountDisabled">Vaš korisnički račun je onemogućen. Molimo kontaktirajte administratora za više informacija.</message>
 	<message key="user.login.accountNotValidated">Vaša adresa e-pošte nije validirana. Molimo provjerite vašu zaprimljenu e-poštu i slijedite zadane naputke. Ukoliko niste zaprimili poruku, pokušajte sa drugom adresom ili kontaktirajte administratora ove stranice.</message>
@@ -44,15 +40,12 @@
 	<message key="user.login.resetPassword">Izdaj novu lozinku</message>
 	<message key="user.logOut">Odjava</message>
 	<message key="user.mailingAddress">Adresa</message>
-	<message key="user.middleName">Srednje ime</message>
 	<message key="user.myAccount">Moji podaci</message>
 	<message key="user.name">Ime</message>
 	<message key="user.password">Lozinka</message>
 	<message key="user.repeatPassword">Ponovite lozinku</message>
 	<message key="user.phone">Telefon</message>
 	<message key="user.profile.form.emailRequired">Važeća adresa e-pošte je obavezna.</message>
-	<message key="user.profile.form.firstNameRequired">Ime je obavezno.</message>
-	<message key="user.profile.form.lastNameRequired">Prezime je obavezno.</message>
 	<message key="user.profile.form.newPasswordRequired">Morate unijeti vašu novu lozinku.</message>
 	<message key="user.profile.form.oldPasswordInvalid">Sadašnja lozinka koju ste unijeli je neispravna.</message>
 	<message key="user.profile.form.openAccessNotifications">Obavijesti e-pošte o brojevima časopisa otvorenog pristupa</message>
@@ -81,7 +74,6 @@
 	<message key="user.role.reviewers">Recenzenti</message>
 	<message key="user.role.siteAdmins">Administratori stranice</message>
 	<message key="user.roles">Uloge</message>
-	<message key="user.salutation">Naslov</message>
 	<message key="user.sendPassword">Potvrda</message>
 	<message key="user.sendPassword.description">Pošaljite mi e-poštom potvrdu registracije sa mojim korisničkim imenom i lozinkom</message>
 	<message key="user.signature">Signatura</message>

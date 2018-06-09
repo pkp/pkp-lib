@@ -301,9 +301,19 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			// Set user to initial author
 			$authorDao = DAORegistry::getDAO('AuthorDAO');
 			$author = $authorDao->newDataObject();
-			$author->setFirstName($user->getFirstName());
-			$author->setMiddleName($user->getMiddleName());
-			$author->setLastName($user->getLastName());
+			// if no user names exist for this submission locale,
+			// copy the names in default site primary locale for this locale as well
+			$userGivenNames = $user->getGivenName(null);
+			$userFamilyNames = $user->getFamilyName(null);
+			if (is_null($userFamilyNames)) $userFamilyNames = array();
+			if (empty($userGivenNames[$this->submission->getLocale()])) {
+				$site = Application::getRequest()->getSite();
+				$userGivenNames[$this->submission->getLocale()] = $userGivenNames[$site->getPrimaryLocale()];
+				// then there should also be no family name for the submission locale
+				$userFamilyNames[$this->submission->getLocale()] = !empty($userFamilyNames[$site->getPrimaryLocale()]) ? $userFamilyNames[$site->getPrimaryLocale()] : '';
+			}
+			$author->setGivenName($userGivenNames, null);
+			$author->setFamilyName($userFamilyNames, null);
 			$author->setAffiliation($user->getAffiliation(null), null);
 			$author->setCountry($user->getCountry());
 			$author->setEmail($user->getEmail());

@@ -299,24 +299,28 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 			$words = explode(' ', $this->searchPhrase);
 			if (count($words)) {
 				$q->leftJoin('submission_settings as ss','s.submission_id','=','ss.submission_id')
-					->leftJoin('authors as au','s.submission_id','=','au.submission_id');
+					->leftJoin('authors as au','s.submission_id','=','au.submission_id')
+					->leftJoin('author_settings as as', 'as.author_id', '=', 'au.author_id');
 
 				foreach ($words as $word) {
 					$q->where(function($q) use ($word, $isAssignedOnly)  {
 						$q->where(function($q) use ($word) {
 							$q->where('ss.setting_name', 'title');
 							$q->where('ss.setting_value', 'LIKE', "%{$word}%");
+						})
+						->orWhere(function($q) use ($word) {
+							$q->where('as.setting_name', IDENTITY_SETTING_GIVENNAME);
+							$q->where('as.setting_value', 'LIKE', "%{$word}%");
+						})
+						->orWhere(function($q) use ($word, $isAssignedOnly) {
+							$q->where('as.setting_name', IDENTITY_SETTING_FAMILYNAME);
+							$q->where('as.setting_value', 'LIKE', "%{$word}%");
 						});
 						$q->orWhere(function($q) use ($word, $isAssignedOnly) {
 							// Prevent reviewers from matching searches by author name
 							if ($isAssignedOnly) {
 								$q->whereNull('ra.reviewer_id');
 							}
-							$q->where(function($q) use ($word) {
-								$q->where('au.first_name', 'LIKE', "%{$word}%");
-								$q->orWhere('au.middle_name', 'LIKE', "%{$word}%");
-								$q->orWhere('au.last_name', 'LIKE', "%{$word}%");
-							});
 						});
 						if (ctype_digit($word)) {
 							$q->orWhere('s.submission_id', '=', $word);

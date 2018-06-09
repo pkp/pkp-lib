@@ -8,9 +8,8 @@
  * @brief Display the basic registration form fields
  *
  * @uses $locale string Locale key to use in the affiliate field
- * @uses $firstName string First name input entry if available
- * @uses $middleName string Middle name input entry if available
- * @uses $lastName string Last name input entry if available
+ * @uses $givenName string First name input entry if available
+ * @uses $familyName string Last name input entry if available
  * @uses $countries array List of country options
  * @uses $country string The selected country if available
  * @uses $email string Email input entry if available
@@ -21,36 +20,24 @@
 		{translate key="user.profile"}
 	</legend>
 	<div class="fields">
-		<div class="first_name">
+		<div class="given_name">
 			<label>
 				<span class="label">
-					{translate key="user.firstName"}
+					{translate key="user.givenName"}
 					<span class="required">*</span>
 					<span class="pkp_screen_reader">
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="text" name="firstName" id="firstName" value="{$firstName|escape}" maxlength="40" required>
+				<input type="text" name="givenName" id="givenName" value="{$givenName|escape}" maxlength="255" required>
 			</label>
 		</div>
-		<div class="middle_name">
+		<div class="family_name">
 			<label>
 				<span class="label">
-					{translate key="user.middleName"}
+					{translate key="user.familyName"}
 				</span>
-				<input type="text" name="middleName" value="{$middleName|escape}" maxlength="40">
-			</label>
-		</div>
-		<div class="last_name">
-			<label>
-				<span class="label">
-					{translate key="user.lastName"}
-					<span class="required">*</span>
-					<span class="pkp_screen_reader">
-						{translate key="common.required"}
-					</span>
-				</span>
-				<input type="text" name="lastName" id="lastName" value="{$lastName|escape}" maxlength="40" required>
+				<input type="text" name="familyName" id="familyName" value="{$familyName|escape}" maxlength="255">
 			</label>
 		</div>
 		<div class="affiliation">
@@ -62,7 +49,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="text" name="affiliation[{$primaryLocale|escape}]" id="affiliation" value="{$affiliation.$primaryLocale|escape}" required>
+				<input type="text" name="affiliation" id="affiliation" value="{$affiliation|escape}" required>
 			</label>
 		</div>
 		<div class="country">

@@ -173,7 +173,8 @@
 	<message key="common.languages">Мови</message>
 	<message key="common.less">Менше</message>
 	<message key="common.lessThan">{$value} або менше</message>
-	<message key="common.listSeparator">, </message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.manage">Змінити</message>
 	<message key="common.mailingAddress">Поштова адреса</message>
 	<message key="common.billingAddress">Адреса для рахунку (якщо відрізняється)</message>

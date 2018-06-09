@@ -35,15 +35,11 @@
 	<message key="user.dateRegistered">Дата реєстрації</message>
 	<message key="user.editMyProfile">Редагувати мій профіль</message>
 	<message key="user.email">Email</message>
-	<message key="user.firstName">Ім'я</message>
-	<message key="user.initialsExample">Іван Васильович Петренко = ІВП</message>
-	<message key="user.initials">Ініціали</message>
 	<message key="user.interests">Наукові інтереси</message>
 	<message key="user.interests.description">(вказуйте кожний інтерес з нового рядку або розділяйте їх комами)</message>
 	<message key="user.gossip">Приватні нотатки</message>
 	<message key="user.gossip.description">Нотатки, додані сюди, будуть відображені тільки лоя адміністраторів, менеджерів жураналу та редакторам.</message>
 	<message key="user.group">Група користувачів</message>
-	<message key="user.lastName">Прізвище</message>
 	<message key="user.profile.form.profileImageInvalid">Неприпустимий формат фото або зображення занадто великого розміру. Припустимими форматами є .gif, .jpg, або .png, розмір зображення не повинен бути більшим 150x150 пікселів.</message>
 	<message key="user.login.accountDisabledWithReason">Ваш обліковий запис був відключений через таку причину: {$reason}</message>
 	<message key="user.login.accountDisabled">Ваш обліковий запис був відключений. Будь ласка, контактуйте з адміністратором для додаткової інформації.</message>
@@ -71,7 +67,6 @@
 	<message key="user.logOutAs">Вийти як</message>
 	<message key="user.hello">Вітаємо, </message>
 	<message key="user.mailingAddress">Поштова адреса</message>
-	<message key="user.middleName">По батькові</message>
 	<message key="user.myAccount">Мій обліковий запис</message>
 	<message key="user.name">Ім'я</message>
 	<message key="user.password">Пароль</message>
@@ -82,8 +77,6 @@
 	<message key="user.profile.form.countryRequired">Необхідно вказати країну.</message>
 	<message key="user.profile.form.emailRequired">Необхідно вказати коректну адресу email.</message>
 	<message key="user.profile.form.affiliationRequired">Необхідно вказати місце роботи.</message>
-	<message key="user.profile.form.firstNameRequired">Необхідно вказати ім'я.</message>
-	<message key="user.profile.form.lastNameRequired">Необхідно вказати прізвище.</message>
 	<message key="user.profile.form.mailingAddressRequired">Необхідно вказати поштову адресу</message>
 	<message key="user.profile.form.newPasswordRequired">Вам необхідно ввести новий пароль.</message>
 	<message key="user.profile.form.oldPasswordInvalid">Ви вказали невірний старий пароль.</message>
@@ -135,11 +128,9 @@
 	<message key="user.role.layoutEditor">Редактор макета</message>
 	<message key="user.role.layoutEditors">Редактори макета</message>
 	<message key="user.roles">Ролі</message>
-	<message key="user.salutation">Звернення</message>
 	<message key="user.sendPassword">Підтвердження</message>
 	<message key="user.sendPassword.description">Надішліть мені листа з іменем користувача та паролем для доступу</message>
 	<message key="user.signature">Підпис</message>
-	<message key="user.suffix">Суфікс</message>
 	<message key="user.title">Посада</message>
 	<message key="user.url">URL</message>
 	<message key="user.userHome">Тека користувача</message>

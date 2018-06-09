@@ -205,7 +205,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	protected function addAuthor($data) {
 		// Check that the required parameters are provided
 		foreach (array(
-			'firstName', 'lastName', 'email', 'country',
+			'givenName', 'familyName', 'email', 'country',
 		) as $paramName) {
 			$this->assertTrue(isset($data[$paramName]));
 		}
@@ -215,9 +215,9 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		), $data);
 
 		$this->click('css=[id^=component-grid-users-author-authorgrid-addAuthor-button-]');
-		$this->waitForElementPresent('css=[id^=firstName-]');
-		$this->type('css=[id^=firstName-]', $data['firstName']);
-		$this->type('css=[id^=lastName-]', $data['lastName']);
+		$this->waitForElementPresent('css=[id^=givenName-]');
+		$this->type('css=[id^=givenName-]', $data['givenName']);
+		$this->type('css=[id^=familyName-]', $data['familyName']);
 		$this->select('id=country', $data['country']);
 		$this->type('css=[id^=email-]', $data['email']);
 		if (isset($data['affiliation'])) $this->type('css=[id^=affiliation-]', $data['affiliation']);

@@ -49,9 +49,6 @@
 					<element name="gossip" type="string" minOccurs="0" maxOccurs="1" />
 					<element name="signature" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 					<element name="password" type="pkp:password" minOccurs="1" maxOccurs="1" />
-					<element name="salutation" type="string" minOccurs="0" maxOccurs="1" />
-					<element name="initials" type="string" minOccurs="0" maxOccurs="1" />
-					<element name="suffix" type="string" minOccurs="0" maxOccurs="1" />
 					<element name="date_registered" type="string" minOccurs="0" maxOccurs="1" />
 					<element name="date_last_login" type="string" minOccurs="0" maxOccurs="1" />
 					<element name="date_last_email" type="string" minOccurs="0" maxOccurs="1" />

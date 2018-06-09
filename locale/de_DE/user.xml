@@ -38,15 +38,11 @@
 	<message key="user.dateRegistered">Angemeldet am</message>
 	<message key="user.editMyProfile">Mein Profil bearbeiten</message>
 	<message key="user.email">E-Mail</message>
-	<message key="user.firstName">Vorname</message>
-	<message key="user.initialsExample">Beispiel: Joan Alice Smith = JAS</message>
-	<message key="user.initials">Initialen</message>
 	<message key="user.interests">Interessen</message>
 	<message key="user.interests.description">(Trennen Sie Interessen durch die Enter-Taste oder durch Komma.)</message>
 	<message key="user.gossip">Private Notizen</message>
 	<message key="user.gossip.description">Anmerkungen über diese/n Gutachter/in hinzufügen, die Sie mit anderen Administrator/innen, Zeitschriftenverwalter/innen und (Teil-)Redakteur/innen teilen möchten. Die Anmerkungen werden bei künftigen Begutachtungsanfragen berücksichtigt werden können.</message>
 	<message key="user.group">Benutzer/innen-Gruppe</message>
-	<message key="user.lastName">Familienname</message>
 	<message key="user.profile.form.profileImageInvalid">Ungültiges oder zu großes Bildformat für das Nutzer/innenprofil. Gültige Formate sind .gif, .jpg oder .png, und das Bild darf eine Größe von 150x150 Pixel nicht überschreiten.</message>
 	<message key="user.login.accountDisabledWithReason">Ihr Konto wurde aus folgenden Gründen deaktiviert: {$reason}</message>
 	<message key="user.login.accountDisabled">Ihr Konto wurde deaktiviert. Für nähere Informationen setzen Sie sich bitte mit der/dem Website-Administrator/in in Verbindung.</message>
@@ -74,7 +70,6 @@
 	<message key="user.logOutAs">Ausloggen als</message>
 	<message key="user.hello">Hallo, </message>
 	<message key="user.mailingAddress">Adresse</message>
-	<message key="user.middleName">Zweiter Vorname</message>
 	<message key="user.myAccount">Mein Konto</message>
 	<message key="user.name">Name</message>
 	<message key="user.password">Passwort</message>
@@ -85,8 +80,6 @@
 	<message key="user.profile.form.countryRequired">Ein Staat ist erforderlich.</message>
 	<message key="user.profile.form.emailRequired">Eine gültige E-Mail-Adresse ist erforderlich.</message>
 	<message key="user.profile.form.affiliationRequired">Eine Institution muss angegeben werden.</message>
-	<message key="user.profile.form.firstNameRequired">Ein Vorname ist erforderlich.</message>
-	<message key="user.profile.form.lastNameRequired">Ein Nachname ist erforderlich.</message>
 	<message key="user.profile.form.mailingAddressRequired">Eine Postanschrift ist erforderlich.</message>
 	<message key="user.profile.form.newPasswordRequired">Tragen Sie Ihr neues Passwort ein.</message>
 	<message key="user.profile.form.oldPasswordInvalid">Das von Ihnen eingetragene aktuelle Passwort ist nicht korrekt.</message>
@@ -141,11 +134,9 @@
 	<message key="user.role.layoutEditor">Layouter/in</message>
 	<message key="user.role.layoutEditors">Layouter/innen</message>
 	<message key="user.roles">Funktion</message>
-	<message key="user.salutation">Anrede</message>
 	<message key="user.sendPassword">Bestätigung</message>
 	<message key="user.sendPassword.description">Senden Sie mir eine Bestätigungs-E-Mail mit meinem Benutzer/innen-Namen und meinem Passwort.</message>
 	<message key="user.signature">Signatur</message>
-	<message key="user.suffix">Suffix</message>
 	<message key="user.title">Titel</message>
 	<message key="user.url">URL</message>
 	<message key="user.userHome">Persönliche Startseite</message>

@@ -23,11 +23,7 @@
 	<message key="user.dateRegistered">Registrert dato</message>
 	<message key="user.editMyProfile">Rediger min profil</message>
 	<message key="user.email">E-post</message>
-	<message key="user.firstName">Fornavn</message>
-	<message key="user.initialsExample">Jan Anders Svendsen = JAS</message>
-	<message key="user.initials">Initialer</message>
 	<message key="user.interests">Fagvurderingsinteresse</message>
-	<message key="user.lastName">Etternavn</message>
 	<message key="user.login.accountDisabledWithReason">Kontoen din er slått av av følgende grunn: {$reason}</message>
 	<message key="user.login.accountDisabled">Kontoen din er slått av. Vennligst kontakt administratoren for mer informasjon.</message>
 	<message key="user.login.accountNotValidated">E-postadressen din er ikke bekreftet. Vennligst sjekk e-posten du har fått, og følg instruksjonene der. Hvis du ikke har mottatt noen e-post bør du kontakte dette nettstedets administrator for å få hjelp.</message>
@@ -45,7 +41,6 @@
 	<message key="user.login.resetPassword">Tilbakestill passordet</message>
 	<message key="user.logOut">Logg ut</message>
 	<message key="user.mailingAddress">Postadresse</message>
-	<message key="user.middleName">Mellomnavn</message>
 	<message key="user.myAccount">Min brukerkonto</message>
 	<message key="user.name">Navn</message>
 	<message key="user.password">Passord</message>
@@ -54,8 +49,6 @@
 	<message key="user.profile.changePasswordInstructions">Skriv inn ditt nåværende og ditt nye passord nedenfor for å endre passordet for kontoen din.</message>
 	<message key="user.profile.editProfile">Rediger profil</message>
 	<message key="user.profile.form.emailRequired">En gyldig e-postadresse er påkrevet.</message>
-	<message key="user.profile.form.firstNameRequired">Et fornavn er påkrevet.</message>
-	<message key="user.profile.form.lastNameRequired">Et etternavn er påkrevet.</message>
 	<message key="user.profile.form.newPasswordRequired">Du må skrive inn det nye passordet ditt.</message>
 	<message key="user.profile.form.oldPasswordInvalid">Det nåværende passordet du skrev inn ukorrekt.</message>
 	<message key="user.profile.form.openAccessNotifications">E-post varsel når ny utgave er blitt Open Access</message>
@@ -85,7 +78,6 @@
 	<message key="user.role.siteAdmin">Nettstedsadministrator</message>
 	<message key="user.role.siteAdmins">Nettstedsadministratorer</message>
 	<message key="user.roles">Roller</message>
-	<message key="user.salutation">Tiltaleform</message>
 	<message key="user.sendPassword">Bekreftelse</message>
 	<message key="user.sendPassword.description">Send meg en bekreftelse med brukernavn og passord</message>
 	<message key="user.signature">Signatur</message>
@@ -110,5 +102,4 @@
 	<message key="user.profile.form.countryRequired">Land må oppgis.</message>
 	<message key="user.profile.form.mailingAddressRequired">En postadresse må oppgis.</message>
 	<message key="user.register.form.emailsDoNotMatch">E-postadressene samsvarer ikke med hverandre.</message>
-	<message key="user.suffix">Suffiks</message>
 </locale>

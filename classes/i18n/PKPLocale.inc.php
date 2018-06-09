@@ -328,6 +328,19 @@ class PKPLocale {
 	}
 
 	/**
+	 * Determine whether or not a locale uses family name first.
+	 * @param $locale xx_XX symbolic name of locale to check
+	 * @return boolean
+	 */
+	static function isLocaleWithFamilyFirst($locale) {
+		$contents =& AppLocale::_getAllLocalesCacheContent();
+		if (isset($contents[$locale]) && isset($contents[$locale]['familyFirst']) && $contents[$locale]['familyFirst'] == 'true') {
+			return true;
+		}
+		return false;
+	}
+
+	/**
 	 * Check if the supplied locale is currently installable.
 	 * @param $locale string
 	 * @return boolean

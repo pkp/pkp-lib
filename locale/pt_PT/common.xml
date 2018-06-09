@@ -515,7 +515,8 @@
 	<message key="common.from">De</message>
 	<message key="common.until">Até</message>
 	<message key="common.lessThan">{$value} ou menos</message>
-	<message key="common.listSeparator">,</message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.moreThan">{$value} ou mais</message>
 	<message key="common.pagination">{$start}-{$end} de {$total}</message>
 	<message key="common.pagination.label">Visitar páginas adicionais</message>

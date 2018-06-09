@@ -13,8 +13,6 @@
  *   $disableAuthSourceSection: Disable Auth section
  *   $disablePasswordSection: Disable Password section
  *   $disableSendNotifySection: Disable SendNotify section
- *   $disableSalutationSection: Disable Salutation section
- *   $disableInitialsSection: Disable Initials section
  *   $disablePhoneSection: Disable Phone section
  *   $disableLocaleSection: Disable Locale section
  *   $disableInterestsSection: Disable Interests section
@@ -27,9 +25,12 @@
 
 {fbvFormArea id="userDetails"}
 	{fbvFormSection title="user.name"}
-		{fbvElement type="text" label="user.firstName" required="true" id="firstName" value=$firstName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
-		{fbvElement type="text" label="user.middleName" id="middleName" value=$middleName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
-		{fbvElement type="text" label="user.lastName" required="true" id="lastName" value=$lastName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
+		{fbvElement type="text" label="user.givenName" multilingual="true" name="givenName" id="givenName" value=$givenName maxlength="255" inline=true size=$fbvStyles.size.MEDIUM required="true"}
+		{fbvElement type="text" label="user.familyName" multilingual="true" name="familyName" id="familyName" value=$familyName maxlength="255" inline=true size=$fbvStyles.size.MEDIUM}
+	{/fbvFormSection}
+
+	{fbvFormSection for="preferredPublicName" description="user.preferredPublicName.description"}
+		{fbvElement type="text" label="user.preferredPublicName" multilingual="true" name="preferredPublicName" id="preferredPublicName" value=$preferredPublicName size=$fbvStyles.size.LARGE}
 	{/fbvFormSection}
 
 	{if !$disableUserNameSection}
@@ -110,16 +111,6 @@
 {call_hook name="Common::UserDetails::AdditionalItems"}
 {capture assign="extraContent"}
 	{fbvFormArea id="userFormExtendedLeft"}
-		{fbvFormSection}
-			{if !$disableSalutationSection}
-				{fbvElement type="text" label="user.salutation" name="salutation" id="salutation" value=$salutation maxlength="40" inline=true size=$fbvStyles.size.SMALL}
-			{/if}
-			{fbvElement type="text" label="user.suffix" id="suffix" value=$suffix size=$fbvStyles.size.SMALL inline=true}
-			{if !$disableInitialsSection}
-				{fbvElement type="text" label="user.initials" name="initials" id="initials" value=$initials maxlength="5" inline=true size=$fbvStyles.size.SMALL}
-			{/if}
-		{/fbvFormSection}
-
 		{fbvFormSection}
 			{fbvElement type="text" label="user.url" name="userUrl" id="userUrl" value=$userUrl maxlength="255" inline=true size=$fbvStyles.size.SMALL}
 			{if !$disablePhoneSection}

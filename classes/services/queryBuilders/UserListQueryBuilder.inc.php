@@ -415,7 +415,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 				case 'mssql':
 				case 'sqlsrv':
 				case 'pdo':
-					$dateDiffClause = 'DATEPART(day, DATEDIFF(s, ra.date_notified, ra.date_completed))';
+					$dateDiffClause = 'DATEDIFF(D, ra.date_notified, ra.date_completed)';
 					break;
 				default:
 					$dateDiffClause = 'DATE_PART(\'day\', ra.date_completed - ra.date_notified)';
@@ -510,7 +510,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 		\HookRegistry::call('User::getUsers::queryObject', array(&$q, $this));
 
 		if (!empty($this->countOnly)) {
-			$q->select(Capsule::raw('count(*) as user_count'));
+			$q->select(Capsule::raw('count(distinct u.user_id) as user_count'));
 		} else {
 			$q->select($this->columns);
 		}

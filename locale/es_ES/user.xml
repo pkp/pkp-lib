@@ -32,14 +32,10 @@
 	<message key="user.dateRegistered">Fecha de registro</message>
 	<message key="user.editMyProfile">Editar mi perfil</message>
 	<message key="user.email">Correo electrónico</message>
-	<message key="user.firstName">Nombre</message>
-	<message key="user.initialsExample">Juan Anselmo Seguí = JAS</message>
-	<message key="user.initials">Iniciales</message>
 	<message key="user.interests">Intereses de revisión</message>
 	<message key="user.interests.description">(Para separar los intereses pulse la tecla Intro o de coma)</message>
 	<message key="user.gossip">Notas privadas</message>
 	<message key="user.group">Grupo de usuarios/as</message>
-	<message key="user.lastName">Apellidos</message>
 	<message key="user.login.activated">Gracias por activar su cuenta. Ahora puede iniciar sesión con las credenciales que proporcionó al crear la cuenta.</message>
 	<message key="user.profile.form.profileImageInvalid">La imagen del perfil no tiene un formato válido o es demasiado grande. Se aceptan los siguientes formatos: .gif, .jpg y .png. Además, la imagen no puede exceder los 150x150 píxeles.</message>
 	<message key="user.login.accountDisabledWithReason">Se ha deshabilitado su cuenta por el siguiente motivo: {$reason}</message>
@@ -61,7 +57,6 @@
 	<message key="user.logOutAs">Cerrar sesión como</message>
 	<message key="user.hello">Hola: </message>
 	<message key="user.mailingAddress">Dirección postal</message>
-	<message key="user.middleName">Segundo Nombre</message>
 	<message key="user.myAccount">Mi cuenta</message>
 	<message key="user.name">Nombre</message>
 	<message key="user.password">Contraseña</message>
@@ -72,8 +67,6 @@
 	<message key="user.profile.form.countryRequired">Introduzca un país.</message>
 	<message key="user.profile.form.emailRequired">Es necesaria una dirección de correo-e válida.</message>
 	<message key="user.profile.form.affiliationRequired">Se requiere afiliación.</message>
-	<message key="user.profile.form.firstNameRequired">Es necesario el nombre.</message>
-	<message key="user.profile.form.lastNameRequired">Es necesario el apellido.</message>
 	<message key="user.profile.form.mailingAddressRequired">Introduzca una dirección postal.</message>
 	<message key="user.profile.form.newPasswordRequired">Debes introducir tu nueva contraseña.</message>
 	<message key="user.profile.form.oldPasswordInvalid">La contraseña actual que has introducido no es correcta.</message>
@@ -122,11 +115,9 @@
 	<message key="user.role.layoutEditor">Maquetador</message>
 	<message key="user.role.layoutEditors">Maquetadores</message>
 	<message key="user.roles">Tareas</message>
-	<message key="user.salutation">Tratamiento</message>
 	<message key="user.sendPassword">Confirmación</message>
 	<message key="user.sendPassword.description">Enviar un mensaje de confirmación incluyendo mi nombre de usuario y contraseña.</message>
 	<message key="user.signature">Firma</message>
-	<message key="user.suffix">Sufijo</message>
 	<message key="user.title">Título</message>
 	<message key="user.url">URL</message>
 	<message key="user.userHome">Inicio</message>

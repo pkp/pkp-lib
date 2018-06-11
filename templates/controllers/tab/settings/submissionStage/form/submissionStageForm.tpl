@@ -29,7 +29,7 @@
 		{/fbvFormSection}
 	{/fbvFormArea}
 
-	{url|assign:submissionChecklistGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.settings.submissionChecklist.SubmissionChecklistGridHandler" op="fetchGrid" escape=false}
+	{capture assign=submissionChecklistGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.submissionChecklist.SubmissionChecklistGridHandler" op="fetchGrid" escape=false}{/capture}
 	{load_url_in_div id="submissionChecklistGridDiv" url=$submissionChecklistGridUrl}
 
 	{fbvFormArea id="notificationSettings"}
@@ -44,7 +44,7 @@
 		{/if}
 	{/fbvFormArea}
 
-	{url|assign:metadataGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.settings.metadata.MetadataGridHandler" op="fetchGrid" escape=false}
+	{capture assign=metadataGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.metadata.MetadataGridHandler" op="fetchGrid" escape=false}{/capture}
 	{load_url_in_div id="metadataGridContainer" url=$metadataGridUrl}
 
 	{fbvFormArea id="privacyStatementArea"}

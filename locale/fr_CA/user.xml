@@ -23,11 +23,7 @@
 	<message key="user.dateRegistered">Date d'inscription</message>
 	<message key="user.editMyProfile">Modifier mon profil</message>
 	<message key="user.email">Courriel</message>
-	<message key="user.firstName">Prénom</message>
-	<message key="user.initialsExample">Joan Alice Smith = JAS</message>
-	<message key="user.initials">Initiales</message>
 	<message key="user.interests">Intérêts pour les évaluations</message>
-	<message key="user.lastName">Nom de famille</message>
 	<message key="user.login.accountDisabledWithReason">Votre compte a été désactivé pour les raisons suivantes : {$reason}</message>
 	<message key="user.login.accountDisabled">Votre compte a été désactivé. Veuillez communiquer avec l'administrateur du site pour plus d'information.</message>
 	<message key="user.login.accountNotValidated">Votre courriel "{$email}" n'a pas été validé. Vérifier vos courriels et suivez les directives que nous vous avons fait parvenir. Si vous n'avez pas reçu de courriel, vous devrez peut-être communiquer avec l'administrateur du site pour obtenir de l'aide.</message>
@@ -46,7 +42,6 @@
 	<message key="user.login.resetPassword">Réinitialiser le mot de passe</message>
 	<message key="user.logOut">Se déconnecter</message>
 	<message key="user.mailingAddress">Adresse postale</message>
-	<message key="user.middleName">Second prénom</message>
 	<message key="user.myAccount">Mon compte</message>
 	<message key="user.name">Nom</message>
 	<message key="user.orcid">Identifiant ORCID</message>
@@ -57,8 +52,6 @@
 	<message key="user.profile.contact">Contact</message>
 	<message key="user.profile.editProfile">Modifier le profil</message>
 	<message key="user.profile.form.emailRequired">Une adresse de courriel valide est obligatoire.</message>
-	<message key="user.profile.form.firstNameRequired">Le prénom est obligatoire.</message>
-	<message key="user.profile.form.lastNameRequired">Le nom de famille est obligatoire.</message>
 	<message key="user.profile.form.newPasswordRequired">Vous devez saisir votre nouveau mot de passe.</message>
 	<message key="user.profile.form.oldPasswordInvalid">Le mot de passe actuel saisi est incorrect.</message>
 	<message key="user.profile.form.openAccessNotifications">Avis par courriel d'un nouveau numéro en accès libre</message>
@@ -93,7 +86,6 @@
 	<message key="user.role.siteAdmin">Administrateur du site</message>
 	<message key="user.role.siteAdmins">Administrateurs du site</message>
 	<message key="user.roles">Rôles</message>
-	<message key="user.salutation">Appel</message>
 	<message key="user.sendPassword">Confirmation</message>
 	<message key="user.sendPassword.description">M'envoyer un courriel de confirmation incluant mon nom d'utilisateur et mon mot de passe</message>
 	<message key="user.signature">Signature</message>
@@ -118,7 +110,6 @@
 	<message key="user.role.authors">Auteurs</message>
 	<message key="user.role.editor">Rédacteur</message>
 	<message key="user.role.editors">Rédacteurs</message>
-	<message key="user.suffix">Suffixe</message>
 	<message key="user.authorization.contextRequired">Vous ne pouvez pas appeler cette opération sans spécifier son contexte (presse, journal, conférence, etc.)</message>
 	<message key="user.authorization.loginRequired">Ouverture de session requise.</message>
 	<message key="user.authorization.privateOperation">L'opération que vous tentez d'accéder est privée ou n'existe pas.</message>

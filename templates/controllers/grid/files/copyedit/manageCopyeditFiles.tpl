@@ -21,7 +21,7 @@
 		{csrf}
 		{fbvFormArea id="manageCopyeditFiles"}
 			{fbvFormSection}
-				{url|assign:manageCopyeditFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.copyedit.ManageCopyeditFilesGridHandler" op="fetchGrid" submissionId=$submissionId escape=false}
+				{capture assign=manageCopyeditFilesGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.files.copyedit.ManageCopyeditFilesGridHandler" op="fetchGrid" submissionId=$submissionId escape=false}{/capture}
 				{load_url_in_div id="manageCopyeditFilesGrid" url=$manageCopyeditFilesGridUrl}
 			{/fbvFormSection}
 

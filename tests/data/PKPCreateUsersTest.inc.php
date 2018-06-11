@@ -39,11 +39,11 @@ class PKPCreateUsersTest extends WebTestCase {
 
 			$this->waitForElementPresent($selector='css=[id^=component-grid-settings-user-usergrid-addUser-button-]');
 			$this->click($selector);
-			$this->waitForElementPresent('css=[id^=firstName-]');
+			$this->waitForElementPresent('css=[id^=givenName-]');
 
 			// Fill in user data
-			$this->type('css=[id^=firstName-]', $data['firstName']);
-			$this->type('css=[id^=lastName-]', $data['lastName']);
+			$this->type('css=[id^=givenName-]', $data['givenName']);
+			$this->type('css=[id^=familyName-]', $data['familyName']);
 			$this->type('css=[id^=username-]', $username);
 			$this->type('css=[id^=email-]', $data['email']);
 			$this->type('css=[id^=password-]', $data['password']);

@@ -46,8 +46,8 @@ class RegistrationForm extends Form {
 			return $password == $form->getData('password2');
 		}));
 
-		$this->addCheck(new FormValidator($this, 'firstName', 'required', 'user.profile.form.firstNameRequired'));
-		$this->addCheck(new FormValidator($this, 'lastName', 'required', 'user.profile.form.lastNameRequired'));
+		$this->addCheck(new FormValidator($this, 'givenName', 'required', 'user.profile.form.givenNameRequired'));
+
 		$this->addCheck(new FormValidator($this, 'country', 'required', 'user.profile.form.countryRequired'));
 
 		// Email checks
@@ -95,9 +95,6 @@ class RegistrationForm extends Form {
 		$countries = $countryDao->getCountries();
 		$templateMgr->assign('countries', $countries);
 
-		$site = $request->getSite();
-		$templateMgr->assign('availableLocales', $site->getSupportedLocaleNames());
-
 		import('lib.pkp.classes.user.form.UserFormHelper');
 		$userFormHelper = new UserFormHelper();
 		$userFormHelper->assignRoleContent($templateMgr, $request);
@@ -131,9 +128,8 @@ class RegistrationForm extends Form {
 			'username',
 			'password',
 			'password2',
-			'firstName',
-			'middleName',
-			'lastName',
+			'givenName',
+			'familyName',
 			'affiliation',
 			'email',
 			'country',
@@ -171,14 +167,24 @@ class RegistrationForm extends Form {
 
 		$user->setUsername($this->getData('username'));
 
+		// The multilingual user data (givenName, familyName and affiliation) will be saved
+		// in the current UI locale and copied in the site's primary locale too
+		$site = $request->getSite();
+		$sitePrimaryLocale = $site->getPrimaryLocale();
+		$currentLocale = AppLocale::getLocale();
+
 		// Set the base user fields (name, etc.)
-		$user->setFirstName($this->getData('firstName'));
-		$user->setMiddleName($this->getData('middleName'));
-		$user->setLastName($this->getData('lastName'));
-		$user->setInitials($this->getData('initials'));
+		$user->setGivenName($this->getData('givenName'), $currentLocale);
+		$user->setFamilyName($this->getData('familyName'), $currentLocale);
 		$user->setEmail($this->getData('email'));
 		$user->setCountry($this->getData('country'));
-		$user->setAffiliation($this->getData('affiliation'), null); // Localized
+		$user->setAffiliation($this->getData('affiliation'), $currentLocale);
+
+		if ($sitePrimaryLocale != $currentLocale) {
+			$user->setGivenName($this->getData('givenName'), $sitePrimaryLocale);
+			$user->setFamilyName($this->getData('familyName'), $sitePrimaryLocale);
+			$user->setAffiliation($this->getData('affiliation'), $sitePrimaryLocale);
+		}
 
 		$user->setDateRegistered(Core::getCurrentDate());
 		$user->setInlineHelp(1); // default new users to having inline help visible.

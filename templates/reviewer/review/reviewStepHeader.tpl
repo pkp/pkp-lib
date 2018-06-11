@@ -8,7 +8,7 @@
  * Header for the submission review pages.
  *}
 {strip}
-{translate|assign:"review" key='submission.review'}
+{capture assign="review"}{translate key='submission.review'}{/capture}
 {assign var="submissionTitle" value=$submission->getLocalizedTitle()|strip_unsafe_html}
 {assign var="pageTitleTranslated" value="$review: <em>$submissionTitle</em>"}
 {include file="common/header.tpl"}

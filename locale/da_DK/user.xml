@@ -22,11 +22,7 @@
 	<message key="user.dateRegistered">Registreringsdato</message>
 	<message key="user.editMyProfile">Rediger min profil</message>
 	<message key="user.email">E-mail</message>
-	<message key="user.firstName">Fornavn</message>
-	<message key="user.initialsExample">Jens Peter Skov = JPS</message>
-	<message key="user.initials">Initialer</message>
 	<message key="user.interests">Bedømmelsesinteresser</message>
-	<message key="user.lastName">Efternavn</message>
 	<message key="user.login.accountDisabledWithReason">Din konto er blevet deaktiveret af følgende årsag: {$reason}</message>
 	<message key="user.login.accountDisabled">Din konto er blevet deaktiveret. Kontakt administratoren for at få flere oplysninger.</message>
 	<message key="user.login.accountNotValidated">Vi har sendt en bekræftelses-e-mail til dig på {$email}. For at aktivere din nye konto skal du følge de angivne instruktioner i e-mailen. Hvis du ikke kan se nogen e-mail, bedes du tjekke din spam-mappe.</message>
@@ -44,7 +40,6 @@
 	<message key="user.login.resetPassword">Nulstil adgangskode</message>
 	<message key="user.logOut">Log af</message>
 	<message key="user.mailingAddress">Postadresse</message>
-	<message key="user.middleName">Mellemnavn</message>
 	<message key="user.myAccount">Min konto</message>
 	<message key="user.name">Navn</message>
 	<message key="user.password">Adgangskode</message>
@@ -53,8 +48,6 @@
 	<message key="user.profile.changePasswordInstructions">Angiv din aktuelle og din nye adgangskode nedenfor for at ændre adgangskoden til din konto.</message>
 	<message key="user.profile.editProfile">Rediger profil</message>
 	<message key="user.profile.form.emailRequired">En gyldig e-mail-adresse er påkrævet.</message>
-	<message key="user.profile.form.firstNameRequired">Et fornavn er påkrævet.</message>
-	<message key="user.profile.form.lastNameRequired">Et efternavn er påkrævet.</message>
 	<message key="user.profile.form.newPasswordRequired">Du skal angive din nye adgangskode.</message>
 	<message key="user.profile.form.oldPasswordInvalid">Den aktuelle adgangskode, du har angivet, er forkert.</message>
 	<message key="user.profile.form.openAccessNotifications">E-mail-beskeder om Open Access til nummer</message>
@@ -82,7 +75,6 @@
 	<message key="user.role.siteAdmin">Webstedsadministrator</message>
 	<message key="user.role.siteAdmins">Webstedsadministratorer</message>
 	<message key="user.roles">Roller</message>
-	<message key="user.salutation">Starthilsen</message>
 	<message key="user.sendPassword">Bekræftelse</message>
 	<message key="user.sendPassword.description">Send mig en bekræftelse via e-mail med mit brugernavn og min adgangskode</message>
 	<message key="user.signature">Signatur</message>
@@ -113,7 +105,6 @@
 	<message key="user.profile.form.mailingAddressRequired">En e-mailadresse er påkrævet.</message>
 	<message key="user.profile.form.passwordSameAsOld">Din nye adgangskode er den samme som din gamle adgangskode.</message>
 	<message key="user.profile.form.usergroupRequired">En brugergruppe er påkrævet.</message>
-	<message key="user.suffix">Suffiks</message>
 	<message key="user.profile.identity">Identitet</message>
 	<message key="user.profile.contact">Kontakt</message>
 	<message key="user.profile.public">Offentlig</message>

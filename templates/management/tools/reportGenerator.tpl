@@ -8,13 +8,10 @@
  * Report generator page.
  *
  *}
-{strip}
-{assign var="pageTitle" value="manager.statistics.reports"}
-{include file="common/header.tpl"}
-{/strip}
+{include file="common/header.tpl" pageTitle="manager.statistics.reports"}
 
 <div class="pkp_page_content pkp_page_statistics">
-    {url|assign:reportGeneratorUrl router=$smarty.const.ROUTE_COMPONENT component="statistics.ReportGeneratorHandler" op="fetchReportGenerator" escape=false}
+    {capture assign=reportGeneratorUrl}{url router=$smarty.const.ROUTE_COMPONENT component="statistics.ReportGeneratorHandler" op="fetchReportGenerator" escape=false}{/capture}
     {load_url_in_div id="reportGeneratorContainer" url="$reportGeneratorUrl"}
 </div>
 

@@ -362,6 +362,20 @@ class Form {
 	}
 
 	/**
+	 * Add a supported locale.
+	 * @param $supportedLocale string
+	 */
+	function addSupportedFormLocale($supportedLocale) {
+		if (!in_array($supportedLocale, $this->supportedLocales)) {
+			$site = Application::getRequest()->getSite();
+			$siteSupportedLocales = $site->getSupportedLocaleNames();
+			if (array_key_exists($supportedLocale, $siteSupportedLocales)) {
+				$this->supportedLocales[$supportedLocale] = $siteSupportedLocales[$supportedLocale];
+			}
+		}
+	}
+
+	/**
 	 * Get the current form locale.
 	 * @return string
 	 */
@@ -443,7 +457,7 @@ class Form {
 	 * @param $params array
 	 * @param $smarty object
 	 */
-	function smartyFormLanguageChooser($params, &$smarty) {
+	function smartyFormLanguageChooser($params, $smarty) {
 		$returner = '';
 
 		// Print back all non-current language field values so that they

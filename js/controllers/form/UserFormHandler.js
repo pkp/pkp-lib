@@ -64,7 +64,7 @@
 
 	/**
 	 * The message that will be displayed if users click on suggest
-	 * username button with no data in lastname.
+	 * username button with no data in family name.
 	 * @private
 	 * @type {string}
 	 */
@@ -88,22 +88,20 @@
 		e.preventDefault();
 
 		var $form = this.getHtmlElement(),
-				firstName, lastName, fetchUrl;
-
-		if ($('[name="lastName"]', $form).val() === '') {
-			// No last name entered; cannot suggest. Complain.
-			alert(this.usernameSuggestionTextAlert_);
-			return;
-		}
+				givenName, familyName, fetchUrl, sitePrimaryLocale;
 
 		// Fetch entered names
-		firstName = /** @type {string} */ $('[name="firstName"]', $form).val();
-		lastName = /** @type {string} */ $('[name="lastName"]', $form).val();
+		sitePrimaryLocale =
+				/** @type {string} */ $('[name="sitePrimaryLocale"]', $form).val();
+		givenName = /** @type {string} */ $('[name="givenName[' +
+				sitePrimaryLocale + ']"]', $form).val();
+		familyName = /** @type {string} */ $('[name="familyName[' +
+				sitePrimaryLocale + ']"]', $form).val();
 
 		// Replace dummy values in the URL with entered values
 		fetchUrl = this.fetchUsernameSuggestionUrl_.
-				replace('FIRST_NAME_DUMMY', firstName).
-				replace('LAST_NAME_DUMMY', lastName);
+				replace('GIVEN_NAME_PLACEHOLDER', givenName).
+				replace('FAMILY_NAME_PLACEHOLDER', familyName);
 
 		$.get(fetchUrl, this.callbackWrapper(this.setUsername), 'json');
 	};

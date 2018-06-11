@@ -7,6 +7,5 @@
  *
  * Language administration.
  *}
-
-{url|assign:languagesUrl router=$smarty.const.ROUTE_COMPONENT component="grid.admin.languages.AdminLanguageGridHandler" op="fetchGrid" escape=false}
+{capture assign=languagesUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.admin.languages.AdminLanguageGridHandler" op="fetchGrid" escape=false}{/capture}
 {load_url_in_div id="languageGridContainer" url=$languagesUrl}

@@ -9,7 +9,7 @@
  *}
 <!DOCTYPE html>
 <html lang="{$currentLocale|replace:"_":"-"}" xml:lang="{$currentLocale|replace:"_":"-"}">
-{if !$pageTitleTranslated}{translate|assign:"pageTitleTranslated" key=$pageTitle}{/if}
+{if !$pageTitleTranslated}{capture assign=pageTitleTranslated}{translate key=$pageTitle}{/capture}{/if}
 {include file="core:common/headerHead.tpl"}
 <body class="pkp_page_{$requestedPage|escape|default:"index"} pkp_op_{$requestedOp|escape|default:"index"}" dir="{$currentLocaleLangDir|escape|default:"ltr"}">
 	<script type="text/javascript">
@@ -35,9 +35,9 @@
 				{* Logo or site title *}
 				<div class="pkp_site_name">
 					{if $currentContext && $multipleContexts}
-						{url|assign:"homeUrl" journal="index" router=$smarty.const.ROUTE_PAGE}
+						{capture assign=homeUrl}{url journal="index" router=$smarty.const.ROUTE_PAGE}{/capture}
 					{else}
-						{url|assign:"homeUrl" page="index" router=$smarty.const.ROUTE_PAGE}
+						{capture assign=homeUrl}{url page="index" router=$smarty.const.ROUTE_PAGE}{/capture}
 					{/if}
 					{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
 						<a href="{$homeUrl}" class="is_img">
@@ -123,7 +123,7 @@
 					</ul>
 				{/if}
 
-				{url|assign:fetchHeaderUrl router=$smarty.const.ROUTE_COMPONENT component="page.PageHandler" op="userNavBackend" escape=false}
+				{capture assign=fetchHeaderUrl}{url router=$smarty.const.ROUTE_COMPONENT component="page.PageHandler" op="userNavBackend" escape=false}{/capture}
 				{load_url_in_div class="pkp_navigation_user" id="navigationUserWrapper" url=$fetchHeaderUrl}
 			</div><!-- pkp_navigation -->
 		</header>

@@ -30,13 +30,9 @@
 	<message key="user.dateRegistered">Data rejestracji</message>
 	<message key="user.editMyProfile">Edytuj mój profil</message>
 	<message key="user.email">E-mail</message>
-	<message key="user.firstName">Pierwsze imię</message>
-	<message key="user.initialsExample">Anna Maria Kowalska = AMK</message>
-	<message key="user.initials">Inicjały</message>
 	<message key="user.interests">Przegląd zainteresowań</message>
 	<message key="user.interests.description">(Oddziel zainteresowania stosując ENTER lub przecinek)</message>
 	<message key="user.gossip">Prywatne notatki</message>
-	<message key="user.lastName">Nazwisko</message>
 	<message key="user.profile.form.profileImageInvalid">Nieprawidłowy format lub za duży rozmiar zdjęcia. Akceptowane formaty to: GIF, JPG lub PNG. Maksymalna wielkość zdjęcia to:  150x150 pikseli.</message>
 	<message key="user.login.accountDisabledWithReason">Twoje konto zostało wyłączone z nastepujących powodów: {$reason}</message>
 	<message key="user.login.accountDisabled">Twoje konto zostało wyłączone. Aby dowiedzieć się więcej skontaktuj się z administratorem.</message>
@@ -56,7 +52,6 @@
 	<message key="user.login.resetPassword">Zmień hasło</message>
 	<message key="user.logOut">Wyloguj się</message>
 	<message key="user.mailingAddress">Adres</message>
-	<message key="user.middleName">Drugie imię</message>
 	<message key="user.myAccount">Moje konto</message>
 	<message key="user.name">Nazwa użytkownika (np. jankowalski)</message>
 	<message key="user.password">Hasło (dozwolone małe litery i cyfry)</message>
@@ -66,8 +61,6 @@
 	<message key="user.profile.editProfile">Edytuj profil</message>
 	<message key="user.profile.form.emailRequired">Podanie adresu e-mail jest wymagane.</message>
 	<message key="user.profile.form.affiliationRequired">Podanie afiliacji jest wymagane.</message>
-	<message key="user.profile.form.firstNameRequired">Podanie pierwszego imienia jest wymagane.</message>
-	<message key="user.profile.form.lastNameRequired">Podanie nazwiska jest wymagane.</message>
 	<message key="user.profile.form.newPasswordRequired">Musisz podać swoje nowe hasło.</message>
 	<message key="user.profile.form.oldPasswordInvalid">Wprowadzone hasło jest niepoprawne. </message>
 	<message key="user.profile.form.openAccessNotifications">Powiadomienia dotyczące numerów w otwartym dostępie</message>
@@ -97,7 +90,6 @@
 	<message key="user.role.siteAdmin">Administrator strony</message>
 	<message key="user.role.siteAdmins">Administratorzy strony</message>
 	<message key="user.roles">Role</message>
-	<message key="user.salutation">Tytuł / stopień naukowy</message>
 	<message key="user.sendPassword">Potwierdzenie</message>
 	<message key="user.sendPassword.description">Wyślij potwierdzenie zawierające nazwę użytkownika i hasło na adres e-mail.</message>
 	<message key="user.signature">Podpis (dodawany do wiadomości wysyłanych ze strony)</message>
@@ -113,7 +105,6 @@
 	<message key="user.profile.form.mailingAddressRequired">Podanie adresu e-mail jest wymagane.</message>
 	<message key="user.profile.form.passwordSameAsOld">Twoje nowe hasło jest identyczne jak stare hasło.</message>
 	<message key="user.profile.form.usergroupRequired">Podanie grupy użytkownika jest wymagane.</message>
-	<message key="user.suffix">Sufiks</message>
 	<message key="user.authorization.managerRequired">Użytkownik pełniący rolę redaktora musi być przypisany do tego etapu, aby kontynuować.</message>
 	<message key="user.authorization.accessibleWorkflowStage">Nie posiadasz uprawnień dostępu do tego etapu.</message>
 	<message key="user.authorization.workflowStageRequired">Etap nie został określony.</message>

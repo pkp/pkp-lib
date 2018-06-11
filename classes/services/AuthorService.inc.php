@@ -40,17 +40,11 @@ class AuthorService extends PKPBaseEntityPropertyService {
 				case 'sequence':
 					$values[$prop] = (int) $author->getSequence();
 					break;
-				case 'firstName':
-					$values[$prop] = $author->getFirstName();
+				case 'givenName':
+					$values[$prop] = $author->getGivenName(null);
 					break;
-				case 'middleName':
-					$values[$prop] = $author->getMiddleName();
-					break;
-				case 'lastName':
-					$values[$prop] = $author->getLastName();
-					break;
-				case 'suffix':
-					$values[$prop] = $author->getSuffix();
+				case 'familyName':
+					$values[$prop] = $author->getFamilyName(null);
 					break;
 				case 'fullName':
 					$values[$prop] = $author->getFullName();
@@ -108,7 +102,7 @@ class AuthorService extends PKPBaseEntityPropertyService {
 	 */
 	public function getFullProperties($author, $args = null) {
 		$props = array (
-			'id','seq','firstName','middleName','lastName','suffix','fullName','country','email','url','userGroupId',
+			'id','seq','givenName','familyName','fullName','country','email','url','userGroupId',
 			'isBrowseable','isPrimaryContact','affiliation','biography','orcid',
 		);
 

@@ -11,7 +11,7 @@
 {include file="common/header.tpl" pageTitle="installer.installApplication"}
 
 <div class="pkp_page_content pkp_page_install_complete">
-	{url|assign:"loginUrl" page="login"}
+	{capture assign="loginUrl"}{url page="login"}{/capture}
 	{translate key="installer.installationComplete" loginUrl=$loginUrl}
 
 	{if $writeConfigFailed}

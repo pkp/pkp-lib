@@ -18,112 +18,163 @@
  * @brief Basic class providing common functionality for users and authors in the system.
  */
 
+define('IDENTITY_SETTING_GIVENNAME', 'givenName');
+define('IDENTITY_SETTING_FAMILYNAME', 'familyName');
+
 class Identity extends DataObject {
 
 	/**
-	 * Get the identity's complete name.
-	 * Includes first name, middle name (if applicable), and last name.
-	 * @param $lastFirst boolean False / default: Firstname Middle Lastname
-	 * 	If true: Lastname, Firstname Middlename
+	 * Get a piece of data for this object, localized to the current
+	 * locale if possible.
+	 * @param $key string
+	 * @param $preferredLocale string
+	 * @return mixed
+	 */
+	function &getLocalizedData($key, $preferredLocale = null) {
+		if (is_null($preferredLocale)) $preferredLocale = AppLocale::getLocale();
+		$localePrecedence = array($preferredLocale);
+		// the users register for the site, thus
+		// the site primary locale is the default locale
+		$site = Application::getRequest()->getSite();
+		if (!in_array($site->getPrimaryLocale(), $localePrecedence)) $localePrecedence[] = $site->getPrimaryLocale();
+		// for settings other than givenName, familyName and affiliation (that are required for registration)
+		// consider also the context primary locale
+		if (!in_array(AppLocale::getPrimaryLocale(), $localePrecedence)) $localePrecedence[] = AppLocale::getPrimaryLocale();
+		foreach ($localePrecedence as $locale) {
+			if (empty($locale)) continue;
+			$value =& $this->getData($key, $locale);
+			if (!empty($value)) return $value;
+			unset($value);
+		}
+
+		// Fallback: Get the first available piece of data.
+		$data =& $this->getData($key, null);
+		foreach ((array) $data as $dataValue) {
+			if (!empty($dataValue)) return $dataValue;
+		}
+
+		// No data available; return null.
+		unset($data);
+		$data = null;
+		return $data;
+	}
+
+	/**
+	 * Get the identity's localized complete name.
+	 * Includes given name and family name.
+	 * @param $preferred boolean If the preferred public name should be used, if exist
+	 * @param $familyFirst boolean False / default: Givenname Familyname
+	 * 	If true: Familyname, Givenname
+	 * @param $defaultLocale string
 	 * @return string
 	 */
-	function getFullName($lastFirst = false) {
-		$salutation = $this->getData('salutation');
-		$firstName = $this->getData('firstName');
-		$middleName = $this->getData('middleName');
-		$lastName = $this->getData('lastName');
-		$suffix = $this->getData('suffix');
-		if ($lastFirst) {
-			return "$lastName, " . ($salutation != ''?"$salutation ":'') . $firstName . ($middleName != ''?" $middleName":'');
+	function getFullName($preferred = true, $familyFirst = false, $defaultLocale = null) {
+		$locale = AppLocale::getLocale();
+		if ($preferred) {
+			$preferredPublicName = $this->getPreferredPublicName($locale);
+			if (!empty($preferredPublicName)) return $preferredPublicName;
+		}
+		$givenName = $this->getGivenName($locale);
+		if (empty($givenName)) {
+			if (is_null($defaultLocale)) {
+				// the users register for the site, thus
+				// the site primary locale is the default locale
+				$site = Application::getRequest()->getSite();
+				$defaultLocale = $site->getPrimaryLocale();
+			}
+			$locale = $defaultLocale;
+			$givenName = $this->getGivenName($locale);
+		}
+		$familyName = $this->getFamilyName($locale);
+		if ($familyFirst) {
+			return ($familyName != ''?"$familyName, " :'') . $givenName;
 		} else {
-			return ($salutation != ''?"$salutation ":'') . "$firstName " . ($middleName != ''?"$middleName ":'') . $lastName . ($suffix != ''?", $suffix":'');
+			return $givenName . ($familyName != ''?" $familyName" :'');
 		}
 	}
 
-
 	/**
-	 * Get first name.
+	 * Get given name.
+	 * @param $locale string
 	 * @return string
 	 */
-	function getFirstName() {
-		return $this->getData('firstName');
+	function getGivenName($locale) {
+		return $this->getData(IDENTITY_SETTING_GIVENNAME, $locale);
 	}
 
 	/**
-	 * Set first name.
-	 * @param $firstName string
+	 * Set given name.
+	 * @param $givenName string
+	 * @param $locale string
 	 */
-	function setFirstName($firstName) {
-		$this->setData('firstName', $firstName);
+	function setGivenName($givenName, $locale) {
+		$this->setData(IDENTITY_SETTING_GIVENNAME, $givenName, $locale);
 	}
 
-
 	/**
-	 * Get middle name.
+	 * Get the localized given name
 	 * @return string
 	 */
-	function getMiddleName() {
-		return $this->getData('middleName');
+	function getLocalizedGivenName() {
+		return $this->getLocalizedData(IDENTITY_SETTING_GIVENNAME);
 	}
 
 	/**
-	 * Set middle name.
-	 * @param $middleName string
-	 */
-	function setMiddleName($middleName) {
-		$this->setData('middleName', $middleName);
-	}
-
-	/**
-	 * Get last name.
+	 * Get family name.
+	 * @param $locale string
 	 * @return string
 	 */
-	function getLastName() {
-		return $this->getData('lastName');
+	function getFamilyName($locale) {
+		return $this->getData(IDENTITY_SETTING_FAMILYNAME, $locale);
 	}
 
 	/**
-	 * Set last name.
-	 * @param $lastName string
+	 * Set family name.
+	 * @param $familyName string
+	 * @param $locale string
 	 */
-	function setLastName($lastName) {
-		$this->setData('lastName', $lastName);
+	function setFamilyName($familyName, $locale) {
+		$this->setData(IDENTITY_SETTING_FAMILYNAME, $familyName, $locale);
 	}
 
 	/**
-	 * Get initials.
+	 * Get the localized family name
+	 * Return family name for the locale first name exists in
+	 * @param $defaultLocale string
 	 * @return string
 	 */
-	function getInitials() {
-		$initials = $this->getData('initials');
-		if (!$initials) {
-			$initials = PKPString::substr($this->getFirstName(), 0, 1) . PKPString::substr($this->getLastName(), 0, 1);
+	function getLocalizedFamilyName($defaultLocale = null) {
+		$locale = AppLocale::getLocale();
+		$givenName = $this->getGivenName($locale);
+		if (empty($givenName)) {
+			if (is_null($defaultLocale)) {
+				// the users register for the site, thus
+				// the site primary locale is the default locale
+				$site = Application::getRequest()->getSite();
+				$defaultLocale =  $site->getPrimaryLocale();
+			}
+			$locale = $defaultLocale;
+			assert(!empty($this->getGivenName($locale)));
 		}
-		return $initials;
+		return $this->getFamilyName($locale);
 	}
 
 	/**
-	 * Set initials.
-	 * @param $initials string
-	 */
-	function setInitials($initials) {
-		$this->setData('initials', $initials);
-	}
-
-	/**
-	 * Get user salutation.
+	 * Get preferred public name.
+	 * @param $locale string
 	 * @return string
 	 */
-	function getSalutation() {
-		return $this->getData('salutation');
+	function getPreferredPublicName($locale) {
+		return $this->getData('preferredPublicName', $locale);
 	}
 
 	/**
-	 * Set user salutation.
-	 * @param $salutation string
+	 * Set preferred public name.
+	 * @param $preferredPublicName string
+	 * @param $locale string
 	 */
-	function setSalutation($salutation) {
-		$this->setData('salutation', $salutation);
+	function setPreferredPublicName($preferredPublicName, $locale) {
+		$this->setData('preferredPublicName', $preferredPublicName, $locale);
 	}
 
 	/**
@@ -145,7 +196,7 @@ class Identity extends DataObject {
 	}
 
 	/**
-	 * Get the localized affiliation for this author
+	 * Get the localized affiliation
 	 */
 	function getLocalizedAffiliation() {
 		return $this->getLocalizedData('affiliation');
@@ -181,22 +232,6 @@ class Identity extends DataObject {
 	 */
 	function setOrcid($orcid) {
 		$this->setData('orcid', $orcid);
-	}
-
-	/**
-	 * Get name suffix.
-	 * @return string
-	 */
-	function getSuffix() {
-		return $this->getData('suffix');
-	}
-
-	/**
-	 * Set suffix.
-	 * @param $suffix string
-	 */
-	function setSuffix($suffix) {
-		$this->setData('suffix', $suffix);
 	}
 
 	/**
@@ -245,7 +280,7 @@ class Identity extends DataObject {
 	}
 
 	/**
-	 * Get the localized biography for this author
+	 * Get the localized biography
 	 * @return string
 	 */
 	function getLocalizedBiography() {
@@ -253,7 +288,7 @@ class Identity extends DataObject {
 	}
 
 	/**
-	 * Get author biography.
+	 * Get biography.
 	 * @param $locale string
 	 * @return string
 	 */
@@ -262,13 +297,14 @@ class Identity extends DataObject {
 	}
 
 	/**
-	 * Set author biography.
+	 * Set biography.
 	 * @param $biography string
 	 * @param $locale string
 	 */
 	function setBiography($biography, $locale) {
 		$this->setData('biography', $biography, $locale);
 	}
+
 }
 
 ?>

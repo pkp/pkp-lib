@@ -71,6 +71,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 	function parseUser($node) {
 		$deployment = $this->getDeployment();
 		$context = $deployment->getContext();
+		$site = $deployment->getSite();
 
 		// Create the data object
 		$userDao = DAORegistry::getDAO('UserDAO');
@@ -82,13 +83,21 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 		// Handle metadata in subelements
 		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) if (is_a($n, 'DOMElement')) switch($n->tagName) {
 			case 'username': $user->setUsername($n->textContent); break;
-			case 'firstname': $user->setFirstName($n->textContent); break;
-			case 'middlename': $user->setMiddleName($n->textContent); break;
-			case 'lastname': $user->setLastName($n->textContent); break;
-			case 'initials': $user->setInitials($n->textContent); break;
-			case 'salutation': $user->setSalutation($n->textContent); break;
-			case 'suffix': $user->setSuffix($n->textContent); break;
-			case 'affiliation': $user->setAffiliation($n->textContent, $n->getAttribute('locale')); break;
+			case 'givenname':
+				$locale = $n->getAttribute('locale');
+				if (empty($locale)) $locale = $site->getPrimaryLocale();
+				$user->setGivenName($n->textContent, $locale);
+				break;
+			case 'familyname':
+				$locale = $n->getAttribute('locale');
+				if (empty($locale)) $locale = $site->getPrimaryLocale();
+				$user->setFamilyName($n->textContent, $locale);
+				break;
+			case 'affiliation':
+				$locale = $n->getAttribute('locale');
+				if (empty($locale)) $locale = $site->getPrimaryLocale();
+				$user->setAffiliation($n->textContent, $locale);
+				break;
 			case 'country': $user->setCountry($n->textContent); break;
 			case 'email': $user->setEmail($n->textContent); break;
 			case 'url': $user->setUrl($n->textContent); break;
@@ -96,9 +105,17 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 			case 'phone': $user->setPhone($n->textContent); break;
 			case 'billing_address': $user->setBillingAddress($n->textContent); break;
 			case 'mailing_address': $user->setMailingAddress($n->textContent); break;
-			case 'biography': $user->setBiography($n->textContent, $n->getAttribute('locale')); break;
+			case 'biography':
+				$locale = $n->getAttribute('locale');
+				if (empty($locale)) $locale = $site->getPrimaryLocale();
+				$user->setBiography($n->textContent, $locale);
+				break;
 			case 'gossip': $user->setGossip($n->textContent); break;
-			case 'signature': $user->setSignature($n->textContent, $n->getAttribute('locale')); break;
+			case 'signature':
+				$locale = $n->getAttribute('locale');
+				if (empty($locale)) $locale = $site->getPrimaryLocale();
+				$user->setSignature($n->textContent, $locale);
+				break;
 			case 'date_registered': $user->setDateRegistered($n->textContent); break;
 			case 'date_last_login': $user->setDateLastLogin($n->textContent); break;
 			case 'date_last_email': $user->setDateLastEmail($n->textContent); break;
@@ -141,6 +158,58 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 			$user = $userByUsername;
 			$userId = $user->getId();
 		} elseif (!$userByUsername && !$userByEmail) {
+			// if user names do not exists in the site primary locale
+			// copy one of the existing for the default/required site primary locale
+			if (empty($user->getGivenName($site->getPrimaryLocale()))) {
+				// get all user given names, family names and affiliations
+				$userGivenNames = $user->getGivenName(null);
+				$userFamilyNames = $user->getFamilyName(null);
+				$userAffiliations = $user->getAffiliation(null);
+				// get just not empty user given names, family names and affiliations
+				$notEmptyGivenNames =  $notEmptyFamilyNames = $notEmptyAffiliations = array();
+				$notEmptyGivenNames = array_filter($userGivenNames, function($a) {
+					return !empty($a);
+				});
+				// if all given names are empty, import fails
+				if (empty($notEmptyGivenNames)) {
+					fatalError("User given name is empty.");
+				}
+				if (!empty($userFamilyNames)) {
+					$notEmptyFamilyNames = array_filter($userFamilyNames, function($a) {
+						return !empty($a);
+					});
+				}
+				if (!empty($userAffiliations)) {
+					$notEmptyAffiliations = array_filter($userAffiliations, function($a) {
+						return !empty($a);
+					});
+				}
+				// see if both, given and family name, exist in the same locale
+				$commonLocales = array_intersect_key($notEmptyGivenNames, $notEmptyFamilyNames);
+				if (empty($commonLocales)) {
+					// if not: copy only the given name
+					$firstLocale = reset(array_keys($notEmptyGivenNames));
+					$user->setGivenName($notEmptyGivenNames[$firstLocale], $site->getPrimaryLocale());
+				} else {
+					// else: take the first common locale for given and family name
+					$firstLocale = reset(array_keys($commonLocales));
+					// see if there is affiliation in a common locale
+					$affiliationCommonLocales = array_intersect_key($notEmptyAffiliations, $commonLocales);
+					if (!empty($affiliationCommonLocales)) {
+						// take the first common locale to all, given name, family name and affiliation
+						$firstLocale = reset(array_keys($affiliationCommonLocales));
+						// copy affiliation
+						if (empty($notEmptyAffiliations[$site->getPrimaryLocale()])) {
+							$user->setAffiliation($notEmptyAffiliations[$firstLocale], $site->getPrimaryLocale());
+						}
+					}
+					//copy given and family name
+					$user->setGivenName($notEmptyGivenNames[$firstLocale], $site->getPrimaryLocale());
+					if (empty($notEmptyFamilyNames[$site->getPrimaryLocale()])) {
+						$user->setFamilyName($notEmptyFamilyNames[$firstLocale], $site->getPrimaryLocale());
+					}
+				}
+			}
 			$userId = $userDao->insertObject($user);
 
 			// Insert reviewing interests, now that there is a userId.

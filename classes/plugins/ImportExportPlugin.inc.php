@@ -76,7 +76,7 @@ abstract class ImportExportPlugin extends Plugin {
 	 * @param $smarty Smarty
 	 * @return string
 	 */
-	function pluginUrl($params, &$smarty) {
+	function pluginUrl($params, $smarty) {
 		$dispatcher = $this->_request->getDispatcher();
 		return $dispatcher->url($this->_request, ROUTE_PAGE, null, 'management', 'importexport', array_merge(array('plugin', $this->getName(), isset($params['path'])?$params['path']:array())));
 	}

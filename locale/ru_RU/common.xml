@@ -174,7 +174,8 @@
 	<message key="common.languages">Языки</message>
 	<message key="common.less">Меньше</message>
 	<message key="common.lessThan">{$value} или меньше</message>
-	<message key="common.listSeparator">, </message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.manage">Настроить</message>
 	<message key="common.mailingAddress">Почтовый адрес</message>
 	<message key="common.billingAddress">Адрес для отправки счета (если отличается)</message>

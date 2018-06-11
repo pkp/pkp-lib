@@ -173,7 +173,8 @@
 	<message key="common.languages">Språk</message>
 	<message key="common.less">Färre</message>
 	<message key="common.lessThan">{$value} eller färre</message>
-	<message key="common.listSeparator">, </message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.manage">Administrera</message>
 	<message key="common.mailingAddress">Adress</message>
 	<message key="common.billingAddress">Faktureringsadress (om annan)</message>

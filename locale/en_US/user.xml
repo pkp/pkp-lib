@@ -38,15 +38,13 @@
 	<message key="user.dateRegistered">Date registered</message>
 	<message key="user.editMyProfile">Edit My Profile</message>
 	<message key="user.email">Email</message>
-	<message key="user.firstName">First Name</message>
-	<message key="user.initialsExample">Joan Alice Smith = JAS</message>
-	<message key="user.initials">Initials</message>
+	<message key="user.givenName">Given Name</message>
 	<message key="user.interests">Reviewing interests</message>
 	<message key="user.interests.description">(Separate interests by pressing the enter or comma key)</message>
 	<message key="user.gossip">Editorial Notes</message>
 	<message key="user.gossip.description">Record notes about this reviewer that you would like to make visible to other administrators, managers and all editors. Notes will be visible for future review assignments.</message>
 	<message key="user.group">User Group</message>
-	<message key="user.lastName">Last Name</message>
+	<message key="user.familyName">Family Name</message>
 	<message key="user.profile.form.profileImageInvalid">Invalid profile image format or image too big. Accepted formats are .gif, .jpg, or .png, and the image must not exceed 150x150 pixels.</message>
 	<message key="user.login.accountDisabledWithReason">Your account has been disabled for the following reason: {$reason}</message>
 	<message key="user.login.accountDisabled">Your account has been disabled. Please contact the administrator for more information.</message>
@@ -74,19 +72,20 @@
 	<message key="user.logOutAs">Logout as</message>
 	<message key="user.hello">Hello, </message>
 	<message key="user.mailingAddress">Mailing Address</message>
-	<message key="user.middleName">Middle Name</message>
 	<message key="user.myAccount">My Account</message>
 	<message key="user.name">Name</message>
 	<message key="user.password">Password</message>
 	<message key="user.repeatPassword">Repeat password</message>
 	<message key="user.phone">Phone</message>
+	<message key="user.preferredPublicName">Preferred Public Name</message>
+	<message key="user.preferredPublicName.description">How do you prefer to be addressed? Salutations, middle names and suffixes can be added here if you would like.</message>
 	<message key="user.profile.changePasswordInstructions">Enter your current and new passwords below to change the password for your account.</message>
 	<message key="user.profile.editProfile">Edit Profile</message>
 	<message key="user.profile.form.countryRequired">A country is required.</message>
 	<message key="user.profile.form.emailRequired">A valid email address is required.</message>
 	<message key="user.profile.form.affiliationRequired">An affiliation is required.</message>
-	<message key="user.profile.form.firstNameRequired">A first name is required.</message>
-	<message key="user.profile.form.lastNameRequired">A last name is required.</message>
+	<message key="user.profile.form.givenNameRequired">A given name is required.</message>
+	<message key="user.profile.form.givenNameRequired.locale">You have added a family name for a language that is missing the given name. Please add a given name for this language.</message>
 	<message key="user.profile.form.mailingAddressRequired">A mailing address is required.</message>
 	<message key="user.profile.form.newPasswordRequired">You must enter your new password.</message>
 	<message key="user.profile.form.oldPasswordInvalid">The current password you entered was incorrect.</message>
@@ -109,7 +108,7 @@
 	<message key="user.login.registerNewAccount">Register</message>
 	<message key="user.login.resetPasswordInstructions">Enter your account email address below and an email will be sent with instructions on how to reset your password.</message>
 
-	<message key="user.register.form.privacyConsent"><![CDATA[Yes, I agree to have my data collected and stored according to the <a href="{$privacyUrl}" target="_blank">Policy Statement</a>.]]></message>
+	<message key="user.register.form.privacyConsent"><![CDATA[Yes, I agree to have my data collected and stored according to the <a href="{$privacyUrl}" target="_blank">privacy statement</a>.]]></message>
 	<message key="user.register.form.emailConsent">Yes, I would like to be notified of new publications and announcements.</message>
 	<message key="user.register.form.emailExists">The selected email address is already in use by another user.</message>
 	<message key="user.register.form.passwordsDoNotMatch">The passwords do not match.</message>
@@ -141,11 +140,9 @@
 	<message key="user.role.layoutEditor">Layout Editor</message>
 	<message key="user.role.layoutEditors">Layout Editors</message>
 	<message key="user.roles">Roles</message>
-	<message key="user.salutation">Salutation</message>
 	<message key="user.sendPassword">Confirmation</message>
 	<message key="user.sendPassword.description">Send me a confirmation email including my username and password</message>
 	<message key="user.signature">Signature</message>
-	<message key="user.suffix">Suffix</message>
 	<message key="user.title">Title</message>
 	<message key="user.url">URL</message>
 	<message key="user.userHome">User Home</message>

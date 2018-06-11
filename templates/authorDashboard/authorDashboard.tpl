@@ -15,7 +15,7 @@
 	{/if}
 	{assign var=submissionTitleSafe value=$submission->getLocalizedTitle()|strip_unsafe_html}
 	{if $primaryAuthor}
-		{assign var="pageTitleTranslated" value=$primaryAuthor->getLastName()|concat:", ":$submissionTitleSafe}
+		{assign var="pageTitleTranslated" value=$primaryAuthor->getFullName()|concat:", ":$submissionTitleSafe}
 	{else}
 		{assign var="pageTitleTranslated" value=$submissionTitleSafe}
 	{/if}

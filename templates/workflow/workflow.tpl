@@ -15,7 +15,7 @@
 	{/if}
 	{assign var=submissionTitleSafe value=$submission->getLocalizedTitle()|strip_unsafe_html}
 	{if $primaryAuthor}
-		{assign var="pageTitleTranslated" value=$primaryAuthor->getLastName()|concat:", ":$submissionTitleSafe}
+		{assign var="pageTitleTranslated" value=$primaryAuthor->getFullName()|concat:", ":$submissionTitleSafe}
 	{else}
 		{assign var="pageTitleTranslated" value=$submissionTitleSafe}
 	{/if}
@@ -33,7 +33,7 @@
 
 <div id="submissionWorkflow" class="pkp_submission_workflow">
 
-	{url|assign:submissionHeaderUrl op="submissionHeader" submissionId=$submission->getId() stageId=$stageId contextId="submission" escape=false}
+	{capture assign=submissionHeaderUrl}{url op="submissionHeader" submissionId=$submission->getId() stageId=$stageId contextId="submission" escape=false}{/capture}
 	{load_url_in_div id="submissionHeaderDiv" url=$submissionHeaderUrl class="pkp_page_header"}
 
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="workflowNotification" requestOptions=$workflowNotificationRequestOptions}

@@ -96,9 +96,9 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	 */
 	public function orderBy($column, $direction = 'DESC') {
 		if ($column === 'givenName') {
-			$this->orderColumn = 'u.first_name';
+			$this->orderColumn = 'user_given';
 		} elseif ($column === 'familyName') {
-			$this->orderColumn = 'u.last_name';
+			$this->orderColumn = 'user_family';
 		} else {
 			$this->orderColumn = 'u.user_id';
 		}
@@ -303,10 +303,39 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	 * @return object Query object
 	 */
 	public function get() {
+		$locale = \AppLocale::getLocale();
+		// the users register for the site, thus
+		// the site primary locale should be the default locale
+		$site = \Application::getRequest()->getSite();
+		$primaryLocale = $site->getPrimaryLocale();
+
 		$this->columns[] = 'u.*';
+		$this->columns[] = Capsule::raw('COALESCE(ugl.setting_value, ugpl.setting_value) AS user_given');
+		$this->columns[] = Capsule::raw('CASE WHEN ugl.setting_value <> \'\' THEN ufl.setting_value ELSE ufpl.setting_value END AS user_family');
 		$q = Capsule::table('users as u')
 					->leftJoin('user_user_groups as uug', 'uug.user_id', '=', 'u.user_id')
 					->leftJoin('user_groups as ug', 'ug.user_group_id', '=', 'uug.user_group_id')
+					->leftJoin('user_settings as ugl', function ($join) use ($locale) {
+						$join->on('ugl.user_id', '=', 'u.user_id')
+							->where('ugl.setting_name', '=', IDENTITY_SETTING_GIVENNAME)
+							->where('ugl.locale', '=', $locale);
+					})
+					->leftJoin('user_settings as ugpl', function ($join) use ($primaryLocale) {
+						$join->on('ugpl.user_id', '=', 'u.user_id')
+							->where('ugpl.setting_name', '=', IDENTITY_SETTING_GIVENNAME)
+							->where('ugpl.locale', '=', $primaryLocale);
+					})
+
+					->leftJoin('user_settings as ufl', function ($join) use ($locale) {
+						$join->on('ufl.user_id', '=', 'u.user_id')
+							->where('ufl.setting_name', '=', IDENTITY_SETTING_FAMILYNAME)
+							->where('ufl.locale', '=', $locale);
+					})
+					->leftJoin('user_settings as ufpl', function ($join) use ($primaryLocale) {
+						$join->on('ufpl.user_id', '=', 'u.user_id')
+							->where('ufpl.setting_name', '=', IDENTITY_SETTING_FAMILYNAME)
+							->where('ufpl.locale', '=', $primaryLocale);
+					})
 					->where('ug.context_id','=', $this->contextId);
 
 		if (empty($this->countOnly)) {
@@ -374,13 +403,15 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 				foreach ($words as $word) {
 					$q->where(function($q) use ($word) {
 						$q->where('u.username', 'LIKE', "%{$word}%")
-							->orWhere('u.salutation', 'LIKE', "%{$word}%")
-							->orWhere('u.first_name', 'LIKE', "%{$word}%")
-							->orWhere('u.middle_name', 'LIKE', "%{$word}%")
-							->orWhere('u.last_name', 'LIKE', "%{$word}%")
-							->orWhere('u.suffix', 'LIKE', "%{$word}%")
-							->orWhere('u.initials', 'LIKE', "%{$word}%")
 							->orWhere('u.email', 'LIKE', "%{$word}%")
+							->orWhere(function($q) use ($word) {
+								$q->where('us.setting_name', IDENTITY_SETTING_GIVENNAME);
+								$q->where('us.setting_value', 'LIKE', "%{$word}%");
+							})
+							->orWhere(function($q) use ($word) {
+								$q->where('us.setting_name', IDENTITY_SETTING_FAMILYNAME);
+								$q->where('us.setting_value', 'LIKE', "%{$word}%");
+							})
 							->orWhere(function($q) use ($word) {
 								$q->where('us.setting_name', 'affiliation');
 								$q->where('us.setting_value', 'LIKE', "%{$word}%");
@@ -513,6 +544,8 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 			$q->select(Capsule::raw('count(distinct u.user_id) as user_count'));
 		} else {
 			$q->select($this->columns);
+				//->groupBy('u.user_id', 'user_given', 'user_family')
+				//->orderBy($this->orderColumn, $this->orderDirection);
 		}
 
 		return $q;

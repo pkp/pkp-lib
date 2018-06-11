@@ -29,7 +29,7 @@
     </h4>
     <ul id="participantsListPlaceholder" class="participants"></ul>
 
-	{url|assign:queryNotesGridUrl router=$smarty.const.ROUTE_COMPONENT component=$queryNotesGridHandlerName op="fetchGrid" params=$requestArgs queryId=$query->getId() escape=false}
+	{capture assign=queryNotesGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component=$queryNotesGridHandlerName op="fetchGrid" params=$requestArgs queryId=$query->getId() escape=false}{/capture}
 	{load_url_in_div id="queryNotesGrid" url=$queryNotesGridUrl}
 
     <div class="openNoteForm add_note">

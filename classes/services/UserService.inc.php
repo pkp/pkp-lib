@@ -127,7 +127,7 @@ class UserService extends PKPBaseEntityPropertyService {
 	public function getReviewers($contextId, $args = array()) {
 		$userListQB = $this->_buildGetReviewersQueryObject($contextId, $args);
 		$userListQO = $userListQB->get();
-		$range = new DBResultRange($args['count'], null, $args['offset']);
+		$range = $this->getRangeByArgs($args);
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$result = $userDao->retrieveRange($userListQO->toSql(), $userListQO->getBindings(), $range);
 		$queryResults = new DAOResultFactory($result, $userDao, '_returnUserFromRowWithReviewerStats');
@@ -211,23 +211,11 @@ class UserService extends PKPBaseEntityPropertyService {
 				case 'fullName':
 					$values[$prop] = $user->getFullName();
 					break;
-				case 'firstName':
-					$values[$prop] = $user->getFirstName();
+				case 'givenName':
+					$values[$prop] = $user->getGivenName(null);
 					break;
-				case 'middleName':
-					$values[$prop] = $user->getMiddleName();
-					break;
-				case 'lastName':
-					$values[$prop] = $user->getLastName();
-					break;
-				case 'initials':
-					$values[$prop] = $user->getInitials();
-					break;
-				case 'salutation':
-					$values[$prop] = $user->getSalutation();
-					break;
-				case 'suffix':
-					$values[$prop] = $user->getSuffix();
+				case 'familyName':
+					$values[$prop] = $user->getFamilyName(null);
 					break;
 				case 'affiliation':
 					$values[$prop] = $user->getAffiliation(null);
@@ -386,9 +374,9 @@ class UserService extends PKPBaseEntityPropertyService {
 	 */
 	public function getFullProperties($user, $args = null) {
 		$props = array (
-			'id','userName','fullName','firstName','middleName','lastName','initials','salutation',
-			'suffix','affiliation','country','email','url','orcid','groups','interests','biography','signature','authId',
-			'authString','phone','mailingAddress','billingAddress','gossip','disabled','disabledReason',
+			'id','userName','fullName','givenName','familyName','affiliation','country','email','url',
+			'orcid','groups','interests','biography','signature','authId','authString','phone',
+			'mailingAddress','billingAddress','gossip','disabled','disabledReason',
 			'dateRegistered','dateValidated','dateLastLogin','mustChangePassword',
 		);
 

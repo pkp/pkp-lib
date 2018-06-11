@@ -23,11 +23,7 @@
 	<message key="user.dateRegistered">Erregistratze-data</message>
 	<message key="user.editMyProfile">Editatu nire profila</message>
 	<message key="user.email">Helb. el.</message>
-	<message key="user.firstName">Izena</message>
-	<message key="user.initialsExample">Juan Mari Agirre = JMA</message>
-	<message key="user.initials">Inizialak</message>
 	<message key="user.interests">Ebaluatzeko interesak</message>
-	<message key="user.lastName">Abizena</message>
 	<message key="user.login.accountDisabledWithReason">Zure kontua arrazoi honengatik desgaitu da: {$reason}</message>
 	<message key="user.login.accountDisabled">Zure kontua desgaituta dago. Administratzaileak emango dizu informazio gehiago.</message>
 	<message key="user.login.accountNotValidated">Zure helbide elektronikoa ez da balidatu ahal izan. Begiratu helbidea ondo dagoen, eta jarraitu emandako instrukzioak. Ez baduzu mezu elektronikorik jaso, gune-administratzaileari galdetzea komeniko da.</message>
@@ -45,7 +41,6 @@
 	<message key="user.login.resetPassword">Berrezarri pasahitza</message>
 	<message key="user.logOut">Amaitu saioa</message>
 	<message key="user.mailingAddress">Posta-helbidea</message>
-	<message key="user.middleName">Bigarren izena</message>
 	<message key="user.myAccount">Nire kontua</message>
 	<message key="user.name">Izen-abizenak</message>
 	<message key="user.password">Pasahitza</message>
@@ -54,8 +49,6 @@
 	<message key="user.profile.changePasswordInstructions">Zure kontuaren pasahitza aldatzeko, idatzi zure oraingo pasahitza eta pasahitz berria behean.</message>
 	<message key="user.profile.editProfile">Editatu profila</message>
 	<message key="user.profile.form.emailRequired">Baliozko helbide elektroniko bat eman behar da.</message>
-	<message key="user.profile.form.firstNameRequired">Izena eman behar da.</message>
-	<message key="user.profile.form.lastNameRequired">Abizena eman behar da.</message>
 	<message key="user.profile.form.newPasswordRequired">Pasahitz berria idatzi behar duzu.</message>
 	<message key="user.profile.form.oldPasswordInvalid">Idatzi duzun uneko pasahitza ez da zuzena.</message>
 	<message key="user.profile.form.openAccessNotifications">Zenbakia sarrera librekoa dela jakinarazteko mezua</message>
@@ -85,7 +78,6 @@
 	<message key="user.role.siteAdmin">Gune-administratzailea</message>
 	<message key="user.role.siteAdmins">Gune-administratzaileak</message>
 	<message key="user.roles">Funtzioak</message>
-	<message key="user.salutation">Tratamendua</message>
 	<message key="user.sendPassword">Berrespena</message>
 	<message key="user.sendPassword.description">Bidal iezadazue berresteko mezu elektronikoa nire erabiltzaile-izen eta pasahitzarekin</message>
 	<message key="user.signature">Sinadura</message>
@@ -117,5 +109,4 @@
 	<message key="user.accountInformation">Kontuaren informazioa</message>
 	<message key="user.authorization.managerRequired">Mailari Prentsa Arduradun eginkizuna (adib., Prentsa edo Produkzio Editorea) duen erabiltzaile bat esleitu behar zaio, aurrera jarraitu aurretik.</message>
 	<message key="user.interests.description">(Interesak banandu enter edo koma tekla sakatuz)</message>
-	<message key="user.suffix">Atzizkia</message>
 </locale>

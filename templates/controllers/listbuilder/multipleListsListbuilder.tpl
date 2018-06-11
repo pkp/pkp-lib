@@ -51,7 +51,7 @@
 					</div>
 				{/if}
 				{assign var=gridTableId value=$staticId|concat:"-table-":$listId}
-				{include file="controllers/listbuilder/listbuilderTable.tpl gridTableId=$gridTableId rows=$listsRows[$listId]}
+				{include file="controllers/listbuilder/listbuilderTable.tpl" gridTableId=$gridTableId rows=$listsRows[$listId]}
 			</div>
 		{/foreach}
 	</div>

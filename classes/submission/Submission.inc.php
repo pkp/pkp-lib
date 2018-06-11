@@ -248,28 +248,12 @@ abstract class Submission extends DataObject {
 	}
 
 	/**
-	 * Return first author
-	 * @param $lastOnly boolean return lastname only (default false)
-	 * @return string
-	 */
-	function getFirstAuthor($lastOnly = false) {
-		$authors = $this->getAuthors();
-		if (is_array($authors) && !empty($authors)) {
-			$author = $authors[0];
-			return $lastOnly ? $author->getLastName() : $author->getFullName();
-		} else {
-			return null;
-		}
-	}
-
-	/**
 	 * Return string of author names, separated by the specified token
-	 * @param $lastOnly boolean return list of lastnames only (default false)
-	 * @param $nameSeparator string Separator for names (default comma+space)
-	 * @param $userGroupSeparator string Separator for user groups (default semicolon+space)
+	 * @param $preferred boolean If the preferred public name should be used, if exist
+	 * @param $familyOnly boolean return list of family names only (default false)
 	 * @return string
 	 */
-	function getAuthorString($lastOnly = false, $nameSeparator = ', ', $userGroupSeparator = '; ') {
+	function getAuthorString($preferred = true, $familyOnly = false) {
 		$authors = $this->getAuthors(true);
 
 		$str = '';
@@ -281,12 +265,13 @@ abstract class Submission extends DataObject {
 				if ($lastUserGroupId != $author->getUserGroupId()) {
 					$userGroup = $userGroupDao->getById($lastUserGroupId);
 					if ($userGroup->getShowTitle()) $str .= ' (' . $userGroup->getLocalizedName() . ')';
-					$str .= $userGroupSeparator;
+					$str .= __('common.semicolonListSeparator');
 				} else {
-					$str .= $nameSeparator;
+					$str .= __('common.commaListSeparator');
 				}
 			}
-			$str .= $lastOnly ? $author->getLastName() : $author->getFullName();
+			$familyName = $author->getLocalizedFamilyName();
+			$str .= ($familyOnly && !empty($familyName)) ? $familyName : $author->getFullName($preferred);
 			$lastUserGroupId = $author->getUserGroupId();
 		}
 
@@ -310,7 +295,8 @@ abstract class Submission extends DataObject {
 		}
 		if (!$firstAuthor) return '';
 
-		$authorString = $firstAuthor->getLastName();
+		$familyName = $firstAuthor->getLocalizedFamilyName();
+		$authorString = (!empty($familyName)) ? $familyName : $firstAuthor->getLocalizedGivenName();
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
 		if (count($authors) > 1) $authorString = __('submission.shortAuthor', array('author' => $authorString));
 		return $authorString;

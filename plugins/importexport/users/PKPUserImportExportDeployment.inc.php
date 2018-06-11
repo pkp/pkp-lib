@@ -17,6 +17,9 @@
 import('lib.pkp.classes.plugins.importexport.PKPImportExportDeployment');
 
 class PKPUserImportExportDeployment extends PKPImportExportDeployment {
+	/** @var Site */
+	var $_site;
+
 	/**
 	 * Constructor
 	 * @param $context Context
@@ -24,6 +27,24 @@ class PKPUserImportExportDeployment extends PKPImportExportDeployment {
 	 */
 	function __construct($context, $user) {
 		parent::__construct($context, $user);
+		$site = Application::getRequest()->getSite();
+		$this->setSite($site);
+	}
+
+	/**
+	 * Set the site.
+	 * @param $site Site
+	 */
+	function setSite($site) {
+		$this->_site = $site;
+	}
+
+	/**
+	 * Get the site.
+	 * @return Site
+	 */
+	function getSite() {
+		return $this->_site;
 	}
 
 	/**

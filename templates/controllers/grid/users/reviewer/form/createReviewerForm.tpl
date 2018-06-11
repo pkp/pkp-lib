@@ -14,7 +14,7 @@
 		// Attach the form handler.
 		$('#createReviewerForm').pkpHandler('$.pkp.controllers.grid.users.reviewer.form.AddReviewerFormHandler',
 			{ldelim}
-				fetchUsernameSuggestionUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT component="api.user.UserApiHandler" op="suggestUsername" firstName="FIRST_NAME_DUMMY" lastName="LAST_NAME_DUMMY" escape=false},
+				fetchUsernameSuggestionUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT component="api.user.UserApiHandler" op="suggestUsername" givenName="GIVEN_NAME_PLACEHOLDER" familyName="FAMILY_NAME_PLACEHOLDER" escape=false},
 				usernameSuggestionTextAlert: {translate|json_encode key="grid.user.mustProvideName"},
 				templateUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT component='grid.users.reviewer.ReviewerGridHandler' op='fetchTemplateBody' stageId=$stageId reviewRoundId=$reviewRoundId submissionId=$submissionId escape=false}
 			{rdelim}
@@ -45,9 +45,8 @@
 	{/if}
 
 	{fbvFormSection title="common.name"}
-		{fbvElement type="text" label="user.firstName" id="firstName" value=$firstName required="true" inline=true size=$fbvStyles.size.SMALL}
-		{fbvElement type="text" label="user.middleName" id="middleName" value=$middleName inline=true size=$fbvStyles.size.SMALL}
-		{fbvElement type="text" label="user.lastName" id="lastName" value=$lastName required="true" inline=true size=$fbvStyles.size.MEDIUM}
+		{fbvElement type="text" label="user.givenName" multilingual="true" name="givenName" id="givenName" value=$givenName maxlength="255" inline=true size=$fbvStyles.size.MEDIUM required="true"}
+		{fbvElement type="text" label="user.familyName" multilingual="true" name="familyName" id="familyName" value=$familyName maxlength="255" inline=true size=$fbvStyles.size.MEDIUM}
 	{/fbvFormSection}
 
 	{fbvFormSection title="user.username" required="true"}

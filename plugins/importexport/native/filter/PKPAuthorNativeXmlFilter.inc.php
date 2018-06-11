@@ -88,9 +88,8 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter {
 		$authorNode->setAttribute('user_group_ref', $userGroup->getName($context->getPrimaryLocale()));
 
 		// Add metadata
-		$authorNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'firstname', htmlspecialchars($author->getFirstName(), ENT_COMPAT, 'UTF-8')));
-		$this->createOptionalNode($doc, $authorNode, 'middlename', $author->getMiddleName());
-		$authorNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'lastname', htmlspecialchars($author->getLastName(), ENT_COMPAT, 'UTF-8')));
+		$this->createLocalizedNodes($doc, $authorNode, 'givenname', $author->getGivenName(null));
+		$this->createLocalizedNodes($doc, $authorNode, 'familyname', $author->getFamilyName(null));
 
 		$this->createLocalizedNodes($doc, $authorNode, 'affiliation', $author->getAffiliation(null));
 

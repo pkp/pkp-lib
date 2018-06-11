@@ -45,7 +45,7 @@
 			{fbvFormSection title="grid.roles.stageAssignment" for="assignedStages[]" list="true"}
 				{fbvElement type="checkboxgroup" name="assignedStages" id="assignedStages" from=$stages selected=$assignedStages}
 			{/fbvFormSection}
-			<label for="stages[]" class="error pkp_form_hidden">{translate key=settings.roles.stageIdRequired}</label>
+			<label for="stages[]" class="error pkp_form_hidden">{translate key="settings.roles.stageIdRequired"}</label>
 		{/fbvFormArea}
 	</div>
 	<div id="userGroupOptionsContainer" class="full left">

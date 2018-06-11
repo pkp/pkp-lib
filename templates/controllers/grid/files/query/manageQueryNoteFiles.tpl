@@ -23,7 +23,7 @@
 		{csrf}
 		{fbvFormArea id="manageQueryNoteFiles"}
 			{fbvFormSection}
-				{url|assign:manageQueryNoteFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.query.ManageQueryNoteFilesGridHandler" op="fetchGrid" params=$actionArgs submissionId=$submissionId queryId=$queryId noteId=$noteId escape=false}
+				{capture assign=manageQueryNoteFilesGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.files.query.ManageQueryNoteFilesGridHandler" op="fetchGrid" params=$actionArgs submissionId=$submissionId queryId=$queryId noteId=$noteId escape=false}{/capture}
 				{load_url_in_div id="manageQueryNoteFilesGrid" url=$manageQueryNoteFilesGridUrl}
 			{/fbvFormSection}
 

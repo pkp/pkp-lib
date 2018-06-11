@@ -7,11 +7,11 @@
  *
  * Submission stage of the author dashboard.
  *}
-{url|assign:submissionFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.submission.AuthorSubmissionDetailsFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() escape=false}
+{capture assign=submissionFilesGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.files.submission.AuthorSubmissionDetailsFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() escape=false}{/capture}
 {load_url_in_div id="submissionFilesGridDiv" url=$submissionFilesGridUrl}
 
 <div id="documentsContent">
 	<!-- Display queries grid -->
-	{url|assign:queriesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$smarty.const.WORKFLOW_STAGE_ID_SUBMISSION escape=false}
+	{capture assign=queriesGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$smarty.const.WORKFLOW_STAGE_ID_SUBMISSION escape=false}{/capture}
 	{load_url_in_div id="queriesGrid" url=$queriesGridUrl}
 </div>

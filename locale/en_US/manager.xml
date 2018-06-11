@@ -477,6 +477,7 @@
 	<message key="plugins.importexport.common.error.unknownEncoding">Unknown encoding {$param}</message>
 	<message key="plugins.importexport.common.error.encodingError">The content is not encoded as {$param}</message>
 	<message key="plugins.importexport.common.error.unknownUserGroup">Unknown user group {$param}</message>
+	<message key="plugins.importexport.common.error.missingGivenName">The author {$authorName} does not have a given name in the submission's language, {$localeName}. The submission can not be imported without this information.</message>
 	<message key="plugins.importexport.common.error.unknownUploader">Unknown uploader {$param}</message>
 	<message key="plugins.importexport.common.error.temporaryFileFailed">Temporary file {$dest} could not be created from {$source}</message>
 	<message key="plugins.importexport.common.error.filesizeMismatch">The provided filesize "{$expected}" and the actual filesize "{$actual}" do not match</message>

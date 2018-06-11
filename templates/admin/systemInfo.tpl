@@ -27,13 +27,13 @@
 	<p><a href="{url versionCheck=1}">{translate key="admin.version.checkForUpdates"}</a></p>
 	{/if}
 
-	{url|assign:versionInfoGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.admin.systemInfo.VersionInfoGridHandler" op="fetchGrid" escape=false}
+	{capture assign=versionInfoGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.admin.systemInfo.VersionInfoGridHandler" op="fetchGrid" escape=false}{/capture}
 	{load_url_in_div id="versionInfoGridContainer" url=$versionInfoGridUrl}
 
-	{url|assign:serverInfoGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.admin.systemInfo.ServerInfoGridHandler" op="fetchGrid" escape=false}
+	{capture assign=serverInfoGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.admin.systemInfo.ServerInfoGridHandler" op="fetchGrid" escape=false}{/capture}
 	{load_url_in_div id="serverInfoGridContainer" url=$serverInfoGridUrl}
 
-	{url|assign:systemInfoGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.admin.systemInfo.SystemInfoGridHandler" op="fetchGrid" escape=false}
+	{capture assign=systemInfoGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.admin.systemInfo.SystemInfoGridHandler" op="fetchGrid" escape=false}{/capture}
 	{load_url_in_div id="systemInfoGridContainer" url=$systemInfoGridUrl}
 
 	<a href="{url op="phpinfo"}" target="_blank">{translate key="admin.phpInfo"}</a>

@@ -15,6 +15,7 @@
 
 namespace PKP\Services\EntityProperties;
 
+use \DBResultRange;
 use \PKP\Services\Exceptions\InvalidServiceException;
 
 abstract class PKPBaseEntityPropertyService implements EntityPropertyInterface {
@@ -78,5 +79,17 @@ abstract class PKPBaseEntityPropertyService implements EntityPropertyInterface {
 		}
 
 		return sprintf('%s?journal=%s&endpoint=%s/%s', $baseUrl, $contextPath, $fullBaseEndpoint, $endpointParams);
+	}
+
+	/**
+	 * @param $args array
+	 * @return string
+	 */
+	protected function getRangeByArgs($args) {
+		$range = null;
+		if (isset($args['count'])) {
+			$range = new DBResultRange($args['count'], null, isset($args['offset'])?$args['offset']:0);
+		}
+		return $range;
 	}
 }

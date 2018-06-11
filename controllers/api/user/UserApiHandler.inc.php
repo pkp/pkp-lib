@@ -99,8 +99,8 @@ class UserApiHandler extends PKPHandler {
 	 */
 	function suggestUsername($args, $request) {
 		$suggestion = Validation::suggestUsername(
-			$request->getUserVar('firstName'),
-			$request->getUserVar('lastName')
+			$request->getUserVar('givenName'),
+			$request->getUserVar('familyName')
 		);
 
 		return new JSONMessage(true, $suggestion);

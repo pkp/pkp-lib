@@ -174,16 +174,6 @@
 		<field name="password" type="C2" size="255">
 			<NOTNULL/>
 		</field>
-		<field name="salutation" type="C2" size="255"/>
-		<field name="first_name" type="C2" size="255">
-			<NOTNULL/>
-		</field>
-		<field name="middle_name" type="C2" size="255"/>
-		<field name="last_name" type="C2" size="255">
-			<NOTNULL/>
-		</field>
-		<field name="suffix" type="C2" size="255"/>
-		<field name="initials" type="C2" size="5"/>
 		<field name="email" type="C2" size="255">
 			<NOTNULL/>
 		</field>

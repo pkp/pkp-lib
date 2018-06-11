@@ -455,26 +455,30 @@ class UserGroupDAO extends DAO {
 	 * @return DAOResultFactory
 	 */
 	function getUsersNotInRole($roleId, $contextId = null, $search = null, $rangeInfo = null) {
-		$params = array((int) $roleId);
+		$params = isset($search) ? array(IDENTITY_SETTING_GIVENNAME, IDENTITY_SETTING_FAMILYNAME) : array();
+		$params[] = (int) $roleId;
 		if ($contextId) $params[] = (int) $contextId;
-		if(isset($search)) $params = array_merge($params, array_pad(array(), 5, '%' . $search . '%'));
+		if(isset($search)) $params = array_merge($params, array_pad(array(), 4, '%' . $search . '%'));
 
 		$result = $this->retrieveRange(
-			'SELECT	*
+			'SELECT	u.*
 			FROM	users u
+			' .(isset($search) ? '
+					LEFT JOIN user_settings usgs ON (usgs.user_id = u.user_id AND usgs.setting_name = ?)
+					LEFT JOIN user_settings usfs ON (usfs.user_id = u.user_id AND usfs.setting_name = ?)
+				':'') .'
 			WHERE	u.user_id NOT IN (
 				SELECT	DISTINCT u.user_id
 				FROM	users u, user_user_groups uug, user_groups ug
 				WHERE	u.user_id = uug.user_id
 					AND ug.user_group_id = uug.user_group_id
 					AND ug.role_id = ?' .
-					($contextId ? ' AND ug.context_id = ?' : '') .
+				($contextId ? ' AND ug.context_id = ?' : '') .
 				')' .
-				(isset($search) ? ' AND (u.first_name LIKE ? OR u.middle_name LIKE ? OR u.last_name LIKE ? OR u.email LIKE ? OR u.username LIKE ?)' : ''),
+			(isset($search) ? ' AND (usgs.setting_value LIKE ? OR usfs.setting_value LIKE ? OR u.email LIKE ? OR u.username LIKE ?)' : ''),
 			$params,
 			$rangeInfo
 		);
-
 		return new DAOResultFactory($result, $this->userDao, '_returnUserFromRowWithData');
 	}
 
@@ -489,23 +493,31 @@ class UserGroupDAO extends DAO {
 	 * @return DAOResultFactory
 	 */
 	function getUsersById($userGroupId = null, $contextId = null, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null) {
-		$params = array();
-
+		$params = $this->userDao->getFetchParameters();
+		$params = array_merge($params, array(IDENTITY_SETTING_GIVENNAME, IDENTITY_SETTING_FAMILYNAME));
 		if ($contextId) $params[] = (int) $contextId;
 		if ($userGroupId) $params[] = (int) $userGroupId;
 
-		$result = $this->retrieveRange(
-			'SELECT DISTINCT u.*
+		$sql =
+			'SELECT DISTINCT u.*,
+				' . $this->userDao->getFetchColumns() .'
 			FROM	users AS u
 				LEFT JOIN user_settings us ON (us.user_id = u.user_id AND us.setting_name = \'affiliation\')
 				LEFT JOIN user_interests ui ON (u.user_id = ui.user_id)
 				LEFT JOIN controlled_vocab_entry_settings cves ON (ui.controlled_vocab_entry_id = cves.controlled_vocab_entry_id)
 				LEFT JOIN user_user_groups uug ON (uug.user_id = u.user_id)
 				LEFT JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id)
+				' . $this->userDao->getFetchJoins() .'
+				LEFT JOIN user_settings usgs ON (usgs.user_id = u.user_id AND usgs.setting_name = ?)
+				LEFT JOIN user_settings usfs ON (usfs.user_id = u.user_id AND usfs.setting_name = ?)
+
 			WHERE	1=1 ' .
 				($contextId?'AND ug.context_id = ? ':'') .
 				($userGroupId?'AND ug.user_group_id = ? ':'') .
-				$this->_getSearchSql($searchType, $search, $searchMatch, $params),
+				$this->_getSearchSql($searchType, $search, $searchMatch, $params);
+
+		$result = $this->retrieveRange(
+			$sql,
 			$params,
 			$dbResultRange
 		);
@@ -794,8 +806,8 @@ class UserGroupDAO extends DAO {
 	 */
 	function _getSearchSql($searchType, $search, $searchMatch, &$params) {
 		$searchTypeMap = array(
-			USER_FIELD_FIRSTNAME => 'u.first_name',
-			USER_FIELD_LASTNAME => 'u.last_name',
+			IDENTITY_SETTING_GIVENNAME => 'usgs.setting_value',
+			IDENTITY_SETTING_FAMILYNAME => 'usfs.setting_value',
 			USER_FIELD_USERNAME => 'u.username',
 			USER_FIELD_EMAIL => 'u.email',
 			USER_FIELD_AFFILIATION => 'us.setting_value',
@@ -806,7 +818,7 @@ class UserGroupDAO extends DAO {
 		if (!empty($search)) {
 
 			if (!isset($searchTypeMap[$searchType])) {
-				$str = $this->concat('u.first_name', 'u.last_name', 'u.email', 'COALESCE(us.setting_value,\'\')');
+				$str = $this->concat('COALESCE(usgs.setting_value,\'\')', 'COALESCE(usfs.setting_value,\'\')', 'u.email', 'COALESCE(us.setting_value,\'\')');
 				$concatFields = ' ( LOWER(' . $str . ') LIKE ? OR LOWER(cves.setting_value) LIKE ? ) ';
 
 				$search = strtolower($search);
@@ -843,13 +855,10 @@ class UserGroupDAO extends DAO {
 				case USER_FIELD_USERID:
 					$searchSql = 'AND u.user_id = ?';
 					break;
-				case USER_FIELD_INITIAL:
-					$searchSql = 'AND LOWER(u.last_name) LIKE LOWER(?)';
-					break;
 			}
 		}
 
-		$searchSql .= ' ORDER BY u.last_name, u.first_name'; // FIXME Add "sort field" parameter?
+		$searchSql .= $this->userDao->getOrderBy(); // FIXME Add "sort field" parameter?
 
 		return $searchSql;
 	}

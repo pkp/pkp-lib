@@ -23,11 +23,7 @@
 	<message key="user.dateRegistered">Datum registratie</message>
 	<message key="user.editMyProfile">Profiel bewerken</message>
 	<message key="user.email">E-mail</message>
-	<message key="user.firstName">Voornaam</message>
-	<message key="user.initialsExample">Joan Alice Smith = JAS</message>
-	<message key="user.initials">Initialen</message>
 	<message key="user.interests">Review-interesses</message>
-	<message key="user.lastName">Achternaam</message>
 	<message key="user.login.accountDisabledWithReason">Uw toegang is geblokkeerd vanwege de volgende reden: {$reason}</message>
 	<message key="user.login.accountDisabled">Uw toegang is geblokkeerd. Neem contact op met de beheerder voor meer informatie.</message>
 	<message key="user.login.accountNotValidated">Uw e-mail adres is niet gevalideerd. Controleer uw e-mail en volg de gegeven instructies. Als u geen e-mail heeft ontvangen, kunt u contact opnemen met de beheerder.</message>
@@ -45,7 +41,6 @@
 	<message key="user.login.resetPassword">Wachtwoord terugzetten</message>
 	<message key="user.logOut">Uitloggen</message>
 	<message key="user.mailingAddress">Postadres</message>
-	<message key="user.middleName">Tweede voornaam</message>
 	<message key="user.myAccount">Mijn gegevens</message>
 	<message key="user.name">Naam</message>
 	<message key="user.password">Wachtwoord</message>
@@ -54,8 +49,6 @@
 	<message key="user.profile.changePasswordInstructions">Geef uw huidige en nieuwe wachtwoord om het wachtwoord voor uw account te veranderen.</message>
 	<message key="user.profile.editProfile">Bewerk profiel</message>
 	<message key="user.profile.form.emailRequired">Een geldig e-mail adres is verplicht.</message>
-	<message key="user.profile.form.firstNameRequired">Een voornaam is verplicht.</message>
-	<message key="user.profile.form.lastNameRequired">Een achternaam is verplicht.</message>
 	<message key="user.profile.form.newPasswordRequired">U moet uw nieuwe wachtwoord opgeven.</message>
 	<message key="user.profile.form.oldPasswordInvalid">Het huidige wachtwoord was niet juist.</message>
 	<message key="user.profile.form.openAccessNotifications">E-mail berichtgeving bij vrij toegankelijk worden van een nummer</message>
@@ -85,7 +78,6 @@
 	<message key="user.role.siteAdmin">Sitebeheerder</message>
 	<message key="user.role.siteAdmins">Sitebeheerders</message>
 	<message key="user.roles">Rollen</message>
-	<message key="user.salutation">Begroeting</message>
 	<message key="user.sendPassword">Bevestiging</message>
 	<message key="user.sendPassword.description">Stuur mij een e-mail met gebruikersnaam en wachtwoord ter bevestiging</message>
 	<message key="user.signature">Ondertekening</message>
@@ -107,7 +99,6 @@
 	<message key="user.profile.form.countryRequired">Een land is verplicht.</message>
 	<message key="user.profile.form.mailingAddressRequired">Een postadres is verplicht.</message>
 	<message key="user.profile.form.passwordSameAsOld">Uw nieuwe wachtwoord is hetzelfde als het oude wachtwoord.</message>
-	<message key="user.suffix">Achtervoegsel</message>
 	<message key="user.accountInformation">Account informatie</message>
 	<message key="user.authorization.accessDenied">Toegang geweigerd.</message>
 	<message key="user.authorization.processAuthenticationTokenRequired">Het process authentication token ontbreekt of is ongeldig.</message>

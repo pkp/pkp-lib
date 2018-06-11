@@ -17,4 +17,5 @@
 		iso639-3 CDATA #REQUIRED
 		complete (true | false) #IMPLIED
 		stylesheet CDATA #IMPLIED
-		direction CDATA #IMPLIED>
+		direction CDATA #IMPLIED
+		familyFirst (true | false) #IMPLIED>

@@ -13,5 +13,5 @@
 {else}
     {assign var=component value="listbuilder.settings.BlockPluginsListbuilderHandler"}
 {/if}
-{url|assign:blockPluginsUrl router=$smarty.const.ROUTE_COMPONENT component=$component op="fetch" escape=false}
+{capture assign=blockPluginsUrl}{url router=$smarty.const.ROUTE_COMPONENT component=$component op="fetch" escape=false}{/capture}
 {load_url_in_div id="blockPluginsContainer" url=$blockPluginsUrl}

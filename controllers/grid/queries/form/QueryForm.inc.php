@@ -274,7 +274,7 @@ class QueryForm extends Form {
 					$title = $user->getFullName();
 					$userRoles = array();
 					$usersAssignments = $stageAssignmentDao->getBySubmissionAndStageId($query->getAssocId(), $query->getStageId(), null, $user->getId())->toArray();
-					foreach ($usersAssignments as $assignment) {							
+					foreach ($usersAssignments as $assignment) {
 						foreach ($userProps['groups'] as $userGroup) {
 							if ($userGroup['id'] === (int) $assignment->getUserGroupId() && isset($userGroup['name'][AppLocale::getLocale()])) {
 								$userRoles[] = $userGroup['name'][AppLocale::getLocale()];
@@ -290,7 +290,7 @@ class QueryForm extends Form {
 					}
 					$title =  __('submission.query.participantTitle', array(
 								'fullName' => $user->getFullName(),
-								'userGroup' => join(__('common.listSeparator'), $userRoles),
+								'userGroup' => join(__('common.commaListSeparator'), $userRoles),
 					));
 					return $title;
 				},

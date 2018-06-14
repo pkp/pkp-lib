@@ -111,7 +111,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 				$managerUserGroup = $userGroupDao->getById($managerUserGroupAssignment->getUserGroupId());
 				$userGroupNames[$managerUserGroup->getId()] = $managerUserGroup->getLocalizedName();
 			}
-			$managerGroups = join(__('common.listSeparator'), $userGroupNames);
+			$managerGroups = join(__('common.commaListSeparator'), $userGroupNames);
 			$userGroupNames = array_replace($userGroupNames, $availableUserGroupNames);
 
 			// Set default group to default manager group

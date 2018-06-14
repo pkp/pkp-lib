@@ -528,7 +528,8 @@
 	<message key="common.filterAdd">Tilføj filter: {$filterTitle}</message>
 	<message key="common.filterRemove">Fjer filter: {$filterTitle}</message>
 	<message key="common.lessThan">{$value} eller mindre</message>
-	<message key="common.listSeparator">,</message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.moreThan">{$value} eller mere</message>
 	<message key="common.pagination">{$start}-{$end} af {$total}</message>
 	<message key="common.pagination.label">Browse ekstra sider</message>

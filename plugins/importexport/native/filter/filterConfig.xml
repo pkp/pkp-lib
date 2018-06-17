@@ -61,27 +61,27 @@
 			displayName="plugins.importexport.native.displayName"
 			description="plugins.importexport.native.description"
 			inputType="class::lib.pkp.classes.submission.reviewRound.ReviewRound[]"
-			outputType="xml::schema(lib/pkp/plugins/importexport/native/pkp-native.xsd" />
+			outputType="xml::schema(lib/pkp/plugins/importexport/native/pkp-native.xsd)" />
 		<!-- ReviewAssignments native XML export -->
 		<filterGroup
 			symbolic="review-assignment=>native-xml"
 			displayName="plugins.importexport.native.displayName"
 			description="plugins.importexport.native.description"
 			inputType="class::lib.pkp.classes.submission.reviewAssignment.ReviewAssignment[]"
-			outputType="xml::schema(lib/pkp/plugins/importexport/native/pkp-native.xsd" />
+			outputType="xml::schema(lib/pkp/plugins/importexport/native/pkp-native.xsd)" />
 		<!-- ReviewRounds native XML import -->
 		<filterGroup
 			symbolic="native-xml=>review-round"
 			displayName="plugins.importexport.native.displayName"
 			description="plugins.importexport.native.description"
-			inputType="xml::schema(lib/pkp/plugins/importexport/native/pkp-native.xsd"
+			inputType="xml::schema(lib/pkp/plugins/importexport/native/pkp-native.xsd)"
 			outputType="class::lib.pkp.classes.submission.reviewRound.ReviewRound[]" />
 		<!-- ReviewAssignments native XML import -->
 		<filterGroup
 			symbolic="native-xml=>review-assignment"
 			displayName="plugins.importexport.native.displayName"
 			description="plugins.importexport.native.description"
-			inputType="xml::schema(lib/pkp/plugins/importexport/native/pkp-native.xsd"
+			inputType="xml::schema(lib/pkp/plugins/importexport/native/pkp-native.xsd)"
 			outputType="class::lib.pkp.classes.submission.reviewAssignment.ReviewAssignment[]" />
 		<!-- Queries native XML export -->
 		<filterGroup
@@ -89,28 +89,42 @@
 			displayName="plugins.importexport.native.displayName"
 			description="plugins.importexport.native.description"
 			inputType="class::lib.pkp.classes.query.Query[]"
-			outputType="xml::schema(lib/pkp/plugins/importexport/native/pkp-native.xsd" />
+			outputType="xml::schema(lib/pkp/plugins/importexport/native/pkp-native.xsd)" />
 		<!-- Notes native XML export -->
 		<filterGroup
 			symbolic="note=>native-xml"
 			displayName="plugins.importexport.native.displayName"
 			description="plugins.importexport.native.description"
 			inputType="class::lib.pkp.classes.note.Note[]"
-			outputType="xml::schema(lib/pkp/plugins/importexport/native/pkp-native.xsd" />
+			outputType="xml::schema(lib/pkp/plugins/importexport/native/pkp-native.xsd)" />
 		<!-- Queries native XML import -->
 		<filterGroup
 			symbolic="native-xml=>query"
 			displayName="plugins.importexport.native.displayName"
 			description="plugins.importexport.native.description"
-			inputType="xml::schema(lib/pkp/plugins/importexport/native/pkp-native.xsd"
+			inputType="xml::schema(lib/pkp/plugins/importexport/native/pkp-native.xsd)"
 			outputType="class::lib.pkp.classes.query.Query[]" />
 		<!-- Notes native XML import -->
 		<filterGroup
 			symbolic="native-xml=>note"
 			displayName="plugins.importexport.native.displayName"
 			description="plugins.importexport.native.description"
-			inputType="xml::schema(lib/pkp/plugins/importexport/native/pkp-native.xsd"
+			inputType="xml::schema(lib/pkp/plugins/importexport/native/pkp-native.xsd)"
 			outputType="class::lib.pkp.classes.note.Note[]" />
+		<!-- ReviewForm native XML import -->
+		<filterGroup
+			symbolic="native-xml=>review-form"
+			displayName="plugins.importexport.native.displayName"
+			description="plugins.importexport.native.description"
+			inputType="xml::schema(lib/pkp/plugins/importexport/native/pkp-native.xsd)"
+			outputType="class::lib.pkp.classes.reviewForm.ReviewForm[]" />
+		<!-- ReviewForm native XML export -->
+		<filterGroup
+			symbolic="review-form=>native-xml"
+			displayName="plugins.importexport.native.displayName"
+			description="plugins.importexport.native.description"
+			inputType="class::lib.pkp.classes.reviewForm.ReviewForm[]"
+			outputType="xml::schema(lib/pkp/plugins/importexport/native/pkp-native.xsd)" />
 	</filterGroups>
 	<filters>
 		<!-- Native XML article file input -->
@@ -174,6 +188,10 @@
 		<filter
 			inGroup="native-xml=>note"
 			class="lib.pkp.plugins.importexport.native.filter.NativeXmlNoteFilter"
+			isTemplate="0" />
+		<filter
+			inGroup="review-form=>native-xml"
+			class="lib.pkp.plugins.importexport.native.filter.ReviewFormNativeXmlFilter"
 			isTemplate="0" />
 	</filters>
 </filterConfig>

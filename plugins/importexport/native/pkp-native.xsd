@@ -317,6 +317,30 @@
 		<attribute name="revision" type="int" />
 	</complexType>
 
+	<complexType name="reviewForm">
+		<sequence>
+			<element ref="pkp:reviewFormElements" minOccurs="0" maxOccurs="1" />
+			<element name="description" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+			<element name="title" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+		<attribute name="is_active" type="int" use="optional" />
+		<attribute name="assoc_type" type="int" use="optional" />
+		<attribute name="assoc_id" type="int" use="optional" />
+		<attribute name="seq" type="int" use="optional" />
+		<attribute name="old_id" type="int" use="optional" />
+	</complexType>
+
+	<complexType name="reviewFormElement">
+		<sequence>
+			<element name="question" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+			<element name="possibleResponses" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+		<attribute name="seq" type="int" use="optional" />
+		<attribute name="element_type" type="string" use="optional" />
+		<attribute name="required" type="boolean" use="optional" />
+		<attribute name="included" type="boolean" use="optional" />
+		<attribute name="old_id" type="int" use="optional" />
+	</complexType>
 	
 	<!-- ************
 	  -  * Elements *
@@ -475,6 +499,22 @@
 		<complexType>
 			<sequence>
 				<element name="participant" type="pkp:participant" minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="reviewForms">
+		<complexType>
+			<sequence>
+				<element name="reviewForm" type="pkp:reviewForm" minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="reviewFormElements">
+		<complexType>
+			<sequence>
+				<element name="reviewFormElement" type="pkp:reviewFormElement" minOccurs="0" maxOccurs="unbounded" />
 			</sequence>
 		</complexType>
 	</element>

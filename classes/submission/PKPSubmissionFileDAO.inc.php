@@ -468,19 +468,21 @@ abstract class PKPSubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @param $fileId int
 	 * @param $assocType int ASSOC_TYPE_...
 	 * @param $assocId int
+	 * @param $revision int
 	 */
-	function assignAssocTypeAndIdToFile($fileId, $assocType, $assocId) {
+	function assignAssocTypeAndIdToFile($fileId, $assocType, $assocId, $revision) {
 		// Update the file in the database.
 		$this->update(
 			'UPDATE submission_files
 			SET
 				assoc_type = ?,
 				assoc_id = ?
-			WHERE file_id = ?',
+			WHERE file_id = ? and revision = ?',
 			array(
 				(int)$assocType,
 				(int)$assocId,
 				(int)$fileId,
+				(int)$revision,
 			)
 		);
 	}

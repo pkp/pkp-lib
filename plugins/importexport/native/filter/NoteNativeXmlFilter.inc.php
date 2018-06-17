@@ -157,6 +157,7 @@ class NoteNativeXmlFilter extends NativeExportFilter {
 
 		if ($file) {
 			$fileNode->setAttribute('oldFileId', $file->getFileId());
+			$fileNode->setAttribute('revision', $file->getRevision());
 		}
 
 		return $fileNode;

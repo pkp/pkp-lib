@@ -314,6 +314,7 @@
 
 	<complexType name="noteFile">
 		<attribute name="oldFileId" type="int" />
+		<attribute name="revision" type="int" />
 	</complexType>
 
 	

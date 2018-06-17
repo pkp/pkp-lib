@@ -179,7 +179,7 @@ class ReviewAssignmentNativeXmlFilter extends NativeExportFilter {
 	function addReviewFiles($doc, $reviewAssignmentNode, $reviewAssignment) {
 		$fileDao = DAORegistry::getDAO('ReviewFilesDAO');
 
-		$reviewFiles = $fileDao->getByReviewId($reviewAssignment->getId());
+		$reviewFiles = $fileDao->getFileIdsByReviewId($reviewAssignment->getId());
 
 		$reviewFilesNode = $this->processReviewFiles($reviewFiles, $reviewAssignment);
 		if ($reviewFilesNode->documentElement instanceof DOMElement) {

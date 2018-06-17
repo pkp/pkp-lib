@@ -147,11 +147,12 @@ class NativeXmlNoteFilter extends NativeImportFilter {
 		$deployment = $this->getDeployment();
 
 		$oldFileId = $n->getAttribute('oldFileId');
+		$revision = $n->getAttribute('revision');
 
 		$newFileId = $deployment->getFileDBId($oldFileId);
 
 		$fileDao = DAORegistry::getDAO('SubmissionFileDAO');
-		$fileDao->assignAssocTypeAndIdToFile($newFileId, ASSOC_TYPE_NOTE, $note->getId());
+		$fileDao->assignAssocTypeAndIdToFile($newFileId, ASSOC_TYPE_NOTE, $note->getId(), $revision);
 	}
 }
 

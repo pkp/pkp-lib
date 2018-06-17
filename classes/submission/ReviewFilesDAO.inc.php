@@ -82,7 +82,7 @@ class ReviewFilesDAO extends DAO {
 	 * @param $reviewId integer
 	 * @return array
 	 */
-	function getByReviewId($reviewId) {
+	function getFileIdsByReviewId($reviewId) {
 		$result = $this->retrieve(
 			'SELECT review_id, file_id FROM review_files WHERE review_id = ?',
 			array((int) $reviewId)

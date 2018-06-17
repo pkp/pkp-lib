@@ -310,6 +310,8 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 					$firstRevisionChild = $submissionFileNode->firstChild;
 					$submissionFileNode->insertBefore($clone, $firstRevisionChild);
 				}
+			} else {
+				$this->addError(__('plugins.importexport.submission.error.submissionFileCantBeExported', array('submissionFileId' => $submissionFile->getId(), 'submissionFileName' => $submissionFile->getLocalizedName())));
 			}
 
 		}

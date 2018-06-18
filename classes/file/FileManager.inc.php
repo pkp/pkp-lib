@@ -92,8 +92,8 @@ class FileManager {
 	 */
 	function getUploadedFileType($fileName) {
 		if (isset($_FILES[$fileName])) {
-		    // The result of "explode" can't be passed directly to "array_pop" in PHP 7.
-		    $exploded = explode('.',$_FILES[$fileName]['name']);
+			// The result of "explode" can't be passed directly to "array_pop" in PHP 7.
+			$exploded = explode('.',$_FILES[$fileName]['name']);
 
 			$type = PKPString::mime_content_type(
 				$_FILES[$fileName]['tmp_name'], // Location on server

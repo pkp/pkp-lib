@@ -65,8 +65,10 @@ class ScheduledTaskDAO extends DAO {
 					array($className)
 				);
 			} else {
+				$dateTime = new DateTime();
+				$timestamp = $dateTime->format('Y-m-d H:i:s');
 				$this->update(
-					'UPDATE scheduled_tasks SET last_run = NOW() WHERE class_name = ?',
+					'UPDATE scheduled_tasks SET last_run = ' . $this->datetimeToDB($timestamp) . ' WHERE class_name = ?',
 					array($className)
 				);
 			}
@@ -79,9 +81,11 @@ class ScheduledTaskDAO extends DAO {
 					array($className)
 				);
 			} else {
+				$dateTime = new DateTime();
+				$timestamp = $dateTime->format('Y-m-d H:i:s');
 				$this->update(
-					'INSERT INTO scheduled_tasks (class_name, last_run)
-					VALUES (?, NOW())',
+					sprintf('INSERT INTO scheduled_tasks (class_name, last_run)
+					VALUES (?, %s)', $this->datetimeToDB($timestamp)),
 					array($className)
 				);
 			}

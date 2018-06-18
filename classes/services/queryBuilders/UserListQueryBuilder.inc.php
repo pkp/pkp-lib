@@ -340,7 +340,6 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 
 		if (empty($this->countOnly)) {
 			$q->distinct();
-			$q->orderBy($this->orderColumn, $this->orderDirection);
 		}
 
 		// roles
@@ -544,8 +543,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 			$q->select(Capsule::raw('count(distinct u.user_id) as user_count'));
 		} else {
 			$q->select($this->columns);
-				//->groupBy('u.user_id', 'user_given', 'user_family')
-				//->orderBy($this->orderColumn, $this->orderDirection);
+			$q->orderBy($this->orderColumn, $this->orderDirection);
 		}
 
 		return $q;

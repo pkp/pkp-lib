@@ -173,7 +173,8 @@
 	<message key="common.languages">Sprachen</message>
 	<message key="common.less">Weniger</message>
 	<message key="common.lessThan">{$value} oder weniger</message>
-	<message key="common.listSeparator">, </message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.manage">Verwalten</message>
 	<message key="common.mailingAddress">Adresse</message>
 	<message key="common.billingAddress">Rechnungsadresse (wenn unterschiedlich)</message>

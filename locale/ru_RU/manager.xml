@@ -478,6 +478,7 @@
 	<message key="plugins.importexport.common.error.unknownEncoding">Неизвестная кодировка {$param}</message>
 	<message key="plugins.importexport.common.error.encodingError">Кодировка контента не совпадает с {$param}</message>
 	<message key="plugins.importexport.common.error.unknownUserGroup">Неизвестная группа пользователей {$param}</message>
+	<message key="plugins.importexport.common.error.missingGivenName">У автора ({$authorName}) не указано имя на языке отправки ({$localeName}). Материал не может быть импортирован без этой информации.</message>
 	<message key="plugins.importexport.common.error.unknownUploader">Неизвестный загрузчик {$param}</message>
 	<message key="plugins.importexport.common.error.temporaryFileFailed">Временный файл {$dest} не может быть создан из {$source}</message>
 	<message key="plugins.importexport.common.error.filesizeMismatch">Указанный размер файла «{$expected}» и фактический размер «{$actual}» не совпадают</message>

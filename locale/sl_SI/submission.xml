@@ -573,6 +573,7 @@
 	<message key="submission.productionReady">Na voljo v tiskani različici</message>
 	<message key="submission.review.uploadRevisionToRound">Naloži revidirano datoteko</message>
 	<message key="log.review.reviewerAssigned">Recenzent {$reviewerName} je dodeljen recenzijskemu krogu {$round} za prispevek {$submissionId}.</message>
+	<message key="log.review.reviewUnconsidered">{$editorName} je označil recenzijo {$round} kroga za prispevek {$submissionId} kot neupoštevan.</message>
 	<message key="submission.document">Dokument</message>
 	<message key="submission.art">Slikovno gradivo</message>
 	<message key="submission.supplementary">Dopolnilne vsebine</message>

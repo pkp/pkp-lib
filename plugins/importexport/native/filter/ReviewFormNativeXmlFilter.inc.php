@@ -117,7 +117,7 @@ class ReviewFormNativeXmlFilter extends NativeExportFilter {
 	function addReviewFormElements($doc, $reviewFormNode, $reviewForm) {
 		$childDao = DAORegistry::getDAO('ReviewFormElementDAO');
 
-		$childElements = $childDao->getByReviewFormId($reviewForm->getId());
+		$childElements = $childDao->getByReviewFormId($reviewForm->getId())->toArray();
 
 		$reviewFormElementsNode = $this->processReviewFormElements($childElements, $reviewForm);
 		if ($reviewFormElementsNode->documentElement instanceof DOMElement) {

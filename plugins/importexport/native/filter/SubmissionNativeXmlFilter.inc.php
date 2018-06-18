@@ -54,6 +54,9 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$doc->preserveWhiteSpace = false;
 		$doc->formatOutput = true;
 		$deployment = $this->getDeployment();
+		$context = $deployment->getContext();
+
+		$rootNode = $this->createReviewFormsNode($doc, $context);
 
 		if (count($submissions)==1 && !$this->getIncludeSubmissionsNode()) {
 			// Only one submission specified; create root node
@@ -360,6 +363,29 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		if ($queriesDoc->documentElement instanceof DOMElement) {
 			$clone = $doc->importNode($queriesDoc->documentElement, true);
 			$submissionNode->appendChild($clone);
+		}
+	}
+
+	/**
+	 * Create and return a ReviewForms node.
+	 * @param $doc DOMDocument
+	 * @param $context Context
+	 * @return DOMElement
+	 */
+	function createReviewFormsNode($doc, $context) {
+		$filterDao = DAORegistry::getDAO('FilterDAO');
+		$nativeExportFilters = $filterDao->getObjectsByGroup('review-form=>native-xml');
+		assert(count($nativeExportFilters)==1); // Assert only a single serialization filter
+		$exportFilter = array_shift($nativeExportFilters);
+		$exportFilter->setDeployment($this->getDeployment());
+
+		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
+		$reviewForms = $reviewFormDao->getByAssocId(Application::getContextAssocType(), $context->getId())->toArray();
+
+		$reviewFormsDoc = $exportFilter->execute($reviewForms);
+		if ($reviewFormsDoc->documentElement instanceof DOMElement) {
+			$clone = $doc->importNode($reviewFormsDoc->documentElement, true);
+			$doc->appendChild($clone);
 		}
 	}
 

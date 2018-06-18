@@ -319,11 +319,11 @@
 
 	<complexType name="reviewForm">
 		<sequence>
-			<element ref="pkp:reviewFormElements" minOccurs="0" maxOccurs="1" />
 			<element name="description" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 			<element name="title" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+			<element ref="pkp:reviewFormElements" minOccurs="0" maxOccurs="1" />
 		</sequence>
-		<attribute name="is_active" type="int" use="optional" />
+		<attribute name="is_active" type="boolean" use="optional" />
 		<attribute name="assoc_type" type="int" use="optional" />
 		<attribute name="assoc_id" type="int" use="optional" />
 		<attribute name="seq" type="int" use="optional" />

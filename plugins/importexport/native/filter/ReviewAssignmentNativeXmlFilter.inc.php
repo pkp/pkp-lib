@@ -166,6 +166,7 @@ class ReviewAssignmentNativeXmlFilter extends NativeExportFilter {
 		$reviewAssignmentNode->setAttribute('reviewer', $reviewerUser->getUsername());
 
 		$this->addReviewFiles($doc, $reviewAssignmentNode, $reviewAssignment);
+		// $this->addReviewForms($doc, $reviewAssignmentNode, $reviewAssignment);
 
 		return $reviewAssignmentNode;
 	}
@@ -229,6 +230,33 @@ class ReviewAssignmentNativeXmlFilter extends NativeExportFilter {
 		}
 
 		return $reviewFileNode;
+	}
+
+	/**
+	 * Add the ReviewForms for a review assignment to its DOM element.
+	 * @param $doc DOMDocument
+	 * @param $reviewAssignmentNode DOMElement
+	 * @param $reviewAssignment ReviewAssignment
+	 */
+	function addReviewForms($doc, $reviewAssignmentNode, $reviewAssignment) {
+		$filterDao = DAORegistry::getDAO('FilterDAO');
+		$nativeExportFilters = $filterDao->getObjectsByGroup('review-form=>native-xml');
+		assert(count($nativeExportFilters)==1); // Assert only a single serialization filter
+		$exportFilter = array_shift($nativeExportFilters);
+		$exportFilter->setDeployment($this->getDeployment());
+
+		if ($reviewFormId = $reviewAssignment->getReviewFormId()) {
+			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
+
+			$reviewForm = $reviewFormDao->getById($reviewFormId);
+
+			$reviewFormDoc = $exportFilter->execute($reviewForm);
+			if ($reviewFormDoc->documentElement instanceof DOMElement) {
+				$clone = $doc->importNode($reviewFormDoc->documentElement, true);
+				$reviewAssignmentNode->appendChild($clone);
+			}
+		}
+
 	}
 }
 

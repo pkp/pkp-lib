@@ -838,6 +838,9 @@ class PKPTemplateManager extends SmartyBC {
 		header('Content-Type: text/html; charset=' . Config::getVar('i18n', 'client_charset'));
 		header('Cache-Control: ' . $this->_cacheability);
 
+		// If no compile ID was assigned, get one.
+		if (!$compile_id) $compile_id = $this->getCompileId($template);
+
 		// Actually display the template.
 		parent::display($template, $cache_id, $compile_id, $parent);
 	}

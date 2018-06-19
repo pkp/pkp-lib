@@ -17,6 +17,9 @@ import('lib.pkp.controllers.grid.settings.user.form.UserForm');
 
 class UserDetailsForm extends UserForm {
 
+	/** @var User */
+	var $user;
+
 	/** @var An optional author to base this user on */
 	var $author;
 
@@ -52,6 +55,9 @@ class UserDetailsForm extends UserForm {
 				}));
 			}
 		} else {
+			$userDao = DAORegistry::getDAO('UserDAO');
+			$this->user = $userDao->getById($userId);
+
 			$this->addCheck(new FormValidatorLength($this, 'password', 'optional', 'user.register.form.passwordLengthRestriction', '>=', $site->getMinPasswordLength()));
 			$this->addCheck(new FormValidatorCustom($this, 'password', 'optional', 'user.register.form.passwordsDoNotMatch', function($password) use ($form) {
 				return $password == $form->getData('password2');
@@ -78,9 +84,8 @@ class UserDetailsForm extends UserForm {
 
 		$data = array();
 
-		if (isset($this->userId)) {
-			$userDao = DAORegistry::getDAO('UserDAO');
-			$user = $userDao->getById($this->userId);
+		if (isset($this->user)) {
+			$user = $this->user;
 
 			import('lib.pkp.classes.user.InterestManager');
 			$interestManager = new InterestManager();
@@ -146,7 +151,6 @@ class UserDetailsForm extends UserForm {
 	function display($args, $request) {
 		$site = $request->getSite();
 		$templateMgr = TemplateManager::getManager($request);
-		$userDao = DAORegistry::getDAO('UserDAO');
 
 		$templateMgr->assign(array(
 			'minPasswordLength' => $site->getMinPasswordLength(),
@@ -154,9 +158,8 @@ class UserDetailsForm extends UserForm {
 			'userId' => $this->userId,
 		));
 
-		if (isset($this->userId)) {
-			$user = $userDao->getById($this->userId);
-			$templateMgr->assign('username', $user->getUsername());
+		if (isset($this->user)) {
+			$templateMgr->assign('username', $this->user->getUsername());
 		}
 
 		$templateMgr->assign('availableLocales', $site->getSupportedLocaleNames());
@@ -234,43 +237,36 @@ class UserDetailsForm extends UserForm {
 	 * @param $request PKPRequest
 	 */
 	function &execute($args, $request) {
-		parent::execute($args, $request);
-
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$context = $request->getContext();
 
-		if (isset($this->userId)) {
-			$userId = $this->userId;
-			$user = $userDao->getById($userId);
+		if (!isset($this->user)) {
+			$this->user = $userDao->newDataObject();
+			$this->user->setInlineHelp(1); // default new users to having inline help visible
 		}
 
-		if (!isset($user)) {
-			$user = $userDao->newDataObject();
-			$user->setInlineHelp(1); // default new users to having inline help visible
-		}
-
-		$user->setSalutation($this->getData('salutation'));
-		$user->setFirstName($this->getData('firstName'));
-		$user->setMiddleName($this->getData('middleName'));
-		$user->setLastName($this->getData('lastName'));
-		$user->setSuffix($this->getData('suffix'));
-		$user->setInitials($this->getData('initials'));
-		$user->setAffiliation($this->getData('affiliation'), null); // Localized
-		$user->setSignature($this->getData('signature'), null); // Localized
-		$user->setEmail($this->getData('email'));
-		$user->setUrl($this->getData('userUrl'));
-		$user->setPhone($this->getData('phone'));
-		$user->setOrcid($this->getData('orcid'));
-		$user->setMailingAddress($this->getData('mailingAddress'));
-		$user->setCountry($this->getData('country'));
-		$user->setBiography($this->getData('biography'), null); // Localized
-		$user->setMustChangePassword($this->getData('mustChangePassword') ? 1 : 0);
-		$user->setAuthId((int) $this->getData('authId'));
+		$this->user->setSalutation($this->getData('salutation'));
+		$this->user->setFirstName($this->getData('firstName'));
+		$this->user->setMiddleName($this->getData('middleName'));
+		$this->user->setLastName($this->getData('lastName'));
+		$this->user->setSuffix($this->getData('suffix'));
+		$this->user->setInitials($this->getData('initials'));
+		$this->user->setAffiliation($this->getData('affiliation'), null); // Localized
+		$this->user->setSignature($this->getData('signature'), null); // Localized
+		$this->user->setEmail($this->getData('email'));
+		$this->user->setUrl($this->getData('userUrl'));
+		$this->user->setPhone($this->getData('phone'));
+		$this->user->setOrcid($this->getData('orcid'));
+		$this->user->setMailingAddress($this->getData('mailingAddress'));
+		$this->user->setCountry($this->getData('country'));
+		$this->user->setBiography($this->getData('biography'), null); // Localized
+		$this->user->setMustChangePassword($this->getData('mustChangePassword') ? 1 : 0);
+		$this->user->setAuthId((int) $this->getData('authId'));
 		// Users can never view/edit their own gossip fields
 		import('classes.core.ServicesContainer');
 		$userService = ServicesContainer::instance()->get('user');
-		if ($userService->canCurrentUserGossip($user->getId())) {
-			$user->setGossip($this->getData('gossip'));
+		if ($userService->canCurrentUserGossip($this->user->getId())) {
+			$this->user->setGossip($this->getData('gossip'));
 		}
 
 		$site = $request->getSite();
@@ -282,32 +278,34 @@ class UserDetailsForm extends UserForm {
 				array_push($locales, $locale);
 			}
 		}
-		$user->setLocales($locales);
+		$this->user->setLocales($locales);
 
-		if ($user->getAuthId()) {
+		if ($this->user->getAuthId()) {
 			$authDao = DAORegistry::getDAO('AuthSourceDAO');
-			$auth =& $authDao->getPlugin($user->getAuthId());
+			$auth =& $authDao->getPlugin($this->user->getAuthId());
 		}
 
-		if ($user->getId() != null) {
+		parent::execute($args, $request);
+
+		if ($this->user->getId() != null) {
 			if ($this->getData('password') !== '') {
 				if (isset($auth)) {
-					$auth->doSetUserPassword($user->getUsername(), $this->getData('password'));
-					$user->setPassword(Validation::encryptCredentials($user->getId(), Validation::generatePassword())); // Used for PW reset hash only
+					$auth->doSetUserPassword($this->user->getUsername(), $this->getData('password'));
+					$this->user->setPassword(Validation::encryptCredentials($this->user->getId(), Validation::generatePassword())); // Used for PW reset hash only
 				} else {
-					$user->setPassword(Validation::encryptCredentials($user->getUsername(), $this->getData('password')));
+					$this->user->setPassword(Validation::encryptCredentials($this->user->getUsername(), $this->getData('password')));
 				}
 			}
 
 			if (isset($auth)) {
 				// FIXME Should try to create user here too?
-				$auth->doSetUserInfo($user);
+				$auth->doSetUserInfo($this->user);
 			}
 
-			$userDao->updateObject($user);
+			$userDao->updateObject($this->user);
 
 		} else {
-			$user->setUsername($this->getData('username'));
+			$this->user->setUsername($this->getData('username'));
 			if ($this->getData('generatePassword')) {
 				$password = Validation::generatePassword();
 				$sendNotify = true;
@@ -317,34 +315,34 @@ class UserDetailsForm extends UserForm {
 			}
 
 			if (isset($auth)) {
-				$user->setPassword($password);
+				$this->user->setPassword($password);
 				// FIXME Check result and handle failures
-				$auth->doCreateUser($user);
-				$user->setAuthId($auth->authId);
-				$user->setPassword(Validation::encryptCredentials($user->getId(), Validation::generatePassword())); // Used for PW reset hash only
+				$auth->doCreateUser($this->user);
+				$this->user->setAuthId($auth->authId);
+				$this->user->setPassword(Validation::encryptCredentials($this->user->getId(), Validation::generatePassword())); // Used for PW reset hash only
 			} else {
-				$user->setPassword(Validation::encryptCredentials($this->getData('username'), $password));
+				$this->user->setPassword(Validation::encryptCredentials($this->getData('username'), $password));
 			}
 
-			$user->setDateRegistered(Core::getCurrentDate());
-			$userId = $userDao->insertObject($user);
+			$this->user->setDateRegistered(Core::getCurrentDate());
+			$userId = $userDao->insertObject($this->user);
 
 			if ($sendNotify) {
 				// Send welcome email to user
 				import('lib.pkp.classes.mail.MailTemplate');
 				$mail = new MailTemplate('USER_REGISTER');
 				$mail->setReplyTo($context->getSetting('contactEmail'), $context->getSetting('contactName'));
-				$mail->assignParams(array('username' => $this->getData('username'), 'password' => $password, 'userFullName' => $user->getFullName()));
-				$mail->addRecipient($user->getEmail(), $user->getFullName());
+				$mail->assignParams(array('username' => $this->getData('username'), 'password' => $password, 'userFullName' => $this->user->getFullName()));
+				$mail->addRecipient($this->user->getEmail(), $this->user->getFullName());
 				$mail->send();
 			}
 		}
 
 		import('lib.pkp.classes.user.InterestManager');
 		$interestManager = new InterestManager();
-		$interestManager->setInterestsForUser($user, $this->getData('interests'));
+		$interestManager->setInterestsForUser($this->user, $this->getData('interests'));
 
-		return $user;
+		return $this->user;
 	}
 }
 

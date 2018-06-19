@@ -45,6 +45,8 @@ class PublicProfileForm extends BaseProfileForm {
 			'userUrl' => $user->getUrl(),
 			'biography' => $user->getBiography(null), // Localized
 		);
+
+		parent::initData();
 	}
 
 	/**

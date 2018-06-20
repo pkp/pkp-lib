@@ -284,8 +284,8 @@ class AnnouncementDAO extends DAO {
 			FROM announcements
 			WHERE assoc_type = ?
 				AND assoc_id = ?
-				AND (date_expire IS NULL OR DATE(date_expire) > CURRENT_DATE)
-				AND (DATE(date_posted) <= CURRENT_DATE)
+				AND (date_expire IS NULL OR DATE(date_expire) > DATE(NOW()))
+				AND (DATE(date_posted) <= DATE(NOW()))
 			ORDER BY date_posted DESC',
 			array((int) $assocType, (int) $assocId),
 			$rangeInfo
@@ -308,8 +308,8 @@ class AnnouncementDAO extends DAO {
 			FROM announcements
 			WHERE assoc_type = ?
 				AND assoc_id = ?
-				AND (date_expire IS NULL OR DATE(date_expire) > CURRENT_DATE)
-				AND (DATE(date_posted) <= CURRENT_DATE)
+				AND (date_expire IS NULL OR DATE(date_expire) > DATE(NOW()))
+				AND (DATE(date_posted) <= DATE(NOW()))
 			ORDER BY date_posted DESC LIMIT ?',
 			array((int) $assocType, (int) $assocId, (int) $numAnnouncements),
 			$rangeInfo

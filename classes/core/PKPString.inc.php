@@ -444,7 +444,8 @@ class PKPString {
 		}
 
 		// Check ambiguous mimetypes against extension
-		$ext = array_pop(explode('.',$filename));
+		$exploded = explode('.',$filename);
+		$ext = array_pop($exploded);
 		if ($suggestedExtension) {
 			$ext = $suggestedExtension;
 		}

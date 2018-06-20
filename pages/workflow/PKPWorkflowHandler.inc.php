@@ -197,6 +197,8 @@ abstract class PKPWorkflowHandler extends Handler {
 			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
 			$lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
 			$reviewRound = $reviewRoundDao->getById($reviewRoundId);
+		} else {
+			$lastReviewRound = null;
 		}
 
 		// If there is an editor assigned, retrieve stage decisions.

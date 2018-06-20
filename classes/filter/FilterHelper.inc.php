@@ -103,7 +103,7 @@ class FilterHelper {
 		$similarFilterFactory = $filterDao->getObjectsByGroupAndClass($filterGroupSymbolic, $filterClassName, 0, $isTemplate);
 		if ($similarFilterFactory->getCount() > 0) {
 			// 1) Find similar filters.
-			$similarFilters =& $similarFilterFactory->toArray();
+			$similarFilters = $similarFilterFactory->toArray();
 
 			// 2) Go through similar filters and eliminate them
 			//    if they don't have the exact same settings.

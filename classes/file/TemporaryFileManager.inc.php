@@ -48,7 +48,7 @@ class TemporaryFileManager extends PrivateFileManager {
 	 * @param $fileId int
 	 */
 	function deleteFile($fileId, $userId) {
-		$temporaryFile =& $this->getFile($fileId, $userId);
+		$temporaryFile = $this->getFile($fileId, $userId);
 
 		parent::deleteFile($this->getBasePath() . $temporaryFile->getServerFileName());
 
@@ -63,7 +63,7 @@ class TemporaryFileManager extends PrivateFileManager {
 	 * @return boolean
 	 */
 	function downloadFile($fileId, $userId, $inline = false) {
-		$temporaryFile =& $this->getFile($fileId, $userId);
+		$temporaryFile = $this->getFile($fileId, $userId);
 		if (isset($temporaryFile)) {
 			$filePath = $this->getBasePath() . $temporaryFile->getServerFileName();
 			return parent::downloadFile($filePath, null, $inline);
@@ -96,7 +96,8 @@ class TemporaryFileManager extends PrivateFileManager {
 
 			$temporaryFile->setUserId($userId);
 			$temporaryFile->setServerFileName($newFileName);
-			$temporaryFile->setFileType(PKPString::mime_content_type($this->getBasePath() . $newFileName, array_pop(explode('.', $_FILES[$fileName]['name']))));
+			$exploded = explode('.', $_FILES[$fileName]['name']);
+			$temporaryFile->setFileType(PKPString::mime_content_type($this->getBasePath() . $newFileName, array_pop($exploded)));
 			$temporaryFile->setFileSize($_FILES[$fileName]['size']);
 			$temporaryFile->setOriginalFileName($this->truncateFileName($_FILES[$fileName]['name'], 127));
 			$temporaryFile->setDateUploaded(Core::getCurrentDate());

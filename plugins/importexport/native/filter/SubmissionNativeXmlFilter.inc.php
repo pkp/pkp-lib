@@ -231,7 +231,8 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$exportFilter = array_shift($nativeExportFilters);
 		$exportFilter->setDeployment($this->getDeployment());
 
-		$authorsDoc = $exportFilter->execute($submission->getAuthors());
+		$authors = $submission->getAuthors();
+		$authorsDoc = $exportFilter->execute($authors);
 		if ($authorsDoc->documentElement instanceof DOMElement) {
 			$clone = $doc->importNode($authorsDoc->documentElement, true);
 			$submissionNode->appendChild($clone);

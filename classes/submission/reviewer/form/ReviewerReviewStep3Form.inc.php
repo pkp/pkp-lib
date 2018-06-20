@@ -113,7 +113,7 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 	 * @param $request PKPRequest
 	 */
 	function execute($request) {
-		$reviewAssignment =& $this->getReviewAssignment();
+		$reviewAssignment = $this->getReviewAssignment();
 		$notificationMgr = new NotificationManager();
 		if ($reviewAssignment->getReviewFormId()) {
 			$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO');

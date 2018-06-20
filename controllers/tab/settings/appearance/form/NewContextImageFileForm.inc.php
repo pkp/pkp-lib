@@ -112,7 +112,7 @@ class NewContextImageFileForm extends SettingsFileUploadForm {
 					'width' => $width,
 					'height' => $height,
 					'dateUploaded' => Core::getCurrentDate(),
-					'altText' => $imageAltText[$locale]
+					'altText' => isset($imageAltText[$locale])?$imageAltText[$locale]:null
 				);
 
 				$settingsDao = $context->getSettingsDAO();

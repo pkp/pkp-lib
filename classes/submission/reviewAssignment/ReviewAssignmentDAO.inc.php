@@ -582,12 +582,13 @@ class ReviewAssignmentDAO extends DAO {
 				(int) $reviewerId
 		);
 
-		$result = $this->retrieve(
+		$result = $this->retrieveLimit(
 				$this->_getSelectQuery() .
 				' WHERE	r.submission_id = ? AND
 				r.reviewer_id = ?
-				ORDER BY r2.stage_id DESC, r2.round DESC LIMIT 1',
-				$params
+				ORDER BY r2.stage_id DESC, r2.round DESC',
+				$params,
+				1
 		);
 
 		$returner = null;

@@ -99,7 +99,7 @@ class ReviewerReviewForm extends Form {
 	 * update the given reviewer submission.
 	 * @param $reviewerSubmission ReviewerSubmission
 	 */
-	function updateReviewStepAndSaveSubmission(&$reviewerSubmission) {
+	function updateReviewStepAndSaveSubmission($reviewerSubmission) {
 		// Update the review step.
 		$nextStep = $this->getStep() + 1;
 		if($reviewerSubmission->getStep() < $nextStep) {
@@ -111,5 +111,3 @@ class ReviewerReviewForm extends Form {
 		$reviewerSubmissionDao->updateReviewerSubmission($reviewerSubmission);
 	}
 }
-
-?>

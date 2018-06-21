@@ -394,30 +394,31 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 				$q->leftJoin('user_interests as ui', 'u.user_id', '=', 'ui.user_id');
 				$q->leftJoin('controlled_vocab_entry_settings as cves', 'ui.controlled_vocab_entry_id', '=', 'cves.controlled_vocab_entry_id');
 				foreach ($words as $word) {
+					$word = strtolower(addcslashes($word, '%_'));
 					$q->where(function($q) use ($word) {
-						$q->where('u.username', 'LIKE', "%{$word}%")
-							->orWhere('u.email', 'LIKE', "%{$word}%")
+						$q->where(Capsule::raw('lower(u.username)'), 'LIKE', "%{$word}%")
+							->orWhere(Capsule::raw('lower(u.email)'), 'LIKE', "%{$word}%")
 							->orWhere(function($q) use ($word) {
 								$q->where('us.setting_name', IDENTITY_SETTING_GIVENNAME);
-								$q->where('us.setting_value', 'LIKE', "%{$word}%");
+								$q->where(Capsule::raw('lower(us.setting_value)'), 'LIKE', "%{$word}%");
 							})
 							->orWhere(function($q) use ($word) {
 								$q->where('us.setting_name', IDENTITY_SETTING_FAMILYNAME);
-								$q->where('us.setting_value', 'LIKE', "%{$word}%");
+								$q->where(Capsule::raw('lower(us.setting_value)'), 'LIKE', "%{$word}%");
 							})
 							->orWhere(function($q) use ($word) {
 								$q->where('us.setting_name', 'affiliation');
-								$q->where('us.setting_value', 'LIKE', "%{$word}%");
+								$q->where(Capsule::raw('lower(us.setting_value)'), 'LIKE', "%{$word}%");
 							})
 							->orWhere(function($q) use ($word) {
 								$q->where('us.setting_name', 'biography');
-								$q->where('us.setting_value', 'LIKE', "%{$word}%");
+								$q->where(Capsule::raw('lower(us.setting_value)'), 'LIKE', "%{$word}%");
 							})
 							->orWhere(function($q) use ($word) {
 								$q->where('us.setting_name', 'orcid');
-								$q->where('us.setting_value', 'LIKE', "%{$word}%");
+								$q->where(Capsule::raw('lower(us.setting_value)'), 'LIKE', "%{$word}%");
 							})
-							->orWhere('cves.setting_value', 'LIKE', "%{$word}%");
+							->orWhere(Capsule::raw('lower(cves.setting_value)'), 'LIKE', "%{$word}%");
 					});
 				}
 			}

@@ -132,7 +132,7 @@ class CitationDAO extends DAO {
 	 * @param $submissionId int optional
 	 * @return array Citations identified by setting.
 	 */
-	function getCitaionsBySetting($settingName, $settingValue, $submissionId = null) {
+	function getCitationsBySetting($settingName, $settingValue, $submissionId = null) {
 		$params = array($settingName);
 
 		$sql = 'SELECT	c.*

@@ -25,6 +25,8 @@
 #  FILESDIR=files: Pathname to use for storing server-side submission files
 #  DBTYPE=MySQL: Name of database driver (MySQL or PostgreSQL)
 #  TIMEOUT=30: Selenium timeout; optional, 30 seconds by default
+#  APIPREFIX=/index.php/publicknowledge/api/v1
+#  APIKEY=xxxxxxxx: REST API access token
 #
 
 set -xe # Fail on first error

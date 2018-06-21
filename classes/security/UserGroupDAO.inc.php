@@ -461,7 +461,7 @@ class UserGroupDAO extends DAO {
 		if(isset($search)) $params = array_merge($params, array_pad(array(), 4, '%' . $search . '%'));
 
 		$result = $this->retrieveRange(
-			'SELECT	u.*
+			'SELECT	DISTINCT u.*
 			FROM	users u
 			' .(isset($search) ? '
 					LEFT JOIN user_settings usgs ON (usgs.user_id = u.user_id AND usgs.setting_name = ?)

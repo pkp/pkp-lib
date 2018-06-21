@@ -303,7 +303,7 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 					->leftJoin('author_settings as as', 'as.author_id', '=', 'au.author_id');
 
 				foreach ($words as $word) {
-					$word = strtolower($word);
+					$word = strtolower(addcslashes($word, '%_'));
 					$q->where(function($q) use ($word, $isAssignedOnly)  {
 						$q->where(function($q) use ($word) {
 							$q->where('ss.setting_name', 'title');

@@ -394,7 +394,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 				$q->leftJoin('user_interests as ui', 'u.user_id', '=', 'ui.user_id');
 				$q->leftJoin('controlled_vocab_entry_settings as cves', 'ui.controlled_vocab_entry_id', '=', 'cves.controlled_vocab_entry_id');
 				foreach ($words as $word) {
-					$word = strtolower($word);
+					$word = strtolower(addcslashes($word, '%_'));
 					$q->where(function($q) use ($word) {
 						$q->where(Capsule::raw('lower(u.username)'), 'LIKE', "%{$word}%")
 							->orWhere(Capsule::raw('lower(u.email)'), 'LIKE', "%{$word}%")

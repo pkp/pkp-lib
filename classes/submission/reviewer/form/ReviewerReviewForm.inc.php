@@ -111,5 +111,3 @@ class ReviewerReviewForm extends Form {
 		$reviewerSubmissionDao->updateReviewerSubmission($reviewerSubmission);
 	}
 }
-
-?>

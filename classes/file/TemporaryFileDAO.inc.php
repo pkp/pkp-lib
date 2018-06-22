@@ -25,7 +25,7 @@ class TemporaryFileDAO extends DAO {
 	 * @param $userId int
 	 * @return TemporaryFile
 	 */
-	function &getTemporaryFile($fileId, $userId) {
+	function getTemporaryFile($fileId, $userId) {
 		$result = $this->retrieveLimit(
 			'SELECT t.* FROM temporary_files t WHERE t.file_id = ? and t.user_id = ?',
 			array((int) $fileId, (int) $userId),
@@ -157,7 +157,7 @@ class TemporaryFileDAO extends DAO {
 		);
 
 		while (!$result->EOF) {
-			$temporaryFiles[] =& $this->_returnTemporaryFileFromRow($result->GetRowAssoc(false));
+			$temporaryFiles[] = $this->_returnTemporaryFileFromRow($result->GetRowAssoc(false));
 			$result->MoveNext();
 		}
 

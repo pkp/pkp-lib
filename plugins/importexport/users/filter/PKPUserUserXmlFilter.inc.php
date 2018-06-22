@@ -158,8 +158,8 @@ class PKPUserUserXmlFilter extends NativeExportFilter {
 		$exportFilter = array_shift($userGroupExportFilters);
 		$exportFilter->setDeployment($this->getDeployment());
 
-		$userGroups = $userGroups->toArray();
-		$userGroupsDoc = $exportFilter->execute($userGroups);
+		$userGroupsArray = $userGroups->toArray();
+		$userGroupsDoc = $exportFilter->execute($userGroupsArray);
 		if ($userGroupsDoc->documentElement instanceof DOMElement) {
 			$clone = $doc->importNode($userGroupsDoc->documentElement, true);
 			$rootNode->appendChild($clone);

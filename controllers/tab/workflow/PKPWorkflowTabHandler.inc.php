@@ -86,6 +86,8 @@ abstract class PKPWorkflowTabHandler extends Handler {
 					$lastReviewRoundNumber = $lastReviewRound->getRound();
 					$lastReviewRoundId = $lastReviewRound->getId();
 					$templateMgr->assign('lastReviewRoundNumber', $lastReviewRoundNumber);
+				} else {
+					$lastReviewRoundId = null;
 				}
 				else {
 				    $lastReviewRoundId = null;

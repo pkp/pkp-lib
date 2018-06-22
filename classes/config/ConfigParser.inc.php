@@ -169,8 +169,7 @@ class ConfigParser {
 
 				if (preg_match('/[^\w\-\/]/', $value)) {
 					// Escape strings containing non-alphanumeric characters
-					// Make sure no single backslash is present inside the quotes.
-					$valueString = '"' . str_replace('\\', '\\\\', $value) . '"';
+					$valueString = '"' . addslashes($value) . '"';
 				} else {
 					$valueString = $value;
 				}

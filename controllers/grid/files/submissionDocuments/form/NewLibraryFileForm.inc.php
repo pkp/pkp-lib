@@ -56,7 +56,7 @@ class NewLibraryFileForm extends LibraryFileForm {
 	function execute($userId) {
 		// Fetch the temporary file storing the uploaded library file
 		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO');
-		$temporaryFile =& $temporaryFileDao->getTemporaryFile(
+		$temporaryFile = $temporaryFileDao->getTemporaryFile(
 			$this->getData('temporaryFileId'),
 			$userId
 		);

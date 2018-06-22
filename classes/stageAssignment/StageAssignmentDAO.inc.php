@@ -210,8 +210,8 @@ class StageAssignmentDAO extends DAO {
 				(int) $stageAssignment->getSubmissionId(),
 				$this->nullOrInt($stageAssignment->getUserGroupId()),
 				$this->nullOrInt($stageAssignment->getUserId()),
-				(int) $stageAssignment->getId(),
-				$stageAssignment->getRecommendOnly()?$stageAssignment->getRecommendOnly():0
+				$stageAssignment->getRecommendOnly()?$stageAssignment->getRecommendOnly():0,
+				(int) $stageAssignment->getId()
 			)
 		);
 	}

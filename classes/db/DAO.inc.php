@@ -164,9 +164,10 @@ class DAO {
 	 * @param $params array parameters for the SQL statement
 	 * @param $numRows int maximum number of rows to return in the result set
 	 * @param $offset int row offset in the result set
+	 * @param $secsToCache int number of seconds
 	 * @return ADORecordSet
 	 */
-	function &retrieveLimit($sql, $params = false, $numRows = false, $offset = false, $callHooks = true) {
+	function &retrieveLimit($sql, $params = false, $numRows = false, $offset = false, $callHooks = true, $secsToCache = 0) {
 		if ($callHooks === true) {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
@@ -180,41 +181,6 @@ class DAO {
 		}
 
 		$start = Core::microtime();
-		$dataSource = $this->getDataSource();
-		$result = $dataSource->selectLimit($sql, $numRows === false ? -1 : $numRows, $offset === false ? -1 : $offset, $params !== false && !is_array($params) ? array($params) : $params);
-
-		if ($this->isSqlServerFakeError($dataSource)) {
-			return $result;
-		}
-
-		if ($dataSource->errorNo()) {
-			fatalError('DB Error: ' . $dataSource->errorMsg());
-		}
-		return $result;
-	}
-
-	/**
-	 * Execute a cached SELECT SQL statement with LIMIT on the rows returned.
-	 * @param $sql string the SQL statement
-	 * @param $params array parameters for the SQL statement
-	 * @param $numRows int maximum number of rows to return in the result set
-	 * @param $offset int row offset in the result set
-	 * @param $secsToCache int number of seconds
-	 * @return ADORecordSet
-	 */
-	function &retrieveLimitCached($sql, $params = false, $numRows = false, $offset = false, $secsToCache = 3600, $callHooks = true) {
-		if ($callHooks === true) {
-			$trace = debug_backtrace();
-			// Call hooks based on the calling entity, assuming
-			// this method is only called by a subclass. Results
-			// in hook calls named e.g. "sessiondao::_getsession"
-			// (all lowercase).
-			$value = null;
-			if (HookRegistry::call(strtolower_codesafe($trace[1]['class'] . '::_' . $trace[1]['function']), array(&$sql, &$params, &$numRows, &$offset, &$secsToCache, &$value))) {
-				return $value;
-			}
-		}
-
 		$dataSource = $this->getDataSource();
 		$result = $dataSource->selectLimit($sql, $numRows === false ? -1 : $numRows, $offset === false ? -1 : $offset, $params !== false && !is_array($params) ? array($params) : $params, $secsToCache);
 

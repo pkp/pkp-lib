@@ -89,9 +89,6 @@ abstract class PKPWorkflowTabHandler extends Handler {
 				} else {
 					$lastReviewRoundId = null;
 				}
-				else {
-				    $lastReviewRoundId = null;
-				}
 
 				// Add the round information to the template.
 				$templateMgr->assign('reviewRounds', $reviewRoundsArray);
@@ -101,25 +98,22 @@ abstract class PKPWorkflowTabHandler extends Handler {
 					$dispatcher = $request->getDispatcher();
 
 					import('lib.pkp.classes.linkAction.request.AjaxModal');
-					$submissionId = $submission->getId();
-					$url = $dispatcher->url(
-						$request, ROUTE_COMPONENT, null,
-						'modals.editorDecision.EditorDecisionHandler',
-						'newReviewRound', null, array(
-							'submissionId' => $submissionId,
-							'decision' => SUBMISSION_EDITOR_DECISION_RESUBMIT,
-							'stageId' => $selectedStageId,
-							'reviewRoundId' => $lastReviewRoundId
-						)
-					);
-					$ajaxModal = new AjaxModal(
-						$url,
-						__('editor.submission.newRound'),
-						'modal_add_item'
-					);
 					$newRoundAction = new LinkAction(
 						'newRound',
-						$ajaxModal,
+						new AjaxModal(
+							$dispatcher->url(
+								$request, ROUTE_COMPONENT, null,
+								'modals.editorDecision.EditorDecisionHandler',
+								'newReviewRound', null, array(
+									'submissionId' => $submission->getId(),
+									'decision' => SUBMISSION_EDITOR_DECISION_RESUBMIT,
+									'stageId' => $selectedStageId,
+									'reviewRoundId' => $lastReviewRoundId
+								)
+							),
+							__('editor.submission.newRound'),
+							'modal_add_item'
+						),
 						__('editor.submission.newRound'),
 						'add_item_small'
 					);

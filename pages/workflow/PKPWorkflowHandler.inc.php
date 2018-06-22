@@ -90,7 +90,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		$workingStageId = null;
 
 		for ($workingStageId = $currentStageId; $workingStageId >= WORKFLOW_STAGE_ID_SUBMISSION; $workingStageId--) {
-			if (array_key_exists($workingStageId, $accessibleWorkflowStages)) {
+			if (isset($accessibleWorkflowStages[$workingStageId]) && array_intersect($editorialWorkflowRoles, $accessibleWorkflowStages[$workingStageId])) {
 				break;
 			}
 		}
@@ -199,9 +199,6 @@ abstract class PKPWorkflowHandler extends Handler {
 			$reviewRound = $reviewRoundDao->getById($reviewRoundId);
 		} else {
 			$lastReviewRound = null;
-		}
-		else {
-		    $lastReviewRound = null;
 		}
 
 		// If there is an editor assigned, retrieve stage decisions.

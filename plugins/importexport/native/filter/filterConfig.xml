@@ -125,6 +125,12 @@
 			description="plugins.importexport.native.description"
 			inputType="class::lib.pkp.classes.reviewForm.ReviewForm[]"
 			outputType="xml::schema(lib/pkp/plugins/importexport/native/pkp-native.xsd)" />
+		<filterGroup
+			symbolic="context=>native-xml"
+			displayName="plugins.importexport.native.displayName"
+			description="plugins.importexport.native.description"
+			inputType="class::lib.pkp.classes.context.Context[]"
+			outputType="xml::schema(lib/pkp/plugins/importexport/native/pkp-native.xsd)" />
 	</filterGroups>
 	<filters>
 		<!-- Native XML article file input -->
@@ -193,9 +199,14 @@
 			inGroup="review-form=>native-xml"
 			class="lib.pkp.plugins.importexport.native.filter.ReviewFormNativeXmlFilter"
 			isTemplate="0" />
+		
 		<filter
 			inGroup="native-xml=>review-form"
 			class="lib.pkp.plugins.importexport.native.filter.NativeXmlReviewFormFilter"
+			isTemplate="0" />
+		<filter
+			inGroup="context=>native-xml"
+			class="lib.pkp.plugins.importexport.native.filter.ContextNativeXmlFilter"
 			isTemplate="0" />
 	</filters>
 </filterConfig>

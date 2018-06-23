@@ -281,6 +281,10 @@
 		<attribute name="oldFileId" type="int" />
 	</complexType>
 
+	<complexType name="context">
+		<attribute name="old_id" type="int" />
+	</complexType>
+
 	<complexType name="reviewFile">
 		<attribute name="oldFileId" type="int" />
 	</complexType>
@@ -530,4 +534,14 @@
 
 	<!-- Permit "note" as a root element -->
 	<element name="note" type="pkp:note" />
+
+	<element name="contexts">
+		<complexType>
+			<sequence>
+				<element name="context" type="pkp:context" minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="context" type="pkp:context" />
 </schema>

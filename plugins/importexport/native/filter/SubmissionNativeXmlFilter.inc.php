@@ -56,8 +56,6 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$deployment = $this->getDeployment();
 		$context = $deployment->getContext();
 
-		$rootNode = $this->createReviewFormsNode($doc, $context);
-
 		if (count($submissions)==1 && !$this->getIncludeSubmissionsNode()) {
 			// Only one submission specified; create root node
 			$rootNode = $this->createSubmissionNode($doc, $submissions[0]);
@@ -111,6 +109,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$this->addRepresentations($doc, $submissionNode, $submission);
 		$this->addReviewRounds($doc, $submissionNode, $submission);
 		$this->addQueries($doc, $submissionNode, $submission);
+
 
 		return $submissionNode;
 	}

@@ -73,7 +73,7 @@ class ContextNativeXmlFilter extends NativeExportFilter {
 	 * @param $context Context
 	 * @return DOMElement
 	 */
-	function createReviewRoundNode($doc, $context) {
+	function createContextNode($doc, $context) {
 		$deployment = $this->getDeployment();
 
 		// Create the context node
@@ -82,6 +82,11 @@ class ContextNativeXmlFilter extends NativeExportFilter {
 		$contextNode->setAttribute('old_id', $context->getId());
 
 		$this->addReviewForms($doc, $contextNode, $context);
+		if ($deployment->_state == "article") {
+
+		} else if ($deployment->_state == "issue") {
+
+		}
 
 		return $contextNode;
 	}
@@ -108,8 +113,66 @@ class ContextNativeXmlFilter extends NativeExportFilter {
 		$reviewFormsDoc = $exportFilter->execute($reviewForms);
 		if ($reviewFormsDoc->documentElement instanceof DOMElement) {
 			$clone = $doc->importNode($reviewFormsDoc->documentElement, true);
-			$reviewFormsDoc->appendChild($clone);
+			$contextNode->appendChild($clone);
 		}
+
+		return $reviewFormsDoc;
+	}
+
+	/**
+	 * Add the ReviewForms for a content to its DOM element.
+	 * @param $doc DOMDocument
+	 * @param $contextNode DOMElement
+	 * @param $context Context
+	 */
+	function addSubmissions($doc, $contextNode, $context) {
+		$filterDao = DAORegistry::getDAO('FilterDAO');
+		$nativeExportFilters = $filterDao->getObjectsByGroup('review-form=>native-xml');
+		assert(count($nativeExportFilters)==1); // Assert only a single serialization filter
+		$exportFilter = array_shift($nativeExportFilters);
+		$exportFilter->setDeployment($this->getDeployment());
+
+		/**
+		 * @var $reviewFormDao ReviewFormDAO
+		 */
+		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
+		$reviewForms = $reviewFormDao->getByAssocId(ASSOC_TYPE_JOURNAL, $context->getId());
+
+		$reviewFormsDoc = $exportFilter->execute($reviewForms);
+		if ($reviewFormsDoc->documentElement instanceof DOMElement) {
+			$clone = $doc->importNode($reviewFormsDoc->documentElement, true);
+			$contextNode->appendChild($clone);
+		}
+
+		return $reviewFormsDoc;
+	}
+
+	/**
+	 * Add the ReviewForms for a content to its DOM element.
+	 * @param $doc DOMDocument
+	 * @param $contextNode DOMElement
+	 * @param $context Context
+	 */
+	function addIssues($doc, $contextNode, $context) {
+		$filterDao = DAORegistry::getDAO('FilterDAO');
+		$nativeExportFilters = $filterDao->getObjectsByGroup('review-form=>native-xml');
+		assert(count($nativeExportFilters)==1); // Assert only a single serialization filter
+		$exportFilter = array_shift($nativeExportFilters);
+		$exportFilter->setDeployment($this->getDeployment());
+
+		/**
+		 * @var $reviewFormDao ReviewFormDAO
+		 */
+		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
+		$reviewForms = $reviewFormDao->getByAssocId(ASSOC_TYPE_JOURNAL, $context->getId());
+
+		$reviewFormsDoc = $exportFilter->execute($reviewForms);
+		if ($reviewFormsDoc->documentElement instanceof DOMElement) {
+			$clone = $doc->importNode($reviewFormsDoc->documentElement, true);
+			$contextNode->appendChild($clone);
+		}
+
+		return $reviewFormsDoc;
 	}
 }
 

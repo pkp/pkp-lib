@@ -61,11 +61,11 @@ class PluginRegistry {
 		$pluginName = $plugin->getName();
 		$plugins =& PluginRegistry::getPlugins();
 
-		// If the plugin was already loaded, do not load it again.
-		if (isset($plugins[$category][$pluginName])) return false;
-
 		// Allow the plugin to register.
 		if (!$plugin->register($category, $path, $mainContextId)) return false;
+
+		// If the plugin was already loaded, do not load it again.
+		if (isset($plugins[$category][$pluginName])) return false;
 
 		if (isset($plugins[$category])) $plugins[$category][$pluginName] = $plugin;
 		else $plugins[$category] = array($pluginName => $plugin);

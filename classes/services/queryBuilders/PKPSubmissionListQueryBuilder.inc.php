@@ -212,6 +212,7 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 			$q->leftJoin('published_submissions as ps','ps.submission_id','=','s.submission_id')
 				->groupBy('ps.date_published');
 			$q->whereNotNull('ps.pub_id');
+			$q->groupBy('ps.pub_id');
 		}
 
 		// statuses

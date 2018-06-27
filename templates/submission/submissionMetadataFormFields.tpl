@@ -15,7 +15,7 @@
 	{assign var=citationsEnabled value=false}
 {/if}
 {if $coverageEnabled || $typeEnabled || $sourceEnabled || $rightsEnabled ||
-		$languagesEnabled || $subjectsEnabled || $keywordsEnabled || $agenciesEnabled || $citationsEnabled || $disciplinesEnabled}
+		$languagesEnabled || $subjectsEnabled || $keywordsEnabled || $agenciesEnabled || ($citationsEnabled && !$metadataModal) || $disciplinesEnabled}
 	{fbvFormSection title="submission.metadata"}
 		<p class="description">{translate key="submission.metadataDescription"}</p>
 	{/fbvFormSection}
@@ -45,7 +45,7 @@
 	{/fbvFormArea}
 {/if}
 
-{if $languagesEnabled || $subjectsEnabled || $keywordsEnabled || $agenciesEnabled || $citationsEnabled || $disciplinesEnabled}
+{if $languagesEnabled || $subjectsEnabled || $keywordsEnabled || $agenciesEnabled || ($citationsEnabled && !$metadataModal) || $disciplinesEnabled}
 	{fbvFormArea id="tagitFields" title="submission.submit.metadataForm"}
 		{if $languagesEnabled}
 			{$languagesField}
@@ -70,9 +70,9 @@
 				{fbvElement type="keyword" id="agencies" multilingual=true current=$agencies disabled=$readOnly required=$agenciesRequired}
 			{/fbvFormSection}
 		{/if}
-		{if $citationsEnabled}
+		{if $citationsEnabled && !$metadataModal}
 			{fbvFormSection label="submission.citations"}
-				{fbvElement type="textarea" id="citations" value=$citations disabled=$readOnly required=$citationsRequired}
+				{fbvElement type="textarea" id="citations" value=$citations multilingual=false disabled=$readOnly required=$citationsRequired}
 			{/fbvFormSection}
 		{/if}
 	{/fbvFormArea}

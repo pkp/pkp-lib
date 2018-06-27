@@ -153,6 +153,8 @@
 	<message key="common.language">زبان</message>
 	<message key="common.languages">زبان‌ها</message>
 	<message key="common.less">کمتر</message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.manage">مدیریت</message>
 	<message key="common.mailingAddress">آدرس پستی</message>
 	<message key="common.billingAddress">آدرس پستی (در صورت تفاوت)</message>

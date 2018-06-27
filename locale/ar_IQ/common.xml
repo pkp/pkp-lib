@@ -171,6 +171,8 @@
 	<message key="common.language">اللغة</message>
 	<message key="common.languages">اللغات</message>
 	<message key="common.less">أقل</message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.manage">إدارة</message>
 	<message key="common.mailingAddress">عنوان المراسلة</message>
 	<message key="common.billingAddress">عنوان الفواتير (إذا اختلف)</message>

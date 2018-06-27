@@ -72,6 +72,8 @@
 	<message key="common.chooseOne">Pilih satu</message>
 	<message key="common.close">Tutup</message>
 	<message key="common.closeWindow">Tutup Window</message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.complete">Selesai</message>
 	<message key="common.completed">Telah selesai</message>
 	<message key="common.continue">Lanjutkan</message>

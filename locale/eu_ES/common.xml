@@ -318,6 +318,8 @@
 	<message key="common.finish">Amaitua</message>
 	<message key="common.go">Aurrera</message>
 	<message key="common.less">Gutxiago</message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.billingAddress">Fakturatze helbidea (desberdina izanez gero)</message>
 	<message key="common.more">Gehiago</message>
 	<message key="common.notified">Jakinarazia</message>

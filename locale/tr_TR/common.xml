@@ -320,6 +320,8 @@
 	<message key="common.finish">Son</message>
 	<message key="common.go">Git</message>
 	<message key="common.less">Küçük</message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.billingAddress">Fatura adresi (farklıysa)</message>
 	<message key="common.more">Daha Fazla</message>
 	<message key="common.noMatches">Eşleşmedi</message>

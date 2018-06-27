@@ -166,6 +166,8 @@
 	<message key="common.language">Jezik</message>
 	<message key="common.languages">Jeziki</message>
 	<message key="common.less">Manj</message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.manage">Upravljaj</message>
 	<message key="common.mailingAddress">Poštni naslov</message>
 	<message key="common.billingAddress">Naslov za račun (če je drugačen)</message>

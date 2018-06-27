@@ -50,6 +50,8 @@ class UserForm extends Form {
 			$userGroupIds[] = $userGroup->getId();
 		}
 		$this->setData('userGroupIds', $userGroupIds);
+
+		parent::initData($args, $request);
 	}
 
 	/**

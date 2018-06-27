@@ -30,6 +30,8 @@
 	<message key="announcement.posted">Αναρτημένες</message>
 	<message key="announcement.viewLink">Περισσότερα...</message>
 	<message key="announcement.view">Προβολή Ανακοίνωσης</message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.copy">Αντίγραφο</message>
 	<message key="common.preview">Επισκόπηση</message>
 	<message key="common.activate">Ενεργοποίηση</message>

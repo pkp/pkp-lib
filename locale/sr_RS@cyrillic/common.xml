@@ -305,6 +305,8 @@
 	<message key="common.finish">Заврши</message>
 	<message key="common.go">Иди</message>
 	<message key="common.less">Мање</message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.billingAddress">Адреса за наплату (уколико је другачија)</message>
 	<message key="common.more">Више</message>
 	<message key="common.notified">Обавештено</message>

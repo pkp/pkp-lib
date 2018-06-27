@@ -344,6 +344,8 @@
 	<message key="common.itemsPerPage">Položek na stránku</message>
 	<message key="common.favicon.altText">Favicon</message>
 	<message key="common.less">Méně</message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.billingAddress">Fakturační adresa (pokud se liší)</message>
 	<message key="common.more">Více</message>
 	<message key="common.name">Jméno</message>

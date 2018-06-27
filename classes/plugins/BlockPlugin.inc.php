@@ -174,7 +174,7 @@ abstract class BlockPlugin extends LazyLoadPlugin {
 		$params =& $args[0];
 		$smarty =& $args[1];
 		$output =& $args[2];
-		$output .= $this->getContents($smarty, $this->getRequest());
+		$output .= $this->getContents($smarty, Application::getRequest());
 		return false;
 	}
 
@@ -187,7 +187,7 @@ abstract class BlockPlugin extends LazyLoadPlugin {
 	 * @return string
 	 */
 	function _getContextSpecificHomepageHook() {
-		$application = PKPApplication::getApplication();
+		$application = Application::getApplication();
 
 		if ($application->getContextDepth() == 0) return null;
 

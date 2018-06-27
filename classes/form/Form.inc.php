@@ -286,8 +286,7 @@ class Form {
 		}
 
 		if (!defined('SESSION_DISABLE_INIT')) {
-			$application = PKPApplication::getApplication();
-			$request = $application->getRequest();
+			$request = Application::getRequest();
 			$user = $request->getUser();
 
 			if (!$this->isValid() && $user) {

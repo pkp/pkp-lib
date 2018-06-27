@@ -168,7 +168,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 	 */
 	public function deleteSubmission($slimRequest, $response, $args) {
 
-		$request = Application::getRequest();
+		$request = $this->getRequest();
 		$currentUser = $request->getUser();
 		$context = $request->getContext();
 

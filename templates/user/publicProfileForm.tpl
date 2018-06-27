@@ -65,6 +65,8 @@
 		{fbvElement type="text" label="user.orcid" name="orcid" id="orcid" value=$orcid maxlength="37"}
 	{/fbvFormSection}
 
+	{call_hook name="User::PublicProfile::AdditionalItems"}
+
 	{fbvFormButtons hideCancel=true submitText="common.save"}
 
 	<p>

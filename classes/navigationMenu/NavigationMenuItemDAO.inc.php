@@ -152,6 +152,13 @@ class NavigationMenuItemDAO extends DAO {
 	}
 
 	/**
+	 * @copydoc DAO::getAdditionalFieldNames()
+	 */
+	function getAdditionalFieldNames() {
+		return array('titleLocaleKey');
+	}
+
+	/**
 	 * Get a new data object.
 	 * @return NavigationMenuItem
 	 */
@@ -363,20 +370,10 @@ class NavigationMenuItemDAO extends DAO {
 			// add the i18n keys to the settings table so that they
 			// can be used when a new locale is added/reloaded
 			$this->updateSetting($navigationMenuItemId, 'titleLocaleKey', $titleKey);
-
-			// install the settings in the current locale for this context
-			foreach ($supportedLocales as $locale) {
-				$this->installLocale($locale, $contextId);
-			}
 		} else {
 			$navigationMenuItemId = $navigationMenuItemExisting->getId();
 
 			$this->updateSetting($navigationMenuItemId, 'titleLocaleKey', $titleKey);
-
-			// install the settings in the current locale for this context
-			foreach ($supportedLocales as $locale) {
-				$this->installLocale($locale, $contextId);
-			}
 		}
 
 		// insert into Assignments
@@ -411,29 +408,6 @@ class NavigationMenuItemDAO extends DAO {
 		}
 
 		return true;
-	}
-
-
-	/**
-	 * use the locale keys stored in the settings table to install the locale settings
-	 * @param $locale
-	 * @param $contextId
-	 */
-	function installLocale($locale, $contextId = null) {
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_COMMON, LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER, $locale);
-		$navigationMenuItems = $this->getByContextId($contextId);
-		while ($navigationMenuItem = $navigationMenuItems->next()) {
-			$titleKey = $this->getSetting($navigationMenuItem->getId(), 'titleLocaleKey');
-			if (!$navigationMenuItem->getTitle($locale) || $navigationMenuItem->getTitle($locale) == $titleKey) {
-				$this->updateSetting($navigationMenuItem->getId(),
-					'title',
-					array($locale => __($titleKey, null, $locale)),
-					'string',
-					$locale,
-					true
-				);
-			}
-		}
 	}
 
 	/**

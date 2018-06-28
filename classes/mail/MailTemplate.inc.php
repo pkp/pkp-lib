@@ -46,9 +46,6 @@ class MailTemplate extends Mail {
 	/** @var array The list of parameters to be assigned to the template. */
 	var $params;
 
-	/** @var string the email header to prepend */
-	var $emailHeader;
-
 	/**
 	 * Constructor.
 	 * @param $emailKey string unique identifier for the template
@@ -95,7 +92,6 @@ class MailTemplate extends Mail {
 		}
 
 		// Default "From" to user if available, otherwise site/context principal contact
-		$this->emailHeader = '';
 		if ($user) {
 			$this->setFrom($user->getEmail(), $user->getFullName());
 		} elseif (is_null($context) || is_null($context->getSetting('contactEmail'))) {
@@ -103,7 +99,6 @@ class MailTemplate extends Mail {
 			$this->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 		} else {
 			$this->setFrom($context->getSetting('contactEmail'), $context->getSetting('contactName'));
-			$this->emailHeader = $context->getSetting('emailHeader');
 		}
 
 		if ($context) {

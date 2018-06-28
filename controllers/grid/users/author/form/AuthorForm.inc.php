@@ -203,7 +203,8 @@ class AuthorForm extends Form {
 		$author = $this->getAuthor();
 		if (!$author) {
 			// this is a new submission contributor
-			$author = new Author();
+			$this->_author = $authorDao->newDataObject();
+			$author = $this->getAuthor();
 			$author->setSubmissionId($submission->getId());
 			$existingAuthor = false;
 		} else {

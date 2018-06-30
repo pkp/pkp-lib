@@ -21,6 +21,33 @@
    outside of the context of any one journal/press. *}
 {if !$currentContext}
 
+	<fieldset class="consent">
+		<div class="fields">
+			<div class="optin optin-privacy">
+				<label>
+					<input type="checkbox" name="privacyConsent" value="1"{if $privacyConsent} checked="checked"{/if}>
+					{translate key="user.register.form.privacyConsentContext"}
+				</label>
+				{foreach from=$contexts item=context}
+					{assign var=contextPath value=$context->getPath()|escape}
+					{assign var=privacyContextName value=$context->getLocalizedName()|escape}
+					{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE context=$contextPath page="about" op="privacy"}{/capture}
+					<div class="context_consent_policy">
+						{translate key="user.register.form.privacyConsentContextData" privacyUrl=$privacyUrl privacyContextName=$privacyContextName}
+					</div>
+				{/foreach}
+			</div>
+		</div>
+		<div class="fields">
+			<div class="optin optin-email">
+				<label>
+					<input type="checkbox" name="emailConsent" value="1"{if $emailConsent} checked="checked"{/if}>
+					{translate key="user.register.form.emailConsent"}
+				</label>
+			</div>
+		</div>
+	</fieldset>
+
 	{* Allow users to register for any journal/press on this site *}
 	<fieldset name="contexts">
 		<legend>

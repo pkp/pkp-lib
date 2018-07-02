@@ -205,7 +205,7 @@ class CopyAccessLogFileTool extends CommandLineTool {
 			printf(__('admin.error.executingUtil', array('utilPath' => $egrepPath, 'utilVar' => 'egrep')) . "\n");
  			exit(1);
  		}
-		if (!$fileMgr->deleteFile($tmpFilePath)) {
+		if (!$fileMgr->deleteFileByPath($tmpFilePath)) {
 			printf(__('admin.copyAccessLogFileTool.error.deletingFile', array('tmpFilePath' => $tmpFilePath)) . "\n");
 			exit(1);
 		}

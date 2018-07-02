@@ -76,7 +76,7 @@ class NewLibraryFileForm extends LibraryFileForm {
 		// Clean up the temporary file
 		import('lib.pkp.classes.file.TemporaryFileManager');
 		$temporaryFileManager = new TemporaryFileManager();
-		$temporaryFileManager->deleteFile($this->getData('temporaryFileId'), $userId);
+		$temporaryFileManager->deleteFileById($this->getData('temporaryFileId'), $userId);
 
 		return $fileId;
 	}

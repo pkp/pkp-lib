@@ -196,7 +196,7 @@ class ScheduledTaskHelper {
 		import('lib.pkp.classes.file.PrivateFileManager');
 		$fileMgr = new PrivateFileManager();
 
-		$fileMgr->downloadFile($fileMgr->getBasePath() . DIRECTORY_SEPARATOR . SCHEDULED_TASK_EXECUTION_LOG_DIR . DIRECTORY_SEPARATOR . $file);	
+		$fileMgr->downloadFileByPath($fileMgr->getBasePath() . DIRECTORY_SEPARATOR . SCHEDULED_TASK_EXECUTION_LOG_DIR . DIRECTORY_SEPARATOR . $file);	
 	}
 
 

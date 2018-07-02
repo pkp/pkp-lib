@@ -101,7 +101,7 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate {
 		$expectedStageId = $stageData['id'];
 
 		$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
-		$pendingRevisionDecision = $editDecisionDao->findValidPendingRevisionsDecision($submissionId, $expectedStageId);
+		$pendingRevisionDecision = $editDecisionDao->findValidPendingRevisionsDecision($submissionId, $expectedStageId, SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS);
 		$removeNotifications = false;
 
 		if ($pendingRevisionDecision) {

@@ -284,7 +284,7 @@ class UserGridHandler extends GridHandler {
 			$userForm = new UserDetailsForm($request, $userId);
 			$userForm->initData($args, $request);
 
-			return new JSONMessage(true, $userForm->display($args, $request));
+			return new JSONMessage(true, $userForm->display($request));
 		}
 	}
 
@@ -317,7 +317,7 @@ class UserGridHandler extends GridHandler {
 				import('lib.pkp.controllers.grid.settings.user.form.UserRoleForm');
 				$userRoleForm = new UserRoleForm($user->getId(), $user->getFullName());
 				$userRoleForm->initData($args, $request);
-				return new JSONMessage(true, $userRoleForm->display($args, $request));
+				return new JSONMessage(true, $userRoleForm->display($request));
 			} else {
 
 				// Successful edit of an existing user.
@@ -391,7 +391,7 @@ class UserGridHandler extends GridHandler {
 
 			$userForm->initData($args, $request);
 
-			return new JSONMessage(true, $userForm->display($args, $request));
+			return new JSONMessage(true, $userForm->display($request));
 		}
 	}
 
@@ -429,7 +429,7 @@ class UserGridHandler extends GridHandler {
 			return DAO::getDataChangedEvent($userId);
 
 		} else {
-			return new JSONMessage(false, $userForm->display($args, $request));
+			return new JSONMessage(false, $userForm->display($request));
 		}
 	}
 

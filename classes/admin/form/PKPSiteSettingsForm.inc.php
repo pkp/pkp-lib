@@ -44,9 +44,9 @@ class PKPSiteSettingsForm extends Form {
 	}
 
 	/**
-	 * Display the form.
+	 * @copydoc Form::display
 	 */
-	function display() {
+	function display($request = null, $template = null) {
 		$site = Request::getSite();
 		$publicFileManager = new PublicFileManager();
 		$siteStyleFilename = $publicFileManager->getSiteFilesPath() . '/' . $site->getSiteStyleFilename();
@@ -62,7 +62,7 @@ class PKPSiteSettingsForm extends Form {
 			'dateStyleFileUploaded' => file_exists($siteStyleFilename)?filemtime($siteStyleFilename):null,
 			'siteStyleFileExists' => file_exists($siteStyleFilename),
 		));
-		return parent::display();
+		return parent::display($request, $template);
 	}
 
 	/**

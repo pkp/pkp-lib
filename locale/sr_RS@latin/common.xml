@@ -311,6 +311,8 @@
 	<message key="common.finish">Završi</message>
 	<message key="common.go">Idi</message>
 	<message key="common.less">Manje</message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.billingAddress">Adresa za naplatu (ukoliko je drugačija)</message>
 	<message key="common.more">Više</message>
 	<message key="common.notified">Obavešteno</message>

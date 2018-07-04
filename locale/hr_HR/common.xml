@@ -28,6 +28,8 @@
 	<message key="announcement.posted">Objavljeno</message>
 	<message key="announcement.viewLink">Više...</message>
 	<message key="announcement.view">Pregled obavijesti</message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.copy">Kopiraj</message>
 	<message key="common.preview">Prethodni pregled</message>
 	<message key="common.activate">Aktiviraj</message>

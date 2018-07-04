@@ -431,6 +431,8 @@
 	<message key="common.homepageNavigationLabel">Accueil</message>
 	<message key="common.itemsPerPage">Items par page</message>
 	<message key="common.less">Réduire</message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.billingAddress">Adresse de facturation (si différente)</message>
 	<message key="common.more">Plus</message>
 	<message key="common.notes.tooltip">Notes (jaune: contient de nouvelles notes; bleu: contient des notes déjà visionnées; gris: aucunes notes)</message>

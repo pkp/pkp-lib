@@ -315,6 +315,8 @@
 	<message key="common.content">内容</message>
 	<message key="common.finish">完成</message>
 	<message key="common.less">少于</message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.more">更多</message>
 	<message key="common.noMatches">无符合记录</message>
 	<message key="common.reminder">提醒</message>

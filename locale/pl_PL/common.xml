@@ -301,6 +301,8 @@
 	<message key="common.finish">Zakończ</message>
 	<message key="common.go">Idź</message>
 	<message key="common.less">Mniej</message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.billingAddress">Adres rozliczeniowy (jeżeli inny)</message>
 	<message key="common.more">Więcej</message>
 	<message key="common.notified">Powiadomiony</message>

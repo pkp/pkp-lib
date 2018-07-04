@@ -50,6 +50,8 @@ class UserForm extends Form {
 			$userGroupIds[] = $userGroup->getId();
 		}
 		$this->setData('userGroupIds', $userGroupIds);
+
+		parent::initData($args, $request);
 	}
 
 	/**
@@ -61,11 +63,9 @@ class UserForm extends Form {
 	}
 
 	/**
-	 * Display the form.
-	 * @param $args array
-	 * @param $request PKPRequest
+	 * @copydoc Form::display
 	 */
-	public function display($args, $request) {
+	public function display($request = null, $template = null) {
 		$context = $request->getContext();
 		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 		$templateMgr = TemplateManager::getManager($request);

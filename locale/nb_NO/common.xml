@@ -318,6 +318,8 @@
 	<message key="common.finish">Avslutt</message>
 	<message key="common.go">Fortsett</message>
 	<message key="common.less">Mindre enn</message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.billingAddress">Fakturaadresse (om annen)</message>
 	<message key="common.more">Mer</message>
 	<message key="common.noMatches">Ingen treff</message>

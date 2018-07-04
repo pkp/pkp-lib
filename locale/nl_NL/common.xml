@@ -317,6 +317,8 @@
 	<message key="common.finish">Voltooi</message>
 	<message key="common.go">Ga</message>
 	<message key="common.less">Minder</message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.more">Meer</message>
 	<message key="common.overdue">Te laat</message>
 	<message key="common.reminder">Herinnering</message>

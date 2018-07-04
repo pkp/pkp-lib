@@ -52,6 +52,7 @@ class LinkAction {
 		$this->_title = $title;
 		$this->_image = $image;
 		$this->_toolTip = $toolTip;
+		HookRegistry::call('LinkAction::construct', array($this));
 	}
 
 

@@ -143,6 +143,8 @@
 	<message key="common.language">Llengua</message>
 	<message key="common.languages">Llengües</message>
 	<message key="common.less">Menys</message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.manage">Administra</message>
 	<message key="common.mailingAddress">Adreça postal</message>
 	<message key="common.billingAddress">Adreça fiscal (si és diferent)</message>

@@ -319,6 +319,8 @@
 	<message key="common.finish">Completa</message>
 	<message key="common.go">Vai</message>
 	<message key="common.less">Meno</message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.billingAddress">Indirizzo di fatturazione (se differente)</message>
 	<message key="common.more">Più</message>
 	<message key="common.noMatches">Nessuna corrispondenza</message>

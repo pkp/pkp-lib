@@ -208,7 +208,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		// Set the workflow stage.
 		$this->setData('stageId', $this->getStageId());
 
@@ -295,7 +295,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 			$templateMgr->assign('ensuringLink', $ensuringLink);
 		}
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 }
 

@@ -117,9 +117,9 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 	}
 
 	/**
-	 * @copydoc Form::fetch()
+	 * @copydoc EditorDecisionForm::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 
 		$templateMgr = TemplateManager::getManager($request);
 
@@ -170,7 +170,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 		$templateMgr->assign('allowedVariables', $this->_getAllowedVariables($request));
 		$templateMgr->assign('allowedVariablesType', $this->_getAllowedVariablesType());
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 

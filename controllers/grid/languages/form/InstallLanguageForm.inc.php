@@ -42,7 +42,7 @@ class InstallLanguageForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$site = $request->getSite();
 		$allLocales = AppLocale::getAllLocales();
 		$installedLocales = $this->getData('installedLocales');
@@ -70,7 +70,7 @@ class InstallLanguageForm extends Form {
 			$templateMgr->assign('downloadableLocaleLinks', $downloadableLocaleLinks);
 		}
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

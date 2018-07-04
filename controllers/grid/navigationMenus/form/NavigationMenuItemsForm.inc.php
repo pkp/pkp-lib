@@ -59,7 +59,7 @@ class NavigationMenuItemsForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = 'controllers/grid/navigationMenus/form/navigationMenuItemsForm.tpl', $display = false) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
 
 		$templateMgr = TemplateManager::getManager($request);
@@ -101,7 +101,7 @@ class NavigationMenuItemsForm extends Form {
 			'navigationMenuItemTypeConditionalWarnings' => json_encode($typeConditionalWarnings),
 		));
 
-		return parent::fetch($request, 'controllers/grid/navigationMenus/form/navigationMenuItemsForm.tpl');
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

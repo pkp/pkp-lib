@@ -31,11 +31,9 @@ class ContactForm extends BaseProfileForm {
 	}
 
 	/**
-	 * Fetch the form.
-	 * @param $request PKPRequest
-	 * @return string JSON-encoded form contents.
+	 * @copydoc BaseProfileForm::fetch
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$site = $request->getSite();
 		$countryDao = DAORegistry::getDAO('CountryDAO');
@@ -44,7 +42,7 @@ class ContactForm extends BaseProfileForm {
 			'availableLocales' => $site->getSupportedLocaleNames(),
 		));
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

@@ -94,11 +94,9 @@ class GenreForm extends Form {
 	}
 
 	/**
-	 * Fetch
-	 * @param $request PKPRequest
-	 * @see Form::fetch()
+	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('submissionFileCategories', array(
 			GENRE_CATEGORY_DOCUMENT => __('submission.document'),
@@ -107,7 +105,7 @@ class GenreForm extends Form {
 		));
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

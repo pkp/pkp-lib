@@ -63,9 +63,9 @@ class SendReviewsForm extends EditorDecisionWithEmailForm {
 	}
 
 	/**
-	 * @copydoc Form::fetch()
+	 * @copydoc EditorDecisionWithEmailForm::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$router = $request->getRouter();
 		$dispatcher = $router->getDispatcher();
@@ -90,7 +90,7 @@ class SendReviewsForm extends EditorDecisionWithEmailForm {
 			'resubmitEmail' => $resubmitEmail->getBody(),
 		));
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

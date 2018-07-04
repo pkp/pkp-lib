@@ -69,9 +69,9 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 	}
 
 	/**
-	 * @see Form::fetch()
+	 * @copydoc ReviewerReviewForm::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$reviewAssignment = $this->getReviewAssignment();
 
@@ -105,7 +105,7 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 		if ($viewReviewGuidelinesAction->getGuidelines()) {
 			$templateMgr->assign('viewGuidelinesAction', $viewReviewGuidelinesAction);
 		}
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

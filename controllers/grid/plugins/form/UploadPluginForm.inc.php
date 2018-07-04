@@ -50,7 +50,7 @@ class UploadPluginForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
 			'function' => $this->_function,
@@ -58,7 +58,7 @@ class UploadPluginForm extends Form {
 			'plugin' => $request->getUserVar('plugin'),
 		));
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

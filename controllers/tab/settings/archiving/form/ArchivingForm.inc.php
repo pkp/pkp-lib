@@ -34,9 +34,9 @@ class ArchivingForm extends ContextSettingsForm {
 	}
 
 	/**
-	 * @copydoc Form::fetch()
+	 * @copydoc ContextSettingsForm::fetch()
 	 */
-	function fetch($request, $params = null) {
+	function fetch($request, $template = null, $display = false, $params = null) {
 		$isPLNPluginInstalled = false;
 		$isPLNPluginEnabled = false;
 		$isPorticoPluginInstalled = false;
@@ -71,7 +71,7 @@ class ArchivingForm extends ContextSettingsForm {
 			'plnSettingsShowAction' => $plnSettingsShowAction,
 		);
 
-		return parent::fetch($request, $params);
+		return parent::fetch($request, $template, $display, $params);
 	}
 
 	//

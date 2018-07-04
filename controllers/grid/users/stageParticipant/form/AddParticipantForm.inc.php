@@ -48,10 +48,9 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 	}
 
 	/**
-	 * @see Form::fetch()
-	 * @param $request PKPRequest
+	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroups = $userGroupDao->getUserGroupsByStage(
 			$request->getContext()->getId(),
@@ -105,7 +104,7 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 			'blindReviewerWarningOk' => __('common.ok'),
 		));
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

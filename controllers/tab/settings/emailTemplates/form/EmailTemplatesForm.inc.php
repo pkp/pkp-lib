@@ -38,10 +38,10 @@ class EmailTemplatesForm extends ContextSettingsForm {
 	/**
 	 * @copydoc ContextSettingsForm::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false, $params = null) {
 		$context = $request->getContext();
 		$dispatcher = $request->getDispatcher();
-		return parent::fetch($request, array(
+		return parent::fetch($request, $template, $display, array(
 			'envelopeSenderDisabled' => !Config::getVar('email', 'allow_envelope_sender') || Config::getVar('email', 'force_default_envelope_sender') && Config::getVar('email', 'default_envelope_sender'),
 			'emailVariables' => array(
 				'contextName' => $context->getLocalizedName(),

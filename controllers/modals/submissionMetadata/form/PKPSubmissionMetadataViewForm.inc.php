@@ -117,10 +117,9 @@ class PKPSubmissionMetadataViewForm extends Form {
 
 	/**
 	 * Fetch the HTML contents of the form.
-	 * @param $request PKPRequest
-	 * return string
+	 * @see Form::fetch
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$submission = $this->getSubmission();
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
@@ -150,7 +149,7 @@ class PKPSubmissionMetadataViewForm extends Form {
 				$supportedSubmissionLocales
 			))
 		);
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

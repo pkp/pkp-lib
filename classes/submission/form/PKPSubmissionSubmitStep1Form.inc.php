@@ -66,9 +66,9 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	}
 
 	/**
-	 * Fetch the form.
+	 * @copydoc SubmissionSubmitForm::fetch
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$user = $request->getUser();
 		$templateMgr = TemplateManager::getManager($request);
 
@@ -135,7 +135,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		$templateMgr->assign('defaultGroup', $defaultGroup);
 		$templateMgr->assign('noExistingRoles', $noExistingRoles);
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

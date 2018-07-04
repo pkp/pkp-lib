@@ -220,7 +220,7 @@ class ReviewerForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$context = $request->getContext();
 
 		// Get the review method options.
@@ -283,7 +283,7 @@ class ReviewerForm extends Form {
 		}
 
 		$this->setData('userGroups', $userGroups);
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

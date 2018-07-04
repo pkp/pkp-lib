@@ -182,7 +182,7 @@ class QueryForm extends Form {
 	 * @param $request PKPRequest
 	 * @param $actionArgs array Optional list of additional arguments
 	 */
-	function fetch($request, $actionArgs = array()) {
+	function fetch($request, $template = null, $display = false, $actionArgs = array()) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_EDITOR);
 
 		$query = $this->getQuery();
@@ -303,7 +303,7 @@ class QueryForm extends Form {
 			));
 		}
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

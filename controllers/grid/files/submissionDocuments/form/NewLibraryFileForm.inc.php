@@ -42,10 +42,10 @@ class NewLibraryFileForm extends LibraryFileForm {
 	/**
 	 * @copydoc LibraryFileForm::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('submissionId', $this->getSubmissionId());
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

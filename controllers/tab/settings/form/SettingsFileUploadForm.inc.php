@@ -65,9 +65,10 @@ class SettingsFileUploadForm extends Form {
 	}
 
 	/**
-	 * @copydoc Form::fetch()
+	 * @see Form::fetch()
+	 * @param $params template parameters
 	 */
-	function fetch($request, $params=null) {
+	function fetch($request, $template = null, $display = false, $params = null) {
 		$templateMgr = TemplateManager::getManager($request);
 
 		if (!is_null($params)) {
@@ -75,7 +76,7 @@ class SettingsFileUploadForm extends Form {
 		}
 		$templateMgr->assign('fileSettingName', $this->getFileSettingName());
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 

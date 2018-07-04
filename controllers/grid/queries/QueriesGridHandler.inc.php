@@ -300,7 +300,7 @@ class QueriesGridHandler extends GridHandler {
 			$this->getStageId()
 		);
 		$queryForm->initData();
-		return new JSONMessage(true, $queryForm->fetch($request, $this->getRequestArgs()));
+		return new JSONMessage(true, $queryForm->fetch($request, null, null, $this->getRequestArgs()));
 	}
 
 	/**
@@ -511,6 +511,8 @@ class QueriesGridHandler extends GridHandler {
 			true,
 			$queryForm->fetch(
 				$request,
+				null,
+				null,
 				array_merge(
 					$this->getRequestArgs(),
 					array('queryId' => $query->getId())

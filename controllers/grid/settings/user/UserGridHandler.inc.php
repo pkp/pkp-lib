@@ -486,7 +486,7 @@ class UserGridHandler extends GridHandler {
 			$userEmailForm = new UserEmailForm($userId);
 			$userEmailForm->initData();
 
-			return new JSONMessage(true, $userEmailForm->fetch($args, $request));
+			return new JSONMessage(true, $userEmailForm->fetch($request));
 		}
 	}
 
@@ -515,7 +515,7 @@ class UserGridHandler extends GridHandler {
 			$userEmailForm->execute($args, $request);
 			return new JSONMessage(true);
 		} else {
-			return new JSONMessage(false, $userEmailForm->fetch($args, $request));
+			return new JSONMessage(false, $userEmailForm->fetch($request));
 		}
 	}
 

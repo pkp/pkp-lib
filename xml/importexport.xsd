@@ -14,7 +14,7 @@
 	<!-- Identifies a particular I18N locale, e.g. en_US -->
 	<simpleType name="locale">
 		<restriction base="string">
-			<pattern value="[a-z][a-z]_[A-Z][A-Z]" />
+			<pattern value="[a-z][a-z]_[A-Z][A-Z](@[a-z]+)?" />
 		</restriction>
 	</simpleType>
 

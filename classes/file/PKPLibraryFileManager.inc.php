@@ -43,11 +43,11 @@ class PKPLibraryFileManager extends PrivateFileManager {
 	 * @param $fileId int
 	 * @return int number of files removed
 	 */
-	function deleteFileById($fileId) {
+	function deleteById($fileId) {
 		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO');
 		$libraryFile = $libraryFileDao->getById($fileId);
 
-		parent::deleteFileByPath($this->getBasePath() . $libraryFile->getServerFileName());
+		parent::deleteByPath($this->getBasePath() . $libraryFile->getServerFileName());
 
 		$libraryFileDao->deleteById($fileId);
 	}

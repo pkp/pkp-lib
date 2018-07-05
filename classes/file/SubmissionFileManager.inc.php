@@ -81,10 +81,10 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 	 * @param $revisionId integer
 	 * @return boolean returns true if successful
 	 */
-	function deleteFileById($fileId, $revision = null) {
+	function deleteById($fileId, $revision = null) {
 		$submissionFile = $this->_getFile($fileId, $revision);
 		if (isset($submissionFile)) {
-			return parent::deleteFileByPath($submissionFile->getfilePath());
+			return parent::deleteByPath($submissionFile->getfilePath());
 		} else {
 			return false;
 		}

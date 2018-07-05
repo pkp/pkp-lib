@@ -107,7 +107,7 @@ class SettingsFileUploadForm extends Form {
 
 		import('lib.pkp.classes.file.TemporaryFileManager');
 		$temporaryFileManager = new TemporaryFileManager();
-		$temporaryFileManager->deleteFileById($this->getData('temporaryFileId'), $user->getId());
+		$temporaryFileManager->deleteById($this->getData('temporaryFileId'), $user->getId());
 	}
 
 	/**

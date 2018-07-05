@@ -236,7 +236,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 
 		import('lib.pkp.classes.file.FileManager');
 		$fileManager = new FileManager();
-		$fileManager->deleteFileByPath($filename);
+		$fileManager->deleteByPath($filename);
 		return $submissionFile;
 	}
 
@@ -304,7 +304,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 				if ($errorFlag) {
 					$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.temporaryFileFailed', array('dest' => $temporaryFilename, 'source' => $filesrc)));
 					$fileManager = new FileManager();
-					$fileManager->deleteFileByPath($temporaryFilename);
+					$fileManager->deleteByPath($temporaryFilename);
 					$temporaryFilename = '';
 				}
 				return $temporaryFilename;
@@ -328,7 +328,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 					}
 					if ($errorFlag) {
 						$fileManager = new FileManager();
-						$fileManager->deleteFileByPath($temporaryFilename);
+						$fileManager->deleteByPath($temporaryFilename);
 						$temporaryFilename = '';
 					}
 				}

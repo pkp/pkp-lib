@@ -272,7 +272,7 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 
 		if ($request->checkCSRF() && $fileId) {
 			$libraryFileManager = new LibraryFileManager($context->getId());
-			$libraryFileManager->deleteFileById($fileId);
+			$libraryFileManager->deleteById($fileId);
 
 			return DAO::getDataChangedEvent();
 		}

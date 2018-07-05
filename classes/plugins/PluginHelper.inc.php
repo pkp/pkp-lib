@@ -50,7 +50,7 @@ class PluginHelper {
 		$pluginShortName = array_pop($matches);
 		if (!$pluginShortName) {
 			$errorMsg = __('manager.plugins.invalidPluginArchive');
-			$fileManager->deleteFileByPath($filePath);
+			$fileManager->deleteByPath($filePath);
 			return null;
 		}
 
@@ -65,7 +65,7 @@ class PluginHelper {
 		} else {
 			$errorMsg = __('manager.plugins.tarCommandNotFound');
 		}
-		$fileManager->deleteFileByPath($filePath);
+		$fileManager->deleteByPath($filePath);
 
 		if (empty($errorMsg)) {
 			// Look for a directory named after the plug-in's short

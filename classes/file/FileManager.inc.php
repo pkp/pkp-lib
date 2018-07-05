@@ -270,7 +270,7 @@ class FileManager {
 	 * @param $filePath string the location of the file to be deleted
 	 * @return boolean returns true if successful
 	 */
-	function deleteFileByPath($filePath) {
+	function deleteByPath($filePath) {
 		if ($this->fileExists($filePath)) {
 			$result = null;
 			if (HookRegistry::call('FileManager::deleteFile', array($filePath, &$result))) return $result;

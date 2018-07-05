@@ -196,7 +196,7 @@ class SubmissionFileDAODelegate extends DAO {
 			import('lib.pkp.classes.file.FileManager');
 			$fileManager = new FileManager();
 			if (!$fileManager->copyFile($previousFilePath, $targetFilePath)) return false;
-			if (!$fileManager->deleteFileByPath($previousFilePath)) return false;
+			if (!$fileManager->deleteByPath($previousFilePath)) return false;
 		}
 
 		return file_exists($targetFilePath);
@@ -238,7 +238,7 @@ class SubmissionFileDAODelegate extends DAO {
 
 		import('lib.pkp.classes.file.FileManager');
 		$fileManager = new FileManager();
-		$fileManager->deleteFileByPath($filePath);
+		$fileManager->deleteByPath($filePath);
 
 		return !file_exists($filePath);
 	}

@@ -137,7 +137,7 @@ class FileApiHandler extends Handler {
 			} else {
 				$fileManager->downloadFileByPath($archivePath, 'application/x-gtar', false, 'files.tar.gz');
 			}
-			$fileManager->deleteFileByPath($archivePath);
+			$fileManager->deleteByPath($archivePath);
 		} else {
 			fatalError('Creating archive with submission files failed!');
 		}

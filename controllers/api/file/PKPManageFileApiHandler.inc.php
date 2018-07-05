@@ -116,7 +116,7 @@ abstract class PKPManageFileApiHandler extends Handler {
 
 		$this->removeFileIndex($submission, $submissionFile);
 		$fileManager = $this->getFileManager($submission->getContextId(), $submission->getId());
-		$fileManager->deleteFileById($submissionFile->getFileId(), $submissionFile->getRevision());
+		$fileManager->deleteById($submissionFile->getFileId(), $submissionFile->getRevision());
 
 		$this->setupTemplate($request);
 		$user = $request->getUser();

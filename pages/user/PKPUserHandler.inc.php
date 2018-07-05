@@ -38,8 +38,7 @@ class PKPUserHandler extends Handler {
 		}
 
 		if (AppLocale::isLocaleValid($setLocale) && (!isset($contextSupportedLocales) || in_array($setLocale, $contextSupportedLocales)) && in_array($setLocale, $site->getSupportedLocales())) {
-			$session = $request->getSession();
-			$session->setSessionVar('currentLocale', $setLocale);
+			$request->setCookieVar('currentLocale', $setLocale);
 		}
 
 		if(isset($_SERVER['HTTP_REFERER'])) {

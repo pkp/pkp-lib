@@ -68,6 +68,14 @@ class Validation {
 			return false;
 
 		} else {
+
+			// If sessions are created only for logged in users, set a cookie to remember cookie consent
+			if (Config::getVar('general', 'session_limit')) {
+				$application = PKPApplication::getApplication();
+				$request = $application->getRequest();
+				$request->setCookieVar('allowCookies', true, time() + 60*60*24*365);
+			}
+
 			return self::registerUserSession($user, $reason, $remember);
 		}
 	}

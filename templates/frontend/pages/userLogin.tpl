@@ -68,6 +68,15 @@
 						{translate key="user.login.rememberUsernameAndPassword"}
 					</span>
 				</label>
+				{if $cookieConsent}
+					<label>
+						<input type="checkbox" name="allowCookies" id="allowCookies" value="1" required>
+						<span class="label">
+							{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}
+							{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}
+						</span>
+					</label>
+				{/if}				
 			</div>
 			<div class="buttons">
 				<button class="submit" type="submit">

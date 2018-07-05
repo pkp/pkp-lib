@@ -71,9 +71,7 @@
 
 				{if $contactEmail}
 				<div class="email">
-					<a href="mailto:{$contactEmail|escape}">
-						{$contactEmail|escape}
-					</a>
+					{mailto address=$contactEmail encode="javascript"}
 				</div>
 				{/if}
 			</div>
@@ -105,9 +103,7 @@
 
 				{if $supportEmail}
 				<div class="email">
-					<a href="mailto:{$supportEmail|escape}">
-						{$supportEmail|escape}
-					</a>
+					{mailto address=$supportEmail encode="javascript"}
 				</div>
 				{/if}
 			</div>

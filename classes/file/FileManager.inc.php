@@ -235,7 +235,7 @@ class FileManager {
 	 * @param $fileName string Optional filename to use on the client side
 	 * @return boolean
 	 */
-	function downloadFileByPath($filePath, $mediaType = null, $inline = false, $fileName = null) {
+	function downloadByPath($filePath, $mediaType = null, $inline = false, $fileName = null) {
 		$result = null;
 		if (HookRegistry::call('FileManager::downloadFile', array(&$filePath, &$mediaType, &$inline, &$result, &$fileName))) return $result;
 		if (is_readable($filePath)) {

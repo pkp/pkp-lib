@@ -62,11 +62,11 @@ class TemporaryFileManager extends PrivateFileManager {
 	 * @param $inline print file as inline instead of attachment, optional
 	 * @return boolean
 	 */
-	function downloadFileById($fileId, $userId, $inline = false) {
+	function downloadById($fileId, $userId, $inline = false) {
 		$temporaryFile = $this->getFile($fileId, $userId);
 		if (isset($temporaryFile)) {
 			$filePath = $this->getBasePath() . $temporaryFile->getServerFileName();
-			return parent::downloadFileByPath($filePath, null, $inline);
+			return parent::downloadByPath($filePath, null, $inline);
 		} else {
 			return false;
 		}

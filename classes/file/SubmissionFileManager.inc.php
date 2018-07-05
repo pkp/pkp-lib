@@ -98,7 +98,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 	 * @param $filename string The client-side download filename (optional)
 	 * @return boolean
 	 */
-	function downloadFileById($fileId, $revision = null, $inline = false, $filename = null) {
+	function downloadById($fileId, $revision = null, $inline = false, $filename = null) {
 		$returner = false;
 		$submissionFile = $this->_getFile($fileId, $revision);
 		if (isset($submissionFile)) {
@@ -111,7 +111,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 			$filePath = $submissionFile->getFilePath();
 			$mediaType = $submissionFile->getFileType();
 			if(!isset($filename)) $filename = $submissionFile->getClientFileName();
-			$returner = parent::downloadFileByPath($filePath, $mediaType, $inline, $filename);
+			$returner = parent::downloadByPath($filePath, $mediaType, $inline, $filename);
 		}
 
 		return $returner;

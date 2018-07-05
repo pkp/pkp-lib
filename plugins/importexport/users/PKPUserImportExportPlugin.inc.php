@@ -141,7 +141,7 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 				$fileManager = new FileManager();
 				$exportFileName = $this->getExportFileName($this->getExportPath(), 'users', $context, '.xml');
 				$fileManager->writeFile($exportFileName, $exportXml);
-				$fileManager->downloadFileByPath($exportFileName);
+				$fileManager->downloadByPath($exportFileName);
 				$fileManager->deleteByPath($exportFileName);
 				break;
 			case 'exportAllUsers':
@@ -156,7 +156,7 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 				$fileManager = new FileManager();
 				$exportFileName = $this->getExportFileName($this->getExportPath(), 'users', $context, '.xml');
 				$fileManager->writeFile($exportFileName, $exportXml);
-				$fileManager->downloadFileByPath($exportFileName);
+				$fileManager->downloadByPath($exportFileName);
 				$fileManager->deleteByPath($exportFileName);
 				break;
 			default:

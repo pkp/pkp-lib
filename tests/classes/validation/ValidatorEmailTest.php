@@ -25,9 +25,11 @@ class ValidatorEmailTest extends PKPTestCase {
 	public function testValidatorEmail() {
 		$validator = new ValidatorEmail();
 		self::assertTrue($validator->isValid('some.address@gmail.com'));
+		self::assertTrue($validator->isValid('some.address@localhost'));
+		self::assertTrue($validator->isValid('some.address@127.0.0.1'));
 		self::assertFalse($validator->isValid('anything else'));
 
-		self::assertEquals('/^[-a-z0-9!#\$%&\'\*\+\/=\?\^_\`\{\|\}~]+(\.[-a-z0-9!#\$%&\'\*\+\/=\?\^_\`\{\|\}~]+)*@(([a-z0-9]([-a-z0-9]*[a-z0-9]+)?){1,63}\.)+([a-z0-9]([-a-z0-9]*[a-z0-9]+)?){2,63}$/i', ValidatorEmail::getRegexp());
+		self::assertEquals('/^[-a-z0-9!#\$%&\'\*\+\/=\?\^_\`\{\|\}~]+(\.[-a-z0-9!#\$%&\'\*\+\/=\?\^_\`\{\|\}~]+)*@(localhost|(127(?:\.[0-9]+){0,2}\.[0-9]+|^(?:0*\:)*?:?0*1)|((([a-z0-9]([-a-z0-9]*[a-z0-9]+)?){1,63}\.)+([a-z0-9]([-a-z0-9]*[a-z0-9]+)?){2,63}))$/i', ValidatorEmail::getRegexp());
 	}
 }
 ?>

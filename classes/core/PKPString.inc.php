@@ -44,8 +44,14 @@ define('PCRE_EMAIL_ADDRESS',
 	'[-a-z0-9!#\$%&\'\*\+\/=\?\^_\`\{\|\}~]' . '+' . // One or more atom characters.
 	'(\.' . '[-a-z0-9!#\$%&\'\*\+\/=\?\^_\`\{\|\}~]' . '+)*'. // Followed by zero or more dot separated sets of one or more atom characters.
 	'@'. // Followed by an "at" character.
-	'(' . '([a-z0-9]([-a-z0-9]*[a-z0-9]+)?)' . '{1,63}\.)+'. // Followed by one or max 63 domain characters (dot separated).
-	'([a-z0-9]([-a-z0-9]*[a-z0-9]+)?)' . '{2,63}' // Must be followed by one set consisting a period of two or max 63 domain characters.
+	'('.
+		'localhost|'. // Followed by localhost or
+		'(127(?:\.[0-9]+){0,2}\.[0-9]+|^(?:0*\:)*?:?0*1)|'. // Followed any other loopback address (https://stackoverflow.com/a/8426365/3936440) or
+		'(' .
+			'(' . '([a-z0-9]([-a-z0-9]*[a-z0-9]+)?)' . '{1,63}\.)+'. // Followed by one or max 63 domain characters (dot separated).
+			'([a-z0-9]([-a-z0-9]*[a-z0-9]+)?)' . '{2,63}'. // Must be followed by one set consisting a period of two or max 63 domain characters.
+		')' .
+	')'
 	);
 
 // Two different types of camel case: one for class names and one for method names

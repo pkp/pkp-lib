@@ -30,6 +30,16 @@ class FormValidatorEmailTest extends PKPTestCase {
 		self::assertTrue($validator->isValid());
 		self::assertEquals(array('testData' => array('required', 'email')), $form->cssValidation);
 
+		$form->setData('testData', 'some.address@localhost');
+		$validator = new FormValidatorEmail($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
+		self::assertTrue($validator->isValid());
+		self::assertEquals(array('testData' => array('required', 'email')), $form->cssValidation);
+
+		$form->setData('testData', 'some.address@127.0.0.1');
+		$validator = new FormValidatorEmail($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
+		self::assertTrue($validator->isValid());
+		self::assertEquals(array('testData' => array('required', 'email')), $form->cssValidation);
+
 		$form->setData('testData', 'anything else');
 		$validator = new FormValidatorEmail($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
 		self::assertFalse($validator->isValid());

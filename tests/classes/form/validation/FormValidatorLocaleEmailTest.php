@@ -34,6 +34,22 @@ class FormValidatorLocaleEmailTest extends PKPTestCase {
 		$validator = new FormValidatorLocaleEmail($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
 		self::assertFalse($validator->isValid());
 
+		$form->setData('testData', array('en_US' => 'some.address@localhost'));
+		$validator = new FormValidatorLocaleEmail($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
+		self::assertTrue($validator->isValid());
+
+		$form->setData('testData', 'some.address@localhost');
+		$validator = new FormValidatorLocaleEmail($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
+		self::assertFalse($validator->isValid());
+
+		$form->setData('testData', array('en_US' => 'some.address@127.0.0.1'));
+		$validator = new FormValidatorLocaleEmail($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
+		self::assertTrue($validator->isValid());
+
+		$form->setData('testData', 'some.address@127.0.0.1');
+		$validator = new FormValidatorLocaleEmail($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
+		self::assertFalse($validator->isValid());
+
 		$form->setData('testData', array('en_US' => 'anything else'));
 		$validator = new FormValidatorLocaleEmail($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
 		self::assertFalse($validator->isValid());

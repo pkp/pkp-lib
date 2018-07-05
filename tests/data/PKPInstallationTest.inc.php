@@ -52,7 +52,6 @@ abstract class PKPInstallationTest extends WebTestCase {
 		$this->click('id=additionalLocales-en_US');
 		$this->click('id=additionalLocales-fr_CA');
 		$this->select('id=connectionCharset', 'label=Unicode (UTF-8)');
-		$this->select('id=databaseCharset', 'label=Unicode (UTF-8)');
 
 		// Files
 		$this->type('css=[id^=filesDir-]', getenv('FILESDIR'));

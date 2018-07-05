@@ -23,7 +23,6 @@
 	<message key="installer.contentsOfConfigFile">Vsebina nastavitvene datoteke</message>
 	<message key="installer.createDatabase">Ustvari novo bazo podatkov</message>
 	<message key="installer.createDatabaseInstructions">Če želite uporabiti to opcijo, mora vaša baza podatkov podpirati oddaljeno ustvarjane baze podatkov, vaš uporabniški račun pa mora imeti ustrezne pravice. Če namestitev s to opcijo ni uspešna, ustvarite bazo podatkov ročno in ponovno zaženite namestitev brez te opcije.</message>
-	<message key="installer.databaseCharset">Nabor znakov baze podatkov</message>
 	<message key="installer.databaseDriver">Gonilnik baze podatkov</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Gonilniki za bazo podatkov v oklepajih nimajo potrebne podpore za PHP, zato bo namestitev z njimi najverjetneje neuspešna.</strong><br />Vsi nepodprti gonilniki za baze podatkov zgoraj so našteti le zaradi akademskih potreb in najverjetneje ne bodo delovali.]]></message>
 	<message key="installer.databaseHost">Gostitelj "Host"</message>

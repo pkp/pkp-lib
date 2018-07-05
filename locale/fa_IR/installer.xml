@@ -22,7 +22,6 @@
 	<message key="installer.contentsOfConfigFile">محتوای فایل تنظیمات</message>
 	<message key="installer.createDatabase">ایجاد بانک اطلاعاتی جدید</message>
 	<message key="installer.createDatabaseInstructions">برای استفاده از این امکان، سیستم بانک اطلاعاتی شما می‌بایست از ایجاد بانک اطلاعاتی از راه دور پشتیبانی کند و حساب کاربری شما می‌بایست مجوزهای لازم برای ایجاد یک بانک اطلاعاتی جدید را داشته باشد. چنانچه با انتخاب این گزینه، نصب نرم‌افزار شکست خورد لازم است به‌صورت دستی بانک اطلاعاتی را بر روی سیستم خود ایجاد کنید و برنامه نصب نرم‌افزار را از نو اجرا کنید ولی این بار این گزینه را غیرفعال کنید.</message>
-	<message key="installer.databaseCharset">سیستم کاراکتری بانک اطلاعاتی</message>
 	<message key="installer.databaseDriver">درایور بانک اطلاعاتی</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>درایورهای بانک‌های اطلاعاتی که در کروشه آمده است نصب نشده یا توسط PHP قابل دسترسی نمی‌باشند..</strong><br />تمام درایورهای نصب نشده فقط به منظور آکادمیک در اینجا لیست شده‌اند و بعید است که در حال حاضر کارکرد داشته باشند.]]></message>
 	<message key="installer.databaseHost">میزبان</message>

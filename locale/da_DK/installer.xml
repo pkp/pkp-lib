@@ -25,7 +25,6 @@
 	<message key="installer.contentsOfConfigFile">Konfigurationsfilens indhold</message>
 	<message key="installer.createDatabase">Opret ny database</message>
 	<message key="installer.createDatabaseInstructions">Hvis du vil benytte denne indstilling, skal databasesystemet understøtte oprettelse af fjerndatabaser, og din brugerkonto skal have de korrekte tilladelser til at oprette nye databaser. Hvis installationen mislykkes, når denne indstilling er valgt, skal du manuelt oprette databasen på serveren og køre installationsprogrammet igen, hvor denne indstilling er deaktiveret.</message>
-	<message key="installer.databaseCharset">Databasetegnsæt</message>
 	<message key="installer.databaseDriver">Database-driver</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong> I de database-drivere, der er angivet i kantede parenteser, er den påkrævede PHP-udvidelse tilsyneladende ikke indlæst, og installationen vil sandsynligvis mislykkes, hvis den vælges.</strong><br />Eventuelle ikke-understøttede database-drivere, der er angivet ovenfor, er udelukkende angivet til akademiske formål og vil sandsynligvis ikke fungere.]]></message>
 	<message key="installer.databaseHost">Vært</message>

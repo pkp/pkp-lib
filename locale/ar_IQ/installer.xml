@@ -24,7 +24,6 @@
 	<message key="installer.contentsOfConfigFile">محتويات ملف الإعدادات</message>
 	<message key="installer.createDatabase">إنشاء قاعدة بيانات جديدة</message>
 	<message key="installer.createDatabaseInstructions">لاستعمال هذا الخيار، على نظام قاعدة البيانات عندك أن يدعم إنشاء قاعدة بيانات عن بعد وأن يمتلك حساب المستخدم لديك الصلاحيات الكافية لإنشاء قاعدة بيانات جديدة. إن فشلت عملية التنصيب عند تفعيل هذا الخيار، عليك بإنشاء قاعدة البيانات يدوياً على الملقم، ثم شغل برنامج التنصيب مجدداً مع تعطيل هذا الخيار.</message>
-	<message key="installer.databaseCharset">نظام الحروف لقاعدة للبيانات</message>
 	<message key="installer.databaseDriver">مشغل قاعدة البيانات</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>قواعد البيانات الظاهرة بين الأقواس المربعة لا يبدو أنها تمتلك ما يوائمها مع لغة البرمجة PHP ولذلك، فإن التنصيب باستعمالها سيفشل على الأرجح.</strong><br />أي قاعدة بيانات غير مدعومة مدرجة أعلاه ذُكرت لمجرد العرض الأكاديمي وهي لا يُتوقع منها العمل مع النظام.]]></message>
 	<message key="installer.databaseHost">المضيف</message>

@@ -24,7 +24,6 @@
 	<message key="installer.contentsOfConfigFile">Зміст файлу конфігурації</message>
 	<message key="installer.createDatabase">Створити нову базу даних</message>
 	<message key="installer.createDatabaseInstructions">Для використання цієї опції необхідно, щоб ваша СУБД мала підтримку віддаленого створення баз даних та ваш обліковий запис мав права на створення нових баз даних. Якщо ця опція включена і вам не вдається продовжити інсталяцію, вручну створіть базу даних на сервері, запустіть інсталяцію знову та відключіть цю опцію.</message>
-	<message key="installer.databaseCharset">Таблиця кодування БД</message>
 	<message key="installer.databaseDriver">Драйвер бази даних</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Драйвери баз даних, наведені у квадратних дужках, не підтримуються жодним з завантажених розширень PHP і, скоріше всього, якщо буде вибраний один з них, інсталяція завершиться невдало.</strong><br />Всі вказані вище драйвери баз даних, що не підтримуються системою, вказані лише з академічною метою, скоріше всього, вони не будуть працювати належним чином.]]></message>
 	<message key="installer.databaseHost">Хост</message>

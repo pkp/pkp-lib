@@ -24,7 +24,6 @@
 	<message key="installer.contentsOfConfigFile">Contenuti del file di configurazione</message>
 	<message key="installer.createDatabase">Crea nuovo database</message>
 	<message key="installer.createDatabaseInstructions">Per utilizzare questa opzione il vostro database deve supportare la creazione remota di database e il vostro account utente deve avere i permessi adeguati. Se con questa opzione selezionata l'installazione dovesse fallire, creare il database manualmente e ripetete il processo d'installazione disabilitando quest'opzione.</message>
-	<message key="installer.databaseCharset">Set di caratteri del database</message>
 	<message key="installer.databaseDriver">Driver del database</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>I driver elencati tra parentesi non sembrano avere la necessaria estensione PHP caricata; verosimilmente l'installazione fallirà se li si seleziona.</strong><br />Tutti i database non supportati sono elencati solo per scopi accademici e non è garantito il loro funzionamento.]]></message>
 	<message key="installer.databaseHost">Host</message>

@@ -24,7 +24,6 @@
 	<message key="installer.contentsOfConfigFile">Conteúdo para ficheiro de configuração</message>
 	<message key="installer.createDatabase">Criar nova base de dados</message>
 	<message key="installer.createDatabaseInstructions">Para utilizar esta opção o servidor de bases de dados deve permitir criação de bases remotamente e o nome de utilizador e senha deve possuir as permissões necessárias para criação de bases e tabelas. Caso ocorra um erro durante a instalação, crie manualmente a base de dados no servidor e execute novamente o instalador desactivando esta opção.</message>
-	<message key="installer.databaseCharset">Conjunto de Caracteres da Base de Dados</message>
 	<message key="installer.databaseDriver">Driver da Base de Dados</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Drivers de bases de dados relacionados entre chaves ([]) não tiveram as suas extensões PHP reconhecidas pelo sistema, e portanto não devem funcionar.</strong><br />Os drivers não suportados, listados acima, são exibidos apenas em carácter académico e experimental, não devendo funcionar por padrão. Somente poderão ser utilizados pelo sistema os drivers que tiverem as suas extensões PHP prévia e correctamente instaladas no servidor.]]></message>
 	<message key="installer.databaseHost">Servidor</message>

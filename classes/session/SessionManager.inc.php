@@ -73,7 +73,7 @@ class SessionManager {
 				}
 			}
 
-			if (!isset($this->userSession) || (Config::getVar('security', 'session_check_ip') && $this->userSession->getIpAddress() != $this->userSession->getIpAddress() != substr($ip, 0, 39)) || $this->userSession->getUserAgent() != substr($userAgent, 0, 255)) {
+			if (!isset($this->userSession) || (Config::getVar('security', 'session_check_ip') && $this->userSession->getIpAddress() != substr($ip, 0, 39)) || $this->userSession->getUserAgent() != substr($userAgent, 0, 255)) {
 				if (isset($this->userSession)) {
 					// Destroy old session
 					session_destroy();

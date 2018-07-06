@@ -386,8 +386,9 @@ class Validation {
 		if ($session){
 			$userId = $session->getUserId();
 			return isset($userId) && !empty($userId);
+		} else {
+			return false;
 		}
-
 	}
 
 	/**
@@ -401,6 +402,8 @@ class Validation {
 		if ($session){
 			$signedInAs = $session->getSessionVar('signedInAs');
 			return isset($signedInAs) && !empty($signedInAs);
+		} else {
+			return false;
 		}
 	}
 

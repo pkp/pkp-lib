@@ -116,7 +116,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 	/**
 	 * @copydoc Form::readInputData()
 	 */
-	function readInputData($request) {
+	function readInputData() {
 		$this->readUserVars(array('message', 'userId', 'template'));
 	}
 

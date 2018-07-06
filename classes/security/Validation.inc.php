@@ -383,8 +383,11 @@ class Validation {
 		$sessionManager = SessionManager::getManager();
 		$session = $sessionManager->getUserSession();
 
-		$userId = $session->getUserId();
-		return isset($userId) && !empty($userId);
+		if ($session){
+			$userId = $session->getUserId();
+			return isset($userId) && !empty($userId);
+		}
+
 	}
 
 	/**
@@ -394,9 +397,11 @@ class Validation {
 	static function isLoggedInAs() {
 		$sessionManager = SessionManager::getManager();
 		$session = $sessionManager->getUserSession();
-		$signedInAs = $session->getSessionVar('signedInAs');
 
-		return isset($signedInAs) && !empty($signedInAs);
+		if ($session){
+			$signedInAs = $session->getSessionVar('signedInAs');
+			return isset($signedInAs) && !empty($signedInAs);
+		}
 	}
 
 	/**

@@ -82,7 +82,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm {
 	/**
 	 * @copydoc Form::validate()
 	 */
-	function validate($request) {
+	function validate($callHooks = true) {
 		// Is this a revision?
 		$revisedFileId = $this->getRevisedFileId();
 		if ($this->getData('revisionOnly')) {
@@ -90,6 +90,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm {
 		}
 
 		// Retrieve the request context.
+		$request = Application::getRequest();
 		$router = $request->getRouter();
 		$context = $router->getContext($request);
 		if (
@@ -107,7 +108,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm {
 			));
 		}
 
-		return parent::validate();
+		return parent::validate($callHooks);
 	}
 
 	/**

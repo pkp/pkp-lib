@@ -43,8 +43,8 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 * Perform additional validation checks
 	 * @copydoc Form::validate
 	 */
-	function validate() {
-		if (!parent::validate()) return false;
+	function validate($callHooks = true) {
+		if (!parent::validate($callHooks)) return false;
 
 		// Ensure that the user is in the specified userGroupId or trying to enroll an allowed role
 		$userGroupId = (int) $this->getData('userGroupId');

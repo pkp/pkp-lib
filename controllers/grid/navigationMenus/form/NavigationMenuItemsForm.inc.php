@@ -162,7 +162,7 @@ class NavigationMenuItemsForm extends Form {
 	 * Perform additional validation checks
 	 * @copydoc Form::validate
 	 */
-	function validate() {
+	function validate($callHooks = true) {
 		import('lib.pkp.classes.navigationMenu.NavigationMenuItem');
 		if ($this->getData('menuItemType') && $this->getData('menuItemType') != "") {
 			if ($this->getData('menuItemType') == NMI_TYPE_CUSTOM) {
@@ -185,7 +185,7 @@ class NavigationMenuItemsForm extends Form {
 			$this->addError('path', __('manager.navigationMenus.form.typeMissing'));
 		}
 
-		return parent::validate();
+		return parent::validate($callHooks);
 	}
 
 }

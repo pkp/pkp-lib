@@ -142,7 +142,7 @@ class PKPPublicIdentifiersForm extends Form {
 	/**
 	 * @copydoc Form::validate()
 	 */
-	function validate() {
+	function validate($callHooks = true) {
 		$pubObject = $this->getPubObject();
 		$assocType = $this->getAssocType($pubObject);
 		$publisherId = $this->getData('publisherId');
@@ -165,7 +165,7 @@ class PKPPublicIdentifiersForm extends Form {
 		}
 		$pubIdPluginHelper = new PKPPubIdPluginHelper();
 		$pubIdPluginHelper->validate($this->getContextId(), $this, $this->getPubObject());
-		return parent::validate();
+		return parent::validate($callHooks);
 	}
 
 	/**

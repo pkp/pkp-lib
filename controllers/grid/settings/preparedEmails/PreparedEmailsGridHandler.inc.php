@@ -151,7 +151,7 @@ class PreparedEmailsGridHandler extends GridHandler {
 
 		import('lib.pkp.controllers.grid.settings.preparedEmails.form.PreparedEmailForm');
 		$preparedEmailForm = new PreparedEmailForm($emailKey, $context);
-		$preparedEmailForm->initData($request);
+		$preparedEmailForm->initData();
 
 		return new JSONMessage(true, $preparedEmailForm->fetch($request));
 	}

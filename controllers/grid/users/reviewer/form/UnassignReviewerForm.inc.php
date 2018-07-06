@@ -42,12 +42,10 @@ class UnassignReviewerForm extends Form {
 	// Overridden template methods
 	//
 	/**
-	 * Initialize form data
-	 *
-	 * @param $args array
-	 * @param $request PKPRequest
+	 * @copydoc Form::initData
 	 */
-	function initData($args, $request) {
+	function initData() {
+		$request = Application::getRequest();
 		$context = $request->getContext();
 		$submission = $this->getSubmission();
 		$reviewAssignment = $this->getReviewAssignment();

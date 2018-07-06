@@ -78,7 +78,7 @@ class CopyeditFilesGridHandler extends FileListGridHandler {
 	function selectFiles($args, $request) {
 		import('lib.pkp.controllers.grid.files.copyedit.form.ManageCopyeditFilesForm');
 		$manageCopyeditFilesForm = new ManageCopyeditFilesForm($this->getSubmission()->getId());
-		$manageCopyeditFilesForm->initData($args, $request);
+		$manageCopyeditFilesForm->initData();
 		return new JSONMessage(true, $manageCopyeditFilesForm->fetch($request));
 	}
 }

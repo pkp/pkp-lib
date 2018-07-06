@@ -214,7 +214,7 @@ class ReviewFormGridHandler extends GridHandler {
 		$reviewForm = $reviewFormDao->getById($reviewFormId, Application::getContextAssocType(), $context->getId());
 
 		$previewReviewForm = new PreviewReviewForm($reviewFormId);
-		$previewReviewForm->initData($request);
+		$previewReviewForm->initData();
 		return new JSONMessage(true, $previewReviewForm->fetch($args, $request));
 	}
 
@@ -227,7 +227,7 @@ class ReviewFormGridHandler extends GridHandler {
 	function createReviewForm($args, $request) {
 		// Form handling.
 		$reviewFormForm = new ReviewFormForm(null);
-		$reviewFormForm->initData($request);
+		$reviewFormForm->initData();
 		return new JSONMessage(true, $reviewFormForm->fetch($args, $request));
 	}
 
@@ -267,7 +267,7 @@ class ReviewFormGridHandler extends GridHandler {
 
 		// Form handling
 		$reviewFormForm = new ReviewFormForm($reviewFormId);
-		$reviewFormForm->initData($request);
+		$reviewFormForm->initData();
 		return new JSONMessage(true, $reviewFormForm->fetch($args, $request));
 	}
 

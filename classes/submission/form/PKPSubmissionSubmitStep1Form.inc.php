@@ -140,6 +140,8 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 
 	/**
 	 * Initialize form data from current submission.
+	 * @see SubmissionSubmitForm::initData
+	 * @param $data array
 	 */
 	function initData($data = array()) {
 		if (isset($this->submission)) {

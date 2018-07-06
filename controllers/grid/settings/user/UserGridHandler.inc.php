@@ -282,7 +282,7 @@ class UserGridHandler extends GridHandler {
 		} else {
 			// Form handling.
 			$userForm = new UserDetailsForm($request, $userId);
-			$userForm->initData($args, $request);
+			$userForm->initData();
 
 			return new JSONMessage(true, $userForm->display($request));
 		}
@@ -316,7 +316,7 @@ class UserGridHandler extends GridHandler {
 			if (!$userId) {
 				import('lib.pkp.controllers.grid.settings.user.form.UserRoleForm');
 				$userRoleForm = new UserRoleForm($user->getId(), $user->getFullName());
-				$userRoleForm->initData($args, $request);
+				$userRoleForm->initData();
 				return new JSONMessage(true, $userRoleForm->display($request));
 			} else {
 
@@ -389,7 +389,7 @@ class UserGridHandler extends GridHandler {
 			import('lib.pkp.controllers.grid.settings.user.form.UserDisableForm');
 			$userForm = new UserDisableForm($userId, $enable);
 
-			$userForm->initData($args, $request);
+			$userForm->initData();
 
 			return new JSONMessage(true, $userForm->display($request));
 		}

@@ -61,9 +61,9 @@ class GenreForm extends Form {
 	/**
 	 * Initialize form data from current settings.
 	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function initData($args, $request) {
+	function initData($args) {
+		$request = Application::getRequest();
 		$context = $request->getContext();
 
 		$genreDao = DAORegistry::getDAO('GenreDAO');

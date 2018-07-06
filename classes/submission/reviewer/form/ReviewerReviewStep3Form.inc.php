@@ -39,7 +39,7 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 	}
 
 	/**
-	 * Initialize the form data.
+	 * @copydoc ReviewerReviewForm::initData
 	 */
 	function initData() {
 		$reviewAssignment = $this->getReviewAssignment();

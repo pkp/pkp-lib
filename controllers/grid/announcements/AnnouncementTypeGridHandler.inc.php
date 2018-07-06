@@ -147,7 +147,7 @@ class AnnouncementTypeGridHandler extends GridHandler {
 		$contextId = $context->getId();
 
 		$announcementTypeForm = new AnnouncementTypeForm($contextId, $announcementTypeId);
-		$announcementTypeForm->initData($args, $request);
+		$announcementTypeForm->initData();
 
 		return new JSONMessage(true, $announcementTypeForm->fetch($request));
 	}

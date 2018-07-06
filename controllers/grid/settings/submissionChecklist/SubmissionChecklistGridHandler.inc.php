@@ -124,7 +124,7 @@ class SubmissionChecklistGridHandler extends SetupGridHandler {
 		$submissionChecklistId = isset($args['rowId']) ? $args['rowId'] : null;
 		$submissionChecklistForm = new SubmissionChecklistForm($submissionChecklistId);
 
-		$submissionChecklistForm->initData($args, $request);
+		$submissionChecklistForm->initData($args);
 
 		return new JSONMessage(true, $submissionChecklistForm->fetch($request));
 	}

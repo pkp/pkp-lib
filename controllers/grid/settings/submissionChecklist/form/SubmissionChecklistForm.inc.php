@@ -35,10 +35,11 @@ class SubmissionChecklistForm extends Form {
 
 	/**
 	 * Initialize form data from current settings.
+	 * @see Form::initData
 	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function initData($args, $request) {
+	function initData($args) {
+		$request = Application::getRequest();
 		$context = $request->getContext();
 
 		$submissionChecklistAll = $context->getSetting('submissionChecklist');

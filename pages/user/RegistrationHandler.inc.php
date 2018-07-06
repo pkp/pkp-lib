@@ -54,7 +54,7 @@ class RegistrationHandler extends UserHandler {
 
 		// Initial GET request to register page
 		if (!$request->isPost()) {
-			$regForm->initData($request);
+			$regForm->initData();
 			return $regForm->display($request);
 		}
 

@@ -50,9 +50,10 @@ class NewContextImageFileForm extends SettingsFileUploadForm {
 	}
 
 	/**
-	 * @copydoc Form::initData()
+	 * @copydoc SettingsFileUploadForm::initData()
 	 */
-	function initData($request) {
+	function initData() {
+		$request = Application::getRequest();
 		$context = $request->getContext();
 		$fileSettingName = $this->getFileSettingName();
 

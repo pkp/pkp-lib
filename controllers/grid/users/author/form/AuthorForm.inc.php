@@ -114,7 +114,6 @@ class AuthorForm extends Form {
 	//
 	/**
 	 * Initialize form data from the associated author.
-	 * @param $author Author
 	 */
 	function initData() {
 		$author = $this->getAuthor();

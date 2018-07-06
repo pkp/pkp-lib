@@ -125,7 +125,7 @@ class InstallForm extends MaintenanceForm {
 	}
 
 	/**
-	 * Initialize form data.
+	 * @copydoc MaintenanceForm::initData
 	 */
 	function initData() {
 		$docRoot = dirname($_SERVER['DOCUMENT_ROOT']);

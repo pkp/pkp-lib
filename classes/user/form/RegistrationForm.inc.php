@@ -109,9 +109,8 @@ class RegistrationForm extends Form {
 
 	/**
 	 * @copydoc Form::initData()
-	 * @param $request Request
 	 */
-	function initData($request) {
+	function initData() {
 		$this->_data = array(
 			'userLocales' => array(),
 			'userGroupIds' => array(),

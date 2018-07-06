@@ -194,7 +194,7 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 		}
 
 		$navigationMenuItemForm = new NavigationMenuItemsForm($contextId, $navigationMenuItemId, $navigationMenuIdParent);
-		$navigationMenuItemForm->initData($args, $request);
+		$navigationMenuItemForm->initData();
 
 		return new JSONMessage(true, $navigationMenuItemForm->fetch($request));
 	}
@@ -217,7 +217,7 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 		import('lib.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
 		$navigationMenuItemForm = new NavigationMenuItemsForm($contextId, $navigationMenuItemId, $navigationMenuIdParent);
 
-		$navigationMenuItemForm->initData($args, $request);
+		$navigationMenuItemForm->initData();
 
 		return new JSONMessage(true, $navigationMenuItemForm->fetch($request));
 	}

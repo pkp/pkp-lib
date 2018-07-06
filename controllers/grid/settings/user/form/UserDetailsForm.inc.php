@@ -86,10 +86,9 @@ class UserDetailsForm extends UserForm {
 
 	/**
 	 * Initialize form data from current user profile.
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function initData($args, $request) {
+	function initData() {
+		$request = Application::getRequest();
 		$context = $request->getContext();
 		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 
@@ -147,7 +146,7 @@ class UserDetailsForm extends UserForm {
 			$this->setData($key, $value);
 		}
 
-		parent::initData($args, $request);
+		parent::initData();
 	}
 
 	/**

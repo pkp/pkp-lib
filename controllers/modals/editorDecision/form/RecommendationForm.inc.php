@@ -76,11 +76,9 @@ class RecommendationForm extends Form {
 	// Overridden template methods from Form
 	//
 	/**
-	 * @see Form::initData()
-	 *
-	 * @param $request PKPRequest
+	 * @copydoc Form::initData()
 	 */
-	function initData($request) {
+	function initData() {
 		$submission = $this->getSubmission();
 
 		// Get the decision making editors, the e-mail about the recommendation will be send to
@@ -99,6 +97,7 @@ class RecommendationForm extends Form {
 		// Get the editor recommendation e-mail template
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
 		$email = new SubmissionMailTemplate($submission, 'EDITOR_RECOMMENDATION');
+		$request = Application::getRequest();
 		$router = $request->getRouter();
 		$dispatcher = $router->getDispatcher();
 		$user = $request->getUser();

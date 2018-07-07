@@ -866,7 +866,7 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
-	 * Render the filter (a template or a Form).
+	 * Render the filter (a template).
 	 * @param $request PKPRequest
 	 * @param $filterData Array Data to be used by the filter template.
 	 * @return string

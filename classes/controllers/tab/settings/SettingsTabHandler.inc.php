@@ -126,7 +126,7 @@ class SettingsTabHandler extends Handler {
 			// Try to save the form data.
 			$tabForm->readInputData();
 			if($tabForm->validate()) {
-				$result = $tabForm->execute($request);
+				$result = $tabForm->execute();
 				if ($result !== false) {
 					$notificationManager = new NotificationManager();
 					$user = $request->getUser();

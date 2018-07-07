@@ -262,7 +262,7 @@ class PKPFileUploadWizardHandler extends Handler {
 			return new JSONMessage(true, $uploadForm->fetch($request));
 		}
 
-		$uploadedFile = $uploadForm->execute($request); /* @var $uploadedFile SubmissionFile */
+		$uploadedFile = $uploadForm->execute(); /* @var $uploadedFile SubmissionFile */
 		if (!is_a($uploadedFile, 'SubmissionFile')) {
 			return new JSONMessage(false, __('common.uploadFailed'));
 		}
@@ -386,7 +386,7 @@ class PKPFileUploadWizardHandler extends Handler {
 
 		// Validate the form and revise the file.
 		if ($confirmationForm->validate()) {
-			if (is_a($uploadedFile = $confirmationForm->execute($request), 'SubmissionFile')) {
+			if (is_a($uploadedFile = $confirmationForm->execute(), 'SubmissionFile')) {
 
 				$this->_attachEntities($uploadedFile);
 

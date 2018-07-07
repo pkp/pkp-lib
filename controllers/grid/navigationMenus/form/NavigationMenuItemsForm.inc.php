@@ -131,9 +131,8 @@ class NavigationMenuItemsForm extends Form {
 
 	/**
 	 * Save NavigationMenuItem.
-	 * @param $request PKPRequest
 	 */
-	function execute($request) {
+	function execute() {
 		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
 
 		$navigationMenuItem = $navigationMenuItemDao->getById($this->navigationMenuItemId);

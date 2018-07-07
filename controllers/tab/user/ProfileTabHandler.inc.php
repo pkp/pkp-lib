@@ -64,7 +64,7 @@ class ProfileTabHandler extends Handler {
 		$identityForm = new IdentityForm($request->getUser());
 		$identityForm->readInputData();
 		if ($identityForm->validate()) {
-			$identityForm->execute($request);
+			$identityForm->execute();
 			$notificationMgr = new NotificationManager();
 			$notificationMgr->createTrivialNotification($request->getUser()->getId());
 			return new JSONMessage(true);
@@ -99,7 +99,7 @@ class ProfileTabHandler extends Handler {
 		$contactForm = new ContactForm($request->getUser());
 		$contactForm->readInputData();
 		if ($contactForm->validate()) {
-			$contactForm->execute($request);
+			$contactForm->execute();
 			$notificationMgr = new NotificationManager();
 			$notificationMgr->createTrivialNotification($request->getUser()->getId());
 			return new JSONMessage(true);
@@ -134,7 +134,7 @@ class ProfileTabHandler extends Handler {
 		$rolesForm = new RolesForm($request->getUser());
 		$rolesForm->readInputData();
 		if ($rolesForm->validate()) {
-			$rolesForm->execute($request);
+			$rolesForm->execute();
 			$notificationMgr = new NotificationManager();
 			$notificationMgr->createTrivialNotification($request->getUser()->getId());
 			return new JSONMessage(true);
@@ -198,7 +198,7 @@ class ProfileTabHandler extends Handler {
 		$publicProfileForm = new PublicProfileForm($request->getUser());
 		$publicProfileForm->readInputData();
 		if ($publicProfileForm->validate()) {
-			$publicProfileForm->execute($request);
+			$publicProfileForm->execute();
 			$notificationMgr = new NotificationManager();
 			$notificationMgr->createTrivialNotification($request->getUser()->getId());
 			return new JSONMessage(true);
@@ -233,7 +233,7 @@ class ProfileTabHandler extends Handler {
 		$apiProfileForm = new APIProfileForm($request->getUser());
 		$apiProfileForm->readInputData();
 		if ($apiProfileForm->validate()) {
-			$apiProfileForm->execute($request);
+			$apiProfileForm->execute();
 			$notificationMgr = new NotificationManager();
 			$notificationMgr->createTrivialNotification($request->getUser()->getId());
 			return new JSONMessage(true);
@@ -268,7 +268,7 @@ class ProfileTabHandler extends Handler {
 		$passwordForm->readInputData();
 
 		if ($passwordForm->validate()) {
-			$passwordForm->execute($request);
+			$passwordForm->execute();
 			$notificationMgr = new NotificationManager();
 			$notificationMgr->createTrivialNotification($request->getUser()->getId());
 			return new JSONMessage(true);
@@ -308,7 +308,7 @@ class ProfileTabHandler extends Handler {
 
 		$json = new JSONMessage();
 		if ($notificationSettingsForm->validate()) {
-			$notificationSettingsForm->execute($request);
+			$notificationSettingsForm->execute();
 			$notificationMgr = new NotificationManager();
 			$notificationMgr->createTrivialNotification($request->getUser()->getId());
 		} else {

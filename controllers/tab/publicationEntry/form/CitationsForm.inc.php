@@ -133,8 +133,8 @@ class CitationsForm extends Form {
 	 * Parse and store the submission citations.
 	 * @copydoc Form::execute()
 	 */
-	function execute($request) {
-		parent::execute($request);
+	function execute() {
+		parent::execute();
 		$submission = $this->getSubmission();
 
 		$rawCitationList = $this->getData('citations');

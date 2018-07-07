@@ -64,7 +64,7 @@ class ReportGeneratorHandler extends Handler {
 		$reportGeneratorForm->readInputData();
 		$json = new JSONMessage(true);
 		if ($reportGeneratorForm->validate()) {
-			$reportUrl = $reportGeneratorForm->execute($request);
+			$reportUrl = $reportGeneratorForm->execute();
 			$json->setAdditionalAttributes(array('reportUrl' => $reportUrl));
 		} else {
 			$json->setStatus(false);

@@ -131,16 +131,16 @@ class PublicProfileForm extends BaseProfileForm {
 
 	/**
 	 * Save public profile settings.
-	 * @param $request PKPRequest
 	 */
-	function execute($request) {
+	function execute() {
+		$request = Application::getRequest();
 		$user = $request->getUser();
 
 		$user->setOrcid($this->getData('orcid'));
 		$user->setUrl($this->getData('userUrl'));
 		$user->setBiography($this->getData('biography'), null); // Localized
 
-		parent::execute($request, $user);
+		parent::execute();
 	}
 }
 

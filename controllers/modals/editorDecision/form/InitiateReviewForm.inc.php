@@ -38,10 +38,10 @@ class InitiateReviewForm extends EditorDecisionForm {
 	//
 	/**
 	 * Execute the form.
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function execute($args, $request) {
+	function execute() {
+		$request = Application::getRequest();
+
 		// Retrieve the submission.
 		$submission = $this->getSubmission();
 

@@ -192,7 +192,6 @@ class AuthorForm extends Form {
 	/**
 	 * Save author
 	 * @see Form::execute()
-	 * @see Form::execute()
 	 */
 	function execute() {
 		$authorDao = DAORegistry::getDAO('AuthorDAO');

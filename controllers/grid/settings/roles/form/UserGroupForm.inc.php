@@ -155,7 +155,8 @@ class UserGroupForm extends Form {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute($request) {
+	function execute() {
+		$request = Application::getRequest();
 		$userGroupId = $this->getUserGroupId();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$roleDao = DAORegistry::getDAO('RoleDAO');

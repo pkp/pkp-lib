@@ -86,14 +86,15 @@ class IdentityForm extends BaseProfileForm {
 	/**
 	 * Save identity settings.
 	 */
-	function execute($request) {
+	function execute() {
+		$request = Application::getRequest();
 		$user = $request->getUser();
 
 		$user->setGivenName($this->getData('givenName'), null);
 		$user->setFamilyName($this->getData('familyName'), null);
 		$user->setPreferredPublicName($this->getData('preferredPublicName'), null);
 
-		parent::execute($request, $user);
+		parent::execute();
 	}
 }
 

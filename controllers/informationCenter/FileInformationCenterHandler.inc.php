@@ -154,7 +154,7 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 		$notesForm->readInputData();
 
 		if ($notesForm->validate()) {
-			$notesForm->execute($request);
+			$notesForm->execute();
 
 			// Save to event log
 			$this->_logEvent($request, $this->submissionFile, SUBMISSION_LOG_NOTE_POSTED, 'SubmissionFileLog');

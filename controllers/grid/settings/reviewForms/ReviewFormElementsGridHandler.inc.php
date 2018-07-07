@@ -227,7 +227,7 @@ class ReviewFormElementsGridHandler extends GridHandler {
 		$reviewFormElementForm->readInputData();
 
 		if ($reviewFormElementForm->validate()) {
-			$reviewFormElementId = $reviewFormElementForm->execute($request);
+			$reviewFormElementId = $reviewFormElementForm->execute();
 
 			// Create the notification.
 			$notificationMgr = new NotificationManager();

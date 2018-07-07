@@ -81,7 +81,8 @@ class PaymentMethodForm extends ContextSettingsForm {
 	/**
 	 * @copydoc ContextSettingsForm::execute()
 	 */
-	function execute($request) {
+	function execute() {
+		$request = Application::getRequest();
 		$context = $request->getContext();
 
 		// Get the selected payment plugin
@@ -100,7 +101,7 @@ class PaymentMethodForm extends ContextSettingsForm {
 				$context->getId(), $context->getAssocType(), $context->getId(), NOTIFICATION_LEVEL_NORMAL);
 		}
 
-		return parent::execute($request);
+		return parent::execute();
 	}
 
 	/**

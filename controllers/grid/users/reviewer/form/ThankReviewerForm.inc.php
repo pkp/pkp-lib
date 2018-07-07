@@ -92,10 +92,8 @@ class ThankReviewerForm extends Form {
 
 	/**
 	 * Save review assignment
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function execute($args, $request) {
+	function execute() {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$submissionDao = Application::getSubmissionDAO();
 
@@ -112,6 +110,7 @@ class ThankReviewerForm extends Form {
 
 		if (!$this->getData('skipEmail')) {
 			HookRegistry::call('ThankReviewerForm::thankReviewer', array(&$submission, &$reviewAssignment, &$email));
+			$request = Application::getRequest();
 			$dispatcher = $request->getDispatcher();
 			$context = $request->getContext();
 			$user = $request->getUser();

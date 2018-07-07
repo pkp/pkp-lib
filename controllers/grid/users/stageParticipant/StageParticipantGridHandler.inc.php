@@ -272,7 +272,7 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 		$form = new AddParticipantForm($submission, $stageId);
 		$form->readInputData();
 		if ($form->validate()) {
-			list($userGroupId, $userId, $stageAssignmentId) = $form->execute($request);
+			list($userGroupId, $userId, $stageAssignmentId) = $form->execute();
 
 			$notificationMgr = new NotificationManager();
 
@@ -440,7 +440,7 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 		$notifyForm->readInputData();
 
 		if ($notifyForm->validate()) {
-			$noteId = $notifyForm->execute($request);
+			$noteId = $notifyForm->execute();
 
 			if ($this->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
 				$this->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {

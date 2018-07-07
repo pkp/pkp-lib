@@ -102,11 +102,11 @@ class ReviewFormElementForm extends Form {
 
 	/**
 	 * Save review form element.
-	 * @param $request PKPRequest
 	 * @return int Review form element ID
 	 */
-	function execute($request) {
+	function execute() {
 		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
+		$request = Application::getRequest();
 
 		if ($this->reviewFormElementId) {
 			$context = $request->getContext();

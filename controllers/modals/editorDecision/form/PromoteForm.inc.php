@@ -74,7 +74,9 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute($args, $request) {
+	function execute() {
+		$request = Application::getRequest();
+
 		// Retrieve the submission.
 		$submission = $this->getSubmission();
 

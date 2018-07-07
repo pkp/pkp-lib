@@ -134,10 +134,9 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 
 	/**
 	 * @see Form::execute()
-	 * @param $request PKPRequest
 	 * @return array ($userGroupId, $userId)
 	 */
-	function execute($request) {
+	function execute() {
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 
@@ -152,7 +151,7 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 			$stageAssignment = $stageAssignmentDao->build($submission->getId(), $userGroupId, $userId, $recommendOnly);
 		}
 
-		parent::execute($request);
+		parent::execute();
 		return array($userGroupId, $userId, $stageAssignment->getId());
 	}
 

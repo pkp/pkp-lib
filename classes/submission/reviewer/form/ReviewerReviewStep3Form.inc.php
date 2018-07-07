@@ -110,9 +110,8 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 
 	/**
 	 * @see Form::execute()
-	 * @param $request PKPRequest
 	 */
-	function execute($request) {
+	function execute() {
 		$reviewAssignment = $this->getReviewAssignment();
 		$notificationMgr = new NotificationManager();
 		if ($reviewAssignment->getReviewFormId()) {
@@ -200,8 +199,6 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 		$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $submission->getStageId());
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$router = $request->getRouter();
-		$context = $router->getContext($request);
 		$receivedList = array(); // Avoid sending twice to the same user.
 
 		while ($stageAssignment = $stageAssignments->next()) {
@@ -212,7 +209,7 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 			if (!in_array($userGroup->getRoleId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR)) || in_array($userId, $receivedList)) continue;
 
 			$notificationMgr->createNotification(
-				$request, $userId, NOTIFICATION_TYPE_REVIEWER_COMMENT,
+				Application::getRequest(), $userId, NOTIFICATION_TYPE_REVIEWER_COMMENT,
 				$submission->getContextId(), ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment->getId()
 			);
 

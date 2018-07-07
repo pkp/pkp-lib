@@ -347,7 +347,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		$reviewerForm = new $formClassName($this->getSubmission(), $this->getReviewRound());
 		$reviewerForm->readInputData();
 		if ($reviewerForm->validate()) {
-			$reviewAssignment = $reviewerForm->execute($args, $request);
+			$reviewAssignment = $reviewerForm->execute();
 			return DAO::getDataChangedEvent($reviewAssignment->getId());
 		} else {
 			// There was an error, redisplay the form
@@ -449,7 +449,7 @@ class PKPReviewerGridHandler extends GridHandler {
 
 		// Unassign the reviewer and return status message
 		if ($unassignReviewerForm->validate()) {
-			if ($unassignReviewerForm->execute($args, $request)) {
+			if ($unassignReviewerForm->execute()) {
 				return DAO::getDataChangedEvent($reviewAssignment->getId());
 			} else {
 				return new JSONMessage(false, __('editor.review.errorDeletingReviewer'));
@@ -641,7 +641,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		$thankReviewerForm = new ThankReviewerForm($reviewAssignment);
 		$thankReviewerForm->readInputData();
 		if ($thankReviewerForm->validate()) {
-			$thankReviewerForm->execute($args, $request);
+			$thankReviewerForm->execute();
 			$json = DAO::getDataChangedEvent($reviewAssignment->getId());
 			// Insert a trivial notification to indicate the reviewer was reminded successfully.
 			$currentUser = $request->getUser();
@@ -688,7 +688,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		$reviewReminderForm = new ReviewReminderForm($reviewAssignment);
 		$reviewReminderForm->readInputData();
 		if ($reviewReminderForm->validate()) {
-			$reviewReminderForm->execute($args, $request);
+			$reviewReminderForm->execute();
 			// Insert a trivial notification to indicate the reviewer was reminded successfully.
 			$currentUser = $request->getUser();
 			$notificationMgr = new NotificationManager();
@@ -725,7 +725,7 @@ class PKPReviewerGridHandler extends GridHandler {
 			);
 		}
 		$emailReviewerForm->readInputData();
-		$emailReviewerForm->execute($request, $submission);
+		$emailReviewerForm->execute($submission);
 		return new JSONMessage(true);
 	}
 

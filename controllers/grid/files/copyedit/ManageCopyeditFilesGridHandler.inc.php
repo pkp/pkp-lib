@@ -65,7 +65,6 @@ class ManageCopyeditFilesGridHandler extends SelectableSubmissionFileListCategor
 
 		if ($manageCopyeditFilesForm->validate()) {
 			$manageCopyeditFilesForm->execute(
-				$args, $request,
 				$this->getGridCategoryDataElements($request, $this->getStageId())
 			);
 

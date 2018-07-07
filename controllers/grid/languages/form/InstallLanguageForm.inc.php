@@ -87,7 +87,8 @@ class InstallLanguageForm extends Form {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute($request) {
+	function execute() {
+		$request = Application::getRequest();
 		$site = $request->getSite();
 		$localesToInstall = $this->getData('localesToInstall');
 

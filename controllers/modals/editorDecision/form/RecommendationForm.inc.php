@@ -142,8 +142,9 @@ class RecommendationForm extends Form {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute($request) {
+	function execute() {
 		// Record the recommendation.
+		$request = Application::getRequest();
 		$submission = $this->getSubmission();
 		$reviewRound = $this->getReviewRound();
 		$recommendation = $this->getData('recommendation');

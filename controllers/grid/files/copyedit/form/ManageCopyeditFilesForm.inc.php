@@ -27,12 +27,11 @@ class ManageCopyeditFilesForm extends ManageSubmissionFilesForm {
 
 	/**
 	 * Save selection of copyedited files
-	 * @param $args array
-	 * @param $request PKPRequest
 	 * @param $stageSubmissionFiles array List of submission files in this stage.
+	 * @param $fileStage int SUBMISSION_FILE_...
 	 */
-	function execute($args, $request, $stageSubmissionFiles) {
-		parent::execute($args, $request, $stageSubmissionFiles, SUBMISSION_FILE_COPYEDIT);
+	function execute($stageSubmissionFiles, $fileStage = null) {
+		parent::execute($stageSubmissionFiles, SUBMISSION_FILE_COPYEDIT);
 	}
 }
 

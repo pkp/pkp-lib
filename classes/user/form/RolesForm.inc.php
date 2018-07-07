@@ -82,9 +82,9 @@ class RolesForm extends BaseProfileForm {
 
 	/**
 	 * Save roles settings.
-	 * @param $request PKPRequest
 	 */
-	function execute($request) {
+	function execute() {
+		$request = Application::getRequest();
 		$user = $request->getUser();
 
 		// Save the roles
@@ -97,7 +97,7 @@ class RolesForm extends BaseProfileForm {
 		$interestManager = new InterestManager();
 		$interestManager->setInterestsForUser($user, $this->getData('interests'));
 
-		parent::execute($request, $user);
+		parent::execute();
 	}
 }
 

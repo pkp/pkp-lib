@@ -14,7 +14,8 @@
 		"slim/slim": "^3.0",
 		"pimple/pimple": "^3.0",
 		"illuminate/database": "4.1.*",
-		"firebase/php-jwt": "^5.0"
+		"firebase/php-jwt": "^5.0",
+		"danielstjules/stringy": "~3"
 	},
 	"require-dev": {
 		"phpunit/phpunit-selenium": "1.4.2"

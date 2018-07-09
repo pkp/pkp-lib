@@ -43,19 +43,6 @@ class Core {
 	}
 
 	/**
-	 * Sanitize a variable.
-	 * Removes leading and trailing whitespace, normalizes all characters to UTF-8.
-	 * @param $var string
-	 * @return string
-	 */
-	static function cleanVar($var) {
-		// strip any invalid ASCII control characters
-		$var = PKPString::utf8_strip_ascii_ctrl($var);
-
-		return trim($var);
-	}
-
-	/**
 	 * Sanitize a value to be used in a file path.
 	 * Removes any characters except alphanumeric characters, underscores, and dashes.
 	 * @param $var string
@@ -471,9 +458,6 @@ class Core {
 			if (count($vars) > $contextDepth + $offset) {
 				if ($isArrayComponent) {
 					$component = array_slice($vars, $contextDepth + $offset);
-					for ($i=0, $count=count($component); $i<$count; $i++) {
-						$component[$i] = Core::cleanVar(get_magic_quotes_gpc() ? stripslashes($component[$i]) : $component[$i]);
-					}
 				} else {
 					$component = $vars[$contextDepth + $offset];
 				}

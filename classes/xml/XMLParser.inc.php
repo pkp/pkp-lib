@@ -60,9 +60,6 @@ class XMLParser {
 		xml_set_element_handler($parser, "startElement", "endElement");
 		xml_set_character_data_handler($parser, "characterData");
 
-		// strip any invalid ASCII control characters
-		$text = PKPString::utf8_strip_ascii_ctrl($text);
-
 		if (!xml_parse($parser, $text, true)) {
 			$this->addError(xml_error_string(xml_get_error_code($parser)));
 		}
@@ -124,9 +121,6 @@ class XMLParser {
 		if ($dataCallback) call_user_func($dataCallback, 'open', $wrapper);
 
 		while (!$wrapper->eof() && ($data = $wrapper->read()) !== false) {
-			// strip any invalid ASCII control characters
-			$data = PKPString::utf8_strip_ascii_ctrl($data);
-
 			if ($dataCallback) call_user_func($dataCallback, 'parse', $wrapper, $data);
 			if (!xml_parse($parser, $data, $wrapper->eof())) {
 				$this->addError(xml_error_string(xml_get_error_code($parser)));

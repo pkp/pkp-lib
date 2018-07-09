@@ -474,13 +474,9 @@ class PKPFileUploadWizardHandler extends Handler {
 			// Test whether the current submission file is similar
 			// to the uploaded file. (Transliterate to ASCII -- the
 			// similar_text function can't handle UTF-8.)
-
-			import('lib.pkp.classes.core.Transcoder');
-			$transcoder = new Transcoder('UTF-8', 'ASCII', true);
-
 			similar_text(
-				$a = $transcoder->trans($uploadedFileName),
-				$b = $transcoder->trans($submissionFile->getOriginalFileName()),
+				$a = Stringy\Stringy::create($uploadedFileName)->toAscii(),
+				$b = Stringy\Stringy::create($submissionFile->getOriginalFileName())->toAscii(),
 				$matchedPercentage
 			);
 			if($matchedPercentage > $minPercentage && !$this->_onlyNumbersDiffer($a, $b)) {

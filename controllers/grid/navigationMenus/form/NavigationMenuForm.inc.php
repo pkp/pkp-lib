@@ -88,6 +88,13 @@ class NavigationMenuForm extends Form {
 			return $a->getId() - $b->getId();
 		});
 
+		foreach ($unassignedItems as $unassignedItem) {
+			import('classes.core.ServicesContainer');
+			ServicesContainer::instance()
+				->get('navigationMenu')
+				->transformNavMenuItemTitle($templateMgr, $unassignedItem);
+		}
+
 		import('classes.core.ServicesContainer');
 		$navigationMenuItemTypes = ServicesContainer::instance()
 			->get('navigationMenu')

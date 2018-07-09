@@ -39,7 +39,6 @@ locale = en_US
 client_charset = utf-8
 connection_charset = utf8
 database_charset = utf8
-charset_normalization = On
 
 [files]
 files_dir = files

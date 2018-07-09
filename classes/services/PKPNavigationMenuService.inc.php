@@ -480,7 +480,7 @@ class PKPNavigationMenuService {
 	 * @param $navigationMenu \NavigationMenu
 	 */
 	public function transformNavMenuItemTitle($templateMgr, &$navigationMenuItem) {
-		$this->getNMITitleLocalized($navigationMenuItem);
+		$this->setNMITitleLocalized($navigationMenuItem);
 
 		$title = $navigationMenuItem->getLocalizedTitle();
 		$prefix = '{$';
@@ -551,7 +551,7 @@ class PKPNavigationMenuService {
 	 * Sets the title of a navigation menu item, depending on its title or locale-key
 	 * @param $nmi \NavigationMenuItem The NMI to set its title
 	 */
-	public function getNMITitleLocalized($nmi) {
+	public function setNMITitleLocalized($nmi) {
 		if ($nmi) {
 			\AppLocale::requireComponents(LOCALE_COMPONENT_PKP_COMMON, LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER);
 			if ($localisedTitle = $nmi->getLocalizedTitle()) {

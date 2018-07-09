@@ -71,8 +71,7 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 			$this->_saltpath = $this->getSetting(CONTEXT_ID_NONE, 'saltFilepath');
 			// Check config for backward compatibility.
 			if (!$this->_saltpath) $this->_saltpath = Config::getVar('usageStats', 'salt_filepath');
-			$application = Application::getApplication();
-			$request = $application->getRequest();
+			$request = Application::getRequest();
 			$this->_optedOut = $request->getCookieVar('usageStats-opt-out');
 			if ($this->_optedOut) {
 				// Renew the Opt-Out cookie if present.
@@ -730,7 +729,7 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 		$orderBy = array(STATISTICS_DIMENSION_MONTH => STATISTICS_ORDER_ASC);
 		$reportPlugin = $this->getReportPlugin();
 
-		$application = PKPApplication::getApplication();
+		$application = Application::getApplication();
 
 		$statsReports = $application->getMetrics(current($reportPlugin->getMetricTypes()), array(STATISTICS_DIMENSION_MONTH, STATISTICS_DIMENSION_REPRESENTATION_ID), $filter, $orderBy);
 		$cache->setEntireCache(array($pubObjectId => $statsReports));

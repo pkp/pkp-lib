@@ -95,7 +95,7 @@ class PKPTemplateManager extends SmartyBC {
 		$this->_request = $request;
 
 		$locale = AppLocale::getLocale();
-		$application = PKPApplication::getApplication();
+		$application = Application::getApplication();
 		$router = $request->getRouter();
 		assert(is_a($router, 'PKPRouter'));
 
@@ -341,7 +341,6 @@ class PKPTemplateManager extends SmartyBC {
 		 * database is executed (e.g., when loading installer pages).
 		 */
 		if (!defined('SESSION_DISABLE_INIT')) {
-			$application = PKPApplication::getApplication();
 			$this->assign(array(
 				'isUserLoggedIn' => Validation::isLoggedIn(),
 				'isUserLoggedInAs' => Validation::isLoggedInAs(),
@@ -672,7 +671,7 @@ class PKPTemplateManager extends SmartyBC {
 	 */
 	function registerJSLibraryData() {
 
-		$application = PKPApplication::getApplication();
+		$application = Application::getApplication();
 		$context = $this->_request->getContext();
 
 		// Instantiate the namespace
@@ -1139,7 +1138,7 @@ class PKPTemplateManager extends SmartyBC {
 			// from the parameters array. Variables remaining in params will be
 			// passed along to Request::url as extra parameters.
 			$context = array();
-			$application = PKPApplication::getApplication();
+			$application = Application::getApplication();
 			$contextList = $application->getContextList();
 			foreach ($contextList as $contextName) {
 				if (isset($parameters[$contextName])) {

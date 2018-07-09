@@ -522,7 +522,7 @@ abstract class Plugin {
 	 */
 	function installSiteSettings($hookName, $args) {
 		// All contexts are set to zero for site-wide plug-in settings
-		$application = PKPApplication::getApplication();
+		$application = Application::getApplication();
 		$contextDepth = $application->getContextDepth();
 		if ($contextDepth >0) {
 			$arguments = array_fill(0, $contextDepth, 0);
@@ -562,7 +562,7 @@ abstract class Plugin {
 	function installContextSpecificSettings($hookName, $args) {
 		// Only applications that have at least one context can
 		// install context specific settings.
-		$application = PKPApplication::getApplication();
+		$application = Application::getApplication();
 		$contextDepth = $application->getContextDepth();
 		if ($contextDepth > 0) {
 			$context =& $args[1];
@@ -774,7 +774,7 @@ abstract class Plugin {
 	 * @return string
 	 */
 	function _getContextSpecificInstallationHook() {
-		$application = PKPApplication::getApplication();
+		$application = Application::getApplication();
 
 		if ($application->getContextDepth() == 0) return null;
 

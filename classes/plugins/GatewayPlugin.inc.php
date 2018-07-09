@@ -61,7 +61,7 @@ abstract class GatewayPlugin extends Plugin {
 	 * can be found.
 	 */
 	function getCurrentContextId() {
-		$context = PKPApplication::getRequest()->getContext();
+		$context = Application::getRequest()->getContext();
 		return is_null($context) ? 0 : $context->getId();
 	}
 }

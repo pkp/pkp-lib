@@ -147,7 +147,7 @@ abstract class PKPTestCase extends PHPUnit_Framework_TestCase {
 
 		// Create a test request.
 		Registry::delete('request');
-		$application = PKPApplication::getApplication();
+		$application = Application::getApplication();
 		$_SERVER['REQUEST_METHOD'] = 'GET';
 		$_SERVER['PATH_INFO'] = $path;
 		$request = $application->getRequest();

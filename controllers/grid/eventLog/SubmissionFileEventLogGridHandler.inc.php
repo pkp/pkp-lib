@@ -55,10 +55,10 @@ class SubmissionFileEventLogGridHandler extends SubmissionEventLogGridHandler {
 
 	/**
 	 * Configure the grid
-	 * @param $request PKPRequest
+	 * @see SubmissionEventLogGridHandler::initialize
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 
 		// Retrieve the authorized monograph.
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);

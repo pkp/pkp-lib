@@ -49,7 +49,7 @@ class ExportableUsersGridHandler extends GridHandler {
 	 * @copydoc GridHandler::initialize()
 	 */
 	function initialize($request, $args = null) {
-		parent::initialize($request);
+		parent::initialize($request, $args);
 
 		// Load user-related translations.
 		AppLocale::requireComponents(

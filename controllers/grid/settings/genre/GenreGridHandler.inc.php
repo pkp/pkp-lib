@@ -36,10 +36,10 @@ class GenreGridHandler extends SetupGridHandler {
 	//
 	/*
 	 * Configure the grid
-	 * @param $request PKPRequest
+	 * @see SetupGridHandler::initialize
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 
 		// Load language components
 		AppLocale::requireComponents(

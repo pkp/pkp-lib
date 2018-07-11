@@ -130,10 +130,10 @@ class EditReviewForm extends Form {
 
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
 		$reviewAssignment = $reviewAssignmentDao->getReviewAssignment($this->_reviewRound->getId(), $this->_reviewAssignment->getReviewerId(), $this->_reviewRound->getRound(), $this->_reviewRound->getStageId());
-		
+
 		// Send notification to reviewer if details have changed.
-		if ($reviewAssignment->getDateDue != $this->getData('reviewDueDate') || $reviewAssignment->getDateResponseDue != $this->getData('responseDueDate') || $reviewAssignment->getReviewMethod != $this->getData('reviewMethod')){
-			$notificationManager = new NotificationManager();		
+		if ($reviewAssignment->getDateDue() != $this->getData('reviewDueDate') || $reviewAssignment->getDateResponseDue() != $this->getData('responseDueDate') || $reviewAssignment->getReviewMethod() != $this->getData('reviewMethod')){
+			$notificationManager = new NotificationManager();
 			$request = Application::getRequest();
 			$context = $request->getContext();
 			$userIds[] = $reviewAssignment->getReviewerId();

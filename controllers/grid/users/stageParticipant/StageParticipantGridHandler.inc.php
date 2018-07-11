@@ -143,7 +143,7 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 	/**
 	 * @copydoc CategoryGridHandler::loadCategoryData()
 	 */
-	function loadCategoryData($request, $userGroup) {
+	function loadCategoryData($request, &$userGroup, $filter = null) {
 		// Retrieve useful objects.
 		$submission = $this->getSubmission();
 		$stageId = $this->getStageId();

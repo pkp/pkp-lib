@@ -115,7 +115,7 @@ class SystemInfoGridHandler extends CategoryGridHandler {
 	/**
 	 * @copydoc CategoryGridHandler::loadCategoryData()
 	 */
-	function loadCategoryData($request, $configSection) {
+	function loadCategoryData($request, &$configSection, $filter = null) {
 		return $this->_configData[$configSection];
 	}
 

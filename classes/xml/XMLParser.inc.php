@@ -60,18 +60,6 @@ class XMLParser {
 		xml_set_element_handler($parser, "startElement", "endElement");
 		xml_set_character_data_handler($parser, "characterData");
 
-		// if the string contains non-UTF8 characters, convert it to UTF-8 for parsing
-		if ( Config::getVar('i18n', 'charset_normalization') == 'On' && !PKPString::utf8_compliant($text) ) {
-
-			$text = PKPString::utf8_normalize($text);
-
-			// strip any invalid UTF-8 sequences
-			$text = PKPString::utf8_bad_strip($text);
-
-			// convert named entities to numeric entities
-			$text = strtr($text, PKPString::getHTMLEntities());
-		}
-
 		// strip any invalid ASCII control characters
 		$text = PKPString::utf8_strip_ascii_ctrl($text);
 
@@ -136,28 +124,6 @@ class XMLParser {
 		if ($dataCallback) call_user_func($dataCallback, 'open', $wrapper);
 
 		while (!$wrapper->eof() && ($data = $wrapper->read()) !== false) {
-
-			// if the string contains non-UTF8 characters, convert it to UTF-8 for parsing
-			if ( Config::getVar('i18n', 'charset_normalization') == 'On' && !PKPString::utf8_compliant($data) ) {
-
-				$utf8_last = PKPString::substr($data, PKPString::strlen($data) - 1);
-
-				// if the string ends in a "bad" UTF-8 character, maybe it's truncated
-				while (!$wrapper->eof() && PKPString::utf8_bad_find($utf8_last) === 0) {
-					// read another chunk of data
-					$data .= $wrapper->read();
-					$utf8_last = PKPString::substr($data, PKPString::strlen($data) - 1);
-				}
-
-				$data = PKPString::utf8_normalize($data);
-
-				// strip any invalid UTF-8 sequences
-				$data = PKPString::utf8_bad_strip($data);
-
-				// convert named entities to numeric entities
-				$data = strtr($data, PKPString::getHTMLEntities());
-			}
-
 			// strip any invalid ASCII control characters
 			$data = PKPString::utf8_strip_ascii_ctrl($data);
 
@@ -332,5 +298,3 @@ class XMLParserHandler {
 		return null;
 	}
 }
-
-?>

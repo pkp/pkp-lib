@@ -25,6 +25,7 @@ class ReviewReminderForm extends Form {
 	function __construct($reviewAssignment) {
 		parent::__construct('controllers/grid/users/reviewer/form/reviewReminderForm.tpl');
 		$this->_reviewAssignment = $reviewAssignment;
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION);
 
 		// Validation checks for this form
 		$this->addCheck(new FormValidatorPost($this));

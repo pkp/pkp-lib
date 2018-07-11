@@ -35,7 +35,7 @@ class FormValidatorCSRF extends FormValidator {
 	 * @return boolean
 	 */
 	function isValid() {
-		$request = PKPApplication::getRequest();
+		$request = Application::getRequest();
 		return $request->checkCSRF();
 	}
 }

@@ -49,20 +49,6 @@ class Core {
 	 * @return string
 	 */
 	static function cleanVar($var) {
-		// only normalize strings that are not UTF-8 already, and when the system is using UTF-8
-		if ( Config::getVar('i18n', 'charset_normalization') == 'On' && strtolower_codesafe(Config::getVar('i18n', 'client_charset')) == 'utf-8' && !PKPString::utf8_is_valid($var) ) {
-
-			$var = PKPString::utf8_normalize($var);
-
-			// convert HTML entities into valid UTF-8 characters (do not transcode)
-			$var = html_entity_decode($var, ENT_COMPAT, 'UTF-8');
-
-			// strip any invalid UTF-8 sequences
-			$var = PKPString::utf8_bad_strip($var);
-
-			$var = htmlspecialchars($var, ENT_NOQUOTES, 'UTF-8', false);
-		}
-
 		// strip any invalid ASCII control characters
 		$var = PKPString::utf8_strip_ascii_ctrl($var);
 

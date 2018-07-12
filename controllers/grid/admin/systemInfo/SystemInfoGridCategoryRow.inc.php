@@ -27,9 +27,9 @@ class SystemInfoGridCategoryRow extends GridCategoryRow {
 	 * @see GridCategoryRow::initialize()
 	 * @param $request PKPRequest
 	 */
-	function initialize($request) {
+	function initialize($request, $template = null) {
 		// Do the default initialization
-		parent::initialize($request);
+		parent::initialize($request, $template);
 		$this->_configSection = $this->getData();
 	}
 

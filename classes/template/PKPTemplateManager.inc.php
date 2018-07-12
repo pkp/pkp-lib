@@ -395,7 +395,7 @@ class PKPTemplateManager extends SmartyBC {
 	 *
 	 * @param $name string Unique name for this LESS stylesheet
 	 * @param $lessFile string Path to the LESS file to compile
-	 * @param $args array Optional arguments. SUpports:
+	 * @param $args array Optional arguments. Supports:
 	 *   'baseUrl': Base URL to use when rewriting URLs in the LESS file.
 	 *   'addLess': Array of additional LESS files to parse before compiling
 	 * @return string Compiled CSS styles

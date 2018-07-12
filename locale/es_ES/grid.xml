@@ -253,4 +253,5 @@
         <message key="grid.action.addNavigationMenuItem">Añadir Elemento</message>
         <message key="grid.navigationMenus.navigationMenuItems.noneExist">No hay elementos de navegación</message>
         <message key="grid.navigationMenus.navigationMenu.noneExist">No hay menús de navegación</message>
+	<message key="grid.navigationMenus.navigationMenu.selectType">Elija un tipo...</message>
 </locale>

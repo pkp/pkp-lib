@@ -535,4 +535,30 @@
 	<message key="notification.addedReviewerNoEmail">Se ha asignado a {$reviewerName} para revisar este envío y no se le ha enviado un correo electrónico de notificación.</message>
 
 	<message key="semicolon">{$label}:</message>
+	<message key="common.deleting">Eliminando</message>
+	<message key="common.filterAdd">Añadir filtro: {$filterTitle}</message>
+	<message key="common.from">Desde</message>
+	<message key="common.until">Hasta</message>
+	<message key="common.lessThan">{$value} o menos</message>
+	<message key="common.listSeparator">,</message>
+	<message key="common.moreThan">{$value} or más</message>
+	<message key="common.pagination">{$start}-{$end} de {$total}</message>
+	<message key="common.pagination.label">Explorar páginas adicionales</message>
+	<message key="common.saving">Guardando</message>
+	<message key="common.publicAccess">Acceso Público</message>
+	<message key="stageParticipants.notify.startDiscussion">Comenzar Discusión</message>
+	<message key="stageParticipants.notify.startDiscussion.description">Comenzar una discusión entre usted y {$userFullName}.</message>
+	<message key="stageParticipants.options">Asignación de privilegios</message>
+	<message key="stageParticipants.recommendOnly">Este participante sólo tiene permitido recomendar una decisión editorial, por lo tanto, requerirá que un editor autorizado registre las decisiones editoriales.</message>
+	<message key="notification.reviewerThankedEmail">Gracias, correo enviado a revisor.</message>
+	<message key="notification.sendNotificationConfirmation">Enviar correo de notificación a todos los usuarios registrados</message>
+	<message key="notification.type.reviewAssignmentUpdated">Revisión de la tarea actualizada.</message>
+	<message key="notification.editedNavigationMenuItem">El elemento del menú de navegación se actualizó correctamente</message>
+	<message key="notification.removedNavigationMenuItem">El elemento del menú de navegación se borró correctamente</message>
+	<message key="notification.addedNavigationMenuItem">El elemento del menú de navegación se añadió correctamente</message>
+	<message key="notification.addedNavigationMenu">El menú de navegación se añadió correctamente</message>
+	<message key="notification.editedNavigationMenu">El menú de navegación se actualizó correctamente</message>
+	<message key="notification.removedNavigationMenu">El menú de navegación se eliminó correctamente</message>
+	<message key="list.viewMore">Mostrar más detalles sobre {$name}</message>
+	<message key="list.viewLess">Ocultar los detalles sobre {$name}</message>
 </locale>

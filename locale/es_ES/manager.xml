@@ -523,4 +523,22 @@
 	<message key="manager.navigationMenus.loggedIn.conditionalWarning">Este enlace solo se mostrará cuando el usuario/a NO haya iniciado la sesión.</message>
 	<message key="manager.navigationMenus.contact.description">Enlace a la página de Información de contacto.</message>
 	<message key="manager.navigationMenus.contact.conditionalWarning">Este enlace solo se mostrará si ha completado la sección Información de contacto bajo Preferencias > Contacto.</message>
+	<message key="manager.navigationMenus.privacyStatement.conditionalWarning"><![CDATA[Este enlace sólo será visible si has definido una declaración de privacidad bajo Configuración > Flujo de trabajo > Envíos.]]></message>
+	<message key="manager.navigationMenus.search.description">Enlace a la página de búsqueda.</message>
+	<message key="manager.navigationMenus.privacyStatement.description">Enlace a la página que muestra su declaración de privacidad.</message>
+	<message key="manager.navigationMenus.form.typeMissing">Por favor, seleccione un tipo para el menú de navegación.</message>
+	<message key="manager.navigationMenus.subscriptions.conditionalWarning"><![CDATA[Este enlace sólo será mostrado si los pagos están activados bajo Configuración > Distribución > Pagos.]]></message>
+	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning"><![CDATA[El enlace sólo será mostrado si el visitante está autentificado, los pagos están habilitados bajo Configuración > Distribución > Pagos y las suscripciones son requeridas bajo Configuración > Distribución > Acceso.]]></message>
+	<message key="manager.setup.genres.key">Clave</message>
+	<message key="manager.setup.genres.key.description">Un identificador simbólico corto opcional para este género.</message>
+	<message key="manager.setup.genres.key.exists">La clave ya existe.</message>
+	<message key="manager.setup.genres.key.alphaNumeric">La clave solo puede contener caracteres alfanuméricos, guiones bajos y guiones, y debe comenzar y terminar con un carácter alfanumérico.</message>
+	<message key="plugins.importexport.common.error.duplicateRevisionForSubmission">La revisión "{$revisionId}" para el archivo enviado "{$fileId}" crearía un registro duplicado</message>
+	<message key="manager.navigationMenus.form.menuAssigned">Hay un menú de navegación ya asignado para esta área.</message>
+	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>Este archivo de biblioteca puede ser accesible para ser bajado, si "Acceso público" está habilitado, en: <blockquote>{$downloadUrl}</blockquote></p>]]></message>
+	<message key="settings.libraryFiles.public.selectLibraryFiles">Seleccione los archivos de la biblioteca para adjuntarlos</message>
+	<message key="settings.roles.recommendOnly">Esta función solo puede recomendar una decisión de revisión y requerirá que un editor autorizado registre una decisión final.</message>
+	<message key="manager.setup.privacyStatement.description">Esta declaración aparecerá durante el registro del usuario, el envío del autor y en la página de privacidad públicamente disponible. En algunas jurisdicciones, tiene la obligación legal de divulgar cómo maneja los datos del usuario en esta política de privacidad.</message>
+	<message key="manager.setup.searchEngineIndexing.sitemap">Mapa del sitio</message>
+	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[Un mapa del sitio XML está disponible para enviarlo a los motores de búsqueda, en <a href="{$path}" target="_blank">{$path}</a>]]></message>
 </locale>

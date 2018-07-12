@@ -157,7 +157,7 @@
 	<message key="user.apiKey.generate">Generar una nueva llave API</message>
 	<message key="user.apiKey.generateWarning">Generando una nueva llave API va a invalidar cualquier otra llave existente de este usuario.</message>
 	<message key="user.apiKey.secretRequired">Antes de generar una llave API, el administrador del sitio web ha de definir un secreto en el archivo de configuración ("api_key_secret").</message>
-	<message key="user.privacyLink"><![CDATA[Tus datos son almacenados en concordancia con nuetra <a href="{$privacyUrl}" target="_blank">declaración de privacidad</a>.]]></message>
+	<message key="user.privacyLink"><![CDATA[Tus datos son almacenados en concordancia con nuestra <a href="{$privacyUrl}" target="_blank">declaración de privacidad</a>.]]></message>
 	<message key="user.authorization.assignedStageRoleBasedAccessDenied">No ha sido asignado a este envío con un rol que tenga permisos para acceder a esta operación.</message>
 	<message key="user.authorization.invalidReviewAssignment">No tiene permisos para acceder a esta tarea de revisión.</message>
 	<message key="user.authorization.submissionQuery">No tiene permisos para acceder a esta discusión.</message>

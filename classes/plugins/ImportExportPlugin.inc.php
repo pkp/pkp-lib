@@ -19,6 +19,24 @@ abstract class ImportExportPlugin extends Plugin {
 	/** @var Request Request made available for plugin URL generation */
 	var $_request;
 
+	/** @var boolean If the execution is via CLI */
+	var $_cli = false;
+
+	/**
+	 * Get if the execution is via CLI
+	 * @return boolean
+	 */
+	function getCLI() {
+		return $this->_cli;
+	}
+
+	/**
+	 * Set if the execution is via CLI
+	 * @param $isCLI boolean
+	 */
+	function setCLI($isCLI) {
+		$this->_cli = $isCLI;
+	}
 
 	/**
 	 * Execute import/export tasks using the command-line interface.
@@ -145,17 +163,27 @@ abstract class ImportExportPlugin extends Plugin {
 	 * @param $xml string
 	 */
 	function displayXMLValidationErrors($errors, $xml) {
-		$charset = Config::getVar('i18n', 'client_charset');
-		header('Content-type: text/html; charset=' . $charset);
-		echo '<html><body>';
-		echo '<h2>' . __('plugins.importexport.common.validationErrors') . '</h2>';
-		foreach ($errors as $error) {
-			echo '<p>' . trim($error->message) . '</p>';
+		if ($this->getCLI()) {
+			echo __('plugins.importexport.common.validationErrors') . "\n";
+			foreach ($errors as $error) {
+				echo trim($error->message) . "\n";
+			}
+			libxml_clear_errors();
+			echo __('plugins.importexport.common.invalidXML') . "\n";
+			echo $xml . "\n";
+		} else {
+			$charset = Config::getVar('i18n', 'client_charset');
+			header('Content-type: text/html; charset=' . $charset);
+			echo '<html><body>';
+			echo '<h2>' . __('plugins.importexport.common.validationErrors') . '</h2>';
+			foreach ($errors as $error) {
+				echo '<p>' . trim($error->message) . '</p>';
+			}
+			libxml_clear_errors();
+			echo '<h3>' . __('plugins.importexport.common.invalidXML') . '</h3>';
+			echo '<p><pre>' . htmlspecialchars($xml) . '</pre></p>';
+			echo '</body></html>';
 		}
-		libxml_clear_errors();
-		echo '<h3>' . __('plugins.importexport.common.invalidXML') . '</h3>';
-		echo '<p><pre>' . htmlspecialchars($xml) . '</pre></p>';
-		echo '</body></html>';
 		fatalError(__('plugins.importexport.common.error.validation'));
 	}
 

@@ -1022,6 +1022,7 @@ class PKPTemplateManager extends SmartyBC {
 			$params['values'] = array_map(array('AppLocale', 'translate'), $params['values']);
 		}
 
+		require_once('lib/pkp/lib/vendor/smarty/smarty/libs/plugins/function.html_options.php');
 		return smarty_function_html_options($params, $smarty);
 	}
 

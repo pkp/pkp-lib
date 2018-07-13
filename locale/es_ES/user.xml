@@ -161,7 +161,7 @@
 	<message key="user.authorization.assignedStageRoleBasedAccessDenied">No ha sido asignado a este envío con un rol que tenga permisos para acceder a esta operación.</message>
 	<message key="user.authorization.invalidReviewAssignment">No tiene permisos para acceder a esta tarea de revisión.</message>
 	<message key="user.authorization.submissionQuery">No tiene permisos para acceder a esta discusión.</message>
-	<message key="user.gossip.description">Las notas introducidad aquí sólo serán visibles para los administradores, gestor/a de la revista, editores y subeditores.</message>
+	<message key="user.gossip.description">Las notas introducidas aquí sólo serán visibles para los administradores, gestor/a de la revista, editores y subeditores.</message>
 	<message key="user.profile.form.privacyConsentRequired">Debe dar su consentimiento a los términos de la declaración de privacidad.</message>
 	<message key="user.register.form.privacyConsent"><![CDATA[Sí, estoy de acuerdo en el almacenamiento de datos concorde a la <a href="{$privacyUrl}" target="_blank">declaración de privacidad</a>.]]></message>
 	<message key="user.register.form.emailConsent">Sí, me gustaría recibir notificaciones de nuevas publicaciones y anuncios.</message>

@@ -10,8 +10,6 @@
  *}
 
 {$navigationMenuItem->getLocalizedTitle()|escape}
-{if $unreadNotificationCount}
-	<span class="task_count">
-		{$unreadNotificationCount}
-	</span>
-{/if}
+<span class="task_count">
+	{$unreadNotificationCount}
+</span>

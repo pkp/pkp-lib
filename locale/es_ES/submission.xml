@@ -678,7 +678,7 @@
 	<message key="submission.review.status.accepted">Esta revisión ha sido aceptada.</message>
 	<message key="submission.review.status.received">El revisor ha enviado su revisión.</message>
 	<message key="submission.review.status.complete">Esta revisión ha sido completada.</message>
-	<message key="submission.review.status.thanked">Esta revisión está completa y se le agradecer al revisor su contribución.</message>
+	<message key="submission.review.status.thanked">Esta revisión está completa y se le agradece al revisor su contribución.</message>
 	<message key="submission.query.participantTitle">{$fullName}, {$userGroup}</message>
 	<message key="submission.query.noParticipantOptions">Debe asignar al menos un participante a este envío antes de iniciar una discusión.</message>
 	<message key="submission.list.reviewComplete">Revisión enviada</message>

@@ -541,7 +541,7 @@
 	<message key="common.until">Hasta</message>
 	<message key="common.lessThan">{$value} o menos</message>
 	<message key="common.listSeparator">,</message>
-	<message key="common.moreThan">{$value} or más</message>
+	<message key="common.moreThan">{$value} o más</message>
 	<message key="common.pagination">{$start}-{$end} de {$total}</message>
 	<message key="common.pagination.label">Explorar páginas adicionales</message>
 	<message key="common.saving">Guardando</message>

@@ -175,8 +175,7 @@ class PKPPageRouter extends PKPRouter {
 			$user = $request->getUser();
 			$currentContext = $request->getContext();
 			if ($currentContext && !$currentContext->getEnabled() && !is_a($user, 'User')) {
-				$op = ROUTER_DEFAULT_OP;
-				$page = ROUTER_DEFAULT_PAGE;
+				if ($page != 'login') $request->redirect(null, 'login');
 			}
 		}
 

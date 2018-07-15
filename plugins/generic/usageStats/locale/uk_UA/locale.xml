@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * lib/pkp/plugins/generic/usageStats/locale/uk_UA/locale.xml
+  *
+  * Copyright (c) 2013-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Ukrainian_(uk_UA)
+  * Localization strings for the uk_UA (Українська) locale.
+  -->
+ 
+<locale name="uk_UA" full_name="Українська">
+	<message key="plugins.generic.usageStats.settings.logging">Параметри журнала доступу</message>
+	<message key="plugins.generic.usageStats.settings.createLogFiles">Створити файли журнала</message>
+	<message key="plugins.generic.usageStats.settings.createLogFiles.description">Активація цього параметра змусить модуль створювати файли журналів доступу всередині каталогу files. Ці файли слід використовувати для того, щоб отримати дані про статистику використання. Якщо ви не хочете створювати додаткові файли журналу доступу, ви можете вимкнути цю опцію та використовувати файли журнала доступу вашого сервера.</message>
+	<message key="plugins.generic.usageStats.settings.logParseRegex">Регулярний вираз для розбору файлів журналу</message>
+	<message key="plugins.generic.usageStats.settings.logParseRegex.description">Усталений регулярний вираз, який використовується може розбирати файли журналів доступу apache у комбінованому форматі, а також файли журналів модуля. Якщо ваші файли журналу доступу формуються в іншому форматі, вам доведеться вставити регулярний вираз, здатний їх розібрати та видати очікувані значення. Для отримання докладнішої інформації дивись: UsageStatsLoader::_getDataFromLogEntry().</message>
+	<message key="plugins.generic.usageStats.settings.saved">Налаштування модуля статистики використання збережено</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption">Параметр конфіденційності даних</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.saltFilepath">Шлях до файла для солі (використовується з метою анонімізації)</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.saltFilepath.invalid">У файл солі неможливо зробити запис.</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.requirements">Щоб забезпечити конфіденційність даних, ви повинні вказати файл, який доступний для читання та запису веб-користувачу та містимите випадково сформоване значення солі. Цей файл НЕ повинен потрапляти в резервні копії, щоб забезпечити захист приватності. Сіль генерується випадковим чином одним з таких шляхів: функції mcrypt_create_iv, яка вимагає PHP mcrypt; функції openssl_random_pseudo_bytes, яка вимагає PHP openssl; файлу /dev/urandom, який працює тільки на системах * nix; або функції mt_rand, яка не є криптографічно безпечною. аким чином, якщо ви використовуєте сервер Windows, будь ласка, переконайтесь, що ви або встановили mcrypt PHP, або включили openssl, щоб мати криптографічно безпечно згенеровану сіль.</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.description">Активуйте цей параметр, щоб використовувати версію модуля, яка враховує вимоги законодавства про конфіденційність, тобто зберігає хешовані IP-адреси, інформує користувачів про відстеження та дає користувачам можливість відмовитись. Примітка: при використанні цього параметра ви не зможете використовувати функції модуля, пов'язані з геопозиціонуванням.</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.requiresSalt">Щоб увімкнути конфіденційність даних, потрібен файл солі.</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.excludesCity">Увімкнення конфіденційності даних прибирає Місто з додаткової статистики.</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.excludesRegion">Увімкнення конфіденційності даних прибирає Регіон з додаткової статистики.</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyCheckbox">Враховувати вимоги щодо конфіденційності даних</message>
+	<message key="plugins.generic.usageStats.settings.optionalColumns">Додаткова статистична інформація</message>
+	<message key="plugins.generic.usageStats.settings.optionalColumns.description">Увімкнути або вимкнути збір наступної додаткової інформації. Це вплине на можливі статистичні звіти, які ви можете отримати, а також вплине на розмір бази даних. НЕ ЗМІНЮЙТЕ ЦЕ, якщо ви повністю не розумієте, що ви робите.</message>
+	<message key="plugins.generic.usageStats.settings.optionalColumns.cityRequiresRegion">Додатковий стовпець "Місто" вимагає додаткового стовпця "Регіон".</message>
+	<message key="plugins.generic.usageStats.settings.archives">Архіви</message>
+	<message key="plugins.generic.usageStats.settings.compressArchives.description">Активуйте цей параметр щоб стиснути архівовані файли журналів за допомогою інструмента gzip (вам доведеться налаштувати параметр gzip всередині config.inc.php). Якщо ваш сайт з високим рівнем трафіку, рекомендуємо включити цей параметр, щоб ви могли заощадити місце на диску.</message>
+	<message key="plugins.generic.usageStats.settings.compressArchives">Стиснути архіви</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions">Параметри відображення статистики</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.contextWide">Ці налаштування застосовуватимуться лише до статистики використання в контексті {$contextName}.</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.display">Показувати діаграму статистики матеріалів читачу</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.chartType">Виберіть тип діаграми для відображення статистики завантаження</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.chartType.bar">Стовпчаста</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.chartType.line">Лінійна</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.datasetMaxCount">Визначте максимальну кількість даних, які потрібно представити одночасно для певної точки осі x. Більша кількість може генерувати важко зрозумілі діаграми. Безпечна кількість - десь між 3 та 5.</message>
+
+	<message key="plugins.generic.usageStats.usageStatsLoaderName">Завдання завантажувача файлів статистики використання</message>
+	<message key="plugins.generic.usageStats.openFileFailed">Не вдалося відкрити файл {$file} і він був відхилений.</message>
+	<message key="plugins.generic.usageStats.invalidLogEntry">Рядок з номером {$lineNumber} з файлу {$file} є неправильним записом в журналі і файл був відхилений.</message>
+	<message key="plugins.generic.usageStats.removeUrlError">Рядок з номером {$lineNumber} з файлу {$file} містить URL, з якого система не може видалити свою базову URL-адресу.</message>
+	<message key="plugins.generic.usageStats.loadDataError">Не вдалося завантажити дані, отримані з файлу {$file}. Файл був перенесений знову в каталог stage.</message>
+	<message key="plugins.generic.usageStats.pluginNotEnabled">Модуль статистики використання вимкнено. Файли журналу не опрацьовуються.</message>
+	<message key="plugins.generic.usageStats.processingPathNotEmpty">Каталог {$directory} не порожній. Це може вказувати на те, що раніше відбулася невдала обробка або одночасно працює інша обробка. Цей файл автоматично буде опрацьований, якщо ви використовуєте scheduledTasksAutoStage.xml, в іншому випадку вам доведеться вручну перенести всі файли, які залишилися з каталогу processing назад у каталог stage.</message>
+	<message key="plugins.generic.usageStats.noCounterBotList">Список ботів COUNTER {$botlist} не може бути використаний. Є кілька причин для цього. Перевірте, чи файл списку знаходиться в каталозі 'lib/pkp/plugins/generic/usageStats/lib/counter'. Також перевірте права на цю папку та те, чи всередині лише один файл.</message>
+	<message key="plugins.generic.usageStats.displayName">Статистика використання</message>
+	<message key="plugins.generic.usageStats.description">Надає дані статистики використання об'єктів. Можна використовувати файли журналу доступу до сервера для отримання статистики.Present data objects usage statistics. Can use server access log files to extract statistics.</message>
+
+	<message key="plugins.reports.usageStats.report.displayName">Звіт про статистику використання PKP</message>
+	<message key="plugins.reports.usageStats.report.description">Усталений звіт про статистику використання PKP (готовий для COUNTER)</message>
+
+	<message key="plugins.reports.usageStats.optout.displayName">Інформація щодо конфіденційності модуля статистики використання</message>
+	<message key="plugins.reports.usageStats.optout.description">Інформація щодо конфіденційності модуля статистики використання</message>
+	<message key="plugins.generic.usageStats.optout.title">Інформація щодо статистики виокристання</message>
+	<message key="plugins.generic.usageStats.optout.shortDesc"><![CDATA[Ми зберігаємо анонімну статистику використання. Будь ласка, докладніше ознайомтеся з <a href="{$privacyInfo}">інформацією щодо конфіденційності</a>.]]></message>
+
+	<message key="plugins.generic.usageStats.optout.done"><![CDATA[
+		<p>Ви успішно вимкнули збір статистики використання. Поки ви бачите це повідомлення, статистика використання цього сайту не буде збиратися. Натисніть кнопку нижче, щоб змінити ваше рішення.</p>]]></message>
+	<message key="plugins.generic.usageStats.optin">Дозволити</message>
+	<message key="plugins.generic.usageStats.optout">Відмовитися</message>
+	<message key="plugins.generic.usageStats.optout.cookie"><![CDATA[
+		<p>Якщо хочете, можете відмовитися від процесу збору даних. Натиснувши кнопку "Відмовитися" нижче, ви можете явно відмовитися брати участь у статистичному аналізі. Після натискання кнопки "Відмовитися" у вашій системі буде створено <em>файл cookie</em> в котрому буде записано ваше рішення. Якщо параметри конфіденційності вашого браузера призводять до автоматичного видалення файлів cookie, вам доведеться знову натиснути кнопку "Відмовитися" при наступному відвідуванні цього веб-сайту. Файл cookie дійсний лише для одного браузера. Якщо ви використовуєте інший браузер, вам доведеться знову натиснути кнопку "Відмовитися". В цьому файлі cookie не зберігається жодної приватної інформації. Цей файл cookie дійсний протягом одного року після останнього відвідування.</p>
+		<p>Будь ласка, майте на увазі, що загальні журнали доступа до серверів не підпадають під ваше рішення відмовитися від процесу детальної оцінки. Будь ласка, перегляньте нашу загальниу <a href="{$privacyStatementUrl}">Заяву про конфіденційність</a>.</p>]]></message>
+
+	<message key="plugins.reports.usageStats.metricType">PKP/COUNTER</message>
+	<message key="plugins.reports.usageStats.metricType.full">Статистика Public Knowledge Project (готова для COUNTER)</message>
+	<message key="plugins.generic.usageStats.statsSum">Сума всіх завантажень файлу</message>
+	<message key="plugins.generic.usageStats.noStats">Дані завантаження ще не доступні.</message>
+	<message key="plugins.generic.usageStats.monthInitials">Січ Лют Бер Кві Тра Чер Лип Сер Вер Жов Лис Гру</message>
+	<message key="plugins.generic.usageStats.downloads">Завантаження</message>
+</locale>

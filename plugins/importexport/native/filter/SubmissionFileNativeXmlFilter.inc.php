@@ -106,8 +106,19 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 		$uploaderUser = $userDao->getById($submissionFile->getUploaderUserId());
 		assert(isset($uploaderUser));
 		$revisionNode->setAttribute('uploader', $uploaderUser->getUsername());
+
 		$this->addIdentifiers($doc, $revisionNode, $submissionFile);
 		$this->createLocalizedNodes($doc, $revisionNode, 'name', $submissionFile->getName(null));
+
+		// if it is a dependent file, add submission_file_ref element
+		if ($submissionFile->getFileStage() == SUBMISSION_FILE_DEPENDENT && $submissionFile->getAssocType() == ASSOC_TYPE_SUBMISSION_FILE) {
+			$fileRefNode = $doc->createElementNS($deployment->getNamespace(), 'submission_file_ref');
+			$fileRefNode->setAttribute('id', $submissionFile->getAssocId());
+			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+			$latestRevision = $submissionFileDao->getLatestRevisionNumber($submissionFile->getAssocId());
+			$fileRefNode->setAttribute('revision', $latestRevision);
+			$revisionNode->appendChild($fileRefNode);
+		}
 
 		$submissionFileNode->appendChild($revisionNode);
 

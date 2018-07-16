@@ -338,7 +338,7 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 		if (!empty($this->countOnly)) {
 			$q->select(Capsule::raw('count(*) as submission_count'));
 		} else {
-			$q->select($this->columns);
+			$q->distinct('s.*')->select($this->columns);
 		}
 
 		return $q;

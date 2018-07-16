@@ -252,6 +252,17 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		$context = $deployment->getContext();
 		$submission = $deployment->getSubmission();
 		switch ($node->tagName) {
+			case 'submission_file_ref':
+				if ($submissionFile->getFileStage() == SUBMISSION_FILE_DEPENDENT) {
+					$fileId = $node->getAttribute('id');
+					$revisionId = $node->getAttribute('revision');
+					$dbFileId = $deployment->getFileDBId($fileId, $revisionId);
+					if ($dbFileId) {
+						$submissionFile->setAssocType(ASSOC_TYPE_SUBMISSION_FILE);
+						$submissionFile->setAssocId($dbFileId);
+					}
+				}
+				break;
 			case 'id':
 				$this->parseIdentifier($node, $submissionFile);
 				break;

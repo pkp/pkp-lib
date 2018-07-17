@@ -619,8 +619,9 @@ class PKPRequest {
 		$_this =& PKPRequest::_checkThis();
 
 		if (!isset($_this->_requestVars)) {
-			$_this->_requestVars = array_merge($_GET, $_POST);
-			$_this->cleanUserVar($_this->_requestVars);
+			$_this->_requestVars = array_map(function($s) {
+				return is_string($s)?trim($s):$s;
+			}, array_merge($_GET, $_POST));
 		}
 
 		return $_this->_requestVars;
@@ -670,26 +671,6 @@ class PKPRequest {
 	}
 
 	/**
-	 * Sanitize a user-submitted variable (i.e., GET/POST/Cookie variable).
-	 * Strips slashes if necessary, then sanitizes variable as per Core::cleanVar().
-	 * @param $var mixed
-	 */
-	function cleanUserVar(&$var) {
-		$_this =& PKPRequest::_checkThis();
-
-		if (isset($var) && is_array($var)) {
-			foreach ($var as $key => $value) {
-				$_this->cleanUserVar($var[$key]);
-			}
-		} else if (isset($var)) {
-			$var = Core::cleanVar(get_magic_quotes_gpc() ? stripslashes($var) : $var);
-
-		} else {
-			return null;
-		}
-	}
-
-	/**
 	 * Get the value of a cookie variable.
 	 * @return mixed
 	 */
@@ -697,9 +678,7 @@ class PKPRequest {
 		$_this =& PKPRequest::_checkThis();
 
 		if (isset($_COOKIE[$key])) {
-			$value = $_COOKIE[$key];
-			$_this->cleanUserVar($value);
-			return $value;
+			return $_COOKIE[$key];
 		} else {
 			return null;
 		}

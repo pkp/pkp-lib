@@ -225,7 +225,6 @@ class Form {
 		if (is_array($key)) foreach($key as $aKey => $aValue) {
 			$this->setData($aKey, $aValue);
 		} else {
-			if (is_string($value)) $value = Core::cleanVar($value);
 			$this->_data[$key] = $value;
 		}
 	}

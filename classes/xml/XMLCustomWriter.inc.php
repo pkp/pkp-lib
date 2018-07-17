@@ -90,9 +90,6 @@ class XMLCustomWriter {
 	 * @return XMLNode
 	 */
 	static function &createTextNode(&$doc, $value) {
-
-		$value = Core::cleanVar($value);
-
 		if (is_callable(array($doc, 'createTextNode'))) $element = $doc->createTextNode($value);
 		else {
 			$element = new XMLNode();

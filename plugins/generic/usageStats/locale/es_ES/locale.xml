@@ -59,7 +59,7 @@
 	<message key="plugins.generic.usageStats.optin">Incluirse</message>
 	<message key="plugins.generic.usageStats.optout">Excluirse</message>
 	<message key="plugins.generic.usageStats.statsSum">Sumar todas las descargas de archivos</message>
-	<message key="plugins.generic.usageStats.noStats">La descarga de datos todavía no está disponible.</message>
+	<message key="plugins.generic.usageStats.noStats">La información sobre descargas todavía no está disponible.</message>
 	<message key="plugins.generic.usageStats.monthInitials">Ene Feb Mar Abr May Jun Jul Ago Sep Oct Nov Dic</message>
 	<message key="plugins.generic.usageStats.downloads">Descargas</message>
 	<message key="plugins.generic.usageStats.optout.done"><![CDATA[<p>Se ha excluido con éxito de la recopilación de estadísticas de uso. Mientras vea este mensaje no se recopilarán estadísticas del uso que haga de este sitio. Haga clic en el botón inferior para revertir su decisión.</p>]]></message>

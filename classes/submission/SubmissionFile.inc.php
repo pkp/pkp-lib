@@ -240,6 +240,18 @@ class SubmissionFile extends PKPFile {
 	}
 
 	/**
+	 * Determine whether this file supports dependent content.
+	 * @return boolean
+	 */
+	function supportsDependentFiles() {
+		return $this->getFileStage() != SUBMISSION_FILE_DEPENDENT && in_array($this->getFileType(), array(
+			'text/html',
+			'application/xml',
+			'text/xml',
+		));
+	}
+
+	/**
 	 * Get the file's extension.
 	 * @return string
 	 */

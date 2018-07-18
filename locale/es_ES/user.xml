@@ -67,6 +67,7 @@
 	<message key="user.password">Contraseña</message>
 	<message key="user.repeatPassword">Repita la contraseña</message>
 	<message key="user.phone">Teléfono</message>
+	<message key="user.gender">Género</message>
 	<message key="user.profile.changePasswordInstructions">Introduzca tu contraseña actual y la nueva para cambiar la contraseña de tu cuenta.</message>
 	<message key="user.profile.editProfile">Editar perfil</message>
 	<message key="user.profile.form.countryRequired">Introduzca un país.</message>

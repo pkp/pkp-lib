@@ -140,7 +140,7 @@ class EditReviewForm extends Form {
 
 			// Also notify the author, if review assignment already accepted
 			if ($reviewAssignment->getDateConfirmed()){
-				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDao');
+				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 				$submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($reviewAssignment->getSubmissionId(), ROLE_ID_AUTHOR);
 				while ($assignment = $submitterAssignments->next()) {
 					$userIds[] = $assignment->getUserId();

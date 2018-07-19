@@ -212,6 +212,7 @@ class QueryForm extends Form {
 			$excludeUsers = null;
 
 			// When in review stage, include/exclude users depending on the current users role
+			$reviewAssignments = array();
 			if ($query->getStageId() == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $query->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW) {
 
 				// Get all review assignments for current submission
@@ -281,11 +282,9 @@ class QueryForm extends Form {
 							}
 						}
 					}
-					if ($reviewAssignments) {
-						foreach ($reviewAssignments as $assignment) {
-							if ($assignment->getReviewerId() === $user->getId()) {
-								$userRoles[] =  __('user.role.reviewer') . " (" . __($assignment->getReviewMethodKey()) . ")";
-							}
+					foreach ($reviewAssignments as $assignment) {
+						if ($assignment->getReviewerId() === $user->getId()) {
+							$userRoles[] =  __('user.role.reviewer') . " (" . __($assignment->getReviewMethodKey()) . ")";
 						}
 					}
 					$title =  __('submission.query.participantTitle', array(

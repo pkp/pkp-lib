@@ -86,10 +86,10 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 			$templateKeys = array_merge($templateKeys, $stageTemplates[$currentStageId]);
 		}
 		foreach ($templateKeys as $templateKey) {
-			$template = $this->_getMailTemplate($submission, $templateKey);
-			$template->assignParams(array());
-			$template->replaceParams();
-			$templates[$templateKey] = $template->getSubject();
+			$thisTemplate = $this->_getMailTemplate($submission, $templateKey);
+			$thisTemplate->assignParams(array());
+			$thisTemplate->replaceParams();
+			$templates[$templateKey] = $thisTemplate->getSubject();
 		}
 
 		$templateMgr = TemplateManager::getManager($request);

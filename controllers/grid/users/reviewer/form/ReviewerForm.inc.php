@@ -265,9 +265,9 @@ class ReviewerForm extends Form {
 		}
 
 		foreach ($templateKeys as $templateKey) {
-			$template = new SubmissionMailTemplate($submission, $templateKey, null, null, null, false);
-			$template->assignParams(array());
-			$templates[$templateKey] = $template->getSubject();
+			$thisTemplate = new SubmissionMailTemplate($submission, $templateKey, null, null, null, false);
+			$thisTemplate->assignParams(array());
+			$templates[$templateKey] = $thisTemplate->getSubject();
 		}
 
 		$templateMgr->assign('templates', $templates);

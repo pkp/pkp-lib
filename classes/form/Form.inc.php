@@ -193,7 +193,6 @@ class Form {
 			)
 		));
 
-		$templateMgr->register_function('form_language_chooser', array($this, 'smartyFormLanguageChooser'));
 		if ($display) {
 			$templateMgr->display($this->_template);
 			$returner = null;
@@ -447,35 +446,6 @@ class Form {
 			}
 		}
 		return $this->errorsArray;
-	}
-
-	/**
-	 * Add hidden form parameters for the localized fields for this form
-	 * and display the language chooser field
-	 * @param $params array
-	 * @param $smarty object
-	 */
-	function smartyFormLanguageChooser($params, $smarty) {
-		$returner = '';
-
-		// Print back all non-current language field values so that they
-		// are not lost.
-		$formLocale = $this->getFormLocale();
-		foreach ($this->getLocaleFieldNames() as $field) {
-			$values = $this->getData($field);
-			if (!is_array($values)) continue;
-			foreach ($values as $locale => $value) {
-				if ($locale != $formLocale) $returner .= $this->_decomposeArray($field, $value, array($locale));
-			}
-		}
-
-		// Display the language selector widget.
-		$returner .= '<div id="languageSelector"><select size="1" name="formLocale" id="formLocale" onchange="changeFormAction(\'' . htmlentities($params['form'], ENT_COMPAT, LOCALE_ENCODING) . '\', \'' . htmlentities($params['url'], ENT_QUOTES, LOCALE_ENCODING) . '\')" class="selectMenu">';
-		foreach ($this->supportedLocales as $locale => $name) {
-			$returner .= '<option ' . ($locale == $formLocale?'selected="selected" ':'') . 'value="' . htmlentities($locale, ENT_COMPAT, LOCALE_ENCODING) . '">' . htmlentities($name, ENT_COMPAT, LOCALE_ENCODING) . '</option>';
-		}
-		$returner .= '</select></div>';
-		return $returner;
 	}
 
 	//

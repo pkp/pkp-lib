@@ -96,6 +96,7 @@ class PKPRequest {
 		import('lib.pkp.classes.core.JSONMessage');
 		$json = new JSONMessage(true);
 		$json->setEvent('redirectRequested', $url);
+		header('Content-Type: application/json');
 		return $json->getString();
 	}
 

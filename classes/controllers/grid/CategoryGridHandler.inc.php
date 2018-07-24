@@ -86,6 +86,7 @@ class CategoryGridHandler extends GridHandler {
 		}
 
 		// Render and return the JSON message.
+		header('Content-Type: application/json');
 		return $json->getString();
 	}
 

@@ -48,6 +48,7 @@ class SendReviewsForm extends EditorDecisionWithEmailForm {
 	 * @copydoc EditorDecisionWithEmailForm::initData()
 	 */
 	function initData($actionLabels = array()) {
+		$request = Application::getRequest();
 		$actionLabels = EditorDecisionActionsManager::getActionLabels($request->getContext(), $this->_getDecisions());
 
 		return parent::initData($actionLabels);

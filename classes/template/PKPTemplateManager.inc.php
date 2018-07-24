@@ -308,6 +308,7 @@ class PKPTemplateManager extends Smarty {
 		import('lib.pkp.classes.core.JSONMessage');
 
 		$json = new JSONMessage($status, $this->fetch($template));
+		header('Content-Type: application/json');
 		return $json->getString();
 	}
 

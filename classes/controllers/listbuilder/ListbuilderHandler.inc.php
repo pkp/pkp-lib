@@ -311,6 +311,7 @@ class ListbuilderHandler extends GridHandler {
 	function fetchOptions($args, &$request) {
 		$options = $this->getOptions($request);
 		$json = new JSONMessage(true, $options);
+		header('Content-Type: application/json');
 		return $json->getString();
 	}
 

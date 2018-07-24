@@ -334,6 +334,7 @@ class PKPCitationGridHandler extends GridHandler {
 			$citationForm->initData();
 		}
 		$json = new JSONMessage(true, $citationForm->fetch($request));
+		header('Content-Type: application/json');
 		return $json->getString();
 	}
 
@@ -375,6 +376,7 @@ class PKPCitationGridHandler extends GridHandler {
 				// user can fix the errors that kept us from persisting
 				// the citation.
 				$json = new JSONMessage(false, $citationForm->fetch($request));
+				header('Content-Type: application/json');
 				return $json->getString();
 			}
 
@@ -431,6 +433,7 @@ class PKPCitationGridHandler extends GridHandler {
 		}
 
 		// Return the serialized JSON response
+		header('Content-Type: application/json');
 		return $json->getString();
 	}
 
@@ -452,6 +455,7 @@ class PKPCitationGridHandler extends GridHandler {
 		} else {
 			$json = new JSONMessage(false, __('submission.citations.editor.citationlist.errorDeletingCitation'));
 		}
+		header('Content-Type: application/json');
 		return $json->getString();
 	}
 
@@ -473,6 +477,7 @@ class PKPCitationGridHandler extends GridHandler {
 
 		// Render the row into a JSON response
 		$json = new JSONMessage(true, $output);
+		header('Content-Type: application/json');
 		return $json->getString();
 	}
 
@@ -504,6 +509,7 @@ class PKPCitationGridHandler extends GridHandler {
 			'<div id="authorQueryResult"><span class="pkp_form_error">'
 			.__('submission.citations.editor.details.sendAuthorQuerySuccess')
 			.'</span></div>');
+		header('Content-Type: application/json');
 		return $json->getString();
 	}
 
@@ -643,6 +649,7 @@ class PKPCitationGridHandler extends GridHandler {
 			// Return the rendered form.
 			$citationForm->initData();
 			$json = new JSONMessage(true, $citationForm->fetch($request));
+			header('Content-Type: application/json');
 			return $json->getString();
 		}
 	}

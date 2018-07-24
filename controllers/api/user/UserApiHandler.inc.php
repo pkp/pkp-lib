@@ -95,6 +95,7 @@ class UserApiHandler extends PKPHandler {
 
 		// Return a success message.
 		$json = new JSONMessage(true);
+		header('Content-Type: application/json');
 		return $json->getString();
 
 	}

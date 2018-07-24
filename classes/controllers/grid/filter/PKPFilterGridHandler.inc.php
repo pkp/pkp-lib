@@ -209,6 +209,7 @@ class PKPFilterGridHandler extends GridHandler {
 		$filterForm->initData($this->getGridDataElements($request));
 
 		$json = new JSONMessage(true, $filterForm->fetch($request));
+		header('Content-Type: application/json');
 		return $json->getString();
 	}
 
@@ -251,6 +252,7 @@ class PKPFilterGridHandler extends GridHandler {
 		}
 
 		// Return the serialized JSON response
+		header('Content-Type: application/json');
 		return $json->getString();
 	}
 
@@ -272,6 +274,7 @@ class PKPFilterGridHandler extends GridHandler {
 		} else {
 			$json = new JSONMessage(false, __('manager.setup.filter.grid.errorDeletingFilter'));
 		}
+		header('Content-Type: application/json');
 		return $json->getString();
 	}
 

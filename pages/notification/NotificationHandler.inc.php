@@ -387,6 +387,7 @@ class NotificationHandler extends Handler {
 			$json->setContent($formattedNotificationsData);
 		}
 
+		header('Content-Type: application/json');
 		return $json->getString();
 	}
 

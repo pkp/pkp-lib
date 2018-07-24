@@ -40,6 +40,7 @@ class PKPUserHandler extends Handler {
 
 		import('lib.pkp.classes.core.JSONMessage');
 		$json = new JSONMessage(true, $interests);
+		header('Content-Type: application/json');
 		return $json->getString();
 	}
 
@@ -59,6 +60,7 @@ class PKPUserHandler extends Handler {
 
 		import('lib.pkp.classes.core.JSONMessage');
 		$json = new JSONMessage(true);
+		header('Content-Type: application/json');
 		return $json->getString();
 	}
 }

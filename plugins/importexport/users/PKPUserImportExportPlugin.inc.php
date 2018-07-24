@@ -91,6 +91,7 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 					$json = new JSONMessage(false, __('common.uploadFailed'));
 				}
 
+				header('Content-Type: application/json');
 				return $json->getString();
 			case 'importBounce':
 				$json = new JSONMessage(true);
@@ -98,6 +99,7 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 					'title' => __('plugins.importexport.users.results'),
 					'url' => $request->url(null, null, null, array('plugin', $this->getName(), 'import'), array('temporaryFileId' => $request->getUserVar('temporaryFileId'))),
 				));
+				header('Content-Type: application/json');
 				return $json->getString();
 			case 'import':
 				$temporaryFileId = $request->getUserVar('temporaryFileId');
@@ -106,6 +108,7 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 				$temporaryFile = $temporaryFileDao->getTemporaryFile($temporaryFileId, $user->getId());
 				if (!$temporaryFile) {
 					$json = new JSONMessage(true, __('plugins.importexport.users.uploadFile'));
+					header('Content-Type: application/json');
 					return $json->getString();
 				}
 				$temporaryFilePath = $temporaryFile->getFilePath();
@@ -123,6 +126,7 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 				}
 				$templateMgr->assign('users', $users);
 				$json = new JSONMessage(true, $templateMgr->fetch($this->getTemplateResource('results.tpl')));
+				header('Content-Type: application/json');
 				return $json->getString();
 			case 'export':
 				$filter = $this->getUserImportExportFilter($request->getContext(), $request->getUser(), false);

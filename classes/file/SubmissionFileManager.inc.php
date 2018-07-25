@@ -81,10 +81,10 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 	 * @param $revisionId integer
 	 * @return boolean returns true if successful
 	 */
-	function deleteFile($fileId, $revision = null) {
+	function deleteById($fileId, $revision = null) {
 		$submissionFile = $this->_getFile($fileId, $revision);
 		if (isset($submissionFile)) {
-			return parent::deleteFile($submissionFile->getfilePath());
+			return parent::deleteByPath($submissionFile->getfilePath());
 		} else {
 			return false;
 		}
@@ -98,7 +98,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 	 * @param $filename string The client-side download filename (optional)
 	 * @return boolean
 	 */
-	function downloadFile($fileId, $revision = null, $inline = false, $filename = null) {
+	function downloadById($fileId, $revision = null, $inline = false, $filename = null) {
 		$returner = false;
 		$submissionFile = $this->_getFile($fileId, $revision);
 		if (isset($submissionFile)) {
@@ -111,7 +111,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 			$filePath = $submissionFile->getFilePath();
 			$mediaType = $submissionFile->getFileType();
 			if(!isset($filename)) $filename = $submissionFile->getClientFileName();
-			$returner = parent::downloadFile($filePath, $mediaType, $inline, $filename);
+			$returner = parent::downloadByPath($filePath, $mediaType, $inline, $filename);
 		}
 
 		return $returner;

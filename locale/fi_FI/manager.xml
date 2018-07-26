@@ -528,4 +528,7 @@
 	<message key="manager.navigationMenus.subscriptions.conditionalWarning"><![CDATA[Tämä linkki näkyy vain, jos olet ottanut maksut käyttöön kohdasta Asetukset > Jakelu > Maksut.]]></message>
 	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning"><![CDATA[Tämä linkki näkyy vain, jos käyttäjä on kirjautunut sisään, maksut on otettu käyttöön kohdasta Asetukset > Jakelu > Maksut ja lehti on ottanut käyttöön embargon kohdasta Asetukset > Jakelu > Saatavuus.]]></message>
 	<message key="manager.navigationMenus.search.description">Linkki hakusivulle.</message>
+	<message key="manager.navigationMenus.privacyStatement.description">Linkki tietosuojaselosteen sisältävälle sivulle.</message>
+	<message key="manager.navigationMenus.privacyStatement.conditionalWarning"><![CDATA[Tämä linkki näkyy ainoastaan, jos olet syöttänyt tietosuojaselosteen asetusten kohtaan Asetukset > Työnkulku > Käsikirjoituksen vastaanotto]]></message>
+	<message key="manager.setup.privacyStatement.description">Tietosuojaseloste näkyy rekisteröitymisen ja käsikirjoituksen lähetyksen yhteydessä sekä julkisella tietosuojaselostesivulla. Joidenkin maiden lainsäädäntö velvoittaa kuvaamaan miten kerättyjä henkilötietoja käytetään.</message>
 </locale>

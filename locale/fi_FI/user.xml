@@ -35,10 +35,14 @@
 	<message key="user.dateRegistered">Rekisteröitymispäivämäärä</message>
 	<message key="user.editMyProfile">Muokkaa profiilia</message>
 	<message key="user.email">Sähköposti</message>
+	<message key="user.firstName">Etunimi</message>
+	<message key="user.initialsExample">Maija Liisa Meikäläinen = MLM</message>
+	<message key="user.initials">Nimikirjaimet</message>
 	<message key="user.interests">Kiinnostavat arviointiaiheet</message>
 	<message key="user.interests.description">(Erittele kiinnostavat aiheet enterillä tai pilkulla)</message>
 	<message key="user.gossip">Yksityiset muistiinpanot</message>
 	<message key="user.group">Käyttäjäryhmä</message>
+	<message key="user.lastName">Sukunimi</message>
 	<message key="user.profile.form.profileImageInvalid">Virheellinen profiilikuvan muoto tai liian suuri kuva. Hyväksytyt muodot ovat .gif, .jpg ja .png, ja kuvan maksimikoko on 150 x 150 pikseliä.</message>
 	<message key="user.login.accountDisabledWithReason">Tilisi on poistettu käytöstä seuraavasta syystä: {$reason}</message>
 	<message key="user.login.accountDisabled">Tilisi on poistettu käytöstä. Ota yhteyttä sivuston ylläpitäjään saadaksesi lisätietoja.</message>
@@ -66,6 +70,7 @@
 	<message key="user.logOutAs">Kirjaudu ulos käyttäjänä</message>
 	<message key="user.hello">Hei, </message>
 	<message key="user.mailingAddress">Postiosoite</message>
+	<message key="user.middleName">Toinen nimi</message>
 	<message key="user.myAccount">Oma tilini</message>
 	<message key="user.name">Nimi</message>
 	<message key="user.password">Salasana</message>
@@ -76,6 +81,8 @@
 	<message key="user.profile.form.countryRequired">Maa vaaditaan.</message>
 	<message key="user.profile.form.emailRequired">Voimassa oleva sähköpostiosoite vaaditaan.</message>
 	<message key="user.profile.form.affiliationRequired">Affiliaatio vaaditaan.</message>
+	<message key="user.profile.form.firstNameRequired">Etunimi vaaditaan.</message>
+	<message key="user.profile.form.lastNameRequired">Sukunimi vaaditaan.</message>
 	<message key="user.profile.form.mailingAddressRequired">Postiosoite vaaditaan.</message>
 	<message key="user.profile.form.newPasswordRequired">Sinun on annettava uusi salasanasi.</message>
 	<message key="user.profile.form.oldPasswordInvalid">Antamasi nykyinen salasana on virheellinen.</message>
@@ -126,9 +133,11 @@
 	<message key="user.role.layoutEditor">Taittaja</message>
 	<message key="user.role.layoutEditors">Taittajat</message>
 	<message key="user.roles">Roolit</message>
+	<message key="user.salutation">Titteli</message>
 	<message key="user.sendPassword">Vahvistus</message>
 	<message key="user.sendPassword.description">Lähetä minulle vahvistussähköposti, jossa on käyttäjätunnukseni ja salasanani</message>
 	<message key="user.signature">Allekirjoitus</message>
+	<message key="user.suffix">Pääte</message>
 	<message key="user.title">Titteli</message>
 	<message key="user.url">URL-osoite</message>
 	<message key="user.userHome">Käyttäjän etusivu</message>
@@ -144,6 +153,13 @@
 	<message key="user.apiKey">API-avain</message>
 	<message key="user.apiKeyEnabled">Anna ulkoisten järjestelmien olla yhteydessä tähän tiliin API-avaimen avulla.</message>
 	<message key="user.apiKey.generate">Luo uusi API-avain</message>
-	<message key="user.gossip.description">Tallenna arvioijaa koskevia muistiinpanoja, jotka haluat antaa muiden toimittajien, osastontoimittajien ja julkaisun hallinnoijien tiedoksi. Merkinnät näkyvät myös arvioijan tulevien arviointipyyntöjen yhteydessä.</message>
+	<message key="user.gossip.description">Tähän annetut muistiinpanot näkyvät vain ylläpitäjille, julkaisun hallinnoijille, toimittajille ja osastotoimittajille.</message>
 	<message key="user.role.assistant">Avustaja</message>
+	<message key="user.authorization.assignedStageRoleBasedAccessDenied">Sinulla ei ole tähän toimintoon vaadittavaa roolia.</message>
+	<message key="user.authorization.invalidReviewAssignment">Sinulla ei ole oikeutta avata tätä arviointipyyntöä.</message>
+	<message key="user.authorization.submissionQuery">Sinulla ei ole oikeutta avata tätä keskustelua.</message>
+	<message key="user.profile.form.privacyConsentRequired">Sinun pitää hyväksyä tietosuojaselosteen ehdot.</message>
+	<message key="user.register.form.privacyConsent"><![CDATA[Kyllä, annan luvan tallentaa tietojani tietosuojaselosteen <a href="{$privacyUrl}" target="_blank">tietosuojaselosteen</a> kuvaamalla tavalla.]]></message>
+	<message key="user.register.form.emailConsent">Kyllä, haluan ilmoituksen uusista julkaisuista ja tiedotteista.</message>
+	<message key="user.privacyLink"><![CDATA[Tietojasi tallennetaan ja käytetään <a href="{$privacyUrl}" target="_blank">tietosuojaselosteen</a> mukaisesti.]]></message>
 </locale>

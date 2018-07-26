@@ -38,11 +38,11 @@ class PaymentMethodForm extends ContextSettingsForm {
 	}
 
 	/**
-	 * @copydoc Form::initData()
-	 * @param $request Request
+	 * @copydoc ContextSettingsForm::initData()
 	 */
-	function initData($request) {
-		parent::initData($request);
+	function initData() {
+		parent::initData();
+		$request = Application::getRequest();
 		$paymentPluginName = $this->getData('paymentPluginName');
 		if (!isset($this->paymentPlugins[$paymentPluginName])) return;
 		$plugin = $this->paymentPlugins[$paymentPluginName];

@@ -38,7 +38,7 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 	}
 
 	/**
-	 * Initialize form data from current submission.
+	 * @copydoc SubmissionSubmitForm::initData
 	 */
 	function initData() {
 		$this->_metadataFormImplem->initData($this->submission);

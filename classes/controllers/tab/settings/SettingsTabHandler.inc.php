@@ -106,7 +106,7 @@ class SettingsTabHandler extends Handler {
 				return $templateMgr->fetchJson($this->_getTabTemplate());
 			} else {
 				$tabForm = $this->getTabForm();
-				$tabForm->initData($request);
+				$tabForm->initData();
 				return new JSONMessage(true, $tabForm->fetch($request));
 			}
 		}

@@ -43,10 +43,10 @@ class ReviewFormForm extends Form {
 
 	/**
 	 * Initialize form data from current settings.
-	 * @param $request PKPRequest
 	 */
-	function initData($request) {
+	function initData() {
 		if ($this->reviewFormId) {
+			$request = Application::getRequest();
 			$context = $request->getContext();
 			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
 			$reviewForm = $reviewFormDao->getById($this->reviewFormId, Application::getContextAssocType(), $context->getId());

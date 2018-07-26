@@ -82,9 +82,9 @@ class ContextSettingsForm extends Form {
 	//
 	/**
 	 * @copydoc Form::initData()
-	 * @param $request Request
 	 */
-	function initData($request) {
+	function initData() {
+		$request = Application::getRequest();
 		$context = $request->getContext();
 		$this->_data = $context->getSettings();
 	}

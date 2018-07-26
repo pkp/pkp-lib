@@ -49,9 +49,8 @@ class ReviewFormElements extends Form {
 
 	/**
 	 * Initialize form data from current settings.
-	 * @param $reviewForm ReviewForm optional
 	 */
-	function initData($reviewForm = null) {
+	function initData() {
 		if (isset($this->reviewFormId)) {
 			// Get review form
 			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');

@@ -66,18 +66,16 @@ class ManageReviewFilesForm extends ManageSubmissionFilesForm {
 	// Overridden template methods
 	//
 	/**
-	 * Initialize variables
-	 * @param $args array
-	 * @param $request PKPRequest
+	 * @copydoc ManageSubmissionFilesForm::initData
 	 */
-	function initData($args, $request) {
+	function initData() {
 		$this->setData('stageId', $this->getStageId());
 		$this->setData('reviewRoundId', $this->getReviewRoundId());
 
 		$reviewRound = $this->getReviewRound();
 		$this->setData('round', $reviewRound->getRound());
 
-		parent::initData($args, $request);
+		parent::initData();
 	}
 
 	/**

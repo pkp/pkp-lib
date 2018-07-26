@@ -58,7 +58,7 @@ class SubmissionMetadataHandler extends Handler {
 		// Form handling
 		$submissionMetadataViewForm = $this->getFormInstance($submission->getId(), $stageId, $params);
 
-		$submissionMetadataViewForm->initData($args, $request);
+		$submissionMetadataViewForm->initData();
 
 		return new JSONMessage(true, $submissionMetadataViewForm->fetch($request));
 	}

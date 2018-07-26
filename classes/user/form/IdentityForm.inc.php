@@ -62,7 +62,7 @@ class IdentityForm extends BaseProfileForm {
 	}
 
 	/**
-	 * @copydoc Form::initData()
+	 * @copydoc BaseProfileForm::initData()
 	 */
 	function initData() {
 		$user = $this->getUser();

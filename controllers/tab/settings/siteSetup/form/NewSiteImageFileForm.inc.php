@@ -31,9 +31,10 @@ class NewSiteImageFileForm extends SettingsFileUploadForm {
 	// Extend methods from Form.
 	//
 	/**
-	 * @copydoc Form::initData()
+	 * @copydoc SettingsFileUploadForm::initData()
 	 */
-	function initData($request) {
+	function initData() {
+		$request = Application::getRequest();
 		$site = $request->getSite();
 		$fileSettingName = $this->getFileSettingName();
 

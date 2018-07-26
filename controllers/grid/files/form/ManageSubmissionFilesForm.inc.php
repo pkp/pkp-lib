@@ -49,11 +49,9 @@ class ManageSubmissionFilesForm extends Form {
 	// Overridden template methods
 	//
 	/**
-	 * Initialize variables
-	 * @param $args array
-	 * @param $request PKPRequest
+	 * @copydoc Form::initData
 	 */
-	function initData($args, $request) {
+	function initData() {
 		$this->setData('submissionId', $this->_submissionId);
 	}
 

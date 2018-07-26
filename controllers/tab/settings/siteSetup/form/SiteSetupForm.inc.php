@@ -99,10 +99,10 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 	// Extend method from PKPSiteSettingsForm
 	//
 	/**
-	 * @see PKPSiteSettingsForm::initData()
-	 * @param $request PKPRequest
+	 * @copydoc PKPSiteSettingsForm::initData()
 	 */
-	function initData($request) {
+	function initData() {
+		$request = Application::getRequest();
 		$site = $request->getSite();
 		$publicFileManager = $publicFileManager = new PublicFileManager();
 		$siteStyleFilename = $publicFileManager->getSiteFilesPath() . '/' . $site->getSiteStyleFilename();

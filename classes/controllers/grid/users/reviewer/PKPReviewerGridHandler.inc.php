@@ -426,7 +426,7 @@ class PKPReviewerGridHandler extends GridHandler {
 
 		import('lib.pkp.controllers.grid.users.reviewer.form.UnassignReviewerForm');
 		$unassignReviewerForm = new UnassignReviewerForm($reviewAssignment, $reviewRound, $submission);
-		$unassignReviewerForm->initData($args, $request);
+		$unassignReviewerForm->initData();
 
 		return new JSONMessage(true, $unassignReviewerForm->fetch($request));
 	}
@@ -565,7 +565,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		// Initialize form.
 		import('lib.pkp.controllers.grid.users.reviewer.form.ThankReviewerForm');
 		$thankReviewerForm = new ThankReviewerForm($reviewAssignment);
-		$thankReviewerForm->initData($args, $request);
+		$thankReviewerForm->initData();
 
 		// Render form.
 		return new JSONMessage(true, $thankReviewerForm->fetch($request));
@@ -668,7 +668,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		// Initialize form.
 		import('lib.pkp.controllers.grid.users.reviewer.form.ReviewReminderForm');
 		$reviewReminderForm = new ReviewReminderForm($reviewAssignment);
-		$reviewReminderForm->initData($args, $request);
+		$reviewReminderForm->initData();
 
 		// Render form.
 		return new JSONMessage(true, $reviewReminderForm->fetch($request));
@@ -836,7 +836,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		// Form handling.
 		import('lib.pkp.controllers.grid.users.reviewer.form.' . $formClassName );
 		$reviewerForm = new $formClassName($this->getSubmission(), $this->getReviewRound());
-		$reviewerForm->initData($args, $request);
+		$reviewerForm->initData();
 		$reviewerForm->setUserRoles($userRoles);
 
 		return $reviewerForm->fetch($request);

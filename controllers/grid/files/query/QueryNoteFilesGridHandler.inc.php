@@ -79,7 +79,7 @@ class QueryNoteFilesGridHandler extends FileListGridHandler {
 
 		import('lib.pkp.controllers.grid.files.query.form.ManageQueryNoteFilesForm');
 		$manageQueryNoteFilesForm = new ManageQueryNoteFilesForm($submission->getId(), $query->getId(), $request->getUserVar('noteId'), $this->getRequestArgs());
-		$manageQueryNoteFilesForm->initData($args, $request);
+		$manageQueryNoteFilesForm->initData();
 		return new JSONMessage(true, $manageQueryNoteFilesForm->fetch($request));
 	}
 }

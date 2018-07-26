@@ -176,7 +176,7 @@ class ReviewFormElementsGridHandler extends GridHandler {
 	function createReviewFormElement($args, $request) {
 		// Form handling
 		$reviewFormElementForm = new ReviewFormElementForm($this->reviewFormId);
-		$reviewFormElementForm->initData($request);
+		$reviewFormElementForm->initData();
 		return new JSONMessage(true, $reviewFormElementForm->fetch($args, $request));
 	}
 
@@ -192,7 +192,7 @@ class ReviewFormElementsGridHandler extends GridHandler {
 
 		// Display form
 		$reviewFormElementForm = new ReviewFormElementForm($this->reviewFormId, $reviewFormElementId);
-		$reviewFormElementForm->initData($request);
+		$reviewFormElementForm->initData();
 		return new JSONMessage(true, $reviewFormElementForm->fetch($args, $request));
 	}
 

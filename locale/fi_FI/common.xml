@@ -541,4 +541,5 @@
 	<message key="list.viewMore">Näytä lisätietoja {$name}</message>
 	<message key="list.viewLess">Piilota lisätiedot {$name}</message>
 	<message key="common.filterAdd">Lisää suodatin: {$filterTitle}</message>
+	<message key="notification.type.reviewAssignmentUpdated">Arviointipyyntö päivitetty.</message>
 </locale>

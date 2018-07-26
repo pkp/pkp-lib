@@ -621,4 +621,9 @@
 	<message key="submission.list.reviewerWorkflowLink"><![CDATA[Sinulla on käsikirjoituksessa toimituksellinen rooli. Haluatko katsoa <a href="{$urlEditorialWorkflow}">toimittajan työnkulkua</a>?]]></message>
 	<message key="submission.list.reviewComplete">Arvio lähetetty</message>
 	<message key="editor.submission.addStageParticipant.form.reviewerWarning">Valitsemasi käyttäjä tekee käsikirjoituksessa sokkoarviointia. Mikäli lisäät hänet osallistujaksi, käyttäjä näkee kirjoittajan nimen.</message>
+	<message key="submission.submit.availableUserGroups">Käytä roolia</message>
+	<message key="submission.submit.availableUserGroupsDescription">Valitse rooli, jota haluat käyttää käsikirjoituksen lähetykseen.</message>
+	<message key="submission.submit.contactConsent">Vastaava kontaktihenkilö</message>
+	<message key="submission.submit.contactConsentDescription">Haluan, että minuun olla yhteydessä tähän käsikirjoitukseen liittyen.</message>
+	<message key="submission.submit.userGroupDescriptionManagers">Valitse jokin seuraavista rooleista, jos haluat toimittaa ja julkaista käsikirjoituksen itse: {$managerGroups}</message>
 </locale>

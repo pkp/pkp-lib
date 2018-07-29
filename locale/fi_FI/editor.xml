@@ -145,4 +145,5 @@
 	<message key="reviewer.list.warnOnAssign">Arvioija on lukittu, koska hänellä on rooli, jolla voi nähdä kirjoittajan nimen. Sokkoarviointi ei ole mahdollinen. Haluatko käyttää tätä arvioijaa joka tapauksessa?</message>
 	<message key="reviewer.list.warnOnAssignUnlock">Avaa lukitus</message>
 	<message key="editor.review.anonymousReviewer">Piilotettu arvioija</message>
+	<message key="reviewer.list.declinedReviews">Hylätyt arviointipyynnöt</message>
 </locale>

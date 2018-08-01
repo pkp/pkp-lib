@@ -301,7 +301,7 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.statistics.reports.objectId.label">Définir une ou plusieurs identifications d'objet, séparées par une virgule (ex.: 1,2,3,4,5)</message>
 	<message key="manager.statistics.reports.cities.label">Un ou plusieurs noms de villes, séparés par une virgule (ex.: Ville 1, Ville 2)</message>
 	<message key="manager.statistics.reports.reportUrl.label">L'adresse URL suivante peut être utilisée pour produire le rapport avec les configurations de formulaire actuelles. Il suffit de la copier, de la coller dans votre navigateur Web et d'entrer. Vous pouvez utiliser vos favoris pour conserver votre générateur d'URL pour les rapports personnalisés.</message>
-	<message key="manager.setup.styleSheetDescription">Vous pouvez télécharger un fichier de Feuilles de style en cascade (FSC) supplémentaire pour modifier l'apparence.</message>
+	<message key="manager.setup.styleSheetDescription">Vous pouvez télécharger un fichier CSS (feuille de style en cascade) supplémentaire pour modifier l'apparence du site Web.</message>
 	<message key="manager.setup.layout.blockManagement">Gestion de la barre latérale</message>
 	<message key="plugins.categories.metadata">Modules d'extension des métadonnées</message>
 	<message key="plugins.categories.metadata.description">Les modules d'extension des métadonnées mettent en place des normes supplémentaires pour les métadonnées.</message>
@@ -426,7 +426,7 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.reviewFormElements.viewable">Visualisable (pour les auteurs)</message>
 
 	<message key="manager.userSearch.searchByName">Rechercher un usager par son nom</message>
-	<message key="manager.reviewerSearch.change">Changé</message>
+	<message key="manager.reviewerSearch.change">Changer</message>
 	<message key="manager.statistics.reports.optionalColumns.description">Les éléments en italique et marqués d'un astérisque représentent des données facultatives pour le mode actuel de comptage des statistiques dans le système (type métrique). Vous pouvez avoir ces données ou non, dépendamment de la configuration des plugiciels statistiques.</message>
 	<message key="manager.statistics.reports.advancedOptions.hide">Masquer les options avancées</message>
 	<message key="manager.statistics.reports.objectNotFound">Objet introuvable dans la base de données.</message>
@@ -449,16 +449,16 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.setup.openAccessPolicy.description">Si vous fournissez un accès immédiat et gratuit à tout le contenu publié, vous pouvez inscrire une description de votre politique sur le libre accès.</message>
 	<message key="manager.setup.pageFooter">Pied de page</message>
 	<message key="manager.setup.pageFooterDescription">Entrer une image, du texte ou du code HTML que vous voudriez voir apparaître au bas de votre site web.</message>
-	<message key="manager.setup.peerReview.description">Décrivez la politique et les processus d'évaluation par les pairs pour les lecteurs et les auteurs. Cette description comprend souvent le nombre d'évaluateur impliqués dans l'évaluation d'une soumission, les critères par lesquels les évaluateurs sont invités à juger ces soumissions, le temps prévu pour effectuer les évaluations et enfin, les critères utilisés pour sélectionner les évaluateurs.</message>
+	<message key="manager.setup.peerReview.description">Décrire la politique et les processus d'évaluation par les pairs pour les lecteurs et les auteurs. Cette description comprend souvent le nombre d'évaluateur impliqués dans l'évaluation d'une soumission, les critères par lesquels les évaluateurs sont invités à juger ces soumissions, le temps prévu pour effectuer les évaluations et enfin, les critères utilisés pour sélectionner les évaluateurs.</message>
 	<message key="manager.setup.principalContact">Contact principal</message>
-	<message key="manager.setup.principalContactDescription">Entrez les coordonnées d'un rédacteur en chef, d'un membre de la rédaction ou du personnel administratif qui peuvent être affichées sur la version public de votre site Web.</message>
+	<message key="manager.setup.principalContactDescription">Entrer les coordonnées d'un membre de la rédaction ou du personnel administratif qui peuvent être affichées sur votre site Web.</message>
 	<message key="manager.setup.privacyStatement">Déclaration de confidentialité</message>
 	<message key="manager.setup.reviewOptions.noteOnModification">Les valeurs par défauts peuvent être modifiées pour chaque évaluation durant le processus éditorial.</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Date limite par défaut des évaluations</message>
-	<message key="manager.setup.reviewOptions.showBlindReviewLink">Présentez un lien "Assurer une évaluation à l'aveugle" lors du téléchargement</message>
+	<message key="manager.setup.reviewOptions.showBlindReviewLink">Présenter un lien "Assurer une évaluation à l'aveugle" lors du téléchargement</message>
 	<message key="manager.setup.sponsors.description">Exemples: associations ou sociétés savantes, départements universitaires, coopératives, etc. Les commanditaire sont affichés publiquement.</message>
-	<message key="manager.setup.technicalSupportContact">Support technique</message>
-	<message key="manager.setup.technicalSupportContactDescription">Une personne-ressource qui peut aider les rédacteurs en chef, les auteurs et les évaluateurs à résoudre des problèmes lors d'une soumission, de l'édition, de l'évaluation ou lors de la publication de documents.</message>
+	<message key="manager.setup.technicalSupportContact">Soutien technique</message>
+	<message key="manager.setup.technicalSupportContactDescription">Une personne-ressource qui peut aider les rédacteurs, les auteurs et les évaluateurs avec toutes difficultés rencontrées durant la soumission, l'évaluation, l'édition ou la publication.</message>
 	<message key="manager.plugins.installConfirm">Voulez-vous vraiment installer ce plugiciel?</message>
 	<message key="manager.plugins.upgradeConfirm">Voulez-vous vraiment mettre à jour ce plugiciel?</message>
 	<message key="grid.action.installPlugin">Installer ou mettre à jour le plugiciel</message>
@@ -557,4 +557,22 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.navigationMenus.logOut.description">Un lien qui fermera la session d'un utilisateur.</message>
 	<message key="manager.navigationMenus.loggedOut.conditionalWarning">Ce lien ne sera affiché que si le visiteur s'est connecté.</message>
 	<message key="manager.navigationMenus.loggedIn.conditionalWarning">Ce lien ne sera affiché que si le visiteur ne s'est pas connecté.</message>
+	<message key="manager.setup.privacyStatement.description">Cette déclaration apparaîtra lors de l'inscription de l'utilisateur, de la soumission d'un article et sur la Page de confidentialité accessible au public. Dans certaines juridictions, vous êtes légalement tenus de divulguer la manière dont vous gérez les données utilisateurs dans une politique de confidentialité.</message>
+	<message key="manager.setup.searchEngineIndexing.sitemap">Sitemap</message>
+	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[Un sitemap XML est disponible pour la soumission aux moteurs de recherche à <a href="{$path}" target="_blank">{$path}</a>]]></message>
+	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>Ce fichier peut être accessible pour téléchargement, si "Accès public" est activé, à:<blockquote>{$downloadUrl}</blockquote></p>]]></message>
+	<message key="settings.libraryFiles.public.selectLibraryFiles">Sélectionner le fichier à joindre</message>
+	<message key="manager.setup.genres.key">Clé</message>
+	<message key="manager.setup.genres.key.description">Un identifiant optionnel, symbolique et court pour ce genre.</message>
+	<message key="manager.setup.genres.key.exists">La clé existe déjà.</message>
+	<message key="manager.setup.genres.key.alphaNumeric">La clé ne peut contenir que des caractères alphanumériques, des traits de soulignement et des tirets. Elle doit commencer et se terminer par un caractère alphanumérique.</message>
+	<message key="manager.navigationMenus.form.menuAssigned">Un menu de navigation est déjà présent dans cette section.</message>
+	<message key="manager.navigationMenus.contact.description">Lien vers une page affichant vos informations de contact.</message>
+	<message key="manager.navigationMenus.contact.conditionalWarning"><![CDATA[Ce lien ne sera affiché que si vous avez rempli les informations de contact sous Paramètres> Revues> Contact.]]></message>
+	<message key="manager.navigationMenus.form.typeMissing">Veuillez sélectionner un type de menu de navigation.</message>
+	<message key="manager.navigationMenus.subscriptions.conditionalWarning"><![CDATA[Ce lien ne sera affiché que si les paiements sont activés sous Paramètres> Distribution> Paiements.]]></message>
+	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning"><![CDATA[Ce lien ne sera affiché que si le visiteur est connecté, si les paiements sont activés dans  Paramètres> Distribution> Paiements et si l'abonnement est exigé dans Paramètres> Distribution> Accès.]]></message>
+	<message key="manager.navigationMenus.search.description">Lien vers la page de recherche</message>
+	<message key="manager.navigationMenus.privacyStatement.description">Lien vers la page affichant la déclaration de confidentialité.</message>
+	<message key="manager.navigationMenus.privacyStatement.conditionalWarning"><![CDATA[Ce lien ne sera affiché que si vous avez inscrit une déclaration de confidentialité sous Paramètres> Flux des travaux> Soumissions.]]></message>
 </locale>

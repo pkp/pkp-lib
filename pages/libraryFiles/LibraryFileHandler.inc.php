@@ -106,4 +106,29 @@ class LibraryFileHandler extends Handler {
 			}
 		}
 	}
+
+	/**
+	 * Public JSON list of all public files. Used in Tinymce link list.
+	 * @param $args array
+	 * @param $request Request
+	 */
+	function jsonListPublic($args, $request) {
+		import('classes.file.LibraryFileManager');
+		$dispatcher = $request->getDispatcher();
+		$context = $request->getContext();
+		$jsonList = array();
+
+		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO');
+		$libraryFiles = $libraryFileDao->getByContextId($context->getId());
+
+		if ($libraryFiles) {
+			while ($libraryFile = $libraryFiles->next()) {
+				if ($libraryFile->getPublicAccess()){
+					$jsonList[] = array('title' => $libraryFile->getLocalizedName(), 'value' => $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'libraryFiles', 'downloadPublic', $libraryFile->getId()));
+				}
+			}
+		}
+		return json_encode($jsonList);
+	}
+
 }

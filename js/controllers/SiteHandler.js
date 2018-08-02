@@ -137,12 +137,26 @@
 			tinyMCE.PluginManager.load('pkpwordcount', $.pkp.app.baseUrl +
 					'/plugins/generic/tinymce/plugins/pkpWordcount/plugin.js');
 
+			var linkListUrl;
+			var indexFile = $.pkp.app.restfulUrlsEnabled ? '' : 'index.php';
+
+			if ($.pkp.app.contextPath) {
+				if (!$.pkp.app.pathInfoEnabled) {
+					linkListUrl = $.pkp.app.baseUrl + '/' + indexFile  + '?journal=' + encodeURIComponent($.pkp.app.contextPath) + '/libraryFiles/jsonListPublic';
+				} else {
+					linkListUrl = $.pkp.app.baseUrl + '/' + indexFile  + '/' + $.pkp.app.contextPath + '/libraryFiles/jsonListPublic';
+				}
+			} else {
+				linkListUrl = $.pkp.app.baseUrl + '/libraryFiles/jsonListPublic';
+			}
+
 			var tinymceParams, tinymceParamDefaults = {
 				width: '100%',
 				resize: 'both',
 				entity_encoding: 'raw',
 				plugins: 'paste,fullscreen,link,lists,code,' +
 						'-jbimages,-pkpTags,noneditable',
+				link_list: linkListUrl,
 				convert_urls: false,
 				forced_root_block: 'p',
 				paste_auto_cleanup_on_paste: true,

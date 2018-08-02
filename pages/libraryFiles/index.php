@@ -15,6 +15,7 @@
 switch ($op) {
 	case 'downloadPublic':
 	case 'downloadLibraryFile':
+	case 'jsonListPublic':
 		define('HANDLER_CLASS', 'LibraryFileHandler');
 		import('lib.pkp.pages.libraryFiles.LibraryFileHandler');
 		break;

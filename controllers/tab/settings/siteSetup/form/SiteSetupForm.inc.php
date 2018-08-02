@@ -124,6 +124,7 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 		$this->setData('pageHeaderTitleImage', $pageHeaderTitleImage);
 		$this->setData('themePluginPath', $site->getSetting('themePluginPath'));
 		$this->setData('defaultMetricType', $site->getSetting('defaultMetricType'));
+		$this->setData('privacyStatement', $site->getSetting('privacyStatement'));
 
 		parent::initData();
 	}
@@ -134,7 +135,8 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 	function readInputData() {
 		$this->readUserVars(
 			array('pageHeaderTitleType', 'title', 'about', 'redirect', 'contactName',
-				'contactEmail', 'minPasswordLength', 'themePluginPath', 'defaultMetricType','pageFooter',)
+				'contactEmail', 'minPasswordLength', 'themePluginPath',
+				'defaultMetricType', 'pageFooter', 'privacyStatement')
 		);
 	}
 

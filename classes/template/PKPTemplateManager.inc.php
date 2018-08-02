@@ -114,6 +114,7 @@ class PKPTemplateManager extends SmartyBC {
 			'datetimeFormatLong' => Config::getVar('general', 'datetime_format_long'),
 			'timeFormat' => Config::getVar('general', 'time_format'),
 			'currentContext' => $currentContext,
+			'site' => $request->getSite(),
 			'currentLocale' => $locale,
 			'pageTitle' => $application->getNameKey(),
 			'applicationName' => __($application->getNameKey()),

@@ -28,15 +28,14 @@
 	<message key="about.siteMap">Mapa del sitio</message>
 	<message key="announcement.announcements">Avisos</message>
 	<message key="announcement.announcementsHome">Avisos</message>
-	<message key="announcement.moreAnnouncements">Mas avisos...</message>
+	<message key="announcement.moreAnnouncements">Más avisos...</message>
 	<message key="announcement.noneExist">Ningún aviso ha sido publicado.</message>
 	<message key="announcement.posted">Enviado</message>
 	<message key="announcement.postedOn">Publicado el {$postDate}</message>
-	<message key="announcement.view">Ver Aviso</message>
+	<message key="announcement.view">Ver aviso</message>
 	<message key="common.tasks">Tareas</message>
 	<message key="common.list">Lista</message>
 	<message key="common.grid">Cuadrícula</message>
-	<message key="common.takeMeThere">Llévame ahí</message>
 	<message key="common.confirmDelete">¿Está seguro de que desea eliminar este elemento? Esta acción es irreversible.</message>
 	<message key="common.abstract">Resumen</message>
 	<message key="common.accepted">Aceptado</message>
@@ -68,20 +67,18 @@
 	<message key="common.warning">Aviso</message>
 	<message key="common.error">Error</message>
 	<message key="common.notice">Notificación</message>
-	<message key="common.captchaField.altText">Imagen de validación</message>
-	<message key="common.captchaField.badCaptcha">Los caracteres introducidos no coinciden con los caracteres de la imagen. Compruebe los caracteres e inténtelo de nuevo.</message>
 	<message key="common.captchaField.description">Por favor, introduzca las letras tal como aparecen en la imagen superior.</message>
 	<message key="common.captchaField">Validación</message>
 	<message key="common.ccLicense"><![CDATA[<br /><br /> <a target="_blank" rel="license" href="http://creativecommons.org/licenses/by/3.0/"> <img alt="Licencia de Creative Commons" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png"/> </a> <br/> Este trabajo se distribuye bajo una <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/3.0/">Licencia de reconocimiento 3.0 de Creative Commons</a>.]]></message>
 	<message key="common.ccLicense.rt"><![CDATA[
 	<div class="rtBlock"><br /> <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Licencia de Creative Commons" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png" /></a><br /> Este trabajo se distribuye bajo una <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank">Licencia de reconocimiento 3.0 de Creative Commons</a>.</div>
 	]]></message>
-	<message key="common.changesSaved">Tus cambios se han guardado.</message>
+	<message key="common.changesSaved">Sus cambios se han guardado.</message>
 	<message key="common.chooseOne">Seleccione uno</message>
 	<message key="common.clearSearch">Limpiar frase de búsqueda</message>
 	<message key="common.close">Cerrar</message>
 	<message key="common.closeWindow">Cerrar ventana</message>
-	<message key="common.complete">Completado</message>
+	<message key="common.complete">Completar</message>
 	<message key="common.completed">Completado</message>
 	<message key="common.confirm">Confirmar</message>
 	<message key="common.content">Contenido</message>
@@ -101,7 +98,7 @@
 	<message key="common.deactivate">Desactivar</message>
 	<message key="common.default">Por defecto</message>
 	<message key="common.declined">Rechazado</message>
-	<message key="common.delete">Borrar</message>
+	<message key="common.delete">Eliminar</message>
 	<message key="common.deleteSelection">Eliminar selección</message>
 	<message key="common.designation">Designación</message>
 	<message key="common.description">Descripción</message>
@@ -133,7 +130,7 @@
 	<message key="common.filterRemove">Limpiar filtros: {$filterTitle}</message>
 	<message key="common.go">Ir</message>
 	<message key="common.height">Altura</message>
-	<message key="common.homePageHeaderLogo.altText">Logo del Título (Página de Inicio)</message>
+	<message key="common.homePageHeaderLogo.altText">Logo del título (página de inicio)</message>
 	<message key="common.hour">Hora</message>
 	<message key="common.id">Id.</message>
 	<message key="common.import">Importar</message>
@@ -144,8 +141,6 @@
 	<message key="common.language">Idioma</message>
 	<message key="common.languages">Idiomas</message>
 	<message key="common.less">Menos</message>
-	<message key="common.commaListSeparator">, </message>
-	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.manage">Administrar</message>
 	<message key="common.mailingAddress">Dirección postal</message>
 	<message key="common.billingAddress">Dirección de facturación (si es diferente)</message>
@@ -206,7 +201,7 @@
 	<message key="common.selectAll">Seleccionar todo</message>
 	<message key="common.selectNone">Deseleccionar todo</message>
 	<message key="common.select">Seleccionar</message>
-	<message key="common.sendEmail">Enviar correo-e</message>
+	<message key="common.sendEmail">Enviar correo electrónico</message>
 	<message key="common.size">Tamaño</message>
 	<message key="common.source">Fuente</message>
 	<message key="common.status">Estado</message>
@@ -219,15 +214,13 @@
 	<message key="common.top">Principio</message>
 	<message key="common.true">Verdadero</message>
 	<message key="common.type">Tipo</message>
-	<message key="common.element">Elemento</message>
 	<message key="common.uninitiated">Sin iniciar</message>
 	<message key="common.unread">No leído</message>
 	<message key="common.untitled">Sin título</message>
 	<message key="common.updated">Actualizado</message>
 	<message key="common.uploadedFile">Fichero subido</message>
 	<message key="common.upload">Subir</message>
-	<message key="common.uploadFailed">No se ha podido subir el fichero. Por favor, inténtalo de nuevo o ponte en contacto con el administrador si el problema persiste.</message>
-	<message key="common.fileUpload.maxFileSizeStatus"><![CDATA[El servidor permite subir un archivo de un tamaño máximo de {$fileSize}. Si es necesario, póngase en contacto con <a href="mailto:{$supportEmail}">{$supportName}</a> para obtener ayuda.]]></message>
+	<message key="common.uploadFailed">No se ha podido subir el fichero. Por favor, inténtelo de nuevo o póngase en contacto con el administrador si el problema persiste.</message>
 	<message key="common.invalidFileType">No se cargó ningún archivo o tipo de archivo no válido.</message>
 	<message key="common.homepageImage.altText">Imagen de la página inicial</message>
 	<message key="common.up">Arriba</message>
@@ -238,13 +231,13 @@
 	<message key="common.width">Anchura</message>
 	<message key="common.year">Año</message>
 	<message key="common.yes">Sí</message>
-	<message key="common.loading">Cargando ...</message>
+	<message key="common.loading">Cargando</message>
 	<message key="common.plugins">Módulos</message>
 	<message key="common.metric">Métrica</message>
 	<message key="common.count">Total</message>
 	<message key="debug.databaseQueries">Número de consultas a la base de datos</message>
 	<message key="debug.executionTime">Página generada en</message>
-	<message key="debug.memoryUsage">Uso de Memoria:</message>
+	<message key="debug.memoryUsage">Uso de memoria:</message>
 	<message key="debug.notes.localeListLoad">Lista de configuraciones regionales "{$localeList}" cargada desde XML</message>
 	<message key="debug.notes.localeLoad">Archivo de configuraciones regionales "{$localeFile}" cargado desde XML</message>
 	<message key="debug.notes.missingLocaleKey">Falta la clave de configuraciones regionales "{$key}".</message>
@@ -262,18 +255,18 @@
 	<message key="email.bccSender">Enviar una copia del mensaje a mi dirección ({$address})</message>
 	<message key="email.body">Texto</message>
 	<message key="email.cc">CC</message>
-	<message key="email.compose">Enviar correo-e</message>
+	<message key="email.compose">Enviar correo electrónico</message>
 	<message key="email.compose.tooManyRecipients">Este mensaje tiene demasiados destinatarios.</message>
 	<message key="email.compose.tooSoon">Está intentando enviar un mensaje sin apenas diferencia de tiempo con respecto al último mensaje que envió. Espere antes de enviar otro mensaje.</message>
 	<message key="email.email">Correo electrónico</message>
 	<message key="email.from">Desde</message>
 	<message key="email.invalid">La dirección de correo electrónico {$email} no es válida.</message>
-	<message key="email.multipart">Este es un mensaje multi-partes en formato MIME.</message>
-	<message key="email.recipient">Para</message>
-	<message key="email.recipients">Para</message>
+	<message key="email.multipart">Este es un mensaje de múltiples partes en formato MIME.</message>
+	<message key="email.recipient">Destinatario/a</message>
+	<message key="email.recipients">Destinatarios/as</message>
 	<message key="email.sender">Remitente</message>
 	<message key="email.send">Enviar</message>
-	<message key="email.skip">No enviar correo-e</message>
+	<message key="email.skip">Omitir correo electrónico</message>
 	<message key="email.subject">Materia</message>
 	<message key="email.subjectRequired">Proporcione un asunto de correo electrónico.</message>
 	<message key="email.bodyRequired">Proporcione el cuerpo de texto del correo electrónico.</message>
@@ -301,7 +294,7 @@
 	<message key="help.upALevel">Subir un nivel</message>
 	<message key="icon.checked.alt">Marcado</message>
 	<message key="icon.comment.alt">Comentario</message>
-	<message key="icon.delete.alt">Borrar</message>
+	<message key="icon.delete.alt">Eliminar</message>
 	<message key="icon.edit.alt">Editar</message>
 	<message key="icon.folder.alt">Directorio</message>
 	<message key="icon.font_large.alt">Grande</message>
@@ -316,13 +309,8 @@
 	<!-- Information Center -->
 	<message key="informationCenter.informationCenter">Centro de información</message>
 	<message key="informationCenter.editorialHistory">Historial de publicaciones</message>
-	<message key="informationCenter.composeNote">Escribir nota</message>
-	<message key="informationCenter.addFileNote">Añadir al archivo</message>
-	<message key="informationCenter.addSubmissionNote">Añadir al envío</message>
 	<message key="informationCenter.noNotes">No hay ninguna nota para mostrar.</message>
-	<message key="informationCenter.currentNotes">Notas actuales</message>
 	<message key="informationCenter.pastNotes">Notas anteriores</message>
-	<message key="informationCenter.lastUpdated">Última actualización</message>
 	<message key="informationCenter.deleteConfirm">¿Está seguro de que desea eliminar la nota?</message>
 	<message key="informationCenter.currentHistory">Revisión actual</message>
 	<message key="informationCenter.pastHistory">Revisiones anteriores</message>
@@ -349,8 +337,8 @@
 	<message key="navigation.browseByTitle">Por título</message>
 	<message key="navigation.data">Datos</message>
 	<message key="navigation.home">Inicio</message>
-	<message key="navigation.infoForReaders">Para lectoras/es</message>
-	<message key="navigation.infoForReaders.long">Información para lectoras/es</message>
+	<message key="navigation.infoForReaders">Para lectores/as</message>
+	<message key="navigation.infoForReaders.long">Información para lectores/as</message>
 	<message key="navigation.items">{$from} - {$to} de {$total} elementos</message>
 	<message key="navigation.login">Entrar</message>
 	<message key="navigation.nextPage"><![CDATA[>>]]></message>
@@ -360,7 +348,7 @@
 	<message key="navigation.publicMenu">Menú público</message>
 	<message key="navigation.register">Registrarse</message>
 	<message key="navigation.search">Buscar</message>
-	<message key="navigation.settings">Preferencias</message>
+	<message key="navigation.settings">Ajustes</message>
 	<message key="navigation.setup">Configuración</message>
 	<message key="navigation.sitemap">Mapa del sitio</message>
 	<message key="navigation.stepNumber">Paso {$step}</message>
@@ -369,8 +357,8 @@
 	<message key="navigation.userHome">Inicio</message>
 	<message key="navigation.user">Usuario/a</message>
 	<message key="navigation.userManagement">Gestión del usuario/a</message>
-	<message key="notification.addedAuditor">Auditor añadido.</message>
-	<message key="notification.removedAuditor">Auditor eliminado.</message>
+	<message key="notification.addedAuditor">Auditor/a añadido.</message>
+	<message key="notification.removedAuditor">Auditor/a eliminado.</message>
 	<message key="notification.reviewAcknowledged">Revisar los marcados como confirmados. Correo electrónico no enviado.</message>
 	<message key="notification.updatedReviewFiles">Revise los archivos actualizados.</message>
 	<message key="notification.allow">Permitir que este tipo de notificaciones aparezcan en mi área de notificaciones</message>
@@ -382,7 +370,7 @@
 	<message key="notification.removedAnnouncement">Aviso eliminado.</message>
 	<message key="notification.addedAuthor">Autor/a añadido.</message>
 	<message key="notification.editedAuthor">Autor/a editado.</message>
-	<message key="notification.confirmError">Ha habido un error confirmándo tu suscripción.</message>
+	<message key="notification.confirmError">Se ha producido un error al confirmar su suscripción.</message>
 	<message key="notification.confirmSuccess">Ha sido correctamente suscrito.</message>
 	<message key="notification.email">No enviarme un email para ese tipo de notificaciones.</message>
 	<message key="notification.noneExist">No tiene notificaciones en este momento.</message>
@@ -394,7 +382,7 @@
 	<message key="notification.sentNotification">Notificación enviada.</message>
 	<message key="notification.settings">Configuración de notificaciones</message>
 	<message key="notification.settingsDescription">Seleccione los eventos del sistema para los que desea recibir notificaciones. Al desmarcar un elemento, las notificaciones del evento no aparecerán en el sistema ni se le enviarán por correo electrónico. Los eventos marcados aparecerán en el sistema y, además, puede elegir si desea recibir o no la misma notificación por correo electrónico.</message>
-	<message key="notification.reminderError">Ha habido un error enviando tu contraseña, por favor comprueba que has puesto bien tu dirección de correo electrónico.</message>
+	<message key="notification.reminderError">Se ha producido un error al enviar su contraseña. Por favor, compruebe que ha introducido correctamente su dirección de correo electrónico.</message>
 	<message key="notification.reminderSent">Tu nueva contraseña ha sido enviada a la dirección de correo electrónico proporcionada.</message>
 	<message key="notification.savedSubmissionMetadata">Metadatos de envíos guardados.</message>
 	<message key="search.abstract">Resumen</message>
@@ -410,7 +398,7 @@
 	<message key="search.date">Fecha de publicación</message>
 	<message key="search.dateFrom">Desde</message>
 	<message key="search.dateTo">Hasta</message>
-	<message key="search.deleteFilter">Borrar</message>
+	<message key="search.deleteFilter">Eliminar</message>
 	<message key="search.discipline">Disciplina(s)</message>
 	<message key="search.fullText">Texto completo</message>
 	<message key="search.indexTerms">Términos de indexación</message>
@@ -421,8 +409,6 @@
 	<message key="search.operator.and">y</message>
 	<message key="search.operator.not">no</message>
 	<message key="search.operator.or">o</message>
-	<message key="search.searchAllCategories">Buscar en todas las categorías</message>
-	<message key="search.searchCategories">Buscar categorías</message>
 	<message key="search.searchResults">Buscar resultados</message>
 	<message key="search.subject">Palabra(s) clave(s)</message>
 	<message key="search.titleIndex">Consultar índice de títulos</message>
@@ -475,7 +461,6 @@
 	<message key="common.range">{$min}-{$max}</message>
 	<message key="common.readMore">Leer más</message>
 	<message key="common.readMoreWithTitle">Leer más acerca de {$title}</message>
-	<message key="common.rreminded.date">Recordado: {$dateReminded}</message>
 	<message key="common.searchQuery">Búsqueda</message>
 	<message key="common.uploadedDate">Fecha de subida</message>
 	<message key="common.upload.addFile">Subir fichero</message>
@@ -490,14 +475,12 @@
 	<message key="navigation.breadcrumbLabel">Usted está aquí:</message>
 	<message key="navigation.breadcrumbSeparator">/</message>
 	<message key="navigation.items.shownTotal">{$shown} de {$total} elementos</message>
-	<message key="navigation.switchJournals">Cambiar revistas</message>
 	<message key="navigation.viewFrontend">Ver el sitio</message>
 	<message key="notification.addedQuery">Debate añadido</message>
 	<message key="search.searchAgain">Buscar de nuevo</message>
 	<message key="grid.action.deleteNotification">Eliminar tarea</message>
 	<message key="grid.action.markNew">Marcar nuevo</message>
 	<message key="grid.action.markRead">Marcar leído</message>
-	<message key="common.tasks.titleAndTask">{$acronym}: "{$title}": {$task}</message>
 	<message key="dashboard.myQueue">Mi lista</message>
 	<message key="notification.type.newAnnouncement">Nuevo aviso.</message>
 	<message key="notification.type.metadataModified">Los metadatos de "{$title}" han sido modificados.</message>
@@ -537,4 +520,32 @@
 	<message key="notification.addedReviewerNoEmail">Se ha asignado a {$reviewerName} para revisar este envío y no se le ha enviado un correo electrónico de notificación.</message>
 
 	<message key="semicolon">{$label}:</message>
+	<message key="common.deleting">Eliminando</message>
+	<message key="common.filterAdd">Añadir filtro: {$filterTitle}</message>
+	<message key="common.from">Desde</message>
+	<message key="common.until">Hasta</message>
+	<message key="common.lessThan">{$value} o menos</message>
+	<message key="common.moreThan">{$value} o más</message>
+	<message key="common.pagination">{$start}-{$end} de {$total}</message>
+	<message key="common.listSeparator">,</message>
+	<message key="common.saving">Guardando</message>
+	<message key="common.publicAccess">Acceso público</message>
+	<message key="stageParticipants.notify.startDiscussion">Empezar una discusión</message>
+	<message key="stageParticipants.notify.startDiscussion.description">Empezar una discusión con {$userFullName}.</message>
+	<message key="stageParticipants.options">Asignación de privilegios</message>
+	<message key="stageParticipants.recommendOnly">Este participante solo puede recomendar una decisión editorial, necesita que un editor/a autorizado le permita registrar decisiones editoriales.</message>
+	<message key="notification.reviewerThankedEmail">El correo electrónico de agradecimiento se ha enviado al revisor/a.</message>
+	<message key="notification.sendNotificationConfirmation">Enviar correo electrónico de notificación a todos los usuarios/as registrados</message>
+	<message key="notification.type.reviewAssignmentUpdated">Asignación de revisión actualizada.</message>
+	<message key=""><![CDATA[]]></message>
+	<message key="notification.editedNavigationMenuItem">El elemento del menú de navegación ha sido actualizado con éxito</message>
+	<message key="notification.removedNavigationMenuItem">El elemento del menú de navegación ha sido eliminado con éxito</message>
+	<message key="notification.addedNavigationMenuItem">El elemento del menú de navegación ha sido añadido con éxito</message>
+	<message key="notification.addedNavigationMenu">El menú de navegación ha sido añadido con éxito</message>
+	<message key="notification.editedNavigationMenu">El menú de navegación ha sido actualizado con éxito</message>
+	<message key="notification.removedNavigationMenu">El menú de navegación ha sido eliminado con éxito</message>
+	<message key=""><![CDATA[]]></message>
+	<message key="list.viewMore">Mostrar más detalles sobre {$name}</message>
+	<message key="list.viewLess">Ocultar los detalles sobre {$name}</message>
+	<message key="common.pagination.label">Examinar las páginas adicionales</message>
 </locale>

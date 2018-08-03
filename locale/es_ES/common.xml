@@ -28,7 +28,7 @@
 	<message key="about.siteMap">Mapa del sitio</message>
 	<message key="announcement.announcements">Avisos</message>
 	<message key="announcement.announcementsHome">Avisos</message>
-	<message key="announcement.moreAnnouncements">Mas avisos...</message>
+	<message key="announcement.moreAnnouncements">Más avisos...</message>
 	<message key="announcement.noneExist">Ningún aviso ha sido publicado.</message>
 	<message key="announcement.posted">Enviado</message>
 	<message key="announcement.postedOn">Publicado el {$postDate}</message>
@@ -382,9 +382,9 @@
 	<message key="notification.removedAnnouncement">Aviso eliminado.</message>
 	<message key="notification.addedAuthor">Autor/a añadido.</message>
 	<message key="notification.editedAuthor">Autor/a editado.</message>
-	<message key="notification.confirmError">Ha habido un error confirmándo tu suscripción.</message>
+	<message key="notification.confirmError">Ha habido un error confirmando tu suscripción.</message>
 	<message key="notification.confirmSuccess">Ha sido correctamente suscrito.</message>
-	<message key="notification.email">No enviarme un email para ese tipo de notificaciones.</message>
+	<message key="notification.email">No enviarme un correo electrónico para ese tipo de notificaciones.</message>
 	<message key="notification.noneExist">No tiene notificaciones en este momento.</message>
 	<message key="notification.addedNote">Nota publicada.</message>
 	<message key="notification.removedNote">Nota eliminada.</message>

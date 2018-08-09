@@ -244,7 +244,7 @@ class SubmissionFile extends PKPFile {
 	 * @return boolean
 	 */
 	function supportsDependentFiles() {
-		return $this->getFileStage() != SUBMISSION_FILE_DEPENDENT && in_array($this->getFileType(), array(
+		return !in_array($this->getFileStage(), array(SUBMISSION_FILE_DEPENDENT, SUBMISSION_FILE_QUERY)) && in_array($this->getFileType(), array(
 			'text/html',
 			'application/xml',
 			'text/xml',

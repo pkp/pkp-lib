@@ -61,4 +61,10 @@
 	<message key="plugins.generic.usageStats.noStats">Data o stažení nejsou doposud dostupná.</message>
 	<message key="plugins.generic.usageStats.monthInitials">Led Úno Bře Dub Kvě Čer Čvn Srp Zář Říj Lis Pros</message>
 	<message key="plugins.generic.usageStats.downloads">Stažení</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.contextWide">Tato nastavení budou použita pouze pro statistiky využití {$contextName}.</message>
+	<message key="plugins.generic.usageStats.optout.done"><![CDATA[<p>Úspěšně jste vypnuli shromažďování údajů o využití. Pokud vidíte tuto zprávu, nebudou shromažďovány žádné údaje o využití tohoto webu. Klepnutím na tlačítko níže vaše rozhodnutí vrátíte zpět. </ P>]]></message>
+	<message key="plugins.generic.usageStats.optin">Zahájení</message>
+	<message key="plugins.generic.usageStats.optout">Ukončení</message>
+	<message key="plugins.generic.usageStats.optout.cookie"><![CDATA[<p>Pokud si přejete, můžete se vypnout proces sběru dat. Klepnutím na tlačítko pro ukončení níže se můžete aktivně rozhodnout o zastavení statistické analýzy. Pokud klepnete na tlačítko ukončení, vytvoří se ve vašem systému soubor <em>cookie,</ em> který zaznamená tohto vaše rozhodnutí. Pokud nastavení ochrany osobních údajů vašeho prohlížeče povede k automatickému smazání souborů cookie, budete muset při příštím přístupu k tomuto webu ukončit sběr statistik znovu. Soubor cookie je platný pouze pro jeden prohlížeč. Používáte-li jiný prohlížeč, musíte znovu sběr statistik ukončit. V tomto souboru cookie nejsou uloženy žádné osobní údaje. Platnost souborů cookie je jeden rok od vašeho posledního přístupu. </p>
+<p>Mějte na paměti, že obecné protokoly serveru nejsou ovlivněny rozhodnutím o zrušení sběru těchto statistik. Přečtěte si prosím naše všeobecné <a href="{$privacyStatementUrl}"> prohlášení o ochraně osobních údajů </a>.</p>]]></message>
 </locale>

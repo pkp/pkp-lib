@@ -25,9 +25,7 @@
 	<message key="user.dateRegistered">Datum registrace</message>
 	<message key="user.editMyProfile">Upravit můj profil</message>
 	<message key="user.email">E-mail</message>
-	<message key="user.feminine">Ž</message>
 	<message key="user.firstName">Jméno</message>
-	<message key="user.gender">Pohlaví</message>
 	<message key="user.initialsExample">Jan Novák = JN</message>
 	<message key="user.initials">Iniciály</message>
 	<message key="user.interests">Zájem o recenzování</message>
@@ -36,14 +34,13 @@
 	<message key="user.profile.form.profileImageInvalid">Neplatný formát obrázku profilu nebo příliš velký obrázek. Akceptované formáty jsou .gif, .jpg nebo .png a obrázek nesmí překročit 150x150 pixelů.</message>
 	<message key="user.login.accountDisabledWithReason">Váš účet byl zablokován z následujícího důvodu: {$reason}</message>
 	<message key="user.login.accountDisabled">Váš účet byl zablokován. Pro více informací kontaktujte prosím administrátora.</message>
-	<message key="user.login.accountNotValidated">Vaše emailová adresa nebyla ověřena. Zkontrolujte prosím Váš email a postupujte podle poskytnutých instrukcí. Pokud Vám email nepřišel, budete možná muset kontaktovat administrátora a požádat o asistenci.</message>
+	<message key="user.login.accountNotValidated">Na email {$email} jsme vám zaslali potvrzovací e-mail. Pro aktivaci nového účtu postupujte podle pokynů v tomto emailu. Pokud email nevidíte, zkontrolujte, zda nebyl uložen do složky s nevyžádanou poštou.</message>
 	<message key="user.login.activate">Aktivovat účet</message>
 	<message key="user.login.activated">Děkujeme za aktivaci Vašeho účtu. Nyní se můžete pomocí údajů poskytnutých při vyváření Vašeho účtu přihlásit.</message>
 	<message key="user.login.changePasswordInstructions"><![CDATA[Musíte si zvolit nové heslo před tím, než se budete moci přihlásit na tuto stránku.<br /><br />Pro změnu hesla k Vašemu účet vložte prosím níže Vaše uživatelské jméno a Vaše současné a nové heslo.]]></message>
 	<message key="user.login.forgotPassword">Zapomenuté heslo?</message>
 	<message key="user.login.loginError">Neplatné uživatelské jméno nebo heslo. Zkuste to prosím znovu.</message>
 	<message key="user.login">Přihlášení</message>
-	<message key="user.logIn">Přihlásit</message>
 	<message key="user.login.lostPassword.confirmationSent">Na Vaši emailovou adresu bylo odesláno potvrzení. Následujte prosím instrukce pro resetování Vašeho hesla uvedené v emailu.</message>
 	<message key="user.login.lostPassword.invalidHash">Promiňte, odkaz, na který jste kliknul, vypršel nebo není platný. Pokuste se prosím znovu resetovat heslo.</message>
 	<message key="user.login.lostPassword.invalidUser">Neexistuje žádný uživatel s uvedenou emailovou adresou.</message>
@@ -52,11 +49,9 @@
 	<message key="user.login.resetPassword">Resetovat heslo</message>
 	<message key="user.logOut">Odhlásit</message>
 	<message key="user.mailingAddress">Poštovní adresa</message>
-	<message key="user.masculine">M</message>
 	<message key="user.middleName">Druhé jméno</message>
 	<message key="user.myAccount">Můj účet</message>
 	<message key="user.name">Jméno</message>
-	<message key="user.other">Jiný</message>
 	<message key="user.password">Heslo</message>
 	<message key="user.phone">Telefon</message>
 	<message key="user.profile.changePasswordInstructions">Pro změnu hesla k Vašemu účtu vložte níže Vaše současné a nové heslo.</message>
@@ -154,4 +149,18 @@
 	<message key="user.profile.public">Veřejný</message>
 	<message key="user.role.layoutEditor">Editor sazby</message>
 	<message key="user.role.layoutEditors">Editoři sazby</message>
+	<message key="user.role.assistant">Asistent</message>
+	<message key="user.apiKey">API klíč</message>
+	<message key="user.apiKeyEnabled">Povolit externím aplikacím s API klíčem přístup k tomuto účtu.</message>
+	<message key="user.apiKey.generate">Vygenerovat nový API klíč</message>
+	<message key="user.apiKey.generateWarning">Vytvoření nového API klíče zneplatní původní API klíč tohoto uživatele.</message>
+	<message key="user.apiKey.secretRequired">Před vytvořením API klíče musí správce webu nastavit "tajemství"  ("api_key_secret") v konfiguračním souboru.</message>
+	<message key="user.authorization.assignedStageRoleBasedAccessDenied">Pro tento příspěvek nemáte přiřazenu roli, která by umožňovala přístup k této operaci.</message>
+	<message key="user.authorization.invalidReviewAssignment">Nemáte oprávnění přistupovat k přiřazení recenzních úloh.</message>
+	<message key="user.authorization.submissionQuery">Nemáte oprávnění přistupovat do této diskuse.</message>
+	<message key="user.gossip.description">Nahrajte poznámky o tomto recenzentovi, které chcete, aby viděli ostatní správci, manažeři a všichni redaktoři. Poznámky budou viditelné pro budoucí přiřazení recenzí.</message>
+	<message key="user.register.form.privacyConsent"><![CDATA[Ano, souhlasím s tím, že moje osobní údaje budou shromažďovány a ukládány podle <a href="{$privacyUrl}" target="_blank">Prohlášení o ochraně soukromí</a>.]]></message>
+	<message key="user.register.form.emailConsent">Ano, rád bych byl informován o nově publikovaných článcích a dostával oznámení časopisu.</message>
+	<message key="user.privacyLink"><![CDATA[Vaše data jsou ukládána v souladu s naším <a href="{$privacyUrl}" target="_blank">prohlášením o ochraně soukromí</a>.]]></message>
+	<message key="user.profile.form.privacyConsentRequired">Musíte souhlasit s naším prohlášení o ochraně soukromí.</message>
 </locale>

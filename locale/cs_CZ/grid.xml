@@ -18,7 +18,7 @@
 	<message key="grid.noItems">Žádné položky</message>
 	<message key="grid.settings">Nastavení</message>
 
-	<message key="grid.action.sort">Sort</message>
+	<message key="grid.action.sort">Třídit</message>
 	<message key="grid.action.addItem">Přidat položku</message>
 	<message key="grid.action.delete">Smazat</message>
 	<message key="grid.action.edit">Upravit</message>
@@ -41,13 +41,12 @@
 
 	<!-- Book File Types Grid -->
 	<!-- Artwork Files Grid -->
-	<message key="grid.artworkFile.form.metadata">Metadata ke grafickému dílu</message>
 	<message key="grid.artworkFile.caption">Titulek</message>
 	<message key="grid.artworkFile.credit">Autor</message>
 	<message key="grid.artworkFile.copyrightOwner">Vlastník autorských práv</message>
 	<message key="grid.artworkFile.copyrightContact">Kontaktní informace (nejedná-li se o autora nebo vydavatele)</message>
 	<message key="grid.artworkFile.permissionTerms">Podmínky oprávnění k užití díla</message>
-	<message key="grid.artworkFile.placement">Umístění v knize</message>
+	<message key="grid.artworkFile.placement">Umístění v příspěvku</message>
 	<!-- Library Files -->
 	<message key="grid.libraryFiles.column.files">Soubory</message>
 	<message key="grid.libraryFiles.submission.title">Knihovna příspěvků</message>
@@ -62,7 +61,7 @@
 
 	<!-- Submission Contributors -->
 	<message key="author.users.contributor.name">Název</message>
-	<message key="author.users.contributor.email">E-mail</message>
+	<message key="author.users.contributor.email">Email</message>
 	<message key="author.users.contributor.role">Role</message>
 	<message key="author.users.contributor.principalContact">Hlavní kontakt</message>
 
@@ -79,8 +78,8 @@
 	<message key="grid.action.unassignReviewer">Odebrat recenzenta</message>
 	<message key="grid.action.reload">Znovu nahrát</message>
 	<message key="grid.action.deleteFile">Smazat soubor</message>
-	<message key="grid.action.deleteMedia">Smazat média</message>
-	<message key="grid.action.editMedia">Editovat média</message>
+	<message key="grid.action.deleteMedia">Smazat soubor médií</message>
+	<message key="grid.action.editMedia">Editovat soubor médií</message>
 	<message key="grid.action.editSection">Editovat sekci</message>
 	<message key="grid.action.export">Export</message>
 	<message key="grid.action.deleteSection">Smazat sekci</message>
@@ -93,7 +92,7 @@
 	<message key="grid.action.moreInformation">Více informací</message>
 	<message key="grid.action.restoreDefaults.confirm">Přejete si nastavit původní hodnoty?</message>
 	<message key="grid.action.addAuthor">Přidat autora</message>
-	<message key="grid.action.editAuthor">Editovat autora</message>
+	<message key="grid.action.editAuthor">Upravit údaje autora</message>
 	<message key="grid.action.deleteAuthor">Smazat autora</message>
 	<message key="grid.action.addAuditor">Přidat posuzovatele</message>
 	<message key="grid.action.upgrade">Upgrade</message>
@@ -119,7 +118,7 @@
 	<message key="grid.action.sendToProduction">Odeslat tento příspěvek do produkce</message>
 	<message key="grid.action.settings">Nastavení</message>
 	<message key="grid.action.importexport">Importovat nebo exportovat obsah nebo data stránek</message>
-	<message key="grid.action.orderItems">Zapnout m´ód řazení</message>
+	<message key="grid.action.orderItems">Zapnout mód řazení</message>
 	<message key="grid.action.editSubmissionChecklist">Upravit tuto položku kontrolního seznamu</message>
 	<message key="grid.action.deleteSubmissionChecklist">Smazat tuto položku kontrolního seznamu</message>
 	<message key="grid.action.resetAll">Vrátit všem položkám původní hodnotu</message>
@@ -156,7 +155,7 @@
 	<message key="grid.user.disableReason">Důvod zákazu uživatele</message>
 	<message key="grid.user.enableReason">Důvod povolení uživatele</message>
 	<message key="grid.user.error">Při správě tohoto uživatele došlo k chybě. Prosím, zkuste to znovu.</message>
-	<message key="grid.user.errorEmail">Při odesílání tohoto e-mailu došlo k chybě. Ujistěte se, že konfigurace e-mailového serveru funguje a/nebo se obraťte na správce systému.</message>
+	<message key="grid.user.errorEmail">Při odesílání tohoto emailu došlo k chybě. Ujistěte se, že konfigurace e-mailového serveru funguje a/nebo se obraťte na správce systému.</message>
 	<message key="grid.user.cannotAdminister">Nemáte dostatečná oprávnění k správě tohoto uživatele. Chcete-li spravovat uživatele, musíte být buď správcem webu, nebo spravovat všechny role, do kterých je tento uživatel zapsán.</message>
 	<message key="grid.user.authSource">Zdroj ověření</message>
 	<message key="grid.user.mustProvideName">Uveďte, prosím, napřed minimálně příjmení uživatele.</message>
@@ -182,12 +181,8 @@
 	<message key="grid.user.mergeUsers">Sloučit uživatele</message>
 	<message key="grid.user.mergeUsers.mergeUser">Sloučit uživatele</message>
 	<message key="grid.user.mergeUsers.mergeIntoUser">Sloučit do tohoto uživatele</message>
-	<message key="grid.user.mergeUsers.into.description">Nyní musíte vybrat uživatele, kterému chcete přiřadit autorství předchozího uživatele, přiřazení editací atd.</message>
-	<message key="grid.user.mergeUsers.from.description">Vyberte uživatele, který chcete sloučit do jiného uživatelského účtu (např. pokud má uživatel dva uživatelské účty). Účet vybraný jako první bude smazán a jeho příspěvky, přiřazení atd. budou přiděleny druhému účtu.</message>
 	<message key="grid.user.mergeUsers.allUsers">Všichni uživatelé s rolí</message>
-	<message key="grid.user.mergeUsers.mergeUserSelect.confirm">Opravdu chcete sloučit tohoto uživatele s jiným uživatelem? Na následující obrazovce vyberete dalšího uživatele.</message>
 	<message key="grid.user.mergeUsers.confirm">Opravdu chcete sloučit účet s uživatelským jménem "{$oldUsername}" do účtu s uživatelským jménem "{$newUsername}"? Účet s uživatelským jménem "{$oldUsername}" bude definitivně smazán. Tuto akci nelze vrátit.</message>
-	<message key="grid.user.mergeUsers.noneEnrolled">Neexistují uživatelé s touto rolí.</message>
 	<message key="grid.preparedEmails.title">Připravené šablony emailů</message>
 	<message key="grid.preparedEmails.currentList">Současný seznam</message>
 	<message key="grid.plugin.allCategories">Všechny kategorie</message>
@@ -247,8 +242,14 @@
 	<message key="grid.userGroup.cantRemoveDefaultUserGroup">Role {$userGroupName} je základní a nemůže být odebrána.</message>
 	<message key="grid.userGroup.cantRemoveUserGroup">Nelze odebrat roli  {$userGroupName}. Počet uživatelů, kteří ji mají v současnosti přiřazeno je:  {$usersCount}.</message>
 	<message key="grid.userGroup.removed">Role {$userGroupName} byla odebrána.</message>
-	<message key="grid.userGroup.assignedStage">Role {$userGroupName} byla přiřazena etapě {$stageName}.</message>
+	<message key="grid.userGroup.assignedStage">Role {$userGroupName} byla přiřazena k etapě {$stageName}.</message>
 	<message key="grid.userGroup.unassignedStage">Role {$userGroupName} byla odebrána z etapy {$stageName}.</message>
 	<message key="grid.submission.itemTitle">Autor; Název</message>
 	<message key="grid.submission.active.selectOrphaned">Zahrnout i nedokončené příspěvky, jejichž podávání nebylo tímto autorem ukončeno.</message>
+	<message key="grid.action.addNavigationMenu">Přidat menu</message>
+	<message key="grid.action.addNavigationMenuItem">Přidat položku</message>
+	<message key="grid.navigationMenus.navigationMenuItems.noneExist">Navigační menu nemá položky</message>
+	<message key="grid.navigationMenus.navigationMenu.noneExist">Nejsou žádná navigační menu</message>
+	<message key="grid.action.uninstall">Odinstalování</message>
+	<message key="grid.navigationMenus.navigationMenu.selectType">Vyberte typ...</message>
 </locale>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * lib/pkp/plugins/generic/acron/locale/uk_UA/locale.xml
+  *
+  * Copyright (c) 2013-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Ukrainian_(uk_UA)
+  * Localization strings for the uk_UA (Українська) locale.
+  *
+  -->
+ 
+<locale name="uk_UA" full_name="Українська">
+	<message key="plugins.generic.acron.name">Модуль "Acron"</message>
+	<message key="plugins.generic.acron.description">Намагається зменшити залежність програми від інструментів періодичного запуску за розкладом, таких як 'cron'.</message>
+	<message key="plugins.generic.acron.enabled">Модуль "Acron" був увімкнений.</message>
+	<message key="plugins.generic.acron.disabled">Модуль "Acron" був вимкнений</message>
+	<message key="plugins.generic.acron.reloadedCronTab">Таблиця Cron вдало перезавантажена.</message>
+
+	<message key="plugins.generic.acron.reload">Перезавантажити заплановані завдання</message>
+	<message key="plugins.generic.acron.tasksReloaded">Заплановані завдання були перезавантажені.</message>
+</locale>

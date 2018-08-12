@@ -32,10 +32,14 @@
 	<message key="user.dateRegistered">Fecha de registro</message>
 	<message key="user.editMyProfile">Editar mi perfil</message>
 	<message key="user.email">Correo electrónico</message>
+	<message key="user.firstName">Nombre</message>
+	<message key="user.initialsExample">Juan Anselmo Seguí = JAS</message>
+	<message key="user.initials">Iniciales</message>
 	<message key="user.interests">Intereses de revisión</message>
 	<message key="user.interests.description">(Para separar los intereses pulse la tecla Intro o de coma)</message>
 	<message key="user.gossip">Notas privadas</message>
 	<message key="user.group">Grupo de usuarios/as</message>
+	<message key="user.lastName">Apellidos</message>
 	<message key="user.login.activated">Gracias por activar su cuenta. Ahora puede iniciar sesión con las credenciales que proporcionó al crear la cuenta.</message>
 	<message key="user.profile.form.profileImageInvalid">La imagen del perfil no tiene un formato válido o es demasiado grande. Se aceptan los siguientes formatos: .gif, .jpg y .png. Además, la imagen no puede exceder los 150x150 píxeles.</message>
 	<message key="user.login.accountDisabledWithReason">Se ha deshabilitado su cuenta por el siguiente motivo: {$reason}</message>
@@ -57,6 +61,7 @@
 	<message key="user.logOutAs">Cerrar sesión como</message>
 	<message key="user.hello">Hola: </message>
 	<message key="user.mailingAddress">Dirección postal</message>
+	<message key="user.middleName">Segundo Nombre</message>
 	<message key="user.myAccount">Mi cuenta</message>
 	<message key="user.name">Nombre</message>
 	<message key="user.password">Contraseña</message>
@@ -67,6 +72,8 @@
 	<message key="user.profile.form.countryRequired">Introduzca un país.</message>
 	<message key="user.profile.form.emailRequired">Es necesaria una dirección de correo-e válida.</message>
 	<message key="user.profile.form.affiliationRequired">Se requiere afiliación.</message>
+	<message key="user.profile.form.firstNameRequired">Es necesario el nombre.</message>
+	<message key="user.profile.form.lastNameRequired">Es necesario el apellido.</message>
 	<message key="user.profile.form.mailingAddressRequired">Introduzca una dirección postal.</message>
 	<message key="user.profile.form.newPasswordRequired">Debes introducir tu nueva contraseña.</message>
 	<message key="user.profile.form.oldPasswordInvalid">La contraseña actual que has introducido no es correcta.</message>
@@ -78,12 +85,12 @@
 	<message key="user.profile.form.urlInvalid">La URL especificada no es válida. Compruebe la URL e inténtelo de nuevo. (Sugerencia: añada http:// al principio de la URL.)</message>
 	<message key="user.profile.form.usergroupRequired">Introduzca un grupo de usuarios/as.</message>
 	<message key="user.profile.form.usernameRequired">Es necesario el nombre de usuario.</message>
-	<message key="user.profile.leavePasswordBlank">Deja el campo de contraseña en blanco para mantener la contraseña actual.</message>
+	<message key="user.profile.leavePasswordBlank">Deje el campo de contraseña en blanco para mantener la contraseña actual.</message>
 	<message key="user.profile.newPassword">Nueva contraseña</message>
 	<message key="user.profile.oldPassword">Contraseña actual</message>
 	<message key="user.profile">Perfil</message>
 	<message key="user.profile.publicProfile">Perfil de usuario/a</message>
-	<message key="user.profile.repeatNewPassword">Repite nueva contraseña</message>
+	<message key="user.profile.repeatNewPassword">Repita la nueva contraseña</message>
 	<!-- Login -->
 	<message key="user.login.registerNewAccount">¿No es usuario/a? Regístrese en el sitio</message>
 	<message key="user.login.resetPasswordInstructions"><![CDATA[Por razones de seguridad, el sistema envía un correo electrónico con la nueva contraseña a los usuarios/as registrados, en vez de recordar la contraseña actual.<br /><br />Introduzca su dirección de correo electrónico a continuación para restablecer la contraseña. Se le enviará una confirmación a su dirección de correo electrónico.]]></message>
@@ -92,38 +99,38 @@
 	<message key="user.register.form.passwordsDoNotMatch">Las contraseñas no coinciden.</message>
 	<message key="user.register.form.emailsDoNotMatch">Los campos de correo electrónico no coinciden.</message>
 	<message key="user.register.form.usernameExists">El nombre de usuario seleccionado ya está siendo utilizado por otro usuario.</message>
-	<message key="user.register.passwordLengthRestriction">La contraseña debe tener al menos {$length} caracteres.</message>
 	<message key="user.register.registerAs">Registrarse en {$contextName} como...</message>
 	<message key="user.register">Registrarse</message>
 	<message key="user.register.usernameRestriction">El nombre de usuario debe contener sólo letras en minúscula, números, y guiones/guiones bajos.</message>
 	<message key="user.role.assistant">Ayudante de producción</message>
-	<message key="user.role.author">Autor</message>
+	<message key="user.role.author">Autor/a</message>
 	<message key="user.role.author_s">Autor/a(es/as)</message>
-	<message key="user.role.authors">Autores</message>
+	<message key="user.role.authors">Autores/as</message>
 	<message key="user.role.editor">Editor/a</message>
-	<message key="user.role.editors">Editores</message>
+	<message key="user.role.editors">Editores/as</message>
 	<message key="user.role.reader">Lector/a</message>
 	<message key="user.role.readers">Lectores/as</message>
 	<message key="user.role.reviewer">Revisor/a</message>
 	<message key="user.role.reviewers">Revisores/as</message>
 	<message key="user.role.siteAdmin">Administrador/a</message>
 	<message key="user.role.siteAdmins">Administradoras/es</message>
-	<message key="user.role.copyeditor">Corrector de estilo</message>
-	<message key="user.role.copyeditors">Correctores de estilo</message>
-	<message key="user.role.proofreader">Corrector de pruebas</message>
-	<message key="user.role.proofreaders">Correctores de pruebas</message>
-	<message key="user.role.layoutEditor">Maquetador</message>
-	<message key="user.role.layoutEditors">Maquetadores</message>
+	<message key="user.role.copyeditor">Corrector/a de estilo</message>
+	<message key="user.role.copyeditors">Correctores/as de estilo</message>
+	<message key="user.role.proofreader">Corrector/a de pruebas</message>
+	<message key="user.role.proofreaders">Correctores/as de pruebas</message>
+	<message key="user.role.layoutEditor">Maquetador/a</message>
+	<message key="user.role.layoutEditors">Maquetadores/as</message>
 	<message key="user.roles">Tareas</message>
+	<message key="user.salutation">Tratamiento</message>
 	<message key="user.sendPassword">Confirmación</message>
 	<message key="user.sendPassword.description">Enviar un mensaje de confirmación incluyendo mi nombre de usuario y contraseña.</message>
 	<message key="user.signature">Firma</message>
+	<message key="user.suffix">Sufijo</message>
 	<message key="user.title">Título</message>
 	<message key="user.url">URL</message>
 	<message key="user.userHome">Inicio</message>
 	<message key="user.username">Nombre usuario</message>
 	<message key="user.workingLanguages">Idiomas de trabajo</message>
-	<message key="user.register.completeForm">Rellena este formulario para registrarte en la página.</message>
 	<message key="user.authorization.accessibleWorkflowStage">Actualmente no tiene acceso a esta fase del proceso de trabajo.</message>
 	<message key="user.authorization.workflowStageRequired">No se ha especificado ninguna fase del proceso de trabajo.</message>
 	<message key="user.authorization.pluginRequired">Debe especificar un conector.</message>
@@ -148,5 +155,13 @@
 	<message key="user.apiKey.generate">Generar una nueva llave API</message>
 	<message key="user.apiKey.generateWarning">Generando una nueva llave API va a invalidar cualquier otra llave existente de este usuario.</message>
 	<message key="user.apiKey.secretRequired">Antes de generar una llave API, el administrador del sitio web ha de definir un secreto en el archivo de configuración ("api_key_secret").</message>
+	<message key="user.authorization.assignedStageRoleBasedAccessDenied">El rol que tiene asignado para este envío no le permite acceder a esta operación.</message>
+	<message key="user.authorization.invalidReviewAssignment">No tiene permiso para acceder a esta asignación de revisión.</message>
+	<message key="user.authorization.submissionQuery">No tiene permiso para acceder a esta discusión.</message>
+	<message key="user.gossip.description">Registre las notas sobre este revisor/a que quiere que sean visibles para otros administradores/as, gestores/as y editores/as. Dichas notas estarán disponibles para futuras asignaciones de revisión.</message>
+	<message key="user.profile.form.privacyConsentRequired">Debe aceptar los términos de la declaración de privacidad.</message>
+	<message key="user.register.form.privacyConsent"><![CDATA[Sí, consiento que mis datos se recopilen y se almacenen de acuerdo con la <a href="{$privacyUrl}" target="_blank">declaración de políticas</a>.]]></message>
+	<message key="user.register.form.emailConsent">Sí, deseo que me notifiquen acerca de nuevas publicaciones y avisos.</message>
+	<message key="user.privacyLink"><![CDATA[Sus datos se han almacenado de acuerdo con nuestra <a href="{$privacyUrl}" target="_blank">declaración de privacidad</a>.]]></message>
 </locale>
 

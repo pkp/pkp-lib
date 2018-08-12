@@ -22,7 +22,7 @@ export FILESDIR=files
 export DATABASEDUMP=~/database.sql.gz
 
 # Install required software
-sudo apt-get install -q a2ps libbiblio-citation-parser-perl libhtml-parser-perl sharutils
+sudo apt-get install -q a2ps libbiblio-citation-parser-perl libhtml-parser-perl
 
 # Generate sample files to use for testing.
 echo "This is a test" | a2ps -o - | ps2pdf - ${DUMMY_PDF} # PDF format

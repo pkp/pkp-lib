@@ -155,6 +155,13 @@ class ReviewFormElementsGridHandler extends GridHandler {
 	}
 
 	/**
+	 * @copydoc GridHandler::getDataElementSequence()
+	 */
+	function getDataElementSequence($gridDataElement) {
+		return $gridDataElement->getSequence();
+	}
+
+	/**
 	 * @copydoc GridHandler::setDataElementSequence()
 	 */
 	function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence) {

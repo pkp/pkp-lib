@@ -13,10 +13,11 @@
  *   $revisedFileId: A pre-selected file to be revised (optional).
  *}
 
+{assign var=uploadWizardId value="fileUploadWizard"|uniqid}
 <script type="text/javascript">
 	// Attach the JS file upload wizard handler.
 	$(function() {ldelim}
-		$('#fileUploadWizard').pkpHandler(
+		$('#{$uploadWizardId}').pkpHandler(
 			'$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler',
 			{ldelim}
 				csrfToken: {csrf type=json},
@@ -31,7 +32,7 @@
 	{rdelim});
 </script>
 
-<div id="fileUploadWizard">
+<div id="{$uploadWizardId}">
 	<ul>
 		<li><a href="{url op="displayFileUploadForm" submissionId=$submissionId stageId=$stageId uploaderRoles=$uploaderRoles fileStage=$fileStage revisionOnly=$revisionOnly reviewRoundId=$reviewRoundId revisedFileId=$revisedFileId assocType=$assocType assocId=$assocId dependentFilesOnly=$dependentFilesOnly}">{translate key="submission.submit.uploadStep"}</a></li>
 		<li><a href="metadata">{translate key="submission.submit.metadataStep"}</a></li>

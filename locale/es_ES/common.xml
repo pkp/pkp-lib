@@ -372,7 +372,7 @@
 	<message key="notification.editedAuthor">Autor/a editado.</message>
 	<message key="notification.confirmError">Se ha producido un error al confirmar su suscripción.</message>
 	<message key="notification.confirmSuccess">Ha sido correctamente suscrito.</message>
-	<message key="notification.email">No enviarme un email para ese tipo de notificaciones.</message>
+	<message key="notification.email">No enviarme un correo electrónico para ese tipo de notificaciones.</message>
 	<message key="notification.noneExist">No tiene notificaciones en este momento.</message>
 	<message key="notification.addedNote">Nota publicada.</message>
 	<message key="notification.removedNote">Nota eliminada.</message>

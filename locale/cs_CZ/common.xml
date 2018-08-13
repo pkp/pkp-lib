@@ -20,7 +20,7 @@
 	<message key="about.contact.email">Email</message>
 	<message key="about.contact.phone">Telefon</message>
 	<message key="about.contact.principalContact">Hlavní kontakt</message>
-	<message key="about.contact.supportContact">Podpůrný kontakt</message>
+	<message key="about.contact.supportContact">Technický kontakt</message>
 	<message key="about.other">Jiné</message>
 	<message key="about.people">Lidé</message>
 	<message key="about.policies">Pravidla</message>
@@ -83,7 +83,7 @@
 	<message key="common.delete">Smazat</message>
 	<message key="common.deleteSelection">Smazat výběr</message>
 	<message key="common.description">Popis</message>
-	<message key="common.disabled">Nepovoleno</message>
+	<message key="common.disabled">Zakázáno</message>
 	<message key="common.discipline">Disciplína</message>
 	<message key="common.done">Hotovo</message>
 	<message key="common.download">Stáhnout</message>
@@ -100,7 +100,7 @@
 	<message key="common.fileName">Jméno souboru</message>
 	<message key="common.fileSize">Velikost souboru</message>
 	<message key="common.fileType">Typ souboru</message>
-	<message key="common.file.namingPattern">{$username}, {$originalFilename}</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
 	<message key="common.file.anonymousNamingPattern">{$genre}, {$originalFilename}</message>
 	<message key="common.height">Výška</message>
 	<message key="common.homePageHeaderLogo.altText">Logo záhlaví domácí stránky</message>
@@ -126,8 +126,8 @@
 	<message key="common.notAvailable">Nedostupný</message>
 	<message key="common.note">Poznámka</message>
 	<message key="common.notes">Poznámky</message>
-	<message key="common.off">Off</message>
-	<message key="common.on">On</message>
+	<message key="common.off">Vypnuto</message>
+	<message key="common.on">Zapnuto</message>
 	<message key="common.ok">OK</message>
 	<message key="common.options">Možnosti</message>
 	<message key="common.order">Seřadit</message>
@@ -239,7 +239,7 @@
 	<message key="navigation.about">Podrobnosti</message>
 	<message key="navigation.browse">Prohlížet</message>
 	<message key="navigation.browseByTitle">Podle názvu</message>
-	<message key="navigation.dashboard">Navigační lišta</message>
+	<message key="navigation.dashboard">Ovládací panel</message>
 	<message key="navigation.home">Domů</message>
 	<message key="navigation.infoForReaders">Pro čtenáře</message>
 	<message key="navigation.infoForReaders.long">Informace pro čtenáře</message>
@@ -257,6 +257,7 @@
 	<message key="notification.allow">Povolit, aby se tento typ události zobrazoval v mém seznamu oznámení.</message>
 	<message key="notification.confirmError">Vyskytla se chyba při potvrzování vašeho přihlášení.</message>
 	<message key="notification.confirmSuccess">Byl jste úspěšně přihlášen.</message>
+	<message key="notification.email">Posílejte mi email s těmito typy oznámení.</message>
 	<message key="notification.noneExist">Aktuálně nemáte žádná oznámení.</message>
 	<message key="notification.notification">Oznámení</message>
 	<message key="notification.notifications">Oznámení</message>
@@ -272,7 +273,7 @@
 	<message key="search.dateTo">Do</message>
 	<message key="search.discipline">Disciplína(y)</message>
 	<message key="search.fullText">Plný text</message>
-	<message key="search.indexTerms">Termíny indexu</message>
+	<message key="search.indexTerms">Výrazy indexu</message>
 	<message key="search.matchAll">Zahrnout všechny kategorie</message>
 	<message key="search.noKeywordError">Musíte vložit alespoň jedno slovo pro vyhledávání.</message>
 	<message key="search.noResults">Žádné výsledky</message>
@@ -289,7 +290,7 @@
 	<message key="common.activate">Aktivovat</message>
 	<message key="common.deactivate">Deaktivovat</message>
 	<message key="common.publicKnowledgeProject">Project "Public Knowledge Project"</message>
-	<message key="common.currentStyleSheet">Současný styl</message>
+	<message key="common.currentStyleSheet">Aktuální šablona stylu</message>
 	<message key="about.description">Popis</message>
 	<message key="about.guidelines">Průvodci</message>
 	<message key="announcement.postedOn">Odesláno dne {$postDate}</message>
@@ -321,7 +322,7 @@
 	<message key="common.captcha.error.missing-input-secret">Nastavení ověření captcha na těchto stránkách není správné. Chybí tajný klíč.</message>
 	<message key="common.captcha.error.invalid-input-secret">Nastavení ověření captcha na těchto stránkách není správné. Tajný klíč je chybný.</message>
 	<message key="common.captcha.error.missing-input-response">Musíte dokončit ověření platnosti používané pro zabránění spamových příspěvků.</message>
-	<message key="common.captcha.error.invalid-input-response">Neprošli jste ověření platnosti používaným pro prevenci spamových příspěvků.</message>
+	<message key="common.captcha.error.invalid-input-response">Neprošli jste ověřením používaným pro prevenci spamových příspěvků.</message>
 	<message key="common.closePanel">Zavřít panel</message>
 	<message key="common.completed.date">Ukončeno: {$dateCompleted}</message>
 	<message key="common.confirm">Potvrdit</message>
@@ -344,8 +345,6 @@
 	<message key="common.itemsPerPage">Položek na stránku</message>
 	<message key="common.favicon.altText">Favicon</message>
 	<message key="common.less">Méně</message>
-	<message key="common.commaListSeparator">, </message>
-	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.billingAddress">Fakturační adresa (pokud se liší)</message>
 	<message key="common.more">Více</message>
 	<message key="common.name">Jméno</message>
@@ -414,9 +413,7 @@
 	<message key="informationCenter.editorialHistory">Publikační historie</message>
 	<message key="informationCenter.addNote">Přidat poznámku</message>
 	<message key="informationCenter.noNotes">Nejsou žádné poznámky k zobrazení.</message>
-	<message key="informationCenter.currentNotes">Aktuální poznámky k revizi</message>
 	<message key="informationCenter.pastNotes">Dřívější poznámky k revizi</message>
-	<message key="informationCenter.lastUpdated">Naposled aktualizováno</message>
 	<message key="informationCenter.deleteConfirm">Jste si jisti, že chcete smazat tuto poznámku?</message>
 	<message key="informationCenter.currentHistory">Aktuální revize</message>
 	<message key="informationCenter.pastHistory">Dřívější revize</message>
@@ -444,7 +441,7 @@
 	<message key="navigation.skip.main">Přeskočit na hlavní obsah</message>
 	<message key="navigation.skip.nav">Přeskočit na hlavní navigační menu</message>
 	<message key="navigation.skip.footer">Přeskočit na patičku stránky</message>
-	<message key="navigation.submissions">Podání</message>
+	<message key="navigation.submissions">Příspěvky</message>
 	<message key="navigation.system">Systém</message>
 	<message key="navigation.userManagement">Správa uživatelů</message>
 	<message key="navigation.viewFrontend">Zobrazit stránky</message>
@@ -484,7 +481,7 @@
 	<message key="reviewer.submission.reviewDueDate">Termín pro recenzi</message>
 	<message key="submission.task.responseDueDate">Termín pro odpověď</message>
 	<message key="navigation.goBack">Jít zpět</message>
-	<message key="notification.addedReviewer">Recenzent přidán.</message>
+	<message key="notification.addedReviewer">{$reviewerName} byl přiřazen k recenzi tohoto příspěvku a bylo mu odesláno upozornění emailem.</message>
 	<message key="notification.removedReviewer">Recenzent odebrán.</message>
 	<message key="notification.addedStageParticipant">Uživatel přidán jako účastník této fáze.</message>
 	<message key="notification.type.newAnnouncement">Nové oznámení.</message>
@@ -496,14 +493,14 @@
 	<message key="notification.type.pendingRevisions.title">Ve fázi {$stage} byla nahrána recenze.</message>
 	<message key="notification.type.metadataModified">Metadata příspěvku "{$title}" byla upravena.</message>
 	<message key="notification.type.reviewerComment">Recenzent okomentoval článek "{$title}".</message>
-	<message key="notification.signedFile">Soubor byl uvážen.</message>
+	<message key="notification.signedFile">Soubor byl zvážen.</message>
 	<message key="user.authorization.submissionFile">Aktuální uživatel nemá oprávnění k přístupu k danému nahranému souboru.</message>
 	<message key="user.authorization.invalidSubmission">Neplatný příspěvek.</message>
 	<message key="user.authorization.invalidRepresentation">Neplatné zobrazení.</message>
 	<message key="navigation.archives">Archivy</message>
 	<message key="user.authorization.authorRoleMissing">Momentálně nemáte dostatečná oprávnění k zobrazení příspěvku. Upravte svůj profil a ujistěte se, že vám byly uděleny příslušné role v části "Registrovat jako".</message>
 	<message key="user.authorization.submissionAuthor">Současný uživatel není autorem požadovaného podání. Ověřte, zda jste přihlášeni správným uživatelským účtem.</message>
-	<message key="notification.type.queryActivity">Diskusní činnost</message>
+	<message key="notification.type.queryActivity">Průběh diskuse</message>
 	<message key="notification.type.queryAdded">Přidána diskuse.</message>
 	<message key="notification.type.assignCopyeditors">Přiřaďte editora použitím odkazu "Přidat" v seznamu účastníků.</message>
 	<message key="notification.type.awaitingCopyedits">Čeká se na redakci.</message>
@@ -515,4 +512,34 @@
 </ Ul>]]></message>
 
 	<message key="semicolon">{$label}:</message>
+	<message key="common.deleting">Mazání</message>
+	<message key="common.from">Od</message>
+	<message key="common.until">Do</message>
+	<message key="common.saving">Ukládání</message>
+	<message key="stageParticipants.options">Práva přiřazení</message>
+	<message key="stageParticipants.recommendOnly">Tento účastník může pouze doporučit redakční rozhodnutí a bude vyžadovat, aby oprávněný redaktor toto rozhodnutí potvrdil.</message>
+	<message key="notification.reviewerThankedEmail">Děkovný mail odeslaný recenzentovi.</message>
+	<message key="notification.addedReviewerNoEmail">{$reviewerName} byl přiřazen k recenzi tohoto příspěvku ale nebylo mu odesláno upozornění emailem.</message>
+	<message key="notification.editedNavigationMenuItem">Navigační menu bylo úspěšně aktualizováno</message>
+	<message key="notification.removedNavigationMenuItem">Položka navigačního menu byla úspěšně odebrána</message>
+	<message key="notification.addedNavigationMenuItem">Položka navigačního menu byla úspěšně přidána</message>
+	<message key="notification.addedNavigationMenu">Navigační menu bylo úspěšně přidáno</message>
+	<message key="notification.editedNavigationMenu">Navigační menu bylo úspěšně aktualizováno</message>
+	<message key="notification.removedNavigationMenu">Navigační menu bylo úspěšně odebráno</message>
+	<message key="notification.sendNotificationConfirmation">Odeslání emailu s upozorněním všem zaregistrovaným uživatelům</message>
+	<message key="common.filter">Filtry</message>
+	<message key="common.filterAdd">Přidat filtr: {$filterTitle}</message>
+	<message key="common.filterRemove">Odebrat filtr: {$filterTitle}</message>
+	<message key="common.lessThan">{$value} nebo méně</message>
+	<message key="common.listSeparator">,</message>
+	<message key="common.moreThan">{$value} nebo více</message>
+	<message key="list.viewMore">Ukázat podrobnosti o {$name}</message>
+	<message key="list.viewLess">Skrýt podrobnosti o {$name}</message>
+	<message key="stageParticipants.notify.startDiscussion">Začít diskusi</message>
+	<message key="stageParticipants.notify.startDiscussion.description">Začít diskusi mezi vámi a {$userFullName}.</message>
+	<message key="notification.type.reviewAssignmentUpdated">Bylo aktualizováno přiřazení recenze.</message>
+	<message key="common.pagination">{$start}-{$end} z {$total}</message>
+	<message key="common.pagination.label">Procházet další stránky</message>
+	<message key="common.clearSearch">Smazat hledaný výraz</message>
+	<message key="common.publicAccess">Veřejný přístup</message>
 </locale>

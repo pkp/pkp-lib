@@ -220,7 +220,7 @@ class ReviewerForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$context = $request->getContext();
 
 		// Get the review method options.
@@ -265,9 +265,9 @@ class ReviewerForm extends Form {
 		}
 
 		foreach ($templateKeys as $templateKey) {
-			$template = new SubmissionMailTemplate($submission, $templateKey, null, null, null, false);
-			$template->assignParams(array());
-			$templates[$templateKey] = $template->getSubject();
+			$thisTemplate = new SubmissionMailTemplate($submission, $templateKey, null, null, null, false);
+			$thisTemplate->assignParams(array());
+			$templates[$templateKey] = $thisTemplate->getSubject();
 		}
 
 		$templateMgr->assign('templates', $templates);
@@ -283,7 +283,7 @@ class ReviewerForm extends Form {
 		}
 
 		$this->setData('userGroups', $userGroups);
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

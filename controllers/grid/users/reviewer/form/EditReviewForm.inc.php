@@ -58,10 +58,9 @@ class EditReviewForm extends Form {
 
 	/**
 	 * Fetch the Edit Review Form form
-	 * @param $request PKPRequest
 	 * @see Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
 		$context = $request->getContext();
@@ -87,7 +86,7 @@ class EditReviewForm extends Form {
 			'reviewMethod' => $this->_reviewAssignment->getReviewMethod(),
 			'reviewMethods' => $reviewAssignmentDao->getReviewMethodsTranslationKeys(),
 		));
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

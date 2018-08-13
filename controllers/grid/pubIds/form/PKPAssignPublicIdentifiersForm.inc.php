@@ -60,7 +60,7 @@ class PKPAssignPublicIdentifiersForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $this->getContextId());
 		$templateMgr->assign(array(
@@ -69,7 +69,7 @@ class PKPAssignPublicIdentifiersForm extends Form {
 			'approval' => $this->getApproval(),
 			'confirmationText' => $this->getConfirmationText(),
 		));
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 

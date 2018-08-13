@@ -50,14 +50,13 @@ class CreateReviewerForm extends ReviewerForm {
 
 
 	/**
-	 * Fetch the form.
-	 * @see Form::fetch()
+	 * @copydoc ReviewerForm::fetch
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$advancedSearchAction = $this->getAdvancedSearchAction($request);
 
 		$this->setReviewerFormAction($advancedSearchAction);
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

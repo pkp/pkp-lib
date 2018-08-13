@@ -113,11 +113,9 @@ class PublicProfileForm extends BaseProfileForm {
 	}
 
 	/**
-	 * Fetch the form.
-	 * @param $request PKPRequest
-	 * @return string JSON-encoded form contents.
+	 * @copydoc BaseProfileForm::fetch
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 
 		$publicFileManager = new PublicFileManager();
@@ -128,7 +126,7 @@ class PublicProfileForm extends BaseProfileForm {
 			'publicSiteFilesPath' => $publicFileManager->getSiteFilesPath(),
 		));
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

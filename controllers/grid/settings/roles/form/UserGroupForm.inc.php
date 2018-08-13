@@ -120,7 +120,7 @@ class UserGroupForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 
 		$roleDao = DAORegistry::getDAO('RoleDAO');
@@ -133,7 +133,7 @@ class UserGroupForm extends Form {
 		$templateMgr->assign('selfRegistrationRoleIds', $this->getPermitSelfRegistrationRoles());
 		$templateMgr->assign('recommendOnlyRoleIds', $this->getRecommendOnlyRoles());
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

@@ -184,7 +184,7 @@ class ReviewFormElementsGridHandler extends GridHandler {
 		// Form handling
 		$reviewFormElementForm = new ReviewFormElementForm($this->reviewFormId);
 		$reviewFormElementForm->initData();
-		return new JSONMessage(true, $reviewFormElementForm->fetch($args, $request));
+		return new JSONMessage(true, $reviewFormElementForm->fetch($request));
 	}
 
 	/**
@@ -200,7 +200,7 @@ class ReviewFormElementsGridHandler extends GridHandler {
 		// Display form
 		$reviewFormElementForm = new ReviewFormElementForm($this->reviewFormId, $reviewFormElementId);
 		$reviewFormElementForm->initData();
-		return new JSONMessage(true, $reviewFormElementForm->fetch($args, $request));
+		return new JSONMessage(true, $reviewFormElementForm->fetch($request));
 	}
 
 	/**

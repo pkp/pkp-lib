@@ -59,16 +59,16 @@ class SubmissionStageForm extends ContextSettingsForm {
 	}
 
 	/**
-	 * @copydoc Form::fetch()
+	 * @copydoc ContextSettingsForm::fetch()
 	 */
-	function fetch($request, $params = null) {
+	function fetch($request, $template = null, $display = false, $params = null) {
 		$templateMgr = TemplateManager::getManager($request);
 
 		import('lib.pkp.classes.mail.MailTemplate');
 		$mail = new MailTemplate('SUBMISSION_ACK');
 		$templateMgr->assign('submissionAckDisabled', !$mail->isEnabled());
 
-		return parent::fetch($request, $params);
+		return parent::fetch($request, $template, $display, $params);
 	}
 }
 

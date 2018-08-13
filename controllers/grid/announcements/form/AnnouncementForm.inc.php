@@ -96,7 +96,7 @@ class AnnouncementForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = 'controllers/grid/announcements/form/announcementForm.tpl', $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('readOnly', $this->isReadOnly());
 		$templateMgr->assign('selectedTypeId', $this->getData('typeId'));
@@ -117,7 +117,7 @@ class AnnouncementForm extends Form {
 		}
 		$templateMgr->assign('announcementTypes', $announcementTypeOptions);
 
-		return parent::fetch($request, 'controllers/grid/announcements/form/announcementForm.tpl');
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

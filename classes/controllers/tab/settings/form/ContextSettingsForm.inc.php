@@ -99,10 +99,9 @@ class ContextSettingsForm extends Form {
 
 	/**
 	 * @see Form::fetch()
-	 * @param $request PKPRequest
 	 * @param $params array optional
 	 */
-	function fetch($request, $params = null) {
+	function fetch($request, $template = null, $display = false, $params = null) {
 		$templateMgr = TemplateManager::getManager($request);
 
 		// Insert the wizardMode parameter in params array to pass to template.
@@ -113,7 +112,7 @@ class ContextSettingsForm extends Form {
 			$templateMgr->assign($tplVar, $value);
 		}
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

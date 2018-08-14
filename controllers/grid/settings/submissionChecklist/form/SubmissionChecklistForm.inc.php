@@ -88,7 +88,8 @@ class SubmissionChecklistForm extends Form {
 	/**
 	 * Save checklist entry.
 	 */
-	function execute($args, $request) {
+	function execute() {
+		$request = Application::getRequest();
 		$router = $request->getRouter();
 		$context = $router->getContext($request);
 		$submissionChecklistAll = $context->getSetting('submissionChecklist');

@@ -323,7 +323,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 		$uploadPluginForm->readInputData();
 
 		if($uploadPluginForm->validate()) {
-			if($uploadPluginForm->execute($request)) {
+			if($uploadPluginForm->execute()) {
 				return DAO::getDataChangedEvent();
 			}
 		}

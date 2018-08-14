@@ -38,7 +38,9 @@ class NewReviewRoundForm extends EditorDecisionForm {
 	 * @copydoc Form::execute()
 	 * @return integer The new review round number
 	 */
-	function execute($args, $request) {
+	function execute() {
+		$request = Application::getRequest();
+
 		// Retrieve the submission.
 		$submission = $this->getSubmission();
 

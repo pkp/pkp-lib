@@ -106,7 +106,6 @@ class EditReviewForm extends Form {
 
 	/**
 	 * Save review assignment
-	 * @param $request PKPRequest
 	 */
 	function execute() {
 		$request = Application::getRequest();

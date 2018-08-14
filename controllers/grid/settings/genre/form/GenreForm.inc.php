@@ -118,11 +118,10 @@ class GenreForm extends Form {
 
 	/**
 	 * Save email template.
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function execute($args, $request) {
+	function execute() {
 		$genreDao = DAORegistry::getDAO('GenreDAO');
+		$request = Application::getRequest();
 		$context = $request->getContext();
 
 		// Update or insert genre

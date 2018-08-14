@@ -198,13 +198,12 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 	function saveFile($args, $request) {
 		$router = $request->getRouter();
 		$context = $request->getContext();
-		$user = $request->getUser();
 
 		$fileForm = $this->_getNewFileForm($context);
 		$fileForm->readInputData();
 
 		if ($fileForm->validate()) {
-			$fileId = $fileForm->execute($user->getId());
+			$fileId = $fileForm->execute();
 
 			// Let the calling grid reload itself
 			return DAO::getDataChangedEvent();

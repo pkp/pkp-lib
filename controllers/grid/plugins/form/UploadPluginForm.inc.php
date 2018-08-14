@@ -64,10 +64,11 @@ class UploadPluginForm extends Form {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute($request) {
-		parent::execute($request);
+	function execute() {
+		parent::execute();
 
 		// Retrieve the temporary file.
+		$request = Application::getRequest();
 		$user = $request->getUser();
 		$temporaryFileId = $this->getData('temporaryFileId');
 		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO');

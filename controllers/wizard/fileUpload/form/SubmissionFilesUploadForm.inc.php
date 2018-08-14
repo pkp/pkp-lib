@@ -125,10 +125,9 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm {
 	/**
 	 * Save the submission file upload form.
 	 * @see Form::execute()
-	 * @param $request Request
 	 * @return SubmissionFile if successful, otherwise null
 	 */
-	function execute($request) {
+	function execute() {
 		// Identify the file genre and category.
 		$revisedFileId = $this->getRevisedFileId();
 		if ($revisedFileId) {
@@ -140,6 +139,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm {
 		}
 
 		// Identify the uploading user.
+		$request = Application::getRequest();
 		$user = $request->getUser();
 		assert(is_a($user, 'User'));
 

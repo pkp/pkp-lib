@@ -80,9 +80,8 @@ class ContactForm extends BaseProfileForm {
 
 	/**
 	 * Save contact settings.
-	 * @param $request PKPRequest
 	 */
-	function execute($request) {
+	function execute() {
 		$user = $this->getUser();
 
 		$user->setCountry($this->getData('country'));
@@ -92,6 +91,7 @@ class ContactForm extends BaseProfileForm {
 		$user->setMailingAddress($this->getData('mailingAddress'));
 		$user->setAffiliation($this->getData('affiliation'), null); // Localized
 
+		$request = Application::getRequest();
 		$site = $request->getSite();
 		$availableLocales = $site->getSupportedLocales();
 		$locales = array();
@@ -102,7 +102,7 @@ class ContactForm extends BaseProfileForm {
 		}
 		$user->setLocales($locales);
 
-		parent::execute($request, $user);
+		parent::execute();
 	}
 }
 

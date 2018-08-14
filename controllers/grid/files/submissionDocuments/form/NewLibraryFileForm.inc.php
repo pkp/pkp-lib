@@ -50,10 +50,11 @@ class NewLibraryFileForm extends LibraryFileForm {
 
 	/**
 	 * Save the new library file.
-	 * @param $userId int The current user ID (for validation purposes).
 	 * @return $fileId int The new library file id.
 	 */
-	function execute($userId) {
+	function execute() {
+		$userId = Application::getRequest()->getUser()->getId();
+
 		// Fetch the temporary file storing the uploaded library file
 		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO');
 		$temporaryFile = $temporaryFileDao->getTemporaryFile(

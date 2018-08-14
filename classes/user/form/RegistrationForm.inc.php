@@ -154,10 +154,9 @@ class RegistrationForm extends Form {
 
 	/**
 	 * Register a new user.
-	 * @param $request PKPRequest
 	 * @return int|null User ID, or false on failure
 	 */
-	function execute($request) {
+	function execute() {
 		$requireValidation = Config::getVar('email', 'require_validation');
 		$userDao = DAORegistry::getDAO('UserDAO');
 
@@ -168,6 +167,7 @@ class RegistrationForm extends Form {
 
 		// The multilingual user data (givenName, familyName and affiliation) will be saved
 		// in the current UI locale and copied in the site's primary locale too
+		$request = Application::getRequest();
 		$site = $request->getSite();
 		$sitePrimaryLocale = $site->getPrimaryLocale();
 		$currentLocale = AppLocale::getLocale();
@@ -203,7 +203,7 @@ class RegistrationForm extends Form {
 			$user->setDisabledReason(__('user.login.accountNotValidated', array('email' => $this->getData('email'))));
 		}
 
-		parent::execute($user);
+		parent::execute();
 
 		$userDao->insertObject($user);
 		$userId = $user->getId();

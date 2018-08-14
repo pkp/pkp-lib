@@ -54,12 +54,11 @@ class ManageQueryNoteFilesForm extends ManageSubmissionFilesForm {
 
 	/**
 	 * Save selection of query files
-	 * @param $args array
-	 * @param $request PKPRequest
 	 * @param $stageSubmissionFiles array The list of submission files in the stage.
+	 * @param $fileStage int SUBMISSION_FILE_...
 	 */
-	function execute($args, $request, $stageSubmissionFiles) {
-		parent::execute($args, $request, $stageSubmissionFiles, SUBMISSION_FILE_QUERY);
+	function execute($stageSubmissionFiles, $fileStage = null) {
+		parent::execute($stageSubmissionFiles, SUBMISSION_FILE_QUERY);
 	}
 
 	/**

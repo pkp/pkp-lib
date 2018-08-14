@@ -141,8 +141,8 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 	/**
 	 * Save site settings.
 	 */
-	function execute($request) {
-		parent::execute($request);
+	function execute() {
+		parent::execute();
 		$siteDao = DAORegistry::getDAO('SiteDAO');
 		$site = $siteDao->getSite();
 
@@ -163,6 +163,7 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 		$siteDao->updateObject($site);
 
 		// Save block plugins context positions.
+		$request = Application::getRequest();
 		import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
 		ListbuilderHandler::unpack($request, $request->getUserVar('blocks'), array($this, 'deleteEntry'), array($this, 'insertEntry'), array($this, 'updateEntry'));
 

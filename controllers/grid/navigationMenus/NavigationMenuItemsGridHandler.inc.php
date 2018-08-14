@@ -156,7 +156,7 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 		$navigationMenuItemForm->readInputData();
 
 		if ($navigationMenuItemForm->validate()) {
-			$navigationMenuItemForm->execute($request);
+			$navigationMenuItemForm->execute();
 
 			if ($navigationMenuItemId) {
 				// Successful edit of an existing $navigationMenuItem.

@@ -44,9 +44,9 @@ class NewSiteCssFileForm extends SettingsFileUploadForm {
 	//
 	/**
 	 * Save the new image file.
-	 * @param $request Request.
 	 */
-	function execute($request) {
+	function execute() {
+		$request = Application::getRequest();
 		$temporaryFile = $this->fetchTemporaryFile($request);
 
 		import('classes.file.PublicFileManager');

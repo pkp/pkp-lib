@@ -151,9 +151,8 @@ class AnnouncementForm extends Form {
 
 	/**
 	 * Save announcement.
-	 * @param $request PKPRequest
 	 */
-	function execute($request) {
+	function execute() {
 		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
 
 		$announcement = $announcementDao->getById($this->announcementId);
@@ -206,7 +205,7 @@ class AnnouncementForm extends Form {
 			}
 			foreach ($notificationUsers as $userRole) {
 				$notificationManager->createNotification(
-					$request, $userRole['id'], NOTIFICATION_TYPE_NEW_ANNOUNCEMENT,
+					Application::getRequest(), $userRole['id'], NOTIFICATION_TYPE_NEW_ANNOUNCEMENT,
 					$contextId, ASSOC_TYPE_ANNOUNCEMENT, $announcement->getId()
 				);
 			}

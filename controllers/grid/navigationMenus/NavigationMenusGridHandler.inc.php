@@ -191,7 +191,7 @@ class NavigationMenusGridHandler extends GridHandler {
 		$navigationMenusForm->readInputData();
 
 		if ($navigationMenusForm->validate()) {
-			$navigationMenusForm->execute($request);
+			$navigationMenusForm->execute();
 
 			if ($navigationMenuId) {
 				// Successful edit of an existing NavigationMenu.

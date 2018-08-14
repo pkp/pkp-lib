@@ -85,12 +85,12 @@ class UserForm extends Form {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute($args, $request) {
+	function execute() {
 
 		if (isset($this->userId)) {
 			import('lib.pkp.classes.security.UserGroupAssignmentDAO');
 			$userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO');
-			$userGroupAssignmentDao->deleteAssignmentsByContextId($request->getContext()->getId(), $this->userId);
+			$userGroupAssignmentDao->deleteAssignmentsByContextId(Application::getRequest()->getContext()->getId(), $this->userId);
 			if ($this->getData('userGroupIds')) {
 				$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 				foreach ($this->getData('userGroupIds') as $userGroupId) {
@@ -99,7 +99,7 @@ class UserForm extends Form {
 			}
 		}
 
-		parent::execute($request);
+		parent::execute();
 	}
 
 }

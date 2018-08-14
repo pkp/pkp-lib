@@ -235,11 +235,10 @@ class UserDetailsForm extends UserForm {
 
 	/**
 	 * Create or update a user.
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function &execute($args, $request) {
+	function execute() {
 		$userDao = DAORegistry::getDAO('UserDAO');
+		$request = Application::getRequest();
 		$context = $request->getContext();
 
 		if (!isset($this->user)) {
@@ -284,7 +283,7 @@ class UserDetailsForm extends UserForm {
 			$auth =& $authDao->getPlugin($this->user->getAuthId());
 		}
 
-		parent::execute($args, $request);
+		parent::execute();
 
 		if ($this->user->getId() != null) {
 			if ($this->getData('password') !== '') {

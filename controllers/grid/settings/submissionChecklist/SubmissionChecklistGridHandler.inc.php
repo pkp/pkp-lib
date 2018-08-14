@@ -145,7 +145,7 @@ class SubmissionChecklistGridHandler extends SetupGridHandler {
 		$submissionChecklistForm->readInputData();
 
 		if ($submissionChecklistForm->validate()) {
-			$submissionChecklistForm->execute($args, $request);
+			$submissionChecklistForm->execute();
 			return DAO::getDataChangedEvent($submissionChecklistForm->submissionChecklistId);
 		} else {
 			return new JSONMessage(false);

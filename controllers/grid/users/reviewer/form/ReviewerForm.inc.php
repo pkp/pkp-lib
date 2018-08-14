@@ -311,11 +311,10 @@ class ReviewerForm extends Form {
 
 	/**
 	 * Save review assignment
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function execute($args, $request) {
+	function execute() {
 		$submission = $this->getSubmission();
+		$request = Application::getRequest();
 		$context = $request->getContext();
 
 		$currentReviewRound = $this->getReviewRound();

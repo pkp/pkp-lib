@@ -333,7 +333,7 @@ class PKPEditorDecisionHandler extends Handler {
 		$editorRecommendationForm = new RecommendationForm($submission, $stageId, $reviewRound);
 		$editorRecommendationForm->readInputData();
 		if ($editorRecommendationForm->validate()) {
-			$editorRecommendationForm->execute($request);
+			$editorRecommendationForm->execute();
 			$json = new JSONMessage(true);
 			$json->setGlobalEvent('decisionActionUpdated');
 			return $json;
@@ -443,7 +443,7 @@ class PKPEditorDecisionHandler extends Handler {
 		$editorDecisionForm = $this->_getEditorDecisionForm($formName, $decision);
 		$editorDecisionForm->readInputData();
 		if ($editorDecisionForm->validate()) {
-			$editorDecisionForm->execute($args, $request);
+			$editorDecisionForm->execute();
 
 			// Get a list of author user IDs
 			$authorUserIds = array();

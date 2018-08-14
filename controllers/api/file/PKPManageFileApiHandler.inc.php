@@ -175,7 +175,7 @@ abstract class PKPManageFileApiHandler extends Handler {
 		$metadataForm = $submissionFile->getMetadataForm($stageId, $reviewRound);
 		$metadataForm->readInputData();
 		if ($metadataForm->validate()) {
-			$metadataForm->execute($args, $request);
+			$metadataForm->execute();
 			$submissionFile = $metadataForm->getSubmissionFile();
 
 			// Get a list of author user IDs

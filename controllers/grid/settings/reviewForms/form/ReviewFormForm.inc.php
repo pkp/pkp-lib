@@ -70,9 +70,9 @@ class ReviewFormForm extends Form {
 
 	/**
 	 * Save review form.
-	 * @param $request PKPRequest
 	 */
-	function execute($request) {
+	function execute() {
+		$request = Application::getRequest();
 		$context = $request->getContext();
 		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
 

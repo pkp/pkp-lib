@@ -133,7 +133,7 @@ class SubmissionFilesMetadataForm extends Form {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute($args, $request) {
+	function execute() {
 		// Update the submission file with data from the form.
 		$submissionFile = $this->getSubmissionFile();
 		$submissionFile->setName($this->getData('name'), null); // Localized

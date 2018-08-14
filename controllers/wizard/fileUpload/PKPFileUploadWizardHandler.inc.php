@@ -258,7 +258,7 @@ class PKPFileUploadWizardHandler extends Handler {
 		$uploadForm->readInputData();
 
 		// Validate the form and upload the file.
-		if (!$uploadForm->validate($request)) {
+		if (!$uploadForm->validate()) {
 			return new JSONMessage(true, $uploadForm->fetch($request));
 		}
 
@@ -385,7 +385,7 @@ class PKPFileUploadWizardHandler extends Handler {
 		$confirmationForm->readInputData();
 
 		// Validate the form and revise the file.
-		if ($confirmationForm->validate($request)) {
+		if ($confirmationForm->validate()) {
 			if (is_a($uploadedFile = $confirmationForm->execute($request), 'SubmissionFile')) {
 
 				$this->_attachEntities($uploadedFile);

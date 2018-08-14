@@ -123,7 +123,7 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 	/**
 	 * @copydoc Form::validate()
 	 */
-	function validate() {
+	function validate($callHooks = true) {
 		$userGroupId = (int) $this->getData('userGroupId');
 		$userId = (int) $this->getData('userId');
 		$submission = $this->getSubmission();

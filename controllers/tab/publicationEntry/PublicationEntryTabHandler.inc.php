@@ -153,7 +153,7 @@ class PublicationEntryTabHandler extends Handler {
 
 		if ($form) { // null if we didn't have a valid tab
 			$form->readInputData();
-			if($form->validate($request)) {
+			if($form->validate()) {
 				$form->execute($request);
 				// Create trivial notification in place on the form
 				$notificationManager = new NotificationManager();
@@ -224,7 +224,7 @@ class PublicationEntryTabHandler extends Handler {
 		$stageId = $this->getStageId();
 		$citationsForm = new CitationsForm($submission, $stageId, $this->getTabPosition(), array('displayedInContainer' => true));
 		$citationsForm->readInputData();
-		if ($citationsForm->validate($request)) {
+		if ($citationsForm->validate()) {
 			$citationsForm->execute($request);
 		}
 		$json = new JSONMessage(true);

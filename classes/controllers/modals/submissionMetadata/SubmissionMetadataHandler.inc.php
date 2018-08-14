@@ -75,7 +75,7 @@ class SubmissionMetadataHandler extends Handler {
 		$submissionMetadataViewForm = $this->getFormInstance($submissionId);
 
 		// Try to save the form data.
-		$submissionMetadataViewForm->readInputData($request);
+		$submissionMetadataViewForm->readInputData();
 		if($submissionMetadataViewForm->validate()) {
 			$submissionMetadataViewForm->execute($request);
 			// Create trivial notification.

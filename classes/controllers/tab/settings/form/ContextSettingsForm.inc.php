@@ -91,9 +91,8 @@ class ContextSettingsForm extends Form {
 
 	/**
 	 * @see Form::readInputData()
-	 * @param $request PKPRequest
 	 */
-	function readInputData($request) {
+	function readInputData() {
 		$this->readUserVars(array_keys($this->getSettings()));
 	}
 

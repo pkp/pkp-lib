@@ -199,7 +199,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 	 */
 	public function saveInstallLocale($args, $request) {
 		$installLanguageForm = new InstallLanguageForm();
-		$installLanguageForm->readInputData($request);
+		$installLanguageForm->readInputData();
 
 		if ($installLanguageForm->validate($request)) {
 			$installLanguageForm->execute($request);

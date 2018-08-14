@@ -16,15 +16,15 @@
 
 <locale name="cs_CZ" full_name="Čeština">
 	<message key="admin.adminFunctions">Administrátorské funkce</message>
-	<message key="admin.auth.confirmDelete">Jste si jistý, že chcete trvale odstranit tento zdroj ověření?</message>
+	<message key="admin.auth.confirmDelete">Jste si jisti, že chcete trvale odstranit tento zdroj ověření?</message>
 	<message key="admin.auth.create">Vytvořit zdroj ověření</message>
 	<message key="admin.auth.noneCreated">Nebyly definovány žádné zdroje ověření.</message>
 	<message key="admin.authSources">Zdroje ověření</message>
-	<message key="admin.clearDataCache">Vyčistit Data Caches</message>
-	<message key="admin.clearTemplateCache">Vyčistit Template Cache</message>
-	<message key="admin.configFileUpdatedInstructions"><![CDATA[Váš konfigurační soubor byl úspěšně aktualizován. Vězte prosím, že pokud již Vaše stránka nefunguje korektně, budete možná muset manuálně opravit Vaši konfiguraci přímo úpravou <tt>config.inc.php</tt>.]]></message>
-	<message key="admin.confirmClearTemplateCache">Jste si jistý, že chcete vyčistit cache zkompilovaných šablon?</message>
-	<message key="admin.confirmExpireSessions">Jste si jistý, že chcete ukončit všechny uživatelské relace? Všichni uživatelé přihlášení do systému budou donuceni se znovu přihlásit (včetně Vás).</message>
+	<message key="admin.clearDataCache">Vymazat mezipaměti dat</message>
+	<message key="admin.clearTemplateCache">Vymazat dočasné mezipaměti</message>
+	<message key="admin.configFileUpdatedInstructions"><![CDATA[Váš konfigurační soubor byl úspěšně aktualizován. Vemte, prosím, v úvahu, že pokud již Vaše stránka nefunguje správně, budete možná muset ručně opravit vaši konfiguraci přímo úpravou souboru <tt>config.inc.php</tt>.]]></message>
+	<message key="admin.confirmClearTemplateCache">Jste si jisti, že chcete vymazat mezipaměť zkompilovaných šablon?</message>
+	<message key="admin.confirmExpireSessions">Jste si jistý, že chcete ukončit všechny uživatelské relace? Všichni uživatelé přihlášení do systému budou donuceni se znovu přihlásit (včetně vás).</message>
 	<message key="admin.contentsOfConfigFile">Obsah konfiguračního souboru</message>
 	<message key="admin.currentVersion">Aktuální verze</message>
 	<message key="admin.dateInstalled">Datum instalace</message>
@@ -62,12 +62,12 @@
 	<message key="admin.settings.siteStyleSheetInvalid">Neplatný formát stylu stránky. Podporovaný formát je .css.</message>
 	<message key="admin.settings.siteStyleSheet">Styl stránky</message>
 	<message key="admin.settings.siteTitle">Název stránky</message>
-	<message key="admin.siteAdmin">Administrace internetové stránky</message>
-	<message key="admin.siteManagement">Správa stránky</message>
+	<message key="admin.siteAdmin">Administrace stránek</message>
+	<message key="admin.siteManagement">Správa stránek</message>
 	<message key="admin.siteSettings">Nastavení stránek</message>
 	<message key="admin.systemConfigFileReadError"><![CDATA[Konfigurační soubor <tt>config.inc.php</tt> neexistuje, není čitelný nebo je neplatný.]]></message>
 	<message key="admin.systemInformation">Systémové informace</message>
-	<message key="admin.versionBuild">Build</message>
+	<message key="admin.versionBuild">Sestavení</message>
 	<message key="admin.version.checkForUpdates">Zkontrolovat aktualizace</message>
 	<message key="admin.version.downloadPackage">Stáhnout</message>
 	<message key="admin.version.downloadPatch">Stáhnout patch</message>
@@ -77,27 +77,27 @@
 	<message key="admin.versionMinor">Vedlejší</message>
 	<message key="admin.version.moreInfo">Více informací</message>
 	<message key="admin.versionRevision">Revize</message>
-	<message key="admin.version.updateAvailable">Je dostupná aktualizovaná verze systému</message>
-	<message key="admin.version.upToDate">Používáte nejaktuálnější verzi systému</message>
+	<message key="admin.version.updateAvailable">Je dostupná aktualizace systému</message>
+	<message key="admin.version.upToDate">Používáte aktuální verzi systému</message>
 	<message key="admin.version">Verze</message>
 	<message key="admin.systemInfo.settingName">Nastavení - název</message>
 	<message key="admin.systemInfo.settingValue">Nastavení - hodnota</message>
 	<message key="admin.languages.download">Stažení lokalizace</message>
 	<message key="admin.languages.downloadLocales">Stažení lokalizací</message>
-	<message key="admin.languages.download.cannotOpen">Nelze otevřít deskriptory jazyků ze stránek PKP</message>
+	<message key="admin.languages.download.cannotOpen">Nelze otevřít deskriptor jazyků ze stránek PKP</message>
 	<message key="admin.languages.download.cannotModifyRegistry">Nelze přidat novou lokalizaci do souboru registru lokalizací, typicky "registry/locales.xml".</message>
 	<message key="admin.languages.cantDisable">Tato lokalizace je primární jazyk těchto stránek. Nemůžete ji vypnout dokud nezvolíte jinou primární lokalizaci.</message>
 	<message key="admin.languages.availableLocales">Dostupné lokalizace</message>
 	<message key="admin.languages.installLocale">Instalovat lokalizaci</message>
 	<message key="admin.scheduledTask">Naplánovaná úloha</message>
-	<message key="admin.scheduledTask.startTime">Začátek naplánované úlohy</message>
-	<message key="admin.scheduledTask.stopTime">Konec naplánované úlohy.</message>
+	<message key="admin.scheduledTask.startTime">Naplánovaný proces se spustil.</message>
+	<message key="admin.scheduledTask.stopTime">Naplánovaný proces byl ukončen.</message>
 	<message key="admin.scheduledTask.noLog">Úloha nevytvořila žádný záznam do logu.</message>
 	<message key="admin.scheduledTask.downloadLog">Instalace {$softwareName} se automatiky provedla a ukončila tuto úlohu, záznam logu si můžete stáhnout zde: {$url}</message>
 	<message key="admin.scheduledTask.confirmClearLogs">Jste si jisti, že chcete smazat logy všech provedených úloh?</message>
 	<message key="admin.scheduledTask.clearLogs">Smazat logy provedení naplánovaných úloh.</message>
-	<message key="admin.scheduledTask.reviewReminder">Připomínka recenze</message>
-	<message key="admin.scheduledTask.subscriptionExpiryReminder">Připomínka vypršení předplatného</message>
+	<message key="admin.scheduledTask.reviewReminder">Připomenutí recenze</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">Připomenutí vypršení předplatného</message>
 	<message key="admin.settings">Nastavení</message>
 	<message key="admin.settings.siteLogo">Logo stránek</message>
 	<message key="admin.settings.siteTheme">Téma stránek</message>
@@ -126,4 +126,5 @@ Tento nástroj zkopíruje pouze ty soubory, které doposud v knihovnách v rámc
 
 Použití: {$scriptName} cesta/k/apache/log/file.log
 Použití (zpracování všech souborů v knihovně): {$scriptName} cesta/k/apache/directory</message>
+	<message key="admin.contexts.confirmDelete">Jste si jisti, že chcete trvale odstranit {$contextName} a všechen jeho/její obsah?</message>
 </locale>

@@ -18,7 +18,7 @@
 	<message key="installer.additionalLocales">Doplňkové lokalizace</message>
 	<message key="installer.administratorAccount">Účet administrátora</message>
 	<message key="installer.administratorAccountInstructions">Tento uživatelský účet se stane administrátorem stránek a bude mít kompletní přístup do systému. Další uživatelské účty mohou být vytvořeny po instalaci.</message>
-	<message key="installer.checkNo"><![CDATA[<span class="formError">NE</span>]]></message>
+	<message key="installer.checkNo"><![CDATA[<span class="pkp_form_error formError">NE</span>]]></message>
 	<message key="installer.checkYes">Ano</message>
 	<message key="installer.clientCharset">Znaková sada klienta</message>
 	<message key="installer.clientCharsetInstructions">Kódování, které má být použito pro data posílaná a přijímaná z prohlížečů.</message>
@@ -54,16 +54,16 @@
 	<message key="installer.installerSQLStatements">SQL příkazy pro instalaci</message>
 	<message key="installer.installFileError"><![CDATA[Instalační soubor <tt>dbscripts/xml/install.xml</tt> neexistuje nebo není čitelný.]]></message>
 	<message key="installer.installFilesDirError">Adresář určený pro nahrané soubory neexistuje nebo není zapsatelný.</message>
-	<message key="installer.installParseDBFileError"><![CDATA[Chyba při rozebírání (parsing) instalačního souboru databáze <tt>{$file}</tt>.]]></message>
-	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Chyba při rozebírání souboru šablony emailu <tt>{$file}</tt>.]]></message>
+	<message key="installer.installParseDBFileError"><![CDATA[Chyba při parsování instalačního souboru databáze <tt>{$file}</tt>.]]></message>
+	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Chyba při parsování souboru šablony emailu <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Lokalizace</message>
 	<message key="installer.locale.maybeIncomplete">Označené soubory lokalizace mohou být nekompletní.</message>
 	<message key="installer.localeSettings">Nastavení lokalizace</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[jedinečný identifikátor použitý pro identifikaci záznamů metadat indexovaných z těchto stránek s využitím <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> protokolu pro shromažďování metadat (Protocol for Metadata Harvesting).]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Jedinečný identifikátor použitý pro identifikaci záznamů metadat indexovaných z těchto stránek s využitím <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> protokolu pro shromažďování metadat (Protocol for Metadata Harvesting).]]></message>
 	<message key="installer.oaiRepositoryId">Identifikátor OAI úložiště</message>
 	<message key="installer.publicFilesDirError">Adresář veřejných souborů (public) neexistuje nebo není zapsatelný.</message>
 	<message key="installer.releaseNotes">Poznámky k vydání</message>
-	<message key="installer.installParseFilterConfigFileError"><![CDATA[Chyba při parsingu souboru konfigurace filtru <tt>{$file}</tt>.]]></message>
+	<message key="installer.installParseFilterConfigFileError"><![CDATA[Chyba při parsování filtru konfiguračního souboru <tt>{$file}</tt>.]]></message>
 	<message key="installer.unsupportedUpgradeError">Upgrade není podporován. Přečtěte si, prosím, docs/UPGRADE-UNSUPPORTED pro další informace.</message>
 	<message key="installer.oaiSettings">Nastavení OAI</message>
 	<message key="installer.preInstallationInstructionsTitle">Předinstalační kroky</message>
@@ -79,4 +79,5 @@
 	<message key="installer.configureXSLMessage"><![CDATA[<p>Váše instalace PHP nemá povolený modul XSL. Buď ho povolte, nebo změňte parametr xslt_command parameter ve vašem konfiguračním souboru config.inc.php.</p>]]></message>
 	<message key="installer.beacon">Signál</message>
 	<message key="installer.beacon.enable">Poskytněte, prosím, unikátní ID a OAI base URL vašich stránek pro PKP - budou využity pouze pro statistické účely a bezpečnostní varování.</message>
+	<message key="installer.unsupportedPhpError">Verze PHP vašeho serveru není podporována tímto software. Zkontrolujte, prosím, znovu požadavky na konfiguraci serveru v docs/README.</message>
 </locale>

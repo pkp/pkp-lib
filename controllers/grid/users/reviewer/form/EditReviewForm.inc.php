@@ -134,20 +134,10 @@ class EditReviewForm extends Form {
 			$notificationManager = new NotificationManager();
 			$request = Application::getRequest();
 			$context = $request->getContext();
-			$userIds[] = $reviewAssignment->getReviewerId();
-
-			// Also notify the author, if review assignment already accepted
-			if ($reviewAssignment->getDateConfirmed()){
-				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-				$submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($reviewAssignment->getSubmissionId(), ROLE_ID_AUTHOR);
-				while ($assignment = $submitterAssignments->next()) {
-					$userIds[] = $assignment->getUserId();
-				}
-			}
 
 			$notificationManager->createNotification(
 				$request,
-				$userIds,
+				$reviewAssignment->getReviewerId(),
 				NOTIFICATION_TYPE_REVIEW_ASSIGNMENT_UPDATED,
 				$context->getId(),
 				ASSOC_TYPE_REVIEW_ASSIGNMENT,

@@ -100,7 +100,7 @@
 	<message key="common.fileName">Jméno souboru</message>
 	<message key="common.fileSize">Velikost souboru</message>
 	<message key="common.fileType">Typ souboru</message>
-	<message key="common.file.namingPattern">{$username}, {$originalFilename}</message>
+	<message key="common.file.namingPattern">{$username}, {$originalFilename}</message> 
 	<message key="common.file.anonymousNamingPattern">{$genre}, {$originalFilename}</message>
 	<message key="common.height">Výška</message>
 	<message key="common.homePageHeaderLogo.altText">Logo záhlaví domácí stránky</message>

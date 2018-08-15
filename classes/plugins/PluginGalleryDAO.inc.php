@@ -181,7 +181,7 @@ class PluginGalleryDAO extends DAO {
 			}
 		}
 
-		if ($compatible && (!$plugin->getDate() || $plugin->getDate() >= $release['date'])) {
+		if ($compatible && (!$plugin->getData('version') || version_compare($plugin->getData('version'), $release['version'], '<'))) {
 			// This release is newer than the one found earlier, or
 			// this is the first compatible release we've found.
 			$plugin->setDate($release['date']);

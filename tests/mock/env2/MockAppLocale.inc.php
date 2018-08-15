@@ -11,4 +11,4 @@
  */
 
 import('lib.pkp.tests.mock.env1.MockAppLocale');
-?>
+

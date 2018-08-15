@@ -61,4 +61,4 @@ class FileInfoCenterLinkAction extends FileLinkAction {
 	}
 }
 
-?>
+

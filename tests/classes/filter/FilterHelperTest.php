@@ -72,4 +72,4 @@ class FilterHelperTest extends PKPTestCase {
 		self::assertTrue($filterHelper->compareFilters($filterA, $filterBSettings, $filterBSubfilters));
 	}
 }
-?>
+

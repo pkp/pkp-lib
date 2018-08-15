@@ -35,4 +35,4 @@ class ColumnBasedGridCellProvider extends GridCellProvider {
 	}
 }
 
-?>
+

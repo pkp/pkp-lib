@@ -225,4 +225,4 @@ class PluginGalleryDAO extends DAO {
 	}
 }
 
-?>
+

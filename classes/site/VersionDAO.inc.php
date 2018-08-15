@@ -254,4 +254,4 @@ class VersionDAO extends DAO {
 	}
 }
 
-?>
+

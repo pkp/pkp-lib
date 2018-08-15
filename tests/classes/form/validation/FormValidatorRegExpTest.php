@@ -33,4 +33,4 @@ class FormValidatorRegExpTest extends PKPTestCase {
 		self::assertFalse($validator->isValid());
 	}
 }
-?>
+

@@ -399,4 +399,4 @@ class PKPToolsHandler extends ManagementHandler {
 
 }
 
-?>
+

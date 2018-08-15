@@ -105,4 +105,4 @@ class PluginGridRow extends GridRow {
 	}
 }
 
-?>
+

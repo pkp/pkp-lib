@@ -72,4 +72,4 @@ class SubmissionStageForm extends ContextSettingsForm {
 	}
 }
 
-?>
+

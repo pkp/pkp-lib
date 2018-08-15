@@ -98,4 +98,4 @@ class IdentityForm extends BaseProfileForm {
 	}
 }
 
-?>
+

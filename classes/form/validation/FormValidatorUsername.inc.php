@@ -33,4 +33,4 @@ class FormValidatorUsername extends FormValidator {
 	}
 }
 
-?>
+

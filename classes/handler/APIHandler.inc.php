@@ -232,4 +232,4 @@ class APIHandler extends PKPHandler {
 	}
 }
 
-?>
+

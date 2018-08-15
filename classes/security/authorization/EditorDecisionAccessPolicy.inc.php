@@ -36,4 +36,4 @@ class EditorDecisionAccessPolicy extends ContextPolicy {
 	}
 }
 
-?>
+

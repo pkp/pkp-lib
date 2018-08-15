@@ -69,4 +69,4 @@ class NavigationMenuItemsGridRow extends GridRow {
 	}
 }
 
-?>
+

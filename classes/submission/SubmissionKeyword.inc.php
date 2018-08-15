@@ -42,4 +42,4 @@ class SubmissionKeyword extends ControlledVocabEntry {
 		return array('submissionKeyword');
 	}
 }
-?>
+

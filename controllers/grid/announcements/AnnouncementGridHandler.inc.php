@@ -134,4 +134,4 @@ class AnnouncementGridHandler extends GridHandler {
 	}
 }
 
-?>
+

@@ -66,4 +66,4 @@ abstract class GatewayPlugin extends Plugin {
 	}
 }
 
-?>
+

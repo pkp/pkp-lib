@@ -83,4 +83,4 @@ class CopyeditFilesGridHandler extends FileListGridHandler {
 	}
 }
 
-?>
+

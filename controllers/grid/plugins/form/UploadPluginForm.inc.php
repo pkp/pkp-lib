@@ -112,4 +112,4 @@ class UploadPluginForm extends Form {
 	}
 }
 
-?>
+

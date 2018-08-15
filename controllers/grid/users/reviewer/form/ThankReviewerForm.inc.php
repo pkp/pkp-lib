@@ -132,4 +132,4 @@ class ThankReviewerForm extends Form {
 	}
 }
 
-?>
+

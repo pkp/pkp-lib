@@ -111,4 +111,4 @@ class MetadataRecord {
 		return true;
 	}
 }
-?>
+

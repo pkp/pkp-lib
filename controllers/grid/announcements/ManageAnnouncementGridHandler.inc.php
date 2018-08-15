@@ -191,4 +191,4 @@ class ManageAnnouncementGridHandler extends AnnouncementGridHandler {
 	}
 }
 
-?>
+

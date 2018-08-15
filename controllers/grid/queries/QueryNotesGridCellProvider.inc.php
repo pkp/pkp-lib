@@ -77,4 +77,4 @@ class QueryNotesGridCellProvider extends DataObjectGridCellProvider {
 	}
 }
 
-?>
+

@@ -88,4 +88,4 @@ abstract class PKPSectionDAO extends DAO {
 	abstract function getByContextId($contextId, $rangeInfo = null);
 }
 
-?>
+

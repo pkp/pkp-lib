@@ -118,4 +118,4 @@ class PaymentMethodForm extends ContextSettingsForm {
 	}
 }
 
-?>
+

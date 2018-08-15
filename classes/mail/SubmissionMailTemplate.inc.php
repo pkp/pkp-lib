@@ -200,4 +200,4 @@ class SubmissionMailTemplate extends MailTemplate {
 	}
 }
 
-?>
+

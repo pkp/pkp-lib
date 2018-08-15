@@ -64,4 +64,4 @@ class NewFileNoteForm extends NewNoteForm {
 	}
 }
 
-?>
+

@@ -73,4 +73,4 @@ class SetupGridHandler extends GridHandler {
 	}
 }
 
-?>
+

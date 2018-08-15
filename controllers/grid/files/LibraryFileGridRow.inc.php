@@ -107,4 +107,4 @@ class LibraryFileGridRow extends GridRow {
 	}
 }
 
-?>
+

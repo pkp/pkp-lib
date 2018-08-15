@@ -63,4 +63,4 @@ class AdminBlockPluginsListbuilderHandler extends BlockPluginsListbuilderHandler
 	}
 }
 
-?>
+

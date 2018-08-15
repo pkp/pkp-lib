@@ -29,4 +29,4 @@ class PluginCategoryGridRow extends GridCategoryRow {
 	}
 }
 
-?>
+

@@ -231,4 +231,4 @@ class QueryNotesGridHandler extends GridHandler {
 
 }
 
-?>
+

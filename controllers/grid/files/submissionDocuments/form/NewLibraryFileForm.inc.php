@@ -91,4 +91,4 @@ class NewLibraryFileForm extends LibraryFileForm {
 	}
 }
 
-?>
+

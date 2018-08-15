@@ -40,4 +40,4 @@ class Openurl10DissertationSchema extends Openurl10BaseSchema {
 		$this->addProperty('degree');
 	}
 }
-?>
+

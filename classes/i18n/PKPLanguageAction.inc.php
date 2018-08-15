@@ -161,4 +161,4 @@ class PKPLanguageAction {
 	}
 }
 
-?>
+

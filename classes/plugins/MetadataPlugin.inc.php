@@ -73,4 +73,4 @@ abstract class MetadataPlugin extends Plugin {
 	abstract function getSchemaObject($format);
 }
 
-?>
+

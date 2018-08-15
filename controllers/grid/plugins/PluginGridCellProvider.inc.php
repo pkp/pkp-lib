@@ -97,4 +97,4 @@ class PluginGridCellProvider extends GridCellProvider {
 	}
 }
 
-?>
+

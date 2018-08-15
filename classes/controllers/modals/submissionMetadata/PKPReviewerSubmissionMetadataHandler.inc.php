@@ -58,4 +58,4 @@ class PKPReviewerSubmissionMetadataHandler extends SubmissionMetadataHandler {
 	}
 }
 
-?>
+

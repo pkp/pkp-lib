@@ -219,4 +219,4 @@ class AnnouncementTypeGridHandler extends GridHandler {
 	}
 }
 
-?>
+

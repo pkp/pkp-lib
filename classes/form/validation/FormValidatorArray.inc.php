@@ -94,4 +94,4 @@ class FormValidatorArray extends FormValidator {
 	}
 }
 
-?>
+

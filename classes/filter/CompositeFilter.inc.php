@@ -365,4 +365,4 @@ class CompositeFilter extends PersistableFilter {
 		return array(&$filter, $settingName);
 	}
 }
-?>
+

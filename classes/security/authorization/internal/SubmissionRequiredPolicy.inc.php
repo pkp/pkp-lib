@@ -58,4 +58,4 @@ class SubmissionRequiredPolicy extends DataObjectRequiredPolicy {
 	}
 }
 
-?>
+

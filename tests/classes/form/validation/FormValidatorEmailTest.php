@@ -35,4 +35,4 @@ class FormValidatorEmailTest extends PKPTestCase {
 		self::assertFalse($validator->isValid());
 	}
 }
-?>
+

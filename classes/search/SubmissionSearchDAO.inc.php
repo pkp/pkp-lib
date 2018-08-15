@@ -140,4 +140,4 @@ class SubmissionSearchDAO extends DAO {
 	}
 }
 
-?>
+

@@ -75,4 +75,4 @@ class HelpHandler extends Handler {
 	}
 }
 
-?>
+

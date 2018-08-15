@@ -458,4 +458,4 @@ class PKPPageRouter extends PKPRouter {
 	}
 }
 
-?>
+

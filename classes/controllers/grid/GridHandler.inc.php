@@ -1172,4 +1172,4 @@ class GridHandler extends PKPHandler {
 		}
 	}
 }
-?>
+

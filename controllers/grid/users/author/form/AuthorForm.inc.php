@@ -236,4 +236,4 @@ class AuthorForm extends Form {
 	}
 }
 
-?>
+

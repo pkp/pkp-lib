@@ -237,4 +237,4 @@ class MetadataPropertyTest extends PKPTestCase {
 		self::assertFalse($metadataProperty->isValid('string'));
 	}
 }
-?>
+

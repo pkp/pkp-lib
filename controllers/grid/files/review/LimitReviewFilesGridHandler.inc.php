@@ -77,4 +77,4 @@ class LimitReviewFilesGridHandler extends SelectableFileListGridHandler {
 	}
 }
 
-?>
+

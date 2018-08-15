@@ -43,4 +43,4 @@ class PKPPublicAccessPolicy extends HandlerOperationPolicy {
 	}
 }
 
-?>
+

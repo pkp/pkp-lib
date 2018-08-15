@@ -61,4 +61,4 @@ abstract class PKPInstallationTest extends WebTestCase {
 	}
 }
 
-?>
+

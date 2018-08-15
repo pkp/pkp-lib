@@ -281,4 +281,4 @@ abstract class PKPManageFileApiHandler extends Handler {
 
 }
 
-?>
+

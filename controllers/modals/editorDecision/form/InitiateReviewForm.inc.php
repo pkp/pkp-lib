@@ -60,4 +60,4 @@ class InitiateReviewForm extends EditorDecisionForm {
 	}
 }
 
-?>
+

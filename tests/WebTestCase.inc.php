@@ -395,4 +395,4 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		$this->runScript('scroll(0, document.body.scrollHeight()');
 	}
 }
-?>
+

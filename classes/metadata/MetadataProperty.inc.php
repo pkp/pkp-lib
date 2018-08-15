@@ -452,4 +452,4 @@ class MetadataProperty {
 	}
 }
 
-?>
+

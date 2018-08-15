@@ -55,4 +55,4 @@ class HttpsPolicy extends AuthorizationPolicy {
 	}
 }
 
-?>
+

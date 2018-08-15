@@ -164,4 +164,4 @@ class EditReviewForm extends Form {
 	}
 }
 
-?>
+

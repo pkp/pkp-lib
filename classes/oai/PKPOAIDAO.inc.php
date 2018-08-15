@@ -267,4 +267,4 @@ abstract class PKPOAIDAO extends DAO {
 	abstract function _getRecordsRecordSet($setIds, $from, $until, $set, $submissionId = null, $orderBy = 'journal_id, submission_id');
 }
 
-?>
+

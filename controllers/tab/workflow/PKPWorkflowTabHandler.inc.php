@@ -233,4 +233,4 @@ abstract class PKPWorkflowTabHandler extends Handler {
 	}
 }
 
-?>
+

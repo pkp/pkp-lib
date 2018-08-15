@@ -144,4 +144,4 @@ abstract class PolicyTestCase extends PKPTestCase {
 		return null;
 	}
 }
-?>
+

@@ -927,4 +927,4 @@ class PKPReviewerGridHandler extends GridHandler {
 	}
 }
 
-?>
+

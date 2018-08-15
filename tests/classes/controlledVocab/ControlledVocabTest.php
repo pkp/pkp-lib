@@ -48,4 +48,4 @@ class ControlledVocabTest extends DatabaseTestCase {
 	}
 }
 
-?>
+

@@ -63,4 +63,4 @@ class PermissionSettingsForm extends ContextSettingsForm {
 	}
 }
 
-?>
+

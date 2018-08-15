@@ -56,4 +56,4 @@ class ContactForm extends ContextSettingsForm {
 	}
 }
 
-?>
+

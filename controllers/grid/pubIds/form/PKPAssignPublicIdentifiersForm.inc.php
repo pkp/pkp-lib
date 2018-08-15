@@ -132,4 +132,4 @@ class PKPAssignPublicIdentifiersForm extends Form {
 
 }
 
-?>
+

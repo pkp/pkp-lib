@@ -111,4 +111,4 @@ class InstallPluginVersionTool extends CommandLineTool {
 $tool = new InstallPluginVersionTool(isset($argv) ? $argv : array());
 $tool->execute();
 
-?>
+

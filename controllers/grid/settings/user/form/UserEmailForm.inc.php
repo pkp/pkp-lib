@@ -84,4 +84,4 @@ class UserEmailForm extends Form {
 	}
 }
 
-?>
+

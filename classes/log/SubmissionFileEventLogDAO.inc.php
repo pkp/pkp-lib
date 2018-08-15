@@ -39,4 +39,4 @@ class SubmissionFileEventLogDAO extends EventLogDAO {
 	}
 }
 
-?>
+

@@ -426,4 +426,4 @@ class PKPRequestTest extends PKPTestCase {
 		self::assertEquals($expectedResult, $this->request->getUserVars());
 	}
 }
-?>
+

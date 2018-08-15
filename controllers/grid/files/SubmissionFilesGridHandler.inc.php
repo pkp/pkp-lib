@@ -212,4 +212,4 @@ class SubmissionFilesGridHandler extends GridHandler {
 	}
 }
 
-?>
+

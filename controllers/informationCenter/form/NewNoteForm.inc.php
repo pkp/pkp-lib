@@ -104,4 +104,4 @@ class NewNoteForm extends Form {
 	}
 }
 
-?>
+

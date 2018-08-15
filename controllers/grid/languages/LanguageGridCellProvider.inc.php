@@ -130,4 +130,4 @@ class LanguageGridCellProvider extends GridCellProvider {
 	}
 }
 
-?>
+

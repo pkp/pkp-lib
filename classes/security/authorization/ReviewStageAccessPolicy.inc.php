@@ -49,4 +49,4 @@ class ReviewStageAccessPolicy extends ContextPolicy {
 	}
 }
 
-?>
+

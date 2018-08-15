@@ -38,4 +38,4 @@ class EditorSubmissionDetailsFilesGridHandler extends FileListGridHandler {
 	}
 }
 
-?>
+

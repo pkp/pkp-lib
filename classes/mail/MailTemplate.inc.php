@@ -323,4 +323,4 @@ class MailTemplate extends Mail {
 	}
 }
 
-?>
+

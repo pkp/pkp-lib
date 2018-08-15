@@ -45,4 +45,4 @@ class Openurl10BaseSchema extends MetadataSchema {
 		$this->addProperty('isbn');
 	}
 }
-?>
+

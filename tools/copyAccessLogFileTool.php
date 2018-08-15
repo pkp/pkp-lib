@@ -216,4 +216,4 @@ class CopyAccessLogFileTool extends CommandLineTool {
 
 $tool = new CopyAccessLogFileTool(isset($argv) ? $argv : array());
 $tool->execute();
-?>
+

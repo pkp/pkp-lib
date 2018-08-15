@@ -35,4 +35,4 @@ class PKPOpenurl10MetadataPluginTest extends MetadataPluginTestCase {
 		);
 	}
 }
-?>
+

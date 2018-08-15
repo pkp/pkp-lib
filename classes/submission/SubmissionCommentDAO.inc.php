@@ -262,4 +262,4 @@ class SubmissionCommentDAO extends DAO {
 	}
 }
 
-?>
+

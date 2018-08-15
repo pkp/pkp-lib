@@ -85,4 +85,4 @@ class LibraryFileAdminGridDataProvider extends CategoryGridDataProvider {
 	}
 }
 
-?>
+

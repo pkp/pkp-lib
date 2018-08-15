@@ -413,4 +413,4 @@ class UserGroupGridHandler extends GridHandler {
 	}
 }
 
-?>
+

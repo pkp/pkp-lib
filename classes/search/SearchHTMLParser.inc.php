@@ -33,4 +33,4 @@ class SearchHTMLParser extends SearchFileParser {
 	}
 }
 
-?>
+

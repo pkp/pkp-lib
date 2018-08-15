@@ -143,4 +143,4 @@ class CreateReviewerForm extends ReviewerForm {
 	}
 }
 
-?>
+

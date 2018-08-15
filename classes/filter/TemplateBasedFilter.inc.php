@@ -101,4 +101,4 @@ class TemplateBasedFilter extends PersistableFilter {
 		return $output;
 	}
 }
-?>
+

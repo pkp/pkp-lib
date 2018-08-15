@@ -859,4 +859,4 @@ class PKPRequest {
 	}
 }
 
-?>
+

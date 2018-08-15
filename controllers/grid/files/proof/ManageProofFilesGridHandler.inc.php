@@ -94,4 +94,4 @@ class ManageProofFilesGridHandler extends SelectableSubmissionFileListCategoryGr
 	}
 }
 
-?>
+

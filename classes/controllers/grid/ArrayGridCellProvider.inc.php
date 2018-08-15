@@ -41,4 +41,4 @@ class ArrayGridCellProvider extends GridCellProvider {
 	}
 }
 
-?>
+

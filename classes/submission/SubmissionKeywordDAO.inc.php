@@ -148,4 +148,4 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 	}
 }
 
-?>
+

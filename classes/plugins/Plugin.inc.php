@@ -825,4 +825,4 @@ abstract class Plugin {
 	}
 }
 
-?>
+

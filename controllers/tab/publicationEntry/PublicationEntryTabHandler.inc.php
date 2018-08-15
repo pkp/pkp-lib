@@ -267,4 +267,4 @@ class PublicationEntryTabHandler extends Handler {
 	}
 }
 
-?>
+

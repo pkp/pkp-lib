@@ -40,4 +40,4 @@ class StageParticipantGridCellProvider extends DataObjectGridCellProvider {
 	}
 }
 
-?>
+

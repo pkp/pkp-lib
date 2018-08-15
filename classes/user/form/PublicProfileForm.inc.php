@@ -144,4 +144,4 @@ class PublicProfileForm extends BaseProfileForm {
 	}
 }
 
-?>
+

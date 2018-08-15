@@ -347,4 +347,4 @@ class PKPAppearanceForm extends ContextSettingsForm {
 	}
 }
 
-?>
+

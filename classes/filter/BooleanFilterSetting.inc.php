@@ -41,4 +41,4 @@ class BooleanFilterSetting extends FilterSetting {
 		return $check;
 	}
 }
-?>
+

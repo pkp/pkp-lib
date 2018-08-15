@@ -71,4 +71,4 @@ class FormValidatorCustomTest extends PKPTestCase {
 		return $additionalArgument;
 	}
 }
-?>
+

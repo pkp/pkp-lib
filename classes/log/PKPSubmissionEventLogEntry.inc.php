@@ -89,4 +89,4 @@ class PKPSubmissionEventLogEntry extends EventLogEntry {
 	}
 }
 
-?>
+

@@ -349,4 +349,4 @@ abstract class PKPStatisticsHelper {
 	abstract protected function getAppColumnTitle($column);
 }
 
-?>
+

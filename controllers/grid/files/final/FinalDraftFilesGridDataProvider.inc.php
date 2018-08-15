@@ -43,4 +43,4 @@ class FinalDraftFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 	}
 }
 
-?>
+

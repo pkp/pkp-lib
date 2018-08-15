@@ -551,4 +551,4 @@ class Mail extends DataObject {
 	}
 }
 
-?>
+

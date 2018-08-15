@@ -385,4 +385,4 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 
 }
 
-?>
+

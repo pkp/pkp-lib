@@ -226,4 +226,4 @@ class SettingsTabHandler extends Handler {
 	}
 }
 
-?>
+

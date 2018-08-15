@@ -39,4 +39,4 @@ class InterestEntry extends ControlledVocabEntry {
 	}
 }
 
-?>
+

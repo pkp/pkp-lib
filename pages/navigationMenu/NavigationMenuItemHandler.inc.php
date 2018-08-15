@@ -148,4 +148,4 @@ class NavigationMenuItemHandler extends Handler {
 	}
 }
 
-?>
+

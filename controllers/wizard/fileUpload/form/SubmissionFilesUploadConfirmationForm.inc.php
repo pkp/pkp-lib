@@ -85,4 +85,4 @@ class SubmissionFilesUploadConfirmationForm extends PKPSubmissionFilesUploadBase
 	}
 }
 
-?>
+

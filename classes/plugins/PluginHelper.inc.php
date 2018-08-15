@@ -308,4 +308,4 @@ class PluginHelper {
 	}
 }
 
-?>
+

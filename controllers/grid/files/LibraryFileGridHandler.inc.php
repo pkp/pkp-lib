@@ -332,4 +332,4 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 	}
 }
 
-?>
+

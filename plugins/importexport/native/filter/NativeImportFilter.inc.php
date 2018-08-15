@@ -100,4 +100,4 @@ class NativeImportFilter extends NativeImportExportFilter {
 	}
 }
 
-?>
+

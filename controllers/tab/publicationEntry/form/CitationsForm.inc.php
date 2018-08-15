@@ -148,4 +148,4 @@ class CitationsForm extends Form {
 
 }
 
-?>
+

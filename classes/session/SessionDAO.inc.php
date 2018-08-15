@@ -184,4 +184,4 @@ class SessionDAO extends DAO {
 	}
 }
 
-?>
+

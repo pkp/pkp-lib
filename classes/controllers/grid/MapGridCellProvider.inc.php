@@ -37,4 +37,4 @@ class MapGridCellProvider extends GridCellProvider {
 	}
 }
 
-?>
+

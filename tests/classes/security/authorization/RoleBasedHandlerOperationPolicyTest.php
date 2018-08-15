@@ -77,4 +77,4 @@ class RoleBasedHandlerOperationPolicyTest extends PolicyTestCase {
 		self::assertEquals(AUTHORIZATION_DENY, $decisionManager->decide());
 	}
 }
-?>
+

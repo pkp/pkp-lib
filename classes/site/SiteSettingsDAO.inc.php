@@ -241,4 +241,4 @@ class SiteSettingsDAO extends DAO {
 	}
 }
 
-?>
+

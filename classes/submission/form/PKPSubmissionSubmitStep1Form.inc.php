@@ -346,4 +346,4 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	}
 }
 
-?>
+

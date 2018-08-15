@@ -57,4 +57,4 @@ class PluginRequiredPolicy extends AuthorizationPolicy {
 	}
 }
 
-?>
+

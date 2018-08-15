@@ -258,4 +258,4 @@ class UserGroupForm extends Form {
 	}
 }
 
-?>
+

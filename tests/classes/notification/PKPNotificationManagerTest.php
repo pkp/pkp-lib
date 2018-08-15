@@ -388,4 +388,4 @@ class PKPNotificationManagerTest extends PKPTestCase {
 	}
 }
 
-?>
+

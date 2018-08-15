@@ -39,4 +39,4 @@ class PolicySetTest extends PKPTestCase {
 		self::assertEquals(array($policy3, $policy1, $policy2), $policySet->getPolicies());
 	}
 }
-?>
+

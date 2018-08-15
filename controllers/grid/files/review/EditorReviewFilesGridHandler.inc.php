@@ -61,4 +61,4 @@ class EditorReviewFilesGridHandler extends FileListGridHandler {
 	}
 }
 
-?>
+

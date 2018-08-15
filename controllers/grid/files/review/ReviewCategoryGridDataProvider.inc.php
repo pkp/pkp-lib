@@ -77,4 +77,4 @@ class ReviewCategoryGridDataProvider extends SubmissionFilesCategoryGridDataProv
 	}
 }
 
-?>
+

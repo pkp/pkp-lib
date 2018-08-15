@@ -428,4 +428,4 @@ class PKPMetricsDAO extends DAO {
 		return array(null, null);
 	}
 }
-?>
+

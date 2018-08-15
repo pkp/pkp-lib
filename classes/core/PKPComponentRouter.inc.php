@@ -492,4 +492,4 @@ class PKPComponentRouter extends PKPRouter {
 		return $rpcServiceEndpointParts;
 	}
 }
-?>
+

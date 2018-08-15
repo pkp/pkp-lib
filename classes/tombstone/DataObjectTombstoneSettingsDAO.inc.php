@@ -113,4 +113,4 @@ class DataObjectTombstoneSettingsDAO extends DAO {
 	}
 }
 
-?>
+

@@ -217,4 +217,4 @@ abstract class InformationCenterHandler extends Handler {
 	abstract function _getAssocType();
 }
 
-?>
+

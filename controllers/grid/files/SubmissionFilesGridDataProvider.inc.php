@@ -169,4 +169,4 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider {
 	}
 }
 
-?>
+

@@ -364,4 +364,4 @@ class NavigationMenuDAO extends DAO {
 	}
 }
 
-?>
+

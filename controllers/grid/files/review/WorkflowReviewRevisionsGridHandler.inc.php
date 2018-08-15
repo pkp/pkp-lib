@@ -36,4 +36,4 @@ class WorkflowReviewRevisionsGridHandler extends FileListGridHandler {
 	}
 }
 
-?>
+

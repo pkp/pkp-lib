@@ -114,4 +114,4 @@ class TypeDescriptionFactory {
 		return $namespaceMap[$namespace];
 	}
 }
-?>
+

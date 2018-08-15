@@ -342,4 +342,4 @@ abstract class PKPReportGeneratorForm extends Form {
 	abstract function getFileAssocTypes();
 }
 
-?>
+

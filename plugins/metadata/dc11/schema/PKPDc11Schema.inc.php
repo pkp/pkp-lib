@@ -53,4 +53,4 @@ class PKPDc11Schema extends MetadataSchema {
 		$this->addProperty('dc:rights', METADATA_PROPERTY_TYPE_STRING, true, METADATA_PROPERTY_CARDINALITY_MANY);
 	}
 }
-?>
+

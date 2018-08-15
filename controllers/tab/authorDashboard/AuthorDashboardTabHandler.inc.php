@@ -175,4 +175,4 @@ class AuthorDashboardTabHandler extends Handler {
 	}
 }
 
-?>
+

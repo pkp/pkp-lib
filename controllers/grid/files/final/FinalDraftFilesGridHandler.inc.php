@@ -58,4 +58,4 @@ class FinalDraftFilesGridHandler extends FileListGridHandler {
 	}
 }
 
-?>
+

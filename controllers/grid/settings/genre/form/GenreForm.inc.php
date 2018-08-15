@@ -151,4 +151,4 @@ class GenreForm extends Form {
 	}
 }
 
-?>
+

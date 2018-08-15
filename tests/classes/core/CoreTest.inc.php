@@ -138,4 +138,4 @@ class CoreTest extends PKPTestCase {
 		return $cases;
 	}
 }
-?>
+

@@ -48,4 +48,4 @@ class SelectableCopyeditFilesGridHandler extends SelectableFileListGridHandler {
 	}
 }
 
-?>
+

@@ -69,4 +69,4 @@ class UserAccessibleWorkflowStagePolicy extends AuthorizationPolicy {
 	}
 }
 
-?>
+

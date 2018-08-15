@@ -53,4 +53,4 @@ class QueryUserAccessibleWorkflowStageRequiredPolicy extends UserAccessibleWorkf
 	}
 }
 
-?>
+

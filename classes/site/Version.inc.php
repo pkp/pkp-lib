@@ -285,4 +285,4 @@ class Version extends DataObject {
 	}
 }
 
-?>
+

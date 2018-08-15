@@ -41,4 +41,4 @@ class ReviewerViewMetadataLinkAction extends LinkAction {
 	}
 }
 
-?>
+

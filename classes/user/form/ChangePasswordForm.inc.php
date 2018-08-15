@@ -107,4 +107,4 @@ class ChangePasswordForm extends Form {
 	}
 }
 
-?>
+

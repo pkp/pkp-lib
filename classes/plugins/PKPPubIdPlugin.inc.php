@@ -466,4 +466,4 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 
 }
 
-?>
+

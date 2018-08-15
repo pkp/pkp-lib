@@ -62,4 +62,4 @@ class UpgradeForm extends MaintenanceForm {
 	}
 }
 
-?>
+

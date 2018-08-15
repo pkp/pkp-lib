@@ -65,4 +65,4 @@ class StageParticipantGridCategoryRow extends GridCategoryRow {
 	}
 }
 
-?>
+

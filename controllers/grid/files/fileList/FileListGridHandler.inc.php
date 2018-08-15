@@ -55,4 +55,4 @@ class FileListGridHandler extends SubmissionFilesGridHandler {
 	}
 }
 
-?>
+

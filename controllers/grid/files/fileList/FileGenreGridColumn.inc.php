@@ -54,4 +54,4 @@ class FileGenreGridColumn extends GridColumn {
 	}
 }
 
-?>
+

@@ -41,4 +41,4 @@ class AccessSettingsTabHandler extends ManagerSettingsTabHandler {
 	}
 }
 
-?>
+

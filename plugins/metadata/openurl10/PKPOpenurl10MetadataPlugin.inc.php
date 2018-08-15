@@ -71,4 +71,4 @@ class PKPOpenurl10MetadataPlugin extends MetadataPlugin {
 	}
 }
 
-?>
+

@@ -194,4 +194,4 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 	}
 }
 
-?>
+

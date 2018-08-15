@@ -68,4 +68,4 @@ abstract class DatabaseTestCase extends PKPTestCase {
 		PKPTestHelper::xdebugScream(true);
 	}
 }
-?>
+

@@ -129,4 +129,4 @@ class NewContextImageFileForm extends SettingsFileUploadForm {
 	}
 }
 
-?>
+

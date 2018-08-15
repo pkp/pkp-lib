@@ -587,4 +587,4 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 
 }
 
-?>
+

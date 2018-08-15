@@ -38,4 +38,4 @@ class JSONWebService extends WebService {
 		return $resultArray;
 	}
 }
-?>
+

@@ -145,4 +145,4 @@ class FilterTest extends PKPTestCase {
 		return $mockFilter;
 	}
 }
-?>
+

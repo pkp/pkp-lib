@@ -40,4 +40,4 @@ class DateStringNormalizerFilterTest extends PKPTestCase {
 		self::assertNull($filter->execute($dateString));
 	}
 }
-?>
+

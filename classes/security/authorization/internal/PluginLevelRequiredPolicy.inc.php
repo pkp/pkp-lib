@@ -48,4 +48,4 @@ class PluginLevelRequiredPolicy extends AuthorizationPolicy {
 	}
 }
 
-?>
+

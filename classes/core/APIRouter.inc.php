@@ -149,4 +149,4 @@ class APIRouter extends PKPRouter {
 
 }
 
-?>
+

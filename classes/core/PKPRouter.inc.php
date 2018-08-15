@@ -609,4 +609,4 @@ class PKPRouter {
 	}
 }
 
-?>
+

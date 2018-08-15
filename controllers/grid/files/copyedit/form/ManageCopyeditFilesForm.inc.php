@@ -35,4 +35,4 @@ class ManageCopyeditFilesForm extends ManageSubmissionFilesForm {
 	}
 }
 
-?>
+

@@ -199,4 +199,4 @@ class EditorDecisionForm extends Form {
 	}
 }
 
-?>
+

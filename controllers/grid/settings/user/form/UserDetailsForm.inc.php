@@ -344,4 +344,4 @@ class UserDetailsForm extends UserForm {
 	}
 }
 
-?>
+

@@ -147,4 +147,4 @@ class PKPNotificationSettingsForm extends Form {
 	}
 }
 
-?>
+

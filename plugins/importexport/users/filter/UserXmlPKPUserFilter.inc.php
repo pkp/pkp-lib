@@ -325,4 +325,4 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 	}
 }
 
-?>
+

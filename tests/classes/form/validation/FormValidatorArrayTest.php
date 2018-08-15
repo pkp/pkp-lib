@@ -86,4 +86,4 @@ class FormValidatorArrayTest extends PKPTestCase {
 		self::assertEquals(array('testData[subfield1][subsubfield2]', 'testData[subfield2][subsubfield1]'), $validator->getErrorFields());
 	}
 }
-?>
+

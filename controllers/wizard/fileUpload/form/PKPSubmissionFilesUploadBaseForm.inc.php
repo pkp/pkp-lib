@@ -299,4 +299,4 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 	}
 }
 
-?>
+

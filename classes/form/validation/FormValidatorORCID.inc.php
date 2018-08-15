@@ -30,4 +30,4 @@ class FormValidatorORCID extends FormValidator {
 	}
 }
 
-?>
+

@@ -58,4 +58,4 @@ class FormValidatorBoolean extends FormValidator {
 	}
 }
 
-?>
+

@@ -242,4 +242,4 @@ class ControlledVocabEntryDAO extends DAO {
 	}
 }
 
-?>
+

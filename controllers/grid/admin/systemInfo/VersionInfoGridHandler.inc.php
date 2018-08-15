@@ -153,4 +153,4 @@ class VersionInfoGridHandler extends GridHandler {
 	}
 }
 
-?>
+

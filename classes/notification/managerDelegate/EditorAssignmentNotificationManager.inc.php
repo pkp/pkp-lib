@@ -122,4 +122,4 @@ class EditorAssignmentNotificationManager extends NotificationManagerDelegate {
 	}
 }
 
-?>
+

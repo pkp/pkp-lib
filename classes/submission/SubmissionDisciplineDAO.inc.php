@@ -150,4 +150,4 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO {
 	}
 }
 
-?>
+

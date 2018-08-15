@@ -43,4 +43,4 @@ class SearchHelperParser extends SearchFileParser {
 	}
 }
 
-?>
+

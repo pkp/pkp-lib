@@ -56,4 +56,4 @@ class ReviewerReviewAttachmentsGridHandler extends FileListGridHandler {
 	}
 }
 
-?>
+

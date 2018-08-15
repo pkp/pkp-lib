@@ -98,4 +98,4 @@ class SubmissionFileBaseAccessPolicy extends AuthorizationPolicy {
 	}
 }
 
-?>
+

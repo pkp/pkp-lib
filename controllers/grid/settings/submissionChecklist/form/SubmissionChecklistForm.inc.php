@@ -118,4 +118,4 @@ class SubmissionChecklistForm extends Form {
 	}
 }
 
-?>
+

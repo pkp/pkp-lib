@@ -62,4 +62,4 @@ class FilterGroupDAOTest extends DatabaseTestCase {
 		self::assertNull($filterGroupDao->getObjectById($filterGroupId));
 	}
 }
-?>
+

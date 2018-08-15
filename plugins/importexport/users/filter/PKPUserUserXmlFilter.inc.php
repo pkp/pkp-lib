@@ -167,4 +167,4 @@ class PKPUserUserXmlFilter extends NativeExportFilter {
 	}
 }
 
-?>
+

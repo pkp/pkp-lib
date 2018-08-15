@@ -140,4 +140,4 @@ class InterestDAO extends ControlledVocabDAO {
 	}
 }
 
-?>
+

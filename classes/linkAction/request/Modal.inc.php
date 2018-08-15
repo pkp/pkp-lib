@@ -117,4 +117,4 @@ class Modal extends LinkActionRequest {
 	}
 }
 
-?>
+

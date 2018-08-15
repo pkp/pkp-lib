@@ -64,4 +64,4 @@ class SetupListbuilderHandler extends ListbuilderHandler {
 	}
 }
 
-?>
+

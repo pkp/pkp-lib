@@ -80,4 +80,4 @@ class HandlerOperationPolicy extends AuthorizationPolicy {
 	}
 }
 
-?>
+

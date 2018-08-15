@@ -100,4 +100,4 @@ class ClassTypeDescription extends TypeDescription {
 		return array($packageName, $className);
 	}
 }
-?>
+

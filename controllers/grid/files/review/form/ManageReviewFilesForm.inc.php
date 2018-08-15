@@ -99,4 +99,4 @@ class ManageReviewFilesForm extends ManageSubmissionFilesForm {
 	}
 }
 
-?>
+

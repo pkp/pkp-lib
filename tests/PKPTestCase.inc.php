@@ -184,4 +184,4 @@ abstract class PKPTestCase extends PHPUnit_Framework_TestCase {
 		return './lib/pkp/tests/'.$configPath.'/config.'.$config.'.inc.php';
 	}
 }
-?>
+

@@ -137,4 +137,4 @@ class NavigationMenuItemAssignment extends DataObject {
 	}
 }
 
-?>
+

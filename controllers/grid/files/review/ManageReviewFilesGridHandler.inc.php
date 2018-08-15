@@ -89,4 +89,4 @@ class ManageReviewFilesGridHandler extends SelectableSubmissionFileListCategoryG
 	}
 }
 
-?>
+

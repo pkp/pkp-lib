@@ -71,4 +71,4 @@ class ReviewerGossipForm extends Form {
 	}
 }
 
-?>
+

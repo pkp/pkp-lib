@@ -119,4 +119,4 @@ class MetadataGridHandler extends GridHandler {
 	}
 }
 
-?>
+

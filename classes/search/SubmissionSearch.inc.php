@@ -376,4 +376,4 @@ abstract class SubmissionSearch {
 	abstract protected function getSearchDao();
 }
 
-?>
+

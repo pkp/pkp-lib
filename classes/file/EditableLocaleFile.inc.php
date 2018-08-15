@@ -125,4 +125,4 @@ class EditableLocaleFile extends LocaleFile {
 	}
 }
 
-?>
+

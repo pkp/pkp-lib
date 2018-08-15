@@ -81,4 +81,4 @@ class NavigationMenusGridCellProvider extends GridCellProvider {
 	}
 }
 
-?>
+

@@ -78,4 +78,4 @@ class AnnouncementType extends DataObject {
 	}
 }
 
-?>
+

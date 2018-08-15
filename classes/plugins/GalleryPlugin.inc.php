@@ -365,4 +365,4 @@ class GalleryPlugin extends DataObject {
 	}
 }
 
-?>
+

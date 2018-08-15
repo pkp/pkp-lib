@@ -59,4 +59,4 @@ interface PKPPubIdPluginDAO {
 
 }
 
-?>
+

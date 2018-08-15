@@ -68,4 +68,4 @@ abstract class OAIMetadataFormatPlugin extends Plugin {
 	}
 }
 
-?>
+

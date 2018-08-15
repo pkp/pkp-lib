@@ -32,4 +32,4 @@ class FormValidatorUrl extends FormValidator {
 	}
 }
 
-?>
+

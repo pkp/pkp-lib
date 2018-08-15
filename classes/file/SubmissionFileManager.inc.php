@@ -394,4 +394,4 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 	}
 }
 
-?>
+

@@ -65,4 +65,4 @@ class FormValidatorLocale extends FormValidator {
 	}
 }
 
-?>
+

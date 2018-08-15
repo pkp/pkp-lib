@@ -257,4 +257,4 @@ class MetadataSchema {
 		return isset($this->_properties[$propertyName]);
 	}
 }
-?>
+

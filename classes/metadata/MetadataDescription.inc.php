@@ -563,4 +563,4 @@ class MetadataDescription extends DataObject {
 	}
 }
 
-?>
+

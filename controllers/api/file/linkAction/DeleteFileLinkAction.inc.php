@@ -43,4 +43,4 @@ class DeleteFileLinkAction extends FileLinkAction {
 	}
 }
 
-?>
+

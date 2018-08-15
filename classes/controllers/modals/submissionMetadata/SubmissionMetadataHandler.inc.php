@@ -101,4 +101,4 @@ class SubmissionMetadataHandler extends Handler {
 	}
 }
 
-?>
+

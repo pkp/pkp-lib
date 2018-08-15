@@ -88,4 +88,4 @@ class JsEventConfirmationModal extends ConfirmationModal {
 	}
 }
 
-?>
+

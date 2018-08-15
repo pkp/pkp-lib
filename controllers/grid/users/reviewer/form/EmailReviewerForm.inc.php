@@ -87,4 +87,4 @@ class EmailReviewerForm extends Form {
 	}
 }
 
-?>
+

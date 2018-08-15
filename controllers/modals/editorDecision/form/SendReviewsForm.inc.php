@@ -162,4 +162,4 @@ class SendReviewsForm extends EditorDecisionWithEmailForm {
 	}
 }
 
-?>
+

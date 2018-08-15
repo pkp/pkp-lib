@@ -516,4 +516,4 @@ class PKPHandler {
 	}
 }
 
-?>
+

@@ -36,4 +36,4 @@ class FormValidatorInSetTest extends PKPTestCase {
 		self::assertFalse($validator->isValid());
 	}
 }
-?>
+

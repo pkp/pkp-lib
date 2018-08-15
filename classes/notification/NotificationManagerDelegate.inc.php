@@ -74,4 +74,4 @@ abstract class NotificationManagerDelegate extends PKPNotificationOperationManag
 	}
 }
 
-?>
+

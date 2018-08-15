@@ -126,4 +126,4 @@ class SystemInfoGridHandler extends CategoryGridHandler {
 		return array_keys($this->_configData);
 	}
 }
-?>
+

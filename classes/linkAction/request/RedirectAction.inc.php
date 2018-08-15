@@ -91,4 +91,4 @@ class RedirectAction extends LinkActionRequest {
 	}
 }
 
-?>
+

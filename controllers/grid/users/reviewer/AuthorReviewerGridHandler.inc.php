@@ -194,4 +194,4 @@ class AuthorReviewerGridHandler extends PKPReviewerGridHandler {
 
 }
 
-?>
+

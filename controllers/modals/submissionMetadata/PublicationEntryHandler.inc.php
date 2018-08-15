@@ -129,4 +129,4 @@ class PublicationEntryHandler extends Handler {
 	}
 }
 
-?>
+

@@ -476,4 +476,4 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 		self::assertEquals('http://mydomain.org/?firstContext=current-context1&secondContext=index&component=current.component-class&op=current-op', $result);
 	}
 }
-?>
+

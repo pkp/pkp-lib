@@ -32,4 +32,4 @@ class TaskNotificationsGridHandler extends NotificationsGridHandler {
 	}
 }
 
-?>
+

@@ -164,4 +164,4 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 	}
 }
 
-?>
+

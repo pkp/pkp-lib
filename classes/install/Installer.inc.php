@@ -791,4 +791,4 @@ class Installer {
 	}
 }
 
-?>
+

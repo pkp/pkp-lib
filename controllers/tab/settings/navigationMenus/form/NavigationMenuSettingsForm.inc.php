@@ -37,4 +37,4 @@ class NavigationMenuSettingsForm extends ContextSettingsForm {
 	}
 }
 
-?>
+

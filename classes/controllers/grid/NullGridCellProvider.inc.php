@@ -30,4 +30,4 @@ class NullGridCellProvider extends GridCellProvider {
 	}
 }
 
-?>
+

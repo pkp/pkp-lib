@@ -46,4 +46,4 @@ class QueuedPayment extends Payment {
 	}
 }
 
-?>
+

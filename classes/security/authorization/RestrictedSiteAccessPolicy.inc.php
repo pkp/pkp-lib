@@ -75,4 +75,4 @@ class RestrictedSiteAccessPolicy extends AuthorizationPolicy {
 	}
 }
 
-?>
+

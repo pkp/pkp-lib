@@ -243,4 +243,4 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 	}
 }
 
-?>
+

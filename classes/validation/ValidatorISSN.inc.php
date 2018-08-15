@@ -71,4 +71,4 @@ class ValidatorISSN extends ValidatorRegExp {
 	}
 }
 
-?>
+

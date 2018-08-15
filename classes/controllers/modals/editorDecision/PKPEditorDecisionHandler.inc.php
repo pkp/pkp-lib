@@ -518,4 +518,4 @@ class PKPEditorDecisionHandler extends Handler {
 	}
 }
 
-?>
+

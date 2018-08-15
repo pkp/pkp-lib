@@ -80,4 +80,4 @@ class NewReviewRoundForm extends EditorDecisionForm {
 	}
 }
 
-?>
+

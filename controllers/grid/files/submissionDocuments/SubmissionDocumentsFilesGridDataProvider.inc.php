@@ -61,4 +61,4 @@ class SubmissionDocumentsFilesGridDataProvider extends CategoryGridDataProvider 
 	}
 }
 
-?>
+

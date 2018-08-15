@@ -66,4 +66,4 @@ class ItemSelectionGridColumn extends GridColumn {
 	}
 }
 
-?>
+

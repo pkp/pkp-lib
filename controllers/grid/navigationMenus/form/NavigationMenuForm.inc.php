@@ -224,4 +224,4 @@ class NavigationMenuForm extends Form {
 	}
 }
 
-?>
+

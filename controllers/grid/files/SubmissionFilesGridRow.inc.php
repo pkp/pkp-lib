@@ -106,4 +106,4 @@ class SubmissionFilesGridRow extends GridRow {
 	}
 }
 
-?>
+

@@ -287,4 +287,4 @@ class PersistableFilter extends Filter {
 		return array('id', 'displayName', 'isTemplate', 'parentFilterId', 'seq');
 	}
 }
-?>
+

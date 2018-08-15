@@ -604,4 +604,4 @@ class FileManager {
 	}
 }
 
-?>
+

@@ -348,4 +348,4 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 	}
 }
 
-?>
+

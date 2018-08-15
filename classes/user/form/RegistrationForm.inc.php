@@ -296,4 +296,4 @@ class RegistrationForm extends Form {
 	}
 }
 
-?>
+

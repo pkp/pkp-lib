@@ -28,4 +28,4 @@ class Request extends PKPRequest {
 		return (self::$requestMethod == 'POST');
 	}
 }
-?>
+

@@ -492,4 +492,4 @@ class CategoryGridHandler extends GridHandler {
 	}
 }
 
-?>
+

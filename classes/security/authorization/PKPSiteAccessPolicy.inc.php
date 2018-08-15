@@ -64,4 +64,4 @@ class PKPSiteAccessPolicy extends PolicySet {
 	}
 }
 
-?>
+

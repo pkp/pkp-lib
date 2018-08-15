@@ -58,4 +58,4 @@ class AjaxModal extends Modal {
 	}
 }
 
-?>
+

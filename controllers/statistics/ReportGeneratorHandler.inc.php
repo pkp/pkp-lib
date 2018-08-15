@@ -195,4 +195,4 @@ class ReportGeneratorHandler extends Handler {
 	}
 }
 
-?>
+

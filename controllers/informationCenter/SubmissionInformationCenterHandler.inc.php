@@ -149,4 +149,4 @@ class SubmissionInformationCenterHandler extends InformationCenterHandler {
 	}
 }
 
-?>
+

@@ -130,4 +130,4 @@ class ManageSubmissionFilesForm extends Form {
 	}
 }
 
-?>
+

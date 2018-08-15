@@ -351,4 +351,4 @@ class EmailTemplate extends BaseEmailTemplate {
 	}
 }
 
-?>
+

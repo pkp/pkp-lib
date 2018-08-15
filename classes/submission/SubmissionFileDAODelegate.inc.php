@@ -444,4 +444,4 @@ class SubmissionFileDAODelegate extends DAO {
 	}
 }
 
-?>
+

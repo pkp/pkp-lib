@@ -45,4 +45,4 @@ class SubmissionLibraryLinkAction extends LinkAction {
 	}
 }
 
-?>
+

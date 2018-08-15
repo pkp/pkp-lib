@@ -353,4 +353,4 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 	}
 }
 
-?>
+

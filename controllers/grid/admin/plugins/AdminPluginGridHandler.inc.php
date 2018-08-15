@@ -64,4 +64,4 @@ class AdminPluginGridHandler extends PluginGridHandler {
 	}
 }
 
-?>
+

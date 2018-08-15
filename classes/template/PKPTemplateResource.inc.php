@@ -67,4 +67,4 @@ class PKPTemplateResource extends Smarty_Resource_Custom {
 	}
 }
 
-?>
+

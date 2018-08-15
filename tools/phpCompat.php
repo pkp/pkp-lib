@@ -111,4 +111,4 @@ class PhpCompat extends CommandLineTool {
 
 $tool = new PhpCompat(isset($argv) ? $argv : array());
 $tool->execute();
-?>
+

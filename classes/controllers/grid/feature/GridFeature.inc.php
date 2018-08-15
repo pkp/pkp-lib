@@ -250,4 +250,4 @@ class GridFeature {
 	}
 }
 
-?>
+

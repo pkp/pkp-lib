@@ -44,4 +44,4 @@ class Openurl10BookSchema extends Openurl10JournalBookBaseSchema {
 		$this->addProperty('genre', array(METADATA_PROPERTY_TYPE_VOCABULARY => 'openurl10-book-genres'));
 	}
 }
-?>
+

@@ -77,4 +77,4 @@ class PreviewReviewForm extends Form {
 		parent::readInputData();
 	}
 }
-?>
+

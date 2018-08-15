@@ -154,4 +154,4 @@ class LanguageDAO extends DAO {
 	}
 }
 
-?>
+

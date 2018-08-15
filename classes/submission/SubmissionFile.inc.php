@@ -672,4 +672,4 @@ class SubmissionFile extends PKPFile {
 	}
 }
 
-?>
+

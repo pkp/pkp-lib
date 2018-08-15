@@ -234,4 +234,4 @@ class AnnouncementForm extends Form {
 	}
 }
 
-?>
+

@@ -102,4 +102,4 @@ abstract class PaymentManager {
 	abstract function fulfillQueuedPayment($request, $queuedPayment);
 }
 
-?>
+

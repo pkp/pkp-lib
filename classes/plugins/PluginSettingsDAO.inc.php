@@ -292,4 +292,4 @@ function _installer_plugin_regexp_callback($matches) {
 	return __($matches[1]);
 }
 
-?>
+

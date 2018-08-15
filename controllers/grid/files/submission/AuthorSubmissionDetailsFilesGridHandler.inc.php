@@ -35,4 +35,4 @@ class AuthorSubmissionDetailsFilesGridHandler extends FileListGridHandler {
 	}
 }
 
-?>
+

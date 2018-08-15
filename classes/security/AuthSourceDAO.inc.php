@@ -204,4 +204,4 @@ class AuthSourceDAO extends DAO {
 	}
 }
 
-?>
+

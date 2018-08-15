@@ -58,4 +58,4 @@ class QueryAssignedToUserAccessPolicy extends AuthorizationPolicy {
 	}
 }
 
-?>
+

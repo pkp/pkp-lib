@@ -105,4 +105,4 @@ class ReviewGridDataProvider extends SubmissionFilesGridDataProvider {
 	}
 }
 
-?>
+

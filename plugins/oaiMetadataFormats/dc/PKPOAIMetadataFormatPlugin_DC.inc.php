@@ -50,4 +50,4 @@ class PKPOAIMetadataFormatPlugin_DC extends OAIMetadataFormatPlugin {
 	}
 }
 
-?>
+

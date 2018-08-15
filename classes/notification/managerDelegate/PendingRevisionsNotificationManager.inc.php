@@ -168,4 +168,4 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate {
 	}
 }
 
-?>
+

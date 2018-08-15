@@ -247,4 +247,4 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 	}
 }
 
-?>
+

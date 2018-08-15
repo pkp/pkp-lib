@@ -44,4 +44,4 @@ class ManagementHandler extends Handler {
 	}
 }
 
-?>
+

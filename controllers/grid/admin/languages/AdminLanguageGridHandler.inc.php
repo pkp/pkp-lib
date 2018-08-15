@@ -497,4 +497,4 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 	}
 }
 
-?>
+

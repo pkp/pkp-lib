@@ -125,4 +125,4 @@ class NewSiteImageFileForm extends SettingsFileUploadForm {
 	}
 }
 
-?>
+

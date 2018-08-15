@@ -64,4 +64,4 @@ abstract class BaseProfileForm extends Form {
 	}
 }
 
-?>
+

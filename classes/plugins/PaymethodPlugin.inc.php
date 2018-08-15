@@ -41,4 +41,4 @@ abstract class PaymethodPlugin extends LazyLoadPlugin {
 	}
 }
 
-?>
+

@@ -101,4 +101,4 @@ class UserGroupGridCellProvider extends GridCellProvider {
 	}
 }
 
-?>
+

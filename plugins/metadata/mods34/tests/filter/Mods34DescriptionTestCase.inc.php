@@ -105,4 +105,4 @@ class Mods34DescriptionTestCase extends DatabaseTestCase {
 		return $mods34Description;
 	}
 }
-?>
+

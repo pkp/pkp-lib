@@ -242,4 +242,4 @@ class SupplementaryFile extends SubmissionFile {
 	}
 }
 
-?>
+

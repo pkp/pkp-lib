@@ -306,4 +306,4 @@ class NotificationDAO extends DAO {
 	}
 }
 
-?>
+

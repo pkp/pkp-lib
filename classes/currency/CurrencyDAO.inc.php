@@ -121,4 +121,4 @@ class CurrencyDAO extends DAO {
 	}
 }
 
-?>
+

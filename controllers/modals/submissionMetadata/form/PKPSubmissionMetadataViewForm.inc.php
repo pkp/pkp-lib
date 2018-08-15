@@ -171,4 +171,4 @@ class PKPSubmissionMetadataViewForm extends Form {
 
 }
 
-?>
+

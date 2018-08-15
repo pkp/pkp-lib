@@ -55,4 +55,4 @@ class MetadataGridCellProvider extends GridCellProvider {
 	}
 }
 
-?>
+

@@ -40,4 +40,4 @@ class AuthorViewMetadataLinkAction extends LinkAction {
 	}
 }
 
-?>
+

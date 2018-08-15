@@ -563,4 +563,4 @@ class UserGridHandler extends GridHandler {
 	}
 }
 
-?>
+

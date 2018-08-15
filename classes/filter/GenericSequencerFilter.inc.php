@@ -70,4 +70,4 @@ class GenericSequencerFilter extends CompositeFilter {
 		return $output;
 	}
 }
-?>
+

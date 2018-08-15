@@ -121,4 +121,4 @@ class AuthSource extends DataObject {
 	}
 }
 
-?>
+

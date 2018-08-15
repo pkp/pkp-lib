@@ -146,4 +146,4 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler {
 	}
 }
 
-?>
+

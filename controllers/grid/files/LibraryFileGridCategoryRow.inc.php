@@ -57,4 +57,4 @@ class LibraryFileGridCategoryRow extends GridCategoryRow {
 		$this->setId($this->getData());
 	}
 }
-?>
+

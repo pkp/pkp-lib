@@ -37,4 +37,4 @@ class BlockPluginsListbuilderGridCellProvider extends GridCellProvider {
 	}
 }
 
-?>
+

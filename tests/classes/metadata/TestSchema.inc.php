@@ -38,4 +38,4 @@ class TestSchema extends MetadataSchema {
 		$this->addProperty('composite-translated-many', METADATA_PROPERTY_TYPE_STRING, true, METADATA_PROPERTY_CARDINALITY_MANY);
 	}
 }
-?>
+

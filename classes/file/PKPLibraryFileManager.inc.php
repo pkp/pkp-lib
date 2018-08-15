@@ -181,4 +181,4 @@ class PKPLibraryFileManager extends PrivateFileManager {
 	}
 }
 
-?>
+

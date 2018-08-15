@@ -30,4 +30,4 @@ abstract class PKPViewableFilePlugin extends GenericPlugin {
 	}
 }
 
-?>
+

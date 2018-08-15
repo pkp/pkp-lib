@@ -476,4 +476,4 @@ class ReviewFormGridHandler extends GridHandler {
 	}
 }
 
-?>
+

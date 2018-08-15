@@ -40,4 +40,4 @@ class FormValidatorCSRF extends FormValidator {
 	}
 }
 
-?>
+

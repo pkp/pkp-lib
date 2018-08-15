@@ -27,4 +27,4 @@ class AddTabAction extends EventAction {
 	}
 }
 
-?>
+

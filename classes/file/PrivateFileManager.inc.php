@@ -37,4 +37,4 @@ class PrivateFileManager extends FileManager {
 	}
 }
 
-?>
+

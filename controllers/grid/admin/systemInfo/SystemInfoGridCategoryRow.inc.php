@@ -41,4 +41,4 @@ class SystemInfoGridCategoryRow extends GridCategoryRow {
 		return $this->_configSection;
 	}
 }
-?>
+

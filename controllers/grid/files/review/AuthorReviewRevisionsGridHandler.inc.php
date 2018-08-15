@@ -36,4 +36,4 @@ class AuthorReviewRevisionsGridHandler extends FileListGridHandler {
 	}
 }
 
-?>
+

@@ -133,4 +133,4 @@ class SubmissionFileEventLogGridHandler extends SubmissionEventLogGridHandler {
 	}
 }
 
-?>
+

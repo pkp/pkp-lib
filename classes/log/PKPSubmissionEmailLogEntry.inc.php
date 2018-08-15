@@ -80,4 +80,4 @@ class PKPSubmissionEmailLogEntry extends EmailLogEntry {
 	}
 }
 
-?>
+

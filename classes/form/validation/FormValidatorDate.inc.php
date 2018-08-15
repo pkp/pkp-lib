@@ -65,4 +65,4 @@ class FormValidatorDate extends FormValidator {
 	}
 }
 
-?>
+

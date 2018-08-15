@@ -52,4 +52,4 @@ class EmailTemplatesForm extends ContextSettingsForm {
 	}
 }
 
-?>
+

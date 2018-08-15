@@ -92,4 +92,4 @@ class Mods34NameSchema extends MetadataSchema {
 		$this->addProperty('role/roleTerm[@type="code" @authority="marcrelator"]', array(METADATA_PROPERTY_TYPE_VOCABULARY => 'mods34-name-role-roleTerms-marcrelator'), false, METADATA_PROPERTY_CARDINALITY_MANY);
 	}
 }
-?>
+

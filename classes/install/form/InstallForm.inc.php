@@ -232,4 +232,4 @@ class InstallForm extends MaintenanceForm {
 	}
 }
 
-?>
+

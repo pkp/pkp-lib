@@ -97,4 +97,4 @@ class SubmissionNotificationManager extends NotificationManagerDelegate {
 	}
 }
 
-?>
+

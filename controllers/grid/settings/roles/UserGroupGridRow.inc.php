@@ -65,4 +65,4 @@ class UserGroupGridRow extends GridRow {
 	}
 }
 
-?>
+

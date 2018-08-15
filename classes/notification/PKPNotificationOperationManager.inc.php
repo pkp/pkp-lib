@@ -396,4 +396,4 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	}
 }
 
-?>
+

@@ -70,4 +70,4 @@ class FormValidatorLocaleTest extends PKPTestCase {
 		self::assertSame(array(' some text '), $formValidator->getFieldValue());
 	}
 }
-?>
+

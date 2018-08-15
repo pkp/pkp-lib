@@ -339,4 +339,4 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 	abstract protected function _getMailTemplate($submission, $templateKey, $includeSignature = true);
 }
 
-?>
+

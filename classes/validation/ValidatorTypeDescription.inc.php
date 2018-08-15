@@ -101,4 +101,4 @@ class ValidatorTypeDescription extends PrimitiveTypeDescription {
 		return true;
 	}
 }
-?>
+

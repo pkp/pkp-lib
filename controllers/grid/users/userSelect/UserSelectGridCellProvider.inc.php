@@ -51,4 +51,4 @@ class UserSelectGridCellProvider extends DataObjectGridCellProvider {
 	}
 }
 
-?>
+

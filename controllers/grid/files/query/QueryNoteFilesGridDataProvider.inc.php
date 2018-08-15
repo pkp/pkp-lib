@@ -107,4 +107,4 @@ class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 	}
 }
 
-?>
+

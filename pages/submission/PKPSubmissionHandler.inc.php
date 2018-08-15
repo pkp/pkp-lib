@@ -224,4 +224,4 @@ abstract class PKPSubmissionHandler extends Handler {
 	abstract function getStepCount();
 }
 
-?>
+

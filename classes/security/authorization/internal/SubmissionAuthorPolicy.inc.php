@@ -59,4 +59,4 @@ class SubmissionAuthorPolicy extends AuthorizationPolicy {
 	}
 }
 
-?>
+

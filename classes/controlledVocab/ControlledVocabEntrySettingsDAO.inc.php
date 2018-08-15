@@ -34,4 +34,4 @@ class ControlledVocabEntrySettingsDAO extends SettingsDAO {
 	}
 }
 
-?>
+

@@ -308,4 +308,4 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	}
 }
 
-?>
+

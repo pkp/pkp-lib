@@ -115,4 +115,4 @@ class PKPSection extends DataObject {
 	}
 }
 
-?>
+

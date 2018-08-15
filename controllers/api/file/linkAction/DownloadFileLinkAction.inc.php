@@ -59,4 +59,4 @@ class DownloadFileLinkAction extends FileLinkAction {
 	}
 }
 
-?>
+

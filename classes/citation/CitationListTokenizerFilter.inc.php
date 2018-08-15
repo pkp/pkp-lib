@@ -55,4 +55,4 @@ class CitationListTokenizerFilter extends Filter {
 		return $citations;
 	}
 }
-?>
+

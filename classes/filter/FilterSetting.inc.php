@@ -151,4 +151,4 @@ class FilterSetting {
 		return $check;
 	}
 }
-?>
+

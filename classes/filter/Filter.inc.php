@@ -480,4 +480,4 @@ class Filter extends DataObject {
 	}
 }
 
-?>
+

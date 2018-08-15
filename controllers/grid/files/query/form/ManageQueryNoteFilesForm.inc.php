@@ -89,4 +89,4 @@ class ManageQueryNoteFilesForm extends ManageSubmissionFilesForm {
 	}
 }
 
-?>
+

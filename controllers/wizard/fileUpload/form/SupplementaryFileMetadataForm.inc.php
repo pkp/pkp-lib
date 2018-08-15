@@ -64,4 +64,4 @@ class SupplementaryFileMetadataForm extends SubmissionFilesMetadataForm {
 	}
 }
 
-?>
+

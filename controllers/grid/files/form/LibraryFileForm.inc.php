@@ -69,4 +69,4 @@ class LibraryFileForm extends Form {
 	}
 }
 
-?>
+

@@ -210,4 +210,4 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 	}
 }
 
-?>
+

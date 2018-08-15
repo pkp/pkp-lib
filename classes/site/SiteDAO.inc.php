@@ -113,4 +113,4 @@ class SiteDAO extends DAO {
 	}
 }
 
-?>
+

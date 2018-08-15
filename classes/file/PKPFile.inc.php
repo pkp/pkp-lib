@@ -124,4 +124,4 @@ class PKPFile extends DataObject {
 	}
 }
 
-?>
+

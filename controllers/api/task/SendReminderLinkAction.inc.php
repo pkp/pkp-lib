@@ -43,4 +43,4 @@ class SendReminderLinkAction extends LinkAction {
 	}
 }
 
-?>
+

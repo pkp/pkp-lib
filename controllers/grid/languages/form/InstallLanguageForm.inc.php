@@ -113,4 +113,4 @@ class InstallLanguageForm extends Form {
 	}
 }
 
-?>
+

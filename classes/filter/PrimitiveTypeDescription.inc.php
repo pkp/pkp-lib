@@ -98,4 +98,4 @@ class PrimitiveTypeDescription extends TypeDescription {
 	}
 }
 
-?>
+

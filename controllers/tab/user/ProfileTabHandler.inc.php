@@ -319,4 +319,4 @@ class ProfileTabHandler extends Handler {
 	}
 }
 
-?>
+

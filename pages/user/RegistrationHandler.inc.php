@@ -195,4 +195,4 @@ class RegistrationHandler extends UserHandler {
 	}
 }
 
-?>
+

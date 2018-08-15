@@ -254,4 +254,4 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 	}
 }
 
-?>
+

@@ -76,4 +76,4 @@ class ManageFinalDraftFilesGridHandler extends SelectableSubmissionFileListCateg
 	}
 }
 
-?>
+

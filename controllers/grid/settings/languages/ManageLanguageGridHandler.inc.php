@@ -79,4 +79,4 @@ class ManageLanguageGridHandler extends LanguageGridHandler {
 	}
 }
 
-?>
+

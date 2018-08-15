@@ -206,4 +206,4 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm {
 	}
 }
 
-?>
+

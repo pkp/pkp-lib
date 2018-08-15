@@ -61,4 +61,4 @@ class SelectableFileListGridHandler extends FileListGridHandler {
 	}
 }
 
-?>
+

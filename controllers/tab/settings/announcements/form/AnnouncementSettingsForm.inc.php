@@ -63,4 +63,4 @@ class AnnouncementSettingsForm extends ContextSettingsForm {
 	}
 }
 
-?>
+

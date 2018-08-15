@@ -45,4 +45,4 @@ class AddRevisionLinkAction extends BaseAddFileLinkAction {
 	}
 }
 
-?>
+

@@ -164,4 +164,4 @@ class TemporaryFileManager extends PrivateFileManager {
 	}
 }
 
-?>
+

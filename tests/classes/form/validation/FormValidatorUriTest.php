@@ -52,4 +52,4 @@ class FormValidatorUriTest extends PKPTestCase {
 		self::assertFalse($validator->isValid());
 	}
 }
-?>
+

@@ -57,4 +57,4 @@ class UserRoleForm extends UserForm {
 	}
 }
 
-?>
+

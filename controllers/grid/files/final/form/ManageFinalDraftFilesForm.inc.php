@@ -41,4 +41,4 @@ class ManageFinalDraftFilesForm extends ManageSubmissionFilesForm {
 	}
 }
 
-?>
+

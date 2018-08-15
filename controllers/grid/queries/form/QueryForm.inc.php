@@ -371,4 +371,4 @@ class QueryForm extends Form {
 	}
 }
 
-?>
+

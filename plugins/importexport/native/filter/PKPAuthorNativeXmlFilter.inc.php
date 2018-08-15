@@ -104,4 +104,4 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter {
 	}
 }
 
-?>
+

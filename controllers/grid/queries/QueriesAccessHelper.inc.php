@@ -160,4 +160,4 @@ class QueriesAccessHelper {
 	}
 }
 
-?>
+

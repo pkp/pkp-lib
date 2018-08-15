@@ -70,4 +70,4 @@ class SubmissionFilesArtworkMetadataForm extends SubmissionFilesMetadataForm {
 	}
 }
 
-?>
+

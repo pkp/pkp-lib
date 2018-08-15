@@ -82,4 +82,4 @@ class DocumentLibraryHandler extends Handler {
 	}
 }
 
-?>
+

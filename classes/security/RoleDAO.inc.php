@@ -224,4 +224,4 @@ class RoleDAO extends DAO {
 	}
 }
 
-?>
+

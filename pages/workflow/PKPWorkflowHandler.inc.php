@@ -527,4 +527,4 @@ abstract class PKPWorkflowHandler extends Handler {
 	abstract protected function isSubmissionReady($submission);
 }
 
-?>
+

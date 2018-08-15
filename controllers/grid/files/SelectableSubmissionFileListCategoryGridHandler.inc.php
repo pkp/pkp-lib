@@ -280,4 +280,4 @@ class SelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandle
 	}
 }
 
-?>
+

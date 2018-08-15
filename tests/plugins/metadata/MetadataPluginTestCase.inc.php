@@ -64,4 +64,4 @@ class MetadataPluginTestCase extends PluginTestCase {
 		}
 	}
 }
-?>
+

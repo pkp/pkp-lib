@@ -61,4 +61,4 @@ class PersistableFilterTest extends PKPTestCase {
 		self::assertEquals($outputTypeDescription, $testFilter->getOutputType()->getTypeDescription());
 	}
 }
-?>
+

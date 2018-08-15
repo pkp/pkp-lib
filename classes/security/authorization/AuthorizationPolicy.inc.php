@@ -155,4 +155,4 @@ class AuthorizationPolicy {
 	}
 }
 
-?>
+

@@ -133,4 +133,4 @@ class AppLocale extends PKPLocale {
 		self::$translations = $translations;
 	}
 }
-?>
+

@@ -249,4 +249,4 @@ class LanguageGridHandler extends GridHandler {
 	}
 }
 
-?>
+

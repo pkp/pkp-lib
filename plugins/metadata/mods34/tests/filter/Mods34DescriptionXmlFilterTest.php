@@ -37,4 +37,4 @@ class Mods34DescriptionXmlFilterTest extends Mods34DescriptionTestCase {
 		self::assertXmlStringEqualsXmlFile('./lib/pkp/tests/plugins/metadata/mods34/filter/test.xml', $output);
 	}
 }
-?>
+

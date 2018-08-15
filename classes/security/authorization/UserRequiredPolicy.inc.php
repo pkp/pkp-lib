@@ -44,4 +44,4 @@ class UserRequiredPolicy extends AuthorizationPolicy {
 	}
 }
 
-?>
+

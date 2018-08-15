@@ -541,4 +541,4 @@ class NavigationMenuItemDAO extends DAO {
 	}
 }
 
-?>
+

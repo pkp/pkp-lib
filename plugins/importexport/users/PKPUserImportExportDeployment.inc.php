@@ -64,4 +64,4 @@ class PKPUserImportExportDeployment extends PKPImportExportDeployment {
 	}
 }
 
-?>
+

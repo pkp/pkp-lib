@@ -96,4 +96,4 @@ class CitationsParsingTool extends CommandLineTool {
 
 $tool = new CitationsParsingTool(isset($argv) ? $argv : array());
 $tool->execute();
-?>
+

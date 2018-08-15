@@ -40,4 +40,4 @@ class FormValidatorPostTest extends PKPTestCase {
 		self::assertFalse($validator->isValid());
 	}
 }
-?>
+

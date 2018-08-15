@@ -306,4 +306,4 @@ class DataObjectTombstoneDAO extends DAO {
 	}
 }
 
-?>
+

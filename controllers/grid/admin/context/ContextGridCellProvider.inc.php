@@ -43,4 +43,4 @@ class ContextGridCellProvider extends GridCellProvider {
 	}
 }
 
-?>
+

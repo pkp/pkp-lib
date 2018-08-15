@@ -31,4 +31,4 @@ class SelectableSubmissionFileListCategoryGridRow extends GridCategoryRow {
 	}
 }
 
-?>
+

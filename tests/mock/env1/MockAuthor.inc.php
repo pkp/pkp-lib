@@ -14,4 +14,4 @@
 
 import('lib.pkp.classes.submission.PKPAuthor');
 class Author extends PKPAuthor { }
-?>
+

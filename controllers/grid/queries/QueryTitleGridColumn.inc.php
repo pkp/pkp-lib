@@ -89,4 +89,4 @@ class QueryTitleGridColumn extends GridColumn {
 	}
 }
 
-?>
+

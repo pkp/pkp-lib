@@ -1717,4 +1717,4 @@ class PKPTemplateManager extends SmartyBC {
 	}
 }
 
-?>
+

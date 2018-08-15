@@ -220,4 +220,4 @@ class PKPPublicIdentifiersForm extends Form {
 	}
 }
 
-?>
+

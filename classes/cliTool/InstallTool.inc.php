@@ -254,4 +254,4 @@ class InstallTool extends CommandLineTool {
 
 }
 
-?>
+

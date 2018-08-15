@@ -54,4 +54,4 @@ class ManagerRequiredPolicy extends AuthorizationPolicy {
 	}
 }
 
-?>
+

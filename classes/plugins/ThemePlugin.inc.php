@@ -823,4 +823,4 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	}
 }
 
-?>
+

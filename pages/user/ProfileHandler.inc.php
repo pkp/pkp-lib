@@ -59,4 +59,4 @@ class ProfileHandler extends UserHandler {
 	}
 }
 
-?>
+

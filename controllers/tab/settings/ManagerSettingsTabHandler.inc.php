@@ -76,4 +76,4 @@ class ManagerSettingsTabHandler extends SettingsTabHandler {
 	}
 }
 
-?>
+

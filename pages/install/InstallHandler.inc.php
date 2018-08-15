@@ -117,4 +117,4 @@ class InstallHandler extends Handler {
 	}
 }
 
-?>
+

@@ -253,4 +253,4 @@ class PluginRegistry {
 	}
 }
 
-?>
+

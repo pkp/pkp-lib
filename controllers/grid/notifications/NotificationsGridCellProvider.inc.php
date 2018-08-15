@@ -157,4 +157,4 @@ class NotificationsGridCellProvider extends GridCellProvider {
 	}
 }
 
-?>
+

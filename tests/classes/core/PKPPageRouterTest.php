@@ -478,4 +478,4 @@ class PKPPageRouterTest extends PKPRouterTestCase {
 		self::assertEquals('http://mydomain.org/?firstContext=current-context1&secondContext=index&page=current-page&op=current-op', $result);
 	}
 }
-?>
+

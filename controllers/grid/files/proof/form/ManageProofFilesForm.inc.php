@@ -71,4 +71,4 @@ class ManageProofFilesForm extends ManageSubmissionFilesForm {
 	}
 }
 
-?>
+

@@ -35,4 +35,4 @@ class ContextAccessPolicy extends ContextPolicy {
 	}
 }
 
-?>
+

@@ -92,4 +92,4 @@ class EventLogGridRow extends GridRow {
 	}
 }
 
-?>
+

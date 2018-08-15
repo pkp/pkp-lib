@@ -402,4 +402,4 @@ class PKPUser extends Identity {
 	}
 }
 
-?>
+

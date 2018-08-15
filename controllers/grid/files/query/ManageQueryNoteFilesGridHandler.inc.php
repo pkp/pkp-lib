@@ -98,4 +98,4 @@ class ManageQueryNoteFilesGridHandler extends SelectableSubmissionFileListCatego
 	}
 }
 
-?>
+

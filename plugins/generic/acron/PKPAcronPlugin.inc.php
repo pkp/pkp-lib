@@ -360,4 +360,4 @@ class PKPAcronPlugin extends GenericPlugin {
 		return $tasksToRun;
 	}
 }
-?>
+

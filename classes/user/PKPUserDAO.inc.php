@@ -617,4 +617,4 @@ class PKPUserDAO extends DAO {
 
 }
 
-?>
+

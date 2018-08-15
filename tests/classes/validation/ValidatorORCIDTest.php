@@ -34,4 +34,4 @@ class ValidatorORCIDTest extends PKPTestCase {
 	}
 }
 
-?>
+

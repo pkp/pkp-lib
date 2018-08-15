@@ -75,4 +75,4 @@ class PluginAccessPolicy extends PolicySet {
 	}
 }
 
-?>
+

@@ -142,4 +142,4 @@ class SubmissionFilesMetadataForm extends Form {
 	}
 }
 
-?>
+

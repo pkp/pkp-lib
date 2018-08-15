@@ -183,4 +183,4 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 	}
 }
 
-?>
+

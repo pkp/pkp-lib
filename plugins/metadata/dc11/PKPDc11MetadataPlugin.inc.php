@@ -62,4 +62,4 @@ class PKPDc11MetadataPlugin extends MetadataPlugin {
 	}
 }
 
-?>
+

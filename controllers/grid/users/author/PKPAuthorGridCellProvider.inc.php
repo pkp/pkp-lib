@@ -46,4 +46,4 @@ class PKPAuthorGridCellProvider extends DataObjectGridCellProvider {
 	}
 }
 
-?>
+

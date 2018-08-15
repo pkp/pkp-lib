@@ -450,4 +450,4 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 	}
 }
 
-?>
+

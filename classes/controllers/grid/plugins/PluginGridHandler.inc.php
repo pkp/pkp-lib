@@ -390,4 +390,4 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	}
 }
 
-?>
+

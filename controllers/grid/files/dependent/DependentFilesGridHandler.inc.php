@@ -62,4 +62,4 @@ class DependentFilesGridHandler extends FileListGridHandler {
 	}
 }
 
-?>
+

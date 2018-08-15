@@ -226,4 +226,4 @@ class SubmissionChecklistGridHandler extends SetupGridHandler {
 	}
 }
 
-?>
+

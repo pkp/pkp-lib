@@ -139,4 +139,4 @@ class GridColumn extends GridBodyElement {
 	}
 }
 
-?>
+

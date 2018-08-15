@@ -33,4 +33,4 @@ class SelectReviewFilesLinkAction extends SelectFilesLinkAction {
 	}
 }
 
-?>
+

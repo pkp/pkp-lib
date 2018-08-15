@@ -94,4 +94,4 @@ class UserDisableForm extends Form {
 	}
 }
 
-?>
+

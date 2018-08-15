@@ -147,4 +147,4 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 	}
 }
 
-?>
+

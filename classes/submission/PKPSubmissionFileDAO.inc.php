@@ -1083,4 +1083,4 @@ abstract class PKPSubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 	}
 }
 
-?>
+

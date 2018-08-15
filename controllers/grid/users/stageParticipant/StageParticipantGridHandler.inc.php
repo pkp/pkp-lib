@@ -511,4 +511,4 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 	}
 }
 
-?>
+

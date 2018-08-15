@@ -39,4 +39,4 @@ class Openurl10JournalBookBaseSchema extends Openurl10BaseSchema {
 		$this->addProperty('issn');
 	}
 }
-?>
+

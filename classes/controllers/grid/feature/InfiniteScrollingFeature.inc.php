@@ -139,4 +139,4 @@ class InfiniteScrollingFeature extends GeneralPagingFeature {
 	}
 }
 
-?>
+

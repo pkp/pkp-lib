@@ -204,4 +204,4 @@ class FilterGroupDAO extends DAO {
 	}
 }
 
-?>
+

@@ -196,4 +196,4 @@ abstract class BlockPlugin extends LazyLoadPlugin {
 	}
 }
 
-?>
+

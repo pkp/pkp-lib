@@ -126,4 +126,4 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 	}
 }
 
-?>
+

@@ -95,4 +95,4 @@ class UserGroupNativeXmlFilter extends NativeExportFilter {
 	}
 }
 
-?>
+

@@ -145,4 +145,4 @@ abstract class ReportPlugin extends Plugin {
 	}
 }
 
-?>
+

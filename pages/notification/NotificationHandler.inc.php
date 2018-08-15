@@ -130,4 +130,4 @@ class NotificationHandler extends Handler {
 	}
 }
 
-?>
+

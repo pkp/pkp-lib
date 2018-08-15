@@ -165,4 +165,4 @@ class ArchivingForm extends ContextSettingsForm {
 	}
 }
 
-?>
+

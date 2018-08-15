@@ -540,4 +540,4 @@ class PKPFileUploadWizardHandler extends Handler {
 	}
 }
 
-?>
+

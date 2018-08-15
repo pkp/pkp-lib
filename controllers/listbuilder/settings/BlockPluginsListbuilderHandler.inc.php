@@ -98,4 +98,4 @@ class BlockPluginsListbuilderHandler extends MultipleListsListbuilderHandler {
 	}
 }
 
-?>
+

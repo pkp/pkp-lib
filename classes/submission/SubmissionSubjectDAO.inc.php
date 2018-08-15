@@ -147,4 +147,4 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 	}
 }
 
-?>
+

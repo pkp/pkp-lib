@@ -198,4 +198,4 @@ class XMLCustomWriter {
 	}
 }
 
-?>
+

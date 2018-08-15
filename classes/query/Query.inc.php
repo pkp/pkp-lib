@@ -123,4 +123,4 @@ class Query extends DataObject {
 	}
 }
 
-?>
+

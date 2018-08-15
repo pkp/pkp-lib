@@ -88,4 +88,4 @@ class AdminHandler extends Handler {
 	}
 }
 
-?>
+

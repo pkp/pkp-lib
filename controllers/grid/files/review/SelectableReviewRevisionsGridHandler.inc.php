@@ -49,4 +49,4 @@ class SelectableReviewRevisionsGridHandler extends SelectableFileListGridHandler
 	}
 }
 
-?>
+

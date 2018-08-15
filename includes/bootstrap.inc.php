@@ -54,4 +54,4 @@ import('classes.core.Application');
 
 return new Application();
 
-?>
+

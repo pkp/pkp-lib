@@ -306,4 +306,4 @@ class PreparedEmailsGridHandler extends GridHandler {
 	}
 }
 
-?>
+

@@ -84,4 +84,4 @@ class QueryNoteFilesGridHandler extends FileListGridHandler {
 	}
 }
 
-?>
+

@@ -101,4 +101,4 @@ class RolesForm extends BaseProfileForm {
 	}
 }
 
-?>
+

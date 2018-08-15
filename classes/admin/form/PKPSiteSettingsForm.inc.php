@@ -202,4 +202,4 @@ class PKPSiteSettingsForm extends Form {
 	}
 }
 
-?>
+

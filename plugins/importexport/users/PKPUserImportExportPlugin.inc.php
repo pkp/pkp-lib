@@ -255,4 +255,4 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 	}
 }
 
-?>
+

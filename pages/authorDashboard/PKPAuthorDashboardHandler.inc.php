@@ -133,4 +133,4 @@ class PKPAuthorDashboardHandler extends Handler {
 
 }
 
-?>
+

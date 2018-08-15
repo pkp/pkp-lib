@@ -522,4 +522,4 @@ class QueriesGridHandler extends GridHandler {
 	}
 }
 
-?>
+

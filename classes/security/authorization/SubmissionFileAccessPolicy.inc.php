@@ -229,4 +229,4 @@ class SubmissionFileAccessPolicy extends ContextPolicy {
 	}
 }
 
-?>
+

@@ -245,4 +245,4 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
 
 }
 
-?>
+

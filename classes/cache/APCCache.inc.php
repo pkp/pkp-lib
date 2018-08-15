@@ -87,4 +87,4 @@ class APCCache extends GenericCache {
 	}
 }
 
-?>
+

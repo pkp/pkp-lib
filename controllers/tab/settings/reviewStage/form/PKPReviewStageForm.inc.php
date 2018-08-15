@@ -79,4 +79,4 @@ class PKPReviewStageForm extends ContextSettingsForm {
 	}
 }
 
-?>
+

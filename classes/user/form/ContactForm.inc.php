@@ -106,4 +106,4 @@ class ContactForm extends BaseProfileForm {
 	}
 }
 
-?>
+

@@ -54,8 +54,8 @@ class AboutSiteHandler extends Handler {
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
 		$context = $request->getContext();
-		$sitewidePrivacyStatement = Config::getVar('general', 'sitewide_privacy_statement');
-		if (!$sitewidePrivacyStatement && $context) {
+		$enableSiteWidePrivacyStatement = Config::getVar('general', 'sitewide_privacy_statement');
+		if (!$enableSiteWidePrivacyStatement && $context) {
 			$privacyStatement = $context->getLocalizedSetting('privacyStatement');
 		} else {
 			$privacyStatement = $request->getSite()->getLocalizedSetting('privacyStatement');

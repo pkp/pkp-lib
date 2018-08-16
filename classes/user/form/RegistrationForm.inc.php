@@ -105,7 +105,8 @@ class RegistrationForm extends Form {
 		$templateMgr->assign(array(
 			'source' =>$request->getUserVar('source'),
 			'minPasswordLength' => $site->getMinPasswordLength(),
-			'sitewidePrivacyStatement' => Config::getVar('general', 'sitewide_privacy_statement'),
+			'enableSiteWidePrivacyStatement' => Config::getVar('general', 'sitewide_privacy_statement'),
+			'siteWidePrivacyStatement' => $site->getSetting('privacyStatement'),
 		));
 
 		return parent::fetch($request, $template, $display);

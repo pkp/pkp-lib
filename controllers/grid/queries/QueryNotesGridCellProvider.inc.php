@@ -73,7 +73,7 @@ class QueryNotesGridCellProvider extends DataObjectGridCellProvider {
 				}
 				return $actions;
 		}
-		return parent::getCellActions($request, $row,, $column, $position);
+		return parent::getCellActions($request, $row, $column, $position);
 	}
 }
 

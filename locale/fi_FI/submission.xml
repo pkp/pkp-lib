@@ -567,8 +567,8 @@
 	<message key="submission.list.confirmDelete">Poista käsikirjoitus?</message>
 	<message key="submission.list.viewSubmission">Katso käsikirjoitusta</message>
 	<message key="submission.list.itemsOfTotal">{$count} / {$total} käsikirjoitusta</message>
-	<message key="submission.list.responseDue">Vastausaika umpeutunut</message>
-	<message key="submission.list.reviewDue">Arviointiaika umpeutunut</message>
+	<message key="submission.list.responseDue">Vastausaika umpeutuu</message>
+	<message key="submission.list.reviewDue">Arviointiaika umpeutuu</message>
 	<message key="submission.query.noParticipantOptions">Käsikirjoitukseen pitää lisätä vähintään yksi osallistuja ennen keskustelun aloittamista.</message>
 	<message key="submission.list.infoCenter">Tapahtumaloki ja muistiinpanot</message>
 	<message key="submission.list.count">{$count} käsikirjoitusta</message>

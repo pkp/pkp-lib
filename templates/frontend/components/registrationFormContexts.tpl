@@ -66,7 +66,7 @@
 								{/foreach}
 							</fieldset>
 							{* Require the user to agree to the terms of the context's privacy policy *}
-							{if !$sitewidePrivacyStatement && $context->getSetting('privacyStatement')}
+							{if !$enableSiteWidePrivacyStatement && $context->getSetting('privacyStatement')}
 								<div class="context_privacy {if $isSelected}context_privacy_visible{/if}">
 									<label>
 										<input type="checkbox" name="privacyConsent[{$contextId}]" id="privacyConsent[{$contextId}]" value="1"{if $privacyConsent[$contextId]} checked="checked"{/if}>

@@ -24,7 +24,7 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 	function __construct($request, $reviewerSubmission, $reviewAssignment) {
 		parent::__construct($request, $reviewerSubmission, $reviewAssignment, 1);
 		$context = $request->getContext();
-		if (!$reviewAssignment->getDeclined() && !$reviewAssignment->getDateConfirmed() && $context && $context->getSetting('privacyStatement')) {
+		if (!$reviewAssignment->getDeclined() && !$reviewAssignment->getDateConfirmed() && $context->getSetting('privacyStatement')) {
 			$this->addCheck(new FormValidator($this, 'privacyConsent', 'required', 'user.profile.form.privacyConsentRequired'));
 		}
 	}

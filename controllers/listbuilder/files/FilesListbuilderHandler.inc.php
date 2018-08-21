@@ -61,10 +61,10 @@ class FilesListbuilderHandler extends ListbuilderHandler {
 
 	/**
 	 * Configure the grid
-	 * @param PKPRequest $request
+	 * @see ListbuilderHandler::initialize
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 
 		// Basic configuration
 		$this->setSourceType(LISTBUILDER_SOURCE_TYPE_SELECT);

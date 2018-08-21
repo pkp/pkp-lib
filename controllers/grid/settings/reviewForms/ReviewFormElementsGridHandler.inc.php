@@ -134,11 +134,9 @@ class ReviewFormElementsGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see GridHandler::loadData()
-	 * @param $request PKPRequest
-	 * @return array Grid data.
+	 * @copydoc GridHandler::loadData()
 	 */
-	protected function loadData($request) {
+	protected function loadData($request, $filter = null) {
 		// Get review form elements.
 		//$rangeInfo = $this->getRangeInfo('reviewFormElements');
 		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');

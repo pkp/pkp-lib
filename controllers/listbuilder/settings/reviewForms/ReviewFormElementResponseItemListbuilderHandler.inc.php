@@ -26,8 +26,8 @@ class ReviewFormElementResponseItemListbuilderHandler extends SetupListbuilderHa
 	/**
 	 * @copydoc SetupListbuilderHandler::initialize()
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
 		$this->_reviewFormElementId = (int) $request->getUserVar('reviewFormElementId');
 
@@ -47,7 +47,7 @@ class ReviewFormElementResponseItemListbuilderHandler extends SetupListbuilderHa
 	/**
 	 * @copydoc GridHandler::loadData()
 	 */
-	protected function loadData($request) {
+	protected function loadData($request, $filter = null) {
 		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
 		$reviewFormElement = $reviewFormElementDao->getById($this->_reviewFormElementId);
 		$formattedResponses = array();

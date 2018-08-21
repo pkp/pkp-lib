@@ -41,7 +41,7 @@ class ReviewerReviewAttachmentsGridHandler extends FileListGridHandler {
 	/**
 	 * @copydoc FileListGridHandler::initialize()
 	 */
-	function initialize($request) {
+	function initialize($request, $args = null) {
 		// Watch for flag from including template to warn about the
 		// review already being complete. If so, remove some capabilities.
 		$capabilities = $this->getCapabilities();
@@ -52,7 +52,7 @@ class ReviewerReviewAttachmentsGridHandler extends FileListGridHandler {
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_REVIEWER);
 
-		parent::initialize($request);
+		parent::initialize($request, $args);
 	}
 }
 

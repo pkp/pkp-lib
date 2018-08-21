@@ -52,10 +52,10 @@ class SystemInfoGridHandler extends CategoryGridHandler {
 	}
 
 	/**
-	 * @copydoc PKPHandler::initialize()
+	 * @copydoc CategoryGridHandler::initialize()
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 
 		// Load user-related translations.
 		AppLocale::requireComponents(
@@ -115,7 +115,7 @@ class SystemInfoGridHandler extends CategoryGridHandler {
 	/**
 	 * @copydoc CategoryGridHandler::loadCategoryData()
 	 */
-	function loadCategoryData($request, $configSection) {
+	function loadCategoryData($request, &$configSection, $filter = null) {
 		return $this->_configData[$configSection];
 	}
 

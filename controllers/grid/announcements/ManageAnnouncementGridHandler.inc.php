@@ -40,8 +40,8 @@ class ManageAnnouncementGridHandler extends AnnouncementGridHandler {
 	/**
 	 * @copydoc AnnouncementGridHandler::initialize()
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 
 		$this->setTitle('announcement.announcements');
 
@@ -85,10 +85,10 @@ class ManageAnnouncementGridHandler extends AnnouncementGridHandler {
 	/**
 	 * @copydoc GridHandler::authorize()
 	 */
-	function authorize($request, &$args, $roleAssignments) {
+	function authorize($request, &$args, $roleAssignments, $requireAnnouncementsEnabled = false) {
 		import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
 		$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
-		return parent::authorize($request, $args, $roleAssignments, false);
+		return parent::authorize($request, $args, $roleAssignments, $requireAnnouncementsEnabled);
 	}
 
 	/**

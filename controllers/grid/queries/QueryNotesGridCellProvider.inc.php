@@ -55,7 +55,7 @@ class QueryNotesGridCellProvider extends DataObjectGridCellProvider {
 	/**
 	 * @copydoc GridCellProvider::getCellActions()
 	 */
-	function getCellActions($request, $row, $column) {
+	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
 		switch ($column->getId()) {
 			case 'contents':
 				$element = $row->getData();
@@ -73,7 +73,7 @@ class QueryNotesGridCellProvider extends DataObjectGridCellProvider {
 				}
 				return $actions;
 		}
-		return parent::getCellActions($request, $row, $column);
+		return parent::getCellActions($request, $row, $column, $position);
 	}
 }
 

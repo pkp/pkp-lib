@@ -283,7 +283,6 @@
 	<message key="manager.setup.layout.unselected">Neizbrano</message>
 	<message key="manager.setup.loggingAndAuditing">Pisanje dnevnika in nadzor</message>
 	<message key="manager.setup.logo">Logotip</message>
-	<message key="manager.setup.metaCitationsDescription">Obkljukajte potrditveno polje, da omogočite urejanje citatov in literature. To bo omogočilo avtorjem, da bodo pri oddaji prispevkov vključili neobdelane citate. Tudi uredniki bodo imeli dostop do pomočnika za označevanje citatov, s katerim lahko preverijo ustreznost neobdelanih citatov s pomočjo zunanjih zbirk podatkov, kot so WorldCat, ISBNdb, PubMed in druge. Potrjene citate lahko nato izvozite v končne datoteke preloma.</message>
 	<message key="manager.setup.notifications">Obvestilo o avtorjevi oddaji prispevka</message>
 	<message key="manager.setup.notifications.copySpecifiedAddress">Pošlji kopijo na ta elektronski naslov:</message>
 	<message key="manager.setup.notifications.description">Avtorji samodejno prejmejo elektronsko sporočilo, ki potrjuje njihovo oddajo. Kopije tega elektronskega sporočila lahko pošljete na:</message>

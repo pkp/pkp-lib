@@ -66,8 +66,8 @@ class PKPFileUploadWizardHandler extends Handler {
 	/**
 	 * @copydoc PKPHandler::initialize()
 	 */
-	function initialize($request, $args) {
-		parent::initialize($request, $args);
+	function initialize($request) {
+		parent::initialize($request);
 		// Configure the wizard with the authorized submission and file stage.
 		// Validated in authorize.
 		$this->_fileStage = (int)$request->getUserVar('fileStage');

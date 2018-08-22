@@ -44,8 +44,8 @@ class PublicationEntryHandler extends Handler {
 	/**
 	 * @copydoc PKPHandler::initialize()
 	 */
-	function initialize($request, $args = null) {
-		parent::initialize($request, $args);
+	function initialize($request) {
+		parent::initialize($request);
 
 		$this->_submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$this->_stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);

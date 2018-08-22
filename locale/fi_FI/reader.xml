@@ -56,7 +56,7 @@
 	<message key="rt.admin.sharing.buttonStyleLabel">Painikkeen tyyli</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Käytä pudotusvalikkoa</message>
 	<message key="rt.admin.sharing.advanced">Lisäasetukset (valinnainen)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Katso lisätietoja <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">AddThis.comin mukautusohjeista</a>.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Katso lisätietoja <a href="https://www.addthis.com/academy/how-to-create-custom-buttons-with-addthis/">AddThis.comin mukautusohjeista</a>.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Tuotemerkki</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Pudotusvalikon vaihtoehdot <br /> (pilkuin eroteltu luettelo)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Kieli</message>

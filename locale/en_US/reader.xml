@@ -56,7 +56,7 @@
 	<message key="rt.admin.sharing.buttonStyleLabel">Button style</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Use drop-down menu</message>
 	<message key="rt.admin.sharing.advanced">Advanced Settings (optional)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[See the <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">AddThis.com customization documentation</a> for reference.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[See the <a href="https://www.addthis.com/academy/how-to-create-custom-buttons-with-addthis/">AddThis.com customization documentation</a> for reference.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Brand</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Drop-down options <br /> (comma separated list)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Language</message>

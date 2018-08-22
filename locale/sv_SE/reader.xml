@@ -56,7 +56,7 @@
 	<message key="rt.admin.sharing.buttonStyleLabel">Stil på knapp</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Använd rullgardinsmeny</message>
 	<message key="rt.admin.sharing.advanced">Avancerade inställningar (valfritt)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Se <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">AddThis.coms anpassningsdokumentation</a> för referens.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Se <a href="https://www.addthis.com/academy/how-to-create-custom-buttons-with-addthis/">AddThis.coms anpassningsdokumentation</a> för referens.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Märke</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Rullgardinsalternativ <br /> (kommaseparerad lista)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Språk</message>

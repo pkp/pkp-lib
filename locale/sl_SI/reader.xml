@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/sl_SI/reader.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+
+<locale name="sl_SI" full_name="Slovenščina">
+	<message key="comments.anonymous">Anonimni uporabnik</message>
+	<message key="comments.anonymousNamed">"{$userName}"</message>
+	<message key="comments.body">Telo komentarja</message>
+	<message key="comments.titleRequired">Vpišite naslov komentarja.</message>
+	<message key="comments.confirmDeleteChildren">Če izbrišete komentar, se bodo izbrisali tudi vsi odgovori nanj. Ste prepričani, da želite nadaljevati?</message>
+	<message key="comments.delete">Izbriši ta komentar</message>
+	<message key="comments.email">E-pošta pošiljatelja</message>
+	<message key="comments.emailReply">E-poštni odgovor</message>
+	<message key="comments.enterComment">Vpišite komentar</message>
+	<message key="comments.inResponseTo"><![CDATA[Kot odgovor na <a href="{$url}">{$title}</a>]]></message>
+	<message key="comments.name">Ime pošiljatelja</message>
+	<message key="comments.noComments">Bralci niso objavili nobenega komentarja.</message>
+	<message key="comments.nReplies">({$num} odgovorov)</message>
+	<message key="comments.oneReply">(1 odgovor)</message>
+	<message key="comments.postAnonymously">Objavite anonimni komentar</message>
+	<message key="comments.postReply">Objavi odgovor</message>
+	<message key="comments.readerComments">Komentarji bralcev</message>
+	<message key="comments.readMore">Preberite več</message>
+	<message key="comments.replies">Odgovori</message>
+	<message key="comments.title">Naslov</message>
+	<message key="comments.viewAllComments">Poglej vse komentarje</message>
+	<message key="reader.fullText">Celotno besedilo:</message>
+	<message key="rt.addComment">Dodaj komentar</message>
+	<message key="rt.admin.configuration">Konfiguracija</message>
+	<message key="rt.admin.contexts.confirmDelete">Ali ste prepričani, da želite izbrisati ta kontekst in vsa povezana iskanja?</message>
+	<message key="rt.admin.contexts.createContext">Ustvari kontekst</message>
+	<message key="rt.admin.contexts.edit.editContext">Uredi kontekst</message>
+	<message key="rt.admin.contexts.metadata">Metapodatki</message>
+	<message key="rt.admin.contexts.options.authorTerms">Uporabi imena avtorjev kot privzet iskalni pogoj, da lahko uporabniki poiščejo druga dela teh avtorjev (npr. za kontekst "druga dela")</message>
+	<message key="rt.admin.contexts.options.citedBy">Uporabi avtorjevo ime kot privzeti pogoj za iskanje in definiraj kontekst kot iskanje del, ki citirajo ta članek.</message>
+	<message key="rt.admin.contexts.options.defineTerms"><![CDATA[Uporabi označeno besedo kot privzeti iskalni pogoj ali pusti prazno, če za ta element ni bilo nič izbrano (npr. za kontekst "Definicija pojmov"). Če želite možnost odpiranja konteksta z dvojnim klikom, potem omogočite možnost Definicija izrazov v <a href="{$settingsUrl}">RST Settings</a>.]]></message>
+	<message key="rt.admin.contexts.options.geoTerms">Uporabi geografsko indeksirane podatke kot preizeti iskalni pogoj.</message>
+	<message key="rt.admin.contexts.options">Možnosti</message>
+	<message key="rt.admin.management">Upravljanje</message>
+
+	<message key="rt.admin.sharing">Deljenje</message>
+	<message key="rt.admin.sharing.enabled">Deljenje omogočeno</message>
+	<message key="rt.admin.sharing.description"><![CDATA[Da omogočite bralcem deljenje članka, se prijavite v račun na <a href="http://www.addthis.com">addthis.com</a> in kopirajte spodnjo kodo za deljenje.]]></message>
+
+	<message key="rt.admin.sharing.basic">Osnovne nastavitve</message>
+	<message key="rt.admin.sharing.userNameLabel">Uporabniško ime AddThis.com</message>
+	<message key="rt.admin.sharing.buttonStyleLabel">Slog gumba</message>
+	<message key="rt.admin.sharing.dropDownMenuLabel">Uporabi padajoči meni</message>
+	<message key="rt.admin.sharing.advanced">Napredne nastavitve (neobvezno)</message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Glej <a href="https://www.addthis.com/academy/how-to-create-custom-buttons-with-addthis/">AddThis.com customization documentation</a> za navodila.]]></message>
+	<message key="rt.admin.sharing.brandLabel">Znamka</message>
+	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Možnosti padajočega menija <br /> (z vejicami ločen seznam)]]></message>
+	<message key="rt.admin.sharing.languageLabel">Jezik</message>
+	<message key="rt.admin.sharing.logolabel">Logotip</message>
+	<message key="rt.admin.sharing.logoBackgroundLabel">Ozadje za logotip</message>
+	<message key="rt.admin.sharing.logoColorLabel">Barva logotipa</message>
+
+	<message key="rt.admin.readingToolsEnabled">Orodja za branje</message>
+	<message key="rt.admin.searches.confirmDelete">Ste prepričani, da želite izbrisati to iskanje?</message>
+	<message key="rt.admin.searches.createSearch">Ustvari iskanje</message>
+	<message key="rt.admin.searches.edit.editSearch">Uredi iskanje</message>
+	<message key="rt.admin.selectedVersion">Sorodni prispevki</message>
+	<message key="rt.admin.settings.abstract">Povzetek (povzetek prispevka).</message>
+	<message key="rt.admin.settings.viewReviewPolicy">Poglej politiko recenziranja</message>
+	<message key="rt.admin.settings.authorBio">O avtorju (poglej biografske podatke, ki jih je vnesel avtor).</message>
+	<message key="rt.admin.settings.captureCite">Citiranje dela (bibliografski podatki prispevka).</message>
+	<message key="rt.admin.settings.defineTerms">Definicija terminov (omogoča bralcu, da z dvojnim klikom na besedo pogleda njen pomen v slovarju).</message>
+	<message key="rt.admin.settings.disableRelatedItems">Onemogoči Sorodni prispevki</message>
+	<message key="rt.admin.settings.emailAuthor">E-pošta avtorju (odpre e-poštno predlogo z avtorjevo e-pošto).</message>
+	<message key="rt.admin.settings.emailOthers">Opozori sodelavca (odpre e-poštno predlogo s povezavo do prispevka).</message>
+	<message key="rt.admin.settings.findingReferences">Poišči literaturo</message>
+	<message key="rt.admin.settings.printerFriendly">Verzija za tisk (v novem oknu odpre prilogo v obliki, prilagojeni za tiskanje).</message>
+	<message key="rt.admin.settings.supplementaryFiles">Dodatne datoteke (prikaže spisek datotek, ki jih je avtor priložil ob oddaji).</message>
+	<message key="rt.admin.settings.viewMetadata">Metapodatki (prikaže indeksirane metapodatke, ki jih je vnesel avtor ali sistem).</message>
+	<message key="rt.admin.status">Stanje</message>
+	<message key="rt.admin.configureSharing">Nastavi AddThis</message>
+	<message key="rt.admin.validateUrls.complete">Preverjanje je končano.</message>
+	<message key="rt.admin.validateUrls.ok">OK</message>
+	<message key="rt.admin.validateUrls.urlIsInvalid">{$url} ni veljaven.</message>
+	<message key="rt.admin.validateUrls">Preveri URL-je za orodja za branje</message>
+	<message key="rt.admin.validateUrls.validate">Preveri</message>
+	<message key="rt.admin.versions.confirmDelete">Ali ste prepričani, da želite izbrisati to verzijo in vse pripadajoče kontekste in iskanja?</message>
+	<message key="rt.admin.versions.confirmRestore">Ali ste prepričani, da želite nepovratno obnoviti vse verzije na privzete nastavitve? V tem primeru boste morali izbrati aktivno verzijo na strani Nastavitve.</message>
+	<message key="rt.admin.versions.createVersion">Ustvari verzijo</message>
+	<message key="rt.admin.versions.edit.editVersion">Uredi verzijo</message>
+	<message key="rt.admin.versions.export">Izvozi</message>
+	<message key="rt.admin.versions.importVersion">Uvozi verzijo</message>
+	<message key="rt.admin.versions.metadata">Metapodatki</message>
+	<message key="rt.admin.versions.restoreVersions">Povrni verzije na privzete nastavitve</message>
+	<message key="rt.authorBio">O avtorju</message>
+	<message key="rt.captureCite.format">Format citata</message>
+	<message key="rt.captureCite">Citiranje dela</message>
+	<message key="rt.captureCite.online">Online</message>
+	<message key="rt.captureCite.web">Splet</message>
+	<message key="rt.colleague">Obvesti sodelavca</message>
+	<message key="rt.context.abbrev">Skrajšava</message>
+	<message key="rt.context.and">IN</message>
+	<message key="rt.context.citesContextDescription">Če je bil članek indeksiran z iskalnikom Google Učenjak, ima lahko priloženo povezavo "Citirano v", ki vodi do spiska del, kjer je članek citiran. Prav tako bo Google Učenjak izpisal vsa dela, ki citirajo naslov in avtorja. Če želite dostopati do spletnih virov, ki so na voljo samo v vaši raziskovalni knjižnici, lahko v Google Učenjaku dostopate do Nastavitev in aktivirate Povezave na knjižnico za svojo institucijo.</message>
+	<message key="rt.context">Kontekst</message>
+	<message key="rt.context.defineTermsDescription">Če je predmet datoteka HTML (namesto PDF), dvokliknite na katero koli besedo v besedilu in pojavila se bo v okencu Word-to-Define. Sicer pa lahko besedo v okence tudi natipkate ali prilepite. Če želite izvedeti več o iskanem viru, kliknite VEČ. Ti viri so bili izbrani zaradi njihove pomembnosti in njihovega odprtega (prostega) dostopa do celotne ali dela njihove vsebine.</message>
+	<message key="rt.context.description">Opis</message>
+	<message key="rt.context.order">Vrstni red</message>
+	<message key="rt.contexts">Kontekst</message>
+	<message key="rt.context.searchDescription">Iskalne izraze je izbral avtor oz. avtorji. Bralec jih lahko spremeni ali izbriše, saj dva ali trije kratki, natančni izrazi ali besedne zveze pomenijo najboljša logična (IN) iskanja. Če želite izvedeti več o iskanih virih, kliknite VEČ. Ti viri so bili izbrani zaradi njihove pomembnosti in odprtega (prostega) dostopa do celotne ali dela njihove vsebine.</message>
+	<message key="rt.context.searchTerms">Iskalni izrazi</message>
+	<message key="rt.context.termToDefine">Word-to-define</message>
+	<message key="rt.context.title">Naslov</message>
+	<message key="rt.emailAuthor">E-pošta avtorju</message>
+	<message key="rt.email.needLogin"><![CDATA[* Zahteva<a target="_parent" href="{$loginUrl}">registracijo</a>]]></message>
+	<message key="rt.email.sent">Vaše sporočilo je bilo poslano.</message>
+	<message key="rt.findingReferences">Poišči Literaturo</message>
+	<message key="rt.findingReferences.googleScholar">Google Učenjak</message>
+	<message key="rt.findingReferences.windowsLiveAcademic">Windows Live Academic</message>
+	<message key="rt.lookUp">Poglej izraze</message>
+	<message key="rt.metadata.dublinCore.contributor">Avtor</message>
+	<message key="rt.metadata.dublinCore.coverage">Pokrivanje</message>
+	<message key="rt.metadata.dublinCore.date">Datum</message>
+	<message key="rt.metadata.dublinCore.description">Opis</message>
+	<message key="rt.metadata.dublinCore">Dublin Core</message>
+	<message key="rt.metadata.dublinCore.format">Format</message>
+	<message key="rt.metadata.dublinCore.identifier">Identifikator</message>
+	<message key="rt.metadata.dublinCore.language">Jezik</message>
+	<message key="rt.metadata.dublinCore.publisher">Založnik</message>
+	<message key="rt.metadata.dublinCore.relation">Odnos</message>
+	<message key="rt.metadata.dublinCore.rights">Pravice</message>
+	<message key="rt.metadata.dublinCore.source">Vir</message>
+	<message key="rt.metadata.dublinCore.subject">Predmet</message>
+	<message key="rt.metadata.dublinCore.title">Naslov</message>
+	<message key="rt.metadata.dublinCore.type">Vrsta</message>
+	<message key="rt.metadata.forThisDocument">Metapodatki za ta dokument</message>
+	<message key="rt.metadata.pkp.abstract">Povzetek</message>
+	<message key="rt.metadata.pkp.copyright">Avtorske pravice in dovoljenja</message>
+	<message key="rt.metadata.pkp.coverage">Geoprostorska lokacija, kronološko obdobje, raziskovalni vzorec (spol, starost itd.)</message>
+	<message key="rt.metadata.pkp.date">(LLLL-MM-DD)</message>
+	<message key="rt.metadata.pkp.discipline">Veda(e)</message>
+	<message key="rt.metadata.pkp.format">Format datoteke</message>
+	<message key="rt.metadata.pkp.genre"><![CDATA[Stanje in žanr]]></message>
+	<message key="rt.metadata.pkpItem">PKP metapodatkovni pojmi</message>
+	<message key="rt.metadata.pkp.language">Slovensko=sl</message>
+	<message key="rt.metadata.pkp.publisher">Organizacijka agencija, lokacija</message>
+	<message key="rt.metadata.pkp.source">Naslov; obseg, številka (leto)</message>
+	<message key="rt.metadata.pkp.sponsors">Sponzor(ji)</message>
+	<message key="rt.metadata.pkp.subject">Ključne besede</message>
+	<message key="rt.metadata.pkp.suppFiles">Podpora Datoteke</message>
+	<message key="rt.metadata.pkp.title">Naslov dokumenta</message>
+	<message key="rt.metadata.pkp.type">Vrsta</message>
+	<message key="rt.metadata.pkp.uri">Univerzalni identifikator vira</message>
+	<message key="rt.printVersion">Verzija za tiskanje</message>
+	<message key="rt.readingTools">Orodja za branje</message>
+	<message key="rt.relatedItems">Sorodni prispevki</message>
+	<message key="rt.reviewPolicy">Politika za recenzijo</message>
+	<message key="rt.search.description">Opis</message>
+	<message key="rt.searches">Iskanja</message>
+	<message key="rt.search.order">Vrstni red</message>
+	<message key="rt.search">Iskanje</message>
+	<message key="rt.search.searchPost">Objavljanje podatkov</message>
+	<message key="rt.search.searchUrl">Preišči URL</message>
+	<message key="rt.search.suggest">Predlagaj vir</message>
+	<message key="rt.search.title">Naslov</message>
+	<message key="rt.search.url">URL</message>
+	<message key="rt.suppFiles.download">Prenesi</message>
+	<message key="rt.suppFiles">Dodatne datoteke</message>
+	<message key="rt.suppFiles.viewMetadata">Indeksiranje metapodatkov</message>
+	<message key="rt.version.description">Opis</message>
+	<message key="rt.version.key">Ključ</message>
+	<message key="rt.version.locale">Območne nastavitve</message>
+	<message key="rt.versions">Skupina sorodnih prispevkov</message>
+	<message key="rt.version.title">Naslov</message>
+	<message key="rt.version">Verzija</message>
+	<message key="rt.viewMetadata">Indeksiranje metapodatkov</message>
+</locale>

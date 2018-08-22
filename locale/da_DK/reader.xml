@@ -165,7 +165,7 @@
 	<message key="rt.admin.sharing.buttonStyleLabel">Knapstil</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Anvend rullemenu</message>
 	<message key="rt.admin.sharing.advanced">Avancerede indstillinger (valgfrit)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Læs mere under <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">AddThis.com customization documentation</a> for reference.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Læs mere under <a href="https://www.addthis.com/academy/how-to-create-custom-buttons-with-addthis/">AddThis.com customization documentation</a> for reference.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Brand</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Alternativer for rullemenu <br /> (kommasepareret liste)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Sprog</message>

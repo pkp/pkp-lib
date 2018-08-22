@@ -56,7 +56,7 @@
 	<message key="rt.admin.sharing.buttonStyleLabel">Styl przycisku</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Użyj menu rozwijanego</message>
 	<message key="rt.admin.sharing.advanced">Ustawienia zaawansowane (opcjonalnie)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Zobacz <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">AddThis.com dokumentacje dostosowania</a> do pozycji bibliograficznej.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Zobacz <a href="https://www.addthis.com/academy/how-to-create-custom-buttons-with-addthis/">AddThis.com dokumentacje dostosowania</a> do pozycji bibliograficznej.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Brand</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Opcje menu rozwijanego <br /> (pozycje na liście oddzielone przecinkami)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Język</message>

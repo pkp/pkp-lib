@@ -57,7 +57,7 @@
 	<message key="rt.admin.sharing.buttonStyleLabel">Стиль кнопки</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Использовать выпадающее меню</message>
 	<message key="rt.admin.sharing.advanced">Дополнительные настройки (не обязательно)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Смотрите <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">документацию по настройке AddThis.com</a>.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Смотрите <a href="https://www.addthis.com/academy/how-to-create-custom-buttons-with-addthis/">документацию по настройке AddThis.com</a>.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Бренд</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Параметры выпадающего меню <br /> (список, разделенный запятыми)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Язык</message>

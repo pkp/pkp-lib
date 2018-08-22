@@ -56,7 +56,7 @@
 	<message key="rt.admin.sharing.buttonStyleLabel">Estilo de botón</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Usar el menú desplegable</message>
 	<message key="rt.admin.sharing.advanced">Configuraciones avanzadas (opcional)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Ver los <a href="http://www.addthis.com/help/customize/custom-button/">documentos de personalización de AddThis.com</a> para más información.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Ver la <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">documentación de personalización de AddThis.com</a> para más información.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Marca</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Opciones desplegables <br /> (lista separada por comas)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Idioma</message>
@@ -186,7 +186,6 @@
 	<message key="rt.admin.sharing.buttonStyleLabel">Estilo de botón</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Usar el menú desplegable</message>
 	<message key="rt.admin.sharing.advanced">Configuraciones avanzadas (opcional)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Ver la <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">documentación de personalización de AddThis.com</a> para más información.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Marca</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Opciones del desplegable <br /> (lista separada por comas)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Idioma</message>

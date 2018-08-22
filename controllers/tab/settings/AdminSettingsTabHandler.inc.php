@@ -51,8 +51,8 @@ class AdminSettingsTabHandler extends SettingsTabHandler {
 	/**
 	 * @copydoc PKPHandler::initialize()
 	 */
-	function initialize($request, $args = null) {
-		parent::initialize($request, $args);
+	function initialize($request) {
+		parent::initialize($request);
 
 		// Load grid-specific translations
 		AppLocale::requireComponents(

@@ -51,12 +51,10 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 	}
 
 	/**
-	 * Fetch and store away objects
-	 * @param $request PKPRequest
-	 * @param $args array optional
+	 * @copydoc InformationCenterHandler::initialize
 	 */
-	function initialize($request, $args = null) {
-		parent::initialize($request, $args);
+	function initialize($request) {
+		parent::initialize($request);
 
 		$this->_stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
 

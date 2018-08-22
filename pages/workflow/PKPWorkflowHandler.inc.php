@@ -54,7 +54,7 @@ abstract class PKPWorkflowHandler extends Handler {
 	/**
 	 * @copydoc PKPHandler::initialize()
 	 */
-	function initialize($request, $args) {
+	function initialize($request) {
 		$router = $request->getRouter();
 		$operation = $router->getRequestedOp($request);
 
@@ -63,7 +63,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		}
 
 		// Call parent method.
-		parent::initialize($request, $args);
+		parent::initialize($request);
 	}
 
 

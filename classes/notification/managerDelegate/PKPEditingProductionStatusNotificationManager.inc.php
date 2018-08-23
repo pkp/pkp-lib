@@ -183,8 +183,6 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
 						}
 					}
 					break;
-				default:
-					assert(false);
 			}
 		}
 	}

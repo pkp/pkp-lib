@@ -95,31 +95,15 @@ class NavigationMenuItemsForm extends Form {
 			}
 		}
 
-		$seriesDao = DAORegistry::getDAO('SeriesDAO');
-		$series = $seriesDao->getByContextId($context->getId());
-		$seriesTitlesArray = $series->toAssociativeArray();
-
-		$seriesTitles = array();
-		foreach ($seriesTitlesArray as $series) {
-			$seriesTitles[$series->getId()] = $series->getLocalizedTitle();
-		}
-
-		$categoryDao = DAORegistry::getDAO('CategoryDAO');
-		$categories = $categoryDao->getByParentId(null, $context->getId());
-		$categoryTitlesArray = $categories->toAssociativeArray();
-
-		$categoryTitles = array();
-		foreach ($categoryTitlesArray as $category) {
-			$categoryTitles[$category->getId()] = $category->getLocalizedTitle();
-		}
-
-		$templateMgr->assign(array(
+		$templateArray = array(
 			'navigationMenuItemTypeTitles' => $typeTitles,
-			'navigationMenuItemSeriesTitles' => $seriesTitles,
-			'navigationMenuItemCategoryTitles' => $categoryTitles,
 			'navigationMenuItemTypeDescriptions' => json_encode($typeDescriptions),
 			'navigationMenuItemTypeConditionalWarnings' => json_encode($typeConditionalWarnings),
-		));
+		);
+
+		\HookRegistry::call('NavigationMenus::nmiFormTemplateParameters', array(&$templateArray));
+
+		$templateMgr->assign($templateArray);
 
 		return parent::fetch($request, $template, $display);
 	}

@@ -43,6 +43,14 @@
 			{fbvElement type="text" id="url" value=$url maxlength="255" required="true"}
 		{/fbvFormSection}
 
+		{fbvFormSection id="seriesTarget" title="manager.navigationMenus.form.navigationMenuItem.series" for="seriesSelect"}
+			{fbvElement type="select" id="relatedSeriesId" required=true from=$navigationMenuItemSeriesTitles selected=$selectedRelatedObjectId label="manager.navigationMenus.form.navigationMenuItemSeriesMessage" translate=false}
+		{/fbvFormSection}
+
+		{fbvFormSection id="categoryTarget" title="manager.navigationMenus.form.navigationMenuItemType" for="categorySelect"}
+			{fbvElement type="select" id="relatedCategoryId" required=true from=$navigationMenuItemCategoryTitles selected=$selectedRelatedObjectId label="manager.navigationMenus.form.navigationMenuItemCategoryMessage" translate=false}
+		{/fbvFormSection}
+
 		<div id="customPageOptions">
 			{fbvFormSection id="targetPath"}
 				{fbvFormSection title="manager.navigationMenus.form.path" for="path" required="true"}

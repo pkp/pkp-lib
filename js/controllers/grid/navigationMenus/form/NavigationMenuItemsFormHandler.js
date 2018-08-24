@@ -114,15 +114,23 @@
 		var itemType = $('#menuItemType', this.getHtmlElement()).val(),
 				$customPageEls = $('#customPageOptions, #previewButton'),
 				$remoteUrlEls = $('#remoteUrlTarget'),
+				$seriesEls = $('#seriesTarget'),
+				$categoryEls = $('#categoryTarget'),
 				$descriptionEl = $('#menuItemTypeSection [for="menuItemType"]');
 
 		$customPageEls.hide();
 		$remoteUrlEls.hide();
+		$seriesEls.hide();
+		$categoryEls.hide();
 
 		if (itemType === 'NMI_TYPE_CUSTOM') {
 			$customPageEls.fadeIn();
 		} else if (itemType === 'NMI_TYPE_REMOTE_URL') {
 			$remoteUrlEls.fadeIn();
+		} else if (itemType === 'NMI_TYPE_SERIES') {
+			$seriesEls.fadeIn();
+		} else if (itemType === 'NMI_TYPE_CATEGORY') {
+			$categoryEls.fadeIn();
 		}
 
 		if (typeof this.itemTypeDescriptions_[itemType] !== 'undefined') {

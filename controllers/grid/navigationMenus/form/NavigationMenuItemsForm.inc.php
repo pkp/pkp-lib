@@ -95,8 +95,28 @@ class NavigationMenuItemsForm extends Form {
 			}
 		}
 
+		$seriesDao = DAORegistry::getDAO('SeriesDAO');
+		$series = $seriesDao->getByContextId($context->getId());
+		$seriesTitlesArray = $series->toAssociativeArray();
+
+		$seriesTitles = array();
+		foreach ($seriesTitlesArray as $series) {
+			$seriesTitles[$series->getId()] = $series->getLocalizedTitle();
+		}
+
+		$categoryDao = DAORegistry::getDAO('CategoryDAO');
+		$categories = $categoryDao->getByParentId(null, $context->getId());
+		$categoryTitlesArray = $categories->toAssociativeArray();
+
+		$categoryTitles = array();
+		foreach ($categoryTitlesArray as $category) {
+			$categoryTitles[$category->getId()] = $category->getLocalizedTitle();
+		}
+
 		$templateMgr->assign(array(
 			'navigationMenuItemTypeTitles' => $typeTitles,
+			'navigationMenuItemSeriesTitles' => $seriesTitles,
+			'navigationMenuItemCategoryTitles' => $categoryTitles,
 			'navigationMenuItemTypeDescriptions' => json_encode($typeDescriptions),
 			'navigationMenuItemTypeConditionalWarnings' => json_encode($typeConditionalWarnings),
 		));
@@ -117,16 +137,17 @@ class NavigationMenuItemsForm extends Form {
 				'title' => $navigationMenuItem->getTitle(null),
 				'url' => $navigationMenuItem->getUrl(),
 				'menuItemType' => $navigationMenuItem->getType(),
+				'selectedRelatedObjectId' => $navigationMenuItem->getPath(),
 			);
 			$this->setData('content', $navigationMenuItem->getContent(null)); // Localized
-		} 
+		}
 	}
 
 	/**
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('navigationMenuItemId', 'content', 'title', 'path', 'url','menuItemType'));
+		$this->readUserVars(array('navigationMenuItemId', 'content', 'title', 'path', 'url','menuItemType', 'relatedSeriesId', 'relatedCategoryId'));
 	}
 
 	/**
@@ -146,6 +167,13 @@ class NavigationMenuItemsForm extends Form {
 		$navigationMenuItem->setContextId($this->getContextId());
 		$navigationMenuItem->setUrl($this->getData('url'));
 		$navigationMenuItem->setType($this->getData('menuItemType'));
+
+		if ($this->getData('menuItemType') == NMI_TYPE_SERIES) {
+			$navigationMenuItem->setPath($this->getData('relatedSeriesId'));
+		} else if ($this->getData('menuItemType') == NMI_TYPE_CATEGORY) {
+			$navigationMenuItem->setPath($this->getData('relatedCategoryId'));
+		}
+
 
 		// Update or insert navigation menu item
 		if ($navigationMenuItem->getId()) {

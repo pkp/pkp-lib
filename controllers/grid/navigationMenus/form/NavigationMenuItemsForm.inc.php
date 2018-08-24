@@ -116,13 +116,20 @@ class NavigationMenuItemsForm extends Form {
 		$navigationMenuItem = $navigationMenuItemDao->getById($this->navigationMenuItemId);
 
 		if ($navigationMenuItem) {
-			$this->_data = array(
+			$formData = array(
 				'path' => $navigationMenuItem->getPath(),
 				'title' => $navigationMenuItem->getTitle(null),
 				'url' => $navigationMenuItem->getUrl(),
 				'menuItemType' => $navigationMenuItem->getType(),
-				'selectedRelatedObjectId' => $navigationMenuItem->getPath(),
 			);
+
+			import('classes.core.ServicesContainer');
+			ServicesContainer::instance()
+				->get('navigationMenu');
+			\HookRegistry::call('NavigationMenus::nmiFormData', array(&$formData, &$navigationMenuItem));
+
+			$this->_data = $formData;
+
 			$this->setData('content', $navigationMenuItem->getContent(null)); // Localized
 		}
 	}
@@ -131,7 +138,14 @@ class NavigationMenuItemsForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('navigationMenuItemId', 'content', 'title', 'path', 'url','menuItemType', 'relatedSeriesId', 'relatedCategoryId'));
+		$formInputData = array('navigationMenuItemId', 'content', 'title', 'path', 'url','menuItemType');
+
+		import('classes.core.ServicesContainer');
+		ServicesContainer::instance()
+			->get('navigationMenu');
+		\HookRegistry::call('NavigationMenus::nmiFormInputData', array(&$formInputData));
+
+		$this->readUserVars($formInputData);
 	}
 
 	/**
@@ -152,12 +166,10 @@ class NavigationMenuItemsForm extends Form {
 		$navigationMenuItem->setUrl($this->getData('url'));
 		$navigationMenuItem->setType($this->getData('menuItemType'));
 
-		if ($this->getData('menuItemType') == NMI_TYPE_SERIES) {
-			$navigationMenuItem->setPath($this->getData('relatedSeriesId'));
-		} else if ($this->getData('menuItemType') == NMI_TYPE_CATEGORY) {
-			$navigationMenuItem->setPath($this->getData('relatedCategoryId'));
-		}
-
+		import('classes.core.ServicesContainer');
+		ServicesContainer::instance()
+			->get('navigationMenu');
+		\HookRegistry::call('NavigationMenus::nmiFormExecute', array(&$this, &$navigationMenuItem));
 
 		// Update or insert navigation menu item
 		if ($navigationMenuItem->getId()) {

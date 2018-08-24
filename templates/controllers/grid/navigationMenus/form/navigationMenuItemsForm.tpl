@@ -44,11 +44,19 @@
 		{/fbvFormSection}
 
 		{fbvFormSection id="seriesTarget" title="manager.navigationMenus.form.navigationMenuItem.series" for="seriesSelect"}
-			{fbvElement type="select" id="relatedSeriesId" required=true from=$navigationMenuItemSeriesTitles selected=$selectedRelatedObjectId label="manager.navigationMenus.form.navigationMenuItemSeriesMessage" translate=false}
+			{if count($navigationMenuItemSeriesTitles) gt 0}
+				{fbvElement type="select" id="relatedSeriesId" required=true from=$navigationMenuItemSeriesTitles selected=$selectedRelatedObjectId label="manager.navigationMenus.form.navigationMenuItemSeriesMessage" translate=false}
+			{else}
+				{translate key="manager.navigationMenus.form.navigationMenuItem.series.noItems"}
+			{/if}
 		{/fbvFormSection}
 
-		{fbvFormSection id="categoryTarget" title="manager.navigationMenus.form.navigationMenuItemType" for="categorySelect"}
-			{fbvElement type="select" id="relatedCategoryId" required=true from=$navigationMenuItemCategoryTitles selected=$selectedRelatedObjectId label="manager.navigationMenus.form.navigationMenuItemCategoryMessage" translate=false}
+		{fbvFormSection id="categoryTarget" title="manager.navigationMenus.form.navigationMenuItem.category" for="categorySelect"}
+			{if count($navigationMenuItemCategoryTitles) gt 0}
+				{fbvElement type="select" id="relatedCategoryId" required=true from=$navigationMenuItemCategoryTitles selected=$selectedRelatedObjectId label="manager.navigationMenus.form.navigationMenuItemCategoryMessage" translate=false}
+			{else}
+				{translate key="manager.navigationMenus.form.navigationMenuItem.category.noItems"}
+			{/if}
 		{/fbvFormSection}
 
 		<div id="customPageOptions">

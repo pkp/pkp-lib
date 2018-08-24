@@ -208,6 +208,11 @@ class NavigationMenuItemsForm extends Form {
 			$this->addError('path', __('manager.navigationMenus.form.typeMissing'));
 		}
 
+		import('classes.core.ServicesContainer');
+		ServicesContainer::instance()
+			->get('navigationMenu');
+		\HookRegistry::call('NavigationMenus::nmiFormValidate', array(&$this));
+
 		return parent::validate($callHooks);
 	}
 

@@ -42,7 +42,6 @@
 	<message key="admin.server.apacheVersion">Apache sürümü</message>
 	<message key="admin.server.dbDriver">Veri tabanı sürücüsü</message>
 	<message key="admin.server.dbVersion">Veri tabanı sunucu sürümü</message>
-	<message key="admin.serverInformationDescription"><![CDATA[Temel işletim sistemi ve sunucu yazılım sürümleri. Bu sunucunun PHP yapılandırmasının ayrıntılarını görüntülemek için <span class="highlight">Genişletilmiş PHP Bilgisi</span>'ne tıklayınız.]]></message>
 	<message key="admin.serverInformation">Sunucu Bilgisi</message>
 	<message key="admin.server.phpVersion">PHP sürümü</message>
 	<message key="admin.server.platform">İşletim Sistemi Platformu</message>
@@ -57,7 +56,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Geçersiz site logosu biçimi. Kabul edilebilir biçimler: .gif, .jpg veya .png.</message>
 	<message key="admin.settings.introduction">Giriş</message>
 	<message key="admin.settings.minPasswordLength">Şifre için en kısa karakter sayısı</message>
-	<message key="admin.settings.passwordCharacters">karakterler</message>
 	<message key="admin.settings.siteLanguage">Site Dili</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Geçersiz biçim. Kabul edilebilir biçimler .css.</message>
 	<message key="admin.settings.siteStyleSheet">Site biçimi</message>
@@ -83,4 +81,45 @@
 	<message key="admin.settings">Ayarlar</message>
 	<message key="admin.settings.siteTheme">Site teması</message>
 	<message key="admin.siteSetup">Site Ayarı</message>
+	<message key="admin.systemInfo.settingName">Ayar Adı</message>
+	<message key="admin.systemInfo.settingValue">Ayar Değeri</message>
+	<message key="admin.contexts.confirmDelete">{$contextName} ve tüm  içeriklerini kalıcı olarak silmek istediğinizden emin misiniz?</message>
+	<message key="admin.languages.download">Dil İndir</message>
+	<message key="admin.languages.downloadLocales">Dilleri İndir</message>
+	<message key="admin.languages.download.cannotOpen">PKP web sayfasından dil tanımlayıcısı açılamıyor.</message>
+	<message key="admin.languages.noLocalesToDownload">İndirmek için herhangi kullanılabilir bir dil yoktur.</message>
+	<message key="admin.languages.availableLocales">Kullanılabilir Diller</message>
+	<message key="admin.languages.installLocale">Dil Yükle</message>
+	<message key="admin.scheduledTask">Planlanmış görevler</message>
+	<message key="admin.scheduledTask.startTime">Görev süreci başladı.</message>
+	<message key="admin.scheduledTask.stopTime">Görev süreci durduruldu.</message>
+	<message key="admin.scheduledTask.noLog">Görev günlüğü oluşturmadı.</message>
+	<message key="admin.scheduledTask.confirmClearLogs">Tüm planlanmış görev günlüklerini silmek istediğinizden emin misiniz?</message>
+	<message key="admin.scheduledTask.clearLogs">Zamanlanmış Görev Yürütme Günlüklerini Temizle</message>
+	<message key="admin.scheduledTask.reviewReminder">Hatırlatıcıyı gözden geçir</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">Abonelik süresi hatırlatıcısı</message>
+	<message key="admin.settings.siteLogo">Site Logosu</message>
+	<message key="admin.fileLoader.pathNotAccessible">{$path} bir klasör değil veya okunabilir değil.</message>
+	<message key="admin.fileLoader.emailSubject">Dosya çağırıcı</message>
+	<message key="admin.copyAccessLogFileTool.error.creatingFolder">Hata: {$tmpDir} geçici klasörü oluşturulamadı.</message>
+	<message key="admin.copyAccessLogFileTool.error.acessingFile">Hata: {$filePath} dosyası açık veya erişilebilir değil.</message>
+	<message key="admin.copyAccessLogFileTool.error.copyingFile">Hata: {$filePath}  yolundan {$tmpFilePath} yoluna dosya kopyalanamadı.</message>
+	<message key="admin.copyAccessLogFileTool.error.deletingFile">Hata: {$tmpFilePath} dosyası silinemedi.</message>
+	<message key="admin.copyAccessLogFileTool.warning.fileAlreadyExists">Uyarı: {$filePath}  adlı dosya kullanım istatistikleri dosyasında mevcut.</message>
+	<message key="admin.copyAccessLogFileTool.success">Başarı: {$filePath} yolundan {$destinationPath} yoluna</message>
+	<message key="admin.error.utilExecutionProblem">"{$utilPath}" program yürütmesi şu hatayı döndürdü: {$output}</message>
+	<message key="admin.error.executingUtil">Hata:  "{$utilPath}" işlemi yürütülemedi. config.inc.php dosyasındaki {$utilVar} ayarı kontrol edin.</message>
+	<message key="admin.scheduledTask.downloadLog">{$softwareName} kurulumu bu görevi otomatik olarak yürütür ve bitirir. Günlük dosyasını buradan indirebilirsiniz: {$url}</message>
+	<message key="admin.fileLoader.wrongBasePathLocation">{$path} temel yolu ortak dosyalar dizini içinde bulunmalıdır.</message>
+	<message key="admin.fileLoader.moveFileFailed">{$filename} dosyası {$currentFilePath} yolundan {$destinationPath} yoluna taşınamadı.</message>
+	<message key="admin.fileLoader.fileProcessed">{$filename} dosyası işlendi ve arşivlendi.</message>
+	<message key="admin.languages.download.cannotModifyRegistry">Genellikle "registry/locales.xml" dosyasında bulunan dosyaya yeni dil ayarı ekleyemez.</message>
+	<message key="admin.languages.cantDisable">Bu dil bu site için öncelikli dildir. Başka bir dili öncelikli dil olarak seçmeden önce silemezsiniz.</message>
+	<message key="admin.settings.defaultMetricDescription">Yüklemeniz, birden fazla kullanım metriği kaydetmek için yapılandırıldı. Kullanım istatistikleri birkaç bağlamda görüntülenecektir. Tek kullanımlık istatistiğin kullanılması gereken durumlar vardır: Ör. Arama sonuçlarında en çok kullanılan gönderilerin sıralı bir listesini görüntülemek veya sıralama. Lütfen yapılandırılmış metriklerden birini varsayılan olarak seçin.</message>
+	<message key="admin.copyAccessLogFileTool.usage">UsageStatsPlugin dizininin içindeki geçerli dosya dizinine, bu yükleme ile ilgili girdileri filtreleyen geçirilmiş apache erişim günlüğü dosyalarını kopyalayın. Erişim apache günlük dosyalarını okumak için yeterli ayrıcalıklarla kullanıcı altında çalışmalıdır.
+
+Bu araç, yalnızca useStats dosya yükleyici dizinlerinin içinde olmayan dosyaları (evre, işleme, arşivleme, reddetme) kopyalayacaktır.
+
+Kullanımı: {$scriptName} path/to/apache/log/file.log
+Kullanım (bir dizinin içindeki tüm dosyaların işlenmesi):  {$scriptName} path/to/apache/directory</message>
 </locale>

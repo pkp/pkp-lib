@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * locale/tr_TR/locale.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+
+<locale name="tr_TR" full_name="Türkçe">
+	<message key="reviewer.reviewSteps.request">1. İstek</message>
+	<message key="reviewer.reviewSteps.guidelines">2. Rehberler</message>
+	<message key="reviewer.reviewSteps.download">3. İndirme ve Görüntülemeler</message>
+	<message key="reviewer.reviewSteps.completion">4. Tamamlama</message>
+	<message key="reviewer.step1.request">Değerlendirme İsteği</message>
+	<message key="reviewer.step1.viewAllDetails">Tüm Gönderi Detaylarını Görüntüle</message>
+	<message key="reviewer.submission.reviewerFiles">Hakem Dosyaları</message>
+	<message key="reviewer.submission.reviewerGuidelines">Hakem Rehberleri</message>
+	<message key="reviewer.submission.enterCompetingInterests">Bu yayıncı, hakemlerden potansiyel çıkar çatışması açıklanması için bir politikaya sahiptir. Lütfen bu politikayı gözden geçirmek için bir dakikanızı ayırın.</message>
+	<message key="reviewer.submission.noCompetingInterests">Herhangi bir çıkar çatışmam yoktur.</message>
+	<message key="reviewer.submission.hasCompetingInterests">Rekabet edebilir çıkar çatışmalarım olabilir (Aşağıda belirtin)</message>
+	<message key="reviewer.submission.competingInterests">Çıkar Çatışmaları</message>
+	<message key="reviewer.submission.declineReview">Değerlendirme İsteğini Reddet</message>
+	<message key="reviewer.submission.declineReviewMessage">Aşağıdaki alanda bu isteği reddetme nedeninizi editöre bildirebilirsiniz.</message>
+	<message key="reviewer.submission.acceptReview">Adım #2'ye geçebilmek için Değerlendirmeyi Kabul Et</message>
+	<message key="reviewer.submission.continueToStepThree">Adım #3 için devam edin</message>
+	<message key="reviewer.submission.submitReview">Değerlendirmeyi Gönder</message>
+	<message key="reviewer.submission.guidelines">Hakem Rehberleri</message>
+	<message key="reviewer.submission.noGuidelines">Bu yayıncı hakem rehberleri için herhangi bir düzenleme yapmadı.</message>
+	<message key="reviewer.submission.downloadDescription">Bu gönderi ile ilgili dosyaları indirmek için aşağıdaki dosya adlarına tıklayınız.</message>
+	<message key="reviewer.submission.reviewDescription">Bu gönderi ile ilgili değerlendirmenizi aşağıdaki forma girin (veya yapıştırın).</message>
+	<message key="reviewer.submission.uploadDescription">Orijinal inceleme dosyasının / dosyalarının gözden geçirilmiş sürümleri de dahil olmak üzere editör ve / veya yazarın istemesini istediğiniz dosyaları yükleyin.</message>
+	<message key="reviewer.complete">Değerlendirme Gönderildi</message>
+	<message key="reviewer.confirmSubmit">Bu değerlendirmeyi göndermek istediğinizden emin misiniz?</message>
+	<message key="reviewer.complete.whatNext">Bu gönderimin değerlendirmesini tamamladığınız için teşekkür ederiz. Değerlendirmeniz başarıyla gönderildi. Dergimizin kalitesine katkınız için teşekkür ederiz; editör, gerekirse daha fazla bilgi için sizinle tekrar iletişime geçebilir.</message>
+	<message key="reviewer.aboutDueDates">Son Tarihler Hakkında</message>
+	<message key="submission.comments.canShareWithAuthor">Editör ve yazar için</message>
+	<message key="submission.comments.cannotShareWithAuthor">Yalnızca editör için</message>
+	<message key="reviewer.step1.requestBoilerplate">Aşağıdaki gönderinin potansiyel hakemi olarak seçildiniz. Aşağıda, bu hakemlik isteğinin zaman çizelgesinin yanı sıra değerlendirme için genel bir bilgilendirme sunulmaktadır. Değerlendirmeyi kabul edeceğinizi umuyoruz.</message>
+	<message key="reviewer.aboutDueDates.text">Editör, Değerlendirme Son Tarihi'nden önce incelemeyi kabul ettiğinizi veya reddettiğinizi ve Değerlendirme Son Tarihine kadar değerlendirmeyi tamamlamanızı beklemektedir.</message>
+	<message key="user.authorization.submissionReviewer">Mevcut kullanıcı istenen doküman için hakem olarak atanmadı.</message>
+</locale>

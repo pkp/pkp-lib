@@ -34,15 +34,12 @@
 	<message key="installer.databasePassword">Şifre</message>
 	<message key="installer.databaseSettings">Veri Tabanı Ayarları</message>
 	<message key="installer.databaseUsername">Kullanıcı adı</message>
-	<message key="installer.encryptionInstructions"><![CDATA[Eğer sisteminiz destekliyorsa SHA1 önerilir (PHP>=4.3.0 gerekir)]]></message>
-	<message key="installer.encryption">Şifre yazma şeması</message>
 	<message key="installer.filesDir">Yüklemeler için dizin</message>
 	<message key="installer.fileSettings">Dosya Ayarları</message>
 	<message key="installer.form.clientCharsetRequired">Bir kullanıcı karakter seti seçilmiş olmalıdır.</message>
 	<message key="installer.form.databaseDriverRequired">Bir veri tabanı sürücüsü seçilmiş olmalıdır.</message>
 	<message key="installer.form.databaseNameRequired">Veri tabanı ismi gereklidir.</message>
 	<message key="installer.form.emailRequired">Yönetici hesabı için geçerli bir e-posta adresi gereklidir.</message>
-	<message key="installer.form.encryptionRequired">Kullanıcı şifrelerini kodlamak için kullanılacak algoritma seçilmelidir.</message>
 	<message key="installer.form.filesDirRequired">Yüklenen dosyaları saklamak için kullanılacak dizin gereklidir.</message>
 	<message key="installer.form.localeRequired">Bir yer seçilmeli.</message>
 	<message key="installer.form.passwordRequired">Yönetici hesabı için bir şifre gereklidir.</message>
@@ -64,8 +61,33 @@
 	<message key="installer.oaiRepositoryId">Kurumsal Arşiv Belirleyici</message>
 	<message key="installer.publicFilesDirError">Genel dosya dizini mevcut değil veya yazılabilir değil.</message>
 	<message key="installer.releaseNotes">Sürüm Notları</message>
-	<message key="installer.securitySettings">Güvenlik Ayarları</message>
-	<message key="installer.databaseCharsetInstructions"><![CDATA[Kodlama veri tabanında depolanan veriler için kullanılacaktır.]]></message>
 	<message key="installer.installParseFilterConfigFileError"><![CDATA[Filitre konfigürasyon dosyası <tt>{$file}</tt> ayrıştırma hatası.]]></message>
 	<message key="installer.oaiSettings">OAI Ayarları</message>
+	<message key="installer.unsupportedPhpError">Sunucunuzun PHP sürümü bu yazılımı desteklemiyor. docs/README dosyasından kurulum gereksinimlerini tekrar kontrol ediniz.</message>
+	<message key="installer.preInstallationInstructionsTitle">Ön Yükleme Adımları</message>
+	<message key="installer.preInstallationInstructions"><![CDATA[<p>1. Aşağıdaki dosyalar ve dizinler (ve içerikleri) yazılabilir olmalıdır:</p>
+
+		<ul>
+
+			<li><tt>config.inc.php</tt> yazılabilir (opsiyonel): {$writable_config}</li>
+
+			<li><tt>public/</tt> yazılabilir: {$writable_public}</li>
+
+			<li><tt>cache/</tt> yazılabilir: {$writable_cache}</li>
+
+			<li><tt>cache/t_cache/</tt> yazılabilir: {$writable_templates_cache}</li>
+
+			<li><tt>cache/t_compile/</tt> yazılabilir: {$writable_templates_compile}</li>
+
+			<li><tt>cache/_db</tt> yazılabilir: {$writable_db_cache}</li>
+
+		</ul>
+
+
+
+		<p>2. Yüklenen dosyaları depolamak için bir dizin oluşturulmalı ve yazılabilir yapmalısınız (Aşağıdaki "Dosya Ayarları" kısmına bakınız).</p>]]></message>
+	<message key="installer.configureXSLMessage"><![CDATA[<p>PHP kurulumunuzda XSL modülü etkin değil. Bunu etkinleştirin veya config.inc.php dosyanızda xslt_command parametresini yapılandırın. </p>]]></message>
+	<message key="installer.beacon">İşaretçi</message>
+	<message key="installer.beacon.enable">Yalnızca istatistik ve güvenlik uyarıları için PKP'ye tekil bir site kimliği ve OAI temel URL'si oluşturun.</message>
+	<message key="installer.unsupportedUpgradeError">Yükseltme desteklenmiyor. Ayrıntılar için docs/UPGRADE-UNSUPPORTED dokümanına bakınız.</message>
 </locale>

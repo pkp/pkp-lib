@@ -9,7 +9,6 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the tr_TR (Türkçe) locale.
-  *
   -->
 
 <locale name="tr_TR" full_name="Türkçe">
@@ -56,7 +55,7 @@
 	<message key="rt.admin.sharing.buttonStyleLabel">Buton Biçimi</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Açılır menüyü kullan</message>
 	<message key="rt.admin.sharing.advanced">Gelişmiş Ayarlar (isteğe bağlı)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Referans için <a href="https://www.addthis.com/academy/how-to-create-custom-buttons-with-addthis/">AddThis.com özelleştirilmiş belgeleri</a>ne bakınız.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Referans için <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">AddThis.com özelleştirilmiş belgeleri</a>ne bakınız.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Marka</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Açılan seçenekler <br /> (virgül ile ayırın)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Dil</message>

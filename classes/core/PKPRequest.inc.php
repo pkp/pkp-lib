@@ -578,7 +578,9 @@ class PKPRequest {
 		if ($user === null) {
 			$sessionManager = SessionManager::getManager();
 			$session = $sessionManager->getUserSession();
-			$user = $session->getUser();
+			if ($session) { 
+				$user = $session->getUser();
+			}
 		}
 
 		return $user;

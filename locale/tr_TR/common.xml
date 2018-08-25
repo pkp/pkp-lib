@@ -530,11 +530,7 @@
 	<message key="notification.type.auditorRequest">"{$file}" için denetim isteği</message>
 	<message key="notification.type.allReviewsIn">Tüm yorumlar mevcut ve {$stage} kısmında bir karar gereklidir.</message>
 	<message key="notification.type.allRevisionsIn">Düzenlenmiş bir dosya, {$stage} kısmında yayınlamanız için yüklendi.</message>
-	<message key="review.blindPeerReview"><![CDATA[<p>To ensure the integrity of the blind peer-review for submission to this press, every effort should be made to prevent the identities of the authors and reviewers from being known to each other. This involves the authors, editors, and reviewers (who upload documents as part of their review) checking to see if the following steps have been taken with regard to the text and the file properties:</p>
-			<ul><li>The authors of the document have deleted their names from the text, with "Author" and year used in the references and footnotes, instead of the authors' name, article title, etc.</li>
-			<li>With Microsoft Office documents, author identification should also be removed from the properties for the file (see under File in Word), by clicking on the following, beginning with File on the main menu of the Microsoft application: File &gt; Save As &gt; Tools (or Options with a Mac) &gt; Security &gt; Remove personal information from file properties on save &gt; Save.</li>
-			<li>With PDFs, the authors' names should also be removed from Document Properties found under File on Adobe Acrobat's main menu.</li>
-		</ul>]]></message>
+
 	<message key="stageParticipants.notify.startDiscussion.description">Kendiniz ve {$userFullName} arasında bir tartışma başlatın.</message>
 	<message key="stageParticipants.notify.chooseMessage">Kullanmak için önceden tanımlanmış bir mesaj seçin veya aşağıdaki formu doldurun.</message>
 	<message key="stageParticipants.notify.message">Mesaj</message>

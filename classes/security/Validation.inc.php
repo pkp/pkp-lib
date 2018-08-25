@@ -68,6 +68,14 @@ class Validation {
 			return false;
 
 		} else {
+
+			// If sessions are created only for logged in users, set a cookie to remember cookie consent
+			if (Config::getVar('general', 'session_limit')) {
+				$application = PKPApplication::getApplication();
+				$request = $application->getRequest();
+				$request->setCookieVar('allowCookies', true, time() + 60*60*24*365);
+			}
+
 			return self::registerUserSession($user, $reason, $remember);
 		}
 	}
@@ -371,8 +379,12 @@ class Validation {
 		$sessionManager = SessionManager::getManager();
 		$session = $sessionManager->getUserSession();
 
-		$userId = $session->getUserId();
-		return isset($userId) && !empty($userId);
+		if ($session){
+			$userId = $session->getUserId();
+			return isset($userId) && !empty($userId);
+		} else {
+			return false;
+		}
 	}
 
 	/**
@@ -382,9 +394,13 @@ class Validation {
 	static function isLoggedInAs() {
 		$sessionManager = SessionManager::getManager();
 		$session = $sessionManager->getUserSession();
-		$signedInAs = $session->getSessionVar('signedInAs');
 
-		return isset($signedInAs) && !empty($signedInAs);
+		if ($session){
+			$signedInAs = $session->getSessionVar('signedInAs');
+			return isset($signedInAs) && !empty($signedInAs);
+		} else {
+			return false;
+		}
 	}
 
 	/**

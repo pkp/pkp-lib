@@ -48,14 +48,26 @@ class LoginHandler extends Handler {
 		$sessionManager = SessionManager::getManager();
 		$session = $sessionManager->getUserSession();
 
+		if ($session){
+			$templateMgr->assign(array(
+				'username' => $session->getSessionVar('username'),
+			));
+		}		
+
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
 			'loginMessage' => $request->getUserVar('loginMessage'),
-			'username' => $session->getSessionVar('username'),
 			'remember' => $request->getUserVar('remember'),
 			'source' => $request->getUserVar('source'),
 			'showRemember' => Config::getVar('general', 'session_lifetime') > 0,
 		));
+
+		// If session cookies are limited to logged in users and no allowCookies cookie exists, show consent checbox in the login form
+		if (Config::getVar('general', 'session_limit') && !$request->getCookieVar('allowCookies')) {
+			$templateMgr->assign(array(
+				'cookieConsent' => true,
+			));
+		}		
 
 		// For force_login_ssl with base_url[...]: make sure SSL used for login form
 		$loginUrl = $request->url(null, 'login', 'signIn');
@@ -128,6 +140,14 @@ class LoginHandler extends Handler {
 				'error' => $reason===null?'user.login.loginError':($reason===''?'user.login.accountDisabled':'user.login.accountDisabledWithReason'),
 				'reason' => $reason,
 			));
+
+			// If session cookies are limited to logged in users and no allowCookies cookie exists, show consent checbox in the login form
+			if (Config::getVar('general', 'session_limit') && !$request->getCookieVar('allowCookies')) {
+				$templateMgr->assign(array(
+					'cookieConsent' => true,
+				));
+			}
+
 			$templateMgr->display('frontend/pages/userLogin.tpl');
 		}
 	}

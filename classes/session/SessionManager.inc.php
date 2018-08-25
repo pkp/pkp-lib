@@ -53,62 +53,67 @@ class SessionManager {
 			array($this, 'gc')
 		);
 
-		// Initialize the session. This calls SessionManager::read() and
-		// sets $this->userSession if a session is present.
-		session_start();
-		$sessionId = session_id();
+		// If session cookies are not limited to logged in users or allowCookies cookie exists or consent is given for the first time, create a session 
+		if ($request->getCookieVar('allowCookies') || $request->getUserVar('allowCookies') || !Config::getVar('general', 'session_limit')) {
 
-		$ip = $request->getRemoteAddr();
-		$userAgent = $request->getUserAgent();
-		$now = time();
+			// Initialize the session. This calls SessionManager::read() and
+			// sets $this->userSession if a session is present.
+			session_start();
+			$sessionId = session_id();
 
-		// Check if the session is tied to the parent domain
-		if (isset($this->userSession) && $this->userSession->getDomain() && $this->userSession->getDomain() != $request->getServerHost(null, false)) {
-			// if current host contains . and the session domain (is a subdomain of the session domain), adjust the session's domain parameter to the parent
-			if (strtolower(substr($request->getServerHost(null, false), -1 - strlen($this->userSession->getDomain()))) == '.'.strtolower($this->userSession->getDomain())) {
-				ini_set('session.cookie_domain', $this->userSession->getDomain());
-			}
-		}
+			$ip = $request->getRemoteAddr();
+			$userAgent = $request->getUserAgent();
+			$now = time();
 
-		if (!isset($this->userSession) || (Config::getVar('security', 'session_check_ip') && $this->userSession->getIpAddress() != $ip) || $this->userSession->getUserAgent() != substr($userAgent, 0, 255)) {
-			if (isset($this->userSession)) {
-				// Destroy old session
-				session_destroy();
-			}
-
-			// Create new session
-			$this->userSession = $this->sessionDao->newDataObject();
-			$this->userSession->setId($sessionId);
-			$this->userSession->setIpAddress($ip);
-			$this->userSession->setUserAgent($userAgent);
-			$this->userSession->setSecondsCreated($now);
-			$this->userSession->setSecondsLastUsed($now);
-			$this->userSession->setDomain(ini_get('session.cookie_domain'));
-			$this->userSession->setSessionData('');
-
-			$this->sessionDao->insertObject($this->userSession);
-
-		} else {
-			if ($this->userSession->getRemember()) {
-				// Update session timestamp for remembered sessions so it doesn't expire in the middle of a browser session
-				if (Config::getVar('general', 'session_lifetime') > 0) {
-					$this->updateSessionLifetime(time() + Config::getVar('general', 'session_lifetime') * 86400);
-				} else {
-					$this->userSession->setRemember(0);
-					$this->updateSessionLifetime(0);
+			// Check if the session is tied to the parent domain
+			if (isset($this->userSession) && $this->userSession->getDomain() && $this->userSession->getDomain() != $request->getServerHost(null, false)) {
+				// if current host contains . and the session domain (is a subdomain of the session domain), adjust the session's domain parameter to the parent
+				if (strtolower(substr($request->getServerHost(null, false), -1 - strlen($this->userSession->getDomain()))) == '.'.strtolower($this->userSession->getDomain())) {
+					ini_set('session.cookie_domain', $this->userSession->getDomain());
 				}
 			}
 
-			// Update existing session's timestamp; will be saved when write is called
-			$this->userSession->setSecondsLastUsed($now);
-		}
+			if (!isset($this->userSession) || (Config::getVar('security', 'session_check_ip') && $this->userSession->getIpAddress() != $ip) || $this->userSession->getUserAgent() != substr($userAgent, 0, 255)) {
+				if (isset($this->userSession)) {
+					// Destroy old session
+					session_destroy();
+				}
 
-		// Adding session_write_close as a shutdown function. This is a PHP
-		// space workaround for the "Class '...' not found" bug in installations
-		// having the APC opcode cache installed
-		// Bugzilla: https://pkp.sfu.ca/bugzilla/show_bug.cgi?id=8151
-		// PHP Bug tracker: https://bugs.php.net/bug.php?id=58739
-		register_shutdown_function('session_write_close'); 
+				// Create new session
+				$this->userSession = $this->sessionDao->newDataObject();
+				$this->userSession->setId($sessionId);
+				$this->userSession->setIpAddress($ip);
+				$this->userSession->setUserAgent($userAgent);
+				$this->userSession->setSecondsCreated($now);
+				$this->userSession->setSecondsLastUsed($now);
+				$this->userSession->setDomain(ini_get('session.cookie_domain'));
+				$this->userSession->setSessionData('');
+
+				$this->sessionDao->insertObject($this->userSession);
+
+			} else {
+				if ($this->userSession->getRemember()) {
+					// Update session timestamp for remembered sessions so it doesn't expire in the middle of a browser session
+					if (Config::getVar('general', 'session_lifetime') > 0) {
+						$this->updateSessionLifetime(time() + Config::getVar('general', 'session_lifetime') * 86400);
+					} else {
+						$this->userSession->setRemember(0);
+						$this->updateSessionLifetime(0);
+					}
+				}
+
+				// Update existing session's timestamp; will be saved when write is called
+				$this->userSession->setSecondsLastUsed($now);
+			}
+
+			// Adding session_write_close as a shutdown function. This is a PHP
+			// space workaround for the "Class '...' not found" bug in installations
+			// having the APC opcode cache installed
+			// Bugzilla: https://pkp.sfu.ca/bugzilla/show_bug.cgi?id=8151
+			// PHP Bug tracker: https://bugs.php.net/bug.php?id=58739
+			register_shutdown_function('session_write_close');
+
+		}
 	}
 
 	/**

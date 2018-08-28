@@ -19,6 +19,7 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 // Import submission files grid specific classes.
 import('lib.pkp.controllers.grid.files.SubmissionFilesGridRow');
 import('lib.pkp.controllers.grid.files.FileNameGridColumn');
+import('lib.pkp.controllers.grid.files.FileDateGridColumn');
 
 // Import submission file class which contains the SUBMISSION_FILE_* constants.
 import('lib.pkp.classes.submission.SubmissionFile');
@@ -147,6 +148,9 @@ class SubmissionFilesGridHandler extends GridHandler {
 
 		// The file name column is common to all file grid types.
 		$this->addColumn(new FileNameGridColumn($capabilities->canViewNotes(), $this->getStageId()));
+
+        // Additional column with file upload date/creation date
+		$this->addColumn(new FileDateGridColumn($capabilities->canViewNotes()));
 
 		// Set the no items row text
 		$this->setEmptyRowText('grid.noFiles');

@@ -66,7 +66,10 @@ class SubmissionStageForm extends ContextSettingsForm {
 
 		import('lib.pkp.classes.mail.MailTemplate');
 		$mail = new MailTemplate('SUBMISSION_ACK');
-		$templateMgr->assign('submissionAckDisabled', !$mail->isEnabled());
+		$templateMgr->assign(array(
+			'submissionAckDisabled' => !$mail->isEnabled(),
+			'enableContextPrivacyStatement' => !Config::getVar('general', 'sitewide_privacy_statement'),
+		));
 
 		return parent::fetch($request, $template, $display, $params);
 	}

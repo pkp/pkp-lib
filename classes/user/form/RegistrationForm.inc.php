@@ -68,7 +68,10 @@ class RegistrationForm extends Form {
 			}));
 		}
 
-		$this->addCheck(new FormValidator($this, 'privacyConsent', 'required', 'user.profile.form.privacyConsentRequired'));
+		$context = Application::getRequest()->getContext();
+		if ($context && $context->getSetting('privacyStatement')) {
+			$this->addCheck(new FormValidator($this, 'privacyConsent', 'required', 'user.profile.form.privacyConsentRequired'));
+		}
 
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
@@ -102,6 +105,8 @@ class RegistrationForm extends Form {
 		$templateMgr->assign(array(
 			'source' =>$request->getUserVar('source'),
 			'minPasswordLength' => $site->getMinPasswordLength(),
+			'enableSiteWidePrivacyStatement' => Config::getVar('general', 'sitewide_privacy_statement'),
+			'siteWidePrivacyStatement' => $site->getSetting('privacyStatement'),
 		));
 
 		return parent::fetch($request, $template, $display);
@@ -150,6 +155,49 @@ class RegistrationForm extends Form {
 			array_keys((array) $this->getData('readerGroup')),
 			array_keys((array) $this->getData('reviewerGroup'))
 		));
+	}
+
+	/**
+	 * @copydoc Form::validate()
+	 */
+	function validate() {
+		$request = Application::getRequest();
+
+		// Ensure the consent checkbox has been completed for the site and any user
+		// group signups if we're in the site-wide registration form
+		if (!$request->getContext()) {
+
+			if ($request->getSite()->getSetting('privacyStatement')) {
+				$privacyConsent = $this->getData('privacyConsent');
+				if (!is_array($privacyConsent) || !array_key_exists(CONTEXT_ID_NONE, $privacyConsent)) {
+					$this->addError('privacyConsent[' . CONTEXT_ID_NONE . ']', __('user.register.form.missingSiteConsent'));
+				}
+			}
+
+			if (!Config::getVar('general', 'sitewide_privacy_statement')) {
+				$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+				$contextIds = array();
+				foreach ($this->getData('userGroupIds') as $userGroupId) {
+					$userGroup = $userGroupDao->getById($userGroupId);
+					$contextIds[] = $userGroup->getContextId();
+				}
+
+				$contextIds = array_unique($contextIds);
+				if (!empty($contextIds)) {
+					$contextDao = Application::getContextDao();
+					$privacyConsent = (array) $this->getData('privacyConsent');
+					foreach ($contextIds as $contextId) {
+						$context = $contextDao->getById($contextId);
+						if ($context->getData('privacyStatement') && !array_key_exists($contextId, $privacyConsent)) {
+							$this->addError('privacyConsent[' . $contextId . ']', __('user.register.form.missingContextConsent'));
+							break;
+						}
+					}
+				}
+			}
+		}
+
+		return parent::validate();
 	}
 
 	/**

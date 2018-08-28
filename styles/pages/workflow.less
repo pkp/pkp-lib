@@ -121,7 +121,14 @@
 	}
 }
 
+// pkel/retostauffer: styling the "stage decision" elements
+.pkp_workflow_decisions.hide_buttons {
+    padding-top: 1em;
+    display: none;
+}
+
 .pkp_no_workflow_decisions,
+.pkp_workflow_decided,
 .pkp_workflow_recommendations {
 	padding: @base;
 	font-size: @font-sml;
@@ -129,6 +136,9 @@
 	box-shadow: 0 1px 1px rgba(0,0,0,0.2);
 	border-radius: @radius;
 	border-top: @grid-border;
+    &.decision_1 p { display: inline; color: @primary; }
+    &.decision_2 p { display: inline; color: @bg-dark; }
+    &.decision_4 p { display: inline; color: @submission; }
 }
 
 .export_actions {

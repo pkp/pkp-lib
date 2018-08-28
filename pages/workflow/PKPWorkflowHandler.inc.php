@@ -234,7 +234,8 @@ abstract class PKPWorkflowHandler extends Handler {
 				}
 			}
 		}
-
+        
+        
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
 		$editorActions = array();
 		$lastRecommendation = $allRecommendations = null;
@@ -322,7 +323,74 @@ abstract class PKPWorkflowHandler extends Handler {
 				__($action['title'])
 				);
 			}
-		}
+        } else {
+            $editorDecisions = array();
+        }
+
+        ## pkel/retostauffer: search for newest/latest decision for the current stageID
+        import('lib.pkp.classes.workflow.WorkflowStageDAO');
+        $workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
+        $stage = array(
+                'id' => (int) $stageId,
+                'label' => __($workflowStageDao->getTranslationKeyFromId($stageId)),
+                'isActiveStage' => $submission->getStageId() == $stageId,
+        );
+
+
+        // pkel/retostauffer: setting some labels to be able to manipulate frontend
+        $submissionStatus = (int) $submission->getStatus();
+        switch( $submissionStatus ) {
+            // If submission already declined
+            // Use: smarty key [...].Submission.declined
+            //      stageDecision set to NULL 
+            case STATUS_DECLINED:
+                $stage['label'] = 'Submission';
+                $stageDecision = "declined";
+                break;
+            // If submission already published
+            // Use: smarty key [...].Submission.published
+            //      stageDecision set to NULL 
+            case STATUS_PUBLISHED:
+                $stage['label'] = 'Submission';
+                $stageDecision = "published";
+                break;
+            // Else our submission is queued (active or unassigned)
+            // Use: setting $stageDecision to current $submission->getStageId();
+            //      smarty key [...].Revision.<stageDecision> depending
+            //          on the current $submission->stageId();
+            case STATUS_QUEUED: # queued
+                $stageDecision = (int) $submission->getStageId();
+                switch($stageDecision) {
+                    case REVIEW_ROUND_STATUS_REVISIONS_REQUESTED:     # Status 1
+                        $stageDecision = "revision";
+                        break;
+                    case REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW:     # Status 2
+                        $stageDecision = "resubmit";
+                        break;
+                    // Sent to external reviewers, decision awaiting, leave empty!
+                    case REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL:        # Status 3
+                        $stageDecision = NULL; //"sentToExternal";
+                        break;
+                    case REVIEW_ROUND_STATUS_ACCEPTED:                # Status 4
+                        $stageDecision = "accepted";
+                        break;
+                    case REVIEW_ROUND_STATUS_DECLINED:                # Status 4
+                        $stageDecision = "declined";
+                        break;
+                    default:
+                        $stageDecision = "unknown";
+                }
+                break;
+            // Else unknown, not defined yet.
+            default:
+                $stageDecision = "unknown";
+        }
+        if(!empty($stageDecision)) {
+            $stageDecision = sprintf("editor.submission.workflowDecisions.stageDecision.%s.%s",
+                                              $stage['label'], $stageDecision);
+        }
+
+
 
 		// Assign the actions to the template.
 		$templateMgr = TemplateManager::getManager($request);
@@ -330,6 +398,11 @@ abstract class PKPWorkflowHandler extends Handler {
 			'editorActions' => $editorActions,
 			'editorsAssigned' => count($editorsStageAssignments) > 0,
 			'stageId' => $stageId,
+            // Added additional variables pkel/retostauffer
+            'isActiveStage' => $stage['isActiveStage'],
+            'stageDecision' => $stageDecision,
+            'submissionStatus' => $submissionStatus,
+            'stageDecision' => $stageDecision,
 			'lastRecommendation' => $lastRecommendation,
 			'allRecommendations' => $allRecommendations,
 		));

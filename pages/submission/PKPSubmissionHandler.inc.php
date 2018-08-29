@@ -35,6 +35,7 @@ abstract class PKPSubmissionHandler extends Handler {
 			// Authorize submission creation. Author role not required.
 			import('lib.pkp.classes.security.authorization.UserRequiredPolicy');
 			$this->addPolicy(new UserRequiredPolicy($request));
+			$this->markRoleAssignmentsChecked();
 		} else {
 			// Authorize editing of incomplete submissions.
 			import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');

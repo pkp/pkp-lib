@@ -22,18 +22,23 @@ abstract class PKPAuthorDAO extends DAO {
 	 * Retrieve an author by ID.
 	 * @param $authorId int Author ID
 	 * @param $submissionId int Optional submission ID to correlate the author against.
+	 * @param $version int
 	 * @return Author
 	 */
-	function getById($authorId, $submissionId = null) {
+	function getById($authorId, $submissionId = null, $version = null) {
 		$params = array((int) $authorId);
 		if ($submissionId !== null) $params[] = (int) $submissionId;
+		if ($version !== null) $params[] = (int) $version;
+
 		$result = $this->retrieve(
-			'SELECT a.*, ug.show_title, s.locale
+			'SELECT DISTINCT a.*, ug.show_title, s.locale
 			FROM	authors a
 				JOIN user_groups ug ON (a.user_group_id=ug.user_group_id)
 				JOIN submissions s ON (s.submission_id = a.submission_id)
+				LEFT JOIN author_settings au ON (au.author_id = a.author_id)
 			WHERE	a.author_id = ?'
-				. ($submissionId !== null?' AND a.submission_id = ?':''),
+				. ($submissionId !== null?' AND a.submission_id = ?':'')
+				. ($version !== null?' AND au.submission_version = ?':''),
 			$params
 		);
 
@@ -51,20 +56,28 @@ abstract class PKPAuthorDAO extends DAO {
 	 * @param $submissionId int Submission ID.
 	 * @param $sortByAuthorId bool Use author Ids as indexes in the array
 	 * @param $useIncludeInBrowse bool Whether to limit to just include_in_browse authors
+	 * @param $version int
 	 * @return array Authors ordered by sequence
 	 */
-	function getBySubmissionId($submissionId, $sortByAuthorId = false, $useIncludeInBrowse = false) {
+	function getBySubmissionId($submissionId, $sortByAuthorId = false, $useIncludeInBrowse = false, $version = null) {
 		$authors = array();
 		$params = array((int) $submissionId);
 		if ($useIncludeInBrowse) $params[] = 1;
+		if (!$version) {
+			$submissionDao = Application::getSubmissionDAO();
+			$version = $submissionDao->getLatestVersionId($submissionId);
+		}
+		$params[] = (int)$version;
 
 		$result = $this->retrieve(
-			'SELECT	a.*, ug.show_title, s.locale
+			'SELECT	DISTINCT a.*, ug.show_title, s.locale
 			FROM	authors a
 				JOIN user_groups ug ON (a.user_group_id=ug.user_group_id)
 				JOIN submissions s ON (s.submission_id = a.submission_id)
+				LEFT JOIN author_settings au ON (au.author_id = a.author_id)
 			WHERE	a.submission_id = ? ' .
 			($useIncludeInBrowse ? ' AND a.include_in_browse = ?' : '')
+			. ($version !== null?' AND au.submission_version = ?':'')
 			. ' ORDER BY seq',
 			$params
 		);
@@ -110,7 +123,8 @@ abstract class PKPAuthorDAO extends DAO {
 			'author_settings',
 			$author,
 			array(
-				'author_id' => $author->getId()
+				'author_id' => $author->getId(),
+				'submission_version' => $author->getVersion(),
 			)
 		);
 	}
@@ -120,7 +134,7 @@ abstract class PKPAuthorDAO extends DAO {
 	 * @param $row array
 	 * @return Author
 	 */
-	function _fromRow($row) {
+	function _fromRow($row, $submissionVersion = null) {
 		$author = $this->newDataObject();
 		$author->setId($row['author_id']);
 		$author->setSubmissionId($row['submission_id']);
@@ -134,7 +148,9 @@ abstract class PKPAuthorDAO extends DAO {
 		$author->setIncludeInBrowse($row['include_in_browse']);
 		$author->_setShowTitle($row['show_title']); // Dependent
 
-		$this->getDataObjectSettings('author_settings', 'author_id', $row['author_id'], $author);
+		$submissionDao = Application::getSubmissionDAO();
+		$submissionVersion = $submissionVersion ? $submissionVersion : $submissionDao->getLatestVersionId($row['submission_id']);
+		$this->getDataObjectSettings('author_settings', 'author_id', $row['author_id'], $author, $submissionVersion, 'submission_version');
 
 		HookRegistry::call('AuthorDAO::_fromRow', array(&$author, &$row));
 		return $author;
@@ -251,7 +267,7 @@ abstract class PKPAuthorDAO extends DAO {
 	 * @param $authorId int Author ID
 	 * @param $submissionId int Optional submission ID.
 	 */
-	function deleteById($authorId, $submissionId = null) {
+	function deleteById($authorId, $submissionId = null, $version = null) {
 		$params = array((int) $authorId);
 		if ($submissionId) $params[] = (int) $submissionId;
 		$this->update(
@@ -259,7 +275,10 @@ abstract class PKPAuthorDAO extends DAO {
 			($submissionId?' AND submission_id = ?':''),
 			$params
 		);
-		$this->update('DELETE FROM author_settings WHERE author_id = ?', array((int) $authorId));
+
+		$settingsParams = array((int) $authorId);
+		if ($version) $settingsParams[] = (int) $version;
+		$this->update('DELETE FROM author_settings WHERE author_id = ?' . ($version?' AND submission_version = ?':''), $settingsParams);
 	}
 
 	/**
@@ -388,5 +407,3 @@ abstract class PKPAuthorDAO extends DAO {
 	}
 
 }
-
-

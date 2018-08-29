@@ -128,5 +128,3 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy {
 		return false;
 	}
 }
-
-

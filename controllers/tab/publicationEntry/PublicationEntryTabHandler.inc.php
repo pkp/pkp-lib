@@ -108,9 +108,10 @@ class PublicationEntryTabHandler extends Handler {
 	 */
 	function submissionMetadata($args, $request) {
 
-		$publicationEntrySubmissionReviewForm = $this->_getPublicationEntrySubmissionReviewForm();
+		$submissionVersion = $args['submissionVersion'];
+		$publicationEntrySubmissionReviewForm = $this->_getPublicationEntrySubmissionReviewForm($submissionVersion);
 
-		$publicationEntrySubmissionReviewForm->initData();
+		$publicationEntrySubmissionReviewForm->initData($submissionVersion);
 		return new JSONMessage(true, $publicationEntrySubmissionReviewForm->fetch($request));
 	}
 
@@ -266,5 +267,3 @@ class PublicationEntryTabHandler extends Handler {
 		assert(false); // in sub classes.
 	}
 }
-
-

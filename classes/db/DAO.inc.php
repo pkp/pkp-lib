@@ -570,14 +570,18 @@ class DAO {
 	 * @param $idFieldName string Name of ID column
 	 * @param $dataObject DataObject Object in which to store retrieved values
 	 */
-	function getDataObjectSettings($tableName, $idFieldName, $idFieldValue, $dataObject) {
-		if ($idFieldName !== null) {
-			$sql = "SELECT * FROM $tableName WHERE $idFieldName = ?";
-			$params = array($idFieldValue);
-		} else {
-			$sql = "SELECT * FROM $tableName";
-			$params = false;
+	 function getDataObjectSettings($tableName, $idFieldName, $idFieldValue, $dataObject, $submissionVersion = null, $versionFieldName = 'submission_version') {
+
+		$params = array();
+		if (($idFieldName !== null) && ($submissionVersion == null)) {
+			$params = array_merge($params, array((int) $idFieldValue));
+		} elseif (($idFieldName !== null) && ($submissionVersion !== null)) {
+			$params = array_merge($params, array((int) $idFieldValue, (int) $submissionVersion));
 		}
+
+		$sql = "SELECT * FROM $tableName" .
+		((($idFieldName == null) && ($submissionVersion == null)) ? "" : " WHERE $idFieldName = ?" .
+		((($idFieldName !== null) && ($submissionVersion !== null)) ? " AND $versionFieldName = ?" : ""));
 		$result = $this->retrieve($sql, $params);
 
 		while (!$result->EOF) {
@@ -690,5 +694,3 @@ class DAO {
 		}
 	}
 }
-
-

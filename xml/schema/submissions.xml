@@ -19,7 +19,7 @@
 	  -->
 	<table name="authors">
 		<field name="author_id" type="I8">
-			<KEY />
+			<KEY/>
 			<AUTOINCREMENT/>
 		</field>
 		<field name="submission_id" type="I8">
@@ -58,6 +58,7 @@
 		<field name="author_id" type="I8">
 			<NOTNULL />
 		</field>
+		<field name="submission_version" type="I8" />
 		<field name="locale" type="C2" size="14">
 			<NOTNULL />
 			<DEFAULT VALUE=""/>
@@ -76,6 +77,7 @@
 		</index>
 		<index name="author_settings_pkey">
 			<col>author_id</col>
+			<col>submission_version</col>
 			<col>locale</col>
 			<col>setting_name</col>
 			<UNIQUE/>

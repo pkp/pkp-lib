@@ -25,6 +25,9 @@ class AuthorGridHandler extends GridHandler {
 	/** @var boolean */
 	var $_readOnly;
 
+	/** @var int */
+	var $_version;
+
 	/**
 	 * Constructor
 	 */
@@ -66,6 +69,43 @@ class AuthorGridHandler extends GridHandler {
 		$this->_readOnly = $readOnly;
 	}
 
+	/**
+	 * Get the selected version
+	 * @param $request PKPRequest
+	 * @return int
+	 */
+	function getCurrentVersion($request) {
+		$currentVersion = (int) $request->getUserVar('submissionVersion');
+
+		if (!isset($currentVersion) || $currentVersion == 0) {
+			$currentVersion = $this->getNewestVersion($request);
+		}
+		return $currentVersion;
+	}
+
+	/**
+	 * Get the newest version
+	 * @param $request PKPRequest
+	 * @return int
+	 */
+	function getNewestVersion($request) {
+		$submission = $this->getSubmission();
+		$submissionVersion = $submission->getCurrentVersionId();
+		// new submission do not have a version
+		if($submissionVersion==''){
+			$submissionVersion = 1;
+		}
+		return $submissionVersion;
+	}
+
+	/**
+	 * Check if the current version is the newest one
+	 * @param $request PKPRequest
+	 * @return boolean
+	 */
+	function isNewestVersion($request) {
+		return $this->getCurrentVersion($request) == $this->getNewestVersion($request);
+	}
 
 	//
 	// Overridden methods from PKPHandler.
@@ -101,18 +141,21 @@ class AuthorGridHandler extends GridHandler {
 			// Grid actions
 			$router = $request->getRouter();
 			$actionArgs = $this->getRequestArgs();
-			$this->addAction(
-				new LinkAction(
-					'addAuthor',
-					new AjaxModal(
-						$router->url($request, null, null, 'addAuthor', null, $actionArgs),
+
+			if ($this->isNewestVersion($request)) {
+				$this->addAction(
+					new LinkAction(
+						'addAuthor',
+						new AjaxModal(
+							$router->url($request, null, null, 'addAuthor', null, $actionArgs),
+							__('grid.action.addContributor'),
+							'modal_add_user'
+						),
 						__('grid.action.addContributor'),
-						'modal_add_user'
-					),
-					__('grid.action.addContributor'),
-					'add_user'
-				)
-			);
+						'add_user'
+					)
+				);
+			}
 		} else {
 			$this->setReadOnly(true);
 		}
@@ -178,7 +221,9 @@ class AuthorGridHandler extends GridHandler {
 		$features = parent::initFeatures($request, $args);
 		if ($this->canAdminister($request->getUser())) {
 			import('lib.pkp.classes.controllers.grid.feature.OrderGridItemsFeature');
-			$features[] = new OrderGridItemsFeature();
+			if ($this->isNewestVersion($request)) {
+				$features[] = new OrderGridItemsFeature();
+			}
 		}
 		return $features;
 	}
@@ -196,7 +241,7 @@ class AuthorGridHandler extends GridHandler {
 	function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence) {
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
 		$submission = $this->getSubmission();
-		$author = $authorDao->getById($rowId, $submission->getId());
+		$author = $authorDao->getById($rowId, $submission->getId(), $this->_version);
 		$author->setSequence($newSequence);
 		$authorDao->updateObject($author);
 	}
@@ -206,7 +251,7 @@ class AuthorGridHandler extends GridHandler {
 	 * @return AuthorGridRow
 	 */
 	protected function getRowInstance() {
-		return new AuthorGridRow($this->getSubmission(), $this->getReadOnly());
+		return new AuthorGridRow($this->getSubmission(), $this->getReadOnly(), $this->_version);
 	}
 
 	/**
@@ -255,7 +300,8 @@ class AuthorGridHandler extends GridHandler {
 	protected function loadData($request, $filter = null) {
 		$submission = $this->getSubmission();
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
-		return $authorDao->getBySubmissionId($submission->getId(), true);
+		$this->_version = ($this->getCurrentVersion($request) > 0) ? $this->getCurrentVersion($request) : $this->getNewestVersion($request);
+		return $authorDao->getBySubmissionId($submission->getId(), true, false, $this->_version);
 	}
 
 	//
@@ -273,7 +319,7 @@ class AuthorGridHandler extends GridHandler {
 	}
 
 	/**
-	 * Edit a author
+	 * Edit an author
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
@@ -281,10 +327,11 @@ class AuthorGridHandler extends GridHandler {
 	function editAuthor($args, $request) {
 		// Identify the author to be updated
 		$authorId = (int) $request->getUserVar('authorId');
+		$version = (int) $request->getUserVar('submissionVersion');
 		$submission = $this->getSubmission();
 
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
-		$author = $authorDao->getById($authorId, $submission->getId());
+		$author = $authorDao->getById($authorId, $submission->getId(), $version);
 
 		// Form handling
 		import('lib.pkp.controllers.grid.users.author.form.AuthorForm');
@@ -295,7 +342,7 @@ class AuthorGridHandler extends GridHandler {
 	}
 
 	/**
-	 * Edit a author
+	 * Update an author
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
@@ -359,10 +406,15 @@ class AuthorGridHandler extends GridHandler {
 	function deleteAuthor($args, $request) {
 		if (!$request->checkCSRF()) return new JSONMessage(false);
 
-		$submission = $this->getSubmission();
+		// Identify the submission Id
+		$submissionId = $this->getSubmission()->getId();
+		// Identify the author to be deleted
 		$authorId = (int) $request->getUserVar('authorId');
+		// Identify the version
+		$version = (int) $request->getUserVar('version');
+
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
-		$authorDao->deleteById($authorId, $submission->getId());
+		$authorDao->deleteById($authorId, $submission->getId(), $version);
 		return DAO::getDataChangedEvent($authorId);
 	}
 
@@ -393,5 +445,3 @@ class AuthorGridHandler extends GridHandler {
 		}
 	}
 }
-
-

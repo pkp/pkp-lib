@@ -64,6 +64,9 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy {
 		if (!$this->_checkUserRoleAssignment($userRoles)) return AUTHORIZATION_DENY;
 		if (!$this->_checkOperationWhitelist()) return AUTHORIZATION_DENY;
 
+		$handler = $this->getRequest()->getRouter()->getHandler();
+		$handler->markRoleAssignmentsChecked();
+
 		return AUTHORIZATION_PERMIT;
 	}
 

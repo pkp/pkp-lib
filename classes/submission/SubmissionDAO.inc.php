@@ -87,9 +87,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * Instantiate a new data object.
 	 * @return Submission
 	 */
-	function newDataObject() {
-		return new Submission();
-	}
+	abstract function newDataObject();
 
 	/**
 	 * Internal function to return a Submission object from a row.

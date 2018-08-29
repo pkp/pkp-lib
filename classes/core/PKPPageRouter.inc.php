@@ -36,7 +36,6 @@ class PKPPageRouter extends PKPRouter {
 	/** @var string cache filename */
 	var $_cacheFilename;
 
-
 	/**
 	 * get the installation pages
 	 * @return array
@@ -217,6 +216,7 @@ class PKPPageRouter extends PKPRouter {
 		// Instantiate the handler class
 		$handlerClass = HANDLER_CLASS;
 		$handler = new $handlerClass($request);
+		$this->setHandler($handler);
 
 		// Authorize and initialize the request but don't call the
 		// validate() method on page handlers.

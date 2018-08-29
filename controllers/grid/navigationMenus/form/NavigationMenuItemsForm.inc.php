@@ -78,6 +78,10 @@ class NavigationMenuItemsForm extends Form {
 			->get('navigationMenu')
 			->getMenuItemTypes();
 
+		$customTemplates = ServicesContainer::instance()
+			->get('navigationMenu')
+			->getMenuItemCustomEditTemplates();
+
 		$typeTitles = array(0 => __('grid.navigationMenus.navigationMenu.selectType'));
 		foreach ($types as $type => $settings) {
 			$typeTitles[$type] = $settings['title'];
@@ -99,6 +103,7 @@ class NavigationMenuItemsForm extends Form {
 			'navigationMenuItemTypeTitles' => $typeTitles,
 			'navigationMenuItemTypeDescriptions' => json_encode($typeDescriptions),
 			'navigationMenuItemTypeConditionalWarnings' => json_encode($typeConditionalWarnings),
+			'customTemplates' => $customTemplates,
 		);
 
 		\HookRegistry::call('NavigationMenus::nmiFormTemplateParameters', array(&$templateArray));

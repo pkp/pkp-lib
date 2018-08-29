@@ -39,45 +39,13 @@
 			{fbvElement type="select" id="menuItemType" required=true from=$navigationMenuItemTypeTitles selected=$menuItemType label="manager.navigationMenus.form.navigationMenuItemTypeMessage" translate=false}
 		{/fbvFormSection}
 
-		{fbvFormSection id="remoteUrlTarget" title="manager.navigationMenus.form.url" for="url" list=true required="true"}
-			{fbvElement type="text" id="url" value=$url maxlength="255" required="true"}
-		{/fbvFormSection}
-
-		{fbvFormSection id="seriesTarget" title="manager.navigationMenus.form.navigationMenuItem.series" for="seriesSelect"}
-			{if count($navigationMenuItemSeriesTitles) gt 0}
-				{fbvElement type="select" id="relatedSeriesId" required=true from=$navigationMenuItemSeriesTitles selected=$selectedRelatedObjectId label="manager.navigationMenus.form.navigationMenuItemSeriesMessage" translate=false}
-			{else}
-				{translate key="manager.navigationMenus.form.navigationMenuItem.series.noItems"}
-			{/if}
-		{/fbvFormSection}
-
-		{fbvFormSection id="categoryTarget" title="manager.navigationMenus.form.navigationMenuItem.category" for="categorySelect"}
-			{if count($navigationMenuItemCategoryTitles) gt 0}
-				{fbvElement type="select" id="relatedCategoryId" required=true from=$navigationMenuItemCategoryTitles selected=$selectedRelatedObjectId label="manager.navigationMenus.form.navigationMenuItemCategoryMessage" translate=false}
-			{else}
-				{translate key="manager.navigationMenus.form.navigationMenuItem.category.noItems"}
-			{/if}
-		{/fbvFormSection}
-
-		<div id="customPageOptions">
-			{fbvFormSection id="targetPath"}
-				{fbvFormSection title="manager.navigationMenus.form.path" for="path" required="true"}
-					{fbvElement type="text" id="path" value=$path required="true"}
-					<p>
-						{capture assign=exampleUrl}{url|replace:"REPLACEME":"%PATH%" router=$smarty.const.ROUTE_PAGE page="REPLACEME"}{/capture}
-						{translate key="manager.navigationMenus.form.viewInstructions" pagesPath=$exampleUrl}
-					</p>
-				{/fbvFormSection}
-				{fbvFormSection label="manager.navigationMenus.form.content" for="content"}
-					{fbvElement type="textarea" multilingual=true name="content" id="content" value=$content rich=true height=$fbvStyles.height.TALL variables=$allowedVariables}
-				{/fbvFormSection}
-			{/fbvFormSection}
-		</div>
+		{foreach from=$customTemplates key=nmiType item=customTemplate}
+			{include file=$customTemplate.template}
+		{/foreach}
 	{/fbvFormArea}
 
 	{fbvFormSection class="formButtons"}
 		{fbvElement type="submit" class="submitFormButton pkp_helpers_align_left pkp_button_primary" id="saveButton" label="common.save"}
 		{assign var=buttonId value="submitFormButton"|concat:"-"|uniqid}
-		{fbvElement type="button" class="pkp_button_link" id="previewButton" label="common.preview"}
 	{/fbvFormSection}
 </form>

@@ -48,6 +48,15 @@ class PKPUserHandler extends APIHandler {
 	}
 
 	/**
+	 * @copydoc PKPHandler::authorize()
+	 */
+	function authorize($request, &$args, $roleAssignments) {
+		import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
+		$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+		return parent::authorize($request, $args, $roleAssignments);
+	}
+
+	/**
 	 * Get a collection of users
 	 * @param $slimRequest Request Slim request object
 	 * @param $response Response object

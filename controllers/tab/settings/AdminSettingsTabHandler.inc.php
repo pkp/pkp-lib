@@ -49,6 +49,22 @@ class AdminSettingsTabHandler extends SettingsTabHandler {
 	// Extended methods from SettingsTabHandler
 	//
 	/**
+	 * @see PKPHandler::authorize()
+	 */
+	function authorize($request, &$args, $roleAssignments) {
+		import('lib.pkp.classes.security.authorization.PolicySet');
+		$rolePolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
+
+		import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
+		foreach($roleAssignments as $role => $operations) {
+			$rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
+		}
+		$this->addPolicy($rolePolicy);
+
+		return parent::authorize($request, $args, $roleAssignments);
+	}
+
+	/**
 	 * @copydoc PKPHandler::initialize()
 	 */
 	function initialize($request) {

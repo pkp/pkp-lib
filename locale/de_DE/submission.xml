@@ -16,6 +16,11 @@
 	<message key="author.submit.submissionCitations">Stellen Sie bitte ein formatiertes Literaturverzeichnis für die Werke zur Verfügung, die Sie in Ihrem Beitrag zitiert haben. Bitte trennen Sie die einzelnen Verweise durch Leerzeilen.</message>
 	<message key="author.submission.roundStatus.reviewsReady">Neue Gutachten sind eingegangen und werden durch den/die Redakteur/in geprüft.</message>
 	<message key="submission.confirm.message">Eine Einreichung ist hochgeladen worden und kann abgeschickt werden. Sie können noch einmal zurückgehen, um alle eingegebenen Informationen durchzusehen und anzupassen, bevor Sie weitermachen. Wenn Sie fertig sind, klicken Sie "Einreichung abschließen".</message>
+	<message key="submission.submit.availableUserGroups">Einreichen als</message>
+	<message key="submission.submit.availableUserGroupsDescription">Wählen Sie die Rolle, die Ihre Rolle in Bezug auf diese Einreichung am besten beschreibt.</message>
+	<message key="submission.submit.contactConsent">Korrespondenz-Kontakt</message>
+	<message key="submission.submit.contactConsentDescription">Ja, ich möchte in Bezug auf diese Einreichung kontaktiert werden.</message>
+	<message key="submission.submit.userGroupDescriptionManagers">Reichen Sie in einer der folgenden Rollen ein, wenn Sie die Einreichung selber bearbeiten und veröffentlichen können möchten: {$managerGroups}</message>
 	<message key="submission.submit.submissionChecklist">Einreichungs-Anforderungen</message>
 	<message key="submission.submit.submissionChecklistDescription">Sie müssen Sie die Anforderungen lesen und bestätigen, bevor Sie fortfahren können.</message>
 	<message key="submission.submit.submissionComplete">Die Einreichung ist abgeschlossen.</message>

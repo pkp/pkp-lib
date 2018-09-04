@@ -4,8 +4,8 @@
 <!--
   * locale/pl_PL/manager.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -78,7 +78,7 @@
 	<message key="manager.files.parentDir">Nadrzędny katalog</message>
 	<message key="manager.files.uploadedFiles">Zdeponowane pliki</message>
 	<message key="manager.files.uploadFile">Prześlij plik</message>
-	<message key="manager.groups.confirmDelete">Czy jesteś pewny, że chcesz usunąć tą grupę?</message>
+	<message key="manager.groups.confirmDelete">Czy jesteś pewny(a), że chcesz usunąć tą grupę?</message>
 	<message key="manager.groups.createTitle">Utwórz tytuł</message>
 	<message key="manager.groups.editTitle">Edytuj tytuł</message>
 	<message key="manager.groups.form.groupTitleRequired">Tytuł grupy jest wymagany.</message>
@@ -88,7 +88,7 @@
 	<message key="manager.groups.membership.noneCreated">Ta grupa jest pusta.</message>
 	<message key="manager.groups.membership.noUsers">Żadni użytkownicy nie zostali odnalezieni.</message>
 	<message key="manager.groups.title">Tytuł</message>
-	<message key="manager.importExport">Importuj/eksportuj dane</message>
+	<message key="manager.importExport">Importuj/Eksportuj dane</message>
 	<message key="manager.languages.alternateLocaleInstructions">System umożliwia umieszczenie niektórych informacji w innych językach. Aby skorzystać z tej właściwości, wybierz język z listy dostępnych języków widocznej poniżej.</message>
 	<message key="manager.languages.supportedLocalesInstructions">Wybierz, które języki mają być dostępne dla strony z poziomu menu wyświetlanego na każdej podstronie. Menu pojawi się tylko w przypadku wybrania więcej niż jednego języka.</message>
 	<message key="manager.payment.timestamp">Datownik</message>
@@ -139,6 +139,10 @@
 	<message key="manager.plugins">Wtyczki systemowe</message>
 	<message key="manager.readingTools">Narzędzia czytelnicze</message>
 	<message key="manager.reviewerSearch.searchByName">Wyszukaj recenzenta po nazwie</message>
+	<message key="manager.reviewerSearch.doneAmount">Wykonanych recenzji: {$current}</message>
+	<message key="manager.reviewerSearch.avgAmount">Średnia długość procesu recenzowania (dni): {$current}</message>
+	<message key="manager.reviewerSearch.lastAmount">Dni od ostatniej recenzji: {$current}</message>
+	<message key="manager.reviewerSearch.activeAmount">Liczba aktywnych recenzji: {$current}</message>
 	<message key="manager.reviewerSearch.interests">Zainteresowania badawcze</message>
 	<message key="manager.roles">Role</message>
 	<message key="manager.setup.errorDeletingItem">Wystąpił błąd podczas usuwania tego pliku.</message>
@@ -175,7 +179,8 @@
 	<message key="manager.emails.resetAll.message">Jeżeli zresetujesz wszystkie szablony, wszystkie zmiany zostaną utracone. Czy chcesz kontynuować?</message>
 	<message key="manager.emails.reset.message">Jeżeli usuniesz szablon, wszystkie wiadomości będą zresetowane do swojej domyślnej wartości. Czy chcesz kontynuować?</message>
 	<message key="manager.reviewerSearch.searchByName.short">Wyszukaj po imieniu</message>
-	<message key="manager.reviewerSearch.form.instructions">Użyj formularza aby określić maksymalną liczbę wartości dla wyszukiwanych terminów. Formularz sugeruje uśrednione wartości dla pól.</message>
+	<message key="manager.reviewerSearch.form.instructions">Użyj formularza, aby określić maksymalną liczbę wartości dla wyszukiwanych terminów. Formularz sugeruje uśrednione wartości dla pól.</message>
+	<message key="manager.reviewerSearch.form.interests.instructions">Podaj zainteresowania recenzenta, oddzielone przecinkami...</message>
 	<message key="manager.setup.layout.blockManagement">Zarządzanie paskiem bocznym</message>
 	<message key="manager.statistics.city">Miasto</message>
 	<message key="manager.statistics.region">Region</message>
@@ -195,11 +200,16 @@
 	<message key="manager.language.reloadLocalizedDefaultSettings">Przeładuj ustawienia domyślne</message>
 	<message key="manager.userSearch.searchByName">Szukaj wg imienia i nazwiska</message>
 	<message key="manager.reviewerSearch.change">Zmień</message>
+	<message key="manager.reviewerSearch.doneAmountToggle">Włącz/wyłącz filtr dla wykonanych recenzji.</message>
+	<message key="manager.reviewerSearch.avgAmountToggle">Włącz/wyłącz filtr dla średniej długości procesu recenzowania.</message>
+	<message key="manager.reviewerSearch.lastAmountToggle">Włącz/wyłącz filtr dla dni od ostatniej recenzji.</message>
+	<message key="manager.reviewerSearch.activeAmountToggle">Włącz/wyłącz filtr dla aktywnych recenzji.</message>
+	<message key="manager.reviewerSearch.form.previousReviewRounds">Poprzednie rundy recenzji dla recenzentów tego zgłoszenia</message>
 	<message key="manager.statistics.defaultMetricDescription">Twój {$contextObjectName} jest skonfigurowany tak, aby uwzględniać więcej niż jedną metrykę. Statystyki zostaną wyświetlone w wielu kontekstach. Istnieją przypadki, w których jedna metryka musi zostać wykorzystana, np. do wyświetlenia listy najczęściej otwieranych zgłoszeń lub w celu stopniowania wyników wyszukiwania. Wybierz jedną ze skonfigurowanych metryk jako domyślną.</message>
 	<message key="manager.statistics.reports">Generator raportów</message>
-	<message key="manager.statistics.reports.description">System generuje raporty zawierające statystyki wykorzystania strony oraz zgłoszeń przez zadany okres czasu. Raporty są generowane w postaci plików CSV które można otworzyć za pomocą programu obsługującego arkusze kalkulacyjne.</message>
+	<message key="manager.statistics.reports.description">System generuje raporty zawierające statystyki wykorzystania strony oraz zgłoszeń przez zadany okres czasu. Raporty są generowane w postaci plików CSV, które można otworzyć za pomocą programu obsługującego arkusze kalkulacyjne.</message>
 	<message key="manager.statistics.reports.aggregationColumns">Gromadź statystyki wg:</message>
-	<message key="manager.statistics.reports.optionalColumns.description">Elementy kursywą oraz oznaczone * reprezentują dane opcjonalne dla aktualnie wykorzystywanego sposobu zliczania statystyk. Możesz posiadać te dane lub nie w zależności od konfiguracji wtyczki.</message>
+	<message key="manager.statistics.reports.optionalColumns.description">Elementy pisane kursywą oraz oznaczone * reprezentują dane opcjonalne dla aktualnie wykorzystywanego sposobu zliczania statystyk. Możesz posiadać te dane lub nie w zależności od konfiguracji wtyczki.</message>
 	<message key="manager.statistics.reports.defaultReportTemplates">Domyślne szablony raportów</message>
 	<message key="manager.statistics.reports.generateReport">Generuj niestandardowy raport</message>
 	<message key="manager.statistics.reports.advancedOptions">Ustawienia zaawansowane</message>
@@ -254,10 +264,11 @@
 	<message key="manager.setup.openAccessPolicy.description">Jeżeli dostęp do treści jest otwarty, możesz umieścić tutaj treść polityki otwartości.</message>
 	<message key="manager.setup.pageFooter">Stopka strony</message>
 	<message key="manager.setup.pageFooterDescription">W stopce możesz umieścić obrazy, tekst lub HTML.</message>
-	<message key="manager.setup.peerReview.description">Opisz warunki recenzji oraz jej proces dla czytelników oraz autorów. Opis zazwyczaj zawiera ilość recenzentów przydzielonych do zgłoszonego tekstu, kryteria oceny, czas recenzji oraz zasady przydzielania recenzentów do tekstu.</message>
-	<message key="manager.setup.principalContact">Główny kontakt</message>
+	<message key="manager.setup.peerReview.description">Opisz zasady recenzji oraz jej przebieg. Opis widoczny dla czytelników oraz autorów zawiera liczbę recenzentów przydzielonych do zgłoszonego tekstu, kryteria oceny, czas recenzji oraz zasady przydzielania recenzentów do tekstu.</message>
+	<message key="manager.setup.principalContact">Główna osoba do kontaktu</message>
 	<message key="manager.setup.principalContactDescription">Wprowadź dane głównej osoby do kontaktu, zwykle do redaktora lub sekretarza. Dane będą wyświetlane na stronie internetowej czasopisma.</message>
 	<message key="manager.setup.privacyStatement">Polityka prywatności</message>
+	<message key="manager.setup.privacyStatement.description">Treść oświadczenia będzie widoczna publicznie oraz dla autorów podczas przesyłania tekstu.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Liczba tygodni na zaakceptowanie lub odrzucenie prośby o recenzję</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Liczba tygodni na ukończenie recenzji</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Nigdy nie przypominaj</message>
@@ -266,8 +277,9 @@
 	<message key="manager.setup.reviewOptions.remindForSubmit">Wyślij przypomnienie, jeśli recenzent nie przesłał rekomendacji przekraczając termin o liczbę dni:</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Domyślne ustawienia czasu na wykonanie recenzji</message>
 	<message key="manager.setup.reviewOptions.showBlindReviewLink">Wyświetl link do "Zapewnienie ślepej recenzji" podczas przesyłania</message>
-	<message key="manager.setup.sponsors.note">Instytucje finansujące oraz warunki</message>
-	<message key="manager.setup.sponsors.description">Przykłady: koła naukowe, działy uczelni, instytucje współpracując itp. Instytucje finansujące są widoczne publicznie.</message>
+	<message key="manager.setup.sortableByComponent">Sortowanie wg elementów</message>
+	<message key="manager.setup.sponsors.note">Instytucje finansujące oraz zasady</message>
+	<message key="manager.setup.sponsors.description">Przykłady: towarzystwa naukowe, wydziały uczelni, instytucje współpracujące itp. Instytucje finansujące są widoczne publicznie.</message>
 	<message key="manager.setup.styleSheetDescription">Doświadczeni developerzy mogą przesłać plik CSS, aby wprowadzić zmiany w widoku strony niedostępne z poziomu OJS.</message>
 	<message key="manager.setup.technicalSupportContact">Wsparcie techniczne</message>
 	<message key="manager.setup.technicalSupportContactDescription">Dane osoby, która wspiera redakcję, autorów i recenzentów w rozwiązywaniu wszelkich problemów ze zgłaszaniem tekstów, redagowaniem, recenzowaniem lub publikowaniem materiałów.</message>
@@ -300,7 +312,7 @@
 	<message key="manager.plugins.pluginGallery.certifications.reviewed">Przejrzana</message>
 	<message key="manager.plugins.pluginGallery.certifications.partner">Zewnętrzna</message>
 	<message key="manager.plugins.pluginGallery.maintainer">Zarządzający</message>
-	<message key="manager.plugins.pluginGallery.version">Wersja: {$version}</message>
+	<message key="manager.plugins.pluginGallery.version">v{$version}, opublikowana {$date}</message>
 	<message key="manager.plugins.pluginGallery.homepage">Strona autora</message>
 	<message key="manager.plugins.pluginGallery.summary">Podsumowanie</message>
 	<message key="manager.plugins.pluginGallery.status">Status</message>
@@ -361,7 +373,7 @@
 	<message key="settings.roles.uniqueAbbrev">Musisz określić niepowtarzalny skrót roli.</message>
 	<message key="settings.roles.roleIdRequired">Musisz określić poziom uprawnień roli.</message>
 	<message key="settings.roles.stageIdRequired">Musisz przydzielić rolę do etapów.</message>
-	<message key="settings.libraryFiles.fileRequired">Plik biblioteki jest wymagany. Upewnij się, że wybrałeś i przesłałeś plik.</message>
+	<message key="settings.libraryFiles.fileRequired">Plik biblioteki jest wymagany. Upewnij się, że wybrałeś(aś) i przesłałeś(aś) plik.</message>
 	<message key="settings.libraryFiles.nameRequired">Nazwa jest wymagana dla pliku biblioteki.</message>
 	<message key="settings.libraryFiles.typeRequired">Rodzaj pliku jest wymagany dla pliku biblioteki.</message>
 	<message key="settings.libraryFiles.category.contracts">Kontrakty</message>
@@ -373,6 +385,7 @@
 	<message key="grid.action.editGenre">Edytuj element</message>
 	<message key="grid.action.deleteGenre">Usuń element</message>
 	<message key="grid.action.restoreGenres">Przywróć elementy do ich ustawień domyślnych</message>
+	<message key="manager.setup.genres.sortable">Włącz sortowanie plików wg rozdziału</message>
 	<message key="manager.setup.genres.dependent">Oznacz pliki tego typu jako zależne (np. aby nie były widoczne razem z opublikowaną treścią)</message>
 	<message key="manager.setup.genres.supplementary">Oznacz pliki tego typu jako dodatkowe (np. nie będące główną zawartością zgłoszenia)</message>
 	<message key="manager.settings.wizard">Kreator ustawień</message>
@@ -395,7 +408,7 @@
 	<message key="manager.reviewForms.form.titleRequired">Nazwa dla formularza recenzji jest wymagana.</message>
 	<message key="manager.reviewForms.inReview">Recenzja</message>
 	<message key="manager.reviewForms.list.description">Formularze recenzji utworzone w tym miejscu będą dostępne dla recenzentów zamiast domyślnych formularzy, które składają się z dwóch pól - "dla autora i redaktora" oraz "dla redaktora". Formularze recenzji mogą zostać przydzielone do wybranych działów a redaktorzy będą mogli wybrać formularz najbardziej odpowiedni dla recenzowanego tekstu. W każdym wypadku redaktorzy posiadają możliwość dołączenia recenzji w korespondencji z autorem.</message>
-	<message key="manager.reviewForms.noneChosen">Żaden / pusty formularz</message>
+	<message key="manager.reviewForms.noneChosen">Żaden/Pusty formularz</message>
 	<message key="manager.reviewForms.noneCreated">Brak utworzonych formularzy recenzji.</message>
 	<message key="manager.reviewForms.noneUsed">Brak wykorzystanych formularzy recenzji.</message>
 	<message key="manager.reviewForms.preview">Podejrzyj formularz</message>
@@ -403,7 +416,7 @@
 	<message key="manager.reviewForms.title">Nazwa</message>
 	<message key="manager.reviewFormElement.changeType">Zmień rodzaj elementu formularza...</message>
 	<message key="manager.reviewFormElements">Elementy formularza</message>
-	<message key="manager.reviewFormElements.addResponseItem">Dodaj sekcję</message>
+	<message key="manager.reviewFormElements.addResponseItem">Dodaj wybór</message>
 	<message key="manager.reviewFormElements.checkboxes">Pola wyboru (możesz wybrać jedno lub więcej)</message>
 	<message key="manager.reviewFormElements.chooseType">Wybierz rodzaj elementu</message>
 	<message key="manager.reviewFormElements.confirmDelete">Potwierdź usunięcie opublikowanego elementu...</message>
@@ -436,4 +449,59 @@
 	<message key="plugins.importexport.common.error.unknownEncoding">Nieznane kodowanie {$param}</message>
 	<message key="plugins.importexport.common.error.unknownUserGroup">Nieznana grupa użytkowników {$param}</message>
 	<message key="plugins.importexport.common.error.unknownUploader">Nieznany element {$param}</message>
+	<message key="settings.roles.recommendOnly">Ta rola pozwala jedynie na przedstawienie rekomendacji decyzji po recenzji, która wymaga autoryzacji redaktora, aby została zapisana jako końcowa decyzja.</message>
+	<message key="manager.people.existingUserRequired">Istniejący użytkownik musi zostać wprowadzony.</message>
+	<message key="manager.plugins.pluginGallery.certifications.official.description">Wtyczka jest rozwijana i zarządzana przez zespół Public Knowledge Project.</message>
+	<message key="manager.plugins.pluginGallery.certifications.reviewed.description">Wtyczka została zrecenzowana i zaakceptowana przez zespół Public Knowledge Project.</message>
+	<message key="manager.plugins.pluginGallery.certifications.partner.description">Wtyczka jest dostarczona przez jednego z naszych partnerów.</message>
+	<message key="plugins.importexport.common.warningsEncountered">Napotkano na ostrzeżenia:</message>
+	<message key="plugins.importexport.common.error.encodingError">Zawartość nie jest zakodowana jako {$param}</message>
+	<message key="plugins.importexport.common.error.temporaryFileFailed">Plik tymczasowy {$dest} nie mógł być utworzony z {$source}</message>
+	<message key="plugins.importexport.common.error.filesizeMismatch">Spodziewany rozmiar pliku "{$expected}" jest inny od przesłanego "{$actual}"</message>
+	<message key="plugins.importexport.common.error.duplicateRevisionForSubmission">Korekta "{$revisionId}" dla przesłanego tekstu "{$fileId}" utworzyłaby duplikat</message>
+	<message key="plugins.importexport.native.error.submissionFileImportFailed">Plik tekstu nie został zaimportowany</message>
+	<message key="manager.navigationMenus.form.title">Tytuł</message>
+	<message key="manager.navigationMenus.form.path">Ścieżka</message>
+	<message key="manager.navigationMenus">Menu</message>
+	<message key="manager.navigationMenus.form.viewInstructions"><![CDATA[<p>Strona będzie dostępna pod adresem: <blockquote>{$pagesPath}</blockquote>, gdzie %PATH% to ścieżka podana powyżej. <strong>Uwaga:</strong> Ścieżka musi być unikatowa - nie mogą istnieć dwie strony posiadające identyczną ścieżkę. Wykorzystanie ścieżek wbudowanych w system może spowodować, że stracisz dostęp do ważnych funkcji systemu.]]></message>
+	<message key="manager.navigationMenus.form.content">Kontekst</message>
+	<message key="manager.navigationMenus.form.pathRegEx">Ścieżka musi być złożona ze znaków alfanumerycznych, '.', '/', '-', oraz '_'.</message>
+	<message key="manager.navigationMenus.form.duplicatePath">Ścieżka już istnieje dla innego elementu menu.</message>
+	<message key="manager.navigationMenus.form.duplicateTitles">Tytuł już istnieje dla innego elementu menu.</message>
+	<message key="manager.navigationMenus.form.titleRequired">Tytuł jest wymagany</message>
+	<message key="manager.navigationMenuItems">Elementy menu</message>
+	<message key="manager.navigationMenus.assignedMenuItems">Przydzielone elementy menu</message>
+	<message key="manager.navigationMenus.unassignedMenuItems">Nieprzydzielone elementy menu</message>
+	<message key="manager.navigationMenus.form.navigationMenuArea">Aktywne obszary nawigacyjne szablonu</message>
+	<message key="manager.navigationMenus.form.navigationMenuAreaMessage">Wybierz obszar nawigacyjny szablonu</message>
+	<message key="manager.navigationMenus.form.url">URL</message>
+	<message key="manager.navigationMenus.form.customUrlError">Podaj URL</message>
+	<message key="manager.navigationMenus.form.conditionalDisplay">Dowiedz się więcej, kiedy ten element menu zostanie wyświetlony lub ukryty.</message>
+	<message key="manager.navigationMenus.form.submenuWarning">Kiedy element menu rozwija podmenu, jego linki mogą być niedostępne na niektórych urządzeniach. Przykładowo, jeżeli posiadasz "O nas", który otwiera podmenu z linkiem do "Kontakt" oraz "Zespół redaktorski", link "O nas" może nie działać na wszystkich urządzeniach. W domyślnym menu, ta sytuacja jest rozwiązana poprzez utworzenie osobnego elementu menu, "O czasopiśmie", który pojawia się w podmenu.</message>
+	<message key="manager.navigationMenus.form.navigationMenuItemType">Rodzaj menu</message>
+	<message key="manager.navigationMenus.form.navigationMenuItemTypeMessage">Wybierz rodzaj menu lub własne, aby stworzyć własne menu</message>
+	<message key="manager.navigationMenus.customPage">Własna strona</message>
+	<message key="manager.navigationMenus.customPage.description">Stwórz własną stronę w systemie i umieść do niej link w menu.</message>
+	<message key="manager.navigationMenus.remoteUrl">Zdalny URL</message>
+	<message key="manager.navigationMenus.remoteUrl.description">Link do dowolnego URL na dowolnej stronie, np. https://pkp.sfu.ca.</message>
+	<message key="manager.navigationMenus.about.description"><![CDATA[Link do strony wyświetlającej informacje o czasopiśmie w Ustawienia > Czasopismo]]></message>
+	<message key="manager.navigationMenus.about.conditionalWarning"><![CDATA[Link będzie wyświetlany w przypadku wypełnienia sekcji O czasopiśmie na stronie Ustawienia > Czasopismo.]]></message>
+	<message key="manager.navigationMenus.editorialTeam.description"><![CDATA[Link do strony wyświetlającej stopkę redakcyjną w Ustawienia > Czasopismo.]]></message>
+	<message key="manager.navigationMenus.editorialTeam.conditionalWarning"><![CDATA[Link będzie wyświetlany w przypadku wypełnienia sekcji Zespół redakcyjny na stronie Ustawienia > Czasopismo.]]></message>
+	<message key="manager.navigationMenus.submissions.description">Link do strony wyświetlającej instrukcje dodawania tekstu.</message>
+	<message key="manager.navigationMenus.current.description">Link do strony aktualnego numeru.</message>
+	<message key="manager.navigationMenus.archives.description">Link do strony archiwalnych numerów.</message>
+	<message key="manager.navigationMenus.announcements.description">Link do strony z treścią ogłoszeń.</message>
+	<message key="manager.navigationMenus.announcements.conditionalWarning"><![CDATA[Link będzie wyświetlany w przypadku włączenia ogłoszeń w Ustawienia > Strona internetowa.]]></message>
+	<message key="manager.navigationMenus.login.description">Link do strony logowania.</message>
+	<message key="manager.navigationMenus.register.description">Link do strony zakładania konta.</message>
+	<message key="manager.navigationMenus.dashboard.description">Link do panelu roboczego.</message>
+	<message key="manager.navigationMenus.profile.description">Link do strony profilu użytkownika.</message>
+	<message key="manager.navigationMenus.administration.description">Link do narzędzi administracyjnych strony.</message>
+	<message key="manager.navigationMenus.administration.conditionalWarning">Link będzie wyświetlany tylko użytkownikom z uprawnieniami administratora.</message>
+	<message key="manager.navigationMenus.logOut.description">Link wylogowania.</message>
+	<message key="manager.navigationMenus.loggedOut.conditionalWarning">Link będzie wyświetlany w przypadku, gdy użytkownik jest zalogowany.</message>
+	<message key="manager.navigationMenus.loggedIn.conditionalWarning">Link będzie wyświetlany w przypadku, gdy użytkownik nie jest zalogowany.</message>
+	<message key="manager.navigationMenus.contact.description">Link do strony z danymi do kontaktu.</message>
+	<message key="manager.navigationMenus.contact.conditionalWarning"><![CDATA[Link będzie wyświetlany w przypadku wypełnienia danych do kontaktu na stronie Ustawienia > Kontakt.]]></message>
 </locale>

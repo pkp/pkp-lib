@@ -4,8 +4,8 @@
 <!--
   * locale/pl_PL/installer.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -23,12 +23,12 @@
 	<message key="installer.connectionCharset">Kodowanie znaków (połączenie)</message>
 	<message key="installer.contentsOfConfigFile">Zawartość pliku konfiguracyjnego</message>
 	<message key="installer.createDatabase">Utwórz nową bazę danych</message>
-	<message key="installer.createDatabaseInstructions">Aby zdalnie utworzyć baze danych, musisz posiadać stosowne uprawnienia oraz odpowiednią konfigurację serwera. Jeżeli instalacja nie powiedzie się z pomocą tej opcji, utwórz bazę manualnie i spróbuj instalacji ponownie.</message>
+	<message key="installer.createDatabaseInstructions">Aby zdalnie utworzyć bazę danych, musisz posiadać stosowne uprawnienia oraz odpowiednią konfigurację serwera. Jeżeli instalacja nie powiedzie się z pomocą tej opcji, utwórz bazę manualnie i spróbuj instalacji ponownie.</message>
 	<message key="installer.databaseCharset">Kodowanie znaków (baza danych)</message>
 	<message key="installer.databaseDriver">Sterownik bazy danych</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Sterowniki wyświetlone w nawiasach wymagają rozszerzeń PHP, które nie są zainstalowane.]]></message>
 	<message key="installer.databaseHost">Host</message>
-	<message key="installer.databaseHostInstructions">Zostaw pole puste jeżeli chcesz połączyć się lokalnie z wykorzystaniem gniazd. Nie jest to konieczne w przypadku MySQL, który wykorzystuje gniazda automatycznie po wpisaniu 'localhost'.</message>
+	<message key="installer.databaseHostInstructions">Zostaw pole puste, jeżeli chcesz połączyć się lokalnie z wykorzystaniem gniazd. Nie jest to konieczne w przypadku MySQL, który wykorzystuje gniazda automatycznie po wpisaniu 'localhost'.</message>
 	<message key="installer.databaseName">Nazwa bazy danych</message>
 	<message key="installer.databasePassword">Hasło</message>
 	<message key="installer.databaseSettings">Ustawienia bazy danych</message>

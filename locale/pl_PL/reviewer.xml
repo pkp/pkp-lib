@@ -4,8 +4,8 @@
 <!--
   * locale/pl_PL/reviewer.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings
@@ -42,5 +42,5 @@
 	<message key="reviewer.aboutDueDates.text">Redaktor prosi o zaakceptowanie lub odrzucenie prośby o wykonanie recenzji, a w przypadku akceptacji o jej wykonanie w podanym terminie.</message>
 	<message key="submission.comments.canShareWithAuthor">Widoczne dla autora i redaktora</message>
 	<message key="submission.comments.cannotShareWithAuthor">Widoczne tylko do redaktora</message>
-	<message key="user.authorization.submissionReviewer">Bieżący użytkownik nie jest przydzielony jako recenzent dla wskazanego dokumentu.</message>
+	<message key="user.authorization.submissionReviewer">Bieżący użytkownik nie jest przydzielony jako recenzent do wskazanego dokumentu.</message>
 </locale>

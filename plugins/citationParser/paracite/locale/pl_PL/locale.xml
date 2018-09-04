@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * plugins/citationParser/paracite/locale/pl_PL/locale.xml
+  *
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2003-2017 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+
+<locale name="pl_PL" full_name="Język Polski">
+	<message key="plugins.citationParser.paracite.displayName">Ekstraktor cytowań ParaCite</message>
+	<message key="plugins.citationParser.paracite.description">Ekstraktuj pola z cytowań za pośrednictwem usługi ParaCite.</message>
+</locale>

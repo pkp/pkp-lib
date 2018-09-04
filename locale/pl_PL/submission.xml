@@ -4,8 +4,8 @@
 <!--
   * locale/pl_PL/submission.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -13,13 +13,12 @@
 
 <locale name="pl_PL" full_name="Język Polski">
 	<!-- Author Submission -->
-	<message key="author.submit.submissionCitations">Należy dostarczyć odpowiednio sformatowaną listę cytowanych prac. Proszę o rozdzielenie poszczególnych opisów bibliograficznych pustym wierszem.
-</message>
+	<message key="author.submit.submissionCitations">Należy dostarczyć odpowiednio sformatowaną listę cytowanych prac. Proszę o rozdzielenie poszczególnych opisów bibliograficznych pustym wierszem.</message>
 
 	<!-- FIXME: move to meta-data plug-ins -->
 	<!-- messages used by meta-data filters -->
 	<message key="metadata.filters.crossref.settings.email.displayName">Rejestracja adresu e-mail w CrossRef</message>
-	<message key="metadata.filters.crossref.settings.email.validationMessage">Proszę o wpisanie poprawnego adresu e-mail do zarejestrowania się w serwisie CrossRef. Możesz zarejestrować się bezpłatnie poprzez stronę serwisu CrossRef.</message>
+	<message key="metadata.filters.crossref.settings.email.validationMessage">Proszę o wpisanie adresu e-mail do zarejestrowania się w serwisie CrossRef. Możesz zarejestrować się bezpłatnie poprzez stronę serwisu CrossRef.</message>
 	<message key="metadata.filters.isbndb.settings.apiKey.displayName">ISBNdb API Key</message>
 	<message key="metadata.filters.isbndb.settings.apiKey.validationMessage">Proszę o wpisanie swojego ISBNdb API key. Jeśli nie posiadasz jeszcze klucza możesz otrzymać go bezpłatnie z ośrodka ISBN.</message>
 	<message key="metadata.filters.pubmed.settings.email.displayName">Rejestracja adresu e-mail w PubMed.</message>
@@ -30,13 +29,13 @@
 	<message key="metadata.filters.paracite.settings.citationModule.validationMessage">Proszę wybrać jeden z dostępnych modułów cytowań.</message>
 	<message key="metadata.filters.settings.isOptional.displayName">Nie używaj domyślnie (będzie nadal dostępny dla redaktora)</message>
 	<message key="metadata.filters.settings.isOptional.validationMessage">Wewnętrzny błąd. Niepoprawna wartość wprowadzona do ustawień "opcjonalnego filtra". Proszę o wysłanie raportu z błędem.</message>
-
+	
 	<!-- messages shared between MD schemas -->
 	<message key="metadata.property.displayName.author">Autorzy</message>
 	<message key="metadata.property.validationMessage.author">Dane autora należy zapisać stosując następujący format: Smith Jr, J. (Michael) Dr.</message>
 	<message key="metadata.property.displayName.editor">Redaktorzy</message>
 	<message key="metadata.property.validationMessage.editor">Dane redaktorów należy zapisać stosując następujący format: Smith Jr, D. (Michael)</message>
-
+	
 	<!-- NLM-specific messages -->
 	<message key="metadata.property.displayName.article-title">Tytuł artykułu</message>
 	<message key="metadata.property.validationMessage.article-title">Proszę o podanie tytułu artykułu.</message>
@@ -50,7 +49,7 @@
 	<message key="metadata.property.validationMessage.issue">Proszę o wpisanie poprawnego numeru czasopisma.</message>
 	<message key="metadata.property.displayName.volume">Tom</message>
 	<message key="metadata.property.validationMessage.volume">Proszę o wpisanie poprawnego oznaczenia tomu.</message>
-	<message key="metadata.property.displayName.season">Sezon</message>
+	<message key="metadata.property.displayName.season">Pora roku</message>
 	<message key="metadata.property.validationMessage.season">Proszę o wpisanie poprawnego identyfikatora pory roku (np. lato).</message>
 	<message key="metadata.property.displayName.chapter-title">Tytuł rozdziału</message>
 	<message key="metadata.property.validationMessage.chapter-title">Proszę o wpisanie poprawnego tytułu rozdziału.</message>
@@ -95,16 +94,16 @@
 	<message key="metadata.property.displayName.sici">SICI</message>
 	<message key="metadata.property.validationMessage.sici">Proszę o wpisanie poprawnego SICI.</message>
 	<message key="metadata.property.displayName.pmid">PMID</message>
-	<message key="metadata.property.validationMessage.pmid">Proszę o wprowadzenie poprawnego PMID.</message>
+	<message key="metadata.property.validationMessage.pmid">Proszę o wpisanie poprawnego PMID.</message>
 	<message key="metadata.property.displayName.uri">Adres publikacji</message>
-	<message key="metadata.property.validationMessage.uri">Proszę o podanie adresu www publikacji.</message>
+	<message key="metadata.property.validationMessage.uri">Proszę o wpisanie adresu www publikacji.</message>
 	<message key="metadata.property.displayName.comment">Komentarz</message>
-	<message key="metadata.property.validationMessage.comment">Proszę o podanie komentarza.</message>
+	<message key="metadata.property.validationMessage.comment">Proszę o poprawne wpisanie komentarza.</message>
 	<message key="metadata.property.displayName.annotation">Adnotacja</message>
-	<message key="metadata.property.validationMessage.annotation">Proszę o podanie adnotacji.</message>
+	<message key="metadata.property.validationMessage.annotation">Proszę o poprawne wpisanie adnotacji.</message>
 	<message key="metadata.property.displayName.publication-type">Typ publikacji</message>
 	<message key="metadata.property.validationMessage.publication-type">Proszę o upewnienie się, czy został wybrany poprawny typ publikacji. Obecnie wspierane są następujące typy: książka (książka lub rozdział w książce) oraz czasopisma (artykuł w czasopiśmie). W innych przypadkach cytowanie nie będzie poprawne.</message>
-
+	
 	<!-- MODS-specific messages -->
 	<message key="metadata.property.displayName.title-type">Typ tytułu</message>
 	<message key="metadata.property.validationMessage.title-type">Czy na pewno został ustawiony poprawny typ tytułu? Obecnie wspierane są następujące typy: skrócony, przetłumaczony, alternatywny, ujednolicony.</message>
@@ -121,7 +120,7 @@
 	<message key="metadata.property.displayName.name-type">Typ nazwy</message>
 	<message key="metadata.property.validationMessage.name-type">Czy na pewno został ustawiony poprawny typ nazwy. Obecnie wspierane są następujące typy: osobisty, korporacyjny, konferencja.</message>
 	<!-- FIXME: end -->
-
+	
 	<message key="submission.agencies">Instytucje finansujące</message>
 	<message key="submission.abstractViews">Widok abstraktu</message>
 	<message key="submission.accepted">Zaakceptowany</message>
@@ -141,7 +140,7 @@
 	<message key="submission.comments.noComments">Brak komentarzy</message>
 	<message key="submission.comments.noReviews">Brak recenzji</message>
 	<message key="submission.comments.review">Recenzja</message>
-	<message key="submission.comments.sendDecisionToReviewers">Prześlij decyzję recenzenta</message>
+	<message key="submission.comments.sendDecisionToReviewers">Prześlij decyzję do recenzenta</message>
 	<message key="submission.comments.subject">Temat</message>
 	<message key="submission.complete">Ukończone</message>
 	<message key="submission.done">Ok</message>
@@ -162,7 +161,6 @@
 	<message key="submission.event.general.suppFileUpdated">Plik zaktualizowany</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Recenzent zaakceptował propozycję przygotowania recenzji</message>
 	<message key="submission.event.reviewer.reviewAccepted">Propozycja przygotowania recenzji zaakceptowana</message>
-	<message key="submission.event.reviewer.reviewCancelled">Propozycja przygotowania recenzji odrzucona</message>
 	<message key="submission.event.reviewer.reviewDeclined">Propozycja przygotowania recenzji odrzucona</message>
 	<message key="submission.event.reviewer.reviewDueDate">Termin ukończenia recenzji zaktualizowany</message>
 	<message key="submission.event.reviewer.reviewerAssigned">Recenzent przypisany do przesłanego tekstu</message>
@@ -293,8 +291,9 @@
 	<message key="submission.createRemote">Utwórz zdalne</message>
 	<message key="submission.form.name">Opis pliku</message>
 	<message key="submission.form.replaceExisting">Zamiana istniejącego pliku?</message>
+	<message key="author.submit.userGroupRequired">Twoje konto użytkownika nie posiada aktualnie przydzielonej roli autora, która umożliwia przesyłanie zgłoszeń. Sprawdź zakładkę moje konto - jeżeli administrator strony nie postanowił inaczej, będziesz mógł(ogła) samodzielnie dokonać odpowiednich zmian w swoim profilu.</message>
 	<message key="author.submission.roundStatus.reviewsReady">Nowe recenzje zostały przesłane i są rozpatrywane przez redaktora.</message>
-	<message key="submission.confirm.message">Twoje zgłoszenie zostało umieszczone na serwerze i jest gotowe do wysłania. Możesz ponownie sprawdzić podane dane zanim ukończysz proces zgłaszania tekstu. Jeżeli jesteś gotowy(a), kliknij "Zakończ proces zgłaszania tekstu".</message>
+	<message key="submission.confirm.message">Twoje zgłoszenie zostało umieszczone na serwerze i jest gotowe do wysłania. Możesz ponownie sprawdzić dane zanim ukończysz proces zgłaszania tekstu. Jeżeli jesteś gotowy(a), kliknij "Zakończ proces zgłaszania tekstu".</message>
 	<message key="submission.submit.submissionChecklist">Wymagania wobec zgłaszanego tekstu</message>
 	<message key="submission.submit.submissionChecklistDescription">Przed zgłoszeniem musisz potwierdzić, że tekst spełnia wymogi określone poniżej.</message>
 	<message key="submission.submit.submissionComplete">Proces zgłoszenia tekstu zakończony</message>
@@ -323,8 +322,8 @@
 	<message key="submission.editorial">Korekta</message>
 	<message key="submission.event.submissionSubmitted">Zakończono wstępne zgłoszenie.</message>
 	<message key="submission.event.fileUploaded">Plik "{$originalFileName}" został przesłany do zgłoszenia {$submissionId} przez {$username}.</message>
-	<message key="submission.event.fileRevised">Wersja "{$name}" (ID pliku {$fileId}-{$revision}) została przesłana.</message>
-	<message key="submission.event.participantAdded">"{$name}" ({$username}) został przypisany do zgłoszenia jako {$userGroupName}.</message>
+	<message key="submission.event.fileRevised">Wersja "{$name}" (ID {$fileId}-{$fileRevision}) została przesłana.</message>
+	<message key="submission.event.participantAdded">{$name} został przypisany do zgłoszenia jako {$userGroupName}.</message>
 	<message key="submission.event.subjectPrefix">E-mail został wysłany:</message>
 	<message key="submission.event.viewEmail">Wyświetl e-mail</message>
 	<message key="submission.files.downloadAll">Pobierz wszystkie pliki</message>
@@ -383,8 +382,8 @@
 	<message key="submission.upload.invalidUserGroup">Brak lub niepoprawna grupa użytkowników!</message>
 	<message key="submission.upload.possibleRevision">Możliwy duplikat lub niepoprawna wersja</message>
 	<message key="submission.upload.possibleRevisionDescription">Nazwa przesyłanego pliku jest podobna do nazwy poprzedniego pliku, "{$revisedFileName}". Czy ten plik ma zamienić "{$revisedFileName}"? Jeśli tak, wybierz plik poniżej. W innym wypadku wybierz "To nie jest nowa wersja istniejącego pliku" przed kontynuowaniem.</message>
-	<message key="submission.upload.selectMandatoryFileToRevise">Wybierz plik, który chciałbyś skorygować.</message>
-	<message key="submission.upload.selectOptionalFileToRevise">Jeżeli przesyłasz nową wersję istniejącego pliku, wskaż którego pliku dotyczy.</message>
+	<message key="submission.upload.selectMandatoryFileToRevise">Wybierz plik, który chciałbyś(abyś) skorygować.</message>
+	<message key="submission.upload.selectOptionalFileToRevise">Jeżeli przesyłasz nową wersję istniejącego pliku wskaż, którego pliku dotyczy.</message>
 	<message key="submission.upload.uploadNewFile">To nie jest nowa wersja istniejącego pliku</message>
 	<message key="submission.upload.userGroup">Prześlij ten plik w mojej roli jako...</message>
 	<message key="submission.upload.userGroupDescription">Jeżeli przesyłasz poprawiony tom, powinieneś przesłać wszystkie rozdziały osobno, posiadając rolę redaktora tomu.</message>
@@ -394,11 +393,12 @@
 	<message key="submission.upload.copyeditedVersion">Prześlij plik do korekty</message>
 	<message key="submission.upload.fairCopy">Prześlij wersję po wszystkich zmianach (czystopis)</message>
 	<message key="submission.upload.uploadFiles">Prześlij pliki</message>
-	<message key="submission.upload.response.description">Po zrecenzowaniu przypisanego pliku, zapisz swoje uwagi poniżej oraz/lub dołącz kopię z komentarzami (lub osobny plik).</message>
+	<message key="submission.upload.response.description">Po zrecenzowaniu przydzielonego pliku, zapisz swoje uwagi poniżej oraz/lub dołącz kopię z komentarzami (lub osobny plik).</message>
 	<message key="submission.upload.productionReady">Prześlij plik gotowy do realizacji</message>
 	<message key="submission.upload.proof">Prześlij plik gotowy do publikacji</message>
 	<message key="submission.upload.noAvailableReviewFiles">Brak plików do recenzji.</message>
 	<message key="editor.submission.roundStatus.revisionsRequested">Prośba o wprowadzenie poprawek.</message>
+	<message key="editor.submission.roundStatus.resubmitted">Zgłoszenie zostało przesłane ponownie w celu wykonania recenzji.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">Wyślij do recenzji zewnętrznej.</message>
 	<message key="editor.submission.roundStatus.accepted">Zgłoszenie zaakceptowane.</message>
 	<message key="editor.submission.roundStatus.declined">Zgłoszenie odrzucone.</message>
@@ -407,24 +407,24 @@
 	<message key="editor.submission.roundStatus.reviewsReady">Nowe recenzje zostały przesłane.</message>
 	<message key="editor.submission.roundStatus.reviewsCompleted">Recenzje zakończone.</message>
 	<message key="editor.submission.stageParticipants">Uczestnicy</message>
-	<message key="editor.submission.noneAssigned">Żaden nieprzypisany</message>
+	<message key="editor.submission.noneAssigned">Żaden nieprzydzielony</message>
 	<message key="editor.submission.participant">Uczestnik</message>
 	<message key="editor.submission.addStageParticipant">Dodaj uczestnika</message>
-	<message key="editor.submission.addStageParticipant.userGroup">Użytkownicy przypisani do etapów obiegu są tym samym zaliczani do grupy użytkowników. Dowolny użytkownik przypisany do określonego etapu będzie automatycznie przypisany do innych etapów, z którymi została powiązana jego grupa. Taki mechanizm jest typowy dla redaktorów, autorów oraz tłumaczy.</message>
+	<message key="editor.submission.addStageParticipant.userGroup">Użytkownicy przydzieleni do etapów obiegu są tym samym zaliczani do grupy użytkowników. Dowolny użytkownik przydzielony do określonego etapu będzie automatycznie przydzielony do innych etapów, z którymi została powiązana jego grupa. Taki mechanizm jest typowy dla redaktorów, autorów oraz tłumaczy.</message>
 	<message key="editor.submission.removeStageParticipant">Usuń uczestnika</message>
 	<message key="editor.submission.removeStageParticipant.description"><![CDATA[Masz zamiar usunąć uczestnika ze <strong>wszystkich</strong> etapów. Jeżeli uczestnik posiada przydzielone zadania kontrolera, one również zostaną usunięte.]]></message>
 	<message key="editor.submission.addStageParticipant.form.userGroupRequired">Musisz wybrać grupę użytkowników.</message>
 	<message key="editor.submission.addStageParticipant.form.userRequired">Musisz wybrać użytkownika dla wybranej grupy użytkowników.</message>
 	<message key="editor.submission.decision">Decyzja</message>
-	<message key="editor.submission.decision.accept">Wyślij do korekty</message>
-	<message key="editor.submission.decision.requestRevisions">Wymagane drobne poprawki</message>
-	<message key="editor.submission.decision.resubmit">Wymagane gruntowne poprawki i ponowna recenzja</message>
-	<message key="editor.submission.decision.decline">Odrzuć zgłoszenie</message>
+	<message key="editor.submission.decision.accept">Zaakceptuj tekst</message>
+	<message key="editor.submission.decision.requestRevisions">Wymagane poprawki</message>
+	<message key="editor.submission.decision.resubmit">Wymagane poprawki i ponowna recenzja</message>
+	<message key="editor.submission.decision.decline">Odrzuć tekst</message>
 	<message key="editor.submission.decision.sendToProduction">Wyślij do realizacji</message>
 	<message key="editor.submission.decision.sendInternalReview">Wyślij do recenzji wewnętrznej</message>
 	<message key="editor.submission.decision.approveProofsDescription">Wersja po korekcie musi zostać zatwierdzona, aby była dostępna. Czy chcesz ją zatwierdzić?</message>
 	<message key="editor.submission.decision.approveProofs">Zatwierdź wersje po korekcie</message>
-	<message key="editor.submission.decision.disapproveProofsDescription">Plik wersji po korekcie nie będzie dłużej dostępne do pobrania lub kupienie. Czy chcesz go odrzucić?</message>
+	<message key="editor.submission.decision.disapproveProofsDescription">Plik wersji po korekcie nie będzie dłużej dostępny do pobrania lub kupienia. Czy chcesz go odrzucić?</message>
 	<message key="submission.currentStage">Aktualny etap</message>
 	<message key="submission.noActionRequired">Żadne działanie nie jest wymagane</message>
 	<message key="submission.actionNeeded">Wymagane działania</message>
@@ -436,18 +436,18 @@
 	<message key="submission.event.revisionUploaded">Plik "{$originalFileName}" został przesłany do zgłoszenia {$submissionId} przez {$username}.</message>
 	<message key="submission.event.revisionDeleted">Plik "{$originalFileName}" został usunięty ze zgłoszenia {$submissionId} przez {$username}.</message>
 	<message key="submission.event.lastRevisionDeleted">Ostatnia wersja "{$title}" została usunięta przez {$username}.</message>
-	<message key="submission.event.fileAuditorAdded">"{$name}" ({$username}) został dodany jako kontroler pliku "{$file}".</message>
-	<message key="submission.event.fileAuditorCleared">"{$name}" ({$username}) został usunięty jako kontroler pliku "{$file}".</message>
-	<message key="submission.event.fileAuditUploaded">"{$name}" ({$username}) zakończył kontrolę i przesłał "{$file}".</message>
-	<message key="submission.event.signoffSignoff">"{$name}" ({$username}) podpisał się pod plikiem "{$file}".</message>
-	<message key="submission.event.proofsApproved">"{$name}" ({$username}) zaakceptował wersje po korekcie "{$formatName}".</message>
+	<message key="submission.event.fileAuditorAdded">"{$name}" ({$username}) został(a) dodany(a) jako kontroler pliku "{$file}".</message>
+	<message key="submission.event.fileAuditorCleared">"{$name}" ({$username}) został(a) usunięty(a) jako kontroler pliku "{$file}".</message>
+	<message key="submission.event.fileAuditUploaded">"{$name}" ({$username}) zakończył(a) kontrolę i przesłał "{$file}".</message>
+	<message key="submission.event.signoffSignoff">"{$name}" ({$username}) podpisał(a) się pod plikiem "{$file}".</message>
+	<message key="submission.event.proofsApproved">"{$name}" ({$username}) zaakceptował(a) wersję po korekcie "{$formatName}".</message>
 	<message key="submission.overview">Przegląd zgłoszenia</message>
 	<message key="submission.description">Opis</message>
 	<message key="submission.stageNotInitiated">Etap nie został rozpoczęty.</message>
 	<message key="submission.documents">Dokumenty zgłoszenia</message>
-	<message key="notification.type.copyeditorRequest">Zostałeś poproszony o sprawdzenie korekty dla "{$title}".</message>
-	<message key="notification.type.layouteditorRequest">Zostałeś poproszony o sprawdzenie składu dla "{$title}".</message>
-	<message key="notification.type.indexRequest">Zostałeś poproszony o utworzenie indeksu dla "{$title}".</message>
+	<message key="notification.type.copyeditorRequest">Zostałeś(aś) poproszony(a) o sprawdzenie korekty dla "{$title}".</message>
+	<message key="notification.type.layouteditorRequest">Zostałeś(aś) poproszony(a) o sprawdzenie składu dla "{$title}".</message>
+	<message key="notification.type.indexRequest">Zostałeś(aś) poproszony(a) o utworzenie indeksu dla "{$title}".</message>
 	<message key="notification.type.editorDecisionTitle">Ostatnia decyzja redaktora.</message>
 	<message key="notification.type.editorDecisionAccept">Zgłoszenie zaakceptowane.</message>
 	<message key="notification.type.editorDecisionExternalReview">Proces recenzji zewnętrznej rozpoczęty.</message>
@@ -456,7 +456,7 @@
 	<message key="notification.type.editorDecisionDecline">Zgłoszenie odrzucone.</message>
 	<message key="notification.type.editorDecisionSendToProduction">Proces realizacji rozpoczęty.</message>
 	<message key="notification.uploadedResponse">Odpowiedź przesłana.</message>
-	<message key="notification.type.editorAssignment">Redaktor musi zostać przypisany zanim rozpocznie się proces recenzji. Aby dodać redaktora użyj linku Dodaj w części Uczestnicy.</message>
+	<message key="notification.type.editorAssignment">Redaktor musi zostać przydzielony zanim rozpocznie się proces recenzji. Aby dodać redaktora użyj linku Dodaj w części Uczestnicy.</message>
 	<message key="grid.reviewAttachments.title">Załączniki recenzenta</message>
 	<message key="submission.productionReady">Książka dostępna</message>
 	<message key="submission.review.uploadRevisionToRound">Prześlij poprawiony plik</message>
@@ -468,8 +468,8 @@
 	<message key="submission.supplementary.subject">Tytuł</message>
 	<message key="submission.supplementary.publisher">Wydawca</message>
 	<message key="submission.supplementary.sponsor">Współautor lub instytucja finansująca</message>
-	<message key="grid.action.itemWorkflow">Przejdź do obiegu tego zgłoszenia</message>
-	<message key="notification.type.editorAssignmentProduction">Redaktor musi zostać przypisany do procesu realizacji zanim realizacja będzie mogła się rozpocząć. Aby dodać redaktora użyj linku Dodaj w części Uczestnicy.</message>
+	<message key="grid.action.itemWorkflow">Przejdź do obiegu tego tekstu</message>
+	<message key="notification.type.editorAssignmentProduction">Redaktor musi zostać przydzielony do procesu realizacji zanim realizacja będzie mogła się rozpocząć. Aby dodać redaktora użyj linku Dodaj w części Uczestnicy.</message>
 	<message key="notification.type.editorAssignmentEditing">Redaktor musi zostać przypisany do procesu redakcji zanim redakcja będzie mogła się rozpocząć. Aby dodać redaktora użyj linku Dodaj w części Uczestnicy.</message>
 	<message key="submission.reviewForm">Formularz recenzji</message>
 	<message key="submission.reviewFormResponse">Odpowiedź z formularza recenzji</message>
@@ -484,12 +484,12 @@
 	<message key="submission.copyrightStatement">Copyright (c) {$copyrightYear} {$copyrightHolder}</message>
 	<message key="submission.licenseURLValid">Podaj poprawny link URL (wraz z http://).</message>
 	<message key="submission.licenseURL">Link do licencji</message>
-	<message key="submission.license.cc.by-nc-nd4">CC Attribution-NonCommercial-NoDerivatives 4.0</message>
-	<message key="submission.license.cc.by-nc4">CC Attribution-NonCommercial 4.0</message>
-	<message key="submission.license.cc.by-nc-sa4">CC Attribution-NonCommercial-ShareAlike 4.0</message>
-	<message key="submission.license.cc.by-nd4">CC Attribution-NoDerivatives 4.0</message>
-	<message key="submission.license.cc.by4">CC Attribution 4.0</message>
-	<message key="submission.license.cc.by-sa4">CC Attribution-ShareAlike 4.0</message>
+	<message key="submission.license.cc.by-nc-nd4">CC Uznanie autorstwa - Użycie niekomercyjne - Bez utworów zależnych 4.0</message>
+	<message key="submission.license.cc.by-nc4">CC Uznanie autorstwa - Użycie niekomercyjne 4.0</message>
+	<message key="submission.license.cc.by-nc-sa4">CC Uznanie autorstwa - Użycie niekomercyjne - Na tych samych warunkach 4.0</message>
+	<message key="submission.license.cc.by-nd4">CC Uznanie autorstwa - Bez utworów zależnych 4.0</message>
+	<message key="submission.license.cc.by4">CC Uznanie autorstwa 4.0</message>
+	<message key="submission.license.cc.by-sa4">CC Uznanie autorstwa - Na tych samych warunkach 4.0</message>
 	<message key="submission.license.cc.by-nc-nd4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>Utwór dostępny jest na licencji <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Uznanie autorstwa – Użycie niekomercyjne – Bez utworów zależnych 4.0 Międzynarodowe</a>.</p>]]></message>
 	<message key="submission.license.cc.by-nc4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>Utwór dostępny jest na licencji <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Uznanie autorstwa – Użycie niekomercyjne 4.0 Międzynarodowe</a>.</p>]]></message>
 	<message key="submission.license.cc.by-nc-sa4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>Utwór dostępny jest na licencji <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Uznanie autorstwa – Użycie niekomercyjne – Na tych samych warunkach 4.0 Międzynarodowe</a>.</p>]]></message>
@@ -511,7 +511,56 @@
 	<message key="submission.query.activity">{$responderName} odpowiedział na {$noteTitle}: {$noteContents}</message>
 	<message key="submission.query.new">{$creatorName} rozpoczął dyskusję: {$noteTitle}: {$noteContents}</message>
 	<message key="submission.query.activity.contents">Nowa aktywność w dyskusji "{$queryTitle}" dotyczącej zgłoszenia "{$submissionTitle}".</message>
-	<message key="submission.query.new.contents">Zostałeś dodany do dyskusji pt. "{$queryTitle}" dotyczącej zgłoszenia "{$submissionTitle}".</message>
+	<message key="submission.query.new.contents">Zostałeś(aś) dodany(a) do dyskusji pt. "{$queryTitle}" dotyczącej zgłoszenia "{$submissionTitle}".</message>
 	<message key="submission.authorBiography">Biogram autora</message>
 	<message key="submission.authorWithAffiliation">{$name}, {$affiliation}</message>
+	<message key="submission.query.noParticipantOptions">Musisz przydzielić przynajmniej jednego uczestnika do przesłanego tekstu przed rozpoczęciem dyskusji.</message>
+	<message key="submission.list.infoCenter">Logi aktywności oraz notatki</message>
+	<message key="submission.list.count">{$count} przesłanych tekstów</message>
+	<message key="submission.list.itemsOfTotal">{$count} z {$total} przesłanych tekstów</message>
+	<message key="submission.list.responseDue">Odpowiedź do</message>
+	<message key="submission.list.reviewDue">Recenzja do</message>
+	<message key="submission.list.confirmDelete">Usunąć przesłany tekst?</message>
+	<message key="submission.list.filter">Filtry</message>
+	<message key="submission.list.filterRemove">Usuń filtr: {$filterTitle}</message>
+	<message key="submission.event.participantRemoved">"{$name}" ({$username}) jest usunięty z {$userGroupName}.</message>
+	<message key="submission.howToCite.downloadCitation">Pobierz cytowania</message>
+	<message key="editor.submission.roundStatus.revisionsSubmitted">Poprawki zostały przesłane.</message>
+	<message key="editor.submission.roundStatus.reviewOverdue">Recenzja jest opóźniona.</message>
+	<message key="editor.submission.roundStatus.pendingRecommendations">Oczekiwanie na rekomendacje od redaktorów.</message>
+	<message key="editor.submission.roundStatus.recommendationsReady">Rekomendacje od redaktorów zostały przesłane.</message>
+	<message key="editor.submission.roundStatus.recommendationsCompleted">Wszystkie rekomendacje są kompletne i wymagana jest decyzja.</message>
+	<message key="editor.submission.decision.skipReview">Zaakceptuj i pomiń recenzję</message>
+	<message key="notification.type.editorAssign">Zostałeś(aś) przydzielony(a) jako redaktor do tekstu "{$title}".</message>
+	<message key="editor.submission.decision.noDecisionsAvailable">Przydziel redaktora, aby umożliwić zapisywanie decyzji redaktorskich na tym etapie.</message>
+	<message key="editor.submission.makeRecommendation">Napisz rekomendację</message>
+	<message key="editor.submission.changeRecommendation">Zmień rekomendację</message>
+	<message key="editor.submission.recommendation.display">Rekomendacja: {$recommendation}</message>
+	<message key="editor.submission.allRecommendations.display">Rekomendacje: {$recommendations}</message>
+	<message key="editor.submission.recommendation">Rekomendacja</message>
+	<message key="editor.submission.recommendation.description">Zarekomenduj decyzję redaktorską dla tekstu.</message>
+	<message key="editor.submission.recordedRecommendations">Zapisane rekomendacje</message>
+	<message key="editor.submission.decision.nextButton">Wybierz pliki do przesłania do etapu: {$stageName}</message>
+	<message key="editor.submission.decision.selectFiles">Wybierz pliki do przesłania do etapu {$stageName}.</message>
+	<message key="editor.submission.decision.previousAuthorNotification">Wcześniej: Powiadomienia autora</message>
+	<message key="grid.reviewAttachments.send.title">Wybierz, które pliki recenzji udostępnić autorowi lub autorom</message>
+	<message key="submission.review.status.awaitingResponse">Oczekiwanie na odpowiedź od recenzenta.</message>
+	<message key="submission.review.status.declined">Recenzent odrzucił prośbę o wykonanie recenzji.</message>
+	<message key="submission.review.status.responseOverdue">Recenzent udzielił odpowiedzi w ustalonym terminie.</message>
+	<message key="submission.review.status.reviewOverdue">Recenzent nie przesłał recenzji w ustalonym terminie.</message>
+	<message key="submission.review.status.accepted">Recenzja zaakceptowana.</message>
+	<message key="submission.review.status.received">Recenzent przesłał swoją recenzję.</message>
+	<message key="submission.review.status.complete">Recenzja zakończona.</message>
+	<message key="submission.review.status.thanked">Recenzja została zakończona a recenzent otrzymał podziękowanie za swój udział.</message>
+	<message key="submission.list.itemOrdererUp">W górę: {$itemTitle}</message>
+	<message key="submission.list.itemOrdererDown">W dół: {$itemTitle}</message>
+	<message key="submission.list.viewSubmission">Wyświetl zgłoszenie</message>
+	<message key="submission.list.clearSearch">Wyczyść wyszukiwaną frazę</message>
+	<message key="submission.list.reviewsCompleted">Zakończone recenzje</message>
+	<message key="submission.list.revisionsSubmitted">Przesłane poprawki</message>
+	<message key="submission.list.copyeditsSubmitted">Przesłane pliki z poprawkami</message>
+	<message key="submission.list.galleysCreated">Utworzone pliki do publikacji</message>
+	<message key="submission.list.filesPrepared">Przygotowane pliki</message>
+	<message key="submission.list.discussions">Otwarte dyskusje</message>
+	<message key="submission.list.incompleteSubmissionNotice">Zgłoszenie musi być kompletne zanim redaktor będzie mógł je przejrzeć.</message>
 </locale>

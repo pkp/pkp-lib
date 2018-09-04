@@ -4,8 +4,8 @@
 <!--
   * locale/pl_PL/grid.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -137,7 +137,7 @@
 	<message key="grid.action.editSponsor">Edytuj instytucję finansującą</message>
 	<message key="grid.action.addSeries">Dodaj serię</message>
 	<message key="grid.action.editSeries">Edytuj serię</message>
-	<message key="grid.action.deleteSeries">Usuń serie</message>
+	<message key="grid.action.deleteSeries">Usuń serię</message>
 	<message key="grid.action.addCategory">Dodaj kategorię</message>
 	<message key="grid.action.editCategory">Edytuj kategorię</message>
 	<message key="grid.action.deleteCategory">Usuń kategorię</message>
@@ -224,12 +224,8 @@
 	<message key="grid.user.mergeUsers">Połącz użytkowników</message>
 	<message key="grid.user.mergeUsers.mergeUser">Połącz użytkownika</message>
 	<message key="grid.user.mergeUsers.mergeIntoUser">Połącz w tego użytkownika</message>
-	<message key="grid.user.mergeUsers.into.description">Musisz wybrać użytkownika, dla którego zostaną przypisane wszystkie parametry poprzedniego użytkownika (autorstwo, przesłane teksty, zadania itp.).</message>
-	<message key="grid.user.mergeUsers.from.description">Wybierz użytkownika do połączenia z innym kontem użytkownika (np. gdy ktoś posiada dwa konta). Konto oznaczone jako pierwsze zostanie usunięte a wszystkie parametry (zgłoszenia, zadania itp.) zostaną przypisane do drugiego konta.</message>
 	<message key="grid.user.mergeUsers.allUsers">Wszyscy przypisani użytkownicy</message>
-	<message key="grid.user.mergeUsers.mergeUserSelect.confirm">Czy na pewno połączyć użytkownika z innym kontem? Na następnym ekranie będziesz mógł(ogła) wybrać kolejnego użytkownika.</message>
 	<message key="grid.user.mergeUsers.confirm">Czy na pewno połączyć konto użytkownika o nazwie "{$oldUsername}" z innym kontem o nazwie "{$newUsername}"? Konto o nazwie "{$oldUsername}" zostanie usunięte. Działania nie można cofnąć.</message>
-	<message key="grid.user.mergeUsers.noneEnrolled">Brak użytkowników w systemie z przydzieloną wybraną rolą.</message>
 	<message key="grid.action.fileUnconsider">Wprowadzono korekty do pliku. Możesz ponownie rozważyć to zadanie.</message>
 	<message key="grid.artworkFile.caption">Podpis (tytuł)</message>
 	<message key="grid.artworkFile.credit">Podpis (autor)</message>
@@ -249,4 +245,8 @@
 	<message key="grid.userGroup.unassignedStage">Cofnięto przydział roli {$userGroupName} do etapu {$stageName}.</message>
 	<message key="grid.submission.itemTitle">Autor; Tytuł</message>
 	<message key="grid.submission.active.selectOrphaned">Uwzględnij niekompletne teksty, niezgłoszone przez autorów.</message>
+	<message key="grid.action.addNavigationMenu">Dodaj menu</message>
+	<message key="grid.action.addNavigationMenuItem">Dodaj element menu</message>
+	<message key="grid.navigationMenus.navigationMenuItems.noneExist">Brak elementów menu</message>
+	<message key="grid.navigationMenus.navigationMenu.noneExist">Brak menu</message>
 </locale>

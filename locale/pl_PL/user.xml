@@ -4,8 +4,8 @@
 <!--
   * locale/pl_PL/user.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -13,7 +13,7 @@
 
 <locale name="pl_PL" full_name="Język Polski">
 	<message key="user.affiliation">Afiliacja</message>
-	<message key="user.affiliation.description">(pełna nazwa instytucji naukowej, np. Dolnośląska Szkoła Wyższa)</message>
+	<message key="user.affiliation.description">(pełna nazwa instytucji naukowej, np. Uniwersytet im. Adama Mickiewicza w Poznaniu)</message>
 	<message key="user.affiliations">Afiliacje</message>
 	<message key="user.authorization.accessDenied">Brak dostępu.</message>
 	<message key="user.authorization.processAuthenticationTokenRequired">Brak lub nieprawidłowy token do uwierzytelnienia procesu.</message>
@@ -30,9 +30,15 @@
 	<message key="user.dateRegistered">Data rejestracji</message>
 	<message key="user.editMyProfile">Edytuj mój profil</message>
 	<message key="user.email">E-mail</message>
+	<message key="user.feminine">K</message>
+	<message key="user.firstName">Pierwsze imię</message>
+	<message key="user.gender">Płeć</message>
+	<message key="user.initialsExample">Anna Maria Kowalska = AMK</message>
+	<message key="user.initials">Inicjały</message>
 	<message key="user.interests">Przegląd zainteresowań</message>
 	<message key="user.interests.description">(Oddziel zainteresowania stosując ENTER lub przecinek)</message>
 	<message key="user.gossip">Prywatne notatki</message>
+	<message key="user.lastName">Nazwisko</message>
 	<message key="user.profile.form.profileImageInvalid">Nieprawidłowy format lub za duży rozmiar zdjęcia. Akceptowane formaty to: GIF, JPG lub PNG. Maksymalna wielkość zdjęcia to:  150x150 pikseli.</message>
 	<message key="user.login.accountDisabledWithReason">Twoje konto zostało wyłączone z nastepujących powodów: {$reason}</message>
 	<message key="user.login.accountDisabled">Twoje konto zostało wyłączone. Aby dowiedzieć się więcej skontaktuj się z administratorem.</message>
@@ -52,8 +58,11 @@
 	<message key="user.login.resetPassword">Zmień hasło</message>
 	<message key="user.logOut">Wyloguj się</message>
 	<message key="user.mailingAddress">Adres</message>
+	<message key="user.masculine">M</message>
+	<message key="user.middleName">Drugie imię</message>
 	<message key="user.myAccount">Moje konto</message>
 	<message key="user.name">Nazwa użytkownika (np. jankowalski)</message>
+	<message key="user.other">Inne</message>
 	<message key="user.password">Hasło (dozwolone małe litery i cyfry)</message>
 	<message key="user.repeatPassword">Powtórz hasło</message>
 	<message key="user.phone">Tel.</message>
@@ -61,6 +70,8 @@
 	<message key="user.profile.editProfile">Edytuj profil</message>
 	<message key="user.profile.form.emailRequired">Podanie adresu e-mail jest wymagane.</message>
 	<message key="user.profile.form.affiliationRequired">Podanie afiliacji jest wymagane.</message>
+	<message key="user.profile.form.firstNameRequired">Podanie pierwszego imienia jest wymagane.</message>
+	<message key="user.profile.form.lastNameRequired">Podanie nazwiska jest wymagane.</message>
 	<message key="user.profile.form.newPasswordRequired">Musisz podać swoje nowe hasło.</message>
 	<message key="user.profile.form.oldPasswordInvalid">Wprowadzone hasło jest niepoprawne. </message>
 	<message key="user.profile.form.openAccessNotifications">Powiadomienia dotyczące numerów w otwartym dostępie</message>
@@ -90,6 +101,7 @@
 	<message key="user.role.siteAdmin">Administrator strony</message>
 	<message key="user.role.siteAdmins">Administratorzy strony</message>
 	<message key="user.roles">Role</message>
+	<message key="user.salutation">Tytuł / stopień naukowy</message>
 	<message key="user.sendPassword">Potwierdzenie</message>
 	<message key="user.sendPassword.description">Wyślij potwierdzenie zawierające nazwę użytkownika i hasło na adres e-mail.</message>
 	<message key="user.signature">Podpis (dodawany do wiadomości wysyłanych ze strony)</message>
@@ -105,7 +117,8 @@
 	<message key="user.profile.form.mailingAddressRequired">Podanie adresu e-mail jest wymagane.</message>
 	<message key="user.profile.form.passwordSameAsOld">Twoje nowe hasło jest identyczne jak stare hasło.</message>
 	<message key="user.profile.form.usergroupRequired">Podanie grupy użytkownika jest wymagane.</message>
-	<message key="user.authorization.managerRequired">Użytkownik pełniący rolę redaktora musi być przypisany do tego etapu, aby kontynuować.</message>
+	<message key="user.suffix">Sufiks</message>
+	<message key="user.authorization.managerRequired">Użytkownik pełniący rolę redaktora musi być przydzielony do tego etapu, aby kontynuować.</message>
 	<message key="user.authorization.accessibleWorkflowStage">Nie posiadasz uprawnień dostępu do tego etapu.</message>
 	<message key="user.authorization.workflowStageRequired">Etap nie został określony.</message>
 	<message key="user.authorization.pluginRequired">Wtyczka nie została określona i jest wymagana.</message>
@@ -117,7 +130,7 @@
 	<message key="user.login.registrationPendingValidation">Rejestracja oczekuje na potwierdzenie</message>
 	<message key="user.logOutAs">Wyloguj się jako</message>
 	<message key="user.login.registerNewAccount">Zarejestruj</message>
-	<message key="user.login.resetPasswordInstructions">Podaj swój adres e-mail. Otrzymasz wiadomość z instrukcjami jak zresetować swoje hasło.</message>
+	<message key="user.login.resetPasswordInstructions">Podaj swój adres e-mail. Otrzymasz wiadomość z instrukcjami, jak zresetować swoje hasło.</message>
 	<message key="user.register.form.userGroupRequired">Przynajmniej jedna rola musi zostać wybrana.</message>
 	<message key="user.register.form.passwordLengthRestriction">Hasło musi posiadać co najmniej {$length} znaków.</message>
 	<message key="user.register.registrationCompleted"><![CDATA[Rejestracja zakończona. <a href="{$profileUrl}">Kliknij tutaj</a>, aby uzupełnić swój profil użytkownika.]]></message>
@@ -137,4 +150,10 @@
 	<message key="user.profile.identity">Tożsamość</message>
 	<message key="user.profile.contact">Kontakt</message>
 	<message key="user.profile.public">Publiczny</message>
+	<message key="user.apiKey">Klucz API</message>
+	<message key="user.apiKeyEnabled">Umożliwiaj zewnętrznym aplikacjom wykorzystującym klucz API na dostęp do tego konta</message>
+	<message key="user.apiKey.generate">Generuj nowy klucz API</message>
+	<message key="user.apiKey.generateWarning">Wygenerowanie nowego klucza unieważni wszystkie istniejące klucze dla tego użytkownika.</message>
+	<message key="user.apiKey.secretRequired">Przed wygenerowaniem klucza API, administrator strony musi ustalić klucz prywatny w pliku konfiguracyjnym ("api_key_secret").</message>
+	<message key="user.role.assistant">Asystent</message>
 </locale>

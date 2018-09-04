@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * plugins/generic/usageStats/locale/pl_PL/locale.xml
+  *
+  * Copyright (c) 2013-2017 Simon Fraser University
+  * Copyright (c) 2003-2017 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings
+  -->
+
+<locale name="pl_PL" full_name="Język Polski">
+	<message key="plugins.generic.usageStats.settings.logging">Dostęp do opcji dziennika</message>
+	<message key="plugins.generic.usageStats.settings.createLogFiles">Utwórz plik dziennika</message>
+	<message key="plugins.generic.usageStats.settings.createLogFiles.description">Aktywacja tej wtyczki spowoduje dostęp do plików dziennika wewnątrz katalogu z plikami. Te pliki mogą być wykorzystane do wydobycia danych o statystykach użycia. Jeżeli nie chcesz utworzyć dostępu do plików dziennika możesz pozostawić tę opcję wyłączoną i wykorzystać pliki dziennika z własnego serwera.</message>
+	<message key="plugins.generic.usageStats.settings.saved">Ustawienia wtyczki ze statystykami użycia zostały zapisane</message>
+	<message key="plugins.generic.usageStats.settings.logParseRegex">Parsuj pliki dziennika z wyrażeniami regularnymi</message>
+	<message key="plugins.generic.usageStats.settings.logParseRegex.description">Domyślnie używane wyrażenia regularne mogą może parsować pliki dziennika apache w złożonych formatach, a także pliki dziennika wtyczek. Jeżeli dostępne pliki dziennika są w różnym formacie możesz wstawiać wyrażenia regularne zdolne do ich parsowania i dające oczekiwane efekty. Aby dowiedzieć się więcej zobacz UsageStatsLoader::_getDataFromLogEntry().</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption">Opcje prywatności danych</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.saltFilepath">Ścieżka pliki do anonimizacji</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.saltFilepath.invalid">Plik "salt file" nie jest możliwy do odczytania</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyCheckbox">Poszanowanie prywatności danych</message>
+	<message key="plugins.generic.usageStats.settings.optionalColumns">Opcjonalne informacje statystyczne</message>
+	<message key="plugins.generic.usageStats.settings.archives">Archiwum</message>
+	<message key="plugins.generic.usageStats.settings.compressArchives.description">Aktywuj tę opcję, aby skompresować zarchiwizowane pliki dzienników używając narzędzia gzip (po tym kroku należy skonfigurować ustawienia gzip zawarte w config.inc.php). Jeżeli masz duży ruch na stronie warto włączyć tę usługę i tym samym uzyskać dodatkowe miejsce na dysku.</message>
+	<message key="plugins.generic.usageStats.settings.compressArchives">Kompresuj archiwum</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions">Opcje wyświetlania statystyk</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.contextWide">Te ustawienia będą zastosowane tylko do statystyk użycia czasopisma  {$contextName}.</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.display">Wyświetl czytelnikom wykres ze statystykami użycia zgłoszonych tekstów.</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.chartType">Wybierz typ wykresu do wyświetlenia statystyk pobrań.</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.chartType.bar">Pasek</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.chartType.line">Wiersz</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.datasetMaxCount">Zdefiniuj maksymalną ilość danych do przedstawienia w jednym czasie na osi X. Wyższa wartość może wygenerować trudny do odczytania wykres. Zaleca się ustawienie wartości między 3 a 5.</message>
+	<message key="plugins.generic.usageStats.usageStatsLoaderName">Zadanie załadowania pliku ze statystykami użycia</message>
+	<message key="plugins.generic.usageStats.openFileFailed">Plik {$file} nie mógł być otwarty. Plik mógł zostać wycofany.</message>
+	<message key="plugins.generic.usageStats.invalidLogEntry">Wiersz o numerze {$lineNumber} z pliku {$file} nie jest poprawnym wpisem dziennika. Plik mógł zostać wycofany.</message>
+	<message key="plugins.generic.usageStats.removeUrlError">Wiersz o numerze {$lineNumber} z pliku {$file} zawiera adres strony (URL), którego system nie może usunąć z bazy.</message>
+	<message key="plugins.generic.usageStats.loadDataError">Nie można było załadować danych wyekstraktowanych z pliku {$file}. Plik zostać przeniesiony ponownie do etapu.</message>
+	<message key="plugins.generic.usageStats.pluginNotEnabled">Wtyczka statystyk użycia jest wyłączona. Nie są przetwarzane pliki dziennika.</message>
+	<message key="plugins.generic.usageStats.processingPathNotEmpty">Katalog {$directory} nie jest pusty. To może wskazywać na wcześniejsze problemy lub aktualnie trwający proces. Plik zostanie ponownie przetworzony, jeżeli wykorzystasz scheduledTasksAutoStage.xml, w przeciwnym razie będziesz musiał/a manualnie przenieść jakikiekolwiek porzucone pliki z katalogu przetwarzania na powrót do katalogu etapu.</message>
+	<message key="plugins.generic.usageStats.noCounterBotList">Lista agentów COUNTER {$botlist} nie może być wykorzystana. Może być wiele przyczyn. Sprawdź, czy lista plików jest w folderze: 'lib/pkp/plugins/generic/usageStats/lib/counter'. Sprawdź również uprawnienia tego folderu i czy znajduje się w nim tylko jeden plik.</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.requirements">To ensure data privacy, you must specify a file readable and writable by the web user to contain a randomly generated salt value.  This file must NOT be backed up to ensure privacy protection. The salt is randomly generated either using: the function mcrypt_create_iv, which requires the PHP mcrypt; the function openssl_random_pseudo_bytes, which requires the PHP openssl; the file /dev/urandom, which works only on *nix systems; or the function mt_rand, which is not cryptographically safe. Thus, if you are using a Windows server, please ensure that you install either the PHP mcrypt or openssl enabled in order to have the cryptographically safe generated salt.</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.description">Activate this option to use a plugin version that respects privacy legislations, i.e. that is logging hashed IP addresses, informs the users about the tracking and provides an opt-out option for users. Note: when using this option you will not be able to use the geo features of the plugin.</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.requiresSalt">Włączenie prywatności danych wymaga pliku "salt file".</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.excludesCity">Włączenie prywatności danych wyklucza Miasto z opcjonalnych statystyk.</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.excludesRegion">Włączenie prywatności danych wyklucza Region z opcjonalnych statystyk.</message>
+	<message key="plugins.generic.usageStats.settings.optionalColumns.description">Włącz lub wyłącz gromadzenie następujących opcjonalnych informacji. To wpłynie na zakres raportów możliwych do wygenerowania oraz będzie miało wpływ na rozmiar bazy. NIE WPROWADZAJ ZMIAN dopóki w pełni nie upewnisz się, jakie będą miały konsekwencje.</message>
+	<message key="plugins.generic.usageStats.settings.optionalColumns.cityRequiresRegion">Opcjonalna kolumna "Miasto" wymaga opcjonalnej kolumny "Region".</message>
+	<message key="plugins.generic.usageStats.description">Przedstaw dane statystyk użycia obiektów. Możesz wykorzystać dostępne na serwerze pliki dziennika do wydobycia statystyk.</message>
+	<message key="plugins.reports.usageStats.report.displayName">Raport statystyk użycia PKP</message>
+	<message key="plugins.reports.usageStats.report.description">Domyślny raport statystyk użycia PKP (COUNTER gotowy)</message>
+	<message key="plugins.reports.usageStats.optout.displayName">Informacja o prywatności przy statystykach użycia</message>
+	<message key="plugins.reports.usageStats.optout.description">Informacja o prywatności przy statystykach użycia</message>
+	<message key="plugins.generic.usageStats.optout.title">Informacja o statystykach użycia</message>
+	<message key="plugins.generic.usageStats.optout.shortDesc"><![CDATA[Rejestrujemy anonimowe statystyki użycia. Proszę zapoznaj się z <a href="{$privacyInfo}">informacją o prywatności</a> for details.]]></message>
+	<message key="plugins.generic.usageStats.optout.done"><![CDATA[<p>Zrezygnowałeś/aś z gromadzenie statystyk użycia. Od tego momentu żadne dane o statystykach użycia strony nie będą gromadzone. Kliknij przycisk poniżej, aby zmienić swoją decyzję.</p>]]></message>
+	<message key="plugins.generic.usageStats.optin">Włączenie</message>
+	<message key="plugins.generic.usageStats.optout">Rezygnacja</message>
+	<message key="plugins.generic.usageStats.optout.cookie"><![CDATA[<p>If you wish you can opt-out of the data collection process. By clicking the opt-out button below, you can actively decide against participating in the statistical analysis. When clicking the opt-out button a <em>cookie</em> is being created on your system to store your decision. If the privacy settings of your browser lead to cookies being automatically deleted you will have to opt-out again the next time you access this website. The cookie is only valid for one browser. If you use a different browser, you will have to opt out again. No individual information is stored within this cookie. This cookie lease is valid for one year after your last access.</p>
+		<p>Please bear in mind that general server logs are not affected by your decision to opt-out of the detailed evaluation process. Please refer to our general <a href="{$privacyStatementUrl}">privacy statement</a>.</p>]]></message>
+	<message key="plugins.reports.usageStats.metricType">PKP/COUNTER</message>
+	<message key="plugins.reports.usageStats.metricType.full">Statystyki Public Knowledge Project (COUNTER gotowy)</message>
+	<message key="plugins.generic.usageStats.statsSum">Liczba pobrań wszystkich plików</message>
+	<message key="plugins.generic.usageStats.noStats">Dane o pobraniach nie są jeszcze dostępne.</message>
+	<message key="plugins.generic.usageStats.monthInitials">sty lut mar kwi maj cze lip sie wrz paź lis gru</message>
+	<message key="plugins.generic.usageStats.downloads">Pobrania</message>
+	<message key="plugins.generic.usageStats.displayName">Statystyki użycia</message>
+</locale>

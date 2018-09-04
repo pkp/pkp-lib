@@ -4,8 +4,8 @@
 <!--
   * locale/pl_PL/admin.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -52,12 +52,11 @@
 	<message key="admin.settings.form.minPasswordLengthRequired">Musisz podać hasło o długości co najmniej 4 znaków.</message>
 	<message key="admin.settings.form.titleRequired">Tytuł jest wymagany.</message>
 	<message key="admin.settings.homeHeaderImage.altText">Logo strony</message>
-	<message key="admin.settings.homeHeaderImageInvalid">Niepoprawny format pliku. Akceptowane formaty to .gif, .jpg, lub .png.</message>
+	<message key="admin.settings.homeHeaderImageInvalid">Niepoprawny format pliku. Akceptowane formaty to GIF, JPG, lub PNG.</message>
 	<message key="admin.settings.introduction">Wprowadzenie</message>
 	<message key="admin.settings.minPasswordLength">Minimalna długość hasła</message>
-	<message key="admin.settings.oaiRegistration">Zarejestruj stronę celem indeksowania treści (Metadata Harvesting)</message>
 	<message key="admin.settings.siteLanguage">Język strony</message>
-	<message key="admin.settings.siteStyleSheetInvalid">Niepoprawny format stylów strony. Akceptowany format pliku to .css.</message>
+	<message key="admin.settings.siteStyleSheetInvalid">Niepoprawny format stylów strony. Akceptowany format pliku to CSS.</message>
 	<message key="admin.settings.siteStyleSheet">Szablon stylów strony</message>
 	<message key="admin.settings.siteTitle">Tytuł strony</message>
 	<message key="admin.siteAdmin">Administracja stroną</message>
@@ -118,4 +117,5 @@
 	<message key="admin.copyAccessLogFileTool.usage">Kopiuj pliki dziennika apache.
 Zastosowanie: {$scriptName} path/to/apache/log/file.log
 Zastosowanie (przetworzenie wszystkich plików w folderze): {$scriptName} path/to/apache/directory</message>
+	<message key="admin.contexts.confirmDelete">Czy na pewno usunąć {$contextName} wraz z całą zawartością?</message>
 </locale>

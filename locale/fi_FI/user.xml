@@ -52,7 +52,7 @@
 	<message key="user.login.changePasswordInstructions"><![CDATA[Sinun täytyy valita uusi salasana, ennen kuin voit kirjautua tälle sivustolle.<br><br />Anna käyttäjätunnuksesi sekä nykyinen ja uusi salasanasi alle vaihtaaksesi tilisi salasanan.]]></message>
 	<message key="user.login.forgotPassword">Unohditko salasanasi?</message>
 	<message key="user.login.loginError">Virheellinen käyttäjätunnus tai salasana. Yritä uudelleen.</message>
-	<message key="user.login">Kirjaudu</message>
+	<message key="user.login">Kirjautuminen</message>
 	<message key="user.login.lostPassword.confirmationSent">Sähköpostiisi on lähetetty vahvistus. Seuraa sähköpostissa olevia ohjeita vaihtaaksesi salasanan.</message>
 	<message key="user.login.lostPassword.invalidHash">Klikkaamasi linkki on vanhentunut tai se ei ole kelvollinen. Yritä vaihtaa salasana uudelleen.</message>
 	<message key="user.login.lostPassword.invalidUser">Määritetty sähköpostiosoite ei kuulu yhdellekään käyttäjälle.</message>

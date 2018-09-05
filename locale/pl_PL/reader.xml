@@ -40,8 +40,8 @@
 	<message key="rt.admin.contexts.createContext">Napisz tekst</message>
 	<message key="rt.admin.contexts.edit.editContext">Edytuj tekst</message>
 	<message key="rt.admin.contexts.metadata">Metadane</message>
-	<message key="rt.admin.contexts.options.authorTerms">Użyj nazwisko autora jako domyślny termin wyszukiwawczy. Umożliwi to odnalezienie innych prac autora, np. poprzez funkcję "inne prace"</message>
-	<message key="rt.admin.contexts.options.citedBy">Użyj nazwisko autora jako domyślny termin wyszukiwawczy i wskaż jako kontekst wyszukiwanie cytowań artykułu.</message>
+	<message key="rt.admin.contexts.options.authorTerms">Użyj nazwiska autora jako domyślnego terminu wyszukiwawczego. Umożliwi to odnalezienie innych prac autora, np. poprzez funkcję "inne prace"</message>
+	<message key="rt.admin.contexts.options.citedBy">Użyj nazwiska autora jako domyślnego terminu wyszukiwawczego i wskaż jako kontekst wyszukiwanie cytowań artykułu.</message>
 	<message key="rt.admin.contexts.options.defineTerms"><![CDATA[Użyj słowa zaznaczonego przez czytelnika jako domyślnego terminu wyszukiwawczego lub pozostaw puste, jeżeli żadna pozycja nie została wybrana (np. dla "Definicji terminów"). Opcja "Definicja terminów" musi być włączona w {$settingsUrl}">RST Settings</a>, aby możliwe było uruchamianie kontekstu po podwójnym kliknięciu na słowo.]]></message>
 	<message key="rt.admin.contexts.options.geoTerms">Wykorzystaj indeksowane dane geograficzne jako domyślne terminy wyszukiwawcze.</message>
 	<message key="rt.admin.contexts.options">Opcje</message>
@@ -56,7 +56,7 @@
 	<message key="rt.admin.sharing.buttonStyleLabel">Styl przycisku</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Użyj menu rozwijanego</message>
 	<message key="rt.admin.sharing.advanced">Ustawienia zaawansowane (opcjonalnie)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Zobacz <a href="https://www.addthis.com/academy/how-to-create-custom-buttons-with-addthis/">AddThis.com dokumentacje dostosowania</a> do pozycji bibliograficznej.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Zobacz <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">AddThis.com dokumentację dostosowania</a> do pozycji bibliograficznej.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Brand</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Opcje menu rozwijanego <br /> (pozycje na liście oddzielone przecinkami)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Język</message>
@@ -75,7 +75,7 @@
 	<message key="rt.admin.settings.defineTerms">Wyszukaj słowa (włącza możliwość wyszukania przez czytelnika dowolnego słowa z pozycji, po podwójnym kliknięciu słowo jest kopiowane do słownika).</message>
 	<message key="rt.admin.settings.disableRelatedItems">Wyłącz powiązane pozycje</message>
 	<message key="rt.admin.settings.emailAuthor">E-mail do autora (umożliwia przesłanie wiadomości na adres e-mail autora).</message>
-	<message key="rt.admin.settings.emailOthers">Powiadom współpracownika (umożliwia przesłanie do dowolnej osoby maila z linkiem do pozycji).</message>
+	<message key="rt.admin.settings.emailOthers">Powiadom współpracownika (umożliwia przesłanie do dowolnej osoby wiadomości e-mail z linkiem do pozycji).</message>
 	<message key="rt.admin.settings.findingReferences">Znajdź pozycję w bazie.</message>
 	<message key="rt.admin.settings.printerFriendly">Wersja do wydruku (wyświetla wersję tekstu do wydruku).</message>
 	<message key="rt.admin.settings.supplementaryFiles">Dodatkowe pliki (wyświetla listę plików przesłanych przez autora).</message>
@@ -121,7 +121,7 @@
 	<message key="rt.findingReferences.windowsLiveAcademic">Windows Live Academic</message>
 	<message key="rt.lookUp">Spójrz na zasady</message>
 	<message key="rt.metadata.dublinCore.contributor">Współpraca</message>
-	<message key="rt.metadata.dublinCore.coverage">Obszar pokrycia</message>
+	<message key="rt.metadata.dublinCore.coverage">Pokrycie</message>
 	<message key="rt.metadata.dublinCore.date">Data</message>
 	<message key="rt.metadata.dublinCore.description">Opis</message>
 	<message key="rt.metadata.dublinCore">Dublin Core</message>
@@ -138,7 +138,7 @@
 	<message key="rt.metadata.forThisDocument">Metadane dla dokumentu</message>
 	<message key="rt.metadata.pkp.abstract">Abstrakt</message>
 	<message key="rt.metadata.pkp.copyright">Prawa autorskie i zasady wykorzystania</message>
-	<message key="rt.metadata.pkp.coverage">Dane geolokalizacyjne, zasięg chronologiczny, próba badawcza (płeć, wiek, itd.)</message>
+	<message key="rt.metadata.pkp.coverage">Dane geolokalizacyjne, zasięg chronologiczny, próba badawcza (płeć, wiek itd.)</message>
 	<message key="rt.metadata.pkp.date">(RRRR-MM-DD)</message>
 	<message key="rt.metadata.pkp.discipline">Dyscyplina(y)</message>
 	<message key="rt.metadata.pkp.format">Format pliku</message>

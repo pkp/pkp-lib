@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../../dtd/locale.dtd">
+
+<!--
+  * plugins/citationLookup/isbndb/locale/pl_PL/locale.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+
+<locale name="pl_PL" full_name="Język Polski">
+	<message key="plugins.citationLookup.isbndb.displayName">Łącznik bazy danych ISBNdb</message>
+	<message key="plugins.citationLookup.isbndb.description">Łączy z bibliograficzną bazą danych ISBNdb.</message>
+	<message key="plugins.citationLookup.isbndbExtraction.displayName">Sposób pozyskiwania ISBN</message>
+	<message key="plugins.citationLookup.isbndbExtraction.description">Znajdź ISBN dla opisu NLM 3.0.</message>
+	<message key="plugins.citationLookup.isbndbLookup.displayName">Usługa pozyskiwania ISBN</message>
+	<message key="plugins.citationLookup.isbndbLookup.description">Szukaj pełnego opisu NLM 3.0 za pomocą podanego ISBN.</message>
+</locale>

@@ -56,6 +56,15 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 	}
 
 	/**
+	 * @copydoc PKPHandler::authorize()
+	 */
+	function authorize($request, &$args, $roleAssignments) {
+		import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
+		$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+		return parent::authorize($request, $args, $roleAssignments);
+	}
+
+	/**
 	 * Get a list of submissions according to passed query parameters
 	 *
 	 * @param $slimRequest Request Slim request object

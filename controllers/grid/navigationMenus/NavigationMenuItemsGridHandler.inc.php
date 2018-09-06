@@ -26,13 +26,14 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 		parent::__construct();
 		$this->addRoleAssignment(
 			ROLE_ID_MANAGER,
-			array(
+			$ops = array(
 				'fetchGrid', 'fetchRow',
 				'addNavigationMenuItem', 'editNavigationMenuItem',
 				'updateNavigationMenuItem',
 				'deleteNavigationMenuItem', 'saveSequence',
 			)
 		);
+		$this->addRoleAssignment(ROLE_ID_SITE_ADMIN, $ops);
 	}
 
 	//
@@ -43,11 +44,16 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		$context = $request->getContext();
+		$contextId = $context?$context->getId():CONTEXT_ID_NONE;
 
-		$contextId = CONTEXT_ID_NONE;
-		if ($context) {
-			$contextId = $context->getId();
+		import('lib.pkp.classes.security.authorization.PolicySet');
+		$rolePolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
+
+		import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
+		foreach($roleAssignments as $role => $operations) {
+			$rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
 		}
+		$this->addPolicy($rolePolicy);
 
 		$navigationMenuItemId = $request->getUserVar('navigationMenuItemId');
 		if ($navigationMenuItemId) {

@@ -260,7 +260,7 @@ class Core {
 			// We found the contextPath using the base_url
 			// config file settings. Check if the url starts
 			// with the context path, if not, prepend it.
-			if (strpos($url, '/' . $contextPath) !== 0) {
+			if (strpos($url, '/' . $contextPath . '/') !== 0) {
 				$url = '/' . $contextPath . $url;
 			}
 		}

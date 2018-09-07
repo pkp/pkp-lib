@@ -413,7 +413,7 @@ class ReviewAssignment extends DataObject {
 
 	/**
 	 * Get quality.
-	 * @return int
+	 * @return int|null
 	 */
 	function getQuality() {
 		return $this->getData('quality');
@@ -421,7 +421,7 @@ class ReviewAssignment extends DataObject {
 
 	/**
 	 * Set quality.
-	 * @param $quality int
+	 * @param $quality int|null
 	 */
 	function setQuality($quality) {
 		$this->setData('quality', $quality);

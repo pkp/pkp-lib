@@ -33,6 +33,14 @@ class ReviewFormElement extends DataObject {
 	}
 
 	/**
+	 * Get localized description.
+	 * @return string
+	 */
+	function getLocalizedDescription() {
+		return $this->getLocalizedData('description');
+	}
+
+	/**
 	 * Get localized list of possible responses.
 	 * @return array
 	 */
@@ -140,6 +148,24 @@ class ReviewFormElement extends DataObject {
 	 */
 	function setQuestion($question, $locale) {
 		$this->setData('question', $question, $locale);
+	}
+
+	/**
+	 * Get description.
+	 * @param $locale string
+	 * @return string
+	 */
+	function getDescription($locale) {
+		return $this->getData('description', $locale);
+	}
+
+	/**
+	 * Set description.
+	 * @param $description string
+	 * @param $locale string
+	 */
+	function setDescription($description, $locale) {
+		$this->setData('description', $description, $locale);
 	}
 
 	/**

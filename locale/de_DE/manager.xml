@@ -454,6 +454,7 @@
 	<message key="manager.reviewFormElements.noneCreated">Es wurden keine Formularfelder angelegt.</message>
 	<message key="manager.reviewFormElements.possibleResponse">Auswahl</message>
 	<message key="manager.reviewFormElements.question">Feld</message>
+	<message key="manager.reviewFormElements.description">Beschreibung</message>
 	<message key="manager.reviewFormElements.radiobuttons">Radiobuttons (keine Mehrfachauswahl möglich)</message>
 	<message key="manager.reviewFormElements.required">Um die Rubrik auszufüllen, werden Gutachter/innen benötigt</message>
 	<message key="manager.reviewFormElements.included">In Nachricht an Autor/in aufgenommen</message>

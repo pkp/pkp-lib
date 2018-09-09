@@ -44,6 +44,11 @@ function togglePossibleResponses(newValue, multipleResponsesElementTypesString) 
 			{fbvElement type="textarea" id="question" value=$question multilingual=true rich=true}
 		{/fbvFormSection}
 
+		<!-- description -->
+		{fbvFormSection title="manager.reviewFormElements.description" for="description"}
+			{fbvElement type="textarea" id="description" value=$description multilingual=true rich=true}
+		{/fbvFormSection}
+
 		<!-- required checkbox -->
 		{fbvFormSection for="required" list=true}
 			{if $required}

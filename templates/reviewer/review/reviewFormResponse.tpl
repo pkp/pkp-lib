@@ -18,6 +18,8 @@
 	{/if}
 
 	{fbvFormSection translate=false title=$reviewFormElement->getLocalizedQuestion() list=$list}
+		{assign var=description value=$reviewFormElement->getLocalizedDescription()}
+		{if $description}<span class="description">{$description}</span>{/if}
 		{if $reviewFormElement->getElementType() == REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD}
 			{fbvElement name="reviewFormResponses[$elementId]" type="text" translate=false required=$reviewFormElement->getRequired() id="reviewFormResponses-$elementId" value=$value inline=true size=$fbvStyles.size.SMALL readonly=$disabled}
 		{elseif $reviewFormElement->getElementType() == REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD}

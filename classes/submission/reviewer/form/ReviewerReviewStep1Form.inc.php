@@ -26,6 +26,14 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 		$this->addCheck(new FormValidator($this, 'privacyConsent', 'required', 'user.profile.form.privacyConsentRequired'));
 	}
 
+	/**
+	 * @see Form::validate()
+	 */
+	function validate($callHooks = true) {
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER); // for user.profile.form.privacyConsentRequired
+
+		return parent::validate($callHooks);
+	}
 
 	//
 	// Implement protected template methods from Form

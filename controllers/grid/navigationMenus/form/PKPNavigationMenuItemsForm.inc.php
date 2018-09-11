@@ -32,6 +32,8 @@ class PKPNavigationMenuItemsForm extends Form {
 		$this->_contextId = $contextId;
 		$this->navigationMenuItemId = $navigationMenuItemId;
 
+		parent::__construct('controllers/grid/navigationMenus/form/navigationMenuItemsForm.tpl');
+
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
 	}
@@ -57,7 +59,7 @@ class PKPNavigationMenuItemsForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request, $template = 'controllers/grid/navigationMenus/form/navigationMenuItemsForm.tpl', $display = false) {
+	function fetch($request, $template = null, $display = false) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
 
 		$templateMgr = TemplateManager::getManager($request);

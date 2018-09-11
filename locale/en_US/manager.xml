@@ -511,16 +511,6 @@
 	<message key="manager.navigationMenus.form.url">URL</message>
 	<message key="manager.navigationMenus.form.customUrlError">A URL must be provided</message>
 
-	<message key="manager.navigationMenus.form.navigationMenuItem.series">Select Series</message>
-	<message key="manager.navigationMenus.form.navigationMenuItemSeriesMessage">A series must be provides</message>
-
-	<message key="manager.navigationMenus.form.navigationMenuItem.category">Select Category</message>
-	<message key="manager.navigationMenus.form.navigationMenuItemCategoryMessage">A category must be provides</message>
-
-	<message key="manager.navigationMenus.form.navigationMenuItem.series.noItems">You can't add any Navigation Menu Item of Series type because there is no Series defined for this Press</message>
-	<message key="manager.navigationMenus.form.navigationMenuItem.category.noItems">You can't add any Navigation Menu Item of Category type because there is no Categories defined for this Press</message>
-	
-
 	<message key="manager.navigationMenus.form.conditionalDisplay">Learn more about when this menu item will be displayed or hidden.</message>
 	<message key="manager.navigationMenus.form.submenuWarning">When a menu item opens a submenu, it's link can not be followed on all devices. For example, if you have an "About" item which opens a submenu with "Contact" and "Editorial Team", the "About" link may not be reachable on all devices. In the default menu, this is handled by creating a second menu item, "About the Journal", which appears in the submenu.</message>
 

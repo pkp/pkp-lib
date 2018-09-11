@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file controllers/grid/navigationMenus/form/NavigationMenuItemsForm.inc.php
+ * @file controllers/grid/navigationMenus/form/PKPNavigationMenuItemsForm.inc.php
  *
  * Copyright (c) 2014-2018 Simon Fraser University
  * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class NavigationMenuItemsForm
+ * @class PKPNavigationMenuItemsForm
  * @ingroup controllers_grid_navigationMenus
  *
  * @brief Form for managers to create/edit navigationMenuItems.
@@ -16,7 +16,7 @@
 
 import('lib.pkp.classes.form.Form');
 
-class NavigationMenuItemsForm extends Form {
+class PKPNavigationMenuItemsForm extends Form {
 	/** @var $navigationMenuItemId int the ID of the navigationMenuItem */
 	var $navigationMenuItemId;
 
@@ -31,8 +31,6 @@ class NavigationMenuItemsForm extends Form {
 	function __construct($contextId, $navigationMenuItemId) {
 		$this->_contextId = $contextId;
 		$this->navigationMenuItemId = $navigationMenuItemId;
-
-		parent::__construct('manager/navigationMenus/navigationMenuItemsForm.tpl');
 
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
@@ -78,10 +76,6 @@ class NavigationMenuItemsForm extends Form {
 			->get('navigationMenu')
 			->getMenuItemTypes();
 
-		$customTemplates = ServicesContainer::instance()
-			->get('navigationMenu')
-			->getMenuItemCustomEditTemplates();
-
 		$typeTitles = array(0 => __('grid.navigationMenus.navigationMenu.selectType'));
 		foreach ($types as $type => $settings) {
 			$typeTitles[$type] = $settings['title'];
@@ -103,10 +97,7 @@ class NavigationMenuItemsForm extends Form {
 			'navigationMenuItemTypeTitles' => $typeTitles,
 			'navigationMenuItemTypeDescriptions' => json_encode($typeDescriptions),
 			'navigationMenuItemTypeConditionalWarnings' => json_encode($typeConditionalWarnings),
-			'customTemplates' => $customTemplates,
 		);
-
-		\HookRegistry::call('NavigationMenus::nmiFormTemplateParameters', array(&$templateArray));
 
 		$templateMgr->assign($templateArray);
 
@@ -116,7 +107,7 @@ class NavigationMenuItemsForm extends Form {
 	/**
 	 * Initialize form data from current navigation menu item.
 	 */
-	function initData() {
+	function initData($data = array()) {
 		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
 		$navigationMenuItem = $navigationMenuItemDao->getById($this->navigationMenuItemId);
 
@@ -128,12 +119,7 @@ class NavigationMenuItemsForm extends Form {
 				'menuItemType' => $navigationMenuItem->getType(),
 			);
 
-			import('classes.core.ServicesContainer');
-			ServicesContainer::instance()
-				->get('navigationMenu');
-			\HookRegistry::call('NavigationMenus::nmiFormData', array(&$formData, &$navigationMenuItem));
-
-			$this->_data = $formData;
+			$this->_data =  array_merge($data, $formData);
 
 			$this->setData('content', $navigationMenuItem->getContent(null)); // Localized
 		}
@@ -143,14 +129,17 @@ class NavigationMenuItemsForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$formInputData = array('navigationMenuItemId', 'content', 'title', 'path', 'url','menuItemType');
-
-		import('classes.core.ServicesContainer');
-		ServicesContainer::instance()
-			->get('navigationMenu');
-		\HookRegistry::call('NavigationMenus::nmiFormInputData', array(&$formInputData));
+		$formInputData = array('navigationMenuItemId', 'path', 'content', 'title', 'url','menuItemType');
 
 		$this->readUserVars($formInputData);
+	}
+
+	/**
+	 * @copydoc Form::getLocaleFieldNames()
+	 */
+	function getLocaleFieldNames() {
+		$dao = DAORegistry::getDAO('NavigationMenuItemDAO');
+		return $dao->getLocaleFieldNames();
 	}
 
 	/**
@@ -171,17 +160,14 @@ class NavigationMenuItemsForm extends Form {
 		$navigationMenuItem->setUrl($this->getData('url'));
 		$navigationMenuItem->setType($this->getData('menuItemType'));
 
-		import('classes.core.ServicesContainer');
-		ServicesContainer::instance()
-			->get('navigationMenu');
-		\HookRegistry::call('NavigationMenus::nmiFormExecute', array(&$this, &$navigationMenuItem));
-
 		// Update or insert navigation menu item
 		if ($navigationMenuItem->getId()) {
 			$navigationMenuItemDao->updateObject($navigationMenuItem);
 		} else {
 			$navigationMenuItemDao->insertObject($navigationMenuItem);
 		}
+
+		$this->navigationMenuItemId = $navigationMenuItem->getId();
 
 		return $navigationMenuItem->getId();
 	}
@@ -212,11 +198,6 @@ class NavigationMenuItemsForm extends Form {
 		} else {
 			$this->addError('path', __('manager.navigationMenus.form.typeMissing'));
 		}
-
-		import('classes.core.ServicesContainer');
-		ServicesContainer::instance()
-			->get('navigationMenu');
-		\HookRegistry::call('NavigationMenus::nmiFormValidate', array(&$this));
 
 		return parent::validate($callHooks);
 	}

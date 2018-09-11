@@ -15,7 +15,7 @@
 
 import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
-import('lib.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
+import('controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
 
 class NavigationMenuItemsGridHandler extends GridHandler {
 
@@ -156,7 +156,7 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 			$contextId = $context->getId();
 		}
 
-		import('lib.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
+		import('controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
 		$navigationMenuItemForm = new NavigationMenuItemsForm($contextId, $navigationMenuItemId, $navigationMenuIdParent);
 
 		$navigationMenuItemForm->readInputData();
@@ -220,7 +220,7 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 			$contextId = $context->getId();
 		}
 
-		import('lib.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
+		import('controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
 		$navigationMenuItemForm = new NavigationMenuItemsForm($contextId, $navigationMenuItemId, $navigationMenuIdParent);
 
 		$navigationMenuItemForm->initData();

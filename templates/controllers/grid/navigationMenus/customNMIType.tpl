@@ -8,7 +8,7 @@
  * Custom Custom NMI Type edit form part
  *}
 <div id="NMI_TYPE_CUSTOM" class="NMI_TYPE_CUSTOM_EDIT">
-	{fbvFormSection id="targetPath"}
+	{fbvFormSection}
 		{fbvFormSection title="manager.navigationMenus.form.path" for="path" required="true"}
 			{fbvElement type="text" id="path" value=$path required="true"}
 			<p>

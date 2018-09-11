@@ -32,9 +32,9 @@
 	<message key="installer.databaseName">Nombre de la base de datos</message>
 	<message key="installer.databasePassword">Contraseña</message>
 	<message key="installer.databaseSettings">Configuración de la base de datos</message>
-	<message key="installer.databaseUsername">Nombre usuario</message>
+	<message key="installer.databaseUsername">Nombre de usuario/a</message>
 	<message key="installer.filesDir">Directorio para subir documentos</message>
-	<message key="installer.fileSettings">Configuración de ficheros</message>
+	<message key="installer.fileSettings">Configuración de archivos</message>
 	<message key="installer.form.clientCharsetRequired">Se debe seleccionar un conjunto de caracteres del cliente.</message>
 	<message key="installer.form.databaseDriverRequired">Se debe seleccionar un controlador de base de datos.</message>
 	<message key="installer.form.databaseNameRequired">Es necesario el nombre de la base de datos.</message>
@@ -80,4 +80,5 @@
 	<message key="installer.configureXSLMessage"><![CDATA[<p>Su instalación PHP no tiene el módulo XSL activado. Actívelo o configure el parámetro xslt_command en su archivo config.inc.php.</p>]]></message>
 	<message key="installer.beacon">Beacon</message>
 	<message key="installer.beacon.enable">Aporte a PKP un único identificador de sitio y una URL de base OAI solo con finalidades estadísticas y de seguridad.</message>
+	<message key="installer.unsupportedPhpError">Este software no soporta la versión PHP de su servidor. Vuelva a comprobar los requisitos de instalación en docs/README.</message>
 </locale>

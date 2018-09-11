@@ -13,4 +13,5 @@
 
 <locale name="pl_PL" full_name="Język Polski">
 	<message key="plugins.generic.usageEvent.displayName">Zdarzenie użycia</message>
+	<message key="plugins.generic.usageEvent.description">Utwórz zaczepienie, które dostarczy zdarzenie użycia w zdefiniowanym formacie.</message>
 </locale>

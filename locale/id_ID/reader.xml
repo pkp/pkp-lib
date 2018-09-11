@@ -56,7 +56,7 @@
 	<message key="rt.admin.sharing.buttonStyleLabel">Model Tombol</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Gunakan menu drop-down</message>
 	<message key="rt.admin.sharing.advanced">Pengaturan Tingkat Tinggi (pilihan)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Lihat <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">AddThis.com dokumentasi penyesuaian</a> untuk referensi.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Lihat <a href="https://www.addthis.com/academy/how-to-create-custom-buttons-with-addthis/">AddThis.com dokumentasi penyesuaian</a> untuk referensi.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Merek</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Pilihan Drop-down<br /> (gunakan koma untuk memisahkan daftar)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Bahasa</message>

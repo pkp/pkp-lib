@@ -13,7 +13,7 @@
 
 <locale name="pl_PL" full_name="Język Polski">
 	<message key="user.affiliation">Afiliacja</message>
-	<message key="user.affiliation.description">(pełna nazwa instytucji naukowej, np. Dolnośląska Szkoła Wyższa)</message>
+	<message key="user.affiliation.description">(pełna nazwa instytucji naukowej, np. Uniwersytet im. Adama Mickiewicza w Poznaniu)</message>
 	<message key="user.affiliations">Afiliacje</message>
 	<message key="user.authorization.accessDenied">Brak dostępu.</message>
 	<message key="user.authorization.processAuthenticationTokenRequired">Brak lub nieprawidłowy token do uwierzytelnienia procesu.</message>
@@ -59,6 +59,7 @@
 	<message key="user.middleName">Drugie imię</message>
 	<message key="user.myAccount">Moje konto</message>
 	<message key="user.name">Nazwa użytkownika (np. jankowalski)</message>
+	<message key="user.other">Inne</message>
 	<message key="user.password">Hasło (dozwolone małe litery i cyfry)</message>
 	<message key="user.repeatPassword">Powtórz hasło</message>
 	<message key="user.phone">Tel.</message>
@@ -126,7 +127,7 @@
 	<message key="user.login.registrationPendingValidation">Rejestracja oczekuje na potwierdzenie</message>
 	<message key="user.logOutAs">Wyloguj się jako</message>
 	<message key="user.login.registerNewAccount">Zarejestruj</message>
-	<message key="user.login.resetPasswordInstructions">Podaj swój adres e-mail. Otrzymasz wiadomość z instrukcjami jak zresetować swoje hasło.</message>
+	<message key="user.login.resetPasswordInstructions">Podaj swój adres e-mail. Otrzymasz wiadomość z instrukcjami, jak zresetować swoje hasło.</message>
 	<message key="user.register.form.userGroupRequired">Przynajmniej jedna rola musi zostać wybrana.</message>
 	<message key="user.register.form.passwordLengthRestriction">Hasło musi posiadać co najmniej {$length} znaków.</message>
 	<message key="user.register.registrationCompleted"><![CDATA[Rejestracja zakończona. <a href="{$profileUrl}">Kliknij tutaj</a>, aby uzupełnić swój profil użytkownika.]]></message>
@@ -146,4 +147,10 @@
 	<message key="user.profile.identity">Tożsamość</message>
 	<message key="user.profile.contact">Kontakt</message>
 	<message key="user.profile.public">Publiczny</message>
+	<message key="user.apiKey">Klucz API</message>
+	<message key="user.apiKeyEnabled">Umożliwiaj zewnętrznym aplikacjom wykorzystującym klucz API na dostęp do tego konta</message>
+	<message key="user.apiKey.generate">Generuj nowy klucz API</message>
+	<message key="user.apiKey.generateWarning">Wygenerowanie nowego klucza unieważni wszystkie istniejące klucze dla tego użytkownika.</message>
+	<message key="user.apiKey.secretRequired">Przed wygenerowaniem klucza API, administrator strony musi ustalić klucz prywatny w pliku konfiguracyjnym ("api_key_secret").</message>
+	<message key="user.role.assistant">Asystent</message>
 </locale>

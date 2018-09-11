@@ -165,7 +165,7 @@
 	<message key="rt.admin.sharing.buttonStyleLabel">Knappestil</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Bruk rullegardinmeny</message>
 	<message key="rt.admin.sharing.advanced">Avanserte innstillinger (valgfritt)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Se <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">AddThis.com tilpasningsdokumentasjon</a> for informasjon.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Se <a href="https://www.addthis.com/academy/how-to-create-custom-buttons-with-addthis/">AddThis.com tilpasningsdokumentasjon</a> for informasjon.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Merke</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Rullegardinmenyvalg <br /> (kommaseparert liste)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Språk</message>

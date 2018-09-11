@@ -52,7 +52,7 @@
 	<message key="user.login.changePasswordInstructions"><![CDATA[Sinun täytyy valita uusi salasana, ennen kuin voit kirjautua tälle sivustolle.<br><br />Anna käyttäjätunnuksesi sekä nykyinen ja uusi salasanasi alle vaihtaaksesi tilisi salasanan.]]></message>
 	<message key="user.login.forgotPassword">Unohditko salasanasi?</message>
 	<message key="user.login.loginError">Virheellinen käyttäjätunnus tai salasana. Yritä uudelleen.</message>
-	<message key="user.login">Kirjaudu</message>
+	<message key="user.login">Kirjautuminen</message>
 	<message key="user.login.lostPassword.confirmationSent">Sähköpostiisi on lähetetty vahvistus. Seuraa sähköpostissa olevia ohjeita vaihtaaksesi salasanan.</message>
 	<message key="user.login.lostPassword.invalidHash">Klikkaamasi linkki on vanhentunut tai se ei ole kelvollinen. Yritä vaihtaa salasana uudelleen.</message>
 	<message key="user.login.lostPassword.invalidUser">Määritetty sähköpostiosoite ei kuulu yhdellekään käyttäjälle.</message>
@@ -155,4 +155,11 @@
 	<message key="user.apiKey.generate">Luo uusi API-avain</message>
 	<message key="user.gossip.description">Tähän annetut muistiinpanot näkyvät vain ylläpitäjille, julkaisun hallinnoijille, toimittajille ja osastotoimittajille.</message>
 	<message key="user.role.assistant">Avustaja</message>
+	<message key="user.authorization.assignedStageRoleBasedAccessDenied">Sinulla ei ole tähän toimintoon vaadittavaa roolia.</message>
+	<message key="user.authorization.invalidReviewAssignment">Sinulla ei ole oikeutta avata tätä arviointipyyntöä.</message>
+	<message key="user.authorization.submissionQuery">Sinulla ei ole oikeutta avata tätä keskustelua.</message>
+	<message key="user.profile.form.privacyConsentRequired">Sinun pitää hyväksyä tietosuojaselosteen ehdot.</message>
+	<message key="user.register.form.privacyConsent"><![CDATA[Kyllä, annan luvan tallentaa tietojani tietosuojaselosteen <a href="{$privacyUrl}" target="_blank">tietosuojaselosteen</a> kuvaamalla tavalla.]]></message>
+	<message key="user.register.form.emailConsent">Kyllä, haluan ilmoituksen uusista julkaisuista ja tiedotteista.</message>
+	<message key="user.privacyLink"><![CDATA[Tietojasi tallennetaan ja käytetään <a href="{$privacyUrl}" target="_blank">tietosuojaselosteen</a> mukaisesti.]]></message>
 </locale>

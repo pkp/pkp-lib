@@ -113,7 +113,7 @@
 		var itemType = $('#menuItemType', this.getHtmlElement()).val(),
 				$descriptionEl = $('#menuItemTypeSection [for="menuItemType"]');
 
-		$(".NMI_TYPE_CUSTOM_EDIT").hide();
+		$('.NMI_TYPE_CUSTOM_EDIT', this.getHtmlElement()).hide();
 		$("#" + itemType).fadeIn();
 
 		if (typeof this.itemTypeDescriptions_[itemType] !== 'undefined') {

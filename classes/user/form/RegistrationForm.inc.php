@@ -268,7 +268,7 @@ class RegistrationForm extends Form {
 		if ($request->getContext() && !$this->getData('reviewerGroup')) {
 			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 			$defaultReaderGroup = $userGroupDao->getDefaultByRoleId($request->getContext()->getId(), ROLE_ID_READER);
-			$userGroupDao->assignUserToGroup($user->getId(), $defaultReaderGroup->getId(), $request->getContext()->getId());
+			if ($defaultReaderGroup) $userGroupDao->assignUserToGroup($user->getId(), $defaultReaderGroup->getId(), $request->getContext()->getId());
 		} else {
 			import('lib.pkp.classes.user.form.UserFormHelper');
 			$userFormHelper = new UserFormHelper();

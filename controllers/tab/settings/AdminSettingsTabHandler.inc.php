@@ -25,7 +25,7 @@ class AdminSettingsTabHandler extends SettingsTabHandler {
 	function __construct($additionalTabs = array()) {
 		$role = array(ROLE_ID_SITE_ADMIN);
 
-		$this->addRoleAssignment(ROLE_ID_MANAGER,
+		$this->addRoleAssignment([ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN],
 			array(
 				'showFileUploadForm',
 				'uploadFile',

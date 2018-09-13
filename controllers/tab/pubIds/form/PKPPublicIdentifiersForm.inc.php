@@ -152,7 +152,7 @@ class PKPPublicIdentifiersForm extends Form {
 		}
 		$contextDao = Application::getContextDAO();
 		if ($publisherId) {
-			if (is_numeric($publisherId)) {
+			if (ctype_digit($publisherId)) {
 				$this->addError('publisherId', __('editor.publicIdentificationNumericNotAllowed', array('publicIdentifier' => $publisherId)));
 				$this->addErrorField('$publisherId');
 			} elseif (is_a($pubObject, 'SubmissionFile') && preg_match('/^(\d+)-(\d+)$/', $publisherId)) {

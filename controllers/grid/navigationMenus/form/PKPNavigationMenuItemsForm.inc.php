@@ -109,7 +109,7 @@ class PKPNavigationMenuItemsForm extends Form {
 	/**
 	 * Initialize form data from current navigation menu item.
 	 */
-	function initData($data = array()) {
+	function initData() {
 		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
 		$navigationMenuItem = $navigationMenuItemDao->getById($this->navigationMenuItemId);
 
@@ -121,7 +121,7 @@ class PKPNavigationMenuItemsForm extends Form {
 				'menuItemType' => $navigationMenuItem->getType(),
 			);
 
-			$this->_data =  array_merge($data, $formData);
+			$this->_data =  $formData;
 
 			$this->setData('content', $navigationMenuItem->getContent(null)); // Localized
 		}
@@ -131,17 +131,15 @@ class PKPNavigationMenuItemsForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$formInputData = array('navigationMenuItemId', 'path', 'content', 'title', 'url','menuItemType');
-
-		$this->readUserVars($formInputData);
+		$this->readUserVars(array('navigationMenuItemId', 'path', 'content', 'title', 'url','menuItemType'));
 	}
 
 	/**
 	 * @copydoc Form::getLocaleFieldNames()
 	 */
 	function getLocaleFieldNames() {
-		$dao = DAORegistry::getDAO('NavigationMenuItemDAO');
-		return $dao->getLocaleFieldNames();
+		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+		return $navigationMenuItemDao->getLocaleFieldNames();
 	}
 
 	/**

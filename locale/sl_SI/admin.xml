@@ -1,132 +1,131 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
   * locale/sl_SI/admin.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
   -->
-
+  
+  
 <locale name="sl_SI" full_name="Slovenščina">
 	<message key="admin.systemInfo.settingName">Ime nastavitve</message>
 	<message key="admin.systemInfo.settingValue">Vrednost nastavitve</message>
-	<message key="admin.adminFunctions">Skrbniške funkcije</message>
-	<message key="admin.auth.confirmDelete">Ste prepričani, da želite trajno izbrisati ta vir avtentikacije?</message>
-	<message key="admin.auth.create">Ustvari nov vir avtentikacije</message>
-	<message key="admin.auth.noneCreated">Noben vir avtentikacije ni bil definiran.</message>
-	<message key="admin.authSources">Viri avtentikacije</message>
-	<message key="admin.clearDataCache">Počisti začasne podatkovne predpomnilnike</message>
-	<message key="admin.clearTemplateCache">Počisti začasne predloge predpomnilnikov</message>
-	<message key="admin.configFileUpdatedInstructions"><![CDATA[Vaša nastavitvena datoteka je uspešno uvožena. Če spletišče ne deluje pravilno, boste verjetno morali ročno popraviti nastavitveno datoteko <tt>config.inc.php</tt>.]]></message>
-	<message key="admin.confirmClearTemplateCache">Ali ste prepričani, da želite izbrisati začasni predpomnilnik narejenih predlog?</message>
-	<message key="admin.confirmExpireSessions">Ali ste prepričani, da želite prekiniti vse seje uporabnikov? Vsi uporabniki, ki so trenutno prijavljeni v sistem, se bodo morali ponovno prijaviti (vključno z vami).</message>
+	<message key="admin.adminFunctions">Administrativne funkcije</message>
+	<message key="admin.auth.confirmDelete">Ste prepričani, da želite trajno odstraniti za vir avtentikacije?</message>
+	<message key="admin.auth.create">Ustvari vir za avtentikacijo</message>
+	<message key="admin.auth.noneCreated">Na voljo ni nobenega vira za avtentikacijo.</message>
+	<message key="admin.authSources">Viri za avtentikacijo</message>
+	<message key="admin.clearDataCache">Izbriši začasen pomnilnik (cash) za podatke</message>
+	<message key="admin.clearTemplateCache">Izbriši začasen pomnilnik (cash) za predloge</message>
+	<message key="admin.configFileUpdatedInstructions"><![CDATA[Konfiguracijska datoteka je bila uspešno posodobljena. Opozorilo: v primeru, da spletišče ne bo pravilno delovalo, boste morda morali ročno popraviti konfiguracijsko datoteko <tt>config.inc.php</tt>.]]></message>
+	<message key="admin.confirmClearTemplateCache">Ste prepričani, da želite izbrisati začasen pomnilnik za predloge?</message>
+	<message key="admin.confirmExpireSessions">Ste prepričani, da želite prekiniti vse uporabniške seje? Vsi uporabniki, ki so trenutno prijavljeni v sistem, se bodo morali ponovno prijaviti v sistem (vključno z vami).</message>
 	<message key="admin.contentsOfConfigFile">Vsebina konfiguracijske datoteke</message>
-	<message key="admin.currentVersion">Trenutna različica</message>
+	<message key="admin.contexts.confirmDelete">Ste prepričani, da želite trajno izbrisati  {$contextName} skupaj z vso pripadajočo vsebino?</message>
+	<message key="admin.currentVersion">Trenutna verzija</message>
 	<message key="admin.dateInstalled">Datum namestitve</message>
-	<message key="admin.displayConfigFileInstructions"><![CDATA[Vsebina vaše posodobljene konfiguracije je prikazana spodaj. Za uporabo sprememb v konfiguraciji odprite <tt>config.inc.php</tt> v primernem urejevalniku besedil in zamenjajte vsebino datoteke z besedilom spodaj.]]></message>
-	<message key="admin.displayNewSystemConfig">Pokaži novo konfiguracijo</message>
+	<message key="admin.displayConfigFileInstructions"><![CDATA[Spodaj je prikazana posodobljena vsebina konfiguracijske datoteke. Odprite datoteko <tt>config.inc.php</tt> v primernem urejevalniku in zamenjajte vsebino datoteke s spodnjo.]]></message>
+	<message key="admin.displayNewSystemConfig">Prikaži novo konfiguracijo</message>
 	<message key="admin.expireSessions">Prekini uporabniške seje</message>
-	<message key="admin.languages.download">Prenesi območni jezik</message>
-	<message key="admin.languages.downloadLocales">Prenesi območne jezike</message>
-	<message key="admin.languages.download.cannotOpen">Jezikovnega deskriptorja s spletišča PKP ni bilo mogoče odpreti.</message>
-	<message key="admin.languages.download.cannotModifyRegistry">Dodajenje novega območnega jezika v nastavitveno datoteko ni bilo mogoče, običajno je to "registry/locales.xml".</message>
-	<message key="admin.languages.cantDisable">Izbrani območni jezik je primarni jezik spletišča. Ne morete ga onemogočiti, dokler ne izberete drugega primarnega območnega jezika.</message>
-
-	<message key="admin.languages.confirmReload">Ali ste prepričani, da želite ponovno naložiti ta območni jezik? To bo zbrisalo vse podatke, ki se tičejo tega območnega jezika, vključno z e-poštnimi predlogami po meri.</message>
-	<message key="admin.languages.installedLocales">Nameščeni območni jeziki</message>
-	<message key="admin.languages.installLanguages">Upravljanje območnih jezikov</message>
-	<message key="admin.languages.availableLocales">Območni jeziki na voljo</message>
-	<message key="admin.languages.installLocale">Nameščeni območni jeziki</message>
+	<message key="admin.languages.download">Prenesi jezikovni paket</message>
+	<message key="admin.languages.downloadLocales">Prenesi jezikovne pakete</message>
+	<message key="admin.languages.download.cannotOpen">Opis jezikovnega paketa ni bilo mogoče odpreti iz PKP spletne strani.</message>
+	<message key="admin.languages.download.cannotModifyRegistry">Vpis novega jezika v registracijsko datoteko, običajno "registry/locales.xml" ni bilo mogoče.</message>
+	<message key="admin.languages.cantDisable">Ta jezik je primaren za to spletišče. Ne morete ga izključiti, dokler ne izberete drugega primarnega jezika.</message>
+	<message key="admin.languages.confirmReload">Ste prepričani, da želite ponovno naložiti ta jezik? To bo izbrisalo vse obstoječe specifike, kot so email predloge.</message>
+	<message key="admin.languages.installedLocales">Nameščeni jeziki</message>
+	<message key="admin.languages.installLanguages">Upravljaj jezike</message>
+	<message key="admin.languages.availableLocales">Jeziki, ki so na voljo</message>
+	<message key="admin.languages.installLocale">Namesti jezik</message>
 	<message key="admin.languages.installLocales">Namesti</message>
-	<message key="admin.languages.installNewLocales">Namesti nove območne jezike</message>
-	<message key="admin.languages.languageSettings">Jezikovne nastavitve</message>
-	<message key="admin.languages.noLocalesAvailable">Na voljo ni novih območnih jezikov za namestitev.</message>
-	<message key="admin.languages.reload">Ponovno naloži območni jezik</message>
-	<message key="admin.languages.uninstall">Odstrani območni jezik</message>
-	<message key="admin.phpInfo">Dodatne informacije PHP</message>
-	<message key="admin.scheduledTask">Načrtovana naloga</message>
-	<message key="admin.scheduledTask.startTime">Proces naloge je začet.</message>
-	<message key="admin.scheduledTask.stopTime">Proces naloge je ustavljen.</message>
-	<message key="admin.scheduledTask.noLog">Naloga ni ustvarila nobenega dnevnika.</message>
-	<message key="admin.scheduledTask.downloadLog">Vaš {$softwareName} je samodejno izvedla namestitev in nalogo, dnevnik lahko prenesete tukaj: {$url}</message>
-	<message key="admin.scheduledTask.confirmClearLogs">Ste prepričani, da želite zbrisati vse dnevnike izvedbe načrtovanih nalog?</message>
-	<message key="admin.scheduledTask.clearLogs">Počisti dnevnike izvedbe načrtovanih nalog</message>
+	<message key="admin.languages.installNewLocales">Namesti nov jezik</message>
+	<message key="admin.languages.languageSettings">Nastavitve jezika</message>
+	<message key="admin.languages.noLocalesAvailable">Za namestitev ni na voljo drugih jezikov.</message>
+	<message key="admin.languages.reload">Ponastavi jezik</message>
+	<message key="admin.languages.uninstall">Odstrani jezik</message>
+	<message key="admin.phpInfo">Razširjene informacije o PHP</message>
+	<message key="admin.scheduledTask">Razporejevalnik opravil</message>
+	<message key="admin.scheduledTask.startTime">Proces opravila se je začel.</message>
+	<message key="admin.scheduledTask.stopTime">Proces opravila se je ustavil.</message>
+	<message key="admin.scheduledTask.noLog">Opravilo ni povzročila nobenega zapisa v "log".</message>
+	<message key="admin.scheduledTask.downloadLog">Izvršila se je avtomatska namestitev programske opreme {$softwareName}. Zapis v "log" datoteki lahko preneste tukaj: {$url}</message>
+	<message key="admin.scheduledTask.confirmClearLogs">Ste prepričani, da želite izbrisati vse "log" zapise opravil, ki so se zagnale iz razporejevalnika opravil?</message>
+	<message key="admin.scheduledTask.clearLogs">Izbriši "log" zapise izvajanj opravil iz raporejevalnika opravil.</message>
 	<message key="admin.scheduledTask.reviewReminder">Opomnik za recenzijo</message>
-	<message key="admin.scheduledTask.subscriptionExpiryReminder">Opomnik o izteku naročnine</message>
-	<message key="admin.server.apacheVersion">Različica Apache</message>
-	<message key="admin.server.dbDriver">Gonilnik podatkovne zbirke</message>
-	<message key="admin.server.dbVersion">Različica strežnika podatkovne zbirke</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">Opomnik za potek naročnine</message>
+	<message key="admin.server.apacheVersion">Apache verzija</message>
+	<message key="admin.server.dbDriver">Gonilnik baze podatkov</message>
+	<message key="admin.server.dbVersion">Verzija podatkovnega strežnika</message>
 	<message key="admin.serverInformation">Informacije o strežniku</message>
-	<message key="admin.server.phpVersion">Različica PHP</message>
-	<message key="admin.server.platform">Računalniško okolje</message>
+	<message key="admin.server.phpVersion">PHP verzija</message>
+	<message key="admin.server.platform">OS platforma</message>
 	<message key="admin.settings">Nastavitve</message>
-	<message key="admin.settings.aboutDescription">O spletišču</message>
-	<message key="admin.settings.contactEmail">E-pošta glavnega kontakta</message>
-	<message key="admin.settings.contactName">Ime glavnega kontakta</message>
-	<message key="admin.settings.form.contactEmailRequired">E-poštni naslov glavnega kontakta je obvezen.</message>
-	<message key="admin.settings.form.contactNameRequired">Ime glavnega kontakta je obvezno.</message>
-	<message key="admin.settings.form.minPasswordLengthRequired">Minimalna dolžina gesla je 4 znaki.</message>
-	<message key="admin.settings.form.titleRequired">Naslov je obvezen.</message>
+	<message key="admin.settings.aboutDescription">O tem spletišču</message>
+	<message key="admin.settings.contactEmail">Email glavnega stika</message>
+	<message key="admin.settings.contactName">Ime glavnega stika</message>
+	<message key="admin.settings.form.contactEmailRequired">Zahtevan je email naslov glavnega stika.</message>
+	<message key="admin.settings.form.contactNameRequired">Zahtevano je ime  glavnega stika.</message>
+	<message key="admin.settings.form.minPasswordLengthRequired">Zahtevana dolžina gesla je vsaj 4 znake.</message>
+	<message key="admin.settings.form.titleRequired">Naslov je zahtevan.</message>
 	<message key="admin.settings.defaultMetricDescription">
-		Vaša nastavitev spremlja več kot en kazalnik uporabe. Statistika uporabe bo prikazana v različnih kontekstih.
-		Obstajajo primeri, v katerih mora biti uporabljen le en statistični kriterij uporabe spletišča, na primer za prikaz urejenega seznama največkrat uporabljenih prispevkov ali za razvrstitev rezultatov iskanja.
-		Izberite enega od nastavljenih kazalnikov za privzetega.
+		Vaša OJS namestitev beleži več kot le eno metriko uporabe, ki so prikazane v različnih kontekstih.
+		V nekaterih primerih mora biti uporabljena le ena metrika (npr. vrstni red najbolj branih člankov ali vrstni red iskalnih rezultatof. Prosimo izberite eno od konfiguriranih metrik kot privzetot.
 	</message>
-	<message key="admin.settings.homeHeaderImage.altText">Logotip spletišča</message>
-	<message key="admin.settings.homeHeaderImageInvalid">Napačen format slike za logotip spletišča. Dovoljeni formati so .gif, .jpg, or .png.</message>
+	<message key="admin.settings.homeHeaderImage.altText">Logotip strani</message>
+	<message key="admin.settings.homeHeaderImageInvalid">Napačen format slike za logotip.Dovoljeni formati so .ico, .png, and .gif.</message>
 	<message key="admin.settings.introduction">Uvod</message>
-	<message key="admin.settings.minPasswordLength">Minimalna dolžina gesla (znaki)</message>
+	<message key="admin.settings.minPasswordLength">Najmanjša dolžina gesla (znakov)</message>
 	<message key="admin.settings.siteLanguage">Jezik spletišča</message>
-	<message key="admin.settings.siteStyleSheetInvalid">Napačen format slogovne datoteke spletišča. Dovoljeni format je .css.</message>
-	<message key="admin.settings.siteStyleSheet">Slogovna datoteka spletišča</message>
+	<message key="admin.settings.siteStyleSheetInvalid">Napačen format stilske tablice. Dovoljeni formati je .css.</message>
+	<message key="admin.settings.siteStyleSheet">Stilska tablica spletišča</message>
 	<message key="admin.settings.siteLogo">Logotip spletišča</message>
 	<message key="admin.settings.siteTitle">Ime spletišča</message>
 	<message key="admin.settings.siteTheme">Tema spletišča</message>
-	<message key="admin.siteAdmin">Skrbništvo spletišča</message>
+	<message key="admin.siteAdmin">Administracija spletišča</message>
 	<message key="admin.siteManagement">Upravljanje spletišča</message>
 	<message key="admin.siteSettings">Nastavitve spletišča</message>
-	<message key="admin.siteSetup">Nastavitev spletišča</message>
-	<message key="admin.systemConfigFileReadError"><![CDATA[Nastavitvena datoteka <tt>config.inc.php</tt> ne obstaja, je ni možno prebrati ali je neveljavna.]]></message>
+	<message key="admin.siteSetup">Namestitev spletišča</message>
+	<message key="admin.systemConfigFileReadError"><![CDATA[Konfiguracijska datoteka <tt>config.inc.php</tt> ne obstaja, ni berljiva ali je neveljavna.]]></message>
 	<message key="admin.systemInformation">Informacije o sistemu</message>
-	<message key="admin.versionBuild">Številka graditve</message>
-	<message key="admin.version.checkForUpdates">Preveri posodobitve</message>
-	<message key="admin.version.downloadPackage">Prenos</message>
+	<message key="admin.versionBuild">Popravek</message>
+	<message key="admin.version.checkForUpdates">Preveri za posodobitve</message>
+	<message key="admin.version.downloadPackage">Prenesi</message>
 	<message key="admin.version.downloadPatch">Prenesi popravek</message>
-	<message key="admin.versionHistory">Zgodovina različic</message>
-	<message key="admin.version.latest">Zadnja različica</message>
+	<message key="admin.versionHistory">Zgodovina verzij</message>
+	<message key="admin.version.latest">Zadnja verzija</message>
 	<message key="admin.versionMajor">Glavna</message>
-	<message key="admin.versionMinor">Pomožna</message>
+	<message key="admin.versionMinor">Manjša</message>
 	<message key="admin.version.moreInfo">Več informacij</message>
-	<message key="admin.versionRevision">Popravek</message>
-	<message key="admin.version.updateAvailable">Novejša različica je na voljo</message>
+	<message key="admin.versionRevision">Revizija</message>
+	<message key="admin.version.updateAvailable">Na voljo je posodobljena verzija</message>
 	<message key="admin.version.upToDate">Vaš sistem je posodobljen</message>
 	<message key="admin.version">Različica</message>
-	
-	<message key="admin.fileLoader.wrongBasePathLocation">Pot zbirke {$path} mora biti v direktoriju javnih datotek.</message>
-	<message key="admin.fileLoader.pathNotAccessible">Mapa {$path} ni direktorij ali je ni možno prebrati.</message>
-	<message key="admin.fileLoader.moveFileFailed">Datoteke {$filename} ni bilo možno premakniti iz {$currentFilePath v {$destinationPath}</message>
-	<message key="admin.fileLoader.fileProcessed">Datoteka {$filename} je bila procesirana in arhivirana.</message>
-	<message key="admin.fileLoader.emailSubject">Naloži datoteko</message>
-	
-	<message key="admin.copyAccessLogFileTool.usage">Kopirajte prenesene datoteke dnevnika apache tako, da filtrirate vnose, povezane s to namestitvijo, v trenutni direktorij
-	datotek v direktoriju strežnika UsageStatsPlugin. Uporabnik mora imeti dovolj pravic za branje dostopnih datotek dnevnika apache.
-	
-	To orodje bo kopiralo samo datoteke, ki jih še ni v direktorijih usageStats file loader (faze, obdelava, arhiviranje, zavrnitev).
-	
-	Uporaba: {$scriptName} pot/do/apache/dnevnik/datoteka.log
-	Uporaba (obdelava vseh datotek v direktoriju): {$scriptName} pot/do/apache/imenik
+
+	<message key="admin.fileLoader.wrongBasePathLocation">Osnovna pot {$path} mora biti znotraj  mape z javnimi datotekami.</message>
+	<message key="admin.fileLoader.pathNotAccessible">Mapa {$path} ni mapa ali pa ni dosegljiva.</message>
+	<message key="admin.fileLoader.moveFileFailed">Dadoteke {$filename} ni bilo mogoče premakniti iz {$currentFilePath} v {$destinationPath}</message>
+	<message key="admin.fileLoader.fileProcessed">Datoteka {$filename} je bial obdelana in arhivirana.</message>
+	<message key="admin.fileLoader.emailSubject">Nalagalnik datotek</message>
+
+	<message key="admin.copyAccessLogFileTool.usage">Kopiranje preteklih apache dnevnikov, filtriranje zapisov vezanih na to namestitev, filtering the entries related with this installation, znotraj mape vtičnika za statistične podatke o uporabi. Zagnano mora biti pod uporabnikom, ki ima dovolj privilegijev za bralni dostop do apache dnevnikov.
+
+	To orodje bo skopiralo le datoteke, ki še niso v usageStats mapah (stage, processing, archive, reject).
+
+Uporaba: {$scriptName} pot/do/apache/log/file.log
+Uporaba (obdelva vseh datotek znotraj mape): {$scriptName} pot/do/apache/directory
 	</message>
-	<message key="admin.copyAccessLogFileTool.error.creatingFolder">Napaka: začasne mape ni možno ustvariti {$tmpDir}</message>
-	<message key="admin.copyAccessLogFileTool.error.acessingFile">Napaka: Datoteka {$filePath} ne obstaja ali do nje ni možno dostopati.</message>
-	<message key="admin.copyAccessLogFileTool.error.copyingFile">Napaka: datoteke ni možno kopirati iz {$filePath} v {$tmpFilePath}</message>
-	<message key="admin.copyAccessLogFileTool.error.deletingFile">Napaka: datoteke ni možno izbrisati {$tmpFilePath}</message>
-	<message key="admin.copyAccessLogFileTool.warning.fileAlreadyExists">Opozorilo: datoteka {$filePath} že obstaja v direktoriju statistike uporabe.</message>
-	<message key="admin.copyAccessLogFileTool.success">Uspeh: {$filePath} v {$destinationPath}</message>
-	<message key="admin.error.utilExecutionProblem">Izvedba programa "{$utilPath}" je javila napako: {$output}</message>
-	<message key="admin.error.executingUtil">Napaka: "{$utilPath}" ni mogoče izvesti. Preverite nastavitev {$utilVar} v config.inc.php.</message>
-	<message key="admin.languages.noLocalesToDownload">Območnih jezikov za prenos ni na voljo.</message>
+	<message key="admin.copyAccessLogFileTool.error.creatingFolder">Napaka: ni bilo mogoče ustvariti začasne mape {$tmpDir}</message>
+	<message key="admin.copyAccessLogFileTool.error.acessingFile">Napaka: datoteka {$filePath} ne obstja ali ni dostopna.</message>
+	<message key="admin.copyAccessLogFileTool.error.copyingFile">Napaka: kopiranje datoteke iz {$filePath} v {$tmpFilePath} ni bilo mogoče</message>
+	<message key="admin.copyAccessLogFileTool.error.deletingFile">Napaka: datoteke {$tmpFilePath} ni bilo mogoče odstraniti</message>
+	<message key="admin.copyAccessLogFileTool.warning.fileAlreadyExists">Opozorilo: datoteka {$filePath} že obstaja znotraj usageStats mape.</message>
+	<message key="admin.copyAccessLogFileTool.success">Uspešno: {$filePath} v {$destinationPath}</message>
+	<message key="admin.error.utilExecutionProblem">Izvajanje programa "{$utilPath}" je vrnilo naslednjo napako: {$output}</message>
+	<message key="admin.error.executingUtil">Napaka: "{$utilPath}" ni možno zagnati. Preverite {$utilVar} nastavitve v config.inc.php.</message>
+	<message key="admin.languages.noLocalesToDownload">Na voljo ni nobneih jezikovnih paketov za prenos.</message>
 </locale>

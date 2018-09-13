@@ -2,7 +2,7 @@
 <!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
 
 <!--
-  * plugins/metadata/openurl10/locale/sl_SI/locale.xml
+  * plugins/citationParser/freecite/locale/sl_SI/locale.xml
   *
   * Copyright (c) 2014-2017 Simon Fraser University
   * Copyright (c) 2003-2017 John Willinsky
@@ -12,6 +12,6 @@
   -->
 
 <locale name="sl_SI" full_name="Slovenščina">
-	<message key="plugins.metadata.openurl10.displayName">OpenURL 1.0 metapodatki</message>
-	<message key="plugins.metadata.openurl10.description">Zagotavlja OpenURL 1.0 sheme in adapterje.</message>
+	<message key="plugins.citationParser.freecite.displayName">FreeCite izluščevalnik citatov</message>
+	<message key="plugins.citationParser.freecite.description">Izlušči podatke iz citatov v prostem besedilu s pomočjo FreeCite servisa.</message>
 </locale>

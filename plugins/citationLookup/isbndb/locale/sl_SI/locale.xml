@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * plugins/citationLookup/isbndb/locale/sl_SI/locale.xml
+  *
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2003-2017 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+
+<locale name="sl_SI" full_name="Slovenščina">
+	<!-- plug-in -->
+	<message key="plugins.citationLookup.isbndb.displayName">Povezava z ISBNdb bazo podatkov</message>
+	<message key="plugins.citationLookup.isbndb.description">Vtičnik implementira povezavo s ISBNdb bibliografsko bazo podatkov.</message>
+
+	<!-- ISBN lookup and extraction services -->
+	<message key="plugins.citationLookup.isbndbExtraction.displayName">Servis za ISBN izluščevanje</message>
+	<message key="plugins.citationLookup.isbndbExtraction.description">Poišči ISBN za izbrani  NLM 3.0 element citiranja.</message>
+	<message key="plugins.citationLookup.isbndbLookup.displayName">Servis za iskanje po ISBN</message>
+	<message key="plugins.citationLookup.isbndbLookup.description">Poišči opis citata v NLM 3.0 obliki za izbran ISBN.</message>
+</locale>

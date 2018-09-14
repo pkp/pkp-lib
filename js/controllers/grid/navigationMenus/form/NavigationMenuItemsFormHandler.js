@@ -114,7 +114,7 @@
 				$descriptionEl = $('#menuItemTypeSection [for="menuItemType"]');
 
 		$('.NMI_TYPE_CUSTOM_EDIT', this.getHtmlElement()).hide();
-		$("#" + itemType).fadeIn();
+		$('#' + itemType).fadeIn();
 
 		if (typeof this.itemTypeDescriptions_[itemType] !== 'undefined') {
 			$descriptionEl.text(this.itemTypeDescriptions_[itemType]);

@@ -454,6 +454,7 @@
 	<message key="manager.reviewFormElements.noneCreated">No form items have been created.</message>
 	<message key="manager.reviewFormElements.possibleResponse">Selection</message>
 	<message key="manager.reviewFormElements.question">Item</message>
+	<message key="manager.reviewFormElements.description">Description</message>
 	<message key="manager.reviewFormElements.radiobuttons">Radio buttons (you can only choose one)</message>
 	<message key="manager.reviewFormElements.required">Reviewers required to complete item</message>
 	<message key="manager.reviewFormElements.included">Included in message to author</message>

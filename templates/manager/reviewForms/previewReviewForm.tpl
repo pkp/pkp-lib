@@ -12,6 +12,12 @@
 <p>{$description}</p>
 {iterate from=reviewFormElements item=reviewFormElement}
 		<p>{$reviewFormElement->getLocalizedQuestion()}{if $reviewFormElement->getRequired()}*{/if}</p>
+		{assign var=reviewFormElementDescription value=$reviewFormElement->getLocalizedDescription()}
+		{if $reviewFormElementDescription}
+			<p>
+				<span class="description">{$reviewFormElementDescription}</span>
+			</p>
+		{/if}
 		<p>
 				{if $reviewFormElement->getElementType() == REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD}
 						<input type="text" size="10" maxlength="40" class="textField" />

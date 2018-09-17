@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file controllers/grid/navigationMenus/form/NavigationMenuItemsForm.inc.php
+ * @file controllers/grid/navigationMenus/form/PKPNavigationMenuItemsForm.inc.php
  *
  * Copyright (c) 2014-2018 Simon Fraser University
  * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class NavigationMenuItemsForm
+ * @class PKPNavigationMenuItemsForm
  * @ingroup controllers_grid_navigationMenus
  *
  * @brief Form for managers to create/edit navigationMenuItems.
@@ -16,7 +16,7 @@
 
 import('lib.pkp.classes.form.Form');
 
-class NavigationMenuItemsForm extends Form {
+class PKPNavigationMenuItemsForm extends Form {
 	/** @var $navigationMenuItemId int the ID of the navigationMenuItem */
 	var $navigationMenuItemId;
 
@@ -32,7 +32,7 @@ class NavigationMenuItemsForm extends Form {
 		$this->_contextId = $contextId;
 		$this->navigationMenuItemId = $navigationMenuItemId;
 
-		parent::__construct('manager/navigationMenus/navigationMenuItemsForm.tpl');
+		parent::__construct('controllers/grid/navigationMenus/form/navigationMenuItemsForm.tpl');
 
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
@@ -59,7 +59,7 @@ class NavigationMenuItemsForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request, $template = 'controllers/grid/navigationMenus/form/navigationMenuItemsForm.tpl', $display = false) {
+	function fetch($request, $template = null, $display = false) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
 
 		$templateMgr = TemplateManager::getManager($request);
@@ -95,11 +95,13 @@ class NavigationMenuItemsForm extends Form {
 			}
 		}
 
-		$templateMgr->assign(array(
+		$templateArray = array(
 			'navigationMenuItemTypeTitles' => $typeTitles,
 			'navigationMenuItemTypeDescriptions' => json_encode($typeDescriptions),
 			'navigationMenuItemTypeConditionalWarnings' => json_encode($typeConditionalWarnings),
-		));
+		);
+
+		$templateMgr->assign($templateArray);
 
 		return parent::fetch($request, $template, $display);
 	}
@@ -112,21 +114,32 @@ class NavigationMenuItemsForm extends Form {
 		$navigationMenuItem = $navigationMenuItemDao->getById($this->navigationMenuItemId);
 
 		if ($navigationMenuItem) {
-			$this->_data = array(
+			$formData = array(
 				'path' => $navigationMenuItem->getPath(),
 				'title' => $navigationMenuItem->getTitle(null),
 				'url' => $navigationMenuItem->getUrl(),
 				'menuItemType' => $navigationMenuItem->getType(),
 			);
+
+			$this->_data =  $formData;
+
 			$this->setData('content', $navigationMenuItem->getContent(null)); // Localized
-		} 
+		}
 	}
 
 	/**
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('navigationMenuItemId', 'content', 'title', 'path', 'url','menuItemType'));
+		$this->readUserVars(array('navigationMenuItemId', 'path', 'content', 'title', 'url','menuItemType'));
+	}
+
+	/**
+	 * @copydoc Form::getLocaleFieldNames()
+	 */
+	function getLocaleFieldNames() {
+		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+		return $navigationMenuItemDao->getLocaleFieldNames();
 	}
 
 	/**
@@ -153,6 +166,8 @@ class NavigationMenuItemsForm extends Form {
 		} else {
 			$navigationMenuItemDao->insertObject($navigationMenuItem);
 		}
+
+		$this->navigationMenuItemId = $navigationMenuItem->getId();
 
 		return $navigationMenuItem->getId();
 	}

@@ -105,6 +105,25 @@ class PKPNavigationMenuService {
 	}
 
 	/**
+	 * Return all custom edit navigationMenuItemTypes Templates.
+	 * @return array
+	 */
+	public function getMenuItemCustomEditTemplates() {
+		$templates = array(
+			NMI_TYPE_CUSTOM => array(
+				'template' => 'core:controllers/grid/navigationMenus/customNMIType.tpl',
+			),
+			NMI_TYPE_REMOTE_URL => array(
+				'template' => 'core:controllers/grid/navigationMenus/remoteUrlNMIType.tpl',
+			),
+		);
+
+		\HookRegistry::call('NavigationMenus::itemCustomTemplates', array(&$templates));
+
+		return $templates;
+	}
+
+	/**
 	 * Callback for display menu item functionallity
 	 */
 	function getDisplayStatus(&$navigationMenuItem, &$navigationMenu) {

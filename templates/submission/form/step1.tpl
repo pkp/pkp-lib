@@ -30,10 +30,10 @@
 	{$additionalFormContent2}
 
 	{* Submission checklist *}
-	{if $currentContext->getLocalizedSetting('submissionChecklist')}
+	{if $submissionChecklist}
 		{fbvFormSection list="true" label="submission.submit.submissionChecklist" description="submission.submit.submissionChecklistDescription" id="pkp_submissionChecklist"}
-			{foreach name=checklist from=$currentContext->getLocalizedSetting('submissionChecklist') key=checklistId item=checklistItem}
-				{fbvElement type="checkbox" id="checklist-$checklistId" required=true value=1 label=$checklistItem.content translate=false checked=false}
+			{foreach name=checklist from=$submissionChecklist key=checklistId item=checklistItem}
+				{fbvElement type="checkbox" id="checklist-$checklistId" required=true value=1 label=$checklistItem.content translate=false checked=$checklistItem.checked}
 			{/foreach}
 		{/fbvFormSection}
 	{/if}

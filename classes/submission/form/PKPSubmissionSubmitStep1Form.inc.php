@@ -81,6 +81,29 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			$this->context->getSupportedSubmissionLocaleNames()
 		);
 
+		// set submission checklist template variable
+		$submissionChecklist = $this->context->getLocalizedSetting('submissionChecklist');
+
+		if (isset($this->submission)) {
+			$locale = $this->submission->getLocale();
+
+			foreach ((array) $submissionChecklist as $key => $checklistItem) {
+				// compare checklist item's value stored on previous submit with current configured value
+				$contentFromPreviousSubmit = $this->submission->getData("checklist-$key-content", $locale);
+				if ($contentFromPreviousSubmit === $checklistItem['content']) {
+					// content of checklist item is still the same, render checklist item with state stored
+					$checked = $this->submission->getData("checklist-$key") == '1';
+				} else {
+					// content of checklist item has changed, render it as unchecked so that user needs to confirm again
+					$checked = false;
+				}
+
+				$submissionChecklist[$key]['checked'] = $checked;
+			}
+		}
+
+		$templateMgr->assign('submissionChecklist', $submissionChecklist);
+
 		// if this context has a copyright notice that the author must agree to, present the form items.
 		if ((boolean) $this->context->getSetting('copyrightNoticeAgree')) {
 			$templateMgr->assign('copyrightNotice', $this->context->getLocalizedSetting('copyrightNotice'));

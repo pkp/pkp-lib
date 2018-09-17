@@ -37,6 +37,10 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		foreach ((array) $context->getLocalizedSetting('submissionChecklist') as $key => $checklistItem) {
 			$this->addCheck(new FormValidator($this, "checklist-$key", 'required', 'submission.submit.checklistErrors'));
 		}
+
+		$submissionDao = Application::getSubmissionDAO();
+		HookRegistry::register(strtolower_codesafe(get_class($submissionDao)) . '::getLocaleFieldNames', array($this, 'getSubmissionChecklistLocaleFieldNames'));
+		HookRegistry::register(strtolower_codesafe(get_class($submissionDao)) . '::getAdditionalFieldNames', array($this, 'getSubmissionChecklistAdditionalFieldNames'));
 	}
 
 	/**
@@ -191,6 +195,13 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	function setSubmissionData($submission) {
 		$this->submission->setLanguage(PKPString::substr($this->submission->getLocale(), 0, 2));
 		$this->submission->setLocale($this->getData('locale'));
+
+		foreach ((array) $this->context->getSetting('submissionChecklist') as $locale => $checklistItems) {
+			foreach ($checklistItems as $key => $checklistItem) {
+				$this->submission->setData("checklist-$key", $this->getData("checklist-$key"));
+				$this->submission->setData("checklist-$key-content", $checklistItem['content'], $locale);
+			}
+		}
 	}
 
 	/**
@@ -342,6 +353,24 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		}
 
 		return $this->submissionId;
+	}
+
+	public function getSubmissionChecklistLocaleFieldNames($hookName, $args) {
+		$dao = $args[0];
+		$localeFieldNames =& $args[1];
+
+		foreach ((array) $this->context->getLocalizedSetting('submissionChecklist') as $key => $checklistItem) {
+			$localeFieldNames[] = "checklist-$key-content";
+		}
+	}
+
+	public function getSubmissionChecklistAdditionalFieldNames($hookName, $args) {
+		$dao = $args[0];
+		$additionalFieldNames =& $args[1];
+
+		foreach ((array) $this->context->getLocalizedSetting('submissionChecklist') as $key => $checklistItem) {
+			$additionalFieldNames[] = "checklist-$key";
+		}
 	}
 }
 

@@ -361,7 +361,7 @@ class PKPFileUploadWizardHandler extends Handler {
 							'editorialContactSignature' => $context->getSetting('contactName'),
 							'submissionUrl' => $submissionUrl,
 						));
-						$mail->send();
+						$mail->send($request);
 					}
 				}
 				break;

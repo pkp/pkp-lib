@@ -261,8 +261,8 @@
 	<message key="manager.plugins.deleteSuccess">El módulo "{$pluginName}" se eliminó correctamente</message>
 	<message key="manager.plugins.doesNotExist">El módulo "{$pluginName}" no existe</message>
 	<message key="manager.plugins.fileSelectError">Seleccione un archivo primero</message>
-	<message key="manager.plugins.installedVersionNewer">Este módulo ya existe. Se trata de una versión posterior o igual que la que está instalada</message>
-	<message key="manager.plugins.installedVersionOlder">Este módulo ya existe. Se trata de una versión anterior o igual que la que está instalada</message>
+	<message key="manager.plugins.installedVersionNewer">Este módulo ya existe y es una versión posterior a la que está disponible en la galería.</message>
+	<message key="manager.plugins.installedVersionOlder">Este módulo ya existe, pero puede ser actualizado a una nueva versión.</message>
 	<message key="manager.plugins.installFailed">Error de instalación {$errorString}</message>
 	<message key="manager.plugins.installSuccessful">La versión {$versionNumber} se ha instalado correctamente</message>
 	<message key="manager.plugins.invalidPluginArchive">El módulo que ha cargado no contiene ninguna carpeta que se corresponda con el nombre del módulo.</message>

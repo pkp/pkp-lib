@@ -31,7 +31,7 @@ class ContextAccessPolicy extends ContextPolicy {
 		foreach($roleAssignments as $role => $operations) {
 			$contextRolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
 		}
-		$this->addPolicy($contextRolePolicy);
+		if (!empty($roleAssignments)) $this->addPolicy($contextRolePolicy);
 	}
 }
 

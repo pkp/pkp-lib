@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="sr_RS@latin" full_name = "Srpski">
+<locale name="sr_RS@latin" full_name="Srpski">
 	<message key="manager.announcements">Obaveštenja</message>
 	<message key="manager.announcements.confirmDelete">Da li ste sigurni da želite da trajno obrišete ovo obaveštenje?</message>
 	<message key="manager.announcements.create">Napravi novo obaveštenje</message>

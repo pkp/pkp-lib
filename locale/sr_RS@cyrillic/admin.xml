@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="sr_RS@cyrillic" full_name = "Srpski">
+<locale name="sr_RS@cyrillic" full_name="Cрпски">
 	<message key="admin.adminFunctions">Административне функције</message>
 	<message key="admin.auth.confirmDelete">Да ли сте сигурни да желите трајно обрисати овај извор аутентификације?</message>
 	<message key="admin.auth.create">Креирајте извор аутентификације</message>

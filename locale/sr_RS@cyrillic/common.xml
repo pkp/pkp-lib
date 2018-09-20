@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="sr_RS@cyrillic" full_name = "Serbian">
+<locale name="sr_RS@cyrillic" full_name="Cрпски">
 	<message key="about.aboutSite">О нама</message>
 	<message key="about.contact">Контакт</message>
 	<message key="about.contact.email">Имејл</message>

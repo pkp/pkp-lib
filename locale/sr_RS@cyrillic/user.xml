@@ -11,7 +11,7 @@
   * Localization strings for the sr_RS@cyrillic (Cрпски) locale.
   -->
 
-<locale name="sr_RS@cyrillic" full_name = "Serbian">
+<locale name="sr_RS@cyrillic" full_name="Cрпски">
 	<message key="user.affiliation">Афилијација</message>
 	<message key="user.affiliation.description">(Ваша институција, нпр. "Филозофски факултет у Новом Саду")</message>
 	<message key="user.affiliations">Афилијације</message>

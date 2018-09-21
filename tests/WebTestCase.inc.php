@@ -311,15 +311,6 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	}
 
 	/**
-	 * Log in as author user.
-	 */
-	protected function logAuthorIn() {
-		$authorUser = 'kalkhafaji';
-		$authorPw = 'kalkhafajikalkhafaji';
-		$this->logIn($authorUser, $authorPw);
-	}
-
-	/**
 	 * Type a value into a TinyMCE control.
 	 * @param $controlPrefix string Prefix of control name
 	 * @param $value string Value to enter into control

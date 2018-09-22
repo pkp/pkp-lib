@@ -27,7 +27,7 @@
 		so that we can restore it if the user deletes all rows.
 	**}
 	<tr>
-		<td colspan="{$grid->getColumnsCount('indent')}">{translate key=$grid->getEmptyCategoryRowText()}</td>
+		<td>{translate key=$grid->getEmptyCategoryRowText()}</td>
 	</tr>
 </tbody>
 {if $grid->getIsSubcomponent()}

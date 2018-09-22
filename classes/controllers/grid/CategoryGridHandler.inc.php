@@ -39,8 +39,6 @@ class CategoryGridHandler extends GridHandler {
 		parent::__construct($dataProvider);
 
 		import('lib.pkp.classes.controllers.grid.NullGridCellProvider');
-		$this->addColumn(new GridColumn('indent', null, null, null,
-			new NullGridCellProvider(), array('indent' => true, 'width' => 2)));
 	}
 
 
@@ -151,7 +149,7 @@ class CategoryGridHandler extends GridHandler {
 	 * Get the number of elements inside the passed category element.
 	 * @param $categoryElement mixed
 	 * @param $request PKPRequest
-	 * @return int 
+	 * @return int
 	 */
 	function getCategoryItemsCount($categoryElement, $request) {
 		$data = $this->getGridCategoryDataElements($request, $categoryElement);
@@ -302,18 +300,6 @@ class CategoryGridHandler extends GridHandler {
 		} else {
 			return $rowData;
 		}
-	}
-
-	/**
-	 * @see GridHandler::setFirstDataColumn()
-	 */
-	protected function setFirstDataColumn() {
-		$columns =& $this->getColumns();
-		reset($columns);
-		// Category grids will always have indent column firstly,
-		// so we need to consider the first column the second one.
-		$secondColumn = next($columns); /* @var $secondColumn GridColumn */
-		$secondColumn->addFlag('firstColumn', true);
 	}
 
 	/**

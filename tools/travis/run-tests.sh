@@ -30,7 +30,7 @@ zip ${DUMMY_ZIP} ${DUMMY_PDF} # Zip format; add PDF dummy as contents
 
 # Create the database.
 if [[ "$TEST" == "pgsql" ]]; then
-	sudo service postgresql start # Not sure why this isn't already managed by Travis
+	sudo service postgresql start
 	psql -c "CREATE DATABASE \"ojs-ci\";" -U postgres
 	psql -c "CREATE USER \"ojs-ci\" WITH PASSWORD 'ojs-ci';" -U postgres
 	psql -c "GRANT ALL PRIVILEGES ON DATABASE \"ojs-ci\" TO \"ojs-ci\";" -U postgres

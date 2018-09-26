@@ -11,4 +11,4 @@
 
 set -xe
 
-find . -name composer.json -exec bash -c 'composer -d="`dirname {}`" install --no-dev' ";"
+find . -name composer.json -exec bash -c 'composer -d"`dirname {}`" install --no-dev' ";"

@@ -450,7 +450,7 @@ class Mail extends DataObject {
 	 * @return boolean
 	 */
 	function send() {
-		if (HookRegistry::call('Mail::send', array($this))) return;
+		if (HookRegistry::call('Mail::send', array($this))) return true;
 
 		// Replace all the private parameters for this message.
 		$mailBody = $this->getBody();

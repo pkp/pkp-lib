@@ -107,13 +107,13 @@
 	<message key="user.register.form.emailExists">Valittu sähköposti on jo toisen käyttäjän käytössä.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Salasanat eivät täsmää.</message>
 	<message key="user.register.form.emailsDoNotMatch">Sähköpostin osoitekentät eivät täsmää.</message>
-	<message key="user.register.form.usernameAlphaNumeric">Käyttäjätunnus voi sisältää vain aakkosnumeerisia merkkejä, alaviivoja ja yhdysmerkkejä, ja sen täytyy alkaa ja päättyä aakkosnumeeriseen merkkiin.</message>
+	<message key="user.register.form.usernameAlphaNumeric">Käyttäjätunnus voi sisältää vain pieniä aakkosnumeerisia merkkejä, alaviivoja ja yhdysmerkkejä, ja sen täytyy alkaa ja päättyä aakkosnumeeriseen merkkiin. Suomenkielen kirjaimet ä, ö ja å sekä muut vastaavat erikoiskirjaimet eivät kelpaa.</message>
 	<message key="user.register.form.userGroupRequired">Vähintään yksi rooli on valittava.</message>
 	<message key="user.register.form.usernameExists">Valittu käyttäjätunnus on jo toisen käyttäjän käytössä.</message>
 	<message key="user.register.form.passwordLengthRestriction">Salasanan on oltava vähintään {$length} merkkiä pitkä.</message>
 	<message key="user.register.registerAs">Rekisteröidy kontekstiin {$contextName}...</message>
 	<message key="user.register">Rekisteröidy</message>
-	<message key="user.register.usernameRestriction">Käyttäjätunnus voi sisältää vain pieniä kirjaimia, numeroita ja yhdysmerkkejä/alaviivoja.</message>
+	<message key="user.register.usernameRestriction">Käyttäjätunnus voi sisältää vain pieniä kirjaimia, numeroita ja yhdysmerkkejä/alaviivoja. Suomenkielen kirjaimet ä, ö ja å sekä muut vastaavat erikoiskirjaimet eivät kelpaa.</message>
 	<message key="user.register.registrationCompleted"><![CDATA[Olet rekisteröitynyt onnistuneesti. <a href="{$profileUrl}">Klikkaa tästä</a> täydentääksesi käyttäjäprofiilisi tiedot.]]></message>
 	<message key="user.role.author">Kirjoittaja</message>
 	<message key="user.role.author_s">Kirjoittaja(t)</message>

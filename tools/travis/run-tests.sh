@@ -18,12 +18,7 @@ else
 	./lib/pkp/tools/runAllTests.sh -bd
 fi
 
-# Dump the completed database.
-if [[ "$TEST" == "pgsql" ]]; then
-	pg_dump --clean --username=$DBUSERNAME --host=$DBHOST $DBNAME | gzip -9 > $DATABASEDUMP
-elif [[ "$TEST" == "mysql" ]]; then
-	mysqldump --user=$DBUSERNAME --password=$DBPASSWORD --host=$DBHOST $DBNAME | gzip -9 > $DATABASEDUMP
-fi
+./lib/pkp/tools/travis/dump-database.sh
 
 # Run test suite.
 sudo rm -f cache/*.php

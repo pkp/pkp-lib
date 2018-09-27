@@ -11,9 +11,6 @@
 
 set -xe
 
-# Start apache and configure a virtual host.
-if [[ ${TRAVIS_PHP_VERSION:0:2} == "5." ]]; then sudo apt-get install -q php5-curl php5-mysql php5-pgsql php5-intl php5-xsl; fi
-
 phpenv config-add lib/pkp/tools/travis/php.ini
 
 sudo socat TCP-LISTEN:80,fork,reuseaddr TCP:localhost:8080 &

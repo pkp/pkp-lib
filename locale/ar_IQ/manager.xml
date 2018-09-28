@@ -248,6 +248,7 @@
 	<message key="manager.setup.principalContact">عنوان الاتصال الرئيسي</message>
 	<message key="manager.setup.principalContactDescription">أدخل تفاصيل العنوان التي عادة ما تكون لعضو أساسي في هيئة التحرير أو لرئيس التحرير أو لصاحب منصب إداري رئيسي، إذ أن هذا العنوان سيظهر علانية على موقعك.</message>
 	<message key="manager.setup.privacyStatement">بيان الخصوصية</message>
+	<message key="manager.setup.privacyStatement.description">هذا البيان سيظهر خلال مرحلة تسجيل المستخدم، تقديم طلب النشر من قبل المؤلف، وعلى صفحة التعريف بالخصوصية الشخصية المتاحة للعامة. حسب بعض التشريعات، لا بد من الناحية القانونية الإفصاح عن كيفية معالجة وتداول بيانات المستخدمين ضمن بيان الخصوصية.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">الأسابيع المسموح بها لقبول أو رفض طلب التحكيم</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">الأسابيع المسموح بها لإكمال مهمة التحكيم</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">لا تذكرني مطلقاً</message>
@@ -256,6 +257,8 @@
 	<message key="manager.setup.reviewOptions.remindForSubmit">أرسل تذكيراً إذا لم يرسل المحكم توصيته بعد مرور فترة (بالأيام) من انقضاء فترة التحكيم:</message>
 	<message key="manager.setup.reviewOptions.reviewTime">المواعيد النهائية للتحكيم إفتراضياً</message>
 	<message key="manager.setup.reviewOptions.showBlindReviewLink">أضف رابطاً عن "ضمان التحكيم السري" خلال رفع الملفات</message>
+	<message key="manager.setup.searchEngineIndexing.sitemap">خريطة الموقع</message>
+	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[تتوفر نسخة من خريطة الموقع بصيغة XML صالحة للتقديم إلى محركات البحث، عند <a href="{$path}" target="_blank">{$path}</a>]]></message>
 	<message key="manager.setup.sponsors.note">وصف علاقة الجهة الراعية وسياستها</message>
 	<message key="manager.setup.sponsors.description">أمثلة: الرابطات الطلابية، أقسام الجامعات، جهات متعاونة... وما شابه. يتم عرض هذه الجهات علانية في الموقع.</message>
 	<message key="manager.setup.styleSheetDescription">مطورو مواقع الإنترنت ذوو الخبرة بإمكانهم رفع ملف أنماط بصيغة CSS لمزيد من التحكم بمظهر الموقع.</message>
@@ -393,6 +396,8 @@
 	<message key="settings.libraryFiles.category.permissions">الصلاحيات</message>
 	<message key="settings.libraryFiles.category.reports">التقارير</message>
 	<message key="settings.libraryFiles.category.other">غيرها</message>
+	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>ملف المكتبة هذا يمكن إتاحته للتنزيل فيما لو تم تمكين "الوصول المفتوح"، عند: <blockquote>{$downloadUrl}</blockquote></p>]]></message>
+	<message key="settings.libraryFiles.public.selectLibraryFiles">إختر ملفات المكتبة لربطها</message>
 
 	<!--  Genre grid settings -->
 	<message key="grid.action.addGenre">إضافة مكون</message>
@@ -401,6 +406,10 @@
 	<message key="grid.action.restoreGenres">استعادة الإعدادات الإفتراضية لهذا المكون</message>
 	<message key="manager.setup.genres.dependent">إعتبر الملفات من هذا النوع ملفات مستقلة (أي، لا يتم إدراجها مع المحتوى المنشور)</message>
 	<message key="manager.setup.genres.supplementary">إعتبر الملفات من هذا النوع ملفات تكميلية (أي، ليست ملفات طلب نشر أساسية)</message>
+	<message key="manager.setup.genres.key">المفتاح</message>
+	<message key="manager.setup.genres.key.description">معرَّف رمزي قصير إختياري لهذا النوع.</message>
+	<message key="manager.setup.genres.key.exists">هذا المفتاح موجود سلفاً.</message>
+	<message key="manager.setup.genres.key.alphaNumeric">يمكن للمفتاح أن يحتوي فقط على حروف وأرقام، خطوط تحتانية وشُرَط، ولا بد أن يبدأ بحرف أو رقم وينتهي بأي منهما.</message>
 	<message key="manager.settings.wizard">برنامج الإعدادات</message>
 	<message key="manager.users.roleRequired">عليك أن تختار دوراً واحداً على الأقل لتمنحه لهذا المستخدم.</message>
 	<message key="manager.website">الموقع</message>
@@ -490,6 +499,7 @@
 	<message key="manager.navigationMenus.unassignedMenuItems">إزالة عناصر القائمة</message>
 	<message key="manager.navigationMenus.form.navigationMenuArea">مساحات تنقل النمط الحالي</message>
 	<message key="manager.navigationMenus.form.navigationMenuAreaMessage">إختر مساحة التنقل</message>
+	<message key="manager.navigationMenus.form.menuAssigned">لقد سبق تخصيص قائمة تنقل لهذه المساحة.</message>
 
 	<message key="manager.navigationMenus.form.url">الرابط</message>
 	<message key="manager.navigationMenus.form.customUrlError">لا بد من توفير الرابط</message>
@@ -521,5 +531,12 @@
 	<message key="manager.navigationMenus.logOut.description">الرابط الذي سيؤدي إلى تسجيل خروج المستخدم من الموقع.</message>
 	<message key="manager.navigationMenus.loggedOut.conditionalWarning">هذا الرابط سيظهر فقط إذا كان زائر الموقع قد سجل دخوله.</message>
 	<message key="manager.navigationMenus.loggedIn.conditionalWarning">هذا الرابط سيظهر فقط إذا كان زائر الموقع لم يسجل دخوله بعد.</message>
-
+	<message key="manager.navigationMenus.contact.description">رابط إلى صفحة تعرض معلومات عناوين الاتصال.</message>
+	<message key="manager.navigationMenus.contact.conditionalWarning">هذا الرابط سيتم عرضه فقط عندما تقوم بتعبئة معلومات الاتصال المتوضعة ضمن: الإعدادات > معلومات الاتصال.</message>
+	<message key="manager.navigationMenus.form.typeMissing">لطفاً، إختر نوع قائمة التنقل.</message>
+	<message key="manager.navigationMenus.subscriptions.conditionalWarning">هذا الرابط سيتم عرضه فقط عند تمكين المدفوعات المتوضعة ضمن: الإعدادات > التوزيع > المدفوعات.</message>
+	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning">هذا الرابط سيتم عرضه فقط عندما يقوم زائر الموقع بتسجيل دخوله فيه، والمدفوعات ممَكَّنة ضمن: الإعدادات > التوزيع > المدفوعات، والإشتراكات مطلوبة ضمن: الإعدادات > التوزيع > إتاحة الوصول.</message>
+	<message key="manager.navigationMenus.search.description">رابط إلى صفحة البحث.</message>
+	<message key="manager.navigationMenus.privacyStatement.description">رابط إلى الصفحة التي تعرض بيان الخصوصية.</message>
+	<message key="manager.navigationMenus.privacyStatement.conditionalWarning">هذا الرابط سيظهر فقط إذا سبق لك إدخال بيان الخصوصية ضمن: الإعدادات > المخطط الانسيابي > طلبات التقديم.</message>
 </locale>

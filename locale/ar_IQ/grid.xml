@@ -18,6 +18,7 @@
 	<message key="grid.noAuditors">بلا مراقبين</message>
 	<message key="grid.remotelyHostedItem">هذه الفقرة مستضافة خارجياً.</message>
 
+	<message key="grid.action.uninstall">إلغاء التنصيب</message>
 	<message key="grid.action.manageAccess">إدارة الوصول</message>
 	<message key="grid.action.sort">الفرز</message>
 	<message key="grid.action.addItem">إضافة فقرة</message>
@@ -73,7 +74,6 @@
 	<message key="grid.action.sendToProduction">أرسل طلب النشر هذا لمرحلة الإنتاج</message>
 	<message key="grid.action.settings">الإعدادات</message>
 	<message key="grid.action.importexport">استيراد أو تصدير محتوى أو بيانات الموقع</message>
-	<message key="grid.action.restoreDefaults">استعادة الإعدادات الإفتراضية</message>
 	<message key="grid.action.orderItems">تمكين نمط الفرز</message>
 	<message key="grid.action.editSubmissionChecklist">تعديل فقرة التأشير هذه</message>
 	<message key="grid.action.deleteSubmissionChecklist">حذف فقرة التأشير هذه</message>
@@ -271,4 +271,5 @@
 	<message key="grid.action.addNavigationMenuItem">إضافة عنصر</message>
 	<message key="grid.navigationMenus.navigationMenuItems.noneExist">لا عناصر في قائمة التنقل بعد</message>
 	<message key="grid.navigationMenus.navigationMenu.noneExist">لا توجد قوائم تنقل بعد</message>
+	<message key="grid.navigationMenus.navigationMenu.selectType">إختر نوعاً...</message>
 </locale>

@@ -58,11 +58,11 @@ class FileArchive {
 	}
 
 	/**
-	 * Return true if PHP is new enough and has the zip extension loaded.
+	 * Return true if the zip extension is loaded.
 	 * @return boolean
 	 */
 	static function zipFunctional() {
-		return (checkPhpVersion('5.2.0') && extension_loaded('zip'));
+		return (extension_loaded('zip'));
 	}
 
 	/**

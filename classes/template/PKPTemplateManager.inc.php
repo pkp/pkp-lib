@@ -42,7 +42,7 @@ define('CSS_FILENAME_SUFFIX', 'css');
 
 import('lib.pkp.classes.template.PKPTemplateResource');
 
-class PKPTemplateManager extends SmartyBC {
+class PKPTemplateManager extends Smarty {
 	/** @var array of URLs to stylesheets */
 	private $_styleSheets = array();
 

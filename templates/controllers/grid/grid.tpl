@@ -42,7 +42,7 @@
 				{foreach name=columns from=$columns item=column}
 					{* @todo indent columns should be killed at their source *}
 					{if $column->hasFlag('indent')}
-						{php}continue;{/php}
+						{continue}
 					{/if}
 					{if $column->hasFlag('alignment')}
 						{assign var=alignment value=$column->getFlag('alignment')}

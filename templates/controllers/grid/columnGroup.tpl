@@ -12,7 +12,7 @@
 	{foreach from=$columns item=column}
 		{* @todo indent columns should be killed at their source *}
 		{if $column->hasFlag('indent')}
-			{php}continue;{/php}
+			{continue}
 		{/if}
 		<col class="grid-column column-{$column->getId()}"
 		{if $column->hasFlag('width')}

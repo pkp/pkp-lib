@@ -49,20 +49,21 @@ class FileDateGridColumn extends GridColumn {
 		$submissionFileData = $row->getData();
 		$submissionFile = $submissionFileData['submissionFile'];
 		assert(is_a($submissionFile, 'SubmissionFile'));
-        $mtimestamp = strtotime($submissionFile->getDateModified());
-        $dateFormatShort = \Config::getVar('general', 'date_format_long');
-        $date = strftime($dateFormatShort, $mtimestamp);
-        // File age
-        $age = (int)floor((date('U') - $mtimestamp) / 86400);
-        switch( true ) {
-            case $age <= 7:
-                $cls = " pkp_helpers_text_warn"; break;
-            case $age <= 28:
-                $cls = " pkp_helpers_text_primary"; break;
-            default:
-                $cls = ""; break;
-        }
-        return array('label' => sprintf("<span class='label%s'>%s</span>", $cls, $date));
+		$mtimestamp = strtotime($submissionFile->getDateModified());
+		$dateFormatShort = \Config::getVar('general', 'date_format_long');
+		$date = strftime($dateFormatShort, $mtimestamp);
+		// File age
+		$age = (int)floor((date('U') - $mtimestamp) / 86400);
+		switch( true ) {
+			case $age <= 7:
+				$cls = " pkp_helpers_text_warn"; break;
+			case $age <= 28:
+				$cls = " pkp_helpers_text_primary"; break;
+			default:
+				$cls = ""; break;
+		}
+		return array('label' => sprintf("<span class='label%s'>%s</span>",
+										$cls, htmlspecialchars($date)));
 	}
 
 	//
@@ -84,4 +85,3 @@ class FileDateGridColumn extends GridColumn {
 	}
 }
 
-?>

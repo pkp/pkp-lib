@@ -149,7 +149,7 @@ class SubmissionFilesGridHandler extends GridHandler {
 		// The file name column is common to all file grid types.
 		$this->addColumn(new FileNameGridColumn($capabilities->canViewNotes(), $this->getStageId()));
 
-        // Additional column with file upload date/creation date
+		// Additional column with file upload date/creation date
 		$this->addColumn(new FileDateGridColumn($capabilities->canViewNotes()));
 
 		// Set the no items row text
@@ -215,5 +215,4 @@ class SubmissionFilesGridHandler extends GridHandler {
 		return $this->getGridDataElements($request);
 	}
 }
-
 

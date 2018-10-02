@@ -123,8 +123,8 @@
 
 // pkel/retostauffer: styling the "stage decision" elements
 .pkp_workflow_decisions.hide_buttons {
-    padding-top: 1em;
-    display: none;
+	padding-top: 1em;
+	display: none;
 }
 
 .pkp_no_workflow_decisions,
@@ -136,9 +136,9 @@
 	box-shadow: 0 1px 1px rgba(0,0,0,0.2);
 	border-radius: @radius;
 	border-top: @grid-border;
-    &.decision_1 p { display: inline; color: @primary; }
-    &.decision_2 p { display: inline; color: @bg-dark; }
-    &.decision_4 p { display: inline; color: @submission; }
+	&.decision_1 p { display: inline; color: @primary; }
+	&.decision_2 p { display: inline; color: @bg-dark; }
+	&.decision_4 p { display: inline; color: @submission; }
 }
 
 .export_actions {
@@ -417,24 +417,24 @@
 	}
 
 	.submission_progress li.current {
- 		background-image:url('@{baseUrl}/lib/pkp/templates/images/structure/workflow_current.png');
+		background-image:url('@{baseUrl}/lib/pkp/templates/images/structure/workflow_current.png');
 
- 		a {
- 			font-size: 13px;
- 		}
+		a {
+			font-size: 13px;
+		}
 
 		&.productionReady {
 			background-image:url('@{baseUrl}/lib/pkp/templates/images/structure/workflow_productionReadyCurrent.png') !important;
 		}
- 	}
+	}
 
 	.submission_progress li.complete a:after {
 		background-color: #e5f4e5;
 	}
 
 	.submission_progress li.current a:after {
- 		background-color: #EAF3F8;
- 	}
+		background-color: #EAF3F8;
+	}
 
 	.submission_progress li:before {
 		margin-left: 2px;

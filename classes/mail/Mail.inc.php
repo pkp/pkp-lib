@@ -322,8 +322,23 @@ class Mail extends DataObject {
 	 */
 	function setReplyTo($email, $name = '') {
 		if ($email === null) $this->setData('replyTo', null);
-		$this->setData('replyTo', array('name' => $name, 'email' => $email));
+		$this->setData('replyTo', array(array('name' => $name, 'email' => $email)));
 	}
+
+	/**
+	* Add a reply-to for the message.
+	* @param $email string
+	* @param $name string optional
+	*/
+	function addReplyTo($email, $name = '') {
+                if (($replyTos = $this->getData('replyTo')) == null) {
+                        $replyTos = array();
+                }
+                array_push($replyTos, array('name' => $name, 'email' => $email));
+
+                $this->setData('replyTo', $replyTo);
+	}
+
 
 	/**
 	 * Get the reply-to of the message.
@@ -334,16 +349,11 @@ class Mail extends DataObject {
 	}
 
 	/**
-	 * Return a string containing the reply-to address.
+	 * Return a string containing the reply-to addresses.
 	 * @return string
 	 */
 	function getReplyToString($send = false) {
-		$replyTo = $this->getReplyTo();
-		if (!array_key_exists('email', $replyTo) || $replyTo['email'] == null) {
-			return null;
-		} else {
-			return (self::encodeDisplayName($replyTo['name'], $send) . ' <'.$replyTo['email'].'>');
-		}
+		return $this->getAddressArrayString($this->getReplyTo(), true, $send);
 	}
 
 	/**
@@ -486,11 +496,24 @@ class Mail extends DataObject {
 		foreach ((array) $this->getHeaders() as $header) {
 			$mailer->AddCustomHeader($header['key'], $mailer->SecureHeader($header['content']));
 		}
-		if (($s = $this->getEnvelopeSender()) != null) $mailer->Sender = $s;
 		if (($f = $this->getFrom()) != null) {
+			// this sets Sender as well
 			$mailer->SetFrom($f['email'], $f['name']);
 		}
-		if (($r = $this->getReplyTo()) != null) {
+		if (($s = $this->getEnvelopeSender()) != null) $mailer->Sender = $s;
+		// When we are modifying the envelope sender, promote the from to a reply-to
+		if ($f != null && $f['email'] !== $s) {
+			$alreadyExists = false;
+			foreach ((array) $this->getReplyTo() as $r) {
+				if ($r['email'] === $f['email']) {
+					$alreadyExists = true;
+				}
+			}
+			if (!$alreadyExists) {
+				$mailer->AddReplyTo($f['email'], $f['name']);
+			}
+		}
+		foreach ((array) $this->getReplyTo() as $r) {
 			$mailer->AddReplyTo($r['email'], $r['name']);
 		}
 		foreach ((array) $this->getRecipients() as $recipientInfo) {

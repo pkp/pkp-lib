@@ -160,6 +160,6 @@
 	<message key="user.apiKeyEnabled">تمكين التطبيقات الخارجية التي تملك مفتاح API هذا الوصول من الوصول إلى هذا الحساب</message>
 	<message key="user.apiKey.generate">توليد مفتاح API جديد</message>
 	<message key="user.apiKey.generateWarning">توليد مفتاح API جديد سيؤدي إلى إبطال أي مفتاح حالي لهذا المستخدم.</message>
-	<message key="user.apiKey.secretRequired">Before generating an API key, your site administrator must set a secret in the config file ("api_key_secret").</message>
-	<message key="user.privacyLink"><![CDATA[Your data is stored in accordance with our <a href="{$privacyUrl}" target="_blank">privacy statement</a>.]]></message>
+	<message key="user.apiKey.secretRequired">قبل توليد مفتاح API، لا بد للمشرف على موقعك من تهيئة كلمة سر في ملف التهيئة تحت مسمى ("api_key_secret").</message>
+	<message key="user.privacyLink"><![CDATA[إن بياناتك محفوظة حسب <a href="{$privacyUrl}" target="_blank">بيان الخصوصية</a> الخاص بنا.]]></message>
 </locale>

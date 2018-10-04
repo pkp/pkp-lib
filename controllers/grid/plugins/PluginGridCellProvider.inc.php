@@ -85,7 +85,10 @@ class PluginGridCellProvider extends GridCellProvider {
 						return array(new LinkAction(
 							'enable',
 							new AjaxAction(
-								$request->url(null, null, 'enable', null, $requestArgs)
+								$request->url(null, null, 'enable', null, array_merge(
+									['csrfToken' => $request->getSession()->getCSRFToken()],
+									$requestArgs
+								))
 							),
 							__('manager.plugins.enable'),
 							null
@@ -96,5 +99,3 @@ class PluginGridCellProvider extends GridCellProvider {
 		return parent::getCellActions($request, $row, $column, $position);
 	}
 }
-
-

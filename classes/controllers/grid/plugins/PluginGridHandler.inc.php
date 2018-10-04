@@ -242,7 +242,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	 */
 	function enable($args, $request) {
 		$plugin = $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN); /* @var $plugin Plugin */
-		if ($plugin->getCanEnable()) {
+		if ($request->checkCSRF() && $plugin->getCanEnable()) {
 			$plugin->setEnabled(true);
 			$user = $request->getUser();
 			$notificationManager = new NotificationManager();
@@ -389,5 +389,3 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 		return new JSONMessage(true, $uploadPluginForm->fetch($request));
 	}
 }
-
-

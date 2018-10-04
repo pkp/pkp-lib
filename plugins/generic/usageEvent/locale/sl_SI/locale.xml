@@ -1,17 +1,17 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../lib/pkp/dtd/locale.dtd">
 
 <!--
-  * plugins/generic/usageEvent/locale/sl_SI/locale.xml
+  * locale/sl_SI/locale.xml
   *
-  * Copyright (c) 2013-2018 Simon Fraser University
+  * Copyright (c) 2014-2018 Simon Fraser University
   * Copyright (c) 2003-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
   -->
- 
+
 <locale name="sl_SI" full_name="Slovenščina">
 	<message key="plugins.generic.usageEvent.displayName">Dogodek uporabe</message>
-	<message key="plugins.generic.usageEvent.description">Ustvari ročico, ki dogodke uporabe izpiše v izbranem formatu.</message>
+	<message key="plugins.generic.usageEvent.description">Ustvari proženje dogodka uporabe v definirani obliki.</message>
 </locale>

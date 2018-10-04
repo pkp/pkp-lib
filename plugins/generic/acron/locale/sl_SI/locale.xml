@@ -1,24 +1,24 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
 
 <!--
   * locale.xml
   *
-  * Copyright (c) 2013-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2013-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings.
+  * Localization strings for the sl_SI (Slovenščina) locale.
   *
   -->
  
 <locale name="sl_SI" full_name="Slovenščina">
-	<message key="plugins.generic.acron.name">Vtičnik Acron</message>
-	<message key="plugins.generic.acron.description">Vtičnik poskuša zmanjšati odvisnost aplikacije od orodij za periodično načrtovanje opravil, kot je npr. "cron".</message>
-	<message key="plugins.generic.acron.enabled">Vtičnik Acron je vključen.</message>
-	<message key="plugins.generic.acron.disabled">Vtičnik Acron je izključen.</message>
-	<message key="plugins.generic.acron.reloadedCronTab">Zavihek Cron uspešno naložen.</message>
-	
-	<message key="plugins.generic.acron.reload">Ponovno naloži načrtovana opravila.</message>
-	<message key="plugins.generic.acron.tasksReloaded">Načrtovana opravila so bila ponovno naložena.</message>
+	<message key="plugins.generic.acron.name">Acron vtičnik</message>
+	<message key="plugins.generic.acron.description">Vtičnik poskuša zmanjšati odvisnost aplikacije od sistemskih razporejevalnikov opravil kot je npr. 'cron.'</message>
+	<message key="plugins.generic.acron.enabled">Acron vtičnik je bil omogočen.</message>
+	<message key="plugins.generic.acron.disabled">Acron vtičnik je bil onemogočen.</message>
+	<message key="plugins.generic.acron.reloadedCronTab">Tabela "Cron" je bila uspešno ponovno naložena.</message>
+
+	<message key="plugins.generic.acron.reload">Ponovno naloži razporejena opravila</message>
+	<message key="plugins.generic.acron.tasksReloaded">Razporejena opravila so bila ponovno naložena.</message>
 </locale>

@@ -480,7 +480,7 @@
 	<message key="editor.submission.roundStatus.sentToExternal">Enviado para revisión externa.</message>
 	<message key="editor.submission.roundStatus.accepted">Envío aceptado.</message>
 	<message key="editor.submission.roundStatus.declined">Envío rechazado.</message>
-	<message key="editor.submission.roundStatus.pendingReviewers">Esperando a los revisores/as.</message>
+	<message key="editor.submission.roundStatus.pendingReviewers">Esperando asignar a los  revisores/as.</message>
 	<message key="editor.submission.roundStatus.pendingReviews">Esperando las respuestas de los revisores/as.</message>
 	<message key="editor.submission.roundStatus.reviewsReady">Los revisores/as nuevos están listos.</message>
 	<message key="editor.submission.roundStatus.reviewsCompleted">Revisiones completadas.</message>

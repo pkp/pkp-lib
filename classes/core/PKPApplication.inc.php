@@ -681,6 +681,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		);
 
 		if (isset($licenseKeyMap[$ccLicenseURL])) {
+			PKPLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
 			return __($licenseKeyMap[$ccLicenseURL]);
 		}
 		return null;

@@ -130,7 +130,7 @@ class EditReviewForm extends Form {
 		$reviewAssignment = $reviewAssignmentDao->getReviewAssignment($this->_reviewRound->getId(), $this->_reviewAssignment->getReviewerId(), $this->_reviewRound->getRound(), $this->_reviewRound->getStageId());
 
 		// Send notification to reviewer if details have changed.
-		if (substr($reviewAssignment->getDateDue(),0,10) != $this->getData('reviewDueDate') || substr($reviewAssignment->getDateResponseDue(),0,10) != $this->getData('responseDueDate') || $reviewAssignment->getReviewMethod() != $this->getData('reviewMethod')){
+		if (strtotime($reviewAssignment->getDateDue()) != strtotime($this->getData('reviewDueDate')) || strtotime($reviewAssignment->getDateResponseDue()) != strtotime($this->getData('responseDueDate')) || $reviewAssignment->getReviewMethod() != $this->getData('reviewMethod')){
 			$notificationManager = new NotificationManager();
 			$request = Application::getRequest();
 			$context = $request->getContext();

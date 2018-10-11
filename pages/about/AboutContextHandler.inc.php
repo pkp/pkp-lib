@@ -92,16 +92,20 @@ class AboutContextHandler extends Handler {
 		$sectionDao = DAORegistry::getDAO('SectionDAO');
 		$sections = $sectionDao->getTitles($context->getId(), !$canSubmitAll);
 
-		array_walk($sections, function (&$item, $sectionId) use ($sectionDao) {
-			$item = array('title' => $item);
+		if (count($sections) > 0) {
+			array_walk($sections, function (&$item, $sectionId) use ($sectionDao) {
+				$item = array('title' => $item);
 
-			$section = $sectionDao->getById($sectionId);
+				$section = $sectionDao->getById($sectionId);
 
-			$sectionPolicy = $section ? $section->getLocalizedPolicy() : null;
-			$sectionPolicyPlainText = trim(PKPString::html2text($sectionPolicy));
-			if (strlen($sectionPolicyPlainText) > 0)
-				$item['policy'] = $sectionPolicy;
-		});
+				$sectionPolicy = $section ? $section->getLocalizedPolicy() : null;
+				$sectionPolicyPlainText = trim(PKPString::html2text($sectionPolicy));
+				if (strlen($sectionPolicyPlainText) > 0)
+					$item['policy'] = $sectionPolicy;
+			});
+		} else {
+			AppLocale::requireComponents(LOCALE_COMPONENT_APP_AUTHOR); // for author.submit.notAccepting
+		}
 
 		$templateMgr->assign('sections', $sections);
 

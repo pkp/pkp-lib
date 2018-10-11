@@ -19,38 +19,41 @@
 		<h2>
 			{translate key="section.sections"}
 		</h2>
-		<ul>
-			{foreach from=$sections key="sectionId" item="section"}
-				<li>
-					<h3>
-						{$section.title}
-					</h3>
+		{if $sections|@count > 0}
+			<ul>
+				{foreach from=$sections key="sectionId" item="section"}
+					<li>
+						<h3>
+							{$section.title}
+						</h3>
 
-					{if $section.policy}
-						<h4>
-							{translate key="section.policy"}
-						</h4>
+						{if $section.policy}
+							<h4>
+								{translate key="section.policy"}
+							</h4>
 
-						{$section.policy}
-					{/if}
+							{$section.policy}
+						{/if}
 
-					{* Login/register prompt *}
-					{if $isUserLoggedIn}
-						{capture assign="newSubmission"}<a href="{url page="submission" op="wizard" sectionId=$sectionId}">{translate key="about.onlineSubmissions.newSubmission"}</a>{/capture}
-						{capture assign="viewSubmissions"}<a href="{url page="submissions"}">{translate key="about.onlineSubmissions.viewSubmissions"}</a>{/capture}
-						<div class="cmp_notification">
-							{translate key="about.onlineSubmissions.submissionActions" newSubmission=$newSubmission viewSubmissions=$viewSubmissions}
-						</div>
-					{else}
-						{capture assign="login"}<a href="{url page="login"}">{translate key="about.onlineSubmissions.login"}</a>{/capture}
-						{capture assign="register"}<a href="{url page="user" op="register"}">{translate key="about.onlineSubmissions.register"}</a>{/capture}
-						<div class="cmp_notification">
-							{translate key="about.onlineSubmissions.registrationRequired" login=$login register=$register}
-						</div>
-					{/if}
-				</li>
-			{/foreach}
-		</ul>
+						{if $isUserLoggedIn}
+							{capture assign="newSubmission"}<a href="{url page="submission" op="wizard" sectionId=$sectionId}">{translate key="about.onlineSubmissions.newSubmission"}</a>{/capture}
+							{capture assign="viewSubmissions"}<a href="{url page="submissions"}">{translate key="about.onlineSubmissions.viewSubmissions"}</a>{/capture}
+							<div class="cmp_notification">
+								{translate key="about.onlineSubmissions.submissionActions" newSubmission=$newSubmission viewSubmissions=$viewSubmissions}
+							</div>
+						{else}
+							{capture assign="login"}<a href="{url page="login"}">{translate key="about.onlineSubmissions.login"}</a>{/capture}
+							{capture assign="register"}<a href="{url page="user" op="register"}">{translate key="about.onlineSubmissions.register"}</a>{/capture}
+							<div class="cmp_notification">
+								{translate key="about.onlineSubmissions.registrationRequired" login=$login register=$register}
+							</div>
+						{/if}
+					</li>
+				{/foreach}
+			</ul>
+		{else}
+			{translate key="author.submit.notAccepting"}
+		{/if}
 	</div>
 
 	{if $submissionChecklist}

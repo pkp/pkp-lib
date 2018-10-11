@@ -84,6 +84,14 @@ class LinkAction {
 	}
 
 	/**
+	 * Set the localized action title.
+	 * @return string
+	 */
+	function setTitle($title) {
+		$this->_title = $title;
+	}
+
+	/**
 	 * Get the localized tool tip.
 	 * @return string
 	 */

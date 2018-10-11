@@ -89,7 +89,7 @@ class AboutContextHandler extends Handler {
 				$roleDao->userHasRole($context->getId(), $user->getId(), ROLE_ID_SUB_EDITOR);
 		}
 
-		$sectionDao = DAORegistry::getDAO('SectionDAO');
+		$sectionDao = Application::getSectionDAO();
 		$sections = $sectionDao->getTitles($context->getId(), !$canSubmitAll);
 
 		if (count($sections) > 0) {

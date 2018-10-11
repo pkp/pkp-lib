@@ -51,7 +51,7 @@ abstract class PKPSectionDAO extends DAO {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return array_merge(parent::getLocaleFieldNames(), array('title'));
+		return array_merge(parent::getLocaleFieldNames(), array('title', 'policy'));
 	}
 
 	/**
@@ -86,6 +86,22 @@ abstract class PKPSectionDAO extends DAO {
 	 * @return DAOResultFactory containing Sections ordered by sequence
 	 */
 	abstract function getByContextId($contextId, $rangeInfo = null);
+
+	/**
+	 * Retrieve the IDs and titles of the sections for a context in an associative array.
+	 * @param $contextId int context ID
+	 * @param $submittableOnly boolean optional
+	 * @return array
+	 */
+	function getTitles($contextId, $submittableOnly = false) {
+		$sections = array();
+		$sectionsIterator = $this->getByContextId($contextId);
+		while ($section = $sectionsIterator->next()) {
+			if ($submittableOnly && $section->getEditorRestricted()) continue;
+			$sections[$section->getId()] = $section->getLocalizedTitle();
+		}
+		return $sections;
+	}
 }
 
 

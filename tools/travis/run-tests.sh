@@ -11,16 +11,18 @@
 
 set -xe
 
-# Run data build suite
+# Run the data build suite (integration tests).
 if [[ "$TEST" == "mysql" ]]; then
 	./lib/pkp/tools/runAllTests.sh -bHd
 else
 	./lib/pkp/tools/runAllTests.sh -bd
 fi
 
+# Dump the database before continuing. Some tests restore this to reset the
+# environment.
 ./lib/pkp/tools/travis/dump-database.sh
 
-# Run test suite.
+# Run the rest of the test suite (unit tests etc).
 sudo rm -f cache/*.php
 if [[ "$DBTYPE" == "MySQL" ]]; then
 	./lib/pkp/tools/runAllTests.sh -CcPpfHd

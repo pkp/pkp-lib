@@ -11,13 +11,12 @@
 
 set -xe
 
-export DISPLAY=":99.0" # Travis init script for xvfb specifies this
-
+# Create an output area for Selenium to leave screenshots.
 mkdir screenshots
 
-# Start Selenium server.
+# Download and start Selenium server.
 wget -q -O selenium.jar http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.1.jar
 nohup java -jar selenium.jar -forcedBrowserMode *firefox -browserSessionReuse -log selenium-output &
 
-# Wait for Selenium to start
+# Wait for Selenium to start before continuing.
 until wget -O - -q "http://localhost:4444/selenium-server/driver/?cmd=testComplete" | grep -e "^OK$"; do sleep 1; done

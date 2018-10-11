@@ -11,24 +11,25 @@
 
 set -xe
 
-export DUMMY_PDF=~/dummy.pdf
-export DUMMY_ZIP=~/dummy.zip
-export BASEURL="http://localhost"
-export DBHOST=localhost
-export DBNAME=ojs-ci
-export DBUSERNAME=ojs-ci
-export DBPASSWORD=ojs-ci
-export FILESDIR=files
-export DATABASEDUMP=~/database.sql.gz
+# Set some environment variables.
+export DUMMY_PDF=~/dummy.pdf # This is used for PDF uploads. It's generated below.
+export DUMMY_ZIP=~/dummy.zip # This is used for ZIP uploads. It's generated below.
+export BASEURL="http://localhost" # This is the URL to the OJS installation directory.
+export DBHOST=localhost # Database hostname
+export DBNAME=ojs-ci # Database name
+export DBUSERNAME=ojs-ci # Database username
+export DBPASSWORD=ojs-ci # Database password
+export FILESDIR=files # Files directory (relative to OJS installation -- do not do this in production!)
+export DATABASEDUMP=~/database.sql.gz # Path and filename where a database dump can be created/accessed
 
 # Install required software
 sudo apt-get install -q -y a2ps libbiblio-citation-parser-perl libhtml-parser-perl
 
 # Generate sample files to use for testing.
-echo "This is a test" | a2ps -o - | ps2pdf - ${DUMMY_PDF} # PDF format
-zip ${DUMMY_ZIP} ${DUMMY_PDF} # Zip format; add PDF dummy as contents
+echo "This is a test" | a2ps -o - | ps2pdf - ${DUMMY_PDF} # Generate a dummy PDF file
+zip ${DUMMY_ZIP} ${DUMMY_PDF} # Generate a dummy ZIP archive using the PDF
 
-# Create the database.
+# Create the database and grant permissions.
 if [[ "$TEST" == "pgsql" ]]; then
 	sudo service postgresql start
 	psql -c "CREATE DATABASE \"ojs-ci\";" -U postgres
@@ -40,15 +41,14 @@ if [[ "$TEST" == "pgsql" ]]; then
 elif [[ "$TEST" == "mysql" ]]; then
 	mysql -u root -e 'CREATE DATABASE `ojs-ci` DEFAULT CHARACTER SET utf8'
 	mysql -u root -e "GRANT ALL ON \`ojs-ci\`.* TO \`ojs-ci\`@localhost IDENTIFIED BY 'ojs-ci'"
-	if [[ ${TRAVIS_PHP_VERSION:0:2} == "7." ]]; then
-		export DBTYPE=MySQLi
-	else
-		export DBTYPE=MySQL
-	fi
+	export DBTYPE=MySQLi
 fi
 
-# Prep files
+# Use the template configuration file.
 cp config.TEMPLATE.inc.php config.inc.php
-sed -i -e "s/enable_cdn = On/enable_cdn = Off/" config.inc.php # Disable CDN use
-mkdir ${FILESDIR}
 
+# Disable CDN usage.
+sed -i -e "s/enable_cdn = On/enable_cdn = Off/" config.inc.php
+
+# Make the files directory (this will be files_dir in config.inc.php after installation).
+mkdir ${FILESDIR}

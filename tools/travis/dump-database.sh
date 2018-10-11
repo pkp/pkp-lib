@@ -8,12 +8,25 @@
 #
 # Script to dump a copy of the database.
 #
+# Requires the following environment vars to be set:
+# - DBTYPE: Database type (MySQL/MySQLi/PostgreSQL)
+# - DBUSERNAME: Database username
+# - DBPASSWORD: Database password
+# - DBNAME: Database name
+# - DBHOST: Database hostname
+# - DATABASEDUMP: Path and filename to database dump file
 
 set -xe
 
 # Dump the completed database.
-if [[ "$TEST" == "pgsql" ]]; then
-	pg_dump --clean --username=$DBUSERNAME --host=$DBHOST $DBNAME | gzip -9 > $DATABASEDUMP
-elif [[ "$TEST" == "mysql" ]]; then
-	mysqldump --user=$DBUSERNAME --password=$DBPASSWORD --host=$DBHOST $DBNAME | gzip -9 > $DATABASEDUMP
-fi
+case "$DBTYPE" in
+	PostgreSQL)
+		pg_dump --clean --username=$DBUSERNAME --host=$DBHOST $DBNAME | gzip -9 > $DATABASEDUMP
+		;;
+	MySQL|MySQLi)
+		mysqldump --user=$DBUSERNAME --password=$DBPASSWORD --host=$DBHOST $DBNAME | gzip -9 > $DATABASEDUMP
+		;;
+	*)
+		echo "Unknown DBTYPE \"${DBTYPE}\"!"
+		exit 1
+esac

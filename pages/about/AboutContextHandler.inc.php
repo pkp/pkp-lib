@@ -79,6 +79,32 @@ class AboutContextHandler extends Handler {
 
 		$templateMgr->assign( 'submissionChecklist', $context->getLocalizedSetting('submissionChecklist') );
 
+		// Get section options for this context
+		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$user = $request->getUser();
+
+		$canSubmitAll = false;
+		if ($user) {
+			$canSubmitAll = $roleDao->userHasRole($context->getId(), $user->getId(), ROLE_ID_MANAGER) ||
+				$roleDao->userHasRole($context->getId(), $user->getId(), ROLE_ID_SUB_EDITOR);
+		}
+
+		$sectionDao = DAORegistry::getDAO('SectionDAO');
+		$sections = $sectionDao->getTitles($context->getId(), !$canSubmitAll);
+
+		array_walk($sections, function (&$item, $sectionId) use ($sectionDao) {
+			$item = array('title' => $item);
+
+			$section = $sectionDao->getById($sectionId);
+
+			$sectionPolicy = $section ? $section->getLocalizedPolicy() : null;
+			$sectionPolicyPlainText = trim(PKPString::html2text($sectionPolicy));
+			if (strlen($sectionPolicyPlainText) > 0)
+				$item['policy'] = $sectionPolicy;
+		});
+
+		$templateMgr->assign('sections', $sections);
+
 		$templateMgr->display('frontend/pages/submissions.tpl');
 	}
 

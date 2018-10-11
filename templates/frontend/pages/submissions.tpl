@@ -30,6 +30,29 @@
 		</div>
 	{/if}
 
+	<div class="submission_sections">
+		<h2>
+			{translate key="section.sections"}
+		</h2>
+		<ul>
+			{foreach from=$sections key="sectionId" item="section"}
+				<li>
+					<h3>
+						{$section.title}
+					</h3>
+
+					{if $section.policy}
+						<h4>
+							{translate key="section.policy"}
+						</h4>
+
+						{$section.policy}
+					{/if}
+				</li>
+			{/foreach}
+		</ul>
+	</div>
+
 	{if $submissionChecklist}
 		<div class="submission_checklist">
 			<h2>

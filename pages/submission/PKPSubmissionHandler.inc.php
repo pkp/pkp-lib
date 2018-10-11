@@ -90,7 +90,7 @@ abstract class PKPSubmissionHandler extends Handler {
 		$step = isset($args[0]) ? (int) $args[0] : 1;
 		$templateMgr->assign('step', $step);
 
-		$templateMgr->assign('sectionId', $request->getUserVar('sectionId'));
+		$templateMgr->assign('sectionId', $request->getUserVar('sectionId')); // to add a sectionId parameter to tab links in template
 
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		if ($submission) {
@@ -225,6 +225,6 @@ abstract class PKPSubmissionHandler extends Handler {
 	 * @return int
 	 */
 	abstract function getStepCount();
-}
+		}
 
 

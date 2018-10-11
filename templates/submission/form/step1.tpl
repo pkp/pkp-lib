@@ -17,7 +17,6 @@
 <form class="pkp_form" id="submitStep1Form" method="post" action="{url op="saveStep" path=$submitStep}">
 {csrf}
 {if $submissionId}<input type="hidden" name="submissionId" value="{$submissionId|escape}"/>{/if}
-{if $sectionId}<input type="hidden" name="sectionId" value="{$sectionId|escape}"/>{/if}
 	<input type="hidden" name="submissionChecklist" value="1"/>
 
 {include file="controllers/notification/inPlaceNotification.tpl" notificationId="submitStep1FormNotification"}

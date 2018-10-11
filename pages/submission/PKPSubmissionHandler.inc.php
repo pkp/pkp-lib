@@ -90,6 +90,8 @@ abstract class PKPSubmissionHandler extends Handler {
 		$step = isset($args[0]) ? (int) $args[0] : 1;
 		$templateMgr->assign('step', $step);
 
+		$templateMgr->assign('sectionId', $request->getUserVar('sectionId'));
+
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		if ($submission) {
 			$templateMgr->assign('submissionId', $submission->getId());

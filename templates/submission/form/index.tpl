@@ -30,7 +30,7 @@
 <div id="submitTabs" class="pkp_controllers_tab">
 	<ul>
 		{foreach from=$steps key=step item=stepLocaleKey}
-			<li><a name="step-{$step|escape}" href="{url op="step" path=$step submissionId=$submissionId}">{$step}. {translate key=$stepLocaleKey}</a></li>
+			<li><a name="step-{$step|escape}" href="{url op="step" path=$step submissionId=$submissionId sectionId=$sectionId}">{$step}. {translate key=$stepLocaleKey}</a></li>
 		{/foreach}
 	</ul>
 </div>

@@ -65,6 +65,8 @@
 	<message key="editor.review.responseDue">Response due: {$date}</message>
 	<message key="editor.review.requestSent">Request Sent</message>
 	<message key="editor.review.requestAccepted">Request Accepted</message>
+    <message key="editor.review.requestDeclined">Request Declined</message>
+    <message key="editor.review.requestDeclined.tooltip">The reviewer declined this review request.</message>
 	<message key="editor.review.revertDecision">Revert Decision</message>
 	<message key="editor.review.reviewDue">Review due: {$date}</message>
 	<message key="editor.review.reviewDueDate">Review Due Date</message>

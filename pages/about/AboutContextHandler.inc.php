@@ -84,30 +84,31 @@ class AboutContextHandler extends Handler {
 		$user = $request->getUser();
 
 		$canSubmitAll = false;
-		if ($user) {
-			$canSubmitAll = $roleDao->userHasRole($context->getId(), $user->getId(), ROLE_ID_MANAGER) ||
-				$roleDao->userHasRole($context->getId(), $user->getId(), ROLE_ID_SUB_EDITOR);
+		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+		if ($userRoles && !empty(array_intersect([ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR], $userRoles))) {
+			$canSubmitAll = true;
 		}
 
 		$sectionDao = Application::getSectionDAO();
-		$sections = $sectionDao->getTitles($context->getId(), !$canSubmitAll);
+		$sections = $sectionDao->getByContextId($context->getId(), null, !$canSubmitAll)->toArray();
 
-		if (count($sections) > 0) {
-			array_walk($sections, function (&$item, $sectionId) use ($sectionDao) {
-				$item = array('title' => $item);
-
-				$section = $sectionDao->getById($sectionId);
-
-				$sectionPolicy = $section ? $section->getLocalizedPolicy() : null;
-				$sectionPolicyPlainText = trim(PKPString::html2text($sectionPolicy));
-				if (strlen($sectionPolicyPlainText) > 0)
-					$item['policy'] = $sectionPolicy;
-			});
-		} else {
-			AppLocale::requireComponents(LOCALE_COMPONENT_APP_AUTHOR); // for author.submit.notAccepting
+		$hasSubmittableSections = false;
+		foreach ($sections as $section) {
+			if (!$section->getEditorRestricted()) {
+				$hasSubmittableSections = true;
+				break;
+			}
 		}
 
-		$templateMgr->assign('sections', $sections);
+		// for author.submit.notAccepting
+		if (!$hasSubmittableSections) {
+			AppLocale::requireComponents(LOCALE_COMPONENT_APP_AUTHOR);
+		}
+
+		$templateMgr->assign([
+			'sections' => $sections,
+			'hasSubmittableSections' => $hasSubmittableSections,
+		]);
 
 		$templateMgr->display('frontend/pages/submissions.tpl');
 	}

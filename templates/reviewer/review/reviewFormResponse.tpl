@@ -42,7 +42,7 @@
 			{assign var=possibleResponses value=$reviewFormElement->getLocalizedPossibleResponses()}
 			{foreach name=responses from=$possibleResponses key=responseId item=responseItem}
 				{assign var=index value=$smarty.foreach.responses.index}
-				{if $index == $reviewFormResponses[$elementId]}
+				{if isset($reviewFormResponses[$elementId]) && $index == $reviewFormResponses[$elementId]}
 					{assign var=checked value=true}
 				{else}
 					{assign var=checked value=false}

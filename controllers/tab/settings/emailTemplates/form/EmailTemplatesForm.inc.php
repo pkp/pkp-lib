@@ -23,7 +23,9 @@ class EmailTemplatesForm extends ContextSettingsForm {
 	function __construct($wizardMode = false) {
 		$settings = array(
 			'emailSignature' => 'string',
-			'envelopeSender' => 'string'
+			'envelopeSender' => 'string',
+			'emailSubmissionIncludeId' => 'int',
+			'emailSubmissionIncludePattern' => 'string',
 		);
 
 		$this->addCheck(new FormValidatorEmail($this, 'envelopeSender', 'optional', 'user.profile.form.emailRequired'));

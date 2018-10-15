@@ -65,6 +65,21 @@ class SubmissionMailTemplate extends MailTemplate {
 	 * @param $request PKPRequest optional (used for logging purposes)
 	 */
 	function send($request = null) {
+		if (isset($this->context)) {
+			$emailSubmissionIncludeId = $this->context->getSetting('emailSubmissionIncludeId');
+			$emailSubmissionIncludePattern = $this->context->getSetting('emailSubmissionIncludePattern');
+
+			if ($emailSubmissionIncludeId) {
+				if (isset($emailSubmissionIncludePattern) && strpos($emailSubmissionIncludePattern, '{submissionId}') !== false) {
+					$emailSubmissionIncludePattern = str_replace('{submissionId}', $this->submission->getId(), $emailSubmissionIncludePattern);
+				}	else {
+					$emailSubmissionIncludePattern = '[SID ' . $this->submission->getId() . '] ';
+				}
+
+				$this->setSubject($emailSubmissionIncludePattern . $this->getSubject());
+			}
+		}
+
 		if (parent::send(false)) {
 			$this->log($request);
 			return true;

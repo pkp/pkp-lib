@@ -37,10 +37,6 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		foreach ((array) $context->getLocalizedSetting('submissionChecklist') as $key => $checklistItem) {
 			$this->addCheck(new FormValidator($this, "checklist-$key", 'required', 'submission.submit.checklistErrors'));
 		}
-
-		$submissionDao = Application::getSubmissionDAO();
-		HookRegistry::register(strtolower_codesafe(get_class($submissionDao)) . '::getLocaleFieldNames', array($this, 'getSubmissionDAOLocaleFieldNames'));
-		HookRegistry::register(strtolower_codesafe(get_class($submissionDao)) . '::getAdditionalFieldNames', array($this, 'getSubmissionDAOAdditionalFieldNames'));
 	}
 
 	/**
@@ -81,7 +77,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			$this->context->getSupportedSubmissionLocaleNames()
 		);
 
-		$this->setupTemplateSubmissionChecklist($templateMgr);
+		$this->setupTemplateSubmissionChecklist($templateMgr, $request);
 		$this->setupTemplatePrivacyConsent($templateMgr);
 
 		// if this context has a copyright notice that the author must agree to, present the form items.
@@ -288,6 +284,9 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 */
 	function execute($args, $request) {
 		$submissionDao = Application::getSubmissionDAO();
+		$this->extendSubmissionDAOLocaleFieldNames($submissionDao);
+		$this->extendSubmissionDAOAdditionalFieldNames($submissionDao);
+
 		$user = $request->getUser();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 
@@ -368,26 +367,28 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		return $this->submissionId;
 	}
 
-	public function getSubmissionDAOLocaleFieldNames($hookName, $args) {
-		$dao = $args[0];
-		$localeFieldNames =& $args[1];
+	private function extendSubmissionDAOLocaleFieldNames($submissionDao) {
+		$localeFieldNames = array();
 
 		foreach ((array) $this->context->getLocalizedSetting('submissionChecklist') as $key => $checklistItem) {
 			$localeFieldNames[] = $this->getSubmissionChecklistItemContentSettingName($key);
 		}
 
 		$localeFieldNames[] = $this->getPrivacyStatementPlainTextSettingName();
+
+		$submissionDao->extendLocaleFieldNames($localeFieldNames);
 	}
 
-	public function getSubmissionDAOAdditionalFieldNames($hookName, $args) {
-		$dao = $args[0];
-		$additionalFieldNames =& $args[1];
+	private function extendSubmissionDAOAdditionalFieldNames($submissionDao) {
+		$additionalFieldNames = array();
 
 		foreach ((array) $this->context->getLocalizedSetting('submissionChecklist') as $key => $checklistItem) {
 			$additionalFieldNames[] = $this->getSubmissionChecklistItemCheckedSettingName($key);
 		}
 
 		$additionalFieldNames[] = $this->getPrivacyConsentSettingName();
+
+		$submissionDao->extendAdditionalFieldNames($additionalFieldNames);
 	}
 
 	private function getPrivacyStatementPlainText($locale = null) {
@@ -402,28 +403,39 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		return "submissionChecklistItemContent$key";
 	}
 
-	private function setupTemplateSubmissionChecklist($templateMgr) {
+	private function setupTemplateSubmissionChecklist($templateMgr, $request) {
 		$submissionChecklist = $this->context->getLocalizedSetting('submissionChecklist');
 
-		if (isset($this->submission)) {
-			$locale = $this->submission->getLocale();
+		$router = $request->getRouter();
+		$isPostbackRequest = is_a($router, 'PKPPageRouter') && $router->getRequestedOp($request) === 'saveStep';
 
+		if ($isPostbackRequest) {
+			// on postback read checked states from form data
 			foreach ((array) $submissionChecklist as $key => $checklistItem) {
-				// compare checklist item's value stored on previous submit with current configured value
-				$submissionChecklistItemContentSettingName = $this->getSubmissionChecklistItemContentSettingName($key);
+				$submissionChecklist[$key]['checked'] = $this->getData("checklist-$key") === '1';
+			}
+		} else {
+			// on other requests determine checked states from stored submission data
+			if (isset($this->submission)) {
+				$locale = $this->submission->getLocale();
 
-				$contentFromPreviousSubmit = $this->submission->getData($submissionChecklistItemContentSettingName, $locale);
-				if ($contentFromPreviousSubmit === $checklistItem['content']) {
-					// content of checklist item is still the same, render checklist item with the state stored
-					$submissionChecklistItemCheckedSettingName = $this->getSubmissionChecklistItemCheckedSettingName($key);
+				foreach ((array) $submissionChecklist as $key => $checklistItem) {
+					// compare checklist item's value stored on previous submit with current configured value
+					$submissionChecklistItemContentSettingName = $this->getSubmissionChecklistItemContentSettingName($key);
 
-					$checked = $this->submission->getData($submissionChecklistItemCheckedSettingName);
-				} else {
-					// content of checklist item has changed, render it as unchecked so that user needs to confirm again
-					$checked = false;
+					$contentFromPreviousSubmit = $this->submission->getData($submissionChecklistItemContentSettingName, $locale);
+					if ($contentFromPreviousSubmit === $checklistItem['content']) {
+						// content of checklist item is still the same, render checklist item with the state stored
+						$submissionChecklistItemCheckedSettingName = $this->getSubmissionChecklistItemCheckedSettingName($key);
+
+						$checked = $this->submission->getData($submissionChecklistItemCheckedSettingName);
+					} else {
+						// content of checklist item has changed, render it as unchecked so that user needs to confirm again
+						$checked = false;
+					}
+
+					$submissionChecklist[$key]['checked'] = $checked;
 				}
-
-				$submissionChecklist[$key]['checked'] = $checked;
 			}
 		}
 

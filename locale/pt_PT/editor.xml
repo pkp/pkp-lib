@@ -142,4 +142,5 @@
 	<message key="reviewer.list.warnOnAssignUnlock">Desbloquar</message>
 	<message key="reviewer.list.reviewInterests">Interesses para Revisão</message>
 	<message key="reviewer.list.biography">Bibliografia</message>
+	<message key="reviewer.list.declinedReviews">Pedidos de revisão recusados</message>
 </locale>

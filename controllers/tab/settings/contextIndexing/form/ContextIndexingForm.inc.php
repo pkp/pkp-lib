@@ -41,4 +41,4 @@ class ContextIndexingForm extends ContextSettingsForm {
 	}
 }
 
-?>
+

@@ -45,4 +45,4 @@ class TypeDescriptionFactoryTest extends PKPTestCase {
 		self::assertNull($typeDescriptionFactory->instantiateTypeDescription('unknown-namespace::xyz'));
 	}
 }
-?>
+

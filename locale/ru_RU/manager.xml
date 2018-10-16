@@ -455,6 +455,7 @@
 	<message key="manager.reviewFormElements.noneCreated">Элементы формы не были созданы.</message>
 	<message key="manager.reviewFormElements.possibleResponse">Выбор</message>
 	<message key="manager.reviewFormElements.question">Элемент</message>
+	<message key="manager.reviewFormElements.description">Описание</message>
 	<message key="manager.reviewFormElements.radiobuttons">Радиокнопки (можно выбрать только один вариант)</message>
 	<message key="manager.reviewFormElements.required">Рецензент обязательно должен заполнить элемент</message>
 	<message key="manager.reviewFormElements.included">Включается в сообщение для автора</message>

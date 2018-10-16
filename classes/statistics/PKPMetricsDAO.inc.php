@@ -187,14 +187,8 @@ class PKPMetricsDAO extends DAO {
 
 		// Build the report.
 		$sql = "$selectClause FROM metrics $whereClause $groupByClause $havingClause $orderByClause";
-		if (is_a($range, 'DBResultRange')) {
-			if ($range->getCount() > STATISTICS_MAX_ROWS) {
-				$range->setCount(STATISTICS_MAX_ROWS);
-			}
-			$result = $this->retrieveRange($sql, $params, $range);
-		} else {
-			$result = $this->retrieveLimit($sql, $params, STATISTICS_MAX_ROWS);
-		}
+		if (is_a($range, 'DBResultRange')) $result = $this->retrieveRange($sql, $params, $range);
+		else $result = $this->retrieve($sql, $params);
 
 		// Return the report.
 		$returner = $result->GetAll();
@@ -428,4 +422,4 @@ class PKPMetricsDAO extends DAO {
 		return array(null, null);
 	}
 }
-?>
+

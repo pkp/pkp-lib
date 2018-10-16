@@ -14,7 +14,7 @@
 
 <locale name="fr_FR" full_name="Français (France)">
 	<message key="common.queue.long.submissionsUnassigned">Soumissions non assignées</message>
-	<message key="common.queue.long.myAssigned">Les soumissions m'ayant été assignées</message>
+	<message key="common.queue.long.myAssigned">Soumissions en cours</message>
 	<message key="submission.authors">Auteurs</message>
 	<message key="submission.mySubmissions">Mes soumissions</message>
 	<message key="submission.agencies">Organismes</message>
@@ -277,7 +277,7 @@
 	<message key="submission.status.review">En cours d'évaluation</message>
 	<message key="submission.status.submission">En attente de la décision du rédacteur en chef</message>
 	<message key="submission.status.unassigned">Non assigné</message>
-	<message key="editor.submission.roundStatus.reviewsCompleted">L'évaluation est terminée.</message>
+	
 
 	<!-- Participants -->
 	<message key="editor.submission.stageParticipants">Participants</message>
@@ -334,7 +334,7 @@
 	<message key="notification.type.editorDecisionTitle">Dernière décision du rédacteur en chef.</message>
 	<message key="notification.type.editorDecisionAccept">Soumission acceptée.</message>
 	<message key="notification.type.editorDecisionExternalReview">Le processus d'évaluation externe a débuté.</message>
-	<message key="notification.type.editorDecisionPendingRevisions">Demande d'évaluation.</message>
+	<message key="notification.type.editorDecisionPendingRevisions">En attente de révisions.</message>
 	<message key="notification.type.editorDecisionResubmit">Soumettre à nouveau pour l'évaluation.</message>
 	<message key="notification.type.editorDecisionDecline">Soumission refusée.</message>
 	<message key="notification.type.editorDecisionSendToProduction">Le processus de production a débuté.</message>
@@ -461,12 +461,15 @@
 	<message key="submission.upload.response.description">Après avoir examiné le fichier assigné, saisissez vos commentaires sur le fichier ci-dessous, et/ou transférez une copie annotée du fichier (ou un autre fichier).</message>
 	<message key="submission.upload.productionReady">Transférer un fichier prêt pour la production</message>
 	<message key="submission.upload.noAvailableReviewFiles">Vous n'avez aucun fichier à examiner pour le moment.</message>
-	<message key="editor.submission.roundStatus.revisionsRequested">Les révisions ont été demandées.</message>
+	<message key="editor.submission.roundStatus.revisionsRequested">Accepté en attente de corrections.</message>
+	<message key="editor.submission.roundStatus.submissionRequested">En attente de révisions.</message>
+	<message key="editor.submission.roundStatus.submissionResubmitted">Nouvelle version de la soumission déposée.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">Envoyé à un rapporteur externe.</message>
 	<message key="editor.submission.roundStatus.accepted">Soumission acceptée.</message>
 	<message key="editor.submission.roundStatus.declined">Soumission refusée.</message>
-	<message key="editor.submission.roundStatus.pendingReviewers">En attente de rapporteurs.</message>
-	<message key="editor.submission.roundStatus.pendingReviews">En attente des réponses des rapporteurs.</message>
+	<message key="editor.submission.roundStatus.pendingReviewers">En attente de l'assignation de rapporteurs</message>
+	<message key="editor.submission.roundStatus.pendingReviewersResponse">En attente de réponse des rapporteurs.</message>
+	<message key="editor.submission.roundStatus.pendingReviews">Analyse en cours.</message>
 	<message key="editor.submission.roundStatus.reviewsReady">Les nouveaux rapports sont prêts.</message>
 	<message key="editor.review.personalMessageFromEditor">Message du rapporteur.</message>
 	<message key="submission.reviewForm">Formulaire d'évaluation</message>
@@ -553,6 +556,9 @@
 	<message key="submission.list.responseDue">Réponse en attente</message>
 	<message key="submission.list.reviewDue">Rapport en attente</message>
 	<message key="submission.list.confirmDelete">Supprimer la soumission ?</message>
+	<message key="submission.list.viewSubmission">Voir</message>
+	<message key="submission.list.filter">Filtres</message>
+	<message key="submission.list.filterRemove">Supprimer le filtre : {$filterTitle}</message>
 	<message key="submission.list.itemOrdererUp">Remonter {$itemTitle}</message>
 	<message key="submission.list.itemOrdererDown">Descendre {$itemTitle}</message>
 	<message key="submission.list.reviewsCompleted">Rapports effectués</message>
@@ -561,6 +567,8 @@
 	<message key="submission.list.incompleteSubmissionNotice">La soumission doit être complète avant qu'un rédacteur la considère.</message>
 	<message key="editor.submission.roundStatus.revisionsSubmitted">Des révisions ont été déposées.</message>
 	<message key="editor.submission.roundStatus.reviewOverdue">Un rapport est en retard.</message>
+	<message key="editor.submission.roundStatus.reviewsCompleted">L'évaluation est terminée.</message>
+	<message key="editor.submission.roundStatus.reviewsDeclined">Les rapporteurs ont déclinés l'évaluation.</message>
 	<message key="editor.submission.decision.skipReview">Accepter et ne pas faire l'évaluation.</message>
 	<message key="editor.submission.decision.noDecisionsAvailable">Assigner un rédacteur à cette étape pour pouvoir faire des actions.</message>
 	<message key="submission.review.status.awaitingResponse">En attente de réponse du rapporteur.</message>
@@ -590,4 +598,31 @@
 	<message key="editor.submission.decision.previousAuthorNotification">Précédemment : Avertir l'auteur</message>
 	<message key="editor.submission.roundStatus.recommendationsReady">Nouvelles recommandations ont été soumises.</message>
 	<message key="editor.submission.roundStatus.recommendationsCompleted">Une décision éditoriale est attendue.</message>
+	<message key="submission.submit.availableUserGroups">Soumettre en tant que</message>
+	<message key="submission.submit.availableUserGroupsDescription">Sélectionnez le rôle qui décrit le mieux votre contribution à cette soumission.</message>
+	<message key="submission.submit.contactConsent">Contact</message>
+	<message key="submission.submit.contactConsentDescription">Oui, je souhaite être contacté à propos de cette soumission.</message>
+	<message key="submission.submit.userGroupDescriptionManagers">Soumettre dans un de ces rôles si vous voulez avoir la possibilité d'éditer et de publier cette soumission : {$managerGroups}</message>
+	<message key="submission.citations.description">Entrer chaque référence sur une nouvelle ligne pour que cela puisse être interprété.</message>
+	<message key="submission.parsedCitations">Citations extraites</message>
+	<message key="submission.parsedCitations.description">Les références suivantes ont été extraites et seront liées aux métadonnées de la soumission.</message>
+	<message key="submission.parsedAndSaveCitations">Références extraites et sauvegardées</message>
+	<message key="submission.submit.form.languagesRequired">Merci de renseigner une langue.</message>
+	<message key="submission.submit.form.subjectsRequired">Sujet requis.</message>
+	<message key="submission.submit.form.disciplinesRequired">Discipline requise.</message>
+	<message key="submission.submit.form.keywordsRequired">Mots-clés requis.</message>
+	<message key="submission.submit.form.agenciesRequired">Entrer organisme de soutien.</message>
+	<message key="submission.submit.form.coverageRequired">Merci de renseigner les champs d'application.</message>
+	<message key="submission.submit.form.typeRequired">Renseigner le type.</message>
+	<message key="submission.submit.form.sourceRequired">Renseigner la source de l'information.</message>
+	<message key="submission.submit.form.rightsRequired">Préciser les droits d'utilisation.</message>
+	<message key="submission.submit.form.citationsRequired">Renseigner les références.</message>
+	<message key="editor.submission.roundStatus.resubmitForReview">La soumission doit être resoumise pour être ré évaluer.</message>
+	<message key="editor.submission.addStageParticipant.form.reviewerWarning">Le participant sélectionné a été assigné pour une évaluation en aveugle. Si vous l'assignez en tant que participant, il pourra avoir accès à trop d'information. Ne faites cela qu'en connaissance de cause.</message>
+	<message key="log.review.reviewUnconsidered">{$editorName} a marqué le cycle {$round} d'évaluation pour la soumission {$submissionId} comme non considéré.</message>
+	<message key="submission.query.participantTitle">{$fullName}, {$userGroup}</message>
+	<message key="submission.list.reviewComplete">Rapport Soumis</message>
+	<message key="submission.list.dualWorkflowLinks"><![CDATA[Vous avez été assigné sous de multiples rôles pour cette soumission. Voulez-vous accéder à l'interface <a href="{$urlAuthorWorkflow}">Auteur</a> ou <a href="{$urlEditorialWorkflow}">Rédacteur</a> ?]]></message>
+	<message key="submission.list.reviewerWorkflowLink"><![CDATA[Vous avez été assigné avec un rôle éditorial sur cette soumission. Voulez-vous accéder au <a href="{$urlEditorialWorkflow}">processus éditorial</a>  ?]]></message>
+	<message key="submission.list.currentStage">Actuellement dans l'étape {$stage}.</message>
 </locale>

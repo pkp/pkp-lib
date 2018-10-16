@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+<!--
+  * locale/sl_SI/api.xml
+  *
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the REST API.
+  -->
+<locale name="sl_SI" full_name="Slovenščina">
+	<message key="api.submissions.403.csrfTokenFailure">Vaša zahteva je bila zavrnjena. Morda vam je potekla seja. Ponovno naložite spletno stran in poskusite ponovno.</message>
+	<message key="api.submissions.403.requestedOthersUnpublishedSubmissions">Vidite lahko le neobjavljene prispevke, ki so vam bili dodeljeni.</message>
+	<message key="api.submissions.403.deleteSubmissionOutOfContext">Ne morete odstraniti prispevka, ki ni dodeljen temu kontekstu.</message>
+	<message key="api.submissions.403.unauthorizedDeleteSubmission">Nimate pravice za odstranitev tega prispevka.</message>
+	<message key="api.submissions.404.resourceNotFound">Zahtevanega vira ni bilo mogoče najti.</message>
+	<message key="api.submissions.400.missingRequired">Vaša zahteva ni mogla biti izvršena zaradi pomanjkanja zahtevnih informacij.</message>
+	<message key="api.submissions.400.invalidIssueIdentifiers">Zahtevan zvezek, številka ali leto je neveljaveno.</message>
+	<message key="api.submissions.unknownError">Prišlo je do nepričakovane napake. Ponovno naložite spletno stran in poskusite ponovno.</message>
+</locale>

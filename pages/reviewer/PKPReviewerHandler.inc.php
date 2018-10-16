@@ -112,7 +112,7 @@ class PKPReviewerHandler extends Handler {
 		$reviewerForm->readInputData();
 
 		if ($reviewerForm->validate()) {
-			$reviewerForm->execute($request);
+			$reviewerForm->execute();
 			$json = new JSONMessage(true);
 			$json->setEvent('setStep', $step+1);
 			return $json;
@@ -197,4 +197,4 @@ class PKPReviewerHandler extends Handler {
 	}
 }
 
-?>
+

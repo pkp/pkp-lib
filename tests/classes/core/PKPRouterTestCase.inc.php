@@ -371,4 +371,4 @@ class PKPRouterTestCase extends PKPTestCase {
 		DAORegistry::registerDAO('SecondContextDAO', $mockSecondContextDao);
 	}
 }
-?>
+

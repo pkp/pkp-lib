@@ -29,4 +29,4 @@ class ResourceWrapper extends FileWrapper {
 	}
 }
 
-?>
+

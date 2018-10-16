@@ -82,7 +82,6 @@ class ManageProofFilesGridHandler extends SelectableSubmissionFileListCategoryGr
 
 		if ($manageProofFilesForm->validate()) {
 			$manageProofFilesForm->execute(
-				$args, $request,
 				$this->getGridCategoryDataElements($request, $this->getStageId()),
 				SUBMISSION_FILE_PROOF
 			);
@@ -95,4 +94,4 @@ class ManageProofFilesGridHandler extends SelectableSubmissionFileListCategoryGr
 	}
 }
 
-?>
+

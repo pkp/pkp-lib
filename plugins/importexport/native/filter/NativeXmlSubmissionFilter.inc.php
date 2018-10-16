@@ -319,4 +319,4 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 	}
 }
 
-?>
+

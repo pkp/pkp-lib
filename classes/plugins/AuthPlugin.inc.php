@@ -196,4 +196,4 @@ abstract class AuthPlugin extends Plugin {
 	}
 }
 
-?>
+

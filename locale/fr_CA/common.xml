@@ -318,7 +318,7 @@
 	<message key="notification.reminderError">Il s'est produit une erreur lors de l'envoi de votre mot de passe. Veuillez vous assurer que vous avez saisi votre adresse de courriel correctement.</message>
 	<message key="notification.reminderSent">Votre nouveau mot de passe a été envoyé à l'adresse de courriel fournie.</message>
 	<message key="notification.savedSubmissionMetadata">Les métadonnées de la soumission ont été sauvegardées.</message>
-	<message key="common.uploadFailed">Le fichier n'a pu être téléverser. Veuillez essayer de nouveau ou communiquer avec l'administrateur si le problème persiste.</message>
+	<message key="common.uploadFailed">Le fichier n'a pu être téléversé. Veuillez essayer de nouveau ou communiquer avec l'administrateur si le problème persiste.</message>
 	<message key="navigation.dashboard">Tableau de bord</message>
 	<message key="common.false">Faux</message>
 	<message key="common.ok">OK</message>
@@ -365,7 +365,7 @@
 	<message key="stageParticipants.notify.message">Message</message>
 	<message key="stageParticipants.notify.warning">Assurez-vous d'avoir rempli le champ Message et d'avoir choisi au moins un destinataire.</message>
 
-	<message key="notification.addedReviewer">{$reviewerName} a été assigné comme évaluateur pour cette soumission et un courriel d'avis lui a été envoyé.</message>
+	<message key="notification.addedReviewer">{$reviewerName} a été assigné(e) comme évaluateur pour cette soumission et un courriel d'avis lui a été envoyé.</message>
 	<message key="notification.removedReviewer">L'évaluateur a été supprimé.</message>
 	<message key="notification.addedStageParticipant">L'utilisateur a été ajouté à titre de participant.</message>
 	<message key="notification.addedQuery">Discussion ajoutée</message>
@@ -386,7 +386,7 @@
 	<message key="notification.type.roundStatusTitle">Statut de la série {$round} </message>
 	<message key="notification.signedFile">Fichier considéré.</message>
 	<message key="user.authorization.authorRoleMissing">Vos privilèges actuels ne vous permettent pas de visionner cette soumission. Veuillez modifier votre profil pour vous assurer que l'on vous a assigné les rôles appropriés dans la section "S'inscrire comme".</message>
-	<message key="common.publicKnowledgeProject">Projet de connaissances publiques (Public Knowledge Project)</message>
+	<message key="common.publicKnowledgeProject">Public Knowledge Project</message>
 	<message key="common.currentStyleSheet">Feuille de style actuelle</message>
 	<message key="about.description">Description</message>
 	<message key="about.guidelines">Guides</message>
@@ -441,7 +441,7 @@
 	<message key="common.overdue">En retard</message>
 	<message key="common.prefix">Préfixe</message>
 	<message key="common.prefixAndTitle.tip">Si le titre du document commence par "un/une" ou "le/la" (ou quelque chose de similaire concernant l'ordre alphabétique), mettre le mot dans Préfixe.</message>
-	<message key="common.subtitle.tip">Le titre optionnel de la soumission suivra les deux points (:), après le titre principal.</message>
+	<message key="common.subtitle.tip">Le titre sera suivi de deux points et du sous-titre, facultatif.</message>
 	<message key="common.reminder">Rappel</message>
 	<message key="common.remote">À distance</message>
 	<message key="common.remoteURL">URL Distante</message>
@@ -560,4 +560,19 @@
 	<message key="notification.editedNavigationMenu">Le menu de navigation a été correctement mis à jour.</message>
 	<message key="notification.removedNavigationMenu">Le menu de navigation a été correctement retiré</message>
 	<message key="notification.sendNotificationConfirmation">Envoyer un courriel d'avis à tous les utilisateurs enregistrés</message>
+	<message key="common.filter">Filtres</message>
+	<message key="common.filterAdd">Ajouter le filtre : {$filterTitle}</message>
+	<message key="common.filterRemove">Enlever le filtre : {$filterTitle}</message>
+	<message key="common.lessThan">{$value} ou moins</message>
+	<message key="common.listSeparator">,</message>
+	<message key="common.moreThan">{$value} ou plus</message>
+	<message key="common.pagination">{$start}-{$end} de {$total}</message>
+	<message key="common.pagination.label">Parcourir les pages supplémentaires</message>
+	<message key="common.clearSearch">Effacer la requête</message>
+	<message key="common.publicAccess">Accès public</message>
+	<message key="stageParticipants.notify.startDiscussion">Commencer une discussion</message>
+	<message key="stageParticipants.notify.startDiscussion.description">Commencer une discussion entre {$userFullName} et vous.</message>
+	<message key="list.viewMore">Afficher plus de détails sur {$name}</message>
+	<message key="list.viewLess">Masquer les détails sur {$name}</message>
+	<message key="notification.type.reviewAssignmentUpdated">Demande d'évaluation mise à jour.</message>
 </locale>

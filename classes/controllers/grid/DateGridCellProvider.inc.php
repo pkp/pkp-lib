@@ -50,4 +50,4 @@ class DateGridCellProvider extends GridCellProvider {
 	}
 }
 
-?>
+

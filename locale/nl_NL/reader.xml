@@ -171,7 +171,7 @@
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Drop-down opties <br /> (lijst met komma's als scheider)]]></message>
 	<message key="rt.admin.sharing.userNameLabel">AddThis.com gebruikersnaam</message>
 	<message key="rt.admin.configureSharing">Configureer AddThis</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[SZie de <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">AddThis.com customization documentation</a> voor naslag.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[SZie de <a href="https://www.addthis.com/academy/how-to-create-custom-buttons-with-addthis/">AddThis.com customization documentation</a> voor naslag.]]></message>
 	<message key="rt.admin.sharing.description"><![CDATA[Om uw lezers in de gellegenheid te stellen om tijdschriftartikelen te delen, kunt u een account nemen bij <a href="http://www.addthis.com">addthis.com</a> en de Sharing knop code hieronder kopiëren en plakken.]]></message>
 	<message key="rt.captureCite.web">Web</message>
 	<message key="rt.admin.settings.viewReviewPolicy">Bekijk reviewbeleid</message>

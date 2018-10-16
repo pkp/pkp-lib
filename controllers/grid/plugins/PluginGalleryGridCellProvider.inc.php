@@ -89,4 +89,4 @@ class PluginGalleryGridCellProvider extends GridCellProvider {
 	}
 }
 
-?>
+

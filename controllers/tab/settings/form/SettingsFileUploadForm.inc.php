@@ -65,9 +65,10 @@ class SettingsFileUploadForm extends Form {
 	}
 
 	/**
-	 * @copydoc Form::fetch()
+	 * @see Form::fetch()
+	 * @param $params template parameters
 	 */
-	function fetch($request, $params=null) {
+	function fetch($request, $template = null, $display = false, $params = null) {
 		$templateMgr = TemplateManager::getManager($request);
 
 		if (!is_null($params)) {
@@ -75,7 +76,7 @@ class SettingsFileUploadForm extends Form {
 		}
 		$templateMgr->assign('fileSettingName', $this->getFileSettingName());
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 
@@ -107,7 +108,7 @@ class SettingsFileUploadForm extends Form {
 
 		import('lib.pkp.classes.file.TemporaryFileManager');
 		$temporaryFileManager = new TemporaryFileManager();
-		$temporaryFileManager->deleteFile($this->getData('temporaryFileId'), $user->getId());
+		$temporaryFileManager->deleteById($this->getData('temporaryFileId'), $user->getId());
 	}
 
 	/**
@@ -127,4 +128,4 @@ class SettingsFileUploadForm extends Form {
 	}
 }
 
-?>
+

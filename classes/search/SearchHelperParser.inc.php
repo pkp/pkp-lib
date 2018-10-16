@@ -30,7 +30,7 @@ class SearchHelperParser extends SearchFileParser {
 		$prog = Config::getVar('search', 'index[' . $this->type . ']');
 
 		if (isset($prog)) {
-			$exec = sprintf($prog, escapeshellcmd($this->getFilePath()));
+			$exec = sprintf($prog, escapeshellarg($this->getFilePath()));
 			$this->fp = @popen($exec, 'r');
 			return $this->fp ? true : false;
 		}
@@ -43,4 +43,4 @@ class SearchHelperParser extends SearchFileParser {
 	}
 }
 
-?>
+

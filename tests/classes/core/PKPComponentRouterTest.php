@@ -211,6 +211,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 	 * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
 	 * @covers PKPComponentRouter::_retrieveServiceEndpointParts
 	 * @covers PKPComponentRouter::_validateServiceEndpointParts
+	 * @runInSeparateProcess
 	 */
 	public function testRoute() {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
@@ -475,4 +476,4 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 		self::assertEquals('http://mydomain.org/?firstContext=current-context1&secondContext=index&component=current.component-class&op=current-op', $result);
 	}
 }
-?>
+

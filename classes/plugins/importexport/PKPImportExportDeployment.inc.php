@@ -302,4 +302,4 @@ class PKPImportExportDeployment {
 	}
 }
 
-?>
+

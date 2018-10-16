@@ -355,4 +355,4 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 	}
 }
 
-?>
+

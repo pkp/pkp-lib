@@ -360,4 +360,4 @@ class Mods34DescriptionXmlFilter extends PersistableFilter {
 		return $root;
 	}
 }
-?>
+

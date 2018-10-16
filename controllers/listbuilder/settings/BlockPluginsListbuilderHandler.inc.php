@@ -45,8 +45,8 @@ class BlockPluginsListbuilderHandler extends MultipleListsListbuilderHandler {
 	/**
 	 * @copydoc ListbuilderHandler::initialize()
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
 
 		// Basic configuration
@@ -98,4 +98,4 @@ class BlockPluginsListbuilderHandler extends MultipleListsListbuilderHandler {
 	}
 }
 
-?>
+

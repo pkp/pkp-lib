@@ -140,4 +140,4 @@ class UserStageAssignmentDAO extends UserDAO {
 	}
 }
 
-?>
+

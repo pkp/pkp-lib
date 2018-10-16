@@ -46,7 +46,7 @@ class ReviewCategoryGridDataProvider extends SubmissionFilesCategoryGridDataProv
 	/**
 	 * @copydoc SubmissionFilesCategoryGridDataProvider::loadCategoryData()
 	 */
-	function loadCategoryData($request, $categoryDataElement, $filter = null) {
+	function loadCategoryData($request, $categoryDataElement, $filter = null, $reviewRound = null) {
 		$reviewRound = $this->getReviewRound();
 		return parent::loadCategoryData($request, $categoryDataElement, $filter, $reviewRound);
 	}
@@ -77,4 +77,4 @@ class ReviewCategoryGridDataProvider extends SubmissionFilesCategoryGridDataProv
 	}
 }
 
-?>
+

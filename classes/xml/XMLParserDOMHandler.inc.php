@@ -93,4 +93,4 @@ class XMLParserDOMHandler extends XMLParserHandler {
 	}
 }
 
-?>
+

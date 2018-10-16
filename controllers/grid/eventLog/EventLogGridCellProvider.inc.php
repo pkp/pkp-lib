@@ -102,4 +102,4 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider {
 	}
 }
 
-?>
+

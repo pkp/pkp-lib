@@ -216,7 +216,6 @@
 	<message key="manager.setup.reviewOptions.remindForInvite">Envíe un recordatorio si el revisor/a no responde a una solicitud de revisión (días):</message>
 	<message key="manager.setup.reviewOptions.remindForSubmit">Envíe un recordatorio si el revisor/a no entrega una recomendación (días):</message>
 	<message key="manager.setup.sponsors.note">Puede añadir una nota para describir su política y su relación con el patrocinador, esta aparecerá junto con la lista del patrocinador en su página Acerca de.</message>
-	<message key="manager.setup.contributors.note">Puede añadir una nota para describir su política y su relación entre usted y sus fuentes de soporte, esta aparecerá con la lista de Fuentes de Soporte en su página Acerca de.</message>
 	<message key="manager.setup.styleSheetDescription">Puede subir un hoja de estilo en cascada (CSS) adicional para cambiar la apariencia.</message>
 	<message key="manager.setup.errorDeletingItem">Ha sucedido un error al borrar este ítem</message>
 	<message key="manager.setup.homeHeaderImageInvalid">Formato de la imagen del logotipo de cabecera de la página inicial inválido o error de subida. Formatos aceptados: .gif, .jpg y .png.</message>
@@ -262,8 +261,8 @@
 	<message key="manager.plugins.deleteSuccess">El módulo "{$pluginName}" se eliminó correctamente</message>
 	<message key="manager.plugins.doesNotExist">El módulo "{$pluginName}" no existe</message>
 	<message key="manager.plugins.fileSelectError">Seleccione un archivo primero</message>
-	<message key="manager.plugins.installedVersionNewer">Este módulo ya existe. Se trata de una versión posterior o igual que la que está instalada</message>
-	<message key="manager.plugins.installedVersionOlder">Este módulo ya existe. Se trata de una versión anterior o igual que la que está instalada</message>
+	<message key="manager.plugins.installedVersionNewer">Este módulo ya existe y es una versión posterior a la que está disponible en la galería.</message>
+	<message key="manager.plugins.installedVersionOlder">Este módulo ya existe, pero puede ser actualizado a una nueva versión.</message>
 	<message key="manager.plugins.installFailed">Error de instalación {$errorString}</message>
 	<message key="manager.plugins.installSuccessful">La versión {$versionNumber} se ha instalado correctamente</message>
 	<message key="manager.plugins.invalidPluginArchive">El módulo que ha cargado no contiene ninguna carpeta que se corresponda con el nombre del módulo.</message>
@@ -271,7 +270,7 @@
 	<message key="manager.plugins.wrongName">El archivo version.xml del módulo que ha cargado contiene un nombre que no se ajusta al nombre del módulo actualizado.</message>
 	<message key="manager.plugins.pleaseInstall">El módulo no existe. Instale el módulo.</message>
 	<message key="manager.plugins.pleaseUpgrade">El módulo ya existe, pero es una versión superior a la ya instalada. Actualice el módulo.</message>
-	<message key="manager.plugins.settings">Preferencias</message>
+	<message key="manager.plugins.settings">Ajustes</message>
 	<message key="manager.plugins.tarCommandNotFound">El comando tar no está disponible. Configúrelo correctamente en su "config.inc.php".</message>
 	<message key="manager.plugins.upgrade">Actualizar módulo</message>
 	<message key="manager.plugins.upgradeDescription">Este formulario le permite actualizar un módulo.  Asegúrese de que el módulo está comprimido como un archivo .tar.gz.</message>
@@ -333,7 +332,7 @@
 	<message key="settings.libraryFiles.category.other">Otro</message>
 
 	<!--  Genre grid settings -->
-	<message key="grid.action.addGenre">Add Genre</message>
+	<message key="grid.action.addGenre">Añadir un componente</message>
 	<message key="grid.action.editGenre">Editar este género</message>
 	<message key="grid.action.deleteGenre">Eliminar este género</message>
 	<message key="grid.action.restoreGenres">Restaurar todos los géneros a la configuración por defecto</message>
@@ -347,7 +346,6 @@
 	<message key="manager.distribution">Distribución</message>
 	<message key="manager.distribution.title">Ajustes de distribución</message>
 	<message key="manager.reviewerSearch.change">Cambia</message>
-	<message key="manager.statistics.reports.optinoalColumns.description">Los elementos en cursiva marcados con un asterisco (*) son datos opcionales para el actual sistema de recuento de estadísticas (tipo métrico). Puede tener estos datos o no, dependiendo de la configuración de su módulo de estadísticas.</message>
 	<message key="manager.statistics.reports.advancedOptions.hide">Ocultar las opciones avanzadas</message>
 	<message key="manager.statistics.reports.objectNotFound">Objeto no encontrado en la base de datos</message>
 	<message key="manager.statistics.reports.yesterday">Ayer</message>
@@ -362,7 +360,6 @@
 	<message key="manager.setup.information.descriptionTitle">Descripciones</message>
 	<message key="manager.setup.logo">Logo</message>
 	<message key="manager.setup.notifications">Notificación del envío del autor</message>
-	<message key="manager.setup.notifications.copyPrimaryContact">Envía una copia al contacto principal, identificado en el paso 1 de la configuración.</message>
 	<message key="manager.setup.notifications.copySpecifiedAddress">Envía una copia a esta dirección de correo electrónico</message>
 	<message key="manager.setup.notifications.description">Se envía automáticamente un correo electrónico a los autores para informarles de su envío. Deberían haberse enviado copias de este correo a las personas siguientes:</message>
 	<message key="manager.setup.openAccessPolicy">Política de acceso abierto</message>
@@ -396,7 +393,6 @@
 	<message key="manager.plugins.pluginGallery.certifications.partner">Socio</message>
 	<message key="manager.plugins.pluginGallery.maintainer">Mantenedor/a</message>
 	<message key="manager.plugins.pluginGallery.version">Versión: {$version} publicada el {$date}</message>
-	<message key="manager.plugins.pluginGallery.date">Fecha de lanzamiento: {$date}</message>
 	<message key="manager.plugins.pluginGallery.homepage">Página de inicio</message>
 	<message key="manager.plugins.pluginGallery.summary">Sumario</message>
 	<message key="manager.plugins.pluginGallery.status">Estado</message>
@@ -450,8 +446,6 @@
 	<message key="grid.action.createReviewForm">Crea un nuevo formulario de revisión</message>
 	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Declaración de conflictos de interés de los revisores</message>
 	<message key="manager.setup.competingInterests.required">Solicita una declaración de conflictos de interés durante una revisión por pares.</message>
-	<message key="manager.setup.includeCopyrightStatement">Muestra la declaración de derechos de autor con contenido (recomendable para confirmar los derechos retenidos del autor).</message>
-	<message key="manager.setup.includeLicense">Muestra la licencia con la obra publicada.</message>
 	<message key="manager.setup.licenseURLDescription">URL a la página web que describa la licencia, si está disponible.</message>
 	<message key="manager.setup.metadata.submission">Formulario de envío</message>
 	<message key="manager.reviewForms.list.description">Los formularios de revisión por pares creados aquí se presentarán a los revisores para completarlos en vez del formulario por defecto, que consiste en dos cajas de texto abierto, la primera para "autor y editor" y la segunda para el "editor". Los formularios de revisión se pueden asignar a una sección editorial específica y los editores tendrán la opción de elegir qué formulario utilizarán para cada una. En todos los casos los editores tendrán la opción de incluir las revisiones en la correspondencia con el autor.</message>
@@ -478,40 +472,40 @@
 	<!-- Navigation Menus -->
 	<message key="manager.navigationMenus.form.title">Título</message>
 	<message key="manager.navigationMenus.form.path">Camino</message>
-	<message key="manager.navigationMenus">Menus de navegación</message>
+	<message key="manager.navigationMenus">Menús de navegación</message>
 	<message key="manager.navigationMenus.form.viewInstructions"><![CDATA[<p>Esta página será accesible en: <blockquote>{$pagesPath}</blockquote>...donde %PATH% es el camino que ha introducido antes. <strong>Nota:</strong> Dos páginas no pueden tener el mismo camino. Emplear caminos del sistema puede hacer que se pierda el acceso a funciones importantes.</p>]]></message>
 	<message key="manager.navigationMenus.form.content">Contenido</message>
-	<message key="manager.navigationMenus.form.pathRegEx">El campo camino solo admite carácteres alfanuméricos, as como '.', '/', '-', y '_'.</message>
+	<message key="manager.navigationMenus.form.pathRegEx">El campo camino debe contener únicamente caracteres alfanuméricos, así como '.', '/', '-', y '_'.</message>
 	<message key="manager.navigationMenus.form.duplicatePath">Este camino ya existe para otro ítem de menú de navegación.</message>
 	<message key="manager.navigationMenus.form.duplicateTitles">Este título ya existe en otro menú de navegación.</message>
 	<message key="manager.navigationMenus.form.titleRequired">Es necesario un título</message>
-	<message key="manager.navigationMenuItems">Ítems del Menú de navegación</message>
-	<message key="manager.navigationMenus.assignedMenuItems">Ítems asignados al Menu</message>
-	<message key="manager.navigationMenus.unassignedMenuItems">Ítems no asignados al Menu</message>
-	<message key="manager.navigationMenus.form.navigationMenuArea">Áreas de navegación del Tema activo</message>
+	<message key="manager.navigationMenuItems">Ítems del menú de navegación</message>
+	<message key="manager.navigationMenus.assignedMenuItems">Ítems asignados al menú</message>
+	<message key="manager.navigationMenus.unassignedMenuItems">Ítems no asignados al menú</message>
+	<message key="manager.navigationMenus.form.navigationMenuArea">Áreas de navegación del tema activo</message>
 	<message key="manager.navigationMenus.form.navigationMenuAreaMessage">Escoja una área de navegación</message>
 
 	<message key="manager.navigationMenus.form.url">URL</message>
 	<message key="manager.navigationMenus.form.customUrlError">Debe proporcionar una URL</message>
 
 	<message key="manager.navigationMenus.form.conditionalDisplay">Aprenda más sobre cuándo de mostrará y esconderá este ítem de menú.</message>
-	<message key="manager.navigationMenus.form.submenuWarning">Cuando un ítem abre un submenu, ese enlace podría no funcionar en todos los dispositivos. Por ejemplo, si tiene un ítem "Acerca de" que abre un submenú "Contacto" y "Equipo editorial", el enlace "Acerca de" puede no ser accesible en todos los dispositivos. En el menú por defecto, se corrige este problema creando un segundo ítem de menú "Acerca de la revista", que aparece en el submenu.</message>
+	<message key="manager.navigationMenus.form.submenuWarning">Cuando un ítem abre un submenú, ese enlace podría no funcionar en todos los dispositivos. Por ejemplo, si tiene un ítem "Acerca de" que abre un submenú "Contacto" y "Equipo editorial", el enlace "Acerca de" puede no ser accesible en todos los dispositivos. En el menú por defecto, se corrige este problema creando un segundo ítem de menú "Acerca de la revista", que aparece en el submenú.</message>
 
-	<message key="manager.navigationMenus.form.navigationMenuItemType">Tipo de menu de navegación</message>
-	<message key="manager.navigationMenus.form.navigationMenuItemTypeMessage">Escoja un Tipo de menú de navegación o Personalizado, para crear el suyo</message>
+	<message key="manager.navigationMenus.form.navigationMenuItemType">Tipo de menú de navegación</message>
+	<message key="manager.navigationMenus.form.navigationMenuItemTypeMessage">Seleccione un tipo de menú de navegación predefinido o uno personalizado para crear el suyo</message>
 	<message key="manager.navigationMenus.customPage">Página personalizada</message>
 	<message key="manager.navigationMenus.customPage.description">Crear una página personalizada en su OJS y enlacela desde un menu de navegación.</message>
 	<message key="manager.navigationMenus.remoteUrl">URL remota</message>
 	<message key="manager.navigationMenus.remoteUrl.description">Enlace a cualquier URL en otro sitio web, como por ejemplo https://pkp.sfu.ca.</message>
-	<message key="manager.navigationMenus.about.description">Enlace a una página mostrando el contenido de Acerca de la revista en Preferencias > Revista</message>
-	<message key="manager.navigationMenus.about.conditionalWarning">Este enlace solo se mostrará si ha completado la sección Acerca de esta revista bajo Preferencias > Revista.</message>
-	<message key="manager.navigationMenus.editorialTeam.description">Enlace a una página mostrándo el contenido de la Cabecera en Preferencias > Revista</message>
-	<message key="manager.navigationMenus.editorialTeam.conditionalWarning">Este enlace solo se mostrará si ha completado la sección Equipo editorial bajo Preferencias > Revista.</message>
+	<message key="manager.navigationMenus.about.description"><![CDATA[Enlace a una página mostrando el contenido de Acerca de la revista en Ajustes > Revista]]></message>
+	<message key="manager.navigationMenus.about.conditionalWarning"><![CDATA[Este enlace solo se mostrará si ha completado la sección Acerca de esta revista bajo Ajustes > Revista.]]></message>
+	<message key="manager.navigationMenus.editorialTeam.description"><![CDATA[Enlace a una página mostrándo el contenido de la cabecera en Ajustes > Revista]]></message>
+	<message key="manager.navigationMenus.editorialTeam.conditionalWarning"><![CDATA[Este enlace solo se mostrará si ha completado la sección equipo editorial en Ajustes > Revista.]]></message>
 	<message key="manager.navigationMenus.submissions.description">Enlace a las Instrucciones de envío.</message>
 	<message key="manager.navigationMenus.current.description">Enlace al Número actual.</message>
 	<message key="manager.navigationMenus.archives.description">Enlace al Archivo de números anteriores.</message>
 	<message key="manager.navigationMenus.announcements.description">Enlace a la página de Avisos.</message>
-	<message key="manager.navigationMenus.announcements.conditionalWarning">Este enlace solo se mostrará si ha activado los Avisos bajo Preferencias > Sitio Web.</message>
+	<message key="manager.navigationMenus.announcements.conditionalWarning"><![CDATA[Este enlace solo se mostrará si ha activado los avisos en Ajustes > Sitio Web.]]></message>
 	<message key="manager.navigationMenus.login.description">Enlace a la Página de acceso.</message>
 	<message key="manager.navigationMenus.register.description">Enlace a la Página de registro.</message>
 	<message key="manager.navigationMenus.dashboard.description">Enlace al Panel editorial.</message>
@@ -522,5 +516,23 @@
 	<message key="manager.navigationMenus.loggedOut.conditionalWarning">Este enlace solo se mostrará cuando el usuario/a haya iniciado la sesión.</message>
 	<message key="manager.navigationMenus.loggedIn.conditionalWarning">Este enlace solo se mostrará cuando el usuario/a NO haya iniciado la sesión.</message>
 	<message key="manager.navigationMenus.contact.description">Enlace a la página de Información de contacto.</message>
-	<message key="manager.navigationMenus.contact.conditionalWarning">Este enlace solo se mostrará si ha completado la sección Información de contacto bajo Preferencias > Contacto.</message>
+	<message key="manager.navigationMenus.contact.conditionalWarning"><![CDATA[Este enlace solo se mostrará si ha completado la sección Información de contacto en Ajustes > Contacto.]]></message>
+	<message key="manager.setup.privacyStatement.description">Esta declaración aparecerá durante el registro de usuario/a y el envío del autor/a, además de estar disponible públicamente en la página de privacidad. En algunas jurisdicciones es obligatorio legalmente publicar cómo se manejan los datos de usuario/a en estas políticas de privacidad.</message>
+	<message key="manager.setup.searchEngineIndexing.sitemap">Mapa del sitio</message>
+	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[Está disponible un mapa del sitio en XML para enviarlo a los motores de búsqueda en <a href="{$path}" target="_blank">{$path}</a>]]></message>
+	<message key="settings.roles.recommendOnly">Este rol solo puede recomendar una decisión de revisión, necesita que un editor autorizado registre una decisión final.</message>
+	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>Este archivo de biblioteca podrá descargarse si se ha activado el "acceso público" en <blockquote>{$downloadUrl}</blockquote></p>]]></message>
+	<message key="settings.libraryFiles.public.selectLibraryFiles">Seleccionar los archivos de biblioteca para adjuntar</message>
+	<message key="manager.setup.genres.key">Contraseña</message>
+	<message key="manager.setup.genres.key.exists">La contraseña ya existe.</message>
+	<message key="manager.setup.genres.key.alphaNumeric">La contraseña solo puede contener caracteres alfanuméricos, guiones y guiones bajos, y debe empezar y acabar con un carácter alfanumérico.</message>
+	<message key="plugins.importexport.common.error.duplicateRevisionForSubmission">La revisión "{$revisionId}" para el archivo enviado "{$fileId}" crearía un registro duplicado.</message>
+	<message key="manager.navigationMenus.form.menuAssigned">Ya se ha asignado un menú de navegación para esta área.</message>
+	<message key="manager.navigationMenus.form.typeMissing">Seleccione un tipo de menú de navegación.</message>
+	<message key="manager.navigationMenus.subscriptions.conditionalWarning"><![CDATA[Este enlace solo se mostrará si la opción de pagos está activa en Ajustes > Distribución > Pagos]]></message>
+	<message key="manager.navigationMenus.search.description">Enlazar con la página de búsqueda.</message>
+	<message key="manager.setup.genres.key.description">Un identificador simbólico corto para este género.</message>
+	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning"><![CDATA[Este enlace solo se mostrará si el visitante ha iniciado la sesión, la opción de pagos está activa en Ajustes > Distribución > Pagos  y se requieren suscripciones  en Ajustes > Distribución > Acceso.]]></message>
+	<message key="manager.navigationMenus.privacyStatement.description">Enlazar con la página que muestra la declaración de privacidad.</message>
+	<message key="manager.navigationMenus.privacyStatement.conditionalWarning"><![CDATA[Este enlace solo se mostrará si se ha introducido una declaración de privacidad en Ajustes > Flujo de trabajo > Envíos.]]></message>
 </locale>

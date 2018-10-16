@@ -31,13 +31,14 @@ class ManageFinalDraftFilesForm extends ManageSubmissionFilesForm {
 	//
 	/**
 	 * Save Selection of Final Draft files
-	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $stageSubmissionFiles array The files that belongs to a file stage
+	 * that is currently being used by a grid inside this form.
+	 * @param $fileStage int SUBMISSION_FILE_...
 	 * @return array a list of all submission files marked as "final".
 	 */
-	function execute($args, $request, $stageSubmissionFiles) {
-		parent::execute($args, $request, $stageSubmissionFiles, SUBMISSION_FILE_FINAL);
+	function execute($stageSubmissionFiles, $fileStage = null) {
+		parent::execute($stageSubmissionFiles, SUBMISSION_FILE_FINAL);
 	}
 }
 
-?>
+

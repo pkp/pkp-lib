@@ -233,4 +233,4 @@ class OAIRecord extends OAIIdentifier {
 	}
 }
 
-?>
+

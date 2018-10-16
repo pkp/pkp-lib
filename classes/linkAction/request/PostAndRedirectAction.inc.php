@@ -65,4 +65,4 @@ class PostAndRedirectAction extends RedirectAction {
 	}
 }
 
-?>
+

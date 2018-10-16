@@ -72,4 +72,4 @@ class DataObjectGridCellProvider extends GridCellProvider {
 	}
 }
 
-?>
+

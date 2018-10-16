@@ -82,7 +82,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm {
 	/**
 	 * @copydoc Form::validate()
 	 */
-	function validate($request) {
+	function validate($callHooks = true) {
 		// Is this a revision?
 		$revisedFileId = $this->getRevisedFileId();
 		if ($this->getData('revisionOnly')) {
@@ -90,6 +90,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm {
 		}
 
 		// Retrieve the request context.
+		$request = Application::getRequest();
 		$router = $request->getRouter();
 		$context = $router->getContext($request);
 		if (
@@ -107,27 +108,26 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm {
 			));
 		}
 
-		return parent::validate();
+		return parent::validate($callHooks);
 	}
 
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		// Retrieve available submission file genres.
 		$genreList = $this->_retrieveGenreList($request);
 		$this->setData('submissionFileGenres', $genreList);
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
 	 * Save the submission file upload form.
 	 * @see Form::execute()
-	 * @param $request Request
 	 * @return SubmissionFile if successful, otherwise null
 	 */
-	function execute($request) {
+	function execute() {
 		// Identify the file genre and category.
 		$revisedFileId = $this->getRevisedFileId();
 		if ($revisedFileId) {
@@ -139,6 +139,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm {
 		}
 
 		// Identify the uploading user.
+		$request = Application::getRequest();
 		$user = $request->getUser();
 		assert(is_a($user, 'User'));
 
@@ -205,4 +206,4 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm {
 	}
 }
 
-?>
+

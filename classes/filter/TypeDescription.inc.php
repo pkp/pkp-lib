@@ -224,4 +224,4 @@ class TypeDescription {
 		return $this->parseTypeName($typeName);
 	}
 }
-?>
+

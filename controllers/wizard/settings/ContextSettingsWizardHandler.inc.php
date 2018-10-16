@@ -68,4 +68,4 @@ class ContextSettingsWizardHandler extends Handler {
 	}
 }
 
-?>
+

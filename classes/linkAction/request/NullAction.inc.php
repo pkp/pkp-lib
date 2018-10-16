@@ -28,4 +28,4 @@ class NullAction extends LinkActionRequest {
 	}
 }
 
-?>
+

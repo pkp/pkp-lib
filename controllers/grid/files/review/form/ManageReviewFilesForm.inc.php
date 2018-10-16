@@ -66,29 +66,26 @@ class ManageReviewFilesForm extends ManageSubmissionFilesForm {
 	// Overridden template methods
 	//
 	/**
-	 * Initialize variables
-	 * @param $args array
-	 * @param $request PKPRequest
+	 * @copydoc ManageSubmissionFilesForm::initData
 	 */
-	function initData($args, $request) {
+	function initData() {
 		$this->setData('stageId', $this->getStageId());
 		$this->setData('reviewRoundId', $this->getReviewRoundId());
 
 		$reviewRound = $this->getReviewRound();
 		$this->setData('round', $reviewRound->getRound());
 
-		parent::initData($args, $request);
+		parent::initData();
 	}
 
 	/**
 	 * Save review round files
-	 * @param $args array
-	 * @param $request PKPRequest
 	 * @stageSubmissionFiles array The files that belongs to a file stage
 	 * that is currently being used by a grid inside this form.
+	 * @param $fileStage int SUBMISSION_FILE_...
 	 */
-	function execute($args, $request, $stageSubmissionFiles) {
-		parent::execute($args, $request, $stageSubmissionFiles, SUBMISSION_FILE_REVIEW_FILE);
+	function execute($stageSubmissionFiles, $fileStage = null) {
+		parent::execute($stageSubmissionFiles, SUBMISSION_FILE_REVIEW_FILE);
 	}
 
 	/**
@@ -102,4 +99,4 @@ class ManageReviewFilesForm extends ManageSubmissionFilesForm {
 	}
 }
 
-?>
+

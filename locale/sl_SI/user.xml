@@ -1,119 +1,124 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
-
 <!--
-  * locale/sl_SI/user.xml
+  * lib/pkp/locale/sl_SI/user.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
   -->
-
 <locale name="sl_SI" full_name="Slovenščina">
-	<message key="user.accountInformation">Informacije o računu</message>
-	<message key="user.affiliation">Institucija</message>
-	<message key="user.affiliation.description">(Your institution, e.g. "Simon Fraser University")</message>
-	<message key="user.affiliations">Članstva</message>
+	<message key="user.accountInformation">Podatki o uporabniškem računu</message>
+	<message key="user.affiliation">Ustanova</message>
+	<message key="user.affiliation.description">(Vaša ustanova, npr. "Simon Fraser University")</message>
+	<message key="user.affiliations">Ustanove</message>
 	<message key="user.authorization.accessDenied">Dostop zavrnjen.</message>
 	<message key="user.authorization.processAuthenticationTokenRequired">Žeton za avtentikacijo manjka ali pa je neveljaven.</message>
-	<message key="user.authorization.contextRequired">Tega opravila ni mogoče izvesti brez konteksta (založba, publikacija, konferenca, itd.).</message>
-	<message key="user.authorization.loginRequired">Potrebna je prijava.</message>
-	<message key="user.authorization.privateOperation">Opravilo, do katerega ste poskusili dostopati, je zasebno ali pa ne obstaja.</message>
-	<message key="user.authorization.restrictedSiteAccess">Dostop je bil zavrnjen. Dostop do strani je trenutno omejen.</message>
-	<message key="user.authorization.roleBasedAccessDenied">Trenutna vloga nima dostopa do tega opravila.</message>
-	<message key="user.authorization.userGroupRequired">Za dostop do tega opravila morate izbrati veljavno uporabniško skupino.</message>
-	<message key="user.authorization.managerRequired">Dodeliti morate uporabnika s skrbniško vlogo, preden lahko nadaljujete.</message>
-	<message key="user.authorization.accessibleWorkflowStage">Trenutno nimate dostopa do te stopnje poteka dela.</message>
-	<message key="user.authorization.workflowStageRequired">Raven poteka dela ni bila določena.</message>
-	<message key="user.authorization.pluginRequired">Določite vtičnik</message>
-	<message key="user.biography">Kratka biografija (oddelek in položaj)</message>
-	<message key="user.changeMyPassword">Sprememba gesla</message>
+	<message key="user.authorization.contextRequired">Te operacije ne morete izvesti brez konteksta (tisk, revija, konferenca, itd).</message>
+	<message key="user.authorization.loginRequired">Najprej se prijavite.</message>
+	<message key="user.authorization.privateOperation">Hoteli ste izvesti operacijo, ki vam ni na voljo ali ne obstaja.</message>
+	<message key="user.authorization.restrictedSiteAccess">Dostop je bil zavrnjen. Dostop do teh strani je trenutno omejen.</message>
+	<message key="user.authorization.roleBasedAccessDenied">Vaša trenutna vloga vam ne omogoča te operacije.</message>
+	<message key="user.authorization.userGroupRequired">Za dostop do te operacije morate nastaviti pravilno skupino uporabnikov.</message>
+	<message key="user.authorization.managerRequired">Uporabnik z vlogo Upravnika (npr. Urednik produkcije) mora biti dodeljen v to fazo preden lahko nadaljujete.</message>
+	<message key="user.authorization.accessibleWorkflowStage">Trenutno nimate dostopa do te faze delovnega toka.</message>
+	<message key="user.authorization.workflowStageRequired">Faza delovnega toka ni bila določena.</message>
+	<message key="user.authorization.pluginRequired">Vtičnik je zahtevan in ni bil določen.</message>
+	<message key="user.biography">Biografski podatki</message>
+	<message key="user.changeMyPassword">Spremeni moje geslo</message>
 	<message key="user.changePassword">Spremeni geslo</message>
-	<message key="user.dateLastLogin">Zadnji vpis</message>
+	<message key="user.dateLastLogin">Zadnja prijava</message>
 	<message key="user.dateRegistered">Datum registracije</message>
-	<message key="user.editMyProfile">Uredi svoj račun</message>
+	<message key="user.editMyProfile">Uredi moj račun</message>
 	<message key="user.email">E-pošta</message>
-	<message key="user.feminine">Ž</message>
-	<message key="user.gender">Spol</message>
-	<message key="user.interests">Interesi recenzentov</message>
-	<message key="user.interests.description">(vnose ločite s tipko "enter" ali vejico)</message>
-	<message key="user.gossip">Opombe</message>
-	<message key="user.group">Uporabniška skupina</message>
-	<message key="user.profile.form.profileImageInvalid">Neveljaven format prikazne slike ali pa je slika prevelika. Dovoljeni formati so .gif, .jpg ali .png, slika pa ne sme presegati velikosti 150×150 pikslov.</message>
-	<message key="user.login.accountDisabledWithReason">Vaš račun je bil onemogočen zaradi naslednjega razloga: {$reason}</message>
-	<message key="user.login.accountDisabled">Vaš račun je bil onemogočen. Za več informacij se obrnite na administratorja.</message>
-	<message key="user.login.accountNotValidated">Na {$email} smo vam poslali potrditveno e-pošto. Za aktivacijo novega računa sledite navodilom v elektronskem sporočilu. Če sporočila ne vidite, preverite mapo z vsiljeno e-pošto.</message>
+	<message key="user.firstName">Ime</message>
+	<message key="user.initialsExample">Joan Alice Smith = JAS</message>
+	<message key="user.initials">Inicialke</message>
+	<message key="user.interests">Recenzijski interesi</message>
+	<message key="user.interests.description">(Interese ločite med seboj s tipko Enter ali vejicami)</message>
+	<message key="user.gossip">Zasebne opombe</message>
+	<message key="user.gossip.description">Opombe o tem recenzentu, za katere bi radi, da jih vidijo tudi drugi uredniki. Opombe bodo vidne za naslednje recenzijske zadolžitve.</message>
+	<message key="user.group">Vloga uporabnikov</message>
+	<message key="user.lastName">Priimek</message>
+	<message key="user.profile.form.profileImageInvalid">Napačen format slike računa ali pa je prevelika. Dovoljeni formati so .gif, .jpg ali .png. Največja velikost slike je 150x150 točk.</message>
+	<message key="user.login.accountDisabledWithReason">Vaš račun je bil onemogočen zaradi naslednjega vzroka: {$reason}</message>
+	<message key="user.login.accountDisabled">Vaš račun je bil onemogočen. Prosimo obrnite se na administratorja za več informacij.</message>
+	<message key="user.login.accountNotValidated">Vaš e-poštni naslov še ni bil preverjen. Prosimo preverite vašo elektronsko pošto in sledite navodilom, ki smo jih poslali na {$email}. Če niste dobili nobenega sporočila, preverite mapo z neželjeno pošto.</message>
 	<message key="user.login.activate">Aktiviraj račun</message>
-	<message key="user.login.activated">Zahvaljujemo se vam za aktivacijo računa. S podatki, s katerimi ste ustvarili račun, se lahko zdaj prijavite.</message>
-	<message key="user.login.changePasswordInstructions"><![CDATA[Preden se lahko prijavite na to stran, morate ustvariti novo geslo.<br /><br />Za spremembo gesla vašega računa vpišite svoje uporabniško ime ter staro in novo geslo.]]></message>
-	<message key="user.login.forgotPassword">Ste pozabili svoje geslo?</message>
-	<message key="user.login.loginError">Neveljavno uporabniško ime ali geslo. Poskusite znova</message>
+	<message key="user.login.activated">Hvala za aktivacijo vašega računa. Zdaj se v sistem lahko prijavite z uporabo uporabniškega imena in gesla, ki ste ju navedli.</message>
+	<message key="user.login.changePasswordInstructions"><![CDATA[YouPred prvo prijavo morate spremeniti geslo.<br /><br />Prosimo vnesite vaše uporabniško ime, sedanje geslo in novo geslo, da boste spremenili geslo.]]></message>
+	<message key="user.login.forgotPassword">Ste pozabili vaše geslo?</message>
+	<message key="user.login.loginError">Napačno uporabniško ime ali geslo. Poskusite ponovno.</message>
 	<message key="user.login">Prijava</message>
-	<message key="user.login.lostPassword.confirmationSent">Potrditveno sporočilo je bilo poslano na vaš e-poštni naslov. Za ponastavitev gesla sledite navodilom v e-pošti.</message>
-	<message key="user.login.lostPassword.invalidHash">Povezava, na katero ste pritisnili, se je iztekla ali ni veljavna. Poskusite še enkrat ponastaviti geslo.</message>
-	<message key="user.login.lostPassword.invalidUser">Uporabnika s tem e-poštnim naslovom ni bilo mogoče najti.</message>
-	<message key="user.login.lostPassword.passwordSent">Novo geslo je bilo poslano na vaš e-poštni naslov. S svojim novim geslom se zdaj lahko vpišete na stran.</message>
-	<message key="user.login.registeredEmail">E-pošta registriranega uporabnika</message>
-	<message key="user.login.registrationComplete">Registracija končana</message>
-	<message key="user.login.registrationComplete.instructions">Hvala za registracijo! Kaj pa želite storiti zdaj?</message>
-	<message key="user.login.registrationComplete.manageSubmissions">Poglej prispevke</message>
+	<message key="user.login.lostPassword.confirmationSent">Potrdilo je bilo poslano na vaš e-poštni naslov. Prosimo sledite navodilom v sporočilu, da boste ponastavili vaše geslo.</message>
+	<message key="user.login.lostPassword.invalidHash">Oprostite, povezava, ki ste jo uporabili, ni več veljavna ali pa je napačna. Poskusite ponovno ponastaviti geslo.</message>
+	<message key="user.login.lostPassword.invalidUser">Uporabnik z vnešenim e-poštnim naslovom ne obstaja.</message>
+	<message key="user.login.lostPassword.passwordSent">Novo geslo je bilo poslano na vaš e-poštni naslov. Prijavite se lahko z novim geslom.</message>
+	<message key="user.login.registeredEmail">Registrirana e-pošta uporabnika</message>
+	<message key="user.login.registrationComplete">Registracija zaključena</message>
+	<message key="user.login.registrationComplete.instructions">Hvala lepa za registracijo! Kaj bi želeli narediti zdaj?</message>
+	<message key="user.login.registrationComplete.manageSubmissions">Upravljaj s prispevki</message>
 	<message key="user.login.registrationComplete.newSubmission">Oddaj nov prispevek</message>
-	<message key="user.login.registrationComplete.continueBrowsing">Nadaljuj z brskanjem</message>
-	<message key="user.login.registrationPendingValidation">Registracija čaka na potrditev</message>
-	<message key="user.login.rememberUsernameAndPassword">Ostanite prijavljeni</message>
+	<message key="user.login.registrationComplete.continueBrowsing">Nadaljuj z branjem</message>
+	<message key="user.login.registrationPendingValidation">Registracija še čaka na verifikacijo</message>
+	<message key="user.login.rememberUsernameAndPassword">Zapomni si moje uporabniško ime in geslo</message>
 	<message key="user.login.resetPassword">Ponastavi geslo</message>
-	<message key="user.logOut">Izpis</message>
-	<message key="user.logOutAs">Izpišite račun</message>
-	<message key="user.hello">Pozdravljeni, </message>
-	<message key="user.mailingAddress">Poštni naslov</message>
-	<message key="user.masculine">M</message>
+	<message key="user.logOut">Odjava</message>
+	<message key="user.logOutAs">Odjava kot</message>
+	<message key="user.hello">Pozdravljeni,</message>
+	<message key="user.mailingAddress">Naslov</message>
+	<message key="user.middleName">Srednje ime</message>
 	<message key="user.myAccount">Moj račun</message>
 	<message key="user.name">Ime</message>
-	<message key="user.other">Drugo</message>
 	<message key="user.password">Geslo</message>
-	<message key="user.repeatPassword">Ponovno vpišite geslo</message>
+	<message key="user.repeatPassword">Ponovite geslo</message>
 	<message key="user.phone">Telefon</message>
-	<message key="user.profile.changePasswordInstructions">Za spremembo gesla vpišite svoje uporabniško ime ter staro in novo geslo.</message>
+	<message key="user.profile.changePasswordInstructions">Vpišite vaše dosedanje in novo geslo, da boste spremenili geslo.</message>
 	<message key="user.profile.editProfile">Uredi račun</message>
-	<message key="user.profile.form.countryRequired">Vpisati morati državo.</message>
-	<message key="user.profile.form.emailRequired">Vpišite e-poštni naslov.</message>
-	<message key="user.profile.form.affiliationRequired">Vpišite institucijo, kateri pripadate.</message>
-	<message key="user.profile.form.mailingAddressRequired">Vpišite svoj e-poštni naslov.</message>
-	<message key="user.profile.form.newPasswordRequired">Vpisati morate svoje novo geslo.</message>
-	<message key="user.profile.form.oldPasswordInvalid">Vpisano geslo je nepravilno.</message>
-	<message key="user.profile.form.openAccessNotifications">Izdaj obvestila po e-pošti za odprt dostop</message>
-	<message key="user.profile.form.passwordRequired">Vpišite geslo.</message>
+	<message key="user.profile.form.countryRequired">Država je obvezna.</message>
+	<message key="user.profile.form.emailRequired">Veljaven e-potšni naslov je obvezen.</message>
+	<message key="user.profile.form.affiliationRequired">Organizacija je obvezen.</message>
+	<message key="user.profile.form.firstNameRequired">Ime je obvezno.</message>
+	<message key="user.profile.form.lastNameRequired">Priimek je obvezen.</message>
+	<message key="user.profile.form.mailingAddressRequired">E-poštni naslov je obvezen.</message>
+	<message key="user.profile.form.newPasswordRequired">Vpisati morate novo geslo.</message>
+	<message key="user.profile.form.oldPasswordInvalid">Trenutno geslo, ki ste ga vnesli, je napačno.</message>
+	<message key="user.profile.form.openAccessNotifications">Pošlji e-pošto z obvestilom o številkah revije s prostim dostopom.</message>
+	<message key="user.profile.form.passwordRequired">Geslo je obvezno.</message>
 	<message key="user.profile.form.passwordSameAsOld">Vaše novo geslo je enako staremu.</message>
-	<message key="user.profile.form.profileImage">Profilna slika</message>
-	<message key="user.profile.form.publishedNotifications">Obvestila po e-pošti o izidu nove številke</message>
-	<message key="user.profile.form.urlInvalid">Ta URL ni veljaven. Preverite URL in poskusite znova. (Hint: Try adding http:// to the beginning of the URL.)</message>
-	<message key="user.profile.form.usergroupRequired">Določite uporabniško skupino.</message>
-	<message key="user.profile.form.usernameRequired">Vpišite uporabniško ime.</message>
-	<message key="user.profile.leavePasswordBlank">Če želite obdržati trenutno geslo, pustite polja za geslo prazna.</message>
+	<message key="user.profile.form.profileImage">Slika računa</message>
+	<message key="user.profile.form.publishedNotifications">E-poštno obvestilo o izidu nove številke revije</message>
+	<message key="user.profile.form.urlInvalid">Naveden URL naslov je napačen. Prosimo preverite URL naslov in poskusite ponovno (Nasvet: Poskusite s http:// na začetku URL-ja.)</message>
+	<message key="user.profile.form.usergroupRequired">Skupina uporabnikov je obvezna.</message>
+	<message key="user.profile.form.usernameRequired">Uporabniško ime je obvezno.</message>
+	<message key="user.profile.leavePasswordBlank">Pustite polje za geslo prazno, da obdržite trenutno geslo.</message>
 	<message key="user.profile.newPassword">Novo geslo</message>
 	<message key="user.profile.oldPassword">Trenutno geslo</message>
-	<message key="user.profile">Profil</message>
-	<message key="user.profile.publicProfile">Uporabniški profil</message>
-	<message key="user.profile.repeatNewPassword">Ponovno vpiši novo geslo</message>
+	<message key="user.profile">Račun uporabnika</message>
+	<message key="user.profile.publicProfile">Račun uporabnika</message>
+	<message key="user.profile.repeatNewPassword">Ponovite geslo</message>
 	<!-- Login -->
 	<message key="user.login.registerNewAccount">Registriraj</message>
-	<message key="user.login.resetPasswordInstructions">Spodaj vpišite e-poštni naslov in poslano vam bo sporočilo z navodili za ponastavitev gesla.</message>
+	<message key="user.login.resetPasswordInstructions">Spodaj vnesite email vašega računa in dobili boste email z navodili, kako ponastaviti geslo.</message>
 
-	<message key="user.register.form.emailExists">Izbrani elektronski naslov je že uporabljen.</message>
-	<message key="user.register.form.passwordsDoNotMatch">Gesli se ne ujemata.</message>
-	<message key="user.register.form.emailsDoNotMatch">E-poštna naslova se ne ujemata.</message>
-	<message key="user.register.form.usernameAlphaNumeric">Uporabniško ime lahko vsebuje samo alfanumerične znake, napisane z malo začetnico, podčrtaj, pomišljaj in se mora začeti in končati z alfanumeričnim znakom.</message>
-	<message key="user.register.form.userGroupRequired">Izbrati morate vsaj eno vlogo.</message>
-	<message key="user.register.form.usernameExists">Izbrano uporabniško ime je že uporabljeno.</message>
-	<message key="user.register.form.passwordLengthRestriction">Geslo mora imeti najmanj {$length} znakov.</message>
-	<message key="user.register.registerAs">Registriraj v {$contextName} kot ...</message>
-	<message key="user.register">Registriraj</message>
-	<message key="user.register.usernameRestriction">Uporabniško ime lahko vsebuje samo majhne črke, številke in pomišljaje oz. podčrtaje.</message>
-	<message key="user.register.registrationCompleted"><![CDATA[Uspešno ste zaključili registracijo. <a href="{$profileUrl}">Pritisnite tu</a>, da dopolnite svoj profil.]]></message>
+	<message key="user.register.form.privacyConsent"><![CDATA[Da, strinjam se, da so moji podatki zbrani in shranjeni v skladu z naslednjo <a href="{$privacyUrl}" target="_blank">Izjavo o zasebnosti</a>.]]></message>
+	<message key="user.register.form.emailConsent">Da, želim biti obveščen o izdanih novih številkah in obvestilih revije.</message>
+	<message key="user.register.form.emailExists">Izbrani e-poštni naslov je že uporabljen za drugega uporabnika.</message>
+	<message key="user.register.form.passwordsDoNotMatch">Gesla se ne ujemata.</message>
+	<message key="user.register.form.emailsDoNotMatch">Polji za e-poštni naslov se ne ujemata.</message>
+	<message key="user.register.form.usernameAlphaNumeric">Uporabniško ime lahko vsebuje le alfanumerične znake, podčrtaj in pomišljaj. Začeti in končati se mora z alfanumeričnim znakom.</message>
+	<message key="user.register.form.userGroupRequired">Izbrana mora biti vsaj ena vloga.</message>
+	<message key="user.register.form.usernameExists">Izbrano uporabniško ime je že uporabljeno pri drugem uporabniku.</message>
+	<message key="user.register.form.passwordLengthRestriction">Geslo mora biti dolgo vsaj {$length} znakov.</message>
+	<message key="user.register.registerAs">Registrirajte se v {$contextName} kot</message>
+	<message key="user.register">Registracija</message>
+	<message key="user.register.usernameRestriction">Uporabniško ime lahko vsebuje le male črke, številke, podčrtaj ali pomišljaj.</message>
+	<message key="user.register.registrationCompleted"><![CDATA[Uspešno ste se registrirali. <a href="{$profileUrl}">Kliknite tukaj</a>, da dopolnite preostale podatke vašega uporabniškega računa.]]></message>
+	<message key="user.role.assistant">Asistent</message>
 	<message key="user.role.author">Avtor</message>
-	<message key="user.role.author_s">Avtorji</message>
+	<message key="user.role.author_s">Avtor(ji)</message>
 	<message key="user.role.authors">Avtorji</message>
 	<message key="user.role.editor">Urednik</message>
 	<message key="user.role.editors">Uredniki</message>
@@ -121,26 +126,39 @@
 	<message key="user.role.readers">Bralci</message>
 	<message key="user.role.reviewer">Recenzent</message>
 	<message key="user.role.reviewers">Recenzenti</message>
-	<message key="user.role.siteAdmin">Administrator spletišča</message>
-	<message key="user.role.siteAdmins">Administratorji spletišča</message>
+	<message key="user.role.siteAdmin">Aministrator spletišča</message>
+	<message key="user.role.siteAdmins">Aministratorji spletišča</message>
 	<message key="user.role.copyeditor">Lektor</message>
 	<message key="user.role.copyeditors">Lektorji</message>
 	<message key="user.role.proofreader">Korektor</message>
 	<message key="user.role.proofreaders">Korektorji</message>
-	<message key="user.role.layoutEditor">Tehnični urednik</message>
-	<message key="user.role.layoutEditors">Tehnični uredniki</message>
+	<message key="user.role.layoutEditor">Grafični urednik</message>
+	<message key="user.role.layoutEditors">Grafični uredniki</message>
 	<message key="user.roles">Vloge</message>
+	<message key="user.salutation">Naziv</message>
 	<message key="user.sendPassword">Potrditev</message>
-	<message key="user.sendPassword.description">Pošlji mi potrditveno e-pošto, vključno z mojim uporabniškim imenom in geslom</message>
+	<message key="user.sendPassword.description">Pošljite mi potrditveno e-pošto z mojim uporabniškim imenom in geslom.</message>
 	<message key="user.signature">Podpis</message>
-	<message key="user.title">Naslov</message>
+	<message key="user.suffix">Pripona</message>
+	<message key="user.title">Naziv</message>
 	<message key="user.url">URL</message>
 	<message key="user.userHome">Dom uporabnika</message>
 	<message key="user.username">Uporabniško ime</message>
 	<message key="user.workingLanguages">Delovni jeziki</message>
-	<message key="user.orcid">ORCID iD</message>
-	<message key="user.orcid.orcidInvalid">ORCID iD, ki ste ga vnesli, je neveljaven. Vnesite celoten URI (npr. "http://orcid.org/0000-0002-1825-0097").</message>
-	<message key="user.profile.identity">Izkaznica</message>
+	<message key="user.orcid">ORCID ID</message>
+	<message key="user.orcid.orcidInvalid">Vnešeni ORCID ID je napačen. Prosimo vnesite celotno URL povezavo (npr. "http://orcid.org/0000-0002-1825-0097").</message>
+	<message key="user.profile.identity">Identiteta</message>
 	<message key="user.profile.contact">Kontakt</message>
 	<message key="user.profile.public">Javno</message>
+	<message key="user.apiKey">API ključ</message>
+	<message key="user.apiKeyEnabled">Omogoči zunanjim aplikacijam dostop do tega uporabniškega računa z uporabo API ključa</message>
+	<message key="user.apiKey.generate">Generiraj nov API ključ</message>
+	<message key="user.apiKey.generateWarning">Generiranje novega API ključa, bo razveljavilo vse API dosedanje ključe za tega uporabnika.</message>
+	<message key="user.apiKey.secretRequired">Preden generirate API ključ, morate nastaviti spremenljivko "api_key_secret" v konfiguracijski datoteki</message>
+	<message key="user.privacyLink"><![CDATA[Vaši podatki so shranjeni v skladu z našo <a href="{$privacyUrl}" target="_blank">Izjavo o zasebnosti</a>.]]></message>
+
+	<message key="user.authorization.assignedStageRoleBasedAccessDenied">Prispevku niste bili dodeljeni z vlogo, ki bi dovoljevala ta korak.</message>
+	<message key="user.authorization.invalidReviewAssignment">Nimate pravice dostopati do te recenzije.</message>
+	<message key="user.authorization.submissionQuery">Nimate pravice dostopati do te diskusije.</message>
+	<message key="user.profile.form.privacyConsentRequired">Strinjati se morate z Izjavo o zasebnosti.</message>
 </locale>

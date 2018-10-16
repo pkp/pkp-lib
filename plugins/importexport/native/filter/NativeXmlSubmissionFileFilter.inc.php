@@ -236,7 +236,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 
 		import('lib.pkp.classes.file.FileManager');
 		$fileManager = new FileManager();
-		$fileManager->deleteFile($filename);
+		$fileManager->deleteByPath($filename);
 		return $submissionFile;
 	}
 
@@ -252,6 +252,17 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		$context = $deployment->getContext();
 		$submission = $deployment->getSubmission();
 		switch ($node->tagName) {
+			case 'submission_file_ref':
+				if ($submissionFile->getFileStage() == SUBMISSION_FILE_DEPENDENT) {
+					$fileId = $node->getAttribute('id');
+					$revisionId = $node->getAttribute('revision');
+					$dbFileId = $deployment->getFileDBId($fileId, $revisionId);
+					if ($dbFileId) {
+						$submissionFile->setAssocType(ASSOC_TYPE_SUBMISSION_FILE);
+						$submissionFile->setAssocId($dbFileId);
+					}
+				}
+				break;
 			case 'id':
 				$this->parseIdentifier($node, $submissionFile);
 				break;
@@ -293,7 +304,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 				if ($errorFlag) {
 					$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.temporaryFileFailed', array('dest' => $temporaryFilename, 'source' => $filesrc)));
 					$fileManager = new FileManager();
-					$fileManager->deleteFile($temporaryFilename);
+					$fileManager->deleteByPath($temporaryFilename);
 					$temporaryFilename = '';
 				}
 				return $temporaryFilename;
@@ -317,7 +328,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 					}
 					if ($errorFlag) {
 						$fileManager = new FileManager();
-						$fileManager->deleteFile($temporaryFilename);
+						$fileManager->deleteByPath($temporaryFilename);
 						$temporaryFilename = '';
 					}
 				}
@@ -363,4 +374,4 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 	}
 }
 
-?>
+

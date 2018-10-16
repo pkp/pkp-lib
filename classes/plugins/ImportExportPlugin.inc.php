@@ -62,10 +62,7 @@ abstract class ImportExportPlugin extends Plugin {
 	 */
 	function display($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->register_function(
-			'plugin_url',
-			array($this, 'pluginUrl')
-		);
+		$templateMgr->registerPlugin('function', 'plugin_url', array($this, 'pluginUrl'));
 		$this->_request = $request; // Store this for use by the pluginUrl function
 	}
 
@@ -161,4 +158,4 @@ abstract class ImportExportPlugin extends Plugin {
 
 }
 
-?>
+

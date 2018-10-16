@@ -71,4 +71,4 @@ class ValidatorUri extends ValidatorRegExp {
 		return '&^' . $regEx . '$&i';
 	}
 }
-?>
+

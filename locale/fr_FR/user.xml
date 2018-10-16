@@ -25,7 +25,7 @@
 	<message key="user.interests">Intérêts pour les évaluations</message>
 	<message key="user.login.accountDisabledWithReason">Votre compte a été désactivé pour les raisons suivantes : {$reason}</message>
 	<message key="user.login.accountDisabled">Votre compte a été désactivé. Veuillez communiquer avec l'administrateur du site pour plus d'information.</message>
-	<message key="user.login.accountNotValidated">Votre courriel "{$email}" n'a pas été validé. Vérifier vos courriels et suivez les directives que nous vous avons fait parvenir. Si vous n'avez pas reçu de courriel, vous devrez peut-être communiquer avec l'administrateur du site pour obtenir de l'aide.</message>
+	<message key="user.login.accountNotValidated">Validez votre compte en suivant les directives que nous vous avons fait parvenir sur {$email}. Si vous n'avez pas reçu de courriel, vous devrez peut-être communiquer avec l'administrateur du site pour obtenir de l'aide.</message>
 	<message key="user.login.activate">Activer le compte</message>
 	<message key="user.login.activated">Merci d'avoir activé votre compte. Vous pouvez maintenant vous connecter en utilisant les authentifiants fournis lors de la création de votre compte.</message>
 	<message key="user.login.changePasswordInstructions"><![CDATA[Vous devez sélectionner un nouveau mot de passe avant de pouvoir vous connecter à ce site.<br /><br />Veuillez entrer votre nom d'utilisateur et vos mots de passe actuel et nouveau ci-dessous pour modifier le mot de passe de votre compte.]]></message>
@@ -145,4 +145,12 @@
 	<message key="user.apiKey.generateWarning">Générer une nouvelle API Key invalidera toutes les clés existantes pour cet utilisateur.</message>
 	<message key="user.role.assistant">Assistant</message>
 	<message key="user.apiKey.secretRequired">Avant de générer une clé pour l'API, vous devez mettre un secret dans le fichier de configuration  ("api_key_secret")</message>
+	<message key="user.authorization.assignedStageRoleBasedAccessDenied">Vous n'avez pas les droits pour accéder à cette opération.</message>
+	<message key="user.authorization.invalidReviewAssignment">Vous n'avez pas les droits pour accéder à cette évaluation.</message>
+	<message key="user.authorization.submissionQuery">Vous n'avez pas les droits pour accéder à cette discussion.</message>
+	<message key="user.gossip.description">Vous pouvez associer des informations à propos de ce rapporteur qui seront visibles pour tous les autres rédacteurs. Ces informations seront visibles pour de futures évaluations.</message>
+	<message key="user.profile.form.privacyConsentRequired">Vous devez approuver les déclarations de confidentialité.</message>
+	<message key="user.register.form.privacyConsent"><![CDATA[Oui, je suis d'accord d'avoir mes données collectées selon le traitement décrit ici : <a href="{$privacyUrl}" target="_blank">Déclarations de confidentialité</a>.]]></message>
+	<message key="user.register.form.emailConsent">Oui, je souhaite être notifié des nouvelles publications et annonces.</message>
+	<message key="user.privacyLink"><![CDATA[Vos données personnelles sont traitées selon notre  <a href="{$privacyUrl}" target="_blank">Déclaration de confidentialité</a>.]]></message>
 </locale>

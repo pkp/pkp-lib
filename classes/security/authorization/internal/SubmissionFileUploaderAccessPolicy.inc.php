@@ -52,4 +52,4 @@ class SubmissionFileUploaderAccessPolicy extends SubmissionFileBaseAccessPolicy 
 	}
 }
 
-?>
+

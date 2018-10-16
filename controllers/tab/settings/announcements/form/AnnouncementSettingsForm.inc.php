@@ -49,7 +49,7 @@ class AnnouncementSettingsForm extends ContextSettingsForm {
 	/**
 	 * @copydoc ContextSettingsForm::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false, $params = null) {
 		for($x = 1; $x < 11; $x++) {
 			$numAnnouncementsHomepageOptions[$x] = $x;
 		}
@@ -59,8 +59,8 @@ class AnnouncementSettingsForm extends ContextSettingsForm {
 			'disableAnnouncementsHomepage' => !$this->getData('enableAnnouncementsHomepage')
 		);
 
-		return parent::fetch($request, $params);
+		return parent::fetch($request, $template, $display, $params);
 	}
 }
 
-?>
+

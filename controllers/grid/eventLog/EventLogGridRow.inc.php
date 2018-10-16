@@ -71,7 +71,7 @@ class EventLogGridRow extends GridRow {
 							}
 						}
 						if (!$blindAuthor) {
-							$this->addAction(new DownloadFileLinkAction($request, $submissionFile, null, __('common.download')));
+							$this->addAction(new DownloadFileLinkAction($request, $submissionFile, $submissionFileDao->getWorkflowStageId($submissionFile), __('common.download')));
 						}
 					}
 					break;
@@ -92,4 +92,4 @@ class EventLogGridRow extends GridRow {
 	}
 }
 
-?>
+

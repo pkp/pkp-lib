@@ -29,7 +29,7 @@
 	<message key="editor.submission.review.reviewersDescription"><![CDATA[Utilisez <em>Ajouter un évaluateur</em> pour inviter des lecteurs à examiner les fichiers soumis. L'icône en forme de carnet indique qu'on a soumis un fichier pour l'évaluation. Celui-ci indiquera <em>Considéré</em> lorsqu'il aura été consulté. Si les évaluations sont en retard, l'icône d'une enveloppe rouge s'affichera à titre de rappel pour les évaluateurs.]]></message>
 	<message key="editor.submission.addReviewer">Ajouter un évaluateur</message>
 	<message key="editor.submission.fileList.includeAllStages">Inclure tous les fichiers de toutes les étapes de production accessibles.</message>
-	<message key="editor.submission.review.currentFiles">{$round}e série de révision des fichiers.</message>
+	<message key="editor.submission.review.currentFiles">Cycle d'évaluation des fichiers: {$round}.</message>
 	<message key="editor.submission.backToSearch">Revenir en mode de recherche simple</message>
 	<message key="editor.review.createReviewer">Créer un nouvel évaluateur</message>
 	<message key="editor.review.enrollReviewer.short">Recruter un utilisateur existant</message>
@@ -44,7 +44,7 @@
 	<message key="editor.review.reviewCompleted">Évaluation terminée</message>
 	<message key="editor.review.personalMessageToReviewer">Envoyer un courriel à l'évaluateur</message>
 	<message key="editor.review.importantDates">Dates importantes</message>
-	<message key="editor.submission.selectCopyedingFiles">Fichiers de travail éditorial</message>
+	<message key="editor.submission.selectCopyedingFiles">Fichiers en révision</message>
 	<message key="editor.submission.selectReviewer">Choisir un évaluateur</message>
 	<message key="editor.submission.taskDueDate">Date d'échéance de la tâche</message>
 	<message key="editor.submission.taskSchedule">Calendrier de la tâche</message>
@@ -58,16 +58,16 @@
 	<message key="editor.submission.editorial.disapproveCopyeditDescription">Si ce fichier n'est pas approuvé, il ne pourra pas passer à l'étape de publication. Souhaitez-vous désapprouver ce fichier?</message>
 	<message key="editor.submission.editorial.approveCopyeditFile">Approuver le fichier révisé</message>
 	<message key="editor.submission.addAuditor">Ajout d'un vérificateur</message>
-	<message key="editor.submission.editorial.copyeditingDescription"><![CDATA[Assigner les fichiers révisés à leurs auteurs (et à d'autres personnes, le cas échéant) afin qu'ils examinent les modifications et répondent aux questions. Leurs réponses et fichiers téléchargés s'afficheront dans l'icône Carnet. Ils seront identifiés <em>Considéré</em> par le réviseur, qui préparera ensuite une copie au net finale qui pourra être téléchargée dans <span class="pkp_help_title">Révision</span>. Le rédacteur en chef vérifiera cette copie et l'approuvera, puis elle passera à l'étape de publication.]]></message>
+	<message key="editor.submission.editorial.copyeditingDescription"><![CDATA[Assigner les fichiers révisés à leurs auteurs (et à d'autres personnes, le cas échéant) afin qu'ils examinent les modifications et répondent aux questions. Leurs réponses et fichiers téléchargés s'afficheront dans l'icône Carnet. Ils seront identifiés <em>Considéré</em> par le réviseur, qui préparera ensuite une copie au net finale qui pourra être téléchargée dans <span class="pkp_help_title">Révision</span>. Le rédacteur vérifiera cette copie et l'approuvera, puis elle passera à l'étape de publication.]]></message>
 	<message key="editor.submission.final.manageFinalDraftFilesDescription">Un fichier qui a été téléchargé à une étape du processus de soumission, peu importe laquelle, peut être ajouté à la liste des fichiers d'épreuves finales. Il suffit de cocher la case Ajouter ci-dessous, puis de cliquer Recherche: tous les fichiers disponibles seront affichés et peuvent être choisis pour être ajoutés. Les autres fichiers qui n'ont pas déjà été téléchargés à une certaine étape du processus peuvent être ajoutés à cette liste en cliquant sur le lien Télécharger une épreuve finale.</message>
 	<message key="editor.review">Évaluation</message>
 	<message key="editor.signoff.approved">Approuvé</message>
 	<message key="editor.submission.production.productionReadyFiles">Fichiers publiables</message>
-	<message key="editor.submission.newRound">Nouvelle série de révisions</message>
+	<message key="editor.submission.newRound">Nouveau cycle d'évaluation</message>
 	<message key="editor.submission.selectAttachments">Choisir les fichiers d'évaluation que l'auteur pourra consulter</message>
 	<message key="editor.submissionReview.recordDecision">Enregistrement des décisions éditoriales</message>
 	<message key="editor.submission.selectFairCopy">Choisir les fichiers de révision approuvés qui seront envoyés pour la publication.</message>
-	<message key="editor.submission.createNewRound">Créer une nouvelle série de révisions.</message>
+	<message key="editor.submission.createNewRound">Créer un nouveau cycle d'évaluation</message>
 	<message key="editor.submission.review.manageReviewFilesDescription">Tous les fichiers qui ont déjà été téléchargés à une étape du processus de soumission (même à une étape d'édition ou de publication) peuvent être choisis pour révision. Il suffit de cocher la case Ajouter ci-dessous, puis de cliquer Recherche: tous les fichiers disponibles seront affichés et peuvent être choisis pour être ajoutés. Les autres fichiers qui n'ont pas déjà été téléchargés à une certaine étape du processus peuvent être ajoutés à cette liste en cliquant sur le lien Télécharger le fichier d'évaluation.</message>
 	<message key="editor.submission.selectPromoteRevisions">Choisir les révisions qui seront utilisées à la prochaine étape</message>
 	<message key="editor.review.unassignReviewer">Retirer le privilège de l'évaluateur</message>
@@ -76,7 +76,7 @@
 	<message key="editor.review.uploadRevision">Télécharger la révision</message>
 	<message key="editor.review.NotifyAuthorAccept">Avertir l'auteur de l'acceptation:</message>
 	<message key="editor.review.NotifyAuthorDecline">Avertir l'auteur que sa soumission a été refusée:</message>
-	<message key="editor.review.NotifyAuthorRevisions">Avertir l'auteur que la soumission doit être révisée:</message>
+	<message key="editor.review.NotifyAuthorRevisions">Avertir l'auteur que la soumission doit être révisée.</message>
 	<message key="editor.review.NotifyAuthorResubmit">Avertir l'auteur que la soumission doit être révisée et évaluée de nouveau.</message>
 	<message key="editor.review.NotifyAuthorExternal">Avertir l'auteur que l'on a décidé de mener une évaluation externe:</message>
 	<message key="editor.review.personalMessageToAuthor">Envoyer un courriel à l'auteur</message>
@@ -93,10 +93,10 @@
 	<message key="editor.review.unconsiderReviewText">Vous souhaitez indiquer que cette évaluation n'a pas été considérée? L'historique des révisions sera conservé.</message>
 	<message key="editor.review.unconsiderReview">Ne pas considérer cette évaluation.</message>
 	<message key="editor.review.readConfirmation">Une fois l'évaluation lue, cliquer sur "Confirmer" pour indiquer que le processus d'évaluation peut se poursuivre.</message>
-	<message key="editor.submission.newRoundDescription">Vous êtes sur le point de créer une nouvelle ronde d'évaluation pour cette soumission. Les fichiers qui n'ont pas été utilisés dans les autres rondes d'évaluation sont indiqués ci-dessous. Par défaut, les évaluateurs de la ronde d'évaluation précédente ont été sélectionnés pour participer à cette nouvelle ronde.</message>
+	<message key="editor.submission.newRoundDescription">Vous êtes sur le point de créer un nouveau cycle d'évaluation pour cette soumission. Les fichiers qui n'ont pas été utilisés précédemment sont indiqués ci-dessous.</message>
 	<message key="editor.article.reviewForms">Formulaires d'évaluation</message>
 	<message key="editor.article.selectReviewForm">Sélectionner un formulaire d'évaluation</message>
-	<message key="editor.submission.selectedReviewer">Evaluateur sélectionné</message>
+	<message key="editor.submission.selectedReviewer">Évaluateur sélectionné</message>
 	<message key="editor.submissionLibrary">Bibliothèque de soumission</message>
 	<message key="editor.submission.selectFiles">Sélectionner les fichiers</message>
 	<message key="editor.submission.findAndSelectReviewer">Trouver un évaluateur</message>
@@ -132,8 +132,8 @@
 	<message key="editor.publicIdentificationExistsForTheSameType">Le public identifié comme '{$publicIdentifier}' existe déjà pour un autre objet de même type. Veuillez indiquer un public unique pour l'objet de même type à l'intérieur de votre revue.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">Le public identifié comme '{$publicIdentifier}' ne peut être un numéro.</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">Le modèle {$pattern} ne peut pas être utilisé comme public identifié.</message>
-	<message key="editor.submissionReview.sendEmail">Envoyer un courriel d'avis à ou aux auteurs: {$authorName}</message>
-	<message key="editor.submissionReview.sendEmail.editors">Envoyer un courriel d'avis à ou aux rédacteurs: {$editorNames}</message>
+	<message key="editor.submissionReview.sendEmail">Envoyer un courriel d'avis au(x) auteur(s): {$authorName}</message>
+	<message key="editor.submissionReview.sendEmail.editors">Envoyer un courriel d'avis au(x) rédacteur(s): {$editorNames}</message>
 	<message key="editor.review.newReviewRound">Un nouveau cycle d'évaluation est requis</message>
 	<message key="editor.review.reviewsAdded">Évaluations ajoutées au corps du message.</message>
 	<message key="editor.submissionReview.recordRecommendation">Enregistrer la recommandation éditoriale</message>
@@ -141,4 +141,26 @@
 	<message key="editor.submissionReview.recordRecommendation.skipEmail">Ne pas envoyer de courriel aux rédacteurs</message>
 	<message key="editor.submissionReview.recordRecommendation.createDiscussion">Créer une discussion à propos de cette recommandation.</message>
 	<message key="editor.submissionReview.recordRecommendation.skipDiscussion">Ne pas créer une discussion.</message>
+	<message key="editor.review.anonymousReviewer">Évaluateur anonyme</message>
+	<message key="editor.review.rateReviewer">Évaluation de l'évaluateur</message>
+	<message key="editor.review.rateReviewer.description">Évaluez la qualité de l'évaluation fournie. Cette évaluation n'est pas partagée avec l'évaluateur.</message>
+	<message key="editor.review.reviewerRating.none">Aucune évaluation</message>
+	<message key="reviewer.list.count">{$count} évaluateur(s)</message>
+	<message key="reviewer.list.itemsOfTotal">{$count} de {$total} évaluateur(s)</message>
+	<message key="reviewer.list.filterRating">Évalué au moins à</message>
+	<message key="reviewer.list.activeReviews">{$count} actif(s)</message>
+	<message key="reviewer.list.activeReviewsDescription">Évaluation(s) en cours</message>
+	<message key="reviewer.list.completedReviews">Évaluation(s) complétée(s)</message>
+	<message key="reviewer.list.declinedReviews">Demande(s) d'évaluation refusée(s)</message>
+	<message key="reviewer.list.reviewerRating">Évaluation de l'évaluateur : {$rating}</message>
+	<message key="reviewer.list.daysSinceLastAssignment">Il y a {$days} jours</message>
+	<message key="reviewer.list.daySinceLastAssignment">Hier</message>
+	<message key="reviewer.list.daysSinceLastAssignmentDescription">Nombre de jours depuis la dernière évaluation attribuée</message>
+	<message key="reviewer.list.averageCompletion">Nombre de jours pour compléter une évaluation (moyenne)</message>
+	<message key="reviewer.list.neverAssigned">Aucune demande</message>
+	<message key="reviewer.list.currentlyAssigned">Cet évaluateur a déjà été assigné à l'évaluation de cette soumission.</message>
+	<message key="reviewer.list.warnOnAssign">Cet évaluateur est verrouillé car un rôle lui a été attribué qui lui permet de connaître l'identité de l'auteur. L'évaluation par les pairs en aveugle ne peut être garantie. Souhaitez-vous tout de même déverrouiller cet évaluateur?</message>
+	<message key="reviewer.list.warnOnAssignUnlock">Déverrouiller</message>
+	<message key="reviewer.list.reviewInterests">Intérêts pour évaluation</message>
+	<message key="reviewer.list.biography">Biographie</message>
 </locale>

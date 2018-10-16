@@ -353,7 +353,7 @@
 	<message key="informationCenter.deleteConfirm">Vous êtes certain de vouloir supprimer cette note?</message>
 	<message key="informationCenter.currentHistory">Révision en cours</message>
 	<message key="informationCenter.pastHistory">Révisions antérieures</message>
-	<message key="informationCenter.history.messageSent">Notification aux usager.</message>
+	<message key="informationCenter.history.messageSent">Notification envoyée aux utilisateurs.</message>
 	<message key="informationCenter.history.noItems">Aucune activité n'a été enregistrée.</message>
 	<message key="informationCenter.history.notePosted">Nouvelle note publiée.</message>
 	<message key="navigation.breadcrumbLabel">Vous êtes ici:</message>
@@ -367,8 +367,7 @@
 	<message key="stageParticipants.notify.chooseMessage">Choisir un message prédéfini à utiliser, ou remplir le formulaire ci-dessous.</message>
 	<message key="stageParticipants.notify.message">Message</message>
 	<message key="stageParticipants.notify.warning">Assurez-vous d'avoir rempli le champ Message et d'avoir choisi au moins un destinataire.</message>
-
-	<message key="notification.addedReviewer">Un rapporteur a été ajouté.</message>
+	<message key="notification.addedReviewer">{$reviewerName} a été ajouté.</message>
 	<message key="notification.removedReviewer">Le rapporteur a été supprimé.</message>
 	<message key="notification.addedStageParticipant">L'utilisateur a été ajouté à titre de participant.</message>
 	<message key="notification.addedQuery">Discussion ajoutée</message>
@@ -465,7 +464,7 @@
 	<message key="defaultMetric.title">Métrique (par défaut)</message>
 	<message key="defaultMetric.availableMetrics">Mesures disponibles</message>
 	<message key="editor.submissionReview.uploadFile">Transférer le fichier de révision</message>
-	<message key="editor.submissionReview.uploadAttachment">Transférer le fichier</message>
+    <message key="editor.submissionReview.uploadAttachment">Transférer le fichier</message>
 	<message key="email.subjectRequired">Veuillez indiquer le sujet du courriel.</message>
 	<message key="email.bodyRequired">Veuillez ajouter le texte du courriel.</message>
 	<message key="form.confirmSubmit">Vous voulez vraiment envoyer ce formulaire?</message>
@@ -563,4 +562,17 @@
 	<message key="notification.addedNavigationMenu">Le menu de navigation a été ajouté.</message>
 	<message key="notification.editedNavigationMenu">Le menu a été mis à jour</message>
 	<message key="notification.removedNavigationMenu">Le menu a été supprimé</message>
+	<message key="common.filterAdd">Ajouter un filtre : {$filterTitle}</message>
+	<message key="common.lessThan">{$value} ou moins</message>
+	<message key="common.listSeparator">,</message>
+	<message key="common.moreThan">{$value} ou plus</message>
+	<message key="common.pagination">{$start}-{$end} sur {$total}</message>
+	<message key="common.pagination.label">Parcourir la suite</message>
+	<message key="common.publicAccess">Accès public</message>
+	<message key="stageParticipants.notify.startDiscussion">Commencer une discussion</message>
+	<message key="stageParticipants.notify.startDiscussion.description">Initier une discussion entre vous et {$userFullName}.</message>
+	<message key="stageParticipants.notify.chooseLocale">Choisir la langue du message.</message>
+	<message key="notification.type.reviewAssignmentUpdated">Mise à jour de la demande d'évaluation.</message>
+	<message key="list.viewMore">Voir plus à propos de {$name}</message>
+	<message key="list.viewLess">Cacher les détails de {$name}</message>
 </locale>

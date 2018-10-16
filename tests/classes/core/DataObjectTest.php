@@ -136,4 +136,4 @@ class DataObjectTest extends PKPTestCase {
 		self::assertFalse($this->dataObject->hasData('testVar3', 'en_US'));
 	}
 }
-?>
+

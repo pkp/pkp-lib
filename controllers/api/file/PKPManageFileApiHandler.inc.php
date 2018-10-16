@@ -116,7 +116,7 @@ abstract class PKPManageFileApiHandler extends Handler {
 
 		$this->removeFileIndex($submission, $submissionFile);
 		$fileManager = $this->getFileManager($submission->getContextId(), $submission->getId());
-		$fileManager->deleteFile($submissionFile->getFileId(), $submissionFile->getRevision());
+		$fileManager->deleteById($submissionFile->getFileId(), $submissionFile->getRevision());
 
 		$this->setupTemplate($request);
 		$user = $request->getUser();
@@ -175,7 +175,7 @@ abstract class PKPManageFileApiHandler extends Handler {
 		$metadataForm = $submissionFile->getMetadataForm($stageId, $reviewRound);
 		$metadataForm->readInputData();
 		if ($metadataForm->validate()) {
-			$metadataForm->execute($args, $request);
+			$metadataForm->execute();
 			$submissionFile = $metadataForm->getSubmissionFile();
 
 			// Get a list of author user IDs
@@ -281,4 +281,4 @@ abstract class PKPManageFileApiHandler extends Handler {
 
 }
 
-?>
+

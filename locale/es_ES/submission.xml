@@ -131,7 +131,7 @@
 	<message key="common.queue.long.submissionsUnassigned">Envíos sin asignar</message>
 	<message key="common.queue.long.myAssigned">Mis envíos asignados</message>
 	<message key="common.queue.long.submissionsArchived">Envíos archivados</message>
-	<message key="submission.authors">Autores</message>
+	<message key="submission.authors">Autores/as</message>
 	<message key="submission.mySubmissions">Mis envíos de autoría</message>
 	<message key="submission.addFile">Subir archivo</message>
 	<message key="submission.agencies">Agencias</message>
@@ -182,7 +182,6 @@
 	<message key="submission.event.general.suppFileUpdated">Archivo de envío actualizado</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Asignación de revisión aceptada por poderes</message>
 	<message key="submission.event.reviewer.reviewAccepted">Asignación de revisión aceptada</message>
-	<message key="submission.event.reviewer.reviewCancelled">Asignación de revisión cancelada</message>
 	<message key="submission.event.reviewer.reviewDeclined">Asignación de revisión rechazada</message>
 	<message key="submission.event.reviewer.reviewDueDate">Plazo de revisión modificado</message>
 	<message key="submission.event.reviewer.reviewerAssigned">Se ha asignado un revisor/a a la propuesta</message>
@@ -225,7 +224,6 @@
 	<message key="submission.layout.confirmDeleteSupplementaryFile">¿Seguro que quieres eliminar este archivo adicional de forma permanente?</message>
 	<message key="submission.layout.deleteGalleyStylesheet">Eliminar esta hoja de estilo.</message>
 	<message key="submission.layout.editGalley">Editar una galerada de maquetación</message>
-	<message key="submission.layout.galleyFileData">Información de archivo de galerada</message>
 	<message key="submission.layout.galleyFormat">Formato de galerada</message>
 	<message key="submission.layout.galleyHTMLData">Archivos de galerada HTML</message>
 	<message key="submission.layout.galleyImages">Imágenes</message>
@@ -454,9 +452,6 @@
 	<message key="submission.submit.metadataStep">2. Metadatos</message>
 	<message key="submission.submit.finishingUpStep">3. Finalizar</message>
 	<message key="submission.submit.fileNameRequired">Debe introducir un nombre para este archivo</message>
-	<message key="submission.submit.howToSubmit"><![CDATA[¿Tiene problemas? Póngase en contacto con <a href="mailto:{$supportEmail}">{$supportName}</a> para obtener ayuda ({$supportPhone}).]]></message>
-	<message key="submission.submit.howToSubmitNoPhone"><![CDATA[¿Tiene problemas? Póngase en contacto con <a href="mailto:{$supportEmail}">{$supportName}</a> para obtener ayuda.]]></message>
-
 	<!-- File upload wizard -->
 	<message key="submission.upload.noGenre">Falta el género o no es válido.</message>
 	<message key="submission.upload.invalidUserGroup">Falta el grupo de usuarios/as o no es válido.</message>
@@ -485,7 +480,7 @@
 	<message key="editor.submission.roundStatus.sentToExternal">Enviado para revisión externa.</message>
 	<message key="editor.submission.roundStatus.accepted">Envío aceptado.</message>
 	<message key="editor.submission.roundStatus.declined">Envío rechazado.</message>
-	<message key="editor.submission.roundStatus.pendingReviewers">Esperando a los revisores/as.</message>
+	<message key="editor.submission.roundStatus.pendingReviewers">Esperando asignar a los  revisores/as.</message>
 	<message key="editor.submission.roundStatus.pendingReviews">Esperando las respuestas de los revisores/as.</message>
 	<message key="editor.submission.roundStatus.reviewsReady">Los revisores/as nuevos están listos.</message>
 	<message key="editor.submission.roundStatus.reviewsCompleted">Revisiones completadas.</message>
@@ -557,7 +552,6 @@
 	<message key="submission.productionReady">Libro disponible</message>
 	<message key="submission.review.uploadRevisionToRound">Subir archivo revisado</message>
 	<message key="log.review.reviewerAssigned">Se asignó a {$reviewerName} para la revisión del envío {$submissionId} de la ronda de revisión {$round}.</message>
-	<message key="log.review.reviewUnconsidered">{$editorName} marcó la revisión para envío {$submissionId} de la ronda {$round}.</message>
 	<message key="submission.document">Documento</message>
 	<message key="submission.art">Archivo de ilustración</message>
 	<message key="grid.action.itemWorkflow">Ir al circuito de publicación de este envío</message>
@@ -571,7 +565,6 @@
 	<message key="submission.queryNoteFiles">Archivos de discusión</message>
 	<message key="submission.event.subjectPrefix">Se ha enviado un correo electrónico:</message>
 	<message key="submission.event.viewEmail">Ver correo electrónico</message>
-	<message key="submission.metadataDescription">Las especificaciones de los metadatos se basan en ONIX para libros, que es un estándar internacional usado por la industria editorial para la comunicación de la información de sus productos.</message>
 	<message key="submission.submissionTitle">Título del envío:</message>
 	<message key="submission.upload.query">Sube un archivo de discusión</message>
 	<message key="workflow.stage.any">Cualquier fase</message>
@@ -625,7 +618,7 @@
 	<message key="submission.query.new.contents">Ha sido añadido a la conversación titulada "{$queryTitle}" que hace referencia al envío "{$submissionTitle}".</message>
 	<message key="submission.submit.submissionChecklist">Requisitos de envío</message>
 	<message key="submission.submit.submissionChecklistDescription">Antes de continuar debe leer y confirmar que ha completado los requisitos siguientes.</message>
-	<message key="submission.authorBiographies">Biografía del autor</message>
+	<message key="submission.authorBiographies">Biografía del autor/a</message>
 	<message key="submission.changeFile">Cambia el archivo</message>
 	<message key="submission.identifiers">Identificadores</message>
 	<message key="submission.publisherId">Identificador público de la URL</message>
@@ -647,12 +640,12 @@
 	<message key="editor.submission.decision.noDecisionsAvailable">Asigne un editor/a para habilitar las decisiones editoriales en esta fase.</message>
 
 	<!-- Submission Lists -->
-	<message key="submission.list.infoCenter">Registro de Actividad &amp; Notas</message>
+	<message key="submission.list.infoCenter">Registro de actividad y notas</message>
 	<message key="submission.list.count">{$count} envíos</message>
 	<message key="submission.list.itemsOfTotal">{$count} de {$total} envíos</message>
 	<message key="submission.list.responseDue">Respuesta esperada</message>
 	<message key="submission.list.reviewDue">Revisión esperada</message>
-	<message key="submission.list.confirmDelete">Borrar envío?</message>
+	<message key="submission.list.confirmDelete">¿Eliminar envío?</message>
 	<message key="submission.list.viewSubmission">Ver {$title}</message>
 	<message key="submission.list.itemOrdererUp">Incrementar posición de {$itemTitle}</message>
 	<message key="submission.list.itemOrdererDown">Decrementar posición de {$itemTitle}</message>
@@ -665,4 +658,52 @@
 	<message key="submission.list.discussions">Discusiones abiertas</message>
 	<message key="submission.list.incompleteSubmissionNotice">El envío debe completarse antes de que un editor/a lo revise.</message>
 	<message key="submission.howToCite.downloadCitation">Descargar Cita</message>
+	<message key="submission.submit.availableUserGroups">Enviar como</message>
+	<message key="submission.submit.availableUserGroupsDescription">Seleccione el rol que describa mejor su contribución a este envío.</message>
+	<message key="submission.submit.contactConsent">Persona de contacto</message>
+	<message key="submission.submit.contactConsentDescription">Sí, deseo que se pongan en contacto conmigo respecto a este envío.</message>
+	<message key="submission.submit.userGroupDescriptionManagers">Haga el envío con cualquiera de los roles siguientes si desea poder editar y publicar este envío: {$managerGroups}</message>
+	<message key="submission.citations.description">Introduzca cada referencia en una línea nueva, así podrán ser extraídas.</message>
+	<message key="submission.parsedCitations">Referencias extraídas</message>
+	<message key="submission.parsedCitations.description">Las referencias siguientes han sido extraídas y se enlazarán con los metadatos del envío.</message>
+	<message key="submission.parsedAndSaveCitations">Extraer y guardar referencias</message>
+	<message key="submission.submit.form.languagesRequired">Introduzca un idioma.</message>
+	<message key="submission.submit.form.subjectsRequired">Introduzca un tema.</message>
+	<message key="submission.submit.form.disciplinesRequired">Introduzca una disciplina.</message>
+	<message key="submission.submit.form.keywordsRequired">Introduzca una palabra clave.</message>
+	<message key="submission.submit.form.agenciesRequired">Introduzca una agencia de soporte.</message>
+	<message key="submission.submit.form.coverageRequired">Introduzca la información de cobertura.</message>
+	<message key="submission.submit.form.typeRequired">Introduzca la tipología.</message>
+	<message key="submission.submit.form.sourceRequired">Introduzca la fuente.</message>
+	<message key="submission.submit.form.rightsRequired">Introduzca los derechos.</message>
+	<message key="submission.submit.form.citationsRequired">Introduzca las referencias.</message>
+	<message key="editor.submission.roundStatus.resubmitForReview">El artículo debe volverse a enviar para otra ronda de revisión.</message>
+	<message key="editor.submission.roundStatus.submissionResubmitted">El artículo se ha envíado a otra ronda de revisión.</message>
+	<message key="editor.submission.addStageParticipant.form.reviewerWarning">El colaborador/a que ha seleccionado ha sido asignado para llevar a cabo una revisión ciega. Si lo asigna como participante tendrá acceso a la identidad del autor/a. Le aconsejamos no elegir este colaborador/a a menos que pueda garantizar la integridad del proceso de revisión por pares.</message>
+	<message key="editor.submission.makeRecommendation">Hacer una recomendación</message>
+	<message key="editor.submission.changeRecommendation">Modificar la recomendación.</message>
+	<message key="editor.submission.recommendation.display">Recomendación: {$recommendation}</message>
+	<message key="editor.submission.allRecommendations.display">Recomendaciónes: {$recommendations}</message>
+	<message key="editor.submission.recommendation">Recomendación</message>
+	<message key="editor.submission.recommendation.description">Recomendar una decisión editorial para este envío.</message>
+	<message key="editor.submission.recordedRecommendations">Recomendaciones registradas.</message>
+	<message key="editor.submission.decision.nextButton">Siguiente: seleccione archivos para {$stageName}</message>
+	<message key="editor.submission.decision.selectFiles">Seleccione los archivos que desea mover a la fase {$stageName}.</message>
+	<message key="editor.submission.decision.previousAuthorNotification">Previo: notificación del autor/a</message>
+	<message key="notification.type.editorAssign">Ha sido asignado como editor del envío "{$title}".</message>
+	<message key="grid.reviewAttachments.send.title">Seleccione los archivos de revisión para compartir con el autor/a.</message>
+	<message key="submission.review.status.awaitingResponse">Esperando la respuesta del revisor/a.</message>
+	<message key="submission.review.status.declined">El revisor/a ha rechazado la petición de revisión.</message>
+	<message key="submission.review.status.responseOverdue">El revisor/a ha superado la fecha límite de respuesta.</message>
+	<message key="submission.review.status.reviewOverdue">El revisor/a ha superado la fecha límite de revisión.</message>
+	<message key="submission.review.status.accepted">La revisión ha sido aceptada.</message>
+	<message key="submission.review.status.received">El revisor/a ha enviado la revisión.</message>
+	<message key="submission.review.status.complete">La revisión ha sido completada.</message>
+	<message key="submission.review.status.thanked">Se ha completado la revisión y se le ha dado las gracias al revisor/a por su contribución.</message>
+	<message key="submission.query.participantTitle">{$fullName}, {$userGroup}</message>
+	<message key="submission.query.noParticipantOptions">Debe asignar como mínimo un participante a este envío antes de iniciar una discusión.</message>
+	<message key="submission.list.reviewComplete">Revisión enviada</message>
+	<message key="submission.list.currentStage">Actualmente en la fase {$stage}.</message>
+	<message key="submission.list.dualWorkflowLinks"><![CDATA[Se le han asignado múltiples roles para este envío. ¿Quiere acceder al <a href="{$urlAuthorWorkflow}">flujo de trabajo del autor/a</a>  o al <a href="{$urlEditorialWorkflow}">flujo de trabajo editorial</a>?]]></message>
+	<message key="submission.list.reviewerWorkflowLink"><![CDATA[Se le ha asignado un rol editorial para este envío. ¿Quiere acceder al <a href="{$urlEditorialWorkflow}">flujo de trabajo editorial</a>?]]></message>
 </locale>

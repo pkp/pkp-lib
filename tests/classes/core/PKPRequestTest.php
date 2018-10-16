@@ -392,7 +392,7 @@ class PKPRequestTest extends PKPTestCase {
 	 */
 	public function testGetUserVar() {
 		$_GET = array(
-			'par1' => (get_magic_quotes_gpc() ? "\'val1\'" : "'val1'"),
+			'par1' => '\'val1\'',
 			'par2' => ' val2'
 		);
 		$_POST = array(
@@ -410,7 +410,7 @@ class PKPRequestTest extends PKPTestCase {
 	 */
 	public function testGetUserVars() {
 		$_GET = array(
-			'par1' => (get_magic_quotes_gpc() ? "\'val1\'" : "'val1'"),
+			'par1' => '\'val1\'',
 			'par2' => ' val2'
 		);
 		$_POST = array(
@@ -426,4 +426,4 @@ class PKPRequestTest extends PKPTestCase {
 		self::assertEquals($expectedResult, $this->request->getUserVars());
 	}
 }
-?>
+

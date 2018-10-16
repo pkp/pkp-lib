@@ -33,4 +33,4 @@ abstract class RepresentationDAO extends DAO {
 	abstract function getBySubmissionId($submissionId, $contextId = null);
 }
 
-?>
+

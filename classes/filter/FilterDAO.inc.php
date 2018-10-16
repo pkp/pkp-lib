@@ -587,4 +587,4 @@ class FilterDAO extends DAO {
 	}
 }
 
-?>
+

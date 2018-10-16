@@ -97,4 +97,4 @@ class NativeXmlRepresentationFilter extends NativeImportFilter {
 	}
 }
 
-?>
+

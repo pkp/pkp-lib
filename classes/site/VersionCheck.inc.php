@@ -26,7 +26,7 @@ class VersionCheck {
 	 * @return array
 	 */
 	function getLatestVersion() {
-		$application = PKPApplication::getApplication();
+		$application = Application::getApplication();
 		$includeId = Config::getVar('general', 'installed') &&
 			!defined('RUNNING_UPGRADE') &&
 			Config::getVar('general', 'enable_beacon', true);
@@ -200,4 +200,4 @@ class VersionCheck {
 	}
 }
 
-?>
+

@@ -145,4 +145,4 @@ class AuthorGridRow extends GridRow {
 	}
 }
 
-?>
+

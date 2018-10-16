@@ -66,8 +66,8 @@ class PKPFileUploadWizardHandler extends Handler {
 	/**
 	 * @copydoc PKPHandler::initialize()
 	 */
-	function initialize($request, $args) {
-		parent::initialize($request, $args);
+	function initialize($request) {
+		parent::initialize($request);
 		// Configure the wizard with the authorized submission and file stage.
 		// Validated in authorize.
 		$this->_fileStage = (int)$request->getUserVar('fileStage');
@@ -235,7 +235,7 @@ class PKPFileUploadWizardHandler extends Handler {
 			$this->getRevisionOnly(), $this->getReviewRound(), $this->getRevisedFileId(),
 			$this->getAssocType(), $this->getAssocId()
 		);
-		$fileForm->initData($args, $request);
+		$fileForm->initData();
 
 		// Render the form.
 		return new JSONMessage(true, $fileForm->fetch($request));
@@ -258,11 +258,11 @@ class PKPFileUploadWizardHandler extends Handler {
 		$uploadForm->readInputData();
 
 		// Validate the form and upload the file.
-		if (!$uploadForm->validate($request)) {
+		if (!$uploadForm->validate()) {
 			return new JSONMessage(true, $uploadForm->fetch($request));
 		}
 
-		$uploadedFile = $uploadForm->execute($request); /* @var $uploadedFile SubmissionFile */
+		$uploadedFile = $uploadForm->execute(); /* @var $uploadedFile SubmissionFile */
 		if (!is_a($uploadedFile, 'SubmissionFile')) {
 			return new JSONMessage(false, __('common.uploadFailed'));
 		}
@@ -283,7 +283,7 @@ class PKPFileUploadWizardHandler extends Handler {
 				// Instantiate the revision confirmation form.
 				import('lib.pkp.controllers.wizard.fileUpload.form.SubmissionFilesUploadConfirmationForm');
 				$confirmationForm = new SubmissionFilesUploadConfirmationForm($request, $submission->getId(), $this->getStageId(), $this->getFileStage(), $reviewRound, $revisedFileId, $this->getAssocType(), $this->getAssocId(), $uploadedFile);
-				$confirmationForm->initData($args, $request);
+				$confirmationForm->initData();
 
 				// Render the revision confirmation form.
 				return new JSONMessage(true, $confirmationForm->fetch($request), '0', $uploadedFileInfo);
@@ -320,7 +320,7 @@ class PKPFileUploadWizardHandler extends Handler {
 					// Update the task notifications
 					$notificationMgr = new NotificationManager();
 					$notificationMgr->updateNotification(
-						PKPApplication::getRequest(),
+						Application::getRequest(),
 						array(NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS, NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS),
 						$authorUserIds,
 						ASSOC_TYPE_SUBMISSION,
@@ -385,8 +385,8 @@ class PKPFileUploadWizardHandler extends Handler {
 		$confirmationForm->readInputData();
 
 		// Validate the form and revise the file.
-		if ($confirmationForm->validate($request)) {
-			if (is_a($uploadedFile = $confirmationForm->execute($request), 'SubmissionFile')) {
+		if ($confirmationForm->validate()) {
+			if (is_a($uploadedFile = $confirmationForm->execute(), 'SubmissionFile')) {
 
 				$this->_attachEntities($uploadedFile);
 
@@ -410,7 +410,7 @@ class PKPFileUploadWizardHandler extends Handler {
 	 */
 	function editMetadata($args, $request) {
 		$metadataForm = $this->_getMetadataForm($request);
-		$metadataForm->initData($args, $request);
+		$metadataForm->initData();
 		return new JSONMessage(true, $metadataForm->fetch($request));
 	}
 
@@ -474,13 +474,9 @@ class PKPFileUploadWizardHandler extends Handler {
 			// Test whether the current submission file is similar
 			// to the uploaded file. (Transliterate to ASCII -- the
 			// similar_text function can't handle UTF-8.)
-
-			import('lib.pkp.classes.core.Transcoder');
-			$transcoder = new Transcoder('UTF-8', 'ASCII', true);
-
 			similar_text(
-				$a = $transcoder->trans($uploadedFileName),
-				$b = $transcoder->trans($submissionFile->getOriginalFileName()),
+				$a = Stringy\Stringy::create($uploadedFileName)->toAscii(),
+				$b = Stringy\Stringy::create($submissionFile->getOriginalFileName())->toAscii(),
 				$matchedPercentage
 			);
 			if($matchedPercentage > $minPercentage && !$this->_onlyNumbersDiffer($a, $b)) {
@@ -544,4 +540,4 @@ class PKPFileUploadWizardHandler extends Handler {
 	}
 }
 
-?>
+

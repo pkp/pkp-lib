@@ -90,7 +90,7 @@ class PKPPublicFileManager extends FileManager {
 	 * @return boolean
 	 */
 	function removeContextFile($assocType, $contextId, $fileName) {
-		return $this->deleteFile($this->getContextFilesPath($assocType, $contextId) . '/' . $fileName);
+		return $this->deleteByPath($this->getContextFilesPath($assocType, $contextId) . '/' . $fileName);
 	}
 
 	/**
@@ -99,8 +99,8 @@ class PKPPublicFileManager extends FileManager {
 	 * @return boolean
 	 */
 	function removeSiteFile($fileName) {
-		return $this->deleteFile($this->getSiteFilesPath() . '/' . $fileName);
+		return $this->deleteByPath($this->getSiteFilesPath() . '/' . $fileName);
 	}
 }
 
-?>
+

@@ -53,4 +53,4 @@ class FileLinkAction extends LinkAction {
 	}
 }
 
-?>
+

@@ -129,7 +129,13 @@ for JS_FILE in $LINT_FILES; do
 	# - wraps @extends type in curly braces to comply with Google style guide.
 	# - works around http://code.google.com/p/closure-compiler/issues/detail?id=61 by removing the jQuery closure.
 	mkdir -p `dirname "$WORKDIR/$JS_FILE"`
-	sed "s/^${TAB}//;s/${TAB}/  /g;s/^(function(\$) {//;s/^}(jQuery));//;s/@extends \(.*\)$/@extends {\1}/" "$JS_FILE" > "$WORKDIR/$JS_FILE"
+	sed \
+		-e "s/^${TAB}//" \
+		-e "s/${TAB}/  /g" \
+		-e 's/^(function(\$) {//' \
+		-e 's/^}(jQuery));//' \
+		-e 's/@extends \(.*\)$/@extends {\1}/' \
+		"$JS_FILE" > "$WORKDIR/$JS_FILE"
 
 
 	# Only lint file if it has been changed since last compilation.

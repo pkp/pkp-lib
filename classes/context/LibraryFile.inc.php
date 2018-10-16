@@ -243,4 +243,4 @@ class LibraryFile extends DataObject {
 	}
 }
 
-?>
+

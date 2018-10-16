@@ -51,7 +51,7 @@
 	<message key="submission.email.confirmDeleteLogEntry">Êtes-vous certain de vouloir supprimer cette entrée du registre des courriels?</message>
 	<message key="submission.email.deleteLogEntry">Supprimer l'entrée du registre</message>
 	<message key="submission.emailLog">Registre de courriels</message>
-	<message key="submission.event.participantAdded">"{$name}" ({$username}) fait partie du groupe {$userGroupName}.</message>
+	<message key="submission.event.participantAdded">{$name} ({$username}) a été ajouté à cette soumission en tant que {$userGroupName}.</message>
 	<message key="submission.event.participantRemoved">"{$name}" ({$username}) ne fait plus partie du groupe {$userGroupName}.</message>
 	<message key="submission.event.backToEventLog">Retour au Registre d'événements</message>
 	<message key="submission.event.confirmClearLog">Êtes-vous certain de vouloir effacer le registre d'évènements pour cette soumission?</message>
@@ -380,7 +380,7 @@
 	<!-- editor decisions -->
 	<message key="editor.submission.decision">Décision</message>
 
-	<message key="editor.submission.decision.accept">Envoyer en révision</message>
+	<message key="editor.submission.decision.accept">Accepter la soumission</message>
 
 
 
@@ -448,14 +448,14 @@
 	<message key="submission.art">Illustrations</message>
 	<message key="submission.document">Document</message>
 	<message key="grid.action.itemWorkflow">Aller au flux des travaux de cette soumission.</message>
-	<message key="notification.type.editorAssignmentProduction">Il faut nommer un directeur de la production avant d'entamer le processus éditorial. Veuillez ajouter un directeur ou une directrice de la production en utilisant le lien Participants ci-dessus.</message>
-	<message key="notification.type.editorAssignmentEditing">Il faut nommer un rédacteur metteur en page avant d'entamer le processus éditorial. Veuillez ajouter un rédacteur metteur en page en utilisant le lien Participants ci-dessus.</message>
+	<message key="notification.type.editorAssignmentProduction">Un Directeur de production doit être nommé avant d'entamer cette étape du processus éditorial. Veuillez ajouter un Directeur de production dans la liste des participants.</message>
+	<message key="notification.type.editorAssignmentEditing">Un Directeur de production doit être nommé avant d'entamer cette étape du processus éditorial. Veuillez ajouter un Directeur de production dans la liste des participants.</message>
 	<message key="submission.previousAuthorMessages">Messages précédents</message>
 	<message key="submission.submit.submissionCompleteThanks">Merci de vouloir publier dans "{$contextName}".</message>
 	<message key="submission.submit.whatNext">Quelle est la prochaine étape?</message>
 	<message key="submission.submit.whatNext.forNow">Pour le moment, vous pouvez:</message>
 	<message key="submission.submit.whatNext.review">Réviser cette soumission</message>
-	<message key="submission.submit.whatNext.create">Créer une nouvelle soumission</message>
+	<message key="submission.submit.whatNext.create">Faire une nouvelle soumission</message>
 	<message key="submission.submit.whatNext.return">Revenir à votre tableau de bord</message>
 	<message key="submission.submit.expediteSubmission">Accélérer cette soumission</message>
 	<message key="metadata.property.displayName.title-type">Type du titre</message>
@@ -514,7 +514,7 @@
 	<message key="submission.submit.metadataStep">2. Métadonnées</message>
 	<message key="submission.rights.tip">Si vous le désirez, vous pouvez ajouter une brève note concernant les droits d'accès de votre soumission.</message>
 	<message key="submission.source.tip">Est-ce que cette soumission dérive d'une autre ressource? Si oui, vous devez indiquer l'adresse URL ou décrire cette ressource.</message>
-	<message key="submission.submit.metadataForm">Raffinements additionnels</message>
+	<message key="submission.submit.metadataForm">Métadonnées additionnelles</message>
 	<message key="submission.submit.metadataForm.tip">Ajouter d'autres renseignements pour votre soumission. Veuillez appuyer sur la touche "enter" après chaque terme.</message>
 	<message key="submission.submit.submissionFiles">Fichiers de soumission</message>
 	<message key="submission.submit.dependentFiles">Fichiers dépendants</message>
@@ -557,18 +557,18 @@
 	<message key="editor.submission.roundStatus.sentToExternal">Envoyé à un évaluateur externe.</message>
 	<message key="editor.submission.roundStatus.accepted">Soumission acceptée.</message>
 	<message key="editor.submission.roundStatus.declined">Soumission refusée.</message>
-	<message key="editor.submission.roundStatus.pendingReviewers">En attente d'examinateurs.</message>
+	<message key="editor.submission.roundStatus.pendingReviewers">En attente d'évaluateurs.</message>
 	<message key="editor.submission.roundStatus.pendingReviews">En attente des réponses des évaluateurs.</message>
 	<message key="editor.submission.roundStatus.reviewsReady">De nouvelles évaluations ont été soumises.</message>
 	<message key="editor.review.personalMessageFromEditor">Message du rédacteur</message>
 	<message key="submission.reviewForm">Formulaire d'évaluation</message>
 	<message key="submission.reviewFormResponse">Réponse au formulaire d'évaluation</message>
 	<message key="author.submission.roundStatus.reviewsReady">De nouvelles évaluations ont été soumises et sont examinées par le rédacteur.</message>
-	<message key="submission.confirm.message">Votre soumission est complète et est prête à être envoyée. Vous pouvez faire une dernière vérification et corriger, s'il y a lieu, les informations que vous avez saisies avant de continuer. Lorsque vous serez prêt, cliquez sur "Terminer la soumission".</message>
-	<message key="submission.submit.submissionChecklist">Liste de vérifications de la soumisssion</message>
+	<message key="submission.confirm.message">Votre soumission est complète et prête à être envoyée. Vous pouvez faire une dernière vérification et corriger, s'il y a lieu, les informations que vous avez saisies. Lorsque vous serez prêt, cliquez sur "Terminer la soumission".</message>
+	<message key="submission.submit.submissionChecklist">Liste de vérification de la soumission</message>
 	<message key="submission.submit.submissionChecklistDescription">Vous devez lire et reconnaître que vous avez rempli les conditions ci-dessous avant de poursuivre.</message>
-	<message key="submission.submit.copyrightNoticeAgreementLabel">Acceptation du copyright</message>
-	<message key="submission.submit.copyrightNoticeAgree">J'accepte et respecterez les termes de la déclaration de copyright.</message>
+	<message key="submission.submit.copyrightNoticeAgreementLabel">Acceptation de la déclaration de droit d'auteur.</message>
+	<message key="submission.submit.copyrightNoticeAgree">J'accepte et respecterai les conditions de la déclaration de droit d'auteur.</message>
 	<message key="submission.authorBiography">Biographie de l'auteur</message>
 	<message key="submission.authorBiographies">Bibliographies de l'auteur</message>
 	<message key="submission.authorWithAffiliation">{$name}, {$affiliation}</message>
@@ -596,7 +596,7 @@
 	<message key="submission.supplementary.creator">Créateur (ou propriétaire) du fichier</message>
 	<message key="submission.supplementary.subject">Sujet</message>
 	<message key="submission.supplementary.publisher">Éditeur</message>
-	<message key="submission.supplementary.sponsor">Contributeur ou commenditaire</message>
+	<message key="submission.supplementary.sponsor">Contributeur ou commanditaire</message>
 	<message key="grid.action.createReviewFormElement">Créer un nouveau formulaire d'évaluation</message>
 	<message key="grid.action.editMetadata">Éditer les métadonnées</message>
 	<message key="submission.permissions">Autorisations</message>
@@ -637,7 +637,7 @@
 	<message key="submission.query.new">{$creatorName} a commencé la discussion: {$noteTitle}: {$noteContents}</message>
 	<message key="submission.query.activity.contents">Une nouvelle entrée vient d'être ajoutée dans la discussion intitulée "{$queryTitle}" pour la soumission "{$submissionTitle}".</message>
 	<message key="submission.query.new.contents">Vous avez été ajouté à une discussion intitulée "{$queryTitle}" au sujet de la soumission "{$submissionTitle}".</message>
-	<message key="submission.submit.includeInBrowse">Inclure ce contributeur dans la liste ?</message>
+	<message key="submission.submit.includeInBrowse">Inclure ce contributeur dans la liste</message>
 	<message key="submission.submit.submissionLocaleDescription">Les soumission dans plusieurs langues sont acceptées. Choisissez la langue principale de la soumission parmi cellee présentes dans le menu déroulant.</message>
 	<message key="editor.submission.roundStatus.revisionsSubmitted">Les révisions ont été soumises.</message>
 	<message key="editor.submission.roundStatus.reviewOverdue">Une évaluation est en retard.</message>
@@ -646,7 +646,7 @@
 	<message key="editor.submission.roundStatus.recommendationsCompleted">Toutes les recommandations ont été soumises. Une décision est nécessaire.</message>
 	<message key="grid.reviewAttachments.send.title">Sélectionner les fichiers d'évaluation à partager avec le ou les auteurs.</message>
 	<message key="submission.review.status.awaitingResponse">En attente de la réponse de l'évaluateur.</message>
-	<message key="submission.review.status.declined">L'évaluateur a refuser la demande d'évaluation.</message>
+	<message key="submission.review.status.declined">L'évaluateur a refusé la demande d'évaluation.</message>
 	<message key="submission.review.status.responseOverdue">L'évaluateur a dépassé le délai de réponse.</message>
 	<message key="submission.review.status.reviewOverdue">L'évaluateur a dépassé la date de remise de l'évaluation.</message>
 	<message key="submission.review.status.accepted">L'évaluation a été acceptée.</message>
@@ -684,4 +684,31 @@
 	<message key="submission.list.incompleteSubmissionNotice">Cette soumission doit être complétée avant qu'un rédacteur ne l'évalue.</message>
 	<message key="notification.type.editorAssign">Vous avez été assigné comme rédacteur pour la soumission "{$title}".</message>
 	<message key="submission.list.infoCenter">Logs d'activité et notes</message>
+	<message key="submission.submit.availableUserGroups">Soumis en tant que</message>
+	<message key="submission.submit.availableUserGroupsDescription">Sélectionner le rôle qui décrit le mieux votre contribution à cette soumission.</message>
+	<message key="submission.submit.contactConsent">Coordonnées du correspondant</message>
+	<message key="submission.submit.contactConsentDescription">Oui, j'aimerais être contacté(e) à propos de cette soumission.</message>
+	<message key="submission.submit.userGroupDescriptionManagers">Soumettez sous l'un des rôles suivants si vous souhaitez pouvoir modifier et publier vous-même cette soumission: {$managerGroups}</message>
+	<message key="submission.citations.description">Inscrire chacune des références sur une nouvelle ligne afin qu'elles puissent être extraites.</message>
+	<message key="submission.parsedCitations">Références extraites</message>
+	<message key="submission.parsedCitations.description">Les références suivantes ont été extraites et seront liées aux métadonnées de la soumission.</message>
+	<message key="submission.parsedAndSaveCitations">Références extraites et sauvegardées</message>
+	<message key="submission.submit.form.languagesRequired">Veuillez indiquer une langue.</message>
+	<message key="submission.submit.form.subjectsRequired">Veuillez inscrire un sujet.</message>
+	<message key="submission.submit.form.disciplinesRequired">Veuillez inscrire une discipline.</message>
+	<message key="submission.submit.form.keywordsRequired">Veuillez inscrire un mot-clé.</message>
+	<message key="submission.submit.form.agenciesRequired">Veuillez inscrire une agence de financement.</message>
+	<message key="submission.submit.form.coverageRequired">Veuillez indiquer la couverture.</message>
+	<message key="submission.submit.form.typeRequired">Veuillez inscrire le type.</message>
+	<message key="submission.submit.form.sourceRequired">Veuillez indiquer la source.</message>
+	<message key="submission.submit.form.rightsRequired">Veuillez indiquer les droits.</message>
+	<message key="submission.submit.form.citationsRequired">Veuillez inscrire les références.</message>
+	<message key="editor.submission.roundStatus.resubmitForReview">La soumission doit être soumise à nouveau pour un autre cycle d'évaluation.</message>
+	<message key="editor.submission.roundStatus.submissionResubmitted">La soumission a été soumise à nouveau pour un autre cycle d'évaluation.</message>
+	<message key="editor.submission.addStageParticipant.form.reviewerWarning">Le participant sélectionné a été assigné pour effectuer une évaluation en aveugle. Si vous poursuivez, il aura accès à l'identité de l'auteur. Nous vous encourageons à ne pas ajouter ce participant, à moins que vous ne puissiez assurer de façon indépendante l'intégrité du processus d'évaluation par les pairs.</message>
+	<message key="submission.query.participantTitle">{$fullName}, {$userGroup}</message>
+	<message key="submission.list.reviewComplete">Évaluation soumise</message>
+	<message key="submission.list.dualWorkflowLinks"><![CDATA[Vous possédez plusieurs rôles pour cette soumission. Souhaitez-vous accéder à cette soumission en tant qu'<a href="{$urlAuthorWorkflow}">auteur</a>  ou en tant que<a href="{$urlEditorialWorkflow}">rédacteur</a>?]]></message>
+	<message key="submission.list.reviewerWorkflowLink"><![CDATA[Vous avez reçu un rôle éditorial pour cette soumission. Souhaitez-vous accéder aux <a href="{$urlEditorialWorkflow}">flux de production éditoriaux</a>?]]></message>
+	<message key="submission.list.currentStage">Présentement à l'étape {$stage}.</message>
 </locale>

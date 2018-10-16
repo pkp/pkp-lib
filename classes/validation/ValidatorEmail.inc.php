@@ -37,4 +37,4 @@ class ValidatorEmail extends ValidatorRegExp {
 	}
 }
 
-?>
+

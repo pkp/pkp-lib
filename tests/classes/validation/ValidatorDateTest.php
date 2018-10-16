@@ -44,4 +44,4 @@ class ValidatorDateTest extends PKPTestCase {
 		self::assertFalse($validator->isValid('anything else'));
 	}
 }
-?>
+

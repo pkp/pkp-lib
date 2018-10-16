@@ -64,6 +64,7 @@
 		$tabs.tabs({
 			// Enable AJAX-driven tabs with JSON messages.
 			ajaxOptions: {
+				dataType: 'json',
 				cache: false,
 				dataFilter: this.callbackWrapper(this.dataFilter)
 			},
@@ -252,7 +253,7 @@
 		if (jsonData === false) {
 			return '';
 		}
-		return jsonData.content;
+		return JSON.stringify(jsonData.content);
 	};
 
 

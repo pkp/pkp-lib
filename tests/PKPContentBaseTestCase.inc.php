@@ -368,4 +368,4 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	}
 }
 
-?>
+

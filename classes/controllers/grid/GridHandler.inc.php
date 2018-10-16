@@ -866,7 +866,7 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
-	 * Render the filter (a template or a Form).
+	 * Render the filter (a template).
 	 * @param $request PKPRequest
 	 * @param $filterData Array Data to be used by the filter template.
 	 * @return string
@@ -876,16 +876,6 @@ class GridHandler extends PKPHandler {
 		switch(true) {
 			case $form === null: // No filter form.
 				return '';
-			case is_a($form, 'Form'): // Form object subclass
-				// Only read form data if the clientSubmit flag has been checked
-				$clientSubmit = (boolean) $request->getUserVar('clientSubmit');
-				if($clientSubmit) {
-					$form->readInputData();
-					$form->validate();
-				}
-
-				$form->initData($filterData, $request);
-				return $form->fetch($request);
 			case is_string($form): // HTML mark-up
 				$templateMgr = TemplateManager::getManager($request);
 
@@ -1182,4 +1172,4 @@ class GridHandler extends PKPHandler {
 		}
 	}
 }
-?>
+

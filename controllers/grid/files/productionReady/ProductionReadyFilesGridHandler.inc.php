@@ -43,12 +43,12 @@ class ProductionReadyFilesGridHandler extends FileListGridHandler {
 	}
 
 	/**
-	 * @copydoc PKPHandler::initialize()
+	 * @copydoc FileListGridHandler::initialize()
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 		$this->setTitle('editor.submission.production.productionReadyFiles');
 	}
 }
 
-?>
+

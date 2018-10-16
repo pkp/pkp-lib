@@ -80,4 +80,4 @@ class AjaxAction extends LinkActionRequest {
 	}
 }
 
-?>
+

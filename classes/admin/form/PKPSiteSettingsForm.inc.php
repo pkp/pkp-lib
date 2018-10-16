@@ -94,7 +94,7 @@ class PKPSiteSettingsForm extends Form {
 	}
 
 	function getLocaleFieldNames() {
-		return array('title', 'pageHeaderTitleType', 'intro', 'about', 'contactName', 'contactEmail', 'pageFooter');
+		return array('title', 'pageHeaderTitleType', 'intro', 'about', 'contactName', 'contactEmail', 'pageFooter', 'privacyStatement');
 	}
 
 	/**
@@ -109,7 +109,7 @@ class PKPSiteSettingsForm extends Form {
 	/**
 	 * Save site settings.
 	 */
-	function execute($request) {
+	function execute() {
 		parent::execute();
 		$siteDao = DAORegistry::getDAO('SiteDAO');
 		$site = $siteDao->getSite();
@@ -119,7 +119,7 @@ class PKPSiteSettingsForm extends Form {
 
 		// Clear the template cache if theme has changed
 		if ($this->getData('themePluginPath') != $site->getSetting('themePluginPath')) {
-			$templateMgr = TemplateManager::getManager($request);
+			$templateMgr = TemplateManager::getManager(Application::getRequest());
 			$templateMgr->clearTemplateCache();
 			$templateMgr->clearCssCache();
 		}
@@ -202,4 +202,4 @@ class PKPSiteSettingsForm extends Form {
 	}
 }
 
-?>
+

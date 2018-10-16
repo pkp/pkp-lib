@@ -57,7 +57,7 @@
 	<message key="rt.admin.sharing.buttonStyleLabel">Стил дугмета</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Користи падајући мени</message>
 	<message key="rt.admin.sharing.advanced">Напредна подешавања (опционо)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Погледај <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">AddThis.com документацију за прилагођавање</a> за даља упутства.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Погледај <a href="https://www.addthis.com/academy/how-to-create-custom-buttons-with-addthis/">AddThis.com документацију за прилагођавање</a> за даља упутства.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Бренд</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Опције падајућег менија <br /> (листа одвојена зарезом)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Језик</message>

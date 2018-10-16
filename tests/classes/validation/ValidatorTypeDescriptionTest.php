@@ -62,4 +62,4 @@ class ValidatorTypeDescriptionTest extends PKPTestCase {
 		$typeDescription = new ValidatorTypeDescription('email&');
 	}
 }
-?>
+

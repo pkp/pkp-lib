@@ -65,4 +65,4 @@ class SubmissionChecklistGridRow extends GridRow {
 	}
 }
 
-?>
+

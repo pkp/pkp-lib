@@ -39,11 +39,11 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler {
 	//
 	/**
 	 * Configure the grid
-	 * @param $request PKPRequest
+	 * @see LibraryFileGridHandler::initialize
 	 */
-	function initialize($request) {
+	function initialize($request, $args = null) {
 		$this->setCanEdit(true); // this grid can always be edited.
-		parent::initialize($request);
+		parent::initialize($request, $args);
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR, LOCALE_COMPONENT_PKP_EDITOR, LOCALE_COMPONENT_APP_MANAGER);
 
@@ -146,4 +146,4 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler {
 	}
 }
 
-?>
+

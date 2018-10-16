@@ -79,4 +79,4 @@ class DBDataXMLParserTest extends DatabaseTestCase {
 	}
 }
 
-?>
+

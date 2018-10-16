@@ -57,4 +57,4 @@ class ViewReviewGuidelinesLinkAction extends LinkAction {
 	}
 }
 
-?>
+

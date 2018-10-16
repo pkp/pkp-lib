@@ -223,6 +223,7 @@ class PKPComponentRouter extends PKPRouter {
 
 			$componentInstance =& instantiate($component, 'PKPHandler', $allowedPackages, $requiredMethods);
 			if (!is_object($componentInstance)) return $nullVar;
+			$this->setHandler($componentInstance);
 
 			//
 			// Callable service endpoint
@@ -492,4 +493,4 @@ class PKPComponentRouter extends PKPRouter {
 		return $rpcServiceEndpointParts;
 	}
 }
-?>
+

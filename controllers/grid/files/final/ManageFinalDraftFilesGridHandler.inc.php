@@ -65,7 +65,6 @@ class ManageFinalDraftFilesGridHandler extends SelectableSubmissionFileListCateg
 
 		if ($manageFinalDraftFilesForm->validate()) {
 			$manageFinalDraftFilesForm->execute(
-				$args, $request,
 				$this->getGridCategoryDataElements($request, $this->getStageId())
 			);
 
@@ -77,4 +76,4 @@ class ManageFinalDraftFilesGridHandler extends SelectableSubmissionFileListCateg
 	}
 }
 
-?>
+

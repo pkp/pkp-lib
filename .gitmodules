@@ -4,9 +4,3 @@
 [submodule "js/lib/jquery/plugins/spectrum"]
 	path = js/lib/jquery/plugins/spectrum
 	url = https://github.com/bgrins/spectrum.git
-[submodule "js/lib/pnotify"]
-	path = js/lib/pnotify
-	url = https://github.com/sciactive/pnotify.git
-[submodule "plugins/generic/usageStats/lib/counterBots"]
-	path = plugins/generic/usageStats/lib/counterBots
-	url = https://github.com/atmire/COUNTER-Robots

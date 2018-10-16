@@ -62,4 +62,4 @@ class EditLibraryFileForm extends LibraryFileForm {
 	}
 }
 
-?>
+

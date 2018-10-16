@@ -147,7 +147,7 @@ class AnnouncementTypeGridHandler extends GridHandler {
 		$contextId = $context->getId();
 
 		$announcementTypeForm = new AnnouncementTypeForm($contextId, $announcementTypeId);
-		$announcementTypeForm->initData($args, $request);
+		$announcementTypeForm->initData();
 
 		return new JSONMessage(true, $announcementTypeForm->fetch($request));
 	}
@@ -170,7 +170,7 @@ class AnnouncementTypeGridHandler extends GridHandler {
 		$announcementTypeForm->readInputData();
 
 		if ($announcementTypeForm->validate()) {
-			$announcementTypeForm->execute($request);
+			$announcementTypeForm->execute();
 
 			if ($announcementTypeId) {
 				// Successful edit of an existing announcement type.
@@ -219,4 +219,4 @@ class AnnouncementTypeGridHandler extends GridHandler {
 	}
 }
 
-?>
+

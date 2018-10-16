@@ -84,4 +84,4 @@ class XCacheCache extends GenericCache {
 	}
 }
 
-?>
+

@@ -56,4 +56,4 @@ class QueryRequiredPolicy extends DataObjectRequiredPolicy {
 	}
 }
 
-?>
+

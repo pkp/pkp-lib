@@ -230,4 +230,4 @@ class PKPSubmissionMetadataFormImplementation {
 	}
 }
 
-?>
+

@@ -149,4 +149,4 @@ class PKPSitemapHandler extends Handler {
 
 }
 
-?>
+

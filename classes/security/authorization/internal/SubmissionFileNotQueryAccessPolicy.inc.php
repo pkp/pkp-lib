@@ -40,4 +40,4 @@ class SubmissionFileNotQueryAccessPolicy extends SubmissionFileBaseAccessPolicy 
 	}
 }
 
-?>
+

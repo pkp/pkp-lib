@@ -51,12 +51,10 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 	}
 
 	/**
-	 * Fetch and store away objects
-	 * @param $request PKPRequest
-	 * @param $args array optional
+	 * @copydoc InformationCenterHandler::initialize
 	 */
-	function initialize($request, $args = null) {
-		parent::initialize($request, $args);
+	function initialize($request) {
+		parent::initialize($request);
 
 		$this->_stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
 
@@ -154,7 +152,7 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 		$notesForm->readInputData();
 
 		if ($notesForm->validate()) {
-			$notesForm->execute($request);
+			$notesForm->execute();
 
 			// Save to event log
 			$this->_logEvent($request, $this->submissionFile, SUBMISSION_LOG_NOTE_POSTED, 'SubmissionFileLog');
@@ -247,4 +245,4 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 	}
 }
 
-?>
+

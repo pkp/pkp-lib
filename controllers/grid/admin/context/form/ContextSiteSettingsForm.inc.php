@@ -44,13 +44,12 @@ class ContextSiteSettingsForm extends Form {
 	}
 
 	/**
-	 * Fetch the form.
-	 * @param $request PKPRequest
+	 * @copydoc Form::fetch
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('contextId', $this->contextId);
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -129,4 +128,4 @@ class ContextSiteSettingsForm extends Form {
 	}
 }
 
-?>
+

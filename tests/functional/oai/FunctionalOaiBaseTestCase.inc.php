@@ -65,4 +65,4 @@ class FunctionalOaiBaseTestCase extends DatabaseTestCase {
 		return $xPath;
 	}
 }
-?>
+

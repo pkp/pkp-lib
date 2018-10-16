@@ -211,11 +211,15 @@ class SubmissionFileAccessPolicy extends ContextPolicy {
 			$subEditorFileAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
 			$subEditorFileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_SUB_EDITOR, $roleAssignments[ROLE_ID_SUB_EDITOR]));
 
-			// 2) ... but only if they have been assigned as a subeditor to the requested submission.
+			// 2) ... but only if they have been assigned as a subeditor to the requested submission ...
 			import('lib.pkp.classes.security.authorization.internal.UserAccessibleWorkflowStageRequiredPolicy');
 			$subEditorFileAccessPolicy->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request));
 			import('lib.pkp.classes.security.authorization.AssignedStageRoleHandlerOperationPolicy');
 			$subEditorFileAccessPolicy->addPolicy(new AssignedStageRoleHandlerOperationPolicy($request, ROLE_ID_SUB_EDITOR, $roleAssignments[ROLE_ID_SUB_EDITOR], $request->getUserVar('stageId')));
+
+			// 3) ... and only if they are not also assigned as an author and this is not part of a blind review
+			import('lib.pkp.classes.security.authorization.internal.SubmissionFileAuthorEditorPolicy');
+			$subEditorFileAccessPolicy->addPolicy(new SubmissionFileAuthorEditorPolicy($request, $fileIdAndRevision));
 
 			$fileAccessPolicy->addPolicy($subEditorFileAccessPolicy);
 		}
@@ -225,4 +229,4 @@ class SubmissionFileAccessPolicy extends ContextPolicy {
 	}
 }
 
-?>
+

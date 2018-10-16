@@ -39,4 +39,4 @@ class FormValidatorPost extends FormValidator {
 	}
 }
 
-?>
+

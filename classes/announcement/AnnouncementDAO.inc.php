@@ -351,4 +351,4 @@ class AnnouncementDAO extends DAO {
 	}
 }
 
-?>
+

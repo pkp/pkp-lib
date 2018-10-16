@@ -44,4 +44,4 @@ class EditorSelectableReviewAttachmentsGridHandler extends SelectableFileListGri
 	}
 }
 
-?>
+

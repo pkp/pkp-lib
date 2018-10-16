@@ -40,4 +40,4 @@ class ClassTypeDescriptionTest extends PKPTestCase {
 		$typeDescription = new ClassTypeDescription('ClassWithoutPackage');
 	}
 }
-?>
+

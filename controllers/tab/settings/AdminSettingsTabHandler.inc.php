@@ -25,7 +25,7 @@ class AdminSettingsTabHandler extends SettingsTabHandler {
 	function __construct($additionalTabs = array()) {
 		$role = array(ROLE_ID_SITE_ADMIN);
 
-		$this->addRoleAssignment(ROLE_ID_MANAGER,
+		$this->addRoleAssignment([ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN],
 			array(
 				'showFileUploadForm',
 				'uploadFile',
@@ -49,10 +49,26 @@ class AdminSettingsTabHandler extends SettingsTabHandler {
 	// Extended methods from SettingsTabHandler
 	//
 	/**
+	 * @see PKPHandler::authorize()
+	 */
+	function authorize($request, &$args, $roleAssignments) {
+		import('lib.pkp.classes.security.authorization.PolicySet');
+		$rolePolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
+
+		import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
+		foreach($roleAssignments as $role => $operations) {
+			$rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
+		}
+		$this->addPolicy($rolePolicy);
+
+		return parent::authorize($request, $args, $roleAssignments);
+	}
+
+	/**
 	 * @copydoc PKPHandler::initialize()
 	 */
-	function initialize($request, $args = null) {
-		parent::initialize($request, $args);
+	function initialize($request) {
+		parent::initialize($request);
 
 		// Load grid-specific translations
 		AppLocale::requireComponents(
@@ -75,7 +91,7 @@ class AdminSettingsTabHandler extends SettingsTabHandler {
 	 */
 	function showFileUploadForm($args, $request) {
 		$fileUploadForm = $this->_getFileUploadForm($request);
-		$fileUploadForm->initData($request);
+		$fileUploadForm->initData();
 
 		return new JSONMessage(true, $fileUploadForm->fetch($request));
 	}
@@ -112,7 +128,7 @@ class AdminSettingsTabHandler extends SettingsTabHandler {
 		$fileUploadForm->readInputData();
 
 		if ($fileUploadForm->validate()) {
-			if ($fileUploadForm->execute($request)) {
+			if ($fileUploadForm->execute()) {
 				// Generate a JSON message with an event
 				$settingName = $request->getUserVar('fileSettingName');
 				return DAO::getDataChangedEvent($settingName);
@@ -131,7 +147,7 @@ class AdminSettingsTabHandler extends SettingsTabHandler {
 		$settingName = $request->getUserVar('fileSettingName');
 
 		$tabForm = $this->getTabForm();
-		$tabForm->initData($request);
+		$tabForm->initData();
 
 		if ($request->checkCSRF() && $tabForm->deleteFile($settingName, $request)) {
 			return DAO::getDataChangedEvent($settingName);
@@ -152,7 +168,7 @@ class AdminSettingsTabHandler extends SettingsTabHandler {
 
 		// Try to fetch the file.
 		$tabForm = $this->getTabForm();
-		$tabForm->initData($request);
+		$tabForm->initData();
 
 		$renderedElement = $tabForm->renderFileView($settingName, $request);
 
@@ -196,5 +212,3 @@ class AdminSettingsTabHandler extends SettingsTabHandler {
 		return $fileUploadForm;
 	}
 }
-
-?>

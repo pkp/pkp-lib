@@ -42,9 +42,6 @@ define('STATISTICS_METRIC', 'metric');
 define('STATISTICS_ORDER_ASC', 'ASC');
 define('STATISTICS_ORDER_DESC', 'DESC');
 
-// Global report size limit:
-define('STATISTICS_MAX_ROWS', 5000);
-
 // File type to be used in publication object dimension.
 define('STATISTICS_FILE_TYPE_HTML', 1);
 define('STATISTICS_FILE_TYPE_PDF', 2);
@@ -349,4 +346,4 @@ abstract class PKPStatisticsHelper {
 	abstract protected function getAppColumnTitle($column);
 }
 
-?>
+

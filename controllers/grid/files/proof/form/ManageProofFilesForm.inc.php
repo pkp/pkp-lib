@@ -35,14 +35,12 @@ class ManageProofFilesForm extends ManageSubmissionFilesForm {
 	// Overridden template methods
 	//
 	/**
-	 * Fetch the form contents.
-	 * @param $request PKPRequest
-	 * @return string Form contents
+	 * @copydoc ManageSubmissionFilesForm::fetch
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('representationId', $this->_representationId);
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -73,4 +71,4 @@ class ManageProofFilesForm extends ManageSubmissionFilesForm {
 	}
 }
 
-?>
+

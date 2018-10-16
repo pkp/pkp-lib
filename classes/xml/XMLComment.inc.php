@@ -110,4 +110,4 @@ class XMLComment extends XMLNode {
 		assert(false);
 	}
 }
-?>
+

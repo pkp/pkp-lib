@@ -212,4 +212,4 @@ class PKPNotification extends DataObject {
 	}
 }
 
-?>
+

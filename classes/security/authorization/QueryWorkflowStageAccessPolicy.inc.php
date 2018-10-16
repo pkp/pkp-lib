@@ -53,4 +53,4 @@ class QueryWorkflowStageAccessPolicy extends ContextPolicy {
 	}
 }
 
-?>
+

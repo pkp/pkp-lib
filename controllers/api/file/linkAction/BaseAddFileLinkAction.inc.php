@@ -62,4 +62,4 @@ class BaseAddFileLinkAction extends LinkAction {
 	}
 }
 
-?>
+

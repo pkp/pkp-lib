@@ -240,6 +240,18 @@ class SubmissionFile extends PKPFile {
 	}
 
 	/**
+	 * Determine whether this file supports dependent content.
+	 * @return boolean
+	 */
+	function supportsDependentFiles() {
+		return !in_array($this->getFileStage(), array(SUBMISSION_FILE_DEPENDENT, SUBMISSION_FILE_QUERY)) && in_array($this->getFileType(), array(
+			'text/html',
+			'application/xml',
+			'text/xml',
+		));
+	}
+
+	/**
 	 * Get the file's extension.
 	 * @return string
 	 */
@@ -660,4 +672,4 @@ class SubmissionFile extends PKPFile {
 	}
 }
 
-?>
+

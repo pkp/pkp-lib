@@ -109,4 +109,4 @@ class NativeXmlUserGroupFilter extends NativeImportFilter {
 	}
 }
 
-?>
+

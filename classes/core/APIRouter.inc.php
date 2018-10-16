@@ -22,8 +22,6 @@ import('classes.core.Request');
 import('classes.handler.Handler');
 
 class APIRouter extends PKPRouter {
-	/** @var APIHandler */
-	var $_handler;
 
 	/**
 	 * Determines path info parts depending of disable_path_info config value
@@ -106,16 +104,9 @@ class APIRouter extends PKPRouter {
 			SessionManager::getManager();
 		}
 
-		$this->_handler = require ('./'.$sourceFile);
-		$this->_handler->getApp()->run();
-	}
-
-	/**
-	 * Get the API handler.
-	 * @return APIHandler
-	 */
-	function getHandler() {
-		return $this->_handler;
+		$handler = require ('./'.$sourceFile);
+		$this->setHandler($handler);
+		$handler->getApp()->run();
 	}
 
 	/**
@@ -149,4 +140,4 @@ class APIRouter extends PKPRouter {
 
 }
 
-?>
+

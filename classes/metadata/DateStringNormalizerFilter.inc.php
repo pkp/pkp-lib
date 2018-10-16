@@ -80,4 +80,4 @@ class DateStringNormalizerFilter extends Filter {
 		return $normalizedDate;
 	}
 }
-?>
+

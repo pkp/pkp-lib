@@ -48,8 +48,7 @@ class SubmissionMailTemplate extends MailTemplate {
 	 */
 	function assignParams($paramArray = array()) {
 		$submission = $this->submission;
-		$application = PKPApplication::getApplication();
-		$request = $application->getRequest();
+		$request = Application::getRequest();
 		parent::assignParams(array_merge(
 			array(
 				'submissionTitle' => strip_tags($submission->getLocalizedTitle()),
@@ -201,4 +200,4 @@ class SubmissionMailTemplate extends MailTemplate {
 	}
 }
 
-?>
+

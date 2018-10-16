@@ -77,4 +77,4 @@ class AnnouncementGridCellProvider extends GridCellProvider {
 	}
 }
 
-?>
+

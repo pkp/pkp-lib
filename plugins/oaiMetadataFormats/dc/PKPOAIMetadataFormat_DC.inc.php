@@ -79,4 +79,4 @@ class PKPOAIMetadataFormat_DC extends OAIMetadataFormat {
 	}
 }
 
-?>
+

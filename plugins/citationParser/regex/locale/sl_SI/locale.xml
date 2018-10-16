@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * plugins/citationParser/regex/locale/sl_SI/locale.xml
+  *
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2003-2017 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+
+<locale name="sl_SI" full_name="Slovenščina">
+	<message key="plugins.citationParser.regex.displayName">Regular Expressions izluščevalnik citatov</message>
+	<message key="plugins.citationParser.regex.description">Izlušči podatke iz citatov v prostem besedilu s pomočjo regularnih izrazov.</message>
+</locale>

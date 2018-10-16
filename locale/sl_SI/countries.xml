@@ -1,34 +1,36 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE countries SYSTEM "../../dtd/countries.dtd">
 
 <!--
-  * locale/sl_SI/countries.xml
+  * lib/pkp/locale/sl_SI/countries.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2000-2012 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localized list of countries. Based on ISO 3166-1:2006.
+  * Localized list of countries. Based on ISO 3166-1.
+  * Localization strings for the si_SI (Slovenian/slovenski) locale.
+  *
+  *
   -->
 <countries>
 	<country name="Afganistan" code="AF"/>
-	<country name="Alandski otoki" code="AX"/>
+	<country name="Ålandski otoki" code="AX"/>
 	<country name="Albanija" code="AL"/>
 	<country name="Alžirija" code="DZ"/>
-	<country name="Ameriška Samoa" code="AS"/>
+	<country name="Samoa" code="AS"/>
 	<country name="Andora" code="AD"/>
 	<country name="Angola" code="AO"/>
 	<country name="Angvila" code="AI"/>
 	<country name="Antarktika" code="AQ"/>
-	<country name="Antigva in Barbuda" code="AG"/>
+	<country name="Antiga in Barbuda" code="AG"/>
 	<country name="Argentina" code="AR"/>
-	<country name="Armenija" code="AM"/>
+	<country name="Armenja" code="AM"/>
 	<country name="Aruba" code="AW"/>
-	<country name="Avstralija" code="AU"/>
-	<country name="Avstrija" code="AT"/>
-	<country name="Azerbajdžan" code="AZ"/>
+	<country name="Australija" code="AU"/>
+	<country name="Austrija" code="AT"/>
+	<country name="Azerbejdžan" code="AZ"/>
 	<country name="Bahami" code="BS"/>
-	<country name="Bahrajn" code="BH"/>
+	<country name="Bahrein" code="BH"/>
 	<country name="Bangladeš" code="BD"/>
 	<country name="Barbados" code="BB"/>
 	<country name="Belorusija" code="BY"/>
@@ -37,44 +39,44 @@
 	<country name="Benin" code="BJ"/>
 	<country name="Bermudi" code="BM"/>
 	<country name="Butan" code="BT"/>
-	<country name="Bolivija (Plurinacionalnda država Bolivija)" code="BO"/>
-	<country name="Bonaire, Sint Eustatius in Saba" code="BQ"/>
+	<country name="Bolivja, Plurinational State of" code="BO"/>
+	<country name="Bonaire, Sint Eustatius and Saba" code="BQ"/>
 	<country name="Bosna in Hercegovina" code="BA"/>
 	<country name="Bocvana" code="BW"/>
-	<country name="Bouvetov otok" code="BV"/>
+	<country name="Bouvetov Otok" code="BV"/>
 	<country name="Brazilija" code="BR"/>
-	<country name="Britansko ozemlje v Indijskem oceanu" code="IO"/>
-	<country name="Brunej" code="BN"/>
-	<country name="Bolgarija" code="BG"/>
+	<country name="Britanski teritoriji v Indijskem oceanu" code="IO"/>
+	<country name="Brunej Darussalam" code="BN"/>
+	<country name="Bulgarja" code="BG"/>
 	<country name="Burkina Faso" code="BF"/>
 	<country name="Burundi" code="BI"/>
-	<country name="Zelenortski otoki" code="CV"/>
 	<country name="Kambodža" code="KH"/>
 	<country name="Kamerun" code="CM"/>
 	<country name="Kanada" code="CA"/>
+	<country name="Kap Verde" code="CV"/>
 	<country name="Kajmanski otoki" code="KY"/>
 	<country name="Srednjeafriška republika" code="CF"/>
 	<country name="Čad" code="TD"/>
 	<country name="Čile" code="CL"/>
 	<country name="Kitajska" code="CN"/>
 	<country name="Božični otok" code="CX"/>
-	<country name="Kokosovi otoki (Keeling)" code="CC"/>
+	<country name="Kokosovi otoci" code="CC"/>
 	<country name="Kolumbija" code="CO"/>
 	<country name="Komori" code="KM"/>
 	<country name="Kongo" code="CG"/>
-	<country name="Demokratična republika Kongo" code="CD"/>
-	<country name="Cookovi otoki" code="CK"/>
+	<country name="Demokratična Republika Kongo" code="CD"/>
+	<country name="Kukovi otoki" code="CK"/>
 	<country name="Kostarika" code="CR"/>
-	<country name="Slonokoščena obala" code="CI"/>
+	<country name="Slonikoščena obala" code="CI"/>
 	<country name="Hrvaška" code="HR"/>
 	<country name="Kuba" code="CU"/>
 	<country name="Curaçao" code="CW"/>
 	<country name="Ciper" code="CY"/>
-	<country name="Češka" code="CZ"/>
+	<country name="Češka republika" code="CZ"/>
 	<country name="Danska" code="DK"/>
 	<country name="Džibuti" code="DJ"/>
 	<country name="Dominika" code="DM"/>
-	<country name="Dominikanska republika" code="DO"/>
+	<country name="Dominikanska Republika" code="DO"/>
 	<country name="Ekvador" code="EC"/>
 	<country name="Egipt" code="EG"/>
 	<country name="El Salvador" code="SV"/>
@@ -82,14 +84,14 @@
 	<country name="Eritreja" code="ER"/>
 	<country name="Estonija" code="EE"/>
 	<country name="Etiopija" code="ET"/>
-	<country name="Falklandski otoki (Malvinski otoki)" code="FK"/>
+	<country name="Falklandski otoki" code="FK"/>
 	<country name="Ferski otoki" code="FO"/>
 	<country name="Fidži" code="FJ"/>
 	<country name="Finska" code="FI"/>
 	<country name="Francija" code="FR"/>
 	<country name="Francoska Gvajana" code="GF"/>
 	<country name="Francoska Polinezija" code="PF"/>
-	<country name="Francoska južna ozemlja" code="TF"/>
+	<country name="Južni francoski teritoriji" code="TF"/>
 	<country name="Gabon" code="GA"/>
 	<country name="Gambija" code="GM"/>
 	<country name="Gruzija" code="GE"/>
@@ -100,22 +102,22 @@
 	<country name="Grenlandija" code="GL"/>
 	<country name="Grenada" code="GD"/>
 	<country name="Gvadalupa" code="GP"/>
-	<country name="Gvam" code="GU"/>
+	<country name="Guam" code="GU"/>
 	<country name="Gvatemala" code="GT"/>
-	<country name="Guernsey" code="GG"/>
+	<country name="Guernsi" code="GG"/>
 	<country name="Gvineja" code="GN"/>
 	<country name="Gvineja Bisau" code="GW"/>
 	<country name="Gvajana" code="GY"/>
 	<country name="Haiti" code="HT"/>
-	<country name="Otok Heard in otočje McDonald" code="HM"/>
-	<country name="Sveti sedež" code="VA"/>
+	<country name="Otoka Heard in McDonald" code="HM"/>
+	<country name="Vatikan" code="VA"/>
 	<country name="Honduras" code="HN"/>
 	<country name="Hong Kong" code="HK"/>
 	<country name="Madžarska" code="HU"/>
 	<country name="Islandija" code="IS"/>
 	<country name="Indija" code="IN"/>
 	<country name="Indonezija" code="ID"/>
-	<country name="Iran (Islamska republika Iran)" code="IR"/>
+	<country name="Iran" code="IR"/>
 	<country name="Irak" code="IQ"/>
 	<country name="Irska" code="IE"/>
 	<country name="Otok Man" code="IM"/>
@@ -128,11 +130,11 @@
 	<country name="Kazahstan" code="KZ"/>
 	<country name="Kenija" code="KE"/>
 	<country name="Kiribati" code="KI"/>
-	<country name="Koreja (Demokratična ljudska republika Koreja)" code="KP"/>
-	<country name="Koreja (Republika Koreja)" code="KR"/>
+	<country name="Demokratska Narodna Republika Koreja" code="KP"/>
+	<country name="Republika Koreja" code="KR"/>
 	<country name="Kuvajt" code="KW"/>
-	<country name="Kirgizistan" code="KG"/>
-	<country name="Laoška ljudska demokratična republika" code="LA"/>
+	<country name="Kirgistan" code="KG"/>
+	<country name="Laoška Narodna Demokratična Republika" code="LA"/>
 	<country name="Latvija" code="LV"/>
 	<country name="Libanon" code="LB"/>
 	<country name="Lesoto" code="LS"/>
@@ -142,21 +144,21 @@
 	<country name="Litva" code="LT"/>
 	<country name="Luksemburg" code="LU"/>
 	<country name="Makao" code="MO"/>
-	<country name="Makedonija (Nekdanja jugoslovanska republika Makedonija)" code="MK"/>
+	<country name="Makedonija" code="MK"/>
 	<country name="Madagaskar" code="MG"/>
 	<country name="Malavi" code="MW"/>
 	<country name="Malezija" code="MY"/>
 	<country name="Maldivi" code="MV"/>
 	<country name="Mali" code="ML"/>
 	<country name="Malta" code="MT"/>
-	<country name="Marshallovi otoki" code="MH"/>
+	<country name="Maršalovi Otoki" code="MH"/>
 	<country name="Martinik" code="MQ"/>
-	<country name="Mavretanija" code="MR"/>
-	<country name="Mavricij" code="MU"/>
+	<country name="Mavretania" code="MR"/>
+	<country name="Mauricius" code="MU"/>
 	<country name="Mayotte" code="YT"/>
 	<country name="Mehika" code="MX"/>
-	<country name="Mikronezija (Federativne države Mikronezije)" code="FM"/>
-	<country name="Moldavija (Republika Moldavija)" code="MD"/>
+	<country name="Mikronezija" code="FM"/>
+	<country name="Moldavija" code="MD"/>
 	<country name="Monako" code="MC"/>
 	<country name="Mongolija" code="MN"/>
 	<country name="Črna gora" code="ME"/>
@@ -175,14 +177,14 @@
 	<country name="Nigerija" code="NG"/>
 	<country name="Niue" code="NU"/>
 	<country name="Otok Norfolk" code="NF"/>
-	<country name="Severni Marijanski otoki" code="MP"/>
+	<country name="Severni Marijanski Otoki" code="MP"/>
 	<country name="Norveška" code="NO"/>
 	<country name="Oman" code="OM"/>
 	<country name="Pakistan" code="PK"/>
-	<country name="Palav" code="PW"/>
-	<country name="Palestina (Država Palestina)" code="PS"/>
+	<country name="Palau" code="PW"/>
+	<country name="Okupirana Palestinska ozemlja" code="PS"/>
 	<country name="Panama" code="PA"/>
-	<country name="Papuanska Nova Gvineja" code="PG"/>
+	<country name="Papua Nova Gvineja" code="PG"/>
 	<country name="Paragvaj" code="PY"/>
 	<country name="Peru" code="PE"/>
 	<country name="Filipini" code="PH"/>
@@ -191,68 +193,68 @@
 	<country name="Portugalska" code="PT"/>
 	<country name="Portoriko" code="PR"/>
 	<country name="Katar" code="QA"/>
-	<country name="Reunion" code="RE"/>
+	<country name="Réunion" code="RE"/>
 	<country name="Romunija" code="RO"/>
-	<country name="Ruska federacija" code="RU"/>
+	<country name="Ruska Federacija" code="RU"/>
 	<country name="Ruanda" code="RW"/>
-	<country name="Saint-Barthélemy" code="BL"/>
+	<country name="Sveta Helena" code="BL"/>
 	<country name="Sveta Helena, Ascension in Tristan da Cunha" code="SH"/>
 	<country name="Sveti Kits in Nevis" code="KN"/>
 	<country name="Sveta Lucija" code="LC"/>
-	<country name="Sveti Martin (francoski del)" code="MF"/>
-	<country name="Saint Pierre in Miquelon" code="PM"/>
-	<country name="Sveti Vincencij in Grenadine" code="VC"/>
+	<country name="Sveti Martin (Francoski del)" code="MF"/>
+	<country name="Sveti Petar in Mikelon" code="PM"/>
+	<country name="Sveti Vincent in Grenadini" code="VC"/>
 	<country name="Samoa" code="WS"/>
 	<country name="San Marino" code="SM"/>
-	<country name="Sveti Tomaž in Princ" code="ST"/>
-	<country name="Savdska Arabija" code="SA"/>
+	<country name="Sao Tome in Principe" code="ST"/>
+	<country name="Saudska Arabija" code="SA"/>
 	<country name="Senegal" code="SN"/>
 	<country name="Srbija" code="RS"/>
 	<country name="Sejšeli" code="SC"/>
-	<country name="Sierra Leone" code="SL"/>
+	<country name="Siera Leone" code="SL"/>
 	<country name="Singapur" code="SG"/>
-	<country name="Sint Marteen (nizozemski del)" code="SX"/>
+	<country name="Sveti Martin (Nizozemski del)" code="SX"/>
 	<country name="Slovaška" code="SK"/>
 	<country name="Slovenija" code="SI"/>
-	<country name="Salomonovi otoki" code="SB"/>
+	<country name="Salamonovi Otoki" code="SB"/>
 	<country name="Somalija" code="SO"/>
 	<country name="Južna Afrika" code="ZA"/>
-	<country name="Južna Georgija in Južni Sandwichevi otoki" code="GS"/>
+	<country name="Otoka Južna Georgia in Južni Sandwich" code="GS"/>
 	<country name="Južni Sudan" code="SS"/>
 	<country name="Španija" code="ES"/>
 	<country name="Šri Lanka" code="LK"/>
 	<country name="Sudan" code="SD"/>
-	<country name="Surinam" code="SR"/>
-	<country name="Svalbard in Jan Mayen" code="SJ"/>
+	<country name="Suriname" code="SR"/>
+	<country name="Svalbard" code="SJ"/>
 	<country name="Svazi" code="SZ"/>
 	<country name="Švedska" code="SE"/>
 	<country name="Švica" code="CH"/>
-	<country name="Sirska arabska republika" code="SY"/>
+	<country name="Sirijska Arabska Republika" code="SY"/>
 	<country name="Tajvan" code="TW"/>
 	<country name="Tadžikistan" code="TJ"/>
-	<country name="Tanzanija (Združena republika Tanzanija)" code="TZ"/>
-	<country name="Tajska" code="TH"/>
+	<country name="Tanzanija" code="TZ"/>
+	<country name="Tailand" code="TH"/>
 	<country name="Vzhodni Timor" code="TL"/>
 	<country name="Togo" code="TG"/>
-	<country name="Tokelav" code="TK"/>
+	<country name="Tokelau" code="TK"/>
 	<country name="Tonga" code="TO"/>
 	<country name="Trinidad in Tobago" code="TT"/>
-	<country name="Tunizija" code="TN"/>
+	<country name="Tunizia" code="TN"/>
 	<country name="Turčija" code="TR"/>
 	<country name="Turkmenistan" code="TM"/>
-	<country name="Otoki Turks in Caicos" code="TC"/>
+	<country name="Otoka Turks in Caicos" code="TC"/>
 	<country name="Tuvalu" code="TV"/>
 	<country name="Uganda" code="UG"/>
-	<country name="Ukrajina" code="UA"/>
-	<country name="Združeni arabski emirati" code="AE"/>
-	<country name="Združeno kraljestvo Velike Britanije in Severne Irske" code="GB"/>
-	<country name="Majhni oddaljeni otoki ZDA" code="UM"/>
-	<country name="Združene države Amerike" code="US"/>
+	<country name="Ukraina" code="UA"/>
+	<country name="Združeni Arabski Emirati" code="AE"/>
+	<country name="Združeno kraljestvo" code="GB"/>
+	<country name="Združene Države Amerike" code="US"/>
+	<country name="Mali oddaljeni otoki ZDA" code="UM"/>
 	<country name="Urugvaj" code="UY"/>
 	<country name="Uzbekistan" code="UZ"/>
 	<country name="Vanuatu" code="VU"/>
-	<country name="Venezuela (Bolivarska republika Venezuela)" code="VE"/>
-	<country name="Vietnam" code="VN"/>
+	<country name="Venezuela" code="VE"/>
+	<country name="Vijetnam" code="VN"/>
 	<country name="Britanski Deviški otoki" code="VG"/>
 	<country name="Ameriški Deviški otoki" code="VI"/>
 	<country name="Wallis in Futuna" code="WF"/>

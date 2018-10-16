@@ -37,4 +37,4 @@ class ViewCompetingInterestGuidelinesLinkAction extends LinkAction {
 	}
 }
 
-?>
+

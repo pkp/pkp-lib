@@ -49,7 +49,7 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy {
 		$userRoles = $roleDao->getByUserIdGroupedByContext($user->getId());
 
 		// Prepare an array with the context ids of the request.
-		$application = PKPApplication::getApplication();
+		$application = Application::getApplication();
 		$contextDepth = $application->getContextDepth();
 		$router = $request->getRouter();
 		$roleContext = array();
@@ -128,4 +128,4 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy {
 	}
 }
 
-?>
+

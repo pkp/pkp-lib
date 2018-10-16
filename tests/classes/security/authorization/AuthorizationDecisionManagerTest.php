@@ -178,4 +178,4 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase {
 		self::assertEquals('argument', $argument);
 	}
 }
-?>
+

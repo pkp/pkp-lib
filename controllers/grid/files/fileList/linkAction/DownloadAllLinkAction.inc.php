@@ -62,4 +62,4 @@ class DownloadAllLinkAction extends LinkAction {
 	}
 }
 
-?>
+

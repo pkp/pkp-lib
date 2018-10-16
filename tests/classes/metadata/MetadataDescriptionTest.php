@@ -153,4 +153,4 @@ class MetadataDescriptionTest extends PKPTestCase {
 		self::assertEquals($previousDataCopy, $this->metadataDescription->getAllData());
 	}
 }
-?>
+

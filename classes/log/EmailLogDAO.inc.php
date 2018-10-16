@@ -239,4 +239,4 @@ class EmailLogDAO extends DAO {
 	}
 }
 
-?>
+

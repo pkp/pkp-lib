@@ -42,4 +42,4 @@ class SubmissionAgency extends ControlledVocabEntry {
 		return array('submissionAgency');
 	}
 }
-?>
+

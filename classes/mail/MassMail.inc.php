@@ -77,4 +77,4 @@ class MassMail extends MailTemplate {
 	}
 }
 
-?>
+

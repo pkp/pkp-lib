@@ -32,4 +32,4 @@ class FormValidatorUri extends FormValidator {
 		parent::__construct($form, $field, $type, $message, $validator);
 	}
 }
-?>
+

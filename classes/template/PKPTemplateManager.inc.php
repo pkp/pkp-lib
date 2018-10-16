@@ -42,7 +42,7 @@ define('CSS_FILENAME_SUFFIX', 'css');
 
 import('lib.pkp.classes.template.PKPTemplateResource');
 
-class PKPTemplateManager extends SmartyBC {
+class PKPTemplateManager extends Smarty {
 	/** @var array of URLs to stylesheets */
 	private $_styleSheets = array();
 
@@ -95,7 +95,7 @@ class PKPTemplateManager extends SmartyBC {
 		$this->_request = $request;
 
 		$locale = AppLocale::getLocale();
-		$application = PKPApplication::getApplication();
+		$application = Application::getApplication();
 		$router = $request->getRouter();
 		assert(is_a($router, 'PKPRouter'));
 
@@ -131,8 +131,8 @@ class PKPTemplateManager extends SmartyBC {
 				$jquery = '//ajax.googleapis.com/ajax/libs/jquery/' . CDN_JQUERY_VERSION . '/jquery' . $min . '.js';
 				$jqueryUI = '//ajax.googleapis.com/ajax/libs/jqueryui/' . CDN_JQUERY_UI_VERSION . '/jquery-ui' . $min . '.js';
 			} else {
-				$jquery = $request->getBaseUrl() . '/lib/pkp/lib/components/jquery/jquery' . $min . '.js';
-				$jqueryUI = $request->getBaseUrl() . '/lib/pkp/lib/components/jquery-ui/jquery-ui' . $min . '.js';
+				$jquery = $request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jquery/jquery' . $min . '.js';
+				$jqueryUI = $request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jqueryui/jquery-ui' . $min . '.js';
 			}
 			$this->addJavaScript(
 				'jquery',
@@ -341,7 +341,6 @@ class PKPTemplateManager extends SmartyBC {
 		 * database is executed (e.g., when loading installer pages).
 		 */
 		if (!defined('SESSION_DISABLE_INIT')) {
-			$application = PKPApplication::getApplication();
 			$this->assign(array(
 				'isUserLoggedIn' => Validation::isLoggedIn(),
 				'isUserLoggedInAs' => Validation::isLoggedInAs(),
@@ -396,7 +395,7 @@ class PKPTemplateManager extends SmartyBC {
 	 *
 	 * @param $name string Unique name for this LESS stylesheet
 	 * @param $lessFile string Path to the LESS file to compile
-	 * @param $args array Optional arguments. SUpports:
+	 * @param $args array Optional arguments. Supports:
 	 *   'baseUrl': Base URL to use when rewriting URLs in the LESS file.
 	 *   'addLess': Array of additional LESS files to parse before compiling
 	 * @return string Compiled CSS styles
@@ -672,7 +671,7 @@ class PKPTemplateManager extends SmartyBC {
 	 */
 	function registerJSLibraryData() {
 
-		$application = PKPApplication::getApplication();
+		$application = Application::getApplication();
 		$context = $this->_request->getContext();
 
 		// Instantiate the namespace
@@ -850,8 +849,8 @@ class PKPTemplateManager extends SmartyBC {
 	 * Clear template compile and cache directories.
 	 */
 	function clearTemplateCache() {
-		$this->clear_compiled_tpl();
-		$this->clear_all_cache();
+		$this->clearCompiledTemplate();
+		$this->clearAllCache();
 	}
 
 	/**
@@ -1023,6 +1022,7 @@ class PKPTemplateManager extends SmartyBC {
 			$params['values'] = array_map(array('AppLocale', 'translate'), $params['values']);
 		}
 
+		require_once('lib/pkp/lib/vendor/smarty/smarty/libs/plugins/function.html_options.php');
 		return smarty_function_html_options($params, $smarty);
 	}
 
@@ -1139,7 +1139,7 @@ class PKPTemplateManager extends SmartyBC {
 			// from the parameters array. Variables remaining in params will be
 			// passed along to Request::url as extra parameters.
 			$context = array();
-			$application = PKPApplication::getApplication();
+			$application = Application::getApplication();
 			$contextList = $application->getContextList();
 			foreach ($contextList as $contextName) {
 				if (isset($parameters[$contextName])) {
@@ -1717,4 +1717,4 @@ class PKPTemplateManager extends SmartyBC {
 	}
 }
 
-?>
+

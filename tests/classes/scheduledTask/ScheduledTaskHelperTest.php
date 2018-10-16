@@ -130,4 +130,4 @@ class ScheduledTaskHelperTest extends PKPTestCase {
 		$configData['general']['scheduled_tasks_report_error_only'] = $state;
 	}
 }
-?>
+

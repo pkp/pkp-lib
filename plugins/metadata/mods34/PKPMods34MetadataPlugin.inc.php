@@ -62,4 +62,4 @@ class PKPMods34MetadataPlugin extends MetadataPlugin {
 	}
 }
 
-?>
+

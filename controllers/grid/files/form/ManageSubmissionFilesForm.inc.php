@@ -49,11 +49,9 @@ class ManageSubmissionFilesForm extends Form {
 	// Overridden template methods
 	//
 	/**
-	 * Initialize variables
-	 * @param $args array
-	 * @param $request PKPRequest
+	 * @copydoc Form::initData
 	 */
-	function initData($args, $request) {
+	function initData() {
 		$this->setData('submissionId', $this->_submissionId);
 	}
 
@@ -67,13 +65,11 @@ class ManageSubmissionFilesForm extends Form {
 
 	/**
 	 * Save selection of submission files
-	 * @param $args array
-	 * @param $request PKPRequest
 	 * @param $stageSubmissionFiles array The files that belongs to a file stage
 	 * that is currently being used by a grid inside this form.
 	 * @param $fileStage int SUBMISSION_FILE_...
 	 */
-	function execute($args, $request, $stageSubmissionFiles, $fileStage) {
+	function execute($stageSubmissionFiles, $fileStage = null) {
 		$selectedFiles = (array)$this->getData('selectedFiles');
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 		$submissionFiles = $submissionFileDao->getLatestRevisions($this->getSubmissionId());
@@ -94,6 +90,7 @@ class ManageSubmissionFilesForm extends Form {
 				}
 			} elseif ($isViewable) {
 				// Import a file from a different workflow area
+				$request = Application::getRequest();
 				$context = $request->getContext();
 				$submissionFile = $this->importFile($context, $submissionFile, $fileStage);
 			}
@@ -133,4 +130,4 @@ class ManageSubmissionFilesForm extends Form {
 	}
 }
 
-?>
+

@@ -52,4 +52,4 @@ class SubmissionFileLog extends SubmissionLog {
 	}
 }
 
-?>
+

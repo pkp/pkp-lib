@@ -128,4 +128,4 @@ class FilterGroup extends DataObject {
 	}
 
 }
-?>
+

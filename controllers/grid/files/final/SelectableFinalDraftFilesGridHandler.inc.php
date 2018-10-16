@@ -47,4 +47,4 @@ class SelectableFinalDraftFilesGridHandler extends SelectableFileListGridHandler
 	}
 }
 
-?>
+

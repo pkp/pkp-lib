@@ -165,7 +165,7 @@
 	<message key="rt.admin.sharing.buttonStyleLabel">Στύλ κουμπιού</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Χρήση drop-down μενού</message>
 	<message key="rt.admin.sharing.advanced">Προωθημένες Ρυθμίσεις (προαιρετικά)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Δείτε <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">AddThis.com customization documentation</a> για τεκμηρίωση.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Δείτε <a href="https://www.addthis.com/academy/how-to-create-custom-buttons-with-addthis/">AddThis.com customization documentation</a> για τεκμηρίωση.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Brand</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Επιλογές Drop-down μενού <br /> (comma separated list)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Γλώσσα</message>

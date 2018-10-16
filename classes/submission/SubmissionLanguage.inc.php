@@ -45,4 +45,4 @@ class SubmissionLanguage extends ControlledVocabEntry {
 		return array('submissionLanguage');
 	}
 }
-?>
+

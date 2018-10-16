@@ -66,16 +66,15 @@ class ChangePasswordForm extends Form {
 	}
 
 	/**
-	 * Fetch the form.
-	 * @param $request PKPRequest
+	 * @copydoc Form::fetch
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager();
 		$templateMgr->assign(array(
 			'minPasswordLength' => $this->getSite()->getMinPasswordLength(),
 			'username' =>  $this->getUser()->getUsername(),
 		));
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -108,4 +107,4 @@ class ChangePasswordForm extends Form {
 	}
 }
 
-?>
+

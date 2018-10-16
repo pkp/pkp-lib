@@ -50,7 +50,7 @@ class SubmissionMetadataHandler extends Handler {
 
 		// prevent anyone but managers and editors from submitting the catalog entry form
 		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-		if (!array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR), $userRoles)) {
+		if (!array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT), $userRoles)) {
 			$params['hideSubmit'] = true;
 			$params['readOnly'] = true;
 		}
@@ -58,7 +58,7 @@ class SubmissionMetadataHandler extends Handler {
 		// Form handling
 		$submissionMetadataViewForm = $this->getFormInstance($submission->getId(), $stageId, $params);
 
-		$submissionMetadataViewForm->initData($args, $request);
+		$submissionMetadataViewForm->initData();
 
 		return new JSONMessage(true, $submissionMetadataViewForm->fetch($request));
 	}
@@ -75,9 +75,9 @@ class SubmissionMetadataHandler extends Handler {
 		$submissionMetadataViewForm = $this->getFormInstance($submissionId);
 
 		// Try to save the form data.
-		$submissionMetadataViewForm->readInputData($request);
+		$submissionMetadataViewForm->readInputData();
 		if($submissionMetadataViewForm->validate()) {
-			$submissionMetadataViewForm->execute($request);
+			$submissionMetadataViewForm->execute();
 			// Create trivial notification.
 			$notificationManager = new NotificationManager();
 			$user = $request->getUser();
@@ -101,4 +101,4 @@ class SubmissionMetadataHandler extends Handler {
 	}
 }
 
-?>
+

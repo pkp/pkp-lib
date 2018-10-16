@@ -39,11 +39,9 @@ class AdvancedSearchReviewerForm extends ReviewerForm {
 	}
 
 	/**
-	 * Fetch the form.
-	 * @see Form::fetch()
-	 * @param $request PKPRequest
+	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		// Pass along the request vars
 		$actionArgs = $request->getUserVars();
 		$reviewRound = $this->getReviewRound();
@@ -123,8 +121,8 @@ class AdvancedSearchReviewerForm extends ReviewerForm {
 			$this->setReviewerFormAction($advancedSearchAction);
 		}
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 }
 
-?>
+

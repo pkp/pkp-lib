@@ -56,7 +56,7 @@
 	<message key="rt.admin.sharing.buttonStyleLabel">نمط الزر</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">استعمل القائمة المنسدلة</message>
 	<message key="rt.admin.sharing.advanced">الإعدادات المتقدمة (إختيارية)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[أنظر <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">أدبيات تخصيص AddThis.com</a> كمرجع.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[أنظر <a href="https://www.addthis.com/academy/how-to-create-custom-buttons-with-addthis/">أدبيات تخصيص AddThis.com</a> كمرجع.]]></message>
 	<message key="rt.admin.sharing.brandLabel">العلامة</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[خيارات القائمة المنسدلة <br /> (قائمة تفصل مكوناتها الفارزة الإنجليزية)]]></message>
 	<message key="rt.admin.sharing.languageLabel">اللغة</message>

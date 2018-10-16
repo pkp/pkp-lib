@@ -220,4 +220,4 @@ class SubmissionArtworkFile extends SubmissionFile {
 	}
 }
 
-?>
+

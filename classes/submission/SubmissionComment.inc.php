@@ -216,4 +216,4 @@ class SubmissionComment extends DataObject {
 	}
 }
 
-?>
+

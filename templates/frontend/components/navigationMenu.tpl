@@ -17,7 +17,7 @@
 	<ul id="{$id|escape}" class="{$ulClass|escape} pkp_nav_list">
 		{foreach key=field item=navigationMenuItemAssignment from=$navigationMenu->menuTree}
 			{if !$navigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
-				{php}continue;{/php}
+				{continue}
 			{/if}
 			<li class="{$liClass|escape}">
 				<a href="{$navigationMenuItemAssignment->navigationMenuItem->getUrl()}">

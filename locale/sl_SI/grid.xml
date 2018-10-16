@@ -1,11 +1,11 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
   * locale/sl_SI/grid.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -13,260 +13,265 @@
 
 <locale name="sl_SI" full_name="Slovenščina">
 	<!-- Common -->
-	<message key="grid.noItems">Ni elementov</message>
+	<message key="grid.noItems">Ni postavk</message>
 	<message key="grid.settings">Nastavitve</message>
 	<message key="grid.noAuditors">Ni revizorjev</message>
-	<message key="grid.remotelyHostedItem">Element je na oddaljenem strežniku.</message>
+	<message key="grid.remotelyHostedItem">This item is remotely hosted.</message>
 
-	<message key="grid.action.manageAccess">Upravljaj dostop</message>
-	<message key="grid.action.sort">Razporedi</message>
-	<message key="grid.action.addItem">Dodaj element</message>
+	<message key="grid.action.manageAccess">Upravljaj dostope</message>
+	<message key="grid.action.sort">Uredi</message>
+	<message key="grid.action.addItem">Dodaj postavko</message>
 	<message key="grid.action.addNote">Dodaj opombo</message>
-	<message key="grid.action.addQuery">Dodaj razpravo</message>
-	<message key="grid.action.readQuery">Preberi razpravo</message>
-	<message key="grid.action.deleteQuery">Izbriši razpravo</message>
-	<message key="grid.action.updateQuery">Posodobi razpravo</message>
+	<message key="grid.action.addQuery">Dodaj diskusijo</message>
+	<message key="grid.action.readQuery">Poglej diskusijo</message>
+	<message key="grid.action.deleteQuery">Odstrani diskusijo</message>
+	<message key="grid.action.updateQuery">Dopolni diskusijo</message>
 	<message key="grid.action.addUser">Dodaj uporabnika</message>
 	<message key="grid.action.unassignReviewer">Odstrani recenzenta</message>
-	<message key="grid.action.approveCopyedit">Odobri datoteko lekture in jo pošlji na naslednjo raven</message>
+	<message key="grid.action.approveCopyedit">Odobri to lektorirano datoteko za uporabo v naslednji fazi</message>
 	<message key="grid.action.reload">Ponovno naloži</message>
-	<message key="grid.action.delete">Briši</message>
-	<message key="grid.action.deleteFile">Izbriši datoteko</message>
-	<message key="grid.action.deleteMedia">Izbriši predstavnostne datoteke</message>
-	<message key="grid.action.editMedia">Uredi predstavnostne datoteke</message>
+	<message key="grid.action.delete">Odstrani</message>
+	<message key="grid.action.deleteFile">Odstrani datoteko</message>
+	<message key="grid.action.deleteMedia">Odstrani medij</message>
+	<message key="grid.action.editMedia">Uredi medij</message>
 	<message key="grid.action.editSection">Uredi rubriko</message>
 	<message key="grid.action.export">Izvozi</message>
-	<message key="grid.action.deleteSection">Izbriši rubriko</message>
-	<message key="grid.action.editorialHistory">Uredniška zgodovina</message>
+	<message key="grid.action.deleteSection">Odstrani rubriko</message>
+	<message key="grid.action.editorialHistory">Zgodovina revije</message>
 	<message key="grid.action.remove">Odstrani</message>
 	<message key="grid.action.edit">Uredi</message>
 	<message key="grid.action.approve">Odobri</message>
 	<message key="grid.action.disapprove">Zavrni</message>
-	<message key="grid.action.setApproval">Nastavi odobritev</message>
+	<message key="grid.action.setApproval">Set Approval</message>
 	<message key="grid.action.moreInformation">Več informacij</message>
-	<message key="grid.action.restoreDefaults">Obnovi privzeto</message>
-	<message key="grid.action.restoreDefaults.confirm">Ste prepričani, da želite obnoviti privzete nastavitve?</message>
+	<message key="grid.action.restoreDefaults">Povrni privzeto</message>
+	<message key="grid.action.restoreDefaults.confirm">Ste prepričani, da želite povrniti na privzeto?</message>
 	<message key="grid.action.addAuthor">Dodaj avtorja</message>
 	<message key="grid.action.editAuthor">Uredi avtorja</message>
-	<message key="grid.action.deleteAuthor">Zbriši avtorja</message>
+	<message key="grid.action.deleteAuthor">Odstrani avtorja</message>
 	<message key="grid.action.addAuditor">Dodaj revizorja</message>
-	<message key="grid.action.upgrade">Povišaj</message>
+	<message key="grid.action.upgrade">Nadgradnja</message>
 	<message key="grid.action.order">Vrstni red</message>
-	<message key="grid.action.cancelOrdering">Prekliči razvrščanje</message>
+	<message key="grid.action.cancelOrdering">Odstrani vrstni red</message>
 	<message key="grid.action.extendAll">Razširi vse</message>
-	<message key="grid.action.collapse">Skrij</message>
-	<message key="grid.action.collapseAll">Skrij vse</message>
-	<message key="grid.action.wizard">Čarovnik za nastavitve</message>
-	<message key="grid.action.moveItem">Prestavi element</message>
+	<message key="grid.action.collapse">Strni</message>
+	<message key="grid.action.collapseAll">Strni vse</message>
+	<message key="grid.action.wizard">Nastavitveni čarovnik</message>
+	<message key="grid.action.moveItem">Premakni predmet</message>
 	<message key="grid.action.downloadAll">Prenesi vse datoteke kot arhiv</message>
-	<message key="grid.action.readReview">Preberi recenzijo</message>
-	<message key="grid.action.email">Pošlji e-pošto</message>
+	<message key="grid.action.readReview">Poglej to recenzijo</message>
+	<message key="grid.action.email">Pošlji email</message>
 	<message key="grid.action.addReviewer">Dodaj recenzenta</message>
 	<message key="grid.action.addFile">Dodaj datoteko</message>
 	<message key="grid.action.editFile">Uredi datoteko</message>
-	<message key="grid.action.selectFiles">Izberite, katere datoteke želite upravljati</message>
-	<message key="grid.action.requestRevisions">Zaprosi za pregled prispevka</message>
+	<message key="grid.action.selectFiles">Izberi datoteko za spremembo</message>
+	<message key="grid.action.requestRevisions">Zahtevaj posodobitev prispevka</message>
 	<message key="grid.action.accept">Sprejmi prispevek</message>
 	<message key="grid.action.decline">Zavrni prispevek</message>
-	<message key="grid.action.internalReview">Pošlji prispevek v notranjo recenzijo</message>
-	<message key="grid.action.externalReview">Pošlji prispevek v zunanjo recenzijo</message>
+	<message key="grid.action.internalReview">Pošlji prispevek v interno receznijo</message>
+	<message key="grid.action.externalReview">Pošlji prispevek v zunanjo receznijo</message>
 	<message key="grid.action.sendToProduction">Pošlji prispevek v produkcijo</message>
 	<message key="grid.action.settings">Nastavitve</message>
-	<message key="grid.action.importexport">Uvozi ali izvozi podatke o vsebini ali spletišču</message>
-	<message key="grid.action.restoreDefaults">Obnovi privzeto</message>
-	<message key="grid.action.orderItems">Omogoči način naročanja</message>
-	<message key="grid.action.editSubmissionChecklist">Uredi element s seznama</message>
-	<message key="grid.action.deleteSubmissionChecklist">Izbriši element iz seznama</message>
-	<message key="grid.action.resetAll">Ponastavi vse elemente na privzete vrednosti</message>
-	<message key="grid.action.addPreparedEmail">Dodaj novo e-poštno predlogo</message>
-	<message key="grid.action.editPreparedEmail">Uredi e-poštno predlogo</message>
-	<message key="grid.action.disableEmail">Onemogoči e-poštno predlogo</message>
-	<message key="grid.action.resetEmail">Ponastavi e-poštno predlogo</message>
+	<message key="grid.action.importexport">Uvozi ali izvozi vsebino ali podatke spletišča</message>
+	<message key="grid.action.restoreDefaults">Povrni privzeto</message>
+	<message key="grid.action.orderItems">Omogoči urejanje vrstnega reda</message>
+	<message key="grid.action.editSubmissionChecklist">Uredi to postavko kontrolnega seznama</message>
+	<message key="grid.action.deleteSubmissionChecklist">Odstrani to postavko kontrolnega seznama</message>
+	<message key="grid.action.resetAll">Ponastavi vse postavke na privzete vrednosti</message>
+	<message key="grid.action.addPreparedEmail">Dodaj novo email predlogo</message>
+	<message key="grid.action.editPreparedEmail">Uredi to email predlogo</message>
+	<message key="grid.action.disableEmail">Onemogoči to email predlogo</message>
+	<message key="grid.action.resetEmail">Ponastavi to email predlogo na privzeto</message>
 	<message key="grid.action.expandAll">Razširi vse</message>
-	<message key="grid.action.requestAccount">Dodaj sodelavca</message>
+	<message key="grid.action.requestAccount">Dodaj sodelujočega</message>
 	<message key="grid.action.expand">Razširi</message>
-	<message key="grid.action.notify">Obvesti uporabnika</message>
+	<message key="grid.action.notify">Opozori tega uporabnika</message>
 	<message key="grid.action.addUserGroup">Dodaj novo uporabniško skupino</message>
-	<message key="grid.action.editUserGroup">Uredi uporabniško skupino</message>
+	<message key="grid.action.editUserGroup">Uredi to uporabniško skupino</message>
 	<message key="grid.action.disable">Onemogoči</message>
-	<message key="grid.action.details">Poglej element</message>
-	<message key="grid.action.enrolExisting">Obstoječemu uporabniku dodaj vlogo recenzenta</message>
-	<message key="grid.action.selectCreate">Ustvari novega recenzenta</message>
-	<message key="grid.action.search">Išči</message>
+	<message key="grid.action.details">Poglej to postavko</message>
+	<message key="grid.action.enrolExisting">Registriraj obstoječega uporabnika</message>
+	<message key="grid.action.selectCreate">ustvri novega recenzenta</message>
+	<message key="grid.action.search">Iskanje</message>
 	<message key="grid.action.advancedSearch">Napredno iskanje</message>
-	<message key="grid.action.viewLibrary">Arhivirane datoteke</message>
-	<message key="grid.action.viewMetadata">Poglej metapodatke prispevka</message>
-	<message key="grid.action.sendReminder">Pošlji uporabniku opomnik o nalogi</message>
+	<message key="grid.action.viewLibrary">Poglej knjižnico dokumentov</message>
+	<message key="grid.action.viewMetadata">Poglej metapodatke tega prispevka</message>
+	<message key="grid.action.sendReminder">Pošlji opomnik za nalogo temu uporabniku</message>
 	<message key="grid.action.newRound">Ustvari nov krog</message>
-	<message key="grid.action.viewReviewGuidelines">Preglej smernice za recenziranje</message>
-	<message key="grid.action.viewCompetingInterestGuidelines">Preglej smernice za navzkrižja interesov</message>
-	<message key="grid.action.thankReviewer">Pošlji recenzentu zahvalo</message>
+	<message key="grid.action.viewReviewGuidelines">Poglej navodila za recenziranje</message>
+	<message key="grid.action.viewCompetingInterestGuidelines">Poglej navodila za politiko nasprotujočih interesov</message>
+	<message key="grid.action.thankReviewer">Pošlji zahvalno sporočilo temu recenzentu</message>
 	<message key="grid.action.uploadFile">Naloži datoteko</message>
-	<message key="grid.action.addAnnouncementType">Dodaj tip obvestila</message>
+	<message key="grid.action.addAnnouncementType">Dodaj nov tip obvestil</message>
 	<message key="grid.action.addAnnouncement">Dodaj obvestilo</message>
 	<message key="grid.action.mergeUser">Združi uporabnika</message>
-	<message key="grid.action.unassignUser">Odstrani vlogo uporabnika</message>
-	<message key="grid.action.history">Zgodovina</message>
-	<message key="grid.action.unconsiderReview">Recenzija je dokončana, ampak jo lahko zavrnete.</message>
+	<message key="grid.action.unassignUser">Unassign User</message>
+	<message key="grid.action.history">Poglej zgodovino</message>
+	<message key="grid.action.unconsiderReview">Ta recenzija je končana, lahko jo tudi ne upoštevate</message>
 	<message key="grid.action.enable">Omogoči</message>
 	<message key="grid.action.bookInfo">Podatki o prispevku</message>
 	<message key="grid.action.logInAs">Prijavi se kot</message>
 	<message key="grid.action.exportAllUsers">Izvozi vse uporabnike</message>
 	<message key="grid.users.confirmExportAllUsers">Ste prepričani, da želite izvoziti vse uporabnike?</message>
 	<message key="grid.action.activate">Aktiviraj</message>
-	<message key="grid.action.deactivate">Izključi</message>
-	<message key="grid.action.copy">Kopiranje</message>
+	<message key="grid.action.deactivate">Deaktiviraj</message>
+	<message key="grid.action.copy">Kopiraj</message>
 	<message key="grid.action.preview">Predogled</message>
-	<message key="grid.action.install">Namestitev</message>
+	<message key="grid.action.install">Namesti</message>
 	<message key="grid.action.moreItems">Naloži več</message>
 
 	<!--  grid task status -->
-	<message key="grid.task.status.completed">Opravilo je končano</message>
-	<message key="grid.task.status.new">Odkljukano ob odobritvi</message>
-	<message key="grid.task.status.uploaded">Naslov stolpca prikazuje, kdo je naložil datoteko</message>
-	<message key="grid.task.status.unfinished">Opravilo ni dokončano</message>
-	<message key="grid.task.status.reviewReady">Recenzija je pripravljena. Kliknite na ikono opombe na levi, da jo preberete.</message>
+	<message key="grid.task.status.completed">Ta naloga je opravljena</message>
+	<message key="grid.task.status.new">Označeno, če je upoštevano</message>
+	<message key="grid.task.status.uploaded">Naslov stolpca pove, kdo je naložil to datoteko</message>
+	<message key="grid.task.status.unfinished">Naloga ni dokončana</message>
+	<message key="grid.task.status.reviewReady">Ta recenzija je pripravljena. Kliknite ikono na levi, da jo pogledate.</message>
 
 	<!-- Common Grid Column Titles -->
-	<message key="grid.columns.actions">Dejanja</message>
-	<message key="grid.columns.institution">Ustanova</message>
+	<message key="grid.columns.actions">Akcije</message>
+	<message key="grid.columns.institution">Institucije</message>
 	<message key="grid.columns.url">URL</message>
 	<message key="grid.columns.auditor">Revizor</message>
-	<message key="grid.columns.locale">Območne nastavitve</message>
+	<message key="grid.columns.locale">Jezik</message>
 
 	<!-- Sponsors Grid -->
 	<message key="grid.sponsor.title">Sponzorske organizacije</message>
 	<message key="grid.action.addSponsor">Dodaj sponzorja</message>
-	<message key="grid.action.deleteSponsor">Izbriši sponzorja</message>
+	<message key="grid.action.deleteSponsor">Odstrani sponzorja</message>
 	<message key="grid.action.editSponsor">Uredi sponzorja</message>
 
 	<!-- Series Grid -->
-	<message key="grid.action.addSeries">Dodaj zbirko</message>
-	<message key="grid.action.editSeries">Uredi zbirko</message>
-	<message key="grid.action.deleteSeries">Izbriši zbirko</message>
+	<message key="grid.action.addSeries">Dodaj serijo</message>
+	<message key="grid.action.editSeries">Uredi serijo</message>
+	<message key="grid.action.deleteSeries">Odstrani serijo</message>
 
 	<!-- Categories Grid -->
 	<message key="grid.action.addCategory">Dodaj kategorijo</message>
-	<message key="grid.action.editCategory">Uredi kategorije</message>
-	<message key="grid.action.deleteCategory">Izbriši kategorijo</message>
+	<message key="grid.action.editCategory">Uredi kategorijo</message>
+	<message key="grid.action.deleteCategory">Odstrani kategorijo</message>
 
 	<!-- Contributor Grid -->
-	<message key="grid.contributor.title">Podporniki</message>
+	<message key="grid.contributor.title">Sodelavci</message>
 	<message key="grid.action.addContributor">Dodaj sodelavca</message>
 	<message key="grid.action.editContributor">Uredi sodelavca</message>
-	<message key="grid.action.deleteContributor">Izbriši sodelavca</message>
+	<message key="grid.action.deleteContributor">Odstrani sodelavca</message>
 
 	<!-- Review Forms Grid -->
-	<message key="grid.reviewForm.title">Recenzijski obrazec</message>
+	<message key="grid.reviewForm.title">Recenzijski obrazci</message>
 
 	<!-- Review Form Element Reponse Items Grid -->
-	<message key="grid.reviewFormElement.responseItems">Možnosti odziva</message>
+	<message key="grid.reviewFormElement.responseItems">Možnosti odgovorov</message>
 
 	<!-- Files -->
 	<message key="grid.noFiles">Ni datotek</message>
 
 	<!-- Library Files -->
 	<message key="grid.libraryFiles.column.files">Datoteke</message>
-	<message key="grid.libraryFiles.submission.title">Knjižnica prispevkov</message>
+	<message key="grid.libraryFiles.submission.title">Knjižnica prispevka</message>
 	<message key="grid.libraryFiles.editorial.title">Uredniška knjižnica</message>
-	<message key="grid.libraryFiles.review.title">Knjižnica recenzij</message>
-	<message key="grid.libraryFiles.production.title">Knjižnica produkcij</message>
-	<message key="grid.libraryFiles.productionTemplate.title">Knjižnica predlog za produkcijo</message>
+	<message key="grid.libraryFiles.review.title">Recenzentska knjižnica</message>
+	<message key="grid.libraryFiles.production.title">Produkcijska knjižnica</message>
+	<message key="grid.libraryFiles.productionTemplate.title">Knjižnica produkcijskih predlog</message>
 
 	<!-- SubmissionChecklist -->
-	<message key="grid.submissionChecklist.title">Pogoji za oddajo prispevka</message>
-	<message key="grid.submissionChecklist.column.checklistItem">Postavka kontrolnega seznama</message>
+	<message key="grid.submissionChecklist.title">Kontrolni seznam za oddajo</message>
+	<message key="grid.submissionChecklist.column.checklistItem">Postavka kontrolnegga seznama</message>
 
 	<!-- Submission Contributors -->
 	<message key="author.users.contributor.name">Ime</message>
-	<message key="author.users.contributor.email">E-pošta</message>
+	<message key="author.users.contributor.email">Email</message>
 	<message key="author.users.contributor.role">Vloga</message>
-	<message key="author.users.contributor.principalContact">Glavni kontakt</message>
-	<message key="author.users.contributor.includeInBrowse">V iskalnih seznamih</message>
+	<message key="author.users.contributor.principalContact">Primarni kontakt</message>
+	<message key="author.users.contributor.includeInBrowse">Objavljen v seznamu</message>
 
 	<!-- Roles -->
-	<message key="grid.roles.currentRoles">Trenutne vloge</message>
+	<message key="grid.roles.currentRoles">Trenutna vloga</message>
 	<message key="grid.roles.add">Ustvari novo vlogo</message>
-	<message key="grid.roles.stageAssignment">Dodelitev ravni</message>
+	<message key="grid.roles.stageAssignment">Zadolžitev v fazi</message>
 
 	<!-- Users -->
 	<message key="grid.user.currentUsers">Trenutni uporabniki</message>
-	<message key="grid.user.currentEnrollment">Aktualne dodeljene vloge</message>
+	<message key="grid.user.currentEnrollment">Current Enrollment</message>
 	<message key="grid.user.allRoles">Vse vloge</message>
-	<message key="grid.user.allPermissionLevels">Vse ravni dovoljenj</message>
+	<message key="grid.user.allPermissionLevels">Dovoljenja na vseh nivojih</message>
 	<message key="grid.user.add">Dodaj uporabnika</message>
-	<message key="grid.user.enroll">Dodaj vlogo uporabniku</message>
-	<message key="grid.user.edit">Uredi uporabnika</message>
-	<message key="grid.user.email">E-pošta</message>
+	<message key="grid.user.enroll">Registriraj uporabnika</message>
+	<message key="grid.user.edit">uredi uporabnika</message>
+	<message key="grid.user.email">Email</message>
 	<message key="grid.user.enable">Omogoči</message>
 	<message key="grid.user.disable">Onemogoči</message>
-	<message key="grid.user.disableReason">Razlog za onemogočanje uporabnika</message>
-	<message key="grid.user.enableReason">Razlog za omogočanje uporabnika</message>
-	<message key="grid.user.error">Pri upravljanju uporabnika je prišlo do napake. Poskusite ponovno.</message>
-	<message key="grid.user.errorEmail">Pri pošiljanju e-pošte je prišlo do napake. Prosimo, preverite, da konfiguracija e-poštnega strežnika deluje in/ali se obrnite na sistemskega skrbnika.</message>
-	<message key="grid.user.cannotAdminister">Nimate ustreznih dovoljenj za upravljanje uporabnika. Za upravljanje uporabnika morate biti skrbnik spletišča ali skrbnik vseh ravni, na katerih je ta uporabnik.</message>
-	<message key="grid.user.authSource">Vir avtentikacije</message>
-	<message key="grid.user.mustProvideName">Najprej navedite vsaj priimek uporabnika.</message>
+	<message key="grid.user.disableReason">Razlog za onemogočitev</message>
+	<message key="grid.user.enableReason">Razlog za omogočitev</message>
+	<message key="grid.user.error">Prišlo je do napake pri urejanju tega uporabnnika. Prosimo, poskusite ponovno.</message>
+	<message key="grid.user.errorEmail">Prišlo je do napake pri pošiljanju emaila. Prosimo preverite, da so email nastavitve pravilne in /ali se obrnite na vašega sistemskega adminisratorja.</message>
+	<message key="grid.user.cannotAdminister">Nimate dovolj pravic za urejanje tega uporabnika. Za urejanje tega uporabnika morate biti ali administrator spletišča ali  administrator vseh revij, pri katerih je ta uporabnik registriran.</message>
+	<message key="grid.user.authSource">Avtentikacijski vir</message>
+	<message key="grid.user.mustProvideName">Prosimo vnestie najprej vsaj priimek tega uporabnika.</message>
 	<message key="grid.user.generatePassword">Ustvari geslo</message>
 	<message key="grid.user.generatePasswordDescription">Ustvari naključno geslo za tega uporabnika.</message>
 	<message key="grid.user.notifyUser">Obvesti uporabnika</message>
-	<message key="grid.user.notifyUserDescription">Pošlji uporabniku dobrodošlico.</message>
+	<message key="grid.user.notifyUserDescription">Pošlji uporabniku email z dobrodošlico.</message>
 	<message key="grid.user.mustChangePassword">Spremeni geslo</message>
-	<message key="grid.user.mustChangePasswordDescription">Uporabnik mora ob naslednji prijavi spremeniti geslo.</message>
-	<message key="grid.user.mustChangePasswordDescriptionOld">Zahtevaj, da uporabnik spremeni geslo ob naslednji prijavi.</message>
-	<message key="grid.user.moreDetails">Več podrobnosti uporabnika</message>
-	<message key="grid.user.lessDetails">Manj podrobnosti uporabnika</message>
-	<message key="grid.user.userDetails">Podrobnosti uporabnika</message>
+	<message key="grid.user.mustChangePasswordDescription">Uporabnik mora spremeniti geslo ob nasljednji prijavi.</message>
+	<message key="grid.user.mustChangePasswordDescriptionOld">Zahteva, da uporabnik ob naslednji prijavi obvezno spremeni geslo.</message>
+	<message key="grid.user.moreDetails">Več podatkov o uporabniku</message>
+	<message key="grid.user.lessDetails">Manj podatkov o uporabniku</message>
+	<message key="grid.user.userDetails">Podatki o uporabniku</message>
 	<message key="grid.user.userRoles">Vloge uporabnika</message>
-	<message key="grid.user.userNoRoles">Uporabnik nima vlog.</message>
-	<message key="grid.user.step1">1. korak: Vnesite podatke o uporabniku</message>
-	<message key="grid.user.step2">2. korak: Dodajte uporabniške vloge osebi {$userFullName}</message>
-	<message key="grid.user.addRoles">Dodaj vloge</message>
-	<message key="grid.user.addRole">Dodaj vlogo</message>
+	<message key="grid.user.userNoRoles">Ta uporabnik nima dodeljene nobene vloge.</message>
+	<message key="grid.user.step1">Korak #1: Vpišite podatke o uporabniku</message>
+	<message key="grid.user.step2">Step #2: Dodelite vloge uporabniku {$userFullName}</message>
+	<message key="grid.user.addRoles">Dodaj vlogo</message>
+	<message key="grid.user.addRole">Dodaj vloge</message>
 	<message key="grid.user.selectUser">Izberi uporabnika</message>
-	<message key="grid.user.pleaseSelectUser">Izberite uporabnika</message>
-	<message key="grid.user.confirmLogInAs">Se prijavim kot ta uporabnik? Vsa sledeča dejanja bodo pripisana temu uporabniku.</message>
+	<message key="grid.user.pleaseSelectUser">Prosim izberite uporabnika</message>
+	<message key="grid.user.confirmLogInAs">Prijavi se kot ta uporabnik? Vse akcije, ki jih boste naredili, bodo pripisane temu uporabniku.</message>
 	<message key="grid.user.mergeUsers">Združi uporabnike</message>
 	<message key="grid.user.mergeUsers.mergeUser">Združi uporabnika</message>
 	<message key="grid.user.mergeUsers.mergeIntoUser">Združi v tega uporabnika</message>
-	<message key="grid.user.mergeUsers.into.description">Izberite uporabnika, ki mu želite pripisati avtorska dela, uredniške zadolžitve, itd. prejšnjega uporabnika.</message>
-	<message key="grid.user.mergeUsers.from.description">Izberite račun uporabnika, ki ga želite združiti z drugim uporabniškim računom (npr. če ima kdo dva računa). Vsi oddani prispevki, zadolžitve ipd. prvega izbranega uporabniškega računa (ali računov) bodo izbrisani in preneseni na drug uporabniški račun.</message>
-	<message key="grid.user.mergeUsers.allUsers">Vsi evidentirani uporabniki</message>
-	<message key="grid.user.mergeUsers.mergeUserSelect.confirm">Ste prepričani, da želite uporabnika združiti z drugim? Drugega uporabnika boste izbrali v naslednjem koraku.</message>
-	<message key="grid.user.mergeUsers.confirm">Ste prepričani, da želite združiti uporabniški račun "{$oldUsername}" z uporabniškim računom "{$newUsername}"? Uporabniški račun z imenom "{$oldUsername}" bo prenehal obstajati. Tega dejanja ne boste mogli razveljaviti.</message>
-	<message key="grid.user.mergeUsers.noneEnrolled">Te vloge nima noben uporabnik.</message>
+	<message key="grid.user.mergeUsers.allUsers">Vsi registrirani uporabniki</message>
+	<message key="grid.user.mergeUsers.confirm">Ste prepričani, da želite združiti uporabniški račun z imenom "{$oldUsername}" v uporabniški rčaun "{$newUsername}"? Uporabniški račun "{$oldUsername}" po tem ne bo več obstajal. To akcije se ne da preklicati.</message>
 
 	<!-- Prepared emails -->
-	<message key="grid.preparedEmails.title">Pripravljene e-poštne predloge</message>
-	<message key="grid.preparedEmails.currentList">Trenutni seznam</message>
+	<message key="grid.preparedEmails.title">Pripravljene email predloge</message>
+	<message key="grid.preparedEmails.currentList">Trenutna lista</message>
 
 	<!-- Plugins -->
 	<message key="grid.plugin.allCategories">Vse kategorije</message>
 	<message key="grid.plugin.disable">Ste prepričani, da želite onemogočiti ta vtičnik?</message>
 
-	<message key="grid.action.fileUnconsider">Narejene so bile korekture. To lahko sicer zavrnete.</message>
+	<message key="grid.action.fileUnconsider">Korekture so opravljene. To nalogo lahko tudi ne upoštevate</message>
 
 	<!-- Artwork Files Grid -->
 	<message key="grid.artworkFile.caption">Napis</message>
-	<message key="grid.artworkFile.credit">Zasluge</message>
-	<message key="grid.artworkFile.copyrightOwner">Nosilec avtorskih pravic</message>
-	<message key="grid.artworkFile.copyrightContact">Kontaktni podatki (razen avtor/založnik)</message>
-	<message key="grid.artworkFile.permissionTerms">Pogoji za dovoljenja</message>
-	<message key="grid.artworkFile.placement">Postavitev v prispevku</message>
+	<message key="grid.artworkFile.credit">Credit</message>
+	<message key="grid.artworkFile.copyrightOwner">Lastnik avtorskih pravic</message>
+	<message key="grid.artworkFile.copyrightContact">Kontakt (če ni avtor/izdajatelj)</message>
+	<message key="grid.artworkFile.permissionTerms">Dovoljenja</message>
+	<message key="grid.artworkFile.placement">Umestitev v prispevek</message>
 
 	<!-- User Group Grid -->
-	<message key="grid.userGroup.assignStage">Dodeli raven</message>
-	<message key="grid.userGroup.unassignStage">Odstrani z ravni</message>
-	<message key="grid.userGroup.allStages">Vse ravni poteka dela</message>
-	<message key="grid.userGroup.filter.listRoles">Seznam vlog za</message>
-	<message key="grid.userGroup.filter.permissionLevel">Raven dovoljenja na</message>
-	<message key="grid.userGroup.cantRemoveDefaultUserGroup">Vloga {$userGroupName} je privzeta in je ni mogoče odstraniti.</message>
-	<message key="grid.userGroup.cantRemoveUserGroup">Ne morem odstraniti vloge {$userGroupName}. Vloga je dodeljena {$usersCount} uporabnikom.</message>
-	<message key="grid.userGroup.removed">Vloga {$userGroupName} je odstranjena.</message>
-	<message key="grid.userGroup.assignedStage">Vloga {$userGroupName} je dodeljena ravni {$stageName}.</message>
-	<message key="grid.userGroup.unassignedStage">Vloga {$userGroupName} je odstranjena z ravni {$stageName}.</message>
+	<message key="grid.userGroup.assignStage">Dodeli fazo</message>
+	<message key="grid.userGroup.unassignStage">Odstrani fazo</message>
+	<message key="grid.userGroup.allStages">Vse faze delovnega toka</message>
+	<message key="grid.userGroup.filter.listRoles">Prikaži vloge dodeljene</message>
+	<message key="grid.userGroup.filter.permissionLevel">Z nivojem pravic na</message>
+	<message key="grid.userGroup.cantRemoveDefaultUserGroup">Uporabniška vloga {$userGroupName} je privzeta in je ni možno odstraniti.</message>
+	<message key="grid.userGroup.cantRemoveUserGroup">Uporabniško vlogo {$userGroupName} ni mogoče odstraniti. V njej je še {$usersCount} uporabnikov.</message>
+	<message key="grid.userGroup.removed">Uporabniška vloga {$userGroupName} je odstranjena.</message>
+	<message key="grid.userGroup.assignedStage">Uporabniška vloga {$userGroupName} je dodeljena fazi {$stageName}.</message>
+	<message key="grid.userGroup.unassignedStage">Uporabniška vloga {$userGroupName} je odstranjena iz faze {$stageName}.</message>
 
 	<!-- Submission list grids -->
 	<message key="grid.submission.itemTitle">Avtor; Naslov</message>
-	<message key="grid.submission.active.selectOrphaned">Vključi tudi nedokončane prispevke, ki jih ni oddal avtor.</message>
+	<message key="grid.submission.active.selectOrphaned">Vključi tudi nedokončane oddaje, ki jih ni oddal avtor.</message>
+
+	<!-- Navigation Menus -->
+	<message key="grid.action.addNavigationMenu">Dodaj meni</message>
+	<message key="grid.action.addNavigationMenuItem">Dodaj postavko</message>
+	<message key="grid.navigationMenus.navigationMenuItems.noneExist">Ni postavk za navigacijski meni</message>
+	<message key="grid.navigationMenus.navigationMenu.noneExist">Ni navigacijskih menijev</message>
+	<message key="grid.navigationMenus.navigationMenu.selectType">Izberite tip...</message>
+	
+	<message key="grid.action.uninstall">Odstrani</message>
 </locale>

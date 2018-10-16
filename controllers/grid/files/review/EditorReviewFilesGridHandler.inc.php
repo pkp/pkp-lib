@@ -56,9 +56,9 @@ class EditorReviewFilesGridHandler extends FileListGridHandler {
 		import('lib.pkp.controllers.grid.files.review.form.ManageReviewFilesForm');
 		$manageReviewFilesForm = new ManageReviewFilesForm($submission->getId(), $this->getRequestArg('stageId'), $this->getRequestArg('reviewRoundId'));
 
-		$manageReviewFilesForm->initData($args, $request);
+		$manageReviewFilesForm->initData();
 		return new JSONMessage(true, $manageReviewFilesForm->fetch($request));
 	}
 }
 
-?>
+

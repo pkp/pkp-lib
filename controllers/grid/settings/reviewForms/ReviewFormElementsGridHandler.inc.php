@@ -134,11 +134,9 @@ class ReviewFormElementsGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see GridHandler::loadData()
-	 * @param $request PKPRequest
-	 * @return array Grid data.
+	 * @copydoc GridHandler::loadData()
 	 */
-	protected function loadData($request) {
+	protected function loadData($request, $filter = null) {
 		// Get review form elements.
 		//$rangeInfo = $this->getRangeInfo('reviewFormElements');
 		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
@@ -152,6 +150,13 @@ class ReviewFormElementsGridHandler extends GridHandler {
 	 */
 	function getRequestArgs() {
 		return array_merge(array('reviewFormId' => $this->reviewFormId), parent::getRequestArgs());
+	}
+
+	/**
+	 * @copydoc GridHandler::getDataElementSequence()
+	 */
+	function getDataElementSequence($gridDataElement) {
+		return $gridDataElement->getSequence();
 	}
 
 	/**
@@ -176,8 +181,8 @@ class ReviewFormElementsGridHandler extends GridHandler {
 	function createReviewFormElement($args, $request) {
 		// Form handling
 		$reviewFormElementForm = new ReviewFormElementForm($this->reviewFormId);
-		$reviewFormElementForm->initData($request);
-		return new JSONMessage(true, $reviewFormElementForm->fetch($args, $request));
+		$reviewFormElementForm->initData();
+		return new JSONMessage(true, $reviewFormElementForm->fetch($request));
 	}
 
 	/**
@@ -192,8 +197,8 @@ class ReviewFormElementsGridHandler extends GridHandler {
 
 		// Display form
 		$reviewFormElementForm = new ReviewFormElementForm($this->reviewFormId, $reviewFormElementId);
-		$reviewFormElementForm->initData($request);
-		return new JSONMessage(true, $reviewFormElementForm->fetch($args, $request));
+		$reviewFormElementForm->initData();
+		return new JSONMessage(true, $reviewFormElementForm->fetch($request));
 	}
 
 	/**
@@ -220,7 +225,7 @@ class ReviewFormElementsGridHandler extends GridHandler {
 		$reviewFormElementForm->readInputData();
 
 		if ($reviewFormElementForm->validate()) {
-			$reviewFormElementId = $reviewFormElementForm->execute($request);
+			$reviewFormElementId = $reviewFormElementForm->execute();
 
 			// Create the notification.
 			$notificationMgr = new NotificationManager();
@@ -255,4 +260,4 @@ class ReviewFormElementsGridHandler extends GridHandler {
 	}
 }
 
-?>
+

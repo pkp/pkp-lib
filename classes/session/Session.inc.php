@@ -242,4 +242,4 @@ class Session extends DataObject {
 	}
 }
 
-?>
+

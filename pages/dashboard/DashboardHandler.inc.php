@@ -126,4 +126,4 @@ class DashboardHandler extends Handler {
 	}
 }
 
-?>
+

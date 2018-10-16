@@ -60,4 +60,4 @@ class ValidatorORCID extends ValidatorRegExp {
 	}
 }
 
-?>
+

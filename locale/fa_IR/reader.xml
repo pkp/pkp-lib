@@ -52,7 +52,7 @@
 	<message key="rt.admin.sharing.buttonStyleLabel">استایل دکمه</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">استفاده از منوی کشوئی پائین کشیدنی</message>
 	<message key="rt.admin.sharing.advanced">تنظیمات پیشرفته (اختیاری)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[نگاه کنید به <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">دستورالعمل های سایت AddThis.com </a>.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[نگاه کنید به <a href="https://www.addthis.com/academy/how-to-create-custom-buttons-with-addthis/">دستورالعمل های سایت AddThis.com </a>.]]></message>
 	<message key="rt.admin.sharing.brandLabel">برند تجاری</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[گزینه های منوی پائین کشیدنی <br /> (به صورت لیستی از کلمات جدا شده با کوما)]]></message>
 	<message key="rt.admin.sharing.languageLabel">زبان</message>

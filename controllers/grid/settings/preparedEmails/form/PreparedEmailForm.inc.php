@@ -70,7 +70,7 @@ class PreparedEmailForm extends Form {
 	/**
 	 * Initialize form data from current settings.
 	 */
-	function initData($request) {
+	function initData() {
 		$context = $this->getContext();
 		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
 		$emailTemplate = $emailTemplateDao->getLocaleEmailTemplate($this->getEmailKey(), $context->getId());
@@ -160,4 +160,4 @@ class PreparedEmailForm extends Form {
 	}
 }
 
-?>
+

@@ -44,11 +44,12 @@ abstract class BaseProfileForm extends Form {
 
 	/**
 	 * Save profile settings.
-	 * @param $request PKPRequest
 	 */
-	function execute($request, $user) {
-		parent::execute($request, $user);
+	function execute() {
+		parent::execute();
 
+		$request = Application::getRequest();
+		$user = $request->getUser();
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$userDao->updateObject($user);
 
@@ -63,4 +64,4 @@ abstract class BaseProfileForm extends Form {
 	}
 }
 
-?>
+

@@ -182,7 +182,7 @@ class QueryForm extends Form {
 	 * @param $request PKPRequest
 	 * @param $actionArgs array Optional list of additional arguments
 	 */
-	function fetch($request, $actionArgs = array()) {
+	function fetch($request, $template = null, $display = false, $actionArgs = array()) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_EDITOR);
 
 		$query = $this->getQuery();
@@ -212,6 +212,7 @@ class QueryForm extends Form {
 			$excludeUsers = null;
 
 			// When in review stage, include/exclude users depending on the current users role
+			$reviewAssignments = array();
 			if ($query->getStageId() == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $query->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW) {
 
 				// Get all review assignments for current submission
@@ -281,11 +282,9 @@ class QueryForm extends Form {
 							}
 						}
 					}
-					if ($reviewAssignments) {
-						foreach ($reviewAssignments as $assignment) {
-							if ($assignment->getReviewerId() === $user->getId()) {
-								$userRoles[] =  __('user.role.reviewer') . " (" . __($assignment->getReviewMethodKey()) . ")";
-							}
+					foreach ($reviewAssignments as $assignment) {
+						if ($assignment->getReviewerId() === $user->getId()) {
+							$userRoles[] =  __('user.role.reviewer') . " (" . __($assignment->getReviewMethodKey()) . ")";
 						}
 					}
 					$title =  __('submission.query.participantTitle', array(
@@ -304,7 +303,7 @@ class QueryForm extends Form {
 			));
 		}
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -321,9 +320,9 @@ class QueryForm extends Form {
 
 	/**
 	 * @copydoc Form::execute()
-	 * @param $request PKPRequest
 	 */
-	function execute($request) {
+	function execute() {
+		$request = Application::getRequest();
 		$queryDao = DAORegistry::getDAO('QueryDAO');
 		$query = $this->getQuery();
 
@@ -372,4 +371,4 @@ class QueryForm extends Form {
 	}
 }
 
-?>
+

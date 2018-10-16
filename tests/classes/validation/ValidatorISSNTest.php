@@ -34,4 +34,4 @@ class ValidatorISSNTest extends PKPTestCase {
 	}
 }
 
-?>
+

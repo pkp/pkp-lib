@@ -36,24 +36,24 @@ class PreviewReviewForm extends Form {
 	}
 
 	/**
-	 * Display the form.
+	 * @copydoc Form::fetch
 	 */
-	function fetch($args, $request) {
+	function fetch($request, $template = null, $display = false) {
 		$json = new JSONMessage();
 
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('reviewFormId', $this->reviewFormId);
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
 	 * Initialize form data from current settings.
-	 * @param $reviewForm ReviewForm optional
 	 */
-	function initData($request) {
+	function initData() {
 		if ($this->reviewFormId) {
 			// Get review form
+			$request = Application::getRequest();
 			$context = $request->getContext();
 			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
 			$reviewForm = $reviewFormDao->getById($this->reviewFormId, Application::getContextAssocType(), $context->getId());
@@ -77,4 +77,4 @@ class PreviewReviewForm extends Form {
 		parent::readInputData();
 	}
 }
-?>
+

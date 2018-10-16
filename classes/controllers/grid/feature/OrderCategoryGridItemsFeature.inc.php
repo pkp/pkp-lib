@@ -156,4 +156,4 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature {
 	}
 }
 
-?>
+

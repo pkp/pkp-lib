@@ -57,4 +57,4 @@ class SelectableItemsFeature extends GridFeature {
 	}
 }
 
-?>
+

@@ -128,4 +128,4 @@ class AddFileLinkAction extends BaseAddFileLinkAction {
 	}
 }
 
-?>
+

@@ -389,4 +389,4 @@ abstract class PKPAuthorDAO extends DAO {
 
 }
 
-?>
+

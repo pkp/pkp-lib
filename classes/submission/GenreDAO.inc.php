@@ -384,4 +384,4 @@ class GenreDAO extends DAO {
 	}
 }
 
-?>
+

@@ -41,4 +41,4 @@ class FormValidatorUsernameTest extends PKPTestCase {
 		self::assertFalse($validator->isValid());
 	}
 }
-?>
+

@@ -37,4 +37,4 @@ class EditorReviewAttachmentsGridHandler extends FileListGridHandler {
 	}
 }
 
-?>
+

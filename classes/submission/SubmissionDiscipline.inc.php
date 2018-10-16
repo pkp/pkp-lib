@@ -43,4 +43,4 @@ class SubmissionDiscipline extends ControlledVocabEntry {
 		return array('submissionDiscipline');
 	}
 }
-?>
+

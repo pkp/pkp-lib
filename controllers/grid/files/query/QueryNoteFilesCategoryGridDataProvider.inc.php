@@ -36,4 +36,4 @@ class QueryNoteFilesCategoryGridDataProvider extends SubmissionFilesCategoryGrid
 	}
 }
 
-?>
+

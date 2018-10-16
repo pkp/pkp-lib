@@ -42,12 +42,10 @@ class UnassignReviewerForm extends Form {
 	// Overridden template methods
 	//
 	/**
-	 * Initialize form data
-	 *
-	 * @param $args array
-	 * @param $request PKPRequest
+	 * @copydoc Form::initData
 	 */
-	function initData($args, $request) {
+	function initData() {
+		$request = Application::getRequest();
 		$context = $request->getContext();
 		$submission = $this->getSubmission();
 		$reviewAssignment = $this->getReviewAssignment();
@@ -81,11 +79,10 @@ class UnassignReviewerForm extends Form {
 	/**
 	 * Deletes the review assignment and notifies the reviewer via email
 	 *
-	 * @param mixed $args
-	 * @param $request PKPRequest
 	 * @return bool whether or not the review assignment was deleted successfully
 	 */
-	function execute($args, $request) {
+	function execute() {
+		$request = Application::getRequest();
 		$submission = $this->getSubmission();
 		$reviewAssignment = $this->getReviewAssignment();
 

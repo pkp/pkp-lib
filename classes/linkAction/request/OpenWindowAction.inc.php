@@ -59,4 +59,4 @@ class OpenWindowAction extends LinkActionRequest {
 	}
 }
 
-?>
+

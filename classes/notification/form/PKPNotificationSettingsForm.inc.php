@@ -103,9 +103,9 @@ class PKPNotificationSettingsForm extends Form {
 	}
 
 	/**
-	 * @copydoc
+	 * @copydoc Form::fetch
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$context = $request->getContext();
 		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 		$userId = $request->getUser()->getId();
@@ -117,13 +117,14 @@ class PKPNotificationSettingsForm extends Form {
 			'notificationSettingCategories' => $this->getNotificationSettingCategories(),
 			'notificationSettings' => $this->getNotificationSettingsMap(),
 		));
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
-	 * @copydoc
+	 * @copydoc Form::execute
 	 */
-	function execute($request) {
+	function execute() {
+		$request = Application::getRequest();
 		$user = $request->getUser();
 		$userId = $user->getId();
 		$context = $request->getContext();
@@ -146,4 +147,4 @@ class PKPNotificationSettingsForm extends Form {
 	}
 }
 
-?>
+

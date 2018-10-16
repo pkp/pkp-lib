@@ -36,4 +36,4 @@ class PKPMods34MetadataPluginTest extends MetadataPluginTestCase {
 		);
 	}
 }
-?>
+

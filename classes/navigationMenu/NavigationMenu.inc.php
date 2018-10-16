@@ -71,4 +71,4 @@ class NavigationMenu extends DataObject {
 	}
 }
 
-?>
+

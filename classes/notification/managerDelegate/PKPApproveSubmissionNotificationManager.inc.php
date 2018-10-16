@@ -104,4 +104,4 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
 	} 
 }
 
-?>
+

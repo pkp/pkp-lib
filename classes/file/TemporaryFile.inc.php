@@ -49,4 +49,4 @@ class TemporaryFile extends PKPFile {
 	}
 }
 
-?>
+

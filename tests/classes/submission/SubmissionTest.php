@@ -189,4 +189,4 @@ class SubmissionTest extends PKPTestCase {
 	}
 
 }
-?>
+

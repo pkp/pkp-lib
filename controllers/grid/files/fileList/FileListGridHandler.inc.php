@@ -39,8 +39,8 @@ class FileListGridHandler extends SubmissionFilesGridHandler {
 	/**
 	 * @copydoc SubmissionFilesGridHandler::initialize()
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 
 		// Add the "manage files" action if required.
 		$capabilities = $this->getCapabilities();
@@ -55,4 +55,4 @@ class FileListGridHandler extends SubmissionFilesGridHandler {
 	}
 }
 
-?>
+

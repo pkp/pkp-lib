@@ -155,11 +155,9 @@ class ReviewFormGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see GridHandler::loadData()
-	 * @param $request PKPRequest
-	 * @return array Grid data.
+	 * @copydoc GridHandler::loadData()
 	 */
-	protected function loadData($request) {
+	protected function loadData($request, $filter = null) {
 		// Get all review forms.
 		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
 		$context = $request->getContext();
@@ -214,8 +212,8 @@ class ReviewFormGridHandler extends GridHandler {
 		$reviewForm = $reviewFormDao->getById($reviewFormId, Application::getContextAssocType(), $context->getId());
 
 		$previewReviewForm = new PreviewReviewForm($reviewFormId);
-		$previewReviewForm->initData($request);
-		return new JSONMessage(true, $previewReviewForm->fetch($args, $request));
+		$previewReviewForm->initData();
+		return new JSONMessage(true, $previewReviewForm->fetch($request));
 	}
 
 	/**
@@ -227,8 +225,8 @@ class ReviewFormGridHandler extends GridHandler {
 	function createReviewForm($args, $request) {
 		// Form handling.
 		$reviewFormForm = new ReviewFormForm(null);
-		$reviewFormForm->initData($request);
-		return new JSONMessage(true, $reviewFormForm->fetch($args, $request));
+		$reviewFormForm->initData();
+		return new JSONMessage(true, $reviewFormForm->fetch($request));
 	}
 
 	/**
@@ -267,8 +265,8 @@ class ReviewFormGridHandler extends GridHandler {
 
 		// Form handling
 		$reviewFormForm = new ReviewFormForm($reviewFormId);
-		$reviewFormForm->initData($request);
-		return new JSONMessage(true, $reviewFormForm->fetch($args, $request));
+		$reviewFormForm->initData();
+		return new JSONMessage(true, $reviewFormForm->fetch($request));
 	}
 
 
@@ -313,7 +311,7 @@ class ReviewFormGridHandler extends GridHandler {
 		$reviewFormForm->readInputData();
 
 		if ($reviewFormForm->validate()) {
-			$reviewFormForm->execute($request);
+			$reviewFormForm->execute();
 
 			// Create the notification.
 			$notificationMgr = new NotificationManager();
@@ -476,4 +474,4 @@ class ReviewFormGridHandler extends GridHandler {
 	}
 }
 
-?>
+

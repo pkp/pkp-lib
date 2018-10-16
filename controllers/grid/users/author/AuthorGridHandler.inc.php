@@ -387,11 +387,11 @@ class AuthorGridHandler extends GridHandler {
 			// Form handling.
 			import('lib.pkp.controllers.grid.settings.user.form.UserDetailsForm');
 			$userForm = new UserDetailsForm($request, null, $author);
-			$userForm->initData($args, $request);
+			$userForm->initData();
 
 			return new JSONMessage(true, $userForm->display($request));
 		}
 	}
 }
 
-?>
+

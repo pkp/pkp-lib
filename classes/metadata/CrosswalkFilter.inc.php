@@ -29,4 +29,4 @@ class CrosswalkFilter extends Filter {
 		parent::__construct('metadata::'.$fromSchema.'(*)', 'metadata::'.$toSchema.'(*)');
 	}
 }
-?>
+

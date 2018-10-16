@@ -18,9 +18,9 @@
 	<message key="editor.submission.externalReviewDescription">Wybierz pliki, które zostaną wysłane do recenzji.</message>
 	<message key="editor.submission.fileAuditor.form.fileRequired">Musisz wybrać przynajmniej jeden plik, do którego zostanie przypisany użytkownik.</message>
 	<message key="editor.submission.fileAuditor.form.messageRequired">Wiadomość jest wymagana.</message>
-	<message key="editor.submission.fileAuditor.skipEmail">Nie wysyłaj wiadomości e-maila do kontrolera</message>
+	<message key="editor.submission.fileAuditor.skipEmail">Nie wysyłaj wiadomości e-mail do kontrolera</message>
 	<message key="editor.submission.fileAuditor.form.userRequired">Musisz wybrać użytkownika do przypisania.</message>
-	<message key="editor.submission.uploadSelectFiles">Prześlij/wybierz pliki</message>
+	<message key="editor.submission.uploadSelectFiles">Prześlij/Wybierz pliki</message>
 	<message key="editor.submission.selectFiles">Wybierz pliki</message>
 	<message key="editor.submission.revisions">Wersje tekstu poprawione przez autora</message>
 	<message key="editor.submission.review.reviewersDescription"><![CDATA[Użyj <em>+Dodaj recenzenta</em> aby zaprosić czytelników do recenzji zgłoszonych tekstów. Ikona notatnika oznacza, że recenzja została przesłana, a następnie jest oznaczona jako <em>Potwierdzone</em> po sprawdzeniu i skonsultowaniu. Jeżeli recenzenci przekraczają czas przeznaczony na wykonanie recenzji, czerwona ikona koperty pojawia się umożliwiając wysłanie ponaglenia recenzentom.]]></message>
@@ -34,7 +34,7 @@
 	<message key="editor.review.enrollReviewer.short">Przypisz istniejącego użytkownika</message>
 	<message key="editor.review.unassignReviewer">Cofnij przypisanie recenzenta</message>
 	<message key="editor.submissionReview.reviewType">Rodzaj recenzji</message>
-	<message key="editor.submissionReview.skipEmail">Nie wysyłaj autorowi wiadomości e-mail</message>
+	<message key="editor.submissionReview.skipEmail">Nie wysyłaj wiadomości e-mail z powiadomieniem</message>
 	<message key="editor.submissionReview.open">Otwarta</message>
 	<message key="editor.submissionReview.blind">Ślepa</message>
 	<message key="editor.submissionReview.doubleBlind">Podwójna ślepa</message>
@@ -44,12 +44,8 @@
 	<message key="editor.review.personalMessageToReviewer">E-mail, który zostanie wysłany do recenzenta</message>
 	<message key="editor.review.importantDates">Ważne terminy</message>
 	<message key="editor.review.uploadRevision">Prześlij poprawiony tekst</message>
-	<message key="editor.review.NotifyAuthorAccept">Powiadom autora, że jego zgłoszenie zostało zaakceptowane.</message>
-	<message key="editor.review.NotifyAuthorDecline">Powiadom autora, że jego zgłoszenie zostało odrzucone.</message>
-	<message key="editor.review.NotifyAuthorRevisions">Powiadom autora, że jego tekst wymaga poprawek.</message>
-	<message key="editor.review.NotifyAuthorResubmit">Powiadom autora, że jego tekst wymaga poprawek i powtórnej recenzji.</message>
-	<message key="editor.review.NotifyAuthorExternal">Powiadom autora, że tekst zostanie poddany zewnętrznej recenzji.</message>
-	<message key="editor.review.personalMessageToAuthor">E-mail, który zostanie wysłany do autora.</message>
+	<message key="editor.review.NotifyAuthorRevisions">Tekst wymaga poprawek, ale nie wymaga kolejnej rundy recenzji.</message>
+	<message key="editor.review.NotifyAuthorResubmit">Tekst wymaga poprawek oraz kolejnej rundy recenzji.</message>
 	<message key="editor.review.dateAccepted">Termin akceptacji recenzji</message>
 	<message key="editor.review.noReviews">Brak recenzji do zaimportowania</message>
 	<message key="editor.review.reminder">Przypomnienie o recenzji</message>
@@ -70,6 +66,7 @@
 	<message key="editor.review.reviewConfirmed">Recenzja potwierdzona</message>
 	<message key="editor.review.reviewSubmitted">Recenzja przesłana</message>
 	<message key="editor.review.reviewerComments">Komentarze recenzenta</message>
+	<message key="editor.review.days">Średni czas wykonania recenzji (dni)</message>
 	<message key="editor.review.mustSelect">Musisz wybrać recenzenta</message>
 	<message key="editor.review.errorAddingReviewer">Wystąpił błąd podczas dodawania recenzenta. Spróbuj ponownie później.</message>
 	<message key="editor.review.errorDeletingReviewer">Wystąpił błąd podczas usuwania recenzenta. Spróbuj ponownie później.</message>
@@ -101,6 +98,7 @@
 	<message key="editor.submission.createNewRound">Utwórz nową rundę recenzji</message>
 	<message key="editor.article.reviewForms">Formularze recenzji</message>
 	<message key="editor.article.selectReviewForm">Wybierz formularz recenzji</message>
+	<message key="editor.article.clearReviewForm">Wyczyść formularz recenzji</message>
 	<message key="editor.article.confirmChangeReviewForm">Uwaga: Wprowadzenie zmian w formularzu recenzji będzie miało wpływ na odpowiedzi, które recenzenci już złożyli korzystając z tego formularza. Czy na pewno chcesz kontynuować?</message>
 	<message key="editor.submission.noReviewerFilesSelected">Nie wybrano plików</message>
 	<message key="editor.submission.noReviewerFilesSelected.details">Nie wybrałeś(aś) żadnego pliku do wykonania recenzji.</message>
@@ -114,7 +112,15 @@
 	<message key="editor.submission.proofreading.revokeProofApproval">Cofnij zatwierdzenie korekty pliku do publikacji</message>
 	<message key="editor.submission.proofreading.confirmCompletion">Zatwierdź korektę pliku, aby oznaczyć, że plik jest już gotowy do publikacji.</message>
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">Cofnij zatwierdzenie korekty pliku, aby oznaczyć, że plik nie jest gotowy do publikacji.</message>
-	<message key="editor.publicIdentificationExistsForTheSameType">Publiczny identyfikator '{$publicIdentifier}' już istnieje dla innego obiektu tego samego typu. Podaj unikatowy identyfikator dla obiektu.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">Publiczny identyfikator '{$publicIdentifier}' nie może być liczbą.</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">Publiczny identyfikator nie może posiadać wzoru {$pattern}.</message>
+	<message key="editor.submissionReview.sendEmail">Wyślij e-mail z powiadomieniem do autora(ów): {$authorName}</message>
+	<message key="editor.submissionReview.sendEmail.editors">Wyślij e-mail z powiadomieniem do redaktora(ów): {$editorNames}</message>
+	<message key="editor.review.newReviewRound">Wymagaj kolejnej rundy recenzji</message>
+	<message key="editor.review.reviewsAdded">Recenzje dodane do treści wiadomości.</message>
+	<message key="editor.submissionReview.recordRecommendation">Zapisz rekomendację redaktora</message>
+	<message key="editor.submissionReview.recordRecommendation.notifyEditors">Powiadom redaktorów</message>
+	<message key="editor.submissionReview.recordRecommendation.skipEmail">Nie wysyłaj redaktorom wiadomości e-mail.</message>
+	<message key="editor.submissionReview.recordRecommendation.createDiscussion">Utwórz dyskusję poświęconą tej rekomendacji.</message>
+	<message key="editor.submissionReview.recordRecommendation.skipDiscussion">Nie twórz dyskusji poświęconej tej rekomendacji.</message>
 </locale>

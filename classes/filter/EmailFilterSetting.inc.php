@@ -41,4 +41,4 @@ class EmailFilterSetting extends FilterSetting {
 		return $check;
 	}
 }
-?>
+

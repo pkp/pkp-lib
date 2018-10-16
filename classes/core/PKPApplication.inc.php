@@ -681,6 +681,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		);
 
 		if (isset($licenseKeyMap[$ccLicenseURL])) {
+			PKPLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
 			return __($licenseKeyMap[$ccLicenseURL]);
 		}
 		return null;
@@ -747,4 +748,4 @@ import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
 // To expose ORDER_CATEGORY_GRID_... constants via JS
 import('lib.pkp.classes.controllers.grid.feature.OrderCategoryGridItemsFeature');
 
-?>
+

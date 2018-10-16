@@ -97,4 +97,4 @@ class ConfigTest extends PKPTestCase {
 	}
 }
 
-?>
+

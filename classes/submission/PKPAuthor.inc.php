@@ -209,4 +209,4 @@ class PKPAuthor extends Identity {
 	}
 }
 
-?>
+

@@ -105,7 +105,11 @@ abstract class PolicyTestCase extends PKPTestCase {
 		$this->setContextObjects($context);
 
 		// Mock a router.
-		$router = $this->getMock('PKPRouter', array('getRequestedOp', 'getContext'));
+		$router = $this->getMock('PKPRouter', array('getHandler', 'getRequestedOp', 'getContext'));
+
+		$router->expects($this->any())
+		       ->method('getHandler')
+		       ->will($this->returnValue(new PKPHandler()));
 
 		// Mock the getRequestedOp() method.
 		$router->expects($this->any())
@@ -144,4 +148,4 @@ abstract class PolicyTestCase extends PKPTestCase {
 		return null;
 	}
 }
-?>
+

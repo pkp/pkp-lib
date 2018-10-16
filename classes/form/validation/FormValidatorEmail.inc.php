@@ -36,4 +36,4 @@ class FormValidatorEmail extends FormValidator {
 	}
 }
 
-?>
+

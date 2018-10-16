@@ -46,7 +46,7 @@
 			</h3>
 			<ul class="pkp_contexts">
 				{foreach from=$contextsNameAndUrl key=url item=name}
-					{if $currentContextName == $name}{php}continue;{/php}{/if}
+					{if $currentContextName == $name}{continue}{/if}
 					<li>
 						<a href="{$url}">
 							{$name}

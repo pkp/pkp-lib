@@ -38,4 +38,4 @@ class SubmissionWizardFilesGridHandler extends FileListGridHandler {
 	}
 }
 
-?>
+

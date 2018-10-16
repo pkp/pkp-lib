@@ -88,7 +88,7 @@ class FileApiHandler extends Handler {
 		assert(isset($submissionFile)); // Should have been validated already
 		$context = $request->getContext();
 		$fileManager = $this->_getFileManager($context->getId(), $submissionFile->getSubmissionId());
-		if (!$fileManager->downloadFile($submissionFile->getFileId(), $submissionFile->getRevision(), false, $submissionFile->getClientFileName())) {
+		if (!$fileManager->downloadById($submissionFile->getFileId(), $submissionFile->getRevision(), false, $submissionFile->getClientFileName())) {
 			error_log('FileApiHandler: File ' . $submissionFile->getFilePath() . ' does not exist or is not readable!');
 			header('HTTP/1.0 500 Internal Server Error');
 			fatalError('500 Internal Server Error');
@@ -133,11 +133,11 @@ class FileApiHandler extends Handler {
 		if (file_exists($archivePath)) {
 			$fileManager = new FileManager();
 			if ($fileArchive->zipFunctional()) {
-				$fileManager->downloadFile($archivePath, 'application/x-zip', false, 'files.zip');
+				$fileManager->downloadByPath($archivePath, 'application/x-zip', false, 'files.zip');
 			} else {
-				$fileManager->downloadFile($archivePath, 'application/x-gtar', false, 'files.tar.gz');
+				$fileManager->downloadByPath($archivePath, 'application/x-gtar', false, 'files.tar.gz');
 			}
-			$fileManager->deleteFile($archivePath);
+			$fileManager->deleteByPath($archivePath);
 		} else {
 			fatalError('Creating archive with submission files failed!');
 		}
@@ -201,4 +201,4 @@ class FileApiHandler extends Handler {
 	}
 }
 
-?>
+

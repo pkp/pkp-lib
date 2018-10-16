@@ -16,4 +16,4 @@
 class TestClass1 {
 	// Just an empty class to test instantiation.
 }
-?>
+

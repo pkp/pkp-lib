@@ -52,15 +52,15 @@ class PermissionSettingsForm extends ContextSettingsForm {
 	/**
 	 * @copydoc ContextSettingsForm::fetch
 	 */
-	function fetch($request, $params = null) {
+	function fetch($request, $template = null, $display = false, $params = null) {
 		$templateMgr = TemplateManager::getManager($request);
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
 		$templateMgr->assign('ccLicenseOptions', array_merge(
 			array('' => 'common.other'),
 			Application::getCCLicenseOptions()
 		));
-		return parent::fetch($request, $params);
+		return parent::fetch($request, $template, $display, $params);
 	}
 }
 
-?>
+

@@ -300,7 +300,7 @@ class QueriesGridHandler extends GridHandler {
 			$this->getStageId()
 		);
 		$queryForm->initData();
-		return new JSONMessage(true, $queryForm->fetch($request, $this->getRequestArgs()));
+		return new JSONMessage(true, $queryForm->fetch($request, null, false, $this->getRequestArgs()));
 	}
 
 	/**
@@ -485,7 +485,7 @@ class QueriesGridHandler extends GridHandler {
 		$queryForm->readInputData();
 
 		if ($queryForm->validate()) {
-			$queryForm->execute($request);
+			$queryForm->execute();
 
 			if ($this->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
 				$this->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {
@@ -511,6 +511,8 @@ class QueriesGridHandler extends GridHandler {
 			true,
 			$queryForm->fetch(
 				$request,
+				null,
+				false,
 				array_merge(
 					$this->getRequestArgs(),
 					array('queryId' => $query->getId())
@@ -520,4 +522,4 @@ class QueriesGridHandler extends GridHandler {
 	}
 }
 
-?>
+

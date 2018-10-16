@@ -31,4 +31,4 @@ class FormValidatorRegExp extends FormValidator {
 	}
 }
 
-?>
+

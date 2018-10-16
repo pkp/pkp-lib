@@ -54,11 +54,9 @@ class ReviewFormElementForm extends Form {
 	}
 
 	/**
-	 * Display the form.
-	 * @param $args array
-	 * @param $request PKPRequest
+	 * @copydoc Form::fetch
 	 */
-	function fetch($args, $request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		import('lib.pkp.classes.reviewForm.ReviewFormElement');
 		$templateMgr->assign(array(
@@ -68,20 +66,21 @@ class ReviewFormElementForm extends Form {
 			'multipleResponsesElementTypesString' => ';'.implode(';', ReviewFormElement::getMultipleResponsesElementTypes()).';',
 			'reviewFormElementTypeOptions' => ReviewFormElement::getReviewFormElementTypeOptions(),
 		));
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
 	 * Initialize form data from current review form.
-	 * @param $request PKPRequest
 	 */
-	function initData($request) {
+	function initData() {
 		if ($this->reviewFormElementId) {
+			$request = Application::getRequest();
 			$context = $request->getContext();
 			$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
 			$reviewFormElement = $reviewFormElementDao->getById($this->reviewFormElementId, $this->reviewFormId);
 			$this->_data = array(
 				'question' => $reviewFormElement->getQuestion(null), // Localized
+				'description' => $reviewFormElement->getDescription(null), // Localized
 				'required' => $reviewFormElement->getRequired(),
 				'included' => $reviewFormElement->getIncluded(),
 
@@ -99,16 +98,16 @@ class ReviewFormElementForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('question', 'required', 'included', 'elementType', 'possibleResponses'));
+		$this->readUserVars(array('question', 'description', 'required', 'included', 'elementType', 'possibleResponses'));
 	}
 
 	/**
 	 * Save review form element.
-	 * @param $request PKPRequest
 	 * @return int Review form element ID
 	 */
-	function execute($request) {
+	function execute() {
 		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
+		$request = Application::getRequest();
 
 		if ($this->reviewFormElementId) {
 			$context = $request->getContext();
@@ -123,6 +122,7 @@ class ReviewFormElementForm extends Form {
 		}
 
 		$reviewFormElement->setQuestion($this->getData('question'), null); // Localized
+		$reviewFormElement->setDescription($this->getData('description'), null); // Localized
 		$reviewFormElement->setRequired($this->getData('required') ? 1 : 0);
 		$reviewFormElement->setIncluded($this->getData('included') ? 1 : 0);
 		$reviewFormElement->setElementType($this->getData('elementType'));
@@ -185,4 +185,4 @@ class ReviewFormElementForm extends Form {
 	}
 }
 
-?>
+

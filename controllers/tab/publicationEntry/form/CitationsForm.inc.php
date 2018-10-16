@@ -97,7 +97,7 @@ class CitationsForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$submission = $this->getSubmission();
 		$context = $request->getContext();
 		$citationDao = DAORegistry::getDAO('CitationDAO');
@@ -111,7 +111,7 @@ class CitationsForm extends Form {
 			'citationsRequired' => $context->getSetting('citationsRequired'),
 			'parsedCitations' => $parsedCitations,
 		));
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -133,8 +133,8 @@ class CitationsForm extends Form {
 	 * Parse and store the submission citations.
 	 * @copydoc Form::execute()
 	 */
-	function execute($request) {
-		parent::execute($request);
+	function execute() {
+		parent::execute();
 		$submission = $this->getSubmission();
 
 		$rawCitationList = $this->getData('citations');
@@ -148,4 +148,4 @@ class CitationsForm extends Form {
 
 }
 
-?>
+

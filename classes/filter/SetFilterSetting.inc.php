@@ -81,4 +81,4 @@ class SetFilterSetting extends FilterSetting {
 		return $check;
 	}
 }
-?>
+

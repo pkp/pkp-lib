@@ -11,7 +11,7 @@
   * Localization strings for the sr_RS@latin (Srpski) locale.
   -->
 
-<locale name="sr_RS@latin" full_name = "Srpski">
+<locale name="sr_RS@latin" full_name="Srpski">
 	<message key="user.affiliation">Afilijacija</message>
 	<message key="user.affiliation.description">(Vaša institucija, npr. "Filozofski fakultet u Novom Sadu")</message>
 	<message key="user.affiliations">Afilijacije</message>

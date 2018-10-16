@@ -32,4 +32,4 @@ class FormValidatorLocaleUrl extends FormValidatorLocale {
 	}
 }
 
-?>
+

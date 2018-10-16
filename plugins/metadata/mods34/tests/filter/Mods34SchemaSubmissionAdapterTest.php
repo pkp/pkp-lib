@@ -112,4 +112,4 @@ class Mods34SchemaSubmissionAdapterTest extends Mods34DescriptionTestCase {
 		self::assertEquals($submissionDescription, $extractedDescription);
 	}
 }
-?>
+

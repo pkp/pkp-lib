@@ -51,4 +51,4 @@ class AuthorizationPolicyTest extends PKPTestCase {
 		self::assertEquals(AUTHORIZATION_DENY, $policy->effect());
 	}
 }
-?>
+

@@ -35,6 +35,7 @@ abstract class PKPSubmissionHandler extends Handler {
 			// Authorize submission creation. Author role not required.
 			import('lib.pkp.classes.security.authorization.UserRequiredPolicy');
 			$this->addPolicy(new UserRequiredPolicy($request));
+			$this->markRoleAssignmentsChecked();
 		} else {
 			// Authorize editing of incomplete submissions.
 			import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
@@ -169,7 +170,7 @@ abstract class PKPSubmissionHandler extends Handler {
 
 		if (!HookRegistry::call('SubmissionHandler::saveSubmit', array($step, &$submission, &$submitForm))) {
 			if ($submitForm->validate()) {
-				$submissionId = $submitForm->execute($args, $request);
+				$submissionId = $submitForm->execute();
 				if (!$submission) {
 					return $request->redirectUrlJson($router->url($request, null, null, 'wizard', $step+1, array('submissionId' => $submissionId), 'step-2'));
 				}
@@ -224,4 +225,4 @@ abstract class PKPSubmissionHandler extends Handler {
 	abstract function getStepCount();
 }
 
-?>
+

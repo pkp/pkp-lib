@@ -346,4 +346,4 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 		return ($unmappedFields[$translated]);
 	}
 }
-?>
+

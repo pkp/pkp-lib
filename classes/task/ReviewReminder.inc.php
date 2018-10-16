@@ -74,7 +74,7 @@ class ReviewReminder extends ScheduledTask {
 			$reviewUrlArgs = array_merge($reviewUrlArgs, array('reviewId' => $reviewId, 'key' => $accessKey));
 		}
 
-		$application = PKPApplication::getApplication();
+		$application = Application::getApplication();
 		$request = $application->getRequest();
 		$dispatcher = $application->getDispatcher();
 		$submissionReviewUrl = $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'reviewer', 'submission', null, $reviewUrlArgs);
@@ -178,4 +178,4 @@ class ReviewReminder extends ScheduledTask {
 	}
 }
 
-?>
+

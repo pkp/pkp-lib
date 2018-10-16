@@ -43,4 +43,4 @@ class EmailLinkAction extends LinkAction {
 	}
 }
 
-?>
+

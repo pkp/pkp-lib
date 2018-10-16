@@ -66,14 +66,14 @@ class ManagerSettingsTabHandler extends SettingsTabHandler {
 	/**
 	 * @copydoc SettingsTabHandler::initialize()
 	 */
-	function initialize($request, $args = null) {
+	function initialize($request) {
 		$this->setWizardMode($request->getUserVar('wizardMode'));
 
-		parent::initialize($request, $args);
+		parent::initialize($request);
 
 		// Load handler specific translations.
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_PKP_GRID);
 	}
 }
 
-?>
+

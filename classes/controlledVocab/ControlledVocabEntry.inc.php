@@ -80,4 +80,4 @@ class ControlledVocabEntry extends DataObject {
 	}
 }
 
-?>
+

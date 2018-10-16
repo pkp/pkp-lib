@@ -147,4 +147,4 @@ class SubmissionArtworkFileDAODelegate extends SubmissionFileDAODelegate {
 	}
 }
 
-?>
+

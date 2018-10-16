@@ -77,4 +77,4 @@ class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAc
 	}
 }
 
-?>
+

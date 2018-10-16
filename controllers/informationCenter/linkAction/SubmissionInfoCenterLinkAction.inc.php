@@ -62,4 +62,4 @@ class SubmissionInfoCenterLinkAction extends LinkAction {
 	}
 }
 
-?>
+

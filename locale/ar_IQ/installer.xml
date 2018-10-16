@@ -80,4 +80,5 @@
 	<message key="installer.configureXSLMessage"><![CDATA[<p>إن تنصيبك الحالي لبرنامج PHP لا يمتلك وحدة مممكنة لمعالجة XSL. عليك إما أن تقوم بتمكينها، أو تعديل معيار الأمر xslt_command في ملف التهيئة config.inc.php.</p>]]></message>
 	<message key="installer.beacon">المرشد</message>
 	<message key="installer.beacon.enable">زود الموقع برمز تعريفي فريد ورابط أساسي لـ OAI فقط لأغراض إحصائية وما يتعلق بإشعارات الأمان لمشروع المعرفة العامة.</message>
+	<message key="installer.unsupportedPhpError">إن نسخة PHP التي يعمل بها ملقمك لا يدعمها هذا النظام. أعد التحقق من متطلبات التنصيب الواردة في الملف docs/README.</message>
 </locale>

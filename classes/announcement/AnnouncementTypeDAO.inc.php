@@ -279,4 +279,4 @@ class AnnouncementTypeDAO extends DAO {
 	}
 }
 
-?>
+

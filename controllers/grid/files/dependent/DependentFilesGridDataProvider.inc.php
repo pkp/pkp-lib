@@ -78,4 +78,4 @@ class DependentFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 	}
 }
 
-?>
+

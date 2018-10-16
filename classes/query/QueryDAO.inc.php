@@ -311,4 +311,4 @@ class QueryDAO extends DAO {
 	}
 }
 
-?>
+

@@ -36,4 +36,4 @@ class PersistableTestFilter extends PersistableFilter {
 		return 'lib.pkp.tests.classes.filter.PersistableTestFilter';
 	}
 }
-?>
+

@@ -296,4 +296,4 @@ class ControlledVocabDAO extends DAO {
 	}
 }
 
-?>
+

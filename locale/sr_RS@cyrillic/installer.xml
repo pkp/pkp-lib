@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="sr_RS@cyrillic" full_name = "Serbian">
+<locale name="sr_RS@cyrillic" full_name="Cрпски">
 	<message key="installer.additionalLocales">Додатне локализације</message>
 	<message key="installer.administratorAccount">Администраторски налог</message>
 	<message key="installer.administratorAccountInstructions">Овај кориснички налог ће постати администратор сајта и имати потпуни приступ систему. Додатни кориснички налози могу бити креирани након инсталације.</message>

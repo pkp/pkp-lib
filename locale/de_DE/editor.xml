@@ -21,7 +21,7 @@
 	<message key="editor.submission.fileAuditor.form.messageRequired">Sie müssen ein persönliches Anschreiben verfassen.</message>
 	<message key="editor.submission.fileAuditor.skipEmail">E-Mail nicht an Prüfer/in schicken</message>
 	<message key="editor.submission.fileAuditor.form.userRequired">Sie müssen eine/n Benutzer/in zur Zuordnung auswählen.</message>
-	<message key="editor.submission.uploadSelectFiles">Dateie hochladen/auswählen</message>
+	<message key="editor.submission.uploadSelectFiles">Dateien hochladen/auswählen</message>
 	<message key="editor.submission.selectFiles">Dateien auswählen</message>
 	<message key="editor.submission.revisions">Überarbeitungen</message>
 	<message key="editor.submission.review.reviewersDescription"><![CDATA[Benutzen Sie <em>+Gutachter/in hinzufügen</em>, um Leser/innen um Begutachtung der Einreichung zu bitten. Das Notizbuch-Symbol zeigt an, dass ein Gutachten eingereicht worden ist, das dann als <em>Berücksichtigt</em> markiert wird, nachdem es einbezogen worden ist. Wenn Gutachten überfällig sind, erscheint ein rotes Umschlagsymbol, um Gutachter/innen zu benachrichtigen.]]></message>

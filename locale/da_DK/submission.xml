@@ -574,4 +574,5 @@
 	<message key="submission.submit.contactConsent">Tilhørende kontakt</message>
 	<message key="submission.submit.contactConsentDescription">Ja, jeg vil gerne kontaktes i forbindelse med denne indsendelse.</message>
 	<message key="submission.submit.userGroupDescriptionManagers">Indsend med en af følgende roller, hvis du gerne selv vil kunne redigere og publicere denne indsendelse: {$managerGroups}</message>
+	<message key="log.review.reviewUnconsidered">{$editorName} har markeret runde {$round} bedømmelsen til indsendelse {$submissionId} som værende ikke overvejet.</message>
 </locale>

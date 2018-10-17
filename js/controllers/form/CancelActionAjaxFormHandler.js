@@ -30,10 +30,16 @@
 	$.pkp.controllers.form.CancelActionAjaxFormHandler =
 			function($handledElement, options) {
 
+		var formHandler = this;
+
 		this.parent($handledElement, options);
 
 		// Store the options.
 		this.cancelUrl_ = options.cancelUrl;
+
+		$(window).on('unload', function(event) {
+			formHandler.handleCancelAction();
+		});
 	};
 	$.pkp.classes.Helper.inherits($.pkp.controllers.form.
 			CancelActionAjaxFormHandler, $.pkp.controllers.form.AjaxFormHandler);
@@ -66,10 +72,7 @@
 	$.pkp.controllers.form.CancelActionAjaxFormHandler.prototype.
 			containerCloseHandler = function(input, event) {
 
-		// If the form wasn't completed, post a cancel.
-		if (!this.isComplete_ && this.cancelUrl_ !== null) {
-			$.post(this.cancelUrl_);
-		}
+		this.handleCancelAction();
 
 		return /** @type {boolean} */ (
 				this.parent('containerCloseHandler', input, event));
@@ -85,6 +88,18 @@
 		// Flag the form as complete.
 		this.isComplete_ = true;
 		this.parent('submitForm', validator, formElement);
+	};
+
+
+	/**
+	 * Cancel the form if necessary.
+	 */
+	$.pkp.controllers.form.CancelActionAjaxFormHandler.prototype.
+			handleCancelAction = function() {
+		// If the form wasn't completed, post a cancel.
+		if (!this.isComplete_ && this.cancelUrl_ !== null) {
+			$.post(this.cancelUrl_);
+		}
 	};
 
 /** @param {jQuery} $ jQuery closure. */

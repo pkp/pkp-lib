@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * locale/da_DK/locale.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+
+<locale name="da_DK" full_name="Dansk">
+	<message key="plugins.generic.acron.name">Acron Plug-in</message>
+	<message key="plugins.generic.acron.description">Denne plug-in forsøger at reducere afhængigheden af applikationen på periodiske planlægningsværktøjer som 'cron.'</message>
+	<message key="plugins.generic.acron.enabled">Acron Plug-in'en er blevet aktiveret.</message>
+	<message key="plugins.generic.acron.disabled">Acron Plug-in er blevet deaktiveret.</message>
+	<message key="plugins.generic.acron.reloadedCronTab">Cron-fanen blev genindlæst.</message>
+	<message key="plugins.generic.acron.reload">Genindlæs planlagte opgaver</message>
+	<message key="plugins.generic.acron.tasksReloaded">Planlagte opgaver blev genindlæst.</message>
+</locale>

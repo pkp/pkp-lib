@@ -3,8 +3,8 @@
 /**
  * @file tests/classes/core/PKPComponentRouterTest.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPComponentRouterTest
@@ -96,29 +96,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 		);
 		self::assertEquals('inexistent.ComponentHandler', $this->router->getRequestedComponent($this->request));
 		self::assertFalse($this->router->supports($this->request));
-	}
-
-	/**
-	 * @covers PKPComponentRouter::supports
-	 * @covers PKPComponentRouter::getRpcServiceEndpoint
-	 * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
-	 * @covers PKPComponentRouter::_retrieveServiceEndpointParts
-	 * @covers PKPComponentRouter::_validateServiceEndpointParts
-	 */
-	public function testSupportsWithPathinfoUnsuccessfulComponentIsNotAHandler() {
-		$this->markTestSkipped();
-		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
-
-		$_SERVER = array(
-			'PATH_INFO' => '/context1/context2/$$$call$$$/grid/filter/lookup-filter-grid/fetch-grid'
-		);
-		self::assertEquals('grid.filter.LookupFilterGridHandler', $this->router->getRequestedComponent($this->request));
-		self::assertEquals('fetchGrid', $this->router->getRequestedOp($this->request));
-		self::assertFalse($this->router->supports($this->request));
-		self::assertTrue(class_exists('LookupFilterGridHandler'));
-		$testInstance = new LookupFilterGridHandler();
-		self::assertTrue(in_array('fetchGrid', get_class_methods('LookupFilterGridHandler')));
-		self::assertFalse(is_a($testInstance, 'PKPHandler'));
 	}
 
 	/**
@@ -234,6 +211,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 	 * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
 	 * @covers PKPComponentRouter::_retrieveServiceEndpointParts
 	 * @covers PKPComponentRouter::_validateServiceEndpointParts
+	 * @runInSeparateProcess
 	 */
 	public function testRoute() {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
@@ -498,4 +476,4 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 		self::assertEquals('http://mydomain.org/?firstContext=current-context1&secondContext=index&component=current.component-class&op=current-op', $result);
 	}
 }
-?>
+

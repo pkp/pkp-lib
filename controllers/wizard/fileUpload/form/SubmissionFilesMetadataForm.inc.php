@@ -3,8 +3,8 @@
 /**
  * @file controllers/wizard/fileUpload/form/SubmissionFilesMetadataForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFilesMetadataForm
@@ -119,7 +119,7 @@ class SubmissionFilesMetadataForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$reviewRound = $this->getReviewRound();
 		$templateMgr->assign(array(
@@ -127,13 +127,13 @@ class SubmissionFilesMetadataForm extends Form {
 			'stageId' => $this->getStageId(),
 			'reviewRoundId' => $reviewRound?$reviewRound->getId():null
 		));
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute($args, $request) {
+	function execute() {
 		// Update the submission file with data from the form.
 		$submissionFile = $this->getSubmissionFile();
 		$submissionFile->setName($this->getData('name'), null); // Localized
@@ -142,4 +142,4 @@ class SubmissionFilesMetadataForm extends Form {
 	}
 }
 
-?>
+

@@ -4,8 +4,8 @@
 <!--
   * locale/ru_RU/submission.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ru_RU (Русский) locale.
@@ -14,16 +14,20 @@
 
 <locale name="ru_RU" full_name="Русский">
 	<!-- Отправка материала автором -->
-	<message key="author.submit.userGroupRequired">В настоящий момент у вашей учетной записи нет роли, которая позволяла бы отправлять новые материалы, например такой роли как Автор. Пожалуйста, внимательно проверьте свою учетную запись; возможно вы можете добавить подходящую роль самостоятельно, отредактировав свой профиль.</message>
 	<message key="author.submit.submissionCitations">Введите отформатированный список ссылок на работы, использованные при подготовке данного материала. Пожалуйста, отделяйте ссылки одну от другой с помощью пустой строки.</message>
 	<message key="author.submission.roundStatus.reviewsReady">Новые рецензии были отправлены рецензентами и рассмотрены редактором.</message>
 	<message key="submission.confirm.message">Ваш материал был загружен на сервер и готов к отправке. Вы можете вернуться назад, чтобы проверить и откорректировать любую информацию, которую вы ввели, перед тем как продолжить. Когда вы будете готовы, щелкните на кнопке «Завершить отправку».</message>
+	<message key="submission.submit.availableUserGroups">Отправить как</message>
+	<message key="submission.submit.availableUserGroupsDescription">Выберите роль, которая лучше всего описывает ваш вклад в этот материал.</message>
+	<message key="submission.submit.contactConsent">Контакт для переписки</message>
+	<message key="submission.submit.contactConsentDescription">Да, я согласен, чтобы вы связывались со мной по поводу этого материала.</message>
+	<message key="submission.submit.userGroupDescriptionManagers">Отправьте под одной из следующих ролей, если вы хотите иметь возможность редактировать и публиковать этот материал самостоятельно: {$managerGroups}</message>
 	<message key="submission.submit.submissionChecklist">Требования к отправляемому материалу</message>
 	<message key="submission.submit.submissionChecklistDescription">Вы должны прочесть и подтвердить, что вы выполнили все приведенные ниже требования, перед тем как продолжить.</message>
 	<message key="submission.submit.submissionComplete">Отправка материала завершена</message>
 	<message key="submission.submit.submissionCompleteThanks">Спасибо вам за интерес к публикации в «{$contextName}».</message>
 	<message key="submission.submit.copyrightNoticeAgreementLabel">Принятие Условий передачи авторских прав</message>
-	<message key="submission.submit.copyrightNoticeAgree">Я согласен выполнять Условия передачи авторских прав.</message>
+	<message key="submission.submit.copyrightNoticeAgree">Да, я согласен выполнять Условия передачи авторских прав.</message>
 	<message key="submission.submit.whatNext">Что делать дальше?</message>
 	<message key="submission.submit.whatNext.forNow">На текущий момент вы можете:</message>
 	<message key="submission.submit.whatNext.review">Просмотреть этот материал</message>
@@ -158,93 +162,10 @@
 	<message key="submission.changeComments">Заменить на</message>
 	<message key="submission.changeFile">Изменить файл</message>
 	<message key="submission.citations">Литература</message>
-	<message key="submission.citations.editor.citationlist.approved">Одобрена</message>
-	<message key="submission.citations.editor.citationlist.deleteCitationConfirmation">Вы уверены, что хотите удалить эту библиографическую ссылку?</message>
-	<message key="submission.citations.editor.citationlist.errorDeletingCitation">Произошла ошибка при попытке удаления этой библиографической ссылки. Пожалуйста, сообщите об этой ошибке разработчикам.</message>
-	<message key="submission.citations.editor.citationlist.newCitation">Новая библиографическая ссылка</message>
-	<message key="submission.citations.editor.citationlist.notApproved">Не одобрена</message>
-	<message key="submission.citations.editor.citationlist.title">Редактировать библиографические ссылки</message>
-	<message key="submission.citations.editor.clickToEdit">Щелкните для редактирования.</message>
-	<message key="submission.citations.editor.details.authorQuery">Спросить автора</message>
-	<message key="submission.citations.editor.details.authorQueryBody">Ваше сообщение автору:</message>
-	<message key="submission.citations.editor.details.authorQueryExplanation">Вы можете запросить у автора дополнительную информацию о библиографической ссылке на данный источник. Щелкнув внизу на кнопке «Отправить», вы отправите электронной почтой ваше сообщение автору.</message>
-	<message key="submission.citations.editor.details.authorQuerySubject">Тема:</message>
-	<message key="submission.citations.editor.details.cannotSelectDefaultForLabel">Вы не можете отменить метку поля. Пожалуйста, удалите поле, если оно вам не нужно</message>
-	<message key="submission.citations.editor.details.checkInGoogleScholar">Проверить в Академии Google</message>
-	<message key="submission.citations.editor.details.changeFieldInfo">Введите несколько первых букв для выбора...</message>
-	<message key="submission.citations.editor.details.citationExportPreview">Предварительный просмотр библиографической ссылки для экспорта</message>
-	<message key="submission.citations.editor.details.citationImprovementResultsActive">Результаты встроенной службы библиографических ссылок (щелкните для закрытия)</message>
-	<message key="submission.citations.editor.details.citationImprovementResultsInactive">Результаты встроенной службы библиографических ссылок (щелкните для открытия)</message>
-	<message key="submission.citations.editor.details.citationServices">Службы библиографических ссылок</message>
-	<message key="submission.citations.editor.details.clickToDismissMessage">Вы можете щелкнуть на тексте сообщения, чтобы оно исчезло.</message>
-	<message key="submission.citations.editor.details.dataSaved">Ваши изменения были сохранены.</message>
-	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Выберите службы баз данных библиографических ссылок на источники:</message>
-	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Настройки редактирования библиографических ссылок (щелкните для закрытия)</message>
-	<message key="submission.citations.editor.details.editRawCitationExpertSettingsInactive">Настройки редактирования библиографических ссылок (щелкните для открытия)</message>
-	<message key="submission.citations.editor.details.editRawCitationExtractionServices">Выберите службы извлечения библиографических ссылок:</message>
-	<message key="submission.citations.editor.details.editRawCitationFilterValidationError">Внутренняя ошибка: неправильный выбор фильтра. Пожалуйста, отправьте отчет об ошибке разработчикам.</message>
-	<message key="submission.citations.editor.details.explainImprovementOptions">Если вы не получили удовлетворительных результатов по умолчанию, то у вас есть различные способы улучшить библиографическую ссылку. Зачастую стоит отредактировать важные поля вручную (например, название и автор), а затем снова воспользоваться службами библиографических ссылок. Если это не помогает, вы можете обратиться с запросом к Академии Google или попросить автора уточнить детали.</message>
-	<message key="submission.citations.editor.details.googleScholar">Академия Google</message>
-	<message key="submission.citations.editor.details.googleScholarExplanation">Если библиографическая ссылка не была найдена ни в одной из подключенных служб библиографических ссылок, вы можете попробовать найти ее в Академии Google. К сожалению, Академия Google не предоставляет интерфейса с полями для данных, которые мы могли бы использовать, поэтому мы не можем автоматически передать данные в этот Помощник. Вам нужно будет вручную скопировать информацию со страницы результата Google и вставить ее в ваши поля.</message>
-	<message key="submission.citations.editor.details.manualEditing">Ручное редактирование</message>
-	<message key="submission.citations.editor.details.messages">Пожалуйста, обратите внимание (щелкните на сообщениях, чтобы они исчезли)</message>
-	<message key="submission.citations.editor.details.newFieldInfo">...щелкните здесь для добавления нового поля...</message>
-	<message key="submission.citations.editor.details.queryCitation">Повторный запрос к службам библиографических ссылок</message>
-	<message key="submission.citations.editor.details.queryGoogleScholar">Поиск в Академии Google</message>
-	<message key="submission.citations.editor.details.processRawCitation">Обработать</message>
-	<message key="submission.citations.editor.details.processRawCitationGoAhead">Перейти к следующей</message>
-	<message key="submission.citations.editor.details.processRawCitationTitle">Изменение исходной ссылки</message>
-	<message key="submission.citations.editor.details.processRawCitationWarning">Вы собираетесь изменить текст исходной библиографической ссылки. Если вы это сделаете, то все поля будут заменены заново сгенерированными значениями. Это приведет к удалению тех изменений вручную, которые вы уже могли сделать.</message>
-	<message key="submission.citations.editor.details.saveAndApprove">Сохранить и одобрить</message>
-	<message key="submission.citations.editor.details.saveAndRevokeApproval">Отменить одобрение</message>
-	<message key="submission.citations.editor.details.sendAuthorQuery">Отправить сообщение</message>
-	<message key="submission.citations.editor.details.sendAuthorQuerySuccess">Сообщение отправлено!</message>
-	<message key="submission.citations.editor.details.sourceResultsUse">Использовать</message>
-	<message key="submission.citations.editor.details.sourceResultsUseAll">Использовать все</message>
-	<message key="submission.citations.editor.details.sourceResultsUseAllExplanation">Щелкните, чтобы передать все результирующие поля из этого источника напрямую в ваш список полей</message>
-	<message key="submission.citations.editor.details.sourceResultsUseExplanation">Щелкните, чтобы передать это результирующее поле напрямую в ваш список полей</message>
-	<message key="submission.citations.editor.details.rawCitation">Текст исходной ссылки</message>
-	<message key="submission.citations.editor.details.rawCitationRequired">Текст библиографической ссылки обязателен.</message>
-	<message key="submission.citations.editor.details.unsavedChanges">Библиографическая ссылка содержит несохраненные данные. Пожалуйста, щелкните на кнопке «Сохранить», чтобы сохранить изменения, или на кнопке «Отменить», чтобы отменить изменения.</message>
-	<message key="submission.citations.editor.details.dontShowMessageAgain">Не показывать это сообщение снова.</message>
-	<message key="submission.citations.editor.edit">Редактирование ссылок</message>
-	<message key="submission.citations.editor.export">Экспорт ссылок</message>
-	<message key="submission.citations.editor.export.exportDescription"><![CDATA[<a id="markForExport" href="">Щелкните здесь</a>, чтобы выделить весь сгенерированный вывод. Вы затем сможете скопировать и вставить его в ваш документ.]]></message>
-	<message key="submission.citations.editor.export.filterSelectionDescription">Пожалуйста, выберите один из следующих вариантов экспорта.</message>
-	<message key="submission.citations.editor.export.filterSelectionError">Вы не выбрали один из вариантов вывода.</message>
-	<message key="submission.citations.editor.export.foundUnapprovedCitationsMessage"><![CDATA[<p>Вы еще не одобрили все библиографические ссылки. Пожалуйста, перейдите к вкладке <strong>Редактирование ссылок</strong> и убедитесь, что вы одобрили все библиографические ссылки, прежде чем экспортировать их. Одобренные библиографические ссылки отмечаются темно-синей полосой слева.</p>]]></message>
-	<message key="submission.citations.editor.export.noExportOutput">Фильтр вывода «{$filterName}» выдал ошибку. Пожалуйста, отправьте отчет об ошибке разработчикам.</message>
-	<message key="submission.citations.editor.export.pleaseSelectXmlFilter">Варианты вывода в XML:</message>
-	<message key="submission.citations.editor.export.pleaseSelectPlaintextFilter">Вывод библиографических ссылок в соответствии со стилем (экспериментальная функция!):</message>
-	<message key="submission.citations.editor.introduction">Начало</message>
-	<message key="submission.citations.editor.introduction.introductionMessage"><![CDATA[<h4>Добро пожаловать в Помощник разметки библиографических ссылок!</h4>
-	<p>Используя этот помощник, вы можете разметить библиографические ссылки, предоставленные автором, для экспорта в XML-гранки NLM 2.3 или 3.0, или выгрузки в текстовом виде. Этот инструмент сначала пробует автоматически извлечь и распознать библиографические ссылки в том виде, в каком они были представлены, но в любой момент вы можете вмешаться и отредактировать результаты.</p>
-	<ul>
-		<li><p><strong>Настройка Помощника</strong></p>
-		<p>Помощник разметки библиографических ссылок настраивается управляющим журналом на <a href="{$citationSetupUrl}">шаге 3.7 настройки журнала: Помощник разметки библиографических ссылок</a>. Различные инструменты извлечения и проверки библиографических ссылок можно добавлять, настраивать и удалять. Для получения дополнительной информации свяжитесь с управляющим журналом.</p></li>
-		<li><p><strong>Навигация по интерфейсу Помощника</strong></p>
-		<p>Чтобы переключиться между вкладками <strong>Начало</strong>, <strong>Редактирование ссылок</strong> и <strong>Экспорт ссылок</strong>, щелкните на названии вкладки. Чтобы развернуть интерфейс библиографических ссылок, щелкните на кнопке <strong>Полноэкранный режим</strong>. Чтобы вернуться к нормальному интерфейсу, щелкните на кнопке <strong>Выйти из полноэкранного режима</strong>. Чтобы полностью убрать эту вводную вкладку, щелкните на кнопке ниже.</p></li>
-		<li><p><strong>Запрос библиографических ссылок</strong></p>
-		<p>Если Помощник разметки библиографических ссылок был включен управляющим журналом, авторам будет предлагаться ввести список литературы в процесе отправки статьи. Эти ссылки будут запрашиваться отдельно от самого отправляемого документа. После отправки, авторы также могут в любой момент менять свой список ссылок при редактировании метаданных материала. Обратите внимание, что это приведет к перезаписи всех изменений, которые вы сделали в библиографических ссылках, используя этот инструмент.</p></li>
-		<li><p><strong>Редактирование ссылок</strong></p>
-		<p>Помощник разметки библиографических ссылок пытается определить и извлечь отдельные библиографические ссылки из списка библиографических ссылок, указанного автором. Вы можете систематически проверять каждую извлеченную ссылку на точность во внешних базах данных, редактировать неверную информацию в библиографической ссылке и добавлять новую информацию, одобрять или удалять библиографические ссылки, а также добавлять новые библиографические ссылки.</p>
-		<p>Все библиографические ссылки из итогового списка для материала должны быть одобрены, прежде чем они будут экспортированы.</p></li>
-		<li><p><strong>Экспорт ссылок</strong></p>
-		<p>Библиографические ссылки могут быть экспортированы как XML или текст. Варианты экспорта в XML на текущий момент включают <a href="http://dtd.nlm.nih.gov/publishing/">NLM Journal Publishing</a> 2.3 и 3.0 <a href="http://www.ncbi.nlm.nih.gov/pmc/pmcdoc/tagging-guidelines/article/tags.html#el-reflist">ref-list XML</a>. Выбор одного из этих вариантов выводит список библиографических ссылок в виде фрагмента в формате XML, который может быть скопирован и вставлен в XML-гранки NLM.</p>
-		<p>Экспериментальные варианты экспорта в текстовом формате включают стили оформления библиографических ссылок ABNT, APA, MLA и Vancouver. Эти варианты обеспечивают вывод текста, который может быть скопирован и вставлен в текстовые гранки статьи (например, в Microsoft Word, OpenOffice, Adobe InDesign и т.д.). Каждая библиографическая ссылка включает встроенную гиперссылку для автоматического поиска этого источника в Академии Google.</p></li>
-	</ul>]]></message>
-	<message key="submission.citations.editor.loadMessage">Пожалуйста, подождите пока загрузится помощник разметки библиографических ссылок.</message>
-	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>Нет библиографических ссылок для этой статьи.</p><p>Пожалуйста, перейдите на <a href="{$articleMetadataUrl}">страницу метаданных</a> статьи и введите список литературы или добавьте библиографические ссылки вручную, используя кнопку добавления элементов в редакторе.</p>]]></message>
-	<message key="submission.citations.editor.pleaseSelect">Пожалуйста, выберите...</message>
-	<message key="submission.citations.editor.unprocessedCitations">Библиографические ссылки из этой статьи все еще обрабатываются сервером. Текущий список библиографических ссылок содержит только уже обработанные ссылки. Пожалуйста, щелкните на кнопке «Обновить», чтобы увидеть библиографические ссылки, которые были обработаны за это время.</message>
-	<message key="submission.citations.editor.unprocessedCitationsButton">Обновить список ссылок</message>
-	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Щелкните, чтобы обновить список библиографических ссылок.</message>
-	<message key="submission.citations.filter.invalidMetadata">Произошла ошибка в фильтре «{$filterName}»: один из элементов данных, возвращенный источником данных (например, веб-службой), не соответствует внутреннему формату метаданных. По этой причине результаты, полученные из этого источника данных, были отклонены. Пожалуйста, сообщите об этой ошибке разработчикам.</message>
-	<message key="submission.citations.filter.noResultFromFilterError">Несколько служб библиографических ссылок не вернули никаких результатов. Вы можете попробовать вручную отредактировать поля библиографической ссылки и снова отправить запрос в службы библиографических ссылок, чтобы улучшить результаты. Если это не помогло, то такой источник не существует ни в одной из подключенных баз данных библиографических ссылок на источники.</message>
-	<message key="submission.citations.filter.unsupportedPublicationType">Тип публикации не указан или не поддерживается. Пожалуйста, отредактируйте библиографическую ссылку вручную и укажите тип публикации (разрешенные типы: book, journal, thesis и conf-proc).</message>
-	<message key="submission.citations.filter.webserviceError">Вызов веб-службы фильтра «{$filterName}» вернул ошибку при вызове со следующим URL-адресом: {$webserviceUrl}. Возможно, эта веб-служба временно недоступна. Вы можете продолжить работу с остальными службами и сохранить ваши результаты. Вы также можете попробовать обратиться к этой службе позже. Если ошибка продолжает повторяться, попросите управляющего деактивировать эту службу и сообщить об ошибке разработчикам.</message>
-	<message key="submission.citations.filter.webserviceResultTransformationError">Произошла ошибка в фильтре «{$filterName}»: преобразование XML-результатов (например, от веб-службы) в поля метаданных потерпело неудачу. Вероятная причина в том, что веб-служба вернула неправильные или неполные данные. Пожалуйста, сообщите об этой ошибке разработчикам.</message>
-	<message key="submission.citations.metadata.changeWarning">Вы уверены, что хотит обновить ваш список библиографических ссылок? Если вы щелкните на «ОК», все изменения, сделанные редакторами, будут перезаписаны. Если вы не уверены в том, что вам нужно внести изменения в список библиографических ссылок, пожалуйста, свяжитесь с редактором, занимающимся вашим материалом.</message>
+	<message key="submission.citations.description">Введите каждую ссылку на новой строке, чтобы их можно было потом извлечь.</message>
+	<message key="submission.parsedCitations">Извлеченные ссылки</message>
+	<message key="submission.parsedCitations.description">Следующие ссылки были извлечены и будут связаны с метаданными материала.</message>
+	<message key="submission.parsedAndSaveCitations">Извлечь и сохранить ссылки</message>
 	<message key="submission.comments.addComment">Добавить комментарий</message>
 	<message key="submission.comments.comments">Комментарии</message>
 	<message key="submission.comments.confirmDelete">Вы уверены, что хотите удалить этот комментарий?</message>
@@ -275,18 +196,16 @@
 	<message key="submission.email.confirmDeleteLogEntry">Вы уверены, что хотите удалить эту запись из журнала писем электронной почты?</message>
 	<message key="submission.email.deleteLogEntry">Удалить запись журнала</message>
 	<message key="submission.emailLog">Журнал электронной почты</message>
-	<message key="submission.event.participantAdded">«{$name}» ({$username}) добавлен как {$userGroupName}.</message>
+	<message key="submission.event.participantAdded">{$name} ({$username}) был назначен в этот материал как {$userGroupName}.</message>
 	<message key="submission.event.participantRemoved">«{$name}» ({$username}) удален как {$userGroupName}.</message>
 	<message key="submission.event.backToEventLog">Назад к журналу событий</message>
 	<message key="submission.event.confirmClearLog">Вы уверены, что хотите очистить журнал событий для этого материала?</message>
 	<message key="submission.event.confirmDeleteLogEntry">Вы уверены, что хотите удалить эту запись из журнала событий?</message>
 	<message key="submission.event.deleteLogEntry">Удалить запись журнала</message>
 	<message key="submission.event.submissionSubmitted">Первоначальная отправка материала завершена.</message>
-	<message key="submission.event.fileUploaded">Файл «{$name}» (ID файла {$fileId}-{$fileRevision}) был загружен.</message>
 	<message key="submission.event.fileRevised">Версия «{$name}» (ID файла {$fileId}-{$fileRevision}) была загружена.</message>
 	<message key="submission.event.general.metadataUpdated">Метаданные материала обновлены</message>
 	<message key="submission.event.general.suppFileUpdated">Файл материала обновлен</message>
-	<message key="submission.event.participantAdded">{$name} был назначен в этот материал как {$userGroupName}.</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Согласие на рецензирование получено через посредника</message>
 	<message key="submission.event.reviewer.reviewAccepted">Согласие на рецензирование получено</message>
 	<message key="submission.event.reviewer.reviewDeclined">Рецензент отказался от рецензирования</message>
@@ -314,7 +233,8 @@
 	<message key="submission.history.submissionNotes">Заметки к материалу</message>
 	<message key="submission.history.viewLog">Просмотреть журнал</message>
 	<message key="submission.howToCite">Как цитировать</message>
-	<message key="submission.howToCite.citationFormats">Форматы библиографических ссылок</message>
+	<message key="submission.howToCite.citationFormats">Другие форматы библиографических ссылок</message>
+	<message key="submission.howToCite.downloadCitation">Скачать ссылку</message>
 	<message key="submission.indexing">Индексирование</message>
 	<message key="submission.initiated">Начата</message>
 
@@ -432,7 +352,7 @@
 	<message key="submission.submit.metadataForm">Дополнительные уточнения</message>
 	<message key="submission.submit.metadataForm.tip">Добавьте дополнительную информацию для вашего материала. Нажимвйте «Enter» после каждого термина.</message>
 	<message key="submission.submit.submissionLocale">Язык материала</message>
-	<message key="submission.submit.submissionLocaleDescription">Принимаются материалы на нескольких языках. Выберите основной язык отправляемого материала из выпадающего меню ниже.</message>
+	<message key="submission.submit.submissionLocaleDescription">Принимаются материалы на нескольких языках. Выберите основной язык отправляемого материала из выпадающего меню выше.</message>
 	<message key="submission.submit.submissionFiles">Файлы материала</message>
 	<message key="submission.submit.dependentFiles">Зависимые файлы</message>
 	<message key="submission.manageDependentFiles">Управление зависимыми файлами</message>
@@ -460,8 +380,18 @@
 	<message key="submission.submit.selectPrincipalContact">Контактное лицо для переписки с редакцией.</message>
 	<message key="submission.submit.contributorRole">Роль автора</message>
 	<message key="submission.submit.addAuthor">Добавить автора</message>
+	<message key="submission.submit.form.languagesRequired">Пожалуйста, укажите язык.</message>
+	<message key="submission.submit.form.subjectsRequired">Пожалуйста, укажите тему.</message>
+	<message key="submission.submit.form.disciplinesRequired">Пожалуйста, укажите предмет.</message>
+	<message key="submission.submit.form.keywordsRequired">Пожалуйста, укажите ключевое слово.</message>
+	<message key="submission.submit.form.agenciesRequired">Пожалуйста, укажите спонсоров.</message>
+	<message key="submission.submit.form.coverageRequired">Пожалуйста, укаэите информацию об охвате.</message>
+	<message key="submission.submit.form.typeRequired">Пожалуйста, укажите тип.</message>
+	<message key="submission.submit.form.sourceRequired">Пожалуйста, укажите источник.</message>
+	<message key="submission.submit.form.rightsRequired">Пожалуйста, укажите права на материал.</message>
+	<message key="submission.submit.form.citationsRequired">Пожалуйста, укажите библиографические ссылки.</message>
 
-	<!-- Элменты формы загрузки файла материала -->
+	<!-- Элементы формы загрузки файла материала -->
 	<message key="submission.form.name">Назовите файл (например, Рукопись; Таблица 1)</message>
 	<message key="submission.form.replaceExisting">Заменить существующий файл?</message>
 
@@ -512,7 +442,9 @@
 	<!-- Ключи статуса раунда рецензирования -->
 	<message key="editor.submission.roundStatus.revisionsRequested">Новые версии были запрошены.</message>
 	<message key="editor.submission.roundStatus.revisionsSubmitted">Новые версии были отправлены.</message>
-	<message key="editor.submission.roundStatus.resubmitted">Материал был повторно отправлен на рецензию.</message>
+	<message key="editor.submission.roundStatus.resubmitForReview">Материал нужно повторно отправить на рецензирование.</message>
+	<message key="editor.submission.roundStatus.submissionResubmitted">Материал был повторно отправлен на рецензирование.</message>
+
 	<message key="editor.submission.roundStatus.sentToExternal">Отправлен на внешнее рецензирование.</message>
 	<message key="editor.submission.roundStatus.accepted">Материал принят.</message>
 	<message key="editor.submission.roundStatus.declined">Материал отклонен.</message>
@@ -521,6 +453,9 @@
 	<message key="editor.submission.roundStatus.reviewsReady">Новые рецензии были отправлены.</message>
 	<message key="editor.submission.roundStatus.reviewsCompleted">Все рецензии пришли, нужно принять решение.</message>
 	<message key="editor.submission.roundStatus.reviewOverdue">Срок рецензии прошел.</message>
+	<message key="editor.submission.roundStatus.pendingRecommendations">Ожидает рекомендаций от редакторов.</message>
+	<message key="editor.submission.roundStatus.recommendationsReady">Новые рекомендации редакторов были отправлены.</message>
+	<message key="editor.submission.roundStatus.recommendationsCompleted">Все рекомендации пришли, нужно принять решение.</message>
 
 	<!-- Участники -->
 	<message key="editor.submission.stageParticipants">Участники</message>
@@ -534,6 +469,7 @@
 	<message key="editor.submission.removeStageParticipant.description"><![CDATA[Вы собираетесь удалить этого участника со <strong>всех</strong> этапов. Если у пользователя также есть приостановленные задачи аудитора, они также будут удалены.]]></message>
 	<message key="editor.submission.addStageParticipant.form.userGroupRequired">Вы должны выбрать группу пользователей.</message>
 	<message key="editor.submission.addStageParticipant.form.userRequired">Вы должны выбрать пользователя для указанной группы пользователей.</message>
+	<message key="editor.submission.addStageParticipant.form.reviewerWarning">Выбранный вами пользователь назначен проводить «слепое» рецензирование. Если вы назначите его участником, он получит доступ к информации об авторе. Рекомендуем вам не назначать этого участника, если вы не уверены в том, что удастся сохранить независимость процесса «слепого» рецензирования.</message>
 
 	<!--  решения редакции -->
 	<message key="editor.submission.decision">Решение</message>
@@ -548,6 +484,17 @@
 	<message key="editor.submission.decision.approveProofs">Одобрить корректуры</message>
 	<message key="editor.submission.decision.disapproveProofsDescription">Этот файл корректуры больше не будет доступен для скачивания или покупки. Вы хотите отменить его одобрение?</message>
 	<message key="editor.submission.decision.noDecisionsAvailable">Назначить редактора, чтобы включить решения редакции для этого этапа.</message>
+	<!--  рекомендации редактора -->
+	<message key="editor.submission.makeRecommendation">Дать рекомендацию</message>
+	<message key="editor.submission.changeRecommendation">Изменить рекомендацию</message>
+	<message key="editor.submission.recommendation.display">Рекомендация: {$recommendation}</message>
+	<message key="editor.submission.allRecommendations.display">Рекомендации: {$recommendations}</message>
+	<message key="editor.submission.recommendation">Рекомендация</message>
+	<message key="editor.submission.recommendation.description">Рекомендовать решение редакции для этого материала.</message>
+	<message key="editor.submission.recordedRecommendations">Записанные рекомендации</message>
+	<message key="editor.submission.decision.nextButton">Далее: Выбрать файлы для {$stageName}</message>
+	<message key="editor.submission.decision.selectFiles">Выберите файлы: которые вы хотите отправить на этап «{$stageName}».</message>
+	<message key="editor.submission.decision.previousAuthorNotification">Назад: Уведомление автора</message>
 
 	<!-- ключи навигации рабочего потока -->
 	<message key="submission.currentStage">Текущий этап</message>
@@ -576,6 +523,7 @@
 	<message key="submission.description">Описание</message>
 	<message key="submission.stageNotInitiated">Этап не начался.</message>
 	<message key="submission.documents">Документы отправленного материала</message>
+	<message key="notification.type.editorAssign">Вы были назначены редактором для материала «{$title}».</message>
 	<message key="notification.type.copyeditorRequest">Вас попросили выполнить литературное редактирование для «{$title}».</message>
 	<message key="notification.type.layouteditorRequest">Вас попросили выполнить верстку для «{$title}».</message>
 	<message key="notification.type.indexRequest">Вас попросили сделать индекс для «{$title}».</message>
@@ -585,14 +533,15 @@
 	<message key="notification.type.editorDecisionPendingRevisions">Требуется новая версия материала.</message>
 	<message key="notification.type.editorDecisionResubmit">Повторно отправить а рецензирование.</message>
 	<message key="notification.type.editorDecisionDecline">Материал отклонен.</message>
-	<message key="notification.type.editorDecisionSendToProduction">Начат процесс публикации.</message>
 	<message key="notification.uploadedResponse">Загружен ответ.</message>
 
 	<message key="notification.type.editorAssignment">Редактор должен быть назначен до начала рецензирования. Пожалуйста, добавьте редактора с помощью списка «Участники».</message>
 	<message key="grid.reviewAttachments.title">Файлы, прикрепленные рецензентом</message>
+	<message key="grid.reviewAttachments.send.title">Выбрать файлы рецензии для отправки автору(авторам)</message>
 	<message key="submission.productionReady">Книга доступна</message>
 	<message key="submission.review.uploadRevisionToRound">Загрузить новую версию файла</message>
 	<message key="log.review.reviewerAssigned">Рецензент {$reviewerName} был назначен на рецензирование материала «{$submissionId}» (раунд рецензирования — {$round}).</message>
+	<message key="log.review.reviewUnconsidered">{$editorName} отметил раунд {$round} рецензирования для материала {$submissionId} как нерассмотренный.</message>
 	<message key="submission.review.status.awaitingResponse">Ожидает ответа от рецензента.</message>
 	<message key="submission.review.status.declined">Рецензент отклонил этот запрос на рецензию.</message>
 	<message key="submission.review.status.responseOverdue">Рецензент пропустил срок ответа на запрос.</message>
@@ -659,6 +608,7 @@
 	<message key="submission.query.new">Пользователь «{$creatorName}» начал обсуждение «{$noteTitle}»: {$noteContents}</message>
 	<message key="submission.query.activity.contents">Есть новая активность в обсуждении с названием «{$queryTitle}», относящимся к материалу «{$submissionTitle}».</message>
 	<message key="submission.query.new.contents">Вы были добавлены к обсуждению с названием «{$queryTitle}», относящимся к материалу «{$submissionTitle}».</message>
+	<message key="submission.query.participantTitle">{$fullName}, {$userGroup}</message>
 	<message key="submission.query.noParticipantOptions">До начала обсуждения вы должны назначить хотя бы одного участника в этот материал.</message>
 
 	<!-- Списки материалов -->
@@ -667,15 +617,20 @@
 	<message key="submission.list.itemsOfTotal">{$count} из {$total} материалов</message>
 	<message key="submission.list.responseDue">Срок ответа на запрос</message>
 	<message key="submission.list.reviewDue">Срок сдачи рецензии</message>
+	<message key="submission.list.reviewComplete">Рецензия отправлена</message>
 	<message key="submission.list.confirmDelete">Удалить материал?</message>
-	<message key="submission.list.viewSubmission">Показать «{$title}»</message>
-	<message key="submission.list.filter">Фильтры</message>
-	<message key="submission.list.filterRemove">Сбросить фильтр: {$filterTitle}</message>
 	<message key="submission.list.itemOrdererUp">Поднять вверх «{$itemTitle}»</message>
 	<message key="submission.list.itemOrdererDown">Опустить вниз «{$itemTitle}»</message>
-	<message key="submission.list.clearSearch">Очистить фразу поиска</message>
-	<message key="submission.list.reviewsCompleted">Завершено рецензий</message>
+	<message key="submission.list.viewSubmission">Показать материал</message>
+	<message key="submission.list.reviewsCompleted">Завершено назначенных рецензий</message>
+	<message key="submission.list.revisionsSubmitted">Отправлено новых версий</message>
+	<message key="submission.list.copyeditsSubmitted">Отправлено файлов, прошедших литературное редактирование</message>
+	<message key="submission.list.galleysCreated">Создано гранок</message>
 	<message key="submission.list.filesPrepared">Подготовлено файлов</message>
-	<message key="submission.list.discussions">Обсуждения</message>
+	<message key="submission.list.discussions">Открытых обсуждений</message>
+	<message key="submission.list.dualWorkflowLinks"><![CDATA[Вам назначили несколько ролей для этого материала. Вы хотите воспользоваться <a href="{$urlAuthorWorkflow}">Рабочим потоком автора</a>  или <a href="{$urlEditorialWorkflow}">Рабочим потоком редакции</a>?]]></message>
+	<message key="submission.list.reviewerWorkflowLink"><![CDATA[Вам назначена роль в редакции для этого материала. Вы хотите воспользоваться <a href="{$urlEditorialWorkflow}">Рабочим потоком редакции</a>?]]></message>
 	<message key="submission.list.incompleteSubmissionNotice">Этот материал должен быть завершен до того, как редактор будет его рецензировать.</message>
+	<message key="submission.list.currentStage">Сейчас на этапе «{$stage}».</message>
+	<message key="submission.list.assignEditor">Назначить редактора</message>
 </locale>

@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/files/dependent/DependentFilesGridDataProvider.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DependentFilesGridDataProvider
@@ -55,7 +55,7 @@ class DependentFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 		$submission = $this->getSubmission();
 		return new AddFileLinkAction(
 			$request, $submission->getId(), $this->getStageId(),
-			$this->getUploaderRoles(), null, $this->getFileStage(),
+			$this->getUploaderRoles(), $this->getFileStage(),
 			ASSOC_TYPE_SUBMISSION_FILE, $this->getAssocId(), null,
 			null, $this->isDependent()
 		);
@@ -78,4 +78,4 @@ class DependentFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 	}
 }
 
-?>
+

@@ -3,8 +3,8 @@
 /**
  * @file classes/mail/MailTemplate.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class MailTemplate
@@ -46,9 +46,6 @@ class MailTemplate extends Mail {
 	/** @var array The list of parameters to be assigned to the template. */
 	var $params;
 
-	/** @var string the email header to prepend */
-	var $emailHeader;
-
 	/**
 	 * Constructor.
 	 * @param $emailKey string unique identifier for the template
@@ -60,8 +57,7 @@ class MailTemplate extends Mail {
 		$this->emailKey = isset($emailKey) ? $emailKey : null;
 
 		// If a context wasn't specified, use the current request.
-		$application = PKPApplication::getApplication();
-		$request = $application->getRequest();
+		$request = Application::getRequest();
 		if ($context === null) $context = $request->getContext();
 
 		$this->includeSignature = $includeSignature;
@@ -95,7 +91,6 @@ class MailTemplate extends Mail {
 		}
 
 		// Default "From" to user if available, otherwise site/context principal contact
-		$this->emailHeader = '';
 		if ($user) {
 			$this->setFrom($user->getEmail(), $user->getFullName());
 		} elseif (is_null($context) || is_null($context->getSetting('contactEmail'))) {
@@ -103,7 +98,6 @@ class MailTemplate extends Mail {
 			$this->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 		} else {
 			$this->setFrom($context->getSetting('contactEmail'), $context->getSetting('contactName'));
-			$this->emailHeader = $context->getSetting('emailHeader');
 		}
 
 		if ($context) {
@@ -146,7 +140,7 @@ class MailTemplate extends Mail {
 	 * @param $params array Associative array of variables to supply to the email template
 	 */
 	function assignParams($params = array()) {
-		$application = PKPApplication::getApplication();
+		$application = Application::getApplication();
 		$request = $application->getRequest();
 		$site = $request->getSite();
 
@@ -329,4 +323,4 @@ class MailTemplate extends Mail {
 	}
 }
 
-?>
+

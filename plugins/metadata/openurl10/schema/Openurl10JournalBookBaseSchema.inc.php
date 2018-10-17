@@ -3,8 +3,8 @@
 /**
  * @file plugins/metadata/openurl10/schema/Openurl10JournalBookBaseSchema.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Openurl10JournalBookBaseSchema
@@ -39,4 +39,4 @@ class Openurl10JournalBookBaseSchema extends Openurl10BaseSchema {
 		$this->addProperty('issn');
 	}
 }
-?>
+

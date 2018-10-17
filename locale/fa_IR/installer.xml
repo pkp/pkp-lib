@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+<!--
+  * locale/fa_IR/installer.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Farsi_(fa_IR)
+  -->
+<locale name="fa_IR" full_name="فارسی">
+	<message key="installer.additionalLocales">زبان‌های اضافی</message>
+	<message key="installer.administratorAccount">حساب مدیر</message>
+	<message key="installer.administratorAccountInstructions">این حساب کاربری مدیر سایت خواهد شد و دسترسی کامل به  سیستم خواهد داشت. حساب‌های اضافی کاربران را می‌توان پس از نصب برنامه ایجاد کرد.</message>
+	<message key="installer.checkNo"><![CDATA[<span class="pkp_form_error formError">خیر</span>]]></message>
+	<message key="installer.checkYes">بلی</message>
+	<message key="installer.clientCharset">سیستم کاراکتری</message>
+	<message key="installer.clientCharsetInstructions">سیستم کدگذاری مورد استفاده برای ارسال و دریافت داده‌ها از مرورگر</message>
+	<message key="installer.configFileError"><![CDATA[فایل تنظیمات  <tt>config.inc.php</tt> موجود نیست و یا قابل خواندن نمی‌باشد.]]></message>
+	<message key="installer.connectionCharset">سیستم کاراکتری اتصال</message>
+	<message key="installer.contentsOfConfigFile">محتوای فایل تنظیمات</message>
+	<message key="installer.createDatabase">ایجاد بانک اطلاعاتی جدید</message>
+	<message key="installer.createDatabaseInstructions">برای استفاده از این امکان، سیستم بانک اطلاعاتی شما می‌بایست از ایجاد بانک اطلاعاتی از راه دور پشتیبانی کند و حساب کاربری شما می‌بایست مجوزهای لازم برای ایجاد یک بانک اطلاعاتی جدید را داشته باشد. چنانچه با انتخاب این گزینه، نصب نرم‌افزار شکست خورد لازم است به‌صورت دستی بانک اطلاعاتی را بر روی سیستم خود ایجاد کنید و برنامه نصب نرم‌افزار را از نو اجرا کنید ولی این بار این گزینه را غیرفعال کنید.</message>
+	<message key="installer.databaseCharset">سیستم کاراکتری بانک اطلاعاتی</message>
+	<message key="installer.databaseDriver">درایور بانک اطلاعاتی</message>
+	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>درایورهای بانک‌های اطلاعاتی که در کروشه آمده است نصب نشده یا توسط PHP قابل دسترسی نمی‌باشند..</strong><br />تمام درایورهای نصب نشده فقط به منظور آکادمیک در اینجا لیست شده‌اند و بعید است که در حال حاضر کارکرد داشته باشند.]]></message>
+	<message key="installer.databaseHost">میزبان</message>
+	<message key="installer.databaseHostInstructions">برای اتصال از طریق سوکت دامنه بجای اتصال از طریق TCP/IP نام میزبان را خالی بگذارید. در صورت استفاده از  MySQL این کار لازم نیست ، زیرا MySQL چنانچه مقدار  "localhost"  برای آن وارد شود به‌طور اتوماتیک از سوکت استفاده می‌کند ولی در مورد بعضی پایگاه‌های اطلاعاتی دیگر مانند PostgreSQL لازم است.</message>
+	<message key="installer.databaseName">نام بانک اطلاعاتی</message>
+	<message key="installer.databasePassword">رمز عبور</message>
+	<message key="installer.databaseSettings">تنظیمات بانک اطلاعاتی</message>
+	<message key="installer.databaseUsername">نام کاربری</message>
+	<message key="installer.filesDir">پوشه آپلود</message>
+	<message key="installer.fileSettings">تنظیمات فایل</message>
+	<message key="installer.form.clientCharsetRequired">سیستم کاراکتری باید انتخاب شود.</message>
+	<message key="installer.form.databaseDriverRequired">درایور بانک اطلاعاتی باید انتخاب شود.</message>
+	<message key="installer.form.databaseNameRequired">نام بانک اطلاعاتی لازم است</message>
+	<message key="installer.form.emailRequired">یک آدرس ایمیل صحیح برای حساب مدیر لازم است</message>
+	<message key="installer.form.filesDirRequired">پوشه ذخیره فایل‌های آپلود شده باید وارد شود.</message>
+	<message key="installer.form.localeRequired">یک زبان باید انتخاب شود</message>
+	<message key="installer.form.passwordRequired">رمز عبور برای حساب مدیر لازم است</message>
+	<message key="installer.form.passwordsDoNotMatch">عدم تطابق در تکرار رمز عبور مدیر</message>
+	<message key="installer.form.separateMultiple">مقادیر متعدد را با کاما از هم جدا کنید</message>
+	<message key="installer.form.usernameAlphaNumeric">نام کاربری مدیر فقط می‌تواند دارای حروف و اعداد، خط فاصله پائین و خط فاصله باشد. همچنین باید با یک حرف یا عدد شروع و به یک حرف یا عدد ختم شود.</message>
+	<message key="installer.form.usernameRequired">نام کاربری برای حساب مدیر لازم است</message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>هشدار: نسخه PHP شما فاقد حداقل‌های مورد نیاز برای نصب برنامه است. توصیه می‌شود به نسخه‌های جدید ارتقاء دهید.</strong>]]></message>
+	<message key="installer.installErrorsOccurred">بروز خطا هنگام نصب</message>
+	<message key="installer.installerSQLStatements">دستورات SQL برای نصب</message>
+	<message key="installer.installFileError"><![CDATA[فایل نصب  <tt>dbscripts/xml/install.xml</tt> وجود ندارد و یا قابل خواندن نیست.]]></message>
+	<message key="installer.installFilesDirError">پوشه تعیین شده برای فایل‌های آپلودی وجود ندارد و یا قابل نوشتن نیست</message>
+	<message key="installer.installParseDBFileError"><![CDATA[بروز خطا هنگام خواندن فایل نصب بانک اطلاعاتی: <tt>{$file}</tt>.]]></message>
+	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[بروز خطا هنگام پردازش فایل الگوی ایمیل: <tt>{$file}</tt>.]]></message>
+	<message key="installer.installParseFilterConfigFileError"><![CDATA[در خواندن فایل <tt>{$file}</tt> خطایی رخ داده است.]]></message>
+	<message key="installer.unsupportedUpgradeError">عدم پشتیبانی از به‌روزرسانی. برای اطلاعات بیشتر به مرجع زیر مراجعه کنید: docs/UPGRADE-UNSUPPORTED </message>
+	<message key="installer.locale">زبان</message>
+	<message key="installer.locale.maybeIncomplete">زبان‌های مشخص شده ممکن است ناکامل باشند.</message>
+	<message key="installer.localeSettings">تنظیمات زبان</message>
+	<message key="installer.oaiSettings">تنظیماتOAI </message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[یک شناسه منحصربه‌فرد برای استفاده در تشخیص فراداده‌های نمایه شده از این سایت توسط پروتکل  <a href="http://www.openarchives.org/" target="_blank"> Open Archives Initiative </a> ]]></message>
+	<message key="installer.oaiRepositoryId">شناسه مخزن OAI</message>
+	<message key="installer.publicFilesDirError">پوشه فایل‌های عمومی وجود ندارد و یا قابل نوشتن نیست</message>
+	<message key="installer.releaseNotes">یادداشت‌های منتشره</message>
+	<message key="installer.preInstallationInstructionsTitle">مراحل آماده‌سازی</message>
+	<message key="installer.preInstallationInstructions"><![CDATA[<h4>مراحل پیش از نصب</h4>	  <p>1. فایل‌ها و پوشه‌های زیر (به همراه فایل‌های درون پوشه‌ها) باید قابل نوشتن باشند</p>	  <ul>		  <li><tt>config.inc.php</tt> قابل نوشتن است (اختیاری): {$writable_config}</li>		  <li><tt>public/</tt> قابل نوشتن است: {$writable_public}</li>		  <li><tt>cache/</tt> قابل نوشتن است: {$writable_cache}</li>		  <li><tt>cache/t_cache/</tt> قابل نوشتن است: {$writable_templates_cache}</li>		  <li><tt>cache/t_compile/</tt> قابل نوشتن است: {$writable_templates_compile}</li>		  <li><tt>cache/_db</tt> قابل نوشتن است: {$writable_db_cache}</li>	  </ul>	  <p>2. پوشه فایل‌ها باید ایجاد شده و قابل نوشتن باشد (بخش تنظیمات فایل‌ها را مشاهده کنید)</p>]]></message>
+	<message key="installer.configureXSLMessage"><![CDATA[<p> در نسخه php نصب شده در سرور شما ماژول XSL فعال نشده است. یا این ماژول را فعال کنید و یا آنکه در فایل config.inc.php پارامتر xslt_command  را تنظیم نمایید</p>]]></message>
+	<message key="installer.beacon">دیدبانی</message>
+	<message key="installer.beacon.enable">یک آدرس URL و شناسه منحصربه‌فرد تعیین کنید که از آن به هدف اطلاع‌رسانی آمار و پیام‌های امنیتی استفاده می‌شود.</message>
+</locale>

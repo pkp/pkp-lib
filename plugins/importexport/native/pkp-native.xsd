@@ -3,8 +3,8 @@
 <!--
   * plugins/importexport/native/pkp-native.xsd
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2003-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Schema describing native XML import/export elements shared across PKP applications
@@ -90,6 +90,7 @@
 					<sequence>
 						<element ref="pkp:id" minOccurs="0" maxOccurs="unbounded" />
 						<element name="name" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
+						<element name="submission_file_ref" type="pkp:submission_file_ref" minOccurs="0" maxOccurs="1" />
 						<group ref="pkp:fileContents" />
 					</sequence>
 					<attribute name="direct_sales_price" type="decimal" />
@@ -99,7 +100,6 @@
 					<attribute name="viewable" type="boolean" />
 					<attribute name="date_uploaded" type="date" />
 					<attribute name="date_modified" type="date" />
-					<attribute name="user_group_ref" type="pkp:user_group_ref" />
 					<attribute name="uploader" type="pkp:username" />
 					<attribute name="genre" type="normalizedString" />
 					<attribute name="filesize" type="int" />
@@ -171,9 +171,8 @@
 	<!-- An identity (e.g. user, author) -->
 	<complexType name="identity" abstract="true">
 		<sequence>
-			<element name="firstname" type="string" />
-			<element name="middlename" type="string" minOccurs="0" maxOccurs="1" />
-			<element name="lastname" type="string" />
+			<element name="givenname" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
+			<element name="familyname" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 			<element name="affiliation" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 			<element name="country" type="string" minOccurs="0" maxOccurs="1" />
 			<element name="email" type="string" />
@@ -322,7 +321,7 @@
 	<element name="disciplines">
 		<complexType>
 			<sequence>
-				<element name="disciplin" type="string" minOccurs="1" maxOccurs="unbounded" />
+				<element name="discipline" type="string" minOccurs="1" maxOccurs="unbounded" />
 			</sequence>
 			<attribute name="locale" type="string" />
 		</complexType>

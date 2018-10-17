@@ -3,8 +3,8 @@
 /**
  * @file tools/CopyAcessLogFileTool.php
  *
- * Copyright (c) 2013-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2013-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CopyAccessLogFileTool
@@ -205,7 +205,7 @@ class CopyAccessLogFileTool extends CommandLineTool {
 			printf(__('admin.error.executingUtil', array('utilPath' => $egrepPath, 'utilVar' => 'egrep')) . "\n");
  			exit(1);
  		}
-		if (!$fileMgr->deleteFile($tmpFilePath)) {
+		if (!$fileMgr->deleteByPath($tmpFilePath)) {
 			printf(__('admin.copyAccessLogFileTool.error.deletingFile', array('tmpFilePath' => $tmpFilePath)) . "\n");
 			exit(1);
 		}
@@ -216,4 +216,4 @@ class CopyAccessLogFileTool extends CommandLineTool {
 
 $tool = new CopyAccessLogFileTool(isset($argv) ? $argv : array());
 $tool->execute();
-?>
+

@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/files/dependent/DependentFilesGridHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DependentFilesGridHandler
@@ -28,7 +28,7 @@ class DependentFilesGridHandler extends FileListGridHandler {
 		import('lib.pkp.controllers.grid.files.dependent.DependentFilesGridDataProvider');
 		parent::__construct(
 			new DependentFilesGridDataProvider($fileId),
-			WORKFLOW_STAGE_ID_PRODUCTION,
+			$request->getUserVar('stageId'),
 			FILE_GRID_ADD|FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES|FILE_GRID_EDIT
 		);
 
@@ -36,6 +36,8 @@ class DependentFilesGridHandler extends FileListGridHandler {
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR),
 			array('fetchGrid', 'fetchRow')
 		);
+
+		$this->setTitle('submission.submit.dependentFiles');
 	}
 
 	/**
@@ -60,4 +62,4 @@ class DependentFilesGridHandler extends FileListGridHandler {
 	}
 }
 
-?>
+

@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/queries/QueriesGridCellProvider.inc.php
  *
- * Copyright (c) 2016-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2016-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class QueriesGridCellProvider
@@ -73,7 +73,7 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 			case 'closed':
 				return array(
 					'selected' => $element->getIsClosed(),
-					'disabled' => !$this->_queriesAccessHelper->getCanOpenClose($element->getId()),
+					'disabled' => !$this->_queriesAccessHelper->getCanOpenClose($element),
 				);
 		}
 		return parent::getTemplateVarsFromRowColumn($row, $column);
@@ -82,7 +82,7 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 	/**
 	 * @copydoc GridCellProvider::getCellActions()
 	 */
-	function getCellActions($request, $row, $column) {
+	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
 		import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 		import('lib.pkp.classes.linkAction.request.AjaxAction');
 
@@ -91,7 +91,7 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 		$actionArgs = $this->getRequestArgs($row);
 		switch ($column->getId()) {
 			case 'closed':
-				if ($this->_queriesAccessHelper->getCanOpenClose($row->getId())) {
+				if ($this->_queriesAccessHelper->getCanOpenClose($element)) {
 					$enabled = !$element->getIsClosed();
 					if ($enabled) {
 						return array(new LinkAction(
@@ -109,7 +109,7 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 				}
 				break;
 		}
-		return parent::getCellActions($request, $row, $column);
+		return parent::getCellActions($request, $row, $column, $position);
 	}
 
 	/**
@@ -126,4 +126,4 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 	}
 }
 
-?>
+

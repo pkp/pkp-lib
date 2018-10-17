@@ -2,8 +2,8 @@
 
 # @file tools/travis/post-code-coverage.sh
 #
-# Copyright (c) 2014-2017 Simon Fraser University
-# Copyright (c) 2010-2017 John Willinsky
+# Copyright (c) 2014-2018 Simon Fraser University
+# Copyright (c) 2010-2018 John Willinsky
 # Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
 #
 # Script to to merge code coverage reports and upload them to web server
@@ -22,7 +22,7 @@ php lib/pkp/tests/mergeCoverageReportTool.php $COVERAGE_HTML $COVERAGE_REPORTS >
 # Copy the coverage reports to pkp-www.lib.sfu.ca
 if [[ -n "$COVERAGE_UPLOAD_SECRET" ]]; then
 	echo "Uploading coverage reports to https://pkp.sfu.ca/test-coverage/${TRAVIS_REPO_SLUG}/${TRAVIS_BRANCH}"
-	sudo apt-get install -y --force-yes sshpass
+	sudo apt-get install -q -y --force-yes sshpass
 	export SSHPASS=$COVERAGE_UPLOAD_SECRET
 	rsync -av --rsh='sshpass -e ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -l pkp_testing' $COVERAGE_HTML/ pkp-www.lib.sfu.ca:html/${TRAVIS_REPO_SLUG}/${TRAVIS_BRANCH}/
 fi

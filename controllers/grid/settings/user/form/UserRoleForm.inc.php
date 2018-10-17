@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/settings/user/form/UserRoleForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class UserRoleForm
@@ -34,26 +34,22 @@ class UserRoleForm extends UserForm {
 	}
 
 	/**
-	 * Display the form.
-	 * @param $args array
-	 * @param $request PKPRequest
+	 * @copydoc UserForm::display
 	 */
-	function display($args, $request) {
+	function display($request = null, $template = null) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
 			'userId' => $this->userId,
 			'userFullName' => $this->_userFullName,
 		));
-		return $this->fetch($request);
+		return parent::display($request, $template);
 	}
 
 	/**
 	 * Update user's roles.
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function execute($args, $request) {
-		parent::execute($request);
+	function execute() {
+		parent::execute();
 
 		// Role management handled by parent form, just return user.
 		$userDao = DAORegistry::getDAO('UserDAO');
@@ -61,4 +57,4 @@ class UserRoleForm extends UserForm {
 	}
 }
 
-?>
+

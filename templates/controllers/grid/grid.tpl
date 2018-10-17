@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/grid.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Grid HTML markup and construction
@@ -42,7 +42,7 @@
 				{foreach name=columns from=$columns item=column}
 					{* @todo indent columns should be killed at their source *}
 					{if $column->hasFlag('indent')}
-						{php}continue;{/php}
+						{continue}
 					{/if}
 					{if $column->hasFlag('alignment')}
 						{assign var=alignment value=$column->getFlag('alignment')}

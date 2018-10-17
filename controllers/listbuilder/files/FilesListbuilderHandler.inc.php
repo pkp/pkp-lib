@@ -3,8 +3,8 @@
 /**
  * @file controllers/listbuilder/files/FilesListbuilderHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FilesListbuilderHandler
@@ -61,10 +61,10 @@ class FilesListbuilderHandler extends ListbuilderHandler {
 
 	/**
 	 * Configure the grid
-	 * @param PKPRequest $request
+	 * @see ListbuilderHandler::initialize
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 
 		// Basic configuration
 		$this->setSourceType(LISTBUILDER_SOURCE_TYPE_SELECT);
@@ -144,4 +144,4 @@ class FilesListbuilderHandler extends ListbuilderHandler {
 	}
 }
 
-?>
+

@@ -4,8 +4,8 @@
 <!--
   * locale/de_DE/countries.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localized list of countries.
@@ -16,6 +16,7 @@
   -->
 <countries>
 	<country name="Afghanistan" code="AF"/>
+	<country name="Åland-Inseln" code="AX"/>
 	<country name="Albanien" code="AL"/>
 	<country name="Algerien" code="DZ"/>
 	<country name="Amerikanisch-Samoa" code="AS"/>
@@ -51,10 +52,10 @@
 	<country name="Bulgarien" code="BG"/>
 	<country name="Burkina Faso" code="BF"/>
 	<country name="Burundi" code="BI"/>
+	<country name="Cabo Verde" code="CV"/>
 	<country name="Kambodscha" code="KH"/>
 	<country name="Kamerun" code="CM"/>
 	<country name="Kanada" code="CA"/>
-	<country name="Cabo Verde" code="CV"/>
 	<country name="Cayman-Inseln" code="KY"/>
 	<country name="Zentralafrikanische Republik" code="CF"/>
 	<country name="Tschad" code="TD"/>
@@ -72,7 +73,7 @@
 	<country name="Kuba" code="CU"/>
 	<country name="Curaçao" code="CW"/>
 	<country name="Zypern" code="CY"/>
-	<country name="Tschechische Republik" code="CZ"/>
+	<country name="Tschechien" code="CZ"/>
 	<country name="Côte d'Ivoire" code="CI"/>
 	<country name="Dänemark" code="DK"/>
 	<country name="Dschibuti" code="DJ"/>
@@ -263,5 +264,4 @@
 	<country name="Jemen" code="YE"/>
 	<country name="Sambia" code="ZM"/>
 	<country name="Simbabwe" code="ZW"/>
-	<country name="Åland-Inseln" code="AX"/>
 </countries>

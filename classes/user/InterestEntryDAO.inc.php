@@ -3,8 +3,8 @@
 /**
  * @file classes/user/InterestEntryDAO.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class InterestsEntryDAO
@@ -66,6 +66,22 @@ class InterestEntryDAO extends ControlledVocabEntryDAO {
 
 		return new DAOResultFactory($result, $this, '_fromRow');
 	}
+
+	/**
+	 * Retrieve controlled vocab entries matching a list of vocab entry IDs
+	 *
+	 * @param $entryIds array
+	 * @return DAOResultFactory
+	 */
+	public function getByIds($entryIds) {
+		$entryString = join(',', array_map('intval', $entryIds));
+
+		$result = $this->retrieve(
+			'SELECT * FROM controlled_vocab_entries WHERE controlled_vocab_entry_id IN (' . $entryString . ')'
+		);
+
+		return new DAOResultFactory($result, $this, '_fromRow');
+	}
 }
 
-?>
+

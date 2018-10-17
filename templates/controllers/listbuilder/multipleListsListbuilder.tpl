@@ -1,8 +1,8 @@
 {**
  * templates/controllers/listbuilder/multipleListsListbuilder.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Displays a MultipleListsListbuilder object
@@ -51,7 +51,7 @@
 					</div>
 				{/if}
 				{assign var=gridTableId value=$staticId|concat:"-table-":$listId}
-				{include file="controllers/listbuilder/listbuilderTable.tpl gridTableId=$gridTableId rows=$listsRows[$listId]}
+				{include file="controllers/listbuilder/listbuilderTable.tpl" gridTableId=$gridTableId rows=$listsRows[$listId]}
 			</div>
 		{/foreach}
 	</div>

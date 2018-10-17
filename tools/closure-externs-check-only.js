@@ -1,8 +1,8 @@
 /**
  * closure-externs-check-only.js
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2010-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2010-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Import symbols into the closure compiler that are not defined
@@ -25,13 +25,12 @@
  * @param {string=} eventName the name of the event that triggers the action, default 'click'.
  * @param {string=} form the selector of a form element.
  */
-function ajaxAction(actOnId, callingElement, url, data, eventName, form) {};
-
+function ajaxAction(actOnId, callingElement, url, data, eventName, form) {}
 
 /**
  * @constructor
  */
-function PNotify(param1) {};
+function PNotify(param1) {}
 
 // JQuery externs. These appear to be included in newer versions of Closure --
 // see https://code.google.com/p/closure-compiler/source/browse/externs/es5.js

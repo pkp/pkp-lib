@@ -3,8 +3,8 @@
 /**
  * @file controllers/informationCenter/linkAction/SubmissionInfoCenterLinkAction.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionInfoCenterLinkAction
@@ -38,7 +38,7 @@ class SubmissionInfoCenterLinkAction extends LinkAction {
 			}
 		}
 
-		$title = (isset($primaryAuthor)) ? implode(', ', array($primaryAuthor->getLastName(), $submission->getLocalizedTitle())) : $submission->getLocalizedTitle();
+		$title = (isset($primaryAuthor)) ? implode(', ', array($primaryAuthor->getFullName(), $submission->getLocalizedTitle())) : $submission->getLocalizedTitle();
 
 		$dispatcher = $request->getDispatcher();
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
@@ -62,4 +62,4 @@ class SubmissionInfoCenterLinkAction extends LinkAction {
 	}
 }
 
-?>
+

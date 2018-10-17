@@ -4,10 +4,10 @@
 <!--
   * locale/de_DE/grid.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  * Please contact Marco Tullney, marco.tullney@fu-berlin.de, with any questions regarding this translation.
+  * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_German_(de_DE)
   * Localization strings.
   -->
 
@@ -225,16 +225,12 @@
 	<message key="grid.user.addRole">Rolle hinzufügen</message>
 	<message key="grid.user.selectUser">Benutzer/in auswählen</message>
 	<message key="grid.user.pleaseSelectUser">Bitte wählen Sie eine/n Benutzer/in aus.</message>
-	<message key="grid.user.confirmLogInAs">Log in as this user? All actions you perform will be attributed to this user.</message>
+	<message key="grid.user.confirmLogInAs">Einloggen als dieser Benutzer/diese Benutzerin? Alle Aktionen, die Sie durchführen, werden diesem Benutzer/dieser Benutzerin zugeordnet.</message>
 	<message key="grid.user.mergeUsers">Benutzer/innen zusammenführen</message>
 	<message key="grid.user.mergeUsers.mergeUser">Benutzer/in zusammenführen</message>
-	<message key="grid.user.mergeUsers.mergeIntoUser">Merge into this User</message>
-	<message key="grid.user.mergeUsers.into.description">Wählen Sie jetzt ein Benutzer/innen-Konto, dem die Autor/innenschaft, die Aufgaben usw. der/des vorherigen Benutzer/in zugeschrieben werden sollen.</message>
-	<message key="grid.user.mergeUsers.from.description">Wählen Sie eine/n Benutzer/in aus, deren/dessen Daten in einem anderen Konto zusammengeführt werden sollen (wenn jemand z.B. zwei Konten hat). Das zuerst ausgewählte Konto wird gelöscht, seine Beiträge, Aufgaben usw. werden dem zweiten Konto zugeschrieben.</message>
+	<message key="grid.user.mergeUsers.mergeIntoUser">In diesem Benutzerkonto zusammenführen</message>
 	<message key="grid.user.mergeUsers.allUsers">Alle eingetragenen Benutzer/innen</message>
-	<message key="grid.user.mergeUsers.mergeUserSelect.confirm">Are you sure you wish to merge this user with another one?  You will choose the next user on the following screen.</message>
 	<message key="grid.user.mergeUsers.confirm">Sind Sie sicher, dass Sie das Konto mit dem Benutzer/innen-Namen {$oldUsername} in dem Konto mit dem Benutzer/innen-Namen "{$newUsername}" aufgehen lassen wollen? Das Konto mit dem Benutzer/innen-Namen {$oldUsername} wird dann nicht mehr existieren. Der Vorgang kann nicht rückgängig gemacht werden.</message>
-	<message key="grid.user.mergeUsers.noneEnrolled">Es existiert kein/e Benutzer/in mit dieser Rolle.</message>
 
 	<!-- Prepared emails -->
 	<message key="grid.preparedEmails.title">Vorbereitete E-Mail-Vorlagen</message>
@@ -269,4 +265,11 @@
 	<!-- Submission list grids -->
 	<message key="grid.submission.itemTitle">Autor/in; Titel</message>
 	<message key="grid.submission.active.selectOrphaned">Inklusive unfertiger Einreichungen, die nicht durch eine/n Autor/in eingereicht wurden.</message>
+
+	<!-- Navigation Menus -->
+	<message key="grid.action.addNavigationMenu">Navigationsmenü hinzufügen</message>
+	<message key="grid.action.addNavigationMenuItem">Menüeintrag hinzufügen</message>
+	<message key="grid.navigationMenus.navigationMenuItems.noneExist">Keine Einträge im Navigationsmenü</message>
+	<message key="grid.navigationMenus.navigationMenu.noneExist">Keine Navigationsmenüs</message>
+	<message key="grid.navigationMenus.navigationMenu.selectType">Wählen Sie einen Typ...</message>
 </locale>

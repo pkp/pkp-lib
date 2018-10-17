@@ -1,0 +1,953 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE qualifiers SYSTEM "../../dtd/bic21qualifiers.dtd">
+<!--
+  * locale/sl_SI/bic21qualifiers.xml
+  *
+  * Copyright BIC and Nielsen Book Services Ltd 2010
+  *
+  * localized list of BIC 2.1 Subject Qualifiers
+  * Reference:  http://www.bic.org.uk/7/BIC-Standard-Subject-Categories
+  -->
+<qualifiers>
+	<qualifier code="1D" text="Evropa" />
+	<qualifier code="1DB" text="Britansko otočje" />
+	<qualifier code="1DBK" text="Združeno kraljestvo, Velika Britanija" />
+	<qualifier code="1DBKE" text="Anglija" />
+	<qualifier code="1DBKEA" text="Vzhodna Anglija" />
+	<qualifier code="1DBKEAC" text="Cambridgeshire" />
+	<qualifier code="1DBKEAL" text="Lincolnshire" />
+	<qualifier code="1DBKEAN" text="Norfolk" />
+	<qualifier code="1DBKEAS" text="Suffolk" />
+	<qualifier code="1DBKEAX" text="Essex" />
+	<qualifier code="1DBKEM" text="Midlands" />
+	<qualifier code="1DBKEMD" text="Derbyshire in Peak District" />
+	<qualifier code="1DBKEMF" text="Herefordshire" />
+	<qualifier code="1DBKEML" text="Leicestershire" />
+	<qualifier code="1DBKEMM" text="Northamptonshire" />
+	<qualifier code="1DBKEMN" text="Nottinghamshire" />
+	<qualifier code="1DBKEMP" text="Shropshire" />
+	<qualifier code="1DBKEMR" text="Rutland" />
+	<qualifier code="1DBKEMS" text="Staffordshire" />
+	<qualifier code="1DBKEMT" text="Leicestershire" />
+	<qualifier code="1DBKEMW" text="Warwickshire, Zahodni Midlands" />
+	<qualifier code="1DBKEN" text="Severozahodna Anglija" />
+	<qualifier code="1DBKENC" text="Cheshire" />
+	<qualifier code="1DBKENL" text="Lancashire, Veliki Manchester, Merseyside" />
+	<qualifier code="1DBKENM" text="Cumbria in Lake District" />
+	<qualifier code="1DBKES" text="Južna in Jugovzhodna Anglija" />
+	<qualifier code="1DBKESB" text="Berkshire" />
+	<qualifier code="1DBKESD" text="Bedfordshire" />
+	<qualifier code="1DBKESF" text="Oxfordshire" />
+	<qualifier code="1DBKESH" text="Hampshire" />
+	<qualifier code="1DBKESK" text="Kent" />
+	<qualifier code="1DBKESL" text="London, Veliki London" />
+	<qualifier code="1DBKESR" text="Surrey" />
+	<qualifier code="1DBKEST" text="Hertfordshire" />
+	<qualifier code="1DBKESU" text="Buckinghamshire" />
+	<qualifier code="1DBKESW" text="Otok Wight" />
+	<qualifier code="1DBKESX" text="Sussex" />
+	<qualifier code="1DBKEW" text="Jugozahodna Anglija" />
+	<qualifier code="1DBKEWC" text="Cornwall" />
+	<qualifier code="1DBKEWD" text="Devon" />
+	<qualifier code="1DBKEWG" text="Gloucestershire" />
+	<qualifier code="1DBKEWS" text="Somerset, Bristol" />
+	<qualifier code="1DBKEWT" text="Dorset" />
+	<qualifier code="1DBKEWW" text="Wiltshire" />
+	<qualifier code="1DBKEY" text="Severna in Severovzhodna Anglija" />
+	<qualifier code="1DBKEYD" text="Durham" />
+	<qualifier code="1DBKEYK" text="Yorkshire" />
+	<qualifier code="1DBKEYN" text="Northumberland, Tyne in Wear" />
+	<qualifier code="1DBKN" text="Severna Irska" />
+	<qualifier code="1DBKS" text="Škotska" />
+	<qualifier code="1DBKSB" text="Škotsko nižavje in Borders" />
+	<qualifier code="1DBKSC" text="Osrednja Škotska" />
+	<qualifier code="1DBKSH" text="Severna Škotska, Višavje in otoki" />
+	<qualifier code="1DBKSHF" text="Orkneyjski otoki" />
+	<qualifier code="1DBKSHJ" text="Shetlandski otoki" />
+	<qualifier code="1DBKSHL" text="Zahodni otoki, Zunanji Hebridi" />
+	<qualifier code="1DBKSHQ" text="Otok Skye" />
+	<qualifier code="1DBKW" text="Wales" />
+	<qualifier code="1DBKWC" text="Srednji Wales" />
+	<qualifier code="1DBKWN" text="Severni Wales" />
+	<qualifier code="1DBKWS" text="Južni Wales" />
+	<qualifier code="1DBKWV" text="Jugozahodni Wales" />
+	<qualifier code="1DBKX" text="Kanalski otoki" />
+	<qualifier code="1DBKZ" text="Otok Man" />
+	<qualifier code="1DBR" text="Irska" />
+	<qualifier code="1DD" text="Celinska Evropa" />
+	<qualifier code="1DDB" text="Belgija" />
+	<qualifier code="1DDF" text="Francija" />
+	<qualifier code="1DDFC" text="Korzika" />
+	<qualifier code="1DDFM" text="Monako" />
+	<qualifier code="1DDL" text="Luksemburg" />
+	<qualifier code="1DDN" text="Nizozemska" />
+	<qualifier code="1DF" text="Srednja Evropa" />
+	<qualifier code="1DFA" text="Avstrija" />
+	<qualifier code="1DFG" text="Nemčija" />
+	<qualifier code="1DFGE" text="Vzhodna Nemčija, NDR" />
+	<qualifier code="1DFGW" text="Zahodna Nemčija" />
+	<qualifier code="1DFH" text="Švica" />
+	<qualifier code="1DFHA" text="Alpe" />
+	<qualifier code="1DFL" text="Lihtenštajn" />
+	<qualifier code="1DN" text="Severna Evropa, Skandinavija" />
+	<qualifier code="1DNC" text="Islandija" />
+	<qualifier code="1DND" text="Danska" />
+	<qualifier code="1DNDF" text="Ferski otoki" />
+	<qualifier code="1DNF" text="Finska" />
+	<qualifier code="1DNN" text="Norveška" />
+	<qualifier code="1DNS" text="Švedska" />
+	<qualifier code="1DS" text="Južna Evropa" />
+	<qualifier code="1DSE" text="Španija" />
+	<qualifier code="1DSEB" text="Balearski otoki" />
+	<qualifier code="1DSEP" text="Pireneji" />
+	<qualifier code="1DSG" text="Gibraltar" />
+	<qualifier code="1DSM" text="Malta" />
+	<qualifier code="1DSN" text="Andora" />
+	<qualifier code="1DSP" text="Portugalska" />
+	<qualifier code="1DST" text="Italija" />
+	<qualifier code="1DSTA" text="Sardinija" />
+	<qualifier code="1DSTC" text="Sicilija" />
+	<qualifier code="1DSU" text="San Marino" />
+	<qualifier code="1DSV" text="Vatikan" />
+	<qualifier code="1DV" text="Vzhodna Evropa" />
+	<qualifier code="1DVC" text="Ciper" />
+	<qualifier code="1DVG" text="Grčija" />
+	<qualifier code="1DVGS" text="Grški otoki" />
+	<qualifier code="1DVGSC" text="Kreta" />
+	<qualifier code="1DVH" text="Madžarska" />
+	<qualifier code="1DVK" text="Bivša Češkoslovaška" />
+	<qualifier code="1DVKC" text="Češka republika" />
+	<qualifier code="1DVKS" text="Slovaška" />
+	<qualifier code="1DVP" text="Poljska" />
+	<qualifier code="1DVT" text="Turčija" />
+	<qualifier code="1DVU" text="Bivša Sovjetska zveza, ZSSR (Evropa)" />
+	<qualifier code="1DVUA" text="Rusija" />
+	<qualifier code="1DVUAC" text="Čečenija" />
+	<qualifier code="1DVUB" text="Belorusija" />
+	<qualifier code="1DVUC" text="Latvija" />
+	<qualifier code="1DVUE" text="Estonija" />
+	<qualifier code="1DVUF" text="Litva" />
+	<qualifier code="1DVUG" text="Gruzija" />
+	<qualifier code="1DVUK" text="Ukrajina" />
+	<qualifier code="1DVUM" text="Moldavija" />
+	<qualifier code="1DVUR" text="Armenija" />
+	<qualifier code="1DVUZ" text="Azerbajdžan" />
+	<qualifier code="1DVW" text="Jugovzhodna Evropa" />
+	<qualifier code="1DVWA" text="Albanija" />
+	<qualifier code="1DVWB" text="Bolgarija" />
+	<qualifier code="1DVWR" text="Romunija" />
+	<qualifier code="1DVWY" text="Jugoslavija in nekdanja Jugoslavija" />
+	<qualifier code="1DVWYB" text="Bosna in Hercegovina" />
+	<qualifier code="1DVWYC" text="Hrvaška" />
+	<qualifier code="1DVWYK" text="Kosovo" />
+	<qualifier code="1DVWYM" text="Makedonija" />
+	<qualifier code="1DVWYN" text="Črna gora" />
+	<qualifier code="1DVWYS" text="Srbija" />
+	<qualifier code="1DVWYV" text="Slovenija" />
+	<qualifier code="1F" text="Azija" />
+	<qualifier code="1FB" text="Bližnji vzhod" />
+	<qualifier code="1FBH" text="Izrael" />
+	<qualifier code="1FBJ" text="Jordanija" />
+	<qualifier code="1FBL" text="Libanon" />
+	<qualifier code="1FBN" text="Iran" />
+	<qualifier code="1FBP" text="Palestina" />
+	<qualifier code="1FBQ" text="Irak" />
+	<qualifier code="1FBS" text="Sirija" />
+	<qualifier code="1FBX" text="Arabski polotok" />
+	<qualifier code="1FBXB" text="Bahrajn" />
+	<qualifier code="1FBXK" text="Kuvajt" />
+	<qualifier code="1FBXM" text="Oman" />
+	<qualifier code="1FBXQ" text="Katar" />
+	<qualifier code="1FBXS" text="Savdska Arabija" />
+	<qualifier code="1FBXU" text="Združeni Arabski Emirati" />
+	<qualifier code="1FBXY" text="Jemen" />
+	<qualifier code="1FC" text="Srednja Azija" />
+	<qualifier code="1FCA" text="Afganistan" />
+	<qualifier code="1FCD" text="Tadžikistan" />
+	<qualifier code="1FCK" text="Kirgizistan" />
+	<qualifier code="1FCS" text="Sibirija" />
+	<qualifier code="1FCT" text="Turkmenistan" />
+	<qualifier code="1FCU" text="Uzbekistan" />
+	<qualifier code="1FCZ" text="Kazahstan" />
+	<qualifier code="1FK" text="Indijska podcelina" />
+	<qualifier code="1FKA" text="Indija" />
+	<qualifier code="1FKAH" text="Himalaja" />
+	<qualifier code="1FKAS" text="Andamanski in Nikobarski otoki" />
+	<qualifier code="1FKB" text="Bangladeš" />
+	<qualifier code="1FKH" text="Butan" />
+	<qualifier code="1FKN" text="Nepal" />
+	<qualifier code="1FKP" text="Pakistan" />
+	<qualifier code="1FKS" text="Šri Lanka (Cejlon)" />
+	<qualifier code="1FM" text="Jugovzhodna Azija" />
+	<qualifier code="1FMB" text="Mjanmar (Burma)" />
+	<qualifier code="1FMC" text="Kambodža" />
+	<qualifier code="1FML" text="Laos" />
+	<qualifier code="1FMM" text="Malezija" />
+	<qualifier code="1FMN" text="Indonezija" />
+	<qualifier code="1FMNB" text="Bali" />
+	<qualifier code="1FMNT" text="Vzhodni Timor" />
+	<qualifier code="1FMNX" text="Borneo" />
+	<qualifier code="1FMP" text="Filipini" />
+	<qualifier code="1FMR" text="Brunej" />
+	<qualifier code="1FMS" text="Singapur" />
+	<qualifier code="1FMT" text="Tajska" />
+	<qualifier code="1FMV" text="Vietnam" />
+	<qualifier code="1FP" text="Vzhodna Azija, Daljni vzhod" />
+	<qualifier code="1FPC" text="Kitajska" />
+	<qualifier code="1FPCH" text="Hong Kong" />
+	<qualifier code="1FPCM" text="Makao" />
+	<qualifier code="1FPCT" text="Tibet" />
+	<qualifier code="1FPCW" text="Tajvan" />
+	<qualifier code="1FPJ" text="Japonska" />
+	<qualifier code="1FPK" text="Koreja" />
+	<qualifier code="1FPKN" text="Severna Koreja" />
+	<qualifier code="1FPKS" text="Južna Koreja" />
+	<qualifier code="1FPM" text="Mongolija" />
+	<qualifier code="1H" text="Afrika" />
+	<qualifier code="1HB" text="Severna Afrika" />
+	<qualifier code="1HBA" text="Alžirija" />
+	<qualifier code="1HBC" text="Čad" />
+	<qualifier code="1HBE" text="Egipt" />
+	<qualifier code="1HBEN" text="Nil" />
+	<qualifier code="1HBES" text="Sueški prekop" />
+	<qualifier code="1HBL" text="Libija" />
+	<qualifier code="1HBM" text="Maroko" />
+	<qualifier code="1HBMA" text="Atlas" />
+	<qualifier code="1HBS" text="Sudan" />
+	<qualifier code="1HBT" text="Tunizija" />
+	<qualifier code="1HBW" text="Zahodna Sahara" />
+	<qualifier code="1HBX" text="Sahara" />
+	<qualifier code="1HF" text="Podsaharska Afrika" />
+	<qualifier code="1HFD" text="Zahodna Afrika" />
+	<qualifier code="1HFDA" text="Mavretanija" />
+	<qualifier code="1HFDB" text="Benin" />
+	<qualifier code="1HFDE" text="Sierra Leone" />
+	<qualifier code="1HFDF" text="Burkina Faso" />
+	<qualifier code="1HFDG" text="Gambija" />
+	<qualifier code="1HFDH" text="Gana" />
+	<qualifier code="1HFDL" text="Liberija" />
+	<qualifier code="1HFDM" text="Mali" />
+	<qualifier code="1HFDN" text="Nigerija" />
+	<qualifier code="1HFDR" text="Niger" />
+	<qualifier code="1HFDS" text="Senegal" />
+	<qualifier code="1HFDT" text="Togo" />
+	<qualifier code="1HFDU" text="Gvineja" />
+	<qualifier code="1HFDV" text="Zelenortski otoki" />
+	<qualifier code="1HFDX" text="Gvineja Bissau" />
+	<qualifier code="1HFDY" text="Slonokoščena obala" />
+	<qualifier code="1HFG" text="Vzhodna Afrika" />
+	<qualifier code="1HFGA" text="Etiopija" />
+	<qualifier code="1HFGD" text="Džibuti" />
+	<qualifier code="1HFGE" text="Eritreja" />
+	<qualifier code="1HFGK" text="Kenija" />
+	<qualifier code="1HFGQ" text="Burundi" />
+	<qualifier code="1HFGR" text="Ruanda" />
+	<qualifier code="1HFGS" text="Somalija" />
+	<qualifier code="1HFGSR" text="Somaliland" />
+	<qualifier code="1HFGT" text="Tanzanija" />
+	<qualifier code="1HFGU" text="Uganda" />
+	<qualifier code="1HFJ" text="Srednja Afrika" />
+	<qualifier code="1HFJA" text="Kamerun" />
+	<qualifier code="1HFJC" text="Kongo" />
+	<qualifier code="1HFJG" text="Gabon" />
+	<qualifier code="1HFJQ" text="Ekvatorialna Gvineja" />
+	<qualifier code="1HFJR" text="Srednjeafriška republika" />
+	<qualifier code="1HFJS" text="Sveti Tomaž in Princ" />
+	<qualifier code="1HFJZ" text="Demokratična Republika Kongo (Zaire)" />
+	<qualifier code="1HFM" text="Južna Afrika" />
+	<qualifier code="1HFMA" text="Angola" />
+	<qualifier code="1HFMB" text="Bocvana" />
+	<qualifier code="1HFMK" text="Svazi" />
+	<qualifier code="1HFML" text="Lesoto" />
+	<qualifier code="1HFMM" text="Malavi" />
+	<qualifier code="1HFMN" text="Namibija" />
+	<qualifier code="1HFMQ" text="Mozambik" />
+	<qualifier code="1HFMQZ" text="Zambezi" />
+	<qualifier code="1HFMS" text="Republika Južna Afrika" />
+	<qualifier code="1HFMW" text="Zimbabve" />
+	<qualifier code="1HFMZ" text="Zambija" />
+	<qualifier code="1HS" text="Otoki Indijskega oceana" />
+	<qualifier code="1HSC" text="Komori" />
+	<qualifier code="1HSM" text="Madagaskar" />
+	<qualifier code="1HSU" text="Mavricij" />
+	<qualifier code="1HSV" text="Maldivi" />
+	<qualifier code="1HSY" text="Sejšeli" />
+	<qualifier code="1K" text="Amerike" />
+	<qualifier code="1KB" text="Severna Amerika" />
+	<qualifier code="1KBB" text="ZDA" />
+	<qualifier code="1KBBE" text="Severovzhodne in Severnoatlantske države" />
+	<qualifier code="1KBBEC" text="Connecticut" />
+	<qualifier code="1KBBEH" text="New Hampshire" />
+	<qualifier code="1KBBEJ" text="New Jersey" />
+	<qualifier code="1KBBEN" text="Maine" />
+	<qualifier code="1KBBEP" text="Pennsylvania" />
+	<qualifier code="1KBBER" text="Rhode Island" />
+	<qualifier code="1KBBES" text="Massachusetts" />
+	<qualifier code="1KBBEV" text="Vermont" />
+	<qualifier code="1KBBEY" text="New York" />
+	<qualifier code="1KBBF" text="Severovzhodne in Južnoatlantske države" />
+	<qualifier code="1KBBFC" text="Zvezno okrožje Kolumbija (Washington, DC)" />
+	<qualifier code="1KBBFD" text="Delaware" />
+	<qualifier code="1KBBFG" text="Georgia" />
+	<qualifier code="1KBBFL" text="Florida" />
+	<qualifier code="1KBBFM" text="Maryland" />
+	<qualifier code="1KBBFN" text="Severna Karolina" />
+	<qualifier code="1KBBFS" text="Južna Karolina" />
+	<qualifier code="1KBBFV" text="Virginija" />
+	<qualifier code="1KBBFW" text="Zahodna Virginija" />
+	<qualifier code="1KBBN" text="Severnoosrednje in Srednjevzhodne države" />
+	<qualifier code="1KBBNC" text="Illinois" />
+	<qualifier code="1KBBND" text="Indiana" />
+	<qualifier code="1KBBNF" text="Iowa" />
+	<qualifier code="1KBBNG" text="Michigan" />
+	<qualifier code="1KBBNH" text="Ohio" />
+	<qualifier code="1KBBNK" text="Kansas" />
+	<qualifier code="1KBBNN" text="Nebraska" />
+	<qualifier code="1KBBNR" text="Severna Dakota" />
+	<qualifier code="1KBBNS" text="Južna Dakota" />
+	<qualifier code="1KBBNT" text="Minnesota" />
+	<qualifier code="1KBBNU" text="Missouri" />
+	<qualifier code="1KBBNW" text="Winsconsin" />
+	<qualifier code="1KBBS" text="Južnoosrednje države" />
+	<qualifier code="1KBBSB" text="Alabama" />
+	<qualifier code="1KBBSH" text="Oklahoma" />
+	<qualifier code="1KBBSK" text="Kentucky" />
+	<qualifier code="1KBBSL" text="Louisiana" />
+	<qualifier code="1KBBSM" text="Mississippi" />
+	<qualifier code="1KBBSN" text="Tennessee" />
+	<qualifier code="1KBBSR" text="Arkansas" />
+	<qualifier code="1KBBSX" text="Texas" />
+	<qualifier code="1KBBW" text="Zahodne in Tihooceanske države" />
+	<qualifier code="1KBBWC" text="Kolorado" />
+	<qualifier code="1KBBWD" text="Idaho" />
+	<qualifier code="1KBBWF" text="Kalifornija" />
+	<qualifier code="1KBBWK" text="Aljaska" />
+	<qualifier code="1KBBWM" text="Montana" />
+	<qualifier code="1KBBWN" text="Nevada" />
+	<qualifier code="1KBBWR" text="Oregon" />
+	<qualifier code="1KBBWS" text="Washington (zvezna država)" />
+	<qualifier code="1KBBWU" text="Utah" />
+	<qualifier code="1KBBWX" text="Nova Mehika" />
+	<qualifier code="1KBBWY" text="Wyoming" />
+	<qualifier code="1KBBWZ" text="Arizona" />
+	<qualifier code="1KBC" text="Kanada" />
+	<qualifier code="1KBCB" text="Britanska Kolumbija" />
+	<qualifier code="1KBCF" text="Nova Fundlandija" />
+	<qualifier code="1KBCL" text="Alberta" />
+	<qualifier code="1KBCM" text="Manitoba" />
+	<qualifier code="1KBCN" text="Nunavut" />
+	<qualifier code="1KBCO" text="Ontario" />
+	<qualifier code="1KBCP" text="Otok Princa Edvarda" />
+	<qualifier code="1KBCQ" text="Quebec" />
+	<qualifier code="1KBCR" text="Novi Brunswick" />
+	<qualifier code="1KBCS" text="Saskatchewan" />
+	<qualifier code="1KBCV" text="Nova Škotska" />
+	<qualifier code="1KBCW" text="Severozahodna ozemlja" />
+	<qualifier code="1KBCY" text="Jukon" />
+	<qualifier code="1KBG" text="Velika jezera" />
+	<qualifier code="1KJ" text="Karibi" />
+	<qualifier code="1KJC" text="Kuba" />
+	<qualifier code="1KJD" text="Dominikanska republika" />
+	<qualifier code="1KJH" text="Haiti" />
+	<qualifier code="1KJM" text="Kajmanski otoki" />
+	<qualifier code="1KJP" text="Portoriko" />
+	<qualifier code="1KJW" text="Zahodnoindijski otoki" />
+	<qualifier code="1KJWB" text="Bahami" />
+	<qualifier code="1KJWJ" text="Jamajka" />
+	<qualifier code="1KJWT" text="Otoki Turks in Caicos" />
+	<qualifier code="1KJWV" text="Zavetrni otoki" />
+	<qualifier code="1KJWVA" text="Angvila" />
+	<qualifier code="1KJWVB" text="Antigva in Barbuda" />
+	<qualifier code="1KJWVG" text="Gvadelup" />
+	<qualifier code="1KJWVK" text="Sveti Krištof in Nevis" />
+	<qualifier code="1KJWVM" text="Montserat" />
+	<qualifier code="1KJWVV" text="Deviški otoki" />
+	<qualifier code="1KJWVVK" text="Britanski Deviški otoki" />
+	<qualifier code="1KJWVVS" text="Ameriški Deviški otoki" />
+	<qualifier code="1KJWW" text="Privetrni otoki" />
+	<qualifier code="1KJWWB" text="Barbados" />
+	<qualifier code="1KJWWD" text="Dominika" />
+	<qualifier code="1KJWWG" text="Grenada" />
+	<qualifier code="1KJWWL" text="Sveta Lucija" />
+	<qualifier code="1KJWWM" text="Martinik" />
+	<qualifier code="1KJWWT" text="Trinidad in Tobago" />
+	<qualifier code="1KJWWV" text="Sveti Vincencij" />
+	<qualifier code="1KJX" text="Mali Antili" />
+	<qualifier code="1KJXA" text="Aruba" />
+	<qualifier code="1KJXN" text="Nizozemski Antili" />
+	<qualifier code="1KL" text="Latinska Amerika" />
+	<qualifier code="1KLC" text="Srednja Amerika" />
+	<qualifier code="1KLCB" text="Belize" />
+	<qualifier code="1KLCG" text="Gvatemala" />
+	<qualifier code="1KLCH" text="Honduras" />
+	<qualifier code="1KLCM" text="Mehika" />
+	<qualifier code="1KLCN" text="Nikaragva" />
+	<qualifier code="1KLCP" text="Panama" />
+	<qualifier code="1KLCPC" text="Panamski prekop" />
+	<qualifier code="1KLCR" text="Kostarika" />
+	<qualifier code="1KLCS" text="Salvador" />
+	<qualifier code="1KLS" text="Južna Amerika" />
+	<qualifier code="1KLSA" text="Argentina" />
+	<qualifier code="1KLSB" text="Brazilija" />
+	<qualifier code="1KLSBZ" text="Amazonka" />
+	<qualifier code="1KLSC" text="Kolumbija" />
+	<qualifier code="1KLSE" text="Ekvador" />
+	<qualifier code="1KLSEG" text="Galapaški otoki" />
+	<qualifier code="1KLSF" text="Francoska Gvajana" />
+	<qualifier code="1KLSG" text="Gvajana" />
+	<qualifier code="1KLSH" text="Čile" />
+	<qualifier code="1KLSL" text="Bolivija" />
+	<qualifier code="1KLSP" text="Paragvaj" />
+	<qualifier code="1KLSR" text="Peru" />
+	<qualifier code="1KLSS" text="Surinam" />
+	<qualifier code="1KLSU" text="Urugvaj" />
+	<qualifier code="1KLSV" text="Venezuela" />
+	<qualifier code="1KLSX" text="Andi" />
+	<qualifier code="1M" text="Avstralazija, Oceanija in ostala ozemlja" />
+	<qualifier code="1MB" text="Avstralazija" />
+	<qualifier code="1MBF" text="Avstralija" />
+	<qualifier code="1MBFC" text="Ozemlje glavnega mesta Avstralije" />
+	<qualifier code="1MBFN" text="Novi južni Wales" />
+	<qualifier code="1MBFQ" text="Queensland" />
+	<qualifier code="1MBFS" text="Južna Avstralija" />
+	<qualifier code="1MBFT" text="Tasmanija" />
+	<qualifier code="1MBFV" text="Viktorija" />
+	<qualifier code="1MBFW" text="Zahodna Avstralija" />
+	<qualifier code="1MBFX" text="Severno ozemlje" />
+	<qualifier code="1MBN" text="Nova Zelandija" />
+	<qualifier code="1MK" text="Oceanija" />
+	<qualifier code="1MKC" text="Mikronezija" />
+	<qualifier code="1MKCB" text="Palav" />
+	<qualifier code="1MKCC" text="Karolinsko otočje" />
+	<qualifier code="1MKCF" text="Federativne države Mikronezije" />
+	<qualifier code="1MKCG" text="Gilbertovo otočje" />
+	<qualifier code="1MKCM" text="Marshallovi otoki" />
+	<qualifier code="1MKCN" text="Nauru" />
+	<qualifier code="1MKCU" text="Guam" />
+	<qualifier code="1MKCV" text="Severni Marijanski otoki" />
+	<qualifier code="1MKL" text="Melanezija" />
+	<qualifier code="1MKLF" text="Fidži" />
+	<qualifier code="1MKLN" text="Nova Kaledonija" />
+	<qualifier code="1MKLP" text="Papua Nova Gvineja" />
+	<qualifier code="1MKLS" text="Salomonovi otoki" />
+	<qualifier code="1MKLV" text="Vanuatu" />
+	<qualifier code="1MKP" text="Polinezija" />
+	<qualifier code="1MKPC" text="Cookovi otoki" />
+	<qualifier code="1MKPCR" text="Raratonga" />
+	<qualifier code="1MKPE" text="Velikonočni otok" />
+	<qualifier code="1MKPF" text="Francoska Polinezija" />
+	<qualifier code="1MKPFT" text="Tahiti" />
+	<qualifier code="1MKPH" text="Havaji" />
+	<qualifier code="1MKPK" text="Kiribati" />
+	<qualifier code="1MKPN" text="Niue" />
+	<qualifier code="1MKPP" text="Pitcairnov otok" />
+	<qualifier code="1MKPR" text="Samoa" />
+	<qualifier code="1MKPRA" text="Ameriška Samoa" />
+	<qualifier code="1MKPRW" text="Zahodna Samoa" />
+	<qualifier code="1MKPT" text="Tonga" />
+	<qualifier code="1MKPV" text="Tuvalu" />
+	<qualifier code="1MKPW" text="Wallis in Futuna" />
+	<qualifier code="1MT" text="Druga ozemlja" />
+	<qualifier code="1MTA" text="Atlantski otoki" />
+	<qualifier code="1MTAN" text="Severnoatlantski otoki" />
+	<qualifier code="1MTANB" text="Bermudi" />
+	<qualifier code="1MTANC" text="Kanarski otoki" />
+	<qualifier code="1MTANM" text="Madeira" />
+	<qualifier code="1MTANZ" text="Azori" />
+	<qualifier code="1MTAS" text="Južnooatlantski otoki" />
+	<qualifier code="1MTASC" text="Otok Ascension" />
+	<qualifier code="1MTASF" text="Falklandski otoki" />
+	<qualifier code="1MTASG" text="Južna Georgia" />
+	<qualifier code="1MTASH" text="Sveta Helena" />
+	<qualifier code="1MTAST" text="Otoki Tristana da Cunhe" />
+	<qualifier code="1MTN" text="Arktika" />
+	<qualifier code="1MTNG" text="Grenlandija" />
+	<qualifier code="1MTS" text="Antarktika" />
+	<qualifier code="1Q" text="Druge geografske skupine, oceani in morja" />
+	<qualifier code="1QD" text="Imperiji in ostale zgodovinske države" />
+	<qualifier code="1QDA" text="Stari svet" />
+	<qualifier code="1QDAA" text="Asirija" />
+	<qualifier code="1QDAB" text="Babilonija" />
+	<qualifier code="1QDAE" text="Stari Egipt" />
+	<qualifier code="1QDAG" text="Antična Grčija" />
+	<qualifier code="1QDAK" text="Predkolumbovska Amerika" />
+	<qualifier code="1QDAL" text="Antični Izrael" />
+	<qualifier code="1QDAM" text="Mezopotamija" />
+	<qualifier code="1QDAP" text="Perzijsko cesarstvo" />
+	<qualifier code="1QDAR" text="Antični Rim" />
+	<qualifier code="1QDAS" text="Sumerija" />
+	<qualifier code="1QDAZ" text="Bizantinsko cesarstvo" />
+	<qualifier code="1QDB" text="Britanski imperij" />
+	<qualifier code="1QDH" text="Sveto rimsko cesarstvo" />
+	<qualifier code="1QDM" text="Mongolsko cesarstvo" />
+	<qualifier code="1QDT" text="Osmansko cesarstvo" />
+	<qualifier code="1QDU" text="Avstro-Ogrska" />
+	<qualifier code="1QF" text="Politične, socialno-ekonomske in strateške skupine" />
+	<qualifier code="1QFC" text="Commonwealth" />
+	<qualifier code="1QFE" text="EU (Evropska unija)" />
+	<qualifier code="1QFG" text="Države v razvoju" />
+	<qualifier code="1QFH" text="Industrializirane/Razvite države" />
+	<qualifier code="1QFM" text="Islamske države" />
+	<qualifier code="1QFN" text="NATO" />
+	<qualifier code="1QFP" text="OPEC" />
+	<qualifier code="1QFS" text="ASEAN" />
+	<qualifier code="1QFW" text="Varšavski pakt, Vzhodni blok" />
+	<qualifier code="1QM" text="Podnebna območja" />
+	<qualifier code="1QMP" text="Polarna območja" />
+	<qualifier code="1QMT" text="Tropi" />
+	<qualifier code="1QR" text="Skupine povezane z morji" />
+	<qualifier code="1QRM" text="Sredozemske države" />
+	<qualifier code="1QRP" text="Tihooceanski lok" />
+	<qualifier code="1QS" text="Oceani in morja" />
+	<qualifier code="1QSA" text="Atlantski ocean" />
+	<qualifier code="1QSAN" text="Severni Atlantski ocean" />
+	<qualifier code="1QSAS" text="Južni Atlantski ocean" />
+	<qualifier code="1QSB" text="Baltsko morje" />
+	<qualifier code="1QSC" text="Karibsko morje" />
+	<qualifier code="1QSD" text="Mehiški zaliv" />
+	<qualifier code="1QSE" text="Irsko morje" />
+	<qualifier code="1QSF" text="Severno morje" />
+	<qualifier code="1QSG" text="Rokavski preliv" />
+	<qualifier code="1QSH" text="Jadransko morje" />
+	<qualifier code="1QSJ" text="Kaspijsko jezero" />
+	<qualifier code="1QSK" text="Črno morje" />
+	<qualifier code="1QSL" text="Rdeče morje" />
+	<qualifier code="1QSM" text="Sredozemsko morje" />
+	<qualifier code="1QSN" text="Indijski ocean" />
+	<qualifier code="1QSP" text="Tihi ocean" />
+	<qualifier code="1QSPN" text="Severni Tihi ocean" />
+	<qualifier code="1QSPS" text="Južni Tihi ocean" />
+	<qualifier code="1QSR" text="Arktični ocean" />
+	<qualifier code="1QSS" text="Južni ocean" />
+	<qualifier code="1QST" text="Tasmansko morje" />
+	<qualifier code="2A" text="Indoevropski jeziki" />
+	<qualifier code="2AB" text="Angleščina" />
+	<qualifier code="2ABA" text="Stara angleščina" />
+	<qualifier code="2ABC" text="Srednja angleščina" />
+	<qualifier code="2ABM" text="Ameriška angleščina" />
+	<qualifier code="2ABU" text="Avstralska angleščina" />
+	<qualifier code="2AC" text="Germanski in skandinavski jeziki" />
+	<qualifier code="2ACC" text="Scots (Lallans, narečje Doric)" />
+	<qualifier code="2ACCU" text="Ulster Scots (Ullans)" />
+	<qualifier code="2ACD" text="Nizozemščina" />
+	<qualifier code="2ACF" text="Flamščina" />
+	<qualifier code="2ACG" text="Nemščina" />
+	<qualifier code="2ACK" text="Afrikanščina" />
+	<qualifier code="2ACS" text="Skandinavski jeziki" />
+	<qualifier code="2ACSC" text="Islandščina" />
+	<qualifier code="2ACSD" text="Danščina" />
+	<qualifier code="2ACSF" text="Ferščina" />
+	<qualifier code="2ACSJ" text="Jutlandsko narečje" />
+	<qualifier code="2ACSN" text="Norveščina" />
+	<qualifier code="2ACSW" text="Švedščina" />
+	<qualifier code="2ACSX" text="Stara nordijščina" />
+	<qualifier code="2ACY" text="Jidiš" />
+	<qualifier code="2ACZ" text="Drugi germanski jeziki in narečja" />
+	<qualifier code="2AD" text="Romanski, italski in retoromanski jeziki" />
+	<qualifier code="2ADC" text="Katalonščina" />
+	<qualifier code="2ADF" text="Francoščina" />
+	<qualifier code="2ADFP" text="Provansalščina" />
+	<qualifier code="2ADH" text="Korzijščina" />
+	<qualifier code="2ADL" text="Latinščina" />
+	<qualifier code="2ADP" text="Portugalščina" />
+	<qualifier code="2ADPB" text="Brazilska portugalščina" />
+	<qualifier code="2ADQ" text="Galicijščina" />
+	<qualifier code="2ADR" text="Romunščina" />
+	<qualifier code="2ADS" text="Španščina" />
+	<qualifier code="2ADSL" text="Španščina v Latinski Ameriki" />
+	<qualifier code="2ADT" text="Italijanščina" />
+	<qualifier code="2ADV" text="Sardinščina" />
+	<qualifier code="2AF" text="Keltski jeziki" />
+	<qualifier code="2AFB" text="Bretonščina" />
+	<qualifier code="2AFC" text="Kornijščina" />
+	<qualifier code="2AFG" text="Galščina" />
+	<qualifier code="2AFM" text="Manščina" />
+	<qualifier code="2AFR" text="Irska gelščina" />
+	<qualifier code="2AFS" text="Škotska gelščina" />
+	<qualifier code="2AFW" text="Valižanščina" />
+	<qualifier code="2AG" text="Slovanski jeziki" />
+	<qualifier code="2AGB" text="Bolgarščina" />
+	<qualifier code="2AGC" text="Cerkvena slovanščina" />
+	<qualifier code="2AGK" text="Slovaščina" />
+	<qualifier code="2AGL" text="Beloruščina" />
+	<qualifier code="2AGM" text="Makedonščina" />
+	<qualifier code="2AGP" text="Poljščina" />
+	<qualifier code="2AGR" text="Ruščina" />
+	<qualifier code="2AGS" text="Srbohrvaščina" />
+	<qualifier code="2AGSC" text="Hrvaščina" />
+	<qualifier code="2AGSS" text="Srbščina" />
+	<qualifier code="2AGU" text="Ukrajinščina" />
+	<qualifier code="2AGV" text="Slovenščina" />
+	<qualifier code="2AGW" text="Lužiška srbščina" />
+	<qualifier code="2AGZ" text="Češčina" />
+	<qualifier code="2AH" text="Helenski jeziki" />
+	<qualifier code="2AHA" text="Stara grščina" />
+	<qualifier code="2AHB" text="Svetopisemska grščina" />
+	<qualifier code="2AHM" text="Sodobna grščina" />
+	<qualifier code="2AJ" text="Baltski in ostali indoevropski jeziki" />
+	<qualifier code="2AJB" text="Baltski jeziki" />
+	<qualifier code="2AJBL" text="Litovščina" />
+	<qualifier code="2AJBV" text="Latvijščina" />
+	<qualifier code="2AJK" text="Drugi indoevropski jeziki" />
+	<qualifier code="2AJKL" text="Albanščina" />
+	<qualifier code="2AJKR" text="Armenščina" />
+	<qualifier code="2B" text="Indijski, vzhodno indoevropski in dravidski jeziki" />
+	<qualifier code="2BB" text="Zgodnji indijski jeziki" />
+	<qualifier code="2BBA" text="Sanskrt" />
+	<qualifier code="2BBP" text="Pali" />
+	<qualifier code="2BM" text="Sodobni indijski jeziki" />
+	<qualifier code="2BMB" text="Bengalščina" />
+	<qualifier code="2BMD" text="Maratščina" />
+	<qualifier code="2BMG" text="Gudžaratščina" />
+	<qualifier code="2BMH" text="Hindijščina" />
+	<qualifier code="2BMJ" text="Radžastanščina" />
+	<qualifier code="2BMK" text="Kašmirščina" />
+	<qualifier code="2BMN" text="Nepalščina" />
+	<qualifier code="2BMP" text="Pandžabščina" />
+	<qualifier code="2BMR" text="Romščina" />
+	<qualifier code="2BMS" text="Sinhaleščina" />
+	<qualifier code="2BMSM" text="Maldivijščina" />
+	<qualifier code="2BMU" text="Urdu" />
+	<qualifier code="2BR" text="Dravidski jeziki" />
+	<qualifier code="2BRB" text="Brahuijščina" />
+	<qualifier code="2BRK" text="Kanareščina" />
+	<qualifier code="2BRL" text="Telugijščina" />
+	<qualifier code="2BRM" text="Malajalščina" />
+	<qualifier code="2BRT" text="Tamilščina" />
+	<qualifier code="2BX" text="Indoiranski jeziki" />
+	<qualifier code="2BXF" text="Perzijščina" />
+	<qualifier code="2BXK" text="Kurdščina" />
+	<qualifier code="2BXL" text="Paštunščina" />
+	<qualifier code="2BXZ" text="Avestijščina" />
+	<qualifier code="2C" text="Afroazijski jeziki" />
+	<qualifier code="2CS" text="Semitski jeziki" />
+	<qualifier code="2CSA" text="Aramejščina" />
+	<qualifier code="2CSB" text="Asirobabilonski in akadijski jeziki" />
+	<qualifier code="2CSJ" text="Hebrejščina" />
+	<qualifier code="2CSM" text="Malteščina" />
+	<qualifier code="2CSR" text="Arabščina" />
+	<qualifier code="2CSS" text="Sirščina" />
+	<qualifier code="2CST" text="Etiopščina" />
+	<qualifier code="2CSTA" text="Amharščina" />
+	<qualifier code="2CSTT" text="Tigrajščina" />
+	<qualifier code="2CX" text="Nesemitski afroazijski jeziki" />
+	<qualifier code="2CXB" text="Berberščina" />
+	<qualifier code="2CXC" text="Koptščina" />
+	<qualifier code="2CXG" text="Egipčanščina" />
+	<qualifier code="2CXH" text="Havščina" />
+	<qualifier code="2CXS" text="Somalščina" />
+	<qualifier code="2CXSR" text="Oromo" />
+	<qualifier code="2F" text="Uralsko-altajski in hiperborejski jeziki" />
+	<qualifier code="2FC" text="Ugrofinski jeziki" />
+	<qualifier code="2FCD" text="Estonščina" />
+	<qualifier code="2FCF" text="Finščina" />
+	<qualifier code="2FCL" text="Laponščina" />
+	<qualifier code="2FCM" text="Madžarščina" />
+	<qualifier code="2FM" text="Turški jeziki" />
+	<qualifier code="2FMC" text="Turščina" />
+	<qualifier code="2FMH" text="Kirgiščina" />
+	<qualifier code="2FMK" text="Kazaščina" />
+	<qualifier code="2FMN" text="Turkmenščina" />
+	<qualifier code="2FMU" text="Uzbeščina" />
+	<qualifier code="2FMZ" text="Azerbajdžanščina" />
+	<qualifier code="2FV" text="Mongolščina" />
+	<qualifier code="2FW" text="Tunguški jeziki" />
+	<qualifier code="2FWK" text="Evenki" />
+	<qualifier code="2FWM" text="Mandžurščina" />
+	<qualifier code="2FX" text="Hiperborejski in prasibirijski jeziki" />
+	<qualifier code="2G" text="Vzhodno in južnovzhodno azijski jeziki" />
+	<qualifier code="2GD" text="Sinotibetanski jeziki" />
+	<qualifier code="2GDB" text="Burmanščina" />
+	<qualifier code="2GDC" text="Kitajščina" />
+	<qualifier code="2GDCC" text="Kantonščina" />
+	<qualifier code="2GDCK" text="Hokkien" />
+	<qualifier code="2GDCM" text="Mandarinščina" />
+	<qualifier code="2GDCW" text="Wu" />
+	<qualifier code="2GDCY" text="Amoy" />
+	<qualifier code="2GDK" text="Karenščina" />
+	<qualifier code="2GDT" text="Tibetanščina" />
+	<qualifier code="2GJ" text="Japonščina" />
+	<qualifier code="2GK" text="Korejščina" />
+	<qualifier code="2GR" text="Drugi južnovzhodno azijski jeziki, avstroazijski jeziki" />
+	<qualifier code="2GRH" text="Kamboščina" />
+	<qualifier code="2GRL" text="Laoščina" />
+	<qualifier code="2GRM" text="Hmonščina" />
+	<qualifier code="2GRS" text="Tajščina" />
+	<qualifier code="2GRV" text="Vietnamščina" />
+	<qualifier code="2H" text="Afriški jeziki" />
+	<qualifier code="2HC" text="Niger-kordofanski jeziki" />
+	<qualifier code="2HCB" text="Bantujski jeziki" />
+	<qualifier code="2HCBA" text="Pravi bantujski jeziki (ozki)" />
+	<qualifier code="2HCBB" text="Srednji bantujski jeziki" />
+	<qualifier code="2HCBBC" text="Čičevski jezik (čevščina)" />
+	<qualifier code="2HCBBF" text="Lomwe" />
+	<qualifier code="2HCBBH" text="Njanščina" />
+	<qualifier code="2HCBBJ" text="Tonganščina" />
+	<qualifier code="2HCBBL" text="Tumbuščina" />
+	<qualifier code="2HCBBN" text="Jajoščina" />
+	<qualifier code="2HCBBP" text="Bemba" />
+	<qualifier code="2HCBBQ" text="Kaonde" />
+	<qualifier code="2HCBBR" text="Kongovščina" />
+	<qualifier code="2HCBBS" text="Lunda" />
+	<qualifier code="2HCBBU" text="Luvale" />
+	<qualifier code="2HCBD" text="Svahili" />
+	<qualifier code="2HCBH" text="Herero" />
+	<qualifier code="2HCBK" text="Kikujuščina" />
+	<qualifier code="2HCBL" text="Nyoro-gandska skupina" />
+	<qualifier code="2HCBLG" text="Lugandščina" />
+	<qualifier code="2HCBLR" text="Nyankore" />
+	<qualifier code="2HCBM" text="Fangijščina" />
+	<qualifier code="2HCBN" text="Duala" />
+	<qualifier code="2HCBP" text="Vendska skupina" />
+	<qualifier code="2HCBQ" text="Šonščina" />
+	<qualifier code="2HCBS" text="Sotho-cvanska skupina" />
+	<qualifier code="2HCBSA" text="Sotho (severni sotho, južni sotho)" />
+	<qualifier code="2HCBSB" text="Sepedi (severni sotho)" />
+	<qualifier code="2HCBSD" text="Cvanščina" />
+	<qualifier code="2HCBSF" text="Lozi" />
+	<qualifier code="2HCBV" text="Congščina" />
+	<qualifier code="2HCBW" text="Svazijščina" />
+	<qualifier code="2HCBX" text="Koščina" />
+	<qualifier code="2HCBY" text="Ndebelščina" />
+	<qualifier code="2HCBZ" text="Zulujščina" />
+	<qualifier code="2HCW" text="Zahodnoatlatnski in volta-kongovski jeziki" />
+	<qualifier code="2HCWF" text="Fulščina" />
+	<qualifier code="2HCWV" text="Volta-kongovski jeziki" />
+	<qualifier code="2HCWVB" text="Igboščina" />
+	<qualifier code="2HCWVD" text="Dagbani (Dagomba)" />
+	<qualifier code="2HCWVE" text="Evenščina" />
+	<qualifier code="2HCWVG" text="Ga" />
+	<qualifier code="2HCWVN" text="Fantijščina" />
+	<qualifier code="2HCWVS" text="Asante tvi" />
+	<qualifier code="2HCWVT" text="Akvapim tvi" />
+	<qualifier code="2HCWVY" text="Jorubščina" />
+	<qualifier code="2HK" text="Kojsanski jeziki" />
+	<qualifier code="2HN" text="Nilsko-saharski in čari-nilski (makrosudanski) jeziki" />
+	<qualifier code="2HND" text="Dinka" />
+	<qualifier code="2HNM" text="Masajščina" />
+	<qualifier code="2HNR" text="Nubijščina" />
+	<qualifier code="2HNT" text="Teso (Ateso)" />
+	<qualifier code="2HX" text="Drugi afriški jeziki" />
+	<qualifier code="2J" text="Jeziki ameriških staroselcev" />
+	<qualifier code="2JN" text="Severni in srednjeameriški jeziki ameriških staroselcev" />
+	<qualifier code="2JNA" text="Aleutščina" />
+	<qualifier code="2JNB" text="Inuitščina" />
+	<qualifier code="2JNC" text="Algonkijski jeziki" />
+	<qualifier code="2JND" text="Jeziki Na-Dene in atabaški jeziki" />
+	<qualifier code="2JNG" text="Irokeški in sijuški jeziki" />
+	<qualifier code="2JNM" text="Majevščina" />
+	<qualifier code="2JNN" text="Uto-azteški jeziki" />
+	<qualifier code="2JNZ" text="Zunijščina" />
+	<qualifier code="2JS" text="Južnoameriški jeziki in jeziki karibskih staroselcev" />
+	<qualifier code="2JSC" text="Karibski jezik" />
+	<qualifier code="2JSG" text="Gvaranijščina" />
+	<qualifier code="2JSQ" text="Kečuanščina" />
+	<qualifier code="2P" text="Oceanijski in avstronezijski jeziki" />
+	<qualifier code="2PB" text="Jezik avstralskih domorodcev" />
+	<qualifier code="2PBA" text="Aranda (Arunta)" />
+	<qualifier code="2PBG" text="Murngin" />
+	<qualifier code="2PBJ" text="Pitjantjatjara" />
+	<qualifier code="2PBL" text="Alyawar" />
+	<qualifier code="2PBM" text="Warumungu" />
+	<qualifier code="2PBP" text="Pintupi" />
+	<qualifier code="2PBR" text="Arrernte" />
+	<qualifier code="2PBT" text="Pertame" />
+	<qualifier code="2PBU" text="Luritja" />
+	<qualifier code="2PBW" text="Varlpiriščina" />
+	<qualifier code="2PBY" text="Yankunytjatjara" />
+	<qualifier code="2PC" text="Papuanski jeziki" />
+	<qualifier code="2PCS" text="Susuamijščina" />
+	<qualifier code="2PG" text="Avstronezijski in malajopolinezijski jeziki" />
+	<qualifier code="2PGB" text="Tajvanščina" />
+	<qualifier code="2PGG" text="Malgaščina" />
+	<qualifier code="2PGJ" text="Tagalogščina" />
+	<qualifier code="2PGN" text="Indonezijski jeziki" />
+	<qualifier code="2PGNA" text="Indonezijščina" />
+	<qualifier code="2PGNC" text="Balijščina" />
+	<qualifier code="2PGND" text="Javanščina" />
+	<qualifier code="2PGNM" text="Malajščina" />
+	<qualifier code="2PGP" text="Oceanijski in polinezijski jeziki" />
+	<qualifier code="2PGPA" text="Maorščina" />
+	<qualifier code="2PGPF" text="Fidžijščina" />
+	<qualifier code="2PGPG" text="Tonganščina" />
+	<qualifier code="2PGPH" text="Tahitijščina" />
+	<qualifier code="2PGPR" text="Rarotongščina" />
+	<qualifier code="2PGPS" text="Samoanščina" />
+	<qualifier code="2PGPW" text="Havajščina" />
+	<qualifier code="2PGPX" text="Drugi oceanijski jeziki" />
+	<qualifier code="2PGPXK" text="Mokilščina" />
+	<qualifier code="2PGPXM" text="Maršalščina" />
+	<qualifier code="2PGPXN" text="Ponpejščina" />
+	<qualifier code="2PGPXP" text="Palavanščina" />
+	<qualifier code="2PGPXT" text="Tokelavščina" />
+	<qualifier code="2Z" text="Ostali jeziki" />
+	<qualifier code="2ZB" text="Baskovščina" />
+	<qualifier code="2ZC" text="Kavkaški jeziki" />
+	<qualifier code="2ZCG" text="Grunzinščina" />
+	<qualifier code="2ZM" text="Sumerščina" />
+	<qualifier code="2ZP" text="Pidžin in kreolščina" />
+	<qualifier code="2ZPT" text="Tok pisin" />
+	<qualifier code="2ZX" text="Umetni jeziki" />
+	<qualifier code="2ZXA" text="Afrihili" />
+	<qualifier code="2ZXC" text="Occidental" />
+	<qualifier code="2ZXP" text="Esperanto" />
+	<qualifier code="2ZXT" text="Interlingua" />
+	<qualifier code="3B" text="Prazgodovina" />
+	<qualifier code="3D" text="Stari vek: pred. n. št. do pribl. 500 n. št." />
+	<qualifier code="3F" text="Pribl. 500 n. št. do pribl. 1000 n. št." />
+	<qualifier code="3H" text="Pribl. 1000 n. št. do pribl. 1500 " />
+	<qualifier code="3J" text="Novi vek, pribl. 1500 dalje" />
+	<qualifier code="3JB" text="Pribl. 1500 do pribl. 1600" />
+	<qualifier code="3JD" text="Pribl. 1600 do pribl. 1700" />
+	<qualifier code="3JF" text="Pribl. 1700 do pribl. 1800" />
+	<qualifier code="3JH" text="Pribl. 1800 do pribl. 1900" />
+	<qualifier code="3JJ" text="Dvajseto stoletje" />
+	<qualifier code="3JJC" text="Pribl. 1900 do pribl. 1914" />
+	<qualifier code="3JJF" text="Pribl. 1914 do pribl. 1918 (vključno s prvo svetovno vojno) " />
+	<qualifier code="3JJG" text="Pribl. 1918 do pribl. 1939 (med vojno)" />
+	<qualifier code="3JJH" text="Pribl. 1939 do pribl. 1945 (vključno z drugo svetovno vojno)" />
+	<qualifier code="3JJP" text="Pribl. 1945 do pribl. 2000 (po vojni)" />
+	<qualifier code="3JJPG" text="Pribl. 1945 do pribl. 1960" />
+	<qualifier code="3JJPK" text="Pribl. 1960 do pribl. 1970" />
+	<qualifier code="3JJPL" text="Pribl. 1970 do pribl. 1980" />
+	<qualifier code="3JJPN" text="Pribl. 1980 do pribl. 1990" />
+	<qualifier code="3JJPR" text="Pribl. 1990 do pribl. 2000" />
+	<qualifier code="3JM" text="Enajdvajseto stoletje" />
+	<qualifier code="3JMC" text="Pribl. 2000 do pribl. 2010" />
+	<qualifier code="3JMG" text="Pribl. 2010 do pribl. 2020" />
+	<qualifier code="4E" text="Izpiti in potrdila ELT" />
+	<qualifier code="4EA" text="Izpit iz angleščine Cambridge Young Learners" />
+	<qualifier code="4EAA" text="Izpit iz angleščine Cambridge Young Learners, prva stopnja, Starters" />
+	<qualifier code="4EAM" text="Izpit iz angleščine Cambridge Young Learners, druga stopnja, Movers" />
+	<qualifier code="4EAY" text="Izpit iz angleščine Cambridge Young Learners, tretja stopnja, Flyers" />
+	<qualifier code="4EB" text="Izpit iz angleščine Cambridge Key English Test (KET)" />
+	<qualifier code="4EC" text="Izpit iz angleščine Cambridge Preliminary English Test (PET)" />
+	<qualifier code="4ED" text="Izpit iz angleščine Cambridge First Certificate in English (FCE)" />
+	<qualifier code="4EF" text="Izpit iz angleščine Cambridge Certificate in Advanced English (CAE)" />
+	<qualifier code="4EG" text="Izpit iz angleščine Cambridge Certificate of Proficiency in English (CPE)" />
+	<qualifier code="4EL" text="Izpit iz angleščine Cambridge International English Language Testing System (IELTS)" />
+	<qualifier code="4EN" text="Test of English as a Foreign Language (TOEFL)" />
+	<qualifier code="4EQ" text="Certificate in Communicative Skills in English (CCSE)" />
+	<qualifier code="4EX" text="Izpiti iz angleščine ELT za posebna področja" />
+	<qualifier code="4EXB" text="Business English Certificate (BEC)" />
+	<qualifier code="4EXC" text=" Certificate in English for International Business &amp; Trade (CEIBT)" />
+	<qualifier code="4EXJ" text="Oxford International Business English Certificate (OIBEC)" />
+	<qualifier code="4EXK" text="Cambridge Examination in English for Language Teachers (CEELT)" />
+	<qualifier code="4EXM" text="Test of English for International Communication (TOEIC)" />
+	<qualifier code="4EZ" text="Drugi izpiti ELT" />
+	<qualifier code="4K" text="Načrtovan/primeren za učne načrte in izpite v Veliki Britaniji" />
+	<qualifier code="4KD" text="Sprejemni testi v Združenem kraljestvu" />
+	<qualifier code="4KDP" text="Standardiziran sprejemni test" />
+	<qualifier code="4KDQ" text="Nestandardiziran sprejemni test" />
+	<qualifier code="4KH" text="Načrtovan/Primeren za nacionalne učne načrte" />
+	<qualifier code="4KHA" text="For National Curriculum Early Years" />
+	<qualifier code="4KHF" text="For National Curriculum Key Stage 1" />
+	<qualifier code="4KHJ" text="For National Curriculum Key Stage 2" />
+	<qualifier code="4KHN" text="For National Curriculum Key Stage 3" />
+	<qualifier code="4KHT" text="For National Curriculum Key Stage 4 &amp; GCSE" />
+	<qualifier code="4KL" text="Designed / suitable for A &amp; AS Level" />
+	<qualifier code="4KLR" text="A/AS Level study &amp; revision guides" />
+	<qualifier code="4KM" text="Designed for Key Skills" />
+	<qualifier code="4KMC" text="Designed for Key Skills: Communication" />
+	<qualifier code="4KMN" text="Designed for Key Skills: Application of number" />
+	<qualifier code="4KMT" text="Designed for Key Skills: Informacijska tehnologija (IT)" />
+	<qualifier code="4KS" text="Zasnovan/primeren za izpite in ocene na Škotskem" />
+	<qualifier code="4KSC" text="For P1-P3 (Scottish)" />
+	<qualifier code="4KSD" text="For P4-P6 (Scottish)" />
+	<qualifier code="4KSF" text="For P7-S2 (Scottish)" />
+	<qualifier code="4KSL" text="For Access 3 (Scottish)" />
+	<qualifier code="4KSM" text="For Intermediate 2 (Scottish)" />
+	<qualifier code="4KSN" text="For Intermediate 1 (Scottish)" />
+	<qualifier code="4KSS" text="For Standard Grade (Scottish)" />
+	<qualifier code="4KST" text="For Higher Grade (Scottish)" />
+	<qualifier code="4KSV" text="For Advanced Higher Grade (Scottish)" />
+	<qualifier code="4KT" text="Designed / suitable for Scottish Curriculum for Excellence (CfE) Levels" />
+	<qualifier code="4KTB" text="For CfE Early Level (Scottish)" />
+	<qualifier code="4KTG" text="For CfE First Level (Scottish)" />
+	<qualifier code="4KTJ" text="For CfE Second Level (Scottish)" />
+	<qualifier code="4KTP" text="For CfE Third Level (Scottish)" />
+	<qualifier code="4KTR" text="For CfE Fourth Level (Scottish)" />
+	<qualifier code="4KV" text="Designed / suitable for UK vocational qualifications" />
+	<qualifier code="4KVC" text="For NVQ / SVQ (National / Scottish Vocational Qualification)" />
+	<qualifier code="4KVCR" text="For NVQ / SVQ 1" />
+	<qualifier code="4KVCS" text="For NVQ / SVQ 2" />
+	<qualifier code="4KVCT" text="For NVQ / SVQ 3" />
+	<qualifier code="4KVCU" text="For NVQ / SVQ 4" />
+	<qualifier code="4KVN" text="For GNVQ (General National Vocational Qualification)" />
+	<qualifier code="4KVNF" text="For GNVQ Foundation" />
+	<qualifier code="4KVNN" text="For GNVQ Intermediate" />
+	<qualifier code="4KVNV" text="For GNVQ Advanced" />
+	<qualifier code="4KVS" text="For GSVQ (General Scottish Vocational Qualification)" />
+	<qualifier code="4KVSF" text="For GSVQ Foundation" />
+	<qualifier code="4KVSN" text="For QSVQ Intermediate" />
+	<qualifier code="4KVSV" text="For QSVQ Advanced" />
+	<qualifier code="4KVT" text="For BTEC (Business And Technology Education Council) " />
+	<qualifier code="4KVTA" text="BTEC Introductory Certificate - Level 1 qualification" />
+	<qualifier code="4KVTB" text="BTEC Introductory Diploma - Level 1 qualification" />
+	<qualifier code="4KVTF" text="BTEC First Certificate - Level 2 qualification" />
+	<qualifier code="4KVTG" text="BTEC First Diploma - Level 2 qualification" />
+	<qualifier code="4KVTJ" text="BTEC National Award - Level 3 qualification" />
+	<qualifier code="4KVTK" text="BTEC National Certificate - Level 3 qualification" />
+	<qualifier code="4KVTL" text="BTEC National Diploma - Level 3 qualification" />
+	<qualifier code="4KVTQ" text="BTEC Foundation Diploma in Art and Design" />
+	<qualifier code="4KVTX" text="BTEC Higher National Certificate" />
+	<qualifier code="4KVTY" text="BTEC Higher National Diploma" />
+	<qualifier code="4M" text="International curricula &amp; examinations" />
+	<qualifier code="4MB" text="International Baccalaureate (IB) Diploma" />
+	<qualifier code="4MG" text="International GCSE (IGCSE)" />
+	<qualifier code="4P" text="Designed / suitable for other (non-UK) curricula &amp; examinations" />
+	<qualifier code="4PC" text="Designed / suitable for Irish examinations &amp; educational levels" />
+	<qualifier code="4PCJ" text="For Junior Certificate (Irish)" />
+	<qualifier code="4PCN" text="For Transition Year (Irish)" />
+	<qualifier code="4PCR" text="For Leaving Certificate (Irish)" />
+	<qualifier code="4PCV" text="For Post-Leaving Certificate (Irish)" />
+	<qualifier code="4PZ" text="Designed / suitable for South African examinations &amp; educational levels" />
+	<qualifier code="4PZC" text="For General Education &amp; Training (GET) (South Africa)" />
+	<qualifier code="4PZCB" text="Reception / Early Childhood Development Grade R or Grade 0 (South Africa)" />
+	<qualifier code="4PZCD" text="Foundation Phase Grade 1 (South Africa)" />
+	<qualifier code="4PZCF" text="Foundation Phase Grade 2 (South Africa)" />
+	<qualifier code="4PZCH" text="Foundation Phase Grade 3 (South Africa)" />
+	<qualifier code="4PZCJ" text="Intermediate Phase Grade 4 (South Africa)" />
+	<qualifier code="4PZCL" text="Intermediate Phase Grade 5 (South Africa)" />
+	<qualifier code="4PZCN" text="Intermediate Phase Grade 6 (South Africa)" />
+	<qualifier code="4PZCP" text="Senior Phase Grade 7 (South Africa)" />
+	<qualifier code="4PZCR" text="Senior Phase Grade 8 (South Africa)" />
+	<qualifier code="4PZCT" text="Senior Phase Grade 9 (South Africa)" />
+	<qualifier code="4PZF" text="For Further Education &amp; Training (FET): Academic grades (South Africa)" />
+	<qualifier code="4PZFG" text="FET Grade 10 (South Africa)" />
+	<qualifier code="4PZFK" text="FET Grade 11 (South Africa)" />
+	<qualifier code="4PZFM" text="FET Grade 12 (South Africa)" />
+	<qualifier code="4PZT" text="For FET: Technical &amp; Vocational Grades (South Africa)" />
+	<qualifier code="4PZTQ" text="FET Grade N1 (South Africa)" />
+	<qualifier code="4PZTS" text="FET Grade N2 (South Africa)" />
+	<qualifier code="4PZTV" text="FET Grade N3 (South Africa)" />
+	<qualifier code="4W" text="Zasnovano za diferencirano učenje" />
+	<qualifier code="4Y" text="Zasnovano za učenje doma" />
+	<qualifier code="5A" text="Interest age / level" />
+	<qualifier code="5AB" text="For children c 0-2 years" />
+	<qualifier code="5AC" text="Interest age: from c 3 years" />
+	<qualifier code="5AD" text="Interest age: from c 4 years" />
+	<qualifier code="5AF" text="Interest age: from c 5 years" />
+	<qualifier code="5AG" text="Interest age: from c 6 years" />
+	<qualifier code="5AH" text="Interest age: from c 7 years" />
+	<qualifier code="5AJ" text="Interest age: from c 8 years" />
+	<qualifier code="5AK" text="Interest age: from c 9 years" />
+	<qualifier code="5AL" text="Interest age: from c 10 years" />
+	<qualifier code="5AM" text="Interest age: from c 11 years" />
+	<qualifier code="5AN" text="Interest age: from c 12 years" />
+	<qualifier code="5AP" text="Interest age: from c 13 years" />
+	<qualifier code="5AQ" text="Interest age: from c 14 years" />
+	<qualifier code="5AR" text="For reluctant readers (children)" />
+	<qualifier code="5AX" text="For emergent readers (adult)" />
+	<qualifier code="5H" text="Prazniki" />
+	<qualifier code="5HC" text="Božič" />
+	<qualifier code="5HE" text="Velika noč" />
+	<qualifier code="5HF" text="Očetovski dan" />
+	<qualifier code="5HH" text="Noč čarovnic" />
+	<qualifier code="5HM" text="Materinski dan" />
+	<qualifier code="5HV" text="Valentinovo" />
+	<qualifier code="5S" text="Of specific Gay &amp; Lesbian interest" />
+	<qualifier code="5SG" text="Of specific Gay interest" />
+	<qualifier code="5SL" text="Of specific Lesbian interest" />
+	<qualifier code="5X" text="Vsebuje eksplicitno vsebino" />
+</qualifiers>

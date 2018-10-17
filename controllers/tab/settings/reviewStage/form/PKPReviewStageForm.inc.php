@@ -3,8 +3,8 @@
 /**
  * @file controllers/tab/settings/reviewStage/form/PKPReviewStageForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewStageForm
@@ -31,7 +31,6 @@ class PKPReviewStageForm extends ContextSettingsForm {
 					'numWeeksPerReview' => 'int',
 					'numDaysBeforeInviteReminder' => 'int',
 					'numDaysBeforeSubmitReminder' => 'int',
-					// 'rateReviewerOnQuality' => 'bool', /* http://github.com/pkp/pkp-lib/issues/372 */
 					'showEnsuringLink' => 'bool',
 					'reviewerCompetingInterestsRequired' => 'bool',
 					'defaultReviewMode' => 'int',
@@ -56,33 +55,28 @@ class PKPReviewStageForm extends ContextSettingsForm {
 	/**
 	 * @copydoc ContextSettingsForm::fetch()
 	 */
-	function fetch($request) {
-		$params = array();
-
-		// Ensuring blind review link.
-		import('lib.pkp.classes.linkAction.request.ConfirmationModal');
-		import('lib.pkp.classes.linkAction.LinkAction');
-		$params['ensuringLink'] = new LinkAction(
-			'showReviewPolicy',
-			new ConfirmationModal(
-				__('review.blindPeerReview'),
-				__('review.ensuringBlindReview'), 'modal_information', null, null, true, MODAL_WIDTH_DEFAULT),
-			__('manager.setup.reviewOptions.showBlindReviewLink')
-		);
-
-		$params['scheduledTasksDisabled'] = (Config::getVar('general', 'scheduled_tasks')) ? false : true;
-
+	function fetch($request, $template = null, $display = false, $params = array()) {
 		$templateMgr = TemplateManager::getManager($request);
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
 		$templateMgr->assign(array(
 			'numDaysBeforeInviteReminderValues' => array_combine(range(1, 10), range(1, 10)),
-			'numDaysBeforeSubmitReminderValues' => array_combine(range(1, 10), range(1, 10))
+			'numDaysBeforeSubmitReminderValues' => array_combine(range(1, 10), range(1, 10)),
+			'reviewMethodOptions' => $reviewAssignmentDao->getReviewMethodsTranslationKeys(),
 		));
 
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
-		$templateMgr->assign('reviewMethodOptions', $reviewAssignmentDao->getReviewMethodsTranslationKeys());
-
-		return parent::fetch($request, $params);
+		import('lib.pkp.classes.linkAction.request.ConfirmationModal');
+		import('lib.pkp.classes.linkAction.LinkAction');
+		return parent::fetch($request, $template, $display, array_merge($params, array(
+			'ensuringLink' => new LinkAction(
+				'showReviewPolicy',
+				new ConfirmationModal(
+					__('review.blindPeerReview'),
+					__('review.ensuringBlindReview'), 'modal_information', null, null, true, MODAL_WIDTH_DEFAULT),
+				__('manager.setup.reviewOptions.showBlindReviewLink')
+			),
+			'scheduledTasksDisabled' => Config::getVar('general', 'scheduled_tasks') ? false : true,
+		)));
 	}
 }
 
-?>
+

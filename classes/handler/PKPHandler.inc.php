@@ -3,8 +3,8 @@
 /**
  * @file classes/handler/PKPHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @package core
@@ -42,6 +42,9 @@ class PKPHandler {
 
 	/** @var boolean Whether to enforce site access restrictions. */
 	var $_enforceRestrictedSite = true;
+
+	/** @var boolean Whether role assignments have been checked. */
+	var $_roleAssignmentsChecked = false;
 
 	/**
 	 * Constructor
@@ -196,6 +199,9 @@ class PKPHandler {
 				$operations
 			);
 		}
+
+		// Flag role assignments as needing checking.
+		$this->_roleAssignmentsChecked = false;
 	}
 
 	/**
@@ -221,6 +227,13 @@ class PKPHandler {
 	 */
 	function getRoleAssignments() {
 		return $this->_roleAssignments;
+	}
+
+	/**
+	 * Flag role assignment checking as completed.
+	 */
+	function markRoleAssignmentsChecked() {
+		$this->_roleAssignmentsChecked = true;
 	}
 
 	/**
@@ -281,7 +294,7 @@ class PKPHandler {
 
 		// Let the authorization decision manager take a decision.
 		$decision = $this->_authorizationDecisionManager->decide();
-		if ($decision == AUTHORIZATION_PERMIT) {
+		if ($decision == AUTHORIZATION_PERMIT && (empty($this->_roleAssignments) || $this->_roleAssignmentsChecked)) {
 			return true;
 		} else {
 			return false;
@@ -467,9 +480,7 @@ class PKPHandler {
 	 */
 	function getWorkingContexts($request) {
 		// For installation process
-		if (defined('SESSION_DISABLE_INIT') || !Config::getVar('general', 'installed')) {
-			return null;
-		}
+		if (defined('SESSION_DISABLE_INIT')) return null;
 
 		$user = $request->getUser();
 		$contextDao = Application::getContextDAO();
@@ -518,4 +529,4 @@ class PKPHandler {
 	}
 }
 
-?>
+

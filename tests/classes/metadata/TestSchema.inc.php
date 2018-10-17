@@ -3,8 +3,8 @@
 /**
  * @file tests/classes/metadata/TestSchema.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class TestSchema
@@ -38,4 +38,4 @@ class TestSchema extends MetadataSchema {
 		$this->addProperty('composite-translated-many', METADATA_PROPERTY_TYPE_STRING, true, METADATA_PROPERTY_CARDINALITY_MANY);
 	}
 }
-?>
+

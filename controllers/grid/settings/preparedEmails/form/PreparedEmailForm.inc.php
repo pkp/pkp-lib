@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/settings/preparedEmails/form/PreparedEmailForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PreparedEmailForm
@@ -70,7 +70,7 @@ class PreparedEmailForm extends Form {
 	/**
 	 * Initialize form data from current settings.
 	 */
-	function initData($request) {
+	function initData() {
 		$context = $this->getContext();
 		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
 		$emailTemplate = $emailTemplateDao->getLocaleEmailTemplate($this->getEmailKey(), $context->getId());
@@ -160,4 +160,4 @@ class PreparedEmailForm extends Form {
 	}
 }
 
-?>
+

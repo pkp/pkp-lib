@@ -2,8 +2,8 @@
 /**
  * @file classes/security/authorization/internal/SubmissionFileRequestedRevisionRequiredPolicy.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileRequestedRevisionRequiredPolicy
@@ -47,7 +47,7 @@ class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAc
 		$reviewRound = $reviewRoundDao->getBySubmissionFileId($submissionFile->getFileId());
 		if (!is_a($reviewRound, 'ReviewRound')) return AUTHORIZATION_DENY;
 		import('classes.workflow.EditorDecisionActionsManager');
-		if (!EditorDecisionActionsManager::getEditorTakenActionInReviewRound($reviewRound, array(SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS))) {
+		if (!EditorDecisionActionsManager::getEditorTakenActionInReviewRound($request->getContext(), $reviewRound, array(SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS))) {
 			return AUTHORIZATION_DENY;
 		}
 
@@ -58,6 +58,9 @@ class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAc
 		// Make sure review round stage is the same of the current stage in request.
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
 		if ($reviewRound->getStageId() != $stageId) return AUTHORIZATION_DENY;
+
+		// Make sure the file stage is SUBMISSION_FILE_REVIEW_REVISION.
+		if ($submissionFile->getFileStage() != SUBMISSION_FILE_REVIEW_REVISION) return AUTHORIZATION_DENY;
 
 		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 
@@ -71,9 +74,7 @@ class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAc
 
 		// Made it through -- permit access.
 		return AUTHORIZATION_PERMIT;
-		// Made it through -- permit access.
-		return AUTHORIZATION_PERMIT;
 	}
 }
 
-?>
+

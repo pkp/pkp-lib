@@ -1,8 +1,8 @@
 {**
  * templates/form/textArea.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * form text area
@@ -27,6 +27,7 @@
 				class="localizable {$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}{if $FBV_rich && !$FBV_disabled} richContent{if $FBV_rich==="extended"} extendedRichContent{/if}{/if}"
 				{if $FBV_disabled} disabled="disabled"{/if}
 				{if $FBV_readonly} readonly="readonly"{/if}
+				{if $FBV_wordCount} wordCount="{$FBV_wordCount|escape}"{/if}
 				{if $FBV_variables} data-variables="{$FBV_variables|@json_encode|escape:"url"}"{/if}
 				{if $FBV_variablesType} data-variablesType="{$FBV_variablesType|@json_encode|escape:"url"}"{/if}
 				{if $FBV_required} required aria-required="true"{/if}
@@ -45,6 +46,7 @@
 					class="flag flag_{$thisFormLocale|escape} {$FBV_class} {$FBV_height}{if $FBV_rich && !$FBV_disabled} richContent{if $FBV_rich==="extended"} extendedRichContent{/if}{/if}"
 					{if $FBV_disabled} disabled="disabled"{/if}
 					{if $FBV_readonly} readonly="readonly"{/if}
+					{if $FBV_wordCount} wordCount="{$FBV_wordCount|escape}"{/if}
 					{if $FBV_variables} data-variables="{$FBV_variables|@json_encode|escape:"url"}"{/if}
 					{if $FBV_variablesType} data-variablesType="{$FBV_variablesType|@json_encode|escape:"url"}"{/if}
 					{if $FBV_required} required aria-required="true"{/if}
@@ -63,6 +65,7 @@
 			class="{$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $FBV_rich && !$FBV_disabled} richContent{if $FBV_rich==="extended"} extendedRichContent{/if}{/if}"
 			{if $FBV_disabled} disabled="disabled"{/if}
 			{if $FBV_readonly} readonly="readonly"{/if}
+			{if $FBV_wordCount} wordCount="{$FBV_wordCount|escape}"{/if}
 			{if $FBV_variables} data-variables="{$FBV_variables|@json_encode|escape:"url"}"{/if}
 			{if $FBV_variablesType} data-variablesType="{$FBV_variablesType|@json_encode|escape:"url"}"{/if}
 			{if $FBV_required} required aria-required="true"{/if}

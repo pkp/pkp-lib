@@ -3,8 +3,8 @@
 /**
  * @file plugins/importexport/native/filter/NativeXmlSubmissionFileFilter.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NativeXmlSubmissionFileFilter
@@ -173,7 +173,6 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		}
 
 		$uploaderUsername = $node->getAttribute('uploader');
-		$uploaderUserGroup = $node->getAttribute('user_group_ref');
 		if (!$uploaderUsername) {
 			$user = $deployment->getUser();
 		} else {
@@ -185,45 +184,6 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 			$submissionFile->setUploaderUserId($user->getId());
 		} else {
 			$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownUploader', array('param' => $uploaderUsername)));
-			$errorOccured = true;
-		}
-
-		// Determine the user group.
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		if ($user && !$uploaderUserGroup) {
-			// We have a user, but no group specified in the import.  Select a default group.
-			// We will prefer any group that has access to the submission's stage; find these
-			$stageUserGroups = $userGroupDao->getUserGroupsByStage($context->getId(), $stageId);
-			$stageUserGroupLookup = array();
-			while ($userGroup = $stageUserGroups->next()) {
-				$stageUserGroupLookup[] = $userGroup->getId();
-			}
-			// Check all user groups from this user
-			$userUserGroups = $userGroupDao->getByUserId($user->getId(), $context->getId());
-			$lastUserGroup = null;
-			while ($userGroup = $userUserGroups->next()) {
-				// If the user's user group has access to this stage, select it.
-				$lastUserGroup = $userGroup->getId();
-				if (in_array($lastUserGroup, $stageUserGroupLookup, true)) {
-					break;
-				}
-			}
-			// Select the best match user group (might just be the last one we saw, if none had access to this stage).
-			if ($lastUserGroup) {
-				$submissionFile->setUserGroupId($lastUserGroup);
-			}
-		} else {
-			// Determine the user group based on the user_group_ref element.
-			$userGroups = $userGroupDao->getByContextId($context->getId());
-			while ($userGroup = $userGroups->next()) {
-				if (in_array($uploaderUserGroup, $userGroup->getName(null))) {
-					$submissionFile->setUserGroupId($userGroup->getId());
-					break;
-				}
-			}
-		}
-		if (!$submissionFile->getUserGroupId()) {
-			$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownUserGroup', array('param' => $uploaderUserGroup)));
 			$errorOccured = true;
 		}
 
@@ -276,7 +236,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 
 		import('lib.pkp.classes.file.FileManager');
 		$fileManager = new FileManager();
-		$fileManager->deleteFile($filename);
+		$fileManager->deleteByPath($filename);
 		return $submissionFile;
 	}
 
@@ -292,6 +252,17 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		$context = $deployment->getContext();
 		$submission = $deployment->getSubmission();
 		switch ($node->tagName) {
+			case 'submission_file_ref':
+				if ($submissionFile->getFileStage() == SUBMISSION_FILE_DEPENDENT) {
+					$fileId = $node->getAttribute('id');
+					$revisionId = $node->getAttribute('revision');
+					$dbFileId = $deployment->getFileDBId($fileId, $revisionId);
+					if ($dbFileId) {
+						$submissionFile->setAssocType(ASSOC_TYPE_SUBMISSION_FILE);
+						$submissionFile->setAssocId($dbFileId);
+					}
+				}
+				break;
 			case 'id':
 				$this->parseIdentifier($node, $submissionFile);
 				break;
@@ -333,7 +304,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 				if ($errorFlag) {
 					$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.temporaryFileFailed', array('dest' => $temporaryFilename, 'source' => $filesrc)));
 					$fileManager = new FileManager();
-					$fileManager->deleteFile($temporaryFilename);
+					$fileManager->deleteByPath($temporaryFilename);
 					$temporaryFilename = '';
 				}
 				return $temporaryFilename;
@@ -357,7 +328,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 					}
 					if ($errorFlag) {
 						$fileManager = new FileManager();
-						$fileManager->deleteFile($temporaryFilename);
+						$fileManager->deleteByPath($temporaryFilename);
 						$temporaryFilename = '';
 					}
 				}
@@ -403,4 +374,4 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 	}
 }
 
-?>
+

@@ -1,8 +1,8 @@
 {**
  * templates/reviewer/review/reviewFormResponse.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Review form response components of review form.
@@ -18,6 +18,8 @@
 	{/if}
 
 	{fbvFormSection translate=false title=$reviewFormElement->getLocalizedQuestion() list=$list}
+		{assign var=description value=$reviewFormElement->getLocalizedDescription()}
+		{if $description}<span class="description">{$description}</span>{/if}
 		{if $reviewFormElement->getElementType() == REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD}
 			{fbvElement name="reviewFormResponses[$elementId]" type="text" translate=false required=$reviewFormElement->getRequired() id="reviewFormResponses-$elementId" value=$value inline=true size=$fbvStyles.size.SMALL readonly=$disabled}
 		{elseif $reviewFormElement->getElementType() == REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD}
@@ -40,7 +42,7 @@
 			{assign var=possibleResponses value=$reviewFormElement->getLocalizedPossibleResponses()}
 			{foreach name=responses from=$possibleResponses key=responseId item=responseItem}
 				{assign var=index value=$smarty.foreach.responses.index}
-				{if $index == $reviewFormResponses[$elementId]}
+				{if isset($reviewFormResponses[$elementId]) && $index == $reviewFormResponses[$elementId]}
 					{assign var=checked value=true}
 				{else}
 					{assign var=checked value=false}

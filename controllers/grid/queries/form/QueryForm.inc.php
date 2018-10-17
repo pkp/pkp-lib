@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/queries/form/QueryForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class QueryForm
@@ -182,37 +182,128 @@ class QueryForm extends Form {
 	 * @param $request PKPRequest
 	 * @param $actionArgs array Optional list of additional arguments
 	 */
-	function fetch($request, $actionArgs = array()) {
+	function fetch($request, $template = null, $display = false, $actionArgs = array()) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_EDITOR);
 
 		$query = $this->getQuery();
 		$headNote = $query->getHeadNote();
-
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-		$assignments = $stageAssignmentDao->getBySubmissionAndStageId($query->getAssocId(), $query->getStageId());
-		$queryDao = DAORegistry::getDAO('QueryDAO');
-		$currentParticipants = $query->getId() ? $queryDao->getParticipantIds($query->getId()) : array();
-		$userDao = DAORegistry::getDAO('UserDAO');
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$participantOptions = array();
-		foreach ($assignments->toArray() as $assignment) {
-			$participantOptions[] = array(
-				'user' => $userDao->getById($assignment->getUserId()),
-				'userGroup' => $userGroupDao->getById($assignment->getUserGroupId()),
-				'isParticipant' => in_array($assignment->getUserId(), $currentParticipants),
-			);
-		}
+		$user = $request->getUser();
+		$context = $request->getContext();
 
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
 			'isNew' => $this->_isNew,
 			'noteId' => $headNote->getId(),
 			'actionArgs' => $actionArgs,
-			'participantOptions' => $participantOptions,
 			'csrfToken' => $request->getSession()->getCSRFToken(),
 		));
 
-		return parent::fetch($request);
+		// Queryies only support ASSOC_TYPE_SUBMISSION so far
+		if ($query->getAssocType() == ASSOC_TYPE_SUBMISSION) {
+
+			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+
+			// Get currently selected participants in the query
+			$queryDao = DAORegistry::getDAO('QueryDAO');
+			$selectedParticipants = $query->getId() ? $queryDao->getParticipantIds($query->getId()) : array();
+
+			// Always include current user, even if not with a stage assignment
+			$includeUsers[] = $user->getId();
+			$excludeUsers = null;
+
+			// When in review stage, include/exclude users depending on the current users role
+			$reviewAssignments = array();
+			if ($query->getStageId() == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $query->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW) {
+
+				// Get all review assignments for current submission
+				$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+				$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($query->getAssocId());
+
+				// Get current users roles
+				$userRoles = array();
+				$usersAssignments = $stageAssignmentDao->getBySubmissionAndStageId($query->getAssocId(), $query->getStageId(), null, $user->getId());
+				while ($usersAssignment = $usersAssignments->next()) {
+					$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+					$userGroup = $userGroupDao->getById($usersAssignment->getUserGroupId());
+					$userRoles[] = $userGroup->getRoleId();
+				}
+
+				// if current user is editor, add all reviewers
+				if ( $user->hasRole(array(ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN), $context->getId()) || array_intersect(array(ROLE_ID_SUB_EDITOR), $userRoles) ) {
+					foreach ($reviewAssignments as $reviewAssignment) {
+						$includeUsers[] = $reviewAssignment->getReviewerId();
+					}
+				}
+
+				// if current user is blind reviewer, filter out authors
+				foreach ($reviewAssignments as $reviewAssignment) {
+					if ($reviewAssignment->getReviewerId() === $user->getId()){
+						if ($reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_OPEN){
+							$authorAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($query->getAssocId(), ROLE_ID_AUTHOR);
+							while ($assignment = $authorAssignments->next()) {
+								$excludeUsers[] = $assignment->getUserId();
+							}
+						}
+					}
+				}
+
+				// if current user is author, add open reviewers who have accepted the request
+				if (array_intersect(array(ROLE_ID_AUTHOR), $userRoles)) {
+					foreach ($reviewAssignments as $reviewAssignment) {
+						if ($reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_OPEN && $reviewAssignment->getDateConfirmed()){
+							$includeUsers[] = $reviewAssignment->getReviewerId();
+						}
+					}
+				}
+			}
+
+			import('lib.pkp.controllers.list.users.SelectUserListHandler');
+			$queryParticipantsList = new SelectUserListHandler(array(
+				'title' => 'editor.submission.stageParticipants',
+				'inputName' => 'users[]',
+				'selected' => $selectedParticipants,
+				'getParams' => array(
+					'count' => 100, // high upper value
+					'offset' => 0,
+					'assignedToSubmission' => $query->getAssocId(),
+					'assignedToSubmissionStage' => $query->getStageId(),
+					'includeUsers' => $includeUsers,
+					'excludeUsers' => $excludeUsers,
+				),
+				// Include the full name and role in this submission in the item title
+				'setItemTitleCallback' => function($user, $userProps) use ($stageAssignmentDao, $reviewAssignments, $query) {
+					$title = $user->getFullName();
+					$userRoles = array();
+					$usersAssignments = $stageAssignmentDao->getBySubmissionAndStageId($query->getAssocId(), $query->getStageId(), null, $user->getId())->toArray();
+					foreach ($usersAssignments as $assignment) {
+						foreach ($userProps['groups'] as $userGroup) {
+							if ($userGroup['id'] === (int) $assignment->getUserGroupId() && isset($userGroup['name'][AppLocale::getLocale()])) {
+								$userRoles[] = $userGroup['name'][AppLocale::getLocale()];
+							}
+						}
+					}
+					foreach ($reviewAssignments as $assignment) {
+						if ($assignment->getReviewerId() === $user->getId()) {
+							$userRoles[] =  __('user.role.reviewer') . " (" . __($assignment->getReviewMethodKey()) . ")";
+						}
+					}
+					$title =  __('submission.query.participantTitle', array(
+								'fullName' => $user->getFullName(),
+								'userGroup' => join(__('common.commaListSeparator'), $userRoles),
+					));
+					return $title;
+				},
+			));
+
+			$queryParticipantsListData = $queryParticipantsList->getConfig();
+
+			$templateMgr->assign(array(
+				'hasParticipants' => count($queryParticipantsListData['items']),
+				'queryParticipantsListData' => json_encode($queryParticipantsListData),
+			));
+		}
+
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -229,9 +320,9 @@ class QueryForm extends Form {
 
 	/**
 	 * @copydoc Form::execute()
-	 * @param $request PKPRequest
 	 */
-	function execute($request) {
+	function execute() {
+		$request = Application::getRequest();
 		$queryDao = DAORegistry::getDAO('QueryDAO');
 		$query = $this->getQuery();
 
@@ -280,4 +371,4 @@ class QueryForm extends Form {
 	}
 }
 
-?>
+

@@ -4,8 +4,8 @@
 <!--
   * locale/el_GR/user.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the el_GR (ελληνικά) locale.
@@ -23,13 +23,7 @@
 	<message key="user.dateRegistered">Ημερομηνία εγγραφής</message>
 	<message key="user.editMyProfile">Επεξεργασία του Προφίλ μου</message>
 	<message key="user.email">Email</message>
-	<message key="user.feminine">Θ</message>
-	<message key="user.firstName">Όνομα</message>
-	<message key="user.gender">Φύλο</message>
-	<message key="user.initialsExample">Ιωάννης Ανδρέα Παπαδόπουλος = ΙΑΠ</message>
-	<message key="user.initials">Αρχικά</message>
 	<message key="user.interests">Αναθεώρηση ενδιαφερόντων</message>
-	<message key="user.lastName">Επώνυμο</message>
 	<message key="user.login.accountDisabledWithReason">Ο λογαριασμός σας έχει απενεργοποιηθεί για τον παρακάτω λόγο:  {$reason}</message>
 	<message key="user.login.accountDisabled">Ο λογαριασμός σας έχει απενεργοποιηθεί. Σας παρακαλούμε  επικοινωνήστε με τον Διαχειριστή του  συστήματος για περισσότερες  πληροφορίες.</message>
 	<message key="user.login.accountNotValidated">Η ηλεκτρονική σας διεύθυνση δεν έχει επικυρωθεί. Παρακαλούμε ελέγξτε το email σας και ακολουθήστε τις σχετικές οδηγίες. Αν δεν λάβετε ένα τέτοιο email, ίσως θα πρέπει να επικοινωνήσετε με τον διαχειριστή του συστήματος για βοήθεια.</message>
@@ -47,8 +41,6 @@
 	<message key="user.login.resetPassword">Αλλαγή του προσωπικού σας Κωδικού Πρόσβασης</message>
 	<message key="user.logOut">Αποσυνδεθείτε</message>
 	<message key="user.mailingAddress">Ταχυδρομική Διεύθυνση</message>
-	<message key="user.masculine">Α</message>
-	<message key="user.middleName">Μεσαίο/Πατρικό όνομα</message>
 	<message key="user.myAccount">Ο Λογαριασμός μου</message>
 	<message key="user.name">Όνομα</message>
 	<message key="user.password">Password</message>
@@ -57,8 +49,6 @@
 	<message key="user.profile.changePasswordInstructions">Εισαγάγετε τον  τρέχοντα και τον νέο κωδικό πρόσβασης παρακάτω για να  αλλάξετε τον προσωπικό σας κωδικό πρόσβασης.</message>
 	<message key="user.profile.editProfile">Διαμόρφωση Προφίλ</message>
 	<message key="user.profile.form.emailRequired">Απαιτείται η συμπλήρωση ενός έγκυρου email .</message>
-	<message key="user.profile.form.firstNameRequired">Απαιτείται η συμπλήρωση του ονόματός σας.</message>
-	<message key="user.profile.form.lastNameRequired">Απαιτείται η συμπλήρωση του επωνύμου σας</message>
 	<message key="user.profile.form.newPasswordRequired">Πρέπει να εισάγετε τον νέο σας κωδικό πρόσβασης.</message>
 	<message key="user.profile.form.oldPasswordInvalid">Ο τρέχων κωδικός πρόσβασης που εισάγατε είναι λανθασμένος.</message>
 	<message key="user.profile.form.openAccessNotifications">Ενημέρωση με email για τα τεύχη ανοικτής πρόσβασης</message>
@@ -81,6 +71,7 @@
 	<message key="user.register.registerAs">Εγγραφείτε ως</message>
 	<message key="user.register">Εγγραφείτε</message>
 	<message key="user.register.usernameRestriction">Το όνομα χρήστη πρέπει να περιέχει μόνο μικρούς χαρακτήρες, αριθμούς και παύλες(-,_).</message>
+	<message key="user.role.assistant">Βοηθός Εκδόσεων</message>
 	<message key="user.role.reader">Αναγνώστης</message>
 	<message key="user.role.readers">Αναγνώστες</message>
 	<message key="user.role.reviewer">Αξιολογητής</message>
@@ -88,7 +79,6 @@
 	<message key="user.role.siteAdmin">Διαχειριστής Ιστοτόπου (Συλλογής)</message>
 	<message key="user.role.siteAdmins">Διαχειριστές Ιστοτόπου (Συλλογής)</message>
 	<message key="user.roles">Ρόλοι</message>
-	<message key="user.salutation">Προσφώνηση</message>
 	<message key="user.sendPassword">Επιβεβαίωση</message>
 	<message key="user.sendPassword.description">Στείλτε μου ένα μήνυμα επιβεβαίωσης με το Όνομα Χρήστη και τον προσωπικό μου κωδικό πρόσβασης (password)</message>
 	<message key="user.signature">Υπογραφή</message>
@@ -98,7 +88,6 @@
 	<message key="user.username">Username</message>
 	<message key="user.workingLanguages">Γλώσσες εργασίας</message>
 	<message key="user.profile.form.profileImageInvalid">Μη έγκυρη μορφή αρχείου εικόνας ή πολύ μεγάλη εικόνα. Επιτρεπτές μορφές αρχείων είναι .gif, .jpg, .png, και το μέγεθος της εικόνας να μην υπερβαίνει τα 150x150 pixels.</message>
-	<message key="user.other">Άλλα</message>
 	<message key="user.affiliation.description">(Το ίδρυμά σας, π.χ. "Πανεπιστήμιο Πατρών")</message>
 	<message key="user.authorization.accessDenied">Η πρόσβαση δεν είναι δυνατή</message>
 	<message key="user.authorization.processAuthenticationTokenRequired">Η διαδικασία ταυτοποίησης λείπει ή δεν είναι έγκυρη.</message>

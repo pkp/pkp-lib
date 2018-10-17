@@ -4,8 +4,8 @@
 <!--
   * locale/fr_CA/reader.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the fr_CA (Français (Canada)) locale.
@@ -165,7 +165,7 @@
 	<message key="rt.admin.sharing.buttonStyleLabel">Style du bouton</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Utiliser le menu déroulant</message>
 	<message key="rt.admin.sharing.advanced">Paramètres avancés (facultatif)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Voir la <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">documentation de personnalisation AddThis.com</a> pour référence.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Voir la <a href="https://www.addthis.com/academy/how-to-create-custom-buttons-with-addthis/">documentation de personnalisation AddThis.com</a> pour référence.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Marque</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Options déroulantes <br /> (liste séparée par des virgules)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Langue</message>
@@ -174,5 +174,5 @@
 	<message key="rt.admin.sharing.logoColorLabel">Couleur du logo</message>
 	<message key="rt.admin.configureSharing">Configurer AddThis</message>
 	<message key="rt.captureCite.web">Web</message>
-	<message key="rt.admin.settings.viewReviewPolicy">Visionner la politique d'examen</message>
+	<message key="rt.admin.settings.viewReviewPolicy">Visionner la politique d'évaluation</message>
 </locale>

@@ -4,8 +4,8 @@
 <!--
   * locale/pt_PT/reader.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -164,7 +164,7 @@
 	<message key="rt.admin.sharing.buttonStyleLabel">Estilo do botão</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Usar menu drop-down</message>
 	<message key="rt.admin.sharing.advanced">Configurações Avançadas (opcional)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Leia a <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">Documentação de customização do AddThis.com</a> para referência.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Leia a <a href="https://www.addthis.com/academy/how-to-create-custom-buttons-with-addthis/">Documentação de customização do AddThis.com</a> para referência.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Marca</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Opções do menu drop-down <br /> (lista separada por vírgula)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Idioma</message>

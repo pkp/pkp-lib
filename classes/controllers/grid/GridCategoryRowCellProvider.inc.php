@@ -3,8 +3,8 @@
 /**
  * @file classes/controllers/grid/GridCategoryRowCellProvider.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class GridCategoryRowCellProvider
@@ -35,13 +35,10 @@ class GridCategoryRowCellProvider extends GridCellProvider {
 	}
 
 	/**
-	 * @see GridCellProvider::getCellActions()
+	 * @copydoc GridCellProvider::getCellActions()
 	 */
-	function getCellActions($request, $row, $column) {
-		// Get cell actions from the row, that are
-		// positioned with the GRID_ACTION_POSITION_ROW_CLICK
-		// constant.
-		return $row->getActions(GRID_ACTION_POSITION_ROW_CLICK);
+	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_ROW_CLICK) {
+		return $row->getActions($position);
 	}
 
 	/**
@@ -70,4 +67,4 @@ class GridCategoryRowCellProvider extends GridCellProvider {
 	}
 }
 
-?>
+

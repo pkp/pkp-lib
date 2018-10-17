@@ -4,8 +4,8 @@
 <!--
   * locale/eu_ES/reader.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the eu_ES (Euskara) locale.
@@ -165,7 +165,7 @@
 	<message key="rt.admin.sharing.buttonStyleLabel">Botoi-estiloa</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Erabili goitibeherako menua</message>
 	<message key="rt.admin.sharing.advanced">Ezarpen aurreratuak (aukerakoa)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Ikusi <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">AddThis.com customization documentation</a> erreferentzia gisa.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Ikusi <a href="https://www.addthis.com/academy/how-to-create-custom-buttons-with-addthis/">AddThis.com customization documentation</a> erreferentzia gisa.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Marka</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Goitibeherako aukerak <br/> (komaz bereizitako zerrenda)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Hizkuntza</message>

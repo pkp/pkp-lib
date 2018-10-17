@@ -4,8 +4,8 @@
 <!--
   * locale/fr_CA/installer.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the fr_CA (Français (Canada)) locale.
@@ -83,4 +83,5 @@
 		<p>2. Vous devez créer un repertoire pour conserver les fichiers téléchargés et il doit être accessible en écriture (voir "Paramètres du fichier" ci-dessous).</p>]]></message>
 	<message key="installer.beacon">Balise</message>
 	<message key="installer.beacon.enable">Procure un identifiant unique de site et un URL pour le protocole OAI pour PKP. Ceux-ci utilisés seulement pour des fins de statistiques et de sécurité.</message>
+	<message key="installer.unsupportedPhpError">La version PHP de votre serveur n'est pas supportée par ce logiciel. Vérifiez les conditions d'installation dans docs/README.</message>
 </locale>

@@ -3,8 +3,8 @@
 /**
  * @file classes/services/PKPSubmissionService.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionService
@@ -19,23 +19,27 @@ use \DBResultRange;
 use \Application;
 use \DAOResultFactory;
 use \DAORegistry;
-
-import('lib.pkp.classes.db.DBResultRange');
+use \ServicesContainer;
+use \PKP\Services\EntityProperties\PKPBaseEntityPropertyService;
 
 define('STAGE_STATUS_SUBMISSION_UNASSIGNED', 1);
+define('SUBMISSION_RETURN_SUBMISSION', 0);
+define('SUBMISSION_RETURN_PUBLISHED', 1);
 
-abstract class PKPSubmissionService {
+abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 
 	/**
 	 * Constructor
 	 */
-	public function __construct() {}
+	public function __construct() {
+		parent::__construct($this);
+	}
 
 	/**
 	 * Get submissions
 	 *
 	 * @param int $contextId
-	 * @param $args array {
+	 * @param array $args {
 	 * 		@option string orderBy
 	 * 		@option string orderDirection
 	 * 		@option int assignedTo
@@ -43,11 +47,54 @@ abstract class PKPSubmissionService {
 	 * 		@option string searchPhrase
 	 * 		@option int count
 	 * 		@option int offset
+	 *		@option string returnObject Whether to return submission or published
+	 *			objects. SUBMISSION_RETURN_SUBMISSION or SUBMISSION_RETURN_PUBLISHED.
+	 *			Default: SUBMISSION_RETURN_SUBMISSION.
 	 * }
 	 *
 	 * @return array
 	 */
-	public function getSubmissionList($contextId, $args = array()) {
+	public function getSubmissions($contextId, $args = array()) {
+		$submissionListQB = $this->_buildGetSubmissionsQueryObject($contextId, $args);
+		$submissionListQO = $submissionListQB->get();
+		$range = $this->getRangeByArgs($args);
+		$dao = Application::getSubmissionDAO();
+		if (!empty($args['returnObject']) && $args['returnObject'] === SUBMISSION_RETURN_PUBLISHED) {
+			$dao = Application::getPublishedSubmissionDAO();
+		}
+		$result = $dao->retrieveRange($submissionListQO->toSql(), $submissionListQO->getBindings(), $range);
+		$queryResults = new DAOResultFactory($result, $dao, '_fromRow');
+
+		return $queryResults->toArray();
+	}
+
+	/**
+	 * Get max count of submissions matching a query request
+	 *
+	 * @see self::getSubmissions()
+	 * @return int
+	 */
+	public function getSubmissionsMaxCount($contextId, $args = array()) {
+		$submissionListQB = $this->_buildGetSubmissionsQueryObject($contextId, $args);
+		$countQO = $submissionListQB->countOnly()->get();
+		$countRange = new DBResultRange($args['count'], 1);
+		$dao = Application::getSubmissionDAO();
+		if (!empty($args['returnObject']) && $args['returnObject'] === SUBMISSION_RETURN_PUBLISHED) {
+			$dao = Application::getPublishedSubmissionDAO();
+		}
+		$countResult = $dao->retrieveRange($countQO->toSql(), $countQO->getBindings(), $countRange);
+		$countQueryResults = new DAOResultFactory($countResult, $dao, '_fromRow');
+
+		return (int) $countQueryResults->getCount();
+	}
+
+	/**
+	 * Build the submission query object for getSubmissions requests
+	 *
+	 * @see self::getSubmissions()
+	 * @return object Query object
+	 */
+	private function _buildGetSubmissionsQueryObject($contextId, $args = array()) {
 
 		$defaultArgs = array(
 			'orderBy' => 'dateSubmitted',
@@ -60,6 +107,7 @@ abstract class PKPSubmissionService {
 			'offset' => 0,
 			'isIncomplete' => false,
 			'isOverdue' => false,
+			'returnObject' => SUBMISSION_RETURN_SUBMISSION,
 		);
 
 		$args = array_merge($defaultArgs, $args);
@@ -72,32 +120,12 @@ abstract class PKPSubmissionService {
 			->filterByStageIds($args['stageIds'])
 			->filterByIncomplete($args['isIncomplete'])
 			->filterByOverdue($args['isOverdue'])
-			->searchPhrase($args['searchPhrase']);
+			->searchPhrase($args['searchPhrase'])
+			->returnObject($args['returnObject']);
 
-		\HookRegistry::call('Submission::getSubmissionList::queryBuilder', array(&$submissionListQB, $contextId, $args));
+		\HookRegistry::call('Submission::getSubmissions::queryBuilder', array($submissionListQB, $contextId, $args));
 
-		$submissionListQO = $submissionListQB->get();
-		$range = new DBResultRange($args['count'], null, $args['offset']);
-
-		$submissionDao = Application::getSubmissionDAO();
-		$result = $submissionDao->retrieveRange($submissionListQO->toSql(), $submissionListQO->getBindings(), $range);
-		$queryResults = new DAOResultFactory($result, $submissionDao, '_fromRow');
-
-		// We have to run $queryResults->toArray() before we load the next
-		// query, as it seems to interfere with the results.
-		$data = array(
-			'items' => $this->toArray($queryResults->toArray()),
-		);
-
-		$countQO = $submissionListQB->countOnly()->get();
-		$countRange = new DBResultRange($args['count'], 1);
-
-		$countResult = $submissionDao->retrieveRange($countQO->toSql(), $countQO->getBindings(), $countRange);
-		$countQueryResults = new DAOResultFactory($countResult, $submissionDao, '_fromRow');
-
-		$data['maxItems'] = (int) $countQueryResults->getCount();
-
-		return $data;
+		return $submissionListQB;
 	}
 
 	/**
@@ -110,11 +138,10 @@ abstract class PKPSubmissionService {
 	 *
 	 * @param $submission Submission
 	 * @param $userId an optional user id
-	 * @param $stageName string An optional suggested stage name
 	 * @return string|false URL; false if the user does not exist or an
 	 *   appropriate access URL could not be determined
 	 */
-	public function getWorkflowUrlByUserRoles($submission, $userId = null, $stageName = null) {
+	public function getWorkflowUrlByUserRoles($submission, $userId = null) {
 
 		$request = Application::getRequest();
 
@@ -196,7 +223,7 @@ abstract class PKPSubmissionService {
 			ROUTE_PAGE,
 			$submissionContext->getPath(),
 			'workflow',
-			$stageName?$stageName:'access',
+			'access',
 			$submission->getId()
 		);
 	}
@@ -259,7 +286,6 @@ abstract class PKPSubmissionService {
 	/**
 	 * Get review rounds for a submission
 	 *
-	 * @todo account for extra review stage in omp
 	 * @param $submission Submission
 	 * @return array
 	 */
@@ -271,7 +297,6 @@ abstract class PKPSubmissionService {
 	/**
 	 * Get review assignments for a submission
 	 *
-	 * @todo account for extra review stage in omp
 	 * @param $submission Submission
 	 * @return array
 	 */
@@ -282,147 +307,365 @@ abstract class PKPSubmissionService {
 	}
 
 	/**
-	 * Compile submission(s) into an array of data that can be passed to a JS
-	 * component or returned with a REST API endpoint
+	 * Is this submission public?
 	 *
-	 * @param $submissions Submission|array One or more Submission objects
-	 * @param $params array Optional array of role permissions to effect what is
-	 *  returned.
-	 * @param return array
+	 * @param $submission Submission
+	 * @return boolean
 	 */
-	public function toArray($submissions, $params = array()) {
+	public function isPublic($submission) {
+		$isPublic = false;
+		\HookRegistry::call('Submission::isPublic', array(&$isPublic, $submission));
+		return $isPublic;
+	}
 
-		if (is_a($submissions, 'Submission')) {
-			$submissions = array($submissions);
+	/**
+	 * Is this user allowed to view the author details?
+	 *
+	 * - Anyone can view published submission authors
+	 * - Reviewers can only view authors in open reviews
+	 * - Managers and admins can view authors of any submission
+	 * - Subeditors, authors and assistants can only view authors in assigned subs
+	 *
+	 * @param $user User
+	 * @param $submission Submission
+	 * @return boolean
+	 */
+	public function canUserViewAuthor($user, $submission) {
+
+		if ($this->isPublic($submission)) {
+			return true;
 		}
 
-		$defaultParams = array(
-			'id' => true,
-			'title' => true,
-			'subtitle' => true,
-			'fullTitle' => true,
-			'prefix' => true,
-			'author' => array(
-				ROLE_ID_MANAGER,
-				ROLE_ID_SITE_ADMIN,
-				ROLE_ID_SUB_EDITOR,
-				ROLE_ID_AUTHOR,
-				ROLE_ID_ASSISTANT,
-			),
-			'abstract' => true,
-			'discipline' => true,
-			'subject' => true,
-			'type' => true,
-			'rights' => true,
-			'source' => true,
-			'language' => true,
-			'sponsor' => true,
-			'pages' => true,
-			'pageArray' => true,
-			'citations' => true,
-			'copyrightNotice' => true,
-			'copyrightHolder' => array(
-				ROLE_ID_MANAGER,
-				ROLE_ID_SITE_ADMIN,
-				ROLE_ID_SUB_EDITOR,
-				ROLE_ID_AUTHOR,
-				ROLE_ID_ASSISTANT,
-			),
-			'copyrightYear' => true,
-			'licenseUrl' => true,
-			'locale' => true,
-			'dateSubmitted' => true,
-			'dateStatusModified' => true,
-			'lastModified' => true,
-			'status' => true,
-			'submissionProgress' => true,
-			'stages' => true,
-			'reviewRounds' => true,
-			'reviewAssignments' => true,
-			'datePublished' => true,
-			'urlWorkflow' => true,
-			'urlPublished' => true,
-		);
+		$reviewAssignments = $this->getReviewAssignments($submission);
+		foreach ($reviewAssignments as $reviewAssignment) {
+			if ($user->getId() == $reviewAssignment->getReviewerId()) {
+				return $reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_DOUBLEBLIND ? false : true;
+			}
+		}
 
-		\HookRegistry::call('Submission::toArray::defaultParams', array(&$defaultParams, $params, $submissions));
+		$contextId = $submission->getContextId();
 
-		$params = $this->compileToArrayParams($defaultParams, $params);
+		if ($user->hasRole(array(ROLE_ID_MANAGER), $contextId) || $user->hasRole(array(ROLE_ID_SITE_ADMIN), CONTEXT_ID_NONE)) {
+			return true;
+		}
 
-		$output = array();
-		foreach ($submissions as $submission) {
-			assert(is_a($submission, 'Submission'));
-
-			$compiled = array();
-			foreach ($params as $param => $val) {
-
-				switch ($param) {
-
-					case 'author':
-						$compiled[$param] = array(
-							// @todo Author needs a toArray() method we can use
-							// 'authors' => $this->getAuthors();
-							// 'primaryAuthor' => $this->getPrimaryAuthor();
-							'authorString' => $submission->getAuthorString(),
-							'shortAuthorString' => $submission->getShortAuthorString(),
-							'firstAuthor' => $submission->getFirstAuthor(),
-							'authorEmails' => $submission->getAuthorEmails(),
-						);
-						break;
-
-					case 'status':
-						$compiled[$param] = array(
-							'id' => (int) $submission->getStatus(),
-							'label' => __($submission->getStatusKey()),
-						);
-						break;
-
-					case 'stages':
-						$compiled[$param] = $this->toArrayStageDetails($submission);
-						break;
-
-					case 'submissionProgress':
-						$compiled[$param] = (int) $submission->getSubmissionProgress();
-						break;
-
-					case 'reviewRounds':
-						$compiled[$param] = $this->toArrayReviewRounds($submission);
-						break;
-
-					case 'reviewAssignments':
-						$compiled[$param] = $this->toArrayReviewAssignments($submission);
-						break;
-
-					case 'source':
-					case 'copyrightNotice':
-					case 'rights':
-						// @todo needs params
-						break;
-
-					case 'urlWorkflow':
-						$compiled[$param] = $this->getWorkflowUrlByUserRoles($submission);
-						break;
-
-					default:
-
-						$method = '';
-						if (method_exists($submission, 'getLocalized' . ucfirst($param))) {
-							$method = 'getLocalized' . ucfirst($param);
-						} elseif (method_exists($submission, 'get' . ucfirst($param))) {
-							$method = 'get' . ucfirst($param);
-						}
-						if (!empty($method)) {
-							$compiled[$param] = $submission->{$method}();
-						}
-						break;
+		if ($user->hasRole(array(ROLE_ID_SUB_EDITOR, ROLE_ID_AUTHOR, ROLE_ID_ASSISTANT), $contextId)) {
+			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+			$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId());
+			while ($stageAssignment = $stageAssignments->next()) {
+				if ($user->getId() == $stageAssignment->getUserId()) {
+					return true;
 				}
 			}
-
-			$output[] = $compiled;
 		}
 
-		\HookRegistry::call('Submission::toArray::output', array(&$output, $params, $submissions));
+		return false;
+	}
 
-		return $output;
+	/**
+	 * @copydoc \PKP\Services\EntityProperties\EntityPropertyInterface::getProperties()
+	 */
+	public function getProperties($submission, $props, $args = null) {
+		\AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION);
+		\PluginRegistry::loadCategory('pubIds', true);
+		$values = array();
+		$authorService = \ServicesContainer::instance()->get('author');
+		$request = \Application::getRequest();
+		$dispatcher = $request->getDispatcher();
+
+		// Retrieve the submission's context for properties that require it
+		if (array_intersect(array('urlAuthorWorkflow', 'urlEditorialWorkflow'), $props)) {
+			$submissionContext = $request->getContext();
+			if (!$submissionContext || $submissionContext->getId() != $submission->getContextId()) {
+				$contextDao = Application::getContextDAO();
+				$submissionContext = $contextDao->getById($submission->getContextId());
+			}
+		}
+
+		foreach ($props as $prop) {
+			switch ($prop) {
+				case 'id':
+					$values[$prop] = (int) $submission->getId();
+					break;
+				case 'title':
+					$values[$prop] = $submission->getTitle(null);
+					break;
+				case 'subtitle':
+					$values[$prop] = $submission->getSubtitle(null);
+					break;
+				case 'fullTitle':
+					$values[$prop] = $submission->getFullTitle(null);
+					break;
+				case 'prefix':
+					$values[$prop] = $submission->getPrefix(null);
+					break;
+				case 'authorString':
+					$values[$prop] = $submission->getAuthorString();
+					break;
+				case 'shortAuthorString':
+					$values[$prop] = $submission->getShortAuthorString();
+					break;
+				case 'authors':
+				case 'authorsSummary';
+					$authors = $submission->getAuthors();
+					$values['authors'] = [];
+					foreach ($authors as $author) {
+						$values['authors'][] = ($prop === 'authors')
+							? $authorService->getFullProperties($author, $args)
+							: $authorService->getSummaryProperties($author, $args);
+					}
+					break;
+				case 'abstract':
+					$values[$prop] = $submission->getAbstract(null);
+					break;
+				case 'discipline':
+					$values[$prop] = $submission->getDiscipline(null);
+					break;
+				case 'subject':
+					$values[$prop] = $submission->getSubject(null);
+					break;
+				case 'type':
+					$values[$prop] = $submission->getType(null);
+					break;
+				case 'language':
+					$values[$prop] = $submission->getLanguage();
+					break;
+				case 'sponsor':
+					$values[$prop] = $submission->getSponsor(null);
+					break;
+				case 'pages':
+					$values[$prop] = $submission->getPages();
+					break;
+				case 'copyrightHolder':
+					$values[$prop] = $submission->getCopyrightHolder(null);
+					break;
+				case 'copyrightYear':
+					$values[$prop] = $submission->getCopyrightYear();
+					break;
+				case 'licenseUrl':
+					$values[$prop] = $submission->getLicenseURL();
+					break;
+				case 'locale':
+					$values[$prop] = $submission->getLocale();
+					break;
+				case 'dateSubmitted':
+					$values[$prop] = $submission->getDateSubmitted();
+					break;
+				case 'dateStatusModified':
+					$values[$prop] = $submission->getDateStatusModified();
+					break;
+				case 'lastModified':
+					$values[$prop] = $submission->getLastModified();
+					break;
+				case 'datePublished':
+					$values[$prop] = $submission->getDatePublished();
+					break;
+				case 'status':
+					$values[$prop] = array(
+						'id' => (int) $submission->getStatus(),
+						'label' => __($submission->getStatusKey()),
+					);
+					break;
+				case 'submissionProgress':
+					$values[$prop] = (int) $submission->getSubmissionProgress();
+					break;
+				case 'urlWorkflow':
+					$values[$prop] = $this->getWorkflowUrlByUserRoles($submission);
+					break;
+				case 'urlAuthorWorkflow':
+					$values[$prop] = $dispatcher->url(
+						$request,
+						ROUTE_PAGE,
+						$submissionContext->getPath(),
+						'authorDashboard',
+						'submission',
+						$submission->getId()
+					);
+					break;
+				case 'urlEditorialWorkflow':
+					$values[$prop] = $dispatcher->url(
+						$request,
+						ROUTE_PAGE,
+						$submissionContext->getPath(),
+						'workflow',
+						'access',
+						$submission->getId()
+					);
+					break;
+				case '_href':
+					$values[$prop] = null;
+					if (!empty($args['slimRequest'])) {
+						$route = $args['slimRequest']->getAttribute('route');
+						$arguments = $route->getArguments();
+						$values[$prop] = $this->getAPIHref(
+							$args['request'],
+							$arguments['contextPath'],
+							$arguments['version'],
+							'submissions',
+							$submission->getId()
+						);
+					}
+					break;
+				case 'stages':
+					$values[$prop] = $this->getPropertyStages($submission);
+					break;
+				case 'reviewAssignments':
+					$values[$prop] = $this->getPropertyReviewAssignments($submission);
+					break;
+				case 'reviewRounds':
+					$values[$prop] = $this->getPropertyReviewRounds($submission);
+					break;
+			}
+		}
+
+		\HookRegistry::call('Submission::getProperties::values', array(&$values, $submission, $props, $args));
+
+		return $values;
+	}
+
+	/**
+	 * @copydoc \PKP\Services\EntityProperties\EntityPropertyInterface::getSummaryProperties()
+	 */
+	public function getSummaryProperties($submission, $args = null) {
+		\PluginRegistry::loadCategory('pubIds', true);
+		$request = $args['request'];
+		$context = $request->getContext();
+		$currentUser = $request->getUser();
+
+		$props = array (
+			'id','title','subtitle','fullTitle','prefix',
+			'abstract','language','pages','datePublished','status',
+			'submissionProgress','urlWorkflow','urlPublished','galleysSummary','_href',
+		);
+
+		if ($this->canUserViewAuthor($currentUser, $submission)) {
+			$props[] = 'authorString';
+			$props[] = 'shortAuthorString';
+			$props[] = 'authorsSummary';
+		}
+
+		\HookRegistry::call('Submission::getProperties::summaryProperties', array(&$props, $submission, $args));
+
+		return $this->getProperties($submission, $props, $args);
+	}
+
+	/**
+	 * @copydoc \PKP\Services\EntityProperties\EntityPropertyInterface::getFullProperties()
+	 */
+	public function getFullProperties($submission, $args = null) {
+		\PluginRegistry::loadCategory('pubIds', true);
+		$request = $args['request'];
+		$context = $request->getContext();
+		$currentUser = $request->getUser();
+
+		$props = array (
+			'id','title','subtitle','fullTitle','prefix','abstract',
+			'discipline','subject','type','language','sponsor','pages',
+			'copyrightYear','licenseUrl','locale','dateSubmitted','dateStatusModified','lastModified','datePublished',
+			'status','submissionProgress','urlWorkflow','urlPublished',
+			'galleys','_href',
+		);
+
+		if ($this->canUserViewAuthor($currentUser, $submission)) {
+			$props[] = 'authorString';
+			$props[] = 'shortAuthorString';
+			$props[] = 'authors';
+			$props[] = 'copyrightHolder';
+		}
+
+		\HookRegistry::call('Submission::getProperties::fullProperties', array(&$props, $submission, $args));
+
+		return $this->getProperties($submission, $props, $args);
+	}
+
+	/**
+	 * Returns properties for the backend UI SubmissionListPanel component
+	 * @param Submission $submission
+	 * @param array extra arguments
+	 *		$args['request'] PKPRequest Required
+	 *		$args['slimRequest'] SlimRequest
+	 */
+	public function getBackendListProperties($submission, $args = null) {
+		\PluginRegistry::loadCategory('pubIds', true);
+		$request = $args['request'];
+		$context = $request->getContext();
+		$currentUser = $request->getUser();
+
+		$props = array (
+			'id','fullTitle','status','submissionProgress','stages','reviewRounds','reviewAssignments',
+			'locale', 'urlWorkflow','urlAuthorWorkflow','urlEditorialWorkflow','urlPublished','_href',
+		);
+
+		if ($this->canUserViewAuthor($currentUser, $submission)) {
+			$props[] = 'authorString';
+		}
+
+		\HookRegistry::call('Submission::getBackendListProperties::properties', array(&$props, $submission, $args));
+
+		return $this->getProperties($submission, $props, $args);
+	}
+
+	/**
+	 * Get details about the review assignments for a submission
+	 *
+	 * @todo account for extra review stage in omp
+	 * @param $submission Submission
+	 */
+	public function getPropertyReviewAssignments($submission) {
+
+		$reviewAssignments = $this->getReviewAssignments($submission);
+
+		$reviews = array();
+		foreach($reviewAssignments as $reviewAssignment) {
+			// @todo for now, only show reviews that haven't been
+			// declined
+			if ($reviewAssignment->getDeclined()) {
+				continue;
+			}
+
+			$currentUser = \Application::getRequest()->getUser();
+			$dateFormatShort = \Config::getVar('general', 'date_format_short');
+			$due = is_null($reviewAssignment->getDateDue()) ? null : strftime($dateFormatShort, strtotime($reviewAssignment->getDateDue()));
+			$responseDue = is_null($reviewAssignment->getDateResponseDue()) ? null : strftime($dateFormatShort, strtotime($reviewAssignment->getDateResponseDue()));
+
+			$reviews[] = array(
+				'id' => (int) $reviewAssignment->getId(),
+				'isCurrentUserAssigned' => $currentUser->getId() == (int) $reviewAssignment->getReviewerId(),
+				'statusId' => (int) $reviewAssignment->getStatus(),
+				'status' => __($reviewAssignment->getStatusKey()),
+				'due' => $due,
+				'responseDue' => $responseDue,
+				'round' => (int) $reviewAssignment->getRound(),
+				'roundId' => (int) $reviewAssignment->getReviewRoundId(),
+			);
+		}
+
+		return $reviews;
+	}
+
+	/**
+	 * Get details about the review rounds for a submission
+	 *
+	 * @todo account for extra review stage in omp
+	 * @param $submission Submission
+	 * @return array
+	 */
+	public function getPropertyReviewRounds($submission) {
+
+		$reviewRounds = $this->getReviewRounds($submission);
+
+		$rounds = array();
+		foreach ($reviewRounds as $reviewRound) {
+			$rounds[] = array(
+				'id' => $reviewRound->getId(),
+				'round' => $reviewRound->getRound(),
+				'stageId' => $reviewRound->getStageId(),
+				'statusId' => $reviewRound->determineStatus(),
+				'status' => __($reviewRound->getStatusKey()),
+			);
+		}
+
+		return $rounds;
 	}
 
 	/**
@@ -450,13 +693,17 @@ abstract class PKPSubmissionService {
 	 *      revision files.
 	 *   }
 	 */
-	public function toArrayStageDetails($submission, $stageIds = null) {
+	public function getPropertyStages($submission, $stageIds = null) {
 
 		if (is_null($stageIds)) {
 			$stageIds = Application::getApplicationStages();
 		} elseif (is_int($stageIds)) {
 			$stageIds = array($stageIds);
 		}
+
+		$currentUser = \Application::getRequest()->getUser();
+		$context = \Application::getRequest()->getContext();
+		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 
 		$stages = array();
 		foreach ($stageIds as $stageId) {
@@ -492,6 +739,18 @@ abstract class PKPSubmissionService {
 				);
 			}
 
+			$currentUserAssignedRoles = array();
+			if ($currentUser) {
+				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+				$stageAssignmentsResult = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submission->getId(), $currentUser->getId(), $stageId);
+				$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+				while ($stageAssignment = $stageAssignmentsResult->next()) {
+					$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId(), $contextId);
+					$currentUserAssignedRoles[] = (int) $userGroup->getRoleId();
+				}
+			}
+			$stage['currentUserAssignedRoles'] = array_values(array_unique($currentUserAssignedRoles));
+
 			// Stage-specific statuses
 			switch ($stageId) {
 
@@ -520,7 +779,7 @@ abstract class PKPSubmissionService {
 						$stage['status'] = __($reviewRound->getStatusKey());
 
 						// Revision files in this round.
-						import('lib.pkp.classes.submission.SubmissionFile'); // Import constants
+						import('lib.pkp.classes.submission.SubmissionFile');
 						$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 						$submissionFiles = $submissionFileDao->getRevisionsByReviewRound($reviewRound, SUBMISSION_FILE_REVIEW_REVISION);
 						$stage['files'] = array(
@@ -545,10 +804,6 @@ abstract class PKPSubmissionService {
 
 				// Get revision files for editing and production stages.
 				// Review rounds are handled separately in the review stage below.
-				// @todo consider useful statuses for these stages:
-				//  - No copyeditor assigned
-				//  - No layout editor assigned
-				//  - No editor assigned (if an editor is removed during workflow)
 				case WORKFLOW_STAGE_ID_EDITING:
 				case WORKFLOW_STAGE_ID_PRODUCTION:
 					import('lib.pkp.classes.submission.SubmissionFile'); // Import constants
@@ -565,201 +820,5 @@ abstract class PKPSubmissionService {
 		}
 
 		return $stages;
-	}
-
-	/**
-	 * Get details about the review rounds for a submission
-	 *
-	 * @todo account for extra review stage in omp
-	 * @param $submission Submission
-	 * @return array
-	 */
-	public function toArrayReviewRounds($submission) {
-
-		$reviewRounds = $this->getReviewRounds($submission);
-
-		$rounds = array();
-		foreach ($reviewRounds as $reviewRound) {
-			$rounds[] = array(
-				'id' => $reviewRound->getId(),
-				'round' => $reviewRound->getRound(),
-				'stageId' => $reviewRound->getStageId(),
-				'statusId' => $reviewRound->determineStatus(),
-				'status' => __($reviewRound->getStatusKey()),
-			);
-		}
-
-		return $rounds;
-	}
-
-	/**
-	 * Get details about the review assignments for a submission
-	 *
-	 * @todo account for extra review stage in omp
-	 * @param $submission Submission
-	 */
-	public function toArrayReviewAssignments($submission) {
-
-		$reviewAssignments = $this->getReviewAssignments($submission);
-
-		$reviews = array();
-		foreach($reviewAssignments as $reviewAssignment) {
-			// @todo for now, only show reviews that haven't been
-			// declined
-			if ($reviewAssignment->getDeclined()) {
-				continue;
-			}
-
-			$currentUser = \Application::getRequest()->getUser();
-			$dateFormatShort = \Config::getVar('general', 'date_format_short');
-			$due = is_null($reviewAssignment->getDateDue()) ? null : strftime($dateFormatShort, strtotime($reviewAssignment->getDateDue()));
-			$responseDue = is_null($reviewAssignment->getDateResponseDue()) ? null : strftime($dateFormatShort, strtotime($reviewAssignment->getDateResponseDue()));
-
-			$reviews[] = array(
-				'id' => (int) $reviewAssignment->getId(),
-				'isCurrentUserAssigned' => $currentUser->getId() == (int) $reviewAssignment->getReviewerId(),
-				'statusId' => (int) $reviewAssignment->getStatus(),
-				'status' => __($reviewAssignment->getStatusKey()),
-				'due' => $due,
-				'responseDue' => $responseDue,
-				'round' => (int) $reviewAssignment->getRound(),
-				'roundId' => (int) $reviewAssignment->getReviewRoundId(),
-			);
-		}
-
-		return $reviews;
-	}
-
-	/**
-	 * Compiles the params passed to the toArray method
-	 *
-	 * Merges requested params with the defaults, and filters out those which
-	 * the user does not have permission to access.
-	 *
-	 * @params array $defaultParams The default param settings
-	 * @params array $params The param settings for this request
-	 * @return array
-	 */
-	public function compileToArrayParams($defaultParams, $params = array()) {
-
-		$compiled = array_merge($defaultParams, $params);
-
-		$result = array_filter($compiled, function($param) {
-			$currentUser = \Application::getRequest()->getUser();
-			$context = \Application::getRequest()->getContext();
-			if (!$context) {
-				return false;
-			}
-
-			if ($param === true) {
-				return true;
-			} elseif (is_array($param) && !is_null($currentUser)) {
-				if ($currentUser->hasRole($param, $context->getId())) {
-					return true;
-				}
-			}
-
-			return false;
-		});
-
-		return $result;
-	}
-
-	/**
-	 * Retrieve all submission files
-	 *
-	 * @param int $contextId
-	 * @param Submission $submission
-	 * @param int $fileStage Limit to a specific file stage
-	 *
-	 * @return array
-	 */
-	public function getFiles($contextId, $submission, $fileStage = null) {
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
-		$submissionFiles = $submissionFileDao->getLatestRevisions($submission->getId(), $fileStage);
-		return $submissionFiles;
-	}
-
-	/**
-	 * Retrieve participants for a specific stage
-	 *
-	 * @param int $contextId
-	 * @param Submission $submission
-	 * @param int $stageId
-	 *
-	 * @return array
-	 */
-	public function getParticipantsByStage($contextId, $submission, $stageId) {
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-		$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId(
-			$submission->getId(),
-			$stageId
-		);
-		// Make a list of the active (non-reviewer) user groups.
-		$userGroupIds = array();
-		while ($stageAssignment = $stageAssignments->next()) {
-			$userGroupIds[] = $stageAssignment->getUserGroupId();
-		}
-		// Fetch the desired user groups as objects.
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-		$result = array();
-		$userGroups = $userGroupDao->getUserGroupsByStage(
-			$contextId,
-			$stageId
-		);
-		$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO'); /* @var $userStageAssignmentDao UserStageAssignmentDAO */
-		while ($userGroup = $userGroups->next()) {
-			if ($userGroup->getRoleId() == ROLE_ID_REVIEWER) continue;
-			if (!in_array($userGroup->getId(), $userGroupIds)) continue;
-			$roleId = $userGroup->getRoleId();
-			$users = $userStageAssignmentDao->getUsersBySubmissionAndStageId(
-				$submission->getId(),
-				$stageId,
-				$userGroup->getId()
-			);
-			while($user = $users->next()) {
-				$result[] = array(
-					'roleId'	=> $userGroup->getRoleId(),
-					'roleName'	=> $userGroup->getLocalizedName(),
-					'userId'	=> $user->getId(),
-					'userFullName'	=> $user->getFullName(),
-				);
-			}
-		}
-		return $result;
-	}
-
-	/**
-	 * Retrieve galley list
-	 *
-	 * @param int $contextId
-	 * @param Submission $submissionId
-	 * @throws Exceptions\SubmissionStageException
-	 *
-	 * @return array
-	 */
-	public function getGalleys($contextId, $submission) {
-		$data = array();
-		$stageId = (int) $submission->getStageId();
-		if ($stageId !== WORKFLOW_STAGE_ID_PRODUCTION) {
-			throw new Exceptions\SubmissionStageNotValidException($contextId, $submission->getId());
-		}
-		$galleyDao = DAORegistry::getDAO('ArticleGalleyDAO');
-		$galleys = $galleyDao->getBySubmissionId($submission->getId());
-		while ($galley = $galleys->next()) {
-			$submissionFile = $galley->getFile();
-			$data[] = array(
-				'id'		=> $galley->getId(),
-				'submissionId'	=> $galley->getSubmissionId(),
-				'locale'	=> $galley->getLocale(),
-				'label'		=> $galley->getGalleyLabel(),
-				'seq'		=> $galley->getSequence(),
-				'remoteUrl'	=> $galley->getremoteUrl(),
-				'fileId'	=> $galley->getFileId(),
-				'revision'	=> $submissionFile->getRevision(),
-				'fileType'	=> $galley->getFileType(),
-			);
-		}
-		return $data;
 	}
 }

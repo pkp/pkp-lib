@@ -3,8 +3,8 @@
 /**
  * @file classes/notification/managerDelegate/PendingRevisionsNotificationManager.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PendingRevisionsNotificationManager
@@ -101,7 +101,7 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate {
 		$expectedStageId = $stageData['id'];
 
 		$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
-		$pendingRevisionDecision = $editDecisionDao->findValidPendingRevisionsDecision($submissionId, $expectedStageId);
+		$pendingRevisionDecision = $editDecisionDao->findValidPendingRevisionsDecision($submissionId, $expectedStageId, SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS);
 		$removeNotifications = false;
 
 		if ($pendingRevisionDecision) {
@@ -168,4 +168,4 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate {
 	}
 }
 
-?>
+

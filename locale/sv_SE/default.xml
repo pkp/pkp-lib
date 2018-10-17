@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/sv_SE/default.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Swedish_(sv_SE)
+  * Localization strings for default settings for setup items.
+  -->
+
+<locale name="sv_SE" full_name="Svenska">
+	<!-- Group defaults -->
+	<message key="default.groups.name.siteAdmin">Webbplatsadministratör</message>
+	<message key="default.groups.plural.siteAdmin">Webbplatsadministratörer</message>
+	<message key="default.groups.name.productionEditor">Produktionsredaktör</message>
+	<message key="default.groups.plural.productionEditor">Produktionsredaktörer</message>
+	<message key="default.groups.abbrev.productionEditor">P.red</message>
+	<message key="default.groups.name.copyeditor">Manusredaktör</message>
+	<message key="default.groups.plural.copyeditor">Manusredaktörer</message>
+	<message key="default.groups.abbrev.copyeditor">M.red</message>
+	<message key="default.groups.name.proofreader">Korrekturläsare</message>
+	<message key="default.groups.plural.proofreader">Korrekturläsare</message>
+	<message key="default.groups.abbrev.proofreader">Korr</message>
+	<message key="default.groups.name.designer">Designer</message>
+	<message key="default.groups.plural.designer">Designers</message>
+	<message key="default.groups.abbrev.designer">Design</message>
+	<message key="default.groups.name.internalReviewer">Intern granskare</message>
+	<message key="default.groups.plural.internalReviewer">Interna granskare</message>
+	<message key="default.groups.abbrev.internalReviewer">IG</message>
+	<message key="default.groups.name.marketing">Marknadsförings- och försäljningskoordinator</message>
+	<message key="default.groups.plural.marketing">Marknadsförings- och försäljningskoordinatorer</message>
+	<message key="default.groups.abbrev.marketing">MF</message>
+	<message key="default.groups.name.funding">Finansieringskoordinator</message>
+	<message key="default.groups.plural.funding">Finansieringskoordinatorer</message>
+	<message key="default.groups.abbrev.funding">FK</message>
+	<message key="default.groups.name.indexer">Indexerare</message>
+	<message key="default.groups.plural.indexer">Indexerare</message>
+	<message key="default.groups.abbrev.indexer">Ind</message>
+	<message key="default.groups.name.layoutEditor">Layout-redaktör</message>
+	<message key="default.groups.plural.layoutEditor">Layout-redaktörer</message>
+	<message key="default.groups.abbrev.layoutEditor">L.red</message>
+	<message key="default.groups.name.author">Författare</message>
+	<message key="default.groups.plural.author">Författare</message>
+	<message key="default.groups.abbrev.author">Förf</message>
+	<message key="default.groups.name.translator">Översättare</message>
+	<message key="default.groups.plural.translator">Översättare</message>
+	<message key="default.groups.abbrev.translator">Övers</message>
+	<message key="default.groups.name.reader">Läsare</message>
+	<message key="default.groups.plural.reader">Läsare</message>
+	<message key="default.groups.abbrev.reader">Läs</message>
+
+	<!--  common app genre defaults -->
+	<message key="default.genres.other">Övriga</message>
+	<message key="default.genres.multimedia">Multimedia</message>
+	<message key="default.genres.image">Bild</message>
+	<message key="default.genres.styleSheet">HTML-stilmall</message>
+</locale>

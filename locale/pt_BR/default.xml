@@ -4,8 +4,8 @@
 <!--
   * locale/pt_BR/default.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2003-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Locale information: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Portuguese_(pt_BR)
   * Localization strings for default settings for setup items.
@@ -15,8 +15,8 @@
 	<!-- Group defaults -->
 	<message key="default.groups.name.siteAdmin">Administrador do site</message>
 	<message key="default.groups.plural.siteAdmin">Administradores do site</message>
-	<message key="default.groups.name.productionEditor">Editor de produção</message>
-	<message key="default.groups.plural.productionEditor">Editores de produção</message>
+	<message key="default.groups.name.productionEditor">Editor de Leiaute</message>
+	<message key="default.groups.plural.productionEditor">Editores de Leiaute</message>
 	<message key="default.groups.abbrev.productionEditor">EP</message>
 	<message key="default.groups.name.copyeditor">Editor de texto</message>
 	<message key="default.groups.plural.copyeditor">Editores de texto</message>

@@ -3,8 +3,8 @@
 /**
  * @file lib/pkp/controllers/page/PageHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PageHandler
@@ -31,7 +31,6 @@ class PageHandler extends Handler {
 			array('userNav', 'userNavBackend', 'tasks', 'css'),
 			SITE_ACCESS_ALL_ROLES
 		));
-		if (!Config::getVar('general', 'installed')) define('SESSION_DISABLE_INIT', true);
 
 		$this->setEnforceRestrictedSite(false);
 		return parent::authorize($request, $args, $roleAssignments);
@@ -220,4 +219,4 @@ class PageHandler extends Handler {
 	}
 }
 
-?>
+

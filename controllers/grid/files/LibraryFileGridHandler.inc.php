@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/files/LibraryFileGridHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class LibraryFileGridHandler
@@ -76,10 +76,10 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 
 	/*
 	 * Configure the grid
-	 * @param $request PKPRequest
+	 * @see CategoryGridHandler::initialize
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 
 		$router = $request->getRouter();
 		$this->_context = $router->getContext($request);
@@ -198,13 +198,12 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 	function saveFile($args, $request) {
 		$router = $request->getRouter();
 		$context = $request->getContext();
-		$user = $request->getUser();
 
 		$fileForm = $this->_getNewFileForm($context);
 		$fileForm->readInputData();
 
 		if ($fileForm->validate()) {
-			$fileId = $fileForm->execute($user->getId());
+			$fileId = $fileForm->execute();
 
 			// Let the calling grid reload itself
 			return DAO::getDataChangedEvent();
@@ -272,7 +271,7 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 
 		if ($request->checkCSRF() && $fileId) {
 			$libraryFileManager = new LibraryFileManager($context->getId());
-			$libraryFileManager->deleteFile($fileId);
+			$libraryFileManager->deleteById($fileId);
 
 			return DAO::getDataChangedEvent();
 		}
@@ -333,4 +332,4 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 	}
 }
 
-?>
+

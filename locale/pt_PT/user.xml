@@ -4,8 +4,8 @@
 <!--
   * locale/pt_PT/user.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -21,13 +21,7 @@
 	<message key="user.dateRegistered">Data do Registo</message>
 	<message key="user.editMyProfile">Editar Perfil</message>
 	<message key="user.email">E-mail</message>
-	<message key="user.feminine">F</message>
-	<message key="user.firstName">Nome</message>
-	<message key="user.gender">Género</message>
-	<message key="user.initialsExample">José Castro Silva = JCS</message>
-	<message key="user.initials">Iniciais</message>
 	<message key="user.interests">Área de Interesse para Revisão</message>
-	<message key="user.lastName">Apelido</message>
 	<message key="user.login.accountDisabledWithReason">A sua conta foi desactivada pelo seguinte motivo: {$reason}</message>
 	<message key="user.login.accountDisabled">A sua conta foi desactivada. Entre em contacto com o administrador para obter mais informações.</message>
 	<message key="user.login.accountNotValidated">É necessário validar o seu endereço de e-mail em {$email}. Verifique a sua caixa de correio electrónico e siga as instruções fornecidas na mensagem recebida. Na eventualidade de não ter recebido a notificação, entre em contacto com o administrador para suporte.</message>
@@ -45,8 +39,6 @@
 	<message key="user.login.resetPassword">Nova Senha</message>
 	<message key="user.logOut">Sair do Sistema</message>
 	<message key="user.mailingAddress">Endereço Postal</message>
-	<message key="user.masculine">M</message>
-	<message key="user.middleName">Nome do Meio</message>
 	<message key="user.myAccount">Minha Conta</message>
 	<message key="user.name">Nome</message>
 	<message key="user.password">Senha</message>
@@ -55,8 +47,6 @@
 	<message key="user.profile.changePasswordInstructions">Insira as senhas actual e nova para alterar a senha de acesso à conta.</message>
 	<message key="user.profile.editProfile">Editar Perfil</message>
 	<message key="user.profile.form.emailRequired">Obrigatório endereço e-mail válido .</message>
-	<message key="user.profile.form.firstNameRequired">Nome obrigatório.</message>
-	<message key="user.profile.form.lastNameRequired">Apelido obrigatório.</message>
 	<message key="user.profile.form.newPasswordRequired">Nova Senha obrigatória.</message>
 	<message key="user.profile.form.oldPasswordInvalid">Senha Actual incorrecta.</message>
 	<message key="user.profile.form.openAccessNotifications">Notificações via e-mail de Edição de Acesso Livre</message>
@@ -84,7 +74,6 @@
 	<message key="user.role.siteAdmin">Administrador do Portal</message>
 	<message key="user.role.siteAdmins">Administradores do Portal</message>
 	<message key="user.roles">Funções</message>
-	<message key="user.salutation">Forma de tratamento</message>
 	<message key="user.sendPassword">Confirmação</message>
 	<message key="user.sendPassword.description">Enviar e-mail de confirmação incluindo nome de utilizador e senha</message>
 	<message key="user.signature">Assinatura</message>
@@ -94,7 +83,6 @@
 	<message key="user.username">Nome de utilizador</message>
 	<message key="user.workingLanguages">Idiomas Conhecidos</message>
 	<message key="user.profile.form.profileImageInvalid">Formato ou tamanho de imagem inválido para o perfil. Formatos aceites são .gif, .jpg, ou .png, e a imagem não pode exceder 150x150 pixels.</message>
-	<message key="user.other">Outro</message>
 	<message key="user.affiliation.description">(A sua instituição, e.g. "ISPA - Instituto Universitário")</message>
 	<message key="user.gossip">Notas Privadas</message>
 	<message key="user.profile.form.affiliationRequired">Obrigatório inserir uma afiliação.</message>
@@ -106,7 +94,6 @@
 	<message key="user.authorization.accessDenied">Acesso recusado.</message>
 	<message key="user.authorization.processAuthenticationTokenRequired">O token de autenticação de processo não existe ou é inválido.</message>
 	<message key="user.accountInformation">Informação sobre Conta</message>
-	<message key="user.suffix">Sufixo</message>
 	<message key="user.orcid">iD ORCID</message>
 	<message key="user.orcid.orcidInvalid">O ORCID iD fornecido é inválido. Inclua o URI completo (por exemplo, "http://orcid.org/0000-0002-1825-0097").</message>
 	<message key="user.profile.identity">Identidade</message>
@@ -151,4 +138,11 @@
 	<message key="user.role.layoutEditor">Editor Layout</message>
 	<message key="user.authorization.pluginRequired">Não foi especificado um plugin e é obrigatório.</message>
 	<message key="user.role.layoutEditors">Editores Layout</message>
+	<message key="user.gossip.description">As notas aqui introduzidas só serão visíveis aos administradores, gestões de revista, editores e sub-editores.</message>
+	<message key="user.role.assistant">Assistente</message>
+	<message key="user.apiKey">Chave da API</message>
+	<message key="user.apiKeyEnabled">Ative aplicações externas com a chave da API para aceder a esta conta</message>
+	<message key="user.apiKey.generate">Gerar uma nova chave da API</message>
+	<message key="user.apiKey.generateWarning">A geração de uma nova chave de API irá invalidar qualquer chave existente para este utilizador.</message>
+	<message key="user.apiKey.secretRequired">Antes de gerar uma chave da API, o seu administrador terá de criar um "segredo" no ficheiro de configuração ("api_key_secret").</message>
 </locale>

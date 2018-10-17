@@ -2,8 +2,8 @@
 /**
  * @file classes/security/authorization/internal/ReviewRoundRequiredPolicy.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewRoundRequiredPolicy
@@ -19,8 +19,9 @@ class ReviewRoundRequiredPolicy extends DataObjectRequiredPolicy {
 	 * Constructor
 	 * @param $request PKPRequest
 	 * @param $args array request parameters
-	 * @param $submissionParameterName string the request parameter we expect
+	 * @param $parameterName string the request parameter we expect
 	 *  the submission id in.
+	 * @param $operations array Optional list of operations for which this check takes effect. If specified, operations outside this set will not be checked against this policy.
 	 */
 	function __construct($request, &$args, $parameterName = 'reviewRoundId', $operations = null) {
 		parent::__construct($request, $args, $parameterName, 'user.authorization.invalidReviewRound', $operations);
@@ -57,4 +58,4 @@ class ReviewRoundRequiredPolicy extends DataObjectRequiredPolicy {
 	}
 }
 
-?>
+

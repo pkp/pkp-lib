@@ -8,8 +8,8 @@
 /**
  * @file classes/core/Core.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Core
@@ -40,33 +40,6 @@ class Core {
 		}
 
 		return $baseDir;
-	}
-
-	/**
-	 * Sanitize a variable.
-	 * Removes leading and trailing whitespace, normalizes all characters to UTF-8.
-	 * @param $var string
-	 * @return string
-	 */
-	static function cleanVar($var) {
-		// only normalize strings that are not UTF-8 already, and when the system is using UTF-8
-		if ( Config::getVar('i18n', 'charset_normalization') == 'On' && strtolower_codesafe(Config::getVar('i18n', 'client_charset')) == 'utf-8' && !PKPString::utf8_is_valid($var) ) {
-
-			$var = PKPString::utf8_normalize($var);
-
-			// convert HTML entities into valid UTF-8 characters (do not transcode)
-			$var = html_entity_decode($var, ENT_COMPAT, 'UTF-8');
-
-			// strip any invalid UTF-8 sequences
-			$var = PKPString::utf8_bad_strip($var);
-
-			$var = htmlspecialchars($var, ENT_NOQUOTES, 'UTF-8', false);
-		}
-
-		// strip any invalid ASCII control characters
-		$var = PKPString::utf8_strip_ascii_ctrl($var);
-
-		return trim($var);
 	}
 
 	/**
@@ -287,7 +260,7 @@ class Core {
 			// We found the contextPath using the base_url
 			// config file settings. Check if the url starts
 			// with the context path, if not, prepend it.
-			if (strpos($url, '/' . $contextPath) !== 0) {
+			if (strpos($url, '/' . $contextPath . '/') !== 0) {
 				$url = '/' . $contextPath . $url;
 			}
 		}
@@ -485,9 +458,6 @@ class Core {
 			if (count($vars) > $contextDepth + $offset) {
 				if ($isArrayComponent) {
 					$component = array_slice($vars, $contextDepth + $offset);
-					for ($i=0, $count=count($component); $i<$count; $i++) {
-						$component[$i] = Core::cleanVar(get_magic_quotes_gpc() ? stripslashes($component[$i]) : $component[$i]);
-					}
 				} else {
 					$component = $vars[$contextDepth + $offset];
 				}
@@ -505,4 +475,4 @@ class Core {
 	}
 }
 
-?>
+

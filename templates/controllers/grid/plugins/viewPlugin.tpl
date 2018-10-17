@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/plugins/viewPlugin.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @brief View a plugin gallery plugin's details.
@@ -19,7 +19,7 @@
 			{translate key="manager.plugins.pluginGallery.latestCompatible"}
 		</div>
 
-		{if $statusClass == 'older' || $statusClass == 'notinstalled'}
+		{if $installAction && ($statusClass == 'older' || $statusClass == 'notinstalled')}
 			<div class="action_button">
 				{include file="linkAction/linkAction.tpl" action=$installAction contextId="pluginGallery"}
 			</div>

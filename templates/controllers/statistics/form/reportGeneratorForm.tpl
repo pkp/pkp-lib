@@ -1,8 +1,8 @@
 {**
  * templates/controllers/statistics/form/reportGeneratorForm.tpl
  *
- * Copyright (c) 2013-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2013-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Report generator form template.
@@ -83,10 +83,10 @@
 			{/fbvFormSection}
 			<div id="dateRangeElementsWrapper">
 				{fbvFormSection title="common.from"}
-					{html_select_date prefix="dateStart" time=$dateStart start_year=$timeFilterStartYear all_extra="class=\"selectMenu\"" end_year=$timeFilterEndYear field_order=YMD}
+					{html_select_date prefix="dateStart" time=$dateStart all_extra="class=\"selectMenu\"" start_year="0" end_year="+0" field_order=YMD}
 				{/fbvFormSection}
 				{fbvFormSection title="common.until"}
-					{html_select_date prefix="dateEnd" time=$dateEnd start_year=$timeFilterStartYear all_extra="class=\"selectMenu\"" end_year=$timeFilterEndYear field_order=YMD}
+					{html_select_date prefix="dateEnd" time=$dateEnd all_extra="class=\"selectMenu\"" start_year="0" end_year="+0" field_order=YMD}
 				{/fbvFormSection}
 			</div>
 		{/fbvFormArea}

@@ -3,8 +3,8 @@
 /**
  * @file classes/plugins/ImportExportPlugin.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ImportExportPlugin
@@ -62,10 +62,7 @@ abstract class ImportExportPlugin extends Plugin {
 	 */
 	function display($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->register_function(
-			'plugin_url',
-			array($this, 'pluginUrl')
-		);
+		$templateMgr->registerPlugin('function', 'plugin_url', array($this, 'pluginUrl'));
 		$this->_request = $request; // Store this for use by the pluginUrl function
 	}
 
@@ -76,7 +73,7 @@ abstract class ImportExportPlugin extends Plugin {
 	 * @param $smarty Smarty
 	 * @return string
 	 */
-	function pluginUrl($params, &$smarty) {
+	function pluginUrl($params, $smarty) {
 		$dispatcher = $this->_request->getDispatcher();
 		return $dispatcher->url($this->_request, ROUTE_PAGE, null, 'management', 'importexport', array_merge(array('plugin', $this->getName(), isset($params['path'])?$params['path']:array())));
 	}
@@ -161,4 +158,4 @@ abstract class ImportExportPlugin extends Plugin {
 
 }
 
-?>
+

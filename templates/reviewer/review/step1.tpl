@@ -1,8 +1,8 @@
 {**
  * templates/reviewer/review/step1.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Show the review step 1 page
@@ -32,8 +32,12 @@
 		{$submission->getLocalizedAbstract()|strip_unsafe_html}
 	{/fbvFormSection}
 
+	{fbvFormSection label="editor.submissionReview.reviewType"}
+		{$reviewMethod|escape}
+	{/fbvFormSection}
+	
 	{if !$restrictReviewerFileAccess}
-	{url|assign:reviewFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.review.ReviewerReviewFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$reviewAssignment->getStageId() reviewRoundId=$reviewRoundId reviewAssignmentId=$reviewAssignment->getId() escape=false}
+	{capture assign=reviewFilesGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.files.review.ReviewerReviewFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$reviewAssignment->getStageId() reviewRoundId=$reviewRoundId reviewAssignmentId=$reviewAssignment->getId() escape=false}{/capture}
 	{load_url_in_div id="reviewFilesStep1" url=$reviewFilesGridUrl}
 	{/if}
 
@@ -75,6 +79,14 @@
 
 		{fbvFormSection}
 			{fbvElement type="textarea" name="competingInterestsText" id="competingInterestsText" value=$competingInterestsText size=$fbvStyles.size.MEDIUM disabled=$reviewIsComplete rich=true}
+		{/fbvFormSection}
+	{/if}
+
+	{if !$reviewAssignment->getDeclined() && !$reviewAssignment->getDateConfirmed() && $currentContext->getSetting('privacyStatement')}
+		{fbvFormSection list=true}
+			{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}
+			{capture assign="privacyLabel"}{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}{/capture}
+			{fbvElement type="checkbox" id="privacyConsent" required=true value=1 label=$privacyLabel translate=false checked=$privacyConsent}
 		{/fbvFormSection}
 	{/if}
 

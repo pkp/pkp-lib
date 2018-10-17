@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE languages SYSTEM "../../dtd/languages.dtd">
+<!--
+  * locale/sv_SE/languages.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localized list of common languages. Based on ISO 639-1:2002.
+  *
+  -->
+<languages>
+	<language code="ab" name="Abchaziska"/>
+	<language code="aa" name="Afar"/>
+	<language code="af" name="Afrikaans"/>
+	<language code="ak" name="Akan"/>
+	<language code="sq" name="Albanska"/>
+	<language code="am" name="Amhariska"/>
+	<language code="ar" name="Arabiska"/>
+	<language code="an" name="Aragonska"/>
+	<language code="hy" name="Armeniska"/>
+	<language code="as" name="Assamesiska"/>
+	<language code="av" name="Avariska"/>
+	<language code="ae" name="Avestiska"/>
+	<language code="ay" name="Aymara"/>
+	<language code="az" name="Azerbajdzjanska"/>
+	<language code="bm" name="Bambara"/>
+	<language code="ba" name="Basjkiriska"/>
+	<language code="eu" name="Baskiska"/>
+	<language code="be" name="Vitryska"/>
+	<language code="bn" name="Bengali"/>
+	<language code="bh" name="Bihari"/>
+	<language code="bi" name="Bislama"/>
+	<language code="bs" name="Bosniska"/>
+	<language code="br" name="Bretonska"/>
+	<language code="bg" name="Bulgariska"/>
+	<language code="my" name="Burmesiska"/>
+	<language code="ca" name="Katalanska"/>
+	<language code="km" name="Kambodjanska"/>
+	<language code="ch" name="Chamorro"/>
+	<language code="ce" name="Tjetjenska"/>
+	<language code="ny" name="Chichewa; Chewa; Nyanja"/>
+	<language code="zh" name="Kinesiska"/>
+	<language code="cu" name="Kyrkslaviska; Fornkyrkoslaviska"/>
+	<language code="cv" name="Tjuvasjiska"/>
+	<language code="kw" name="Korniska"/>
+	<language code="co" name="Korsikanska"/>
+	<language code="cr" name="Cree"/>
+	<language code="hr" name="Kroatiska"/>
+	<language code="cs" name="Tjeckiska"/>
+	<language code="da" name="Danska"/>
+	<language code="dv" name="Divehi"/>
+	<language code="nl" name="Nederländska"/>
+	<language code="dz" name="Dzongkha"/>
+	<language code="en" name="Engelska"/>
+	<language code="eo" name="Esperanto"/>
+	<language code="et" name="Estniska"/>
+	<language code="ee" name="Ewe"/>
+	<language code="fo" name="Färöiska"/>
+	<language code="fj" name="Fijianska"/>
+	<language code="fi" name="Finska"/>
+	<language code="fr" name="Franska"/>
+	<language code="ff" name="Fula"/>
+	<language code="gd" name="Gaeliska"/>
+	<language code="gl" name="Galiciska"/>
+	<language code="lg" name="Luganda"/>
+	<language code="ka" name="Georgiska"/>
+	<language code="de" name="Tyska"/>
+	<language code="el" name="Grekiska"/>
+	<language code="gn" name="Guarani"/>
+	<language code="gu" name="Gujarati"/>
+	<language code="ht" name="Haitisk kreol"/>
+	<language code="ha" name="Hausa"/>
+	<language code="he" name="Hebreiska"/>
+	<language code="hz" name="Herero"/>
+	<language code="hi" name="Hindi"/>
+	<language code="ho" name="Hiri motu"/>
+	<language code="hu" name="Ungerska"/>
+	<language code="is" name="Isländska"/>
+	<language code="io" name="Ido"/>
+	<language code="ig" name="Igbo"/>
+	<language code="id" name="Indonesiska"/>
+	<language code="ia" name="Interlingua"/>
+	<language code="ie" name="Interlingue"/>
+	<language code="iu" name="Inuktitut"/>
+	<language code="ik" name="Iñupiaq"/>
+	<language code="ga" name="Iriska"/>
+	<language code="it" name="Italienska"/>
+	<language code="ja" name="Japanska"/>
+	<language code="jv" name="Javanesiska"/>
+	<language code="kl" name="Grönländska"/>
+	<language code="kn" name="Kannada"/>
+	<language code="kr" name="Kanuri"/>
+	<language code="ks" name="Kashmiri"/>
+	<language code="kk" name="Kazakiska"/>
+	<language code="ki" name="Kikuyu"/>
+	<language code="rw" name="Kinyarwanda"/>
+	<language code="ky" name="Kirgiziska"/>
+	<language code="kv" name="Komi"/>
+	<language code="kg" name="Kikongo"/>
+	<language code="ko" name="Koreanska"/>
+	<language code="kj" name="Kwanyama"/>
+	<language code="ku" name="Kurdiska"/>
+	<language code="lo" name="Laotiska"/>
+	<language code="la" name="Latin"/>
+	<language code="lv" name="Lettiska"/>
+	<language code="li" name="Limburgiska"/>
+	<language code="ln" name="Lingala"/>
+	<language code="lt" name="Litauiska"/>
+	<language code="lu" name="Luba-Katanga"/>
+	<language code="lb" name="Luxemburgiska"/>
+	<language code="mk" name="Makedonska"/>
+	<language code="mg" name="Malagasy"/>
+	<language code="ms" name="Malajiska"/>
+	<language code="ml" name="Malayalam"/>
+	<language code="mt" name="Maltesiska"/>
+	<language code="gv" name="Manx"/>
+	<language code="mi" name="Maori"/>
+	<language code="mr" name="Marathi"/>
+	<language code="mh" name="Marshallesiska"/>
+	<language code="mn" name="Mongoliskt språk"/>
+	<language code="na" name="Nauruanska"/>
+	<language code="nv" name="Navaho"/>
+	<language code="ng" name="Ndonga"/>
+	<language code="ne" name="Nepali"/>
+	<language code="nd" name="Nordndebele"/>
+	<language code="se" name="Nordsamiska"/>
+	<language code="no" name="Norska"/>
+	<language code="nb" name="Norska Bokmål"/>
+	<language code="nn" name="Nynorska"/>
+	<language code="oc" name="Occitanska"/>
+	<language code="oj" name="Ojibwa"/>
+	<language code="or" name="Oriya"/>
+	<language code="om" name="Afan oromo"/>
+	<language code="os" name="Ossetiska"/>
+	<language code="pi" name="Pali"/>
+	<language code="pa" name="Punjabi"/>
+	<language code="fa" name="Persiska"/>
+	<language code="pl" name="Polska"/>
+	<language code="pt" name="Portugisiska"/>
+	<language code="ps" name="Pashto"/>
+	<language code="qu" name="Quechua"/>
+	<language code="ro" name="Rumänska"/>
+	<language code="rm" name="Rumantsch"/>
+	<language code="rn" name="Kirundi"/>
+	<language code="ru" name="Ryska"/>
+	<language code="sm" name="Samoanska"/>
+	<language code="sg" name="Sangho"/>
+	<language code="sa" name="Sanskrit"/>
+	<language code="sc" name="Sardiska"/>
+	<language code="sr" name="Serbiska"/>
+	<language code="sn" name="Shona"/>
+	<language code="ii" name="Sichuan Yi"/>
+	<language code="sd" name="Sindhi"/>
+	<language code="si" name="Singalesiska"/>
+	<language code="sk" name="Slovakiska"/>
+	<language code="sl" name="Slovenska"/>
+	<language code="so" name="Somaliska"/>
+	<language code="st" name="Sesotho"/>
+	<language code="nr" name="Sydndebele"/>
+	<language code="es" name="Spanska"/>
+	<language code="su" name="Sundanesiska"/>
+	<language code="sw" name="Swahili"/>
+	<language code="ss" name="Siswati"/>
+	<language code="sv" name="Svenska"/>
+	<language code="tl" name="Tagalog"/>
+	<language code="ty" name="Tahitiska"/>
+	<language code="tg" name="Tadzjikiska"/>
+	<language code="ta" name="Tamil"/>
+	<language code="tt" name="Tatariska"/>
+	<language code="te" name="Telugu"/>
+	<language code="th" name="Thailändska"/>
+	<language code="bo" name="Tibetanska"/>
+	<language code="ti" name="Tigrinska"/>
+	<language code="to" name="Tonganska"/>
+	<language code="ts" name="Tsonga"/>
+	<language code="tn" name="Setswana"/>
+	<language code="tr" name="Turkiska"/>
+	<language code="tk" name="Turkmenska"/>
+	<language code="tw" name="Twi"/>
+	<language code="ug" name="Uiguriska"/>
+	<language code="uk" name="Ukrainska"/>
+	<language code="ur" name="Urdu"/>
+	<language code="uz" name="Uzbekiska"/>
+	<language code="ve" name="Venda"/>
+	<language code="vi" name="Vietnamesiska"/>
+	<language code="vo" name="Volapük"/>
+	<language code="wa" name="Vallonska"/>
+	<language code="cy" name="Kymriska"/>
+	<language code="fy" name="Frisiska"/>
+	<language code="wo" name="Wolof"/>
+	<language code="xh" name="Xhosa"/>
+	<language code="yi" name="Jiddish"/>
+	<language code="yo" name="Yoruba"/>
+	<language code="za" name="Zhuang"/>
+	<language code="zu" name="Zulu"/>
+</languages>

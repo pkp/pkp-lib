@@ -4,8 +4,8 @@
 /**
  * @file js/controllers/grid/GridHandler.js
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class GridHandler
@@ -405,7 +405,6 @@
 	$.pkp.controllers.grid.GridHandler.prototype.insertOrReplaceElement =
 			function(elementContent, opt_prepend) {
 		var $newElement, newElementId, $grid, $existingElement;
-
 		// Parse the HTML returned from the server.
 		$newElement = $(elementContent);
 		newElementId = $newElement.attr('id');
@@ -678,7 +677,7 @@
 			this.deleteControlsRow_($existingElement);
 		}
 
-		this.replacePartialWith($newElement.html(), $existingElement);
+		this.replacePartialWith($newElement, $existingElement);
 		this.callFeaturesHook('replaceElement', $newElement);
 	};
 

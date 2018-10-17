@@ -3,8 +3,8 @@
 /**
  * @file classes/plugins/BlockPlugin.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class BlockPlugin
@@ -27,14 +27,14 @@ abstract class BlockPlugin extends LazyLoadPlugin {
 	/**
 	 * @copydoc Plugin::register()
 	 */
-	function register($category, $path) {
-		$success = parent::register($category, $path);
-		if ($success && $this->getEnabled()) {
+	function register($category, $path, $mainContextId = null) {
+		$success = parent::register($category, $path, $mainContextId);
+		if ($success && $this->getEnabled($mainContextId)) {
 			$contextMap = $this->getContextMap();
 			$blockContext = $this->getBlockContext();
 			if (isset($contextMap[$blockContext])) {
 				$hookName = $contextMap[$blockContext];
-				HookRegistry::register($hookName, array($this, 'callback'));
+				HookRegistry::register($hookName, array($this, 'callback'), HOOK_SEQUENCE_NORMAL + $this->getSeq());
 			}
 		}
 		return $success;
@@ -160,7 +160,7 @@ abstract class BlockPlugin extends LazyLoadPlugin {
 	function getContents($templateMgr, $request = null) {
 		$blockTemplateFilename = $this->getBlockTemplateFilename();
 		if ($blockTemplateFilename === null) return '';
-		return $templateMgr->fetch($this->getTemplatePath() . $blockTemplateFilename);
+		return $templateMgr->fetch($this->getTemplateResource($blockTemplateFilename));
 	}
 
 	/**
@@ -174,7 +174,7 @@ abstract class BlockPlugin extends LazyLoadPlugin {
 		$params =& $args[0];
 		$smarty =& $args[1];
 		$output =& $args[2];
-		$output .= $this->getContents($smarty, $this->getRequest());
+		$output .= $this->getContents($smarty, Application::getRequest());
 		return false;
 	}
 
@@ -187,7 +187,7 @@ abstract class BlockPlugin extends LazyLoadPlugin {
 	 * @return string
 	 */
 	function _getContextSpecificHomepageHook() {
-		$application = PKPApplication::getApplication();
+		$application = Application::getApplication();
 
 		if ($application->getContextDepth() == 0) return null;
 
@@ -196,4 +196,4 @@ abstract class BlockPlugin extends LazyLoadPlugin {
 	}
 }
 
-?>
+

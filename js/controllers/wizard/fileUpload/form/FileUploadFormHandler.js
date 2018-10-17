@@ -4,8 +4,8 @@
 /**
  * @file js/controllers/wizard/fileUpload/form/FileUploadFormHandler.js
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FileUploadFormHandler
@@ -162,12 +162,7 @@
 			prepareFileUploadRequest = function(caller, pluploader) {
 
 		var $uploadForm = this.getHtmlElement(),
-				multipartParams = { },
-				// Add the uploader user group id.
-				$uploaderUserGroupId = $uploadForm.find('#uploaderUserGroupId');
-
-		$uploaderUserGroupId.attr('disabled', 'disabled');
-		multipartParams.uploaderUserGroupId = $uploaderUserGroupId.val();
+				multipartParams = {};
 
 		// Add the revised file to the upload message.
 		if (this.hasFileSelector_) {

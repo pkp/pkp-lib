@@ -2,8 +2,8 @@
 /**
  * @file classes/metadata/MetadataTypeDescription.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class MetadataTypeDescription
@@ -13,9 +13,6 @@
  *
  * This type description accepts descriptors of the following form:
  *   metadata::fully.qualified.MetadataSchema(ASSOC)
- *
- * e.g.:
- *   metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(ARTICLE)
  *
  * The assoc form must be the final part of a ASSOC_TYPE_* definition.
  * It can be '*' to designate any assoc type.
@@ -125,4 +122,4 @@ class MetadataTypeDescription extends ClassTypeDescription {
 		return true;
 	}
 }
-?>
+

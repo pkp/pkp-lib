@@ -3,8 +3,8 @@
 /**
  * @file classes/controllers/grid/CategoryGridHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CategoryGridHandler
@@ -194,7 +194,7 @@ class CategoryGridHandler extends GridHandler {
 	 * @return string the serialized row JSON message or a flag
 	 *  that indicates that the row has not been found.
 	 */
-	function fetchCategory(&$args, $request) {
+	function fetchCategory($args, $request) {
 		// Instantiate the requested row (includes a
 		// validity check on the row id).
 		$row = $this->getRequestedCategoryRow($request, $args);
@@ -246,32 +246,32 @@ class CategoryGridHandler extends GridHandler {
 
 
 	/**
-	 * @see GridHandler::getJSHandler()
+	 * @copydoc GridHandler::getJSHandler()
 	 */
 	public function getJSHandler() {
 		return '$.pkp.controllers.grid.CategoryGridHandler';
 	}
 
 	/**
-	 * @see GridHandler::setUrls()
+	 * @copydoc GridHandler::setUrls()
 	 */
-	function setUrls($request) {
+	function setUrls($request, $extraUrls = array()) {
 		$router = $request->getRouter();
-		$url = array('fetchCategoryUrl' => $router->url($request, null, null, 'fetchCategory', null, $this->getRequestArgs()));
-		parent::setUrls($request, $url);
+		$extraUrls['fetchCategoryUrl'] = $router->url($request, null, null, 'fetchCategory', null, $this->getRequestArgs());
+		parent::setUrls($request, $extraUrls);
 	}
 
 	/**
-	 * @see GridHandler::getRowsSequence()
+	 * @copydoc GridHandler::getRowsSequence()
 	 */
 	protected function getRowsSequence($request) {
 		return array_keys($this->getGridCategoryDataElements($request, $this->getCurrentCategoryId()));
 	}
 
 	/**
-	 * @see GridHandler::doSpecificFetchGridActions($args, $request)
+	 * @see GridHandler::doSpecificFetchGridActions()
 	 */
-	protected function doSpecificFetchGridActions($args, $request, &$templateMgr) {
+	protected function doSpecificFetchGridActions($args, $request, $templateMgr) {
 		// Render the body elements (category groupings + rows inside a <tbody>)
 		$gridBodyParts = $this->_renderCategoriesInternally($request);
 		$templateMgr->assign('gridBodyParts', $gridBodyParts);
@@ -492,4 +492,4 @@ class CategoryGridHandler extends GridHandler {
 	}
 }
 
-?>
+

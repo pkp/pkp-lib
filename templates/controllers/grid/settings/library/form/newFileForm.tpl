@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/settings/library/form/newFileForm.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Library Files form
@@ -36,8 +36,7 @@
 
 	{fbvFormArea id="type"}
 		{fbvFormSection title="common.type" required=true}
-			{translate|assign:"defaultLabel" key="common.chooseOne"}
-			{fbvElement type="select" from=$fileTypes id="fileType" selected=$fileType defaultValue="" defaultLabel=$defaultLabel required=true}
+			{fbvElement type="select" from=$fileTypes id="fileType" selected=$fileType defaultValue="" defaultLabel="common.chooseOne"|translate required=true}
 		{/fbvFormSection}
 	{/fbvFormArea}
 
@@ -46,6 +45,15 @@
 			{include file="controllers/fileUploadContainer.tpl" id="plupload"}
 		{/fbvFormSection}
 	{/fbvFormArea}
+
+	{fbvFormSection list="true" translate=false}
+		{capture assign=enablePublicAccess}{translate key="common.publicAccess"}{/capture}
+		{fbvElement type="checkbox" id="publicAccess" value="1" checked=false label=$enablePublicAccess translate=false}
+		<p>
+			{capture assign=downloadUrl}{url router=$smarty.const.ROUTE_PAGE page="libraryFiles" op="downloadPublic" path="id"}{/capture}
+			{translate key="settings.libraryFiles.public.viewInstructions" downloadUrl=$downloadUrl}
+		</p>
+	{/fbvFormSection}
 
 	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 

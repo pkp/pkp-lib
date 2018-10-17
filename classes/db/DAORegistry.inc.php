@@ -3,8 +3,8 @@
 /**
  * @file classes/db/DAORegistry.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DAORegistry
@@ -58,7 +58,7 @@ class DAORegistry {
 		$daos =& DAORegistry::getDAOs();
 		if (!isset($daos[$name])) {
 			// Import the required DAO class.
-			$application = PKPApplication::getApplication();
+			$application = Application::getApplication();
 			$className = $application->getQualifiedDAOName($name);
 			if (!$className) {
 				fatalError('Unrecognized DAO ' . $name . '!');
@@ -75,4 +75,4 @@ class DAORegistry {
 	}
 }
 
-?>
+

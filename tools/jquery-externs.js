@@ -33,14 +33,14 @@ var jQuerySelector;
  * @param {(Element|jQueryObject|Document|Object)=} arg2
  * @return {jQueryObject}
  */
-function $(arg1, arg2) {};
+function $(arg1, arg2) {}
 
 /**
  * @param {(jQuerySelector|Element|Array|Object|string|function())=} arg1
  * @param {(Element|jQueryObject|Document|Object)=} arg2
  * @return {jQueryObject}
  */
-function jQuery(arg1, arg2) {};
+function jQuery(arg1, arg2) {}
 
 /**
  * @param {Object.<string,*>} settings
@@ -74,7 +74,7 @@ jQuery.cssHooks;
  * @param {Element} elem
  * @param {string=} key
  * @param {Object=} value
- * @return {(jQueryObject|Object)}
+ * @return {*}
  */
 jQuery.data = function(elem, key, value) {};
 
@@ -405,7 +405,7 @@ jQuery.active;
  * @constructor
  * @private
  */
-function jQueryObject() { };
+function jQueryObject() {}
 
 /**
  * @param {(jQuerySelector|Array.<Element>|string)} arg1

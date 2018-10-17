@@ -1,8 +1,8 @@
 {**
  * installComplete.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Display confirmation of successful installation.
@@ -11,7 +11,7 @@
 {include file="common/header.tpl" pageTitle="installer.installApplication"}
 
 <div class="pkp_page_content pkp_page_install_complete">
-	{url|assign:"loginUrl" page="login"}
+	{capture assign="loginUrl"}{url page="login"}{/capture}
 	{translate key="installer.installationComplete" loginUrl=$loginUrl}
 
 	{if $writeConfigFailed}

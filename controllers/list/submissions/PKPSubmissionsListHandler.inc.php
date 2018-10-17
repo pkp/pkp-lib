@@ -2,8 +2,8 @@
 /**
  * @file controllers/list/submissions/PKPSubmissionsListHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionsListHandler
@@ -14,36 +14,21 @@
 import('lib.pkp.controllers.list.ListHandler');
 import('lib.pkp.classes.db.DBResultRange');
 import('lib.pkp.classes.submission.Submission');
+import('classes.core.ServicesContainer');
 
 abstract class PKPSubmissionsListHandler extends ListHandler {
 
-	/**
-	 * Count of items to retrieve in initial page/request
-	 *
-	 * @param int
-	 */
+	/** @var int Count of items to retrieve in initial page/request */
 	public $_count = 20;
 
-	/**
-	 * Query parameters to pass with every GET request
-	 *
-	 * @param array
-	 */
+	/** @var array Query parameters to pass with every GET request */
 	public $_getParams = array();
 
-	/**
-	 * API endpoint path
-	 *
-	 * Used to generate URLs to API endpoints for this component.
-	 *
-	 * @param string
-	 */
+	/** @var string Used to generate URLs to API endpoints for this component. */
 	public $_apiPath = '_submissions';
 
 	/**
-	 * Initialize the handler with config parameters
-	 *
-	 * @param array $args Configuration params
+	 * @copydoc ListHandler::init()
 	 */
 	public function init( $args = array() ) {
 		parent::init($args);
@@ -53,10 +38,7 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 	}
 
 	/**
-	 * Retrieve the configuration data to be used when initializing this
-	 * handler on the frontend
-	 *
-	 * @return array Configuration data
+	 * @copydoc ListHandler::getConfig()
 	 */
 	public function getConfig() {
 
@@ -67,7 +49,8 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 		if ($this->_lazyLoad) {
 			$config['lazyLoad'] = true;
 		} else {
-			$config['collection'] = $this->getItems();
+			$config['items'] = $this->getItems();
+			$config['itemsMax'] = $this->getItemsMax();
 		}
 
 		// URL to add a new submission
@@ -88,6 +71,17 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 			'viewInformationCenter',
 			null,
 			array('submissionId' => '__id__')
+		);
+
+		// URL to assign a participant
+		$config['assignParticipantUrl'] = $request->getDispatcher()->url(
+			$request,
+			ROUTE_COMPONENT,
+			null,
+			'grid.users.stageParticipant.StageParticipantGridHandler',
+			'addParticipant',
+			null,
+			array('submissionId' => '__id__', 'stageId' => '__stageId__')
 		);
 
 		$config['apiPath'] = $this->_apiPath;
@@ -127,7 +121,7 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 			'title' => __($this->_title),
 			'add' => __('submission.submit.newSubmissionSingle'),
 			'search' => __('common.search'),
-			'clearSearch' => __('submission.list.clearSearch'),
+			'clearSearch' => __('common.clearSearch'),
 			'itemCount' => __('submission.list.count'),
 			'itemsOfTotal' => __('submission.list.itemsOfTotal'),
 			'loadMore' => __('grid.action.moreItems'),
@@ -138,17 +132,29 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 			'yes' => __('common.yes'),
 			'no' => __('common.no'),
 			'deleting' => __('common.deleting'),
+			'currentStage' => __('submission.list.currentStage'),
 			'confirmDelete' => __('submission.list.confirmDelete'),
 			'responseDue' => __('submission.list.responseDue'),
 			'reviewDue' => __('submission.list.reviewDue'),
-			'filter' => __('submission.list.filter'),
-			'filterRemove' => __('submission.list.filterRemove'),
+			'reviewComplete' => __('submission.list.reviewComplete'),
+			'filter' => __('common.filter'),
+			'filterRemove' => __('common.filterRemove'),
 			'itemOrdererUp' => __('submission.list.itemOrdererUp'),
 			'itemOrdererDown' => __('submission.list.itemOrdererDown'),
+			'viewSubmission' => __('submission.list.viewSubmission'),
 			'reviewsCompleted' => __('submission.list.reviewsCompleted'),
+			'revisionsSubmitted' => __('submission.list.revisionsSubmitted'),
+			'copyeditsSubmitted' => __('submission.list.copyeditsSubmitted'),
+			'galleysCreated' => __('submission.list.galleysCreated'),
 			'filesPrepared' => __('submission.list.filesPrepared'),
 			'discussions' => __('submission.list.discussions'),
+			'assignEditor' => __('submission.list.assignEditor'),
+			'dualWorkflowLinks' => __('submission.list.dualWorkflowLinks'),
+			'reviewerWorkflowLink' => __('submission.list.reviewerWorkflowLink'),
 			'incompleteSubmissionNotice' => __('submission.list.incompleteSubmissionNotice'),
+			'selectAllLabel' => __('common.selectAll'),
+			'viewMore' => __('list.viewMore'),
+			'viewLess' => __('list.viewLess'),
 		);
 
 		// Attach a CSRF token for post requests
@@ -157,6 +163,7 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 		// Provide required constants
 		import('lib.pkp.classes.submission.reviewRound.ReviewRound');
 		import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignment');
+		import('lib.pkp.classes.services.PKPSubmissionService'); // STAGE_STATUS_SUBMISSION_UNASSIGNED
 		$config['_constants'] = array(
 			'WORKFLOW_STAGE_ID_SUBMISSION' => WORKFLOW_STAGE_ID_SUBMISSION,
 			'WORKFLOW_STAGE_ID_INTERNAL_REVIEW' => WORKFLOW_STAGE_ID_INTERNAL_REVIEW,
@@ -168,8 +175,10 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 			'REVIEW_ROUND_STATUS_REVIEWS_READY' => REVIEW_ROUND_STATUS_REVIEWS_READY,
 			'REVIEW_ROUND_STATUS_REVIEWS_COMPLETED' => REVIEW_ROUND_STATUS_REVIEWS_COMPLETED,
 			'REVIEW_ROUND_STATUS_REVIEWS_OVERDUE' => REVIEW_ROUND_STATUS_REVIEWS_OVERDUE,
-			'REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED' => REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED,
 			'REVIEW_ROUND_STATUS_REVISIONS_REQUESTED' => REVIEW_ROUND_STATUS_REVISIONS_REQUESTED,
+			'REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED' => REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED,
+			'REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW' => REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW,
+			'REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED' => REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED,
 			'REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE' => REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE,
 			'REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE' => REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE,
 			'REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE' => REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE,
@@ -185,27 +194,52 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 	}
 
 	/**
-	 * Helper function to retrieve items
-	 *
-	 * @return array Items requested
+	 * @copydoc ListHandler::getItems()
 	 */
 	public function getItems() {
-
-		$context = Application::getRequest()->getContext();
+		$request = Application::getRequest();
+		$context = $request->getContext();
 		$contextId = $context ? $context->getId() : 0;
 
-		$params = array_merge(
+		$submissionService = ServicesContainer::instance()->get('submission');
+		$submissions = $submissionService->getSubmissions($context->getId(), $this->_getItemsParams());
+		$items = array();
+		if (!empty($submissions)) {
+			$propertyArgs = array(
+				'request' => $request,
+			);
+			foreach ($submissions as $submission) {
+				$items[] = $submissionService->getBackendListProperties($submission, $propertyArgs);
+			}
+		}
+
+		return $items;
+	}
+
+	/**
+	 * @copydoc ListHandler::getItemsMax()
+	 */
+	public function getItemsMax() {
+		$request = Application::getRequest();
+		$context = $request->getContext();
+		$contextId = $context ? $context->getId() : 0;
+
+		return ServicesContainer::instance()
+			->get('submission')
+			->getSubmissionsMaxCount($context->getId(), $this->_getItemsParams());
+	}
+
+	/**
+	 * @copydoc ListHandler::_getItemsParams()
+	 */
+	protected function _getItemsParams() {
+		return array_merge(
 			array(
 				'count' => $this->_count,
 				'offset' => 0,
 			),
 			$this->_getParams
 		);
-
-		import('classes.core.ServicesContainer');
-		return ServicesContainer::instance()
-				->get('submission')
-				->getSubmissionList($contextId, $params);
 	}
 
 	/**

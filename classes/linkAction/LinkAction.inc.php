@@ -8,8 +8,8 @@
 /**
  * @file classes/linkAction/LinkAction.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class LinkAction
@@ -52,6 +52,7 @@ class LinkAction {
 		$this->_title = $title;
 		$this->_image = $image;
 		$this->_toolTip = $toolTip;
+		HookRegistry::call('LinkAction::construct', array($this));
 	}
 
 
@@ -80,6 +81,14 @@ class LinkAction {
 	 */
 	function getTitle() {
 		return $this->_title;
+	}
+
+	/**
+	 * Set the localized action title.
+	 * @return string
+	 */
+	function setTitle($title) {
+		$this->_title = $title;
 	}
 
 	/**
@@ -115,4 +124,4 @@ class LinkAction {
 	}
 }
 
-?>
+

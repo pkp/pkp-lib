@@ -1,8 +1,8 @@
 {**
  * lib/pkp/templates/frontend/components/header.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @brief Common frontend site header.
@@ -20,7 +20,7 @@
 {/strip}
 <!DOCTYPE html>
 <html lang="{$currentLocale|replace:"_":"-"}" xml:lang="{$currentLocale|replace:"_":"-"}">
-{if !$pageTitleTranslated}{translate|assign:"pageTitleTranslated" key=$pageTitle}{/if}
+{if !$pageTitleTranslated}{capture assign="pageTitleTranslated"}{translate key=$pageTitle}{/capture}{/if}
 {include file="frontend/components/headerHead.tpl"}
 <body class="pkp_page_{$requestedPage|escape|default:"index"} pkp_op_{$requestedOp|escape|default:"index"}{if $showingLogo} has_site_logo{/if}" dir="{$currentLocaleLangDir|escape|default:"ltr"}">
 
@@ -43,11 +43,13 @@
 					{else}
 						<div class="pkp_site_name">
 					{/if}
-						{if $currentContext && $multipleContexts}
-							{url|assign:"homeUrl" journal="index" router=$smarty.const.ROUTE_PAGE}
-						{else}
-							{url|assign:"homeUrl" page="index" router=$smarty.const.ROUTE_PAGE}
-						{/if}
+						{capture assign="homeUrl"}
+							{if $currentContext && $multipleContexts}
+								{url page="index" router=$smarty.const.ROUTE_PAGE}
+							{else}
+								{url context="index" router=$smarty.const.ROUTE_PAGE}
+							{/if}
+						{/capture}
 						{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
 							<a href="{$homeUrl}" class="is_img">
 								<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" width="{$displayPageHeaderLogo.width|escape}" height="{$displayPageHeaderLogo.height|escape}" {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if} />
@@ -71,75 +73,27 @@
 				</div>
 
 				{* Primary site navigation *}
-				{if $currentContext}
-					<nav id="pkp_content_nav" class="pkp_navigation_primary_row" aria-label="{translate|escape key="common.navigation.site"}">
+				{capture assign="primaryMenu"}
+					{load_menu name="primary" id="navigationPrimary" ulClass="pkp_navigation_primary"}
+				{/capture}
+
+				{if !empty(trim($primaryMenu)) || $currentContext}
+					<nav class="pkp_navigation_primary_row" aria-label="{translate|escape key="common.navigation.site"}">
 						<div class="pkp_navigation_primary_wrapper">
-
 							{* Primary navigation menu for current application *}
-							{include file="frontend/components/primaryNavMenu.tpl"}
+							{$primaryMenu}
 
-							{* Search form *}
-							{include file="frontend/components/searchForm_simple.tpl"}
+							{if $currentContext}
+								{* Search form *}
+								{include file="frontend/components/searchForm_simple.tpl"}
+							{/if}
 						</div>
 					</nav>
 				{/if}
-
+				
 				<nav class="pkp_navigation_user_wrapper" id="navigationUserWrapper" aria-label="{translate|escape key="common.navigation.user"}">
-					<ul id="navigationUser" class="pkp_navigation_user pkp_nav_list">
-						{if $isUserLoggedIn}
-							<li class="profile {if $unreadNotificationCount} has_tasks{/if}">
-								<a href="{url router=$smarty.const.ROUTE_PAGE page="submissions"}">
-									{$loggedInUsername|escape}
-									<span class="task_count">
-										{$unreadNotificationCount}
-									</span>
-								</a>
-								<ul>
-									{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR), (array)$userRoles)}
-										<li>
-											<a href="{url router=$smarty.const.ROUTE_PAGE page="submissions"}">
-												{translate key="navigation.dashboard"}
-												<span class="task_count">
-													{$unreadNotificationCount}
-												</span>
-											</a>
-										</li>
-									{/if}
-									<li>
-										<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="profile"}">
-											{translate key="common.viewProfile"}
-										</a>
-									</li>
-									{if array_intersect(array(ROLE_ID_SITE_ADMIN), (array)$userRoles)}
-									<li>
-										<a href="{if $multipleContexts}{url router=$smarty.const.ROUTE_PAGE context="index" page="admin" op="index"}{else}{url router=$smarty.const.ROUTE_PAGE page="admin" op="index"}{/if}">
-											{translate key="navigation.admin"}
-										</a>
-									</li>
-									{/if}
-									<li>
-										<a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOut"}">
-											{translate key="user.logOut"}
-										</a>
-									</li>
-									{if $isUserLoggedInAs}
-										<li>
-											<a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOutAsUser"}">
-												{translate key="user.logOutAs"} {$loggedInUsername|escape}
-											</a>
-										</li>
-									{/if}
-								</ul>
-							</li>
-						{else}
-							{if !$disableUserReg}
-								<li><a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="register"}">{translate key="navigation.register"}</a></li>
-							{/if}
-							<li><a href="{url router=$smarty.const.ROUTE_PAGE page="login"}">{translate key="navigation.login"}</a></li>
-						{/if}
-					</ul>
-				</nav><!-- .pkp_navigation_user_wrapper -->
-
+					{load_menu name="user" id="navigationUser" ulClass="pkp_navigation_user" liClass="profile"}
+				</nav>
 			</div><!-- .pkp_head_wrapper -->
 		</header><!-- .pkp_structure_head -->
 

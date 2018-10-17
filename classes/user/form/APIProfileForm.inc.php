@@ -3,8 +3,8 @@
 /**
  * @file classes/user/form/APIProfileForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class APIProfileForm
@@ -12,6 +12,8 @@
  *
  * @brief Form to edit user's API key settings.
  */
+
+use \Firebase\JWT\JWT;
 
 import('lib.pkp.classes.user.form.BaseProfileForm');
 
@@ -46,24 +48,36 @@ class APIProfileForm extends BaseProfileForm {
 
 	/**
 	 * Fetch the form to edit user's API key settings.
-	 * @param $request PKPRequest
 	 * @return string JSON-encoded form contents.
+	 * @see BaseProfileForm::fetch
 	 */
-	public function fetch($request) {
+	public function fetch($request, $template = null, $display = false) {
 		$user = $request->getUser();
+		$apiKey = $user->getSetting('apiKey');
+		$secret = Config::getVar('security', 'api_key_secret', '');
+		$jwt = '';
+		if ($secret !== '') {
+			$jwt = JWT::encode(json_encode($apiKey), $secret, 'HS256');
+		} else {
+			$notificationManager = new NotificationManager();
+			$notificationManager->createTrivialNotification(
+				$user->getId(), NOTIFICATION_TYPE_WARNING, array(
+					'contents' => __('user.apiKey.secretRequired'),
+			));
+		}
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
 			'apiKeyEnabled' => $user->getSetting('apiKeyEnabled'),
-			'apiKey' => $user->getSetting('apiKey'),
+			'apiKey' => $jwt,
 		));
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
 	 * Save user's API key settings form.
-	 * @param $request PKPRequest
 	 */
-	function execute($request) {
+	function execute() {
+		$request = Application::getRequest();
 		$user = $request->getUser();
 
 		$apiKeyEnabled = (bool) $this->getData('apiKeyEnabled');

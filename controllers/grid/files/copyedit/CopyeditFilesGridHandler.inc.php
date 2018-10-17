@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/files/copyedit/CopyeditFilesGridHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CopyeditFilesGridHandler
@@ -78,9 +78,9 @@ class CopyeditFilesGridHandler extends FileListGridHandler {
 	function selectFiles($args, $request) {
 		import('lib.pkp.controllers.grid.files.copyedit.form.ManageCopyeditFilesForm');
 		$manageCopyeditFilesForm = new ManageCopyeditFilesForm($this->getSubmission()->getId());
-		$manageCopyeditFilesForm->initData($args, $request);
+		$manageCopyeditFilesForm->initData();
 		return new JSONMessage(true, $manageCopyeditFilesForm->fetch($request));
 	}
 }
 
-?>
+

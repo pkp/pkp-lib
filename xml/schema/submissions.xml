@@ -4,8 +4,8 @@
 <!--
   * xml/schema/submissions.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Submission-related schema (e.g. authors) in XML.
@@ -33,14 +33,6 @@
 			<NOTNULL/>
 			<DEFAULT VALUE="0"/>
 		</field>
-		<field name="first_name" type="C2" size="40">
-			<NOTNULL/>
-		</field>
-		<field name="middle_name" type="C2" size="40"/>
-		<field name="last_name" type="C2" size="90">
-			<NOTNULL/>
-		</field>
-		<field name="suffix" type="C2" size="40"/>
 		<field name="country" type="C2" size="90"/>
 		<field name="email" type="C2" size="90">
 			<NOTNULL/>

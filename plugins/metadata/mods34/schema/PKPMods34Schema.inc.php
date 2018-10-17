@@ -6,8 +6,8 @@
 /**
  * @file plugins/metadata/mods34/schema/PKPMods34Schema.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPMods34Schema
@@ -397,4 +397,4 @@ class PKPMods34Schema extends MetadataSchema {
 		$this->addProperty('recordInfo/languageOfCataloging/languageTerm[@authority="iso639-2b"]', METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_ONE, null, null, true);
 	}
 }
-?>
+

@@ -1,8 +1,8 @@
 /**
  * @file js/controllers/grid/users/reviewer/form/AddReviewerFormHandler.js
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AddReviewerFormHandler
@@ -107,12 +107,14 @@
 					function(formElement, jsonData) {
 
 		var $form = this.getHtmlElement(),
-				processedJsonData = this.handleJson(jsonData);
+				processedJsonData = this.handleJson(jsonData),
+				$textarea = $form.find('textarea[name="personalMessage"]'),
+				editor =
+				tinyMCE.EditorManager.get(/** @type {string} */ ($textarea.attr('id')));
 
 		if (processedJsonData !== false) {
 			if (processedJsonData.content !== '') {
-				$form.find('textarea[name="personalMessage"]')
-						.val(processedJsonData.content);
+				editor.setContent(processedJsonData.content);
 			}
 		}
 		return processedJsonData.status;

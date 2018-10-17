@@ -3,8 +3,8 @@
 /**
  * @file classes/submission/reviewAssignment/ReviewAssignmentDAO.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewAssignmentDAO
@@ -38,6 +38,18 @@ class ReviewAssignmentDAO extends DAO {
 		$params = array((int)$reviewRoundId);
 		$query = $this->_getSelectQuery() .
 			' WHERE r.review_round_id = ? ORDER BY review_id';
+		return $this->_getReviewAssignmentsArray($query, $params);
+	}
+
+	/**
+	 * Retrieve open review assignments for the passed review round id.
+	 * @param $reviewRoundId int
+	 * @return array
+	 */
+	function getOpenReviewsByReviewRoundId($reviewRoundId) {
+		$params = array((int)$reviewRoundId, SUBMISSION_REVIEW_METHOD_OPEN);
+		$query = $this->_getSelectQuery() .
+			' WHERE r.review_round_id = ? AND r.review_method = ? AND r.date_confirmed IS NOT NULL AND r.declined <> 1 ORDER BY review_id';
 		return $this->_getReviewAssignmentsArray($query, $params);
 	}
 
@@ -111,9 +123,8 @@ class ReviewAssignmentDAO extends DAO {
 		$reviewRoundJoinString = $this->getReviewRoundJoin();
 		if ($reviewRoundJoinString) {
 			$result = $this->retrieve(
-				'SELECT	r.*, r2.review_revision, u.first_name, u.last_name
+				'SELECT	r.*, r2.review_revision
 				FROM	review_assignments r
-					LEFT JOIN users u ON (r.reviewer_id = u.user_id)
 					LEFT JOIN review_rounds r2 ON (' . $reviewRoundJoinString . ')
 				WHERE	r.review_id = ?',
 				(int) $reviewId
@@ -141,9 +152,8 @@ class ReviewAssignmentDAO extends DAO {
 		$reviewRoundJoinString = $this->getReviewRoundJoin();
 		if ($reviewRoundJoinString) {
 			$result = $this->retrieve(
-				'SELECT	r.*, r2.review_revision, u.first_name, u.last_name
+				'SELECT	r.*, r2.review_revision
 				FROM	review_assignments r
-					LEFT JOIN users u ON (r.reviewer_id = u.user_id)
 					LEFT JOIN review_rounds r2 ON (' . $reviewRoundJoinString . ')
 				WHERE' . $this->getIncompleteReviewAssignmentsWhereString() .
 				' ORDER BY r.submission_id'
@@ -218,9 +228,8 @@ class ReviewAssignmentDAO extends DAO {
 
 		if ($reviewRoundJoinString) {
 			$result = $this->retrieve(
-				'SELECT	r.*, r2.review_revision, u.first_name, u.last_name
+				'SELECT	r.*, r2.review_revision
 				FROM	review_assignments r
-					LEFT JOIN users u ON (r.reviewer_id = u.user_id)
 					LEFT JOIN review_rounds r2 ON (' . $reviewRoundJoinString . ')
 				WHERE	r.reviewer_id = ?
 				ORDER BY round, review_id',
@@ -271,9 +280,8 @@ class ReviewAssignmentDAO extends DAO {
 
 		if ($reviewRoundJoinString) {
 			$result = $this->retrieve(
-				'SELECT	r.*, r2.review_revision, u.first_name, u.last_name
+				'SELECT	r.*, r2.review_revision
 				FROM	review_assignments r
-					LEFT JOIN users u ON (r.reviewer_id = u.user_id)
 					LEFT JOIN review_rounds r2 ON (' . $reviewRoundJoinString . ')
 				WHERE	r.review_form_id = ?
 				ORDER BY round, review_id',
@@ -464,11 +472,12 @@ class ReviewAssignmentDAO extends DAO {
 	 */
 	function _fromRow($row) {
 		$reviewAssignment = $this->newDataObject();
+		$user = $this->userDao->getById($row['reviewer_id']);
 
 		$reviewAssignment->setId($row['review_id']);
 		$reviewAssignment->setSubmissionId($row['submission_id']);
 		$reviewAssignment->setReviewerId($row['reviewer_id']);
-		$reviewAssignment->setReviewerFullName($row['first_name'].' '.$row['last_name']);
+		$reviewAssignment->setReviewerFullName($user->getFullName());
 		$reviewAssignment->setCompetingInterests($row['competing_interests']);
 		$reviewAssignment->setRecommendation($row['recommendation']);
 		$reviewAssignment->setDateAssigned($this->datetimeFromDB($row['date_assigned']));
@@ -573,12 +582,13 @@ class ReviewAssignmentDAO extends DAO {
 				(int) $reviewerId
 		);
 
-		$result = $this->retrieve(
+		$result = $this->retrieveLimit(
 				$this->_getSelectQuery() .
 				' WHERE	r.submission_id = ? AND
 				r.reviewer_id = ?
-				ORDER BY r2.stage_id DESC, r2.round DESC LIMIT 1',
-				$params
+				ORDER BY r2.stage_id DESC, r2.round DESC',
+				$params,
+				1
 		);
 
 		$returner = null;
@@ -608,10 +618,9 @@ class ReviewAssignmentDAO extends DAO {
 	 * @return string
 	 */
 	function _getSelectQuery() {
-		return 'SELECT r.*, r2.review_revision, u.first_name, u.last_name FROM review_assignments r
-		LEFT JOIN users u ON (r.reviewer_id = u.user_id)
-		LEFT JOIN review_rounds r2 ON (r.review_round_id = r2.review_round_id)';
+		return 'SELECT r.*, r2.review_revision FROM review_assignments r
+			LEFT JOIN review_rounds r2 ON (r.review_round_id = r2.review_round_id)';
 	}
 }
 
-?>
+

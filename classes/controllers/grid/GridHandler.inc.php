@@ -3,8 +3,8 @@
 /**
  * @file classes/controllers/grid/GridHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class GridHandler
@@ -30,7 +30,7 @@
  * There are several subclasses of GridHandler that provide generalized grids
  * of particular forms, such as CategoryGridHandler and ListbuilderHandler.
  *
- * The JavaScript front-end is described at <http://pkp.sfu.ca/wiki/index.php?title=JavaScript_widget_controllers#Grids>.
+ * The JavaScript front-end is described at <https://pkp.sfu.ca/wiki/index.php?title=JavaScript_widget_controllers#Grids>.
  *
  * For a concrete example of a grid handler (and related classes), see
  * AnnouncementTypeGridHandler.
@@ -866,7 +866,7 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
-	 * Render the filter (a template or a Form).
+	 * Render the filter (a template).
 	 * @param $request PKPRequest
 	 * @param $filterData Array Data to be used by the filter template.
 	 * @return string
@@ -876,16 +876,6 @@ class GridHandler extends PKPHandler {
 		switch(true) {
 			case $form === null: // No filter form.
 				return '';
-			case is_a($form, 'Form'): // Form object subclass
-				// Only read form data if the clientSubmit flag has been checked
-				$clientSubmit = (boolean) $request->getUserVar('clientSubmit');
-				if($clientSubmit) {
-					$form->readInputData();
-					$form->validate();
-				}
-
-				$form->initData($filterData, $request);
-				return $form->fetch($request);
 			case is_string($form): // HTML mark-up
 				$templateMgr = TemplateManager::getManager($request);
 
@@ -1182,4 +1172,4 @@ class GridHandler extends PKPHandler {
 		}
 	}
 }
-?>
+

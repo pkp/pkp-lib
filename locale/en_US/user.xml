@@ -4,8 +4,8 @@
 <!--
   * locale/en_US/user.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -23,11 +23,14 @@
 	<message key="user.authorization.privateOperation">The operation you tried to access is either private or doesn't exist.</message>
 	<message key="user.authorization.restrictedSiteAccess">You have been denied access. Access to this site is currently restricted.</message>
 	<message key="user.authorization.roleBasedAccessDenied">The current role does not have access to this operation.</message>
+	<message key="user.authorization.assignedStageRoleBasedAccessDenied">You have not been assigned to this submission with a role that is allowed to access this operation.</message>
 	<message key="user.authorization.userGroupRequired">You have to set a valid user group to access this operation.</message>
 	<message key="user.authorization.managerRequired">A user with a Manager role (i.e. Production Editor) must be assigned to the stage before you can proceed.</message>
 	<message key="user.authorization.accessibleWorkflowStage">You don't currently have access to that stage of the workflow.</message>
 	<message key="user.authorization.workflowStageRequired">A workflow stage was not specified.</message>
 	<message key="user.authorization.pluginRequired">A plugin was not specified and is required.</message>
+	<message key="user.authorization.invalidReviewAssignment">You do not have permission to access this review assignment.</message>
+	<message key="user.authorization.submissionQuery">You do not have permission to access this discussion.</message>
 	<message key="user.biography">Bio Statement (e.g., department and rank)</message>
 	<message key="user.changeMyPassword">Change My Password</message>
 	<message key="user.changePassword">Change Password</message>
@@ -35,16 +38,13 @@
 	<message key="user.dateRegistered">Date registered</message>
 	<message key="user.editMyProfile">Edit My Profile</message>
 	<message key="user.email">Email</message>
-	<message key="user.feminine">F</message>
-	<message key="user.firstName">First Name</message>
-	<message key="user.gender">Gender</message>
-	<message key="user.initialsExample">Joan Alice Smith = JAS</message>
-	<message key="user.initials">Initials</message>
+	<message key="user.givenName">Given Name</message>
 	<message key="user.interests">Reviewing interests</message>
 	<message key="user.interests.description">(Separate interests by pressing the enter or comma key)</message>
-	<message key="user.gossip">Private Notes</message>
+	<message key="user.gossip">Editorial Notes</message>
+	<message key="user.gossip.description">Record notes about this reviewer that you would like to make visible to other administrators, managers and all editors. Notes will be visible for future review assignments.</message>
 	<message key="user.group">User Group</message>
-	<message key="user.lastName">Last Name</message>
+	<message key="user.familyName">Family Name</message>
 	<message key="user.profile.form.profileImageInvalid">Invalid profile image format or image too big. Accepted formats are .gif, .jpg, or .png, and the image must not exceed 150x150 pixels.</message>
 	<message key="user.login.accountDisabledWithReason">Your account has been disabled for the following reason: {$reason}</message>
 	<message key="user.login.accountDisabled">Your account has been disabled. Please contact the administrator for more information.</message>
@@ -72,21 +72,20 @@
 	<message key="user.logOutAs">Logout as</message>
 	<message key="user.hello">Hello, </message>
 	<message key="user.mailingAddress">Mailing Address</message>
-	<message key="user.masculine">M</message>
-	<message key="user.middleName">Middle Name</message>
 	<message key="user.myAccount">My Account</message>
 	<message key="user.name">Name</message>
-	<message key="user.other">Other</message>
 	<message key="user.password">Password</message>
 	<message key="user.repeatPassword">Repeat password</message>
 	<message key="user.phone">Phone</message>
+	<message key="user.preferredPublicName">Preferred Public Name</message>
+	<message key="user.preferredPublicName.description">How do you prefer to be addressed? Salutations, middle names and suffixes can be added here if you would like.</message>
 	<message key="user.profile.changePasswordInstructions">Enter your current and new passwords below to change the password for your account.</message>
 	<message key="user.profile.editProfile">Edit Profile</message>
 	<message key="user.profile.form.countryRequired">A country is required.</message>
 	<message key="user.profile.form.emailRequired">A valid email address is required.</message>
 	<message key="user.profile.form.affiliationRequired">An affiliation is required.</message>
-	<message key="user.profile.form.firstNameRequired">A first name is required.</message>
-	<message key="user.profile.form.lastNameRequired">A last name is required.</message>
+	<message key="user.profile.form.givenNameRequired">A given name is required.</message>
+	<message key="user.profile.form.givenNameRequired.locale">You have added a family name for a language that is missing the given name. Please add a given name for this language.</message>
 	<message key="user.profile.form.mailingAddressRequired">A mailing address is required.</message>
 	<message key="user.profile.form.newPasswordRequired">You must enter your new password.</message>
 	<message key="user.profile.form.oldPasswordInvalid">The current password you entered was incorrect.</message>
@@ -98,6 +97,7 @@
 	<message key="user.profile.form.urlInvalid">The specified URL is not valid. Please double-check the URL and try again. (Hint: Try adding http:// to the beginning of the URL.)</message>
 	<message key="user.profile.form.usergroupRequired">A user group is required.</message>
 	<message key="user.profile.form.usernameRequired">A username is required.</message>
+	<message key="user.profile.form.privacyConsentRequired">You must agree to the terms of the privacy statement.</message>
 	<message key="user.profile.leavePasswordBlank">Leave the password fields blank to keep the current password.</message>
 	<message key="user.profile.newPassword">New password</message>
 	<message key="user.profile.oldPassword">Current password</message>
@@ -108,6 +108,8 @@
 	<message key="user.login.registerNewAccount">Register</message>
 	<message key="user.login.resetPasswordInstructions">Enter your account email address below and an email will be sent with instructions on how to reset your password.</message>
 
+	<message key="user.register.form.privacyConsent"><![CDATA[Yes, I agree to have my data collected and stored according to the <a href="{$privacyUrl}" target="_blank">privacy statement</a>.]]></message>
+	<message key="user.register.form.emailConsent">Yes, I would like to be notified of new publications and announcements.</message>
 	<message key="user.register.form.emailExists">The selected email address is already in use by another user.</message>
 	<message key="user.register.form.passwordsDoNotMatch">The passwords do not match.</message>
 	<message key="user.register.form.emailsDoNotMatch">The email address fields do not match.</message>
@@ -119,6 +121,7 @@
 	<message key="user.register">Register</message>
 	<message key="user.register.usernameRestriction">The username must contain only lowercase letters, numbers, and hyphens/underscores.</message>
 	<message key="user.register.registrationCompleted"><![CDATA[You have successfully registered. <a href="{$profileUrl}">Click here</a> to complete your user profile.]]></message>
+	<message key="user.role.assistant">Assistant</message>
 	<message key="user.role.author">Author</message>
 	<message key="user.role.author_s">Author(s)</message>
 	<message key="user.role.authors">Authors</message>
@@ -137,11 +140,9 @@
 	<message key="user.role.layoutEditor">Layout Editor</message>
 	<message key="user.role.layoutEditors">Layout Editors</message>
 	<message key="user.roles">Roles</message>
-	<message key="user.salutation">Salutation</message>
 	<message key="user.sendPassword">Confirmation</message>
 	<message key="user.sendPassword.description">Send me a confirmation email including my username and password</message>
 	<message key="user.signature">Signature</message>
-	<message key="user.suffix">Suffix</message>
 	<message key="user.title">Title</message>
 	<message key="user.url">URL</message>
 	<message key="user.userHome">User Home</message>
@@ -156,4 +157,6 @@
 	<message key="user.apiKeyEnabled">Enable external applications with the API key to access this account</message>
 	<message key="user.apiKey.generate">Generate new API key</message>
 	<message key="user.apiKey.generateWarning">Generating a new API key will invalidate any existing key for this user.</message>
+	<message key="user.apiKey.secretRequired">Before generating an API key, your site administrator must set a secret in the config file ("api_key_secret").</message>
+	<message key="user.privacyLink"><![CDATA[Your data is stored in accordance with our <a href="{$privacyUrl}" target="_blank">privacy statement</a>.]]></message>
 </locale>

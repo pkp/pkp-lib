@@ -8,8 +8,8 @@
 /**
  * @file classes/cliTool/CliTool.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CommandLineTool
@@ -49,9 +49,9 @@ class CommandLineTool {
 	/** @vary array Command-line arguments */
 	var $argv;
 
-	function CommandLineTool($argv = array()) {
+	function __construct($argv = array()) {
 		// Initialize the request object with a page router
-		$application = PKPApplication::getApplication();
+		$application = Application::getApplication();
 		$request = $application->getRequest();
 
 		// FIXME: Write and use a CLIRouter here (see classdoc)
@@ -82,5 +82,3 @@ class CommandLineTool {
 	}
 
 }
-
-?>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * locale/pl_PL/locale.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+
+<locale name="pl_PL" full_name="Język Polski">
+	<message key="plugins.metadata.nlm30.displayName">Metadane NLM 3.0</message>
+	<message key="plugins.metadata.nlm30.description">Wspiera schematy i adaptery aplikacji NLM 3.0.</message>
+	<message key="plugins.metadata.nlm30.citationAdapter.displayName">Adapter cytowań NLM 3.0</message>
+	<message key="plugins.metadata.nlm30.citationAdapter.description">Wyodrębnia/wprowadza metadane z/do cytowań.</message>
+	<message key="plugins.metadata.nlm30.citationParsers.displayName">Serwisy do wyodrębniania cytowań "</message>
+	<message key="plugins.metadata.nlm30.citationParsers.description">Konwertuj tekst z cytowaniami do dokumentu ze znacznikami cytowań NLM 3.0.</message>
+	<message key="plugins.metadata.nlm30.citationLookup.displayName">Usługi baz danych cytowań</message>
+	<message key="plugins.metadata.nlm30.citationLookup.description">Popraw dokument ze znacznikami cytowań NLM 3.0 poprzez wyszukanie cytowań w zewnętrznych bazach danych.</message>
+	<message key="plugins.metadata.nlm30.citationOutput.displayName">Citation Output Services</message>
+	<message key="plugins.metadata.nlm30.citationOutput.description">Konwertuj dokument ze znacznikami cytowań NLM 3.0 do standardowego tekstu.</message>
+	<message key="plugins.metadata.nlm30Xml.citationOutput.displayName">Citation Output Services (XML)</message>
+	<message key="plugins.metadata.nlm30Xml.citationOutput.description">Konwertuj dokument ze znacznikami cytowań NLM 3.0 do standardowego pliku XML z cytowaniami.</message>
+	<message key="plugins.metadata.nlm30.nlm30XmlOutput.displayName">NLM 3.0 wyjście do publikacji czasopism</message>
+	<message key="plugins.metadata.nlm30.nlm30XmlOutput.description">Konwertuj tekst do NLM 3.0.</message>
+	<message key="plugins.metadata.nlm30.nlm23XmlOutput.displayName">NLM 2.3 wyjście do publikacji czasopism</message>
+	<message key="plugins.metadata.nlm30.nlm23XmlOutput.description">Konwertuj tekst do NLM 2.3.</message>
+	<message key="plugins.metadata.nlm30.nlm30ToNlm23Xml.displayName">Obniżenie NLM 3.0 do 2.3</message>
+	<message key="plugins.metadata.nlm30.nlm30ToNlm23Xml.description">Obniża NLM 3.0 do NLM 2.3.</message>
+	<message key="plugins.metadata.nlm30.refList.displayName">Generowanie tekstu z listą cytowanych publikacji</message>
+	<message key="plugins.metadata.nlm30.refList.description">Generuj tekst z listą cytowanych publikacji z formularza bibliografii w zgłaszanym tekście.</message>
+</locale>

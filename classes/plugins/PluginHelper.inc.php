@@ -3,8 +3,8 @@
 /**
  * @file classes/plugins/PluginHelper.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PluginHelper
@@ -50,7 +50,7 @@ class PluginHelper {
 		$pluginShortName = array_pop($matches);
 		if (!$pluginShortName) {
 			$errorMsg = __('manager.plugins.invalidPluginArchive');
-			$fileManager->deleteFile($filePath);
+			$fileManager->deleteByPath($filePath);
 			return null;
 		}
 
@@ -65,7 +65,7 @@ class PluginHelper {
 		} else {
 			$errorMsg = __('manager.plugins.tarCommandNotFound');
 		}
-		$fileManager->deleteFile($filePath);
+		$fileManager->deleteByPath($filePath);
 
 		if (empty($errorMsg)) {
 			// Look for a directory named after the plug-in's short
@@ -121,7 +121,11 @@ class PluginHelper {
 			$installFile = $pluginDest . '/' . PLUGIN_INSTALL_FILE;
 			if(!is_file($installFile)) $installFile = Core::getBaseDir() . '/' . PKP_LIB_PATH . '/xml/defaultPluginInstall.xml';
 			assert(is_file($installFile));
+			$siteDao = DAORegistry::getDAO('SiteDAO');
+			$site = $siteDao->getSite();
 			$params = $this->_getConnectionParams();
+			$params['locale'] = $site->getPrimaryLocale();
+			$params['additionalLocales'] = $site->getSupportedLocales();
 			$installer = new Install($params, $installFile, true);
 			$installer->setCurrentVersion($pluginVersion);
 			if (!$installer->execute()) {
@@ -240,7 +244,11 @@ class PluginHelper {
 
 			$upgradeFile = $pluginDest . '/' . PLUGIN_UPGRADE_FILE;
 			if($fileManager->fileExists($upgradeFile)) {
+				$siteDao = DAORegistry::getDAO('SiteDAO');
+				$site = $siteDao->getSite();
 				$params = $this->_getConnectionParams();
+				$params['locale'] = $site->getPrimaryLocale();
+				$params['additionalLocales'] = $site->getSupportedLocales();
 				$installer = new Upgrade($params, $upgradeFile, true);
 
 				if (!$installer->execute()) {
@@ -300,4 +308,4 @@ class PluginHelper {
 	}
 }
 
-?>
+

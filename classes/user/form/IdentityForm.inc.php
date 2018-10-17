@@ -3,8 +3,8 @@
 /**
  * @file classes/user/form/IdentityForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPProfileForm
@@ -25,43 +25,50 @@ class IdentityForm extends BaseProfileForm {
 	function __construct($user) {
 		parent::__construct('user/identityForm.tpl', $user);
 
+		// the users register for the site, thus
+		// the site primary locale is the required default locale
+		$site = Application::getRequest()->getSite();
+		$this->addSupportedFormLocale($site->getPrimaryLocale());
+
 		// Validation checks for this form
-		$this->addCheck(new FormValidator($this, 'firstName', 'required', 'user.profile.form.firstNameRequired'));
-		$this->addCheck(new FormValidator($this, 'lastName', 'required', 'user.profile.form.lastNameRequired'));
+		$form = $this;
+		$this->addCheck(new FormValidatorLocale($this, 'givenName', 'required', 'user.profile.form.givenNameRequired', $site->getPrimaryLocale()));
+		$this->addCheck(new FormValidatorCustom($this, 'familyName', 'optional', 'user.profile.form.givenNameRequired.locale', function($familyName) use ($form) {
+			$givenNames = $form->getData('givenName');
+			foreach ($familyName as $locale => $value) {
+				if (!empty($value) && empty($givenNames[$locale])) {
+					return false;
+				}
+			}
+			return true;
+		}));
 	}
 
 	/**
-	 * Fetch the form.
-	 * @param $request PKPRequest
-	 * @return string JSON-encoded form contents.
+	 * @copydoc BaseProfileForm::fetch
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 
 		$user = $this->getUser();
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$templateMgr->assign(array(
 			'username' => $user->getUsername(),
-			'genderOptions' => $userDao->getGenderOptions()
 		));
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
-	 * @copydoc Form::initData()
+	 * @copydoc BaseProfileForm::initData()
 	 */
 	function initData() {
 		$user = $this->getUser();
 
 		$this->_data = array(
-			'salutation' => $user->getSalutation(),
-			'firstName' => $user->getFirstName(),
-			'middleName' => $user->getMiddleName(),
-			'initials' => $user->getInitials(),
-			'lastName' => $user->getLastName(),
-			'suffix' => $user->getSuffix(),
-			'gender' => $user->getGender(),
+			'givenName' => $user->getGivenName(null),
+			'familyName' => $user->getFamilyName(null),
+			'preferredPublicName' => $user->getPreferredPublicName(null),
 		);
 	}
 
@@ -72,26 +79,23 @@ class IdentityForm extends BaseProfileForm {
 		parent::readInputData();
 
 		$this->readUserVars(array(
-			'salutation', 'firstName', 'middleName', 'initials', 'lastName', 'suffix', 'gender',
+			'givenName', 'familyName', 'preferredPublicName',
 		));
 	}
 
 	/**
 	 * Save identity settings.
 	 */
-	function execute($request) {
+	function execute() {
+		$request = Application::getRequest();
 		$user = $request->getUser();
 
-		$user->setSalutation($this->getData('salutation'));
-		$user->setFirstName($this->getData('firstName'));
-		$user->setMiddleName($this->getData('middleName'));
-		$user->setInitials($this->getData('initials'));
-		$user->setLastName($this->getData('lastName'));
-		$user->setSuffix($this->getData('suffix'));
-		$user->setGender($this->getData('gender'));
+		$user->setGivenName($this->getData('givenName'), null);
+		$user->setFamilyName($this->getData('familyName'), null);
+		$user->setPreferredPublicName($this->getData('preferredPublicName'), null);
 
-		parent::execute($request, $user);
+		parent::execute();
 	}
 }
 
-?>
+

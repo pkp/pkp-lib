@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/pt_BR/api.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the REST API.
+  -->
+
+<locale name="pt_BR" full_name="Português (Brasil)">
+	<message key="api.submissions.403.csrfTokenFailure">Seu pedido foi negado, provavelmente devido ao seu acesso ter expirado. Recarregue a página.</message>
+	<message key="api.submissions.403.requestedOthersUnpublishedSubmissions">Você pode ver apenas submissões não publicadas as quais foi designada.</message>
+	<message key="api.submissions.403.deleteSubmissionOutOfContext">Você não pode apagar uma submissão que não está associada a esse contexto.</message>
+	<message key="api.submissions.403.unauthorizedDeleteSubmission">Você não tem permissões para apaar essa submissão.</message>
+	<message key="api.submissions.404.resourceNotFound">O recurso requisitado não foi encontrado.</message>
+	<message key="api.submissions.400.missingRequired">Seu pedido não pode ser atendido pois informação requerida está faltando.</message>
+	<message key="api.submissions.400.invalidIssueIdentifiers">O volume requisitado, número ou ano não é válido.</message>
+	<message key="api.submissions.unknownError">Ocorreu um erro não esperado. Por favor recarregue a página e tente novamente. Se o erro persistir contacte o suporte técnico.</message>
+</locale>

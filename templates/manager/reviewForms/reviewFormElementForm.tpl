@@ -1,8 +1,8 @@
 {**
  * templates/manager/reviewForms/reviewFormElementForm.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Form to create/modify a review form element.
@@ -44,6 +44,11 @@ function togglePossibleResponses(newValue, multipleResponsesElementTypesString) 
 			{fbvElement type="textarea" id="question" value=$question multilingual=true rich=true}
 		{/fbvFormSection}
 
+		<!-- description -->
+		{fbvFormSection title="manager.reviewFormElements.description" for="description"}
+			{fbvElement type="textarea" id="description" value=$description multilingual=true rich=true}
+		{/fbvFormSection}
+
 		<!-- required checkbox -->
 		{fbvFormSection for="required" list=true}
 			{if $required}
@@ -75,7 +80,7 @@ function togglePossibleResponses(newValue, multipleResponsesElementTypesString) 
 		<!-- Options listbuilder. Activated for some element types. -->
 		<div id="elementOptions" class="full left">
 			<div id="elementOptionsContainer" class="full left">
-				{url|assign:elementOptionsUrl router=$smarty.const.ROUTE_COMPONENT component="listbuilder.settings.reviewForms.ReviewFormElementResponseItemListbuilderHandler" op="fetch" reviewFormId=$reviewFormId reviewFormElementId=$reviewFormElementId escape=false}
+				{capture assign=elementOptionsUrl}{url router=$smarty.const.ROUTE_COMPONENT component="listbuilder.settings.reviewForms.ReviewFormElementResponseItemListbuilderHandler" op="fetch" reviewFormId=$reviewFormId reviewFormElementId=$reviewFormElementId escape=false}{/capture}
 				{load_url_in_div id="elementOptionsListbuilderContainer" url=$elementOptionsUrl}
 			</div>
 		</div>

@@ -2,8 +2,8 @@
 /**
  * @file controllers/grid/settings/reviewForms/ReviewFormGridCellProvider.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewFormGridCellProvider
@@ -29,24 +29,15 @@ class ReviewFormGridCellProvider extends GridCellProvider {
 		assert(is_a($element, 'ReviewForm') && !empty($columnId));
 		switch ($columnId) {
 			case 'name':
-				$label = $element->getLocalizedTitle();
-				return array('label' => $label);
-				break;
+				return array('label' => $element->getLocalizedTitle());
 			case 'inReview':
-				$label = $element->getIncompleteCount();
-				return array('label' => $label);
-				break;
+				return array('label' => $element->getIncompleteCount());
 			case 'completed':
-				$label = $element->getCompleteCount();
-				return array('label' => $label);
-				break;
+				return array('label' => $element->getCompleteCount());
 			case 'active':
-				$selected = $element->getActive();
-				return array('selected' => $selected);
-				break;
-			default:
-				break;
+				return array('selected' => $element->getActive());
 		}
+		return parent::getTemplateVarsFromRowColumn($row, $column);
 	}
 
 	/**
@@ -97,4 +88,4 @@ class ReviewFormGridCellProvider extends GridCellProvider {
 	}
 }
 
-?>
+

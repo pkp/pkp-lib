@@ -3,8 +3,8 @@
 /**
  * @file controllers/tab/settings/permissions/form/PermissionSettingsForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PermissionSettingsForm
@@ -52,15 +52,15 @@ class PermissionSettingsForm extends ContextSettingsForm {
 	/**
 	 * @copydoc ContextSettingsForm::fetch
 	 */
-	function fetch($request, $params = null) {
+	function fetch($request, $template = null, $display = false, $params = null) {
 		$templateMgr = TemplateManager::getManager($request);
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
 		$templateMgr->assign('ccLicenseOptions', array_merge(
 			array('' => 'common.other'),
 			Application::getCCLicenseOptions()
 		));
-		return parent::fetch($request, $params);
+		return parent::fetch($request, $template, $display, $params);
 	}
 }
 
-?>
+

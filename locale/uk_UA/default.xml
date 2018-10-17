@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * locale/uk_UA/default.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Ukrainian_(uk_UA)
+  * Localization strings for the uk_UA (Українська) locale.
+  -->
+
+<locale name="uk_UA" full_name="Українська">
+	<!-- Group defaults -->
+	<message key="default.groups.name.siteAdmin">Адміністратор сайту</message>
+	<message key="default.groups.plural.siteAdmin">Адміністратори сайту</message>
+	<message key="default.groups.name.productionEditor">Випусковий редактор</message>
+	<message key="default.groups.plural.productionEditor">Випускові редактори</message>
+	<message key="default.groups.abbrev.productionEditor">ВипРед</message>
+	<message key="default.groups.name.copyeditor">Літературний редактор</message>
+	<message key="default.groups.plural.copyeditor">Літературні редактори</message>
+	<message key="default.groups.abbrev.copyeditor">ЛітРед</message>
+	<message key="default.groups.name.proofreader">Коректор</message>
+	<message key="default.groups.plural.proofreader">Коректори</message>
+	<message key="default.groups.abbrev.proofreader">Кор</message>
+	<message key="default.groups.name.designer">Дизайнер</message>
+	<message key="default.groups.plural.designer">Дизайнери</message>
+	<message key="default.groups.abbrev.designer">Дизайн</message>
+	<message key="default.groups.name.internalReviewer">Внутрішній рецензент</message>
+	<message key="default.groups.plural.internalReviewer">Внутрішні реценезенти</message>
+	<message key="default.groups.abbrev.internalReviewer">ВнутрР</message>
+	<message key="default.groups.name.marketing">Координатор з маркетингу та збуту</message>
+	<message key="default.groups.plural.marketing">Координатори з маркетингу та збуту</message>
+	<message key="default.groups.abbrev.marketing">МіЗ</message>
+	<message key="default.groups.name.funding">Координатор з фінансування</message>
+	<message key="default.groups.plural.funding">Координатори з фінансування</message>
+	<message key="default.groups.abbrev.funding">КФ</message>
+	<message key="default.groups.name.indexer">Індексатор</message>
+	<message key="default.groups.plural.indexer">Індексатори</message>
+	<message key="default.groups.abbrev.indexer">Інд</message>
+	<message key="default.groups.name.layoutEditor">Редактор макету</message>
+	<message key="default.groups.plural.layoutEditor">Редактори макету</message>
+	<message key="default.groups.abbrev.layoutEditor">РедМ</message>
+	<message key="default.groups.name.author">Автор</message>
+	<message key="default.groups.plural.author">Автори</message>
+	<message key="default.groups.abbrev.author">Авт</message>
+	<message key="default.groups.name.translator">Перекладач</message>
+	<message key="default.groups.plural.translator">Перекладачі</message>
+	<message key="default.groups.abbrev.translator">Перекл</message>
+	<message key="default.groups.name.reader">Читач</message>
+	<message key="default.groups.plural.reader">Читачі</message>
+	<message key="default.groups.abbrev.reader">Чит</message>
+	
+	<!--  common app genre defaults -->
+	<message key="default.genres.other">Інше</message>
+	<message key="default.genres.multimedia">Мультимедія</message>
+	<message key="default.genres.image">Зображення</message>
+	<message key="default.genres.styleSheet">Таблиця стилів HTML</message>
+</locale>

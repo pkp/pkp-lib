@@ -3,8 +3,8 @@
 /**
  * @file classes/install/Installer.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Installer
@@ -383,8 +383,11 @@ class Installer {
 				$condition = isset($action['attr']['condition'])?$action['attr']['condition']:null;
 				$includeAction = true;
 				if ($condition) {
-					$funcName = create_function('$installer,$action', $condition);
-					$includeAction = $funcName($this, $action);
+					// Create a new scope to evaluate the condition
+					$evalFunction = function($installer, $action) use ($condition) {
+						return eval($condition);
+					};
+					$includeAction = $evalFunction($this, $action);
 				}
 				$this->log('data: ' . $action['file'] . ($includeAction?'':' (skipped)'));
 				if (!$includeAction) break;
@@ -400,8 +403,11 @@ class Installer {
 				$condition = isset($action['attr']['condition'])?$action['attr']['condition']:null;
 				$includeAction = true;
 				if ($condition) {
-					$funcName = create_function('$installer,$action', $condition);
-					$includeAction = $funcName($this, $action);
+					// Create a new scope to evaluate the condition
+					$evalFunction = function($installer, $action) use ($condition) {
+						return eval($condition);
+					};
+					$includeAction = $evalFunction($this, $action);
 				}
 				$this->log(sprintf('code: %s %s::%s' . ($includeAction?'':' (skipped)'), isset($action['file']) ? $action['file'] : 'Installer', isset($action['attr']['class']) ? $action['attr']['class'] : 'Installer', $action['attr']['function']));
 				if (!$includeAction) return true; // Condition not met; skip the action.
@@ -754,6 +760,35 @@ class Installer {
 		$installer->setError(INSTALLER_ERROR_GENERAL, $attr['message']);
 		return false;
 	}
+
+	/**
+	 * For 3.1.0 upgrade.  DefaultMenus Defaults
+	 * @return boolean Success/failure
+	 */
+	function installDefaultNavigationMenus() {
+		$contextDao = Application::getContextDAO();
+		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+
+		$contexts = $contextDao->getAll();
+		while ($context = $contexts->next()) {
+			$navigationMenuDao->installSettings($context->getId(), 'registry/navigationMenus.xml');
+		}
+
+		$navigationMenuDao->installSettings(CONTEXT_ID_NONE, 'registry/navigationMenus.xml');
+
+		return true;
+	}
+
+	/**
+	 * Check that the environment meets minimum PHP requirements.
+	 * @return boolean Success/failure
+	 */
+	function checkPhpVersion() {
+		if (version_compare(PHP_REQUIRED_VERSION, PHP_VERSION) != 1) return true;
+
+		$this->setError(INSTALLER_ERROR_GENERAL, 'installer.unsupportedPhpError');
+		return false;
+	}
 }
 
-?>
+

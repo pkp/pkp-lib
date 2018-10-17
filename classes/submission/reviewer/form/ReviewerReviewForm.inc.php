@@ -2,8 +2,8 @@
 /**
  * @file classes/submission/reviewer/form/ReviewerReviewForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewerReviewForm
@@ -77,16 +77,16 @@ class ReviewerReviewForm extends Form {
 	// Implement protected template methods from Form
 	//
 	/**
-	 * @see Form::fetch()
+	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
 			'submission' => $this->getReviewerSubmission(),
 			'reviewIsComplete' => (boolean) $this->getReviewAssignment()->getDateCompleted(),
 			'step' => $this->getStep(),
 		));
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 
@@ -99,7 +99,7 @@ class ReviewerReviewForm extends Form {
 	 * update the given reviewer submission.
 	 * @param $reviewerSubmission ReviewerSubmission
 	 */
-	function updateReviewStepAndSaveSubmission(&$reviewerSubmission) {
+	function updateReviewStepAndSaveSubmission($reviewerSubmission) {
 		// Update the review step.
 		$nextStep = $this->getStep() + 1;
 		if($reviewerSubmission->getStep() < $nextStep) {
@@ -111,5 +111,3 @@ class ReviewerReviewForm extends Form {
 		$reviewerSubmissionDao->updateReviewerSubmission($reviewerSubmission);
 	}
 }
-
-?>

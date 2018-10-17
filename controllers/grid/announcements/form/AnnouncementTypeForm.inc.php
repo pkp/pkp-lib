@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/announcements/form/AnnouncementTypeForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AnnouncementTypeForm
@@ -54,10 +54,10 @@ class AnnouncementTypeForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = 'controllers/grid/announcements/form/announcementTypeForm.tpl', $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('typeId', $this->typeId);
-		return parent::fetch($request, 'controllers/grid/announcements/form/announcementTypeForm.tpl');
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -114,4 +114,4 @@ class AnnouncementTypeForm extends Form {
 	}
 }
 
-?>
+

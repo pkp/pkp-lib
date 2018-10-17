@@ -180,7 +180,7 @@ class ADODB2_mysql extends ADODB_DataDict {
 	}
 
 	// Character encoding support for CREATE DATABASE / CREATE TABLE
-	// Added 2004-06-20 by Kevin Jamieson (http://pkp.sfu.ca/)
+	// Added 2004-06-20 by Kevin Jamieson (https://pkp.sfu.ca/)
 	// NOTE: If a character set is specified, assumes the database server supports this
 	function CreateDatabase($dbname,$options=false)
 	{

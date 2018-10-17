@@ -8,8 +8,8 @@
 /**
  * @file classes/mail/Mail.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Mail
@@ -322,8 +322,23 @@ class Mail extends DataObject {
 	 */
 	function setReplyTo($email, $name = '') {
 		if ($email === null) $this->setData('replyTo', null);
-		$this->setData('replyTo', array('name' => $name, 'email' => $email));
+		$this->setData('replyTo', array(array('name' => $name, 'email' => $email)));
 	}
+
+	/**
+	* Add a reply-to for the message.
+	* @param $email string
+	* @param $name string optional
+	*/
+	function addReplyTo($email, $name = '') {
+                if (($replyTos = $this->getData('replyTo')) == null) {
+                        $replyTos = array();
+                }
+                array_push($replyTos, array('name' => $name, 'email' => $email));
+
+                $this->setData('replyTo', $replyTo);
+	}
+
 
 	/**
 	 * Get the reply-to of the message.
@@ -334,16 +349,11 @@ class Mail extends DataObject {
 	}
 
 	/**
-	 * Return a string containing the reply-to address.
+	 * Return a string containing the reply-to addresses.
 	 * @return string
 	 */
 	function getReplyToString($send = false) {
-		$replyTo = $this->getReplyTo();
-		if (!array_key_exists('email', $replyTo) || $replyTo['email'] == null) {
-			return null;
-		} else {
-			return (Mail::encodeDisplayName($replyTo['name'], $send) . ' <'.$replyTo['email'].'>');
-		}
+		return $this->getAddressArrayString($this->getReplyTo(), true, $send);
 	}
 
 	/**
@@ -388,7 +398,7 @@ class Mail extends DataObject {
 		if ($from == null) {
 			return null;
 		} 
-		return (Mail::encodeDisplayName($from['name'], $send) . ' <'.$from['email'].'>');
+		return (self::encodeDisplayName($from['name'], $send) . ' <'.$from['email'].'>');
 	}
 
 	/**
@@ -412,7 +422,7 @@ class Mail extends DataObject {
 					$addressString .= $address['email'];
 
 				} else {
-					$addressString .= Mail::encodeDisplayName($address['name'], $send) . ' <'.$address['email'].'>';
+					$addressString .= self::encodeDisplayName($address['name'], $send) . ' <'.$address['email'].'>';
 				}
 			}
 
@@ -450,7 +460,7 @@ class Mail extends DataObject {
 	 * @return boolean
 	 */
 	function send() {
-		if (HookRegistry::call('Mail::send', array($this))) return;
+		if (HookRegistry::call('Mail::send', array($this))) return true;
 
 		// Replace all the private parameters for this message.
 		$mailBody = $this->getBody();
@@ -462,6 +472,7 @@ class Mail extends DataObject {
 
 		$mailer = new PHPMailer();
 		$mailer->IsHTML(true);
+		$mailer->Encoding = 'base64';
 		if (Config::getVar('email', 'smtp')) {
 			$mailer->IsSMTP();
 			$mailer->Port = Config::getVar('email', 'smtp_port');
@@ -480,16 +491,29 @@ class Mail extends DataObject {
 		}
 		$mailer->CharSet = Config::getVar('i18n', 'client_charset');
 		if (($t = $this->getContentType()) != null) $mailer->ContentType = $t;
-		$mailer->XMailer = 'Public Knowledge Project Suite v2';
+		$mailer->XMailer = 'Public Knowledge Project Suite v3';
 		$mailer->WordWrap = MAIL_WRAP;
 		foreach ((array) $this->getHeaders() as $header) {
 			$mailer->AddCustomHeader($header['key'], $mailer->SecureHeader($header['content']));
 		}
-		if (($s = $this->getEnvelopeSender()) != null) $mailer->Sender = $s;
 		if (($f = $this->getFrom()) != null) {
+			// this sets Sender as well
 			$mailer->SetFrom($f['email'], $f['name']);
 		}
-		if (($r = $this->getReplyTo()) != null) {
+		if (($s = $this->getEnvelopeSender()) != null) $mailer->Sender = $s;
+		// When we are modifying the envelope sender, promote the from to a reply-to
+		if ($f != null && $f['email'] !== $s) {
+			$alreadyExists = false;
+			foreach ((array) $this->getReplyTo() as $r) {
+				if ($r['email'] === $f['email']) {
+					$alreadyExists = true;
+				}
+			}
+			if (!$alreadyExists) {
+				$mailer->AddReplyTo($f['email'], $f['name']);
+			}
+		}
+		foreach ((array) $this->getReplyTo() as $r) {
 			$mailer->AddReplyTo($r['email'], $r['name']);
 		}
 		foreach ((array) $this->getRecipients() as $recipientInfo) {
@@ -536,7 +560,7 @@ class Mail extends DataObject {
 	 * @param $send boolean True to encode the results for sending
 	 * @return string
 	 */
-	function encodeDisplayName($displayName, $send = false) {
+	static function encodeDisplayName($displayName, $send = false) {
 		if (PKPString::regexp_match('!^[-A-Za-z0-9\!#\$%&\'\*\+\/=\?\^_\`\{\|\}~]+$!', $displayName)) return $displayName;
 		return ('"' . ($send ? PKPString::encode_mime_header(str_replace(
 			array('"', '\\'),
@@ -550,4 +574,4 @@ class Mail extends DataObject {
 	}
 }
 
-?>
+

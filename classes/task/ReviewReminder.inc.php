@@ -3,8 +3,8 @@
 /**
  * @file classes/task/ReviewReminder.inc.php
  *
- * Copyright (c) 2013-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2013-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewReminder
@@ -61,6 +61,7 @@ class ReviewReminder extends ScheduledTask {
 		$email->addRecipient($reviewer->getEmail(), $reviewer->getFullName());
 		$email->setSubject($email->getSubject($context->getPrimaryLocale()));
 		$email->setBody($email->getBody($context->getPrimaryLocale()));
+		$email->setFrom($context->getSetting('contactEmail'), $context->getSetting('contactName'));
 
 		$reviewUrlArgs = array('submissionId' => $reviewAssignment->getSubmissionId());
 		if ($reviewerAccessKeysEnabled) {
@@ -73,7 +74,7 @@ class ReviewReminder extends ScheduledTask {
 			$reviewUrlArgs = array_merge($reviewUrlArgs, array('reviewId' => $reviewId, 'key' => $accessKey));
 		}
 
-		$application = PKPApplication::getApplication();
+		$application = Application::getApplication();
 		$request = $application->getRequest();
 		$dispatcher = $application->getDispatcher();
 		$submissionReviewUrl = $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'reviewer', 'submission', null, $reviewUrlArgs);
@@ -143,9 +144,9 @@ class ReviewReminder extends ScheduledTask {
 				// Avoid review assignments without submission in database.
 				if (!$submission) continue;
 
-				if ($submission->getStatus() != STATUS_QUEUED) continue;
-
 			}
+
+			if ($submission->getStatus() != STATUS_QUEUED) continue;
 
 			// Fetch the context
 			if ($context == null || $context->getId() != $submission->getContextId()) {
@@ -177,4 +178,4 @@ class ReviewReminder extends ScheduledTask {
 	}
 }
 
-?>
+

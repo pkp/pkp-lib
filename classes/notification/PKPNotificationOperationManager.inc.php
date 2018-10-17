@@ -3,8 +3,8 @@
 /**
  * @file classes/notification/PKPNotificationOperationManager.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPNotificationOperationManager
@@ -12,7 +12,7 @@
  * @see NotificationDAO
  * @see Notification
  * @brief Base class for notification manager that implements
- * basic notification operations and default notifications info. 
+ * basic notification operations and default notifications info.
  * Subclasses can implement specific information.
  */
 
@@ -21,12 +21,6 @@ import('classes.notification.Notification');
 import('lib.pkp.classes.notification.INotificationInfoProvider');
 
 abstract class PKPNotificationOperationManager implements INotificationInfoProvider {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-	}
-
 
 	//
 	// Implement INotificationInfoProvider with default values.
@@ -169,7 +163,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 
 			// Send notification emails
 			if ($notification->getLevel() != NOTIFICATION_LEVEL_TRIVIAL && !$suppressEmail) {
-				$notificationEmailSettings = $this->getUserBlockedNotifications($userId, $contextId);
+				$notificationEmailSettings = $this->getUserBlockedEmailedNotifications($userId, $contextId);
 
 				if(!in_array($notificationType, $notificationEmailSettings)) {
 					$this->sendNotificationEmail($request, $notification);
@@ -267,75 +261,6 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 		}
 
 		return $formattedNotificationsData;
-	}
-
-	/**
-	 * Send an update to all users on the mailing list
-	 * @param $request PKPRequest
-	 * @param $notification object Notification
-	 */
-	public function sendToMailingList($request, $notification) {
-		$notificationMailListDao = DAORegistry::getDAO('NotificationMailListDAO');
-		$mailList = $notificationMailListDao->getMailList($notification->getContextId());
-		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
-
-		foreach ($mailList as $email) {
-			$context = $request->getContext();
-			$site = $request->getSite();
-			$router = $request->getRouter();
-			$dispatcher = $router->getDispatcher();
-
-			$mail = $this->getMailTemplate('NOTIFICATION_MAILLIST');
-			if ($context) {
-				$mail->setReplyTo($context->getContactEmail(), $context->getContactName());
-			} else {
-				$mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
-			}
-			$mail->assignParams(array(
-				'notificationContents' => $this->getNotificationContents($request, $notification),
-				'url' => $this->getNotificationUrl($request, $notification),
-				'siteTitle' => $context->getLocalizedName(),
-				'unsubscribeLink' => $dispatcher->url($request, ROUTE_PAGE, null, 'notification', 'unsubscribeMailList')
-			));
-			$mail->addRecipient($email);
-			$mail->send();
-		}
-	}
-
-	/**
-	 * Static function to send an email to a mailing list user e.g. regarding signup
-	 * @param $request PKPRequest
-	 * @param $email string
-	 * @param $token string the user's token (for confirming and unsubscribing)
-	 * @param $template string The mail template to use
-	 */
-	public function sendMailingListEmail($request, $email, $token, $template) {
-		$site = $request->getSite();
-		$context = $request->getContext();
-		$router = $request->getRouter();
-		$dispatcher = $router->getDispatcher();
-
-		$params = array(
-			'siteTitle' => $context?$context->getLocalizedName():$site->getLocalizedTitle(),
-			'unsubscribeLink' => $dispatcher->url($request, ROUTE_PAGE, null, 'notification', 'unsubscribeMailList', array($token))
-		);
-
-		if ($template == 'NOTIFICATION_MAILLIST_WELCOME') {
-			$confirmLink = $dispatcher->url($request, ROUTE_PAGE, null, 'notification', 'confirmMailListSubscription', array($token));
-			$params['confirmLink'] = $confirmLink;
-		}
-
-		$mail = $this->getMailTemplate($template);
-		
-		if ($context) {
-			$mail->setReplyTo($context->getContactEmail(), $context->getContactName());
-		} else {
-			$mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
-		}
-		
-		$mail->assignParams($params);
-		$mail->addRecipient($email);
-		$mail->send();
 	}
 
 	/**
@@ -447,19 +372,19 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 		$userId = $notification->getUserId();
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $userDao->getById($userId);
-		if ($user) {
+		if ($user && !$user->getDisabled()) {
 			AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
 
 			$context = $request->getContext();
 			$site = $request->getSite();
 			$mail = $this->getMailTemplate('NOTIFICATION');
-			
+
 			if ($context) {
 				$mail->setReplyTo($context->getContactEmail(), $context->getContactName());
 			} else {
 				$mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 			}
-			
+
 			$mail->assignParams(array(
 				'notificationContents' => $this->getNotificationContents($request, $notification),
 				'url' => $this->getNotificationUrl($request, $notification),
@@ -471,4 +396,4 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	}
 }
 
-?>
+

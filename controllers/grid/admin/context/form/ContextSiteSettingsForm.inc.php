@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/admin/context/form/ContextSiteSettingsForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ContextSiteSettingsForm
@@ -31,22 +31,25 @@ class ContextSiteSettingsForm extends Form {
 		$this->contextId = isset($contextId) ? (int) $contextId : null;
 
 		// Validation checks for this form
+		$form = $this;
 		$this->addCheck(new FormValidatorLocale($this, 'name', 'required', 'admin.contexts.form.titleRequired'));
 		$this->addCheck(new FormValidator($this, 'path', 'required', 'admin.contexts.form.pathRequired'));
 		$this->addCheck(new FormValidatorRegExp($this, 'path', 'required', 'admin.contexts.form.pathAlphaNumeric', '/^[a-z0-9]+([\-_][a-z0-9]+)*$/i'));
-		$this->addCheck(new FormValidatorCustom($this, 'path', 'required', 'admin.contexts.form.pathExists', create_function('$path,$form,$contextDao', 'return !$contextDao->existsByPath($path) || ($form->getData(\'oldPath\') != null && $form->getData(\'oldPath\') == $path);'), array(&$this, Application::getContextDAO())));
+		$this->addCheck(new FormValidatorCustom($this, 'path', 'required', 'admin.contexts.form.pathExists', function($path) use ($form) {
+			$contextDao = Application::getContextDAO();
+			return !$contextDao->existsByPath($path) || ($form->getData('oldPath') != null && $form->getData('oldPath') == $path);
+		}));
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
 	}
 
 	/**
-	 * Fetch the form.
-	 * @param $request PKPRequest
+	 * @copydoc Form::fetch
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('contextId', $this->contextId);
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -112,6 +115,17 @@ class ContextSiteSettingsForm extends Form {
 			$userGroupDao->assignUserToGroup($userSession->getUserId(), $managerUserGroup->getId());
 		}
 	}
+
+	/**
+	 * Initially populate the navigationMenus and NavigationMenuItems when creating a new context.
+	 * @param $contextId int
+	 */
+	function _loadDefaultNavigationMenus($contextId) {
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_DEFAULT, LOCALE_COMPONENT_PKP_DEFAULT);
+		// Install default user groups
+		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+		$navigationMenuDao->installSettings($contextId, 'registry/navigationMenus.xml');
+	}
 }
 
-?>
+

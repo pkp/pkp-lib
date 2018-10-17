@@ -1,8 +1,8 @@
 {**
  * controllers/tab/settings/reviewStage/form/reviewStageForm.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Review stage management form.
@@ -41,7 +41,7 @@
 
 		{fbvFormSection label="manager.setup.reviewOptions.automatedReminders" description="manager.setup.reviewOptions.automatedRemindersDisabled"}{/fbvFormSection}
 
-		{translate|assign:"reminderDefault" key="manager.setup.reviewOptions.neverSendReminder"}
+		{capture assign="reminderDefault"}{translate key="manager.setup.reviewOptions.neverSendReminder"}{/capture}
 
 		{fbvFormSection description="manager.setup.reviewOptions.remindForInvite"}
 			{if $scheduledTasksDisabled}{assign var="disabled" value=true}{else}{assign var="disabled" value=false}{/if}
@@ -54,15 +54,10 @@
 		{/fbvFormSection}
 	{/fbvFormArea}
 
-	{url|assign:reviewFormsUrl router=$smarty.const.ROUTE_COMPONENT component="grid.settings.reviewForms.ReviewFormGridHandler" op="fetchGrid" escape=false}
+	{capture assign=reviewFormsUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.reviewForms.ReviewFormGridHandler" op="fetchGrid" escape=false}{/capture}
 	{load_url_in_div id="reviewFormGridContainer" url=$reviewFormsUrl}
 
 	{fbvFormArea id="reviewProcessDetails" class=$wizardClass}
-		{* https://github.com/pkp/pkp-lib/issues/372
-			{fbvFormSection for="rateReviewerOnQuality" label="manager.setup.reviewOptions.reviewerRatings" list=true}
-				{fbvElement type="checkbox" id="rateReviewerOnQuality" value="1" checked=$rateReviewerOnQuality label="manager.setup.reviewOptions.onQuality"}
-			{/fbvFormSection}
-		*}
 		{capture assign="ensureLink"}{include file="linkAction/linkAction.tpl" action=$ensuringLink contextId="uploadForm"}{/capture}
 		{fbvFormSection for="showEnsuringLink" label="manager.setup.reviewOptions.blindReview" list=true}
 			{fbvElement type="checkbox" id="showEnsuringLink" value="1" checked=$showEnsuringLink label=$ensureLink translate=false keepLabelHtml=true}

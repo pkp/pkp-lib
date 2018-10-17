@@ -3,8 +3,8 @@
 /**
  * @file classes/submission/SubmissionFileDAODelegate.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileDAODelegate
@@ -57,7 +57,6 @@ class SubmissionFileDAODelegate extends DAO {
 			(int)$submissionFile->getFileStage(),
 			(boolean)$submissionFile->getViewable() ? 1 : 0,
 			is_null($submissionFile->getUploaderUserId()) ? null : (int)$submissionFile->getUploaderUserId(),
-			is_null($submissionFile->getUserGroupId()) ? null : (int)$submissionFile->getUserGroupId(),
 			is_null($submissionFile->getAssocType()) ? null : (int)$submissionFile->getAssocType(),
 			is_null($submissionFile->getAssocId()) ? null : (int)$submissionFile->getAssocId(),
 			is_null($submissionFile->getGenreId()) ? null : (int)$submissionFile->getGenreId(),
@@ -71,9 +70,9 @@ class SubmissionFileDAODelegate extends DAO {
 
 		$this->update(
 			sprintf('INSERT INTO submission_files
-				(' . ($fileId ? 'file_id, ' : '') . 'revision, submission_id, source_file_id, source_revision, file_type, file_size, original_file_name, file_stage, date_uploaded, date_modified, viewable, uploader_user_id, user_group_id, assoc_type, assoc_id, genre_id, direct_sales_price, sales_type)
+				(' . ($fileId ? 'file_id, ' : '') . 'revision, submission_id, source_file_id, source_revision, file_type, file_size, original_file_name, file_stage, date_uploaded, date_modified, viewable, uploader_user_id, assoc_type, assoc_id, genre_id, direct_sales_price, sales_type)
 				VALUES
-				(' . ($fileId ? '?, ' : '') . '?, ?, ?, ?, ?, ?, ?, ?, %s, %s, ?, ?, ?, ?, ?, ?, ?, ?)',
+				(' . ($fileId ? '?, ' : '') . '?, ?, ?, ?, ?, ?, ?, ?, %s, %s, ?, ?, ?, ?, ?, ?, ?)',
 				$this->datetimeToDB($submissionFile->getDateUploaded()), $this->datetimeToDB($submissionFile->getDateModified())),
 			$params
 		);
@@ -152,7 +151,6 @@ class SubmissionFileDAODelegate extends DAO {
 					date_modified = %s,
 					viewable = ?,
 					uploader_user_id = ?,
-					user_group_id = ?,
 					assoc_type = ?,
 					assoc_id = ?,
 					genre_id = ?,
@@ -172,7 +170,6 @@ class SubmissionFileDAODelegate extends DAO {
 				$submissionFile->getFileStage(),
 				(boolean)$submissionFile->getViewable() ? 1 : 0,
 				is_null($submissionFile->getUploaderUserId()) ? null : (int)$submissionFile->getUploaderUserId(),
-				is_null($submissionFile->getUserGroupId()) ? null : (int)$submissionFile->getUserGroupId(),
 				is_null($submissionFile->getAssocType()) ? null : (int)$submissionFile->getAssocType(),
 				is_null($submissionFile->getAssocId()) ? null : (int)$submissionFile->getAssocId(),
 				is_null($submissionFile->getGenreId()) ? null : (int)$submissionFile->getGenreId(),
@@ -199,7 +196,7 @@ class SubmissionFileDAODelegate extends DAO {
 			import('lib.pkp.classes.file.FileManager');
 			$fileManager = new FileManager();
 			if (!$fileManager->copyFile($previousFilePath, $targetFilePath)) return false;
-			if (!$fileManager->deleteFile($previousFilePath)) return false;
+			if (!$fileManager->deleteByPath($previousFilePath)) return false;
 		}
 
 		return file_exists($targetFilePath);
@@ -241,7 +238,7 @@ class SubmissionFileDAODelegate extends DAO {
 
 		import('lib.pkp.classes.file.FileManager');
 		$fileManager = new FileManager();
-		$fileManager->deleteFile($filePath);
+		$fileManager->deleteByPath($filePath);
 
 		return !file_exists($filePath);
 	}
@@ -267,7 +264,6 @@ class SubmissionFileDAODelegate extends DAO {
 		$submissionFile->setGenreId(is_null($row['genre_id']) ? null : (int)$row['genre_id']);
 		$submissionFile->setFileSize((int)$row['file_size']);
 		$submissionFile->setUploaderUserId(is_null($row['uploader_user_id']) ? null : (int)$row['uploader_user_id']);
-		$submissionFile->setUserGroupId(is_null($row['user_group_id']) ? null : (int)$row['user_group_id']);
 		$submissionFile->setViewable((boolean)$row['viewable']);
 		$submissionFile->setDateUploaded($this->datetimeFromDB($row['date_uploaded']));
 		$submissionFile->setDateModified($this->datetimeFromDB($row['date_modified']));
@@ -335,7 +331,7 @@ class SubmissionFileDAODelegate extends DAO {
 	 * @param $contextId int
 	 * @return boolean
 	 */
-	function pubIdExists($pubIdType, $pubId, $fileId, $contextId) {
+	function pubIdExists($pubIdType, $pubId, $excludePubObjectId, $contextId) {
 		$result = $this->retrieve(
 			'SELECT COUNT(*)
 			FROM submission_file_settings sfs
@@ -345,7 +341,7 @@ class SubmissionFileDAODelegate extends DAO {
 			array(
 				'pub-id::'.$pubIdType,
 				$pubId,
-				(int) $fileId,
+				(int) $excludePubObjectId,
 				(int) $contextId
 			)
 		);
@@ -357,12 +353,12 @@ class SubmissionFileDAODelegate extends DAO {
 	/**
 	 * @copydoc PKPPubIdPluginDAO::changePubId()
 	 */
-	function changePubId($fileId, $pubIdType, $pubId) {
+	function changePubId($pubObjectId, $pubIdType, $pubId) {
 		$idFields = array(
 			'file_id', 'locale', 'setting_name'
 		);
 		$updateArray = array(
-			'file_id' => (int) $fileId,
+			'file_id' => (int) $pubObjectId,
 			'locale' => '',
 			'setting_name' => 'pub-id::'.$pubIdType,
 			'setting_type' => 'string',
@@ -375,13 +371,13 @@ class SubmissionFileDAODelegate extends DAO {
 	/**
 	 * @copydoc PKPPubIdPluginDAO::deletePubId()
 	 */
-	function deletePubId($fileId, $pubIdType) {
+	function deletePubId($pubObjectId, $pubIdType) {
 		$settingName = 'pub-id::'.$pubIdType;
 		$this->update(
 			'DELETE FROM submission_file_settings WHERE setting_name = ? AND file_id = ?',
 			array(
 				$settingName,
-				(int)$fileId
+				(int)$pubObjectId
 			)
 		);
 		$this->flushCache();
@@ -391,7 +387,6 @@ class SubmissionFileDAODelegate extends DAO {
 	 * @copydoc PKPPubIdPluginDAO::deleteAllPubIds()
 	 */
 	function deleteAllPubIds($contextId, $pubIdType) {
-		$contextId = (int) $contextId;
 		$settingName = 'pub-id::'.$pubIdType;
 
 		$submissionDao = Application::getSubmissionDAO();
@@ -449,4 +444,4 @@ class SubmissionFileDAODelegate extends DAO {
 	}
 }
 
-?>
+

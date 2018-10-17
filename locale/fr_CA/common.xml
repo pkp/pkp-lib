@@ -4,8 +4,8 @@
 <!--
   * locale/fr_CA/common.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the fr_CA (Français (Canada)) locale.
@@ -48,7 +48,7 @@
 	<message key="common.altTextInstructions">Veuillez fournir un texte alternatif pour cette image afin d'assurer l'accessibilité aux utilisateurs de navigateurs textuels ou d'appareils et accessoires fonctionnels.</message>
 	<message key="common.and">et</message>
 	<message key="common.applyAction">Appliquer l'action</message>
-	<message key="common.assign">Assigner</message>
+	<message key="common.assign">Ajouter</message>
 	<message key="common.assigned">Assigné</message>
 	<message key="common.assigned.date">Assigné: {$dateAssigned}</message>
 	<message key="common.back">Précédent</message>
@@ -98,8 +98,8 @@
 	<message key="common.fileName">Nom de fichier</message>
 	<message key="common.fileSize">Taille de fichier</message>
 	<message key="common.fileType">Type de fichier</message>
-	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
-	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
+	<message key="common.file.namingPattern">{$username}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$genre}, {$originalFilename}</message>
 	<message key="common.height">Hauteur</message>
 	<message key="common.homePageHeaderLogo.altText">Logo de l'en-tête de la page d'accueil</message>
 	<message key="common.hour">Heure</message>
@@ -309,32 +309,16 @@
 	<message key="notification.allow">Permettre à ces types d'avis d'apparaître dans mon flux d'avis.</message>
 	<message key="notification.confirmError">Il s'est produit une erreur lors de la confirmation de votre abonnement.</message>
 	<message key="notification.confirmSuccess">Vous vous êtes abonné avec succès.</message>
-	<message key="notification.email">M'envoyer un courriel pour ces types d'avis.</message>
-	<message key="notification.location">Aller à l'URL</message>
-	<message key="notification.mailList">Liste de diffusion d'avis</message>
-	<message key="notification.mailList.emailInvalid">Veuillez entrer une adresse de courriel valide.</message>
-	<message key="notification.mailList.privacyProtection">Politique de protection de la vie privée</message>
-	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">S'abonner</a> à du contenu protégé.]]></message>
-	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Soumettre</a> un article]]></message>
-	<message key="notification.mailList.register">Vous pouvez vous inscrire à ce site à...</message>
-	<message key="notification.mailList.review"><![CDATA[Participer au processus d'<a href="{$reviewUrl}">évaluation par les pairs</a>]]></message>
+	<message key="notification.email">Ne pas m'envoyer de courriel pour ce type d'avis.</message>
 	<message key="notification.noneExist">Vous n'avez aucun avis en ce moment.</message>
 	<message key="notification.notification">Avis</message>
 	<message key="notification.notifications">Avis</message>
-	<message key="notification.notificationsNew">({$numNew} nouveau(x))</message>
-	<message key="notification.notificationsDescription"><![CDATA[Vous avez {$unreadCount} avis non lu(s) et {$readCount} avis lu(s).  <a href="{$settingsUrl}">Cliquer ici</a> pour changer vos paramètres d'avis.]]></message>
 	<message key="notification.settings">Paramètres d'avis</message>
 	<message key="notification.settingsDescription">Choisir les événements système dont vous voulez être informé par l'intermédiaire d'avis. Désélectionner un élément empêchera les avis reliés à cet événement d'apparaître dans votre flux d'avis.</message>
-	<message key="notification.subscribe">S'abonner</message>
-	<message key="notification.subscribeError">Votre adresse de courriel est déjà abonnée aux avis.</message>
-	<message key="notification.subscribeSuccess">Un courriel a été envoyé à l'adresse spécifiée. Veuillez cliquer sur le lien de confirmation dans le courriel pour vous ajouter à la liste de diffusion.</message>
 	<message key="notification.reminderError">Il s'est produit une erreur lors de l'envoi de votre mot de passe. Veuillez vous assurer que vous avez saisi votre adresse de courriel correctement.</message>
 	<message key="notification.reminderSent">Votre nouveau mot de passe a été envoyé à l'adresse de courriel fournie.</message>
-	<message key="notification.unsubscribe">Se désabonner</message>
-	<message key="notification.unsubscribeError">Il s'est produit une erreur lors de votre désabonnement. Veuillez vous assurer que votre adresse de courriel et votre mot de passe sont corrects.</message>
-	<message key="notification.unsubscribeSuccess">Vous avez été désabonné avec succès.</message>
 	<message key="notification.savedSubmissionMetadata">Les métadonnées de la soumission ont été sauvegardées.</message>
-	<message key="common.uploadFailed">Le fichier n'a pu être téléverser. Veuillez essayer de nouveau ou communiquer avec l'administrateur si le problème persiste.</message>
+	<message key="common.uploadFailed">Le fichier n'a pu être téléversé. Veuillez essayer de nouveau ou communiquer avec l'administrateur si le problème persiste.</message>
 	<message key="navigation.dashboard">Tableau de bord</message>
 	<message key="common.false">Faux</message>
 	<message key="common.ok">OK</message>
@@ -381,7 +365,7 @@
 	<message key="stageParticipants.notify.message">Message</message>
 	<message key="stageParticipants.notify.warning">Assurez-vous d'avoir rempli le champ Message et d'avoir choisi au moins un destinataire.</message>
 
-	<message key="notification.addedReviewer">Un évaluateur a été ajouté.</message>
+	<message key="notification.addedReviewer">{$reviewerName} a été assigné(e) comme évaluateur pour cette soumission et un courriel d'avis lui a été envoyé.</message>
 	<message key="notification.removedReviewer">L'évaluateur a été supprimé.</message>
 	<message key="notification.addedStageParticipant">L'utilisateur a été ajouté à titre de participant.</message>
 	<message key="notification.addedQuery">Discussion ajoutée</message>
@@ -391,7 +375,7 @@
 	<message key="notification.type.allReviewsIn">Toutes les évaluations ont été soumises. Il faut prendre une décision à l'étape {$stage}.</message>
 	<message key="notification.type.allRevisionsIn">Un fichier révisé a été téléchargé dans {$stage} afin que vous puissiez l'évaluer.</message>
 	<message key="notification.type.assignCopyeditors">Affectez un réviseur à l'aide du lien "Ajouter" dans la liste "Participants".</message>
-	<message key="notification.type.awaitingCopyedits">En attente de copies.</message>
+	<message key="notification.type.awaitingCopyedits">En attente des modifications.</message>
 	<message key="notification.type.metadataModified">Les metadata de "{$title}" ont été modifiées.</message>
 	<message key="notification.type.newAnnouncement">Nouvelle annonce.</message>
 	<message key="notification.type.pendingRevisions">Vous devez tenir compte des révisions à cette étape: {$stage}.</message>
@@ -402,7 +386,7 @@
 	<message key="notification.type.roundStatusTitle">Statut de la série {$round} </message>
 	<message key="notification.signedFile">Fichier considéré.</message>
 	<message key="user.authorization.authorRoleMissing">Vos privilèges actuels ne vous permettent pas de visionner cette soumission. Veuillez modifier votre profil pour vous assurer que l'on vous a assigné les rôles appropriés dans la section "S'inscrire comme".</message>
-	<message key="common.publicKnowledgeProject">Projet de connaissances publiques (Public Knowledge Project)</message>
+	<message key="common.publicKnowledgeProject">Public Knowledge Project</message>
 	<message key="common.currentStyleSheet">Feuille de style actuelle</message>
 	<message key="about.description">Description</message>
 	<message key="about.guidelines">Guides</message>
@@ -447,6 +431,8 @@
 	<message key="common.homepageNavigationLabel">Accueil</message>
 	<message key="common.itemsPerPage">Items par page</message>
 	<message key="common.less">Réduire</message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.billingAddress">Adresse de facturation (si différente)</message>
 	<message key="common.more">Plus</message>
 	<message key="common.notes.tooltip">Notes (jaune: contient de nouvelles notes; bleu: contient des notes déjà visionnées; gris: aucunes notes)</message>
@@ -455,7 +441,7 @@
 	<message key="common.overdue">En retard</message>
 	<message key="common.prefix">Préfixe</message>
 	<message key="common.prefixAndTitle.tip">Si le titre du document commence par "un/une" ou "le/la" (ou quelque chose de similaire concernant l'ordre alphabétique), mettre le mot dans Préfixe.</message>
-	<message key="common.subtitle.tip">Le titre optionnel de la soumission suivra les deux points (:), après le titre principal.</message>
+	<message key="common.subtitle.tip">Le titre sera suivi de deux points et du sous-titre, facultatif.</message>
 	<message key="common.reminder">Rappel</message>
 	<message key="common.remote">À distance</message>
 	<message key="common.remoteURL">URL Distante</message>
@@ -535,16 +521,16 @@
 	<message key="search.advancedSearchMore">Options de recherche supplémentaires (cliquer pour afficher)</message>
 	<message key="search.searchAgain">Recherché à nouveau</message>
 	<message key="search.SearchFor">Recherche pour</message>
-	<message key="review.ensuringBlindReview">Assurer un examen aveugle</message>
+	<message key="review.ensuringBlindReview">Assurer une évaluation anonyme</message>
 	<message key="grid.action.showReviewPolicy">Lire la politique actuelle concernant la révision</message>
 	<message key="user.authorization.invalidRepresentation">Représentation invalide.</message>
 	<message key="user.authorization.submissionFile">L'utilisateur actuel n'a pas accès au fichier de soumission spécifié.</message>
 	<message key="user.authorization.submissionAuthor">L'utilisateur actuel n'est pas l'auteur de la soumission demandée. Veuillez vous assurer d'avoir ouvert une session avec le compte d'utilisateur approprié.</message>
-	<message key="review.blindPeerReview"><![CDATA[<p>Afin d'assurer l'intégrité de l'examen en aveugle des soumissions envoyées à cette presse, il faut faire tous les efforts possibles pour éviter que l'on révèle l'identité des auteurs et des examinateurs. Pour ce faire, les auteurs, les réviseurs et les examinateurs (qui téléchargent les documents dans le cadre de l'examen) doivent s'assurer de suivre les étapes suivantes en ce qui concerne les propriétés du texte et du fichier:</p>
+	<message key="review.blindPeerReview"><![CDATA[<p>Afin d'assurer l'intégrité de l'examen en aveugle des soumissions envoyées à cette presse, il faut faire tous les efforts possibles pour éviter de révéler l'identité des auteurs et des évaluateurs. Pour ce faire, les auteurs, les rédacteurs et les évaluateurs (qui téléchargent les documents dans le cadre de l'évaluation) doivent s'assurer de suivre les étapes suivantes en ce qui concerne les propriétés du texte et du fichier:</p>
 
 <ul><li>Supprimer le nom de l'auteur du texte. Dans la bibliographie et dans les notes en bas de page, on utilise le mot "Auteur" et l'année au lieu du nom de l'auteur, du titre de l'article, etc.</li>
 
-<li>En ce qui concerne les documents de type Microsoft Office, l'identification de l'auteur ne doit plus apparaitre dans les propriétés du fichier (voir le menu principal Fichier dans Word). Vous devez cliquer: Fichier &gt; Enregistrer sous &gt; Outils (ou Options sur le Mac) &gt; Sécurité &gt; Éliminer les renseignements personnels des propriétés du fichier au moment de la sauvegarde &gt; Sauvegarder.</li>
+<li>En ce qui concerne les documents de type Microsoft Office, l'identification de l'auteur ne doit plus apparaître dans les propriétés du fichier (voir le menu principal Fichier dans Word). Vous devez cliquer: Fichier &gt; Enregistrer sous &gt; Outils (ou Options sur le Mac) &gt; Sécurité &gt; Éliminer les renseignements personnels des propriétés du fichier au moment de la sauvegarde &gt; Sauvegarder.</li>
 
 <li>Pour les fichiers PDF, le nom de l'auteur doit être enlevé des propriétés du document dans le menu Fichier, du menu principal d'Adobe Acrobat.</li>
 
@@ -559,4 +545,34 @@
 	<message key="common.downloadPdf">Télécharger le PDF</message>
 
 	<message key="semicolon">{$label}:</message>
+	<message key="notification.addedReviewerNoEmail">{$reviewerName} a été assigné(e) à l'évaluation de cette soumission sans que ne lui soit envoyé un courriel d'avis.</message>
+	<message key="common.deleting">Supprimer</message>
+	<message key="common.from">De</message>
+	<message key="common.until">À</message>
+	<message key="common.saving">Enregistrer</message>
+	<message key="stageParticipants.options">Privilèges</message>
+	<message key="stageParticipants.recommendOnly">Ce participant est seulement autorisé à recommander une décision éditoriale. Un Rédacteur autorisé devra enregistrer la décision.</message>
+	<message key="notification.reviewerThankedEmail">Courriel de remerciement envoyé à l'évaluateur.</message>
+	<message key="notification.editedNavigationMenuItem">L'élément du menu de navigation a été correctement mis à jour.</message>
+	<message key="notification.removedNavigationMenuItem">L'élément du menu de navigation a été correctement retiré</message>
+	<message key="notification.addedNavigationMenuItem">L'élément du menu de navigation a été correctement ajouté</message>
+	<message key="notification.addedNavigationMenu">Le menu de navigation a été correctement ajouté</message>
+	<message key="notification.editedNavigationMenu">Le menu de navigation a été correctement mis à jour.</message>
+	<message key="notification.removedNavigationMenu">Le menu de navigation a été correctement retiré</message>
+	<message key="notification.sendNotificationConfirmation">Envoyer un courriel d'avis à tous les utilisateurs enregistrés</message>
+	<message key="common.filter">Filtres</message>
+	<message key="common.filterAdd">Ajouter le filtre : {$filterTitle}</message>
+	<message key="common.filterRemove">Enlever le filtre : {$filterTitle}</message>
+	<message key="common.lessThan">{$value} ou moins</message>
+	<message key="common.listSeparator">,</message>
+	<message key="common.moreThan">{$value} ou plus</message>
+	<message key="common.pagination">{$start}-{$end} de {$total}</message>
+	<message key="common.pagination.label">Parcourir les pages supplémentaires</message>
+	<message key="common.clearSearch">Effacer la requête</message>
+	<message key="common.publicAccess">Accès public</message>
+	<message key="stageParticipants.notify.startDiscussion">Commencer une discussion</message>
+	<message key="stageParticipants.notify.startDiscussion.description">Commencer une discussion entre {$userFullName} et vous.</message>
+	<message key="list.viewMore">Afficher plus de détails sur {$name}</message>
+	<message key="list.viewLess">Masquer les détails sur {$name}</message>
+	<message key="notification.type.reviewAssignmentUpdated">Demande d'évaluation mise à jour.</message>
 </locale>

@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/admin/plugins/AdminPluginGridHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AdminPluginGridHandler
@@ -58,10 +58,19 @@ class AdminPluginGridHandler extends PluginGridHandler {
 			}
 
 			$this->addPolicy(new PluginAccessPolicy($request, $args, $roleAssignments, $accessMode));
+		} else {
+			import('lib.pkp.classes.security.authorization.PolicySet');
+			$rolePolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
+
+			import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
+			foreach($roleAssignments as $role => $operations) {
+				$rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
+			}
+			$this->addPolicy($rolePolicy);
 		}
 
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 }
 
-?>
+

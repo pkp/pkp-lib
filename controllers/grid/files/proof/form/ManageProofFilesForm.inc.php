@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/files/proof/form/ManageProofFilesForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ManageProofFilesForm
@@ -35,14 +35,12 @@ class ManageProofFilesForm extends ManageSubmissionFilesForm {
 	// Overridden template methods
 	//
 	/**
-	 * Fetch the form contents.
-	 * @param $request PKPRequest
-	 * @return string Form contents
+	 * @copydoc ManageSubmissionFilesForm::fetch
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('representationId', $this->_representationId);
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -73,4 +71,4 @@ class ManageProofFilesForm extends ManageSubmissionFilesForm {
 	}
 }
 
-?>
+

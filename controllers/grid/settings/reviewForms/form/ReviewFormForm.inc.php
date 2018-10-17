@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/settings/reviewForms/form/ReviewFormForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewFormForm
@@ -43,10 +43,10 @@ class ReviewFormForm extends Form {
 
 	/**
 	 * Initialize form data from current settings.
-	 * @param $request PKPRequest
 	 */
-	function initData($request) {
+	function initData() {
 		if ($this->reviewFormId) {
+			$request = Application::getRequest();
 			$context = $request->getContext();
 			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
 			$reviewForm = $reviewFormDao->getById($this->reviewFormId, Application::getContextAssocType(), $context->getId());
@@ -57,22 +57,22 @@ class ReviewFormForm extends Form {
 	}
 
 	/**
-	 * Display the form.
+	 * @copydoc Form::fetch
 	 */
-	function fetch($args, $request) {
+	function fetch($request, $template = null, $display = false) {
 		$json = new JSONMessage();
 
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('reviewFormId', $this->reviewFormId);
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
 	 * Save review form.
-	 * @param $request PKPRequest
 	 */
-	function execute($request) {
+	function execute() {
+		$request = Application::getRequest();
 		$context = $request->getContext();
 		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
 
@@ -108,4 +108,4 @@ class ReviewFormForm extends Form {
 	}
 }
 
-?>
+

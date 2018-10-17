@@ -3,8 +3,8 @@
 /**
  * @file pages/submission/PKPSubmissionHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionHandler
@@ -32,9 +32,10 @@ abstract class PKPSubmissionHandler extends Handler {
 
 		// Are we in step one without a submission present?
 		if ($step === 1 && $submissionId === 0) {
-			// Authorize submission creation.
-			import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
-			$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+			// Authorize submission creation. Author role not required.
+			import('lib.pkp.classes.security.authorization.UserRequiredPolicy');
+			$this->addPolicy(new UserRequiredPolicy($request));
+			$this->markRoleAssignmentsChecked();
 		} else {
 			// Authorize editing of incomplete submissions.
 			import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
@@ -169,7 +170,7 @@ abstract class PKPSubmissionHandler extends Handler {
 
 		if (!HookRegistry::call('SubmissionHandler::saveSubmit', array($step, &$submission, &$submitForm))) {
 			if ($submitForm->validate()) {
-				$submissionId = $submitForm->execute($args, $request);
+				$submissionId = $submitForm->execute();
 				if (!$submission) {
 					return $request->redirectUrlJson($router->url($request, null, null, 'wizard', $step+1, array('submissionId' => $submissionId), 'step-2'));
 				}
@@ -177,6 +178,19 @@ abstract class PKPSubmissionHandler extends Handler {
 				$json->setEvent('setStep', max($step+1, $submission->getSubmissionProgress()));
 				return $json;
 			} else {
+				// Provide entered tagit fields values
+				$tagitKeywords = $submitForm->getData('keywords');
+				if (is_array($tagitKeywords)) {
+					$tagitFieldNames = $submitForm->_metadataFormImplem->getTagitFieldNames();
+					$locales = array_keys($submitForm->supportedLocales);
+					$formTagitData = array();
+					foreach ($tagitFieldNames as $tagitFieldName) {
+						foreach ($locales as $locale) {
+							$formTagitData[$locale] = array_key_exists($locale . "-$tagitFieldName", $tagitKeywords) ? $tagitKeywords[$locale . "-$tagitFieldName"] : array();
+						}
+						$submitForm->setData($tagitFieldName, $formTagitData);
+					}
+				}
 				return new JSONMessage(true, $submitForm->fetch($request));
 			}
 		}
@@ -211,4 +225,4 @@ abstract class PKPSubmissionHandler extends Handler {
 	abstract function getStepCount();
 }
 
-?>
+

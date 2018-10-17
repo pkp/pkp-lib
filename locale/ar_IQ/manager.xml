@@ -4,8 +4,8 @@
 <!--
   * locale/ar_IQ/manager.xml
   *
-  * Copyright (c) 2013-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2013-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ar_IQ (العربية) locale.
@@ -115,8 +115,8 @@
 	<message key="manager.language.reloadLocalizedDefaultSettings">استعادة الإعدادات الإفتراضية</message>
 	<message key="manager.languages.alternateLocaleInstructions">هذا النظام يتيح إختيارياً إدخال بعض المعلومات الحرجة بعدة لغات أخرى. لاستعمال هذه الميزة، إختر لغاب بديلة وحددها من قائمة الاختيارات أدناه.</message>
 	<message key="manager.languages.supportedLocalesInstructions">إختر كل اللغات التي تريد أن يدعمها الموقع عبر قائمة إختيار اللغة التي تظهر عند كل صفحة. تلك القائمة ستكون ظاهرة فقط عند اختيار أكثر من لغة للموقع.</message>
-	<message key="manager.masthead.title">دفة القيادة</message>
 	<message key="manager.payment.timestamp">بصمة الوقت</message>
+	<message key="manager.people.existingUserRequired">لا بد من إدخال مستخدم مسجل سابقاً.</message>
 	<message key="manager.people.authSource">مصدر المصادقة</message>
 	<message key="manager.people.confirmUnenroll">إزالة الدور من هذا المستخدم؟</message>
 	<message key="manager.people.createUser">إنشاء مستخدم جديد</message>
@@ -167,18 +167,8 @@
 	<message key="manager.reviewerSearch.change">تغيير</message>
 	<message key="manager.reviewerSearch.searchByName">البحث عن المحكم بالاسم</message>
 	<message key="manager.reviewerSearch.searchByName.short">البحث بالاسم</message>
-	<message key="manager.reviewerSearch.doneAmount">التحكيمات المكتملة: {$current}</message>
-	<message key="manager.reviewerSearch.doneAmountToggle">إكتمل تمكين/تعطيل التصفية للتحكيمات.</message>
-	<message key="manager.reviewerSearch.avgAmount">معدل أيام الإكمال: {$current}</message>
-	<message key="manager.reviewerSearch.avgAmountToggle">تمكين/تعطيل التصفية لمعدل أيام إكمال التحكيم.</message>
-	<message key="manager.reviewerSearch.lastAmount">الأيام منذ آخر تحكيم: {$current}</message>
-	<message key="manager.reviewerSearch.lastAmountToggle">تمكين/تعطيل التصفية لعدد أيام منذ آخر تحكيم.</message>
-	<message key="manager.reviewerSearch.activeAmount">التحكيمات النشطة حالياً: {$current}</message>
-	<message key="manager.reviewerSearch.activeAmountToggle">تمكين/تعطيل التصفية لعدد التحكيمات النشطة حالياً.</message>
 	<message key="manager.reviewerSearch.interests">إهتمامات التحكيم</message>
 	<message key="manager.reviewerSearch.form.instructions">استعمل النموذج أدناه لضبط القيم العليا للمصطلحات التي تريد البحث عنها. سيتم قبل نشر النموذج إلحاقه بالمعدلات المحسوبة لتلك الحقول.</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">أدخل إهتمامات المحكم بعبارات تفصلها الفارزة الإنجليزية...</message>
-	<message key="manager.reviewerSearch.form.previousReviewRounds">محكمو طلب النشر هذا من جولات التحكيم السابقة</message>
 	<message key="manager.roles">الأدوار</message>
 	<message key="manager.statistics"><![CDATA[الإحصائيات والتقارير]]></message>
 	<message key="manager.statistics.defaultMetricDescription">
@@ -228,50 +218,10 @@
 	<message key="manager.setup.authorCopyrightNoticeAgree">يتطلب من المؤلفين الموافقة على بيان الحقوق الفكرية كجزء من عملية التقديم.</message>
 	<message key="manager.setup.authorGuidelines">إرشادات المؤلف</message>
 	<message key="manager.setup.authorGuidelines.description">الإرشادات الموصى بها تتضمن المعايير القياسية للسيرة والتنسيق جنباً إلى جنب مع أمثلة لتنسيقات شائعة من الاقتباسات التي بالإمكان استعمالها في المؤلفات.</message>
-	<message key="manager.setup.citations">الاقتباسات</message>
-	<message key="manager.setup.citationAssistant">مساعد تأشير الاقتباسات</message>
-	<message key="manager.setup.citationFilterParser">استقطاع الاقتباس</message>
-	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>للعثور على الاقتباسات وتدقيقها في قواعد بيانات الاقتباسات، ينبغي أولاً تجزئتها إلى بيانات وصفية ممكننة قابلة للقراءة آلياً: العنوان، الناشر، تأريخ النشر... إلخ. وكل ذلك ينبغي استقطاعه من نص الاقتباس الأصلي الذي أدخله المؤلف. التوصيلات إلى خدمات الإنترنت الخارجية قد تساعد في هذه العملية. يمكنك إضافة واحد أو أكثر من هذه التوصيلات عبر النقر على زر "إضافة فقرة" أدناه. بعض هذه التوصيلات قد يكون بحاجة إلى ضبط إعداداته أولاً. ستتم مطالبتك بهذا لو كان يستدعي الحال ذلك.</p>
-		<p>بإمكانك تعديل أو حذف توصيلة موجودة عبر النقر على إيقونة التروس المجاورة لها.</p>]]></message>
-	<message key="manager.setup.citationFilterLookup">تدقيق الاقتباس</message>
-	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>عليك أيضاً تمكين وتضبيط التوصيلات إلى قواعد بيانات الاقتباسات الخارجية. هذا يساعد في العثور على الأخطاء المحتملة في اقتباسات المؤلف أو إضافة المزيد من المعلومات إليها (مثل: DOIs أو PubMed IDs) وهي مطلوبة للنشر أو الإيداع الالكتروني.</p>
-		<p>نحن نقدم توصيلات لعدة قواعد بيانات خارجية حيث يمكنك عبرها البحث في الاقتباسات. بعض تلك القواعد تتطلب التسجيل أو ضبط الإعدادات مسبقاً. لطفاً، إرجع إلى مواقع الإنترنت لتلك المصادر الخارجية للمزيد من المعلومات عن كيفية التسجيل والتهيئة. يمكنك إضافة واحد أو أكثر من هذه التوصيلات عبر النقر على زر "إضافة فقرة" أدناه.</p>
-		<p>بإمكانك تعديل أو حذف توصيلة لقاعدة بيانات خارجية موجودة عبر النقر على إيقونة التروس المجاورة لها.</p>
-		<p><strong>ملاحظة:</strong> لغرض إكمال عملية تدقيق الاقتباسات في وقت مقبول، ينبغي أن يكون الموجه <tt>citation_checking_max_processes</tt> المتوضع في ملف الإعدادات مضبوطاً على قيمة معقولة. أنظر قسم الإعدادات العامة في الملف <tt>config.inc.php</tt> للمزيد من المعلومات.</p>]]></message>
-	<message key="manager.setup.citationOutput">مخرجات الاقتباس</message>
-	<message key="manager.setup.citationOutputStyleDescription">إختر نمط الاقتباس الذي ترغب باعتماده في منشورات مجلتك. مساعد تأشير الاقتباسات يمكنك من مقارنة نسخة المؤلف من الاقتباس مع نسخة مولدة من ملف XML الذي تولده أنت، بحيث يمكنك تشخيص الأخطاء ومعالجتها بسهولة:</message>
 	<message key="manager.setup.competingInterests">المصالح المتضاربة</message>
 	<message key="manager.setup.competingInterestsDescription">ستتم مطالبة المحكمين بالإذعان لسياسة الكشف عن المصالح المتضاربة التي تحددها أدناه.</message>
 	<message key="manager.setup.errorDeletingItem">حدث خطأ ما عند حذف هذه الفقرة.</message>
 	<message key="manager.setup.favicon">صيغة الصورة المصغرة خاطئة. الصيغ المدعومة هي: .ico, .png, and .gif.</message>
-	<message key="manager.setup.filter.grid.errorDeletingFilter">حدث خطأ ما أثناء محاولة إزالة هذه التصفية. لطفاً، أبلغ عن الأمر بمثابة خطأ برمجي.</message>
-	<message key="manager.setup.filter.grid.filterDisplayName">التوصيلة</message>
-	<message key="manager.setup.filter.grid.filterSettings">معلومات التسجيل وإعدادات التوصيلة</message>
-	<message key="manager.setup.filter.grid.filterTemplateRequired">لطفاً، إختر أحد التحويلات من القائمة المنسدلة.</message>
-	<message key="manager.setup.filter.grid.confirmDelete">هل تريد حقاً حذف التصفية {$filterName} ؟</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">لقد اخترت أن تضيف قاعدة البيانات {$filterDisplayName}. لطفاً، أنقر على 'موافق' لتأكيد ذلك.</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">إختر قاعدة بيانات للبحث فيها.</message>
-	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>هذه التصفية ترتبط بقاعدة بيانات الكتب والمؤلفات <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a>.</p>
-	<p>إن مفتاح ISBNdb API مطلوب إجبارياً. لمعرفة كيفية توليد مفتاح، أنظر <a href="http://isbndb.com/api/v1/docs/keys" target="_blank">التوثيق عبر الإنترنت</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>هذه التصفية ترتبط بقاعدة بيانات الاقتباسات المتداخلة باستعمال <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">واجهة الاستعلام ذات الرابط المفتوح</a>.</p>
-	<p>لاستعمال هذه التصفية، بإمكانك الاستعانة بحسابك لدى نظام المراجع المتداخلة، أو التسجيل فيها مستعملاً عنواناً بريدياً صحيحاً <a href="http://www.crossref.org/requestaccount/" target="_blank">هنا</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>هذه التصفية ترتبط بمحرك البحث النافذ في قاعدة البيانات PubMed <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a>.</p>
-	<p>توفر عنوان بريد الكتروني لغرض التسجيل ليس أمراً إلزامياً، لكنه قد يكون كذلك إذا واجهتك مشاكل في الاتصال بالخدمة. أنظر القسم الموسوم <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">إرشادات الاستعمال ومتطلباته</a> في أدبيات Entrez للمزيد من المعلومات.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>هذه التصفية ترتبط بخدمات OCLC <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> و <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (إختيارياً).</p>
-	<p>إذا كان لديك مفتاح تسجيل لدى <a href="http://oclc.org/developer/develop/web-services.html" target="_blank">API key</a> فبإمكانك الاتصال بـ Worldcat عبر إدخال المفتاح أدناه.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.loadMessage">لطفاً، إمنح شبكة تعريف قاعدة بيانات الاقتباسات وقتاً للتحميل...</message>
-	<message key="manager.setup.filter.lookup.grid.title">توصيلات قاعدة بيانات الاقتباسات</message>
-	<message key="manager.setup.filter.noMoreTemplates">كل التحويلات المتاحة أضيفت سلفاً. لطفاً، أنقر 'إلغاء' للعودة إلى صفحة التهيئة.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionConfirm">لقد اخترت إضافة المحلل {$filterDisplayName}. لطفاً، أكد ذلك بالنقر على زر 'موافق'.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionTemplate">لطفاً، إختر محلل الاقتباسات.</message>
-	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>تصفية الاستقطاع هذه ترتبط بخدمة الإنترنت <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a>.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>تصفية الاستقطاع هذه تستعمل <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> وحدات Perl لتوفير <a href="http://paracite.eprints.org" target="_blank">ParaCite</a> وهي وظيفة لتحليل الاقتباسات. لتعمل الأمور بشكل صحيح، ينبغي أن يكون لديك برنامج Perl منصباً، فضلاً عن <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> ووحدات <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a> CPAN. عليك أيضاً ضبط موجه <tt>perl</tt> في ملفك التعريفي. هذا الموجه متوضع في قسم الأوامر الخارجية External Commands section للملف <tt>config.inc.php</tt>.</p>
-	<p>بإمكانك أيضاً اختيار وحدة المحلل التي على ParaTools استعمالها. بإمكانك التخير بين الوحدة القياسية، <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a>، ووحدات محلل <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a>.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>تصفية المستقطع هذه ترتبط بخدمة الإنترنت <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a>.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.regEx">إن تصفية المستقطع تستعمل سلسلة من التعابير المنتظمة لتحليل الاقتباسات.</message>
-	<message key="manager.setup.filter.parser.grid.loadMessage">لطفاً، إمنح شبكة تعريف محلل الاقتباسات وقتاً للتحميل...</message>
-	<message key="manager.setup.filter.parser.grid.title">خدمات استقطاع الاقتباسات</message>
-	<message key="manager.setup.filter.pleaseSelect">لطفاً إختر...</message>
 	<message key="manager.setup.groupType">التجميع حسب نوع الملف</message>
 	<message key="manager.setup.homeHeaderImageInvalid">صيغة ملف شعار رأس الصفحة الرئيسية غير صحيحة أو فشل تحميلها. الصيغ المدعومة هي: .gif، .jpg، أو .png.</message>
 	<message key="manager.setup.homepageImage">الصفحة الرئيسية</message>
@@ -286,7 +236,6 @@
 	<message key="manager.setup.layout.unselected">غير محددة</message>
 	<message key="manager.setup.loggingAndAuditing">تسجيل الوقائع والمراجعة</message>
 	<message key="manager.setup.logo">الصورة المصغرة</message>
-	<message key="manager.setup.metaCitationsDescription">قم بتفعيل خانة الاختيار الآتية لتمكين إجراء التعديلات على الاقتباسات والمراجع. هذا الأمر سيتيح للمؤلفين إدراج اقتباسات بشكل خام في مؤلفاتهم. كما سيكون للمحررين إمكانية الاستعانة بمساعد تأشير الاقتباسات الذي يقوم بتدقيق الاقتباسات الخام مستعيناً بقواعد بيانات خارجية، مثل: WorldCat، ISBNdb، PubMed وغيرها لتحقيق الدقة والضبط العاليين. الاقتباسات المصادق عليها يمكن تصديرها في ملفات طباعية نهائية.</message>
 	<message key="manager.setup.notifications">إشعار تقديم المؤلف لطلب نشر</message>
 	<message key="manager.setup.notifications.copySpecifiedAddress">أرسل نسخة إلى هذا العنوان</message>
 	<message key="manager.setup.notifications.description">يحصل المؤلفون تلقائياً على رسالة تبلغهم باستلام طلبهم. يمكنك الحصول على نسخ من هذه الرسالة موجهة إلى العناوين الآتية:</message>
@@ -299,7 +248,7 @@
 	<message key="manager.setup.principalContact">عنوان الاتصال الرئيسي</message>
 	<message key="manager.setup.principalContactDescription">أدخل تفاصيل العنوان التي عادة ما تكون لعضو أساسي في هيئة التحرير أو لرئيس التحرير أو لصاحب منصب إداري رئيسي، إذ أن هذا العنوان سيظهر علانية على موقعك.</message>
 	<message key="manager.setup.privacyStatement">بيان الخصوصية</message>
-	<message key="manager.setup.privacyStatement.description">هذا البيان سيظهر خلال مرحلة تقديم طلب النشر وعلى صفحة (عن المجلة) التي ستكون ظاهرة لجميع زوار الموقع.</message>
+	<message key="manager.setup.privacyStatement.description">هذا البيان سيظهر خلال مرحلة تسجيل المستخدم، تقديم طلب النشر من قبل المؤلف، وعلى صفحة التعريف بالخصوصية الشخصية المتاحة للعامة. حسب بعض التشريعات، لا بد من الناحية القانونية الإفصاح عن كيفية معالجة وتداول بيانات المستخدمين ضمن بيان الخصوصية.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">الأسابيع المسموح بها لقبول أو رفض طلب التحكيم</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">الأسابيع المسموح بها لإكمال مهمة التحكيم</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">لا تذكرني مطلقاً</message>
@@ -308,7 +257,8 @@
 	<message key="manager.setup.reviewOptions.remindForSubmit">أرسل تذكيراً إذا لم يرسل المحكم توصيته بعد مرور فترة (بالأيام) من انقضاء فترة التحكيم:</message>
 	<message key="manager.setup.reviewOptions.reviewTime">المواعيد النهائية للتحكيم إفتراضياً</message>
 	<message key="manager.setup.reviewOptions.showBlindReviewLink">أضف رابطاً عن "ضمان التحكيم السري" خلال رفع الملفات</message>
-	<message key="manager.setup.sortableByComponent">قابل للفرز حسب المكونات</message>
+	<message key="manager.setup.searchEngineIndexing.sitemap">خريطة الموقع</message>
+	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[تتوفر نسخة من خريطة الموقع بصيغة XML صالحة للتقديم إلى محركات البحث، عند <a href="{$path}" target="_blank">{$path}</a>]]></message>
 	<message key="manager.setup.sponsors.note">وصف علاقة الجهة الراعية وسياستها</message>
 	<message key="manager.setup.sponsors.description">أمثلة: الرابطات الطلابية، أقسام الجامعات، جهات متعاونة... وما شابه. يتم عرض هذه الجهات علانية في الموقع.</message>
 	<message key="manager.setup.styleSheetDescription">مطورو مواقع الإنترنت ذوو الخبرة بإمكانهم رفع ملف أنماط بصيغة CSS لمزيد من التحكم بمظهر الموقع.</message>
@@ -323,13 +273,6 @@
 	<message key="plugins.categories.auth">إضافات المصادقة</message>
 	<message key="plugins.categories.blocks">إضافات الكتل</message>
 	<message key="plugins.categories.blocks.description">إن إضافات الكتل هي مكونات واجهة مستخدم، مثل أدوات أشرطة التمرير المتنوعة.</message>
-	<message key="plugins.categories.citationFormats">إضافات تنسيق الاقتباسات</message>
-	<message key="plugins.categories.citationLookup">إضافات توصيلات قواعد بيانات الاقتباسات</message>
-	<message key="plugins.categories.citationLookup.description">إن إضافات توصيلات قواعد بيانات الاقتباسات ترتبط بقواعد البيانات للبحث عن الاقتباسات، مثلما يحدث عند تعديل الاقتباس.</message>
-	<message key="plugins.categories.citationOutput">إضافات مخرجات الاقتباسات</message>
-	<message key="plugins.categories.citationOutput.description">إن إضافات مخرجات الاقتباسات تقوم بتطبيق المعايير القياسية في الاقتباسات. ذلك يحل محل إضافات تنسيق الاقتباسات.</message>
-	<message key="plugins.categories.citationParser">إضافات استقطاع الاقتباسات</message>
-	<message key="plugins.categories.citationParser.description">إن إضافات استقطاع الاقتباسات تقوم باستقطاع البيانات على مستوى الحقول من الاقتباسات الخام (أي: المؤلف، العنوان... إلخ).</message>
 	<message key="plugins.categories.gateways.description">الإضافات البوابية تجهز الأنظمة الخارجية آنياً بالبيانات من الموقع.</message>
 	<message key="plugins.categories.gateways">الإضافات البوابية</message>
 	<message key="plugins.categories.generic">إضافات عامة</message>
@@ -429,6 +372,7 @@
 	<message key="settings.roles.roleOptions">خيارات الدور</message>
 	<message key="settings.roles.showTitles">إظهار عنوان الدور في قائمة المشاركين</message>
 	<message key="settings.roles.permitSelfRegistration">إسمح للمستخدمين بتسجيل أنفسهم</message>
+	<message key="settings.roles.recommendOnly">هذا الدور يُسمح له بتقديم توصية بشأن التحكيم ما يعني أنه سيتطلب تدخل محرر مخول لتسجيل القرار النهائي لهيئة التحرير.</message>
 	<message key="settings.roles.roleName">تسمية الدور</message>
 	<message key="settings.roles.roleAbbrev">التلخيص</message>
 	<message key="settings.roles.assignedStages">المراحل المعينة له</message>
@@ -452,15 +396,20 @@
 	<message key="settings.libraryFiles.category.permissions">الصلاحيات</message>
 	<message key="settings.libraryFiles.category.reports">التقارير</message>
 	<message key="settings.libraryFiles.category.other">غيرها</message>
+	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>ملف المكتبة هذا يمكن إتاحته للتنزيل فيما لو تم تمكين "الوصول المفتوح"، عند: <blockquote>{$downloadUrl}</blockquote></p>]]></message>
+	<message key="settings.libraryFiles.public.selectLibraryFiles">إختر ملفات المكتبة لربطها</message>
 
 	<!--  Genre grid settings -->
 	<message key="grid.action.addGenre">إضافة مكون</message>
 	<message key="grid.action.editGenre">تعديل هذا المكون</message>
 	<message key="grid.action.deleteGenre">حذف هذا المكون</message>
 	<message key="grid.action.restoreGenres">استعادة الإعدادات الإفتراضية لهذا المكون</message>
-	<message key="manager.setup.genres.sortable">إسمح للملفات من هذا النوع أن تترتب حسب الفصل</message>
 	<message key="manager.setup.genres.dependent">إعتبر الملفات من هذا النوع ملفات مستقلة (أي، لا يتم إدراجها مع المحتوى المنشور)</message>
 	<message key="manager.setup.genres.supplementary">إعتبر الملفات من هذا النوع ملفات تكميلية (أي، ليست ملفات طلب نشر أساسية)</message>
+	<message key="manager.setup.genres.key">المفتاح</message>
+	<message key="manager.setup.genres.key.description">معرَّف رمزي قصير إختياري لهذا النوع.</message>
+	<message key="manager.setup.genres.key.exists">هذا المفتاح موجود سلفاً.</message>
+	<message key="manager.setup.genres.key.alphaNumeric">يمكن للمفتاح أن يحتوي فقط على حروف وأرقام، خطوط تحتانية وشُرَط، ولا بد أن يبدأ بحرف أو رقم وينتهي بأي منهما.</message>
 	<message key="manager.settings.wizard">برنامج الإعدادات</message>
 	<message key="manager.users.roleRequired">عليك أن تختار دوراً واحداً على الأقل لتمنحه لهذا المستخدم.</message>
 	<message key="manager.website">الموقع</message>
@@ -521,10 +470,73 @@
 	<message key="manager.setup.metadata.submission">نموذج تقديم طلب النشر</message>
 	<!--  common importexport keys -->
 	<message key="plugins.importexport.common.validationErrors">أخطاء التحقق:</message>
+	<message key="plugins.importexport.common.warningsEncountered">هناك تحذيرات:</message>
 	<message key="plugins.importexport.common.errorsOccured">حدثت أخطاء:</message>
 	<message key="plugins.importexport.common.error.unknownElement">عنصر مجهول {$param}</message>
 	<message key="plugins.importexport.common.error.unknownGenre">نوع مجهول {$param}</message>
 	<message key="plugins.importexport.common.error.unknownEncoding">ترميز مجهول {$param}</message>
+	<message key="plugins.importexport.common.error.encodingError">إن المحتوى غير مرمز بصيغة {$param}</message>
 	<message key="plugins.importexport.common.error.unknownUserGroup">مجموعة مستخدم مجهولة {$param}</message>
 	<message key="plugins.importexport.common.error.unknownUploader">رافع مجهول {$param}</message>
+	<message key="plugins.importexport.common.error.temporaryFileFailed">تعذر إنشاء الملف المؤقت {$dest} من {$source}</message>
+	<message key="plugins.importexport.common.error.filesizeMismatch">إن حجم الملف المعطى "{$expected}" وحجم الملف الفعلي "{$actual}" لا يتطابقان</message>
+	<message key="plugins.importexport.common.error.duplicateRevisionForSubmission">إن التحكيم "{$revisionId}" لملف التقديم "{$fileId}" سيولد سجلاً مكرراً</message>
+	<!-- native importexport keys -->
+	<message key="plugins.importexport.native.error.submissionFileImportFailed">تعذر استيراد ملف التقديم</message>
+
+	<!-- Navigation Menus -->
+	<message key="manager.navigationMenus.form.title">العنوان</message>
+	<message key="manager.navigationMenus.form.path">المسار</message>
+	<message key="manager.navigationMenus">قوائم التنقل</message>
+	<message key="manager.navigationMenus.form.viewInstructions"><![CDATA[<p>هذه الصفحة ستكون متاحة للوصول عند: <blockquote>{$pagesPath}</blockquote>... حيث أن %PATH% هو المسار المدخل أعلاه. <strong>ملاحظة:</strong> لا يمكن لأكثر من صفحة أن يكون لها نفس المسار. استعمالك لتسميات مسارات مطابقة لمسارات النظام قد يؤدي إلى فقدانك لبعض وظائفه الهامة.</p>]]></message>
+	<message key="manager.navigationMenus.form.content">المحتوى</message>
+	<message key="manager.navigationMenus.form.pathRegEx">حقل المسار ينبغي أن يتضمن فقط حروفاً إنجليزية وأرقاماً فضلاً عن '.'، '/'، '-'، و '_'.</message>
+	<message key="manager.navigationMenus.form.duplicatePath">هذا المسار موجود سابقاً لعنصر قائمة تنقل آخر.</message>
+	<message key="manager.navigationMenus.form.duplicateTitles">هذا العنوان موجود سابقاً لقائمة تنقل أخرى.</message>
+	<message key="manager.navigationMenus.form.titleRequired">العنوان مطلوب حتماً</message>
+	<message key="manager.navigationMenuItems">عناصر قائمة التنقل</message>
+	<message key="manager.navigationMenus.assignedMenuItems">تعيين عناصر القائمة</message>
+	<message key="manager.navigationMenus.unassignedMenuItems">إزالة عناصر القائمة</message>
+	<message key="manager.navigationMenus.form.navigationMenuArea">مساحات تنقل النمط الحالي</message>
+	<message key="manager.navigationMenus.form.navigationMenuAreaMessage">إختر مساحة التنقل</message>
+	<message key="manager.navigationMenus.form.menuAssigned">لقد سبق تخصيص قائمة تنقل لهذه المساحة.</message>
+
+	<message key="manager.navigationMenus.form.url">الرابط</message>
+	<message key="manager.navigationMenus.form.customUrlError">لا بد من توفير الرابط</message>
+
+	<message key="manager.navigationMenus.form.conditionalDisplay">تعرف على المزيد بشأن توقيت ظهور عنصر التنقل هذا واختفائه.</message>
+	<message key="manager.navigationMenus.form.submenuWarning">عندما يؤدي عنصر قائمة إلى فتح قائمة فرعية، فإن رابطه قد لا يكون قابلاً للوصول على جميع الأجهزة. على سبيل المثال، إذا كان لديك عنصر "عن" يؤدي إلى فتح قائمة فرعية تحتوي على "عناوين المراسلة" و "فريق التحرير"، فإن رابط "عن" قد لا يكون صالحاً للتنقل في جميع الأجهزة. في القائمة الإفتراضية، تتم معالجة ذلك عبر إنشاء عنصر قائمة آخر بتسمية "عن المجلة"، والذي يظهر في القائمة الفرعية.</message>
+
+	<message key="manager.navigationMenus.form.navigationMenuItemType">نوع عنصر قائمة التنقل</message>
+	<message key="manager.navigationMenus.form.navigationMenuItemTypeMessage">إختر نوع عنصر قائمة التنقل أو قم بتخصيصه حسب حاجتك</message>
+	<message key="manager.navigationMenus.customPage">صفحة مخصصة</message>
+	<message key="manager.navigationMenus.customPage.description">أنشئ صفحة مخصصة في موقعك وأضف لها رابطاً ضمن قائمة تنقل.</message>
+	<message key="manager.navigationMenus.remoteUrl">رابط خارجي</message>
+	<message key="manager.navigationMenus.remoteUrl.description">إرتبط مع مصدر خارجي من موقع آخر، مثل: https://pkp.sfu.ca.</message>
+	<message key="manager.navigationMenus.about.description">إرتبط بصفحة تعرض محتوى عن المجلة ضمن باب الإعدادات > المجلة</message>
+	<message key="manager.navigationMenus.about.conditionalWarning">هذا الرابط سيظهر فقط لو أنك قمت بتعبئة محتوى عن المجلة ضمن الإعدادات > المجلة.</message>
+	<message key="manager.navigationMenus.editorialTeam.description">إرتبط بصفحة تعرض محتوى دفة القيادة المذكور ضمن الإعدادات > المجلة.</message>
+	<message key="manager.navigationMenus.editorialTeam.conditionalWarning">هذا الرابط سيظهر فقط لو أنك قمت بتعبئة محتوى عن فريق التحرير ضمن الإعدادات > المجلة.</message>
+	<message key="manager.navigationMenus.submissions.description">إرتبط بصفحة تعرض تعليمات تقديم طلب النشر.</message>
+	<message key="manager.navigationMenus.current.description">إرتبط بعددك الحالي.</message>
+	<message key="manager.navigationMenus.archives.description">إرتبط بمحفوظات إصداراتك.</message>
+	<message key="manager.navigationMenus.announcements.description">إرتبط بصفحة تعرض إعلاناتك.</message>
+	<message key="manager.navigationMenus.announcements.conditionalWarning">هذا الرابط سيظهر فقط لو أنك قمت بتمكين الإعلانات ضمن الإعدادات > الموقع.</message>
+	<message key="manager.navigationMenus.login.description">إرتبط بصفحة دخول المستخدم.</message>
+	<message key="manager.navigationMenus.register.description">إرتبط بصفحة تسجيل المستخدم.</message>
+	<message key="manager.navigationMenus.dashboard.description">إرتبط بصفحة قيادة التحرير.</message>
+	<message key="manager.navigationMenus.profile.description">إرتبط بصفحة الملف التعريفي للمستخدم.</message>
+	<message key="manager.navigationMenus.administration.description">إرتبط بصفحة أدوات إدارة الموقع العامة.</message>
+	<message key="manager.navigationMenus.administration.conditionalWarning">هذا الرابط سيظهر حصرياً لمشرفي الموقع.</message>
+	<message key="manager.navigationMenus.logOut.description">الرابط الذي سيؤدي إلى تسجيل خروج المستخدم من الموقع.</message>
+	<message key="manager.navigationMenus.loggedOut.conditionalWarning">هذا الرابط سيظهر فقط إذا كان زائر الموقع قد سجل دخوله.</message>
+	<message key="manager.navigationMenus.loggedIn.conditionalWarning">هذا الرابط سيظهر فقط إذا كان زائر الموقع لم يسجل دخوله بعد.</message>
+	<message key="manager.navigationMenus.contact.description">رابط إلى صفحة تعرض معلومات عناوين الاتصال.</message>
+	<message key="manager.navigationMenus.contact.conditionalWarning">هذا الرابط سيتم عرضه فقط عندما تقوم بتعبئة معلومات الاتصال المتوضعة ضمن: الإعدادات > معلومات الاتصال.</message>
+	<message key="manager.navigationMenus.form.typeMissing">لطفاً، إختر نوع قائمة التنقل.</message>
+	<message key="manager.navigationMenus.subscriptions.conditionalWarning">هذا الرابط سيتم عرضه فقط عند تمكين المدفوعات المتوضعة ضمن: الإعدادات > التوزيع > المدفوعات.</message>
+	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning">هذا الرابط سيتم عرضه فقط عندما يقوم زائر الموقع بتسجيل دخوله فيه، والمدفوعات ممَكَّنة ضمن: الإعدادات > التوزيع > المدفوعات، والإشتراكات مطلوبة ضمن: الإعدادات > التوزيع > إتاحة الوصول.</message>
+	<message key="manager.navigationMenus.search.description">رابط إلى صفحة البحث.</message>
+	<message key="manager.navigationMenus.privacyStatement.description">رابط إلى الصفحة التي تعرض بيان الخصوصية.</message>
+	<message key="manager.navigationMenus.privacyStatement.conditionalWarning">هذا الرابط سيظهر فقط إذا سبق لك إدخال بيان الخصوصية ضمن: الإعدادات > المخطط الانسيابي > طلبات التقديم.</message>
 </locale>

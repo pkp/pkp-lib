@@ -1,8 +1,8 @@
 {**
  * templates/user/identityForm.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * User profile form.
@@ -31,21 +31,21 @@
 
 	{fbvFormArea id="userFormCompactLeft"}
 		{fbvFormSection title="user.name"}
-			{fbvElement type="text" label="user.firstName" required="true" id="firstName" value=$firstName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
-			{fbvElement type="text" label="user.middleName" id="middleName" value=$middleName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
-			{fbvElement type="text" label="user.lastName" required="true" id="lastName" value=$lastName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
-		{/fbvFormSection}
-		{fbvFormSection}
-			{fbvElement type="text" label="user.salutation" name="salutation" id="salutation" value=$salutation maxlength="40" inline=true size=$fbvStyles.size.SMALL}
-			{fbvElement type="text" label="user.initials" name="initials" id="initials" value=$initials maxlength="5" inline=true size=$fbvStyles.size.SMALL}
-			{fbvElement type="text" label="user.suffix" id="suffix" value=$suffix inline=true size=$fbvStyles.size.SMALL}
-		{/fbvFormSection}
-		{fbvFormSection}
-			{fbvElement type="select" label="user.gender" name="gender" id="gender" from=$genderOptions translate="true" selected=$gender size=$fbvStyles.size.SMALL}
+			{fbvElement type="text" label="user.givenName" multilingual="true" required="true" id="givenName" value=$givenName maxlength="255" inline=true size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" label="user.familyName" multilingual="true" id="familyName" value=$familyName maxlength="255" inline=true size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 	{/fbvFormArea}
 
+	{fbvFormSection for="preferredPublicName" description="user.preferredPublicName.description"}
+		{fbvElement type="text" label="user.preferredPublicName" multilingual="true" name="preferredPublicName" id="preferredPublicName" value=$preferredPublicName size=$fbvStyles.size.LARGE}
+	{/fbvFormSection}
+
 	{fbvFormButtons hideCancel=true submitText="common.save"}
+
+	<p>
+		{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}
+		{translate key="user.privacyLink" privacyUrl=$privacyUrl}
+	</p>
 
 	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </form>

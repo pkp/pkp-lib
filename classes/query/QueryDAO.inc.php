@@ -3,8 +3,8 @@
 /**
  * @file classes/query/QueryDAO.inc.php
  *
- * Copyright (c) 2016-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2016-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class QueryDAO
@@ -191,7 +191,7 @@ class QueryDAO extends DAO {
 		$userIds = array();
 		while (!$result->EOF) {
 			$row = $result->getRowAssoc(false);
-			$userIds[] = $row['user_id'];
+			$userIds[] = (int) $row['user_id'];
 			$result->MoveNext();
 		}
 		$result->Close();
@@ -311,4 +311,4 @@ class QueryDAO extends DAO {
 	}
 }
 
-?>
+

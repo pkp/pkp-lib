@@ -3,8 +3,8 @@
 /**
  * @file tests/data/PKPCreateUsersTest.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPCreateUsersTest
@@ -39,11 +39,11 @@ class PKPCreateUsersTest extends WebTestCase {
 
 			$this->waitForElementPresent($selector='css=[id^=component-grid-settings-user-usergrid-addUser-button-]');
 			$this->click($selector);
-			$this->waitForElementPresent('css=[id^=firstName-]');
+			$this->waitForElementPresent('css=[id^=givenName-]');
 
 			// Fill in user data
-			$this->type('css=[id^=firstName-]', $data['firstName']);
-			$this->type('css=[id^=lastName-]', $data['lastName']);
+			$this->type('css=[id^=givenName-]', $data['givenName']);
+			$this->type('css=[id^=familyName-]', $data['familyName']);
 			$this->type('css=[id^=username-]', $username);
 			$this->type('css=[id^=email-]', $data['email']);
 			$this->type('css=[id^=password-]', $data['password']);
@@ -55,12 +55,9 @@ class PKPCreateUsersTest extends WebTestCase {
 			$this->waitJQuery();
 
 			// Roles
+			$this->waitForElementPresent('css=input[name^=userGroupIds]');
 			foreach ($data['roles'] as $role) {
-				$this->waitForElementPresent('css=[id^=component-listbuilder-users-userusergrouplistbuilder-addItem-button-]');
-				$this->clickAt('css=[id^=component-listbuilder-users-userusergrouplistbuilder-addItem-button-]', '10,10');
-				$this->waitForElementPresent('//select[@name=\'newRowId[name]\']//option[text()=\'' . $role . '\']');
-				$this->select('name=newRowId[name]', $role);
-				$this->waitJQuery();
+				$this->click('//label[normalize-space(text())=\'' . $role . '\']');
 			}
 
 			$this->click('//button[text()=\'Save\']');

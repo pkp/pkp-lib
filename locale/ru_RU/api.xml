@@ -4,8 +4,8 @@
 <!--
   * locale/ru_RU/api.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the REST API for the ru_RU (Русский) locale.
@@ -19,6 +19,6 @@
 	<message key="api.submissions.403.unauthorizedDeleteSubmission">У вас нет прав на удаление этого материала.</message>
 	<message key="api.submissions.404.resourceNotFound">Запрошенный ресурс не был найден.</message>
 	<message key="api.submissions.400.missingRequired">Ваш запрос не может быть выполнен, так как в нем отсутствует необходимая информация.</message>
+	<message key="api.submissions.400.invalidIssueIdentifiers">Неправильно указан запрашиваемый том, номер или год.</message>
 	<message key="api.submissions.unknownError">Произошла неожиданная ошибка. Пожалуйста, перезагрузите страницу и попробуйте снова.</message>
-	<message key="api.submissions.400.stageNotValid">Ваш запрос не может быть выполнен, так как указан недействительный ID этапа материала.</message>
 </locale>

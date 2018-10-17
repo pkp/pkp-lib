@@ -3,8 +3,8 @@
 /**
  * @file controllers/api/file/linkAction/AddFileLinkAction.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AddFileLinkAction
@@ -27,8 +27,6 @@ class AddFileLinkAction extends BaseAddFileLinkAction {
 	 *  constants).
 	 * @param $uploaderRoles array The ids of all roles allowed to upload
 	 *  in the context of this action.
-	 * @param $uploaderGroupIds array The ids of all allowed user groups
-	 *  to upload in the context of this action, or null to permit all.
 	 * @param $fileStage integer The file stage the file should be
 	 *  uploaded to (one of the SUBMISSION_FILE_* constants).
 	 * @param $assocType integer The type of the element the file should
@@ -41,7 +39,7 @@ class AddFileLinkAction extends BaseAddFileLinkAction {
 	 *  files in the Genres dropdown.
 	 */
 	function __construct($request, $submissionId, $stageId, $uploaderRoles,
-			$uploaderGroupIds, $fileStage, $assocType = null, $assocId = null, $reviewRoundId = null, $revisedFileId = null, $dependentFilesOnly = false) {
+			$fileStage, $assocType = null, $assocId = null, $reviewRoundId = null, $revisedFileId = null, $dependentFilesOnly = false) {
 
 		// Create the action arguments array.
 		$actionArgs = array('fileStage' => $fileStage, 'reviewRoundId' => $reviewRoundId);
@@ -60,7 +58,7 @@ class AddFileLinkAction extends BaseAddFileLinkAction {
 
 		// Call the parent class constructor.
 		parent::__construct(
-			$request, $submissionId, $stageId, $uploaderRoles, $uploaderGroupIds, $actionArgs,
+			$request, $submissionId, $stageId, $uploaderRoles, $actionArgs,
 			__($textLabels['wizardTitle']), __($textLabels['buttonLabel'])
 		);
 	}
@@ -130,4 +128,4 @@ class AddFileLinkAction extends BaseAddFileLinkAction {
 	}
 }
 
-?>
+

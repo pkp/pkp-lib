@@ -4,8 +4,8 @@
 <!--
   * locale/pt_PT/manager.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -153,7 +153,6 @@
 	<message key="plugins.categories.auth">Plugins de Autenticação</message>
 	<message key="plugins.categories.blocks">Plugins de Bloco</message>
 	<message key="plugins.categories.blocks.description">Plugins de Bloco oferecem controle de posicionamento de ferramentas da interface, como as barras laterais.</message>
-	<message key="plugins.categories.citationFormats">Plugins de Formato de Citação</message>
 	<message key="plugins.categories.gateways.description">Plugins de Gateway alimentam sistemas externos com conteúdo do sistema.</message>
 	<message key="plugins.categories.gateways">Plugins de Gateway</message>
 	<message key="plugins.categories.generic">Plugins Genéricos</message>
@@ -168,50 +167,7 @@
 	<message key="manager.emails.form.emailKeyRequired">É obrigatória uma única chave para o e-mail.</message>
 	<message key="manager.setup.errorDeletingItem">Ocorreu um erro ao eliminar este item.</message>
 	<message key="manager.reviewerSearch.searchByName">Pesquisar por nome do avaliador</message>
-	<message key="manager.reviewerSearch.doneAmount">Revisões concluídas: {$current}</message>
-	<message key="manager.reviewerSearch.avgAmount">Média dias para concluir: {$current}</message>
-	<message key="manager.reviewerSearch.lastAmount">Dias desde a última revisão: {$current}</message>
-	<message key="manager.reviewerSearch.activeAmount">Revisões activas: {$current}</message>
 	<message key="manager.reviewerSearch.interests">Interesses de Revisão</message>
-	<message key="manager.setup.citationAssistant">Assistente de marcação de citações</message>
-	<message key="manager.setup.citationFilterParser">Extração de citações</message>
-	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>Para encontrar e verificar citações em bases de dados especializadas, é necessário extraí-las em metadados em formato de máquina para leitura: título, editora, data de publicação, entre outros, devem ser todos extraídos do texto original da citação informada pelo autor. Conexões com serviços <i>Web</i> externos podem auxiliar no processo. Uma ou mais conexões podem ser incluídas, clicando no botão "Incluir item" a seguir. Algumas conexões podem exigir configuração; um aviso o notificará, caso seja necessário.</p>]]></message>
-	<message key="manager.setup.citationFilterLookup">Verificação de citações</message>
-	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>É necessário também activar e configurar as conexões a bases de dados de citacões externas. Isto facilita a detecção de erros na citação ou informações adicionais informadas pelo autor (como DOI o IDs do PubMed), exigidos para publicação ou depósito eletrónico.</p>
-<p>O sistema oferece conectores a várias bases de dados nas quais pesquisar citações. Algumas exigem registo ou informações de configuração. Aceda ao site das bases de dados para mais informações sobre os requisitos e processos de registo. Podem ser incluídas várias bases clicando no botão "Incluir item" a seguir.</p>
-<p>Edite ou exclua conexões existentes clicando no ícone de engrenagem ao lado da base.</p>
-<p><strong>Aviso:</strong> Para que o processo de verificação de citações seja concluído em tempo razoável, a variável <tt>citation_checking_max_processes</tt> no ficheiro de configuração deve possuir um valor alto o suficiente. Veja a secção General Settings do ficheiro <tt>config.inc.php</tt> para mais informações.</p>]]></message>
-	<message key="manager.setup.citationOutput">Extração de citações</message>
-	<message key="manager.setup.citationOutputStyleDescription">Escolha o padrão de citação usado para submissão dos seus artigos. O Assistente de marcação de citações permite comparar a versão do autor com a versão gerada em XML, sendo mais fácil identificar possíveis erros:</message>
-	<message key="manager.setup.filter.grid.errorDeletingFilter">Ocorreu um erro ao tentar remover este filtro. Reportar este erro como falha de sistema.</message>
-	<message key="manager.setup.filter.grid.filterDisplayName">Conexão</message>
-	<message key="manager.setup.filter.grid.filterSettings">Registo e Configuração de Conexões</message>
-	<message key="manager.setup.filter.grid.filterTemplateRequired">Escolha uma das transformações do menu drop-down.</message>
-	<message key="manager.setup.filter.grid.confirmDelete">Deseja realmente excluir o filtro {$filterName}?</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">A base de dados {$filterDisplayName} está sendo incluída. Clique no botão 'OK' para confirmar.</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Escolha uma base de dados para verificação.</message>
-	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Este filtro se conecta à base de livros e códigos ISBN <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a>.</p>
-<p>Uma chave de API ISBNdb é obrigatória. Para informações sobre como gerar a chave, acesse a<a href="http://isbndb.com/api/v1/docs/keys" target="_blank">documentação online</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Este filtro se conecta à base CrossRef de citações usando sua <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">Interface de Query OpenURL</a>.</p>
-<p>Para usar este filtro, deve-se usar sua conta CrossRef, ou cadastrar um e-mail válido <a href="http://www.crossref.org/requestaccount/" target="_blank">aqui</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Este filtro conecta-se ao mecanismo de pesquisa na base cruzada do PubMed's <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a>.</p>
-<p>Um e-mail para registo não estritamente obrigatório, mas pode ser necessário caso tenha problemas de conexão. Veja como funciona o sistema na documentação do acedendo <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Guia de Uso e Requisitos</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Este filtro conecta-se aos serviços da OCLC <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> e <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (opcional).</p>
-<p>Se tem uma <a href="http://oclc.org/developer/develop/web-services.html" target="_blank">chave de API</a> da WorldCat, poderá se conectar informando a chave no campo a seguir.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.loadMessage">Aguarde enquanto a grade de configuração de bases de dados de citações é carregado...</message>
-	<message key="manager.setup.filter.lookup.grid.title">Conexões de bases de dados de citações</message>
-	<message key="manager.setup.filter.noMoreTemplates">Todas as transformações disponíveis foram incluídas. Clique no botão 'Cancelar' para voltar à página de configuração.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionConfirm">O analisador {$filterDisplayName} foi incluído. Clique em 'ok' para confirmar.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionTemplate">Seleccione um analisador de citação.</message>
-	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>Este filtro de extração conecta-se ao web service <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a>.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>Este filtro de extracção usa os <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> Módulos Perl para fornecer <a href="http://paracite.eprints.org" target="_blank">ParaCite</a> uma funcionalidade de análise de citações. De modo a funcionar correctamente, tem de instalar o Perl installed, assim como <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> e <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a> Módulos CPAN. Também tem de configurar a <tt>perl</tt> directiva no ficheiro de configuração. Esta directiva pode ser encontrada na secção de Comandos Externos do <tt>config.inc.php</tt>.</p>
-	<p>Pode também escolher qual o módulo de análise ParaTools deve usar. Pode escolher entre o standard, <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a>, e <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Base de citação</a> módulos de análise.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>Este filtro de extracção liga-se a <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a> serviço web.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.regEx">O filtro de extracção RegEx usa um conjunto de expressões regulares para analisar citações.</message>
-	<message key="manager.setup.filter.parser.grid.loadMessage">Agurarde até a grelha de configuração da análise da citação seja carregada...</message>
-	<message key="manager.setup.filter.parser.grid.title">Serviços de Extracção de Citações</message>
-	<message key="manager.setup.filter.pleaseSelect">Seleccione...</message>
-	<message key="manager.setup.metaCitationsDescription">Activar a seguinte checkbox para activar a citação e a edição de referências. Esta operação permite aos autores incluir linhas de citação com as submissões. Os Editores também terão acesso ao assistente de marcação da citação, que pode comparar as linhas de citação com bases de dados externas, tais como WorldCat, ISBNdb, PubMed e outras. As citações aprovadas podem ser exportadas para ficheiros próprios.</message>
 	<message key="plugins.categories.oaiMetadataFormats">Plugins de Formatos de Metadados OAI</message>
 	<message key="plugins.categories.oaiMetadataFormats.description">Estes plugins de formato geram metadados para comunicações via OAI.</message>
 
@@ -267,17 +223,10 @@
 	<message key="manager.language.submissions">Submissões</message>
 	<message key="manager.language.forms">Formulários</message>
 	<message key="manager.language.reloadLocalizedDefaultSettings">Recarregar padrões</message>
-	<message key="manager.masthead.title">Masthead</message>
 	<message key="manager.userSearch.searchByName">Pesquisa por Nome</message>
 	<message key="manager.reviewerSearch.change">Modificar</message>
 	<message key="manager.reviewerSearch.searchByName.short">Pesquisar por Nome</message>
-	<message key="manager.reviewerSearch.doneAmountToggle">Activar/desactivar este filtro para as revisões concluídas.</message>
-	<message key="manager.reviewerSearch.avgAmountToggle">Activar/desactivar este filtro para a media de dias para concluir a revisão.</message>
-	<message key="manager.reviewerSearch.lastAmountToggle">Activar/desactivar este filtro para os dias desde a última revisão.</message>
-	<message key="manager.reviewerSearch.activeAmountToggle">Actiavar/desactivar este filtro para as revisões activas.</message>
 	<message key="manager.reviewerSearch.form.instructions">Use o formulário abaixo para definir os valores máximos para os termos que deseja pesquisar. O formulário é pré-preenchido com as médias calculadas para estes campos.</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">Interesses de Revisão (insira para procurar interesses correspondentes)</message>
-	<message key="manager.reviewerSearch.form.previousReviewRounds">Os revisores das rondas anteriores desta submissão</message>
 	<message key="manager.statistics.defaultMetricDescription">O {$contextObjectName} está configurada para gravar mais de uma métrica de uso. As estatísticas de uso serão exibidas em vários contextos.
 		Existem casos em que uma estatística de uso único deve ser usada, e.g. para exibir uma lista ordenada de submissões mais utilizadas ou para classificar
 		resultados da pesquisa. Selecione uma das métricas configuradas como padrão.</message>
@@ -344,7 +293,6 @@
 	<message key="manager.setup.authorCopyrightNoticeAgree">Exigir que os autores aceitem o Aviso de Direitos de Autor como parte do processo de submissão.</message>
 	<message key="manager.setup.authorGuidelines">Directrizes Autor</message>
 	<message key="manager.setup.authorGuidelines.description">As directrizes recomendadas incluem normas bibliográficos e de formatação, juntamente com exemplos de formatos comuns de citação para serem usados na submissão de artigos.</message>
-	<message key="manager.setup.citations">Citações</message>
 	<message key="manager.setup.competingInterests">Interesses Concorrentes</message>
 	<message key="manager.setup.competingInterestsDescription">Os revisores serão convidados a cumprir com a política de divulgação de interesses concorrentes que especificados abaixo.</message>
 	<message key="manager.setup.favicon">Formato favicon inválido. Os formatos permitidos são .ico, .png, and .gif.</message>
@@ -368,7 +316,6 @@
 	<message key="manager.setup.principalContact">Contacto Principal</message>
 	<message key="manager.setup.principalContactDescription">Insira os detalhes de contato, geralmente informação sobre o Director, Editor principal, Corpo Editorial e equipa administrativa, que pode ser exibido no site acessível ao público.</message>
 	<message key="manager.setup.privacyStatement">Declaração Privacidade</message>
-	<message key="manager.setup.privacyStatement.description">A declaração aparecerá durante a submissão do autor e na página Sobre.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Semanas permitidas para aceitar ou recusar um pedido de revisão</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Semanas permitidas para concluir uma revisão</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Lembrete</message>
@@ -377,15 +324,8 @@
 	<message key="manager.setup.reviewOptions.remindForSubmit">Enviar um lembrete se um revisor não tiver enviado uma recomendação dentro do prazo (dias) após a data de vencimento da revisão:</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Prazos de Revisão Padrão</message>
 	<message key="manager.setup.reviewOptions.showBlindReviewLink">Indicar um link para "Garantir uma revisão cega" durante o upload</message>
-	<message key="manager.setup.sortableByComponent">Classificável por componente</message>
 	<message key="plugins.categories.metadata">Plugins Metadados</message>
 	<message key="plugins.categories.metadata.description">Os plugins de metadados implementam padrões adicionais de metadados.</message>
-	<message key="plugins.categories.citationLookup">Plugins de Conector de bases de dados de citações</message>
-	<message key="plugins.categories.citationLookup.description">Os complementos de conector de bases de dados de citações ligam-se a bases de dados de citações para pesquisar citações, por exemplo, durante a edição de citações.</message>
-	<message key="plugins.categories.citationOutput">Plugins de Output Citações</message>
-	<message key="plugins.categories.citationOutput.description">Os plugins de saída de citação implementam padrões de citação. E substitui os complementos de formato de citações.</message>
-	<message key="plugins.categories.citationParser">Plugins Extracção Citações</message>
-	<message key="plugins.categories.citationParser.description">Os plugins de extração de citação extraem dados de citações (por exemplo, autor, título, etc.).</message>
 	<message key="manager.setup.sponsors.note">Relações com Patrocinadores e Descrição de Política</message>
 	<message key="manager.setup.sponsors.description">Exemplos: associações académicas, departamentos universitários, cooperativas, etc. Os patrocinadores são exibidos publicamente.</message>
 	<message key="manager.setup.styleSheetDescription">Os administradores do portal podem fazer o upload de um ficheiro CSS para personalizar ainda mais a aparência do site.</message>
@@ -418,8 +358,7 @@
 	<message key="manager.plugins.pluginGallery.certifications.reviewed">Revisto</message>
 	<message key="manager.plugins.pluginGallery.certifications.partner">Parceiro</message>
 	<message key="manager.plugins.pluginGallery.maintainer">Manutenção</message>
-	<message key="manager.plugins.pluginGallery.version">Versão: {$version}</message>
-	<message key="manager.plugins.pluginGallery.date">Data Versão: {$date}</message>
+	<message key="manager.plugins.pluginGallery.version">Versão {$version} de {$date}</message>
 	<message key="manager.plugins.pluginGallery.homepage">Página Inicial</message>
 	<message key="manager.plugins.pluginGallery.summary">Sumário</message>
 	<message key="manager.plugins.pluginGallery.status">Estado</message>
@@ -492,7 +431,6 @@
 	<message key="grid.action.editGenre">Editar este Componente</message>
 	<message key="grid.action.deleteGenre">Eliminar este Componente</message>
 	<message key="grid.action.restoreGenres">Restaurar os componentes para as configurações padrão</message>
-	<message key="manager.setup.genres.sortable">Permitir que os ficheiros deste tipo sejam classificados por capítulo</message>
 	<message key="manager.setup.genres.dependent">Marcar ficheiros deste tipo como ficheiros dependentes (por exemplo, não para serem listados com conteúdo publicado)</message>
 	<message key="manager.setup.genres.supplementary">Marcar ficheiros deste tipo como ficheiros suplementares (por exemplo, não conteúdo de submissão principal)</message>
 	<message key="manager.settings.wizard">Assistente de configurações</message>
@@ -502,4 +440,72 @@
 	<message key="manager.workflow">Fluxo de trabalho</message>
 	<message key="manager.workflow.title">Configurações do fluxo de trabalho</message>
 	<message key="manager.distribution">Distribuição</message>
+	<message key="manager.people.existingUserRequired">Tem de ser indicado um utilizador existente.</message>
+	<message key="manager.setup.searchEngineIndexing.sitemap">Mapa do Sítio</message>
+	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[Um mapa do sítio está disponível em XML para ser enviado a motores de pesquisa: <a href="{$path}" target="_blank">{$path}</a>]]></message>
+	<message key="manager.plugins.pluginGallery.certifications.official.description">Este plugin é desenvolvido e mantido pela equipa do Public Knowledge Project.</message>
+	<message key="manager.plugins.pluginGallery.certifications.reviewed.description">Este plugin foi reviso e aprovado pela equipa do Public Knowledge Project.</message>
+	<message key="manager.plugins.pluginGallery.certifications.partner.description">Este plugin é providenciado por um dos nossos parceiros.</message>
+	<message key="settings.roles.recommendOnly">Este papel só tem permissão para recomendar uma decisão e irá necessitar de um editor autorizado para registar a decisão final.</message>
+	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>Este ficheiro de biblioteca pode ser acessível para download, se o "Acesso Público" estiver ativo, em: <blockquote>{$downloadUrl}</blockquote></p>]]></message>
+	<message key="settings.libraryFiles.public.selectLibraryFiles">Selecione Ficheiros da Biblioteca para anexar</message>
+	<message key="manager.setup.genres.key">Chave</message>
+	<message key="manager.setup.genres.key.description">Um identificador curto e simbólico para este tipo.</message>
+	<message key="manager.setup.genres.key.exists">A chave já existe.</message>
+	<message key="manager.setup.genres.key.alphaNumeric">A chave só pode conter carateres alfanuméricos, sublinhados, e hífenes, e deve começar e terminar com um carácter alfanumérico.</message>
+	<message key="plugins.importexport.common.warningsEncountered">Avisos encontrados:</message>
+	<message key="plugins.importexport.common.error.encodingError">O conteúdo não está codificado como {$param}</message>
+	<message key="plugins.importexport.common.error.temporaryFileFailed">O ficheiro temporário {$dest} não pôde ser criado em {$source}</message>
+	<message key="plugins.importexport.common.error.filesizeMismatch">O tamanho providenciado "{$expected}" e o tamanho real "{$actual}" diferem.</message>
+	<message key="plugins.importexport.common.error.duplicateRevisionForSubmission">A revisão "{$revisionId}" para o ficheiro de submissão "{$fileId}" iria criar um registo duplicado</message>
+	<message key="plugins.importexport.native.error.submissionFileImportFailed">O ficheiro de submissão não pôde ser importado</message>
+	<message key="manager.navigationMenus.form.title">Título</message>
+	<message key="manager.navigationMenus.form.path">Caminho</message>
+	<message key="manager.navigationMenus">Menus de Navegação</message>
+	<message key="manager.navigationMenus.form.viewInstructions"><![CDATA[<p>Esta página irá ficar disponível em: <blockquote>{$pagesPath}</blockquote>...onde %PATH% é o caminho que introduziu em cima. <strong>Note:</strong> Não podem existir duas páginas com o mesmo caminho. Usar caminhos que são definidos pelo sistema podem condicionar o acesso a funcionalidades importantes.</p>]]></message>
+	<message key="manager.navigationMenus.form.content">Conteúdo</message>
+	<message key="manager.navigationMenus.form.pathRegEx">O campo para indicar o caminho só pode conter carateres alfanuméricos e '.', '/', '-' e '_'.</message>
+	<message key="manager.navigationMenus.form.duplicatePath">O caminho indicado já existe para outro item de menu de navegação.</message>
+	<message key="manager.navigationMenus.form.duplicateTitles">Este título já existe para outro menu de navegação.</message>
+	<message key="manager.navigationMenus.form.titleRequired">O título é obrigatório</message>
+	<message key="manager.navigationMenuItems">Itens do Menu de Navegação</message>
+	<message key="manager.navigationMenus.assignedMenuItems">Itens de Menu Atribuídos</message>
+	<message key="manager.navigationMenus.unassignedMenuItems">Itens de Menu não Atribuídos</message>
+	<message key="manager.navigationMenus.form.navigationMenuArea">Áreas Temáticas de Navegação Ativas</message>
+	<message key="manager.navigationMenus.form.navigationMenuAreaMessage">Selecione uma área de navegação</message>
+	<message key="manager.navigationMenus.form.menuAssigned">Já existe um menu de navegação atribuído a esta área.</message>
+	<message key="manager.navigationMenus.form.url">URL</message>
+	<message key="manager.navigationMenus.form.customUrlError">O URL é obrigatório</message>
+	<message key="manager.navigationMenus.form.conditionalDisplay">Aprenda mais sobre quando este item irá ser apresentado ou escondido.</message>
+	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning"><![CDATA[Esta ligação só irá ser apresentada se o visitante estiver autenticado, e os pagamentos estiverem ativos em Configurações > Distribuição > Pagamentos e as subscrições são obrigatórias em Configuração > Distribuição > Acesso.]]></message>
+	<message key="manager.navigationMenus.search.description">Ligação para a página de pesquisa.</message>
+	<message key="manager.navigationMenus.form.submenuWarning">Quando um item do menu abre um sub-menu, a sua ligação não pode ser seguida em todos os dispositivos. Por exemplo, se tiver um item "Sobre" que abra num sub-menu com "Contacto" e "Equipa Editorial", a ligação "Sobre" pode não ser acessível em todos os dispositivos. No menu pré-definido, isto é resolvido usando um segundo item do menu, "Sobre a Revista", que aparece no sub-menu.</message>
+	<message key="manager.navigationMenus.form.navigationMenuItemType">Tipo de Menu de Navegação</message>
+	<message key="manager.navigationMenus.form.navigationMenuItemTypeMessage">Selecione um Tipo de Menu de Navegação ou Personalizado para criar o seu</message>
+	<message key="manager.navigationMenus.customPage">Página Personalizada</message>
+	<message key="manager.navigationMenus.customPage.description">Criar uma página personalizada no seu sítio, e ligá-la a partir do menu de navegação.</message>
+	<message key="manager.navigationMenus.remoteUrl">URL Remoto</message>
+	<message key="manager.navigationMenus.remoteUrl.description">Ligação a qualquer URL noutro sítio, como https://pkp.sfu.ca.</message>
+	<message key="manager.navigationMenus.about.description"><![CDATA[Ligação para uma página a apresentar o conteúdo Sobre a Revista em Configurações > Revista]]></message>
+	<message key="manager.navigationMenus.about.conditionalWarning"><![CDATA[Esta ligação só será apresentada se tiver preenchido a secção Sobre a Revista em Configurações > Revista.]]></message>
+	<message key="manager.navigationMenus.editorialTeam.description"><![CDATA[Ligação para a página que apresenta o conteúdo principal em Configurações > Revista.]]></message>
+	<message key="manager.navigationMenus.editorialTeam.conditionalWarning"><![CDATA[Esta ligação só será apresentada se tiver preenchido a secção Equipa Editorial em Configurações > Revista.]]></message>
+	<message key="manager.navigationMenus.submissions.description">Ligação para a página com as instruções de submissão.</message>
+	<message key="manager.navigationMenus.current.description">Ligação à edição atual.</message>
+	<message key="manager.navigationMenus.archives.description">Ligação para o arquivo de edições</message>
+	<message key="manager.navigationMenus.announcements.description">Ligação à página com os anúncios.</message>
+	<message key="manager.navigationMenus.announcements.conditionalWarning"><![CDATA[Esta ligação só será apresentada se tiver ativado anúncios em Configurações > Website.]]></message>
+	<message key="manager.navigationMenus.login.description">Ligação à página de autenticação.</message>
+	<message key="manager.navigationMenus.register.description">Ligação para a página de registo de utilizador.</message>
+	<message key="manager.navigationMenus.dashboard.description">Ligação para o painel de controlo editorial.</message>
+	<message key="manager.navigationMenus.profile.description">Ligação para a página com o perfil do utilizador.</message>
+	<message key="manager.navigationMenus.administration.description">Ligação para as ferramentas de administração globais.</message>
+	<message key="manager.navigationMenus.administration.conditionalWarning">Esta ligação só será apresentada a utilizadores com funcionalidades administrativas.</message>
+	<message key="manager.navigationMenus.logOut.description">Uma ligação que irá cancelar a autenticação do utilizador.</message>
+	<message key="manager.navigationMenus.loggedOut.conditionalWarning">Esta ligação só será apresentada quando o visitante estiver autenticado.</message>
+	<message key="manager.navigationMenus.loggedIn.conditionalWarning">Esta ligação só irá ser apresentada quando o utilizador não estiver autenticado.</message>
+	<message key="manager.navigationMenus.contact.description">Ligação para uma página que apresenta informações de contacto.</message>
+	<message key="manager.navigationMenus.contact.conditionalWarning"><![CDATA[Esta ligação só será apresentada se tiver preenchido informação de Contacto em Configurações > Contactos.]]></message>
+	<message key="manager.navigationMenus.form.typeMissing">Por favor selecione um tipo de menu de navegação.</message>
+	<message key="manager.navigationMenus.subscriptions.conditionalWarning"><![CDATA[Esta ligação só será apresentada se os pagamentos estiverem ativos em Configurações > Distribuição > Pagamentos.]]></message>
 </locale>

@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/files/copyedit/SelectableCopyeditFilesGridHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SelectableCopyeditFilesGridHandler
@@ -23,7 +23,7 @@ class SelectableCopyeditFilesGridHandler extends SelectableFileListGridHandler {
 		import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
 		// Pass in null stageId to be set in initialize from request var.
 		parent::__construct(
-			new SubmissionFilesGridDataProvider(SUBMISSION_FILE_COPYEDIT, true),
+			new SubmissionFilesGridDataProvider(SUBMISSION_FILE_COPYEDIT),
 			null,
 			FILE_GRID_VIEW_NOTES
 		);
@@ -48,4 +48,4 @@ class SelectableCopyeditFilesGridHandler extends SelectableFileListGridHandler {
 	}
 }
 
-?>
+

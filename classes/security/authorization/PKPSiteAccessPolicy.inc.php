@@ -2,8 +2,8 @@
 /**
  * @file classes/security/authorization/PKPSiteAccessPolicy.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPSiteAccessPolicy
@@ -52,7 +52,7 @@ class PKPSiteAccessPolicy extends PolicySet {
 	 */
 	function effect() {
 		// Retrieve the user from the session.
-		$request = $this->getRequest();
+		$request = Application::getRequest();
 		$user = $request->getUser();
 
 		if (!is_a($user, 'User')) {
@@ -64,4 +64,4 @@ class PKPSiteAccessPolicy extends PolicySet {
 	}
 }
 
-?>
+

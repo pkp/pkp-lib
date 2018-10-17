@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/settings/genre/form/genreForm.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Genre form under context management.
@@ -24,12 +24,14 @@
 	{fbvElement type="text" multilingual="true" id="name" value=$name maxlength="80" required="true"}
 {/fbvFormSection}
 {fbvFormSection list="true" title="common.options"}
-	{fbvElement type="checkbox" id="sortable" checked=$sortable label="manager.setup.genres.sortable"}
 	{fbvElement type="checkbox" id="dependent" checked=$dependent label="manager.setup.genres.dependent"}
 	{fbvElement type="checkbox" id="supplementary" checked=$supplementary label="manager.setup.genres.supplementary"}
 {/fbvFormSection}
 {fbvFormSection title="manager.setup.groupType" for="category"}
 	{fbvElement type="select" id="category" from=$submissionFileCategories selected=$category translate=false}
+{/fbvFormSection}
+{fbvFormSection label="manager.setup.genres.key" description="manager.setup.genres.key.description" for="key"}
+	{fbvElement type="text" id="key" value=$key maxlength="30" readonly=$keyReadOnly size=$fbvStyles.size.SMALL}
 {/fbvFormSection}
 {/fbvFormArea}
 

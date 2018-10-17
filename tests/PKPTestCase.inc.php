@@ -7,8 +7,8 @@
 /**
  * @file tests/PKPTestCase.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPTestCase
@@ -147,7 +147,7 @@ abstract class PKPTestCase extends PHPUnit_Framework_TestCase {
 
 		// Create a test request.
 		Registry::delete('request');
-		$application = PKPApplication::getApplication();
+		$application = Application::getApplication();
 		$_SERVER['REQUEST_METHOD'] = 'GET';
 		$_SERVER['PATH_INFO'] = $path;
 		$request = $application->getRequest();
@@ -184,4 +184,4 @@ abstract class PKPTestCase extends PHPUnit_Framework_TestCase {
 		return './lib/pkp/tests/'.$configPath.'/config.'.$config.'.inc.php';
 	}
 }
-?>
+

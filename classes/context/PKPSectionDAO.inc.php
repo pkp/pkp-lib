@@ -3,8 +3,8 @@
 /**
  * @file classes/context/PKPSectionDAO.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPSectionDAO
@@ -51,7 +51,7 @@ abstract class PKPSectionDAO extends DAO {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return array('title');
+		return array_merge(parent::getLocaleFieldNames(), array('title'));
 	}
 
 	/**
@@ -88,4 +88,4 @@ abstract class PKPSectionDAO extends DAO {
 	abstract function getByContextId($contextId, $rangeInfo = null);
 }
 
-?>
+

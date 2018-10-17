@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/queries/QueriesGridHandler.inc.php
  *
- * Copyright (c) 2016-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2016-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class QueriesGridHandler
@@ -33,7 +33,7 @@ class QueriesGridHandler extends GridHandler {
 	function __construct() {
 		parent::__construct();
 		$this->addRoleAssignment(
-			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR),
+			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR),
 			array('fetchGrid', 'fetchRow', 'readQuery', 'participants', 'addQuery', 'editQuery', 'updateQuery', 'deleteQuery'));
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT),
@@ -114,8 +114,8 @@ class QueriesGridHandler extends GridHandler {
 			import('lib.pkp.classes.security.authorization.QueryAccessPolicy');
 			$this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, $this->_stageId));
 		} else {
-			import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
-			$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->_stageId));
+			import('lib.pkp.classes.security.authorization.QueryWorkflowStageAccessPolicy');
+			$this->addPolicy(new QueryWorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->_stageId));
 		}
 
 		return parent::authorize($request, $args, $roleAssignments);
@@ -188,7 +188,7 @@ class QueriesGridHandler extends GridHandler {
 		);
 
 		$router = $request->getRouter();
-		if ($this->getAccessHelper()->getCanCreate()) $this->addAction(new LinkAction(
+		if ($this->getAccessHelper()->getCanCreate($this->getStageId())) $this->addAction(new LinkAction(
 			'addQuery',
 			new AjaxModal(
 				$router->url($request, null, null, 'addQuery', null, $this->getRequestArgs()),
@@ -209,7 +209,7 @@ class QueriesGridHandler extends GridHandler {
 	 */
 	function initFeatures($request, $args) {
 		$features = parent::initFeatures($request, $args);
-		if ($this->getAccessHelper()->getCanOrder()) {
+		if ($this->getAccessHelper()->getCanOrder($this->getStageId())) {
 			import('lib.pkp.classes.controllers.grid.feature.OrderGridItemsFeature');
 			$features[] = new OrderGridItemsFeature();
 		}
@@ -276,7 +276,7 @@ class QueriesGridHandler extends GridHandler {
 			$this->getAssocType(),
 			$this->getAssocId(),
 			$this->getStageId(),
-			$this->getAccessHelper()->getCanListAll()?null:$request->getUser()->getId()
+			$this->getAccessHelper()->getCanListAll($this->getStageId())?null:$request->getUser()->getId()
 		);
 	}
 
@@ -290,7 +290,7 @@ class QueriesGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function addQuery($args, $request) {
-		if (!$this->getAccessHelper()->getCanCreate()) return new JSONMessage(false);
+		if (!$this->getAccessHelper()->getCanCreate($this->getStageId())) return new JSONMessage(false);
 
 		import('lib.pkp.controllers.grid.queries.form.QueryForm');
 		$queryForm = new QueryForm(
@@ -300,7 +300,7 @@ class QueriesGridHandler extends GridHandler {
 			$this->getStageId()
 		);
 		$queryForm->initData();
-		return new JSONMessage(true, $queryForm->fetch($request, $this->getRequestArgs()));
+		return new JSONMessage(true, $queryForm->fetch($request, null, false, $this->getRequestArgs()));
 	}
 
 	/**
@@ -349,7 +349,7 @@ class QueriesGridHandler extends GridHandler {
 	 */
 	function openQuery($args, $request) {
 		$query = $this->getQuery();
-		if (!$query || !$this->getAccessHelper()->getCanOpenClose($query->getId())) return new JSONMessage(false);
+		if (!$query || !$this->getAccessHelper()->getCanOpenClose($query)) return new JSONMessage(false);
 
 		$queryDao = DAORegistry::getDAO('QueryDAO');
 		$query->setIsClosed(false);
@@ -365,7 +365,7 @@ class QueriesGridHandler extends GridHandler {
 	 */
 	function closeQuery($args, $request) {
 		$query = $this->getQuery();
-		if (!$query || !$this->getAccessHelper()->getCanOpenClose($query->getId())) return new JSONMessage(false);
+		if (!$query || !$this->getAccessHelper()->getCanOpenClose($query)) return new JSONMessage(false);
 
 		$queryDao = DAORegistry::getDAO('QueryDAO');
 		$query->setIsClosed(true);
@@ -485,7 +485,7 @@ class QueriesGridHandler extends GridHandler {
 		$queryForm->readInputData();
 
 		if ($queryForm->validate()) {
-			$queryForm->execute($request);
+			$queryForm->execute();
 
 			if ($this->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
 				$this->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {
@@ -511,6 +511,8 @@ class QueriesGridHandler extends GridHandler {
 			true,
 			$queryForm->fetch(
 				$request,
+				null,
+				false,
 				array_merge(
 					$this->getRequestArgs(),
 					array('queryId' => $query->getId())
@@ -520,4 +522,4 @@ class QueriesGridHandler extends GridHandler {
 	}
 }
 
-?>
+

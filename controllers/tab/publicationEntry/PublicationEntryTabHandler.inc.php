@@ -3,8 +3,8 @@
 /**
  * @file controllers/tab/publicationEntry/PublicationEntryTabHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PublicationEntryTabHandler
@@ -40,10 +40,11 @@ class PublicationEntryTabHandler extends Handler {
 	function __construct() {
 		parent::__construct();
 		$this->addRoleAssignment(
-			array(ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER),
+			array(ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER, ROLE_ID_ASSISTANT),
 			array(
 				'submissionMetadata',
 				'saveForm',
+				'citations', 'updateCitations',
 			)
 		);
 	}
@@ -81,7 +82,7 @@ class PublicationEntryTabHandler extends Handler {
 		$this->_stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
 		$this->_tabPosition = (int) $request->getUserVar('tabPos');
 
-		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_APP_SUBMISSION);
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION);
 		$this->setupTemplate($request);
 	}
 
@@ -109,7 +110,7 @@ class PublicationEntryTabHandler extends Handler {
 
 		$publicationEntrySubmissionReviewForm = $this->_getPublicationEntrySubmissionReviewForm();
 
-		$publicationEntrySubmissionReviewForm->initData($args, $request);
+		$publicationEntrySubmissionReviewForm->initData();
 		return new JSONMessage(true, $publicationEntrySubmissionReviewForm->fetch($request));
 	}
 
@@ -134,7 +135,6 @@ class PublicationEntryTabHandler extends Handler {
 		return $this->_tabPosition;
 	}
 
-
 	/**
 	 * Save the forms handled by this Handler.
 	 * @param $request Request
@@ -153,24 +153,38 @@ class PublicationEntryTabHandler extends Handler {
 
 		if ($form) { // null if we didn't have a valid tab
 			$form->readInputData();
-			if($form->validate($request)) {
-				$form->execute($request);
+			if($form->validate()) {
+				$form->execute();
 				// Create trivial notification in place on the form
 				$notificationManager = new NotificationManager();
 				$user = $request->getUser();
 				$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __($notificationKey)));
+
+				if ($request->getUserVar('displayedInContainer')) {
+					$router = $request->getRouter();
+					$dispatcher = $router->getDispatcher();
+					$url = $dispatcher->url($request, ROUTE_COMPONENT, null, $this->_getHandlerClassPath(), 'fetch', null, array('submissionId' => $submission->getId(), 'stageId' => $stageId, 'tabPos' => $this->getTabPosition(), 'hideHelp' => true));
+					$json->setAdditionalAttributes(array('reloadContainer' => true, 'tabsUrl' => $url));
+					$json->setContent(true); // prevents modal closure
+				}
 			} else {
 				// Could not validate; redisplay the form.
+				// Provide entered tagit fields values
+				$tagitKeywords = $form->getData('keywords');
+				if (is_array($tagitKeywords)) {
+					$tagitFieldNames = $form->_metadataFormImplem->getTagitFieldNames();
+					$locales = array_keys($form->supportedLocales);
+					$formTagitData = array();
+					foreach ($tagitFieldNames as $tagitFieldName) {
+						foreach ($locales as $locale) {
+							$formTagitData[$locale] = array_key_exists($locale . "-$tagitFieldName", $tagitKeywords) ? $tagitKeywords[$locale . "-$tagitFieldName"] : array();
+						}
+						$form->setData($tagitFieldName, $formTagitData);
+					}
+				}
+
 				$json->setStatus(true);
 				$json->setContent($form->fetch($request));
-			}
-
-			if ($request->getUserVar('displayedInContainer')) {
-				$router = $request->getRouter();
-				$dispatcher = $router->getDispatcher();
-				$url = $dispatcher->url($request, ROUTE_COMPONENT, null, $this->_getHandlerClassPath(), 'fetch', null, array('submissionId' => $submission->getId(), 'stageId' => $stageId, 'tabPos' => $this->getTabPosition(), 'hideHelp' => true));
-				$json->setAdditionalAttributes(array('reloadContainer' => true, 'tabsUrl' => $url));
-				$json->setContent(true); // prevents modal closure
 			}
 
 			// Pass a global event to indicate the submission has changed
@@ -181,6 +195,47 @@ class PublicationEntryTabHandler extends Handler {
 		} else {
 			fatalError('Unknown or unassigned format id!');
 		}
+	}
+
+	/**
+	 * Edit citations.
+	 * @param $args array
+	 * @param $request Request
+	 * @return JSONMessage JSON object
+	 */
+	function citations($args, $request) {
+		import('lib.pkp.controllers.tab.publicationEntry.form.CitationsForm');
+		$submission = $this->getSubmission();
+		$stageId = $this->getStageId();
+		$citationsForm = new CitationsForm($submission, $stageId, $this->getTabPosition(), array('displayedInContainer' => true));
+		$citationsForm->initData();
+		return new JSONMessage(true, $citationsForm->fetch($request));
+	}
+
+	/**
+	 * Parse and store submission citations.
+	 * @param $args array
+	 * @param $request Request
+	 * @return JSONMessage JSON object
+	 */
+	function updateCitations($args, $request) {
+		import('lib.pkp.controllers.tab.publicationEntry.form.CitationsForm');
+		$submission = $this->getSubmission();
+		$stageId = $this->getStageId();
+		$citationsForm = new CitationsForm($submission, $stageId, $this->getTabPosition(), array('displayedInContainer' => true));
+		$citationsForm->readInputData();
+		if ($citationsForm->validate()) {
+			$citationsForm->execute();
+		}
+		$json = new JSONMessage(true);
+		if ($request->getUserVar('displayedInContainer')) {
+			$router = $request->getRouter();
+			$dispatcher = $router->getDispatcher();
+			$url = $dispatcher->url($request, ROUTE_COMPONENT, null, $this->_getHandlerClassPath(), 'fetch', null, array('submissionId' => $submission->getId(), 'stageId' => $stageId, 'tabPos' => $this->getTabPosition(), 'hideHelp' => true));
+			$json->setAdditionalAttributes(array('reloadContainer' => true, 'tabsUrl' => $url));
+			$json->setContent(true); // prevents modal closure
+		}
+		return $json;
 	}
 
 	/**
@@ -212,4 +267,4 @@ class PublicationEntryTabHandler extends Handler {
 	}
 }
 
-?>
+

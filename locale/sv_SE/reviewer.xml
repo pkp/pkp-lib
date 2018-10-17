@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/sv_SE/reviewer.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Swedish_(sv_SE)
+  * Localization strings
+  -->
+
+<locale name="sv_SE" full_name="Svenska">
+	<!-- Used in submission review -->
+	<message key="reviewer.reviewSteps.request">1. Förfrågan</message>
+	<message key="reviewer.reviewSteps.guidelines">2. Riktlinjer</message>
+	<message key="reviewer.reviewSteps.download">3. Ladda ner &amp; granska</message>
+	<message key="reviewer.reviewSteps.completion">4. Slutförande</message>
+	<message key="reviewer.step1.request">Granskningsförfrågan</message>
+	<message key="reviewer.step1.requestBoilerplate">Du har valts ut som potentiell granskare av följande bidrag. Nedan finns en översikt av bidraget, samt en tidsplan för granskningen. Vi hoppas att du har möjlighet att delta.</message>
+	<message key="reviewer.step1.viewAllDetails">Visa alla bidragets detaljer</message>
+	<message key="reviewer.submission.reviewerFiles">Granskares filer</message>
+	<message key="reviewer.submission.declineReview">Avböj granskningsförfrågan</message>
+	<message key="reviewer.submission.declineReviewMessage">Du kan förse redaktören med skäl till varför du avböjer granskningsförfrågan i fältet nedan.</message>
+	<message key="reviewer.submission.acceptReview">Acceptera granskningsförfrågan, fortsätt till steg 2</message>
+	<message key="reviewer.submission.continueToStepThree">Fortsätt till steg 3</message>
+	<message key="reviewer.submission.submitReview">Skicka in bedömning</message>
+	<message key="reviewer.submission.reviewerGuidelines">Riktlinjer för granskare</message>
+	<message key="reviewer.submission.enterCompetingInterests">Utgivaren har en policy för avslöjande av eventuella intressekonflikter hos dess granskare. Vänligen ta dig tid att gå igenom denna policy.</message>
+	<message key="reviewer.submission.noCompetingInterests">Jag har inga konkurrerande intressen</message>
+	<message key="reviewer.submission.hasCompetingInterests">Jag kanske har konkurrerande intressen (Specificera nedan)</message>
+	<message key="reviewer.submission.competingInterests">Intressekonflikter</message>
+	<message key="reviewer.submission.guidelines">Riktlinjer för granskare</message>
+	<message key="reviewer.submission.noGuidelines">Utgivaren har inte sammanställt några riktlinjer för granskare.</message>
+	<message key="reviewer.submission.downloadDescription">Klicka på filnamnen nedan för att ladda ner filerna som tillhör detta bidrag.</message>
+	<message key="reviewer.submission.reviewDescription">Fyll i din bedömning av detta bidrag i formuläret nedan.</message>
+	<message key="reviewer.submission.uploadDescription">Ladda upp filer som du vill att redaktörer och/eller författare ska ta hänsyn till, inklusive reviderade versioner av ursprungliga filer för granskning.</message>
+	<message key="reviewer.complete">Bedömning inlämnad</message>
+	<message key="reviewer.confirmSubmit">Är du säker på att du vill lämna in den här bedömningen?</message>
+	<message key="reviewer.complete.whatNext">Tack för att du slutförde granskningen av det här bidraget. Din bedömning har nu lämnats in. Vi uppskattar ditt bidrag till kvaliteten på det vi publicerar. Redaktören kan komma att kontakta dig igen ifall mer information behövs.</message>
+	<message key="reviewer.aboutDueDates">Om förfallodatum</message>
+	<message key="reviewer.aboutDueDates.text">Redaktören ber dig att antingen acceptera eller avböja granskningsförfrågan innan sista svarsdatum och att slutföra granskningen vid angiven deadline.</message>
+	<message key="submission.comments.canShareWithAuthor">För författare och redaktör</message>
+	<message key="submission.comments.cannotShareWithAuthor">Endast för redaktör</message>
+	<message key="user.authorization.submissionReviewer">Nuvarande användare är inte tilldelad rollen granskare för begärt dokument.</message>
+</locale>

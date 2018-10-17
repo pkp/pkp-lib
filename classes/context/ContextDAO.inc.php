@@ -3,8 +3,8 @@
 /**
  * @file classes/context/ContextDAO.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ContextDAO
@@ -251,6 +251,14 @@ abstract class ContextDAO extends DAO {
 			'DELETE FROM ' . $this->_getTableName() . ' WHERE ' . $this->_getPrimaryKeyColumn() . ' = ?',
 			(int) $contextId
 		);
+
+		// NavigationMenus
+		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+		$navigationMenuDao->deleteByContextId($contextId);
+
+		// NavigationMenuItems
+		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+		$navigationMenuItemDao->deleteByContextId($contextId);
 	}
 
 	/**
@@ -298,4 +306,4 @@ abstract class ContextDAO extends DAO {
 	abstract protected function _getPrimaryKeyColumn();
 }
 
-?>
+

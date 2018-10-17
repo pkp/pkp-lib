@@ -1,16 +1,21 @@
 {**
  * templates/submission/submissionMetadataFormFields.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Submission's metadata form fields. To be included in any form that wants to handle
  * submission metadata.
  *}
 
+{if $citationsEnabled && array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR), (array)$userRoles)}
+	{assign var=citationsEnabled value=true}
+{else}
+	{assign var=citationsEnabled value=false}
+{/if}
 {if $coverageEnabled || $typeEnabled || $sourceEnabled || $rightsEnabled ||
-		$languagesEnabled || $subjectEnabled || $keywordsEnabled || $agenciesEnabled || $referencesEnabled}
+		$languagesEnabled || $subjectsEnabled || $keywordsEnabled || $agenciesEnabled || ($citationsEnabled && !$metadataModal) || $disciplinesEnabled}
 	{fbvFormSection title="submission.metadata"}
 		<p class="description">{translate key="submission.metadataDescription"}</p>
 	{/fbvFormSection}
@@ -40,12 +45,12 @@
 	{/fbvFormArea}
 {/if}
 
-{if $languagesEnabled || $subjectEnabled || $keywordsEnabled || $agenciesEnabled || $referencesEnabled || $disciplinesEnabled}
+{if $languagesEnabled || $subjectsEnabled || $keywordsEnabled || $agenciesEnabled || ($citationsEnabled && !$metadataModal) || $disciplinesEnabled}
 	{fbvFormArea id="tagitFields" title="submission.submit.metadataForm"}
 		{if $languagesEnabled}
 			{$languagesField}
 		{/if}
-		{if $subjectEnabled}
+		{if $subjectsEnabled}
 			{fbvFormSection label="common.subjects"}
 				{fbvElement type="keyword" id="subjects" multilingual=true current=$subjects disabled=$readOnly required=$subjectsRequired}
 			{/fbvFormSection}
@@ -65,9 +70,9 @@
 				{fbvElement type="keyword" id="agencies" multilingual=true current=$agencies disabled=$readOnly required=$agenciesRequired}
 			{/fbvFormSection}
 		{/if}
-		{if $referencesEnabled}
+		{if $citationsEnabled && !$metadataModal}
 			{fbvFormSection label="submission.citations"}
-				{fbvElement type="textarea" id="citations" value=$citations disabled=$readOnly required=$citationsRequired}
+				{fbvElement type="textarea" id="citations" value=$citations multilingual=false disabled=$readOnly required=$citationsRequired}
 			{/fbvFormSection}
 		{/if}
 	{/fbvFormArea}

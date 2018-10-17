@@ -1,8 +1,8 @@
 {**
  * templates/controllers/tab/settings/plugins/plugins.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * List installed and available plugins in a tabbed interface.
@@ -24,11 +24,11 @@
 		<li><a href="#pluginGalleryDiv">{translate key="manager.plugins.pluginGallery"}</a></li>
 	</ul>
 	<div id="installedPluginsDiv">
-		{url|assign:pluginGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.settings.plugins.SettingsPluginGridHandler" op="fetchGrid" escape=false}
+		{capture assign=pluginGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.plugins.SettingsPluginGridHandler" op="fetchGrid" escape=false}{/capture}
 		{load_url_in_div id="pluginGridContainer" url=$pluginGridUrl}
 	</div>
 	<div id="pluginGalleryDiv">
-		{url|assign:pluginGalleryGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.plugins.PluginGalleryGridHandler" op="fetchGrid" escape=false}
+		{capture assign=pluginGalleryGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.plugins.PluginGalleryGridHandler" op="fetchGrid" escape=false}{/capture}
 		{load_url_in_div id="pluginGalleryGridContainer" url=$pluginGalleryGridUrl}
 	</div>
 </div>

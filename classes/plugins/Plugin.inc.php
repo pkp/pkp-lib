@@ -9,8 +9,8 @@
 /**
  * @file classes/plugins/Plugin.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Plugin
@@ -46,6 +46,7 @@
 
 // Define the well-known file name for filter configuration data.
 define('PLUGIN_FILTER_DATAFILE', 'filterConfig.xml');
+define('PLUGIN_TEMPLATE_RESOURCE_PREFIX', 'plugins');
 
 abstract class Plugin {
 	/** @var string Path name to files for this plugin */
@@ -78,10 +79,15 @@ abstract class Plugin {
 	 *
 	 * @param $category String Name of category plugin was registered to
 	 * @param $path String The path the plugin was found in
+	 * @param $mainContextId integer To identify if the plugin is enabled
+	 *  we need a context. This context is usually taken from the
+	 *  request but sometimes there is no context in the request
+	 *  (e.g. when executing CLI commands). Then the main context
+	 *  can be given as an explicit ID.
 	 * @return boolean True iff plugin registered successfully; if false,
 	 * 	the plugin will not be executed.
 	 */
-	function register($category, $path) {
+	function register($category, $path, $mainContextId = null) {
 		$this->pluginPath = $path;
 		$this->pluginCategory = $category;
 		if ($this->getInstallSchemaFile()) {
@@ -106,7 +112,11 @@ abstract class Plugin {
 		if ($this->getContextSpecificPluginSettingsFile()) {
 			HookRegistry::register ($this->_getContextSpecificInstallationHook(), array($this, 'installContextSpecificSettings'));
 		}
+
 		HookRegistry::register ('Installer::postInstall', array($this, 'installFilters'));
+
+		$this->_registerTemplateResource();
+
 		return true;
 	}
 
@@ -304,16 +314,77 @@ abstract class Plugin {
 	}
 
 	/**
-	 * Return the canonical template path of this plug-in
-	 * @param $inCore Return the core template path if true.
+	 * Return the Resource Name for templates in this plugin, or if specified, the full resource locator
+	 * for a specific template.
+	 * @param $template Template path/filename, if desired
+	 * @param $inCore boolean True if a "core" template should be used.
 	 * @return string
 	 */
-	function getTemplatePath($inCore = false) {
-		$basePath = Core::getBaseDir();
+	public function getTemplateResource($template = null, $inCore = false) {
+		$pluginPath = $this->getPluginPath();
 		if ($inCore) {
-			$basePath = $basePath . DIRECTORY_SEPARATOR . PKP_LIB_PATH;
+			$pluginPath = PKP_LIB_PATH . DIRECTORY_SEPARATOR . $pluginPath;
 		}
-		return "file:$basePath" . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR;
+		$plugin = basename($pluginPath);
+		$category = basename(dirname($pluginPath));
+		// Slash characters (/) are not allowed in resource names, so use dashes (-) instead.
+		$resourceName = strtr(join('/', array(PLUGIN_TEMPLATE_RESOURCE_PREFIX, $pluginPath, $category, $plugin)),'/','-');
+		return $resourceName . ($template!==null?":$template":'');
+	}
+
+	/**
+	 * Return the canonical template path of this plug-in
+	 * @param $inCore Return the core template path if true.
+	 * @return string|null
+	 */
+	function getTemplatePath($inCore = false) {
+		$templatePath = ($inCore?PKP_LIB_PATH . DIRECTORY_SEPARATOR:'') . $this->getPluginPath() . DIRECTORY_SEPARATOR . 'templates';
+		if (is_dir($templatePath)) return $templatePath;
+		return null;
+	}
+
+	/**
+	 * Register this plugin's templates as a template resource
+	 * @param $inCore boolean True iff this is a core resource.
+	 */
+	protected function _registerTemplateResource($inCore = false) {
+		if ($templatePath = $this->getTemplatePath($inCore)) {
+			$templateMgr = TemplateManager::getManager();
+			$pluginTemplateResource = new PKPTemplateResource($templatePath);
+			$templateMgr->registerResource($this->getTemplateResource(null, $inCore), $pluginTemplateResource);
+		}
+	}
+
+	/**
+	 * Call this method when an enabled plugin is registered in order to override
+	 * template files. Any plugin which calls this method can
+	 * override template files by adding their own templates to:
+	 * <overridingPlugin>/templates/plugins/<category>/<originalPlugin>/templates/<path>.tpl
+	 *
+	 * @param $hookName string TemplateResource::getFilename
+	 * @param $args array [
+	 *		@option string File path to preferred template. Leave as-is to not
+	 *			override template.
+	 *		@option string Template file requested
+	 * ]
+	 */
+	public function _overridePluginTemplates($hookName, $args) {
+		$filePath =& $args[0];
+		$template = $args[1];
+		$checkFilePath = $filePath;
+
+		// If there's a templates/ prefix on the template, clean up the test path.
+		if (strpos($filePath, 'plugins/') === 0) $checkFilePath = 'templates/' . $checkFilePath;
+
+		// If there's a lib/pkp/ prefix on the template, test without it.
+		$libPkpPrefix = 'lib/pkp/';
+		if (strpos($checkFilePath, $libPkpPrefix) === 0) $checkFilePath = substr($filePath, strlen($libPkpPrefix));
+
+		// Check if an overriding plugin exists in the plugin path.
+		$checkPluginPath = sprintf('%s/%s', $this->getPluginPath(), $checkFilePath);
+		if (file_exists($checkPluginPath)) $filePath = $checkPluginPath;
+
+		return false;
 	}
 
 	/**
@@ -451,7 +522,7 @@ abstract class Plugin {
 	 */
 	function installSiteSettings($hookName, $args) {
 		// All contexts are set to zero for site-wide plug-in settings
-		$application = PKPApplication::getApplication();
+		$application = Application::getApplication();
 		$contextDepth = $application->getContextDepth();
 		if ($contextDepth >0) {
 			$arguments = array_fill(0, $contextDepth, 0);
@@ -491,7 +562,7 @@ abstract class Plugin {
 	function installContextSpecificSettings($hookName, $args) {
 		// Only applications that have at least one context can
 		// install context specific settings.
-		$application = PKPApplication::getApplication();
+		$application = Application::getApplication();
 		$contextDepth = $application->getContextDepth();
 		if ($contextDepth > 0) {
 			$context =& $args[1];
@@ -652,7 +723,7 @@ abstract class Plugin {
 	 * @param $smarty Smarty
 	 * @return string
 	 */
-	function smartyPluginUrl($params, &$smarty) {
+	function smartyPluginUrl($params, $smarty) {
 		$path = array($this->getCategory(), $this->getName());
 		if (is_array($params['path'])) {
 			$params['path'] = array_merge($path, $params['path']);
@@ -703,7 +774,7 @@ abstract class Plugin {
 	 * @return string
 	 */
 	function _getContextSpecificInstallationHook() {
-		$application = PKPApplication::getApplication();
+		$application = Application::getApplication();
 
 		if ($application->getContextDepth() == 0) return null;
 
@@ -754,4 +825,4 @@ abstract class Plugin {
 	}
 }
 
-?>
+

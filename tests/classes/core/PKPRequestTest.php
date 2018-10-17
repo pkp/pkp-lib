@@ -3,8 +3,8 @@
 /**
  * @file tests/classes/core/PKPRequestTest.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPRequestTest
@@ -392,7 +392,7 @@ class PKPRequestTest extends PKPTestCase {
 	 */
 	public function testGetUserVar() {
 		$_GET = array(
-			'par1' => (get_magic_quotes_gpc() ? "\'val1\'" : "'val1'"),
+			'par1' => '\'val1\'',
 			'par2' => ' val2'
 		);
 		$_POST = array(
@@ -410,7 +410,7 @@ class PKPRequestTest extends PKPTestCase {
 	 */
 	public function testGetUserVars() {
 		$_GET = array(
-			'par1' => (get_magic_quotes_gpc() ? "\'val1\'" : "'val1'"),
+			'par1' => '\'val1\'',
 			'par2' => ' val2'
 		);
 		$_POST = array(
@@ -426,4 +426,4 @@ class PKPRequestTest extends PKPTestCase {
 		self::assertEquals($expectedResult, $this->request->getUserVars());
 	}
 }
-?>
+

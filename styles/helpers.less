@@ -1,8 +1,8 @@
 /**
  * @file styles/helpers.less
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @brief Helper classes
@@ -257,18 +257,6 @@
 	line-height: @line-tiny;
 	font-weight: @bold;
 	text-decoration: none;
-
-	&:before {
-		&:extend(.fa);
-		content: @fa-var-info-circle;
-		color: @yes;
-		margin-right: 0.5em;
-	}
-
-	&:hover:before,
-	&:focus:before {
-		color: @yes-lift;
-	}
 }
 
 // A small help link that attaches to a tab
@@ -317,7 +305,7 @@
 			}
 
 			&:before {
-				&:extend(.fa);
+				.fa();
 				padding-right: 0.25em;
 				color: #aaa;
 			}
@@ -332,7 +320,7 @@
 		margin-left: @double;
 
 		&:before {
-			&:extend(.fa);
+			.fa();
 			padding-right: 0.25em;
 			color: #aaa;
 			content: @fa-var-print;
@@ -479,3 +467,6 @@
 .pkp_helpers_black_bg {
 	background-color: black;
 }
+
+.pkp_helpers_text_warn    { color: @warn; }
+.pkp_helpers_text_primary { color: black; }

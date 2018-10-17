@@ -4,9 +4,10 @@
 <!--
   * locale/tr_TR/submission.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
   * Localization strings for the tr_TR (Türkçe) locale.
   -->
 
@@ -129,66 +130,6 @@
 	<message key="submission.backToSubmissionEditing">Gönderi Düzenlemeye Dön</message>
 	<message key="submission.changeComments">ile değiştir</message>
 	<message key="submission.citations">Referanslar</message>
-	<message key="submission.citations.editor.citationlist.deleteCitationConfirmation">Bu atıfı silmek isetediğinizden emin misiniz?</message>
-	<message key="submission.citations.editor.citationlist.errorDeletingCitation">Bu atıfı silmeye çalışırken bir hata oluştu. Lütfen bunu hata mesajı olarak bildiriniz.</message>
-	<message key="submission.citations.editor.citationlist.newCitation">Yeni Atıf</message>
-	<message key="submission.citations.editor.citationlist.title">Atıf Düzenle</message>
-	<message key="submission.citations.editor.clickToEdit">Düzeltme içim tıkla</message>
-	<message key="submission.citations.editor.details.authorQuery">Yazar İstek</message>
-	<message key="submission.citations.editor.details.authorQueryBody">Yazara mesajınız:</message>
-	<message key="submission.citations.editor.details.authorQueryExplanation">Geçerli atıf hakkında daha fazla bilgi için yazara sorabilirsiniz. Aşağıdaki "Gönder" butonuna tıkladığınızda mesajınız yazara e-posta olarak gönderecektir.</message>
-	<message key="submission.citations.editor.details.authorQuerySubject">Konu:</message>
-	<message key="submission.citations.editor.details.cannotSelectDefaultForLabel">Alan etiketini değiştiremezsiniz. Eğer ihtiyaç duymuyorsanız alanı silebilirsiniz.</message>
-	<message key="submission.citations.editor.details.checkInGoogleScholar">Google Akademik'te kontrol et</message>
-	<message key="submission.citations.editor.details.changeFieldInfo">Seçmek için birkaç karakter yaznız ...</message>
-	<message key="submission.citations.editor.details.citationExportPreview">Atıf İhraç Görüntüsü</message>
-	<message key="submission.citations.editor.details.citationImprovementResultsActive">Dahili uzman atıf servisi sonuçları (kapatmak için tıklayınız)</message>
-	<message key="submission.citations.editor.details.citationImprovementResultsInactive">Dahili uzman atıf servisi sonuçları (açmak için tıklayın)</message>
-	<message key="submission.citations.editor.details.citationServices">Atıf Servisleri</message>
-	<message key="submission.citations.editor.details.clickToDismissMessage">Mesajı kapatmak için metne tıklayabilirsiniz.</message>
-	<message key="submission.citations.editor.details.dataSaved">Değişiklikleriniz kayt edildi.</message>
-	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Atıf veri tabanı servisi seçiniz:</message>
-	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Uzman atıf düzeltme ayarları (kapatmak için tıklayınız)</message>
-	<message key="submission.citations.editor.details.editRawCitationExpertSettingsInactive">Uzman atıf düzenleme ayarları (açmak için tıklayınız)</message>
-	<message key="submission.citations.editor.details.editRawCitationExtractionServices">Atıf Çıkarma Servisleri Seçiniz:</message>
-	<message key="submission.citations.editor.details.editRawCitationFilterValidationError">Dahili hata: Hatalı filitre seçimi. Lütfen hata mesajı rapor ediniz.</message>
-	<message key="submission.citations.editor.details.explainImprovementOptions">Varsayılan olarak tatmin edici sonuç alamadıysanız, atıf geliştirmek için çeşitli seçenekleri kullanabilirsiniz. Genellikle manuel olarak önemli alanlarda (örneğin başlık ve yazar), düzenleme yapabilir ve tekrar atıf almaya yardımcı olur. Bu yöntem işe yaramazsa Google Scholar'da sorgulayabilir veya ayrıntılar için yazar sorabilirsiniz.</message>
-	<message key="submission.citations.editor.details.googleScholar">Google Akademik</message>
-	<message key="submission.citations.editor.details.googleScholarExplanation">Bağlı atıf hizmetlerinde eşleşen herhangi bir atıf bulunamamıştır, ancak Google Akademik'te aramaya devam edebilirsiniz. Ne yazık ki, Google Akademik kullanmak istediğimiz veri için alan tabanlı veri göndermeyi desteklemiyor. Bu da yardımcıya otomatik olarak veri göndernin yolu olmadığı anlamına gelir. Google sonuç sayfasındaki bilgileri manuel olarak kopyalayıp yapıştırmak zorundasınız.</message>
-	<message key="submission.citations.editor.details.manualEditing">Elle Düzenleme</message>
-	<message key="submission.citations.editor.details.messages">Lütfen not edin (reddetmek için mesajın üstüne tıklayınız)</message>
-	<message key="submission.citations.editor.details.newFieldInfo">...yeni bir alan eklemek için buraya tıklayınız...</message>
-	<message key="submission.citations.editor.details.queryCitation">Sorgu Tekrarı Atıf Servisleri</message>
-	<message key="submission.citations.editor.details.queryGoogleScholar">Google Akademik'te Arama</message>
-	<message key="submission.citations.editor.details.processRawCitation">Süreç</message>
-	<message key="submission.citations.editor.details.processRawCitationGoAhead">Devam Et</message>
-	<message key="submission.citations.editor.details.processRawCitationTitle">Orijinal Atıf Değiştirme</message>
-	<message key="submission.citations.editor.details.saveAndApprove">Kaydet ve Onayla</message>
-	<message key="submission.citations.editor.details.saveAndRevokeApproval">Onayı Geri Al</message>
-	<message key="submission.citations.editor.details.sendAuthorQuery">Mesaj Gönder</message>
-	<message key="submission.citations.editor.details.sendAuthorQuerySuccess">Mesaj Gönderildi!</message>
-	<message key="submission.citations.editor.details.sourceResultsUse">Kullan</message>
-	<message key="submission.citations.editor.details.sourceResultsUseAll">Tümünü Kullan</message>
-	<message key="submission.citations.editor.details.sourceResultsUseAllExplanation">Alan listenize, bu kaynaktan doğrudan tüm sonuç alanlarını taşımak için tıklayınız.</message>
-	<message key="submission.citations.editor.details.sourceResultsUseExplanation">Alan listenize bu sonucun doğrudan taşınması için tıklayın.</message>
-	<message key="submission.citations.editor.details.rawCitation">Orijinal Atıf Metni</message>
-	<message key="submission.citations.editor.details.rawCitationRequired">Atıf metni gerekli.</message>
-	<message key="submission.citations.editor.details.unsavedChanges">Atıf kaydedilmemiş veri içeriyor. Değişiklikleri saklamak için için "Kaydet" butonuna tıklayınız veya değişiklikleri geri almak için "İptal" butonuna tıklayınız.</message>
-	<message key="submission.citations.editor.details.dontShowMessageAgain">Bu mesajı bir daha gösterme.</message>
-	<message key="submission.citations.editor.edit">Atıfları Düzenle</message>
-	<message key="submission.citations.editor.export">Atıfları İhraç Et</message>
-	<message key="submission.citations.editor.export.exportDescription"><![CDATA[Oluşturulan çıktıların tamamını seçmek için <a id="markForExport" href="">buraya tıklayın</ a>. Daha sonra kopyala ve yapıştır yoluyla dokümanınıza aktarabilirsiniz.]]></message>
-	<message key="submission.citations.editor.export.filterSelectionDescription">Lütfen aşağıdaki ihraç seçeneklerinden birini seçiniz.</message>
-	<message key="submission.citations.editor.export.filterSelectionError">Çıktı seçeneklerinden birini seçmelisiniz.</message>
-	<message key="submission.citations.editor.export.foundUnapprovedCitationsMessage"><![CDATA[<p>You have not yet approved all citations. Please go to the <strong>Edit Citations</strong> tab and make sure you have approved all citations before you try to export them. Approved citations are marked with a dark blue stripe to the left.</p>]]></message>
-	<message key="submission.citations.editor.export.noExportOutput">'{$filterName}' adlı çıkış filtresi bir hata ile karşılaştı. Hata raporu olarak bildiriniz.</message>
-	<message key="submission.citations.editor.export.pleaseSelectXmlFilter">XML çıktı seçenekleri:</message>
-	<message key="submission.citations.editor.export.pleaseSelectPlaintextFilter">Atıf çıktı biçimi (sadece deneme!):</message>
-	<message key="submission.citations.editor.introduction">Giriş</message>
-	<message key="submission.citations.editor.loadMessage">Yüklemek için atıf biçimlendirme yardımcısını bekleyin.</message>
-	<message key="submission.citations.editor.pleaseSelect">Lütfen seçiniz...</message>
-	<message key="submission.citations.editor.unprocessedCitationsButton">Atıf Listesini Yenile</message>
-	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Atıf listesini yenilemek için tıklayınız.</message>
 	<message key="submission.comments.addComment">Yorum ekle</message>
 	<message key="submission.comments.comments">Yorumlar</message>
 	<message key="submission.comments.confirmDelete">Bu yorumu silmek istediğinize emin misiniz?</message>
@@ -202,7 +143,7 @@
 	<message key="submission.comments.sendDecisionToReviewers">Hakemlere editör kararını gönder</message>
 	<message key="submission.comments.subject">Konu</message>
 	<message key="submission.complete">Tamam</message>
-	<message key="submission.done">YapIldI</message>
+	<message key="submission.done">Yapıldı</message>
 	<message key="submission.dueDate">Son gün</message>
 	<message key="submission.due">Son Tarih</message>
 	<message key="submission.editing">Düzenleme</message>
@@ -250,7 +191,6 @@
 	<message key="submission.layout.confirmDeleteSupplementaryFile">Bu ek dosyayı tamamen silmek istediğinizden emin misiniz?</message>
 	<message key="submission.layout.deleteGalleyStylesheet">Bu stil sayfasını sil.</message>
 	<message key="submission.layout.editGalley">Mizanpaj Dizgisini Düzenle</message>
-	<message key="submission.layout.galleyFileData">Mizanpaj Dosyası Bilgisi</message>
 	<message key="submission.layout.galleyFormat">Dizgi Biçimi</message>
 	<message key="submission.layout.galleyHTMLData">HTML Dizgi Dosyaları</message>
 	<message key="submission.layout.galleyImages">Şekiller</message>
@@ -304,7 +244,7 @@
 	<message key="submission.request">İstek</message>
 	<message key="submission.response">Yanıt</message>
 	<message key="submission.restrictions">Sınırlamalar</message>
-	<message key="submission.reviewMetadata">ÜTS VERİYİ DÜZENLE</message>
+	<message key="submission.reviewMetadata">Üst Veriyi Düzenle</message>
 	<message key="submission.review">Değerlendirme</message>
 	<message key="submission.reviewVersion">Değerlendirme Sürümü</message>
 	<message key="submissions.active">Etkin</message>
@@ -342,8 +282,6 @@
 	<message key="submission.nameRequired">Bu madde için bir isim gerekiyor.</message>
 	<message key="submission.date.mmdd">AA-GG</message>
 	<message key="submission.date.yyyymmdd">YYYY-AA-GG</message>
-	<message key="submission.citations.editor.citationlist.approved">Onaylandı</message>
-	<message key="submission.citations.editor.citationlist.notApproved">Onaylanmadı</message>
 	<message key="submission.comments.addReviews">Değerlendirmeleri e-postaya ekle</message>
 	<message key="submission.copyedited">Sayfa Düzenleme</message>
 	<message key="submission.layout.galleyRemoteURL">Uzak URL</message>
@@ -353,33 +291,299 @@
 	<message key="submission.form.name">Bu dosyaya anlamlı bir ad ver</message>
 	<message key="submission.form.replaceExisting">Mevcut Dosya Değiştirilsin mi?</message>
 	<message key="submission.addFile">Dosya Yükle</message>
-	<message key="submission.citations.editor.details.processRawCitationWarning">Özgün atıf metni değiştirmek üzeresiniz. Bunu yaparsanız tüm alanlar yeni oluşturulan değerler ile değiştirilecektir. Bu silme manuel değişiklik yapmış olabilir.</message>
-	<message key="submission.citations.editor.introduction.introductionMessage"><![CDATA[<h4>Welcome to the Citation Markup Assistant!</h4>
-	<p>With this assistant you can mark up author-provided citations for export to NLM 2.3 or 3.0 XML galleys, or alternatively as text-based output. This tool first attempts to automatically extract and recognize citations as they have been provided, but you can step in and edit the results at any time.</p>
-	<ul>
-		<li><p><strong>Configuring the Assistant</strong></p>
-		<p>The Citation Markup Assistant is configured by the journal manager in <a href="{$citationSetupUrl}">Journal Setup Step 3.7: Citation Markup Assistant</a>. Different citation extraction and checking tools can be added, configured, and deleted. For more information, contact the journal manager.</p></li>
-		<li><p><strong>Navigating the Assistant Interface</strong></p>
-		<p>To switch between <strong>Introduction</strong>, <strong>Edit Citations</strong> and <strong>Export Citations</strong> tabs, click the tab titles. To expand the citation interface, click the <strong>Fullscreen</strong> button. To return to a normal interface from the expanded citation interface, click the <strong>Fullscreen Off</strong> button. To remove this introductory tab entirely, click the button below.</p></li>
-		<li><p><strong>Requesting Citations</strong></p>
-		<p>If the Citation Markup Assistant has been enabled by the journal manager, authors will be prompted for a list of references during article submission. These references will be requested separately from the submission document itself. After submission, authors can also modify their list of references at any time by editing the submission's metadata; note that this will overwrite any modifications that you have made to the citations using this tool.</p></li>
-		<li><p><strong>Editing Citations</strong></p>
-		<p>The Citation Markup Assistant will attempt to identify and extract individual citations from the author's list of references. You can systematically check each citation extraction attempt for accuracy against a number of external databases; edit incorrect citation information and add new information; approve or delete citations; and add new citations.</p>
-		<p>All final citations for a submission must be approved before they can be exported.</p></li>
-		<li><p><strong>Exporting Citations</strong></p>
- 		<p>Citations can be exported as XML or text. XML export options currently include <a href="http://dtd.nlm.nih.gov/publishing/">NLM Journal Publishing</a> 2.3 and 3.0 <a href="http://www.ncbi.nlm.nih.gov/pmc/pmcdoc/tagging-guidelines/article/tags.html#el-reflist">ref-list XML</a>. Selecting one of these options outputs an XML-encoded ref-list snippet that can be copied and pasted into an NLM XML galley.</p>
-		<p>Experimental text export options include ABNT, APA, MLA and Vancouver citation output styles. These options provide a text output that can be copied and pasted into a text-based article galley (for example into Microsoft Word or OpenOffice; Adobe InDesign; etc.). Each citation includes an embedded link to automatically search for that citation in Google Scholar.</p></li>
-	</ul>]]></message>
-	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>Bu makale için atıf yoktur.</p><p>Lütfen makalenin <a href="{$articleMetadataUrl}">üst veri sayfasına</a> gidiniz ve bir referans listesi giriniz veya editör öğe ekleme butonunu kullanarak referansları elle ekleyiniz.</p>]]></message>
-	<message key="submission.citations.editor.unprocessedCitations">The citations of this article are still being processed on the server. The current citation list only contains already processed citations. Please click the refresh button to see citations that have been processed in the meantime.</message>
-	<message key="submission.citations.filter.invalidMetadata">An error occurred in {$filterName}: One of the data elements returned from the data source (e.g. a web service) did not conform to the internal meta-data format. Therefore the data source's results were rejected. Please file this as a bug.</message>
-	<message key="submission.citations.filter.noResultFromFilterError">Several citation services did not return any results. You can try to manually edit citation fields and then query citation services again to improve results. If this doesn't help then the citation does not exist in any of the connected databases.</message>
-	<message key="submission.citations.filter.unsupportedPublicationType">Desteklenmeyen veya kayıp yayın türü. Lütfen yayın türünü (kabul edilebilir türler; 'book', 'journal', 'thesis' ve 'conf-proc') giriniz ve atıfı elle ekleyiniz.</message>
-	<message key="submission.citations.filter.webserviceError">The {$filterName}'s web service call has returned an error when called with the following URL: {$webserviceUrl}. It may be that the web service is temporarily unavailable. You'll still be able to work with the remaining services and save your results. You can also try again later. If the error persists then please ask the manager to deactivate this service and open a bug report.</message>
-	<message key="submission.citations.filter.webserviceResultTransformationError">An error occurred in {$filterName}: The transformation of XML results (e.g. from a web service) into field-based meta-data failed. The reason probably is that the web service returned invalid or incomplete data. Please file this as a bug.</message>
-	<message key="submission.citations.metadata.changeWarning">Are you sure you want to update your references list? If you click OK, any changes made by the Editors will be overwritten. If you are not sure whether you should make changes to the references list, please contact the Editor in charge of your submission.</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} {$submissionId} numaralı gönderiyi değerlendirmeyi {$round}. kez kabul etti.</message>
 	<!--  peer review -->
 	<message key="submission.reviewForm">Değerlendirme Formu</message>
 	<message key="submission.reviewFormResponse">Değerlendirme Formu Yanıtı</message>
+	<message key="author.submission.roundStatus.reviewsReady">Yeni değerlendirmeler gönderilmiştir ve editör tarafından incelenmektedir.</message>
+	<message key="submission.confirm.message">Başvurunuz yüklendi ve gönderilmeye hazır. Devam etmeden önce girmiş olduğunuz bilgileri gözden geçirmek ve düzeltmek için geri dönebilirsiniz. Hazır olduğunuzda, "Gönderiyi Sonlandır"ı tıklayın.</message>
+	<message key="submission.submit.submissionChecklist">Gönderi Gereksinimleri</message>
+	<message key="submission.submit.submissionChecklistDescription">Devam etmeden önce aşağıdaki koşulları tamamladığınızı okumalı ve kabul etmelisiniz.</message>
+	<message key="submission.submit.submissionComplete">Gönderi tamamlandı</message>
+	<message key="submission.submit.submissionCompleteThanks">{$contextName} ile yayınlama isteğiniz için teşekkür ederiz.</message>
+	<message key="submission.submit.copyrightNoticeAgreementLabel">Telif hakkı bildirimini kabul et</message>
+	<message key="submission.submit.copyrightNoticeAgree">Telif hakkı bildiriminin koşullarına uymayı kabul ediyorum.</message>
+	<message key="submission.submit.whatNext">Sonra ne olur?</message>
+	<message key="submission.submit.whatNext.forNow">Şimdilik şunları yapabilirsiniz:</message>
+	<message key="submission.submit.whatNext.review">Bu gönderiyi incele</message>
+	<message key="submission.submit.whatNext.create">Yeni bir gönderi oluştur</message>
+	<message key="submission.submit.whatNext.return">Gösterge paneline dön</message>
+	<message key="submission.submit.extendedMetadata">Genişletilmiş Üst Veri</message>
+	<message key="common.queue.long.submissionsUnassigned">Atanmamış</message>
+	<message key="common.queue.long.myAssigned">Atamalarım</message>
+	<message key="common.queue.long.submissionsArchived">Arşivlenmiş Gönderiler</message>
+	<message key="submission.authors">Yazarlar</message>
+	<message key="submission.authorBiography">Yazar Biyografisi</message>
+	<message key="submission.authorBiographies">Yazar Biyografileri</message>
+	<message key="submission.authorWithAffiliation">{$name}, {$affiliation}</message>
+	<message key="submission.shortAuthor">{$author} ve diğ.</message>
+	<message key="submission.mySubmissions">Yazılarım</message>
+	<message key="submission.attachedFile">Eklenmiş dosya</message>
+	<message key="submission.changeFile">Dosya Değiştir</message>
+	<message key="submission.citations.description">Her bir referansı yeni bir satıra girin, böylece çıkartılabilir.</message>
+	<message key="submission.parsedCitations">Çıkarılan Referanslar</message>
+	<message key="submission.parsedCitations.description">Aşağıdaki referanslar çıkarılmıştır ve gönderi üst verilerine bağlanacaktır.</message>
+	<message key="submission.parsedAndSaveCitations">Çıkarılan ve Kaydedilen Referanslar</message>
+	<message key="submission.contributors">Katkıda Bulunanların Listesi</message>
+	<message key="submission.copyediting">Kopya Düzenleme</message>
+	<message key="submission.queryNoteFiles">Tartışma Dosyaları</message>
+	<message key="submission.coverage">Kapsam Bilgisi</message>
+	<message key="submission.editorial">Kopya Düzenleme</message>
+	<message key="submission.event.participantAdded">{$name} ({$username}) bu gönderiye {$userGroupName} olarak atandı.</message>
+	<message key="submission.event.participantRemoved">"{$name}" ({$username}) bu gönderi için {$userGroupName}'den kaldırıldı.</message>
+	<message key="submission.event.submissionSubmitted">İlk gönderi tamamlandı.</message>
+	<message key="submission.event.fileRevised">"{$name}" adlı revizyon (file ID {$fileId}-{$fileRevision}) olarak yüklendi.</message>
+	<message key="submission.event.subjectPrefix">Bir e-posta gönderildi:</message>
+	<message key="submission.event.viewEmail">E-postayı Görüntüle</message>
+	<message key="submission.files.downloadAll">Tüm Dosyaları İndir</message>
+	<message key="submission.howToCite">Nasıl Atıf Yapılır</message>
+	<message key="submission.howToCite.citationFormats">Daha Fazla Atıf Biçimi</message>
+	<message key="submission.howToCite.downloadCitation">Atıf İndir</message>
+	<message key="submission.identifiers">Tanımlayıcılar</message>
+	<message key="submission.publisherId">Genel URL Tanımlayıcı</message>
+	<message key="submission.informationCenter.submissionInfo">Gönderi Bilgisi</message>
+	<message key="submission.informationCenter.metadata">Üst Veri</message>
+	<message key="submission.informationCenter.notes">Notlar</message>
+	<message key="submission.informationCenter.history">Geçmiş</message>
+	<message key="submission.informationCenter.history.allEvents">Önceki sürüm etkinliklerini göster</message>
+	<message key="submission.stageParticipants.notify">Bildir</message>
+	<message key="submission.production">Basım</message>
+	<message key="submission.rights">Haklar</message>
+	<message key="submission.rights.tip">Dilerseniz, bu gönderi veya bu erişim üzerinde tutulan erişim hakları hakkında kısa bir açıklama girebilirsiniz.</message>
+	<message key="submission.source">Kaynak</message>
+	<message key="submission.source.tip">Bu gönderi başka bir kaynaktan mı yapılıyor? Öyleyse, bu kaynağın bir URL'sini veya açıklamasını girebilirsiniz.</message>
+	<message key="submission.submission">Gönderi</message>
+	<message key="submission.submissionTitle">Gönderi Başlığı:</message>
+	<message key="submission.submit.finishSubmission">Gönderiyi Bitir</message>
+	<message key="submission.submit.selectFile">Dosya Seç</message>
+	<message key="submission.submit.fileInformation">Dosya Bilgisi</message>
+	<message key="submission.submit.fileAdded">Dosya Eklendi</message>
+	<message key="submission.submit.includeInBrowse">Bu katkı veren göz atma listelerine dahil edilsin mi?</message>
+	<message key="submission.submit.newFile">Başka Bir Dosya Ekle</message>
+	<message key="submission.submit.metadataForm">Ek İyileştirmeler</message>
+	<message key="submission.submit.metadataForm.tip">Gönderiniz için ek bilgi ekleyin. Her terimden sonra 'enter' tuşuna basın.</message>
+	<message key="submission.submit.submissionLocale">Gönderi Dili</message>
+	<message key="submission.submit.submissionLocaleDescription">Çoklu dillerde gönderi kabul edilir. Yukarıdaki açılır listeden gönderinin birincil dilini seçin.</message>
+	<message key="submission.submit.submissionFiles">Gönderi Dosyaları</message>
+	<message key="submission.submit.dependentFiles">Bağımlı Dosyalar</message>
+	<message key="submission.manageDependentFiles">Bağımlı Dosyaları Yönet</message>
+	<message key="submission.upload.dependent">Bağımlı Bir Dosya Yükle</message>
+	<message key="submission.upload.query">Tartışma Dosyası Yükle</message>
+	<message key="submission.type.tip"><![CDATA[Gönderi türü genellikle 'görsel', 'metin' veya 'yazılım' veya 'etkileşimli' dahil olmak üzere diğer çoklu ortam türlerinden biridir. Lütfen gönderinizle ilgili olanı seçin. Örnekler <a target="_blank" href="http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a> adresinde bulunabilir.]]></message>
+	<message key="submission.submit.selectPrincipalContact">Editör yazışmaları için ana iletişim.</message>
+	<message key="submission.submit.contributorRole">Katkıda bulunanın rolü</message>
+	<message key="submission.submit.addAuthor">Katkıda Bulunan Ekle</message>
+	<message key="submission.submit.form.languagesRequired">Lütfen bir dil ekleyiniz.</message>
+	<message key="submission.submit.form.subjectsRequired">Lütfen bir konu ekleyiniz.</message>
+	<message key="submission.submit.form.disciplinesRequired">Lütfen bir disiplin ekleyiniz.</message>
+	<message key="submission.submit.form.keywordsRequired">Lütfen bir anahtar kelime ekleyiniz.</message>
+	<message key="submission.submit.form.agenciesRequired">Lütfen bir destek veren kurumu ekleyin.</message>
+	<message key="submission.submit.form.coverageRequired">Lütfen kapsam bilgilerini girin.</message>
+	<message key="submission.submit.form.typeRequired">Lütfen tür giriniz.</message>
+	<message key="submission.submit.form.sourceRequired">Lütfen kaynak giriniz.</message>
+	<message key="submission.submit.form.rightsRequired">Lütfen hakları giriniz.</message>
+	<message key="workflow.review.internalReview">Dahili Değerlendirirme</message>
+	<message key="workflow.stage.any">Herhangi Bir Aşama</message>
+	<message key="workflow.stage">Aşama</message>
+	<message key="submission.status.editorial">Kopya Düzenlemede</message>
+	<message key="submission.status.production">Düzeltmede</message>
+	<message key="submission.status.review">Değerlendirmede</message>
+	<message key="submission.status.submission">Editör Kararı Bekleniyor</message>
+	<message key="submission.status.unassigned">Atanmayan</message>
+	<message key="submission.status.declined">Reddedilen</message>
+	<message key="submission.status.published">Yayımlanan</message>
+	<message key="submission.submit.uploadStep">1. Dosya Yükle</message>
+	<message key="submission.submit.uploadSubmissionFile">Gönderi Dosyası Yükle</message>
+	<message key="submission.submit.metadataStep">2. Değerlendirme Detayları</message>
+	<message key="submission.submit.finishingUpStep">3. Onayla</message>
+	<message key="submission.submit.fileNameRequired">Bu dosya için bir dosya adı girmelisiniz</message>
+	<message key="submission.upload.noGenre">Eksik veya geçersiz bileşen!</message>
+	<message key="submission.upload.invalidUserGroup">Eksik veya geçersiz kullanıcı grubu!</message>
+	<message key="submission.upload.possibleRevision">Muhtemel Çoğaltma veya Revizyon Algılandı</message>
+	<message key="submission.upload.possibleRevisionDescription">Yüklenen dosyanın adı, daha önce yüklenen dosyanın adı "{$revisedFileName}" benzerdir. Bu dosyanın "{$revisedFileName}" yerini alması mı bekleniyor? Öyleyse, aşağıdaki dosyayı seçin. Aksi takdirde, devam etmeden önce "Bu mevcut bir dosyanın revizyonu değil"i seçin.</message>
+	<message key="submission.upload.selectMandatoryFileToRevise">Lütfen revize etmek istediğiniz dosyayı seçiniz.</message>
+	<message key="submission.upload.selectOptionalFileToRevise">Mevcut bir dosyanın revizyonunu yüklüyorsanız, lütfen hangi dosyayı olduğunu belirtin.</message>
+	<message key="submission.upload.uploadNewFile">Bu mevcut bir dosyanın revizyonu değil</message>
+	<message key="submission.upload.userGroup">Bu dosyayı rolüm olarak yükle ...</message>
+	<message key="submission.upload.userGroupDescription">Düzenlenen bir cildi gönderiyorsanız, tüm cilt bölümlerini tek tek, birim editör olarak rolünüzün altına yüklemelisiniz.</message>
+	<message key="submission.upload.uploadLibraryFile">Kütüphane Dosyası Yükle</message>
+	<message key="submission.upload.libraryCategory">Başvuru Belge Kategorisi</message>
+	<message key="submission.upload.finalDraft">Dosya Yükle</message>
+	<message key="submission.upload.copyeditedVersion">Düzenlenmiş Kopya Dosyası Yükle</message>
+	<message key="submission.upload.fairCopy">Adil Kopyayı Yükle</message>
+	<message key="submission.upload.uploadFiles">Dosyaları Yükle</message>
+	<message key="submission.upload.response.description">Atanan dosyayı değerlendirdikten sonra, aşağıdaki dosyadaki tüm yorumları kaydedin ve / veya dosyanın açıklamalı bir kopyasını (veya başka bir dosya) yükleyin.</message>
+	<message key="submission.upload.productionReady">Basıma Hazır Dosya Yükle</message>
+	<message key="submission.upload.proof">Yayına Hazır Bir Dosya Yükle</message>
+	<message key="submission.upload.noAvailableReviewFiles">Şu anda gözden geçirebileceğiniz bir dosya yok.</message>
+	<message key="editor.submission.roundStatus.revisionsRequested">Düzeltmeler talep edildi.</message>
+	<message key="editor.submission.roundStatus.revisionsSubmitted">Düzeltmeler gönderildi.</message>
+	<message key="editor.submission.roundStatus.resubmitForReview">Gönderi başka bir değerlendirme turu için tekrar gönderilmelidir.</message>
+	<message key="editor.submission.roundStatus.submissionResubmitted">Gönderi başka bir inceleme turu için tekrar gönderildi.</message>
+	<message key="editor.submission.roundStatus.sentToExternal">Harici değerlendirmeye gönderildi.</message>
+	<message key="editor.submission.roundStatus.accepted">Gönderi kabul edildi.</message>
+	<message key="editor.submission.roundStatus.declined">Gönderi reddedildi.</message>
+	<message key="editor.submission.roundStatus.pendingReviewers">Hakemlerin atanması bekleniyor.</message>
+	<message key="editor.submission.roundStatus.pendingReviews">Hakemlerden yanıtı bekliyor.</message>
+	<message key="editor.submission.roundStatus.reviewsReady">Yeni değerlendirmeler gönderildi.</message>
+	<message key="editor.submission.roundStatus.reviewsCompleted">Tüm değerlendirmeler bekliyor ve bir karar gerekli.</message>
+	<message key="editor.submission.roundStatus.reviewOverdue">Bir değerlendirme gecikti.</message>
+	<message key="editor.submission.roundStatus.pendingRecommendations">Editörlerin önerilerini bekliyoruz.</message>
+	<message key="editor.submission.roundStatus.recommendationsReady">Yeni editöryal yazım önerileri gönderildi.</message>
+	<message key="editor.submission.roundStatus.recommendationsCompleted">Tüm öneriler tatmam ve bir karara ihtiyaç var.</message>
+	<message key="editor.submission.stageParticipants">Katılımcılar</message>
+	<message key="editor.submission.noneAssigned">Hiçbiri Atanmamış</message>
+	<message key="editor.submission.participant">Katılımcı</message>
+	<message key="editor.submission.addStageParticipant">Katılımcı Ata</message>
+	<message key="editor.submission.addStageParticipant.userGroup">Kullanıcılar, kullanıcı grubu tarafından iş akışının aşamalarına atanır. Bu aşamaya atanan herhangi bir kullanıcı otomatik olarak kullanıcı gruplarının atandığı diğer aşamalara atanacaktır. Bu genellikle editörler, yazarlar ve çevirmenler için ayrılmıştır.</message>
+	<message key="editor.submission.removeStageParticipant">Katılımcıyı Kaldır</message>
+	<message key="editor.submission.removeStageParticipant.description">Bu katılımcıyı tüm aşamalardan kaldırmak üzeresiniz. Kullanıcının bekleyen denetim görevleri varsa, bunlar da kaldırılacaktır.</message>
+	<message key="editor.submission.addStageParticipant.form.userGroupRequired">Bir kullanıcı gurubu seçmelisiniz.</message>
+	<message key="editor.submission.addStageParticipant.form.userRequired">Belirtilen kullanıcı grubu için bir kullanıcı seçmelisiniz.</message>
+	<message key="editor.submission.addStageParticipant.form.reviewerWarning">Seçtiğiniz katılımcı, kör hakemlik yapmak üzere atanmıştır. Onları bir katılımcı olarak atarsanız, yazarın kimliğine erişebilecekler. Hakem değerlendirme sürecinin bütünlüğünü bağımsız olarak sağlayamadığınız sürece, bu katılımcıyı atamaya teşvik edilmezsiniz.</message>
+	<message key="editor.submission.decision">Karar</message>
+	<message key="editor.submission.decision.accept">Gönderiyi Kabul Et</message>
+	<message key="editor.submission.decision.requestRevisions">Revizyon İste</message>
+	<message key="editor.submission.decision.resubmit">Değerlendirme İçin Yeniden Gönder</message>
+	<message key="editor.submission.decision.decline">Gönderiyi Reddet</message>
+	<message key="editor.submission.decision.sendToProduction">Basıma Gönder</message>
+	<message key="editor.submission.decision.skipReview">Kabul Et ve Değerlendirmeyi Atla</message>
+	<message key="editor.submission.decision.sendInternalReview">İç Değerlendirmeye Gönder</message>
+	<message key="editor.submission.decision.approveProofsDescription">Sayfa düzeltme dosyası, kullanılmak üzere onaylandığı şekilde kontrol edilmelidir. Onaylamak istiyor musun?</message>
+	<message key="editor.submission.decision.approveProofs">Düzeltmeleri Kabul Et</message>
+	<message key="editor.submission.decision.disapproveProofsDescription">Bu dosya düzeltmeleri artık indirme veya satın alma için herkese açık olmayacaktır. Onaylamamak mı istiyorsun?</message>
+	<message key="editor.submission.decision.noDecisionsAvailable">Bu aşamada editör kararlarını etkinleştirmek için bir editör atayın.</message>
+	<message key="editor.submission.makeRecommendation">Öneri Yap</message>
+	<message key="editor.submission.changeRecommendation">Öneri Değiştir</message>
+	<message key="editor.submission.recommendation.display">Öneri: {$recommendation}</message>
+	<message key="editor.submission.allRecommendations.display">Öneriler: {$recommendations}</message>
+	<message key="editor.submission.recommendation">Öneri</message>
+	<message key="editor.submission.recommendation.description">Bu gönderi için bir editör kararı tavsiye et.</message>
+	<message key="editor.submission.recordedRecommendations">Kayıtlı Öneriler</message>
+	<message key="editor.submission.decision.nextButton">Sonraki: {$stageName} için dosyaları seç</message>
+	<message key="editor.submission.decision.selectFiles">{$stageName} aşamasına iletmek istediğiniz dosyaları seçin.</message>
+	<message key="editor.submission.decision.previousAuthorNotification">Önceki: Yazar Bildirimi</message>
+	<message key="submission.currentStage">Şu Anki Aşama</message>
+	<message key="submission.noActionRequired">Eylem gerekli değil</message>
+	<message key="submission.actionNeeded">Eylem gerekli</message>
+	<message key="reviewer.submission.reviewFiles">Dosyaları Değerlendir</message>
+	<message key="grid.action.createReviewFormElement">Yeni bir inceleme formu öğesi oluştur</message>
+	<message key="grid.action.editMetadata">Üst Veri Düzenle</message>
+	<message key="submission.permissions">İzinler</message>
+	<message key="submission.attachPermissions">Gönderiye aşağıdaki izinleri ekleyin:</message>
+	<message key="submission.license">Lisans</message>
+	<message key="submission.copyright">Telif Hakkı</message>
+	<message key="submission.copyrightHolder">Telif Hakkı Sahibi</message>
+	<message key="submission.copyrightYear">Telif Hakkı Tarihi</message>
+	<message key="submission.copyrightStatement">Telif Hakkı (c) {$copyrightYear} {$copyrightHolder}</message>
+	<message key="submission.licenseURLValid">Lütfen geçerli bir uzak URL sağlayın (http:// dahil)</message>
+	<message key="submission.licenseURL">Lisans URL</message>
+	<message key="submission.license.cc.by-nc-nd4">CC Attribution-NonCommercial-NoDerivatives 4.0</message>
+	<message key="submission.license.cc.by-nc4">CC Attribution-NonCommercial 4.0</message>
+	<message key="submission.license.cc.by-nc-sa4">CC Attribution-NonCommercial-ShareAlike 4.0</message>
+	<message key="submission.license.cc.by-nd4">CC Attribution-NoDerivatives 4.0</message>
+	<message key="submission.license.cc.by4">CC Attribution 4.0</message>
+	<message key="submission.license.cc.by-sa4">CC Attribution-ShareAlike 4.0</message>
+	<message key="submission.license.cc.by-nc-nd4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>Bu çalışma <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a> ile lisanslanmıştır.</p>]]></message>
+	<message key="submission.submit.currentFile">Güncel dosya</message>
+	<message key="submission.finalDraft">Taslak Dosyalar</message>
+	<message key="editor.submission.addAuditorError">Denetçiyi atamaya çalışırken bir hata oluştu. Lütfen tekrar deneyin.</message>
+	<message key="submission.event.fileUploaded">"{$originalFileName}" adlı dosya, {$submissionId} numaralı gönderi için {$username} tarafından gönderilmek üzere yüklendi.</message>
+	<message key="submission.event.fileDeleted">"{$originalFileName}" adlı dosya, {$submissionId} numaralı gönderi için {$username} tarafından silindi.</message>
+	<message key="submission.event.revisionUploaded">"{$originalFileName}"  adlı dosya, {$submissionId}  numaralı gönderi için {$username} revizyon dosyası yüklendi.</message>
+	<message key="submission.event.revisionDeleted">"{$originalFileName}"  adlı dosya, {$submissionId}  numaralı gönderi için {$username} revizyon dosyası silindi.</message>
+	<message key="submission.event.lastRevisionDeleted">"{$title}" adlı dosyanın son revizyonu {$username} tarafından kaldırıldı.</message>
+	<message key="submission.event.fileAuditorAdded">"{$name}" ({$username}), "{$file}" dosyası için denetçi olarak eklendi.</message>
+	<message key="submission.event.fileAuditorCleared">"{$name}" ({$username}), "{$file}" dosyasının denetçiliğinden kaldırıldı.</message>
+	<message key="submission.event.fileAuditUploaded">"{$name}" ({$username}) bir denetimi tamamladı ve "{$file}" adlı dosyayı yükledi.</message>
+	<message key="submission.event.signoffSignoff">"{$name}" ({$username}),  "{$file}" için imzaladı.</message>
+	<message key="submission.event.proofsApproved">"{$name}" ({$username}), "{$formatName}." için düzeltmeleri onayladı.</message>
+	<message key="submission.overview">Gönderiye Genel Bakış</message>
+	<message key="submission.description">Açıklama</message>
+	<message key="submission.stageNotInitiated">Aşama başlatılmadı.</message>
+	<message key="submission.documents">Gönderi Dokümanları</message>
+	<message key="notification.type.editorAssign">"{$title}" adlı gönderiye editör olarak atandınız.</message>
+	<message key="notification.type.copyeditorRequest">"{$title}" için kopya düzenlemesini incelemeniz istendi.</message>
+	<message key="notification.type.layouteditorRequest">"{$title}" için sayfa düzenlenmesini incelemeniz istendi.</message>
+	<message key="notification.type.indexRequest">"{$title}" için bir indeks oluşturmanız istendi.</message>
+	<message key="notification.type.editorDecisionTitle">En son editör kararı.</message>
+	<message key="notification.type.editorDecisionAccept">Gönderi kabul edildi.</message>
+	<message key="notification.type.editorDecisionExternalReview">Dış inceleme süreci başladı.</message>
+	<message key="notification.type.editorDecisionPendingRevisions">Düzeltme gerekli.</message>
+	<message key="notification.type.editorDecisionResubmit">Yeniden değerlendirmeye gönder.</message>
+	<message key="notification.type.editorDecisionDecline">Gönderi reddedildi.</message>
+	<message key="notification.uploadedResponse">Yanıt yüklendi.</message>
+	<message key="notification.type.editorAssignment">Değerlendirme başlatılmadan önce bir editör atanmalıdır. Lütfen Katılımcılar listesini kullanarak düzenleyici ekleyin.</message>
+	<message key="grid.reviewAttachments.title">Hakem Ekleri</message>
+	<message key="grid.reviewAttachments.send.title">Yazar(lar) ile paylaşmak için değerlendirme dosyalarını seçin</message>
+	<message key="submission.productionReady">Kitap mevcut</message>
+	<message key="submission.review.uploadRevisionToRound">Revize Edilmiş Dosyayı Yükle</message>
+	<message key="submission.review.status.awaitingResponse">Hakemden yanıt bekleniyor.</message>
+	<message key="submission.review.status.declined">Hakem bu değerlendirme isteğini reddetti.</message>
+	<message key="submission.review.status.responseOverdue">Hakem yanıt tarihini geçirdi.</message>
+	<message key="submission.review.status.reviewOverdue">Hakem değerlendirme tarihini geçirdi.</message>
+	<message key="submission.review.status.accepted">Bu değerlendirme kabul edildi.</message>
+	<message key="submission.review.status.received">Hakem değerlendirmesini gönderdi.</message>
+	<message key="submission.review.status.complete">Bu değerlendirme tamamlandı.</message>
+	<message key="submission.review.status.thanked">Bu değerlendirme tamamlandı ve değerlendirme yapana, katkılarından dolayı teşekkür edildi.</message>
+	<message key="submission.document">Doküman</message>
+	<message key="submission.art">Sanat Eseri</message>
+	<message key="submission.supplementary">Tamamlayıcı İçerik</message>
+	<message key="submission.supplementary.creator">Dosyanın yaratıcısı (veya sahibi)</message>
+	<message key="submission.supplementary.subject">Konu</message>
+	<message key="submission.supplementary.publisher">Yayıncı</message>
+	<message key="submission.supplementary.sponsor">Katılımcı veya sponsor kuruluş</message>
+	<message key="grid.action.itemWorkflow">Bu gönderinin iş akışına git</message>
+	<message key="notification.type.editorDecisionSendToProduction">Basım süreci başlatıldı.</message>
+	<message key="notification.type.editorAssignmentProduction">Basım süreci başlatılmadan önce bir basım editörü atanmalıdır. Lütfen Katılımcılar listesini kullanarak bir basım editörü ekleyin.</message>
+	<message key="notification.type.editorAssignmentEditing">Editöryal süreç başlatılmadan önce bir basım editörü atanmalıdır. Lütfen Katılımcılar listesini kullanarak bir basım editörü ekleyin.</message>
+	<message key="submission.license.cc.by-nc4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>Bu çalışma  <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a> ile lisanslanmıştır.</p>]]></message>
+	<message key="submission.license.cc.by-nc-sa4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>Bu çalışma <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a> ile lisanslanmıtır.</p>]]></message>
+	<message key="submission.license.cc.by-nd4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>Bu çalışma <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 International License</a> ile lisanslanmıştır.</p>]]></message>
+	<message key="submission.license.cc.by4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>Bu çalışma <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a> ile lisanslanmıştır.</p>]]></message>
+	<message key="submission.license.cc.by-sa4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>Bu çalışma <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> ile lisanslanmıştır.</p>]]></message>
+	<message key="submission.queries.submission">Ön Değerlendirme Tartışmaları</message>
+	<message key="submission.queries.review">Değerlendirme Tartışmaları</message>
+	<message key="submission.queries.editorial">Kopya Düzeltme Tartışmaları</message>
+	<message key="submission.queries.production">Basım Tartışmaları</message>
+	<message key="submission.query.subject">Konu</message>
+	<message key="submission.query.messages">Mesajlar</message>
+	<message key="submission.query.replies">Cevaplar</message>
+	<message key="submission.query.from">den</message>
+	<message key="submission.query.lastReply">Son Yanıt</message>
+	<message key="submission.query.closed">Kapalı</message>
+	<message key="submission.query.addNote">Mesaj Ekle</message>
+	<message key="grid.action.openNoteForm">Tartışmaya yeni bir cevap ekleyin.</message>
+	<message key="submission.query.activity">{$responderName}, {$noteTitle} adlı cevabı: {$noteContents}</message>
+	<message key="submission.query.new">{$creatorName} bir tartışma başlattı: {$noteTitle}: {$noteContents}</message>
+	<message key="submission.query.activity.contents">"{$submissionTitle}" gönderisi ile ilgili "{$queryTitle}" başlıklı tartışmada yeni etkinlik var.</message>
+	<message key="submission.query.new.contents">"{$submissionTitle}" gönderisi ile ilgili "{$queryTitle}" başlıklı bir tartışmaya eklendiniz.</message>
+	<message key="submission.query.participantTitle">{$fullName}, {$userGroup}</message>
+	<message key="submission.query.noParticipantOptions">Bir tartışma başlatmadan önce bu gönderiye en az bir katılımcı atamalısınız.</message>
+	<message key="submission.list.infoCenter">Etkinlik Günlüğü ve Notlar</message>
+	<message key="submission.list.count">{$count} gönderi</message>
+	<message key="submission.list.itemsOfTotal">{$total} gönderiden toplam {$count} gönderi</message>
+	<message key="submission.list.responseDue">Cevap Zamanı</message>
+	<message key="submission.list.reviewDue">Değerlendirme Zamanı</message>
+	<message key="submission.list.reviewComplete">Değerlendirme Gönderildi</message>
+	<message key="submission.list.confirmDelete">Gönderi Silinsin mi?</message>
+	<message key="submission.list.itemOrdererUp">{$itemTitle} başlığının konumunu artır</message>
+	<message key="submission.list.itemOrdererDown">{$itemTitle} başlığının konumunu düşür</message>
+	<message key="submission.list.viewSubmission">Gönderiyi Görüntüle</message>
+	<message key="submission.list.reviewsCompleted">Atanan incelemeler tamamlandı</message>
+	<message key="submission.list.revisionsSubmitted">Revizyonlar gönderildi</message>
+	<message key="submission.list.copyeditsSubmitted">Kopya düzenleme dosyaları gönderildi</message>
+	<message key="submission.list.galleysCreated">Basım dizgisi oluşturuldu</message>
+	<message key="submission.list.filesPrepared">Dosya hazırlandı</message>
+	<message key="submission.list.discussions">Açık tartışmalar</message>
+	<message key="submission.list.dualWorkflowLinks"><![CDATA[Bu gönderim için birden fazla rol atadınız.  <a href="{$urlAuthorWorkflow}">Yazarın iş akışı</a> ya da <a href="{$urlEditorialWorkflow}">İçerik iş akışı</a> na erişmek ister misiniz?]]></message>
+	<message key="submission.list.reviewerWorkflowLink"><![CDATA[Bu gönderim için bir editoryal rol atandınız. <a href="{$urlEditorialWorkflow}">İçerik iş akışı</a>na erişmek ister misiniz?]]></message>
+	<message key="submission.list.incompleteSubmissionNotice">Bu gönderi bir editör tarafından gözden geçirilmeden önce tamamlanmalıdır.</message>
+	<message key="submission.list.currentStage">Şu anda {$stage} aşamasında.</message>
+	<message key="submission.submit.availableUserGroups">olarak Gönder</message>
+	<message key="submission.submit.availableUserGroupsDescription">Bu gönderiye katkınızı en iyi tanımlayan rolü seçin.</message>
+	<message key="submission.submit.contactConsent">Sorumlu İletişimi</message>
+	<message key="submission.submit.contactConsentDescription">Evet, bu gönderi ile ilgili olarak iletişime geçmek istiyorum.</message>
+	<message key="submission.submit.userGroupDescriptionManagers">Bu gönderiyi kendiniz düzenleyip yayınlamak istiyorsanız, aşağıdaki rollerden herhangi birini gönderin: {$managerGroups}</message>
+	<message key="submission.submit.form.citationsRequired">Lütfen referansları giriniz.</message>
 </locale>

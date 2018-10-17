@@ -3,8 +3,8 @@
 /**
  * @file classes/submission/form/PKPSubmissionSubmitStep4Form.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionSubmitStep4Form
@@ -28,12 +28,11 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 
 	/**
 	 * Save changes to submission.
-	 * @param $args array
-	 * @param $request PKPRequest
 	 * @return int the submission ID
 	 */
-	function execute($args, $request) {
+	function execute() {
 		$submissionDao = Application::getSubmissionDAO();
+		$request = Application::getRequest();
 
 		// Set other submission data.
 		if ($this->submission->getSubmissionProgress() <= $this->step) {
@@ -42,7 +41,7 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 			$this->submission->setSubmissionProgress(0);
 		}
 
-		parent::execute($this->submission);
+		parent::execute();
 
 		// Save the submission.
 		$submissionDao->updateObject($this->submission);
@@ -151,4 +150,4 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 	}
 }
 
-?>
+

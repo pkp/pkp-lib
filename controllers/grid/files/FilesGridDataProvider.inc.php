@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/files/FilesGridDataProvider.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FilesGridDataProvider
@@ -20,9 +20,6 @@ class FilesGridDataProvider extends GridDataProvider {
 
 	/* @var integer */
 	var $_uploaderRoles;
-
-	/* @var array */
-	var $_uploaderGroupIds = null;
 
 	/** @var boolean */
 	var $_viewableOnly = false;
@@ -48,24 +45,6 @@ class FilesGridDataProvider extends GridDataProvider {
 	function getUploaderRoles() {
 		assert(is_array($this->_uploaderRoles) && !empty($this->_uploaderRoles));
 		return $this->_uploaderRoles;
-	}
-
-	/**
-	 * Set the uploader group IDs.
-	 * @param $groupIds array The group IDs to consider
-	 *  when presenting the file upload modal.
-	 */
-	function setUploaderGroupIds($uploaderGroupIds) {
-		$this->_uploaderGroupIds = $uploaderGroupIds;
-	}
-
-	/**
-	 * Get the uploader group IDs.
-	 * @return array
-	 */
-	function getUploaderGroupIds() {
-		assert(!isset($this->_uploaderGroupIds) || is_array($this->_uploaderGroupIds));
-		return $this->_uploaderGroupIds;
 	}
 
 	/**
@@ -119,4 +98,4 @@ class FilesGridDataProvider extends GridDataProvider {
 	}
 }
 
-?>
+

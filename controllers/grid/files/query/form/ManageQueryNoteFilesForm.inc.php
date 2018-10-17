@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/files/query/form/ManageQueryNoteFilesForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ManageQueryNoteFilesForm
@@ -54,12 +54,11 @@ class ManageQueryNoteFilesForm extends ManageSubmissionFilesForm {
 
 	/**
 	 * Save selection of query files
-	 * @param $args array
-	 * @param $request PKPRequest
 	 * @param $stageSubmissionFiles array The list of submission files in the stage.
+	 * @param $fileStage int SUBMISSION_FILE_...
 	 */
-	function execute($args, $request, $stageSubmissionFiles) {
-		parent::execute($args, $request, $stageSubmissionFiles, SUBMISSION_FILE_QUERY);
+	function execute($stageSubmissionFiles, $fileStage = null) {
+		parent::execute($stageSubmissionFiles, SUBMISSION_FILE_QUERY);
 	}
 
 	/**
@@ -90,4 +89,4 @@ class ManageQueryNoteFilesForm extends ManageSubmissionFilesForm {
 	}
 }
 
-?>
+

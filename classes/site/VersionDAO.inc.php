@@ -3,8 +3,8 @@
 /**
  * @file classes/site/VersionDAO.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class VersionDAO
@@ -28,7 +28,7 @@ class VersionDAO extends DAO {
 	 */
 	function getCurrentVersion($productType = null, $product = null, $isPlugin = false) {
 		if(!$productType || !$product) {
-			$application = PKPApplication::getApplication();
+			$application = Application::getApplication();
 			$productType = 'core';
 			$product = $application->getName();
 		}
@@ -80,7 +80,7 @@ class VersionDAO extends DAO {
 		$versions = array();
 
 		if(!$productType || !$product) {
-			$application = PKPApplication::getApplication();
+			$application = Application::getApplication();
 			$productType = 'core';
 			$product = $application->getName();
 		}
@@ -254,4 +254,4 @@ class VersionDAO extends DAO {
 	}
 }
 
-?>
+

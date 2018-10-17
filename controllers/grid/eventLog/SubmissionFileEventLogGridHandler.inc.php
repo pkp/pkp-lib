@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/eventLog/SubmissionFileEventLogGridHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileEventLogGridHandler
@@ -55,10 +55,10 @@ class SubmissionFileEventLogGridHandler extends SubmissionEventLogGridHandler {
 
 	/**
 	 * Configure the grid
-	 * @param $request PKPRequest
+	 * @see SubmissionEventLogGridHandler::initialize
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 
 		// Retrieve the authorized monograph.
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
@@ -133,4 +133,4 @@ class SubmissionFileEventLogGridHandler extends SubmissionEventLogGridHandler {
 	}
 }
 
-?>
+

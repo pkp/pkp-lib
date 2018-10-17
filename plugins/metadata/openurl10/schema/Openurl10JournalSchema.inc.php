@@ -3,8 +3,8 @@
 /**
  * @file plugins/metadata/openurl10/schema/Openurl10JournalSchema.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Openurl10JournalSchema
@@ -49,4 +49,4 @@ class Openurl10JournalSchema extends Openurl10JournalBookBaseSchema {
 		$this->addProperty('genre', array(METADATA_PROPERTY_TYPE_VOCABULARY => 'openurl10-journal-genres'));
 	}
 }
-?>
+

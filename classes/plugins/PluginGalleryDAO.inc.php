@@ -3,8 +3,8 @@
 /**
  * @file classes/plugins/PluginGalleryDAO.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PluginGalleryDAO
@@ -17,7 +17,7 @@
 import('lib.pkp.classes.plugins.GalleryPlugin');
 import('lib.pkp.classes.file.FileWrapper');
 
-define('PLUGIN_GALLERY_XML_URL', 'http://pkp.sfu.ca/ojs/xml/plugins.xml');
+define('PLUGIN_GALLERY_XML_URL', 'https://pkp.sfu.ca/ojs/xml/plugins.xml');
 
 class PluginGalleryDAO extends DAO {
 
@@ -181,7 +181,7 @@ class PluginGalleryDAO extends DAO {
 			}
 		}
 
-		if ($compatible && (!$plugin->getDate() || $plugin->getDate() >= $release['date'])) {
+		if ($compatible && (!$plugin->getData('version') || version_compare($plugin->getData('version'), $release['version'], '<'))) {
 			// This release is newer than the one found earlier, or
 			// this is the first compatible release we've found.
 			$plugin->setDate($release['date']);
@@ -225,4 +225,4 @@ class PluginGalleryDAO extends DAO {
 	}
 }
 
-?>
+

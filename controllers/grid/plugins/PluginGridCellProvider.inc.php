@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/plugins/PluginGridCellProvider.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PluginGridCellProvider
@@ -85,7 +85,10 @@ class PluginGridCellProvider extends GridCellProvider {
 						return array(new LinkAction(
 							'enable',
 							new AjaxAction(
-								$request->url(null, null, 'enable', null, $requestArgs)
+								$request->url(null, null, 'enable', null, array_merge(
+									['csrfToken' => $request->getSession()->getCSRFToken()],
+									$requestArgs
+								))
 							),
 							__('manager.plugins.enable'),
 							null
@@ -96,5 +99,3 @@ class PluginGridCellProvider extends GridCellProvider {
 		return parent::getCellActions($request, $row, $column, $position);
 	}
 }
-
-?>

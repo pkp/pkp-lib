@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/settings/user/form/userRoleForm.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Form for managing roles for a newly created user.
@@ -22,9 +22,14 @@
 
 		<input type="hidden" id="userId" name="userId" value="{$userId|escape}" />
 
-		<div id="userRolesContainer" class="full left">
-			{url|assign:userRolesUrl router=$smarty.const.ROUTE_COMPONENT component="listbuilder.users.UserUserGroupListbuilderHandler" op="fetch" userId=$userId title="grid.user.addRoles" escape=false}
-			{load_url_in_div id="userRolesContainer" url=$userRolesUrl}
-		</div>
+		{fbvFormSection}
+			{assign var="uuid" value=""|uniqid|escape}
+			<div id="userGroups-{$uuid}">
+				<script type="text/javascript">
+					pkp.registry.init('userGroups-{$uuid}', 'SelectListPanel', {$selectUserListData});
+				</script>
+			</div>
+		{/fbvFormSection}
+
 		{fbvFormButtons submitText="common.save"}
 </form>

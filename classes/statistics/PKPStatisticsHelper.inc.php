@@ -3,8 +3,8 @@
 /**
 * @file classes/statistics/PKPStatisticsHelper.inc.php
 *
-* Copyright (c) 2013-2017 Simon Fraser University
-* Copyright (c) 2003-2017 John Willinsky
+* Copyright (c) 2013-2018 Simon Fraser University
+* Copyright (c) 2003-2018 John Willinsky
 * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
 *
 * @class PKPStatisticsHelper
@@ -42,9 +42,6 @@ define('STATISTICS_METRIC', 'metric');
 define('STATISTICS_ORDER_ASC', 'ASC');
 define('STATISTICS_ORDER_DESC', 'DESC');
 
-// Global report size limit:
-define('STATISTICS_MAX_ROWS', 5000);
-
 // File type to be used in publication object dimension.
 define('STATISTICS_FILE_TYPE_HTML', 1);
 define('STATISTICS_FILE_TYPE_PDF', 2);
@@ -57,6 +54,7 @@ define('STATISTICS_UNKNOWN_COUNTRY_ID', 'ZZ');
 // Constants used to filter time dimension to current time.
 define('STATISTICS_YESTERDAY', 'yesterday');
 define('STATISTICS_CURRENT_MONTH', 'currentMonth');
+
 
 abstract class PKPStatisticsHelper {
 
@@ -348,4 +346,4 @@ abstract class PKPStatisticsHelper {
 	abstract protected function getAppColumnTitle($column);
 }
 
-?>
+

@@ -3,8 +3,8 @@
 /**
  * @file controllers/tab/settings/appearance/form/PKPAppearanceForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPAppearanceForm
@@ -84,7 +84,7 @@ class PKPAppearanceForm extends ContextSettingsForm {
 	/**
 	 * @copydoc ContextSettingsForm::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false, $params = null) {
 		// Get all upload form image link actions.
 		$uploadImageLinkActions = array();
 		foreach ($this->getImagesSettingsName() as $settingName => $altText) {
@@ -107,7 +107,9 @@ class PKPAppearanceForm extends ContextSettingsForm {
 		$enabledThemes = array();
 		$activeThemeOptions = array();
 		foreach ($themePlugins as $themePlugin) {
-			$enabledThemes[basename($themePlugin->getPluginPath())] = $themePlugin->getDisplayName();
+			if ($themePlugin->getEnabled()) {
+  				$enabledThemes[basename($themePlugin->getPluginPath())] = $themePlugin->getDisplayName();
+			}
 			if ($themePlugin->isActive()) {
 				$activeThemeOptions = $themePlugin->getOptionsConfig();
 				$activeThemeOptionsValues = $themePlugin->getOptionValues();
@@ -127,7 +129,7 @@ class PKPAppearanceForm extends ContextSettingsForm {
 			'locale' => AppLocale::getLocale()
 		);
 
-		return parent::fetch($request, $params);
+		return parent::fetch($request, $template, $display, $params);
 	}
 
 
@@ -215,7 +217,8 @@ class PKPAppearanceForm extends ContextSettingsForm {
 	/**
 	 * @copydoc ContextSettingsForm::execute()
 	 */
-	function execute($request) {
+	function execute() {
+		$request = Application::getRequest();
 
 		// Clear the template cache if theme has changed
 		$context = $request->getContext();
@@ -225,7 +228,7 @@ class PKPAppearanceForm extends ContextSettingsForm {
 			$templateMgr->clearCssCache();
 		}
 
-		parent::execute($request);
+		parent::execute();
 
 		// Save block plugins context positions.
 		import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
@@ -344,4 +347,4 @@ class PKPAppearanceForm extends ContextSettingsForm {
 	}
 }
 
-?>
+

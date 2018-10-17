@@ -1,8 +1,8 @@
 {**
  * systemInfo.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Display system information.
@@ -27,13 +27,13 @@
 	<p><a href="{url versionCheck=1}">{translate key="admin.version.checkForUpdates"}</a></p>
 	{/if}
 
-	{url|assign:versionInfoGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.admin.systemInfo.VersionInfoGridHandler" op="fetchGrid" escape=false}
+	{capture assign=versionInfoGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.admin.systemInfo.VersionInfoGridHandler" op="fetchGrid" escape=false}{/capture}
 	{load_url_in_div id="versionInfoGridContainer" url=$versionInfoGridUrl}
 
-	{url|assign:serverInfoGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.admin.systemInfo.ServerInfoGridHandler" op="fetchGrid" escape=false}
+	{capture assign=serverInfoGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.admin.systemInfo.ServerInfoGridHandler" op="fetchGrid" escape=false}{/capture}
 	{load_url_in_div id="serverInfoGridContainer" url=$serverInfoGridUrl}
 
-	{url|assign:systemInfoGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.admin.systemInfo.SystemInfoGridHandler" op="fetchGrid" escape=false}
+	{capture assign=systemInfoGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.admin.systemInfo.SystemInfoGridHandler" op="fetchGrid" escape=false}{/capture}
 	{load_url_in_div id="systemInfoGridContainer" url=$systemInfoGridUrl}
 
 	<a href="{url op="phpinfo"}" target="_blank">{translate key="admin.phpInfo"}</a>

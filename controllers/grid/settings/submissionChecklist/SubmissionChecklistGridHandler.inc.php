@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/settings/submissionChecklist/SubmissionChecklistGridHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionChecklistGridHandler
@@ -33,8 +33,8 @@ class SubmissionChecklistGridHandler extends SetupGridHandler {
 	/**
 	 * @copydoc SetupGridHandler::initialize()
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 
 		// Basic grid configuration
 		$this->setId('submissionChecklist');
@@ -124,7 +124,7 @@ class SubmissionChecklistGridHandler extends SetupGridHandler {
 		$submissionChecklistId = isset($args['rowId']) ? $args['rowId'] : null;
 		$submissionChecklistForm = new SubmissionChecklistForm($submissionChecklistId);
 
-		$submissionChecklistForm->initData($args, $request);
+		$submissionChecklistForm->initData($args);
 
 		return new JSONMessage(true, $submissionChecklistForm->fetch($request));
 	}
@@ -145,7 +145,7 @@ class SubmissionChecklistGridHandler extends SetupGridHandler {
 		$submissionChecklistForm->readInputData();
 
 		if ($submissionChecklistForm->validate()) {
-			$submissionChecklistForm->execute($args, $request);
+			$submissionChecklistForm->execute();
 			return DAO::getDataChangedEvent($submissionChecklistForm->submissionChecklistId);
 		} else {
 			return new JSONMessage(false);
@@ -226,4 +226,4 @@ class SubmissionChecklistGridHandler extends SetupGridHandler {
 	}
 }
 
-?>
+

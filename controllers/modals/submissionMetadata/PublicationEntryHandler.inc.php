@@ -3,8 +3,8 @@
 /**
  * @file controllers/modals/submissionMetadata/PublicationEntryHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PublicationEntryHandler
@@ -33,7 +33,7 @@ class PublicationEntryHandler extends Handler {
 	function __construct() {
 		parent::__construct();
 		$this->addRoleAssignment(
-			array(ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER),
+			array(ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER, ROLE_ID_ASSISTANT),
 			array('fetch', 'fetchFormatInfo'));
 	}
 
@@ -44,15 +44,15 @@ class PublicationEntryHandler extends Handler {
 	/**
 	 * @copydoc PKPHandler::initialize()
 	 */
-	function initialize($request, $args = null) {
-		parent::initialize($request, $args);
+	function initialize($request) {
+		parent::initialize($request);
 
 		$this->_submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$this->_stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
 		$this->_tabPosition = (int) $request->getUserVar('tabPos');
 
 		// Load grid-specific translations
-		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_APP_SUBMISSION);
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION);
 		$this->setupTemplate($request);
 	}
 
@@ -110,6 +110,11 @@ class PublicationEntryHandler extends Handler {
 			'selectedTab' => (int) $this->getTabPosition(),
 			'hideHelp' => (boolean) $request->getUserVar('hideHelp'),
 		));
+		// Tell the template if citation field is enabled
+		$context = $request->getContext();
+		$templateMgr->assign(array(
+			'citationsEnabled' => $context->getSetting('citationsEnabledWorkflow'),
+		));
 		$this->setupTemplate($request);
 	}
 
@@ -124,4 +129,4 @@ class PublicationEntryHandler extends Handler {
 	}
 }
 
-?>
+

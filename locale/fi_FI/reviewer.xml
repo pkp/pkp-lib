@@ -4,8 +4,8 @@
 <!--
   * locale/fi_FI/reviewer.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings
@@ -43,4 +43,5 @@
 	<message key="reviewer.aboutDueDates.text">Toimittaja pyytää, että hyväksyt arvioinnin tai kieltäydyt siitä ennen vastauksen määräpäivää ja suoritat arvioinnin arvioinnin määräpäivään mennessä.</message>
 	<message key="submission.comments.canShareWithAuthor">Kirjoittajalle ja toimittajalle</message>
 	<message key="submission.comments.cannotShareWithAuthor">Vain toimittajalle</message>
+	<message key="user.authorization.submissionReviewer">Nykyinen käyttäjä ei ole pyydetyn dokumentin arvioija.</message>
 </locale>

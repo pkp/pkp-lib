@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/settings/genre/form/GenreForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class GenreForm
@@ -43,8 +43,17 @@ class GenreForm extends Form {
 		$this->setGenreId($genreId);
 		parent::__construct('controllers/grid/settings/genre/form/genreForm.tpl');
 
+		$request = Application::getRequest();
+		$context = $request->getContext();
+
 		// Validation checks for this form
+		$form = $this;
 		$this->addCheck(new FormValidatorLocale($this, 'name', 'required', 'manager.setup.form.genre.nameRequired'));
+		$this->addCheck(new FormValidatorCustom($this, 'key', 'optional', 'manager.setup.genres.key.exists', function($key) use ($context, $form) {
+			$genreDao = DAORegistry::getDAO('GenreDAO');
+			return $key == '' || !$genreDao->keyExists($key, $context->getId(), $form->getGenreId());
+		}));
+		$this->addCheck(new FormValidatorRegExp($this, 'key', 'optional', 'manager.setup.genres.key.alphaNumeric', '/^[a-z0-9]+([\-_][a-z0-9]+)*$/i'));
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
 	}
@@ -52,9 +61,9 @@ class GenreForm extends Form {
 	/**
 	 * Initialize form data from current settings.
 	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function initData($args, $request) {
+	function initData($args) {
+		$request = Application::getRequest();
 		$context = $request->getContext();
 
 		$genreDao = DAORegistry::getDAO('GenreDAO');
@@ -67,10 +76,11 @@ class GenreForm extends Form {
 			$this->_data = array(
 				'genreId' => $this->getGenreId(),
 				'name' => $genre->getName(null),
-				'sortable' => $genre->getSortable(),
 				'category' => $genre->getCategory(),
 				'dependent' => $genre->getDependent(),
 				'supplementary' => $genre->getSupplementary(),
+				'key' => $genre->getKey(),
+				'keyReadOnly' => $genre->isDefault(),
 			);
 		} else {
 			$this->_data = array(
@@ -84,11 +94,9 @@ class GenreForm extends Form {
 	}
 
 	/**
-	 * Fetch
-	 * @param $request PKPRequest
-	 * @see Form::fetch()
+	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('submissionFileCategories', array(
 			GENRE_CATEGORY_DOCUMENT => __('submission.document'),
@@ -97,7 +105,7 @@ class GenreForm extends Form {
 		));
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -105,16 +113,15 @@ class GenreForm extends Form {
 	 * @see Form::readInputData()
 	 */
 	function readInputData() {
-		$this->readUserVars(array('genreId', 'name', 'sortable', 'category', 'dependent', 'supplementary', 'gridId', 'rowId'));
+		$this->readUserVars(array('genreId', 'name', 'category', 'dependent', 'supplementary', 'gridId', 'rowId', 'key'));
 	}
 
 	/**
 	 * Save email template.
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function execute($args, $request) {
+	function execute() {
 		$genreDao = DAORegistry::getDAO('GenreDAO');
+		$request = Application::getRequest();
 		$context = $request->getContext();
 
 		// Update or insert genre
@@ -126,10 +133,13 @@ class GenreForm extends Form {
 		}
 
 		$genre->setData('name', $this->getData('name'), null); // Localized
-		$genre->setSortable($this->getData('sortable'));
 		$genre->setCategory($this->getData('category'));
 		$genre->setDependent($this->getData('dependent'));
 		$genre->setSupplementary($this->getData('supplementary'));
+
+		if (!$genre->isDefault()) {
+			$genre->setKey($this->getData('key'));
+		}
 
 		if (!$this->getGenreId()) {
 			$this->setGenreId($genreDao->insertObject($genre));
@@ -141,4 +151,4 @@ class GenreForm extends Form {
 	}
 }
 
-?>
+

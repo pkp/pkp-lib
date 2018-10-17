@@ -4,8 +4,8 @@
 <!--
   * locale/en_US/manager.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -115,8 +115,8 @@
 	<message key="manager.language.reloadLocalizedDefaultSettings">Reload defaults</message>
 	<message key="manager.languages.alternateLocaleInstructions">This system optionally allows certain critical information to be entered in several additional languages. To use this feature, select alternate locales and choose from the options listed below.</message>
 	<message key="manager.languages.supportedLocalesInstructions">Select all locales to support on the site via a language select menu to appear on each page. The menu will only appear if more than one locale is selected.</message>
-	<message key="manager.masthead.title">Masthead</message>
 	<message key="manager.payment.timestamp">Timestamp</message>
+	<message key="manager.people.existingUserRequired">An existing user must be entered.</message>
 	<message key="manager.people.authSource">Authentication source</message>
 	<message key="manager.people.confirmUnenroll">Unenroll this user?</message>
 	<message key="manager.people.createUser">Create New User</message>
@@ -167,18 +167,8 @@
 	<message key="manager.reviewerSearch.change">Change</message>
 	<message key="manager.reviewerSearch.searchByName">Search Reviewers By Name</message>
 	<message key="manager.reviewerSearch.searchByName.short">Search By Name</message>
-	<message key="manager.reviewerSearch.doneAmount">Reviews completed: {$current}</message>
-	<message key="manager.reviewerSearch.doneAmountToggle">Enable/disable the filter for reviews completed.</message>
-	<message key="manager.reviewerSearch.avgAmount">Average days to complete: {$current}</message>
-	<message key="manager.reviewerSearch.avgAmountToggle">Enable/disable the filter for average days to complete a review.</message>
-	<message key="manager.reviewerSearch.lastAmount">Days since last review: {$current}</message>
-	<message key="manager.reviewerSearch.lastAmountToggle">Enable/disable the filter for days since last review.</message>
-	<message key="manager.reviewerSearch.activeAmount">Currently active reviews: {$current}</message>
-	<message key="manager.reviewerSearch.activeAmountToggle">Enable/disable the filter for currently active reviews.</message>
 	<message key="manager.reviewerSearch.interests">Reviewing Interests</message>
 	<message key="manager.reviewerSearch.form.instructions">Use the form below to set the maximum values for the terms you wish to search for.  The form is pre-populated with the calculated averages of those fields.</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">Reviewer Interests (type to search for matching interests)</message>
-	<message key="manager.reviewerSearch.form.previousReviewRounds">Reviewers from this submission previous review rounds</message>
 	<message key="manager.roles">Roles</message>
 	<message key="manager.statistics"><![CDATA[Stats &amp; Reports]]></message>
 	<message key="manager.statistics.defaultMetricDescription">
@@ -228,50 +218,10 @@
 	<message key="manager.setup.authorCopyrightNoticeAgree">Require authors to agree to the Copyright Notice as part of the submission process.</message>
 	<message key="manager.setup.authorGuidelines">Author Guidelines</message>
 	<message key="manager.setup.authorGuidelines.description">Recommended guidelines include bibliographic and formatting standards alongside examples of common citation formats to be used in submissions.</message>
-	<message key="manager.setup.citations">Citations</message>
-	<message key="manager.setup.citationAssistant">Citation Markup Assistant</message>
-	<message key="manager.setup.citationFilterParser">Citation Extraction</message>
-	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>To find and check citations in citation databases they first have to be split into machine readable metadata: title, publisher, publication date, etc. must all be extracted from the original citation text provided by the author. Connectors to external web services can assist in this process. One or several connectors can be added by clicking on the "Add Item" button below. Some of these connectors may need to be configured; you will be prompted if this is the case.</p>
-		<p>You can edit or delete an existing Connector by clicking the gear icon next to it.</p>]]></message>
-	<message key="manager.setup.citationFilterLookup">Citation Checking</message>
-	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>You must also enable and configure connections to external citation databases. This helps you to find errors in authors' citations or add additional information (e.g. DOIs or PubMed IDs) required for electronic publishing or deposit.</p>
-		<p>We provide connectors to several external databases in which you can search for citations. Some of these databases require registration or configuration information to be entered. Please refer to the public websites of the databases for further information on how to register. You can add one or several databases by clicking on the "Add Item" button below.</p>
-		<p>You can edit or delete an existing external database connection by clicking the gear icon next to it.</p>
-		<p><strong>Note:</strong> In order for the citation checking process to complete in a timely manner, the <tt>citation_checking_max_processes</tt> directive in your configuration file must be set to a reasonable value. See the General Settings section in <tt>config.inc.php</tt> for more information.</p>]]></message>
-	<message key="manager.setup.citationOutput">Citation Output</message>
-	<message key="manager.setup.citationOutputStyleDescription">Choose the citation style that is being used in your publication's submissions. The Citation Markup Assistant lets you compare the author's version of the citation to a version generated from the XML you are generating so that you can easily spot errors:</message>
 	<message key="manager.setup.competingInterests">Competing Interests</message>
 	<message key="manager.setup.competingInterestsDescription">Reviewers will be asked to comply with the competing interests disclosure policy you specify below.</message> <!-- FIXME #6843 (JM): should this just reference reviewers? -->
 	<message key="manager.setup.errorDeletingItem">There was an error when deleting this item.</message>
 	<message key="manager.setup.favicon">Invalid favicon format. Accepted formats are .ico, .png, and .gif.</message>
-	<message key="manager.setup.filter.grid.errorDeletingFilter">An error occurred while trying to remove this filter. Please report this as a bug.</message>
-	<message key="manager.setup.filter.grid.filterDisplayName">Connector</message>
-	<message key="manager.setup.filter.grid.filterSettings">Registration Information and Connector Settings</message>
-	<message key="manager.setup.filter.grid.filterTemplateRequired">Please select one of the transformations from the drop-down.</message>
-	<message key="manager.setup.filter.grid.confirmDelete">Do you really want to delete the {$filterName} filter?</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">You have chosen to add the {$filterDisplayName} database. Please click on 'OK' to confirm.</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Please select a lookup database.</message>
-	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>This filter connects to the <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> book and ISBN database.</p>
-	<p>An ISBNdb API key is mandatory. For information on generating a key, see the <a href="http://isbndb.com/api/v1/docs/keys" target="_blank">online documentation</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>This filter connects to the CrossRef citation database using CrossRef's <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL Query Interface</a>.</p>
-	<p>To use this filter, you can use your CrossRef system account, or register a valid email address with CrossRef <a href="http://www.crossref.org/requestaccount/" target="_blank">here</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>This filter connects to PubMed's <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a> cross-database search engine.</p>
-	<p>A registration email is not strictly mandatory, but may be necessary if you run into connection problems. See the section on <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Usage Guidelines and Requirements</a> in the Entrez documentation for more information.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>This filter connects to OCLC services <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> and <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (optional).</p>
-	<p>If you have a Worldcat <a href="http://oclc.org/developer/develop/web-services.html" target="_blank">API key</a> you can connect to Worldcat by entering the key below.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.loadMessage">Please wait until the citation database configuration grid has been loaded...</message>
-	<message key="manager.setup.filter.lookup.grid.title">Citation Database Connectors</message>
-	<message key="manager.setup.filter.noMoreTemplates">All available transformations have already been added. Please click 'Cancel' to return to the setup page.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionConfirm">You have chosen to add the {$filterDisplayName} parser. Please click on 'OK' to confirm.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionTemplate">Please select a citation parser.</message>
-	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>This extraction filter connects to the <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a> web service.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>This extraction filter uses the <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> Perl modules to provide <a href="http://paracite.eprints.org" target="_blank">ParaCite</a> citation parsing functionality. In order for this to work properly, you must have Perl installed, along with the <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> and <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a> CPAN modules. You must also configure the <tt>perl</tt> directive in your configuration file. This directive can be found in the External Commands section of <tt>config.inc.php</tt>.</p>
-	<p>You can also choose which parser module ParaTools should use. You can choose between the standard, <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a>, and <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a> parser modules.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>This extraction filter connects to the <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a> web service.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.regEx">The RegEx extraction filter uses a series of regular expressions to parse citations.</message>
-	<message key="manager.setup.filter.parser.grid.loadMessage">Please wait until the citation parser configuration grid has been loaded...</message>
-	<message key="manager.setup.filter.parser.grid.title">Citation Extraction Services</message>
-	<message key="manager.setup.filter.pleaseSelect">Please select...</message>
 	<message key="manager.setup.groupType">File type grouping</message>
 	<message key="manager.setup.homeHeaderImageInvalid">Invalid homepage header logo image format or upload failed. Accepted formats are .gif, .jpg, or .png.</message>
 	<message key="manager.setup.homepageImage">Homepage Image</message>
@@ -286,7 +236,6 @@
 	<message key="manager.setup.layout.unselected">Unselected</message>
 	<message key="manager.setup.loggingAndAuditing">Logging and Auditing</message>
 	<message key="manager.setup.logo">Logo</message>
-	<message key="manager.setup.metaCitationsDescription">Activate the following checkbox to enable citation and reference editing. This will allow authors to include raw citations with submissions. Editors will also have access to a citation markup assistant which can check raw citations against external databases, such as WorldCat, ISBNdb, PubMed and others, for accuracy. Approved citations can be exported into final galley files.</message>
 	<message key="manager.setup.notifications">Notification of Author Submission</message>
 	<message key="manager.setup.notifications.copySpecifiedAddress">Send a copy to this email address</message>
 	<message key="manager.setup.notifications.description">Authors are automatically sent an email acknowledging their submission. You may have copies of this email sent to the following:</message>
@@ -299,7 +248,7 @@
 	<message key="manager.setup.principalContact">Principal Contact</message>
 	<message key="manager.setup.principalContactDescription">Enter contact details, typically for a principal editorship, managing editorship, or administrative staff position, which can be displayed on your publicly accessible website.</message>
 	<message key="manager.setup.privacyStatement">Privacy Statement</message>
-	<message key="manager.setup.privacyStatement.description">This statement will appear during Author Submission and on the publicly available About page.</message>
+	<message key="manager.setup.privacyStatement.description">This statement will appear during user registration, author submission, and on the publicly available Privacy page. In some jurisdictions, you are legally required to disclose how you handle user data in this privacy policy.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Weeks allowed to accept or decline a review request</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Weeks allowed for review completion</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Never Remind</message>
@@ -308,7 +257,8 @@
 	<message key="manager.setup.reviewOptions.remindForSubmit">Send a reminder if a reviewer has not submitted a recommendation within the following time (days) after review's due date:</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Default Review Deadlines</message>
 	<message key="manager.setup.reviewOptions.showBlindReviewLink">Present a link to "Ensuring a Blind Review" during upload</message>
-	<message key="manager.setup.sortableByComponent">Sortable by component</message>
+	<message key="manager.setup.searchEngineIndexing.sitemap">Sitemap</message>
+	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[A XML sitemap is available for submitting to search engines at <a href="{$path}" target="_blank">{$path}</a>]]></message>
 	<message key="manager.setup.sponsors.note">Sponsor Relationship and Policy Description</message>
 	<message key="manager.setup.sponsors.description">Examples: scholarly associations, university departments, cooperatives, etc. Sponsors are displayed publicly.</message>
 	<message key="manager.setup.styleSheetDescription">Experienced web developers can upload a CSS file to further customize the website's appearance.</message>
@@ -323,13 +273,6 @@
 	<message key="plugins.categories.auth">Authorization Plugins</message>
 	<message key="plugins.categories.blocks">Block Plugins</message>
 	<message key="plugins.categories.blocks.description">Block Plugins are pluggable UI components, such as the various sidebar tools.</message>
-	<message key="plugins.categories.citationFormats">Citation Format Plugins</message>
-	<message key="plugins.categories.citationLookup">Citation Database Connector Plugins</message>
-	<message key="plugins.categories.citationLookup.description">Citation Database Connector Plugins connect to citation databases to look up citations, e.g. during citation editing.</message>
-	<message key="plugins.categories.citationOutput">Citation Output Plugins</message>
-	<message key="plugins.categories.citationOutput.description">Citation Output Plugins implement citation standards. This supersedes Citation Format Plugins.</message>
-	<message key="plugins.categories.citationParser">Citation Extraction Plugins</message>
-	<message key="plugins.categories.citationParser.description">Citation Extraction Plugins extract field-level data from raw citations (e.g. author, title, etc.).</message>
 	<message key="plugins.categories.gateways.description">Gateway Plugins provide live data to external systems.</message>
 	<message key="plugins.categories.gateways">Gateway Plugins</message>
 	<message key="plugins.categories.generic">Generic Plugins</message>
@@ -453,15 +396,20 @@
 	<message key="settings.libraryFiles.category.permissions">Permissions</message>
 	<message key="settings.libraryFiles.category.reports">Reports</message>
 	<message key="settings.libraryFiles.category.other">Other</message>
+	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>This library file can be accessible for download, if "Public Access" is enabled, at: <blockquote>{$downloadUrl}</blockquote></p>]]></message>
+	<message key="settings.libraryFiles.public.selectLibraryFiles">Select Library Files to attach</message>
 
 	<!--  Genre grid settings -->
 	<message key="grid.action.addGenre">Add a Component</message>
 	<message key="grid.action.editGenre">Edit this Component</message>
 	<message key="grid.action.deleteGenre">Delete this Component</message>
 	<message key="grid.action.restoreGenres">Restore the components to the default settings</message>
-	<message key="manager.setup.genres.sortable">Allow files of this type to be sorted by chapter</message>
 	<message key="manager.setup.genres.dependent">Mark files of this type as dependent files (e.g. not to be listed with published content)</message>
 	<message key="manager.setup.genres.supplementary">Mark files of this type as supplementary files (e.g. not primary submission content)</message>
+	<message key="manager.setup.genres.key">Key</message>
+	<message key="manager.setup.genres.key.description">An optional short symbolic identifer for this genre.</message>
+	<message key="manager.setup.genres.key.exists">The key already exists.</message>
+	<message key="manager.setup.genres.key.alphaNumeric">The key can contain only alphanumeric characters, underscores, and hyphens, and must begin and end with an alphanumeric character.</message>
 	<message key="manager.settings.wizard">Settings Wizard</message>
 	<message key="manager.users.roleRequired">You need to select at least one role to be associated with this user.</message>
 	<message key="manager.website">Website</message>
@@ -506,6 +454,7 @@
 	<message key="manager.reviewFormElements.noneCreated">No form items have been created.</message>
 	<message key="manager.reviewFormElements.possibleResponse">Selection</message>
 	<message key="manager.reviewFormElements.question">Item</message>
+	<message key="manager.reviewFormElements.description">Description</message>
 	<message key="manager.reviewFormElements.radiobuttons">Radio buttons (you can only choose one)</message>
 	<message key="manager.reviewFormElements.required">Reviewers required to complete item</message>
 	<message key="manager.reviewFormElements.included">Included in message to author</message>
@@ -529,10 +478,73 @@
 	<message key="plugins.importexport.common.error.unknownEncoding">Unknown encoding {$param}</message>
 	<message key="plugins.importexport.common.error.encodingError">The content is not encoded as {$param}</message>
 	<message key="plugins.importexport.common.error.unknownUserGroup">Unknown user group {$param}</message>
+	<message key="plugins.importexport.common.error.missingGivenName">The author {$authorName} does not have a given name in the submission's language, {$localeName}. The submission can not be imported without this information.</message>
 	<message key="plugins.importexport.common.error.unknownUploader">Unknown uploader {$param}</message>
 	<message key="plugins.importexport.common.error.temporaryFileFailed">Temporary file {$dest} could not be created from {$source}</message>
 	<message key="plugins.importexport.common.error.filesizeMismatch">The provided filesize "{$expected}" and the actual filesize "{$actual}" do not match</message>
 	<message key="plugins.importexport.common.error.duplicateRevisionForSubmission">The revision "{$revisionId}" for submission file "{$fileId}" would create a duplicate record</message>
 	<!-- native importexport keys -->
 	<message key="plugins.importexport.native.error.submissionFileImportFailed">The submission file could not be imported</message>
+
+	<!-- native import user keys -->
+	<message key="plugins.importexport.user.importExportErrors">Import/Export errors:</message>
+	<message key="plugins.importexport.user.error.userHasNoPassword">The imported user "{$username}" has no password. Check your import XML format. The user has not been imported.</message>
+	<message key="plugins.importexport.user.error.passwordHasBeenChanged">The imported user "{$username}" password could not be imported as is. A new password is been send to the user email. The user has been imported.</message>
+	<message key="plugins.importexport.user.error.plainPasswordNotValid">The imported user "{$username}" has a plain password that is not valid. The user has not been imported.</message>
+	
+	<!-- Navigation Menus -->
+	<message key="manager.navigationMenus.form.title">Title</message>
+	<message key="manager.navigationMenus.form.path">Path</message>
+	<message key="manager.navigationMenus">Navigation Menus</message>
+	<message key="manager.navigationMenus.form.viewInstructions"><![CDATA[<p>This page will be accessible at: <blockquote>{$pagesPath}</blockquote>...where %PATH% is the path entered above. <strong>Note:</strong> No two pages can have the same path. Using paths that are built into the system may cause you to lose access to important functions.</p>]]></message>
+	<message key="manager.navigationMenus.form.content">Content</message>
+	<message key="manager.navigationMenus.form.pathRegEx">The path field must contain only alphanumeric characters plus '.', '/', '-', and '_'.</message>
+	<message key="manager.navigationMenus.form.duplicatePath">This path already exists for another navigation menu item.</message>
+	<message key="manager.navigationMenus.form.duplicateTitles">This title already exists for another navigation menu.</message>
+	<message key="manager.navigationMenus.form.titleRequired">The title is required</message>
+	<message key="manager.navigationMenuItems">Navigation Menu Items</message>
+	<message key="manager.navigationMenus.assignedMenuItems">Assigned Menu Items</message>
+	<message key="manager.navigationMenus.unassignedMenuItems">Unassigned Menu Items</message>
+	<message key="manager.navigationMenus.form.navigationMenuArea">Active Theme Navigation Areas</message>
+	<message key="manager.navigationMenus.form.navigationMenuAreaMessage">Select a navigation area</message>
+	<message key="manager.navigationMenus.form.menuAssigned">A navigation menu is already assigned to this area.</message>
+
+	<message key="manager.navigationMenus.form.url">URL</message>
+	<message key="manager.navigationMenus.form.customUrlError">A URL must be provided</message>
+
+	<message key="manager.navigationMenus.form.conditionalDisplay">Learn more about when this menu item will be displayed or hidden.</message>
+	<message key="manager.navigationMenus.form.submenuWarning">When a menu item opens a submenu, it's link can not be followed on all devices. For example, if you have an "About" item which opens a submenu with "Contact" and "Editorial Team", the "About" link may not be reachable on all devices. In the default menu, this is handled by creating a second menu item, "About the Journal", which appears in the submenu.</message>
+
+	<message key="manager.navigationMenus.form.navigationMenuItemType">Navigation Menu Type</message>
+	<message key="manager.navigationMenus.form.navigationMenuItemTypeMessage">Select a Navigation Menu Type or Custom to make your own</message>
+	<message key="manager.navigationMenus.customPage">Custom Page</message>
+	<message key="manager.navigationMenus.customPage.description">Create a custom page on your site and link to it from a navigation menu.</message>
+	<message key="manager.navigationMenus.remoteUrl">Remote URL</message>
+	<message key="manager.navigationMenus.remoteUrl.description">Link to any URL on another site, like https://pkp.sfu.ca.</message>
+	<message key="manager.navigationMenus.about.description">Link to a page displaying the About the Journal content in Settings > Journal</message>
+	<message key="manager.navigationMenus.about.conditionalWarning">This link will only be displayed if you have filled out the About the Journal section under Settings > Journal.</message>
+	<message key="manager.navigationMenus.editorialTeam.description">Link to a page displaying the Masthead content in Settings > Journal.</message>
+	<message key="manager.navigationMenus.editorialTeam.conditionalWarning">This link will only be displayed if you have filled out the Editorial Team section under Settings > Journal.</message>
+	<message key="manager.navigationMenus.submissions.description">Link to the page displaying submission instructions.</message>
+	<message key="manager.navigationMenus.current.description">Link to your current issue.</message>
+	<message key="manager.navigationMenus.archives.description">Link to your issue archive.</message>
+	<message key="manager.navigationMenus.announcements.description">Link to the page displaying your announcements.</message>
+	<message key="manager.navigationMenus.announcements.conditionalWarning">This link will only be displayed if you have enabled announcements under Settings > Website.</message>
+	<message key="manager.navigationMenus.login.description">Link to the user login page.</message>
+	<message key="manager.navigationMenus.register.description">Link to the user registration page.</message>
+	<message key="manager.navigationMenus.dashboard.description">Link to the editorial dashboard.</message>
+	<message key="manager.navigationMenus.profile.description">Link to the user profile page.</message>
+	<message key="manager.navigationMenus.administration.description">Link to the site-wide administration tools.</message>
+	<message key="manager.navigationMenus.administration.conditionalWarning">This link will only be displayed to administrative users.</message>
+	<message key="manager.navigationMenus.logOut.description">A link that will log the user out.</message>
+	<message key="manager.navigationMenus.loggedOut.conditionalWarning">This link will only be displayed when the visitor is logged in.</message>
+	<message key="manager.navigationMenus.loggedIn.conditionalWarning">This link will only be displayed when the visitor is not logged in.</message>
+	<message key="manager.navigationMenus.contact.description">Link to a page displaying your contact information.</message>
+	<message key="manager.navigationMenus.contact.conditionalWarning">This link will only be displayed if you have filled out the Contact information under Settings > Contact.</message>
+	<message key="manager.navigationMenus.form.typeMissing">Please select a navigation menu type.</message>
+	<message key="manager.navigationMenus.subscriptions.conditionalWarning">This link will only be displayed if payments are enabled under Settings > Distribution > Payments.</message>
+	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning">This link will only be displayed if the visitor is logged in, payments are enabled under Settings > Distribution > Payments and subscriptions are required under Settings > Distribution > Access.</message>
+	<message key="manager.navigationMenus.search.description">Link to the search page.</message>
+	<message key="manager.navigationMenus.privacyStatement.description">Link to the page displaying your privacy statement.</message>
+	<message key="manager.navigationMenus.privacyStatement.conditionalWarning">This link will only be displayed if you have entered a privacy statement under Settings > Workflow > Submissions.</message>
 </locale>

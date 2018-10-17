@@ -3,8 +3,8 @@
 /**
  * @file classes/session/SessionManager.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SessionManager
@@ -33,7 +33,6 @@ class SessionManager {
 
 		// Configure PHP session parameters
 		ini_set('session.use_trans_sid', 0);
-		ini_set('session.save_handler', 'user');
 		ini_set('session.serialize_handler', 'php');
 		ini_set('session.use_cookies', 1);
 		ini_set('session.name', Config::getVar('general', 'session_cookie_name')); // Cookie name
@@ -107,7 +106,7 @@ class SessionManager {
 		// Adding session_write_close as a shutdown function. This is a PHP
 		// space workaround for the "Class '...' not found" bug in installations
 		// having the APC opcode cache installed
-		// Bugzilla: http://pkp.sfu.ca/bugzilla/show_bug.cgi?id=8151
+		// Bugzilla: https://pkp.sfu.ca/bugzilla/show_bug.cgi?id=8151
 		// PHP Bug tracker: https://bugs.php.net/bug.php?id=58739
 		register_shutdown_function('session_write_close'); 
 	}
@@ -267,4 +266,4 @@ class SessionManager {
 	}
 }
 
-?>
+

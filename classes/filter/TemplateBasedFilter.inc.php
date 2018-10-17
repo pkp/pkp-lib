@@ -3,8 +3,8 @@
 /**
  * @file classes/filter/TemplateBasedFilter.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class TemplateBasedFilter
@@ -72,8 +72,7 @@ class TemplateBasedFilter extends PersistableFilter {
 	function &process(&$input) {
 		// Initialize view
 		$locale = AppLocale::getLocale();
-		$application = PKPApplication::getApplication();
-		$request = $application->getRequest();
+		$request = Application::getRequest();
 		$templateMgr = TemplateManager::getManager($request);
 
 		// Add the filter's directory as additional template dir so that
@@ -102,4 +101,4 @@ class TemplateBasedFilter extends PersistableFilter {
 		return $output;
 	}
 }
-?>
+

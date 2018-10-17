@@ -2,8 +2,8 @@
 /**
  * @file controllers/listbuilder/settings/reviewForms/ReviewFormElementResponseItemListbuilderHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewFormElementResponseItemListbuilderHandler
@@ -26,8 +26,8 @@ class ReviewFormElementResponseItemListbuilderHandler extends SetupListbuilderHa
 	/**
 	 * @copydoc SetupListbuilderHandler::initialize()
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
 		$this->_reviewFormElementId = (int) $request->getUserVar('reviewFormElementId');
 
@@ -47,7 +47,7 @@ class ReviewFormElementResponseItemListbuilderHandler extends SetupListbuilderHa
 	/**
 	 * @copydoc GridHandler::loadData()
 	 */
-	protected function loadData($request) {
+	protected function loadData($request, $filter = null) {
 		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
 		$reviewFormElement = $reviewFormElementDao->getById($this->_reviewFormElementId);
 		$formattedResponses = array();
@@ -93,4 +93,4 @@ class ReviewFormElementResponseItemListbuilderHandler extends SetupListbuilderHa
 	}
 }
 
-?>
+

@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/languages/form/InstallLanguageForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class InstallLanguageForm
@@ -31,9 +31,10 @@ class InstallLanguageForm extends Form {
 	/**
 	 * @copydoc Form::initData()
 	 */
-	function initData($request) {
-		parent::initData($request);
+	function initData() {
+		parent::initData();
 
+		$request = Application::getRequest();
 		$site = $request->getSite();
 		$this->setData('installedLocales', $site->getInstalledLocales());
 	}
@@ -41,7 +42,7 @@ class InstallLanguageForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$site = $request->getSite();
 		$allLocales = AppLocale::getAllLocales();
 		$installedLocales = $this->getData('installedLocales');
@@ -69,15 +70,16 @@ class InstallLanguageForm extends Form {
 			$templateMgr->assign('downloadableLocaleLinks', $downloadableLocaleLinks);
 		}
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
 	 * @copydoc Form::readInputData()
 	 */
-	function readInputData($request) {
-		parent::readInputData($request);
+	function readInputData() {
+		parent::readInputData();
 
+		$request = Application::getRequest();
 		$localesToInstall = $request->getUserVar('localesToInstall');
 		$this->setData('localesToInstall', $localesToInstall);
 	}
@@ -85,7 +87,8 @@ class InstallLanguageForm extends Form {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute($request) {
+	function execute() {
+		$request = Application::getRequest();
 		$site = $request->getSite();
 		$localesToInstall = $this->getData('localesToInstall');
 
@@ -110,4 +113,4 @@ class InstallLanguageForm extends Form {
 	}
 }
 
-?>
+

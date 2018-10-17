@@ -3,8 +3,8 @@
 /**
  * @file classes/core/PKPApplication.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPApplication
@@ -45,6 +45,10 @@ define('ASSOC_TYPE_USER_ROLES',			0x0100007);
 define('ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES',	0x0100008);
 define('ASSOC_TYPE_SUBMISSION',			0x0100009);
 define('ASSOC_TYPE_QUERY',			0x010000a);
+define('ASSOC_TYPE_QUEUED_PAYMENT',		0x010000b);
+
+// Constant used in UsageStats for submission files that are not full texts
+define('ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER', 0x0000213);
 
 // FIXME: these were defined in userGroup. they need to be moved somewhere with classes that do mapping.
 define('WORKFLOW_STAGE_PATH_SUBMISSION', 'submission');
@@ -52,6 +56,10 @@ define('WORKFLOW_STAGE_PATH_INTERNAL_REVIEW', 'internalReview');
 define('WORKFLOW_STAGE_PATH_EXTERNAL_REVIEW', 'externalReview');
 define('WORKFLOW_STAGE_PATH_EDITING', 'editorial');
 define('WORKFLOW_STAGE_PATH_PRODUCTION', 'production');
+
+// Constant used to distinguish between editorial and author workflows
+define('WORKFLOW_TYPE_EDITORIAL', 'editorial');
+define('WORKFLOW_TYPE_AUTHOR', 'author');
 
 interface iPKPApplicationInfoProvider {
 	/**
@@ -80,7 +88,7 @@ interface iPKPApplicationInfoProvider {
 	 * This is necessary to prevent a column name mismatch during
 	 * the upgrade process when the codebase and the database are out
 	 * of sync.
-	 * See:  http://pkp.sfu.ca/bugzilla/show_bug.cgi?id=8265
+	 * See:  https://pkp.sfu.ca/bugzilla/show_bug.cgi?id=8265
 	 *
 	 * The 'generic' category of plugin is loaded before the schema
 	 * is reconciled.  Subclasses of PKPApplication perform a check
@@ -109,7 +117,7 @@ interface iPKPApplicationInfoProvider {
 }
 
 abstract class PKPApplication implements iPKPApplicationInfoProvider {
-	var $enabledProducts;
+	var $enabledProducts = array();
 	var $allProducts;
 
 	/**
@@ -129,6 +137,9 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		import('lib.pkp.classes.config.Config');
 
 		ini_set('display_errors', Config::getVar('debug', 'display_errors', ini_get('display_errors')));
+		if (!defined('SESSION_DISABLE_INIT') && !Config::getVar('general', 'installed')) {
+			define('SESSION_DISABLE_INIT', true);
+		}
 
 		Registry::set('application', $this);
 
@@ -288,35 +299,34 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * @return array
 	 */
 	function &getEnabledProducts($category = null, $mainContextId = null) {
-		if (is_null($this->enabledProducts) || !is_null($mainContextId)) {
-			$contextDepth = $this->getContextDepth();
+		$contextDepth = $this->getContextDepth();
+		if (is_null($mainContextId)) {
+			$request = $this->getRequest();
+			$router = $request->getRouter();
 
+			// Try to identify the main context (e.g. journal, conference, press),
+			// will be null if none found.
+			$mainContext = $router->getContext($request, 1);
+			if ($mainContext) $mainContextId = $mainContext->getId();
+			else $mainContextId = CONTEXT_SITE;
+		}
+		if (!isset($this->enabledProducts[$mainContextId])) {
 			$settingContext = array();
 			if ($contextDepth > 0) {
-				$request = $this->getRequest();
-				$router = $request->getRouter();
-
-				if (is_null($mainContextId)) {
-					// Try to identify the main context (e.g. journal, conference, press),
-					// will be null if none found.
-					$mainContext = $router->getContext($request, 1);
-					if ($mainContext) $mainContextId = $mainContext->getId();
-				}
-
 				// Create the context for the setting if found
-				if (!is_null($mainContextId)) $settingContext[] = $mainContextId;
+				$settingContext[] = $mainContextId;
 				$settingContext = array_pad($settingContext, $contextDepth, 0);
 				$settingContext = array_combine($this->getContextList(), $settingContext);
 			}
 
 			$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
-			$this->enabledProducts = $versionDao->getCurrentProducts($settingContext);
+			$this->enabledProducts[$mainContextId] = $versionDao->getCurrentProducts($settingContext);
 		}
 
 		if (is_null($category)) {
-			return $this->enabledProducts;
-		} elseif (isset($this->enabledProducts[$category])) {
-			return $this->enabledProducts[$category];
+			return $this->enabledProducts[$mainContextId];
+		} elseif (isset($this->enabledProducts[$mainContextId][$category])) {
+			return $this->enabledProducts[$mainContextId][$category];
 		} else {
 			$returner = array();
 			return $returner;
@@ -366,10 +376,11 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			'InterestEntryDAO' => 'lib.pkp.classes.user.InterestEntryDAO',
 			'LanguageDAO' => 'lib.pkp.classes.language.LanguageDAO',
 			'LibraryFileDAO' => 'lib.pkp.classes.context.LibraryFileDAO',
-			'MetadataDescriptionDAO' => 'lib.pkp.classes.metadata.MetadataDescriptionDAO',
+			'NavigationMenuDAO' => 'lib.pkp.classes.navigationMenu.NavigationMenuDAO',
+			'NavigationMenuItemDAO' => 'lib.pkp.classes.navigationMenu.NavigationMenuItemDAO',
+			'NavigationMenuItemAssignmentDAO' => 'lib.pkp.classes.navigationMenu.NavigationMenuItemAssignmentDAO',
 			'NoteDAO' => 'lib.pkp.classes.note.NoteDAO',
 			'NotificationDAO' => 'lib.pkp.classes.notification.NotificationDAO',
-			'NotificationMailListDAO' => 'lib.pkp.classes.notification.NotificationMailListDAO',
 			'NotificationSettingsDAO' => 'lib.pkp.classes.notification.NotificationSettingsDAO',
 			'NotificationSubscriptionSettingsDAO' => 'lib.pkp.classes.notification.NotificationSubscriptionSettingsDAO',
 			'PluginGalleryDAO' => 'lib.pkp.classes.plugins.PluginGalleryDAO',
@@ -528,7 +539,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	/**
 	 * Main entry point for PKP statistics reports.
 	 *
-	 * @see <http://pkp.sfu.ca/wiki/index.php/OJSdeStatisticsConcept#Input_and_Output_Formats_.28Aggregation.2C_Filters.2C_Metrics_Data.29>
+	 * @see <https://pkp.sfu.ca/wiki/index.php/OJSdeStatisticsConcept#Input_and_Output_Formats_.28Aggregation.2C_Filters.2C_Metrics_Data.29>
 	 * for a full specification of the input and output format of this method.
 	 *
 	 * @param $metricType null|string|array metrics selection
@@ -670,6 +681,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		);
 
 		if (isset($licenseKeyMap[$ccLicenseURL])) {
+			PKPLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
 			return __($licenseKeyMap[$ccLicenseURL]);
 		}
 		return null;
@@ -695,6 +707,18 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		if (!empty($roleIds)) $roleNames = array_intersect_key($roleNames, array_flip($roleIds));
 
 		return $roleNames;
+	}
+
+	/**
+	 * Get a mapping of roles allowed to access particular workflows
+	 * @return array
+	 */
+	static function getWorkflowTypeRoles() {
+		$workflowTypeRoles = array(
+			WORKFLOW_TYPE_EDITORIAL => array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT),
+			WORKFLOW_TYPE_AUTHOR => array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_AUTHOR),
+		);
+		return $workflowTypeRoles;
 	}
 }
 
@@ -724,4 +748,4 @@ import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
 // To expose ORDER_CATEGORY_GRID_... constants via JS
 import('lib.pkp.classes.controllers.grid.feature.OrderCategoryGridItemsFeature');
 
-?>
+

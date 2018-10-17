@@ -5,8 +5,8 @@
 /**
  * @file styles/controllers/notification.less
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @ingroup pkp_controllers_notification
@@ -82,7 +82,7 @@
 
 .ui-pnotify-sticker span,
 .ui-pnotify-closer span {
-	&:extend(.fa);
+	.fa();
 	visibility: visible !important; // override inline styles from lib...
 	position: absolute;
 	top: 0;
@@ -139,4 +139,16 @@
 
 .notifySuccess .ui-pnotify-text {
 	background: @yes;
+}
+
+// in-place notifications that appear above the main page content
+// example: upgrade notices
+.pkp_structure_main > .pkp_notification {
+	padding: 0 @double @double;
+	background: @bg;
+
+	> div {
+		margin-bottom: 0;
+		background: @lift;
+	}
 }

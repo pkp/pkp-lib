@@ -1,8 +1,8 @@
 {**
  * templates/frontend/pages/userRegister.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * User registration form.
@@ -28,23 +28,32 @@
 		{* When a user is registering with a specific journal *}
 		{if $currentContext}
 
-			{* Users are opted into the Reader and Author roles in the current
-			   journal/press by default. See RegistrationForm::initData() *}
-			{assign var=contextId value=$currentContext->getId()}
-			{foreach from=$readerUserGroups[$contextId] item=userGroup}
-				{if in_array($userGroup->getId(), $userGroupIds)}
-					{assign var="userGroupId" value=$userGroup->getId()}
-					<input type="hidden" name="readerGroup[{$userGroupId}]" value="1">
+			<fieldset class="consent">
+				{if $currentContext->getSetting('privacyStatement')}
+					{* Require the user to agree to the terms of the privacy policy *}
+					<div class="fields">
+						<div class="optin optin-privacy">
+							<label>
+								<input type="checkbox" name="privacyConsent" value="1"{if $privacyConsent} checked="checked"{/if}>
+								{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}
+								{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}
+							</label>
+						</div>
+					</div>
 				{/if}
-			{/foreach}
-			{foreach from=$authorUserGroups[$contextId] item=userGroup}
-				{if in_array($userGroup->getId(), $userGroupIds)}
-					{assign var="userGroupId" value=$userGroup->getId()}
-					<input type="hidden" name="authorGroup[{$userGroupId}]" value="1">
-				{/if}
-			{/foreach}
+				{* Ask the user to opt into public email notifications *}
+				<div class="fields">
+					<div class="optin optin-email">
+						<label>
+							<input type="checkbox" name="emailConsent" value="1"{if $emailConsent} checked="checked"{/if}>
+							{translate key="user.register.form.emailConsent"}
+						</label>
+					</div>
+				</div>
+			</fieldset>
 
 			{* Allow the user to sign up as a reviewer *}
+			{assign var=contextId value=$currentContext->getId()}
 			{assign var=userCanRegisterReviewer value=0}
 			{foreach from=$reviewerUserGroups[$contextId] item=userGroup}
 				{if $userGroup->getPermitSelfRegistration()}
@@ -53,9 +62,14 @@
 			{/foreach}
 			{if $userCanRegisterReviewer}
 				<fieldset class="reviewer">
-					<legend>
-						{translate key="user.reviewerPrompt"}
-					</legend>
+					{if $userCanRegisterReviewer > 1}
+						<legend>
+							{translate key="user.reviewerPrompt"}
+						</legend>
+						{capture assign="checkboxLocaleKey"}user.reviewerPrompt.userGroup{/capture}
+					{else}
+						{capture assign="checkboxLocaleKey"}user.reviewerPrompt.optin{/capture}
+					{/if}
 					<div class="fields">
 						<div id="reviewerOptinGroup" class="optin">
 							{foreach from=$reviewerUserGroups[$contextId] item=userGroup}
@@ -63,7 +77,7 @@
 									<label>
 										{assign var="userGroupId" value=$userGroup->getId()}
 										<input type="checkbox" name="reviewerGroup[{$userGroupId}]" value="1"{if in_array($userGroupId, $userGroupIds)} checked="checked"{/if}>
-										{translate key="user.reviewerPrompt.userGroup" userGroup=$userGroup->getLocalizedName()}
+										{translate key=$checkboxLocaleKey userGroup=$userGroup->getLocalizedName()}
 									</label>
 								{/if}
 							{/foreach}
@@ -124,6 +138,29 @@
 					</div>
 				</div>
 			</fieldset>
+
+			{* Require the user to agree to the terms of the privacy policy *}
+			{if $siteWidePrivacyStatement}
+				<div class="fields">
+					<div class="optin optin-privacy">
+						<label>
+							<input type="checkbox" name="privacyConsent[{$smarty.const.CONTEXT_ID_NONE}]" id="privacyConsent[{$smarty.const.CONTEXT_ID_NONE}]" value="1"{if $privacyConsent[$smarty.const.CONTEXT_ID_NONE]} checked="checked"{/if}>
+							{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}
+							{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}
+						</label>
+					</div>
+				</div>
+			{/if}
+
+			{* Ask the user to opt into public email notifications *}
+			<div class="fields">
+				<div class="optin optin-email">
+					<label>
+						<input type="checkbox" name="emailConsent" value="1"{if $emailConsent} checked="checked"{/if}>
+						{translate key="user.register.form.emailConsent"}
+					</label>
+				</div>
+			</div>
 		{/if}
 
 		{* recaptcha spam blocker *}
@@ -142,7 +179,7 @@
 				{translate key="user.register"}
 			</button>
 
-			{url|assign:"rolesProfileUrl" page="user" op="profile" path="roles"}
+			{capture assign="rolesProfileUrl"}{url page="user" op="profile" path="roles"}{/capture}
 			<a href="{url page="login" source=$rolesProfileUrl}" class="login">{translate key="user.login"}</a>
 		</div>
 	</form>

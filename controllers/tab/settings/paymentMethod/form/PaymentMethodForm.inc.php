@@ -3,8 +3,8 @@
 /**
  * @file controllers/tab/settings/paymentMethod/form/PaymentMethodForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PaymentMethodForm
@@ -28,6 +28,7 @@ class PaymentMethodForm extends ContextSettingsForm {
 	 */
 	function __construct($wizardMode = false) {
 		$settings = array(
+			'paymentsEnabled' => 'bool',
 			'paymentPluginName' => 'string',
 			'currency' => 'string',
 		);
@@ -37,11 +38,11 @@ class PaymentMethodForm extends ContextSettingsForm {
 	}
 
 	/**
-	 * @copydoc Form::initData()
-	 * @param $request Request
+	 * @copydoc ContextSettingsForm::initData()
 	 */
-	function initData($request) {
-		parent::initData($request);
+	function initData() {
+		parent::initData();
+		$request = Application::getRequest();
 		$paymentPluginName = $this->getData('paymentPluginName');
 		if (!isset($this->paymentPlugins[$paymentPluginName])) return;
 		$plugin = $this->paymentPlugins[$paymentPluginName];
@@ -52,7 +53,7 @@ class PaymentMethodForm extends ContextSettingsForm {
 	/**
 	 * @copydoc ContextSettingsForm::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false, $params = null) {
 		$templateMgr = TemplateManager::getManager($request);
 		$currencyDao = DAORegistry::getDAO('CurrencyDAO');
 		$currencies = array();
@@ -60,15 +61,16 @@ class PaymentMethodForm extends ContextSettingsForm {
 			$currencies[$currency->getCodeAlpha()] = $currency->getName();
 		}
 		$templateMgr->assign('currencies', $currencies);
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display, $params);
 	}
 
 	/**
 	 * @copydoc ContextSettingsForm::readInputData()
 	 */
-	function readInputData($request) {
-		parent::readInputData($request);
+	function readInputData() {
+		parent::readInputData();
 
+		$request = Application::getRequest();
 		$paymentPluginName = $this->getData('paymentPluginName');
 		if (!isset($this->paymentPlugins[$paymentPluginName])) return false;
 		$plugin = $this->paymentPlugins[$paymentPluginName];
@@ -79,7 +81,8 @@ class PaymentMethodForm extends ContextSettingsForm {
 	/**
 	 * @copydoc ContextSettingsForm::execute()
 	 */
-	function execute($request) {
+	function execute() {
+		$request = Application::getRequest();
 		$context = $request->getContext();
 
 		// Get the selected payment plugin
@@ -98,21 +101,21 @@ class PaymentMethodForm extends ContextSettingsForm {
 				$context->getId(), $context->getAssocType(), $context->getId(), NOTIFICATION_LEVEL_NORMAL);
 		}
 
-		return parent::execute($request);
+		return parent::execute();
 	}
 
 	/**
 	 * Validate the form.
 	 * @copydoc Form::validate
 	 */
-	function validate() {
+	function validate($callHooks = true) {
 		if (!$this->settingsForm->validate()) {
 			foreach ($this->settingsForm->getErrorsArray() as $field => $message) {
 				$this->addError($field, $message);
 			}
 		}
-		return parent::validate();
+		return parent::validate($callHooks);
 	}
 }
 
-?>
+

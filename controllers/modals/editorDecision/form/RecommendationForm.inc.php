@@ -3,8 +3,8 @@
 /**
  * @file controllers/modals/editorDecision/form/RecommendationForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class RecommendationForm
@@ -76,11 +76,9 @@ class RecommendationForm extends Form {
 	// Overridden template methods from Form
 	//
 	/**
-	 * @see Form::initData()
-	 *
-	 * @param $request PKPRequest
+	 * @copydoc Form::initData()
 	 */
-	function initData($request) {
+	function initData() {
 		$submission = $this->getSubmission();
 
 		// Get the decision making editors, the e-mail about the recommendation will be send to
@@ -99,10 +97,11 @@ class RecommendationForm extends Form {
 		// Get the editor recommendation e-mail template
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
 		$email = new SubmissionMailTemplate($submission, 'EDITOR_RECOMMENDATION');
+		$request = Application::getRequest();
 		$router = $request->getRouter();
 		$dispatcher = $router->getDispatcher();
 		$user = $request->getUser();
-		$submissionUrl = $dispatcher->url($request, ROUTE_PAGE, null, 'workflow', 'index', $submission->getId());
+		$submissionUrl = $dispatcher->url($request, ROUTE_PAGE, null, 'workflow', 'index', array($submission->getId(), $this->getStageId()));
 		$emailParams = array(
 			'editors' => $editorsStr,
 			'editorialContactSignature' => $user->getContactSignature(),
@@ -143,8 +142,9 @@ class RecommendationForm extends Form {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute($request) {
+	function execute() {
 		// Record the recommendation.
+		$request = Application::getRequest();
 		$submission = $this->getSubmission();
 		$reviewRound = $this->getReviewRound();
 		$recommendation = $this->getData('recommendation');
@@ -181,7 +181,7 @@ class RecommendationForm extends Form {
 			$email->setEventType(SUBMISSION_EMAIL_EDITOR_RECOMMEND_NOTIFY);
 
 			$dispatcher = $router->getDispatcher();
-			$submissionUrl = $dispatcher->url($request, ROUTE_PAGE, null, 'workflow', 'index', $submission->getId());
+			$submissionUrl = $dispatcher->url($request, ROUTE_PAGE, null, 'workflow', 'index', array($submission->getId(), $this->getStageId()));
 			$email->assignParams(array(
 				'editors' => $this->getData('editors'),
 				'editorialContactSignature' => $user->getContactSignature(),
@@ -248,4 +248,4 @@ class RecommendationForm extends Form {
 
 }
 
-?>
+

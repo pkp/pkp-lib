@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * locale/fi_FI/locale.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+
+<locale name="fi_FI" full_name="Suomi">
+	<message key="plugins.generic.acron.name">Acron-lisäosa</message>
+	<message key="plugins.generic.acron.description">Tämä lisäosa pyrkii korvaamaan cron-tyyppiset ajoitetut tehtävät.</message>
+	<message key="plugins.generic.acron.enabled">Acron-lisäosa on päällä.</message>
+	<message key="plugins.generic.acron.disabled">Acron-lisäosa on pois päältä.</message>
+	<message key="plugins.generic.acron.reloadedCronTab">Ajoitetut tehtävät ladattu onnistuneesti uudelleen.</message>
+	<message key="plugins.generic.acron.reload">Lataa ajoitetut tehtävät uudelleen</message>
+	<message key="plugins.generic.acron.tasksReloaded">Ajoitetut tehtävät ladattiin uudelleen.</message>
+</locale>

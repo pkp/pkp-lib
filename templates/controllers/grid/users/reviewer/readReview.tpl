@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/users/reviewer/readReview.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Screen to let user read a review.
@@ -83,11 +83,20 @@
 
 	{fbvFormArea id="readReview"}
 		{fbvFormSection title="reviewer.submission.reviewerFiles"}
-			{url|assign:reviewAttachmentsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.attachment.EditorReviewAttachmentsGridHandler" op="fetchGrid" submissionId=$submission->getId() reviewId=$reviewAssignment->getId() stageId=$reviewAssignment->getStageId() escape=false}
+			{capture assign=reviewAttachmentsGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.files.attachment.EditorReviewAttachmentsGridHandler" op="fetchGrid" submissionId=$submission->getId() reviewId=$reviewAssignment->getId() stageId=$reviewAssignment->getStageId() escape=false}{/capture}
 			{load_url_in_div id="readReviewAttachmentsGridContainer" url=$reviewAttachmentsGridUrl}
 		{/fbvFormSection}
 
 		{$reviewerRecommendations}
+
+		{fbvFormSection label="editor.review.rateReviewer" description="editor.review.rateReviewer.description"}
+			{foreach from=$reviewerRatingOptions item="stars" key="value"}
+				<label class="pkp_star_selection">
+					<input type="radio" name="quality" value="{$value|escape}"{if $value == $reviewAssignment->getQuality()} checked{/if}>
+					{$stars}
+				</label>
+			{/foreach}
+		{/fbvFormSection}
 
 		{fbvFormButtons id="closeButton" hideCancel=false submitText="common.confirm"}
 	{/fbvFormArea}

@@ -3,8 +3,8 @@
 /**
  * @file controllers/tab/settings/announcements/form/AnnouncementSettingsForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AnnouncementSettingsForm
@@ -49,7 +49,7 @@ class AnnouncementSettingsForm extends ContextSettingsForm {
 	/**
 	 * @copydoc ContextSettingsForm::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false, $params = null) {
 		for($x = 1; $x < 11; $x++) {
 			$numAnnouncementsHomepageOptions[$x] = $x;
 		}
@@ -59,8 +59,8 @@ class AnnouncementSettingsForm extends ContextSettingsForm {
 			'disableAnnouncementsHomepage' => !$this->getData('enableAnnouncementsHomepage')
 		);
 
-		return parent::fetch($request, $params);
+		return parent::fetch($request, $template, $display, $params);
 	}
 }
 
-?>
+

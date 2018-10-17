@@ -1,8 +1,8 @@
 /**
  * @file js/classes/TinyMCEHelper.js
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class TinyMCEHelper
@@ -73,13 +73,13 @@
 	/**
 	 * Generate an element to represent a PKP variable (e.g. primary contact name
 	 * in setup) within the TinyMCE editor.
-	 * @param {string} selector The selector to use for the element.
 	 * @param {string} variableSymbolic The variable symbolic name.
 	 * @param {string} variableName The human-readable name for the variable.
+	 * @param {string} selector The selector to use for the element.
 	 * @return {jQueryObject} JQuery DOM representing the PKP variable.
 	 */
 	$.pkp.classes.TinyMCEHelper.prototype.getVariableElement =
-			function(selector, variableSymbolic, variableName) {
+			function(variableSymbolic, variableName, selector) {
 		var variableType, variableTypes =
 				$.pkp.classes.TinyMCEHelper.prototype.getVariableTypesMap(selector);
 

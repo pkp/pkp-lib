@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/fr_FR/locale.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+
+<locale name="fr_FR" full_name="Français (France)">
+	<message key="api.submissions.403.requestedOthersUnpublishedSubmissions">Vous ne pouvez voir que les soumissions qui vous ont été assignées</message>
+	<message key="api.submissions.403.csrfTokenFailure">Votre requête a été refusée. Peut-être que votre session a expiré. Essayez de recharger la page.</message>
+	<message key="api.submissions.403.deleteSubmissionOutOfContext">Vous ne pouvez pas supprimer une soumission hors de ce contexte.</message>
+	<message key="api.submissions.403.unauthorizedDeleteSubmission">Vous n'avez pas la permission de supprimer cette soumission</message>
+	<message key="api.submissions.404.resourceNotFound">La ressource demandée n'existe pas</message>
+	<message key="api.submissions.400.missingRequired">La requête n'a pu être terminée par manque d'information</message>
+	<message key="api.submissions.unknownError">Une erreur imprévue est survenu. Merci de recharger la page.</message>
+	<message key="api.submissions.400.stageNotValid">La requête n'a pu être finalisée car le submission stage ID est invalide.</message>
+	<message key="api.submissions.400.invalidIssueIdentifiers">Le volume requis n'est pas valide.</message>
+</locale>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE schema SYSTEM "../../dtd/xmlSchema.dtd">
+
+<!--
+	* xml/schema/navigationMenus.xml
+	*
+	* Copyright (c) 2014-2018 Simon Fraser University
+	* Copyright (c) 2000-2018 John Willinsky
+	* Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+	*
+	* NavigationMenus schema in XML.
+	-->
+
+<schema version="0.2">
+	<!--
+	 *
+	 * TABLE navigation_menus
+	 *
+	 -->
+	<table name="navigation_menus">
+		<field name="navigation_menu_id" type="I8">
+			<KEY />
+			<AUTOINCREMENT/>
+		</field>
+		<field name="context_id" type="I8">
+			<NOTNULL/>
+		</field>
+		<field name="area_name" type="C2" size="255">
+			<DEFAULT VALUE=""/>
+		</field>
+		<field name="title" type="C2" size="255">
+			<NOTNULL />
+		</field>
+		<descr>NavigationMenus</descr>
+	</table>
+
+	<!--
+	 *
+	 * TABLE navigation_menu_items
+	 *
+	 -->
+	<table name="navigation_menu_items">
+		<field name="navigation_menu_item_id" type="I8">
+			<KEY />
+			<AUTOINCREMENT/>
+		</field>
+		<field name="context_id" type="I8">
+			<NOTNULL/>
+		</field>
+		<field name="url" type="C2" size="255">
+			<DEFAULT VALUE=""/>
+		</field>
+		<field name="path" type="C2" size="255">
+			<DEFAULT VALUE=""/>
+		</field>
+		<field name="type" type="C2" size="255">
+			<DEFAULT VALUE=""/>
+		</field>
+		<descr>NavigationMenuItems</descr>
+	</table>
+
+	<!--
+		*
+		* TABLE navigation_menu_item_settings
+		*
+		-->
+	<table name="navigation_menu_item_settings">
+		<field name="navigation_menu_item_id" type="I8">
+			<NOTNULL />
+		</field>
+		<field name="locale" type="C2" size="14">
+			<NOTNULL />
+			<DEFAULT VALUE=""/>
+		</field>
+		<field name="setting_name" type="C2" size="255">
+			<NOTNULL />
+		</field>
+		<field name="setting_value" type="X"/>
+		<field name="setting_type" type="C2" size="6">
+			<NOTNULL/>
+		</field>
+		<descr>Locale-specific navigation menu item data</descr>
+		<index name="navigation_menu_item_settings_navigation_menu_id">
+			<col>navigation_menu_item_id</col>
+		</index>
+		<index name="navigation_menu_item_settings_pkey">
+			<col>navigation_menu_item_id</col>
+			<col>locale</col>
+			<col>setting_name</col>
+			<UNIQUE/>
+		</index>
+	</table>
+
+	<!--
+	 *
+	 * TABLE navigation_menu_item_assignments
+	 *
+	 -->
+	<table name="navigation_menu_item_assignments">
+		<field name="navigation_menu_item_assignment_id" type="I8">
+			<KEY />
+			<AUTOINCREMENT/>
+		</field>
+		<field name="navigation_menu_id" type="I8">
+			<NOTNULL/>
+		</field>
+		<field name="navigation_menu_item_id" type="I8">
+			<NOTNULL/>
+		</field>
+		<field name="parent_id" type="I8">
+		</field>
+		<field name="seq" type="I8">
+			<DEFAULT VALUE="0"/>
+		</field>
+		<descr>NavigationMenuItemAssignments which assign menu items to a menu and describe nested menu structure.</descr>
+	</table>
+
+	<!--
+		*
+		* TABLE navigation_menu_item_assignment_settings
+		*
+		-->
+	<table name="navigation_menu_item_assignment_settings">
+		<field name="navigation_menu_item_assignment_id" type="I8">
+			<NOTNULL />
+		</field>
+		<field name="locale" type="C2" size="14">
+			<NOTNULL />
+			<DEFAULT VALUE=""/>
+		</field>
+		<field name="setting_name" type="C2" size="255">
+			<NOTNULL />
+		</field>
+		<field name="setting_value" type="X"/>
+		<field name="setting_type" type="C2" size="6">
+			<NOTNULL/>
+		</field>
+		<descr>Locale-specific navigation menu item assignments data</descr>
+		<index name="assignment_settings_navigation_menu_item_assignment_id">
+			<col>navigation_menu_item_assignment_id</col>
+		</index>
+		<index name="navigation_menu_item_assignment_settings_pkey">
+			<col>navigation_menu_item_assignment_id</col>
+			<col>locale</col>
+			<col>setting_name</col>
+			<UNIQUE/>
+		</index>
+	</table>
+</schema>

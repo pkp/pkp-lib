@@ -6,8 +6,8 @@
 /**
  * @file classes/notification/form/NotificationSettingsForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPNotificationSettingsForm
@@ -65,6 +65,9 @@ class PKPNotificationSettingsForm extends Form {
 			NOTIFICATION_TYPE_QUERY_ACTIVITY => array('settingName' => 'notificationQueryActivity',
 				'emailSettingName' => 'emailNotificationQueryActivity',
 				'settingKey' => 'notification.type.queryActivity'),
+			NOTIFICATION_TYPE_NEW_ANNOUNCEMENT => array('settingName' => 'notificationNewAnnouncement',
+				'emailSettingName' => 'emailNotificationNewAnnouncement',
+				'settingKey' => 'notification.type.newAnnouncement'),
 		);
 	}
 
@@ -73,8 +76,16 @@ class PKPNotificationSettingsForm extends Form {
 	 *  and the notification types under each category
 	 * @return array
 	 */
-	protected function getNotificationSettingCategories() {
+	public function getNotificationSettingCategories() {
 		return array(
+			// Changing the `categoryKey` for public notification types will disrupt
+			// the email notification opt-in/out feature during user registration
+			// @see RegistrationForm::execute()
+			array('categoryKey' => 'notification.type.public',
+				'settings' => array(
+					NOTIFICATION_TYPE_NEW_ANNOUNCEMENT,
+				)
+			),
 			array('categoryKey' => 'notification.type.submissions',
 				'settings' => array(
 					NOTIFICATION_TYPE_SUBMISSION_SUBMITTED,
@@ -92,29 +103,32 @@ class PKPNotificationSettingsForm extends Form {
 	}
 
 	/**
-	 * @copydoc
+	 * @copydoc Form::fetch
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$context = $request->getContext();
+		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 		$userId = $request->getUser()->getId();
 		$notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
-			'blockedNotifications' => $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('blocked_notification', $userId, $context->getId()),
-			'emailSettings' => $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('blocked_emailed_notification', $userId, $context->getId()),
+			'blockedNotifications' => $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('blocked_notification', $userId, $contextId),
+			'emailSettings' => $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('blocked_emailed_notification', $userId, $contextId),
 			'notificationSettingCategories' => $this->getNotificationSettingCategories(),
 			'notificationSettings' => $this->getNotificationSettingsMap(),
 		));
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
-	 * @copydoc
+	 * @copydoc Form::execute
 	 */
-	function execute($request) {
+	function execute() {
+		$request = Application::getRequest();
 		$user = $request->getUser();
 		$userId = $user->getId();
 		$context = $request->getContext();
+		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 
 		$blockedNotifications = array();
 		$emailSettings = array();
@@ -126,11 +140,11 @@ class PKPNotificationSettingsForm extends Form {
 		}
 
 		$notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
-		$notificationSubscriptionSettingsDao->updateNotificationSubscriptionSettings('blocked_notification', $blockedNotifications, $userId, $context->getId());
-		$notificationSubscriptionSettingsDao->updateNotificationSubscriptionSettings('blocked_emailed_notification', $emailSettings, $userId, $context->getId());
+		$notificationSubscriptionSettingsDao->updateNotificationSubscriptionSettings('blocked_notification', $blockedNotifications, $userId, $contextId);
+		$notificationSubscriptionSettingsDao->updateNotificationSubscriptionSettings('blocked_emailed_notification', $emailSettings, $userId, $contextId);
 
 		return true;
 	}
 }
 
-?>
+

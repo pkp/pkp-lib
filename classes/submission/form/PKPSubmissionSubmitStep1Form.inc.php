@@ -3,8 +3,8 @@
 /**
  * @file classes/submission/form/PKPSubmissionSubmitStep1Form.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionSubmitStep1Form
@@ -31,7 +31,8 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		if ((boolean) $context->getSetting('copyrightNoticeAgree')) {
 			$this->addCheck(new FormValidator($this, 'copyrightNoticeAgree', 'required', 'submission.submit.copyrightNoticeAgreeRequired'));
 		}
-		$this->addCheck(new FormValidator($this, 'authorUserGroupId', 'required', 'author.submit.userGroupRequired'));
+		$this->addCheck(new FormValidator($this, 'userGroupId', 'required', 'submission.submit.availableUserGroupsDescription'));
+		$this->addCheck(new FormValidator($this, 'privacyConsent', 'required', 'user.profile.form.privacyConsentRequired'));
 
 		foreach ((array) $context->getLocalizedSetting('submissionChecklist') as $key => $checklistItem) {
 			$this->addCheck(new FormValidator($this, "checklist-$key", 'required', 'submission.submit.checklistErrors'));
@@ -42,28 +43,32 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 * Perform additional validation checks
 	 * @copydoc Form::validate
 	 */
-	function validate() {
-		if (!parent::validate()) return false;
+	function validate($callHooks = true) {
+		if (!parent::validate($callHooks)) return false;
 
-		// Ensure that the user is in the specified authorUserGroupId
-		$authorUserGroupId = $this->getData('authorUserGroupId');
+		// Ensure that the user is in the specified userGroupId or trying to enroll an allowed role
+		$userGroupId = (int) $this->getData('userGroupId');
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$request = Application::getRequest();
 		$context = $request->getContext();
 		$user = $request->getUser();
 		if (!$user) return false;
 
-		$userGroups = $userGroupDao->getByUserId($user->getId(), $context->getId());
-		while ($userGroup = $userGroups->next()) {
-			if ($userGroup->getId() == $authorUserGroupId) return true;
+		if ($userGroupDao->userInGroup($user->getId(), $userGroupId)) {
+			return true;
 		}
+		$userGroup = $userGroupDao->getById($userGroupId, $context->getId());
+		if ($userGroup->getPermitSelfRegistration()){
+			return true;
+		}
+
 		return false;
 	}
 
 	/**
-	 * Fetch the form.
+	 * @copydoc SubmissionSubmitForm::fetch
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$user = $request->getUser();
 		$templateMgr = TemplateManager::getManager($request);
 
@@ -78,36 +83,65 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			$templateMgr->assign('copyrightNoticeAgree', true);
 		}
 
-		// Get list of user's author user groups.  If its more than one, we'll need to display an author user group selector
 		$userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO');
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$authorUserGroupAssignments = $userGroupAssignmentDao->getByUserId($user->getId(), $this->context->getId(), ROLE_ID_AUTHOR);
 		$userGroupNames = array();
-		if (!$authorUserGroupAssignments->wasEmpty()) {
-			while($authorUserGroupAssignment = $authorUserGroupAssignments->next()) {
-				$authorUserGroup = $userGroupDao->getById($authorUserGroupAssignment->getUserGroupId());
-				if ($userGroupDao->userGroupAssignedToStage($authorUserGroup->getId(), WORKFLOW_STAGE_ID_SUBMISSION)) {
-					$userGroupNames[$authorUserGroup->getId()] = $authorUserGroup->getLocalizedName();
-				}
+
+		// List existing user roles
+		$managerUserGroupAssignments = $userGroupAssignmentDao->getByUserId($user->getId(), $this->context->getId(), ROLE_ID_MANAGER);
+		$authorUserGroupAssignments = $userGroupAssignmentDao->getByUserId($user->getId(), $this->context->getId(), ROLE_ID_AUTHOR);
+
+		// List available author roles
+		$availableAuthorUserGroups = $userGroupDao->getUserGroupsByStage($this->context->getId(), WORKFLOW_STAGE_ID_SUBMISSION, ROLE_ID_AUTHOR);
+		$availableUserGroupNames = array();
+		while($authorUserGroup = $availableAuthorUserGroups->next()) {
+			if ($authorUserGroup->getPermitSelfRegistration()){
+				$availableUserGroupNames[$authorUserGroup->getId()] = $authorUserGroup->getLocalizedName();
 			}
-			$templateMgr->assign('authorUserGroupOptions', $userGroupNames);
-		} else {
-			// The user doesn't have any author user group assignments.  They should be either a manager.
-			// Add all manager user groups
-			$managerUserGroupAssignments = $userGroupAssignmentDao->getByUserId($user->getId(), $this->context->getId(), ROLE_ID_MANAGER);
-			if($managerUserGroupAssignments) while($managerUserGroupAssignment = $managerUserGroupAssignments->next()) {
+		}
+
+		// Set default group to default author group
+		$defaultGroup = $userGroupDao->getDefaultByRoleId($this->context->getId(), ROLE_ID_AUTHOR);
+		$noExistingRoles = false;
+		$managerGroups = false;
+
+		// If the user has manager roles, add manager roles and available author roles to selection
+		if (!$managerUserGroupAssignments->wasEmpty()) {
+			while($managerUserGroupAssignment = $managerUserGroupAssignments->next()) {
 				$managerUserGroup = $userGroupDao->getById($managerUserGroupAssignment->getUserGroupId());
 				$userGroupNames[$managerUserGroup->getId()] = $managerUserGroup->getLocalizedName();
 			}
+			$managerGroups = join(__('common.commaListSeparator'), $userGroupNames);
+			$userGroupNames = array_replace($userGroupNames, $availableUserGroupNames);
 
-			$templateMgr->assign('authorUserGroupOptions', $userGroupNames);
+			// Set default group to default manager group
+			$defaultGroup = $userGroupDao->getDefaultByRoleId($this->context->getId(), ROLE_ID_MANAGER);
+
+		// else if the user only has existing author roles, add to selection
+		} else if (!$authorUserGroupAssignments->wasEmpty()) {
+			while($authorUserGroupAssignment = $authorUserGroupAssignments->next()) {
+				$authorUserGroup = $userGroupDao->getById($authorUserGroupAssignment->getUserGroupId());
+				$userGroupNames[$authorUserGroup->getId()] = $authorUserGroup->getLocalizedName();
+			}
+
+		// else the user has no roles, only add available author roles to selection
+		} else {
+			$userGroupNames = $availableUserGroupNames;
+			$noExistingRoles = true;
 		}
 
-		return parent::fetch($request);
+		$templateMgr->assign('managerGroups', $managerGroups);
+		$templateMgr->assign('userGroupOptions', $userGroupNames);
+		$templateMgr->assign('defaultGroup', $defaultGroup);
+		$templateMgr->assign('noExistingRoles', $noExistingRoles);
+
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
 	 * Initialize form data from current submission.
+	 * @see SubmissionSubmitForm::initData
+	 * @param $data array
 	 */
 	function initData($data = array()) {
 		if (isset($this->submission)) {
@@ -120,11 +154,12 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			$supportedSubmissionLocales = $this->context->getSupportedSubmissionLocales();
 			// Try these locales in order until we find one that's
 			// supported to use as a default.
+			$keys = array_keys($supportedSubmissionLocales);
 			$tryLocales = array(
 				$this->getFormLocale(), // Current form locale
 				AppLocale::getLocale(), // Current UI locale
 				$this->context->getPrimaryLocale(), // Context locale
-				$supportedSubmissionLocales[array_shift(array_keys($supportedSubmissionLocales))] // Fallback: first one on the list
+				$supportedSubmissionLocales[array_shift($keys)] // Fallback: first one on the list
 			);
 			$this->_data = $data;
 			foreach ($tryLocales as $locale) {
@@ -142,7 +177,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 */
 	function readInputData() {
 		$vars = array(
-			'authorUserGroupId', 'locale', 'copyrightNoticeAgree', 'commentsToEditor', 'copyrightNoticeAgree'
+			'userGroupId', 'locale', 'copyrightNoticeAgree', 'commentsToEditor','privacyConsent'
 		);
 		foreach ((array) $this->context->getLocalizedSetting('submissionChecklist') as $key => $checklistItem) {
 			$vars[] = "checklist-$key";
@@ -225,13 +260,19 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 
 	/**
 	 * Save changes to submission.
-	 * @param $args array
-	 * @param $request PKPRequest
 	 * @return int the submission ID
 	 */
-	function execute($args, $request) {
+	function execute() {
 		$submissionDao = Application::getSubmissionDAO();
+		$request = Application::getRequest(); 
 		$user = $request->getUser();
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+
+		// Enroll user if needed
+		$userGroupId = (int) $this->getData('userGroupId');
+		if (!$userGroupDao->userInGroup($user->getId(), $userGroupId)) {
+			$userGroupDao->assignUserToGroup($user->getId(), $userGroupId);
+		}
 
 		if (isset($this->submission)) {
 			// Update existing submission
@@ -262,9 +303,19 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			// Set user to initial author
 			$authorDao = DAORegistry::getDAO('AuthorDAO');
 			$author = $authorDao->newDataObject();
-			$author->setFirstName($user->getFirstName());
-			$author->setMiddleName($user->getMiddleName());
-			$author->setLastName($user->getLastName());
+			// if no user names exist for this submission locale,
+			// copy the names in default site primary locale for this locale as well
+			$userGivenNames = $user->getGivenName(null);
+			$userFamilyNames = $user->getFamilyName(null);
+			if (is_null($userFamilyNames)) $userFamilyNames = array();
+			if (empty($userGivenNames[$this->submission->getLocale()])) {
+				$site = Application::getRequest()->getSite();
+				$userGivenNames[$this->submission->getLocale()] = $userGivenNames[$site->getPrimaryLocale()];
+				// then there should also be no family name for the submission locale
+				$userFamilyNames[$this->submission->getLocale()] = !empty($userFamilyNames[$site->getPrimaryLocale()]) ? $userFamilyNames[$site->getPrimaryLocale()] : '';
+			}
+			$author->setGivenName($userGivenNames, null);
+			$author->setFamilyName($userFamilyNames, null);
 			$author->setAffiliation($user->getAffiliation(null), null);
 			$author->setCountry($user->getCountry());
 			$author->setEmail($user->getEmail());
@@ -275,15 +326,14 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			$author->setOrcid($user->getOrcid());
 
 			// Get the user group to display the submitter as
-			$authorUserGroupId = (int) $this->getData('authorUserGroupId');
-			$author->setUserGroupId($authorUserGroupId);
+			$author->setUserGroupId($userGroupId);
 
 			$author->setSubmissionId($this->submissionId);
 			$authorDao->insertObject($author);
 
 			// Assign the user author to the stage
 			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-			$stageAssignmentDao->build($this->submissionId, $authorUserGroupId, $user->getId());
+			$stageAssignmentDao->build($this->submissionId, $userGroupId, $user->getId());
 
 			// Add comments to editor
 			if ($this->getData('commentsToEditor')){
@@ -296,4 +346,4 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	}
 }
 
-?>
+

@@ -3,8 +3,8 @@
 /**
  * @file controllers/tab/settings/ManagerSettingsTabHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ManagerSettingsTabHandler
@@ -66,14 +66,14 @@ class ManagerSettingsTabHandler extends SettingsTabHandler {
 	/**
 	 * @copydoc SettingsTabHandler::initialize()
 	 */
-	function initialize($request, $args = null) {
+	function initialize($request) {
 		$this->setWizardMode($request->getUserVar('wizardMode'));
 
-		parent::initialize($request, $args);
+		parent::initialize($request);
 
 		// Load handler specific translations.
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_PKP_GRID);
 	}
 }
 
-?>
+

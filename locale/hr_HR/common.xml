@@ -4,8 +4,8 @@
 <!--
   * locale/hr_HR/common.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the hr_HR (Hrvatski) locale.
@@ -28,6 +28,8 @@
 	<message key="announcement.posted">Objavljeno</message>
 	<message key="announcement.viewLink">Više...</message>
 	<message key="announcement.view">Pregled obavijesti</message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.copy">Kopiraj</message>
 	<message key="common.preview">Prethodni pregled</message>
 	<message key="common.activate">Aktiviraj</message>
@@ -86,8 +88,8 @@
 	<message key="common.fileName">Naziv datoteke</message>
 	<message key="common.fileSize">Veličina datoteke</message>
 	<message key="common.fileType">Tip datoteke</message>
-	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
-	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
+	<message key="common.file.namingPattern">{$username}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$genre}, {$originalFilename}</message>
 	<message key="common.height">Visina</message>
 	<message key="common.homePageHeaderLogo.altText">Logotip zaglavlja naslovne stranice</message>
 	<message key="common.hour">Sat</message>

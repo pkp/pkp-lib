@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/languages/LanguageGridHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class LanguageGridHandler
@@ -71,9 +71,28 @@ class LanguageGridHandler extends GridHandler {
 			if (AppLocale::isLocaleValid($locale) && array_key_exists($locale, $availableLocales)) {
 				if ($settingValue) {
 					array_push($currentSettingValue, $locale);
+					if ($settingName == 'supportedFormLocales') {
+						// reload localized default context settings
+						$settingsDao = Application::getContextSettingsDAO();
+						$settingsDao->reloadLocalizedDefaultContextSettings($request, $locale);
+					} elseif ($settingName == 'supportedSubmissionLocales') {
+						// if a submission locale is enabled, and this locale is not in the form locales, add it
+						$supportedFormLocales = (array) $context->getSetting('supportedFormLocales');
+						if (!in_array($locale, $supportedFormLocales)) {
+							array_push($supportedFormLocales, $locale);
+							$context->updateSetting('supportedFormLocales', $supportedFormLocales);
+						}
+					}
 				} else {
 					$key = array_search($locale, $currentSettingValue);
 					if ($key !== false) unset($currentSettingValue[$key]);
+					if ($settingName == 'supportedFormLocales') {
+						// if a form locale is disabled, disable it form submission locales as well
+						$supportedSubmissionLocales = (array) $context->getSetting('supportedSubmissionLocales');
+						$key = array_search($locale, $supportedSubmissionLocales);
+						if ($key !== false) unset($supportedSubmissionLocales[$key]);
+						$context->updateSetting('supportedSubmissionLocales', $supportedSubmissionLocales);
+					}
 				}
 			}
 		}
@@ -187,8 +206,8 @@ class LanguageGridHandler extends GridHandler {
 
 		$this->addColumn(
 			new GridColumn(
-				'submissionLocale',
-				'manager.language.submissions',
+				'formLocale',
+				'manager.language.forms',
 				null,
 				'controllers/grid/common/cell/selectStatusCell.tpl',
 				$cellProvider
@@ -197,8 +216,8 @@ class LanguageGridHandler extends GridHandler {
 
 		$this->addColumn(
 			new GridColumn(
-				'formLocale',
-				'manager.language.forms',
+				'submissionLocale',
+				'manager.language.submissions',
 				null,
 				'controllers/grid/common/cell/selectStatusCell.tpl',
 				$cellProvider
@@ -230,4 +249,4 @@ class LanguageGridHandler extends GridHandler {
 	}
 }
 
-?>
+

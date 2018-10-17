@@ -3,8 +3,8 @@
 /**
  * @file controllers/tab/settings/siteSetup/form/NewSiteImageFileForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NewSiteImageFileForm
@@ -31,9 +31,10 @@ class NewSiteImageFileForm extends SettingsFileUploadForm {
 	// Extend methods from Form.
 	//
 	/**
-	 * @copydoc Form::initData()
+	 * @copydoc SettingsFileUploadForm::initData()
 	 */
-	function initData($request) {
+	function initData() {
+		$request = Application::getRequest();
 		$site = $request->getSite();
 		$fileSettingName = $this->getFileSettingName();
 
@@ -42,7 +43,9 @@ class NewSiteImageFileForm extends SettingsFileUploadForm {
 
 		$supportedLocales = AppLocale::getSupportedLocales();
 		foreach ($supportedLocales as $key => $locale) {
-			$imageAltText[$key] = $image[$key]['altText'];
+			if (isset($image[$key])) {
+				$imageAltText[$key] = $image[$key]['altText'];
+			}
 		}
 
 		$this->setData('imageAltText', $imageAltText);
@@ -63,9 +66,9 @@ class NewSiteImageFileForm extends SettingsFileUploadForm {
 	/**
 	 * @copydoc SettingsFileUploadForm::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false, $params = null) {
 		$params = array('fileType' => 'image');
-		return parent::fetch($request, $params);
+		return parent::fetch($request, $template, $display, $params);
 	}
 
 
@@ -74,9 +77,9 @@ class NewSiteImageFileForm extends SettingsFileUploadForm {
 	//
 	/**
 	 * Save the new image file.
-	 * @param $request Request.
 	 */
-	function execute($request) {
+	function execute() {
+		$request = Application::getRequest();
 		$temporaryFile = $this->fetchTemporaryFile($request);
 
 		import('classes.file.PublicFileManager');
@@ -122,4 +125,4 @@ class NewSiteImageFileForm extends SettingsFileUploadForm {
 	}
 }
 
-?>
+

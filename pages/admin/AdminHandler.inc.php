@@ -3,8 +3,8 @@
 /**
  * @file pages/admin/AdminHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AdminHandler
@@ -63,8 +63,6 @@ class AdminHandler extends Handler {
 	function index($args, $request) {
 		$this->setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
-		$workingContexts = $this->getWorkingContexts($request);
-		$templateMgr->assign('multipleContexts', $workingContexts->getCount() > 1);
 		$templateMgr->display('admin/index.tpl');
 	}
 
@@ -82,12 +80,11 @@ class AdminHandler extends Handler {
 	/**
 	 * Initialize the handler.
 	 * @param $request PKPRequest
-	 * @param $args array
 	 */
-	function initialize($request, $args = null) {
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN, LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_APP_ADMIN, LOCALE_COMPONENT_APP_COMMON);
-		return parent::initialize($request, $args);
+	function initialize($request) {
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN, LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_APP_ADMIN, LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_MANAGER);
+		return parent::initialize($request);
 	}
 }
 
-?>
+

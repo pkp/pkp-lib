@@ -3,8 +3,8 @@
 /**
  * @file classes/submission/GenreDAO.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class GenreDAO
@@ -192,9 +192,8 @@ class GenreDAO extends DAO {
 	function _fromRow($row) {
 		$genre = $this->newDataObject();
 		$genre->setId($row['genre_id']);
-		$genre->getKey($row['entry_key']);
+		$genre->setKey($row['entry_key']);
 		$genre->setContextId($row['context_id']);
-		$genre->setSortable($row['sortable']);
 		$genre->setCategory($row['category']);
 		$genre->setDependent($row['dependent']);
 		$genre->setSupplementary($row['supplementary']);
@@ -216,13 +215,12 @@ class GenreDAO extends DAO {
 	function insertObject($genre) {
 		$this->update(
 			'INSERT INTO genres
-				(entry_key, seq, sortable, context_id, category, dependent, supplementary)
+				(entry_key, seq, context_id, category, dependent, supplementary)
 			VALUES
-				(?, ?, ?, ?, ?, ?, ?)',
+				(?, ?, ?, ?, ?, ?)',
 			array(
 				$genre->getKey(),
 				(float) $genre->getSequence(),
-				$genre->getSortable() ? 1 : 0,
 				(int) $genre->getContextId(),
 				(int) $genre->getCategory(),
 				$genre->getDependent() ? 1 : 0,
@@ -244,7 +242,6 @@ class GenreDAO extends DAO {
 			'UPDATE genres
 			SET	entry_key = ?,
 				seq = ?,
-				sortable = ?,
 				dependent = ?,
 				supplementary = ?,
 				enabled = ?,
@@ -253,7 +250,6 @@ class GenreDAO extends DAO {
 			array(
 				$genre->getKey(),
 				(float) $genre->getSequence(),
-				$genre->getSortable() ? 1 : 0,
 				$genre->getDependent() ? 1 : 0,
 				$genre->getSupplementary() ? 1 : 0,
 				$genre->getEnabled() ? 1 : 0,
@@ -328,7 +324,6 @@ class GenreDAO extends DAO {
 			if (!$genre) $genre = $this->newDataObject();
 			$genre->setContextId($contextId);
 			$genre->setKey($attrs['key']);
-			$genre->setSortable($attrs['sortable']);
 			$genre->setCategory($attrs['category']);
 			$genre->setDependent($attrs['dependent']);
 			$genre->setSupplementary($attrs['supplementary']);
@@ -338,11 +333,46 @@ class GenreDAO extends DAO {
 			}
 
 			if ($genre->getId() > 0) { // existing genre.
+				$genre->setEnabled(1);
 				$this->updateObject($genre);
 			} else {
 				$this->insertObject($genre);
 			}
 		}
+	}
+
+	/**
+	 * Get default keys.
+	 * @return array List of default keys
+	 */
+	function getDefaultKeys() {
+		$defaultKeys = array();
+		$xmlDao = new XMLDAO();
+		$data = $xmlDao->parseStruct('registry/genres.xml', array('genre'));
+		if (isset($data['genre'])) foreach ($data['genre'] as $entry) {
+			$attrs = $entry['attributes'];
+			$defaultKeys[] = $attrs['key'];
+		}
+		return $defaultKeys;
+	}
+
+	/**
+	 * If a key exists for a context.
+	 * @param $key string
+	 * @param $contextId int
+	 * @param $genreId int (optional) Current genre to be ignored
+	 * @return boolean
+	 */
+	function keyExists($key, $contextId, $genreId = null) {
+		$params = array($key, (int) $contextId);
+		if ($genreId) $params[] = (int) $genreId;
+		$result = $this->retrieveRange(
+			'SELECT COUNT(*) FROM genres WHERE entry_key = ? AND context_id = ?' . (isset($genreId) ? ' AND genre_id <> ?' : ''),
+			$params
+		);
+		$returner = isset($result->fields[0]) && $result->fields[0] == 1 ? true : false;
+		$result->Close();
+		return $returner;
 	}
 
 	/**
@@ -354,4 +384,4 @@ class GenreDAO extends DAO {
 	}
 }
 
-?>
+

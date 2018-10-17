@@ -4,8 +4,8 @@
 <!--
   * locale/ar_IQ/grid.xml
   *
-  * Copyright (c) 2013-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2013-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ar_IQ (العربية) locale.
@@ -18,6 +18,7 @@
 	<message key="grid.noAuditors">بلا مراقبين</message>
 	<message key="grid.remotelyHostedItem">هذه الفقرة مستضافة خارجياً.</message>
 
+	<message key="grid.action.uninstall">إلغاء التنصيب</message>
 	<message key="grid.action.manageAccess">إدارة الوصول</message>
 	<message key="grid.action.sort">الفرز</message>
 	<message key="grid.action.addItem">إضافة فقرة</message>
@@ -73,7 +74,6 @@
 	<message key="grid.action.sendToProduction">أرسل طلب النشر هذا لمرحلة الإنتاج</message>
 	<message key="grid.action.settings">الإعدادات</message>
 	<message key="grid.action.importexport">استيراد أو تصدير محتوى أو بيانات الموقع</message>
-	<message key="grid.action.restoreDefaults">استعادة الإعدادات الإفتراضية</message>
 	<message key="grid.action.orderItems">تمكين نمط الفرز</message>
 	<message key="grid.action.editSubmissionChecklist">تعديل فقرة التأشير هذه</message>
 	<message key="grid.action.deleteSubmissionChecklist">حذف فقرة التأشير هذه</message>
@@ -229,12 +229,8 @@
 	<message key="grid.user.mergeUsers">دمج المستخدمين</message>
 	<message key="grid.user.mergeUsers.mergeUser">دمج المستخدم</message>
 	<message key="grid.user.mergeUsers.mergeIntoUser">إدمجه بهذا المستخدم</message>
-	<message key="grid.user.mergeUsers.into.description">الآن، عليك اختيار مستخدم ما لإلحاق صلاحيات المستخدم السابق به، مع مهام التحرير... وما إلى ذلك.</message>
-	<message key="grid.user.mergeUsers.from.description">إختر مستخدماً ما لدمجه مع حساب مستخدم آخر (أي عندما يكون لأحد المستخدمين حسابين في الموقع). الحساب الذي ستختاره أولاً سيتم حذفه، وكل ما يتصل به من طلبات نشر وتعيينات... وما شابه سيتم إلحاقها بالحساب الثاني.</message>
 	<message key="grid.user.mergeUsers.allUsers">كل المستخدمين الممنوحين أدواراً</message>
-	<message key="grid.user.mergeUsers.mergeUserSelect.confirm">هل أنت متأكد من رغبتك في دمج هذا المستخدم مع مستخدم آخر؟ ستقوم باختيار المستخدم الثاني في النافذة القادمة.</message>
 	<message key="grid.user.mergeUsers.confirm">هل أنت متأكد من رغبتك في دمج هذا الحساب صاحب اسم الدخول "{$oldUsername}" مع الحساب صاحب اسم الدخول "{$newUsername}"؟ إن الحساب ذو الاسم "{$oldUsername}" لن يكون له وجود بعد ذلك. هذا الإجراء لا يمكن التراجع عنه.</message>
-	<message key="grid.user.mergeUsers.noneEnrolled">لا مستخدمين بهذا الدور بعد.</message>
 
 	<!-- Prepared emails -->
 	<message key="grid.preparedEmails.title">قوالب الرسائل الالكترونية المحضرة</message>
@@ -269,4 +265,11 @@
 	<!-- Submission list grids -->
 	<message key="grid.submission.itemTitle">المؤلف؛ العنوان</message>
 	<message key="grid.submission.active.selectOrphaned">إشمل طلبات النشر غير المكتملة التي لم تقدم من قبل أي مؤلف.</message>
+
+	<!-- Navigation Menus -->
+	<message key="grid.action.addNavigationMenu">إضافة قائمة</message>
+	<message key="grid.action.addNavigationMenuItem">إضافة عنصر</message>
+	<message key="grid.navigationMenus.navigationMenuItems.noneExist">لا عناصر في قائمة التنقل بعد</message>
+	<message key="grid.navigationMenus.navigationMenu.noneExist">لا توجد قوائم تنقل بعد</message>
+	<message key="grid.navigationMenus.navigationMenu.selectType">إختر نوعاً...</message>
 </locale>

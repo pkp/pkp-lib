@@ -1,0 +1,23 @@
+<!--
+  * dtd/navigationMenus.dtd
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * DTD for default navigation menus.
+  *
+  -->
+<!ELEMENT navigationMenuItems (navigationMenuItem+)>
+<!ELEMENT navigationMenuItem (navigationMenuItem*)>
+<!ATTLIST navigationMenuItem
+		title CDATA #REQUIRED
+		type CDATA #REQUIRED
+		site CDATA #IMPLIED>
+
+<!ELEMENT navigationMenus (navigationMenu*, navigationMenuItem*)>
+<!ELEMENT navigationMenu (navigationMenuItem*)>
+	<!ATTLIST navigationMenu
+		title CDATA #REQUIRED
+		area CDATA #REQUIRED
+		site CDATA #IMPLIED>

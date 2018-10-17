@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+<!--
+  * locale/fa_IR/editor.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Farsi_(fa_IR)
+  -->
+<locale name="fa_IR" full_name="فارسی">
+	<message key="editor.submissionLibrary">مجموعه مقالات ارسالی</message>
+	<message key="editor.review.notInitiated">پروسه داوری هنوز آغاز نشده است.</message>
+	<message key="editor.submission.copyediting.personalMessageToUser">پیام به کاربر</message>
+	<message key="editor.submission.externalReviewDescription">یکی از فایل‌های زیر را جهت ارسال برای داوری انتخاب کنید</message>
+	<!-- Add file or auditor to editor/audit grids -->
+	<message key="editor.submission.fileAuditor.form.fileRequired">حداقل یک فایل باید انتخاب شود تا بتوان برای آن، کاربری انتساب کرد</message>
+	<message key="editor.submission.fileAuditor.form.messageRequired">باید یک پیام شخصی وارد کنید</message>
+	<message key="editor.submission.fileAuditor.skipEmail">عدم ارسال ایمیل به حسابرس </message>
+	<message key="editor.submission.fileAuditor.form.userRequired">باید یک کاربر برای انتساب، انتخاب شود</message>
+	<message key="editor.submission.uploadSelectFiles">آپلود/انتخاب فایل</message>
+	<message key="editor.submission.selectFiles">انتخاب فایل</message>
+	<message key="editor.submission.revisions">اصلاحات</message>
+	<message key="editor.submission.review.reviewersDescription"><![CDATA[از گزینه <em>افزودن داور</em> برای دعوت از خوانندگان برای داوری مقالات ارسالی استفاده کنید. آیکون دفترچه بیانگر آن است که یک داور ثبت شده است و چنانچه داور، انجام داوری را بپذیرد، آیکون تیک خواهد خورد. زمانی که مهلت داوری به اتمام رسد آیکون قرمز رنگی برای ارسال یادآوری به داور نمایان می‌شود.]]></message>
+	<message key="editor.submission.addReviewer">افزودن داور</message>
+	<message key="editor.submission.findAndSelectReviewer">انتخاب داور</message>
+	<message key="editor.submission.findAndSelectUser">انتخاب کاربر</message>
+	<message key="editor.submission.fileList.includeAllStages">نمایش همه‌ی فایل‌های قابل دسترسی روند کار این مقاله</message>
+	<message key="editor.submission.review.currentFiles">داوری کنونی این فایل‌ها  در دور {$round}</message>
+	<message key="editor.submission.backToSearch">بازگشت به جستجو</message>
+	<message key="editor.review.createReviewer">ایجاد داور جدید</message>
+	<message key="editor.review.enrollReviewer.short">عضویت کاربر موجود</message>
+	<message key="editor.review.unassignReviewer">لغو انتساب داور</message>
+	<message key="editor.submissionReview.reviewType">نوع داوری</message>
+	<message key="editor.submissionReview.sendEmail">ارسال ایمیل اطلاع‌رسانی به نویسنده(گان): {$authorName}</message>
+	<message key="editor.submissionReview.sendEmail.editors">ارسال ایمیل اطلاع‌رسانی به دبیر(ان): {$editorNames}</message>
+	<message key="editor.submissionReview.skipEmail">عدم ارسال ایمیل به نویسندگان</message>
+	<message key="editor.submissionReview.open">باز کردن</message>
+	<message key="editor.submissionReview.blind">محرمانگی</message>
+	<message key="editor.submissionReview.doubleBlind">محرمانگی شدید</message>
+	<message key="editor.submissionReview.restrictFiles">فایل‌هایی که باید داوری شود</message>
+	<message key="editor.submissionReview.restrictFiles.hide">بستن انتخاب‌گر فایل</message>
+	<message key="editor.submissionReview.editReview">ویرایش داوری</message>
+	<message key="editor.review.personalMessageToReviewer">ایمیلی که باید برای داور ارسال شود</message>
+	<message key="editor.review.importantDates">تاریخ‌های مهم</message>
+	<message key="editor.review.uploadRevision">آپلود نسخه بازنگری شده</message>
+	<message key="editor.review.newReviewRound">درخواست دور جدید داوری</message>
+	<message key="editor.review.NotifyAuthorRevisions">درخواست انجام اصلاحات از نویسنده</message>
+	<message key="editor.review.NotifyAuthorResubmit">درخواست انجام اصلاح از نویسنده که مورد بررسی بیشتر قرار خواهد گرفت.</message>
+	<message key="editor.review.dateAccepted">تاریخ پذیرش داوری</message>
+	<message key="editor.review.reviewsAdded">داوری به محتوای پیام اضافه شد</message>
+	<message key="editor.review.noReviews">بدون بررسی همکار برای درون‌ریزی</message>
+	<message key="editor.review.reminder">یادآوری داوری</message>
+	<message key="editor.review.thankReviewer">تشکر از داور</message>
+	<message key="editor.review.reminderError">خطا در ارسال یادآوری به داوری</message>
+	<message key="editor.review.thankReviewerError">خطا در ارسال تشکر به داور</message>
+	<message key="editor.review.skipEmail">عدم ارسال ایمیل به داور</message>
+	<message key="editor.review.sendReminder">ارسال یادآوری</message>
+	<message key="editor.review.readReview">مشاهده داوری</message>
+	<message key="editor.review.readNewReview">خواندن داوری جدید</message>
+	<message key="editor.review.responseDue">مهلت پاسخ: {$date}</message>
+	<message key="editor.review.requestSent">درخواست ارسال شد.</message>
+	<message key="editor.review.requestAccepted">درخواست پذیرفته شد.</message>
+	<message key="editor.review.revertDecision">تقاضای تجدیدنظر</message>
+	<message key="editor.review.reviewDue">مهلت انجام داوری: {$date}</message>
+	<message key="editor.review.reviewDueDate">مهلت زمان داوری</message>
+	<message key="editor.review.reviewCompleted">داوری تکمیل شد.</message>
+	<message key="editor.review.reviewConfirmed">داوری تأیید شد.</message>
+	<message key="editor.review.reviewSubmitted">داوری ارسال شد.</message>
+	<message key="editor.review.reviewerComments">نظرات داور</message>
+	<message key="editor.review.mustSelect">باید یک داور انتخاب کنید.</message>
+	<message key="editor.review.errorAddingReviewer">در افزودن داور خطایی رخ داد. لطفاً دوباره تلاش کنید.</message>
+	<message key="editor.review.errorDeletingReviewer">در حذف داور خطایی رخ داد. لطفاً دوباره تلاش کنید.</message>
+	<message key="editor.review.userGroupSelect">کاربری را به عضویت گروه کاربری داور در آورید</message>
+	<message key="editor.review.unconsiderReviewText">مایلید این داوری را به عنوان داوری بی‌اعتبار علامت‌گذاری کنید؟ تاریخچه داوری حفظ خواهد شد.</message>
+	<message key="editor.review.unconsiderReview">نادیده گرفتن این داوری</message>
+	<message key="editor.review.readConfirmation">هنگامی که این داوری خواندن شد، «تأیید» را فشار دهید تا نشان دهید که روند داوری انجام یافته است. اگر داور، داوری خود را در جای دیگر ارسال کرده باشد، می‌توانید فایل را در قسمت زیر آپلود کرده و سپس  «تأیید» را انجام دهید.</message>
+	<message key="editor.submission.selectCopyedingFiles">ویراستاری فایل</message>
+	<message key="editor.submission.selectReviewer">انتخاب داور</message>
+	<message key="editor.submission.taskDueDate">مهلت زمان انجام وظیفه</message>
+	<message key="editor.submission.taskSchedule">زمان‌بندی داوری</message>
+	<message key="editor.review.enrollReviewer">افزودن یکی از کاربران را به عضویت گروه داوری</message>
+	<message key="editor.submission.noAuditRequested">هیچ حسابرسی برای این فایل درخواست نشده است</message>
+	<message key="editor.submission.personalMessageToUser">ایمیلی که به کاربر ارسال می‌شود.</message>
+	<message key="editor.submission.proof.reminder">یادآوری تأیید نسخه بازبینی نهایی</message>
+	<message key="editor.submission.editorial.approveCopyeditDescription">فایل ویراستاری شده قبل از ارسال به مرحله انتشار باید تأیید شود. آیا مایل به تأیید این فایل هستید؟</message>
+	<message key="editor.submission.editorial.disapproveCopyeditDescription">عدم تأیید این فایل ویراستاری شده، باعث عدم انتقال به مرحله انتشار خواهد شد. آیا مطمئن به عدم تأیید این فایل هستید؟</message>
+	<message key="editor.submission.addAuditor">انتساب حسابرس</message>
+	<message key="editor.submission.copyedit.manageCopyeditFilesDescription">هر فایلی که تاکنون در هر مرحله از ارسال مقاله آپلود شده است می‌تواند به مرحله ویراستاری اضافه شود. با انجام جستجو و انتخاب از لیست حاصل می‌توان این کار را انجام داد. می‌توان همچنان از گزینه آپلود برای آپلود فایل در این مرحله استفاده کرد.</message>
+	<message key="editor.review">مرور</message>
+	<message key="editor.review.reviewDetails">جزییات</message>
+	<message key="editor.review.noReviewFilesUploaded">فایلی آپلود نشده است.</message>
+	<message key="editor.review.noReviewFilesUploaded.details">شما هیچ فایل داوری آپلود نکرده‌اید.</message>
+	<message key="editor.review.emailReviewer">ایمیل  به داور</message>
+	<message key="editor.submission.production.productionReadyFiles">فایل‌های آماده‌ی چاپ</message>
+	<message key="editor.submission.newRound">دور جدید داوری</message>
+	<message key="editor.submissionReview.recordDecision">ثبت نظر تیم سردبیری</message>
+	<message key="editor.submissionReview.recordRecommendation">ثبت توصیه </message>
+	<message key="editor.submissionReview.recordRecommendation.notifyEditors">اطلاع‌رسانی به دبیر</message>
+	<message key="editor.submissionReview.recordRecommendation.skipEmail">عدم ارسال ایمیل به دبیر</message>
+	<message key="editor.submissionReview.recordRecommendation.createDiscussion">اتخاذ تصمیم داوری درباره این توصیه</message>
+	<message key="editor.submissionReview.recordRecommendation.skipDiscussion">عدم اتخاذ تصمیم داوری</message>
+	<message key="editor.submission.newRoundDescription">شما در حال ایجاد یک دور داوری جدید برای این مقاله هستید. فایل‌هایی که در دور داوری قبل مورد استفاده قرار نگرفته‌اند در زیر لیست شده‌اند.</message>
+	<message key="editor.submission.createNewRound">ایجاد دور جدید داوری</message>
+	<message key="editor.article.reviewForms">فرم‌های داوری</message>
+	<message key="editor.article.selectReviewForm">انتخاب فرم داوری</message>
+	<message key="editor.article.confirmChangeReviewForm">اخطار: تغییر در فرم داوری باعث تأثیر در تمام فرم‌های داوری که پیشتر بر اساس این فرم ایجاد شده‌اند خواهد شد. آیا مطمئنید که می‌خواهید ادامه دهید؟</message>
+	<message key="editor.submission.noReviewerFilesSelected">هیچ فایلی انتخاب نشده است.</message>
+	<message key="editor.submission.noReviewerFilesSelected.details">هیچ فایلی برای داور مشخص نشده است.</message>
+	<message key="submission.queries.subjectRequired">وارد کردن موضوع گفتگو الزامی است</message>
+	<message key="submission.queries.messageRequired">وارد کردن پیام گفتگو الزامی است</message>
+	<message key="submission.queries.attachedFiles">ضمیمه کردن فایل</message>
+	<message key="grid.action.editQuery">ویرایش گفتگو</message>
+	<message key="editor.submission.query.manageQueryNoteFilesDescription">فایل‌ها را می‌توان برای بررسی این مقاله اضافه کرد</message>
+	<message key="editor.submission.selectedReviewer">داور انتخاب شده</message>
+	<message key="editor.submission.proofreading.approveProof">تأیید نسخه بازبینی نهایی</message>
+	<message key="editor.submission.proofreading.revokeProofApproval">لغو تأیید بازبینی نهایی</message>
+	<message key="editor.submission.proofreading.confirmCompletion">تأیید نسخه بازبینی نهایی، برای بیان آنکه این نسخه کامل بوده و آماده  چاپ است.</message>
+	<message key="editor.submission.proofreading.confirmRemoveCompletion">عدم تأیید نسخه بازبینی نهایی، برای بیان آنکه این نسخه کامل نبوده و هنوز آماده به چاپ نیست.</message>
+	<message key="editor.publicIdentificationNumericNotAllowed">شناسه عمومی «{$publicIdentifier}» نباید یک عدد باشد.</message>
+	<message key="editor.publicIdentificationPatternNotAllowed">استفاده از الگوی {$pattern} به عنوان یک شناسه عمومی مجاز نیست.</message>
+</locale>

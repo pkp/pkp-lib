@@ -3,8 +3,8 @@
 /**
  * @file classes/security/Validation.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Validation
@@ -55,7 +55,7 @@ class Validation {
 		} else {
 			// Validate against user database
 			$rehash = null;
-			$valid = Validation::verifyPassword($username, $password, $user->getPassword(), $rehash);
+			$valid = self::verifyPassword($username, $password, $user->getPassword(), $rehash);
 
 			if ($valid && !empty($rehash)) {
 				// update to new hashing algorithm
@@ -81,14 +81,14 @@ class Validation {
 	 * @param string &$rehash if password needs rehash, this variable is used
 	 * @return boolean
 	 */
-	function verifyPassword($username, $password, $hash, &$rehash) {
+	static function verifyPassword($username, $password, $hash, &$rehash) {
 		if (password_needs_rehash($hash, PASSWORD_BCRYPT)) {
 			// update to new hashing algorithm
-			$oldHash = Validation::encryptCredentials($username, $password, false, true);
+			$oldHash = self::encryptCredentials($username, $password, false, true);
 
 			if ($oldHash === $hash) {
 				// update hash
-				$rehash = Validation::encryptCredentials($username, $password);
+				$rehash = self::encryptCredentials($username, $password);
 
 				return true;
 			}
@@ -200,7 +200,7 @@ class Validation {
 			} else {
 				// Validate against user database
 				$rehash = null;
-				$valid = Validation::verifyPassword($username, $password, $user->getPassword(), $rehash);
+				$valid = self::verifyPassword($username, $password, $user->getPassword(), $rehash);
 
 				if ($valid && !empty($rehash)) {
 					// update to new hashing algorithm
@@ -222,14 +222,13 @@ class Validation {
 	 * @return boolean
 	 */
 	static function isAuthorized($roleId, $contextId = 0) {
-		if (!Validation::isLoggedIn()) {
+		if (!self::isLoggedIn()) {
 			return false;
 		}
 
 		if ($contextId === -1) {
 			// Get context ID from request
-			$application = PKPApplication::getApplication();
-			$request = $application->getRequest();
+			$request = Application::getRequest();
 			$context = $request->getContext();
 			$contextId = $context == null ? 0 : $context->getId();
 		}
@@ -333,7 +332,7 @@ class Validation {
 	 * @param $hash string
 	 * @return boolean
 	 */
-	function verifyPasswordResetHash($userId, $hash) {
+	static function verifyPasswordResetHash($userId, $hash) {
 		// append ":" to ensure the explode results in at least 2 elements
 		list(, $expiry) = explode(':', $hash . ':');
 
@@ -342,17 +341,23 @@ class Validation {
 			return false;
 		}
 
-		return ($hash === Validation::generatePasswordResetHash($userId, $expiry));
+		return ($hash === self::generatePasswordResetHash($userId, $expiry));
 	}
 
 	/**
 	 * Suggest a username given the first and last names.
+	 * @param $givenName string
+	 * @param $familyName string
 	 * @return string
 	 */
-	static function suggestUsername($firstName, $lastName) {
-		$initial = PKPString::substr($firstName, 0, 1);
+	static function suggestUsername($givenName, $familyName = null) {
+		$name = $givenName;
+		if (!empty($familyName)) {
+			$initial = PKPString::substr($givenName, 0, 1);
+			$name = $initial . $familyName;
+		}
 
-		$suggestion = PKPString::regexp_replace('/[^a-zA-Z0-9_-]/', '', PKPString::strtolower($initial . $lastName));
+		$suggestion = PKPString::regexp_replace('/[^a-zA-Z0-9_-]/', '', Stringy\Stringy::create($name)->toAscii()->toLowerCase());
 		$userDao = DAORegistry::getDAO('UserDAO');
 		for ($i = ''; $userDao->userExistsByUsername($suggestion . $i); $i++);
 		return $suggestion . $i;
@@ -387,7 +392,7 @@ class Validation {
 	 * @return boolean
 	 */
 	static function isSiteAdmin() {
-		return Validation::isAuthorized(ROLE_ID_SITE_ADMIN);
+		return self::isAuthorized(ROLE_ID_SITE_ADMIN);
 	}
 
 	/**
@@ -431,5 +436,3 @@ class Validation {
 		return true;
 	}
 }
-
-?>

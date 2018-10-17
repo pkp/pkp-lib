@@ -3,8 +3,8 @@
 /**
  * @file plugins/generic/usageEvent/PKPUsageEventPlugin.inc.php
  *
- * Copyright (c) 2013-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2013-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPUsageEventPlugin
@@ -27,10 +27,10 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 	// Implement methods from PKPPlugin.
 	//
 	/**
-	* @copydoc LazyLoadPlugin::register()
-	*/
-	function register($category, $path) {
-		$success = parent::register($category, $path);
+	 * @copydoc Plugin::register()
+	 */
+	function register($category, $path, $mainContextId = null) {
+		$success = parent::register($category, $path, $mainContextId);
 
 		if ($success) {
 			$eventHooks = $this->getEventHooks();
@@ -73,7 +73,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 	/**
 	 * @copydoc LazyLoadPlugin::getEnabled()
 	 */
-	function getEnabled() {
+	function getEnabled($contextId = null) {
 		return true;
 	}
 
@@ -352,7 +352,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 
 			// First check for a context index page view.
 			if (($page == 'index' || empty($page)) && $op == 'index') {
-				$pubObject = $templateMgr->get_template_vars('currentContext');
+				$pubObject = $templateMgr->getTemplateVars('currentContext');
 				if (is_a($pubObject, 'Context')) {
 					$assocType = Application::getContextAssocType();
 					$canonicalUrlOp = '';
@@ -385,4 +385,4 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 
 }
 
-?>
+

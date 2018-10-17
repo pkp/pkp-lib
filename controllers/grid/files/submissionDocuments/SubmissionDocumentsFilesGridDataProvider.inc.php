@@ -2,8 +2,8 @@
 /**
  * @file controllers/grid/files/submissionDocuments/SubmissionDocumentsFilesGridDataProvider.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionDocumentsFilesGridDataProvider
@@ -49,7 +49,7 @@ class SubmissionDocumentsFilesGridDataProvider extends CategoryGridDataProvider 
 	/**
 	 * @copydoc CategoryGridHandler::loadCategoryData()
 	 */
-	function loadCategoryData($request, &$fileType, $filter = null) {
+	function loadCategoryData($request, $fileType, $filter = null) {
 
 		// Retrieve all library files for the given submission document category.
 		$submission = $this->getSubmission();
@@ -61,4 +61,4 @@ class SubmissionDocumentsFilesGridDataProvider extends CategoryGridDataProvider 
 	}
 }
 
-?>
+

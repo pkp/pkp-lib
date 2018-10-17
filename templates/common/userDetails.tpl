@@ -1,8 +1,8 @@
 {**
  * templates/common/userDetails.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Common user details form.
@@ -13,9 +13,6 @@
  *   $disableAuthSourceSection: Disable Auth section
  *   $disablePasswordSection: Disable Password section
  *   $disableSendNotifySection: Disable SendNotify section
- *   $disableGenderSection: Disable Gender section
- *   $disableSalutationSection: Disable Salutation section
- *   $disableInitialsSection: Disable Initials section
  *   $disablePhoneSection: Disable Phone section
  *   $disableLocaleSection: Disable Locale section
  *   $disableInterestsSection: Disable Interests section
@@ -28,9 +25,12 @@
 
 {fbvFormArea id="userDetails"}
 	{fbvFormSection title="user.name"}
-		{fbvElement type="text" label="user.firstName" required="true" id="firstName" value=$firstName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
-		{fbvElement type="text" label="user.middleName" id="middleName" value=$middleName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
-		{fbvElement type="text" label="user.lastName" required="true" id="lastName" value=$lastName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
+		{fbvElement type="text" label="user.givenName" multilingual="true" name="givenName" id="givenName" value=$givenName maxlength="255" inline=true size=$fbvStyles.size.MEDIUM required="true"}
+		{fbvElement type="text" label="user.familyName" multilingual="true" name="familyName" id="familyName" value=$familyName maxlength="255" inline=true size=$fbvStyles.size.MEDIUM}
+	{/fbvFormSection}
+
+	{fbvFormSection for="preferredPublicName" description="user.preferredPublicName.description"}
+		{fbvElement type="text" label="user.preferredPublicName" multilingual="true" name="preferredPublicName" id="preferredPublicName" value=$preferredPublicName size=$fbvStyles.size.LARGE}
 	{/fbvFormSection}
 
 	{if !$disableUserNameSection}
@@ -112,24 +112,11 @@
 {capture assign="extraContent"}
 	{fbvFormArea id="userFormExtendedLeft"}
 		{fbvFormSection}
-			{if !$disableGenderSection}
-				{fbvElement type="select" label="user.gender" name="gender" id="gender" defaultLabel="" defaultValue="" from=$genderOptions translate="true" selected=$gender inline=true size=$fbvStyles.size.SMALL}
-			{/if}
-			{if !$disableSalutationSection}
-				{fbvElement type="text" label="user.salutation" name="salutation" id="salutation" value=$salutation maxlength="40" inline=true size=$fbvStyles.size.SMALL}
-			{/if}
-			{fbvElement type="text" label="user.suffix" id="suffix" value=$suffix size=$fbvStyles.size.SMALL inline=true}
-			{if !$disableInitialsSection}
-				{fbvElement type="text" label="user.initials" name="initials" id="initials" value=$initials maxlength="5" inline=true size=$fbvStyles.size.SMALL}
-			{/if}
-		{/fbvFormSection}
-
-		{fbvFormSection}
 			{fbvElement type="text" label="user.url" name="userUrl" id="userUrl" value=$userUrl maxlength="255" inline=true size=$fbvStyles.size.SMALL}
 			{if !$disablePhoneSection}
 				{fbvElement type="text" label="user.phone" name="phone" id="phone" value=$phone maxlength="24" inline=true size=$fbvStyles.size.SMALL}
 			{/if}
-			{fbvElement type="text" label="user.orcid" name="orcid" id="orcid" value=$orcid maxlength="36" inline=true size=$fbvStyles.size.SMALL}
+			{fbvElement type="text" label="user.orcid" name="orcid" id="orcid" value=$orcid maxlength="37" inline=true size=$fbvStyles.size.SMALL}
 		{/fbvFormSection}
 
 		{if !$disableLocaleSection && count($availableLocales) > 1}
@@ -173,18 +160,20 @@
 	{/fbvFormArea}
 {/capture}
 
-{if $extraContentSectionUnfolded}
-	{fbvFormSection title="grid.user.userDetails"}
-		{$extraContent}
-	{/fbvFormSection}
-{else}
-	<div id="userExtraFormFields" class="left full">
-		{include file="controllers/extrasOnDemand.tpl"
-			id="userExtras"
-			widgetWrapper="#userExtraFormFields"
-			moreDetailsText="grid.user.moreDetails"
-			lessDetailsText="grid.user.lessDetails"
-			extraContent=$extraContent
-		}
-	</div>
-{/if}
+{fbvFormSection}
+	{if $extraContentSectionUnfolded}
+		{fbvFormSection title="grid.user.userDetails"}
+			{$extraContent}
+		{/fbvFormSection}
+	{else}
+		<div id="userExtraFormFields" class="left full">
+			{include file="controllers/extrasOnDemand.tpl"
+				id="userExtras"
+				widgetWrapper="#userExtraFormFields"
+				moreDetailsText="grid.user.moreDetails"
+				lessDetailsText="grid.user.lessDetails"
+				extraContent=$extraContent
+			}
+		</div>
+	{/if}
+{/fbvFormSection}

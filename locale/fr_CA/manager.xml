@@ -4,8 +4,8 @@
 <!--
   * locale/fr_CA/manager.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the fr_CA (Français (Canada)) locale.
@@ -92,6 +92,7 @@
 	<message key="manager.languages.alternateLocaleInstructions">Ce système permet, de façon facultative, la saisie de certaines informations critiques dans plusieurs langues supplémentaires. Pour utiliser cette fonctionnalité, sélectionner d'autres langues à partir des options énumérées ci-dessous.</message>
 	<message key="manager.languages.supportedLocalesInstructions">Sélectionner toutes les langues qui doivent être prises en charge sur le site, dans le menu de sélection de langue apparaissant sur chaque page. Le menu apparaîtra seulement si plus d'une langue est sélectionnée.</message>
 	<message key="manager.payment.timestamp">Estampille temporelle</message>
+	<message key="manager.people.allEnrolledUsers">Utilisateurs inscrits à cette presse</message>
 	<message key="manager.people.authSource">Source d'authentification</message>
 	<message key="manager.people.confirmUnenroll">Désincrire cet utilisateur?</message>
 	<message key="manager.people.createUser">Créer un nouvel utilisateur</message>
@@ -113,6 +114,7 @@
 	<message key="manager.people.enrollSyncRole">Synchroniser les rôles</message>
 	<message key="manager.people.enrollSync">Synchroniser l'inscription</message>
 	<message key="manager.people.enrollUserAsDescription">Les utilisateurs peuvent se voir attribuer ou se faire retirer un rôle à n'importe quel moment.</message>
+	<message key="manager.people.existingUserRequired">Vous devez choisir un utilisateur existant.</message>
 	<message key="manager.people.enrollUserAs">Inscrire l'utilisateur en tant que</message>
 	<message key="manager.people.invalidUser">Désolé, l'utilisateur demandé n'existe pas.</message>
 	<message key="manager.people.mergeUser">Fusionner l'utilisateur</message>
@@ -159,7 +161,6 @@
 	<message key="plugins.categories.auth">Plugiciels d'autorisation</message>
 	<message key="plugins.categories.blocks">Plugiciels de bloc</message>
 	<message key="plugins.categories.blocks.description">Les plugiciels de bloc sont composés de modules d'interface enfichables, tels les différents outils des encadrés latéraux.</message>
-	<message key="plugins.categories.citationFormats">Plugiciels de format de citation</message>
 	<message key="plugins.categories.gateways.description">Les plugiciels de passerelle fournissent des données réelles à des systèmes externes.</message>
 	<message key="plugins.categories.gateways">Plugiciels de passerelle</message>
 	<message key="plugins.categories.generic">Plugiciels génériques</message>
@@ -174,10 +175,6 @@
 	<message key="manager.emails.form.emailKeyRequired">Une clé de courriel unique est obligatoire pour le courriel.</message>
 	<message key="manager.setup.errorDeletingItem">Il s'est produit une erreur lors de la suppression de cet élément.</message>
 	<message key="manager.reviewerSearch.searchByName">Chercher un évaluateur par nom</message>
-	<message key="manager.reviewerSearch.doneAmount">Nombre d'évaluations terminée : {$current}</message>
-	<message key="manager.reviewerSearch.avgAmount">Nombre de jours moyen par évaluation: {$current}</message>
-	<message key="manager.reviewerSearch.lastAmount">Jours depuis la dernière évaluation: {$current}</message>
-	<message key="manager.reviewerSearch.activeAmount">Nombre d'évaluations présentement actives: {$current}</message>
 	<message key="manager.reviewerSearch.interests">Intérêts d'évaluation</message>
 	<message key="manager.setup.citationAssistant">Aide au balisage de références</message>
 	<message key="manager.setup.citationFilterParser">Extraction de références</message>
@@ -188,8 +185,6 @@
 <p>Nous fournissions des connecteurs à plusieurs bases de données externes dans lesquelles vous pouvez chercher des références. Certaines de ces bases de données nécessite une inscription ou de l'information de configuration pour y accéder. Veuillez référer aux sites Web publiques de ces bases de données pour plus d'information sur comment s'inscrire. Vous pouvez ajouter une ou plusieurs bases de données en cliquant sur le bouton "Ajouter un élément " ci-dessous.</p>
 <p>Vous pouvez modifier ou supprimer un connection existant à une base de données externe en cliquant sur l'icône d'engrenage juste à côté.</p>
 <p><strong>Note:</strong> en vue de compléter le processus de vérifications des références dans des délais raisonnables, la directive <tt>citation_checking_max_processes</tt> dans votre fichier de configuration doit être paramétré à une valeur raisonnable. Voir la section "General Settings" dans <tt>config.inc.php</tt> pour plus d'information.</p>]]></message>
-	<message key="manager.setup.citationOutput">Version de sortie de la référence</message>
-	<message key="manager.setup.citationOutputStyleDescription">Choisir le modèle de références qui est utilisé dans votre revue pour les soumissions d'auteur. L'Aide au balisage des références vous laisse comparer la version de la référence de l'auteur avec celle générée à partir du XML que vous générez afin que vous puissiez facilement identifier les erreurs :</message>
 	<message key="manager.setup.filter.grid.errorDeletingFilter">Une erreur s'est produite pendant la tentative de suppression de ce filtre. Veuillez rapporter ceci comme un bogue.</message>
 	<message key="manager.setup.filter.grid.filterDisplayName">Connecteur</message>
 	<message key="manager.setup.filter.grid.filterSettings">Information d'inscription et Paramètres du connecteur</message>
@@ -199,7 +194,7 @@
 	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Veuillez sélectionner une base de données de recherche.</message>
 	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Ce filtre se connecte à la base de données livre et ISBN <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a>.</p>
 	<p>Une clé ISBNdb API est obligatoire. Pour plus d'information sur la génération de la clé, voir la <a href="http://isbndb.com/api/v1/docs/keys" target="_blank">documentation en ligne</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Ce filtre se connecte à la base de données de références CrossRef en utilisant l'<a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">interface de requête OpenURL</a> de CrossRef.</p> 
+	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Ce filtre se connecte à la base de données de références CrossRef en utilisant l'<a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">interface de requête OpenURL</a> de CrossRef.</p>
 	<p>Pour utiliser ce filtre, vous pouvez utiliser votre compte système CrossRef, ou s'inscrire à l'aide une adresse de courriel valide avec CrossRef <a href="http://www.crossref.org/requestaccount/" target="_blank">ici</a>.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Ce filtre se connecte au moteur de recherche de base de données croisée <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a> de PubMed.</p>
 	<p>Un courriel n'est pas obligatoire au sens strict du terme pour s'inscrire, mais peut être nécessaire si vous faites face à des problèmes de connection. Voir la section <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Usage Guidelines and Requirements</a> dans la documentation de Entrez pour plus d'information.</p>]]></message>
@@ -207,7 +202,6 @@
 	<p>Si vous avez une <a href="http://oclc.org/developer/develop/web-services.html" target="_blank">clé API</a> Worldcat, vous pouvez vous connecter à Worldcat en saisissant la clé ci-dessous.</p>]]></message>
 	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>Ce filtre d'extraction utilise les modules Perl <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> pour fournir la fonctionnalité <a href="http://paracite.eprints.org" target="_blank">ParaCite</a> d'analyse syntaxique des références. Afin que ça fonctionne correctement, vous devez avoir Perl installé, ainsi que les modules CPAN <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> et <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a>. Vous devez également configurer la directive <tt>perl</tt> dans votre fichier de configuration. Cette directive peut être trouvée dans la section External Commands de <tt>config.inc.php</tt>.</p>
 	<p>Vous pouvez également choisir quel module d'analyse syntaxique ParaTools vous devriez utiliser. Vous pouvez choisir entre le standard, <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a>, et les modules d'analyse syntaxique <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a>.</p>]]></message>
-	<message key="manager.setup.metaCitationsDescription">Activer la case à cocher suivante pour rendre disponible l'édition des références et renvois. Ceci permettra aux auteurs d'inclure des références brutes avec leurs soumissions. Les rédacteurs auront également accès à un assistant au balisage des références qui vérifie les références brutes par rapport à des bases de données externes, telles que WorldCat, ISBNdb, PubMed et autres, pour s'assurer de leur exactitude. Les références approuvées peuvent être exportées à l'intérieur des fichiers d'épreuves finales.</message>
 	<message key="manager.setup.filter.lookup.grid.loadMessage">Veuillez patienter jusqu'à ce que la grille de configuration de la base de données de références soit chargée...</message>
 	<message key="manager.setup.filter.lookup.grid.title">Connecteurs de la base de données de références</message>
 	<message key="manager.setup.filter.noMoreTemplates">Toutes les transformations disponibles ont déjà été ajoutées. Veuillez cliquer sur 'Annuler' pour retourner à la page de configuration.</message>
@@ -284,22 +278,21 @@
 	<message key="manager.emails.resetAll.message">Si vous réinitialisez tous les modèles, toutes vos modifications des modèles de courriels seront perdues. Vous souhaitez confirmer cette opération?</message>
 	<message key="manager.emails.reset.message">Si vous réinitialisez ce modèle, toutes les données des messages seront réinitialisées à leur valeur par défaut et vous perdrez toutes les modifications. Vous souhaitez confirmer cette opération?</message>
 	<message key="manager.reviewerSearch.form.instructions">Utilisez le formulaire ci-dessous pour indiquer les valeurs maximales des termes de votre recherche. Le formulaire contient les moyennes calculées de ces champs.</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">Saisir les intérêts des examinateurs, séparés par des virgules...</message>
 	<message key="manager.statistics.reports.aggregationColumns">Statistiques agrégées par:</message>
 	<message key="manager.statistics.reports.defaultReportTemplates">Modèles de rapport par défaut</message>
 	<message key="manager.statistics.reports.form.columnsRequired">Vous devez choisir au moins une colonne pour produire le rapport.</message>
 	<message key="manager.statistics.reports.filters.byLocation.description">Limiter les résultats selon le pays, la région ou la ville.</message>
 	<message key="manager.setup.competingInterests">Intérêts concurrents</message>
-	<message key="manager.setup.competingInterestsDescription">Les examinateurs devront respecter la politique de divulgation des intérêts concurrents que vous spécifiez ci-dessous.</message>
+	<message key="manager.setup.competingInterestsDescription">Les évaluateurs devront respecter la politique de divulgation des intérêts concurrents que vous spécifiez ci-dessous.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Délai de réponse alloué (semaines)</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Délai alloué pour la révision (semaines)</message>
-	<message key="manager.setup.reviewOptions.remindForInvite">Envoyer un rappel si l'examinateur n'a pas répondu à la demande d'examen dans le délai suivant (jours):</message>
-	<message key="manager.setup.reviewOptions.remindForSubmit">Envoyer un rappel si l'examinateur n'a pas fait sa recommandation dans le délai suivant (jours):</message>
+	<message key="manager.setup.reviewOptions.remindForInvite">Envoyer un rappel si l'évaluateur n'a pas répondu à la demande d'évaluation dans le délai suivant (jours):</message>
+	<message key="manager.setup.reviewOptions.remindForSubmit">Envoyer un rappel si l'évaluateur n'a pas fait sa recommandation dans le délai suivant (jours):</message>
 	<message key="manager.setup.dependentGenre">Genres dépendants</message>
 	<message key="manager.setup.sponsors.note">Vous pouvez ajouter une note décrivant votre politique en matière de commandite; celle-ci apparaitra dans la liste des commanditaires sur votre page À propos de.</message>
 	<message key="manager.setup.contributors.note">Vous pouvez ajouter une note décrivant votre rapport et votre politique entre vous et vos bailleurs de fonds; celle-ci apparaitra dans la liste des bailleurs de fonds sur votre page À propos de.</message>
 	<message key="manager.plugins.fileSelectError">Veuillez sélectionner un fichier d'abord</message>
-	<message key="manager.statistics.defaultMetricDescription">Votre {$contextObjectName} a été configuré pour enregistrer plus d'une mesure d'utilisation. Les statistiques d'utilisation seront affichées dans plusieurs contextes. 
+	<message key="manager.statistics.defaultMetricDescription">Votre {$contextObjectName} a été configuré pour enregistrer plus d'une mesure d'utilisation. Les statistiques d'utilisation seront affichées dans plusieurs contextes.
 
 Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, par exemple pour afficher une liste ordonnée des soumissions les plus utilisées ou pour ordonner les résultats de la recherche. Veuillez choisir l'une des mesures configurées à titre de mesure par défaut.</message>
 	<message key="manager.statistics.reports.advancedOptions.label">Personnaliser les colonnes, le filtre et les options de classement. Les changements apportés à ces options pourraient modifier le résultat du modèle de rapport attendu.</message>
@@ -307,14 +300,12 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.statistics.reports.objectId.label">Définir une ou plusieurs identifications d'objet, séparées par une virgule (ex.: 1,2,3,4,5)</message>
 	<message key="manager.statistics.reports.cities.label">Un ou plusieurs noms de villes, séparés par une virgule (ex.: Ville 1, Ville 2)</message>
 	<message key="manager.statistics.reports.reportUrl.label">L'adresse URL suivante peut être utilisée pour produire le rapport avec les configurations de formulaire actuelles. Il suffit de la copier, de la coller dans votre navigateur Web et d'entrer. Vous pouvez utiliser vos favoris pour conserver votre générateur d'URL pour les rapports personnalisés.</message>
-	<message key="manager.setup.styleSheetDescription">Vous pouvez télécharger un fichier de Feuilles de style en cascade (FSC) supplémentaire pour modifier l'apparence.</message>
+	<message key="manager.setup.styleSheetDescription">Vous pouvez télécharger un fichier CSS (feuille de style en cascade) supplémentaire pour modifier l'apparence du site Web.</message>
 	<message key="manager.setup.layout.blockManagement">Gestion de la barre latérale</message>
 	<message key="plugins.categories.metadata">Modules d'extension des métadonnées</message>
 	<message key="plugins.categories.metadata.description">Les modules d'extension des métadonnées mettent en place des normes supplémentaires pour les métadonnées.</message>
 	<message key="plugins.categories.citationLookup">Modules d'extension pour connecter à la base de données de citations</message>
 	<message key="plugins.categories.citationLookup.description">Les modules d'extension pour connecter à la base de données de citations permettent d'accéder aux bases de données pour chercher des citations, ex.: pendant la révision des citations.</message>
-	<message key="plugins.categories.citationOutput">Modules d'extension pour la production de citations</message>
-	<message key="plugins.categories.citationOutput.description">Les modules d'extension pour la production de citations mettent en place les normes de citations. Ceci remplace les modules d'extension du format des citations.</message>
 	<message key="plugins.categories.citationParser">Modules d'extension pour l'extraction des citations</message>
 	<message key="plugins.categories.citationParser.description">Les modules d'extension pour l'extraction des citations prélèvent des données locales à partir des citations brutes (ex.: auteur, titre, etc.)</message>
 	<message key="plugins.categories.pubIds">Modules d'extension d'identificateur public</message>
@@ -434,12 +425,7 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.reviewFormElements.viewable">Visualisable (pour les auteurs)</message>
 
 	<message key="manager.userSearch.searchByName">Rechercher un usager par son nom</message>
-	<message key="manager.reviewerSearch.change">Changé</message>
-	<message key="manager.reviewerSearch.doneAmountToggle">Activer/désactiver le filtre pour évaluations complétées.</message>
-	<message key="manager.reviewerSearch.avgAmountToggle">Activer/désactiver le filtre pour moyenne de jours pour compléter une évaluation.</message>
-	<message key="manager.reviewerSearch.lastAmountToggle">Activer/désactiver le filtre pour les jours depuis la dernière évaluation</message>
-	<message key="manager.reviewerSearch.activeAmountToggle">Activer/désactiver le filtre pour les évaluations présentement actives.</message>
-	<message key="manager.reviewerSearch.form.previousReviewRounds">Évaluateurs des rondes précédentes de cette soumission</message>
+	<message key="manager.reviewerSearch.change">Changer</message>
 	<message key="manager.statistics.reports.optionalColumns.description">Les éléments en italique et marqués d'un astérisque représentent des données facultatives pour le mode actuel de comptage des statistiques dans le système (type métrique). Vous pouvez avoir ces données ou non, dépendamment de la configuration des plugiciels statistiques.</message>
 	<message key="manager.statistics.reports.advancedOptions.hide">Masquer les options avancées</message>
 	<message key="manager.statistics.reports.objectNotFound">Objet introuvable dans la base de données.</message>
@@ -462,17 +448,16 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.setup.openAccessPolicy.description">Si vous fournissez un accès immédiat et gratuit à tout le contenu publié, vous pouvez inscrire une description de votre politique sur le libre accès.</message>
 	<message key="manager.setup.pageFooter">Pied de page</message>
 	<message key="manager.setup.pageFooterDescription">Entrer une image, du texte ou du code HTML que vous voudriez voir apparaître au bas de votre site web.</message>
-	<message key="manager.setup.peerReview.description">Décrivez la politique et les processus d'examen par les pairs pour les lecteurs et les auteurs. Cette description comprend souvent le nombre d'évaluateur impliqués dans l'examen d'une soumission, les critères par lesquels les évaluateurs sont invités à juger ces soumissions, le temps prévu pour effectuer les évaluations et enfin, les critères utilisés pour sélectionner les examinateurs.</message>
+	<message key="manager.setup.peerReview.description">Décrire la politique et les processus d'évaluation par les pairs pour les lecteurs et les auteurs. Cette description comprend souvent le nombre d'évaluateur impliqués dans l'évaluation d'une soumission, les critères par lesquels les évaluateurs sont invités à juger ces soumissions, le temps prévu pour effectuer les évaluations et enfin, les critères utilisés pour sélectionner les évaluateurs.</message>
 	<message key="manager.setup.principalContact">Contact principal</message>
-	<message key="manager.setup.principalContactDescription">Entrez les coordonnées d'un rédacteur en chef, d'un membre de la rédaction ou du personnel administratif qui peuvent être affichées sur la version public de votre site Web.</message>
+	<message key="manager.setup.principalContactDescription">Entrer les coordonnées d'un membre de la rédaction ou du personnel administratif qui peuvent être affichées sur votre site Web.</message>
 	<message key="manager.setup.privacyStatement">Déclaration de confidentialité</message>
-	<message key="manager.setup.privacyStatement.description">Cette déclaration apparaîtra lors de la soumission de l'auteur et sur la page accessible au public.</message>
 	<message key="manager.setup.reviewOptions.noteOnModification">Les valeurs par défauts peuvent être modifiées pour chaque évaluation durant le processus éditorial.</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Date limite par défaut des évaluations</message>
-	<message key="manager.setup.reviewOptions.showBlindReviewLink">Présentez un lien "Assurer une évaluation à l'aveugle" lors du téléchargement</message>
+	<message key="manager.setup.reviewOptions.showBlindReviewLink">Présenter un lien "Assurer une évaluation à l'aveugle" lors du téléchargement</message>
 	<message key="manager.setup.sponsors.description">Exemples: associations ou sociétés savantes, départements universitaires, coopératives, etc. Les commanditaire sont affichés publiquement.</message>
-	<message key="manager.setup.technicalSupportContact">Support technique</message>
-	<message key="manager.setup.technicalSupportContactDescription">Une personne-ressource qui peut aider les rédacteurs en chef, les auteurs et les évaluateurs à résoudre des problèmes lors d'une soumission, de l'édition, de l'évaluation ou lors de la publication de documents.</message>
+	<message key="manager.setup.technicalSupportContact">Soutien technique</message>
+	<message key="manager.setup.technicalSupportContactDescription">Une personne-ressource qui peut aider les rédacteurs, les auteurs et les évaluateurs avec toutes difficultés rencontrées durant la soumission, l'évaluation, l'édition ou la publication.</message>
 	<message key="manager.plugins.installConfirm">Voulez-vous vraiment installer ce plugiciel?</message>
 	<message key="manager.plugins.upgradeConfirm">Voulez-vous vraiment mettre à jour ce plugiciel?</message>
 	<message key="grid.action.installPlugin">Installer ou mettre à jour le plugiciel</message>
@@ -493,7 +478,7 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.reviewForms.confirmDelete">Voulez-vous vraiment supprimer ce formulaire d'évaluation?</message>
 	<message key="manager.plugins.pluginGallery.certifications.partner">Partenaire</message>
 	<message key="manager.plugins.pluginGallery.maintainer">Responsable</message>
-	<message key="manager.plugins.pluginGallery.version">Version: {$version}</message>
+	<message key="manager.plugins.pluginGallery.version">Version: {$version}, sortie le {$date}</message>
 	<message key="manager.plugins.pluginGallery.date">Date de sortie: {$date}</message>
 	<message key="manager.plugins.pluginGallery.homepage">Page d'accueil</message>
 	<message key="manager.plugins.pluginGallery.status">État</message>
@@ -519,4 +504,74 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="plugins.importexport.common.error.unknownEncoding">Encodage inconnu {$param}</message>
 	<message key="plugins.importexport.common.error.unknownUserGroup">Groupe d'utilisateur inconnu {$param}</message>
 	<message key="plugins.importexport.common.error.unknownUploader">Téléverseur inconnu {$param}</message>
+	<message key="manager.plugins.pluginGallery.certifications.official.description">Ce plugiciel est développé et soutenu par l'équipe du Public Knowledge Project.</message>
+	<message key="manager.plugins.pluginGallery.certifications.reviewed.description">Ce plugiciel a été évalué et approuvé par l'équipe du Public Knowledge Project.</message>
+	<message key="manager.plugins.pluginGallery.certifications.partner.description">Ce plugiciel est rendu disponible par l'un de nos partenaires de développement.</message>
+	<message key="plugins.importexport.common.warningsEncountered">Avertissements rencontrés:</message>
+	<message key="plugins.importexport.common.error.encodingError">Le contenu n'est pas codé comme {$param}</message>
+	<message key="manager.navigationMenus.about.description"><![CDATA[Lien vers une page affichant le contenu "A propos de cette revue" dans Paramètres> Revue]]></message>
+	<message key="manager.navigationMenus.submissions.description">Lien vers la page affichant les instructions de soumission.</message>
+	<message key="settings.roles.recommendOnly">Ce rôle est seulement autorisé à recommander une décision éditoriale. Un rédacteur devra enregistrer la décision finale.</message>
+	<message key="plugins.importexport.common.error.temporaryFileFailed">Le fichier temporaire {$dest} n'a pu être créé à partir de {$source}</message>
+	<message key="plugins.importexport.common.error.filesizeMismatch">La taille de fichier fournie "{$expected}" et la taille de fichier réelle "{$actual}" ne correspondent pas</message>
+	<message key="plugins.importexport.common.error.duplicateRevisionForSubmission">Cette révision "{$revisionId}" du fichier de soumission "{$fileId}" créerait un doublon.</message>
+	<message key="plugins.importexport.native.error.submissionFileImportFailed">Le fichier de soumission n'a pu être importé</message>
+	<message key="manager.navigationMenus.form.title">Titre</message>
+	<message key="manager.navigationMenus.form.path">Chemin d'accès</message>
+	<message key="manager.navigationMenus">Menus de navigation</message>
+	<message key="manager.navigationMenus.form.viewInstructions"><![CDATA[<p>Cette page sera accessible à l'adresse suivante: <blockquote>{$pagesPath}</blockquote>...où %PATH% est le chemin d'accès inscrit plus haut. <strong>Note:</strong> Deux pages ne peuvent avoir le même chemin d'accès. Utiliser des chemins d'accès qui sont construits dans le système peut conduire à la perte de fonctionnalités importantes.</p>]]></message>
+	<message key="manager.navigationMenus.form.content">Contenu</message>
+	<message key="manager.navigationMenus.form.pathRegEx">Le champ "Chemin d'accès" ne peut contenir que des caractères alphanumériques, plus ".", "/", "-", et  "_".</message>
+	<message key="manager.navigationMenus.form.duplicatePath">Ce chemin d'accès existe déjà pour un autre élément du menu de navigation.</message>
+	<message key="manager.navigationMenus.form.duplicateTitles">Ce titre existe déjà dans un autre menu de navigation.</message>
+	<message key="manager.navigationMenus.form.titleRequired">Le titre est requis</message>
+	<message key="manager.navigationMenuItems">Éléments du menu de navigation</message>
+	<message key="manager.navigationMenus.assignedMenuItems">Éléments du menu assignés</message>
+	<message key="manager.navigationMenus.unassignedMenuItems">Éléments du menu non assignés</message>
+	<message key="manager.navigationMenus.form.navigationMenuArea">Zones actives du thème de navigation</message>
+	<message key="manager.navigationMenus.form.navigationMenuAreaMessage">Sélectionner une zone de navigation</message>
+	<message key="manager.navigationMenus.form.url">URL</message>
+	<message key="manager.navigationMenus.form.customUrlError">Un URL doit être fourni</message>
+	<message key="manager.navigationMenus.form.conditionalDisplay">Apprendre davantage sur l'affichage ou le masquage de cet élément du menu.</message>
+	<message key="manager.navigationMenus.form.submenuWarning">Lorsqu'un élément du menu ouvre un sous-menu, son lien ne peut pas être suivi sur tous les périphériques. Par exemple, si vous avez un élément "À propos" qui ouvre un sous-menu avec "Contact" et "Équipe éditoriale", le lien "À propos" peut ne pas être accessible sur tous les appareils. Dans le menu par défaut, cela est géré en créant un deuxième élément de menu, "À propos de cette revue", qui apparaît dans le sous-menu.</message>
+	<message key="manager.navigationMenus.form.navigationMenuItemType">Type de menu de navigation</message>
+	<message key="manager.navigationMenus.form.navigationMenuItemTypeMessage">Sélectionner un type de menu de navigation ou personnaliser  pour faire le vôtre</message>
+	<message key="manager.navigationMenus.customPage">Page personnalisée</message>
+	<message key="manager.navigationMenus.customPage.description">Créer une page personnalisée sur votre site et créer un lien vers celle-ci dans un menu de navigation.</message>
+	<message key="manager.navigationMenus.remoteUrl">URL distante</message>
+	<message key="manager.navigationMenus.remoteUrl.description">Lien vers n'importe quelle URL d'un autre site, par exemple, http://pkp.sfu.ca.</message>
+	<message key="manager.navigationMenus.about.conditionalWarning"><![CDATA[Ce lien ne sera affiché que si vous avez rempli la section "À propos", située sous Paramètres> Revue.]]></message>
+	<message key="manager.navigationMenus.editorialTeam.description"><![CDATA[Lien vers une page affichant le contenu du Bloc générique dans Paramètres>Revue.]]></message>
+	<message key="manager.navigationMenus.editorialTeam.conditionalWarning"><![CDATA[Ce lien sera seulement affiché si vous avez rempli la section "Bloc-générique" dans Paramètres>Revue.]]></message>
+	<message key="manager.navigationMenus.current.description">Lien vers le numéro courant.</message>
+	<message key="manager.navigationMenus.archives.description">Lien vers votre numéro archivé.</message>
+	<message key="manager.navigationMenus.announcements.description">Lien vers la page affichant vos annonces.</message>
+	<message key="manager.navigationMenus.announcements.conditionalWarning"><![CDATA[Ce lien ne sera affiché que si vous avez activé les annonces sous Paramètres>Site Web.]]></message>
+	<message key="manager.navigationMenus.login.description">Lien vers la page de connexion des utilisateurs.</message>
+	<message key="manager.navigationMenus.register.description">Lien vers la page d'inscription des utilisateurs.</message>
+	<message key="manager.navigationMenus.dashboard.description">Lien vers le tableau de bord éditorial.</message>
+	<message key="manager.navigationMenus.profile.description">Lien vers la page de profil de l'utilisateur.</message>
+	<message key="manager.navigationMenus.administration.description">Lien vers les outils d'administration du site complet.</message>
+	<message key="manager.navigationMenus.administration.conditionalWarning">Ce lien ne sera affiché qu'aux utilisateurs ayant des fonctions administratives.</message>
+	<message key="manager.navigationMenus.logOut.description">Un lien qui fermera la session d'un utilisateur.</message>
+	<message key="manager.navigationMenus.loggedOut.conditionalWarning">Ce lien ne sera affiché que si le visiteur s'est connecté.</message>
+	<message key="manager.navigationMenus.loggedIn.conditionalWarning">Ce lien ne sera affiché que si le visiteur ne s'est pas connecté.</message>
+	<message key="manager.setup.privacyStatement.description">Cette déclaration apparaîtra lors de l'inscription de l'utilisateur, de la soumission d'un article et sur la Page de confidentialité accessible au public. Dans certaines juridictions, vous êtes légalement tenus de divulguer la manière dont vous gérez les données utilisateurs dans une politique de confidentialité.</message>
+	<message key="manager.setup.searchEngineIndexing.sitemap">Sitemap</message>
+	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[Un sitemap XML est disponible pour la soumission aux moteurs de recherche à <a href="{$path}" target="_blank">{$path}</a>]]></message>
+	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>Ce fichier peut être accessible pour téléchargement, si "Accès public" est activé, à:<blockquote>{$downloadUrl}</blockquote></p>]]></message>
+	<message key="settings.libraryFiles.public.selectLibraryFiles">Sélectionner le fichier à joindre</message>
+	<message key="manager.setup.genres.key">Clé</message>
+	<message key="manager.setup.genres.key.description">Un identifiant optionnel, symbolique et court pour ce genre.</message>
+	<message key="manager.setup.genres.key.exists">La clé existe déjà.</message>
+	<message key="manager.setup.genres.key.alphaNumeric">La clé ne peut contenir que des caractères alphanumériques, des traits de soulignement et des tirets. Elle doit commencer et se terminer par un caractère alphanumérique.</message>
+	<message key="manager.navigationMenus.form.menuAssigned">Un menu de navigation est déjà présent dans cette section.</message>
+	<message key="manager.navigationMenus.contact.description">Lien vers une page affichant vos informations de contact.</message>
+	<message key="manager.navigationMenus.contact.conditionalWarning"><![CDATA[Ce lien ne sera affiché que si vous avez rempli les informations de contact sous Paramètres> Revues> Contact.]]></message>
+	<message key="manager.navigationMenus.form.typeMissing">Veuillez sélectionner un type de menu de navigation.</message>
+	<message key="manager.navigationMenus.subscriptions.conditionalWarning"><![CDATA[Ce lien ne sera affiché que si les paiements sont activés sous Paramètres> Distribution> Paiements.]]></message>
+	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning"><![CDATA[Ce lien ne sera affiché que si le visiteur est connecté, si les paiements sont activés dans  Paramètres> Distribution> Paiements et si l'abonnement est exigé dans Paramètres> Distribution> Accès.]]></message>
+	<message key="manager.navigationMenus.search.description">Lien vers la page de recherche</message>
+	<message key="manager.navigationMenus.privacyStatement.description">Lien vers la page affichant la déclaration de confidentialité.</message>
+	<message key="manager.navigationMenus.privacyStatement.conditionalWarning"><![CDATA[Ce lien ne sera affiché que si vous avez inscrit une déclaration de confidentialité sous Paramètres> Flux des travaux> Soumissions.]]></message>
 </locale>

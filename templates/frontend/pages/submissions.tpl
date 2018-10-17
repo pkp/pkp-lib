@@ -1,8 +1,8 @@
 {**
  * templates/frontend/pages/submissions.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @brief Display the page to view the editorial team.
@@ -63,7 +63,7 @@
 				{translate key="about.copyrightNotice"}
 				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="distribution" anchor="permissions" sectionTitleKey="about.copyrightNotice"}
 			</h2>
-			{$currentContext->getLocalizedSetting('copyrightNotice')|nl2br}
+			{$currentContext->getLocalizedSetting('copyrightNotice')}
 		</div>
 	{/if}
 

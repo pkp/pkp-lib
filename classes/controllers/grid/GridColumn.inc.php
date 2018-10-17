@@ -3,8 +3,8 @@
 /**
  * @file classes/controllers/grid/GridColumn.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class GridColumn
@@ -111,7 +111,7 @@ class GridColumn extends GridBodyElement {
 	/**
 	 * @see GridBodyElement::getCellProvider()
 	 */
-	function &getCellProvider() {
+	function getCellProvider() {
 		if (is_null(parent::getCellProvider())) {
 			// provide a sensible default cell provider
 			import('lib.pkp.classes.controllers.grid.ArrayGridCellProvider');
@@ -139,4 +139,4 @@ class GridColumn extends GridBodyElement {
 	}
 }
 
-?>
+

@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/files/query/QueryNoteFilesGridDataProvider.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class QueryNoteFilesGridDataProvider
@@ -101,10 +101,10 @@ class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 		import('lib.pkp.controllers.api.file.linkAction.AddFileLinkAction');
 		return new AddFileLinkAction(
 			$request, $submission->getId(), $this->getStageId(),
-			$this->getUploaderRoles(), null, $this->getFileStage(),
+			$this->getUploaderRoles(), $this->getFileStage(),
 			ASSOC_TYPE_NOTE, $this->_noteId
 		);
 	}
 }
 
-?>
+

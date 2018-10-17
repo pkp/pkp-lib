@@ -3,8 +3,8 @@
 /**
  * @file classes/controllers/listbuilder/ListbuilderHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ListbuilderHandler
@@ -49,8 +49,10 @@ class ListbuilderHandler extends GridHandler {
 	function initialize($request, $args = null) {
 		parent::initialize($request, $args);
 
-		import('lib.pkp.classes.linkAction.request.NullAction');
-		$this->addAction($this->getAddItemLinkAction(new NullAction()));
+		if ($this->canAddItems()) {
+			import('lib.pkp.classes.linkAction.request.NullAction');
+			$this->addAction($this->getAddItemLinkAction(new NullAction()));
+		}
 	}
 
 
@@ -213,7 +215,7 @@ class ListbuilderHandler extends GridHandler {
 				$optionsCount--;
 				$optionsCount = count($firstColumnOptions, COUNT_RECURSIVE) - $optionsCount;
 			}
-		
+
 			$listElements = $this->getGridDataElements($request);
 			if (count($listElements) < $optionsCount) {
 				$availableOptions = true;
@@ -221,7 +223,7 @@ class ListbuilderHandler extends GridHandler {
 		}
 
 		$templateMgr->assign('availableOptions', $availableOptions);
-	
+
 		return $this->fetchGrid($args, $request);
 	}
 
@@ -260,7 +262,7 @@ class ListbuilderHandler extends GridHandler {
 			$changes = array();
 			foreach ($entry as $key => $value) {
 				// Match the column name and localization data, if any.
-				if (!preg_match('/^newRowId\[([a-zA-Z]+)\](\[([a-z][a-z]_[A-Z][A-Z])\])?$/', $key, $matches)) assert(false);
+				if (!preg_match('/^newRowId\[([a-zA-Z]+)\](\[([a-z][a-z]_[A-Z][A-Z](@([A-Za-z0-9]{5,8}|\d[A-Za-z0-9]{3}))?)\])?$/', $key, $matches)) assert(false);
 
 				// Get the column name
 				$column = $matches[1];
@@ -315,6 +317,16 @@ class ListbuilderHandler extends GridHandler {
 		return new JSONMessage(true, $options);
 	}
 
+
+	/**
+	 * Can items be added to this list builder?
+	 *
+	 * @return boolean
+	 */
+	public function canAddItems() {
+		return true;
+	}
+
 	//
 	// Overridden methods from GridHandler
 	//
@@ -328,4 +340,4 @@ class ListbuilderHandler extends GridHandler {
 	}
 }
 
-?>
+

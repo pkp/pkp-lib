@@ -3,8 +3,8 @@
 /**
  * @file plugins/importexport/native/filter/SubmissionNativeXmlFilter.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionNativeXmlFilter
@@ -231,7 +231,8 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$exportFilter = array_shift($nativeExportFilters);
 		$exportFilter->setDeployment($this->getDeployment());
 
-		$authorsDoc = $exportFilter->execute($submission->getAuthors());
+		$authors = $submission->getAuthors();
+		$authorsDoc = $exportFilter->execute($authors);
 		if ($authorsDoc->documentElement instanceof DOMElement) {
 			$clone = $doc->importNode($authorsDoc->documentElement, true);
 			$submissionNode->appendChild($clone);
@@ -348,10 +349,10 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		return array(
 				'keywords' => array('SubmissionKeywordDAO', 'getKeywords', 'keyword'),
 				'agencies' => array('SubmissionAgencyDAO', 'getAgencies', 'agency'),
-				'disciplines' => array('SubmissionDisciplineDAO', 'getDisciplines', 'disciplin'),
+				'disciplines' => array('SubmissionDisciplineDAO', 'getDisciplines', 'discipline'),
 				'subjects' => array('SubmissionSubjectDAO', 'getSubjects', 'subject'),
 		);
 	}
 }
 
-?>
+

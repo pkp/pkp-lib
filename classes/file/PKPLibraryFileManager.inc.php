@@ -3,8 +3,8 @@
 /**
  * @file classes/file/PKPLibraryFileManager.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPLibraryFileManager
@@ -43,11 +43,11 @@ class PKPLibraryFileManager extends PrivateFileManager {
 	 * @param $fileId int
 	 * @return int number of files removed
 	 */
-	function deleteFile($fileId) {
+	function deleteById($fileId) {
 		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO');
 		$libraryFile = $libraryFileDao->getById($fileId);
 
-		parent::deleteFile($this->getBasePath() . $libraryFile->getServerFileName());
+		parent::deleteByPath($this->getBasePath() . $libraryFile->getServerFileName());
 
 		$libraryFileDao->deleteById($fileId);
 	}
@@ -181,4 +181,4 @@ class PKPLibraryFileManager extends PrivateFileManager {
 	}
 }
 
-?>
+

@@ -3,8 +3,8 @@
 /**
  * @file controllers/tab/settings/PKPDistributionSettingsTabHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPDistributionSettingsTabHandler
@@ -44,7 +44,9 @@ class PKPDistributionSettingsTabHandler extends ManagerSettingsTabHandler {
 		// Expose names of payment plugins to template.
 		$pluginNames = array(__('manager.paymentMethod.none'));
 		$pluginNames += array_map(
-			create_function('$a', 'return $a->getDisplayName();'),
+			function($a) {
+				return $a->getDisplayName();
+			},
 			PluginRegistry::loadCategory('paymethod')
 		);
 		return new JSONMessage(true, $pluginNames);
@@ -90,4 +92,4 @@ class PKPDistributionSettingsTabHandler extends ManagerSettingsTabHandler {
 	}
 }
 
-?>
+

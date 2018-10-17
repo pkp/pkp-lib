@@ -3,8 +3,8 @@
 /**
  * @file classes/submission/form/PKPSubmissionSubmitStep3Form.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionSubmitStep3Form
@@ -38,7 +38,7 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 	}
 
 	/**
-	 * Initialize form data from current submission.
+	 * @copydoc SubmissionSubmitForm::initData
 	 */
 	function initData() {
 		$this->_metadataFormImplem->initData($this->submission);
@@ -46,10 +46,9 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 	}
 
 	/**
-	 * Fetch the form.
-	 * @param $request PKPRequest
+	 * @copydoc SubmissionSubmitForm::fetch
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$context = $request->getContext();
 
@@ -61,7 +60,7 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 			));
 		}
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -81,13 +80,11 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 
 	/**
 	 * Save changes to submission.
-	 * @param $args array
-	 * @param $request PKPRequest
 	 * @return int the submission ID
 	 */
-	function execute($args, $request) {
+	function execute() {
 		// Execute submission metadata related operations.
-		$this->_metadataFormImplem->execute($this->submission, $request);
+		$this->_metadataFormImplem->execute($this->submission, Application::getRequest());
 
 		// Get an updated version of the submission.
 		$submissionDao = Application::getSubmissionDAO();
@@ -99,7 +96,7 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 			$submission->stampStatusModified();
 		}
 
-		parent::execute($submission);
+		parent::execute();
 
 		// Save the submission.
 		$submissionDao->updateObject($submission);
@@ -108,4 +105,4 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 	}
 }
 
-?>
+

@@ -1,8 +1,8 @@
 {**
  * templates/authorDashboard/authorDashboard.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Display the author dashboard.
@@ -15,7 +15,7 @@
 	{/if}
 	{assign var=submissionTitleSafe value=$submission->getLocalizedTitle()|strip_unsafe_html}
 	{if $primaryAuthor}
-		{assign var="pageTitleTranslated" value=$primaryAuthor->getLastName()|concat:", ":$submissionTitleSafe}
+		{assign var="pageTitleTranslated" value=$primaryAuthor->getFullName()|concat:", ":$submissionTitleSafe}
 	{else}
 		{assign var="pageTitleTranslated" value=$submissionTitleSafe}
 	{/if}

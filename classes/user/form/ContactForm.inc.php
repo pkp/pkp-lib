@@ -3,8 +3,8 @@
 /**
  * @file classes/user/form/ContactForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ContactForm
@@ -25,16 +25,15 @@ class ContactForm extends BaseProfileForm {
 		parent::__construct('user/contactForm.tpl', $user);
 
 		// Validation checks for this form
+		$this->addCheck(new FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
 		$this->addCheck(new FormValidator($this, 'country', 'required', 'user.profile.form.countryRequired'));
 		$this->addCheck(new FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', array(DAORegistry::getDAO('UserDAO'), 'userExistsByEmail'), array($user->getId(), true), true));
 	}
 
 	/**
-	 * Fetch the form.
-	 * @param $request PKPRequest
-	 * @return string JSON-encoded form contents.
+	 * @copydoc BaseProfileForm::fetch
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$site = $request->getSite();
 		$countryDao = DAORegistry::getDAO('CountryDAO');
@@ -43,11 +42,11 @@ class ContactForm extends BaseProfileForm {
 			'availableLocales' => $site->getSupportedLocaleNames(),
 		));
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
-	 * @copydoc Form::initData()
+	 * @copydoc BaseProfileForm::initData()
 	 */
 	function initData() {
 		$user = $this->getUser();
@@ -81,9 +80,8 @@ class ContactForm extends BaseProfileForm {
 
 	/**
 	 * Save contact settings.
-	 * @param $request PKPRequest
 	 */
-	function execute($request) {
+	function execute() {
 		$user = $this->getUser();
 
 		$user->setCountry($this->getData('country'));
@@ -93,6 +91,7 @@ class ContactForm extends BaseProfileForm {
 		$user->setMailingAddress($this->getData('mailingAddress'));
 		$user->setAffiliation($this->getData('affiliation'), null); // Localized
 
+		$request = Application::getRequest();
 		$site = $request->getSite();
 		$availableLocales = $site->getSupportedLocales();
 		$locales = array();
@@ -103,8 +102,8 @@ class ContactForm extends BaseProfileForm {
 		}
 		$user->setLocales($locales);
 
-		parent::execute($request, $user);
+		parent::execute();
 	}
 }
 
-?>
+

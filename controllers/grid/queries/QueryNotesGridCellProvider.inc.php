@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/queries/QueryNotesGridCellProvider.inc.php
  *
- * Copyright (c) 2016-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2016-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class QueryNotesGridCellProvider
@@ -55,7 +55,7 @@ class QueryNotesGridCellProvider extends DataObjectGridCellProvider {
 	/**
 	 * @copydoc GridCellProvider::getCellActions()
 	 */
-	function getCellActions($request, $row, $column) {
+	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
 		switch ($column->getId()) {
 			case 'contents':
 				$element = $row->getData();
@@ -73,8 +73,8 @@ class QueryNotesGridCellProvider extends DataObjectGridCellProvider {
 				}
 				return $actions;
 		}
-		return parent::getCellActions($request, $row, $column);
+		return parent::getCellActions($request, $row, $column, $position);
 	}
 }
 
-?>
+

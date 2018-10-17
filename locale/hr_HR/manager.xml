@@ -4,8 +4,8 @@
 <!--
   * locale/hr_HR/manager.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the hr_HR (Hrvatski) locale.
@@ -145,7 +145,6 @@
 	<message key="plugins.categories.auth">Autorizacijski dodaci</message>
 	<message key="plugins.categories.blocks">Blok dodaci</message>
 	<message key="plugins.categories.blocks.description">Blok dodaci su adaptibilne komponente korisničkog sučelja.</message>
-	<message key="plugins.categories.citationFormats">Dodaci za oblikovanje referenci</message>
 	<message key="plugins.categories.gateways.description">Poveznički dodaci omogućuju izravan prijenos podataka prema vanjskim sustavima.</message>
 	<message key="plugins.categories.gateways">Poveznički dodaci</message>
 	<message key="plugins.categories.importexport.description">Dodaci za Unošenje/Iznošenje koriste se za prijenos sadržaja prema drugom sustavu ili iz drugog sustava.</message>

@@ -80,4 +80,5 @@
 	<message key="installer.configureXSLMessage"><![CDATA[<p>В вашей инсталляции PHP не включен модуль XSL. Включите его или настройте параметр xslt_command в вашем файле config.inc.php.</p>]]></message>
 	<message key="installer.beacon">Маяк</message>
 	<message key="installer.beacon.enable">Задать уникальный ID сайта и базовый URL OAI для PKP, которые будут использоваться только для сбора статистики и предупреждений о безопасности.</message>
+	<message key="installer.unsupportedPhpError">Версия PHP, установленная на вашем сервере, не поддерживается данным программным обеспечением. Сверьтесь еще раз с требованиями к установке в docs/README.</message>
 </locale>

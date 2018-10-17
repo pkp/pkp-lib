@@ -3,8 +3,8 @@
 /**
  * @file tests/classes/security/authorization/PolicyTestCase.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PolicyTestCase
@@ -105,7 +105,11 @@ abstract class PolicyTestCase extends PKPTestCase {
 		$this->setContextObjects($context);
 
 		// Mock a router.
-		$router = $this->getMock('PKPRouter', array('getRequestedOp', 'getContext'));
+		$router = $this->getMock('PKPRouter', array('getHandler', 'getRequestedOp', 'getContext'));
+
+		$router->expects($this->any())
+		       ->method('getHandler')
+		       ->will($this->returnValue(new PKPHandler()));
 
 		// Mock the getRequestedOp() method.
 		$router->expects($this->any())
@@ -144,4 +148,4 @@ abstract class PolicyTestCase extends PKPTestCase {
 		return null;
 	}
 }
-?>
+

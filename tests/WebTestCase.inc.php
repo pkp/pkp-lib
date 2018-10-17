@@ -3,8 +3,8 @@
 /**
  * @file lib/pkp/tests/WebTestCase.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class WebTestCase
@@ -141,7 +141,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	protected function register($data) {
 		// Check that the required parameters are provided
 		foreach (array(
-			'username', 'firstName', 'lastName'
+			'username', 'givenName', 'familyName'
 		) as $paramName) {
 			$this->assertTrue(isset($data[$paramName]));
 		}
@@ -160,9 +160,9 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		$this->click($selector);
 
 		// Fill in user data
-		$this->waitForElementPresent('css=[id=firstName]');
-		$this->type('css=[id=firstName]', $data['firstName']);
-		$this->type('css=[id=lastName]', $data['lastName']);
+		$this->waitForElementPresent('css=[id=givenName]');
+		$this->type('css=[id=givenName]', $data['givenName']);
+		$this->type('css=[id=familyName]', $data['familyName']);
 		$this->type('css=[id=username]', $username);
 		$this->type('css=[id=email]', $data['email']);
 		$this->type('css=[id=password]', $data['password']);
@@ -174,6 +174,8 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		foreach ($data['roles'] as $role) {
 			$this->click('//label[contains(., \'' . htmlspecialchars($role) . '\')]');
 		}
+
+		$this->click('//input[@name=\'privacyConsent\']');
 
 		// Save the new user
 		$this->waitForElementPresent($formButtonSelector = '//button[contains(.,\'Register\')]');
@@ -309,15 +311,6 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	}
 
 	/**
-	 * Log in as author user.
-	 */
-	protected function logAuthorIn() {
-		$authorUser = 'kalkhafaji';
-		$authorPw = 'kalkhafajikalkhafaji';
-		$this->logIn($authorUser, $authorPw);
-	}
-
-	/**
 	 * Type a value into a TinyMCE control.
 	 * @param $controlPrefix string Prefix of control name
 	 * @param $value string Value to enter into control
@@ -393,4 +386,4 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		$this->runScript('scroll(0, document.body.scrollHeight()');
 	}
 }
-?>
+

@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/settings/roles/form/userGroupForm.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Form to edit or create a user group
@@ -45,7 +45,7 @@
 			{fbvFormSection title="grid.roles.stageAssignment" for="assignedStages[]" list="true"}
 				{fbvElement type="checkboxgroup" name="assignedStages" id="assignedStages" from=$stages selected=$assignedStages}
 			{/fbvFormSection}
-			<label for="stages[]" class="error pkp_form_hidden">{translate key=settings.roles.stageIdRequired}</label>
+			<label for="stages[]" class="error pkp_form_hidden">{translate key="settings.roles.stageIdRequired"}</label>
 		{/fbvFormArea}
 	</div>
 	<div id="userGroupOptionsContainer" class="full left">

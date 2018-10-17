@@ -3,8 +3,8 @@
 /**
  * @file tests/classes/xslt/XMLTypeDescriptionTest.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class XMLTypeDescriptionTest
@@ -83,13 +83,5 @@ class XMLTypeDescriptionTest extends PKPTestCase {
 		self::assertTrue($typeDescription->isCompatible($testXmlDom));
 	}
 
-	/**
-	 * @covers XMLTypeDescription
-	 * @expectedException PHPUnit_Framework_Error
-	 */
-	public function testInstantiateWithInvalidTypeDescriptor1() {
-		// Type name is not fully qualified.
-		$typeDescription = new XMLTypeDescription('Nlm30CitationSchema(CITATION)');
-	}
 }
-?>
+

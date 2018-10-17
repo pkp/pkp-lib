@@ -4,11 +4,11 @@
 <!--
   * locale/de_DE/admin.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  * Localization strings for the de_DE (Deutsch (Deutschland)) locale.
-  * Please contact Marco Tullney, marco.tullney@fu-berlin.de, with any questions regarding this translation.
+  * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_German_(de_DE)
+  * Localization strings.
   -->
 
 <locale name="de_DE" full_name="Deutsch (Deutschland)">
@@ -25,6 +25,7 @@
 	<message key="admin.confirmClearTemplateCache">Sind Sie sicher, dass Sie den Vorlagenspeicher leeren wollen?</message>
 	<message key="admin.confirmExpireSessions">Sind Sie sicher, dass Sie alle Benutzer/innensitzungen schließen wollen? Alle Benutzer/innen, die gerade arbeiten (auch Sie selbst), müssen sich danach neu einloggen.</message>
 	<message key="admin.contentsOfConfigFile">Inhalt der Konfigurationsdatei</message>
+	<message key="admin.contexts.confirmDelete">Sind Sie sicher, dass Sie {$contextName} und den gesamten zugehörigen Inhalt dauerhaft löschen wollen?</message>
 	<message key="admin.currentVersion">Aktuelle Version</message>
 	<message key="admin.dateInstalled">Installiert am</message>
 	<message key="admin.displayConfigFileInstructions"><![CDATA[Der Inhalt Ihrer aktualisierten Konfiguration wird nachstehend angezeigt. Öffnen Sie <tt>config.inc.php</tt> mit einem geeigneten Texteditor und ersetzen Sie den Inhalt durch den Text im nachstehenden Textfeld.]]></message>

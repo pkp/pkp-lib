@@ -2,8 +2,8 @@
 /**
  * @file classes/security/authorization/RoleBasedHandlerOperationPolicy.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class RoleBasedHandlerOperationPolicy
@@ -30,7 +30,7 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy {
 	 *  this policy is targeting.
 	 * @param $message string a message to be displayed if the authorization fails
 	 * @param $allRoles boolean whether all roles must match ("all of") or whether it is
-	 *  enough for only one role to match ("any of").
+	 *  enough for only one role to match ("any of"). Default: false ("any of")
 	 */
 	function __construct($request, $roles, $operations,
 			$message = 'user.authorization.roleBasedAccessDenied',
@@ -63,6 +63,9 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy {
 
 		if (!$this->_checkUserRoleAssignment($userRoles)) return AUTHORIZATION_DENY;
 		if (!$this->_checkOperationWhitelist()) return AUTHORIZATION_DENY;
+
+		$handler = $this->getRequest()->getRouter()->getHandler();
+		$handler->markRoleAssignmentsChecked();
 
 		return AUTHORIZATION_PERMIT;
 	}
@@ -109,4 +112,4 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy {
 	}
 }
 
-?>
+

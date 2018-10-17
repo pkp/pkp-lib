@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/files/submissionDocuments/SubmissionDocumentsFilesGridHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class LibraryFileGridHandler
@@ -39,11 +39,11 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler {
 	//
 	/**
 	 * Configure the grid
-	 * @param $request PKPRequest
+	 * @see LibraryFileGridHandler::initialize
 	 */
-	function initialize($request) {
+	function initialize($request, $args = null) {
 		$this->setCanEdit(true); // this grid can always be edited.
-		parent::initialize($request);
+		parent::initialize($request, $args);
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR, LOCALE_COMPONENT_PKP_EDITOR, LOCALE_COMPONENT_APP_MANAGER);
 
@@ -146,4 +146,4 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler {
 	}
 }
 
-?>
+

@@ -4,8 +4,8 @@
 <!--
   * locale.xml
   *
-  * Copyright (c) 2013-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2013-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the es_ES (Español (España)) locale.
@@ -14,8 +14,8 @@
  
 <locale name="es_ES" full_name="Español (España)">
 	<message key="plugins.generic.acron.name">Módulo Acron</message>
-	<message key="plugins.generic.acron.enabled">El plugin Acron ha sido habilitado.</message>
-	<message key="plugins.generic.acron.disabled">El plugin Acron ha sido deshabilitado.</message>
+	<message key="plugins.generic.acron.enabled">El módulo Acron ha sido habilitado.</message>
+	<message key="plugins.generic.acron.disabled">El módulo Acron ha sido deshabilitado.</message>
 
 	<message key="plugins.generic.acron.reload">Recargar las tareas programadas</message>
 	<message key="plugins.generic.acron.description">Este módulo trata de reducir la dependencia de la aplicación de herramientas de planificación periódica como 'cron'.</message>

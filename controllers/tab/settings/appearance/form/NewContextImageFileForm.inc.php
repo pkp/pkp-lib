@@ -3,8 +3,8 @@
 /**
  * @file controllers/tab/settings/appearance/form/NewContextImageFileForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NewContextImageFileForm
@@ -33,9 +33,9 @@ class NewContextImageFileForm extends SettingsFileUploadForm {
 	/**
 	 * @copydoc SettingsFileUploadForm::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false, $params = null) {
 		$params = array('fileType' => 'image');
-		return parent::fetch($request, $params);
+		return parent::fetch($request, $template, $display, $params);
 	}
 
 
@@ -50,9 +50,10 @@ class NewContextImageFileForm extends SettingsFileUploadForm {
 	}
 
 	/**
-	 * @copydoc Form::initData()
+	 * @copydoc SettingsFileUploadForm::initData()
 	 */
-	function initData($request) {
+	function initData() {
+		$request = Application::getRequest();
 		$context = $request->getContext();
 		$fileSettingName = $this->getFileSettingName();
 
@@ -79,9 +80,9 @@ class NewContextImageFileForm extends SettingsFileUploadForm {
 
 	/**
 	 * Save the new image file.
-	 * @param $request Request.
 	 */
-	function execute($request) {
+	function execute() {
+		$request = Application::getRequest();
 		$temporaryFile = $this->fetchTemporaryFile($request);
 
 		import('classes.file.PublicFileManager');
@@ -112,7 +113,7 @@ class NewContextImageFileForm extends SettingsFileUploadForm {
 					'width' => $width,
 					'height' => $height,
 					'dateUploaded' => Core::getCurrentDate(),
-					'altText' => $imageAltText[$locale]
+					'altText' => isset($imageAltText[$locale])?$imageAltText[$locale]:null
 				);
 
 				$settingsDao = $context->getSettingsDAO();
@@ -128,4 +129,4 @@ class NewContextImageFileForm extends SettingsFileUploadForm {
 	}
 }
 
-?>
+

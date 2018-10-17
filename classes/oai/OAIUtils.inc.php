@@ -3,8 +3,8 @@
 /**
  * @file classes/oai/OAIUtils.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class OAI
@@ -71,11 +71,10 @@ class OAIUtils {
 
 
 	/**
-	 * Clean input variables.
+	 * Clean input variables (by reference).
 	 * @param $data mixed request parameter(s)
-	 * @return mixed cleaned request parameter(s)
 	 */
-	static function prepInput($data) {
+	static function prepInput(&$data) { // REFERENCE REQUIRED
 		if (!is_array($data)) {
 			$data = urldecode($data);
 
@@ -92,12 +91,12 @@ class OAIUtils {
 	}
 
 	/**
-	 * Prepare variables for output.
+	 * Prepare variables for output (by reference).
 	 * Data is assumed to be UTF-8 encoded (FIXME?)
 	 * @param $data mixed output parameter(s)
 	 * @return mixed cleaned output parameter(s)
 	 */
-	static function prepOutput($data) {
+	static function prepOutput(&$data) { // REFERENCE REQUIRED
 		if (!is_array($data)) {
 			$data = htmlspecialchars($data);
 
@@ -141,4 +140,4 @@ class OAIUtils {
 	}
 }
 
-?>
+

@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/stageParticipant/StageParticipantGridHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class StageParticipantGridHandler
@@ -90,10 +90,10 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 
 
 	/**
-	 * @copydoc PKPHandler::initialize()
+	 * @copydoc CategoryGridHandler::initialize()
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 
 		// Load submission-specific translations
 		AppLocale::requireComponents(
@@ -143,7 +143,7 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 	/**
 	 * @copydoc CategoryGridHandler::loadCategoryData()
 	 */
-	function loadCategoryData($request, $userGroup) {
+	function loadCategoryData($request, &$userGroup, $filter = null) {
 		// Retrieve useful objects.
 		$submission = $this->getSubmission();
 		$stageId = $this->getStageId();
@@ -272,7 +272,7 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 		$form = new AddParticipantForm($submission, $stageId);
 		$form->readInputData();
 		if ($form->validate()) {
-			list($userGroupId, $userId, $stageAssignmentId) = $form->execute($request);
+			list($userGroupId, $userId, $stageAssignmentId) = $form->execute();
 
 			$notificationMgr = new NotificationManager();
 
@@ -310,12 +310,6 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 			$assignedUser = $userDao->getById($userId);
 			import('lib.pkp.classes.log.SubmissionLog');
 			SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_ADD_PARTICIPANT, 'submission.event.participantAdded', array('name' => $assignedUser->getFullName(), 'username' => $assignedUser->getUsername(), 'userGroupName' => $userGroup->getLocalizedName()));
-
-			// send message to user if form is filled in.
-			if ($form->getData('message')) {
-				$form->sendMessage($form->getData('userId'), $submission, $request);
-				$this->_logEventAndCreateNotification($request);
-			}
 
 			return DAO::getDataChangedEvent($userGroupId);
 		} else {
@@ -443,14 +437,10 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 
 		import('controllers.grid.users.stageParticipant.form.StageParticipantNotifyForm'); // exists in each app.
 		$notifyForm = new StageParticipantNotifyForm($this->getSubmission()->getId(), ASSOC_TYPE_SUBMISSION, $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE));
-		$notifyForm->readInputData($request);
+		$notifyForm->readInputData();
 
 		if ($notifyForm->validate()) {
-			$noteId = $notifyForm->execute($request);
-			// Return a JSON string indicating success
-			// (will clear the form on return)
-			$this->_logEventAndCreateNotification($request);
-
+			$noteId = $notifyForm->execute();
 
 			if ($this->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
 				$this->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {
@@ -478,20 +468,6 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 			// Return a JSON string indicating failure
 			return new JSONMessage(false);
 		}
-	}
-
-	/**
-	 * Convenience function for logging the message sent event and creating the notification.  Called from more than one place.
-	 * @param PKPRequest $request
-	 */
-	function _logEventAndCreateNotification($request) {
-		import('lib.pkp.classes.log.SubmissionLog');
-		SubmissionLog::logEvent($request, $this->getSubmission(), SUBMISSION_LOG_MESSAGE_SENT, 'informationCenter.history.messageSent');
-
-		// Create trivial notification.
-		$currentUser = $request->getUser();
-		$notificationMgr = new NotificationManager();
-		$notificationMgr->createTrivialNotification($currentUser->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('stageParticipants.history.messageSent')));
 	}
 
 	/**
@@ -535,4 +511,4 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 	}
 }
 
-?>
+

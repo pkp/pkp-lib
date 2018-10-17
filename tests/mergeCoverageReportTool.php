@@ -2,8 +2,8 @@
 /**
  * @file tests/mergeCoverageReportTool.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @ingroup tests
@@ -28,8 +28,8 @@ class MergeCoverageReportTool extends CommandLineTool {
 	 * @param $argv array command-line arguments
 	 *  The first argument must be the file to check
 	 */
-	function MergeCoverageReportTool($argv = array()) {
-		parent::CommandLineTool($argv);
+	function __construct($argv = array()) {
+		parent::__construct($argv);
 
 		// Show the usage screen if explicitly requested or wrong
 		// number of command line arguments.

@@ -4,8 +4,8 @@
 /**
  * @file js/controllers/linkAction/LinkActionHandler.js
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class LinkActionHandler
@@ -29,14 +29,12 @@
 	 *
 	 * @param {jQueryObject} $handledElement The clickable element
 	 *  the link action will be attached to.
-	 * @param {{actionRequest, actionRequestOptions, actionResponseOptions}} options
+	 * @param {{actionRequest, actionRequestOptions}} options
 	 *  Configuration of the link action handler. The object must contain the
 	 *  following elements:
 	 *  - actionRequest: The action to be executed when the link
 	 *                   action is being activated.
 	 *  - actionRequestOptions: Configuration of the action request.
-	 *  - actionResponse: The action's response listener.
-	 *  - actionResponseOptions: Options for the response listener.
 	 */
 	$.pkp.controllers.linkAction.LinkActionHandler =
 			function($handledElement, options) {

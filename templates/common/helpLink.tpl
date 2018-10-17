@@ -1,8 +1,8 @@
 {**
  * templates/common/helpLink.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @brief A link which can request the help panel open to a specific chapter
@@ -15,6 +15,7 @@
  * @uses $helpClass string Class to add to the help link
  *}
 <a href="#" class="requestHelpPanel pkp_help_link {$helpClass|escape}" data-topic="{$helpFile|escape}{if $helpSection}#{$helpSection|escape}{/if}">
+	<span class="fa fa-info-circle pkpIcon--inline" aria-hidden="true"></span>
 	{if $helpText}
 		{$text|escape}
 	{else}

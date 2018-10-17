@@ -1,8 +1,8 @@
 {**
  * templates/controllers/page/tasks.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * User-specific tasks panel.
@@ -33,7 +33,7 @@
 		</span>
 	</a>
 	<div id="notificationsPopover" class="panel">
-		{url|assign:notificationsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.notifications.TaskNotificationsGridHandler" op="fetchGrid" escape=false}
+		{capture assign=notificationsGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.notifications.TaskNotificationsGridHandler" op="fetchGrid" escape=false}{/capture}
 		{load_url_in_div id="notificationsGrid" url=$notificationsGridUrl}
 	</div>
 </div>

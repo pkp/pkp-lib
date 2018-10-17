@@ -3,8 +3,8 @@
 /**
  * @file classes/user/UserStageAssignmentDAO.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class UserStageAssignmentDAO
@@ -15,7 +15,6 @@
  */
 
 import('classes.user.UserDAO');
-
 class UserStageAssignmentDAO extends UserDAO {
 
 	/**
@@ -71,9 +70,9 @@ class UserStageAssignmentDAO extends UserDAO {
 	 * @return object DAOResultFactory
 	 */
 	function filterUsersNotAssignedToStageInUserGroup($submissionId, $stageId, $userGroupId, $name = null, $rangeInfo = null) {
-		$params = array((int) $submissionId, (int) $stageId, (int) $userGroupId);
+		$params = array((int) $submissionId, (int) $stageId, IDENTITY_SETTING_GIVENNAME, IDENTITY_SETTING_FAMILYNAME, (int) $userGroupId);
 		if ($name !== null) {
-			$params = array_merge($params, array('%'.(string) $name.'%', '%'.(string) $name.'%', '%'.(string) $name.'%', '%'.(string) $name.'%', '%'.(string) $name.'%'));
+			$params = array_merge($params, array('%'.(string) $name.'%', '%'.(string) $name.'%', '%'.(string) $name.'%', '%'.(string) $name.'%'));
 		}
 		$result = $this->retrieveRange(
 				'SELECT	u.*
@@ -81,10 +80,13 @@ class UserStageAssignmentDAO extends UserDAO {
 				LEFT JOIN user_user_groups uug ON (u.user_id = uug.user_id)
 				LEFT JOIN stage_assignments s ON (s.user_id = uug.user_id AND s.user_group_id = uug.user_group_id AND s.submission_id = ?)
 				JOIN user_group_stage ugs ON (uug.user_group_id = ugs.user_group_id AND ugs.stage_id = ?)
+				LEFT JOIN user_settings usgs ON (usgs.user_id = u.user_id AND usgs.setting_name = ?)
+				LEFT JOIN user_settings usfs ON (usfs.user_id = u.user_id AND usfs.setting_name = ?)
+
 			WHERE	uug.user_group_id = ? AND
 				s.user_group_id IS NULL'
-				. ($name !== null ? ' AND (u.first_name LIKE ? OR u.middle_name LIKE ? OR u.last_name LIKE ? OR u.username LIKE ? OR u.email LIKE ?)' : '')
-			. ' ORDER BY u.last_name',
+				. ($name !== null ? ' AND (usgs.setting_value LIKE ? OR usfs.setting_value LIKE ? OR u.username LIKE ? OR u.email LIKE ?)' : '')
+			. ' ORDER BY usfs.setting_value',
 				$params,
 				$rangeInfo);
 		return new DAOResultFactory($result, $this, '_returnUserFromRowWithData');
@@ -138,4 +140,4 @@ class UserStageAssignmentDAO extends UserDAO {
 	}
 }
 
-?>
+

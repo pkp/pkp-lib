@@ -3,8 +3,8 @@
 /**
  * @file controllers/tab/authorDashboard/AuthorDashboardReviewRoundTabHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AuthorDashboardReviewRoundTabHandler
@@ -80,10 +80,15 @@ class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler {
 			),
 		));
 
+		// If open reviews exist, show the reviewers grid
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		if ($reviewAssignmentDao->getOpenReviewsByReviewRoundId($reviewRound->getId())){
+			$templateMgr->assign('showReviewerGrid', true);
+		}
 
 		// Editor has taken an action and sent an email; Display the email
 		import('classes.workflow.EditorDecisionActionsManager');
-		if(EditorDecisionActionsManager::getEditorTakenActionInReviewRound($reviewRound)) {
+		if(EditorDecisionActionsManager::getEditorTakenActionInReviewRound($request->getContext(), $reviewRound)) {
 			$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
 			$user = $request->getUser();
 			$templateMgr->assign(array(
@@ -96,4 +101,4 @@ class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler {
 	}
 }
 
-?>
+

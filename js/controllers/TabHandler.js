@@ -1,8 +1,8 @@
 /**
  * @file js/controllers/TabHandler.js
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class TabHandler
@@ -64,6 +64,7 @@
 		$tabs.tabs({
 			// Enable AJAX-driven tabs with JSON messages.
 			ajaxOptions: {
+				dataType: 'json',
 				cache: false,
 				dataFilter: this.callbackWrapper(this.dataFilter)
 			},
@@ -252,7 +253,7 @@
 		if (jsonData === false) {
 			return '';
 		}
-		return jsonData.content;
+		return JSON.stringify(jsonData.content);
 	};
 
 

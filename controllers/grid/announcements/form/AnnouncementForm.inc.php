@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/announcements/form/AnnouncementForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AnnouncementForm
@@ -49,7 +49,13 @@ class AnnouncementForm extends Form {
 		$this->addCheck(new FormValidatorLocale($this, 'description', 'optional', 'manager.announcements.form.descriptionRequired'));
 
 		// If provided, announcement type is valid
-		$this->addCheck(new FormValidatorCustom($this, 'typeId', 'optional', 'manager.announcements.form.typeIdValid', create_function('$typeId, $contextId', '$announcementTypeDao = DAORegistry::getDAO(\'AnnouncementTypeDAO\'); if((int)$typeId === 0) { return true; } else { return $announcementTypeDao->announcementTypeExistsByTypeId($typeId, Application::getContextAssocType(), $contextId);}'), array($contextId)));
+		$this->addCheck(new FormValidatorCustom($this, 'typeId', 'optional', 'manager.announcements.form.typeIdValid', function($typeId) use ($contextId) {
+			$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
+			if ((int)$typeId === 0) return true;
+			else {
+				return $announcementTypeDao->announcementTypeExistsByTypeId($typeId, Application::getContextAssocType(), $contextId);
+			}
+		}));
 
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
@@ -90,7 +96,7 @@ class AnnouncementForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = 'controllers/grid/announcements/form/announcementForm.tpl', $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('readOnly', $this->isReadOnly());
 		$templateMgr->assign('selectedTypeId', $this->getData('typeId'));
@@ -111,7 +117,7 @@ class AnnouncementForm extends Form {
 		}
 		$templateMgr->assign('announcementTypes', $announcementTypeOptions);
 
-		return parent::fetch($request, 'controllers/grid/announcements/form/announcementForm.tpl');
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -140,14 +146,13 @@ class AnnouncementForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('typeId', 'title', 'descriptionShort', 'description', 'dateExpireYear', 'dateExpireMonth', 'dateExpireDay', 'dateExpire'));
+		$this->readUserVars(array('typeId', 'title', 'descriptionShort', 'description', 'dateExpireYear', 'dateExpireMonth', 'dateExpireDay', 'dateExpire', 'sendAnnouncementNotification'));
 	}
 
 	/**
 	 * Save announcement.
-	 * @param $request PKPRequest
 	 */
-	function execute($request) {
+	function execute() {
 		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
 
 		$announcement = $announcementDao->getById($this->announcementId);
@@ -188,28 +193,22 @@ class AnnouncementForm extends Form {
 
 		$contextId = $this->getContextId();
 
-		// Send a notification to associated users
-		import('classes.notification.NotificationManager');
-		$notificationManager = new NotificationManager();
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$notificationUsers = array();
-		$allUsers = $userGroupDao->getUsersByContextId($contextId);
-		while ($user = $allUsers->next()) {
-			$notificationUsers[] = array('id' => $user->getId());
-		}
-		if (!$this->announcementId) { // Only for new announcements
+		// Send a notification to associated users if selected
+		if ($this->getData('sendAnnouncementNotification')){
+			import('classes.notification.NotificationManager');
+			$notificationManager = new NotificationManager();
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+			$notificationUsers = array();
+			$allUsers = $userGroupDao->getUsersByContextId($contextId);
+			while ($user = $allUsers->next()) {
+				$notificationUsers[] = array('id' => $user->getId());
+			}
 			foreach ($notificationUsers as $userRole) {
 				$notificationManager->createNotification(
-					$request, $userRole['id'], NOTIFICATION_TYPE_NEW_ANNOUNCEMENT,
+					Application::getRequest(), $userRole['id'], NOTIFICATION_TYPE_NEW_ANNOUNCEMENT,
 					$contextId, ASSOC_TYPE_ANNOUNCEMENT, $announcement->getId()
 				);
 			}
-			$notificationManager->sendToMailingList($request,
-				$notificationManager->createNotification(
-					$request, UNSUBSCRIBED_USER_NOTIFICATION, NOTIFICATION_TYPE_NEW_ANNOUNCEMENT,
-					$contextId, ASSOC_TYPE_ANNOUNCEMENT, $announcement->getId()
-				)
-			);
 		}
 		return $announcement->getId();
 	}
@@ -235,4 +234,4 @@ class AnnouncementForm extends Form {
 	}
 }
 
-?>
+

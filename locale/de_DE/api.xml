@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/de_DE/api.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the REST API.
+  -->
+
+<locale name="de_DE" full_name="Deutsch (Deutschland)">
+	<message key="api.submissions.403.csrfTokenFailure">Ihr Auftrag wurde abgelehnt, möglicherweise weil Ihre Anmeldung abgelaufen ist. Laden Sie die Seite neu und versuchen Sie es noch einmal.</message>
+	<message key="api.submissions.403.requestedOthersUnpublishedSubmissions">Sie können nur die Ihnen zugeordneten unveröffentlichten Einreichungen sehen.</message>
+	<message key="api.submissions.403.deleteSubmissionOutOfContext">Sie können keine Einreichung löschen, die nicht diesem Kontext zugeordnet ist.</message>
+	<message key="api.submissions.403.unauthorizedDeleteSubmission">Sie sind nicht berechtigt, diese Einreichung zu löschen.</message>
+	<message key="api.submissions.404.resourceNotFound">Die angeforderte Ressource wurde nicht gefunden.</message>
+	<message key="api.submissions.400.missingRequired">Ihre Anforderung konnte nicht ausgeführt werden, da notwendige Informationen fehlen.</message>
+	<message key="api.submissions.400.invalidIssueIdentifiers">Band, Nummer oder Jahr ist nicht nicht gültig.</message>
+	<message key="api.submissions.unknownError">Es ist ein unerwarteter Fehler aufgetreten. Bitte laden Sie die Seite neu und versuchen Sie es noch einmal.</message>
+</locale>

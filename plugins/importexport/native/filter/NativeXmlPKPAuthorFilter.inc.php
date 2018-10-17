@@ -3,8 +3,8 @@
 /**
  * @file plugins/importexport/native/filter/NativeXmlPKPAuthorFilter.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NativeXmlPKPAuthorFilter
@@ -90,9 +90,16 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter {
 
 		// Handle metadata in subelements
 		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) if (is_a($n, 'DOMElement')) switch($n->tagName) {
-			case 'firstname': $author->setFirstName($n->textContent); break;
-			case 'middlename': $author->setMiddleName($n->textContent); break;
-			case 'lastname': $author->setLastName($n->textContent); break;
+			case 'givenname':
+				$locale = $n->getAttribute('locale');
+				if (empty($locale)) $locale = $submission->getLocale();
+				$author->setGivenName($n->textContent, $locale);
+				break;
+			case 'familyname':
+				$locale = $n->getAttribute('locale');
+				if (empty($locale)) $locale = $submission->getLocale();
+				$author->setFamilyName($n->textContent, $locale);
+				break;
 			case 'affiliation':
 				$locale = $n->getAttribute('locale');
 				if (empty($locale)) $locale = $submission->getLocale();
@@ -109,9 +116,13 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter {
 				break;
 		}
 
+		if (empty($author->getGivenName($submission->getLocale()))) {
+			$allLocales = AppLocale::getAllLocales();
+			$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.missingGivenName', array('authorName' => $author->getLocalizedGivenName(), 'localeName' => $allLocales[$submission->getLocale()])));
+		}
 		$authorDao->insertObject($author);
 		return $author;
 	}
 }
 
-?>
+

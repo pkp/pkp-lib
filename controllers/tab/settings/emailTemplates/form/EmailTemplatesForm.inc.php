@@ -3,8 +3,8 @@
 /**
  * @file controllers/tab/settings/emailTemplates/form/EmailTemplatesForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class EmailTemplatesForm
@@ -38,10 +38,10 @@ class EmailTemplatesForm extends ContextSettingsForm {
 	/**
 	 * @copydoc ContextSettingsForm::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false, $params = null) {
 		$context = $request->getContext();
 		$dispatcher = $request->getDispatcher();
-		return parent::fetch($request, array(
+		return parent::fetch($request, $template, $display, array(
 			'envelopeSenderDisabled' => !Config::getVar('email', 'allow_envelope_sender') || Config::getVar('email', 'force_default_envelope_sender') && Config::getVar('email', 'default_envelope_sender'),
 			'emailVariables' => array(
 				'contextName' => $context->getLocalizedName(),
@@ -52,4 +52,4 @@ class EmailTemplatesForm extends ContextSettingsForm {
 	}
 }
 
-?>
+

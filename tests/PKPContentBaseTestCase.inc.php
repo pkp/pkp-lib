@@ -3,8 +3,8 @@
 /**
  * @file tests/PKPContentBaseTestCase.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPContentBaseTestCase
@@ -84,6 +84,14 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 			$id = 'checklist-' . $i;
 			if ($this->getXpathCount("//input[@id='$id' and not(@checked)]")==1) $this->click("id=$id");
 		}
+
+		if (empty($data['submitterRole'])){
+			$this->click('//input[@id=\'userGroupId\']');
+		} else {
+			$this->click('//input[@name=\'userGroupId\'][following-sibling::text()[position()=1][contains(.,\'' . $this->escapeJS($data['submitterRole']) . '\')]]');
+		}
+
+		$this->click('//input[@id=\'privacyConsent\']');
 
 		// Permit the subclass to handle any series/section data
 		$this->_handleStep1($data);
@@ -197,7 +205,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	protected function addAuthor($data) {
 		// Check that the required parameters are provided
 		foreach (array(
-			'firstName', 'lastName', 'email', 'country',
+			'givenName', 'familyName', 'email', 'country',
 		) as $paramName) {
 			$this->assertTrue(isset($data[$paramName]));
 		}
@@ -207,9 +215,9 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		), $data);
 
 		$this->click('css=[id^=component-grid-users-author-authorgrid-addAuthor-button-]');
-		$this->waitForElementPresent('css=[id^=firstName-]');
-		$this->type('css=[id^=firstName-]', $data['firstName']);
-		$this->type('css=[id^=lastName-]', $data['lastName']);
+		$this->waitForElementPresent('css=[id^=givenName-]');
+		$this->type('css=[id^=givenName-]', $data['givenName']);
+		$this->type('css=[id^=familyName-]', $data['familyName']);
 		$this->select('id=country', $data['country']);
 		$this->type('css=[id^=email-]', $data['email']);
 		if (isset($data['affiliation'])) $this->type('css=[id^=affiliation-]', $data['affiliation']);
@@ -301,17 +309,17 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 
 	/**
 	 * Assign a reviewer.
-	 * @param $username string
 	 * @param $name string
 	 */
-	function assignReviewer($username, $name) {
+	function assignReviewer($name) {
 		$this->waitForElementPresent('css=[id^=component-grid-users-reviewer-reviewergrid-addReviewer-button-]');
 		$this->click('css=[id^=component-grid-users-reviewer-reviewergrid-addReviewer-button-]');
-		$this->waitForElementPresent('css=[id^=name-]');
-		$this->type('css=[id^=name-]', $username);
-		$this->click('css=[id=submitFilter]');
+		$this->waitForElementPresent('css=div.pkpListPanel--selectReviewer');
+		$this->type('css=div.pkpListPanel--selectReviewer input.pkpListPanel__searchInput', $name);
 		$this->waitJQuery();
-		$this->click('css=[id^=reviewer_]');
+		$xpath = '//div[contains(text(),' . $this->quoteXPath($name) . ')]';
+		$this->waitForElementPresent($xpath);
+		$this->click($xpath);
 		$this->click('css=[id^=selectReviewerButton]');
 
 		$this->click('//button[text()=\'Add Reviewer\']');
@@ -332,11 +340,13 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 
 		// Use an xpath concat to permit apostrophes to appear in titles
 		// http://kushalm.com/the-perils-of-xpath-expressions-specifically-escaping-quotes
-		$xpath = '//div[contains(text(),' . $this->quoteXPath($title) . ')]';
+		$xpath = '//div[normalize-space(text())=' . $this->quoteXPath($title) . ']';
 		$this->waitForElementPresent($xpath);
 		$this->click($xpath);
 
+
 		$this->waitForElementPresent($selector='//button[text()=\'Accept Review, Continue to Step #2\']');
+		$this->click('//input[@id=\'privacyConsent\']');
 		$this->click($selector);
 
 		$this->waitForElementPresent($selector='//button[text()=\'Continue to Step #3\']');
@@ -358,4 +368,4 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	}
 }
 
-?>
+

@@ -3,8 +3,8 @@
 /**
  * @file pages/management/ManagementHandler.inc.php
  *
- * Copyright (c) 2013-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2013-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ManagementHandler
@@ -24,8 +24,8 @@ class ManagementHandler extends Handler {
 	/**
 	 * @see PKPHandler::initialize()
 	 */
-	function initialize($request, $args = null) {
-		parent::initialize($request, $args);
+	function initialize($request) {
+		parent::initialize($request);
 
 		// Load manager locale components.
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_PKP_GRID);
@@ -44,4 +44,4 @@ class ManagementHandler extends Handler {
 	}
 }
 
-?>
+

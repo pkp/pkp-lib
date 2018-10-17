@@ -3,8 +3,8 @@
 /**
  * @file tests/classes/notification/PKPNotificationManagerTest.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPNotificationManagerTest
@@ -229,8 +229,8 @@ class PKPNotificationManagerTest extends PKPTestCase {
 		import('lib.pkp.classes.user.PKPUser');
 		$testUser = new PKPUser();
 		$testUser->setId($expectedNotification->getUserId());
-		$testUser->setFirstName($userFirstName);
-		$testUser->setLastName($userLastName);
+		$testUser->setGivenName($userFirstName, 'en_US');
+		$testUser->setFamilyName($userLastName, 'en_US');
 		$testUser->setEmail($userEmail);
 
 		// Get the user full name to check.
@@ -388,4 +388,4 @@ class PKPNotificationManagerTest extends PKPTestCase {
 	}
 }
 
-?>
+

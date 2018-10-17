@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+<!--
+  * locale/fa_IR/reviewer.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Farsi_(fa_IR)
+  -->
+<locale name="fa_IR" full_name="فارسی">
+	<!-- Used in submission review -->
+	<message key="reviewer.reviewSteps.request">1. درخواست</message>
+	<message key="reviewer.reviewSteps.guidelines">2. دستورالعمل‌ها</message>
+	<message key="reviewer.reviewSteps.download">3. دانلود و داوری</message>
+	<message key="reviewer.reviewSteps.completion">4. تکمیل</message>
+	<message key="reviewer.step1.request">درخواست برای داوری</message>
+	<message key="reviewer.step1.requestBoilerplate">شما به عنوان یک داور احتمالی برای این مقاله ارسالی انتخاب شده‌اید. در زیر کلیاتی از مقاله و همچنین بازه زمانی برای داوری نمایش داده شده است. امیدواریم که بتوانید در داوری این مقاله همکاری کنید.</message>
+	<message key="reviewer.step1.viewAllDetails">مشاهده تمام جزئیات مقاله ثبت شده</message>
+	<message key="reviewer.submission.reviewerFiles">فایل‌های داور</message>
+	<message key="reviewer.submission.declineReview">رد درخواست داوری</message>
+	<message key="reviewer.submission.declineReviewMessage">در صورت تمایل، دلیل رد داوری این مقاله را برای سردبیر در فیلد زیر وارد کنید.</message>
+	<message key="reviewer.submission.acceptReview">قبول داوری و رفتن به مرحله دوم</message>
+	<message key="reviewer.submission.continueToStepThree">رفتن به مرحله سوم</message>
+	<message key="reviewer.submission.submitReview">ثبت داوری</message>
+	<message key="reviewer.submission.reviewerGuidelines">دستورالعمل‌های داوری</message>
+	<message key="reviewer.submission.enterCompetingInterests">این انتشارات سیاست‌هایی برای بررسی تضاد منافع دارد. لطفاً این سیاست را مطالعه کنید.</message>
+	<message key="reviewer.submission.noCompetingInterests">من هیچ تضاد منافعی ندارم</message>
+	<message key="reviewer.submission.hasCompetingInterests">ممکن است این مقاله شامل تضاد منافع  باشد (در زیر مشخص شده)</message>
+	<message key="reviewer.submission.competingInterests">تضاد منافع</message>
+	<message key="reviewer.submission.guidelines">دستورالعمل‌های داوری</message>
+	<message key="reviewer.submission.noGuidelines">این انتشارات هیچ دستورالعمل داوری را مشخص نکرده است.</message>
+	<message key="reviewer.submission.downloadDescription">برای دانلود فالی‌های این مقاله ارسالی بر روی اسم فایل‌ها کلیک کنید.</message>
+	<message key="reviewer.submission.reviewDescription">نتیجه داوری خود را در فرم زیر ثبت کنید.</message>
+	<message key="reviewer.submission.uploadDescription">فایی‌هایی که مایلید سردبیر و یا نویسنده آن‌ها را مشاهده کنند را آپلود کنید.</message>
+	<message key="reviewer.complete">داوری ثبت شد.</message>
+	<message key="reviewer.confirmSubmit">آیا مطمئن به ثبت این داوری هستید</message>
+	<message key="reviewer.complete.whatNext">از تکمیل داوری این مقاله متشکریم. از همکاری شما در بهبود کیفیت محتویات منتشر شده متشکریم، ممکن است در ادامه برای دریافت اطلاعات بیشتر درباره این داوری با شما ارتباط برقرار کنیم.</message>
+	<message key="reviewer.aboutDueDates">درباره مهلت‌ها</message>
+	<message key="reviewer.aboutDueDates.text">سردبیر تقاضا دارد تا در مهلت مشخص شده داوری این مقاله را قبول و یا رد کنید و در صورت پذیرش، در مدت زمان مشخص شده برای داوری نتیجه داوری را ارسال کنید.</message>
+	<message key="submission.comments.canShareWithAuthor">برای نویسنده و دبیر</message>
+	<message key="submission.comments.cannotShareWithAuthor">فقط برای دبیر</message>
+	<message key="user.authorization.submissionReviewer">کاربر کنونی به عنوان داور این سند ثبت نشده است.</message>
+</locale>

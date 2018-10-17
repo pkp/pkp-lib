@@ -3,8 +3,8 @@
 /**
  * @file controllers/tab/settings/siteSetup/form/NewSiteCssFileForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NewSiteCssFileForm
@@ -33,9 +33,9 @@ class NewSiteCssFileForm extends SettingsFileUploadForm {
 	/**
 	 * @copydoc SettingsFileUploadForm::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false, $params = null) {
 		$params = array('fileType' => 'css');
-		return parent::fetch($request, $params);
+		return parent::fetch($request, $template, $display, $params);
 	}
 
 
@@ -44,9 +44,9 @@ class NewSiteCssFileForm extends SettingsFileUploadForm {
 	//
 	/**
 	 * Save the new image file.
-	 * @param $request Request.
 	 */
-	function execute($request) {
+	function execute() {
+		$request = Application::getRequest();
 		$temporaryFile = $this->fetchTemporaryFile($request);
 
 		import('classes.file.PublicFileManager');
@@ -76,4 +76,4 @@ class NewSiteCssFileForm extends SettingsFileUploadForm {
 	}
 }
 
-?>
+

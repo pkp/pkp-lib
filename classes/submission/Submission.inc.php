@@ -10,8 +10,8 @@
 /**
  * @file classes/submission/Submission.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Submission
@@ -248,28 +248,12 @@ abstract class Submission extends DataObject {
 	}
 
 	/**
-	 * Return first author
-	 * @param $lastOnly boolean return lastname only (default false)
-	 * @return string
-	 */
-	function getFirstAuthor($lastOnly = false) {
-		$authors = $this->getAuthors();
-		if (is_array($authors) && !empty($authors)) {
-			$author = $authors[0];
-			return $lastOnly ? $author->getLastName() : $author->getFullName();
-		} else {
-			return null;
-		}
-	}
-
-	/**
 	 * Return string of author names, separated by the specified token
-	 * @param $lastOnly boolean return list of lastnames only (default false)
-	 * @param $nameSeparator string Separator for names (default comma+space)
-	 * @param $userGroupSeparator string Separator for user groups (default semicolon+space)
+	 * @param $preferred boolean If the preferred public name should be used, if exist
+	 * @param $familyOnly boolean return list of family names only (default false)
 	 * @return string
 	 */
-	function getAuthorString($lastOnly = false, $nameSeparator = ', ', $userGroupSeparator = '; ') {
+	function getAuthorString($preferred = true, $familyOnly = false) {
 		$authors = $this->getAuthors(true);
 
 		$str = '';
@@ -281,12 +265,13 @@ abstract class Submission extends DataObject {
 				if ($lastUserGroupId != $author->getUserGroupId()) {
 					$userGroup = $userGroupDao->getById($lastUserGroupId);
 					if ($userGroup->getShowTitle()) $str .= ' (' . $userGroup->getLocalizedName() . ')';
-					$str .= $userGroupSeparator;
+					$str .= __('common.semicolonListSeparator');
 				} else {
-					$str .= $nameSeparator;
+					$str .= __('common.commaListSeparator');
 				}
 			}
-			$str .= $lastOnly ? $author->getLastName() : $author->getFullName();
+			$familyName = $author->getLocalizedFamilyName();
+			$str .= ($familyOnly && !empty($familyName)) ? $familyName : $author->getFullName($preferred);
 			$lastUserGroupId = $author->getUserGroupId();
 		}
 
@@ -304,16 +289,14 @@ abstract class Submission extends DataObject {
 	 * @return string
 	 */
 	function getShortAuthorString() {
-		$primaryAuthor = $this->getPrimaryAuthor();
 		$authors = $this->getAuthors();
-		if (!isset($primaryAuthor)) {
-			if (sizeof($authors) > 0) {
-				$primaryAuthor = $authors[0];
-			}
+		if (sizeof($authors) > 0) {
+			$firstAuthor = $authors[0];
 		}
-		if (!$primaryAuthor) return '';
+		if (!$firstAuthor) return '';
 
-		$authorString = $primaryAuthor->getLastName();
+		$familyName = $firstAuthor->getLocalizedFamilyName();
+		$authorString = (!empty($familyName)) ? $familyName : $firstAuthor->getLocalizedGivenName();
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
 		if (count($authors) > 1) $authorString = __('submission.shortAuthor', array('author' => $authorString));
 		return $authorString;
@@ -483,7 +466,15 @@ abstract class Submission extends DataObject {
 	function getFullTitle($locale) {
 		$fullTitle = $this->getTitle($locale);
 
-		if ($subtitle = $this->getSubtitle($locale)) {
+		if (is_array($fullTitle)) {
+			foreach ($fullTitle as $locale => $title) {
+				if ($this->getSubtitle($locale)) {
+					$fullTitle[$locale] = PKPString::concatTitleFields(array($title, $this->getSubtitle($locale)));
+				} else {
+					$fullTitle[$locale] = $title;
+				}
+			}
+		} elseif ($this->getSubtitle($locale)) {
 			$fullTitle = PKPString::concatTitleFields(array($fullTitle, $subtitle));
 		}
 
@@ -977,7 +968,7 @@ abstract class Submission extends DataObject {
 	 * @param $datePublished date
 	 */
 	function setDatePublished($datePublished) {
-		return $this->SetData('datePublished', $datePublished);
+		return $this->setData('datePublished', $datePublished);
 	}
 
 	/**
@@ -1031,4 +1022,4 @@ abstract class Submission extends DataObject {
 	abstract function _getContextLicenseFieldValue($locale, $field);
 }
 
-?>
+

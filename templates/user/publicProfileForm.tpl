@@ -1,8 +1,8 @@
 {**
  * templates/user/publicProfileForm.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Public user profile form.
@@ -23,7 +23,7 @@
 					baseUrl: {$baseUrl|json_encode},
 					filters: {ldelim}
 						mime_types : [
-							{ldelim} title : "Image files", extensions : "jpg,jpeg,png,svg" {rdelim}
+							{ldelim} title : "Image files", extensions : "jpg,jpeg,png,svg,gif" {rdelim}
 						]
 					{rdelim},
 					resize: {ldelim}
@@ -62,10 +62,17 @@
 		{fbvElement type="text" label="user.url" name="userUrl" id="userUrl" value=$userUrl maxlength="255"}
 	{/fbvFormSection}
 	{fbvFormSection}
-		{fbvElement type="text" label="user.orcid" name="orcid" id="orcid" value=$orcid maxlength="36"}
+		{fbvElement type="text" label="user.orcid" name="orcid" id="orcid" value=$orcid maxlength="37"}
 	{/fbvFormSection}
 
+	{call_hook name="User::PublicProfile::AdditionalItems"}
+
 	{fbvFormButtons hideCancel=true submitText="common.save"}
+
+	<p>
+		{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}
+		{translate key="user.privacyLink" privacyUrl=$privacyUrl}
+	</p>
 
 	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </form>

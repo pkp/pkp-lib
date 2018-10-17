@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/admin/systemInfo/SystemInfoGridCategoryRow.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SystemInfoGridCategoryRow
@@ -27,9 +27,9 @@ class SystemInfoGridCategoryRow extends GridCategoryRow {
 	 * @see GridCategoryRow::initialize()
 	 * @param $request PKPRequest
 	 */
-	function initialize($request) {
+	function initialize($request, $template = null) {
 		// Do the default initialization
-		parent::initialize($request);
+		parent::initialize($request, $template);
 		$this->_configSection = $this->getData();
 	}
 
@@ -41,4 +41,4 @@ class SystemInfoGridCategoryRow extends GridCategoryRow {
 		return $this->_configSection;
 	}
 }
-?>
+

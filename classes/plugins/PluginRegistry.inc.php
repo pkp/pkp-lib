@@ -3,8 +3,8 @@
 /**
  * @file classes/plugins/PluginRegistry.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PluginRegistry
@@ -50,9 +50,14 @@ class PluginRegistry {
 	 * @param $category String the name of the category to extend
 	 * @param $plugin The instantiated plugin to add
 	 * @param $path The path the plugin was found in
+	 * @param $mainContextId integer To identify enabled plug-ins
+	 *  we need a context. This context is usually taken from the
+	 *  request but sometimes there is no context in the request
+	 *  (e.g. when executing CLI commands). Then the main context
+	 *  can be given as an explicit ID.
 	 * @return boolean True IFF the plugin was registered successfully
 	 */
-	static function register($category, &$plugin, $path) {
+	static function register($category, &$plugin, $path, $mainContextId = null) {
 		$pluginName = $plugin->getName();
 		$plugins =& PluginRegistry::getPlugins();
 		if (!$plugins) $plugins = array();
@@ -61,7 +66,7 @@ class PluginRegistry {
 		if (isset($plugins[$category][$pluginName])) return false;
 
 		// Allow the plugin to register.
-		if (!$plugin->register($category, $path)) return false;
+		if (!$plugin->register($category, $path, $mainContextId)) return false;
 
 		if (isset($plugins[$category])) $plugins[$category][$pluginName] =& $plugin;
 		else $plugins[$category] = array($pluginName => &$plugin);
@@ -99,7 +104,7 @@ class PluginRegistry {
 
 		if ($enabledOnly && Config::getVar('general', 'installed')) {
 			// Get enabled plug-ins from the database.
-			$application = PKPApplication::getApplication();
+			$application = Application::getApplication();
 			$products =& $application->getEnabledProducts('plugins.'.$category, $mainContextId);
 			foreach ($products as $product) {
 				$file = $product->getProduct();
@@ -132,7 +137,7 @@ class PluginRegistry {
 		ksort($plugins);
 		foreach ($plugins as $seq => $junk1) {
 			foreach ($plugins[$seq] as $pluginPath => $junk2) {
-				PluginRegistry::register($category, $plugins[$seq][$pluginPath], $pluginPath);
+				PluginRegistry::register($category, $plugins[$seq][$pluginPath], $pluginPath, $mainContextId);
 			}
 		}
 		unset($plugins);
@@ -178,7 +183,7 @@ class PluginRegistry {
 	 * @return array
 	 */
 	static function getCategories() {
-		$application = PKPApplication::getApplication();
+		$application = Application::getApplication();
 		$categories = $application->getPluginCategories();
 		HookRegistry::call('PluginRegistry::getCategories', array(&$categories));
 		return $categories;
@@ -248,4 +253,4 @@ class PluginRegistry {
 	}
 }
 
-?>
+

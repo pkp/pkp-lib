@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/files/query/ManageQueryNoteFilesGridHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ManageQueryNoteFilesGridHandler
@@ -87,7 +87,6 @@ class ManageQueryNoteFilesGridHandler extends SelectableSubmissionFileListCatego
 
 		if ($manageQueryNoteFilesForm->validate()) {
 			$manageQueryNoteFilesForm->execute(
-				$args, $request,
 				$this->getGridCategoryDataElements($request, $this->getStageId())
 			);
 
@@ -99,4 +98,4 @@ class ManageQueryNoteFilesGridHandler extends SelectableSubmissionFileListCatego
 	}
 }
 
-?>
+

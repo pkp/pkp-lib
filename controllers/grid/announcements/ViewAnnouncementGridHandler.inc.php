@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/announcements/ViewAnnouncementGridHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ViewAnnouncementGridHandler
@@ -19,10 +19,9 @@ class ViewAnnouncementGridHandler extends AnnouncementGridHandler {
 
 	/**
 	 * @copydoc AnnouncementGridHandler::initialize()
-	 * @param $request PKPRequest
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 
 		$displayLimit = (boolean) $request->getUserVar('displayLimit');
 		if ($displayLimit) {
@@ -56,4 +55,4 @@ class ViewAnnouncementGridHandler extends AnnouncementGridHandler {
 	}
 }
 
-?>
+

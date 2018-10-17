@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/files/final/FinalDraftFilesGridHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FinalDraftFilesGridHandler
@@ -53,9 +53,9 @@ class FinalDraftFilesGridHandler extends FileListGridHandler {
 	function selectFiles($args, $request) {
 		import('lib.pkp.controllers.grid.files.final.form.ManageFinalDraftFilesForm');
 		$manageFinalDraftFilesForm = new ManageFinalDraftFilesForm($this->getSubmission()->getId());
-		$manageFinalDraftFilesForm->initData($args, $request);
+		$manageFinalDraftFilesForm->initData();
 		return new JSONMessage(true, $manageFinalDraftFilesForm->fetch($request));
 	}
 }
 
-?>
+

@@ -3,8 +3,8 @@
 /**
  * @file classes/user/InterestDAO.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class InterestDAO
@@ -88,7 +88,9 @@ class InterestDAO extends ControlledVocabDAO {
 
 		// Sort by name.
 		$interests = $iterator->toArray();
-		usort($interests, create_function('$s1, $s2', 'return strcmp($s1->getInterest(), $s2->getInterest());'));
+		usort($interests, function($s1, $s2) {
+			return strcmp($s1->getInterest(), $s2->getInterest());
+		});
 
 		// Turn back into an iterator.
 		import('lib.pkp.classes.core.ArrayItemIterator');
@@ -138,4 +140,4 @@ class InterestDAO extends ControlledVocabDAO {
 	}
 }
 
-?>
+

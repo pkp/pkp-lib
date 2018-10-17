@@ -3,8 +3,8 @@
 /**
  * @file controllers/informationCenter/form/NewNoteForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NewNoteForm
@@ -64,7 +64,7 @@ class NewNoteForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$noteDao = DAORegistry::getDAO('NoteDAO');
 		$templateMgr->assign(array(
@@ -72,7 +72,7 @@ class NewNoteForm extends Form {
 			'submitNoteText' => $this->getSubmitNoteLocaleKey(),
 			'newNoteFormTemplate' => $this->getNewNoteFormTemplate(),
 		));
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -88,7 +88,8 @@ class NewNoteForm extends Form {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute($request) {
+	function execute() {
+		$request = Application::getRequest();
 		$user = $request->getUser();
 
 		$noteDao = DAORegistry::getDAO('NoteDAO');
@@ -103,4 +104,4 @@ class NewNoteForm extends Form {
 	}
 }
 
-?>
+

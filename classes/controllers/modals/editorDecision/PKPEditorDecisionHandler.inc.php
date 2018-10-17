@@ -3,8 +3,8 @@
 /**
  * @file controllers/modals/editorDecision/EditorDecisionHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class EditorDecisionHandler
@@ -32,16 +32,31 @@ class PKPEditorDecisionHandler extends Handler {
 		import('lib.pkp.classes.security.authorization.internal.ReviewRoundRequiredPolicy');
 		$this->addPolicy(new ReviewRoundRequiredPolicy($request, $args, 'reviewRoundId', $reviewRoundOps));
 
-		return parent::authorize($request, $args, $roleAssignments);
+		if (!parent::authorize($request, $args, $roleAssignments)) return false;
+
+		// Prevent editors who are also assigned as authors from accessing the
+		// review stage operations
+		$operation = $request->getRouter()->getRequestedOp($request);
+		if (in_array($operation, $reviewRoundOps)) {
+			$userAccessibleStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+			foreach ($userAccessibleStages as $stageId => $roles) {
+				if (in_array(ROLE_ID_AUTHOR, $roles)) {
+					return false;
+				}
+			}
+		}
+
+		return true;
 	}
 
 	/**
-	 * @see PKPHandler::initialize()
+	 * @copydoc PKPHandler::initialize()
 	 */
-	function initialize($request, $args) {
+	function initialize($request) {
 		AppLocale::requireComponents(
 			LOCALE_COMPONENT_APP_COMMON,
 			LOCALE_COMPONENT_APP_EDITOR,
+			LOCALE_COMPONENT_APP_SUBMISSION,
 			LOCALE_COMPONENT_PKP_EDITOR,
 			LOCALE_COMPONENT_PKP_SUBMISSION
 		);
@@ -217,6 +232,11 @@ class PKPEditorDecisionHandler extends Handler {
 						$body .= PKPString::stripUnsafeHtml($comment->getComments());
 					}
 				}
+
+				// Add reviewer recommendation
+				$recommendation = $reviewAssignment->getLocalizedRecommendation();
+				$body .= __('submission.recommendation', array('recommendation' => $recommendation)) . "<br>\n";
+
 				$body .= "<br>$textSeparator<br><br>";
 
 				if ($reviewFormId = $reviewAssignment->getReviewFormId()) {
@@ -254,7 +274,7 @@ class PKPEditorDecisionHandler extends Handler {
 								}
 								$body .= '<br>';
 							} else {
-								$body .= '<blockquote>' . htmlspecialchars($reviewFormResponse->getValue()) . '</blockquote>';
+								$body .= '<blockquote>' . nl2br(htmlspecialchars($reviewFormResponse->getValue())) . '</blockquote>';
 							}
 						}
 
@@ -290,7 +310,7 @@ class PKPEditorDecisionHandler extends Handler {
 		// Form handling
 		import('lib.pkp.controllers.modals.editorDecision.form.RecommendationForm');
 		$editorRecommendationForm = new RecommendationForm($submission, $stageId, $reviewRound);
-		$editorRecommendationForm->initData($request);
+		$editorRecommendationForm->initData();
 		return new JSONMessage(true, $editorRecommendationForm->fetch($request));
 	}
 
@@ -313,7 +333,7 @@ class PKPEditorDecisionHandler extends Handler {
 		$editorRecommendationForm = new RecommendationForm($submission, $stageId, $reviewRound);
 		$editorRecommendationForm->readInputData();
 		if ($editorRecommendationForm->validate()) {
-			$editorRecommendationForm->execute($request);
+			$editorRecommendationForm->execute();
 			$json = new JSONMessage(true);
 			$json->setGlobalEvent('decisionActionUpdated');
 			return $json;
@@ -398,7 +418,7 @@ class PKPEditorDecisionHandler extends Handler {
 
 		// Form handling
 		$editorDecisionForm = $this->_getEditorDecisionForm($formName, $decision);
-		$editorDecisionForm->initData($args, $request);
+		$editorDecisionForm->initData();
 
 		return new JSONMessage(true, $editorDecisionForm->fetch($request));
 	}
@@ -423,7 +443,7 @@ class PKPEditorDecisionHandler extends Handler {
 		$editorDecisionForm = $this->_getEditorDecisionForm($formName, $decision);
 		$editorDecisionForm->readInputData();
 		if ($editorDecisionForm->validate()) {
-			$editorDecisionForm->execute($args, $request);
+			$editorDecisionForm->execute();
 
 			// Get a list of author user IDs
 			$authorUserIds = array();
@@ -498,4 +518,4 @@ class PKPEditorDecisionHandler extends Handler {
 	}
 }
 
-?>
+

@@ -1,8 +1,8 @@
 {**
  * templates/user/notificationSettingsForm.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * User profile form.
@@ -39,7 +39,7 @@
 			{foreach from=$notificationSettingCategory.settings item=settingId}
 				{assign var="settingName" value=$notificationSettings.$settingId.settingName}
 				{assign var="emailSettingName" value=$notificationSettings.$settingId.emailSettingName}
-				{translate|assign:"settingKey" key=$notificationSettings.$settingId.settingKey title="common.title"|translate}
+				{capture assign="settingKey"}{translate key=$notificationSettings.$settingId.settingKey title="common.title"|translate}{/capture}
 
 				{fbvFormSection title=$settingKey list=true translate=false}
 					{if $settingId|in_array:$blockedNotifications}
@@ -60,6 +60,11 @@
 		<br />
 		{fbvFormButtons hideCancel=true submitText="common.save"}
 	{/fbvFormArea}
+
+	<p>
+		{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}
+		{translate key="user.privacyLink" privacyUrl=$privacyUrl}
+	</p>
 
 	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </form>

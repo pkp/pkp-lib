@@ -4,8 +4,8 @@
 <!--
   * locale/pt_BR/reader.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Locale information: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Portuguese_(pt_BR)
   * Localization strings.
@@ -99,7 +99,7 @@
 	<message key="rt.findingReferences.googleScholar">Google Acadêmico</message>
 	<message key="rt.findingReferences.windowsLiveAcademic">Windows Live Acadêmico</message>
 	<message key="rt.lookUp">Pesquisar palavra</message>
-	<message key="rt.metadata.dublinCore.contributor">Contribuidor</message>
+	<message key="rt.metadata.dublinCore.contributor">Coautor</message>
 	<message key="rt.metadata.dublinCore.coverage">Cobertura</message>
 	<message key="rt.metadata.dublinCore.date">Data</message>
 	<message key="rt.metadata.dublinCore.description">Descrição</message>
@@ -154,7 +154,7 @@
 	<message key="rt.versions">Conjuntos de itens relacionados</message>
 	<message key="rt.version.title">Título</message>
 	<message key="rt.version">Versão</message>
-	<message key="rt.viewMetadata">Exibir metadados</message>
+	<message key="rt.viewMetadata">Catalogação</message>
 	<message key="comments.titleRequired">O título do comentário é obrigatório.</message>
 	<message key="rt.admin.sharing">Compartilhamento</message>
 	<message key="rt.admin.sharing.enabled">Compartilhamento habilitado</message>
@@ -164,7 +164,7 @@
 	<message key="rt.admin.sharing.buttonStyleLabel">Estilo do botão</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Usar menu drop-down</message>
 	<message key="rt.admin.sharing.advanced">Configurações avançadas (opcional)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Leia a <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">Documentação de customização do AddThis.com</a> para referência.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Leia a <a href="https://www.addthis.com/academy/how-to-create-custom-buttons-with-addthis/">Documentação de customização do AddThis.com</a> para referência.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Marca</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Opções do menu drop-down <br /> (lista separada por vírgula)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Idioma</message>

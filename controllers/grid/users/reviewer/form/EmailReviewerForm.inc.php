@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/reviewer/form/EmailReviewerForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class EmailReviewerForm
@@ -48,10 +48,10 @@ class EmailReviewerForm extends Form {
 
 	/**
 	 * Display the form.
-	 * @param $request PKPRequest
 	 * @param $requestArgs array Request parameters to bounce back with the form submission.
+	 * @see Form::fetch
 	 */
-	function fetch($request, $requestArgs = array()) {
+	function fetch($request, $template = null, $display = false, $requestArgs = array()) {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $userDao->getById($this->_reviewAssignment->getReviewerId());
 
@@ -62,17 +62,17 @@ class EmailReviewerForm extends Form {
 			'reviewAssignmentId' => $this->_reviewAssignment->getId(),
 		));
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
 	 * Send the email
-	 * @param $request PKPRequest
 	 * @param $submission Submission
 	 */
-	function execute($request, $submission) {
+	function execute($submission) {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$toUser = $userDao->getById($this->_reviewAssignment->getReviewerId());
+		$request = Application::getRequest();
 		$fromUser = $request->getUser();
 
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
@@ -87,4 +87,4 @@ class EmailReviewerForm extends Form {
 	}
 }
 
-?>
+

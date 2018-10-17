@@ -1,8 +1,8 @@
 {**
  * controllers/tab/settings/paymentMethod/form/paymentMethodForm.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Payment method management form.
@@ -41,8 +41,10 @@
 	<input type="hidden" name="paymentPluginName" id="paymentPluginName" />
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="paymentMethodFormNotification"}
 	{include file="controllers/tab/settings/wizardMode.tpl" wizardMode=$wizardMode}
-
 		{fbvFormArea id="paymentMethod"}
+			{fbvFormSection title="manager.payment.generalOptions" list=true}
+				{fbvElement type="checkbox" name="paymentsEnabled" id="paymentsEnabled" checked=$paymentsEnabled label="manager.payment.options.enablePayments" value="1"}
+			{/fbvFormSection}
 			{fbvFormSection label="manager.paymentMethod.currency" description="manager.paymentMethod.currency.description"}
 				{fbvElement required="true" type="select" id="currency" from=$currencies selected=$currency translate=false}
 			{/fbvFormSection}

@@ -3,8 +3,8 @@
 /**
  * @file classes/log/SubmissionFileLog.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileLog
@@ -25,7 +25,7 @@ class SubmissionFileLog extends SubmissionLog {
 	 * @param $params array optional
 	 * @return object SubmissionLogEntry iff the event was logged
 	 */
-	static function logEvent($request, &$submissionFile, $eventType, $messageKey, $params = array()) {
+	static function logEvent($request, $submissionFile, $eventType, $messageKey, $params = array()) {
 		// Create a new entry object
 		$submissionFileEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO');
 		$entry = $submissionFileEventLogDao->newDataObject();
@@ -52,4 +52,4 @@ class SubmissionFileLog extends SubmissionLog {
 	}
 }
 
-?>
+

@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/files/final/form/ManageFinalDraftFilesForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ManageFinalDraftFilesForm
@@ -31,13 +31,14 @@ class ManageFinalDraftFilesForm extends ManageSubmissionFilesForm {
 	//
 	/**
 	 * Save Selection of Final Draft files
-	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $stageSubmissionFiles array The files that belongs to a file stage
+	 * that is currently being used by a grid inside this form.
+	 * @param $fileStage int SUBMISSION_FILE_...
 	 * @return array a list of all submission files marked as "final".
 	 */
-	function execute($args, $request, $stageSubmissionFiles) {
-		parent::execute($args, $request, $stageSubmissionFiles, SUBMISSION_FILE_FINAL);
+	function execute($stageSubmissionFiles, $fileStage = null) {
+		parent::execute($stageSubmissionFiles, SUBMISSION_FILE_FINAL);
 	}
 }
 
-?>
+

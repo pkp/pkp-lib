@@ -4,8 +4,8 @@
 <!--
   * locale/en_US/common.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -146,12 +146,15 @@
 	<message key="common.fullscreenOff">Fullscreen Off</message>
 	<message key="common.false">False</message>
 	<message key="common.file">File</message>
-	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
-	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
+	<message key="common.file.namingPattern">{$username}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$genre}, {$originalFilename}</message>
 	<message key="common.fileName">File Name</message>
 	<message key="common.fileSize">File Size</message>
 	<message key="common.fileType">File Type</message>
 	<message key="common.fileUploaderError">The system file uploader is loading. If it doesn't appear it is likely that none of its runtimes is supported by this browser. Please, contact administration for support.</message>
+	<message key="common.filter">Filters</message>
+	<message key="common.filterAdd">Add filter: {$filterTitle}</message>
+	<message key="common.filterRemove">Clear filter: {$filterTitle}</message>
 	<message key="common.from">From</message>
 	<message key="common.until">Until</message>
 	<message key="common.go">Go</message>
@@ -169,6 +172,9 @@
 	<message key="common.language">Language</message>
 	<message key="common.languages">Languages</message>
 	<message key="common.less">Less</message>
+	<message key="common.lessThan">{$value} or less</message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.manage">Manage</message>
 	<message key="common.mailingAddress">Mailing Address</message>
 	<message key="common.billingAddress">Billing address (if different)</message>
@@ -176,6 +182,7 @@
 	<message key="common.modify">Modify</message>
 	<message key="common.month">Month</message>
 	<message key="common.more">More</message>
+	<message key="common.moreThan">{$value} or more</message>
 	<message key="common.noneAssigned">None assigned</message>
 	<message key="common.none">None</message>
 	<message key="common.no">No</message>
@@ -198,6 +205,8 @@
 	<message key="common.or">or</message>
 	<message key="common.other">Other</message>
 	<message key="common.overdue">Overdue</message>
+	<message key="common.pagination">{$start}-{$end} of {$total}</message>
+	<message key="common.pagination.label">Browse additional pages</message>
 	<message key="common.pageNumber">Page {$pageNumber}</message>
 	<message key="common.pageHeaderLogo.altText">Page Header Logo</message>
 	<message key="common.percentage">{$percentage}%</message>
@@ -235,6 +244,7 @@
 	<message key="common.saving">Saving</message>
 	<message key="common.search">Search</message>
 	<message key="common.searchQuery">Search Query</message>
+	<message key="common.clearSearch">Clear search phrase</message>
 	<message key="common.second">Second(s)</message>
 	<message key="common.selectAll">Select All</message>
 	<message key="common.selectNone">Select None</message>
@@ -279,6 +289,7 @@
 	<message key="common.plugins">Plugins</message>
 	<message key="common.metric">Metric</message>
 	<message key="common.count">Count</message>
+	<message key="common.publicAccess">Public Access</message>
 	<message key="debug.databaseQueries">Number of database queries</message>
 	<message key="debug.executionTime">Page generated in</message>
 	<message key="debug.memoryUsage">Memory Usage</message>
@@ -371,6 +382,8 @@
 
 	<!-- Stage Participants -->
 	<message key="stageParticipants.history.messageSent">Notification sent to users.</message>
+	<message key="stageParticipants.notify.startDiscussion">Start Discussion</message>
+	<message key="stageParticipants.notify.startDiscussion.description">Begin a discussion between yourself and {$userFullName}.</message>
 	<message key="stageParticipants.notify.chooseMessage">Choose a predefined message to use, or fill out the form below.</message>
 	<message key="stageParticipants.notify.message">Message</message>
 	<message key="stageParticipants.notify.warning">Please ensure that you have filled out the message field and selected at least one recipient.</message>
@@ -382,6 +395,7 @@
 	<message key="navigation.access"><![CDATA[Users &amp; Roles]]></message>
 	<message key="navigation.about">About</message>
 	<message key="navigation.admin">Administration</message>
+	<message key="navigation.archives">Archives</message>
 	<message key="navigation.breadcrumbLabel">You are here:</message>
 	<message key="navigation.breadcrumbSeparator">/</message>
 	<message key="navigation.tools">Tools</message>
@@ -436,14 +450,6 @@
 	<message key="notification.confirmError">There was an error confirming your subscription.</message>
 	<message key="notification.confirmSuccess">You have been successfully subscribed.</message>
 	<message key="notification.email">Do not send me an email for these types of notifications.</message>
-	<message key="notification.location">Go To URL</message>
-	<message key="notification.mailList">Notification mailing list</message>
-	<message key="notification.mailList.emailInvalid">Please enter a valid email address.</message>
-	<message key="notification.mailList.privacyProtection">Privacy protection policy</message>
-	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Subscribe</a> to protected content.]]></message>
-	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Submit</a> an article]]></message>
-	<message key="notification.mailList.register">You can register with this site to...</message>
-	<message key="notification.mailList.review"><![CDATA[Participate in the <a href="{$reviewUrl}">peer review</a> process]]></message>
 	<message key="notification.noneExist">You have no notifications at this time.</message>
 	<message key="notification.addedNote">Note posted.</message>
 	<message key="notification.removedNote">Note deleted.</message>
@@ -451,20 +457,13 @@
 	<message key="notification.removedSubmission">Removed submission.</message>
 	<message key="notification.notification">Notification</message>
 	<message key="notification.notifications">Notifications</message>
-	<message key="notification.notificationsNew">({$numNew} new)</message>
-	<message key="notification.notificationsDescription">You have {$unreadCount} unread notifications and {$readCount} read notifications.<![CDATA[  <a href="{$settingsUrl}">Click here</a> to change your notification settings.]]></message>
 	<message key="notification.sentNotification">Notification sent.</message>
 	<message key="notification.settings">Notification Settings</message>
 	<message key="notification.settingsDescription">Select the system events that you wish to be notified about. Unchecking an item will prevent notifications of the event from showing up in the system and also from being emailed to you. Checked events will appear in the system and you have an extra option to receive or not the same notification by email.</message>
-	<message key="notification.subscribe">Subscribe</message>
-	<message key="notification.subscribeError">Your email address is already subscribed to notifications.</message>
-	<message key="notification.subscribeSuccess">An email has been sent to the address you specified.  Please click on the confirmation link in the email to add yourself to the mailing list.</message>
 	<message key="notification.reminderError">There was an error sending your password, please ensure you've entered your email address correctly.</message>
 	<message key="notification.reminderSent">Your new password has been sent to the email address provided.</message>
-	<message key="notification.unsubscribe">Unsubscribe</message>
-	<message key="notification.unsubscribeError">There was an error unsubscribing you.  Please ensure that you are using the correct URL as included in your notification email.</message>
-	<message key="notification.unsubscribeSuccess">You were successfully unsubscribed.</message>
 	<message key="notification.savedSubmissionMetadata">Submission metadata saved.</message>
+	<message key="notification.sendNotificationConfirmation">Send notification email to all registered users</message>
 	<message key="search.author">By Author</message>
 	<message key="search.abstract">Abstract</message>
 	<message key="search.advancedFilters">Advanced filters</message>
@@ -530,6 +529,7 @@
 	<message key="notification.addedStageParticipant">User added as a stage participant.</message>
 	<message key="notification.type.newAnnouncement">New announcement.</message>
 	<message key="notification.type.reviewAssignment">Review pending.</message>
+	<message key="notification.type.reviewAssignmentUpdated">Review assignment updated.</message>
 	<message key="notification.type.auditorRequest">Audit request for "{$file}"</message>
 	<message key="notification.type.allReviewsIn">All reviews are in and a decision is needed in {$stage}.</message>
 	<message key="notification.type.allRevisionsIn">A revised file has been uploaded for your editorial consideration in {$stage}.</message>
@@ -541,7 +541,6 @@
 	<message key="user.authorization.submissionFile">The current user is not authorized to access the specified submission file.</message>
 	<message key="user.authorization.invalidSubmission">Invalid submission.</message>
 	<message key="user.authorization.invalidRepresentation">Invalid representation.</message>
-	<message key="navigation.archives">Archives</message>
 	<message key="user.authorization.authorRoleMissing">You do not currently have sufficient privileges to view the submission. Please edit your profile to ensure that you have been granted the appropriate roles under "Register As".</message>
 	<message key="user.authorization.submissionAuthor">The current user is not the author of the requested submission. Please verify that you are logged in with the correct user account.</message>
 	<message key="notification.type.queryActivity">Discussion activity.</message>
@@ -551,4 +550,16 @@
 	<message key="notification.type.roundStatusTitle">Round {$round} Status</message>
 
 	<message key="semicolon">{$label}:</message>
+
+	<!-- Navigation Menus -->
+	<message key="notification.editedNavigationMenuItem">Navigation menu item was succesfully updated</message>
+	<message key="notification.removedNavigationMenuItem">Navigation menu item was succesfully removed</message>
+	<message key="notification.addedNavigationMenuItem">Navigation menu item was succesfully added</message>
+	<message key="notification.addedNavigationMenu">Navigation menu was succesfully added</message>
+	<message key="notification.editedNavigationMenu">Navigation menu was succesfully updated</message>
+	<message key="notification.removedNavigationMenu">Navigation menu was succesfully removed</message>
+
+	<!-- List Handlers -->
+	<message key="list.viewMore">Show more details about {$name}</message>
+	<message key="list.viewLess">Hide expanded details about {$name}</message>
 </locale>

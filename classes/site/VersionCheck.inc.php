@@ -3,8 +3,8 @@
 /**
  * @file classes/site/VersionCheck.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class VersionCheck
@@ -26,7 +26,7 @@ class VersionCheck {
 	 * @return array
 	 */
 	function getLatestVersion() {
-		$application = PKPApplication::getApplication();
+		$application = Application::getApplication();
 		$includeId = Config::getVar('general', 'installed') &&
 			!defined('RUNNING_UPGRADE') &&
 			Config::getVar('general', 'enable_beacon', true);
@@ -200,4 +200,4 @@ class VersionCheck {
 	}
 }
 
-?>
+

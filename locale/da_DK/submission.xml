@@ -4,8 +4,8 @@
 <!--
   * locale/da_DK/submission.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the da_DK (Dansk) locale.
@@ -82,7 +82,6 @@
 	<message key="submission.layout.confirmDeleteSupplementaryFile">Er du sikker på, at du vil slette denne supplerende fil permanent?</message>
 	<message key="submission.layout.deleteGalleyStylesheet">Slet dette typografiark.</message>
 	<message key="submission.layout.editGalley">Rediger et layoutsatsskib</message>
-	<message key="submission.layout.galleyFileData">Oplysninger om satsskibsfil</message>
 	<message key="submission.layout.galleyFormat">Publiceringsversion</message>
 	<message key="submission.layout.galleyHTMLData">HTML-satsskibsfiler</message>
 	<message key="submission.layout.galleyImages">Billeder</message>
@@ -200,7 +199,7 @@
 	<message key="metadata.property.validationMessage.edition">Indtast en gyldig udgave.</message>
 	<message key="metadata.property.displayName.series">Serie</message>
 	<message key="metadata.property.validationMessage.series">Indtast en gyldig serie.</message>
-	<message key="metadata.property.displayName.supplement">Supplement</message>
+	<message key="metadata.property.displayName.supplement">Tillæg</message>
 	<message key="metadata.property.validationMessage.supplement">Indtast et gyldigt supplement.</message>
 	<message key="metadata.property.displayName.conf-date">Konferencedato</message>
 	<message key="metadata.property.validationMessage.conf-date">Indtast en gyldig konferencedato (format: ÅÅÅÅ-MM-DD).</message>
@@ -261,90 +260,6 @@
 	<message key="metadata.property.displayName.name-type">Navnetype</message>
 	<message key="metadata.property.validationMessage.name-type">Sørg for at angive en gyldig navnetype. Tilladte værdier er 'personlig', 'virksomhed' og 'konference'.</message>
 	<message key="submission.citations">Referencer</message>
-	<message key="submission.citations.editor.citationlist.deleteCitationConfirmation">Er du sikker på, at du vil slette denne reference?</message>
-	<message key="submission.citations.editor.citationlist.errorDeletingCitation">Der opstod en fejl i forbindelse med sletningen af referencen. Rapporter dette som en fejl.</message>
-	<message key="submission.citations.editor.citationlist.newCitation">Ny reference</message>
-	<message key="submission.citations.editor.citationlist.title">Rediger referencer</message>
-	<message key="submission.citations.editor.clickToEdit">Klik for at redigere.</message>
-	<message key="submission.citations.editor.details.authorQuery">Spørg forfatteren</message>
-	<message key="submission.citations.editor.details.authorQueryBody">Din besked til forfatteren:</message>
-	<message key="submission.citations.editor.details.authorQueryExplanation">Du kan bede forfatteren om yderligere information vedrørende den aktuelle reference. Klik på "Send"-knappen herunder for at sende din besked til forfatteren i form af en e-mail.</message>
-	<message key="submission.citations.editor.details.authorQuerySubject">Emne:</message>
-	<message key="submission.citations.editor.details.cannotSelectDefaultForLabel">Du kan ikke fjerne en feltetiket. Slet feltet, hvis du ikke har brug for det</message>
-	<message key="submission.citations.editor.details.checkInGoogleScholar">Kontrollér i Google Scholar</message>
-	<message key="submission.citations.editor.details.changeFieldInfo">Indtast du første par bogstaver for at vælge …</message>
-	<message key="submission.citations.editor.details.citationExportPreview">Forhåndsvisning af citationseksport</message>
-	<message key="submission.citations.editor.details.citationImprovementResultsActive">Resultater af intern ekspertcitationstjeneste (klik for at lukke)</message>
-	<message key="submission.citations.editor.details.citationImprovementResultsInactive">Resultater af intern ekspertcitationstjeneste (klik for at åbne)</message>
-	<message key="submission.citations.editor.details.citationServices">Citationstjenester</message>
-	<message key="submission.citations.editor.details.clickToDismissMessage">Du kan klikke på teksten i en besked for at fjerne den.</message>
-	<message key="submission.citations.editor.details.dataSaved">Dine ændringer er blevet gemt.</message>
-	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Vælg citationsdatabasetjenester:</message>
-	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Indstillinger for ekspertcitationsredigering (klik for at lukke)</message>
-	<message key="submission.citations.editor.details.editRawCitationExpertSettingsInactive">Indstillinger for ekspertcitationsredigering (klik for at åbne)</message>
-	<message key="submission.citations.editor.details.editRawCitationExtractionServices">Vælg citationsudtrækningstjenester:</message>
-	<message key="submission.citations.editor.details.editRawCitationFilterValidationError">Intern fejl: ugyldigt filtervalg. Indsend en fejlrapport.</message>
-	<message key="submission.citations.editor.details.explainImprovementOptions">Hvis du ikke opnåede tilfredsstillende resultater ved hjælp af standardindstillingerne, kan du forbedre citationen ved hjælp af en række alternativer. Det kan ofte hjælpe at redigere vigtige felter manuelt (fx titel og forfatter) og derefter gøre et nyt forsøg med citationstjenesten. Hvis det ikke fungerer, kan du sende en forespørgsel til Google Scholar eller anmode forfatteren om yderligere oplysninger.</message>
-	<message key="submission.citations.editor.details.googleScholar">Google Scholar</message>
-	<message key="submission.citations.editor.details.googleScholarExplanation">Hvis et matchet reference ikke blev fundet i nogen af de opkoblede citationstjenester, kan du søge efter et match i Goggle Scholar. Desværre tilbyder Google Scholar ikke en feltbaseret brugerflade for de data, som vi kan bruge, hvilket betyder, at vi ikke kan videresende data til værktøjet automatisk. Du er nødt til manuelt at kopiere informationen fra Googles resultatside og indsætte den i dine felter.</message>
-	<message key="submission.citations.editor.details.manualEditing">Manuel redigering</message>
-	<message key="submission.citations.editor.details.messages">Bemærk (klik på meddelelser for at fjerne dem)</message>
-	<message key="submission.citations.editor.details.newFieldInfo">… klik her for at tilføje et nyt felt …</message>
-	<message key="submission.citations.editor.details.queryCitation">Citationstjenester til gentaget forespørgsel</message>
-	<message key="submission.citations.editor.details.queryGoogleScholar">Søg i Google Scholar</message>
-	<message key="submission.citations.editor.details.processRawCitation">Behandl</message>
-	<message key="submission.citations.editor.details.processRawCitationGoAhead">Fortsæt</message>
-	<message key="submission.citations.editor.details.processRawCitationTitle">Ret i original reference</message>
-	<message key="submission.citations.editor.details.processRawCitationWarning">Du er i gang med at rette i den originale referencetekst. Hvis du gør det, vil alle felter blive erstattet med nygenererede værdier. Dermed slettes alle manuelle ændringer, du eventuelt har foretaget.</message>
-	<message key="submission.citations.editor.details.saveAndApprove">Gem og godkend</message>
-	<message key="submission.citations.editor.details.saveAndRevokeApproval">Annuller godkendelse</message>
-	<message key="submission.citations.editor.details.sendAuthorQuery">Send besked</message>
-	<message key="submission.citations.editor.details.sendAuthorQuerySuccess">Besked sendt</message>
-	<message key="submission.citations.editor.details.sourceResultsUse">Anvend</message>
-	<message key="submission.citations.editor.details.sourceResultsUseAll">Anvende alle</message>
-	<message key="submission.citations.editor.details.sourceResultsUseAllExplanation">Klik for at overføre alle resultatfelter fra denne kilde direkte ind i din feltliste</message>
-	<message key="submission.citations.editor.details.sourceResultsUseExplanation">Klik for at overføre dette resultatfelt direkte ind i din feltliste</message>
-	<message key="submission.citations.editor.details.rawCitation">Original referencetekst</message>
-	<message key="submission.citations.editor.details.rawCitationRequired">Kræver en referencetekst</message>
-	<message key="submission.citations.editor.details.unsavedChanges">Referencen indeholder data, der ikke er blevet gemt. Klik på "Gem"-knappen for at beholde ændringerne eller på "Annuller"-knappen for at fortryde ændringerne.</message>
-	<message key="submission.citations.editor.details.dontShowMessageAgain">Vis ikke denne besked igen.</message>
-	<message key="submission.citations.editor.edit">Rediger referencer</message>
-	<message key="submission.citations.editor.export">Eksporter referencer</message>
-	<message key="submission.citations.editor.export.exportDescription"><![CDATA[<a id="markForExport" href="">Klik her</a> for at vælge alt genereret output. Derefter kan du kopiere det og indsætte det i dit dokument.]]></message>
-	<message key="submission.citations.editor.export.filterSelectionDescription">Vælg en af følgende eksportmuligheder.</message>
-	<message key="submission.citations.editor.export.filterSelectionError">Du har ikke valgt en output-mulighed.</message>
-	<message key="submission.citations.editor.export.foundUnapprovedCitationsMessage"><![CDATA[<p>Du har ikke godkendt alle referencer endnu. Gå til fanen <strong>Rediger referencer</strong>, og kontrollér, at du har godkendt alle referencer, inden du forsøger at eksportere dem. Godkendte referencer er markeret med en mørkeblå stribe i venstre side.</p>]]></message>
-	<message key="submission.citations.editor.export.noExportOutput">Output-filteret '{$filterName}' har produceret en fejl. Indsend en fejlrapport.</message>
-	<message key="submission.citations.editor.export.pleaseSelectXmlFilter">XML-output-muligheder:</message>
-	<message key="submission.citations.editor.export.pleaseSelectPlaintextFilter">Citations-output style (kun eksperimentel!):</message>
-	<message key="submission.citations.editor.introduction">Indledning</message>
-	<message key="submission.citations.editor.introduction.introductionMessage"><![CDATA[<h4>Velkommen til citationsmarkeringsværktøjet!</h4>
-	<p>Ved hjælp af dette værktøj kan du markere de referencer fra forfatteren, der skal ekspores til NLM 2.3- eller 3.0 XML-satsskibe eller som tekstbaseret output. Dette værktøj forsøger i første omgang automatisk at udtrække og genkende referencerne, som de er angivet, men du kan når som helst gribe ind og redigere resultaterne.</p>
-	<ul>
-		<li><p><strong>Sådan konfigurerer du værktøjet</strong></p>
-		<p>Citationsmarkeringsværktøjet konfigureres af tidsskriftschefen i <a href="{$citationSetupUrl}">Tidsskriftsopsætning Trin 3.7: Citationsmarkeringsværktøj</a>. Der kan tilføjes, konfigureres og slettes forskellige udtræknings- og citationsværktøjer. Kontakt tidsskriftschefen for at få yderligere information.</p></li>
-		<li><p><strong>Sådan navigererer du i værktøjsbrugerfladen</strong></p>
-		<p>Du kan skifte mellem fanerne <strong>Introduktion</strong>, <strong>Rediger referencer</strong> og <strong>Eksporter referencer</strong> ved at klikke på fanernes titler. Hvis du vil forstørre citationsbrugerfladen, skal du klikke på knappen <strong>Fuldskærm</strong> . Hvis du vil gå tilbage til normal visning fra den forstørrede citationsbrugerflade, skal du klikke på knappen <strong>Deaktiver fuldskærm</strong>. Hvis du helt vil fjerne denne introduktionsfane, skal du klikke på knappen herunder.</p></li>
-		<li><p><strong>Sådan anmoder du om referencer</strong></p>
-		<p>Hvis citationsmarkeringsværktøjet er blevet aktiveret af tidsskriftschefen, vil forfatterne under indleveringsprocessen blive bedt om at vedlægge en litteraturliste. Anmodningen om denne litteraturliste vil ske separat fra indleveringen af selve manuskriptet. Efter indlevering kan forfatteren når som helst modificere sin litteraturliste ved at redigere det indleverede manuskripts metadata. Bemærk, at dette vil overskrive alle modifikationer af citaterne, som du har foretaget med dette værktøj.</p></li>
-		<li><p><strong>Sådan redigerer du referencer</strong></p>
-		<p>Citationsmarkeringsværktøjet vil forsøge at identificere og udtrække hver enkel reference fra forfatterens litteraturliste. Du kan systematisk kontrollere nøjagtigheden af hver enkel citationsudtrækning i forhold til en række eksterne databaser, redigere forkerte referenceoplysninger og tilføje ny information, godkende eller slette referencer samt tilføje nye referencer.</p>
-		<p>Alle endelige referencer i et indleveret manuskript skal godkendes, inden de kan eksporteres.</p></li>
-		<li><p><strong>Sådan eksporterer du referencer</strong></p>
- 		<p>Referencer kan eksporteres som XML eller tekst. XML-eksportmulighederne omfatter pt. <a href="http://dtd.nlm.nih.gov/publishing/">NLM Journal Publishing</a> 2.3 og 3.0 <a href="http://www.ncbi.nlm.nih.gov/pmc/pmcdoc/tagging-guidelines/article/tags.html#el-reflist">ref-list XML</a>. Ved at vælge et af disse alternativer får du en XML-kodet litteraturhenvisningsstump, som kan kopieres og indsættes i et NLM XML-satsskib.</p>
-		<p>Eksperimentelle eksportalternativer for tekst omfatter ABNT, APA, MLA samt Vancouver output styles. Disse alternativer giver et tekst-output, som kan kopieres og indsættes i en tekstbaseret artikelsatsskib (for eksempel i Microsoft Word eller OpenOffice, Adobe InDesign etc.). Hver reference indeholder et indlejret link til en automatisk søgning efter den pågældende reference i Google Scholar.</p></li>
-	</ul>]]></message>
-	<message key="submission.citations.editor.loadMessage">Vent, til citationsredigeringsværktøjet er indlæst.</message>
-	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>Der er ingen referencer til denne artikel.</p><p>Gå til artiklens <a href="{$articleMetadataUrl}">metadataside</a>, og indtast en litteraturhenvisning, eller tilføj referencer manuelt ved hjælp af knappen "Tilføj element" i redigeringsprogrammet.</p>]]></message>
-	<message key="submission.citations.editor.pleaseSelect">Vælg …</message>
-	<message key="submission.citations.editor.unprocessedCitations">Referencerne i denne artikel er stadig ved at blive behandlet på serveren. Den aktuelle litteraturliste indeholder kun referencer, der allerede er behandlet. Klik på opdater-knappen for at se referencer, der er blevet behandlet i mellemtiden.</message>
-	<message key="submission.citations.editor.unprocessedCitationsButton">Opdater litteraturliste</message>
-	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Klik for at opdatere litteraturlisten.</message>
-	<message key="submission.citations.filter.invalidMetadata">Der opstod en fejl i {$filterName}: Et af de dataelementer, der kom tilbage fra datakilden (dvs. en webtjeneste) stemte ikke overens med det interne metadataformat. Datakildens resultater blev derfor afvist. Rapporter dette som en fejl.</message>
-	<message key="submission.citations.filter.noResultFromFilterError">Flere af citationstjenesterne fandt ingen resultater. Du kan forsøge at redigere referencefelterne manuelt og derefter sende en ny forespørgsel til citationstjenesterne for at få et bedre resultat. Hvis det ikke hjælper, findes referencen ikke i nogen af de databaser, der er opkoblet.</message>
-	<message key="submission.citations.filter.unsupportedPublicationType">Udgivelsestype mangler eller understøttes ikke. Rediger referencen manuelt, og indtast en udgivelsestype (tilladte typer er 'book', 'journal', 'thesis' og 'conf-proc').</message>
-	<message key="submission.citations.filter.webserviceResultTransformationError">Der opstod en fejl i {$filterName}: Transformationen af XML-resultater (dvs. fra en webtjeneste) til feltbaserede metadata mislykkedes. Det skyldes sandsynligvis, at webtjenesten sendte ugyldige eller ufuldstændige data. Angiv dette som en fejl.</message>
-	<message key="submission.citations.metadata.changeWarning">Er du sikker på, at du vil opdatere din litteraturliste? Hvis du klikker på OK, vil alle de ændringer, som redaktørerne har foretaget, blive overskrevet. Hvis du ikke er sikker på, om du skal foretage ændringer i litteraturlisten, skal du kontakte den redaktør, der har ansvaret for dit indleverede manuskript.</message>
 	<message key="submission.page.citations">#{$id} Referencer</message>
 	<message key="submission.currentAgencies">Aktuelle bureauer</message>
 	<message key="submission.indexingInformation">Indekserer information</message>
@@ -356,8 +271,6 @@
 	<message key="submission.date.mmdd">MM-DD</message>
 	<message key="submission.date.yyyymmdd">ÅÅÅÅ-MM-DD</message>
 	<message key="submission.addFile">Upload fil</message>
-	<message key="submission.citations.editor.citationlist.approved">Godkendt</message>
-	<message key="submission.citations.editor.citationlist.notApproved">Ikke godkendt</message>
 	<message key="submission.comments.addReviews">Tilføj bedømmelse til e-mail</message>
 	<message key="submission.copyedited">Manuskriptredigeret</message>
 	<message key="submission.layout.galleyRemoteURL">Ekstern URL</message>
@@ -458,16 +371,14 @@
 	<message key="submission.attachPermissions">Knyt følgende tilladelser til indsendelsen:</message>
 	<message key="submission.licenseURL">Licens URL</message>
 	<message key="submission.copyrightYear">Ophavsretsår</message>
-	<message key="submission.event.participantAdded">{$name} blev tilknyttet denne indsendelse som {$userGroupName}.</message>
+	<message key="submission.event.participantAdded">"{$name}" ({$username}) blev tilknyttet denne indsendelse som {$userGroupName}.</message>
 	<message key="submission.event.fileRevised">Revision "{$name}" (file ID {$fileId}-{$fileRevision}) blev uploadet.</message>
 	<message key="submission.event.lastRevisionDeleted">En fil "{$title}" fik seneste revision fjernet af {$username}.</message>
-	<message key="editor.submission.roundStatus.resubmitted">Indsendelsen er blevet genindsendt til bedømmelse</message>
 	<message key="editor.submission.roundStatus.reviewsReady">Nye bedømmelser er indsendt.</message>
 	<message key="submission.upload.copyeditedVersion">Upload manuskriptredigeret fil</message>
 	<message key="submission.submit.submissionLocale">Sprog</message>
 	<message key="submission.submit.submissionLocaleDescription">Dette tidsskrift accepterer indleverede manuskripter på en række sprog. Vælg det primære sprog for indleveringen i rullemenuen.</message>
 	<message key="notification.type.copyeditorRequest">Du er blevet bedt om at gennemse manuskriptredigeringen af "{$title}".</message>
-	<message key="author.submit.userGroupRequired">Din konto har ikke en rolle tilknyttet, der tillader nye indsendelser, som forfatter. Dobblettjek din konto. Du vil muligvis selv kunne tilføje en passende rolle ved at redigere din profil.</message>
 	<message key="submission.submit.submissionChecklist">Indsendelseskrav</message>
 	<message key="submission.submit.submissionChecklistDescription">Du skal tilkendegive, at du opfylder nedenstående krav inden du fortsætter.</message>
 	<message key="submission.submit.copyrightNoticeAgree">Jeg accepterer at underlægge mig de ophavsretlige betingelserne.</message>
@@ -587,4 +498,81 @@
 	<message key="submission.query.new">{$creatorName} påbegyndte en drøftelse: {$noteTitle}: {$noteContents}</message>
 	<message key="submission.query.activity.contents">Der er nyt under følgende drøftelse "{$queryTitle}" omhandlende indsendelsen "{$submissionTitle}".</message>
 	<message key="submission.query.new.contents">Du er blevet føjet til følgende drøftelse "{$queryTitle}" omhandlende indsendelsen "{$submissionTitle}".</message>
+	<message key="submission.authorBiography">Forfatterbiografi</message>
+	<message key="submission.authorWithAffiliation">{$name}, {$affiliation}</message>
+	<message key="submission.howToCite.downloadCitation">Download henvisninger</message>
+	<message key="submission.event.participantRemoved">"{$name}" ({$username}) blev fjernet som en {$userGroupName}.</message>
+	<message key="editor.submission.roundStatus.revisionsSubmitted">Rettelserne er blevet indsendt.</message>
+	<message key="editor.submission.roundStatus.reviewOverdue">En bedømmelse er forfalden.</message>
+	<message key="editor.submission.roundStatus.pendingRecommendations">Afventer anbefalinger fra redaktører.</message>
+	<message key="editor.submission.roundStatus.recommendationsReady">Nye redaktionelle anbefalinger er blevet indsendt.</message>
+	<message key="editor.submission.roundStatus.recommendationsCompleted">Alle anbefalinger er indløbet og en afgørelse skal foretages.</message>
+	<message key="editor.submission.decision.accept">Acceptér indsendelse</message>
+	<message key="editor.submission.decision.skipReview">Acceptér og spring bedømmelse over</message>
+	<message key="editor.submission.decision.noDecisionsAvailable">Tilmeld en redaktør for at aktivere de redaktionelle beslutninger på dette trin.</message>
+	<message key="editor.submission.makeRecommendation">Vælg anbefaling</message>
+	<message key="editor.submission.changeRecommendation">Ændre anbefaling</message>
+	<message key="editor.submission.recommendation.display">Anbefaling: {$recommendation}</message>
+	<message key="editor.submission.allRecommendations.display">Anbefalinger: {$recommendations}</message>
+	<message key="editor.submission.recommendation">Anbefaling</message>
+	<message key="editor.submission.recommendation.description">Anbefal en redaktionel afgørelse i forbindelse med denne indsendelse.</message>
+	<message key="editor.submission.recordedRecommendations">Registrerede anbefalinger</message>
+	<message key="editor.submission.decision.nextButton">Næste: Vælg filer til {$stageName}</message>
+	<message key="editor.submission.decision.selectFiles">Vælg de filer, du gerne vil sende videre til {$stageName} trinnet.</message>
+	<message key="editor.submission.decision.previousAuthorNotification">Forrige: Forfatternotifikationer</message>
+	<message key="notification.type.editorAssign">Du er blevet valgt som redaktør på indsendelsen "{$title}".</message>
+	<message key="grid.reviewAttachments.send.title">Vælg bedømmelsesfiler til deling med forfatteren/forfatterne</message>
+	<message key="submission.review.status.awaitingResponse">Afventer svar fra bedømmeren.</message>
+	<message key="submission.review.status.declined">Bedømmeren har afvist bedømmelsesanmodningen.</message>
+	<message key="submission.review.status.responseOverdue">Bedømmeren har overskredet forfaldsdato for svar.</message>
+	<message key="submission.review.status.reviewOverdue">Bedømmeren har overskredet forfaldsdato for bedømmelse.</message>
+	<message key="submission.review.status.accepted">Denne bedømmelse er blevet accepteret.</message>
+	<message key="submission.review.status.received">Bedømmer har indsendt bedømmelse.</message>
+	<message key="submission.review.status.complete">Denne bedømmelse er afsluttet.</message>
+	<message key="submission.review.status.thanked">Denne bedømmelse er afsluttet og bedømmeren har modtaget tak for deltagelse.</message>
+	<message key="submission.query.noParticipantOptions">Der skal udpeges mindst én deltager i forbindelse med denne indsendelse før en drøftelse kan påbegyndes.</message>
+	<message key="submission.list.infoCenter"><![CDATA[Historik & Noter]]></message>
+	<message key="submission.list.count">{$count} indsendelser</message>
+	<message key="submission.list.itemsOfTotal">{$count} ud af {$total} indsendelser</message>
+	<message key="submission.list.responseDue">Svar forfalden</message>
+	<message key="submission.list.reviewDue">Bedømmelse forfalden</message>
+	<message key="submission.list.confirmDelete">Slet indsendelse?</message>
+	<message key="submission.list.itemOrdererUp">Hæv placering af {$itemTitle}</message>
+	<message key="submission.list.itemOrdererDown">Sænk placering af {$itemTitle}</message>
+	<message key="submission.list.viewSubmission">Se indsendelse</message>
+	<message key="submission.list.reviewsCompleted">Angivne bedømmelser afsluttet</message>
+	<message key="submission.list.revisionsSubmitted">Tilretninger indsendt</message>
+	<message key="submission.list.copyeditsSubmitted">Manuskriptredigerede filer indsendt</message>
+	<message key="submission.list.galleysCreated">Publiceringsversioner oprettet</message>
+	<message key="submission.list.filesPrepared">Filer klargjort</message>
+	<message key="submission.list.discussions">Påbegynd drøftelser</message>
+	<message key="submission.list.incompleteSubmissionNotice">Denne indsendelse skal afsluttes før en redaktør vil bedømme den.</message>
+	<message key="submission.citations.description">Indsæt hver reference på en ny linje så den kan ekstraheres.</message>
+	<message key="submission.parsedCitations">Ekstraherede referencer</message>
+	<message key="submission.parsedCitations.description">Følgende referencer er blevet ekstraherede og vil blive knyttet til indsendelsesmetadata.</message>
+	<message key="submission.parsedAndSaveCitations">Ekstraher og gem referencer</message>
+	<message key="submission.list.currentStage">I øjeblikket på trin {$stage}</message>
+	<message key="submission.list.dualWorkflowLinks"><![CDATA[Du har fået tildelt flere roller i forbindelse med denne indsendelse. Vil du have adgang til <a href="{$urlAuthorWorkflow}">Forfatter-workflowet</a>  eller til det<a href="{$urlEditorialWorkflow}">Redaktionelle-workflow</a>?]]></message>
+	<message key="submission.query.participantTitle">{$fullName}, {$userGroup}</message>
+	<message key="submission.list.reviewComplete">Bedømmelse indsendt</message>
+	<message key="submission.list.reviewerWorkflowLink"><![CDATA[Du har fået tildelt en redaktionel rolle i forbindelse med denne indsendelse. Vil du have adgang til det <a href="{$urlEditorialWorkflow}">Redaktionelle workflow</a>?]]></message>
+	<message key="editor.submission.addStageParticipant.form.reviewerWarning">Deltageren du valgte er blevet sat til at gennemføre en blind review bedømmelse. Hvis du vælger denne deltager, giver du vedkommende adgang til forfatterens identitet. Du opfordres til ikke at vælge denne deltager, medmindre du kan sikre integriteten i peer review processen</message>
+	<message key="editor.submission.roundStatus.resubmitForReview">Indsendelsen skal fremsendes igen til en ny bedømmelsesrunde.</message>
+	<message key="editor.submission.roundStatus.submissionResubmitted">Indsendelsen er blevet fremsendt igen til en ny bedømmelsesrunde.</message>
+	<message key="submission.submit.form.languagesRequired">Indtast et sprog.</message>
+	<message key="submission.submit.form.subjectsRequired">Indtast et emne.</message>
+	<message key="submission.submit.form.disciplinesRequired">Indtast et fagområde.</message>
+	<message key="submission.submit.form.keywordsRequired">Indtast et nøgleord.</message>
+	<message key="submission.submit.form.agenciesRequired">Indtast en støtteorganisation.</message>
+	<message key="submission.submit.form.coverageRequired">Indtast information om dækning.</message>
+	<message key="submission.submit.form.typeRequired">Indtast en type.</message>
+	<message key="submission.submit.form.sourceRequired">Indtast en kilde.</message>
+	<message key="submission.submit.form.rightsRequired">Indtast rettighederne.</message>
+	<message key="submission.submit.form.citationsRequired">Indtast referencerne.</message>
+	<message key="submission.submit.availableUserGroups">Indsend som</message>
+	<message key="submission.submit.availableUserGroupsDescription">Vælg den rolle, som bedst beskriver dit bidrag til denne indsendelse.</message>
+	<message key="submission.submit.contactConsent">Tilhørende kontakt</message>
+	<message key="submission.submit.contactConsentDescription">Ja, jeg vil gerne kontaktes i forbindelse med denne indsendelse.</message>
+	<message key="submission.submit.userGroupDescriptionManagers">Indsend med en af følgende roller, hvis du gerne selv vil kunne redigere og publicere denne indsendelse: {$managerGroups}</message>
+	<message key="log.review.reviewUnconsidered">{$editorName} har markeret runde {$round} bedømmelsen til indsendelse {$submissionId} som værende ikke overvejet.</message>
 </locale>

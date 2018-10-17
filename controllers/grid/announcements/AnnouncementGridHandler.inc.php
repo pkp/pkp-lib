@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/announcements/AnnouncementGridHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AnnouncementGridHandler
@@ -128,10 +128,10 @@ class AnnouncementGridHandler extends GridHandler {
 		import('lib.pkp.controllers.grid.announcements.form.AnnouncementForm');
 		$announcementForm = new AnnouncementForm($contextId, $announcementId, true);
 
-		$announcementForm->initData($args, $request);
+		$announcementForm->initData();
 
 		return new JSONMessage(true, $announcementForm->fetch($request));
 	}
 }
 
-?>
+

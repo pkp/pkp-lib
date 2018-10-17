@@ -2,8 +2,8 @@
 
 # @file tools/travis/post-data-build.sh
 #
-# Copyright (c) 2014-2017 Simon Fraser University
-# Copyright (c) 2010-2017 John Willinsky
+# Copyright (c) 2014-2018 Simon Fraser University
+# Copyright (c) 2010-2018 John Willinsky
 # Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
 #
 # Script to upload the results of the data build to PKP server
@@ -12,7 +12,7 @@
 set -e
 
 if [[ -n "$COVERAGE_UPLOAD_SECRET" ]]; then
-	sudo apt-get install -y --force-yes sshpass
+	sudo apt-get install -q -y --force-yes sshpass
 	export SSHPASS=$COVERAGE_UPLOAD_SECRET
 
 	# Prepare a directory with the contents of the dump

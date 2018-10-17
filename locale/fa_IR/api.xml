@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+<!--
+  * locale/fa_IR/api.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Farsi_(fa_IR)
+  -->
+<locale name="fa_IR" full_name="فارسی">
+	<message key="api.submissions.403.csrfTokenFailure">درخواست شما نادیده گرفته شد. شاید به دلیل آن است که ورود شما به سیستم منقشی شده است. لطفاً صفحه را از اول بارگذاری کرده و دوباره تلاش کنید</message>
+	<message key="api.submissions.403.requestedOthersUnpublishedSubmissions">شما تنها مجاز به دیدن مقالات چاپ نشده‌ای هستید که به شما انتساب داده شده است.</message>
+	<message key="api.submissions.403.deleteSubmissionOutOfContext">شما نمی‌توانید مقاله ارسالی که به این محتوا منتسب نشده است را حذف کنید</message>
+	<message key="api.submissions.403.unauthorizedDeleteSubmission">شما مجاز به حذف این مقاله ارسالی نیستید.</message>
+	<message key="api.submissions.404.resourceNotFound">منابع درخواستی یافت نشد.</message>
+	<message key="api.submissions.400.missingRequired">به دلیل آنکه برخی از اطلاعات ضروری در دسترس نیست، درخواست شما قابل اجرا نمی‌باشد</message>
+	<message key="api.submissions.400.invalidIssueIdentifiers">شماره، دوره و یا سال درخواستی معتبر نمی‌باشد</message>
+	<message key="api.submissions.unknownError">خطای غیرمنتظره‌ای رخ داده است. لطفاً صفحه را از اول بارگذاری کرده و دوباره تلاش کنید</message>
+</locale>

@@ -3,8 +3,8 @@
 /**
  * @file controllers/informationCenter/InformationCenterHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class InformationCenterHandler
@@ -27,7 +27,7 @@ abstract class InformationCenterHandler extends Handler {
 	function __construct() {
 		parent::__construct();
 		$this->addRoleAssignment(
-			array(ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER, ROLE_ID_ASSISTANT),
+			array(ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER),
 			array(
 				'viewInformationCenter',
 				'viewHistory',
@@ -53,10 +53,9 @@ abstract class InformationCenterHandler extends Handler {
 	/**
 	 * Fetch and store away objects
 	 * @param $request PKPRequest
-	 * @param $args array optional
 	 */
-	function initialize($request, $args = null) {
-		parent::initialize($request, $args);
+	function initialize($request) {
+		parent::initialize($request);
 
 		// Fetch the submission and file to display information about
 		$this->_submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
@@ -153,6 +152,29 @@ abstract class InformationCenterHandler extends Handler {
 		);
 	}
 
+	/**
+	 * Log an event for this file or submission
+	 * @param $request PKPRequest
+	 * @param $object Submission or SubmissionFile
+	 * @param $eventType int SUBMISSION_LOG_...
+	 * @param $logClass SubmissionLog or SubmissionFileLog
+	 */
+	function _logEvent($request, $object, $eventType, $logClass) {
+		// Get the log event message
+		switch($eventType) {
+			case SUBMISSION_LOG_NOTE_POSTED:
+				$logMessage = 'informationCenter.history.notePosted';
+				break;
+			case SUBMISSION_LOG_MESSAGE_SENT:
+				$logMessage = 'informationCenter.history.messageSent';
+				break;
+			default:
+				assert(false);
+		}
+		import('lib.pkp.classes.log.SubmissionFileLog');
+		$logClass::logEvent($request, $object, $eventType, $logMessage);
+	}
+
 	function setupTemplate($request) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION);
 
@@ -194,4 +216,4 @@ abstract class InformationCenterHandler extends Handler {
 	abstract function _getAssocType();
 }
 
-?>
+

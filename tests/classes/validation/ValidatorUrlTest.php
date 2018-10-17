@@ -3,8 +3,8 @@
 /**
  * @file tests/classes/validation/ValidatorUrlTest.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ValidatorUrlTest
@@ -47,4 +47,4 @@ class ValidatorUrlTest extends PKPTestCase {
 		self::assertEquals('&^(?:(http|https|ftp):)?(?://(?:((?:%[0-9a-f]{2}|[-a-z0-9_.!~*\'();:\&=+$,])*)@)?(?:((?:[a-z0-9](?:[-a-z0-9]*[a-z0-9])?\.)*[a-z](?:[a-z0-9]+)?\.?)|([0-9]{1,3}(?:\.[0-9]{1,3}){3}))(?::([0-9]*))?)((?:/(?:%[0-9a-f]{2}|[-a-z0-9_.!~*\'():@\&=+$,;])*)*/?)?(?:\?([^#]*))?(?:\#((?:%[0-9a-f]{2}|[-a-z0-9_.!~*\'();/?:@\&=+$,])*))?$&i', ValidatorUrl::getRegexp());
 	}
 }
-?>
+

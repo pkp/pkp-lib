@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/settings/user/form/userDetailsForm.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Form for creating/editing a user.
@@ -13,7 +13,7 @@
 		// Attach the form handler.
 		$('#userDetailsForm').pkpHandler('$.pkp.controllers.grid.settings.user.form.UserDetailsFormHandler',
 			{ldelim}
-				fetchUsernameSuggestionUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT component="api.user.UserApiHandler" op="suggestUsername" firstName="FIRST_NAME_DUMMY" lastName="LAST_NAME_DUMMY" escape=false},
+				fetchUsernameSuggestionUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT component="api.user.UserApiHandler" op="suggestUsername" givenName="GIVEN_NAME_PLACEHOLDER" familyName="FAMILY_NAME_PLACEHOLDER" escape=false},
 				usernameSuggestionTextAlert: {translate|json_encode key="grid.user.mustProvideName"}
 			{rdelim}
 		);
@@ -26,6 +26,7 @@
 
 <form class="pkp_form" id="userDetailsForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.user.UserGridHandler" op="updateUser"}">
 	{csrf}
+	<input type="hidden" id="sitePrimaryLocale" name="sitePrimaryLocale" value="{$sitePrimaryLocale|escape}" />
 	<div id="userDetailsFormContainer">
 		<div id="userDetails" class="full left">
 			{if $userId}
@@ -46,13 +47,21 @@
 			disableSendNotifySection=$disableSendNotifySection
 		}
 
+		{if $canCurrentUserGossip}
+			{fbvFormSection label="user.gossip" description="user.gossip.description"}
+				{fbvElement type="textarea" name="gossip" id="gossip" rich=true value=$gossip}
+			{/fbvFormSection}
+		{/if}
+
 		{if $userId}
-			<div id="userRoles" class="full left">
-				<div id="userRolesContainer" class="full left">
-					{url|assign:userRolesUrl router=$smarty.const.ROUTE_COMPONENT component="listbuilder.users.UserUserGroupListbuilderHandler" op="fetch" userId=$userId title="grid.user.userRoles" escape=false}
-					{load_url_in_div id="userRolesContainer" url=$userRolesUrl}
+			{fbvFormSection}
+				{assign var="uuid" value=""|uniqid|escape}
+				<div id="userGroups-{$uuid}">
+					<script type="text/javascript">
+						pkp.registry.init('userGroups-{$uuid}', 'SelectListPanel', {$selectUserListData});
+					</script>
 				</div>
-			</div>
+			{/fbvFormSection}
 		{/if}
 		<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 		{fbvFormButtons}

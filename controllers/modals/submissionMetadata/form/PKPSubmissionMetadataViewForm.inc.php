@@ -3,8 +3,8 @@
 /**
  * @file controllers/modals/submissionMetadata/form/PKPSubmissionMetadataViewForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionMetadataViewForm
@@ -103,10 +103,8 @@ class PKPSubmissionMetadataViewForm extends Form {
 
 	/**
 	 * Initialize form data with the author name and the submission id.
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function initData($args, $request) {
+	function initData() {
 		AppLocale::requireComponents(
 			LOCALE_COMPONENT_APP_COMMON,
 			LOCALE_COMPONENT_PKP_SUBMISSION,
@@ -119,10 +117,9 @@ class PKPSubmissionMetadataViewForm extends Form {
 
 	/**
 	 * Fetch the HTML contents of the form.
-	 * @param $request PKPRequest
-	 * return string
+	 * @see Form::fetch
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$submission = $this->getSubmission();
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
@@ -152,7 +149,7 @@ class PKPSubmissionMetadataViewForm extends Form {
 				$supportedSubmissionLocales
 			))
 		);
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -164,15 +161,14 @@ class PKPSubmissionMetadataViewForm extends Form {
 
 	/**
 	 * Save changes to submission.
-	 * @param $request PKPRequest
 	 */
-	function execute($request) {
+	function execute() {
 		$submission = $this->getSubmission();
-		parent::execute($submission);
+		parent::execute();
 		// Execute submission metadata related operations.
-		$this->_metadataFormImplem->execute($submission, $request);
+		$this->_metadataFormImplem->execute($submission, Application::getRequest());
 	}
 
 }
 
-?>
+

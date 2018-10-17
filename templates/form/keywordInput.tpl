@@ -1,8 +1,8 @@
 {**
  * templates/form/keywordInput.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Generic keyword input control
@@ -46,7 +46,11 @@
 				);
 		{rdelim});
 		</script>
-		<span id="{$FBV_id|escape}-localization-popover-container{$uniqId}" class="localization_popover_container pkpTagit">
+		{* Add localization_popover_container_focus_forced class to multilingual tag-it
+			fields. This is a workaround to a focus bug which prevents a tag-it
+			value from being deleted when it is in a multilingual popover.
+			See: https://github.com/pkp/pkp-lib/issues/3003 *}
+		<span id="{$FBV_id|escape}-localization-popover-container{$uniqId}" class="localization_popover_container localization_popover_container_focus_forced pkpTagit">
 			<ul class="localizable {if $formLocale != $currentLocale} flag flag_{$formLocale|escape}{/if}" id="{$formLocale|escape}-{$FBV_id|escape}{$uniqId}">
 				{if $FBV_currentKeywords}{foreach from=$FBV_currentKeywords.$formLocale item=currentKeyword}<li>{$currentKeyword|escape}</li>{/foreach}{/if}
 			</ul>

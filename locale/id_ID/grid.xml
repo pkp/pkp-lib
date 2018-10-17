@@ -4,8 +4,8 @@
 <!--
   * locale/id_ID/grid.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2003-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -35,10 +35,6 @@
 
 	<!-- Sponsors Grid -->
 	<message key="grid.sponsor.title">Sponsor</message>
-
-	<!-- Masthead Grid -->
-	<message key="grid.masthead.title">Dewan Redaksi</message>
-	<message key="grid.masthead.column.groups">Grup</message>
 
 	<!-- Contributor Grid -->
 	<message key="grid.contributor.title">Kontributor</message>

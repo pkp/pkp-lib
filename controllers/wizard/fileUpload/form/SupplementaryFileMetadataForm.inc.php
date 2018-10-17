@@ -6,8 +6,8 @@
 /**
  * @file controllers/wizard/fileUpload/form/SupplementaryFileMetadataForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SupplementaryFileMetadataForm
@@ -47,7 +47,7 @@ class SupplementaryFileMetadataForm extends SubmissionFilesMetadataForm {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute($args, $request) {
+	function execute() {
 		// Update the submission file from form data.
 		$submissionFile = $this->getSubmissionFile();
 		$submissionFile->setSubject($this->getData('subject'), null); // Localized
@@ -60,8 +60,8 @@ class SupplementaryFileMetadataForm extends SubmissionFilesMetadataForm {
 		$submissionFile->setDateCreated($this->getData('dateCreated'));
 
 		// Persist the submission file.
-		parent::execute($args, $request);
+		parent::execute();
 	}
 }
 
-?>
+

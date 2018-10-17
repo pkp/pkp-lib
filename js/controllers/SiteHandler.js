@@ -4,8 +4,8 @@
 /**
  * @file js/controllers/SiteHandler.js
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SiteHandler
@@ -134,12 +134,15 @@
 					'/plugins/generic/tinymce/plugins/justboil.me/plugin.js');
 			tinyMCE.PluginManager.load('pkpTags', $.pkp.app.baseUrl +
 					'/plugins/generic/tinymce/plugins/pkpTags/plugin.js');
+			tinyMCE.PluginManager.load('pkpwordcount', $.pkp.app.baseUrl +
+					'/plugins/generic/tinymce/plugins/pkpWordcount/plugin.js');
 
 			var tinymceParams, tinymceParamDefaults = {
 				width: '100%',
 				resize: 'both',
 				entity_encoding: 'raw',
-				plugins: 'paste,fullscreen,link,code,-jbimages,-pkpTags,noneditable',
+				plugins: 'paste,fullscreen,link,lists,code,' +
+						'-jbimages,-pkpTags,noneditable',
 				convert_urls: false,
 				forced_root_block: 'p',
 				paste_auto_cleanup_on_paste: true,
@@ -206,6 +209,12 @@
 			tinyMCEObject.settings.readonly = true;
 		}
 
+		if (target.attr('wordCount') && target.attr('wordCount') > 0) {
+			tinyMCEObject.settings.plugins =
+					tinyMCEObject.settings.plugins + ',pkpwordcount';
+			tinyMCEObject.settings.statusbar = true;
+		}
+
 		// Set height based on textarea rows
 		height = target.attr('rows') || 10; // default: 10
 		height *= 20; // 20 pixels per row
@@ -263,7 +272,7 @@
 					/\{\$([a-zA-Z]+)\}(?![^<]*>)/g, function(match, contents, offset, s) {
 						if (variablesParsed[contents] !== undefined) {
 							return $.pkp.classes.TinyMCEHelper.prototype.getVariableElement(
-									'#' + tinyMCEObject.id, contents, variablesParsed[contents])
+									contents, variablesParsed[contents], '#' + tinyMCEObject.id)
 									.html();
 						}
 						return match;

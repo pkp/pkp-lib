@@ -3,8 +3,8 @@
 /**
  * @file pages/user/RegistrationHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class RegistrationHandler
@@ -21,9 +21,9 @@ class RegistrationHandler extends UserHandler {
 	/**
 	 * @see PKPHandler::initialize()
 	 */
-	function initialize($request, &$args) {
+	function initialize($request) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
-		parent::initialize($request, $args);
+		parent::initialize($request);
 	}
 
 	/**
@@ -33,6 +33,11 @@ class RegistrationHandler extends UserHandler {
 	 * @param $request PKPRequest
 	 */
 	function register($args, $request) {
+		if (Config::getVar('security', 'force_login_ssl') && $request->getProtocol() != 'https') {
+			// Force SSL connections for registration
+			$request->redirectSSL();
+		}
+
 		// If the user is logged in, show them the registration success page
 		if (Validation::isLoggedIn()) {
 			$this->setupTemplate($request);
@@ -49,7 +54,7 @@ class RegistrationHandler extends UserHandler {
 
 		// Initial GET request to register page
 		if (!$request->isPost()) {
-			$regForm->initData($request);
+			$regForm->initData();
 			return $regForm->display($request);
 		}
 
@@ -59,7 +64,7 @@ class RegistrationHandler extends UserHandler {
 			return $regForm->display($request);
 		}
 
-		$regForm->execute($request);
+		$regForm->execute();
 
 		// Inform the user of the email validation process. This must be run
 		// before the disabled account check to ensure new users don't see the
@@ -95,7 +100,8 @@ class RegistrationHandler extends UserHandler {
 			return $templateMgr->fetch('frontend/pages/error.tpl');
 		}
 
-		if ($source = $request->getUserVar('source')) {
+		$source = $request->getUserVar('source');
+		if (preg_match('#^/\w#', $source) === 1) {
 			return $request->redirectUrl($source);
 		} else {
 			// Make a new request to update cookie details after login
@@ -189,4 +195,4 @@ class RegistrationHandler extends UserHandler {
 	}
 }
 
-?>
+

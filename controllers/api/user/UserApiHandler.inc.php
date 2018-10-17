@@ -6,8 +6,8 @@
 /**
  * @file controllers/api/user/UserApiHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class UserApiHandler
@@ -99,8 +99,8 @@ class UserApiHandler extends PKPHandler {
 	 */
 	function suggestUsername($args, $request) {
 		$suggestion = Validation::suggestUsername(
-			$request->getUserVar('firstName'),
-			$request->getUserVar('lastName')
+			$request->getUserVar('givenName'),
+			$request->getUserVar('familyName')
 		);
 
 		return new JSONMessage(true, $suggestion);
@@ -130,4 +130,4 @@ class UserApiHandler extends PKPHandler {
 	}
 }
 
-?>
+

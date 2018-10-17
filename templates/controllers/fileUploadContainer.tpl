@@ -1,8 +1,8 @@
 {**
  * controllers/fileUploadContainer.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Markup for file uploader widget.
@@ -42,10 +42,9 @@
 		 * have the required settings.
 		 *}
 		<div class="pkp_notification">
-			{translate|assign:"warningMessage" key="common.fileUploaderError"}
-			{translate|assign:"warningTitle" key="common.warning"}
 			{include file="controllers/notification/inPlaceNotificationContent.tpl" notificationId=$id
-				notificationStyleClass="notifyWarning" notificationContents=$warningMessage}
+				notificationStyleClass="notifyWarning" notificationContents=$warningMessage
+				warningTitle="common.warning"|translate warningMessage="common.fileUploaderError"|translate}
 		</div>
 	</div>
 

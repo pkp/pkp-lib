@@ -3,8 +3,8 @@
 /**
  * @file controllers/modals/editorDecision/form/PromoteForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PromoteForm
@@ -39,6 +39,8 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 			'controllers/modals/editorDecision/form/promoteForm.tpl',
 			$reviewRound
 		);
+
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
 	}
 
 
@@ -46,26 +48,40 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 	// Implement protected template methods from Form
 	//
 	/**
-	 * @copydoc Form::initData()
+	 * @copydoc EditorDecisionWithEmailForm::initData()
 	 */
-	function initData($args, $request) {
-		$actionLabels = EditorDecisionActionsManager::getActionLabels($this->_getDecisions());
+	function initData($actionLabels = array()) {
+		$request = Application::getRequest();
+		$actionLabels = EditorDecisionActionsManager::getActionLabels($request->getContext(), $this->getStageId(), $this->_getDecisions());
 
 		$submission = $this->getSubmission();
 		$this->setData('stageId', $this->getStageId());
 
-		return parent::initData($args, $request, $actionLabels);
+		// If payments are enabled for this stage/form, default to requiring them
+		$this->setData('requestPayment', true);
+
+		return parent::initData($actionLabels);
+	}
+
+	/**
+	 * @copydoc Form::readInputData()
+	 */
+	function readInputData() {
+		$this->readUserVars(array('requestPayment'));
+		parent::readInputData();
 	}
 
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute($args, $request) {
+	function execute() {
+		$request = Application::getRequest();
+
 		// Retrieve the submission.
 		$submission = $this->getSubmission();
 
 		// Get this form decision actions labels.
-		$actionLabels = EditorDecisionActionsManager::getActionLabels($this->_getDecisions());
+		$actionLabels = EditorDecisionActionsManager::getActionLabels($request->getContext(), $this->getStageId(), $this->_getDecisions());
 
 		// Record the decision.
 		$reviewRound = $this->getReviewRound();
@@ -149,6 +165,33 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 			default:
 				fatalError('Unsupported decision!');
 		}
+
+		if ($this->getData('requestPayment')) {
+			$context = $request->getContext();
+			$stageDecisions = EditorDecisionActionsManager::getStageDecisions($context, $this->getStageId());
+			$decisionData = $stageDecisions[$decision];
+			if (isset($decisionData['paymentType'])) {
+				$paymentType = $decisionData['paymentType'];
+
+				// Queue a payment.
+				$paymentManager = Application::getPaymentManager($context);
+				$queuedPayment = $paymentManager->createQueuedPayment($request, $paymentType, $request->getUser()->getId(), $submission->getId(), $decisionData['paymentAmount'], $decisionData['paymentCurrency']);
+				$paymentManager->queuePayment($queuedPayment);
+
+				// Notify any authors that this needs payment.
+				$notificationMgr = new NotificationManager();
+				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+				$stageAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR, null);
+				$userIds = array();
+				while ($stageAssignment = $stageAssignments->next()) {
+					if (!in_array($stageAssignment->getUserId(), $userIds)) {
+						$notificationMgr->createNotification($request, $stageAssignment->getUserId(), NOTIFICATION_TYPE_PAYMENT_REQUIRED,
+							$context->getId(), ASSOC_TYPE_QUEUED_PAYMENT, $queuedPayment->getId(), NOTIFICATION_LEVEL_TASK);
+						$userIds[] = $stageAssignment->getUserId();
+					}
+				}
+			}
+		}
 	}
 
 	//
@@ -167,4 +210,4 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 	}
 }
 
-?>
+

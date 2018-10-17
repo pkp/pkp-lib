@@ -3,8 +3,8 @@
 /**
  * @file classes/filter/FilterDAO.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FilterDAO
@@ -312,7 +312,7 @@ class FilterDAO extends DAO {
 		//    result set that comply with the current runtime
 		//    environment.
 		$matchingFilters = array();
-		foreach($result->GetAssoc() as $filterRow) {
+		foreach($result->GetRows() as $filterRow) {
 			$filterInstance = $this->_fromRow($filterRow);
 			if (!$checkRuntimeEnvironment || $filterInstance->isCompatibleWithRuntimeEnvironment()) {
 				$matchingFilters[$filterInstance->getId()] = $filterInstance;
@@ -587,4 +587,4 @@ class FilterDAO extends DAO {
 	}
 }
 
-?>
+

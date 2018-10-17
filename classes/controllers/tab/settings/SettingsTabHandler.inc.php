@@ -3,8 +3,8 @@
 /**
  * @file classes/controllers/tab/settings/SettingsTabHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SettingsTabHandler
@@ -106,7 +106,7 @@ class SettingsTabHandler extends Handler {
 				return $templateMgr->fetchJson($this->_getTabTemplate());
 			} else {
 				$tabForm = $this->getTabForm();
-				$tabForm->initData($request);
+				$tabForm->initData();
 				return new JSONMessage(true, $tabForm->fetch($request));
 			}
 		}
@@ -124,13 +124,17 @@ class SettingsTabHandler extends Handler {
 			$tabForm = $this->getTabForm();
 
 			// Try to save the form data.
-			$tabForm->readInputData($request);
+			$tabForm->readInputData();
 			if($tabForm->validate()) {
-				$result = $tabForm->execute($request);
+				$result = $tabForm->execute();
 				if ($result !== false) {
 					$notificationManager = new NotificationManager();
 					$user = $request->getUser();
 					$notificationManager->createTrivialNotification($user->getId());
+				}
+
+				if (is_a($result, 'JSONMessage')) {
+					return $result;
 				}
 			} else {
 				return new JSONMessage(true);
@@ -222,4 +226,4 @@ class SettingsTabHandler extends Handler {
 	}
 }
 
-?>
+

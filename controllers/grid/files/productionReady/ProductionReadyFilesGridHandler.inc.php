@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/files/productionReady/ProductionReadyFilesGridHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ProductionReadyFilesGridHandler
@@ -43,12 +43,12 @@ class ProductionReadyFilesGridHandler extends FileListGridHandler {
 	}
 
 	/**
-	 * @copydoc PKPHandler::initialize()
+	 * @copydoc FileListGridHandler::initialize()
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 		$this->setTitle('editor.submission.production.productionReadyFiles');
 	}
 }
 
-?>
+

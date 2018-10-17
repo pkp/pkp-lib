@@ -4,8 +4,8 @@
 <!--
   * locale/fi_FI/common.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -85,6 +85,7 @@
 	]]></message>
 	<message key="common.changesSaved">Tekemäsi muutokset on tallennettu.</message>
 	<message key="common.chooseOne">Valitse yksi</message>
+	<message key="common.clearSearch">Tyhjennä hakulauseke</message>
 	<message key="common.close">Sulje</message>
 	<message key="common.closePanel">Sulje paneeli</message>
 	<message key="common.closeWindow">Sulje ikkuna</message>
@@ -134,12 +135,14 @@
 	<message key="common.fullscreenOff">Koko näyttö pois</message>
 	<message key="common.false">Väärä</message>
 	<message key="common.file">Tiedosto</message>
-	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
-	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
+	<message key="common.file.namingPattern">{$username}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$genre}, {$originalFilename}</message>
 	<message key="common.fileName">Tiedostonimi</message>
 	<message key="common.fileSize">Tiedoston koko</message>
 	<message key="common.fileType">Tiedostotyyppi</message>
 	<message key="common.fileUploaderError">Järjestelmän tiedostojen latausohjelma käynnistyy. Jos se ei ilmesty näkyviin, on todennäköistä, että tämä selain ei tue sen ajoaikoja. Ota yhteys ylläpitoon.</message>
+	<message key="common.filter">Suodattimet</message>
+	<message key="common.filterRemove">Poista suodatin: {$filterTitle}</message>
 	<message key="common.go">Mene</message>
 	<message key="common.height">Korkeus</message>
 	<message key="common.homepageNavigationLabel">Etusivu</message>
@@ -346,9 +349,7 @@
 	<message key="informationCenter.editorialHistory">Toimituksellinen historia</message>
 	<message key="informationCenter.addNote">Lisää muistiinpano</message>
 	<message key="informationCenter.noNotes">Ei näytettäviä muistiinpanoja.</message>
-	<message key="informationCenter.currentNotes">Tämänhetkiset korjauksiin liittyvät muistiinpanot</message>
 	<message key="informationCenter.pastNotes">Aiemmat korjauksiin liittyvät muistiinpanot</message>
-	<message key="informationCenter.lastUpdated">Päivitetty viimeksi</message>
 	<message key="informationCenter.deleteConfirm">Haluatko varmasti poistaa tämän muistiinpanon?</message>
 	<message key="informationCenter.currentHistory">Tämänhetkinen korjattu versio</message>
 	<message key="informationCenter.pastHistory">Aiemmat korjatut versiot</message>
@@ -417,14 +418,6 @@
 	<message key="notification.confirmError">Tilaustasi vahvistettaessa tapahtui virhe.</message>
 	<message key="notification.confirmSuccess">Tilauksesi onnistui.</message>
 	<message key="notification.email">En halua sähköpostia tämäntyyppisistä ilmoituksista.</message>
-	<message key="notification.location">Siirry URL-osoitteeseen</message>
-	<message key="notification.mailList">Ilmoitusten postituslista</message>
-	<message key="notification.mailList.emailInvalid">Anna voimassa oleva sähköpostiosoite.</message>
-	<message key="notification.mailList.privacyProtection">Yksityisyydensuojakäytäntö</message>
-	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Tilata</a> suojattua sisältöä.]]></message>
-	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Lähettää</a> artikkelin]]></message>
-	<message key="notification.mailList.register">Sinun pitää rekisteröityä tähän sivustoon, jotta voit...</message>
-	<message key="notification.mailList.review"><![CDATA[Osallistua <a href="{$reviewUrl}">vertaisarviointi</a>prosessiin]]></message>
 	<message key="notification.noneExist">Sinulle ei ole ilmoituksia tällä hetkellä.</message>
 	<message key="notification.addedNote">Muistiinpano lähetetty.</message>
 	<message key="notification.removedNote">Muistiinpano poistettu.</message>
@@ -432,19 +425,11 @@
 	<message key="notification.removedSubmission">Poistettu käsikirjoitus.</message>
 	<message key="notification.notification">Ilmoitus</message>
 	<message key="notification.notifications">Ilmoitukset</message>
-	<message key="notification.notificationsNew">({$numNew} uutta)</message>
-	<message key="notification.notificationsDescription"><![CDATA[Sinulla on {$unreadCount} lukematonta ja {$readCount} luettua ilmoitusta. Muuta ilmoitusasetuksiasi <a href="{$settingsUrl}">klikkaamalla tästä</a> .]]></message>
 	<message key="notification.sentNotification">Ilmoitus lähetetty.</message>
 	<message key="notification.settings">Ilmoitusten asetukset</message>
 	<message key="notification.settingsDescription">Valitse järjestelmän tapahtumat, joista haluat ilmoituksen. Valinnan poistaminen kohdasta estää tapahtumaan liittyvien ilmoitusten näkymisen järjestelmässä ja niiden lähettämisen sinulle sähköpostitse. Valitut tapahtumat näkyvät järjestelmässä ja lisäksi voit valita haluatko samat ilmoitukset sähköpostitse vai et.</message>
-	<message key="notification.subscribe">Tilaa</message>
-	<message key="notification.subscribeError">Ilmoitukset on jo tilattu sähköpostiosoitteeseesi.</message>
-	<message key="notification.subscribeSuccess">Sähköposti on lähetetty ilmoittamaasi osoitteeseen. Klikkaa vahvistuslinkkiä sähköpostissa lisätäksesi itsesi postituslistalle.</message>
 	<message key="notification.reminderError">Salasanan lähettämisessä tapahtui virhe. Varmista, että kirjoitit sähköpostiosoitteesi oikein.</message>
 	<message key="notification.reminderSent">Uusi salasanasi on lähetetty annettuun sähköpostiosoitteeseen.</message>
-	<message key="notification.unsubscribe">Peruuta tilaus</message>
-	<message key="notification.unsubscribeError">Tilaustasi peruutettaessa tapahtui virhe. Varmista, että käytät oikeaa, ilmoitussähköpostissa annettua URL-osoitetta.</message>
-	<message key="notification.unsubscribeSuccess">Tilauksesi peruutus onnistui.</message>
 	<message key="notification.savedSubmissionMetadata">Käsikirjoituksen metatiedot tallennettu.</message>
 	<message key="search.author">Kirjoittajan mukaan</message>
 	<message key="search.abstract">Abstrakti</message>
@@ -501,7 +486,7 @@
 	<message key="submission.task.responseDueDate">Vastauksen määräpäivä</message>
 	<message key="navigation.goBack">Mene takaisin</message>
 
-	<message key="notification.addedReviewer">Arvioija lisätty.</message>
+	<message key="notification.addedReviewer">{$reviewerName} valittiin käsikirjoituksen arvioijaksi ja sähköposti-ilmoitus lähetettiin.</message>
 	<message key="notification.removedReviewer">Arvioija poistettu.</message>
 	<message key="notification.addedStageParticipant">Käyttäjä lisätty työvaiheeseen osallistujaksi.</message>
 	<message key="notification.type.newAnnouncement">Uusi ilmoitus.</message>
@@ -525,6 +510,36 @@
 	<message key="notification.type.assignCopyeditors">Valitse tekninen toimittaja Osallistujat-listan Lisää-linkkiä käyttäen.</message>
 	<message key="notification.type.awaitingCopyedits">Odottavat tekniset toimittamiset.</message>
 	<message key="notification.type.roundStatusTitle">Kierroksen {$round} tila</message>
-
+	<message key="navigation.skip.main">Siirry sisältöalueeseen</message>
+	<message key="navigation.skip.nav">Siirry navigaatioon</message>
+	<message key="navigation.skip.footer">Siirry alatunnisteeseen</message>
+	<message key="common.downloadPdf">Lataa PDF</message>
+	<message key="common.from">Alkaen</message>
+	<message key="common.until">Saakka</message>
+	<message key="common.saving">Tallentaa</message>
+	<message key="notification.reviewerThankedEmail">Kiitosviesti lähetetty arvioijalle.</message>
+	<message key="notification.sendNotificationConfirmation">Lähetä ilmoitus kaikille rekisteröityneille käyttäjille</message>
+	<message key="notification.addedReviewerNoEmail">{$reviewerName} valittiin käsikirjoituksen arvioijaksi, mutta sähköposti-ilmoitusta ei lähetetty.</message>
 	<message key="semicolon">{$label}:</message>
+	<message key="notification.editedNavigationMenuItem">Navigaatiovalikko päivitettiin onnistuneesti.</message>
+	<message key="notification.removedNavigationMenuItem">Navigaatiovalikon kohde poistettiin onnistuneesti.</message>
+	<message key="notification.addedNavigationMenuItem">Navigaatiovalikon kohde lisättiin onnistuneesti.</message>
+	<message key="notification.addedNavigationMenu">Navigaatiovalikko lisättiin onnistuneesti</message>
+	<message key="notification.editedNavigationMenu">Navigaatiovalikko päivitettiin onnistuneesti</message>
+	<message key="notification.removedNavigationMenu">Navigaatiovalikko poistettiin onnistuneesti</message>
+	<message key="stageParticipants.options">Oikeudet</message>
+	<message key="stageParticipants.recommendOnly">Tämä käyttäjä voi ainostaan suositella toimituksellista päätöstä ja vaatii toisen toimittajan päätöksen vahvistamiseen.</message>
+	<message key="common.deleting">Poistetaan</message>
+	<message key="common.lessThan">{$value} tai vähemmän</message>
+	<message key="common.listSeparator">,</message>
+	<message key="common.moreThan">{$value} tai enemmän</message>
+	<message key="common.pagination">{$start}-{$end} / {$total}</message>
+	<message key="common.pagination.label">Selaa sivuja</message>
+	<message key="common.publicAccess">Julkinen saatavuus</message>
+	<message key="stageParticipants.notify.startDiscussion">Aloita keskustelu</message>
+	<message key="stageParticipants.notify.startDiscussion.description">Aloita keskustelu käyttäjän {$userFullName} kanssa.</message>
+	<message key="list.viewMore">Näytä lisätietoja {$name}</message>
+	<message key="list.viewLess">Piilota lisätiedot {$name}</message>
+	<message key="common.filterAdd">Lisää suodatin: {$filterTitle}</message>
+	<message key="notification.type.reviewAssignmentUpdated">Arviointipyyntö päivitetty.</message>
 </locale>

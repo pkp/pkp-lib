@@ -3,8 +3,8 @@
 /**
  * @file plugins/importexport/native/filter/SubmissionFileNativeXmlFilter.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileNativeXmlFilter
@@ -102,17 +102,23 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 		$revisionNode->setAttribute('filesize', $submissionFile->getFileSize());
 		$revisionNode->setAttribute('filetype', $submissionFile->getFileType());
 
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$userGroup = $userGroupDao->getById($submissionFile->getUserGroupId());
-		assert(isset($userGroup));
-		$revisionNode->setAttribute('user_group_ref', $userGroup->getName($context->getPrimaryLocale()));
-
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$uploaderUser = $userDao->getById($submissionFile->getUploaderUserId());
 		assert(isset($uploaderUser));
 		$revisionNode->setAttribute('uploader', $uploaderUser->getUsername());
+
 		$this->addIdentifiers($doc, $revisionNode, $submissionFile);
 		$this->createLocalizedNodes($doc, $revisionNode, 'name', $submissionFile->getName(null));
+
+		// if it is a dependent file, add submission_file_ref element
+		if ($submissionFile->getFileStage() == SUBMISSION_FILE_DEPENDENT && $submissionFile->getAssocType() == ASSOC_TYPE_SUBMISSION_FILE) {
+			$fileRefNode = $doc->createElementNS($deployment->getNamespace(), 'submission_file_ref');
+			$fileRefNode->setAttribute('id', $submissionFile->getAssocId());
+			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+			$latestRevision = $submissionFileDao->getLatestRevisionNumber($submissionFile->getAssocId());
+			$fileRefNode->setAttribute('revision', $latestRevision);
+			$revisionNode->appendChild($fileRefNode);
+		}
 
 		$submissionFileNode->appendChild($revisionNode);
 
@@ -177,4 +183,4 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 	}
 }
 
-?>
+

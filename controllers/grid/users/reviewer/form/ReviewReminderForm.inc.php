@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/reviewer/form/ReviewReminderForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewReminderForm
@@ -25,6 +25,7 @@ class ReviewReminderForm extends Form {
 	function __construct($reviewAssignment) {
 		parent::__construct('controllers/grid/users/reviewer/form/reviewReminderForm.tpl');
 		$this->_reviewAssignment = $reviewAssignment;
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION);
 
 		// Validation checks for this form
 		$this->addCheck(new FormValidatorPost($this));
@@ -47,11 +48,10 @@ class ReviewReminderForm extends Form {
 	// Overridden template methods
 	//
 	/**
-	 * Initialize form data from the associated author.
-	 * @param $args array
-	 * @param $request PKPRequest
+	 * @copydoc Form::initData
 	 */
-	function initData($args, $request) {
+	function initData() {
+		$request = Application::getRequest();
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $request->getUser();
 		$context = $request->getContext();
@@ -98,7 +98,7 @@ class ReviewReminderForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$context = $request->getContext();
 		$user = $request->getUser();
 
@@ -112,7 +112,7 @@ class ReviewReminderForm extends Form {
 			'contextName' => $context->getLocalizedName(),
 			'editorialContactSignature' => $user->getContactSignature(),
 		));
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -128,12 +128,11 @@ class ReviewReminderForm extends Form {
 
 	/**
 	 * Save review assignment
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function execute($args, $request) {
+	function execute() {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$submissionDao = Application::getSubmissionDAO();
+		$request = Application::getRequest();
 
 		$reviewAssignment = $this->getReviewAssignment();
 		$reviewerId = $reviewAssignment->getReviewerId();
@@ -193,4 +192,4 @@ class ReviewReminderForm extends Form {
 	
 }
 
-?>
+

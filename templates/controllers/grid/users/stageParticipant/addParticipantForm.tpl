@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/users/stageParticipant/addParticipantForm.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Form that holds the stage participants list
@@ -19,6 +19,9 @@
 			{ldelim}
 				possibleRecommendOnlyUserGroupIds: {$possibleRecommendOnlyUserGroupIds|@json_encode},
 				recommendOnlyUserGroupIds: {$recommendOnlyUserGroupIds|@json_encode},
+				blindReviewerIds: {$blindReviewerIds|@json_encode},
+				blindReviewerWarning: {$blindReviewerWarning|@json_encode},
+				blindReviewerWarningOk: {$blindReviewerWarningOk|@json_encode},
 				templateUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT component='grid.users.stageParticipant.StageParticipantGridHandler' op='fetchTemplateBody' stageId=$stageId submissionId=$submissionId escape=false}
 			{rdelim}
 		);
@@ -35,7 +38,7 @@
 		<input type="hidden" name="userGroupId" value="" />
 		<input type="hidden" name="userIdSelected" value="" />
 
-		{url|assign:userSelectGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.users.userSelect.UserSelectGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId escape=false}
+		{capture assign=userSelectGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.users.userSelect.UserSelectGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId escape=false}{/capture}
 		{load_url_in_div id='userSelectGridContainer' url=$userSelectGridUrl}
 
 		{fbvFormSection title="stageParticipants.options" list="true" class="recommendOnlyWrapper"}

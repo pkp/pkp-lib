@@ -4,8 +4,8 @@
 <!--
   * locale/ru_RU/common.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ru_RU (Русский) locale.
@@ -147,12 +147,17 @@
 	<message key="common.fullscreenOff">Выйти из полноэкранного режима</message>
 	<message key="common.false">Ложь</message>
 	<message key="common.file">Файл</message>
-	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
-	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
+	<message key="common.file.namingPattern">{$username}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$genre}, {$originalFilename}</message>
 	<message key="common.fileName">Имя файла</message>
 	<message key="common.fileSize">Размер файла</message>
 	<message key="common.fileType">Тип файла</message>
 	<message key="common.fileUploaderError">Загружается загрузчик файлов в систему. Если он не появляется, скорее всего его запуск не поддерживается этим браузером. Пожалуйста, свяжитесь с администратором сервера для решения проблемы.</message>
+	<message key="common.filter">Фильтры</message>
+	<message key="common.filterAdd">Добавить фильтр: {$filterTitle}</message>
+	<message key="common.filterRemove">Сбросить фильтр: {$filterTitle}</message>
+	<message key="common.from">C</message>
+	<message key="common.until">По</message>
 	<message key="common.go">Выполнить</message>
 	<message key="common.height">Высота</message>
 	<message key="common.homepageNavigationLabel">Главная</message>
@@ -168,6 +173,9 @@
 	<message key="common.language">Язык</message>
 	<message key="common.languages">Языки</message>
 	<message key="common.less">Меньше</message>
+	<message key="common.lessThan">{$value} или меньше</message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.manage">Настроить</message>
 	<message key="common.mailingAddress">Почтовый адрес</message>
 	<message key="common.billingAddress">Адрес для отправки счета (если отличается)</message>
@@ -175,6 +183,7 @@
 	<message key="common.modify">Изменить</message>
 	<message key="common.month">Месяц</message>
 	<message key="common.more">Больше</message>
+	<message key="common.moreThan">{$value} или больше</message>
 	<message key="common.noneAssigned">Никто не назначен</message>
 	<message key="common.none">Нет</message>
 	<message key="common.no">Нет</message>
@@ -197,6 +206,8 @@
 	<message key="common.or">или</message>
 	<message key="common.other">Прочее</message>
 	<message key="common.overdue">Просрочено</message>
+	<message key="common.pagination">{$start}-{$end} из {$total}</message>
+	<message key="common.pagination.label">Просмотреть другие страницы</message>
 	<message key="common.pageNumber">Страница {$pageNumber}</message>
 	<message key="common.pageHeaderLogo.altText">Логотип верхнего колонтитула страницы</message>
 	<message key="common.percentage">{$percentage}%</message>
@@ -234,6 +245,7 @@
 	<message key="common.saving">Сохранение...</message>
 	<message key="common.search">Найти</message>
 	<message key="common.searchQuery">Поисковый запрос</message>
+	<message key="common.clearSearch">Очистить фразу поиска</message>
 	<message key="common.second">Секунд</message>
 	<message key="common.selectAll">Выбрать все</message>
 	<message key="common.selectNone">Отменить выбор</message>
@@ -278,6 +290,7 @@
 	<message key="common.plugins">Модули</message>
 	<message key="common.metric">Метрика</message>
 	<message key="common.count">Счетчик</message>
+	<message key="common.publicAccess">Открытый доступ</message>
 	<message key="debug.databaseQueries">Количество запросов к БД</message>
 	<message key="debug.executionTime">Страница создана за</message>
 	<message key="debug.memoryUsage">Использование памяти</message>
@@ -286,7 +299,7 @@
 	<message key="debug.notes.missingLocaleKey">В языковом файле отсутствует ключ «{$key}».</message>
 	<message key="debug.notes">Примечания:</message>
 	<message key="defaultMetric.title">Метрика по умолчанию</message>
-	<message key="defaultMetric.availableMetrics">Доступные метрики</message>	
+	<message key="defaultMetric.availableMetrics">Доступные метрики</message>
 	<message key="editor.submissionReview.uploadFile">Загрузить файл рецензии</message>
 	<message key="editor.submissionReview.uploadAttachment">Загрузить файл</message>
 	<message key="email.addAttachment">Добавить вложение</message>
@@ -370,15 +383,20 @@
 
 	<!-- Участники этапа -->
 	<message key="stageParticipants.history.messageSent">Уведомление отправлено пользователям.</message>
+	<message key="stageParticipants.notify.startDiscussion">Начать обсуждение</message>
+	<message key="stageParticipants.notify.startDiscussion.description">Начать обсуждение между вами и {$userFullName}.</message>
 	<message key="stageParticipants.notify.chooseMessage">Выберите стандартное сообщение для использования или заполните форму ниже.</message>
 	<message key="stageParticipants.notify.message">Сообщение</message>
 	<message key="stageParticipants.notify.warning">Пожалуйста, убедитесь, что вы заполнили поле сообщения и выбрали хотя бы одного получателя.</message>
+	<message key="stageParticipants.options">Назначенные права</message>
+	<message key="stageParticipants.recommendOnly">Этому участнику разрешено только рекомендовать решение редакции, запись решения редакции требует участия редактора с соответствующими правами.</message>
 
 	<message key="locale.primary">Основной язык</message>
 	<message key="locale.supported">Поддерживаемые языки</message>
 	<message key="navigation.access"><![CDATA[Пользователи и роли]]></message>
 	<message key="navigation.about">О нас</message>
 	<message key="navigation.admin">Администрирование</message>
+	<message key="navigation.archives">Архивы</message>
 	<message key="navigation.breadcrumbLabel">Вы здесь:</message>
 	<message key="navigation.breadcrumbSeparator">/</message>
 	<message key="navigation.tools">Инструменты</message>
@@ -432,36 +450,19 @@
 	<message key="notification.editedAuthor">Автор отредактирован.</message>
 	<message key="notification.confirmError">При подверждении вашей подписки возникла ошибка.</message>
 	<message key="notification.confirmSuccess">Вы были успешно подписаны.</message>
-	<message key="notification.email">Не отправлять мне письмо по электронной почте для следующих типов уведомлений.</message>
-	<message key="notification.location">Перейти по ссылке</message>
-	<message key="notification.mailList">Список рассылки уведомлений</message>
-	<message key="notification.mailList.emailInvalid">Пожалуйста, введите правильный адрес электронной почты.</message>
-	<message key="notification.mailList.privacyProtection">Правила защиты личной информации</message>
-	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Подписаться</a> на закрытый контент.]]></message>
-	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Отправить</a> статью]]></message>
-	<message key="notification.mailList.register">Вы можете зарегистрироваться на этом сайте, чтобы...</message>
-	<message key="notification.mailList.review"><![CDATA[Участвовать в <a href="{$reviewUrl}">рецензировании</a>]]></message>
-	<message key="notification.noneExist">На текущий момент у Вас нет уведомлений.</message>
 	<message key="notification.addedNote">Заметка опубликована.</message>
 	<message key="notification.removedNote">Заметка удалена.</message>
 	<message key="notification.removedFile">Файл удален.</message>
 	<message key="notification.removedSubmission">Материал удален.</message>
 	<message key="notification.notification">Уведомление</message>
 	<message key="notification.notifications">Уведомления</message>
-	<message key="notification.notificationsNew">({$numNew} новых)</message>
-	<message key="notification.notificationsDescription">У Вас {$unreadCount} непрочитанных уведомлений и {$readCount} прочитанных.<![CDATA[  <a href="{$settingsUrl}">Щелкните здесь</a> для изменения Ваших настроек уведомлений.]]></message>
 	<message key="notification.sentNotification">Уведомление отправлено.</message>
 	<message key="notification.settings">Настройки уведомлений</message>
 	<message key="notification.settingsDescription">Выберите события системы, о которых вы хотите быть уведомлены. Снятие галочки у события приведет к тому, что уведомления об этом событии не будут показываться в системе и отправляться Вам на электронную почту. События, отмеченные галочками, будут отображаться в системе и вы дополнительно можете настроить отправку этого уведомления Вам на электронную почту.</message>
-	<message key="notification.subscribe">Подписаться</message>
-	<message key="notification.subscribeError">Ваш адрес электронной почты уже подписан на получение уведомлений.</message>
-	<message key="notification.subscribeSuccess">На указанный Вами адрес электронной почты было отправлено письмо. Пожалуйста, щелкните на ссылке подтверждения в этом письме, чтобы добавить себя в список рассылки.</message>
 	<message key="notification.reminderError">При отправке Вашего пароля произошла ошибка, пожалуйста, убедитесь, что вы ввели правильный адрес электронной почты.</message>
 	<message key="notification.reminderSent">Ваш новый пароль был отправлен по указанному Вами адресу электронной почты.</message>
-	<message key="notification.unsubscribe">Отписаться</message>
-	<message key="notification.unsubscribeError">При отмене Вашей подписки произошла ошибка. Пожалуйста, убедитесь, что вы используете правильный URL-адрес как указано в уведомлении, пришедшем на Ваш адрес электронной почты.</message>
-	<message key="notification.unsubscribeSuccess">Ваша подписка успешно прекращена.</message>
 	<message key="notification.savedSubmissionMetadata">Сохранены метаданные материала.</message>
+	<message key="notification.sendNotificationConfirmation">Отправить уведомление электронной почтой всем зарегистрированным пользователям</message>
 	<message key="search.author">По автору</message>
 	<message key="search.abstract">Аннотация</message>
 	<message key="search.advancedFilters">Расширенные фильтры</message>
@@ -527,6 +528,7 @@
 	<message key="notification.addedStageParticipant">Пользователь добавлен в качестве участника этапа.</message>
 	<message key="notification.type.newAnnouncement">Новое объявление.</message>
 	<message key="notification.type.reviewAssignment">Ожидание рецензии.</message>
+	<message key="notification.type.reviewAssignmentUpdated">Обновлено задание на рецензию.</message>
 	<message key="notification.type.auditorRequest">Запрос аудита для «{$file}»</message>
 	<message key="notification.type.allReviewsIn">Все рецензии загружены и необходимо принять решение на этапе «{$stage}».</message>
 	<message key="notification.type.allRevisionsIn">Новая версия файла была загружена для рассмотрения редакцией на этапе «{$stage}».</message>
@@ -538,7 +540,6 @@
 	<message key="user.authorization.submissionFile">Данному пользователю не разрешен доступ к файлу указанного материала.</message>
 	<message key="user.authorization.invalidSubmission">Неправильный материал.</message>
 	<message key="user.authorization.invalidRepresentation">Неправильное представление.</message>
-	<message key="navigation.archives">Архивы</message>
 	<message key="user.authorization.authorRoleMissing">В данный момент у Вас не достаточно прав для просмотра материала. Пожалуйста, отредактируйте ваш профиль, чтобы убедиться в том, что Вам предоставлены соответствующие роли в разделе «Регистрация как».</message>
 	<message key="user.authorization.submissionAuthor">Данный пользователь не является автором запрошенного материала. Пожалуйста, проверьте, что вы вошли в систему с правильной учетной записью пользователя.</message>
 	<message key="notification.type.queryActivity">Активность обсуждений.</message>
@@ -548,4 +549,16 @@
 	<message key="notification.type.roundStatusTitle">Статус раунда {$round}</message>
 
 	<message key="semicolon">{$label}:</message>
+
+	<!-- Меню навигации -->
+	<message key="notification.editedNavigationMenuItem">Элемент меню навигации был успешно обновлен</message>
+	<message key="notification.removedNavigationMenuItem">Элемент меню навигации был успешно удален</message>
+	<message key="notification.addedNavigationMenuItem">Элемент меню навигации был успешно добавлен</message>
+	<message key="notification.addedNavigationMenu">Меню навигации было успешно добавлено</message>
+	<message key="notification.editedNavigationMenu">Меню навигации было успешно обновлено</message>
+	<message key="notification.removedNavigationMenu">Меню навигации было успешно удалено</message>
+
+	<!-- Обработчики списков -->
+	<message key="list.viewMore">Показать подробности о {$name}</message>
+	<message key="list.viewLess">Скрыть подробности о {$name}</message>
 </locale>

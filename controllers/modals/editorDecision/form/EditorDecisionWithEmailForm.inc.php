@@ -3,8 +3,8 @@
 /**
  * @file controllers/modals/editorDecision/form/EditorDecisionWithEmailForm.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class EditorDecisionWithEmailForm
@@ -55,9 +55,11 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 	// Implement protected template methods from Form
 	//
 	/**
-	 * @copydoc Form::initData()
+	 * @see Form::initData()
+	 * @param $actionLabels array
 	 */
-	function initData($args, $request, $actionLabels) {
+	function initData($actionLabels = array()) {
+		$request = Application::getRequest();
 		$context = $request->getContext();
 		$router = $request->getRouter();
 		$dispatcher = $router->getDispatcher();
@@ -103,21 +105,21 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 			$this->setData($key, $value);
 		}
 
-		return parent::initData($args, $request);
+		return parent::initData();
 	}
 
 	/**
 	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {
-		$this->readUserVars(array('personalMessage', 'selectedAttachments', 'skipEmail'));
+		$this->readUserVars(array('personalMessage', 'selectedAttachments', 'skipEmail', 'selectedLibraryFiles'));
 		parent::readInputData();
 	}
 
 	/**
-	 * @copydoc Form::fetch()
+	 * @copydoc EditorDecisionForm::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 
 		$templateMgr = TemplateManager::getManager($request);
 
@@ -168,7 +170,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 		$templateMgr->assign('allowedVariables', $this->_getAllowedVariables($request));
 		$templateMgr->assign('allowedVariablesType', $this->_getAllowedVariablesType());
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 
@@ -276,6 +278,26 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 			}
 		}
 
+		// Attach the selected Library files as attachments to the email.
+		import('classes.file.LibraryFileManager');
+		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /* @var $libraryFileDao LibraryFileDAO */
+		$selectedLibraryFilesAttachments = $this->getData('selectedLibraryFiles');
+		if(is_array($selectedLibraryFilesAttachments)) {
+			foreach ($selectedLibraryFilesAttachments as $fileId) {
+				// Retrieve the Library file.
+				$libraryFile = $libraryFileDao->getById($fileId);
+				assert(is_a($libraryFile, 'LibraryFile'));
+
+				$libraryFileManager = new LibraryFileManager($libraryFile->getContextId());
+
+				// Add the attachment to the email.
+				$email->addAttachment(
+					$libraryFileManager->getBasePath() .  $libraryFile->getOriginalFileName(),
+					$libraryFile->getOriginalFileName()
+				);
+			}
+		}
+
 		// Send the email.
 		if (!$this->getData('skipEmail')) {
 			$router = $request->getRouter();
@@ -326,4 +348,4 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 	}
 }
 
-?>
+

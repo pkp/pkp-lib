@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/settings/preparedEmails/PreparedEmailsGridHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PreparedEmailsGridHandler
@@ -38,7 +38,7 @@ class PreparedEmailsGridHandler extends GridHandler {
 	/**
 	 * @copydoc PKPHandler::authorize()
 	 */
-	function authorize($request, $args, $roleAssignments) {
+	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
 		$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 		return parent::authorize($request, $args, $roleAssignments);
@@ -151,7 +151,7 @@ class PreparedEmailsGridHandler extends GridHandler {
 
 		import('lib.pkp.controllers.grid.settings.preparedEmails.form.PreparedEmailForm');
 		$preparedEmailForm = new PreparedEmailForm($emailKey, $context);
-		$preparedEmailForm->initData($request);
+		$preparedEmailForm->initData();
 
 		return new JSONMessage(true, $preparedEmailForm->fetch($request));
 	}
@@ -306,4 +306,4 @@ class PreparedEmailsGridHandler extends GridHandler {
 	}
 }
 
-?>
+

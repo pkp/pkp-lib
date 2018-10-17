@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/settings/metadata/MetadataGridHandler.inc.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class MetadataGridHandler
@@ -95,12 +95,12 @@ class MetadataGridHandler extends GridHandler {
 			'languages' => array('name' => __('rt.metadata.dublinCore.language')),
 			'rights' => array('name' => __('rt.metadata.dublinCore.rights')),
 			'source' => array('name' => __('rt.metadata.dublinCore.source')),
-			'subject' => array('name' => __('rt.metadata.dublinCore.subject')),
+			'subjects' => array('name' => __('rt.metadata.dublinCore.subject')),
 			'type' => array('name' => __('rt.metadata.dublinCore.type')),
 			'disciplines' => array('name' => __('rt.metadata.pkp.discipline')),
 			'keywords' => array('name' => __('rt.metadata.pkp.subject')),
 			'agencies' => array('name' => __('submission.supportingAgencies')),
-			'references' => array('name' => __('submission.citations')),
+			'citations' => array('name' => __('submission.citations')),
 		);
 	}
 
@@ -119,4 +119,4 @@ class MetadataGridHandler extends GridHandler {
 	}
 }
 
-?>
+

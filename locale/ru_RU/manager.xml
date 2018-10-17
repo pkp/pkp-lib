@@ -4,8 +4,8 @@
 <!--
   * locale/ru_RU/manager.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ru_RU (Русский) locale.
@@ -116,8 +116,8 @@
 	<message key="manager.language.reloadLocalizedDefaultSettings">Перезагрузить значения по умолчанию</message>
 	<message key="manager.languages.alternateLocaleInstructions">Эта система позволяет вводить некоторую важную информацию одновременно на нескольких языках. Для включения этой возможности выберите альтернативные языки и выберите один из вариантов, приведенных ниже.</message>
 	<message key="manager.languages.supportedLocalesInstructions">Выберите все языки, которые будут поддерживаться на сайте через меню выбора языка, появляющееся на каждой странице. Это меню будет отображаться только в том случае, если будет выбрано несколько языков.</message>
-	<message key="manager.masthead.title">Выходные данные</message>
 	<message key="manager.payment.timestamp">Дата/Время</message>
+	<message key="manager.people.existingUserRequired">Нужно ввести существующего пользователя.</message>
 	<message key="manager.people.authSource">Источник аутентификации</message>
 	<message key="manager.people.confirmUnenroll">Отменить назначение этого пользователя?</message>
 	<message key="manager.people.createUser">Создать нового пользователя</message>
@@ -168,18 +168,8 @@
 	<message key="manager.reviewerSearch.change">Изменить</message>
 	<message key="manager.reviewerSearch.searchByName">Поиск рецензента по имени</message>
 	<message key="manager.reviewerSearch.searchByName.short">Поиск по имени</message>
-	<message key="manager.reviewerSearch.doneAmount">Выполненых рецензий: {$current}</message>
-	<message key="manager.reviewerSearch.doneAmountToggle">Включить/выключить фильтр по выполненным рецензиям.</message>
-	<message key="manager.reviewerSearch.avgAmount">Средний срок выполнения рецензии: {$current}</message>
-	<message key="manager.reviewerSearch.avgAmountToggle">Включить/выключить фильтр по среднему числу дней на выполнение рецензии.</message>
-	<message key="manager.reviewerSearch.lastAmount">Дней после последней рецензии: {$current}</message>
-	<message key="manager.reviewerSearch.lastAmountToggle">Включить/выключить фильтр по количеству дней после последней рецензии.</message>
-	<message key="manager.reviewerSearch.activeAmount">Над сколькими рецензиями работает сейчас: {$current}</message>
-	<message key="manager.reviewerSearch.activeAmountToggle">Включить/выключить фильтр по количеству активных рецензий в настоящий момент.</message>
 	<message key="manager.reviewerSearch.interests">Интересы рецензента</message>
 	<message key="manager.reviewerSearch.form.instructions">Используйте форму ниже, чтобы задать максимум значений для терминов, по которым вы хотите произвести поиск. Эта форма предварительно заполняется средними значениями, вычисленными для этих полей.</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">Интересы рецензента (введите для поиска совпадающих интересов)</message>
-	<message key="manager.reviewerSearch.form.previousReviewRounds">Рецензенты с предыдущих раундов рецензирования этого материала</message>
 	<message key="manager.roles">Роли</message>
 	<message key="manager.statistics"><![CDATA[Статистика и отчеты]]></message>
 	<message key="manager.statistics.defaultMetricDescription">
@@ -187,8 +177,8 @@
 		Есть случаи, когда должна быть применена только одна статистика использования, например, чтобы отобразить упорядоченный список наиболее используемых статей или отранжировать
 		результаты поиска. Пожалуйста, выберите одну из настроенных метрик в качестве метрики по умолчанию.
 	</message>
-	<message key="manager.statistics.city">Город</message>	
-	<message key="manager.statistics.region">Регион</message>	
+	<message key="manager.statistics.city">Город</message>
+	<message key="manager.statistics.region">Регион</message>
 	<message key="manager.statistics.reports">Генератор отчетов</message>
 	<message key="manager.statistics.reports.description">Система генерирует отчеты, которые помогают отследить детали, связанные с использованием сайта и материалов за заданный период времени. Отчеты генерируются в формате CSV, который требует для просмотра наличия табличного процессора.</message>
 	<message key="manager.statistics.reports.aggregationColumns">Агрегировать статистику по:</message>
@@ -229,50 +219,10 @@
 	<message key="manager.setup.authorCopyrightNoticeAgree">Требовать от авторов принятия Условий передачи авторских прав в процессе отправки материала.</message>
 	<message key="manager.setup.authorGuidelines">Руководство для авторов</message>
 	<message key="manager.setup.authorGuidelines.description">Рекомендуемые правила оформления, включая стандарты форматирования текста и библиографических ссылок вместе с примерами оформления ссылок, которые часто встречаются в отправляемых материалах.</message>
-	<message key="manager.setup.citations">Библиографические ссылки</message>
-	<message key="manager.setup.citationAssistant">Помощник разметки библиографических ссылок</message>
-	<message key="manager.setup.citationFilterParser">Извлечение библиографических ссылок</message>
-	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>Чтобы найти и проверить библиографические ссылки в базах данных библиографических ссылок, сначала их необходимо преобразовать в читаемые машиной метаданные: название, издатель, дата публикации и т. д. Все эти данные должны быть извлечены из исходного текста библиографической ссылки на источник, предоставленного автором. Помочь в этом процессе могут подключения к внешним веб-сервисам. Один или несколько модулей подключения можно добавить, щелкнув ниже на кнопке «Добавить элемент». Некоторые из этих модулей подключения могут требовать настройки, в этом случае вы увидите сообщение о необходимости настройки модуля.</p>
-		<p>Вы можете отредактировать или удалить существующий модуль подключения, щелкнув на значке шестренки рядом с ним.</p>]]></message>
-	<message key="manager.setup.citationFilterLookup">Проверка библиографических ссылок</message>
-	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>Вы должны включить и настроить модули подключения к внешним базам данных библиографических ссылок. Это поможет вам найти ошибки в библиографических ссылках авторов или добавить дополнительную информацию (например, DOI или PubMed ID), требуемые для электронных публикаций или депонирования.</p>
-		<p>Мы предоставляем модули подключения к нескольким внешним базам данных, в которых вы можете искать библиографические ссылки. Некоторые из этих баз данных требуют регистрации или ввода информации для настройки. Пожалуйста, обратитесь к веб-сайтам баз данных для подробной информации о том, как зарегистрироваться. Вы можете добавить одну или несколько баз данных, щелкнув ниже на кнопке «Добавить элемент».</p>
-		<p>Вы можете отредактировать или удалить существующее подключение к внешней базе данных, щелкнув на значке шестренки рядом с ним.</p>
-		<p><strong>Обратите внимание:</strong> Чтобы процесс проверки библиографических ссылок завершался своевременно, параметр <tt>citation_checking_max_processes</tt> в вашем конфигурационном файле должен иметь приемлемое значение. Смотрите раздел General Settings в <tt>config.inc.php</tt> для получения более подробной информации.</p>]]></message>
-	<message key="manager.setup.citationOutput">Оформление библиографических ссылок</message>
-	<message key="manager.setup.citationOutputStyleDescription">Выберите стиль оформления библиографических ссылок, который используется в ваших публикуемых материалах. Помощник разметки библиографических ссылок позволит вам сравнить авторскую версию оформления библиографической ссылки на источник с версией, построенной на основе сгенерированного вами XML, таким образом вы легко сможете обнаружить ошибки:</message>
 	<message key="manager.setup.competingInterests">Конфликт интересов</message>
 	<message key="manager.setup.competingInterestsDescription">Рецензентов просят следовать Правилам декларирования конфликта интересов, которые вы описали ниже.</message> <!-- FIXME #6843 (JM): should this just reference reviewers? -->
 	<message key="manager.setup.errorDeletingItem">Во время удаления этого объекта возникла ошибка.</message>
 	<message key="manager.setup.favicon">Неправильный формат favicon. Допустимы форматы .ico, .png и .gif.</message>
-	<message key="manager.setup.filter.grid.errorDeletingFilter">При попытке удаления этого фильтра произошла ошибка. Пожалуйста, сообщите об этой ошибке разработчикам.</message>
-	<message key="manager.setup.filter.grid.filterDisplayName">Модуль подключения</message>
-	<message key="manager.setup.filter.grid.filterSettings">Регистрационная информация и настройки модуля подключения</message>
-	<message key="manager.setup.filter.grid.filterTemplateRequired">Пожалуйста, выберите один из способов преобразования в выпадающем меню.</message>
-	<message key="manager.setup.filter.grid.confirmDelete">Вы действительно хотите удалить фильтр «{$filterName}»?</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Вы решили добавить базу данных «{$filterDisplayName}». Пожалуйста, щелкните на «ОК», чтобы потвердить добавление.</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Пожалуйста, выберите базу данных для проверки.</message>
-	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Этот фильтр подключается к базе данных книг и ISBN <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a>.</p>
-	<p>Ключ ISBNdb API является обязательным. Информацию о генерации ключа можно найти в <a href="http://isbndb.com/api/v1/docs/keys" target="_blank">документации на сайте</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Этот фильтр подключается к базе данных библиографических ссылок CrossRef, используя <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL Query Interface</a>.</p>
-	<p>Для использования этого фильтра вы можете использовать вашу учетную запись в системе CrossRef или зарегистрировать правильный адрес электронной почты в CrossRef <a href="http://www.crossref.org/requestaccount/" target="_blank">по этой ссылке</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Этот фильтр подключается к поисковой машине <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a> системы PubMed, работающей с несколькими базами данных.</p>
-	<p>Регистрация адреса электронной почты не является обязательной, но может потребоваться, если вы сталкиваетесь с проблемами соединения с поисковой машиной. Смотрите подробную информацию в разделе <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Usage Guidelines and Requirements</a> документации Entrez.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Этот фильтр подключается к сервисам OCLC <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> и <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (не обязательно).</p>
-	<p>Если у вас есть <a href="http://oclc.org/developer/develop/web-services.html" target="_blank">ключ API</a> Worldcat, вы можете подключиться к Worldcat, введя ключ ниже.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.loadMessage">Пожалуйста, подождите, пока таблица конфигурации баз данных библиографических ссылок будет загружена...</message>
-	<message key="manager.setup.filter.lookup.grid.title">Модули подключения к базам данных библиографических ссылок</message>
-	<message key="manager.setup.filter.noMoreTemplates">Все доступные преобразования уже были добавлены. Пожалуйста, щелкните на «Отмена», чтобы вернуться на страницу настройки.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionConfirm">Вы решили добавить синтаксический анализатор «{$filterDisplayName}». Пожалуйста, щелкните на «ОК», чтобы потвердить добавление.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionTemplate">Пожалуйста, выберите синтаксический анализатор библиографических ссылок.</message>
-	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>Этот фильтр извлечения подключается к веб-сервису <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a>.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>Этот фильтр извлечения использует модули Perl <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> для обеспечения функциональности синтаксического анализа библиографических ссылок <a href="http://paracite.eprints.org" target="_blank">ParaCite</a>. Для работы этого фильтра необходимо, чтобы был установлен Perl, а также модули CPAN <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> и <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a>. Вы также должны настроить параметр <tt>perl</tt> в вашем конфигурационном файле. Этот параметр можно найти в разделе External Commands файла <tt>config.inc.php</tt>.</p>
-	<p>Вы также должны выбрать, какой модуль синтаксического анализа ParaTools использовать. Вы можете выбрать между стандартным модулем синтаксического анализа <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a> и модулем <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a>.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>Этот фильтр извлечения подключается к веб-сервису <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a>.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.regEx">Фильтр извлечения RegEx использует набор регулярных выражений для разбора библиографических ссылок на источники.</message>
-	<message key="manager.setup.filter.parser.grid.loadMessage">Пожалуйста, подождите, пока таблица конфигурации синтаксических анализаторов библиографических ссылок будет загружена...</message>
-	<message key="manager.setup.filter.parser.grid.title">Службы извлечения ссылок</message>
-	<message key="manager.setup.filter.pleaseSelect">Пожалуйста, выберите...</message>
 	<message key="manager.setup.groupType">Группировка типов файлов</message>
 	<message key="manager.setup.homeHeaderImageInvalid">Неверный формат изображения логотипа для верхнего колонтитула домашней страницы или загрузка не удалась. Разрешенные форматы: .gif, .jpg или .png.</message>
 	<message key="manager.setup.homepageImage">Изображение на главной странице</message>
@@ -287,7 +237,6 @@
 	<message key="manager.setup.layout.unselected">Не выбрано</message>
 	<message key="manager.setup.loggingAndAuditing">Ведение журнала и аудит</message>
 	<message key="manager.setup.logo">Логотип</message>
-	<message key="manager.setup.metaCitationsDescription">Поставьте галочку, чтобы включить редактирование библиографических ссылок на источники. Это позволит авторам включать «сырые» библиографические ссылки на источники в отправляемые материалы. Редакторы также будут иметь доступ к Помощнику разметки библиографических ссылок, в котором они могут проверить на точность «сырые» библиографические ссылки с помощью внешних баз данных, таких как WorldCat, ISBNdb, PubMed и других. Одобренные библиографические ссылки могут быть экспортированы в файлы финальных гранок.</message>
 	<message key="manager.setup.notifications">Уведомление об отправке материала автором</message>
 	<message key="manager.setup.notifications.copySpecifiedAddress">Отправить копию на этот адрес электронной почты:</message>
 	<message key="manager.setup.notifications.description">Авторам автоматически отправляется письмо электронной почты с подтверждением отправки их материала. Вы можете отправить копии этого письма электронной почты следующим:</message>
@@ -300,7 +249,7 @@
 	<message key="manager.setup.principalContact">Контактное лицо (общие вопросы)</message>
 	<message key="manager.setup.principalContactDescription">Введите данные контактного лица, обычно это главный редактор, ответственный редактор или сотрудник администрации. Эти данные могут отображаться в открытом доступе на сайте.</message>
 	<message key="manager.setup.privacyStatement">Заявление о конфиденциальности</message>
-	<message key="manager.setup.privacyStatement.description">Это Заявление будет отображаться во время отправки материала автором и на странице сайта с информацией в открытом доступе.</message>
+	<message key="manager.setup.privacyStatement.description">Это заявление будет появляться во время регистрации пользователя, отправки автором материала и на странице «Конфиденциальность» в открытом доступе. В некоторых странах закон требует, чтобы вы в раскрыли как именно вы обрабатываете данные пользователей в этом Заявлении о конфиденциальности.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Недель на согласие или отказ в ответ на запрос выполнения рецензии</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Недель на выполнение рецензии</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Никогда не напоминать</message>
@@ -309,7 +258,8 @@
 	<message key="manager.setup.reviewOptions.remindForSubmit">Отправить напоминание, если рецензент не отправил рекомендацию в течение следующего количества дней, после того как срок отправки рецензии прошел:</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Сроки рецензирования по умолчанию</message>
 	<message key="manager.setup.reviewOptions.showBlindReviewLink">Добавить ссылку на «Обеспечение слепого рецензирования» во время загрузки</message>
-	<message key="manager.setup.sortableByComponent">Можно сортировать по компонентам</message>
+	<message key="manager.setup.searchEngineIndexing.sitemap">Карта сайта</message>
+	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[Карта сайта в формате XML доступна для отправки поисковым машинам по адресу <a href="{$path}" target="_blank">{$path}</a>]]></message>
 	<message key="manager.setup.sponsors.note">Описание правил и отношений со спонсорами</message>
 	<message key="manager.setup.sponsors.description">Примеры: общества ученых, подразделения университетов, объединения и т.д. Спонсоры показываются в открытом доступе на сайте.</message>
 	<message key="manager.setup.styleSheetDescription">Опытные веб-разработчики могут загрузить файл CSS для дополнительной модификации внешнего вида сайта.</message>
@@ -324,13 +274,6 @@
 	<message key="plugins.categories.auth">Модули авторизации</message>
 	<message key="plugins.categories.blocks">Модули блоков</message>
 	<message key="plugins.categories.blocks.description">Модули блоков — подключаемые компоненты пользовательского интерфейса, такие как различные инструменты боковой панели.</message>
-	<message key="plugins.categories.citationFormats">Модули форматирования библиографических ссылок</message>
-	<message key="plugins.categories.citationLookup">Модули подключения к базам данных библиографических ссылок</message>
-	<message key="plugins.categories.citationLookup.description">Модули подключения к базам данных библиографических ссылок подключаются к базам данных библиографических ссылок, чтобы найти ссылку на источник, например, во время редактирования библиографических ссылок.</message>
-	<message key="plugins.categories.citationOutput">Модули оформления библиографических ссылок</message>
-	<message key="plugins.categories.citationOutput.description">Модули оформления библиографических ссылок реализуют стандарты оформления библиографических ссылок. Они заменяют модули форматирования библиографических ссылок.</message>
-	<message key="plugins.categories.citationParser">Модули извлечения библиографических ссылок</message>
-	<message key="plugins.categories.citationParser.description">Модули извлечения библиографических ссылок позволяют извлекать данные для полей из «сырых» библиографических ссылок (например, имя автора, название и т. д.).</message>
 	<message key="plugins.categories.gateways.description">Модули шлюзов предоставляют данные в реальном времени внешним системам.</message>
 	<message key="plugins.categories.gateways">Модули шлюзов</message>
 	<message key="plugins.categories.generic">Модули общего назначения</message>
@@ -430,6 +373,7 @@
 	<message key="settings.roles.roleOptions">Параметры роли</message>
 	<message key="settings.roles.showTitles">Показать название роли в списке участников</message>
 	<message key="settings.roles.permitSelfRegistration">Разрешить самостоятельную регистрацию пользователя</message>
+	<message key="settings.roles.recommendOnly">Эта роль позволяет только рекомендовать решение рецензента, запись итогового решения требует участия редактора с соответствующими правами.</message>
 	<message key="settings.roles.roleName">Название роли</message>
 	<message key="settings.roles.roleAbbrev">Аббревиатура</message>
 	<message key="settings.roles.assignedStages">Назначенные этапы</message>
@@ -453,15 +397,20 @@
 	<message key="settings.libraryFiles.category.permissions">Разрешения</message>
 	<message key="settings.libraryFiles.category.reports">Отчеты</message>
 	<message key="settings.libraryFiles.category.other">Другое</message>
+	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>Если включен «Открытый доступ», этот файл библиотеки может быть доступен для скачивания по адресу: <blockquote>{$downloadUrl}</blockquote></p>]]></message>
+	<message key="settings.libraryFiles.public.selectLibraryFiles">Выберите файлы библиотеки для присоединения</message>
 
 	<!--  Настройка сетки «Жанры» -->
 	<message key="grid.action.addGenre">Добавить компонент</message>
 	<message key="grid.action.editGenre">Редактировать этот компонент</message>
 	<message key="grid.action.deleteGenre">Удалить этот компонент</message>
 	<message key="grid.action.restoreGenres">Вернуть компоненты к настройкам по умолчанию</message>
-	<message key="manager.setup.genres.sortable">Разрешить файлы этого типа сортировать по главам</message>
 	<message key="manager.setup.genres.dependent">Отметить файлы этого типа как зависимые файлы (например, не показываемые с опубликованным контентом)</message>
 	<message key="manager.setup.genres.supplementary">Отметить файлы этого типа как дополнительные файлы (например, не относящиеся к основному контенту материала)</message>
+	<message key="manager.setup.genres.key">Ключ</message>
+	<message key="manager.setup.genres.key.description">Необязательный короткий символьный идентификатор для этого жанра.</message>
+	<message key="manager.setup.genres.key.exists">Ключ уже существует.</message>
+	<message key="manager.setup.genres.key.alphaNumeric">Ключ может содержать только буквы, цифры, подчеркивания, дефисы; должен начинаться и заканчиваться буквой или цифрой.</message>
 	<message key="manager.settings.wizard">Мастер настроек</message>
 	<message key="manager.users.roleRequired">Вам нужно выбрать как минимум одну роль, которая должна быть связана с этим пользователем.</message>
 	<message key="manager.website">Веб-сайт</message>
@@ -506,6 +455,7 @@
 	<message key="manager.reviewFormElements.noneCreated">Элементы формы не были созданы.</message>
 	<message key="manager.reviewFormElements.possibleResponse">Выбор</message>
 	<message key="manager.reviewFormElements.question">Элемент</message>
+	<message key="manager.reviewFormElements.description">Описание</message>
 	<message key="manager.reviewFormElements.radiobuttons">Радиокнопки (можно выбрать только один вариант)</message>
 	<message key="manager.reviewFormElements.required">Рецензент обязательно должен заполнить элемент</message>
 	<message key="manager.reviewFormElements.included">Включается в сообщение для автора</message>
@@ -529,10 +479,73 @@
 	<message key="plugins.importexport.common.error.unknownEncoding">Неизвестная кодировка {$param}</message>
 	<message key="plugins.importexport.common.error.encodingError">Кодировка контента не совпадает с {$param}</message>
 	<message key="plugins.importexport.common.error.unknownUserGroup">Неизвестная группа пользователей {$param}</message>
+	<message key="plugins.importexport.common.error.missingGivenName">У автора ({$authorName}) не указано имя на языке отправки ({$localeName}). Материал не может быть импортирован без этой информации.</message>
 	<message key="plugins.importexport.common.error.unknownUploader">Неизвестный загрузчик {$param}</message>
 	<message key="plugins.importexport.common.error.temporaryFileFailed">Временный файл {$dest} не может быть создан из {$source}</message>
 	<message key="plugins.importexport.common.error.filesizeMismatch">Указанный размер файла «{$expected}» и фактический размер «{$actual}» не совпадают</message>
 	<message key="plugins.importexport.common.error.duplicateRevisionForSubmission">Новая версия «{$revisionId}» для файла «{$fileId}» создаст дублирующую запись</message>
-	<!-- native importexport keys -->
+	<!-- родные ключи импорта/экспорта -->
 	<message key="plugins.importexport.native.error.submissionFileImportFailed">Файл материала не может быть импортирован</message>
+
+	<!-- родные ключи импорта пользователей -->
+	<message key="plugins.importexport.user.importExportErrors">Ошибки импорта/экспорта:</message>
+	<message key="plugins.importexport.user.error.userHasNoPassword">У импортируемого пользователя «{$username}» нет пароля. Проверьте формат вашего файла XML для импорта. Пользователь не был импортирован.</message>
+	<message key="plugins.importexport.user.error.passwordHasBeenChanged">Пароль импортируемого пользователя «{$username}» не модет быть импортирован в данном виде. Новый пароль был отправлен на адрес электронной почты пользователя. Пользователь был импортирован.</message>
+	<message key="plugins.importexport.user.error.plainPasswordNotValid">У импортируемого пользователя «{$username}» задан простой пароль, не соответствующий требованиям. Пользователь не был импортирован.</message>
+	
+	<!-- Меню навигации -->
+	<message key="manager.navigationMenus.form.title">Название</message>
+	<message key="manager.navigationMenus.form.path">Путь</message>
+	<message key="manager.navigationMenus">Меню навигации</message>
+	<message key="manager.navigationMenus.form.viewInstructions"><![CDATA[<p>Эта страница будет доступна по адресу: <blockquote>{$pagesPath}</blockquote>...где %PATH% — путь, введенный выше. <strong>Обратите внимание:</strong> Путь к каждой странице должен быть уникальным. Использование путей, встроенных в систему, может привести к потере доступа к важным функциям.</p>]]></message>
+	<message key="manager.navigationMenus.form.content">Контент</message>
+	<message key="manager.navigationMenus.form.pathRegEx">Поле с путем должно содержать только буквы, цифры, «.», «/», «-» и «_».</message>
+	<message key="manager.navigationMenus.form.duplicatePath">Этот путь уже задан для другого элемента навигационного меню.</message>
+	<message key="manager.navigationMenus.form.duplicateTitles">Это название уже существует в другом навигационном меню.</message>
+	<message key="manager.navigationMenus.form.titleRequired">Название обязательно</message>
+	<message key="manager.navigationMenuItems">Элементы навигационного меню</message>
+	<message key="manager.navigationMenus.assignedMenuItems">Назначенные элементы меню</message>
+	<message key="manager.navigationMenus.unassignedMenuItems">Неназначенные элементы меню</message>
+	<message key="manager.navigationMenus.form.navigationMenuArea">Области навигации активной темы</message>
+	<message key="manager.navigationMenus.form.navigationMenuAreaMessage">Выберите область навигации</message>
+	<message key="manager.navigationMenus.form.menuAssigned">Этой области уже назначено навигационное меню.</message>
+
+	<message key="manager.navigationMenus.form.url">URL</message>
+	<message key="manager.navigationMenus.form.customUrlError">Необходимо ввести URL-адрес</message>
+
+	<message key="manager.navigationMenus.form.conditionalDisplay">Узнать больше, когда этот элемент меню будет показан или скрыт.</message>
+	<message key="manager.navigationMenus.form.submenuWarning">Когда элемент меню открывает подменю, не на всех устройствах можно перейти по ссылке в нем. Например, если у вас есть элемент «О журнале», который открывает подменю с «Контакты» и «Редакция», ссылка «О журнале» может быть доступна не на всех устройствах. В меню по умолчанию это обрабатывается путем создания второго элемента меню «Об этом журнале», который появляется в подменю.</message>
+
+	<message key="manager.navigationMenus.form.navigationMenuItemType">Тип меню навигации</message>
+	<message key="manager.navigationMenus.form.navigationMenuItemTypeMessage">Выберите тип меню навигации или вариант «Пользовательский», чтобы создать свой собственный тип</message>
+	<message key="manager.navigationMenus.customPage">Пользовательская страница</message>
+	<message key="manager.navigationMenus.customPage.description">Создать свою собственную страницу на вашем сайте и добавить ссылку на нее в меню навигации.</message>
+	<message key="manager.navigationMenus.remoteUrl">Внешний URL</message>
+	<message key="manager.navigationMenus.remoteUrl.description">Ссылка на любой URL на другом сайте, например, https://pkp.sfu.ca.</message>
+	<message key="manager.navigationMenus.about.description">Ссылка на страницу, отображающую контент «О журнале» в  Настройки > Журнал</message>
+	<message key="manager.navigationMenus.about.conditionalWarning">Эта ссылка будет показываться только в случае, если вы заполнили раздел «О журнале» в Настройки > Журнал.</message>
+	<message key="manager.navigationMenus.editorialTeam.description">Ссылка на страницу, отображающую контент «Выходные данные» в Настройки > Журнал.</message>
+	<message key="manager.navigationMenus.editorialTeam.conditionalWarning">Эта ссылка будет показываться только в случае, если вы заполнили раздел «Редакция» в Настройки > Журнал.</message>
+	<message key="manager.navigationMenus.submissions.description">Ссылка на страницу, отображающую инструкции по отправке.</message>
+	<message key="manager.navigationMenus.current.description">Ссылка на текущий выпуск.</message>
+	<message key="manager.navigationMenus.archives.description">Ссылка на архив выпусков.</message>
+	<message key="manager.navigationMenus.announcements.description">Ссылка на страницу, отображающую объявления.</message>
+	<message key="manager.navigationMenus.announcements.conditionalWarning">Эта ссылка будет показываться только в случае, если вы включите объявления в Настройки > Веб-сайт.</message>
+	<message key="manager.navigationMenus.login.description">Ссылка на страницу входа в систему.</message>
+	<message key="manager.navigationMenus.register.description">Ссылка на страницу регистрации пользователя.</message>
+	<message key="manager.navigationMenus.dashboard.description">Ссылка на личный кабинет редакции.</message>
+	<message key="manager.navigationMenus.profile.description">Ссылка на страницу профиля пользователя.</message>
+	<message key="manager.navigationMenus.administration.description">Ссылка на инструменты администрирования всего сайта.</message>
+	<message key="manager.navigationMenus.administration.conditionalWarning">Эта ссылка будет показываться только пользователям с правами администраторов.</message>
+	<message key="manager.navigationMenus.logOut.description">Ссылка для выхода пользователя из системы.</message>
+	<message key="manager.navigationMenus.loggedOut.conditionalWarning">Эта ссылка будет показываться только в случае, когда посетитель уже вошел в систему.</message>
+	<message key="manager.navigationMenus.loggedIn.conditionalWarning">Эта ссылка будет показываться только в случае, когда посетитель еще не вошел в систему.</message>
+	<message key="manager.navigationMenus.contact.description">Ссылка на страницу, отображающую вашу контактную информацию.</message>
+	<message key="manager.navigationMenus.contact.conditionalWarning">Эта ссылка будет показываться только в случае, если вы заполнили раздел «Контактная информация» в Настройки > Контакт.</message>
+	<message key="manager.navigationMenus.form.typeMissing">Пожалуйста выберите тип навигационного меню.</message>
+	<message key="manager.navigationMenus.subscriptions.conditionalWarning">Эта ссылка будет показываться только в случае, если включены платежи в Настройки > Распространение > Платежи.</message>
+	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning">Эта ссылка будет показываться только в случае, если посетитель зашел в систему, включены платежи в Настройки > Распространение > Платежи и обязательны подписки в Настройки > Распространение > Доступ.</message>
+	<message key="manager.navigationMenus.search.description">Ссылка на страницу поиска.</message>
+	<message key="manager.navigationMenus.privacyStatement.description">Ссылка на страницу, отображающую ваше Заявление о конфиденциальности.</message>
+	<message key="manager.navigationMenus.privacyStatement.conditionalWarning">Эта ссылка будет показываться только в случае, если вы ввели Заявление о конфиденциальности в Настройки > Рабочий поток > Материалы.</message>
 </locale>

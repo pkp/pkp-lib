@@ -83,23 +83,9 @@ abstract class PKPSectionDAO extends DAO {
 
 	/**
 	 * Retrieve all sections for a context.
-	 * @param $contextId int
-	 * @param $rangeInfo DBResultRange optional
-	 * @param $submittableOnly boolean ooptional. Whether to return only sections
-	 *  that can be submitted to by anyone.
 	 * @return DAOResultFactory containing Sections ordered by sequence
 	 */
-	public function getByContextId($contextId, $rangeInfo = null, $submittableOnly = false) {
-		$result = $this->retrieveRange(
-			'SELECT * FROM ' . $this->_getTableName() . ' WHERE ' .
-				$this->_getContextIdColumnName() . ' = ? ' .
-				($submittableOnly ? ' AND editor_restricted = 0' : '') .
-				' ORDER BY seq',
-			(int) $contextId, $rangeInfo
-		);
-
-		return new DAOResultFactory($result, $this, '_fromRow');
-	}
+	abstract function getByContextId($contextId, $rangeInfo = null);
 
 	/**
 	 * Retrieve the IDs and titles of the sections for a context in an associative array.

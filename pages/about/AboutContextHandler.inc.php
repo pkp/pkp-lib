@@ -79,10 +79,7 @@ class AboutContextHandler extends Handler {
 
 		$templateMgr->assign( 'submissionChecklist', $context->getLocalizedSetting('submissionChecklist') );
 
-		// Get section options for this context
-		$roleDao = DAORegistry::getDAO('RoleDAO');
-		$user = $request->getUser();
-
+		// Get sections for this context
 		$canSubmitAll = false;
 		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
 		if ($userRoles && !empty(array_intersect([ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR], $userRoles))) {
@@ -90,24 +87,21 @@ class AboutContextHandler extends Handler {
 		}
 
 		$sectionDao = Application::getSectionDAO();
-		$sections = $sectionDao->getByContextId($context->getId(), null, !$canSubmitAll)->toArray();
+		$sections = $sectionDao->getByContextId($context->getId())->toArray();
 
-		$hasSubmittableSections = false;
-		foreach ($sections as $section) {
-			if (!$section->getEditorRestricted()) {
-				$hasSubmittableSections = true;
-				break;
-			}
+		if (!$canSubmitAll) {
+			$sections = array_filter($sections, function ($section) {
+				return !$section->getEditorRestricted();
+			});
 		}
 
 		// for author.submit.notAccepting
-		if (!$hasSubmittableSections) {
+		if (count($sections) == 0) {
 			AppLocale::requireComponents(LOCALE_COMPONENT_APP_AUTHOR);
 		}
 
 		$templateMgr->assign([
-			'sections' => $sections,
-			'hasSubmittableSections' => $hasSubmittableSections,
+			'sections' => $sections
 		]);
 
 		$templateMgr->display('frontend/pages/submissions.tpl');

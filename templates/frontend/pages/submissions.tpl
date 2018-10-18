@@ -16,7 +16,7 @@
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="about.submissions"}
 
 	<div class="cmp_notification">
-		{if !$hasSubmittableSections}
+		{if $sections|@count == 0}
 			{translate key="author.submit.notAccepting"}
 		{else}
 			{if $isUserLoggedIn}

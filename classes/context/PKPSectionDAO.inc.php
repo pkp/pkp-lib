@@ -83,21 +83,25 @@ abstract class PKPSectionDAO extends DAO {
 
 	/**
 	 * Retrieve all sections for a context.
+	 * @param $contextId int context ID
+	 * @param $rangeInfo DBResultRange optional
+	 * @param $submittableOnly boolean optional. Whether to return only sections
+	 *  that can be submitted to by anyone.
 	 * @return DAOResultFactory containing Sections ordered by sequence
 	 */
-	abstract function getByContextId($contextId, $rangeInfo = null);
+	abstract function getByContextId($contextId, $rangeInfo = null, $submittableOnly = false);
 
 	/**
 	 * Retrieve the IDs and titles of the sections for a context in an associative array.
 	 * @param $contextId int context ID
-	 * @param $submittableOnly boolean optional
+	 * @param $submittableOnly boolean optional. Whether to return only sections
+	 *  that can be submitted to by anyone.
 	 * @return array
 	 */
-	function getTitles($contextId, $submittableOnly = false) {
+	function getTitlesByContextId($contextId, $submittableOnly = false) {
 		$sections = array();
-		$sectionsIterator = $this->getByContextId($contextId);
+		$sectionsIterator = $this->getByContextId($contextId, null, $submittableOnly);
 		while ($section = $sectionsIterator->next()) {
-			if ($submittableOnly && $section->getEditorRestricted()) continue;
 			$sections[$section->getId()] = $section->getLocalizedTitle();
 		}
 		return $sections;

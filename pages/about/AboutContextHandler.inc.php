@@ -87,22 +87,14 @@ class AboutContextHandler extends Handler {
 		}
 
 		$sectionDao = Application::getSectionDAO();
-		$sections = $sectionDao->getByContextId($context->getId())->toArray();
-
-		if (!$canSubmitAll) {
-			$sections = array_filter($sections, function ($section) {
-				return !$section->getEditorRestricted();
-			});
-		}
+		$sections = $sectionDao->getByContextId($context->getId(), null, !$canSubmitAll)->toArray();
 
 		// for author.submit.notAccepting
 		if (count($sections) == 0) {
 			AppLocale::requireComponents(LOCALE_COMPONENT_APP_AUTHOR);
 		}
 
-		$templateMgr->assign([
-			'sections' => $sections
-		]);
+		$templateMgr->assign('sections', $sections);
 
 		$templateMgr->display('frontend/pages/submissions.tpl');
 	}

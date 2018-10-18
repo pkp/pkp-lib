@@ -66,6 +66,8 @@
 	<message key="editor.review.responseDue">Срок ответа: {$date}</message>
 	<message key="editor.review.requestSent">Запрос отправлен</message>
 	<message key="editor.review.requestAccepted">Запрос принят</message>
+	<message key="editor.review.requestDeclined">Запрос отклонен</message>
+	<message key="editor.review.requestDeclined.tooltip">Рецензент отклонил этот запрос на рецензию.</message>
 	<message key="editor.review.revertDecision">Отмена решения</message>
 	<message key="editor.review.reviewDue">Срок сдачи рецензии: {$date}</message>
 	<message key="editor.review.reviewDueDate">Дата предоставления рецензии</message>

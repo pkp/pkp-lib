@@ -32,7 +32,7 @@ jQuery.pkp.pages.submission = jQuery.pkp.pages.submission || { };
 
 		this.parent($form, options);
 
-		this.showSectionPolicy();
+		this.showSectionPolicy(null);
 		$('#sectionId').change(this.callbackWrapper(this.showSectionPolicy));
 	};
 	$.pkp.classes.Helper.inherits(

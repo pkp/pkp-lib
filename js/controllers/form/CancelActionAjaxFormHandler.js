@@ -37,12 +37,25 @@
 		// Store the options.
 		this.cancelUrl_ = options.cancelUrl;
 
-		$(window).on('unload', function(event) {
+		this.cancelActionHandler = function() {
 			formHandler.handleCancelAction();
-		});
+		};
+		$(window).on('unload', this.cancelActionHandler);
 	};
 	$.pkp.classes.Helper.inherits($.pkp.controllers.form.
 			CancelActionAjaxFormHandler, $.pkp.controllers.form.AjaxFormHandler);
+
+
+	//
+	// Public properties
+	//
+	/**
+	 * Function to handle deregistration of the modal as needed
+	 * @public
+	 * @type {function()?}
+	 */
+	$.pkp.controllers.form.CancelActionAjaxFormHandler.
+			prototype.cancelActionHandler = null;
 
 
 	//
@@ -96,6 +109,13 @@
 	 */
 	$.pkp.controllers.form.CancelActionAjaxFormHandler.prototype.
 			handleCancelAction = function() {
+
+		// Unregister the window unload listener
+		if (this.cancelActionHandler !== null) {
+			$(window).off('unload', this.cancelActionHandler);
+			this.cancelActionHandler = null;
+		}
+
 		// If the form wasn't completed, post a cancel.
 		if (!this.isComplete_ && this.cancelUrl_ !== null) {
 			$.post(this.cancelUrl_);

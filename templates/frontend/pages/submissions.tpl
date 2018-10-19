@@ -68,7 +68,7 @@
 	{/if}
 
 	{if $currentContext->getLocalizedSetting('privacyStatement')}
-	<div class="privacy_statement">
+	<div class="privacy_statement" id ="privacyStatement">
 		<h2>
 			{translate key="about.privacyStatement"}
 			{include file="frontend/components/editLink.tpl" page="management" op="settings" path="publication" anchor="submissionStage" sectionTitleKey="about.privacyStatement"}

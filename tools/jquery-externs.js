@@ -79,6 +79,18 @@ jQuery.cssHooks;
 jQuery.data = function(elem, key, value) {};
 
 /**
+ * @param {Object=} func
+ * @return {*}
+ */
+jQuery.when = function(func) {};
+
+/**
+ * @param {Object=} func
+ * @return {*}
+ */
+jQuery.then = function(func) {};
+
+/**
  * @param {Element} elem
  * @param {string=} queueName
  * @return {jQueryObject}

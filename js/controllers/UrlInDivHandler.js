@@ -110,7 +110,8 @@
 				}
 
 				$(function() {
-					urlInDivHandler.trigger('urlInDivLoaded', [urlInDivHandler.getHtmlElement().attr('id')]);
+					urlInDivHandler.trigger('urlInDivLoaded',
+							[urlInDivHandler.getHtmlElement().attr('id')]);
 				});
 			}
 		} else {

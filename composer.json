@@ -1,7 +1,7 @@
 {
 	"require": {
 		"components/jqueryui": "1.*",
-		"components/jquery": "1.*",
+		"components/jquery": "3.*",
 		"oyejorge/less.php": "1.7.0.3",
 		"phpmailer/phpmailer": "^5.2",
 		"smarty/smarty": "~3.1",

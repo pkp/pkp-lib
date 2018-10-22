@@ -93,7 +93,7 @@
 	$.pkp.controllers.UrlInDivHandler.prototype.handleLoadedContent_ =
 			function(ajaxContext, jsonData) {
 
-		var handledJsonData = this.handleJson(jsonData);
+		var handledJsonData = this.handleJson(jsonData), urlInDivHandler = this;
 		if (handledJsonData.status === true) {
 			if (handledJsonData.content === undefined) {
 				// Request successful, but no data returned.
@@ -109,7 +109,9 @@
 					this.html(handledJsonData.content);
 				}
 
-				this.trigger('urlInDivLoaded', [this.getHtmlElement().attr('id')]);
+				$(function() {
+					urlInDivHandler.trigger('urlInDivLoaded', [urlInDivHandler.getHtmlElement().attr('id')]);
+				});
 			}
 		} else {
 			// Alert that loading failed.

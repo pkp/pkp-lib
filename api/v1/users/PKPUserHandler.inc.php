@@ -70,7 +70,7 @@ class PKPUserHandler extends APIHandler {
 		$userService = ServicesContainer::instance()->get('user');
 
 		if (!$context) {
-			return $response->withStatus(404)->withJsonError('api.submissions.404.resourceNotFound');
+			return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
 		}
 
 		$params = $this->_buildListRequestParams($slimRequest);
@@ -113,7 +113,7 @@ class PKPUserHandler extends APIHandler {
 		}
 
 		if (!$user) {
-			return $response->withStatus(404)->withJsonError('api.submissions.404.resourceNotFound');
+			return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
 		}
 
 		$data = $userService->getFullProperties($user, array(
@@ -138,7 +138,7 @@ class PKPUserHandler extends APIHandler {
 		$userService = ServicesContainer::instance()->get('user');
 
 		if (!$context) {
-			return $response->withStatus(404)->withJsonError('api.submissions.404.resourceNotFound');
+			return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
 		}
 
 		$params = $this->_buildReviewerListRequestParams($slimRequest);

@@ -44,15 +44,9 @@
 	<message key="admin.serverInformation">Sunucu Bilgisi</message>
 	<message key="admin.server.phpVersion">PHP sürümü</message>
 	<message key="admin.server.platform">İşletim Sistemi Platformu</message>
-	<message key="admin.settings.aboutDescription">Site Tanımı Hakkında</message>
+	<message key="admin.settings.about">Site Tanımı Hakkında</message>
 	<message key="admin.settings.contactEmail">Temel iletişim e-posta adresi</message>
 	<message key="admin.settings.contactName">İletişim için temel kişi adı</message>
-	<message key="admin.settings.form.contactEmailRequired">Temel iletişim e-posta adresi gerekiyor.</message>
-	<message key="admin.settings.form.contactNameRequired">İletişim için temel kişi adı gerekiyor.</message>
-	<message key="admin.settings.form.minPasswordLengthRequired">Şifre için en az dört karakter girmelisiniz.</message>
-	<message key="admin.settings.form.titleRequired">Bir başlık gerekli.</message>
-	<message key="admin.settings.homeHeaderImage.altText">Site Logosu</message>
-	<message key="admin.settings.homeHeaderImageInvalid">Geçersiz site logosu biçimi. Kabul edilebilir biçimler: .gif, .jpg veya .png.</message>
 	<message key="admin.settings.introduction">Giriş</message>
 	<message key="admin.settings.minPasswordLength">Şifre için en kısa karakter sayısı</message>
 	<message key="admin.settings.siteLanguage">Site Dili</message>

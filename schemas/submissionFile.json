@@ -1,0 +1,77 @@
+{
+	"title": "Submission File",
+	"description": "A submission file including associated metadata.",
+	"properties": {
+		"id": {
+			"type": "integer"
+		},
+		"revision": {
+			"type": "integer"
+		},
+		"fileStage": {
+			"type": "integer"
+		},
+		"fileName": {
+			"type": "string"
+		},
+		"genreId": {
+			"type": "integer"
+		},
+		"metadata": {
+			"type": "object",
+			"properties": {
+				"description": {
+					"$ref": "#/definitions/LocaleObject"
+				},
+				"creator": {
+					"$ref": "#/definitions/LocaleObject"
+				},
+				"publisher": {
+					"$ref": "#/definitions/LocaleObject"
+				},
+				"source": {
+					"$ref": "#/definitions/LocaleObject"
+				},
+				"subject": {
+					"$ref": "#/definitions/LocaleObject"
+				},
+				"sponsor": {
+					"$ref": "#/definitions/LocaleObject"
+				},
+				"dateCreated": {
+					"type": "string",
+					"validation": [
+						"date:Y-m-d"
+					]
+				},
+				"language": {
+					"type": "string"
+				},
+				"caption": {
+					"type": "string"
+				},
+				"credit": {
+					"type": "string"
+				},
+				"copyrightOwner": {
+					"type": "string"
+				},
+				"terms": {
+					"type": "string"
+				},
+				"width": {
+					"type": "string"
+				},
+				"height": {
+					"type": "string"
+				},
+				"physicalWidth": {
+					"type": "string"
+				},
+				"physicalHeight": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}

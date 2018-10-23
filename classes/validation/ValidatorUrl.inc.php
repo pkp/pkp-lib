@@ -14,39 +14,20 @@
  * @brief Validation check for URLs.
  */
 
-import('lib.pkp.classes.validation.ValidatorUri');
+import ('lib.pkp.classes.validation.Validator');
+import('lib.pkp.classes.validation.ValidatorFactory');
 
-class ValidatorUrl extends ValidatorUri {
+class ValidatorUrl extends Validator {
 	/**
-	 * Constructor.
+	 * @copydoc Validator::isValid()
 	 */
-	function __construct() {
-		parent::__construct(ValidatorUrl::_getAllowedSchemes());
-	}
+	function isValid($value) {
+		$validator = \ValidatorFactory::make(
+			['value' => $value],
+			['value' => 'url']
+		);
 
-	//
-	// Public static methods
-	//
-	/**
-	 * @see ValidatorUri::getRegexp()
-	 * @param $allowedSchemes Array of strings to restrict accepted schemes to defined set, or null for any allowed
-	 * @return string
-	 */
-	static function getRegexp($allowedSchemes = null) {
-		if ($allowedSchemes === null) $allowedSchemes = self::_getAllowedSchemes();
-		else $allowedSchemes = array_intersect(self::_getAllowedSchemes(), $allowedSchemes);
-		return parent::getRegexp($allowedSchemes);
-	}
-
-	//
-	// Private static methods
-	//
-	/**
-	 * Return allowed schemes
-	 * @return array
-	 */
-	static function _getAllowedSchemes() {
-		return array('http', 'https', 'ftp');
+		return $validator->passes();
 	}
 }
 

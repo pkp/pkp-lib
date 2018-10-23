@@ -54,7 +54,6 @@
 	<message key="common.titleSmallWords">de un una el la els les i o ni però és si llavors altre altra quan en des de per dins fora</message>
 	<message key="common.alreadyAssigned">Assignat</message>
 	<message key="common.altText">Text alternatiu</message>
-	<message key="common.altTextInstructions">Si us plau, introduïu text alternatiu per a aquesta imatge per tal que sigui accessible per als usuaris/usuàries que fan servir navegadors només de text o dispositius d’assistència.</message>
 	<message key="common.and">i</message>
 	<message key="common.applyAction">Aplica l’acció</message>
 	<message key="common.assign">Assigna</message>
@@ -173,7 +172,6 @@
 	<message key="common.or">o</message>
 	<message key="common.other">Altres</message>
 	<message key="common.overdue">Endarrerit</message>
-	<message key="common.pageHeaderLogo.altText">Logotip per a la capçalera de pàgina</message>
 	<message key="common.plugin">Connector</message>
 	<message key="common.pluginEnabled">El mòdul «{$pluginName}» ha estat habilitat.</message>
 	<message key="common.pluginDisabled">S'ha desactivat el mòdul «{$pluginName}».</message>
@@ -223,13 +221,9 @@
 	<message key="common.unread">No llegit</message>
 	<message key="common.untitled">Sense títol</message>
 	<message key="common.updated">Actualitzat</message>
-	<message key="common.uploadedFile">Fitxer penjat</message>
 	<message key="common.upload">Penja</message>
 	<message key="common.uploadFailed">El fitxer no s’ha pogut carregar ni revisar.</message>
-	<message key="common.fileUpload.maxFileSizeStatus"><![CDATA[Aquest servidor permet la càrrega de fitxers amb una mida màxima de {$fileSize}. Si és necessari, contacteu amb <a href="mailto:{$supportEmail}">{$supportName}</a> per obtenir ajuda.]]></message>
-	<message key="common.invalidFileType">No s’ha carregat cap fitxer o tipus de fitxer invàlid.</message>
 	<message key="common.pageHeader.altText">Capçalera de la pàgina</message>
-	<message key="common.homepageImage.altText">Imatge de la pàgina d'inici</message>
 	<message key="common.up">Amunt</message>
 	<message key="common.url">URL</message>
 	<message key="common.user">Usuari/Usuària</message>
@@ -507,7 +501,6 @@
 	<message key="notification.type.queryActivity">Activitat de la discussió.</message>
 	<message key="notification.type.queryAdded">Discussió afegida.</message>
 	<message key="notification.type.assignCopyeditors">Assigna un corrector/a d'originals mitjançant l'opció "Afegir" de la llista de participants.</message>
-	<message key="common.favicon.altText">Icona de web</message>
 	<message key="common.notified.date">Notificat: {$dateNotified}</message>
 	<message key="common.pageNumber">Pàgina {$pageNumber}</message>
 	<message key="common.percentage">{$percentage}%</message>
@@ -526,7 +519,6 @@
 	<message key="email.senderName">Nom del remitent</message>
 	<message key="email.senderEmail">Correu electrònic del remitent</message>
 	<message key="form.url.invalid">La URL especificada no és vàlida. Comprovi-la i torni a intentar-ho, si us plau.</message>
-	<message key="form.csrfInvalid">El formulari no s'ha enviat correctament</message>
 	<message key="help.previous">Previ</message>
 	<message key="help.next">Següent</message>
 	<message key="informationCenter.addNote">Afegeix nota</message>

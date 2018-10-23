@@ -76,7 +76,7 @@ class TemporaryFileManager extends PrivateFileManager {
 	 * Upload the file and add it to the database.
 	 * @param $fileName string index into the $_FILES array
 	 * @param $userId int
-	 * @return object The new TemporaryFile or false on failure
+	 * @return object|boolean The new TemporaryFile or false on failure
 	 */
 	function handleUpload($fileName, $userId) {
 		// Get the file extension, then rename the file.

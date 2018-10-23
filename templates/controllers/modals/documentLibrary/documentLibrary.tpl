@@ -8,7 +8,7 @@
  * Document library
  *}
 
-{help file="editorial-workflow.md" section="submission-library" class="pkp_help_modal"}
+{help file="editorial-workflow" section="submission-library" class="pkp_help_modal"}
 
 {capture assign=submissionLibraryGridUrl}{url submissionId=$submission->getId() router=$smarty.const.ROUTE_COMPONENT component="grid.files.submissionDocuments.SubmissionDocumentsFilesGridHandler" op="fetchGrid" escape=false}{/capture}
 {load_url_in_div id="submissionLibraryGridContainer" url=$submissionLibraryGridUrl}

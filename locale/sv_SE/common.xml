@@ -56,7 +56,6 @@
 	<message key="common.titleSmallWords">av en det och eller men är om de annars när från av på av i ut över i med</message>
 	<message key="common.alreadyAssigned">Tilldelat</message>
 	<message key="common.altText">Alternativ text</message>
-	<message key="common.altTextInstructions">För att förbättra sökmotoroptimeringen och följa Web Content Accessibility Guidelines-standarden (WCAG), vänligen beskriv den information som bilden innehåller och som skulle saknas om webbplatsen visades i en webbläsare med bara text eller med hjälpmedel (t.ex. skärmläsare). Ett exempel: "Vår redaktör talar på PKP#2015-konferensen".</message>
 	<message key="common.and">och</message>
 	<message key="common.applyAction">Verkställ åtgärd</message>
 	<message key="common.assign">Utse</message>
@@ -167,7 +166,6 @@
 	<message key="common.initiate">Påbörja</message>
 	<message key="common.inProgress">Pågående</message>
 	<message key="common.itemsPerPage">Items per page</message>
-	<message key="common.favicon.altText">Adressikon (eng. "favicon")</message>
 	<message key="common.keywords">Nyckelord</message>
 	<message key="common.language">Språk</message>
 	<message key="common.languages">Språk</message>
@@ -201,6 +199,8 @@
 	<message key="common.ok">OK</message>
 	<message key="common.options">Alternativ</message>
 	<message key="common.order">Ordna</message>
+	<message key="common.orderUp">Flytta up {$itemTitle} i listan</message>
+	<message key="common.orderDown">Flytta ned {$itemTitle} i listan</message>
 	<message key="common.originalFileName">Ursprungligt filnamn</message>
 	<message key="common.or">eller</message>
 	<message key="common.other">Annat</message>
@@ -208,7 +208,6 @@
 	<message key="common.pagination">{$start}-{$end} av {$total}</message>
 	<message key="common.pagination.label">Bläddra bland ytterligare sidor</message>
 	<message key="common.pageNumber">Sida {$pageNumber}</message>
-	<message key="common.pageHeaderLogo.altText">Logotyp sidhuvud</message>
 	<message key="common.percentage">{$percentage}%</message>
 	<message key="common.plugin">Plugin</message>
 	<message key="common.pluginEnabled">Pluginet "{$pluginName}" har aktiverats.</message>
@@ -267,11 +266,8 @@
 	<message key="common.untitled">Utan titel</message>
 	<message key="common.updated">Uppdaterad</message>
 	<message key="common.uploadedDate">Uppladdningsdatum</message>
-	<message key="common.uploadedFile">Uppladdad fil</message>
 	<message key="common.upload">Ladda upp</message>
 	<message key="common.uploadFailed">Filen kunde inte laddas upp eller ändras.</message>
-	<message key="common.invalidFileType">Ingen fil uppladdad eller ogiltig filtyp!</message>
-	<message key="common.homepageImage.altText">Förstasidesbild</message>
 	<message key="common.up">Upp</message>
 	<message key="common.upload.addFile">Ladda upp fil</message>
 	<message key="common.upload.changeFile">Ändra fil</message>
@@ -339,7 +335,6 @@
 	<message key="form.is">är</message>
 	<message key="form.startsWith">börjar med</message>
 	<message key="form.postRequired">Formuläret var inte korrekt ifyllt.</message>
-	<message key="form.csrfInvalid">Formuläret var inte korrekt ifyllt.</message>
 	<message key="form.fileRequired">Filuppladdning är obligatorisk.</message>
 	<message key="form.required">(* obligatorisk)</message>
 	<message key="form.resubmit">Skicka in igen</message>

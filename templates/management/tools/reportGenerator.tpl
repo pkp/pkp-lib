@@ -1,5 +1,5 @@
 {**
- * templates/manager/statistics/reportGenerator.tpl
+ * templates/management/statistics/reportGenerator.tpl
  *
  * Copyright (c) 2013-2018 Simon Fraser University
  * Copyright (c) 2003-2018 John Willinsky

@@ -122,10 +122,6 @@
 			<DEFAULT VALUE=""/>
 		</field>
 		<field name="setting_value" type="X"/>
-		<field name="setting_type" type="C2" size="6">
-			<NOTNULL />
-			<descr>(bool|int|float|string|object)</descr>
-		</field>
 		<descr>Site settings.</descr>
 		<index name="site_settings_pkey">
 			<col>setting_name</col>

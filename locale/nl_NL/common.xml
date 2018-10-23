@@ -41,7 +41,6 @@
 	<message key="common.alphaList">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</message>
 	<message key="common.alreadyAssigned">Toegewezen</message>
 	<message key="common.altText">Alternatieve tekst</message>
-	<message key="common.altTextInstructions">Geef de alternatieve tekst voor deze afbeelding om de toegankelijkheid voor gebruikers met tekst-browsers of hulpapparaten te waarborgen</message>
 	<message key="common.and">en</message>
 	<message key="common.applyAction">Actie uitvoeren</message>
 	<message key="common.assign">Wijs toe</message>
@@ -120,7 +119,6 @@
 	<message key="common.originalFileName">Originele bestandsnaam</message>
 	<message key="common.or">of</message>
 	<message key="common.other">Overig</message>
-	<message key="common.pageHeaderLogo.altText">Paginakop logo</message>
 	<message key="common.plugin">Plugin</message>
 	<message key="common.publisher">Uitgever</message>
 	<message key="common.record">Vastleggen</message>
@@ -150,7 +148,6 @@
 	<message key="common.uninitiated">Onbekend</message>
 	<message key="common.untitled">Zonder titel</message>
 	<message key="common.updated">Bijgewerkt</message>
-	<message key="common.uploadedFile">Laad bestand</message>
 	<message key="common.upload">Laden</message>
 	<message key="common.up">Omhoog</message>
 	<message key="common.url">URL</message>
@@ -323,7 +320,6 @@
 	<message key="common.reminder">Herinnering</message>
 	<message key="common.element">Element</message>
 	<message key="common.unread">Ongelezen</message>
-	<message key="common.invalidFileType">Geen bestand geladen of onbekend bestandstype!</message>
 	<message key="common.plugins">Plugins</message>
 	<message key="form.confirmSubmit">Weet u zeker dat u dit formulier wilt insturen?</message>
 	<message key="form.emailRequired">een e-mail adres is verplicht</message>
@@ -344,7 +340,6 @@
 	<message key="common.remote">Remote</message>
 	<message key="common.remoteURL">RemoteURL</message>
 	<message key="common.signoff">Uitloggen</message>
-	<message key="common.fileUpload.maxFileSizeStatus"><![CDATA[Deze server kent een maximumgrootte voor het laden van bestanden van {$fileSize}. Neem desgewenst contact op met <a href="mailto:{$supportEmail}">{$supportName}</a>voor assistentie.]]></message>
 	<message key="navigation.data">Gegevens</message>
 	<message key="navigation.submissions">Inzendingen</message>
 	<message key="navigation.publicMenu">Publiek menu</message>

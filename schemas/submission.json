@@ -1,0 +1,281 @@
+{
+	"title": "Submission",
+	"description": "A submission to the journal or press, including published submissions.",
+	"properties": {
+		"_href": {
+			"type": "string",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"abstract": {
+			"apiSummary": true,
+			"$ref": "#/definitions/LocaleObject"
+		},
+		"authors": {
+			"type": "array",
+			"apiSummary": true,
+			"items": {
+				"$ref": "#/definitions/Author"
+			}
+		},
+		"authorString": {
+			"type": "string",
+			"apiSummary": true,
+			"readOnly": true
+		},
+		"copyrightHolder": {
+			"$ref": "#/definitions/LocaleObject"
+		},
+		"copyrightYear": {
+			"type": "string"
+		},
+		"coverImageUrl": {
+			"apiSummary": true,
+			"$ref": "#/definitions/LocaleObject"
+		},
+		"coverImageAltText": {
+			"apiSummary": true,
+			"$ref": "#/definitions/LocaleObject"
+		},
+		"datePublished": {
+			"type": "string",
+			"apiSummary": true,
+			"validation": [
+				"date:Y-m-d H:i:s"
+			]
+		},
+		"dateStatusModified": {
+			"type": "string",
+			"validation": [
+				"date:Y-m-d H:i:s"
+			]
+		},
+		"dateSubmitted": {
+			"type": "string",
+			"validation": [
+				"date:Y-m-d H:i:s"
+			]
+		},
+		"discipline": {
+			"$ref": "#/definitions/LocaleObject"
+		},
+		"doi": {
+			"type": "string",
+			"apiSummary": true
+		},
+		"fulltitle": {
+			"$ref": "#/definitions/LocaleObject",
+			"apiSummary": true,
+			"readOnly": true
+		},
+		"galleys": {
+			"type": "array",
+			"apiSummary": true,
+			"items": {
+				"$ref": "#/definitions/Galley"
+			}
+		},
+		"id": {
+			"type": "integer",
+			"apiSummary": true
+		},
+		"issue": {
+			"apiSummary": true,
+			"$ref": "#/definitions/IssueSummary"
+		},
+		"language": {
+			"type": "string",
+			"apiSummary": true
+		},
+		"lastModified": {
+			"type": "string",
+			"validation": [
+				"date:Y-m-d H:i:s"
+			]
+		},
+		"licenseUrl": {
+			"type": "string",
+			"validation": [
+				"url"
+			]
+		},
+		"locale": {
+			"type": "string"
+		},
+		"pages": {
+			"type": "string",
+			"apiSummary": true
+		},
+		"prefix": {
+			"apiSummary": true,
+			"$ref": "#/definitions/LocaleObject"
+		},
+		"reviewRounds": {
+			"type": "array",
+			"readOnly": true,
+			"items": {
+				"$ref": "#/definitions/ReviewRound"
+			}
+		},
+		"reviewAssignments": {
+			"type": "array",
+			"readOnly": "true",
+			"items": {
+				"type": "object",
+				"properties": {
+					"type": "object",
+					"properties": {
+						"id": {
+							"type": "integer"
+						},
+						"isCurrentUserAssigned": {
+							"type": "integer",
+							"readOnly": true
+						},
+						"status": {
+							"type": "integer",
+							"readOnly": true
+						},
+						"statusLabel": {
+							"type": "integer",
+							"readOnly": true
+						},
+						"dateDue": {
+							"type": "integer",
+							"validation": [
+								"date|Y-m-d H:i:s"
+							]
+						},
+						"dateResponseDue": {
+							"type": "integer",
+							"validation": [
+								"date|Y-m-d H:i:s"
+							]
+						},
+						"round": {
+							"type": "integer"
+						},
+						"reviewRoundId": {
+							"type": "integer"
+						}
+					}
+				}
+			}
+		},
+		"section": {
+			"apiSummary": true,
+			"$ref": "#/definitions/SectionSummary"
+		},
+		"shortAuthorString": {
+			"type": "string",
+			"apiSummary": true,
+			"readOnly": true
+		},
+		"sponsor": {
+			"$ref": "#/definitions/LocaleObject"
+		},
+		"stages": {
+			"type": "array",
+			"readOnly": true,
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"label": {
+						"type": "string"
+					},
+					"isActiveStage": {
+						"type": "boolean"
+					},
+					"currentUserAssignedRoles": {
+						"type": "array",
+						"items": {
+							"type": "integer"
+						}
+					},
+					"status": {
+						"type": "string"
+					},
+					"statusId": {
+						"type": "integer"
+					},
+					"files": {
+						"type": "object",
+						"properties": {
+							"count": {
+								"type": "integer"
+							}
+						}
+					},
+					"queries": {
+						"type": "array",
+						"items": {
+							"id": {
+								"type": "integer"
+							},
+							"assocType": {
+								"type": "integer"
+							},
+							"assocId": {
+								"type": "integer"
+							},
+							"stageId": {
+								"type": "integer"
+							},
+							"seq": {
+								"type": "integer"
+							},
+							"closed": {
+								"type": "boolean"
+							}
+						}
+					}
+				}
+			}
+		},
+		"status": {
+			"type": "integer",
+			"apiSummary": true,
+			"validation": [
+				"in:1,2,3,4"
+			]
+		},
+		"statusLabel": {
+			"type": "string",
+			"apiSummary": true
+		},
+		"subject": {
+			"$ref": "#/definitions/LocaleObject"
+		},
+		"submissionProgress": {
+			"type": "integer",
+			"apiSummary": true,
+			"validation": [
+				"in:0,1,2,3,4"
+			]
+		},
+		"subtitle": {
+			"apiSummary": true,
+			"$ref": "#/definitions/LocaleObject"
+		},
+		"title": {
+			"apiSummary": true,
+			"$ref": "#/definitions/LocaleObject"
+		},
+		"type": {
+			"$ref": "#/definitions/LocaleObject"
+		},
+		"urlWorkflow": {
+			"type": "string",
+			"apiSummary": true,
+			"readOnly": true
+		},
+		"urlPublished": {
+			"type": "string",
+			"apiSummary": true,
+			"readOnly": true
+		}
+	}
+}

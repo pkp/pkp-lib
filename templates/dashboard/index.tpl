@@ -25,47 +25,47 @@
 		<li><a name="archives" href="#archived">{translate key="navigation.archives"}</a></li>
 	</ul>
 	<div id="myQueue">
-		{help file="submissions.md" class="pkp_help_tab"}
+		{help file="submissions" class="pkp_help_tab"}
 		<div class="pkp_content_panel">
 			{assign var="uuid" value=""|uniqid|escape}
 			<div id="my-submission-list-handler-{$uuid}">
 				<script type="text/javascript">
-					pkp.registry.init('my-submission-list-handler-{$uuid}', 'SubmissionsListPanel', {$myQueueListData});
+					pkp.registry.init('my-submission-list-handler-{$uuid}', 'SubmissionsListPanel', {$myQueueListData|json_encode});
 				</script>
 			</div>
 		</div>
 	</div>
 	{if array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), (array)$userRoles)}
 		<div id="unassigned">
-			{help file="submissions.md" section="unassigned" class="pkp_help_tab"}
+			{help file="submissions" section="unassigned" class="pkp_help_tab"}
 			<div class="pkp_content_panel">
 				{assign var="uuid" value=""|uniqid|escape}
 				<div id="unassigned-list-handler-{$uuid}">
 					<script type="text/javascript">
-						pkp.registry.init('unassigned-list-handler-{$uuid}', 'SubmissionsListPanel', {$unassignedListData});
+						pkp.registry.init('unassigned-list-handler-{$uuid}', 'SubmissionsListPanel', {$unassignedListData|json_encode});
 					</script>
 				</div>
 			</div>
 		</div>
 		<div id="active">
-			{help file="submissions.md" section="active" class="pkp_help_tab"}
+			{help file="submissions" section="active" class="pkp_help_tab"}
 			<div class="pkp_content_panel">
 				{assign var="uuid" value=""|uniqid|escape}
 				<div id="active-list-handler-{$uuid}">
 					<script type="text/javascript">
-						pkp.registry.init('active-list-handler-{$uuid}', 'SubmissionsListPanel', {$activeListData});
+						pkp.registry.init('active-list-handler-{$uuid}', 'SubmissionsListPanel', {$activeListData|json_encode});
 					</script>
 				</div>
 			</div>
 		</div>
 	{/if}
 	<div id="archived">
-		{help file="submissions.md" section="archives" class="pkp_help_tab"}
+		{help file="submissions" section="archives" class="pkp_help_tab"}
 		<div class="pkp_content_panel">
 			{assign var="uuid" value=""|uniqid|escape}
 			<div id="archived-list-handler-{$uuid}">
 				<script type="text/javascript">
-					pkp.registry.init('archived-list-handler-{$uuid}', 'SubmissionsListPanel', {$archivedListData});
+					pkp.registry.init('archived-list-handler-{$uuid}', 'SubmissionsListPanel', {$archivedListData|json_encode});
 				</script>
 			</div>
 		</div>

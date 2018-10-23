@@ -129,18 +129,18 @@ class PKPSubmissionMetadataViewForm extends Form {
 		));
 
 		// Tell the form what fields are enabled (and which of those are required)
-		import('lib.pkp.controllers.grid.settings.metadata.MetadataGridHandler');
 		$context = $request->getContext();
-		foreach (array_keys(MetadataGridHandler::getNames()) as $field) {
-			$templateMgr->assign(array(
-				$field . 'Enabled' => $context->getSetting($field . 'EnabledWorkflow'),
-				$field . 'Required' => $context->getSetting($field . 'Required')
-			));
+		$metadataFields = Application::getMetadataFields();
+		foreach ($metadataFields as $field) {
+			$templateMgr->assign([
+				$field . 'Enabled' => !empty($context->getData($field)),
+				$field . 'Required' => $context->getData($field) === METADATA_REQUIRE,
+			]);
 		}
 		// Provide available submission languages. (Convert the array
 		// of locale symbolic names xx_XX into an associative array
 		// of symbolic names => readable names.)
-		$supportedSubmissionLocales = $context->getSetting('supportedSubmissionLocales');
+		$supportedSubmissionLocales = $context->getData('supportedSubmissionLocales');
 		if (empty($supportedSubmissionLocales)) $supportedSubmissionLocales = array($context->getPrimaryLocale());
 		$templateMgr->assign(
 			'supportedSubmissionLocaleNames',
@@ -170,5 +170,3 @@ class PKPSubmissionMetadataViewForm extends Form {
 	}
 
 }
-
-

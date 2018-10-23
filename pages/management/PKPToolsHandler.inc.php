@@ -26,7 +26,7 @@ class PKPToolsHandler extends ManagementHandler {
 		parent::__construct();
 		$this->addRoleAssignment(
 			ROLE_ID_MANAGER,
-			array('tools', 'statistics', 'importexport')
+			array('tools', 'statistics', 'importexport', 'permissions')
 		);
 	}
 
@@ -65,6 +65,12 @@ class PKPToolsHandler extends ManagementHandler {
 				break;
 			case 'saveStatisticsSettings':
 				return $this->saveStatisticsSettings($args, $request);
+			case 'permissions':
+				$this->permissions($args, $request);
+				break;
+			case 'resetPermissions':
+				$this->resetPermissions($args, $request);
+				break;
 			default:
 				assert(false);
 			}
@@ -119,7 +125,7 @@ class PKPToolsHandler extends ManagementHandler {
 		$reportPlugins = PluginRegistry::loadCategory('reports');
 		$templateMgr->assign('reportPlugins', $reportPlugins);
 
-		$templateMgr->assign('defaultMetricType', $context->getSetting('defaultMetricType'));
+		$templateMgr->assign('defaultMetricType', $context->getData('defaultMetricType'));
 		$availableMetricTypes = $context->getMetricTypes(true);
 		$templateMgr->assign('availableMetricTypes', $availableMetricTypes);
 		if (count($availableMetricTypes) > 1) {
@@ -397,6 +403,45 @@ class PKPToolsHandler extends ManagementHandler {
 	 */
 	protected function hasAppStatsSettings() {
 		return false;
+	}
+
+	/**
+	 * Display the permissipns area.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function permissions($args, $request) {
+		$this->setupTemplate($request);
+
+		$templateMgr = TemplateManager::getManager($request);
+
+		return $templateMgr->fetchJson('management/tools/permissions.tpl');
+	}
+
+	/**
+	 * Reset article/monograph permissions
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function resetPermissions($args, $request) {
+		if (!$request->checkCSRF()) return new JSONMessage(false);
+
+		$context = $request->getContext();
+		if (!$context) {
+			return;
+		}
+
+		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao->deletePermissions($context->getId());
+
+		$user = $request->getUser();
+		NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('manager.setup.resetPermissions.success')));
+
+		// This is an ugly hack to force the PageHandler to return JSON, so this
+		// method can communicate properly with the AjaxFormHandler. Returning a
+		// JSONMessage, or JSONMessage::toString(), doesn't seem to do it.
+		echo json_encode(true);
+		die;
 	}
 
 }

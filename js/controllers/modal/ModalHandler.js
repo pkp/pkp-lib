@@ -67,8 +67,8 @@
 		this.publishEvent('updateHeader');
 		this.publishEvent('gridRefreshRequested');
 
-		// Bind notify user event.
 		this.bind('notifyUser', this.redirectNotifyUserEventHandler_);
+		this.bindGlobal('form-success', this.onFormSuccess_);
 	};
 	$.pkp.classes.Helper.inherits($.pkp.controllers.modal.ModalHandler,
 			$.pkp.classes.Handler);
@@ -91,7 +91,9 @@
 		resizable: false,
 		position: {my: 'center', at: 'center center-10%', of: window},
 		canClose: true,
-		closeCallback: false
+		closeCallback: false,
+		// Vue components to destroy when when modal is closed
+		closeCleanVueInstances: []
 	};
 
 
@@ -244,11 +246,19 @@
 			}
 		}
 
-		// Hide the modal, remove it from the DOM and remove the handler once
-		// the CSS animation is complete
+		// Hide the modal, clean up any mounted vue instances, remove it from the
+		// DOM and remove the handler once the CSS animation is complete
 		$modalElement.removeClass('is_visible');
 		this.trigger('pkpModalClose');
 		setTimeout(function() {
+			if (modalHandler.options.closeCleanVueInstances.length) {
+				for (var i = 0; i < modalHandler.options.closeCleanVueInstances.length; i++) {
+					var id = modalHandler.options.closeCleanVueInstances[i];
+					if (typeof pkp.registry._instances[id] !== 'undefined') {
+						pkp.registry._instances[id].$destroy();
+					}
+				}
+			}
 			modalHandler.unbindPartial($modalElement);
 			$modalElement.empty();
 			modalHandler.remove();
@@ -310,6 +320,23 @@
 		// Use the notification helper to redirect the notify user event.
 		$.pkp.classes.notification.NotificationHelper.
 				redirectNotifyUserEvent(this, triggerElement);
+	};
+
+
+	/**
+	 * Handler to listen to global form success events, and close when an event
+	 * from a child form has been fired, and this form matches the config id
+	 *
+	 * @param {Object} source The Vue.js component which fired the event
+	 * @param {Object} data Data attached to the event, which will include the
+	 *  form id.
+	 */
+	$.pkp.controllers.modal.ModalHandler.prototype.onFormSuccess_ =
+			function(source, formId) {
+		if (this.options.closeOnFormSuccessId &&
+				this.options.closeOnFormSuccessId === formId) {
+			this.modalClose();
+		}
 	};
 
 

@@ -53,13 +53,9 @@
 	<message key="admin.serverInformation">Information sur le serveur</message>
 	<message key="admin.server.phpVersion">Version PHP</message>
 	<message key="admin.server.platform">Système d'exploitation</message>
-	<message key="admin.settings.aboutDescription">Description "À propos du site"</message>
+	<message key="admin.settings.about">Description "À propos du site"</message>
 	<message key="admin.settings.contactEmail">Courriel du contact principal</message>
 	<message key="admin.settings.contactName">Nom du contact principal</message>
-	<message key="admin.settings.form.contactEmailRequired">Le courriel de la personne-ressource principale est obligatoire.</message>
-	<message key="admin.settings.form.contactNameRequired">Le nom du contact principal est obligatoire.</message>
-	<message key="admin.settings.form.minPasswordLengthRequired">Vous devez entrer un mot de passe d'au moins 4 caractères.</message>
-	<message key="admin.settings.form.titleRequired">Le titre est obligatoire.</message>
 	<message key="admin.settings.defaultMetricDescription">
 
 
@@ -68,8 +64,6 @@
 		Il y a des cas où une seule statistique d'utilisation doit être utilisée, par exemple pour afficher une liste ordonnée des soumissions les plus utilisées ou pour classer
 		Les résultats de la recherche. Sélectionnez l'une des métriques configurées par défaut.
 	</message>
-	<message key="admin.settings.homeHeaderImage.altText">Logo du site</message>
-	<message key="admin.settings.homeHeaderImageInvalid">Le format de l'image du logo du site est invalide. Seuls les formats .gif, .jpg ou .png sont acceptés.</message>
 	<message key="admin.settings.introduction">Introduction</message>
 	<message key="admin.settings.minPasswordLength">Longueur minimum du mot de passe</message>
 	<message key="admin.settings.oaiRegistration">Enregistrer le site pour l'indexation (collecte de métadonnées)</message>

@@ -35,7 +35,7 @@
 	{fbvFormSection label="editor.submissionReview.reviewType"}
 		{$reviewMethod|escape}
 	{/fbvFormSection}
-	
+
 	{if !$restrictReviewerFileAccess}
 	{capture assign=reviewFilesGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.files.review.ReviewerReviewFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$reviewAssignment->getStageId() reviewRoundId=$reviewRoundId reviewAssignmentId=$reviewAssignment->getId() escape=false}{/capture}
 	{load_url_in_div id="reviewFilesStep1" url=$reviewFilesGridUrl}
@@ -70,7 +70,7 @@
 		{assign var="hasCI" value=false}
 		{assign var="noCI" value=true}
 	{/if}
-	{if $hasCI || $currentContext->getSetting('reviewerCompetingInterestsRequired')}
+	{if $hasCI || $currentContext->getData('reviewerCompetingInterestsRequired')}
 		{fbvFormSection list=true}
 			{fbvElement type="radio" value="noCompetingInterests" id="noCompetingInterests" name="competingInterestOption" checked=$noCI label="reviewer.submission.noCompetingInterests" disabled=$reviewIsComplete}
 			<br /><br />
@@ -82,7 +82,7 @@
 		{/fbvFormSection}
 	{/if}
 
-	{if !$reviewAssignment->getDateConfirmed() && $currentContext->getSetting('privacyStatement')}
+	{if !$reviewAssignment->getDateConfirmed() && $currentContext->getData('privacyStatement')}
 		{fbvFormSection list=true}
 			{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}
 			{capture assign="privacyLabel"}{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}{/capture}

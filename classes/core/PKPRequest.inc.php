@@ -858,5 +858,3 @@ class PKPRequest {
 		return $returner;
 	}
 }
-
-

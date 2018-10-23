@@ -8,7 +8,7 @@
  * Information Center submission history tab.
  *}
 
-{help file="editorial-workflow.md" section="editorial-history" class="pkp_help_tab"}
+{help file="editorial-workflow" section="editorial-history" class="pkp_help_tab"}
 
 {capture assign=submissionHistoryGridUrl}{url params=$gridParameters router=$smarty.const.ROUTE_COMPONENT component="grid.eventLog.SubmissionEventLogGridHandler" op="fetchGrid" escape=false}{/capture}
 {load_url_in_div id="submissionHistoryGridContainer" url=$submissionHistoryGridUrl}

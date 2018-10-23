@@ -64,18 +64,12 @@
 	<message key="admin.server.phpVersion">PHP-versio</message>
 	<message key="admin.server.platform">Käyttöjärjestelmäalusta</message>
 	<message key="admin.settings">Asetukset</message>
-	<message key="admin.settings.aboutDescription">Tietoa sivustosta</message>
+	<message key="admin.settings.about">Tietoa sivustosta</message>
 	<message key="admin.settings.contactEmail">Pääasiallisen yhteyshenkilön sähköposti</message>
 	<message key="admin.settings.contactName">Pääasiallinen yhteyshenkilön nimi</message>
-	<message key="admin.settings.form.contactEmailRequired">Pääasiallisen yhteyshenkilön sähköpostiosoite vaaditaan.</message>
-	<message key="admin.settings.form.contactNameRequired">Pääasiallisen yhteyshenkilön nimi vaaditaan.</message>
-	<message key="admin.settings.form.minPasswordLengthRequired">Anna salasanan vähimmäispituus (väh. 4 merkkiä).</message>
-	<message key="admin.settings.form.titleRequired">Otsikko vaaditaan.</message>
 	<message key="admin.settings.defaultMetricDescription">
 		Asennuksesi on määritetty tallentamaan useita käytön mittareita. Käyttötilastot näytetään useassa yhteydessä. Joissain tapauksissa on käytettävä yksittäistä käyttötilastoa, esim. silloin, kun näytetään käytetyimpien käsikirjoitusten järjestetty lista tai asetettaessa hakutuloksia paremmuusjärjestykseen. Valitse yksi määritetyistä mittareista oletukseksi.
 	</message>
-	<message key="admin.settings.homeHeaderImage.altText">Sivuston logo</message>
-	<message key="admin.settings.homeHeaderImageInvalid">Virheellinen sivuston logon kuvamuoto. Hyväksytyt muodot ovat .gif, .jpg ja .png.</message>
 	<message key="admin.settings.introduction">Esittely</message>
 	<message key="admin.settings.minPasswordLength">Salasanan vähimmäispituus (merkkiä)</message>
 	<message key="admin.settings.siteLanguage">Sivuston kieli</message>

@@ -138,10 +138,8 @@
 	<message key="manager.plugins">Sistemaren pluginak</message>
 	<message key="manager.readingTools">Irakurtzeko tresnak</message>
 	<message key="manager.roles">Funtzioak</message>
-	<message key="manager.setup.homeHeaderImageInvalid">Hasierako orriaren goiburuko logoaren irudi-formatua ez da baliozkoa: .gif, .jpg, edo .png formatuak bakarrik onartzen dira.</message>
 	<message key="manager.setup.homepageImageInvalid">Hasierako orriaren goiburuko irudi-formatua ez da baliozkoa: .gif, .jpg, edo .png formatuak bakarrik onartzen dira.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Hasierako orriaren goiburuko tituluaren irudi-formatua ez da baliozkoa: .gif, .jpg, edo .png formatuak bakarrik onartzen dira.</message>
-	<message key="manager.setup.layout.unselected">Hautatu gabe</message>
 	<message key="manager.setup.loggingAndAuditing">Log-erregistroa eta kontrola</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Orri-buruko logoaren irudi-formatua ez da baliozkoa: .gif, .jpg, edo .png formatuak bakarrik onartzen dira.</message>
 	<message key="manager.setup.selectOne">Hautatu bat</message>
@@ -180,7 +178,6 @@
 	<message key="manager.reviewerSearch.form.instructions">Erabili beheko inprimakia bilatu nahi dituzun hitzentzako gehienezko balioak ezartzeko. Inprimakiak eremu horietako batez besteko kalkulatuak ditu.</message>
 	<message key="plugins.categories.metadata">Metadatuen pluginak</message>
 	<message key="plugins.categories.metadata.description">Metadatuen pluginek metadatu estandar gehigarriak inplementatzen dituzte,</message>
-	<message key="manager.setup.layout.blockManagement">Alboko barraren kudeaketa</message>
 	<message key="plugins.categories.oaiMetadataFormats">OAI Metadatuen Formatuen Pluginak</message>
 	<message key="plugins.categories.oaiMetadataFormats.description">Formatuen plugin horiek metadatuak adierazten dituzte OAI komunikazioetan.</message>
 	<message key="manager.website">Webgunea</message>

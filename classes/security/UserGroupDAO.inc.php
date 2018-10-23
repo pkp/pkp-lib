@@ -725,7 +725,6 @@ class UserGroupDAO extends DAO {
 			$abbrevKey = $setting->getAttribute('abbrev');
 			$permitSelfRegistration = $setting->getAttribute('permitSelfRegistration');
 			$defaultStages = explode(',', $setting->getAttribute('stages'));
-			$userGroup = $this->newDataObject();
 
 			// create a role associated with this user group
 			$userGroup = $this->newDataObject();

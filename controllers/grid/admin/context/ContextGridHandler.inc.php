@@ -75,8 +75,10 @@ class ContextGridHandler extends GridHandler {
 					$router->url($request, null, null, 'createContext', null, null),
 					__('admin.contexts.create'),
 					'modal_add_item',
-					true
-					),
+					true,
+					'context',
+					['editContext']
+				),
 				__('admin.contexts.create'),
 				'add_item'
 			)
@@ -191,24 +193,6 @@ class ContextGridHandler extends GridHandler {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('oldUserId', (int) $request->getUserVar('oldUserId')); // for merging users.
 		parent::setupTemplate($request);
-		return $templateMgr->fetchJson('core:controllers/tab/settings/users.tpl');
-	}
-
-	//
-	// Protected helper methods.
-	//
-	/**
-	 * Return a redirect event.
-	 * @param $request Request
-	 * @param $newContextPath string
-	 * @param $openWizard boolean
-	 */
-	protected function _getRedirectEvent($request, $newContextPath, $openWizard) {
-		$dispatcher = $request->getDispatcher();
-
-		$url = $dispatcher->url($request, ROUTE_PAGE, $newContextPath, 'admin', 'contexts', null, array('openWizard' => $openWizard));
-		return $request->redirectUrlJson($url);
+		return $templateMgr->fetchJson('management/accessUsers.tpl');
 	}
 }
-
-

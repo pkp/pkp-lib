@@ -42,7 +42,6 @@
 	<message key="common.alphaList">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Æ Ø Å</message>
 	<message key="common.alreadyAssigned">Oppnevnt</message>
 	<message key="common.altText">Alternativ tekst</message>
-	<message key="common.altTextInstructions">Vennligst oppgi en alternativ tekst for å sikre tilgang for brukere med leseprogram uten bildefunksjon.</message>
 	<message key="common.and">og</message>
 	<message key="common.applyAction">Utfør handling</message>
 	<message key="common.assign">Oppnevn</message>
@@ -121,7 +120,6 @@
 	<message key="common.originalFileName">Opprinnelig filnavn</message>
 	<message key="common.or">eller</message>
 	<message key="common.other">Andre</message>
-	<message key="common.pageHeaderLogo.altText">Tidsskriftside: topplogo</message>
 	<message key="common.plugin">Plugin</message>
 	<message key="common.publisher">Utgiver</message>
 	<message key="common.record">Journalfør</message>
@@ -151,7 +149,6 @@
 	<message key="common.uninitiated">Ikke igangsatt</message>
 	<message key="common.untitled">Uten tittel</message>
 	<message key="common.updated">Oppdatert</message>
-	<message key="common.uploadedFile">Opplastet fil</message>
 	<message key="common.upload">Last opp</message>
 	<message key="common.up">Opp</message>
 	<message key="common.url">URL</message>
@@ -334,8 +331,6 @@
 	<message key="navigation.settings">Innstillinger</message>
 	<message key="navigation.setup">Oppsett</message>
 	<message key="common.element">Element</message>
-	<message key="common.fileUpload.maxFileSizeStatus"><![CDATA[Denne serveren har en maksimum filstørrelse for opplasting på {$fileSize}.  Ved behov, kontakt <a href="mailto:{$supportEmail}">{$supportName}</a> for hjelp.]]></message>
-	<message key="common.invalidFileType">Ingen fil opplastet, eller feil filtype!</message>
 	<message key="email.subjectRequired">Vennligst fyll ut emnefelt for e-post.</message>
 	<message key="email.bodyRequired">Vennligst skriv inn innholdet i e-posten.</message>
 	<message key="form.confirmSubmit">Er du sikker på at du vil sende inn dette skjemaet?</message>

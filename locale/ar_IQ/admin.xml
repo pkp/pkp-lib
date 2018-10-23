@@ -65,20 +65,14 @@
 	<message key="admin.server.phpVersion">رقم نسخة PHP</message>
 	<message key="admin.server.platform">منصة نظام التشغيل</message>
 	<message key="admin.settings">الإعدادات</message>
-	<message key="admin.settings.aboutDescription">عن أوصاف الموقع</message>
+	<message key="admin.settings.about">عن أوصاف الموقع</message>
 	<message key="admin.settings.contactEmail">البريد الالكتروني لعنوان الاتصال الأساسي</message>
 	<message key="admin.settings.contactName">اسم عنوان الاتصال الأساسي</message>
-	<message key="admin.settings.form.contactEmailRequired">البريد الالكتروني لعنوان الاتصال الأساسي مطلوب حتماً.</message>
-	<message key="admin.settings.form.contactNameRequired">اسم عنوان الاتصال الأساسي مطلوب حتماً.</message>
-	<message key="admin.settings.form.minPasswordLengthRequired">عليك أن تحدد أقل طول مسموح به لكلمة المرور في الموقع بما لا يقل عن 4 حروف.</message>
-	<message key="admin.settings.form.titleRequired">العنوان مطلوب حتماً.</message>
 	<message key="admin.settings.defaultMetricDescription">
 		إن نظامك مهيأ لتسجيل أكثر من مقياس استعمال واحد. إحصائيات الاستعمال سيتم عرضها في عدة سياقات.
 		هناك حالات لا بد فيها من استعمال إحصائية واحدة، مثلاً: عرض قائمة مرتبة بأكثر طلبات النشر استعمالاً
 		أو عند تقييم نتائج البحث في الموقع. لطفاً، عليك اختيار أحد هذه المقاييس ليكون بمثابة المقياس الافتراضي.
 	</message>
-	<message key="admin.settings.homeHeaderImage.altText">شعار الموقع</message>
-	<message key="admin.settings.homeHeaderImageInvalid">صيغة ملف شعار الموقع غير صحيحة. الصيغ المقبولة هي .gif، .jpg، أو .png.</message>
 	<message key="admin.settings.introduction">المقدمة</message>
 	<message key="admin.settings.minPasswordLength">أقل طول لكلمة المرور</message>
 	<message key="admin.settings.siteLanguage">لغة الموقع</message>
@@ -106,7 +100,7 @@
 	<message key="admin.version.updateAvailable">تتوفر نسخة محدثة</message>
 	<message key="admin.version.upToDate">إن نظامك مواكب لأحدث نسخة</message>
 	<message key="admin.version">النسخة</message>
-	
+
 	<message key="admin.fileLoader.wrongBasePathLocation">المسار الأساسي {$path} ينبغي أن يكون ضمن حافظة الملفات العمومية.</message>
 	<message key="admin.fileLoader.pathNotAccessible">حافظة الملفات {$path} ليست مساراً صحيحاً أو تتعذر قراءتها.</message>
 	<message key="admin.fileLoader.moveFileFailed">الملف {$filename} تعذر نقله من {$currentFilePath} إلى {$destinationPath}</message>

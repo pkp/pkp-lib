@@ -340,8 +340,8 @@ class RegistrationForm extends Form {
 		$context = $request->getContext();
 
 		// Set the sender based on the current context
-		if ($context && $context->getSetting('supportEmail')) {
-			$mail->setReplyTo($context->getSetting('supportEmail'), $context->getSetting('supportName'));
+		if ($context && $context->getData('supportEmail')) {
+			$mail->setReplyTo($context->getData('supportEmail'), $context->getData('supportName'));
 		} else {
 			$mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 		}

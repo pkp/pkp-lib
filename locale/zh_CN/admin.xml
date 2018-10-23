@@ -45,15 +45,9 @@
 	<message key="admin.serverInformation">服务器信息</message>
 	<message key="admin.server.phpVersion">PHP版本</message>
 	<message key="admin.server.platform">OS平台</message>
-	<message key="admin.settings.aboutDescription">关于网站描述</message>
+	<message key="admin.settings.about">关于网站描述</message>
 	<message key="admin.settings.contactEmail">主要联络的电子邮件</message>
 	<message key="admin.settings.contactName">主要的联系人名</message>
-	<message key="admin.settings.form.contactEmailRequired">主要联系人的电子邮件地址是必需的.</message>
-	<message key="admin.settings.form.contactNameRequired">主要联络人的姓名.</message>
-	<message key="admin.settings.form.minPasswordLengthRequired">您必须输入至少4个字符的最小密码长度.</message>
-	<message key="admin.settings.form.titleRequired">标题是必须的.</message>
-	<message key="admin.settings.homeHeaderImage.altText">网站Logo</message>
-	<message key="admin.settings.homeHeaderImageInvalid">无效的网站Logo图片格式，只有如下格式允许 .gif, .jpg, or .png.</message>
 	<message key="admin.settings.introduction">介绍</message>
 	<message key="admin.settings.minPasswordLength">最小的密码长度</message>
 	<message key="admin.settings.passwordCharacters">字符</message>

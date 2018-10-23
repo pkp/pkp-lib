@@ -64,19 +64,13 @@
 	<message key="admin.server.phpVersion">PHP verzija</message>
 	<message key="admin.server.platform">OS platforma</message>
 	<message key="admin.settings">Nastavitve</message>
-	<message key="admin.settings.aboutDescription">O tem spletišču</message>
+	<message key="admin.settings.about">O tem spletišču</message>
 	<message key="admin.settings.contactEmail">Email glavnega stika</message>
 	<message key="admin.settings.contactName">Ime glavnega stika</message>
-	<message key="admin.settings.form.contactEmailRequired">Zahtevan je email naslov glavnega stika.</message>
-	<message key="admin.settings.form.contactNameRequired">Zahtevano je ime  glavnega stika.</message>
-	<message key="admin.settings.form.minPasswordLengthRequired">Zahtevana dolžina gesla je vsaj 4 znake.</message>
-	<message key="admin.settings.form.titleRequired">Naslov je zahtevan.</message>
 	<message key="admin.settings.defaultMetricDescription">
 		Vaša OJS namestitev beleži več kot le eno metriko uporabe, ki so prikazane v različnih kontekstih.
 		V nekaterih primerih mora biti uporabljena le ena metrika (npr. vrstni red najbolj branih člankov ali vrstni red iskalnih rezultatof. Prosimo izberite eno od konfiguriranih metrik kot privzetot.
 	</message>
-	<message key="admin.settings.homeHeaderImage.altText">Logotip strani</message>
-	<message key="admin.settings.homeHeaderImageInvalid">Napačen format slike za logotip.Dovoljeni formati so .ico, .png, and .gif.</message>
 	<message key="admin.settings.introduction">Uvod</message>
 	<message key="admin.settings.minPasswordLength">Najmanjša dolžina gesla (znakov)</message>
 	<message key="admin.settings.siteLanguage">Jezik spletišča</message>

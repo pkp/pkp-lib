@@ -37,7 +37,6 @@
 	<message key="common.alphaList">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</message>
 	<message key="common.alreadyAssigned">已经指派</message>
 	<message key="common.altText">替换文本</message>
-	<message key="common.altTextInstructions">请提供这个图片替代文字，以确保为纯文本浏览器或辅助设备的用户可访问.</message>
 	<message key="common.and">和</message>
 	<message key="common.applyAction">申请行动</message>
 	<message key="common.assign">指派</message>
@@ -133,7 +132,6 @@
 	<message key="common.originalFileName">源文件名</message>
 	<message key="common.or">或</message>
 	<message key="common.other">其他</message>
-	<message key="common.pageHeaderLogo.altText">页面投稿Logo</message>
 	<message key="common.plugin">插件</message>
 	<message key="common.publisher">出版社</message>
 	<message key="common.record">记录</message>
@@ -164,7 +162,6 @@
 	<message key="common.uninitiated">未开始的</message>
 	<message key="common.untitled">未命名的</message>
 	<message key="common.updated">已上传的</message>
-	<message key="common.uploadedFile">已上传的文件</message>
 	<message key="common.upload">上传</message>
 	<message key="common.uploadFailed">该文件无法上传。请重试或联系管理员如果问题仍然存在.</message>
 	<message key="common.up">上</message>
@@ -326,7 +323,6 @@
 	<message key="common.signoff">退出</message>
 	<message key="common.element">元素</message>
 	<message key="common.unread">未读</message>
-	<message key="common.fileUpload.maxFileSizeStatus"><![CDATA[服务器允许上传文件最大为 {$fileSize}.如果需要，请联系<a href="mailto:{$supportEmail}">{$ supportName}</ a>请求援助。]]></message>
 	<message key="navigation.system">系统</message>
 	<message key="navigation.userManagement">用户管理</message>
 	<message key="common.plugins">插件</message>
@@ -344,7 +340,6 @@
 	<message key="form.dataHasChanged">这个表单的数据已经改变。继续吗？</message>
 	<message key="form.invalidImage">无效的图像上传,允许的格式有.png,.gif,或者.jpg</message>
 	<message key="common.go">进入</message>
-	<message key="common.invalidFileType">没有文件上传或无效的文件类型！</message>
 	<message key="navigation.access"><![CDATA[用户&amp;角色]]></message>
 	<message key="navigation.admin">管理</message>
 	<message key="navigation.browseByAuthor">按作者</message>

@@ -61,7 +61,6 @@
 	<message key="installer.oaiRepositoryId">OAI-arkividentifikator</message>
 	<message key="installer.publicFilesDirError">Mappen for offentlige filer finnes ikke eller er ikke overskrivbar.</message>
 	<message key="installer.releaseNotes">Releasenotater</message>
-	<message key="installer.securitySettings">Sikkerhetsinnstillinger</message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Feil ved parsing av e-postmalen <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale.maybeIncomplete">Merkede lokaliseringsfiler kan være ukomplette.</message>
 	<message key="installer.oaiSettings">OAI-innstillinger</message>

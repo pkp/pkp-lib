@@ -18,6 +18,7 @@ use \Application;
 use \DBResultRange;
 use \DAOResultFactory;
 use \DAORegistry;
+use \ServicesContainer;
 use \PKP\Services\EntityProperties\PKPBaseEntityPropertyService;
 
 class UserService extends PKPBaseEntityPropertyService {
@@ -199,6 +200,7 @@ class UserService extends PKPBaseEntityPropertyService {
 	public function getProperties($user, $props, $args = null) {
 		$request = $args['request'];
 		$context = $request->getContext();
+		$router = $request->getRouter();
 
 		$values = array();
 		foreach ($props as $prop) {
@@ -300,7 +302,7 @@ class UserService extends PKPBaseEntityPropertyService {
 					if (!empty($args['slimRequest'])) {
 						$route = $args['slimRequest']->getAttribute('route');
 						$arguments = $route->getArguments();
-						$values[$prop] = $this->getAPIHref(
+						$values[$prop] = $router->getApiUrl(
 							$args['request'],
 							$arguments['contextPath'],
 							$arguments['version'],
@@ -351,7 +353,11 @@ class UserService extends PKPBaseEntityPropertyService {
 					break;
 			}
 
+			$values = ServicesContainer::instance()->get('schema')->addMissingMultilingualValues(SCHEMA_USER, $values, $context->getSupportedLocales());
+
 			\HookRegistry::call('User::getProperties::values', array(&$values, $user, $props, $args));
+
+			ksort($values);
 		}
 
 		return $values;

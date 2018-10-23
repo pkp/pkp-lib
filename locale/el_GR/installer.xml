@@ -62,7 +62,6 @@
 	<message key="installer.oaiRepositoryId">Αναγνωριστικό (identifier) OAI καταθετηρίου</message>
 	<message key="installer.publicFilesDirError">Ο κατάλογος των δημόσιων αρχείων δεν υπάρχει ή δεν είναι εγγράψιμος (writable).</message>
 	<message key="installer.releaseNotes">Σημιεώσεις έκδοσης</message>
-	<message key="installer.securitySettings">Ρυθμίσεις ασφαλείας</message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Error parsing the email template file <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale.maybeIncomplete">Οι επιλεγμένες τοπικές ρυθμίσεις μπορεί να μην είναι ολοκλήρωμένες</message>
 </locale>

@@ -46,15 +46,9 @@
 	<message key="admin.serverInformation">Zerbitzariari buruzko informazioa</message>
 	<message key="admin.server.phpVersion">PHP bertsioa</message>
 	<message key="admin.server.platform">SE plataforma</message>
-	<message key="admin.settings.aboutDescription">Guneari buruz</message>
+	<message key="admin.settings.about">Guneari buruz</message>
 	<message key="admin.settings.contactEmail">Kontaktu nagusiaren helb. el.</message>
 	<message key="admin.settings.contactName">Kontaktu nagusiaren izena</message>
-	<message key="admin.settings.form.contactEmailRequired">Kontaktu nagusiaren helbide elektronikoa eman behar da.</message>
-	<message key="admin.settings.form.contactNameRequired">Kontaktu nagusiaren izena eman behar da.</message>
-	<message key="admin.settings.form.minPasswordLengthRequired">Gutxienez 4 karaktereko pasahitza idatzi behar duzu.</message>
-	<message key="admin.settings.form.titleRequired">Titulu bat eman behar da.</message>
-	<message key="admin.settings.homeHeaderImage.altText">Gunearen logoa</message>
-	<message key="admin.settings.homeHeaderImageInvalid">Logoaren irudi-formatua ez da baliozkoa: .gif, .jpg, edo .png formatuak bakarrik onartzen dira.</message>
 	<message key="admin.settings.introduction">Aurkezpenaa</message>
 	<message key="admin.settings.minPasswordLength">Pasahitzaren gutxieneko luzera</message>
 	<message key="admin.settings.passwordCharacters">karaktere</message>

@@ -156,7 +156,7 @@ class ReviewerForm extends Form {
 			$reviewFormId = $reviewAssignment->getReviewFormId();
 		} else {
 			// Set default review method.
-			$reviewMethod = $context->getSetting('defaultReviewMode');
+			$reviewMethod = $context->getData('defaultReviewMode');
 			if (!$reviewMethod) $reviewMethod = SUBMISSION_REVIEW_METHOD_BLIND;
 
 			// If there is a section/series and it has a default
@@ -171,14 +171,14 @@ class ReviewerForm extends Form {
 		if (isset($reviewAssignment) && $reviewAssignment->getDueDate() != null) {
 			$reviewDueDate = strftime(Config::getVar('general', 'date_format_short'), strtotime($reviewAssignment->getDueDate()));
 		} else {
-			$numWeeks = (int) $context->getSetting('numWeeksPerReview');
+			$numWeeks = (int) $context->getData('numWeeksPerReview');
 			if ($numWeeks<=0) $numWeeks=4;
 			$reviewDueDate = strftime(Config::getVar('general', 'date_format_short'), strtotime('+' . $numWeeks . ' week'));
 		}
 		if (isset($reviewAssignment) && $reviewAssignment->getResponseDueDate() != null) {
 			$responseDueDate = strftime(Config::getVar('general', 'date_format_short'), strtotime($reviewAssignment->getResponseDueDate()));
 		} else {
-			$numWeeks = (int) $context->getSetting('numWeeksPerResponse');
+			$numWeeks = (int) $context->getData('numWeeksPerResponse');
 			if ($numWeeks<=0) $numWeeks=3;
 			$responseDueDate = strftime(Config::getVar('general', 'date_format_short'), strtotime('+' . $numWeeks . ' week'));
 		}
@@ -376,10 +376,10 @@ class ReviewerForm extends Form {
 
 			// Set the additional arguments for the one click url
 			$reviewUrlArgs = array('submissionId' => $this->getSubmissionId());
-			if ($context->getSetting('reviewerAccessKeysEnabled')) {
+			if ($context->getData('reviewerAccessKeysEnabled')) {
 				import('lib.pkp.classes.security.AccessKeyManager');
 				$accessKeyManager = new AccessKeyManager();
-				$expiryDays = ($context->getSetting('numWeeksPerReview') + 4) * 7;
+				$expiryDays = ($context->getData('numWeeksPerReview') + 4) * 7;
 				$accessKey = $accessKeyManager->createKey($context->getId(), $reviewerId, $reviewAssignment->getId(), $expiryDays);
 				$reviewUrlArgs = array_merge($reviewUrlArgs, array('reviewId' => $reviewAssignment->getId(), 'key' => $accessKey));
 			}
@@ -467,7 +467,7 @@ class ReviewerForm extends Form {
 	 * @return int Email template key
 	 */
 	function _getMailTemplateKey($context) {
-		$reviewerAccessKeysEnabled = $context->getSetting('reviewerAccessKeysEnabled');
+		$reviewerAccessKeysEnabled = $context->getData('reviewerAccessKeysEnabled');
 		$round = $this->getReviewRound()->getRound();
 
 		switch(1) {

@@ -54,7 +54,6 @@
 	<message key="common.titleSmallWords">de un una unos unas el la los las y o ni pero es si después además cuando en desde para por fuera dentro sobre a hasta con contra</message>
 	<message key="common.alreadyAssigned">Asignado</message>
 	<message key="common.altText">Texto alternativo</message>
-	<message key="common.altTextInstructions">Por favor ingrese un texto alternativo para esta imagen para asegurar la accesibilidad a usuarios con navegadores de solo-texto o con dispositivos de ayuda</message>
 	<message key="common.and">y</message>
 	<message key="common.applyAction">Continuar</message>
 	<message key="common.assign">Asignar</message>
@@ -165,11 +164,12 @@
 	<message key="common.ok">Aceptar</message>
 	<message key="common.options">Opciones</message>
 	<message key="common.order">Orden</message>
+	<message key="common.orderUp">Incrementar posición de {$itemTitle}</message>
+	<message key="common.orderDown">Decrementar posición de {$itemTitle}</message>
 	<message key="common.originalFileName">Nombre del archivo original</message>
 	<message key="common.or">o</message>
 	<message key="common.other">Otro</message>
 	<message key="common.overdue">Vencido</message>
-	<message key="common.pageHeaderLogo.altText">Logo del Encabezado de la Página</message>
 	<message key="common.plugin">Módulo</message>
 	<message key="common.pluginEnabled">El módulo "{$pluginName}" se ha activado.</message>
 	<message key="common.pluginDisabled">El módulo "{$pluginName}" se ha desactivado.</message>
@@ -217,11 +217,8 @@
 	<message key="common.unread">No leído</message>
 	<message key="common.untitled">Sin título</message>
 	<message key="common.updated">Actualizado</message>
-	<message key="common.uploadedFile">Fichero subido</message>
 	<message key="common.upload">Subir</message>
 	<message key="common.uploadFailed">No se ha podido subir el fichero. Por favor, inténtelo de nuevo o póngase en contacto con el administrador si el problema persiste.</message>
-	<message key="common.invalidFileType">No se cargó ningún archivo o tipo de archivo no válido.</message>
-	<message key="common.homepageImage.altText">Imagen de la página inicial</message>
 	<message key="common.up">Arriba</message>
 	<message key="common.url">URL</message>
 	<message key="common.user">Usuario/a</message>
@@ -453,7 +450,6 @@
 	<message key="user.authorization.authorRoleMissing">Actualmente no posee los permisos suficientes para ver el envío. Edite su perfil para asegurarse de que le han concedido el rol apropiado en la opción "Registrarse como".</message>
 	<message key="user.authorization.submissionAuthor">El usuario/a actual no es el autor/a del envío solicitado. Compruebe que se ha identificado con la cuenta de usuario/a correcta.</message>
 	<message key="common.homepageNavigationLabel">Inicio</message>
-	<message key="common.favicon.altText">Icono de página</message>
 	<message key="common.pageNumber">Página {$pageNumber}</message>
 	<message key="common.percentage">{$percentage}%</message>
 	<message key="common.queue.long.active">Todo activo</message>
@@ -508,7 +504,6 @@
 	<message key="common.captcha.error.missing-input-response">Debe completar la comprobación de validación utilizada para evitar envíos de spam.</message>
 	<message key="common.captcha.error.invalid-input-response">No superó la comprobación de validación utilizada para evitar envíos de spam.</message>
 	<message key="common.downloadPdf">Descargar PDF</message>
-	<message key="form.csrfInvalid">El formulario no se envió correctamente.</message>
 	<message key="informationCenter.addNote">Añadir nota</message>
 	<message key="navigation.skip.main">Ir al contenido principal</message>
 	<message key="navigation.skip.nav">Ir al menú de navegación principal</message>

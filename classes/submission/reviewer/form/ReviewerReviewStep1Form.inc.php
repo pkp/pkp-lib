@@ -59,7 +59,7 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 		$templateMgr->assign(array(
 			'reviewAssignment' => $reviewAssignment,
 			'reviewRoundId' => $reviewAssignment->getReviewRoundId(),
-			'restrictReviewerFileAccess' => $context->getSetting('restrictReviewerFileAccess'),
+			'restrictReviewerFileAccess' => $context->getData('restrictReviewerFileAccess'),
 			'reviewMethod' => __($reviewAssignment->getReviewMethodKey()),
 		));
 
@@ -78,7 +78,7 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 		$templateMgr->assign('viewMetadataAction', $viewMetadataLinkAction);
 
 		// include the confirmation modal for competing interests if the context has them.
-		if ($context->getLocalizedSetting('competingInterests') != '') {
+		if ($context->getLocalizedData('competingInterests') != '') {
 			import('lib.pkp.controllers.confirmationModal.linkAction.ViewCompetingInterestGuidelinesLinkAction');
 			$competingInterestsAction = new ViewCompetingInterestGuidelinesLinkAction($request);
 			$templateMgr->assign('competingInterestsAction', $competingInterestsAction);

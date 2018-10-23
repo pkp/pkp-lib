@@ -42,7 +42,6 @@
 	<message key="common.alphaList">A B C D E F G H I J K L M N Ñ O P Q R S T U V W X Y Z</message>
 	<message key="common.alreadyAssigned">Esleituta</message>
 	<message key="common.altText">Ordezko testua</message>
-	<message key="common.altTextInstructions">Idatzi irudi honen ordezko testua, testu soileko arakatzailea edo gailu lagungarriak dituztenentzat.</message>
 	<message key="common.and">-</message>
 	<message key="common.applyAction">Aplikatu ekintza</message>
 	<message key="common.assign">Esleitu</message>
@@ -121,7 +120,6 @@
 	<message key="common.originalFileName">Jatorrizko izena</message>
 	<message key="common.or">edo</message>
 	<message key="common.other">Bestelakoak</message>
-	<message key="common.pageHeaderLogo.altText">Orri-buruko logoa</message>
 	<message key="common.plugin">Plugina</message>
 	<message key="common.publisher">Argitaratzailea</message>
 	<message key="common.record">Grabatu</message>
@@ -151,7 +149,6 @@
 	<message key="common.uninitiated">Hasi gabe</message>
 	<message key="common.untitled">Izengabea</message>
 	<message key="common.updated">Eguneratuta</message>
-	<message key="common.uploadedFile">Kargatutako fitxategia</message>
 	<message key="common.upload">Kargatu</message>
 	<message key="common.up">Gora</message>
 	<message key="common.url">URLa</message>
@@ -332,8 +329,6 @@
 	<message key="common.signoff">Itxi saioa</message>
 	<message key="common.element">Elementu</message>
 	<message key="common.unread">Irakurri gabea</message>
-	<message key="common.fileUpload.maxFileSizeStatus"><![CDATA[Zerbitzari honek gehienez {$fileSize} neurria duen fitxategia kargatzen uzten du.  Laguntza behar izanez gero, jarri harremanetan hemen: <a href="mailto:{$supportEmail}">{$supportName}</a>.]]></message>
-	<message key="common.invalidFileType">Ez da fitxategirik kargagu edo fitxategi mota baliogabea da.</message>
 	<message key="common.plugins">Pluginak</message>
 	<message key="email.subjectRequired">Mesedez, idatzi mezuaren gaia</message>
 	<message key="email.bodyRequired">Mesedez, idatzi mezuaren testua</message>

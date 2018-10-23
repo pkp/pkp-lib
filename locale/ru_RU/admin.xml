@@ -65,20 +65,14 @@
 	<message key="admin.server.phpVersion">Версия PHP</message>
 	<message key="admin.server.platform">ОС платформы</message>
 	<message key="admin.settings">Настройки</message>
-	<message key="admin.settings.aboutDescription">О сайте</message>
+	<message key="admin.settings.about">О сайте</message>
 	<message key="admin.settings.contactEmail">E-mail контактного лица</message>
 	<message key="admin.settings.contactName">Имя контактного лица</message>
-	<message key="admin.settings.form.contactEmailRequired">Адрес электронной почты контактного лица обязателен.</message>
-	<message key="admin.settings.form.contactNameRequired">Имя контактного лица обязательно.</message>
-	<message key="admin.settings.form.minPasswordLengthRequired">Вы должны ввести пароль, длина которого минимум 4 символа.</message>
-	<message key="admin.settings.form.titleRequired">Название обязательно.</message>
 	<message key="admin.settings.defaultMetricDescription">
 		Ваша инсталляция настроена на запись нескольких метрик использования. Статистика использования будет отображаться в нескольких контекстах.
 		Есть случаи, когда должна быть использована только одна статистика использования, например, чтобы отобразить упорядоченный список наиболее используемых материалов или отранжировать
 		результаты поиска. Пожалуйста, выберите одну из настроенных метрик в качестве метрики по умолчанию.
 	</message>
-	<message key="admin.settings.homeHeaderImage.altText">Логотип сайта</message>
-	<message key="admin.settings.homeHeaderImageInvalid">Неверный формат изображения логотипа сайта. Разрешенные форматы: .gif, .jpg или .png.</message>
 	<message key="admin.settings.introduction">Преамбула</message>
 	<message key="admin.settings.minPasswordLength">Минимальная длина пароля (в символах)</message>
 	<message key="admin.settings.siteLanguage">Язык сайта</message>
@@ -119,7 +113,7 @@
 Этот инструмент будет только копировать те файлы, которые еще не скопированы в каталоги загрузки файлов модуля «Статистика использования» (stage, processing, archive, reject).
 
 Вызов: {$scriptName} path/to/apache/log/file.log
-Вызов (обработка всех файлов в каталоге): {$scriptName} path/to/apache/directory 
+Вызов (обработка всех файлов в каталоге): {$scriptName} path/to/apache/directory
 	</message>
 	<message key="admin.copyAccessLogFileTool.error.creatingFolder">Ошибка: не могу создать временный каталог {$tmpDir}</message>
 	<message key="admin.copyAccessLogFileTool.error.acessingFile">Ошибка: Файл {$filePath} не существует или к нему нет доступа.</message>

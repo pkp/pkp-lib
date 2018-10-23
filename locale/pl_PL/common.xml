@@ -37,7 +37,6 @@
 	<message key="common.alphaList">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</message>
 	<message key="common.alreadyAssigned">Przypisany</message>
 	<message key="common.altText">Alternatywny tekst</message>
-	<message key="common.altTextInstructions">Proszę wpisać zawartość obrazka w formie tekstu.</message>
 	<message key="common.and">oraz</message>
 	<message key="common.applyAction">Zastosuj działanie</message>
 	<message key="common.assign">Przypisz</message>
@@ -134,7 +133,6 @@
 	<message key="common.originalFileName">Nazwa pliku</message>
 	<message key="common.or">lub</message>
 	<message key="common.other">Inny</message>
-	<message key="common.pageHeaderLogo.altText">Nagłówek strony</message>
 	<message key="common.plugin">Wtyczka</message>
 	<message key="common.pluginEnabled">Wtyczka "{$pluginName}" została włączona.</message>
 	<message key="common.pluginDisabled">Wtyczka "{$pluginName}" zosała wyłączona.</message>
@@ -170,7 +168,6 @@
 	<message key="common.uninitiated">Niewprowadzone</message>
 	<message key="common.untitled">Bez nazwy</message>
 	<message key="common.updated">Zaktualizowany</message>
-	<message key="common.uploadedFile">Przesłany plik</message>
 	<message key="common.upload">Prześlij</message>
 	<message key="common.uploadFailed">Plik nie może zostać przesłany. Spróbuj ponownie lub skontaktuj się z administratorem.</message>
 	<message key="common.up">W górę</message>
@@ -328,7 +325,6 @@
 	<message key="common.remoteURL">Zdalny URL</message>
 	<message key="common.reset">Reset</message>
 	<message key="common.unread">Nieczytany</message>
-	<message key="common.invalidFileType">Żaden plik nie został przesłany lub niepoprawny typ pliku!</message>
 	<message key="common.plugins">Wtyczki</message>
 	<message key="common.metric">Metryka</message>
 	<message key="common.count">Zlicz</message>
@@ -396,7 +392,6 @@
 	<message key="common.fileUploaderError">Narzędzie do przesyłania plików jest ładowane. Jeżeli nie pojawi się po dłuższej chwili istnieje prawdopodobieństwo, że nie jest wspierane przez Twoją przeglądarkę. Gdyby tak się stało, skontaktuj się z administratorem w celu uzyskania pomocy.</message>
 	<message key="common.homepageNavigationLabel">Strona domowa</message>
 	<message key="common.itemsPerPage">Elementów na stronę</message>
-	<message key="common.favicon.altText">Favicon</message>
 	<message key="common.notes.tooltip">Uwagi (żółty: nowe; niebieski: przeczytane; szary: brak)</message>
 	<message key="common.notified.date">Powiadomiony: {$dateNotified}</message>
 	<message key="common.pageNumber">Strona {$pageNumber}</message>
@@ -416,7 +411,6 @@
 	<message key="common.subtitle">Podtytuł</message>
 	<message key="common.component">Element</message>
 	<message key="common.uploadedDate">Data przesłania</message>
-	<message key="common.homepageImage.altText">Obraz strony głównej</message>
 	<message key="common.upload.addFile">Prześlij plik</message>
 	<message key="common.upload.changeFile">Zamień plik</message>
 	<message key="common.upload.dragFile">Przeciągnij i upuść plik tutaj, aby rozpocząć przesyłanie</message>
@@ -426,7 +420,6 @@
 	<message key="email.senderName">Nadawca</message>
 	<message key="email.senderEmail">Adres e-mail nadawcy</message>
 	<message key="form.url.invalid">Podany URL jest niepoprawny. Sprawdź adres i spróbuj ponownie.</message>
-	<message key="form.csrfInvalid">Formularz nie został przesłany poprawnie.</message>
 	<message key="form.fileRequired">Plik jest wymagany.</message>
 	<message key="help.previous">Poprzedni</message>
 	<message key="help.next">Następny</message>

@@ -210,26 +210,22 @@
 	<message key="manager.statistics.reports.filters.byLocation.description">Rajaa tuloksia maan, alueen ja/tai kaupungin mukaan.</message>
 	<message key="manager.affiliationAndSupport">Tukija</message>
 	<message key="manager.setup.additionalContent">Lisäsisältö</message>
-	<message key="manager.setup.additionalContentDescription">Kaikki tähän syötetty tieto näkyy etusivullasi.</message>
-	<message key="manager.setup.authorCopyrightNotice">Tekijänoikeushuomautus</message>
-	<message key="manager.setup.authorCopyrightNoticeAgree">Vaadi kirjoittajia hyväksymään tekijänoikeushuomautus osana käsikirjoituksen lähetysprosessia.</message>
+	<message key="manager.setup.additionalContent.description">Kaikki tähän syötetty tieto näkyy etusivullasi.</message>
+	<message key="manager.setup.copyrightNotice">Tekijänoikeushuomautus</message>
+	<message key="manager.setup.copyrightNotice.description">Vaadi kirjoittajia hyväksymään tekijänoikeushuomautus osana käsikirjoituksen lähetysprosessia.</message>
 	<message key="manager.setup.authorGuidelines">Kirjoittajan ohjeet</message>
 	<message key="manager.setup.authorGuidelines.description">Suositellut ohjeet sisältävät bibliografisten ja muotoilustandardien lisäksi esimerkkejä tavallisista, käsikirjoituksissa käytettävistä viittausmuodoista.</message>
 	<message key="manager.setup.competingInterests">Sidonnaisuudet</message>
-	<message key="manager.setup.competingInterestsDescription">Arvioijia pyydetään noudattamaan alla määrittämääsi tiedonantopolitiikkaa sidonnaisuuksien ilmoittamisen suhteen.</message> <!-- FIXME #6843 (JM): should this just reference reviewers? -->
 	<message key="manager.setup.errorDeletingItem">Tätä kohdetta poistaessa tapahtui virhe.</message>
-	<message key="manager.setup.favicon">Virheellinen favicon-muoto. Hyväksytyt muodot ovat .ico, .png ja .gif.</message>
+	<message key="manager.setup.favicon">Favicon</message>
 	<message key="manager.setup.groupType">Tiedostotyyppien ryhmittely</message>
-	<message key="manager.setup.homeHeaderImageInvalid">Etusivun ylätunnisteen logon kuvamuoto on virheellinen tai lataus epäonnistui. Hyväksytyt muodot ovat .gif, .jpg ja .png.</message>
 	<message key="manager.setup.homepageImage">Etusivun kuva</message>
-	<message key="manager.setup.homepageImageDescription">Lataa kuva, joka näytetään näkyvästi etusivulla.</message>
+	<message key="manager.setup.homepageImage.description">Lataa kuva, joka näytetään näkyvästi etusivulla.</message>
 	<message key="manager.setup.homepageImageInvalid">Etusivun kuvan muoto on virheellinen tai lataus epäonnistui. Hyväksytyt muodot ovat .gif, .jpg ja .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Etusivun ylätunnisteen otsikkokuvan muoto on virheellinen tai lataus epäonnistui. Hyväksytyt muodot ovat .gif, .jpg ja .png.</message>
 	<message key="manager.setup.information.descriptionTitle">Kuvaukset</message>
-	<message key="manager.setup.layout.theme">Teema</message>
-	<message key="manager.setup.layout.themeDescription">Uusia teemoja voidaan asentaa sivun yläreunasta löytyvältä Lisäosat-välilehdeltä.</message>
-	<message key="manager.setup.layout.blockManagement">Sivupalkin hallinnointi</message>
-	<message key="manager.setup.layout.unselected">Ei valittu</message>
+	<message key="manager.setup.theme">Teema</message>
+	<message key="manager.setup.theme.description">Uusia teemoja voidaan asentaa sivun yläreunasta löytyvältä Lisäosat-välilehdeltä.</message>
 	<message key="manager.setup.loggingAndAuditing">Kirjaaminen ja tarkastus</message>
 	<message key="manager.setup.logo">Logo</message>
 	<message key="manager.setup.notifications">Ilmoitus kirjoittajan tekemästä käsikirjoituksen lähetyksestä</message>
@@ -239,7 +235,7 @@
 	<message key="manager.setup.openAccessPolicy.description">Jos kaikki julkaistu sisältö on välittömästi vapaasti saatavilla, voit kirjoittaa kuvauksen soveltamastasi avoimen saatavuuden periaatteesta.</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Sivun ylätunnisteen logon kuvamuoto on virheellinen tai lataus epäonnistui. Hyväksytyt muodot ovat .gif, .jpg ja .png.</message>
 	<message key="manager.setup.pageFooter">Sivun alatunniste</message>
-	<message key="manager.setup.pageFooterDescription">Anna kuvia, tekstiä tai HTML-koodi, joiden haluat näkyvän sivustosi alareunassa.</message>
+	<message key="manager.setup.pageFooter.description">Anna kuvia, tekstiä tai HTML-koodi, joiden haluat näkyvän sivustosi alareunassa.</message>
 	<message key="manager.setup.peerReview.description">Esitä vertaisarvioinnin periaatteiden ja prosessien pääpiirteet lukijoille ja kirjoittajille. Tämä kuvaus voi sisältää tyypillisen arvioijien määrän käsikirjoitusta kohti, sovellettavat arviointikriteerit, arviointiin oletettavasti kuluvan ajan ja arvioijien valintaa koskevat periaatteet.</message>
 	<message key="manager.setup.principalContact">Pääasiallinen yhteyshenkilö</message>
 	<message key="manager.setup.principalContactDescription">Anna yhteystiedot (yleensä pääasiallisen päätoimittajan, toimituspäällikön tai hallinnollisen työntekijän), jotka näytetään julkisella verkkosivustollasi.</message>
@@ -248,10 +244,9 @@
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Arvioinnin suorittamiseen annettava aika (vk)</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Älä muistuta koskaan</message>
 	<message key="manager.setup.reviewOptions.noteOnModification">Jokaisen arvioinnin oletusarvoja voidaan muokata toimitusprosessin aikana.</message>
-	<message key="manager.setup.reviewOptions.remindForInvite">Lähetä muistutus, jos arvioija ei ole vastannut arviointipyyntöön seuraavan ajan (pv) kuluttua vastauksen määräpäivästä:</message>
-	<message key="manager.setup.reviewOptions.remindForSubmit">Lähetä muistutus jos arvioija ei ole lähettänyt suositusta seuraavan ajan (pv) kuluttua arvioinnin määräpäivästä:</message>
+	<message key="manager.setup.reviewOptions.reminders.response.description">Lähetä muistutus, jos arvioija ei ole vastannut arviointipyyntöön seuraavan ajan (pv) kuluttua vastauksen määräpäivästä:</message>
+	<message key="manager.setup.reviewOptions.reminders.submit.description">Lähetä muistutus jos arvioija ei ole lähettänyt suositusta seuraavan ajan (pv) kuluttua arvioinnin määräpäivästä:</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Arvioinnin oletusmääräajat</message>
-	<message key="manager.setup.reviewOptions.showBlindReviewLink">Näytä linkki “Sokkoarvioinnin varmistaminen” -kohtaan lataamisen yhteydessä</message>
 	<message key="manager.setup.sponsors.note">Tukijasuhteiden ja -periaatteiden kuvaus</message>
 	<message key="manager.setup.sponsors.description">Esimerkkejä: tieteelliset yhdistykset, yliopistojen laitokset, osuuskunnat jne. Tukijat näytetään julkisesti.</message>
 	<message key="manager.setup.styleSheetDescription">Kokeneet www-kehittäjät voivat ladata CSS-tiedoston mukauttaakseen sivuston ulkoasua pidemmälle.</message>
@@ -356,7 +351,6 @@
 	<message key="manager.paymentMethod.none">Maksutapaa ei ole valittu</message>
 	<message key="manager.paymentMethod.method">Maksutapa</message>
 	<message key="manager.paymentMethod.currency">Valuutta</message>
-	<message key="manager.paymentMethod.currency.description">Suoraan tämän sivuston kautta tehdyt maksut ilmoitetaan valitussa valuutassa.</message>
 
 	<!-- Roles grid settings -->
 	<message key="settings.roles.roleOptions">Rooleihin liittyvät valinnat</message>
@@ -513,8 +507,6 @@
 	<message key="manager.navigationMenus.login.description">Linkki kirjautumissivulle.</message>
 	<message key="manager.navigationMenus.register.description">Linkki rekisteröitymissivulle.</message>
 	<message key="settings.roles.recommendOnly">Tällä roolilla voi tehdä vain toimituksellisia suosituksia. Suosituksen vahvistamiseen vaaditaan varsinainen toimittaja.</message>
-	<message key="manager.setup.searchEngineIndexing.sitemap">Sivustokartta</message>
-	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[Hakukoneille ilmoitettava XML-sivustokartta löytyy osoitteesta <a href="{$path}" target="_blank">{$path}</a>]]></message>
 	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>Jos "Julkinen saatavuus" on valittuna, tiedosto on ladattavissa osoitteesta: <blockquote>{$downloadUrl}</blockquote></p>]]></message>
 	<message key="settings.libraryFiles.public.selectLibraryFiles">Valitse liitettävät tiedostot</message>
 	<message key="manager.setup.genres.key">Avain</message>

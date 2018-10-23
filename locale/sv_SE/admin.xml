@@ -36,7 +36,7 @@
 	<message key="admin.languages.download.cannotOpen">Kan ej öppna språkbeskrivning från PKP:s webbplats.</message>
 	<message key="admin.languages.download.cannotModifyRegistry">Kan ej lägga till nya språk/regioner till språkregistreringsfilen, vanligtvis "registry/locales.xml".</message>
 	<message key="admin.languages.cantDisable">Det här kommer att vara förvalt språk/region för webbplatsen. Du kan inte inaktivera det utan att välja ett annat förvalt språk/region.</message>
-	
+
 	<message key="admin.languages.confirmReload">Är du säker på att du vill uppdatera språkfilen? Tillgänglig språkspecifik information, t.ex. anpassade e-postformulär, kommer att raderas.</message>
 	<message key="admin.languages.installedLocales">Installerade språk/regioner</message>
 	<message key="admin.languages.installLanguages">Hantera språk/regioner</message>
@@ -65,20 +65,14 @@
 	<message key="admin.server.phpVersion">PHP-version</message>
 	<message key="admin.server.platform">Operativsystem/plattform</message>
 	<message key="admin.settings">Inställningar</message>
-	<message key="admin.settings.aboutDescription">Om webbplatsen</message>
+	<message key="admin.settings.about">Om webbplatsen</message>
 	<message key="admin.settings.contactEmail">E-postadress till primär kontakt</message>
 	<message key="admin.settings.contactName">Namn på primär kontakt</message>
-	<message key="admin.settings.form.contactEmailRequired">E-postadress till primär kontakt är obligatoriskt.</message>
-	<message key="admin.settings.form.contactNameRequired">Namn på primär kontakt är obligatoriskt.</message>
-	<message key="admin.settings.form.minPasswordLengthRequired">Du måste ange ett lösenord på minst fyra tecken.</message>
-	<message key="admin.settings.form.titleRequired">Du måste ange titel.</message>
 	<message key="admin.settings.defaultMetricDescription">
 		Din installation är konfigurerad för att registrera mer än ett mått på användning. Användningsstatistiken kommer att presenteras i flera sammanhang.
 		Det finns fall där endast ett mått på användning måste användas, t.ex. för att visa en sorterad lista över de mest använda bidragen eller för
 		att rangordna sökresultat. Välj ett av de konfigurerade värdena som default.
 	</message>
-	<message key="admin.settings.homeHeaderImage.altText">Webbplatslogotyp</message>
-	<message key="admin.settings.homeHeaderImageInvalid">Ogiltigt format för webbplatslogotyp. Tillåtna format är .gif, .jpg eller .png.</message>
 	<message key="admin.settings.introduction">Introduktion</message>
 	<message key="admin.settings.minPasswordLength">Minimilängd på lösenord (antal tecken)</message>
 	<message key="admin.settings.siteLanguage">Språk för webbplatsen</message>

@@ -16,7 +16,7 @@
 	<message key="api.submissions.403.requestedOthersUnpublishedSubmissions">يمكنك فقط معاينة الطلبات غير المنشورة التي تم تعيينها لك.</message>
 	<message key="api.submissions.403.deleteSubmissionOutOfContext">ليس بإمكانك حذف طلب النشر غير المضمن في هذا السياق.</message>
 	<message key="api.submissions.403.unauthorizedDeleteSubmission">ليس لديك صلاحية حذف طلب النشر هذا.</message>
-	<message key="api.submissions.404.resourceNotFound">الموارد التي تطلبتها غير متاحة حالياً.</message>
+	<message key="api.404.resourceNotFound">الموارد التي تطلبتها غير متاحة حالياً.</message>
 	<message key="api.submissions.400.missingRequired">تعذر تنفيذ طلبك لأنه يفتقر إلى معلومات ضرورية.</message>
 	<message key="api.submissions.unknownError">حدث خطأ غير متوقع. لطفاً، أعد تحميل الصفحة ثم حاول مرة أخرى.</message>
 	<message key="api.submissions.400.stageNotValid">تعذر تنفيذ طلبك لأن رمز تعريف مرحلة طلب النشر غير صحيح.</message>

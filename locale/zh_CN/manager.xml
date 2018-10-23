@@ -139,10 +139,8 @@
 	<message key="manager.plugins">系统插件</message>
 	<message key="manager.readingTools">阅读工具</message>
 	<message key="manager.roles">角色</message>
-	<message key="manager.setup.homeHeaderImageInvalid">无效的首页头部图片格式或者上传失败，有效的格式有 .gif, .jpg, or .png.</message>
 	<message key="manager.setup.homepageImageInvalid">无效的首页图片格式或者上传失败，有效的格式有 .gif, .jpg, or .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">无效的首页头部标题图片格式或者上传失败，有效的格式有 .gif, .jpg, or .png.</message>
-	<message key="manager.setup.layout.unselected">没有选择的</message>
 	<message key="manager.setup.loggingAndAuditing">日志记录与审计</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">无效的页面头部Logo图片格式或者上传失败，有效的格式有 .gif, .jpg, or .png.</message>
 	<message key="manager.setup.selectOne">选择</message>
@@ -176,7 +174,6 @@
 	<message key="manager.emails.enable.message">你是即将启用此电子邮件。你要确认此操作？</message>
 	<message key="manager.emails.resetAll.message">如果您重置所有模板，所有的电子邮件模板的修改都将丢失。你要确认此操作？</message>
 	<message key="manager.emails.reset.message">如果重置这个模板，所有的消息数据将被重置为其默认值，失去了所有的修改。你要确认此操作？</message>
-	<message key="manager.setup.layout.blockManagement">边栏管理</message>
 	<message key="plugins.categories.metadata">元数据插件</message>
 	<message key="manager.reviewerSearch.form.instructions">使用下表来设定您希望用来查询术语的最大值。此表已预先填充了这些领域的计算平均值。</message>
 	<message key="plugins.categories.metadata.description">元数据插件采用附加的元数据标准。</message>

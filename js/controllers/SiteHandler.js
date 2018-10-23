@@ -58,6 +58,9 @@
 			this.trigger('notifyUser');
 		}
 
+		// Respond to `notify` events triggered on the global event bus
+		this.bindGlobal('notify', this.handleNotifyEvent);
+
 		// bind event handlers for form status change events.
 		this.bind('formChanged', this.callbackWrapper(
 				this.registerUnsavedFormElement_));
@@ -137,6 +140,12 @@
 			tinyMCE.PluginManager.load('pkpwordcount', $.pkp.app.baseUrl +
 					'/plugins/generic/tinymce/plugins/pkpWordcount/plugin.js');
 
+
+			var contentCSS = $.pkp.app.tinyMceContentCSS;
+			if ($.pkp.app.cdnEnabled) {
+				contentCSS = contentCSS + ', ' + $.pkp.app.tinyMceContentFont;
+			}
+
 			var tinymceParams, tinymceParamDefaults = {
 				width: '100%',
 				resize: 'both',
@@ -154,8 +163,7 @@
 						'superscript subscript | link unlink code fullscreen | ' +
 						'jbimages | pkpTags',
 				statusbar: false,
-				content_css: $.pkp.app.baseUrl +
-						'/plugins/generic/tinymce/styles/content.css'
+				content_css: contentCSS
 			};
 
 			// Allow default params to be overridden
@@ -627,6 +635,18 @@
 				}
 			}
 		}
+	};
+
+
+	/**
+	 * Display a floating notification message
+	 *
+	 * @param {Object} caller The object which triggered the event
+	 * @param {Object} settings The PNotify settings
+	 */
+	$.pkp.controllers.SiteHandler.prototype.handleNotifyEvent =
+			function(caller, settings) {
+		pnotify = new PNotify(settings);
 	};
 
 

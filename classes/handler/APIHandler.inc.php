@@ -17,6 +17,7 @@ import('lib.pkp.classes.handler.PKPHandler');
 
 use \Slim\App;
 import('lib.pkp.classes.core.APIResponse');
+import('classes.core.ServicesContainer');
 
 class APIHandler extends PKPHandler {
 	protected $_app;
@@ -38,6 +39,7 @@ class APIHandler extends PKPHandler {
 		parent::__construct();
 		import('lib.pkp.classes.security.authorization.internal.ApiAuthorizationMiddleware');
 		import('lib.pkp.classes.security.authorization.internal.ApiTokenDecodingMiddleware');
+		import('lib.pkp.classes.security.authorization.internal.ApiCsrfMiddleware');
 		$this->_app = new \Slim\App(array(
 			// Load custom response handler
 			'response' => function($c) {
@@ -50,6 +52,7 @@ class APIHandler extends PKPHandler {
 		));
 		$this->_app->add(new ApiAuthorizationMiddleware($this));
 		$this->_app->add(new ApiTokenDecodingMiddleware($this));
+		$this->_app->add(new ApiCsrfMiddleware($this));
 		// remove trailing slashes
 		$this->_app->add(function ($request, $response, $next) {
 			$uri = $request->getUri();
@@ -86,6 +89,11 @@ class APIHandler extends PKPHandler {
 					return $app->process($request->withUri($uri), $response);
 				}
 			}
+			return $next($request, $response);
+		});
+		// Allow remote requests to the API
+		$this->_app->add(function ($request, $response, $next) {
+			$response = $response->withHeader('Access-Control-Allow-Origin', '*');
 			return $next($request, $response);
 		});
 		$this->_request = Application::getRequest();
@@ -230,6 +238,112 @@ class APIHandler extends PKPHandler {
 
 		return $default;
 	}
+
+	/**
+	 * Convert string values in boolean, integer and number parameters to their
+	 * appropriate type when the string is in a recognizable format.
+	 *
+	 * Converted booleans: False: "0", "false". True: "true", "1"
+	 * Converted integers: Anything that passes ctype_digit()
+	 * Converted floats: Anything that passes is_numeric()
+	 *
+	 * Empty strings will be converted to null.
+	 *
+	 * @param $schema string One of the SCHEMA_... constants
+	 * @param $params array Key/value parameters to be validated
+	 * @return array Converted parameters
+	 */
+	public function convertStringsToSchema($schema, $params) {
+		$schemaService = ServicesContainer::instance()->get('schema');
+		$schema = $schemaService->get($schema);
+
+		foreach ($params as $paramName => $paramValue) {
+			if (!property_exists($schema->properties, $paramName)) {
+				continue;
+			}
+			if (!empty($schema->properties->{$paramName}->multilingual)) {
+				foreach ($paramValue as $localeKey => $localeValue) {
+					$params[$paramName][$localeKey] = $this->_convertStringsToSchema(
+						$localeValue,
+						$schema->properties->{$paramName}->type,
+						$schema->properties->{$paramName}
+					);
+				}
+			} else {
+				$params[$paramName] = $this->_convertStringsToSchema(
+					$paramValue,
+					$schema->properties->{$paramName}->type,
+					$schema->properties->{$paramName}
+				);
+			}
+		}
+
+		return $params;
+	}
+
+	/**
+	 * Helper function to convert a string to a specified type if it meets
+	 * certain conditions.
+	 *
+	 * This function can be called recursively on nested objects and arrays.
+	 *
+	 * @see self::convertStringsToTypes
+	 * @param $value
+	 * @param $type One of boolean, integer or number
+	 */
+	private function _convertStringsToSchema($value, $type, $schema) {
+		// Convert all empty strings to null
+		if (is_string($value) && !strlen($value)) {
+			return null;
+		}
+		switch ($type) {
+			case 'boolean':
+				if (is_string($value)) {
+					if ($value === 'true' || $value === '1') {
+						return true;
+					} elseif ($value === 'false' || $value === '0') {
+						return false;
+					}
+				}
+				break;
+			case 'integer':
+				if (is_string($value) && ctype_digit($value)) {
+					return (int) $value;
+				}
+				break;
+			case 'number':
+				if (is_string($value) && is_numeric($value)) {
+					return floatval($value);
+				}
+				break;
+			case 'array':
+				if (is_array($value)) {
+					$newArray = [];
+					if (is_array($schema->items)) {
+						foreach ($schema->items as $i => $itemSchema) {
+							$newArray[$i] = $this->_convertStringsToSchema($value[$i], $itemSchema->type, $itemSchema);
+						}
+					} else {
+						foreach ($value as $i => $v) {
+							$newArray[$i] = $this->_convertStringsToSchema($v, $schema->items->type, $schema->items);
+						}
+					}
+					return $newArray;
+				}
+				break;
+			case 'object':
+				if (is_array($value)) {
+					$newObject = [];
+					foreach ($schema->properties as $propName => $propSchema) {
+						if (!isset($value[$propName])) {
+							continue;
+						}
+						$newObject[$propName] = $this->_convertStringsToSchema($value[$propName], $propSchema->type, $propSchema);
+					}
+					return $value;
+				}
+				break;
+		}
+		return $value;
+	}
 }
-
-

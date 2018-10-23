@@ -32,7 +32,7 @@ class UserFormHelper {
 		$contexts = $contextDao->getAll(true)->toArray();
 		$contextsWithUserRegistration = array();
 		foreach ($contexts as $context) {
-			if (!$context->getSetting('disableUserReg')) {
+			if (!$context->getData('disableUserReg')) {
 				$contextsWithUserRegistration[] = $context;
 			}
 		}
@@ -45,7 +45,7 @@ class UserFormHelper {
 		$authorUserGroups = $reviewerUserGroups = $readerUserGroups = array();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		foreach ($contexts as $context) {
-			if ($context->getSetting('disableUserReg')) continue;
+			if ($context->getData('disableUserReg')) continue;
 			$reviewerUserGroups[$context->getId()] = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_REVIEWER)->toArray();
 			$authorUserGroups[$context->getId()] = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_AUTHOR)->toArray();
 			$readerUserGroups[$context->getId()] = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_READER)->toArray();
@@ -67,7 +67,7 @@ class UserFormHelper {
 		$contextDao = Application::getContextDAO();
 		$contexts = $contextDao->getAll(true);
 		while ($context = $contexts->next()) {
-			if ($context->getSetting('disableUserReg')) continue;
+			if ($context->getData('disableUserReg')) continue;
 
 			foreach (array(
 				array(

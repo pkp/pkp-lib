@@ -44,7 +44,7 @@ class AnnouncementHandler extends Handler {
 		$this->setupTemplate($request);
 
 		$context = $request->getContext();
-		$announcementsIntro = $context->getLocalizedSetting('announcementsIntroduction');
+		$announcementsIntro = $context->getLocalizedData('announcementsIntroduction');
 
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('announcementsIntroduction', $announcementsIntro);

@@ -46,15 +46,9 @@
 	<message key="admin.serverInformation">Informasi Server</message>
 	<message key="admin.server.phpVersion">Versi PHP</message>
 	<message key="admin.server.platform">Platform OS</message>
-	<message key="admin.settings.aboutDescription">Deskripsi Situs</message>
+	<message key="admin.settings.about">Deskripsi Situs</message>
 	<message key="admin.settings.contactEmail">Email Kontak Utama</message>
 	<message key="admin.settings.contactName">Nama Kontak Utama</message>
-	<message key="admin.settings.form.contactEmailRequired">Alamat email kontak utama diperlukan.</message>
-	<message key="admin.settings.form.contactNameRequired"> Nama kontak utama diperlukan.</message>
-	<message key="admin.settings.form.minPasswordLengthRequired"> Anda harus memasukkan panjang minimal kata sandi yaitu 4 karakter.</message>
-	<message key="admin.settings.form.titleRequired">Judul diperlukan.</message>
-	<message key="admin.settings.homeHeaderImage.altText"> Logo Situs </message>
-	<message key="admin.settings.homeHeaderImageInvalid">Format gambar logo invalid. Format yang diterima adalah .gif, .jpg, atau .png.</message>
 	<message key="admin.settings.introduction">Pendahuluan</message>
 	<message key="admin.settings.minPasswordLength">Panjang Kata Sandi Min</message>
 	<message key="admin.settings.passwordCharacters">Karakter</message>

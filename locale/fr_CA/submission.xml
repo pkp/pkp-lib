@@ -672,8 +672,6 @@
 	<message key="submission.list.reviewDue">Évaluation due</message>
 	<message key="submission.list.confirmDelete">Supprimer la soumission?</message>
 	<message key="submission.list.viewSubmission">Voir la soumission</message>
-	<message key="submission.list.itemOrdererUp">Avancer la position de {$itemTitle}</message>
-	<message key="submission.list.itemOrdererDown">Reculer la position de {$itemTitle}</message>
 	<message key="submission.list.reviewsCompleted">Assigner les évaluations complétées</message>
 	<message key="submission.list.revisionsSubmitted">Révisions soumises</message>
 	<message key="submission.list.copyeditsSubmitted">Les modifications ont été soumises</message>

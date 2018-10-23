@@ -95,8 +95,14 @@ class APIRouter extends PKPRouter {
 		$sourceFile = sprintf('api/%s/%s/index.php', $this->getVersion(), $this->getEntity());
 
 		if (!file_exists($sourceFile)) {
-			$dispatcher = $this->getDispatcher();
-			$dispatcher->handle404();
+			AppLocale::requireComponents(LOCALE_COMPONENT_PKP_API, LOCALE_COMPONENT_APP_API);
+			http_response_code('404');
+			header('Content-Type: application/json');
+			echo json_encode([
+				'error' => 'api.404.endpointNotFound',
+				'errorMessage' => __('api.404.endpointNotFound'),
+			]);
+			exit;
 		}
 
 		if (!defined('SESSION_DISABLE_INIT')) {
@@ -134,10 +140,14 @@ class APIRouter extends PKPRouter {
 	 * @copydoc PKPRouter::handleAuthorizationFailure()
 	 */
 	function handleAuthorizationFailure($request, $authorizationMessage) {
-		$dispatcher = $this->getDispatcher();
-		$dispatcher->handle404();
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_API, LOCALE_COMPONENT_APP_API);
+		http_response_code('403');
+		header('Content-Type: application/json');
+		echo json_encode([
+			'error' => 'api.403.unauthorized',
+			'errorMessage' => __('api.403.unauthorized'),
+		]);
+		exit;
 	}
 
 }
-
-

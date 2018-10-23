@@ -9,7 +9,7 @@
  *
  *}
 <div class="pkp_page_content pkp_page_statistics">
-	{help file="tools.md" section="statistics" class="pkp_help_tab"}
+	{help file="tools" section="statistics" class="pkp_help_tab"}
 
 	{if $showMetricTypeSelector || $appSettings}
 		{include file="management/tools/form/statisticsSettingsForm.tpl"}

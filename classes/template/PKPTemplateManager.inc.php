@@ -206,6 +206,22 @@ class PKPTemplateManager extends Smarty {
 						'contexts' => 'backend',
 					)
 				);
+
+				// A user-uploaded stylesheet
+				if ($currentContext) {
+					$contextStyleSheet = $currentContext->getData('styleSheet');
+					if ($contextStyleSheet) {
+						import('classes.file.PublicFileManager');
+						$publicFileManager = new PublicFileManager();
+						$this->addStyleSheet(
+							'contextStylesheet',
+							$request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($currentContext->getAssocType(), $currentContext->getId()) . '/' . $contextStyleSheet,
+							array(
+								'priority' => STYLE_SEQUENCE_LATE
+							)
+						);
+					}
+				}
 			}
 
 			// Add reading language flag based on locale
@@ -222,22 +238,6 @@ class PKPTemplateManager extends Smarty {
 				);
 			}
 
-			// Register colour picker assets on the appearance page
-			$this->addJavaScript(
-				'spectrum',
-				$request->getBaseUrl() . '/lib/pkp/js/lib/jquery/plugins/spectrum/spectrum.js',
-				array(
-					'contexts' => array('backend-management-settings', 'backend-admin-settings', 'backend-admin-contexts'),
-				)
-			);
-			$this->addStyleSheet(
-				'spectrum',
-				$request->getBaseUrl() . '/lib/pkp/js/lib/jquery/plugins/spectrum/spectrum.css',
-				array(
-					'contexts' => array('backend-management-settings', 'backend-admin-settings', 'backend-admin-contexts'),
-				)
-			);
-
 			// Register recaptcha on relevant pages
 			if (Config::getVar('captcha', 'recaptcha') && Config::getVar('captcha', 'captcha_on_register')) {
 				$this->addJavaScript(
@@ -251,8 +251,8 @@ class PKPTemplateManager extends Smarty {
 
 			// Register meta tags
 			if (Config::getVar('general', 'installed')) {
-				if (($request->getRequestedPage()=='' || $request->getRequestedPage() == 'index') && $currentContext && $currentContext->getLocalizedSetting('searchDescription')) {
-					$this->addHeader('searchDescription', '<meta name="description" content="' . $currentContext->getLocalizedSetting('searchDescription') . '">');
+				if (($request->getRequestedPage()=='' || $request->getRequestedPage() == 'index') && $currentContext && $currentContext->getLocalizedData('searchDescription')) {
+					$this->addHeader('searchDescription', '<meta name="description" content="' . $currentContext->getLocalizedData('searchDescription') . '">');
 				}
 
 				$this->addHeader(
@@ -264,7 +264,7 @@ class PKPTemplateManager extends Smarty {
 				);
 
 				if ($currentContext) {
-					$customHeaders = $currentContext->getLocalizedSetting('customHeaders');
+					$customHeaders = $currentContext->getLocalizedData('customHeaders');
 					if (!empty($customHeaders)) {
 						$this->addHeader('customHeaders', $customHeaders);
 					}
@@ -372,15 +372,22 @@ class PKPTemplateManager extends Smarty {
 			$this->assign('multipleContexts', $multipleContexts);
 		}
 
-		// Load enabled block plugins and setup active sidebar variables
-		PluginRegistry::loadCategory('blocks', true);
-		$sidebarHooks = HookRegistry::getHooks('Templates::Common::Sidebar');
-		$this->assign(array(
-			'hasSidebar' => !empty($sidebarHooks),
-		));
-		
-		// Inject CSS links into the HTML Galley string
-		HookRegistry::register('HtmlArticleGalleyPlugin::htmlGalleyContent', array($this, 'loadHtmlGalleyStyles'), HOOK_SEQUENCE_CORE);
+		if (Config::getVar('general', 'installed')) {
+			// Respond to the sidebar hook
+			if ($currentContext) {
+				$this->assign('hasSidebar', !empty($currentContext->getData('sidebar')));
+			} else {
+				$this->assign('hasSidebar', !empty($request->getSite()->getData('sidebar')));
+			}
+			HookRegistry::register('Templates::Common::Sidebar', array($this, 'displaySidebar'));
+
+			// Clear the cache whenever the active theme is changed
+			HookRegistry::register('Context::edit', array($this, 'clearThemeTemplateCache'));
+			HookRegistry::register('Site::edit', array($this, 'clearThemeTemplateCache'));
+
+			// Inject CSS links into the HTML Galley string
+			HookRegistry::register('HtmlArticleGalleyPlugin::htmlGalleyContent', array($this, 'loadHtmlGalleyStyles'), HOOK_SEQUENCE_CORE);
+		}
 	}
 
 
@@ -683,6 +690,7 @@ class PKPTemplateManager extends Smarty {
 		import('lib.pkp.classes.security.Role');
 
 		$app_data = array(
+			'cdnEnabled' => Config::getVar('general', 'enable_cdn'),
 			'currentLocale' => AppLocale::getLocale(),
 			'primaryLocale' => AppLocale::getPrimaryLocale(),
 			'baseUrl' => $this->_request->getBaseUrl(),
@@ -690,7 +698,10 @@ class PKPTemplateManager extends Smarty {
 			'apiBasePath' => '/api/v1',
 			'pathInfoEnabled' => Config::getVar('general', 'disable_path_info') ? false : true,
 			'restfulUrlsEnabled' => Config::getVar('general', 'restful_urls') ? true : false,
+			'tinyMceContentCSS' => $this->_request->getBaseUrl() . '/plugins/generic/tinymce/styles/content.css',
+			'tinyMceContentFont' => Config::getVar('general', 'enable_cdn') ? $this->_request->getBaseUrl() .  '/plugins/generic/tinymce/styles/content-font.css' : '',
 		);
+
 		$output .= '$.pkp.app = ' . json_encode($app_data) . ';';
 
 		// Load exposed constants
@@ -801,7 +812,7 @@ class PKPTemplateManager extends Smarty {
 		if ( Config::getVar('general', 'installed' ) ) {
 			$context = $this->_request->getContext();
 			if (is_a($context, 'Context')) {
-				$resourceName .= $context->getSetting('themePluginPath');
+				$resourceName .= $context->getData('themePluginPath');
 			}
 		}
 
@@ -865,6 +876,26 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
+	 * Clear the cache when a context or site has changed it's active theme
+	 *
+	 * @param $hookName string
+	 * @param $args array [
+	 * 	@option Context|Site The new values
+	 * 	@option Context|Site The old values
+	 * 	@option array Key/value of params that were modified
+	 * 	@option Request
+	 * ]
+	 */
+	public function clearThemeTemplateCache($hookName, $args) {
+		$newContextOrSite = $args[0];
+		$contextOrSite = $args[1];
+		if ($newContextOrSite->getData('themePluginPath') !== $contextOrSite->getData('themePluginPath')) {
+			$this->clearTemplateCache();
+			$this->clearCssCache();
+		}
+	}
+
+	/**
 	 * Return an instance of the template manager.
 	 * @param $request PKPRequest
 	 * @return TemplateManager the template manager object
@@ -900,6 +931,45 @@ class PKPTemplateManager extends Smarty {
 			$this->_fbv = new FormBuilderVocabulary();
 		}
 		return $this->_fbv;
+	}
+
+	/**
+	 * Display the sidebar
+	 *
+	 * @param $hookName string
+	 * @param $args array [
+	 *		@option array Params passed to the hook
+	 *		@option Smarty
+	 *		@option string The output
+	 * ]
+	 */
+	public function displaySidebar($hookName, $args) {
+		$params =& $args[0];
+		$smarty =& $args[1];
+		$output =& $args[2];
+
+		if ($this->_request->getContext()) {
+			$blocks = $this->_request->getContext()->getData('sidebar');
+		} else {
+			$blocks = $this->_request->getSite()->getData('sidebar');
+		}
+
+		if (empty($blocks)) {
+			return false;
+		}
+
+		$plugins = PluginRegistry::loadCategory('blocks', true);
+		if (empty($plugins)) {
+			return false;
+		}
+
+		foreach ($blocks as $pluginName) {
+			if (!empty($plugins[$pluginName])) {
+				$output .= $plugins[$pluginName]->getContents($smarty, $this->_request);
+			}
+		}
+
+		return false;
 	}
 
 
@@ -962,7 +1032,7 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
-	 * Smarty usage: {help file="someFile.md" section="someSection" textKey="some.text.key"}
+	 * Smarty usage: {help file="someFile" section="someSection" textKey="some.text.key"}
 	 *
 	 * Custom Smarty function for displaying a context-sensitive help link.
 	 * @param $smarty Smarty
@@ -1455,7 +1525,7 @@ class PKPTemplateManager extends Smarty {
 
 		return $output;
 	}
-	
+
 	/**
 	 * Styles to be injected from a theme plugin into HTML galley file
 	 * Usage: $this->addStyle('name', 'style.css', array('contexts' => 'htmlGalley'));
@@ -1470,20 +1540,20 @@ class PKPTemplateManager extends Smarty {
 	function loadHtmlGalleyStyles($hookName, $args) {
 		$contents =& $args[1];
 		$embeddableFiles = $args[3];
-		
+
 		if (empty($contents)) return false;
-		
+
 		$attachedStyles = false;
 		foreach ($embeddableFiles as $embeddableFile) {
 			if ($embeddableFile->getFileType() =='text/css') $attachedStyles = true;
 		}
-		
+
 		if ($attachedStyles) return false;
-		
+
 		$output = '';
 		$styles = $this->getResourcesByContext($this->_styleSheets, 'htmlGalley');
 		ksort($styles);
-		
+
 		if (!empty($styles)) {
 			foreach ($styles as $htmlStyles) {
 				foreach ($htmlStyles as $htmlStyle) {
@@ -1491,7 +1561,7 @@ class PKPTemplateManager extends Smarty {
 				}
 			}
 		}
-		
+
 		if (!empty($output)) {
 			$contents = str_ireplace('<head>', '<head>' . "\n" . $output, $contents);
 		}

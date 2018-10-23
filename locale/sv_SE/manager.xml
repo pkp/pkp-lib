@@ -213,27 +213,23 @@
 	<message key="manager.statistics.reports.filters.byLocation.description">Avgränsa reslutat efter land, region och/eller stad.</message>
 	<message key="manager.affiliationAndSupport">Sponsor</message>
 	<message key="manager.setup.additionalContent">Ytterligare innehåll</message>
-	<message key="manager.setup.additionalContentDescription">Det som fylls i här kommer att synas på din förstasida.</message>
-	<message key="manager.setup.authorCopyrightNotice">Upphovsrättsdeklaration</message>
-	<message key="manager.setup.authorCopyrightNoticeAgree">Kräv att författare godkänner upphovsrättsdeklarationen när bidrag skickas in.</message>
+	<message key="manager.setup.additionalContent.description">Det som fylls i här kommer att synas på din förstasida.</message>
+	<message key="manager.setup.copyrightNotice">Upphovsrättsdeklaration</message>
+	<message key="manager.setup.copyrightNotice.description">Kräv att författare godkänner upphovsrättsdeklarationen när bidrag skickas in.</message>
 	<message key="manager.setup.authorGuidelines">Riktlinjer för författare</message>
 	<message key="manager.setup.authorGuidelines.description">Rekommenderade riktlinjer inkluderar bibliografi- och formateringsstandarder tillsammans med exempel på vanliga referensformat att använda vid inlämning av bidrag.</message>
 	<message key="manager.setup.competingInterests">Intressekonflikter</message>
-	<message key="manager.setup.competingInterestsDescription">Granskare kommer att bli ombedda att acceptera policyn för intressekonflikter som du specificerar nedan.</message> <!-- FIXME #6843 (JM): should this just reference reviewers? -->
 	<message key="manager.setup.errorDeletingItem">Ett fel uppstod vid borttagning av detta objekt.</message>
-	<message key="manager.setup.favicon">Ogiltigt format för addressikon. Format som accepteras är .ico, .png, and .gif.</message>
+	<message key="manager.setup.favicon">Adressikon (eng. "favicon")</message>
 	<message key="manager.setup.groupType">Gruppering av filtyper</message>
-	<message key="manager.setup.homeHeaderImageInvalid">Ogiltigt format för logotyp på förstasidans sidhuvud, eller misslyckad uppladdning. Godkända format är .gif, .jpg, och .png.</message>
 	<message key="manager.setup.homepageImage">Bild på förstasidan</message>
-	<message key="manager.setup.homepageImageDescription">Ladda upp en bild som får en framträdande plats på förstasidan.</message>
+	<message key="manager.setup.homepageImage.description">Ladda upp en bild som får en framträdande plats på förstasidan.</message>
 	<message key="manager.setup.homepageImageInvalid">Ogiltigt format för bild på förstasidan, eller misslyckad uppladdning. Godkända format är .gif, .jpg, och .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Ogiltigt format för titelbild på förstasidans sidhuvud. Godkända format är .gif, .jpg, och .png.</message>
 	<message key="manager.setup.information.descriptionTitle">Beskrivningar</message>
-	<message key="manager.setup.layout.theme">Tema</message>
-	<message key="manager.setup.layout.themeDescription">Nya teman kan installeras från fliken Plugins högst upp på den här sidan.</message>
-	<message key="manager.setup.layout.blockManagement">Hantering av sidomeny</message>
+	<message key="manager.setup.theme">Tema</message>
+	<message key="manager.setup.theme.description">Nya teman kan installeras från fliken Plugins högst upp på den här sidan.</message>
 	<message key="manager.setup.layout.sidebar">Sidomeny</message>
-	<message key="manager.setup.layout.unselected">Ej vald</message>
 	<message key="manager.setup.loggingAndAuditing">Loggning och revidering</message>
 	<message key="manager.setup.logo">Logotyp</message>
 	<message key="manager.setup.notifications">Avisering om bidrag från författare</message>
@@ -243,7 +239,7 @@
 	<message key="manager.setup.openAccessPolicy.description">Om du ger omedelbar fri tillgång till allt publicerat innehåll, kan du fylla i open access-policy.</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Ogiltigt format för logotyp på sidhuvudet. Godkända format är .gif, .jpg, och .png.</message>
 	<message key="manager.setup.pageFooter">Sidfot</message>
-	<message key="manager.setup.pageFooterDescription">Lägg till bilder, text eller HTML-kod som du vill ska synas längst ned på din webbplats.</message>
+	<message key="manager.setup.pageFooter.description">Lägg till bilder, text eller HTML-kod som du vill ska synas längst ned på din webbplats.</message>
 	<message key="manager.setup.peerReview.description">Sammanfatta granskningspolicyn och -processen för läsare och författare. Den här beskrivningen innehåller ofta antal granskare som normalt används när ett bidrag granskas, kriterier som granskarna ombeds gå efter när de bedömer inskickade bidrag, förväntad tid som krävs för att genomföra granskningar, och principerna som används för att välja granskare.</message>
 	<message key="manager.setup.principalContact">Primär kontakt</message>
 	<message key="manager.setup.principalContactDescription">Kontaktinformation till ex. primär redaktör, ansvarig redaktör eller administratör, som kan visas på din publika webbplats.</message>
@@ -253,12 +249,9 @@
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Antal veckor tillåtna för granskning</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Påminn aldrig</message>
 	<message key="manager.setup.reviewOptions.noteOnModification">Defaultvärden kan ändras för varje granskning under redaktionsprocessen.</message>
-	<message key="manager.setup.reviewOptions.remindForInvite">Skicka en påminnelse om granskaren inte har svarat på en granskningsförfrågan inom följande antal dagar efter deadline:</message>
-	<message key="manager.setup.reviewOptions.remindForSubmit">Skicka en påminnelse om granskaren inte har lämnat en rekommendation inom följande antal dagar efter deadline:</message>
+	<message key="manager.setup.reviewOptions.reminders.response.description">Skicka en påminnelse om granskaren inte har svarat på en granskningsförfrågan inom följande antal dagar efter deadline:</message>
+	<message key="manager.setup.reviewOptions.reminders.submit.description">Skicka en påminnelse om granskaren inte har lämnat en rekommendation inom följande antal dagar efter deadline:</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Default-deadlines för granskning</message>
-	<message key="manager.setup.reviewOptions.showBlindReviewLink">Visa en länk till "Att garantera anonym granskning" vid uppladdning</message>
-	<message key="manager.setup.searchEngineIndexing.sitemap">Sitemap</message>
-	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[Det finns en XML-sitemap för sökmotorer tillgänglig på <a href="{$path}" target="_blank">{$path}</a>]]></message>
 	<message key="manager.setup.sponsors.note">Sponsorrelation och policybeskrivning</message>
 	<message key="manager.setup.sponsors.description">Exempel: vetenskapliga organisationer, universitetsinstitutioner, kooperativ etc. Sponsorer visas publikt.</message>
 	<message key="manager.setup.styleSheetDescription">Erfarna webbutvecklare kan ladda upp en CSS-fil för att ytterligare anpassa webbplatsens utseende.</message>
@@ -366,7 +359,6 @@
 	<message key="manager.paymentMethod.none">Ingen betalningsmetod vald</message>
 	<message key="manager.paymentMethod.method">Betalningsmetod</message>
 	<message key="manager.paymentMethod.currency">Valuta</message>
-	<message key="manager.paymentMethod.currency.description">Betalningar görs direkt via den här webbplatsen och i den valda valutan.</message>
 
 	<!-- Roles grid settings -->
 	<message key="settings.roles.roleOptions">Alternativ för roller</message>
@@ -489,7 +481,7 @@
 	<message key="plugins.importexport.user.error.userHasNoPassword">Den importerade användaren "{$username}" saknar lösenord. Kolla formatet på din import-XML. Användaren importerades inte.</message>
 	<message key="plugins.importexport.user.error.passwordHasBeenChanged">Lösenordet för den importerade användaren "{$username}" kunde inte importerad i sin befintliga form. Användaren har fått ett nytt vlösenord via e-post. Användaren är importerad.</message>
 	<message key="plugins.importexport.user.error.plainPasswordNotValid">Den importerade användaren "{$username}" har ett okrypterat lösenord, vilket inte är giltigt. Användaren importerades inte.</message>
-	
+
 	<!-- Navigation Menus -->
 	<message key="manager.navigationMenus.form.title">Titel</message>
 	<message key="manager.navigationMenus.form.path">Sökväg</message>

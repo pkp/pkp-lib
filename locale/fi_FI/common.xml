@@ -56,7 +56,6 @@
 	<message key="common.titleSmallWords">of a the and an or nor but is if then else when at from by on off for in out over to into with</message>
 	<message key="common.alreadyAssigned">Valittu</message>
 	<message key="common.altText">Vaihtoehtoinen teksti</message>
-	<message key="common.altTextInstructions">Parantaaksesi hakukoneoptimointia sekä noudattaaksesi WCAG-standardeja kuvaile kaikkia tässä kuvassa näkyviä tietoja, joita ei nähdä sivustoa tekstipohjaisella selaimella tai apuvälineillä katseltaessa. Esimerkki: “Toimittajamme puhumassa PKP:n vuoden 2015 konferenssissa.”</message>
 	<message key="common.and">ja</message>
 	<message key="common.applyAction">Toteuta toimenpide</message>
 	<message key="common.assign">Osoita</message>
@@ -153,7 +152,6 @@
 	<message key="common.initiate">Aloita</message>
 	<message key="common.inProgress">Käynnissä</message>
 	<message key="common.itemsPerPage">Kohteita per sivu</message>
-	<message key="common.favicon.altText">Favicon</message>
 	<message key="common.keywords">Avainsanat</message>
 	<message key="common.language">Kieli</message>
 	<message key="common.languages">Kielet</message>
@@ -183,12 +181,13 @@
 	<message key="common.ok">OK</message>
 	<message key="common.options">Valinnat</message>
 	<message key="common.order">Järjestä</message>
+	<message key="common.orderDown">Siirrä {$itemTitle} alas</message>
+	<message key="common.orderUp">Siirrä {$itemTitle} ylös</message>
 	<message key="common.originalFileName">Alkuperäinen tiedostonimi</message>
 	<message key="common.or">tai</message>
 	<message key="common.other">Muu</message>
 	<message key="common.overdue">Myöhässä</message>
 	<message key="common.pageNumber">Sivu {$pageNumber}</message>
-	<message key="common.pageHeaderLogo.altText">Sivun ylätunnisteen logo</message>
 	<message key="common.percentage">{$percentage} %</message>
 	<message key="common.plugin">Lisäosa</message>
 	<message key="common.pluginEnabled">"{$pluginName}"-lisäosa on otettu käyttöön.</message>
@@ -245,11 +244,8 @@
 	<message key="common.untitled">Nimetön</message>
 	<message key="common.updated">Päivitetty</message>
 	<message key="common.uploadedDate">Ladattu (pvm)</message>
-	<message key="common.uploadedFile">Ladattu tiedosto</message>
 	<message key="common.upload">Lataa</message>
 	<message key="common.uploadFailed">Tiedostoa ei voitu ladata tai korjata.</message>
-	<message key="common.invalidFileType">Tiedostoa ei ladattu tai virheellinen tiedostotyyppi!</message>
-	<message key="common.homepageImage.altText">Etusivun kuva</message>
 	<message key="common.up">Ylös</message>
 	<message key="common.upload.addFile">Lataa tiedosto</message>
 	<message key="common.upload.changeFile">Vaihda tiedostoa</message>
@@ -316,7 +312,6 @@
 	<message key="form.is">on</message>
 	<message key="form.startsWith">alkaa</message>
 	<message key="form.postRequired">Lomaketta ei lähetetty oikein.</message>
-	<message key="form.csrfInvalid">Lomaketta ei lähetetty oikein.</message>
 	<message key="form.fileRequired">Tiedoston lataaminen vaaditaan.</message>
 	<message key="form.required">(*Pakollinen tieto)</message>
 	<message key="form.resubmit">Lähetä uudelleen</message>

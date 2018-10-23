@@ -257,6 +257,20 @@
 	line-height: @line-tiny;
 	font-weight: @bold;
 	text-decoration: none;
+	border: none;
+	box-shadow: none;
+	color: @primary;
+
+	&:hover,
+	&:focus {
+		color: @primary-lift;
+	}
+
+	&:focus {
+		outline: 0;
+		box-shadow: 0 0 0 @radius @primary;
+		border-radius: @radius;
+	}
 }
 
 // A small help link that attaches to a tab

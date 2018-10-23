@@ -220,16 +220,17 @@ class PKPRouter {
 	 * A Generic call to a context defining object (e.g. a Press, a Conference, or a SchedConf)
 	 * @param $request PKPRequest the request to be routed
 	 * @param $requestedContextLevel int (optional) the desired context level
+	 * @param $forceReload bool (optional) Force context to be pulled from db
 	 * @return object
 	 */
-	function &getContext($request, $requestedContextLevel = 1) {
+	function &getContext($request, $requestedContextLevel = 1, $forceReload = false) {
 		// Handle context depth 0
 		if (!$this->_contextDepth) {
 			$nullVar = null;
 			return $nullVar;
 		}
 
-		if (!isset($this->_contexts[$requestedContextLevel])) {
+		if ($forceReload || !isset($this->_contexts[$requestedContextLevel])) {
 			// Retrieve the requested context path (this validates the context level and the path)
 			$path = $this->getRequestedContextPath($request, $requestedContextLevel);
 
@@ -333,6 +334,38 @@ class PKPRouter {
 				$params = null, $anchor = null, $escape = false) {
 		// Must be implemented by sub-classes.
 		assert(false);
+	}
+
+	/**
+	 * Build a URL to an endpoint in the API
+	 *
+	 * This method builds the correct URL depending on whether disable_path_info
+	 * and restful_urls are enabled in the config file.
+	 *
+	 * @param Request $request
+	 * @param string $contextPath
+	 * @param string $apiVersion
+	 * @param string $baseEndpoint Example: 'submissions'
+	 * @param string $endpointParams Example: '1', '1/galleys'
+	 * @return string
+	 */
+	public function getApiUrl($request, $contextPath, $apiVersion, $baseEndpoint = '', $endpointParams = '') {
+
+		$fullBaseEndpoint = sprintf('/%s/api/%s/%s', $contextPath, $apiVersion, $baseEndpoint);
+
+		$baseUrl = $request->getBaseUrl();
+		if (!$request->isRestfulUrlsEnabled()) {
+			$baseUrl .= '/index.php';
+		}
+
+		if ($request->isPathInfoEnabled()) {
+			if ($endpointParams) {
+				return sprintf('%s%s/%s', $baseUrl, $fullBaseEndpoint, $endpointParams);
+			}
+			return sprintf('%s%s', $baseUrl, $fullBaseEndpoint);
+		}
+
+		return sprintf('%s?journal=%s&endpoint=%s/%s', $baseUrl, $contextPath, $fullBaseEndpoint, $endpointParams);
 	}
 
 	/**
@@ -626,5 +659,3 @@ class PKPRouter {
 		return $this->_flippedContextList[$contextName] + 1;
 	}
 }
-
-

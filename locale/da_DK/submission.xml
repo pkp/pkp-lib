@@ -537,8 +537,6 @@
 	<message key="submission.list.responseDue">Svar forfalden</message>
 	<message key="submission.list.reviewDue">Bedømmelse forfalden</message>
 	<message key="submission.list.confirmDelete">Slet indsendelse?</message>
-	<message key="submission.list.itemOrdererUp">Hæv placering af {$itemTitle}</message>
-	<message key="submission.list.itemOrdererDown">Sænk placering af {$itemTitle}</message>
 	<message key="submission.list.viewSubmission">Se indsendelse</message>
 	<message key="submission.list.reviewsCompleted">Angivne bedømmelser afsluttet</message>
 	<message key="submission.list.revisionsSubmitted">Tilretninger indsendt</message>
@@ -563,7 +561,6 @@
 	<message key="submission.submit.form.subjectsRequired">Indtast et emne.</message>
 	<message key="submission.submit.form.disciplinesRequired">Indtast et fagområde.</message>
 	<message key="submission.submit.form.keywordsRequired">Indtast et nøgleord.</message>
-	<message key="submission.submit.form.agenciesRequired">Indtast en støtteorganisation.</message>
 	<message key="submission.submit.form.coverageRequired">Indtast information om dækning.</message>
 	<message key="submission.submit.form.typeRequired">Indtast en type.</message>
 	<message key="submission.submit.form.sourceRequired">Indtast en kilde.</message>

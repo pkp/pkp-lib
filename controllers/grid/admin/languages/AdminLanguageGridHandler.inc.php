@@ -31,7 +31,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 				'fetchGrid', 'fetchRow',
 				'installLocale', 'saveInstallLocale', 'uninstallLocale',
 				'downloadLocale', 'disableLocale', 'enableLocale',
-				'reloadLocale', 'setPrimaryLocale'
+				'setPrimaryLocale'
 			)
 		);
 	}
@@ -123,13 +123,6 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 	//
 	// Implement methods from GridHandler.
 	//
-	/**
-	 * @copydoc GridHandler::getRowInstance()
-	 */
-	protected function getRowInstance() {
-		return new LanguageGridRow();
-	}
-
 	/**
 	 * @copydoc GridHandler::loadData()
 	 */
@@ -355,33 +348,6 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 		return new JSONMessage(false);
 	}
 
-	/**
-	 * Reload locale.
-	 * @param $args array
-	 * @param $request Request
-	 * @return JSONMessage JSON object
-	 */
-	public function reloadLocale($args, $request) {
-		$site = $request->getSite();
-		$locale = $request->getUserVar('rowId');
-
-		$gridData = $this->getGridDataElements($request);
-		if ($request->checkCSRF() && array_key_exists($locale, $gridData)) {
-			AppLocale::reloadLocale($locale);
-			$settingsDao = Application::getContextSettingsDAO();
-			if ($request->getContext()) $settingsDao->reloadLocalizedDefaultContextSettings($request, $locale);
-			$notificationManager = new NotificationManager();
-			$user = $request->getUser();
-			$notificationManager->createTrivialNotification(
-				$user->getId(), NOTIFICATION_TYPE_SUCCESS,
-				array('contents' => __('notification.localeReloaded', array('locale' => $gridData[$locale]['name'])))
-			);
-			return DAO::getDataChangedEvent($locale);
-		}
-
-		return new JSONMessage(false);
-	}
-
 
 	/**
 	 * Set primary locale.
@@ -467,7 +433,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 		while ($context = $contexts->next()) {
 			$primaryLocale = $context->getPrimaryLocale();
 			foreach (array('supportedLocales', 'supportedFormLocales', 'supportedSubmissionLocales') as $settingName) {
-				$localeList = $context->getSetting($settingName);
+				$localeList = $context->getData($settingName);
 
 				if (is_array($localeList)) {
 					$localeList = array_intersect($localeList, $siteSupportedLocales);

@@ -18,6 +18,11 @@ namespace PKP\Services\EntityProperties;
 use \DBResultRange;
 use \PKP\Services\Exceptions\InvalidServiceException;
 
+// The type of action against which data should be validated. When adding an
+// entity, required properties must be present and not empty.
+define('VALIDATE_ACTION_ADD', 'add');
+define('VALIDATE_ACTION_EDIT', 'edit');
+
 abstract class PKPBaseEntityPropertyService implements EntityPropertyInterface {
 
 	/** @var object $service */
@@ -53,35 +58,9 @@ abstract class PKPBaseEntityPropertyService implements EntityPropertyInterface {
 	abstract public function getFullProperties($entity, $args = null);
 
 	/**
-	 * Build a URL to an object in the API
+	 * A helper function to retrieve the DBResultRange for a query from the
+	 * request arguments.
 	 *
-	 * This method builds the correct URL depending on whether disable_path_info
-	 * is enabled in the config file.
-	 *
-	 * @param Request $request
-	 * @param string $contextPath
-	 * @param string $apiVersion
-	 * @param string $baseEndpoint Example: 'submissions'
-	 * @param string $endpointParams Example: '1', '1/galleys'
-	 * @return string
-	 */
-	public function getAPIHref($request, $contextPath, $apiVersion, $baseEndpoint = '', $endpointParams = '') {
-
-		$fullBaseEndpoint = sprintf('/%s/api/%s/%s', $contextPath, $apiVersion, $baseEndpoint);
-
-		$baseUrl = $request->getBaseUrl();
-		if (!$request->isRestfulUrlsEnabled()) {
-			$baseUrl .= '/index.php';
-		}
-
-		if ($request->isPathInfoEnabled()) {
-			return sprintf('%s%s/%s', $baseUrl, $fullBaseEndpoint, $endpointParams);
-		}
-
-		return sprintf('%s?journal=%s&endpoint=%s/%s', $baseUrl, $contextPath, $fullBaseEndpoint, $endpointParams);
-	}
-
-	/**
 	 * @param $args array
 	 * @return string
 	 */

@@ -21,7 +21,7 @@ class Context extends DataObject {
 	 * @return string
 	 */
 	function getLocalizedName($preferredLocale = null) {
-		return $this->getLocalizedSetting('name', $preferredLocale);
+		return $this->getLocalizedData('name', $preferredLocale);
 	}
 
 	/**
@@ -36,7 +36,7 @@ class Context extends DataObject {
 	 * get the name of the context
 	 */
 	function getName($locale = null) {
-		return $this->getSetting('name', $locale);
+		return $this->getData('name', $locale);
 	}
 
 	/**
@@ -44,7 +44,7 @@ class Context extends DataObject {
 	 * @return string
 	 */
 	function getContactName() {
-		return $this->getSetting('contactName');
+		return $this->getData('contactName');
 	}
 
 	/**
@@ -60,7 +60,7 @@ class Context extends DataObject {
 	 * @return string
 	 */
 	function getContactEmail() {
-		return $this->getSetting('contactEmail');
+		return $this->getData('contactEmail');
 	}
 
 	/**
@@ -157,7 +157,7 @@ class Context extends DataObject {
 	 * @return string
 	 */
 	function getLocalizedDescription() {
-		return $this->getLocalizedSetting('description');
+		return $this->getLocalizedData('description');
 	}
 
 	/**
@@ -165,7 +165,7 @@ class Context extends DataObject {
 	 * @return string
 	 */
 	function getLocalizedAcronym() {
-		return $this->getLocalizedSetting('acronym');
+		return $this->getLocalizedData('acronym');
 	}
 
 	/**
@@ -174,7 +174,7 @@ class Context extends DataObject {
 	 * @return string
 	 */
 	function getAcronym($locale) {
-		return $this->getSetting('acronym', $locale);
+		return $this->getData('acronym', $locale);
 	}
 
 	/**
@@ -182,7 +182,7 @@ class Context extends DataObject {
 	 * @return array
 	 */
 	function getSupportedFormLocales() {
-		return $this->getSetting('supportedFormLocales');
+		return $this->getData('supportedFormLocales');
 	}
 
 	/**
@@ -215,7 +215,7 @@ class Context extends DataObject {
 	 * @return array
 	 */
 	function getSupportedSubmissionLocales() {
-		return $this->getSetting('supportedSubmissionLocales');
+		return $this->getData('supportedSubmissionLocales');
 	}
 
 	/**
@@ -249,7 +249,7 @@ class Context extends DataObject {
 	 * @return array
 	 */
 	function getSupportedLocales() {
-		return $this->getSetting('supportedLocales');
+		return $this->getData('supportedLocales');
 	}
 
 	/**
@@ -286,33 +286,19 @@ class Context extends DataObject {
 	}
 
 	/**
-	 * Get the settings DAO for this context object.
-	 * @return DAO
+	 * @deprecated Most settings should be available from self::getData(). In
+	 *  other cases, use the context settings DAO directly.
 	 */
-	static function getSettingsDAO() {
-		assert(false); // Must be implemented by subclasses
+	function getSetting($name, $locale = null) {
+		return $this->getData($name, $locale);
 	}
 
 	/**
-	 * Retrieve array of settings.
-	 * @return array
+	 * @deprecated Most settings should be available from self::getData(). In
+	 *  other cases, use the context settings DAO directly.
 	 */
-	function &getSettings() {
-		$settingsDao = $this->getSettingsDAO();
-		$settings =& $settingsDao->getSettings($this->getId());
-		return $settings;
-	}
-
-	/**
-	 * Retrieve a context setting value.
-	 * @param $name string
-	 * @param $locale string
-	 * @return mixed
-	 */
-	function &getSetting($name, $locale = null) {
-		$settingsDao = $this->getSettingsDAO();
-		$setting =& $settingsDao->getSetting($this->getId(), $name, $locale);
-		return $setting;
+	function getLocalizedSetting($name, $locale = null) {
+		return $this->getLocalizedData($name, $locale);
 	}
 
 	/**
@@ -323,21 +309,8 @@ class Context extends DataObject {
 	 * @param $isLocalized boolean optional
 	 */
 	function updateSetting($name, $value, $type = null, $isLocalized = false) {
-		$settingsDao = $this->getSettingsDAO();
+		$settingsDao = Application::getContextSettingsDAO();
 		return $settingsDao->updateSetting($this->getId(), $name, $value, $type, $isLocalized);
-	}
-
-	/**
-	 * Get a localized context setting by name.
-	 * @param $name string
-	 * @return mixed
-	 */
-	function &getLocalizedSetting($name) {
-		$returner = $this->getSetting($name, AppLocale::getLocale());
-		if ($returner === null) {
-			$returner = $this->getSetting($name, AppLocale::getPrimaryLocale());
-		}
-		return $returner;
 	}
 
 	/**
@@ -388,7 +361,7 @@ class Context extends DataObject {
 	*   type could be identified.
 	*/
 	function getDefaultMetricType() {
-		$defaultMetricType = $this->getSetting('defaultMetricType');
+		$defaultMetricType = $this->getData('defaultMetricType');
 
 		// Check whether the selected metric type is valid.
 		$availableMetrics = $this->getMetricTypes();

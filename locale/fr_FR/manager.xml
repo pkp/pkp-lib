@@ -140,12 +140,7 @@
 	<message key="manager.readingTools">Outils de lecture</message>
 	<message key="manager.roles">Rôles</message>
 	<message key="manager.setup.groupType">Groupement par type de fichier</message>
-	<message key="manager.setup.homeHeaderImageInvalid">Format d'image du logo de l'en-tête de la page d'accueil invalide. Les formats acceptés sont .gif, .jpg, ou .png.</message>
-	<message key="manager.setup.homepageImageInvalid">Format d'image de la page d'accueil invalide. Les formats acceptés sont .gif, .jpg, ou .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Format d'image de l'en-tête de la page d'accueil invalide. Les formats acceptés sont .gif, .jpg, ou .png.</message>
-	<message key="manager.setup.layout.leftSidebar">Encadré de gauche</message>
-	<message key="manager.setup.layout.rightSidebar">Encadré de droite</message>
-	<message key="manager.setup.layout.unselected">Non sélectionné</message>
 	<message key="manager.setup.loggingAndAuditing">Journalisation et audit</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Format d'image du logo de l'en-tête de la page invalide. Les formats acceptés sont .gif, .jpg, ou .png.</message>
 	<message key="manager.setup.selectOne">En sélectionner un</message>
@@ -223,8 +218,8 @@
 	<message key="manager.setup.authorGuidelines">Normes pour les auteurs</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Ne jamais rappeler</message>
 	<message key="manager.setup.sponsors">Organismes commanditaires</message>
-	<message key="manager.setup.layout.theme">Thème</message>
-	<message key="manager.setup.layout.themeDescription">Choisir un thème parmi les modules d'extension de thèmes disponibles.</message>
+	<message key="manager.setup.theme">Thème</message>
+	<message key="manager.setup.theme.description">Choisir un thème parmi les modules d'extension de thèmes disponibles.</message>
 	<message key="manager.siteAccessOptions.siteAccessOptions">Options d'accès au site</message>
 	<message key="manager.website.appearance">Apparence</message>
 	<message key="manager.website.imageFileRequired">Un fichier image est requis. Assurez-vous d'avoir choisi et téléchargé un fichier.</message>
@@ -240,11 +235,10 @@
 	<message key="manager.statistics.reports.form.columnsRequired">Vous devez choisir au moins une colonne pour produire le rapport.</message>
 	<message key="manager.statistics.reports.filters.byLocation.description">Limiter les résultats selon le pays, la région ou la ville.</message>
 	<message key="manager.setup.competingInterests">Intérêts concurrents</message>
-	<message key="manager.setup.competingInterestsDescription">Les rapporteurs devront respecter la politique de divulgation des intérêts concurrents que vous spécifiez ci-dessous.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Délai de réponse alloué (semaines)</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Délai alloué pour la révision (semaines)</message>
-	<message key="manager.setup.reviewOptions.remindForInvite">Envoyer un rappel si le rapporteur n'a pas répondu à la demande d'examen dans le délai suivant (jours):</message>
-	<message key="manager.setup.reviewOptions.remindForSubmit">Envoyer un rappel si le rapporteur n'a pas fait sa recommandation dans le délai suivant (jours):</message>
+	<message key="manager.setup.reviewOptions.reminders.response.description">Envoyer un rappel si le rapporteur n'a pas répondu à la demande d'examen dans le délai suivant (jours):</message>
+	<message key="manager.setup.reviewOptions.reminders.submit.description">Envoyer un rappel si le rapporteur n'a pas fait sa recommandation dans le délai suivant (jours):</message>
 	<message key="manager.setup.dependentGenre">Genres dépendants</message>
 	<message key="manager.setup.sponsors.note">Vous pouvez ajouter une note décrivant votre politique en matière de commandite; celle-ci apparaitra dans la liste des commanditaires sur votre page À propos de.</message>
 	<message key="manager.setup.contributors.note">Vous pouvez ajouter une note décrivant votre rapport et votre politique entre vous et vos bailleurs de fonds; celle-ci apparaitra dans la liste des bailleurs de fonds sur votre page À propos de.</message>
@@ -258,7 +252,6 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.statistics.reports.cities.label">Un ou plusieurs noms de villes, séparés par une virgule (ex.: Ville 1, Ville 2)</message>
 	<message key="manager.statistics.reports.reportUrl.label">L'adresse URL suivante peut être utilisée pour produire le rapport avec les configurations de formulaire actuelles. Il suffit de la copier, de la coller dans votre navigateur Web et d'entrer. Vous pouvez utiliser vos favoris pour conserver votre générateur d'URL pour les rapports personnalisés.</message>
 	<message key="manager.setup.styleSheetDescription">Vous pouvez télécharger un fichier de Feuilles de style en cascade (FSC) supplémentaire pour modifier l'apparence.</message>
-	<message key="manager.setup.layout.blockManagement">Gestion de la barre latérale</message>
 	<message key="plugins.categories.metadata">Modules d'extension des métadonnées</message>
 	<message key="plugins.categories.metadata.description">Les modules d'extension des métadonnées mettent en place des normes supplémentaires pour les métadonnées.</message>
 	<message key="plugins.categories.pubIds">Modules d'extension d'identificateur public</message>
@@ -305,7 +298,6 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.paymentMethod.none">Aucune méthode de paiement sélectionnée.</message>
 	<message key="manager.paymentMethod.method">Méthode de paiement</message>
 	<message key="manager.paymentMethod.currency">Devise</message>
-	<message key="manager.paymentMethod.currency.description">Les paiements effectués directement sur le site Web seront dans la devise sélectionnée.</message>
 	<message key="settings.roles.roleOptions">Options du rôle</message>
 	<message key="settings.roles.showTitles">Afficher le titre du rôle dans la liste des contributeurs</message>
 	<message key="settings.roles.permitSelfRegistration">Permettre à l'utilisateur de s'inscrire lui-même</message>
@@ -384,13 +376,13 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.statistics.reports.objectNotFound">Objet introuvable dans la base de données.</message>
 	<message key="manager.statistics.reports.yesterday">Hier</message>
 	<message key="manager.setup.additionalContent">Contenu additionnel</message>
-	<message key="manager.setup.additionalContentDescription">Tout ce que vous inscrirez ici apparaîtra sur votre page d'accueil.</message>
-	<message key="manager.setup.authorCopyrightNotice">Avis de droits d'auteur</message>
-	<message key="manager.setup.authorCopyrightNoticeAgree">Nécessite que les auteurs acceptent l'avis de droit d'auteur dans le cadre du processus de soumission.</message>
+	<message key="manager.setup.additionalContent.description">Tout ce que vous inscrirez ici apparaîtra sur votre page d'accueil.</message>
+	<message key="manager.setup.copyrightNotice">Avis de droits d'auteur</message>
+	<message key="manager.setup.copyrightNotice.description">Nécessite que les auteurs acceptent l'avis de droit d'auteur dans le cadre du processus de soumission.</message>
 	<message key="manager.setup.authorGuidelines.description">Les lignes directrices comprennent des normes bibliographiques et de mise en forme, ainsi que des exemples de formats de citation communs à utiliser dans les soumissions.</message>
-	<message key="manager.setup.favicon">Format de favicon invalide. Les formats acceptés sont .ico, .png, and .gif.</message>
+	<message key="manager.setup.favicon">Favicon</message>
 	<message key="manager.setup.homepageImage">Image de la page d'accueil.</message>
-	<message key="manager.setup.homepageImageDescription">Téléverser une image qui sera afficher en pleine grandeur sur la page d'accueil.</message>
+	<message key="manager.setup.homepageImage.description">Téléverser une image qui sera afficher en pleine grandeur sur la page d'accueil.</message>
 	<message key="manager.setup.information.descriptionTitle">Descriptions</message>
 	<message key="manager.setup.logo">Logo</message>
 	<message key="manager.setup.notifications">Notification d'une soumission par auteur</message>
@@ -400,14 +392,13 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.setup.openAccessPolicy">Politiques sur le libre accès</message>
 	<message key="manager.setup.openAccessPolicy.description">Si vous fournissez un accès immédiat et gratuit à tout le contenu publié, vous pouvez inscrire une description de votre politique sur le libre accès.</message>
 	<message key="manager.setup.pageFooter">Pied de page</message>
-	<message key="manager.setup.pageFooterDescription">Entrer une image, du texte ou du code HTML que vous voudriez voir apparaître au bas de votre site web.</message>
+	<message key="manager.setup.pageFooter.description">Entrer une image, du texte ou du code HTML que vous voudriez voir apparaître au bas de votre site web.</message>
 	<message key="manager.setup.peerReview.description">Décrivez la politique et les processus d'examen par les pairs pour les lecteurs et les auteurs. Cette description comprend souvent le nombre de rapporteurs impliqués dans l'examen d'une soumission, les critères par lesquels les rapporteurs sont invités à juger ces soumissions, le temps prévu pour effectuer les évaluations et enfin, les critères utilisés pour sélectionner les rapporteurs.</message>
 	<message key="manager.setup.principalContact">Contact principal</message>
 	<message key="manager.setup.principalContactDescription">Entrez les coordonnées d'un rédacteur en chef, d'un membre de la rédaction ou du personnel administratif qui peuvent être affichées sur la version public de votre site Web.</message>
 	<message key="manager.setup.privacyStatement">Déclaration de confidentialité</message>
 	<message key="manager.setup.reviewOptions.noteOnModification">Les valeurs par défauts peuvent être modifiées pour chaque évaluation durant le processus éditorial.</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Date limite par défaut des évaluations</message>
-	<message key="manager.setup.reviewOptions.showBlindReviewLink">Présentez un lien "Assurer une évaluation à l'aveugle" lors du téléchargement</message>
 	<message key="manager.setup.sponsors.description">Exemples: associations ou sociétés savantes, départements universitaires, coopératives, etc. Les commanditaire sont affichés publiquement.</message>
 	<message key="manager.setup.technicalSupportContact">Support technique</message>
 	<message key="manager.setup.technicalSupportContactDescription">Une personne-ressource qui peut aider les rédacteurs en chef, les auteurs et les rapporteurs à résoudre des problèmes lors d'une soumission, de l'édition, de l'évaluation ou lors de la publication de documents.</message>
@@ -498,8 +489,6 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.navigationMenus.about.conditionalWarning"><![CDATA[Ce lien ne sera affiché que si vous avez rempli la section "À propos", située sous Paramètres> Revue.]]></message>
 	<message key="manager.navigationMenus.editorialTeam.description"><![CDATA[Lien vers une page affichant le contenu du Bloc générique dans Paramètres>Revue.]]></message>
 	<message key="manager.navigationMenus.editorialTeam.conditionalWarning"><![CDATA[Ce lien sera seulement affiché si vous avez rempli la section "Bloc-générique" dans Paramètres>Revue.]]></message>
-	<message key="manager.setup.searchEngineIndexing.sitemap">Sitemap</message>
-	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[Une carte XML du site pour les moteurs de recherche ici : <a href="{$path}" target="_blank">{$path}</a>]]></message>
 	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>Ce fichier sera accessible si l'accès public est activé à cette URL : <blockquote>{$downloadUrl}</blockquote></p>]]></message>
 	<message key="settings.libraryFiles.public.selectLibraryFiles">Sélectionner le fichier de bibliothèque à envoyer</message>
 	<message key="manager.setup.genres.key">Clé</message>

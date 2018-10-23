@@ -45,7 +45,6 @@
 	<message key="common.alphaList">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Α Β Γ Δ Ε Ζ Η Θ Ι Κ Λ Μ Ν Ξ Ο Π Ρ Σ Τ Υ Φ Χ Ψ Ω</message>
 	<message key="common.alreadyAssigned">Ανατέθηκε</message>
 	<message key="common.altText">Εναλλακτικό κείμενο</message>
-	<message key="common.altTextInstructions">Σας παρακαλούμε εισάγετε ένα εναλλακτικό κείμενο για την εικόνα αυτή ώστε να διασφαλιστεί η προσβασιμότητα σε χρήστες που χρησιμοποιούν επιλογές "μόνο κείμενο" στους φυλλομετρητές τους ή βοηθητικές συσκευές.</message>
 	<message key="common.and">και</message>
 	<message key="common.applyAction">Εφαρμογή Ενέργειας</message>
 	<message key="common.assign">Ανάθεση</message>
@@ -125,7 +124,6 @@
 	<message key="common.originalFileName">Όνομα πρωτότυπου αρχείου</message>
 	<message key="common.or">ή</message>
 	<message key="common.other">Άλλο</message>
-	<message key="common.pageHeaderLogo.altText">Logo Κεφαλίδας Σελίδας</message>
 	<message key="common.plugin">Plugin</message>
 	<message key="common.publisher">Εκδότης</message>
 	<message key="common.record">Εγγραφή</message>
@@ -155,7 +153,6 @@
 	<message key="common.uninitiated">Δεν ενεργοποιήθηκε</message>
 	<message key="common.untitled">Χωρίς τίτλο</message>
 	<message key="common.updated">Ενημερώθηκε</message>
-	<message key="common.uploadedFile">Ανέβασμα αρχείου</message>
 	<message key="common.upload">Ανέβασμα</message>
 	<message key="common.up">Πάνω</message>
 	<message key="common.url">URL</message>

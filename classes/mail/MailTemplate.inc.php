@@ -93,11 +93,11 @@ class MailTemplate extends Mail {
 		// Default "From" to user if available, otherwise site/context principal contact
 		if ($user) {
 			$this->setFrom($user->getEmail(), $user->getFullName());
-		} elseif (is_null($context) || is_null($context->getSetting('contactEmail'))) {
+		} elseif (is_null($context) || is_null($context->getData('contactEmail'))) {
 			$site = $request->getSite();
 			$this->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 		} else {
-			$this->setFrom($context->getSetting('contactEmail'), $context->getSetting('contactName'));
+			$this->setFrom($context->getData('contactEmail'), $context->getData('contactName'));
 		}
 
 		if ($context) {
@@ -148,7 +148,7 @@ class MailTemplate extends Mail {
 			// Add context-specific variables
 			$dispatcher = $application->getDispatcher();
 			$params = array_merge(array(
-				'principalContactSignature' => $this->context->getSetting('contactName'),
+				'principalContactSignature' => $this->context->getData('contactName'),
 				'contextName' => $this->context->getLocalizedName(),
 				'contextUrl' => $dispatcher->url($request, ROUTE_PAGE, $this->context->getPath()),
 			), $params);
@@ -184,42 +184,19 @@ class MailTemplate extends Mail {
 	}
 
 	/**
-	 * Processes form-submitted addresses for inclusion in
-	 * the recipient list
-	 * @param $currentList array Current recipient/cc/bcc list
-	 * @param $newAddresses array "Raw" form parameter for additional addresses
-	 */
-	function &processAddresses($currentList, &$newAddresses) {
-		foreach ($newAddresses as $newAddress) {
-			$regs = array();
-			// Match the form "My Name <my_email@my.domain.com>"
-			if (PKPString::regexp_match_get('/^([^<>' . "\n" . ']*[^<> ' . "\n" . '])[ ]*<(?P<email>' . PCRE_EMAIL_ADDRESS . ')>$/i', $newAddress, $regs)) {
-				$currentList[] = array('name' => $regs[1], 'email' => $regs['email']);
-
-			} elseif (PKPString::regexp_match_get('/^<?(?P<email>' . PCRE_EMAIL_ADDRESS . ')>?$/i', $newAddress, $regs)) {
-				$currentList[] = array('name' => '', 'email' => $regs['email']);
-
-			} elseif ($newAddress != '') {
-				$this->errorMessages[] = array('type' => MAIL_ERROR_INVALID_EMAIL, 'address' => $newAddress);
-			}
-		}
-		return $currentList;
-	}
-
-	/**
 	 * Send the email.
 	 * @return boolean false if there was a problem sending the email
 	 */
 	function send() {
 		if (isset($this->context)) {
-			$signature = $this->context->getSetting('emailSignature');
+			$signature = $this->context->getData('emailSignature');
 			if (strstr($this->getBody(), '{$templateSignature}') === false) {
 				$this->setBody($this->getBody() . "<br/>" . $signature);
 			} else {
 				$this->setBody(str_replace('{$templateSignature}', $signature, $this->getBody()));
 			}
 
-			$envelopeSender = $this->context->getSetting('envelopeSender');
+			$envelopeSender = $this->context->getData('envelopeSender');
 			if (!empty($envelopeSender) && Config::getVar('email', 'allow_envelope_sender')) $this->setEnvelopeSender($envelopeSender);
 		}
 

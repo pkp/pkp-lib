@@ -60,7 +60,6 @@
 	<message key="installer.oaiRepositoryId">OAI repository identificatie</message>
 	<message key="installer.publicFilesDirError">De map met publieke bestanden bestaat niet of er mag niet in geschreven worden.</message>
 	<message key="installer.releaseNotes">Over deze versie</message>
-	<message key="installer.securitySettings">Security instellingen</message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Fout bij het parsen van het e-mail sjabloon <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale.maybeIncomplete">De gemarkeerde talen zijn mogelijk incompleet</message>
 	<message key="installer.oaiSettings">OAI instellingen</message>

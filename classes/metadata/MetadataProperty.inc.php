@@ -368,10 +368,14 @@ class MetadataProperty {
 							break;
 
 						case METADATA_PROPERTY_TYPE_URI:
-							// Validate with the URI validator
-							import('lib.pkp.classes.validation.ValidatorUri');
-							$validator = new ValidatorUri();
-							if ($validator->isValid($value)) return array(METADATA_PROPERTY_TYPE_URI => null);
+							import('lib.pkp.classes.validation.ValidatorFactory');
+							$validator = ValidatorFactory::make(
+								array('uri' => $value),
+								array('uri' => 'url')
+							);
+							if (!$validator->fails()) {
+								return array(METADATA_PROPERTY_TYPE_URI => null);
+							}
 							break;
 
 						case METADATA_PROPERTY_TYPE_DATE:

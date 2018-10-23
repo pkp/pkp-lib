@@ -56,7 +56,6 @@
 	<message key="common.titleSmallWords">of a the and an or nor but is if then else when at from by on off for in out over to into with و أو من إلى في على عن كل إلا</message>
 	<message key="common.alreadyAssigned">معيَّن سابقاً</message>
 	<message key="common.altText">النص البديل</message>
-	<message key="common.altTextInstructions">لطفاً، زود الموقع بالنص البديل لهذه الصورة لضمان إمكانية وصول المستخدمين الذين يستعملون متصفحات لا تدعم الصور أو أجهزة مُعينة.</message>
 	<message key="common.and">و</message>
 	<message key="common.applyAction">أجرِ اللازم</message>
 	<message key="common.assign">عيِّن</message>
@@ -167,7 +166,6 @@
 	<message key="common.initiate">إبدأ</message>
 	<message key="common.inProgress">قيد الإنجاز</message>
 	<message key="common.itemsPerPage">فقرة لكل صفحة</message>
-	<message key="common.favicon.altText">الصورة المصغرة</message>
 	<message key="common.keywords">الكلمات المفتاحية</message>
 	<message key="common.language">اللغة</message>
 	<message key="common.languages">اللغات</message>
@@ -200,6 +198,8 @@
 	<message key="common.ok">تمام</message>
 	<message key="common.options">خيارات</message>
 	<message key="common.order">ترتيب</message>
+	<message key="common.orderUp">زيادة موقع {$itemTitle}</message>
+	<message key="common.orderDown">تقليل موقع {$itemTitle}</message>
 	<message key="common.originalFileName">الاسم الأصلي للملف</message>
 	<message key="common.or">أو</message>
 	<message key="common.other">غير ذلك</message>
@@ -207,7 +207,6 @@
 	<message key="common.pagination">{$start}-{$end} من {$total}</message>
 	<message key="common.pagination.label">إستعرض المزيد من الصفحات</message>
 	<message key="common.pageNumber">الصفحة {$pageNumber}</message>
-	<message key="common.pageHeaderLogo.altText">شعار رأس الصفحة</message>
 	<message key="common.percentage">{$percentage}%</message>
 	<message key="common.plugin">البرنامج الإضافي</message>
 	<message key="common.pluginEnabled">البرنامج الإضافي "{$pluginName}" تم تمكينه.</message>
@@ -266,11 +265,8 @@
 	<message key="common.untitled">بلا عنوان</message>
 	<message key="common.updated">محدث</message>
 	<message key="common.uploadedDate">تاريخ الرفع</message>
-	<message key="common.uploadedFile">الملف المرفوع</message>
 	<message key="common.upload">رفع</message>
 	<message key="common.uploadFailed">تعذر رفع الملف أو تنقيحه.</message>
-	<message key="common.invalidFileType">لم يتم رفع الملف أو أن نوعيته خاطئة!</message>
-	<message key="common.homepageImage.altText">صورة الصفحة الرئيسية</message>
 	<message key="common.up">أعلى</message>
 	<message key="common.upload.addFile">رفع الملف</message>
 	<message key="common.upload.changeFile">تغيير الملف</message>
@@ -338,7 +334,6 @@
 	<message key="form.is">هو</message>
 	<message key="form.startsWith">يبدأ بـ</message>
 	<message key="form.postRequired">لم يتم تقديم النموذج بالشكل الصحيح.</message>
-	<message key="form.csrfInvalid">لم يتم تقديم النموذج بشكل صحيح.</message>
 	<message key="form.fileRequired">لا بد من تحميل ملف.</message>
 	<message key="form.required">(* مطلوب حتماً)</message>
 	<message key="form.resubmit">إعادة التقديم</message>

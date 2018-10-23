@@ -28,8 +28,11 @@ class Modal extends LinkActionRequest {
 	/** @var boolean Whether the modal has a close icon in the title bar. */
 	var $_canClose;
 
-	/** @var string The width of the modal */
-	var $_width;
+	/** @var string The id of a form which should close the modal when completed */
+	var $_closeOnFormSuccessId;
+
+	/** @var array The id of any Vue instances that must be destroyed when modal closed */
+	var $_closeCleanVueInstances;
 
 	/**
 	 * Constructor
@@ -39,13 +42,19 @@ class Modal extends LinkActionRequest {
 	 * @param $width int (optional) Override the default width of 'auto'
 	 *  for confirmation modals.  Useful for modals that display
 	 *  large blocks of text.
+	 * @param $closeOnFormSuccessId string (optional) Close the modal when the
+	 *  form with this id fires a formSuccess event.
+	 * @param $closeCleanVueInstances array (optional) When the modal is closed
+	 *  destroy the registered vue instances with these ids
 	 */
-	function __construct($title = null, $titleIcon = null, $canClose = true, $width = MODAL_WIDTH_DEFAULT) {
+	function __construct($title = null, $titleIcon = null, $canClose = true,
+			$closeOnFormSuccessId = null, $closeCleanVueInstances = []) {
 		parent::__construct();
 		$this->_title = $title;
 		$this->_titleIcon = $titleIcon;
 		$this->_canClose = $canClose;
-		$this->_width = $width;
+		$this->_closeOnFormSuccessId = $closeOnFormSuccessId;
+		$this->_closeCleanVueInstances = $closeCleanVueInstances;
 		// @todo this should be customizable via an option
 		$this->_closeButtonText = __('common.closePanel');
 	}
@@ -79,13 +88,6 @@ class Modal extends LinkActionRequest {
 	}
 
 	/**
-	 * Get the width of the modal.
-	 */
-	function getWidth() {
-		return $this->_width;
-	}
-
-	/**
 	 * Get the text to be displayed on the close button for screen readers
 	 */
 	function getCloseButtonText() {
@@ -111,10 +113,9 @@ class Modal extends LinkActionRequest {
 			'title' => $this->getTitle(),
 			'titleIcon' => $this->getTitleIcon(),
 			'canClose' => ($this->getCanClose() ? '1' : '0'),
-			'width' => $this->getWidth(),
+			'closeOnFormSuccessId' => $this->_closeOnFormSuccessId,
+			'closeCleanVueInstances' => $this->_closeCleanVueInstances,
 			'closeButtonText' => $this->getCloseButtonText(),
 		);
 	}
 }
-
-

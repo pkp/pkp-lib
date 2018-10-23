@@ -132,7 +132,7 @@ class CreateReviewerForm extends ReviewerForm {
 			if ($mail->isEnabled()) {
 				$request = Application::getRequest();
 				$context = $request->getContext();
-				$mail->setReplyTo($context->getSetting('contactEmail'), $context->getSetting('contactName'));
+				$mail->setReplyTo($context->getData('contactEmail'), $context->getData('contactName'));
 				$mail->assignParams(array('username' => $this->getData('username'), 'password' => $password, 'userFullName' => $user->getFullName()));
 				$mail->addRecipient($user->getEmail(), $user->getFullName());
 				if (!$mail->send($request)) {

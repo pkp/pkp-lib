@@ -66,7 +66,6 @@
 	<message key="installer.oaiRepositoryId">Identificador del dipòsit OAI</message>
 	<message key="installer.publicFilesDirError">El directori per als fitxers públics no existeix o no té permís d’escriptura.</message>
 	<message key="installer.releaseNotes">Notes de la versió</message>
-	<message key="installer.securitySettings">Configuració de seguretat</message>
 	<message key="installer.preInstallationInstructionsTitle">Passos previs a la instal·lació</message>
 	<message key="installer.preInstallationInstructions"><![CDATA[
 		<p>1. Els fitxers i directoris següents (i el seu contingut) han de tenir permisos d'escriptura.</p>

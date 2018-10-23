@@ -14,27 +14,19 @@
  * @brief Validation check for email addresses.
  */
 
-import('lib.pkp.classes.validation.ValidatorRegExp');
+import('lib.pkp.classes.validation.Validator');
+import('lib.pkp.classes.validation.ValidatorFactory');
 
-class ValidatorEmail extends ValidatorRegExp {
+class ValidatorEmail extends Validator {
 	/**
-	 * Constructor.
+	 * @copydoc Validator::isValid()
 	 */
-	function __construct() {
-		parent::__construct(ValidatorEmail::getRegexp());
-	}
+	function isValid($value) {
+		$validator = \ValidatorFactory::make(
+			['value' => $value],
+			['value' => 'email_or_localhost']
+		);
 
-
-	//
-	// Public static methods
-	//
-	/**
-	 * Return the regex for an email check.
-	 * @return string
-	 */
-	static function getRegexp() {
-		return '/^' . PCRE_EMAIL_ADDRESS . '$/i';
+		return $validator->passes();
 	}
 }
-
-

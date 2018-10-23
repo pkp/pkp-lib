@@ -51,7 +51,7 @@ class ViewReviewGuidelinesLinkAction extends LinkAction {
 	 * @return string?
 	 */
 	function getGuidelines() {
-		return $this->_context->getLocalizedSetting(
+		return $this->_context->getLocalizedData(
 			$this->_stageId==WORKFLOW_STAGE_ID_EXTERNAL_REVIEW?'reviewGuidelines':'internalReviewGuidelines'
 		);
 	}

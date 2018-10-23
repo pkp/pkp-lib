@@ -15,6 +15,7 @@
 
 namespace PKP\Services;
 
+use \ServicesContainer;
 use \PKP\Services\EntityProperties\PKPBaseEntityPropertyService;
 
 class AuthorService extends PKPBaseEntityPropertyService {
@@ -61,10 +62,10 @@ class AuthorService extends PKPBaseEntityPropertyService {
 				case 'userGroupId':
 					$values[$prop] = $author->getUserGroupId();
 					break;
-				case 'isBrowseable':
+				case 'includeInBrowse':
 					$values[$prop] = (bool) $author->getIncludeInBrowse();
 					break;
-				case 'isPrimaryContact':
+				case 'primaryContact':
 					$values[$prop] = (bool) $author->getPrimaryContact();
 					break;
 				case 'biography':
@@ -78,7 +79,12 @@ class AuthorService extends PKPBaseEntityPropertyService {
 					break;
 			}
 
+			$locales = $args['request']->getContext()->getSupportedLocales();
+			$values = ServicesContainer::instance()->get('schema')->addMissingMultilingualValues(SCHEMA_AUTHOR, $values, $locales);
+
 			\HookRegistry::call('Author::getProperties::values', array(&$values, $author, $props, $args));
+
+			ksort($values);
 		}
 
 		return $values;
@@ -103,7 +109,7 @@ class AuthorService extends PKPBaseEntityPropertyService {
 	public function getFullProperties($author, $args = null) {
 		$props = array (
 			'id','seq','givenName','familyName','fullName','country','email','url','userGroupId',
-			'isBrowseable','isPrimaryContact','affiliation','biography','orcid',
+			'includeInBrowse','primaryContact','affiliation','biography','orcid',
 		);
 
 		\HookRegistry::call('Author::getProperties::fullProperties', array(&$props, $author, $args));

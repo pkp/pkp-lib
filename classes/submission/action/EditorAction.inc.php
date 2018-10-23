@@ -213,11 +213,11 @@ class EditorAction {
 		if ($reviewAssignment->getSubmissionId() == $submission->getId() && !HookRegistry::call('EditorAction::setDueDates', array(&$reviewAssignment, &$reviewer, &$reviewDueDate, &$responseDueDate))) {
 
 			// Set the review due date
-			$defaultNumWeeks = $context->getSetting('numWeeksPerReview');
+			$defaultNumWeeks = $context->getData('numWeeksPerReview');
 			$reviewAssignment->setDateDue($reviewDueDate);
 
 			// Set the response due date
-			$defaultNumWeeks = $context->getSetting('numWeeksPerReponse');
+			$defaultNumWeeks = $context->getData('numWeeksPerReponse');
 			$reviewAssignment->setDateResponseDue($responseDueDate);
 
 			// update the assignment (with both the new dates)

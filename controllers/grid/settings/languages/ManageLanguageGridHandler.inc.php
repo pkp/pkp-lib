@@ -23,7 +23,7 @@ class ManageLanguageGridHandler extends LanguageGridHandler {
 		parent::__construct();
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER),
-			array('saveLanguageSetting', 'setContextPrimaryLocale', 'fetchGrid', 'fetchRow')
+			array('saveLanguageSetting', 'setContextPrimaryLocale', 'reloadLocale', 'fetchGrid', 'fetchRow')
 		);
 	}
 
@@ -76,6 +76,36 @@ class ManageLanguageGridHandler extends LanguageGridHandler {
 		$this->addNameColumn();
 		$this->addPrimaryColumn('contextPrimary');
 		$this->addManagementColumns();
+	}
+
+	/**
+	 * Reload locale.
+	 * @param $args array
+	 * @param $request Request
+	 * @return JSONMessage JSON object
+	 */
+	public function reloadLocale($args, $request) {
+		$context = $request->getContext();
+		$locale = $request->getUserVar('rowId');
+		$gridData = $this->getGridDataElements($request);
+
+		if (empty($context) || !$request->checkCSRF() || !array_key_exists($locale, $gridData)) {
+			return new JSONMessage(false);
+		}
+
+		import('classes.core.ServicesContainer');
+		$context = ServicesContainer::instance()
+			->get('context')
+			->restoreLocaleDefaults($context, $request, $locale);
+
+		$notificationManager = new NotificationManager();
+		$notificationManager->createTrivialNotification(
+			$request->getUser()->getId(),
+			NOTIFICATION_TYPE_SUCCESS,
+			array('contents' => __('notification.localeReloaded', array('locale' => $gridData[$locale]['name'], 'contextName' => $context->getLocalizedName())))
+		);
+
+		return DAO::getDataChangedEvent($locale);
 	}
 }
 

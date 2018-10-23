@@ -26,6 +26,7 @@
 
 
 import('lib.pkp.classes.install.Installer');
+import('classes.core.ServicesContainer');
 
 class PKPInstall extends Installer {
 
@@ -299,10 +300,10 @@ class PKPInstall extends Installer {
 		}
 
 		// Install default site settings
-		$siteSettingsDao = DAORegistry::getDAO('SiteSettingsDAO');
-		$siteSettingsDao->installSettings('registry/siteSettings.xml', array(
-			'contactEmail' => $this->getParam('adminEmail')
-		));
+		$schemaService = ServicesContainer::instance()->get('schema');
+		$site = $schemaService->setDefaults(SCHEMA_SITE, $site, $site->getSupportedLocales(), $site->getPrimaryLocale());
+		$site->setData('contactEmail', $this->getParam('adminEmail'));
+		$siteDao->updateobject($site);
 
 		return true;
 	}

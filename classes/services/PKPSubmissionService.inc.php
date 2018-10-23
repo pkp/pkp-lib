@@ -372,6 +372,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 		$authorService = \ServicesContainer::instance()->get('author');
 		$request = \Application::getRequest();
 		$dispatcher = $request->getDispatcher();
+		$router = $request->getRouter();
 
 		// Retrieve the submission's context for properties that require it
 		if (array_intersect(array('urlAuthorWorkflow', 'urlEditorialWorkflow'), $props)) {
@@ -461,10 +462,10 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 					$values[$prop] = $submission->getDatePublished();
 					break;
 				case 'status':
-					$values[$prop] = array(
-						'id' => (int) $submission->getStatus(),
-						'label' => __($submission->getStatusKey()),
-					);
+					$values[$prop] = (int) $submission->getStatus();
+					break;
+				case 'statusLabel':
+					$values[$prop] = __($submission->getStatusKey());
 					break;
 				case 'submissionProgress':
 					$values[$prop] = (int) $submission->getSubmissionProgress();
@@ -497,7 +498,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 					if (!empty($args['slimRequest'])) {
 						$route = $args['slimRequest']->getAttribute('route');
 						$arguments = $route->getArguments();
-						$values[$prop] = $this->getAPIHref(
+						$values[$prop] = $router->getApiUrl(
 							$args['request'],
 							$arguments['contextPath'],
 							$arguments['version'],
@@ -518,7 +519,11 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 			}
 		}
 
+		$values = ServicesContainer::instance()->get('schema')->addMissingMultilingualValues(SCHEMA_SUBMISSION, $values, $request->getContext()->getSupportedLocales());
+
 		\HookRegistry::call('Submission::getProperties::values', array(&$values, $submission, $props, $args));
+
+		ksort($values);
 
 		return $values;
 	}
@@ -534,7 +539,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 
 		$props = array (
 			'id','title','subtitle','fullTitle','prefix',
-			'abstract','language','pages','datePublished','status',
+			'abstract','language','pages','datePublished','status','statusLabel',
 			'submissionProgress','urlWorkflow','urlPublished','galleysSummary','_href',
 		);
 
@@ -562,7 +567,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 			'id','title','subtitle','fullTitle','prefix','abstract',
 			'discipline','subject','type','language','sponsor','pages',
 			'copyrightYear','licenseUrl','locale','dateSubmitted','dateStatusModified','lastModified','datePublished',
-			'status','submissionProgress','urlWorkflow','urlPublished',
+			'status','statusLabel','submissionProgress','urlWorkflow','urlPublished',
 			'galleys','_href',
 		);
 
@@ -592,8 +597,9 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 		$currentUser = $request->getUser();
 
 		$props = array (
-			'id','fullTitle','status','submissionProgress','stages','reviewRounds','reviewAssignments',
-			'locale', 'urlWorkflow','urlAuthorWorkflow','urlEditorialWorkflow','urlPublished','_href',
+			'id','fullTitle','status','statusLabel','submissionProgress','stages',
+			'reviewRounds','reviewAssignments','locale', 'urlWorkflow',
+			'urlAuthorWorkflow','urlEditorialWorkflow','urlPublished','_href',
 		);
 
 		if ($this->canUserViewAuthor($currentUser, $submission)) {
@@ -682,7 +688,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 	 *    `assocType` int
 	 *    `assocId` int
 	 *    `stageId` int
-	 *    `sequence` int
+	 *    `seq` int
 	 *    `closed` bool
 	 *   }]
 	 *  `statusId` int stage status. note: on review stage, this refers to the
@@ -734,7 +740,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 					'assocType' => (int) $query->getAssocType(),
 					'assocId' => (int) $query->getAssocId(),
 					'stageId' => $stageId,
-					'sequence' => (int) $query->getSequence(),
+					'seq' => (int) $query->getSequence(),
 					'closed' => (bool) $query->getIsClosed(),
 				);
 			}

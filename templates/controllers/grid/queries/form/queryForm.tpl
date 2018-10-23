@@ -36,7 +36,7 @@
 				{assign var="uuid" value=""|uniqid|escape}
 				<div id="queryParticipants-{$uuid}">
 					<script type="text/javascript">
-						pkp.registry.init('queryParticipants-{$uuid}', 'SelectListPanel', {$queryParticipantsListData});
+						pkp.registry.init('queryParticipants-{$uuid}', 'SelectListPanel', {$queryParticipantsListData|json_encode});
 					</script>
 				</div>
 			{/fbvFormSection}

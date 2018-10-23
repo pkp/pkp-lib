@@ -213,27 +213,23 @@
 	<message key="manager.statistics.reports.filters.byLocation.description">ضيِّق النتائج حسب الدولة، المنطقة و/أو المدينة.</message>
 	<message key="manager.affiliationAndSupport">الراعي</message>
 	<message key="manager.setup.additionalContent">المحتوى الإضافي</message>
-	<message key="manager.setup.additionalContentDescription">أي شيء تكتبه هنا سيظهر في صفحتك الرئيسية.</message>
-	<message key="manager.setup.authorCopyrightNotice">بيان الحقوق الفكرية</message>
-	<message key="manager.setup.authorCopyrightNoticeAgree">يتطلب من المؤلفين الموافقة على بيان الحقوق الفكرية كجزء من عملية التقديم.</message>
+	<message key="manager.setup.additionalContent.description">أي شيء تكتبه هنا سيظهر في صفحتك الرئيسية.</message>
+	<message key="manager.setup.copyrightNotice">بيان الحقوق الفكرية</message>
+	<message key="manager.setup.copyrightNotice.description">يتطلب من المؤلفين الموافقة على بيان الحقوق الفكرية كجزء من عملية التقديم.</message>
 	<message key="manager.setup.authorGuidelines">إرشادات المؤلف</message>
 	<message key="manager.setup.authorGuidelines.description">الإرشادات الموصى بها تتضمن المعايير القياسية للسيرة والتنسيق جنباً إلى جنب مع أمثلة لتنسيقات شائعة من الاقتباسات التي بالإمكان استعمالها في المؤلفات.</message>
 	<message key="manager.setup.competingInterests">المصالح المتضاربة</message>
-	<message key="manager.setup.competingInterestsDescription">ستتم مطالبة المحكمين بالإذعان لسياسة الكشف عن المصالح المتضاربة التي تحددها أدناه.</message>
 	<message key="manager.setup.errorDeletingItem">حدث خطأ ما عند حذف هذه الفقرة.</message>
-	<message key="manager.setup.favicon">صيغة الصورة المصغرة خاطئة. الصيغ المدعومة هي: .ico, .png, and .gif.</message>
+	<message key="manager.setup.favicon">الصورة المصغرة</message>
 	<message key="manager.setup.groupType">التجميع حسب نوع الملف</message>
-	<message key="manager.setup.homeHeaderImageInvalid">صيغة ملف شعار رأس الصفحة الرئيسية غير صحيحة أو فشل تحميلها. الصيغ المدعومة هي: .gif، .jpg، أو .png.</message>
 	<message key="manager.setup.homepageImage">الصفحة الرئيسية</message>
-	<message key="manager.setup.homepageImageDescription">إرفع صورة لإظهارها في الصفحة الرئيسية.</message>
+	<message key="manager.setup.homepageImage.description">إرفع صورة لإظهارها في الصفحة الرئيسية.</message>
 	<message key="manager.setup.homepageImageInvalid">صيغة ملف صورة الصفحة الرئيسية غير صحيحة أو فشل تحميلها. الصيغ المدعومة هي: .gif، .jpg، أو .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">صيغة ملف صورة عنوان رأس الصفحة الرئيسية غير صحيحة أو فشل تحميلها. الصيغ المدعومة هي: .gif، .jpg، أو .png.</message>
 	<message key="manager.setup.information.descriptionTitle">الأوصاف</message>
-	<message key="manager.setup.layout.theme">النمط</message>
-	<message key="manager.setup.layout.themeDescription">يمكن تنصيب الأنماط الجديدة عبر باب الإضافة المتوضع في أعلى هذه الصفحة.</message>
-	<message key="manager.setup.layout.blockManagement">إدارة الشريط الجانبي</message>
+	<message key="manager.setup.theme">النمط</message>
+	<message key="manager.setup.theme.description">يمكن تنصيب الأنماط الجديدة عبر باب الإضافة المتوضع في أعلى هذه الصفحة.</message>
 	<message key="manager.setup.layout.sidebar">الشريط الجانبي</message>
-	<message key="manager.setup.layout.unselected">غير محددة</message>
 	<message key="manager.setup.loggingAndAuditing">تسجيل الوقائع والمراجعة</message>
 	<message key="manager.setup.logo">الصورة المصغرة</message>
 	<message key="manager.setup.notifications">إشعار تقديم المؤلف لطلب نشر</message>
@@ -243,7 +239,7 @@
 	<message key="manager.setup.openAccessPolicy.description">إذا كان مسموحاً بالوصول المفتوح المباشر إلى كل المحتوى المنشور، فبإمكانك إدخال وصف عن سياسة الوصول المفتوح التي تعمل بها.</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">صيغة ملف شعار رأس الصفحة غير صحيحة أو فشل تحميلها. الصيغ المدعومة هي: .gif، .jpg، أو .png.</message>
 	<message key="manager.setup.pageFooter">نهاية الصفحة</message>
-	<message key="manager.setup.pageFooterDescription">أدخل أي صورة، نص، أو ترميز HTML ترغب أن يظهر عند الطرف الأسفل لموقعك.</message>
+	<message key="manager.setup.pageFooter.description">أدخل أي صورة، نص، أو ترميز HTML ترغب أن يظهر عند الطرف الأسفل لموقعك.</message>
 	<message key="manager.setup.peerReview.description">لخص سياسة التحكيم المناظر وإجراءاتها للقراء والمؤلفين. هذا الوصف عادة ما يتضمن الإشارة إلى عدد المحكمين الذين تتم الاستعانة بهم إعتيادياً لتحكيم مؤلَّف ما وتعريف بالمعايير الذي يُطلب منهم اتباعها عند التحكيم، والفترة المتوقع أن تستغرقها عملية اتخاذ القرار بشأنه، والمبادئ التي يتم على ضوئها انتخاب هؤلاء المحكمين.</message>
 	<message key="manager.setup.principalContact">عنوان الاتصال الرئيسي</message>
 	<message key="manager.setup.principalContactDescription">أدخل تفاصيل العنوان التي عادة ما تكون لعضو أساسي في هيئة التحرير أو لرئيس التحرير أو لصاحب منصب إداري رئيسي، إذ أن هذا العنوان سيظهر علانية على موقعك.</message>
@@ -253,12 +249,9 @@
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">الأسابيع المسموح بها لإكمال مهمة التحكيم</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">لا تذكرني مطلقاً</message>
 	<message key="manager.setup.reviewOptions.noteOnModification">الإعدادات الإفتراضية بالإمكان تعديلها لكل مهمة تحكيم خلال مرحلة التحرير.</message>
-	<message key="manager.setup.reviewOptions.remindForInvite">أرسل تذكيراً إذا تأخر المحكم في الاستجابة لطلب التحكيم بعد مرور فترة (بالأيام) تتجاوز الموعد المحدد:</message>
-	<message key="manager.setup.reviewOptions.remindForSubmit">أرسل تذكيراً إذا لم يرسل المحكم توصيته بعد مرور فترة (بالأيام) من انقضاء فترة التحكيم:</message>
+	<message key="manager.setup.reviewOptions.reminders.response.description">أرسل تذكيراً إذا تأخر المحكم في الاستجابة لطلب التحكيم بعد مرور فترة (بالأيام) تتجاوز الموعد المحدد:</message>
+	<message key="manager.setup.reviewOptions.reminders.submit.description">أرسل تذكيراً إذا لم يرسل المحكم توصيته بعد مرور فترة (بالأيام) من انقضاء فترة التحكيم:</message>
 	<message key="manager.setup.reviewOptions.reviewTime">المواعيد النهائية للتحكيم إفتراضياً</message>
-	<message key="manager.setup.reviewOptions.showBlindReviewLink">أضف رابطاً عن "ضمان التحكيم السري" خلال رفع الملفات</message>
-	<message key="manager.setup.searchEngineIndexing.sitemap">خريطة الموقع</message>
-	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[تتوفر نسخة من خريطة الموقع بصيغة XML صالحة للتقديم إلى محركات البحث، عند <a href="{$path}" target="_blank">{$path}</a>]]></message>
 	<message key="manager.setup.sponsors.note">وصف علاقة الجهة الراعية وسياستها</message>
 	<message key="manager.setup.sponsors.description">أمثلة: الرابطات الطلابية، أقسام الجامعات، جهات متعاونة... وما شابه. يتم عرض هذه الجهات علانية في الموقع.</message>
 	<message key="manager.setup.styleSheetDescription">مطورو مواقع الإنترنت ذوو الخبرة بإمكانهم رفع ملف أنماط بصيغة CSS لمزيد من التحكم بمظهر الموقع.</message>
@@ -366,7 +359,6 @@
 	<message key="manager.paymentMethod.none">لم يتم اختيار طريقة الدفع</message>
 	<message key="manager.paymentMethod.method">طريقة الدفع</message>
 	<message key="manager.paymentMethod.currency">العملة</message>
-	<message key="manager.paymentMethod.currency.description">المدفوعات الحادثة مباشرة عبر هذا الموقع ستعتبر بالعملة المنتخبة.</message>
 
 	<!-- Roles grid settings -->
 	<message key="settings.roles.roleOptions">خيارات الدور</message>

@@ -44,15 +44,9 @@
 	<message key="admin.serverInformation">Informazioni sul Server</message>
 	<message key="admin.server.phpVersion">Versione di PHP</message>
 	<message key="admin.server.platform">Sistema operativo</message>
-	<message key="admin.settings.aboutDescription">Descrizione del sito</message>
+	<message key="admin.settings.about">Descrizione del sito</message>
 	<message key="admin.settings.contactEmail">Email del contatto principale</message>
 	<message key="admin.settings.contactName">Nome del contatto principale</message>
-	<message key="admin.settings.form.contactEmailRequired">È richiesto l'indirizzo e-mail del contatto principale.</message>
-	<message key="admin.settings.form.contactNameRequired">È richiesto il nome del contatto principale.</message>
-	<message key="admin.settings.form.minPasswordLengthRequired">Devi inserire una password composta almeno da 4 caratteri.</message>
-	<message key="admin.settings.form.titleRequired">È necessario inserire un titolo.</message>
-	<message key="admin.settings.homeHeaderImage.altText">Logo del sito</message>
-	<message key="admin.settings.homeHeaderImageInvalid">Formato dell'immagine del logo del sito non valido. I formati accettati sono .gif, .jpg, o .png.</message>
 	<message key="admin.settings.introduction">Introduzione</message>
 	<message key="admin.settings.minPasswordLength">Lunghezza minima delle password</message>
 	<message key="admin.settings.siteLanguage">Lingua del sito</message>

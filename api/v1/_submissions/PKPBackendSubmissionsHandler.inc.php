@@ -187,7 +187,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 		$submission = $submissionDao->getById($submissionId);
 
 		if (!$submission) {
-			return $response->withStatus(404)->withJsonError('api.submissions.404.resourceNotFound');
+			return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
 		}
 
 		if ($context->getId() != $submission->getContextId()) {

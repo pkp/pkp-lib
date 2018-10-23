@@ -15,7 +15,6 @@
  */
 
 import('lib.pkp.classes.filter.Filter');
-import('lib.pkp.classes.validation.ValidatorDate');
 
 class DateStringNormalizerFilter extends Filter {
 	/**

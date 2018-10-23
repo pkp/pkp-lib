@@ -139,10 +139,8 @@
 	<message key="manager.plugins">System-plug-ins</message>
 	<message key="manager.readingTools">Læseværktøjer</message>
 	<message key="manager.roles">Roller</message>
-	<message key="manager.setup.homeHeaderImageInvalid">Ugyldigt billedformat til logoet i sidehovedet på hjemmeside. De accepterede formater er .jpg eller .png.</message>
 	<message key="manager.setup.homepageImageInvalid">Ugyldigt billedformat til hjemmeside. De accepterede formater er .jpg eller .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Ugyldigt billedformat til titlen i sidehovedet på hjemmeside. De accepterede formater er .jpg eller .png.</message>
-	<message key="manager.setup.layout.unselected">Ikke markeret</message>
 	<message key="manager.setup.loggingAndAuditing">Logføring og kontrol</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Ugyldigt billedformat til logoet i sidehovedet på side. De accepterede formater er .jpg eller .png.</message>
 	<message key="manager.statistics">Statistikker og rapporter</message>
@@ -177,7 +175,6 @@
 	<message key="manager.emails.reset.message">Hvis du nulstiller denne skabelon, vil alle data blive erstattet af standardinstillingerne, og evt. tilretninger vil gå tabt. Vil du bekræfte denne handling?</message>
 	<message key="manager.reviewerSearch.searchByName.short">Søg efter navn</message>
 	<message key="manager.reviewerSearch.form.instructions">Brug nedenstående felt til at angive det maksimale antal ord, du ønsker at søge efter. Feltet er forudindstillet til at beregne et gennemsnit for formularens felter.</message>
-	<message key="manager.setup.layout.blockManagement">Sidemenu-administration</message>
 	<message key="plugins.categories.metadata">Metadata plug-ins</message>
 	<message key="plugins.categories.metadata.description">Metadata plug-ins implementerer ekstra metadata-standarder.</message>
 	<message key="plugins.categories.oaiMetadataFormats">OAI Metadata Format Plug-ins</message>
@@ -209,15 +206,15 @@
 	<message key="manager.website.information">Information</message>
 	<message key="manager.setup.logo">Logo</message>
 	<message key="manager.setup.pageFooter">Sidefod</message>
-	<message key="manager.setup.layout.theme">Layout-tema</message>
-	<message key="manager.setup.layout.themeDescription">Nye layout-temaer kan installeres via linket 'Plug-ins' øverst på siden</message>
-	<message key="manager.setup.pageFooterDescription">Indsæt de billeder, den tekst eller HTML-kode, som ønskes placeret nederst på websitet</message>
+	<message key="manager.setup.theme">Layout-tema</message>
+	<message key="manager.setup.theme.description">Nye layout-temaer kan installeres via linket 'Plug-ins' øverst på siden</message>
+	<message key="manager.setup.pageFooter.description">Indsæt de billeder, den tekst eller HTML-kode, som ønskes placeret nederst på websitet</message>
 	<message key="manager.setup.styleSheetDescription">For yderligere at tilpasse websitets layout efter egne ønsker, kan erfarne webudviklere uploade en CSS-fil.</message>
 	<message key="manager.setup.homepageImage">Billede på hjemmeside</message>
-	<message key="manager.setup.homepageImageDescription">Upload et billede, der placeres på et fremtrædende sted på hjemmesiden.</message>
-	<message key="manager.setup.favicon">Ugyldigt favicon-format. Følgende formater accepteres: .ico og .png.</message>
+	<message key="manager.setup.homepageImage.description">Upload et billede, der placeres på et fremtrædende sted på hjemmesiden.</message>
+	<message key="manager.setup.favicon">Favicon</message>
 	<message key="manager.setup.additionalContent">Yderligere indhold</message>
-	<message key="manager.setup.additionalContentDescription">Alt indhold vil blive vist på hjemmesiden.</message>
+	<message key="manager.setup.additionalContent.description">Alt indhold vil blive vist på hjemmesiden.</message>
 	<message key="manager.workflow.title">Workflow-indstillinger</message>
 	<message key="manager.publication.submissionStage">Indsendelse</message>
 	<message key="manager.publication.reviewStage">Bedømmelse</message>
@@ -234,11 +231,9 @@
 	<message key="manager.setup.metadata.submission">Indsendelsesformular</message>
 	<message key="manager.setup.reviewOptions.noteOnModification">Kan ændres under den redaktionelle proces.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Antal uger inden en accept eller et afslag skal foreligge</message>
-	<message key="manager.setup.reviewOptions.remindForInvite">Send en påmindelse, hvis bedømmeren ikke har svaret på anmodningen inden for følgende tid (dage) efter forfaldsdato:</message>
+	<message key="manager.setup.reviewOptions.reminders.response.description">Send en påmindelse, hvis bedømmeren ikke har svaret på anmodningen inden for følgende tid (dage) efter forfaldsdato:</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Send aldrig rykker</message>
-	<message key="manager.setup.reviewOptions.showBlindReviewLink">Indsæt link til "Sikring af blind review" under uploadproces</message>
 	<message key="manager.setup.competingInterests">Konkurrerende interesser</message>
-	<message key="manager.setup.competingInterestsDescription">Bedømmerne vil blive bedt om at respektere nedenstående erklæring om konkurrerende interesser.</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Bedømmelsestidsfrister</message>
 	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Erklæring om konkurrerende interesser</message>
 	<message key="manager.setup.competingInterests.required">Anmod om en erklæring om konkurrerende interesser under bedømmelsesprocessen.</message>
@@ -250,18 +245,17 @@
 	<message key="manager.distribution.indexing">Indeksering</message>
 	<message key="manager.paymentMethod">Betaling</message>
 	<message key="manager.paymentMethod.currency">Valuta</message>
-	<message key="manager.paymentMethod.currency.description">Betalinger foretaget via dette website vil blive angivet i den valgte valuta.</message>
 	<message key="manager.paymentMethod.method">Betalingsmåde</message>
 	<message key="manager.paymentMethod.none">Ingen betalingsmåde valgt</message>
-	<message key="manager.setup.authorCopyrightNotice">Oplysninger om ophavsret</message>
-	<message key="manager.setup.authorCopyrightNoticeAgree">Kræv, at forfattere accepterer "Oplysninger om ophavsret" som en del af indsendelsesprocessen.</message>
+	<message key="manager.setup.copyrightNotice">Oplysninger om ophavsret</message>
+	<message key="manager.setup.copyrightNotice.description">Kræv, at forfattere accepterer "Oplysninger om ophavsret" som en del af indsendelsesprocessen.</message>
 	<message key="manager.setup.licenseURLDescription">Indsæt URL fra licenswebside, hvis den er tilgængelig.</message>
 	<message key="settings.roles.roleName">Titel</message>
 	<message key="settings.roles.roleAbbrev">Forkortelse</message>
 	<message key="manager.statistics.reports">Rapportgenerator</message>
 	<message key="manager.statistics.reports.description">Systemet genererer rapporter, som registrerer de oplysninger, der er forbundet med brugen af webstedet og indsendelser over en given tidsperiode. Der genereres rapporter i CSV-format, og der kræves et regnearksprogram  for at få vist disse rapporter.</message>
 	<message key="manager.statistics.reports.generateReport">Generér brugerdefineret rapport</message>
-	<message key="manager.setup.reviewOptions.remindForSubmit">Send en påmindelse, hvis bedømmeren ikke har sendt en indstilling inden for følgende tid (dage) efter forfaldsdato:</message>
+	<message key="manager.setup.reviewOptions.reminders.submit.description">Send en påmindelse, hvis bedømmeren ikke har sendt en indstilling inden for følgende tid (dage) efter forfaldsdato:</message>
 	<message key="manager.userSearch.searchByName">Søg bruger via navn</message>
 	<message key="manager.reviewerSearch.change">Skift</message>
 	<message key="manager.setup.information.descriptionTitle">Beskrivelser</message>
@@ -495,8 +489,6 @@
 	<message key="manager.navigationMenus.loggedIn.conditionalWarning">Dette link vil kun blive vist, når den besøgende ikke er logget ind.</message>
 	<message key="manager.navigationMenus.contact.description">Link til side, der indeholder oplysninger om kontaktperson.</message>
 	<message key="manager.navigationMenus.contact.conditionalWarning"><![CDATA[Dette link vil kun blive vist, hvis du har udfyldt informationsfelterne på siden Kontaktperson under Indstillinger > Tidsskrift > Kontaktperson]]></message>
-	<message key="manager.setup.searchEngineIndexing.sitemap">Sitemap</message>
-	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[Et XML-sitemap er tilgængelig til indsendelse til søgemaskiner på <a href="{$path}" target="_blank">{$path}</a>]]></message>
 	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>Denne biblioteksfil kan være tilgængelig til download, hvis "Offentlig adgang" er aktiveret, på: <blockquote>{$downloadUrl}</blockquote></p>]]></message>
 	<message key="settings.libraryFiles.public.selectLibraryFiles">Vælg biblioteksfiler, der skal vedhæftes</message>
 	<message key="manager.setup.genres.key">Nøgle</message>
@@ -508,7 +500,7 @@
 	<message key="manager.navigationMenus.subscriptions.conditionalWarning"><![CDATA[Dette link vises kun, hvis betalinger er aktiveret under Indstillinger> Distribuering> Betaling.]]></message>
 	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning"><![CDATA[Dette link vises kun, hvis den besøgende er logget ind, betalinger er aktiveret under Indstillinger> Distribuering> Betalinger, og abonnementer kræves under Indstillinger> Distribution> Adgang.]]></message>
 	<message key="manager.navigationMenus.search.description">Link til søgeside.</message>
-	<message key="manager.setup.privacyStatement.description">Denne erklæring vises under brugerregistrering, manuskriptindsendelse og på den offentligt tilgængelige privacy-sider om beskyttelse af personlige oplysninger. 
+	<message key="manager.setup.privacyStatement.description">Denne erklæring vises under brugerregistrering, manuskriptindsendelse og på den offentligt tilgængelige privacy-sider om beskyttelse af personlige oplysninger.
 I nogle retskredse er du forpligtet til at oplyse, hvordan du håndterer brugerdata i din datapolitik.</message>
 	<message key="manager.navigationMenus.privacyStatement.description">Link til den side, der viser din erklæring om beskyttelse af personlige oplysninger</message>
 	<message key="manager.navigationMenus.privacyStatement.conditionalWarning"><![CDATA[Dette link vil kun blive vist, hvis du har indsat en erklæring om beskyttelse af personlige oplysninger under Indstillinger > Workflow > Indsendelser]]></message>

@@ -28,13 +28,13 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		$supportedSubmissionLocales = $context->getSupportedSubmissionLocales();
 		if (!is_array($supportedSubmissionLocales) || count($supportedSubmissionLocales) < 1) $supportedSubmissionLocales = array($context->getPrimaryLocale());
 		$this->addCheck(new FormValidatorInSet($this, 'locale', 'required', 'submission.submit.form.localeRequired', $supportedSubmissionLocales));
-		if ((boolean) $context->getSetting('copyrightNoticeAgree')) {
+		if ((boolean) $context->getData('copyrightNotice')) {
 			$this->addCheck(new FormValidator($this, 'copyrightNoticeAgree', 'required', 'submission.submit.copyrightNoticeAgreeRequired'));
 		}
 		$this->addCheck(new FormValidator($this, 'userGroupId', 'required', 'submission.submit.availableUserGroupsDescription'));
 		$this->addCheck(new FormValidator($this, 'privacyConsent', 'required', 'user.profile.form.privacyConsentRequired'));
 
-		foreach ((array) $context->getLocalizedSetting('submissionChecklist') as $key => $checklistItem) {
+		foreach ((array) $context->getLocalizedData('submissionChecklist') as $key => $checklistItem) {
 			$this->addCheck(new FormValidator($this, "checklist-$key", 'required', 'submission.submit.checklistErrors'));
 		}
 	}
@@ -78,8 +78,8 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		);
 
 		// if this context has a copyright notice that the author must agree to, present the form items.
-		if ((boolean) $this->context->getSetting('copyrightNoticeAgree')) {
-			$templateMgr->assign('copyrightNotice', $this->context->getLocalizedSetting('copyrightNotice'));
+		if ((boolean) $this->context->getData('copyrightNotice')) {
+			$templateMgr->assign('copyrightNotice', $this->context->getLocalizedData('copyrightNotice'));
 			$templateMgr->assign('copyrightNoticeAgree', true);
 		}
 
@@ -179,7 +179,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		$vars = array(
 			'userGroupId', 'locale', 'copyrightNoticeAgree', 'commentsToEditor','privacyConsent'
 		);
-		foreach ((array) $this->context->getLocalizedSetting('submissionChecklist') as $key => $checklistItem) {
+		foreach ((array) $this->context->getLocalizedData('submissionChecklist') as $key => $checklistItem) {
 			$vars[] = "checklist-$key";
 		}
 
@@ -296,7 +296,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			$this->submission->stampStatusModified();
 			$this->submission->setSubmissionProgress($this->step + 1);
 			$this->submission->setStageId(WORKFLOW_STAGE_ID_SUBMISSION);
-			$this->submission->setCopyrightNotice($this->context->getLocalizedSetting('copyrightNotice'), $this->getData('locale'));
+			$this->submission->setCopyrightNotice($this->context->getLocalizedData('copyrightNotice'), $this->getData('locale'));
 			// Insert the submission
 			$this->submissionId = $submissionDao->insertObject($this->submission);
 

@@ -22,12 +22,6 @@
 
 class Validator {
 	/**
-	 * Constructor.
-	 */
-	function __construct() {
-	}
-
-	/**
 	 * Check whether the given value is valid.
 	 * @param $value mixed the value to be checked
 	 * @return boolean

@@ -56,7 +56,6 @@
 	<message key="common.titleSmallWords">da um o e um ou nem mas é se então senão quando na de por sobre para em fora sobre ao dentro com</message>
 	<message key="common.alreadyAssigned">Já designado</message>
 	<message key="common.altText">Texto alternativo</message>
-	<message key="common.altTextInstructions">Informe um texto alternativo para a imagem, assegurando acessibilidade a usuários com navegadores de texto ou equipamentos de auxílio a necessidades especiais.</message>
 	<message key="common.and">e</message>
 	<message key="common.applyAction">Aplicar ação</message>
 	<message key="common.assign">Designar</message>
@@ -158,7 +157,6 @@
 	<message key="common.initiate">Iniciar</message>
 	<message key="common.inProgress">Em andamento</message>
 	<message key="common.itemsPerPage">Itens por página</message>
-	<message key="common.favicon.altText">Favicon</message>
 	<message key="common.keywords">Palavras-chave</message>
 	<message key="common.language">Idioma</message>
 	<message key="common.languages">Idiomas</message>
@@ -190,12 +188,13 @@
 	<message key="common.ok">ok</message>
 	<message key="common.options">Opções</message>
 	<message key="common.order">Ordem</message>
+	<message key="common.orderUp">Aumentar posição de {$itemTitle}</message>
+	<message key="common.orderDown">Diminuir posição de {$itemTitle}</message>
 	<message key="common.originalFileName">Nome original do documento</message>
 	<message key="common.or">ou</message>
 	<message key="common.other">Outro</message>
 	<message key="common.overdue">Atrasado</message>
 	<message key="common.pageNumber">Página {$pageNumber}</message>
-	<message key="common.pageHeaderLogo.altText">Logo do cabeçalho da página</message>
 	<message key="common.percentage">{$percentage}%</message>
 	<message key="common.plugin">Plugin</message>
 	<message key="common.pluginEnabled">O Plugin "{$pluginName}" foi habilitado.</message>
@@ -250,12 +249,8 @@
 	<message key="common.untitled">Sem título</message>
 	<message key="common.updated">Atualizado</message>
 	<message key="common.uploadedDate">Data de envio</message>
-	<message key="common.uploadedFile">Arquivo enviado</message>
 	<message key="common.upload">Transferir</message>
 	<message key="common.uploadFailed">Não foi possível enviar o arquivo. Por favor, tente novamente ou entre em contato com o administrador se o problema persistir.</message>
-	<message key="common.fileUpload.maxFileSizeStatus"><![CDATA[Este servidor permite uma envio de arquivo de no máximo {$fileSize}.  Caso necessário, entre em contato com <a href="mailto:{$supportEmail}">{$supportName}</a> para auxílio.]]></message>
-	<message key="common.invalidFileType">Nenhum arquivo enviado ou tipo de arquivo inválido!</message>
-	<message key="common.homepageImage.altText">Imagem da Homepage</message>
 	<message key="common.up">Acima/Subir</message>
 	<message key="common.upload.addFile">Enviar arquivo</message>
 	<message key="common.upload.changeFile">Alterar arquivo</message>
@@ -538,7 +533,6 @@
 	<message key="common.captcha.error.missing-input-secret">A validação captcha não está configurada corretamente. Está faltando a chave secreta. Contate o administrador.</message>
 	<message key="common.captcha.error.invalid-input-secret">A configuração do captcha deste site não está configurada corretamente. A chave secreta é inválida.</message>
 	<message key="common.downloadPdf">Baixar PDF</message>
-	<message key="form.csrfInvalid">O formulário não foi enviado corretamente.</message>
 	<message key="informationCenter.addNote">Adicionar Nota</message>
 	<message key="navigation.skip.main">Ir para o conteúdo principal</message>
 	<message key="navigation.skip.nav">Ir para o menu de navegação principal</message>

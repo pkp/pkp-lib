@@ -17,13 +17,6 @@ import('lib.pkp.classes.plugins.LazyLoadPlugin');
 
 abstract class PaymethodPlugin extends LazyLoadPlugin {
 	/**
-	 * Get the settings form for this plugin.
-	 * @param $context Context
-	 * @return Form
-	 */
-	abstract function getSettingsForm($context);
-
-	/**
 	 * Get the payment form for this plugin.
 	 * @param $context Context
 	 * @param $queuedPayment QueuedPayment
@@ -38,6 +31,18 @@ abstract class PaymethodPlugin extends LazyLoadPlugin {
 	 */
 	function isConfigured($context) {
 		return true;
+	}
+
+	/**
+	 * Save settings for this payment method
+	 *
+	 * @param $params array Params that have already been
+	 * @param $slimRequest Request Slim request object
+	 * @param $request Request
+	 * @return array List of errors
+	 */
+	public function saveSettings($params, $slimRequest, $request) {
+		assert(false); // implement in child classes
 	}
 }
 

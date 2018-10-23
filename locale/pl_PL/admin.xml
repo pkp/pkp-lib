@@ -44,15 +44,9 @@
 	<message key="admin.serverInformation">Informacje dotyczące serwera</message>
 	<message key="admin.server.phpVersion">Wersja PHP</message>
 	<message key="admin.server.platform">System operacyjny</message>
-	<message key="admin.settings.aboutDescription">Opis strony</message>
+	<message key="admin.settings.about">Opis strony</message>
 	<message key="admin.settings.contactEmail">Adres e-mail głównego administratora</message>
 	<message key="admin.settings.contactName">Nazwa głównego administratora</message>
-	<message key="admin.settings.form.contactEmailRequired">Adres e-mail głównego administratora jest wymagany.</message>
-	<message key="admin.settings.form.contactNameRequired">Nazwa głównego administratora jest wymagana.</message>
-	<message key="admin.settings.form.minPasswordLengthRequired">Musisz podać hasło o długości co najmniej 4 znaków.</message>
-	<message key="admin.settings.form.titleRequired">Tytuł jest wymagany.</message>
-	<message key="admin.settings.homeHeaderImage.altText">Logo strony</message>
-	<message key="admin.settings.homeHeaderImageInvalid">Niepoprawny format pliku. Akceptowane formaty to GIF, JPG, lub PNG.</message>
 	<message key="admin.settings.introduction">Wprowadzenie</message>
 	<message key="admin.settings.minPasswordLength">Minimalna długość hasła</message>
 	<message key="admin.settings.siteLanguage">Język strony</message>

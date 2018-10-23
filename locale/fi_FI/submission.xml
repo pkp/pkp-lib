@@ -562,8 +562,6 @@
 	<message key="submission.list.filesPrepared">Tiedostot valmistettu</message>
 	<message key="submission.list.discussions">Avoimet keskustelut</message>
 	<message key="submission.list.incompleteSubmissionNotice">Käsikirjoituksen lähetys pitää viimeistellä ennen kuin toimittaja tarkistaa sen.</message>
-	<message key="submission.list.itemOrdererDown">Siirrä {$itemTitle} alas</message>
-	<message key="submission.list.itemOrdererUp">Siirrä {$itemTitle} ylös</message>
 	<message key="submission.list.confirmDelete">Poista käsikirjoitus?</message>
 	<message key="submission.list.viewSubmission">Katso käsikirjoitusta</message>
 	<message key="submission.list.itemsOfTotal">{$count} / {$total} käsikirjoitusta</message>
@@ -607,7 +605,6 @@
 	<message key="submission.submit.form.subjectsRequired">Anna aihe</message>
 	<message key="submission.submit.form.disciplinesRequired">Anna tieteenala</message>
 	<message key="submission.submit.form.keywordsRequired">Anna avainsana</message>
-	<message key="submission.submit.form.agenciesRequired">Anna kannattajajärjestö</message>
 	<message key="submission.submit.form.coverageRequired">Anna kattavuustiedot</message>
 	<message key="submission.submit.form.typeRequired">Anna tyyppi</message>
 	<message key="submission.submit.form.sourceRequired">Anna lähde</message>

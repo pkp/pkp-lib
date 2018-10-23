@@ -31,7 +31,7 @@ Aquesta eina només copiarà els fitxers que no es trobin al fitxer d'estats d'�
 
 Ús: {$scriptName} path/to/apache/log/file.log
 Ús (proessa tots els fitxers a un directori d'arxiu): {$scriptName} path/to/apache/directory
-Ús (processa tots els fitxers a un directori de fitxers que comença amb la cadena anterior): {$scriptName} path/to/apache/directory starts_with_string 
+Ús (processa tots els fitxers a un directori de fitxers que comença amb la cadena anterior): {$scriptName} path/to/apache/directory starts_with_string
 	</message>
 	<message key="admin.copyAccessLogFileTool.error.creatingFolder">Hi ha hagut un error: no s'ha pogut crear un directori temporal a {$tmpDir}</message>
 	<message key="admin.copyAccessLogFileTool.error.acessingFile">Hi ha hagut un error: No s'ha pogut accedir al fitxer {$filePath} o no existeix.</message>
@@ -77,19 +77,13 @@ Aquesta eina només copiarà els fitxers que no es trobin al fitxer d'estats d'�
 	<message key="admin.server.phpVersion">Versió de PHP</message>
 	<message key="admin.server.platform">Plataforma del SO</message>
 	<message key="admin.settings">Configuració</message>
-	<message key="admin.settings.aboutDescription">Quant a la descripció del lloc</message>
+	<message key="admin.settings.about">Quant a la descripció del lloc</message>
 	<message key="admin.settings.contactEmail">Adreça electrònica del contacte principal</message>
 	<message key="admin.settings.contactName">Nom del contacte principal</message>
-	<message key="admin.settings.form.contactEmailRequired">Heu d’introduir l’adreça electrònica del contacte principal.</message>
-	<message key="admin.settings.form.contactNameRequired">Heu d’introduir el nom del contacte principal.</message>
-	<message key="admin.settings.form.minPasswordLengthRequired">Heu d’introduir una contrasenya de quatre caràcters com a mínim.</message>
-	<message key="admin.settings.form.titleRequired">Cal que introduïu un títol.</message>
 	<message key="admin.settings.defaultMetricDescription">
 		La instal·lació està configurada per enregistrar més d'una analítica web. Les estadístiques d'ús es mostraran en diversos contextos.
 		Hi ha casos en què s'ha d'utilitzar una estadística d'ús, p.ex. per mostrar una llista ordenada de les trameses més emprades o bé per ordenar els resultats d'una cerca. Seleccioneu una de les analítiques configurades com a analítica per defecte.
 	</message>
-	<message key="admin.settings.homeHeaderImage.altText">Logotip del lloc</message>
-	<message key="admin.settings.homeHeaderImageInvalid">El format de la imatge utilitzada com a logotip al lloc web no és vàlid. Els formats acceptats són .gif, .jpg i .png.</message>
 	<message key="admin.settings.introduction">Introducció</message>
 	<message key="admin.settings.minPasswordLength">Longitud mínima de la contrasenya</message>
 	<message key="admin.settings.passwordCharacters">caràcters</message>
@@ -129,7 +123,7 @@ Aquesta eina només copiarà els fitxers que no es trobin al fitxer d'estats d'�
 Aquesta eina només copiarà els fitxers que no es trobin al fitxer d'estats d'ús\n als directoris de càrrega (fase, processament, arxivar i rebutjar).
 
 Ús: {$scriptName} path/to/apache/log/file.log
-Ús (s'estan processant tots els fitxers a un directori de fitxer): {$scriptName} path/to/apache/directory 
+Ús (s'estan processant tots els fitxers a un directori de fitxer): {$scriptName} path/to/apache/directory
 	</message>
 	<message key="admin.copyAccessLogFileTool.error.creatingFolder">Hi ha hagut un error: no s'ha pogut crear un directori temporal a {$tmpDir}</message>
 	<message key="admin.copyAccessLogFileTool.error.acessingFile">Hi ha hagut un error: el fitxer {$filePath} no existeix o bé no s'hi pot accedir.</message>

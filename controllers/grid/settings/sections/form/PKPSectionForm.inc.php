@@ -107,8 +107,8 @@ class PKPSectionForm extends Form {
 	 * @return array
 	 */
 	public function _getSubEditorsListPanelData($contextId, $request) {
-		import('lib.pkp.controllers.list.users.SelectUserListHandler');
-		$data = new SelectUserListHandler(array(
+		import('lib.pkp.components.listPanels.users.SelectUserListPanel');
+		$data = new SelectUserListPanel(array(
 			'title' => 'user.role.subEditors',
 			'inputName' => 'subEditors[]',
 			'selected' => $this->getData('subEditors'),

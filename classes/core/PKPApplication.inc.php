@@ -61,6 +61,13 @@ define('WORKFLOW_STAGE_PATH_PRODUCTION', 'production');
 define('WORKFLOW_TYPE_EDITORIAL', 'editorial');
 define('WORKFLOW_TYPE_AUTHOR', 'author');
 
+// Constant used to distinguish whether metadata is enabled and whether it
+// should be requested or required during submission
+define('METADATA_DISABLE', 0);
+define('METADATA_ENABLE', 'enable');
+define('METADATA_REQUEST', 'request');
+define('METADATA_REQUIRE', 'require');
+
 interface iPKPApplicationInfoProvider {
 	/**
 	 * Get the top-level context DAO.
@@ -396,7 +403,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			'ScheduledTaskDAO' => 'lib.pkp.classes.scheduledTask.ScheduledTaskDAO',
 			'SessionDAO' => 'lib.pkp.classes.session.SessionDAO',
 			'SiteDAO' => 'lib.pkp.classes.site.SiteDAO',
-			'SiteSettingsDAO' => 'lib.pkp.classes.site.SiteSettingsDAO',
 			'StageAssignmentDAO' => 'lib.pkp.classes.stageAssignment.StageAssignmentDAO',
 			'SubEditorsDAO' => 'lib.pkp.classes.context.SubEditorsDAO',
 			'SubmissionAgencyDAO' => 'lib.pkp.classes.submission.SubmissionAgencyDAO',
@@ -523,7 +529,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		$request = $this->getRequest();
 		$site = $request->getSite();
 		if (!is_a($site, 'Site')) return null;
-		$defaultMetricType = $site->getSetting('defaultMetricType');
+		$defaultMetricType = $site->getData('defaultMetricType');
 
 		// Check whether the selected metric type is valid.
 		$availableMetrics = $this->getMetricTypes();
@@ -676,12 +682,18 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 */
 	function getCCLicenseBadge($ccLicenseURL) {
 		$licenseKeyMap = array(
-			'https://creativecommons.org/licenses/by-nc-nd/4.0' => 'submission.license.cc.by-nc-nd4.footer',
-			'https://creativecommons.org/licenses/by-nc/4.0' => 'submission.license.cc.by-nc4.footer',
-			'https://creativecommons.org/licenses/by-nc-sa/4.0' => 'submission.license.cc.by-nc-sa4.footer',
-			'https://creativecommons.org/licenses/by-nd/4.0' => 'submission.license.cc.by-nd4.footer',
-			'https://creativecommons.org/licenses/by/4.0' => 'submission.license.cc.by4.footer',
-			'https://creativecommons.org/licenses/by-sa/4.0' => 'submission.license.cc.by-sa4.footer'
+			'http://creativecommons.org/licenses/by-nc-nd/4.0' => 'submission.license.cc.by-nc-nd4.footer',
+			'http://creativecommons.org/licenses/by-nc/4.0' => 'submission.license.cc.by-nc4.footer',
+			'http://creativecommons.org/licenses/by-nc-sa/4.0' => 'submission.license.cc.by-nc-sa4.footer',
+			'http://creativecommons.org/licenses/by-nd/4.0' => 'submission.license.cc.by-nd4.footer',
+			'http://creativecommons.org/licenses/by/4.0' => 'submission.license.cc.by4.footer',
+			'http://creativecommons.org/licenses/by-sa/4.0' => 'submission.license.cc.by-sa4.footer',
+			'http://creativecommons.org/licenses/by-nc-nd/3.0' => 'submission.license.cc.by-nc-nd3.footer',
+			'http://creativecommons.org/licenses/by-nc/3.0' => 'submission.license.cc.by-nc3.footer',
+			'http://creativecommons.org/licenses/by-nc-sa/3.0' => 'submission.license.cc.by-nc-sa3.footer',
+			'http://creativecommons.org/licenses/by-nd/3.0' => 'submission.license.cc.by-nd3.footer',
+			'http://creativecommons.org/licenses/by/3.0' => 'submission.license.cc.by3.footer',
+			'http://creativecommons.org/licenses/by-sa/3.0' => 'submission.license.cc.by-sa3.footer'
 		);
 
 		if (isset($licenseKeyMap[$ccLicenseURL])) {
@@ -724,6 +736,52 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		);
 		return $workflowTypeRoles;
 	}
+
+	/**
+	 * Get a human-readable version of the max file upload size
+	 *
+	 * @return string
+	 */
+	static function getReadableMaxFileSize() {
+		return strtolower(UPLOAD_MAX_FILESIZE) . 'b';
+	}
+
+	/**
+	 * Convert the max upload size to an integer in MBs
+	 *
+	 * @return int
+	 */
+	static function getIntMaxFileMBs() {
+		$num = substr(UPLOAD_MAX_FILESIZE, 0, (strlen(UPLOAD_MAX_FILESIZE) - 1));
+		$scale = strtolower(substr(UPLOAD_MAX_FILESIZE, -1));
+		switch ($scale) {
+			case 'g':
+				$num = $num / 1024;
+			case 'k':
+				$num = $num * 1024;
+		}
+		return floor($num);
+	}
+
+	/**
+	 * Get the supported metadata setting names for this application
+	 *
+	 * @return array
+	 */
+	static function getMetadataFields() {
+		return [
+			'coverage',
+			'languages',
+			'rights',
+			'source',
+			'subjects',
+			'type',
+			'disciplines',
+			'keywords',
+			'agencies',
+			'citations',
+		];
+	}
 }
 
 /**
@@ -751,5 +809,3 @@ import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
 
 // To expose ORDER_CATEGORY_GRID_... constants via JS
 import('lib.pkp.classes.controllers.grid.feature.OrderCategoryGridItemsFeature');
-
-

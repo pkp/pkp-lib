@@ -44,15 +44,9 @@
 	<message key="admin.serverInformation">Informacije o serveru</message>
 	<message key="admin.server.phpVersion">Verzija PHP-a</message>
 	<message key="admin.server.platform">Platforma OS-a</message>
-	<message key="admin.settings.aboutDescription">Opis sajta</message>
+	<message key="admin.settings.about">Opis sajta</message>
 	<message key="admin.settings.contactEmail">Imejl glavnog kontakta</message>
 	<message key="admin.settings.contactName">Ime glavnog kontakta</message>
-	<message key="admin.settings.form.contactEmailRequired">Kontakt imejl upravnika je obavezan.</message>
-	<message key="admin.settings.form.contactNameRequired">Kontakt ime upravnika je obavezno.</message>
-	<message key="admin.settings.form.minPasswordLengthRequired">Morate uneti minimalnu dužinu lozinke od najmanje 4 karaktera.</message>
-	<message key="admin.settings.form.titleRequired">Naslov je obavezan.</message>
-	<message key="admin.settings.homeHeaderImage.altText">Logo sajta</message>
-	<message key="admin.settings.homeHeaderImageInvalid">Neispravan format logoa sajta. Sistem prihvata .gif, .jpg ili .png formate.</message>
 	<message key="admin.settings.introduction">Uvod</message>
 	<message key="admin.settings.minPasswordLength">Minimalna dužina lozinke</message>
 	<message key="admin.settings.oaiRegistration">Registrujte sajt za indeksiranje (sakupljanje metapodataka)</message>

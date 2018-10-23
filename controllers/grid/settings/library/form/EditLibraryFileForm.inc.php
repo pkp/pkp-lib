@@ -33,7 +33,7 @@ class EditLibraryFileForm extends LibraryFileForm {
 		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO');
 		$this->libraryFile = $libraryFileDao->getById($fileId);
 
-		if (!$this->libraryFile || $this->libraryFile->getContextId() !== $this->contextId) {
+		if (!$this->libraryFile || $this->libraryFile->getContextId() != $this->contextId) {
 			fatalError('Invalid library file!');
 		}
 	}
@@ -61,5 +61,3 @@ class EditLibraryFileForm extends LibraryFileForm {
 		$libraryFileDao->updateObject($this->libraryFile);
 	}
 }
-
-

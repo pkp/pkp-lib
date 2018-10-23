@@ -411,6 +411,8 @@ class FileManager {
 				return '.pdf';
 			case 'application/word':
 				return '.doc';
+			case 'text/css':
+				return '.css';
 			case 'text/html':
 				return '.html';
 			case 'application/epub+zip':

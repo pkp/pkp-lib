@@ -26,7 +26,7 @@ class ViewCompetingInterestGuidelinesLinkAction extends LinkAction {
 		// Instantiate the view competing interests modal.
 		import('lib.pkp.classes.linkAction.request.ConfirmationModal');
 		$viewCompetingInterestsModal = new ConfirmationModal(
-			$context->getLocalizedSetting('competingInterests'),
+			$context->getLocalizedData('competingInterests'),
 			__('reviewer.submission.competingInterests'),
 			null, null, false,
 			false

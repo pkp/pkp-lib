@@ -46,15 +46,9 @@
 	<message key="admin.serverInformation">Serverinformasjon</message>
 	<message key="admin.server.phpVersion">PHP-versjon</message>
 	<message key="admin.server.platform">OS-plattform</message>
-	<message key="admin.settings.aboutDescription">Om beskrivelsen av nettstedet</message>
+	<message key="admin.settings.about">Om beskrivelsen av nettstedet</message>
 	<message key="admin.settings.contactEmail">E-postadresse til hovedkontaktperson</message>
 	<message key="admin.settings.contactName">Navn på hovedkontaktperson</message>
-	<message key="admin.settings.form.contactEmailRequired">E-postadressen til hovedkontaktpersonen er påkrevet.</message>
-	<message key="admin.settings.form.contactNameRequired">Navnet til hovedkontaktpersonen er påkrevet.</message>
-	<message key="admin.settings.form.minPasswordLengthRequired">Du må skrive inn en minste passordlengde på minst 4 tegn.</message>
-	<message key="admin.settings.form.titleRequired">En tittel er påkrevet.</message>
-	<message key="admin.settings.homeHeaderImage.altText">Nettstedets logo</message>
-	<message key="admin.settings.homeHeaderImageInvalid">Ugyldig filformat for nettstedets logobilde. Tillatte filformat er .gif, .jpg, eller .png.</message>
 	<message key="admin.settings.introduction">Innledning</message>
 	<message key="admin.settings.minPasswordLength">Minste passordlengde</message>
 	<message key="admin.settings.passwordCharacters">tegn</message>

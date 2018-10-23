@@ -113,7 +113,7 @@ class PublicationEntryHandler extends Handler {
 		// Tell the template if citation field is enabled
 		$context = $request->getContext();
 		$templateMgr->assign(array(
-			'citationsEnabled' => $context->getSetting('citationsEnabledWorkflow'),
+			'citationsEnabled' => !empty($context->getData('citations')),
 		));
 		$this->setupTemplate($request);
 	}
@@ -128,5 +128,3 @@ class PublicationEntryHandler extends Handler {
 		assert(false); // provided in sub classes, submission-specific.
 	}
 }
-
-

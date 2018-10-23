@@ -61,29 +61,31 @@ class PKPSubmissionMetadataFormImplementation {
 
 		$contextDao = Application::getContextDao();
 		$context = $contextDao->getById($submission->getContextId());
-		import('lib.pkp.controllers.grid.settings.metadata.MetadataGridHandler');
-		foreach (MetadataGridHandler::getNames() as $key => $name) {
-			$requiredLocaleKey = 'submission.submit.form.'.$key.'Required';
-			if ($context->getSetting($key . 'Required')) switch(1) {
-				case in_array($key, $this->getLocaleFieldNames()):
-					$this->_parentForm->addCheck(new FormValidatorLocale($this->_parentForm, $key, 'required', $requiredLocaleKey, $submission->getLocale()));
-					break;
-				case in_array($key, $this->getTagitFieldNames()):
-					$this->_parentForm->addCheck(new FormValidatorCustom($this->_parentForm, $key, 'required', $requiredLocaleKey, create_function('$key,$form,$name', '$data = (array) $form->getData(\'keywords\'); return array_key_exists($name, $data);'), array($this->_parentForm, $submission->getLocale().'-'.$key)));
-					break;
-				case $key == 'citations':
-					$form = $this->_parentForm;
-					$this->_parentForm->addCheck(new FormValidatorCustom($this->_parentForm, $key, 'required', $requiredLocaleKey, function($key) use ($form) {
-						$metadataModal = $form->getData('metadataModal');
-						if (!$metadataModal) {
-							$references = $form->getData('citations');
-							return !empty($references);
-						}
-						return true;
-					}));
-					break;
-				default:
-					$this->_parentForm->addCheck(new FormValidator($this->_parentForm, $key, 'required', $requiredLocaleKey));
+		$metadataFields = Application::getMetadataFields();
+		foreach ($metadataFields as $field) {
+			$requiredLocaleKey = 'submission.submit.form.'.$field.'Required';
+			if ($context->getData($field) === METADATA_REQUIRE) {
+				switch(1) {
+					case in_array($field, $this->getLocaleFieldNames()):
+						$this->_parentForm->addCheck(new FormValidatorLocale($this->_parentForm, $field, 'required', $requiredLocaleKey, $submission->getLocale()));
+						break;
+					case in_array($field, $this->getTagitFieldNames()):
+						$this->_parentForm->addCheck(new FormValidatorCustom($this->_parentForm, $field, 'required', $requiredLocaleKey, create_function('$field,$form,$name', '$data = (array) $form->getData(\'keywords\'); return array_key_exists($name, $data);'), array($this->_parentForm, $submission->getLocale().'-'.$field)));
+						break;
+					case $key == 'citations':
+						$form = $this->_parentForm;
+						$this->_parentForm->addCheck(new FormValidatorCustom($this->_parentForm, $key, 'required', $requiredLocaleKey, function($key) use ($form) {
+							$metadataModal = $form->getData('metadataModal');
+							if (!$metadataModal) {
+								$references = $form->getData('citations');
+								return !empty($references);
+							}
+							return true;
+						}));
+						break;
+					default:
+						$this->_parentForm->addCheck(new FormValidator($this->_parentForm, $field, 'required', $requiredLocaleKey));
+				}
 			}
 		}
 	}
@@ -181,7 +183,7 @@ class PKPSubmissionMetadataFormImplementation {
 		// Update submission locale
 		$newLocale = $this->_parentForm->getData('locale');
 		$context = $request->getContext();
-		$supportedSubmissionLocales = $context->getSetting('supportedSubmissionLocales');
+		$supportedSubmissionLocales = $context->getData('supportedSubmissionLocales');
 		if (empty($supportedSubmissionLocales)) $supportedSubmissionLocales = array($context->getPrimaryLocale());
 		if (in_array($newLocale, $supportedSubmissionLocales)) $submission->setLocale($newLocale);
 
@@ -236,5 +238,3 @@ class PKPSubmissionMetadataFormImplementation {
 		}
 	}
 }
-
-

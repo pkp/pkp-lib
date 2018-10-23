@@ -143,12 +143,8 @@
 	<message key="manager.reviewerSearch.interests">İlgi Alanı</message>
 	<message key="manager.roles">Görevler</message>
 	<message key="manager.setup.errorDeletingItem">Bu öğe silinirken bir hata oluştu.</message>
-	<message key="manager.setup.homeHeaderImageInvalid">Giriş sayfası başlık logosu için geçersiz dosya biçimi. Desteklenen dosya biçimleri .gif, .jpg, veya .png biçimleridir.</message>
-	<message key="manager.setup.homepageImageInvalid">Giriş sayfası şekli için geçersiz dosya biçimi. Desteklenen dosya biçimleri .gif, .jpg, veya .png biçimleridir.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Giriş sayfası şekli için geçersiz dosya biçimi. Desteklenen dosya biçimleri .gif, .jpg, veya .png biçimleridir.</message>
-	<message key="manager.setup.layout.unselected">Seçilmemiş</message>
 	<message key="manager.setup.loggingAndAuditing">Giriş ve Denetim</message>
-	<message key="manager.setup.homeHeaderImageInvalid">Giriş sayfası başlık logosu için geçersiz dosya biçimi. Desteklenen dosya biçimleri .gif, .jpg, veya .png biçimleridir.</message>
 	<message key="manager.setup.homepageImageInvalid">Giriş sayfası şekli için geçersiz dosya biçimi. Desteklenen dosya biçimleri .gif, .jpg, veya .png biçimleridir.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Giriş sayfası şekli için geçersiz dosya biçimi. Desteklenen dosya biçimleri .gif, .jpg, veya .png biçimleridir.</message>
 	<message key="manager.statistics">İstatistikler ve Raporlar</message>
@@ -179,7 +175,6 @@
 	<message key="manager.emails.reset.message">If you reset this template, all message data will be reset to its default value, losing all modifications.  Do you want to confirm this operation?</message>
 	<message key="manager.reviewerSearch.searchByName.short">Ada Göre Ara</message>
 	<message key="manager.reviewerSearch.form.instructions">Use the form below to set the maximum values for the terms you wish to search for.  The form is pre-populated with the calculated averages of those fields.</message>
-	<message key="manager.setup.layout.blockManagement">Yan Taraf Yönetimi</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Hatalı sayfa logo görseli veya hatalı yükleme. Kabul edilebilir biçimler: .gif, .jpg veya .png.</message>
 	<message key="plugins.categories.metadata">Üst Veri Eklentileri</message>
 	<message key="plugins.categories.metadata.description">Metadata Plugins implement additional meta-data standards.</message>

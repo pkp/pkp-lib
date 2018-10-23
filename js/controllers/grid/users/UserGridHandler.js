@@ -38,6 +38,11 @@
 
 			this.refreshGridHandler();
 		});
+
+		// Refresh the grid when a user group has been added/edited
+		this.bindGlobal('userGroupUpdated', function() {
+			this.refreshGridHandler();
+		});
 	};
 	$.pkp.classes.Helper.inherits($.pkp.controllers.grid.users.UserGridHandler,
 			$.pkp.controllers.grid.GridHandler);

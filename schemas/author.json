@@ -1,0 +1,62 @@
+{
+	"title": "Author",
+	"description": "An author of a submission.",
+	"properties": {
+		"id": {
+			"type": "integer",
+			"apiSummary": true
+		},
+		"seq": {
+			"type": "integer",
+			"apiSummary": true
+		},
+		"givenName": {
+			"$ref": "#/definitions/LocaleObject"
+		},
+		"familyName": {
+			"$ref": "#/definitions/LocaleObject"
+		},
+		"fullName": {
+			"type": "string",
+			"apiSummary": true,
+			"readOnly": true
+		},
+		"country": {
+			"type": "string"
+		},
+		"email": {
+			"type": "string",
+			"validation": [
+				"email_or_localhost"
+			]
+		},
+		"url": {
+			"type": "string",
+			"validation": [
+				"url"
+			]
+		},
+		"userGroupId": {
+			"type": "integer"
+		},
+		"includeInBrowse": {
+			"type": "boolean"
+		},
+		"primaryContact": {
+			"type": "boolean"
+		},
+		"biography": {
+			"$ref": "#/definitions/LocaleObject"
+		},
+		"affilation": {
+			"$ref": "#/definitions/LocaleObject"
+		},
+		"orcid": {
+			"type": "string",
+			"apiSummary": true,
+			"validation": [
+				"orcid"
+			]
+		}
+	}
+}

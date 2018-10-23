@@ -1,0 +1,22 @@
+{
+	"title": "Review Round",
+	"description": "A round of review assignments in the review stage.",
+	"properties": {
+		"id": {
+			"type": "integer"
+		},
+		"round": {
+			"type": "integer"
+		},
+		"stageId": {
+			"type": "integer"
+		},
+		"status": {
+			"type": "string",
+			"readOnly": true
+		},
+		"statusId": {
+			"type": "integer"
+		}
+	}
+}

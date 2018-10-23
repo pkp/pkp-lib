@@ -54,14 +54,14 @@ class Site extends DataObject {
 	 * @param $locale string Locale code to return, if desired.
 	 */
 	function getTitle($locale = null) {
-		return $this->getSetting('title', $locale);
+		return $this->getData('title', $locale);
 	}
 
 	/**
 	 * Get localized site title.
 	 */
 	function getLocalizedTitle() {
-		return $this->getLocalizedSetting('title');
+		return $this->getLocalizedData('title');
 	}
 
 	/**
@@ -69,44 +69,19 @@ class Site extends DataObject {
 	 * @return string
 	 */
 	function getLocalizedPageHeaderTitle() {
-		$typeArray = $this->getSetting('pageHeaderTitleType');
-		$imageArray = $this->getSetting('pageHeaderTitleImage');
-		$titleArray = $this->getSetting('title');
-
-		$title = null;
-
-		foreach (array(AppLocale::getLocale(), AppLocale::getPrimaryLocale()) as $locale) {
-			if (isset($typeArray[$locale]) && $typeArray[$locale]) {
-				if (isset($imageArray[$locale])) $title = $imageArray[$locale];
-			}
-			if (empty($title) && isset($titleArray[$locale])) $title = $titleArray[$locale];
-			if (!empty($title)) return $title;
+		if ($this->getLocalizedData('pageHeaderTitleImage')) {
+			return $this->getLocalizedData('pageHeaderTitleImage');
 		}
-		return null;
-	}
-
-	/**
-	 * Get localized site logo type.
-	 * @return boolean
-	 */
-	function getLocalizedPageHeaderTitleType() {
-		return $this->getLocalizedData('pageHeaderTitleType');
-	}
-
-	/**
-	 * Get original site stylesheet filename.
-	 * @return string
-	 */
-	function getOriginalStyleFilename() {
-		return $this->getData('originalStyleFilename');
-	}
-
-	/**
-	 * Set original site stylesheet filename.
-	 * @param $originalStyleFilename string
-	 */
-	function setOriginalStyleFilename($originalStyleFilename) {
-		$this->setData('originalStyleFilename', $originalStyleFilename);
+		if ($this->getData('pageHeaderTitleImage', AppLocale::getPrimaryLocale())) {
+			return $this->getData('pageHeaderTitleImage', AppLocale::getPrimaryLocale());
+		}
+		if ($this->getLocalizedData('title')) {
+			return $this->getLocalizedData('title');
+		}
+		if ($this->getData('title', AppLocale::getPrimaryLocale())) {
+			return $this->getData('title', AppLocale::getPrimaryLocale());
+		}
+		return '';
 	}
 
 	/**
@@ -129,21 +104,21 @@ class Site extends DataObject {
 	 * Get localized site about statement.
 	 */
 	function getLocalizedAbout() {
-		return $this->getLocalizedSetting('about');
+		return $this->getLocalizedData('about');
 	}
 
 	/**
 	 * Get localized site contact name.
 	 */
 	function getLocalizedContactName() {
-		return $this->getLocalizedSetting('contactName');
+		return $this->getLocalizedData('contactName');
 	}
 
 	/**
 	 * Get localized site contact email.
 	 */
 	function getLocalizedContactEmail() {
-		return $this->getLocalizedSetting('contactEmail');
+		return $this->getLocalizedData('contactEmail');
 	}
 
 	/**
@@ -210,51 +185,6 @@ class Site extends DataObject {
 	 */
 	function setSupportedLocales($supportedLocales) {
 		$this->setData('supportedLocales', $supportedLocales);
-	}
-
-	/**
-	 * Get the local name under which the site-wide locale file is stored.
-	 * @return string
-	 */
-	function getSiteStyleFilename() {
-		return 'sitestyle.css';
-	}
-
-	/**
-	 * Retrieve a site setting value.
-	 * @param $name string
-	 * @param $locale string
-	 * @return mixed
-	 */
-	function &getSetting($name, $locale = null) {
-		$siteSettingsDao = DAORegistry::getDAO('SiteSettingsDAO');
-		$setting =& $siteSettingsDao->getSetting($name, $locale);
-		return $setting;
-	}
-
-	/**
-	 * Get a localized setting using the current locale.
-	 * @param $name string Setting name
-	 * @return mixed
-	 */
-	function getLocalizedSetting($name) {
-		$returner = $this->getSetting($name, AppLocale::getLocale());
-		// If setting is defined for current locale, use it.
-		if ($returner !== null) return $returner;
-		// Alternately, fall back on primary locale.
-		return $this->getSetting($name, AppLocale::getPrimaryLocale());
-	}
-
-	/**
-	 * Update a site setting value.
-	 * @param $name string
-	 * @param $value mixed
-	 * @param $type string optional
-	 * @param $isLocalized boolean optional
-	 */
-	function updateSetting($name, $value, $type = null, $isLocalized = false) {
-		$siteSettingsDao = DAORegistry::getDAO('SiteSettingsDAO');
-		return $siteSettingsDao->updateSetting($name, $value, $type, $isLocalized);
 	}
 }
 

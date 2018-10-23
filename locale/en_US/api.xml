@@ -12,12 +12,20 @@
   -->
 
 <locale name="en_US" full_name="U.S. English">
+	<message key="api.403.unauthorized">You are not authorized to access the requested resource.</message>
+	<message key="api.404.resourceNotFound">The requested resource was not found.</message>
+	<message key="api.404.endpointNotFound">The requested URL was not recognized.</message>
 	<message key="api.submissions.403.csrfTokenFailure">Your request was denied. This may be because your login has expired. Try reloading the page and trying again.</message>
 	<message key="api.submissions.403.requestedOthersUnpublishedSubmissions">You can only view unpublished submissions to which you have been assigned.</message>
 	<message key="api.submissions.403.deleteSubmissionOutOfContext">You can not delete a submission that is not assigned to this context.</message>
 	<message key="api.submissions.403.unauthorizedDeleteSubmission">You do not have permission to delete this submission.</message>
-	<message key="api.submissions.404.resourceNotFound">The requested resource was not found.</message>
+	<message key="api.submissions.404.siteWideEndpoint">This endpoint is not available from a context. It must be accessed from the site-wide namespace.</message>
 	<message key="api.submissions.400.missingRequired">Your request could not be fulfilled because it is missing required information.</message>
 	<message key="api.submissions.400.invalidIssueIdentifiers">The requested volume, number or year is not valid.</message>
 	<message key="api.submissions.unknownError">An unexpected error has occurred. Please reload the page and try again.</message>
+	<message key="api.temporaryFiles.400.noUpload">No file to be uploaded could be found with the request.</message>
+	<message key="api.temporaryFiles.409.uploadFailed">One or more files could not be uploaded.</message>
+	<message key="api.temporaryFiles.400.fileSize">Files larger than {$maxSize} can not be uploaded.</message>
+	<message key="api.temporaryFiles.400.config">File could not be uploaded because of a server configuration error. Please contact the system administrator.</message>
+	<message key="api.themes.404.themeUnavailable">The active theme, {$themePluginPath}, is not enabled and may not be installed.</message>
 </locale>

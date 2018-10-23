@@ -40,7 +40,6 @@
 	<message key="common.alphaList">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</message>
 	<message key="common.alreadyAssigned">Assegnato</message>
 	<message key="common.altText">Testo alternativo</message>
-	<message key="common.altTextInstructions">Fornisci un testo alternativo all'immagine per assicurare l'accessibilità agli utenti con browser testuali o con dispositivi di supporto per la lettura</message>
 	<message key="common.and">e</message>
 	<message key="common.applyAction">Esegui azione</message>
 	<message key="common.assign">Assegnazione</message>
@@ -117,7 +116,6 @@
 	<message key="common.originalFileName">Nome originale del file</message>
 	<message key="common.or">o</message>
 	<message key="common.other">Altro</message>
-	<message key="common.pageHeaderLogo.altText">Logo per l'intestazione della pagina</message>
 	<message key="common.plugin">Plugin</message>
 	<message key="common.publisher">Editore</message>
 	<message key="common.record">Registra</message>
@@ -147,7 +145,6 @@
 	<message key="common.uninitiated">Non iniziato</message>
 	<message key="common.untitled">Senza titolo</message>
 	<message key="common.updated">Aggiornato</message>
-	<message key="common.uploadedFile">File caricato</message>
 	<message key="common.upload">Carica</message>
 	<message key="common.up">Su</message>
 	<message key="common.url">URL</message>
@@ -312,7 +309,6 @@
 	<message key="common.remote">Remoto</message>
 	<message key="common.remoteURL">URL remota</message>
 	<message key="common.unread">Non letto</message>
-	<message key="common.invalidFileType">Nessun file caricato o tipo di file non valido!</message>
 	<message key="common.plugins">Plugin</message>
 	<message key="email.subjectRequired">Inserisci l'oggetto del messaggio</message>
 	<message key="email.bodyRequired">Inserisci un testo nel messaggio</message>

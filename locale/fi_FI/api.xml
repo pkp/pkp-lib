@@ -16,7 +16,7 @@
 	<message key="api.submissions.403.requestedOthersUnpublishedSubmissions">Voit tarkastella ainoastaan sellaisia julkaisemattomia käsikirjoituksia, jotka on osoitettu sinulle.</message>
 	<message key="api.submissions.403.deleteSubmissionOutOfContext">Et voi poistaa käsikirjoitusta, joka ei liity tähän julkaisuun.</message>
 	<message key="api.submissions.403.unauthorizedDeleteSubmission">Sinulla ei ole lupaa poistaa tätä käsikirjoitusta.</message>
-	<message key="api.submissions.404.resourceNotFound">Pyydettyä resurssia ei löytynyt.</message>
+	<message key="api.404.resourceNotFound">Pyydettyä resurssia ei löytynyt.</message>
 	<message key="api.submissions.400.missingRequired">Pyyntöäsi ei voitu suorittaa, koska siitä puuttuu pakollisia tietoja.</message>
 	<message key="api.submissions.unknownError">Tapahtui virhe. Ole hyvä yritä uudelleen.</message>
 	<message key="api.submissions.400.stageNotValid">Pyyntöäsi ei voitu suorittaa, koska annettu työvaiheen tunniste on virheellinen.</message>

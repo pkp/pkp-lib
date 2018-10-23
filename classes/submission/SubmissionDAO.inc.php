@@ -236,6 +236,46 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	}
 
 	/**
+	 * Stamp a submission status modification date.
+	 * This updates both the supplied Submission object and the database.
+	 * @param $submission Submission
+	 */
+	public function stampStatusModified($submission) {
+		// Stamp the active submission object
+		$submission->stampStatusModified();
+
+		// Stamp the database entry
+		$this->update(
+			sprintf(
+				'UPDATE submissions SET date_status_modified = %s WHERE submission_id = ?',
+				$this->datetimeToDB($submission->getDateStatusModified())
+			),
+			array((int) $submission->getId())
+		);
+
+		$this->stampModified($submission);
+	}
+
+	/**
+	 * Stamp a submission modification date.
+	 * This updates both the supplied Submission object and the database.
+	 * @param $submission Submission
+	 */
+	public function stampModified($submission) {
+		// Stamp the active submission object
+		$submission->stampModified();
+
+		// Stamp the database entry
+		$this->update(
+			sprintf(
+				'UPDATE submissions SET last_modified = %s WHERE submission_id = ?',
+				$this->datetimeToDB($submission->getLastModified())
+			),
+			array((int) $submission->getId())
+		);
+	}
+
+	/**
 	 * @copydoc PKPPubIdPluginDAO::changePubId()
 	 */
 	function changePubId($pubObjectId, $pubIdType, $pubId) {

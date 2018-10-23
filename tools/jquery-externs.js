@@ -476,12 +476,6 @@ jQueryObject.prototype.ajaxStop = function(handler) {};
 jQueryObject.prototype.ajaxSuccess = function(handler) {};
 
 /**
- * @return {jQueryObject}
- * @nosideeffects
- */
-jQueryObject.prototype.andSelf = function() {};
-
-/**
  * @param {Object.<string,*>} properties
  * @param {(string|number|Object.<string,*>)=} arg2
  * @param {string=} easing

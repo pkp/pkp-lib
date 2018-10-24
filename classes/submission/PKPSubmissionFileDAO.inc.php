@@ -759,7 +759,7 @@ abstract class PKPSubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 				$note = $noteDao->getById($submissionFile->getAssocId());
 				$queryDao = DAORegistry::getDAO('QueryDAO');
 				$query = $queryDao->getById($note->getAssocId());
-				return $query->getStageId();
+				return $query?$query->getStageId():null;
 		}
 	}
 

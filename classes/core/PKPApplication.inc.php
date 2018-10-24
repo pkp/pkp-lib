@@ -64,7 +64,7 @@ class PKPApplication {
 		mt_srand(((double) microtime()) * 1000000);
 
 		import('lib.pkp.classes.core.Core');
-		import('lib.pkp.classes.core.String');
+		import('lib.pkp.classes.core.PKPString');
 		import('lib.pkp.classes.core.Registry');
 
 		import('lib.pkp.classes.config.Config');
@@ -92,7 +92,7 @@ class PKPApplication {
 
 		import('classes.i18n.AppLocale');
 
-		String::init();
+		PKPString::init();
 		set_error_handler(array($this, 'errorHandler'));
 
 		$microTime = Core::microtime();

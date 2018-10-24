@@ -68,7 +68,7 @@ class Transcoder {
 				return html_entity_decode($string, ENT_COMPAT, $this->toEncoding);
 			} else {
 				// use built-in transcoding to UTF8
-				$string = String::html2utf($string);
+				$string = PKPString::html2utf($string);
 
 				// make another pass to target encoding
 				$this->fromEncoding = 'UTF-8';

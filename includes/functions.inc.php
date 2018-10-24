@@ -226,7 +226,7 @@ function &instantiate($fullyQualifiedClassName, $expectedTypes = null, $expected
 	$errorFlag = false;
 
 	// Validate the class name
-	if (!String::regexp_match('/^[a-zA-Z0-9.]+$/', $fullyQualifiedClassName)) {
+	if (!PKPString::regexp_match('/^[a-zA-Z0-9.]+$/', $fullyQualifiedClassName)) {
 		return $errorFlag;
 	}
 
@@ -333,7 +333,7 @@ function stripAssocArray($values, $useClientCharset = false) {
 			if ($useClientCharset && strtolower(Config::getVar('i18n', 'client_charset')) !== 'utf-8') {
 				$values[$key] = html_entity_decode($values[$key], ENT_QUOTES, Config::getVar('i18n', 'client_charset'));
 			} else {
-				$values[$key] = String::html2utf($values[$key]);
+				$values[$key] = PKPString::html2utf($values[$key]);
 			}
 		} else {
 			$values[$key] = stripAssocArray($values[$key]);

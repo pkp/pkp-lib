@@ -41,7 +41,7 @@ class ValidatorRegExp extends Validator {
 	 * @return boolean
 	 */
 	function isValid($value) {
-		return (boolean)String::regexp_match_get($this->_regExp, $value, $this->_matches);
+		return (boolean)PKPString::regexp_match_get($this->_regExp, $value, $this->_matches);
 	}
 
 

@@ -60,7 +60,7 @@ class PKPTemplateManager extends Smarty {
 		$router =& $request->getRouter();
 		assert(is_a($router, 'PKPRouter'));
 
-		parent::Smarty();
+		parent::__construct();
 
 		// Set up Smarty configuration
 		$baseDir = Core::getBaseDir();

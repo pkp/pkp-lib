@@ -290,7 +290,6 @@ class XMLParser {
 	function destroy() {
 		// Set magic_quotes_runtime back to original setting
 		if ($this->magicQuotes) set_magic_quotes_runtime($this->magicQuotes);
-		unset($this);
 	}
 
 }

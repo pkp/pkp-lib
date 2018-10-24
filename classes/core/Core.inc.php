@@ -53,21 +53,13 @@ class Core {
 			$var = PKPString::utf8_normalize($var);
 
 			// convert HTML entities into valid UTF-8 characters (do not transcode)
-			if (checkPhpVersion('5.0.0')) {
-				$var = html_entity_decode($var, ENT_COMPAT, 'UTF-8');
-			} else {
-				$var = PKPString::html2utf($var);
-			}
+			$var = html_entity_decode($var, ENT_COMPAT, 'UTF-8');
 
 			// strip any invalid UTF-8 sequences
 			$var = PKPString::utf8_bad_strip($var);
 
 			// re-encode special HTML characters
-			if (checkPhpVersion('5.2.3')) {
-				$var = htmlspecialchars($var, ENT_NOQUOTES, 'UTF-8', false);
-			} else {
-				$var = htmlspecialchars($var, ENT_NOQUOTES, 'UTF-8');
-			}
+			$var = htmlspecialchars($var, ENT_NOQUOTES, 'UTF-8', false);
 		}
 
 		// strip any invalid ASCII control characters

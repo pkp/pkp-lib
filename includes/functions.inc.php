@@ -182,14 +182,7 @@ function checkPhpVersion($version) {
  * @return object the cloned object
  */
 function &cloneObject(&$object) {
-	if (checkPhpVersion('5.0.0')) {
-		// We use the PHP5 clone() syntax so that PHP4 doesn't
-		// raise a parse error.
-		$clonedObject = clone($object);
-	} else {
-		// PHP4 always clones objects on assignment
-		$clonedObject = $object;
-	}
+	$clonedObject = clone($object);
 	return $clonedObject;
 }
 

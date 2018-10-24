@@ -72,7 +72,7 @@ class PKPTemplateManager extends Smarty {
 		$router =& $this->request->getRouter();
 		assert(is_a($router, 'PKPRouter'));
 
-		parent::Smarty();
+		parent::__construct();
 
 		// Set up Smarty configuration
 		$baseDir = Core::getBaseDir();
@@ -128,8 +128,8 @@ class PKPTemplateManager extends Smarty {
 		// Register custom functions
 		$this->register_modifier('translate', array('AppLocale', 'translate'));
 		$this->register_modifier('get_value', array(&$this, 'smartyGetValue'));
-		$this->register_modifier('strip_unsafe_html', array('String', 'stripUnsafeHtml'));
-		$this->register_modifier('String_substr', array('String', 'substr'));
+		$this->register_modifier('strip_unsafe_html', array('PKPString', 'stripUnsafeHtml'));
+		$this->register_modifier('String_substr', array('PKPString', 'substr'));
 		$this->register_modifier('to_array', array(&$this, 'smartyToArray'));
 		$this->register_modifier('concat', array(&$this, 'smartyConcat'));
 		$this->register_modifier('escape', array(&$this, 'smartyEscape'));

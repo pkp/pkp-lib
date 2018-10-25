@@ -278,8 +278,7 @@
 		var $element = this.getHtmlElement(),
 				self = this;
 		$.get(jsonContent.tabsUrl, function(data) {
-			var jsonData = $.parseJSON(data);
-			self.replaceWith(jsonData.content);
+			self.replaceWith(data.content);
 		});
 	};
 

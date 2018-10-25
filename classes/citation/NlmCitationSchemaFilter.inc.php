@@ -141,7 +141,7 @@ class NlmCitationSchemaFilter extends Filter {
 
 		// Extract the year from the publication date
 		$year = (string)$citationDescription->getStatement('date');
-		$year = (String::strlen($year) > 4 ? String::substr($year, 0, 4) : $year);
+		$year = (PKPString::strlen($year) > 4 ? PKPString::substr($year, 0, 4) : $year);
 
 		// Retrieve ISBN
 		$isbn = (string)$citationDescription->getStatement('isbn');
@@ -330,11 +330,11 @@ class NlmCitationSchemaFilter extends Filter {
 			// Extract publisher-name from publisher-loc if we don't have a
 			// publisher-name in the parsing result.
 			if (empty($metadata['publisher-name'])) {
-				$metadata['publisher-name'] = String::regexp_replace('/.*:([^,]+),?.*/', '\1', $metadata['publisher-loc']);
+				$metadata['publisher-name'] = PKPString::regexp_replace('/.*:([^,]+),?.*/', '\1', $metadata['publisher-loc']);
 			}
 
 			// Remove publisher-name from publisher-loc
-			$metadata['publisher-loc'] = String::regexp_replace('/^(.+):.*/', '\1', $metadata['publisher-loc']);
+			$metadata['publisher-loc'] = PKPString::regexp_replace('/^(.+):.*/', '\1', $metadata['publisher-loc']);
 
 			// Check that publisher-name and location are not the same
 			if (!empty($metadata['publisher-name']) && $metadata['publisher-name'] == $metadata['publisher-loc']) unset($metadata['publisher-name']);
@@ -349,7 +349,7 @@ class NlmCitationSchemaFilter extends Filter {
 		// Clean the result
 		foreach(array('publisher-name', 'publisher-loc') as $publisherProperty) {
 			if (isset($metadata[$publisherProperty])) {
-				$metadata[$publisherProperty] = String::trimPunctuation($metadata[$publisherProperty]);
+				$metadata[$publisherProperty] = PKPString::trimPunctuation($metadata[$publisherProperty]);
 			}
 		}
 
@@ -372,7 +372,7 @@ class NlmCitationSchemaFilter extends Filter {
 
 			// String scalars will be trimmed
 			if (is_string($metadataValue)) {
-				$metadataArray[$metadataKey] = String::trimPunctuation($metadataValue);
+				$metadataArray[$metadataKey] = PKPString::trimPunctuation($metadataValue);
 			}
 
 			// All other value types (i.e. integers, composite values, etc.)

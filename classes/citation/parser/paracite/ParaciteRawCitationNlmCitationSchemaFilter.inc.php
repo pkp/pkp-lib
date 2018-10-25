@@ -89,7 +89,7 @@ class ParaciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 		if (empty($perlCommand) || !file_exists($perlCommand)) return $nullVar;
 
 		// Convert to ASCII - Paracite doesn't handle UTF-8 well
-		$citationString = String::utf8_to_ascii($citationString);
+		$citationString = PKPString::utf8_to_ascii($citationString);
 
 		// Call the paracite parser
 		$wrapperScript = dirname(__FILE__).DIRECTORY_SEPARATOR.'paracite.pl';
@@ -98,8 +98,8 @@ class ParaciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 		$xmlResult = shell_exec($paraciteCommand);
 		if (empty($xmlResult)) return $nullVar;
 
-		if ( Config::getVar('i18n', 'charset_normalization') == 'On' && !String::utf8_compliant($xmlResult) ) {
-			$xmlResult = String::utf8_normalize($xmlResult);
+		if ( Config::getVar('i18n', 'charset_normalization') == 'On' && !PKPString::utf8_compliant($xmlResult) ) {
+			$xmlResult = PKPString::utf8_normalize($xmlResult);
 		}
 
 		// Create a temporary DOM document
@@ -120,8 +120,8 @@ class ParaciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 
 		// Break up the authors field
 		if (isset($metadata['authors'])) {
-			$metadata['authors'] = String::trimPunctuation($metadata['authors']);
-			$metadata['authors'] = String::iterativeExplode(array(':', ';'), $metadata['authors']);
+			$metadata['authors'] = PKPString::trimPunctuation($metadata['authors']);
+			$metadata['authors'] = PKPString::iterativeExplode(array(':', ';'), $metadata['authors']);
 		}
 
 		// Convert pages to integers
@@ -131,7 +131,7 @@ class ParaciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 
 		// Convert titles to title case
 		foreach(array('title', 'chapter', 'publication') as $titleProperty) {
-			if (isset($metadata[$titleProperty])) $metadata[$titleProperty] = String::titleCase($metadata[$titleProperty]);
+			if (isset($metadata[$titleProperty])) $metadata[$titleProperty] = PKPString::titleCase($metadata[$titleProperty]);
 		}
 
 		// Map ParaCite results to OpenURL - null means
@@ -229,7 +229,7 @@ class ParaciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 		foreach ($metadata as $paraciteElementName => $paraciteValue) {
 			if (!empty($paraciteValue)) {
 				// Trim punctuation
-				if (is_string($paraciteValue)) $paraciteValue = String::trimPunctuation($paraciteValue);
+				if (is_string($paraciteValue)) $paraciteValue = PKPString::trimPunctuation($paraciteValue);
 
 				// Transfer the value to the OpenURL result array
 				assert(array_key_exists($paraciteElementName, $metadataMapping));
@@ -255,7 +255,7 @@ class ParaciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 
 		// Add 'rest_text' as NLM comment (if given)
 		if (isset($metadata['rest_text'])) {
-			$nlmDescription->addStatement('comment', String::trimPunctuation($metadata['rest_text']));
+			$nlmDescription->addStatement('comment', PKPString::trimPunctuation($metadata['rest_text']));
 		}
 
 		return $nlmDescription;

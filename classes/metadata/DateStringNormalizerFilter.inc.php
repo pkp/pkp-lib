@@ -35,7 +35,7 @@ class DateStringNormalizerFilter extends Filter {
 		if(is_null($output)) return true;
 		if(!is_string($output)) return false;
 		// Check whether the output is correctly formatted
-		return (boolean)String::regexp_match("/\d{4}(-\d{2}(-\d{2})?)?/", $output);
+		return (boolean)PKPString::regexp_match("/\d{4}(-\d{2}(-\d{2})?)?/", $output);
 	}
 
 	/**
@@ -57,7 +57,7 @@ class DateStringNormalizerFilter extends Filter {
 		);
 		$normalizedDate = null;
 		foreach($dateExpressions as $dateExpression) {
-			if (String::regexp_match_get($dateExpression, $input, $parsedDate) ){
+			if (PKPString::regexp_match_get($dateExpression, $input, $parsedDate) ){
 				if (isset($parsedDate['year'])) {
 					$normalizedDate = $parsedDate['year'];
 

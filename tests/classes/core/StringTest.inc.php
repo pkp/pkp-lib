@@ -14,19 +14,19 @@
  */
 
 import('tests.PKPTestCase');
-import('core.String');
+import('core.PKPString');
 
 class StringTest extends PKPTestCase {
 	/**
-	 * @covers String::titleCase
+	 * @covers PKPString::titleCase
 	 */
 	public function testTitleCase() {
 		$originalTitle = 'AND This IS A TEST title';
-		self::assertEquals('And This is a Test Title', String::titleCase($originalTitle));
+		self::assertEquals('And This is a Test Title', PKPString::titleCase($originalTitle));
 	}
 
 	/**
-	 * @covers String::trimPunctuation
+	 * @covers PKPString::trimPunctuation
 	 */
 	public function testTrimPunctuation() {
 		$trimmedChars = array(
@@ -36,7 +36,7 @@ class StringTest extends PKPTestCase {
 
 		foreach($trimmedChars as $trimmedChar) {
 			self::assertEquals('trim.med',
-					String::trimPunctuation($trimmedChar.'trim.med'.$trimmedChar));
+					PKPString::trimPunctuation($trimmedChar.'trim.med'.$trimmedChar));
 		}
 	}
 }

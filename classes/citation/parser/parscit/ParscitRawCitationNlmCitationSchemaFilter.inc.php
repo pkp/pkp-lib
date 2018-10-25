@@ -58,8 +58,8 @@ class ParscitRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter 
 		if (is_null($result = $this->callWebService(PARSCIT_WEBSERVICE, $queryParams, XSL_TRANSFORMER_DOCTYPE_STRING))) return $nullVar;
 
 		// Screen-scrape the tagged portion and turn it into XML
-		$xmlResult = String::regexp_replace('/.*<algorithm[^>]+>(.*)<\/algorithm>.*/s', '\1', html_entity_decode($result));
-		$xmlResult = String::regexp_replace('/&/', '&amp;', $xmlResult);
+		$xmlResult = PKPString::regexp_replace('/.*<algorithm[^>]+>(.*)<\/algorithm>.*/s', '\1', html_entity_decode($result));
+		$xmlResult = PKPString::regexp_replace('/&/', '&amp;', $xmlResult);
 
 		// Transform the result into an array of meta-data
 		if (is_null($metadata = $this->transformWebServiceResults($xmlResult, dirname(__FILE__).DIRECTORY_SEPARATOR.'parscit.xsl'))) return $nullVar;

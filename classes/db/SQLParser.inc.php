@@ -94,7 +94,7 @@ class SQLParser {
 	 * @param $sql string
 	 */
 	function stripComments(&$sql) {
-		$sql = trim(String::regexp_replace(sprintf('/^\s*%s(.*)$/m', $this->commentDelim), '', $sql));
+		$sql = trim(PKPString::regexp_replace(sprintf('/^\s*%s(.*)$/m', $this->commentDelim), '', $sql));
 	}
 
 	/**
@@ -112,10 +112,10 @@ class SQLParser {
 		// This method for parsing the SQL statements was adapted from one used in phpBB (http://www.phpbb.com/)
 		for ($i=0, $count=count($statementsTmp); $i < $count; $i++) {
 			// Get total number of single quotes in string
-			$numSingleQuotes += String::substr_count($statementsTmp[$i], "'");
+			$numSingleQuotes += PKPString::substr_count($statementsTmp[$i], "'");
 
 			// Get number of escaped single quotes
-			$numEscapedSingleQuotes += String::regexp_match_all("/(?<!\\\\)(\\\\\\\\)*\\\\'/", $statementsTmp[$i], $matches);
+			$numEscapedSingleQuotes += PKPString::regexp_match_all("/(?<!\\\\)(\\\\\\\\)*\\\\'/", $statementsTmp[$i], $matches);
 
 			$currentStatement .= $statementsTmp[$i];
 

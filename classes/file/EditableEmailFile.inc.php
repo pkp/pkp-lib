@@ -44,7 +44,7 @@ class EditableEmailFile {
 
 	function update($key, $subject, $body, $description) {
 		$matches = null;
-		$quotedKey = String::regexp_quote($key);
+		$quotedKey = PKPString::regexp_quote($key);
 		preg_match(
 			"/<email_text[\W]+key=\"$quotedKey\">/",
 			$this->getContents(),
@@ -70,7 +70,7 @@ class EditableEmailFile {
 
 	function delete($key) {
 		$matches = null;
-		$quotedKey = String::regexp_quote($key);
+		$quotedKey = PKPString::regexp_quote($key);
 		preg_match(
 			"/<email_text[\W]+key=\"$quotedKey\">/",
 			$this->getContents(),

@@ -57,13 +57,9 @@ class XSLTransformer {
 			if ( strpos($this->externalCommand, '%xml') === false ) return false;
 			$this->processor = 'External';
 
-		} elseif ( checkPhpVersion('5.0.0') && extension_loaded('xsl') && extension_loaded('dom') ) {
+		} elseif (extension_loaded('xsl') && extension_loaded('dom') ) {
 			// PHP5.x with XSL/DOM modules present
 			$this->processor = 'PHP5';
-
-		} elseif ( checkPhpVersion('4.1.0') && extension_loaded('xslt') ) {
-			// PHP4.x with XSLT module present
-			$this->processor = 'PHP4';
 
 		} else {
 			// no XSLT support
@@ -152,9 +148,6 @@ class XSLTransformer {
 			case 'External':
 				return $this->_transformExternal($xml, $xmlType, $xsl, $xslType, $resultType);
 
-			case 'PHP4':
-				return $this->_transformPHP4($xml, $xmlType, $xsl, $xslType, $resultType);
-
 			case 'PHP5':
 				return $this->_transformPHP5($xml, $xmlType, $xsl, $xslType, $resultType);
 
@@ -232,51 +225,6 @@ class XSLTransformer {
 			default:
 				assert(false);
 		}
-	}
-
-	/**
-	 * Use PHP4's xslt extension to do the XSL transformation
-	 * @param $xml mixed
-	 * @param $xmlType integer
-	 * @param $xsl mixed
-	 * @param $xslType integer
-	 * @param $resultType integer
-	 * @return string return type for PHP4 is always string or "false" on error.
-	 */
-	function &_transformPHP4(&$xml, $xmlType, &$xsl, $xslType, $resultType) {
-		$falseVar = false;
-
-		// PHP4 doesn't support DOM
-		if ($xmlType == XSL_TRANSFORMER_DOCTYPE_DOM || $xslType == XSL_TRANSFORMER_DOCTYPE_DOM
-				|| $resultType == XSL_TRANSFORMER_DOCTYPE_DOM) return $falseVar;
-
-		// Create the processor
-		$processor = xslt_create();
-		xslt_set_encoding($processor, XSLT_PROCESSOR_ENCODING);
-
-		// Create arguments for string types (if any)
-		$arguments = array();
-		if ($xmlType == XSL_TRANSFORMER_DOCTYPE_STRING) {
-			$arguments['/_xml'] = $xml;
-			$xml = 'arg:/_xml';
-		}
-		if ($xslType == XSL_TRANSFORMER_DOCTYPE_STRING) {
-			$arguments['/_xsl'] = $xsl;
-			$xsl = 'arg:/_xsl';
-		}
-		if (empty($arguments)) $arguments = null;
-
-		// Do the transformation
-		$resultXML = xslt_process($processor, $xml, $xsl, null, $arguments, $this->parameters);
-
-		// Error handling
-		if (!$resultXML) {
-			$this->addError("Cannot process XSLT document [%d]: %s", xslt_errno($processor), xslt_error($processor));
-			return $falseVar;
-		}
-
-		// DOM is not supported in PHP4 so we can always directly return the string result
-		return $resultXML;
 	}
 
 	/**

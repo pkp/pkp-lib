@@ -25,7 +25,7 @@ class XmlWebService extends WebService {
 	 * Constructor
 	 */
 	function XmlWebService() {
-		if (checkPhpVersion('5.0.0') && extension_loaded('dom')) {
+		if (extension_loaded('dom')) {
 			$this->_returnType = XSL_TRANSFORMER_DOCTYPE_DOM;
 		} else {
 			$this->_returnType = XSL_TRANSFORMER_DOCTYPE_STRING;
@@ -46,7 +46,7 @@ class XmlWebService extends WebService {
 	 */
 	function setReturnType($returnType) {
 		if ($returnType == XSL_TRANSFORMER_DOCTYPE_DOM) {
-			if (!checkPhpVersion('5.0.0') || !extension_loaded('dom')) {
+			if (!extension_loaded('dom')) {
 				fatalError('This system does not meet minimum requirements!');
 			}
 		}

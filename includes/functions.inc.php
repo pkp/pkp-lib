@@ -182,14 +182,7 @@ function checkPhpVersion($version) {
  * @return object the cloned object
  */
 function &cloneObject(&$object) {
-	if (checkPhpVersion('5.0.0')) {
-		// We use the PHP5 clone() syntax so that PHP4 doesn't
-		// raise a parse error.
-		$clonedObject = clone($object);
-	} else {
-		// PHP4 always clones objects on assignment
-		$clonedObject = $object;
-	}
+	$clonedObject = clone($object);
 	return $clonedObject;
 }
 
@@ -226,7 +219,7 @@ function &instantiate($fullyQualifiedClassName, $expectedTypes = null, $expected
 	$errorFlag = false;
 
 	// Validate the class name
-	if (!String::regexp_match('/^[a-zA-Z0-9.]+$/', $fullyQualifiedClassName)) {
+	if (!PKPString::regexp_match('/^[a-zA-Z0-9.]+$/', $fullyQualifiedClassName)) {
 		return $errorFlag;
 	}
 
@@ -333,7 +326,7 @@ function stripAssocArray($values, $useClientCharset = false) {
 			if ($useClientCharset && strtolower(Config::getVar('i18n', 'client_charset')) !== 'utf-8') {
 				$values[$key] = html_entity_decode($values[$key], ENT_QUOTES, Config::getVar('i18n', 'client_charset'));
 			} else {
-				$values[$key] = String::html2utf($values[$key]);
+				$values[$key] = PKPString::html2utf($values[$key]);
 			}
 		} else {
 			$values[$key] = stripAssocArray($values[$key]);

@@ -54,7 +54,7 @@ class PKPLoginHandler extends Handler {
 		// For force_login_ssl with base_url[...]: make sure SSL used for login form
 		$loginUrl = $this->_getLoginUrl();
 		if (Config::getVar('security', 'force_login_ssl')) {
-			$loginUrl = String::regexp_replace('/^http:/', 'https:', $loginUrl);
+			$loginUrl = PKPString::regexp_replace('/^http:/', 'https:', $loginUrl);
 		}
 		$templateMgr->assign('loginUrl', $loginUrl);
 

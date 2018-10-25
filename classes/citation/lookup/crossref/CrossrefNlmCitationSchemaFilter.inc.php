@@ -89,7 +89,7 @@ class CrossrefNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 
 		// Remove default name spaces from XML as CrossRef doesn't
 		// set them reliably and element names are unique anyway.
-		$resultXml = String::regexp_replace('/ xmlns="[^"]+"/', '', $resultXml);
+		$resultXml = PKPString::regexp_replace('/ xmlns="[^"]+"/', '', $resultXml);
 
 		// Transform and process the web service result
 		if (is_null($metadata =& $this->transformWebServiceResults($resultXml, dirname(__FILE__).DIRECTORY_SEPARATOR.'crossref.xsl'))) return $nullVar;

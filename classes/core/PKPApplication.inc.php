@@ -26,9 +26,6 @@ class PKPApplication {
 		// Configure error reporting
 		// FIXME: Error logging needs to be suppressed for strict
 		// and deprecation errors in PHP5 as long as we support PHP 4.
-		// This is primarily for static method warnings and warnings
-		// about use of ... =& new ... Static class members cannot be
-		// declared in PHP4 and ... =& new ... is deprecated since PHP 5.
 		$errorReportingLevel = E_ALL;
 		if (defined('E_STRICT')) $errorReportingLevel &= ~E_STRICT;
 		if (defined('E_DEPRECATED')) $errorReportingLevel &= ~E_DEPRECATED;

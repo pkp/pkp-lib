@@ -95,11 +95,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 				$templateMgr->assign('announcementTitle', 'manager.announcements.editTitle');
 			}
 
-			if (checkPhpVersion('5.0.0')) { // WARNING: This form needs $this in constructor
-				$announcementForm = new AnnouncementForm($announcementId);
-			} else {
-				$announcementForm =& new AnnouncementForm($announcementId);
-			}
+			$announcementForm = new AnnouncementForm($announcementId);
 			if ($announcementForm->isLocaleResubmit()) {
 				$announcementForm->readInputData();
 			} else {
@@ -133,11 +129,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 
 		if ($this->_announcementIsValid($announcementId)) {
 
-			if (checkPhpVersion('5.0.0')) { // WARNING: This form needs $this in constructor
-				$announcementForm = new AnnouncementForm($announcementId);
-			} else {
-				$announcementForm =& new AnnouncementForm($announcementId);
-			}
+			$announcementForm = new AnnouncementForm($announcementId);
 			$announcementForm->readInputData();
 
 			if ($announcementForm->validate()) {

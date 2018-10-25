@@ -63,7 +63,7 @@
 			<div class="section_policy">
 				<h2>{$section->getLocalizedTitle()|escape}</h2>
 				{$section->getLocalizedPolicy()}
-				{if $isUserLoggedIn && !$section->getEditorRestricted()}
+				{if $isUserLoggedIn}
 					{capture assign="sectionSubmissionUrl"}{url page="submission" op="wizard" sectionId=$section->getId()}{/capture}
 					<p>
 						{translate key="about.onlineSubmissions.submitToSection" name=$section->getLocalizedTitle() url=$sectionSubmissionUrl}

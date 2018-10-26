@@ -4,11 +4,11 @@
 <!--
   * locale/it_IT/installer.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  * Localization strings for the it_IT (Italiano) locale.
-  * Contributed by Andrea Marchitelli - CINECA
+  *
+  * Localization strings.
   -->
 
 <locale name="it_IT" full_name="Italiano">
@@ -64,7 +64,8 @@
 	<message key="installer.oaiSettings">Impostazioni OAI</message>
 	<message key="installer.unsupportedUpgradeError">Upgrade non supportato. Guarda docs/UPGRADE-UNSUPPORTED  per maggiori dettagli.</message>
 	<message key="installer.preInstallationInstructionsTitle">Punti prima dell'installazione</message>
-	<message key="installer.preInstallationInstructions"><![CDATA[<p>1. Il seguenti files e directory (insieme al loro contentuto) devono essere scrivibili:</p>
+	<message key="installer.preInstallationInstructions"><![CDATA[
+		<p>1. Il seguenti files e directory (insieme al loro contentuto) devono essere scrivibili:</p>
 		<ul>
 			<li><tt>config.inc.php</tt> scrivibile (in via opzionale): {$writable_config}</li>
 			<li><tt>public/</tt> scrivibile: {$writable_public}</li>
@@ -74,7 +75,8 @@
 			<li><tt>cache/_db</tt> scrivibile: {$writable_db_cache}</li>
 		</ul>
 
-		<p>2. Una directory per custodire i files caricati deve essere creata e resa scrivibile (vedi "Impostazioni dei file " qui sotto).</p>]]></message>
+		<p>2. Una directory per custodire i files caricati deve essere creata e resa scrivibile (vedi "Impostazioni dei file " qui sotto).</p>]]>
+	</message>
 	<message key="installer.configureXSLMessage"><![CDATA[<p>La tua installazione di PHP non ha abilitato il modulo XSL. Puoi sia abilitarlo o configurare il parametro xslt_command nel file config.inc.php </p>]]></message>
 	<message key="installer.beacon">Beacon</message>
 	<message key="installer.beacon.enable">Invia un id univoco e l'OAI base URL alla PKP per sole finalità statistiche e di allerta di sicurezza.</message>

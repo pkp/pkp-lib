@@ -4,8 +4,8 @@
 <!--
   * locale/it_IT/common.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -372,15 +372,12 @@
 	<message key="dashboard.myQueue">Lavori in coda</message>
 	<message key="submission.task.responseDueDate">Scadenza per confermare la disponibilità</message>
 	<message key="notification.type.allReviewsIn">Tutte le revisioni sono state caricate ed è necassaria una decisione nel passaggio {$stage}.</message>
-	<message key="notification.type.queryActivity">Un nuovo commento all'interno di una discussione</message>
-	<message key="notification.type.queryAdded">Una nuova discussione è stata aggiunta</message>
 	<message key="common.subtitle.tip">L'eventuale sottotitolo comparirà dopo i due punti (:) accanto al titolo.</message>
 	<message key="grid.action.markNew">Segna come nuovo</message>
 	<message key="grid.action.markRead">Segna come già letto</message>
 	<message key="review.ensuringBlindReview">Assicurare una revisione cieca</message>
 	<message key="notification.addedStageParticipant">Utente aggiunto ai partecipanti.</message>
 
-	<message key="semicolon">{$label}:</message>
 	<message key="notification.addedAuditor">Valutatore aggiunto</message>
 	<message key="notification.removedAuditor">Valutatore rimosso</message>
 	<message key="notification.type.auditorRequest">Valutatore richiesto per "{$file}"</message>
@@ -486,15 +483,38 @@
 	<message key="search.deleteFilter">Cancella</message>
 	<message key="search.indexTermsLong">Tutti i campi indicizzati per parola</message>
 	<message key="search.SearchFor">Cerca per</message>
-	<message key="grid.action.downloadFile">Scarica questo file</message>
 	<message key="grid.action.showReviewPolicy">Leggi l'attuale politica di revisione</message>
 	<message key="grid.action.deleteNotification">Cancella Task</message>
+
+	<message key="common.lessThan">{$value} o meno</message>
+	<message key="common.listSeparator">,</message>
+	<message key="common.moreThan">{$value} o più</message>
+	<message key="common.pagination">{$start}-{$end} di {$total}</message>
+	<message key="common.pagination.label">Scorri pagine addizionali</message>
+	<message key="common.clearSearch">Pulisci ricerca</message>
+	<message key="common.publicAccess">Accesso pubblico</message>
+	<message key="stageParticipants.notify.startDiscussion">Inizia discussione</message>
+	<message key="stageParticipants.notify.startDiscussion.description">Inizia una discussione tra te e {$userFullName}.</message>
+	<message key="common.filter">Filtri</message>
+	<message key="common.filterAdd">Aggiungi filtro: {$filterTitle}</message>
+	<message key="common.filterRemove">Rimuovi filtro: {$filterTitle}</message>
+	<message key="notification.type.reviewAssignmentUpdated">Review in attesa aggiornate.</message>
+
+	<!-- Common -->
+	<message key="grid.action.downloadFile">Scarica questo file</message>
+
 	<message key="dashboard.tasks">Tasks</message>
+	<message key="review.blindPeerReview"><![CDATA[<p> Per garantire l'integrità della blind peer-review per le proposte a questa pubblicazione, viene fatto ogni sforzo per impedire che le identità degli autori e dei revisori siano note l'una all'altra. Ciò implica che gli autori, gli editor e i revisori (che caricano documenti come parte della loro revisione) controllino se i seguenti passi sono stati presi riguardo al testo e alle proprietà del file: </ p>
+<ul> <li> Gli autori del documento devono cancellare i loro nomi dal testo, con "Autore" e anno utilizzati nei riferimenti e note a piè di pagina, al posto del nome dell'autore, del titolo dell'articolo, ecc. </ li>
+<li> Con i documenti di Microsoft Office, l'identificazione dell'autore dovrebbe anche essere rimossa dalle proprietà per il file (vedi sotto File in Word), facendo clic su quanto segue: iniziando con File nel menu principale dell'applicazione Microsoft: File & gt; Salva come & gt; Strumenti (o Opzioni con un Mac) & gt; Sicurezza & gt; Rimuovi le informazioni personali dalle proprietà del file su save & gt; Salva. </ li>
+<li> Con i PDF, i nomi degli autori dovrebbero anche essere rimossi dalle Proprietà del documento che si trovano sotto File nel menu principale di Adobe Acrobat. </ li>
+</ ul>]]></message>
 	<message key="reviewer.submission.reviewSchedule">Schedulazione revisione</message>
 	<message key="reviewer.submission.reviewRequestDate">Richiesta dell'editor</message>
 	<message key="reviewer.submission.responseDueDate">Data per cui è chiesta risposta</message>
 	<message key="reviewer.submission.reviewDueDate">Data entro cui fare la revisione</message>
 	<message key="navigation.goBack">Torna indietro</message>
+
 	<message key="notification.addedReviewer">{$reviewerName} è stato designato come revisore di questa proposta e gli è stata inviato un avviso per email.</message>
 	<message key="notification.addedReviewerNoEmail">{$reviewerName} è stato designato come revisore di questa proposta e  non gli è stata inviata una email.</message>
 	<message key="notification.removedReviewer">Revisore rimosso.</message>
@@ -509,35 +529,25 @@
 	<message key="user.authorization.submissionFile">L'utente corrente non è autorizzato ad accedere al file di questa specifica proposta.</message>
 	<message key="user.authorization.invalidSubmission">Proposta non valida.</message>
 	<message key="user.authorization.invalidRepresentation">Rappresentazione non valida</message>
-	<message key="review.blindPeerReview"><![CDATA[<p> Per garantire l'integrità della blind peer-review per le proposte a questa pubblicazione, viene fatto ogni sforzo per impedire che le identità degli autori e dei revisori siano note l'una all'altra. Ciò implica che gli autori, gli editor e i revisori (che caricano documenti come parte della loro revisione) controllino se i seguenti passi sono stati presi riguardo al testo e alle proprietà del file: </ p>
-<ul> <li> Gli autori del documento devono cancellare i loro nomi dal testo, con "Autore" e anno utilizzati nei riferimenti e note a piè di pagina, al posto del nome dell'autore, del titolo dell'articolo, ecc. </ li>
-<li> Con i documenti di Microsoft Office, l'identificazione dell'autore dovrebbe anche essere rimossa dalle proprietà per il file (vedi sotto File in Word), facendo clic su quanto segue: iniziando con File nel menu principale dell'applicazione Microsoft: File & gt; Salva come & gt; Strumenti (o Opzioni con un Mac) & gt; Sicurezza & gt; Rimuovi le informazioni personali dalle proprietà del file su save & gt; Salva. </ li>
-<li> Con i PDF, i nomi degli autori dovrebbero anche essere rimossi dalle Proprietà del documento che si trovano sotto File nel menu principale di Adobe Acrobat. </ li>
-</ ul>]]></message>
 	<message key="user.authorization.authorRoleMissing">Non hai sufficienti privilegi per vedere la proposta. Controlla il tuo profilo per accertati che ti sinoa stati dati i ruoli appropiati sotto "Registrato come"</message>
 	<message key="user.authorization.submissionAuthor">Non sei loggato come l'autore della proposta richiesta. Per favore verifica che tui sia loggato con il corretto account.</message>
+	<message key="notification.type.queryActivity">Un nuovo commento all'interno di una discussione</message>
+	<message key="notification.type.queryAdded">Una nuova discussione è stata aggiunta</message>
 	<message key="notification.type.assignCopyeditors">Assegna un copyeditor usando il link Assegna nella lista dei partecipanti.</message>
 	<message key="notification.type.awaitingCopyedits">In attesa del copyediting</message>
 	<message key="notification.type.roundStatusTitle">Round {$round} Status</message>
+
+	<message key="semicolon">{$label}:</message>
+
+	<!-- Navigation Menus -->
 	<message key="notification.editedNavigationMenuItem">Il punto del menu di navigazione è stato aggiornato con successo</message>
 	<message key="notification.removedNavigationMenuItem">Il punto del menu di navigazione è stato rimosso con succeso</message>
 	<message key="notification.addedNavigationMenuItem">Il punto del menu di navigazione è stato aggiunto con successo</message>
 	<message key="notification.addedNavigationMenu">Il menu di navigazione è statpo aggiunto con successo</message>
 	<message key="notification.editedNavigationMenu">Il menu di navigazione è stato aggiornato con successo</message>
 	<message key="notification.removedNavigationMenu">Il menu di navigazione è stato rimosso con successo</message>
-	<message key="common.lessThan">{$value} o meno</message>
-	<message key="common.listSeparator">,</message>
-	<message key="common.moreThan">{$value} o più</message>
-	<message key="common.pagination">{$start}-{$end} di {$total}</message>
-	<message key="common.pagination.label">Scorri pagine addizionali</message>
-	<message key="common.clearSearch">Pulisci ricerca</message>
-	<message key="common.publicAccess">Accesso pubblico</message>
-	<message key="stageParticipants.notify.startDiscussion">Inizia discussione</message>
-	<message key="stageParticipants.notify.startDiscussion.description">Inizia una discussione tra te e {$userFullName}.</message>
-	<message key="common.filter">Filtri</message>
-	<message key="common.filterAdd">Aggiungi filtro: {$filterTitle}</message>
-	<message key="common.filterRemove">Rimuovi filtro: {$filterTitle}</message>
-	<message key="notification.type.reviewAssignmentUpdated">Review in attesa aggiornate.</message>
+
+	<!-- List Handlers -->
 	<message key="list.viewMore">Mostra i dettagli al riguardo di {$name}</message>
 	<message key="list.viewLess">Nascondi i dettagli riguardo {$name}</message>
 </locale>

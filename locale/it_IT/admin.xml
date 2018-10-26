@@ -55,7 +55,6 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Formato dell'immagine del logo del sito non valido. I formati accettati sono .gif, .jpg, o .png.</message>
 	<message key="admin.settings.introduction">Introduzione</message>
 	<message key="admin.settings.minPasswordLength">Lunghezza minima delle password</message>
-	<message key="admin.settings.passwordCharacters">caratteri</message>
 	<message key="admin.settings.siteLanguage">Lingua del sito</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Formato del foglio di stile del sito non valido. Il formato accettato è .css.</message>
 	<message key="admin.settings.siteStyleSheet">Foglio di stile del sito</message>
@@ -84,6 +83,44 @@
 	<message key="admin.systemInfo.settingName">Nome</message>
 	<message key="admin.systemInfo.settingValue">Valore</message>
 	<message key="admin.languages.installLocale">Installa lingua</message>
-	<message key="admin.scheduledTask.clearLogs">Svuota registro delle attività programmate</message>
+	<message key="admin.scheduledTask.clearLogs">Svuota registro delle procedure programmate</message>
 	<message key="admin.settings.siteLogo">Logo</message>
+	<message key="admin.contexts.confirmDelete">Sei sicuro di voler rimuovere definitivamente {$contextName} e tutti i suoi contenuti?</message>
+	<message key="admin.languages.availableLocales">Lingue disponibili</message>
+	<message key="admin.fileLoader.wrongBasePathLocation">Il path  {$path}  deve essere dentro la cartella dei file pubblici</message>
+	<message key="admin.fileLoader.pathNotAccessible">La cartella {$path} non è una cartella o non è scrivibile</message>
+	<message key="admin.copyAccessLogFileTool.warning.fileAlreadyExists">Attenzione: il file {$filePath} esiste già nella cartella delle statistiche d'uso.</message>
+	<message key="admin.copyAccessLogFileTool.success">Successo: {$filePath} a{$destinationPath}</message>
+	<message key="admin.error.executingUtil">Error: non posso eseguire "{$utilPath}".  Controlla la configurazione di {$utilVar} config.inc.php.</message>
+	<message key="admin.languages.noLocalesToDownload">Non ci sono lingue disponibili per il download</message>
+	<message key="admin.languages.download">Scarica traduzione</message>
+	<message key="admin.languages.downloadLocales">Scarica traduzioni</message>
+	<message key="admin.languages.download.cannotOpen">Non riesco ad aprire la descrizione della lingua dal sito di PKP</message>
+	<message key="admin.languages.download.cannotModifyRegistry">Non riesco ad aggiungere la nuova traduzione al file registry collegato, di solito è "registry/locales.xml".</message>
+	<message key="admin.languages.cantDisable">Questa lingua è la lingua primaria del sito. Non puoi disabilitarla fino a quando non scegli un'altra lingua come primaria.</message>
+	<message key="admin.scheduledTask">Procedura programmata</message>
+	<message key="admin.scheduledTask.startTime">Inizia procedura programmata</message>
+	<message key="admin.scheduledTask.stopTime">Ferma procedura programmata</message>
+	<message key="admin.scheduledTask.noLog">La procedura programmata non ha creato log.</message>
+	<message key="admin.scheduledTask.downloadLog">L'installazione di  {$softwareName} è stata eseguita, puoi scaricare il log da qui: {$url}</message>
+	<message key="admin.scheduledTask.confirmClearLogs">Sei sicuro di voler cancellare tutti i log della procedure programmate ?</message>
+	<message key="admin.scheduledTask.reviewReminder">Promemoria per la revisione</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">Promemoria per la scadenza dell'abbonamento</message>
+	<message key="admin.settings.defaultMetricDescription">La tua installazione è configurata per registrare più di una metrica d'uso. Le statistiche d'uso sono visualizzate in diversi contesti.
+ Ci sono casi dove una singola metodologia va usata, ad esempio per visualizzare una lista delle pubblicazioni più usate o per ordinare 
+ risultati di ricerca. Per favore scegli una delle metriche configurate come default.</message>
+	<message key="admin.fileLoader.moveFileFailed">Il file {$filename} non può essre mosso da {$currentFilePath} a {$destinationPath}</message>
+	<message key="admin.fileLoader.fileProcessed">Il file {$filename} è stato lavorato e salvato.</message>
+	<message key="admin.fileLoader.emailSubject">Caricamento file</message>
+	<message key="admin.copyAccessLogFileTool.usage">Copia i log di Apache, filtrando solo le operazioni collegate a questa installazione, dentro la directory stage del UsageStatsPlugin. Deve essere eseguito con abbastanza privilegi per leggere i file access log di Apache.
+
+Questo strumento copia solo i file che non sono già nelle dir usageStats (stage, processing, archive, reject).
+
+Uso: {$scriptName} path/al/apache/log/file.log
+Uso (per lavorare tutti i file dentro una dir): {$scriptName} path/ad/apache/directory</message>
+	<message key="admin.copyAccessLogFileTool.error.creatingFolder">Errore: non riesco a creare la dir temporanea {$tmpDir}</message>
+	<message key="admin.copyAccessLogFileTool.error.acessingFile">Errore: il file {$filePath} non esiste o non è accessibile.</message>
+	<message key="admin.copyAccessLogFileTool.error.copyingFile">Errore: non puoi copiare il file da {$filePath} a {$tmpFilePath}</message>
+	<message key="admin.copyAccessLogFileTool.error.deletingFile">Errore: non puoi cancellare il file {$tmpFilePath}</message>
+	<message key="admin.error.utilExecutionProblem">L'esecuzione di "{$utilPath}" ha generato questo errore: {$output}</message>
 </locale>

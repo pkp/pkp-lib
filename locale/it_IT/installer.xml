@@ -4,8 +4,8 @@
 <!--
   * locale/it_IT/installer.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2000-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization strings for the it_IT (Italiano) locale.
   * Contributed by Andrea Marchitelli - CINECA
@@ -19,13 +19,12 @@
 	<message key="installer.checkYes">Si</message>
 	<message key="installer.clientCharset">Set di caratteri del client</message>
 	<message key="installer.clientCharsetInstructions">La codifica da utilizzare per l'invio e ricezione dei dati dai browser.</message>
-	<message key="installer.configFileError"><![CDATA[Il file di configurazione <tt>config.inc.php</tt> non esiste o non &#x00E8; leggibile.]]></message>
+	<message key="installer.configFileError"><![CDATA[Il file di configurazione <tt>config.inc.php</tt> non esiste o non è leggibile.]]></message>
 	<message key="installer.connectionCharset">Set di caratteri per la connessione</message>
 	<message key="installer.contentsOfConfigFile">Contenuti del file di configurazione</message>
 	<message key="installer.createDatabase">Crea nuovo database</message>
 	<message key="installer.createDatabaseInstructions">Per utilizzare questa opzione il vostro database deve supportare la creazione remota di database e il vostro account utente deve avere i permessi adeguati. Se con questa opzione selezionata l'installazione dovesse fallire, creare il database manualmente e ripetete il processo d'installazione disabilitando quest'opzione.</message>
 	<message key="installer.databaseCharset">Set di caratteri del database</message>
-	<message key="installer.databaseCharsetInstructions"><![CDATA[La codifica da usare per l'immagazzinamento dei dati in banca dati.]]></message>
 	<message key="installer.databaseDriver">Driver del database</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>I driver elencati tra parentesi non sembrano avere la necessaria estensione PHP caricata; verosimilmente l'installazione fallirà se li si seleziona.</strong><br />Tutti i database non supportati sono elencati solo per scopi accademici e non è garantito il loro funzionamento.]]></message>
 	<message key="installer.databaseHost">Host</message>
@@ -34,15 +33,12 @@
 	<message key="installer.databasePassword">Password</message>
 	<message key="installer.databaseSettings">Impostazioni del database</message>
 	<message key="installer.databaseUsername">Username</message>
-	<message key="installer.encryptionInstructions"><![CDATA[SHA1 è raccomandato, se supportato dal vostro sistema (richiede PHP >= 4.3.0).]]></message>
-	<message key="installer.encryption">Algoritmo di criptatura delle password</message>
 	<message key="installer.filesDir">Directory per gli upload</message>
 	<message key="installer.fileSettings">Impostazioni dei file</message>
 	<message key="installer.form.clientCharsetRequired">Seleziona un set di caratteri per il client.</message>
 	<message key="installer.form.databaseDriverRequired">Seleziona il driver per il database.</message>
 	<message key="installer.form.databaseNameRequired">Inserisce il nome del database.</message>
 	<message key="installer.form.emailRequired">Inserisci un indirizzo email valido per l'amministratore.</message>
-	<message key="installer.form.encryptionRequired">Seleziona l'algoritmo da utilizzare per la criptatura delle password.</message>
 	<message key="installer.form.filesDirRequired">Indica la directory per l'upload dei file.</message>
 	<message key="installer.form.localeRequired">Seleziona una lingua.</message>
 	<message key="installer.form.passwordRequired">Inserisci la password per l'account di amministratore.</message>
@@ -53,18 +49,34 @@
 	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>ATTENZIONE: La tua versione attuale di PHP non soddisfa i requisiti minimi per l'installazione. E' raccomandato aggionare a una versione più recente di PHP.<br/><strong>]]></message>
 	<message key="installer.installErrorsOccurred">Errori avvenuti durante l'installazione</message>
 	<message key="installer.installerSQLStatements">Istruzioni SQL per l'installazione</message>
-	<message key="installer.installFileError"><![CDATA[Il file d'<tt>dbscripts/xml/install.xml</tt> non esiste o  non &#x00E8; leggibile.]]></message>
+	<message key="installer.installFileError"><![CDATA[Il file <tt>dbscripts/xml/install.xml</tt> per l'installazione non esiste o  non è leggibile.]]></message>
 	<message key="installer.installFilesDirError">La directory indicata per l'upload dei file non esiste o non è scrivibile.</message>
 	<message key="installer.installParseDBFileError"><![CDATA[Errore nel parsing del file di installazione <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Localizzazione</message>
 	<message key="installer.localeSettings">Impostazioni della localizzazione</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Un identificativo univoco utilizzato per i record di metadati provenienti da questo sito indicizzati tramite l&apos;<a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Un identificativo univoco utilizzato per i record di metadati provenienti da questo sito indicizzati tramite l'<a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
 	<message key="installer.oaiRepositoryId">Identificativo del repository OAI</message>
 	<message key="installer.publicFilesDirError">La directory di file pubblici non esiste o non è scrivibile.</message>
 	<message key="installer.releaseNotes">Note di rilascio</message>
-	<message key="installer.securitySettings">Impostazioni di sicurezza</message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Errore nell'analisi del template email <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale.maybeIncomplete">I file contrassegnati  potrebbero essere incompleti.</message>
 	<message key="installer.installParseFilterConfigFileError"><![CDATA[Errore nel parsing del file <tt>{$file}</tt>.]]></message>
 	<message key="installer.oaiSettings">Impostazioni OAI</message>
+	<message key="installer.unsupportedUpgradeError">Upgrade non supportato. Guarda docs/UPGRADE-UNSUPPORTED  per maggiori dettagli.</message>
+	<message key="installer.preInstallationInstructionsTitle">Punti prima dell'installazione</message>
+	<message key="installer.preInstallationInstructions"><![CDATA[<p>1. Il seguenti files e directory (insieme al loro contentuto) devono essere scrivibili:</p>
+		<ul>
+			<li><tt>config.inc.php</tt> scrivibile (in via opzionale): {$writable_config}</li>
+			<li><tt>public/</tt> scrivibile: {$writable_public}</li>
+			<li><tt>cache/</tt> scrivibile: {$writable_cache}</li>
+			<li><tt>cache/t_cache/</tt> scrivibile: {$writable_templates_cache}</li>
+			<li><tt>cache/t_compile/</tt> scrivibile: {$writable_templates_compile}</li>
+			<li><tt>cache/_db</tt> scrivibile: {$writable_db_cache}</li>
+		</ul>
+
+		<p>2. Una directory per custodire i files caricati deve essere creata e resa scrivibile (vedi "Impostazioni dei file " qui sotto).</p>]]></message>
+	<message key="installer.configureXSLMessage"><![CDATA[<p>La tua installazione di PHP non ha abilitato il modulo XSL. Puoi sia abilitarlo o configurare il parametro xslt_command nel file config.inc.php </p>]]></message>
+	<message key="installer.beacon">Beacon</message>
+	<message key="installer.beacon.enable">Invia un id univoco e l'OAI base URL alla PKP per sole finalità statistiche e di allerta di sicurezza.</message>
+	<message key="installer.unsupportedPhpError">La tua versione di PHP non è supportata da questo software. Controlla i requisiti di installazione in docs/README.</message>
 </locale>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/it_IT/api.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the REST API.
+  -->
+
+<locale name="it_IT" full_name="Italiano">
+	<message key="api.submissions.403.csrfTokenFailure">La tua richiesta è stata rifiutata. Questo perchè il tuo login è scaduto. Ricarica la pagina e prova di nuovo.</message>
+	<message key="api.submissions.403.requestedOthersUnpublishedSubmissions">Puoi vedere solo le proposte non pubblicate che ti sono state assegnate.</message>
+	<message key="api.submissions.403.deleteSubmissionOutOfContext">Non puoi cancellare una proposta che non sia assegnata a questo contesto.</message>
+	<message key="api.submissions.403.unauthorizedDeleteSubmission">Non puoi cancellare questa proposta.</message>
+	<message key="api.submissions.404.resourceNotFound">La risorsa richiesta non è stata trovata.</message>
+	<message key="api.submissions.400.missingRequired">La tua richiesta non può essere completata perchè mancano le informazioni richieste.</message>
+	<message key="api.submissions.400.invalidIssueIdentifiers">Il richiesto volume, numero o anno non è valido.</message>
+	<message key="api.submissions.unknownError">E' avvenuto un errore inatteso. Per favore ricarica la pagina e prova di nuovo.</message>
+</locale>

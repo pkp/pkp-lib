@@ -163,9 +163,10 @@ class SMTPMailer {
 	 */
 	function connect() {
 		$this->socket = fsockopen($this->server, $this->port, $errno, $errstr, 30);
-		if (!$this->socket)
+		if (!$this->socket) {
 			error_log('OJS SMTPMailer: fsockopen error ' . $errno . ': '. $errstr);
 			return false;
+		}
 		return true;
 	}
 

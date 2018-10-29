@@ -570,4 +570,10 @@
 	<message key="submission.list.reviewerWorkflowLink"><![CDATA[Foi-lhe atribuído o papel editorial a esta submissão. Deseja aceder ao <a href="{$urlEditorialWorkflow}">Processo Editorial</a>?]]></message>
 	<message key="submission.list.incompleteSubmissionNotice">A submissão deve ser completada antes de um editor a rever.</message>
 	<message key="submission.list.currentStage">Atualmente no estado {$stage}.</message>
+	<message key="submission.submit.availableUserGroups">Enviar Como</message>
+	<message key="submission.submit.availableUserGroupsDescription">Selecione o papel que melhor descreve a sua contribuição.</message>
+	<message key="submission.submit.contactConsent">Contacto para Correspondência</message>
+	<message key="submission.submit.contactConsentDescription">Sim, quero ser contactado sobre esta submissão.</message>
+	<message key="submission.submit.userGroupDescriptionManagers">Submeta em algum dos seguintes papeis se desejar ser capaz de editar e publicar esta submissão você mesmo: {$managerGroups}</message>
+	<message key="log.review.reviewUnconsidered">{$editorName} marcou a ronda de revisão {$round} para a submissão {$submissionId} como não considerada.</message>
 </locale>

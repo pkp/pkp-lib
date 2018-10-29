@@ -17,6 +17,7 @@ import('lib.pkp.classes.form.Form');
 
 // Use this class to handle the submission metadata.
 import('classes.submission.SubmissionMetadataFormImplementation');
+import('lib.pkp.classes.controllers.modals.submissionMetadata.SubmissionMetadataHandler');
 
 class PKPSubmissionMetadataViewForm extends Form {
 
@@ -132,6 +133,16 @@ class PKPSubmissionMetadataViewForm extends Form {
 	 */
 	function fetch($request, $template = null, $display = false) {
 		$submission = $this->getSubmission();
+
+		// user permit edit control
+		/** @var $currentUser User */
+		$currentUser = $request->getUser();
+
+		if (!SubmissionMetadataHandler::getUserAllowEditMetadata($submission->getId(), $currentUser->getId(), $this->_stageId)) {
+			$this->_formParams['hideSubmit'] = true;
+			$this->_formParams['readOnly'] = true;
+		}
+
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
 			'submissionId' =>$submission->getId(),
@@ -238,5 +249,6 @@ class PKPSubmissionMetadataViewForm extends Form {
 			}
 		}
 	}
+
 
 }

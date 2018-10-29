@@ -122,9 +122,19 @@ class StageAssignmentDAO extends DAO {
 	 * @param $userGroupId int
 	 * @param $userId int
 	 * @param $recommendOnly boolean
+	 * @param $canChangeMetadata boolean
 	 * @return StageAssignment
 	 */
-	function build($submissionId, $userGroupId, $userId, $recommendOnly = false) {
+	function build($submissionId, $userGroupId, $userId, $recommendOnly = false, $canChangeMetadata = null) {
+		if (!isset($canChangeMetadata)) {
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+
+			/** @var $userGroup UserGroup */
+			$userGroup = $userGroupDao->getById($userGroupId);
+
+			$canChangeMetadata = $userGroup->getPermitMetadataEdit();
+		}
+
 
 		// If one exists, fetch and return.
 		$stageAssignment = $this->getBySubmissionAndStageId($submissionId, null, $userGroupId, $userId);
@@ -136,6 +146,7 @@ class StageAssignmentDAO extends DAO {
 		$stageAssignment->setUserGroupId($userGroupId);
 		$stageAssignment->setUserId($userId);
 		$stageAssignment->setRecommendOnly($recommendOnly);
+		$stageAssignment->setCanChangeMetadata($canChangeMetadata);
 		$this->insertObject($stageAssignment);
 		$stageAssignment->setId($this->getInsertId());
 		return $stageAssignment;
@@ -164,6 +175,7 @@ class StageAssignmentDAO extends DAO {
 		$stageAssignment->setDateAssigned($row['date_assigned']);
 		$stageAssignment->setStageId($row['stage_id']);
 		$stageAssignment->setRecommendOnly($row['recommend_only']);
+		$stageAssignment->setCanChangeMetadata($row['can_change_metadata']);
 
 		return $stageAssignment;
 	}
@@ -176,16 +188,17 @@ class StageAssignmentDAO extends DAO {
 		$this->update(
 			sprintf(
 				'INSERT INTO stage_assignments
-					(submission_id, user_group_id, user_id, date_assigned, recommend_only)
+					(submission_id, user_group_id, user_id, date_assigned, recommend_only, can_change_metadata)
 				VALUES
-					(?, ?, ?, %s, ?)',
+					(?, ?, ?, %s, ?, ?)',
 				$this->datetimeToDB(Core::getCurrentDate())
 			),
 			array(
 				$stageAssignment->getSubmissionId(),
 				$this->nullOrInt($stageAssignment->getUserGroupId()),
 				$this->nullOrInt($stageAssignment->getUserId()),
-				$stageAssignment->getRecommendOnly()?$stageAssignment->getRecommendOnly():0
+				$stageAssignment->getRecommendOnly()?$stageAssignment->getRecommendOnly():0,
+				$stageAssignment->getCanChangeMetadata()?$stageAssignment->getCanChangeMetadata():0
 			)
 		);
 	}
@@ -202,7 +215,8 @@ class StageAssignmentDAO extends DAO {
 					user_group_id = ?,
 					user_id = ?,
 					date_assigned = %s,
-					recommend_only = ?
+					recommend_only = ?,
+					can_change_metadata = ?
 				WHERE	stage_assignment_id = ?',
 				$this->datetimeToDB(Core::getCurrentDate())
 			),
@@ -211,6 +225,7 @@ class StageAssignmentDAO extends DAO {
 				$this->nullOrInt($stageAssignment->getUserGroupId()),
 				$this->nullOrInt($stageAssignment->getUserId()),
 				$stageAssignment->getRecommendOnly()?$stageAssignment->getRecommendOnly():0,
+				$stageAssignment->getCanChangeMetadata()?$stageAssignment->getCanChangeMetadata():0,
 				(int) $stageAssignment->getId()
 			)
 		);

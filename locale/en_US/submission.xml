@@ -221,6 +221,8 @@
 	<message key="submission.event.reviewer.reviewRevision">Reviewer revisions file updated</message>
 	<message key="submission.event.subjectPrefix">An email has been sent:</message>
 	<message key="submission.event.viewEmail">View Email</message>
+	<message key="submission.event.addedStageToAllowedAuthorMetadataChange">The authors are now allowed to edit metadata when submission in stage {stage}.</message>
+	<message key="submission.event.removedStageToAllowedAuthorMetadataChange">The authors are now not allowed to edit metadata when submission in stage {stage}.</message>
 	<message key="submission.files">Files</message>
 	<message key="submission.files.downloadAll">Download All Files</message>
 	<message key="submission.galley">Galley</message>
@@ -462,12 +464,17 @@
 	<message key="editor.submission.noneAssigned">None Assigned</message>
 	<message key="editor.submission.participant">Participant</message>
 	<message key="editor.submission.addStageParticipant">Assign Participant</message>
+	<message key="editor.submission.editStageParticipant">Edit Assignment</message>
 	<message key="editor.submission.addStageParticipant.userGroup">Users are assigned to stages of the workflow by user group. Any user assigned to this stage will automatically be assigned to other stages to which their user group has been assigned. This is commonly reserved for editors, authors and translators.</message>
 	<message key="editor.submission.removeStageParticipant">Remove Participant</message>
 	<message key="editor.submission.removeStageParticipant.description"><![CDATA[You are about to remove this participant from <strong>all</strong> stages. If the user also have pending auditor tasks, they will be removed too.]]></message>
 	<message key="editor.submission.addStageParticipant.form.userGroupRequired">You must select a user group.</message>
 	<message key="editor.submission.addStageParticipant.form.userRequired">You must select a user for the specified user group.</message>
 	<message key="editor.submission.addStageParticipant.form.reviewerWarning">The participant you selected has been assigned to conduct a blind review. If you assign them as a participant, they will have access to the author's identity. You are encouraged not to assign this participant unless you can independently ensure the integrity of the peer review process.</message>
+	<message key="editor.submission.removePermissionToEdit">Disallow Edit Metadata</message>
+	<message key="editor.submission.addPermissionToEdit">Allow Edit Metadata</message>
+	<message key="editor.submission.removePermissionToEditDescription">Are you sure you want the authors of this submission to be unable to edit the submission's metadata at that stage?</message>
+	<message key="editor.submission.addPermissionToEditDescription">Are you sure you want the authors of this submission to be able to edit the submission's metadata at that stage?</message>
 
 	<!--  editor decisions -->
 	<message key="editor.submission.decision">Decision</message>

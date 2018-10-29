@@ -508,4 +508,7 @@
 	<message key="manager.navigationMenus.contact.conditionalWarning"><![CDATA[Esta ligação só será apresentada se tiver preenchido informação de Contacto em Configurações > Contactos.]]></message>
 	<message key="manager.navigationMenus.form.typeMissing">Por favor selecione um tipo de menu de navegação.</message>
 	<message key="manager.navigationMenus.subscriptions.conditionalWarning"><![CDATA[Esta ligação só será apresentada se os pagamentos estiverem ativos em Configurações > Distribuição > Pagamentos.]]></message>
+	<message key="manager.setup.privacyStatement.description">Esta mensagem irá aparecer durante o registo de um utilizador, submissão por um autor, e na página pública sobre Privacidade. Em algumas jurisdições, é legalmente obrigatório especificar como irá utilizar os dados recolhidos.</message>
+	<message key="manager.navigationMenus.privacyStatement.description">Ligação para a página que apresenta a mensagem de privacidade.</message>
+	<message key="manager.navigationMenus.privacyStatement.conditionalWarning"><![CDATA[Esta ligação só irá ser apresentada se tiver introduzido uma mensagem de privacidade, em Configurações > Fluxo de Trabalho > Submissões]]></message>
 </locale>

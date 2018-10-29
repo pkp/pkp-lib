@@ -149,6 +149,7 @@
 			<element name="is_default" type="boolean" />
 			<element name="show_title" type="boolean" />
 			<element name="permit_self_registration" type="boolean" />
+			<element name="permit_metadata_edit" type="boolean" />
 			<element name="name" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 			<element name="abbrev" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 			<element name="stage_assignments" type="string" minOccurs="1" maxOccurs="1" />

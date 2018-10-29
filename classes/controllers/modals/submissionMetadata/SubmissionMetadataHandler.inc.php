@@ -48,13 +48,6 @@ class SubmissionMetadataHandler extends Handler {
 		// Identify the stage, if we have one.
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
 
-		// prevent anyone but managers and editors from submitting the catalog entry form
-		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-		if (!array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT), $userRoles)) {
-			$params['hideSubmit'] = true;
-			$params['readOnly'] = true;
-		}
-
 		// Form handling
 		$submissionMetadataViewForm = $this->getFormInstance($submission->getId(), $stageId, $params);
 
@@ -98,6 +91,29 @@ class SubmissionMetadataHandler extends Handler {
 		// use the same form class, but as it's app-dependent, we
 		// can't put the instantiation higher up the class tree.
 		assert(false); // To be implemented by subclasses
+	}
+
+	/**
+	 * Get allow metadata edit permissions for submission, current user and stageId
+	 * @param $submissionId int
+	 * @param $currentUserId int
+	 * @param $stageId int
+	 * @return boolean true if the user is allowed to edit metadata
+	 */
+	static function getUserAllowEditMetadata($submissionId, $currentUserId, $stageId) {
+		/** @var $stageAssignmentDao StageAssignmentDAO */
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+		$stageAssignmentsArray = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submissionId, $currentUserId, $stageId);
+		$stageAssignments = $stageAssignmentsArray->toArray();
+
+		/** @var $stageAssignment StageAssignment */
+		foreach($stageAssignments as $stageAssignment) {
+			if ($stageAssignment->getCanChangeMetadata()) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 }
 

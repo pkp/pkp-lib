@@ -121,6 +121,22 @@ class StageAssignment extends DataObject {
 		$this->setData('recommendOnly', $recommendOnly);
 	}
 
+	/**
+	 * Get permit metadata edit option.
+	 * @return boolean
+	 */
+	function getCanChangeMetadata() {
+		return $this->getData('canChangeMetadata');
+	}
+
+	/**
+	 * Set permit metadata edit option.
+	 * @param $permitMetadataEdits boolean
+	 */
+	function setCanChangeMetadata($canChangeMetadata) {
+		$this->setData('canChangeMetadata', $canChangeMetadata);
+	}
+
 }
 
 

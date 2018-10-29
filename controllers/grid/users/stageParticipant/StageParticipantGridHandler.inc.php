@@ -21,6 +21,9 @@ import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridRow'
 import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridCategoryRow');
 import('classes.log.SubmissionEventLogEntry'); // App-specific.
 
+import('lib.pkp.classes.controllers.modals.submissionMetadata.SubmissionMetadataHandler');
+import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
+
 class StageParticipantGridHandler extends CategoryGridHandler {
 	/**
 	 * Constructor
@@ -247,15 +250,18 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 	function addParticipant($args, $request) {
 		$submission = $this->getSubmission();
 		$stageId = $this->getStageId();
+		$assignmentId = null;
+		if (array_key_exists('assignmentId', $args)) {
+			$assignmentId = $args['assignmentId'];
+		}
 		$userGroups = $this->getGridDataElements($request);
 
 		import('lib.pkp.controllers.grid.users.stageParticipant.form.AddParticipantForm');
-		$form = new AddParticipantForm($submission, $stageId);
+		$form = new AddParticipantForm($submission, $stageId, $assignmentId);
 		$form->initData();
 
 		return new JSONMessage(true, $form->fetch($request));
 	}
-
 
 	/**
 	 * Update the row for the current userGroup's stage participant list.
@@ -266,10 +272,11 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 	function saveParticipant($args, $request) {
 		$submission = $this->getSubmission();
 		$stageId = $this->getStageId();
+		$assignmentId = $args['assignmentId'];
 		$userGroups = $this->getGridDataElements($request);
 
 		import('lib.pkp.controllers.grid.users.stageParticipant.form.AddParticipantForm');
-		$form = new AddParticipantForm($submission, $stageId);
+		$form = new AddParticipantForm($submission, $stageId, $assignmentId);
 		$form->readInputData();
 		if ($form->validate()) {
 			list($userGroupId, $userId, $stageAssignmentId) = $form->execute();
@@ -303,7 +310,12 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 
 			// Create trivial notification.
 			$user = $request->getUser();
-			$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.addedStageParticipant')));
+			if ($stageAssignmentId != $assignmentId) { // New assignment added
+				$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.addedStageParticipant')));
+			} else {
+				$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.editStageParticipant')));
+			}
+
 
 			// Log addition.
 			$userDao = DAORegistry::getDAO('UserDAO');

@@ -188,6 +188,22 @@ class UserGroup extends DataObject {
 	function setAbbrev($abbrev, $locale) {
 		$this->setData('abbrev', $abbrev, $locale);
 	}
+
+	/**
+	 * Getter for permitMetadataEdit attribute.
+	 * @return boolean
+	 */
+	function getPermitMetadataEdit() {
+		return $this->getData('permitMetadataEdit');
+	}
+
+	/**
+	 * Setter for permitMetadataEdit attribute.
+	 * @param $permitMetadataEdit boolean
+	 */
+	function setPermitMetadataEdit($permitMetadataEdit) {
+		$this->setData('permitMetadataEdit', $permitMetadataEdit);
+	}
 }
 
 

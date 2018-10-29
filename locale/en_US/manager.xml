@@ -413,6 +413,7 @@
 	<message key="settings.roles.uniqueAbbrev">You need to define an unique role abbreviature.</message>
 	<message key="settings.roles.roleIdRequired">You need to define a role permission level.</message>
 	<message key="settings.roles.stageIdRequired">You need to define a stage to assign to.</message>
+	<message key="settings.roles.permitMetadataEdit">Permit submission metadata edit.</message>
 
 	<!-- Library Files -->
 	<message key="settings.libraryFiles.fileRequired">A library file is required. Please ensure that you have chosen and uploaded a file.</message>

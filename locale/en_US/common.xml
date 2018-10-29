@@ -418,6 +418,10 @@
 	<message key="stageParticipants.notify.warning">Please ensure that you have filled out the message field and included someone other than yourself in the discussion.</message>
 	<message key="stageParticipants.options">Assignment privileges</message>
 	<message key="stageParticipants.recommendOnly">This participant is only allowed to recommend an editorial decision and will require an authorised editor to record editorial decisions.</message>
+	<message key="stageParticipants.submissionEditMetadataOptions">Submission metadata edit permission.</message>
+	<message key="stageParticipants.canChangeMetadata">Allow submission metadata changes by this user</message>
+	<message key="stageParticipants.selectedUser">Participant</message>
+	<message key="stageParticipants.noOptionsToHandle">No changes can be made to this participant</message>
 
 	<message key="locale.primary">Primary locale</message>
 	<message key="locale.supported">Supported locales</message>
@@ -556,6 +560,7 @@
 	<message key="notification.addedReviewerNoEmail">{$reviewerName} was assigned to review this submission and was not sent an email notification.</message>
 	<message key="notification.removedReviewer">Reviewer removed.</message>
 	<message key="notification.addedStageParticipant">User added as a stage participant.</message>
+	<message key="notification.editStageParticipant">The stage assignment has been changed.</message>
 	<message key="notification.type.newAnnouncement">New announcement.</message>
 	<message key="notification.type.reviewAssignment">Review pending.</message>
 	<message key="notification.type.reviewAssignmentUpdated">Review assignment updated.</message>

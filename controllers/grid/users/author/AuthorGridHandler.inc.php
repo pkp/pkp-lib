@@ -18,6 +18,8 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.controllers.grid.users.author.PKPAuthorGridCellProvider');
 import('lib.pkp.controllers.grid.users.author.AuthorGridRow');
 
+import('lib.pkp.classes.controllers.modals.submissionMetadata.SubmissionMetadataHandler');
+
 // Link action & modal classes
 import('lib.pkp.classes.linkAction.request.AjaxModal');
 
@@ -238,17 +240,8 @@ class AuthorGridHandler extends GridHandler {
 		// Incomplete submissions can be edited. (Presumably author.)
 		if ($submission->getDateSubmitted() == null) return true;
 
-		// Managers should always have access.
-		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-		if (array_intersect(array(ROLE_ID_MANAGER), $userRoles)) return true;
-
-		// Sub editors and assistants need to be assigned to the current stage.
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-		$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $submission->getStageId(), null, $user->getId());
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		while ($stageAssignment = $stageAssignments->next()) {
-			$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
-			if (in_array($userGroup->getRoleId(), array(ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT))) return true;
+		if (SubmissionMetadataHandler::getUserAllowEditMetadata($submission->getId(), $user->getId(), null)) {
+			return true;
 		}
 
 		// Default: Read-only.

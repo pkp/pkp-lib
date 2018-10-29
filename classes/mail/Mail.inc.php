@@ -509,9 +509,15 @@ class Mail extends DataObject {
 				if (!$alreadyExists) {
 					$mailer->AddReplyTo($f['email'], $f['name']);
 				}
+
+				$request = Application::getRequest();
+				$site = $request->getSite();
+
 				// Munge the RFC5322.From
 				if (Config::getVar('email', 'dmarc_compliant_from_displayname')) {
-					$f['name'] = preg_replace('#%n#', $f['name'], Config::getVar('email', 'dmarc_compliant_from_displayname'));
+					$patterns = array('#%n#', '#%s#');
+					$replacements = array($f['name'], $site->getLocalizedTitle());
+					$f['name'] = preg_replace($patterns, $replacements, Config::getVar('email', 'dmarc_compliant_from_displayname'));
 				} else {
 					$f['name'] = '';
 				}

@@ -40,6 +40,10 @@
 			<NOTNULL/>
 			<DEFAULT VALUE="0"/>
 		</field>
+		<field name="permit_metadata_edit" type="I1">
+			<NOTNULL/>
+			<DEFAULT VALUE="0"/>
+		</field>
 		<descr>User groups for a context.</descr>
 		<index name="user_groups_user_group_id">
 			<col>user_group_id</col>
@@ -165,6 +169,10 @@
 			<NOTNULL/>
 		</field>
 		<field name="recommend_only" type="I1">
+			<NOTNULL/>
+			<DEFAULT VALUE="0"/>
+		</field>
+		<field name="can_change_metadata" type="I1">
 			<NOTNULL/>
 			<DEFAULT VALUE="0"/>
 		</field>

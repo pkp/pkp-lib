@@ -102,8 +102,10 @@ class UserGroupForm extends Form {
 				'assignedStages' => array_keys($assignedStages),
 				'showTitle' => $userGroup->getShowTitle(),
 				'permitSelfRegistration' => $userGroup->getPermitSelfRegistration(),
+				'permitMetadataEdit' => $userGroup->getPermitMetadataEdit(),
 				'recommendOnly' => $userGroup->getRecommendOnly(),
 			);
+
 			foreach ($data as $field => $value) {
 				$this->setData($field, $value);
 			}
@@ -114,7 +116,7 @@ class UserGroupForm extends Form {
 	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {
-		$this->readUserVars(array('roleId', 'name', 'abbrev', 'assignedStages', 'showTitle', 'permitSelfRegistration', 'recommendOnly'));
+		$this->readUserVars(array('roleId', 'name', 'abbrev', 'assignedStages', 'showTitle', 'permitSelfRegistration', 'recommendOnly', 'permitMetadataEdit'));
 	}
 
 	/**
@@ -132,6 +134,7 @@ class UserGroupForm extends Form {
 		$templateMgr->assign('disableRoleSelect', $disableRoleSelect);
 		$templateMgr->assign('selfRegistrationRoleIds', $this->getPermitSelfRegistrationRoles());
 		$templateMgr->assign('recommendOnlyRoleIds', $this->getRecommendOnlyRoles());
+		$templateMgr->assign('notChangeMetadataEditPermissionRoles', $this->getNotChangeMetadataEditPermissionRoles());
 
 		return parent::fetch($request, $template, $display);
 	}
@@ -153,6 +156,14 @@ class UserGroupForm extends Form {
 	}
 
 	/**
+	 * Get a list of roles not able to change recommendOnly submissionMetadataEdit permission option.
+	 * @return array
+	 */
+	function getNotChangeMetadataEditPermissionRoles() {
+		return array(ROLE_ID_MANAGER);
+	}
+
+	/**
 	 * @copydoc Form::execute()
 	 */
 	function execute() {
@@ -169,15 +180,26 @@ class UserGroupForm extends Form {
 			$userGroup->setDefault(false);
 			$userGroup->setShowTitle($this->getData('showTitle'));
 			$userGroup->setPermitSelfRegistration($this->getData('permitSelfRegistration') && in_array($userGroup->getRoleId(), $this->getPermitSelfRegistrationRoles()));
+			$userGroup->setPermitMetadataEdit($this->getData('permitMetadataEdit'));
+			if (in_array($this->getData('roleId'), $this->getNotChangeMetadataEditPermissionRoles())) {
+				$userGroup->setPermitMetadataEdit(true);
+			}
+
 			$userGroup->setRecommendOnly($this->getData('recommendOnly') && in_array($userGroup->getRoleId(), $this->getRecommendOnlyRoles()));
 			$userGroup = $this->_setUserGroupLocaleFields($userGroup, $request);
+
 			$userGroupId = $userGroupDao->insertObject($userGroup);
 		} else {
 			$userGroup = $userGroupDao->getById($userGroupId);
 			$userGroup = $this->_setUserGroupLocaleFields($userGroup, $request);
 			$userGroup->setShowTitle($this->getData('showTitle'));
 			$userGroup->setPermitSelfRegistration($this->getData('permitSelfRegistration') && in_array($userGroup->getRoleId(), $this->getPermitSelfRegistrationRoles()));
+			$userGroup->setPermitMetadataEdit($this->getData('permitMetadataEdit'));
+			if (in_array($userGroup->getRoleId(), $this->getNotChangeMetadataEditPermissionRoles())) {
+				$userGroup->setPermitMetadataEdit(true);
+			}
 			$userGroup->setRecommendOnly($this->getData('recommendOnly') && in_array($userGroup->getRoleId(), $this->getRecommendOnlyRoles()));
+
 			$userGroupDao->updateObject($userGroup);
 		}
 

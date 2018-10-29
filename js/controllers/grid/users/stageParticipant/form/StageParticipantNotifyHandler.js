@@ -50,6 +50,17 @@
 			this.recommendOnlyUserGroupIds_ = options.recommendOnlyUserGroupIds;
 		}
 
+		// Set the user group IDs that are not allowed to change the default
+		// value of permitMetadataEdit
+		if (options.notChangeMetadataEditPermissionRoles) {
+			this.notChangeMetadataEditPermissionRoles_ = options.notChangeMetadataEditPermissionRoles;
+		}
+
+		// Set the user group IDs that have the permitMetadataEdit flag set to true
+		if (options.permitMetadataEditUserGroupIds) {
+			this.permitMetadataEditUserGroupIds_ = options.permitMetadataEditUserGroupIds;
+		}
+
 		if (options.blindReviewerIds) {
 			this.blindReviewerIds_ = options.blindReviewerIds;
 		}
@@ -66,6 +77,11 @@
 		// or user is selected
 		$('input[name=\'userGroupId\'], input[name=\'userIdSelected\']', $form)
 				.change(this.callbackWrapper(this.updateRecommendOnly));
+
+		// Update the recommendOnly option display when user group changes
+		// or user is selected
+		$('input[name=\'userGroupId\'], input[name=\'userIdSelected\']', $form)
+				.change(this.callbackWrapper(this.updateSubmissionMetadataEditPermitOption));
 
 		// Trigger a warning message if a blind reviewer is selected
 		$('input[name=\'userIdSelected\']', $form)
@@ -121,6 +137,21 @@
 	$.pkp.controllers.grid.users.stageParticipant.form.
 			StageParticipantNotifyHandler.prototype.blindReviewerWarningOk_ = null;
 
+	/**
+	 * The list of not allowed to change submission metadata edit permissions roles
+	 * @private
+	 * @type {Object?}
+	 */
+	$.pkp.controllers.grid.settings.roles.form.
+			UserGroupFormHandler.prototype.notChangeMetadataEditPermissionRoles_ = null;
+
+	/**
+	 * The list of group ids that are allowed to edit metadata
+	 * @private
+	 * @type {Object?}
+	 */
+	$.pkp.controllers.grid.settings.roles.form.
+			UserGroupFormHandler.prototype.permitMetadataEditUserGroupIds_ = null;
 
 	//
 	// Private methods
@@ -180,7 +211,7 @@
 	 */
 	$.pkp.controllers.grid.users.stageParticipant.form.
 			StageParticipantNotifyHandler.prototype.updateRecommendOnly =
-			function(sourceElement, event) {
+					function(sourceElement, event) {
 
 		var $form = this.getHtmlElement(),
 				$filterUserGroupId = $form.find('input[name=\'userGroupId\']'),
@@ -212,11 +243,13 @@
 						}
 					}
 					break;
+				} else {
+					$checkbox.attr('disabled', 'disabled');
+					$checkboxDiv.hide();
 				}
 			}
 		}
 	};
-
 
 	/**
 	 * Update the enabled/disabled and checked state of the recommendOnly checkbox.
@@ -247,6 +280,57 @@
 				.pkpHandler('$.pkp.controllers.modal.ConfirmationModalHandler', opts);
 	};
 
+	/**
+	 * Update the enabled/disabled and checked state of the recommendOnly checkbox.
+	 * @param {HTMLElement} sourceElement The element that
+	 *  issued the event.
+	 * @param {Event} event The triggering event.
+	 */
+	$.pkp.controllers.grid.users.stageParticipant.form.
+			StageParticipantNotifyHandler.prototype.updateSubmissionMetadataEditPermitOption =
+			function (sourceElement, event) {
+
+				var $form = this.getHtmlElement(),
+						$filterUserGroupId = $form.find('input[name=\'userGroupId\']'),
+						$checkbox = $form.find('input[id^=\'canChangeMetadata\']'),
+						$checkboxDiv = $form.find('.submissionEditMetadataPermit'),
+						i,
+						found = false,
+						filterUserGroupIdVal = /** @type {string} */ $filterUserGroupId.val();
+
+				// If user group changes, hide the canChangeMetadata option
+				if ($(sourceElement).prop('name') == 'userGroupId') {
+					$checkbox.attr('disabled', 'disabled');
+					$checkbox.removeAttr('checked');
+					$checkboxDiv.hide();
+				} else if ($(sourceElement).prop('name') == 'userIdSelected' &&
+						!$checkboxDiv.is(':visible')) {
+					// Display canChangeMetadata option if
+					// an user group with a possible canChangeMetadata option is selected
+					for (i = 0; i < this.notChangeMetadataEditPermissionRoles_.length; i++) {
+						if (this.notChangeMetadataEditPermissionRoles_[i] == filterUserGroupIdVal) {
+							found = true;
+							break;
+						}
+					}
+
+					if (!found) {
+						$checkbox.removeAttr('disabled');
+						$checkboxDiv.show();
+						// Select the recommendOnly option if
+						// an user group with a recommendOnly option set is selected
+						for (i = 0; i < this.permitMetadataEditUserGroupIds_.length; i++) {
+							if (this.permitMetadataEditUserGroupIds_[i] == filterUserGroupIdVal) {
+								$checkbox.prop('checked', true);
+								break;
+							}
+						}
+					} else {
+						$checkbox.attr('disabled', 'disabled');
+						$checkboxDiv.hide();
+					}
+				}
+			};
 
 	/**
 	 * Internal callback called after form validation to handle the

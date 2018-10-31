@@ -186,7 +186,7 @@
 	<message key="manager.statistics.reports.generateReport">أنشئ تقريراً مخصصاً</message>
 	<message key="manager.statistics.reports.advancedOptions">الخيارات المتقدمة</message>
 	<message key="manager.statistics.reports.advancedOptions.hide">إخفاء الخيارات المتقدمة</message>
-	<message key="manager.statistics.reports.columns">الأعمدة</message>
+	<message key="manager.statistics.reports.columns">إختر العمود</message>
 	<message key="manager.statistics.reports.columns.description">حدد الأعمدة التي ستستعمل لإنشاء التقرير. الأعمدة التي تختارها هنا لا تحدد فقط أي من البيانات سيكون متاحاً ضمن التقرير فحسب، بل ستحدد أيضاً مستوى التجميع لتلك البيانات. على سبيل المثال؛ إذا اخترت حقول: الرمز، النوع، والتاريخ، فإن التقرير سيجمع كل المشاهدات لمكون ما لشهر واحد وسيعرض هذه البيانات في سطر واحد. إذا اخترت اليوم بدلاً من الشهر، فكل مكون سيكون له سطر واحد لكل يوم.</message>
 	<message key="manager.statistics.reports.filters">التصفية</message>
 	<message key="manager.statistics.reports.objectNotFound">المكون غير موجود في قاعدة البيانات</message>

@@ -34,11 +34,7 @@ class PKPInstallHandler extends Handler {
 			Request::setCookieVar('currentLocale', $setLocale);
 		}
 
-		if (checkPhpVersion('5.0.0')) { // WARNING: This form needs $this in constructor
-			$installForm = new InstallForm();
-		} else {
-			$installForm =& new InstallForm();
-		}
+		$installForm = new InstallForm();
 		$installForm->initData();
 		$installForm->display();
 	}
@@ -59,11 +55,7 @@ class PKPInstallHandler extends Handler {
 		$this->validate();
 		$this->setupTemplate();
 
-		if (checkPhpVersion('5.0.0')) { // WARNING: This form needs $this in constructor
-			$installForm = new InstallForm();
-		} else {
-			$installForm =& new InstallForm();
-		}
+		$installForm = new InstallForm();
 		$installForm->readInputData();
 
 		if ($installForm->validate()) {

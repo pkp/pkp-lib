@@ -51,7 +51,7 @@ class CitationListTokenizerFilter extends Filter {
 		// The default implementation assumes that raw citations are
 		// separated with line endings.
 		// 1) Remove empty lines and normalize line endings
-		$input = String::regexp_replace('/[\r\n]+/s', "\n", $input);
+		$input = PKPString::regexp_replace('/[\r\n]+/s', "\n", $input);
 		// 2) Break up at line endings
 		$output = explode("\n", $input);
 		// FIXME: Implement more complex treatment, e.g. filtering of

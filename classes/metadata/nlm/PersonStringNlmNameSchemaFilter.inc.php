@@ -160,21 +160,21 @@ class PersonStringNlmNameSchemaFilter extends NlmPersonStringFilter {
 	 */
 	function &_parsePersonsString($personsString, $title, $degrees) {
 		// Check for 'et al'
-		$personsStringBeforeEtal = String::strlen($personsString);
-		$personsString = String::regexp_replace('/et ?al$/', '', $personsString);
-		$etAl = ($personsStringBeforeEtal == String::strlen($personsString) ? false : true);
+		$personsStringBeforeEtal = PKPString::strlen($personsString);
+		$personsString = PKPString::regexp_replace('/et ?al$/', '', $personsString);
+		$etAl = ($personsStringBeforeEtal == PKPString::strlen($personsString) ? false : true);
 
 		// Remove punctuation
 		$personsString = trim($personsString, ':;, ');
 
 		// Cut the authors string into pieces
-		$personStrings = String::iterativeExplode(array(':', ';'), $personsString);
+		$personStrings = PKPString::iterativeExplode(array(':', ';'), $personsString);
 
 		// Only try to cut by comma if the pieces contain more
 		// than one word to avoid splitting between last name and
 		// first name.
 		if (count($personStrings) == 1) {
-			if (String::regexp_match('/^((\w+\s+)+\w+\s*,)+\s*((\w+\s+)+\w+)$/i', $personStrings[0])) {
+			if (PKPString::regexp_match('/^((\w+\s+)+\w+\s*,)+\s*((\w+\s+)+\w+)$/i', $personStrings[0])) {
 				$personStrings = explode(',', $personStrings[0]);
 			}
 		}
@@ -232,24 +232,24 @@ class PersonStringNlmNameSchemaFilter extends NlmPersonStringFilter {
 		$suffixString = '';
 
 		$results = array();
-		if ($title && String::regexp_match_get('/^('.$personRegex['title'].')/i', $personString, $results)) {
+		if ($title && PKPString::regexp_match_get('/^('.$personRegex['title'].')/i', $personString, $results)) {
 			$suffixString = trim($results[1], ',:; ');
-			$personString = String::regexp_replace('/^('.$personRegex['title'].')/i', '', $personString);
+			$personString = PKPString::regexp_replace('/^('.$personRegex['title'].')/i', '', $personString);
 		}
 
-		if ($degrees && String::regexp_match_get('/('.$personRegex['degrees'].')$/i', $personString, $results)) {
+		if ($degrees && PKPString::regexp_match_get('/('.$personRegex['degrees'].')$/i', $personString, $results)) {
 			$degreesArray = explode(',', trim($results[1], ','));
 			foreach($degreesArray as $key => $degree) {
-				$degreesArray[$key] = String::trimPunctuation($degree);
+				$degreesArray[$key] = PKPString::trimPunctuation($degree);
 			}
 			$suffixString .= ' - '.implode('; ', $degreesArray);
-			$personString = String::regexp_replace('/('.$personRegex['degrees'].')$/i', '', $personString);
+			$personString = PKPString::regexp_replace('/('.$personRegex['degrees'].')$/i', '', $personString);
 		}
 
 		if (!empty($suffixString)) $personDescription->addStatement('suffix', $suffixString);
 
 		// Space initials when followed by a given name or last name.
-		$personString = String::regexp_replace('/([A-Z])\.([A-Z][a-z])/', '\1. \2', $personString);
+		$personString = PKPString::regexp_replace('/([A-Z])\.([A-Z][a-z])/', '\1. \2', $personString);
 
 		// 2. Extract names and initials from the person string
 
@@ -284,7 +284,7 @@ class PersonStringNlmNameSchemaFilter extends NlmPersonStringFilter {
 
 		$results = array();
 		foreach ($personExpressions as $expressionId => $personExpression) {
-			if ($nameFound = String::regexp_match_get($personExpression, $personString, $results)) {
+			if ($nameFound = PKPString::regexp_match_get($personExpression, $personString, $results)) {
 				// Given names
 				if (!empty($results['givenName'])) {
 					// Split given names
@@ -298,7 +298,7 @@ class PersonStringNlmNameSchemaFilter extends NlmPersonStringFilter {
 				// Initials (will also be saved as given names)
 				if (!empty($results['initials'])) {
 					$results['initials'] = str_replace(array('.', '-', ' '), array('', '', ''), $results['initials']);
-					for ($initialNum = 0; $initialNum < String::strlen($results['initials']); $initialNum++) {
+					for ($initialNum = 0; $initialNum < PKPString::strlen($results['initials']); $initialNum++) {
 						$initial = $results['initials'][$initialNum];
 						$personDescription->addStatement('given-names', $initial);
 						unset($initial);

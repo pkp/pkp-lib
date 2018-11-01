@@ -212,7 +212,7 @@ class VersionDAO extends DAO {
 			$contextNames = array_keys($context);
 			foreach ($contextNames as $contextLevel => $contextName) {
 				// Transform from camel case to ..._...
-				String::regexp_match_all('/[A-Z][a-z]*/', ucfirst($contextName), $words);
+				PKPString::regexp_match_all('/[A-Z][a-z]*/', ucfirst($contextName), $words);
 				$contextNames[$contextLevel] = strtolower(implode('_', $words[0]));
 			}
 			$contextWhereClause = 'AND '.implode('_id = ? AND ', $contextNames).'_id = ?';

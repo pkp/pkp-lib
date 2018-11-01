@@ -159,7 +159,7 @@ class VersionCheck {
 
 		$namesToValidate = array($pluginVersion->getProduct(), $productType[1]);
 		foreach($namesToValidate as $nameToValidate) {
-			if (!String::regexp_match('/[a-z][a-zA-Z0-9]+/', $nameToValidate)) {
+			if (!PKPString::regexp_match('/[a-z][a-zA-Z0-9]+/', $nameToValidate)) {
 				return $nullVar;
 				$templateMgr->assign('message', 'manager.plugins.versionFileInvalid');
 			}

@@ -27,9 +27,6 @@ import('lib.pkp.classes.xml.XMLParserDOMHandler');
 
 class XMLParser {
 
-	/** @var int original magic_quotes_runtime setting */
-	var $magicQuotes;
-
 	/** @var $handler object instance of XMLParserHandler */
 	var $handler;
 
@@ -41,9 +38,6 @@ class XMLParser {
 	 * Initialize parser and set parser options.
 	 */
 	function XMLParser() {
-		// magic_quotes_runtime must be disabled for XML parsing
-		$this->magicQuotes = get_magic_quotes_runtime();
-		if ($this->magicQuotes) set_magic_quotes_runtime(0);
 		$this->errors = array();
 	}
 
@@ -289,8 +283,6 @@ class XMLParser {
 	 * Perform required clean up for this object.
 	 */
 	function destroy() {
-		// Set magic_quotes_runtime back to original setting
-		if ($this->magicQuotes) set_magic_quotes_runtime($this->magicQuotes);
 	}
 
 }

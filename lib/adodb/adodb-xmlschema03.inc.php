@@ -1351,12 +1351,6 @@ class adoSchema {
 	var $objectPrefix = '';
 	
 	/**
-	* @var long	Original Magic Quotes Runtime value
-	* @access private
-	*/
-	var $mgq;
-	
-	/**
 	* @var long	System debug
 	* @access private
 	*/
@@ -1405,9 +1399,6 @@ class adoSchema {
 	*/
 	function adoSchema( &$db ) {
 		// Initialize the environment
-		$this->mgq = get_magic_quotes_runtime();
-		set_magic_quotes_runtime(0);
-		
 		$this->db =& $db;
 		$this->debug = $this->db->debug;
 		$this->dict = NewDataDictionary( $this->db );
@@ -2368,7 +2359,6 @@ class adoSchema {
 	* @deprecated adoSchema now cleans up automatically.
 	*/
 	function Destroy() {
-		set_magic_quotes_runtime( $this->mgq );
 	}
 }
 

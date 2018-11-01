@@ -46,14 +46,14 @@
 	<message key="grid.action.setApproval">ضع الموافقة</message>
 	<message key="grid.action.moreInformation">مزيد من المعلومات</message>
 	<message key="grid.action.restoreDefaults">استعادة الإفتراضات</message>
-	<message key="grid.action.restoreDefaults.confirm">هل أنت متأكد من رغبتك في استعادة الإعدادات الإفتراضية؟</message>
+	<message key="grid.action.restoreDefaults.confirm">هل أنت متأكد من رغبتك في استعادة الإعدادات الافتراضية؟</message>
 	<message key="grid.action.addAuthor">أضف مؤلف</message>
 	<message key="grid.action.editAuthor">تعديل المؤلف</message>
 	<message key="grid.action.deleteAuthor">حذف المؤلف</message>
 	<message key="grid.action.addAuditor">أضف مدقق</message>
 	<message key="grid.action.upgrade">ترقية</message>
-	<message key="grid.action.order">أطلب</message>
-	<message key="grid.action.cancelOrdering">إلغاء الطلب</message>
+	<message key="grid.action.order">الفرز</message>
+	<message key="grid.action.cancelOrdering">إلغاء الفرز</message>
 	<message key="grid.action.extendAll">توسيع الكل</message>
 	<message key="grid.action.collapse">طي</message>
 	<message key="grid.action.collapseAll">طي الكل</message>
@@ -61,27 +61,27 @@
 	<message key="grid.action.moveItem">نقل الفقرة</message>
 	<message key="grid.action.downloadAll">تنزيل كل الملفات ضمن أرشيف</message>
 	<message key="grid.action.readReview">إقرأ هذا التحكيم</message>
-	<message key="grid.action.email">أرسل البريد الالكتروني</message>
+	<message key="grid.action.email">راسله</message>
 	<message key="grid.action.addReviewer">أضف محكماً</message>
 	<message key="grid.action.addFile">أضف ملفاً</message>
 	<message key="grid.action.editFile">عدل ملفاً</message>
 	<message key="grid.action.selectFiles">إختر الملفات التي ترغب بإدارتها</message>
 	<message key="grid.action.requestRevisions">طالب بتحكيمات لطلب النشر هذا</message>
-	<message key="grid.action.accept">إقبل طلب النشر هذا</message>
-	<message key="grid.action.decline">أرفض طلب النشر هذا</message>
-	<message key="grid.action.internalReview">أرسل طلب النشر هذا للتحكيم الداخلي</message>
-	<message key="grid.action.externalReview">أرسل طلب النشر هذا للتحكيم الخارجي</message>
-	<message key="grid.action.sendToProduction">أرسل طلب النشر هذا لمرحلة الإنتاج</message>
+	<message key="grid.action.accept">إقبل طلب التقديم هذا</message>
+	<message key="grid.action.decline">أرفض طلب التقديم هذا</message>
+	<message key="grid.action.internalReview">أرسل طلب التقديم هذا للتحكيم الداخلي</message>
+	<message key="grid.action.externalReview">أرسل طلب التقديم هذا للتحكيم الخارجي</message>
+	<message key="grid.action.sendToProduction">أرسل طلب التقديم هذا لمرحلة الإنتاج</message>
 	<message key="grid.action.settings">الإعدادات</message>
 	<message key="grid.action.importexport">استيراد أو تصدير محتوى أو بيانات الموقع</message>
 	<message key="grid.action.orderItems">تمكين نمط الفرز</message>
 	<message key="grid.action.editSubmissionChecklist">تعديل فقرة التأشير هذه</message>
 	<message key="grid.action.deleteSubmissionChecklist">حذف فقرة التأشير هذه</message>
 	<message key="grid.action.resetAll">استعادة الإعدادات الإفتراضية لجميع الفقرات</message>
-	<message key="grid.action.addPreparedEmail">إضافة قالب جديد لرسالة الكترونية</message>
-	<message key="grid.action.editPreparedEmail">تعديل قالب الرسالة الالكترونية هذا</message>
-	<message key="grid.action.disableEmail">تعطيل قالب الرسالة الالكترونية هذا</message>
-	<message key="grid.action.resetEmail">استعادة الوضع الإفتراضي لقالب الرسالة الالكترونية هذا</message>
+	<message key="grid.action.addPreparedEmail">إضافة قالب جديد لرسالة</message>
+	<message key="grid.action.editPreparedEmail">تعديل قالب الرسالة هذا</message>
+	<message key="grid.action.disableEmail">تعطيل قالب الرسالة هذا</message>
+	<message key="grid.action.resetEmail">استعادة الوضع الافتراضي لقالب الرسالة هذا</message>
 	<message key="grid.action.expandAll">توسيع الكل</message>
 	<message key="grid.action.requestAccount">أضف مشاركاً</message>
 	<message key="grid.action.expand">توسيع</message>
@@ -95,7 +95,7 @@
 	<message key="grid.action.search">البحث</message>
 	<message key="grid.action.advancedSearch">البحث المتقدم</message>
 	<message key="grid.action.viewLibrary">معاينة مكتبة الوثائق</message>
-	<message key="grid.action.viewMetadata">معاينة البيانات الوصفية لطلب النشر هذا</message>
+	<message key="grid.action.viewMetadata">معاينة البيانات الوصفية لطلب التقديم هذا</message>
 	<message key="grid.action.sendReminder">أرسل تذكيراً بالمهمة لهذا المستخدم</message>
 	<message key="grid.action.newRound">أنشئ جولة جديدة</message>
 	<message key="grid.action.viewReviewGuidelines">معاينة إرشادات التحكيم</message>
@@ -110,7 +110,7 @@
 	<message key="grid.action.unconsiderReview">هذا التحكيم مكتمل، لكنك قد تطعن به</message>
 	<message key="grid.action.enable">تمكين</message>
 	<message key="grid.action.bookInfo">معلومات طلب النشر</message>
-	<message key="grid.action.logInAs">سجلت دخولك باسم</message>
+	<message key="grid.action.logInAs">سجل دخولك باسمه</message>
 	<message key="grid.action.exportAllUsers">تصدير كل المستخدمين</message>
 	<message key="grid.users.confirmExportAllUsers">هل أنت متأكد من رغبتك في تصدير كل المستخدمين؟</message>
 	<message key="grid.action.activate">تفعيل</message>
@@ -119,6 +119,7 @@
 	<message key="grid.action.preview">معاينة</message>
 	<message key="grid.action.install">تنصيب</message>
 	<message key="grid.action.moreItems">تحميل المزيد</message>
+	<message key="grid.action.users">معاينة وتحديد المستخدمين</message>
 
 	<!--  grid task status -->
 	<message key="grid.task.status.completed">هذه المهمة إكتملت</message>
@@ -174,7 +175,7 @@
 	<message key="grid.libraryFiles.productionTemplate.title">مكتبة قوالب الإنتاج</message>
 
 	<!-- SubmissionChecklist -->
-	<message key="grid.submissionChecklist.title">قائمة تأشيرات طلب النشر</message>
+	<message key="grid.submissionChecklist.title">قائمة تأشيرات طلب التقديم</message>
 	<message key="grid.submissionChecklist.column.checklistItem">فقرة قائمة التأشير</message>
 
 	<!-- Submission Contributors -->
@@ -197,13 +198,13 @@
 	<message key="grid.user.add">إضافة مستخدم</message>
 	<message key="grid.user.enroll">تكليف المستخدم</message>
 	<message key="grid.user.edit">تعديل المستخدم</message>
-	<message key="grid.user.email">بريد الكتروني</message>
+	<message key="grid.user.email">مراسلة المستخدم</message>
 	<message key="grid.user.enable">تمكين</message>
 	<message key="grid.user.disable">تعطيل</message>
 	<message key="grid.user.disableReason">سبب تعطيل المستخدم</message>
 	<message key="grid.user.enableReason">سبب تمكين المستخدم</message>
-	<message key="grid.user.error">حدث خطأ ما عند الإجراء الإداري لهذا المستخدم. لطفاً، حاول مجدداً.</message>
-	<message key="grid.user.errorEmail">حدث خطأ ما عند إرسال هذه الرسالة الالكترونية. لطفاً، تحقق من كون إعدادات ملقم البريد الالكتروني عندك تعمل بالشكل الصحيح و/أو اتصل بالمشرف الإداري للنظام.</message>
+	<message key="grid.user.error">حدث خطأ ما عند تنفيذ الإجراء الإداري لهذا المستخدم. لطفاً، حاول مجدداً.</message>
+	<message key="grid.user.errorEmail">حدث خطأ ما عند إرسال هذه الرسالة. لطفاً، تحقق من كون إعدادات ملقم البريد الالكتروني عندك تعمل بالشكل الصحيح و/أو اتصل بالمشرف الإداري للنظام.</message>
 	<message key="grid.user.cannotAdminister">ليس لديك الصلاحيات الكافية لتعديل هذا المستخدم.</message>
 	<message key="grid.user.authSource">مصدر المصادقة</message>
 	<message key="grid.user.mustProvideName">لطفاً، أعطِ على الأقل الاسم الأخير للمستخدم أولاً.</message>
@@ -220,7 +221,7 @@
 	<message key="grid.user.userRoles">أدوار المستخدم</message>
 	<message key="grid.user.userNoRoles">ليس لهذا المستخدم أي دور حالياً.</message>
 	<message key="grid.user.step1">الخطوة الأولى: إملأ تفاصيل بيانات المستخدم</message>
-	<message key="grid.user.step2">الخطوة الثانية: أضف أدواراً للمستخدم{$userFullName}</message>
+	<message key="grid.user.step2">الخطوة الثانية: أضف أدواراً للمستخدم {$userFullName}</message>
 	<message key="grid.user.addRoles">أضف الأدوار</message>
 	<message key="grid.user.addRole">أضف دوراً</message>
 	<message key="grid.user.selectUser">إختر المستخدم</message>
@@ -233,7 +234,7 @@
 	<message key="grid.user.mergeUsers.confirm">هل أنت متأكد من رغبتك في دمج هذا الحساب صاحب اسم الدخول "{$oldUsername}" مع الحساب صاحب اسم الدخول "{$newUsername}"؟ إن الحساب ذو الاسم "{$oldUsername}" لن يكون له وجود بعد ذلك. هذا الإجراء لا يمكن التراجع عنه.</message>
 
 	<!-- Prepared emails -->
-	<message key="grid.preparedEmails.title">قوالب الرسائل الالكترونية المحضرة</message>
+	<message key="grid.preparedEmails.title">قوالب الرسائل المحضرة</message>
 	<message key="grid.preparedEmails.currentList">القائمة الحالية</message>
 	
 	<!-- Plugins -->
@@ -271,5 +272,5 @@
 	<message key="grid.action.addNavigationMenuItem">إضافة عنصر</message>
 	<message key="grid.navigationMenus.navigationMenuItems.noneExist">لا عناصر في قائمة التنقل بعد</message>
 	<message key="grid.navigationMenus.navigationMenu.noneExist">لا توجد قوائم تنقل بعد</message>
-	<message key="grid.navigationMenus.navigationMenu.selectType">إختر نوعاً...</message>
+	<message key="grid.navigationMenus.navigationMenu.selectType">إختر من القائمة...</message>
 </locale>

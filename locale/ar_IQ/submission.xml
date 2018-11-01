@@ -171,7 +171,7 @@
 	<message key="submission.comments.corrections">التصحيحات</message>
 	<message key="submission.comments.editComment">تعديل التعليق</message>
 	<message key="submission.comments.importPeerReviews">استيراد التحكيمات المناظرة</message>
-	<message key="submission.comments.addReviews">أضف التحكيمات إلى البريد الالكتروني</message>
+	<message key="submission.comments.addReviews">أضف تعليقات المحكمين إلى الرسالة</message>
 	<message key="submission.comments.importPeerReviews.reviewerLetter">المحكم {$reviewerLetter}:</message>
 	<message key="submission.comments.noComments">لا تعليقات</message>
 	<message key="submission.comments.noReviews">لا تحكيمات</message>
@@ -346,7 +346,7 @@
 	<message key="submission.submit.selectFile">إختر ملفاً</message>
 	<message key="submission.submit.fileInformation">معلومات الملف</message>
 	<message key="submission.submit.fileAdded">الملف أُضيف</message>
-	<message key="submission.submit.includeInBrowse">هل تريد تضمين هذا المساهم في قوائم العرض؟</message>
+	<message key="submission.submit.includeInBrowse">أريد تضمين هذا المساهم في قوائم العرض</message>
 	<message key="submission.submit.newFile">أضف ملفاً آخر</message>
 	<message key="submission.submit.metadataForm">تحسينات إضافية</message>
 	<message key="submission.submit.metadataForm.tip">أضف معلومات أخرى عن مؤلَّفِك. إضغط 'enter' بعد كل عبارة.</message>
@@ -376,7 +376,7 @@
 	<message key="submission.nameRequired">الاسم مطلوب لهذه الفقرة.</message>
 	<message key="submission.date.mmdd">MM-DD</message>
 	<message key="submission.date.yyyymmdd">YYYY-MM-DD</message>
-	<message key="submission.submit.selectPrincipalContact">عنوان الاتصال الرئيسي لأغراض تتعلق بالتحرير.</message>
+	<message key="submission.submit.selectPrincipalContact">هذا عنوان الاتصال الرئيسي فيما يتعلق بمهام التحرير.</message>
 	<message key="submission.submit.contributorRole">دور المساهم</message>
 	<message key="submission.submit.addAuthor">أضف مساهماً</message>
 	<message key="submission.submit.form.languagesRequired">لطفاً، أدخل اللغة.</message>
@@ -439,8 +439,8 @@
 	<message key="submission.upload.noAvailableReviewFiles">ليس لديك ملفات لتحكيمها حالياً.</message>
 
 	<!-- Review Round Status Keys -->
-	<message key="editor.submission.roundStatus.revisionsRequested">تم التماس التحكيمات.</message>
-	<message key="editor.submission.roundStatus.revisionsSubmitted">تم تسليم التحكيمات.</message>
+	<message key="editor.submission.roundStatus.revisionsRequested">تم التماس التنقيحات.</message>
+	<message key="editor.submission.roundStatus.revisionsSubmitted">تم تسليم التنقيحات.</message>
 	<message key="editor.submission.roundStatus.resubmitForReview">لا بد من إعادة تقديم الطلب إلى جولة تحكيم أخرى.</message>
 	<message key="editor.submission.roundStatus.submissionResubmitted">لقد أُعيد تقديم الطلب إلى جولة تحكيم أخرى.</message>
 	
@@ -473,7 +473,7 @@
 	<!--  editor decisions -->
 	<message key="editor.submission.decision">القرار</message>
 	<message key="editor.submission.decision.accept">قبول طلب النشر</message>
-	<message key="editor.submission.decision.requestRevisions">إلتماس التحكيمات</message>
+	<message key="editor.submission.decision.requestRevisions">إلتماس التنقيحات</message>
 	<message key="editor.submission.decision.resubmit">إعادة التقديم للتحكيم</message>
 	<message key="editor.submission.decision.decline">رفض المؤلَّف</message>
 	<message key="editor.submission.decision.sendToProduction">الإرسال إلى الإنتاج</message>
@@ -510,9 +510,9 @@
 	<!-- Submission event log -->
 	<message key="submission.event.fileUploaded">تم رفع الملف "{$originalFileName}" إلى طلب النشر {$submissionId} من قبل {$username}.</message>
 	<message key="submission.event.fileDeleted">تم حذف الملف "{$originalFileName}" من طلب النشر {$submissionId} من قبل {$username}.</message>
-	<message key="submission.event.revisionUploaded">تم رفع ملف التحكيم "{$originalFileName}" إلى طلب النشر {$submissionId} من قبل {$username}.</message>
-	<message key="submission.event.revisionDeleted">تم حذف ملف التحكيم "{$originalFileName}" من طلب النشر {$submissionId} من قبل {$username}.</message>
-	<message key="submission.event.lastRevisionDeleted">تم حذف آخر ملف تحكيم للعنوان "{$title}" من قبل {$username}.</message>
+	<message key="submission.event.revisionUploaded">تم رفع الملف المنقح "{$originalFileName}" إلى طلب النشر {$submissionId} من قبل {$username}.</message>
+	<message key="submission.event.revisionDeleted">تم حذف الملف المنقح "{$originalFileName}" من طلب النشر {$submissionId} من قبل {$username}.</message>
+	<message key="submission.event.lastRevisionDeleted">تم حذف آخر ملف منقح لطلب التقديم المعنون "{$title}" من قبل {$username}.</message>
 	<message key="submission.event.fileAuditorAdded">"{$name}" ({$username}) قد تمت إضافته كمتابع للملف "{$file}."</message>
 	<message key="submission.event.fileAuditorCleared">"{$name}" ({$username}) قد تمت إزالته كمتابع للملف "{$file}."</message>
 	<message key="submission.event.fileAuditUploaded">"{$name}" ({$username}) قد أكمل المتابعة ورفع الملف "{$file}."</message>
@@ -626,7 +626,7 @@
 	<message key="submission.list.copyeditsSubmitted">ملفات التدقيق مسلَّمة</message>
 	<message key="submission.list.galleysCreated">الألواح الطباعية منشأة</message>
 	<message key="submission.list.filesPrepared">الملفات محضرة</message>
-	<message key="submission.list.discussions">فتح المناقشات</message>
+	<message key="submission.list.discussions">المناقشات المفتوحة</message>
 	<message key="submission.list.dualWorkflowLinks"><![CDATA[بإمكانك تعيين عدة أدوار لطلب النشر هذا. هل ترغب بالوصول إلى <a href="{$urlAuthorWorkflow}">المخطط الانسيابي للمؤلف</a> أو <a href="{$urlEditorialWorkflow}">المخطط الانسيابي للتحرير</a>؟]]></message>
 	<message key="submission.list.reviewerWorkflowLink"><![CDATA[لقد عينت دوراً تحريرياً لطلب التقديم هذا. هل ترغب بالوصول إلى <a href="{$urlEditorialWorkflow}">المخطط الانسيابي للتحرير</a>?]]></message>
 	<message key="submission.list.incompleteSubmissionNotice">لا بد من إكمال طلب التقديم هذا قبل أن يتسنى للمحرر معاينته.</message>

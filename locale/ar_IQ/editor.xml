@@ -23,7 +23,7 @@
 	<message key="editor.submission.fileAuditor.form.userRequired">عليك أن تختار المستخدم الذي تريد تعيينه.</message>
 	<message key="editor.submission.uploadSelectFiles">رفع/إختيار الملفات</message>
 	<message key="editor.submission.selectFiles">إختيار الملفات</message>
-	<message key="editor.submission.revisions">التحكيمات</message>
+	<message key="editor.submission.revisions">التنقيحات</message>
 	<message key="editor.submission.review.reviewersDescription"><![CDATA[استعمل <em>+إضافة محكم</em> لدعوة القراء لتحكيم ملفات طلب النشر. إيقونة دفتر الملاحظات تشير إلى أن أحد التحكيمات قد تم تسليمه، وهو بدوره سيدقق <em>يُعلَّم</em> بعد أن يخضع للمشاورة. عندما تتأخر التحكيمات عن موعدها، ستظهر إيقونة الظرف الأحمر لغرض تذكير المحكمين المتأخرين.]]></message>
 	<message key="editor.submission.addReviewer">إضافة محكم</message>
 	<message key="editor.submission.findAndSelectReviewer">حدد محكماً</message>

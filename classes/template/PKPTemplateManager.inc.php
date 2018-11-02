@@ -1433,7 +1433,7 @@ class PKPTemplateManager extends Smarty {
 	function smartyLoadStylesheet($params, $smarty) {
 
 		if (empty($params['context'])) {
-			$context = 'frontend';
+			$params['context'] = 'frontend';
 		}
 
 		$stylesheets = $this->getResourcesByContext($this->_styleSheets, $params['context']);

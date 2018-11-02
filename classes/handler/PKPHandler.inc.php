@@ -107,10 +107,10 @@ class PKPHandler {
 	 *
 	 * @param $handlerValidator HandlerValidator
 	 */
-	function addCheck(&$handlerValidator) {
+	function addCheck($handlerValidator) {
 		// FIXME: Add a deprecation warning once we've refactored
 		// all HandlerValidator occurrences.
-		$this->_checks[] =& $handlerValidator;
+		$this->_checks[] = $handlerValidator;
 	}
 
 	/**

@@ -94,7 +94,7 @@
 	</div>
 	]]></message>
 	<message key="common.changesSaved">تم حفظ تعديلاتك.</message>
-	<message key="common.chooseOne">إختر واحداً</message>
+	<message key="common.chooseOne">إختر واحداً...</message>
 	<message key="common.close">إغلاق</message>
 	<message key="common.closePanel">إغلاق اللوحة</message>
 	<message key="common.closeWindow">إغلاق النافذة</message>
@@ -248,7 +248,7 @@
 	<message key="common.selectAll">إختر الكل</message>
 	<message key="common.selectNone">لا تختر شيئاً</message>
 	<message key="common.select">إختر</message>
-	<message key="common.sendEmail">أرسل بريداً</message>
+	<message key="common.sendEmail">أرسل الرسالة</message>
 	<message key="common.size">الحجم</message>
 	<message key="common.source">المصدر</message>
 	<message key="common.status">الحالة</message>
@@ -296,9 +296,9 @@
 	<message key="debug.notes.localeLoad">ملف اللغة المحملة "{$localeFile}" من ملف</message>
 	<message key="debug.notes.missingLocaleKey">مفتاح اللغة "{$key}" مفقود.</message>
 	<message key="debug.notes">ملاحظات:</message>
-	<message key="defaultMetric.title">المقياس الإفتراضي</message>
+	<message key="defaultMetric.title">المقياس الافتراضي</message>
 	<message key="defaultMetric.availableMetrics">المقاييس المتاحة</message>
-	<message key="editor.submissionReview.uploadFile">إرفع ملف التحكيم</message>
+	<message key="editor.submissionReview.uploadFile">رفع الملف للتحكيم</message>
 	<message key="editor.submissionReview.uploadAttachment">إرفع الملف</message>
 	<message key="email.addAttachment">أضف مرفق</message>
 	<message key="email.addBccRecipient">أضف نسخة سرية</message>
@@ -368,7 +368,7 @@
 
 	<!-- Information Center -->
 	<message key="informationCenter.informationCenter">مركز المعلومات</message>
-	<message key="informationCenter.editorialHistory">تاريخ هيئة التحرير</message>
+	<message key="informationCenter.editorialHistory">أحداث ووقوعات التحرير</message>
 	<message key="informationCenter.addNote">أضف ملاحظة</message>
 	<message key="informationCenter.noNotes">ليس هناك ملاحظات لعرضها.</message>
 	<message key="informationCenter.pastNotes">ملاحظات التحكيم السابقة</message>

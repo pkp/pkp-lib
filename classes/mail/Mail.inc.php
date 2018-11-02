@@ -470,7 +470,7 @@ class Mail extends DataObject {
 			}
 		}
 
-		$mailer = new PHPMailer();
+		$mailer = new \PHPMailer\PHPMailer\PHPMailer();
 		$mailer->IsHTML(true);
 		$mailer->Encoding = 'base64';
 		if (Config::getVar('email', 'smtp')) {

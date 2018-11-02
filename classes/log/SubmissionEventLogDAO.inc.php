@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/log/PKPSubmissionEventLogDAO.inc.php
+ * @file classes/log/SubmissionEventLogDAO.inc.php
  *
  * Copyright (c) 2014-2018 Simon Fraser University
  * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPSubmissionEventLogDAO
+ * @class SubmissionEventLogDAO
  * @ingroup log
  * @see EventLogDAO
  *
@@ -15,8 +15,9 @@
  */
 
 import('lib.pkp.classes.log.EventLogDAO');
+import('classes.log.SubmissionEventLogEntry');
 
-class PKPSubmissionEventLogDAO extends EventLogDAO {
+class SubmissionEventLogDAO extends EventLogDAO {
 
 	/**
 	 * Generate a new DataObject

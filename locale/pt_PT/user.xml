@@ -145,4 +145,11 @@
 	<message key="user.apiKey.generate">Gerar uma nova chave da API</message>
 	<message key="user.apiKey.generateWarning">A geração de uma nova chave de API irá invalidar qualquer chave existente para este utilizador.</message>
 	<message key="user.apiKey.secretRequired">Antes de gerar uma chave da API, o seu administrador terá de criar um "segredo" no ficheiro de configuração ("api_key_secret").</message>
+	<message key="user.authorization.assignedStageRoleBasedAccessDenied">O papel que lhe foi atribuído relativamente a esta submissão não lhe permite aceder a esta operação.</message>
+	<message key="user.authorization.invalidReviewAssignment">Não tem permissão para aceder a esta atribuição de revisão.</message>
+	<message key="user.authorization.submissionQuery">Não tem permissão para aceder a esta discussão.</message>
+	<message key="user.profile.form.privacyConsentRequired">Deverá concordar com os termos de privacidade.</message>
+	<message key="user.register.form.privacyConsent"><![CDATA[Sim, concordo que os meus dados sejam recolhidos e armazenados de acordo com os <a href="{$privacyUrl}" target="_blank"> termos de privacidade</a>.]]></message>
+	<message key="user.register.form.emailConsent">Sim, quero ser notificado de novas publicações e outros anúncios.</message>
+	<message key="user.privacyLink"><![CDATA[Os seus dados estão armazenados de acordo com os nossos  <a href="{$privacyUrl}" target="_blank">termos de privacidade</a>.]]></message>
 </locale>

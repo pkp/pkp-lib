@@ -538,4 +538,5 @@
 	<message key="notification.removedNavigationMenu">Menu de navegação foi removido com sucesso</message>
 	<message key="list.viewMore">Apresentar mais detalhes sobre {$name}</message>
 	<message key="list.viewLess">Esconder detalhes de {$name}</message>
+	<message key="notification.type.reviewAssignmentUpdated">Atribuição de revisão atualizada.</message>
 </locale>

@@ -111,7 +111,7 @@
 
 	<!--
 	  *
-	  * TABLE user_group_stage_assignment
+	  * TABLE user_group_stage
 	  *
 	  -->
 	<table name="user_group_stage">

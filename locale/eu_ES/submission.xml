@@ -82,7 +82,6 @@
 	<message key="submission.layout.confirmDeleteSupplementaryFile">Ziur zaude fitxategi osagarri hau betiko ezabatu nahi duzula?</message>
 	<message key="submission.layout.deleteGalleyStylesheet">Ezabatu estilo-orri hau.</message>
 	<message key="submission.layout.editGalley">Editatu Maketazio-galerada bat</message>
-	<message key="submission.layout.galleyFileData">Galerada-fitxategiaren informazioa</message>
 	<message key="submission.layout.galleyFormat">Galerada-formatua</message>
 	<message key="submission.layout.galleyHTMLData">HTML galerada-fitxategiak</message>
 	<message key="submission.layout.galleyImages">Irudiak</message>

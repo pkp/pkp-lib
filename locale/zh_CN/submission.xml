@@ -81,7 +81,6 @@
 	<message key="submission.layout.confirmDeleteSupplementaryFile">您确认将永久删除这个附件文件?</message>
 	<message key="submission.layout.deleteGalleyStylesheet">删除这个样式.</message>
 	<message key="submission.layout.editGalley">编辑这个排版样稿</message>
-	<message key="submission.layout.galleyFileData">样稿文件信息</message>
 	<message key="submission.layout.galleyFormat">样稿文件格式</message>
 	<message key="submission.layout.galleyHTMLData">HTML样稿格式</message>
 	<message key="submission.layout.galleyImages">图片</message>

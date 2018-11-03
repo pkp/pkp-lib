@@ -91,7 +91,6 @@
 	<message key="submission.layout.confirmDeleteSupplementaryFile">Êtes-vous certain de vouloir supprimer définitivement ce fichier supplémentaire?</message>
 	<message key="submission.layout.deleteGalleyStylesheet">Supprimer cette feuille de style.</message>
 	<message key="submission.layout.editGalley">Modifier une épreuve de mise en page</message>
-	<message key="submission.layout.galleyFileData">Données sur le fichier de l'épreuve</message>
 	<message key="submission.layout.galleyFormat">Format de l'épreuve</message>
 	<message key="submission.layout.galleyHTMLData">Fichiers HTML de l'épreuve</message>
 	<message key="submission.layout.galleyImages">Images</message>

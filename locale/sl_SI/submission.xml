@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
 <!--
   * lib/pkp/locale/sl_SI/submission.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
   -->
+
 <locale name="sl_SI" full_name="Slovenščina">
 	<!-- Author Submission -->
 	<message key="author.submit.submissionCitations">Prosimo navedite oblikovan seznam citirane literature v prispevku. Vsako postavko zapišite v svojo vrstico in ločite z eno prazno vrstico.</message>

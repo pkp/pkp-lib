@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
 <!--
   * locale/sl_SI/api.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University
-  * Copyright (c) 2000-2017 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the REST API.
   -->
+
 <locale name="sl_SI" full_name="Slovenščina">
 	<message key="api.submissions.403.csrfTokenFailure">Vaša zahteva je bila zavrnjena. Morda vam je potekla seja. Ponovno naložite spletno stran in poskusite ponovno.</message>
 	<message key="api.submissions.403.requestedOthersUnpublishedSubmissions">Vidite lahko le neobjavljene prispevke, ki so vam bili dodeljeni.</message>

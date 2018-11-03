@@ -8,8 +8,7 @@
   * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the hr_HR (Hrvatski) locale.
-  *
+  * Localization strings.
   -->
 
 <locale name="hr_HR" full_name="Hrvatski">
@@ -78,7 +77,6 @@
 	<message key="submission.layout.confirmDeleteSupplementaryFile">Jeste li sigurni da želite trajno izbrisati ovu dopunsku datoteku?</message>
 	<message key="submission.layout.deleteGalleyStylesheet">Obrišite ovu stilsku tablicu.</message>
 	<message key="submission.layout.editGalley">Uređivanje prijeloma</message>
-	<message key="submission.layout.galleyFileData">Informacije o datoteci prijeloma</message>
 	<message key="submission.layout.galleyFormat">Konačni prijelom</message>
 	<message key="submission.layout.galleyHTMLData">HTML datoteke prijeloma</message>
 	<message key="submission.layout.galleyImages">Slike</message>

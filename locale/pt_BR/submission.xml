@@ -215,7 +215,6 @@
 	<message key="submission.layout.confirmDeleteSupplementaryFile">Deseja realmente excluir permanentemente este documento suplementar?</message>
 	<message key="submission.layout.deleteGalleyStylesheet">Excluir folha de estilo.</message>
 	<message key="submission.layout.editGalley">Editar modelo de layout</message>
-	<message key="submission.layout.galleyFileData">Informações sobre o documento</message>
 	<message key="submission.layout.galleyFormat">Formato para publicação</message>
 	<message key="submission.layout.galleyHTMLData">Composição HTML</message>
 	<message key="submission.layout.galleyImages">Imagens</message>

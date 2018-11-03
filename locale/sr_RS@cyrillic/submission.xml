@@ -8,7 +8,7 @@
   * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Serbian_(sr_RS)
-  * Localization strings for the sr_RS@cyrillic (Cрпски) locale.
+  * Localization strings.
   -->
 
 <locale name="sr_RS@cyrillic" full_name="Cрпски">

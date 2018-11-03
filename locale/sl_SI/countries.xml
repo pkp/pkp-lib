@@ -2,15 +2,13 @@
 <!DOCTYPE countries SYSTEM "../../dtd/countries.dtd">
 
 <!--
-  * lib/pkp/locale/sl_SI/countries.xml
+  * locale/sl_SI/countries.xml
   *
-  * Copyright (c) 2000-2012 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localized list of countries. Based on ISO 3166-1.
-  * Localization strings for the si_SI (Slovenian/slovenski) locale.
-  *
-  *
+  * Localized list of countries. Based on ISO 3166-1:2006.
   -->
 <countries>
 	<country name="Afganistan" code="AF"/>

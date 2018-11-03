@@ -86,7 +86,6 @@
 	<message key="submission.layout.confirmDeleteSupplementaryFile"> Είστε βέβαιοι ότι επιθυμείτε να διαγράψετε οριστικά το συγκεκριμένο συμπληρωματικό αρχείο;</message>
 	<message key="submission.layout.deleteGalleyStylesheet">Διαγραφή του συγκεκριμένου StyleSheet.</message>
 	<message key="submission.layout.editGalley">Διαμόρφωση Τυπογραφικού Δοκιμίου</message>
-	<message key="submission.layout.galleyFileData">Πληροφορίες αρχείου Τυπογραφικού Δοκιμίου</message>
 	<message key="submission.layout.galleyFormat">Μορφή Τυπογραφικού Δοκιμίου</message>
 	<message key="submission.layout.galleyHTMLData">Αρχεία Τυπογραφικού Δοκιμίου σε μορφή HTML</message>
 	<message key="submission.layout.galleyImages">Εικόνες</message>

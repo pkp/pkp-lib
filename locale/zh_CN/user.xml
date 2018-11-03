@@ -8,8 +8,7 @@
   * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the en_US (English) locale.
-  *
+  * Localization strings.
   -->
 
 <locale name="zh_CN" full_name="简体中文">

@@ -80,7 +80,6 @@
 	<message key="submission.layout.confirmDeleteSupplementaryFile">Sei sicuro di eliminare definitivamente questo file aggiuntivo?</message>
 	<message key="submission.layout.deleteGalleyStylesheet">Elimina questo foglio di stile.</message>
 	<message key="submission.layout.editGalley">Modifica la gabbia</message>
-	<message key="submission.layout.galleyFileData">Informazioni del file della gabbia</message>
 	<message key="submission.layout.galleyFormat">Formato della gabbia</message>
 	<message key="submission.layout.galleyHTMLData">File HTML della gabbia</message>
 	<message key="submission.layout.galleyImages">Immagini</message>

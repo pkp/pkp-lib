@@ -8,8 +8,7 @@
   * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localized list of currencies.
-  *
+  * Currencies data XML file. Based on ISO 4217:2015.
   -->
 
 <currencies locale="tr_TR">

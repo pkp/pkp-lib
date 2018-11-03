@@ -191,7 +191,6 @@ Pastikan Anda mengatur tipe judul yang valid. Nilai dukungan adalah "disingkat",
 	<message key="submission.layout.confirmDeleteSupplementaryFile">Apakah Anda yakin ingin menghapus file tambahan ini secara permanen?</message>
 	<message key="submission.layout.deleteGalleyStylesheet">Hapus stylesheet ini.</message>
 	<message key="submission.layout.editGalley">Edit  Galley Layout</message>
-	<message key="submission.layout.galleyFileData">Informasi File Galley</message>
 	<message key="submission.layout.galleyFormat">Format Galley</message>
 	<message key="submission.layout.galleyHTMLData">File Galley HTML</message>
 	<message key="submission.layout.galleyImages">Gambar</message>

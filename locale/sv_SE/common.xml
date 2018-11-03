@@ -12,7 +12,7 @@
   -->
 
 <locale name="sv_SE" full_name="Svenska">
-  <message key="common.publicKnowledgeProject">Public Knowledge Project</message>
+	<message key="common.publicKnowledgeProject">Public Knowledge Project</message>
 	<message key="common.currentStyleSheet">Aktuell stilmall</message>
 	<message key="about.description">Beskrivning</message>
 	<message key="about.guidelines">Riktlinjer</message>

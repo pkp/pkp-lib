@@ -81,7 +81,6 @@
 	<message key="submission.layout.confirmDeleteSupplementaryFile">Er du sikker på at du vil slette denne tilleggsfilen for alltid?</message>
 	<message key="submission.layout.deleteGalleyStylesheet">Slett dette stilarket.</message>
 	<message key="submission.layout.editGalley">Rediger et layoutoppsett</message>
-	<message key="submission.layout.galleyFileData">Oppsett filinformasjon</message>
 	<message key="submission.layout.galleyFormat">Oppsettformat</message>
 	<message key="submission.layout.galleyHTMLData">HTML-oppsettfiler</message>
 	<message key="submission.layout.galleyImages">Bilder</message>

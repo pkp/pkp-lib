@@ -394,7 +394,7 @@
 	<message key="locale.supported">Unterstützte Regionaleinstellungen</message>
 	<message key="navigation.access"><![CDATA[Benutzer/innen &amp; Rollen]]></message>
 	<message key="navigation.about">Über uns</message>
-	<message key="navigation.admin">Leitung</message>
+	<message key="navigation.admin">Administration</message>
 	<message key="navigation.archives">Archiv</message>
 	<message key="navigation.breadcrumbLabel">Sie sind hier:</message>
 	<message key="navigation.breadcrumbSeparator">/</message>

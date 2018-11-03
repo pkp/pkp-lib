@@ -550,4 +550,6 @@
 	<!-- List Handlers -->
 	<message key="list.viewMore">Mostra i dettagli al riguardo di {$name}</message>
 	<message key="list.viewLess">Nascondi i dettagli riguardo {$name}</message>
+	<message key="common.commaListSeparator">,</message>
+	<message key="common.semicolonListSeparator">;</message>
 </locale>

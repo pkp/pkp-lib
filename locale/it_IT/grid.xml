@@ -250,4 +250,5 @@
 	<message key="grid.navigationMenus.navigationMenu.noneExist">Non ci sono menu di navigazione</message>
 	<message key="grid.navigationMenus.navigationMenu.selectType">Seleziona un tipo ...</message>
 	<message key="grid.action.uninstall">Disinstalla</message>
+	<message key="grid.action.users">Vedi/Seleziona utenti</message>
 </locale>

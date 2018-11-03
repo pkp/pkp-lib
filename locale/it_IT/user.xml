@@ -15,7 +15,6 @@
 	<message key="user.affiliation">Affiliazione</message>
 	<message key="user.affiliations">Affiliazioni</message>
 	<message key="user.biography">Note biografiche</message>
-	<message key="user.biography.description">(es. dipartimento ed incarico)</message>
 	<message key="user.changeMyPassword">Modifica la mia password</message>
 	<message key="user.changePassword">Modifica password</message>
 	<message key="user.dateLastLogin">Ultimo login</message>
@@ -25,7 +24,7 @@
 	<message key="user.interests">Argomenti di interesse per le revisioni</message>
 	<message key="user.login.accountDisabledWithReason">Il tuo account è stato disattivato per la seguente ragione: {$reason}</message>
 	<message key="user.login.accountDisabled">Il tuo account è stato disattivato. Contatta l'amministratore per maggiori informazioni.</message>
-	<message key="user.login.accountNotValidated">Il tuo indirizzo email non è stato validato. Per favore controlla la tua email e segui le istruzioni fornite. Se non hai ricevuto una email,  potresti aver bisogno di contattare l'amministratore del sito per assistenza.</message>
+	<message key="user.login.accountNotValidated">Abbiamo mandato una mail di conferma a {$email}. Per favore controlla la tua email e segui le istruzioni fornite. Se non hai ricevuto una email,  potresti aver bisogno di contattare l'amministratore del sito per assistenza.</message>
 	<message key="user.login.activate">Attiva l'account</message>
 	<message key="user.login.activated">Grazie per aver attivato il tuo account. Ora puoi effettuare il log in usando le credenziali  che hai fornito quando hai creato il tuo account.</message>
 	<message key="user.login.changePasswordInstructions"><![CDATA[Devi scegliere una nuova password prima di entrare in questo sito.<br /><br />Inserisci sotto il tuo username e la tua password attuale e  la nuova password che vuoi utilizzare.]]></message>
@@ -63,12 +62,10 @@
 	<message key="user.profile">Profilo</message>
 	<message key="user.profile.publicProfile">Profilo utente</message>
 	<message key="user.profile.repeatNewPassword">Ripeti la nuova password</message>
-	<message key="user.register.completeForm">Riempi questo modulo per registrarti alla rivista.</message>
 	<message key="user.register.form.emailExists">L'indirizzo email selezionato è  già in uso da un altro utente.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Le password non combaciano.</message>
 	<message key="user.register.form.usernameExists">La username selezionata è già in uso da un altro utente.</message>
-	<message key="user.register.passwordLengthRestriction">La password deve essere almeno {$length} caratteri.</message>
-	<message key="user.register.registerAs">Registrati come</message>
+	<message key="user.register.registerAs">Registrati in {$contextName} come ...</message>
 	<message key="user.register">Registrazione</message>
 	<message key="user.register.usernameRestriction">La username deve contenere solo lettere minuscole, numeri, e trattini/underscores.</message>
 	<message key="user.role.reader">Lettore</message>
@@ -89,7 +86,7 @@
 	<message key="user.profile.form.profileImageInvalid">Formato non valido o immagine troppo grande. I formati accettati sono .gif, .jpg, or .png, e le immagini devono essere grandi 150x150 pixel al massimo.</message>
 	<message key="user.profile.form.affiliationRequired">Inserisci un'affiliazione</message>
 	<message key="user.register.form.emailsDoNotMatch">Le email inserite non corrispondono.</message>
-	<message key="user.affiliation.description"><![CDATA[(La tua istituzione, es. "Universit&#224; La Sapienza di Roma")]]></message>
+	<message key="user.affiliation.description">(La tua istituzione, es. "Università La Sapienza di Roma")</message>
 	<message key="user.gossip">Note private</message>
 	<message key="user.repeatPassword">Ripeti la password</message>
 	<message key="user.authorization.processAuthenticationTokenRequired">Il token di autenticazione non è valido</message>
@@ -124,4 +121,41 @@
 	<message key="user.profile.identity">Identità</message>
 	<message key="user.profile.contact">Contatti</message>
 	<message key="user.profile.public">Pubblico</message>
+	<message key="user.authorization.accessibleWorkflowStage">Attualemente non hai accesso a questa fase del flusso di lavoro</message>
+	<message key="user.authorization.workflowStageRequired">Fase del flusso di lavoro non specificata</message>
+	<message key="user.authorization.pluginRequired">Un plugin non è stato indicato ma è necessario.</message>
+	<message key="user.login.registrationComplete">Registrazione completa</message>
+	<message key="user.login.registrationComplete.instructions">Grazie per esserti registrati. Cosa vuoi fare ora ?</message>
+	<message key="user.login.registrationComplete.manageSubmissions">Vedi proposte</message>
+	<message key="user.login.registrationComplete.newSubmission">Fai una nuova proposta</message>
+	<message key="user.login.registrationComplete.continueBrowsing">Continua a guardare in giro</message>
+	<message key="user.login.registrationPendingValidation">La registrazione aspetta la verifica</message>
+	<message key="user.logOutAs">Logout come</message>
+	<message key="user.login.registerNewAccount">Registrati</message>
+	<message key="user.orcid.orcidInvalid">L'ORCID ID che hai specificato è invalido. Per favore includi un URI completo (ad es. "https://orcid.org/0000-0002-1825-0097")</message>
+	<message key="user.login.resetPasswordInstructions">Inserisci l'email collegato al tuo username e una email ti verrà inviata con le istruzioni su come fare una nuova password.</message>
+	<message key="user.register.form.usernameAlphaNumeric">Lo usename può contenere solo lettere minuscole, numeri, underscore e trattini e deve inziare con una lettera o un numero.</message>
+	<message key="user.register.form.userGroupRequired">Va selezionato almeno un ruolo</message>
+	<message key="user.register.form.passwordLengthRestriction">La password deve essere lunga almeno {$length} caratteri.</message>
+	<message key="user.register.registrationCompleted"><![CDATA[Sei stato registrato correttamente. <a href="{$profileUrl}">Clicca qui</a> per completare la tua registrazione.]]></message>
+	<message key="user.role.assistant">Assistente</message>
+	<message key="user.apiKey">API key</message>
+	<message key="user.apiKeyEnabled">Permetti ad applicazioni esterne che usano l' API key di accedere a questo account</message>
+	<message key="user.apiKey.generate">Genera una nuova APi key</message>
+	<message key="user.apiKey.generateWarning">Attenzione: generare una nuova API key invalida quelle già esistenti per questo utente.</message>
+	<message key="user.apiKey.secretRequired">Prima di creare un'API key, l'amministratore del sito deve aver inserito un valore segreto nel file di configurazione in "api_key_secret".</message>
+	<message key="user.gossip.description">Le note inserite qui saranno visibili agli amministratori, ai journal managers, agli editor e ai sottoeditor</message>
+	<message key="user.authorization.assignedStageRoleBasedAccessDenied">Non ti è stato assegnato un ruolo per questa proposta che ti permetta di fare questa operazione.</message>
+	<message key="user.authorization.invalidReviewAssignment">Non hai il permesso di accedere a questa revisione.</message>
+	<message key="user.authorization.submissionQuery">Non hai il permesso di accedere a questa discussione.</message>
+	<message key="user.profile.form.privacyConsentRequired">Devi accettare i termini dell'informativa sulla privacy.</message>
+	<message key="user.register.form.privacyConsent"><![CDATA[Yes, dò il mio consenso che i miei dati vengano raccolti e registrati secondo questa <a href="{$privacyUrl}" target="_blank">Informativa sulla privacy</a>.]]></message>
+	<message key="user.register.form.emailConsent">Si, voglio ricevere gli annunci e notizie sulle nuove pubblicazioni.</message>
+	<message key="user.privacyLink"><![CDATA[I tuoi dati sono registrati in accordo con questa <a href="{$privacyUrl}" target="_blank">informativa sulla privacy</a>.]]></message>
+	<message key="user.givenName">Nome</message>
+	<message key="user.familyName">Cognome</message>
+	<message key="user.preferredPublicName">Nome pubblico</message>
+	<message key="user.preferredPublicName.description">Come preferisci essere salutato ? Se voi puoi aggiungere saluti, nomi secondari, suffissi, etc. se lo vuoi</message>
+	<message key="user.profile.form.givenNameRequired">Un nome è richiesto</message>
+	<message key="user.profile.form.givenNameRequired.locale">Puoi aggiungere un nome di famiglia per una lingua in cui mancano i nomi propri. Devi immettere un nome nel campo.</message>
 </locale>

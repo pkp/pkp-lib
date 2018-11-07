@@ -148,7 +148,7 @@
 				paste_auto_cleanup_on_paste: true,
 				apply_source_formatting: false,
 				theme: 'modern',
-				toolbar: 'copy paste | bold italic underline | link unlink ' +
+				toolbar: 'copy paste | bold italic underline | bullist numlist | link unlink ' +
 						'code fullscreen | jbimages | pkpTags',
 				richToolbar: 'copy paste | bold italic underline | bullist numlist | ' +
 						'superscript subscript | link unlink code fullscreen | ' +

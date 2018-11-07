@@ -28,7 +28,7 @@ class PluginRegistry {
 	 * @param $category String the name of the category to retrieve
 	 */
 	static function &getPlugins($category = null) {
-		$plugins =& Registry::get('plugins');
+		$plugins =& Registry::get('plugins', true, array());
 		if ($category !== null) return $plugins[$category];
 		return $plugins;
 	}
@@ -60,7 +60,6 @@ class PluginRegistry {
 	static function register($category, &$plugin, $path, $mainContextId = null) {
 		$pluginName = $plugin->getName();
 		$plugins =& PluginRegistry::getPlugins();
-		if (!$plugins) $plugins = array();
 
 		// If the plugin was already loaded, do not load it again.
 		if (isset($plugins[$category][$pluginName])) return false;
@@ -70,7 +69,6 @@ class PluginRegistry {
 
 		if (isset($plugins[$category])) $plugins[$category][$pluginName] =& $plugin;
 		else $plugins[$category] = array($pluginName => &$plugin);
-		Registry::set('plugins', $plugins);
 		return true;
 	}
 

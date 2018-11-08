@@ -146,7 +146,7 @@ class AnnouncementForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('typeId', 'title', 'descriptionShort', 'description', 'dateExpireYear', 'dateExpireMonth', 'dateExpireDay', 'dateExpire', 'sendAnnouncementNotification'));
+		$this->readUserVars(array('typeId', 'title', 'descriptionShort', 'description', 'dateExpire', 'sendAnnouncementNotification'));
 	}
 
 	/**
@@ -174,14 +174,8 @@ class AnnouncementForm extends Form {
 		}
 
 		// Give the parent class a chance to set the dateExpire.
-		$dateExpireSetted = $this->setDateExpire($announcement);
-		if (!$dateExpireSetted) {
-			if ($this->getData('dateExpireYear') != null) {
-				$announcement->setDateExpire($this->getData('dateExpire'));
-			} else {
-				$announcement->setDateExpire(null);
-			}
-		}
+		$dateExpire = $this->getData('dateExpire');
+		$announcement->setDateExpire(!empty($dateExpire[0])?DAO::formatDateToDB($dateExpire[1], null, false):null);
 
 		// Update or insert announcement
 		if ($announcement->getId()) {
@@ -211,26 +205,6 @@ class AnnouncementForm extends Form {
 			}
 		}
 		return $announcement->getId();
-	}
-
-
-	//
-	// Protected methods.
-	//
-	/**
-	 * Set the expiry date.
-	 * @param $announcement Announcement
-	 */
-	function setDateExpire($announcement) {
-		$dateExpire = $this->getData('dateExpire');
-		if ($dateExpire) {
-			$announcement->setDateExpire(DAO::formatDateToDB($dateExpire, null, false));
-		} else {
-			// No date passed but null is acceptable for
-			// announcements.
-			$announcement->setDateExpire(null);
-		}
-		return true;
 	}
 }
 

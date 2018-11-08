@@ -341,6 +341,19 @@ class PKPFileUploadWizardHandler extends Handler {
 					$uploader = $request->getUser();
 					// If the file is uploaded by an author
 					if (in_array($uploader->getId(), $authorUserIds)) {
+
+						// Fetch the latest notification email timestamp if any
+						$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+						$submissionEmailFactory = $submissionEmailLogDao->getByEventType($submission->getId(), SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION);
+						if ($submissionEmailFactory){
+							while ($email = $submissionEmailFactory->next()) {
+								$sentDates[] = $email->getDateSent());
+							}
+							$lastNotification = max(array_map('strtotime', $sentDates));
+						} else {
+							$lastNotification = strtotime("-1 year");
+						}
+						
 						import('lib.pkp.classes.mail.SubmissionMailTemplate');
 						$mail = new SubmissionMailTemplate($submission, 'REVISED_VERSION_NOTIFY');
 						import('lib.pkp.classes.log.PKPSubmissionEmailLogEntry'); // Import email event constants
@@ -350,9 +363,11 @@ class PKPFileUploadWizardHandler extends Handler {
 						$userDao = DAORegistry::getDAO('UserDAO');
 						$editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $this->getStageId());
 						foreach ($editorsStageAssignments as $editorsStageAssignment) {
-							$editorId = $editorsStageAssignment->getUserId();
-							$editor = $userDao->getById($editorId);
-							$mail->addRecipient($editor->getEmail(), $editor->getFullName());
+							$editor = $userDao->getById($editorsStageAssignment->getUserId());
+ 							// If editor has not logged in since the last notification, do not send another
+							if (strtotime($editor->getDateLastLogin()) > $lastNotification){
+								$mail->addRecipient($editor->getEmail(), $editor->getFullName());
+							}
 						}
 						// Get uploader name
 						$submissionUrl = $dispatcher->url($request, ROUTE_PAGE, null, 'workflow', 'index', array($submission->getId(), $this->getStageId()));
@@ -361,7 +376,8 @@ class PKPFileUploadWizardHandler extends Handler {
 							'editorialContactSignature' => $context->getSetting('contactName'),
 							'submissionUrl' => $submissionUrl,
 						));
-						$mail->send($request);
+						if ($mail->getRecipients())
+							$mail->send($request);
 					}
 				}
 				break;

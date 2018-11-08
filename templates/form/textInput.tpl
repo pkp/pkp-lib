@@ -68,7 +68,7 @@
 	{if $FBV_class|strstr:"datepicker"} 
 		<input data-date-format="{$dateFormatShort|dateformatPHP2JQueryDatepicker}" type="hidden" 
 		name="{$FBV_name|escape}"
-		value="{$FBV_value|date_format:"%Y-%m-%d"|escape}"
+		value="{if !empty($FBV_value)}{$FBV_value|date_format:"%Y-%m-%d"|escape}{/if}"
 		id="{$FBV_id|escape}{$uniqId}-altField" />
 	{/if}
 

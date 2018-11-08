@@ -123,12 +123,13 @@ class AnnouncementDAO extends DAO {
 	 * @return int
 	 */
 	function insertObject($announcement) {
+		$dateExpire = $announcement->getDateExpire();
 		$this->update(
 			sprintf('INSERT INTO announcements
 				(assoc_type, assoc_id, type_id, date_expire, date_posted)
 				VALUES
 				(?, ?, ?, %s, %s)',
-				$this->datetimeToDB($announcement->getDateExpire()), $this->datetimeToDB($announcement->getDatetimePosted())),
+				!empty($dateExpire)?$this->datetimeToDB($dateExpire):'null', $this->datetimeToDB($announcement->getDatetimePosted())),
 			array(
 				(int) $announcement->getAssocType(),
 				(int) $announcement->getAssocId(),
@@ -146,6 +147,7 @@ class AnnouncementDAO extends DAO {
 	 * @return boolean
 	 */
 	function updateObject($announcement) {
+		$dateExpire = $announcement->getDateExpire();
 		$returner = $this->update(
 			sprintf('UPDATE announcements
 				SET
@@ -154,7 +156,7 @@ class AnnouncementDAO extends DAO {
 					type_id = ?,
 					date_expire = %s
 				WHERE announcement_id = ?',
-				$this->datetimeToDB($announcement->getDateExpire())),
+				!empty($dateExpire)?$this->datetimeToDB($dateExpire):'null'),
 			array(
 				(int) $announcement->getAssocType(),
 				(int) $announcement->getAssocId(),

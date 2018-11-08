@@ -347,7 +347,7 @@ class PKPFileUploadWizardHandler extends Handler {
 						$submissionEmailFactory = $submissionEmailLogDao->getByEventType($submission->getId(), SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION);
 						if ($submissionEmailFactory){
 							while ($email = $submissionEmailFactory->next()) {
-								$sentDates[] = $email->getDateSent());
+								$sentDates[] = $email->getDateSent();
 							}
 							$lastNotification = max(array_map('strtotime', $sentDates));
 						} else {

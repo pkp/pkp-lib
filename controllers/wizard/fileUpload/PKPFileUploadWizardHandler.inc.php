@@ -353,7 +353,7 @@ class PKPFileUploadWizardHandler extends Handler {
 						} else {
 							$lastNotification = strtotime("-1 year");
 						}
-						
+
 						import('lib.pkp.classes.mail.SubmissionMailTemplate');
 						$mail = new SubmissionMailTemplate($submission, 'REVISED_VERSION_NOTIFY');
 						import('lib.pkp.classes.log.PKPSubmissionEmailLogEntry'); // Import email event constants

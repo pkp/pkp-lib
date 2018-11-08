@@ -378,6 +378,9 @@ class PKPTemplateManager extends Smarty {
 		$this->assign(array(
 			'hasSidebar' => !empty($sidebarHooks),
 		));
+		
+		// Inject CSS links into the HTML Galley string
+		HookRegistry::register('HtmlArticleGalleyPlugin::htmlGalleyContent', array($this, 'loadHtmlGalleyStyles'), HOOK_SEQUENCE_CORE);
 	}
 
 
@@ -1451,6 +1454,47 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		return $output;
+	}
+	
+	/**
+	 * Styles to be injected from a theme plugin into HTML galley file
+	 * Usage: $this->addStyle('name', 'style.css', array('contexts' => 'htmlGalley'));
+	 * @param $hookName string
+	 * @param array [
+	 *      $args[0] ArticleGalley
+	 *      $args[1] string HTML
+	 *      $args[2] SubmissionFile
+	 *      $args[3] array embedded files
+	 *      ]
+	 */
+	function loadHtmlGalleyStyles($hookName, $args) {
+		$contents =& $args[1];
+		$embeddableFiles = $args[3];
+		
+		if (empty($contents)) return false;
+		
+		$attachedStyles = false;
+		foreach ($embeddableFiles as $embeddableFile) {
+			if ($embeddableFile->getFileType() =='text/css') $attachedStyles = true;
+		}
+		
+		if ($attachedStyles) return false;
+		
+		$output = '';
+		$styles = $this->getResourcesByContext($this->_styleSheets, 'htmlGalley');
+		ksort($styles);
+		
+		if (!empty($styles)) {
+			foreach ($styles as $htmlStyles) {
+				foreach ($htmlStyles as $htmlStyle) {
+					$output .= '<link rel="stylesheet" href="' . $htmlStyle['style'] . '" type="text/css" />' . "\n";
+				}
+			}
+		}
+		
+		if (!empty($output)) {
+			$contents = str_ireplace('<head>', '<head>' . "\n" . $output, $contents);
+		}
 	}
 
 	/**

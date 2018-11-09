@@ -113,6 +113,12 @@ body[dir="rtl"] {
 		right: -9999px;
 	}
 
+	//Fix modal disappearing in RTL languages
+	.is_visible .pkp_modal_panel {
+		overflow: auto;
+		overflow-x: hidden;
+	}
+
 	// Help panel
 	.pkp_help_tab,
 	.pkp_help_modal {

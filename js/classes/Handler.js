@@ -696,9 +696,20 @@
 						settings = tinyMCE.EditorManager.settings;
 
 				// Set the extended toolbar, if requested
+				settings.inline = false;
 				if ($(this).hasClass('extendedRichContent')) {
 					settings.toolbar = settings.richToolbar;
-				} else {
+				} 
+				else if ($(this).hasClass('onelineRichContent')){
+					settings.toolbar = settings.onelineToolbar;
+					settings.forced_root_block = false;
+					settings.menubar = false;
+					settings.statusbar = false;
+					settings.valid_elements = "em/i,sup,sub";
+					settings.branding = false;
+					settings.inline = true;
+				}
+				else {
 					settings.toolbar = settings.defaultToolbar;
 				}
 

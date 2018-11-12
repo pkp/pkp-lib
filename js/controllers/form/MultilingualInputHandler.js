@@ -41,6 +41,8 @@
 		// Bind to the blur of any of the inputs to check if we should close.
 		$popover.find(':input').
 				blur(this.callbackWrapper(this.blurHandler_));
+		$popover.find('.onelineRichContent').
+				blur(this.callbackWrapper(this.blurHandler_));		
 
 		this.publishEvent('tinyMCEInitialized');
 
@@ -217,7 +219,7 @@
 
 		var htmlElement = this.getHtmlElement(),
 				tinyMCEObject = tinyMCE.EditorManager.get(/** @type {string} */(
-				htmlElement.find('textarea').first().attr('id')));
+				htmlElement.find('.richContent').first().attr('id')));
 
 		tinyMCEObject.on('focus', this.callbackWrapper(function() {
 			// We need also to close the multilingual popover when user clicks
@@ -232,10 +234,13 @@
 			// we attach here, but will not move the cursor inside the tinyMCE
 			// editor). Then, if user clicks outside the popover, it will not
 			// close because no blur event will be triggered.
-			this.trigger('callWhenClickOutside', {
-				container: this.getHtmlElement(),
-				callback: this.callbackWrapper(this.hidePopover_)
-			});
+			// Prevent oneline richtext from being closed when applying styling
+			if (!$(document.activeElement).hasClass('oneline')){
+				this.trigger('callWhenClickOutside', {
+					container: this.getHtmlElement(),
+					callback: this.callbackWrapper(this.hidePopover_)
+				});
+			}
 
 			this.showPopover_();
 		}));

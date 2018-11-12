@@ -139,6 +139,7 @@
 
 			var tinymceParams, tinymceParamDefaults = {
 				width: '100%',
+				min_height: '20',
 				resize: 'both',
 				entity_encoding: 'raw',
 				plugins: 'paste,fullscreen,link,lists,code,' +
@@ -150,6 +151,7 @@
 				theme: 'modern',
 				toolbar: 'copy paste | bold italic underline | link unlink ' +
 						'code fullscreen | jbimages | pkpTags',
+				onelineToolbar: 'italic superscript subscript',			
 				richToolbar: 'copy paste | bold italic underline | bullist numlist | ' +
 						'superscript subscript | link unlink code fullscreen | ' +
 						'jbimages | pkpTags',
@@ -301,6 +303,16 @@
 				}
 			}
 		});
+
+		// Disable enter key for single line inputs		
+		if (target.hasClass('onelineRichContent')) {
+			tinyMCEObject.on('keydown', function(e) {
+				if (e.keyCode == 13) {
+					e.preventDefault();
+				}
+			});
+		}
+
 	};
 
 

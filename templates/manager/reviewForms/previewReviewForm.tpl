@@ -15,7 +15,7 @@
 		{assign var=reviewFormElementDescription value=$reviewFormElement->getLocalizedDescription()}
 		{if $reviewFormElementDescription}
 			<p>
-				<span class="description">{$reviewFormElementDescription}</span>
+				<div class="description">{$reviewFormElementDescription}</div>
 			</p>
 		{/if}
 		<p>

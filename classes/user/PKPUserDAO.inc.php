@@ -127,7 +127,7 @@ class PKPUserDAO extends DAO {
 	 */
 	function &getUserByEmail($email, $allowDisabled = true) {
 		$result = $this->retrieve(
-			'SELECT * FROM users WHERE email = ?' . ($allowDisabled?'':' AND disabled = 0'),
+			'SELECT * FROM users WHERE LOWER(email) = LOWER(?)' . ($allowDisabled?'':' AND disabled = 0'),
 			array($email)
 		);
 

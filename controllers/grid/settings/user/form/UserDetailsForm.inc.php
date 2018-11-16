@@ -332,7 +332,11 @@ class UserDetailsForm extends UserForm {
 				$mail->setReplyTo($context->getSetting('contactEmail'), $context->getSetting('contactName'));
 				$mail->assignParams(array('username' => $this->getData('username'), 'password' => $password, 'userFullName' => $this->user->getFullName()));
 				$mail->addRecipient($this->user->getEmail(), $this->user->getFullName());
-				$mail->send();
+				if (!$mail->send()) {
+					import('classes.notification.NotificationManager');
+					$notificationMgr = new NotificationManager();
+					$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
+				}
 			}
 		}
 

@@ -171,7 +171,12 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 				'editorUsername' => $user->getUsername(),
 			));
 
-			$email->send($request);
+			if (!$email->send($request)) {
+				import('classes.notification.NotificationManager');
+				$notificationMgr = new NotificationManager();
+				$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
+			}
+
 			// remove the INDEX_ and LAYOUT_ tasks if a user has sent the appropriate _COMPLETE email
 			switch ($template) {
 				case 'EDITOR_ASSIGN':

@@ -361,7 +361,11 @@ class PKPFileUploadWizardHandler extends Handler {
 							'editorialContactSignature' => $context->getSetting('contactName'),
 							'submissionUrl' => $submissionUrl,
 						));
-						$mail->send($request);
+						if (!$mail->send($request)) {
+							import('classes.notification.NotificationManager');
+							$notificationMgr = new NotificationManager();
+							$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
+						}
 					}
 				}
 				break;

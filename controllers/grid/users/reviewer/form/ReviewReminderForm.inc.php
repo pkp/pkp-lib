@@ -165,7 +165,11 @@ class ReviewReminderForm extends Form {
 			'submissionReviewUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'reviewer', 'submission', null, $reviewUrlArgs),
 			'editorialContactSignature' => $user->getContactSignature(),
 		));
-		$email->send($request);
+		if (!$email->send($request)) {
+			import('classes.notification.NotificationManager');
+			$notificationMgr = new NotificationManager();
+			$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
+		}
 
 		// update the ReviewAssignment with the reminded and modified dates
 		$reviewAssignment->setDateReminded(Core::getCurrentDate());

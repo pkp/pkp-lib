@@ -313,6 +313,7 @@
 	<message key="email.compose">Send Email</message>
 	<message key="email.compose.tooManyRecipients">The message you are attempting to send has too many recipients.</message>
 	<message key="email.compose.tooSoon">You are attempting to send a message too recently after your last message was sent. Please wait before sending another message.</message>
+	<message key="email.compose.error">There was a problem sending an email message. Please try again later, or contact your system administrator.</message>
 	<message key="email.email">Email</message>
 	<message key="email.from">From</message>
 	<message key="email.invalid">The email address {$email} is invalid.</message>

@@ -12,7 +12,11 @@
 set -xe
 
 # Add our PHP configuration variables to the default configuration.
-phpenv config-add lib/pkp/tools/travis/php.ini
+if `which phpenv`; then
+	phpenv config-add lib/pkp/tools/travis/php.ini
+else
+	echo "(Skipping phpenv add)"
+fi
 
 # This script runs as the travis user, so cannot bind to port 80. To work
 # around this, we use socat to forward requests from port 80 to port 8080.

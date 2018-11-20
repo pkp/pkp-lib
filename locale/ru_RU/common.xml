@@ -313,6 +313,7 @@
 	<message key="email.compose">Отправить письмо</message>
 	<message key="email.compose.tooManyRecipients">Сообщение, которое вы пытаетесь отправить, содержит слишком много получателей.</message>
 	<message key="email.compose.tooSoon">Вы пытаетесь отправить сообщение, но после отправки вашего предыдущего сообщения прошло слишком мало времени. Пожалуйста, подождите перед отправкой следующего сообщения.</message>
+	<message key="email.compose.error">Возникла проблема при отправки сообщения электронной почтой. Пожалуйста, попробуйте позже еще раз или свяжитесь с администратором вашей системы.</message>
 	<message key="email.email">Адрес электронной почты</message>
 	<message key="email.from">От</message>
 	<message key="email.invalid">Адрес электронной почты {$email} является неправильным.</message>

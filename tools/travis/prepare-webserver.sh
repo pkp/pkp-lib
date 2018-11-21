@@ -12,7 +12,7 @@
 set -xe
 
 # Add our PHP configuration variables to the default configuration.
-PATH_TO_PHPENV=$(which phpenv)
+(PATH_TO_PHPENV=$(which phpenv)) || true
 if [ -x "$PATH_TO_PHPENV" ] ; then
 	phpenv config-add lib/pkp/tools/travis/php.ini
 else

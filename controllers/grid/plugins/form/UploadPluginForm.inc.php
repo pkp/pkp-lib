@@ -99,7 +99,7 @@ class UploadPluginForm extends Form {
 					$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('manager.plugins.upgradeSuccessful', array('versionString' => $pluginVersion->getVersionString(false)))));
 				}
 			}
-		} else {
+		} else if (!$errorMsg) {
 			$errorMsg = __('manager.plugins.invalidPluginArchive');
 		}
 

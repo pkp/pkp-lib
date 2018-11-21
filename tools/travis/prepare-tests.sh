@@ -39,8 +39,8 @@ if [[ "$TEST" == "pgsql" ]]; then
 	chmod 600 ~/.pgpass
 	export DBTYPE=PostgreSQL
 elif [[ "$TEST" == "mysql" ]]; then
-	mysql -u root -e 'CREATE DATABASE `ojs-ci` DEFAULT CHARACTER SET utf8'
-	mysql -u root -e "GRANT ALL ON \`ojs-ci\`.* TO \`ojs-ci\`@localhost IDENTIFIED BY 'ojs-ci'"
+	sudo mysql -u root -e 'CREATE DATABASE `ojs-ci` DEFAULT CHARACTER SET utf8'
+	sudo mysql -u root -e "GRANT ALL ON \`ojs-ci\`.* TO \`ojs-ci\`@localhost IDENTIFIED BY 'ojs-ci'"
 	export DBTYPE=MySQLi
 fi
 

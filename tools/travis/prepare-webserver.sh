@@ -12,11 +12,10 @@
 set -xe
 
 # Add our PHP configuration variables to the default configuration.
-(PATH_TO_PHPENV=$(which phpenv)) || true
-if [ -x "$PATH_TO_PHPENV" ] ; then
-	phpenv config-add lib/pkp/tools/travis/php.ini
-else
+if [ -z "$TRAVIS" ] ; then
 	echo "(Skipping phpenv add)"
+else
+	phpenv config-add lib/pkp/tools/travis/php.ini
 fi
 
 # This script runs as the travis user, so cannot bind to port 80. To work

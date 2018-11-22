@@ -392,7 +392,11 @@ class ReviewerForm extends Form {
 				'reviewerUserName' => $reviewer->getUsername(),
 				'submissionReviewUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'reviewer', 'submission', null, $reviewUrlArgs)
 			));
-			$mail->send($request);
+			if (!$mail->send($request)) {
+				import('classes.notification.NotificationManager');
+				$notificationMgr = new NotificationManager();
+				$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
+			}
 		}
 
 		// Insert a trivial notification to indicate the reviewer was added successfully.

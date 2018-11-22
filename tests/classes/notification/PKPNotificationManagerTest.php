@@ -251,7 +251,8 @@ class PKPNotificationManagerTest extends PKPTestCase {
 		                 ->method('assignParams')
 		                 ->with($this->logicalAnd($this->contains($notificationContents), $this->contains($contextTitle)));
 		$mailTemplateMock->expects($this->once())
-		                 ->method('send');
+		                 ->method('send')
+			         ->will($this->returnValue(true));
 
 		// Inject our MailTemplate mock in notification manager.
 		$notificationMgrStub->expects($this->any())

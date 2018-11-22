@@ -35,8 +35,8 @@ define('STYLE_SEQUENCE_NORMAL', 10);
 define('STYLE_SEQUENCE_LATE', 15);
 define('STYLE_SEQUENCE_LAST', 20);
 
-define('CDN_JQUERY_VERSION', '1.11.0');
-define('CDN_JQUERY_UI_VERSION', '1.11.0');
+define('CDN_JQUERY_VERSION', '3.3.1');
+define('CDN_JQUERY_UI_VERSION', '1.12.0');
 
 define('CSS_FILENAME_SUFFIX', 'css');
 
@@ -1715,5 +1715,3 @@ class PKPTemplateManager extends Smarty {
 		$smarty->assign($params['assign'], $matching_files);
 	}
 }
-
-

@@ -91,8 +91,8 @@ class MetadataProperty {
 			$translated = false, $cardinality = METADATA_PROPERTY_CARDINALITY_ONE, $displayName = null, $validationMessage = null, $mandatory = false) {
 
 		// Validate name and assoc type array
-		assert(is_string($name));
-		assert(is_array($assocTypes));
+		if (!is_string($name)) throw new InvalidArgumentException('$name should be a string.');
+		if (!is_array($assocTypes)) throw new InvalidArgumentException('$assocTypes should be an array.');
 
 		// A single type will be transformed to an
 		// array of types so that we can handle them
@@ -120,7 +120,7 @@ class MetadataProperty {
 			}
 
 			// Validate type
-			assert(in_array($allowedTypeId, MetadataProperty::getSupportedTypes()));
+			if (!in_array($allowedTypeId, MetadataProperty::getSupportedTypes())) throw new InvalidArgumentException('Allowed types must be supported types!');
 
 			// Transform the type array in a
 			// structure that is easy to handle
@@ -131,33 +131,33 @@ class MetadataProperty {
 			switch($allowedTypeId) {
 				case METADATA_PROPERTY_TYPE_COMPOSITE:
 					// Validate the assoc id of the composite.
-					assert(is_integer($allowedTypeParam));
+					if (!is_integer($allowedTypeParam)) throw new InvalidArgumentException('Allowed type parameter should be an integer.');
 					// Properties that allow composite types cannot be translated.
-					assert(!$translated);
+					if ($translated) throw new InvalidArgumentException('Properties that allow composite types cannot be translated.');
 					break;
 
 				case METADATA_PROPERTY_TYPE_VOCABULARY:
 					// Validate the symbolic name of the vocabulary.
-					assert(is_string($allowedTypeParam));
+					if (!is_string($allowedTypeParam)) throw new InvalidArgumentException('Allowed type parameter should be a string.');
 					break;
 
 				default:
 					// No other types support an additional parameter
-					assert(is_null($allowedTypeParam));
+					if (!is_null($allowedTypeParam)) throw new InvalidArgumentException('An additional parameter was supplied for an unsupported metadata property type.');
 			}
 		}
 
 		// Validate translation and cardinality
-		assert(is_bool($translated));
-		assert(in_array($cardinality, MetadataProperty::getSupportedCardinalities()));
+		if (!is_bool($translated)) throw new InvalidArgumentException('$translated must be a boolean');
+		if (!in_array($cardinality, MetadataProperty::getSupportedCardinalities())) throw new InvalidArgumentException('$cardinality must be a supported cardinality.');
 
 		// Default display name
 		if (is_null($displayName)) $displayName = 'metadata.property.displayName.'.$name;
-		assert(is_string($displayName));
+		if (!is_string($displayName)) throw new InvalidArgumentException('$displayName must be a string.');
 
 		// Default validation message
 		if (is_null($validationMessage)) $validationMessage = 'metadata.property.validationMessage.'.$name;
-		assert(is_string($validationMessage));
+		if (!is_string($validationMessage)) throw new InvalidArgumentException('$validationMessage must be a string.');
 
 
 		// Initialize the class

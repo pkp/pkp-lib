@@ -79,15 +79,6 @@ class PKPRouterTestCase extends PKPTestCase {
 	}
 
 	/**
-	 * @covers PKPRouter::getCacheFilename
-	 * @expectedException PHPUnit_Framework_Error
-	 */
-	public function testGetCacheFilename() {
-		$this->request = new PKPRequest();
-		$this->router->getCacheFilename($this->request);
-	}
-
-	/**
 	 * @covers PKPRouter::getRequestedContextPath
 	 * @covers PKPRouter::getRequestedContextPaths
 	 * @expectedException PHPUnit_Framework_Error

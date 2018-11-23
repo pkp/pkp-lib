@@ -67,7 +67,7 @@ class MetadataPropertyTest extends PKPTestCase {
 	/**
 	 * Tests special error conditions while setting composite types
 	 * @covers MetadataProperty::__construct
-	 * @expectedException PHPUnit_Framework_Error
+	 * @expectedException InvalidArgumentException
 	 */
 	public function testCompositeWithoutParameter() {
 		$metadataProperty = new MetadataProperty('testElement', array(0x001), METADATA_PROPERTY_TYPE_COMPOSITE, false, METADATA_PROPERTY_CARDINALITY_MANY);
@@ -76,7 +76,7 @@ class MetadataPropertyTest extends PKPTestCase {
 	/**
 	 * Tests special error conditions while setting composite types
 	 * @covers MetadataProperty::__construct
-	 * @expectedException PHPUnit_Framework_Error
+	 * @expectedException InvalidArgumentException
 	 */
 	public function testCompositeWithWrongParameter() {
 		$metadataProperty = new MetadataProperty('testElement', array(0x001), array(METADATA_PROPERTY_TYPE_COMPOSITE => 'string'), false, METADATA_PROPERTY_CARDINALITY_MANY);
@@ -85,7 +85,7 @@ class MetadataPropertyTest extends PKPTestCase {
 	/**
 	 * Tests special error conditions while setting controlled vocab types
 	 * @covers MetadataProperty::__construct
-	 * @expectedException PHPUnit_Framework_Error
+	 * @expectedException InvalidArgumentException
 	 */
 	public function testControlledVocabWithoutParameter() {
 		$metadataProperty = new MetadataProperty('testElement', array(0x001), METADATA_PROPERTY_TYPE_VOCABULARY);
@@ -94,7 +94,7 @@ class MetadataPropertyTest extends PKPTestCase {
 	/**
 	 * Tests special error conditions while setting controlled vocab types
 	 * @covers MetadataProperty::__construct
-	 * @expectedException PHPUnit_Framework_Error
+	 * @expectedException InvalidArgumentException
 	 */
 	public function testControlledVocabWithWrongParameter() {
 		$metadataProperty = new MetadataProperty('testElement', array(0x001), array(METADATA_PROPERTY_TYPE_VOCABULARY => 0x002), false, METADATA_PROPERTY_CARDINALITY_MANY);
@@ -103,7 +103,7 @@ class MetadataPropertyTest extends PKPTestCase {
 	/**
 	 * Tests special error conditions while setting non-parameterized type
 	 * @covers MetadataProperty::__construct
-	 * @expectedException PHPUnit_Framework_Error
+	 * @expectedException InvalidArgumentException
 	 */
 	public function testNonParameterizedTypeWithParameter() {
 		$metadataProperty = new MetadataProperty('testElement', array(0x001), array(METADATA_PROPERTY_TYPE_STRING => 0x002), false, METADATA_PROPERTY_CARDINALITY_MANY);
@@ -112,7 +112,7 @@ class MetadataPropertyTest extends PKPTestCase {
 	/**
 	 * Tests special error conditions while setting an unsupported type
 	 * @covers MetadataProperty::getSupportedTypes
-	 * @expectedException PHPUnit_Framework_Error
+	 * @expectedException InvalidArgumentException
 	 */
 	public function testSetUnsupportedType() {
 		$metadataProperty = new MetadataProperty('testElement', array(0x001), 0x99999999, true, METADATA_PROPERTY_CARDINALITY_MANY);
@@ -121,7 +121,7 @@ class MetadataPropertyTest extends PKPTestCase {
 	/**
 	 * Tests special error conditions while setting an unsupported cardinality
 	 * @covers MetadataProperty::getSupportedCardinalities
-	 * @expectedException PHPUnit_Framework_Error
+	 * @expectedException InvalidArgumentException
 	 */
 	public function testSetUnsupportedCardinality() {
 		$metadataProperty = new MetadataProperty('testElement', array(0x001), METADATA_PROPERTY_TYPE_COMPOSITE, true, 0x99999999);

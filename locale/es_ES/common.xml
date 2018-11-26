@@ -175,7 +175,6 @@
 	<message key="common.pluginDisabled">El módulo "{$pluginName}" se ha desactivado.</message>
 	<message key="common.prefix">Prefijo</message>
 	<message key="common.prefixAndTitle.tip">Si el título del libro comienza con "Un/a" o "El/La/Los/Las" (o algo similar que no debiera considerarse en el orden alfabético) sitúa esta palabra en Prefijo.</message>
-	<message key="common.subtitle.tip">El subtítulo opcional del envío aparecerá tras los dos puntos (:) que siguen al título principal.</message>
 	<message key="common.preview">Previsualizar</message>
 	<message key="common.publisher">Editor</message>
 	<message key="common.quality">Calidad</message>

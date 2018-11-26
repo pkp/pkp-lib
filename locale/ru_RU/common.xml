@@ -215,7 +215,6 @@
 	<message key="common.pluginDisabled">Модуль «{$pluginName}» был выключен.</message>
 	<message key="common.prefix">Префикс</message>
 	<message key="common.prefixAndTitle.tip">Примеры: A, The</message>
-	<message key="common.subtitle.tip">Необязательный подзаголовок появится после двоеточия (:) после основного заголовка.</message>
 	<message key="common.preview">Предварительный просмотр</message>
 	<message key="common.publisher">Издатель</message>
 	<message key="common.quality">Качество</message>

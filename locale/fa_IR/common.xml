@@ -192,7 +192,6 @@
 	<message key="common.pluginDisabled">افزونه «{$pluginName}» غیرفعال شد</message>
 	<message key="common.prefix">پیشوند</message>
 	<message key="common.prefixAndTitle.tip">برای مثال: الف، ...</message>
-	<message key="common.subtitle.tip">زیر عنوان (اختیاری) بعد از عنوان اصلی و به صورت «عنوان : زیر عنوان» نمایش داده می‌شود </message>
 	<message key="common.preview">نگاه اجمالی</message>
 	<message key="common.publisher">ناشر</message>
 	<message key="common.quality">کیفیت</message>

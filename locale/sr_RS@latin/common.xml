@@ -385,7 +385,6 @@
 	<message key="common.percentage">{$percentage}%</message>
 	<message key="common.prefix">Prefiks</message>
 	<message key="common.prefixAndTitle.tip">Npr. kao članovi u engleskom jeziku: A, The</message>
-	<message key="common.subtitle.tip">Dodatni naslov će se pojaviti posle kolone (:), prateći glavni naslov.</message>
 	<message key="common.quality">Vrednost</message>
 	<message key="common.queue.long.active">Svi aktivni</message>
 	<message key="common.range">{$min}-{$max}</message>

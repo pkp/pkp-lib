@@ -360,7 +360,6 @@
 	<message key="review.ensuringBlindReview">Sikring af blind review</message>
 	<message key="common.prefix">Præfiks</message>
 	<message key="common.prefixAndTitle.tip">Eksempler: A, The</message>
-	<message key="common.subtitle.tip">Undertitlen kan eventuelt indskrives med et kolon indsat efter hovedtitlen.</message>
 	<message key="common.subtitle">Undertitel</message>
 	<message key="common.abstract">Resumé</message>
 	<message key="common.uploadedDate">Upload-tidspunkt</message>

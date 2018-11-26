@@ -358,7 +358,6 @@
 	<message key="common.pluginDisabled">Plugin  "{$pluginName}" byl zakázán.</message>
 	<message key="common.prefix">Předpona</message>
 	<message key="common.prefixAndTitle.tip">Příklady: A, The</message>
-	<message key="common.subtitle.tip">Volitelný podtitul se objeví po dvojtečce (:), za hlavním názvem.</message>
 	<message key="common.quality">Kvalita</message>
 	<message key="common.queue.long.active">Všechny aktivní</message>
 	<message key="common.range">{$min}-{$max}</message>

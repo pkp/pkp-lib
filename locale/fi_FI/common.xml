@@ -195,7 +195,6 @@
 	<message key="common.pluginDisabled">"{$pluginName}"-lisäosa on poistettu käytöstä.</message>
 	<message key="common.prefix">Prefiksi</message>
 	<message key="common.prefixAndTitle.tip">Esimerkkejä: A, The</message>
-	<message key="common.subtitle.tip">Valinnainen alaotsikko näkyy kaksoispisteen (:) jälkeen, pääotsikon perässä.</message>
 	<message key="common.preview">Esikatselu</message>
 	<message key="common.publisher">Julkaisija</message>
 	<message key="common.quality">Laatu</message>

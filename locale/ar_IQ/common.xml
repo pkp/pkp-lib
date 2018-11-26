@@ -214,7 +214,6 @@
 	<message key="common.pluginDisabled">البرنامج الإضافي "{$pluginName}" تم تعطيله.</message>
 	<message key="common.prefix">بادئة</message>
 	<message key="common.prefixAndTitle.tip">أمثلة: A، The، ال</message>
-	<message key="common.subtitle.tip">سيظهر العنوان الفرعي بعد علامة (:)، بعد العنوان الرئيسي.</message>
 	<message key="common.preview">معاينة</message>
 	<message key="common.publisher">الناشر</message>
 	<message key="common.quality">النوعية</message>

@@ -215,7 +215,6 @@
 	<message key="common.pluginDisabled">Pluginet "{$pluginName}" har avaktiverats.</message>
 	<message key="common.prefix">Prefix</message>
 	<message key="common.prefixAndTitle.tip">Exempel: En, Det, Den</message>
-	<message key="common.subtitle.tip">Undertiteln, som är frivillig, kommer att visas efter huvudtiteln, separerad med kolon (:).</message>
 	<message key="common.preview">Förhandsgranska</message>
 	<message key="common.publisher">Utgivare</message>
 	<message key="common.quality">Kvalitet</message>

@@ -441,7 +441,6 @@
 	<message key="common.overdue">En retard</message>
 	<message key="common.prefix">Préfixe</message>
 	<message key="common.prefixAndTitle.tip">Si le titre du document commence par "un/une" ou "le/la" (ou quelque chose de similaire concernant l'ordre alphabétique), mettre le mot dans Préfixe.</message>
-	<message key="common.subtitle.tip">Le titre sera suivi de deux points et du sous-titre, facultatif.</message>
 	<message key="common.reminder">Rappel</message>
 	<message key="common.remote">À distance</message>
 	<message key="common.remoteURL">URL Distante</message>

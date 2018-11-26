@@ -437,7 +437,6 @@
 	<message key="common.prefix">Önek</message>
 	<message key="common.prefixAndTitle.tip">Örnekler: A, The</message>
 	<message key="common.quality">Kalite</message>
-	<message key="common.subtitle.tip">İsteğe bağlı alt yazı, iki nokta üst üsteden sonra (:), ana başlığın ardından görüntülenir.</message>
 	<message key="common.queue.long.active">Aktif Gönderiler</message>
 	<message key="common.readMore">Daha fazla oku</message>
 	<message key="common.readMoreWithTitle">Hakkında daha fazla bilgi edinin {$title}</message>

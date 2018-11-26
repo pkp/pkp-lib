@@ -215,7 +215,6 @@
 	<message key="common.pluginDisabled">The plugin "{$pluginName}" has been disabled.</message>
 	<message key="common.prefix">Prefix</message>
 	<message key="common.prefixAndTitle.tip">Examples: A, The</message>
-	<message key="common.subtitle.tip">The optional subtitle will appear after a colon (:), following the main title.</message>
 	<message key="common.preview">Preview</message>
 	<message key="common.publisher">Publisher</message>
 	<message key="common.quality">Quality</message>

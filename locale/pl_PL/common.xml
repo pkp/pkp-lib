@@ -403,7 +403,6 @@
 	<message key="common.percentage">{$percentage}%</message>
 	<message key="common.prefix">Prefiks</message>
 	<message key="common.prefixAndTitle.tip">Przykłady: A, The</message>
-	<message key="common.subtitle.tip">Opcjonalny podtytuł będzie wyświetlany po dwukropku (:), po tytule głównym.</message>
 	<message key="common.quality">Jakość</message>
 	<message key="common.queue.long.active">Wszystkie aktywne</message>
 	<message key="common.range">{$min}-{$max}</message>

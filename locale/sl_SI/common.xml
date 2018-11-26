@@ -211,7 +211,6 @@
 	<message key="common.pluginDisabled">Vtičnik "{$pluginName}" je bil onemogočen.</message>
 	<message key="common.prefix">Prefix</message>
 	<message key="common.prefixAndTitle.tip">Examples: A, The</message>
-	<message key="common.subtitle.tip">Neobvezen podnaslov se bo izpisal po dvopičju (:), za glavnim naslovom.</message>
 	<message key="common.preview">Predolged</message>
 	<message key="common.publisher">Izdajatelj</message>
 	<message key="common.quality">Kvaliteta</message>

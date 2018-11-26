@@ -372,7 +372,6 @@
 	<message key="dashboard.myQueue">Lavori in coda</message>
 	<message key="submission.task.responseDueDate">Scadenza per confermare la disponibilità</message>
 	<message key="notification.type.allReviewsIn">Tutte le revisioni sono state caricate ed è necassaria una decisione nel passaggio {$stage}.</message>
-	<message key="common.subtitle.tip">L'eventuale sottotitolo comparirà dopo i due punti (:) accanto al titolo.</message>
 	<message key="grid.action.markNew">Segna come nuovo</message>
 	<message key="grid.action.markRead">Segna come già letto</message>
 	<message key="review.ensuringBlindReview">Assicurare una revisione cieca</message>

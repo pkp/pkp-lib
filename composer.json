@@ -1,20 +1,20 @@
 {
 	"require": {
-		"components/jqueryui": "1.11.0",
-		"components/jquery": "1.11.0",
-		"oyejorge/less.php": "1.7.0.3",
-		"phpmailer/phpmailer": "^5.2",
-		"smarty/smarty": "~3.1",
-		"ezyang/htmlpurifier": "v4.6.0",
-		"moxiecode/plupload": "v2.1.x",
-		"tinymce/tinymce": "4.6.4",
-		"ircmaxell/password-compat": "v1.0.4",
+		"components/jqueryui": "1.*",
+		"components/jquery": "3.*",
+		"oyejorge/less.php": "1.*",
+		"phpmailer/phpmailer": "6.*",
+		"smarty/smarty": "3.*",
+		"ezyang/htmlpurifier": "4.*",
+		"moxiecode/plupload": "2.*",
+		"tinymce/tinymce": "4.*",
 		"alex198710/pnotify": "dev-master",
-		"michelf/php-markdown": "1.5.0",
-		"slim/slim": "^3.0",
-		"pimple/pimple": "^3.0",
-		"illuminate/database": "4.1.*",
-		"firebase/php-jwt": "^5.0"
+		"michelf/php-markdown": "1.*",
+		"slim/slim": "3.*",
+		"pimple/pimple": "3.*",
+		"illuminate/database": "5.*",
+		"firebase/php-jwt": "5.*",
+		"danielstjules/stringy": "3.*"
 	},
 	"require-dev": {
 		"phpunit/phpunit-selenium": "1.4.2"

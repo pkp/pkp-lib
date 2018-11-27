@@ -65,4 +65,4 @@ class OrderGridItemsFeature extends OrderItemsFeature {
 	}
 }
 
-?>
+

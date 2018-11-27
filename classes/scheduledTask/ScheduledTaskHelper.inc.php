@@ -166,8 +166,7 @@ class ScheduledTaskHelper {
 			return __('admin.scheduledTask.noLog');
 		}
 		
-		$application = Application::getApplication();
-		$request = $application->getRequest();
+		$request = Application::getRequest();
 		$router = $request->getRouter();
 		$downloadLogUrl = $router->url($request, 'index', 'admin', 'downloadScheduledTaskLogFile', null, array('file' => basename($executionLogFile)));
 		return __('admin.scheduledTask.downloadLog', array(
@@ -197,7 +196,7 @@ class ScheduledTaskHelper {
 		import('lib.pkp.classes.file.PrivateFileManager');
 		$fileMgr = new PrivateFileManager();
 
-		$fileMgr->downloadFile($fileMgr->getBasePath() . DIRECTORY_SEPARATOR . SCHEDULED_TASK_EXECUTION_LOG_DIR . DIRECTORY_SEPARATOR . $file);	
+		$fileMgr->downloadByPath($fileMgr->getBasePath() . DIRECTORY_SEPARATOR . SCHEDULED_TASK_EXECUTION_LOG_DIR . DIRECTORY_SEPARATOR . $file);	
 	}
 
 
@@ -285,4 +284,4 @@ class ScheduledTaskHelper {
 
 }
 
-?>
+

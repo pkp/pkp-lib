@@ -59,4 +59,4 @@ class GridCategoryRow extends GridRow {
 	}
 }
 
-?>
+

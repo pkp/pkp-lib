@@ -74,7 +74,7 @@ class LibraryFileAdminGridDataProvider extends CategoryGridDataProvider {
 	/**
 	 * @copydoc CategoryGridHandler::loadCategoryData()
 	 */
-	function loadCategoryData($request, &$fileType, $filter = null) {
+	function loadCategoryData($request, $fileType, $filter = null) {
 
 		// Elements to be displayed in the grid
 		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO');
@@ -85,4 +85,4 @@ class LibraryFileAdminGridDataProvider extends CategoryGridDataProvider {
 	}
 }
 
-?>
+

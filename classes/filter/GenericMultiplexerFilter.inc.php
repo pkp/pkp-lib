@@ -120,4 +120,4 @@ class GenericMultiplexerFilter extends CompositeFilter {
 		return $output;
 	}
 }
-?>
+

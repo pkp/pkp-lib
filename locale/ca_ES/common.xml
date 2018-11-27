@@ -179,7 +179,6 @@
 	<message key="common.pluginDisabled">S'ha desactivat el mòdul «{$pluginName}».</message>
 	<message key="common.prefix">Prefix</message>
 	<message key="common.prefixAndTitle.tip">Si el títol del llibre comença amb «Un/a» o «El/La/Els/Les», o bé quelcom semblant en ordre alfabètic, anoteu la paraula a «Prefix».</message>
-	<message key="common.subtitle.tip">El subtítol opcional de la tramesa apareixerà seguit de dos punts (:) després del títol principal.</message>
 	<message key="common.preview">Previsualitza</message>
 	<message key="common.publisher">Institució editora</message>
 	<message key="common.quality">Qualitat</message>

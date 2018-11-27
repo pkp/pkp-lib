@@ -31,7 +31,7 @@
 			{fbvElement type="button" id="selectReviewerButton" label="editor.submission.selectReviewer"}
 			{foreach from=$reviewerActions item=action}
 				{if $action->getId() == 'advancedSearch'}
-					{php}continue;{/php}
+					{continue}
 				{/if}
 				{include file="linkAction/linkAction.tpl" action=$action contextId="createReviewerForm"}
 			{/foreach}

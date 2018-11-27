@@ -97,4 +97,4 @@ class NotificationSettingsDAO extends DAO {
 	}
 }
 
-?>
+

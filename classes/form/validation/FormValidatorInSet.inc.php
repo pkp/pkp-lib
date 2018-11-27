@@ -47,4 +47,4 @@ class FormValidatorInSet extends FormValidator {
 	}
 }
 
-?>
+

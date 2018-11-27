@@ -71,4 +71,4 @@ class FormValidatorControlledVocabTest extends PKPTestCase {
 		self::assertFalse($validator->isValid());
 	}
 }
-?>
+

@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="nb_NO" full_name="Norsk Bokmål">
+<locale name="nb_NO" full_name="Norsk bokmål">
 	<message key="reviewer.reviewSteps.request">1. Forespørsel</message>
 	<message key="reviewer.reviewSteps.guidelines">2. Retningslinjer</message>
 	<message key="reviewer.reviewSteps.download">3. Last ned og vurder</message>

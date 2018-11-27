@@ -372,7 +372,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 		$userId = $notification->getUserId();
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $userDao->getById($userId);
-		if ($user) {
+		if ($user && !$user->getDisabled()) {
 			AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
 
 			$context = $request->getContext();
@@ -391,9 +391,13 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 				'siteTitle' => $context?$context->getLocalizedName():$site->getLocalizedTitle()
 			));
 			$mail->addRecipient($user->getEmail(), $user->getFullName());
-			$mail->send();
+			if (!$mail->send()) {
+				import('classes.notification.NotificationManager');
+				$notificationMgr = new NotificationManager();
+				$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
+			}
 		}
 	}
 }
 
-?>
+

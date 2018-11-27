@@ -31,11 +31,9 @@ class ContactForm extends BaseProfileForm {
 	}
 
 	/**
-	 * Fetch the form.
-	 * @param $request PKPRequest
-	 * @return string JSON-encoded form contents.
+	 * @copydoc BaseProfileForm::fetch
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$site = $request->getSite();
 		$countryDao = DAORegistry::getDAO('CountryDAO');
@@ -44,11 +42,11 @@ class ContactForm extends BaseProfileForm {
 			'availableLocales' => $site->getSupportedLocaleNames(),
 		));
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
-	 * @copydoc Form::initData()
+	 * @copydoc BaseProfileForm::initData()
 	 */
 	function initData() {
 		$user = $this->getUser();
@@ -82,9 +80,8 @@ class ContactForm extends BaseProfileForm {
 
 	/**
 	 * Save contact settings.
-	 * @param $request PKPRequest
 	 */
-	function execute($request) {
+	function execute() {
 		$user = $this->getUser();
 
 		$user->setCountry($this->getData('country'));
@@ -94,6 +91,7 @@ class ContactForm extends BaseProfileForm {
 		$user->setMailingAddress($this->getData('mailingAddress'));
 		$user->setAffiliation($this->getData('affiliation'), null); // Localized
 
+		$request = Application::getRequest();
 		$site = $request->getSite();
 		$availableLocales = $site->getSupportedLocales();
 		$locales = array();
@@ -104,8 +102,8 @@ class ContactForm extends BaseProfileForm {
 		}
 		$user->setLocales($locales);
 
-		parent::execute($request, $user);
+		parent::execute();
 	}
 }
 
-?>
+

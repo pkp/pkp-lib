@@ -47,10 +47,10 @@ class TemporaryFileManager extends PrivateFileManager {
 	 * Delete a file by ID.
 	 * @param $fileId int
 	 */
-	function deleteFile($fileId, $userId) {
+	function deleteById($fileId, $userId) {
 		$temporaryFile = $this->getFile($fileId, $userId);
 
-		parent::deleteFile($this->getBasePath() . $temporaryFile->getServerFileName());
+		parent::deleteByPath($this->getBasePath() . $temporaryFile->getServerFileName());
 
 		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO');
 		$temporaryFileDao->deleteTemporaryFileById($fileId, $userId);
@@ -62,11 +62,11 @@ class TemporaryFileManager extends PrivateFileManager {
 	 * @param $inline print file as inline instead of attachment, optional
 	 * @return boolean
 	 */
-	function downloadFile($fileId, $userId, $inline = false) {
+	function downloadById($fileId, $userId, $inline = false) {
 		$temporaryFile = $this->getFile($fileId, $userId);
 		if (isset($temporaryFile)) {
 			$filePath = $this->getBasePath() . $temporaryFile->getServerFileName();
-			return parent::downloadFile($filePath, null, $inline);
+			return parent::downloadByPath($filePath, null, $inline);
 		} else {
 			return false;
 		}
@@ -158,10 +158,10 @@ class TemporaryFileManager extends PrivateFileManager {
 			$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO');
 			$expiredFiles = $temporaryFileDao->getExpiredFiles();
 			foreach ($expiredFiles as $expiredFile) {
-				$this->deleteFile($expiredFile->getId(), $expiredFile->getUserId());
+				$this->deleteById($expiredFile->getId(), $expiredFile->getUserId());
 			}
 		}
 	}
 }
 
-?>
+

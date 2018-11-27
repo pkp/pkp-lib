@@ -27,4 +27,4 @@ class AuthorReviewerGridRow extends GridRow {
 		parent::initialize($request, $template);
 	}
 }
-?>
+

@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="nb_NO" full_name="Norsk Bokmål">
+<locale name="nb_NO" full_name="Norsk bokmål">
 	<message key="default.groups.name.siteAdmin">Nettstedsadministrator</message>
 	<message key="default.groups.plural.siteAdmin">Nettstedsadministratorer</message>
 	<message key="default.groups.name.productionEditor">Produksjonsredaktør</message>

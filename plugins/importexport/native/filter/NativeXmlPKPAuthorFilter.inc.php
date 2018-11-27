@@ -125,4 +125,4 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter {
 	}
 }
 
-?>
+

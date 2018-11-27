@@ -7,9 +7,8 @@
   * Copyright (c) 2014-2018 Simon Fraser University
   * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  *
-  * Localization strings for the ru_RU (Русский) locale.
   * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Russian_(ru_RU)
+  * Localization strings.
   -->
 
 <locale name="ru_RU" full_name="Русский">
@@ -120,6 +119,7 @@
 	<message key="grid.action.preview">Предварительный просмотр</message>
 	<message key="grid.action.install">Установить</message>
 	<message key="grid.action.moreItems">Загрузить еще</message>
+	<message key="grid.action.users">Просмотреть/Выбрать пользователей</message>
 
 	<!-- статус задач в сетке -->
 	<message key="grid.task.status.completed">Эта задача выполнена</message>

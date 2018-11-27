@@ -25,7 +25,7 @@
 	<message key="admin.confirmClearTemplateCache">هل أنت متأكد من رغبتك في إزالة الملفات المخبأة الخاصة بالقوالب المجمَّعة؟</message>
 	<message key="admin.confirmExpireSessions">هل أنت متأكد من رغبتك في إنهاء صلاحية جلسات التشغيل لجميع المستخدمين؟ إذ أن جميع المستخدمين الداخلين إلى الموقع سيُجبرون على الدخول إليه مجدداً (بضمنهم أنت).</message>
 	<message key="admin.contentsOfConfigFile">محتويات ملف التعريف</message>
-	<message key="admin.contexts.confirmDelete">هل أنت متأكد من رغبتك في الحذف النهائي لـ {$contextName} شاملاً ذلك كل محتوياته؟</message>
+	<message key="admin.contexts.confirmDelete">هل أنت متأكد من رغبتك في الحذف النهائي لـ "{$contextName}" شاملاً ذلك كل المحتوى ذي الصلة؟</message>
 	<message key="admin.currentVersion">النسخة الحالية</message>
 	<message key="admin.dateInstalled">تأريخ التنصيب</message>
 	<message key="admin.displayConfigFileInstructions"><![CDATA[إن محتويات ملفك التعريفي المحدث معروضة أدناه. لتطبيق التعديلات في الإعدادات، عليك بفتح الملف<tt>config.inc.php</tt> مستعملاً برنامج تحرير نصوص مناسب وتبديل محتوياته بمحتويات مربع النص أدناه.]]></message>

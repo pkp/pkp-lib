@@ -83,7 +83,7 @@ class AuthorReviewerGridCellProvider extends DataObjectGridCellProvider {
 		$actionArgs = array(
 			'submissionId' => $reviewAssignment->getSubmissionId(),
 			'reviewAssignmentId' => $reviewAssignment->getId(),
-			'stageId' => $reviewAssignment->getStageId()
+			'stageId' => $reviewAssignment->getStageId(),
 		);
 
 		$router = $request->getRouter();
@@ -156,5 +156,3 @@ class AuthorReviewerGridCellProvider extends DataObjectGridCellProvider {
 		return '<span class="state">'.__($statusKey).'</span><span class="details">'.__('submission.recommendation', array('recommendation' => $reviewAssignment->getLocalizedRecommendation())).'</span>';
 	}
 }
-
-?>

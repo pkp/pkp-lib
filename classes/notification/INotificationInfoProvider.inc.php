@@ -81,4 +81,4 @@ interface INotificationInfoProvider {
 	public function isVisibleToAllUsers($notificationType, $assocType, $assocId);
 }
 
-?>
+

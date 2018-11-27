@@ -24,10 +24,10 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	 */
 	function __construct($roles) {
 		$this->addRoleAssignment($roles,
-			array('enable', 'disable', 'manage', 'fetchGrid, fetchCategory', 'fetchRow'));
+			array('enable', 'disable', 'manage', 'fetchGrid', 'fetchCategory', 'fetchRow'));
 
 		$this->addRoleAssignment(ROLE_ID_SITE_ADMIN,
-			array('uploadPlugin', 'upgradePlugin', 'deletePlugin', 'saveUploadPlugin'));
+			array('uploadPlugin', 'upgradePlugin', 'deletePlugin', 'saveUploadPlugin', 'uploadPluginFile'));
 
 		parent::__construct();
 	}
@@ -39,8 +39,8 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	/**
 	 * @copydoc GridHandler::initialize()
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 
 		// Load language components
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_PKP_COMMON, LOCALE_COMPONENT_APP_MANAGER);
@@ -151,7 +151,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	/**
 	 * @copydoc CategoryGridHandler::loadCategoryData()
 	 */
-	function loadCategoryData($request, &$categoryDataElement, $filter) {
+	function loadCategoryData($request, &$categoryDataElement, $filter = null) {
 		$plugins =& PluginRegistry::loadCategory($categoryDataElement);
 
 		$versionDao = DAORegistry::getDAO('VersionDAO');
@@ -242,7 +242,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	 */
 	function enable($args, $request) {
 		$plugin = $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN); /* @var $plugin Plugin */
-		if ($plugin->getCanEnable()) {
+		if ($request->checkCSRF() && $plugin->getCanEnable()) {
 			$plugin->setEnabled(true);
 			$user = $request->getUser();
 			$notificationManager = new NotificationManager();
@@ -323,7 +323,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 		$uploadPluginForm->readInputData();
 
 		if($uploadPluginForm->validate()) {
-			if($uploadPluginForm->execute($request)) {
+			if($uploadPluginForm->execute()) {
 				return DAO::getDataChangedEvent();
 			}
 		}
@@ -389,5 +389,3 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 		return new JSONMessage(true, $uploadPluginForm->fetch($request));
 	}
 }
-
-?>

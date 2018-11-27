@@ -38,6 +38,7 @@ class PluginHelper {
 	 * Extract and validate a plugin (prior to installation)
 	 * @param $filePath string Full path to plugin archive
 	 * @param $originalFileName string Original filename of plugin archive
+	 * @param &$errorMsg string Modified string of error message, if any
 	 * @return string|null Extracted plugin path on success; null on error
 	 */
 	function extractPlugin($filePath, $originalFileName, &$errorMsg) {
@@ -50,7 +51,7 @@ class PluginHelper {
 		$pluginShortName = array_pop($matches);
 		if (!$pluginShortName) {
 			$errorMsg = __('manager.plugins.invalidPluginArchive');
-			$fileManager->deleteFile($filePath);
+			$fileManager->deleteByPath($filePath);
 			return null;
 		}
 
@@ -61,11 +62,16 @@ class PluginHelper {
 		// Test whether the tar binary is available for the export to work
 		$tarBinary = Config::getVar('cli', 'tar');
 		if (!empty($tarBinary) && file_exists($tarBinary)) {
-			exec($tarBinary.' -xzf ' . escapeshellarg($filePath) . ' -C ' . escapeshellarg($pluginExtractDir));
+			$output = '';
+			$returnCode = 0;
+			exec($tarBinary.' -xzf ' . escapeshellarg($filePath) . ' -C ' . escapeshellarg($pluginExtractDir), $output, $returnCode);
+			if ($returnCode) {
+				$errorMsg = __('common.invalidFileType');
+			}
 		} else {
 			$errorMsg = __('manager.plugins.tarCommandNotFound');
 		}
-		$fileManager->deleteFile($filePath);
+		$fileManager->deleteByPath($filePath);
 
 		if (empty($errorMsg)) {
 			// Look for a directory named after the plug-in's short
@@ -308,4 +314,3 @@ class PluginHelper {
 	}
 }
 
-?>

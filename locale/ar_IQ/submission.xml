@@ -16,12 +16,17 @@
 	<message key="author.submit.submissionCitations">إدرج قائمة منسقة من المراجع للأعمال المقتبس منها ضمن هذا المؤلَّف. لطفاً، إفصل بين المراجع بسطر فارغ.</message>
 	<message key="author.submission.roundStatus.reviewsReady">لقد تم تسليم تحكيمات جديدة وقد تم الأخذ بها من قبل المحرر.</message>
 	<message key="submission.confirm.message">قد تم رفع طلبك وصار جاهزاً للإرسال. بإمكانك العودة من أجل تنقيح وتعديل المعلومات التي سبق لك إدخالها قبل المتابعة. عندما تكون جاهزاً، أنقر "إنهاء طلب النشر".</message>
+	<message key="submission.submit.availableUserGroups">التقديم بمثابة</message>
+	<message key="submission.submit.availableUserGroupsDescription">إختر الدور الذي يقدم أفضل وصف لمساهمتك في هذا العمل.</message>
+	<message key="submission.submit.contactConsent">عنوان الاتصال المعني</message>
+	<message key="submission.submit.contactConsentDescription">نعم، أود مراسلتي بشأن طلب النشر هذا.</message>
+	<message key="submission.submit.userGroupDescriptionManagers">قدم طلبك بأي من الأدوار الآتية إذا أردت أن تتمكن من تحرير ونشر هذا المؤلَّف بنفسك: {$managerGroups}</message>
 	<message key="submission.submit.submissionChecklist">متطلبات طلب النشر</message>
 	<message key="submission.submit.submissionChecklistDescription">عليك قراءة المتطلبات أدناه والإقرار بها قبل المتابعة.</message>
 	<message key="submission.submit.submissionComplete">إنهاء طلب النشر</message>
 	<message key="submission.submit.submissionCompleteThanks">نشكر لك اهتمامك بالنشر لدى {$contextName}.</message>
 	<message key="submission.submit.copyrightNoticeAgreementLabel">الإقرار ببيان الحقوق الفكرية</message>
-	<message key="submission.submit.copyrightNoticeAgree">أنا أوافق على التزامي ببنود بيان الحقوق الفكرية.</message>
+	<message key="submission.submit.copyrightNoticeAgree">نعم، أنا أوافق على التزامي ببنود بيان الحقوق الفكرية.</message>
 	<message key="submission.submit.whatNext">ماذا سيحدث بعد ذلك؟</message>
 	<message key="submission.submit.whatNext.forNow">حالياً، بإمكانك:</message>
 	<message key="submission.submit.whatNext.review">مراجعة طلب النشر هذا</message>
@@ -156,13 +161,17 @@
 	<message key="submission.changeComments">التغيير إلى</message>
 	<message key="submission.changeFile">تغيير الملف</message>
 	<message key="submission.citations">المراجع</message>
+	<message key="submission.citations.description">أدخل كل مرجع في سطر جديد من أجل استخلاصه.</message>
+	<message key="submission.parsedCitations">المراجع المستخلصة</message>
+	<message key="submission.parsedCitations.description">المراجع الآتية قد تم استخلاصها وسيتم ربطها بالبيانات الوصفية للمؤلَّف.</message>
+	<message key="submission.parsedAndSaveCitations">إستخلص المراجع واحفظها</message>
 	<message key="submission.comments.addComment">أضف تعليقاً</message>
 	<message key="submission.comments.comments">التعليقات</message>
 	<message key="submission.comments.confirmDelete">هل أنت متأكد من رغبتك في حذف هذا التعليق؟</message>
 	<message key="submission.comments.corrections">التصحيحات</message>
 	<message key="submission.comments.editComment">تعديل التعليق</message>
 	<message key="submission.comments.importPeerReviews">استيراد التحكيمات المناظرة</message>
-	<message key="submission.comments.addReviews">أضف التحكيمات إلى البريد الالكتروني</message>
+	<message key="submission.comments.addReviews">أضف تعليقات المحكمين إلى الرسالة</message>
 	<message key="submission.comments.importPeerReviews.reviewerLetter">المحكم {$reviewerLetter}:</message>
 	<message key="submission.comments.noComments">لا تعليقات</message>
 	<message key="submission.comments.noReviews">لا تحكيمات</message>
@@ -186,7 +195,7 @@
 	<message key="submission.email.confirmDeleteLogEntry">هل أنت متأكد من رغبتك في حذف هذه المعلومة من سجل وقائع البريد الالكتروني؟</message>
 	<message key="submission.email.deleteLogEntry">حذف المعلومة من سجل الوقائع</message>
 	<message key="submission.emailLog">وقائع البريد الالكتروني</message>
-	<message key="submission.event.participantAdded">"{$name}" ({$username}) تمت إضافته بمثابة {$userGroupName}.</message>
+	<message key="submission.event.participantAdded">"{$name}" ({$username}) تم تعيينه لطلب النشر هذا بمثابة {$userGroupName}.</message>
 	<message key="submission.event.participantRemoved">"{$name}" ({$username}) تمت إزالته بمثابة {$userGroupName}.</message>
 	<message key="submission.event.backToEventLog">العودة إلى وقائع الأحداث</message>
 	<message key="submission.event.confirmClearLog">هل أنت متأكد من رغبتك في تصفير سجل وقائع الأحداث لطلب التقديم هذا؟</message>
@@ -337,7 +346,7 @@
 	<message key="submission.submit.selectFile">إختر ملفاً</message>
 	<message key="submission.submit.fileInformation">معلومات الملف</message>
 	<message key="submission.submit.fileAdded">الملف أُضيف</message>
-	<message key="submission.submit.includeInBrowse">هل تريد تضمين هذا المساهم في قوائم العرض؟</message>
+	<message key="submission.submit.includeInBrowse">أريد تضمين هذا المساهم في قوائم العرض</message>
 	<message key="submission.submit.newFile">أضف ملفاً آخر</message>
 	<message key="submission.submit.metadataForm">تحسينات إضافية</message>
 	<message key="submission.submit.metadataForm.tip">أضف معلومات أخرى عن مؤلَّفِك. إضغط 'enter' بعد كل عبارة.</message>
@@ -367,9 +376,19 @@
 	<message key="submission.nameRequired">الاسم مطلوب لهذه الفقرة.</message>
 	<message key="submission.date.mmdd">MM-DD</message>
 	<message key="submission.date.yyyymmdd">YYYY-MM-DD</message>
-	<message key="submission.submit.selectPrincipalContact">عنوان الاتصال الرئيسي لأغراض تتعلق بالتحرير.</message>
+	<message key="submission.submit.selectPrincipalContact">هذا عنوان الاتصال الرئيسي فيما يتعلق بمهام التحرير.</message>
 	<message key="submission.submit.contributorRole">دور المساهم</message>
 	<message key="submission.submit.addAuthor">أضف مساهماً</message>
+	<message key="submission.submit.form.languagesRequired">لطفاً، أدخل اللغة.</message>
+	<message key="submission.submit.form.subjectsRequired">لطفاً، أدخل الموضوع.</message>
+	<message key="submission.submit.form.disciplinesRequired">لطفاً، أدخل التخصص.</message>
+	<message key="submission.submit.form.keywordsRequired">لطفاً، أدخل كلمة مفتاحية.</message>
+	<message key="submission.submit.form.agenciesRequired">لطفاً، أدخل الجهة الداعمة.</message>
+	<message key="submission.submit.form.coverageRequired">لطفاً، أدخل معلومات التغطية.</message>
+	<message key="submission.submit.form.typeRequired">لطفاً، أدخل النوع.</message>
+	<message key="submission.submit.form.sourceRequired">لطفاً، أدخل المصدر.</message>
+	<message key="submission.submit.form.rightsRequired">لطفاً، أدخل الحقوق.</message>
+	<message key="submission.submit.form.citationsRequired">لطفاً، أدخل المراجع.</message>
 
 	<!-- Submission file upload form elements -->
 	<message key="submission.form.name">أعط هذا الملف اسماً يساعد على التعرف عليه</message>
@@ -420,8 +439,11 @@
 	<message key="submission.upload.noAvailableReviewFiles">ليس لديك ملفات لتحكيمها حالياً.</message>
 
 	<!-- Review Round Status Keys -->
-	<message key="editor.submission.roundStatus.revisionsRequested">تم التماس التحكيمات.</message>
-	<message key="editor.submission.roundStatus.revisionsSubmitted">تم تسليم التحكيمات.</message>
+	<message key="editor.submission.roundStatus.revisionsRequested">تم التماس التنقيحات.</message>
+	<message key="editor.submission.roundStatus.revisionsSubmitted">تم تسليم التنقيحات.</message>
+	<message key="editor.submission.roundStatus.resubmitForReview">لا بد من إعادة تقديم الطلب إلى جولة تحكيم أخرى.</message>
+	<message key="editor.submission.roundStatus.submissionResubmitted">لقد أُعيد تقديم الطلب إلى جولة تحكيم أخرى.</message>
+	
 	<message key="editor.submission.roundStatus.sentToExternal">أُرسل للتحكيم الخارجي.</message>
 	<message key="editor.submission.roundStatus.accepted">المؤلَّف مقبول.</message>
 	<message key="editor.submission.roundStatus.declined">المؤلَّف مرفوض.</message>
@@ -446,11 +468,12 @@
 	<message key="editor.submission.removeStageParticipant.description"><![CDATA[أنت على وشك إزالة هذا المشارك من <strong>كل</strong> المراحل. إن كان لهذا المستخدم أيضاً مهام متابعة معلقة، ستتم إزالتها أيضاً.]]></message>
 	<message key="editor.submission.addStageParticipant.form.userGroupRequired">عليك أن تختار مجموعة مستخدمين.</message>
 	<message key="editor.submission.addStageParticipant.form.userRequired">عليك أن تختار مستخدماً لهذه المجموعة.</message>
+	<message key="editor.submission.addStageParticipant.form.reviewerWarning">المشارك الذي اخترته قد سبق تعيينه لإجراء التحكيم السري. إذا عينته بدور مشارك، سيكون له إمكانية التعرف على هوية المؤلف. من الأفضل تجنب تعيين هذا المشارك إلا إذا كان بإمكانك وبشكل مستقل ضمان نزاهة عملية التحكيم السري.</message>
 
 	<!--  editor decisions -->
 	<message key="editor.submission.decision">القرار</message>
 	<message key="editor.submission.decision.accept">قبول طلب النشر</message>
-	<message key="editor.submission.decision.requestRevisions">إلتماس التحكيمات</message>
+	<message key="editor.submission.decision.requestRevisions">إلتماس التنقيحات</message>
 	<message key="editor.submission.decision.resubmit">إعادة التقديم للتحكيم</message>
 	<message key="editor.submission.decision.decline">رفض المؤلَّف</message>
 	<message key="editor.submission.decision.sendToProduction">الإرسال إلى الإنتاج</message>
@@ -487,9 +510,9 @@
 	<!-- Submission event log -->
 	<message key="submission.event.fileUploaded">تم رفع الملف "{$originalFileName}" إلى طلب النشر {$submissionId} من قبل {$username}.</message>
 	<message key="submission.event.fileDeleted">تم حذف الملف "{$originalFileName}" من طلب النشر {$submissionId} من قبل {$username}.</message>
-	<message key="submission.event.revisionUploaded">تم رفع ملف التحكيم "{$originalFileName}" إلى طلب النشر {$submissionId} من قبل {$username}.</message>
-	<message key="submission.event.revisionDeleted">تم حذف ملف التحكيم "{$originalFileName}" من طلب النشر {$submissionId} من قبل {$username}.</message>
-	<message key="submission.event.lastRevisionDeleted">تم حذف آخر ملف تحكيم للعنوان "{$title}" من قبل {$username}.</message>
+	<message key="submission.event.revisionUploaded">تم رفع الملف المنقح "{$originalFileName}" إلى طلب النشر {$submissionId} من قبل {$username}.</message>
+	<message key="submission.event.revisionDeleted">تم حذف الملف المنقح "{$originalFileName}" من طلب النشر {$submissionId} من قبل {$username}.</message>
+	<message key="submission.event.lastRevisionDeleted">تم حذف آخر ملف منقح لطلب التقديم المعنون "{$title}" من قبل {$username}.</message>
 	<message key="submission.event.fileAuditorAdded">"{$name}" ({$username}) قد تمت إضافته كمتابع للملف "{$file}."</message>
 	<message key="submission.event.fileAuditorCleared">"{$name}" ({$username}) قد تمت إزالته كمتابع للملف "{$file}."</message>
 	<message key="submission.event.fileAuditUploaded">"{$name}" ({$username}) قد أكمل المتابعة ورفع الملف "{$file}."</message>
@@ -517,6 +540,7 @@
 	<message key="submission.productionReady">الكتاب متوافر</message>
 	<message key="submission.review.uploadRevisionToRound">إرفع ملفاً محكماً</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} قد تم تعيينه لتحكيم المؤلَّف {$submissionId} لجولة التحكيم {$round}.</message>
+	<message key="log.review.reviewUnconsidered">{$editorName} قد أشر على الجولة {$round} لطلب النشر {$submissionId} بأنها غير معتبرة.</message>
 	<message key="submission.review.status.awaitingResponse">بانتظار استجابة المحكم.</message>
 	<message key="submission.review.status.declined">لقد أعرض المحكم عن معاينة هذا المؤلَّف.</message>
 	<message key="submission.review.status.responseOverdue">لقد تجاوز المحكم موعد إبداء الرأي بشأن تولي التحكيم.</message>
@@ -583,14 +607,16 @@
 	<message key="submission.query.new">{$creatorName} بدأ المناقشة: {$noteTitle}: {$noteContents}</message>
 	<message key="submission.query.activity.contents">هناك نشاط جديد في المناقشة المعنونة "{$queryTitle}" المتعلقة بالمؤلَّف الموسوم "{$submissionTitle}".</message>
 	<message key="submission.query.new.contents">لقد تمت إضافتك إلى المناقشة المعنونة "{$queryTitle}" المتعلقة بالمؤلَّف الموسوم "{$submissionTitle}".</message>
-	<message key="submission.query.noParticipantOptions">لا بد من تعيين مشارك واحد على الأقل لطلب النشر هذا قبل الشروع بالمناقشة.</message>
+	<message key="submission.query.participantTitle">{$fullName}، {$userGroup}</message>
+	<message key="submission.query.noParticipantOptions">لا بد من تعيين مشارك واحد على الأقل لطلب التقديم هذا قبل الشروع بالمناقشة.</message>
 
 	<!-- Submission Lists -->
 	<message key="submission.list.infoCenter">سجل الوقوعات والملاحظات</message>
-	<message key="submission.list.count">{$count} عدد طلبات النشر</message>
-	<message key="submission.list.itemsOfTotal">{$count} من {$total} طلب نشر</message>
+	<message key="submission.list.count">{$count} عدد طلبات التقديم</message>
+	<message key="submission.list.itemsOfTotal">{$count} من {$total} طلب تقديم</message>
 	<message key="submission.list.responseDue">موعد الإجابة</message>
 	<message key="submission.list.reviewDue">استيجاب التحكيم</message>
+	<message key="submission.list.reviewComplete">التحكيم مسَلم</message>
 	<message key="submission.list.confirmDelete">أتريد حذف الطلب؟</message>
 	<message key="submission.list.itemOrdererUp">زيادة موقع {$itemTitle}</message>
 	<message key="submission.list.itemOrdererDown">تقليل موقع {$itemTitle}</message>
@@ -600,6 +626,9 @@
 	<message key="submission.list.copyeditsSubmitted">ملفات التدقيق مسلَّمة</message>
 	<message key="submission.list.galleysCreated">الألواح الطباعية منشأة</message>
 	<message key="submission.list.filesPrepared">الملفات محضرة</message>
-	<message key="submission.list.discussions">فتح المناقشات</message>
-	<message key="submission.list.incompleteSubmissionNotice">لا بد من إكمال طلب النشر هذا قبل أن يتسنى للمحرر معاينته.</message>
+	<message key="submission.list.discussions">المناقشات المفتوحة</message>
+	<message key="submission.list.dualWorkflowLinks"><![CDATA[بإمكانك تعيين عدة أدوار لطلب النشر هذا. هل ترغب بالوصول إلى <a href="{$urlAuthorWorkflow}">المخطط الانسيابي للمؤلف</a> أو <a href="{$urlEditorialWorkflow}">المخطط الانسيابي للتحرير</a>؟]]></message>
+	<message key="submission.list.reviewerWorkflowLink"><![CDATA[لقد عينت دوراً تحريرياً لطلب التقديم هذا. هل ترغب بالوصول إلى <a href="{$urlEditorialWorkflow}">المخطط الانسيابي للتحرير</a>?]]></message>
+	<message key="submission.list.incompleteSubmissionNotice">لا بد من إكمال طلب التقديم هذا قبل أن يتسنى للمحرر معاينته.</message>
+	<message key="submission.list.currentStage">حالياً، في مرحلة {$stage}.</message>
 </locale>

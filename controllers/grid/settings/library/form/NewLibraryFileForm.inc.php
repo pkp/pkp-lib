@@ -37,10 +37,11 @@ class NewLibraryFileForm extends LibraryFileForm {
 
 	/**
 	 * Save the new library file.
-	 * @param $userId int The current user ID (for validation purposes).
 	 * @return $fileId int The new library file id.
 	 */
-	function execute($userId) {
+	function execute() {
+		$userId = Application::getRequest()->getUser()->getId();
+
 		// Fetch the temporary file storing the uploaded library file
 		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO');
 		$temporaryFile = $temporaryFileDao->getTemporaryFile(
@@ -63,10 +64,10 @@ class NewLibraryFileForm extends LibraryFileForm {
 		// Clean up the temporary file
 		import('lib.pkp.classes.file.TemporaryFileManager');
 		$temporaryFileManager = new TemporaryFileManager();
-		$temporaryFileManager->deleteFile($this->getData('temporaryFileId'), $userId);
+		$temporaryFileManager->deleteById($this->getData('temporaryFileId'), $userId);
 
 		return $fileId;
 	}
 }
 
-?>
+

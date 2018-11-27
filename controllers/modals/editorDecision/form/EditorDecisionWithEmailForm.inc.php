@@ -55,9 +55,11 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 	// Implement protected template methods from Form
 	//
 	/**
-	 * @copydoc Form::initData()
+	 * @see Form::initData()
+	 * @param $actionLabels array
 	 */
-	function initData($args, $request, $actionLabels) {
+	function initData($actionLabels = array()) {
+		$request = Application::getRequest();
 		$context = $request->getContext();
 		$router = $request->getRouter();
 		$dispatcher = $router->getDispatcher();
@@ -103,7 +105,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 			$this->setData($key, $value);
 		}
 
-		return parent::initData($args, $request);
+		return parent::initData();
 	}
 
 	/**
@@ -115,9 +117,9 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 	}
 
 	/**
-	 * @copydoc Form::fetch()
+	 * @copydoc EditorDecisionForm::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 
 		$templateMgr = TemplateManager::getManager($request);
 
@@ -168,7 +170,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 		$templateMgr->assign('allowedVariables', $this->_getAllowedVariables($request));
 		$templateMgr->assign('allowedVariablesType', $this->_getAllowedVariablesType());
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 
@@ -308,7 +310,11 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 				'authorName' => $submission->getAuthorString(),
 				'editorialContactSignature' => $user->getContactSignature(),
 			));
-			$email->send($request);
+			if (!$email->send($request)) {
+				import('classes.notification.NotificationManager');
+				$notificationMgr = new NotificationManager();
+				$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
+			}
 		}
 	}
 
@@ -346,4 +352,4 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 	}
 }
 
-?>
+

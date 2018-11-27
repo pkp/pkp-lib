@@ -45,11 +45,9 @@ class IdentityForm extends BaseProfileForm {
 	}
 
 	/**
-	 * Fetch the form.
-	 * @param $request PKPRequest
-	 * @return string JSON-encoded form contents.
+	 * @copydoc BaseProfileForm::fetch
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 
 		$user = $this->getUser();
@@ -58,11 +56,11 @@ class IdentityForm extends BaseProfileForm {
 			'username' => $user->getUsername(),
 		));
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
-	 * @copydoc Form::initData()
+	 * @copydoc BaseProfileForm::initData()
 	 */
 	function initData() {
 		$user = $this->getUser();
@@ -88,15 +86,16 @@ class IdentityForm extends BaseProfileForm {
 	/**
 	 * Save identity settings.
 	 */
-	function execute($request) {
+	function execute() {
+		$request = Application::getRequest();
 		$user = $request->getUser();
 
 		$user->setGivenName($this->getData('givenName'), null);
 		$user->setFamilyName($this->getData('familyName'), null);
 		$user->setPreferredPublicName($this->getData('preferredPublicName'), null);
 
-		parent::execute($request, $user);
+		parent::execute();
 	}
 }
 
-?>
+

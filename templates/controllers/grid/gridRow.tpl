@@ -33,7 +33,7 @@
 
 		{* @todo indent columns should be killed at their source *}
 		{if $column->hasFlag('indent')}
-			{php}continue;{/php}
+			{continue}
 		{/if}
 
 		{assign var=col_class value=""}

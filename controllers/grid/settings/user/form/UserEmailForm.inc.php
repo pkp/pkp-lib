@@ -47,11 +47,9 @@ class UserEmailForm extends Form {
 	}
 
 	/**
-	 * Display the form.
-	 * @param $args array
-	 * @param $request PKPRequest
+	 * @copydoc Form::Fetch
 	 */
-	function fetch($args, $request) {
+	function fetch($request, $template = null, $display = false) {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $userDao->getById($this->userId);
 
@@ -62,17 +60,16 @@ class UserEmailForm extends Form {
 			'userEmail' => $user->getEmail(),
 		));
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
 	 * Send the email
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function execute($args, $request) {
+	function execute() {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$toUser = $userDao->getById($this->userId);
+		$request = Application::getRequest();
 		$fromUser = $request->getUser();
 
 		import('lib.pkp.classes.mail.MailTemplate');
@@ -83,8 +80,13 @@ class UserEmailForm extends Form {
 		$email->setSubject($this->getData('subject'));
 		$email->setBody($this->getData('message'));
 		$email->assignParams();
-		$email->send();
+error_log('here');
+		if (!$email->send()) {
+			import('classes.notification.NotificationManager');
+			$notificationMgr = new NotificationManager();
+			$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
+		}
 	}
 }
 
-?>
+

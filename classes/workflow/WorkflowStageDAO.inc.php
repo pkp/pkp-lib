@@ -142,4 +142,4 @@ class WorkflowStageDAO extends DAO {
 
 	}
 }
-?>
+

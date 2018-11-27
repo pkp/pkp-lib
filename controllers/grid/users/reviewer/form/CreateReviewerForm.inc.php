@@ -50,14 +50,13 @@ class CreateReviewerForm extends ReviewerForm {
 
 
 	/**
-	 * Fetch the form.
-	 * @see Form::fetch()
+	 * @copydoc ReviewerForm::fetch
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$advancedSearchAction = $this->getAdvancedSearchAction($request);
 
 		$this->setReviewerFormAction($advancedSearchAction);
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -81,10 +80,8 @@ class CreateReviewerForm extends ReviewerForm {
 
 	/**
 	 * Save review assignment
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function execute($args, $request) {
+	function execute() {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $userDao->newDataObject();
 
@@ -133,16 +130,21 @@ class CreateReviewerForm extends ReviewerForm {
 			import('lib.pkp.classes.mail.MailTemplate');
 			$mail = new MailTemplate('REVIEWER_REGISTER');
 			if ($mail->isEnabled()) {
+				$request = Application::getRequest();
 				$context = $request->getContext();
 				$mail->setReplyTo($context->getSetting('contactEmail'), $context->getSetting('contactName'));
 				$mail->assignParams(array('username' => $this->getData('username'), 'password' => $password, 'userFullName' => $user->getFullName()));
 				$mail->addRecipient($user->getEmail(), $user->getFullName());
-				$mail->send($request);
+				if (!$mail->send($request)) {
+					import('classes.notification.NotificationManager');
+					$notificationMgr = new NotificationManager();
+					$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
+				}
 			}
 		}
 
-		return parent::execute($args, $request);
+		return parent::execute();
 	}
 }
 
-?>
+

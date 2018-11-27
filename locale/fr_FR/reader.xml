@@ -165,7 +165,7 @@
 	<message key="rt.admin.sharing.buttonStyleLabel">Style du bouton</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Utiliser le menu déroulant</message>
 	<message key="rt.admin.sharing.advanced">Paramètres avancés (facultatif)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Voir la <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">documentation de personnalisation AddThis.com</a> pour référence.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Voir la <a href="https://www.addthis.com/academy/how-to-create-custom-buttons-with-addthis/">documentation de personnalisation AddThis.com</a> pour référence.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Marque</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Options déroulantes <br /> (liste séparée par des virgules)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Langue</message>

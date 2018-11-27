@@ -37,4 +37,4 @@ class JSONTest extends PKPTestCase {
 		self::assertEquals($expectedString, $json->getString());
 	}
 }
-?>
+

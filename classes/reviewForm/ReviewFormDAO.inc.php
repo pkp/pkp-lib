@@ -298,4 +298,4 @@ class ReviewFormDAO extends DAO {
 	}
 }
 
-?>
+

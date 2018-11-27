@@ -82,27 +82,25 @@ class ContextSettingsForm extends Form {
 	//
 	/**
 	 * @copydoc Form::initData()
-	 * @param $request Request
 	 */
-	function initData($request) {
+	function initData() {
+		$request = Application::getRequest();
 		$context = $request->getContext();
 		$this->_data = $context->getSettings();
 	}
 
 	/**
 	 * @see Form::readInputData()
-	 * @param $request PKPRequest
 	 */
-	function readInputData($request) {
+	function readInputData() {
 		$this->readUserVars(array_keys($this->getSettings()));
 	}
 
 	/**
 	 * @see Form::fetch()
-	 * @param $request PKPRequest
 	 * @param $params array optional
 	 */
-	function fetch($request, $params = null) {
+	function fetch($request, $template = null, $display = false, $params = null) {
 		$templateMgr = TemplateManager::getManager($request);
 
 		// Insert the wizardMode parameter in params array to pass to template.
@@ -113,15 +111,15 @@ class ContextSettingsForm extends Form {
 			$templateMgr->assign($tplVar, $value);
 		}
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
 	 * @see Form::execute()
-	 * @param $request PKPRequest
 	 */
-	function execute($request) {
-		parent::execute($request);
+	function execute() {
+		parent::execute();
+		$request = Application::getRequest();
 		$context = $request->getContext();
 		$settingsDao = $context->getSettingsDao();
 		$settings = $this->getSettings();
@@ -141,4 +139,4 @@ class ContextSettingsForm extends Form {
 	}
 }
 
-?>
+

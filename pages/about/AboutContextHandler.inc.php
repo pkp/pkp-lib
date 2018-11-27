@@ -104,17 +104,6 @@ class AboutContextHandler extends Handler {
 		));
 		$templateMgr->display('frontend/pages/contact.tpl');
 	}
-
-	/**
-	 * Display privacy policy page.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function privacy($args, $request) {
-		$templateMgr = TemplateManager::getManager($request);
-		$this->setupTemplate($request);
-		$templateMgr->display('frontend/pages/privacy.tpl');
-	}
 }
 
-?>
+

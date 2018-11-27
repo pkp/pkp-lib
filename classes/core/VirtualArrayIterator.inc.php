@@ -185,4 +185,4 @@ class VirtualArrayIterator extends ItemIterator {
 	}
 }
 
-?>
+

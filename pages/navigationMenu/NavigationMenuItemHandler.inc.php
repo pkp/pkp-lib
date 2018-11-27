@@ -64,6 +64,11 @@ class NavigationMenuItemHandler extends Handler {
 		$navigationMenuItem->setContent((array) $request->getUserVar('content'), null);
 		$navigationMenuItem->setTitle((array) $request->getUserVar('title'), null);
 
+		import('classes.core.ServicesContainer');
+		ServicesContainer::instance()
+			->get('navigationMenu')
+			->transformNavMenuItemTitle($templateMgr, $navigationMenuItem);
+
 		$templateMgr->assign('title', $navigationMenuItem->getLocalizedTitle());
 
 		$vars = array();
@@ -143,4 +148,4 @@ class NavigationMenuItemHandler extends Handler {
 	}
 }
 
-?>
+

@@ -134,4 +134,4 @@ class PluginTestCase extends DatabaseTestCase {
 		);
 	}
 }
-?>
+

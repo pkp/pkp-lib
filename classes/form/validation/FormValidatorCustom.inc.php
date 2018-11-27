@@ -64,4 +64,4 @@ class FormValidatorCustom extends FormValidator {
 	}
 }
 
-?>
+

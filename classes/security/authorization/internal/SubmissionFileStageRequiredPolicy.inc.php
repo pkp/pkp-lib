@@ -74,4 +74,4 @@ class SubmissionFileStageRequiredPolicy extends SubmissionFileBaseAccessPolicy {
 	}
 }
 
-?>
+

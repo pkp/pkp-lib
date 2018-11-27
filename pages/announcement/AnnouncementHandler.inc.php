@@ -83,4 +83,4 @@ class AnnouncementHandler extends Handler {
 	}
 }
 
-?>
+

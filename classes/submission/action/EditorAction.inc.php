@@ -79,11 +79,6 @@ class EditorAction {
 				$submission->setStatus(STATUS_QUEUED);
 			}
 
-			// Stamp the submission modified
-			$submission->stampStatusModified();
-			$submissionDao = Application::getSubmissionDAO();
-			$submissionDao->updateObject($submission);
-
 			// Add log entry
 			import('lib.pkp.classes.log.SubmissionLog');
 			import('lib.pkp.classes.log.PKPSubmissionEventLogEntry');
@@ -165,7 +160,7 @@ class EditorAction {
 		$stageId = $reviewRound->getStageId();
 		$round = $reviewRound->getRound();
 		if (!$assigned && isset($reviewer) && !HookRegistry::call('EditorAction::addReviewer', array(&$submission, $reviewerId))) {
-			$reviewAssignment = new ReviewAssignment();
+			$reviewAssignment = $reviewAssignmentDao->newDataObject();
 			$reviewAssignment->setSubmissionId($submission->getId());
 			$reviewAssignment->setReviewerId($reviewerId);
 			$reviewAssignment->setDateAssigned(Core::getCurrentDate());
@@ -176,11 +171,6 @@ class EditorAction {
 				$reviewAssignment->setReviewMethod($reviewMethod);
 			}
 			$reviewAssignmentDao->insertObject($reviewAssignment);
-
-			// Stamp modification date
-			$submission->stampStatusModified();
-			$submissionDao = Application::getSubmissionDAO();
-			$submissionDao->updateObject($submission);
 
 			$this->setDueDates($request, $submission, $reviewAssignment, $reviewDueDate, $responseDueDate);
 			// Add notification
@@ -275,4 +265,4 @@ class EditorAction {
 	}
 }
 
-?>
+

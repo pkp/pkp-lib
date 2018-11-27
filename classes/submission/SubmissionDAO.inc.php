@@ -87,9 +87,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * Instantiate a new data object.
 	 * @return Submission
 	 */
-	function newDataObject() {
-		return new Submission();
-	}
+	abstract function newDataObject();
 
 	/**
 	 * Internal function to return a Submission object from a row.
@@ -235,6 +233,46 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		$returner = $result->fields[0] ? true : false;
 		$result->Close();
 		return $returner;
+	}
+
+	/**
+	 * Stamp a submission status modification date.
+	 * This updates both the supplied Submission object and the database.
+	 * @param $submission Submission
+	 */
+	public function stampStatusModified($submission) {
+		// Stamp the active submission object
+		$submission->stampStatusModified();
+
+		// Stamp the database entry
+		$this->update(
+			sprintf(
+				'UPDATE submissions SET date_status_modified = %s WHERE submission_id = ?',
+				$this->datetimeToDB($submission->getDateStatusModified())
+			),
+			array((int) $submission->getId())
+		);
+
+		$this->stampModified($submission);
+	}
+
+	/**
+	 * Stamp a submission modification date.
+	 * This updates both the supplied Submission object and the database.
+	 * @param $submission Submission
+	 */
+	public function stampModified($submission) {
+		// Stamp the active submission object
+		$submission->stampModified();
+
+		// Stamp the database entry
+		$this->update(
+			sprintf(
+				'UPDATE submissions SET last_modified = %s WHERE submission_id = ?',
+				$this->datetimeToDB($submission->getLastModified())
+			),
+			array((int) $submission->getId())
+		);
 	}
 
 	/**
@@ -587,4 +625,4 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 
 }
 
-?>
+

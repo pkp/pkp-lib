@@ -321,4 +321,4 @@ class StageAssignmentDAO extends DAO {
 	}
 }
 
-?>
+

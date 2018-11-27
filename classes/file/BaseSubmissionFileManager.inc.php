@@ -63,4 +63,4 @@ class BaseSubmissionFileManager extends ContextFileManager {
 	}
 }
 
-?>
+

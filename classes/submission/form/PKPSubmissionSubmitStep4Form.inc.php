@@ -28,12 +28,11 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 
 	/**
 	 * Save changes to submission.
-	 * @param $args array
-	 * @param $request PKPRequest
 	 * @return int the submission ID
 	 */
-	function execute($args, $request) {
+	function execute() {
 		$submissionDao = Application::getSubmissionDAO();
+		$request = Application::getRequest();
 
 		// Set other submission data.
 		if ($this->submission->getSubmissionProgress() <= $this->step) {
@@ -42,7 +41,7 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 			$this->submission->setSubmissionProgress(0);
 		}
 
-		parent::execute($this->submission);
+		parent::execute();
 
 		// Save the submission.
 		$submissionDao->updateObject($this->submission);
@@ -151,4 +150,4 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 	}
 }
 
-?>
+

@@ -306,4 +306,4 @@ abstract class ContextDAO extends DAO {
 	abstract protected function _getPrimaryKeyColumn();
 }
 
-?>
+

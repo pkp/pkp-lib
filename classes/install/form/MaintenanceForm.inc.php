@@ -60,4 +60,4 @@ class MaintenanceForm extends Form {
 	}
 }
 
-?>
+

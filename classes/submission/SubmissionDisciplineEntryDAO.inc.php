@@ -43,4 +43,4 @@ class SubmissionDisciplineEntryDAO extends ControlledVocabEntryDAO {
 	}
 }
 
-?>
+

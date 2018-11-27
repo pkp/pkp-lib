@@ -207,6 +207,22 @@ class NavigationMenuItem extends DataObject {
 	function setIsChildVisible($isChildVisible) {
 		$this->_isChildVisible = $isChildVisible;
 	}
+
+	/**
+	 * Get the titleLocaleKey of the navigation Menu.
+	 * @return string
+	 */
+	function getTitleLocaleKey() {
+		return $this->getData('titleLocaleKey');
+	}
+
+	/**
+	 * Set titleLocaleKey for this navigation menu item.
+	 * @param $titleLocaleKey string
+	 */
+	function setTitleLocaleKey($titleLocaleKey) {
+		return $this->setData('titleLocaleKey', $titleLocaleKey);
+	}
 }
 
-?>
+

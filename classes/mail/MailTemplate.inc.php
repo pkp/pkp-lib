@@ -57,8 +57,7 @@ class MailTemplate extends Mail {
 		$this->emailKey = isset($emailKey) ? $emailKey : null;
 
 		// If a context wasn't specified, use the current request.
-		$application = PKPApplication::getApplication();
-		$request = $application->getRequest();
+		$request = Application::getRequest();
 		if ($context === null) $context = $request->getContext();
 
 		$this->includeSignature = $includeSignature;
@@ -141,7 +140,7 @@ class MailTemplate extends Mail {
 	 * @param $params array Associative array of variables to supply to the email template
 	 */
 	function assignParams($params = array()) {
-		$application = PKPApplication::getApplication();
+		$application = Application::getApplication();
 		$request = $application->getRequest();
 		$site = $request->getSite();
 
@@ -324,4 +323,4 @@ class MailTemplate extends Mail {
 	}
 }
 
-?>
+

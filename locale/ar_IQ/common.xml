@@ -94,7 +94,7 @@
 	</div>
 	]]></message>
 	<message key="common.changesSaved">تم حفظ تعديلاتك.</message>
-	<message key="common.chooseOne">إختر واحداً</message>
+	<message key="common.chooseOne">إختر واحداً...</message>
 	<message key="common.close">إغلاق</message>
 	<message key="common.closePanel">إغلاق اللوحة</message>
 	<message key="common.closeWindow">إغلاق النافذة</message>
@@ -153,6 +153,7 @@
 	<message key="common.fileType">نوع الملف</message>
 	<message key="common.fileUploaderError">إن برنامج رفع الملفات في النظام يجري تحميله الآن. إن لم يظهر لك، فهذا يعني أن هناك احتمالية كون المتصفح الذي تستعمله لا يدعم متطلبات تشغيله. لطفاً، حاول استحصال الدعم من الإدارة.</message>
 	<message key="common.filter">التصفيات</message>
+	<message key="common.filterAdd">إضافة التصفية: {$filterTitle}</message>
 	<message key="common.filterRemove">تصفير التصفية: {$filterTitle}</message>
 	<message key="common.from">من</message>
 	<message key="common.until">حتى</message>
@@ -171,8 +172,8 @@
 	<message key="common.language">اللغة</message>
 	<message key="common.languages">اللغات</message>
 	<message key="common.less">أقل</message>
-	<message key="common.commaListSeparator">, </message>
-	<message key="common.semicolonListSeparator">; </message>
+	<message key="common.lessThan">{$value} أو أقل</message>
+	<message key="common.listSeparator">، </message>
 	<message key="common.manage">إدارة</message>
 	<message key="common.mailingAddress">عنوان المراسلة</message>
 	<message key="common.billingAddress">عنوان الفواتير (إذا اختلف)</message>
@@ -180,6 +181,7 @@
 	<message key="common.modify">تعديل</message>
 	<message key="common.month">شهر</message>
 	<message key="common.more">المزيد</message>
+	<message key="common.moreThan">{$value} أو أكثر</message>
 	<message key="common.noneAssigned">لا أحد معَيَّن</message>
 	<message key="common.none">لا أحد</message>
 	<message key="common.no">لا</message>
@@ -202,6 +204,8 @@
 	<message key="common.or">أو</message>
 	<message key="common.other">غير ذلك</message>
 	<message key="common.overdue">متأخر</message>
+	<message key="common.pagination">{$start}-{$end} من {$total}</message>
+	<message key="common.pagination.label">إستعرض المزيد من الصفحات</message>
 	<message key="common.pageNumber">الصفحة {$pageNumber}</message>
 	<message key="common.pageHeaderLogo.altText">شعار رأس الصفحة</message>
 	<message key="common.percentage">{$percentage}%</message>
@@ -210,7 +214,6 @@
 	<message key="common.pluginDisabled">البرنامج الإضافي "{$pluginName}" تم تعطيله.</message>
 	<message key="common.prefix">بادئة</message>
 	<message key="common.prefixAndTitle.tip">أمثلة: A، The، ال</message>
-	<message key="common.subtitle.tip">سيظهر العنوان الفرعي بعد علامة (:)، بعد العنوان الرئيسي.</message>
 	<message key="common.preview">معاينة</message>
 	<message key="common.publisher">الناشر</message>
 	<message key="common.quality">النوعية</message>
@@ -244,7 +247,7 @@
 	<message key="common.selectAll">إختر الكل</message>
 	<message key="common.selectNone">لا تختر شيئاً</message>
 	<message key="common.select">إختر</message>
-	<message key="common.sendEmail">أرسل بريداً</message>
+	<message key="common.sendEmail">أرسل الرسالة</message>
 	<message key="common.size">الحجم</message>
 	<message key="common.source">المصدر</message>
 	<message key="common.status">الحالة</message>
@@ -284,6 +287,7 @@
 	<message key="common.plugins">الإضافات</message>
 	<message key="common.metric">المقياس</message>
 	<message key="common.count">العدد</message>
+	<message key="common.publicAccess">الإتاحة للعامة</message>
 	<message key="debug.databaseQueries">عدد استعلامات قاعدة البيانات</message>
 	<message key="debug.executionTime">تم توليد الصفحة في</message>
 	<message key="debug.memoryUsage">استعمال الذاكرة</message>
@@ -291,9 +295,9 @@
 	<message key="debug.notes.localeLoad">ملف اللغة المحملة "{$localeFile}" من ملف</message>
 	<message key="debug.notes.missingLocaleKey">مفتاح اللغة "{$key}" مفقود.</message>
 	<message key="debug.notes">ملاحظات:</message>
-	<message key="defaultMetric.title">المقياس الإفتراضي</message>
+	<message key="defaultMetric.title">المقياس الافتراضي</message>
 	<message key="defaultMetric.availableMetrics">المقاييس المتاحة</message>
-	<message key="editor.submissionReview.uploadFile">إرفع ملف التحكيم</message>
+	<message key="editor.submissionReview.uploadFile">رفع الملف للتحكيم</message>
 	<message key="editor.submissionReview.uploadAttachment">إرفع الملف</message>
 	<message key="email.addAttachment">أضف مرفق</message>
 	<message key="email.addBccRecipient">أضف نسخة سرية</message>
@@ -363,7 +367,7 @@
 
 	<!-- Information Center -->
 	<message key="informationCenter.informationCenter">مركز المعلومات</message>
-	<message key="informationCenter.editorialHistory">تاريخ هيئة التحرير</message>
+	<message key="informationCenter.editorialHistory">أحداث ووقوعات التحرير</message>
 	<message key="informationCenter.addNote">أضف ملاحظة</message>
 	<message key="informationCenter.noNotes">ليس هناك ملاحظات لعرضها.</message>
 	<message key="informationCenter.pastNotes">ملاحظات التحكيم السابقة</message>
@@ -375,7 +379,9 @@
 	<message key="informationCenter.history.messageSent">قد أرسل إشعار إلى المستخدمين.</message>
 
 	<!-- Stage Participants -->
-	<message key="stageParticipants.history.messageSent">قد أرسل إشعار إلى المستخدمين.</message>
+	<message key="stageParticipants.history.messageSent">قد أُرسلَ إشعار إلى المستخدمين.</message>
+	<message key="stageParticipants.notify.startDiscussion">إبدأ المناقشة</message>
+	<message key="stageParticipants.notify.startDiscussion.description">إبدأ المناقشة فيما بينك و {$userFullName}.</message>
 	<message key="stageParticipants.notify.chooseMessage">إختر رسالة مسبقة التعريف لإرسالها، أو إملأ النموذج أدناه.</message>
 	<message key="stageParticipants.notify.message">الرسالة</message>
 	<message key="stageParticipants.notify.warning">لطفاً، تأكد من أنك قد كتبت شيئاً في حقل الرسالة واخترت جهة واحدة على الأقل لمراسلتها.</message>
@@ -441,6 +447,7 @@
 	<message key="notification.editedAuthor">المؤلف عُدِّل.</message>
 	<message key="notification.confirmError">حدث خطأ لدى تأكيد اشتراكك.</message>
 	<message key="notification.confirmSuccess">لقد اشتركت معنا بنجاح.</message>
+	<message key="notification.email">لا تراسلني بشأن هذه الأنواع من الإشعارات.</message>
 	<message key="notification.noneExist">ليس لديك أي إشعارات حالياً.</message>
 	<message key="notification.addedNote">الملاحظة طُرحت.</message>
 	<message key="notification.removedNote">الملاحظة حُذفت.</message>
@@ -520,6 +527,7 @@
 	<message key="notification.addedStageParticipant">أضيف المستخدم بمثابة مشارك مرحلي.</message>
 	<message key="notification.type.newAnnouncement">إشعار جديد.</message>
 	<message key="notification.type.reviewAssignment">التحكيم مؤجل.</message>
+	<message key="notification.type.reviewAssignmentUpdated">مهمة التحكيم حُدِّثَت.</message>
 	<message key="notification.type.auditorRequest">إلتماس متابعة للملف "{$file}"</message>
 	<message key="notification.type.allReviewsIn">كل التحكيمات واردة والقرار مطلوب في {$stage}.</message>
 	<message key="notification.type.allRevisionsIn">تم رفع ملف منقح ليأخذ به المحرر في {$stage}.</message>
@@ -548,4 +556,8 @@
 	<message key="notification.addedNavigationMenu">قائمة التنقل قد تمت إضافتها بنجاح</message>
 	<message key="notification.editedNavigationMenu">قائمة التنقل قد تم تعديلها بنجاح</message>
 	<message key="notification.removedNavigationMenu">قائمة التنقل قد تمت إزالتها بنجاح</message>
+
+	<!-- List Handlers -->
+	<message key="list.viewMore">أظهر المزيد من التفاصيل عن {$name}</message>
+	<message key="list.viewLess">أخفِ التفاصيل الموسعة بشأن {$name}</message>
 </locale>

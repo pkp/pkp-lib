@@ -8,11 +8,10 @@
   * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Serbian_(sr_RS)
-  * Localization strings for the sr_RS@cyrillic (Cрпски) locale.
-  *
+  * Localization strings.
   -->
 
-<locale name="sr_RS@cyrillic" full_name = "Serbian">
+<locale name="sr_RS@cyrillic" full_name="Cрпски">
 	<message key="about.aboutSite">О нама</message>
 	<message key="about.contact">Контакт</message>
 	<message key="about.contact.email">Имејл</message>
@@ -378,7 +377,6 @@
 	<message key="common.percentage">{$percentage}%</message>
 	<message key="common.prefix">Префикс</message>
 	<message key="common.prefixAndTitle.tip">Нпр. као чланови у енглеском језику: A, The</message>
-	<message key="common.subtitle.tip">Додатни наслов ће се појавити после колоне (:), пратећи главни наслов.</message>
 	<message key="common.quality">Вредност</message>
 	<message key="common.queue.long.active">Сви активни</message>
 	<message key="common.range">{$min}-{$max}</message>

@@ -60,4 +60,4 @@ class AdminContextHandler extends AdminHandler {
 	}
 }
 
-?>
+

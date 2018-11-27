@@ -85,4 +85,4 @@ class RemoteActionConfirmationModal extends ConfirmationModal {
 	}
 }
 
-?>
+

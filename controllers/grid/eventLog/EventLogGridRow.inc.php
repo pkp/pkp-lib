@@ -71,7 +71,12 @@ class EventLogGridRow extends GridRow {
 							}
 						}
 						if (!$blindAuthor) {
-							$this->addAction(new DownloadFileLinkAction($request, $submissionFile, null, __('common.download')));
+							$workflowStageId = $submissionFileDao->getWorkflowStageId($submissionFile);
+							// If a submission file is attached to a query that has been deleted, we cannot
+							// determine its stage. Don't present a download link in this case.
+							if ($workflowStageId || $submissionFile->getFileStage() != SUBMISSION_FILE_QUERY) {
+								$this->addAction(new DownloadFileLinkAction($request, $submissionFile, $submissionFileDao->getWorkflowStageId($submissionFile), __('common.download')));
+							}
 						}
 					}
 					break;
@@ -92,4 +97,4 @@ class EventLogGridRow extends GridRow {
 	}
 }
 
-?>
+

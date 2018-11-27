@@ -63,4 +63,4 @@ class SubmissionFileAssignedQueryAccessPolicy extends SubmissionFileBaseAccessPo
 	}
 }
 
-?>
+

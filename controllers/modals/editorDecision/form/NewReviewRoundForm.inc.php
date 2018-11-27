@@ -38,12 +38,14 @@ class NewReviewRoundForm extends EditorDecisionForm {
 	 * @copydoc Form::execute()
 	 * @return integer The new review round number
 	 */
-	function execute($args, $request) {
+	function execute() {
+		$request = Application::getRequest();
+
 		// Retrieve the submission.
 		$submission = $this->getSubmission();
 
 		// Get this form decision actions labels.
-		$actionLabels = EditorDecisionActionsManager::getActionLabels($request->getContext(), $this->_getDecisions());
+		$actionLabels = EditorDecisionActionsManager::getActionLabels($request->getContext(), $this->getStageId(), $this->_getDecisions());
 
 		// Record the decision.
 		$reviewRound = $this->getReviewRound();
@@ -78,4 +80,4 @@ class NewReviewRoundForm extends EditorDecisionForm {
 	}
 }
 
-?>
+

@@ -76,11 +76,9 @@ class RecommendationForm extends Form {
 	// Overridden template methods from Form
 	//
 	/**
-	 * @see Form::initData()
-	 *
-	 * @param $request PKPRequest
+	 * @copydoc Form::initData()
 	 */
-	function initData($request) {
+	function initData() {
 		$submission = $this->getSubmission();
 
 		// Get the decision making editors, the e-mail about the recommendation will be send to
@@ -99,6 +97,7 @@ class RecommendationForm extends Form {
 		// Get the editor recommendation e-mail template
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
 		$email = new SubmissionMailTemplate($submission, 'EDITOR_RECOMMENDATION');
+		$request = Application::getRequest();
 		$router = $request->getRouter();
 		$dispatcher = $router->getDispatcher();
 		$user = $request->getUser();
@@ -143,8 +142,9 @@ class RecommendationForm extends Form {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute($request) {
+	function execute() {
 		// Record the recommendation.
+		$request = Application::getRequest();
 		$submission = $this->getSubmission();
 		$reviewRound = $this->getReviewRound();
 		$recommendation = $this->getData('recommendation');
@@ -189,7 +189,11 @@ class RecommendationForm extends Form {
 				'recommendation' => __($recommendationOptions[$recommendation]),
 			));
 			if (!$this->getData('skipEmail')) {
-				$email->send($request);
+				if (!$email->send($request)) {
+					import('classes.notification.NotificationManager');
+					$notificationMgr = new NotificationManager();
+					$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
+				}
 			}
 
 			if (!$this->getData('skipDiscussion')) {
@@ -248,4 +252,4 @@ class RecommendationForm extends Form {
 
 }
 
-?>
+

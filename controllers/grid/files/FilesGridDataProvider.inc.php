@@ -98,4 +98,4 @@ class FilesGridDataProvider extends GridDataProvider {
 	}
 }
 
-?>
+

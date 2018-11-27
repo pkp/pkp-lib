@@ -58,4 +58,4 @@ class FormValidatorLengthTest extends PKPTestCase {
 		self::assertTrue($validator->isValid());
 	}
 }
-?>
+

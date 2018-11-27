@@ -23,7 +23,7 @@
 	<message key="editor.submission.fileAuditor.form.userRequired">عليك أن تختار المستخدم الذي تريد تعيينه.</message>
 	<message key="editor.submission.uploadSelectFiles">رفع/إختيار الملفات</message>
 	<message key="editor.submission.selectFiles">إختيار الملفات</message>
-	<message key="editor.submission.revisions">التحكيمات</message>
+	<message key="editor.submission.revisions">التنقيحات</message>
 	<message key="editor.submission.review.reviewersDescription"><![CDATA[استعمل <em>+إضافة محكم</em> لدعوة القراء لتحكيم ملفات طلب النشر. إيقونة دفتر الملاحظات تشير إلى أن أحد التحكيمات قد تم تسليمه، وهو بدوره سيدقق <em>يُعلَّم</em> بعد أن يخضع للمشاورة. عندما تتأخر التحكيمات عن موعدها، ستظهر إيقونة الظرف الأحمر لغرض تذكير المحكمين المتأخرين.]]></message>
 	<message key="editor.submission.addReviewer">إضافة محكم</message>
 	<message key="editor.submission.findAndSelectReviewer">حدد محكماً</message>
@@ -44,6 +44,7 @@
 	<message key="editor.submissionReview.restrictFiles">الملفات التي في النية تحكيمها</message>
 	<message key="editor.submissionReview.restrictFiles.hide">إنهاء إختيار الملفات</message>
 	<message key="editor.submissionReview.editReview">تعديل التحكيم</message>
+	<message key="editor.review.anonymousReviewer">محكم مجهول الهوية</message>
 	<message key="editor.review.personalMessageToReviewer">الرسالة المعدة للمحكم</message>
 	<message key="editor.review.importantDates">تواريخ هامة</message>
 	<message key="editor.review.uploadRevision">رفع التحكيم</message>
@@ -72,6 +73,8 @@
 	<message key="editor.review.reviewSubmitted">التحكيم مسلَّم</message>
 	<message key="editor.review.reviewerComments">تعليقات المحكم</message>
 	<message key="editor.review.rateReviewer">تقييم المحكم</message>
+	<message key="editor.review.rateReviewer.description">أعط تقييماً لمستوى التحكيم المقدم. هذا التقييم لا تتم مشاركته مع المحكم.</message>
+	<message key="editor.review.reviewerRating.none">لا تقييم</message>
 	<message key="editor.review.mustSelect">عليك أن تختار محكماً</message>
 	<message key="editor.review.errorAddingReviewer">حدث خطأ عند إضافة المحكم. لطفاً، حاول مرة أخرى.</message>
 	<message key="editor.review.errorDeletingReviewer">حدث خطأ عند إزالة المحكم. لطفاً، حاول مرة أخرى.</message>
@@ -123,4 +126,24 @@
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">ألغِ المصادقة على هذه القراءة التصحيحة للإشارة إلى عدم إكتمالها واعتبار الملف غير جاهز للنشر.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">المعرف العام '{$publicIdentifier}' يجب أن لا يكون رقماً.</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">إن النمط {$pattern} غير مسموح به للمعرفات العامة.</message>
+
+	<!-- Reviewer selection lists -->
+	<message key="reviewer.list.count">{$count} محكم/محكمين</message>
+	<message key="reviewer.list.itemsOfTotal">{$count} من أصل {$total} محكم</message>
+	<message key="reviewer.list.filterRating">مقيَّم على الأقل</message>
+	<message key="reviewer.list.activeReviews">{$count} نشط/نشطون</message>
+	<message key="reviewer.list.activeReviewsDescription">المحكمون النشطون المعينون حالياً</message>
+	<message key="reviewer.list.completedReviews">التحكيمات المكتملة</message>
+	<message key="reviewer.list.declinedReviews">إلتماسات التحكيم المرفوضة</message>
+	<message key="reviewer.list.reviewerRating">تقييم المحكم: {$rating}</message>
+	<message key="reviewer.list.daysSinceLastAssignment">{$days} يوم/أيام مضت</message>
+	<message key="reviewer.list.daySinceLastAssignment">البارحة</message>
+	<message key="reviewer.list.daysSinceLastAssignmentDescription">يوماً منذ آخر تحكيم تم تعيينه</message>
+	<message key="reviewer.list.averageCompletion">معدل أيام إكمال التحكيم</message>
+	<message key="reviewer.list.neverAssigned">لم يسبق تعيينه</message>
+	<message key="reviewer.list.currentlyAssigned">هذا المحكم قد سبق تعيينه لتحكيم طلب التقديم هذا.</message>
+	<message key="reviewer.list.warnOnAssign">هذا المحكم مستبعد لأنه قد أوكل إليه دور يسمح له بمعاينة هوية المؤلف. لا يمكن ضمان شرط التحكيم السري. هل ما زلت تريد رفع الاستبعاد عن هذا المحكم؟</message>
+	<message key="reviewer.list.warnOnAssignUnlock">رفع الاستبعاد</message>
+	<message key="reviewer.list.reviewInterests">إهتمامات التحكيم</message>
+	<message key="reviewer.list.biography">السيرة الذاتية</message>
 </locale>

@@ -42,4 +42,4 @@ class SendThankYouLinkAction extends LinkAction {
 	}
 }
 
-?>
+

@@ -63,4 +63,4 @@ class ValidatorISNI extends ValidatorRegExp {
 	}
 }
 
-?>
+

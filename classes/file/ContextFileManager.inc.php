@@ -40,4 +40,4 @@ class ContextFileManager extends PrivateFileManager {
 	}
 }
 
-?>
+

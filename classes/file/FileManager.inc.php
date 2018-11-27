@@ -235,7 +235,7 @@ class FileManager {
 	 * @param $fileName string Optional filename to use on the client side
 	 * @return boolean
 	 */
-	function downloadFile($filePath, $mediaType = null, $inline = false, $fileName = null) {
+	function downloadByPath($filePath, $mediaType = null, $inline = false, $fileName = null) {
 		$result = null;
 		if (HookRegistry::call('FileManager::downloadFile', array(&$filePath, &$mediaType, &$inline, &$result, &$fileName))) return $result;
 		if (is_readable($filePath)) {
@@ -270,7 +270,7 @@ class FileManager {
 	 * @param $filePath string the location of the file to be deleted
 	 * @return boolean returns true if successful
 	 */
-	function deleteFile($filePath) {
+	function deleteByPath($filePath) {
 		if ($this->fileExists($filePath)) {
 			$result = null;
 			if (HookRegistry::call('FileManager::deleteFile', array($filePath, &$result))) return $result;
@@ -604,4 +604,4 @@ class FileManager {
 	}
 }
 
-?>
+

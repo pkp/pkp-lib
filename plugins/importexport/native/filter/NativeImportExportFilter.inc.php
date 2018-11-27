@@ -48,4 +48,4 @@ class NativeImportExportFilter extends PersistableFilter {
 	}
 }
 
-?>
+

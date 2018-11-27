@@ -235,7 +235,6 @@
 	<message key="submission.layout.confirmDeleteSupplementaryFile">Esteu segur/a que voleu suprimir aquest fitxer addicional de manera permanent?</message>
 	<message key="submission.layout.deleteGalleyStylesheet">Suprimeix aquestes galerades.</message>
 	<message key="submission.layout.editGalley">Edita les galerades de maquetació</message>
-	<message key="submission.layout.galleyFileData">Informació del fitxer de galerades</message>
 	<message key="submission.layout.galleyFormat">Format de les galerades</message>
 	<message key="submission.layout.galleyHTMLData">Fitxers HTML de les galerades</message>
 	<message key="submission.layout.galleyImages">Imatges</message>

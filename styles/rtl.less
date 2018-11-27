@@ -120,6 +120,28 @@ body[dir="rtl"] {
 		left: @double;
 	}
 
+	.pkp_form {
+
+		[data-pkp-editable] {
+
+			[data-pkp-editable-view="input"],
+			[data-pkp-editable-view="input"] label:not(.error),
+			&.isEditing [data-pkp-editable-view="display"] {
+				position: absolute;
+				top: auto;
+				left: auto;
+				right: -9999px;
+			}
+
+			[data-pkp-editable-view="display"],
+			&.isEditing [data-pkp-editable-view="input"] {
+				position: relative;
+				top: auto;
+				right: auto;
+			}
+		}
+	}
+
 	.pkp_help_panel {
 
 		.panel {

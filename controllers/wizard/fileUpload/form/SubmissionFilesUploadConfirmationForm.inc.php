@@ -58,10 +58,9 @@ class SubmissionFilesUploadConfirmationForm extends PKPSubmissionFilesUploadBase
 	/**
 	 * Save the submission file upload confirmation form.
 	 * @see Form::execute()
-	 * @param $request Request
 	 * @return SubmissionFile if successful, otherwise null
 	 */
-	function execute($request) {
+	function execute() {
 		// Retrieve the file ids of the revised and the uploaded files.
 		$revisedFileId = $this->getRevisedFileId();
 		$uploadedFileId = (int)$this->getData('uploadedFileId');
@@ -86,4 +85,4 @@ class SubmissionFilesUploadConfirmationForm extends PKPSubmissionFilesUploadBase
 	}
 }
 
-?>
+

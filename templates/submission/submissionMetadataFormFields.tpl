@@ -9,7 +9,8 @@
  * submission metadata.
  *}
 
-{if $citationsEnabled && array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR), (array)$userRoles)}
+{fbvElement id="metadataModal" type="hidden" name="metadataModal" value=$metadataModal|default:0}
+{if $citationsEnabled && array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR), (array)$userRoles)}
 	{assign var=citationsEnabled value=true}
 {else}
 	{assign var=citationsEnabled value=false}

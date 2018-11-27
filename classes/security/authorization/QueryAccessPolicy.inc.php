@@ -117,4 +117,4 @@ class QueryAccessPolicy extends ContextPolicy {
 	}
 }
 
-?>
+

@@ -65,7 +65,7 @@ class PKPPublicIdentifiersForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
 			'pubIdPlugins' => PluginRegistry::loadCategory('pubIds', true, $this->getContextId()),
@@ -76,7 +76,7 @@ class PKPPublicIdentifiersForm extends Form {
 		// consider JavaScripts
 		$pubIdPluginHelper = new PKPPubIdPluginHelper();
 		$pubIdPluginHelper->addJavaScripts($this->getContextId(), $request, $templateMgr);
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -142,7 +142,7 @@ class PKPPublicIdentifiersForm extends Form {
 	/**
 	 * @copydoc Form::validate()
 	 */
-	function validate() {
+	function validate($callHooks = true) {
 		$pubObject = $this->getPubObject();
 		$assocType = $this->getAssocType($pubObject);
 		$publisherId = $this->getData('publisherId');
@@ -152,7 +152,7 @@ class PKPPublicIdentifiersForm extends Form {
 		}
 		$contextDao = Application::getContextDAO();
 		if ($publisherId) {
-			if (is_numeric($publisherId)) {
+			if (ctype_digit($publisherId)) {
 				$this->addError('publisherId', __('editor.publicIdentificationNumericNotAllowed', array('publicIdentifier' => $publisherId)));
 				$this->addErrorField('$publisherId');
 			} elseif (is_a($pubObject, 'SubmissionFile') && preg_match('/^(\d+)-(\d+)$/', $publisherId)) {
@@ -165,15 +165,15 @@ class PKPPublicIdentifiersForm extends Form {
 		}
 		$pubIdPluginHelper = new PKPPubIdPluginHelper();
 		$pubIdPluginHelper->validate($this->getContextId(), $this, $this->getPubObject());
-		return parent::validate();
+		return parent::validate($callHooks);
 	}
 
 	/**
 	 * Store objects with pub ids.
 	 * @copydoc Form::execute()
 	 */
-	function execute($request) {
-		parent::execute($request);
+	function execute() {
+		parent::execute();
 
 		$pubObject = $this->getPubObject();
 		$pubObject->setStoredPubId('publisher-id', $this->getData('publisherId'));
@@ -220,4 +220,4 @@ class PKPPublicIdentifiersForm extends Form {
 	}
 }
 
-?>
+

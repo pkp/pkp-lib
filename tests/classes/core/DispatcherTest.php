@@ -80,4 +80,4 @@ class DispatcherTest extends PKPTestCase {
 	}
 }
 
-?>
+

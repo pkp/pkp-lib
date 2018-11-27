@@ -48,4 +48,4 @@ class SubmissionFileEventLogEntry extends EventLogEntry {
 	}
 }
 
-?>
+

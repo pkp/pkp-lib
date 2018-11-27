@@ -23,17 +23,28 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 	 */
 	function __construct($request, $reviewerSubmission, $reviewAssignment) {
 		parent::__construct($request, $reviewerSubmission, $reviewAssignment, 1);
-		$this->addCheck(new FormValidator($this, 'privacyConsent', 'required', 'user.profile.form.privacyConsentRequired'));
+		$context = $request->getContext();
+		if (!$reviewAssignment->getDeclined() && !$reviewAssignment->getDateConfirmed() && $context->getSetting('privacyStatement')) {
+			$this->addCheck(new FormValidator($this, 'privacyConsent', 'required', 'user.profile.form.privacyConsentRequired'));
+		}
 	}
 
+	/**
+	 * @see Form::validate()
+	 */
+	function validate($callHooks = true) {
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER); // for user.profile.form.privacyConsentRequired
+
+		return parent::validate($callHooks);
+	}
 
 	//
 	// Implement protected template methods from Form
 	//
 	/**
-	 * @see Form::fetch()
+	 * @copydoc ReviewerReviewForm::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$context = $request->getContext();
 
@@ -94,7 +105,7 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 		);
 		$templateMgr->assign('declineReviewAction', $declineReviewLinkAction);
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -133,4 +144,4 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 	}
 }
 
-?>
+

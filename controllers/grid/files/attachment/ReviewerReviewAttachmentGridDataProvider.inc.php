@@ -120,4 +120,4 @@ class ReviewerReviewAttachmentGridDataProvider extends SubmissionFilesGridDataPr
 	}
 }
 
-?>
+

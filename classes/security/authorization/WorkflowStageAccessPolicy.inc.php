@@ -55,4 +55,4 @@ class WorkflowStageAccessPolicy extends ContextPolicy {
 	}
 }
 
-?>
+

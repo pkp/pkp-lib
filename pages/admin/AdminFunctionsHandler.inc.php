@@ -107,8 +107,7 @@ class AdminFunctionsHandler extends AdminHandler {
 	 * Download scheduled task execution log file.
 	 */
 	function downloadScheduledTaskLogFile() {
-		$application = Application::getApplication();
-		$request = $application->getRequest();
+		$request = Application::getRequest();
 
 		$file = basename($request->getUserVar('file'));
 		import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
@@ -126,4 +125,4 @@ class AdminFunctionsHandler extends AdminHandler {
 	}
 }
 
-?>
+

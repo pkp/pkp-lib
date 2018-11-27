@@ -67,4 +67,4 @@ class GridCategoryRowCellProvider extends GridCellProvider {
 	}
 }
 
-?>
+

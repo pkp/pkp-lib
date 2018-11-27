@@ -1,18 +1,18 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
 
 <!--
-  * plugins/metadata/dc11/locale/sl_SI/locale.xml
+  * /lib/pkp/plugins/metadata/dc11/locale/sl_SI/locale.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2003-2018 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2003-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
   -->
  
-<locale name="si_SI" full_name="Slovenščina">
+<locale name="sl_SI" full_name="Slovenščina">
 	<!-- plug-in -->
-	<message key="plugins.metadata.dc11.displayName">Metapodatki Dublin Core 1.1</message>
-	<message key="plugins.metadata.dc11.description">Prispeva sheme in vmesnike aplikacije Dublin Core 1.1.</message>
+	<message key="plugins.metadata.dc11.displayName">Dublin Core 1.1 metapodatki </message>
+	<message key="plugins.metadata.dc11.description">Zagotavlja Dublin Core 1.1 sheme in adapterje.</message>
 </locale>

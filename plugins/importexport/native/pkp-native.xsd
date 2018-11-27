@@ -90,6 +90,7 @@
 					<sequence>
 						<element ref="pkp:id" minOccurs="0" maxOccurs="unbounded" />
 						<element name="name" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
+						<element name="submission_file_ref" type="pkp:submission_file_ref" minOccurs="0" maxOccurs="1" />
 						<group ref="pkp:fileContents" />
 					</sequence>
 					<attribute name="direct_sales_price" type="decimal" />

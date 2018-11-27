@@ -60,7 +60,7 @@ class PKPAssignPublicIdentifiersForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $this->getContextId());
 		$templateMgr->assign(array(
@@ -69,7 +69,7 @@ class PKPAssignPublicIdentifiersForm extends Form {
 			'approval' => $this->getApproval(),
 			'confirmationText' => $this->getConfirmationText(),
 		));
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 
@@ -118,13 +118,12 @@ class PKPAssignPublicIdentifiersForm extends Form {
 
 	/**
 	 * Assign pub ids.
-	 * @param $request PKPRequest
 	 * @param $save boolean
 	 *  true if the pub id shall be saved here
 	 *  false if this form is integrated somewhere else, where the pub object will be updated.
 	 */
-	function execute($request, $save = false) {
-		parent::execute($request);
+	function execute($save = false) {
+		parent::execute();
 
 		$pubObject = $this->getPubObject();
 		$pubIdPluginHelper = new PKPPubIdPluginHelper();
@@ -133,4 +132,4 @@ class PKPAssignPublicIdentifiersForm extends Form {
 
 }
 
-?>
+

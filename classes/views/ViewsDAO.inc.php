@@ -86,4 +86,4 @@ class ViewsDAO extends DAO {
 	}
 }
 
-?>
+

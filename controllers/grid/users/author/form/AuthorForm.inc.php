@@ -114,7 +114,6 @@ class AuthorForm extends Form {
 	//
 	/**
 	 * Initialize form data from the associated author.
-	 * @param $author Author
 	 */
 	function initData() {
 		$author = $this->getAuthor();
@@ -144,10 +143,9 @@ class AuthorForm extends Form {
 	}
 
 	/**
-	 * Fetch the form.
-	 * @see Form::fetch()
+	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$author = $this->getAuthor();
 
 		$templateMgr = TemplateManager::getManager($request);
@@ -166,7 +164,7 @@ class AuthorForm extends Form {
 		$templateMgr->assign('submissionIdFieldName', $this->getSubmissionIdFieldName());
 		$templateMgr->assign('submissionId', $submission->getId());
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -193,7 +191,6 @@ class AuthorForm extends Form {
 
 	/**
 	 * Save author
-	 * @see Form::execute()
 	 * @see Form::execute()
 	 */
 	function execute() {
@@ -239,4 +236,4 @@ class AuthorForm extends Form {
 	}
 }
 
-?>
+

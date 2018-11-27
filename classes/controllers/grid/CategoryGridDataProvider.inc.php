@@ -84,4 +84,4 @@ class CategoryGridDataProvider extends GridDataProvider {
 	}
 }
 
-?>
+

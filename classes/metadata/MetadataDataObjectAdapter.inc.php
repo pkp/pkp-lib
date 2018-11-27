@@ -421,4 +421,4 @@ class MetadataDataObjectAdapter extends PersistableFilter {
 		}
 	}
 }
-?>
+

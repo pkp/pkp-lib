@@ -47,11 +47,9 @@ class LibraryFileForm extends Form {
 	}
 
 	/**
-	 * Fetch
-	 * @param $request PKPRequest
-	 * @see Form::fetch()
+	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
 
 		// load the file types for the selector on the form.
@@ -59,7 +57,7 @@ class LibraryFileForm extends Form {
 		$fileTypeKeys = $this->libraryFileManager->getTypeTitleKeyMap();
 		$templateMgr->assign('fileTypes', $fileTypeKeys);
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -71,4 +69,4 @@ class LibraryFileForm extends Form {
 	}
 }
 
-?>
+

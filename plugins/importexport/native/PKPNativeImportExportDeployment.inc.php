@@ -90,4 +90,4 @@ class PKPNativeImportExportDeployment extends PKPImportExportDeployment {
 	}
 }
 
-?>
+

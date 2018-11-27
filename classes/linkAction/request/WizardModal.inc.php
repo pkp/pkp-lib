@@ -41,4 +41,4 @@ class WizardModal extends AjaxModal {
 	}
 }
 
-?>
+

@@ -17,7 +17,7 @@
 	<message key="reviewer.reviewSteps.download">3. Stažení a vlastní recenze</message>
 	<message key="reviewer.reviewSteps.completion">4. Ukončení</message>
 	<message key="reviewer.step1.request">Vyžádat recenzi</message>
-	<message key="reviewer.step1.requestBoilerplate">Byl(a) jste vybrán(aú jako potenciální recenzent následujícího příspěvku. Níže je uveden přehled příspěvku a také časový rozvrh této recenze. Budeme rádi, když se budete moci zúčastnit.</message>
+	<message key="reviewer.step1.requestBoilerplate">Byl(a) jste vybrán(a) jako potenciální recenzent následujícího příspěvku. Níže je uveden přehled příspěvku a také časový rozvrh této recenze. Budeme rádi, když se budete moci zúčastnit.</message>
 	<message key="reviewer.step1.viewAllDetails">Zobrazit všechny podrobnosti příspěvku</message>
 	<message key="reviewer.submission.reviewerFiles">Soubory recenzenta</message>
 	<message key="reviewer.submission.declineReview">Odmítnout požadavek na recenzi¨</message>
@@ -40,7 +40,7 @@
 	<message key="reviewer.complete.whatNext">Děkujeme, že jste dokončili recenzi tohoto příspěvku. Vaše recenze byla úspěšně odeslána. Oceňujeme váš přínos ke kvalitě našeho časopisu. Editor vás může znovu kontaktovat, pokud by potřeboval další informace.</message>
 	<message key="reviewer.aboutDueDates">O termínech</message>
 	<message key="reviewer.aboutDueDates.text">Editor vás požádá, abyste buď schválili nebo odmítli recenzi před stanoveným datem a vlastní recenzi dokončili také do stanoveného data.</message>
-	<message key="submission.comments.canShareWithAuthor">Pro autora a editora</message>
-	<message key="submission.comments.cannotShareWithAuthor">Pouze pro editora</message>
+	<message key="submission.comments.canShareWithAuthor">Pro autora a redaktora</message>
+	<message key="submission.comments.cannotShareWithAuthor">Pouze pro redaktora</message>
 	<message key="user.authorization.submissionReviewer">Současný uživatel není přiřazen jako recenzent pro požadovaný dokument.</message>
 </locale>

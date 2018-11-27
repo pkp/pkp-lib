@@ -6,15 +6,21 @@
 # Copyright (c) 2010-2018 John Willinsky
 # Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
 #
-# Script to prepare the webserver for Travis testing.
+# Script to prepare and start the PHP internal webserver for Travis testing.
 #
 
 set -xe
 
-# Start apache and configure a virtual host.
-if [[ ${TRAVIS_PHP_VERSION:0:2} == "5." ]]; then sudo apt-get install -q php5-curl php5-mysql php5-pgsql php5-intl php5-xsl; fi
+# Add our PHP configuration variables to the default configuration.
+if [ -z "$TRAVIS" ] ; then
+	echo "(Skipping phpenv add)"
+else
+	phpenv config-add lib/pkp/tools/travis/php.ini
+fi
 
-phpenv config-add lib/pkp/tools/travis/php.ini
-
+# This script runs as the travis user, so cannot bind to port 80. To work
+# around this, we use socat to forward requests from port 80 to port 8080.
 sudo socat TCP-LISTEN:80,fork,reuseaddr TCP:localhost:8080 &
+
+# Run the PHP internal server on port 8080.
 php -S 127.0.0.1:8080 -t . >& access.log &

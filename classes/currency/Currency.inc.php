@@ -89,4 +89,4 @@ class Currency extends DataObject {
 	}
 }
 
-?>
+

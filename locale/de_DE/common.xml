@@ -215,7 +215,6 @@
 	<message key="common.pluginDisabled">Das Plugin "{$pluginName}" ist deaktiviert worden.</message>
 	<message key="common.prefix">Präfix</message>
 	<message key="common.prefixAndTitle.tip">Wenn der Buchtitel mit "Ein(e)" oder "Die" (oder etwas ähnlichem in Bezug auf alphabetische Sortierung) beginnt, geben Sie dieses Wort bei Präfix ein.</message>
-	<message key="common.subtitle.tip">Der optionale Untertitel erscheint nach dem Doppelpunkt (:), nach dem Titel.</message>
 	<message key="common.preview">Vorschau</message>
 	<message key="common.publisher">Verlag, Organisation</message>
 	<message key="common.quality">Qualität</message>
@@ -394,7 +393,7 @@
 	<message key="locale.supported">Unterstützte Regionaleinstellungen</message>
 	<message key="navigation.access"><![CDATA[Benutzer/innen &amp; Rollen]]></message>
 	<message key="navigation.about">Über uns</message>
-	<message key="navigation.admin">Leitung</message>
+	<message key="navigation.admin">Administration</message>
 	<message key="navigation.archives">Archiv</message>
 	<message key="navigation.breadcrumbLabel">Sie sind hier:</message>
 	<message key="navigation.breadcrumbSeparator">/</message>

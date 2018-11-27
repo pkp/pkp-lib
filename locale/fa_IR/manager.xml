@@ -257,7 +257,6 @@
 	<message key="manager.setup.layout.unselected">انتخاب نشده</message>
 	<message key="manager.setup.loggingAndAuditing">ورود و حسابرسی</message>
 	<message key="manager.setup.logo">لوگو</message>
-	<message key="manager.setup.metaCitationsDescription">برای فعال‌سازی ارجاعات و ویرایش مراجع گزینه زیر را انتخاب کنید. بدین ترتیب نویسندگان می‌توانند ارجاعات خام را به مقاله ارسالی خود اضافه کنند. دبیران نیز به دستیار نشانه‌گذاری ارجاعات نیز دسترسی پیدا می‌کنند که می‌تواند ارجاعات خام را با استفاده از پایگاه داده‌های خارجی مانند   WorldCat, ISBNdb, PubMed   از نظر صحت بررسی کند. سپس ارجاعات تأیید شده را می‌توان به نسخه نهایی نهائی انتقال داد.</message>
 	<message key="manager.setup.notifications">اطلاع‌رسانی ارسال مقاله توسط نویسنده</message>
 	<message key="manager.setup.notifications.copySpecifiedAddress">ارسال رونوشت به این ایمیل</message>
 	<message key="manager.setup.notifications.description">نویسندگان به صورت خودکار ایمیلی برای اطلاع‌رسانی از مقاله ارسالی خود ارسال می‌کنند. ممکن است مایل باشید تا رونوشتی از این ایمیل‌ها به لیست زیر نیز ارسال شود:</message>

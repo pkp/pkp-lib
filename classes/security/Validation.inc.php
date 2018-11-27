@@ -228,8 +228,7 @@ class Validation {
 
 		if ($contextId === -1) {
 			// Get context ID from request
-			$application = PKPApplication::getApplication();
-			$request = $application->getRequest();
+			$request = Application::getRequest();
 			$context = $request->getContext();
 			$contextId = $context == null ? 0 : $context->getId();
 		}
@@ -352,16 +351,13 @@ class Validation {
 	 * @return string
 	 */
 	static function suggestUsername($givenName, $familyName = null) {
-		import('lib.pkp.classes.core.Transcoder');
-		$transcoder = new Transcoder('UTF-8', 'ASCII', true);
-
 		$name = $givenName;
 		if (!empty($familyName)) {
 			$initial = PKPString::substr($givenName, 0, 1);
 			$name = $initial . $familyName;
 		}
 
-		$suggestion = PKPString::regexp_replace('/[^a-zA-Z0-9_-]/', '', $transcoder->trans(PKPString::strtolower($name)));
+		$suggestion = PKPString::regexp_replace('/[^a-zA-Z0-9_-]/', '', Stringy\Stringy::create($name)->toAscii()->toLowerCase());
 		$userDao = DAORegistry::getDAO('UserDAO');
 		for ($i = ''; $userDao->userExistsByUsername($suggestion . $i); $i++);
 		return $suggestion . $i;

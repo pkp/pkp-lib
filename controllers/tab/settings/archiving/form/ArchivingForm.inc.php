@@ -34,9 +34,9 @@ class ArchivingForm extends ContextSettingsForm {
 	}
 
 	/**
-	 * @copydoc Form::fetch()
+	 * @copydoc ContextSettingsForm::fetch()
 	 */
-	function fetch($request, $params = null) {
+	function fetch($request, $template = null, $display = false, $params = null) {
 		$isPLNPluginInstalled = false;
 		$isPLNPluginEnabled = false;
 		$isPorticoPluginInstalled = false;
@@ -71,7 +71,7 @@ class ArchivingForm extends ContextSettingsForm {
 			'plnSettingsShowAction' => $plnSettingsShowAction,
 		);
 
-		return parent::fetch($request, $params);
+		return parent::fetch($request, $template, $display, $params);
 	}
 
 	//
@@ -86,11 +86,11 @@ class ArchivingForm extends ContextSettingsForm {
 
 	/**
 	 * @see Form::execute()
-	 * @param $request PKPRequest
 	 */
-	function execute($request) {
-		parent::execute($request);
+	function execute() {
+		parent::execute();
 
+		$request = Application::getRequest();
 		$this->enablePlugin($request, 'plugins.generic', 'generic', 'pln', 'enablePln');
 		$this->enablePlugin($request, 'plugins.importexport', 'importexport', 'portico', 'enablePortico');
 
@@ -165,4 +165,4 @@ class ArchivingForm extends ContextSettingsForm {
 	}
 }
 
-?>
+

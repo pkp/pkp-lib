@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="nb_NO" full_name="Norsk Bokmål">
+<locale name="nb_NO" full_name="Norsk bokmål">
 	<!-- plug-in -->
 	<message key="plugins.metadata.dc11.displayName">Dublin Core 1.1 metadata</message>
 </locale>

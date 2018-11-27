@@ -119,6 +119,7 @@
 	<message key="grid.action.preview">Preview</message>
 	<message key="grid.action.install">Install</message>
 	<message key="grid.action.moreItems">Load more</message>
+	<message key="grid.action.users">View/Select users</message>
 
 	<!--  grid task status -->
 	<message key="grid.task.status.completed">This task is completed</message>

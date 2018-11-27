@@ -8,7 +8,7 @@
   * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Ukrainian_(uk_UA)
-  * Localization strings for the uk_UA (Українська) locale.
+  * Localization strings.
   -->
 
 <locale name="uk_UA" full_name="Українська">
@@ -56,7 +56,7 @@
 	<message key="rt.admin.sharing.buttonStyleLabel">Стиль кнопки</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Використовувати спадаюче меню</message>
 	<message key="rt.admin.sharing.advanced">Розширені налаштування (необов'язкове)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Див. <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">документацію з налаштувань AddThis.com</a>.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Див. <a href="https://www.addthis.com/academy/how-to-create-custom-buttons-with-addthis/">документацію з налаштувань AddThis.com</a>.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Бренд</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Налаштування спадаючого меню <br /> (список, розділений комами)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Мова</message>

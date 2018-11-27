@@ -66,4 +66,4 @@ class ReviewAssignmentAccessPolicy extends AuthorizationPolicy {
 	}
 }
 
-?>
+

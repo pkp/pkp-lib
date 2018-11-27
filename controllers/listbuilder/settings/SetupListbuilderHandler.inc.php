@@ -58,10 +58,10 @@ class SetupListbuilderHandler extends ListbuilderHandler {
 	/**
 	 * @copydoc ListbuilderHandler::initialize()
 	 */
-	function initialize($request) {
+	function initialize($request, $args = null) {
 		$this->setContext($request->getContext());
-		return parent::initialize($request);
+		return parent::initialize($request, $args);
 	}
 }
 
-?>
+

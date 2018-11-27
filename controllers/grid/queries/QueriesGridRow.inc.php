@@ -122,4 +122,4 @@ class QueriesGridRow extends GridRow {
 	}
 }
 
-?>
+

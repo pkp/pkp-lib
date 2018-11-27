@@ -37,4 +37,4 @@ class ReviewFormElementGridCellProvider extends GridCellProvider {
 		}
 	}
 }
-?>
+

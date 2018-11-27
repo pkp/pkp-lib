@@ -158,4 +158,4 @@ class NotificationSubscriptionSettingsDAO extends DAO {
 
 }
 
-?>
+

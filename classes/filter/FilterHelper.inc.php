@@ -264,4 +264,4 @@ class FilterHelper {
 		return $resultArray;
 	}
 }
-?>
+

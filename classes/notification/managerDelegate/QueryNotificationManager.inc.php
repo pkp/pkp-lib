@@ -146,4 +146,4 @@ class QueryNotificationManager extends NotificationManagerDelegate {
 	}
 }
 
-?>
+

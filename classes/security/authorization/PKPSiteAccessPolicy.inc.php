@@ -52,7 +52,7 @@ class PKPSiteAccessPolicy extends PolicySet {
 	 */
 	function effect() {
 		// Retrieve the user from the session.
-		$request = $this->getRequest();
+		$request = Application::getRequest();
 		$user = $request->getUser();
 
 		if (!is_a($user, 'User')) {
@@ -64,4 +64,4 @@ class PKPSiteAccessPolicy extends PolicySet {
 	}
 }
 
-?>
+

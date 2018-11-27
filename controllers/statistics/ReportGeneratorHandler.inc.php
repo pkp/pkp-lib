@@ -29,6 +29,15 @@ class ReportGeneratorHandler extends Handler {
 	}
 
 	/**
+	 * @copydoc PKPHandler::authorize()
+	 */
+	function authorize($request, &$args, $roleAssignments) {
+		import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
+		$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+		return parent::authorize($request, $args, $roleAssignments);
+	}
+
+	/**
 	* Fetch form to generate custom reports.
 	* @param $args array
 	* @param $request Request
@@ -37,7 +46,7 @@ class ReportGeneratorHandler extends Handler {
 	function fetchReportGenerator($args, $request) {
 		$this->setupTemplate($request);
 		$reportGeneratorForm = $this->_getReportGeneratorForm($request);
-		$reportGeneratorForm->initData($request);
+		$reportGeneratorForm->initData();
 
 		$formContent = $reportGeneratorForm->fetch($request);
 
@@ -64,7 +73,7 @@ class ReportGeneratorHandler extends Handler {
 		$reportGeneratorForm->readInputData();
 		$json = new JSONMessage(true);
 		if ($reportGeneratorForm->validate()) {
-			$reportUrl = $reportGeneratorForm->execute($request);
+			$reportUrl = $reportGeneratorForm->execute();
 			$json->setAdditionalAttributes(array('reportUrl' => $reportUrl));
 		} else {
 			$json->setStatus(false);
@@ -195,4 +204,4 @@ class ReportGeneratorHandler extends Handler {
 	}
 }
 
-?>
+

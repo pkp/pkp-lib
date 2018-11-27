@@ -28,7 +28,7 @@ class PluginRegistry {
 	 * @param $category String the name of the category to retrieve
 	 */
 	static function &getPlugins($category = null) {
-		$plugins =& Registry::get('plugins');
+		$plugins =& Registry::get('plugins', true, array());
 		if ($category !== null) return $plugins[$category];
 		return $plugins;
 	}
@@ -60,7 +60,6 @@ class PluginRegistry {
 	static function register($category, &$plugin, $path, $mainContextId = null) {
 		$pluginName = $plugin->getName();
 		$plugins =& PluginRegistry::getPlugins();
-		if (!$plugins) $plugins = array();
 
 		// If the plugin was already loaded, do not load it again.
 		if (isset($plugins[$category][$pluginName])) return false;
@@ -70,7 +69,6 @@ class PluginRegistry {
 
 		if (isset($plugins[$category])) $plugins[$category][$pluginName] =& $plugin;
 		else $plugins[$category] = array($pluginName => &$plugin);
-		Registry::set('plugins', $plugins);
 		return true;
 	}
 
@@ -104,7 +102,7 @@ class PluginRegistry {
 
 		if ($enabledOnly && Config::getVar('general', 'installed')) {
 			// Get enabled plug-ins from the database.
-			$application = PKPApplication::getApplication();
+			$application = Application::getApplication();
 			$products =& $application->getEnabledProducts('plugins.'.$category, $mainContextId);
 			foreach ($products as $product) {
 				$file = $product->getProduct();
@@ -183,7 +181,7 @@ class PluginRegistry {
 	 * @return array
 	 */
 	static function getCategories() {
-		$application = PKPApplication::getApplication();
+		$application = Application::getApplication();
 		$categories = $application->getPluginCategories();
 		HookRegistry::call('PluginRegistry::getCategories', array(&$categories));
 		return $categories;
@@ -253,4 +251,4 @@ class PluginRegistry {
 	}
 }
 
-?>
+

@@ -139,4 +139,4 @@ class SubEditorsDAO extends DAO {
 	}
 }
 
-?>
+

@@ -53,10 +53,9 @@ abstract class InformationCenterHandler extends Handler {
 	/**
 	 * Fetch and store away objects
 	 * @param $request PKPRequest
-	 * @param $args array optional
 	 */
-	function initialize($request, $args = null) {
-		parent::initialize($request, $args);
+	function initialize($request) {
+		parent::initialize($request);
 
 		// Fetch the submission and file to display information about
 		$this->_submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
@@ -217,4 +216,4 @@ abstract class InformationCenterHandler extends Handler {
 	abstract function _getAssocType();
 }
 
-?>
+

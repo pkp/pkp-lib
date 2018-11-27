@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
@@ -13,48 +13,48 @@
 
 <locale name="sl_SI" full_name="Slovenščina">
 	<!-- Group defaults -->
-	<message key="default.groups.name.siteAdmin">Skrbnik spletišča</message>
-	<message key="default.groups.plural.siteAdmin">Skrbniki spletišča</message>
-	<message key="default.groups.name.productionEditor">Tehnični urednik</message>
-	<message key="default.groups.plural.productionEditor">Tehnični uredniki</message>
-	<message key="default.groups.abbrev.productionEditor">TehU</message>
+	<message key="default.groups.name.siteAdmin">Administrator spletišča</message>
+	<message key="default.groups.plural.siteAdmin">Administratorji spletišča</message>
+	<message key="default.groups.name.productionEditor">Urednik produkcije</message>
+	<message key="default.groups.plural.productionEditor">Uredniki produkcije</message>
+	<message key="default.groups.abbrev.productionEditor">UrPro</message>
 	<message key="default.groups.name.copyeditor">Lektor</message>
 	<message key="default.groups.plural.copyeditor">Lektorji</message>
-	<message key="default.groups.abbrev.copyeditor">Lekt</message>
+	<message key="default.groups.abbrev.copyeditor">LE</message>
 	<message key="default.groups.name.proofreader">Korektor</message>
 	<message key="default.groups.plural.proofreader">Korektorji</message>
-	<message key="default.groups.abbrev.proofreader">Kor</message>
-	<message key="default.groups.name.designer">Grafični oblikovalec</message>
-	<message key="default.groups.plural.designer">Grafični oblikovalci</message>
-	<message key="default.groups.abbrev.designer">GrafO</message>
-	<message key="default.groups.name.internalReviewer">Notranji recenzent</message>
-	<message key="default.groups.plural.internalReviewer">Notranji recenzenti</message>
-	<message key="default.groups.abbrev.internalReviewer">NR</message>
-	<message key="default.groups.name.marketing">Koordinator trženja in prodaje</message>
-	<message key="default.groups.plural.marketing">Koordinatorji trženja in prodaje</message>
-	<message key="default.groups.abbrev.marketing">TP</message>
+	<message key="default.groups.abbrev.proofreader">KO</message>
+	<message key="default.groups.name.designer">Oblikovalec</message>
+	<message key="default.groups.plural.designer">Oblikovalci</message>
+	<message key="default.groups.abbrev.designer">Obli</message>
+	<message key="default.groups.name.internalReviewer">Interni recenzent</message>
+	<message key="default.groups.plural.internalReviewer">Interni recenzenti</message>
+	<message key="default.groups.abbrev.internalReviewer">IR</message>
+	<message key="default.groups.name.marketing">Koordinator marketinga in prodaje</message>
+	<message key="default.groups.plural.marketing">Koordinatorji marketinga in prodaje</message>
+	<message key="default.groups.abbrev.marketing">MP</message>
 	<message key="default.groups.name.funding">Koordinator financiranja</message>
 	<message key="default.groups.plural.funding">Koordinatorji financiranja</message>
 	<message key="default.groups.abbrev.funding">KF</message>
-	<message key="default.groups.name.indexer">Ustvarjalec kazal</message>
-	<message key="default.groups.plural.indexer">Ustvarjalci kazal</message>
-	<message key="default.groups.abbrev.indexer">Ka</message>
+	<message key="default.groups.name.indexer">Indexer</message>
+	<message key="default.groups.plural.indexer">Indexers</message>
+	<message key="default.groups.abbrev.indexer">IND</message>
 	<message key="default.groups.name.layoutEditor">Grafični urednik</message>
 	<message key="default.groups.plural.layoutEditor">Grafični uredniki</message>
-	<message key="default.groups.abbrev.layoutEditor">GU</message>
+	<message key="default.groups.abbrev.layoutEditor">GraUr</message>
 	<message key="default.groups.name.author">Avtor</message>
 	<message key="default.groups.plural.author">Avtorji</message>
-	<message key="default.groups.abbrev.author">AV</message>
+	<message key="default.groups.abbrev.author">Avt</message>
 	<message key="default.groups.name.translator">Prevajalec</message>
 	<message key="default.groups.plural.translator">Prevajalci</message>
-	<message key="default.groups.abbrev.translator">Prev</message>
+	<message key="default.groups.abbrev.translator">Pre</message>
 	<message key="default.groups.name.reader">Bralec</message>
 	<message key="default.groups.plural.reader">Bralci</message>
-	<message key="default.groups.abbrev.reader">BR</message>
+	<message key="default.groups.abbrev.reader">Bra</message>
 
 	<!--  common app genre defaults -->
-	<message key="default.genres.other">Drugo</message>
-	<message key="default.genres.multimedia">Večpredstavnost</message>
+	<message key="default.genres.other">Ostalo</message>
+	<message key="default.genres.multimedia">Multimedija</message>
 	<message key="default.genres.image">Slika</message>
-	<message key="default.genres.styleSheet">Slogovna datoteka HTML</message>
+	<message key="default.genres.styleSheet">HTML stilska tablica</message>
 </locale>

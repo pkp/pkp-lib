@@ -35,10 +35,11 @@ class SubmissionChecklistForm extends Form {
 
 	/**
 	 * Initialize form data from current settings.
+	 * @see Form::initData
 	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function initData($args, $request) {
+	function initData($args) {
+		$request = Application::getRequest();
 		$context = $request->getContext();
 
 		$submissionChecklistAll = $context->getSetting('submissionChecklist');
@@ -68,13 +69,11 @@ class SubmissionChecklistForm extends Form {
 	}
 
 	/**
-	 * Fetch
-	 * @param $request PKPRequest
-	 * @see Form::fetch()
+	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -89,7 +88,8 @@ class SubmissionChecklistForm extends Form {
 	/**
 	 * Save checklist entry.
 	 */
-	function execute($args, $request) {
+	function execute() {
+		$request = Application::getRequest();
 		$router = $request->getRouter();
 		$context = $router->getContext($request);
 		$submissionChecklistAll = $context->getSetting('submissionChecklist');
@@ -118,4 +118,4 @@ class SubmissionChecklistForm extends Form {
 	}
 }
 
-?>
+

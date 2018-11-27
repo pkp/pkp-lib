@@ -46,11 +46,10 @@ class ThankReviewerForm extends Form {
 	// Overridden template methods
 	//
 	/**
-	 * Initialize form data from the associated author.
-	 * @param $args array
-	 * @param $request PKPRequest
+	 * @copydoc Form::initData
 	 */
-	function initData($args, $request) {
+	function initData() {
+		$request = Application::getRequest();
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $request->getUser();
 		$context = $request->getContext();
@@ -93,10 +92,8 @@ class ThankReviewerForm extends Form {
 
 	/**
 	 * Save review assignment
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function execute($args, $request) {
+	function execute() {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$submissionDao = Application::getSubmissionDAO();
 
@@ -113,6 +110,7 @@ class ThankReviewerForm extends Form {
 
 		if (!$this->getData('skipEmail')) {
 			HookRegistry::call('ThankReviewerForm::thankReviewer', array(&$submission, &$reviewAssignment, &$email));
+			$request = Application::getRequest();
 			$dispatcher = $request->getDispatcher();
 			$context = $request->getContext();
 			$user = $request->getUser();
@@ -122,7 +120,11 @@ class ThankReviewerForm extends Form {
 				'editorialContactSignature' => $user->getContactSignature(),
 				'signatureFullName' => $user->getFullname(),
 			));
-			$email->send($request);
+			if (!$email->send($request)) {
+				import('classes.notification.NotificationManager');
+				$notificationMgr = new NotificationManager();
+				$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
+			}
 		}
 
 		// update the ReviewAssignment with the acknowledged date
@@ -134,4 +136,4 @@ class ThankReviewerForm extends Form {
 	}
 }
 
-?>
+

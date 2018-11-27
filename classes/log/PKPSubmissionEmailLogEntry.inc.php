@@ -19,6 +19,7 @@ import('lib.pkp.classes.log.EmailLogEntry');
 // General events						0x10000000
 
 // Author events						0x20000000
+define('SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION',			0x20000001);
 
 // Editor events						0x30000000
 define('SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR',			0x30000001);
@@ -80,4 +81,4 @@ class PKPSubmissionEmailLogEntry extends EmailLogEntry {
 	}
 }
 
-?>
+

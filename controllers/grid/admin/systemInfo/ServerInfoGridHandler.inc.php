@@ -119,4 +119,4 @@ class ServerInfoGridHandler extends GridHandler {
 		return $serverInfo;
 	}
 }
-?>
+

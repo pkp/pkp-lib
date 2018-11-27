@@ -7,9 +7,8 @@
   * Copyright (c) 2014-2018 Simon Fraser University
   * Copyright (c) 2003-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  *
-  * Localization strings for the ru_RU (Русский) locale.
   * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Russian_(ru_RU)
+  * Localization strings.
   -->
 
 <locale name="ru_RU" full_name="Русский">
@@ -66,6 +65,8 @@
 	<message key="editor.review.responseDue">Срок ответа: {$date}</message>
 	<message key="editor.review.requestSent">Запрос отправлен</message>
 	<message key="editor.review.requestAccepted">Запрос принят</message>
+	<message key="editor.review.requestDeclined">Запрос отклонен</message>
+	<message key="editor.review.requestDeclined.tooltip">Рецензент отклонил этот запрос на рецензию.</message>
 	<message key="editor.review.revertDecision">Отмена решения</message>
 	<message key="editor.review.reviewDue">Срок сдачи рецензии: {$date}</message>
 	<message key="editor.review.reviewDueDate">Дата предоставления рецензии</message>

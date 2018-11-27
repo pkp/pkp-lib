@@ -40,7 +40,7 @@ class PublicationEntryTabHandler extends Handler {
 	function __construct() {
 		parent::__construct();
 		$this->addRoleAssignment(
-			array(ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER),
+			array(ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER, ROLE_ID_ASSISTANT),
 			array(
 				'submissionMetadata',
 				'saveForm',
@@ -110,7 +110,7 @@ class PublicationEntryTabHandler extends Handler {
 
 		$publicationEntrySubmissionReviewForm = $this->_getPublicationEntrySubmissionReviewForm();
 
-		$publicationEntrySubmissionReviewForm->initData($args, $request);
+		$publicationEntrySubmissionReviewForm->initData();
 		return new JSONMessage(true, $publicationEntrySubmissionReviewForm->fetch($request));
 	}
 
@@ -153,8 +153,8 @@ class PublicationEntryTabHandler extends Handler {
 
 		if ($form) { // null if we didn't have a valid tab
 			$form->readInputData();
-			if($form->validate($request)) {
-				$form->execute($request);
+			if($form->validate()) {
+				$form->execute();
 				// Create trivial notification in place on the form
 				$notificationManager = new NotificationManager();
 				$user = $request->getUser();
@@ -224,8 +224,8 @@ class PublicationEntryTabHandler extends Handler {
 		$stageId = $this->getStageId();
 		$citationsForm = new CitationsForm($submission, $stageId, $this->getTabPosition(), array('displayedInContainer' => true));
 		$citationsForm->readInputData();
-		if ($citationsForm->validate($request)) {
-			$citationsForm->execute($request);
+		if ($citationsForm->validate()) {
+			$citationsForm->execute();
 		}
 		$json = new JSONMessage(true);
 		if ($request->getUserVar('displayedInContainer')) {
@@ -267,4 +267,4 @@ class PublicationEntryTabHandler extends Handler {
 	}
 }
 
-?>
+

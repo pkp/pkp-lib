@@ -60,7 +60,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$submissionDao = Application::getSubmissionDAO();
 		$submission = $submissionDao->getById($this->_submissionId);
 
@@ -86,10 +86,10 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 			$templateKeys = array_merge($templateKeys, $stageTemplates[$currentStageId]);
 		}
 		foreach ($templateKeys as $templateKey) {
-			$template = $this->_getMailTemplate($submission, $templateKey);
-			$template->assignParams(array());
-			$template->replaceParams();
-			$templates[$templateKey] = $template->getSubject();
+			$thisTemplate = $this->_getMailTemplate($submission, $templateKey);
+			$thisTemplate->assignParams(array());
+			$thisTemplate->replaceParams();
+			$templates[$templateKey] = $thisTemplate->getSubject();
 		}
 
 		$templateMgr = TemplateManager::getManager($request);
@@ -110,27 +110,28 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 			}
 		}
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
 	 * @copydoc Form::readInputData()
 	 */
-	function readInputData($request) {
+	function readInputData() {
 		$this->readUserVars(array('message', 'userId', 'template'));
 	}
 
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute($request) {
+	function execute() {
 		$submissionDao = Application::getSubmissionDAO();
 		$submission = $submissionDao->getById($this->_submissionId);
 		if ($this->getData('message')) {
+			$request = Application::getRequest();
 			$this->sendMessage((int) $this->getData('userId'), $submission, $request);
 			$this->_logEventAndCreateNotification($request, $submission);
 		}
-		return parent::execute($request);
+		return parent::execute();
 	}
 
 	/**
@@ -170,7 +171,12 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 				'editorUsername' => $user->getUsername(),
 			));
 
-			$email->send($request);
+			if (!$email->send($request)) {
+				import('classes.notification.NotificationManager');
+				$notificationMgr = new NotificationManager();
+				$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
+			}
+
 			// remove the INDEX_ and LAYOUT_ tasks if a user has sent the appropriate _COMPLETE email
 			switch ($template) {
 				case 'EDITOR_ASSIGN':
@@ -338,4 +344,4 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 	abstract protected function _getMailTemplate($submission, $templateKey, $includeSignature = true);
 }
 
-?>
+

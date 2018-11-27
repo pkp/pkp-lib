@@ -68,4 +68,4 @@ class RedirectConfirmationModal extends ConfirmationModal {
 	}
 }
 
-?>
+

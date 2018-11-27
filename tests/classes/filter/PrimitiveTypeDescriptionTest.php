@@ -95,4 +95,4 @@ class PrimitiveTypeDescriptionTest extends PKPTestCase {
 		$typeDescription = new PrimitiveTypeDescription('integer[x]');
 	}
 }
-?>
+

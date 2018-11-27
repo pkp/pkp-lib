@@ -33,4 +33,4 @@ class FormValidatorControlledVocab extends FormValidator {
 	}
 }
 
-?>
+

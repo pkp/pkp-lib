@@ -30,4 +30,4 @@ class ValidatorEmailTest extends PKPTestCase {
 		self::assertEquals('/^[-a-z0-9!#\$%&\'\*\+\/=\?\^_\`\{\|\}~]+(\.[-a-z0-9!#\$%&\'\*\+\/=\?\^_\`\{\|\}~]+)*@(([a-z0-9]([-a-z0-9]*[a-z0-9]+)?){1,63}\.)+([a-z0-9]([-a-z0-9]*[a-z0-9]+)?){2,63}$/i', ValidatorEmail::getRegexp());
 	}
 }
-?>
+

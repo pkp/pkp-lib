@@ -74,7 +74,7 @@ class SubmissionFilesGridRow extends GridRow {
 	// Overridden template methods from GridRow
 	//
 	/**
-	 * @copydoc PKPHandler::initialize()
+	 * @copydoc GridRow::initialize()
 	 */
 	function initialize($request, $template = 'controllers/grid/gridRow.tpl') {
 		parent::initialize($request, $template);
@@ -106,4 +106,4 @@ class SubmissionFilesGridRow extends GridRow {
 	}
 }
 
-?>
+

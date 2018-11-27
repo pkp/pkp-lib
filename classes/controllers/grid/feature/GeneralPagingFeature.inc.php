@@ -170,4 +170,4 @@ class GeneralPagingFeature extends GridFeature {
 	}
 }
 
-?>
+

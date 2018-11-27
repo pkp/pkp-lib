@@ -120,4 +120,4 @@ class SubmissionAccessPolicy extends ContextPolicy {
 	}
 }
 
-?>
+

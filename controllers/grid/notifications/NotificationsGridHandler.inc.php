@@ -28,7 +28,7 @@ class NotificationsGridHandler extends GridHandler {
 	 * @copydoc GridHandler::initialize()
 	 */
 	function initialize($request, $args = null) {
-		parent::initialize($request);
+		parent::initialize($request, $args);
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION);
 
 		$this->_selectedNotificationIds = (array) $request->getUserVar('selectedNotificationIds');
@@ -237,4 +237,4 @@ class NotificationsGridHandler extends GridHandler {
 	}
 }
 
-?>
+

@@ -62,4 +62,4 @@ class SubmissionFileMatchesSubmissionPolicy extends SubmissionFileBaseAccessPoli
 	}
 }
 
-?>
+

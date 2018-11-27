@@ -43,8 +43,8 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 * Perform additional validation checks
 	 * @copydoc Form::validate
 	 */
-	function validate() {
-		if (!parent::validate()) return false;
+	function validate($callHooks = true) {
+		if (!parent::validate($callHooks)) return false;
 
 		// Ensure that the user is in the specified userGroupId or trying to enroll an allowed role
 		$userGroupId = (int) $this->getData('userGroupId');
@@ -66,9 +66,9 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	}
 
 	/**
-	 * Fetch the form.
+	 * @copydoc SubmissionSubmitForm::fetch
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$user = $request->getUser();
 		$templateMgr = TemplateManager::getManager($request);
 
@@ -135,11 +135,13 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		$templateMgr->assign('defaultGroup', $defaultGroup);
 		$templateMgr->assign('noExistingRoles', $noExistingRoles);
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
 	 * Initialize form data from current submission.
+	 * @see SubmissionSubmitForm::initData
+	 * @param $data array
 	 */
 	function initData($data = array()) {
 		if (isset($this->submission)) {
@@ -258,12 +260,11 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 
 	/**
 	 * Save changes to submission.
-	 * @param $args array
-	 * @param $request PKPRequest
 	 * @return int the submission ID
 	 */
-	function execute($args, $request) {
+	function execute() {
 		$submissionDao = Application::getSubmissionDAO();
+		$request = Application::getRequest(); 
 		$user = $request->getUser();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 
@@ -345,4 +346,4 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	}
 }
 
-?>
+

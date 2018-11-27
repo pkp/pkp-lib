@@ -8,8 +8,7 @@
   * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the en_US (English) locale.
-  *
+  * Localization strings.
   -->
 
 <locale name="zh_CN" full_name="简体中文">
@@ -57,7 +56,7 @@
 	<message key="rt.admin.sharing.buttonStyleLabel">按钮样式</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">使用下拉菜单</message>
 	<message key="rt.admin.sharing.advanced">高级设置 (可选)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[参阅关于参考文献的 <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">AddThis.com 定制文档</a>.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[参阅关于参考文献的 <a href="https://www.addthis.com/academy/how-to-create-custom-buttons-with-addthis/">AddThis.com 定制文档</a>.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Brand</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[下拉选项 <br /> (逗号分隔的列表)]]></message>
 	<message key="rt.admin.sharing.languageLabel">语言</message>

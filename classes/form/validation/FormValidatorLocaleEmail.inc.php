@@ -32,4 +32,4 @@ class FormValidatorLocaleEmail extends FormValidatorLocale {
 	}
 }
 
-?>
+

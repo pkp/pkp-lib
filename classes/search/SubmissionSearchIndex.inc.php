@@ -36,16 +36,14 @@ class SubmissionSearchIndex {
 		// Join multiple lines into a single string
 		if (is_array($text)) $text = join("\n", $text);
 
-		$cleanText = Core::cleanVar($text);
-
 		// Remove punctuation
-		$cleanText = PKPString::regexp_replace('/[!"\#\$%\'\(\)\.\?@\[\]\^`\{\}~]/', '', $cleanText);
-		$cleanText = PKPString::regexp_replace('/[\+,:;&\/<=>\|\\\]/', ' ', $cleanText);
-		$cleanText = PKPString::regexp_replace('/[\*]/', $allowWildcards ? '%' : ' ', $cleanText);
-		$cleanText = PKPString::strtolower($cleanText);
+		$text = PKPString::regexp_replace('/[!"\#\$%\'\(\)\.\?@\[\]\^`\{\}~]/', '', $text);
+		$text = PKPString::regexp_replace('/[\+,:;&\/<=>\|\\\]/', ' ', $text);
+		$text = PKPString::regexp_replace('/[\*]/', $allowWildcards ? '%' : ' ', $text);
+		$text = PKPString::strtolower($text);
 
 		// Split into words
-		$words = PKPString::regexp_split('/\s+/', $cleanText);
+		$words = PKPString::regexp_split('/\s+/', $text);
 
 		// FIXME Do not perform further filtering for some fields, e.g., author names?
 
@@ -84,4 +82,4 @@ class SubmissionSearchIndex {
 	}
 }
 
-?>
+

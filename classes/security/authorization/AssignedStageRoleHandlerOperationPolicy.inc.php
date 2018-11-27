@@ -59,4 +59,4 @@ class AssignedStageRoleHandlerOperationPolicy extends RoleBasedHandlerOperationP
 	}
 }
 
-?>
+

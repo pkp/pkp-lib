@@ -8,7 +8,7 @@
   * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Ukrainian_(uk_UA)
-  * Localization strings for the uk_UA (Українська) locale.
+  * Localization strings.
   -->
 
 <locale name="uk_UA" full_name="Українська">
@@ -215,7 +215,6 @@
 	<message key="common.pluginDisabled">Модуль "{$pluginName}" був відключений.</message>
 	<message key="common.prefix">Префікс (артикль)</message>
 	<message key="common.prefixAndTitle.tip">Не стосується української мови</message>
-	<message key="common.subtitle.tip">Вибраний підзаголовок з'явиться після знака двокрапка (:) після заголовку статті. Приклад - Ефективність когнітивно-поведінкової терапії: результати рандомізованого контрольованого дослідження</message>
 	<message key="common.preview">Попередній перегляд</message>
 	<message key="common.publisher">Видавець</message>
 	<message key="common.quality">Якість</message>

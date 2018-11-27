@@ -90,10 +90,10 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 
 
 	/**
-	 * @copydoc PKPHandler::initialize()
+	 * @copydoc CategoryGridHandler::initialize()
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 
 		// Load submission-specific translations
 		AppLocale::requireComponents(
@@ -143,7 +143,7 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 	/**
 	 * @copydoc CategoryGridHandler::loadCategoryData()
 	 */
-	function loadCategoryData($request, $userGroup) {
+	function loadCategoryData($request, &$userGroup, $filter = null) {
 		// Retrieve useful objects.
 		$submission = $this->getSubmission();
 		$stageId = $this->getStageId();
@@ -272,7 +272,7 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 		$form = new AddParticipantForm($submission, $stageId);
 		$form->readInputData();
 		if ($form->validate()) {
-			list($userGroupId, $userId, $stageAssignmentId) = $form->execute($request);
+			list($userGroupId, $userId, $stageAssignmentId) = $form->execute();
 
 			$notificationMgr = new NotificationManager();
 
@@ -437,10 +437,10 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 
 		import('controllers.grid.users.stageParticipant.form.StageParticipantNotifyForm'); // exists in each app.
 		$notifyForm = new StageParticipantNotifyForm($this->getSubmission()->getId(), ASSOC_TYPE_SUBMISSION, $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE));
-		$notifyForm->readInputData($request);
+		$notifyForm->readInputData();
 
 		if ($notifyForm->validate()) {
-			$noteId = $notifyForm->execute($request);
+			$noteId = $notifyForm->execute();
 
 			if ($this->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
 				$this->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {
@@ -511,4 +511,4 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 	}
 }
 
-?>
+

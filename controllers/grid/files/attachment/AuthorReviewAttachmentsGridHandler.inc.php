@@ -38,4 +38,4 @@ class AuthorReviewAttachmentsGridHandler extends FileListGridHandler {
 	}
 }
 
-?>
+

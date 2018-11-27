@@ -12,7 +12,7 @@
   -->
 
 <locale name="sv_SE" full_name="Svenska">
-  <message key="common.publicKnowledgeProject">Public Knowledge Project</message>
+	<message key="common.publicKnowledgeProject">Public Knowledge Project</message>
 	<message key="common.currentStyleSheet">Aktuell stilmall</message>
 	<message key="about.description">Beskrivning</message>
 	<message key="about.guidelines">Riktlinjer</message>
@@ -215,7 +215,6 @@
 	<message key="common.pluginDisabled">Pluginet "{$pluginName}" har avaktiverats.</message>
 	<message key="common.prefix">Prefix</message>
 	<message key="common.prefixAndTitle.tip">Exempel: En, Det, Den</message>
-	<message key="common.subtitle.tip">Undertiteln, som är frivillig, kommer att visas efter huvudtiteln, separerad med kolon (:).</message>
 	<message key="common.preview">Förhandsgranska</message>
 	<message key="common.publisher">Utgivare</message>
 	<message key="common.quality">Kvalitet</message>

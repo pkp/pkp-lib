@@ -86,10 +86,9 @@ class UserDetailsForm extends UserForm {
 
 	/**
 	 * Initialize form data from current user profile.
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function initData($args, $request) {
+	function initData() {
+		$request = Application::getRequest();
 		$context = $request->getContext();
 		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 
@@ -147,7 +146,7 @@ class UserDetailsForm extends UserForm {
 			$this->setData($key, $value);
 		}
 
-		parent::initData($args, $request);
+		parent::initData();
 	}
 
 	/**
@@ -236,11 +235,10 @@ class UserDetailsForm extends UserForm {
 
 	/**
 	 * Create or update a user.
-	 * @param $args array
-	 * @param $request PKPRequest
 	 */
-	function &execute($args, $request) {
+	function execute() {
 		$userDao = DAORegistry::getDAO('UserDAO');
+		$request = Application::getRequest();
 		$context = $request->getContext();
 
 		if (!isset($this->user)) {
@@ -285,7 +283,7 @@ class UserDetailsForm extends UserForm {
 			$auth =& $authDao->getPlugin($this->user->getAuthId());
 		}
 
-		parent::execute($args, $request);
+		parent::execute();
 
 		if ($this->user->getId() != null) {
 			if ($this->getData('password') !== '') {
@@ -334,7 +332,11 @@ class UserDetailsForm extends UserForm {
 				$mail->setReplyTo($context->getSetting('contactEmail'), $context->getSetting('contactName'));
 				$mail->assignParams(array('username' => $this->getData('username'), 'password' => $password, 'userFullName' => $this->user->getFullName()));
 				$mail->addRecipient($this->user->getEmail(), $this->user->getFullName());
-				$mail->send();
+				if (!$mail->send()) {
+					import('classes.notification.NotificationManager');
+					$notificationMgr = new NotificationManager();
+					$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
+				}
 			}
 		}
 
@@ -346,4 +348,4 @@ class UserDetailsForm extends UserForm {
 	}
 }
 
-?>
+

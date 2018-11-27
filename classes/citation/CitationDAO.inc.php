@@ -235,4 +235,4 @@ class CitationDAO extends DAO {
 
 }
 
-?>
+

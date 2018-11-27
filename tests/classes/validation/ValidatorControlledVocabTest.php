@@ -60,4 +60,4 @@ class ValidatorControlledVocabTest extends PKPTestCase {
 		self::assertFalse($validator->isValid('3'));
 	}
 }
-?>
+

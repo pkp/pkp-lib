@@ -45,4 +45,4 @@ class ContextRequiredPolicy extends AuthorizationPolicy {
 	}
 }
 
-?>
+

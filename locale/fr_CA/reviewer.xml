@@ -19,7 +19,7 @@
 	<message key="reviewer.reviewSteps.download"><![CDATA[3. Télécharger & Évaluer]]></message>
 	<message key="reviewer.reviewSteps.completion">4. Terminer</message>
 	<message key="reviewer.step1.request">Requête d'évaluation</message>
-	<message key="reviewer.step1.requestBoilerplate">Vous avez été choisi(e) en tant qu'évaluateur(trice) potentiel(le) de la soumission suivante. Voici un aperçu de la soumission, ainsi que les échéanciers associés à son examen. Nous espérons que vous pourrez participer au processus d'évaluation.</message>
+	<message key="reviewer.step1.requestBoilerplate">Vous avez été choisi en tant qu'évaluateur potentiel de la soumission suivante. Voici un aperçu de la soumission, ainsi que les échéanciers associés à son examen. Nous espérons que vous pourrez participer au processus d'évaluation.</message>
 	<message key="reviewer.step1.viewAllDetails">Voir tous les détails de la soumission</message>
 	<message key="reviewer.submission.declineReview">Refuser la requête d'évaluation</message>
 	<message key="reviewer.submission.declineReviewMessage">Vous pouvez indiquer au rédacteur, dans le champ ci-dessous, les raisons pour lesquelles vous refusez de participer à ce processus d'évaluation.</message>
@@ -32,17 +32,17 @@
 	<message key="reviewer.submission.hasCompetingInterests">Il est possible que j'aie des intérêts opposés (veuillez spécifier).</message>
 	<message key="reviewer.submission.competingInterests">Intérêts opposés</message>
 	<message key="reviewer.submission.guidelines">Lignes directrices des évaluations</message>
-	<message key="reviewer.submission.noGuidelines">Cet éditeur n'a pas établi de lignes directrices pour les évaluateurs.</message>
+	<message key="reviewer.submission.noGuidelines">Cette revue n'a pas établi de lignes directrices pour les évaluateurs.</message>
 	<message key="reviewer.submission.downloadDescription">Cliquez sur les noms des fichiers pour télécharger et évaluer (sur l'écran ou après les avoir imprimés) les fichiers associés à cette soumission.</message>
 	<message key="reviewer.submission.reviewDescription">Saisir (ou copier/coller) votre évaluation de cette soumission dans le formulaire ci-dessous.</message>
-	<message key="reviewer.submission.uploadDescription">De plus, vous pouvez téléverser des fichiers que le rédacteur et/ou l'auteur pourront consulter, y compris les versions révisées des fichiers d'évaluation originaux.</message>
+	<message key="reviewer.submission.uploadDescription">Téléverser des fichiers que le rédacteur et/ou l'auteur pourront consulter, y compris les versions révisées des fichiers d'évaluation originaux.</message>
 	<message key="reviewer.complete">Évaluation envoyée</message>
 	<message key="reviewer.confirmSubmit">Vous voulez vraiment envoyer cette évaluation?</message>
 	<message key="reviewer.aboutDueDates">À propos des dates d'échéance</message>
 	<message key="reviewer.complete.whatNext">Merci d'avoir évalué cette soumission. Votre évaluation a bien été reçue. Nous apprécions votre contribution à la qualité du travail que nous publions. L'éditeur pourrait vous contacter à nouveau pour obtenir d'autres renseignements, le cas échéant.</message>
-	<message key="reviewer.aboutDueDates.text">L'éditeur demande que vous acceptiez ou refusiez d'évaluer la soumission avant la date d'échéance, et complétiez l'évaluation avant la date d'échéance.</message>
+	<message key="reviewer.aboutDueDates.text">Le rédacteur demande que vous acceptiez ou refusiez d'évaluer la soumission avant la date d'échéance, et si vous acceptez, que vous complétiez l'évaluation avant la date d'échéance.</message>
 	<message key="submission.comments.canShareWithAuthor">Ce texte sera transmis à l'auteur et au rédacteur</message>
-	<message key="submission.comments.cannotShareWithAuthor">Ce texte sera transmis au rédacteur</message>
+	<message key="submission.comments.cannotShareWithAuthor">Ce texte sera transmis uniquement au rédacteur</message>
 	<message key="user.authorization.submissionReviewer">L'utilisateur actuel n'est pas assigné en tant qu'évaluateur pour le document demandé.</message>
 </locale>
 

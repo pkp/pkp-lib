@@ -48,10 +48,10 @@ class EmailReviewerForm extends Form {
 
 	/**
 	 * Display the form.
-	 * @param $request PKPRequest
 	 * @param $requestArgs array Request parameters to bounce back with the form submission.
+	 * @see Form::fetch
 	 */
-	function fetch($request, $requestArgs = array()) {
+	function fetch($request, $template = null, $display = false, $requestArgs = array()) {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $userDao->getById($this->_reviewAssignment->getReviewerId());
 
@@ -62,17 +62,17 @@ class EmailReviewerForm extends Form {
 			'reviewAssignmentId' => $this->_reviewAssignment->getId(),
 		));
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
 	 * Send the email
-	 * @param $request PKPRequest
 	 * @param $submission Submission
 	 */
-	function execute($request, $submission) {
+	function execute($submission) {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$toUser = $userDao->getById($this->_reviewAssignment->getReviewerId());
+		$request = Application::getRequest();
 		$fromUser = $request->getUser();
 
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
@@ -83,8 +83,12 @@ class EmailReviewerForm extends Form {
 		$email->setSubject($this->getData('subject'));
 		$email->setBody($this->getData('message'));
 		$email->assignParams();
-		$email->send();
+		if (!$email->send()) {
+			import('classes.notification.NotificationManager');
+			$notificationMgr = new NotificationManager();
+			$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
+		}
 	}
 }
 
-?>
+

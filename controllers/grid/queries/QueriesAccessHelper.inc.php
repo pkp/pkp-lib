@@ -59,7 +59,7 @@ class QueriesAccessHelper {
 		if ($this->hasStageRole($query->getStageId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR))) return true;
 
 		// Assigned assistants are allowed
-		if ($this->hasStageRole($query->getStageId(), array(ROLE_ID_ASSISTANT)) && $this->isAssigned($this->_user->getId(), $queryId)) return true;
+		if ($this->hasStageRole($query->getStageId(), array(ROLE_ID_ASSISTANT)) && $this->isAssigned($this->_user->getId(), $query->getId())) return true;
 
 		// Otherwise, not allowed.
 		return false;
@@ -160,4 +160,4 @@ class QueriesAccessHelper {
 	}
 }
 
-?>
+

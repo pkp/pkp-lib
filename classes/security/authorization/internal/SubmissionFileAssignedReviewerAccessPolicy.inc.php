@@ -64,4 +64,4 @@ class SubmissionFileAssignedReviewerAccessPolicy extends SubmissionFileBaseAcces
 	}
 }
 
-?>
+

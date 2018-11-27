@@ -130,4 +130,4 @@ class UserApiHandler extends PKPHandler {
 	}
 }
 
-?>
+

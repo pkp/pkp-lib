@@ -82,7 +82,7 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 	/**
 	 * @copydoc GridCellProvider::getCellActions()
 	 */
-	function getCellActions($request, $row, $column) {
+	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
 		import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 		import('lib.pkp.classes.linkAction.request.AjaxAction');
 
@@ -109,7 +109,7 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 				}
 				break;
 		}
-		return parent::getCellActions($request, $row, $column);
+		return parent::getCellActions($request, $row, $column, $position);
 	}
 
 	/**
@@ -126,4 +126,4 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 	}
 }
 
-?>
+

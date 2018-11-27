@@ -7,9 +7,8 @@
   * Copyright (c) 2014-2018 Simon Fraser University
   * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  *
-  * Localization strings for the ru_RU (Русский) locale.
   * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Russian_(ru_RU)
+  * Localization strings.
   -->
 
 <locale name="ru_RU" full_name="Русский">
@@ -216,7 +215,6 @@
 	<message key="common.pluginDisabled">Модуль «{$pluginName}» был выключен.</message>
 	<message key="common.prefix">Префикс</message>
 	<message key="common.prefixAndTitle.tip">Примеры: A, The</message>
-	<message key="common.subtitle.tip">Необязательный подзаголовок появится после двоеточия (:) после основного заголовка.</message>
 	<message key="common.preview">Предварительный просмотр</message>
 	<message key="common.publisher">Издатель</message>
 	<message key="common.quality">Качество</message>

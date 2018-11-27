@@ -223,4 +223,4 @@ class Announcement extends DataObject {
 	}
 }
 
-?>
+

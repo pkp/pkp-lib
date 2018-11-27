@@ -1022,4 +1022,4 @@ abstract class Submission extends DataObject {
 	abstract function _getContextLicenseFieldValue($locale, $field);
 }
 
-?>
+

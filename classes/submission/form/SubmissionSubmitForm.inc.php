@@ -47,9 +47,9 @@ class SubmissionSubmitForm extends Form {
 	}
 
 	/**
-	 * Fetch the form.
+	 * @copydoc Form::fetch
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 
 		$templateMgr->assign('submissionId', $this->submissionId);
@@ -61,8 +61,8 @@ class SubmissionSubmitForm extends Form {
 			$submissionProgress = 1;
 		}
 		$templateMgr->assign('submissionProgress', $submissionProgress);
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 }
 
-?>
+

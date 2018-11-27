@@ -122,4 +122,4 @@ class MetadataTypeDescription extends ClassTypeDescription {
 		return true;
 	}
 }
-?>
+

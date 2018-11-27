@@ -68,4 +68,4 @@ class AnnouncementGridRow extends GridRow {
 	}
 }
 
-?>
+

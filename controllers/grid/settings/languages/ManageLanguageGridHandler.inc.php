@@ -69,8 +69,8 @@ class ManageLanguageGridHandler extends LanguageGridHandler {
 	/**
 	 * @copydoc LanguageGridHandler::initialize()
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
 
 		$this->addNameColumn();
@@ -79,4 +79,4 @@ class ManageLanguageGridHandler extends LanguageGridHandler {
 	}
 }
 
-?>
+

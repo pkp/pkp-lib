@@ -106,7 +106,7 @@ class SettingsTabHandler extends Handler {
 				return $templateMgr->fetchJson($this->_getTabTemplate());
 			} else {
 				$tabForm = $this->getTabForm();
-				$tabForm->initData($request);
+				$tabForm->initData();
 				return new JSONMessage(true, $tabForm->fetch($request));
 			}
 		}
@@ -124,9 +124,9 @@ class SettingsTabHandler extends Handler {
 			$tabForm = $this->getTabForm();
 
 			// Try to save the form data.
-			$tabForm->readInputData($request);
+			$tabForm->readInputData();
 			if($tabForm->validate()) {
-				$result = $tabForm->execute($request);
+				$result = $tabForm->execute();
 				if ($result !== false) {
 					$notificationManager = new NotificationManager();
 					$user = $request->getUser();
@@ -226,4 +226,4 @@ class SettingsTabHandler extends Handler {
 	}
 }
 
-?>
+

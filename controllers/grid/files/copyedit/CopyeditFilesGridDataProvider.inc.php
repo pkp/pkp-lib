@@ -43,4 +43,4 @@ class CopyeditFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 	}
 }
 
-?>
+

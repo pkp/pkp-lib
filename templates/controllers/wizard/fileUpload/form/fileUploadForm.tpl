@@ -118,10 +118,13 @@
 	<br /><br />
 {else}
 
+{assign var=uploadFormId value="uploadForm"|uniqid}
+{assign var=pluploadControl value="plupload"|uniqid}
+{assign var=browseButtonId value="browseButton"|uniqid}
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the upload form handler.
-		$('#uploadForm').pkpHandler(
+		$('#{$uploadFormId}').pkpHandler(
 			'$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler',
 			{ldelim}
 				hasFileSelector: {if $showFileSelector}true{else}false{/if},
@@ -135,17 +138,18 @@
 						{/if}
 					{/foreach}
 				{rdelim},
-				$uploader: $('#plupload'),
+				$uploader: $('#{$pluploadControl}'),
 				uploaderOptions: {ldelim}
 					uploadUrl: {url|json_encode op="uploadFile" submissionId=$submissionId stageId=$stageId fileStage=$fileStage reviewRoundId=$reviewRoundId assocType=$assocType assocId=$assocId escape=false},
 					baseUrl: {$baseUrl|json_encode},
+					browse_button: '{$browseButtonId}'
 				{rdelim}
 			{rdelim});
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="uploadForm" action="#" method="post">
-	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="uploadFormNotification"}
+<form class="pkp_form" id="{$uploadFormId}" action="#" method="post">
+	{include file="controllers/notification/inPlaceNotification.tpl" notificationId=$uploadFormId|concat:"Notification"}
 	{csrf}
 	{fbvFormArea id="file"}
 		{if $assocType && $assocId}
@@ -181,7 +185,7 @@
 
 		{fbvFormSection}
 			{* The uploader widget *}
-			{include file="controllers/fileUploadContainer.tpl" id="plupload"}
+			{include file="controllers/fileUploadContainer.tpl" id=$pluploadControl browseButton=$browseButtonId}
 		{/fbvFormSection}
 
 		{if $ensuringLink}

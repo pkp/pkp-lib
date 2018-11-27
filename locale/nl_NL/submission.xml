@@ -8,8 +8,7 @@
   * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the nl_NL (Nederlands) locale.
-  *
+  * Localization strings.
   -->
 
 <locale name="nl_NL" full_name="Nederlands">
@@ -83,7 +82,6 @@
 	<message key="submission.layout.confirmDeleteSupplementaryFile">Weet u zeker dat u dit aanvullend bestand wilt verwijderen?</message>
 	<message key="submission.layout.deleteGalleyStylesheet">Verwijder deze stylesheet.</message>
 	<message key="submission.layout.editGalley">Bewerken opmaakproefdruk</message>
-	<message key="submission.layout.galleyFileData">Proefdrukbestand informatie</message>
 	<message key="submission.layout.galleyFormat">Proef-formaat</message>
 	<message key="submission.layout.galleyHTMLData">HTML proefdruk bestanden</message>
 	<message key="submission.layout.galleyImages">Afbeeldingen</message>

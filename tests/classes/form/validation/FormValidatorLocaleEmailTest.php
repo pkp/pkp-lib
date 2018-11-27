@@ -39,4 +39,4 @@ class FormValidatorLocaleEmailTest extends PKPTestCase {
 		self::assertFalse($validator->isValid());
 	}
 }
-?>
+

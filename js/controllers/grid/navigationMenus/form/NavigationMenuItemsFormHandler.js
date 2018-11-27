@@ -32,8 +32,7 @@
 		this.itemTypeConditionalWarnings_ = options.itemTypeConditionalWarnings;
 
 		$('#previewButton', $formElement).click(this.callbackWrapper(
-				this.showPreview_))
-				.hide();
+				this.showPreview_));
 
 		$('#menuItemType', $formElement).change(this.callbackWrapper(this.setType));
 		$('#menuItemType', $formElement).trigger('change');
@@ -112,18 +111,10 @@
 	$.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsFormHandler.
 			prototype.setType = function() {
 		var itemType = $('#menuItemType', this.getHtmlElement()).val(),
-				$customPageEls = $('#customPageOptions, #previewButton'),
-				$remoteUrlEls = $('#remoteUrlTarget'),
 				$descriptionEl = $('#menuItemTypeSection [for="menuItemType"]');
 
-		$customPageEls.hide();
-		$remoteUrlEls.hide();
-
-		if (itemType === 'NMI_TYPE_CUSTOM') {
-			$customPageEls.fadeIn();
-		} else if (itemType === 'NMI_TYPE_REMOTE_URL') {
-			$remoteUrlEls.fadeIn();
-		}
+		$('.NMI_TYPE_CUSTOM_EDIT', this.getHtmlElement()).hide();
+		$('#' + itemType).fadeIn();
 
 		if (typeof this.itemTypeDescriptions_[itemType] !== 'undefined') {
 			$descriptionEl.text(this.itemTypeDescriptions_[itemType]);

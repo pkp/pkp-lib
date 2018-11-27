@@ -30,4 +30,4 @@ class FormValidatorISSN extends FormValidator {
 	}
 }
 
-?>
+

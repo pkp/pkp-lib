@@ -38,6 +38,12 @@ class NavigationMenuItemsGridCellProvider extends GridCellProvider {
 
 		switch ($columnId) {
 			case 'title':
+				$templateMgr = TemplateManager::getManager(Application::getRequest());
+				import('classes.core.ServicesContainer');
+				ServicesContainer::instance()
+					->get('navigationMenu')
+					->transformNavMenuItemTitle($templateMgr, $navigationMenuItem);
+
 				return array('label' => $navigationMenuItem->getLocalizedTitle());
 			default:
 				break;
@@ -47,4 +53,4 @@ class NavigationMenuItemsGridCellProvider extends GridCellProvider {
 	}
 }
 
-?>
+

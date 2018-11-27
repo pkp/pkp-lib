@@ -397,4 +397,4 @@ class PKPMods34Schema extends MetadataSchema {
 		$this->addProperty('recordInfo/languageOfCataloging/languageTerm[@authority="iso639-2b"]', METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_ONE, null, null, true);
 	}
 }
-?>
+

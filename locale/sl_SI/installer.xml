@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
@@ -10,74 +10,74 @@
   *
   * Localization strings.
   -->
-
 <locale name="sl_SI" full_name="Slovenščina">
-	<message key="installer.additionalLocales">Dodatne območne nastavitve</message>
-	<message key="installer.administratorAccount">Skrbniški račun</message>
-	<message key="installer.administratorAccountInstructions">Ta uporabniški račun bo postal skrbnik celotnega spletišča in bo imel dostop do celotnega sistema. Dodatne uporabniške račune lahko ustvarite po namestitvi.</message>
+	<message key="installer.additionalLocales">Dodatni jeziki</message>
+	<message key="installer.administratorAccount">Račun administratorja</message>
+	<message key="installer.administratorAccountInstructions">Ta uporabniški račun bo postal administrator celotnega spletišča in bo imel dostop do celotnega sistema. Dodani uporabniški računi se lahko naredijo po namestitvi.</message>
 	<message key="installer.checkNo"><![CDATA[<span class="pkp_form_error formError">NE</span>]]></message>
 	<message key="installer.checkYes">Da</message>
-	<message key="installer.clientCharset">Nabor znakov tbc</message>
+	<message key="installer.clientCharset">Nabor znakov klienta</message>
 	<message key="installer.clientCharsetInstructions">Kodiranje, ki se uporablja za pošiljanje in prejemanje podatkov iz različnih brskalnikov.</message>
-	<message key="installer.configFileError"><![CDATA[Konfiguracijska datoteka <tt>config.inc.php</tt> ne obstaja ali ni berljiva.]]></message>
+	<message key="installer.configFileError"><![CDATA[Nastavitvena datoteka <tt>config.inc.php</tt> ne obstaja ali ni berljiva.]]></message>
 	<message key="installer.connectionCharset">Nabor znakov povezave</message>
-	<message key="installer.contentsOfConfigFile">Vsebina konfiguracijske datoteke</message>
-	<message key="installer.createDatabase">Ustvari novo podatkovno zbirko</message>
-	<message key="installer.createDatabaseInstructions">Če želite uporabiti to možnost, mora vaša podatkovna zbirka podpirati oddaljeno ustvarjanje podatkovnih zbirk, vaš uporabniški račun pa mora imeti ustrezna dovoljenja. Če namestitev s to možnostjo ni uspešna, ročno ustvarite podatkovno zbirko na strežniku, onemogočite to možnost in ponovno zaženite namestitveni program.</message>
-	<message key="installer.databaseCharset">Nabor znakov podatkovne zbirke</message>
-	<message key="installer.databaseDriver">Gonilnik podatkovne zbirke</message>
-	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Gonilniki podatkovne zbirke, našteti v oklepajih, nimajo naložene potrebne razširitve PHP in če jih izberete za namestitev, bo ta najverjetneje neuspešna. </strong><br />Zgoraj našteti nepodprti gonilniki so omenjeni zgolj za informacijo in najverjetneje ne bodo delovali.]]></message>
-	<message key="installer.databaseHost">Gostitelj</message>
-	<message key="installer.databaseHostInstructions">Za povezavo s pomočjo vtičnice domene namesto s TCP/IP pustite ime gostitelja prazno. To ni potrebno pri MySQL, ki avtomatsko uporabi vtičnico, če izberete "localhost", vendar pa je potrebno pri nekaterih drugih podatkovnih zbirkah, kot je PostgreSQL.</message>
-	<message key="installer.databaseName">Ime podatkovne zbirke</message>
+	<message key="installer.contentsOfConfigFile">Vsebina nastavitvene datoteke</message>
+	<message key="installer.createDatabase">Ustvari novo bazo podatkov</message>
+	<message key="installer.createDatabaseInstructions">Če želite uporabiti to opcijo, mora vaša baza podatkov podpirati oddaljeno ustvarjane baze podatkov, vaš uporabniški račun pa mora imeti ustrezne pravice. Če namestitev s to opcijo ni uspešna, ustvarite bazo podatkov ročno in ponovno zaženite namestitev brez te opcije.</message>
+	<message key="installer.databaseCharset">Nabor znakov baze podatkov</message>
+	<message key="installer.databaseDriver">Gonilnik baze podatkov</message>
+	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Gonilniki za bazo podatkov v oklepajih nimajo potrebne podpore za PHP, zato bo namestitev z njimi najverjetneje neuspešna.</strong><br />Vsi nepodprti gonilniki za baze podatkov zgoraj so našteti le zaradi akademskih potreb in najverjetneje ne bodo delovali.]]></message>
+	<message key="installer.databaseHost">Gostitelj "Host"</message>
+	<message key="installer.databaseHostInstructions">Pustite ime gostitelja prazno za povezavo s pomočjo domenske vtičnice namesto TCP/IP-ja. To ni potrebno pri MySQL, ki avtomatsko uporabi vtičnico, če je vpisano "localhost". Je pa potrebno pri nekaterih drugih bazah podatkov, recimo PostgreSQL.</message>
+	<message key="installer.databaseName">Ime baze podatkov</message>
 	<message key="installer.databasePassword">Geslo</message>
-	<message key="installer.databaseSettings">Nastavitve podatkovne zbirke</message>
+	<message key="installer.databaseSettings">Nastavitve baze podatkov</message>
 	<message key="installer.databaseUsername">Uporabniško ime</message>
 	<message key="installer.filesDir">Mapa za nalaganje datotek</message>
 	<message key="installer.fileSettings">Nastavitve datotek</message>
-	<message key="installer.form.clientCharsetRequired">Izbrati morate nabor znakov tbc.</message>
-	<message key="installer.form.databaseDriverRequired">Izbrati morate gonilnik podatkovne zbirke.</message>
-	<message key="installer.form.databaseNameRequired">Ime podatkovne zbirke je obvezno.</message>
-	<message key="installer.form.emailRequired">Veljavni e-poštni naslov je obvezen za skrbniški račun.</message>
-	<message key="installer.form.filesDirRequired">Mapa, v katero se bodo shranjevale naložene datoteke, je obvezna.</message>
-	<message key="installer.form.localeRequired">Izbrati morate jezik oziroma območne nastavitve.</message>
-	<message key="installer.form.passwordRequired">Geslo za skrbniški račun je obvezno.</message>
-	<message key="installer.form.passwordsDoNotMatch">Gesli se ne ujemata.</message>
-	<message key="installer.form.separateMultiple">Vrednosti ločite z vejicami</message>
-	<message key="installer.form.usernameAlphaNumeric">Uporabniško ime skrbnika lahko vsebuje samo črke, številke, podčrtaje in vezaje ter se mora začeti in končati s črko ali številko.</message>
-	<message key="installer.form.usernameRequired">Uporabniško ime za skrbniški račun je obvezno.</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>OPOZORILO: Vaša sedanja verzija PHP ne zadošča minimalnim zahtevam za namestitev. Priporočamo, da nadgradite PHP z novejšo verzijo.</strong>]]></message>
+	<message key="installer.form.clientCharsetRequired">Izbrati morate nabor znakov klienta.</message>
+	<message key="installer.form.databaseDriverRequired">Izbrati morate gonilnik za bazo podatkov.</message>
+	<message key="installer.form.databaseNameRequired">Ime baze podatkov je obvezno.</message>
+	<message key="installer.form.emailRequired">Veljaven e-poštni naslov za račun administratorja je obvezen.</message>
+	<message key="installer.form.filesDirRequired">Mapa za shranjevanje naloženih datotek je obvezna.</message>
+	<message key="installer.form.localeRequired">Izbrati morate jezik.</message>
+	<message key="installer.form.passwordRequired">Geslo za račun administratorja je obvezno.</message>
+	<message key="installer.form.passwordsDoNotMatch">Gesli administratorja se ne ujemata.</message>
+	<message key="installer.form.separateMultiple">Več vrednosti med seboj ločite z vejicami</message>
+	<message key="installer.form.usernameAlphaNumeric">Uporabniško ime administratorja lahko vsebuje samo alfanumerične znake, podčrtaj, pomišljaj in se mora začeti in končati z alfanumeričnim znakom.</message>
+	<message key="installer.form.usernameRequired">Uporabniško ime za račun administratorja je obvezno.</message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>OPOZORILO: Vaša verzija PHP ne zadostuje minimalnim zahtevam za namestitev. Priporočljivo je, da PHP nadgradite z novejšo verzijo.</strong>]]></message>
 	<message key="installer.installErrorsOccurred">Med namestitvijo je prišlo do napak</message>
-	<message key="installer.installerSQLStatements">Izjave SQL za namestitev</message>
+	<message key="installer.installerSQLStatements">SQL stavki za namestitev</message>
 	<message key="installer.installFileError"><![CDATA[Namestitvena datoteka <tt>dbscripts/xml/install.xml</tt> ne obstaja ali ni berljiva.]]></message>
-	<message key="installer.installFilesDirError">Izbrana mapa za nalaganje datotek ne obstaja ali ni zapisljiva.</message>
-	<message key="installer.installParseDBFileError"><![CDATA[Napaka pri razčlenjevanju namestitvene datoteke podatkovne zbirke <tt>{$file}</tt>.]]></message>
-	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Napaka pri razčlenjevanju e-poštne predloge <tt>{$file}</tt>.]]></message>
-	<message key="installer.installParseFilterConfigFileError"><![CDATA[Napaka pri razčlenjevanju konfiguracijske datoteke filtra <tt>{$file}</tt>.]]></message>
-	<message key="installer.unsupportedUpgradeError">Posodobitev ni podprta. Več informacij najdete v docs/UPGRADE-UNSUPPORTED.</message>
-	<message key="installer.locale">Območne nastavitve</message>
-	<message key="installer.locale.maybeIncomplete">Označene območne nastavitve morda še niso popolne.</message>
-	<message key="installer.localeSettings">Območne nastavitve</message>
-	<message key="installer.oaiSettings">Nastavitve OAI</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Edinstven identifikator, ki se uporablja za identificiranje zapisov metapodatkov, pridobljenih na tem spletišču z uporabo protokola za zajemanje metapodatkov <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a>.]]></message>
-	<message key="installer.oaiRepositoryId">Identifikator skladišča</message>
-	<message key="installer.publicFilesDirError">Mapa za javne datoteke ne obstaja ali ni zapisljiva.</message>
+	<message key="installer.installFilesDirError">Podana mapa za nalaganje datotek ne obstaja ali vanj ne moremo pisati.</message>
+	<message key="installer.installParseDBFileError"><![CDATA[Napaka pri analiziranju namestitvene datoteke za bazo podatkov <tt>{$file}</tt>.]]></message>
+	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Napaka pri analizi datoteke s predlogo za emaile <tt>{$file}</tt>.]]></message>
+	<message key="installer.installParseFilterConfigFileError"><![CDATA[Napaka pri analizi nastavitvene datoteke filtra <tt>{$file}</tt>.]]></message>
+	<message key="installer.unsupportedUpgradeError">Nadgradnja ni podprta. Za več informacij poglejte v docs/UPGRADE-UNSUPPORTED.</message>
+	<message key="installer.locale">Jezik</message>
+	<message key="installer.locale.maybeIncomplete">Označeni jeziki so lahko nepopolni.</message>
+	<message key="installer.localeSettings">Jezikovne nastavitve</message>
+	<message key="installer.oaiSettings">OAI nastavitve</message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Enoznačen identifikator, ki se uporablja za identifikacijo zapisov metapodatkov  pridobljenih na tem spletišču z uporabo <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> protokola za zajemanje metapodatkov.]]></message>
+	<message key="installer.oaiRepositoryId">OAI identifikator repozitorija</message>
+	<message key="installer.publicFilesDirError">Mapa za javne datoteke ne obstaja ali vanj ne moremo pisati.</message>
 	<message key="installer.releaseNotes">Opombe k izdaji</message>
-	<message key="installer.preInstallationInstructionsTitle">Koraki pred namestitvijo</message>
+	<message key="installer.preInstallationInstructionsTitle">Prednamestitveni koraki</message>
 	<message key="installer.preInstallationInstructions"><![CDATA[
-		<p>1. Naslednje datoteke in mape (in njihove vsebine) morajo biti zapisljive: </p>
+		<p>1. Nasldenje datoteke in mape (vključno z vsebino) morajo imeti pravico pisanja:</p>
 		<ul>
-			<li><tt>config.inc.php</tt> je zapisljiva (neobvezno): {$writable_config}</li>
-			<li><tt>public/</tt> je zapisljiva: {$writable_public}</li>
-			<li><tt>cache/</tt> je zapisljiva: {$writable_cache}</li>
-			<li><tt>cache/t_cache/</tt> je zapisljiva: {$writable_templates_cache}</li>
-			<li><tt>cache/t_compile/</tt> je zapisljiva: {$writable_templates_compile}</li>
-			<li><tt>cache/_db</tt> je zapisljiva: {$writable_db_cache}</li>
+			<li><tt>config.inc.php</tt> omogočeno pisanje (opcijsko): {$writable_config}</li>
+			<li><tt>public/</tt> omogočeno pisanje: {$writable_public}</li>
+			<li><tt>cache/</tt> omogočeno pisanje: {$writable_cache}</li>
+			<li><tt>cache/t_cache/</tt> omogočeno pisanje: {$writable_templates_cache}</li>
+			<li><tt>cache/t_compile/</tt> omogočeno pisanje: {$writable_templates_compile}</li>
+			<li><tt>cache/_db</tt> omogočeno pisanje: {$writable_db_cache}</li>
 		</ul>
-		
-		<p>2. Treba je ustvariti mapo za naložene datoteke, ki mora biti zapisljiva (več informacij najdete v "Nastavitve datotek" spodaj).</p>]]>
+
+		<p>2. Mapa za shranjevanje naloženih datotek mora obstajati in imeti omogočeno pisanje (več v "Nastavitve datotek" spodaj).</p>]]>
 	</message>
-	<message key="installer.configureXSLMessage"><![CDATA[<p>Nameščena različica PHP nima omogočenega modula XSL. Omogočite ga ali pa konfigurirajte parameter xslt_command v datoteki config.inc.php file.</p>]]></message>
-	<message key="installer.beacon">Sporočilo o napaki</message>
-	<message key="installer.beacon.enable">Podajte edinstveno oznako spletišča in osnovni URL, ki je v skladu z OAI. PKP ju bo uporabil le za statistiko in za varnostna opozorila.</message>
+	<message key="installer.configureXSLMessage"><![CDATA[<p>Vaša PHP namestitev nima omogočenega XSL modula. Ali ga vključite ali pa ustrezno konfigurirajte paramer xslt_command v vaši config.inc.php datoteki.</p>]]></message>
+	<message key="installer.beacon">Beacon</message>
+	<message key="installer.beacon.enable">Vnesite enolični identifikator spletišča, ki bo hkrati osnova za OAI za PKP, izključno za statistiko in varnostna opozorila.</message>
+	<message key="installer.unsupportedPhpError">Vaš strežnik ima nameščeno verzijo PHP, ki ni podprta. Preverite zahtevane pogoje za namestitev v docs/README.</message>
 </locale>

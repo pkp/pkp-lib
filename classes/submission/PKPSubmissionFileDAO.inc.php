@@ -727,6 +727,42 @@ abstract class PKPSubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 		$submissionFileDAODelegate->deleteAllPubIds($contextId, $pubIdType);
 	}
 
+	/**
+	 * Get the workflow stage id associated with a submission file
+	 *
+	 * Maps a file stage to a workflow stage. When a file is associated with a
+	 * review round or query, it will get the stage id from the round or query.
+	 *
+	 * @param $submissionFile SubmissionFile
+	 * @return null|int One of the WORKFLOW_STAGE_... constants or null if the
+	 *  submission file is not attached to a particular stage
+	 */
+	public function getWorkflowStageId($submissionFile) {
+		switch ($submissionFile->getFileStage()) {
+			case SUBMISSION_FILE_SUBMISSION:
+				return WORKFLOW_STAGE_ID_SUBMISSION;
+			case SUBMISSION_FILE_REVIEW_FILE:
+			case SUBMISSION_FILE_REVIEW_ATTACHMENT:
+			case SUBMISSION_FILE_REVIEW_REVISION:
+				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+				$reviewRound = $reviewRoundDao->getBySubmissionFileId($submissionFile->getFileId());
+				return $reviewRound->getStageId();
+			case SUBMISSION_FILE_FINAL:
+			case SUBMISSION_FILE_COPYEDIT:
+				return WORKFLOW_STAGE_ID_EDITING;
+			case SUBMISSION_FILE_PROOF:
+			case SUBMISSION_FILE_PRODUCTION_READY:
+			case SUBMISSION_FILE_DEPENDENT:
+				return WORKFLOW_STAGE_ID_PRODUCTION;
+			case SUBMISSION_FILE_QUERY:
+				$noteDao = DAORegistry::getDAO('NoteDAO');
+				$note = $noteDao->getById($submissionFile->getAssocId());
+				$queryDao = DAORegistry::getDAO('QueryDAO');
+				$query = $queryDao->getById($note->getAssocId());
+				return $query?$query->getStageId():null;
+		}
+	}
+
 	//
 	// Private helper methods
 	//
@@ -1047,4 +1083,4 @@ abstract class PKPSubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 	}
 }
 
-?>
+

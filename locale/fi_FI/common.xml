@@ -195,7 +195,6 @@
 	<message key="common.pluginDisabled">"{$pluginName}"-lisäosa on poistettu käytöstä.</message>
 	<message key="common.prefix">Prefiksi</message>
 	<message key="common.prefixAndTitle.tip">Esimerkkejä: A, The</message>
-	<message key="common.subtitle.tip">Valinnainen alaotsikko näkyy kaksoispisteen (:) jälkeen, pääotsikon perässä.</message>
 	<message key="common.preview">Esikatselu</message>
 	<message key="common.publisher">Julkaisija</message>
 	<message key="common.quality">Laatu</message>
@@ -531,8 +530,7 @@
 	<message key="stageParticipants.recommendOnly">Tämä käyttäjä voi ainostaan suositella toimituksellista päätöstä ja vaatii toisen toimittajan päätöksen vahvistamiseen.</message>
 	<message key="common.deleting">Poistetaan</message>
 	<message key="common.lessThan">{$value} tai vähemmän</message>
-	<message key="common.commaListSeparator">, </message>
-	<message key="common.semicolonListSeparator">; </message>
+	<message key="common.listSeparator">,</message>
 	<message key="common.moreThan">{$value} tai enemmän</message>
 	<message key="common.pagination">{$start}-{$end} / {$total}</message>
 	<message key="common.pagination.label">Selaa sivuja</message>
@@ -542,4 +540,5 @@
 	<message key="list.viewMore">Näytä lisätietoja {$name}</message>
 	<message key="list.viewLess">Piilota lisätiedot {$name}</message>
 	<message key="common.filterAdd">Lisää suodatin: {$filterTitle}</message>
+	<message key="notification.type.reviewAssignmentUpdated">Arviointipyyntö päivitetty.</message>
 </locale>

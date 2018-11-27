@@ -260,16 +260,33 @@
 	<message key="navigation.stepNumber">Krok {$step}</message>
 	<message key="navigation.userHome">Moje konto</message>
 	<message key="navigation.user">Użytkownik</message>
-	<message key="notification.allow">Pozwól aby ten rodzaj powiadomień wyświetlał się w moim czytniku powiadomień.</message>
+	<message key="notification.allow">Pozwól, aby ten rodzaj powiadomień wyświetlał się w moim czytniku powiadomień.</message>
 	<message key="notification.confirmError">Wystąpił błąd podczas potwierdzania twojej subskrypcji.</message>
 	<message key="notification.confirmSuccess">Zostałeś zasubskrybowany(a).</message>
+	<message key="notification.email">Wyślij e-mail dla tych rodzajów powiadomień.</message>
+	<message key="notification.location">Idź do URL</message>
+	<message key="notification.mailList">Lista mailingowa</message>
+	<message key="notification.mailList.emailInvalid">Podaj poprawny adres e-mail.</message>
+	<message key="notification.mailList.privacyProtection">Polityka prywatności</message>
+	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Subskrybuj</a> zabezpieczoną zawartość.]]></message>
+	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Wysłać</a> artykuł]]></message>
+	<message key="notification.mailList.register">Zapraszamy do zarejestrowania się na stronie, aby...</message>
+	<message key="notification.mailList.review"><![CDATA[Wziąć udział w <a href="{$reviewUrl}">procesie recenzji</a>]]></message>
 	<message key="notification.noneExist">Nie masz powiadomień.</message>
 	<message key="notification.notification">Powiadomienie</message>
 	<message key="notification.notifications">Powiadomienia RSS / Atom</message>
+	<message key="notification.notificationsNew">({$numNew} nowe)</message>
+	<message key="notification.notificationsDescription"><![CDATA[Masz {$unreadCount} nieprzeczytanych oraz {$readCount} przeczytanych powiadomień. <a href="{$settingsUrl}">Kliknij tutaj</a>, aby zmienić swoje ustawienia powiadomień.]]></message>
 	<message key="notification.settings">Ustawienia powiadomień</message>
-	<message key="notification.settingsDescription">Zaznacz wydarzenia, o których chcesz być informowany. Odznaczenie wpisu spowoduje, że nie będziesz informowany o tego rodzaju wydarzeniach.</message>
+	<message key="notification.settingsDescription">Zaznacz wydarzenia, o których chcesz być informowany(a). Odznaczenie wpisu spowoduje, że nie będziesz informowany(a) o tego rodzaju wydarzeniach.</message>
+	<message key="notification.subscribe">Subskrybuj</message>
+	<message key="notification.subscribeError">Twój adres e-mail znajduje się już w bazie subskrybentów.</message>
+	<message key="notification.subscribeSuccess">E-mail został wysłany na adres, który podałeś(aś). Kliknij w link znajdujący się w wiadomości, aby dodać swój adres do listy mailingowej.</message>
 	<message key="notification.reminderError">Wystąpił błąd podczas wysyłania twojego hasła, upewnij się, że poprawnie podałeś(aś) swój adres e-mail.</message>
 	<message key="notification.reminderSent">Twoje nowe hasło zostało wysłane na e-mail, który podałeś(aś).</message>
+	<message key="notification.unsubscribe">Zrezygnuj z subskrypcji</message>
+	<message key="notification.unsubscribeError">Wystąpił błąd podczas wypisywania cię z listy subskrybentów. Upewnij się, że twój adres e-mail oraz hasło są poprawne.</message>
+	<message key="notification.unsubscribeSuccess">Zostałeś(aś) wypisany(a) z listy subskrybentów.</message>
 	<message key="search.abstract">Abstrakt</message>
 	<message key="search.coverage">Zasięg</message>
 	<message key="search.date">Data</message>
@@ -301,8 +318,6 @@
 	<message key="common.finish">Zakończ</message>
 	<message key="common.go">Idź</message>
 	<message key="common.less">Mniej</message>
-	<message key="common.commaListSeparator">, </message>
-	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.billingAddress">Adres rozliczeniowy (jeżeli inny)</message>
 	<message key="common.more">Więcej</message>
 	<message key="common.notified">Powiadomiony</message>
@@ -325,7 +340,7 @@
 	<message key="form.confirmSubmit.title">Potwierdź</message>
 	<message key="form.emailRequired">Adres e-mail jest wymagany.</message>
 	<message key="form.dataHasChanged">Dane w tym formularzu uległy zmianie. Kontynuować?</message>
-	<message key="form.invalidImage">Został przesłany obraz o niepoprawnym rozszerzeniu. Akceptowane formaty to .png, .gif lub .jpg.</message>
+	<message key="form.invalidImage">Został przesłany obraz o niepoprawnym rozszerzeniu. Akceptowane formaty to PNG, GIF lub JPG.</message>
 	<message key="navigation.access">Użytkownicy i ich role</message>
 	<message key="navigation.admin">Administracja</message>
 	<message key="navigation.browseByAuthor">Wg autora</message>
@@ -376,8 +391,8 @@
 	<message key="common.dimensionsInches"><![CDATA[{$width}&Prime;&times;{$height}&Prime; przy {$dpi} DPI/PPI]]></message>
 	<message key="common.dimensionsPixels"><![CDATA[{$width}&times;{$height} pikseli]]></message>
 	<message key="common.downloadPdf">Pobierz PDF</message>
-	<message key="common.file.namingPattern">{$username}, {$originalFilename}</message>
-	<message key="common.file.anonymousNamingPattern">{$genre}, {$originalFilename}</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.fileUploaderError">Narzędzie do przesyłania plików jest ładowane. Jeżeli nie pojawi się po dłuższej chwili istnieje prawdopodobieństwo, że nie jest wspierane przez Twoją przeglądarkę. Gdyby tak się stało, skontaktuj się z administratorem w celu uzyskania pomocy.</message>
 	<message key="common.homepageNavigationLabel">Strona domowa</message>
 	<message key="common.itemsPerPage">Elementów na stronę</message>
@@ -388,7 +403,6 @@
 	<message key="common.percentage">{$percentage}%</message>
 	<message key="common.prefix">Prefiks</message>
 	<message key="common.prefixAndTitle.tip">Przykłady: A, The</message>
-	<message key="common.subtitle.tip">Opcjonalny podtytuł będzie wyświetlany po dwukropku (:), po tytule głównym.</message>
 	<message key="common.quality">Jakość</message>
 	<message key="common.queue.long.active">Wszystkie aktywne</message>
 	<message key="common.range">{$min}-{$max}</message>
@@ -405,7 +419,7 @@
 	<message key="common.homepageImage.altText">Obraz strony głównej</message>
 	<message key="common.upload.addFile">Prześlij plik</message>
 	<message key="common.upload.changeFile">Zamień plik</message>
-	<message key="common.upload.dragFile">Przeciągnij i upuść plik tutaj aby rozpocząć przesyłanie</message>
+	<message key="common.upload.dragFile">Przeciągnij i upuść plik tutaj, aby rozpocząć przesyłanie</message>
 	<message key="common.viewProfile">Wyświetl profil</message>
 	<message key="editor.submissionReview.uploadFile">Prześlij plik recenzji</message>
 	<message key="editor.submissionReview.uploadAttachment">Prześlij plik</message>
@@ -420,9 +434,7 @@
 	<message key="informationCenter.editorialHistory">Historia redakcji</message>
 	<message key="informationCenter.addNote">Dodaj uwagę</message>
 	<message key="informationCenter.noNotes">Brak uwag do wyświetlenia</message>
-	<message key="informationCenter.currentNotes">Aktualne uwagi</message>
 	<message key="informationCenter.pastNotes">Poprzednie uwagi</message>
-	<message key="informationCenter.lastUpdated">Ostatnio zaktualizowane</message>
 	<message key="informationCenter.deleteConfirm">Czy na pewno usunąć uwagę?</message>
 	<message key="informationCenter.currentHistory">Aktualna wersja</message>
 	<message key="informationCenter.pastHistory">Poprzednie wersje</message>
@@ -432,7 +444,7 @@
 	<message key="stageParticipants.history.messageSent">Powiadomienia wysłane do użytkowników.</message>
 	<message key="stageParticipants.notify.chooseMessage">Wybierz przygotowaną wcześniej wiadomość lub wypełnij formularz widoczny poniżej.</message>
 	<message key="stageParticipants.notify.message">Wiadomość</message>
-	<message key="stageParticipants.notify.warning">Upewnij się, że wypełniłeś(aś) wszystkie pola oraz wybrałeś przynajmniej jednego odbiorcę.</message>
+	<message key="stageParticipants.notify.warning">Upewnij się, że wypełniłeś(aś) wszystkie pola oraz wybrałeś(aś) przynajmniej jednego odbiorcę.</message>
 	<message key="navigation.breadcrumbLabel">Jesteś tutaj:</message>
 	<message key="navigation.breadcrumbSeparator">/</message>
 	<message key="navigation.tools">Narzędzia</message>
@@ -482,7 +494,7 @@
 	<message key="reviewer.submission.reviewDueDate">Wykonaj recenzję do</message>
 	<message key="submission.task.responseDueDate">Odpowiedz do</message>
 	<message key="navigation.goBack">Wróć</message>
-	<message key="notification.addedReviewer">Recenzent dodany.</message>
+	<message key="notification.addedReviewer">{$reviewerName} został przydzielony do recenzji przesłanego tekstu - e-mail z powiadomieniem został wysłany.</message>
 	<message key="notification.removedReviewer">Recenzent usunięty.</message>
 	<message key="notification.addedStageParticipant">Użytkownik dodany jako uczestnik etapu.</message>
 	<message key="notification.type.newAnnouncement">Nowe powiadomienie.</message>
@@ -499,7 +511,7 @@
 	<message key="user.authorization.invalidSubmission">Nieprawidłowo przesłany tekst.</message>
 	<message key="user.authorization.invalidRepresentation">Nieprawidłowa reprezentacja.</message>
 	<message key="navigation.archives">Archiwum</message>
-	<message key="user.authorization.authorRoleMissing">Nie posiadasz odpowiednich uprawnień aby przeglądać zgłoszenie. Wprowadź zmiany w swoim profilu, aby upewnić się, że otrzymałeś(aś) odpowiednie uprawnienia, czyli rolę w sekcji "Zarejestruj jako".</message>
+	<message key="user.authorization.authorRoleMissing">Nie posiadasz odpowiednich uprawnień, aby przeglądać zgłoszenie. Wprowadź zmiany w swoim profilu, aby upewnić się, że otrzymałeś(aś) odpowiednie uprawnienia (rolę).</message>
 	<message key="user.authorization.submissionAuthor">Nie jesteś autorem zgłoszonego tekstu. Sprawdź, czy jesteś zalogowany(a) korzystając z poprawnego konta użytkownika.</message>
 	<message key="notification.type.queryActivity">Aktywność.</message>
 	<message key="notification.type.queryAdded">Dyskusja dodana.</message>
@@ -508,4 +520,19 @@
 	<message key="notification.type.roundStatusTitle">Status rundy {$round}</message>
 
 	<message key="semicolon">{$label}:</message>
+	<message key="notification.editedNavigationMenuItem">Element menu został zaktualizowany</message>
+	<message key="notification.removedNavigationMenuItem">Element menu został usunięty</message>
+	<message key="notification.addedNavigationMenuItem">Element menu został dodany</message>
+	<message key="notification.addedNavigationMenu">Menu zostało dodane</message>
+	<message key="notification.editedNavigationMenu">Menu zostało zaktualizowane</message>
+	<message key="notification.removedNavigationMenu">Menu zostało usunięte</message>
+	<message key="common.deleting">Usuwanie</message>
+	<message key="common.from">Od</message>
+	<message key="common.until">Do</message>
+	<message key="common.saving">Zapisywanie</message>
+	<message key="stageParticipants.options">Uprawnienia</message>
+	<message key="stageParticipants.recommendOnly">Ten uczestnik jest uprawniony jedynie do zarekomendowania decyzji i wymaga działania redaktora w celu zapisania decyzji.</message>
+	<message key="notification.reviewerThankedEmail">Wiadomość z podziękowaniem została przesłana do recenzenta.</message>
+	<message key="notification.sendNotificationConfirmation">Wyślij e-mail z podziękowaniem do wszystkich zarejestrowanych użytkowników</message>
+	<message key="notification.addedReviewerNoEmail">{$reviewerName} został przydzielony do recenzji przesłanego tekstu - e-mail z powiadomieniem nie został wysłany.</message>
 </locale>

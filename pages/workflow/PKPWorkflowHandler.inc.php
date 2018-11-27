@@ -43,6 +43,8 @@ abstract class PKPWorkflowHandler extends Handler {
 			// workflow stages and authorize user operation access.
 			import('lib.pkp.classes.security.authorization.internal.UserAccessibleWorkflowStageRequiredPolicy');
 			$this->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request, WORKFLOW_TYPE_EDITORIAL));
+
+			$this->markRoleAssignmentsChecked();
 		} else {
 			import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
 			$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->identifyStageId($request, $args), WORKFLOW_TYPE_EDITORIAL));
@@ -54,7 +56,7 @@ abstract class PKPWorkflowHandler extends Handler {
 	/**
 	 * @copydoc PKPHandler::initialize()
 	 */
-	function initialize($request, $args) {
+	function initialize($request) {
 		$router = $request->getRouter();
 		$operation = $router->getRequestedOp($request);
 
@@ -63,7 +65,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		}
 
 		// Call parent method.
-		parent::initialize($request, $args);
+		parent::initialize($request);
 	}
 
 
@@ -527,4 +529,4 @@ abstract class PKPWorkflowHandler extends Handler {
 	abstract protected function isSubmissionReady($submission);
 }
 
-?>
+

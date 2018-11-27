@@ -7,9 +7,8 @@
   * Copyright (c) 2014-2018 Simon Fraser University
   * Copyright (c) 2003-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  *
-  * Localization strings for default settings for setup items for the ru_RU (Russian) locale.
   * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Russian_(ru_RU)
+  * Localization strings for default settings for setup items.
   -->
 
 <locale name="ru_RU" full_name="Русский">

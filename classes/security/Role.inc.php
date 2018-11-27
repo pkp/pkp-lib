@@ -56,4 +56,4 @@ class Role extends DataObject {
 	}
 }
 
-?>
+

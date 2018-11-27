@@ -202,7 +202,6 @@
 	<message key="common.pluginDisabled">O Plugin "{$pluginName}" foi desabilitado.</message>
 	<message key="common.prefix">Prefixo</message>
 	<message key="common.prefixAndTitle.tip">Se o título do livro começar com "Um" ou "O" (ou algo similar na ordem alfabética) coloque a palavra no prefixo.</message>
-	<message key="common.subtitle.tip">O subtítulo da submissão aparecerá depois de dois pontos (:), seguindo o título principal.</message>
 	<message key="common.preview">Visualizar</message>
 	<message key="common.publisher">Editora</message>
 	<message key="common.quality">Qualidade</message>

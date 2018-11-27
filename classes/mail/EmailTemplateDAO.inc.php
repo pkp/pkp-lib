@@ -735,4 +735,4 @@ class EmailTemplateDAO extends DAO {
 	}
 }
 
-?>
+

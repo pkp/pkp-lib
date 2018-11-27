@@ -150,4 +150,4 @@ class PagingFeature extends GeneralPagingFeature {
 	}
 }
 
-?>
+

@@ -123,4 +123,4 @@ class FileCacheTest extends PKPTestCase {
 	}
 }
 
-?>
+

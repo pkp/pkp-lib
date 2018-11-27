@@ -297,4 +297,4 @@ class PluginGalleryGridHandler extends GridHandler {
 	}
 }
 
-?>
+

@@ -8,11 +8,10 @@
   * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Serbian_(sr_RS)
-  * Localization strings for the sr_RS@latin (Srpski) locale.
-  *
+  * Localization strings.
   -->
 
-<locale name="sr_RS@latin" full_name = "Srpski">
+<locale name="sr_RS@latin" full_name="Srpski">
 	<message key="admin.adminFunctions">Administrativne funkcije</message>
 	<message key="admin.auth.confirmDelete">Da li ste sigurni da želite trajno obrisati ovaj izvor autentifikacije?</message>
 	<message key="admin.auth.create">Kreirajte izvor autentifikacije</message>

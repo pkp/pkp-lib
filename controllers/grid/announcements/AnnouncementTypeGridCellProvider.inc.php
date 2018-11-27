@@ -65,4 +65,4 @@ class AnnouncementTypeGridCellProvider extends GridCellProvider {
 	}
 }
 
-?>
+

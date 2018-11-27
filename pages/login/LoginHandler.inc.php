@@ -184,7 +184,11 @@ class LoginHandler extends Handler {
 				'siteTitle' => $site->getLocalizedTitle()
 			));
 			$mail->addRecipient($user->getEmail(), $user->getFullName());
-			$mail->send();
+			if (!$mail->send()) {
+				import('classes.notification.NotificationManager');
+				$notificationMgr = new NotificationManager();
+				$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
+			}
 
 			$templateMgr->assign(array(
 				'pageTitle' => 'user.login.resetPassword',
@@ -251,7 +255,11 @@ class LoginHandler extends Handler {
 				'siteTitle' => $site->getLocalizedTitle()
 			));
 			$mail->addRecipient($user->getEmail(), $user->getFullName());
-			$mail->send();
+			if (!$mail->send()) {
+				import('classes.notification.NotificationManager');
+				$notificationMgr = new NotificationManager();
+				$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
+			}
 
 			$templateMgr->assign(array(
 				'pageTitle' => 'user.login.resetPassword',
@@ -399,4 +407,4 @@ class LoginHandler extends Handler {
 	}
 }
 
-?>
+

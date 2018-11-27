@@ -21,8 +21,8 @@
 	<message key="comments.titleRequired">Je vyžadován název komentáře.</message>
 	<message key="comments.confirmDeleteChildren">Smazáním tohoto komentáře smažete také všechny odpovědi na něj. Jste si jistý, že to chcete udělat?</message>
 	<message key="comments.delete">Smazat tento komentář</message>
-	<message key="comments.email">E-mail odesílatele</message>
-	<message key="comments.emailReply">Odpověď e-mailem</message>
+	<message key="comments.email">Email odesílatele</message>
+	<message key="comments.emailReply">Odpověď</message>
 	<message key="comments.enterComment">Vložit komentář</message>
 	<message key="comments.inResponseTo">V odpovědi na <![CDATA[<a href="]]>{$url}<![CDATA[">]]>{$title}<![CDATA[</a>]]></message>
 	<message key="comments.name">Jméno odesílatele</message>
@@ -34,12 +34,12 @@
 	<message key="comments.readerComments">Komentáře čtenáře</message>
 	<message key="comments.readMore">Číst více</message>
 	<message key="comments.replies">Odpovědi</message>
-	<message key="comments.title">Titul</message>
+	<message key="comments.title">Název</message>
 	<message key="comments.viewAllComments">Zobrazit všechny komentáře</message>
-	<message key="reader.fullText">Full Text:</message>
+	<message key="reader.fullText">Celý text:</message>
 	<message key="rt.addComment">Přidat komentář</message>
-	<message key="rt.admin.configuration">Konfigurace</message>
-	<message key="rt.admin.contexts.confirmDelete">Jste si jistý, že chcete smazat tento Kontext a všechna související vyhledávání?</message>
+	<message key="rt.admin.configuration">Nastavení</message>
+	<message key="rt.admin.contexts.confirmDelete">Jste si jistí, že chcete smazat tento Kontext a všechna související Vyhledávání?</message>
 	<message key="rt.admin.contexts.createContext">Vytvořit kontext</message>
 	<message key="rt.admin.contexts.edit.editContext">Upravit kontext</message>
 	<message key="rt.admin.contexts.metadata">Metadata</message>
@@ -59,7 +59,7 @@
 	<message key="rt.admin.sharing.buttonStyleLabel">Styl tlačítka</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Použít rozevírací seznam</message>
 	<message key="rt.admin.sharing.advanced">Pokročilá nastavení (volitelné)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Viz <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">AddThis.com customization documentation</a> pro odkazy.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Viz <a href="https://www.addthis.com/academy/how-to-create-custom-buttons-with-addthis/">AddThis.com customization documentation</a> pro odkazy.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Značka</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Možnosti rozbalovacího seznamu <br /> (seznam oddělený čárkou)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Jazyk</message>
@@ -68,7 +68,7 @@
 	<message key="rt.admin.sharing.logoColorLabel">Barva loga</message>
 
 	<message key="rt.admin.readingToolsEnabled">Nástroje pro čtení</message>
-	<message key="rt.admin.searches.confirmDelete">Jste si jistý, že chcete smazat toto vyhledávání?</message>
+	<message key="rt.admin.searches.confirmDelete">Jste si jisti, že chcete smazat toto vyhledávání?</message>
 	<message key="rt.admin.searches.createSearch">Vytvořit vyhledávání</message>
 	<message key="rt.admin.searches.edit.editSearch">Upravit vyhledávání</message>
 	<message key="rt.admin.selectedVersion">Související položky</message>
@@ -103,9 +103,9 @@
 	<message key="rt.captureCite">Jak citovat položku</message>
 	<message key="rt.captureCite.online">Online</message>
 	<message key="rt.captureCite.web">Web</message>	
-	<message key="rt.colleague">Oznámit kolegovi</message>
+	<message key="rt.colleague">Upozornit kolegu</message>
 	<message key="rt.context.abbrev">Zkratka</message>
-	<message key="rt.context.and">AND</message>
+	<message key="rt.context.and">A</message>
 	<message key="rt.context.citesContextDescription">Pokud je článek indexován v Google Scholar, může být doprovázen odkazem "Citováno X", který vede k seznamu prací, které ho citují. Stejně tak zobrazí Google Scholar všechny položky citující název a autora. Abyste se dostali k online zdrojům, které jsou dostupné pouze přes vaši knihovnu, budete možná moci aktivovat pro vaši instituci odkazy pro knihovnu v nastavení Google Scholar.</message>
 	<message key="rt.context">Kontext</message>
 	<message key="rt.context.defineTermsDescription">Pokud je položka HTML soubor (spíše než PDF), zobrazí se slovo, na které poklepete, v políčku Word-to-Define. Jinak lze slova do políčka vepsat nebo nakopírovat. Více o vyhledaných zdrojích se dozvíte klinutím na O ZDROJÍCH. Tyto zdroje byly vybrány pro svou relevantnost a otevřený (volný) přístup k části nebo k celému svému obsahu.</message>

@@ -347,7 +347,6 @@
 	<message key="common.percentage">{$percentage}%</message>
 	<message key="common.prefix">Prefixo</message>
 	<message key="common.prefixAndTitle.tip">Exemplos: A, O</message>
-	<message key="common.subtitle.tip">O subtítulo opcional aparecerá após dois pontos (:), logo a seguir ao título principal.</message>
 	<message key="common.quality">Qualidade</message>
 	<message key="common.queue.long.active">Todos as Activas</message>
 	<message key="common.range">{$min}-{$max}</message>
@@ -538,4 +537,5 @@
 	<message key="notification.removedNavigationMenu">Menu de navegação foi removido com sucesso</message>
 	<message key="list.viewMore">Apresentar mais detalhes sobre {$name}</message>
 	<message key="list.viewLess">Esconder detalhes de {$name}</message>
+	<message key="notification.type.reviewAssignmentUpdated">Atribuição de revisão atualizada.</message>
 </locale>

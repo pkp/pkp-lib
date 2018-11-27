@@ -49,4 +49,4 @@ class ValidatorControlledVocab extends Validator {
 	}
 }
 
-?>
+

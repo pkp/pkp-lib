@@ -88,4 +88,4 @@ class XmlWebService extends WebService {
 		}
 	}
 }
-?>
+

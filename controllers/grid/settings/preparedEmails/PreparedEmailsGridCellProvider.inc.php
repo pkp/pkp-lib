@@ -94,4 +94,4 @@ class PreparedEmailsGridCellProvider extends DataObjectGridCellProvider {
 	}
 }
 
-?>
+

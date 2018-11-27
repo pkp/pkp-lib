@@ -17,7 +17,7 @@
 	{/fbvFormSection}
 </div>
 {fbvFormSection title="common.subtitle" for="subtitle"}
-	{fbvElement label="common.subtitle.tip" type="text" multilingual=true name="subtitle" id="subtitle" value=$subtitle readonly=$readOnly}
+	{fbvElement type="text" multilingual=true name="subtitle" id="subtitle" value=$subtitle readonly=$readOnly}
 {/fbvFormSection}
 {fbvFormSection title="common.abstract" for="abstract" required=$abstractsRequired}
 	{if $wordCount}

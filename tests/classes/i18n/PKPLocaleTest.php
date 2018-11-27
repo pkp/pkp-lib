@@ -113,4 +113,4 @@ class PKPLocaleTest extends PKPTestCase {
 		self::assertNull(AppLocale::getLocaleFrom3LetterIso('xxx'));
 	}
 }
-?>
+

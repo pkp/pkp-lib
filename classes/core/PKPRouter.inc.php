@@ -74,6 +74,8 @@ class PKPRouter {
 	var $_contextPaths = array();
 	/** @var integer contexts */
 	var $_contexts = array();
+	/** @var PKPHandler Handler class */
+	var $_handler;
 
 	/**
 	 * Constructor
@@ -118,6 +120,22 @@ class PKPRouter {
 	 */
 	function setDispatcher($dispatcher) {
 		$this->_dispatcher = $dispatcher;
+	}
+
+	/**
+	 * Set the handler object for later retrieval.
+	 * @param $handler PKPHandler
+	 */
+	function setHandler($handler) {
+		$this->_handler = $handler;
+	}
+
+	/**
+	 * Get the handler object.
+	 * @return PKPHandler
+	 */
+	function getHandler() {
+		return $this->_handler;
 	}
 
 	/**
@@ -385,7 +403,10 @@ class PKPRouter {
 
 		// Return the result of the operation to the client.
 		if (is_string($result)) echo $result;
-		elseif (is_a($result, 'JSONMessage')) echo $result->getString();
+		elseif (is_a($result, 'JSONMessage')) {
+			header('Content-Type: application/json');
+			echo $result->getString();
+		}
 	}
 
 	/**
@@ -606,4 +627,4 @@ class PKPRouter {
 	}
 }
 
-?>
+

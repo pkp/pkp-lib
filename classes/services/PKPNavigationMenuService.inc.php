@@ -105,6 +105,25 @@ class PKPNavigationMenuService {
 	}
 
 	/**
+	 * Return all custom edit navigationMenuItemTypes Templates.
+	 * @return array
+	 */
+	public function getMenuItemCustomEditTemplates() {
+		$templates = array(
+			NMI_TYPE_CUSTOM => array(
+				'template' => 'core:controllers/grid/navigationMenus/customNMIType.tpl',
+			),
+			NMI_TYPE_REMOTE_URL => array(
+				'template' => 'core:controllers/grid/navigationMenus/remoteUrlNMIType.tpl',
+			),
+		);
+
+		\HookRegistry::call('NavigationMenus::itemCustomTemplates', array(&$templates));
+
+		return $templates;
+	}
+
+	/**
 	 * Callback for display menu item functionallity
 	 */
 	function getDisplayStatus(&$navigationMenuItem, &$navigationMenu) {
@@ -158,7 +177,6 @@ class PKPNavigationMenuService {
 		}
 
 		if ($navigationMenuItem->getIsDisplayed()) {
-
 			// Adjust some titles
 			switch ($menuItemType) {
 				case NMI_TYPE_USER_LOGOUT:
@@ -173,7 +191,6 @@ class PKPNavigationMenuService {
 						$displayTitle = $templateMgr->fetch('frontend/components/navigationMenus/dashboardMenuItem.tpl');
 						$navigationMenuItem->setTitle($displayTitle, \AppLocale::getLocale());
 					}
-
 					break;
 			}
 
@@ -394,8 +411,6 @@ class PKPNavigationMenuService {
 		$cache->setEntireCache($json);
 	}
 
-
-
 	/**
 	 * Get a tree of NavigationMenuItems assigned to this menu
 	 * @param $navigationMenu \NavigationMenu
@@ -484,6 +499,8 @@ class PKPNavigationMenuService {
 	 * @param $navigationMenu \NavigationMenu
 	 */
 	public function transformNavMenuItemTitle($templateMgr, &$navigationMenuItem) {
+		$this->setNMITitleLocalized($navigationMenuItem);
+
 		$title = $navigationMenuItem->getLocalizedTitle();
 		$prefix = '{$';
 		$postfix = '}';
@@ -547,6 +564,21 @@ class PKPNavigationMenuService {
 		}
 
 		return false;
+	}
+
+	/**
+	 * Sets the title of a navigation menu item, depending on its title or locale-key
+	 * @param $nmi \NavigationMenuItem The NMI to set its title
+	 */
+	public function setNMITitleLocalized($nmi) {
+		if ($nmi) {
+			\AppLocale::requireComponents(LOCALE_COMPONENT_PKP_COMMON, LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER);
+			if ($localisedTitle = $nmi->getLocalizedTitle()) {
+				$nmi->setTitle($localisedTitle, \AppLocale::getLocale());
+			} else {
+				$nmi->setTitle(__($nmi->getTitleLocaleKey()), \AppLocale::getLocale());
+			}
+		}
 	}
 
 	/**

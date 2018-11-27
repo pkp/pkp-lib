@@ -79,6 +79,18 @@ jQuery.cssHooks;
 jQuery.data = function(elem, key, value) {};
 
 /**
+ * @param {Object=} func
+ * @return {*}
+ */
+jQuery.when = function(func) {};
+
+/**
+ * @param {Object=} func
+ * @return {*}
+ */
+jQuery.then = function(func) {};
+
+/**
  * @param {Element} elem
  * @param {string=} queueName
  * @return {jQueryObject}
@@ -462,12 +474,6 @@ jQueryObject.prototype.ajaxStop = function(handler) {};
  * @return {jQueryObject}
  */
 jQueryObject.prototype.ajaxSuccess = function(handler) {};
-
-/**
- * @return {jQueryObject}
- * @nosideeffects
- */
-jQueryObject.prototype.andSelf = function() {};
 
 /**
  * @param {Object.<string,*>} properties

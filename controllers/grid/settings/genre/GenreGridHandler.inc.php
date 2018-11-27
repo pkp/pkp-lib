@@ -36,10 +36,10 @@ class GenreGridHandler extends SetupGridHandler {
 	//
 	/*
 	 * Configure the grid
-	 * @param $request PKPRequest
+	 * @see SetupGridHandler::initialize
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
 
 		// Load language components
 		AppLocale::requireComponents(
@@ -175,7 +175,7 @@ class GenreGridHandler extends SetupGridHandler {
 		import('lib.pkp.controllers.grid.settings.genre.form.GenreForm');
 		$genreForm = new GenreForm($genreId);
 
-		$genreForm->initData($args, $request);
+		$genreForm->initData($args);
 
 		return new JSONMessage(true, $genreForm->fetch($request));
 	}
@@ -197,7 +197,7 @@ class GenreGridHandler extends SetupGridHandler {
 		$router = $request->getRouter();
 
 		if ($genreForm->validate()) {
-			$genreForm->execute($args, $request);
+			$genreForm->execute();
 			return DAO::getDataChangedEvent($genreForm->getGenreId());
 		} else {
 			return new JSONMessage(false);
@@ -240,4 +240,4 @@ class GenreGridHandler extends SetupGridHandler {
 	}
 }
 
-?>
+

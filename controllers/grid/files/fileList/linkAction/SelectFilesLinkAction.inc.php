@@ -40,4 +40,4 @@ class SelectFilesLinkAction extends LinkAction {
 	}
 }
 
-?>
+

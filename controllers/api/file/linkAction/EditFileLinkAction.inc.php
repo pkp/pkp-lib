@@ -44,4 +44,4 @@ class EditFileLinkAction extends FileLinkAction {
 	}
 }
 
-?>
+

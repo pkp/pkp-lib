@@ -84,4 +84,4 @@ class InterestEntryDAO extends ControlledVocabEntryDAO {
 	}
 }
 
-?>
+

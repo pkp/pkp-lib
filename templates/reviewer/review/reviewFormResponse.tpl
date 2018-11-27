@@ -18,6 +18,8 @@
 	{/if}
 
 	{fbvFormSection translate=false title=$reviewFormElement->getLocalizedQuestion() list=$list}
+		{assign var=description value=$reviewFormElement->getLocalizedDescription()}
+		{if $description}<div class="description">{$description}</div>{/if}
 		{if $reviewFormElement->getElementType() == REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD}
 			{fbvElement name="reviewFormResponses[$elementId]" type="text" translate=false required=$reviewFormElement->getRequired() id="reviewFormResponses-$elementId" value=$value inline=true size=$fbvStyles.size.SMALL readonly=$disabled}
 		{elseif $reviewFormElement->getElementType() == REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD}
@@ -40,7 +42,7 @@
 			{assign var=possibleResponses value=$reviewFormElement->getLocalizedPossibleResponses()}
 			{foreach name=responses from=$possibleResponses key=responseId item=responseItem}
 				{assign var=index value=$smarty.foreach.responses.index}
-				{if $index == $reviewFormResponses[$elementId]}
+				{if isset($reviewFormResponses[$elementId]) && $index == $reviewFormResponses[$elementId]}
 					{assign var=checked value=true}
 				{else}
 					{assign var=checked value=false}

@@ -162,4 +162,4 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate {
 	}
 }
 
-?>
+

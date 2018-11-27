@@ -74,7 +74,7 @@ Uso (procesar todos los archivos de un directorio que empieza con la cadena pasa
 	<message key="admin.serverInformation">Información del servidor</message>
 	<message key="admin.server.phpVersion">Versión PHP</message>
 	<message key="admin.server.platform">Plataforma SO</message>
-	<message key="admin.settings">Preferencias</message>
+	<message key="admin.settings">Ajustes</message>
 	<message key="admin.settings.aboutDescription">Descripción del sitio</message>
 	<message key="admin.settings.contactEmail">Correo electrónico del contacto principal</message>
 	<message key="admin.settings.contactName">Nombre del contacto principal</message>
@@ -90,7 +90,6 @@ Uso (procesar todos los archivos de un directorio que empieza con la cadena pasa
 	<message key="admin.settings.homeHeaderImageInvalid">Formato de imagen del logotipo del sitio inválido. Formatos aceptados: .gif, .jpg y .png.</message>
 	<message key="admin.settings.introduction">Introducción</message>
 	<message key="admin.settings.minPasswordLength">Longitud mínima de la contraseña</message>
-	<message key="admin.settings.passwordCharacters">caracteres</message>
 	<message key="admin.settings.siteLanguage">Idioma</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Formato inválido de hoja de estilo del sitio. El formato aceptado es .css.</message>
 	<message key="admin.settings.siteStyleSheet">Hoja de estilo del sitio</message>

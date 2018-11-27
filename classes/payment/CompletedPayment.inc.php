@@ -56,4 +56,4 @@ class CompletedPayment extends Payment {
 	}
 }
 
-?>
+

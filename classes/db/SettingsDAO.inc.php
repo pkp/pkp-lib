@@ -455,4 +455,4 @@ class SettingsDAO extends DAO {
 	}
 }
 
-?>
+

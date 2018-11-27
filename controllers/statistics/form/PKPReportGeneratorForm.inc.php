@@ -77,7 +77,7 @@ abstract class PKPReportGeneratorForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$router = $request->getRouter();
 		$context = $router->getContext($request);
 		$columns = $this->_columns;
@@ -205,7 +205,7 @@ abstract class PKPReportGeneratorForm extends Form {
 		$this->setData('columnsOptions', $columnsOptions);
 		$this->setData('optionalColumns', $this->_optionalColumns);
 
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -221,8 +221,9 @@ abstract class PKPReportGeneratorForm extends Form {
 	/**
 	 * @see Form::execute()
 	 */
-	function execute($request) {
+	function execute() {
 		parent::execute();
+		$request = Application::getRequest();
 		$router = $request->getRouter(); /* @var $router PageRouter */
 		$context = $router->getContext($request);
 		$statsHelper = new StatisticsHelper();
@@ -341,4 +342,4 @@ abstract class PKPReportGeneratorForm extends Form {
 	abstract function getFileAssocTypes();
 }
 
-?>
+

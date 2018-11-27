@@ -64,7 +64,7 @@ class NewNoteForm extends Form {
 	/**
 	 * @copydoc Form::fetch()
 	 */
-	function fetch($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$noteDao = DAORegistry::getDAO('NoteDAO');
 		$templateMgr->assign(array(
@@ -72,7 +72,7 @@ class NewNoteForm extends Form {
 			'submitNoteText' => $this->getSubmitNoteLocaleKey(),
 			'newNoteFormTemplate' => $this->getNewNoteFormTemplate(),
 		));
-		return parent::fetch($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -88,7 +88,8 @@ class NewNoteForm extends Form {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute($request) {
+	function execute() {
+		$request = Application::getRequest();
 		$user = $request->getUser();
 
 		$noteDao = DAORegistry::getDAO('NoteDAO');
@@ -103,4 +104,4 @@ class NewNoteForm extends Form {
 	}
 }
 
-?>
+

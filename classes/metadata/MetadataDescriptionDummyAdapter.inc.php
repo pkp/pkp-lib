@@ -106,4 +106,4 @@ class MetadataDescriptionDummyAdapter extends MetadataDataObjectAdapter {
 		return $this->_metadataFieldNames[$translated];
 	}
 }
-?>
+

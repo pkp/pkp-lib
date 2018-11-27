@@ -284,4 +284,4 @@ class NoteDAO extends DAO {
 	}
 }
 
-?>
+

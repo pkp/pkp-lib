@@ -48,7 +48,7 @@ class SubmissionFilesArtworkMetadataForm extends SubmissionFilesMetadataForm {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute($args, $request) {
+	function execute() {
 		//
 		// FIXME: Should caption, credit, or any other fields be
 		// localized?
@@ -66,8 +66,8 @@ class SubmissionFilesArtworkMetadataForm extends SubmissionFilesMetadataForm {
 		$submissionFile->setPermissionTerms($this->getData('artworkPermissionTerms'));
 
 		// Persist the submission file.
-		parent::execute($args, $request);
+		parent::execute();
 	}
 }
 
-?>
+

@@ -17,7 +17,7 @@
 		{assign var=list value=false}
 	{/if}
 
-	{fbvFormSection translate=false title=$reviewFormElement->getLocalizedQuestion() list=$list}
+	{fbvFormSection translate=false title=$reviewFormElement->getLocalizedQuestion() list=$list required=$reviewFormElement->getRequired()}
 		{assign var=description value=$reviewFormElement->getLocalizedDescription()}
 		{if $description}<div class="description">{$description}</div>{/if}
 		{if $reviewFormElement->getElementType() == REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD}

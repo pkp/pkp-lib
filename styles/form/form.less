@@ -141,11 +141,16 @@
 		}
 	}
 
-	// Required feilds
+	// Required fields
 	.req {
 		font-weight: @bold;
 		color: @no;
 		padding-left: 0.25em;
+	}
+
+	// display required asterisk next to last <p> element
+	.section > label > p:last-of-type {
+		display: inline-block;
 	}
 
 	// Disabled fields
